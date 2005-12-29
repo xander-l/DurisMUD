@@ -1,4 +1,4 @@
-last update: 10 March 04 (See VERSION)
+last update: 30 December 05 (See VERSION)
 
 #
 "ABOMINAL CONSUMPTION" (Skill)
@@ -2637,42 +2637,50 @@ from high constitution, but Warrior classes more so than others.
 See also: STATISTICS, "ENHANCE CONSTITUTION"
 
 #
-CONSTRUCT (World Command)
-===========================================================================
+CONSTRUCT (Command)
+=========================================================================== 
 Construct is the basis for building both houses and guildhalls. Funds must
 be kept on hand while using this command. It takes a varying amount of
 money and time to construct something, dependent on where you would like to
 build it. Everything is saved through a crash, though, so fear not.
 
-construct room <exit dir> <door|nodoor> [door keyword]
+&+Yconstruct guildhall&n
+  Cost: varies on terrain
+  This will construct your guildhall on the current worldmap location you
+  are standing on.  Only Leaders have this ability.  The guildhall will
+  be a down exit from your current location and will consist of two rooms.
+
+&+Yconstruct room <exit dir> <door|nodoor> [door keyword]&n
   Cost: 1k
   This option will build a room with an exit from the room you are standing
   in into the new room. You must use a valid exit direction <n s e w> and
   tell it if you want a door or nodoor. If you want a door, you should
   specify the keyword. e.g.: construct n door curtain
+  &+RNote: The doors are bugged, do not use them&n
 
 Once you have the initial building in place, there are various addictions
 available for you.
 
-construct name <room name>
+&+Yconstruct name <&+WA&+Bn&+Ms&+Gi&n room name>&n
   Cost: 50     
   Names the current room. You are able to use ANSI color in this.
 
-construct describe
+&+Yconstruct describe&n
   Cost: 10
   This option will put you into the edit system similar to bulletin
   boards, and when you are done will set the description of the room
   appropriately.
 
-construct inn
+&+Yconstruct inn &+RDISABLED&n
   Cost: 5k
   Builds an inn in the current room. Only one inn is allowed per guildhall.
+  &+RNote: Inns are disabled we don't want want the hometowns ignored.&n
 
-construct heal
+&+Yconstruct heal&n
   Cost: 3k
   Builds a accelerated healing room in the current room.
 
-construct teleporter <target>
+&+Yconstruct teleporter <target>&n
   Cost: 20k
   Builds a teleporter between two halls. You must have a target standing 
   in the room of the other hall, and this command will build the teleporter
@@ -2680,43 +2688,45 @@ construct teleporter <target>
   per hall, but the guildhall must contain 10 rooms before a teleporter
   can be placed within it.
 
-construct mouth   
+&+Yconstruct mouth&n
   Cost: 500
   Builds a magic mouth in current room. This acts as an alarm and will
   broadcast when someone not in your guild is in that room. Only one
   magic mouth can be built per guildhall.
 
-construct fountain
+&+Yconstruct fountain&n
   Cost: 500
   Builds a fountain in current room. Only one fountain of any type may be
   built per guildhall.
 
-construct holy|unholy
-  Cost: 3k  Build Time: 12 hours
+&+Yconstruct holy|unholy&n
+  Cost: 3k
   Builds a holy/unholy fountain in the current room. Only one fountain of 
   any type may be built per guildhall.
 
-construct cabinet
+&+Yconstruct cabinet &+RDISABLED&n
   Cost: 2,500  
   This option will create a cabinet in the house (not available for use in
   guildhalls, please use construct chest), allowing you to store things in
   it. Any number of cabinets can be built.
 
-construct chest
+&+Yconstruct chest &+RDISABLED&n
   Cost: 5k
   Builds a chest in the current room. Any number of chests may be in each 
   room and guildhall.
+  &+RNote: Chests have been replaced with guild lockers in hometowns.&n
 
-construct shop
+&+Yconstruct shop &+RDISABLED&n
   Cost: 10k
   Builds a shop in the current room.
+  &+RNote: Shops are disabled we don't want want the hometowns ignored.&n
 
-construct secret entrance
+&+Yconstruct secret entrance &+RDISABLED&n
   Cost: 10,000 
   This option will hide the entrance to your house (not available for
   guildhalls).
 
-construct cleric | mage | warrior
+&+Yconstruct cleric | mage | warrior&n
   Cost: 10k
   Used to construct mage, cleric, or warrior golems. Golems will be placed
   in the entryway of your guild, no matter where you execute this command.
@@ -2726,8 +2736,9 @@ Note: Many commands may now be used to move options from one room to
 another. Doing a new "construct fountain" for example will cost 0, and will
 move the fountain spot to your current room. All moves of this sort will
 take place the next time the game reboots.
+
 ===========================================================================
-See also: GUILDHALL, GUILD
+See also: GUILD, GUILDHALL, SOCIETY
 
 #
 "CONTINUAL LIGHT" (Spell)
@@ -7219,14 +7230,13 @@ Skills
 See also: RESCUE, "SHIELD PUNCH", "FOLLOW-UP RIPOSTE", "RESCUE ALL"  
 
 #
-GUILDS GUILD CLAN ASSOCIATIONS ASSOCIATION CLANS
-===========================================================================
+GUILD GUILDS ASSOCIATION ASSOCIATIONS CLAN CLANS (General Information)
+=========================================================================== 
 This document is designed to answer any questions regarding the creation
-of player guilds on Duris. Under the new guild system players are
-responsible for the organization of their own guilds. Although guilds may
-worship whatever god (although they don't have to worship any) they choose,
-the gods themselves will not be responsible or serve any function in the
-running of a guild. 
+of player guilds on Duris. Under the current guild system players are
+responsible for the organization of their own guilds. 
+The gods themselves will not be responsible or serve any function in the
+running of a guild.
 
 How To Begin A Guild
 ---------------------------------------------------------------------------
@@ -7235,13 +7245,18 @@ a) The requirements for forming a guild are as follows :
     - All guild members must be at least 25th level or above. The level
       requirement is simply to ensure that the people in the guild are
       familiar with Duris and how it's run.
-    - Guilds must also keep a member count of at least 5 members, they are
+    - A guild may have upto, but no more than, 3 shared characters.
+      These characters can be accessable by some/all members of the guild,
+      but are not directly owned by anybody in the guild.
+    - Guilds must also keep a member count of at least 5 members, 
+      this 5 does &+RNOT&n include the 3 shared characters.  The guild is
       also limited to a maximum of 35 members in the guild at a time.
     - A one time fee of 1,000 platinum is required to start the guild.
-      This not does include a guildhall. 
+      This not does include a guildhall.
 
 IMPORTANT
-    - You may only have one character in a guild at a time.
+    - You may only have one character in a guild, and at most one alt in the
+      &+RSAME GUILD&n, at a time.  No exceptions.
     - You as a player can only secede from three different guilds EVER.
       If you leave your third different guild, that's it.
     - If you leave a guild you must wait one real week before joining
@@ -7254,13 +7269,13 @@ b) What this allows - Once this happens the guild will be created and the
    accordingly. This is done completely without god interference and
    controlled by the code. Any new members will be automatically be flagged
    and titled as a member of the guild. This also will create a guild bank
-   account which is accessible by certain members of the guild (see below).
+   account which is accessible by Leaders and Deputies.
    Once a guild has been started and approved by Duris, the guild members
    of that guild must run their own activities. How many people there are
    of a certain guild rank is entirely up to the players. The gods
    themselves will have no interference with the running of the guild
    themselves. Any new members, once enrolled will automatically be titled
-   as a member of that guild.
+   as a basic member of that guild.
 
 Guild Structure
 ---------------------------------------------------------------------------
@@ -7269,12 +7284,10 @@ do different things depending on their rank. How this works is as follows :
 
 Leader - A leader can change the names of all the ranks (this allows an
 guild of sorcerers to name the leader as "ArchMage" rather than "Leader".
-These titles must be realistic in a fantasy world, leaders are ultimately
-responsible to the gods so if a title of "Mickey Mouse" is given the leader
-will be the one answering for it. A leader also has the ability to flag a
-player as an enemy to the guild (leaders are the only ones that can remove
-this flag as well). The leader can also add on an 'on parole' flag to
-members.
+These titles must be realistic in a &+Yfantasy world&n. A leader also has the
+ability to flag a player as an enemy to the guild (leaders are the only
+ones that can remove this flag as well). The leader can also add on an
+'on parole' flag to members.
 
 Deputy - A deputy (or higher) can delete, promote and demote members and
 also has access to withdraw money from the guild's bank account.
@@ -7298,31 +7311,41 @@ Applying for Membership
 In order to be allowed into a guild the player must first apply himself as
 an applicant. You can do this by using the 'Society Apply <member>' command
 where <member> is the enrolling member of the guild you wish to join.
+
+Guild Locker
+---------------------------------------------------------------------------
+All guilds currently have a guild locker.  Go to any bank in a hometown
+where you can access your personal locker, and you can access your guild
+locker with &+Yenter locker guild&n.  All members share access to this
+locker.  This replaces the need for guild chests in guildhalls.
+
 ===========================================================================
-See also: CONSTRUCT
+See also: CONSTRUCT, SOCIETY, GUILDHALL
+
 #
-GUILDHALL (Information)
-===========================================================================
+GUILDHALL (General Information)
+=========================================================================== 
 After you start a guild you will most likely want to start saving money to
 start building your guild somewhere to hang out and organize your next
 adventuring trip. For this purpose you can build your guild a guildhall.
 The cost involved in building your guildhall are as follows:
 
         Golem (Sorc, Cleric, Warrior)            10,000 platinum
-        Shopkeeper                               10,000 platinum
-        Inn                                      5,000 platinum
+        Shopkeeper &+RDISABLED&n                      10,000 platinum
+        Inn &+RDISABLED&n                             5,000 platinum
         Fountain                                 500 platinum
         Holy/Unholy Fountain                     3,000 platinum
         Magic Mouth                              500 platinum
         Healing Room                             3,000 platinum
-        Chest                                    5,000 platinum
+        Chest &+RDISABLED&n                           5,000 platinum
         Guildhall Rooms                          1,000 platinum
         Portals                                  20,000 platinum
 
 For further information on how to construct your guildhall and these items
 within your guildhalls, read the details in the construct section.
+
 ===========================================================================
-See also:  GUILD, CONSTRUCT
+See also: CONSTRUCT, GUILD, SOCIETY
 
 #
 "HALF ELF" HALF-ELF (General Information)
@@ -14479,11 +14502,11 @@ of all the available ones, and how to obtain further help on each one.
   INNATE                    MOTD                NEWBIE MUD
   NEWS                      RACES               RACEWARS PKILL
   TIME                      WIZLIST   		ZONES      
-===========================================================================    
+===========================================================================
 
 #
 SOCIETY
--------
+===========================================================================
 Association Command
 
 Syntax:   society <s>ubcommands argumentlist
@@ -14592,8 +14615,8 @@ or deputies and officers (to title themselves).
 
 &+Wsociety toggle_title_flag
 soc g - toggles your 'no title change' flag
-
-SEE ALSO:  ASSOCIATIONS, "SOCIETY EXAMPLES", GUILDHALL, GUILD
+===========================================================================
+SEE ALSO:  CONSTRUCT, GUILD, GUILDHALL, "SOCIETY EXAMPLES"
 
 #
 "SOCIETY EXAMPLES"
@@ -17185,8 +17208,8 @@ that the victim or object has spoken the desired text.
 #
 VERSION (General Information)
 ===========================================================================
-Help Files Last updated: 23 May 2005
-Help Files Last updated by: &+RGnord&n
+Help Files Last updated: 30 December 2005
+Help Files Last updated by: &+BWeebler&n
 ===========================================================================
 See also: HELP
 
