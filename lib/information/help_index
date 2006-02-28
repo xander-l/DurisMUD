@@ -2686,7 +2686,7 @@ available for you.
   per hall, but the guildhall must contain 10 rooms before a teleporter
   can be placed within it.
 
-&+Yconstruct mouth&n
+&+Yconstruct mouth &+RDISABLED&n
   Cost: 500
   Builds a magic mouth in current room. This acts as an alarm and will
   broadcast when someone not in your guild is in that room. Only one
@@ -3173,6 +3173,21 @@ Type of spell:  Teleportation
 lands of the living. It has been known to fail however...
 ===========================================================================
 See also: RELOCATE
+
+#
+"DARK DREAMER"
+===========================================================================
+   - Spell (8th): shadow merging: will hide the illusionist, and if following
+      someone else will merge illusionist shadow with theirs, allowing the
+      illusionist to follow hidden
+   - Spell (10th): gate to Ard'gral: opens up a gate to Ard'Gral the 
+      Quasi-Elemental plane of dreams, where portals open up to all parts
+      of the world and other planes.  More information below..
+   - Spell (9th): Shadow Spawn: creates a vortex in the room that manifests
+      the nightmares of the illusionist opponents.  The nightmares can be
+      so bad that people will shut their eyes or even try to flee from them!
+===========================================================================
+See Also: ILLUSIONIST, SKILL_ILLUSIONIST
 
 #
 "DARK KNIGHT" (Specialization)
@@ -4342,6 +4357,27 @@ a small amount of damage.
 ===========================================================================
 
 #
+ELAPHIDIST
+===========================================================================
+A follower of this path of training focuses on emulating the movement of 
+the snake in attempt to enhance speed, mental focus and precision. They
+will strike at neural knots crippling their opponents or lash out in a 
+flurry of blows. Their extreme control will also enable them to avoid 
+larger magical attacks by twisting out of the way.
+
+Innates
+---------------------------------------------------------------------------
+Level 46:	Evasion
+Level 51:	Enhanced pressure points
+
+Skills
+---------------------------------------------------------------------------
+Level 31:	Flurry of blows
+Level 36: 	Enhanced heroism
+===========================================================================
+See also: MONK, EVASION, "PRESSURE POINT", "FLURRY OF BLOWS", HEROISM
+
+#
 ELEMENTALIST (Specialization)
 ===========================================================================
 The Elementalist has learned to master the power of the elemental realm.
@@ -4517,26 +4553,6 @@ beware that unsuccessful enchant attempts may actually damage the item in
 the process. Example Syntax: enchant cloak 'vitality'
 ===========================================================================
 See also: ALCHEMIST, SKILL_ALCHEMIST
-
-#
-"ENCHANT WEAPON" (Spell)
-===========================================================================
-Area of effect: <weapon>
-Aggressive:     N0
-Cumulative:     No
-Duration:       Permanent
-Type of spell:  Enchantment
-
-"Enchant Weapon" will enchant non-magical (non-modifying) weapons only. 
-Non-modifying weapons are those that do not alter any ability. The only way
- to be certain if a weapon is suitable for enchantment is to fully identify 
-it.
-
-The level of enchantment given the weapon is random, depending upon
-conditions of the weather, magical energies, skill of the conjurer, and the
-blessings of the gods.
-===========================================================================
-See also: IDENTIFY, WEATHER
 
 #
 ENCRUST
@@ -7250,7 +7266,7 @@ Skills
 See also: RESCUE, "SHIELD PUNCH", "FOLLOW-UP RIPOSTE", "RESCUE ALL"  
 
 #
-GUILDS ASSOCIATIONS CLANS (General Information)
+GUILD GUILDS ASSOCIATIONS CLANS (General Information)
 ===========================================================================
 This document is designed to answer any questions regarding the creation
 of player guilds on Duris. Under the current guild system players are
@@ -7355,7 +7371,7 @@ The cost involved in building your guildhall are as follows:
         Inn &+RDISABLED&n                             5,000 platinum
         Fountain                                 500 platinum
         Holy/Unholy Fountain                     3,000 platinum
-        Magic Mouth                              500 platinum
+        Magic Mouth &+RDISABLED&n                     500 platinum
         Healing Room                             3,000 platinum
         Chest &+RDISABLED&n                           5,000 platinum
         Guildhall Rooms                          1,000 platinum
@@ -9060,6 +9076,20 @@ NOTE: Use "help <classname>" for information on each of the sub-classes.
 ===========================================================================
 See also: SORCERER, NECROMANCER, CONJURER, PSIONICIST, ILLUSIONIST,
           ALCHEMIST
+
+#
+MAGICIAN
+===========================================================================
+   - Skill: Expeditious retreat: improved retreat in any direction, even
+      when tanking
+   - Spell (10th): obscuring mist: when cast, the room the illusionist is 
+      in becomes no-scan
+   - Spell (11th): supress sound: when cast, the illusionist silences his own
+      group, allowing them to not make any noise when walking
+   - Innate: Improved Flee: when the illusionist flees, it appears that he
+      flees in several directions
+===========================================================================
+See Also: ILLUSIONIST, SKILL_ILLUSIONIST
 
 #
 "MAGMA BURST" (Spell)
@@ -13505,25 +13535,22 @@ NOTE: Type "skill" to see a list of your character's skills are current
 ===========================================================================
 
 #
-SKILL_ALCHEMIST (General Information)
+SKILL_ALCHEMIST (Skillset)
 ===========================================================================
-
 The following is a list of all the skills available to the Alchemist
 class.
 
 Skills
 ---------------------------------------------------------------------------
-
-1st level:   dodge, 1h bludgeon, 2h bludgeon, bandage, carve, climb, 
-	     double attack, fishing, mount, parry, first aid, unarmed damage, 
-	     lore, mining, mix, craft, throwpotion
-31st level:  forge, spellbind
+1st level:   1h bludgeon, 2h bludgeon, bandage, carve, climb, craft, dodge,
+             double attack, first aid, fishing, fix, lore, mine, mix,
+             mount, parry, remix, retreat, throwpotion
+31st level:  spellbind
 51st level:  encrust
 56th level:  enchant
 
 Potions
 ---------------------------------------------------------------------------
-
 6th level:   Nitrogen
 11th level:  Faerie Fire, Anti-magic
 16th level:  Wither
@@ -13537,817 +13564,764 @@ Potions
 Alchemist Specializations
 ---------------------------------------------------------------------------
 Battle-Forger, Blacksmith
-
 ===========================================================================
-See also: ALCHEMIST, SKILLS, BATTLE-FORGER, BLACKSMITH
+See also: ALCHEMIST
 
 #
-SKILL_ANTI-PALADIN (General Information)
+SKILL_ANTI-PALADIN (Skillset)
 ===========================================================================
 The following is a list of all the skills and spells available to the
 Anti-Paladin class:
 
 Skills
 ---------------------------------------------------------------------------
-1st level:  	2h bludgeon, 2h slashing, bandage, bash, blindfighting, 
-                carve, climb, dodge, double attack, first aid, guard, kick, 
-                meditate, mount, offense, parry, quick chant, riposte, 
-                summon mount, swim, switch, unarmed damage
-10th level:     clerical spell knowledge, mounted combat, sorcerous spell 
-                knowledge
-31st level:     rescue
+1st level:   2h bludgeon, 2h slashing, bandage, bash, blindfighting, 
+             carve, climb, dodge, double attack, first aid, fishing, 
+             guard, kick, meditate, mine, mount, parry, quick chant,
+             retreat, riposte, summon mount, swim, switch opponents,
+             unarmed damage
+10th level:  clerical spell knowledge, mounted combat,
+             sorcerous spell knowledge
+31st level:  rescue
 
 Innate Abilities
 ---------------------------------------------------------------------------
-1st level:      Detect Evil, Detect Good, Vampiric Touch
+1st level:   Detect Evil, Detect Good, Vampiric Touch
 
 Spells
 ---------------------------------------------------------------------------
-3rd circle:     Armor, Vigorize Light, Cause Light, Protection from Good
-4th circle:     Dispel Good
-5th circle:     Vigorize Serious, Fear, Cause Serious
-6th circle:     Blindness, Curse, Cause Critical
-7th circle:     Soulshield
-8th circle:     Wither, Darkness, Heal Undead  
-9th circle:     Harm, Unholy Word
-10th circle:    Battle Ecstasy  
-11th circle:    Apocalypse
-12th circle:    Hellfire
-
-NOTE:           Spell circles are gained at levels 11, 16, 21, 26, 31, 36, 
-                41, 46 and 51
-                Use help <spellname> | <skillname> | <innatename> | 
-                <specname> for more information.
+3rd circle:  Armor, Cause Light, Protection from Good, Vigorize Light
+4th circle:  Dispel Good
+5th circle:  Cause Serious, Fear, Vigorize Serious
+6th circle:  Blindness, Cause Critical, Curse
+7th circle:  Soulshield
+8th circle:  Darkness, Wither
+9th circle:  Harm, Unholy Word
+10th circle: Battle Ecstasy  
+11th circle: Apocalypse
+12th circle: Hellfire
 
 Anti-Paladin Specializations
 ---------------------------------------------------------------------------
-                Demonic Rider           Dark Knight               Hellspawn
+Demonic Rider, Dark Knight, Hellspawn
 ===========================================================================
-See also: ANTI-PALADIN
+See also: ANTI-PALADIN, PRAY
 
 #
-SKILL_AVENGER (General Information)
+SKILL_AVENGER (Skillset)
 ===========================================================================
-The following is a list of all skills available to the Avenger class:
+The following is a list of all skills available to the avenger class:
 
 Skills
 ---------------------------------------------------------------------------
-1st level:  2h slashing, bandage, barehanded fighting, carve, climb, 
-            dodge, double attack, first aid, hitall, kick, mount, 
-            offense, parry, riposte, swim, unarmed damage
-11th level: flank, battle senses
-21st level: gaze
-26th level: switch opponents, holy blade
-36th level: command aura
-51st level: triple attack
-56th level: quadruple attack
+1st level:   2h slashing, bandage, battle orders, carve, climb, dodge,
+             double attack, first aid, fishing, hitall, kick, mine, parry,
+             riposte, swim
+11th level:  flank, battle senses
+21st level:  gaze
+26th level:  switch opponents, holy blade
+36th level:  command aura
+51st level:  triple attack
+56th level:  quadruple attack
 
 Avenger Specializations
 ---------------------------------------------------------------------------
 Lightbringer, Punisher.
-
 ===========================================================================
-See also: AVENGER, SKILLS
+See also: AVENGER
 
 #
-SKILL_BARD
+SKILL_BARD (Skillset)
 ===========================================================================
 The following is a list of all skills and spells available to the
 bard class.
 
 Skills
 ---------------------------------------------------------------------------
-1st level: 	1h bludgeon, 1h misc, 1h piercing, 1h slashing, awareness,
-		backstab, bandage, barehanded fighting, carve, climb, 
-		dodge, double attack, first aid, hide, meditate, mount,
-		parry, quick chant, riposte, scribe, shield block, sneak,
-		swim, unarmed damage 
-5th level:      flute, lyre, mandolin, harp, drums, horn
-10th level:     sorcerous spell knowledge, appraise, lore
-15th level:     listen
+1st level: 	 1h piercing, awareness, backstab, bandage, carve, climb, dodge,
+             double attack, first aid, fishing, hide, meditate, mine, mount,
+             parry, quick chant, rescue, retreat, scribe, shield block,
+             sneak, swim
+10th level:  sorcerous spell knowledge, appraise, lore
+15th level:  listen
+
+Instrument skills
+---------------------------------------------------------------------------
+5th level:   drums, flute, harp, horn, lyre, mandolin
 
 Spells
 ---------------------------------------------------------------------------
-2nd circle:     mirror image
-3rd circle:     magic missile
-4th circle:     burning hands, minor creation
-5th circle:     concealment
-6th circle:	dispel magic, infravision, lightning bolt, ray of
-                enfeeblement
-7th circle:     dimension door, fireball, slowness
-8th circle:     bigbys clenched fist 
-10th circle:    detect invisibility 
-11th circle:    rope trick
-12th circle:    enlarge, sirens song
+2nd circle:  Mirror Image
+3rd circle:  Magic Missile
+4th circle:  Burning Hands, Minor Creation
+5th circle:  Concealment
+6th circle:  Dispel Magic, Infravision, Lightning Bolt,
+             Ray Of Enfeeblement
+7th circle:  Dimension Door, Fireball, Slowness
+8th circle:  Bigbys Clenched Fist 
+9th circle:  Feeblemind
+10th circle: Detect Invisibility 
+11th circle: Rope Trick
+12th circle: Enlarge, Sirens Song
 
 Songs
 ---------------------------------------------------------------------------
-6th level:      song of sleep
-16th level:     song of calming, song of discord, song of harmony
-21st level:     song of protection, song of forgetfulness, song of
-                cowardice
-26th level:     song of peace
-31st level:     song of flight, song of dragons
-36th level:     song of healing, song of harming
-41st level:     song of storms
-46th level:     song of heroism, song of revelation, song of chaos
-56st level:     song of charming
+6th level:   song of sleep
+16th level:  song of calming, song of discord, song of harmony
+21st level:  song of cowardice, song of forgetfulness,
+             song of protection
+26th level:  song of peace
+31st level:  song of dragons, song of flight
+36th level:  song of harming, song of healing
+41st level:  song of storms
+46th level:  song of chaos, song of heroism, song of revelation
+56st level:  song of charming
 
 Bard Specializations
 ---------------------------------------------------------------------------
 Disharmonist, Scoundrel, Minstrel
-
 ===========================================================================
-See also: DISHARMONIST, SCOUNDREL, MINSTREL, SKILL_PIPER, SPEC, BARD
+See also: BARD, PIPER, SKILL_PIPER, TUPOR, MEMORIZE
 
 #
-SKILL_BERSERKER
+SKILL_BERSERKER (Skillset)
 ===========================================================================
-The following is a list of all the skills available to the assassin class.
+The following is a list of all the skills available to the berserker class.
 
 Skills
 ---------------------------------------------------------------------------
-1st level: 	1h bludgeon, 1h misc, 1h piercing, 1h slashing, 2h misc,
-                2h bludgeon, 2h slashing, bandage, barehanded fighting,
-                berserk, carve, climb, dodge, first aid, kick, offense,
-		parry, unarmed damage 
-6th level:      blindfighting, rage, riposte
-11th level:     double attack, dual wield, hitall
-26th level:     war cry
-31st level      maul
-36th level:     rampage
-41st level:     enrage
-46th level:     triple attack
-51st level:     critical attack, switch opponents
+1st level: 	 1h bludgeon, 1h flaying, 2h bludgeon, 2h flaying, bandage,
+             berserk, carve, climb, dodge, first aid, fishing, kick, mine,
+             parry, retreat, rush, unarmed damage, vicious strike
+6th level:   blindfighting, rage, riposte
+11th level:  double attack, dual wield, hitall
+26th level:  war cry
+31st level   maul
+36th level:  rampage
+41st level:  enrage
+46th level:  triple attack
 
+Berserker Specializations
+---------------------------------------------------------------------------
+Mauler, Ragelord
 ===========================================================================
-See also: WARRIOR, WEAPONS, SKILLS 
+See also: BERSERKER
 
 #
-SKILL_CLERIC (General Information)
+SKILL_CLERIC (Skillset)
 ===========================================================================
 The following is a list of all skills and spells available to the Cleric
 class:
 
 Skills
 ---------------------------------------------------------------------------
-1st level:      1h bludgeon, 2h bludgeon, bandage, carve, clerical spell 
-                knowledge, climb, dodge, first aid, meditate, mount, 
-                quick chant, swim
-56th level:     double attack
-		     
+1st level:   1h bludgeon, 2h bludgeon, age corpse, bandage, carve,
+             clerical spell knowledge, climb, dodge, first aid, meditate,
+             mine, mount, quick chant, retreat, swim
+
 Spells
 ---------------------------------------------------------------------------
-1st circle:     Armor, Bless, Cure Light, Cause Light, Detect Evil,
-                Detect Good, Detect Magic, Turn Undead
-2nd circle:     Blindness, Vigorize Light, Cure Serious, Cause Serious,
-                Preserve, Protection from Fire, Protection from Cold, 
-                Slow Poison, Word of Command
-3rd circle:    	Earthquake, Dispel Evil, Dispel Good, Cure Blind, 
-                Vigorize Serious, Cure Critic, Cause Critical, 
-                Remove Poison, Sense Life
-4th circle:     Vigorize Critic, Cure Disease, Protection from Evil,
-                Protection from Good, Remove Curse, Summon, 
-                Protection from Gas, Protection from Acid, 
-                Protection from Lightning
-5th circle:     Destroy Undead, Heal, Vitality, Soulshield
-6th circle:     Harm, Flame Strike, Curse, Fear, Continual Light, Darkness
-7th circle:     Water Breathing, Full Heal, Lesser Resurrect
-8th circle:     Dispel Magic, Mass Heal
-9th circle:     Plane Shift, Word of Recall, Unholy Word, Holy Word, 
-                Silence
-10th circle:    Accelerated Healing, Full Harm, Resurrect  
-11th circle:    Mass Preserve, Group Recall, True Seeing
-12th circle:    Miracle
-
-NOTE:           Spell circles are gained at levels 6, 11, 16, 21, 26, 31, 
-                36, 41, 46, 51 and 56
-                Use help <spellname> | <skillname> | <innatename> |
-                <specname> for more information.
+1st circle:  Armor, Bless, Cause Light, Cure Light, Detect Evil,
+             Detect Good, Detect Magic, Turn Undead
+2nd circle:  Blindness, Cause Serious, Cure Serious, Preserve,
+             Protection from Cold, Protection from Fire, 
+             Slow Poison, Vigorize Light, Word of Command
+3rd circle:  Cause Critical, Cure Blind, Cure Critic, Dispel Evil,
+             Dispel Good, Earthquake, Remove Poison, Sense Life,
+             Vigorize Serious,
+4th circle:  Cure Disease, Protection from Acid, Protection from Evil,
+             Protection from Gas, Protection from Good,
+             Protection from Lightning, Remove Curse, Summon,
+             Vigorize Critic
+5th circle:  Destroy Undead, Heal, Soulshield, Vitality
+6th circle:  Continual Light, Curse, Darkness, Fear, Flame Strike,
+             Harm
+7th circle:  Full Heal, Lesser Resurrect, Water Breathing
+8th circle:  Dispel Magic, Mass Heal
+9th circle:  Holy Word, Plane Shift, Silence, Unholy Word,  
+             Word of Recall,
+10th circle: Accelerated Healing, Full Harm, Resurrect  
+11th circle: Group Recall, Mass Preserve, True Seeing
+12th circle: Miracle
 
 Cleric Specializations
 ---------------------------------------------------------------------------
 Healer, Holyman, Zealot
-
 ===========================================================================
-See also: CLERIC
+See also: CLERIC, PRAY
 
 #
-SKILL_CONJURER (General Information)
+SKILL_CONJURER (Skillset)
 ===========================================================================
 The following is a list of all the skills and spell available to the
 Conjurer class:
 
 Skills
 ---------------------------------------------------------------------------
-1st level:      1h bludgeon, 1h piercing, 2h bludgeon, bandage, carve, 
-                climb, dodge, first aid, meditate, mount, quick chant,
-                scribe,  sorcerous spell knowledge, swim
-               
+1st level:   1h bludgeon, 1h piercing, 2h bludgeon, bandage, carve, climb,
+             dodge, first aid, fishing, meditate, mine, mount, quick chant,
+             retreat, scribe, sorcerous spell knowledge, swim
+
 Spells
 ---------------------------------------------------------------------------
-1st circle:     Magic Missile, Minor Creation, Detect Magic
-2nd circle:     Chill Touch, Burning Hands, Sleep, Mirror Image
-3rd circle:     Shocking Grasp, Mage Flame, Concealment, Dispel Magic,
-                Strength, Dexterity
-4th circle:     Lightning Bolt, Ray of Enfeeblement, Infravision, 
-                Enchant Weapon, Levitate, Reveal True Name
-5th circle:     Slowness, Conjure Elemental, Sense Follower, Identify,
-                Fireshield, Wall of Stone, Coldshield
-6th circle:     Teleport, Minor Globe of Invulnerability, Stone Skin,
-                Color Spray, Feeblemind, Wall of Iron
-7th circle:     Cone of Cold, Fireball, Dimension Door, Haste, Ice Storm,
-                Stornogs Metamagic Shroud, Web, Wall of Flames, Airy Water,
-                Wall of Ice
-8th circle:     Improved Invisibility, Prismatic Spray, Prismatic Ray,
-                Wall of Force, Globe of Invulnerability
-9th circle:     Relocate, Detect Invisibility, Gate, Fly, Disintegrate
-10th circle:    Farsee, Group Stone Skin, Stornogs Shimmering Starshell
-11th circle:    Stornogs Spheres, Group Globe of Invulnerability
-                Prismatic Cube, Conjure Greater Elemental
-12th circle:    Group Stornogs Spheres
+1st circle:  Detect Magic, Magic Missile, Minor Creation
+2nd circle:  Burning Hands, Chill Touch, Mirror Image, Sleep
+3rd circle:  Concealment, Dexterity, Dispel Magic, Mage Flame,
+             Shocking Grasp, Strength
+4th circle:  Infravision, Levitate, Lightning Bolt, Ray of Enfeeblement,
+             Reveal True Name, Weapon Enchantment
+5th circle:  Coldshield, Conjure Elemental, Fireshield, Identify,
+             Sense Follower, Slowness, Wall of Stone
+6th circle:  Color Spray, Feeblemind, Minor Globe of Invulnerability,
+             Stone Skin, Teleport, Wall of Iron
+7th circle:  Airy Water, Cone of Cold, Dimension Door, Fireball, Haste,
+             Ice Storm, Stornogs Metamagic Shroud, Wall of Flames, 
+             Wall of Ice, Web
+8th circle:  Globe of Invulnerability, Improved Invisibility, Prismatic Ray
+             Prismatic Spray, Wall of Force
+9th circle:  Detect Invisibility, Disintegrate, Fly, Gate, Relocate
+10th circle: Farsee, Group Stone Skin, Stornogs Shimmering Starshell
+11th circle: Conjure Greater Elemental, Group Globe of Invulnerability
+             Prismatic Cube, Stornogs Spheres
+12th circle: Group Stornogs Spheres
                 
 Conjurer Specializations
 ---------------------------------------------------------------------------
 Air Magus, Fire Magus, Earth Magus, Water Magus
-
 ===========================================================================
-See also: CONJURER
+See also: CONJURER, TUPOR, MEMORIZE
                 
 #
-SKILL_DREADLORD (General Information)
+SKILL_DREADLORD (Skillset)
 ===========================================================================
 The following is a list of all skills available to the Dreadlord class:
 
 Skills
 ---------------------------------------------------------------------------
-1st level:  2h bludgeon, 2h misc, 2h slashing, bandage, barehanded
-            fighting, carve, climb, dodge, double attack, first aid,
-            hitall, kick, mount, offense, parry, riposte, swim, unarmed
-            damage
-11th level: flank, battle senses
-21st level: gaze
-26th level: switch opponents, tainted blade
-31st level: blood scent
-36th level: command aura
-51st level: triple attack
-56th level: quadruple attack
+1st level:   2h bludgeon, 2h slashing, bandage, carve, climb, dodge,
+             double attack, first aid, fishing, hitall, kick, mine, mount,
+             parry, retreat, riposte, swim, unarmed damage
+11th level:  flank, battle senses
+21st level:  call of the grave, gaze
+26th level:  switch opponents, tainted blade
+31st level:  blood scent
+36th level:  command aura
+51st level:  battle orders, triple attack
+56th level:  quadruple attack
 
 Dreadlord Specializations
 ---------------------------------------------------------------------------
-There are no Dreadlord Specializations at this time.
-
+Deathlord, Shadowlord
 ===========================================================================
 See also: DREADLORD
 
 #
-SKILL_DRUID (General Information)
+SKILL_DRUID (Skillset)
 ===========================================================================                                                                             
 The following is a list of all the skills and spells available to the
 Druid class:
 
 Skills
 ---------------------------------------------------------------------------
-1st level:      1h bludgeon, 1h slashing, bandage, carve, clerical spell 
-                knowledge, climb, dodge, double attack, first aid, mount,
-                shield block, swim
+1st level:   1h bludgeon, 1h slashing, bandage, carve,
+             clerical spell knowledge, climb, dodge, double attack,
+             first aid, fishing, mine, mount, retreat, shield block, swim
 
 Innate Abilities
 ---------------------------------------------------------------------------
-1st level:      Shapechange
-21st level:     Charm Animal
-41st level:     Plane Shift
+1st level:   Shapechange
+21st level:  Charm Animal
+41st level:  Plane Shift
 
 Spells
 ---------------------------------------------------------------------------
-1st circle:     Fortitude, Pulchritude, Animal Friendship, Barkskin
-2nd circle:     Aid, Disease, Sticks to Snakes
-3rd circle:     Flame Blade, Poison, Protection from Animals, Faerie Fire,
-                Faerie Fog
-4th circle:     Lightning Bolt, Serendipity, Create Spring
-5th circle:     Earthquake, Nature's Touch, Tranquility      
-6th circle:     Regeneration, Endurance, Earthen Maul
-7th circle:     Call Lightning, Cyclone, Dispel Magic  
-8th circle:     Pass Without Trace, Lightning Curtain, Animal Vision,
-                Entangle
-9th circle:    	Wandering Woods, Sunray
-10th circle:    Creeping Doom, Consecrate Land, Moonwell
-11th circle:    Elemental Aura
-12th circle:    Moonstone, Nova
-
-NOTE:           Spell circles are gained at levels 6, 11, 16, 21, 26, 31, 
-                36, 41, 46, 51 and 56
-                Use help <spellname> | <skillname> | <innatename> |
-                <specname> for more information.
+1st circle:  Animal Friendship, Barkskin, Fortitude, Pulchritude
+2nd circle:  Aid, Disease, Sticks to Snakes
+3rd circle:  Faerie Fire, Faerie Fog, Flame Blade, Protection from Animals
+4th circle:  Create Spring, Lightning Bolt, Poison, Serendipity
+5th circle:  Earthquake, Nature's Touch, Tranquility      
+6th circle:  Earthen Maul, Endurance, Regeneration
+7th circle:  Cyclone, Dispel Magic  
+8th circle:  Animal Vision, Pass Without Trace
+9th circle:  Consecrate Land, Sunray, Wandering Woods
+10th circle: Creeping Doom,  Moonwell, Natures Blessing
+11th circle: Elemental Aura
+12th circle: Moonstone, Nova
                
 Druid Specializations
 ---------------------------------------------------------------------------
 Forest Druid, Storm Druid
-
 ===========================================================================
 See also: DRUID, COMMUNE, TERRAIN
 
 #
-SKILL_ETHERMANCER (General Information)
+SKILL_ETHERMANCER (Skillset)
 ===========================================================================
 The following is a list of all the skills and spells available to the
 Ethermancer class:
 
 Skills
 ---------------------------------------------------------------------------
-1st level:       1h bludgeon, 1h piercing, 1h slashing, bandage, carve, 
-                 clerical spell knowledge, climb, dodge, double attack, 
-                 first aid, quick chant, swim
+1st level:   1h bludgeon, 1h piercing, 1h slashing, bandage, carve, 
+             clerical spell knowledge, climb, dodge, double attack, 
+             first aid, fishing, mine, quick chant, retreat, swim
 
 Spells
 ---------------------------------------------------------------------------
-1st circle:      Faerie Fire, Ice Missile, Vapor Armor
-2nd circle:      Chill Touch, Detect Magic, Purify Spirit
-3rd circle:      Faerie Fog, Frost Bolt, Wind Blade
-4th circle:      Coldshield, Cone of Cold, Faerie Sight 
-5th circle:      Ice Storm, Storm Empathy, Vapor Strike
-6th circle:      Frost Beacon, Frostbite, Lightning Curtain
-7th circle:      Cold Snap, Cyclone, Windwalk
-8th circle:      Ethereal Form, Ethereal Recharge, Forked Lightning
-9th circle:      Arcane Whirlwind, Conjure Air, Lightning Ring
-10th circle:     Induce Tupor, Purge
-11th circle:     Blur, Greater Spirit Sight, Mass Fly, Tempest Terrain,
-                 Path of Frost
-
-NOTE:            Spell circles are gained at levels 6, 11, 16, 21, 26, 31, 
-                 36, 41, 46 and 51
-                 Use help <spellname> | <skillname> | <specname> for more
-                 information.
+1st circle:  Faerie Fire, Ice Missile, Vapor Armor
+2nd circle:  Chill Touch, Detect Magic, Purify Spirit
+3rd circle:  Faerie Fog, Frost Bolt, Wind Blade
+4th circle:  Coldshield, Cone of Cold, Faerie Sight 
+5th circle:  Ice Storm, Storm Empathy, Vapor Strike
+6th circle:  Frost Beacon, Frostbite, Lightning Curtain
+7th circle:  Cold Snap, Forked Lightning, Windwalk
+8th circle:  Ethereal Form, Ethereal Recharge
+9th circle:  Arcane Whirlwind, Plane Shift
+10th circle: Induce Tupor, Purge
+11th circle: Blur, Mass Fly, Tempest Terrain
+12th circle: Path of Frost
 
 Ethermancer Specializations
 ---------------------------------------------------------------------------
 Windtalker, Frost Magus, Cosmomancer
-
 ===========================================================================
 See also: ETHERMANCER, TUPOR
 
 #
-SKILL_ILLUSIONIST
+SKILL_ILLUSIONIST (Skillset)
 ===========================================================================
 The following is a list of all skills and spells available to the
 ILLUSIONIST class:
 
 Skills
 ---------------------------------------------------------------------------
-1st level:      1h bludgeon, 1h piercing, 2h bludgeon, bandage, barehanded
-                fighting, carve, climb, dodge, first aid, meditate, mount,
-                quick chant, scribe, sorcerous spell knowledge, swim
+1st level:   1h bludgeon, 1h piercing, 2h bludgeon, bandage, carve, climb,
+             dodge, first aid, fishing, meditate, mine, mount, quick chant,
+             retreat, scribe, sorcerous spell knowledge, swim
 
 Spells:
 ---------------------------------------------------------------------------
-1st circle:     detect magic, magic missile, phantom armor, minor creation 
-2nd circle:     burning hands, continual light, darkness, dispel magic               
-3rd circle:     blindness, shadow monster, mirror image, concealment
-4th circle:     farsee, insects, sleep, levitate, infravision 
-5th circle:     boulder, illusionary wall, shadow travel              
-6th circle:     nightmare, reflection, stunning visions
-7th circle:     dispel invisible, hammer, watching wall, reveal true name
-8th circle:     fly, shadow shield, vanish, mask 
-9th circle:     dream travel, detect illusion, mass invisibility
-10th circle:    clone form, imprisonment, delirium
-11th circle:    nonexistence, titan
-12th circle:    dragon
-                
-NOTE:  Illusionists gain in circle at levels 6, 11, 16, 21, 26, 31, 36,
-       41, 46, 51, and 56
+1st circle:  Detect Magic, Magic Missile, Phantom Armor, Minor Creation 
+2nd circle:  Burning Hands, Continual Light, Darkness, Dispel Magic               
+3rd circle:  Blindness, Concealment, Mirror Image, Shadow Monster
+4th circle:  Farsee, Infravision, Insects, Levitate, Sleep
+5th circle:  Boulder, Illusionary Wall, Shadow Travel              
+6th circle:  Nightmare, Reflection, Stunning Visions
+7th circle:  Dispel Invisible, Hammer, Reveal True Name
+8th circle:  Fly, Mask, Shadow Shield, Vanish
+9th circle:  Detect Illusion, Dream Travel, Mass Invisibility
+10th circle: Clone Form, Delirium, Imprisonment
+11th circle: Flicker, Nonexistence, Titan
+12th circle: Dragon
+
+Illusionist Specializations
+---------------------------------------------------------------------------
+Magician, Dark Dreamer
+BOOO YEA!  Go hug a god, cuz Illu specs are done!
 ===========================================================================
-See also: ILLUSIONIST
+See also: ILLUSIONIST, MEMORIZE
 
 #
-SKILL_MERCENARY (General Information)
+SKILL_MERCENARY (Skillset)
 ===========================================================================
 The following is a list of all skills available to the Mercenary class:
 
 Skills
 ---------------------------------------------------------------------------
-1st level:      1h bludgeon, 1h flaying, 1h piercing, 1h slashing, 
-                2h bludgeon, 2h flaying, 2h slashing, backstab, bandage, 
-                capture, carve, climb, dodge, double attack, dual wield, 
-                first aid, headbutt, hide, kick,  mount, offense, parry, 
-                rescue, riposte, shield block, swim, track, unarmed damage
-             
-20th level:     tackle, appraise            
-30th level:     reach weapons
-51st level:     throat crush
-56th level:     triple attack 
+1st level:   1h bludgeon, 1h flaying, 1h piercing, 1h slashing,
+             2h bludgeon, 2h flaying, 2h slashing, backstab, bandage,
+             capture, carve, climb, dodge, double attack, dual wield,
+             first aid, fishing, headbutt, hide, kick, mine, mount, parry,
+             rescue, riposte, shield block, swim, switch opponents, track,
+             unarmed damage
+20th level:  tackle, appraise            
+30th level:  reach weapons
+51st level:  switch opponents, throat crush
+56th level:  double headbutt, triple attack 
 
 Mercenary Specializations
 ---------------------------------------------------------------------------
 Brigand, Bounty Hunter
-
 ===========================================================================
 See also: MERCENARY
 
 #
-SKILL_MONK
+SKILL_MONK (Skillset)
 ===========================================================================
 The following is a list of all skills available to the Monk class:
 
 SKILLS
 ---------------------------------------------------------------------------
-1st level:     	awareness, bandage, barehanded fighting, blindfighting,
-		chant, climb, dodge, dragon punch, feign death, first
-		aid, kick, martial arts, offense, roundkick       
-10th level:     combination attack
+1st level:   awareness, bandage, blindfighting, chant, climb, dodge,
+             dragon punch, feign death, first aid, fishing, kick,
+             martial arts, mine, retreat, roundkick, safe fall, springleap,
+             swim, switch opponents, unarmed damage
+10th level:  combination attack
  
 CHANTS
 ---------------------------------------------------------------------------
-1st level:      heroism, calm
-10th level:     quivering palm, combination attack
-15th level:     buddha palm
-20th level:     regenerate
+1st level:   heroism, calm
+10th level:  quivering palm, combination attack
+15th level:  buddha palm
+20th level:  regenerate
 
 Monk Specializations
-Dragon Disciple: Fist of Dragon, Mind of Dragon, Enhanced Springleap, 
-		 Enhanced Heroism
-Elaphidist:	 Flurry of Blows, Evasion, Enhanced Heroism, Enhanced
-		 Pressure Points
+Dragon Disciple, Elaphidist
 ===========================================================================
 See also: MONK, CHANTS
 
 #
-SKILL_NECROMANCER (General Information)
+SKILL_NECROMANCER (Skillset)
 ===========================================================================
 The following is a list of all skills and spells available to the
 Necromancer class:
 
 Skills
 ---------------------------------------------------------------------------
-1st level:     	1h bludgeon, 1h piercing, 2h bludgeon, bandage, carve, 
-                climb, dodge, feign death, first aid, meditate, mount,
-                quick chant, scribe, sorcerous spell knowledge, swim
-20th level:     age corpse
+1st level:   1h bludgeon, 1h piercing, 2h bludgeon, bandage, carve, 
+             climb, dodge, feign death, first aid, fishing, meditate, 
+             mine, mount, quick chant, retreat, scribe,
+             sorcerous spell knowledge, swim
+20th level:  age corpse
 
 Spells
 ---------------------------------------------------------------------------
-1st circle:     Ventriloquate, Protection from Undead, Magic Missile, 
-                Minor Creation, Detect Magic, Preserve
-2nd circle:     Protection from Cold, Protection from Living, Sleep, 
-                Chill Touch, Vampiric Touch
-3rd circle:     Sense Follower, Embalm, Animate Dead, Dispel Magic
-4th circle:     Wither, Rejuvenate Minor, Strength
-5th circle:     Levitate, Fireshield, Feeblemind, Coldshield, Heal Undead
-                Teleport, Concealment, Raise Spectre
-6th circle:     Cone of Cold, Energy Drain, Rejuvenate Major, 
-                Minor Globe of Invulnerability
-7th circle:     Reveal True Name, Protect Undead, Raise Wraith,
-                Negative Concussion Blast 
-8th circle:     Haste, Detect Invisibility, Dispel Invisible, 
-                Improved Invisibility
-9th circle:     Dimension Door, Dark Compact, Age, Raise Vampire
-10th circle:    Cloak of Fear, Fly, Mass Embalm, Vampiric Trance, 
-                Raise Lich
-11th circle:    Power Word Kill, Unholy Word, Create Dracolich, Corpseform
-12th circle:    Create Greater Dracolich
+1st CIRCLE:  Detect Magic, Magic Missile, Minor Creation, Preserve,
+             Protection From Undead 
+2nd CIRCLE:  Chill Touch, Protection From Cold, Protection From Living,
+             Sleep, Vampiric Touch
+3rd CIRCLE:  Animate Dead, Dispel Magic, Embalm, Sense Follower 
+4th CIRCLE:  Rejuvenate Minor, Strength, Wither 
+5th CIRCLE:  Coldshield, Concealment, Feeblemind, Fireshield, Heal Undead
+             Levitate, Raise Spectre, Teleport 
+6th CIRCLE:  Cone of Cold, Energy Drain, Minor Globe of Invulnerability 
+             Rejuvenate Major 
+7th CIRCLE:  Frostbite, Protect Undead, Raise Wraith, Reveal True Name 
+8th CIRCLE:  Detect Invisibility, Dispel Invisible, Haste, 
+             Improved Invisibility 
+9th CIRCLE:  Age, Dark Compact, Dimension Door, Raise Vampire 
+10th CIRCLE: Cloak of Fear, Fly, Mass Embalm, Raise Lich, Vampiric Trance
+11th CIRCLE: Corpseform, Create Dracolich, Power Word Kill, Unholy Word 
+12th CIRCLE: Create Greater Dracolich
 
 Necromancer Specializations
 ---------------------------------------------------------------------------
 Diabolis, Necrolyte, Reaper
-
 ===========================================================================
-See also: NECROMANCER
+See also: NECROMANCER, MEMORIZE
 
 #
-SKILL_PALADIN (General Information)
+SKILL_PALADIN (Skillset)
 ===========================================================================
 The following is a list of all skills and spells available to the
 Paladin class:
 
 Skills
 ---------------------------------------------------------------------------
-1st level: 	2h bludgeon, 2h slashing, bandage, bash, blindfighting, 
-                carve, climb, dodge, double attack, first aid, guard, kick,
-                meditate, mount, offense, parry, quick chant, rescue, 
-                riposte, summon mount, swim, unarmed damage
-8th level:      summon mount
-10th level:     mounted combat, clerical spell knowledge
-31st level:     defend
-51st level:     switch opponents
+1st level: 	 2h bludgeon, 2h slashing, bandage, bash, blindfighting, 
+             carve, climb, dodge, double attack, first aid, fishing, guard,
+             kick, meditate, mine, mount, parry, quick chant, rescue, 
+             retreat, riposte, summon mount, swim, unarmed damage
+8th level:   summon mount
+10th level:  mounted combat, clerical spell knowledge
+31st level:  defend
+51st level:  switch opponents
 
 Innate Abilities
 ---------------------------------------------------------------------------
-1st level:      Lay Hands, Detect Evil, Detect Good
+1st level:   Lay Hands, Detect Evil, Detect Good
 
 Spells
 ---------------------------------------------------------------------------
-2nd circle:     Bless
-3rd circle:     Armor, Vigorize Light, Cure Light, Protection from Evil 
-4th circle:     Dispel Evil, Cure Blind, Remove Poison
-5th circle:     Vigorize Serious, Cure Serious, Turn Undead
-6th circle:     Cure Critic, Remove Curse
-7th circle:     Destroy Undead, Soulshield
-8th circle:     Cure Disease, Heal, Continual Light
-9th circle:     Holy Word
-10th circle:    Holy Sacrifice, Mass Heal
-11th circle:    Judgement, Accelerated Healing
-
-NOTE:           Spell circles are gained at levels 6, 11, 16, 21, 26, 31, 
-                36, 41, 46, 51 and 56
-                Use help <spellname> | <skillname> | <innatename> | 
-                <specname> for more information.
+2nd circle:  Bless
+3rd circle:  Armor, Cure Light, Protection from Evil, Vigorize Light
+4th circle:  Cure Blind, Dispel Evil, Remove Poison
+5th circle:  Cure Serious, Turn Undead, Vigorize Serious
+6th circle:  Cure Critic, Remove Curse
+7th circle:  Destroy Undead, Soulshield
+8th circle:  Continual Light, Cure Disease, Heal
+9th circle:  Holy Word
+10th circle: Holy Sacrifice, Mass Heal
+11th circle: Accelerated Healing, Judgement
+12th circle: Divine Blessing
 
 Paladin Specializations
 ---------------------------------------------------------------------------
-Cavalier, Crusader
-                
+Cavalier, Crusader                
 ===========================================================================
-See also: PALADIN, PRAY, MEDITATE, "LAY HANDS"
+See also: PALADIN, PRAY, "LAY HANDS"
 
 #
-SKILL_PIPER
+SKILL_PIPER (Skillset)
 ===========================================================================
 The following is a list of all skills and spells available to the
 spectral piper class.
 
 Skills
 ---------------------------------------------------------------------------
-1st level: 	1h bludgeon, 1h misc, 1h piercing, 1h slashing, awareness,
-		backstab, bandage, barehanded fighting, carve, climb, 
-		dodge, double attack, first aid, hide, meditate, mount,
-		parry, quick chant, riposte, scribe, shield block, sneak,
-		swim, unarmed damage 
-5th level:      flute, lyre, mandolin, harp, drums, horn
-10th level:     sorcerous spell knowledge, appraise, lore
-15th level:     listen
+1st level: 	 1h piercing, awareness, backstab, bandage, carve, climb, dodge,
+             double attack, first aid, fishing, hide, meditate, mine, mount,
+             parry, quick chant, rescue, retreat, scribe, shield block,
+             sneak, swim
+10th level:  sorcerous spell knowledge, appraise, lore
+15th level:  listen
+
+Instrument skills
+---------------------------------------------------------------------------
+5th level:   drums, flute, harp, horn, lyre, mandolin
 
 Spells
 ---------------------------------------------------------------------------
-2nd circle:     mirror image
-3rd circle:     magic missle, ventriloquate
-4th circle:     burning hands, minor creation
-5th circle:     concealment
-6th circle:	dispel magic, infravision, lightning bolt,
-		ray of enfeeblement
-7th circle:     cone of cold, dimension door, slowness
-8th circle:     fireball
-9th circle:     bigbys clenched fist 
-10th circle:    detect invisibility 
-11th circle:    rope trick
-12th circle:    enlarge, sirens song
+2nd circle:  Mirror Image
+3rd circle:  Magic Missile
+4th circle:  Burning Hands, Minor Creation
+5th circle:  Concealment
+6th circle:  Dispel Magic, Infravision, Lightning Bolt,
+             Ray Of Enfeeblement
+7th circle:  Dimension Door, Fireball, Slowness
+8th circle:  Bigbys Clenched Fist 
+9th circle:  Feeblemind
+10th circle: Detect Invisibility 
+11th circle: Rope Trick
+12th circle: Enlarge, Sirens Song
 
 Songs
 ---------------------------------------------------------------------------
-6th level:      elegy of nightmares
-16th level:     funereal hymn
-21st level:     dirge of bones, hymn of the zombie, terrorizing rhythms
-26th level:     requiem of the crypts
-31st level:     dirge of the ghosts, draconic crescendo
-36th level:     song of the unholy, song of decay
-41st level:     chime of the vampire
-46th level:     stanza of the fury, hymn of morbid visions, song of the night
-51st level:     chant of subversion
+6th level:   song of sleep
+16th level:  song of calming, song of discord, song of harmony
+21st level:  song of cowardice, song of forgetfulness,
+             song of protection
+26th level:  song of peace
+31st level:  song of dragons, song of flight
+36th level:  song of harming, song of healing
+41st level:  song of storms
+46th level:  song of chaos, song of heroism, song of revelation
+56st level:  song of charming
 
 Bard Specializations
 ---------------------------------------------------------------------------
 Disharmonist, Scoundrel, Minstrel
-
 ===========================================================================
+See Also: PIPER, BARD, SKILL_BARD
 
 #
-SKILL_PSIONICIST
+SKILL_PSIONICIST (Skillset)
 ===========================================================================
 The following is a list of all skills and spells available to the
 Psionicist class:
 
 SKILLS
 ---------------------------------------------------------------------------
-1st level:      aerial combat, aerial casting, climb, first aid, barehanded
-                fighting, 1h bludgeon, 1h slashing, 1h piercing, 1h misc,
-                2h bludgeon, meditate, dodge, mount, bandage, carve, swim
+1st level:   1h bludgeon, 1h piercing, 2h bludgeon, bandage, carve, climb,
+             dodge, first aid, fishing, meditate, mine, mount, quick chant,
+             retreat, swim
 
 SPELLS
 ---------------------------------------------------------------------------
-1st circle:     adrenaline control, combat mind, ego whip
-2nd circle:     ballistic attack, enhance agility, enhance constitution,
-                enhance strength, enhance dexterity
-3rd circle:     molecular agitation, aura sight, lend health
-4th circle:    	ego blast, energy containment, flesh armor 
-5th circle:     inflict pain
-6th circle:     intellect fortress, flight, create sound
-7th circle:     detonate
-8th circle:     ectoplasmic form, cannibalize, inertial barrier
-9th circle:     ether warp, psychic crush
-10th circle:    wormhole, death field
-11th circle:    tower of iron will, biofeedback
-12th circle:	area headbutt
-
-NOTE: Psionicist gain in circle at levels 6, 11, 16, 21, 26, 31, 36, 41,
-46, and 51
+1st CIRCLE:  Adrenaline Control, Combat Mind, Ego Whip
+2nd CIRCLE:  Ballistic Attack, Enhance Agility, Enhance Constitution,
+             Enhance Dexterity, Enhance Strength
+3rd CIRCLE:  Aura Sight, Lend Health, Molecular Agitation
+4th CIRCLE:  Ego Blast, Energy Containment, Flesh Armor
+5th CIRCLE:  Inflict Pain 
+6th CIRCLE:  Cell Adjustment, Create Sound, Flight, Intellect Fortress
+7th CIRCLE:  Detonate
+8th CIRCLE:  Cannibalize, Ectoplasmic Form, Inertial Barrier,
+             Molecular control
+9th CIRCLE:  Ether Warp, Psychic Crush
+10th CIRCLE: Death Field, Wormhole
+11th CIRCLE: Biofeedback, Tower of Iron Will
+12th CIRCLE: Enrage
 
 Psionicist specializations
 ---------------------------------------------------------------------------
-Pyromancer, Enslaver, Psycheporter (not enabled), Telepath (not enabled)
-
+Pyromancer, Enslaver, Psycheporter
 ===========================================================================
 See also: PSIONICIST
 
 #
-SKILL_RANGER (General Information)
+SKILL_RANGER (Skillset)
 ===========================================================================
 The following is a list of all skills and spells available to the Ranger 
 class:
 
 Skills
 ---------------------------------------------------------------------------
-1st level:  	1h piercing, 1h slashing, archery, awareness, bandage,
-                bash, blindfighting, carve, climb, dodge, double attack, 
-                dual wield, first aid, kick, meditate, mount, offense, 
-                parry, quick chant, rescue, riposte, scribe, shield block,
-                springleap, surprise, swim, switch opponents, track
-5th level:	range specialist  
-10th level:     clerical spell knowledge, sorcerous spell knowledge
-46th level:     triple attack 
-56th level:     vicious attack  
+1st level:   1h piercing, 1h slashing, awareness, bandage, bash,
+             blindfighting, carve, climb, dodge, double attack, dual wield,
+             first aid, fishing, kick, meditate, mine, mount, parry,
+             quick chant, rescue, retreat, riposte, scribe, shield block,
+             springleap, surprise, swim, switch opponents, track
+5th level:   ranged weapons
+10th level:  clerical spell knowledge, sorcerous spell knowledge
+46th level:  triple attack 
+56th level:  vicious attack  
 
 Innate Abilities
 ---------------------------------------------------------------------------
-1st level:      Outdoor Sneak
+1st level:   Outdoor Sneak
 
 Spells
 ---------------------------------------------------------------------------
-3rd circle:     Magic Missile, Bless, Vigorize Light, Detect Evil
-4th circle:     Cure Light, Detect Magic, Protection from Evil
-5th circle:     Barkskin, Chill Touch, Dispel Evil, Vigorize Serious
-6th circle:     Concealment, Sense Life, Faerie Fog
-7th circle:     Lightning Bolt, Infravision     
-9th circle:     Farsee, Haste, Reveal True Name
-10th circle:    Firestorm, Dazzle
-11th circle:    Mass Barkskin, Blur
-12th circle:    Stone Skin
-
-NOTE:           Spell circles are gained at levels 11, 16, 21, 26, 31, 41, 
-                46, 51 and 56
-                Use help <spellname> | <skillname> | <innatename> | 
-                <specname> for more information.
+3rd circle:  Bless, Detect Evil, Magic Missile, Vigorize Light
+4th circle:  Cure Light, Detect Magic, Protection from Evil
+5th circle:  Barkskin, Chill Touch, Dispel Evil, Vigorize Serious
+6th circle:  Concealment, Faerie Fog, Sense Life
+7th circle:  Infravision, Lightning Bolt
+9th circle:  Farsee, Haste, Reveal True Name
+10th circle: Dazzle, Firestorm, Tree
+11th circle: Blur, Mass Barkskin
+12th circle: Stone Skin
 
 Ranger Specializations
 ---------------------------------------------------------------------------
-Blademaster, Huntsman
-
+Blademaster, Huntsman, Marshall
 ===========================================================================
-See also: FIGHTER, RANGER, "SPELL CIRCLE", "SPELL SYSTEM", "SPELL SLOT",
-          CAST, "SPELL FAILURE", CASTER, MEMORIZE, SKILLS, WEAPONS, SCRIBE
+See also: RANGER, MEMORIZE
 
 #
-SKILL_REAVER (General Information)
+SKILL_REAVER (Skillset)
 ===========================================================================
 The following is a list of all the skills available to the Reaver class.
 
 Skills
 ---------------------------------------------------------------------------
-1st level:   dodge, 1h piercing, 1h misc, 2h misc, offense, barehanded 
-             fighting, scribe
+1st level:   1h slashing, bandage, carve, climb, dodge, double attack,
+             dual wield, first aid, fishing, mine, mount, retreat, scribe,
+             shield block, switch opponents
 10th level:  sorcerous spell knowledge
-11th level:  blindfighting
+11th level:  blindfighting, quick chant
 18th level:  parry
-20th level:  dual wield
-21st level:  1h slashing, 2h slashing
-26th level:  riposte, meditate
-30th level:  double attack
+21st level:  meditate
+26th level:  riposte
 41st level:  trip
 
 Spells
 ---------------------------------------------------------------------------
-5th Circle:  baladors protection, chill touch
-6th Circle:  ray of enfeeblement
-7th Circle:  ferrix precision, lightning bolt
-8th Circle:  kanchelsis fury, dispel magic, fireball
-9th Circle:  feeblemind, eshabalas vitality, teleport   
-10th Circle: firestorm, immolate                   
-11th Circle: disintegrate, squeriks sneaky ways, daragors flame sword
+5th Circle:  Baladors Protection, Chill Touch
+6th Circle:  Ray of Enfeeblement
+7th Circle:  Ferrix Precision, Lightning Bolt
+8th Circle:  Dispel Magic, Fireball, Kanchelsis Fury
+9th Circle:  Eshabalas Vitality, Feeblemind
+10th Circle: Firestorm, Immolate
+11th Circle: Daragors Flaming Sword, Disintegrate, Squeriks Sneaky Ways
 
 Reaver Specializations
 ---------------------------------------------------------------------------
-Flame Reaver: Innate Pyrokinesis, Fireshield
-Blood Reaver: Innate Drain Life, Blood Alliance
-
+Blood Reaver, Flame Reaver
 ===========================================================================
-See also: WARRIOR, SORCERER, WEAPONS, SKILLS, "FLAME REAVER", 
-          "BLOOD REAVER"
+See also: REAVER, MEMORIZE
 
 #
-SKILL_ROGUE (General Information)
+SKILL_ROGUE (Skillset)
 ===========================================================================
 The following is a list of all skills available to the Rogue class:
 
 SKILLS
 ---------------------------------------------------------------------------
-1st level:  1h bludgeon, 1h piercing, 1h slashing, archery, awareness, 
-            backstab, bandage, blindfighting, carve, circle, climb, disarm, 
-            dodge, double attack, dual wield, first aid, hide, mount, 
-            pick lock,safe fall, sneak, swim, track, unarmed damage 
-10th level: appraise
-20th level: parry, subterfuge
-30th level: disguise
-31st level: switch opponents
-51st level: trap
+1st level:   1h bludgeon, 1h piercing, 1h slashing, appraise, awareness, 
+             backstab, bandage, blindfighting, carve, circle, climb, disarm, 
+             dodge, double attack, dual wield, first aid, fishing, hide,
+             mine, mount, pick lock, ranged weapons, retreat, safe fall,
+             sneak, swim, track, unarmed damage 
+10th level:  appraise
+20th level:  parry, subterfuge
+30th level:  disguise
+31st level:  switch opponents
+51st level:  trap
 
 Rogue Specializations
 ---------------------------------------------------------------------------
 Assassin, Bravo, Thief
-
-
 ===========================================================================
-See also: SKILL, ROGUE, ASSASSIN, THIEF, BRAVO
+See also: ROGUE
 
 #
-SKILL_SHAMAN (General Information)
+SKILL_SHAMAN (Skillset)
 ===========================================================================
 The following is a list of all skills and spells available to the Shaman
 class:
 
 Skills
 ---------------------------------------------------------------------------
-1st level:  	1h bludgeon, 2h bludgeon, bandage, carve, climb, dodge, 
-                first aid, meditate, mount, quick chant, shaman spell 
-                knowledge, swim 
+1st level:   1h bludgeon, 2h bludgeon, bandage, carve, climb, dodge, 
+             first aid, meditate, mine, mount, quick chant, retreat,
+             shaman spell knowledge, swim
+
 Spells
 ---------------------------------------------------------------------------
 Because Shamans' spells are divided into three spheres, they are indicated
-in color by sphere. &+gGreen&n is animal, &+rred&n is elemental, and &+Wwhite&n
+in color by sphere. &+yyellow&n is animal, &+rred&n is elemental, and &+Wwhite&n
 is spiritual.
 
-1st circle:     &+rIce Missile&n, &+WSpirit Armor&n, &+gWolfspeed&n, &+WTransfer 
-Wellness&n
-2nd circle:     &+WLesser Mending&n, &+rFlameburst&n, &+WReveal Spirit Essence&n
-3rd circle:     &+rScalding Blast&n, &+gPythonsting&n, &+rFire Ward&n, 
-&+gSnailspeed&n,
-                &+gMolevision&n, &+rCold Ward&n, &+WPurify Spirit&n
-4th circle:     &+gPantherspeed&n, &+WMending&n, &+gMousestrength&n, &+WSoul 
-Disturbance&n,
-                &+gSummon Beast&n, &+rScorching Touch&n, &+gHawkvision&n
-5th circle:     &+gBearstrength&n, &+WMalison&n, &+gShrewtameness&n, &+WSense 
-Spirit&n,
-                &+rMolten Spray&n
-6th circle:     &+WWellness&n, &+gLionrage&n, &+WGreater Mending&n, &+WSpirit 
-Anguish&n,
-7th circle:     &+WGreater Soul Disturbance&n, &+gElephantstrength&n, 
-                &+gRavenflight&n, &+WSpirit Ward&n
-8th circle:     &+gGreater Pythonsting&n, &+rScathing Wind&n, &+WSpirit Jump&n,
-                &+WReveal True Form&n
-9th circle:     &+gGreater Ravenflight&n, &+WGreater Spirit Ward&n,
-                &+WArieks Shattering Iceball&n
-10th circle:    &+rEarthen Rain&n, &+rEtherportal&n, &+rGaseous Cloud&n
-11th circle:    &+WGreater Spirit Sight&n, &+WGreater Earthen Grasp&n
-12th circle:    &+WGreater Spirit Anguish&n
+1st circle:  &+rIce Missile&n, &+WSpirit Armor&n, &+WTransfer Wellness&n,
+             &+yWolfspeed&n
+2nd circle:  &+rFlameburst&n, &+WLesser Mending&n, &+WReveal Spirit Essence&n
+3rd circle:  &+rCold Ward&n, &+rFire Ward&n, &+yMolevision&n, &+WPurify Spirit&n,
+             &+yPythonsting&n, &+rScalding Blast&n, &+ySnailspeed&n
+4th circle:  &+yHawkvision&n, &+WMending&n, &+yMousestrength&n, &+yPantherspeed&n,
+             &+rScorching Touch&n, &+WSoul Disturbance&n, &+ySummon Beast&n
+5th circle:  &+yBearstrength&n, &+WMalison&n, &+rMolten Spray&n,
+             &+WSense Spirit&n, &+yShrewtameness&n
+6th circle:  &+rEarthen Grasp&n, &+WGreater Mending&n, &+yLionrage&n,
+             &+WSpirit Anguish&n, &+WSpirit Sight&n, &+WWellness&n
+7th circle:  &+yElephantstrength&n, &+WGreater Soul Disturbance&n,
+             &+yRavenflight&n, &+WSpirit Ward&n
+8th circle:  &+yGreater Pythonsting&n, &+WReveal True Form&n, &+rScathing Wind&n,
+             &+WSpirit Jump&n
+9th circle:  &+rArieks Shattering Iceball&n, &+yGreater Ravenflight&n,
+             &+WGreater Spirit Ward&n
+10th circle: &+rEarthen Rain&n, &+rEtherportal&n, &+rGaseous Cloud&n
+11th circle: &+rGreater Earthen Grasp&n, &+WGreater Spirit Sight&n
+12th circle: &+WGreater Spirit Anguish&n
 
 Shaman Specializations
 ---------------------------------------------------------------------------
 Elementalist, Animalist, Spiritualist
-
 ===========================================================================
-See also: PRIEST, SHAMAN, "SPELL CIRCLE", "SPELL SYSTEM", "SPELL SLOT", 
-          CAST, "SPELL FAILURE", CASTER, TOTEMS, MEDITATE, MEMORIZE, 
-          SKILLS, WEAPONS
+See also: SHAMAN, TUPOR, MEMORIZE, TOTEMS
 
 #
-SKILL_SORCERER (General Information)
+SKILL_SORCERER (Skillset)
 ===========================================================================
 The following is a list of all skills and spells available to the Sorcerer 
 class:
 
 Skills
 ---------------------------------------------------------------------------
-1st level:    	1h bludgeon, 1h piercing, 2h bludgeon, bandage, carve, 
-                climb, dodge, first aid, meditate, mount, quick chant, 
-                scribe, sorcerous spell knowledge, swim
+1st level:   1h bludgeon, 1h piercing, 2h bludgeon, bandage, carve, 
+             climb, dodge, first aid, fishing, meditate, mine, mount,
+             quick chant, retreat, scribe, sorcerous spell knowledge, swim
 
 Spells
 ---------------------------------------------------------------------------
-1st circle:     Magic Missile, Minor Creation, Detect Magic
-2nd circle:     Chill Touch, Burning Hands, Sleep, Strength
-3rd circle:     Shocking Grasp, Concealment, Acid Blast, Dexterity
-4th circle:     Lightning Bolt, Wizard Eye, Ray of Enfeeblement, Farsee,
-                Infravision, Dispel Magic, Minor Paralysis, Levitate
-5th circle:     Cone of Cold, Dimension Door, Coldshield, Minor Globe of 
-                Invulnerability
-6th circle:     Fireball, Teleport, Fireshield, Color Spray, Ice Storm, 
-                Feeblemind
-7th circle:     Bigbys Clenched Fist, Improved Invisibility, Haste, Power 
-                Word Blind, Power Word Stun, Reveal True Name
-8th circle:     Dispel Invisible, Stone Skin, Immolate, Fly, Power Word 
-                Kill
-9th circle:     Relocate, Detect Invisibility, Mass Invisibility, 
-                Incendiary Cloud, Prismatic Ray, Disintegrate
-10th circle:    Meteorswarm, Chain Lightning
-11th circle:    Bigbys Crushing Hand, Enlarge, Reduce
-12th circle:    Deflect, Globe of Invulnerability
+1st circle:  Detect Magic, Magic Missile, Minor Creation
+2nd circle:  Burning Hands, Chill Touch, Sleep, Strength
+3rd circle:  Acid Blast, Concealment, Dexterity, Shocking Grasp
+4th circle:  Dispel Magic, Farsee, Infravision, Levitate, Lightning Bolt,
+             Minor Paralysis, Ray of Enfeeblement, Wizard Eye
+5th circle:  Coldshield, Cone of Cold, Dimension Door,
+             Minor Globe of Invulnerability
+6th circle:  Color Spray, Feeblemind, Fireball, Fireshield, Ice Storm,
+             Teleport
+7th circle:  Bigbys Clenched Fist, Haste, Improved Invisibility,
+             Power Word Blind, Power Word Stun, Reveal True Name
+8th circle:  Dispel Invisible, Fly, Immolate, Power Word Kill,
+             Stone Skin
+9th circle:  Detect Invisibility, Disintegrate, Incendiary Cloud,
+             Mass Invisibility, Prismatic Ray, Relocate
+10th circle: Chain Lightning, Meteorswarm
+11th circle: Bigbys Crushing Hand, Enlarge, Reduce
+12th circle: Deflect
 
 Sorcerer Specializations
 ---------------------------------------------------------------------------
 Wildmage, Shadowmage, Wizard
-
 ===========================================================================
-See also: MAGIC-USER, SORCERER, WEAPONS, SKILLS, MAGIC, "SPELL CIRCLE", 
-	  "SPELL FAILURE", "SPELL SLOT", "SPELL SYSTEM"
+See also: SORCERER, TUPOR, MEMORIZE
 
 #
-SKILL_WARLOCK (General Information)
+SKILL_WARLOCK (Skillset)
 ===========================================================================
 The following is a list of all skills and spells available to the Warlock
 class:
@@ -14391,29 +14365,27 @@ See also: PRIEST, WARLOCK, "SPELL CIRCLE", "SPELL SYSTEM", "SPELL SLOT",
           CAST, "SPELL FAILURE", CASTER, ASSIMILATE, WEAPONS, SKILLS
 
 #
-SKILL_WARRIOR (General Information)
+SKILL_WARRIOR (Skillset)
 ===========================================================================
 The following is a list of all skills available to the Warrior class:
 
 Skills
 ---------------------------------------------------------------------------
-1st level:  1h bludgeon, 1h flaying, 1h piercing, 1h slashing, 2h bludgeon,
-            2h flaying, 2h slashing, bandage, bash, berserk, blindfighting, 
-            carve, climb, disarm, dodge, double attack, dual wield, 
-            first aid, hitall, kick, mount, offense, parry,
-            rescue, riposte, shield block, swim, switch opponents, unarmed 
-            damage
-25th level: reach weapons
-51st level: triple attack
-
-NOTE:       Use help <skillname> | <specname> for more information.
+1st level:   1h bludgeon, 1h flaying, 1h piercing, 1h slashing, 
+             2h bludgeon, 2h flaying, 2h slashing, bandage, bash, berserk,
+             blindfighting, carve, climb, disarm, dodge, double attack,
+             dual wield, first aid, fishing, hitall, kick, mine, mount,
+             parry, rescue, retreat, riposte, shield block, swim,
+             switch opponents, unarmed damage
+25th level:  reach weapons
+51st level:  triple attack
+56th level:  quadruple attack
 
 Warrior Specializations
 ---------------------------------------------------------------------------
-Swordsman, Guardian
-            
+Swordsman, Guardian            
 ===========================================================================
-See also: WARRIOR, WEAPONS, SKILLS
+See also: WARRIOR
 
 #
 SLEEP (Spell)
@@ -14457,6 +14429,31 @@ This spell causes the victim to move more slowly in combat. It does not
 dispel the "haste" spell, but can counter its effects.
 ===========================================================================
 See also: HASTE
+
+#
+SMELTING (Skill)
+===========================================================================
+Smelting is one of the skills known to the Alchemist Class. It allows you
+to merge pieces of ore into larger ones. This is helpful in order to fulfil
+the requirements needed to forge various items.
+
+A foundry is required to smelt ore, this can be innately created by any
+alchemist.
+
+To smelt ore simply follow these steps:
+   Create a foundry.
+   Open the forge.
+   Put the ore you wish to smelt into the forge.
+   Smelt the ore.
+
+The syntax for using this skill is &+Ysmelt&n.
+
+Both the skill in smelting and level of the alchemist will determine how
+successful the outcome is. It is well known that less experienced
+alchemists often end up with nothing but ashes when trying to use
+this skill.
+===========================================================================
+See Also: MINE, FORGE, ALCHEMIST, SKILL_ALCHEMIST
 
 #
 SNAILSPEED (Spell)
@@ -16988,12 +16985,13 @@ See also: FLEE
 
 #
 TWINK
-
+===========================================================================
 A "twink" is a term used to describe a player who constantly whines
 about the game, constantly badgers the gods, has no respect for the
 gods or the game they have created, tries to bend the rules to his/her
 advantage, and/or makes requests that are against the rules because
 he/she can't accept his/her own mistakes.
+===========================================================================
 
 #
 UD-SNEAK "UD SNEAK" (Innate)
@@ -17676,28 +17674,27 @@ someplace completely unexpected (and perhaps very dangerous).
 See also: RELOCATE
 
 #
-ELAPHIDIST
+"WEAPON ENCHANTMENT" (Spell)
 ===========================================================================
-A follower of this path of training focuses on emulating the movement of 
-the snake in attempt to enhance speed, mental focus and precision. They
-will strike at neural knots crippling their opponents or lash out in a 
-flurry of blows. Their extreme control will also enable them to avoid 
-larger magical attacks by twisting out of the way.
+Area of effect: <weapon>
+Aggressive:     N0
+Cumulative:     No
+Duration:       Permanent
+Type of spell:  Enchantment
 
-Innates
----------------------------------------------------------------------------
-Level 46:	Evasion
-Level 51:	Enhanced pressure points
+Weapon Enchantment will enchant non-magical (non-modifying) weapons only. 
+Non-modifying weapons are those that do not alter any ability. The only way
+to be certain if a weapon is suitable for enchantment is to fully identify 
+it.
 
-Skills
----------------------------------------------------------------------------
-Level 31:	Flurry of blows
-Level 36: 	Enhanced heroism
+The level of enchantment given the weapon is random, depending upon
+conditions of the weather, magical energies, skill of the conjurer, and the
+blessings of the gods.
 ===========================================================================
-See also: MONK, EVASION, "PRESSURE POINT", "FLURRY OF BLOWS", HEROISM
+See also: IDENTIFY, WEATHER
 
 #
-WEAPONS WEAPONRY (General Information)
+WEAPON WEAPONS WEAPONRY (General Information)
 ===========================================================================
 The weapons of Duris fall into several main types, and you should practice
 at each to become proficient. Ability to hit with a given weapon is
