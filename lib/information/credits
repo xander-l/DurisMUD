@@ -9,6 +9,7 @@
 
 &+L***************************************************************
 
+&+RThe 222nd Level of the Abyss   &+L* &+R51+        &+w-&+L=&+C  Kolut
 &+gThe Abandoned Ruins            &+L*  &+g1-20      &+w-&+L=&+C  Jera
 &+rThe Accursed Realm of Khul'lor &+L* &+r45-50      &+w-&+L=&+C  Scip
 &+YAlrik's Inn                    &+L* &+Y20-50      &+w-&+L=&+C  Guidrich
@@ -168,6 +169,7 @@
 &+rPragtog's Domain               &+L* &+r15-45      &+w-&+L=&+C  Dryzkul
 &+YPrison of Despair              &+L* &+Y25-50      &+w-&+L=&+C  Zod
 &+rPrisons of Fort Boyard         &+L* &+r40-50      &+w-&+L=&+C  Melkivar
+&+rThe Quintaragon Castle         &+L* &+r40-50      &+w-&+L=&+C  Unknown
 &+gRaiders                        &+L*  &+g1-10      &+w-&+L=&+C  Zaeru
 &+RRa`Tutirama                    &+L*    &+R50+     &+w-&+L=&+C  Falari
 &+rThe Realms of Thetis           &+L* &+r30-50      &+w-&+L=&+C  Falari
@@ -239,6 +241,7 @@
 &+gThe Wildlands Trails           &+L* &+g15-35      &+w-&+L=&+C  Zarland
 &+gThe Worm Nest                  &+L* &+g10-40      &+w-&+L=&+C  Truposz
 &+gWorms                          &+L* &+g 1-30      &+w-&+L=&+C  Zaeru
+&+YZalkapfaan                     &+L* &+Y40-50      &+w-&+L=&+C  Gharl
 
 
                      &+L<&+m<&+L<   &+CHOMETOWNS  &+L>&+m>&+L>
@@ -285,11 +288,11 @@
                                   &+L*********
 
       &+WDuris Code: &+BTavril, Foo, Fafhrd, Io, Stravag, Primus, Cython, Timken,
-                     &+BAlyx, Krov, Tasfalen, Ilienze
+                     &+BAlyx, Krov, Tasfalen, Ilienze, Torgal
       &+WDuris Areas: &+CTripod, Orcus, Cython, Ilienze, Clavados, Jera, 
-                      &+CMelkivar, Paradox, Sniktiorg
+                      &+CMelkivar, Paradox, Sniktiorg, Astansus
       &+WHelp Files: &+COsrell, Lowkie
-      &+WDuris web site: &+CParadox 
+      &+WDuris web site: &+CTorgal
 
                     Copyright  1995, 1996 - Duris Systems Ltd.
                        Creator of Custom DE Editor: &+cTavril
