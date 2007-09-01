@@ -36,7 +36,7 @@ while [ $RESULT != 0 ]; do
 	fi
 
   echo "Starting duris..."
-  ./dms_new 7878 > dms.out
+  ./dms 7777 > dms.out
 
 	# capture the exit code
   RESULT=${PIPESTATUS[0]}
