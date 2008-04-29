@@ -10,7 +10,6 @@ Make sure you remember how to leave a zone you're in.  Mobs trying to hunt you d
 Rogues can check an enemy's health without breaking hide by using the 'glance' command.
 Is a dragon about?  Kneel before they enter the room to keep from fleeing from their ROAR!
 Typing "aggressive 0" will make you automatically attack any aggressive monsters that enter the room. Type "aggressioff" to turn this off.
-Druids can cast 'detect invis' on themselves by casting 'animal vision' while in a swamp.
 Some races and classes can cast 'faerie fire', which will hinder rogues from hiding.  It will also increase your ability to hit your foes.
 Be sure to have a raft or canoe handy in case you need to cross water.
 To regain hitpoints faster, try to 'rest' or 'recline'. Sleeping will increase the heal rate even further.
