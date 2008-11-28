@@ -1,467 +1,294 @@
-&+R18/10/06&n
-&+WDuris is back home in sweden.
-- Make sure you connect using duris.game-host.org. 443 and 6666 and 4444.
-  durismud.com works, but it rounds trips to us, and will provide most
-  everyone with extra lag, so do not use it for a few days.
+&+R2/18/08
+- The surprise skill should no longer be cheesable.
 
-&+R15/10/06&n
-- The duration of the spell 'minor paralysis' has been lowered and is now
-  level dependant.
+&+RNote&n: According to the updated rules for this wipe, you are
+      &+YNOT&n allowed to abuse bugs, even if you have reported
+      them. We will be lenient if you accidentally triggered a bug, 
+      but if it is clear that you have abused it on purpose, even 
+      if you have reported it, you will be liable for disciplinary 
+      action.
 
-&+R14/10/06&n
-- The procs for &+yAmbran&n and &+rDeath Rider&n have been upgraded.
+&+R2/14/08
+  &+GNew server!
+- We are now live on a new server in the same data center, but with dual processors
+  and a super fast hard drive. Hopefully the mud will be more responsive and won't
+  slow down at peak times. Feedback is appreciated!
 
-&+R13/10/06&n
-- Removed a mob from Bahamut's Palace that was being dimmed to in order to
-  cheese the zone.
-- Players who have followed the path of the multiclass, but then have decided
-  to return to the simple life, can now pray to the gods of Duris at the Altar
-  of the &+RMadMaN&n in the center of the &+WLost Temple of &+GTikitzopl&n. 
-  Doing so requires an epic skillpoint.
-- The damage from saved Solbeep's missles has been increased.
-- Being hasted was unintentionally guaranteeing that you always succeeded AGI 
-  checks. Changed to a bonus modifier instead of insta-success.
+&+R2/11/08
+- The sorcerer Ny'Neth has simultaneously mastered all the arcane paths of
+  magic. You have been warned!
 
-&+R09/10/06&n
-- The news is now correctly updated on the website.
+&+R2/7/08
+- Psycheporter specialized psionicists can no longer stack the 'displacement' spell.
+- Shield punch should no longer hit victims outside its size range.
+- Shadow archers have gained the 'Evasion' innate at 41.
+- Shadow Archers lag after firing a volley of arrows is reduced.
+- The Bard/Illusionist multiclass has gotten some new ansi.
+- Air Magi have a new spell. Check helpfiles for details.
+- The effects of the avenger spells 'Atonement' and 'Divine Power' have been
+  slightly increased.
 
-&+R05/10/06&n
-- Lowered move drain while running from pvp fights, a tad.
-- Casters get a few extra spellslots to compensate for everyone having extra 
-  hitpoints.
-- Rogues now ignore the move penalty for the first few seconds after a flee,
-  giving them a chance to get back to the battle and stab!
+&+R2/4/08
+- Mercenaries' entrapment ability (prevents fleeing) has a much lower chance of
+  succeeding now, since you can stack the effect with multiple mercenaries in
+  the group.
 
-&+R05/10/06&n
-  &+YBig Changes&n
-- Adjusted the hps changes, so they a little less drastic. Lowered
-  the affect of damroll generaly so you get less extra damage / damroll you get.
-  Lowered the bonus for damroll and hitroll / level bonus a bit.
+&+R2/2/08
+- Tsunami, the trident of storms, is no longer permanent coldshield. The vitality
+  it grants is also slightly more potent.
+- Some innate skills can be used slightly more often now, try them out!
+- Necromancers have gotten a new spell, vitalize undead. Check helpfiles for details.
+- Avengers have been heavily redone, lost a few skills, but are now a semi-caster
+  class. Check helpfiles for details.
+- Avenger damage mod has been lowered slightly.
+- Dreadlords now have the disarm skill, and they are also immune to the effects
+  of fear inducing spells and abilities.
 
-- Base hitpoints for players has been dramatically increased.
-- All players now receive a major level dependant hit/dam bonus.
-- Mobs will now deal more damage to players.
-- After engaging in pvp, your moves will decrease while you move much faster 
-  until you calm down.
+&+R2/1/08
+- Frigates, being primarily warships, now have a considerably lower cargo capacity.
+- The shipfrag penalty for being fragged is now the same as the shipfrags the
+  fragger gains (it should have always been this way).
+- Diabolus spec Necromancers now have the 'mummify' innate at 41.
+- Some of the royal guards in Aravne have become a bit tougher. Beware!
+- Ethereal/Astral planes should now be twilight.
 
-  The purpose of these changes is to reduce dependency on hit/dam/hp equipment, 
-  so that you can fill those slots with more appropriate +stat gear. It will 
-  also hopefully lead to longer and more interesting battles, and the movement 
-  code should prevent people from running away too easily. As with everything, 
-  we will be monitoring this change and will be adjusting accordingly.
-
-&+R29/09/06&n
-- Evil races can now see a few squares on the map during the day.
-- Magical darkness should no longer blind goodies.
-- Goodies should now be able to see better in the UD.
-- If you notice anything funky about this, &+YDON'T PANIC&n, please
-  just report it and we will get it fixed ASAP.
-
-&+R14/09/06&n
-- The map movement code has changed, and now only groups with more than 4 will be heard.
-
-&+R13/09/06&n
-- Grey Elves and Goblins can now choose to follow the dark path of the Rogue.
-
-&+R12/09/06&n
-  &+GEpic Zone Changes Part II&n
-- There is a new command, "epic zones" which shows you all the epic zones in the
-  world.
-- Epic zones that are done too frequently will become less valuable, and epic zones
-  that are rarely done will become even more valuable over time (up to 2x!). The
-  epic zone listing will show epic zones that are particularly common or rare.
-- This feature does not affect the epic leveling, if you have enough exp and epics 
-  for the stone level you will level regardless of the frequency.
-- As with any new feature, it is liable to be tweaked for specifics, so don't panic :)
-
-&+R07/09/06&n
-- Mortals can now use the "arti unique" and "arti ioun" commands. The list of
-  uniques on mobs is still purchasable from the mob in Aravne.
-
-&+R06/09/06&n
-  &+GEpic Zone Changes&n
-- There is now no epic zone trophy penalty (you can still see your trophy, but it
-  doesn't affect the epic payout).
-- When touching a stone, everyone in your group in the room will automatically
-  receive epics. There is no group size limit, the epics will be shared equally.
-- Epic leveling after level 51, like 44-51, now only requires you to level at 
-  one of the listed zones (how this works is liable to change in the near future, 
-  but for now: &+Renjoy&n!)
-- 1.0 frags is now worth 20 epic points.
-
-&+R29/08/06&n
-- New command, "trophy frags", will show you the people you've fragged, and how
-  many times you've been in on the kill (not the total value of frags gained from
-  them). This is just for your own private viewing pleasure, having a high number 
-  here won't affect frags gained in the future.
-- Stat pools no longer have the chance to reduce your stats.
-- Guild golems no longer require upkeep.
-
-&+R28/08/06&n
-- The shopkeepers of Duris have learned how to buy and sell faster.
-
-&+R28/07/06&n
-- Lightning bolts, are now the most overpowered spell in game.
-  We back up now and should be where we left of, only thing missing
-  is the router. But it shouldt affect game play to much, we back on the
-  old one i had to reboot to get rid of lag, but a new of same kind as the
-  burned out one, is on way (:
-  Thanks for your patience, oh and this sucked!
+&+R1/29/08
+- Druid mobs have gotten smarter. Watch out!
+- Elemental swarm elementals have gotten slightly weaker.
+- The 'healing salve' spell now has the potential to heal a bit more.
+- Watch out when 'killing' ghost mobs; they might suck a bit of your living force away.
+- Kharne wants you to know that Jexni fixed alot of typos.
+- Arrows and bows should show a bit more information when you use the 'identify'
+  spell on them.
+- Duergar rogues can now also specialize as Thieves.
+- If you are sneaking, it will now show on your score.
+- The globe of shadows artifact has been changed significantly. It is now a
+  major artifact, and it's new abilities can be found in help artifact_globeofshadows
   
-  /Kvark
+  &+LThief Changes: First Round
+- Thieves lost innate sneak, but no longer lag when actively using the sneak skill.
+- Expert thieves no longer show up on the maps when sneaking.
+- Expert thieves can hide with no lag now.
+- Thieves gain evade at 46 instead of 56.
+- This is just the first round of thief changes; we're going to continue to update
+  the class in the next few weeks. In general, thieves are moving towards a traditional
+  "D&D" style thief - more emphasis on stealth rather than on stealing. Thieves
+  will probably keep some form of steal, but that will not be their major focus.
 
-&+R22/07/06&n
-- The masters of the guild of Swordsmen have decided that only swordsmen who have
-  acheived level 56 should be able to quadruple attack.
-- Guardians have learned how to shield punch harder.
+&+R1/28/08
+- Vampiric touch (the spell) now gives a slight hitroll bonus for necros.
+- Heal undead now heals for slightly more than before.
+- Protect undead stacks once more, but only on the caster and his/her pets.
+- Necromancer mobs have gotten much, much, much smarter.
+- Necromancer pet spectres and wraiths should no longer fudge things up with their procs.
+- Dreadlords should now have spec options once more.
+- Exp grouplimts have been changed: evils group limit is now 6, and goodies
+  is now 10.
 
-&+R17/07/06&n
-- More advanced characters (over level 50) have learned how to lose less experience 
-  when dying.
+&+R1/26/08
+- A new shaman spell has been added for the Elementalist spec, check the helpfiles
+  for details.
+- Ethermancer mobs now have an AI associated with them, beware!
+- Each Ethermancer spec now has a 56 spell, read helpfiles for details.
+- Rescue should now lag the rescuee much less than before.
+- You can now multiclass at level 46 instead of 50, with the same epic requirements.
+- Experience should be a fair amount easier across the board.
 
-&+R16/07/06&n
-- Characters over 51 will now get exp back from resses (no idea why that was disabled).
-- Guard skill should now work way more often.
-- Paladins' cleave skill should notch much faster now.
-- Evils can now see again in the room (but not the map) during the day. No racechanges.
-- The penalty for doing zones already on your epic trophy list has been reduced.
-- Epic zone trophy size is now 30.
+&+R1/24/08
+- A new necromancer spell, 'Knock', has been added. Check helpfiles for details.
+- Paladins/Antipaladins can now remort (ascend/descend, respectively) at level
+  46. The 50 epic prerequisite still remains.
+- Flame and Shock reaver have gained a few new low level spells. Check helpfiles
+  for details.
+- Myrabolus now has a working bank.
+- The Desert City of Venan'trut's inhabitants have gotten a bit tougher.
+- Bashing things is slightly more difficult than before.
 
-&+R14/07/06&n
-- Conjurer spells in bard's protection have been replaced with
-  major melee reduction bonus.
+&+R1/23/08
+- We are now accepting donations from the website to help us pay for our
+  ongoing server costs. Please go to &+Ghttp://www.durismud.com/donate&n for more
+  information.
+- The poor pupae deep in the &+WMaggot Caves&n have evolved some protectors
+  to prevent them from being so easily slaughtered so often.
+- Arachnids' buggy webwrap proc has been fixed.
+- It's been this way for awhile, but just fyi: if you already have more than 20
+  frags, you won't gain any more frags unless your victims are 40+
 
-&+R09/07/06&n
-- Centaurs special roar vulnerability has been replaced with
-  save-fear penalty.
+&+R1/22/08
+- Poison now has an upper timelimit, so it's not possible to stay poisoned
+  for hours (although it still lasts a few minutes).
+- Bandaging now has a chance of healing poison as well, based on your skill
+  level.
+- Several mobs in &+YVenan'Trut&n have buffed themselves up commensurate with
+  the equipment they carry.
+- &+WSootfoot&n in Winterhaven now sells mining picks and forging hammers.
+- Abbadon and Maverick have joined the ranks of the elite.
 
-&+R05/07/06&n
-- The lag after monk chants has been reduced.
-- New guild command, "soc l", which will show leaders the guild
-  ledger (list of guild money transactions).
-- Holy weapon proc on Ambran and Death Rider changed slightly.
-- The construction of guild teleporters has been reenabled.
+&+R1/21/08
+- Mercenaries' entrapment skill is now not as likely to happen.
+- Several zones have been rearranged slightly to fit with their descriptions.
+- A few mobs and items here and there have been tweaked.
+- Illusionists can now learn the summon familiar epic skill as well.
 
-&+R04/07/06&n
-- The darkness and continual light spells have been changed in regards
-  to each other.
-- Healing salve was moved to 6th circle for healer specced clerics.
-- Teleport traps should be more efficient, be warned.
+&+R1/19/08
+- Headbutt damage is now more level+skill dependent.
+- Necropets now have slightly more hitpoints.
+- The world realized that four-leaf clovers really can't make you see 
+  in the dark.
+- The issues with the epic stone in the Swamp should be fixed now.
+- A few pieces of equipment have had their stats altered, and a few mobs
+  and items are now rareload.
+- Good-raced players no longer lose experience on death until level 30.
 
-&+R03/07/06&n
-- The Labyrinth of No Return is now truly more difficult to roam around
-  in by magical means.
+&+R1/18/08
+- The threshold number of epic points required to gain association prestige
+  has been raised slightly.
 
-&+R02/07/06&n
-- Guild shops have been disabled.
+&+R1/17/08
+- The infamous bug with Orogs and Githzerai not gaining prestige points as
+  normal has been squashed.
+- The staircase near the Stargazer temple in Aravne should no longer have
+  the equivalent of a 100 car pile-up residing in it's rooms.
+- The dirk dubbed 'Extinction' is now merc/rogue/bard only.
+- Goblin innate flurry should work as intended now, before the casting
+  pulse bonus it inferred was less than haste, and didn't even stack
+  with haste. It is also less laggy to use this innate.
+- The lifebane mask has lost it's invoke invisibility, and had it replaced
+  with some more fitting stats.
+- The dawndale DI monocle has also had it's stats adjusted, losing DI in 
+  favor of more realistic stats.
+- Purple worms should now disintegrate (leave no corpse) once you kill them.
+- Folks without the 'Parlay' skill will no longer be able to use it.
+- Parlay now has very slight lag after it's use.
+- Attempting to parlay with Elite mobs is alot tougher, you have been warned!
+- The epics on the Swamp Troll King and his equipment should be fixed.
+  Report any bugginess.
+- A new spell has been added for the wildmage spec. 'Help Wildmage' for details.
+- The 'Rage' ability for berserkers has been changed slightly. Instead of
+  statically setting the pulse of the character very low, it now sets the
+  characters pulse to a percentage of his or her previous pulse.
+- The Ragelord lower lag on rage was somehow being applied to both specs,
+  this has been corrected.
 
-&+R28/06/06&n
-- Mobs can now cast disintegrate. Be careful!
-- Sorcerers have lost disintegrate from their spell list.
-- Touching epic stones with more than one char, taking them out of
-  zone, or portaling people in is considered mutliplaying and will be
-  punished as such.
-- The guard skill should be easier to notch now.
-- Ship contact IDs are now randomly assigned.
-- Guilds can no longer build teleporters between their guildhalls/OPs.
+&+R1/16/08
+- Necromancers cannot cast Protect Undead on themselves unless they are 
+  tranced (change goes along with heal undead a few days ago).
+- Energy Drain once again goes through globe.
+- A few items in Jade Empire have had their stats adjusted.
+- A rather "quick" dagger has realized that only certain classes can use it.
 
-&+R27/06/06&n
-- Saves bonus from spirit ward and greater spirit ward are flag
-  bound now (eq will grant it as well).
-- Greater spirit ward no longer blocks fire and coldshield but it
-  blocks negative shield and all kinds of soulshield. Consider this
-  change a testing phase, we may revert it if doesn't work fine.
-- Potions of flight are no longer rentable. We will try to find some
-  reasonable replacement for this spell.
+&+R1/15/08
+- The lockers in the Orog Encampment are now ready for business.
 
-&+R25/06/06&n
-- Armor bonus was removed from combat mind.
-- Barkskin was removed from natures blessing.
-- Marooned ixitchl no longer gives information about uniques for free.
+&+R1/14/08
+- Quietus Quay now has a shipyard and quest bartender. Hurray.
+- Duergars have had their racial agility slightly increased.
+- Several items throughout the world have had their stats adjusted.
+- All permanent invisibility equipment has been re-evaluated. Instead
+  of allowing the wearer to remain invisible permanently, it requires
+  the user to invoke the invisibility affect, with a slight cooldown.
+- Githzerai shrug has been increased slightly.
+- PVP exp has been increased slightly once more.
+- Disarm should notch a bit more easily now.
+- Necromancers can no longer heal undead themselves unless they are tranced.
+- Necromancer pets are now slightly more durable.
 
-&+R22/06/06&n
-- Innate barter has been removed.
-- Hawkvision gives +1 to sight range in maps.
-- Innate perception grants hawkvision.
-- Hawkvision hitroll bonus is now flag-bound.
-- Shield block cap for warriors was changed to 90.
+&+R1/12/08
+- An underground spring has breached the parched surface of the &+yCalimshan Desert&n,
+  creating an oasis.
 
-&+R18/11/06&n
-- Fix to bandage the best one it was healing 9000 hps instead of 900
-  a typo done when i downgraded em a while back, sorry.
+&+R1/11/08
+- Elite mobs under level 50 no longer reward the group with 3 epics.
+- All elite mobs now reward the group/killer with a higher experience mod
+  for all types of experience gained while fighting the mob.
+- More typos and bugfixes have been done. Keep em coming!
+- Grappler combat has been changed slightly. Bearhug is only usable on same
+  size +1 larger, headlock is only usable on same size, +1 up, +1 down,
+  leglock is only usable on same size and +1 up, and groundslam is only
+  usable on same size and 1 down.
+- Necromancers can now get skeleton pets from animate dead, this was disabled
+  before for some reason.
+- A new zone has been connected on kk, east of the minotaur hometown.
+- You should be able to do commerce in Woodseer again.
+- Epics and skill points now display in your score upon hitting level 20.
 
-- New immortal rule:
-  You cannot play duris if you want to have a god.
+&+R1/10/08
+- Alot of the items in the Winterhaven shops were misflagged, this has been fixed.
+- A couple new items have been added to Morgeeth and Winterhaven shops.
+- Ghost and other subtypes of mobs that were constantly aging people have had
+  said aging procs toned down significantly.
+- Arcane cold based spells now have a message when the victim fails save vs them.
+- Knocked out folks should no longer be able to dodge kicks.
+- Grappler combat doesn't work so well versus mounted opponents now.
+- Duergars have gained miners sight at level 46.
+- Several typos and map bugs have been fixed. Please contine to report them and
+  we will continue squashing them!
+- There is now a mob in Shady Grove and Winterhaven that can sell you an elixer
+  that restores youth, for a price.
+- Summon Horde shouldn't bug out when the Orc trying to summon has Orc Players
+  following him.
+- Quietus Quay inn now work like...an inn.
+- All mounts in the game have gotten a significant boost in movement regen.
 
-&+R18/11/06&n
-- We are testing a new variant of AC calculation: it is based on item
-  material and slot now instead of using hardcoded values. This should
-  help us standardize values some and introduce explicit APPLY_ARMOR
-  bonuses later.
-- Feel free to report on bugs forum items that have wrong/unapropriate
-  material types, since this affects their AC now.
-- Conjurer mobs finally discovered the existence of stornogs spheres.
+&+R1/9/08
+- Orogs and Githzerai now have their own fraglists.
+- Zombie disease is now commensurate with their level.
+- The Orog encampment now has a bank and some shops.
+- Several speed improvements went in, hopefully the mud should be faster than
+  it has been the last few days.
+- Some of the guards defending Woodseer have deserted their posts.
+- Low-level shaman spells have been scaled in damage similar to the way other magic
+  spells were, give them a try!
 
-&+R16/11/06&n
-- Armor type spells have been changed. Main part of the protection granted
-  by all is non-stackable and shows in score as Armor. There is still some
-  stackable part left so multiple spells give benefit. Barkskin reduction
-  was converted to a large AC bonus working similarly to Armor flag. It is 
-  possible to find items granting armor but expect this effect to be 
-  extremely rare.
-- Intellect fortress power bonus was reduced.
-- Halflings run around more comfortably with bare feet.
+&+R1/7/08
+- Winterhaven now has a moneychanger and a bank.
+- You can now earn a bit more experience in a zone before it becomes boring,
+  and it won't become quite so worthless so quickly now.
+- Goblins now have higher constitution.
+- Githzerai now have slightly higher constitution.
+- Several mobs in the Underdark have been tweaked. Some track when they didn't
+  before, and vice versa.
 
-&+R15/11/06&n
-- Small change to bartender quest timers:
-  You can always do 2 quests / RL day atleast, if you sub lvl 50 you can also do
-  2 quest / level.
+&+WOverview of New Wipe Changes:&n
+&+W==============================&n
+&+L- The playing rules of &+rDuris &+Lhave been clarified and &+RWILL &+Lbe enforced!&n
+&+L- Immortals that are active as players can only have Immortal Rank.&n
+&+L- Brand new &+ymaps&+L. Time to explore!&n
+&+L- New main &+Ygood &+Lhometown: &+WWinterhaven&+L. All &+Ygood &+Lraces can start there.&n
+&+L- Several new zones are added, both epic zones and others.&n
+&+L- 40+ new NPC races, LOTS of brand new NPC unique procs.&n
+&+L- Two new PC races: &+WGith&+Gzerai &+Lfor &+Ygoodies&+L, Or&+yo&+Lg &+Lfor &+revils&+L.&n
+&+L- &+yHarpies &+Lare no longer a PC race, other races can be &+wEthermancer&+L.&n
+&+L- &+CHumans &+Lnow start with 85 in all stats.&n
+&+L- Innates are now gained as you gain levels.&n
+&+L- &+LMino&+rtaurs &+Lcan be &+MSorcerer&+L.&n
+&+L- &+BBarbarians &+Lare large, &+rDuergar &+Lmedium, &+bOgre&+L/Mino&+rtaur &+Lhuge size.&n
+&+L- &+mNecromancers &+Lcan now remort into &+LL&+mic&+Lh if they have enough epics.&n
+&+L- The guild system has been restructured.
+&+L  Basically it is more advanced, you build your guild based on
+&+L  guild prestige points. Can become a kingdom and war other
+&+L  guilds and much more. Help file coming as soon as possible!
 
-&+R15/06/06&n
-- Stone skin and biofeedback on mobs works differently now: it is
-  refreshable. Since this change may introduce some balance issues
-  we'll watch it carefuly.
+&+L- Experience has been changed some.&n
+  &+WPVP &+rkills &+Lare actually worth it now, &+Whappy &+rhunting&+L!&n
 
-&+R13/06/06&n
-- A couple potions and scrolls available in stores have been
-  altered.
+&+L- Zone trophy system. Which means that the trophy is calculated
+&+L  on how much exp you have gained in the zone, opposed to how
+&+L  many mobs you have killed.
 
-&+R8/06/06&n
-- The zones required for level 51 have changed.
+&+L- Experience is now split among the group, so the bigger the
+&+L  group is the less exp you get from each kill. But the smaller
+&+L  the group is the faster you trophy out on mobs and have to
+&+L  move around more.&n
 
-&+R7/06/06&n
-- &+LDayblind for Evils&n
-  Relive the glory days of Duris by being blind during the day (as an evil) or hiding
-  like a wussy until the sun comes up (as a good)!
+&+L* &+rEvil &+Lexperience group cap = &+W4&n
+&+L* &+GGood &+Lexperience group cap = &+W8&n
 
-  The main evil races (Drow, Duergar, Troll, Ogre, Githyanki) can no longer see during the
-  day. Orcs and neutral races (Minotaurs, Harpies) are unaffected.
+&+L- Class specs are more restricted.
+&+L  Basically there are more restrictions in which class/spec the
+&+L  different races can become. This is to create diversity in
+&+L  what race/class combinations people play. Some spec spells
+&+L  have also been re-arranged. Type help speclist in game.&n
 
-  Races affected by this can hide in forest or swamp squares and are unaffected (although
-  they can't see the map during the day).
-
-  Due to the special Ship Sunglasses installed in all ships in the world of Duris, all races
-  can see the same while sailing.
-
-  Globe of darkness is now a self-only spell, available to necromancers at the 9th circle.
-
-  Nightbringer lost globe of darkness, but has a new proc.
-
-  All of this is subject to tweaking, so please test it out, and we will be monitoring the
-  situation if anything needs to be changed.
-
-  Since this is a major change, I (Torgal) will be doing race changes for evils over level 30
-  affected by this if desired (up to and including racewar change if you want) for &+Wone week only&n 
-  (until Wed, 14/6/06). Please don't bug the other gods if they don't want to bother 
-  with this.
-
-&+R6/06/06&n
-- &+GEpic Zone Trophy&n
-  Right now, there are 81 epic zones on Duris. Since the beginning of the wipe, only
-  48 of them have been done, and many of them multiple times.
-
-  Due to this, the Gods of Duris have implemented an epic zone trophy system. If you
-  keep doing the same zone over and over, the non-pvp epics you receive will decrease.
-  You can "roll" the trophy like mob trophy, but it would be even better to take
-  this opportunity to discover the zones out there that you've never done before!
-
-  The command "epic trophy" will show you the epic zones you have accomplished.
-
-- The "epic" command will show you the top players on both sides by epics.
-- Tracks left behind by players will now no longer give the race name.
-- Enhance spells available to psionicists are now bonus type spells instead
-  of basically setting stats to 100.
-
-&+R5/06/06&n
-- Shadow shield used to be better than stone skin for some reason.
-  It isn't anymore.
-
-&+R4/06/06&n
-- The spells magic missile, chill touch, burning hands, acid blast, shocking grasp, 
-  lightning bolt, cone of cold, ice storm, fireball, bigby's clenched fist, and bigby's
-  crushing hand have been recalibrated to be more or less a linear progression in damage 
-  instead of the total willy-nilly they've been for the past 10 years. Fist and hand do
-  approximately the same damage as they did before, but their failed spell save damages
-  aren't quite so ridiculous.
-  These are all still subject to being balanced, so please don't panic.
-- Stone skin, shadow shield and biofeedback are now not stackable with each other.
-- Air magi are now perm haste, and their hastes and air form spells also last a bit longer.
-
-&+R3/06/06&n
-- The harm spell has been upped to be between cause critical and full harm.
-- Ice storm now takes longer to cast.
-- Good-raced characters less than level 30 will no longer lose exp when dying.
-- Paladins and Anti-paladins have been revamped.
-- Necromancer pet vampires have WAY more hitpoints and take up slightly more slots.
-- Reaper pet shadows have fewer hitpoints, take up more slots, and are in general less cheesy.
-
-&+R2/06/06&n
-- The defend skill has been removed, and guard has been totally revamped, and is 
-  usable by Guardians, Paladins, and Anti-Paladins.
-- Stoneskin was replaced with shadow shield for sorcerers.
-- Casting time for fists, crushes and detonates was slightly increased.
-- Prices for rare ores have been reduced.
-
-&+R31/05/06&n
-- Swordsmen have taught their Guardian brothers how to perform the follow-up riposte
-  maneuver, and then forgotten how to do it themselves.
-
-&+R30/05/06&n
-- Spellweave should work as expected now, there were reliability issues.
-
-&+R29/05/06&n
-- Goodie groups will now find themselves receiving not as much experience if they
-  have too many people in the group.
-
-&+R27/05/06&n
-- Sorcerers have learned a new 10th circle spell
-- A few of the bash fail messages are a little more intuitive now.
-
-&+R26/05/06&n
-- Swordsmen (warrior specialization) have learned how to triple and quadruple attack
-  at a lower level than their unspecialized colleagues.
-
-&+R25/05/06&n
-- Mercenaries now receive a money reward for bartender quests after level 25.
-
-&+R24/05/06&n
-- If you are unsure where to go to obtain your next level, ask your teacher.
-- Bartender quest exp is alot more rewarding now. Have fun.
-- Bandages are slightly less effective, making the higher end bandages a more usefull.
-- Passive tracking disabled, i'll see if i can manage to balance this somehow, but
-  it was very lame as was.
-- Fixed bug where you magically got transferred to other peoples' lockers sometimes.
-- Fixed frag <class|race|good>.
-
-&+R23/05/06&n
-- Necromancer NPCs are no longer lazy, they will try to find corpses
-  on their own. It may take them some time but be warned!
-
-&+R22/05/06&n
-- Shopkeepers around the world realised that ore, prices should be more static. 
-- Epic command disabled, no reason to display this. Since lvl are based on this
-  you get a good idea of peoples epic by typing who!
-- Bug with some old transaction code, where shop keepers would take treasure in 
-  your inventory if you didt have enought money, been removed. 
-  Thanks for reporting.
-- You can no longer bandage your self in locker.
-
-&+R22/05/06&n
-- Paladins have forgotten how to cast the 'heal' spell.
-- Anti-Paladins learned how to cast the 'energy drain' spell.
-- Paladins and Anti-Paladins have learned how to master the bash skill.
-- Ferry ticket automats will now show the list of destinations and the ETA
-  of the ferry.
-
-&+R21/05/06&n
-- Ports 433 and 4444 are now open
-- The AC of new random shields will be comparable to other existing shields.
-
-&+R20/05/06&n                                                                   
-- Wizards have lost arcane block and gained spellweave instead. This
-  skill remains to be balanced.
-- Paladins' lay hands innate has been toned down.
-- Ferry tickets have gotten a little more expensive.
-- Upgraded unmaking a bit.
-                                             
-The races of &+rDuris&N have evolved...
-&N&+bOgres&N, &+LMino&N&+rtaurs&N, &+gCen&+Ltaurs&N, and &+gTrolls &Nare the only large races. &+BBarbarians &Nhave
-been reduced in size to medium and gained more moves. A shield is grand thing to
-have as they grant much more armor class.  &+rRogues&N are again the only class to be
-able to trip; meanwhile, &+WRe&+Lave&+Wrs&N have learned to springleap, &+GRangers&N have forgot
-how it was they once bashed, and the time a victim must stay on the ground after
-being lept at has been reduced.  Likewise, &+RMauling&N and &+LGazing&N now take less of a
-toll on others. &+BWarriors&N who attempt to bash without a shield worn also may note
-their victim standing a bit sooner. &N&+cHitters&N have had their hitpoints downgraded.
-&+YMountain Dwarves &Nand &+rDuergar Dwarves&N have survived long against magic. Thus, the
-Dwarves have developed a damage reduction innate towards the most general magic.
-The &+RGnomish&N Schools of Engineering and Magic have finished their work on another
-advancement for their race: &+bultravision&N. The condition of your armor affects the
-amount your armor protects you, keep it in excellent &+Crepair&N. &+gDruids&N are now more
-closely guarded with their spells; no longer will others benefit by serendipity,
-also regeneration is now self only. Summoning cyclones now takes longer. Shields
-are no longer usable by the fledgling &+gDruids&N. Rumors state, upon specialization,
-the skill returns.  The &+YConjurer's Conjecture&N daily has reported that a new copy
-of the Conjurer Spellbook has come out.  The effects minorly paralysis will fade
-faster as will the unconsciousness resulting from headbutt. The time of &+Rhard&N&+rcore&N
-is no more. The time when &+gDruids&N and &+WRe&+Lave&+Wrs&N strayed from their prime classes is
-no more, they may no longer multiclass.  &+WPaladins &Nand &+LAnti-Paladins&N were granted
-new innate auras to aid their groups in exchange for their spells of protection.
-&+LAnti-paladins&N can now 'descend' into the depths of evil and become dreadlords.
-(&+mNecromancers &Ndecided it was too dangerous&N).  &+yGuardians &Ncan now guard and defend.
-
-
-&+mNecromancer &Nspecs have been swapped around:
-&+mDiabolis&N necros have studied how to create powerful golems, the art of
-unmaking corpses to heal themselves, and how to search the ground in
-order to exhume corpses. They are also masters of the power of undead,
-to the point where they can cast the destroy undead spell.
-
-&+mNe&+Lcrol&N&+myte&N necros are the masters of groups of undead; their pets never
-turn on them, and they can see corpses on the overland map. They also
-have proficiency in staffs of all sorts (but they are no longer
-masters), and are able to control slightly more undead. They also
-automatically mummify a corpse if they happen to strike the killing blow.
-
-&+LReaper&N necros seek after the living in order to bring them to the realm
-of the dead. They are excellent hand-to-hand fighters with stabbing or
-slashing blades, and they are able to summon a doom blade to slash their
-foes. They can summon the shadows to attack with the power of the mind,
-and have learned how to return to life while in a vampiric trance via
-their new "remort" command.
-
-&+WThe Economy of &+rDuris&N &+Wis changing...&N
-The Shopkeepers of Duris have joined in a pact: to adjust the prices in relation
-to how common the item is.  They have introduced a new line of products as well,
-&+Wbandages&N which can be found in any local store or learned about in help bandage.
-&+cFirst Aid&N is now the life saving command and can be used more often.  The way in
-which prices were done for quests has changed. &+yBartenders&N the world over will be
-glad to give them out. How often they are done affects the experience earned and
-money given. The &+GWit&N&+gch Doc&+Gtor&N has grown too frail to wander about the mountains.
-The new economy has allowed Ramous to make additions to his town; &+CVerspin&N is now
-much more interactive, also.  A "pitty" area has been added to the town as well.
-The Council of Shipwrights have spent much time in deliberation, they decided to
-create some price adjustments on the four types of ships they now make.  The vast 
-&+gswamps&N of the continent of evil have become infested with all sorts of nasty
-creatures.  Furthermore, the &+LDark&N&+yPeak&N mountains have become overrun with greedy
-orcs that populate the cities located therein.  The hometown of the &+GGoblins&N has shifted
-to a new location, and three new &+GGoblin&N areas have been discovered.  The great and
-versatile &+yFerry System&N has also seen great improvements, including new ferries and
-an all around faster ride.  The village of &+RTentro&N has been found, and also the
-high elf city of &+YShaledrieth&N, guardians of a mystical &+Ysunwell&N.  Time to explore!
-&+yMercenaries&N are now the true bounty hunters, the only class able to earn money as
-a bonus to completing bartender quests.  More on &+yFerries&N, they now appear as an &+WF&N
-on the map.  The SeaStalker's ferry route has been changed, going from the Piers of Fehlnan
-to the Jade Empire to Fort Boyard and back, for only the price of a ticket!
-When someone bids on an auction, the ending time is now postponed 5 minutes.
-
-Regarding experience and levels...
-Experience has become harder for all.  The effects of trophy on experience shall
-be noticed by all; yet, moreso by &+rEvils&N. &+rEvils&N also will notice that exp doesn't
-go as fast if their group size is any bigger than three. Additionally, &+rEvils&N can
-not regain as much experience after being &+Wresurrected&N. The experience derived by
-Player vs Player, if within range, is more substantial.  &+WAdvancing past level 45
-&+Wrequires epics, see help epic for exact numbers. &N Also, only twice per level can
-you complete a bartender quest; only two per real-life day may be completed once
-you attain level 50 and above.
-
-A few not so minor, miscellaneous changes...
-The artifacts of &+rDuris&N have been located by a wise &+Ycreature&N somewhere in &+gAvarne&N.
-The &+Celite&N&+y guards of &+GWoodseer &Nhave grown tired of the constant abuse, expect more
-security by the Halflings. &+WRolling you character has no randomness to it. Ingame
-&+Wyou may improve your stats for a bit of cash.&N The magical, amazing power of some
-swords has been lost: &+GPathfinder&N and the &+rflaming&+L gre&Nats&+Lword &Nno longer respond to
-commands. Due to the Guild Golem union, Golems are no longer required to work as
-hard when they deny you access. They lightly shove you down now which will allow
-you to stand immediately. The &+ymaps&N of &+rDuris &Nhave changed: &+ybeaches&N now abound for
-your docking pleasure. &+RThe inhabitants of &n&+rDuris&+R have forgotten how to form ranks
-&+Rin combat.
-
-The Nuts and Bolts...
-Upon login, the game now automatically picks &+RA&+BN&+GS&+YI&N terminal. &+rDuris is up on a new
-machine and should work much better: steps have been taken the step to &+Rdual core&N
-and &+Y64bit platforms&N.  Also, multiple &+Ldisc drives will now make pfile backup much
-more secure! The mud has not moved.
-
--Scribed by &+WH&+Ys&+Ro&N&+yj&N
+&+WWe hope you all enjoy this new wipe and that there will be lots of action!&n
 

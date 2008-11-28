@@ -33,7 +33,7 @@
 &+YThe Black Thorne Mountains        &+L* &+Y20-50      &+w-&+L=&+C  Sniktiorg
 &+YThe Black Tunnels                 &+L* &+Y25-45      &+w-&+L=&+C  Dryzkul
 &+YThe Bloody Plains                 &+L* &+Y20-50      &+w-&+L=&+C  Ilienze
-&+gBraddistock Mansion               &+L* &+g 1-15      &+w-&+L=&+C  Rand/Kharne
+&+rBraddistock Mansion               &+L* &+r 40-50      &+w-&+L=&+C  Rand/Kharne
 &+gThe Broken Blade Tavern           &+L* &+g10-50      &+w-&+L=&+C  Unknown
 &+rThe Bronze Citadel                &+L* &+r45-50      &+w-&+L=&+C  Mabort
 &+gBugentolen                        &+L*  &+g1-20      &+w-&+L=&+C  Clavados
@@ -196,6 +196,7 @@
 &+YShadowclave                       &+L* &+Y20-40      &+w-&+L=&+C  Clavados
 &+YShafts of the Underdark           &+L* &+Y25-50      &+w-&+L=&+C  Ilienze
 &+RShadamehr Keep                    &+L*    &+R51+     &+w-&+L=&+C  Cyric
+&+YThe Shaughin Settlements		  &+L* &+Y30-50      &+w-&+L=&+C  Dravin
 &+gShipyards                         &+L* &+g 1-50      &+w-&+L=&+C  Melkivar
 &+RShrine of the Orrak               &+L*    &+R51+     &+w-&+L=&+C  Unknown
 &+RSkrentherlog's Temple             &+L*    &+R51+     &+w-&+L=&+C  Xueqin
