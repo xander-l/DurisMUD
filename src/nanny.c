@@ -2540,7 +2540,7 @@ void select_name(P_desc d, char *arg, int flag)
     return;
   }
   /* new player */
-  if (IS_SET(game_locked, LOCK_CREATE))
+  if (IS_SET(game_locked, LOCK_CREATE) || !strcmp(get_mud_info("lock").c_str(), "create"))
   {
     if (!flag && d->character)
     {
