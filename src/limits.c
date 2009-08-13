@@ -201,7 +201,7 @@ int mana_regen(P_char ch)
     gain = 0;
 
   
-  return gain;
+  return gain * gain / 8;
 }
 
 /* * calculate ch's hit regeneration rate, return regen/minute */
@@ -309,8 +309,6 @@ int hit_regen(P_char ch)
       || IS_AFFECTED2(ch, AFF2_IS_DROWNING))
     gain = 0;
 
-  healCondition(ch, gain);
-
   return (gain);
 }
 
@@ -327,6 +325,10 @@ int move_regen(P_char ch)
      !IS_ALIVE(ch))
         return 0;
         
+  if(ch->points.move_reg >= 0 &&
+     GET_VITALITY(ch) == GET_MAX_VITALITY(ch))
+        return 0;
+
   if(IS_AFFECTED3(ch, AFF3_SWIMMING) ||
      IS_AFFECTED2(ch, AFF2_HOLDING_BREATH) ||
      IS_AFFECTED2(ch, AFF2_IS_DROWNING) ||
@@ -334,18 +336,14 @@ int move_regen(P_char ch)
      IS_STUNNED(ch))
         return 0;
         
-  if(ch->points.move_reg >= 0 &&
-     GET_VITALITY(ch) == GET_MAX_VITALITY(ch))
-        return 0;
 
   if(GET_VITALITY(ch) > GET_MAX_VITALITY(ch))
   {
     gain = (GET_MAX_VITALITY(ch) - GET_VITALITY(ch)) >> 2;
-    return MIN(-1, gain);
+    return (int) MIN(-1, gain);
   }
   
-  if(IS_NPC(ch) ||
-     IS_UNDEADRACE(ch))
+  if(IS_NPC(ch) || IS_UNDEADRACE(ch))
   {
     gain = 22;
   }
@@ -355,9 +353,9 @@ int move_regen(P_char ch)
   }
 
   if (GET_COND(ch, FULL) == 0)
-    gain *= 1.250;
+    gain /= 1.250;
   if (GET_COND(ch, THIRST) == 0)
-    gain *= 1.250;
+    gain /= 1.250;
 
   /*
    * Position calculations
@@ -412,7 +410,7 @@ int move_regen(P_char ch)
   if (GET_RACE(ch) == RACE_QUADRUPED)
     gain += (number(0, 6));
 
-  return gain;
+  return (int) (gain * gain / 5);
 }
 
 void gain_practices(P_char ch)

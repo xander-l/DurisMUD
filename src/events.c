@@ -25,6 +25,7 @@
 #include "mm.h"
 #include "objmisc.h"
 #include "epic.h"
+#include "profile.h"
 
 void     event_memorize(P_char, P_char, P_obj, void *);
 void disarm_char_events(P_char ch, event_func_type func);
@@ -425,122 +426,162 @@ void calculate_regen_values(int reg, int *per_pulse, int *delay)
   }
 }
 
+#define MOB_MANA_REGEN_DELAY 5
+
 void event_mana_regen(P_char ch, P_char victim, P_obj obj, void *data)
 {
-  int      per_tick, delay, tmp;
-
-  per_tick = mana_regen(ch);
-  GET_MANA(ch) += per_tick / 8;
-
-  if (GET_MANA(ch) > GET_MAX_MANA(ch))
-    GET_MANA(ch) = GET_MAX_MANA(ch);
-
-  if (IS_PC(ch) && IS_AFFECTED(ch, AFF_MEDITATE) &&
-      (GET_MANA(ch) == GET_MAX_MANA(ch)) && GET_CLASS(ch, CLASS_PSIONICIST))
+  float regen_value = *((float*)data);
+  int regen_value_int = (int)regen_value;
+  if (regen_value_int >= 1 || regen_value_int <= -1)
   {
-    send_to_char("&+LYour mana reserves are now full.&n\r\n", ch);
-    stop_meditation(ch);
+      GET_MANA(ch) += regen_value_int;
+
+      if (GET_MANA(ch) > GET_MAX_MANA(ch))
+        GET_MANA(ch) = GET_MAX_MANA(ch);
+
+      if (IS_PC(ch) && IS_AFFECTED(ch, AFF_MEDITATE) &&
+          (GET_MANA(ch) == GET_MAX_MANA(ch)) && GET_CLASS(ch, CLASS_PSIONICIST))
+      {
+        send_to_char("&+LYour mana reserves are now full.&n\r\n", ch);
+        stop_meditation(ch);
+      }
+
+      regen_value = regen_value - (float)regen_value_int;
   }
 
-  if ((GET_MANA(ch) == GET_MAX_MANA(ch) && per_tick > 0) ||
-      (GET_MANA(ch) < 0 && per_tick < 0) || per_tick == 0)
+  int per_tick = mana_regen(ch);
+  if ((per_tick == 0) ||
+      (GET_MANA(ch) == GET_MAX_MANA(ch) && per_tick > 0) ||
+      (GET_MANA(ch) < 0 && per_tick < 0))
+  {
     return;
+  }
 
-  calculate_regen_values(per_tick, &tmp, &delay);
-  add_event(event_mana_regen, delay, ch, 0, 0, 0, &tmp, sizeof(tmp));
+  int delay;
+  if (IS_PC(ch))
+  {
+      delay = 1;
+      regen_value += ((float)per_tick / (float)PULSES_IN_TICK);
+  }
+  else
+  {
+      delay = MOB_MANA_REGEN_DELAY;
+      regen_value += ((float)per_tick / ((float)(PULSES_IN_TICK / MOB_MANA_REGEN_DELAY)));
+  }
+  add_event(event_mana_regen, delay, ch, 0, 0, 0, &regen_value, sizeof(regen_value));
 }
+
+#define MOB_MOVE_REGEN_DELAY 10
 
 void event_move_regen(P_char ch, P_char victim, P_obj obj, void *data)
 {
-  int      per_tick, delay, tmp;
+  float regen_value = *((float*)data);
+  int regen_value_int = (int)regen_value;
+  if (regen_value_int >= 1 || regen_value_int <= -1)
+  {
+      GET_VITALITY(ch) += regen_value_int;
 
-  per_tick = move_regen(ch);
+      if (GET_VITALITY(ch) > GET_MAX_VITALITY(ch))
+        GET_VITALITY(ch) = GET_MAX_VITALITY(ch);
 
-  GET_VITALITY(ch) += per_tick / 5;
+      regen_value = regen_value - (float)regen_value_int;
+  }
 
-  if (GET_VITALITY(ch) > GET_MAX_VITALITY(ch))
-    GET_VITALITY(ch) = GET_MAX_VITALITY(ch);
-
-  if ((GET_VITALITY(ch) == GET_MAX_VITALITY(ch) && per_tick > 0) ||
-      (GET_VITALITY(ch) < 0 && per_tick < 0) || per_tick == 0)
+  int per_tick = move_regen(ch);
+  if ((per_tick == 0) ||
+      (GET_VITALITY(ch) == GET_MAX_VITALITY(ch) && per_tick > 0) ||
+      (GET_VITALITY(ch) < 0 && per_tick < 0))
+  {
     return;
+  }
 
-  calculate_regen_values(per_tick, &tmp, &delay);
-  add_event(event_move_regen, delay, ch, 0, 0, 0, &tmp, sizeof(tmp));
+  int delay;
+  if (IS_PC(ch))
+  {
+      delay = 1;
+      regen_value += ((float)per_tick / (float)PULSES_IN_TICK);
+  }
+  else
+  {
+      delay = MOB_MOVE_REGEN_DELAY;
+      regen_value += ((float)per_tick / ((float)(PULSES_IN_TICK / MOB_MOVE_REGEN_DELAY)));
+  }
+  add_event(event_move_regen, delay, ch, 0, 0, 0, &regen_value, sizeof(regen_value));
 }
 
 void event_hit_regen(P_char ch, P_char victim, P_obj obj, void *data)
 {
-  int      per_pulse, delay, per_tick;
-
-  per_pulse = *((int *) data);
-  if (GET_HIT(ch) < GET_MAX_HIT(ch) || per_pulse < 0)
-    GET_HIT(ch) += per_pulse;
-
-  if (GET_HIT(ch) < -10)
+  float regen_value = *((float*)data);
+  int regen_value_int = (int)regen_value;
+  if (regen_value_int >= 1 || regen_value_int <= -1)
   {
-    if (!char_in_list(ch))
-      return;
-    if (IS_PC(ch))
-    {
-      logit(LOG_DEATH, "%s killed in %d (< -10 hits)", GET_NAME(ch),
-            (ch->in_room == NOWHERE) ? -1 : world[ch->in_room].number);
-      statuslog(ch->player.level, "%s died in %d ( < -10 hps).",
-                GET_NAME(ch), ((ch->in_room == NOWHERE) ?
-                               -1 : world[ch->in_room].number));
-    }
-    die(ch, ch);
+      GET_HIT(ch) += regen_value_int;
+
+      if (GET_HIT(ch) > GET_MAX_HIT(ch))
+          GET_HIT(ch) = GET_MAX_HIT(ch);
+
+      if (GET_HIT(ch) < -10)
+      {
+        if (!char_in_list(ch))
+          return;
+        if (IS_PC(ch))
+        {
+          logit(LOG_DEATH, "%s killed in %d (< -10 hits)", GET_NAME(ch), (ch->in_room == NOWHERE) ? -1 : world[ch->in_room].number);
+          statuslog(ch->player.level, "%s died in %d ( < -10 hps).", GET_NAME(ch), ((ch->in_room == NOWHERE) ? -1 : world[ch->in_room].number));
+        }
+        die(ch, ch);
+        return;
+      }
+      regen_value = regen_value - (float)regen_value_int;
+  }
+
+  update_pos(ch);
+  int per_tick = hit_regen(ch);
+  if ((per_tick == 0) ||
+      (GET_HIT(ch) == GET_MAX_HIT(ch) && per_tick > 0))
+  {
     return;
   }
-  update_pos(ch);
-  per_tick = hit_regen(ch);
-  if (per_tick != 0)
-  {
-    calculate_regen_values(per_tick, &per_pulse, &delay);
-    add_event(event_hit_regen, delay, ch, 0, 0, 0, &per_pulse, sizeof(per_pulse));
-  }
+  healCondition(ch, per_tick); // no idea if it really needed, disabled by NEW_COMBAT  -Odorf
+
+  regen_value += (float)per_tick / (float)PULSES_IN_TICK;
+  add_event(event_hit_regen, 1, ch, 0, 0, 0, &regen_value, sizeof(regen_value));
 }
 
 void StartRegen(P_char ch, int type)
 {
-  int      i, j = 1, delay;
-  P_nevent  e1 = NULL;
   event_func_type func;
+  int delay, per_tick;
 
-  if (type == EVENT_HIT_REGEN)
+  if (type == EVENT_MOVE_REGEN)
   {
-    i = hit_regen(ch);
-    func = event_hit_regen;
-  }
-  else if (type == EVENT_MOVE_REGEN)
-  {
-    i = move_regen(ch);
     func = event_move_regen;
+    if (get_scheduled(ch, func)) return;
+    per_tick = move_regen(ch);
+    delay = IS_PC(ch) ? 1 : MOB_MOVE_REGEN_DELAY; 
+  }
+  else if (type == EVENT_HIT_REGEN)
+  {
+    func = event_hit_regen;
+    if (get_scheduled(ch, func)) return;
+    per_tick = hit_regen(ch);
+    delay = 1;
   }
   else if (type == EVENT_MANA_REGEN)
   {
-    i = mana_regen(ch);
     func = event_mana_regen;
+    if (get_scheduled(ch, func)) return;
+    per_tick = mana_regen(ch);
+    delay = IS_PC(ch) ? 1 : MOB_MANA_REGEN_DELAY; 
   }
   else
     return;
 
-  if (!i)
-  {
-    disarm_char_events(ch, func);
-    return;
-  }
+  if (per_tick == 0)
+      return;
 
-  calculate_regen_values(i, &j, &delay);
-
-  e1 = get_scheduled(ch, func);
-  if ( e1 && *((int*)e1->data) == j)
-  {
-    return;
-  }
-
-  disarm_char_events(ch, func);
-  add_event(func, delay, ch, 0, 0, 0, &j, sizeof(j));
+  float regen_value = (float)per_tick / (float)(PULSES_IN_TICK / delay);
+  add_event(func, delay, ch, 0, 0, 0, &regen_value, sizeof(regen_value));
 }
 
 void event_wait(P_char ch, P_char victim, P_obj obj, void *data)
