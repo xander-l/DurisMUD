@@ -4478,11 +4478,17 @@ void spell_relocate(int level, P_char ch, char *arg, int type, P_char victim,
 void spell_group_teleport(int level, P_char ch, char *arg, int type,
                           P_char victim, P_obj obj)
 {
-  int      from_room;
-  int      to_room;
+  int from_room, dir, to_room, tries;
   P_char   targetChar;
-  int      tries = 0;
   struct group_list *gl = 0;
+  int      range = get_property("spell.teleport.range", 30);
+  
+  if((ch && !is_Raidable(ch, 0, 0)) ||
+     (victim && !is_Raidable(victim, 0, 0)))
+  {
+    send_to_char("&+WYou or your target is not raidable. The spell fails!\r\n", ch);
+    return;
+  }
 
   // make sure the room allows teleportation
   if(IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
@@ -4494,17 +4500,36 @@ void spell_group_teleport(int level, P_char ch, char *arg, int type,
   }
 
   // find a suitable room in the zone to teleport to
-  do
+  if(IS_MAP_ROOM(ch->in_room))
   {
-    to_room = number(zone_table[world[ch->in_room].zone].real_bottom,
-                     zone_table[world[ch->in_room].zone].real_top);
-    tries++;
+    to_room = ch->in_room;
+
+    for( int i = 0; i < range; i++ )
+    {
+      tries = 0;
+      do
+      {
+        dir = number(0, 3);
+      } while( tries++ < 20 && !VALID_TELEPORT_EDGE(to_room, dir, ch->in_room) );
+
+      if( tries < 20 )
+        to_room = TOROOM(to_room, dir);
+    }
   }
-  while ((IS_SET(world[to_room].room_flags, PRIVATE) ||
+  else
+  {
+    do
+    {
+      to_room = number(zone_table[world[ch->in_room].zone].real_bottom,
+                       zone_table[world[ch->in_room].zone].real_top);
+      tries++;
+    }
+    while ((IS_SET(world[to_room].room_flags, PRIVATE) ||
           IS_SET(world[to_room].room_flags, PRIV_ZONE) ||
           IS_SET(world[to_room].room_flags, NO_TELEPORT) ||
           IS_HOMETOWN(to_room) ||
           world[to_room].sector_type == SECT_OCEAN) && tries < 1000);
+  }
 
   // if no suitable room was found, teleport back to the same room they're in
   if(tries == 1000)
@@ -4574,9 +4599,8 @@ void spell_group_teleport(int level, P_char ch, char *arg, int type,
 void spell_teleport(int level, P_char ch, char *arg, int type, P_char victim,
                     P_obj obj)
 {
-  int      to_room;
+  int from_room, dir, to_room, tries;
   P_char   vict, t_ch;
-  int      tries = 0;
   int      range = get_property("spell.teleport.range", 30);
 
   if((IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
@@ -4604,7 +4628,6 @@ void spell_teleport(int level, P_char ch, char *arg, int type, P_char victim,
 
     for( int i = 0; i < range; i++ )
     {
-      int dir;
       tries = 0;
       do
       {
