@@ -2946,10 +2946,15 @@ bool CastShamanSpell(P_char ch, P_char victim, int helping)
     {
       sect = world[ch->in_room].sector_type;
 
-      if(((sect == SECT_FIELD) || (sect == SECT_FOREST) ||
-          (sect == SECT_HILLS) || (sect == SECT_MOUNTAIN) ||
-          (sect == SECT_UNDRWLD_CITY) || (sect == SECT_UNDRWLD_INSIDE) ||
-          (sect == SECT_UNDRWLD_WILD)) && can_summon_beast(ch, lvl))
+      if(((sect == SECT_FIELD) ||
+          (sect == SECT_FOREST) ||
+          (sect == SECT_HILLS) ||
+          (sect == SECT_MOUNTAIN) ||
+          (sect == SECT_UNDRWLD_CITY) ||
+          (sect == SECT_UNDRWLD_INSIDE) ||
+          (sect == SECT_UNDRWLD_WILD)) &&
+          can_summon_beast(ch, lvl) &&
+          GET_VNUM(ch) != 55184) // Winterhaven high priest
       {
         if(npc_has_spell_slot(ch, SPELL_GREATER_SUMMON_BEAST))
           spl = SPELL_GREATER_SUMMON_BEAST;

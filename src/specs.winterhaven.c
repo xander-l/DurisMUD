@@ -1392,36 +1392,42 @@ int dagger_ra(P_obj obj, P_char ch, int cmd, char *arg)
   return FALSE;
 }
 
+// Winterhaven high priest is prevented from summoning beasts in mobact.c
+
 int newbie_spellup_mob(P_char ch, P_char victim, int cmd, char *arg)
 {
   int *spells = NULL;
-  
+
+// Some spells don not stack such as pantherspeed and wolfspeed, accelerated healing and regeneration.
+// So try to avoid these hangups otherwise the spellup mob will simply spam the spell over and over.
   int      ClerBeneSpells[] = {SPELL_ARMOR, SPELL_BLESS, SPELL_DETECT_MAGIC,
     SPELL_PROTECT_FROM_COLD, SPELL_PROTECT_FROM_FIRE,
     SPELL_SLOW_POISON, SPELL_PROTECT_FROM_GAS, SPELL_PROTECT_FROM_EVIL,
     SPELL_PROTECT_FROM_GOOD, SPELL_PROTECT_FROM_ACID,
-    SPELL_PROTECT_FROM_LIGHTNING, SPELL_ACCEL_HEALING, 0};
+    SPELL_PROTECT_FROM_LIGHTNING, 0};
   
-  int      ShamBeneSpells[] = {SPELL_SPIRIT_ARMOR, SPELL_REVEAL_SPIRIT_ESSENCE, SPELL_WOLFSPEED,
-    SPELL_PANTHERSPEED, SPELL_HAWKVISION, SPELL_FIRE_WARD,
-    SPELL_COLD_WARD, 0};
+  int      ShamBeneSpells[] = {SPELL_SPIRIT_ARMOR, SPELL_PANTHERSPEED, SPELL_HAWKVISION, SPELL_FIRE_WARD,
+    SPELL_COLD_WARD, SPELL_GREATER_RAVENFLIGHT,0};
   
-  int      DruidBeneSpells[] = {SPELL_BARKSKIN, SPELL_FORTITUDE, SPELL_PULCHRITUDE, SPELL_AID,
-    SPELL_PROTECT_FROM_ANIMAL, SPELL_SERENDIPITY, SPELL_REGENERATION, 0};
+  int      DruidBeneSpells[] = {SPELL_BARKSKIN, SPELL_FORTITUDE, SPELL_AID,
+    SPELL_PROTECT_FROM_ANIMAL, SPELL_REGENERATION, 0};
   
-  int      SorcBeneSpells[] = {SPELL_DETECT_MAGIC, SPELL_STRENGTH, SPELL_DEXTERITY, SPELL_LEVITATE, 0};
+  int      SorcBeneSpells[] = {SPELL_DETECT_MAGIC, SPELL_STRENGTH, SPELL_AGILITY, SPELL_LEVITATE, 0};
   
   if(cmd == CMD_SET_PERIODIC)
   {
     return TRUE;
   }
   
-  if (!ch)
+  if (!(ch) ||
+      !IS_ALIVE(ch) ||
+      IS_IMMOBILE(ch) ||
+      IS_CASTING(ch))
   {
     return FALSE;
   }
   
-  if( cmd != CMD_PERIODIC /*|| number(0,2)*/ )
+  if( cmd != CMD_PERIODIC)
   {
     return FALSE;
   }
@@ -1429,7 +1435,7 @@ int newbie_spellup_mob(P_char ch, P_char victim, int cmd, char *arg)
   // everything after here is in the periodic event
   
   /* make sure I'm even able to cast in this room! */
-  if (IS_SET(world[ch->in_room].room_flags, NO_MAGIC | ROOM_SILENT) ||
+  if (IS_SET(world[ch->in_room].room_flags,  SAFE_ZONE | NO_MAGIC | ROOM_SILENT) ||
       affected_by_spell(ch, SPELL_FEEBLEMIND) ||  
       IS_AFFECTED2(ch, AFF2_SILENCED) ||
       IS_FIGHTING(ch) )
@@ -1439,58 +1445,62 @@ int newbie_spellup_mob(P_char ch, P_char victim, int cmd, char *arg)
   
   // find what class the mob is. a bit of randomness 
   // so that multiclass mobs will cast from all of their spells
-  if( GET_CLASS(ch, CLASS_CLERIC) && !number(0,1) )
+  if(number(0, 1))
   {
-    spells = ClerBeneSpells;      
+    if( GET_CLASS(ch, CLASS_CLERIC) && !number(0, 1) )
+    {
+      spells = ClerBeneSpells;      
+    }
+    else if( GET_CLASS(ch, CLASS_SHAMAN) && !number(0, 1) )
+    {
+      spells = ShamBeneSpells;
+    }
+    else if( GET_CLASS(ch, CLASS_DRUID) && !number(0, 1) )
+    {
+      spells = DruidBeneSpells;
+    }
+    else if( GET_CLASS(ch, CLASS_SORCERER))
+    {
+      spells = SorcBeneSpells;
+    }
   }
-  else if( GET_CLASS(ch, CLASS_SHAMAN) && !number(0,1) )
-  {
-    spells = ShamBeneSpells;
-  }
-  else if( GET_CLASS(ch, CLASS_DRUID) && !number(0,1) )
-  {
-    spells = DruidBeneSpells;
-  }
-  else if( GET_CLASS(ch, CLASS_SORCERER) && !number(0,1) )
-  {
-    spells = SorcBeneSpells;
-  }
-  
-  if( !spells )
-    return FALSE;
   
   // go through room, find someone who needs a spell
-  for( P_char tch = world[ch->in_room].people; tch; tch = tch->next )
+  for(P_char tch = world[ch->in_room].people; tch; tch = tch->next )
   {
     // return if its an npc, too high level, fighting, with a bit of randomness thrown in
-    if( !IS_PC(tch) || GET_LEVEL(tch) > 30 || number(0,1) )
-      continue;
+    if(!IS_PC(tch) ||
+        GET_LEVEL(tch) > 35 ||
+        !number(0, 2))
+          continue;
     
-    if(NEEDS_HEAL(tch))
+    if(GET_HIT(tch) < GET_MAX_HIT(tch) &&
+       !IS_FIGHTING(tch))
       {
-        if(GET_CLASS(ch, CLASS_CLERIC) && number(0, 1))
+        if(npc_has_spell_slot(ch, SPELL_FULL_HEAL) && number(0, 1))
         {
-          return MobCastSpell(ch, tch, 0, SPELL_HEALING_SALVE, GET_LEVEL(ch));
+          return MobCastSpell(ch, tch, 0, SPELL_FULL_HEAL, GET_LEVEL(ch));
         }
-        else if(GET_CLASS(ch, CLASS_SHAMAN) && number(0, 1))
+        else if(npc_has_spell_slot(ch, SPELL_GREATER_MENDING) && number(0, 1))
         {
           return MobCastSpell(ch, tch, 0, SPELL_GREATER_MENDING, GET_LEVEL(ch));
         }
-        else if(GET_CLASS(ch, CLASS_DRUID) && number(0, 1))
+        else if(npc_has_spell_slot(ch, SPELL_NATURES_TOUCH) && number(0, 1))
         {
           return MobCastSpell(ch, tch, 0, SPELL_NATURES_TOUCH, GET_LEVEL(ch));
         }
       }
 
     // else step through the spell list, find one to cast
-    for( int i = 0; spells[i]; i++ )
-    {
-      if( !affected_by_spell(tch, spells[i]) && 
-          npc_has_spell_slot(ch, spells[i]) )
+    if(spells)
+      for( int i = 0; spells[i]; i++ )
       {
-        return MobCastSpell(ch, tch, 0, spells[i], GET_LEVEL(ch));
+        if( !affected_by_spell(tch, spells[i]) && 
+            npc_has_spell_slot(ch, spells[i]) )
+        {
+          return MobCastSpell(ch, tch, 0, spells[i], GET_LEVEL(ch));
+        }
       }
-    }
   }
   return FALSE; 
 }
