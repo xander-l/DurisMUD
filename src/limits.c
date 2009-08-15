@@ -963,8 +963,10 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
       return 0;
       
     if(CHAR_IN_TOWN(ch) && (GET_LEVEL(victim) > 20) && !IS_PC(victim))
+    {
       XP = (int) (XP * 0.2);
-
+      send_to_char("&+gThis being a hometown, you receive fewer exps...&n", ch);
+    }
     if(!GET_EXP(victim))
       return 0;
 
