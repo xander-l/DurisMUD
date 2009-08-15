@@ -1004,8 +1004,11 @@ void load_obj_to_newbies(P_char ch)
   CREATE_KIT(RACE_OROG, 0, ((int[])
                            {
                            1172, 1173, 612, -1}));
-
+                           
 /*Orog Classes*/
+  CREATE_KIT(RACE_OROG, CLASS_SHAMAN, ((int[])
+    {105, 106, 107, 676, -1}));
+
   CREATE_KIT(RACE_OROG, CLASS_WARRIOR, ((int[])
                                        {
                                        1101, 1102, 1103, 1104, 1105, 1105,
