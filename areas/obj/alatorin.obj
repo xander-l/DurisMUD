@@ -732,7 +732,7 @@ A
 A
 20 -4
 #83152
-moorwood drums stretched orc skin instrument~
+drums drum moorwood stretched orc skin instrument~
 &+Lsome mooorwood drums with stretched &+gorc &+Lskin&N~
 &+LSome moorwood drums have been left here.~
 ~
@@ -740,8 +740,9 @@ moorwood drums stretched orc skin instrument~
 188 70 0 1 0 0 0 0
 0 16549 100
 E
-moorwood drums stretched orc skin~
-   &+LThese drums have been stretched with the tanned hide of &+gORCS&+L!!
+moorwood drums stretched orc skin instrument~
+ &+LThese finely-crafted moorwood drums have been topped with the
+ &+Lstretched skin of a vile &N&+gorc&+L.
 ~
 A
 13 25
@@ -4781,3 +4782,118 @@ object unnamed~
 &+L|                               &N&+y 0 0  0  0 0 0  80      &+L |
 &+L|_______________________________________________________|
 ~
+#83406
+earring entwined roots~
+&n&+gan earring of &+ye&+Ln&N&+yt&+Lw&N&+yi&+Ln&N&+ye&+Ld &N&+groots&N~
+&+yAn earring of &+yen&+Ltw&+Gined &N&+yroots&N has been left here.~
+~
+9 6 3 0 7 0 0 524289 64 0 0
+2 0 0 3 0 0 0 0
+2 100 100
+E
+earring entwined roots~
+   &+gThis simple earring of wrought, entiled roots resonates an
+&+gaura of earthly magic.
+~
+A
+23 -3
+A
+20 -2
+#83407
+moorwood harp~
+&+La moorwood harp&N~
+&+LA moorwood harp has been left here.~
+~
+32 6 3 0 7 0 33554432 16385 64 0 0
+187 70 0 1 0 0 0 0
+0 16553 100
+E
+moorwood harp~
+   &+LThis harp is carefully crafted from polished moorwood.
+~
+A
+5 5
+A
+20 -3
+#83408
+moorwood pan pipes flute~
+&+La set of moorwood pan pipes&N~
+&+LA set of moorwood pan pipes has been left here.~
+~
+32 6 3 0 7 0 33554432 16385 64 0 0
+184 70 0 1 0 0 0 0
+0 16553 100
+E
+moorwood pan pipes flute~
+  &+LThese small pan pipes are bound together by a single well-stitched
+&+Lhide band.  The flutes themself are well-polished and produce an
+&+Lextraordinary sound.
+~
+A
+5 5
+A
+20 -3
+#83409
+moorwood mandolin~
+&+La moorwood mandolin&N~
+&+LA moorwood mandolin has been left here.~
+~
+32 6 3 0 7 0 33554432 16385 64 0 0
+186 70 0 1 0 0 0 0
+0 16553 100
+E
+moorwood mandolin~
+   &+LThis moorwood mandolin has fine strings made of &+Wspidersilk.
+~
+A
+5 5
+A
+20 -3
+#83410
+moorwood drums drum instrument~
+&+Lsome moorwood drums&N~
+&+LSome moorwood drums are lying here.~
+~
+32 6 3 0 14 0 0 16385 64 0 0
+188 70 0 1 0 0 0 0
+0 16549 100
+E
+moorwood drums stretched orc skin~
+   &+LThese drums have been stretched with the tanned hide of &+gORCS&+L!!
+~
+A
+5 5
+A
+20 -3
+#83411
+moorwood horn~
+&+La moorwood horn&N~
+&+LA moorwood horn has been left here.~
+~
+32 6 3 0 7 0 33554432 16385 64 0 0
+189 70 0 1 0 0 0 0
+0 16553 100
+E
+moorwood horn~
+  &+LThis long, elongated horn has a very strange sound to it, yet very soothing.
+~
+A
+5 5
+A
+20 -3
+#83412
+moorwood lyre~
+&+La moorwood lyre&N~
+&+LA moorwood lyre has been left here.~
+~
+32 6 3 0 7 0 33554432 16385 64 0 0
+185 70 0 1 0 0 0 0
+0 16553 100
+E
+moorwood lyre~
+   &+LThis fine moorwood lyre has several strings made of the finest &Nsilk.
+~
+A
+5 5
+A
+20 -3

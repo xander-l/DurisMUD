@@ -11846,6 +11846,10 @@ S
 &+Ltowards the western coast from this pass.
 ~
 831 32768 5
+D1
+~
+~
+0 0 122562
 D3
 ~
 ~
@@ -13136,6 +13140,10 @@ S
 &+Lroadway leads east-west, with the port of &+WDeramuth&+L visable to the west.
 ~
 831 0 2
+D0
+~
+~
+0 0 83791
 D1
 ~
 ~
@@ -13157,6 +13165,10 @@ S
 &+Lcan be seen to the west.
 ~
 831 0 2
+D0
+~
+~
+0 0 83792
 D1
 ~
 ~
@@ -13424,6 +13436,15 @@ D0
 ~
 ~
 0 0 83757
+D1
+&+LA large moorwood door leads into a large shop.
+~
+door~
+1 0 83794
+D2
+~
+~
+0 0 83796
 D3
 ~
 ~
@@ -13778,6 +13799,11 @@ S
 &+yare supported by huge posts of thick moorwood.
 ~
 831 0 1
+D0
+&+LThe entry &N&+yflap &+Lof a covered &N&+ystall&+L is to the north.
+~
+flap~
+1 0 83795
 D1
 ~
 ~
@@ -14056,10 +14082,211 @@ S
 &+mis quite large, the structure having been made of imported wood, as very
 &+mfew trees grow on the Shanatar mountain.
 ~
-831 0 1
+831 0 0
 D1
 &+LThis &N&+ywooden door&+L leads back to the cobblestone streets of Deramuth.
 ~
 door~
 1 0 83757
+S
+#83791
+&+gA Grove of &+GTrees&N~
+   &+gThis glorious green pasture of fresh trees and tall grass creates
+&+ga scenic forest scene here in the thorough fare, however brief.  Situated
+&+galong the fountain of the roadway, this small escape of foliage and
+&+Lshadow&N&+g is quite cool and open.
+~
+831 33554432 3
+D2
+~
+~
+0 0 83744
+D3
+~
+~
+0 0 83792
+S
+#83792
+&+gA Grove of &+GTrees&N~
+   &+gThis glorious green pasture of fresh trees and tall grass creates
+&+ga scenic forest scene here in the thorough fare, however brief.  Situated
+&+galong the fountain of the roadway, this small escape of foliage and
+&+Lshadow&N&+g is quite cool and open.
+~
+831 33554432 3
+D0
+&+gA large group of trees.
+~
+tree trees~
+5 0 83793
+D1
+~
+~
+0 0 83791
+D2
+~
+~
+0 0 83745
+S
+#83793
+&+gA Be&+Gau&N&+gti&+Gful &N&+gFo&+Gre&N&+gst Sanc&+Gtu&N&+ga&+Gry&N~
+   &+gThis glorious green pasture of fresh trees and tall grass creates
+&+ga scenic forest scene here in the thorough fare, however brief.  Situated
+&+galong the fountain of the roadway, this small escape of foliage and
+&+Lshadow&N&+g is quite cool and open.
+~
+831 33685504 3
+D2
+&+gA large amount of trees.
+~
+trees tree~
+1 0 83792
+S
+#83794
+&+WA Large Shop of Armor and Weapons&N~
+   &+LThis small shop is covered with various plate, heavy items, &n&+mand
+&+Lother various metal armor and weapons.  There are scattered helms,
+&+Lswords and other relics randomly strewn about the table, and larger
+&+Litems hanging from the walls and lined along the floors.  This shop
+&+Lis quite large, the structure having been made of imported wood, as very
+&+Lfew trees grow on the Shanatar mountain.
+~
+831 0 0
+D3
+&+LA large moorwood door leads back to the cobblestone street of Deramuth Port.
+~
+door~
+1 0 83758
+S
+#83795
+&+yA &+mMoneychanger's &N&+yStand&N~
+   &+yThis small wooden stand is covered with a thick, woolen awning making
+&+yit quite warm underneath, but &+Lshady&N&+y.  A simple wooden structure
+&+yis made right before the docks.  Apparently one member of the &+WDeramuth
+&+WPort &N&+ymercenary brigade has found it profitable to exchange money right
+&+ybefore the highly-visited &+Yship yards&N&+y of this region.
+~
+831 33554432 0
+D2
+&+LA large &N&+yflap &+Lgrants access to the &+WDeramuth Port &N&+ydocks.
+~
+flap~
+1 0 83776
+S
+#83796
+&+cBefore a Large Gate&N~
+   &+cThis large gate surrounds a medium-sized dwelling, built into the
+&+csurrounding mountain rock just south of here.  Huge iron poles, capped
+&+cat the top with miniature mace-heads, are fastened around the perimeter
+&+cof the southern dwelling - the &N&+ymountain home&+y of &+WDeramuth.
+~
+831 33554432 1
+D0
+~
+~
+0 0 83758
+D2
+&+cA massive iron gate extends around &+WDeramuth Manor.
+~
+iron gate~
+2 0 83797
+S
+#83797
+&+yThe Entryway of &+WDeramuth Manor&N~
+   &+yThis elegant, spacious wooden entryway is pretty much the only part of
+&+ythe 'manor' that extends beyond the mountain cavity which makes up the
+&+ymajority of the dwelling that the port master calls home.  &+yThere is a
+&+ylong wooden table beside the entryway and a bear-hide rug on the ground.
+&+yAs the entry extends deeper south into the cavern, torches appear on the
+&+ywalls.  Two side caverns split off to the east and west as well, serving
+&+yas the hearth chamber and living area for the port master's family.
+~
+831 33554432 0
+D0
+~
+~
+1 0 83796
+D1
+~
+~
+0 0 83798
+D2
+~
+~
+0 0 83800
+D3
+~
+~
+0 0 83799
+S
+#83798
+&N&+yA Huge &+rH&+Reart&N&+rh &+yChamber&N~
+   &+LThis large, but sufficient dwarven home is nested here
+&+Lwithin the massive rocky mountain of Shanatar.
+&+L   There is a main hearth chamber with a second sleeping
+&+Lchamber with a smaller hearth of its own.  A small nook serves
+&+Las a kitchen while most meals are heated over the hearth.
+&+LSmall furniture is nested around the room, including a desk,
+&+La few small stools, a large cutting board, and a few weapon
+&+Lracks.
+~
+831 134250496 14
+D3
+~
+~
+0 0 83797
+S
+#83799
+&+WA Spacious &+LSleeping Cavern&N~
+   &+LThis large, but sufficient dwarven home is nested here
+&+Lwithin the massive rocky mountain of Shanatar.
+&+L   There is a main hearth chamber with a second sleeping
+&+Lchamber with a smaller hearth of its own.  A small nook serves
+&+Las a kitchen while most meals are heated over the hearth.
+&+LSmall furniture is nested around the room, including a desk,
+&+La few small stools, a large cutting board, and a few weapon
+&+Lracks.
+~
+831 134250496 14
+D1
+~
+~
+0 0 83797
+S
+#83800
+&+LA Short &N&+yHallway&N~
+   &+LA short hallway stretches north and south, endinag at an empty wall
+&+Lshrouded in darkness.  The start of the hallway features the secret
+&+Ldoor behind the Fort merchant stall.  There are numerous dark footprints
+&+Lin the dirty, unkept floor below - all dwarfish in side.
+~
+831 9 0
+D0
+~
+~
+0 0 83797
+D2
+&+mThe plush entryway to &+WLord Deramuth&N&+m's private chamber.
+~
+door~
+1 0 83801
+E
+sign~
+&+yThis sign reads &+R'DWARF ONLY!'
+~
+S
+#83801
+&+WLord Deramuth's &n&+mPrivate Chamber&N~
+   &+mAlthough transformed from a huge cavern, this plush cavern is
+&+mlavish, well-decorated, and fit for the noblest lord of Shanatar.
+&+mThere is a huge bed in the center of the chamber and matching
+&+mdressers on either side.  Two huge torches sit on each of the
+&+mfour cavern 'walls' while the cavern ceiling is too high to see.
+~
+831 33554432 0
+D0
+&+LA &N&+mplush door&+L back to the main hall of &+WDeramuth Manor.
+~
+door~
+1 0 83800
 S

@@ -4164,3 +4164,111 @@ pd 0 16777233 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
+#83363
+candella high forest druid~
+&+gCandella&N~
+&+gCandella, the &+Ghigh forest druid&N communes with nature.
+~
+   &+gCandella wears forest green robes and very little else.  She
+&+gis an &+celven &+gmistress &+gwho became enamored with all living
+&+gcreatures at a young age and spent many years in the forests of
+&+GMielikki &N&+gbefore beind shipwrecked on &+yShanatar &+gwith a
+&+ggroup of her elven brethren.  Her comrades were all killed by
+&+rduergars &+gwhile she found salvation in this small patch of
+&+gwoods, where her youth has transformed to age and her power has
+&+gascended in her communal solitude.
+~
+2250 0 0 24 0 0 0 0 S
+pe 0 384 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#83364
+burly dwarven dwarf shopkeeper~
+&+Ya burly dwarven &+Wshopkeeper&N~
+&+YA burly dwarven &+Wshopkeeper&+Y shows off sizable pieces of equipment.
+~
+   &+YThis youthful dwarf has taken up shop here within the
+&+WPort of Deramuth.  &+YHe has flowing vibrant golden hair
+&+Yand firm, taut muscles.  He wears simple leather and works
+&+Yhis shop, distributing armor and weapons to those and buying
+&+Ythe same from others.
+~
+2250 0 0 24 0 0 0 200 S
+pm 0 1 -1
+49 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#83365
+eager moneychanger~
+&+yan eager moneychanger&N~
+&+yAn eager-looking moneychanger&N adamantly awaits sailors.
+~
+   &+yThis fat ex-mercenary halfling of &+WDeramuth Port &N&+yresides in this
+&+ysmall wooden shack at the head of the docks, exchanging currencies from
+&+ythe numerous races that pay visit to the port of &N&+yShanatar.
+~
+2250 0 0 24 0 0 0 1000 S
+pf 0 256 -1
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#83366
+mercenary guard~
+&+La &N&+ymercenary &+Lguard&N~
+&+LA &N&+ymercenary guard &+Lstands here&N eyeing anyone who approaches the area.
+~
+   &+yThis tough halfling mercenary wears light cloaks and cloth
+&+yover a thick leather suit beneath.  He has reached an age where
+&+yhis skills and experience are most likely at a maximum.  He now
+&+ymakes his living under the &+Wcoin &N&+yof those who wish to
+&+yafford his protection.
+~
+1073744072 0 0 134217752 0 0 0 0 S
+pf 0 16384 -1
+40 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#83367
+cheerful dwarven dwarf receptionist~
+&+Ya &+Rcheerful &+Ydwarven &N&+creceptionist&N~
+&+RA cheerful &+Ydwarven &N&+creceptionist &Ngreets patrons from behind a desk.
+~
+   &+YThis mountain dwarf, one of the few in the port ironically
+&+Yafter a dwarf, works the desk of the &+YGolden Pearl Inn&+Y,
+&+yshowing tired and weary travelers to their guest rooms.  She
+&+Yhas a cheerful attitude and flowing blonde hair.
+~
+2250 0 0 24 0 0 0 1000 S
+pm 0 1 -1
+44 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#83368
+traveling bard~
+&+ma traveling bard&N~
+&+mA traveling bard relaxes here.
+~
+   &+mThis traveling bard wears fine silken garments.  He appears to
+&+me of some sort of elven descent, judging by his long ears and
+&+mother sylvan features.
+~
+2250 0 0 0 0 0 0 600 S
+p2 0 32768 -1
+40 0 0 1d1+1 1d1+1
+0.0.0.0 0
+4 8 1
+#83369
+relaxing barbarian~
+&+Ba relaxing barbarian&N~
+&+BA relaxing barbarian rests here.
+~
+   &+BThis large barbarian has braved many long, hard battles through
+&+Bthe unforgiving world of Duris.  He rests here trying to catch up
+&+Bon some much-needed sleep.
+~
+2250 0 0 0 0 0 0 0 S
+pb 0 16385 -1
+45 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
