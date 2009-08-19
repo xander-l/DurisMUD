@@ -2416,7 +2416,7 @@ SPELL_ADD(CLASS_NONE, 1);
                 TAR_SELF_ONLY | TAR_NOCOMBAT,
                 spell_animal_vision, "You vision &+ydulls.&n");
   SPELL_ADD(CLASS_DRUID, 8);
-  SPELL_ADD(CLASS_DRUID, 11);
+  SPELL_ADD(CLASS_RANGER, 11);
   
   SPELL_CREATE_MSG("scent of the bloodhound", SPELL_BLOODHOUND, PULSE_SPELLCAST * 2,
                 TAR_SELF_ONLY | TAR_NOCOMBAT | TAR_ANIMAL,
