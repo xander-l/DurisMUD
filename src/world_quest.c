@@ -243,15 +243,15 @@ void quest_reward(P_char ch, P_char quest_mob, int type)
   sql_world_quest_finished(ch, quest_mob, reward);
   
   if(GET_LEVEL(ch) <= 30)
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("gain.exp.mod.player.level.30.andUnder", 1.000)), EXP_WORLD_QUEST);
+    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.30.andUnder", 1.000)), EXP_WORLD_QUEST);
   else if(GET_LEVEL(ch) <= 40)
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("gain.exp.mod.player.level.40.andUnder", 1.000)), EXP_WORLD_QUEST);
+    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.40.andUnder", 1.000)), EXP_WORLD_QUEST);
   else if(GET_LEVEL(ch) <= 50)
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("gain.exp.mod.player.level.50.andUnder", 1.000)), EXP_WORLD_QUEST);
+    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.50.andUnder", 1.000)), EXP_WORLD_QUEST);
   else if(GET_LEVEL(ch) <= 55)
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("gain.exp.mod.player.level.55.andUnder", 1.000)), EXP_WORLD_QUEST);
-  else if(GET_LEVEL(ch) <= 62)
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("gain.exp.mod.player.level.62.andUnder", 1.000)), EXP_WORLD_QUEST);
+    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.55.andUnder", 1.000)), EXP_WORLD_QUEST);
+  else
+    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.other.andUnder", 1.000)), EXP_WORLD_QUEST);
   
   resetQuest(ch);
 }
