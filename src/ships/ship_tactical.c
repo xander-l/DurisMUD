@@ -1234,7 +1234,7 @@ int weaponsight(P_char ch, P_ship ship, P_ship target, int slot, float range)
     float range_mod = (max - (float)range) / ((float)max - (float)min);
     percent += (int)((float)75 * range_mod);
     percent += (int)((float)50 * ship->guncrew.skill_mod);
-    percent = (int) (percent * ((float) GET_LEVEL(ch) / 50.0));
+    //percent = (int) (percent * ((float) GET_LEVEL(ch) / 50.0));
     if (percent > 100)
       percent = 100;
     if (percent < 0)

@@ -3481,8 +3481,8 @@ int list_cargo(P_char ch, P_ship ship, int owned)
     send_to_char ("&+y---=== For sale ===---&N\r\n", ch);
     int cost = 1000 * (int) (cargo_data[rroom].base_cost_cargo * shipcargo[rroom].buy[rroom] / 100.0);
 
-    if( GET_LEVEL(ch) < 50 )
-        cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);
+    //if( GET_LEVEL(ch) < 50 )
+    //    cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);
     
     sprintf(buf, "%s:&N %s &Nper crate.\r\n", cargo_name[rroom], coin_stringv(cost));
     send_to_char(buf, ch);
@@ -3494,8 +3494,8 @@ int list_cargo(P_char ch, P_ship ship, int owned)
             continue;
         cost = 1000 * (int) (cargo_data[i].base_cost_cargo * (cargo_mod[rroom][i] / 100.0) * (shipcargo[rroom].sell[i] / 100.0));
 
-        if( GET_LEVEL(ch) < 50 )
-        cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);
+        //if( GET_LEVEL(ch) < 50 )
+        //  cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);
     
         int ansi_diff = strlen(strip_ansi(str_dup(cargo_name[i])).c_str()) - strlen(cargo_name[i]);
         sprintf(buf2, "%%-%ds&n%%s per crate.\r\n", 30 - ansi_diff);
@@ -3514,8 +3514,8 @@ int list_cargo(P_char ch, P_ship ship, int owned)
             send_to_char ("\r\n&+L---=== Contraband for sale ===---&N\r\n", ch);
             cost = (1000 * (int) (cargo_data[rroom].base_cost_contra * shipcontra[rroom].buy[rroom] / 100.0));
 
-            if( GET_LEVEL(ch) < 50 )
-                cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);
+            //if( GET_LEVEL(ch) < 50 )
+            //    cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);
 
             sprintf(buf, "%s&n: %s &+Lper crate.&N\r\n", contra_name[rroom], coin_stringv(cost));
             send_to_char(buf, ch);
@@ -3528,8 +3528,8 @@ int list_cargo(P_char ch, P_ship ship, int owned)
                 continue;
             cost = 1000 * (int) (cargo_data[i].base_cost_contra * (cargo_mod[rroom][i] / 100.0) * (shipcontra[rroom].sell[i] / 100.0));
 
-            if( GET_LEVEL(ch) < 50 )
-                cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);
+            //if( GET_LEVEL(ch) < 50 )
+            //    cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);
 
             int ansi_diff = strlen(strip_ansi(str_dup(contra_name[i])).c_str()) - strlen(contra_name[i]);
             sprintf(buf2, "%%-%ds&n%%s per crate.\r\n", 30 - ansi_diff);
@@ -3563,8 +3563,8 @@ int list_cargo(P_char ch, P_ship ship, int owned)
                 cost = 1000 * (int) (cargo_data[cargo_type].base_cost_cargo * (cargo_mod[rroom][cargo_type] / 100.0) * (shipcargo[rroom].sell[cargo_type] / 100.0));
                 cost *= ship->slot[i].val0;
 
-                if( GET_LEVEL(ch) < 50 )
-                    cost = (int) (cost * (float) ((float) GET_LEVEL(ch) / 50.0));
+                //if( GET_LEVEL(ch) < 50 )
+                //    cost = (int) (cost * (float) ((float) GET_LEVEL(ch) / 50.0));
             
                 int cost2 = (int) ( ((float) cost / (float) ship->slot[i].val1) - 1.00) * 100;
 
@@ -3592,8 +3592,8 @@ int list_cargo(P_char ch, P_ship ship, int owned)
                 cost = 1000 * (int) (cargo_data[contra_type].base_cost_contra * (cargo_mod[rroom][contra_type] / 100.0) * (shipcontra[rroom].sell[contra_type] / 100.0));
                 cost *= ship->slot[i].val0;
 
-                if( GET_LEVEL(ch) < 50 )
-                    cost = (int) (cost * (float) ((float) GET_LEVEL(ch) / 50.0));
+                //if( GET_LEVEL(ch) < 50 )
+                //    cost = (int) (cost * (float) ((float) GET_LEVEL(ch) / 50.0));
             
                 int cost2 = (int) (((float) ((float) cost / (float) ship->slot[i].val1) - 1.00) * 100);
                 sprintf(buf, "&+L*&n%s&n, &+Y%d&n crates. Can sell for %s&n, profit: %d&n%%\r\n", 
@@ -3920,8 +3920,8 @@ int sell_cargo_slot(P_char ch, P_ship ship, int slot, int rroom)
         ship->slot[slot].clear();
 
         int cost = 1000 * (int) ( crates * cargo_data[type].base_cost_cargo * (cargo_mod[rroom][type] / 100.0) * (shipcargo[rroom].sell[type] / 100.0));
-        if( GET_LEVEL(ch) < 50 )
-            cost = (int) ( cost * GET_LEVEL(ch) / 50.0 );
+        //if( GET_LEVEL(ch) < 50 )
+        //    cost = (int) ( cost * GET_LEVEL(ch) / 50.0 );
 
         wizlog(56,"Cargo: %s sold &+W%d&n crates of %s&n for %s&n.\r\n", GET_NAME(ch), crates, cargo_name[type], coin_stringv(cost));
         sprintf(buf, "You sell &+W%d&n crates of %s&n for %s&n.\r\n", crates, cargo_name[type], coin_stringv(cost));
@@ -4031,8 +4031,8 @@ int sell_contra_slot(P_char ch, P_ship ship, int slot, int rroom)
         ship->slot[slot].clear();
 
         int cost = 1000 * (int) ( crates * cargo_data[type].base_cost_contra * (cargo_mod[rroom][type] / 100.0) * (shipcontra[rroom].sell[type] / 100.0));
-        if( GET_LEVEL(ch) < 50 )
-            cost = (int) ( cost * GET_LEVEL(ch) / 50.0 );
+        //if( GET_LEVEL(ch) < 50 )
+        //    cost = (int) ( cost * GET_LEVEL(ch) / 50.0 );
 
         wizlog(56,"Cargo: %s sold &+W%d&n crates of %s&n for %s&n.\r\n", GET_NAME(ch), crates, contra_name[type], coin_stringv(cost));
         sprintf(buf, "You sell &+W%d&n crates of %s&n for %s&n.\r\n", crates, contra_name[type], coin_stringv(cost));
@@ -4591,8 +4591,8 @@ int buy_cargo(P_char ch, P_ship ship, char* arg)
     int unit_cost = 1000 * (int) (cargo_data[rroom].base_cost_cargo * shipcargo[rroom].buy[rroom] / 100.0);
     int cost = asked_for * unit_cost; 
 
-    if (GET_LEVEL(ch) < 50)
-        cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);
+    //if (GET_LEVEL(ch) < 50)
+    //    cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);
 
     if (GET_MONEY(ch) < cost) 
     {
@@ -4718,8 +4718,8 @@ int buy_contra(P_char ch, P_ship ship, char* arg)
     int unit_cost = 1000 * (int) (cargo_data[rroom].base_cost_contra * shipcontra[rroom].buy[rroom] / 100.0);
     int cost = asked_for * unit_cost;
 
-    if (GET_LEVEL(ch) < 50) 
-        cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);
+    //if (GET_LEVEL(ch) < 50) 
+    //    cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);
 
     if (GET_MONEY(ch) < cost) 
     {
