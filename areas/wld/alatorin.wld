@@ -4171,8 +4171,8 @@ S
 D0
 &+LAn arch bearing the mark of Urtehgor.
 ~
-~
-0 0 83304
+door urtengor~
+3 83443 83304
 D1
 ~
 ~
@@ -4181,12 +4181,12 @@ D2
 &+LAn arch bearing the mark of Clangeddin Silverbeard.
 ~
 door~
-0 0 83302
+3 83443 83302
 D3
 &+LAn arch bearing the mark of Berronar Truesilver.
 ~
-~
-0 0 83303
+door berronar~
+3 83443 83303
 S
 #83297
 &+LA Secret Closet&N~
@@ -4299,8 +4299,8 @@ S
 831 134250496 14
 D0
 ~
-~
-0 0 83296
+door~
+1 0 83296
 S
 #83303
 &+WThe Antique Hall of &+yBerronar &+WTrue&+Csilver&N~
@@ -4313,8 +4313,8 @@ S
 831 134250496 14
 D1
 ~
-~
-0 0 83296
+door~
+1 0 83296
 S
 #83304
 &+LThe Smithy Artifact Chamber of &+rUr&+Rte&+Yng&+Ro&+Yr&N~
@@ -4327,8 +4327,8 @@ S
 831 134250496 14
 D2
 ~
-~
-0 0 83296
+door~
+1 0 83296
 S
 #83305
 &+LThe &+WHallway&+L of &+mEl&+Cem&+Ben&+Rta&+Bl F&+Cus&+cio&+Bn&N~
@@ -5713,11 +5713,6 @@ D1
 ~
 ~
 0 0 83367
-D2
-   &+LA &+ydoor&+L leads to a &+LRogue &+WClubhouse &+Land &+yBar.
-~
-door~
-1 0 83377
 D3
 &+LA secret door is built into the wall.
 ~
@@ -5928,11 +5923,6 @@ S
 &+Wbends and leads back out to the street south of here.
 ~
 831 176193536 15
-D0
-   &+LA &+ydoor&+L leads to the &+rRed Hallway&+L.
-~
-door~
-1 0 83366
 D1
 ~
 ~
@@ -14528,6 +14518,10 @@ D1
 ~
 ~
 0 0 83809
+D3
+~
+~
+0 0 521443
 S
 #83812
 &+LEntrance to a Contraband &N&+yStorage Cave&N~

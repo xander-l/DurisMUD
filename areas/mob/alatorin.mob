@@ -903,7 +903,7 @@ alatorin peacekeeper guard~
 &+Lof the &+cAlatorin &+Lcity guard.  This &+Ydwarf &+Lhas a long beard
 &+Land &+Rfire &+Lin his eyes.
 ~
-67110986 0 0 0 0 0 0 0 S
+1140852810 0 0 0 0 0 0 0 S
 pm 0 1 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2428,8 +2428,8 @@ modan shanat clerk~
 &+WModan &N&+cShanat&+L the &N&+cClerk&N~
 &+WModan &N&+cShanat, &+Lthe fourth son of &+RTaark Shanat &N&+cand Clerk of Court Hall&+L writes here.
 ~
-   &+WModan &N&+cShanat, the legendary son of &+RTaark Shanat&+L - one of nine
-&+Wtotal and one of six living within &N&+cAlatorin&+L.  &+WModan &N&+cShanat&+L
+   &+WModan &N&+cShanat&+L, the legendary son of &+RTaark Shanat&+L - one of nine
+&+Ltotal and one of six living within &N&+cAlatorin&+L.  &+WModan &N&+cShanat&+L
 &+Lis quite old, as his beard has began growing white.  He even could pass as
 &+Lolder then &+RTaark &+Lhimself.  &+WModan&+L's body has not seen the same
 &+Laction as much of the rest of his family, as he has devoted his life to
@@ -4514,6 +4514,8 @@ gruneegth goblin warrior traveler~
 &n&+ga Gruneegth &+Ggoblin &+Lwarrior&N~
 &+gA &+Ggoblin &N&+Ltraveler from the &N&+gGruneegth &+Ltribe pays the tavern a visit.
 ~
+   &+LThis scrawny, wretched green &+Ggoblin &+Lwears raggy clothes and
+&+Lgrins with a toothy, yellowed smile.
 ~
 1073744074 0 0 24 0 0 0 -1000 S
 hg 0 1 -1

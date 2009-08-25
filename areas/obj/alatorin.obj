@@ -2298,7 +2298,7 @@ large sign tokens~
 
 &+L------------------------------
 &+g  Dragon&+rslaying &+L-&+W 10 tokens
-&+y  Cooking      &+L -&+W 6 tokens
+&+y  Cooking      &+L -&+W 10 tokens
 &+b  Mining     &+L   -&+W 10 tokens
 &+y  C&No&+yl&nl&+ye&Nc&+yt&Ni&+yn&Ng   &+L -&+W 10 tokens
 &+L------------------------------
@@ -5253,3 +5253,140 @@ A
 38 7
 A
 33 3
+#83438
+sun-glasses glasses pink pink-painted painted frames~
+&+Msome &+Lsun-glasses &+Mwith pink-painted &Nframes&N~
+&+MSome sun-glasses with pink-painted frames have been left here.~
+~
+9 51 3 0 7 0 0 131073 64 0 0
+0 0 0 0 0 0 0 0
+0 44332 100
+E
+sun-glasses glasses pink pink-painted painted frames~
+&+MThese pink sunglasses are gloriously breathtakingly beautifully maginificent.
+~
+A
+28 15
+A
+24 -4
+#83439
+spiked torque dwarven kind~
+&+La &N&+rs&+Lp&N&+ri&+Lk&N&+re&+Ld &N&+ctorque &+Lof the &N&+ydwarven kind&N~
+&+LA &N&+rspiked &n&+ctorque &+Lof the &N&+ydwarven kind&N has been left here.~
+~
+9 18 3 0 14 0 0 5 64 0 0
+5 0 0 0 0 0 0 0
+0 22333 100
+E
+spiked torque dwarven kind~
+   &+LThis perfect mithril spiked dwarven torque is a thick neckpiece
+&+Lthat extends down to the top of the shoulders.  Huge spikes surround
+&+Lthe neck and upper nest area, pointed to screw-tips.
+~
+A
+13 20
+A
+31 5
+#83440
+spiked bracelet dwarven kind~
+&+La &N&+rs&+Lp&N&+ri&+Lk&N&+re&+Ld &N&+cbracelet&+L of the &N&+ydwarven kind&N~
+&+LA &N&+rspiked &+Lbracelet of &N&+ydwarven kind&N has been left here.~
+~
+9 18 3 0 7 0 0 0 0 0 0
+5 0 0 0 0 0 0 0
+0 44332 100
+E
+spiked bracelet dwarven kind~
+   &+LThis spiked bracelet contains the inner power of the ancient dwarven
+&+Lspirits.  A circular stone band covered with intricate designs is surrounded
+&+Lby several massive mithril spikes with screw tips.
+~
+A
+13 20
+A
+31 5
+#83441
+smooth torque dwarven kind~
+&N&+ma &+Csmooth &N&+ctorque &N&+mof the &+ydwarven kind&N~
+&+mA &+Csmooth torque&N&+m of the dwarven kind&N has been left here.~
+~
+9 18 3 0 14 0 0 5 66 0 0
+5 0 0 0 0 0 0 0
+0 33333 100
+E
+smooth torque dwarven kind~
+&+mThis beautiful, polished mithril &+ctorque &+mis polished and &+Wsmooth&+L.
+&N&+mIt glows with an ancient dwarven magic, enchanted with the power of the
+&+mages.
+~
+A
+13 20
+A
+35 5
+#83442
+smooth bracelet dwarven kind~
+&N&+ma &+Csmooth &N&+cbracelet&+m of the &N&+ydwarven kind&N~
+&+mA &+Csmooth &N&+cbracelet&+m of the &+ydwarven kind has been left here.~
+~
+9 18 3 0 14 0 0 4097 66 0 0
+5 0 0 0 0 0 0 0
+0 33333 100
+E
+smooth bracelet dwarven kind~
+&+mThis fine, pure mithril bracelet has been polished to an incredible
+&+msmoothness.  Dwarven letters encircle this bracelet, with runes of
+&+mvarious dwarven forgers.
+~
+A
+13 20
+A
+35 5
+#83443
+huge golden key~
+&na huge &+Ygolden key&N~
+&NA huge &+Ygolden key&N sits atop a pedestal of &+Lstone&N.~
+~
+18 24 4 0 7 0 0 0 0 0 0
+0 100 0 0 0 0 0 0
+6 4433 100
+E
+huge golden key~
+&+YThis huge golden key is covered in fuzzily-&+Mglowing &+Yrunes.
+~
+#83444
+emblem dragonslayer~
+&+Lan &+Rem&N&+rbl&+Re&N&+rm &+Lof the &N&+gdragon&+rslayer&N~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+9 35 1 0 7 0 0 0 0 0 0
+5 0 0 0 0 0 0 0
+0 100223 100 0 0 0 4096
+E
+emblem dragonslayer~
+   &+LThis small emblem made of a dragonscale base, completely encrusted with
+&+Lvarious &+Wg&+Ye&+Rm&+Bs &+Lfound only in the deepest reaches of Duris earth.
+~
+A
+23 -4
+#83445
+bottomless bag collector~
+&+Gthe bottomless bag of the &Nc&+yo&Nl&+yl&Ne&+yc&Nt&+yo&nr&N~
+&+GA bottomless bag of the &N&+ycollector&N&+G has been left here.~
+~
+15 3 4 0 15 0 1 8388609 64 0 0
+4000 5 0 4000 0 0 0 0
+-300 0 100
+E
+bottomless bag collector~
+   &+GThis glorious, massive bag is stitched with fine, magical fabric.
+&+GIt stretches and gives seemingly endlessly to withstand any amount
+&+Gof space, or so it is advertised.
+~
+#83446
+object unnamed~
+an unnamed object~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100

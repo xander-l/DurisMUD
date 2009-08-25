@@ -1378,6 +1378,34 @@ tokens~
 &N$n gestures towards the &+Wsign.
 'This sign shows the number of &+Ytokens&N for each profession it takes to receive their reward item.  Just give that many of that &+Ytoken &Nto me and I'll give you your reward!'
 ~
+QA
+&N$n says 'Thanks $N, here you go!'
+~
+R I 83444
+G I 83178
+G I 83178
+G I 83178
+G I 83178
+G I 83178
+G I 83178
+G I 83178
+G I 83178
+G I 83178
+G I 83178
+QA
+&N$n says 'Thanks $N!  Here you go.'
+~
+R I 83445
+G I 83246
+G I 83246
+G I 83246
+G I 83246
+G I 83246
+G I 83246
+G I 83246
+G I 83246
+G I 83246
+G I 83246
 S
 #83262
 M
