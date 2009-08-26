@@ -40,7 +40,7 @@ a &+Lvorblot&N~
 &+rflesh &+Lwithin this keep.&N
 ~
 72 0 0 0 0 0 0 0 S
-x 0 1 3
+sl 0 1 3
 37 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -55,8 +55,8 @@ a &+Bdorblot&N~
 &+rflesh &+Bwithin this &+Lkeep&+B.&N
 ~
 72 0 0 0 0 0 0 0 S
-X 0 1 3
-6 0 0 1d1+1 1d1+1
+sl 0 1 3
+36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
 #99404
@@ -70,7 +70,7 @@ a &+yranvok&N~
 &+yand fools who wander where they are not welcomed.&N
 ~
 1073756232 0 0 33554432 0 0 0 0 S
-y 0 1 2
+ac 0 1 2
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -275,7 +275,7 @@ slavork slime glob~
 &+gbe seen floating upon the surface of this being.&N
 ~
 72 0 0 0 0 0 0 1000 S
-x 0 1 3
+sl 0 1 3
 37 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -290,7 +290,7 @@ a &+rrabid &+yranvok&N~
 &+Land fools who wander where they are not welcomed.&N
 ~
 1073756232 1 0 33554432 0 16777216 0 1000 S
-y 0 1 2
+ac 0 1 2
 39 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -304,7 +304,7 @@ svartnort magenta river~
 &+mflesh that are on the gloomy ground of this dismal abode.&N
 ~
 72 0 0 0 0 0 0 -1000 S
-L 0 1 3
+sl 0 1 3
 39 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -367,7 +367,7 @@ quaden lord~
 &+Lback.  Flesh falls from the ancient &+Wbones &+Lof this unholy brute beast.&N
 ~
 33699914 1 0 0 2 0 0 -1000 S
-ul 0 512 3
+uk 0 16 3
 39 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -762,7 +762,7 @@ a &+Lvorblot&N~
 &+rflesh &+Lwithin these c&+ba&+Lt&+ba&+Lc&+bo&+Lmbs.&N
 ~
 72 0 0 0 0 0 0 -1000 S
-x 0 1 3
+sl 0 1 3
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -892,7 +892,7 @@ vornite slime glob~
 &+gbe seen floating upon the surface of this being.&N
 ~
 72 0 0 0 0 0 0 1000 S
-l 0 1 0
+sl 0 1 0
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -906,7 +906,7 @@ svartnort magenta river~
 &+rflesh &+mthat are on the gloomy ground of this dismal domain.&N
 ~
 72 0 0 0 0 0 0 -1000 S
-l 0 1 1
+sl 0 1 1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
