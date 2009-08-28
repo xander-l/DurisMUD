@@ -7152,14 +7152,6 @@ void do_trample(P_char ch, char *argument, int cmd)
   if(!SanityCheck(ch, "trample"))
     return;
 
-  if(affected_by_spell(ch, SKILL_BASH))
-  {
-    send_to_char
-      ("You haven't reoriented the mount yet enough for another trample!\n",
-       ch);
-    return;
-  }
-
   if(!(mount = get_linked_char(ch, LNK_RIDING)))
   {
     send_to_char("You can do this only while riding a mount!\n", ch);
@@ -7169,6 +7161,14 @@ void do_trample(P_char ch, char *argument, int cmd)
   if(GET_CHAR_SKILL(ch, SKILL_MOUNTED_COMBAT) < 1)
   {
     send_to_char("Your skill with a mount is horrible.\r\n", ch);
+    return;
+  }
+
+  if(affected_by_spell(ch, SKILL_BASH))
+  {
+    send_to_char
+      ("You haven't reoriented the mount yet enough for another trample!\n",
+       ch);
     return;
   }
   
@@ -7251,7 +7251,7 @@ void do_trample(P_char ch, char *argument, int cmd)
 
   if(IS_AFFECTED(victim, AFF_AWARE))
   {
-    knockdown_chance = (int) (knockdown_chance * 0.93);
+    knockdown_chance = (int) (knockdown_chance * 0.80);
   }
 
   vict_size = get_takedown_size(victim);
@@ -7273,12 +7273,8 @@ void do_trample(P_char ch, char *argument, int cmd)
   
   if(vict_size > ch_size + 1)
   {
-    if(!IS_ELITE(victim) &&
-       !IS_GREATER_RACE(victim))
-    {
-      knockdown_chance = (int) (knockdown_chance * 0.20);
-      vict_lag = 1;
-    }
+    knockdown_chance = (int) (knockdown_chance * 0.20);
+    vict_lag = 1;
   }
 
   if(vict_size < ch_size - 1 && !(is_knight && vict_size == ch_size - 2))
@@ -7300,11 +7296,15 @@ void do_trample(P_char ch, char *argument, int cmd)
 
   // using SKILL_KICK cause it produces no messages just returns
   // the right thing
+
+  CharWait(ch, PULSE_VIOLENCE * 2);
+  
   knockdown_chance =
     takedown_check(ch, victim, knockdown_chance, SKILL_KICK, APPLY_ALL);
 
   if(knockdown_chance == TAKEDOWN_CANCELLED)
   {
+    send_to_char("&+yThe trample attempt fails horribly.\r\n", ch);
     return;
   }
   else if(knockdown_chance == TAKEDOWN_PENALTY)
@@ -7323,8 +7323,6 @@ void do_trample(P_char ch, char *argument, int cmd)
   knockdown_chance = BOUNDED(1, knockdown_chance, 80);
   
   act("You order your mount to trample $N.", FALSE, ch, 0, victim, TO_CHAR);
-
-  CharWait(ch, PULSE_VIOLENCE * 2);
 
   if(!notch_skill(ch, SKILL_MOUNTED_COMBAT, get_property("skill.notch.offensive", 15)) &&
      (percent_chance + charisma) < number(1, 100))
