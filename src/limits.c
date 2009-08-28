@@ -1078,6 +1078,18 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
     if(GET_LEVEL(ch) >= 55)
       XP *= (get_property("gain.exp.mod.player.level.fiftyfive", 1.000));
   }
+  
+  if(XP > 0 &&
+    type == EXP_WORLD_QUEST)
+  {
+// Race exp modifiers.
+    if(GET_RACE(ch) >= 1 && GET_RACE(ch) <= LAST_RACE )
+    {
+      char prop_buf[128];
+      sprintf(prop_buf, "exp.factor.%s", race_names_table[GET_RACE(ch)].no_spaces);
+      XP = (int) ( XP * (float) get_property(prop_buf, 1.0) );
+    }
+  }
 
   if(XP > 0)
     XP *= (get_property("gain.exp.mod.TotalOverall", 1.00));
