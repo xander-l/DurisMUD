@@ -152,7 +152,7 @@ void quest_reward(P_char ch, P_char quest_mob, int type)
 
   if(type != FIND_AND_KILL) // less exp but some money
   {
-    sprintf(Gbuf1, "&=LGYou gain some experience.&n");
+    sprintf(Gbuf1, "&=LWYou gain some experience.&n");
     act(Gbuf1, FALSE, quest_mob, 0, ch, TO_VICT);
 
     reward =  read_object(real_object(getItemFromZone(real_zone(ch->only.pc->quest_zone_number))), REAL);
@@ -182,7 +182,7 @@ void quest_reward(P_char ch, P_char quest_mob, int type)
   }
   else // no money but an item.
   {
-    sprintf(Gbuf1, "&=LGYou gain some experience.&n");
+    sprintf(Gbuf1, "&=LWYou gain some experience.&n");
     act(Gbuf1, FALSE, quest_mob, 0, ch, TO_VICT);
 
     reward =  read_object(real_object(getItemFromZone(real_zone(ch->only.pc->quest_zone_number))), REAL);
