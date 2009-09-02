@@ -347,7 +347,7 @@ const int material_absorbtion[TOTALATTACK_TYPES][TOTALMATERIALS] = {
 
 extern const int movement_loss[];
 const int movement_loss[] = {
-  2,                            /* * Inside     */
+  1,                            /* * Inside     */
   1,                            /* * City       */
   3,                            /* * Field      */
   3,                            /* * Forest     */

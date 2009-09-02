@@ -1806,8 +1806,10 @@ int move_cost(P_char ch, int dir)
     if (world[ch->in_room].sector_type == SECT_MOUNTAIN ||
         world[ch->in_room].sector_type == SECT_OCEAN)
       ;
-    else if (world[ch->in_room].sector_type == SECT_HILLS)
-      moves = MAX(2, moves / 2);
+    if(world[ch->in_room].sector_type == SECT_INSIDE ||
+       world[ch->in_room].sector_type == SECT_CITY ||
+       world[ch->in_room].sector_type == SECT_ROAD)
+          moves = 1;
     else
       moves = 2;
 
