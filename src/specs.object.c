@@ -2973,12 +2973,12 @@ int vapor(P_obj obj, P_char ch, int cmd, char *arg)
   else if (OBJ_CARRIED(obj))
     ch = obj->loc.carrying;
   else
-    return false;
+    return FALSE;
 
 
-/*
-  Damage proc on.
-*/
+  /*
+    Damage proc on.
+  */
   curr_time = time(NULL);
   if(obj->timer[1] + 30 < curr_time)
   {
@@ -3021,23 +3021,16 @@ int vapor(P_obj obj, P_char ch, int cmd, char *arg)
 
   if(cmd == CMD_GOTHIT)
   {
-    if (OBJ_WORN(obj))
-      ch = obj->loc.wearing;
-    else if (OBJ_CARRIED(obj))
-      ch = obj->loc.carrying;
-    else
-      return false;
-      
     // recurse self
     if (!IS_SET(obj->extra_flags, ITEM_NODROP))
     {
       SET_BIT(obj->extra_flags, ITEM_NODROP);
     }
     // It's on body
-    if (OBJ_WORN_BY(obj, ch))
+    if(OBJ_WORN_BY(obj, ch) &&
+      !affected_by_spell(ch, SPELL_COLDSHIELD))
     {
-      if(IS_PC(ch) &&
-        !affected_by_spell(ch, SPELL_COLDSHIELD))
+      if(IS_PC(ch))
       {
         act("&+rYou let out a silence scream as the $p &+rfeeds on your life force.&n ",
           FALSE, ch, obj, 0, TO_CHAR);
@@ -3045,15 +3038,13 @@ int vapor(P_obj obj, P_char ch, int cmd, char *arg)
             FALSE, ch, obj, 0, TO_ROOM);
         GET_HIT(ch) = MAX(1, GET_HIT(ch) - 30);
       }
-
       spell_coldshield(55, ch, NULL, SPELL_TYPE_SPELL, ch, 0);
       return TRUE;
     }
 
-    if (OBJ_CARRIED_BY(obj, ch))
+    if(OBJ_CARRIED_BY(obj, ch))
     {
-      if (GET_RACE(ch) != RACE_OGRE &&  // ogres cannot wear on body
-          GET_RACE(ch) != RACE_CENTAUR)
+      if(GET_RACE(ch) != RACE_CENTAUR)
       {
         if (GET_RACE(ch) == RACE_CENTAUR)
           slot = WEAR_HORSE_BODY;
