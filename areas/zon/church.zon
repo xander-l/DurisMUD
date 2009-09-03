@@ -136,22 +136,22 @@ F 1 87838 2 87823 100 0 0 0        * a brawny work-gang member (following)
 E 1 87838 4 6 100 0 0 0            *   a ribbed iron hard-hat
 E 1 87835 4 8 100 0 0 0            *   a pair of steel-toed work boots
 E 1 87836 4 9 100 0 0 0            *   a pair of thick work gloves
-E 1 87837 4 27 100 0 0 0           *   a leather lifting harness
+G 1 87837 4 0 100 0 0 0            *    a leather lifting harness
 F 1 87839 2 87823 100 0 0 0        * a muscular work-gang member (following)
 E 1 87838 4 6 100 0 0 0            *   a ribbed iron hard-hat
 E 1 87835 4 8 100 0 0 0            *   a pair of steel-toed work boots
 E 1 87836 4 9 100 0 0 0            *   a pair of thick work gloves
-E 1 87837 4 27 100 0 0 0           *   a leather lifting harness
+G 1 87837 4 0 100 0 0 0            *    a leather lifting harness
 F 1 87838 2 87823 100 0 0 0        * a brawny work-gang member (following)
 E 1 87838 4 6 100 0 0 0            *   a ribbed iron hard-hat
 E 1 87835 4 8 100 0 0 0            *   a pair of steel-toed work boots
 E 1 87836 4 9 100 0 0 0            *   a pair of thick work gloves
-E 1 87837 4 27 100 0 0 0           *   a leather lifting harness
+G 1 87837 4 0 100 0 0 0            *    a leather lifting harness
 F 1 87839 2 87823 100 0 0 0        * a muscular work-gang member (following)
 E 1 87838 4 6 100 0 0 0            *   a ribbed iron hard-hat
 E 1 87835 4 8 100 0 0 0            *   a pair of steel-toed work boots
 E 1 87836 4 9 100 0 0 0            *   a pair of thick work gloves
-E 1 87837 4 27 100 0 0 0           *   a leather lifting harness
+G 1 87837 4 0 100 0 0 0            *    a leather lifting harness
 M 0 87865 4 87824 100 0 0 0        * a church guardsman
 M 0 87850 1 87825 100 0 0 0        * a meek church academic
 E 1 87848 1 19 100 0 0 0           *   an emerald-rimmed glass monocle
