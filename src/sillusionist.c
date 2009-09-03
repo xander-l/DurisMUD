@@ -131,26 +131,28 @@ void spell_shadow_monster(int level, P_char ch, char *arg, int type,
   int      summoned = 0;
   struct char_link_data *cld;
 
-  if (!ch || !victim)
-    return;
+  if(!ch ||
+     !victim)
+      return;
 
-  if (CHAR_IN_SAFE_ZONE(ch))
+  if(CHAR_IN_SAFE_ZONE(ch))
   {
     send_to_char("A mysterious force blocks your conjuring!\r\n", ch);
     return;
   }
 
-  for (cld = ch->linked; cld; cld = cld->next_linked)
+  for(cld = ch->linked; cld; cld = cld->next_linked)
   {
     if (cld->type == LNK_PET &&
         IS_NPC(cld->linking) &&
-	GET_VNUM(cld->linking) == 1106)
+        GET_VNUM(cld->linking) == 1106)
     {
       summoned++;
     }
   }
 
-  if (summoned >= MAX(1, GET_LEVEL(ch) / 14))
+  if(summoned >= MAX(1, GET_LEVEL(ch) / 14) ||
+    !GET_CLASS(ch, CLASS_ILLUSIONIST))
   {
     send_to_char("You cannot summon any more shadows!\r\n", ch);
     return;
@@ -165,12 +167,10 @@ void spell_shadow_monster(int level, P_char ch, char *arg, int type,
   }
 
   char_to_room(mob, ch->in_room, 0);
-  act("$n &+w appears from nowhere!", TRUE, mob, 0, 0, TO_ROOM);
+  act("$n &+wappears from nowhere!", TRUE, mob, 0, 0, TO_ROOM);
   justice_witness(ch, NULL, CRIME_SUMMON);
 
   mob->player.level = BOUNDED(1, number(level - 5, level + 1), 55);
-
-  SET_BIT(mob->specials.affected_by, AFF_INFRAVISION);
 
   mob->player.m_class = 0;
   remove_plushit_bits(mob);
@@ -179,12 +179,13 @@ void spell_shadow_monster(int level, P_char ch, char *arg, int type,
     dice(GET_LEVEL(mob), 3) + (GET_LEVEL(mob) * 2);
 
   setup_pet(mob, ch, 1, PET_NOORDER | PET_NOCASH);
-
-  mob->points.base_hitroll = mob->points.hitroll = GET_LEVEL(mob) / 2;
-  mob->points.base_damroll = mob->points.damroll = GET_LEVEL(mob) + 15;
+  
+  GET_EXP(mob) = 0;
+  mob->points.base_hitroll = mob->points.hitroll = GET_LEVEL(ch);
+  mob->points.base_damroll = mob->points.damroll = GET_LEVEL(ch) / 2;
   mob->points.damnodice = (int) GET_LEVEL(ch) / 5;
   mob->points.damsizedice = (int) GET_LEVEL(ch) / 6;
-  play_sound(SOUND_ELEMENTAL, NULL, ch->in_room, TO_ROOM);
+// play_sound(SOUND_ELEMENTAL, NULL, ch->in_room, TO_ROOM);
 
   MobStartFight(mob, victim);
   group_add_member(ch, mob);
@@ -198,10 +199,11 @@ void spell_insects(int level, P_char ch, char *arg, int type, P_char victim,
   int      summoned, i;
   struct char_link_data *cld;
 
-  if (!ch || !victim)
-    return;
+  if(!ch ||
+    !victim)
+      return;
 
-  if (CHAR_IN_SAFE_ZONE(ch))
+  if(CHAR_IN_SAFE_ZONE(ch))
   {
     send_to_char("A mysterious force blocks your conjuring!\r\n", ch);
     return;
@@ -209,11 +211,11 @@ void spell_insects(int level, P_char ch, char *arg, int type, P_char victim,
 
   summoned = 0;
 
-  for (cld = ch->linked; cld; cld = cld->next_linked)
+  for(cld = ch->linked; cld; cld = cld->next_linked)
   {
     if (cld->type == LNK_PET &&
         IS_NPC(cld->linking) &&
-	GET_VNUM(cld->linking) == 1107)
+        GET_VNUM(cld->linking) == 1107)
     {
       summoned++;
     }
@@ -236,30 +238,34 @@ void spell_insects(int level, P_char ch, char *arg, int type, P_char victim,
 
     mob->player.level = MIN(30, MAX(1, number(level - 7, level - 2)));
 
-    SET_BIT(mob->specials.affected_by, AFF_INFRAVISION);
     SET_BIT(mob->specials.affected_by, AFF_HASTE);
 
-    if (GET_LEVEL(ch) > 45) {
+    if (GET_LEVEL(ch) > 31)
+    {
       SET_BIT(mob->specials.affected_by3, AFF3_BLUR);
     }
-    if (GET_LEVEL(ch) > 50) {
+    if (GET_LEVEL(ch) > 50)
+    {
       SET_BIT(mob->specials.affected_by2, AFF2_FLURRY);
     }
 
     mob->player.m_class = 0;
     remove_plushit_bits(mob);
     GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit =
-      dice(GET_LEVEL(mob), 3) + (GET_LEVEL(mob) * 2);
+      dice(GET_LEVEL(mob), 3) + (GET_LEVEL(ch));
 
-    mob->points.base_hitroll = mob->points.hitroll = GET_LEVEL(mob) / 2;
-    mob->points.base_damroll = mob->points.damroll = GET_LEVEL(mob) / 2;
-
+    GET_EXP(mob) = 0;      
+    mob->points.base_hitroll = mob->points.hitroll = GET_LEVEL(ch);
+    mob->points.base_damroll = mob->points.damroll = GET_LEVEL(ch) / 2;
     mob->points.damnodice = (int) GET_LEVEL(ch) / 8;
-    mob->points.damsizedice = (int) GET_LEVEL(ch) / 10;
+    mob->points.damsizedice = (int) GET_LEVEL(ch) / 8;
 
     setup_pet(mob, ch, 1, PET_NOORDER | PET_NOCASH);
     MobStartFight(mob, victim);
     group_add_member(ch, mob);
+    
+    if(!GET_CLASS(ch, CLASS_ILLUSIONIST))
+      return;
   }
 }
 
@@ -269,7 +275,6 @@ void spell_boulder(int level, P_char ch, char *arg, int type, P_char victim,
                    P_obj obj)
 {
   int      dam;
-  int      temp;
   struct damage_messages messages = {
     "Your huge &+Willusional boulder&n hits $N causing $M to scream out in agony!",
     "A huge &+Wboulder&n created by $n&n hits you causing you to scream out in agony!",
@@ -285,31 +290,33 @@ void spell_boulder(int level, P_char ch, char *arg, int type, P_char victim,
     raise(SIGSEGV);
   }
 
-  temp = MIN(35, (level - 5));
-  dam = dice(3 * temp, 8);
-  dam = dam * DAMFACTOR;
-
-  if (saves_spell(victim, SAVING_SPELL))
+  dam = dice(2 * level, 8);
+  
+  if(NewSaves(victim, SAVING_SPELL, 0))
     dam >>= 1;
 
   if (spell_damage(ch, victim, dam, SPLDAM_GENERIC, SPLDAM_GLOBE, &messages)
       != DAM_NONEDEAD)
     return;
 
-     if(!IS_AFFECTED2(victim, AFF2_GLOBE) && (GET_POS(victim) == POS_STANDING) )
-     {
+   if(!IS_AFFECTED2(victim, AFF2_GLOBE) &&
+     (GET_POS(victim) == POS_STANDING) &&
+     !IS_ELITE(victim) &&
+     !IS_GREATER_RACE(victim))
+   {
 
-     if (!number(0,5)) {
-     act("&+LYour &+Wboulder&n &+Lhit's $N dead on, knocking $M to the ground!&n",
-     0, ch, 0, victim, TO_CHAR);
-     act("$N is knocked to the ground as $n's &+Wboulder hit's $M dead on!&n",
-     0, ch, 0, victim, TO_NOTVICT);
-     act("$n's &+Wboulder hit's dead on knocking you to the ground!&n",
-     0, ch, 0, victim, TO_VICT);
-     SET_POS(victim, POS_SITTING + GET_STAT(victim));
-     CharWait(victim, PULSE_VIOLENCE);
+     if(!number(0, 9))
+     {
+      act("&+LYour &+Wboulder&n &+Lhit's $N dead on, knocking $M to the ground!&n",
+        0, ch, 0, victim, TO_CHAR);
+      act("$N is knocked to the ground as $n's &+Wboulder hit's $M dead on!&n",
+        0, ch, 0, victim, TO_NOTVICT);
+      act("$n's &+Wboulder hit's dead on knocking you to the ground!&n",
+        0, ch, 0, victim, TO_VICT);
+      SET_POS(victim, POS_SITTING + GET_STAT(victim));
+      CharWait(victim, (int)(PULSE_VIOLENCE * 0.5));
      }
-     }
+   }
 }
 
 
@@ -1200,28 +1207,19 @@ void spell_hammer(int level, P_char ch, char *arg, int type, P_char victim,
     stunself = 1;
   }
 
-  temp = MIN(45, (level + 2));
-  dam = dice(2 * temp, 8);
-  result = spell_damage(ch, victim, dam, SPLDAM_GENERIC,
-    SPLDAM_NOSHRUG, &messages);
+  dam = dice(3 * level, 7);
+  if(spell_damage(ch, victim, dam, SPLDAM_GENERIC, SPLDAM_NOSHRUG, &messages)  
+    != DAM_NONEDEAD)
+        return;
 
-  if(victim &&
-    ch &&
-    (result != DAM_CHARDEAD))
+  if(!number(0, 19) &&
+     !IS_ELITE(victim) &&
+     !IS_GREATER_RACE(victim))
   {
-    if(!number(0,10))
-    {
-      if(ch &&
-        victim &&
-        stunself)
-      {
-        Stun(ch, PULSE_VIOLENCE);
-      }
-      else if(ch && victim)
-      {
-        Stun(victim, PULSE_VIOLENCE);
-      }
-    }
+    if(stunself)
+      Stun(ch, PULSE_VIOLENCE);
+    else
+      Stun(victim, PULSE_VIOLENCE);
   }
 }
 
@@ -1839,7 +1837,7 @@ void spell_dragon(int level, P_char ch, char *arg, int type, P_char victim,
 
   balance_affects(mob);
 
-  play_sound(SOUND_ELEMENTAL, NULL, ch->in_room, TO_ROOM);
+// play_sound(SOUND_ELEMENTAL, NULL, ch->in_room, TO_ROOM);
 
   setup_pet(mob, ch, 1, PET_NOORDER | PET_NOCASH);
   group_add_member(ch, mob);
@@ -1946,7 +1944,7 @@ void spell_titan(int level, P_char ch, char *arg, int type, P_char victim,
   act("$n &+Lappears from nowhere!", TRUE, mob, 0, 0, TO_ROOM);
   justice_witness(ch, NULL, CRIME_SUMMON);
 
-  play_sound(SOUND_ELEMENTAL, NULL, ch->in_room, TO_ROOM);
+// play_sound(SOUND_ELEMENTAL, NULL, ch->in_room, TO_ROOM);
 
   setup_pet(mob, ch, 1, PET_NOORDER | PET_NOCASH);
   MobStartFight(mob, victim);

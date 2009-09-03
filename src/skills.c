@@ -2888,7 +2888,7 @@ SPELL_ADD(CLASS_NONE, 1);
                 spell_illusionary_wall);
   SPELL_ADD(CLASS_ILLUSIONIST, 5);
 
-  SPELL_CREATE("boulder", SPELL_BOULDER, PULSE_SPELLCAST * 4 / 3,
+  SPELL_CREATE("boulder", SPELL_BOULDER, PULSE_SPELLCAST * 5 / 3,
                 TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_boulder);
   SPELL_ADD(CLASS_ILLUSIONIST, 5);
 
@@ -2929,7 +2929,7 @@ SPELL_ADD(CLASS_NONE, 1);
                 spell_vanish, "&+WYou snap back into visibility.&n");
   SPELL_ADD(CLASS_ILLUSIONIST, 8);
 
-  SPELL_CREATE("hammer", SPELL_HAMMER, PULSE_SPELLCAST * 3 / 2,
+  SPELL_CREATE("hammer", SPELL_HAMMER, PULSE_SPELLCAST * 5 / 3,
                 TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_hammer);
   SPELL_ADD(CLASS_ILLUSIONIST, 7);
 
