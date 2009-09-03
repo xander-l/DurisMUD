@@ -369,7 +369,7 @@ sleepy fisherman~
 &+Ldesperately tries to get some rest before hitting the seas once again.
 ~
 2122 0 0 0 0 0 0 0 S
-PH 0 1 -1
+PH 0 16384 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 4 4 1
@@ -459,7 +459,7 @@ halfling fisherman~
 &+Lfishing poles and a huge net.
 ~
 2122 0 0 0 0 0 0 250 S
-pf 0 1 -1
+pf 0 16384 -1
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -472,8 +472,8 @@ dwarf dwarven fisherman~
 &+La strong physique and a proud, young face.  He carries long, wooden
 &+Lfishing poles and a huge net.
 ~
-2122 0 0 0 0 0 0 250 S
-pf 0 1 -1
+2122 0 0 0 0 0 0 0 S
+pm 0 1 -1
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
