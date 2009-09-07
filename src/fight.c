@@ -4192,52 +4192,118 @@ int check_shields(P_char ch, P_char victim, int dam, int flags)
 
         memset(&af, 0, sizeof(af));
         af.flags = AFFTYPE_SHORT;
-        switch (number(2, 8))
+        switch (number(1, 9))
         {
         case 1:
-          af.type = SPELL_MINOR_PARALYSIS;
-          af.bitvector2 = AFF2_MINOR_PARALYSIS;
-          af.duration = 3 * PULSE_VIOLENCE;
-          affect_to_char(ch, &af);
-          act
-            ("&+wYour entire body freezes upon contact with the &+Wholy aura&n &+wsurrounding&n $N!",
-             FALSE, ch, 0, victim, TO_CHAR);
-          act
-            ("$n's &+wentire body freezes upon contact with the &+Wholy aura&n &+wsurrounding&n $N!",
-             FALSE, ch, 0, victim, TO_NOTVICT);
-          act
-            ("$n's &+wentire body freezes upon contact with the &+Wholy aura&n &+wsurrounding you!&n",
-             FALSE, ch, 0, victim, TO_VICT);
-          update_pos(ch);
-          break;
-        case 2:
-          sprintf(buf, "$N &+wmutters a prayer to %s, and then heavy &+Ldarkness &+wshrouds your vision.&n", get_god_name(victim));
-          act(buf, FALSE, ch, 0, victim, TO_CHAR);
-          sprintf(buf, "$n &+wgropes around as if blind as $N mutters a prayer to %s.", get_god_name(victim));
-          act(buf, FALSE, ch, 0, victim, TO_NOTVICT);
-          sprintf(buf, "&+wYou send a prayer to %s, to shroud your foes in &+Ldarkness.&n", get_god_name(victim));
-          act(buf, FALSE, ch, 0, victim, TO_VICT);
-          blind(victim, ch, 2 * PULSE_VIOLENCE);
-          break;
-        case 3:
-          if (affected_by_spell(ch, SPELL_CURSE))
+          if(!IS_ELITE(ch) &&
+             !IS_GREATER_RACE(ch) &&
+             (GET_LEVEL(ch) + 5) > GET_LEVEL(victim))
+          {
+            af.type = SPELL_MINOR_PARALYSIS;
+            af.bitvector2 = AFF2_MINOR_PARALYSIS;
+            af.duration = PULSE_VIOLENCE;
+            affect_to_char(ch, &af);
+            act("&+wYour entire body freezes upon contact with the &+Wholy aura&n &+wsurrounding&n $N!",
+               FALSE, ch, 0, victim, TO_CHAR);
+            act("$n's &+wentire body freezes upon contact with the &+Wholy aura&n &+wsurrounding&n $N!",
+               FALSE, ch, 0, victim, TO_NOTVICT);
+            act("$n's &+wentire body freezes upon contact with the &+Wholy aura&n &+wsurrounding you!&n",
+               FALSE, ch, 0, victim, TO_VICT);
+            update_pos(ch);
             break;
-          af.type = SPELL_CURSE;
-          af.location = APPLY_SAVING_SPELL;
-          af.modifier = 10;
-          af.duration = 7 * PULSE_VIOLENCE;
-          affect_to_char(ch, &af);
-          act
-            ("&+wYour strength dwindles as&n $N &+wgrabs you by your forehead and calls down the wraith of $S deity.&n",
-             FALSE, ch, 0, victim, TO_CHAR);
-          act
-            ("$N &+wgrabs&n $n &+wby his forehead and calls down the might of $S deity.&n",
-             FALSE, ch, 0, victim, TO_NOTVICT);
-          act
-            ("&+wYou touch&n $n's &+wforehead and call down the might of your deity.&n",
-             FALSE, ch, 0, victim, TO_VICT);
-          break;
+          }
+        case 2:
+          if(!EYELESS(ch) &&
+             !affected_by_spell(ch, SPELL_BLINDNESS))
+          {
+            sprintf(buf, "$N &+wmutters a prayer to %s, and then heavy &+Ldarkness &+wshrouds your vision.&n", get_god_name(victim));
+            act(buf, FALSE, ch, 0, victim, TO_CHAR);
+            sprintf(buf, "$n &+wgropes around as if blind as $N mutters a prayer to %s.", get_god_name(victim));
+            act(buf, FALSE, ch, 0, victim, TO_NOTVICT);
+            sprintf(buf, "&+wYou send a prayer to %s, to shroud your foes in &+Ldarkness.&n", get_god_name(victim));
+            act(buf, FALSE, ch, 0, victim, TO_VICT);
+            blind(victim, ch, 2 * PULSE_VIOLENCE);
+            break;
+          }
+        case 3:
+          if(!affected_by_spell(ch, SPELL_CURSE))
+          {
+            af.type = SPELL_CURSE;
+            af.location = APPLY_SAVING_SPELL;
+            af.modifier = 10;
+            af.duration = 7 * PULSE_VIOLENCE;
+            affect_to_char(ch, &af);
+            act("&+wYour strength dwindles as&n $N &+wgrabs you by your forehead and calls down the wraith of $S deity.&n",
+               FALSE, ch, 0, victim, TO_CHAR);
+            act("$N &+wgrabs&n $n &+wby his forehead and calls down the might of $S deity.&n",
+               FALSE, ch, 0, victim, TO_NOTVICT);
+            act("&+wYou touch&n $n's &+wforehead and call down the might of your deity.&n",
+               FALSE, ch, 0, victim, TO_VICT);
+            break;
+          }
         case 4:
+          if(IS_CLERIC(ch) &&
+             !IS_ELITE(ch) &&
+             !IS_GREATER_RACE(ch))
+          {
+            sprintf(buf, "&+YBright light falls from above and&n $N &+Ysends forth divine power!&n", get_god_name(victim));
+            act(buf, FALSE, ch, 0, victim, TO_CHAR);
+            sprintf(buf, "&+w%s&+w sends a ray of light down upon&n $N.", get_god_name(victim));
+            act(buf, FALSE, ch, 0, victim, TO_NOTVICT);
+            sprintf(buf, "&+wYou send a prayer to %s&+w who instills you with &+Rwrath!&n", get_god_name(victim));
+            act(buf, FALSE, ch, 0, victim, TO_VICT);
+            spell_silence(GET_LEVEL(victim), victim, 0, 0, ch, 0);
+            break;
+          }
+        case 5:
+          act("$N &+wmutters a silent prayer to $S gods to aid $M in battle.&n",
+             FALSE, ch, 0, victim, TO_CHAR);
+          act("&+wBright light encases&n $N &+was $e mutters a prayer to $S deity.&n",
+             FALSE, ch, 0, victim, TO_NOTVICT);
+          act("&+wYour god rewards your faithfulness by sending aid from the Heavens!&n",
+             FALSE, ch, 0, victim, TO_VICT);
+          spell_flamestrike(GET_LEVEL(victim), victim, 0, 0, ch, 0);
+          break;
+        case 6:
+          if((GET_VITALITY(victim) + 30) < GET_MAX_VITALITY(victim))
+          {
+            act("&+wBright light encases&n $N &+was $E mutters a prayer to $S god.&n",
+               FALSE, ch, 0, victim, TO_CHAR);
+            act("&+wBright light encases&n $N &+was $E mutters a prayer to $S god.&n",
+               FALSE, ch, 0, victim, TO_NOTVICT);
+            act("&+wYou send a prayer to the Heavens to invigorate your spirit.&n",
+               FALSE, ch, 0, victim, TO_VICT);
+            spell_vigorize_critic(GET_LEVEL(victim), victim, 0, 0, victim, 0);
+            break;
+          }
+        case 7:
+        
+          if(!IS_AFFECTED4(ch, AFF4_NOFEAR) &&
+             !IS_ELITE(ch) &&
+             !IS_GREATER_RACE(ch))
+          {
+            act("$N &+wresponds to your attack with a vicious look of pure hatred!&n",
+               FALSE, ch, 0, victim, TO_CHAR);
+            act("$N &+wassumes a nasty look and tries to instill fear in $n!",
+               FALSE, ch, 0, victim, TO_NOTVICT);
+            act("&+wYou muster up the nastiest look you can to scare off your foe.&n",
+               FALSE, ch, 0, victim, TO_VICT);
+            spell_fear(GET_LEVEL(victim), victim, 0, 0, ch, 0);
+            break;
+          }
+        case 8:
+          if(GET_HIT(victim) + 50 < GET_MAX_HIT(victim))
+          {
+            sprintf(buf, "&+wBright light falls from above and&n $N&+w's wounds begin to heal!&n", get_god_name(victim));
+            act(buf, FALSE, ch, 0, victim, TO_CHAR);
+            sprintf(buf, "&+w%s&+w sends a ray of light down upon&n $N&+w, healing some of $S wounds.", get_god_name(victim));
+            act(buf, FALSE, ch, 0, victim, TO_NOTVICT);
+            sprintf(buf, "&+wYou send a prayer to %s&+w, who smiles upon you and mends some of your wounds.", get_god_name(victim));
+            act(buf, FALSE, ch, 0, victim, TO_VICT);
+            spell_heal(GET_LEVEL(victim), victim, 0, 0, victim, 0);
+            break;
+          }
+        case 9:
           sprintf(buf, "$N &+wmutters a prayer to %s &+was $e stares coldly at you.&n", get_god_name(victim));
           act(buf, FALSE, ch, 0, victim, TO_CHAR);
           sprintf(buf, "&+w%s&+w sends a mighty wrath upon&n $n &+was &n$N&+w's prayers are heard.", get_god_name(victim));
@@ -4246,50 +4312,8 @@ int check_shields(P_char ch, P_char victim, int dam, int flags)
           act(buf, FALSE, ch, 0, victim, TO_VICT);
           spell_full_harm(GET_LEVEL(victim), victim, 0, 0, ch, 0);
           break;
-        case 5:
-          act
-            ("$N &+wmutters a silent prayer to $S gods to aid $M in battle.&n",
-             FALSE, ch, 0, victim, TO_CHAR);
-          act
-            ("&+wBright light encases&n $N &+was $e mutters a prayer to $S deity.&n",
-             FALSE, ch, 0, victim, TO_NOTVICT);
-          act
-            ("&+wYour god rewards your faithfulness by sending aid from the Heavens!&n",
-             FALSE, ch, 0, victim, TO_VICT);
-          spell_flamestrike(GET_LEVEL(victim), victim, 0, 0, ch, 0);
-          break;
-        case 6:
-          act
-            ("&+wBright light encases&n $N &+was $E mutters a prayer to $S god.&n",
-             FALSE, ch, 0, victim, TO_CHAR);
-          act
-            ("&+wBright light encases&n $N &+was $E mutters a prayer to $S god.&n",
-             FALSE, ch, 0, victim, TO_NOTVICT);
-          act
-            ("&+wYou send a prayer to the Heavens to invigorate your spirit.&n",
-             FALSE, ch, 0, victim, TO_VICT);
-          spell_vigorize_critic(GET_LEVEL(victim), victim, 0, 0, victim, 0);
-          break;
-        case 7:
-          act
-            ("$N &+wresponds to your attack with a vicious look of pure hatred!&n",
-             FALSE, ch, 0, victim, TO_CHAR);
-          act
-            ("$N &+wassumes a nasty look and tries to instill fear in $n!",
-             FALSE, ch, 0, victim, TO_NOTVICT);
-          act
-            ("&+wYou muster up the nastiest look you can to scare off your foe.&n",
-             FALSE, ch, 0, victim, TO_VICT);
-          spell_fear(GET_LEVEL(victim), victim, 0, 0, ch, 0);
-          break;
-        case 8:
-          sprintf(buf, "&+wBright light falls from above and&n $N&+w's wounds begin to heal!&n", get_god_name(victim));
-          act(buf, FALSE, ch, 0, victim, TO_CHAR);
-          sprintf(buf, "&+w%s&+w sends a ray of light down upon&n $N&+w, healing some of $S wounds.", get_god_name(victim));
-          act(buf, FALSE, ch, 0, victim, TO_NOTVICT);
-          sprintf(buf, "&+wYou send a prayer to %s&+w, who smiles upon you and mends some of your wounds.", get_god_name(victim));
-          act(buf, FALSE, ch, 0, victim, TO_VICT);
-          spell_heal(GET_LEVEL(victim), victim, 0, 0, victim, 0);
+
+        default:
           break;
         }
       }
