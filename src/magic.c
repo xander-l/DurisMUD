@@ -6176,11 +6176,12 @@ void spell_natures_touch(int level, P_char ch, char *arg, int type,
     af.modifier = SECS_PER_MUD_HOUR * WAIT_SEC / duration * healpoints;
     af.bitvector4 = AFF4_REGENERATION;
     affect_to_char(victim, &af);
-    if(MIN(healpoints, GET_MAX_HIT(victim) - GET_HIT(victim)) >
-      2 * GET_LEVEL(ch) && GET_OPPONENT(victim))
+    
+    if(MIN(healpoints, GET_MAX_HIT(victim) - GET_HIT(victim)) > 30 &&
+       GET_OPPONENT(victim))
       {
-      gain_exp(ch, GET_OPPONENT(victim), 0, EXP_HEALING);
-      update_pos(victim);
+        gain_exp(ch, GET_OPPONENT(victim), 30, EXP_HEALING);
+        update_pos(victim);
       } 
   }
   
