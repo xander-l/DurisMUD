@@ -75,7 +75,7 @@ black bladed dagger black-bladed~
 &+LA black-bladed dagger has been left here.~
 ~
 5 16 3 0 7 0 0 8193 0 0 0
-2 1 9 0 0 0 0 0
+2 1 7 0 0 0 0 0
 1 7439 100
 E
 black bladed dagger black-bladed~
@@ -100,7 +100,7 @@ object unnamed~
 &+ysteps to the western building.
 ~
 #120007
-silver-lined purple silk hood silver~
+silver-lined purple silk hood silver _noquest_~
 &+Ca silver-lined &+mpurple &+Msilk &+mhood&N~
 &+CA silver-lined &+mpurple &+Msilk &+mhood&N has been left here.~
 ~
@@ -123,7 +123,7 @@ huge dwarven battle-axe axe~
 &+LA huge dwarven battle-axe has been left here, propped up.~
 ~
 5 18 3 0 14 0 4194304 8193 64 0 0
-1 6 6 0 0 0 0 0
+1 2 6 0 0 0 0 0
 10 22322 100
 E
 huge dwarven battle-axe axe~
@@ -172,7 +172,7 @@ heavy mithril dwarven hammer~
 &+WA heavy dwarven hammer of pure mithril sits here.~
 ~
 5 18 3 0 14 0 0 8193 66 0 0
-4 4 6 0 0 0 0 0
+4 2 4 0 0 0 0 0
 5 16433 100
 E
 heavy mithril dwarven hammer~
@@ -188,7 +188,7 @@ alatorin warhammer hammer~
 &+LA warhammer bearing the mark of &N&+cAlatorin&+L has been left here.~
 ~
 5 15 3 0 7 0 0 8193 0 0 0
-4 4 4 0 0 0 0 0
+4 2 4 0 0 0 0 0
 0 0 100
 E
 alatorin warhammer hammer~
@@ -243,7 +243,7 @@ pair pink-tinted pink gnomish eyeglasses glasses~
 &+Llast too long...`
 ~
 #120016
-pair blue blue-tinted gnomish eyeglasses glasses~
+pair blue blue-tinted gnomish eyeglasses glasses _noquest_~
 &+La pair of &+Bblue-&n&+bt&+Bin&N&+bt&+Bed &+Rgnomish &+Ce&+Ry&+Ce&N&+cglasses&N~
 &+LA pair of &+Mpink-tinted &+Rgnomish eyeglasses have been left here.~
 ~
@@ -320,9 +320,9 @@ sergeant badge hammerhelm militia~
 &+Las '&+cSergeant&+L' is scrolled onto it's center.
 ~
 A
-5 6
+5 3
 A
-26 6
+26 3
 #120021
 heavy adamantite full-faced full helmet faced~
 &+La heavy adamantite full-faced helmet&N~
@@ -368,7 +368,7 @@ long two-handed barbed adamantite halberd~
 &+LA two-handed barbed adamantite halberd has been left here.~
 ~
 5 15 3 0 7 0 4194304 8193 0 0 0
-13 4 7 0 0 0 0 0
+13 3 4 0 0 0 0 0
 0 0 100
 E
 long two-handed barbed adamantite halberd~
@@ -401,7 +401,7 @@ thick bladed thick-bladed hunting knife~
 &+BA thick-bladed hunting knife has been left here.~
 ~
 5 16 2 0 1 0 0 8193 64 0 0
-2 4 4 0 0 0 0 0
+2 2 4 0 0 0 0 0
 2 299 100
 E
 thick bladed thick-bladed hunting knife~
@@ -411,14 +411,14 @@ thick bladed thick-bladed hunting knife~
 A
 14 35
 A
-19 4
+19 2
 #120026
 enormous steel axe~
 &+Wan enormous steel axe&N~
 &+WAn enormous steel axe has been left here, glistening in the light.~
 ~
 5 16 7 0 9 0 4194304 8193 0 0 0
-13 5 9 0 0 0 0 0
+13 5 3 0 0 0 0 0
 25 20443 100
 E
 enormous steel axe~
@@ -433,21 +433,21 @@ battered tree trunk~
 &NA battered &+gtree trunk &Nlies here, it's branches sprouting &+Gleaves.~
 ~
 5 5 6 0 7 0 4194304 8193 0 0 0
-10 4 11 0 0 0 0 0
-40 4 79
+10 4 5 0 0 0 0 0
+60 4 79
 E
 battered tree trunk~
    &+yThis massive, unrooted tree still has its leaf-covered branches.
 ~
 A
-19 6
+19 3
 #120028
 enormous stitched hide misshapen sack~
 &Nan e&+yno&Nrm&+you&+Lu&N&+ys &Nst&+yit&Nch&+ye&+Ld&N&+y-hi&n&+yde &Nmis&+ysh&Na&+yp&+Le&N&+yn &Nsa&+yck&N~
 &+yAn enormous, misshapen bag of stitched hide lies here in a crumble.~
 ~
 15 12 6 0 7 0 0 16385 0 0 0
-2000 5 0 0 0 0 0 0
+250 5 0 100 0 0 0 0
 30 10333 100
 E
 enormous stitched hide misshapen bag~
@@ -489,7 +489,7 @@ A
 A
 12 30
 #120031
-tattered old hooded sage cloak sages~
+tattered old hooded sage cloak sages _noquest_~
 &N&+ma tat&Nt&+mer&Ne&+md old &Nh&+mood&Ne&+md &+Csage's cloak&N~
 &N&+mA tattered sage's cloak lies here in a crumbled heap.~
 ~
@@ -529,7 +529,7 @@ hand stitced ram-hide ram hide backpack bp~
 &+yA hand-stitched backpack of thick, &+Wfurry &+Yram-hide has been left here.~
 ~
 15 12 4 0 7 0 0 4194305 0 0 0
-350 5 0 0 0 0 0 0
+300 5 0 50 0 0 0 0
 0 15334 100
 E
 hand stitced ram-hide ram hide backpack bp~
@@ -567,7 +567,7 @@ juicy osquip steak~
 &+Rosquip &N&+ris naturally hairless.
 ~
 #120036
-heavenly flowing white gown~
+heavenly flowing white gown _noquest_~
 &+Ca &+Yheavenly &+Cflowing &+Wwhite gown&N~
 &+CA &+Yheavenly &+Cflowing &+Wwhite gown&N has been left here.~
 ~
@@ -584,7 +584,7 @@ A
 A
 54 44
 #120037
-spectral gauntlets battleragers~
+spectral gauntlets battleragers _noquest_~
 &n&+csome &+Ls&Np&+Le&Nc&+Lt&Nr&+La&nl &N&+cgau&+Cntl&N&+cets of the &N&+rbat&+Ytlera&N&+rgers&N~
 &+cSome &+Lspe&Nctr&+lal &N&+cgauntlets of the &N&+rbattle&+Yragers&N have been left here.~
 ~
