@@ -6260,19 +6260,26 @@ void spell_water_to_life(int level, P_char ch, char *arg, int type,
 
 void event_healing_salve(P_char ch, P_char vict, P_obj obj, void *data)
 {
-  int      waves;
+  int waves, x;
 
   waves = *((int *) data);
 
-  if(GET_HIT(ch) < GET_MAX_HIT(ch))
+  if(GET_HIT(vict) < GET_MAX_HIT(vict))
     send_to_char("You feel a &+Wwarm wave&n going through your body.\n", ch);
 
-  vamp(ch, number(GET_LEVEL(ch), (GET_LEVEL(ch) * 2)), GET_MAX_HIT(ch));
-  update_pos(ch);
+  x = vamp(vict, number(GET_LEVEL(vict), (GET_LEVEL(vict) * 2)), GET_MAX_HIT(vict));
+  
+  update_pos(vict);
+  
+  if(x > 0)
+  {
+    gain_exp(ch, vict, x, EXP_HEALING);
+  }
+  
   if(waves-- == 0)
     return;
 
-  add_event(event_healing_salve, (int) (PULSE_VIOLENCE * 0.8), ch, 0, 0, 0,
+  add_event(event_healing_salve, (int) (PULSE_VIOLENCE * 0.8), ch, vict, 0, 0,
             &waves, sizeof(waves));
 }
 
@@ -6281,17 +6288,15 @@ void spell_healing_salve(int level, P_char ch, char *arg, int type,
 {
   int      waves = 3;
 
-  act
-    ("Upon $n's touch a &+Csoft glow&n flows from $s hands and surrounds $N.",
+  act("Upon $n's touch a &+Csoft glow&n flows from $s hands and surrounds $N.",
      FALSE, ch, 0, victim, TO_NOTVICT);
-  act
-    ("Upon $n's touch a &+Csoft glow&n flows from $s hands and surrounds you.",
+  act("Upon $n's touch a &+Csoft glow&n flows from $s hands and surrounds you.",
      FALSE, ch, 0, victim, TO_VICT);
   act("You touch $N invoking a &+Chealing energy&n to cure $S wounds.", FALSE,
       ch, 0, victim, TO_CHAR);
-  add_event(event_healing_salve, 0, victim, 0, 0, 0, &waves, sizeof(waves));
-  if(GET_MAX_HIT(victim) - GET_HIT(victim) > GET_LEVEL(ch) * 2)
-    gain_exp(ch, GET_OPPONENT(victim), 0, EXP_HEALING);
+  
+  add_event(event_healing_salve, (int) (PULSE_VIOLENCE * 0.1), ch, victim, 0, 0,
+            &waves, sizeof(waves));
 
   if(affected_by_spell(victim, SPELL_PLAGUE))
     affect_from_char(victim, SPELL_PLAGUE);
