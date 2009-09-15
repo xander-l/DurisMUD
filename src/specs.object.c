@@ -2526,7 +2526,7 @@ int revenant_helm(P_obj obj, P_char ch, int cmd, char *arg)
           obj_to_char(unequip_char(temp_ch, k), temp_ch);
       }
 
-      CharWait(ch, 5 * WAIT_SEC);
+      CharWait(temp_ch, 5 * WAIT_SEC);
       
       send_to_char("Brr, you suddenly feel _almost_ naked.\r\n\n", temp_ch);
 
@@ -2668,7 +2668,7 @@ int dragonlord_plate(P_obj obj, P_char ch, int cmd, char *arg)
       
       send_to_char("Brr, you suddenly feel _almost_ naked.\r\n\n", temp_ch);
 
-      CharWait(ch, 5 * WAIT_SEC);
+      CharWait(temp_ch, 5 * WAIT_SEC);
 
       memset(&af, 0, sizeof(af));
       af.type = SPELL_RACE_CHANGE;
