@@ -432,7 +432,7 @@ crew man crewman~
 &+Lnotices anyone around him.  It is a true testament to just how hard
 &+Lsailing can be to see an orc work so hard.&n
 ~
-67110920 0 0 0 0 0 0 -500 S
+2056 0 0 0 0 0 0 -500 S
 HO 0 16384 -1
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -447,7 +447,7 @@ captain juggernaught~
 &+Lhave positioned him onboard a &+yfrigate&+L today, of which he looks quite
 &+Ldisappointed.&n
 ~
-1140852746 0 0 0 2048 0 0 -500 S
+1073743882 0 0 0 2048 0 0 -500 S
 HO 0 1 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
