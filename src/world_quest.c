@@ -114,7 +114,6 @@ extern int new_exp_table[];
 extern const mcname multiclass_names[];
 extern void displayShutdownMsg(P_char);
 
-
 void resetQuest(P_char ch)
 {
   ch->only.pc->quest_active = 0;
@@ -148,7 +147,7 @@ void quest_reward(P_char ch, P_char quest_mob, int type)
 
   if(type != FIND_AND_KILL) // less exp but some money
   {
-    sprintf(Gbuf1, "&=LWYou gain some experience.&n");
+    sprintf(Gbuf1, "You gain some experience.");
     act(Gbuf1, FALSE, quest_mob, 0, ch, TO_VICT);
 
     reward =  read_object(real_object(getItemFromZone(real_zone(ch->only.pc->quest_zone_number))), REAL);
@@ -160,22 +159,29 @@ void quest_reward(P_char ch, P_char quest_mob, int type)
       wizlog(56, "%s reward was: %s", GET_NAME(ch), reward->short_description);
       
       if(IS_SET(reward->extra_flags, ITEM_SECRET))
+      {
         REMOVE_BIT(reward->extra_flags, ITEM_SECRET);
-      if(IS_SET(reward->extra_flags, ITEM_INVISIBLE))
-        REMOVE_BIT(reward->extra_flags, ITEM_INVISIBLE);
-      if(!IS_SET(reward->extra_flags, ITEM_NOREPAIR))
-        SET_BIT(reward->extra_flags, ITEM_NOREPAIR);
+      }
       
+      if(IS_SET(reward->extra_flags, ITEM_INVISIBLE))
+      {
+        REMOVE_BIT(reward->extra_flags, ITEM_INVISIBLE);
+      }
+      
+      if(!IS_SET(reward->extra_flags, ITEM_NOREPAIR)) 
+      {
+        SET_BIT(reward->extra_flags, ITEM_NOREPAIR);
+      }
+        
       act("$n gives you $q ", TRUE, quest_mob, reward, ch, TO_VICT);
       act("$n gives $N $q.", FALSE, quest_mob, reward, ch, TO_NOTVICT);
       obj_to_char(reward, ch);
     }
 
-    if(GET_CLASS(ch, CLASS_MERCENARY) &&
-       GET_LEVEL(ch) > 24)
+    if( GET_CLASS(ch, CLASS_MERCENARY) && GET_LEVEL(ch) > 24  )
     {
-      int temp = GET_LEVEL(ch) * 1256 + number(1, 1000);
-      mobsay(quest_mob, "As a mercenary, I know you do not work for free. Take this.");
+      int temp = GET_LEVEL(ch) * 1256 + number(1,500);
+      mobsay(quest_mob, "As a mercenary i know you dont work for free. Take this.");
       sprintf(Gbuf1, "You get %s.", coin_stringv(temp) );
       send_to_char(Gbuf1, ch);
       ADD_MONEY(ch, temp);
@@ -186,24 +192,17 @@ void quest_reward(P_char ch, P_char quest_mob, int type)
   }
   else // no money but an item.
   {
-    sprintf(Gbuf1, "&=LWYou gain some experience.&n");
+    sprintf(Gbuf1, "You gain some experience.");
     act(Gbuf1, FALSE, quest_mob, 0, ch, TO_VICT);
 
     reward =  read_object(real_object(getItemFromZone(real_zone(ch->only.pc->quest_zone_number))), REAL);
                   if(!reward)
                         reward = create_random_eq_new(ch, ch, -1, -1);
     
-    if(reward)
-    {
-      if(IS_SET(reward->extra_flags, ITEM_SECRET))
-        REMOVE_BIT(reward->extra_flags, ITEM_SECRET);
-      if(IS_SET(reward->extra_flags, ITEM_INVISIBLE))
-        REMOVE_BIT(reward->extra_flags, ITEM_INVISIBLE);
-      if(!IS_SET(reward->extra_flags, ITEM_NOREPAIR))
-        SET_BIT(reward->extra_flags, ITEM_NOREPAIR);      
-        
+  if(reward){
+      REMOVE_BIT(reward->extra_flags, ITEM_SECRET);
+      SET_BIT(reward->extra_flags, ITEM_NOREPAIR);
       wizlog(56, "%s reward was: %s", GET_NAME(ch), reward->short_description);
-    
       act("$n gives you $q ", TRUE, quest_mob, reward, ch, TO_VICT);
       act("$n gives $N $q.", FALSE, quest_mob, reward, ch, TO_NOTVICT);
       obj_to_char(reward, ch);
@@ -217,53 +216,44 @@ void quest_reward(P_char ch, P_char quest_mob, int type)
     act(Gbuf1, FALSE, quest_mob, 0, ch, TO_VICT);
 
     if(ch->only.pc->quest_level == 46)
-      gain_epic(ch, EPIC_QUEST, 0, number(1,5));
+      gain_epic(ch, EPIC_QUEST, 0, number(1, 3));
 
     if(ch->only.pc->quest_level == 47)
-      gain_epic(ch, EPIC_QUEST, 0, number(2,5));
+      gain_epic(ch, EPIC_QUEST, 0, number(2, 4));
 
     if(ch->only.pc->quest_level == 48)
-      gain_epic(ch, EPIC_QUEST, 0, number(3,5));
+      gain_epic(ch, EPIC_QUEST, 0, number(3, 5));
 
     if(ch->only.pc->quest_level == 49)
-      gain_epic(ch, EPIC_QUEST, 0, number(4,5));
+      gain_epic(ch, EPIC_QUEST, 0, number(4, 6));
 
     if(ch->only.pc->quest_level == 50)
-      gain_epic(ch, EPIC_QUEST, 0, number(5,10));
+      gain_epic(ch, EPIC_QUEST, 0, number(5, 7));
 
     if(ch->only.pc->quest_level == 51)
-      gain_epic(ch, EPIC_QUEST, 0, number(6,10));
+      gain_epic(ch, EPIC_QUEST, 0, number(6, 8));
 
     if(ch->only.pc->quest_level == 52)
-      gain_epic(ch, EPIC_QUEST, 0, number(7,10));
+      gain_epic(ch, EPIC_QUEST, 0, number(7, 9));
 
     if(ch->only.pc->quest_level == 53)
-      gain_epic(ch, EPIC_QUEST, 0, number(8,10));
+      gain_epic(ch, EPIC_QUEST, 0, number(8, 10));
 
     if(ch->only.pc->quest_level == 54)
-      gain_epic(ch, EPIC_QUEST, 0, number(9,10));
+      gain_epic(ch, EPIC_QUEST, 0, number(9, 10));
 
     if(ch->only.pc->quest_level == 55)
-      gain_epic(ch, EPIC_QUEST, 0, number(10,15));
+      gain_epic(ch, EPIC_QUEST, 0, number(10, 11));
 
     if(ch->only.pc->quest_level > 55)
+    {
       gain_epic(ch, EPIC_QUEST, 0, 15);
+    }
 
   }
 
   sql_world_quest_finished(ch, quest_mob, reward);
-  
-  if(GET_LEVEL(ch) <= 30)
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.30.andUnder", 1.000)), EXP_WORLD_QUEST);
-  else if(GET_LEVEL(ch) <= 40)
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.40.andUnder", 1.000)), EXP_WORLD_QUEST);
-  else if(GET_LEVEL(ch) <= 50)
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.50.andUnder", 1.000)), EXP_WORLD_QUEST);
-  else if(GET_LEVEL(ch) <= 55)
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.55.andUnder", 1.000)), EXP_WORLD_QUEST);
-  else
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.other.andUnder", 1.000)), EXP_WORLD_QUEST);
-  
+  gain_exp(ch, NULL, (EXP_NOTCH(ch) * number(1,4)), EXP_WORLD_QUEST);
   resetQuest(ch);
 }
 
@@ -283,7 +273,7 @@ void quest_ask(P_char ch, P_char quest_mob)
 
   wizlog(56, "%s finished quest @%s (ask quest)", GET_NAME(ch), quest_mob->player.short_descr );
   do_action(quest_mob, 0, CMD_NOD);
-  send_to_char("&=LWCongratulations&n&n&+W, you finished your quest!&n\r\n", ch);
+  send_to_char("Congratulations, you finished your quest!\r\n", ch);
   quest_reward(ch, quest_mob, FIND_AND_ASK);
 
 }
@@ -308,7 +298,7 @@ void quest_kill(P_char ch, P_char quest_mob)
 
   if(ch->only.pc->quest_accomplished ==1)
   {
-    send_to_char("&+RThis quest is already finished, go visit your quest master for your reward!\r\n", ch);
+    send_to_char("This quest is already finished, go visit your quest master for your reward!\r\n", ch);
     return;
   }
 
@@ -317,12 +307,12 @@ void quest_kill(P_char ch, P_char quest_mob)
   if(ch->only.pc->quest_kill_how_many - ch->only.pc->quest_kill_original == 0)
   {
     ch->only.pc->quest_accomplished = 1;
-    send_to_char("&=LWCongratulations&n&n&+W, you finished your quest!&n\r\n", ch);
+    send_to_char("Congratulations, you finished your quest!\r\n", ch);
     wizlog(56, "%s finished quest @%s (kill quest)", GET_NAME(ch), quest_mob->player.short_descr );
   }
   else
   {
-    send_to_char("&+YCongratulations&+y, you found the right mob, but you're not done yet.\r\n", ch);
+    send_to_char("Congratulations, you found the right mob, but you're not done yet.\r\n", ch);
   }
 }
 
@@ -479,17 +469,9 @@ void do_quest(P_char ch, char *args, int cmd)
       }
 
 
-      if(ch->only.pc->quest_level < GET_LEVEL(victim) -
-          get_property("worldQuest.level.high.value", 6))
+      if(ch->only.pc->quest_level < GET_LEVEL(victim) - 6)
       {
         send_to_char("They are much too experienced for that quest!\r\n", ch);
-        return;
-      }
-      
-      if(ch->only.pc->quest_level > GET_LEVEL(victim) +
-          get_property("worldQuest.level.low.value", 6))
-      {
-        send_to_char("They are too inexperienced for that quest!\r\n", ch);
         return;
       }
 
@@ -532,6 +514,8 @@ void do_quest(P_char ch, char *args, int cmd)
 
       return;
     }
+
+
 
   if (q_giver = read_mobile(real_mobile(ch->only.pc->quest_giver), REAL))
   {
@@ -621,15 +605,17 @@ int createQuest(P_char ch, P_char giver)
   if(!giver || !ch)
     return -1;
 
+
+
   quest_zone  = getQuestZone(ch);
 
-  if(quest_zone == -1)
-  {
+  if(quest_zone == -1){
     wizlog(56, "Unable to find a quest zone for %s", GET_NAME(ch));
     return -1;
   }
 
   QUEST_TYPE = number(1,2);
+
 
   if(GET_LEVEL(ch) > 49)
     QUEST_TYPE = FIND_AND_KILL;
@@ -637,23 +623,25 @@ int createQuest(P_char ch, P_char giver)
   //wizlog(56, "suggesting zone:%s for this dude",zone_table[quest_zone].name);
   quest_mob = suggestQuestMob(quest_zone,ch, QUEST_TYPE);
   //wizlog(56, "suggesting quest mob :%d for this dude",quest_mob);
-  if(quest_mob == -1 && GET_LEVEL(ch) < 50)
-  {
+  if(quest_mob == -1 && GET_LEVEL(ch) < 50){
 
     if(QUEST_TYPE == 1)
       QUEST_TYPE = 2;
     else
       QUEST_TYPE = 1;
-      
+
+
+
     quest_mob = suggestQuestMob(quest_zone,ch, QUEST_TYPE);
 
   }
 
-  if(quest_mob == -1)
-  {
+  if(quest_mob == -1){
     wizlog(56, "Unable to find a quest zone for %s", GET_NAME(ch));
     return -1; 
   }
+
+
 
   ch->only.pc->quest_shares_left = 4;
   ch->only.pc->quest_active = 1;
@@ -791,7 +779,7 @@ int getItemFromZone(int zone)
             isname("_noquest_", t_obj->name) ||
             GET_OBJ_WEIGHT(t_obj) > 99 ||
             IS_SET(t_obj->bitvector, AFF_HASTE) ||
-            IS_SET(t_obj->bitvector, AFF_DETECT_INVISIBLE) ||
+            IS_SET(t_obj->bitvector, AFF_DETECT_INVISIBLE) ||            
             IS_SET(t_obj->bitvector4, AFF4_DETECT_ILLUSION))
         {
           extract_obj(t_obj, FALSE);
@@ -857,9 +845,8 @@ int getQuestZone(P_char ch)
         zone_table[zone_count].avg_mob_level < 0 )
      continue;
     
-    if((zone_table[zone_count].avg_mob_level) < (GET_LEVEL(ch) + 5) &&
-        zone_table[zone_count].avg_mob_level > (GET_LEVEL(ch) - 7))
-    {
+      if( zone_table[zone_count].avg_mob_level < (GET_LEVEL(ch)) &&
+        zone_table[zone_count].avg_mob_level > (GET_LEVEL(ch) - 7)){
       //debug("%d %s " , zone_count, zone_table[zone_count].name);
 
       if(zone_count == world[ch->in_room].zone) //do not use same zone as the dude is in..
@@ -867,20 +854,18 @@ int getQuestZone(P_char ch)
 
       if( PLAYER_LEVEL < 51)
       {
-        if( (maproom1 = get_map_room(zone_count)) != -1)
-        {
+        if( (maproom1 = get_map_room(zone_count)) != -1){
           maproom2 = get_map_room(world[ch->in_room].zone);
           distance = calculate_map_distance(maproom1, maproom2);
 
-          if(distance < (3000 + PLAYER_LEVEL *PLAYER_LEVEL * PLAYER_LEVEL) && PLAYER_LEVEL < 45)
-          {
+          if(distance < (3000 + PLAYER_LEVEL *PLAYER_LEVEL * PLAYER_LEVEL) && PLAYER_LEVEL < 45){
 
             //debug("%d %d ", world[maproom1].zone, world[maproom2].zone);
 
             if(world[maproom1].zone != world[maproom2].zone) //make sure it's same map.
               continue;
 
-            //debug("Distance between %d and %d is %d", world[maproom1].number, world[maproom2].number, distance);
+            //debug("Distance between %d and %d is %d", world[maproom1].number, world[maproom2].number, 							distance);
             valid_zones.push_back(zone_count);
           }
           else if (PLAYER_LEVEL > 44)
@@ -895,6 +880,7 @@ int getQuestZone(P_char ch)
         valid_zones.push_back(zone_count);
       }
     }
+
   }
 
   //No valid zone found return -1
@@ -923,14 +909,15 @@ int suggestQuestMob(int zone_num, P_char ch, int QUEST_TYPE)
 
   if(KIND_OF_QUEST == FIND_AND_KILL) //FIND AND KILL A MOB
   {
-    MAX_LEVEL = MAX_LEVEL + 8;
+    MAX_LEVEL = MAX_LEVEL + 10;
   }
   if(KIND_OF_QUEST == FIND_AND_ASK) //FIND AND TALK TO HIM
   {
     MAX_LEVEL = 62;
   }
 
-//debug("Looking for a vald mob in: %s KIND_OF_QUEST = %d MAX_LEVEL=%d", zone_table[zone_num].name, KIND_OF_QUEST, MAX_LEVEL);
+
+  //wizlog(56, "Looking for a vald mob in: %s KIND_OF_QUEST = %d MAX_LEVEL=%d", zone_table[zone_num].name, KIND_OF_QUEST, MAX_LEVEL);
   for (i = 0; i <= top_of_mobt; i++)
   {
     if ((mob_index[i].virtual_number >= world[zone_table[zone_num].real_bottom].number) &&
@@ -940,53 +927,46 @@ int suggestQuestMob(int zone_num, P_char ch, int QUEST_TYPE)
       if ((t_mob = read_mobile(mob_index[i].virtual_number, VIRTUAL)))
       {
 
-        if (IS_SET(t_mob->specials.act, ACT_SPEC))
+        if(IS_SET(t_mob->specials.act, ACT_SPEC))
+        {
           REMOVE_BIT(t_mob->specials.act, ACT_SPEC);
-
+        }
+        
         char_to_room(t_mob, 1, -2);
 
         if(GET_LEVEL(t_mob) < MAX_LEVEL  &&
-           GET_LEVEL(t_mob) > (GET_LEVEL(ch) - 5) &&
+           GET_LEVEL(t_mob) > GET_LEVEL(ch) - 5 &&
            KIND_OF_QUEST == FIND_AND_KILL ||
            GET_LEVEL(t_mob) < MAX_LEVEL &&
-           KIND_OF_QUEST == FIND_AND_ASK
-          )
+           KIND_OF_QUEST == FIND_AND_ASK)
+        {
           if(mob_index[i].number == 2 &&
              KIND_OF_QUEST == FIND_AND_ASK ||
-             KIND_OF_QUEST == FIND_AND_KILL &&
-             mob_index[i].number > 0)
+             KIND_OF_QUEST == FIND_AND_KILL && mob_index[i].number > 2)
           {
 
-            if(KIND_OF_QUEST == FIND_AND_KILL)
+            if(KIND_OF_QUEST == FIND_AND_KILL )
             {
-              ch->only.pc->quest_kill_how_many = 0;
+              ch->only.pc->quest_kill_how_many = 0;/*
               ch->only.pc->quest_kill_original =  MIN(number(7,9) , mob_index[i].limit - 1);
-              
-              if(ch->only.pc->quest_kill_original < 1 ||
-                 mob_index[i].virtual_number < 1)
-              {
-                continue;
-              }
-              
-// debug("Quest Kill Original Value: %d, mob_index number: %d, mob_index limit: %d, mob_vnum: %d", ch->only.pc->quest_kill_original, mob_index[i].number, mob_index[i].limit -1, mob_index[i].virtual_number);
+              debug("Quest Kill Original Value: %d, mob_index number: %d, mob_index limit: %d, mob_vnum: %d", 
+               ch->only.pc->quest_kill_original, mob_index[i].number, mob_index[i].limit -1, mob_index[i].virtual_number);*/
             }
 
-            if(KIND_OF_QUEST == FIND_AND_ASK &&
-               (aggressive_to(t_mob, ch) ||
-               !CAN_SPEAK(t_mob) ||
-               IS_SET(world[t_mob->in_room].room_flags, ROOM_SILENT)))
-            { 
-              // Skip find and ask if room is silent.
+
+            if(aggressive_to(t_mob, ch) &&
+               KIND_OF_QUEST == FIND_AND_ASK || 
+               !CAN_SPEAK(t_mob) && KIND_OF_QUEST == FIND_AND_ASK)
+            {
               //dont suggest aggresive ask mobs..nor not humanoids
               ;
             }
-            else
-            {
+            else{
               valid_mobs[list] = mob_index[i].virtual_number;
               list++;
             }
-
           }
+        }
 
         if (t_mob)
         {
@@ -995,16 +975,22 @@ int suggestQuestMob(int zone_num, P_char ch, int QUEST_TYPE)
         }
       }
       else
+      {
         logit(LOG_DEBUG, "do_world(): mob %d not loadable",
             mob_index[i].virtual_number);
+      }
 
     }
   }
 
   if(list == 0)
+  {
     return -1;
+  }
   else
+  {
     return valid_mobs[number(0, list-1)];
+  }
 }
 
 //Called from comm.c to populate avg_mob_level
