@@ -11864,8 +11864,8 @@ int world_quest(P_char ch, P_char pl, int cmd, char *arg)
     }
 
     if(pl->only.pc->quest_active == 1){
-      mobsay(ch, "Baaaaaah! Finish the quest that you're already on first, then come back!");
-      send_to_char("If you unable to finish it, go to the quest master and ask him to take you of duty!", pl);
+      mobsay(ch, "&+LBaaaaaah! Finish the quest that you're already on first, then come back!&n");
+      send_to_char("&+LIf you unable to finish it, go to the quest master and ask him to take you of duty!\r\n", pl);
       return -1;
     }
 
