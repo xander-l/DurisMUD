@@ -148,11 +148,14 @@ P_obj get_hammer(P_char ch)
   return NULL;
 }
 
-#define IS_MINING_PICK(obj) ( GET_OBJ_VNUM(obj) == 253 || \
-                              GET_OBJ_VNUM(obj) == 338 || \
-                              GET_OBJ_VNUM(obj) == 10640 || \
-                              GET_OBJ_VNUM(obj) == 95531 || \
-                              GET_OBJ_VNUM(obj) == 49018 )
+// #define IS_MINING_PICK(obj) ( GET_OBJ_VNUM(obj) == 253 || \
+                              // GET_OBJ_VNUM(obj) == 338 || \
+                              // GET_OBJ_VNUM(obj) == 10640 || \
+                              // GET_OBJ_VNUM(obj) == 95531 || \
+                              // GET_OBJ_VNUM(obj) == 49018 )
+                              
+#define IS_MINING_PICK(obj) (isname("pick", obj->name) && \
+                             obj->type == ITEM_WEAPON)
 
 P_obj get_pick(P_char ch)
 {
@@ -519,32 +522,32 @@ int random_ore(int mine_quality)
 {
   int x = number(0, 100) + mine_quality;
     
-  if(x >= 100)
+  if(x >= 110)
     return LARGE_MITHRIL_ORE;
-  if(x >= 98) 
+  if(x >= 108) 
     return MEDIUM_MITHRIL_ORE;	
-  if(x >= 96)
+  if(x >= 106)
     return SMALL_MITHRIL_ORE;
 
-  if(x >= 93)
+  if(x >= 103)
     return LARGE_PLATINUM_ORE; 
-  if(x >= 90)
+  if(x >= 100)
     return MEDIUM_PLATINUM_ORE; 
-  if(x >= 87)
+  if(x >= 97)
     return SMALL_PLATINUM_ORE;
 
-  if(x >= 83)
+  if(x >= 93)
     return LARGE_GOLD_ORE;
-  if(x >= 79)
+  if(x >= 89)
     return MEDIUM_GOLD_ORE;
-  if(x >= 75)
+  if(x >= 85)
     return SMALL_GOLD_ORE;
 
-  if(x >= 70)
+  if(x >= 80)
     return LARGE_SILVER_ORE;
-  if(x >= 65)
+  if(x >= 75)
     return MEDIUM_SILVER_ORE;
-  if(x >= 60)
+  if(x >= 65)
     return SMALL_SILVER_ORE;
 
   if(x >= 52)
@@ -737,9 +740,16 @@ void event_mine_check(P_char ch, P_char victim, P_obj, void *data)
   
   pick = get_pick(ch);
 
-  if (!ch->desc || IS_FIGHTING(ch) || (ch->in_room != mdata->room) ||            
+  if (!ch->desc ||
+      IS_FIGHTING(ch) ||
+      (ch->in_room != mdata->room) ||            
       !MIN_POS(ch, POS_STANDING + STAT_NORMAL) ||                    
-      IS_SET(ch->specials.affected_by, AFF_HIDE))
+      IS_SET(ch->specials.affected_by, AFF_HIDE) ||
+      IS_IMMOBILE(ch) ||
+      !AWAKE(ch) ||
+      IS_STUNNED(ch) ||
+      IS_CASTING(ch) ||
+      IS_AFFECTED2(ch, AFF2_CASTING))
   {
     send_to_char("You stop mining.\n", ch);
     return;  
@@ -768,7 +778,8 @@ void event_mine_check(P_char ch, P_char victim, P_obj, void *data)
     return;
   }
 
-  if (GET_VITALITY(ch) < 10) {
+  if (GET_VITALITY(ch) < 10)
+  {
     send_to_char("You are too exhausted to continue mining.\n", ch);
     return;
   }
@@ -780,7 +791,7 @@ void event_mine_check(P_char ch, P_char victim, P_obj, void *data)
     return; 
   }
 
-  if(!number(0,75))
+  if(!number(0, 999))
     create_parchment(ch); 
 
   if(!number(0,4) && DamageOneItem(ch, 1, pick, false))
