@@ -2521,6 +2521,11 @@ void do_god_call(P_char ch, char *args, int cmd)
   char         Gbuf1[MAX_STRING_LENGTH];
   int          duration = 0;
 
+  if(IS_NPC(ch)) // NPC torm god causing crashes. Removing npc godcall for now.
+  {
+    return;
+  }
+  
   god_name = get_god_name(ch);
 
   if (GET_CLASS(ch, CLASS_CLERIC) && IS_SPECIALIZED(ch))
