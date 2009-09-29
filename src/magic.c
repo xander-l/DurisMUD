@@ -931,10 +931,10 @@ void spell_energy_drain(int level, P_char ch, char *arg, int type,
     return;
   }
 
-  if(!NewSaves(victim, SAVING_SPELL, 0))
+  if(NewSaves(victim, SAVING_SPELL, 0))
   {
     saved = TRUE;
-    dam = (int)(dam * 1.25);
+    dam = (int)(dam * 0.85);
   }
   
   if(GET_LEVEL(victim) <= (level / 10))
@@ -992,7 +992,7 @@ void spell_energy_drain(int level, P_char ch, char *arg, int type,
   if (IS_AFFECTED4(victim, AFF4_NEG_SHIELD))
   {
     send_to_char("&+LYour negative energy shield protects you from lasting effects of the energy drain spell!&n\r\n", victim);
-    send_to_char("&+LYour victim is too well protected against necromancy - no lingering effects of the energy drain will hold&n\r\n", ch);
+    send_to_char("&+LYour victim is too well protected against necromancy - no lingering effects of the energy drain will hold.&n\r\n", ch);
     return;
   }
   
