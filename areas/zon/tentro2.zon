@@ -393,9 +393,6 @@ O 0 69035 1 69136 100 0 0 0        * a bookcase
 O 0 69025 1 69195 100 0 0 0        * a wooden desk
 P 1 69022 1 69025 100 0 0 0        *   a order form
 P 1 69040 1 69025 100 0 0 0        *   a simple key
-O 0 69047 1 69216 100 0 0 0        * a moldy helm
-O 0 69048 1 69216 100 0 0 0        * a dirty brown sundial attached to a leather thong
-O 0 69050 1 69216 100 0 0 0        * some coins
 O 0 69054 5 69247 100 0 0 0        * a corn plant
 O 0 69054 5 69248 100 0 0 0        * a corn plant
 O 0 69054 5 69249 100 0 0 0        * a corn plant
@@ -509,9 +506,9 @@ M 0 69000 18 69040 100 0 0 0       * a large buffalo
 M 0 69012 1 69043 100 0 0 0        * a HUGE stone golem
 E 1 69003 1 20 100 0 0 0           *   the morbid face of a stone golem
 M 0 69017 16 69044 100 0 0 0       * a troglodyte sentinel
-E 1 69004 5 16 100 0 0 0           *   a troglodyte sword
+E 1 69004 6 16 100 0 0 0           *   a troglodyte sword
 M 0 69017 16 69045 100 0 0 0       * a troglodyte sentinel
-E 1 69004 5 16 100 0 0 0           *   a troglodyte sword
+E 1 69004 6 16 100 0 0 0           *   a troglodyte sword
 M 0 69017 16 69045 100 0 0 0       * a troglodyte sentinel
 E 1 69005 1 16 100 0 0 0           *   a stone battle axe
 M 0 69016 5 69047 100 0 0 0        * a troglodyte female
@@ -563,16 +560,16 @@ E 1 69080 4 16 100 0 0 0           *   a troglodyte dagger
 M 0 69108 6 69075 100 0 0 0        * a troglodyte female
 M 0 69107 5 69076 100 0 0 0        * a troglodyte berserker
 M 0 69042 1 69077 100 0 0 0        * a shifty eyed troglodyte
-E 1 69004 5 16 100 0 0 0           *   a troglodyte sword
+E 1 69004 6 16 100 0 0 0           *   a troglodyte sword
 M 0 69013 2 69078 100 0 0 0        * a troglodyte warrior
-E 1 69004 5 16 100 0 0 0           *   a troglodyte sword
+E 1 69004 6 16 100 0 0 0           *   a troglodyte sword
 E 1 69079 1 18 100 0 0 0           *   a troglodyte key
 M 0 69017 16 69078 100 0 0 0       * a troglodyte sentinel
 E 1 69012 5 16 100 0 0 0           *   a troglodyte javelin
 M 0 69017 16 69078 100 0 0 0       * a troglodyte sentinel
 E 1 69012 5 16 100 0 0 0           *   a troglodyte javelin
 M 0 69013 2 69078 100 0 0 0        * a troglodyte warrior
-E 1 69004 5 16 100 0 0 0           *   a troglodyte sword
+E 1 69004 6 16 100 0 0 0           *   a troglodyte sword
 M 0 69109 4 69078 100 0 0 0        * a troglodyte assassin
 E 1 69080 4 16 100 0 0 0           *   a troglodyte dagger
 M 0 69014 1 69079 100 0 0 0        * the troglodyte chieftain
@@ -703,6 +700,11 @@ G 1 69041 1 0 100 0 0 0            *    the devils key
 M 0 69069 1 69214 100 0 0 0        * a sea scrag
 M 0 69070 1 69215 100 0 0 0        * a svirfnebli prisoner
 E 1 69064 2 20 100 0 0 0           *   a filthy gag
+M 0 69114 1 69216 100 0 0 0        * the black essence of Nu
+E 1 69047 1 6 100 0 0 0            *   a moldy helm
+E 1 69004 6 16 100 0 0 0           *   a troglodyte sword
+G 1 69048 1 0 100 0 0 0            *    a dirty brown sundial attached to a leather thong
+G 1 69050 1 0 100 0 0 0            *    some coins
 M 0 69072 1 69217 100 0 0 0        * a yochlol
 G 1 69046 2 0 100 0 0 0            *    a key of shadows
 M 0 69075 1 69218 100 0 0 0        * a deranged surgeon

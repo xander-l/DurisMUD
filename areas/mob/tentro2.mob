@@ -1816,3 +1816,17 @@ PH 0 1 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
+#69114
+black essence shadowy creature _ignore_~
+&+Lthe black essence of &+RNu&n~
+&+LA dark foreboding shadowy creature lurks here.&n
+~
+&+RNu&n &+Lsoul split and after the event, a dark visage of his body took
+&+Las this shadowy creature. The creature appears to have gathered
+&+Lstrength within this area. It seems otherworldly.
+~
+1074819082 0 0 0 0 0 0 0 S
+sw 0 36 -1
+48 0 0 750d3+1000 8d8+60
+0.0.0.0 0
+8 8 0
