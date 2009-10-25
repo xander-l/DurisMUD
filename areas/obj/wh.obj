@@ -750,17 +750,16 @@ steel bands~
 0 0 0 0 0 0 0 0
 50 15000 100
 #55077
-small nightshade earring _noquest_~
-&+La small &+gnight&+Gshade &+Learring&n~
-&+LA small &+gnight&+Gshade &+Learring lies here.&n~
+small nightshade splinter _noquest_~
+&+La small &+gnight&+Gshade &+Lsplinter&n~
+&+LA small &+gnight&+Gshade &+Lsplinter lies here.&n~
 ~
 9 28 3 0 7 0 8192 524289 64 0 0
 0 0 0 0 0 0 0 0
 0 0 100 536870912 0 0 0
 E
-letter~
-&+L   This letter seems to have been closed tight with
-&+Lthe wax emblem of the Blackburn family seal.&n
+small nightshade earring _noquest_~
+&+LYou see the word "&+Wrub&+L" inscribed into the earring.&n
 ~
 A
 13 15

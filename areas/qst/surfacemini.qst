@@ -382,7 +382,7 @@ staff broken~
 &+Wpayment in the form of three &+Rgn&+romi&+Rsh &+Lshopkeeper tokens&+W.&+g'&n
 ~
 M
-potion thick green sludge~
+thick green sludge~
 &+GMugflog&+g, the &+Yshaman &+gsays to you, '&+WFor &+ga vial of thick &+Ggreen &+gsludge&+W, I will require
 +ga &+Lpsychomia &+gplant&+W. I will also require one &+Rgn&+romi&+Rsh &+Lshopkeeper token &+Was payment.&+g'&n
 ~
@@ -406,6 +406,17 @@ elixir potent drugs~
 &+GMugflog&+g, the &+yshaman &+gsays to you, '&+WThese are lovely potions that give you quite a
 &+Wpick-me-up. If you brimg me a small &+wplastic &+Wbag filled with &+gdr&+Gu&+ggs&+W, as well as 25
 &+Wplatinum coins, I will be happy to mix you up a batch of these &+gel&+Gix&+girs&+W.&+g'&n
+~
+M
+cleansing~
+&+GMugflog&+g, the &+yshaman &+gsays to you, '&+WThese potions come in handy to adventurers
+&+Wwho are often on the go. It's a simple potion that cures many ailments that might
+&+Wcause you illness and strife.. If you would like to a pair of these, you must bring
+&+Wme any one of the &+CIncarnate &+Wpieces.&+g'&n
+~
+M
+potion~
+&+GMugflog&+g, the &+yshaman &+gsays, '&+WWhich one do you mean?'&n
 ~
 Q
 ~
@@ -446,4 +457,29 @@ R I 97937
 R I 97937
 G I 55247
 G C 25000
+Q
+~
+R I 97938
+R I 97938
+G I 55554
+Q
+~
+R I 97938
+R I 97938
+G I 55553
+Q
+~
+R I 97938
+R I 97938
+G I 55552
+Q
+~
+R I 97938
+R I 97938
+G I 55551
+Q
+~
+R I 97938
+R I 97938
+G I 55550
 S
