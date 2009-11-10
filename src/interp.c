@@ -1927,8 +1927,7 @@ bool special(P_char ch, int cmd, char *arg)
   int      j;
   
   if(!(ch) ||
-     !IS_ALIVE(ch) ||
-     ch->in_room == NOWHERE)
+     !IS_ALIVE(ch))
   {
     return false;
   }
