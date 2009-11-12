@@ -1,17 +1,9 @@
 #196
 &+LTiamat&n~
-19638 0 0 40 50 2
+19639 0 0 40 50 2
 *
 * Zone edited with durisEdit v2.99de
 *
-*
-D 0 19600 1 5 100 0 0 0
-*     east exit from "Before a Large Gate" to
-*     "West End of Vaulted Cavern" - closed/secret
-*
-D 0 19604 3 1 100 0 0 0
-*     west exit from "West End of Vaulted Cavern" to
-*     "Before a Large Gate" - closed
 *
 D 0 19602 0 6 100 0 0 0
 *     north exit from "North Edge of the Huge Cavern" to
