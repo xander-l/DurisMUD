@@ -2073,8 +2073,8 @@ D1
 0 0 13809
 D3
 ~
-~
-0 0 13817
+flap~
+3 0 13817
 S
 #13809
 &+CEnd of the Path Through the Fishing Village~
@@ -2201,11 +2201,11 @@ S
 &+csmoke is permitted to be vented out. There are hardly any wordly
 &+cpossesions about the home, only fur beads, and hunting spears.
 ~
-137 33554432 0
+137 243302592 0
 D1
 ~
-~
-0 0 13808
+flap~
+2 0 13808
 S
 #13818
 &+CThe Town Elder's Hut~

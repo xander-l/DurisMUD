@@ -133,6 +133,14 @@ D 0 13762 0 1 100 0 0 0
 *     north exit from "An Ancient Workshop" to
 *     "The Ice Lounge" - closed
 *
+D 0 13808 3 2 100 0 0 0
+*     west exit from "Bend in the Path" to
+*     "A Fisherman's Home" - closed/locked
+*
+D 0 13817 1 1 100 0 0 0
+*     east exit from "A Fisherman's Home" to
+*     "Bend in the Path" - closed
+*
 *
 O 0 13704 1 13712 100 0 0 0        * a very large sign
 O 0 13718 1 13713 100 0 0 0        * a blood-filled fountain
@@ -257,6 +265,9 @@ M 0 13711 13 13800 100 0 0 0       * a barbarian fisherman
 M 0 13711 13 13800 100 0 0 0       * a barbarian fisherman
 M 0 13713 19 13806 100 0 0 0       * a barbarian guard
 M 0 13713 19 13807 100 0 0 0       * a barbarian guard
+M 0 13711 13 13808 100 0 0 0       * a barbarian fisherman
+M 0 13711 13 13808 100 0 0 0       * a barbarian fisherman
+M 0 13723 1 13808 100 0 0 0        * a starving barbarian
 M 0 13713 19 13810 100 0 0 0       * a barbarian guard
 M 0 13713 19 13810 100 0 0 0       * a barbarian guard
 M 0 13713 19 13810 100 0 0 0       * a barbarian guard
@@ -274,8 +285,7 @@ M 0 13711 13 13815 100 0 0 0       * a barbarian fisherman
 M 0 13711 13 13815 100 0 0 0       * a barbarian fisherman
 M 0 13711 13 13816 100 0 0 0       * a barbarian fisherman
 M 0 13711 13 13816 100 0 0 0       * a barbarian fisherman
-M 0 13711 13 13817 100 0 0 0       * a barbarian fisherman
-M 0 13711 13 13817 100 0 0 0       * a barbarian fisherman
+M 0 13722 1 13817 100 0 0 0        * a barbarian shaman
 M 0 13712 1 13818 100 0 0 0        * the barbarian elder
 E 1 13716 1 19 100 0 0 0           *   a pair of worn snow goggles
 M 0 13713 19 13818 100 0 0 0       * a barbarian guard

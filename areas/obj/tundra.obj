@@ -87,6 +87,14 @@ sign~
 &+L                             |               |
 &+L                             \               /
 ~
+#13705
+key fishbones~
+&+Wa key made of &+gfish&+Gbones&n~
+&+WA strange looking key made of &+gfish&+Gbones &+Wlies here.&n~
+~
+18 15 3 0 7 0 0 0 0 0 0
+0 100 0 0 0 0 0 0
+0 0 100
 #13706
 gloves illithid~
 &+La dark pair of &+millithid gloves&n~

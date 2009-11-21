@@ -331,3 +331,25 @@ A 0 0 1
 3 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
+#13722
+barbarian shaman~
+&+ca barbarian &+gshaman&n~
+&+cA barbarian &+gshaman &+cstands here, protecting the city from evil.&n
+~
+~
+8 0 0 0 0 0 0 0 S
+pb 0 256 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13723
+starving barbarian~
+&+ca &+rstarving &+cbarbarian&n~
+&+cA &+rstarving &+cbarbarian stands here, looking very frail.&n
+~
+~
+2058 0 0 0 0 0 0 0 S
+pb 0 0 -1
+38 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
