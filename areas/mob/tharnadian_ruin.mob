@@ -318,7 +318,7 @@ combination to the Tharnadian bank vault safe.  He is not having much
 luck, however, and curses loudly every now and then as he fiddles with
 the safe's dial.
 ~
-16779278 1 0 0 0 0 0 -800 S
+2062 1 0 0 0 0 0 -800 S
 PH 0 1 -1
 19 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -444,8 +444,8 @@ something has crippled it.  Perhaps this being was even part of the
 invasion force.  It howls in pain, turns towards you and hisses.  Brace
 yourself -- it hasn't lost its hatred of prime material planar beings.
 ~
-16779274 1 0 8 0 0 0 -975 S
-h 0 32 4
+2058 1 0 8 0 0 0 -975 S
+x 0 32 4
 21 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
