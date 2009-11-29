@@ -3798,12 +3798,12 @@ A
 A
 35 3
 #83344
-magical emerald shortsword sword~
-&n&+ga magical emerald shortsword&N~
+brudo brudos brudo's emerald shortsword sword~
+&n&+gBrudo's emerald &+Gs&N&+gh&+Go&N&+gr&+Gt&N&+gs&+Gw&N&+go&+Gr&N&+gd&N~
 &+gA magical emerald shortsword&n has been left here..~
 ~
 5 32 3 0 12 0 1 8193 66 0 0
-9 4 5 0 0 0 0 0
+9 3 6 0 0 0 0 0
 0 33228 100 0 28 0 0
 E
 magical emerald shortsword sword~
@@ -5768,13 +5768,20 @@ A
 A
 19 3
 #83463
-object unnamed~
-an unnamed object~
-An unnamed object lies here, looking lonely and forelorn.~
+commendation token stealth~
+&+Wa commendation &+Ytoken &+Wof &+Lstealth&N~
+&+WA shimmering &+Ytoken &+Wof &+Lstealth&+W has been left here.~
 ~
-13 15 3 0 7 0 0 0 0 0 0
+8 39 2 0 14 0 1 8404993 64 0 0
 0 0 0 0 0 0 0 0
-0 0 100
+0 32321 100
+E
+shimmering token stealth~
+   &+WThis small &+Ytoken &+Wis made of platinum and lined with &+Ygold&+W.
+&+WA mark of &N&+cAlatorin &+Wis emblazoned on the front, with scripture
+&+Wdepicting &+Lstealth&+W.  &+WA small grouping of words reads &+cSee Modan
+&+cShanat.
+~
 #83464
 black leather beer-stained beer stained apron~
 &+La black leather &N&+ybeer-stained &+Lapron&N~
@@ -6072,4 +6079,41 @@ shackle key~
 E
 shackle key~
    &+LThis small &N&+ciron key&+L is generic and used to unlock large &N&+ciron shackles&+L.
+~
+#83482
+bowl white dragon egg soup~
+&+Wa b&Now&+Wl of &+Wwh&Ni&+Wte dr&Nag&+Won e&Ng&+Wg &N&+rsoup&N~
+&+WA bowl of white dragon egg &N&+rsoup &Nhas been left here.~
+~
+19 48 2 0 10 0 0 16385 0 0 0
+48 30 25 0 0 0 0 0
+0 4333 100
+E
+bowl white dragon egg soup~
+   &+WThis large bowl has a spill-proof top.  It is full of thick, chunky soup
+&+Wmade of white dragon egg.
+~
+#83483
+bowl wyvern egg soup~
+&n&+ya bo&+Wwl o&N&+yf wy&+Wve&N&+yrn &+Wegg &N&+rsoup&N~
+&+yA bowl of wyvern &+Wegg &N&+rsoup has been left here.~
+~
+19 48 2 0 7 0 0 16385 0 0 0
+48 25 30 0 0 0 0 0
+0 3221 100
+E
+bowl wyvern egg soup~
+   &+yThis bowl of chunky wyvern egg soup fills a spill-proof bowl.
+~
+#83484
+ball crackling energy~
+&+Ca ball of &N&+cc&+Cr&n&+ca&+Cc&n&+ck&+Cl&N&+ci&+Cn&N&+cg &+Cenergy&N~
+&+CA ball of crackling energy floats here.~
+~
+4 1 3 0 7 0 67117057 0 64 0 0
+50 4 4 374 0 0 0 0
+-100 132093 100 0 128 0 0
+E
+ball crackling energy~
+   &+CThis brilliant ball of energy crackles and fluctuates with magic lightning.
 ~

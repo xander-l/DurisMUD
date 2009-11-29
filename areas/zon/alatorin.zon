@@ -1,6 +1,6 @@
 #831
 &+CAlatorin &+L- the &N&+rForge &+LCity~
-83892 2 0 40 50 1
+83893 2 0 40 50 1
 *
 * Zone edited with durisEdit v2.99de
 *
@@ -1117,6 +1117,14 @@ D 0 83768 3 1 100 0 0 0
 *     west exit from "A Guest Chamber" to
 *     "End of a Hallway Between Rooms" - closed
 *
+D 0 83767 2 2 100 0 0 0
+*     south exit from "End of a Hallway Between Rooms" to
+*     "The Golden Pearl Suite" - closed/locked
+*
+D 0 83893 0 1 100 0 0 0
+*     north exit from "The Golden Pearl Suite" to
+*     "End of a Hallway Between Rooms" - closed
+*
 D 0 83767 3 1 100 0 0 0
 *     west exit from "End of a Hallway Between Rooms" to
 *     "A Guest Chamber" - closed
@@ -1497,6 +1505,7 @@ P 1 58331 9 83254 15 0 0 0         *   (object type not in this .obj file)
 P 1 78422 8 83254 10 0 0 0         *   (object type not in this .obj file)
 P 1 78463 8 83254 10 0 0 0         *   (object type not in this .obj file)
 P 1 78485 8 83254 10 0 0 0         *   (object type not in this .obj file)
+O 0 193 4 83410 5 0 0 0            * (object type not in this .obj file)
 O 0 83254 8 83411 90 0 0 0         * an earthen chest
 P 1 194 8 83254 30 0 0 0           *   (object type not in this .obj file)
 P 1 196 8 83254 30 0 0 0           *   (object type not in this .obj file)
@@ -1526,6 +1535,7 @@ P 1 58331 9 83254 15 0 0 0         *   (object type not in this .obj file)
 P 1 78422 8 83254 10 0 0 0         *   (object type not in this .obj file)
 P 1 78463 8 83254 10 0 0 0         *   (object type not in this .obj file)
 P 1 78485 8 83254 10 0 0 0         *   (object type not in this .obj file)
+O 0 193 4 83411 5 0 0 0            * (object type not in this .obj file)
 O 0 83254 8 83412 90 0 0 0         * an earthen chest
 P 1 194 8 83254 30 0 0 0           *   (object type not in this .obj file)
 P 1 196 8 83254 30 0 0 0           *   (object type not in this .obj file)
@@ -1584,6 +1594,7 @@ P 1 58331 9 83254 15 0 0 0         *   (object type not in this .obj file)
 P 1 78463 8 83254 10 0 0 0         *   (object type not in this .obj file)
 P 1 78422 8 83254 10 0 0 0         *   (object type not in this .obj file)
 P 1 78485 8 83254 10 0 0 0         *   (object type not in this .obj file)
+O 0 193 4 83413 5 0 0 0            * (object type not in this .obj file)
 O 0 83254 8 83414 90 0 0 0         * an earthen chest
 P 1 194 8 83254 30 0 0 0           *   (object type not in this .obj file)
 P 1 196 8 83254 30 0 0 0           *   (object type not in this .obj file)
@@ -1613,6 +1624,7 @@ P 1 58331 9 83254 15 0 0 0         *   (object type not in this .obj file)
 P 1 78463 8 83254 10 0 0 0         *   (object type not in this .obj file)
 P 1 78485 8 83254 10 0 0 0         *   (object type not in this .obj file)
 P 1 78422 8 83254 10 0 0 0         *   (object type not in this .obj file)
+O 0 193 4 83414 5 0 0 0            * (object type not in this .obj file)
 O 0 83226 1 83416 100 0 0 0        * a polished wooden desk
 P 1 58335 5 83226 100 0 0 0        *   (object type not in this .obj file)
 P 1 83247 1 83226 100 0 0 0        *   a checklist
@@ -1640,7 +1652,7 @@ O 0 89008 4 83518 100 0 0 0        * (object type not in this .obj file)
 O 0 83428 1 83519 100 0 0 0        * a cask of vintage Hammer and Shield brand ale
 O 0 95527 1 83523 100 0 0 0        * (object type not in this .obj file)
 O 0 83114 6 83535 100 0 0 0        * a closet
-P 1 40444 5 83114 100 0 0 0        *   (object type not in this .obj file)
+P 1 40444 6 83114 100 0 0 0        *   (object type not in this .obj file)
 O 0 83114 6 83536 100 0 0 0        * a closet
 P 1 500 999 83114 100 0 0 0        *   (object type not in this .obj file)
 P 1 500 999 83114 100 0 0 0        *   (object type not in this .obj file)
@@ -1797,7 +1809,7 @@ E 1 83112 999 11 100 0 0 0         *   an iron shield bearing the crest of Alato
 E 1 83119 999 16 100 0 0 0         *   a polished iron broadsword
 M 0 83126 1 83121 100 0 0 0        * Brudo 'Short Stack' MacFuggens
 E 1 83119 999 16 100 0 0 0         *   a polished iron broadsword
-E 1 83344 1 17 100 0 0 0           *   a magical emerald shortsword
+E 1 83344 1 17 100 0 0 0           *   Brudo's emerald shortsword
 F 1 83157 19 83121 100 0 0 0       * an Alatorin peacekeeper (following)
 E 1 83111 999 16 100 0 0 0         *   an iron broadsword
 E 1 83111 999 17 100 0 0 0         *   an iron broadsword
@@ -2198,9 +2210,9 @@ E 1 83304 12 16 100 0 0 0          *   an illusionary dagger
 E 1 83304 12 17 100 0 0 0          *   an illusionary dagger
 M 0 83267 1 83267 100 0 0 0        * a royal shield dwarf delegate
 F 1 83268 1 83267 100 0 0 0        * an ambassador of Kimordril (following)
-G 1 40444 5 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 40444 6 0 100 0 0 0            *    (object type not in this .obj file)
 F 1 83274 1 83267 100 0 0 0        * a visiting duergar guild leader (following)
-G 1 40444 5 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 40444 6 0 100 0 0 0            *    (object type not in this .obj file)
 F 1 83273 2 83267 100 0 0 0        * an elite guard (following)
 F 1 83273 2 83267 100 0 0 0        * an elite guard (following)
 F 1 83275 2 83267 100 0 0 0        * a clansdwarf (following)
@@ -2520,7 +2532,7 @@ G 1 83275 6 0 100 0 0 0            *    a concealed dirk
 M 0 83384 4 83377 100 0 0 0        * a derro rogue
 M 0 83384 4 83377 100 0 0 0        * a derro rogue
 M 0 83383 1 83378 100 0 0 0        * a huge sloppy fat dwarf
-G 1 40444 5 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 40444 6 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 83303 4 83378 100 0 0 0        * a raucous goblin drunk
 M 0 83360 3 83379 100 0 0 0        * a Deramuth mercenary
 M 0 83384 4 83379 100 0 0 0        * a derro rogue
@@ -3310,7 +3322,7 @@ M 0 83407 8 83797 100 0 0 0        * an angry guard
 M 0 83407 8 83797 100 0 0 0        * an angry guard
 M 0 83407 8 83797 100 0 0 0        * an angry guard
 M 0 83421 1 83797 100 0 0 0        * a bound halfling with no hands
-M 0 83408 1 83799 100 0 0 0        * a dwarf captain
+M 0 83408 1 83799 100 0 0 0        * a dwarf mercenary captain
 E 1 83449 1 5 100 0 0 0            *   a breastplate of gold-trimmed mithril
 G 1 40441 6 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 83481 1 0 100 0 0 0            *    a shackle key
@@ -3322,7 +3334,7 @@ M 0 83405 1 83801 100 0 0 0        * Lord Deramuth the portmaster
 E 1 83448 1 3 100 0 0 0            *   a string of disembodied hands
 E 1 83394 18 16 100 0 0 0          *   a mithril-bladed battle-axe
 E 1 83394 18 17 100 0 0 0          *   a mithril-bladed battle-axe
-G 1 40444 5 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 40444 6 0 100 0 0 0            *    (object type not in this .obj file)
 F 1 83409 1 83801 100 0 0 0        * a crooked advisor (following)
 E 1 83477 1 1 100 0 0 0            *   a blue crystalline band
 G 1 40442 3 0 100 0 0 0            *    (object type not in this .obj file)
@@ -3367,5 +3379,16 @@ G 1 96 999 0 100 0 0 0             *    (object type not in this .obj file)
 G 1 97 999 0 100 0 0 0             *    (object type not in this .obj file)
 G 1 53 999 0 100 0 0 0             *    (object type not in this .obj file)
 M 0 83414 1 83863 100 0 0 0        * the shield dwarf doctor of Alatorin
+M 0 83426 1 83892 100 0 0 0        * Lundeen the soup master
+M 0 83430 1 83892 100 0 0 0        * a halfling waiter
+G 1 83482 1 0 100 0 0 0            *    a bowl of white dragon egg soup
+G 1 83483 1 0 100 0 0 0            *    a bowl of wyvern egg soup
+M 0 83427 1 83892 100 0 0 0        * a rotund halfling
+M 0 83428 1 83892 100 0 0 0        * a well-traveled wanderer
+M 0 83429 2 83892 100 0 0 0        * a hungry shield dwarf
+M 0 83429 2 83892 100 0 0 0        * a hungry shield dwarf
+M 0 83431 1 83893 100 0 0 0        * a muscular githzerai prince
+G 1 40444 6 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 83484 1 0 100 0 0 0            *    a ball of crackling energy
 *
 S

@@ -332,8 +332,8 @@ shield dwarf explorer~
 &+Lso close to the &+YGreat Forge&+L.  This &Ns&+Whiel&Nd &+Ldwarf has a
 &+Lstern eye and a strong fist, living in his beloved city &+cAlatorin&+L.
 ~
-67110984 0 0 0 0 0 0 7 S
-pm 0 1 -1
+1073743944 0 0 0 0 0 0 7 S
+pm 0 16384 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -347,8 +347,8 @@ strong explorer~
 &+Lso close to the &+YGreat Forge&+L.  This &Ns&+Whiel&Nd &+Ldwarf has a
 &+Lstern eye and a strong fist, living in his beloved city &+cAlatorin&+L.
 ~
-67110984 0 0 16 0 0 0 7 S
-pm 0 1 -1
+1073743944 0 0 16 0 0 0 7 S
+pm 0 16384 -1
 57 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -495,7 +495,7 @@ sslitheran exiled drow~
 &+mseen about wanted posters across the city.  Nevertheless, he remains here within
 &+mthe city of Shield Dwarves, right where he is wanted.
 ~
-1073744010 0 0 24 0 0 0 -450 S
+1073744010 0 0 1048600 0 0 0 -450 S
 pl 0 512 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -4746,7 +4746,7 @@ sneaky goblin thief~
 &+Lkeep out of sight.  He has sly, &+Rred &+Leyes and a lean, lithe
 &+Lbody.
 ~
-1073744088 0 0 402653208 0 0 0 -400 S
+1073744088 0 0 402653208 0 0 0 -1000 S
 hg 0 65536 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -4868,8 +4868,8 @@ pm 0 1048576 -1
 0.0.0.0 0
 8 8 1
 #83408
-dwarf captain~
-&+La &N&+ydwarf &+yc&+Ya&N&+yp&+Yt&N&+ya&+Yi&N&+yn&N~
+dwarf mercenary captain~
+&+La &N&+ydwarf mercenary c&+Ya&N&+yp&+Yt&N&+ya&+Yi&N&+yn&N~
 &+yA dwarf &+Yca&N&+ypt&+Yai&N&+yn &+Llurks here, ordering his &N&+rguards&+L.
 ~
    &+yThis muscular &+Ymountain dwarf&N&+y has risen to the prestigious
@@ -5154,5 +5154,98 @@ locke mountain dwarf mountaineer~
 1073743882 0 0 0 0 0 0 800 S
 pm 0 16384 -1
 60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#83426
+lundeen dwarf soup master~
+&+YLun&N&+yde&+Len &N&+ythe &n&+bsoup &n&+rmaster&N~
+&+YLun&N&+yde&+Len &N&+ythe &+Ydwarf &N&+bsoup &+rmaster &+ystirs a fresh batch of his famous soup.
+~
+   &+YLundeen is a thick dwarf with muscley arms and a forked moustache.
+&+YHe has a relatively small beard for a mountain dwarf, perhaps a result
+&+Yof him hanging around &N&+yhalflings &+Yfor so long in &+WDeramuth Port&+Y.
+&+YLundeen stirs a massive &+Lcauldron &+Yfull of some of his famous soup,
+&+Ydistributing it to the patrons of the &+YGolden &NPe&+Warl&+Y.
+~
+2122 0 0 8 0 0 0 50 S
+pm 0 1 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#83427
+rotund halfling~
+&+Wa rotund &N&+yh&+Wa&N&+yl&+Wf&N&+yl&+Wi&N&+yn&+Wg&N~
+&+WA rotund &N&+yh&+Wa&N&+yl&+Wf&N&+yl&N&+wi&N&+yn&+Wg &N&+Weagerly awaits his next serving.
+~
+   &+WThis halfling has the appetite of a minotaur, his wobbley legs kicking back
+&+Wand forth as he eagerly awaits yet another serving.  The front of his button-
+&+Wdown shirt is stained with the remanents of various meals, as are his pants
+&+Wover which his titanic belly rests.
+~
+2058 0 0 0 0 0 0 600 S
+pf 0 1 -1
+40 0 0 1d1+1 1d1+1
+0.0.0.0 0
+5 5 1
+#83428
+well traveled well-traveled wanderer~
+&+Ca &N&+ywell-traveled &+Cwanderer&N~
+&+CA &N&+ywell-traveled &+Cwanderer pays a visit to the Feed Hole.
+~
+   &+CThis elven man visits a normally unfamiliar place for his people.  Although
+&+Calso originating from the mountains, this high elf is a quite rare specimin for
+&+CDeramuth Port, and is looked at as such.  Unphased by the looks he gets, however,
+&+Cthis elf is taking in all of the culture of this part of the world, starting with
+&+Cthe food.
+~
+1073743882 0 0 0 0 0 0 400 S
+pe 0 2 -1
+45 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#83429
+hungry dwarf~
+&+Wa hu&+Rng&N&+rry &n&+Wsh&+Wie&Nld &+Ydwarf&N~
+&+WA hungry &Nsh&+Wie&Nld &+Ydwarf &N&+Rhungrily &N&+rfeasts &+Ron some &Nfood&+r.
+~
+   &+LThis &Ns&+Whiel&Nd &+Ldwarf has a huge beard and a hearty face.
+&+LHe is dressed in banded leather, a standard for his people living
+&+Lso close to the &n&+yShanatar&+L.  This &Ns&+Whiel&Nd &+Ldwarf has a
+&+Lstern eye and a strong fist, living in his beloved city &+cAlatorin&+L.
+&+LCurrently visiting the port of &+WDeramuth&+L, this &+Ydwarf &+Lis indulging in
+&+Lsome of the more delicant perks of the &+Wport&+L.
+~
+2122 0 0 0 0 0 0 7 S
+pm 0 1 -1
+43 0 0 1d1+1 1d1+1
+0.0.0.0 0
+6 6 1
+#83430
+halfling waiter~
+&N&+ya halfling &+Wwaiter&N~
+&+yA halfling &+Wwaiter &N&+ygoes from patron to patron, gathering orders for soup.
+~
+   &+yThis waiter is dressed in simple cloth garments with a billowing white
+&+yapron tied atop everything.  His legs are nearly a blur as he quickly
+&+Ywalks through from patron to patron, gathering orders and delivering the
+&+Wport-famous soup.
+~
+1073744074 0 0 8 0 0 0 200 S
+pf 0 16384 -1
+40 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#83431
+muscular githzerai prince~
+&+La muscular &+Wgith&+Gzerai &+Cp&N&+cr&+Ci&N&+cn&+Cc&N&+ce&N~
+&+LA muscular &N&+Wgith&+Gzerai &+Cpr&N&+cin&+Cce &n&+mstands here.
+~
+   &+LThis githzerai prince stands nearly six feet in tall.  He wears a
+&+Lbillowing black cloak and has a bushy white beard.  Paying this plane
+&+La visit, he has taken up lodging within Deramuth Port.
+~
+1073743882 0 0 0 0 0 0 1000 S
+gz 0 512 -1
+51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1

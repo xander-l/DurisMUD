@@ -13670,6 +13670,13 @@ D1
 ~
 door~
 1 0 83768
+D2
+&+yThis large door is equipped with a huge &+Csteel lock&N&+y.
+&+yA large &+Ygolden crest &N&+ysits on a welcome mat before this door, signifying
+&+ysome importance to this larger guest chamber.
+~
+door _nobash_~
+2 0 83893
 D3
 &+LA door to a guest room.
 ~
@@ -16200,15 +16207,48 @@ S
 &+WDeramuth Port, is known collectively to the patrons as well as notoriously
 &+Wto outsiders as 'the &+RFeed &N&+rHole&+W.'
    &+WThere are numerous small wooden benches parked along long wooden
-&+Wtables with heavy &+Lstone &+Wsupports.  Hearty &+Ydwarves&+B, barbarisn&+W, and
+&+Wtables with heavy &+Lstone &+Wsupports.  Hearty &+Ydwarves&+B, barbarians&+W, and
 &+Wothers come and go as they feast upon the delicious food served at
 &+Wthe &+RFeed &N&+rHole&+W.
 ~
-831 32768 0
+831 0 0
 D2
 ~
 ~
 0 0 83760
+E
+torch torches~
+&+r       '
+&+r     .''"'
+&+r   '  '&+R8&N&+r'.
+&+r   :;.&+R88&N&+r.. .
+&+r .  .&+Ro&+Y88&+Ro&N&+r..
+&+r .,:&+Ro&+Y888&+Rp&N&+r.;
+&+r...&+Roo&+Y888&+Ro&N&+r.
+&+r   .&+Ro&+Y88&+Ro&N&+r.
+&+L {        }
+&+L  \      /
+&+L   |&N&+b=&+B==&N&+b=&+L|
+&+L   |    |
+&+L    \  /
+&+L     \/
+~
+S
+#83893
+&+WThe &+YGolden &nP&+Wear&Nl &+MS&+Yu&+Mi&+Yt&+Me&N~
+   &+WThis larger guest chamber of the Golden Pearl is actually directly over
+&+Wthe tavern below, and is just as large.  Overlooking the glorious ocean out
+&+Wthe western windows, this suite gives a marvelous view of the realms from
+&+Wthis vantage point, as well as a glorious view of Shanatar out the eastern
+&+Wfront.  A large carpet sits at the very center of this room, on which a large
+&+Wbed sits.  A huge closet sits on the wall adjacent to the door.
+~
+831 32768 0
+D0
+&+yA door leads back to the inn.
+~
+door~
+1 0 83767
 E
 torch torches~
 &+r       '

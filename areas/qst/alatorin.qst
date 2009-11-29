@@ -395,7 +395,7 @@ hi hello~
 &+G'You know, one of my favorite ways to invent something useful is by combining two other things.  Like boot knives!'
 &NWith a grin on his face, &+cDweefniggle &Ncontinues &+G'There are what are commonly referred to as 'random objects' throughout the lands.  This could be anything from &Na &+Wm&+Ya&+Wg&+Yi&+Wc&+Ya&+Wl &+Rgem &N&+ymonolith&+G to &+La strange &+Wsharp &N&+rrubin&+G to &Na piece of &N&+bsapphire&+G!  I'll take it all!'
 After clearing his voice, $n continues 'Give me ten items and I'll give you a piece of a token of &n&+ycollecting!&+W'
-&N$n pauses for a moment, grabs $N's shirt, and says 'Wait $N!  Before you go, I have to ask you for a favor.'
+&N$n pauses for a moment, grabs $N's shirt, and says 'Wait $N!  Before you go, I have to ask you for a &+Wfavor.'
 ~
 M
 qc_action 200~
@@ -1914,6 +1914,7 @@ QA
 ~
 R I 83372
 R C 50000
+R I 83463
 G I 78442
 G I 78443
 G I 78444
@@ -1922,6 +1923,27 @@ D
 &N$n mutters at $N 'Excellent.  Now that these foul orcs are killed, our conquest of the twin world will commense.  But how can I repay you?'
 &n$n ponders for a moment, and then pulls some goggles off his head lobe.
 &N'&+rTake this.&n'
+~
+S
+#83338
+MA
+hi hello~
+&N$n nods at $N and says &+R'Greetings, blood brother.  As you know the Shanatar Valley has become an increasingly dangerous place.  We do not believe the ongoing conflict between Helgor and Khoralator helps matters for Stealth Hunter in Alatorin.  Although we do not believe it would be a good idea to attack one or the other full-on, we would be inclined to hurt their morale and drive them off.'
+&N$n clears his voice and continues &+R'At the gates of either outpost, there are several guards.  One of them on each side carries a &+Wwar banner&+R.  I want you to capture both &+Wwar banners&+R and return to me with them.  This is your task, $N, and I am sure you can do your duty.'
+~
+MA
+khoralator helgor~
+&N$n says &+R'Khoralator and Helgor are the dwarven outposts in constant struggle on Shanatar.'
+~
+QA
+&N$n grins and says &+R'Excellent, $N!'
+~
+R I 83463
+R E 160000
+G I 83353
+G I 83397
+D
+&N$n disappears into the &+Lshadows.
 ~
 S
 #83342
@@ -2177,6 +2199,59 @@ R C 1000000
 G I 83415
 D
 &N&+r'Enjoy your reward' he says 'Your eternal reward.'
+~
+S
+#83378
+M
+qc_action 90~
+&N$n peers around the tavern, his eyes quickly darting from one person to another.
+~
+MA
+hi hello~
+&N$n looks $N up and down and grins, showing his pointy &+Wteeth&N.
+&+G'Hi..' &Nhe says with a near-whisper.
+&+G'New to Alatorin?' &Nhe asks $N.
+~
+MA
+alatorin yes~
+&N$n nods at $N and says &+G'Alatorin can be worth a nice coin, if you play your cards right' &Nwith a smirk.
+&+G'From the merchants all the way up to the king.. its a business!' he says with a small cackle.
+~
+MA
+no~
+&N&+G'Well then,' &N$n says, &+G'Good day.'
+~
+MA
+taark shanat king~
+&N$n grins at $N and nods.
+&+G'Taark Shanat is the wealthiest dwarf there is.  I'd say the second is his first son, Clund Hammerhelm.  These two control the shield dwarf military, which is what the entire city is set up to produce and maintain!'
+&N$n makes several gestures in all directions.
+&+G'All around,'&N he says, continuing his gesturing, &+G'they train and grow, bred to fight.  I wish to make a &+Cchange&+G.'
+~
+MA
+son clund hammerhelm~
+&N$n says &+G'The first son of the king, Clund Hammerhelm, might also be the most influencial.  It is time this city has a &+Cchange&+G.'
+~
+MA
+change~
+&N$n nods at $N and says &+G'Here is my plan, $N..'
+&+G'We deliver letters written and signed by the King and his son to the major cities they do business with.  With your help we can deliver the notes and hopefully see Alatorin raided!'
+&N$n cackles with insane glee.
+He continues &+G'We will need a way to make their mark, $N.  I need your help.  They both make their mark with signet rings!' &Ngrinning, &+G'Get these rings and return them to me, $N!&N'
+~
+MA
+signet rings ring~
+&n$n nods at $N and says &+G'Taark Shanat and Clund Hammerhelm both wear signet rings to make their mark.  Acquire both of these rings for me, $N, and I shall repay your efforts.'
+~
+QA
+&N$n exclaims &+G'Excellent, $N!  I will get to work right away.'
+~
+R E 200000
+R I 83463
+G I 83242
+G I 83260
+D
+&N$n dissapears into the &+Lshadows&N, cackling wildly.
 ~
 S
 #83379
@@ -2540,5 +2615,53 @@ qc_action 400~
 M
 qc_action 400~
 &NA mechanical &+Lco&N&+bnstru&+Lct takes a few steps, causing the &+Lgears&N and &+Ygizmos &Ninside to turn and &+Yc&Nl&+Ya&Nt&+Yt&Ne&+Yr&N.
+~
+S
+#83426
+M
+qc_action 90~
+&N$n tosses a few large &+Weggs&N onto a frying pan and cooks them thoroughly.
+Tossing the egg into a large cauldron, $N adds several spices and stirs the mix.
+~
+M
+qc_action 90~
+&N$n stirs a large cauldron full of &+Rbubbling &Nsoup.
+~
+MA
+hi hello~
+&n$n says 'Hello $N!'
+With a large smile on his face, $n continues stirring the &+Rsoup.
+~
+MA
+soup~
+&n$n smiles at $N and says 'Soup for sale, see the waiter!  Famous soup made from rare &+Weggs!&N  Best soup this side of the Great Divide!'
+~
+MA
+eggs egg~
+&N$n grins at $N and says 'Yes $N, my famous soup is made of rare eggs!'
+$n looks over his shoulders and leans in towards $N.
+'Ya see, I'm running low.  There are only a few bowls left that you can get from the waiter!' he says, nervously biting his spice-soaked fingernails.
+'Please $N, if you can bring me any of the &+Cantiquated &+Wdragon eggs&N in the cave of the Shanatar valley, that is the source of the best-tasting soup at the Feed Hole!  Also $N, the eggs of a &N&+ywyvern&N, found along some mountains of the realm are a delicacy as well.'
+~
+QA
+&N$n smiles excitedly at $N and says 'Well done!'
+After several minutes of stirring up a thick &+Rconcoction&N, $n pours two bowls.
+~
+R E 90000
+R I 83482
+R I 83482
+G I 83366
+QA
+&N$n smiles at $N and says 'Well done, wyvern eggs!'
+~
+R E 40000
+R I 83483
+R I 83483
+G I 500026
+S
+#83431
+M
+qc_action 400~
+&N$n raises his hand and a ball of &+Rflame &Nstarts &N&+rbu&+Yrn&N&+rin&+Yg.
 ~
 S
