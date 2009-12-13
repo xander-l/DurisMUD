@@ -424,6 +424,7 @@ S
 MA
 hi hello~
 &N$n grunts at $N and continues surveying the halls of &n&+cAlatorin&N.
+He looks down towards $N and grunts &+B'Tooth-rat?  Gloomwing?'.
 ~
 MA
 alatorin dwarfs shield dwarf dwarven city~
@@ -443,12 +444,30 @@ M
 qc_action 90~
 &N$n looks under cracks and cornices throughout the promenade in search of vermin.
 ~
+MA
+gloomwing gloomwings~
+&N$n grunts at $N &+B'Gloomwing, in shiny caverns.. bring me wings, $N!  Show me you kill pesky gloomwing!'
+~
 QA
 &N$n smiles, &+Rtongue &Nhanging out.
 'Tok happy!  Take silly metal bits!'
 ~
 R C 6800
+R E 5000
 G I 120051
+QA
+&N$n grunts at $N and yells &+B'AGFH!'
+~
+R C 7777
+R E 7777
+G I 120052
+QA
+&N$n grunts and hops up and down.
+&+B'Yes, $N!  Aghfh!!' &Nhe roars, intensely.
+~
+R C 17433
+R E 17332
+G I 120053
 S
 #120065
 M

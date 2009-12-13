@@ -871,34 +871,34 @@ M 0 55175 1 55395 100 0 0 0        * Marigold
 M 0 55176 1 55396 100 0 0 0        * Nubija
 M 0 55173 1 55397 100 0 0 0        * Theft
 M 0 55174 1 55398 100 0 0 0        * Ugruk
-M 0 55201 1 55400 100 0 0 0        * an ambassador from the Icecrag Castle
-M 0 55208 1 55400 100 0 0 0        * an ambassador from the Domain of Lost Souls
-M 0 55199 1 55400 100 0 0 0        * an ambassador from The Jade Empire
-M 0 55200 1 55400 100 0 0 0        * an ambassador from the Du'Maathe Castle
-M 0 55204 1 55400 100 0 0 0        * an ambassador from Jotunheim
-M 0 55207 1 55400 100 0 0 0        * an ambassador from the Forest City of Aravne
-M 0 55242 1 55400 100 0 0 0        * an Ambassador from Venan'Trut
-M 0 55205 1 55400 100 0 0 0        * an ambassador from Krethik Keep
-M 0 55221 1 55400 100 0 0 0        * an Ambassador from the Swamp
-M 0 55202 1 55400 100 0 0 0        * an ambassador from Fort Boyard
-M 0 55203 1 55400 100 0 0 0        * an ambassador from The Sky City of Ultarium
-M 0 55206 1 55400 100 0 0 0        * an ambassador from The Temple of Skrentherlog
-M 0 55224 1 55400 100 0 0 0        * an Ambassador from The Obsidian Citadel
-M 0 55218 1 55400 100 0 0 0        * an Ambassador from New Cave City
-M 0 55226 1 55400 100 0 0 0        * an Ambassador from the Lair of the Gibberling King
-M 0 55243 1 55400 100 0 0 0        * an Ambassador from Rogue Plains
-M 0 55223 1 55400 100 0 0 0        * an Ambassador from The Citadel
-M 0 55228 1 55400 100 0 0 0        * an Ambassador from the Ice Tower
-M 0 55227 1 55400 100 0 0 0        * an Ambassador from The High Moor Forest
-M 0 55222 1 55400 100 0 0 0        * an Ambassador from the Keep of Evil
-M 0 55220 1 55400 100 0 0 0        * an Ambassador from Labyrinth of No Return
-M 0 55219 1 55400 100 0 0 0        * an Ambassador from The Prisons of Carthapia
-M 0 55209 1 55400 100 0 0 0        * an ambassador from the Tribal Oasis
-M 0 55225 1 55400 100 0 0 0        * an Ambassador from Zalkapfaan
-M 0 55238 1 55400 100 0 0 0        * an Ambassador from The Hall of Knighthood
-M 0 55135 1 55400 100 0 0 0        * An Ambassador from The Forgotten Mansion
-M 0 55136 1 55400 100 0 0 0        * an Ambassador from the Village of Werrun
-M 0 55137 1 55400 100 0 0 0        * An Ambassador from Quintaragon Castle
+M 0 55201 2 55400 100 0 0 0        * an ambassador from the Icecrag Castle
+M 0 55208 2 55400 100 0 0 0        * an ambassador from the Domain of Lost Souls
+M 0 55199 2 55400 100 0 0 0        * an ambassador from The Jade Empire
+M 0 55200 2 55400 100 0 0 0        * an ambassador from the Du'Maathe Castle
+M 0 55204 2 55400 100 0 0 0        * an ambassador from Jotunheim
+M 0 55207 2 55400 100 0 0 0        * an ambassador from the Forest City of Aravne
+M 0 55242 2 55400 100 0 0 0        * an Ambassador from Venan'Trut
+M 0 55205 2 55400 100 0 0 0        * an ambassador from Krethik Keep
+M 0 55221 2 55400 100 0 0 0        * an Ambassador from the Swamp
+M 0 55202 2 55400 100 0 0 0        * an ambassador from Fort Boyard
+M 0 55203 2 55400 100 0 0 0        * an ambassador from The Sky City of Ultarium
+M 0 55206 2 55400 100 0 0 0        * an ambassador from The Temple of Skrentherlog
+M 0 55224 2 55400 100 0 0 0        * an Ambassador from The Obsidian Citadel
+M 0 55218 2 55400 100 0 0 0        * an Ambassador from New Cave City
+M 0 55226 2 55400 100 0 0 0        * an Ambassador from the Lair of the Gibberling King
+M 0 55243 2 55400 100 0 0 0        * an Ambassador from Rogue Plains
+M 0 55223 2 55400 100 0 0 0        * an Ambassador from The Citadel
+M 0 55228 2 55400 100 0 0 0        * an Ambassador from the Ice Tower
+M 0 55227 2 55400 100 0 0 0        * an Ambassador from The High Moor Forest
+M 0 55222 2 55400 100 0 0 0        * an Ambassador from the Keep of Evil
+M 0 55220 2 55400 100 0 0 0        * an Ambassador from Labyrinth of No Return
+M 0 55219 2 55400 100 0 0 0        * an Ambassador from The Prisons of Carthapia
+M 0 55209 2 55400 100 0 0 0        * an ambassador from the Tribal Oasis
+M 0 55225 2 55400 100 0 0 0        * an Ambassador from Zalkapfaan
+M 0 55238 2 55400 100 0 0 0        * an Ambassador from The Hall of Knighthood
+M 0 55135 2 55400 100 0 0 0        * An Ambassador from The Forgotten Mansion
+M 0 55136 2 55400 100 0 0 0        * an Ambassador from the Village of Werrun
+M 0 55137 2 55400 100 0 0 0        * An Ambassador from Quintaragon Castle
 M 0 55034 1 55401 100 0 0 0        * Tarn Bloodblade, the outlaw of Tharnadia
 E 1 55377 1 16 30 0 0 0            *   a gladius called 'Backstabber'
 E 1 55376 6 17 100 0 0 0           *   a blood-soaked dagger
@@ -930,6 +930,34 @@ M 0 55554 4 55402 100 0 0 0        * The Incarnate of Mischief
 M 0 55554 4 55402 100 0 0 0        * The Incarnate of Mischief
 M 0 55246 4 55402 100 0 0 0        * a tall psychomia treant
 M 0 55246 4 55402 100 0 0 0        * a tall psychomia treant
+M 0 55201 2 55403 50 0 0 0         * an ambassador from the Icecrag Castle
+M 0 55208 2 55403 100 0 0 0        * an ambassador from the Domain of Lost Souls
+M 0 55199 2 55403 50 0 0 0         * an ambassador from The Jade Empire
+M 0 55200 2 55403 50 0 0 0         * an ambassador from the Du'Maathe Castle
+M 0 55204 2 55403 50 0 0 0         * an ambassador from Jotunheim
+M 0 55207 2 55403 50 0 0 0         * an ambassador from the Forest City of Aravne
+M 0 55242 2 55403 50 0 0 0         * an Ambassador from Venan'Trut
+M 0 55205 2 55403 50 0 0 0         * an ambassador from Krethik Keep
+M 0 55221 2 55403 50 0 0 0         * an Ambassador from the Swamp
+M 0 55202 2 55403 50 0 0 0         * an ambassador from Fort Boyard
+M 0 55203 2 55403 50 0 0 0         * an ambassador from The Sky City of Ultarium
+M 0 55206 2 55403 50 0 0 0         * an ambassador from The Temple of Skrentherlog
+M 0 55224 2 55403 50 0 0 0         * an Ambassador from The Obsidian Citadel
+M 0 55218 2 55403 50 0 0 0         * an Ambassador from New Cave City
+M 0 55226 2 55403 50 0 0 0         * an Ambassador from the Lair of the Gibberling King
+M 0 55243 2 55403 50 0 0 0         * an Ambassador from Rogue Plains
+M 0 55223 2 55403 50 0 0 0         * an Ambassador from The Citadel
+M 0 55228 2 55403 50 0 0 0         * an Ambassador from the Ice Tower
+M 0 55227 2 55403 50 0 0 0         * an Ambassador from The High Moor Forest
+M 0 55222 2 55403 50 0 0 0         * an Ambassador from the Keep of Evil
+M 0 55220 2 55403 50 0 0 0         * an Ambassador from Labyrinth of No Return
+M 0 55219 2 55403 50 0 0 0         * an Ambassador from The Prisons of Carthapia
+M 0 55209 2 55403 50 0 0 0         * an ambassador from the Tribal Oasis
+M 0 55225 2 55403 50 0 0 0         * an Ambassador from Zalkapfaan
+M 0 55238 2 55403 50 0 0 0         * an Ambassador from The Hall of Knighthood
+M 0 55135 2 55403 50 0 0 0         * An Ambassador from The Forgotten Mansion
+M 0 55136 2 55403 50 0 0 0         * an Ambassador from the Village of Werrun
+M 0 55137 2 55403 50 0 0 0         * An Ambassador from Quintaragon Castle
 M 0 55517 26 55406 25 0 0 0        * a baby duckling
 M 0 55518 26 55406 25 0 0 0        * a small carp
 M 0 55519 26 55406 25 0 0 0        * a medium carp

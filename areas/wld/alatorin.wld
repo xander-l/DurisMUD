@@ -5212,7 +5212,7 @@ S
 &+Cbauble that was floating high above the stepped foyer.  This clever,
 &+Cmagical trap seems to punish the ignorant.
 ~
-831 1107296256 15
+831 1241546752 15
 D5
 ~
 ~
@@ -6506,7 +6506,7 @@ S
 &+Lsconced on the wall, burning with &n&+ggreen &+Gflame&+L.  The staircase
 &+Lis uncarpeted and bare, made of blocked black stone.
 ~
-831 0 13
+831 134250496 13
 D4
 ~
 ~
@@ -6682,7 +6682,7 @@ S
 &+YAlatorin itself or by Breuldin, the very God it is in worship to,
 &+Yis full of intense amplified magic.
 ~
-831 0 13
+831 134250496 13
 D4
 ~
 ~
@@ -9279,7 +9279,7 @@ S
 &+Lunfortunate enough to feed off the greedy dwarves that dwell in this
 &+Lshady underground.
 ~
-831 4 14
+831 0 14
 D0
 &+LA large &N&+rdoor&+L leads to a shop.
 ~
@@ -11720,7 +11720,7 @@ S
 &+Lcan only be traversed in a single-file formation through this long, dark
 &+Lsubterennean shaft.
 ~
-831 4 0
+831 134250500 0
 D0
 ~
 ~
@@ -11737,7 +11737,7 @@ S
 &+Lcan only be traversed in a single-file formation through this long, dark
 &+Lsubterranean shaft.
 ~
-831 0 0
+831 134250496 0
 D4
 ~
 ~
@@ -11754,7 +11754,7 @@ S
 &+Lcan only be traversed in a single-file formation through this long, dark
 &+Lsubterranean shaft.
 ~
-831 0 0
+831 134250496 0
 D4
 ~
 ~
@@ -11771,7 +11771,7 @@ S
 &+Lcan only be traversed in a single-file formation through this long, dark
 &+Lsubterranean shaft.
 ~
-831 0 0
+831 134250496 0
 D4
 ~
 ~
@@ -11788,7 +11788,7 @@ S
 &+Lcan only be traversed in a single-file formation through this long, dark
 &+Lsubterranean shaft.
 ~
-831 0 0
+831 134250496 0
 D4
 ~
 ~
@@ -11805,7 +11805,7 @@ S
 &+Lcan only be traversed in a single-file formation through this long, dark
 &+Lsubterranean shaft.
 ~
-831 0 0
+831 134250496 0
 D4
 ~
 ~
@@ -14776,7 +14776,7 @@ S
 &+Lentire tower.  The top of the tower features a chamber with two huge
 &+Lportals, while the bottom has a set of strange portals as well.
 ~
-831 33554432 0
+831 167804928 0
 D5
 &+LA trapdoor with a large &N&+rele&+bmen&+ytal &+Ckeyhole &+Lis below.
 ~
@@ -14796,7 +14796,7 @@ S
 &+Lentire tower.  The top of the tower features a chamber with two huge
 &+Lportals, while the bottom has a set of strange portals as well.
 ~
-831 33554432 0
+831 167804928 0
 D2
 &+LUpon closer investigation, the southern wall seems to be a secret entrance.
 ~
@@ -14826,7 +14826,7 @@ S
 &+Lentire tower.  The top of the tower features a chamber with two huge
 &+Lportals, while the bottom has a set of strange portals as well.
 ~
-831 33554432 0
+831 167804928 0
 D4
 &+LThe &N&+ystaircase spirals upwards.
 ~
@@ -14851,7 +14851,7 @@ S
 &+Lentire tower.  The top of the tower features a chamber with two huge
 &+Lportals, while the bottom has a set of strange portals as well.
 ~
-831 33554432 0
+831 167804928 0
 D1
 &+LA &N&+ywooden &+Ldoor leads to a small &N&+mlibrary&+L.
 ~
@@ -14891,7 +14891,7 @@ S
 &+Lentire tower.  The top of the tower features a chamber with two huge
 &+Lportals, while the bottom has a set of strange portals as well.
 ~
-831 33554432 0
+831 167804928 0
 D3
 &+LA large &N&+ywooden &+Ldoor leads back to the base of the &N&+ctower&+L.
 ~
@@ -14911,7 +14911,7 @@ S
 &+Lentire tower.  The top of the tower features a chamber with two huge
 &+Lportals, while the bottom has a set of strange portals as well.
 ~
-831 33554432 0
+831 167804928 0
 D1
 &+LA &n&+ywooden &+Ldoor leads back to the base of the &N&+ctower&+L.
 ~
@@ -14926,7 +14926,7 @@ S
 &+Bcrackles across &N&+cwindy turbines of &n&+rflaming meteors and
 &+Bpowerful whirlpools.
 ~
-831 33554432 21
+831 167804928 21
 D4
 &+LA huge elemental keyhole on the trapdoor.
 ~
@@ -14940,7 +14940,7 @@ S
 &+Wof this meditation chamber.  Other then the flames of the candles, this
 &+Wchamber seems to be compeltely devoid of &N&+mmagic&+W.
 ~
-831 33554560 0
+831 167805056 0
 D0
 &+LThis wall seems to actually be a secret door, upon closer investigation.
 ~
@@ -16453,7 +16453,7 @@ D2
 D3
 ~
 ~
-0 0 83549
+8 0 83549
 S
 #83899
 &+LA &NDr&+mea&Nry &+yPlanning &+LRoom&N~

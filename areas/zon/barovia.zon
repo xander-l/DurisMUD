@@ -241,7 +241,7 @@ O 0 91025 1 91155 100 0 0 0        * a pulsing orb
 M 0 91002 1 91022 100 0 0 0        * the bartender
 M 0 91001 2 91022 100 0 0 0        * a quiet and tired inn patron
 M 0 91001 2 91022 100 0 0 0        * a quiet and tired inn patron
-M 0 91000 1 91022 100 0 0 0        * a Vistani messanger
+M 0 91000 1 91022 100 0 0 0        * a Vistani messenger
 M 0 91006 1 91067 100 0 0 0        * Ashlyn, the undead hunter
 G 1 91011 1 0 100 0 0 0            *    a small journal bearing the symbol of Pelor
 M 0 91022 1 91067 100 0 0 0        * a bloody and nearly-defeated zombie
@@ -427,10 +427,10 @@ M 0 91047 5 91156 100 0 0 0        * a bloodthirsty assassin
 E 1 91049 40 16 100 0 0 0          *   a Vistani dagger
 E 1 91049 40 17 100 0 0 0          *   a Vistani dagger
 M 0 91046 1 91156 100 0 0 0        * Hossa the Ambush Leader
-E 1 91041 1 5 100 0 0 0            *   some bandedmail bearing a cloak and dagger crest
 E 1 91050 1 16 100 0 0 0           *   a diorite shard named 'Seeker'
 E 1 91049 40 17 100 0 0 0          *   a Vistani dagger
 G 1 91038 1 0 100 0 0 0            *    a note and ambush plan
+G 1 91041 1 0 50 0 0 0             *    some bandedmail bearing a cloak and dagger crest
 M 0 91050 1 91157 100 0 0 0        * Ephon Arbury the guard
 M 0 91053 6 91158 100 0 0 0        * a huge dire wolf
 F 1 91008 10 91158 100 0 0 0       * a vicious black dire wolf (following)
@@ -461,22 +461,22 @@ M 0 91053 6 91158 100 0 0 0        * a huge dire wolf
 M 0 91054 4 91158 100 0 0 0        * a shambling mound
 M 0 91053 6 91158 100 0 0 0        * a huge dire wolf
 M 0 91008 10 91158 100 0 0 0       * a vicious black dire wolf
-M 0 91003 8 91159 100 0 0 0        * an infectous zombie
+M 0 91003 8 91159 100 0 0 0        * an infectious zombie
 E 1 91055 13 16 100 0 0 0          *   zombie proc 1
 E 1 91056 11 17 100 0 0 0          *   zombie proc 2
-M 0 91003 8 91159 100 0 0 0        * an infectous zombie
+M 0 91003 8 91159 100 0 0 0        * an infectious zombie
 E 1 91055 13 16 100 0 0 0          *   zombie proc 1
 E 1 91055 13 17 100 0 0 0          *   zombie proc 1
-M 0 91003 8 91159 100 0 0 0        * an infectous zombie
+M 0 91003 8 91159 100 0 0 0        * an infectious zombie
 E 1 91056 11 16 100 0 0 0          *   zombie proc 2
 E 1 91057 10 17 100 0 0 0          *   zombie proc 3
-M 0 91003 8 91159 100 0 0 0        * an infectous zombie
+M 0 91003 8 91159 100 0 0 0        * an infectious zombie
 E 1 91055 13 16 100 0 0 0          *   zombie proc 1
 E 1 91056 11 17 100 0 0 0          *   zombie proc 2
-M 0 91003 8 91159 100 0 0 0        * an infectous zombie
+M 0 91003 8 91159 100 0 0 0        * an infectious zombie
 E 1 91055 13 16 100 0 0 0          *   zombie proc 1
 E 1 91057 10 17 100 0 0 0          *   zombie proc 3
-M 0 91003 8 91159 100 0 0 0        * an infectous zombie
+M 0 91003 8 91159 100 0 0 0        * an infectious zombie
 E 1 91055 13 16 100 0 0 0          *   zombie proc 1
 E 1 91055 13 17 100 0 0 0          *   zombie proc 1
 M 0 91005 5 91159 100 0 0 0        * a deathlock
@@ -531,7 +531,7 @@ M 0 91038 8 91159 100 0 0 0        * an infected zombie rat
 M 0 91038 8 91159 100 0 0 0        * an infected zombie rat
 M 0 91038 8 91159 100 0 0 0        * an infected zombie rat
 M 0 91038 8 91159 100 0 0 0        * an infected zombie rat
-M 0 91003 8 91159 100 0 0 0        * an infectous zombie
+M 0 91003 8 91159 100 0 0 0        * an infectious zombie
 E 1 91055 13 16 100 0 0 0          *   zombie proc 1
 E 1 91056 11 17 100 0 0 0          *   zombie proc 2
 M 0 91016 7 91159 100 0 0 0        * an entomber
@@ -540,7 +540,7 @@ E 1 91053 14 17 100 0 0 0          *   entomber proc
 M 0 91016 7 91159 100 0 0 0        * an entomber
 E 1 91053 14 16 100 0 0 0          *   entomber proc
 E 1 91053 14 17 100 0 0 0          *   entomber proc
-M 0 91003 8 91159 100 0 0 0        * an infectous zombie
+M 0 91003 8 91159 100 0 0 0        * an infectious zombie
 E 1 91055 13 16 100 0 0 0          *   zombie proc 1
 E 1 91057 10 17 100 0 0 0          *   zombie proc 3
 M 0 91034 7 91159 100 0 0 0        * a vargouille

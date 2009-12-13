@@ -1258,7 +1258,7 @@ bottomless bag shield dwarves~
 &+Ba bottomless bag of the &Nsh&+Wie&Nld &+Ydwarves&N~
 &+WA bottomless bag of the &Nsh&+Wie&Nld &+Ydwarves &+Whas been left here.~
 ~
-15 3 3 0 7 0 0 16385 0 0 0
+15 3 3 0 7 0 134217728 16385 0 0 0
 600 1 0 600 0 0 0 0
 -150 550000 100
 E
@@ -1998,9 +1998,9 @@ gnomish rocket boots~
 &+Rfeet when they build enough speed.
 ~
 A
-55 3
+55 4
 A
-14 22
+14 44
 #83233
 catseye inventor's goggles~
 &+ysome cat&+Ys&N&+yeye &+Yi&N&+cn&+Yv&N&+ce&+Yn&N&+ct&+Yo&N&+cr&+Y'&N&+cs &+ygoggles&N~
@@ -5124,7 +5124,7 @@ thick orog-hide orog hide moccasins~
 A
 13 17
 A
-19 1
+19 2
 #83425
 ancient petrified casket~
 &+Lan ancient petrified &N&+ycasket&N~
@@ -6377,7 +6377,7 @@ mithril plated mithril-plated gnomish leg enhancers~
 &+Csome &N&+mmithril&+C-plated &+Rgnomish &n&+mleg &+ce&+Cn&+ch&+Ca&+cn&+Cc&+ce&+Cr&+cs&N~
 &+CSome &N&+mmithril-pltaed &+Rgnomish leg enhancers&+L have been left here.~
 ~
-9 18 2 0 15 0 33554432 0 0 0 0
+9 18 2 0 15 0 33554432 33 0 0 0
 20 0 0 3 0 0 0 0
 -20 199884 100
 E
@@ -6390,3 +6390,35 @@ A
 55 4
 A
 36 4
+#83499
+mithril plated mithril-plated gnomish brain force enhancer~
+&+Ca &N&+mmithril&+C-plated &+Rgnomish &+Mb&N&+mra&+Mi&+mn &+mf&+Mo&+Yr&+Mc&N&+me &+ce&+Cn&+ch&+Ca&+cn&+Cc&+ce&+Cr&N~
+&+CA &N&+cmithril&+Cplated &+Rgnomish &+Mbr&+ma&+Mi&+mn f+Mo&+Yr&+Mc&+me &+Cen&+cha&+Cnc&+cer&+r has been left here.~
+~
+9 18 2 0 15 0 33554432 17 0 0 0
+20 0 0 4 0 0 0 0
+0 213223 100
+E
+mithril plated mithril-plated gnomish brain force enhancer~
+   &+mThis strange head-piece resembles that of a fan-rimmed helmet, similar
+&+mto those worn by the bushi of the eastern realms, only with the entire top
+&+mcompletely removed, leaving the wearers brain completely exposed.
+   &+BA strange magical force, however, permeates from the rim, creating a
+&+Bprotective shell around the wearers head.
+~
+A
+33 4
+A
+34 4
+#83500
+huge boulder~
+&+ya huge boulder&N~
+&+yA huge boulder sits here, filling the western end of a tunnel.~
+~
+29 11 5 0 7 0 0 0 0 0 0
+270 83898 3 1 0 0 0 0
+0 0 100
+E
+huge boulder~
+&+yThis massive stone boulder fills the entire western end of the tunnel.
+~

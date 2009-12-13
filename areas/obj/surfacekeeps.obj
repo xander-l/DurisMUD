@@ -632,7 +632,7 @@ deathweave leggings~
 &+Lwrathlike material.
 ~
 A
-13 25
+13 20
 A
 22 -3
 #120040
@@ -833,3 +833,37 @@ freshly killed osquip remains~
    &+yThis fresh corpse has a fair amount of meat on it, which can be quite tender
 &+yand juicy.
 ~
+#120052
+gloomwing feather~
+&+La gl&n&+moomwi&+Lng &+mfe&+Lath&+mer&N~
+&+LA &N&+mgl&+Loom&+mwi&+Lng &+mfe&+Lat&+mher&+L pokes out between two &Nrocks&+L.~
+~
+9 50 2 0 7 0 0 8929281 64 0 0
+1 0 0 0 0 0 0 0
+0 3222 100
+E
+gloomwing feather~
+&+LThis single &+mgloo&+Lmwing fea&+mther &+Lhas been plucked from the body
+&+Lof a cavernous &+mglo&+Lomwi&+mng&+L.
+~
+A
+13 8
+A
+12 8
+#120053
+gloomwing feather~
+&+La &+mgl&+Lo&+mo&+Lm&+mwi&+Lng &+Wf&+Me&+ma&+Lther&N~
+&+LA &N&+mgl&+Loom&+mwi&+Lng &+mfe&+Lat&+mher&+L pokes out between two &Nrocks&+L.~
+~
+9 50 2 0 7 0 0 8929281 64 0 0
+1 0 0 0 0 0 0 0
+0 3222 100
+E
+gloomwing feather~
+&+LThis single &+mgloo&+Lmwing fea&+mther &+Lhas been plucked from the body
+&+Lof a cavernous &+mglo&+Lomwi&+mng&+L.
+~
+A
+13 10
+A
+12 10

@@ -511,7 +511,7 @@ sneaky pixie~
 ~
 2248 1 0 1572872 0 0 0 -100 S
 hf 0 8192 2
-42 0 0 1d1+1 1d1+1
+38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
 #83133
@@ -525,7 +525,7 @@ savannah lion~
 ~
 1073743944 1 0 0 0 0 0 69 S
 a 0 1 4
-48 0 0 1d1+1 1d1+1
+40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #83134
@@ -3549,7 +3549,7 @@ hg 0 65536 -1
 8 8 1
 #83323
 helgor crossbowman duergar~
-&+La &N&+rHel&+Rgor &+Lc&N&+rr&+Lo&N&+rs&+Ls&N&+rb&+Lo&N&+rw&+Lmn&+ra&+Ln&N~
+&+La &N&+rHel&+Rgor &+Lc&N&+rr&+Lo&N&+rs&+Ls&N&+rb&+Lo&N&+rw&+Lm&+ra&+Ln&N~
 &+LA &N&+rcrossbow&+Lman &+Lof &N&+rHel&+Rgor &+Woutpost &+Lis poised here, looking out the parapets.
 ~
    &+LThis burly &N&+rclansdwarf &+Lhas taken on the profession in this far off
@@ -3704,7 +3704,7 @@ ancient white dragon~
 &+Wfour massive trunk-like legs support the fearsome bite of this ravenous
 &+Wbeast.
 ~
-1073743944 0 0 0 14528 0 0 1000 S
+1073743944 1 0 0 14528 0 0 1000 S
 d 0 513 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -4489,7 +4489,7 @@ huge fat disgusting dwarf _ignore_~
 &+Wglisten with juices of the meats he has recently devoured.  His
 &+Wenormous, fat legs sit lifelessly below his mountain of a torso.
 ~
-526410 0 0 0 1024 0 0 700 S
+591946 0 0 0 1024 0 0 700 S
 pm 0 1 6
 51 -3 -80 550d10+5000 6d6+40
 0.0.16.9 119070
@@ -4559,7 +4559,7 @@ massive flesh golem _spec1_ _ignore_~
    &+LThis hulking beast is composed of various organs and muscles of
 &+Lnumerous different sources, all twisted together into one abomination.
 ~
-2250 0 0 134217880 2048 0 0 -1000 S
+67786 0 0 134217880 2048 0 0 -1000 S
 u 0 1 7
 51 -4 -80 400d30+5000 6d6+6
 5.12.17.22 1250000
@@ -5293,5 +5293,20 @@ muscular arms, including one very distinguishable as a &+Lpsychomia &+gp&+Glan&+
 1073744074 0 0 24 0 0 0 -420 S
 pf 0 16384 -1
 53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#83435
+godorc forgefire dwarf mountaineer~
+&+GGodorc Forgefire the Mountaineer~
+&+GGodorc Forgefire the &+Ydwarven &+Gmountaineer&+L rests here, &+rsharpening his &+cblade&+L.
+~
+&+GFamously known as Crodog's younger brother, Godorc is a proud &+Ymountain
+&+Ydwarf &+Ghailing from &+YKimordril&+G.  He has &+Ygolden blonde &+Ghair with a
+&+Ymatching &+Gbeard.  He is dressed in fine banded armor, and has a distinct
+&+Yaura of cool about him.
+~
+1073743880 4294688768 201326607 8 0 0 0 800 S
+pm 0 16384 -1
+60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1

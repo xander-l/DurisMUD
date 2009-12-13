@@ -511,6 +511,34 @@ G I 83190
 G I 55033
 G I 55033
 G I 55247
+QA
+&N$n grins and yanks the &+mmithril plates&n from the leg plates, wasting little time.  Within several moments of intense work, he completes his creation.
+~
+R I 83498
+G C 50000
+G I 83191
+G I 55033
+G I 55033
+G I 55247
+QA
+&N$n grabs the &+mhelmet&N and begins &+Yhammering &nthe top of it until it becomes nearly entirely flat.  After several more moments, eventually resulting in the removal of the top completely, $n finishes tinkering with his completed work.
+~
+R I 83499
+G C 50000
+G I 55033
+G I 55033
+G I 55247
+G I 83189
+QA
+&N$n removes the &+mmithril plates&n from the boots entirely, boiling them down into his pwn personal furnace.  He then fastens the &+mmithril &ninto two large &+Yexplosive&N-powered &+Cjets&N that he re-attaches to the base of the boots.
+&NAfter several more minutes of tinkering, $n finishes his completed product.
+~
+R I 83232
+G C 50000
+G I 55033
+G I 55033
+G I 55247
+G I 83192
 S
 #83151
 M
@@ -2314,6 +2342,7 @@ Gathering the heads, he continues 'Please, as a token of service to Alatorin, ta
 ~
 R C 500000
 R I 83250
+R E 200000
 G I 83255
 G I 83300
 G I 83323

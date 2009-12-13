@@ -146,8 +146,6 @@ M 0 120022 5 121114 80 0 0 0       * a halfling traveler
 M 0 120022 5 121114 80 0 0 0       * a halfling traveler
 M 0 120010 1 121115 100 0 0 0      * a half orc potion vendor
 G 1 80186 1 0 100 0 0 0            *    (object type not in this .obj file)
-G 1 55136 1 0 100 0 0 0            *    (object type not in this .obj file)
-G 1 55137 1 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 1715 1 0 100 0 0 0             *    (object type not in this .obj file)
 G 1 74209 1 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 74210 1 0 100 0 0 0            *    (object type not in this .obj file)
@@ -155,6 +153,7 @@ G 1 74211 1 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 74212 1 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 11562 999 0 100 0 0 0          *    (object type not in this .obj file)
 G 1 6508 999 0 100 0 0 0           *    (object type not in this .obj file)
+G 1 55141 999 0 100 0 0 0          *    (object type not in this .obj file)
 M 0 120028 5 121115 100 0 0 0      * an Alatorin noble
 G 1 94336 5 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 120018 5 121115 80 0 0 0       * a shopping shield dwarf woman
@@ -409,6 +408,7 @@ E 1 120010 20 11 100 0 0 0         *   a well-polished mithril body shield
 E 1 120011 20 16 100 0 0 0         *   a heavy mithril dwarven hammer
 E 1 120009 14 5 100 0 0 0          *   a full suit of well-polished mithril platemail
 M 0 120015 12 122536 100 0 0 0     * a gloomwing
+G 1 120052 12 0 100 0 0 0          *    a gloomwing feather
 M 0 53642 23 122563 50 0 0 0       * (mob type not in this .mob file)
 M 0 120032 4 122609 100 0 0 0      * a traveler from Verspin
 G 1 40442 4 0 100 0 0 0            *    (object type not in this .obj file)
@@ -440,6 +440,7 @@ E 1 120012 12 16 100 0 0 0         *   an Alatorin warhammer
 M 0 120028 5 122718 100 0 0 0      * an Alatorin noble
 G 1 94336 5 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 120015 12 122734 100 0 0 0     * a gloomwing
+G 1 120052 12 0 100 0 0 0          *    a gloomwing feather
 M 0 120044 8 122783 100 0 0 0      * a huge, furry mountain ram
 M 0 53642 23 122783 100 0 0 0      * (mob type not in this .mob file)
 M 0 120002 20 122811 100 0 0 0     * a tough Alatorin sentry
@@ -485,10 +486,12 @@ E 1 120023 2 16 100 0 0 0          *   a long, two-handed barbed adamantite halb
 M 0 53642 23 123091 100 0 0 0      * (mob type not in this .mob file)
 M 0 120044 8 123091 100 0 0 0      * a huge, furry mountain ram
 M 0 120015 12 123133 100 0 0 0     * a gloomwing
+G 1 120052 12 0 100 0 0 0          *    a gloomwing feather
 M 0 120016 1 123133 100 0 0 0      * Mystardala the prophet
 M 0 120011 11 123135 100 0 0 0     * a hooded dwarf
 E 1 120007 11 6 100 0 0 0          *   a silver-lined purple silk hood
 M 0 120015 12 123137 100 0 0 0     * a gloomwing
+G 1 120052 12 0 100 0 0 0          *    a gloomwing feather
 M 0 120057 1 123164 100 0 0 0      * a rampaging cyclops
 E 1 120027 2 16 100 0 0 0          *   a battered tree trunk
 M 0 53642 23 123165 100 0 0 0      * (mob type not in this .mob file)
@@ -498,10 +501,12 @@ G 1 96910 999 0 100 0 0 0          *    (object type not in this .obj file)
 G 1 96907 999 0 100 0 0 0          *    (object type not in this .obj file)
 G 1 96906 999 0 100 0 0 0          *    (object type not in this .obj file)
 M 0 120015 12 123231 100 0 0 0     * a gloomwing
+G 1 120052 12 0 100 0 0 0          *    a gloomwing feather
 M 0 120015 12 123234 100 0 0 0     * a gloomwing
+G 1 120052 12 0 100 0 0 0          *    a gloomwing feather
 M 0 120011 11 123235 100 0 0 0     * a hooded dwarf
 E 1 120007 11 6 100 0 0 0          *   a silver-lined purple silk hood
-M 0 120048 1 123235 33 0 0 0       * Gramdell the Sage
+M 0 120048 1 123235 6 0 0 0        * Gramdell the Sage
 E 1 120032 1 1 100 0 0 0           *   a diorite ring set with an opal
 E 1 120031 1 12 100 0 0 0          *   a tattered old hooded sage's cloak
 G 1 87074 1 0 100 0 0 0            *    (object type not in this .obj file)
@@ -518,11 +523,13 @@ M 0 120017 5 123314 100 0 0 0      * a wandering shield dwarf common man
 M 0 120017 5 123314 100 0 0 0      * a wandering shield dwarf common man
 M 0 43152 1 123315 100 0 0 0       * (mob type not in this .mob file)
 M 0 120015 12 123329 100 0 0 0     * a gloomwing
+G 1 120052 12 0 100 0 0 0          *    a gloomwing feather
 M 0 120011 11 123330 100 0 0 0     * a hooded dwarf
 E 1 120007 11 6 100 0 0 0          *   a silver-lined purple silk hood
 M 0 120047 1 123330 20 0 0 0       * Shinziler the githzerai traveller
 E 1 120030 1 13 100 0 0 0          *   a pitch-black belt with a mindstone buckle
 M 0 120015 12 123333 100 0 0 0     * a gloomwing
+G 1 120052 12 0 100 0 0 0          *    a gloomwing feather
 M 0 120051 23 123333 80 0 0 0      * an osquip
 M 0 120011 11 123334 100 0 0 0     * a hooded dwarf
 E 1 120007 11 6 100 0 0 0          *   a silver-lined purple silk hood
@@ -535,10 +542,12 @@ M 0 120051 23 123428 80 0 0 0      * an osquip
 M 0 120011 11 123432 100 0 0 0     * a hooded dwarf
 E 1 120007 11 6 100 0 0 0          *   a silver-lined purple silk hood
 M 0 120015 12 123433 100 0 0 0     * a gloomwing
+G 1 120052 12 0 100 0 0 0          *    a gloomwing feather
 M 0 120011 11 123437 100 0 0 0     * a hooded dwarf
 E 1 120007 11 6 100 0 0 0          *   a silver-lined purple silk hood
 M 0 120025 5 123518 100 0 0 0      * a shield dwarf
 M 0 120015 12 123538 100 0 0 0     * a gloomwing
+G 1 120052 12 0 100 0 0 0          *    a gloomwing feather
 M 0 120007 1 123617 100 0 0 0      * a fisherman
 G 1 43120 999 0 100 0 0 0          *    (object type not in this .obj file)
 G 1 336 999 0 100 0 0 0            *    (object type not in this .obj file)
@@ -550,11 +559,13 @@ M 0 120002 20 123619 100 0 0 0     * a tough Alatorin sentry
 M 0 120002 20 123625 100 0 0 0     * a tough Alatorin sentry
 M 0 120002 20 123625 100 0 0 0     * a tough Alatorin sentry
 M 0 120015 12 123627 100 0 0 0     * a gloomwing
+G 1 120052 12 0 100 0 0 0          *    a gloomwing feather
 M 0 120011 11 123728 100 0 0 0     * a hooded dwarf
 E 1 120007 11 6 100 0 0 0          *   a silver-lined purple silk hood
 M 0 120051 23 123731 80 0 0 0      * an osquip
 M 0 120011 11 123732 100 0 0 0     * a hooded dwarf
 E 1 120007 11 6 100 0 0 0          *   a silver-lined purple silk hood
 M 0 120015 12 123828 100 0 0 0     * a gloomwing
+G 1 120052 12 0 100 0 0 0          *    a gloomwing feather
 *
 S

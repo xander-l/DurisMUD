@@ -70,7 +70,7 @@ halfling spice merchant~
 &+ya long distance from Woodseer to sell halfling spices and other spices
 &+yfrom around the realm.
 ~
-2122 0 0 0 0 0 0 0 S
+2122 0 0 8 0 0 0 0 S
 pf 0 1 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -84,7 +84,7 @@ shady duergar vendor~
 &+rof this city, has set up a shady merchant stall in this portion of
 &+cAlatorin&+r, hoping to peddle his mischievous wares.
 ~
-2122 0 0 0 0 0 0 0 S
+2122 0 0 8 0 0 0 0 S
 pd 0 16384 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -114,7 +114,7 @@ fisherman halfling~
 &+mglance might appear as a shield dwarf native of Alatorin.  He has a large
 &+mbusy moustache and a very large gut.  He speaks with a sailor's accent.
 ~
-2122 0 0 0 0 0 0 0 S
+2122 0 0 8 0 0 0 0 S
 pf 0 1 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -128,7 +128,7 @@ mountain dwarf fruit vendor~
 &+Ybossum is about the same size as some of the melons and other fruit she
 &+Yshe has imported to Alatorin to sell.
 ~
-2122 0 0 0 0 0 0 0 S
+2122 0 0 8 0 0 0 0 S
 pm 0 1 -1
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -159,7 +159,7 @@ half orc potion vendor~
 &Nhalf &+Lorc has set up a small merchant stall here in the streets of &+cAlatorin
 &+Ltrying to earn enough money for his next endeavor.
 ~
-2122 0 0 0 0 0 0 -500 S
+2122 0 0 8 0 0 0 -500 S
 h2 0 1 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -231,7 +231,7 @@ gloom bat gloomwing~
    &+LThis bat has a misty gray haze surrounding an all-black body.  It releases
 &+La strange dark mist across the area as it flutters through.
 ~
-131080 0 0 0 0 0 0 -351 S
+133128 0 0 0 0 0 0 -351 S
 b 0 1 1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -979,7 +979,7 @@ tall golden knight~
 1073743880 0 0 939524120 14552 0 0 1000 S
 PH 0 24 -1
 50 0 0 1d1+1 1d1+1
-0.0.0.50 0
+0.0.500.0 0
 8 8 1
 #120064
 zyka troll stalker~
