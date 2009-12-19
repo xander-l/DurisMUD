@@ -844,7 +844,7 @@ D 0 1 -1
 0.0.0.0 0
 8 8 0
 #34556
-keeper willy groundskeeper skeleton~
+keeper willy groundskeeper skeleton castle~
 &+ythe &+Lcastle &+ygroundskeeper~
 &+yThe &+Lcastle &+ygroundskeeper stands here, looking over papers.
 ~
@@ -1064,7 +1064,7 @@ This sturdy man is scarred from a lifetime of battles, struggles, and
 angry fights that held little purpose.  He now keeps watch over the vault,
 happily teaching those that this is not a place to tread lightly.
 ~
-31308 0 0 939597884 14556 0 0 -1000 S
+31308 1 0 939597884 14556 0 0 -1000 S
 PO 0 17 6
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0

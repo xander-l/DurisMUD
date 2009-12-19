@@ -78,6 +78,17 @@ d 0 16777216 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
+#19907
+guardian wyrm~
+&+Lthe guardian &+rwyrm&n~
+&+LA large &+rwyrm &+Lstands guard over Tiamat's treasure.&n
+~
+~
+2058 0 0 0 0 0 0 0 S
+d 0 2 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
 #19910
 githyanki high mage~
 &+WThe&N &+GGith&N &+WHigh Mage&N~
@@ -108,4 +119,3 @@ D 0 32 -1
 60 -10 -152 60d132+6840 7d6+35
 6.6.9.22 486000
 8 8 1
-

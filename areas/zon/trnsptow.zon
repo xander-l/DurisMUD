@@ -231,6 +231,7 @@ E 1 16217 2 13 100 0 0 0           *   a belt of fresh blood
 M 0 16233 1 16248 100 0 0 0        * a pale blue mist
 E 1 16233 2 20 20 0 0 0            *   a mask of blue mist
 F 1 16236 1 16248 100 0 0 0        * a burning brown mist (following)
+M 0 16239 1 16249 100 0 0 0        * a guardian mist
 M 0 16205 1 16253 100 0 0 0        * Aceralde
 E 1 16235 1 20 100 0 0 0           *   the mask of hatred
 G 1 16246 1 0 100 0 0 0            *    a strange marble key

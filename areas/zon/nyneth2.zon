@@ -393,6 +393,7 @@ G 1 23034 1 0 100 0 0 0            *    the second vault key
 F 1 23029 1 23096 100 0 0 0        * Slyten (following)
 G 1 23054 1 0 100 0 0 0            *    a wand of wizardry
 F 1 23030 1 23096 100 0 0 0        * Tuosceck the Blizzard King (following)
+M 0 22904 1 23098 100 0 0 0        * (mob type not in this .mob file)
 M 0 23031 1 23099 100 0 0 0        * Gormash the berserker lord
 E 1 23064 1 2 100 0 0 0            *   the ring of the berserker lord
 E 1 23052 12 16 100 0 0 0          *   a malicite greatsword

@@ -121,17 +121,17 @@ D 0 34718 1 2 100 0 0 0
 *     east exit from "A Side Hallway in the Castle" to
 *     "The Towers Hallway" - closed/locked
 *
-D 0 34719 3 2 100 0 0 0
+D 0 34719 3 1 100 0 0 0
 *     west exit from "The Towers Hallway" to
-*     "A Side Hallway in the Castle" - closed/locked
+*     "A Side Hallway in the Castle" - closed
 *
 D 0 34721 3 2 100 0 0 0
 *     west exit from "A Side Hallway in the Castle" to
 *     "The Towers Hallway" - closed/locked
 *
-D 0 34724 1 2 100 0 0 0
+D 0 34724 1 1 100 0 0 0
 *     east exit from "The Towers Hallway" to
-*     "A Side Hallway in the Castle" - closed/locked
+*     "A Side Hallway in the Castle" - closed
 *
 D 0 34728 0 1 100 0 0 0
 *     north exit from "The Towers Hallway" to
@@ -475,7 +475,8 @@ M 0 34556 1 34716 100 0 0 0        * the castle groundskeeper
 E 1 34510 7 16 100 0 0 0           *   a rusted longsword
 E 1 34510 7 17 100 0 0 0           *   a rusted longsword
 E 1 34547 1 21 100 0 0 0           *   a wyrmskin scale
-G 1 34546 1 0 100 0 0 0            *    the groundskeepers key
+G 1 34546 2 0 100 0 0 0            *    the groundskeepers key
+G 1 34546 2 0 100 0 0 0            *    the groundskeepers key
 M 0 34551 6 34719 100 0 0 0        * a seer
 M 0 34549 7 34724 100 0 0 0        * a dracolich
 M 0 34552 13 34727 100 0 0 0       * a patrolling doomguard

@@ -613,3 +613,14 @@ EA 0 64 6
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
+#16239
+guardian mist~
+&+ca &+Cguardian &+cmist&n~
+&+cA &+Cguardian &+cmist stands here.&n
+~
+~
+2058 1 0 0 0 0 0 0 S
+ug 0 2 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0

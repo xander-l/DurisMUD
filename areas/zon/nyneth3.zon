@@ -237,6 +237,7 @@ F 1 38739 1 38809 100 0 0 0        * a dark entity (following)
 E 1 38760 1 16 100 0 0 0           *   a longsword named "Vampyre"
 F 1 38740 1 38809 100 0 0 0        * an ancient earth wyrm (following)
 G 1 38761 1 0 100 0 0 0            *    the shield of the earthwyrm
+M 0 22904 1 38811 100 0 0 0        * (mob type not in this .mob file)
 M 0 38741 15 38812 100 0 0 0       * a treasure bearer
 E 1 38762 1 2 100 0 0 0            *   a ring of sorcerous power
 M 0 38741 15 38812 100 0 0 0       * a treasure bearer

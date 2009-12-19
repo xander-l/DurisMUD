@@ -125,3 +125,49 @@ sp 0 8192 -1
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
+#131011
+ethereal guardian~
+&+Lan &+wethereal &+Lguardian&n~
+&+LAn &+wethereal &+Lguardian watches the prison closely.&n
+~
+&+L  This poor &+gtroll &+Lhas been bound to captivity and is being forced to work
+&+Lin these mines.&n
+~
+1166018570 0 0 0 0 0 0 0 S
+an 0 128 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#131012
+lord kaynor lord tharnadia~
+&+WLord Kaynor&+L, the exiled &+Wlord &+Lof &+WTharnadia&n~
+&+WLord Kaynor&+L, the exiled &+Wlord &+Lof &+WTharnadia &+Lstands here.&n
+~
+~
+285214730 1 0 0 0 0 0 0 S
+ul 0 512 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#131013
+wicked child chronomancer~
+&+LThe wicked child of the &+LChronomancer&n~
+&+LThe wicked child of the Chronomancer stands before you.&n
+~
+~
+16779272 1 0 0 0 0 0 0 S
+sh 0 1024 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#131014
+azureal~
+&+LAzurael, the lieutenant of Zariel&n~
+&+LAzureal, the lieutenant of Zariel, stands quietly here.&n
+~
+~
+16779272 1 0 0 0 0 0 0 S
+uw 0 16 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
