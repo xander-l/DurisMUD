@@ -331,7 +331,7 @@ M 0 87582 1 87580 1 0 0 0          * Allisandrana, the sorceress
 E 1 87560 1 7 100 0 0 0            *   the bloody skirts of power
 M 0 87559 1 87580 100 0 0 0        * Zooox's second Clone
 E 1 87546 1 20 100 0 0 0           *   the mask of wildmagic
-M 0 87531 1 87581 100 0 0 0        * a mound of eyeballs
+M 0 87531 2 87581 100 0 0 0        * a mound of eyeballs
 G 1 87523 1 0 100 0 0 0            *    the bloody eyeballs on a sinew
 M 0 87516 1 87583 100 0 0 0        * a burly demon
 M 0 87517 1 87583 100 0 0 0        * the burly warangel
@@ -412,6 +412,7 @@ F 1 87561 1 87626 100 0 0 0        * Zuggtmoy, the Lady of Fungus (following)
 G 1 87502 1 0 100 0 0 0            *    the invisible prison key
 F 1 87545 2 87626 100 0 0 0        * a massive slime bubble (following)
 F 1 87545 2 87626 100 0 0 0        * a massive slime bubble (following)
+M 0 87531 2 87627 100 0 0 0        * a mound of eyeballs
 M 0 87547 2 87628 100 0 0 0        * the awaiting green slime
 M 0 87547 2 87628 100 0 0 0        * the awaiting green slime
 M 0 87553 2 87632 100 0 0 0        * a horn-covered yugoloth
