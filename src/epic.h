@@ -14,6 +14,9 @@ using namespace std;
 #define EPIC_ZONE_TYPE_LARGE    2
 #define EPIC_ZONE_TYPE_MONOLITH 3
 
+#define EPIC_ZONE_ALIGNMENT_MAX 5
+#define EPIC_ZONE_ALIGNMENT_MIN -5
+
 #define EPIC_REWARD_ITEM      1
 #define EPIC_REWARD_SKILL     2
 #define EPIC_REWARD_LEVEL     3
@@ -35,10 +38,11 @@ struct epic_trophy_data
 
 struct epic_zone_data 
 {
-  epic_zone_data(int _number, string _name, float _freq) : number(_number), name(_name), freq(_freq) {}
+  epic_zone_data(int _number, string _name, float _freq, int _alignment) : number(_number), name(_name), freq(_freq), alignment(_alignment) {}
   int number;
   string name;
   float freq;
+  int alignment;
 };
 
 struct epic_zone_completion
@@ -76,6 +80,8 @@ void epic_stone_feed_artifacts(P_obj obj, P_char ch);
 int epic_stone_payout(P_obj obj, P_char ch);
 void epic_stone_absorb(P_obj obj);
 
+void update_epic_zone_alignment(int zone_number, int delta);
+float get_epic_zone_alignment_mod(int zone_number, ubyte racewar);
 void update_epic_zone_mods();
 void update_epic_zone_frequency(int zone_number);
 vector<epic_zone_data> get_epic_zones();

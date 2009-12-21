@@ -755,12 +755,19 @@ int epic_stone_payout(P_obj obj, P_char ch)
 
   int epic_value = BOUNDED( 1, payout, max_payout );
 
-  float freq_mod = get_epic_zone_frequency_mod(obj->value[2]);
+//  DEPRECATED - Torgal 12/21/09
+//  float freq_mod = get_epic_zone_frequency_mod(obj->value[2]);
+//  int __old_epic_value = epic_value;
+//
+//  epic_value = MAX( 1, (int) (epic_value * freq_mod) );
+//  debug("epic_stone_payout:freq_mod: old_epic_value: %d, epic_value: %d", __old_epic_value, epic_value);
+
+  float alignment_mod = get_epic_zone_alignment_mod(obj->value[2], GET_RACEWAR(ch));
   int __old_epic_value = epic_value;
 
-  epic_value = MAX( 1, (int) (epic_value * freq_mod) );
-  debug("epic_stone_payout:freq_mod: old_epic_value: %d, epic_value: %d", __old_epic_value, epic_value);
-
+  epic_value = MAX( 1, (int) (epic_value * alignment_mod) );
+  debug("epic_stone_payout:alignment_mod: old_epic_value: %d, epic_value: %d", __old_epic_value, epic_value);  
+  
   return epic_value;
 }
 
@@ -1019,7 +1026,8 @@ int epic_stone(P_obj obj, P_char ch, int cmd, char *arg)
 
     if( zone_number > 0 && zone_number != RANDOM_ZONE_ID)
     {
-      update_epic_zone_frequency(zone_number);
+      //update_epic_zone_frequency(zone_number);
+      update_epic_zone_alignment(zone_number, GET_RACEWAR(ch) == RACEWAR_EVIL ? -1 : 1);
 
 		  // set completed flag
 		  epic_zone_completions.push_back(epic_zone_completion(zone_number, time(NULL)));
@@ -1948,63 +1956,111 @@ bool epic_zone_done(int zone_number)
 	return false;
 }
 
+//void do_epic_zones(P_char ch, char *arg, int cmd)
+//{
+//  return;
+//  
+//  if( !ch || IS_NPC(ch) )
+//    return;
+//
+//#ifdef __NO_MYSQL__
+//  send_to_char("This feature is disabled.\r\n", ch);
+//  return;
+//#endif
+//
+//  char buff[MAX_STRING_LENGTH];
+//	char done_str[] = " ";
+//
+//  vector<epic_zone_data> epic_zones = get_epic_zones();
+//
+//  send_to_char("&+WEpic Zones &+G-----------------------------------------\n\n", ch);
+//
+//  const char *freq_strs[] = {
+//    "&+W(&+Roverdone&+W)",
+//    "&+W(&+yvery common&+W)",
+//    "&+W(&ncommon&+W)",
+//    "",
+//    "&+W(&+cuncommon&+W)",
+//    "&+W(&+brare&+W)",
+//    "&+W(&+BVERY RARE&+W)"
+//  };
+//
+//  for( int i = 0; i < epic_zones.size(); i++ )
+//  {
+//    float freq = epic_zones[i].freq;
+//
+//		if( epic_zone_done(epic_zones[i].number) ) done_str[0] = '*';
+//		else done_str[0] = ' ';
+//
+//    int freq_str = 3;
+//
+//    if( freq < 0.50 )
+//      freq_str = 0;
+//    else if( freq < 0.50 )
+//      freq_str = 1;
+//    else if( freq < 0.80 )
+//      freq_str = 2;
+//    else if( freq > 1.90 )
+//      freq_str = 6;
+//    else if( freq > 1.50 )
+//      freq_str = 5;
+//    else if( freq > 1.20 )
+//      freq_str = 4;
+//    else
+//      freq_str = 3;
+//
+//    sprintf(buff, "  %s%s %s\r\n", done_str, epic_zones[i].name.c_str(), freq_strs[freq_str] );
+//    send_to_char(buff, ch);
+//  }
+//
+//	send_to_char("\n* = already completed this boot.\n", ch);
+//
+//}
+
 void do_epic_zones(P_char ch, char *arg, int cmd)
 {
   if( !ch || IS_NPC(ch) )
     return;
-
+  
 #ifdef __NO_MYSQL__
   send_to_char("This feature is disabled.\r\n", ch);
   return;
 #endif
-
+  
   char buff[MAX_STRING_LENGTH];
 	char done_str[] = " ";
-
+  
   vector<epic_zone_data> epic_zones = get_epic_zones();
-
+  
   send_to_char("&+WEpic Zones &+G-----------------------------------------\n\n", ch);
-
-  const char *freq_strs[] = {
-    "&+W(&+Roverdone&+W)",
-    "&+W(&+yvery common&+W)",
-    "&+W(&ncommon&+W)",
+  
+  // this array depends on the alignment max/min being +/-5
+  const char *alignment_strs[] = {
+    "&n(&+Lpure evil&n)",
+    "&n(&+lextremely evil&n)",
+    "&n(&+Lvery evil&n)",
+    "&n(&+Levil&n)",
+    "&n(&+Lslightly evil&n)",
     "",
-    "&+W(&+cuncommon&+W)",
-    "&+W(&+brare&+W)",
-    "&+W(&+BVERY RARE&+W)"
+    "&n(&+Wslightly good&n)",
+    "&n(&+Wgood&n)",
+    "&n(&+Wvery good&n)",
+    "&n(&+Wextremely good&n)",
+    "&n(&+Wpure good&n)"
   };
-
+  
   for( int i = 0; i < epic_zones.size(); i++ )
-  {
-    float freq = epic_zones[i].freq;
-
+  {    
 		if( epic_zone_done(epic_zones[i].number) ) done_str[0] = '*';
 		else done_str[0] = ' ';
-
-    int freq_str = 3;
-
-    if( freq < 0.50 )
-      freq_str = 0;
-    else if( freq < 0.50 )
-      freq_str = 1;
-    else if( freq < 0.80 )
-      freq_str = 2;
-    else if( freq > 1.90 )
-      freq_str = 6;
-    else if( freq > 1.50 )
-      freq_str = 5;
-    else if( freq > 1.20 )
-      freq_str = 4;
-    else
-      freq_str = 3;
-
-    sprintf(buff, "  %s%s %s\r\n", done_str, epic_zones[i].name.c_str(), freq_strs[freq_str] );
+    
+    int alignment_str = EPIC_ZONE_ALIGNMENT_MAX + epic_zones[i].alignment;
+    
+    sprintf(buff, "  %s%s %s\r\n", done_str, epic_zones[i].name.c_str(), alignment_strs[alignment_str] );
     send_to_char(buff, ch);
   }
-
-	send_to_char("\n* = already completed this boot.\n", ch);
-
+  
+	send_to_char("\n* = already completed this boot.\n", ch);  
 }
 
 void do_epic_trophy(P_char ch, char *arg, int cmd)
@@ -2042,6 +2098,76 @@ void do_epic_trophy(P_char ch, char *arg, int cmd)
 
   }
 
+}
+
+void update_epic_zone_alignment(int zone_number, int delta)
+{
+#ifdef __NO_MYSQL__
+  return;
+#else
+  // add alignment
+  qry("UPDATE zones SET alignment = alignment + (%d) WHERE number = %d AND epic_type > 0", delta, zone_number);
+
+  // if alignment delta resulted in 0, add one more so that it doesn't stay on 0
+  qry("UPDATE zones SET alignment = alignment + (%d) WHERE number = %d AND epic_type > 0 and alignment = 0", delta, zone_number);
+
+  // min/max bounds on alignment
+  qry("UPDATE zones SET alignment = %d WHERE alignment > %d", EPIC_ZONE_ALIGNMENT_MAX, EPIC_ZONE_ALIGNMENT_MAX);
+  qry("UPDATE zones SET alignment = %d WHERE alignment < %d", EPIC_ZONE_ALIGNMENT_MIN, EPIC_ZONE_ALIGNMENT_MIN);
+  
+  debug("update_epic_zone_alignment(zone_number=%d, delta=%d)", zone_number, delta);
+#endif  
+}
+
+float get_epic_zone_alignment_mod(int zone_number, ubyte racewar)
+{
+#ifdef __NO_MYSQL__
+  return 1.0;
+#else
+  
+  float mod = 1.0;
+  int alignment = 0;
+  
+  if( !qry("SELECT alignment FROM zones WHERE number = %d", zone_number) )
+    return mod;
+  
+  MYSQL_RES *res = mysql_store_result(DB);
+  
+  if( mysql_num_rows(res) < 1 )
+    return mod;
+  
+  MYSQL_ROW row = mysql_fetch_row(res);
+  
+  if( row )
+    alignment = atoi(row[0]);
+  
+  mysql_free_result(res);
+
+  if( alignment > 0 && racewar == RACEWAR_EVIL )
+  {
+    // good alignment, evil racewar
+    mod += ((float) alignment) * (float) get_property("epic.zone.alignmentMod", 0.10);
+  }
+  else if( alignment > 0 && racewar == RACEWAR_GOOD )
+  {
+    // good alignment, good racewar
+    mod += ((float) -alignment) * (float) get_property("epic.zone.alignmentMod", 0.10);    
+  }
+  else if( alignment < 0 && racewar == RACEWAR_EVIL )
+  {
+    // evil alignment, evil racewar
+    mod += ((float) alignment) * (float) get_property("epic.zone.alignmentMod", 0.10);    
+  }
+  else if( alignment < 0 && racewar == RACEWAR_GOOD )
+  {
+    // evil alignment, good racewar
+    mod += ((float) -alignment) * (float) get_property("epic.zone.alignmentMod", 0.10);    
+  }
+  
+  debug("get_epic_zone_alignment_mod(zone_number=%d, racewar=%d): %f", zone_number, (int) racewar, mod);
+  
+  return mod;
+#endif
 }
 
 // called from timers.c
@@ -2117,7 +2243,7 @@ vector<epic_zone_data> get_epic_zones()
   return zones;
 #else
 
-  if( !qry("SELECT number, name, frequency_mod FROM zones WHERE epic_type > 0 ORDER BY frequency_mod asc") )
+  if( !qry("SELECT number, name, frequency_mod, alignment FROM zones WHERE epic_type > 0 ORDER BY (suggested_group_size*epic_payout)") )
   {
     return zones;
   }
@@ -2128,7 +2254,7 @@ vector<epic_zone_data> get_epic_zones()
 
   while( row = mysql_fetch_row(res) )
   {
-    zones.push_back( epic_zone_data(atoi(row[0]), string(row[1]), atof(row[2])) );
+    zones.push_back( epic_zone_data(atoi(row[0]), string(row[1]), atof(row[2]), atoi(row[3]) ));
   }
 
   mysql_free_result(res);
