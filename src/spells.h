@@ -635,7 +635,8 @@
 #define SPELL_LIFE_BOLT              586
 #define SPELL_CELERITY               587
 #define SPELL_MIELIKKI_VITALITY      588
-#define LAST_SPELL SPELL_MIELIKKI_VITALITY
+#define SPELL_RAZOR_WIND             589
+#define LAST_SPELL SPELL_RAZOR_WIND
 
 #define FIRST_SKILL                  1000  /* should be a decent split point */
 #define SKILL_SNEAK                  1000

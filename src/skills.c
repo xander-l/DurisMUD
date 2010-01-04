@@ -623,6 +623,7 @@ void initialize_skills()
                 TAR_AREA | TAR_AGGRO, cast_hurricane);
 
   SPEC_SPELL_ADD(CLASS_DRUID, 10, SPEC_STORM);
+  SPEC_SPELL_ADD(CLASS_ETHERMANCER, 11, SPEC_WINDTALKER);
 
   SPELL_CREATE_MSG("storm shield", SPELL_STORMSHIELD, PULSE_SPELLCAST * 5,
                 TAR_SELF_ONLY,
@@ -3139,6 +3140,10 @@ SPELL_ADD(CLASS_NONE, 1);
                 spell_greater_ethereal_recharge);
 
   SPEC_SPELL_ADD(CLASS_ETHERMANCER, 10, SPEC_WINDTALKER);
+
+  SPELL_CREATE("razor wind", SPELL_RAZOR_WIND, PULSE_SPELLCAST * 3, 
+	          TAR_AREA | TAR_AGGRO, spell_razor_wind);
+ // SPEC_SPELL_ADD(CLASS_ETHERMANCER, 10, SPEC_WINDTALKER);
 
   SPELL_CREATE("way of the wind", SPELL_WAY_OF_THE_WIND, PULSE_SPELLCAST * 5,
                 TAR_CHAR_WORLD | TAR_SELF_NONO | TAR_NOCOMBAT, spell_relocate);

@@ -2690,6 +2690,9 @@ void event_static_discharge(P_char, P_char, P_obj, void *);
 void static_discharge(P_char, P_char);
 void spell_mirage(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj);
 void event_mirage(P_char, P_char,P_obj, void *);
+void spell_razor_wind(int, P_char, char *, int, P_char, P_obj);
+void spell_single_razor_wind(int, P_char, char *, int, P_char, P_obj);
+void event_razor_wind(P_char, P_char, P_obj, void *);
 
 /* sspells.c */
 

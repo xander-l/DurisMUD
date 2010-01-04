@@ -2290,3 +2290,65 @@ void spell_static_discharge(int level, P_char ch, char *arg, int type, P_char vi
     &sdata, sizeof(sdata));
 
 }
+
+void spell_single_razor_wind(int level, P_char ch, char *arg, int type, P_char victim,
+                P_obj obj)
+{
+  struct damage_messages messages = {
+    "&+WYour direct the biting winds towards&n $N&+W!",
+    "&+WSharp, biting winds cut into your flesh!",
+    "&n$N&+W grimaces in pain, as the biting winds cut into $S flesh!",
+    "&+WThe sharp winds were too much for &n$N&+W, as $e convulses and falls limp, quite dead.",
+    "&+WYou find no shelter from the painful winds, as you feel the lifeforce being sapped from your body...&n",
+    "$N &+Whowls in pain, as the painful wind tosses him around, leaving only a lifeless corpse!&n", 0
+  };
+
+  if(!IS_ALIVE(ch) ||
+    !IS_ALIVE(victim))
+      return;
+
+
+  int dam;
+  dam = (int) number(level, level * 3);
+
+  spell_damage (ch, victim, dam, SPLDAM_GENERIC, SPLDAM_NODEFLECT, &messages);
+}
+
+void event_razor_wind(P_char ch, P_char victim, P_obj obj, void *data)
+{
+  int room;
+  int percent = (GET_LEVEL(ch) / 3);
+  room = *((int*)data);
+  if(room != ch->in_room)
+  {
+    send_to_char("&+WThe winds seem to cease, and the weather takes on a much more calm demeanor.&n\n", ch);;
+    act("&+WThe winds seem to abate...&n", TRUE, ch, 0, 0, TO_ROOM);
+    return;
+  }
+  
+  act("$n &+wdirects the painful, biting winds at $s foes!&n",FALSE, ch, 0, 0, TO_ROOM);
+  act("&+wYou direct the howling winds towards your foes!&n",FALSE, ch, 0, 0, TO_CHAR);  
+  
+  cast_as_damage_area(ch, spell_single_razor_wind, GET_LEVEL(ch), NULL, 90, 10);
+
+  if(percent > number(1, 100))
+  {
+    act("$n &+Wcontinues to evoke the blistering winds!&n",FALSE, ch, 0, 0, TO_ROOM);
+    add_event(event_razor_wind, PULSE_VIOLENCE * 2, ch, 0, 0, 0, &room, sizeof(room));
+  }
+}
+
+void spell_razor_wind(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
+{
+  int room;
+  room = ch->in_room;
+  send_to_room("&+WThe winds in the area begin to pick up, slowly becoming more intense...\n",
+     ch->in_room);
+  zone_spellmessage(ch->in_room,
+    "&+LThe air &+cchills &+Land the odor of &+rdeath &+Land &+ydecay &+Lassault your senses.\n",
+    "&+LThe air to the %s &+cchills &+Land the odor of &+rdeath &+Land &+ydecay &+Lassault your senses.\n");
+
+  add_event(event_razor_wind, PULSE_VIOLENCE * 2, ch, 0, 0, 0, &room, sizeof(room));
+
+  CharWait(ch,(int) 1 * PULSE_VIOLENCE);
+}

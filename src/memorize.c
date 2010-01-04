@@ -847,7 +847,8 @@ void handle_undead_mem(P_char ch)
     else if(IS_HARPY(ch) ||
            GET_CLASS(ch, CLASS_ETHERMANCER))
     {
-      sprintf(gbuf, "&+LYou feel infused by %d%s circle WIND powers!\n",
+      sprintf(gbuf, "&+WEthereal e&+Cssences flo&+cw into you, " 
+		      "res&+Ctoring your %d%s&+c &+Wcircle powers!\n",
               i, i == 1 ? "st" : (i == 2 ? "nd" : (i == 3 ? "rd" : "th")));
     }
     else
