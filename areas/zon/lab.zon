@@ -94,13 +94,14 @@ M 0 82315 2 82328 100 0 0 0        * a guardian ward
 M 0 82307 1 82329 100 0 0 0        * a perched raven
 E 1 82317 1 21 100 0 0 0           *   a green feather
 M 0 82308 2 82332 100 0 0 0        * a powerful wolfen
-M 0 82309 1 82335 100 0 0 0        * a fierce wolfen
+M 0 82309 2 82335 100 0 0 0        * a fierce wolfen
 M 0 82310 1 82338 100 0 0 0        * a wolfen hunter
 M 0 82308 2 82339 100 0 0 0        * a powerful wolfen
 M 0 82311 4 82343 100 0 0 0        * a massive stone golem
 M 0 82311 4 82343 100 0 0 0        * a massive stone golem
 M 0 82311 4 82343 100 0 0 0        * a massive stone golem
 M 0 82311 4 82343 100 0 0 0        * a massive stone golem
+M 0 82309 2 82344 100 0 0 0        * a fierce wolfen
 M 0 82312 2 82345 100 0 0 0        * a massive porcelain golem
 M 0 82312 2 82345 100 0 0 0        * a massive porcelain golem
 M 0 82313 2 82345 100 0 0 0        * a massive marble golem

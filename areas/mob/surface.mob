@@ -870,7 +870,7 @@ evil forces who have an immensely-long running history of attacks on these
 lands in an attempt to control the surface.
 ~
 603981896 128 0 67108888 0 0 0 600 S
-pb 0 1 -1
+ph 0 1 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -900,7 +900,7 @@ evil forces who have an immensely-long running history of attacks on these
 lands in an attempt to control the surface.
 ~
 67110984 128 0 67108888 0 0 0 600 S
-pb 0 1 -1
+ph 0 1 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
