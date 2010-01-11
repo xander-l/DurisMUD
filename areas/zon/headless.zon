@@ -138,6 +138,7 @@ O 0 2730 1 2730 100 0 0 0          * a rotten oak sign
 O 0 193 1 2747 100 0 0 0           * (object type not in this .obj file)
 O 0 2733 1 2750 100 0 0 0          * a battered elven corpse
 P 1 2735 1 2733 100 0 0 0          *   the ears of murf
+O 0 67 1 2781 100 0 0 0            * (object type not in this .obj file)
 O 0 2731 1 2783 100 0 0 0          * A gleaming white guillotine
 *
 M 0 2754 4 2731 100 0 0 0          * an enormous headless guard
