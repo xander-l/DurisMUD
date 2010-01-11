@@ -4689,7 +4689,7 @@ void attack(P_char ch, P_char victim)
       GET_STAT(ch->specials.fighting) <= STAT_SLEEPING)
     {
       stop_fighting(ch);
-      act("$n switches targets...", FALSE, ch, 0, 0, TO_ROOM);
+      act("$n turns to focus $s attack on $N!", FALSE, ch, 0, victim, TO_ROOM);
       victim = guard_check(ch, victim);
       set_fighting(ch, victim);
       send_to_char("Being that your target is in so poor condition, you easily switch opponents!\n", ch);
@@ -4707,8 +4707,8 @@ void attack(P_char ch, P_char victim)
         skl >= number(1, 101))
     {
       stop_fighting(ch);
-      act("$n switches targets...",
-        FALSE, ch, 0, 0, TO_ROOM);
+      act("$n turns to focus $s attack on $N!",
+        FALSE, ch, 0, victim, TO_ROOM);
       victim = guard_check(ch, victim);
       set_fighting(ch, victim);
       send_to_char("You switch opponents!\n", ch);
