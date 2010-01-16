@@ -428,8 +428,10 @@ int whats_in_maproom(P_char ch, int room, int distance, int show_regardless)
       zw = who->specials.z_cord;
       z = ch->specials.z_cord;
 
+	  if(IS_TRUSTED(who))
+		continue;
+	  
       if(GET_ALT_SIZE(who) <= SIZE_MEDIUM && 
-        !IS_TRUSTED(ch) &&
         ((IS_AFFECTED3(who, AFF3_PASS_WITHOUT_TRACE) && 
         world[who->in_room].sector_type == SECT_FOREST) ||
         affected_by_spell(who, SKILL_EXPEDITIOUS_RETREAT)))
@@ -460,7 +462,6 @@ int whats_in_maproom(P_char ch, int room, int distance, int show_regardless)
          GET_RACE(who) == RACE_DEVIL)
       {
         val = CONTAINS_DRAGON;
-        break;
       }
 
       if(IS_PC(who) &&
