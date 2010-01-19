@@ -615,7 +615,7 @@ void do_berserk(P_char ch, char *argument, int cmd)
     if(GET_CLASS(ch, CLASS_BERSERKER) ||
        GET_RACE(ch) == RACE_MOUNTAIN ||
        GET_RACE(ch) == RACE_DUERGAR)
-          duration *= 2;
+          duration *= 4;
     
     berserk(ch, duration);
   }
