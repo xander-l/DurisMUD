@@ -414,7 +414,7 @@ How to setting stats to random weapons works - Astansus's school for the inexper
   {72, "&+Llong sword&n", 1.0, 1.0, ITEM_WIELD, 2, WEAPON_LONGSWORD},
   {73, "&+Ybattle axe&n", 1.1, 1.2, ITEM_WIELD, 3, WEAPON_AXE},
   {74, "&+Ldagger&n", 0.8, 0.8, ITEM_WIELD, 2, WEAPON_DAGGER},
-  {75, "&+rwarhammer&n", 1.0, 1.0, ITEM_WIELD, 2, WEAPON_MACE},
+  {75, "&+rwarhammer&n", 1.0, 1.0, ITEM_WIELD, 2, WEAPON_HAMMER},
   {76, "&+Lsword&n", 1.0, 1.0, ITEM_WIELD, 2, WEAPON_LONGSWORD},
   {77, "&+Lshort sword&n", 0.8, 0.9, ITEM_WIELD, 2, WEAPON_SHORTSWORD},
   {78, "&+Glance&n", 1.2, 1.2, ITEM_WIELD, 2, WEAPON_LANCE},
@@ -422,7 +422,7 @@ How to setting stats to random weapons works - Astansus's school for the inexper
   {80, "&+Yghurka&n", 0.8, 0.9, ITEM_WIELD, 2, WEAPON_SHORTSWORD},
   {81, "&+Lflail&n", 1.2, 1.1, ITEM_WIELD, 3, WEAPON_FLAIL},
   {82, "&+rfalchion&n", 1.0, 1.0, ITEM_WIELD, 2, WEAPON_LONGSWORD},
-  {83, "&+Rmaul&n", 0.9, 1.4, ITEM_WIELD, 3, WEAPON_MACE},
+  {83, "&+Rmaul&n", 0.9, 1.4, ITEM_WIELD, 3, WEAPON_HAMMER},
   {84, "&+Lbroad sword&n", 1.1, 1.2, ITEM_WIELD, 2, WEAPON_LONGSWORD},
   {85, "&+Lgreat sword&n", 1.1, 1.2, ITEM_WIELD, 3, WEAPON_2HANDSWORD},
   {86, "&+Lmorningstar&n", 1.0, 1.0, ITEM_WIELD, 2, WEAPON_MACE},
@@ -445,8 +445,8 @@ How to setting stats to random weapons works - Astansus's school for the inexper
   {103, "&+Lsickle&n", 1.0, 1.0, ITEM_WIELD, 2, WEAPON_SICKLE},
   {104, "&+Ldirk&n", 1.0, 0.7, ITEM_WIELD, 2, WEAPON_SHORTSWORD},
   {105, "&+Rswitchblade&n", 0.8, 0.8, ITEM_WIELD, 2, WEAPON_DAGGER},
-  {106, "&+rmallet&n", 1.0, 1.0, ITEM_WIELD, 2, WEAPON_MACE},
-  {107, "&+mtruncheon&n", 1.1, 1.2, ITEM_WIELD, 3, WEAPON_MACE},
+  {106, "&+rmallet&n", 1.0, 1.0, ITEM_WIELD, 2, WEAPON_HAMMER},
+  {107, "&+mtruncheon&n", 1.1, 1.2, ITEM_WIELD, 3, WEAPON_CLUB},
   {108, "&+LBUGGED&n", 0.1, 0.1, ITEM_WIELD, 2, WEAPON_DAGGER}
 
 
