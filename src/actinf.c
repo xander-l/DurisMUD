@@ -4411,8 +4411,8 @@ void do_score(P_char ch, char *argument, int cmd)
       // -1 to -9 = nexus stone task
       // -10 = spill blood task
 
-      if (afp = get_spell_from_char(ch, TAG_EPIC_ERRAND)) {
-        if (afp->modifier == -10)
+      if (afp = get_epic_task(ch)) {
+        if (afp->modifier == SPILL_BLOOD)
           sprintf(buf, "&n&+YEpic points:&n &+W%d&n  &+YSkill points:&n &+W%d&n  Current task: &+rspill enemy blood&n\n",
               ch->only.pc->epics, ch->only.pc->epic_skill_points);
         else if (afp->modifier >= 0)

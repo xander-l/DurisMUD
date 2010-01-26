@@ -542,7 +542,7 @@ void nexus_stone_epics(P_char ch, P_obj stone)
   int amountbase = get_property("nexusStones.epicsMax", 70);
   int amount = amountbase;
 
-  if (afp = get_spell_from_char(ch, TAG_EPIC_ERRAND)) {
+  if (afp = get_epic_task(ch)) {
     if (-(afp->modifier) == STONE_ID(stone))
     {
       send_to_char("The &+rGods of Duris&n are very pleased with your success.\n", ch);
@@ -566,7 +566,7 @@ void nexus_stone_epics(P_char ch, P_obj stone)
       amount = amountbase;
       if( gl->ch->in_room == ch->in_room )
       {
-        if ( (afp = get_spell_from_char(gl->ch, TAG_EPIC_ERRAND)) &&
+        if ( (afp = get_epic_task(gl->ch)) &&
              (-(afp->modifier) == STONE_ID(stone)) )
         {
           send_to_char("The &+rGods of Duris&n are very pleased with your success.\n", gl->ch);

@@ -367,7 +367,7 @@ void epic_choose_new_epic_task(P_char ch)
     else
     {
       send_to_char("The Gods of &+rDuris&n demand that you &+rspill the &+Rblood&n of the &+Lenemies&n of your race!\n", ch);
-      af.modifier = -10;
+      af.modifier = SPILL_BLOOD;
     }
   }
   else
@@ -530,8 +530,7 @@ void gain_epic(P_char ch, int type, int data, int amount)
 	amount = (int) ( amount * get_property("epic.witch.multiplier", 1.5));
   }
 
-  if(type != EPIC_PVP &&
-    affected_by_spell(ch, TAG_EPIC_ERRAND))
+  if(type != EPIC_PVP && has_epic_task(ch))
   {
     send_to_char("You have not completed the task given to you by the Gods, \n" \
                  "so you are not able to progress at usual pace.\n", ch);
@@ -603,20 +602,38 @@ void gain_epic(P_char ch, int type, int data, int amount)
     epic_gain_skillpoints(ch, skill_notches);
   }
 
-  if((old / errand_notch < (old + amount) / errand_notch) &&
-     !affected_by_spell(ch, TAG_EPIC_ERRAND))
+  if((old / errand_notch < (old + amount) / errand_notch) && !has_epic_task(ch))
   {
     epic_choose_new_epic_task(ch);
   }
 
 }
 
+struct affected_type *get_epic_task(P_char ch)
+{
+  struct affected_type *hjp;
+  
+  if(!ch)
+    return NULL;
+  
+  for (hjp = ch->affected; hjp; hjp = hjp->next)
+    if (hjp->type == TAG_EPIC_ERRAND)
+      return hjp;
+  
+  return NULL;
+}
+
+bool has_epic_task(P_char ch)
+{
+  return (get_epic_task(ch) != NULL);
+}
+
 void epic_frag(P_char ch, int victim_pid, int amount)
 {
   struct affected_type *afp;
 
-  if (afp = get_spell_from_char(ch, TAG_EPIC_ERRAND)) {
-    if (afp->modifier == -10) {
+  if (afp = get_epic_task(ch)) {
+    if (afp->modifier == SPILL_BLOOD) {
       send_to_char("The &+rGods of Duris&n are very pleased with this &+rblood&n.\n", ch);
       send_to_char("You can now progress further in your quest for epic power!\n", ch);
       amount *= 2;
@@ -877,7 +894,7 @@ void epic_stone_one_touch(P_obj obj, P_char ch, int epic_value)
   epic_stone_set_affect(ch);
 
   /* if char is completing their epic errand, give them extra epic points! */
-  struct affected_type *afp = get_spell_from_char(ch, TAG_EPIC_ERRAND);
+  struct affected_type *afp = get_epic_task(ch);
   if( afp && afp->modifier == obj->value[2] )
   {
     send_to_char("The &+rGods of Duris&n are very pleased with your achievement!\n"

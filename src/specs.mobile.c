@@ -32,6 +32,7 @@
 #include "map.h"
 #include "alliances.h"
 #include "nexus_stones.h"
+#include "epic.h"
 
 /*
  * external variables
@@ -16479,7 +16480,7 @@ int clear_epic_task_spec(P_char npc, P_char ch, int cmd, char *arg)
     }
     
     struct affected_type *afp;
-    afp = get_spell_from_char(ch, TAG_EPIC_ERRAND);
+    afp = get_epic_task(ch);
     
     if( !afp )
     {

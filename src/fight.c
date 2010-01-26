@@ -803,10 +803,10 @@ void AddFrags(P_char ch, P_char victim)
   victim->only.pc->frags -= gain;
   sprintf(buffer, "You just lost %.02f frags!\r\n", ((float) gain) / 100);
  
- // When a player with a bood tasks dies, they now satisfy the pvp spill blood task.
-  if(afp = get_spell_from_char(victim, TAG_EPIC_ERRAND))
+ // When a player with a blood tasks dies, they now satisfy the pvp spill blood task.
+  if(afp = get_epic_task(victim))
   {
-    if(afp->modifier == -10 && gain > 0 )
+    if(afp->modifier == SPILL_BLOOD && gain > 0 )
     {
         send_to_char("The &+yGods of Duris&n are very pleased with YOUR &+Rblood&n, too!!!\n", victim);
         send_to_char("You can now progress further in your quest for epic power!\n", victim);
