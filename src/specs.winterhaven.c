@@ -1904,7 +1904,7 @@ int demon_slayer(P_obj obj, P_char ch, int cmd, char *arg)
             spell_enlarge(56, ch, 0, SPELL_TYPE_SPELL, ch, 0);
         }
         else
-        if(rand <= 97) //ho ho, hellfire? I think not -Z
+        if(rand > 97) //ho ho, hellfire? I think not -Z
         {
             act("&+rThe Prince of Demons &+grins at you and says, &+W'&+rF&+Ru&+rr&+Ry&+W'&n", TRUE, ch, obj, vict, TO_CHAR);
 
