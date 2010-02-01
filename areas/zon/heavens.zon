@@ -120,6 +120,8 @@ D 0 35 0 1 100 0 0 0
 *
 O 0 89 9999 10 100 0 0 0           * a holy bulletin board
 O 0 1278 999 10 100 0 0 0          * the book of files
+O 0 89 9999 14 100 0 0 0           * a holy bulletin board
+O 0 75 999 14 100 0 0 0            * a Zone Planning board
 O 0 174 1 15 100 0 0 0             * a statue of a beautiful man
 O 0 75 999 15 100 0 0 0            * a Zone Planning board
 O 0 367 1 16 100 0 0 0             * a whetstone
