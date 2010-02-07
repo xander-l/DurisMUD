@@ -32,6 +32,7 @@ using namespace std;
 #include "damage.h"
 #include "reavers.h"
 #include "map.h"
+#include "handler.h"
 
 /*
    external variables
@@ -2946,7 +2947,7 @@ int living_necroplasm(P_obj obj, P_char ch, int cmd, char *arg)
     // if not worn, but carried, equip self
     if (OBJ_CARRIED_BY(obj, ch))
     {
-      if (can_char_use_item(ch, obj))
+      if (can_prime_class_use_item(ch, obj)) // only folks who are primary allowed class can use this item
       {
         // verify that they have no other arti's before equip'ing
         for (int i = 0; i < MAX_WEAR; i++)

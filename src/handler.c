@@ -30,6 +30,7 @@
 #include "sql.h"
 #include "vnum.obj.h"
 #include "map.h"
+#include "handler.h"
 
 /*
  *
@@ -3468,6 +3469,39 @@ int can_char_use_item(P_char ch, P_obj obj)
     }
   }
   return TRUE;
+}
+// Added this function so we can check on certain items if only the prime class is allowed to use it
+int can_prime_class_use_item(P_char ch, P_obj obj)
+{
+	if (!ch || !obj)
+    return (FALSE);
+	 
+ 	  if (IS_NPC(ch) && (GET_RNUM(ch) == real_mobile(250)))
+ 	    return FALSE;
+ 	
+ 	  if (IS_ILLITHID(ch))
+ 	    return TRUE;
+ 	 
+ 	  if (!IS_SET(obj->extra_flags, ITEM_ALLOWED_RACES))
+ 	  {
+ 	    if (GET_RACE(ch) <= 32 &&
+ 	        IS_SET(obj->anti2_flags, 1 << (GET_RACE(ch) - 1)))
+ 	      return FALSE;
+ 	  }
+ 	  else
+ 	    if (GET_RACE(ch) > 32 ||
+	        !IS_SET(obj->anti2_flags, 1 << (GET_RACE(ch) - 1)))
+ 	    return FALSE;
+ 	
+ 	  if (!IS_SET(obj->extra_flags, ITEM_ALLOWED_CLASSES))
+ 	  {
+ 	    if (IS_SET(obj->anti_flags, ch->player.m_class))
+ 	      return FALSE;
+ 	  }
+ 	  else if (!IS_SET(obj->anti_flags, ch->player.m_class))
+ 	    return FALSE;
+ 	
+ 	  return TRUE;
 }
 
 int io_agi_defense(P_char ch)
