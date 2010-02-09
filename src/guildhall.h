@@ -42,9 +42,9 @@ using namespace std;
 #define GH_ROOM_TEMPLATE_WINDOW 48007
 #define GH_ROOM_TEMPLATE_HEAL 48003
 
-#define GH_GOLEM_WARRIOR    11002
-#define GH_GOLEM_CLERIC     11003
-#define GH_GOLEM_SORCERER   11004
+#define GH_GOLEM_WARRIOR    48001
+#define GH_GOLEM_CLERIC     48002
+#define GH_GOLEM_SORCERER   48000
 
 // GH-specific defines
 #define GH_TYPE_MAIN 1
