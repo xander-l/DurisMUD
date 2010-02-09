@@ -1105,6 +1105,137 @@ int storage_locker_room_hook(int room, P_char ch, int cmd, char *arg)
 
 }
 
+/* room proc put in guildhalls, etc to allow a person to enter their guild locker */
+int guild_locker_room_hook(int room, P_char ch, int cmd, char *arg)
+{
+  P_char chLocker = NULL;
+  char enterWhat[MAX_INPUT_LENGTH];
+  char enterWho[MAX_INPUT_LENGTH];
+  int locker_room;
+  struct zone_data *zone;
+  int is_guild_locker = 0;
+  
+  char lockerName[500];
+  int bValidate = 0;
+  
+  
+  if (cmd != CMD_ENTER)
+    return FALSE;
+  
+  if (ch == NULL)
+    return (FALSE);
+  
+  if (IS_NPC(ch) || IS_MORPH(ch))
+    return (FALSE);
+  
+  argument_interpreter(arg, enterWhat, enterWho);
+  
+  if (str_cmp(enterWhat, "locker"))
+    return FALSE;
+  
+  if (IS_TRUSTED(ch) && GET_LEVEL(ch) < OVERLORD)
+    return FALSE;
+  
+  if (IS_IMMOBILE(ch) ||
+      IS_STUNNED(ch) ||
+      GET_STAT(ch) == STAT_SLEEPING)
+  {
+    send_to_char("You're not in much of a condition for that!\r\n", ch);
+    return TRUE;
+  }
+  
+  if (affected_by_spell(ch, TAG_PVPDELAY))
+  {
+    send_to_char
+    ("There is too much adrenaline pumping through your body right now.\r\n",
+     ch);
+    return TRUE;
+  }
+  
+  if (IS_RIDING(ch))
+  {
+    send_to_char
+    ("If you really want your mount in your locker, you'll have to kill it first.\r\n",
+     ch);
+    return TRUE;
+  }
+  
+  if (get_linking_char(ch, LNK_RIDING))
+  {
+    send_to_char("Perhaps your rider should dismount first?\r\n", ch);
+    return TRUE;
+  }
+  
+  /* guild lockers are named:  guild.x.locker where 'x' is the assoc number */
+  if (!GET_A_NUM(ch) || !IS_MEMBER(GET_A_BITS(ch)) ||
+      (IS_PC(ch) && !GT_PAROLE(GET_A_BITS(ch))))
+  {
+    send_to_char("Try becoming part of a guild first!\r\n", ch);
+    return TRUE;
+  }
+  
+  if (get_assoc_prestige(GET_A_NUM(ch)) < (int)get_property("prestige.locker.required", 1000))
+  {
+    send_to_char("Your association is not yet prestigious enough to have a locker!\r\n", ch);
+    return TRUE;
+  }
+  
+  sprintf(enterWho, "guild.%d", GET_A_NUM(ch));
+  is_guild_locker = 1;
+  
+  sprintf(lockerName, "%s.locker", enterWho);
+  
+  chLocker = load_locker_char(ch, lockerName, bValidate);
+  
+  if (!chLocker)
+  {
+    return TRUE;
+  }
+  
+  locker_room = create_new_locker(ch, chLocker);
+  
+  if (!locker_room)
+  {
+    send_to_char
+    ("There are no free rooms available right now.  Please try later.\r\n",
+     ch);
+    return TRUE;
+  }
+  
+  send_to_char
+  ("A member of the &+YStorage Locker Safety Commission&n escorts you to the locker\r\n",
+   ch);
+  act
+  ("A member of the &+YStorage Locker Safety Commission&n escorts $n to a private room.",
+   FALSE, ch, 0, ch, TO_ROOM);
+  
+  // PFileToLocker
+  
+  GetChestList(locker_room)->PFileToLocker();
+  
+  char_from_room(ch);
+  
+  char_to_room(ch, locker_room, 0);
+  
+  StorageLocker *pLocker = GetChestList(locker_room);
+  
+  strcpy(lockerName, GET_NAME(chLocker));
+  
+  if (strrchr(lockerName, '.'))
+    *(strrchr(lockerName, '.')) = '\0';
+  
+  // warn them that they can't idle in the locker...
+  if (str_cmp(lockerName, GET_NAME(ch)))
+  {
+    logit(LOG_WIZ, "LOCKER: (%s) entered (%s's) locker.", GET_NAME(ch), lockerName);
+    send_to_char
+    ("&+RWARNING:&n This isn't your own locker.  Therefore, you'll be ejected if\r\n"
+     "you are idle for more then 2 minutes.\r\n", ch);
+  }
+  
+  return TRUE;  
+}
+
 int storage_locker(int room, P_char ch, int cmd, char *arg)
 {
   P_char tmpChar = NULL;

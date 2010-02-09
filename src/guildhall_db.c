@@ -223,6 +223,9 @@ void load_guildhall_rooms(Guildhall *guildhall)
       case GH_ROOM_TYPE_HEAL:
         room = new HealRoom();
         break;
+      case GH_ROOM_TYPE_BANK:
+        room = new BankRoom();
+        break;        
       default:
         room = new GuildhallRoom();
     }

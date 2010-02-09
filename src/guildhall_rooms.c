@@ -326,6 +326,22 @@ bool HealRoom::init()
   return TRUE;
 }
 
+bool BankRoom::init()
+{
+  GuildhallRoom::init();
+  
+  // set inn proc
+  world[real_room0(this->vnum)].funct = guildhall_bank_room;
+  
+  // set up guild board
+  if( this->counter = read_object(GH_BANK_COUNTER_VNUM, VIRTUAL) )
+  {
+    obj_to_room(this->counter, real_room0(this->vnum));
+  }
+  
+  return TRUE;
+}
+
 bool EntranceRoom::deinit()
 {
   GuildhallRoom::init();
@@ -352,7 +368,6 @@ bool EntranceRoom::deinit()
   }
 
   // TODO: remove gate to the north
-  // TODO: remove room proc, "look out" or "look south"
   
   return TRUE;
 }
@@ -426,6 +441,22 @@ bool HealRoom::deinit()
   {
     obj_from_room(this->fountain);
     this->fountain = NULL;
+  }
+  
+  return TRUE;
+}
+
+bool BankRoom::deinit()
+{
+  GuildhallRoom::init();
+  
+  world[real_room0(this->vnum)].funct = NULL;
+
+  // deinit counter obj
+  if( this->counter )
+  {
+    obj_from_room(this->counter);
+    this->counter = NULL;
   }
   
   return TRUE;

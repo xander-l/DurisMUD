@@ -16,6 +16,7 @@
 #include "prototypes.h"
 #include "specs.prototypes.h"
 #include "alliances.h"
+#include "storage_lockers.h"
 
 extern P_room world;
 
@@ -222,3 +223,9 @@ int guildhall_heartstone(P_obj obj, P_char ch, int cmd, char *arg)
   
   return FALSE;
 }
+
+int guildhall_bank_room(int room, P_char ch, int cmd, char *arg)
+{
+  return guild_locker_room_hook(room, ch, cmd, arg);
+}
+

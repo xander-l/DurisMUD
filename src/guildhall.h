@@ -31,6 +31,7 @@ using namespace std;
 #define GH_WINDOW_VNUM      48008
 #define GH_HEARTSTONE_VNUM  48009
 #define GH_FOUNTAIN_VNUM    48004
+#define GH_BANK_COUNTER_VNUM 48010
 
 #define GH_ROOM_TEMPLATE_ENTRANCE 48000
 #define GH_ROOM_TEMPLATE_HEARTSTONE 48001
@@ -41,6 +42,7 @@ using namespace std;
 #define GH_ROOM_TEMPLATE_GENERIC 48006
 #define GH_ROOM_TEMPLATE_WINDOW 48007
 #define GH_ROOM_TEMPLATE_HEAL 48003
+#define GH_ROOM_TEMPLATE_BANK 48008
 
 #define GH_GOLEM_WARRIOR    48001
 #define GH_GOLEM_CLERIC     48002
@@ -57,7 +59,8 @@ using namespace std;
 #define GH_ROOM_TYPE_PORTAL 4
 #define GH_ROOM_TYPE_WINDOW 5
 #define GH_ROOM_TYPE_HEAL 6
-#define GH_ROOM_NUM_TYPES 7
+#define GH_ROOM_TYPE_BANK 7
+#define GH_ROOM_NUM_TYPES 8
 
 /*
  rooms values are type-specific
@@ -95,6 +98,7 @@ int guildhall_golem(P_char ch, P_char pl, int cmd, char *arg);
 int guildhall_window_room(int room, P_char ch, int cmd, char *arg);
 int guildhall_window(P_obj obj, P_char ch, int cmd, char *arg);
 int guildhall_heartstone(P_obj obj, P_char ch, int cmd, char *arg);
+int guildhall_bank_room(int room, P_char ch, int cmd, char *arg);
 
 int check_gh_home(P_char ch, int r_room);
 
@@ -218,6 +222,16 @@ struct HealRoom : public GuildhallRoom
   P_obj fountain;
   
   HealRoom() : GuildhallRoom(GH_ROOM_TEMPLATE_HEAL), fountain(NULL) {}
+};
+
+struct BankRoom : public GuildhallRoom
+{
+  bool init();
+  bool deinit();
+  
+  P_obj counter;
+  
+  BankRoom() : GuildhallRoom(GH_ROOM_TEMPLATE_BANK), counter(NULL) {}
 };
 
 //
