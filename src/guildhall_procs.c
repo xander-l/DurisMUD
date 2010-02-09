@@ -139,13 +139,13 @@ int guildhall_golem(P_char ch, P_char pl, int cmd, char *arg)
     else if( allowed )
     {
       act("$N stands impassively as you as you pass by.", FALSE, pl, 0, ch, TO_CHAR);
-      act("$N stands impassively as $n passes by.", FALSE, pl, 0, pl, TO_NOTVICT);
+      act("$N stands impassively as $n passes by.", FALSE, pl, 0, ch, TO_NOTVICT);
       return FALSE;
     }
     else
     {
       act("$N glares at you and refuses to let you pass.", FALSE, pl, 0, ch, TO_CHAR);
-      act("$N glares at $n and refuses to let them pass.", FALSE, pl, 0, pl, TO_NOTVICT);      
+      act("$N glares at $n and refuses to let them pass.", FALSE, pl, 0, ch, TO_NOTVICT);      
       return TRUE;
     }
 
