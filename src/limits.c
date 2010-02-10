@@ -590,9 +590,9 @@ void advance_level(P_char ch)
         group_size++;
     }
     
-    if( group_size >= (int) get_property("prestige.guildedInGroupMinimum", 3) )
+    if( group_size >= get_property("prestige.guildedInGroupMinimum", 0) )
     {
-      int prestige = (int) get_property("prestige.gain.leveling", 10);
+      int prestige = get_property("prestige.gain.leveling", 0);
 
       send_to_char("&+bYour guild gained prestige!\r\n", ch);
       prestige = check_nexus_bonus(ch, prestige, NEXUS_BONUS_PRESTIGE);

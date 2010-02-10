@@ -4234,75 +4234,51 @@ void check_assoc_prestige_epics(P_char ch, int epics, int epic_type)
     add_assoc_prestige( GET_A_NUM(ch), prestige);
   }
 }
-
-bool is_clan(int asc_number)
-{
-  int prestige = get_assoc_prestige(asc_number);  
-
-  if( prestige < (int) get_property("prestige.guild.required", 2000) )
-  {
-    return TRUE;
-  }
-  
-  return FALSE;  
-}
-
-bool is_guild(int asc_number)
-{
-  int prestige = get_assoc_prestige(asc_number);  
-  
-  if( prestige >= (int) get_property("prestige.guild.required", 2000) &&
-      prestige < (int) get_property("prestige.kingdom.required", 4000) )
-  {
-    return TRUE;
-  }
-  
-  return FALSE;   
-}
-
-bool is_kingdom(int asc_number)
-{
-  int prestige = get_assoc_prestige(asc_number);  
-  
-  if( prestige >= (int) get_property("prestige.kingdom.required", 2000) )
-  {
-    return TRUE;
-  }
-  
-  return FALSE;    
-}
+//
+//bool is_clan(int asc_number)
+//{
+//  int prestige = get_assoc_prestige(asc_number);  
+//
+//  if( prestige < (int) get_property("prestige.guild.required", 2000) )
+//  {
+//    return TRUE;
+//  }
+//  
+//  return FALSE;  
+//}
+//
+//bool is_guild(int asc_number)
+//{
+//  int prestige = get_assoc_prestige(asc_number);  
+//  
+//  if( prestige >= (int) get_property("prestige.guild.required", 2000) &&
+//      prestige < (int) get_property("prestige.kingdom.required", 4000) )
+//  {
+//    return TRUE;
+//  }
+//  
+//  return FALSE;   
+//}
+//
+//bool is_kingdom(int asc_number)
+//{
+//  int prestige = get_assoc_prestige(asc_number);  
+//  
+//  if( prestige >= (int) get_property("prestige.kingdom.required", 2000) )
+//  {
+//    return TRUE;
+//  }
+//  
+//  return FALSE;    
+//}
 
 int max_assoc_size(int asc_number)
 {  
-  int base_prestige = 0;
-  int members = 0;
-  int step_size = 0;
-  int max_size = 1;
-  int prestige = get_assoc_prestige(asc_number);  
-
-  if( is_kingdom(asc_number) )
-  {
-    members = (int) get_property("guild.size.base.kingdom", 35);
-    base_prestige = (int) get_property("prestige.kingdom.required", 4000);
-    max_size = (int) get_property("guild.size.max.kingdom", 40);
-    step_size = (int) get_property("guild.size.step.kingdom", 500);
-  }
-  else if( is_guild(asc_number) )
-  {
-    members = (int) get_property("guild.size.base.guild", 25);
-    base_prestige = (int) get_property("prestige.guild.required", 2000);
-    max_size = (int) get_property("guild.size.max.guild", 34);
-    step_size = (int) get_property("guild.size.step.guild", 200);    
-  }
-  else
-  {
-    // a clan
-    members = (int) get_property("guild.size.base.clan", 5);
-    max_size = (int) get_property("guild.size.max.clan", 24);
-    step_size = (int) get_property("guild.size.step.clan", 80);    
-  }
-
-  members += (int) ( (float) ( MAX(0, prestige - base_prestige) ) / (float) MAX(1, step_size) );
+  int prestige = get_assoc_prestige(asc_number);
+  int base_size = get_property("guild.size.base", 0);
+  int max_size = get_property("guild.size.max", 0);
+  int step_size = get_property("guild.size.prestige.step", 0);  
+  int members = base_size + (int) ( (float) ( MAX(0, prestige) ) / (float) MAX(1, step_size) );
   
   return MIN(members, max_size);
 }

@@ -265,13 +265,12 @@ void do_alliance(P_char ch, char *arg, int cmd)
     //----------------------------
     //valid to propose?
     //----------------------------
-    int needed_prestige = (int)get_property("prestige.alliance.required", 3000.000);
     prestige1 = get_assoc_prestige(assoc_id);
     prestige2 = get_assoc_prestige(assoc_id2);
 
-    if(prestige1 < needed_prestige)
+    if(prestige1 < get_property("prestige.alliance.required", 0))
     {
-       send_to_char("&+bYour association not famous enough to forge an alliance.\n", ch);
+       send_to_char("&+bYour association is not famous enough to forge an alliance.\n", ch);
        return;
     }
     // For now we are letting any guild be a secondary guild... -Venthix

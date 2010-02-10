@@ -4053,10 +4053,10 @@ void do_score(P_char ch, char *argument, int cmd)
     else
       send_to_char("none\n", ch);
 
-    /* prestige */
-    sprintf(buf, "Prestige: %s\n", epic_prestige(ch));
-    send_to_char(buf, ch);
-    buf[0] = 0;
+//    /* prestige */
+//    sprintf(buf, "Prestige: %s\n", epic_prestige(ch));
+//    send_to_char(buf, ch);
+//    buf[0] = 0;
 
     /* title */
     if (GET_TITLE(ch))
