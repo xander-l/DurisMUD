@@ -21,6 +21,7 @@
 #include <math.h>
 
 float ship_cargo_market_mod[NUM_PORTS][NUM_PORTS];
+float ship_cargo_market_mod_delayed[NUM_PORTS][NUM_PORTS];
 float ship_contra_market_mod[NUM_PORTS][NUM_PORTS];
 
 // This matrix shows the base cost in platinum for each port's cargo/contraband,
@@ -120,6 +121,7 @@ int read_cargo()
     if( !strcmp(type, "CARGO") )
     {
       ship_cargo_market_mod[port_id][cargo_type] = BOUNDEDF(get_property("ship.cargo.minPriceMod", 0.0), modifier, get_property("ship.cargo.maxPriceMod", 0.0));
+      ship_cargo_market_mod_delayed[port_id][cargo_type] = ship_cargo_market_mod[port_id][cargo_type];
     }
     else if( !strcmp(type, "CONTRABAND") )
     {
@@ -141,6 +143,7 @@ void reset_cargo()
     {
       ship_cargo_market_mod[i][j] = 1.0;
       ship_contra_market_mod[i][j] = 1.0;      
+      ship_cargo_market_mod_delayed[i][j] = 1.0;
     }
   }  
 }
@@ -176,15 +179,27 @@ int write_cargo()
 #endif
 }
 
+// this gets run once every minute
 void cargo_activity()
 {
-  if( !has_elapsed("cargo_activity", get_property("ship.cargo.activitySecs", 1800)) )
+  update_cargo();
+  update_delayed_cargo_prices();
+}
+
+void update_cargo()
+{
+  update_cargo(false);
+}
+
+void update_cargo(bool force)
+{
+  if(!force && !has_elapsed("update_cargo", get_property("ship.cargo.update.secs", 1800)) )
     return;
 
-  debug("cargo_activity()");
+  debug("update_cargo()");
 
   int      i, j;
-
+  
   for (i = 0; i < NUM_PORTS; i++)
   {
     for (j = 0; j < NUM_PORTS; j++)
@@ -194,7 +209,7 @@ void cargo_activity()
         // ports' own sell price decreases slowly over time back to min
         ship_cargo_market_mod[i][j] = MAX(get_property("ship.cargo.minPriceMod", 1.0), 
                                           ship_cargo_market_mod[i][j] * get_property("ship.cargo.autoSellAdjustMod", 1.0));
-
+        
         ship_contra_market_mod[i][j] = MAX(get_property("ship.contraband.minPriceMod", 1.0), 
                                            ship_contra_market_mod[i][j] * get_property("ship.contraband.autoSellAdjustMod", 1.0));
       }
@@ -205,16 +220,36 @@ void cargo_activity()
                                           ship_cargo_market_mod[i][j] * get_property("ship.cargo.autoBuyAdjustMod", 1.0));
         ship_contra_market_mod[i][j] = MIN(get_property("ship.contraband.maxPriceMod", 1.0), 
                                            ship_contra_market_mod[i][j] * get_property("ship.contraband.autoBuyAdjustMod", 1.0));
-      }      
+      }     
     }
   }
   
   if(!write_cargo())
   {
     logit(LOG_SHIP, "Error writing market values!");
+  }  
+  
+  set_timer("update_cargo");
+}
+
+void update_delayed_cargo_prices()
+{
+  if( !has_elapsed("update_delayed_cargo_prices", get_property("ship.cargo.updateDelayedPrices.secs", 1800)) )
+    return;
+  
+  debug("update_delayed_cargo_prices()");
+  
+  int      i, j;
+  
+  for (i = 0; i < NUM_PORTS; i++)
+  {
+    for (j = 0; j < NUM_PORTS; j++)
+    {
+      ship_cargo_market_mod_delayed[i][j] = ship_cargo_market_mod[i][j];
+    }
   }
   
-  set_timer("cargo_activity");
+  set_timer("update_delayed_cargo_prices");
 }
 
 void calculate_port_distances()
@@ -321,17 +356,41 @@ void calculate_port_distances()
   logit(LOG_SHIP, "Num routes: %d, Average distance: %d", count/2, (int) avg_distance / count);  
 }
 
-// i.e. the price the port charges to sell its cargo
 int cargo_sell_price(int location)
 {
+  return cargo_sell_price(location, false);
+}
+
+// i.e. the price the port charges to sell its cargo
+int cargo_sell_price(int location, bool delayed)
+{
   // the port sells its own cargo at just base price * market mod
-  return (int) (1000 * cargo_location_data[location].base_cost_cargo * ship_cargo_market_mod[location][location]);
+  if( delayed )
+  {
+    return (int) (1000 * cargo_location_data[location].base_cost_cargo * ship_cargo_market_mod_delayed[location][location]);    
+  }
+  else
+  {
+    return (int) (1000 * cargo_location_data[location].base_cost_cargo * ship_cargo_market_mod[location][location]);
+  }
+}
+
+int cargo_buy_price(int location, int type)
+{
+  return cargo_buy_price(location, type, false);
 }
 
 // i.e. the price the port will pay to buy cargo
-int cargo_buy_price(int location, int type)
+int cargo_buy_price(int location, int type, bool delayed)
 {
-  return (int) (1000 * cargo_location_data[type].base_cost_cargo * (cargo_location_mod[location][type] / 100.0) * ship_cargo_market_mod[location][type]);
+  if( delayed )
+  {
+    return (int) (1000 * cargo_location_data[type].base_cost_cargo * (cargo_location_mod[location][type] / 100.0) * ship_cargo_market_mod_delayed[location][type]);
+  }
+  else
+  {
+    return (int) (1000 * cargo_location_data[type].base_cost_cargo * (cargo_location_mod[location][type] / 100.0) * ship_cargo_market_mod[location][type]);
+  }
 }
 
 // i.e. the price the port charges to sell its contraband
@@ -402,6 +461,8 @@ void show_cargo_prices(P_char ch)
   char line[MAX_STRING_LENGTH];
   char buff[MAX_STRING_LENGTH];
   
+  bool delayed = (bool) !IS_TRUSTED(ch);
+  
   send_to_char("&+y/------------------------------------------------------------------------------------\\\r\n", ch);
   
   line[0] = '\0';
@@ -428,19 +489,19 @@ void show_cargo_prices(P_char ch)
       if( type == port )
       {
         // show sell price
-        sprintf(buff, "&+W%6.2f", (float) cargo_sell_price(port) / 1000);
+        sprintf(buff, "&+W%6.2f", (float) cargo_sell_price(port, delayed) / 1000);
       }
-      else if( cargo_buy_price(port, type) > cargo_sell_price(type) )
+      else if( cargo_buy_price(port, type, delayed) > cargo_sell_price(type, delayed) )
       {
-        sprintf(buff, "&+g%6.2f", (float) cargo_buy_price(port, type) / 1000);
+        sprintf(buff, "&+g%6.2f", (float) cargo_buy_price(port, type, delayed) / 1000);
       }
-      else if( cargo_buy_price(port, type) < cargo_sell_price(type) )
+      else if( cargo_buy_price(port, type, delayed) < cargo_sell_price(type, delayed) )
       {
-        sprintf(buff, "&+r%6.2f", (float) cargo_buy_price(port, type) / 1000);
+        sprintf(buff, "&+r%6.2f", (float) cargo_buy_price(port, type, delayed) / 1000);
       }
       else
       {
-        sprintf(buff, "%6.2f", (float) cargo_buy_price(port, type) / 1000);
+        sprintf(buff, "%6.2f", (float) cargo_buy_price(port, type, delayed) / 1000);
       }
       
       strcat(line, pad_ansi(buff, 6).c_str());
@@ -452,7 +513,7 @@ void show_cargo_prices(P_char ch)
   }
   
   send_to_char("&+y|                                                                                    &+y|\r\n", ch);
-  send_to_char("&+y| &nAll prices in platinum per crate.                                                  &+y|\r\n", ch);
+  send_to_char("&+y| &nAll prices in platinum per crate, and are current within the last hour.            &+y|\r\n", ch);
   send_to_char("&+y\\------------------------------------------------------------------------------------/\r\n", ch);
 }
 
@@ -567,6 +628,11 @@ void do_world_cargo(P_char ch, char *arg)
     send_to_char("Writing cargo mods to database...\r\n", ch);
     if(!write_cargo())
       send_to_char("FAILED!\r\n", ch);
+  }
+  else if( is_abbrev(arg, "update") )
+  {
+    send_to_char("Updating cargo prices...\r\n", ch);
+    update_cargo(true);
   }
   
 }
