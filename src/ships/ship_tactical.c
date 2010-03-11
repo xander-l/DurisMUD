@@ -490,7 +490,8 @@ bool sink_ship(P_ship ship, P_ship attacker)
             wizlog(56, "Bounty %d", bounty);
         }
 
-        int fleet_size = 1;
+        int fleet_size_grouped = 1;
+        int fleet_size_total = 1;
         int k = getcontacts(ship);
         for (i = 0; i < k; i++)
         {
@@ -500,19 +501,21 @@ bool sink_ship(P_ship ship, P_ship attacker)
                 continue;
             if (contacts[i].ship->m_class == 0)
                 continue;
-            
+            if (attacker->race == contacts[i].ship->race)
+               fleet_size_total++;
+
             P_char ch1 = get_char2(str_dup(SHIPOWNER(contacts[i].ship)));
             P_char ch2 = get_char2(str_dup(SHIPOWNER(attacker)));
             
             if (ch1 && ch2 && ch1->group && ch1->group == ch2->group)
             {
-                fleet_size++;
+                fleet_size_grouped++;
             }
         }
 
-        frag_gain = frag_gain / fleet_size;
-        salvage = salvage / fleet_size;
-        bounty = bounty / fleet_size;
+        frag_gain = frag_gain / fleet_size_total;
+        salvage = salvage / fleet_size_grouped;
+        bounty = bounty / fleet_size_grouped;
 
         for (i = 0; i < k; i++)
         {
