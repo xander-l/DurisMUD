@@ -322,11 +322,35 @@ int update_nexus_stone_align(int stone_id, int align)
 
 bool nexus_stone_touch(P_obj stone, P_char ch)
 {
+  P_char i, next;
+
   if( !stone || !ch )
     raise(SIGSEGV);
 
+  for (i = world[ch->in_room].people; i; i = next)
+  {
+    next = i->next_in_room;
+
+    if(IS_PC(i) ||
+       IS_PC_PET(i))
+    {
+      continue;
+    }
+
+    if(IS_NPC(i))
+    {
+       if(GET_VNUM(i) == MOB_NEUTRAL_GUARDIAN ||
+          GET_VNUM(i) == MOB_GOOD_GUARDIAN ||
+          GET_VNUM(i) == MOB_EVIL_GUARDIAN)
+       {
+         act(ns_messages[_NO_TOUCH], FALSE, ch, stone, 0, TO_CHAR);
+         return false;
+       } 
+    }
+  }  
+
   P_char guardian = get_nexus_guardian(STONE_ID(stone));
-  
+ 
   if( guardian )
   {
     // guardian is still alive, prevent touching
