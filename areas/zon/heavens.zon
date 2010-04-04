@@ -118,71 +118,70 @@ D 0 35 0 1 100 0 0 0
 *     "Bright White Corridor" - closed
 *
 *
-O 0 89 9999 10 100 0 0 0           * a holy bulletin board
-O 0 1278 999 10 100 0 0 0          * the book of files
-O 0 89 9999 14 100 0 0 0           * a holy bulletin board
-O 0 75 999 14 100 0 0 0            * a Zone Planning board
-O 0 174 1 15 100 0 0 0             * a statue of a beautiful man
-O 0 75 999 15 100 0 0 0            * a Zone Planning board
-O 0 367 1 16 100 0 0 0             * a whetstone
-O 0 362 1 16 100 0 0 0             * a pile of brittle alloy
-O 0 89 9999 33 100 0 0 0           * a holy bulletin board
-O 0 92 1 37 100 0 0 0              * flames bulletin board
-O 0 90 999 38 100 0 0 0            * a feedback board
-O 0 89 9999 41 100 0 0 0           * a holy bulletin board
-O 0 1278 999 41 100 0 0 0          * the book of files
-O 0 1278 999 44 100 0 0 0          * the book of files
-O 0 89 9999 44 100 0 0 0           * a holy bulletin board
-O 0 89 9999 66 100 0 0 0           * a holy bulletin board
-O 0 1278 999 66 100 0 0 0          * the book of files
-O 0 1278 999 69 100 0 0 0          * the book of files
-O 0 89 9999 69 100 0 0 0           * a holy bulletin board
-O 0 89 9999 75 100 0 0 0           * a holy bulletin board
-O 0 1278 999 75 100 0 0 0          * the book of files
-O 0 89 9999 107 100 0 0 0          * a holy bulletin board
-O 0 1278 999 107 100 0 0 0         * the book of files
-O 0 89 9999 111 100 0 0 0          * a holy bulletin board
-O 0 1278 999 111 100 0 0 0         * the book of files
-O 0 75 999 222 100 0 0 0           * a Zone Planning board
-O 0 1278 999 420 100 0 0 0         * the book of files
-O 0 89 9999 420 100 0 0 0          * a holy bulletin board
-O 0 89 9999 444 100 0 0 0          * a holy bulletin board
-O 0 45 100 444 100 0 0 0           * a slot machine
-O 0 84 1 500 100 0 0 0             * a bug board
-O 0 45 100 500 100 0 0 0           * a slot machine
+O 0 89 9999 10 100 0 0 0           * (object type not in this .obj file)
+O 0 1278 999 10 100 0 0 0          * (object type not in this .obj file)
+O 0 75 999 14 100 0 0 0            * (object type not in this .obj file)
+O 0 174 1 15 100 0 0 0             * (object type not in this .obj file)
+O 0 75 999 15 100 0 0 0            * (object type not in this .obj file)
+O 0 367 1 16 100 0 0 0             * (object type not in this .obj file)
+O 0 362 1 16 100 0 0 0             * (object type not in this .obj file)
+O 0 89 9999 33 100 0 0 0           * (object type not in this .obj file)
+O 0 92 1 37 100 0 0 0              * (object type not in this .obj file)
+O 0 90 999 38 100 0 0 0            * (object type not in this .obj file)
+O 0 89 9999 41 100 0 0 0           * (object type not in this .obj file)
+O 0 1278 999 41 100 0 0 0          * (object type not in this .obj file)
+O 0 1278 999 44 100 0 0 0          * (object type not in this .obj file)
+O 0 89 9999 44 100 0 0 0           * (object type not in this .obj file)
+O 0 89 9999 66 100 0 0 0           * (object type not in this .obj file)
+O 0 1278 999 66 100 0 0 0          * (object type not in this .obj file)
+O 0 1278 999 69 100 0 0 0          * (object type not in this .obj file)
+O 0 89 9999 69 100 0 0 0           * (object type not in this .obj file)
+O 0 89 9999 75 100 0 0 0           * (object type not in this .obj file)
+O 0 1278 999 75 100 0 0 0          * (object type not in this .obj file)
+O 0 89 9999 107 100 0 0 0          * (object type not in this .obj file)
+O 0 1278 999 107 100 0 0 0         * (object type not in this .obj file)
+O 0 89 9999 111 100 0 0 0          * (object type not in this .obj file)
+O 0 1278 999 111 100 0 0 0         * (object type not in this .obj file)
+O 0 75 999 222 100 0 0 0           * (object type not in this .obj file)
+O 0 1278 999 420 100 0 0 0         * (object type not in this .obj file)
+O 0 89 9999 420 100 0 0 0          * (object type not in this .obj file)
+O 0 89 9999 444 100 0 0 0          * (object type not in this .obj file)
+O 0 45 100 444 100 0 0 0           * (object type not in this .obj file)
+O 0 84 1 500 100 0 0 0             * (object type not in this .obj file)
+O 0 45 100 500 100 0 0 0           * (object type not in this .obj file)
 O 0 32868 1 500 100 0 0 0          * (object type not in this .obj file)
-O 0 49 1 501 100 0 0 0             * Flap
-O 0 52 1 501 100 0 0 0             * a small recipe book
-O 0 1278 999 777 100 0 0 0         * the book of files
-O 0 89 9999 777 100 0 0 0          * a holy bulletin board
-O 0 89 9999 888 100 0 0 0          * a holy bulletin board
-O 0 1278 999 888 100 0 0 0         * the book of files
-O 0 413 1 999 100 0 0 0            * A disco ball
-O 0 89 9999 999 100 0 0 0          * a holy bulletin board
-O 0 1278 999 999 100 0 0 0         * the book of files
-O 0 42 1 1196 100 0 0 0            * The board of IDEAS
-O 0 34 1 1198 100 0 0 0            * a collection of blood
-O 0 33 1 1199 100 0 0 0            * A small stream
-O 0 89 9999 1200 100 0 0 0         * a holy bulletin board
-O 0 1278 999 1200 100 0 0 0        * the book of files
-O 0 27 1 1201 100 0 0 0            * The Book of the Council
+O 0 49 1 501 100 0 0 0             * (object type not in this .obj file)
+O 0 52 1 501 100 0 0 0             * (object type not in this .obj file)
+O 0 1278 999 777 100 0 0 0         * (object type not in this .obj file)
+O 0 89 9999 777 100 0 0 0          * (object type not in this .obj file)
+O 0 89 9999 888 100 0 0 0          * (object type not in this .obj file)
+O 0 1278 999 888 100 0 0 0         * (object type not in this .obj file)
+O 0 413 1 999 100 0 0 0            * (object type not in this .obj file)
+O 0 89 9999 999 100 0 0 0          * (object type not in this .obj file)
+O 0 1278 999 999 100 0 0 0         * (object type not in this .obj file)
+O 0 42 1 1196 100 0 0 0            * (object type not in this .obj file)
+O 0 34 1 1198 100 0 0 0            * (object type not in this .obj file)
+O 0 33 1 1199 100 0 0 0            * (object type not in this .obj file)
+O 0 89 9999 1200 100 0 0 0         * (object type not in this .obj file)
+O 0 1278 999 1200 100 0 0 0        * (object type not in this .obj file)
+O 0 27 1 1201 100 0 0 0            * (object type not in this .obj file)
 O 0 11118 1 1201 100 0 0 0         * (object type not in this .obj file)
-O 0 89 9999 1202 100 0 0 0         * a holy bulletin board
-O 0 89 9999 1203 100 0 0 0         * a holy bulletin board
-O 0 1278 999 1203 100 0 0 0        * the book of files
-O 0 89 9999 1206 100 0 0 0         * a holy bulletin board
-O 0 75 999 1207 100 0 0 0          * a Zone Planning board
-O 0 89 9999 1212 100 0 0 0         * a holy bulletin board
-O 0 89 9999 1213 100 0 0 0         * a holy bulletin board
-O 0 90 999 1213 100 0 0 0          * a feedback board
-O 0 1278 999 1213 100 0 0 0        * the book of files
-O 0 1212 1 1214 100 0 0 0          * Rand's wine case
-P 1 195 2 1212 100 0 0 0           *   a glass bottle labelled 'Klar Eis'
-P 1 195 2 1212 100 0 0 0           *   a glass bottle labelled 'Klar Eis'
-P 1 317 4 1212 100 0 0 0           *   a glass of sparkling white champagne
-P 1 317 4 1212 100 0 0 0           *   a glass of sparkling white champagne
-P 1 317 4 1212 100 0 0 0           *   a glass of sparkling white champagne
-P 1 317 4 1212 100 0 0 0           *   a glass of sparkling white champagne
+O 0 89 9999 1202 100 0 0 0         * (object type not in this .obj file)
+O 0 89 9999 1203 100 0 0 0         * (object type not in this .obj file)
+O 0 1278 999 1203 100 0 0 0        * (object type not in this .obj file)
+O 0 89 9999 1206 100 0 0 0         * (object type not in this .obj file)
+O 0 75 999 1207 100 0 0 0          * (object type not in this .obj file)
+O 0 89 9999 1212 100 0 0 0         * (object type not in this .obj file)
+O 0 89 9999 1213 100 0 0 0         * (object type not in this .obj file)
+O 0 90 999 1213 100 0 0 0          * (object type not in this .obj file)
+O 0 1278 999 1213 100 0 0 0        * (object type not in this .obj file)
+O 0 1212 1 1214 100 0 0 0          * (object type not in this .obj file)
+P 1 195 2 1212 100 0 0 0           *   (object type not in this .obj file)
+P 1 195 2 1212 100 0 0 0           *   (object type not in this .obj file)
+P 1 317 4 1212 100 0 0 0           *   (object type not in this .obj file)
+P 1 317 4 1212 100 0 0 0           *   (object type not in this .obj file)
+P 1 317 4 1212 100 0 0 0           *   (object type not in this .obj file)
+P 1 317 4 1212 100 0 0 0           *   (object type not in this .obj file)
 P 1 5504 4 1212 100 0 0 0          *   (object type not in this .obj file)
 P 1 5504 4 1212 100 0 0 0          *   (object type not in this .obj file)
 P 1 5504 4 1212 100 0 0 0          *   (object type not in this .obj file)
@@ -191,33 +190,33 @@ P 1 15245 4 1212 100 0 0 0         *   (object type not in this .obj file)
 P 1 15245 4 1212 100 0 0 0         *   (object type not in this .obj file)
 P 1 15245 4 1212 100 0 0 0         *   (object type not in this .obj file)
 P 1 15245 4 1212 100 0 0 0         *   (object type not in this .obj file)
-P 1 1216 6 1212 100 0 0 0          *   a plate of assorted cheeses
-P 1 1216 6 1212 100 0 0 0          *   a plate of assorted cheeses
-P 1 1216 6 1212 100 0 0 0          *   a plate of assorted cheeses
-P 1 1216 6 1212 100 0 0 0          *   a plate of assorted cheeses
-P 1 1216 6 1212 100 0 0 0          *   a plate of assorted cheeses
-P 1 1216 6 1212 100 0 0 0          *   a plate of assorted cheeses
-O 0 1213 1 1214 100 0 0 0          * Rand's tree
-O 0 1214 1 1214 100 0 0 0          * Rend's hot tub
-O 0 1215 1 1214 100 0 0 0          * Ceiling Mirror
-O 0 1217 1 1214 100 0 0 0          * Rend's bed
-O 0 1219 1 1214 100 0 0 0          * Tv
-O 0 91 99 1216 100 0 0 0           * a meeting board
-O 0 1202 1 1218 100 0 0 0          * wisp of shadow
-O 0 1278 999 1218 100 0 0 0        * the book of files
-O 0 89 9999 1218 100 0 0 0         * a holy bulletin board
-O 0 40 1 1219 100 0 0 0            * a bookcase
-O 0 89 9999 1219 100 0 0 0         * a holy bulletin board
-O 0 89 9999 1227 100 0 0 0         * a holy bulletin board
-O 0 89 9999 1228 100 0 0 0         * a holy bulletin board
-O 0 89 9999 1234 100 0 0 0         * a holy bulletin board
-O 0 1211 99 1255 100 0 0 0         * a book of Duris ANSI codes
-O 0 89 9999 1255 100 0 0 0         * a holy bulletin board
+P 1 1216 6 1212 100 0 0 0          *   (object type not in this .obj file)
+P 1 1216 6 1212 100 0 0 0          *   (object type not in this .obj file)
+P 1 1216 6 1212 100 0 0 0          *   (object type not in this .obj file)
+P 1 1216 6 1212 100 0 0 0          *   (object type not in this .obj file)
+P 1 1216 6 1212 100 0 0 0          *   (object type not in this .obj file)
+P 1 1216 6 1212 100 0 0 0          *   (object type not in this .obj file)
+O 0 1213 1 1214 100 0 0 0          * (object type not in this .obj file)
+O 0 1214 1 1214 100 0 0 0          * (object type not in this .obj file)
+O 0 1215 1 1214 100 0 0 0          * (object type not in this .obj file)
+O 0 1217 1 1214 100 0 0 0          * (object type not in this .obj file)
+O 0 1219 1 1214 100 0 0 0          * (object type not in this .obj file)
+O 0 91 99 1216 100 0 0 0           * (object type not in this .obj file)
+O 0 1202 1 1218 100 0 0 0          * (object type not in this .obj file)
+O 0 1278 999 1218 100 0 0 0        * (object type not in this .obj file)
+O 0 89 9999 1218 100 0 0 0         * (object type not in this .obj file)
+O 0 40 1 1219 100 0 0 0            * (object type not in this .obj file)
+O 0 89 9999 1219 100 0 0 0         * (object type not in this .obj file)
+O 0 89 9999 1227 100 0 0 0         * (object type not in this .obj file)
+O 0 89 9999 1228 100 0 0 0         * (object type not in this .obj file)
+O 0 89 9999 1234 100 0 0 0         * (object type not in this .obj file)
+O 0 1211 99 1255 100 0 0 0         * (object type not in this .obj file)
+O 0 89 9999 1255 100 0 0 0         * (object type not in this .obj file)
 *
 M 0 37 1 15 100 0 0 0              * Ooklahsha
-E 1 176 1 24 100 0 0 0             *   a badge spun of twilight
+E 1 176 1 24 100 0 0 0             *   (object type not in this .obj file)
 M 0 38 1 15 100 0 0 0              * Ooyalasha
-E 1 175 1 3 100 0 0 0              *   a precious diamond collar
+E 1 175 1 3 100 0 0 0              *   (object type not in this .obj file)
 M 0 60 1 16 100 0 0 0              * an orc sailor
 M 0 61 1 16 100 0 0 0              * captain kip trask
 M 0 62 8 16 100 0 0 0              * a tough seafarer
@@ -229,9 +228,9 @@ M 0 320 1 500 100 0 0 0            * a HUGE black and white cow
 M 0 46 1 666 100 0 0 0             * Xena, warrior princess
 M 0 2 1 1212 100 0 0 0             * (mob type not in this .mob file)
 M 0 1227 1 1227 100 0 0 0          * Kdaron
-E 1 1232 1 11 100 0 0 0            *   a Happy Noodle Boy comic book
-E 1 1231 1 16 100 0 0 0            *   the skull tipped dagger of Orcus
-G 1 1229 1 0 100 0 0 0             *    Happy Fun Ball
+E 1 1232 1 11 100 0 0 0            *   (object type not in this .obj file)
+E 1 1231 1 16 100 0 0 0            *   (object type not in this .obj file)
+G 1 1229 1 0 100 0 0 0             *    (object type not in this .obj file)
 M 0 300 1 1228 100 0 0 0           * The Demon Steed of Paradox
 *
 S
