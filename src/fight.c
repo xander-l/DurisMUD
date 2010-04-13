@@ -7725,7 +7725,7 @@ int parrySucceed(P_char victim, P_char attacker, P_obj wpn)
   {
     expertparry = GET_CHAR_SKILL(victim, SKILL_EXPERT_PARRY);
     // 125 percent max bonus
-    learnedvictim *= (int) (1 + expertparry/400);
+    learnedvictim = (int) (learnedvictim * (1 + expertparry/400));
   }
   
   //  Blademasters and swashbucklers have a better chance.
