@@ -2166,8 +2166,12 @@ void enter_game(P_desc d)
 
 
   /* initialize infobar */
-  if (IS_SET(ch->specials.act, PLR_SMARTPROMPT) && IS_ANSI_TERM(d))
-    InitScreen(ch);
+  // Disabling
+  
+  if(IS_SET(ch->specials.act, PLR_SMARTPROMPT))
+     REMOVE_BIT(ch->specials.act, PLR_SMARTPROMPT);     
+  //if (IS_SET(ch->specials.act, PLR_SMARTPROMPT) && IS_ANSI_TERM(d))
+  //  InitScreen(ch);
 
   schedule_pc_events(ch);
 

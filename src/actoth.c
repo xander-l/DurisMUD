@@ -4344,16 +4344,16 @@ void do_toggle(P_char ch, char *arg, int cmd)
     }
     break;
   case 22:
-    result = PLR_TOG_CHK(ch, PLR_SMARTPROMPT);
-    if (!IS_SET(ch->specials.act, PLR_SMARTPROMPT))
-    {
-      sprintf(buf, VT_HOMECLR);
-      send_to_char(buf, ch);
-      sprintf(buf, VT_MARGSET, 0, ch->only.pc->screen_length);
-      send_to_char(buf, ch);
-    }
-    else
-      InitScreen(ch);
+    // result = PLR_TOG_CHK(ch, PLR_SMARTPROMPT);
+    // if (!IS_SET(ch->specials.act, PLR_SMARTPROMPT))
+    // {
+      // sprintf(buf, VT_HOMECLR);
+      // send_to_char(buf, ch);
+      // sprintf(buf, VT_MARGSET, 0, ch->only.pc->screen_length);
+      // send_to_char(buf, ch);
+    // }
+    // else
+      // InitScreen(ch);
     break;
   case 23:
     if (IS_MORPH(send_ch))
