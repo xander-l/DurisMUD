@@ -465,7 +465,7 @@ void stop_follower(P_char ch)
     act("$n stops following $N.", TRUE, ch, 0, ch->following, TO_NOTVICT);
     act("$n stops following you.", TRUE, ch, 0, ch->following, TO_VICT);
   }
-
+  
   if (ch->following->followers->follower == ch)
   {                             /* Head of follower-list?  */
     k = ch->following->followers;
@@ -504,12 +504,14 @@ void stop_all_followers(P_char ch)
     logit(LOG_DEBUG, "NULL ch in stop_all_followers");
     return;
   }
-  for (k = ch->followers; k; k = j)
-  {
-    j = k->next;
-    if (k->follower)
-      stop_follower(k->follower);
-  }
+  
+  if(ch->followers) 
+    for (k = ch->followers; k; k = j)
+    {
+      j = k->next;
+      if (k->follower)
+        stop_follower(k->follower);
+    }
 }
 
 /*
