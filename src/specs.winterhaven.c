@@ -1339,7 +1339,7 @@ int dagger_ra(P_obj obj, P_char ch, int cmd, char *arg)
   }
     
   if(cmd == CMD_MELEE_HIT &&
-     !number(0, 99) && // 2%
+     !number(0, 49) && // 2%
      CheckMultiProcTiming(ch))
   {
     P_char vict = (P_char) arg;
