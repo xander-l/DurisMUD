@@ -120,13 +120,13 @@ const int rowing_crew_list[MAXCREWS] = { 12, -1, -1, -1 , -1, -1, -1, -1, -1, -1
 const WeaponData weapon_data[MAXWEAPON] = {
 // Name                          Cost Weight Ammo    Min     Max     Min     Max  Fragments Damage  Sail   Hull    Sail    Armor   Reload  Reload  Volley      Flags
 //                                                  range   range  damage  damage   count     arc    hit  damage  damage  pierce     time stamina    time 
- { "Small Ballistae",          50000,    3,   90,      0,      8,      2,      4,      1,      10,   20,    100,     50,     10,      30,      3,      7,  WPNFLAG01 },
- { "Medium Ballistae",        100000,    6,   60,      0,     10,      4,      6,      1,      10,   20,    100,     50,     10,      30,      5,      8,  WPNFLAG02 },
+ { "Small Ballistae",          50000,    3,   60,      0,      8,      2,      4,      1,      10,   20,    100,     50,     10,      30,      3,      7,  WPNFLAG01 },
+ { "Medium Ballistae",        100000,    6,   50,      0,     10,      4,      6,      1,      10,   20,    100,     50,     10,      30,      5,      8,  WPNFLAG02 },
  { "Large Ballistae",         500000,   10,   30,      0,     12,      6,      9,      1,      10,   20,    100,     50,     10,      30,      7,     10,  WPNFLAG03 },
  { "Small Catapult",          500000,   10,   30,      4,     15,      2,      3,      4,     160,   20,    100,    100,      2,      30,     10,     18,  WPNFLAG04 },
  { "Medium Catapult",         800000,   13,   20,      5,     20,      2,      4,      5,     260,   20,    100,    100,      2,      30,     15,     24,  WPNFLAG05 },
  { "Large Catapult",         1200000,   17,   12,      6,     25,      2,      5,      6,     360,   20,    100,    100,      2,      30,     20,     30,  WPNFLAG06 },
- { "Heavy Ballistae",        1000000,   15,    6,      0,      5,     15,     25,      1,      10,    0,    100,      0,     15,      30,     20,      3,  WPNFLAG07 },
+ { "Heavy Ballistae",        1000000,   15,    6,      0,      5,     15,     22,      1,      10,    0,    100,      0,     15,      30,     20,      3,  WPNFLAG07 },
  { "Quartz Beamcannon",      4000000,    7,   40,      0,     20,      4,     16,      1,      10,   20,    100,     50,     15,      45,     10,      0,  WPNFLAG08 },
  { "Darkstone Beamcannon",   5000000,    9,   40,      0,     23,      5,     22,      1,      10,   20,    100,     50,     15,      45,     12,      0,  WPNFLAG09 },
  { "Mind Blast Cannon",      4000000,    5,   50,      0,     20,      0,      0,      1,      10,    0,      0,      0,      0,      45,      2,      0,  WPNFLAG10 },
@@ -184,7 +184,7 @@ const ShipArcProperties ship_arc_properties[MAXSHIPCLASS] = {
   { {  2,   3,   1,   3 },   { 30,  40,  30,  40 },   {  67,  84,  50,  84 },   {  29,  36,  18,  36 } }, // Destroyer
   { {  2,   3,   2,   3 },   { 34,  45,  34,  45 },   {  87, 109,  65, 109 },   {  38,  47,  23,  47 } }, // Cruiser
   { {  2,   4,   2,   4 },   { 42,  60,  42,  60 },   { 122, 153,  91, 153 },   {  53,  66,  33,  66 } }, // Frigate
-  { {  3,   5,   2,   5 },   { 52,  75,  52,  75 },   { 153, 191, 115, 191 },   {  66,  83,  41,  83 } }, // Dreadnought
+  { {  3,   5,   2,   5 },   { 52,  75,  52,  75 },   { 183, 229, 138, 229 },   {  79,  99,  49,  99 } }, // Dreadnought
 };                                                                              
 
 extern const int ship_allowed_weapons[MAXSHIPCLASS][MAXWEAPON];

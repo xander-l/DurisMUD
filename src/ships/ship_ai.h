@@ -49,11 +49,15 @@ struct ShipCombatAI
 {
     P_ship ship;
     P_char debug_char;
+    bool is_heavy_ship;
+    bool is_multi_target;
+
     int t_bearing;
     int t_arc;
     int your_arc;
     float t_range;
     int t_x, t_y;
+    int contacts_count;
 
     bool out_of_ammo;
 
@@ -93,6 +97,7 @@ struct ShipCombatAI
 
     bool weapon_ok(int w_num);
     bool check_ammo();
+    bool is_valid_target(P_ship t);
     void check_weapons();
     int check_dir_for_land(int heading, float range);
     int check_dir_for_land_from_target(int heading, float range);

@@ -132,17 +132,17 @@ Updated with warships. Nov08 -Lucrot
 #define RANGEDAM         BIT_9
 
 
-#define W_SMALL_BALLISTA    0
-#define W_MEDIUM_BALLISTA   1
-#define W_LARGE_BALLISTA    2
-#define W_SMALL_CATAPULT    3
-#define W_MEDIUM_CATAPULT   4
-#define W_LARGE_CATAPULT    5  
-#define W_HEAVY_BALLISTA    6
+#define W_SMALL_BAL         0
+#define W_MEDIUM_BAL        1
+#define W_LARGE_BAL         2
+#define W_SMALL_CAT         3
+#define W_MEDIUM_CAT        4
+#define W_LARGE_CAT         5  
+#define W_HEAVY_BAL         6
 #define W_QUARTZ            7
 #define W_DARKSTONE         8
 #define W_MINDBLAST         9
-#define W_FRAG_CANON       10
+#define W_FRAG_CAN         10
 #define W_LONGTOM          11
 
 
@@ -506,7 +506,7 @@ void initialize_newships();
 void shutdown_newships();
 void update_crew(P_ship ship);
 void reset_crew_stamina(P_ship ship);
-bool ship_loose_frags(P_ship target, int frags);
+bool ship_loss_on_sink(P_ship target, int frags);
 bool ship_gain_frags(P_ship ship, int frags);
 void setcrew(P_ship ship, int crew_index, int skill);
 void update_ship_status(P_ship ship, P_ship attacker = 0);
@@ -546,7 +546,6 @@ void newshipfrags();
 void crash_land(P_ship ship);
 
 void setarmor(P_ship ship, bool equal);
-void setcrew(P_ship ship, int crew_index, int exp);
 void set_weapon(P_ship ship, int slot, int w_num, int arc);
 void clear_ship_layout(P_ship ship);
 void set_ship_layout(P_ship ship, int m_class);

@@ -391,6 +391,12 @@ ShipCombatAI::ShipCombatAI(P_ship s, P_char ch)
     t_y = 0;
     debug_char = ch;
 
+    if (ship->m_class == SH_DREADNOUGHT)
+    {
+        is_heavy_ship = true;
+        is_multi_target = true;
+    }
+
     out_of_ammo = false;
 
     for (int i = 0; i < 4;i++) 
@@ -418,13 +424,13 @@ bool ShipCombatAI::weapon_ok(int w_num)
 bool ShipCombatAI::find_target()
 {
     bool found_target = false;
-    int k = getcontacts(ship);
+    contacts_count = getcontacts(ship);
 
     // looking for a target
     // first, trying to find original target within range
     if (ship->target != 0)
     {
-        for (int i = 0; i < k; i++) 
+        for (int i = 0; i < contacts_count; i++) 
         {
             if (SHIPISDOCKED(contacts[i].ship) || SHIPSINKING(contacts[i].ship)) continue;
             if (contacts[i].ship == ship->target)
@@ -443,10 +449,9 @@ bool ShipCombatAI::find_target()
     if (!found_target)
     {
         send_message_to_debug_char("Could not find the current target\n");
-        for (int i = 0; i < k; i++) 
+        for (int i = 0; i < contacts_count; i++) 
         {
-            if (SHIPISDOCKED(contacts[i].ship) || SHIPSINKING(contacts[i].ship)) continue;
-            if (contacts[i].ship->race == GOODIESHIP || contacts[i].ship->race == EVILSHIP)
+            if (is_valid_target(contacts[i].ship))
             {
                 found_target = true;
                 ship->target = contacts[i].ship;
@@ -472,6 +477,15 @@ bool ShipCombatAI::find_target()
     }
 }
 
+bool ShipCombatAI::is_valid_target(P_ship tar)
+{
+    if (SHIPISDOCKED(tar))
+        return false;
+    if (SHIPSINKING(tar))
+        return false;
+    return (tar->race == GOODIESHIP || tar->race == EVILSHIP);
+}
+
 void ShipCombatAI::try_attack()
 {    // if we have a ready gun pointing to target in range and enough stamina, fire it right away!
     for (int w_num = 0; w_num < MAXSLOTS; w_num++) 
@@ -481,12 +495,35 @@ void ShipCombatAI::try_attack()
             if (!weapon_ready_to_fire(ship, w_num))
                 continue;
             int w_index = ship->slot[w_num].index;
-            if (ship->slot[w_num].position == t_arc &&
-                t_range > (float)weapon_data[w_index].min_range && 
-                t_range < (float)weapon_data[w_index].max_range &&
-                ship->guncrew.stamina > weapon_data[w_index].reload_stamina)
+            if (is_multi_target)
             {
-                fire_weapon(ship, debug_char, w_num);
+                for (int i = 0; i < contacts_count; i++) 
+                {
+                    if (is_valid_target(contacts[i].ship))
+                    {
+                        int t_a = getarc(ship->heading, contacts[i].bearing);
+                        if (ship->slot[w_num].position == t_a &&
+                            contacts[i].range > (float)weapon_data[w_index].min_range && 
+                            contacts[i].range < (float)weapon_data[w_index].max_range &&
+                            ship->guncrew.stamina > weapon_data[w_index].reload_stamina)
+                        {
+                            P_ship cur_t = ship->target;
+                            ship->target = contacts[i].ship;
+                            fire_weapon(ship, debug_char, w_num);
+                            ship->target = cur_t;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (ship->slot[w_num].position == t_arc &&
+                    t_range > (float)weapon_data[w_index].min_range && 
+                    t_range < (float)weapon_data[w_index].max_range &&
+                    ship->guncrew.stamina > weapon_data[w_index].reload_stamina)
+                {
+                    fire_weapon(ship, debug_char, w_num);
+                }
             }
         }
     }
@@ -656,7 +693,10 @@ bool ShipCombatAI::try_turn_active_weapon()
     {
         if (active_arc[arc_priority[i]] < 4) // there is weapon ready or almost ready to fire, turning
         {
-            new_heading = t_bearing - get_arc_main_bearing(arc_priority[i]);
+            int n_h = t_bearing - get_arc_main_bearing(arc_priority[i]);
+            if (is_heavy_ship && arc_priority[i] == SLOT_REAR &&  ((n_h - ship->heading) > 60 || (n_h - ship->heading) < -60))
+                continue; // not turning heavy ship's rear (TODO: check if rear is the only remaining side)
+            new_heading = n_h;
             send_message_to_debug_char("Turning active weapon arc %s: ", get_arc_name(arc_priority[i]));
             return true;
         }
@@ -671,6 +711,9 @@ bool ShipCombatAI::try_turn_reloading_weapon()
     {
         if (active_arc[i] < best_time)
         {
+            int n_h = t_bearing - get_arc_main_bearing(i);
+            if (is_heavy_ship && i == SLOT_REAR && ((n_h - ship->heading) > 60 || (n_h - ship->heading) < -60))
+                continue; // not turning heavy ship's rear (TODO: check if rear is the only remaining side)
             best_time = active_arc[i];
             best_arc = i;
         }
@@ -1171,22 +1214,154 @@ struct NPCShipSetup
     void (*setup)(P_ship);
 };
 
-void setup_npc_01(P_ship ship)
+void setup_npc_corvette_01(P_ship ship) // level 1
 {
-    set_weapon(ship, 0, W_MEDIUM_CATAPULT, FORE);
-    set_weapon(ship, 1, W_MEDIUM_BALLISTA, STARBOARD);
-    set_weapon(ship, 2, W_LARGE_BALLISTA, STARBOARD);
-    set_weapon(ship, 3, W_SMALL_CATAPULT, REAR);
-    setcrew(ship, 1, 3600);
-    setcrew(ship, 6, 2500);
-    setcrew(ship, 10, 2500);
+    set_weapon(ship, 0, W_SMALL_CAT, FORE);
+    set_weapon(ship, 1, W_MEDIUM_BAL, STARBOARD);
+    set_weapon(ship, 2, W_MEDIUM_BAL, STARBOARD);
+    setcrew(ship, sail_crew_list[0], 300000);
+    setcrew(ship, gun_crew_list[0], 300000);
+    setcrew(ship, repair_crew_list[0], 300000);
+}
+void setup_npc_corvette_02(P_ship ship) // level 1
+{
+    set_weapon(ship, 0, W_SMALL_CAT, FORE);
+    set_weapon(ship, 1, W_MEDIUM_BAL, PORT);
+    set_weapon(ship, 2, W_MEDIUM_BAL, STARBOARD);
+    setcrew(ship, sail_crew_list[0], 300000);
+    setcrew(ship, gun_crew_list[0], 300000);
+    setcrew(ship, repair_crew_list[0], 300000);
+}
+void setup_npc_corvette_03(P_ship ship) // level 1
+{
+    set_weapon(ship, 0, W_SMALL_CAT, FORE);
+    set_weapon(ship, 1, W_SMALL_BAL, PORT);
+    set_weapon(ship, 2, W_SMALL_BAL, PORT);
+    set_weapon(ship, 3, W_SMALL_BAL, STARBOARD);
+    set_weapon(ship, 4, W_SMALL_BAL, STARBOARD);
+    setcrew(ship, sail_crew_list[0], 300000);
+    setcrew(ship, gun_crew_list[0], 300000);
+    setcrew(ship, repair_crew_list[0], 300000);
+}
+void setup_npc_corvette_04(P_ship ship) // level 2
+{
+    set_weapon(ship, 0, W_SMALL_CAT, FORE);
+    set_weapon(ship, 1, W_SMALL_BAL, PORT);
+    set_weapon(ship, 2, W_SMALL_BAL, PORT);
+    set_weapon(ship, 3, W_SMALL_BAL, PORT);
+    set_weapon(ship, 4, W_SMALL_BAL, STARBOARD);
+    set_weapon(ship, 5, W_SMALL_BAL, STARBOARD);
+    set_weapon(ship, 6, W_SMALL_BAL, STARBOARD);
+    ship->frags = number(300, 500);
+    setcrew(ship, sail_crew_list[1], 800000);
+    setcrew(ship, gun_crew_list[2], 800000);
+    setcrew(ship, repair_crew_list[1], 800000);
+}
+void setup_npc_corvette_05(P_ship ship) // level 2
+{
+    set_weapon(ship, 0, W_MEDIUM_CAT, FORE);
+    set_weapon(ship, 1, W_LARGE_BAL, PORT);
+    set_weapon(ship, 2, W_LARGE_BAL, PORT);
+    ship->frags = number(400, 600);
+    setcrew(ship, sail_crew_list[2], 1500000);
+    setcrew(ship, gun_crew_list[3], 1500000);
+    setcrew(ship, repair_crew_list[1], 1500000);
+}
+
+void setup_npc_corvette_06(P_ship ship) // level 2
+{
+    set_weapon(ship, 0, W_MEDIUM_CAT, FORE);
+    set_weapon(ship, 1, W_LARGE_BAL, STARBOARD);
+    set_weapon(ship, 2, W_LARGE_BAL, PORT);
+    ship->frags = number(400, 600);
+    setcrew(ship, sail_crew_list[2], 1500000);
+    setcrew(ship, gun_crew_list[3], 1500000);
+    setcrew(ship, repair_crew_list[1], 1500000);
+}
+
+void setup_npc_corvette_07(P_ship ship) // level 2
+{
+    set_weapon(ship, 0, W_MEDIUM_CAT, FORE);
+    set_weapon(ship, 1, W_MEDIUM_BAL, STARBOARD);
+    set_weapon(ship, 2, W_MEDIUM_BAL, STARBOARD);
+    set_weapon(ship, 3, W_MEDIUM_BAL, STARBOARD);
+    ship->frags = number(400, 600);
+    setcrew(ship, sail_crew_list[2], 1800000);
+    setcrew(ship, gun_crew_list[3], 1500000);
+    setcrew(ship, repair_crew_list[1], 1500000);
+}
+
+void setup_npc_corvette_08(P_ship ship) // level 2
+{
+    set_weapon(ship, 0, W_MEDIUM_CAT, FORE);
+    set_weapon(ship, 1, W_SMALL_CAT, REAR);
+    set_weapon(ship, 2, W_SMALL_BAL, STARBOARD);
+    set_weapon(ship, 3, W_SMALL_BAL, STARBOARD);
+    set_weapon(ship, 4, W_SMALL_BAL, PORT);
+    set_weapon(ship, 5, W_SMALL_BAL, PORT);
+    ship->frags = number(500, 700);
+    setcrew(ship, sail_crew_list[2], 1500000);
+    setcrew(ship, gun_crew_list[3], 1500000);
+    setcrew(ship, repair_crew_list[1], 1500000);
+}
+
+void setup_npc_dreadnought_01(P_ship ship) // level 4
+{
+    set_weapon(ship, 0, W_LONGTOM, FORE);
+    set_weapon(ship, 1, W_FRAG_CAN, FORE);
+    set_weapon(ship, 2, W_LARGE_CAT, FORE);
+    set_weapon(ship, 3, W_HEAVY_BAL, STARBOARD);
+    set_weapon(ship, 4, W_HEAVY_BAL, STARBOARD);
+    set_weapon(ship, 5, W_HEAVY_BAL, STARBOARD);
+    set_weapon(ship, 6, W_HEAVY_BAL, STARBOARD);
+    set_weapon(ship, 7, W_LARGE_BAL, PORT);
+    set_weapon(ship, 8, W_LARGE_BAL, PORT);
+    set_weapon(ship, 9, W_LARGE_BAL, PORT);
+    set_weapon(ship,10, W_LARGE_BAL, PORT);
+    set_weapon(ship,11, W_LARGE_BAL, PORT);
+    set_weapon(ship,12, W_SMALL_CAT, REAR);
+    set_weapon(ship,13, W_SMALL_CAT, REAR);
+    ship->frags = number(3000, 4000);
+    setcrew(ship, sail_crew_list[3], 7500000);
+    setcrew(ship, gun_crew_list[4], 7500000);
+    setcrew(ship, repair_crew_list[2], 7500000);
+}
+
+void setup_npc_dreadnought_02(P_ship ship) // level 4
+{
+    set_weapon(ship, 0, W_LONGTOM, FORE);
+    set_weapon(ship, 1, W_LARGE_CAT, FORE);
+    set_weapon(ship, 2, W_LARGE_CAT, FORE);
+    set_weapon(ship, 3, W_LARGE_BAL, STARBOARD);
+    set_weapon(ship, 4, W_LARGE_BAL, STARBOARD);
+    set_weapon(ship, 5, W_LARGE_BAL, STARBOARD);
+    set_weapon(ship, 6, W_LARGE_BAL, STARBOARD);
+    set_weapon(ship, 7, W_LARGE_BAL, STARBOARD);
+    set_weapon(ship, 8, W_LARGE_BAL, PORT);
+    set_weapon(ship, 9, W_LARGE_BAL, PORT);
+    set_weapon(ship,10, W_LARGE_BAL, PORT);
+    set_weapon(ship,11, W_LARGE_BAL, PORT);
+    set_weapon(ship,12, W_LARGE_BAL, PORT);
+    set_weapon(ship,13, W_MINDBLAST, REAR);
+    ship->frags = number(3000, 4000);
+    setcrew(ship, sail_crew_list[3], 7500000);
+    setcrew(ship, gun_crew_list[4], 7500000);
+    setcrew(ship, repair_crew_list[2], 7500000);
 }
 
 
 NPCShipSetup npcShipSetup [] = {
-    { SH_CORVETTE, 1, &setup_npc_01 },
+    { SH_CORVETTE, 1, &setup_npc_corvette_01 },
+    { SH_CORVETTE, 1, &setup_npc_corvette_02 },
+    { SH_CORVETTE, 1, &setup_npc_corvette_03 },
+    { SH_CORVETTE, 2, &setup_npc_corvette_04 },
+    { SH_CORVETTE, 2, &setup_npc_corvette_05 },
+    { SH_CORVETTE, 2, &setup_npc_corvette_06 },
+    { SH_CORVETTE, 2, &setup_npc_corvette_07 },
+    { SH_CORVETTE, 2, &setup_npc_corvette_08 },
+    { SH_DREADNOUGHT, 4, &setup_npc_dreadnought_01 },
+    { SH_DREADNOUGHT, 4, &setup_npc_dreadnought_02 },
 };
-
 
 P_ship load_npc_ship(int m_class, int level, int room, P_char ch = 0)
 {
@@ -1217,10 +1392,11 @@ P_ship load_npc_ship(int m_class, int level, int room, P_char ch = 0)
         if (i == sizeof(npcShipSetup) / sizeof(NPCShipSetup))
         {
             if (ii == 0)
-                return 0; // there is no such ship setups in list
+                return 0; // there is no such ship setup in list
             i = 0;
         }
     }
+
     npcShipSetup[i].setup(ship);
 
     int name_index = number(0, sizeof(pirateShipNames)/sizeof(char*) - 1);
@@ -1229,12 +1405,13 @@ P_ship load_npc_ship(int m_class, int level, int room, P_char ch = 0)
     ship->race = NPCSHIP;
     ship->combat_ai = new ShipCombatAI(ship, ch);
     ship->ownername = 0;
-
+    
     if (!loadship(ship, room))
     {
         if (ch) send_to_char("Couldnt load npc ship!\r\n", ch);
         return false;
     }
+    
     ship->anchor = 0;
     REMOVE_BIT(ship->flags, DOCKED);
     return ship;
@@ -1264,7 +1441,7 @@ bool try_load_pirate_ship(P_ship target, P_char ch)
         return false;
     }
 
-    P_ship ship = load_npc_ship(SH_CORVETTE, 1, location, ch);
+    P_ship ship = load_npc_ship(SH_DREADNOUGHT, 4, location, ch);
 
     ship->target = target;
     int ship_heading = dir + 180;
@@ -1276,3 +1453,6 @@ bool try_load_pirate_ship(P_ship target, P_char ch)
     ship->speed = ship_speed;
     return true;
 }
+
+
+

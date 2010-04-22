@@ -2003,7 +2003,7 @@ int look_contacts(P_char ch, P_ship ship)
         const char* target_indicator2 =  (contacts[i].ship == ship->target) ? "&+G" : "";
 
         sprintf(buf,
-          "%s[&N%s%s&N%s]&N %s%-30s&N X:%-3d Y:%-3d Z:%-3d R:%-5.1f B:%-3d H:%-3d S:%-3d|%s%s\r\n",
+          "%s[&N%s%s&N%s]&N %s%-30s X:%-3d Y:%-3d Z:%-3d R:%-5.1f B:%-3d H:%-3d S:%-3d&N|%s%s\r\n",
           race_indicator,
           target_indicator1,
           contacts[i].ship->id, 
@@ -2874,79 +2874,92 @@ void finish_sinking(P_ship ship)
     act_to_outside_ships(ship, buf, ship);
     everyone_get_out_newship(ship);
 
-    int insurance = 0;
-    if (ship->m_class > 0 && ship->m_class < MAXSHIPCLASSMERCHANT) // no insurance for sloops
-        insurance = (int)(SHIPTYPECOST(ship->m_class) * 0.75);
-    else if (ship->m_class >= MAXSHIPCLASSMERCHANT)
-        insurance = (int)(SHIPTYPECOST(ship->m_class) * 0.50);  // only partial insurance for warships
-
-
-    if (P_char owner = get_char2(str_dup(SHIPOWNER(ship))))
+    if (ship->race != NPCSHIP)
     {
-		GET_BALANCE_PLATINUM(owner) += insurance / 1000;
-		wizlog(56, "Ship insurance to account: %d", insurance / 1000);
-		logit(LOG_SHIP, "%s's insurance deposit to account: %d", ship->ownername, insurance / 1000);
-    }
-    else
-    {
-        ship->money = insurance; // if owner is not online, money go into ships coffer
-        wizlog(56, "Ship insurance to ship's coffer: %d", insurance / 1000);
-        logit(LOG_SHIP, "%s's insurance to ship's coffer: %d", ship->ownername, insurance / 1000);
-    }
 
-    int old_class = ship->m_class;
-    ship->m_class = 0; // all ships become sloops after sinking
-    setarmor(ship, true);
-    if (old_class > 0)
-       ship->mainsail = SHIPTYPEMAXSAIL(ship->m_class);
-    else
-       ship->mainsail = 0;
+        int insurance = 0;
+        if (ship->m_class != SH_SLOOP) // no insurance for sloops
+        {
+            if (ship->timer[T_MAINTENANCE] > 0)
+                insurance = (int)(SHIPTYPECOST(ship->m_class) * 0.90); // if sunk by NPC, you loose same amount as for switching hulls
+            else if (ship->m_class < MAXSHIPCLASSMERCHANT) 
+                insurance = (int)(SHIPTYPECOST(ship->m_class) * 0.75);
+            else if (ship->m_class >= MAXSHIPCLASSMERCHANT)
+                insurance = (int)(SHIPTYPECOST(ship->m_class) * 0.50);  // only partial insurance for warships
+        }
 
-    clear_ship_layout(ship);
-    set_ship_layout(ship, ship->m_class);
-    reset_ship_physical_layout(ship);
-    nameship(ship->name, ship);
 
-    ship->timer[T_UNDOCK] = 0; 
-    ship->timer[T_MANEUVER] = 0; 
-    ship->timer[T_SINKING] = 0; 
-    ship->timer[T_BSTATION] = 0; 
-    ship->timer[T_RAM] = 0; 
-    ship->timer[T_RAM_WEAPONS] = 0; 
-    ship->timer[T_MAINTENANCE] = 0; 
-    ship->timer[T_MINDBLAST] = 0; 
+        if (P_char owner = get_char2(str_dup(SHIPOWNER(ship))))
+        {
+		    GET_BALANCE_PLATINUM(owner) += insurance / 1000;
+		    wizlog(56, "Ship insurance to account: %d", insurance / 1000);
+		    logit(LOG_SHIP, "%s's insurance deposit to account: %d", ship->ownername, insurance / 1000);
+        }
+        else
+        {
+            ship->money = insurance; // if owner is not online, money go into ships coffer
+            wizlog(56, "Ship insurance to ship's coffer: %d", insurance / 1000);
+            logit(LOG_SHIP, "%s's insurance to ship's coffer: %d", ship->ownername, insurance / 1000);
+        }
+
+        int old_class = ship->m_class;
+        ship->m_class = 0; // all ships become sloops after sinking
+        setarmor(ship, true);
+        if (old_class > 0)
+           ship->mainsail = SHIPTYPEMAXSAIL(ship->m_class);
+        else
+           ship->mainsail = 0;
+
+        clear_ship_layout(ship);
+        set_ship_layout(ship, ship->m_class);
+        reset_ship_physical_layout(ship);
+        nameship(ship->name, ship);
+
+        ship->timer[T_UNDOCK] = 0; 
+        ship->timer[T_MANEUVER] = 0; 
+        ship->timer[T_SINKING] = 0; 
+        ship->timer[T_BSTATION] = 0; 
+        ship->timer[T_RAM] = 0; 
+        ship->timer[T_RAM_WEAPONS] = 0; 
+        ship->timer[T_MAINTENANCE] = 0; 
+        ship->timer[T_MINDBLAST] = 0; 
                      
-    if(IS_SET(ship->flags, MAINTENANCE)) 
-        REMOVE_BIT(ship->flags, MAINTENANCE); 
-    if(IS_SET(ship->flags, SINKING)) 
-        REMOVE_BIT(ship->flags, SINKING); 
-    if(IS_SET(ship->flags, RAMMING)) 
-        REMOVE_BIT(ship->flags, RAMMING); 
-    if(IS_SET(ship->flags, ANCHOR)) 
-        REMOVE_BIT(ship->flags, ANCHOR); 
-    if(IS_SET(ship->flags, SUMMONED)) 
-        REMOVE_BIT(ship->flags, SUMMONED); 
+        if(IS_SET(ship->flags, MAINTENANCE)) 
+            REMOVE_BIT(ship->flags, MAINTENANCE); 
+        if(IS_SET(ship->flags, SINKING)) 
+            REMOVE_BIT(ship->flags, SINKING); 
+        if(IS_SET(ship->flags, RAMMING)) 
+            REMOVE_BIT(ship->flags, RAMMING); 
+        if(IS_SET(ship->flags, ANCHOR)) 
+            REMOVE_BIT(ship->flags, ANCHOR); 
+        if(IS_SET(ship->flags, SUMMONED)) 
+            REMOVE_BIT(ship->flags, SUMMONED); 
 
-    for (int j = 0; j < MAXSLOTS; j++)
-        ship->slot[j].clear();
+        for (int j = 0; j < MAXSLOTS; j++)
+            ship->slot[j].clear();
 
-    ship->speed = 0;
-    ship->setspeed = 0;
+        ship->speed = 0;
+        ship->setspeed = 0;
     
-    // Holding room in Sea Kingdom
+        // Holding room in Sea Kingdom
 
-    int DAVY_JONES_LOCKER = 31725;
+        int DAVY_JONES_LOCKER = 31725;
     
-    obj_from_room(ship->shipobj);
-    obj_to_room(ship->shipobj, DAVY_JONES_LOCKER);
+        obj_from_room(ship->shipobj);
+        obj_to_room(ship->shipobj, DAVY_JONES_LOCKER);
     
-    ship->location = DAVY_JONES_LOCKER;
-    dock_ship(ship, DAVY_JONES_LOCKER);
+        ship->location = DAVY_JONES_LOCKER;
+        dock_ship(ship, DAVY_JONES_LOCKER);
 
-    reset_crew_stamina(ship);
-    update_ship_status(ship);
-    write_newship(ship);
-    return;
+        reset_crew_stamina(ship);
+        update_ship_status(ship);
+        write_newship(ship);
+    }
+    else
+    {
+        shipObjHash.erase(ship);
+        delete_ship(ship);
+    }
 }
 
 // This proc is added to all ship objects.
@@ -2979,12 +2992,12 @@ int shipobj_proc(P_obj obj, P_char ch, int cmd, char *arg)
         return FALSE;
 
       
-    if (ship->m_class >= MAXSHIPCLASSMERCHANT && ship->speed > 0 && !SHIPSINKING(ship))
+    if (ship->m_class >= MAXSHIPCLASSMERCHANT && ship->speed > 0 && !SHIPSINKING(ship) && !IS_TRUSTED(ch))
     {
        send_to_char("&+RThat ship is moving too fast to board!&n\r\n", ch);
        return TRUE;
     }
-    else if (ship->speed > BOARDING_SPEED && !SHIPSINKING(ship))
+    else if (ship->speed > BOARDING_SPEED && !SHIPSINKING(ship) && !IS_TRUSTED(ch))
     {
        send_to_char("&+RThat ship is moving too fast to board!&n\r\n", ch);
        return TRUE;
@@ -3056,14 +3069,17 @@ void newship_activity()
         if (!IS_SET(ship->flags, SINKING)) 
         {
             // STAMINA REGEN
+            int stamina_inc = 1;
+            if (ship->race == NPCSHIP && ship->m_class == SH_DREADNOUGHT)
+                stamina_inc = 5;
             if (ship->sailcrew.stamina < ship->sailcrew.max_stamina) 
-                ship->sailcrew.stamina += 1;
+                ship->sailcrew.stamina += stamina_inc;
             if (ship->guncrew.stamina < ship->guncrew.max_stamina) 
-                ship->guncrew.stamina += 1;
+                ship->guncrew.stamina += stamina_inc;
             if (ship->repaircrew.stamina < ship->repaircrew.max_stamina) 
-                ship->repaircrew.stamina += 1;
+                ship->repaircrew.stamina += stamina_inc;
             if (ship->rowingcrew.stamina < ship->rowingcrew.max_stamina) 
-                ship->rowingcrew.stamina += 1;
+                ship->rowingcrew.stamina += stamina_inc;
 
             // Battle Stations!
             if (ship->target != NULL)
@@ -3157,6 +3173,8 @@ void newship_activity()
                                     act_to_all_in_ship(ship, buf);
                                     ship->slot[j].timer = (int)((float)weapon_data[j].reload_time * (1.0 - ship->guncrew.skill_mod * 0.15));
                                 }
+                                if (!number(0, 4))
+                                    ship->repair--;
                                 if (ship->repair == 0)
                                     act_to_all_in_ship(ship, "&+RThe ship is out of repair materials!.&N");
                             }
@@ -4953,7 +4971,7 @@ int buy_hull(P_char ch, P_ship ship, int owned, char* arg1, char* arg2)
         return TRUE;
     }
 
-    if (SHIPTYPECOST(i) == 0) 
+    if (SHIPTYPECOST(i) == 0 && !IS_TRUSTED(ch)) 
     {
         send_to_char ("You can not buy this hull.\r\n", ch);
         return TRUE;

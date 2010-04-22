@@ -321,6 +321,14 @@ int calc_salvage(P_ship target)
     return salvage;
 }
 
+int calc_frag_gain(P_ship ship)
+{
+    if (ship->race != NPCSHIP)
+        return SHIPHULLWEIGHT(ship);
+    else
+        return 0; // TODO: maybe some for certain NPS's
+}
+
 int calc_bounty(P_ship target)
 {
     return (int) ( target->frags * 10000 / get_property("ship.sinking.rewardDivider", 7.0) );
@@ -348,17 +356,21 @@ bool ship_gain_frags(P_ship ship, int frags)
   return true;
 }
 
-bool ship_loose_frags(P_ship target, int frags)
+bool ship_loss_on_sink(P_ship target, int frags)
 {
+  float members_loss;
+  if (frags > 0)
+      members_loss = 15.0 + (float)frags / 30.0;
+  else
+      members_loss = 5.0 + (float)SHIPHULLWEIGHT(target) / 100.0;
+
+  target->sailcrew.replace_members(members_loss);
+  target->guncrew.replace_members(members_loss);
+  target->repaircrew.replace_members(members_loss);
+
   if (frags > 0)
   {
     target->frags = MAX(0, target->frags - frags);
-
-    float members_loss = 15.0 + (float)frags / 30.0;
-
-    target->sailcrew.replace_members(members_loss);
-    target->guncrew.replace_members(members_loss);
-    target->repaircrew.replace_members(members_loss);
 
     if (target->frags < ship_crew_data[target->sailcrew.index].min_frags * 0.8)
     {
@@ -380,8 +392,9 @@ bool ship_loose_frags(P_ship target, int frags)
       act_to_all_in_ship(target, "&+RYour rowing crew abandons you, due to your reputation!");
       setcrew(target, rowing_crew_list[0], -1);
     }
-    update_crew(target);
   }
+
+  update_crew(target);
   return true;
 }
 
@@ -454,66 +467,75 @@ bool sink_ship(P_ship ship, P_ship attacker)
     if (attacker)
     {
         int frag_gain = 0;
-        if (attacker->race != ship->race)
-        {
-            frag_gain = SHIPHULLWEIGHT(ship);
-        }
-
-        int salvage = calc_salvage(ship);
-        wizlog(56, "Salvage %d", salvage);
-
+        int salvage = 0;
         int bounty = 0;
-        if ((ship->frags > 100) && attacker->race != ship->race)
+        if (attacker->race != NPCSHIP)
         {
-            bounty = calc_bounty(ship);
-            wizlog(56, "Bounty %d", bounty);
-        }
-
-        int fleet_size_grouped = 1;
-        int fleet_size_total = 1;
-        int k = getcontacts(ship);
-        for (i = 0; i < k; i++)
-        {
-            if (contacts[i].ship == attacker)
-                continue;
-            if (SHIPISDOCKED(contacts[i].ship))
-                continue;
-            if (contacts[i].ship->m_class == 0)
-                continue;
-            if (attacker->race == contacts[i].ship->race)
-               fleet_size_total++;
-
-            P_char ch1 = get_char2(str_dup(SHIPOWNER(contacts[i].ship)));
-            P_char ch2 = get_char2(str_dup(SHIPOWNER(attacker)));
-            
-            if (ch1 && ch2 && ch1->group && ch1->group == ch2->group)
+            if (attacker->race != ship->race)
             {
-                fleet_size_grouped++;
+                frag_gain = calc_frag_gain(ship);
+            }
+
+            salvage = calc_salvage(ship);
+            wizlog(56, "Salvage %d", salvage);
+
+            if ((ship->frags > 100) && attacker->race != ship->race)
+            {
+                bounty = calc_bounty(ship);
+                wizlog(56, "Bounty %d", bounty);
+            }
+
+            int fleet_size_grouped = 1;
+            int fleet_size_total = 1;
+            int k = getcontacts(ship);
+            for (i = 0; i < k; i++)
+            {
+                if (contacts[i].ship == attacker)
+                    continue;
+                if (SHIPISDOCKED(contacts[i].ship))
+                    continue;
+                if (contacts[i].ship->m_class == SH_SLOOP)
+                    continue;
+                if (attacker->race == contacts[i].ship->race)
+                   fleet_size_total++;
+
+                P_char ch1 = get_char2(str_dup(SHIPOWNER(contacts[i].ship)));
+                P_char ch2 = get_char2(str_dup(SHIPOWNER(attacker)));
+            
+                if (ch1 && ch2 && ch1->group && ch1->group == ch2->group)
+                {
+                    fleet_size_grouped++;
+                }
+            }
+
+            frag_gain = frag_gain / fleet_size_total;
+            salvage = salvage / fleet_size_grouped;
+            bounty = bounty / fleet_size_grouped;
+
+            for (i = 0; i < k; i++)
+            {
+                if (SHIPISDOCKED(contacts[i].ship))
+                    continue;
+                if (contacts[i].ship->m_class == SH_SLOOP)
+                    continue;
+
+                P_char ch1 = get_char2(str_dup(SHIPOWNER(contacts[i].ship)));
+                P_char ch2 = get_char2(str_dup(SHIPOWNER(attacker)));
+            
+                if (contacts[i].ship == attacker  || ( ch1 && ch2 && ch1->group && ch1->group == ch2->group) )
+                {
+                    ship_gain_frags(contacts[i].ship, frag_gain);
+                    ship_gain_money(contacts[i].ship, ship, salvage, bounty);
+                    write_newship(contacts[i].ship);
+                }
             }
         }
-
-        frag_gain = frag_gain / fleet_size_total;
-        salvage = salvage / fleet_size_grouped;
-        bounty = bounty / fleet_size_grouped;
-
-        for (i = 0; i < k; i++)
+        else
         {
-            if (SHIPISDOCKED(contacts[i].ship))
-                continue;
-            if (contacts[i].ship->m_class == 0)
-                continue;
-
-            P_char ch1 = get_char2(str_dup(SHIPOWNER(contacts[i].ship)));
-            P_char ch2 = get_char2(str_dup(SHIPOWNER(attacker)));
-            
-            if (contacts[i].ship == attacker  || ( ch1 && ch2 && ch1->group && ch1->group == ch2->group) )
-            {
-                ship_gain_frags(contacts[i].ship, frag_gain);
-                ship_gain_money(contacts[i].ship, ship, salvage, bounty);
-                write_newship(contacts[i].ship);
-            }
+            ship->timer[T_MAINTENANCE] = 1000; // TODO: how to transfer info about sinker to finish_sinking()?
         }
-        ship_loose_frags(ship, frag_gain);
+
+        ship_loss_on_sink(ship, frag_gain);
         write_newship(ship);
 
         if (attacker->target == ship)
