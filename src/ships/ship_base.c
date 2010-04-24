@@ -3465,8 +3465,8 @@ void newship_activity()
             if (ship->combat_ai)
                 ship->combat_ai->activity();
 
-            //if (number(0, 2000) == 0)
-            //    try_load_pirate_ship(ship);
+            if (number(0, 2000) == 0)
+                try_load_pirate_ship(ship);
         }
     }
 }
