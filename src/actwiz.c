@@ -9807,7 +9807,7 @@ void do_newb_spellup(P_char ch, char *arg, int cmd)
     logit(LOG_WIZ, "(%s) newb buffed: (%s).", GET_NAME(ch), GET_NAME(victim));
 
     //Insert cool ancii shit here
-    send_to_char(file_to_string("lib/creation/bender"), victim);
+    //send_to_char(file_to_string("lib/creation/bender"), victim);
 
     //And lets spellup the noob!  A little good will goes a long way.
     spell_armor(61, ch, 0, SPELL_TYPE_SPELL, victim, 0);
