@@ -1728,7 +1728,23 @@ int lock_target(P_char ch, P_ship ship, char* arg)
     }
     if (isname(arg, "pirate") && IS_TRUSTED(ch))
     {
-        ship->combat_ai = new ShipCombatAI(ship, ch);
+        if (ship->combat_ai)
+        {
+            delete ship->combat_ai;
+            ship->combat_ai = 0;
+        }
+        else
+            ship->combat_ai = new ShipCombatAI(ship, ch);
+    }
+    if (isname(arg, "debug") && IS_TRUSTED(ch))
+    {
+        if (ship->combat_ai)
+        {
+            if (ship->combat_ai->debug_char)
+                ship->combat_ai->debug_char = 0;
+            else
+                ship->combat_ai->debug_char = ch;
+        }
     }
 
 
@@ -2890,9 +2906,9 @@ void finish_sinking(P_ship ship)
         {
             if (SHIPSUNKBYNPC(ship))
                 insurance = (int)(SHIPTYPECOST(ship->m_class) * 0.90); // if sunk by NPC, you loose same amount as for switching hulls
-            else if (ship->m_class < MAXSHIPCLASSMERCHANT) 
+            else if (ISMERCHANT(ship)) 
                 insurance = (int)(SHIPTYPECOST(ship->m_class) * 0.75);
-            else if (ship->m_class >= MAXSHIPCLASSMERCHANT)
+            else if (ISWARSHIP(ship))
                 insurance = (int)(SHIPTYPECOST(ship->m_class) * 0.50);  // only partial insurance for warships
         }
 
@@ -3002,7 +3018,7 @@ int shipobj_proc(P_obj obj, P_char ch, int cmd, char *arg)
         return FALSE;
 
       
-    if (ship->m_class >= MAXSHIPCLASSMERCHANT && ship->speed > 0 && !SHIPSINKING(ship) && !IS_TRUSTED(ch))
+    if (ISWARSHIP(ship) && ship->speed > 0 && !SHIPSINKING(ship) && !IS_TRUSTED(ch))
     {
        send_to_char("&+RThat ship is moving too fast to board!&n\r\n", ch);
        return TRUE;

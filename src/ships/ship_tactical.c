@@ -771,10 +771,10 @@ int damage_sail(P_ship attacker, P_ship target, int dam)
 
     // debug("Sail damage after epic skill is: %d.", dam);
     
-    if(target->m_class >= MAXSHIPCLASSMERCHANT)
+    /*if(ISWARSHIP(target)) // already taken into account in hulls properties
     {
         dam = (int) (dam * get_property("warship.sails.damage.reduction", 0.85));
-    }
+    }*/
     
     if (dam < 1)
     {
@@ -1126,9 +1126,17 @@ int try_ram_ship(P_ship ship, P_ship target, int j)
         // Calculating damage
         int ram_damage = (SHIPHULLWEIGHT(ship) + 100) / 10;
         ram_damage = (int)((float)ram_damage * (0.4 * (float)ship->speed / (float)SHIPTYPESPEED(ship->m_class) + 0.6 * (float)ram_speed / (float)SHIPTYPESPEED(ship->m_class)));
+        if (tbearing < 40)
+            ram_damage *= (int)((float)ram_damage * (1.0 + 0.2 * (float)tbearing / 40.0));
+        else if (tbearing > 320)
+            ram_damage *= (int)((float)ram_damage * (1.0 + 0.2 * (float)(tbearing - 320) / 40.0));
 
         int counter_damage = (SHIPHULLWEIGHT(target) + 100) / 10;
         counter_damage = (int)((float)counter_damage * (0.1 + 0.3 * (float)ship->speed / (float)SHIPTYPESPEED(ship->m_class) + 0.4 * (float)counter_speed / (float)SHIPTYPESPEED(target->m_class)));
+        if (sbearing < 40)
+            counter_damage *= (int)((float)counter_damage * (1.0 + 0.2 * (float)sbearing / 40.0));
+        else if (sbearing > 320)
+            counter_damage *= (int)((float)counter_damage * (1.0 + 0.2 * (float)(sbearing - 320) / 40.0));
 
 
         //sprintf(buf, "SBearing = %d, TBearing = %d, RSpeed = %d, CSpeed = %d, RDam = %d, CDam = %d\r\n", sbearing, tbearing, ram_speed, counter_speed, ram_damage, counter_damage);

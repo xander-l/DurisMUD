@@ -98,8 +98,10 @@ Updated with warships. Nov08 -Lucrot
 #define SH_FRIGATE            10
 #define SH_DREADNOUGHT        11
 
+#define SHK_MERCHANT          1
+#define SHK_WARSHIP           2
+
 #define MAXSHIPCLASS          12
-#define MAXSHIPCLASSMERCHANT   7
 
 // Ship Flags
 #define LOADED              BIT_2
@@ -188,6 +190,7 @@ struct ShipTypeData
     int _minlevel;
     int _freeweapon;
     int _freecargo;
+    int _kind;
 };
 extern const ShipTypeData ship_type_data[MAXSHIPCLASS];
 extern const int ship_allowed_weapons[MAXSHIPCLASS][MAXWEAPON];
@@ -210,6 +213,7 @@ extern const int ship_allowed_weapons[MAXSHIPCLASS][MAXWEAPON];
 #define SHIPTYPEMINLEVEL(index) ship_type_data[(index)]._minlevel
 #define SHIPTYPEFREEWEAPON(index) ship_type_data[(index)]._freeweapon
 #define SHIPTYPEFREECARGO(index) ship_type_data[(index)]._freecargo
+#define SHIPTYPEKIND(index) ship_type_data[(index)]._kind
 
 struct ShipArcProperties
 {
@@ -469,10 +473,11 @@ extern struct ShipFragData shipfrags[10];
 #define SHIPSUNKBYNPC(shipdata) IS_SET((shipdata)->flags, SUNKBYNPC)
 #define SHIPIMMOBILE(shipdata) (shipdata->get_maxspeed() == 0)
 #define SHIPISDOCKED(shipdata) IS_SET((shipdata)->flags, DOCKED)
-//#define GUNCREWSTAT(shipdata, stat) guncrewstats[(shipdata)->guncrew.type][(stat)]
-//#define SAILCREWSTAT(shipdata, stat) sailcrewstats[(shipdata)->sailcrew.type][(stat)]
 #define SHIPANCHORED(shipdata) IS_SET((shipdata)->flags, ANCHOR)
 #define ISNPCSHIP(shipdata) ((shipdata)->race == NPCSHIP)
+#define ISMERCHANT(shipdata) (SHIPTYPEKIND((shipdata)->m_class) == SHK_MERCHANT)
+#define ISWARSHIP(shipdata) (SHIPTYPEKIND((shipdata)->m_class) == SHK_WARSHIP)
+
 
 //movement related stuff
 //#define SHIPX(shipdata) (shipdata)->x

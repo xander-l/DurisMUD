@@ -151,20 +151,20 @@ const char *internal_condition_prefix[3] = {
 extern const ShipTypeData ship_type_data[MAXSHIPCLASS];
 const ShipTypeData ship_type_data[MAXSHIPCLASS] = {
 
-//ID, Ship Type Name,      Cost,  ECost, Hull, Slots, MxWeight, Sail, MxCargo, MxContra, MxPeople,MxSpeed, HDDec, Accel, MinLvl, FreeWpn, FreeCrg, 
- { 1,        "Sloop",    100000,      0,   10,     1,     5,      20,    1,        0,       1,     100,    50,     30,       0,      0,       0   },
- { 2,        "Yacht",    500000,      0,   25,     4,    12,      40,    3,        0,       2,     100,    50,     25,       0,      2,       0   },
- { 3,      "Clipper",   3000000,      0,  110,     6,    55,      90,   10,        1,       5,      88,    40,     22,      20,      8,       0   },
- { 4,        "Ketch",   5000000,      0,  150,     8,    75,     100,   20,        3,       8,      76,    40,     16,      25,     10,       0   },
- { 5,      "Caravel",   8000000,      0,  200,     8,   100,     110,   35,        6,      10,      64,    30,     12,      30,     13,      10   },
- { 6,      "Carrack",  16000000,      0,  260,    10,   130,     120,   50,       10,      15,      54,    30,     10,      35,     16,      22   },
- { 7,      "Galleon",  24000000,      0,  330,    12,   165,     130,   70,       15,      20,      46,    20,      8,      40,     19,      40   },
+//ID, Ship Type Name,      Cost,  ECost, Hull, Slots, MxWeight, Sail, MxCargo, MxContra, MxPeople,MxSpeed, HDDec, Accel, MinLvl, FreeWpn, FreeCrg,     Kind
+ { 1,        "Sloop",    100000,      0,   10,     1,     5,      20,    1,        0,       1,     100,    50,     30,       0,      0,       0,   SHK_MERCHANT },
+ { 2,        "Yacht",    500000,      0,   25,     4,    12,      40,    3,        0,       2,     100,    50,     25,       0,      2,       0,   SHK_MERCHANT },
+ { 3,      "Clipper",   3000000,      0,  110,     6,    55,      90,   10,        1,       5,      88,    40,     22,      20,      8,       0,   SHK_MERCHANT },
+ { 4,        "Ketch",   5000000,      0,  150,     8,    75,     100,   20,        3,       8,      78,    35,     16,      25,     10,       0,   SHK_MERCHANT },
+ { 5,      "Caravel",   8000000,      0,  200,     8,   100,     110,   35,        6,      10,      68,    30,     12,      30,     13,      10,   SHK_MERCHANT },
+ { 6,      "Carrack",  16000000,      0,  260,    10,   130,     120,   50,       10,      15,      58,    25,     10,      35,     16,      22,   SHK_MERCHANT },
+ { 7,      "Galleon",  24000000,      0,  330,    12,   165,     130,   70,       15,      20,      50,    20,      8,      40,     19,      40,   SHK_MERCHANT },
                                                                                                                                                   
- { 8,     "Corvette",   7500000,      0,  165,     6,    82,     110,    0,        5,       6,      73,    40,     18,      31,     11,       0   },
- { 9,    "Destroyer",  15000000,      0,  220,     8,   110,     120,    0,        0,       8,      63,    35,     15,      36,     14,       0   },
- {10,      "Cruiser",  22000000,      0,  285,    10,   142,     130,    0,        0,      10,      53,    30,     12,      41,     18,       0   },
- {11,      "Frigate",  36000000,      0,  400,    12,   200,     150,    0,        5,      15,      42,    25,      8,      46,     23,       0   },
- {12,  "Dreadnought",         0,      0,  600,    14,   300,     200,    0,        0,      20,      40,    22,      6,      51,     32,       0   } 
+ { 8,     "Corvette",   7500000,      0,  165,     6,    82,     120,    0,        0,       6,      74,    40,     18,      31,     13,       0,   SHK_WARSHIP  },
+ { 9,    "Destroyer",  15000000,      0,  220,     8,   110,     130,    0,        0,       8,      64,    35,     15,      36,     16,       0,   SHK_WARSHIP  },
+ {10,      "Cruiser",  22000000,      0,  285,    10,   142,     140,    0,        0,      10,      55,    30,     12,      41,     20,       0,   SHK_WARSHIP  },
+ {11,      "Frigate",  36000000,      0,  400,    12,   200,     160,    0,        0,      15,      48,    25,      8,      46,     25,       0,   SHK_WARSHIP  },
+ {12,  "Dreadnought",         0,      0,  600,    14,   300,     200,    0,        0,      20,      46,    22,      6,      51,     32,       0,   SHK_WARSHIP  } 
 
 };
 

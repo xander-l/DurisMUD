@@ -500,11 +500,27 @@ void ShipCombatAI::try_attack()
             if (!weapon_ready_to_fire(ship, w_num))
                 continue;
             int w_index = ship->slot[w_num].index;
-            if (is_multi_target)
+            if (ship->slot[w_num].position == t_arc &&
+                t_range > (float)weapon_data[w_index].min_range && 
+                t_range < (float)weapon_data[w_index].max_range &&
+                ship->guncrew.stamina > weapon_data[w_index].reload_stamina)
             {
+                fire_weapon(ship, debug_char, w_num);
+            }
+        }
+    }
+    if (is_multi_target)
+    {
+        for (int w_num = 0; w_num < MAXSLOTS; w_num++) 
+        {
+            if (ship->slot[w_num].type == SLOT_WEAPON) 
+            {
+                if (!weapon_ready_to_fire(ship, w_num))
+                    continue;
+                int w_index = ship->slot[w_num].index;
                 for (int i = 0; i < contacts_count; i++) 
                 {
-                    if (is_valid_target(contacts[i].ship))
+                    if (contacts[i].ship != ship->target && is_valid_target(contacts[i].ship))
                     {
                         int t_a = getarc(ship->heading, contacts[i].bearing);
                         if (ship->slot[w_num].position == t_a &&
@@ -520,19 +536,10 @@ void ShipCombatAI::try_attack()
                     }
                 }
             }
-            else
-            {
-                if (ship->slot[w_num].position == t_arc &&
-                    t_range > (float)weapon_data[w_index].min_range && 
-                    t_range < (float)weapon_data[w_index].max_range &&
-                    ship->guncrew.stamina > weapon_data[w_index].reload_stamina)
-                {
-                    fire_weapon(ship, debug_char, w_num);
-                }
-            }
         }
     }
 }
+
 
 bool ShipCombatAI::check_ammo()
 {
@@ -733,25 +740,31 @@ bool ShipCombatAI::try_turn_reloading_weapon()
 }
 
 
-bool ShipCombatAI::try_make_distance(int distance)
+bool ShipCombatAI::try_make_distance(float distance)
 {
     if (SHIPIMMOBILE(ship)) return false;
 
     
     float rad = (float) ((float) ((t_bearing - 180) - ship->target->heading) * M_PI / 180.000);
-    float star_dist = (1.0 - sin(rad)) * (float)distance;
-    float port_dist = (1.0 + sin(rad)) * (float)distance;
-    float fore_dist = (1.0 - cos(rad)) * (float)distance;
-    float rear_dist = (1.0 + cos(rad)) * (float)distance;
+
+    float side_dist_full = sin(acos(cos(rad) * t_range / distance)) * distance; // always positive
+    float side_dist_self = sin(rad);
+    float star_dist = side_dist_full - side_dist_self;
+    float port_dist = side_dist_full + side_dist_self;
+
+    float dire_dist_full = cos(asin(sin(rad) * t_range / distance)) * distance; // always positive
+    float dire_dist_self = cos(rad);
+    float fore_dist = dire_dist_full - dire_dist_self;
+    float rear_dist = dire_dist_full + dire_dist_self;
 
     if (star_dist < port_dist)
     {
-        if (!check_dir_for_land(ship->target->heading + 90, star_dist))
+        if (!check_dir_for_land(ship->target->heading + 90, star_dist + 1))
         {
             new_heading = ship->target->heading + 90;
             return true;
         }
-        else if (!check_dir_for_land(ship->target->heading - 90, port_dist))
+        else if (!check_dir_for_land(ship->target->heading - 90, port_dist + 1))
         {
             new_heading = ship->target->heading - 90;
             return true;
@@ -759,12 +772,12 @@ bool ShipCombatAI::try_make_distance(int distance)
     }
     else
     {
-        if (!check_dir_for_land(ship->target->heading - 90, port_dist))
+        if (!check_dir_for_land(ship->target->heading - 90, port_dist + 1))
         {
             new_heading = ship->target->heading - 90;
             return true;
         }
-        else if (!check_dir_for_land(ship->target->heading + 90, star_dist))
+        else if (!check_dir_for_land(ship->target->heading + 90, star_dist + 1))
         {
             new_heading = ship->target->heading + 90;
             return true;
@@ -773,12 +786,12 @@ bool ShipCombatAI::try_make_distance(int distance)
 
     if (fore_dist < rear_dist)
     {
-        if (!check_dir_for_land(ship->target->heading, fore_dist))
+        if (!check_dir_for_land(ship->target->heading, fore_dist + 1))
         {
             new_heading = ship->target->heading;
             return true;
         }
-        else if (!check_dir_for_land(ship->target->heading - 180, rear_dist))
+        else if (!check_dir_for_land(ship->target->heading - 180, rear_dist + 1))
         {
             new_heading = ship->target->heading - 180;
             return true;
@@ -786,12 +799,12 @@ bool ShipCombatAI::try_make_distance(int distance)
     }
     else
     {
-        if (!check_dir_for_land(ship->target->heading - 180, rear_dist))
+        if (!check_dir_for_land(ship->target->heading - 180, rear_dist + 1))
         {
             new_heading = ship->target->heading - 180;
             return true;
         }
-        else if (!check_dir_for_land(ship->target->heading, fore_dist))
+        else if (!check_dir_for_land(ship->target->heading, fore_dist + 1))
         {
             new_heading = ship->target->heading;
             return true;
@@ -1680,7 +1693,7 @@ P_ship load_npc_ship(int level, int speed, int m_class, int room, P_char ch)
 
 bool try_load_pirate_ship(P_ship target)
 {
-    if (target->m_class != SH_SLOOP && target->m_class != SH_YACHT && target->m_class < MAXSHIPCLASSMERCHANT)
+    if (target->m_class != SH_SLOOP && target->m_class != SH_YACHT && ISMERCHANT(target))
     {
         int n = number(0, SHIPHULLWEIGHT(target));
         n += target->frags;
@@ -1756,7 +1769,6 @@ bool try_unload_pirate_ship(P_ship ship)
 
 
 
-
 void ShipCombatAI::predict_target(int steps)
 {
     float hd = ship->target->heading;
@@ -1781,13 +1793,19 @@ void ShipCombatAI::predict_target(int steps)
         y += (float) ((float) ship->target->speed * cos(rad)) / 150.000;
     }
 
-    pred_x = x;
-    pred_y = y;
+    proj_x = x;
+    proj_y = y;
 
-    pred_angle[SLOT_FORE] = hd;
-    pred_angle[SLOT_STAR] = ship->target->heading + 90.0;
-    pred_angle[SLOT_PORT] = ship->target->heading - 90.0;
-    pred_angle[SLOT_REAR] = ship->target->heading + 180.0;
-    for (int i = 0; i < 4; i++) normalize_direction(pred_angle[i]);
+    proj_angle[SLOT_FORE] = hd;
+    proj_angle[SLOT_STAR] = ship->target->heading + 90.0;
+    proj_angle[SLOT_PORT] = ship->target->heading - 90.0;
+    proj_angle[SLOT_REAR] = ship->target->heading + 180.0;
+    for (int i = 0; i < 4; i++) normalize_direction(proj_angle[i]);
+
+    float proj_delta_x = ship->x - proj_x;
+    float proj_delta_y = ship->y - proj_y;
+    proj_range = sqrt(proj_delta_x * proj_delta_x + proj_delta_y * proj_delta_y);
+    proj_sb = acos(proj_delta_y / proj_range);
+    if (proj_delta_x < 0) proj_sb = 360.0 - proj_sb;
 }
 

@@ -91,7 +91,7 @@ struct ShipCombatAI
     bool try_circle_around(int arc);
     bool try_turn_active_weapon();
     bool try_turn_reloading_weapon();
-    bool try_make_distance(int distance);
+    bool try_make_distance(float distance);
     bool try_chase();
     bool go_around_land();
 
@@ -124,8 +124,10 @@ struct ShipCombatAI
     float curr_x, curr_y;
     float curr_angle[4];
     
-    float pred_x, pred_y;
-    float pred_angle[4];
+    float proj_x, proj_y;
+    float proj_angle[4];
+    float proj_range;
+    float proj_sb;
 
     float hd_change;
 
