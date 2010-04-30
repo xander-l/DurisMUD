@@ -3985,8 +3985,8 @@ int sell_cargo(P_char ch, P_ship ship, int slot)
         send_to_char("Thanks for your business!\r\n", ch);        
         ADD_MONEY(ch, total_cost);
 
-        ship->sailcrew.skill += (int)(((float)ship_crew_data[ship->sailcrew.index].skill_gain / 750.0) * (float)total_cost / 1000.0);
-        ship->repaircrew.skill += (int)(((float)ship_crew_data[ship->sailcrew.index].skill_gain / 2000.0) * (float)total_cost / 1000.0);
+        ship->sailcrew.skill += (int)(((float)ship_crew_data[ship->sailcrew.index].skill_gain / 750.0) * (float)total_cost / 2000.0);
+        ship->repaircrew.skill += (int)(((float)ship_crew_data[ship->sailcrew.index].skill_gain / 2000.0) * (float)total_cost / 2000.0);
 
         update_crew(ship);
         update_ship_status(ship);
@@ -4087,8 +4087,8 @@ int sell_contra(P_char ch, P_ship ship, int slot)
         send_to_char("Thanks for your business!\r\n", ch);        
         ADD_MONEY(ch, total_cost);
 
-        ship->sailcrew.skill += (int)(((float)ship_crew_data[ship->sailcrew.index].skill_gain / 1000.0) * (float)total_cost / 1000.0);
-        ship->repaircrew.skill += (int)(((float)ship_crew_data[ship->sailcrew.index].skill_gain / 4000.0) * (float)total_cost / 1000.0);
+        ship->sailcrew.skill += (int)(((float)ship_crew_data[ship->sailcrew.index].skill_gain / 1000.0) * (float)total_cost / 3000.0);
+        ship->repaircrew.skill += (int)(((float)ship_crew_data[ship->sailcrew.index].skill_gain / 4000.0) * (float)total_cost / 3000.0);
 
         update_crew(ship);
         update_ship_status(ship);
@@ -4244,15 +4244,94 @@ int sell_ship(P_char ch, P_ship ship, const char* arg)
     return TRUE;
 }
 
+int repair_all(P_char ch, P_ship ship)
+{
+    int cost = 0, buildtime = 0;
+
+    int sail_damage = SHIPMAXSAIL(ship) - ship->mainsail;
+    if (sail_damage > 0)
+    {
+        cost += sail_damage * 2000;
+        buildtime += (75 + sail_damage);
+    }
+
+
+    for (int j = 0; j < 4; j++) 
+    {
+        int side_damage = (ship->maxarmor[j] - ship->armor[j]) + (ship->maxinternal[j] - ship->internal[j]);
+        if (side_damage > 0)
+        {
+            cost += side_damage * 1000;
+            buildtime += (75 + side_damage);
+        }
+    }
+
+    for (int slot = 0; slot < MAXSLOTS; slot++) 
+    {
+        if (ship->slot[slot].type == SLOT_WEAPON && SHIPWEAPONDAMAGED(ship, slot))
+        {
+            if (SHIPWEAPONDESTROYED(ship, slot))
+            {
+                cost += weapon_data[ship->slot[slot].index].cost / 2;
+                buildtime += 150;
+            }
+            else
+            {
+                cost += ship->slot[slot].val2 * 1000;
+                buildtime += 75;
+            }
+        }
+    }
+
+    if (cost == 0)
+    {
+        sprintf(buf, "Your ship is unscathed!\r\n");
+        send_to_char(buf, ch);
+        return TRUE;
+    }
+
+    if (GET_MONEY(ch) < cost) 
+    {
+        sprintf(buf, "It will cost costs %s to repair your ship!\r\n", coin_stringv(cost));
+        send_to_char(buf, ch);
+        return TRUE;
+    }
+
+    SUB_MONEY(ch, cost, 0);
+
+    ship->mainsail = SHIPMAXSAIL(ship);
+    for (int j = 0; j < 4; j++) 
+    {
+        ship->armor[j] = ship->maxarmor[j];
+        ship->internal[j] = ship->maxinternal[j];
+    }
+    for (int slot = 0; slot < MAXSLOTS; slot++) 
+    {
+        if (ship->slot[slot].type == SLOT_WEAPON && SHIPWEAPONDAMAGED(ship, slot))
+            ship->slot[slot].val2 = 0;
+    }
+
+    if (!IS_TRUSTED(ch) && BUILDTIME)
+        SET_BIT(ship->flags, MAINTENANCE);
+    sprintf(buf, "Thank you for for your business, it will take %d hours to complete this repair.\r\n", buildtime / 75);
+    send_to_char(buf, ch);
+    ship->timer[T_MAINTENANCE] += buildtime;
+    update_ship_status(ship);
+    write_newship(ship);
+    return TRUE;
+}
+
+
 int repair_sail(P_char ch, P_ship ship)
 {
-    if (ship->mainsail >= SHIPMAXSAIL(ship)) 
+    int total_damage = SHIPMAXSAIL(ship) - ship->mainsail;
+    if (total_damage <= 0) 
     {
         send_to_char("Your sails are fine, they don't need repair!\r\n", ch);
         return TRUE;
     }
 
-    int cost = (SHIPMAXSAIL(ship) - ship->mainsail) * MAX(1, SHIPCLASS(ship)) * 1000;
+    int cost = total_damage * 2000;
 
     if (GET_MONEY(ch) < cost) 
     {
@@ -4271,7 +4350,7 @@ int repair_sail(P_char ch, P_ship ship)
 
     ship->mainsail = SHIPMAXSAIL(ship);
 
-    int buildtime = 75 * 5;
+    int buildtime = 75 + total_damage;
     if (!IS_TRUSTED(ch) && BUILDTIME) 
     {
         SET_BIT(ship->flags, MAINTENANCE);
@@ -4318,7 +4397,7 @@ int repair_armor(P_char ch, P_ship ship, char* arg)
         for (j = 0; j < 4; j++)
             ship->armor[j] = ship->maxarmor[j];
 
-        buildtime = 75;
+        buildtime = 75 + total_damage;
         if (!IS_TRUSTED(ch) && BUILDTIME)
             SET_BIT(ship->flags, MAINTENANCE);
 
@@ -4347,7 +4426,7 @@ int repair_armor(P_char ch, P_ship ship, char* arg)
         return TRUE;
     }
     cost = total_damage * 1000;
-    buildtime = 75;
+    buildtime = 75 + total_damage;
     if (GET_MONEY(ch) < cost) 
     {
         sprintf(buf, "This will cost %s to repair!\r\n", coin_stringv(cost));
@@ -4366,6 +4445,7 @@ int repair_armor(P_char ch, P_ship ship, char* arg)
     write_newship(ship);
     return TRUE;
 }
+
 int repair_internal(P_char ch, P_ship ship, char* arg)
 {
     int cost, buildtime, total_damage, j;
@@ -4400,7 +4480,7 @@ int repair_internal(P_char ch, P_ship ship, char* arg)
         for (j = 0; j < 4; j++)
             ship->internal[j] = ship->maxinternal[j];
 
-        buildtime = 75;
+        buildtime = 75 + total_damage;
         if (!IS_TRUSTED(ch) && BUILDTIME)
             SET_BIT(ship->flags, MAINTENANCE);
 
@@ -4431,7 +4511,7 @@ int repair_internal(P_char ch, P_ship ship, char* arg)
         return TRUE;
     }
     cost = total_damage * 1000;
-    buildtime = 75;
+    buildtime = 75 + total_damage;
     if (GET_MONEY(ch) < cost) 
     {
         sprintf(buf, "This will cost %s to repair!\r\n", coin_stringv(cost));
@@ -4477,8 +4557,17 @@ int repair_weapon(P_char ch, P_ship ship, char* arg)
         send_to_char("This weapon isn't broken!\r\n", ch);
         return TRUE;
     }
-    cost = weapon_data[ship->slot[slot].index].cost / 2;
-    buildtime = 75;
+    if (SHIPWEAPONDESTROYED(ship, slot))
+    {
+        cost = weapon_data[ship->slot[slot].index].cost / 2;
+        buildtime = 150;
+    }
+    else
+    {
+        cost = ship->slot[slot].val2 * 1000;
+        buildtime = 75;
+    }
+
     if (GET_MONEY(ch) < cost) 
     {
         sprintf(buf, "This will cost %s to repair!\r\n", coin_stringv(cost));
@@ -5341,6 +5430,10 @@ int newship_shop(int room, P_char ch, int cmd, char *arg)
         }
         if (*arg1) 
         {
+            if (isname(arg1, "all")) 
+            {
+                return repair_all (ch, ship);
+            } 
             if (isname(arg1, "sail") || isname(arg1, "s")) 
             {
                 return repair_sail (ch, ship);
@@ -5358,7 +5451,7 @@ int newship_shop(int room, P_char ch, int cmd, char *arg)
                 return repair_weapon(ch, ship, arg2);
             } 
         }
-        send_to_char("Valid syntax is 'repair <armor/internal/sail/weapon>'\r\n", ch);
+        send_to_char("Valid syntax is 'repair <armor/internal/sail/weapon/all>'\r\n", ch);
         return TRUE;
     }
     if (cmd == CMD_RELOAD) 
