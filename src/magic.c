@@ -19721,3 +19721,13 @@ void spell_mielikki_vitality(int level, P_char ch, char *arg, int type, P_char v
 
   send_to_char("&+GYou feel the &+ywarm &+Gbreathe of the Goddess Mielikki.\r\n", ch);
 }
+
+void spell_repair_one_item(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
+{
+  if(obj)
+  {
+    obj->condition = 100;
+    act("$q glows a faint &+Yyellowish hue&n as a wave of energy covers its surface.", FALSE, ch, obj, 0, TO_CHAR);
+    act("$n's $q glows a faint &+Yyellowish hue&n as a wave of energy covers its surface.", FALSE, ch, obj, 0, TO_ROOM);    
+  }
+}

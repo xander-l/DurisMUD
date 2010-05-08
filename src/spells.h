@@ -641,7 +641,8 @@
 #define SPELL_ICE_ARMOR              592
 #define SPELL_NEG_ARMOR              593
 #define SPELL_ETHERIC_GUST           594
-#define LAST_SPELL     SPELL_ETHERIC_GUST
+#define SPELL_REPAIR_ONE_ITEM        595
+#define LAST_SPELL  SPELL_REPAIR_ONE_ITEM
 
 #define FIRST_SKILL                  1000  /* should be a decent split point */
 #define SKILL_SNEAK                  1000
