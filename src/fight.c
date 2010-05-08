@@ -3654,12 +3654,14 @@ int spell_damage(P_char ch, P_char victim, double dam, int type, uint flags,
       }
 
       if(GET_CHAR_SKILL(victim, SKILL_ARCANE_BLOCK) > 0 &&
-        !IS_TRUSTED(victim))
+        !IS_TRUSTED(victim) &&
+        !IS_STUNNED(victim) &&
+        !IS_IMMOBILE(victim))
       {
         if(dam > 15 &&
           (notch_skill(victim, SKILL_ARCANE_BLOCK, get_property("skill.notch.arcane", 100)) ||
-          number(1, 200) <= (GET_LEVEL(ch) + GET_C_LUCK(ch) / 10) ||
-          ((IS_ELITE(ch) || IS_GREATER_RACE(ch)) && !number(0, 4))))
+          number(1, 200) <= (GET_LEVEL(victim) + GET_C_LUCK(victim) / 10) ||
+          ((IS_ELITE(victim) || IS_GREATER_RACE(victim)) && !number(0, 4))))
         {
           act("$N raises hands performing an &+Marcane gesture&n and some of $n's &+mspell energy&n is dispersed.",
             TRUE, ch, 0, victim, TO_NOTVICT);
