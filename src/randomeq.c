@@ -1121,7 +1121,7 @@ P_obj create_random_eq_new(P_char killer, P_char mob, int object_type,
 
 P_obj setsuffix_obj_new(P_obj obj)
 {
-  switch (dice(3,8) + number(0, 1))
+  switch (dice(3,8))
   {
   case 3:
     SET_BIT(obj->bitvector, AFF_DETECT_INVISIBLE);
@@ -1187,11 +1187,10 @@ P_obj setsuffix_obj_new(P_obj obj)
     SET_BIT(obj->bitvector, AFF_BARKSKIN);
     break;
   case 24:
-    SET_BIT(obj->bitvector4, AFF4_NEG_SHIELD);
-    break;
-   case 25:
     SET_BIT(obj->bitvector, AFF_HASTE);
-   break;
+    break;
+  default:
+    break;
   }
   return obj;
 }
