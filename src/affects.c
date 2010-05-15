@@ -690,8 +690,9 @@ void apply_affs(P_char ch, int mode)
     ch->points.damroll += GET_LEVEL(ch) / 6;
   }
    
-  if (GET_CLASS(ch, CLASS_RANGER) && ch->equipment[PRIMARY_WEAPON] &&
-     ch->equipment[SECONDARY_WEAPON])
+  if (has_innate(ch, INNATE_DUAL_WIELDING_MASTER) &&
+      ch->equipment[PRIMARY_WEAPON] &&
+      ch->equipment[SECONDARY_WEAPON])
 
   {
     ch->points.hitroll += GET_LEVEL(ch) / 5;
