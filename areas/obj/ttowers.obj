@@ -139,15 +139,15 @@ potion~
 ~
 10 13 3 0 7 0 0 1 0 0 0
 20 3 15 1 0 0 0 0
-1 998 100
+1 5998 100
 #13215
 staff~
 &+ya small wooden staff&n~
 &+yA small wooden staff lies here.&n~
 ~
-4 13 3 0 7 0 1024 16385 0 2097594 0
+3 13 3 0 7 0 1024 16385 0 2097594 0
 31 10 10 369 0 0 0 0
-2 8158 100
+2 100999 100
 #13216
 wand~
 &+ma small purple wand&n~
@@ -155,7 +155,7 @@ wand~
 ~
 3 13 3 0 7 0 0 16385 0 0 0
 20 6 6 26 0 0 0 0
-3 1855 100
+3 55999 100
 #13217
 talons~
 &+La pair of spiked &+rbloody talons&n~
