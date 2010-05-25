@@ -1145,7 +1145,7 @@ int try_ram_ship(P_ship ship, P_ship target, int j)
 
         // Applying damage
         int split = (int)(100.0 * (float)ram_damage / (float)(ram_damage + counter_damage));
-        while (ram_damage != 0 || counter_damage != 0)
+        while (ram_damage > 0 || counter_damage > 0)
         {
             bool hit_target = (number(0, 99) < split);
             if (ram_damage == 0) hit_target = false;
