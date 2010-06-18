@@ -25,7 +25,7 @@ const char *specdata[][MAX_SPEC] = {
   {"&+LDark Knight", "&+LDem&+ronic Ri&+Lder", "", ""},  //Anti-Paladin
   {"&+YZealot&n", "&+WHealer&n", "&+cHoly&+Wman&n", ""},      //Cleric
   {"&+rRe&+Rd Dra&+rgon", "&+gElap&+Ghi&+gdist", "", ""},   //Monk
-  {"&+gFo&+Gre&+gst Druid", "&+cStorm &+CDruid", "&+YLunar &+gDruid&n", ""},       //Druid
+  {"&+gFo&+Gre&+gst Druid", "&+cStorm &+CDruid", "", ""},       //Druid
   {"&+rEl&+Rem&+Lenta&+Rli&n&+rst", "&+WSpir&+Citua&+Wlist", "&+yAni&+Ymal&n&+yist", ""},       //Shaman
   {"&+MWild&+mmage", "&+LWizard", "&+LShadow&+wmage", ""},      //Sorcerer
   {"&+mDia&+rbolis", "&+mNe&+Lcro&+mlyte", "&+LReap&+wer", ""}, //Necromancer
@@ -84,7 +84,7 @@ const struct race_names race_names_table[LAST_RACE + 2] = {
   {"Vampire", "Vampire", "&+RVam&+rpi&+Rre&n", "UM"},
   {"Death Knight", "DeathKnight", "&+LDeath &+bKnight&n", "UK"},
   {"Shadow Beast", "ShadowBeast", "&+LShadow &+rBeast&n", "US"},
-  {"Firbolg", "StormGiant", "&+cF&+yi&+crb&+yo&+clg&n", "SG"},
+  {"Storm Giant", "StormGiant", "&+wSt&+Wor&+wm G&+Wia&+wnt&n", "SG"},
   {"Wight", "Wight", "&+RW&+ri&+Rg&+rh&+Rt&n", "UW"},
   {"Phantom", "Phantom", "&+WPha&+Lntom&n", "UP"},
   {"Harpy", "Harpy", "&+yHarpy&n", "MH"},
@@ -1107,11 +1107,11 @@ const struct class_names class_names_table[] = {
   {"Berserker", "&+rBeR&+RSeR&n&+rKeR&n", "Ber", 'u'},
   {"Reaver", "&+LRe&+Wav&+Ler&n", "Rev", 'v'},
   {"Illusionist", "&+WIl&+Clu&+csi&+Con&+Wist&n", "Ilu", 'y'},
-  {"Theurgist", "&+cTh&+Ceur&+Wgist&n", "The", 'x'},
+  {"Unholy Piper", "&+GUnholy Piper&n", "Pip", 'y'},
   {"Dreadlord", "&+LDread&+rlord&n", "Dre", 'e'},
   {"Ethermancer", "&+wEthermancer&n", "Eth", 'g'},
   {"Avenger", "&+WAvenger&n", "Ave", 'z'},
-  {"Theurgist", "&+cTh&+Ceur&+Wgis&+rt&n", "The", 'e'},
+  {"Theurgist", "&+cTh&+Ceur&+Wgist&n", "The", 'e'},
   {0}
 };
 

@@ -3256,12 +3256,12 @@ void select_race(P_desc d, char *arg)
   case 'T':
     strcpy(Gbuf, "SWAMP TROLL");
     break;
-  // case 'f':
-    // GET_RACE(d->character) = RACE_HALFELF;
-    // break;
-  // case 'F':
-    // strcpy(Gbuf, "HALF ELF");
-    // break;
+   case 'f':
+     GET_RACE(d->character) = RACE_HALFELF;
+     break;
+   case 'F':
+     strcpy(Gbuf, "HALF ELF");
+     break;
     /*   case 'i':
        GET_RACE(d->character) = RACE_ILLITHID;
        break;
@@ -3294,7 +3294,6 @@ void select_race(P_desc d, char *arg)
   case 'N':
     strcpy(Gbuf, "GITHZERAI");
     break;
-
   case 'v':
     GET_RACE(d->character) = RACE_GOBLIN;
     break;
@@ -3313,13 +3312,48 @@ void select_race(P_desc d, char *arg)
   case 'S':
     strcpy(Gbuf, "MINOTAUR");
     break;
+  case 'a':
+    GET_RACE(d->character) = RACE_KOBOLD;
+	break;
+  case 'A':
+    strcpy(Gbuf, "KOBOLD");
+    break;
+  case '2':
+    GET_RACE(d->character) = RACE_DRIDER;
+	break;
+  case '@':
+    strcpy(Gbuf, "DRIDER");
+	break;
+  case 'w':
+    GET_RACE(d->character) = RACE_WOODELF;
+    break;
+  case 'W':
+    strcpy(Gbuf, "WOOD ELF");
+    break;
+  case 'p':
+    GET_RACE(d->character) = RACE_FIRBOLG;
+    break;
+  case 'P':
+    strcpy(Gbuf, "FIRBOLG");
+    break;
+  case 'i':
+    GET_RACE(d->character) = RACE_PILLITHID;
+    break;
+  case 'I':
+    strcpy(Gbuf, "PLANETBOUND ILLITHID");
+    break;
+  case 'q':
+    GET_RACE(d->character) = RACE_KUOTOA;
+    break;
+  case 'Q':
+    strcpy(Gbuf, "KUO TOA");
+  /*
   case 'p':
     GET_RACE(d->character) = RACE_OROG;
     break;
   case 'P':
     strcpy(Gbuf, "OROG");
-    break;
-    /*   
+    break;   
        case '1':
        GET_RACE(d->character) = RACE_PLICH;
        break;
@@ -3344,7 +3378,6 @@ void select_race(P_desc d, char *arg)
        case '$':
        strcpy(Gbuf, "SHADOW BEAST");
        break;
-
        case '5':
        GET_RACE(d->character) = RACE_WIGHT;
        break;
@@ -4403,6 +4436,10 @@ void set_char_size(P_char ch)
   case RACE_DUERGAR:
   case RACE_GITHZERAI:
   case RACE_OROG:
+  case RACE_ELADRIN:
+  case RACE_PILLITHID:
+  case RACE_KUOTOA:
+  case RACE_WOODELF:
     GET_SIZE(ch) = SIZE_MEDIUM;
     break;
   case RACE_HARPY:
@@ -4410,6 +4447,7 @@ void set_char_size(P_char ch)
   case RACE_GNOME:
   case RACE_GOBLIN:
   case RACE_SHADE:
+  case RACE_KOBOLD:
     GET_SIZE(ch) = SIZE_SMALL;
     break;
   case RACE_TROLL:
@@ -4417,12 +4455,14 @@ void set_char_size(P_char ch)
   case RACE_CENTAUR:
   case RACE_REVENANT:
   case RACE_BARBARIAN:
+  case RACE_DRIDER:
     GET_SIZE(ch) = SIZE_LARGE;
     break;
   case RACE_SGIANT:
   case RACE_WIGHT:
   case RACE_OGRE:
   case RACE_MINOTAUR:
+  case RACE_FIRBOLG:
     GET_SIZE(ch) = SIZE_HUGE;
   }
 }
