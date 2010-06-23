@@ -436,8 +436,9 @@ struct edit_data {
 #define INNATE_SLIME             145
 #define INNATE_DUAL_WIELDING_MASTER 146
 #define INNATE_SPEED              147
+#define INNATE_LONGSWORD_MASTER   148
 
-#define LAST_INNATE              147   // LAST means last, not last + 1 or whatever
+#define LAST_INNATE              148   // LAST means last, not last + 1 or whatever
 
 struct extra_descr_data {
   char *keyword;                /* Keyword in look/examine          */
@@ -2011,6 +2012,11 @@ struct mcname {
 #define SPEC_THIEF    2
 #define SPEC_OLD_SWASHBUCKLER  3 // Switched to warrior.
 #define SPEC_SHARPSHOOTER 4
+
+// Theurogist Specs
+#define SPEC_MEDIUM
+#define SPEC_TEMPLAR
+#define SPEC_THAUMATURGE
 
 #define MAX_SPEC 4
 

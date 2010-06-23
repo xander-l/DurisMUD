@@ -306,6 +306,7 @@ const struct innate_data
   {"summon imp", do_summon_imp},
   {"hammer master", 0},
   {"axe master", 0},
+  {"longsword master", 0},
   {"gaze", do_innate_gaze},
   {"embrace death", 0},
   {"drain life", do_lifedrain},
@@ -473,9 +474,11 @@ void assign_innates()
   ADD_RACIAL_INNATE(INNATE_FLURRY, RACE_HALFLING, 50);  
   /* List of Human Innates          */
   /* List of Wood Elf Innates       */
+  ADD_RACIAL_INNATE(INNATE_INFRAVISION, RACE_WOODELF, 1);
   ADD_RACIAL_INNATE(INNATE_OUTDOOR_SNEAK, RACE_WOODELF, 11);
   ADD_RACIAL_INNATE(INNATE_FOREST_SIGHT, RACE_WOODELF, 11);
   ADD_RACIAL_INNATE(INNATE_MAGIC_RESISTANCE, RACE_WOODELF, 1);
+ // ADD_RACIAL_INNATE(INNATE_LONGSWORD_MASTER, RACE_WOODELF, 31);
 
   /* Evil Races */
   /* List of Drider Innates         */

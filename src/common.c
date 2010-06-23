@@ -145,7 +145,7 @@ const struct race_names race_names_table[LAST_RACE + 2] = {
   {"Planetbound Illithid", "Pillithid", "&+MIllithid&n", "PI"},
   {"Kuo Toa", "KuoToa", "&+GKu&+Lo T&+Goa&n", "KT"},
   {"Wood Elf", "WoodElf", "&+gW&+Goo&+gd E&+Glf&n", "WE"},
-  //{"Firbolg", "Firbolg", "&+yFir&+cbolg&n", "FB"},
+  {"Firbolg", "Firbolg", "&+yFir&+cbolg&n", "FB"},
   {0}
 };
 
@@ -397,7 +397,8 @@ const char *where[] = {
   "<worn on rear feet>  ",
   "<worn in nose>       ",
   "<worn on horns>      ",
-  "<floating about head>"
+  "<floating about head>",
+  "<worn on spider body>"
 };
 
 const char *drinks[] = {
@@ -574,6 +575,7 @@ flagDef  wear_bits[] = {
   {"WEAR_NOSE", "Worn in nose", 1, 0},
   {"WEAR_HORN", "Worn on horns", 1, 0},
   {"WEAR_IOUN", "Worn as ioun stone", 1, 0},
+  {"WEAR_SPIDER_BODY", "Worn on spider's body", 1, 0},
   {0}
 };
 
@@ -774,6 +776,7 @@ const char *equipment_types[] = {
   "Worn in nose",
   "Worn on horns",
   "Worn above head",
+  "Worn on spider body",
   "\n"
 };
 

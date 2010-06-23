@@ -170,6 +170,7 @@ const char *stat_outofrange[2] = {
   "abnormally good"
 };
 
+/* alignments */
 const char *align_names[9] = {
   "&+Lextremely evil",
   "&+Levil",

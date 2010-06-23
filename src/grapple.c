@@ -175,6 +175,12 @@ void do_bearhug(P_char ch, char *argument, int cmd)
     return;
   }
 
+  if (IS_RIDING(ch))
+  {
+    send_to_char("While mounted? I don't think so...\r\n", ch);
+    return;
+  }
+
   if (GRAPPLE_TIMER(ch))
   {
     send_to_char("You need to regain your strength before you grapple again.\r\n", ch);
