@@ -398,7 +398,7 @@ const char *where[] = {
   "<worn in nose>       ",
   "<worn on horns>      ",
   "<floating about head>",
-  "<worn on spider body>"
+/*  "<worn on spider body>" */
 };
 
 const char *drinks[] = {
@@ -575,7 +575,7 @@ flagDef  wear_bits[] = {
   {"WEAR_NOSE", "Worn in nose", 1, 0},
   {"WEAR_HORN", "Worn on horns", 1, 0},
   {"WEAR_IOUN", "Worn as ioun stone", 1, 0},
-  {"WEAR_SPIDER_BODY", "Worn on spider's body", 1, 0},
+/*  {"WEAR_SPIDER_BODY", "Worn on spider's body", 1, 0}, */
   {0}
 };
 
@@ -776,7 +776,7 @@ const char *equipment_types[] = {
   "Worn in nose",
   "Worn on horns",
   "Worn above head",
-  "Worn on spider body",
+/*  "Worn on spider body", */
   "\n"
 };
 
