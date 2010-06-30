@@ -921,9 +921,16 @@ typedef unsigned int uint;
 #define RACE_KUOTOA          84 /* mob race code: KT */
 #define RACE_WOODELF         85 /* mob race code: WE */
 #define RACE_FIRBOLG         86 /* mob race code: FB */
-#define LAST_RACE            87
+#define RACE_PHOENIX         87 /* mob race code: PX */
+#define RACE_ARCHON          88 /* mob race code: AR */
+#define RACE_ASURA           89 /* mob race code: AU */
+#define RACE_TITAN           90 /* mob race code: TT */
+#define RACE_AVATAR          91 /* mob race code: AV */
+#define RACE_BRALANI         92 /* mob race code: BR */
+#define RACE_GHAELE          93 /* mob race code: GH */
+#define LAST_RACE            94
 
-#define DEFINED_RACES        86 /* actual number of races defined */
+#define DEFINED_RACES        93 /* actual number of races defined */
 #define MAX_HATRED	     5
 
 #define RACEWAR_NONE         0
@@ -947,17 +954,17 @@ typedef unsigned int uint;
 #define CLASS_NECROMANCER       BIT_11
 #define CLASS_CONJURER          BIT_12
 #define CLASS_ROGUE             BIT_13
-#define CLASS_ASSASSIN          BIT_14
+#define CLASS_ASSASSIN          BIT_14 /* unused */
 #define CLASS_MERCENARY         BIT_15
 #define CLASS_BARD              BIT_16
-#define CLASS_THIEF             BIT_17
+#define CLASS_THIEF             BIT_17 /* unused */
 #define CLASS_WARLOCK           BIT_18
 #define CLASS_MINDFLAYER        BIT_19
 #define CLASS_ALCHEMIST         BIT_20
 #define CLASS_BERSERKER         BIT_21
 #define CLASS_REAVER            BIT_22
 #define CLASS_ILLUSIONIST       BIT_23
-#define CLASS_UNUSED            BIT_24
+#define CLASS_UNUSED            BIT_24 /* unused */
 #define CLASS_DREADLORD         BIT_25
 #define CLASS_ETHERMANCER       BIT_26
 #define CLASS_AVENGER           BIT_27
@@ -999,9 +1006,9 @@ typedef unsigned int uint;
 #define HOME_GITHFORT           19      /* githyanki */
 #define HOME_GOBLIN             20      /* goblin */
 #define HOME_HARPY              21      /* harpy */
-#define HOME_NEWBIE             22
-#define HOME_PLANE_OF_LIFE	    23
-#define HOME_OROGS				24      /* orog */
+#define HOME_NEWBIE             22      /* ailvio */
+#define HOME_PLANE_OF_LIFE	23      /* wtf is this */
+#define HOME_OROGS		24      /* orog */
 
 #define LAST_HOME               24      /* number of last hometown */
 

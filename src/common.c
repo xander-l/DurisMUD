@@ -45,7 +45,7 @@ const char *specdata[][MAX_SPEC] = {
   {"&+LDeath&+rlord", "&+LShadow&+rlord", "", ""},      // Dreadlord
   {"&+cWindtalker", "&+WFro&+cst &+CMagus", "&+WCo&+Ysm&+Wom&+Yanc&+Wer", ""},     // Ethermancer
   {"&+YLight&+Wbringer", "&+WInq&+wuisi&+Wtor", "", ""},       //Avenger
-  {"", "", "", ""}, // Theurgist
+  {"Medium", "Templar", "Thaumaturge", ""}, // Theurgist
 };
 /*
  * mob race lookup table, used to assign a race to a mob when reading them
@@ -146,6 +146,13 @@ const struct race_names race_names_table[LAST_RACE + 2] = {
   {"Kuo Toa", "KuoToa", "&+GKu&+Lo T&+Goa&n", "KT"},
   {"Wood Elf", "WoodElf", "&+gW&+Goo&+gd E&+Glf&n", "WE"},
   {"Firbolg", "Firbolg", "&+yFir&+cbolg&n", "FB"},
+  {"Phoenix", "Phoenix", "&+rP&+Rh&+Yo&+We&+Yn&+Ri&+rx&n", "PX"},
+  {"Archon", "Archon", "&+RArch&+Wo&+Rn&n", "AR"},
+  {"Asura", "Asura", "&+RAsu&+Yr&+Ra&n", "AU"},
+  {"Titan", "Titan", "&+CT&+Wi&+Ct&+Wa&+Cn&n", "TT"},
+  {"Avatar", "Avatar", "&+cAv&+Ca&+Wt&+Ca&+cr&n" "AV"},
+  {"Bralani", "Bralani", "&+cB&+Cr&+Wala&+Cn&+ci&n" "BR"},
+  {"Ghaele", "Ghaele", "&+cG&+Ch&+Wae&+Cl&+ce&n" "GH"},
   {0}
 };
 
@@ -199,7 +206,7 @@ int race_size(int race)
     case RACE_CARNIVORE:
     case RACE_PLICH:
     case RACE_PVAMPIRE:
-	case RACE_PDKNIGHT:
+    case RACE_PDKNIGHT:
     case RACE_BARBARIAN:
     case RACE_BEHOLDERKIN:
     case RACE_ZOMBIE:
@@ -213,6 +220,10 @@ int race_size(int race)
     case RACE_PILLITHID:
     case RACE_KUOTOA:
     case RACE_WOODELF:
+    case RACE_ARCHON:
+    case RACE_ASURA:
+    case RACE_BRALANI:
+    case RACE_GHAELE:
     default:
       return SIZE_MEDIUM;
       break;
@@ -227,8 +238,7 @@ int race_size(int race)
     case RACE_SNOW_OGRE:
     case RACE_DRIDER:
     case RACE_PWORM:
-    case RACE_DEMON:
-    case RACE_DEVIL:
+    case RACE_PHOENIX:
       return SIZE_LARGE;
       break;
       
@@ -246,8 +256,12 @@ int race_size(int race)
       return SIZE_HUGE;
       break;
       
+    case RACE_DEVIL:
+    case RACE_DEMON:
     case RACE_GIANT:
     case RACE_PLANT:
+    case RACE_AVATAR:
+    case RACE_TITAN:
     return SIZE_GIANT;
       break;
       
