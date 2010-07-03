@@ -169,6 +169,7 @@ typedef unsigned int uint;
 #define ITEM_WEAR_NOSE      BIT_27
 #define ITEM_WEAR_HORN      BIT_28
 #define ITEM_WEAR_IOUN      BIT_29
+#define ITEM_SPIDER_BODY    BIT_30
 
 /* Bitvector for 'extra_flags' */
 
@@ -692,22 +693,22 @@ typedef unsigned int uint;
 #define AFF3_SWIMMING           BIT_24
 #define AFF3_TOWER_IRON_WILL    BIT_25
 #define AFF3_UNDERWATER         BIT_26
-#define AFF3_BLUR                     BIT_27
+#define AFF3_BLUR               BIT_27
 #define AFF3_ENHANCE_HEALING    BIT_28
 #define AFF3_ELEMENTAL_FORM     BIT_29
 #define AFF3_PASS_WITHOUT_TRACE BIT_30
 #define AFF3_PALADIN_AURA       BIT_31
-#define AFF3_FAMINE                 BIT_32
+#define AFF3_FAMINE             BIT_32
 
-#define AFF4_LOOTER             BIT_1 /* Just looted someone, prevent rent */
-#define AFF4_CARRY_PLAGUE       BIT_2
-#define AFF4_SACKING            BIT_3 /* sacking a guildhall */
-#define AFF4_SENSE_FOLLOWER     BIT_4
-#define AFF4_STORNOGS_SPHERES   BIT_5
+#define AFF4_LOOTER                   BIT_1 /* Just looted someone, prevent rent */
+#define AFF4_CARRY_PLAGUE             BIT_2
+#define AFF4_SACKING                  BIT_3 /* sacking a guildhall */
+#define AFF4_SENSE_FOLLOWER           BIT_4
+#define AFF4_STORNOGS_SPHERES         BIT_5
 #define AFF4_STORNOGS_GREATER_SPHERES BIT_6
-#define AFF4_VAMPIRE_FORM       BIT_7
-#define AFF4_NO_UNMORPH         BIT_8 /* can't return .. */
-#define AFF4_HOLY_SACRIFICE     BIT_9
+#define AFF4_VAMPIRE_FORM             BIT_7
+#define AFF4_NO_UNMORPH               BIT_8 /* can't return .. */
+#define AFF4_HOLY_SACRIFICE           BIT_9
 #define AFF4_BATTLE_ECSTASY     BIT_10
 #define AFF4_DAZZLER            BIT_11
 #define AFF4_PHANTASMAL_FORM    BIT_12
@@ -760,7 +761,7 @@ typedef unsigned int uint;
 #define AFF5_STANCE_OFFENSIVE   BIT_22
 #define AFF5_STANCE_DEFENSIVE   BIT_23
 #define AFF5_OBSCURING_MIST     BIT_24
-#define AFF5_NOT_OFFENSIVE        BIT_25
+#define AFF5_NOT_OFFENSIVE      BIT_25
 
 /* modifiers to char's abilities */
 
@@ -788,7 +789,7 @@ typedef unsigned int uint;
 #define APPLY_DAMROLL          19
 #define APPLY_SAVING_PARA      20
 #define APPLY_SAVING_ROD       21
-#define APPLY_SAVING_FEAR     22
+#define APPLY_SAVING_FEAR      22
 #define APPLY_SAVING_BREATH    23
 #define APPLY_SAVING_SPELL     24
 #define APPLY_FIRE_PROT        25
@@ -920,9 +921,21 @@ typedef unsigned int uint;
 #define RACE_KUOTOA          84 /* mob race code: KT */
 #define RACE_WOODELF         85 /* mob race code: WE */
 #define RACE_FIRBOLG         86 /* mob race code: FB */
-#define LAST_RACE            87
+#define RACE_PHOENIX         87 /* mob race code: PX */
+#define RACE_ARCHON          88 /* mob race code: AR */
+#define RACE_ASURA           89 /* mob race code: AU */
+#define RACE_TITAN           90 /* mob race code: TT */
+#define RACE_AVATAR          91 /* mob race code: AV */
+#define RACE_GHAELE          92 /* mob race code: GH */
+#define RACE_BRALANI         93 /* mob race code: BR */
+#define RACE_WHINER          94 /* mob race code: WH */
+#define RACE_INCUBUS         95 /* mob race code: IN */
+#define RACE_SUCCUBUS        96 /* mob race code: SU */
+#define RACE_FIREGIANT       97 /* mob race code: FG */
+#define RACE_FROSTGIANT      98 /* mob race code: IG */
+#define LAST_RACE            99 /* 99 races on duris today, 99 races..*/
 
-#define DEFINED_RACES        86 /* actual number of races defined */
+#define DEFINED_RACES        98 /* actual number of races defined */
 #define MAX_HATRED	     5
 
 #define RACEWAR_NONE         0

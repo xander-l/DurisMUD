@@ -2519,7 +2519,7 @@ void event_dragonlord_check(P_char ch, P_char victim, P_obj obj, void *data)
     GET_HIT(ch) >> 1;
     CharWait(ch, 2 * WAIT_SEC);
   }
-  else if((af = get_spell_from_char(ch, TAG_RACE_CHANGE)) == NULL)
+  if((af = get_spell_from_char(ch, TAG_RACE_CHANGE)) == NULL)
   {
     send_to_char
       ("&+WPossible serious screwup in the dragonlord proc! Tell a coder as once!&n\r\n", ch);
