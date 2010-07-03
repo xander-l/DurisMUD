@@ -872,7 +872,10 @@ void show_visual_status(P_char ch, P_char tar_char)
   else
     percent = -1;
 
-  if (!racewar(ch, tar_char) || IS_ILLITHID(ch) || IS_TRUSTED(ch))
+  if (IS_NPC(tar_char) && !IS_TRUSTED(ch)) {
+    sprintf(buf, "$N %%s");
+  }
+  else if (!racewar(ch, tar_char) || IS_ILLITHID(ch) || IS_TRUSTED(ch))
   {
     sprintf(buf, "$N appears to be %s and %%s",
             GET_RACE(tar_char) ? race_names_table[(int) GET_RACE1(tar_char)].

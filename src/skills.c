@@ -1201,6 +1201,10 @@ void initialize_skills()
   SPEC_SPELL_ADD(CLASS_NECROMANCER, 8, SPEC_DIABOLIS);
   SPELL_ADD(CLASS_AVENGER, 10);
 
+  SPELL_CREATE("taint", SPELL_TAINT, PULSE_SPELLCAST * 2,
+                TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_taint);
+  SPEC_SPELL_ADD(CLASS_NECROMANCER, 7, SPEC_NECROLYTE);
+
   SPELL_CREATE("firestorm", SPELL_FIRESTORM, PULSE_SPELLCAST * 2,
                 TAR_AREA | TAR_OFFAREA | TAR_FIGHT_VICT | TAR_AGGRO, spell_firestorm);
 //  SPELL_ADD(CLASS_DRUID, 6);
@@ -1227,8 +1231,8 @@ void initialize_skills()
   SPELL_CREATE_MSG("mielikki vitality", SPELL_MIELIKKI_VITALITY, PULSE_SPELLCAST * 3,
                 TAR_SELF_ONLY | TAR_NOCOMBAT,
                 spell_mielikki_vitality, "&+GMielikki's blessing fades.&n");
-  SPELL_ADD(CLASS_DRUID, 7); 
-  SPELL_ADD(CLASS_RANGER, 8);  
+  /* SPELL_ADD(CLASS_DRUID, 7);   REMOVED till it can be fixed */
+  /* SPELL_ADD(CLASS_RANGER, 8);  REMOVED till it can be fixed */
   
   SPELL_CREATE_MSG("bless", SPELL_BLESS, PULSE_SPELLCAST,
                 TAR_OBJ_INV | TAR_OBJ_EQUIP | TAR_CHAR_ROOM | TAR_NOCOMBAT,
@@ -1543,7 +1547,8 @@ SPELL_CREATE("vigorize light", SPELL_VIGORIZE_LIGHT, PULSE_SPELLCAST * 2,
                 TAR_CHAR_ROOM,
                 spell_vitality, "You feel less vitalized.");
   SPELL_ADD(CLASS_CLERIC, 5);
-//  SPELL_ADD(CLASS_DRUID, 6);
+  SPELL_ADD(CLASS_DRUID, 6);
+  SPELL_ADD(CLASS_RANGER, 8);
 
   SPELL_CREATE_MSG("miracle", SPELL_MIRACLE, PULSE_SPELLCAST * 7 / 3,
                 TAR_IGNORE,

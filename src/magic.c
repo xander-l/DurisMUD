@@ -4353,7 +4353,7 @@ void spell_dimension_door(int level, P_char ch, char *arg, int type,
     return;
   }
   
-  distance = MAX(25, level);
+  distance = (int)(level * 1.35); 
 
   if(GET_SPEC(ch, CLASS_SORCERER, SPEC_SHADOW))
     distance += 15;
@@ -5194,6 +5194,10 @@ void spell_wandering_woods(int level, P_char ch, char *arg, int type,
     temp = 3;
   }
   else if((GET_LEVEL(ch) == 56))
+  {
+    temp = 4;
+  }
+  else
   {
     temp = 4;
   }
@@ -8510,7 +8514,7 @@ void spell_vitalize_undead(int level, P_char ch, char *arg, int type,
     return;
   }
   if(IS_PC(victim))
-    healpoints = healpoints / 2;
+    healpoints = healpoints;
 
   if(!affected_by_spell(victim, SPELL_VITALIZE_UNDEAD))
   {
