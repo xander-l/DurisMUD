@@ -7629,8 +7629,7 @@ void do_springleap(P_char ch, char *argument, int cmd)
     return;
   }
 
-  if(IS_CENTAUR(ch) ||
-    GET_RACE(ch) == RACE_QUADRUPED)
+  if(IS_CENTAUR(ch) ||  GET_RACE(ch) == RACE_QUADRUPED || GET_RACE(ch) == RACE_DRIDER)
   {
     send_to_char("Show us how you'd do it, and you can do it.\n", ch);
     return;
