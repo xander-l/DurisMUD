@@ -1146,7 +1146,7 @@ void NPCShipAI::set_new_dir()
         safe_speed = 40;
 
     ship->setheading = new_heading;
-    int delta = (int)std::abs(ship->heading - new_heading);
+    int delta = (int)abs(ship->heading - new_heading);
     if (delta > 180) delta = 360 - delta;
     if (delta < 60)
         ship->setspeed = ship->get_maxspeed();
@@ -1799,10 +1799,10 @@ bool NPCShipAI::inside_map(float x, float y)
 // returns exact dir or max_range if not found
 float NPCShipAI::calc_land_dist(float x, float y, float dir, float max_range)
 {
-    float loc_range;
+    double loc_range;
     float rad = dir * M_PI / 180.000;
-    float dir_cos = cos(rad);
-    float dir_sin = sin(rad);
+    double dir_cos = cos(rad);
+    double dir_sin = sin(rad);
     float range = 0;
     float next_x, next_y;
 
@@ -1854,17 +1854,17 @@ float NPCShipAI::calc_land_dist(float x, float y, float dir, float max_range)
             return range;
         }
 
-        float delta_y = next_y - y;
-        float delta_x = next_x - x;
+        double delta_y = next_y - y;
+        double delta_x = next_x - x;
         //send_message_to_debug_char("dx=%5.2f,dy=%5.2f,", delta_x, delta_y);
 
         if (dir_cos == 0)
         {
-            loc_range = std::abs(delta_x);
+            loc_range = abs(delta_x);
             x = next_x;
             // y doesnt change
         }
-        else if (std::abs(dir_sin / dir_cos) >  std::abs(delta_x / delta_y))  // w/e
+        else if (abs(dir_sin / dir_cos) >  abs(delta_x / delta_y))  // w/e
         {
             loc_range = delta_x / dir_sin;
             x = next_x;
