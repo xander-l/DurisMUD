@@ -286,7 +286,7 @@ void load_obj_to_newbies(P_char ch)
 
 
   memset(newbie_kits, 0, sizeof(newbie_kits));
-
+/* Barbarian Stuff */
   CREATE_KIT(RACE_BARBARIAN, 0, ((int[])
                                  {
                                  560, 603, 398, 398, 1154, 1155, -1}));

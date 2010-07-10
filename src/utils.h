@@ -814,7 +814,8 @@ for ((IN_ROOM) = world[(PLAYER)->in_room].people; (IN_ROOM) != NULL; (IN_ROOM) =
 
 #define COLDSHIELDED(ch) (IS_AFFECTED3(ch, AFF3_COLDSHIELD))
 
-#define IS_ILLITHID(ch) (GET_RACE(ch) == RACE_ILLITHID)
+#define IS_ILLITHID(ch) (GET_RACE(ch) == RACE_ILLITHID || \
+                         GET_RACE(ch) == RACE_PILLITHID)
 
 #define IS_OGRE(ch) (GET_RACE(ch) == RACE_OGRE)
 
