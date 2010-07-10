@@ -1889,6 +1889,7 @@ SPELL_CREATE("vigorize light", SPELL_VIGORIZE_LIGHT, PULSE_SPELLCAST * 2,
   SPELL_CREATE_MSG("hellfire", SPELL_HELLFIRE, PULSE_SPELLCAST,
                 TAR_SELF_ONLY,
                 spell_hellfire, "&+RYour burning hellfire &n&+rfades.");
+  SPEC_SPELL_ADD(CLASS_ANTIPALADIN, SPEC_DARKKNIGHT, 12);
 
   SPELL_CREATE_MSG("stornogs metamagic shroud", SPELL_STORNOGS_LOWERED_RES, PULSE_SPELLCAST * 3,
                 TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO,
