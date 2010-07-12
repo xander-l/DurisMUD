@@ -858,7 +858,7 @@ void do_tell(P_char ch, char *argument, int cmd)
   if (vict && !IS_TRUSTED(ch) && !IS_TRUSTED(vict))
     if (racewar(ch, vict) && !IS_DISGUISE(vict) ||
         (IS_DISGUISE(vict) && (EVIL_RACE(ch) != EVIL_RACE(vict))) ||
-        (IS_ILLITHID(ch) && !IS_ILLITHID(vict)))
+        (GET_RACE(ch) == RACE_ILLITHID && !IS_ILLITHID(vict)))
       vict = NULL;
 
   if (!vict)

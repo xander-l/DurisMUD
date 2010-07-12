@@ -1068,6 +1068,11 @@ vicious cut throat demon scion abyss~
 &+La &+rvi&+Rc&+rious &+Lcut&+cthroat &+Lof the &+rSci&+Rons &+Lof the &+wAb&+wy&+Lss~
 &+LThe figure of a &+rfi&+Re&+rry &+Ld&+we&+Lm&+wo&+Ln stands here, looking to cut your throat out.&n
 ~
+&+L   This slender demon stands roughly eight feet tall. Sharp spikes jut
+&+Lout from various points of his body incuding his elbows, shoulders and
+&+Lfrom his knees. A nasty, acidic saliva drips from long fangs that
+&+Lextend below his disjointed jaw. A look of pure evil fills his
+&+Lface as he attempts to board your ship.&n
 ~
 403464 1 0 402653208 1 0 0 -1000 S
 x 0 4096 -1
@@ -1075,46 +1080,68 @@ x 0 4096 -1
 0.0.0.0 0
 8 8 1
 #40271
-mob unnamed~
-a brutal plunderer of the Scions of the Abyss~
-An unnamed mob stands here, looking lonely and forelorn.
+brutal plunderer scion demon abyss~
+&+La &+rbr&+Ru&+rtal &+Rplu&+rnde&+Rrer &+Lof the &+rSci&+Rons &+Lof the &+WAb&+wy&+Lss&n~
+&+LA &+rbr&+Ru&+rtal &+Llooking, spiked d&+we&+Lm&+wo&+Ln stands here, ready to attack.&n
 ~
+&+L   Standing a little under eight feet tall, this demon's dark green skin
+&+Lseems to seep evil. Smoldering wisps of smoke seem to randomly emit from
+&+Lthe large leathery wings behind his back. Blood and fire seem to follow
+&+Lhim where he travels. Ready to plunder to his hearts content, his fiery
+&+Leyes are set upon your vessel!&n
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 0 -1
-1 0 0 1d1+1 1d1+1
+395272 1 0 402653336 0 0 0 -1000 S
+x 0 16 -1
+55 0 0 1d1+1 1d1+1
 0.0.0.0 0
-8 8 0
+8 8 1
 #40272
-mob unnamed~
-a lookout of the Scions of the Abyss~
-An unnamed mob stands here, looking lonely and forelorn.
+look out lookout scion abyss demon~
+&+La &+Wlook&+Yout &+Lof the &+rSci&+Rons &+Lof the &+WAb&+wy&+Lss&n~
+&+LA horned d&+we&+Lm&+wo&+Ln stands here, &+Rb&+Yl&+Wazi&+Yn&+Rg &+Leyes watching the seas.&n
 ~
+&+L   Climbing to the highest perch possible on the ship, this demon's face
+&+Lcontains a strange third eye located above the fiery pits of his "normal"
+&+Leyes. This third eye emits a pulsing &+bblue &+rfire &+Lthat radiates a strange
+&+Lheat. Clawed hands and feet make his ability to maneuver around the ship
+&+Lvery easy. This demon's focus is on the seas and it would be best to
+&+Lget out of his way.&n
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 0 -1
-1 0 0 1d1+1 1d1+1
+395272 1 0 402653328 0 0 0 -1000 S
+x 0 33554432 -1
+55 0 0 1d1+1 1d1+1
 0.0.0.0 0
-8 8 0
+8 8 1
 #40273
-mob unnamed~
-a gunner of the Scions of the Abyss~
-An unnamed mob stands here, looking lonely and forelorn.
+gunner scion abyss demon~
+&+La &+cgu&+Lnn&+cer &+Lof the &+rSci&+Rons &+Lof the &+WAb&+wy&+Lss&n~
+&+LA burly d&+we&+Lm&+wo&+Ln hussels about, reloading guns as they &+rf&+Ri&+rr&+Re&+L.&n
 ~
+&+L   This large demon has muscles layered upon even more muscles. Carrying
+&+Lammo for various weapons on board, he is quick to hussel from catapult
+&+Lto ballista as needed. Sprouts of black hair randomly cover his body,
+&+Lhowever it looks like most of it has been burnt off at one time or
+&+Lanother due to handling some of the more volitile weapons ammo.&n
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 0 -1
-1 0 0 1d1+1 1d1+1
+403464 1 0 24 0 0 0 -1000 S
+x 0 512 -1
+55 0 0 1d1+1 1d1+1
 0.0.0.0 0
-8 8 0
+8 8 1
 #40274
-mob unnamed~
-a deck hand of the Scions of the Abyss~
-An unnamed mob stands here, looking lonely and forelorn.
+deck hand scion demon abyss swab~
+&+La &+yde&+Lck ha&+ynd &+Lof the S&+rci&+Rons &+Lof the &+WAb&+wy&+Lss&n~
+&+LA small d&+we&+Lm&+wo&+Ln stands here, &+cswabbing &+Lthe deck to avoid getting &+wwhiped &+Lby the &+rcaptain&+L.&n
 ~
+&+L   The smallest of the crew, these lesser demons are the whipping stock
+&+Lof the ship. Forced to handle the lesser duties, these demons are quick
+&+Lto be blamed for the smallest of faults. Standing barely six feet tall
+&+Lthese demons could almost be passed for a human, except for the fiery
+&+Ltinted skin and sharp claws of course. Pure black eyes stare out
+&+Lunblinking as they move from task to task.&n
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 0 -1
-1 0 0 1d1+1 1d1+1
+395272 1 0 402653208 0 0 0 -1000 S
+x 0 16384 -1
+55 0 0 1d1+1 1d1+1
 0.0.0.0 0
-8 8 0
+8 8 1

@@ -5441,12 +5441,12 @@ void do_who(P_char ch, char *argument, int cmd)
   }
 
 #if 1
-  if (IS_ILLITHID(ch) && (GET_LEVEL(ch) < 20))
+  if (GET_RACE(ch) == RACE_ILLITHID && (GET_LEVEL(ch) < 20))
   {
     send_to_char("You haven't mastered your mind control enough yet!\n", ch);
     return;
   }
-  if (IS_ILLITHID(ch) && !IS_TRUSTED(ch))
+  if (GET_RACE(ch) == RACE_ILLITHID && !IS_TRUSTED(ch))
   {
     i = MAX(1, GET_MAX_MANA(ch) - GET_LEVEL(ch));
 
