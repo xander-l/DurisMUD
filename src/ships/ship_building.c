@@ -10,7 +10,6 @@
 #include "interp.h"
 #include "objmisc.h"
 #include "prototypes.h"
-#include "ship_ai.h"
 #include "spells.h"
 #include "structs.h"
 #include "utils.h"

@@ -424,6 +424,11 @@ void NPCShipAI::board_target()
 
     if (type == NPC_AI_PIRATE)
     {
+        for (int i = 0; i < MAXSLOTS; i++) // TODO: not all maybe, not instantly etc
+        {
+            if (ship->slot[i].type == SLOT_CARGO || ship->slot[i].type == SLOT_CONTRABAND)
+                ship->slot[i].clear();
+        }
         ship->target = 0;
         mode = NPC_AI_LEAVING;
     }

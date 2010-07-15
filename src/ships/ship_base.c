@@ -17,7 +17,9 @@ Updated with warships. Nov08 -Lucrot
 #include "interp.h"
 #include "objmisc.h"
 #include "prototypes.h"
-#include "ship_ai.h"
+#include "ship_auto.h"
+#include "ship_npc.h"
+#include "ship_npc_ai.h"
 #include "spells.h"
 #include "structs.h"
 #include "utils.h"
@@ -70,6 +72,7 @@ void initialize_newships()
   }
 
   initialize_ship_cargo();
+  load_npc_dreadnought();
 }
 
 //--------------------------------------------------------------------
@@ -153,7 +156,7 @@ void nameship(const char *name, P_ship ship)
             return;
          }
 
-         if (ship->m_class == SH_FRIGATE || ship->m_class == SH_DREADNOUGHT) 
+         if (ship->m_class == SH_CRUISER || ship->m_class == SH_DREADNOUGHT) 
          {
             if (ship->bridge == world[rroom].number) {
                sprintf(buf, "&+ROn the &+WBridge&N&+R of the &+L%s&N %s",
@@ -526,37 +529,37 @@ void set_ship_layout(P_ship ship, int m_class)
 
     case SH_CORVETTE:
         SHIPROOMEXIT(ship, 0, SOUTH) = room + 2;
-        SHIPROOMEXIT(ship, 1, EAST) = room + 2;
+        SHIPROOMEXIT(ship, 0, WEST) = room + 1;
+        SHIPROOMEXIT(ship, 0, NORTH) = room + 4;
+        SHIPROOMEXIT(ship, 0, EAST) = room + 3;
+        SHIPROOMEXIT(ship, 1, EAST) = room;
         SHIPROOMEXIT(ship, 2, NORTH) = room;
-        SHIPROOMEXIT(ship, 2, EAST) = room + 3;
-        SHIPROOMEXIT(ship, 2, WEST) = room + 1;
-        SHIPROOMEXIT(ship, 3, WEST) = room + 2;
+        SHIPROOMEXIT(ship, 3, WEST) = room;
+        SHIPROOMEXIT(ship, 4, SOUTH) = room;
         ship->entrance = room + 2;
         break;
 
     case SH_DESTROYER:
         SHIPROOMEXIT(ship, 0, NORTH) = room + 1;
-        SHIPROOMEXIT(ship, 0, SOUTH) = room + 5;
+        SHIPROOMEXIT(ship, 0, SOUTH) = room + 7;
         SHIPROOMEXIT(ship, 0, EAST) = room + 3;
         SHIPROOMEXIT(ship, 0, WEST) = room + 2;
         SHIPROOMEXIT(ship, 1, SOUTH) = room;
-        SHIPROOMEXIT(ship, 2, SOUTH) = room + 4;
         SHIPROOMEXIT(ship, 2, EAST) = room;
-        SHIPROOMEXIT(ship, 3, SOUTH) = room + 6;
         SHIPROOMEXIT(ship, 3, WEST) = room;
-        SHIPROOMEXIT(ship, 4, NORTH) = room + 2;
         SHIPROOMEXIT(ship, 4, EAST) = room + 5;
-        SHIPROOMEXIT(ship, 5, NORTH) = room;
+        SHIPROOMEXIT(ship, 5, NORTH) = room + 7;
         SHIPROOMEXIT(ship, 5, EAST) = room + 6;
         SHIPROOMEXIT(ship, 5, WEST) = room + 4;
-        SHIPROOMEXIT(ship, 6, NORTH) = room + 3;
         SHIPROOMEXIT(ship, 6, WEST) = room + 5;
+        SHIPROOMEXIT(ship, 7, NORTH) = room;
+        SHIPROOMEXIT(ship, 7, SOUTH) = room + 5;
         ship->entrance = room + 5;
         break;
 
-    case SH_CRUISER:
+    case SH_FRIGATE:
         SHIPROOMEXIT(ship, 0, NORTH) = room + 1;
-        SHIPROOMEXIT(ship, 0, SOUTH) = room + 5;
+        SHIPROOMEXIT(ship, 0, SOUTH) = room + 8;
         SHIPROOMEXIT(ship, 0, EAST) = room + 3;
         SHIPROOMEXIT(ship, 0, WEST) = room + 2;
         SHIPROOMEXIT(ship, 1, SOUTH) = room;
@@ -566,17 +569,19 @@ void set_ship_layout(P_ship ship, int m_class)
         SHIPROOMEXIT(ship, 3, WEST) = room;
         SHIPROOMEXIT(ship, 4, NORTH) = room + 2;
         SHIPROOMEXIT(ship, 4, EAST) = room + 5;
-        SHIPROOMEXIT(ship, 5, NORTH) = room;
+        SHIPROOMEXIT(ship, 5, NORTH) = room + 8;
         SHIPROOMEXIT(ship, 5, SOUTH) = room + 7;
         SHIPROOMEXIT(ship, 5, EAST) = room + 6;
         SHIPROOMEXIT(ship, 5, WEST) = room + 4;
         SHIPROOMEXIT(ship, 6, NORTH) = room + 3;
         SHIPROOMEXIT(ship, 6, WEST) = room + 5;
         SHIPROOMEXIT(ship, 7, NORTH) = room + 5;
+        SHIPROOMEXIT(ship, 8, NORTH) = room;
+        SHIPROOMEXIT(ship, 8, SOUTH) = room + 5;
         ship->entrance = room + 7;
         break;
 
-    case SH_FRIGATE:
+    case SH_CRUISER:
         SHIPROOMEXIT(ship, 0, SOUTH) = room + 1;
         SHIPROOMEXIT(ship, 1, NORTH) = room;
         SHIPROOMEXIT(ship, 1, DOWN) = room + 3;
@@ -656,7 +661,11 @@ void reset_ship_physical_layout(P_ship ship)
                 else 
                 {
                     if (world[rroom].dir_option[dir])
-                        world[rroom].dir_option[dir]->to_room = -1;
+                    {
+                        FREE(world[rroom].dir_option[dir]);
+                        world[rroom].dir_option[dir] = 0;
+                        //world[rroom].dir_option[dir]->to_room = -1;
+                    }
                 }
             }
         }
@@ -726,7 +735,7 @@ int newshiproom_proc(int room, P_char ch, int cmd, char *arg)
 
       old_room = ch->in_room;
       char_from_room(ch);
-      if (ship->m_class == SH_FRIGATE || ship->m_class == SH_DREADNOUGHT) {
+      if (ship->m_class == SH_CRUISER || ship->m_class == SH_DREADNOUGHT) {
          ch->specials.z_cord = 2;
       }
       char_to_room(ch, ship->location, -1);
@@ -750,7 +759,7 @@ int newshiproom_proc(int room, P_char ch, int cmd, char *arg)
         return false;
       }
 
-      if (ship->m_class == SH_FRIGATE || ship->m_class == SH_DREADNOUGHT)
+      if (ship->m_class == SH_CRUISER || ship->m_class == SH_DREADNOUGHT)
        {
     //      if (SHIPISDOCKED(ship) || SHIPANCHORED(ship))
           {
@@ -878,6 +887,7 @@ void dock_ship(P_ship ship, int to_room)
 }
 
 
+bool is_npc_ship_name (const char*);
 bool check_ship_name(P_ship ship, P_char ch, char* name)
 {
     ShipVisitor svs;
@@ -893,6 +903,11 @@ bool check_ship_name(P_ship ship, P_char ch, char* name)
                 return false;
             }
         }
+    }
+    if (is_npc_ship_name(name))
+    {
+        send_to_char("This name is reserved, choose another name for your ship!\r\n", ch);
+        return false;
     }
     return true;    
 }    
@@ -1649,11 +1664,23 @@ int do_fire (P_char ch, P_ship ship, char* arg)
     {
         int lvl = 0;
         if (is_number(arg2)) lvl = atoi(arg2);
-        if (try_load_pirate_ship(ship, ch, lvl))
+        if (try_load_npc_ship(ship, ch, NPC_AI_PIRATE, lvl))
             return true;
         else
         {
             send_to_char("Failed to load pirate ship!\r\n", ch);
+            return true;
+        }
+    }
+    if (isname(arg1, "hunter") && IS_TRUSTED(ch)) 
+    {
+        int lvl = 0;
+        if (is_number(arg2)) lvl = atoi(arg2);
+        if (try_load_npc_ship(ship, ch, NPC_AI_HUNTER, lvl))
+            return true;
+        else
+        {
+            send_to_char("Failed to load hunter ship!\r\n", ch);
             return true;
         }
     }
@@ -3031,7 +3058,7 @@ int shipobj_proc(P_obj obj, P_char ch, int cmd, char *arg)
        send_to_char("&+RThat ship is moving too fast to board!&n\r\n", ch);
        return TRUE;
     }
-    else if (ship->m_class == SH_FRIGATE || ship->m_class == SH_DREADNOUGHT)
+    else if (ship->m_class == SH_CRUISER || ship->m_class == SH_DREADNOUGHT)
     {
 //            if (SHIPISDOCKED(ship) || SHIPANCHORED(ship))
       {
@@ -3492,12 +3519,12 @@ void newship_activity()
                 ship->npc_ai->activity();
 
             if (ship->target == 0 && ship->speed > 0 && number(0, 3600) == 0)
-                try_load_pirate_ship(ship);
+                try_load_npc_ship(ship);
         }
     }
 
     
-    bool unloaded = true;
+    /*bool unloaded = true;
     while (unloaded) // this is because ship unloading invalidates the hash, have to repeat over
     {
         unloaded = false;
@@ -3507,7 +3534,7 @@ void newship_activity()
                 if ((unloaded = try_unload_pirate_ship(svs)) != FALSE)
                     break;
         }
-    }
+    }*/
 }
 
 void crash_land(P_ship ship)

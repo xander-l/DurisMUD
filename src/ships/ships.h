@@ -1,10 +1,3 @@
-/*******************************************************
-ships.h
-any probs email me at stil@citylinq.com or talk to me as
-Foo on the mud
-Ship structure and definitions are here :P
-Updated with warships. Nov08 -Lucrot
-*******************************************************/
 #ifndef _SHIPS_H_
 #define _SHIPS_H_
 
@@ -94,8 +87,8 @@ Updated with warships. Nov08 -Lucrot
 #define SH_GALLEON             6
 #define SH_CORVETTE            7
 #define SH_DESTROYER           8
-#define SH_CRUISER             9
-#define SH_FRIGATE            10
+#define SH_FRIGATE             9
+#define SH_CRUISER            10
 #define SH_DREADNOUGHT        11
 
 #define SHK_MERCHANT          1
@@ -597,9 +590,6 @@ extern void summon_ship_event(P_char ch, P_char victim, P_obj obj, void *data);
 extern int weaprange(int w_index, char range);
 extern int weaponsight(P_ship ship, P_ship target, int weapon, float mod);
 extern void calc_crew_adjustments(P_ship ship);
-extern bool try_load_pirate_ship(P_ship target);
-extern bool try_load_pirate_ship(P_ship target, P_char ch, int level);
-extern bool try_unload_pirate_ship(P_ship ship);
 
 
 int sell_cargo(P_char ch, P_ship ship, int slot);
@@ -678,4 +668,4 @@ typedef ShipObjHash::visitor ShipVisitor;
 extern ShipObjHash shipObjHash;
 
 
-#endif
+#endif // _SHIPS_H_

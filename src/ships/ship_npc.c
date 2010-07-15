@@ -1106,5 +1106,3 @@ bool load_npc_ship_crew(P_ship ship, int crew_size, int crew_level)
 // Problems:
 // if you cant hit target for too long in advanced mode, switch to basic
 // Take damage_ready into account
-
-

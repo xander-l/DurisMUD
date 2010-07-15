@@ -1,8 +1,7 @@
-
-
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <math.h>
     
 #include "ships.h"
 #include "comm.h"
@@ -11,12 +10,12 @@
 #include "interp.h"
 #include "objmisc.h"
 #include "prototypes.h"
-#include "ship_ai.h"
 #include "spells.h"
 #include "structs.h"
+#include "ship_auto.h"
 #include "utils.h"
 #include "events.h"
-#include <math.h>
+#include "ship_npc_ai.h"
 
 char  arc[3];
 extern char  contact[256];
@@ -334,21 +333,30 @@ bool ship_gain_frags(P_ship ship, P_ship target, int frags)
 {
   if (frags > 0)
   {
-    if (!ISNPCSHIP(target))
+    int skill_frags = frags;
+    if (ISNPCSHIP(target))
+    {
+      if (target->m_class == SH_DREADNOUGHT)
+      {
+        frags /= 5;
+        skill_frags = frags;
+      }
+      else
+      {
+        skill_frags = frags / 10;
+        frags = 0;
+      }
+    }
+    if (frags > 0)
     {
         ship->frags += frags;
         sprintf(buf, "Your ship has gained %d frags!\r\n", frags);
         act_to_all_in_ship(ship, buf);
     }
-    else
-        frags /= 10;
-
-      //act_to_all_in_ship(ship, "&+GYour Sail Crew has gained some experience!&N\r\n");
-
-    ship->sailcrew.skill   += frags * ship_crew_data[ship->sailcrew.index].skill_gain;
-    ship->guncrew.skill    += frags * ship_crew_data[ship->guncrew.index].skill_gain;
-    ship->repaircrew.skill += frags * ship_crew_data[ship->repaircrew.index].skill_gain;
-    ship->rowingcrew.skill += frags * ship_crew_data[ship->rowingcrew.index].skill_gain;
+    ship->sailcrew.skill   += skill_frags * ship_crew_data[ship->sailcrew.index].skill_gain;
+    ship->guncrew.skill    += skill_frags * ship_crew_data[ship->guncrew.index].skill_gain;
+    ship->repaircrew.skill += skill_frags * ship_crew_data[ship->repaircrew.index].skill_gain;
+    ship->rowingcrew.skill += skill_frags * ship_crew_data[ship->rowingcrew.index].skill_gain;
 
     update_crew(ship);
     update_ship_status(ship);
@@ -467,7 +475,10 @@ bool sink_ship(P_ship ship, P_ship attacker)
     act_to_outside_ships(ship, buf, ship);
     act_to_all_in_ship(ship, "&=LRYOUR SHIP STARTS TO SINK!!&N");
 
-    ship->timer[T_SINKING] = 75;
+    if (ISNPCSHIP(ship))
+        ship->timer[T_SINKING] = number(1000, 1500); // to let people clear it
+    else
+        ship->timer[T_SINKING] = number(75, 150);
     ship->maxspeed = 0;
     ship->setspeed = 0;
     ship->speed = 0;
@@ -567,6 +578,9 @@ void volley_hit_event(P_char ch, P_char victim, P_obj obj, void *data)
     if (target->timer[T_BSTATION] == 0) 
         act_to_all_in_ship(target, "&=LRYour crew scrambles to their battlestions&N!\r\n");
     target->timer[T_BSTATION] = BSTATION;
+
+    if (target->npc_ai)
+        target->npc_ai->attacked_by(ship);
 
     if (dice(2, 50) >= 100 - hit_chance) 
     { // we have a hit!
@@ -1175,12 +1189,16 @@ int try_ram_ship(P_ship ship, P_ship target, int tbearing)
 
 
         // Changes in ships movement
+
+        ship->x = target->x;
+        ship->y = target->y;
+
         if (SHIPHULLWEIGHT(ship) >= SHIPHULLWEIGHT(target))
         {
             target->heading = number(0, 359);
             target->setheading = number(0, 359);
-            target->speed = MAX(target->speed, BOARDING_SPEED + 1);
-            ship->speed  = MAX(ship->speed, BOARDING_SPEED + 1);
+            target->speed = MIN(target->speed, BOARDING_SPEED + 1);
+            ship->speed  = MIN(ship->speed, BOARDING_SPEED + 1);
         }
         if (SHIPHULLWEIGHT(ship) < SHIPHULLWEIGHT(target))
         {

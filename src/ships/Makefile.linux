@@ -47,7 +47,7 @@ INC_DIRS = -I../ -I./
 # Source Files. 
 #
 # KEEP THESE IN ALPHABETICAL ORDER PLEASE 
-SRC_FILES =  ship_base.c ship_ai.c ship_building.c ship_cargo.c ship_tactical.c ship_utils.c ship_variables.c 
+SRC_FILES =  ship_base.c ship_cargo.c ship_tactical.c ship_utils.c ship_variables.c ship_auto.c ship_npc.c ship_npc_ai.c 
 
 #
 # Object Files
