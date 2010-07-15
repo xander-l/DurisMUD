@@ -43,6 +43,7 @@ int harpy_gate(P_obj obj, P_char ch, int cmd, char *arg);
 int block_dir(P_char ch, P_char pl, int cmd, char *arg);
 
 int newship_shop(int room, P_char ch, int cmd, char *arg);
+void assign_ship_crew_funcs();
 
 #ifdef SHLIB
 
@@ -2281,6 +2282,7 @@ void assign_rooms(void)
   world[real_room0(82574)].funct = inn;
   world[real_room0(99715)].funct = inn;
   world[real_room0(10857)].funct = inn;
+  world[real_room0(3398)].funct = inn;
   world[real_room0(1736)].funct = inn;
 
 
@@ -2343,21 +2345,22 @@ void assign_rooms(void)
   world[real_room0(17087)].funct = inn;
 
   /* tharn */
-  //world[real_room0(6076)].funct = inn;
-  //world[real_room0(6115)].funct = pet_shops;
-  //world[real_room0(6369)].funct = pet_shops;
-  //world[real_room0(6244)].funct = pet_shops;
+
+ // world[real_room0(6076)].funct = inn;
+  world[real_room0(6115)].funct = pet_shops;
+  world[real_room0(6369)].funct = pet_shops;
+  world[real_room0(6244)].funct = pet_shops;
   world[real_room0(9704)].funct = crew_shop;
-  //world[real_room0(6683)].funct = newship_shop;
-  //world[real_room0(123113)].funct = newship_shop;
+  world[real_room0(6683)].funct = newship_shop;
+ // world[real_room0(123113)].funct = newship_shop;
   world[real_room0(88846)].funct = newship_shop;
   world[real_room0(43198)].funct = newship_shop;
   world[real_room0(43158)].funct = newship_shop;
-  //world[real_room0(140854)].funct = newship_shop;
-  //world[real_room0(258421)].funct = newship_shop;
+  world[real_room0(140854)].funct = newship_shop;
+  world[real_room0(258421)].funct = newship_shop;
   world[real_room0(22441)].funct = newship_shop;
-  //world[real_room0(70501)].funct = newship_shop;        /* rax's quest zone */
-  //world[real_room0(258421)].funct = newship_shop;
+  world[real_room0(70501)].funct = newship_shop;        /* rax's quest zone */
+  world[real_room0(258421)].funct = newship_shop;
   world[real_room0(43118)].funct = newship_shop;
   world[real_room0(635260)].funct = newship_shop;
   world[real_room0(584171)].funct = newship_shop;
@@ -2379,11 +2382,11 @@ void assign_rooms(void)
 
 
   /* Sylvandawn */
-  //world[real_room0(8010)].funct = pet_shops;
-  //world[real_room0(8211)].funct = dump;
-  //world[real_room0(8323)].funct = pet_shops;
-  //world[real_room0(8003)].funct = inn;
-  //world[real_room0(8287)].funct = newship_shop;
+  world[real_room0(8010)].funct = pet_shops;
+  world[real_room0(8211)].funct = dump;
+  world[real_room0(8323)].funct = pet_shops;
+  world[real_room0(8003)].funct = inn;
+  world[real_room0(8287)].funct = newship_shop;
 
   /* Sarmiz'Duul */
   world[real_room0(9738)].funct = inn;
@@ -2579,6 +2582,10 @@ void assign_rooms(void)
   mob_index[real_mobile0(83414)].func.mob = rentacleric;
   obj_index[real_object0(120051)].func.obj = wh_corpse_decay;
   mob_index[real_mobile0(120051)].func.mob = wh_corpse_to_object;
+
+
+  // NPC Ship Crews
+  assign_ship_crew_funcs();
 }
 
 /*

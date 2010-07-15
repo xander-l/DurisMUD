@@ -1,68 +1,39 @@
-/***************************************
-* ship_ai.h
-* 
-* Header file for ship AI
-***************************************/
+#ifndef _SHIP_NPC_AI_H_
+#define _SHIP_NPC_AI_H_
 
-// Timers
-#define AIT_WAIT	0
-#define MAXAITIMER	1
-
-// AI Types
-#define AI_LINE 	0
-#define AI_STOP		1
-#define AI_PATH		2
-
-// AI Modes
-#define AIM_COMBAT	0
-#define AIM_SEEK	1
-#define AIM_FOLLOW	2
-#define AIM_WAIT	3
-#define AIM_AUTOPILOT	4
-#define AIM_RAMMING	5
-
-// AI Bits
-#define AIB_ENABLED	BIT_1
-#define AIB_AUTOPILOT	BIT_2
-#define AIB_BATTLER	BIT_3
-#define AIB_HUNTER	BIT_4
-#define AIB_MOB		BIT_5
-#define AIB_RAMMER	BIT_6
-#define AIB_DRONE	BIT_7
-
-struct shipai_data
+enum NPC_AI_Mode
 {
-  P_ship ship, target;
-  int flags, type, timer[MAXAITIMER], t_room, mode;
-  struct shipgroup_data *group;
-  struct shipai_data *next;
+    NPC_AI_IDLING,
+    NPC_AI_ENGAGING,
+    NPC_AI_CRUISING,
+    NPC_AI_LEAVING,
+    NPC_AI_RUNNING,
+    NPC_AI_LOOTING,
 };
 
-struct shipgroup_data
+enum NPC_AI_Type
 {
-  struct shipai_data *leader;
-  struct shipai_data *ai;
-  struct shipgroup_data *next;
+    NPC_AI_PIRATE,
+    NPC_AI_HUNTER,
+    NPC_AI_ESCORT,
 };
-
-#define NPC_AI_IDLING   0
-#define NPC_AI_ENGAGING 1
-#define NPC_AI_CRUISING 2
-#define NPC_AI_RUNNING  3
-#define NPC_AI_LOOTING  4
-
 
 struct NPCShipAI
 {
     P_ship ship;
     P_char debug_char;
-    int mode;
+    NPC_AI_Type type;
+    NPC_AI_Mode mode;
+    bool permanent;
     bool advanced;
+    struct NPCShipCrewData* crew_data;
     
     
     NPCShipAI(P_ship s, P_char ch = 0);
     void activity();
+    void cruise();
     void reload_and_repair();
+    void attacked_by(P_ship attacker);
 
     // General combat
     int t_bearing;
@@ -72,7 +43,7 @@ struct NPCShipAI
     float t_range;
     int t_x, t_y;
     int contacts_count;
-    bool did_board;
+    P_ship did_board;
     bool is_heavy_ship;
     bool is_multi_target;
     bool out_of_ammo;
@@ -176,13 +147,14 @@ struct NPCShipAI
 
     // Utils
     int check_dir_for_land_from(float x, float y, int heading, float range);
-    int get_arc_main_bearing(int arc);
-    int get_arc_width(int arc);
     int get_room_in_direction_from(float x, float y, int dir, float range);
     int get_room_at(float x, float y);
     bool get_coord_in_direction_from(float x, float y, int dir, float range, float& rx, float& ry);
     float calc_land_dist(float x, float y, float dir, float max_range);
     static void normalize_direction(int &dir);
-    static bool inside_map(float x, float y);
+    bool inside_map(float x, float y);
     void send_message_to_debug_char(char *fmt, ... );
 };
+
+#endif // _SHIP_NPC_AI_H_
+

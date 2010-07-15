@@ -164,7 +164,7 @@ const ShipTypeData ship_type_data[MAXSHIPCLASS] = {
  { 9,    "Destroyer",  15000000,      0,  220,     8,   110,     130,    0,        0,       8,      64,    35,     15,      36,     16,       0,   SHK_WARSHIP  },
  {10,      "Frigate",  22000000,      0,  285,    10,   142,     140,    0,        0,      10,      55,    30,     12,      41,     20,       0,   SHK_WARSHIP  },
  {11,      "Cruiser",  36000000,      0,  400,    12,   200,     160,    0,        0,      15,      48,    25,      8,      46,     25,       0,   SHK_WARSHIP  },
- {12,  "Dreadnought",         0,      0,  600,    14,   300,     200,    0,        0,      20,      46,    22,      6,      51,     32,       0,   SHK_WARSHIP  } 
+ {12,  "Dreadnought",         0,      0,  600,    14,   300,     200,    0,        0,      20,      45,    22,      6,      51,     32,       0,   SHK_WARSHIP  } 
 
 };
 

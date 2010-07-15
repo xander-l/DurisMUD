@@ -10,7 +10,6 @@
 #include "interp.h"
 #include "objmisc.h"
 #include "prototypes.h"
-#include "ship_ai.h"
 #include "spells.h"
 #include "structs.h"
 #include "utils.h"
@@ -432,10 +431,16 @@ int num_people_in_ship(P_ship ship)
     for (ch = world[real_room0(ship->room[i].roomnum)].people; ch;
          ch = ch->next_in_room)
     {
-      if (!IS_TRUSTED(ch))
+      if (IS_TRUSTED(ch))
+        continue;
+      if (IS_NPC(ch))
       {
-        num++;
+        if(!ch->following || !IS_PC(ch->following)) // not counting mobs that arent followers
+          continue;
+        if (GET_VNUM(ch) == 250) // image
+          continue;
       }
+      num++;
     }
   }
   return (num);

@@ -27,7 +27,7 @@
 #include "mm.h"
 #include "profile.h"
 #include "ships/ships.h"
-#include "ships/ship_ai.h"
+#include "ships/ship_npc_ai.h"
 
 /*
  * external variables 

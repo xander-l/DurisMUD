@@ -22,7 +22,6 @@
 #include "prototypes.h"
 #include "ships.h"
 #include "mm.h"
-#include "ship_ai.h"
 #include "spells.h"
 #include "structs.h"
 #include "utils.h"
