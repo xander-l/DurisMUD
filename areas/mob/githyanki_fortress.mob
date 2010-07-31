@@ -1,0 +1,278 @@
+#132000
+githyanki guardian _spec1_~
+&+La &+Ggith&+Wyanki &+yguardian&n~
+&+LA &+Ggith&+Wyanki &+yguardian &+Lstands here, &+cpatrolling &+Lthe area.&n
+~
+&+L   Standing around six feet tell, this humanoid figure is incredibly
+&+Lgaunt for his height. &+WPale &+Lflesh seems to sag around his face while
+&+Lpiercing eyes seem to stare through you. Given the task to patrol
+&+Lthe landmass, this &+Ggith&+Wyanki &+Llooks eager to kill.&n
+~
+395336 1 0 24 0 0 0 -1000 S
+GI 0 1 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#132001
+githyanki prison guard large _no_move_~
+&+La large &+Ggith&+Wyanki &+cprison &+Lguard&n~
+&+LA large &+Ggith&+Wyanki &+Lguard stands here, blocking passage.&n
+~
+&+L   Standing watch over the entrance to the prison, this burly &+Ggith&+Wyanki
+&+Lseems to stare you down as you approach. Dressed in a simple robe of the
+&+Ggith&+Wyanki &+Ljusticar, his gauntleted fist seems to tighen upon his weapon
+&+Las you get closer.&n
+~
+145418 1 0 402653208 264192 0 4096 -1000 S
+gi 0 4194320 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#132002
+di'zanr'raek di zanr raek chief knight githyanki~
+&+cDi'zanr'reak &+Lthe &+Ggith&+Wyanki &+Lchief &+Wkn&+wig&+Lht&n~
+&+LThe chief &+Ggith&+Wyanki &+Wkn&+wig&+Lht stands here, displeased by your presence.&n
+~
+&+L   Standing before you is a tall &+Ggith&+Wyanki&+L. Standing over seven feet
+&+Ltall, this &+Ggith&+Wyanki &+Lis dressed in accordance to his station within
+&+Lthe fortress. Gleaming &+Csilver &+Lshoulder and chest plates lay atop
+&+La &+Rblood &+rred &+Lrobe that trails to the floor. A belt of silver links
+&+Lwraps around his waste and carries the scabbard for his great
+&+Lsword. Several large sigil's run the length of the &+rred &+Lrobe.&n
+~
+26698 0 0 24 32768 0 0 -1000 S
+gi 0 17 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#132003
+githyanki advisor~
+&+La &+Ggith&+Wyanki &+Ladvisor&n~
+&+LA well dressed advisor stands here, helping issue orders for his commander.&n
+~
+&+L   Wearing simple &+Wpale &+Bblue &+Lrobes, this advisor does little more than
+&+Lassist the chief knight with his duties. Covering menial tasks like
+&+Lpolishing his armor or even sending messages throughout the fortress.
+&+LThis &+Ggith&+Wyani&+L's slender build does not mark him as much of a fighter
+&+Lat all.&n
+~
+133194 0 0 0 0 0 0 -1000 S
+gi 0 1 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#132004
+gate guard githyanki _no_move_~
+&+La &+Ggith&+Wyanki &+Lgate guard&n~
+&+LA large &+rornately &+Ldressed &+Ggith&+Wyanki &+Lstands here, guarding the fortress gates.&n
+~
+&+L   Equiped with several weapons of all sorts, this well built &+Ggith&+Wyanki
+&+Lwas chosen from hundreds of others to guard the front gates. Known for
+&+Lhis past exploits and experience while hunting the &+Millithid &+Ltyrants,
+&+Lthis &+Ggith&+Wyanki &+Lwarrior stands proud at the gates to the fortress. Upon
+&+Lseeing you, he is quick to sound the alarm and alert the rest of your
+&+Ltrespass.&n
+~
+18442 1 0 24 0 0 0 -1000 S
+gi 0 1 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#132005
+githyanki warlock apprentice~
+&+La &+Ggith&+Wyanki &+Cwar&+clock&n~
+&+LAn apprentice &+Cwar&+clock &+Lsits here, searching ancient tomes for information.&n
+~
+&+L   This young &+Ggith&+Wyanki &+Lapprentice is dressed in simple &+mmagenta &+Lrobes.
+&+LHis pale skin and piercing eyes follow your every movement. His body
+&+Lseems rather frail under the robes. Hanging from his corded belt, a
+&+Lsmall pouch of magical components emits a sour odor. Clutching his
+&+Lspell book, this &+Ggith&+Wyanki &+Lavoids you at all costs.&n
+~
+2122 1 0 24 0 0 0 -1000 S
+gi 0 512 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#132006
+zalik al zalik'al githyanki arch mage arch-mage _no_move_~
+&+cZalik'al&+L, the &+Ggith&+Wyanki &+ra&+Rr&+rc&+Rh&+r-&+Rm&+ra&+Rg&+re&n~
+&+LAn ornatly dressed &+Ggith&+Wyanki &+ra&+Rr&+rc&+Rh&+r-&+Rm&+ra&+Rg&+re &+Lstands here, overseeing his students.&n
+~
+&+L   Standing around six feet tall, this gaunt &+Ggith&+Wyanki &+Lseems to radiate
+&+Lan aura of incredible power. Dressed in the robes of office, the master
+&+Lmage carries with him a wicked looking &+Csilver &+Lstaff. Intricate &+mr&+Mu&+mn&+Me&+ms
+&+Lrun the length of the robe and staff and each seems to pulse at strange
+&+Ltimes. Working with the grand warlock, this arch-mage is working to
+&+Lpass knowledge of a new type of magic to the githyanki mages and
+&+Lwarlocks.&n
+~
+268830794 1 0 402653336 0 0 0 -1000 S
+gi 0 2560 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#132007
+githyanki grand warlock tilieianaiz~
+&+GTilieianaiz &+Lthe &+Ggith&+Wyanki &+Lgrand &+bwar&+Llock&n~
+&+LThe grand &+bwar&+Llock stands here, conversing with the &+ra&+Rr&+rc&+Rh&+r-&+Rm&+ra&+Rg&+re&+L.&n
+~
+&+L   Working with the arch-mage, this robed &+Ggith&+Wyanki &+Lis here working to
+&+Lteach the spellcasters within the fortress the needed defensive magics
+&+Lto safeguard the fortress. Dressed in ornate hooded robes which cover
+&+Lalmost everything, the only features that can really be seen are the
+&+Lpiercing &+rred &+Leyes which stare directly into yours.&n
+~
+2122 0 0 152 0 0 0 -1000 S
+gi 0 512 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#132008
+githyanki warlock~
+&+La &+Ggith&+Wyanki &+bwar&+Llock&n~
+&+LA &+rrobed &+Ggith&+Wyanki &+Bwar&+Llock stands here, prepairing his spells.&n
+~
+&+L   Dressed in black and &+bblue &+Lwarlocks robes, this figure runs about the
+&+Lfortress assisting with the defensive needs. A gaunt frame makes the
+&+Lrobes hang about the figure leaving him looking rather defenseless.
+&+LUpon seeing you, the &+Ggith&+Wyanki&+L's hands start to move in complex
+&+Lpatterns and the crackle of magic appears between its thin fingers.
+~
+268435528 1 0 56 0 0 0 -1000 S
+gi 0 512 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#132009
+strong githyanki warrior~
+&+La &+Ggith&+Wyanki &+Lwarrior&n~
+&+LA strong &+Ggith&+Wyanki &+Lwarrior stands here, sneering at you.&n
+~
+&+L   Wearing a suit of hammered steel, the warrior before you stands alert
+&+Land ready to move into action as quick as needed. &+wPale &+Lflesh covers this
+&+Ggith&+Wyanki &+Land makes for a rather striking contrast between the skin and
+&+Ldark steel of his armor. &+rRed &+Leyes follow your every movement.&n
+~
+1073743944 1 0 56 0 0 0 -1000 S
+gi 0 1 -1
+54 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#132010
+githyanki supreme leader xalithil commander~
+&+CX&+calithi&+Cl&+L, the &+GGith&+Wyanki &+LSup&+wreme Le&+Lader&n~
+&+LThe Sup&+wreme Com&+Lmander of the &+CFortress &+Lstands here, prepairing for her audiances.&n
+~
+&+L   Standing before you is the master of this &+Ggith&+Wyanki &+Lfortress. Dressed
+&+Lin a &+rblood red &+Lrobe, this warrior stands proud. A silvery breastplate
+&+Lengraved with the sigil's of high command rests upon his torso. Runes
+&+Lthe likes of which boggle your mind adorn the lower half of the robe.
+&+LBrilliant &+Rred &+Leyes seem to pull at your &+Cs&+co&+Cu&+cl &+Las he rushes to strike
+&+Lyou down!&n
+~
+285370442 1 0 402661560 47324 32 0 -1000 S
+gi 0 513 -1
+61 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#132011
+emissary tiamat~
+&+man emissary of &+LTiamat&n~
+&+LAn &+memissary &+Lfrom the dragon queen Tiamat and her consort &+rEphelomon &+Lstands here, waiting patiently.&n
+~
+&+L   Standing before you, this slender human girl looks to be no more
+&+Lthan twenty years old. As you look into her eyes, the feeling of age
+&+Land wisdom floods your mind. A gossamer of scales can been seen to
+&+Lshimmer across her skin as she moves occasionaly. Sent by Tiamat,
+&+Lthis dragon in girl form, is here to speak with the Supreme Leader
+&+Labout an upcoming raid. The pact with the red dragons and their
+&+Lqueen looks to be as strong as ever by the pure malicious content
+&+Lthis emissary seems to display by being here.&n
+~
+18474 1 0 402653336 2048 0 1024 0 S
+dk 0 256 -1
+54 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#132012
+umnnwak githyanki master blacksmith~
+&+LUmnnwak, the &+Ggith&+Wyanki &+Lmaster bl&+cac&+Lks&+cmi&+Lth&n~
+&+LThe master bl&+cac&+Lks&+cmi&+Lth of the &+GGith&+Wyanki &+cFortress &+Lstands here, hammering on a new sword.&n
+~
+&+L   Hard at work at the anvil, this heavily muscled &+Ggith&+Wyanki &+Lhardly
+&+Lpays you any heed. Far from the normal guant frame of the &+Ggith&+Wyanki&+L,
+&+Lthis blacksmith pounds away on a long two handed sword.&n
+~
+2122 1 0 156 0 0 0 -1000 S
+gi 0 1 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#132013
+fire giant _no_move_~
+&+Lan imprissoned &+rfi&+Rre gi&+rant&n~
+&+LA shackled &+rfi&+Rre gi&+rant &+Lsits here, miserable.&n
+~
+&+r   Chained to the wall, this fire giant is almost 20 feet tall. Ragged
+&+rfurs and scraps of cloth are all that are left of the giants armor and
+&+rclothing. Cought during an ambush on the giants of Muspelheim, this
+&+rgiant knows his time is coming to an end soon. Upon seeing you,
+&+rhe raises his head and steels his gaze. Speaking in a near growl,
+&+rthe giant utters '&+WHello mortal...&+r'&n
+~
+24650 0 0 0 0 0 0 -1000 S
+G 0 1048577 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#132014
+frost giant _no_move_~
+&+Lan imprissoned &+cfr&+Cost gia&+cnt&n~
+&+LA shackled &+cfr&+Cost gia&+cnt &+Lsits here, &+ybattered &+Land &+wbeaten&+L.&n
+~
+&+c   Slumped up against the wall, this frost giant from the realm of
+&+CJotunheim &+clooks battered and bruised. Still wearing the mace and
+&+Cskull armor of &+LUtgard-Loki&+C, this giant's skin is flayed and burned
+&+Cin places. Sections of his armor have been caved in and pinch
+&+Cchunks of flesh between. Along his arms, his vambraces have been
+&+Wsuper&+Yheated &+Cand &+rmelted &+Cinto his forearms. Looking at you
+&+Cwith a miserable expression, you can faintly hear him whisper the word
+&+W'Heeeeeeeeeeeeeeeeelp.......' &n
+~
+157770 0 0 0 0 0 0 -1000 S
+g 0 16777280 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#132015
+worshipping githyanki~
+&+La &+cwor&+Cship&+cping &+Ggith&+Wyanki&n~
+&+LA young &+Ggith&+Wyanki &+Lkneels here, eyes closed, paying homage to the &+ml&+Li&+mc&+Lh&+m-&+Lq&+mu&+Le&+me&+Ln.&n
+~
+&+L   This young &+Ggith&+Wyanki &+Lis dressed in a ceremonial &+rrobe &+Lcovered in arcane
+&+Gr&+gu&+Gn&+ge&+Gs&+L. Kneeling on a heavily decorated &+cp&+Cillo&+cw&+L, he is complety unaware of
+&+Lthe things going around him. Absorbed in his silent worship of the fabled
+&+ml&+Li&+mc&+Lh&+m-&+Lq&+mu&+Le&+me&+Ln, this &+Ggith&+Wyanki &+Lhas no clue your here.&n
+~
+395338 0 0 402653200 0 128 4096 -1000 S
+GI 0 1 -1
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#132016
+githyanki knight~
+&+La &+Ggith&+Wyanki &+Lkn&+wi&+Lght&N~
+&+LA &+Ggith&+Wyanki &+Lknight stands here, looking down at you.&n
+~
+&+L   Standing around six feet tall, this &+Ggith&+Wyanki &+Lhas the distinction of
+&+Lbeing one of the legendary knights. Giving the &+Ggith&+Wyanki &+Ltheir fierce
+&+Lfighting reputation, this knight is garbed in an ornate &+rred &+Lrobe with
+&+La silvery breast plate over the top. Clenched in his hands is the
+&+Lfabled &+Csilver &+Llongsword.&n
+~
+2120 1 0 24 0 0 0 -1000 S
+gi 0 16 -1
+54 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1

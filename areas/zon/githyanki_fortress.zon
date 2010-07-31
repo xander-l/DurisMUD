@@ -1,0 +1,181 @@
+#1320
+The Githyanki Fortress~
+132065 2 0 40 50 1
+*
+* Zone edited with durisEdit v2.99de
+*
+*
+D 0 132013 0 2 100 0 0 0
+*     north exit from "The Massive Silvery Gates of the Githyanki Fortress" to
+*     "Within the Githyanki Fortress" - closed/locked
+*
+D 0 132016 2 2 100 0 0 0
+*     south exit from "Within the Githyanki Fortress" to
+*     "The Massive Silvery Gates of the Githyanki Fortress" - closed/locked
+*
+D 0 132017 0 2 100 0 0 0
+*     north exit from "An Intersection of Hallways" to
+*     "The Center of the Githyanki Fortress" - closed/locked
+*
+D 0 132057 2 2 100 0 0 0
+*     south exit from "The Center of the Githyanki Fortress" to
+*     "An Intersection of Hallways" - closed/locked
+*
+D 0 132017 1 1 100 0 0 0
+*     east exit from "An Intersection of Hallways" to
+*     "A Reinforced Hallway" - closed
+*
+D 0 132018 3 1 100 0 0 0
+*     west exit from "A Reinforced Hallway" to
+*     "An Intersection of Hallways" - closed
+*
+D 0 132017 3 2 100 0 0 0
+*     west exit from "An Intersection of Hallways" to
+*     "A Hallway of Infused Stone" - closed/locked
+*
+D 0 132038 1 2 100 0 0 0
+*     east exit from "A Hallway of Infused Stone" to
+*     "An Intersection of Hallways" - closed/locked
+*
+D 0 132025 0 2 100 0 0 0
+*     north exit from "Before the Fortress Prisons" to
+*     "Along a Row of Cells" - closed/locked
+*
+D 0 132026 2 2 100 0 0 0
+*     south exit from "Along a Row of Cells" to
+*     "Before the Fortress Prisons" - closed/locked
+*
+D 0 132026 1 1 100 0 0 0
+*     east exit from "Along a Row of Cells" to
+*     "A Tiny Jail Cell" - closed
+*
+D 0 132029 3 1 100 0 0 0
+*     west exit from "A Tiny Jail Cell" to
+*     "Along a Row of Cells" - closed
+*
+D 0 132026 3 1 100 0 0 0
+*     west exit from "Along a Row of Cells" to
+*     "A Tiny Jail Cell" - closed
+*
+D 0 132030 1 1 100 0 0 0
+*     east exit from "A Tiny Jail Cell" to
+*     "Along a Row of Cells" - closed
+*
+D 0 132028 1 1 100 0 0 0
+*     east exit from "Along a Row of Cells" to
+*     "A Tiny Jail Cell" - closed
+*
+D 0 132031 3 1 100 0 0 0
+*     west exit from "A Tiny Jail Cell" to
+*     "Along a Row of Cells" - closed
+*
+D 0 132028 3 1 100 0 0 0
+*     west exit from "Along a Row of Cells" to
+*     "A Tiny Jail Cell" - closed
+*
+D 0 132032 1 1 100 0 0 0
+*     east exit from "A Tiny Jail Cell" to
+*     "Along a Row of Cells" - closed
+*
+D 0 132036 0 1 100 0 0 0
+*     north exit from "Atop a Narrow Landing" to
+*     "The Private Study of the Chief Knight" - closed
+*
+D 0 132037 2 1 100 0 0 0
+*     south exit from "The Private Study of the Chief Knight" to
+*     "Atop a Narrow Landing" - closed
+*
+D 0 132049 3 1 100 0 0 0
+*     west exit from "A Nexus of Hallways Within the Mages Quarters" to
+*     "The Grand Warlock's Private Study" - closed
+*
+D 0 132052 1 1 100 0 0 0
+*     east exit from "The Grand Warlock's Private Study" to
+*     "A Nexus of Hallways Within the Mages Quarters" - closed
+*
+D 0 132064 3 2 100 0 0 0
+*     west exit from "Within the Private Audiance Hall of the Supreme Commander" to
+*     "The Supreme Commander's Inner Study" - closed/locked
+*
+D 0 132065 1 2 100 0 0 0
+*     east exit from "The Supreme Commander's Inner Study" to
+*     "Within the Private Audiance Hall of the Supreme Commander" - closed/locked
+*
+*
+O 0 132000 1 132000 100 0 0 0      * the corpse of an illithid
+O 0 132012 1 132019 100 0 0 0      * a battered and beaten training dummy
+O 0 132019 1 132023 100 0 0 0      * an astral forged anvil
+O 0 132014 1 132029 100 0 0 0      * a large slab of blood stained stone
+O 0 132013 1 132029 100 0 0 0      * the corpse of a flayed illithid
+P 1 132015 1 132013 100 0 0 0      *   a severed illithid tentacle
+O 0 132016 1 132031 100 0 0 0      * some smoldering shakles
+O 0 132017 1 132032 100 0 0 0      * some icy shackles
+O 0 132004 1 132046 100 0 0 0      * a statue of Vlaakith
+O 0 132005 1 132046 100 0 0 0      * a blood-splattered altar
+O 0 132018 1 132052 100 0 0 0      * a desk of magicaly bound and fused illithid bones
+O 0 132011 1 132065 100 0 0 0      * a long wooden desk
+O 0 64 1 132065 100 0 0 0          * (object type not in this .obj file)
+*
+M 0 132000 8 132008 100 0 0 0      * a githyanki guardian
+M 0 132000 8 132008 100 0 0 0      * a githyanki guardian
+M 0 132000 8 132008 100 0 0 0      * a githyanki guardian
+M 0 132000 8 132008 100 0 0 0      * a githyanki guardian
+M 0 132000 8 132010 100 0 0 0      * a githyanki guardian
+M 0 132000 8 132010 100 0 0 0      * a githyanki guardian
+M 0 132000 8 132010 100 0 0 0      * a githyanki guardian
+M 0 132000 8 132010 100 0 0 0      * a githyanki guardian
+M 0 132004 3 132013 100 0 0 0      * a githyanki gate guard
+M 0 132004 3 132013 100 0 0 0      * a githyanki gate guard
+G 1 132003 1 0 100 0 0 0           *    a large gate key
+M 0 132004 3 132013 100 0 0 0      * a githyanki gate guard
+M 0 132009 7 132016 100 0 0 0      * a githyanki warrior
+M 0 132009 7 132016 100 0 0 0      * a githyanki warrior
+M 0 132009 7 132019 100 0 0 0      * a githyanki warrior
+M 0 132009 7 132019 100 0 0 0      * a githyanki warrior
+M 0 132009 7 132019 100 0 0 0      * a githyanki warrior
+M 0 132009 7 132019 100 0 0 0      * a githyanki warrior
+M 0 132009 7 132019 100 0 0 0      * a githyanki warrior
+M 0 132016 9 132019 100 0 0 0      * a githyanki knight
+M 0 132016 9 132019 100 0 0 0      * a githyanki knight
+M 0 132016 9 132019 100 0 0 0      * a githyanki knight
+M 0 132016 9 132019 100 0 0 0      * a githyanki knight
+M 0 132016 9 132019 100 0 0 0      * a githyanki knight
+M 0 132016 9 132019 100 0 0 0      * a githyanki knight
+M 0 132012 1 132023 100 0 0 0      * Umnnwak, the githyanki master blacksmith
+M 0 132001 2 132025 100 0 0 0      * a large githyanki prison guard
+M 0 132001 2 132025 100 0 0 0      * a large githyanki prison guard
+G 1 132001 1 0 100 0 0 0           *    a tiny skull shaped key
+M 0 132014 1 132031 100 0 0 0      * an imprissoned frost giant
+M 0 132013 1 132032 100 0 0 0      * an imprissoned fire giant
+M 0 132002 1 132037 100 0 0 0      * Di'zanr'reak the githyanki chief knight
+E 1 132006 1 9 100 0 0 0           *   a pair of silverish githyanki gauntlets
+G 1 132002 1 0 100 0 0 0           *    a silvery key imbued with power
+M 0 132003 2 132037 100 0 0 0      * a githyanki advisor
+M 0 132003 2 132037 100 0 0 0      * a githyanki advisor
+M 0 132008 6 132042 100 0 0 0      * a githyanki warlock
+M 0 132008 6 132042 100 0 0 0      * a githyanki warlock
+M 0 132008 6 132042 100 0 0 0      * a githyanki warlock
+M 0 132008 6 132042 100 0 0 0      * a githyanki warlock
+M 0 132008 6 132042 100 0 0 0      * a githyanki warlock
+M 0 132008 6 132042 100 0 0 0      * a githyanki warlock
+M 0 132015 4 132046 100 0 0 0      * a worshipping githyanki
+M 0 132015 4 132046 100 0 0 0      * a worshipping githyanki
+M 0 132015 4 132046 100 0 0 0      * a worshipping githyanki
+M 0 132015 4 132046 100 0 0 0      * a worshipping githyanki
+M 0 132006 1 132052 100 0 0 0      * Zalik'al, the githyanki arch-mage
+E 1 132007 1 16 100 0 0 0          *   the silvery staff of the githyanki arch-mage
+E 1 132008 1 18 100 0 0 0          *   a silver key with a glowing rune
+M 0 132007 1 132052 100 0 0 0      * Tilieianaiz the githyanki grand warlock
+M 0 132005 4 132055 100 0 0 0      * a githyanki warlock
+M 0 132005 4 132055 100 0 0 0      * a githyanki warlock
+M 0 132005 4 132056 100 0 0 0      * a githyanki warlock
+M 0 132005 4 132056 100 0 0 0      * a githyanki warlock
+M 0 132016 9 132061 100 0 0 0      * a githyanki knight
+M 0 132016 9 132061 100 0 0 0      * a githyanki knight
+M 0 132016 9 132061 100 0 0 0      * a githyanki knight
+M 0 132011 1 132063 100 0 0 0      * an emissary of Tiamat
+M 0 132010 1 132064 100 0 0 0      * Xalithil, the Githyanki Supreme Leader
+E 1 132020 1 7 100 0 0 0           *   a pair of flayed illithid hide leggings
+G 1 132009 1 0 100 0 0 0           *    a key to the inner study
+*
+S

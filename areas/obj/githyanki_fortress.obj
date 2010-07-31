@@ -1,0 +1,200 @@
+#132000
+corpse illithid~
+&+Lthe &+ccorpse &+Lof an &+Millithid&n~
+&+LThe corpse of an &+Millithid &+Lbound to a black &+cstone &+wpillar &+Lstands as a &+rwarning &+Lhere.&n~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+corpse illithid~
+&+L   This battered and beaten corpse looks to have been preserved
+&+Lwith magic and posted here to warn people not to tresspass upon
+&+Lthe lands of the &+GGith&+Wyanki&+L.&n
+~
+#132001
+key skull shaped~
+&+La tiny &+wskull &+Lshaped &+ckey&n~
+&+LA small key with a &+wskull &+Lhead sits here, seperated from its keyring.&n~
+~
+18 10 3 0 7 0 8396801 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#132002
+silvery key imbued power~
+&+La &+Csilvery &+Lkey &+Bi&+bm&+Bb&+bu&+Be&+bd &+Lwith &+Mpower&n~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+18 15 3 0 7 0 1 1 0 0 0
+0 100 0 0 0 0 0 0
+0 123 100
+#132003
+key gate large~
+&+ca large gate key&n~
+&+LA large &+cgate &+Lkey lies here, abandoned.&n~
+~
+18 15 3 0 7 0 0 1 0 0 0
+0 100 0 0 0 0 0 0
+0 725 100 2 0 0 0
+#132004
+statue lich queen gith~
+&+La statue of &+GVlaakith&n~
+&+LA large &+Cstatue &+Lof the &+ml&+Li&+mc&+Lh&+m-&+Lq&+mu&+Le&+me&+Ln &+GVlaakith &+Lstands here, &+rdominating &+Lthe room.&n~
+~
+13 15 3 0 7 0 1 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+statue lich queen gith~
+&+L   Standing fifteen feet tall, this statue depicts &+GVlaakith I&+L. Known
+&+Las the lich queen among outsiders, &+GVlaakith &+Lhas been the name taken
+&+Lby every queen of the &+Ggith&+Wyanki &+Lsince &+GGith&+L. Starting as an advisor
+&+Lto &+GGith &+Land later taking over leadership when &+GGith &+Lhad passed on,
+&+Lthe queens of the &+GGith&+Wyanki &+Lhave all been descended from &+GVlaakith&+L.
+&+LThe last queen, &+GVlaakith CLVII&+L, died over 1000 years ago with no
+&+Lheir. She returned, a lich, and has ruled ever since.&n
+~
+#132005
+altar blood splattered~
+&+La &+rb&+Rl&+ro&+Ro&+rd&+R-&+rs&+Rp&+rl&+Ra&+rt&+Rt&+re&+Rr&+re&+Rd &+Waltar&n~
+&+LA well used &+rb&+Rl&+ro&+Ro&+rd&+R-&+rs&+Rp&+rl&+Ra&+rt&+Rt&+re&+Rr&+re&+Rd &+Waltar &+Lsits here.&n~
+~
+13 15 3 0 7 0 1 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#132006
+silverish githyanki gauntlets~
+&+ca pair of silverish githyanki gauntlets&n~
+&+cA fine pair of magical silverish gauntlets lie here.&n~
+~
+9 22 3 0 11 0 8192 16513 65 0 0
+10 0 0 0 0 0 0 0
+0 782 100
+A
+18 4
+A
+19 3
+#132007
+staff silvery githyanki arch mage arch-mage~
+&+Lthe &+csilvery &+ystaff &+Lof the &+Ggith&+Wyanki &+ra&+Rr&+rc&+Rh&+r-&+Rm&+ra&+Rg&+re&n~
+&+LA &+Csilvery &+Lstaff seems to have been left int he corner here, unattended.&n~
+~
+13 15 3 0 7 0 0 8193 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#132008
+key glowing rune silver~
+&+La &+Csilver &+Lkey with a &+Yglowing &+mr&+Mu&+mn&+Me&n~
+&+LA &+Csilver &+Lkey with a glowing handle sits here.&n~
+~
+18 22 3 0 7 0 1 16385 0 0 0
+0 100 0 0 0 0 0 0
+0 24 100
+#132009
+key inner study~
+&+La key to the inner study&n~
+&+LA key to the inner study lies here.&n~
+~
+18 15 3 0 7 0 4096 16385 0 0 0
+0 100 0 0 0 0 0 0
+0 1678 100
+#132010
+silver obsidian longsword~
+&+La &+csilver &+Land ob&+ws&+Lid&+wi&+Lan longsword&n~
+&+LA longsword made of obsidian with &+csilver &+Linlay lies here, abandoned.&n~
+~
+5 15 3 0 7 0 1 24577 1 0 0
+5 2 3 0 0 0 0 0
+0 0 100
+A
+18 2
+A
+19 2
+#132011
+wooden desk long~
+&+ya long wooden desk&n~
+&+yA long wooden desk sits here, various papers covering every inch.&n~
+~
+15 15 3 0 7 0 0 0 0 0 0
+100000 5 0 0 0 0 0 0
+0 0 100
+#132012
+training dummy~
+&+ya battered and beaten training dummy&n~
+&+yA well used training dummy stands here, battered and beaten.&n~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#132013
+corpse flayed illithid mindflayer~
+&+Lthe c&+go&+Lrp&+gs&+Le of a &+rf&+Rl&+ray&+Re&+rd &+Millithid&n~
+&+LThe c&+go&+Lrp&+gs&+Le of a &+rf&+Rl&+ray&+Re&+rd &+Millithid &+Llies here, &+wshackled &+Lto the &+cslab&+L.&n~
+~
+15 15 3 0 7 0 0 0 0 0 0
+1412541 0 0 0 0 0 0 0
+0 0 100
+#132014
+large slab blood stained stone~
+&+La large slab of &+rb&+Rloo&+rd &+Lst&+wai&+Lned &+cstone&n~
+&+LA large slab of &+cstone &+Lsits here, covered in &+rblood &+Land &+yshackles&+L.&n~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#132015
+severed illithid tentacle~
+&+La severed &+Millithid &+Ltentacle&n~
+&+LA severed &+Millithid &+Ltentacle lies here, &+Gtwitching&+L.&n~
+~
+9 2 3 0 7 0 4096 8404993 0 0 0
+0 0 0 0 0 0 0 0
+0 2546 100
+A
+12 35
+A
+27 7
+#132016
+smoldering shackles~
+&+Lsome &+rsmoldering &+Lshakles&n~
+&+LA pair of &+rsmoldering &+Lshackles lie here, hanging from the wall.&n~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#132017
+icy shackles~
+&+Lsome &+Ci&+Wc&+Cy &+Lshackles&n~
+&+LA pair of &+Ci&+Wc&+Cy &+Lshackles hang from the wall here, chilling the air.&n~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#132018
+desk bound fused illithid bones~
+&+La desk of magicaly &+gb&+Go&+gu&+Gn&+gd &+Land &+bf&+Bu&+bs&+Be&+bd &+millithid &+Lb&+wo&+Ln&+we&+Ls&n~
+&+LA desk composed of magically &+bf&+Bu&+bs&+Be&+bd &+Millithid &+Lb&+wo&+Ln&+we&+Ls sits here.&n~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#132019
+astral forge anvil~
+&+Lan &+castral &+rforged &+Lanvil&n~
+&+LA large anvil &+rforged &+Lof some &+Castral &+Lmetal sits here.&n~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#132020
+flayed illithid hide flesh leggings~
+&+La pair of &+wf&+Ll&+wa&+Ly&+we&+Ld &+Millithid &+Lh&+gi&+Ld&+ge &+Lleggings&n~
+&+LSome leggings made from the flayed flesh of an &+Millithid &+Llie here.&n~
+~
+9 2 3 0 14 0 8193 33 0 0 0
+-10 0 0 0 0 0 0 0
+2 15155 100
+A
+37 3
+A
+13 20
