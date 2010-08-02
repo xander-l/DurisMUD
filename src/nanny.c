@@ -2153,7 +2153,9 @@ void enter_game(P_desc d)
   {
     ch->player.level = 54;  // so they are raised one level, which will fix skills
   }
-  while ((GET_LEVEL(ch) < 56 && !IS_MULTICLASS_PC(ch)) || GET_LEVEL(ch) < 51)
+  //while ((GET_LEVEL(ch) < 56 && !IS_MULTICLASS_PC(ch)) || GET_LEVEL(ch) < 51)
+  // changing this to conform with Kitsero's version of chaos
+  while (GET_LEVEL(ch) < 56)
   {
     advance_level(ch);
   }
