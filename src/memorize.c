@@ -786,7 +786,14 @@ int get_circle_memtime(P_char ch, int circle, bool bStatOnly)
        else if (med_roll > 0)
            time *= 0.65;
     }
-  }
+
+    // cant focus while in command lag, this makes sure they will
+    // not regain spells while spamming cast
+    if(!bStatOnly && (e = get_scheduled(ch, event_wait)))
+    {
+      time += ne_event_time(e);  // adding the time ensures that the event will not complete instantly after a fight or spell is cast
+    }
+}
   return (int)time;
 }
 
