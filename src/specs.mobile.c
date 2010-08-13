@@ -11362,8 +11362,13 @@ int world_quest(P_char ch, P_char pl, int cmd, char *arg)
       temp = (int)((get_property("worldQuest.abandon.mod", 0.5) * GET_LEVEL(pl) * GET_LEVEL(pl) * GET_LEVEL(pl)));
 
       timediff = time(NULL) - pl->only.pc->quest_started;
-      costmod = timediff / 60 / 60 / get_property("world.quest.cost.abandon.time", 24.000);
-      temp = temp * BOUNDED(0.01, costmod, 1.0);
+      debug("timediff: %f", timediff);
+      costmod = 1.0 - (timediff / 60.0 / 60.0 / get_property("world.quest.cost.abandon.time", 24.000));
+      costmod *= 100;
+      debug("costmod: %f", costmod);
+      debug("temp: %d", temp);
+      temp = temp * BOUNDED(1, costmod, 100) / 100;
+      debug("temp: %d", temp);
       
       //debug("timediff: %f, hrsdiff: %f, costmod: %f, temp: %d, cost: %s", timediff, timediff / 60 / 60, costmod, temp, coin_stringv(temp));
 
