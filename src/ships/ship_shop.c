@@ -1528,14 +1528,22 @@ int buy_hull(P_char ch, P_ship ship, int owned, char* arg1, char* arg2)
             return TRUE;
         }
 
-        for( int k = 0; k < MAXSLOTS; k++ )
+        if (SHIPCONTRA(ship) + SHIPCARGO(ship) > 0)
+        {
+            send_to_char ("You can not reconstruct ship full of cargo!\r\n", ch);
+            return TRUE;
+        }
+        if (!check_undocking_conditions (ship, i, ch))
+            return TRUE;
+            
+        /*for( int k = 0; k < MAXSLOTS; k++ )
         {
             if (ship->slot[k].type != SLOT_EMPTY)
             {
                 send_to_char ("You can not change a hull with non-empty slots!\r\n", ch);
                 return TRUE;
             }
-        }
+        }*/
 
         cost = SHIPTYPECOST(i) - (int) (SHIPTYPECOST(oldclass) * .90);
         if (cost >= 0)
@@ -1567,7 +1575,7 @@ int buy_hull(P_char ch, P_ship ship, int owned, char* arg1, char* arg2)
         }
 
         ship->m_class = i;
-        reset_ship(ship);
+        reset_ship(ship, false);
 
         if (ship->m_class > oldclass)
             buildtime = 75 * (ship->m_class / 2 - oldclass / 3);
