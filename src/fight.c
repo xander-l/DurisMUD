@@ -735,9 +735,9 @@ void AddFrags(P_char ch, P_char victim)
         int real_gain = gain;
         if(GET_LEVEL(tch) > GET_LEVEL(victim) + 5)
           real_gain = (int)(real_gain * get_property("frag.leveldiff.modifier.low", 0.500));
-    
         if(GET_LEVEL(tch) + 5 < GET_LEVEL(victim))
           real_gain = (int)(real_gain * get_property("frag.leveldiff.modifier.high", 1.200));
+
         sprintf(buffer, "You just gained %.02f frags!\r\n", ((float) real_gain) / 100);
 
         tch->only.pc->oldfrags = tch->only.pc->frags;
@@ -794,14 +794,20 @@ void AddFrags(P_char ch, P_char victim)
     }
   }
 
-  sql_modify_frags(victim, -gain);
-  victim->only.pc->frags -= gain;
-  sprintf(buffer, "You just lost %.02f frags!\r\n", ((float) gain) / 100);
+  int loss = gain;
+  if(GET_LEVEL(ch) > GET_LEVEL(victim) + 5)
+    loss = (int)(loss * get_property("frag.leveldiff.modifier.low", 0.500));
+  if(GET_LEVEL(ch) + 5 < GET_LEVEL(victim))
+    loss = (int)(loss * get_property("frag.leveldiff.modifier.high", 1.200));
+
+  sql_modify_frags(victim, -loss);
+  victim->only.pc->frags -= loss;
+  sprintf(buffer, "You just lost %.02f frags!\r\n", ((float) loss) / 100);
  
  // When a player with a blood tasks dies, they now satisfy the pvp spill blood task.
   if(afp = get_epic_task(victim))
   {
-    if(afp->modifier == SPILL_BLOOD && gain > 0 )
+    if(afp->modifier == SPILL_BLOOD && loss > 0 )
     {
         send_to_char("The &+yGods of Duris&n are very pleased with YOUR &+Rblood&n, too!!!\n", victim);
         send_to_char("You can now progress further in your quest for epic power!\n", victim);
