@@ -880,7 +880,7 @@ void getQuestZoneList(P_char ch, vector<int> &valid_zones)
             if (GET_LEVEL(ch) < 30)
             { 
               if (world[zone_maproom].map_section != world[cur_maproom].map_section)
-              { // same continent below 30-.
+              { // same continent below 30.
                 continue;
               }
               int distance = calculate_map_distance(zone_maproom, cur_maproom);
@@ -899,6 +899,7 @@ void getQuestZoneList(P_char ch, vector<int> &valid_zones)
               continue;
             }
             valid_zones.push_back(zone_count);
+            break;
           }
         }
       }
