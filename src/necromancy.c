@@ -98,33 +98,33 @@ const struct undead_description undead_data[NECROPET_LAST + 1] = {
    "hound archon brawler", "&+yhou&+Yn&+yd &+Rarch&+Wo&+Rn &+rbr&+Raw&+rler&n", 2, ACT_NICE_THIEF, AFF_HASTE, 0, 1.2, 21, 1, CLASS_WARRIOR,
    RACE_ARCHON},
   {
-   "lantern archon soldier", "&+Ylantern &+Rarch&+Wo&+Rn &+yso&+rldi&+yer&n", 4, ACT_NICE_THIEF + ACT_MEMORY, AFF_PROTECT_GOOD, AFF2_SLOW, 1.8, 26, 2, CLASS_WARRIOR,
+   "lantern archon soldier", "&+Ylantern &+Rarch&+Wo&+Rn &+yso&+rldi&+yer&n", 4, ACT_NICE_THIEF + ACT_MEMORY, AFF_PROTECT_EVIL, AFF2_SLOW, 1.8, 26, 2, CLASS_WARRIOR,
    RACE_ARCHON},
   {
    "asura avenger", "&+Rasu&+Yr&+Ra &+rave&+Lng&+rer&n", 20, ACT_MEMORY,
-   AFF_FLY + AFF_INVISIBLE + AFF_DETECT_INVISIBLE + AFF_PROTECT_GOOD +
+   AFF_FLY + AFF_INVISIBLE + AFF_DETECT_INVISIBLE + AFF_PROTECT_EVIL +
    AFF_SNEAK,
    AFF2_PROT_COLD, 2, 31, 4, CLASS_ASSASSIN, RACE_ASURA},
   {
    "bralani battlemage", "&+Cbral&+Wa&+Cni &+Rbattle&+Mmage&n", 30, ACT_MEMORY, AFF_FLY + AFF_DETECT_INVISIBLE +
-   AFF_INVISIBLE + AFF_PROTECT_GOOD,
+   AFF_INVISIBLE + AFF_PROTECT_EVIL,
    AFF2_PROT_COLD, 3.2, 36, 5, CLASS_SORCERER, RACE_BRALANI},
   {
    "knight-errant knight errant ghaele", "&+cgha&+Ce&+cle &+wkn&+Wi&+wght&+W-e&+wrr&+Wa&+wnt&n", 40, ACT_MEMORY,
-   AFF_FLY + AFF_DETECT_INVISIBLE + AFF_INVISIBLE + AFF_PROTECT_GOOD
+   AFF_FLY + AFF_DETECT_INVISIBLE + AFF_INVISIBLE + AFF_PROTECT_EVIL
    + AFF_HASTE, AFF2_PROT_COLD + AFF2_VAMPIRIC_TOUCH,
    12, 50, 6, CLASS_WARRIOR,
    RACE_GHAELE},
   {
    "liberator holy ghaele", "&+cg&+Ch&+Wae&+Cl&+ce &+Wholy &+Cliber&+Wator&n", 45, ACT_MEMORY,
    AFF_DETECT_INVISIBLE + AFF_SENSE_LIFE + AFF_FLY + AFF_INVISIBLE +
-   AFF_PROTECT_GOOD + AFF_HASTE,
+   AFF_PROTECT_EVIL + AFF_HASTE,
    AFF2_PROT_COLD + AFF2_VAMPIRIC_TOUCH, 5, 46, 7, CLASS_SORCERER,
    RACE_GHAELE},
   {
    "deva astral", "&+Lastral &+wd&+Wev&+wa&n", 40, ACT_MEMORY,
    AFF_HASTE + AFF_DETECT_INVISIBLE +
-   AFF_SENSE_LIFE + AFF_FLY + AFF_INVISIBLE + AFF_PROTECT_GOOD,
+   AFF_SENSE_LIFE + AFF_FLY + AFF_INVISIBLE + AFF_PROTECT_EVIL,
    AFF2_PROT_COLD + AFF4_PHANTASMAL_FORM,
    5, 50, 8, CLASS_PSIONICIST,
    RACE_SHADOW}
@@ -2517,7 +2517,7 @@ void spell_taint(int level, P_char ch, char *arg, int type,
   if(saves_spell(victim, SAVING_SPELL))
     dam >>= 1;
 
-  spell_damage(ch, victim, dam, SPLDAM_NEGATIVE, 0,
+  spell_damage(ch, victim, dam, SPLDAM_HOLY, 0,
                &messages);
 }
 

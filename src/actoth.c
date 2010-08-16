@@ -5697,6 +5697,77 @@ void do_blood_scent(P_char ch, char *argument, int cmd)
   }*/ 
 }
 
+void ascend_theurgist(P_char ch)
+{
+  P_char teacher;
+  char buff[64];
+  int i;
+
+  if (!ch)
+  {
+    logit(LOG_EXIT, "ascend_theurgist called in actoth.c with no ch");
+    raise(SIGSEGV);
+  }
+  if (IS_NPC(ch))
+    return;
+
+  if (IS_TRUSTED(ch))
+  {
+    send_to_char("This would be really really really really really dumb........\n\r",ch);
+    return;
+  }
+
+  if(!(teacher = FindTeacher(ch)))
+  {
+    send_to_char("You need a teacher to help you with this.......\n\r", ch);
+    return;
+  }
+
+  if(ch->only.pc->epics < (int) get_property("ascend.epicCost", 10))
+  {
+    sprintf(buff, "It costs &+W%d&n epics to ascend...\n", (int) get_property("descend.epicCost", 10));
+    send_to_char(buff, ch);
+    return;
+  }
+
+  if((GET_CLASS(ch, CLASS_THEURGIST) && !GET_CLASS(teacher, CLASS_THEURGIST)))
+  {
+    send_to_char("How about finding the appropriate teacher first?\n", ch);
+    return;
+  }
+
+  for (i = 0; i < MAX_SKILLS; i++)
+  {
+    ch->only.pc->skills[i].learned = 0;
+  }
+  NewbySkillSet(ch);
+       ch->points.max_mana = 0;
+            do_start(ch, 1);
+
+  int k = 0;
+  P_obj temp_obj;
+  for (k = 0; k < MAX_WEAR; k++)
+  {
+    temp_obj = ch->equipment[k];
+    if(temp_obj)
+      obj_to_char(unequip_char(ch, k), ch);
+  }
+
+  GET_SIZE(ch) = SIZE_MEDIUM;
+  GET_RACE(ch) = RACE_ELADRIN;
+  ch->player.m_class = CLASS_THEURGIST;
+
+  send_to_char("You feel a chill and realize that you are naked.\r\n", ch);
+  generate_desc(ch);
+  GET_AGE(ch) = 500;
+  GET_VITALITY(ch) =  GET_MAX_VITALITY(ch) = 120;
+  forget_spells(ch, -1);
+  ch->player.spec = 0;
+  ch->player.secondary_class = 0;
+  ch->only.pc->epics = MAX(0, ch->only.pc->epics - (int) get_property("ascend.epicCost", 10));
+  GET_HOME(ch) = GET_BIRTHPLACE(ch) = GET_ORIG_BIRTHPLACE(ch) = ch->in_room;
+}
+
 void do_ascend(P_char ch, char *arg, int cmd)
 {
   int spec;
@@ -5719,6 +5790,12 @@ void do_ascend(P_char ch, char *arg, int cmd)
         ("This would be really really really really really dumb........\n\r",ch);
       return;
     }
+    if (GET_CLASS(ch, CLASS_THEURGIST))
+    {  
+      ascend_theurgist(ch);
+      return;
+    }
+    
     if(!GET_CLASS(ch, CLASS_PALADIN) &&
       !GET_CLASS(ch, CLASS_AVENGER))
     {
@@ -5779,6 +5856,8 @@ void do_ascend(P_char ch, char *arg, int cmd)
     ch->player.secondary_class = 0;
     GET_SIZE(ch) = SIZE_MEDIUM;
     GET_RACE(ch) = RACE_AGATHINON;
+    generate_desc(ch);
+    GET_AGE(ch) = 500;
     ch->player.m_class = CLASS_AVENGER;
     do_start(ch, 1);
     ch->only.pc->epics = MAX(0, ch->only.pc->epics - (int) get_property("ascend.epicCost", 250));
@@ -5850,13 +5929,6 @@ void do_descend(P_char ch, char *arg, int cmd)
     if(ch->only.pc->epics < (int) get_property("descend.epicCost", 10))
     {
       sprintf(buff, "It costs &+W%d&n epics to descend...\n", (int) get_property("descend.epicCost", 10));
-      send_to_char(buff, ch);
-      return;
-    }
-    if(ch->only.pc->epics < (int) get_property("descend.necromancer.epicsReq", 2500) &&
-       GET_CLASS(ch, CLASS_NECROMANCER))
-    {
-      sprintf(buff, "You must have at least &+W%d&n epic points to become truly undead.\n", (int) get_property("descend.necromancer.epicsReq", 4000));
       send_to_char(buff, ch);
       return;
     }
@@ -5985,17 +6057,17 @@ void do_descend(P_char ch, char *arg, int cmd)
     {
       case WARRIOR:
         GET_SIZE(ch) = SIZE_HUGE;
-        GET_RACE(ch) = RACE_WIGHT;;
+        GET_RACE(ch) = RACE_WIGHT;
         ch->player.m_class = CLASS_WARRIOR;
         break;
       case SORC:
         GET_SIZE(ch) = SIZE_MEDIUM;
-        GET_RACE(ch) = RACE_PVAMPIRE;;
+        GET_RACE(ch) = RACE_PVAMPIRE;
         ch->player.m_class = CLASS_SORCERER;
         break;
       case MERC:
         GET_SIZE(ch) = SIZE_LARGE;
-        GET_RACE(ch) = RACE_REVENANT;;
+        GET_RACE(ch) = RACE_REVENANT;
         ch->player.m_class = CLASS_MERCENARY;
         break;
       case NECRO:

@@ -69,7 +69,7 @@ void initialize_ships()
   }
 
   initialize_ship_cargo();
-  load_npc_dreadnought();
+  //load_npc_dreadnought();
 }
 
 //--------------------------------------------------------------------
@@ -788,7 +788,7 @@ void set_ship_armor(P_ship ship, bool equal)
 //--------------------------------------------------------------------
 // reset ship state to its class default
 //--------------------------------------------------------------------
-void reset_ship(P_ship ship)
+void reset_ship(P_ship ship, bool clear_slots)
 {
     set_ship_armor(ship, true);
     ship->mainsail = SHIPTYPEMAXSAIL(ship->m_class);
@@ -819,8 +819,11 @@ void reset_ship(P_ship ship)
     if(IS_SET(ship->flags, SUMMONED)) 
         REMOVE_BIT(ship->flags, SUMMONED); 
 
-    for (int j = 0; j < MAXSLOTS; j++)
-        ship->slot[j].clear();
+    if (clear_slots)
+    {
+        for (int j = 0; j < MAXSLOTS; j++)
+            ship->slot[j].clear();
+    }
 }
 
 
@@ -1062,7 +1065,7 @@ bool check_ship_name(P_ship ship, P_char ch, char* name)
 }    
 
 
-bool check_undocking_conditions(P_ship ship, P_char ch)
+bool check_undocking_conditions(P_ship ship, int m_class, P_char ch)
 {
     int arc_weapons[4], arc_weapon_weight[4];
 
@@ -1081,7 +1084,7 @@ bool check_undocking_conditions(P_ship ship, P_char ch)
         {
             arc_weapons[ship->slot[sl].position]++;
             arc_weapon_weight[ship->slot[sl].position] += weapon_data[ship->slot[sl].index].weight;
-            if (!ship_allowed_weapons[ship->m_class][ship->slot[sl].index])
+            if (!ship_allowed_weapons[m_class][ship->slot[sl].index])
             {
                 send_to_char_f(ch, "Remove weapon [%d], it is not allowed with this hull!\r\n", sl);
                 return FALSE;
@@ -1090,29 +1093,29 @@ bool check_undocking_conditions(P_ship ship, P_char ch)
     }
     for (int a = 0; a < 4; a++)
     {
-      if (arc_weapons[a] > ship_arc_properties[ship->m_class].max_weapon_slots[a])
+      if (arc_weapons[a] > ship_arc_properties[m_class].max_weapon_slots[a])
       {
           send_to_char_f(ch, 
               "Your have too many weapons at one side!\r\nMaximum allowed weapons for this ship is:\r\nFore: %d  Starboard: %d  Port: %d  Rear: %d\r\n",
-              ship_arc_properties[ship->m_class].max_weapon_slots[SIDE_FORE], 
-              ship_arc_properties[ship->m_class].max_weapon_slots[SIDE_STAR], 
-              ship_arc_properties[ship->m_class].max_weapon_slots[SIDE_PORT], 
-              ship_arc_properties[ship->m_class].max_weapon_slots[SIDE_REAR]);
+              ship_arc_properties[m_class].max_weapon_slots[SIDE_FORE], 
+              ship_arc_properties[m_class].max_weapon_slots[SIDE_STAR], 
+              ship_arc_properties[m_class].max_weapon_slots[SIDE_PORT], 
+              ship_arc_properties[m_class].max_weapon_slots[SIDE_REAR]);
           return FALSE;
       }
-      if (arc_weapon_weight[a] > ship_arc_properties[ship->m_class].max_weapon_weight[a])
+      if (arc_weapon_weight[a] > ship_arc_properties[m_class].max_weapon_weight[a])
       {
           send_to_char_f(ch, 
               "Your have overloaded one side with weapons!\r\nMaximum allowed weapon weight for this ship is:\r\nFore: %d  Starboard: %d  Port: %d  Rear: %d\r\n",
-              ship_arc_properties[ship->m_class].max_weapon_weight[SIDE_FORE], 
-              ship_arc_properties[ship->m_class].max_weapon_weight[SIDE_STAR], 
-              ship_arc_properties[ship->m_class].max_weapon_weight[SIDE_PORT], 
-              ship_arc_properties[ship->m_class].max_weapon_weight[SIDE_REAR]);
+              ship_arc_properties[m_class].max_weapon_weight[SIDE_FORE], 
+              ship_arc_properties[m_class].max_weapon_weight[SIDE_STAR], 
+              ship_arc_properties[m_class].max_weapon_weight[SIDE_PORT], 
+              ship_arc_properties[m_class].max_weapon_weight[SIDE_REAR]);
           return FALSE;
       }
     }
 
-    if (SHIPTYPEMINLEVEL(ship->m_class) > GET_LEVEL(ch)) 
+    if (SHIPTYPEMINLEVEL(m_class) > GET_LEVEL(ch)) 
     {
         send_to_char ("You are too low for such a big ship! Get more experience or downgrade the hull!'\r\n", ch);
         return FALSE;
@@ -1548,7 +1551,7 @@ void ship_activity()
             if (ship->npc_ai)
                 ship->npc_ai->activity();
 
-            if (ship->target == 0 && ship->speed > 0 && number(0, get_property("ships.pirate.load.chance", 3600)) == 0)
+            if (ship->target == 0 && ship->speed > 0 && number(0, get_property("ships.pirate.load.chance", 7200)) == 0)
                 try_load_npc_ship(ship);
         }
     }

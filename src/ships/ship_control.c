@@ -144,7 +144,7 @@ int order_undock(P_char ch, P_ship ship)
             send_to_char("&+RYour ship is immobilized. Undocking procedures cancelled.\r\n", ch);
             return TRUE;
         }
-        if (!check_undocking_conditions(ship, ch))
+        if (!check_undocking_conditions(ship, ship->m_class, ch))
             return TRUE;
     }
 

@@ -1227,9 +1227,9 @@ P_obj setprefix_obj(P_obj obj, int modifier, int affectnumber)
     modifier = (int) (modifier * 2);
     break;
   case 6:
-    obj->affected[affectnumber].location = APPLY_MANA;
+  /*  obj->affected[affectnumber].location = APPLY_MANA;
     modifier = (8 * modifier);
-    break;
+    break;*/
   case 7:
     obj->affected[affectnumber].location = APPLY_HIT;
     modifier = (8 * modifier);

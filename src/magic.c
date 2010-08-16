@@ -341,7 +341,7 @@ void spell_single_prismatic_ray(int level, P_char ch, char *arg, int type,
                          room_message);
     if(NewSaves(victim, SAVING_SPELL, 0))
       dam >>= 1;
-    spell_damage(ch, victim, dam, SPLDAM_FIRE, RAWDAM_NOEXP, &messages);
+    spell_damage(ch, victim, dam, SPLDAM_FIRE, 0, &messages);
     break;
   case RAY_ORANGE:
     dam = 275 + dice(level, 2);
@@ -349,7 +349,7 @@ void spell_single_prismatic_ray(int level, P_char ch, char *arg, int type,
                          room_message);
     if(NewSaves(victim, SAVING_SPELL, 0))
       dam >>= 1;
-    spell_damage(ch, victim, dam, SPLDAM_FIRE, RAWDAM_NOEXP, &messages);
+    spell_damage(ch, victim, dam, SPLDAM_FIRE, 0, &messages);
     break;
   case RAY_BLUE:
     dam = 150 + dice(level, 2);
@@ -357,7 +357,7 @@ void spell_single_prismatic_ray(int level, P_char ch, char *arg, int type,
                          room_message);
     if(NewSaves(victim, SAVING_SPELL, 0))
       dam >>= 1;
-    spell_damage(ch, victim, dam, SPLDAM_COLD, RAWDAM_NOEXP, &messages);
+    spell_damage(ch, victim, dam, SPLDAM_COLD, 0, &messages);
     break;
   case RAY_YELLOW:
     show_ray_messages("&+Yyellow&n", ch, victim);
@@ -4746,9 +4746,8 @@ void spell_group_teleport(int level, P_char ch, char *arg, int type,
 void spell_teleport(int level, P_char ch, char *arg, int type, P_char victim,
                     P_obj obj)
 {
-  int from_room, dir, to_room, tries;
+  int from_room, dir, to_room;
   P_char   vict, t_ch;
-  int      range = get_property("spell.teleport.range", 30);
 
   if((IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
       IS_HOMETOWN(ch->in_room) ||
@@ -4769,13 +4768,13 @@ void spell_teleport(int level, P_char ch, char *arg, int type, P_char victim,
     return;
   }
 
+  int range = get_property("spell.teleport.range", 30);
+  to_room = vict->in_room;
   if(IS_MAP_ROOM(vict->in_room))
   {
-    to_room = vict->in_room;
-
     for( int i = 0; i < range; i++ )
     {
-      tries = 0;
+      int tries = 0;
       do
       {
         dir = number(0,3);
@@ -4787,6 +4786,7 @@ void spell_teleport(int level, P_char ch, char *arg, int type, P_char victim,
   }
   else
   {
+    int tries = 0;
     do
     {
       to_room = number(zone_table[world[vict->in_room].zone].real_bottom,
@@ -4798,10 +4798,10 @@ void spell_teleport(int level, P_char ch, char *arg, int type, P_char victim,
           IS_SET(world[to_room].room_flags, NO_TELEPORT) ||
           IS_HOMETOWN(to_room) ||
           world[to_room].sector_type == SECT_OCEAN) && tries < 1000);
+    if(tries >= 1000)
+      to_room = vict->in_room;
   }
 
-  if(tries >= 1000)
-    to_room = vict->in_room;
 
   if(LIMITED_TELEPORT_ZONE(vict->in_room))
   {
@@ -6334,12 +6334,11 @@ void spell_natures_touch(int level, P_char ch, char *arg, int type,
     af.bitvector4 = AFF4_REGENERATION;
     affect_to_char(victim, &af);
     
-    if(MIN(healpoints, GET_MAX_HIT(victim) - GET_HIT(victim)) > 30 &&
-       IS_FIGHTING(victim))
-      {
-        gain_exp(ch, GET_OPPONENT(victim), (int)(GET_LEVEL(ch) / 2), EXP_HEALING);
-        update_pos(victim);
-      } 
+    if(IS_FIGHTING(victim))
+    {
+      gain_exp(ch, GET_OPPONENT(victim), MIN(healpoints, GET_MAX_HIT(victim) - GET_HIT(victim)), EXP_HEALING);
+      update_pos(victim);
+    }
   }
   
   if(ch == victim)
@@ -7316,7 +7315,7 @@ void spell_stone_skin(int level, P_char ch, char *arg, int type,
   }
 
   if(GET_OPPONENT(victim))
-    gain_exp(ch, GET_OPPONENT(victim), 0, EXP_DAMAGE);
+    gain_exp(ch, GET_OPPONENT(victim), 50 + GET_LEVEL(ch) * 2, EXP_HEALING); // stoning the tank equal to small heal in exp -Odorf
 
   bzero(&af, sizeof(af));
   af.type = SPELL_STONE_SKIN;
@@ -7353,7 +7352,7 @@ void spell_ironwood(int level, P_char ch, char *arg, int type,
   }
 
   if(GET_OPPONENT(victim))
-    gain_exp(ch, GET_OPPONENT(victim), 0, EXP_DAMAGE);
+    gain_exp(ch, GET_OPPONENT(victim), 50 + GET_LEVEL(ch) * 2, EXP_HEALING); // stoning the tank equals to heal in exp -Odorf
 
   bzero(&af, sizeof(af));
   af.type = SPELL_IRONWOOD;
@@ -14117,34 +14116,23 @@ void spell_resurrect(int level, P_char ch, char *arg, int type, P_char victim,
   clevel = obj->value[2];
 
 
-// Resurrect restores 60 percent of your exps now.
-// Evils level 52 and higher are restored 30 percent of their exps. -Lucrot Sept09
   if(IS_PC(t_ch) && !IS_TRUSTED(t_ch))
   {
     resu_exp = obj->value[4];
     
     if(!IS_TRUSTED(ch)) 
     { 
-      if(EVIL_RACE(t_ch) && 
-         GET_LEVEL(t_ch) >= 52 &&
-         GET_LEVEL(t_ch) <= 55)
-      {
-         resu_exp =
-          (long)(resu_exp * (get_property("gain.exp.mod.res.evil.52", 0.300)));
-      }
-      else if(EVIL_RACE(t_ch))
-      {
-         resu_exp =
-          (long)(resu_exp * (get_property("gain.exp.mod.res.evil", 0.500)));
-      }          
-      else if(GET_LEVEL(t_ch) >= 56)
+      if(GET_LEVEL(t_ch) >= 56)
       {
          resu_exp = (long)(resu_exp * 0.050);
       }
+      else if(EVIL_RACE(t_ch))
+      {
+         resu_exp = (long)(resu_exp * (get_property("gain.exp.mod.res.evil", 0.750)));
+      }          
       else
       {
-         resu_exp =
-          (long)(resu_exp * get_property("gain.exp.mod.res.normal", 0.600));
+         resu_exp = (long)(resu_exp * get_property("gain.exp.mod.res.normal", 0.750));
       }
     }     
     
@@ -15216,7 +15204,6 @@ void spell_mass_heal(int level, P_char ch, char *arg, int type, P_char victim,
 {
   P_char tch;
   int healed;
-  bool gotexp = false;
 
   for (tch = world[ch->in_room].people; tch; tch = tch->next_in_room) {
     spell_cure_blind(level, ch, NULL, SPELL_TYPE_SPELL, tch, obj);
@@ -15227,9 +15214,8 @@ void spell_mass_heal(int level, P_char ch, char *arg, int type, P_char victim,
     int maxhits = IS_HARDCORE(ch) ? 110 : 100;
 
     healed = vamp(tch, (int) maxhits + number(1, level / 3), GET_MAX_HIT(tch) - number(1, 4));
-    if(healed >= 100 && !gotexp && tch->specials.fighting) {
-      gain_exp(ch, tch->specials.fighting, 0, EXP_HEALING);
-      gotexp = true;
+    if(tch->specials.fighting) {
+      gain_exp(ch, tch, healed, EXP_HEALING);
     }
     update_pos(tch);
     if(RACE_PUNDEAD(tch))
@@ -16460,7 +16446,7 @@ void spell_immolate(int level, P_char ch, char *arg, int type, P_char victim,
       if(ch &&
         IS_ALIVE(victim)) // Adding another check.
       {
-        gain_exp(ch, victim, 0, EXP_DAMAGE);
+        //gain_exp(ch, victim, 0, EXP_DAMAGE);
         add_event(event_immolate, PULSE_VIOLENCE, ch, victim, NULL, 0, &burn, sizeof(burn));
       }
     }
@@ -16658,8 +16644,8 @@ void spell_magma_burst(int level, P_char ch, char *arg, int type,
     affect_to_char(victim, af);
     add_event(event_magma_burst, 0, ch, victim, NULL, 0, &level, sizeof(level));
 
-    if( IS_ALIVE(ch) && IS_ALIVE(victim) )
-      gain_exp(ch, victim, 0, EXP_DAMAGE);
+    //if( IS_ALIVE(ch) && IS_ALIVE(victim) )
+    //  gain_exp(ch, victim, 0, EXP_DAMAGE);
   }
   else
   {
@@ -16779,8 +16765,8 @@ void event_cdoom(P_char ch, P_char vict, P_obj obj, void *data)
     if(spell_damage(ch, tch, doomdam, SPLDAM_GENERIC, SPLDAM_NODEFLECT,
       &messages) == DAM_NONEDEAD)
     {
-      if(IS_ALIVE(ch) && IS_ALIVE(tch))
-        gain_exp(ch, tch, 0, EXP_DAMAGE);
+      //if(IS_ALIVE(ch) && IS_ALIVE(tch))
+      //  gain_exp(ch, tch, 0, EXP_DAMAGE);
     }
   }
   add_event(event_cdoom, PULSE_VIOLENCE, ch, vict, NULL, 0, &num, sizeof(num));
@@ -18206,7 +18192,7 @@ void spell_acidimmolate(int level, P_char ch, char *arg, int type,
     if(IS_ALIVE(victim)) // Adding double check.
     {
       add_event(event_acidimmolate, PULSE_VIOLENCE, ch, victim, NULL, 0, &acidburn, sizeof(acidburn));
-      gain_exp(ch, victim, 0, EXP_DAMAGE);
+      //gain_exp(ch, victim, 0, EXP_DAMAGE);
     }
   }
 }
@@ -19956,7 +19942,7 @@ void spell_electrical_execution(int level, P_char ch, char *arg, int type, P_cha
     if(ch &&
       IS_ALIVE(victim))
     {
-      gain_exp(ch, victim, 0, EXP_DAMAGE);
+      //gain_exp(ch, victim, 0, EXP_DAMAGE);
       add_event(event_electrical_execution, (int) (0.5 * PULSE_VIOLENCE), ch, victim,
         NULL, 0, &fry, sizeof(fry));
     }

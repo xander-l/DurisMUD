@@ -442,7 +442,7 @@ bool NPCShipAI::find_new_target()
                 continue;
             if (contacts[i].range > 10 
                 && (contacts[i].ship->m_class == SH_SLOOP || contacts[i].ship->m_class == SH_YACHT ||
-                number(0, (int)contacts[i].range) > 0))
+                number(0, (int)contacts[i].range * 2) > 0))
             {
                 continue;
             }
@@ -1984,3 +1984,4 @@ void NPCShipAI::send_message_to_debug_char(const char *fmt, ... )
 
 // endless loop somewhere in advanced ai?
 // check for ships name in use already
+// reduce chance for bloodstones

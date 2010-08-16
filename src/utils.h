@@ -120,9 +120,9 @@
          (GET_RACE(mob) == RACE_PHANTOM) || \
          (GET_RACE(mob) == RACE_WIGHT) || \
          (GET_RACE(mob) == RACE_SHADOW) || \
-         (GET_RACE(mob) == RACE_PHANTOM) || \
          (GET_RACE(mob) == RACE_SPECTRE) || \
-		 (GET_RACE(mob) == RACE_V_ELEMENTAL) || \
+         (GET_RACE(mob) == RACE_V_ELEMENTAL) || \
+         (GET_RACE(mob) == RACE_BRALANI) || \
          IS_AFFECTED4(mob, AFF4_PHANTASMAL_FORM))
 
 #define LEGLESS(mob) (IS_IMMATERIAL(mob) || IS_BEHOLDER(mob) || \
@@ -151,8 +151,12 @@
 (has_innate(ch, INNATE_OUTDOOR_SNEAK) && \
  (world[(ch)->in_room].sector_type >= 2) && (world[(ch)->in_room].sector_type <= 4))
 #define UD_SNEAK(ch) (has_innate(ch, INNATE_UD_SNEAK) && IS_UNDERWORLD(ch->in_room))
-#define SWAMP_SNEAK(ch) (has_innate(ch, INNATE_SWAMP_SNEAK) && \
- (world[(ch)->in_room].sector_type == SECT_SWAMP || world[(ch)->in_room].sector_type == SECT_UNDRWLD_MUSHROOM))
+
+#define SWAMP_SNEAK_TERRAIN(ch) \
+ (world[(ch)->in_room].sector_type == SECT_SWAMP || \
+  IS_WATER_ROOM(ch->in_room))
+
+#define SWAMP_SNEAK(ch) (has_innate(ch, INNATE_SWAMP_SNEAK) && SWAMP_SNEAK_TERRAIN(ch))
 
 #define GET_LANGUAGE(ch,d) ((ch)->only.pc->talks[(d)])
 #define GET_PASSWORD(d) ((d)->character->pc_only->pwd)
@@ -380,6 +384,7 @@ int race_size(int race);
 
 #define GET_HIT(ch)     ((ch)->points.hit)
 #define GET_MAX_HIT(ch) ((ch)->points.max_hit)
+#define GET_LOWEST_HIT(ch)     ((ch)->only.npc->lowest_hit)
 
 #define GET_VITALITY(ch)    ((ch)->points.vitality)
 #define GET_MAX_VITALITY(ch) ((ch)->points.max_vitality)
@@ -876,6 +881,10 @@ for ((IN_ROOM) = world[(PLAYER)->in_room].people; (IN_ROOM) != NULL; (IN_ROOM) =
 #define IS_SHADOW(ch) (GET_RACE(ch) == RACE_SHADOW)
 
 #define IS_DRIDER(ch) (GET_RACE(ch) == RACE_DRIDER)
+
+#define IS_ASURA(ch) (GET_RACE(ch) == RACE_ASURA)
+
+#define IS_BRALANI(ch) (GET_RACE(ch) == RACE_BRALANI)
 
 #define HAS_FOUR_HANDS(ch) ((GET_RACE(ch) == RACE_THRIKREEN) || \
                            (IS_AFFECTED3((ch), AFF3_FOUR_ARMS)))

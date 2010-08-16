@@ -1104,10 +1104,10 @@ void show_char_to_char(P_char i, P_char ch, int mode)
   int      j, found, percent, lt_lvl;
   P_obj    tmp_obj, wpn;
   int      wear_order[] =
-    { 41, 24, 40, 6, 19, 21, 22, 20, 39, 3, 4, 5, 35, 37, 12, 27, 23, 13, 28,
+    { 41, 24, 40, 6, 19, 21, 22, 20, 39, 3, 4, 5, 35, 12, 27, 37, 42, 23, 13, 28,
     29, 30, 10, 31, 11, 14, 15, 33, 34, 9, 32, 1, 2, 16, 17, 25, 26, 18, 7,
       36, 8, 38, -1
-  };
+  };  // Also defined in get_equipment_list
   int      higher, lower, diff;
   struct affected_type *af;
   int quester_id;
@@ -1228,6 +1228,7 @@ void show_char_to_char(P_char i, P_char ch, int mode)
               IS_DISGUISE_PC(i))
             sprintf(buffer + strlen(buffer), "%s %s (%s)",
                     ((GET_DISGUISE_RACE(i) == RACE_ILLITHID) ||
+		     (GET_DISGUISE_RACE(i) == RACE_PILLITHID) ||
                      (GET_DISGUISE_RACE(i) == RACE_ORC) ||
 		     (GET_DISGUISE_RACE(i) == RACE_OROG) ||
                      (GET_DISGUISE_RACE(i) == RACE_OGRE) ||
@@ -1266,6 +1267,7 @@ void show_char_to_char(P_char i, P_char ch, int mode)
           if (racewar(ch, i) && !IS_TRUSTED(i) && !IS_ILLITHID(ch))
             sprintf(buffer + strlen(buffer), "%s %s (%s)",
             ((GET_RACE(i) == RACE_ILLITHID) ||
+	     (GET_RACE(i) == RACE_PILLITHID) ||
             (GET_RACE(i) == RACE_ORC) ||
             (GET_RACE(i) == RACE_OROG) ||
             (GET_RACE(i) == RACE_AGATHINON) ||
@@ -6174,10 +6176,10 @@ bool get_equipment_list(P_char ch, char *buf, int list_only)
   char     tempbuf[MAX_STRING_LENGTH];
   P_obj    t_obj, wpn;
   int      wear_order[] =
-    { 41, 24, 40, 6, 19, 21, 22, 20, 39, 3, 4, 5, 35, 42, 27, 37, 12, 27, 23, 13, 28,
+    { 41, 24, 40, 6, 19, 21, 22, 20, 39, 3, 4, 5, 35, 12, 27, 42, 37, 23, 13, 28,
     29, 30, 10, 31, 11, 14, 15, 33, 34, 9, 32, 1, 2, 16, 17, 25, 26, 18, 7,
       36, 8, 38, -1
-  };
+  }; //also defined in show_char_to_char
 
   buf[0] = '\0';
   found = FALSE;

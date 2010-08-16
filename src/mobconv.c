@@ -419,6 +419,7 @@ void convertMob(P_char ch)
 
   ch->points.base_hit = hits;
   ch->points.hit = ch->points.max_hit = ch->points.base_hit;
+  ch->only.npc->lowest_hit = INT_MAX;
   ch->points.base_vitality = dice(5, 10) + 80;
   ch->points.vitality = ch->points.base_vitality = ch->points.max_vitality;
 

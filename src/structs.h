@@ -899,6 +899,7 @@ struct room_data {
 #define EXP_RESURRECT    6
 #define EXP_MELEE        7
 #define EXP_WORLD_QUEST  8
+#define EXP_TANKING      9
 
 struct racial_data_type {
   sh_int base_age, base_vitality, base_mana, max_mana, hp_bonus, max_age;
@@ -1205,6 +1206,7 @@ struct npc_only_data {          /* values only used by NPCs  */
   ush_int law_flags;            /* extensions to specials.act rel. to pkill */
   P_char orig_char;             /* used instead of memory ptr to keep
                                    track of who is controlling the mob */
+  int lowest_hit;               /* lowest hitpoints this mob ever reached */
 //  P_mprog_list mpact;
 //  int mpactnum;
 };

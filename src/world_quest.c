@@ -217,16 +217,18 @@ void quest_reward(P_char ch, P_char quest_mob, int type)
       gain_epic(ch, EPIC_QUEST, 0, 15);
   }
 
+  int exp_gain = 0;
   if(GET_LEVEL(ch) <= 30)
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.30.andUnder", 1.000)), EXP_WORLD_QUEST); 
+    exp_gain = EXP_NOTCH(ch) * get_property("world.quest.exp.level.30.andUnder", 1.300);
   else if(GET_LEVEL(ch) <= 40)
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.40.andUnder", 1.000)), EXP_WORLD_QUEST); 
+    exp_gain = EXP_NOTCH(ch) * get_property("world.quest.exp.level.40.andUnder", 1.000);
   else if(GET_LEVEL(ch) <= 50) 
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.50.andUnder", 1.000)), EXP_WORLD_QUEST); 
+    exp_gain = EXP_NOTCH(ch) * get_property("world.quest.exp.level.50.andUnder", 0.800);
   else if(GET_LEVEL(ch) <= 55) 
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.55.andUnder", 1.000)), EXP_WORLD_QUEST); 
+    exp_gain = EXP_NOTCH(ch) * get_property("world.quest.exp.level.55.andUnder", 0.500);
   else 
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.other.andUnder", 1.000)), EXP_WORLD_QUEST);
+    exp_gain = EXP_NOTCH(ch) * get_property("world.quest.exp.level.other", 1.000);
+  gain_exp(ch, NULL, exp_gain, EXP_WORLD_QUEST); 
 
   sprintf(Gbuf1, "&+WYou gain some experience.&n");
   act(Gbuf1, FALSE, quest_mob, 0, ch, TO_VICT);
@@ -303,7 +305,6 @@ void quest_kill(P_char ch, P_char quest_mob)
 
 int get_map_room(int zone_id)
 {
-  int i3;
   int i2;
   int i;
   struct zone_data *zone = 0;
@@ -315,8 +316,7 @@ int get_map_room(int zone_id)
   zone = &zone_table[zone_id];
 
 
-  for (i3 = 0, i = zone->real_bottom;
-      (i != NOWHERE) && (i <= zone->real_top); i++)
+  for (i = zone->real_bottom; (i != NOWHERE) && (i <= zone->real_top); i++)
     for (i2 = 0; i2 < NUM_EXITS; i2++)
       if (world[i].dir_option[i2])
       {
@@ -324,8 +324,6 @@ int get_map_room(int zone_id)
             (world[world[i].dir_option[i2]->to_room].zone !=
              world[i].zone))
         {
-          if (!i3)
-            i3 = 1;
           if (world[i].dir_option[i2]->to_room == NOWHERE)
             ;
           else
@@ -456,14 +454,14 @@ void do_quest(P_char ch, char *args, int cmd)
 
 
       if(ch->only.pc->quest_level < GET_LEVEL(victim) - 
-         get_property("worldQuest.level.high.value", 6))
+         get_property("world.quest.level.high.value", 6))
       {
         send_to_char("They are much too experienced for that quest!\r\n", ch);
         return;
       }
       
       if(ch->only.pc->quest_level > GET_LEVEL(victim) + 
-         get_property("worldQuest.level.low.value", 6)) 
+         get_property("world.quest.level.low.value", 6)) 
       { 
         send_to_char("They are too inexperienced for that quest!\r\n", ch); 
         return; 
@@ -600,42 +598,56 @@ int createQuest(P_char ch, P_char giver)
     return -1;
 
 
+  //No valid zone found return -1
+  vector<int> valid_zones;
+  getQuestZoneList(ch, valid_zones);
 
-  quest_zone  = getQuestZone(ch);
-
-  if(quest_zone == -1){
+  if( valid_zones.empty() )
+  {
     wizlog(56, "Unable to find a quest zone for %s", GET_NAME(ch));
     return -1;
   }
 
-  QUEST_TYPE = number(1,2);
+  for (int z = 0; z < 10; z++)
+  {
+    quest_zone  = valid_zones[number(0, valid_zones.size() - 1)];
+ 
+    for (int m = 0; m < 3; m++)
+    {
+      QUEST_TYPE = number(1,2);
+      if(GET_LEVEL(ch) > 49)
+        QUEST_TYPE = FIND_AND_KILL;
 
+      //wizlog(56, "suggesting zone:%s for this dude",zone_table[quest_zone].name);
+      quest_mob = suggestQuestMob(quest_zone,ch, QUEST_TYPE);
+      //wizlog(56, "suggesting quest mob :%d for this dude",quest_mob);
+      if(quest_mob == -1 && GET_LEVEL(ch) < 50)
+      {
+        if(QUEST_TYPE == 1)
+          QUEST_TYPE = 2;
+        else
+          QUEST_TYPE = 1;
+        quest_mob = suggestQuestMob(quest_zone,ch, QUEST_TYPE);
+      }
 
-  if(GET_LEVEL(ch) > 49)
-    QUEST_TYPE = FIND_AND_KILL;
+      if(sql_world_quest_done_already(ch, quest_mob))
+      { 
+        quest_mob = -1;
+      }
 
-  //wizlog(56, "suggesting zone:%s for this dude",zone_table[quest_zone].name);
-  quest_mob = suggestQuestMob(quest_zone,ch, QUEST_TYPE);
-  //wizlog(56, "suggesting quest mob :%d for this dude",quest_mob);
-  if(quest_mob == -1 && GET_LEVEL(ch) < 50){
-
-    if(QUEST_TYPE == 1)
-      QUEST_TYPE = 2;
-    else
-      QUEST_TYPE = 1;
-
-
-
-    quest_mob = suggestQuestMob(quest_zone,ch, QUEST_TYPE);
-
+      if (quest_mob != -1)
+        break;
+    }
+    if (quest_mob != -1)
+      break;
   }
 
-  if(quest_mob == -1){
-    wizlog(56, "Unable to find a quest zone for %s", GET_NAME(ch));
+
+  if(quest_mob == -1)
+  {
+    wizlog(56, "Unable to find a valid quest for %s", GET_NAME(ch));
     return -1; 
   }
-
-
 
   ch->only.pc->quest_shares_left = 4;
   ch->only.pc->quest_active = 1;
@@ -813,76 +825,131 @@ bool isInvalidQuestZone(int zone_number)
   return !zone.quest_zone;  
 }
 
-int getQuestZone(P_char ch)
+
+void getQuestZoneList(P_char ch, vector<int> &valid_zones)
 {
-  int vnum = -1;
-  vector<int> valid_zones;
-  int zone_count = 0;
-  int list = 0;
-
-  int maproom1 = 0;
-
-  int maproom2 = 0;
-  int distance = 0;
-  int PLAYER_LEVEL = GET_LEVEL(ch);
-
   //If lvl 15 or lower it's same zone as the dude.
-  //if( PLAYER_LEVEL < 15)
+  //if( GET_LEVEL(ch) < 15)
   //	return world[ch->in_room].zone;
 
-  //int calculate_map_distance(int room1, int room2)
+  int curZone = world[ch->in_room].zone;
+  vector<int> curMapExits;
+  bool curUDExit = false;
+  bool curUCExit = false;
+  for (int i = zone_table[curZone].real_bottom; (i != NOWHERE) && (i <= zone_table[curZone].real_top); i++)
+  {
+    for (int i2 = 0; i2 < NUM_EXITS; i2++)
+    {
+      if (!world[i].dir_option[i2])
+        continue;
+      int to_room = world[i].dir_option[i2]->to_room;
+      if (to_room == NOWHERE)
+        continue;
+      if (world[to_room].zone == curZone)
+        continue;
+      if (IS_MAP_ROOM(to_room))
+      {
+          curMapExits.push_back(to_room);
+          if (IS_UD_MAP(to_room))
+            curUDExit = true;
+          if (world[to_room].continent == CONT_UC)
+            curUCExit = true;
+      }
+      else
+      { // lets try looking zone ahead
+        int nextZone = world[to_room].zone;
+        for (int j = zone_table[nextZone].real_bottom; (j != NOWHERE) && (j <= zone_table[nextZone].real_top); j++)
+        {
+          for (int j2 = 0; j2 < NUM_EXITS; j2++)
+          {
+            if (!world[j].dir_option[j2])
+              continue;
+            int to_room1 = world[j].dir_option[j2]->to_room;
+            if (to_room1 == NOWHERE)
+              continue;
+            if (world[to_room1].zone == curZone || world[to_room1].zone == nextZone)
+              continue;
+            if (!IS_MAP_ROOM(to_room1))
+              continue;
+
+            int k = 0;
+            for (; k < curMapExits.size(); k++)
+              if (curMapExits[k] == to_room1)
+                break;
+            if (k == curMapExits.size())
+            {
+              curMapExits.push_back(to_room1);
+              if (IS_UD_MAP(to_room1))
+                curUDExit = true;
+              if (world[to_room1].continent == CONT_UC)
+                curUCExit = true;
+            }
+          }
+        }
+      }
+    }
+  }
 
   //Add zones to list that's -5 - -15 in avg levels
-  for (zone_count = 0; zone_count <= top_of_zone_table; zone_count++)
+  for (int zone_count = 0; zone_count <= top_of_zone_table; zone_count++)
   {
     if( isInvalidQuestZone(zone_table[zone_count].number) ||
         zone_table[zone_count].hometown != 0 ||
         zone_table[zone_count].avg_mob_level < 0 )
      continue;
     
-      if( zone_table[zone_count].avg_mob_level < (GET_LEVEL(ch) + 5) &&
-        zone_table[zone_count].avg_mob_level > (GET_LEVEL(ch) - 7)){
-      //debug("%d %s " , zone_count, zone_table[zone_count].name);
+    if( zone_table[zone_count].avg_mob_level >= (GET_LEVEL(ch) + 5) || 
+        zone_table[zone_count].avg_mob_level <= (GET_LEVEL(ch) - 7))
+      continue;
+ 
+    if(zone_count == curZone) //do not use same zone as the dude is in..
+      continue;
 
-      if(zone_count == world[ch->in_room].zone) //do not use same zone as the dude is in..
-        continue;
-
-      if( PLAYER_LEVEL < 51)
-      {
-        if( (maproom1 = get_map_room(zone_count)) != -1){
-          maproom2 = get_map_room(world[ch->in_room].zone);
-          distance = calculate_map_distance(maproom1, maproom2);
-
-          if(distance < (3000 + PLAYER_LEVEL *PLAYER_LEVEL * PLAYER_LEVEL) && PLAYER_LEVEL < 45){
-
-            //debug("%d %d ", world[maproom1].zone, world[maproom2].zone);
-
-            if(world[maproom1].zone != world[maproom2].zone) //make sure it's same map.
-              continue;
-
-            //debug("Distance between %d and %d is %d", world[maproom1].number, world[maproom2].number, 							distance);
-            valid_zones.push_back(zone_count);
-          }
-          else if (PLAYER_LEVEL > 44)
-          {
-            //debug("Distance between %d and %d is %d", world[maproom1].number, world[maproom2].number, 							distance);
-            valid_zones.push_back(zone_count);
-          }
-        }
-      }
-      else
-      {
-        valid_zones.push_back(zone_count);
-      }
+    if (GET_LEVEL(ch) >= 51)
+    {
+      valid_zones.push_back(zone_count);
+      continue;
     }
 
+    int zone_maproom = get_map_room(zone_count);
+    if(zone_maproom == -1)
+        continue;
+
+    if (curMapExits.size() == 0)
+    {  // bartender doesnt have exits to map, gives only to 40+
+      if (GET_LEVEL(ch) >= 40)
+        valid_zones.push_back(zone_count);
+      continue;
+    }
+ 
+    for (int i = 0; i < curMapExits.size(); i++)
+    {
+      int cur_maproom = curMapExits[i];
+      if (GET_LEVEL(ch) < 30)
+      { 
+        if (world[zone_maproom].map_section != world[cur_maproom].map_section)
+        { // same continent below 30.
+          continue;
+        }
+        int distance = calculate_map_distance(zone_maproom, cur_maproom);
+        //debug("Distance between %d and %d is %d", world[zone_maproom].number, world[cur_maproom].number, distance);
+        if(distance > (3000 + GET_LEVEL(ch) * GET_LEVEL(ch) * GET_LEVEL(ch)))
+        { // mostly affects 25-
+          continue;
+        }
+      }
+      if (IS_UD_MAP(zone_maproom) && !curUDExit && GOOD_RACE(ch) && GET_LEVEL(ch) < 40) 
+      { // only bartenders with direct exit to UD give UD quests to goods below 40
+        continue;
+      }
+      if (world[zone_maproom].continent == CONT_UC && !curUCExit && (GET_LEVEL(ch) < 35 || (GOOD_RACE(ch) && GET_LEVEL(ch) < 40))) 
+      { // evils dont get UC quests till 35, goods till 40 (unless its UC bartender)
+        continue;
+      }
+      valid_zones.push_back(zone_count);
+      break;
+    }
   }
-
-  //No valid zone found return -1
-  if( valid_zones.empty() )
-    return -1;
-
-  return valid_zones[number(0, valid_zones.size()-1)];
 }
 
 

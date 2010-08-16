@@ -614,7 +614,7 @@ void set_ship_physical_layout(P_ship ship);
 
 void set_ship_armor(P_ship ship, bool equal);
 
-void reset_ship(P_ship ship);
+void reset_ship(P_ship ship, bool clear_slots = true);
 
 int ship_obj_proc(P_obj obj, P_char ch, int cmd, char *arg);
 int ship_room_proc(int room, P_char ch, int cmd, char *arg);
@@ -626,7 +626,7 @@ void finish_sinking(P_ship ship);
 void summon_ship_event(P_char ch, P_char victim, P_obj obj, void *data);
 
 bool check_ship_name(P_ship ship, P_char ch, char* name);
-bool check_undocking_conditions(P_ship ship, P_char ch);
+bool check_undocking_conditions(P_ship ship, int m_class, P_char ch);
 
 void update_shipfrags();
 void display_shipfrags(P_char ch);

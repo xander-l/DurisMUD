@@ -646,10 +646,10 @@ void spell_forked_lightning(int level, P_char ch, char *arg, int type,
   if (saves_spell(victim, SAVING_SPELL))
     dam >>= 1;
 
-  gain_exp(ch, victim, 0, EXP_DAMAGE);
+//  gain_exp(ch, victim, 0, EXP_DAMAGE); removed, changed to normal damage exp -Odorf
 
   while (num_missiles-- &&
-      spell_damage(ch, victim, dam, SPLDAM_LIGHTNING, RAWDAM_NOEXP,
+      spell_damage(ch, victim, dam, SPLDAM_LIGHTNING, 0,
                    &messages) == DAM_NONEDEAD);
 }
 

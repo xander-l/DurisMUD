@@ -379,7 +379,8 @@ int UndeadCombat(P_char ch)
 
   if(!IS_PC_PET(ch) &&
     (GET_RACE(ch) == RACE_GHOST || GET_RACE(ch) == RACE_SPECTRE ||
-    GET_RACE(ch) == RACE_WRAITH || GET_RACE(ch) == RACE_SHADOW) &&
+    GET_RACE(ch) == RACE_WRAITH || GET_RACE(ch) == RACE_SHADOW ||
+    GET_RACE(ch) == RACE_BRALANI) &&
     (number(1, 100) <= 10))
   {
     GhostFearEffect(ch);
@@ -398,13 +399,13 @@ int UndeadCombat(P_char ch)
   if (IS_SKELETON(ch))
     SkeletonCombat(ch, victim);
 
-  if (IS_SPECTRE(ch) && !IS_PC_PET(ch))
+  if ((IS_SPECTRE(ch) || IS_ASURA(ch)) && !IS_PC_PET(ch))
     SpectreCombat(ch, victim);
 
   if (IS_SHADOW(ch))
     ShadowCombat(ch, victim);
 
-  if(IS_WRAITH(ch) && !IS_PC_PET(ch))
+  if((IS_WRAITH(ch) || IS_BRALANI(ch)) && !IS_PC_PET(ch))
     WraithCombat(ch, victim);
 
   if (GET_RACE(ch) == RACE_VAMPIRE && victim && number(0,1))

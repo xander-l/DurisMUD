@@ -84,18 +84,73 @@ int is_Raidable(P_char ch, char *argument, int cmd)
 
 void do_raid(P_char ch, char *argument, int cmd)
 {
-  if(!ch)
-    return;
+  P_desc i;
+  P_char tch;
+  char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
+  char Gbuf[MAX_INPUT_LENGTH];
+  if (!IS_TRUSTED(ch))
+  {
+    if(!ch)
+      return;
   
-  if(IS_NPC(ch)){
-      send_to_char("Why you a npc care about raidable or not?!", ch);
+    if(IS_NPC(ch)){
+        send_to_char("Why you a npc care about raidable or not?!", ch);
+      return;
+    }
+    if(hasRequriedSlots(ch))
+      send_to_char("&+GRaidable you are, slay enemies you can!\n", ch);
+    else
+      send_to_char("&+RYou do not have enough equipment to be raidable.\n", ch);
+  }
+
+  if (IS_TRUSTED(ch))
+  {
+    argument_interpreter(argument, arg1, arg2);
+
+    if (!str_cmp(arg1, ""))
+    {
+      send_to_char("raid [room|zone|good|evil|all|(character name)] [bad] <-Show only bad players option.\n", ch);
+      return;
+    }
+
+    for (i = descriptor_list; i; i = i->next)
+    {
+      if (i->character && IS_PC(i->character) && (i->connected == CON_PLYNG))
+      {
+        tch = NULL;
+        if ((!str_cmp(arg1, "room") && (i->character->in_room == ch->in_room)) ||
+            (!str_cmp(arg1, "zone") && (world[i->character->in_room].zone == world[ch->in_room].zone)) ||
+            (!str_cmp(arg1, "good") && GOOD_RACE(i->character)) ||
+            (!str_cmp(arg1, "evil") && EVIL_RACE(i->character)) ||
+            (!str_cmp(arg1, "all")) ||
+            (!str_cmp(arg1, i->character->player.name)))
+        {
+	  tch = i->character;
+	}
+	
+	if (tch && IS_PC(tch) && !IS_TRUSTED(tch))
+        {
+          if (hasRequriedSlots(tch))
+          {  
+            if (!str_cmp(arg2, " bad"))
+              continue;
+            sprintf(Gbuf, "%s is &+Wgood&n.\n", GET_NAME(tch));
+            send_to_char(Gbuf, ch);
+          }
+          else
+          {
+            sprintf(Gbuf, "&+R%s&n is &+Rnot raidable!\n", GET_NAME(tch));
+            send_to_char(Gbuf, ch);
+          }
+        }
+	else
+	{
+	  send_to_char("You don't see anybody.\n", ch);
+	}
+      }
+    }
     return;
   }
-  if(hasRequriedSlots(ch))
-    send_to_char("&+GRaidable you are, slay enemies you can!\n", ch);
-  else
-    send_to_char("&+RYou do not have enough equipment to be raidable.\n", ch);
-  
 }
 int hasRequriedSlots(P_char ch)
 {

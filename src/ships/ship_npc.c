@@ -98,8 +98,9 @@ bool  load_npc_ship_crew(P_ship ship, int crew_size, int crew_level);
 void setup_npc_clipper_01(P_ship ship, NPC_AI_Type type) // level 0
 {
     set_weapon(ship, 0, W_SMALL_CAT, SIDE_FORE);
-    set_weapon(ship, 1, W_SMALL_BAL, SIDE_PORT);
-    set_weapon(ship, 2, W_SMALL_BAL, SIDE_PORT);
+    //set_weapon(ship, 1, W_SMALL_BAL, SIDE_PORT);
+    //set_weapon(ship, 2, W_SMALL_BAL, SIDE_PORT);
+    set_weapon(ship, 2, W_SMALL_BAL, SIDE_REAR);
     ship->crew.sail_skill = 200;
     ship->crew.guns_skill = 200;
     ship->crew.rpar_skill = 200;
@@ -133,7 +134,7 @@ void setup_npc_ketch_01(P_ship ship, NPC_AI_Type type) // level 0
 {
     set_weapon(ship, 0, W_SMALL_CAT, SIDE_FORE);
     set_weapon(ship, 1, W_MEDIUM_BAL, SIDE_STAR);
-    set_weapon(ship, 2, W_SMALL_BAL, SIDE_STAR);
+    //set_weapon(ship, 2, W_SMALL_BAL, SIDE_STAR);
     ship->crew.sail_skill = 200;
     ship->crew.guns_skill = 200;
     ship->crew.rpar_skill = 200;
@@ -143,8 +144,10 @@ void setup_npc_ketch_01(P_ship ship, NPC_AI_Type type) // level 0
 void setup_npc_ketch_02(P_ship ship, NPC_AI_Type type) // level 0
 {
     set_weapon(ship, 0, W_SMALL_CAT, SIDE_FORE);
-    set_weapon(ship, 1, W_MEDIUM_BAL, SIDE_STAR);
-    set_weapon(ship, 2, W_MEDIUM_BAL, SIDE_PORT);
+    set_weapon(ship, 1, W_SMALL_BAL, SIDE_STAR);
+    set_weapon(ship, 2, W_SMALL_BAL, SIDE_PORT);
+    //set_weapon(ship, 1, W_MEDIUM_BAL, SIDE_STAR);
+    //set_weapon(ship, 2, W_MEDIUM_BAL, SIDE_PORT);
     ship->crew.sail_skill = 200;
     ship->crew.guns_skill = 200;
     ship->crew.rpar_skill = 200;
@@ -166,7 +169,7 @@ void setup_npc_caravel_01(P_ship ship, NPC_AI_Type type) // level 0
     set_weapon(ship, 0, W_MEDIUM_CAT, SIDE_FORE);
     set_weapon(ship, 1, W_SMALL_BAL, SIDE_STAR);
     set_weapon(ship, 2, W_SMALL_BAL, SIDE_STAR);
-    set_weapon(ship, 3, W_SMALL_BAL, SIDE_STAR);
+    //set_weapon(ship, 3, W_SMALL_BAL, SIDE_STAR);
     ship->crew.sail_skill = 200;
     ship->crew.guns_skill = 200;
     ship->crew.rpar_skill = 200;
@@ -175,7 +178,8 @@ void setup_npc_caravel_01(P_ship ship, NPC_AI_Type type) // level 0
 }
 void setup_npc_caravel_02(P_ship ship, NPC_AI_Type type) // level 0
 {
-    set_weapon(ship, 0, W_MEDIUM_CAT, SIDE_FORE);
+    //set_weapon(ship, 0, W_MEDIUM_CAT, SIDE_FORE);
+    set_weapon(ship, 0, W_SMALL_CAT, SIDE_FORE);
     set_weapon(ship, 1, W_MEDIUM_BAL, SIDE_PORT);
     set_weapon(ship, 2, W_MEDIUM_BAL, SIDE_STAR);
     ship->crew.sail_skill = 200;

@@ -473,7 +473,7 @@ static void setbit_char(P_char ch, char *name, char *flag, char *val,
     /* char_point_data */
     {"mana", POOFFSET(mana), NULL, ac_shintCopy},
     {"mxmana", POOFFSET(base_mana), NULL, ac_hitmanaCopy},
-    {"hit", POOFFSET(hit), NULL, ac_shintCopy},
+    {"hit", POOFFSET(hit), NULL, ac_intCopy},
     {"basehit", POOFFSET(base_hit), NULL, ac_intCopy},
     {"vit", POOFFSET(vitality), NULL, ac_shintCopy},
     {"mxvit", POOFFSET(base_vitality), NULL, ac_shintCopy},

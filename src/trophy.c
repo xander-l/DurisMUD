@@ -26,7 +26,7 @@ extern P_room world;
 extern int new_exp_table[];
 extern P_index mob_index;
 
-int modify_exp_by_zone_trophy(P_char ch, int type, int XP)
+float modify_exp_by_zone_trophy(P_char ch, int type, float XP)
 {
   if( !ch || !IS_PC(ch) )
     return XP;
@@ -35,7 +35,8 @@ int modify_exp_by_zone_trophy(P_char ch, int type, int XP)
       type != EXP_KILL &&
       type != EXP_QUEST &&
       type != EXP_MELEE &&
-      type != EXP_HEALING )
+      type != EXP_HEALING &&
+      type != EXP_TANKING)
     return XP;
   
   if (IS_ILLITHID(ch))
@@ -48,7 +49,7 @@ int modify_exp_by_zone_trophy(P_char ch, int type, int XP)
   
   int zone_exp = get_zone_exp(ch, zone_number);
   
- //  debug("%s exp: %d, zone_exp: %d, notch: %d, threshold: %d", GET_NAME(ch), XP, zone_exp, EXP_NOTCH(ch), (3 * EXP_NOTCH(ch)) );
+ //  debug("%s exp: %d, zone_exp: %d, notch: %d, threshold: %d", GET_NAME(ch), (int)XP, zone_exp, EXP_NOTCH(ch), (3 * EXP_NOTCH(ch)) );
   
   int reduction_scale = (int) get_property("exp.zoneTrophy.scale.notches", 10);
   // if more than the threshold, adjust by average zone_exp from group
@@ -79,7 +80,7 @@ int modify_exp_by_zone_trophy(P_char ch, int type, int XP)
     
     int trophy_notches = (int) ( avg_zone_exp / EXP_NOTCH(ch));
     
-//    debug("XP: %d, avg_zone_exp: %d, reduction scale: %d, trophy_notches: %d", XP, avg_zone_exp, reduction_scale, trophy_notches);
+//    debug("XP: %d, avg_zone_exp: %d, reduction scale: %d, trophy_notches: %d", (int)XP, avg_zone_exp, reduction_scale, trophy_notches);
     
     if( trophy_notches > 0 )
     {
@@ -118,14 +119,14 @@ int modify_exp_by_zone_trophy(P_char ch, int type, int XP)
         }              
       }
       
-//      debug("XP: %d", XP);
-      XP = (int) ( XP * exp_mod );
-//      debug("XP: %d", XP);
+//      debug("XP: %d", (int)XP);
+      XP = XP * exp_mod;
+//      debug("XP: %d", (int)XP);
     }
     
   }  
   
-  update_zone_trophy(ch, zone_number, XP);    
+  update_zone_trophy(ch, zone_number, (int)XP);    
   
   return XP;
 }

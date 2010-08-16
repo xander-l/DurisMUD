@@ -627,7 +627,7 @@ void do_fire(P_char ch, char *argument, int cmd)
    }
 
    // ok give them bit exp for attempt 
-   gain_exp(ch, victim, 0, EXP_DAMAGE);
+   //gain_exp(ch, victim, 0, EXP_DAMAGE);
 
    // If this is deemed overpowered, let's make it so it randomly hits
    //    someone else if it fails instead of just missing.
