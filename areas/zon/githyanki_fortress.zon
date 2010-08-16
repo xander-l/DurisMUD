@@ -1,6 +1,6 @@
 #1320
 The Githyanki Fortress~
-132065 2 0 40 50 1
+132065 1 0 40 50 1
 *
 * Zone edited with durisEdit v2.99de
 *
@@ -115,6 +115,7 @@ O 0 132005 1 132046 100 0 0 0      * a blood-splattered altar
 O 0 132018 1 132052 100 0 0 0      * a desk of magicaly bound and fused illithid bones
 O 0 132011 1 132065 100 0 0 0      * a long wooden desk
 O 0 64 1 132065 100 0 0 0          * (object type not in this .obj file)
+O 0 359 1 132065 100 0 0 0         * (object type not in this .obj file)
 *
 M 0 132000 8 132008 100 0 0 0      * a githyanki guardian
 M 0 132000 8 132008 100 0 0 0      * a githyanki guardian

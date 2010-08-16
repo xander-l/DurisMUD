@@ -11359,7 +11359,7 @@ int world_quest(P_char ch, P_char pl, int cmd, char *arg)
 
       // }
 
-      temp = (int)((get_property("worldQuest.abandon.mod", 0.5) * GET_LEVEL(pl) * GET_LEVEL(pl) * GET_LEVEL(pl)));
+      temp = (int)((get_property("world.quest.abandon.mod", 1.0) * GET_LEVEL(pl) * GET_LEVEL(pl) * GET_LEVEL(pl)));
 
       timediff = time(NULL) - pl->only.pc->quest_started;
       debug("timediff: %f", timediff);

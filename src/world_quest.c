@@ -217,16 +217,18 @@ void quest_reward(P_char ch, P_char quest_mob, int type)
       gain_epic(ch, EPIC_QUEST, 0, 15);
   }
 
+  int exp_gain = 0;
   if(GET_LEVEL(ch) <= 30)
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.30.andUnder", 1.000)), EXP_WORLD_QUEST); 
+    exp_gain = EXP_NOTCH(ch) * get_property("world.quest.exp.level.30.andUnder", 1.300);
   else if(GET_LEVEL(ch) <= 40)
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.40.andUnder", 1.000)), EXP_WORLD_QUEST); 
+    exp_gain = EXP_NOTCH(ch) * get_property("world.quest.exp.level.40.andUnder", 1.000);
   else if(GET_LEVEL(ch) <= 50) 
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.50.andUnder", 1.000)), EXP_WORLD_QUEST); 
+    exp_gain = EXP_NOTCH(ch) * get_property("world.quest.exp.level.50.andUnder", 0.800);
   else if(GET_LEVEL(ch) <= 55) 
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.55.andUnder", 1.000)), EXP_WORLD_QUEST); 
+    exp_gain = EXP_NOTCH(ch) * get_property("world.quest.exp.level.55.andUnder", 0.500);
   else 
-    gain_exp(ch, NULL, (int)(EXP_NOTCH(ch) * get_property("world.quest.exp.level.other.andUnder", 1.000)), EXP_WORLD_QUEST);
+    exp_gain = EXP_NOTCH(ch) * get_property("world.quest.exp.level.other", 1.000);
+  gain_exp(ch, NULL, exp_gain, EXP_WORLD_QUEST); 
 
   sprintf(Gbuf1, "&+WYou gain some experience.&n");
   act(Gbuf1, FALSE, quest_mob, 0, ch, TO_VICT);
@@ -452,14 +454,14 @@ void do_quest(P_char ch, char *args, int cmd)
 
 
       if(ch->only.pc->quest_level < GET_LEVEL(victim) - 
-         get_property("worldQuest.level.high.value", 6))
+         get_property("world.quest.level.high.value", 6))
       {
         send_to_char("They are much too experienced for that quest!\r\n", ch);
         return;
       }
       
       if(ch->only.pc->quest_level > GET_LEVEL(victim) + 
-         get_property("worldQuest.level.low.value", 6)) 
+         get_property("world.quest.level.low.value", 6)) 
       { 
         send_to_char("They are too inexperienced for that quest!\r\n", ch); 
         return; 
@@ -823,6 +825,7 @@ bool isInvalidQuestZone(int zone_number)
   return !zone.quest_zone;  
 }
 
+
 void getQuestZoneList(P_char ch, vector<int> &valid_zones)
 {
   //If lvl 15 or lower it's same zone as the dude.
@@ -837,17 +840,50 @@ void getQuestZoneList(P_char ch, vector<int> &valid_zones)
   {
     for (int i2 = 0; i2 < NUM_EXITS; i2++)
     {
-      if (world[i].dir_option[i2])
+      if (!world[i].dir_option[i2])
+        continue;
+      int to_room = world[i].dir_option[i2]->to_room;
+      if (to_room == NOWHERE)
+        continue;
+      if (world[to_room].zone == curZone)
+        continue;
+      if (IS_MAP_ROOM(to_room))
       {
-        if ((world[i].dir_option[i2]->to_room != NOWHERE) && (world[world[i].dir_option[i2]->to_room].zone != world[i].zone))
+          curMapExits.push_back(to_room);
+          if (IS_UD_MAP(to_room))
+            curUDExit = true;
+          if (world[to_room].continent == CONT_UC)
+            curUCExit = true;
+      }
+      else
+      { // lets try looking zone ahead
+        int nextZone = world[to_room].zone;
+        for (int j = zone_table[nextZone].real_bottom; (j != NOWHERE) && (j <= zone_table[nextZone].real_top); j++)
         {
-          if(IS_MAP_ROOM(world[i].dir_option[i2]->to_room))
+          for (int j2 = 0; j2 < NUM_EXITS; j2++)
           {
-            curMapExits.push_back(world[i].dir_option[i2]->to_room);
-            if (IS_UD_MAP(world[i].dir_option[i2]->to_room))
-              curUDExit = true;
-            if (world[world[i].dir_option[i2]->to_room].continent == CONT_UC)
-              curUCExit = true;
+            if (!world[j].dir_option[j2])
+              continue;
+            int to_room1 = world[j].dir_option[j2]->to_room;
+            if (to_room1 == NOWHERE)
+              continue;
+            if (world[to_room1].zone == curZone || world[to_room1].zone == nextZone)
+              continue;
+            if (!IS_MAP_ROOM(to_room1))
+              continue;
+
+            int k = 0;
+            for (; k < curMapExits.size(); k++)
+              if (curMapExits[k] == to_room1)
+                break;
+            if (k == curMapExits.size())
+            {
+              curMapExits.push_back(to_room1);
+              if (IS_UD_MAP(to_room1))
+                curUDExit = true;
+              if (world[to_room1].continent == CONT_UC)
+                curUCExit = true;
+            }
           }
         }
       }
@@ -862,53 +898,57 @@ void getQuestZoneList(P_char ch, vector<int> &valid_zones)
         zone_table[zone_count].avg_mob_level < 0 )
      continue;
     
-      if( zone_table[zone_count].avg_mob_level < (GET_LEVEL(ch) + 5) &&
-        zone_table[zone_count].avg_mob_level > (GET_LEVEL(ch) - 7)){
-      //debug("%d %s " , zone_count, zone_table[zone_count].name);
+    if( zone_table[zone_count].avg_mob_level >= (GET_LEVEL(ch) + 5) || 
+        zone_table[zone_count].avg_mob_level <= (GET_LEVEL(ch) - 7))
+      continue;
+ 
+    if(zone_count == curZone) //do not use same zone as the dude is in..
+      continue;
 
-      if(zone_count == curZone) //do not use same zone as the dude is in..
-        continue;
-
-      if( GET_LEVEL(ch) < 51)
-      {
-        int zone_maproom = get_map_room(zone_count);
-        if(zone_maproom != -1)
-        {
-          for (int i = 0; i < curMapExits.size(); i++)
-          {
-            int cur_maproom = curMapExits[i];
-            if (GET_LEVEL(ch) < 30)
-            { 
-              if (world[zone_maproom].map_section != world[cur_maproom].map_section)
-              { // same continent below 30.
-                continue;
-              }
-              int distance = calculate_map_distance(zone_maproom, cur_maproom);
-              //debug("Distance between %d and %d is %d", world[zone_maproom].number, world[cur_maproom].number, distance);
-              if(distance > (3000 + GET_LEVEL(ch) * GET_LEVEL(ch) * GET_LEVEL(ch)))
-              { // mostly affects 25-
-                continue;
-              }
-            }
-            if (IS_UD_MAP(zone_maproom) && !curUDExit && GOOD_RACE(ch) && GET_LEVEL(ch) < 40) 
-            { // only bartenders with direct exit to UD give UD quests to goods below 40
-              continue;
-            }
-            if (world[zone_maproom].continent == CONT_UC && !curUCExit && (GET_LEVEL(ch) < 35 || (GOOD_RACE(ch) && GET_LEVEL(ch) < 40))) 
-            { // evils dont get UC quests till 35, goods till 40 (unless its UC bartender)
-              continue;
-            }
-            valid_zones.push_back(zone_count);
-            break;
-          }
-        }
-      }
-      else
-      {
-        valid_zones.push_back(zone_count);
-      }
+    if (GET_LEVEL(ch) >= 51)
+    {
+      valid_zones.push_back(zone_count);
+      continue;
     }
 
+    int zone_maproom = get_map_room(zone_count);
+    if(zone_maproom == -1)
+        continue;
+
+    if (curMapExits.size() == 0)
+    {  // bartender doesnt have exits to map, gives only to 40+
+      if (GET_LEVEL(ch) >= 40)
+        valid_zones.push_back(zone_count);
+      continue;
+    }
+ 
+    for (int i = 0; i < curMapExits.size(); i++)
+    {
+      int cur_maproom = curMapExits[i];
+      if (GET_LEVEL(ch) < 30)
+      { 
+        if (world[zone_maproom].map_section != world[cur_maproom].map_section)
+        { // same continent below 30.
+          continue;
+        }
+        int distance = calculate_map_distance(zone_maproom, cur_maproom);
+        //debug("Distance between %d and %d is %d", world[zone_maproom].number, world[cur_maproom].number, distance);
+        if(distance > (3000 + GET_LEVEL(ch) * GET_LEVEL(ch) * GET_LEVEL(ch)))
+        { // mostly affects 25-
+          continue;
+        }
+      }
+      if (IS_UD_MAP(zone_maproom) && !curUDExit && GOOD_RACE(ch) && GET_LEVEL(ch) < 40) 
+      { // only bartenders with direct exit to UD give UD quests to goods below 40
+        continue;
+      }
+      if (world[zone_maproom].continent == CONT_UC && !curUCExit && (GET_LEVEL(ch) < 35 || (GOOD_RACE(ch) && GET_LEVEL(ch) < 40))) 
+      { // evils dont get UC quests till 35, goods till 40 (unless its UC bartender)
+        continue;
+      }
+      valid_zones.push_back(zone_count);
+      break;
+    }
   }
 }
 
@@ -978,8 +1018,7 @@ int suggestQuestMob(int zone_num, P_char ch, int QUEST_TYPE)
 
             if(aggressive_to(t_mob, ch) &&
                KIND_OF_QUEST == FIND_AND_ASK || 
-               !CAN_SPEAK(t_mob) && KIND_OF_QUEST == FIND_AND_ASK ||
-               isname("_noquest_", t_mob->player.name))
+               !CAN_SPEAK(t_mob) && KIND_OF_QUEST == FIND_AND_ASK)
             {
               //dont suggest aggresive ask mobs..nor not humanoids
               ;
