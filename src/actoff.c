@@ -4841,13 +4841,14 @@ char isBashable(P_char ch, P_char victim)
 int good_for_skewering(P_obj obj)
 {
 
-  if(obj->value[0] == WEAPON_LONGSWORD ||
-     obj->value[0] == WEAPON_2HANDSWORD ||
-     obj->value[0] == WEAPON_POLEARM ||
-     obj->value[0] == WEAPON_SPEAR ||
-     obj->value[0] == WEAPON_LANCE ||
-     obj->value[0] == WEAPON_TRIDENT ||
-     obj->value[0] == WEAPON_HORN)
+  if((obj->value[0] == WEAPON_LONGSWORD ||
+      obj->value[0] == WEAPON_2HANDSWORD ||
+      obj->value[0] == WEAPON_POLEARM ||
+      obj->value[0] == WEAPON_SPEAR ||
+      obj->value[0] == WEAPON_LANCE ||
+      obj->value[0] == WEAPON_TRIDENT ||
+      obj->value[0] == WEAPON_HORN) &&
+     IS_SET(obj->extra_flags, ITEM_TWOHANDS))
      {
        return 1;
      }
