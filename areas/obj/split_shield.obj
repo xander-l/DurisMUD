@@ -995,7 +995,7 @@ a trail ration~
 a portion of trail ration is left here.~
 ~
 19 2 2 2 7 0 8388608 16385 0 0 0
-12 0 0 0 0 0 0 0
+12 2 2 0 0 0 0 0
 1 1 100
 E
 trail ration~
@@ -1007,7 +1007,7 @@ a small slab of meat~
 a small slab of meat is left here.~
 ~
 19 2 2 2 7 0 8388608 16385 0 0 0
-2 0 0 0 0 0 0 0
+2 3 3 0 1 1 0 0
 1 1 100
 #10425
 food large slab meat~
@@ -1015,7 +1015,7 @@ a large slab of meat~
 a large slab of meat is left here.~
 ~
 19 2 2 2 7 0 8388608 16385 0 0 0
-20 0 0 0 0 0 0 0
+10 3 3 0 1 1 0 0
 1 1 100
 #10426
 food slab orc meat~
@@ -1023,7 +1023,7 @@ a slab of orc meat~
 a slab of orc meat is left here.~
 ~
 19 2 2 2 7 0 8388608 16385 0 0 0
-10 0 0 0 0 0 0 0
+5 3 3 0 1 1 0 0
 1 1 100
 #10427
 food slab rotten meat~

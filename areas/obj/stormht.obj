@@ -313,7 +313,7 @@ goat leg bloody~
 &+gThe bloody leg of a goat lies here.&n~
 ~
 19 2 3 0 7 0 0 1 0 0 0
-12 3 0 0 0 0 0 0
+15 2 2 0 3 0 0 1
 1 650 100
 E
 goat leg bloody~
@@ -326,8 +326,8 @@ rabbit flesh~
 &+gA thick strip of flesh lies on the ground.&n~
 ~
 19 2 3 0 7 0 0 1 0 0 0
-6 3 0 0 0 0 0 0
-0 400 100
+6 3 2 0 0 0 0 0
+0 200 100
 E
 rabbit flesh~
 &+gThis thick strip of flesh was pulled from the fattiest portion of a large

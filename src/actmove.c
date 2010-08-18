@@ -34,6 +34,7 @@ extern P_index mob_index;
 extern P_room world;
 extern const char *command[];
 extern const char *dirs[];
+extern const char *short_dirs[];
 extern const char *dirs2[];
 extern const struct stat_data stat_factor[];
 extern const int innate_abilities[];
@@ -2079,7 +2080,10 @@ int find_door(P_char ch, char *type, char *dir)
   }
   if (*dir)
   {                             /* a direction was specified */
-    if ((door = search_block(dir, dirs, FALSE)) == -1)
+    door = search_block(dir, dirs, FALSE);
+    if (door = -1)
+      door = search_block(dir, short_dirs, FALSE);
+    if (door == -1)
     {
       send_to_char("That's not a direction.\n", ch);
       return (-1);
@@ -2123,7 +2127,11 @@ int find_door(P_char ch, char *type, char *dir)
   /* We get here after checking for the door keyword handle, possible also */
   /* with a direction specified.                                           */
   
-  if ((door = search_block(type, dirs, FALSE)) != -1)
+  door = search_block(type, dirs, FALSE);
+  if (door == -1)
+    door = search_block(type, short_dirs, FALSE);
+
+  if (door != -1)
   {
 	if (EXIT(ch, door) &&
       !IS_SET(EXIT(ch, door)->exit_info, EX_SECRET) &&

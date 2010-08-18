@@ -2178,8 +2178,8 @@ fish perch fried~
 &+YSome fried perch has been thrown away here.&N~
 ~
 19 2 3 0 7 0 0 1 0 0 0
-16 0 0 0 0 0 0 0
-0 1 100
+16 1 1 0 0 0 0 0
+0 10 100
 E
 fish perch fried~
 Yellow perch are abundant in Woodseer, and one of the easiest ways to prepare
@@ -2192,8 +2192,8 @@ a slab of broiled muskie~
 A long slab of broiled muskie has been dropped here.~
 ~
 19 2 3 0 7 0 0 1 0 0 0
-24 0 0 0 0 0 0 0
-1 3 100
+24 1 1 0 0 0 0 0
+1 18 100
 E
 muskie fish~
 Salt, lemon and several other spices have been pressed into the fish before
@@ -2206,8 +2206,8 @@ steak salmon~
 &+WA salmon steak has been carelessly left behind.&N~
 ~
 19 2 3 0 7 0 0 1 0 0 0
-20 1 1 0 0 0 0 0
-1 5 100
+20 2 2 0 0 0 0 0
+1 120 100
 E
 steak salmon~
 The large freshwater salmon that can be caught in the small lake near Woodseer

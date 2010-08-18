@@ -699,7 +699,7 @@ P_ship try_load_npc_ship(P_ship target)
     {
         if(IS_SET(target->flags, ATTACKBYNPC)) 
             return 0;
-        if (n < 250)
+        if (n < 300)
         {
             level = 0;
         }
@@ -707,7 +707,7 @@ P_ship try_load_npc_ship(P_ship target)
         {
             level = 1;
         }
-        else if (n < 1600 || number(1, 3) != 1)
+        else if (n < 1600 || number(1, 4) != 1)
         {
             level = 2;
             if (number(1, 3) == 1)
@@ -772,7 +772,7 @@ P_ship try_load_npc_ship(P_ship target, NPC_AI_Type type, int level, P_char ch)
         return 0;
 
     ship->npc_ai->advanced = 0;
-    if (level == 1 && number(1, 3) == 1)
+    if (level == 1 && number(1, 4) == 1)
         ship->npc_ai->advanced = 1;
     if (level == 2 && number(1, 2) == 1)
         ship->npc_ai->advanced = 1;

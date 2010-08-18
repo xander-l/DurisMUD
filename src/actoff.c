@@ -4920,22 +4920,6 @@ void bash(P_char ch, P_char victim)
   vict_size = get_takedown_size(victim);
   ch_size = get_takedown_size(ch);
 
-  /* you must be size of centaur to bash it */
-  if((has_innate(victim, INNATE_HORSE_BODY) ||
-      has_innate(victim, INNATE_SPIDER_BODY) ||
-     GET_RACE(ch) == RACE_QUADRUPED)  &&
-     ch_size < vict_size+1 ) // Need to be a size above to bash per kitsero
-  {
-    act("$n makes a futile attempt to bash $N, but $E is simply immovable.", FALSE, ch, 0, victim, TO_NOTVICT);
-    act("$n makes a futile attempt to bash you, but you are simply immovable.", FALSE, ch, 0, victim, TO_VICT);
-    act("You attempt to bash $N, but that damn half-horse, half-man is simply too hefty!", FALSE, ch, 0, victim, TO_CHAR);
-
-    SET_POS(ch, POS_SITTING + GET_STAT(ch));
-    CharWait(ch, (int) (PULSE_VIOLENCE * 0.500));
-
-    return;
-  }
-
 /* lets make it a bit trickier to bash an ogre unless you're bigger
    Lets comment this out for the wipe since they're huge again -Zion 12/24/07
 if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
@@ -4959,7 +4943,12 @@ if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
   return;
   }
 }*/
-  if(vict_size > ch_size + 1)
+  /* you must be size more than size down or same size of centaur/drider to try bashing */
+  if(ch_size < vict_size - 1 ||
+     ((has_innate(victim, INNATE_HORSE_BODY) ||
+       has_innate(victim, INNATE_SPIDER_BODY) ||
+       GET_RACE(ch) == RACE_QUADRUPED)  &&
+      ch_size < vict_size))
   {
     act("$n makes a futile attempt to bash $N, but $E is simply immovable.", FALSE, ch, 0, victim, TO_NOTVICT);
     act("$n makes a futile attempt to bash you, but you are simply immovable.", FALSE, ch, 0, victim, TO_VICT);
@@ -4969,7 +4958,7 @@ if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
     return;
   }
 
-  if(vict_size < ch_size - 1)
+  if(ch_size > vict_size + 1)
   {
     act("$n topples over $mself as $e tries to bash $N.", FALSE, ch, 0, victim, TO_NOTVICT);
     act("$n topples over $mself as $e tries to bash you.", FALSE, ch, 0, victim, TO_VICT);
@@ -5089,7 +5078,17 @@ if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
     percent_chance = (int) (percent_chance * 0.30);
   }
 
-  if(vict_size > ch_size)
+  bool bigger_victim = false;
+  if(vict_size > ch_size || 
+   ((has_innate(victim, INNATE_HORSE_BODY) ||
+     has_innate(victim, INNATE_SPIDER_BODY) ||
+     GET_RACE(ch) == RACE_QUADRUPED)  &&
+    ch_size == vict_size))
+  {
+    bigger_victim = true;
+  }
+
+  if (bigger_victim)
   {
     percent_chance = (int) (percent_chance * 0.70);
   }
@@ -5156,17 +5155,28 @@ if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
   if(!notch_skill(ch, SKILL_BASH, get_property("skill.notch.offensive", 15)) &&
      percent_chance < rolled)
   {
+    if (bigger_victim && number(1,2) == 1)
+    {
+      act("As $N withstands your bash, you bounce back and fall to the ground.",
+          FALSE, ch, 0, victim, TO_CHAR);
+      act("You withstand a bash from $n, who bounces back and falls.",
+          FALSE, ch, 0, victim, TO_VICT);
+      act("$N withstands a bash from $n, who bounces back and falls.",
+          FALSE, ch, 0, victim, TO_NOTVICT);
+    }
+    else
+    {
+      act("As $N avoids your bash, you topple over and fall to the ground.",
+          FALSE, ch, 0, victim, TO_CHAR);
+      act("You dodge a bash from $n, who loses $s balance and falls.",
+          FALSE, ch, 0, victim, TO_VICT);
+      act("$N avoids being bashed by $n, who loses $s balance and falls.",
+          FALSE, ch, 0, victim, TO_NOTVICT);
+    }
+
     /*
      * mostly to knees, but can wind up prone too
      */
-
-    act("As $N avoids your bash, you topple over and fall to the ground.",
-        FALSE, ch, 0, victim, TO_CHAR);
-    act("You dodge a bash from $n, who loses $s balance and falls.",
-        FALSE, ch, 0, victim, TO_VICT);
-    act("$N avoids being bashed by $n, who loses $s balance and falls.",
-        FALSE, ch, 0, victim, TO_NOTVICT);
-
     engage(ch, victim);
     if(rolled > (percent_chance * 3))
     {

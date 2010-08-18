@@ -760,7 +760,7 @@ a plate of &+Leel&n &+Ws&+gu&+Ws&+gh&+Wi&n~
 A plate of &+Leel&n &+Ws&+gu&+Ws&+gh&+Wi&n lies here.~
 ~
 19 48 3 0 5 0 0 16385 0 0 0
-10 5 6 0 0 0 0 0
+10 3 3 0 0 0 3 0
 0 1456 100
 #29463
 stew pork~
@@ -768,15 +768,15 @@ a &+ypork&n &+yh&+Ya&+yr&+Yv&+ye&+Ys&+yt&n &+bstew&n~
 Some &+ypork&n &+yh&+Ya&+yr&+Yv&+ye&+Ys&+yt&n &+bstew&n lies here~
 ~
 19 48 3 0 5 0 0 16385 0 0 0
-10 5 6 0 0 0 0 0
-0 2056 100
+10 3 4 0 0 0 0 0
+0 2556 100
 #29464
 cornish pastry pie~
 a &+Gcornish&n &+ymeat&n &+Ypie&n~
 A &+Gcornish&n &+ymeat&n &+Ypie&n lies here uneaten.~
 ~
 19 48 3 0 5 0 0 16385 0 0 0
-4 6 3 0 0 0 0 0
+3 4 4 0 2 0 0 0
 0 2367 100
 #29465
 honey sticks~
@@ -784,16 +784,16 @@ honey sticks~
 Some &+mfresh&n &+Gclover&n &+yhoney sticks&n lie here.~
 ~
 19 48 3 0 5 0 0 1 0 0 0
-6 8 0 0 0 0 0 0
-0 1003 100
+6 5 4 0 0 4 0 0
+0 4003 100
 #29466
 fungi salad~
 &+ga&n &+Wgourmet&n &+yfu&+gn&+rgu&+ys&n &+gsalad&n~
 &+gA&n &+Wgourmet&n &+yfu&+gn&+rgu&+ys&n &+gsalad&n sits wilting.~
 ~
 19 48 3 0 5 0 0 1 0 0 0
-10 6 7 0 0 0 0 0
-0 3245 100
+10 3 3 0 2 2 2 0
+0 7245 100
 #29467
 snake~
 a &+Lpitch black&n snake~

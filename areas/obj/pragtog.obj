@@ -73,7 +73,7 @@ rotting meat~
 Some &+Rrotting &nmeat is here, smelling up the room.~
 ~
 19 2 2 2 7 0 0 1 0 0 0
-12 0 0 1 0 0 0 0
+12 -1 0 0 0 0 0 0
 2 1 100
 #10608
 bloody butcher knife~
@@ -294,7 +294,7 @@ rotting food~
 &+gA glob of something that looks like food lies here.&n~
 ~
 19 2 2 2 7 0 0 0 0 0 0
-5 0 0 0 0 0 0 0
+5 -1 0 0 0 0 0 0
 1 1 100
 #10627
 large table~

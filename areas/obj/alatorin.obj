@@ -263,8 +263,8 @@ bloody haunch caribou meat~
 &+rA huge, bloody &+Rha&+Wun&+Rch &+rof &+Ycaribou meat&+r sits here, dying to be &+Rc&+Lo&+Ro&+Lk&+Re&+Ld&+W.~
 ~
 19 2 2 0 6 0 0 16385 0 0 0
-10 3 3 0 0 0 0 0
-9 200 100
+10 3 3 0 0 1 0 0
+9 808 100
 E
 bloody haunch caribou meat~
    &+yThis large haunch of caribou &+rmeat &+ylooks like it might be tastey
@@ -276,8 +276,8 @@ bloody haunch theezak meat~
 &+rA huge, bloody &+Rha&+Wun&+Rch &+rof &+Ltheezak meat&+r sits here, dying to be &+Rc&+Lo&+Ro&+Lk&+Re&+Ld&+W.~
 ~
 19 2 2 0 6 0 0 16385 0 0 0
-10 3 3 0 0 0 0 0
-9 200 100
+10 3 3 0 1 0 0 0
+9 864 100
 E
 bloody haunch theezak meat~
    &+yThis large haunch of theezak &+rmeat &+ylooks like it might be tastey
@@ -617,7 +617,7 @@ glazed rack caribou ribs~
 &+RA glazed rack of &+ycaribou &+Rribs has been left here, uneaten.~
 ~
 19 2 2 0 7 0 0 16385 0 0 0
-24 20 10 0 0 0 0 0
+36 12 12 0 0 0 0 3
 0 1000 100
 E
 glazed rack caribou ribs~
@@ -1016,7 +1016,7 @@ cheese-covered garlic apple clam mash~
 &+WA bowl of famous Stone&+Ybrew &+Wapple clam mash has been left here.~
 ~
 19 48 2 0 10 0 0 16385 0 0 0
-48 15 10 0 0 0 0 0
+10 10 8 0 5 5 0 0
 0 1332 100
 E
 cheese-covered garlic apple clam mash~
@@ -1029,7 +1029,7 @@ juicy theezak ribs~
 &+RSome juicy &+Ltheezak &+Rribs have been left here.~
 ~
 19 48 2 0 10 0 0 16385 0 0 0
-48 10 5 0 0 0 0 0
+36 14 10 0 5 0 0 2
 0 1430 100
 E
 juicy theezak ribs~
@@ -1042,7 +1042,7 @@ fish chips fried deep orange accented~
 &+LA bowl of &+yfried fish, seasoned to perfection is here.~
 ~
 19 15 3 0 7 0 0 16385 0 0 0
-60 13 8 0 0 0 0 0
+8 11 9 0 0 0 7 0
 0 0 100
 E
 fish chips fried deep orange accented~
@@ -1236,7 +1236,7 @@ salted pork~
 &+RA chunk of &+Wsalted &+Rpork is lying here.~
 ~
 19 2 3 0 8 0 0 16385 0 0 0
-6 3 3 0 0 0 0 0
+6 3 2 0 0 0 0 1
 0 600 100
 E
 salted pork~
@@ -1479,7 +1479,7 @@ bloody haunch lion meat~
 &+rA bloody &+Rha&+Wun&+Rch &n&+rof &+Ylion &+Rmeat &N&+rsits on a chopping block.~
 ~
 19 2 2 0 6 0 0 16385 0 0 0
-10 3 3 0 0 0 0 0
+10 5 5 0 0 0 0 2
 9 200 100
 E
 bloody haunch lion meat~
@@ -1819,7 +1819,7 @@ boody haunch olyx ox meat~
 &+rA bloody &+Rha&+Wun&+Rch &N&+rof &+colyx &+Rmeat sits on a &n&+ychopping board&N&+r, eager to be chopped.~
 ~
 19 2 2 0 6 0 0 16385 0 0 0
-10 3 3 0 0 0 0 0
+10 5 5 0 5 0 0 0
 9 200 100
 E
 boody haunch olyx ox meat~
@@ -1833,7 +1833,7 @@ seasoned lion rib nuggets ribs~
 &+ySome seasoned &+Ylion &+Rrib &N&+rnuggets&N have been left here.~
 ~
 19 2 2 0 11 0 0 16385 0 0 0
-36 15 7 0 0 0 0 0
+36 16 11 0 3 3 0 0
 0 6449 100
 E
 seasoned lion rib nuggets~
@@ -1848,7 +1848,7 @@ tender baby back olyx ribs~
 &+rSome &Ntender &N&+colyx &+Rribs have been left here.~
 ~
 19 2 2 0 11 0 0 16385 0 0 0
-36 7 20 0 0 0 0 0
+36 10 12 0 0 8 0 0
 0 9443 100
 E
 tender baby back olyx ribs~
@@ -1861,7 +1861,7 @@ bloody side boar meat~
 &n&+rA huge, bloody &+Rside &N&+rof &Nboar &+Rmeat hangs here, dripping &N&+rblood.~
 ~
 19 2 3 0 5 0 0 16385 0 0 0
-100 1 3 0 0 0 0 0
+60 5 3 0 2 0 0 1
 25 13004 100
 E
 bloody side boar meat~
@@ -1873,7 +1873,7 @@ bowl stew zing~
 &n&+rA bowl of &N&+ystew &N&+rsits here, steaming.~
 ~
 19 48 3 0 9 0 0 16385 0 0 0
-36 20 12 0 0 0 0 0
+25 15 15 0 0 0 6 0
 0 2000 100
 E
 bowl stew zing~
@@ -1886,7 +1886,7 @@ broiled zesty meatloaf loaf meat~
 &+LA broiled, zesty &+Rmeatloaf&+L has been left here, &Nsteaming&+L.~
 ~
 19 2 2 0 7 0 0 16385 0 0 0
-36 5 20 0 0 0 0 0
+30 20 12 0 2 0 0 1
 0 3444 100
 E
 broiled zesty meatloaf loaf meat~
@@ -3462,7 +3462,7 @@ gored tongue swamp troll~
 &+gThe gored &+Gtongue &n&+gof a &+Lswamp troll &Nhas been left here.~
 ~
 19 2 3 0 7 0 4096 8404993 0 0 0
-240 15 9 0 0 0 0 0
+72 20 10 0 5 5 0 0
 0 0 100
 E
 gored tongue swamp troll~
@@ -6165,7 +6165,7 @@ bowl white dragon egg soup~
 &+WA bowl of white dragon egg &N&+rsoup &Nhas been left here.~
 ~
 19 48 2 0 10 0 0 16385 0 0 0
-48 30 25 0 0 0 0 0
+24 18 10 0 0 0 10 0
 0 4333 100
 E
 bowl white dragon egg soup~
@@ -6178,7 +6178,7 @@ bowl wyvern egg soup~
 &+yA bowl of wyvern &+Wegg &N&+rsoup has been left here.~
 ~
 19 48 2 0 7 0 0 16385 0 0 0
-48 25 30 0 0 0 0 0
+24 20 9 0 0 8 0 0
 0 3221 100
 E
 bowl wyvern egg soup~
@@ -7122,7 +7122,7 @@ chunk rotting basilisk flesh~
 &+gA chunk of b&+Ga&+gs&+Gi&+gli&+Gs&+gk &+rflesh &+gsits here &+yr&+go&+yt&+gt&+yi&+gn&+yg &+gand attracting &+Lflies&+g.~
 ~
 19 2 3 0 7 0 4096 16385 0 0 0
-4 2 2 0 0 0 0 0
+4 -2 0 0 0 0 0 0
 0 0 100
 E
 chunk rotting basilisk flesh~
@@ -7626,7 +7626,7 @@ chunk rotting ram meat~
 &+yA chunk of r&+mo&+yt&+mt&+yi&+mn&+yg &+Yram &+rm&+Re&+ra&+Rt &+ysits here, attracting &+Lflies&+y.~
 ~
 19 15 3 0 7 0 4096 16385 0 0 0
-4 4 4 0 0 0 0 0
+4 -4 0 0 0 0 0 0
 0 0 100
 E
 chunk rotting ram meat~
@@ -8097,7 +8097,7 @@ chunk rotting cockatrice flesh~
 &+yA chunk of r&+mo&+yt&+mt&+yi&+mn&+yg &+rcoc&+Yaktr&+rice &+rm&+Re&+ra&+Rt &+ysits here, attracting &+Lflies&+y.~
 ~
 19 15 3 0 7 0 4096 16385 0 0 0
-4 4 4 0 0 0 0 0
+4 -4 0 0 0 0 0 0
 0 0 100
 E
 chunk rotting cockatrice flesh~

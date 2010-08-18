@@ -720,6 +720,9 @@ bool NPCShipAI::check_ram()
     if (!check_ram_arc(ship->heading, t_bearing, 120))
         return false;
 
+    if (!advanced && !is_boardable(ship->target) && number(1, 3) > 1)
+        return false; // dumb ones ram less in combat
+
     return true;
 }
 

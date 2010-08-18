@@ -2664,7 +2664,7 @@ void do_eat(P_char ch, char *argument, int cmd)
     return;
   }
 
-  if(temp->timer[0] && (time(NULL) - temp->timer[0] > 1 * 60 * 10) )
+  if(temp->value[1] < 0 || (temp->timer[0] && (time(NULL) - temp->timer[0] > 1 * 60 * 10)) )
   {
     act("That stinks, find some fresh food instead.", FALSE, ch, 0, 0, TO_CHAR);
     return;
@@ -2677,68 +2677,68 @@ void do_eat(P_char ch, char *argument, int cmd)
   {
     /* New code to grant reg from food */
     struct affected_type af;
-    if (!affected_by_spell(ch, TAG_EATING)) {
+    if (!affected_by_spell(ch, TAG_EATING)) 
+    {
       bzero(&af, sizeof(af));
       af.type = TAG_EATING;
       af.flags = AFFTYPE_NOSHOW;
       af.duration = 1 + (1 * temp->value[0]);
 
+      int hit_reg;
+      int mov_reg;
+      if (temp->value[3] > 0) // TODO: apply poison
+      {
+          hit_reg = -temp->value[3];
+          mov_reg = 0;
+      }
+      else
+      {
+          hit_reg = 1;
+          if (temp->value[1] != 0)
+            hit_reg = temp->value[1];
+          mov_reg = hit_reg;
+          if (temp->value[2] != 0)
+            mov_reg = temp->value[2];
+      }
+
       af.location = APPLY_HIT_REG;
-      af.modifier = 0 + (15 * temp->value[1]);
+      af.modifier = 15 * hit_reg;
       affect_to_char(ch, &af);
       
       af.location = APPLY_MOVE_REG;
-      af.modifier = 0 + temp->value[1];
+      af.modifier = mov_reg;
       affect_to_char(ch, &af);
-     
-/*  We need to review the existing food items and set some sort of guidelines before granting stat bonuses via the code below. Mar10 -Lucrot
+
       af.location = APPLY_STR;
-      af.modifier = 0 + temp->value[2];
+      af.modifier = temp->value[4];
       affect_to_char(ch, &af);
-
-
       af.location = APPLY_CON;
-      af.modifier = 0 + temp->value[2];
+      af.modifier = temp->value[4];
       affect_to_char(ch, &af);
-
 
       af.location = APPLY_AGI;
-      af.modifier = 0 + temp->value[3];
+      af.modifier = temp->value[5];
       affect_to_char(ch, &af);
-
-
-
       af.location = APPLY_DEX;
-      af.modifier = 0 + temp->value[3];
+      af.modifier = temp->value[5];
       affect_to_char(ch, &af);
-
 
       af.location = APPLY_INT;
-      af.modifier = 0 + temp->value[4];
+      af.modifier = temp->value[6];
       affect_to_char(ch, &af);
-      
-
       af.location = APPLY_WIS;
-      af.modifier = 0 + temp->value[4];
+      af.modifier = temp->value[6];
       affect_to_char(ch, &af);
-
 
       af.location = APPLY_DAMROLL;
-      af.modifier = 0 + temp->value[5];
+      af.modifier = temp->value[7];
       affect_to_char(ch, &af);
-
       af.location = APPLY_HITROLL;
-      af.modifier = 0 + temp->value[6];
+      af.modifier = temp->value[7];
       affect_to_char(ch, &af);
-
-
-      af.location = APPLY_AC;
-      af.modifier = 20 + temp->value[7];
-      affect_to_char_with_messages(ch, &af,
-           "You feel hungry again.&n", "");
-
-*/
-    } else {
+    } 
+    else 
+    {
       act("You feel sated already.", FALSE, ch, 0, 0, TO_CHAR);
       return;
     }
@@ -3571,9 +3571,8 @@ int wear(P_char ch, P_obj obj_object, int keyword, int showit)
     {
       if (IS_SET(obj_object->extra_flags, ITEM_WHOLE_BODY))
       {
-        if (IS_CENTAUR(ch) || IS_DRIDER(ch) || IS_MINOTAUR(ch) || 
-	    IS_OGRE(ch) || IS_SGIANT(ch) ||
-            GET_RACE(ch) == RACE_WIGHT || GET_RACE(ch) == RACE_SNOW_OGRE)
+        if (IS_CENTAUR(ch) || IS_MINOTAUR(ch) || IS_OGRE(ch) || IS_SGIANT(ch) ||
+                   GET_RACE(ch) == RACE_WIGHT || GET_RACE(ch) == RACE_SNOW_OGRE)
         {
           if (showit)
             send_to_char("You can't wear full body armor.\r\n", ch);
@@ -3738,8 +3737,7 @@ int wear(P_char ch, P_obj obj_object, int keyword, int showit)
 
   case 6:
     if (CAN_WEAR(obj_object, ITEM_WEAR_FEET) 
-        && !(IS_CENTAUR(ch) && !strcmp(obj_object->name, "horseshoe"))
-	&& !IS_DRIDER(ch)
+        && (!IS_CENTAUR(ch) || !IS_DRIDER(ch) || !strcmp(obj_object->name, "horseshoe")) 
         && !IS_THRIKREEN(ch) && !IS_HARPY(ch) && !IS_MINOTAUR(ch))
     {
       if (ch->equipment[WEAR_FEET])
@@ -5398,4 +5396,50 @@ void do_apply_poison(P_char ch, char *argument, int cmd)
   }
 
   return;
+}
+
+void list_foods()
+{
+  for (int i = 0; i < 10000000; i++)
+  {
+    if (P_obj obj = read_object(i, VIRTUAL))
+    {
+      if (GET_ITEM_TYPE(obj) == ITEM_FOOD)
+      {
+        char mark1 = ' ', mark2 = ' ', mark3 = ' ';
+        if (obj->value[1] != 0 || obj->value[2] != 0 || 
+            obj->value[4] != 0 || obj->value[5] != 0 || 
+            obj->value[6] != 0 || obj->value[7] != 0)
+        {
+          mark1 = '*';
+        }
+        if (obj->value[3] != 0 || obj->value[1] < 0)
+        {
+          mark1 = 'X';
+        }
+        if (obj->value[1] > 3 || obj->value[2] > 3)
+        {
+          mark2 = '*';
+        }
+
+        if (obj->value[1] > 8 || obj->value[2] > 8)
+        {
+          mark3 = '*';
+        }
+
+        logit(LOG_SHIP, "%c%c%c %8d: time=%-3d hit=%-2d mov=%-2d poi=%-2d strcon=%-2d agidex=%-2d intwis=%-2d hitdam=%-2d cost=%-6d  : %s",  
+            mark1, mark2, mark3, i, 
+            obj->value[0],
+            obj->value[1],
+            obj->value[2],
+            obj->value[3],
+            obj->value[4],
+            obj->value[5],
+            obj->value[6],
+            obj->value[7],
+            obj->cost,
+            strip_ansi(obj->short_description ? obj->short_description : "None").c_str());
+      }
+    }
+  }
 }

@@ -102,8 +102,8 @@ mutton leg~
 A leg of mutton rests here, gathering dust.~
 ~
 19 2 2 2 7 0 0 16385 0 0 0
-6 3 2 0 0 0 0 0
-2 125 100
+6 3 2 0 1 0 0 0
+2 225 100
 E
 mutton leg~
 The leg of mutton, though not high quality meat, should prove filling.
@@ -114,8 +114,8 @@ pie meat~
 A pie smelling of meat sits here.~
 ~
 19 2 2 2 7 0 0 16385 0 0 0
-10 3 3 0 0 0 0 0
-2 180 100
+10 3 3 0 1 1 0 0
+2 620 100
 E
 pie meat~
 The meat pie looks appetizing indeed!
@@ -316,7 +316,7 @@ jerky fish salted~
 Some jerky lies here, smelling of fish.~
 ~
 19 2 2 2 7 0 0 16385 0 0 0
-4 5 0 0 2 0 0 0
+3 4 3 0 0 0 4 0
 1 1100 100
 E
 jerky fish salted~

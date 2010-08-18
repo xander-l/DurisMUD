@@ -3152,7 +3152,7 @@ bass _fishing_~
 &+cA large bass lies here flapping weakly.&n~
 ~
 19 2 3 0 5 0 8388608 1 0 0 0
-18 9 2 0 0 0 0 0
+18 9 9 0 3 3 0 0
 0 0 100
 #294
 piranha _fishing_~
@@ -3160,7 +3160,7 @@ piranha _fishing_~
 &+rA small piranha lies here quite dead.&n~
 ~
 19 2 3 0 5 0 8388608 1 0 0 0
-9 10 1 0 0 0 0 0
+9 10 9 0 0 0 5 0
 0 0 100
 #295
 cod _fishing_~
@@ -3168,7 +3168,7 @@ cod _fishing_~
 &+WA medium sized cod lies here.&n~
 ~
 19 2 3 0 5 0 8388608 1 0 0 0
-10 6 1 0 0 0 0 0
+10 7 7 0 0 0 4 0
 0 0 100
 #296
 bag oats~
@@ -3363,15 +3363,15 @@ pike _fishing_~
 &+cA large pike lies here.&n~
 ~
 19 2 3 0 5 0 8388608 1 0 0 0
-12 7 2 0 0 0 0 0
+12 6 8 0 2 0 0 2
 0 100 100
 #319
-lobster _fishing_~
+impressive lobster _fishing_~
 an &+rimpressive &+Rlobster&n~
 &+rA red lobster crawls here snapping its claws.&n~
 ~
 19 2 3 0 5 0 8388608 1 0 0 0
-15 8 2 0 0 0 0 0
+15 8 6 0 0 5 0 0
 0 100 100
 #320
 water glass~
@@ -3454,12 +3454,12 @@ A bowl of ice cream is resting here.~
 1 0 0 0 0 0 0 0
 1 1 100
 #330
-crab _fishing_~
+hairy crab _fishing_~
 &+ya large hairy crab&n~
 &+yA large hairy crab scurries to get away from you.&n~
 ~
 19 2 3 0 5 0 8388608 1 0 0 0
-7 5 1 0 0 0 0 0
+7 6 6 0 2 2 0 0
 0 0 100
 #331
 tun wine~
@@ -3480,7 +3480,7 @@ a &+rlarge shrimp&n~
 &+rA large shrimp lies here dead as a bat.&n~
 ~
 19 15 3 0 5 0 8388608 1 0 0 0
-5 1 1 0 0 0 0 0
+4 8 6 0 0 0 3 0
 0 0 100
 #333
 oyster _fishing_~
@@ -3488,7 +3488,7 @@ oyster _fishing_~
 &+wA large flat &+Woyster &+wlies here on the ground.&n~
 ~
 19 15 3 0 5 0 8388608 1 0 0 0
-4 4 1 0 0 0 0 0
+4 8 6 0 0 3 0 1
 0 0 100
 #334
 clam _fishing_~
@@ -3496,7 +3496,7 @@ a &+ysmall clam&n~
 &+yA small clam lies here on the ground.&n~
 ~
 19 2 3 0 5 0 8388608 1 0 0 0
-2 3 1 0 0 0 0 0
+4 4 4 0 1 1 1 0
 0 100 100
 #335
 mussel _fishing_~
@@ -3504,7 +3504,7 @@ mussel _fishing_~
 &+bA large &+Bmussel&n lies here on the ground.&n~
 ~
 19 15 3 0 5 0 8388608 1 0 0 0
-3 2 1 0 0 0 0 0
+3 5 5 0 3 0 0 0
 0 0 100
 #336
 fishing pole~
@@ -3703,7 +3703,7 @@ rainbow trout _fishing_~
 &+cA coloured trout lays stinking here.&n~
 ~
 19 2 3 0 5 0 0 1 0 0 0
-10 0 0 0 2 2 0 0
+10 3 5 0 0 0 2 0
 0 0 100
 #356
 perch _fishing_~
@@ -3711,7 +3711,7 @@ perch _fishing_~
 &+cA perch lies on the ground, rotting.&n~
 ~
 19 2 3 0 5 0 0 1 0 0 0
-10 2 0 2 0 0 0 0
+10 0 0 2 0 0 0 0
 0 0 100
 #357
 beer bottle~
@@ -3819,7 +3819,7 @@ rations iron ration~
 &+LSome iron rations lies here.~
 ~
 19 48 2 2 7 0 32768 1 0 0 0
-2 1 0 0 0 0 0 0
+2 1 1 0 0 0 0 0
 1 500 100
 #365
 goodberry~

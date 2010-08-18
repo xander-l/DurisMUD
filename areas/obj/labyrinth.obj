@@ -264,7 +264,7 @@ chunk rothe meat~
 &+rA piece of &+yrothe &+rmeat lies here, smelling juicy and tender.&n~
 ~
 19 2 2 2 7 0 0 16385 0 0 0
-35 0 0 1 0 0 0 0
+35 4 4 0 0 0 0 1
 2 3333 100
 E
 chunk rothe meat~

@@ -595,6 +595,9 @@ void do_emote(P_char ch, char *argument, int cmd)
     }
     else
       send_to_char("Ok.\n", ch);
+    
+    if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
+      logit(LOG_CHAT, "%s emotes '%s'", GET_NAME(ch), argument + i);
   }
 }
 
@@ -624,6 +627,8 @@ void do_echo(P_char ch, char *argument, int cmd)
         write_to_pc_log(d->character, buf, LOG_PRIVATE);
       }
     }
+    if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
+      logit(LOG_CHAT, "%s echo's '%s'", GET_NAME(ch), argument + i);
   }
 }
 
@@ -3282,7 +3287,12 @@ void do_echoa(P_char ch, char *argument, int cmd)
   else
   {
     level = GET_LEVEL(ch);
-
+    
+    if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
+      logit(LOG_CHAT, "%s echoa's '%s'", GET_NAME(ch), argument);
+    
+    strcat(argument, "\n");
+    
     for (d = descriptor_list; d; d = d->next)
     {
       if (d->connected == CON_PLYNG)
@@ -3293,9 +3303,7 @@ void do_echoa(P_char ch, char *argument, int cmd)
           send_to_char(Gbuf1, d->character);
         }
 	send_to_char(argument, d->character);
-        send_to_char("\n", d->character);
         
-	strcat(argument, "\n");
         write_to_pc_log(d->character, argument, LOG_PRIVATE);
       }
     }
@@ -3323,6 +3331,12 @@ void do_echoz(P_char ch, char *arg, int cmd)
   else
   {
     level = GET_LEVEL(ch);
+    
+    if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
+      logit(LOG_CHAT, "%s echoz's '%s'", GET_NAME(ch), arg);
+    
+    strcat(arg, "\n");
+    
     for (d = descriptor_list; d; d = d->next)
     {
       if (d->connected == CON_PLYNG)
@@ -3335,8 +3349,6 @@ void do_echoz(P_char ch, char *arg, int cmd)
             send_to_char(Gbuf1, d->character);
           }
           send_to_char(arg, d->character);
-          send_to_char("\n", d->character);
-	  strcat(arg, "\n");
           write_to_pc_log(d->character, arg, LOG_PRIVATE);
         }
       }
@@ -3366,6 +3378,12 @@ void do_echog(P_char ch, char *arg, int cmd)
   else
   {
     level = GET_LEVEL(ch);
+    
+    if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
+      logit(LOG_CHAT, "%s echog's '%s'", GET_NAME(ch), arg);
+    
+    strcat(arg, "\n");
+    
     for (d = descriptor_list; d; d = d->next)
     {
       if (d->connected == CON_PLYNG)
@@ -3378,8 +3396,6 @@ void do_echog(P_char ch, char *arg, int cmd)
             send_to_char(Gbuf1, d->character);
           }
           send_to_char(arg, d->character);
-          send_to_char("\n", d->character);
-	  strcat(arg, "\n");
           write_to_pc_log(d->character, arg, LOG_PRIVATE);
         }
       }
@@ -3409,6 +3425,12 @@ void do_echoe(P_char ch, char *arg, int cmd)
   else
   {
     level = GET_LEVEL(ch);
+    
+    if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
+      logit(LOG_CHAT, "%s echoe's '%s'", GET_NAME(ch), arg);
+    
+    strcat(arg, "\n");
+    
     for (d = descriptor_list; d; d = d->next)
     {
       if (d->connected == CON_PLYNG)
@@ -3422,8 +3444,6 @@ void do_echoe(P_char ch, char *arg, int cmd)
             send_to_char(Gbuf1, d->character);
           }
           send_to_char(arg, d->character);
-          send_to_char("\n", d->character);
-	  strcat(arg, "\n");
           write_to_pc_log(d->character, arg, LOG_PRIVATE);
         }
       }
@@ -3453,6 +3473,12 @@ void do_echou(P_char ch, char *arg, int cmd)
   else
   {
     level = GET_LEVEL(ch);
+    
+    if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
+      logit(LOG_CHAT, "%s echou's '%s'", GET_NAME(ch), arg);
+    
+    strcat(arg, "\n");
+    
     for (d = descriptor_list; d; d = d->next)
     {
       if (d->connected == CON_PLYNG)
@@ -3465,8 +3491,6 @@ void do_echou(P_char ch, char *arg, int cmd)
             send_to_char(Gbuf1, d->character);
           }
           send_to_char(arg, d->character);
-          send_to_char("\n", d->character);
-	  strcat(arg, "\n");
           write_to_pc_log(d->character, arg, LOG_PRIVATE);
         }
       }
@@ -3724,6 +3748,8 @@ void do_nchat(P_char ch, char *argument, int cmd)
     }
     send_to_char(Gbuf1, i->character, LOG_PRIVATE);
   }
+  if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
+    logit(LOG_CHAT, "%s newb chat's (%s) '%s'", GET_NAME(ch), Gbuf2, argument);
 }
 
 void do_wizmsg(P_char ch, char *arg, int cmd)
@@ -3801,6 +3827,8 @@ void do_wizmsg(P_char ch, char *arg, int cmd)
         send_to_char(Gbuf3, d->character, LOG_PRIVATE);
     }
   }
+  if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
+    logit(LOG_CHAT, "%s wizmsg's '%s'", GET_NAME(ch), Gbuf1);
 }
 
 struct TimedShutdownData
@@ -7051,7 +7079,10 @@ void do_ptell(P_char ch, char *arg, int cmd)
           (CAN_SEE(vict, ch) && IS_TRUSTED(ch)) ? ch->player.name :
           IS_TRUSTED(vict) ? ch->player.name : "Someone", msg);
   send_to_char(Gbuf1, vict, LOG_PRIVATE);
-  logit(LOG_PETITION, "(%s) petition response: (%s).", GET_NAME(ch), msg);
+  logit(LOG_PETITION, "(%s) ptells (%s): (%s).", GET_NAME(ch), GET_NAME(vict), msg);
+  
+  if (get_property("logs.chat.status", 0.000) && IS_PC(ch) && IS_PC(vict))
+    logit(LOG_CHAT, "%s ptells %s '%s'", GET_NAME(ch), GET_NAME(vict), msg);
 
   for (d = descriptor_list; d; d = d->next)
   {
@@ -9442,9 +9473,10 @@ void do_echot(P_char ch, char *argument, int cmd)
       send_to_char("Ok.\n", ch);
     }
   }
-  send_to_char(message, vict);
-  send_to_char("\n", d->character);
+  if (get_property("logs.chat.status", 0.000) && IS_PC(ch) && IS_PC(vict))
+    logit(LOG_CHAT, "%s echot's to %s '%s'", GET_NAME(ch), GET_NAME(vict), message);
   strcat(message, "\n");
+  send_to_char(message, vict);
   write_to_pc_log(vict, message, LOG_PRIVATE);
 }
 
