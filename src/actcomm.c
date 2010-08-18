@@ -279,10 +279,13 @@ void do_petition(P_char ch, char *argument, int cmd)
               "&+RThe petition channel is not for general conversation. Use the idea, typo, or bug commands.&n\r\n",
               argument);
       send_to_char(Gbuf1, ch);
-      logit(LOG_PETITION, "(%s) petitioned (%s).", GET_NAME(ch), argument);
     }
     else
       send_to_char("Ok.\r\n", ch);
+    
+    logit(LOG_PETITION, "(%s) petitioned (%s).", GET_NAME(ch), argument);
+    if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
+      logit(LOG_CHAT, "%s petitioned '%s'", GET_NAME(ch), argument);
     
     sprintf(Gbuf1, "&+r$n petitions '%s'&N", argument);
     sprintf(Gbuf2, "&+r%s petitions '%s'&N", GET_NAME(ch), argument);
@@ -430,6 +433,9 @@ int say(P_char ch, const char *argument)
     else
       send_to_char("Ok.\r\n", ch);
     
+    if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
+      logit(LOG_CHAT, "%s says '%s'", GET_NAME(ch), argument + i);
+    
     listen_broadcast(ch, (argument + i), LISTEN_SAY);
     
     check_magic_doors(ch, argument + i);
@@ -523,6 +529,9 @@ void do_gcc(P_char ch, char *argument, int cmd)
       }
       else
         send_to_char("Ok.\r\n", ch);
+  
+      if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
+        logit(LOG_CHAT, "%s gcc's '%s'", GET_NAME(ch), argument);
     }
     for (i = descriptor_list; i; i = i->next)
       if ((i->character != ch) && !i->connected &&
@@ -659,6 +668,9 @@ void do_project(P_char ch, char *argument, int cmd)
     }
     else
       send_to_char("Ok.\r\n", ch);
+      
+    if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
+      logit(LOG_CHAT, "%s projects '%s'", GET_NAME(ch), argument);
   }
   for (i = descriptor_list; i; i = i->next)
     if ((i->character != ch) && !i->connected &&
@@ -752,6 +764,9 @@ void do_shout(P_char ch, char *argument, int cmd)
       }
       else
         send_to_char("Ok.\r\n", ch);
+      
+      if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
+        logit(LOG_CHAT, "%s gshout's '%s'", GET_NAME(ch), argument);
     }
     for (i = descriptor_list; i; i = i->next)
       if ((i->character != ch) && !i->connected &&
@@ -920,6 +935,9 @@ void do_tell(P_char ch, char *argument, int cmd)
       if (IS_SET(vict->specials.act, PLR_AFK))
         act("$E is away from $S keyboard right now..", FALSE, ch, 0, vict,
             TO_CHAR);
+      
+      if (get_property("logs.chat.status", 0.000) && IS_PC(ch) && IS_PC(vict))
+        logit(LOG_CHAT, "%s tells %s '%s'", GET_NAME(ch), GET_NAME(vict), message);
     }
 
 
@@ -1011,10 +1029,13 @@ void do_whisper(P_char ch, char *argument, int cmd)
         return;
       }
       sprintf(Gbuf1, "You whisper '%s' to %s\r\n", message, dispname);
-      send_to_char(Gbuf1, ch);
+      send_to_char(Gbuf1, ch);  
     }
     else
       send_to_char("Ok.\r\n", ch);
+    
+    if (get_property("logs.chat.status", 0.000) && IS_PC(ch) && IS_PC(vict))
+      logit(LOG_CHAT, "%s whispers to %s '%s'", GET_NAME(ch), GET_NAME(vict), message);
     if (IS_ILLITHID(ch) || IS_PILLITHID(ch))
     {
       sprintf(Gbuf1, "A soft voice in your head whispers '%s'", message);
@@ -1093,6 +1114,10 @@ void do_ask(P_char ch, char *argument, int cmd)
     }
     else
       send_to_char("Ok.\r\n", ch);
+      
+    if (get_property("logs.chat.status", 0.000) && IS_PC(ch) && IS_PC(vict))
+      logit(LOG_CHAT, "%s asks %s '%s'", GET_NAME(ch), GET_NAME(vict), message);
+    
     if (IS_ILLITHID(ch) || IS_PILLITHID(ch))
     {
       sprintf(Gbuf1, "A voice in your head asks '%s'", message);
@@ -1870,6 +1895,9 @@ void do_yell(P_char ch, char *argument, int cmd)
     }
     else
       send_to_char("Ok.\r\n", ch);
+      
+    if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
+      logit(LOG_CHAT, "%s shouts '%s'", GET_NAME(ch), argument);
 
     /* Load buffer with shout message */
     /* Send the message to everyone in the zone */

@@ -1861,6 +1861,7 @@ struct  mob_prog_data
 #define LOG_SHIP "logs/player-log/ship"
 #define LOG_RECALL "logs/log/recall"
 #define LOG_STEAL "logs/log/steal"
+#define LOG_CHAT "logs/log/chat"
 
 /* problem reporting */
 #define LOG_DEBUG "logs/log/debug"
