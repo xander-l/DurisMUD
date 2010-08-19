@@ -12675,7 +12675,7 @@ void spell_ghastly_touch(int level, P_char ch, char *arg, int type, P_char victi
   int dam;
   dam = (int) number(level * 4, level * 6);
   
-  dam = dam * get_property("spell.area.damage.factor.ghastlytouch", 1.000);
+  dam = dam * get_property("spell.area.damage.factor.summonghasts", 1.000);
 
   if(spell_damage (ch, victim, dam, SPLDAM_NEGATIVE, SPLDAM_NODEFLECT, &messages) == DAM_NONEDEAD)
   {
@@ -12736,7 +12736,7 @@ void event_aid_of_the_heavens(P_char ch, P_char victim, P_obj obj, void *data)
   if(!number(0, 3))
   {
     act("$n's &+Wlight from above glides about the area.",FALSE, ch, 0, 0, TO_ROOM);
-    add_event(event_summon_ghasts, PULSE_VIOLENCE * 1, ch, 0, 0, 0, &room, sizeof(room));
+    add_event(event_aid_of_the_heavens, PULSE_VIOLENCE * 1, ch, 0, 0, 0, &room, sizeof(room));
     return;
   }
   
