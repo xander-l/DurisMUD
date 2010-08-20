@@ -150,7 +150,7 @@
 #define GUNS_CHIEF          2
 #define RPAR_CHIEF          3
 
-#define MAXCREWS            24
+#define MAXCREWS            25
 #define MAXCHIEFS           13
 #define DEFAULT_CREW         0
 #define AUTOMATON_CREW       1

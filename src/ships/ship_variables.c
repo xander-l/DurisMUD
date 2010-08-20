@@ -32,7 +32,7 @@ const ShipCrewData ship_crew_data[MAXCREWS] = {
 //        Name                                                          Crew  Base     Base    Base     Base     Sail    Gun  Repair     Hire   Hire     Hire rooms
 //                                                                     Level  Sail      Gun   Repair  Stamina     Mod    Mod    Mod      Cost  Frags 
     { "&+wAmateur Crew",                                                   0,     0,       0,       0,    500,      0,     0,     0,         0,     0, {     0, 0, 0, 0, 77 }, CF_NONE },
-    { "&+WMagical Automatons",                                             3,  3000,    3000,    2000,   1500,      3,     3,     2,         0,  3000, {     0, 0, 0, 0, 77 }, CF_SCOUT_RANGE_1 | CF_MAXSPEED_1 },
+    { "&+WMagical Automatons",                                             3,  3000,    3000,    2000,   1500,      3,     3,     2,         0,  3000, {     0, 0, 0, 0, 77 }, CF_SCOUT_RANGE_2 | CF_MAXSPEED_1 },
     { "&+yNorth&+Wshore &+LPirates",                                       0,   100,     100,     100,    600,      1,     1,     1,         0,     0, {     0, 0, 0, 0, 77 }, CF_NONE },
     { "&+BT&+bw&+Bi&+bl&+Bi&+bg&+Bh&+bt &+LCove &+rBucaneers",             1,   300,     300,     300,    700,      1,     1,     1,         0,     0, {     0, 0, 0, 0, 77 }, CF_NONE },
     { "&+yMa&+Lra&+yud&+Ler&+ys &+Lof the &+cFo&+Cur &+wWi&+Wnds",         2,  1000,    1000,    1000,    800,      1,     1,     1,         0,     0, {     0, 0, 0, 0, 77 }, CF_NONE },
@@ -52,10 +52,11 @@ const ShipCrewData ship_crew_data[MAXCREWS] = {
     { "&+rQuietus &+WPo&+Lwd&+wer &+wMo&+Lnk&+wey&+Ls",                    1,   500,     800,     400,    750,      0,     2,     0,   6000000,   500, {  1734, 0, 0, 0, 77 }, CF_SCOUT_RANGE_1 },
     { "&+BTorrhan &+LBl&+wa&+Lck &+LG&+wa&+Lng",                           1,   550,     450,     750,    750,      0,     0,     2,   6000000,   450, { 66735, 0, 0, 0, 77 }, CF_HULL_REPAIR_2 },
 
+    { "&+WWinterhaven &+YSea&+ymans",                                      2,  1350,    1250,    1350,    800,      1,     0,     1,   9000000,   900, { 55418, 0, 0, 0, 77 }, CF_NONE },
     { "&+MMirabolan &+YMer&+Wcha&+Ynt&+Ws",                                2,  1550,    1300,    1250,    850,      2,     0,     0,  11000000,  1000, { 82641, 0, 0, 0, 77 }, CF_MAXCARGO_10 },
-    { "&+WCo&+wr&+Wwe&+wl&+Wl &+CS&+ce&+Ba &+cD&+Bog&+bs",                 2,  1500,    1550,    1250,    800,      2,     2,     0,  12500000,  1200, { 54240, 0, 0, 0, 77 }, CF_NONE },
+    { "&+WCo&+wr&+Wwe&+wl&+Wl &+CS&+ce&+Ba &+cD&+Bog&+bs",                 2,  1500,    1550,    1250,    800,      2,     2,     0,  12500000,  1200, { 54240, 0, 0, 0, 77 }, CF_SCOUT_RANGE_1 },
     { "&+RBoyard &+BNaval &+WGu&+wa&+Wr&+wd",                              2,  1450,    1650,    1300,    900,      1,     3,     0,  11000000,  1100, { 38107, 0, 0, 0, 77 }, CF_WEAPONS_REPAIR_3 },
-    { "&+YVenan'Trut &+RR&+roy&+Ral &+wS&+Whi&+wp&+wwr&+Wigh&+wts",        2,  1250,    1300,    1750,    900,      0,     0,     4,  10000000,  1000, { 49051, 0, 0, 0, 77 }, CF_MAXSPEED_1 },
+    { "&+YVenan'Trut &+RR&+roy&+Ral &+wS&+Whi&+wp&+wwr&+Wigh&+wts",        2,  1250,    1300,    1750,    900,      0,     0,     4,  10000000,  1000, { 49051, 0, 0, 0, 77 }, CF_MAXSPEED_1 | CF_HULL_REPAIR_2 },
     { "&+cCeothian &+BSea&+Cfa&+cr&+Ce&+cr&+Cs",                           2,  1600,    1350,    1250,    800,      3,     0,     0,  12500000,  1200, { 81021, 0, 0, 0, 77 }, CF_SCOUT_RANGE_2 },
     { "&+GJade &+MTei&+mko&+mku &+BN&+co&+Br&+ci&+Bk&+cu&+Bm&+cii&+Bn",    2,  1350,    1500,    1500,    900,      1,     2,     2,  10000000,  1000, { 76859, 0, 0, 0, 77 }, CF_SAIL_REPAIR_3 },
 };
