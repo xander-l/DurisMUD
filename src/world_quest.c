@@ -1012,7 +1012,7 @@ int suggestQuestMob(int zone_num, P_char ch, int QUEST_TYPE)
 
   if(KIND_OF_QUEST == FIND_AND_KILL) //FIND AND KILL A MOB
   {
-    MAX_LEVEL = MAX_LEVEL + 10;
+    MAX_LEVEL = MAX_LEVEL + 6;
   }
   if(KIND_OF_QUEST == FIND_AND_ASK) //FIND AND TALK TO HIM
   {
