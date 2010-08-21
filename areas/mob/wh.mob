@@ -2359,7 +2359,7 @@ llavarna grey elf druid~
 &+WLlavarna &+Lthe &+cGrey Elf &+gDruid &+Lis perfectly in tune with &+Gnature&+L.&n
 ~
 ~
-1074169866 896 0 0 0 0 0 0 S
+1074169866 0 0 0 0 0 0 0 S
 pe 0 128 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2370,7 +2370,7 @@ aeda cleric dwarf~
 &+WAeda &+Lthe &+YDwarf &+cCleric &+Lis busy mending the &+rw&+Rou&+rnds &+Lof the injured.&n
 ~
 ~
-1074169866 896 0 0 0 0 0 0 S
+1074169866 0 0 0 0 0 0 0 S
 pm 0 32 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2381,7 +2381,7 @@ mrajani sorcerer wildmage wicked _spec1_~
 &+WMrajani &+Lthe &+rwicked &+RGnome &+mWild&+Mmage &+Lis busy focusing her &+rp&+Ro&+rw&+Re&+rr&+L.&n
 ~
 ~
-1074169866 896 0 0 0 0 0 0 S
+1074169866 0 0 0 0 0 0 0 S
 pg 0 512 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2392,7 +2392,7 @@ ibaron legendary conjurer~
 &+WIbaron &+Lthe &+mLe&+Mge&+mnd&+Mar&+my &+YConjurer &+Lbends the &+Rel&+Yem&+Wen&+Bts &+Lto his will.&n
 ~
 ~
-1074169866 896 0 0 0 0 0 0 S
+1074169866 0 0 0 0 0 0 0 S
 pg 0 2048 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2409,7 +2409,7 @@ elements to develop some sort of new spell.  To finance her studies, she
 has agreed to teach new ethermancers in the Tower and help them develop
 their own powers.  She will help you, as well.
 ~
-1074169866 896 0 0 0 0 0 0 S
+1074169866 0 0 0 0 0 0 0 S
 pg 0 33554432 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2428,7 +2428,7 @@ Despite his rough appearance, one feels at peace standing in the room
 with him.  Duule has taught many would-be shamans how to enhance their
 powers, and he will be happy to help you enhance yours.
 ~
-1074169866 896 0 0 0 0 0 0 S
+1074169866 0 0 0 0 0 0 0 S
 mt 0 256 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2439,7 +2439,7 @@ theft rogue halfling _spec1_~
 &+WTheft &+Lthe &+yHalfling &+rRogue &+Lbalances a dagger on the tip of his &+rto&+Rng&+rue&+L.&n
 ~
 ~
-1074169882 896 0 0 0 0 0 0 S
+1074169882 0 0 0 0 0 0 0 S
 pf 0 4096 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2450,7 +2450,7 @@ ugruk barbarian mercenary~
 &+WUgruk &+Lthe &+BBarbarian &+yMercenary &+Lcracks his knuckles as a jesture of strength.&n
 ~
 ~
-1074169866 896 0 0 0 0 0 0 S
+1074169866 0 0 0 0 0 0 0 S
 pb 0 16384 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2461,7 +2461,7 @@ marigold halfling illusionist~
 &+WMarigold &+Lthe &+yHalfling &+WIl&+Clu&+csi&+Con&+Wist &+Lenjoys making things disappear.&n
 ~
 ~
-1074169866 896 0 0 0 0 0 0 S
+1074169866 0 0 0 0 0 0 0 S
 pf 0 4194304 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2472,7 +2472,7 @@ nubija human necromancer~
 &+WNubija &+Lthe &+WGith&+Gzerai &+mNecromancer &+Lmasters the art of animating the &+rd&+Rea&+rd&+L.&n
 ~
 ~
-1074235402 896 0 0 0 0 0 0 S
+1074235402 0 0 0 0 0 0 0 S
 gz 0 1024 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2483,7 +2483,7 @@ killian centaur ranger~
 &+WKillian &+Lthe &+gCen&+Ltaur &+GRanger &+Lstands tall and proud as a &+Wmighty &+Lfighter.&n
 ~
 ~
-1074169866 896 0 0 0 0 0 0 S
+1074169866 0 0 0 0 0 0 0 S
 ct 0 2 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2494,7 +2494,7 @@ dada human monk~
 &+WDada &+Lthe &+CHuman &+LM&+won&+Lk is busy practicing some &+Wmartial arts&+L.&n
 ~
 ~
-1074169866 896 0 0 0 0 0 0 S
+1074169866 0 0 0 0 0 0 0 S
 ph 0 64 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2505,7 +2505,7 @@ meddlebottle gnome alchemist~
 &+WMeddlebottle &+Lthe &+RGnome &+CAlc&+chem&+Cist &+Lis busy mixing up some potions.&n
 ~
 ~
-1074169866 896 0 0 0 0 0 0 S
+1074169866 0 0 0 0 0 0 0 S
 pg 0 524288 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2516,7 +2516,7 @@ bweec half-elf bard~
 &+WBweec &+Lthe &+CHalf&+c-Elf &+LB&+Bar&+Ld sings a tune while doing some &+mf&+Mu&+mnk&+My &+rma&+Rgi&+rc&+L.&n
 ~
 ~
-1074169866 896 0 0 0 0 0 0 S
+1074169866 0 0 0 0 0 0 0 S
 p2 0 32768 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2527,7 +2527,7 @@ slade stormcrow barbarian battlemaster~
 &+WSlade Stormcrow &+Lthe &+BBarbarian &+RBattle&+rMaster &+Lis organizing his weapons.&n
 ~
 ~
-1074169866 896 0 0 0 0 0 0 S
+1074169866 0 0 0 0 0 0 0 S
 pb 0 1 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2538,7 +2538,7 @@ tetabo human paladin~
 &+WTetabo &+Lthe &+CHuman &+WPaladin &+Lradiates a &+WHoly &+Laura.&n
 ~
 ~
-1074169866 896 0 0 0 0 0 0 S
+1074169866 0 0 0 0 0 0 0 S
 ph 0 8 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
