@@ -607,6 +607,20 @@ void event_wait(P_char ch, P_char victim, P_obj obj, void *data)
   }
 }
 
+void DelayCommune(P_char ch, int delay)
+{
+  if(USES_SPELL_SLOTS(ch))
+  {
+    P_nevent e = get_scheduled(ch, event_memorize);
+    if(e)
+    {
+      int old_time = ne_event_time(e);
+      disarm_char_events(ch, event_memorize);
+      add_event(event_memorize, (old_time + delay), ch, 0, 0, 0, 0, 0);
+    }
+  }
+}
+
 void CharWait(P_char ch, int delay)
 {
   P_nevent  e = NULL;
@@ -647,18 +661,6 @@ void CharWait(P_char ch, int delay)
     {
       REMOVE_BIT(ch->specials.act2, PLR2_WAIT);
       return;
-    }
-    // no better place to do this :(  If they are communing, change the
-    // time on the commune to ADD the time for 'this' event
-    if(USES_SPELL_SLOTS(ch))
-    {
-      e = get_scheduled(ch, event_memorize);
-      if(e)
-      {
-        old_time = ne_event_time(e);
-        disarm_char_events(ch, event_memorize);
-        add_event(event_memorize, (old_time + delay), ch, 0, 0, 0, 0, 0);
-      }
     }
     SET_BIT(ch->specials.act2, PLR2_WAIT);
     add_event(event_wait, delay, ch, 0, 0, 0, 0, 0);

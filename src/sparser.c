@@ -1713,6 +1713,8 @@ bool check_mob_retaliate(P_char ch, P_char tar_char, int spl)
   return FALSE;
 }
 
+extern void DelayCommune(P_char ch, int delay);
+
 void do_will(P_char ch, char *argument, int cmd)
 {
   int      dura, fail;
@@ -1820,6 +1822,7 @@ void do_will(P_char ch, char *argument, int cmd)
 
   dura = BOUNDED(1, dura, 4);
   tmp_spl.timeleft -= dura;
+  DelayCommune(ch, dura);
   SET_BIT(ch->specials.affected_by2, AFF2_CASTING);
   add_event(event_spellcast, BOUNDED(1, dura, 4), ch, 
     common_target_data.t_char, 0, 0, &tmp_spl,
@@ -2104,7 +2107,7 @@ void do_cast(P_char ch, char *argument, int cmd)
   {
     send_to_char("&+GThe power of nature flows into you, hastening your incantation.\n", ch);
     dura = (int) (dura * .75);
-	CharWait(ch, dura);
+    CharWait(ch, dura);
   }
   else if (GET_CLASS(ch, CLASS_DRUID) && !IS_MULTICLASS_PC(ch))
     CharWait(ch, (dura >> 1) + 6);
@@ -2156,6 +2159,7 @@ void do_cast(P_char ch, char *argument, int cmd)
 
   dura = BOUNDED(1, dura, 4);
   tmp_spl.timeleft -= dura;
+  DelayCommune(ch, dura);
   if (cmd == CMD_SPELLWEAVE)
     if (GET_CHAR_SKILL(ch, SKILL_SPELLWEAVE))
       tmp_spl.flags = CST_SPELLWEAVE;
@@ -2312,6 +2316,7 @@ void event_spellcast(P_char ch, P_char victim, P_obj obj, void *data)
     }
     i = MIN(arg->timeleft, 4);
     arg->timeleft -= i;
+    DelayCommune(ch, i);
     add_event(event_spellcast, BOUNDED(1, i, 4), ch, tar_char, 0, 0, arg,
         sizeof(struct spellcast_datatype));
     return;

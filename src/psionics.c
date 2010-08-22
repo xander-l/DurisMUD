@@ -3618,7 +3618,7 @@ void spell_pyrokinesis(int level, P_char ch, char *arg, int type, P_char victim,
     af.duration =  1;
     af.modifier = (int) (-1 * (level / 5));
 
-    act("&+m$n suddenly looks in pain as $e moves.&n",
+    act("&+m$n suddenly looks in pain as &N$e &+mmoves.&n",
         FALSE, victim, 0, 0, TO_ROOM);
 
     switch (number(0, 2))
