@@ -1304,6 +1304,7 @@ void spell_holy_word(int, P_char, char *, int, P_char, P_obj);
 void spell_ice_storm(int, P_char, char *, int, P_char, P_obj);
 void spell_regeneration(int, P_char, char *, int, P_char, P_obj);
 void spell_incendiary_cloud(int, P_char, char *, int, P_char, P_obj);
+void spell_obtenebration(int, P_char, char *, int, P_char, P_obj);
 void spell_immolate(int, P_char, char *, int, P_char, P_obj);
 void spell_acidimmolate(int, P_char, char *, int, P_char, P_obj);
 void spell_levitate(int, P_char, char *, int, P_char, P_obj);
@@ -1667,7 +1668,7 @@ P_char pick_target(P_char, unsigned int);
 int dummy_function(P_char, P_char, int, char*);
 int babau_combat(P_char, P_char, int, char*);
 int summon_new_demon(P_char, int);
-
+bool should_teacher_move(P_char);
 
 /* mobconv.c */
 

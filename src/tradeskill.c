@@ -759,6 +759,13 @@ void event_mine_check(P_char ch, P_char victim, P_obj, void *data)
     return;  
   }
 
+  if (IS_DISGUISE(ch))
+  {
+    send_to_char("Mining will ruin your disguise!\r\n", ch);
+    return;
+  }
+
+
   if(!pick)
   {
     send_to_char("How are you supposed to mine when you don't have anything ready to mine with?\n", ch);

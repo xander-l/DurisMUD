@@ -549,6 +549,7 @@ O 0 55195 1 55355 100 0 0 0        * a rose
 O 0 55028 1 55396 100 0 0 0        * a well-preserved corpse
 O 0 55027 2 55411 100 0 0 0        * a massive oak tree
 O 0 55431 1 55413 100 0 0 0        * a pile of smoldering rubble
+O 0 55432 1 55418 100 0 0 0        * a very large anchor
 O 0 55027 2 55446 100 0 0 0        * a massive oak tree
 O 0 55091 3 55500 100 0 0 0        * an imposing sign
 O 0 55193 1 55604 100 0 0 0        * a shimmering portal
@@ -1009,6 +1010,8 @@ M 0 55517 26 55417 25 0 0 0        * a baby duckling
 M 0 55518 26 55417 25 0 0 0        * a small carp
 M 0 55519 26 55417 25 0 0 0        * a medium carp
 M 0 55520 26 55417 25 0 0 0        * a large carp
+M 0 55266 1 55418 100 0 0 0        * a salty sailor
+M 0 55267 1 55418 100 0 0 0        * a big-breasted barmaid
 M 0 55517 26 55423 25 0 0 0        * a baby duckling
 M 0 55518 26 55423 25 0 0 0        * a small carp
 M 0 55519 26 55423 25 0 0 0        * a medium carp

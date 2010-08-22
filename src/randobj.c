@@ -4,6 +4,7 @@
 #include "structs.h"
 #include "prototypes.h"
 #include "utils.h"
+#include "interp.h"
 
 void     create_zone(int theme, int map_room1, int map_room2, int level_range,
                      int rooms);
@@ -175,7 +176,8 @@ void do_randobj(P_char ch, char *strn, int val)
 {
   P_obj    o;
   int tmp = 0;
-extern const struct class_names class_names_table[];
+  char Gbuf5[MAX_STRING_LENGTH];
+  extern const struct class_names class_names_table[];
   if (!IS_TRUSTED(ch))
   {
     send_to_char("bad.\r\n", ch);
@@ -240,6 +242,8 @@ extern const struct class_names class_names_table[];
   {
     o = create_random_eq_new(ch, ch, -1, -1);
     obj_to_char(o, ch);
+    sprintf(Gbuf5, "o %s", o->name);
+    do_stat(ch, Gbuf5, CMD_STAT);
     return;
   }
 

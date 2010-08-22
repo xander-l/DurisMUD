@@ -6718,6 +6718,9 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
     dam *= get_property("damage.modifier.divineforce", 1.250);
   }
 
+  if (has_innate(ch, INNATE_MELEE_MASTER))
+    dam *= get_property("damage.modifier.meleemastery", 1.100);
+
   memset(&messages, 0, sizeof(struct damage_messages));
   messages.attacker = attacker_msg;
   messages.victim = victim_msg;

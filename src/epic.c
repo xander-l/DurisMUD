@@ -793,7 +793,9 @@ int epic_stone_payout(P_obj obj, P_char ch)
 
   epic_value = MAX( 1, (int) (epic_value * alignment_mod) );
   debug("epic_stone_payout:alignment_mod: old_epic_value: %d, epic_value: %d", __old_epic_value, epic_value);  
-  
+
+  epic_value = epic_value * get_property("epic.touch.PayoutFactor", 1.000);
+
   return epic_value;
 }
 

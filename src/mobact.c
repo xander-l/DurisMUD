@@ -7658,7 +7658,7 @@ PROFILE_END(mundane_quest);
 #endif
 
 PROFILE_START(mundane_autoinvis);
-  if(GET_RACE(ch) == RACE_A_ELEMENTAL || IS_WRAITH(ch))
+  if(GET_RACE(ch) == RACE_A_ELEMENTAL || IS_WRAITH(ch) || IS_BRALANI(ch))
   { // 2%
     if(!IS_SET(ch->specials.affected_by, AFF_INVISIBLE) && !IS_FIGHTING(ch) && !IS_CASTING(ch))  
     {  
@@ -8177,7 +8177,7 @@ PROFILE_END(mundane_assist);
 
 PROFILE_START(mundane_wander);
   if(!IS_FIGHTING(ch) && !IS_PATROL(ch) && !GET_MASTER(ch) &&
-      !get_linking_char(ch, LNK_RIDING))
+      !get_linking_char(ch, LNK_RIDING) && should_teacher_move(ch))
   { // 96%
     if((!IS_SET(ch->specials.act, ACT_SENTINEL) ||
          (IS_SET(world[ch->in_room].room_flags, SAFE_ZONE) &&
@@ -10462,4 +10462,21 @@ void give_proper_stat(P_char ch)
     ch->base_stats.Con = number(80, 100);
 
   affect_total(ch, FALSE);
+}
+
+bool should_teacher_move(P_char ch)
+{
+  P_char tch;
+
+  // If it's not a teacher, who cares, let it move.
+  if (!IS_ACT(ch, ACT_TEACHER))
+    return true;
+
+  LOOP_THRU_PEOPLE(tch, ch)
+  {
+    // If there's a player in the room trying to scribe, don't move.
+    if (IS_PC(tch))
+      return false;
+  }
+  return true;
 }
