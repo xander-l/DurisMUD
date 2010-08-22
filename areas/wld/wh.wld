@@ -4530,6 +4530,10 @@ D0
 ~
 ~
 0 0 55122
+D2
+~
+~
+0 0 55418
 S
 #55197
 &+LThe &+YOfficial &+WWinterhaven &+LSupply Shop&n~
@@ -9320,6 +9324,20 @@ D3
 ~
 ~
 0 0 55388
+S
+#55418
+&+LInside a &+ySmokey &+LBackroom&n~
+&+L   Filled with drunks and scallywags, this dark room is the place of choice for
+&+Lmercenaries and sailors. There is a group of four large tables towards the back
+&+Lof the room. Twenty or more rowdy men are busy drinking and chatting with the
+&+Lpretty barmaids. The air is filled with the smell of stale ale, sweat, and salt.
+&+LStrangely, there is a very large ship anchor sitting in the middle of the room.&n
+~
+550 134250564 0
+D0
+~
+~
+0 0 55196
 S
 #55423
 &+GA &+BPond &+Gin the &+WKing's Private &+GForest&n~
