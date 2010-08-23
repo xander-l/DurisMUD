@@ -868,7 +868,7 @@ void do_rage(P_char ch, char *argument, int cmd)
   notch_skill(ch, SKILL_RAGE, (int) get_property("skill.notch.offensive", 1.));
         
   if(!(GET_SPEC(ch, CLASS_BERSERKER, SPEC_RAGELORD)))
-    CharWait(ch, 3 * PULSE_VIOLENCE);
+    CharWait(ch, 1.5 * PULSE_VIOLENCE);
   else
     CharWait(ch, (int)(0.5 * PULSE_VIOLENCE));
 
