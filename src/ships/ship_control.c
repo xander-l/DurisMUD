@@ -283,6 +283,12 @@ int order_anchor(P_char ch, P_ship ship)
         return TRUE;
     }
 
+    if (SHIPISFLYING(ship)) 
+    {
+        send_to_char ("You have to land your ship to anchor!\r\n", ch);
+        return TRUE;
+    }
+
     if (SHIPISDOCKED(ship)) 
     {
         send_to_char("You are docked, undock first!\r\n", ch);
