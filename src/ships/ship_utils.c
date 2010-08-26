@@ -146,7 +146,17 @@ P_ship get_ship_from_owner(char *ownername)
 //--------------------------------------------------------------------
 
 
-void everyone_look_out_newship(P_ship ship)
+void look_out_ship(P_ship ship, P_char ch)
+{
+   if (ship->m_class == SH_CRUISER || ship->m_class == SH_DREADNOUGHT)
+      ch->specials.z_cord = 2;
+   if (SHIPISFLYING(ship))
+      ch->specials.z_cord = 4;
+   new_look(ch, 0, -5, ship->location);
+   ch->specials.z_cord = 0;
+}
+
+void everyone_look_out_ship(P_ship ship)
 {
   P_char   ch, ch_next;
   int      i;
@@ -161,14 +171,14 @@ void everyone_look_out_newship(P_ship ship)
         ch_next = ch->next_in_room;
         if (IS_SET(ch->specials.act2, PLR2_SHIPMAP))
         {
-          new_look(ch, 0, -5, ship->location);
+          look_out_ship(ship, ch);
         }
       }
     }
   }
 }
 
-void everyone_get_out_newship(P_ship ship)
+void everyone_get_out_ship(P_ship ship)
 {
   P_char   ch, ch_next;
   P_obj    obj, obj_next;

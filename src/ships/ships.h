@@ -748,8 +748,9 @@ void act_to_outside_ships(P_ship ship, P_ship notarget, const char *msg, ... );
 void act_to_outside_ships(P_ship ship, P_ship notarget, int range, const char *msg, ... );
 void act_to_outside(P_ship ship, const char *msg, ... );
 void act_to_outside(P_ship ship, int range, const char *msg, ... );
-void everyone_get_out_newship(P_ship ship);
-void everyone_look_out_newship(P_ship ship);
+void everyone_get_out_ship(P_ship ship);
+void look_out_ship(P_ship ship, P_char ch);
+void everyone_look_out_ship(P_ship ship);
 bool is_valid_sailing_location(P_ship ship, int room);
 
 bool has_eq_ram(const ShipData* ship);

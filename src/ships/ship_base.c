@@ -837,11 +837,12 @@ void reset_ship(P_ship ship, bool clear_slots)
 //--------------------------------------------------------------------
 // This proc is added to rooms inside ship
 //--------------------------------------------------------------------
+
 int ship_room_proc(int room, P_char ch, int cmd, char *arg)
 {
-   int      old_room, i, j, k;
+   int i, j, k;
    P_ship ship;
-   int      virt;
+   int virt;
    
    if(!ch)
      return false;
@@ -855,16 +856,7 @@ int ship_room_proc(int room, P_char ch, int cmd, char *arg)
    {
      if (!arg || !*arg || str_cmp(arg, " out"))
         return(FALSE);
-     old_room = ch->in_room;
-     char_from_room(ch);
-     if (ship->m_class == SH_CRUISER || ship->m_class == SH_DREADNOUGHT)
-        ch->specials.z_cord = 2;
-     if (SHIPISFLYING(ship))
-        ch->specials.z_cord = 4;
-     char_to_room(ch, ship->location, -1);
-     char_from_room(ch);
-     ch->specials.z_cord = 0;
-     char_to_room(ch, old_room, -2);
+     look_out_ship(ship, ch);
      return(TRUE);
    }
    if (cmd == CMD_DISEMBARK)
@@ -875,7 +867,7 @@ int ship_room_proc(int room, P_char ch, int cmd, char *arg)
         return false;
       }
 
-      if(SHIPISFLYING(ship))
+      if(SHIPISFLYING(ship) && !IS_TRUSTED(ch))
       {
         send_to_char("\r\nYou cannot disembark in air!\r\n", ch);
         return false;
@@ -1449,34 +1441,66 @@ void ship_activity()
                             if (ship->x > 50.999) 
                             {
                                 ship->x -= 1.000;
-                                send_to_room_f(ship->location, "%s sails east.\r\n", ship->name);
-                                send_to_room_f(loc, "%s sails in from the west.\r\n", ship->name);
+                                if (SHIPISFLYING(ship))
+                                {
+                                    send_to_room_f(ship->location, "%s floats east above you.\r\n", ship->name);
+                                    send_to_room_f(loc, "%s floats in from the west above you.\r\n", ship->name);
+                                }
+                                else
+                                {
+                                    send_to_room_f(ship->location, "%s sails east.\r\n", ship->name);
+                                    send_to_room_f(loc, "%s sails in from the west.\r\n", ship->name);
+                                }
                             } 
                             else if (ship->x < 50.000) 
                             {
                                 ship->x += 1.000;
-                                send_to_room_f(ship->location, "%s sails west.\r\n", ship->name);
-                                send_to_room_f(loc, "%s sails in from the east.\r\n", ship->name);
+                                if (SHIPISFLYING(ship))
+                                {
+                                    send_to_room_f(ship->location, "%s floats west above you.\r\n", ship->name);
+                                    send_to_room_f(loc, "%s floats in from the east above you.\r\n", ship->name);
+                                }
+                                else
+                                {
+                                    send_to_room_f(ship->location, "%s sails west.\r\n", ship->name);
+                                    send_to_room_f(loc, "%s sails in from the east.\r\n", ship->name);
+                                }
                             }
         
                             if (ship->y > 50.999) 
                             {
                                 ship->y -= 1.000;
-                                send_to_room_f(ship->location, "%s sails north.\r\n", ship->name);
-                                send_to_room_f(loc, "%s sails in from the south.\r\n", ship->name);
+                                if (SHIPISFLYING(ship))
+                                {
+                                    send_to_room_f(ship->location, "%s floats north above you.\r\n", ship->name);
+                                    send_to_room_f(loc, "%s floats in from the south above you.\r\n", ship->name);
+                                }
+                                else
+                                {
+                                    send_to_room_f(ship->location, "%s sails north.\r\n", ship->name);
+                                    send_to_room_f(loc, "%s sails in from the south.\r\n", ship->name);
+                                }
                             } 
                             else if (ship->y < 50.000) 
                             {
                                 ship->y += 1.000;
-                                send_to_room_f(ship->location, "%s sails south.\r\n", ship->name);
-                                send_to_room_f(loc, "%s sails in from the north.\r\n", ship->name);
+                                if (SHIPISFLYING(ship))
+                                {
+                                    send_to_room_f(ship->location, "%s floats south above you.\r\n", ship->name);
+                                    send_to_room_f(loc, "%s floats in from the north above you.\r\n", ship->name);
+                                }
+                                else
+                                {
+                                    send_to_room_f(ship->location, "%s sails south.\r\n", ship->name);
+                                    send_to_room_f(loc, "%s sails in from the north.\r\n", ship->name);
+                                }
                             }
                             if (SHIPOBJ(ship) && (loc != ship->location)) 
                             {
                                 ship->location = loc;
                                 obj_from_room(SHIPOBJ(ship));
                                 obj_to_room(SHIPOBJ(ship), loc);
-                                everyone_look_out_newship(ship);
+                                everyone_look_out_ship(ship);
                             }
                         } 
                         else
@@ -1658,7 +1682,7 @@ void finish_sinking(P_ship ship)
         act_to_outside(ship, 10, "%s &+yhas fallen to pieces!\r\n", SHIPNAME(ship));
         act_to_outside_ships(ship, ship, "&+W[%s]:&N %s&N&+y falls to pieces.\r\n", SHIPID(ship), SHIPNAME(ship));
     }
-    everyone_get_out_newship(ship);
+    everyone_get_out_ship(ship);
 
     if (!ISNPCSHIP(ship))
     {
@@ -1743,7 +1767,7 @@ void summon_ship_event(P_char ch, P_char victim, P_obj obj, void *data)
           }
         }
         
-        everyone_get_out_newship(ship);
+        everyone_get_out_ship(ship);
         send_to_room_f(ship->location, "&+y%s is called away elsewhere.&N\r\n", ship->name);
         ship->location = to_room;
         obj_from_room(ship->shipobj);
@@ -1776,6 +1800,8 @@ void fly_ship(P_ship ship)
     act_to_all_in_ship(ship, "&+WYour ship slowly ascends and floats in air!&N\r\n");
     act_to_outside(ship, 10, "%s &+Wslowly ascends and floats in air!&N", SHIPNAME(ship));
     act_to_outside_ships(ship, ship, "&+W[%s]:&N %s&N &+Wslowly ascends and floats in air!&N\r\n", SHIPID(ship), SHIPNAME(ship));
+
+    ship->shipobj->z_cord = 4;
     update_ship_status(ship);
 }
 
@@ -1800,10 +1826,12 @@ void land_ship(P_ship ship)
         ship->setspeed = 0;
         ship->speed = 0;
 
-        act_to_all_in_ship(ship, "&+WYour ship slowly descends and lands with a &+Ycreaking &+Wsounds!&N\r\n");
+        act_to_all_in_ship(ship, "&+WYour ship slowly descends and lands with &+Ycreaking &+Wsounds!&N\r\n");
         act_to_outside(ship, 10, "%s &+Wslowly descends and lands with a &+Ycreaking &+Wsounds!&N", SHIPNAME(ship));
         act_to_outside_ships(ship, ship, "&+W[%s]:&N %s&N &+Wslowly descends and lands with a &+Ycreaking &+Wsounds!&N\r\n", SHIPID(ship), SHIPNAME(ship));
     }
+
+    ship->shipobj->z_cord = 0;
     update_ship_status(ship);
 }
 

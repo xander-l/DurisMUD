@@ -887,7 +887,7 @@ P_ship load_npc_ship(int level, NPC_AI_Type type, int speed, int m_class, int ro
 
 bool try_unload_npc_ship(P_ship ship)
 {
-    everyone_get_out_newship(ship);
+    everyone_get_out_ship(ship);
     shipObjHash.erase(ship);
     delete_ship(ship, true);
     return TRUE;
@@ -913,7 +913,7 @@ bool load_npc_dreadnought()
             npc_dreadnought->npc_ai->advanced = 1;
             npc_dreadnought->npc_ai->permanent = true;
             SET_BIT(npc_dreadnought->flags, AIR);
-            SET_BIT(npc_dreadnought->flags, FLYING);
+            fly_ship(npc_dreadnought);
             return true;
         }
     }

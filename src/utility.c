@@ -51,6 +51,7 @@ extern P_char character_list;
 extern struct str_app_type str_app[];
 extern P_desc descriptor_list;
 extern P_room world;
+extern P_index obj_index;
 extern const struct racial_data_type racial_data[];
 extern const struct stat_data stat_factor[];
 extern const int movement_loss[];
@@ -71,6 +72,7 @@ uint     debugcount = 0;
 extern P_index mob_index;
 extern const int rev_dir[];
 extern void event_spellcast(P_char, P_char, P_obj, void *);
+int ship_obj_proc(P_obj obj, P_char ch, int cmd, char *arg);
 
 char     GS_buf1[MAX_STRING_LENGTH];
 
@@ -1293,7 +1295,11 @@ int ac_can_see_obj(P_char sub, P_obj obj)
 
   /* sub is flying, obj isn't */
   if (OBJ_ROOM(obj) && sub->specials.z_cord != obj->z_cord)
-    return 0;
+  {
+    if (obj_index[obj->R_num].func.obj != ship_obj_proc) // ships show above/below
+      return 0;
+  }
+  
 /*
   if (OBJ_NOWHERE(obj)) {
     debug("OBJ_NOWHERE\r\n");

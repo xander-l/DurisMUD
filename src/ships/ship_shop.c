@@ -381,7 +381,6 @@ int summon_ship (P_char ch, P_ship ship)
     if( IS_TRUSTED(ch) )
         buildtime = 0;
     SET_BIT(ship->flags, SUMMONED);
-    //everyone_get_out_newship(ship);
     send_to_char_f(ch, "Thanks for your business, it will take %d hours for your ship to get here.\r\n", buildtime / 280);
 
     sprintf(buf, "%s %d %d", GET_NAME(ch), ch->in_room, IS_TRUSTED(ch));

@@ -254,7 +254,7 @@ int order_maneuver(P_char ch, P_ship ship, char* arg)
             ship->timer[T_MANEUVER] = 5;
             if (ship->target != NULL)
                 ship->target = NULL;
-            everyone_look_out_newship(ship);
+            everyone_look_out_ship(ship);
             if (IS_SET(world[ship->location].room_flags, DOCKABLE))
             {
                 dock_ship(ship, ship->location);
