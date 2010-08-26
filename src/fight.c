@@ -351,6 +351,7 @@ void update_dam_factors()
   dam_factor[DF_BERSERKRAGE] = get_property("damage.increase.berserk.rage", 1.350);
   dam_factor[DF_RAGED] = get_property("damage.increase.rage", 2.000);
   dam_factor[DF_ENERGY_CONTAINMENT] = get_property("damage.reduction.EnergyContainment", 0.750);
+  dam_factor[DF_GUARDIANS_BULWARK] = get_property("damage.reduction.guardians.bulwark", 0.850);
 }
 
 // The swashbuckler is considered the victim. // May09 -Lucrot
@@ -4566,6 +4567,10 @@ int melee_damage(P_char ch, P_char victim, double dam, int flags,
     if(has_innate(victim, INNATE_TROLL_SKIN))
       dam *= dam_factor[DF_TROLLSKIN];
 
+    if(has_innate(victim, INNATE_GUARDIANS_BULWARK) &&
+	victim->equipment[WEAR_SHIELD])
+      dam *= dam_factor[DF_GUARDIANS_BULWARK];
+    
     if(affected_by_spell(victim, SKILL_BERSERK))
       dam *= dam_factor[DF_BERSERKMELEE];
 

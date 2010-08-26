@@ -599,7 +599,7 @@ void raise_undead(int level, P_char ch, P_char victim, P_obj obj,
   if ((typ >= THEURPET_START) && (typ <= THEURPET_END))
   {
     act("After a short &+yr&+Yi&+Wtu&+Ya&+yl&n, the &+Wsoul&n of $N&n is called to inhibit the $p.", FALSE, ch, obj, undead, TO_CHAR);
-    act("The &p &+btr&+Ban&+Csf&+Bor&+bms&n into $N&n and awaits instructions from &n&n.", FALSE, ch, obj, undead, TO_ROOM);
+    act("The $p &+btr&+Ban&+Csf&+Bor&+bms&n into $N&n and awaits instructions from &n&n.", FALSE, ch, obj, undead, TO_ROOM);
   }
   else
   {
@@ -772,7 +772,7 @@ void spawn_raise_undead(P_char ch, P_char vict, P_obj corpse)
         act("You place your hand on &N upon $S last dieing breath.", FALSE, ch, 0, vict, TO_CHAR);
         act("After a short &+yr&+Yi&+Wtu&+Ya&+yl&n, the &+Wsoul&n of $N&n is called to inhibit the $p.", FALSE, ch, 0, vict, TO_CHAR);
 	act("$n&n places $s hand on $N upon $S last dieing breath.", FALSE, ch, 0, vict, TO_ROOM);
-        act("The &p &+btr&+Ban&+Csf&+Bor&+bms&n into $N&n and awaits instructions from &n&n.", FALSE, ch, 0, vict, TO_ROOM);
+        act("The $p &+btr&+Ban&+Csf&+Bor&+bms&n into $N&n and awaits instructions from &n&n.", FALSE, ch, 0, vict, TO_ROOM);
       }
       else
       {
@@ -984,6 +984,7 @@ void spell_call_titan(int level, P_char ch, char *arg, int type, P_char victim, 
   GET_HIT(mob) = GET_MAX_HIT(mob) = mob->points.base_hit = dice(125, 15) + (life * 3);
   mob->specials.act |= ACT_SPEC_DIE;
   REMOVE_BIT(mob->only.npc->aggro_flags, AGGR_ALL);
+  mob->specials.alignment = 1000;
   
   if(IS_NPC(ch) &&
     !IS_PC_PET(ch))
@@ -1646,7 +1647,8 @@ void spell_call_avatar(int level, P_char ch, char *arg, int type,
   mob->specials.act |= ACT_SPEC_DIE;
   GET_HIT(mob) = GET_MAX_HIT(mob) = mob->points.base_hit = 2500 + number(-10, 50) + (life * 5);
   REMOVE_BIT(mob->only.npc->aggro_flags, AGGR_ALL);
-  
+  mob->specials.alignment = 1000;
+
   if(IS_NPC(ch) &&
     !IS_PC_PET(ch))
   {
@@ -2136,7 +2138,8 @@ void do_remort(P_char ch, char *arg, int cmd)
   if( !IS_PC(ch) )
     return;
 
-  if( !affected_by_spell(ch, SPELL_VAMPIRE)) {
+  if( !affected_by_spell(ch, SPELL_VAMPIRE) &&
+      !affected_by_spell(ch, SPELL_ANGELIC_COUNTENANCE)) {
     send_to_char("But you're still alive!\r\n", ch);
     return;
   }
@@ -2150,6 +2153,7 @@ void do_remort(P_char ch, char *arg, int cmd)
 
   send_to_char("Color fades slowly into your face.\r\n", ch);
   affect_from_char(ch, SPELL_VAMPIRE);
+  affect_from_char(ch, SPELL_ANGELIC_COUNTENANCE);
   CharWait(ch, PULSE_VIOLENCE * 3);
 }
 

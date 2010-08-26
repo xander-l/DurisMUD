@@ -2982,6 +2982,8 @@ void spell_single_chain_lightning(int level, P_char ch, char *arg, int type,
   while (order--)
     dam = (int) (dam * 0.75);
 
+  dam = dam * get_property("spell.area.damage.factor.chainlightning", 1.000);
+
   spell_damage(ch, victim, dam, SPLDAM_LIGHTNING, 0,
                *((int *) arg) ? &secondary_messages : &primary_messages);
 }
@@ -8209,7 +8211,7 @@ void spell_haste(int level, P_char ch, char *arg, int type, P_char victim,
              GET_CLASS(ch, CLASS_SORCERER))
       af.duration = 15;
     else
-      af.duration = 4;
+      af.duration = 10;
 
     affect_to_char(victim, &af);
   }
@@ -11182,12 +11184,14 @@ void spell_prot_undead(int level, P_char ch, char *arg, int type,
      !IS_AFFECTED2(victim, AFF2_GLOBE))
       spell_globe(level, ch, 0, 0, victim, obj);
 
+  /*
   if(has_skin_spell(victim) && IS_PC(victim))
   {
     act("$N is already protected by a &+cmagical barrier.&n",
       TRUE, ch, 0, victim, TO_CHAR);
     return;
   }
+  */
 
   bzero(&af, sizeof(af));
 

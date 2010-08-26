@@ -368,7 +368,8 @@ const struct innate_data
   {"swamp sneak", 0},
   {"calming", 0},
   {"longsword master", 0},
-  {"melee mastery", 0}
+  {"melee mastery", 0},
+  {"bulwark", 0}
 };
 
 bool has_innate(P_char ch, int innate)
@@ -805,6 +806,8 @@ void assign_innates()
   
   ADD_CLASS_INNATE(INNATE_RAPIER_DIRK, CLASS_WARRIOR, 1, SPEC_SWASHBUCKLER);
   ADD_CLASS_INNATE(INNATE_MELEE_MASTER, CLASS_WARRIOR, 1, SPEC_SWORDSMAN);
+
+  ADD_CLASS_INNATE(INNATE_GUARDIANS_BULWARK, CLASS_WARRIOR, 41, SPEC_GUARDIAN);
 
   ADD_CLASS_INNATE(INNATE_MINER, CLASS_ALCHEMIST, 36, SPEC_BLACKSMITH);
   ADD_CLASS_INNATE(INNATE_FOUNDRY, CLASS_ALCHEMIST, 41, SPEC_BLACKSMITH);

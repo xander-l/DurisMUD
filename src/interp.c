@@ -1480,15 +1480,20 @@ void command_interpreter(P_char ch, char *argument)
         {
           i = MAX(1, i - 50);
         }
-        else if(IS_ELEMENTAL(ch) ||
+	else if (IS_THEURPET_RACE(ch) &&
+	    !IS_PC(ch))
+	{
+	  i = MAX(1, i - 50);
+	}
+	else if(IS_ELEMENTAL(ch) ||
                 GET_RACE(ch) == RACE_DEMON)
         {
           i = MAX(1, i - 25);
         }
         
         if(ch->following &&
-           IS_UNDEADRACE(ch) &&
-           GET_CLASS(ch->following, CLASS_NECROMANCER))
+           (IS_UNDEADRACE(ch) && GET_CLASS(ch->following, CLASS_NECROMANCER)) ||
+	   (IS_THEURPET_RACE(ch) && GET_CLASS(ch->following, CLASS_THEURGIST)))
         {
           i = 0;
         }
@@ -1509,7 +1514,7 @@ void command_interpreter(P_char ch, char *argument)
           (i > (BOUNDED(0, GET_C_CHA(ch->following), 100))) &&
           !number(0, 2))
         {
-          if((IS_UNDEADRACE(ch) &&
+          if(((IS_UNDEADRACE(ch) || IS_THEURPET_RACE(ch)) &&
              !IS_PC(ch)) ||
              IS_ELEMENTAL(ch))
           {
@@ -1518,7 +1523,7 @@ void command_interpreter(P_char ch, char *argument)
           
           send_to_char("&+LUh oh. They don't seem to have agreed with that &+Wlast order.\r\n", ch->following);
           
-          if(IS_UNDEADRACE(ch) &&
+          if((IS_UNDEADRACE(ch) || IS_THEURPET_RACE(ch)) &&
              IS_NPC(ch) &&
             !IS_SET(ch->only.npc->aggro_flags, AGGR_ALL))
           {

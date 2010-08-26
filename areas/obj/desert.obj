@@ -882,8 +882,8 @@ rope ladder~
 &+ya roper ladder~
 &+yA rope ladder has been tossed over to descend.&n~
 ~
-13 15 3 0 7 0 0 0 0 0 0
-0 0 0 0 0 0 0 0
+25 15 3 0 7 0 0 0 0 0 0
+49556 7 -1 0 0 0 0 0
 0 0 100
 E
 rope ladder~

@@ -129,7 +129,7 @@ struct allowed_race_spec_struct {
 	{RACE_GNOME, CLASS_ETHERMANCER, SPEC_COSMOMANCER},
         {RACE_GNOME, CLASS_ETHERMANCER, SPEC_WINDTALKER},
 	{RACE_GNOME, CLASS_BARD,        SPEC_DISHARMONIST},
-	{RACE_GNOME, CLASS_THEURGIST,   SPEC_MEDIUM},
+	{RACE_GNOME, CLASS_THEURGIST,   SPEC_TEMPLAR},
 	{RACE_GNOME, CLASS_MONK, SPEC_ALL},
 	/* End Gnome Options */
 
@@ -345,7 +345,7 @@ void do_spec_list(P_char ch)
   int race, cls, spec, comma, show;
 
   send_to_char("&+WCurrent list of specializations available:&n\n\n", ch);
-  for (cls = 1; cls < CLASS_COUNT; cls++)
+  for (cls = 1; cls <= CLASS_COUNT; cls++)
   {
     for (spec = 0; spec < MAX_SPEC; spec++)
     {

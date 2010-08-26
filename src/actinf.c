@@ -795,6 +795,10 @@ char    *show_obj_to_char(P_obj object, P_char ch, int mode, int print)
 */
   }
   strcat(buf, item_condition(object));
+  if (ch->specials.z_cord > object->z_cord)
+      strcat(buf, " &N(below you)");
+  if (ch->specials.z_cord < object->z_cord)
+      strcat(buf, " &N(above you)");
 
   strcat(buf, "\n");
   if (print)

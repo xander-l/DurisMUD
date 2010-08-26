@@ -8,7 +8,7 @@ mindless wight gate operator~
 &+Lto open the gate on the command of his masters.
 ~
 2058 0 0 0 0 0 0 -1000 S
-AC 0 1 5
+UW 0 1 5
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 5 8 1
@@ -22,7 +22,7 @@ mindless storm giant gate operator zombie~
 &+Lto open the gate on the command of his masters.
 ~
 2058 0 0 0 0 0 0 -1000 S
-G 0 1 5
+SG 0 1 5
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1

@@ -445,7 +445,8 @@ struct edit_data {
 #define INNATE_CALMING           154
 #define INNATE_LONGSWORD_MASTER  155
 #define INNATE_MELEE_MASTER      156
-#define LAST_INNATE              156   // LAST means last, not last + 1 or whatever
+#define INNATE_GUARDIANS_BULWARK 157
+#define LAST_INNATE              157   // LAST means last, not last + 1 or whatever
 
 struct extra_descr_data {
   char *keyword;                /* Keyword in look/examine          */
