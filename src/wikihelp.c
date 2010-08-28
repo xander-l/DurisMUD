@@ -2,12 +2,16 @@
 #include "wikihelp.h"
 #include "prototypes.h"
 #include "string.h"
+#include "specializations.h"
 #include <string>
 #include <algorithm>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 extern struct race_names race_names_table[];
+extern struct class_names class_names_table[];
+extern int class_table[LAST_RACE + 1][CLASS_COUNT + 1];
 extern const char *stat_to_string3(int);
 
 void debug( const char *format, ... );
@@ -147,13 +151,13 @@ string wiki_racial_stats(string title)
   {
     if (!strcmp(tolower(race_names_table[i].normal).c_str(), tolower(title).c_str()))
     { 
-      debug("matched");
       race_str += race_names_table[i].no_spaces;
       break;
     }
   }
 
-  return_str += "Strenght    : &+c";
+  return_str += "==Statistics==\n";
+  return_str += "Strength    : &+c";
   sprintf(race, "stats.str.%s", race_str.c_str());
   return_str += stat_to_string3((int)get_property(race, 100));
   return_str += "&n\n";
@@ -186,15 +190,76 @@ string wiki_racial_stats(string title)
   return_str += stat_to_string3((int)get_property(race, 100));
   return_str += "&n\n";
   return_str += "Luck        : &+c";
-  sprintf(race, "stats.luk.%s", race_str.c_str());
+  sprintf(race, "stats.luc.%s", race_str.c_str());
   return_str += stat_to_string3((int)get_property(race, 100));
   return_str += "&n\n";
-  return_str += "Karisma     : &+c";
+  return_str += "Karma       : &+c";
   sprintf(race, "stats.kar.%s", race_str.c_str());
   return_str += stat_to_string3((int)get_property(race, 100));
   return_str += "&n\n";
-  return_str += "\n"; 
-  
+  return_str += "\n==Racial Traits==\n";
+  return_str += "Damage Output: &+c";
+  sprintf(race, "damage.totalOutput.racial.%s", race_str.c_str());
+  return_str += stat_to_string_spell_pulse(get_property(race, 1.000));
+  return_str += "&n\n";
+  return_str += "Combat Pulse : &+c";
+  sprintf(race, "damage.pulse.racial.%s", race_str.c_str());
+  return_str += stat_to_string_damage_pulse(get_property(race, 14.000));
+  return_str += "&n\n";
+  return_str += "Spell Pulse  : &+c";
+  sprintf(race, "spellcast.pulse.racial.%s", race_str.c_str());
+  return_str += stat_to_string_spell_pulse(get_property(race, 1.000));
+  return_str += "&n\n";
+  return return_str;
+}
+
+// Display Classes and specs based on whats allowed in the code.
+string wiki_classes(string title)
+{
+  string return_str;
+  int i;
+
+  for (i = 0; i < RACE_PLAYER_MAX; i++)
+  {
+    if (!strcmp(tolower(race_names_table[i].normal).c_str(), tolower(title).c_str()))
+    { 
+      break;
+    }
+  }
+
+  return_str += "==Class list==\n";
+
+  for (int cls = 1; cls <= CLASS_COUNT; cls++)
+  {
+    if (class_table[i][cls] != 5)
+    {
+      return_str += "*";
+      return_str += pad_ansi(class_names_table[cls].ansi, 12);
+      return_str += "&n: ";
+      return_str += single_spec_list(i, cls);
+      return_str += "\n";
+    }
+  }
+  return return_str;
+}
+
+string wiki_innates(string title)
+{
+  string return_str;
+  int race, innate;
+
+  for (race = 0; race < RACE_PLAYER_MAX; race++)
+  {
+    if (!strcmp(tolower(race_names_table[race].normal).c_str(), tolower(title).c_str()))
+    { 
+      break;
+    }
+  }
+
+  return_str += "==Innate abilities==\n";
+  return_str += list_innates(race, 0);
+  return_str += "\n'*' Designates passive ability.";
+
   return return_str;
 }
 
@@ -227,12 +292,16 @@ string wiki_help_single(string str)
   
   return_str += dewikify(trim(string(row[1]), " \t\n"));
   
-  // Making racial stats display automatically
+  // Race type help files
   if (atoi(row[2]) == 25)
   {
     race += row[0];
-    return_str += "==Statistics==\n";
+    return_str += wiki_classes(race);
+    return_str += "\n";
     return_str += wiki_racial_stats(race);
+    return_str += "\n";
+    return_str += wiki_innates(race);
+    return_str += "\n";
   }
 
   mysql_free_result(res);

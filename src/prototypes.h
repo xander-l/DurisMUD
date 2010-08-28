@@ -147,6 +147,8 @@ string save_to_string(int);
 const char *stat_to_string1(int);
 const char *stat_to_string2(int);
 const char *stat_to_string3(int);
+const char *stat_to_string_damage_pulse(float);
+const char *stat_to_string_spell_pulse(float);
 void ShowCharSpellBookSpells(P_char, P_obj);
 void argument_split_2(char *, char *, char *);
 void do_attributes(P_char, char *, int);
@@ -1105,6 +1107,7 @@ int io_con_hitp(P_char);
 
 /* innates.c */
 void assign_innates();
+string list_innates(int, int);
 void do_innate_decrepify(P_char, P_char);
 bool has_divine_force(P_char);
 bool rapier_dirk_check(P_char);
@@ -2807,6 +2810,8 @@ int MIN(int, int);*/
 int NumAttackers(P_char);
 int STAT_INDEX(int);
 int STAT_INDEX2(int);
+int STAT_INDEX_DAMAGE_PULSE(float);
+int STAT_INDEX_SPELL_PULSE(float);
 int SUB_MONEY(P_char, int, int);
 int SUB_BALANCE(P_char, int, int);
 int ac_can_see(P_char, P_char, bool);

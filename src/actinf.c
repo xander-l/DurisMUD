@@ -369,6 +369,30 @@ const char *stat_to_string3(int val)
     return (stat_names3[si]);
 }
 
+const char *stat_to_string_damage_pulse(float val)
+{
+  int    si = STAT_INDEX_DAMAGE_PULSE(val);
+  
+  if (si < 0)
+    return (stat_names3[0]);
+  else if (si > 12)
+    return (stat_names3[12]);
+  else
+    return (stat_names3[si]);
+}
+
+const char *stat_to_string_spell_pulse(float val)
+{
+  int    si = STAT_INDEX_SPELL_PULSE(val);
+  
+  if (si < 0)
+    return (stat_names3[0]);
+  else if (si > 12)
+    return (stat_names3[12]);
+  else
+    return (stat_names3[si]);
+}
+
 const char *align_to_string(int val)
 {
   if (val < -783)

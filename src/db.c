@@ -2768,6 +2768,9 @@ P_obj read_object(int nr, int type)
   fscanf(obj_f, " %lu ", &utmp);
   obj->anti_flags = utmp;
   fscanf(obj_f, " %lu ", &utmp);
+  // Hack until we make as script to edit files directly.
+  if (IS_SET(obj->anti_flags, CLASS_NECROMANCER))
+    SET_BIT(obj->anti_flags, CLASS_THEURGIST);
   obj->anti2_flags = utmp;
   fscanf(obj_f, " %d ", &tmp);
   obj->value[0] = tmp;

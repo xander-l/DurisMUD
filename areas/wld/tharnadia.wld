@@ -1652,7 +1652,7 @@ D3
    The southern city gates lie to the west.
 ~
 ~
-0 0 132568
+0 0 133057
 D4
    A steel ladder leads up the wall into the guard tower.
 ~
@@ -1755,6 +1755,10 @@ D1
 ~
 ~
 0 0 132564
+D2
+~
+~
+0 0 133056
 D3
    The Southern Keats intersection is to the west.
 ~
@@ -1785,7 +1789,7 @@ D1
    The southern gates lie to the east.
 ~
 ~
-0 0 132568
+0 0 133057
 D2
    The southern wall road continues on to the south.
 ~
@@ -13782,4 +13786,61 @@ A vast ocean can be seen to the south.
 ~
 ~
 0 0 -1
+S
+#133056
+&+GOutside the Southern City Gates&n~
+&+g   Two huge ironbound gates mark the southern entrance to &+WTharnadia&+g here,
+&+gstanding twenty feet high, and surrounded by two fifty foot stone towers.  The
+&+gcity seems quite well protected behind this great display of defensive might,
+&+gwith arrow slits and defensive measures lining the towers.  The city walls
+&+gextend to the west and east for quite a distance, completely surrounding the
+&+gcity up to the large cliffs upon which the &+Ltwin keeps&+g are built.  A dirt road
+&+gleads away to the south toward the plains beyond.&n
+~
+1325 8388676 2 0
+D0
+   The gates are heavily fortified and made from iron.
+~
+iron gate gates~
+1 0 133057
+D2
+~
+~
+0 0 570823
+E
+gate gates iron~
+   The gates are enormous, made from bound planks of thick iron.  They look
+very strong, probably able to withstand a good deal of damage before falling.
+~
+S
+#133057
+Inside the Southern City Gates~
+&+w   Two huge ironbound gates guard the southern entrance to &+WTharnadia&+w here,
+&+wstanding nearly twenty feet tall.  The gates are fastened to huge &+Lstone&+w towers
+&+won either side, making this entrance seem very secure and protected.  A system
+&+wof &+yropes&+w and pulleys hold the door up, reducing its weight and making it
+&+weasily opened and closed by a single operator.  The &+ySouthern Wall&+w leads
+&+waway to the west into the heart of the city, while the gateway exits out into
+&+wa vast grassy plains with mountains in the distance.  The wall road leads to
+&+wthe east and west.&n
+~
+1325 142639168 1 0
+D1
+~
+~
+0 0 132564
+D2
+   The gates are heavily fortified and made from iron.
+~
+iron gate gates~
+1 0 133056
+D3
+~
+~
+0 0 132569
+E
+gate gates iron~
+   The gates are enormous, made from bound planks of thick iron.  They look
+very strong, probably able to withstand a good deal of damage before falling.
+~
 S

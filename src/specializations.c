@@ -339,6 +339,32 @@ bool append_valid_specs(char *buf, P_char ch)
   return found_one;  
 }
 
+string single_spec_list(int race, int cls)
+{
+  int spec, comma = 0;
+  string return_str;
+
+  for (spec = 0; spec < MAX_SPEC; spec++)
+  {
+    if (!strcmp(specdata[cls][spec], "") ||
+        !strcmp(specdata[cls][spec], "Not Used"))
+    {
+      continue;
+    }
+    if (is_allowed_race_spec(race, 1 << (cls - 1), spec+1))
+    {
+      if (comma)
+	return_str += "&n, ";
+      else
+	comma = 1;
+	
+      return_str += string(specdata[cls][spec]);
+    }
+  }
+
+  return return_str;
+}
+
 void do_spec_list(P_char ch)
 {
   char Gbuf[MAX_STRING_LENGTH], list[MAX_STRING_LENGTH];

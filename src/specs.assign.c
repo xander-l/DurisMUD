@@ -2076,7 +2076,7 @@ void assign_objects(void)
   // god toys
   obj_index[real_object0(174)].func.obj = vareena_statue;
   obj_index[real_object0(352)].func.obj = doom_blade_Proc;
-  obj_index[real_object0(424)].func.obj = doom_blade_Proc;
+  obj_index[real_object0(426)].func.obj = doom_blade_Proc;
   
  /* Winterhaven */
 

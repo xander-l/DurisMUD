@@ -9804,23 +9804,23 @@ int rentacleric(P_char ch, P_char vict, int cmd, char *argument)
   {
     /* Spell Num (defined)      Name shown        Price  */
     {
-    SPELL_CURE_CRITIC, "&+WCure critical wounds&n     ", "cure critical wounds", 1000},
+    SPELL_CURE_CRITIC, "&+WCure critical wounds&n     ", "cure critical wounds", 250},
     {
-    SPELL_FULL_HEAL, "&+WFull heal&n              ", "full heal", 9000},
+    SPELL_FULL_HEAL, "&+WFull heal&n              ", "full heal", 500},
     {
-    SPELL_ARMOR, "&+wBenevolent armor&n         ", "benevolent armor", 500},
+    SPELL_ARMOR, "&+wBenevolent armor&n         ", "benevolent armor", 100},
     {
-    SPELL_BLESS, "&+WBlessing &+Lof the &+RGods&n     ", "blessing of the gods", 500},
+    SPELL_BLESS, "&+WBlessing &+Lof the &+RGods&n     ", "blessing of the gods", 100},
     {
-    SPELL_REMOVE_POISON, "&+GAntidote&n                 ", "antidote", 3500},
+    SPELL_REMOVE_POISON, "&+GAntidote&n                 ", "antidote", 600},
     {
-    SPELL_REMOVE_CURSE, "&+rCurse &+wremoval&n            ", "curse removal", 8500},
+    SPELL_REMOVE_CURSE, "&+rCurse &+wremoval&n            ", "curse removal", 700},
     {
-    SPELL_CURE_BLIND, "&+WCure of &+Lblindness&n        ", "cure of blindness", 6000},
+    SPELL_CURE_BLIND, "&+WCure of &+Lblindness&n        ", "cure of blindness", 500},
     {
-    SPELL_ACCEL_HEALING, "&+YAccelerated &+Whealing&n      ", "accelerated healing", 10500},
+    SPELL_ACCEL_HEALING, "&+YAccelerated &+Whealing&n      ", "accelerated healing", 2500},
     {
-    SPELL_RESURRECT, "&+WResurrection&n             ", "resurrection", 50000},
+    SPELL_RESURRECT, "&+WResurrection&n             ", "resurrection", 3000},
     {
      -1, "\r\n", -1},
   };

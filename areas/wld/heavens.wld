@@ -239,12 +239,13 @@ D0
 S
 #24
 &+LBehind The &+BGreat Fountain &+Lof &+WTharnadia~
+Human Inn
 ~
 1 138444800 0
 D0
 ~
 ~
-0 0 6074
+0 0 132573
 D2
 ~
 ~
@@ -252,6 +253,7 @@ D2
 S
 #25
 &+LBehind &+GThe Quivering Leaf Inn~
+Halfling Inn
 ~
 1 0 0
 D0
@@ -265,6 +267,7 @@ D2
 S
 #26
 &+LBehind &+BThe Inn of the Shady Grove~
+Orc Inn
 ~
 1 138444800 0
 D0
@@ -278,6 +281,7 @@ D2
 S
 #27
 &+LBehind the &+RInn of the Howling~
+Drow Inn
 ~
 1 138444800 0
 D0
@@ -313,36 +317,39 @@ D0
 D2
 ~
 ~
-0 0 226224
+0 0 93641
 S
 #30
-&+LBehind &+WA Turning Point Marked with an Impaled Head~
+&+LBehind &+LA Chamber of &+yCaskets&n~
+The Undead Inn
 ~
 1 0 0
 D0
 ~
 ~
-0 0 285525
+0 0 90346
 D2
 ~
 ~
 1 0 20
 S
 #31
-&+LBehind &+wAn &+LIntersection &+win the &+LRoad~
+&+LBehind &+bThe Sharkbait Inn&n~
+QQ
 ~
 1 0 0
 D0
 ~
 ~
-0 0 262357
+0 0 1736
 D2
 ~
 ~
 1 0 21
 S
 #32
-&+LBehind &+wA Wagon Trail Through the Tundra~
+&+LBehind &+yRock Biters Inn&n~
+Duergar Inn
 ~
 1 0 0
 D0
@@ -352,7 +359,7 @@ D0
 D2
 ~
 ~
-0 0 216461
+0 0 17087
 S
 #33
 &+LWit&+chin the&+C Dept&+Lhs of K&+ceja's Ps&+Cyche~

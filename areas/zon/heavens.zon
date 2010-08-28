@@ -71,10 +71,10 @@ D 0 29 0 1 100 0 0 0
 *
 D 0 20 0 1 100 0 0 0
 *     north exit from "Bright White Corridor" to
-*     "Behind A Turning Point Marked with an Impaled Head" - closed
+*     "Behind A Chamber of Caskets" - closed
 *
 D 0 30 2 1 100 0 0 0
-*     south exit from "Behind A Turning Point Marked with an Impaled Head" to
+*     south exit from "Behind A Chamber of Caskets" to
 *     "Bright White Corridor" - closed
 *
 D 0 20 2 1 100 0 0 0
@@ -87,18 +87,18 @@ D 0 23 0 1 100 0 0 0
 *
 D 0 21 0 1 100 0 0 0
 *     north exit from "Bright White Corridor" to
-*     "Behind An Intersection in the Road" - closed
+*     "Behind The Sharkbait Inn" - closed
 *
 D 0 31 2 1 100 0 0 0
-*     south exit from "Behind An Intersection in the Road" to
+*     south exit from "Behind The Sharkbait Inn" to
 *     "Bright White Corridor" - closed
 *
 D 0 21 2 1 100 0 0 0
 *     south exit from "Bright White Corridor" to
-*     "Behind A Wagon Trail Through the Tundra" - closed
+*     "Behind Rock Biters Inn" - closed
 *
 D 0 32 0 1 100 0 0 0
-*     north exit from "Behind A Wagon Trail Through the Tundra" to
+*     north exit from "Behind Rock Biters Inn" to
 *     "Bright White Corridor" - closed
 *
 D 0 22 0 1 100 0 0 0

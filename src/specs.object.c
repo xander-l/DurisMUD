@@ -12861,7 +12861,7 @@ int doom_blade_Proc(P_obj obj, P_char ch, int cmd, char *arg)
     return FALSE;
   }
   
-  if(number(0, 66 - GET_LEVEL(ch)))
+  if(number(0, MAX(8, (56 - GET_LEVEL(ch)))))
   { 
     return FALSE;
   }

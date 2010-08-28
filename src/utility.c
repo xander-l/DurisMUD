@@ -2747,6 +2747,70 @@ int STAT_INDEX2(int v)
   return 12;
 }
 
+// This relates to stat_names3 where average = human pulse at 14
+int STAT_INDEX_DAMAGE_PULSE(float v)
+{
+  if (v > 18)
+    return 0;
+  else if (v > 17.00)
+    return 1;
+  else if (v > 16.00)
+    return 2;
+  else if (v > 15.00)
+    return 3;
+  else if (v > 14.00)
+    return 4;
+  else if (v > 13.00)
+    return 5;
+  else if (v > 12.00)
+    return 6;
+  else if (v > 11.00)
+    return 7;
+  else if (v > 10.00)
+    return 8;
+  else if (v > 9.00)
+    return 9;
+  else if (v > 8.00)
+    return 10;
+  else if (v > 7.00)
+    return 11;
+  else
+    return 12;
+
+  return 12;
+}
+
+// This relates to stat_names3 where average = human pulse (1.00)
+int STAT_INDEX_SPELL_PULSE(float v)
+{
+ if (v > 1.450)
+   return 0;
+ if (v > 1.350)
+   return 1;
+ if (v > 1.250)
+   return 2;
+ if (v > 1.150)
+   return 3;
+ if (v > 1.050)
+   return 4;
+ if (v > 0.950)
+   return 5;
+ if (v > 0.900)
+   return 6;
+ if (v > 0.850)
+   return 7;
+ if (v > 0.80)
+   return 8;
+ if (v > 0.750)
+   return 9;
+ if (v > 0.700)
+   return 10;
+ if (v > 0.650)
+   return 11;
+ if (v > 0.600)
+   return 12;
+}
+
 bool are_together(P_char ch1, P_char ch2)
 {                               /*
                                  * SKB - 20 May 1995
