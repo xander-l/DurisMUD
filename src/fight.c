@@ -2349,11 +2349,20 @@ void die(P_char ch, P_char killer)
         has_innate(killer, INNATE_SPAWN) || 
         has_innate(killer, INNATE_ALLY))) 
     {
+      debug("hi");
       if((IS_NPC(ch) &&
         !number(0, 2)) ||
         !number(0, 3))
       {
-        spawn_raise_undead(killer, ch, corpse);        
+	debug("hi2");
+        if (IS_PC(killer) &&
+	    !affected_by_spell(killer, SPELL_SPAWN) &&
+	    !affected_by_spell(killer, TAG_SPAWN))
+	{
+	  send_to_char("You are not willing to summon pets from death blows.\n", killer);
+	}
+	else
+	  spawn_raise_undead(killer, ch, corpse);
       }
     }
 

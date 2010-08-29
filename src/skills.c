@@ -1346,12 +1346,16 @@ void initialize_skills()
                 TAR_SELF_ONLY | TAR_NOCOMBAT,
                 spell_mage_flame, "Your mage flame slowly fades into nothingness.");
   SPELL_ADD(CLASS_CONJURER, 3);
+  
+  SPELL_CREATE_MSG("holy light", SPELL_HOLY_LIGHT, (PULSE_SPELLCAST * 3) / 2,
+                TAR_SELF_ONLY | TAR_NOCOMBAT,
+                spell_holy_light, "Your holy light slowly fades into nothingness.");
+  SPELL_ADD(CLASS_THEURGIST, 9);
 
   SPELL_CREATE("globe of darkness", SPELL_GLOBE_OF_DARKNESS,
                 PULSE_SPELLCAST * 2, TAR_SELF_ONLY | TAR_NOCOMBAT,
                 spell_globe_of_darkness);
   SPELL_ADD(CLASS_NECROMANCER, 9);
-  SPELL_ADD(CLASS_THEURGIST, 9);
 
   SPELL_CREATE("flame blade", SPELL_FLAME_BLADE, PULSE_SPELLCAST * 2,
                 TAR_IGNORE | TAR_NOCOMBAT, spell_flame_blade);
@@ -4777,4 +4781,5 @@ SPELL_ADD(CLASS_NONE, 1);
   TAG_CREATE_WITH_MESSAGES("broken arm", TAG_ARMLOCK, "&+WYour arm has healed.&n", "$n's arm has healed.&n");
   TAG_CREATE_WITH_MESSAGES("broken leg", TAG_LEGLOCK, "&+WYour leg has healed.&n", "$n's leg has healed.&n");
   TAG_CREATE_WITH_MESSAGES("arrow bleed", TAG_ARROW_BLEED, "&+WYour bleeding wound has healed.&n", "$n's bleeding wound has healed.&n");
+  TAG_CREATE("summon spawn/ally", TAG_SPAWN);
 }

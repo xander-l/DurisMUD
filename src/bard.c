@@ -1794,7 +1794,7 @@ void do_play(P_char ch, char *arg, int cmd)
         !IS_ARTIFACT(instrument))
     {
       act
-        ("&+rYou start playing your $q, but this instrument won't work for this song.",
+        ("&+rYou start playing your $q&+r, but this instrument won't work for this song.",
          FALSE, ch, instrument, 0, TO_CHAR);
       act("$n starts playing $p and singing aloud.",
         FALSE, ch, instrument, 0, TO_ROOM);

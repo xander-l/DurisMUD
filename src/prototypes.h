@@ -428,6 +428,7 @@ void do_mine(P_char, char *, int);
 void do_fish(P_char, char *, int);
 
 void do_exhume(P_char, char *, int);
+void do_spawn(P_char, char *, int);
 void do_summon_host(P_char, char *, int);
 void do_camp(P_char, char *arg, int);
 void do_climb(P_char, char *arg, int);
@@ -1107,7 +1108,7 @@ int io_con_hitp(P_char);
 
 /* innates.c */
 void assign_innates();
-string list_innates(int, int);
+string list_innates(int, int, int);
 void do_innate_decrepify(P_char, P_char);
 bool has_divine_force(P_char);
 bool rapier_dirk_check(P_char);
@@ -2297,6 +2298,7 @@ void spell_divine_fury(int, P_char, char *, int, P_char, P_obj);
 void spell_stornogs_lowered_magical_res(int, P_char, char *, int, P_char, P_obj);
 void spell_command(int, P_char, char *, int, P_char, P_obj);
 void spell_mass_barkskin(int, P_char, char *, int, P_char, P_obj);
+void spell_holy_light(int, P_char, char *, int, P_char, P_obj);
 void spell_mage_flame(int, P_char, char *, int, P_char, P_obj);
 void spell_globe_of_darkness(int, P_char, char *, int, P_char, P_obj);
 void spell_deflect(int, P_char, char *, int, P_char, P_obj);

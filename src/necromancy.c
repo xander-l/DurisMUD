@@ -348,7 +348,7 @@ void raise_undead(int level, P_char ch, P_char victim, P_obj obj,
   if ((GET_ALIGNMENT(ch) > 0) && GET_CLASS(ch, CLASS_NECROMANCER))
   {
     send_to_char
-      ("You don't even _consider_ such a evil act, meddling with undead!",
+      ("You don't even _consider_ such a evil act, meddling with undead!\n",
        ch);
     return;
   }
@@ -356,7 +356,7 @@ void raise_undead(int level, P_char ch, P_char victim, P_obj obj,
   if ((GET_ALIGNMENT(ch) < 0) && GET_CLASS(ch, CLASS_THEURGIST))
   {
     send_to_char
-      ("You don't even _consider_ such a good act, meddling with angels!",
+      ("You don't even _consider_ such a good act, meddling with angels!\n",
        ch);
     return;
   }
@@ -2054,6 +2054,34 @@ void do_exhume(P_char ch, char *argument, int cmd)
   obj_to_room(obj1, ch->in_room);
   set_obj_affected(obj1, 0, TAG_OBJ_DECAY, 0);
   spell_embalm(GET_LEVEL(ch), ch, 0, SPELL_TYPE_SPELL, NULL, obj1);
+}
+
+void do_spawn(P_char ch, char *argument, int cmd)
+{
+  struct affected_type af;
+
+  if (!ch)
+    return;
+
+  if (!has_innate(ch, INNATE_SPAWN) && !has_innate(ch, INNATE_ALLY))
+  {
+    send_to_char("You don't know how!\n", ch);
+    return;
+  }
+
+  if (affected_by_spell(ch, TAG_SPAWN))
+  {
+    send_to_char("You no longer wish to summon pets from death blows.\n", ch);
+    affect_from_char(ch, TAG_SPAWN);
+    return;
+  }
+  
+  send_to_char("You will try to summon pets from death blows.\n", ch);
+  memset(&af, 0, sizeof(af));
+  af.type = TAG_SPAWN;
+  af.duration = -1;
+  af.flags = AFFTYPE_NOSHOW | AFFTYPE_NODISPEL;
+  affect_to_char(ch, &af);
 }
 
 void do_summon_host(P_char ch, char *argument, int cmd)

@@ -345,7 +345,7 @@ const struct innate_data
   {"protection from cold", 0},
   {"protection from acid", 0},
   {"fire aura", 0},
-  {"spawn", 0},
+  {"spawn", do_spawn},
   {"warcallers fury", 0},
   {"spirit of the rrakkma", 0},
   {"diseased bite", 0},
@@ -363,7 +363,7 @@ const struct innate_data
   {"speed", 0},
   {"ice aura", 0},
   {"requiem", 0},
-  {"ally", 0},
+  {"ally", do_spawn},
   {"summon host", do_summon_host},
   {"spider body", 0},
   {"swamp sneak", 0},
@@ -373,16 +373,23 @@ const struct innate_data
   {"bulwark", 0}
 };
 
-string list_innates(int race, int cls)
+string list_innates(int race, int cls, int spec)
 {
   string return_str;
   char level[5];
-  int innate;
+  int innate, found = 0;
   
-  for (innate = 0; innate < LAST_INNATE; innate++)
+  if (!race && !cls)
   {
-    if (race && racial_innates[innate][race - 1])
+    debug("list_innates called with no race or class.");
+    return return_str;
+  }
+  for (innate = 0; innate <= LAST_INNATE; innate++)
+  {
+    if ((race && racial_innates[innate][race - 1]) ||
+	(cls && class_innates[innate][cls - 1][spec]))
     {
+      found = 1;
       if (innates_data[innate].func)
 	return_str += "*";
       else
@@ -390,19 +397,27 @@ string list_innates(int race, int cls)
 
       return_str += "&+c";
       return_str += string(innates_data[innate].name);
-      if (racial_innates[innate][race - 1] > 1)
+      if ((race && racial_innates[innate][race - 1] > 1) ||
+	  (cls && class_innates[innate][cls - 1][spec] > 1))
       {
         return_str += " &n(obtained at level &+c";
-        sprintf(level, "%d", racial_innates[innate][race - 1]);
+        if (race)
+	  sprintf(level, "%d", racial_innates[innate][race - 1]);
+	else if (cls)
+          sprintf(level, "%d", class_innates[innate][cls - 1][spec]);
 	return_str += string(level);
 	return_str += "&n)";
       }
       return_str += "&n\n";
     }
-    if (cls)
-    {
-    }
   }
+  if (!found)
+  {
+    return_str += "&nNone.\n";
+  }
+  else
+    return_str += "'*' Designates passive ability.\n";
+  
   return return_str;
 }
 
@@ -882,10 +897,10 @@ void assign_innates()
   ADD_CLASS_INNATE(INNATE_UNHOLY_ALLIANCE, CLASS_NECROMANCER, 31, SPEC_NECROLYTE);
   ADD_CLASS_INNATE(INNATE_UNHOLY_ALLIANCE, CLASS_THEURGIST, 31, SPEC_TEMPLAR);
   ADD_CLASS_INNATE(INNATE_MUMMIFY, CLASS_NECROMANCER, 41, SPEC_DIABOLIS);
-  ADD_CLASS_INNATE(INNATE_REQUIEM, CLASS_THEURGIST, 31, SPEC_MEDIUM);
+  ADD_CLASS_INNATE(INNATE_REQUIEM, CLASS_THEURGIST, 41, SPEC_MEDIUM);
   ADD_CLASS_INNATE(INNATE_SPAWN, CLASS_NECROMANCER, 41, SPEC_NECROLYTE);
   ADD_CLASS_INNATE(INNATE_ALLY, CLASS_THEURGIST, 41, SPEC_TEMPLAR);
-  ADD_CLASS_INNATE(INNATE_SUMMON_HOST, CLASS_THEURGIST, 41, SPEC_MEDIUM);
+  ADD_CLASS_INNATE(INNATE_SUMMON_HOST, CLASS_THEURGIST, 31, SPEC_MEDIUM);
 
   ADD_CLASS_INNATE(INNATE_FPRESENCE, CLASS_DREADLORD, 46, SPEC_SHADOWLORD);
   ADD_CLASS_INNATE(INNATE_FADE, CLASS_DREADLORD, 51, SPEC_SHADOWLORD);

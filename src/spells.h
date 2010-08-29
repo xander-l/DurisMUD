@@ -661,8 +661,8 @@
 #define SPELL_PYROKINESIS            612
 #define SPELL_OBTENEBRATION          613
 #define SPELL_HOLY_BLADE             614
-
-#define LAST_SPELL  SPELL_HOLY_BLADE
+#define SPELL_HOLY_LIGHT             615
+#define LAST_SPELL  SPELL_HOLY_LIGHT
 
 #define FIRST_SKILL                  1000  /* should be a decent split point */
 #define SKILL_SNEAK                  1000
@@ -1051,6 +1051,7 @@
 #define TAG_RACE_CHANGE              2060
 #define TAG_GUILDHALL                2061
 #define TAG_DIRECTION                2062
+#define TAG_SPAWN                    2063
 
 #define DAMAGE_FALLING               2100       /* From falling to the ground */
 
