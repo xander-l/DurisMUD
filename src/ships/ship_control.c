@@ -194,11 +194,6 @@ int order_maneuver(P_char ch, P_ship ship, char* arg)
         send_to_char ("Your crew is on alert status while you have a target locked!\r\n", ch);
         return TRUE;
     }
-    if (ship->timer[T_BSTATION] > 0) 
-    {
-        send_to_char_f(ch, "Your crew is still on alert status and will take %d seconds longer to stand down.\r\n", ship->timer[T_BSTATION]);
-        return TRUE;
-    }
     if (ship->timer[T_MANEUVER] > 0) 
     {
         send_to_char("Your ship isn't ready to maneuver again yet.\r\n", ch);
@@ -231,10 +226,18 @@ int order_maneuver(P_char ch, P_ship ship, char* arg)
         return TRUE;
     }
 
+    if ((IS_SET(world [dir_room].room_flags, DOCKABLE) || world[dir_room].number < 110000) &&
+        ship->timer[T_BSTATION] > 0)
+    {
+        send_to_char_f(ch, "Your crew is still on alert status and will take %d seconds longer to stand down.\r\n", ship->timer[T_BSTATION]);
+        return TRUE;
+    }
+
     if (IS_WATER_ROOM(dir_room) || IS_SET(world [dir_room].room_flags, DOCKABLE)) 
     {
         if (ship->autopilot) 
             stop_autopilot(ship);
+
 
         if ((world[ship->location].sector_type != SECT_OCEAN) || 
             (world[ship->location].number < 110000) ||
