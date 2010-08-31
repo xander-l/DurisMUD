@@ -371,7 +371,7 @@ string wiki_innates(string title)
 string wiki_races(string title)
 {
   string return_str;
-  int cls, race;
+  int cls, race, found = 0;
 
   for (cls = 0; cls <= CLASS_COUNT; cls++)
   {
@@ -396,10 +396,18 @@ string wiki_races(string title)
     if (class_table[race][cls] == 5)
       continue;
     
+    found = 1;
     return_str += "*";
     return_str += string(race_names_table[race].ansi);
     return_str += "&n\n";
   }
+
+  if (!found)
+  {
+    return_str += "None.\n";
+    return return_str;
+  }
+  return return_str;
 }
 
 // display a single help topic

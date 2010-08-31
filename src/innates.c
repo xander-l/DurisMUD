@@ -391,9 +391,9 @@ string list_innates(int race, int cls, int spec)
     {
       found = 1;
       if (innates_data[innate].func)
-	return_str += "*";
-      else
 	return_str += " ";
+      else
+	return_str += "*";
 
       return_str += "&+c";
       return_str += string(innates_data[innate].name);

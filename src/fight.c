@@ -3506,7 +3506,7 @@ int spell_damage(P_char ch, P_char victim, double dam, int type, uint flags,
      IS_UNDEADRACE(ch) &&
      IS_UNDEADRACE(victim))
   {
-    act("&+LYour spell fails to injury&n $N.&n",
+    act("&+LYour spell fails to injure&n $N.&n",
       FALSE, ch, 0, victim, TO_CHAR);
     return DAM_NONEDEAD;
   }
@@ -3521,6 +3521,31 @@ int spell_damage(P_char ch, P_char victim, double dam, int type, uint flags,
     act("&+LYess! You can feel the evil energies flowing into your body...&n",
       FALSE, ch, 0, victim, TO_VICT);
     act("$N&+L grins wickedly as $e absorbs&n $n&+L's spell!&n",
+      FALSE, ch, 0, victim, TO_NOTVICT);
+    vamp(victim,  dam / 4, GET_MAX_HIT(victim) * 1.15);
+    return DAM_NONEDEAD;
+  }
+
+  if ((type == SPLDAM_HOLY ||
+       type == SPLDAM_LIGHTNING) &&
+      IS_ANGEL(ch) &&
+      IS_ANGEL(victim))
+  {
+    act("&+WYour spell fails to injure&n $N.&n",
+      FALSE, ch, 0, victim, TO_CHAR);
+    return DAM_NONEDEAD;
+  }
+
+  if ((type == SPLDAM_HOLY ||
+       type == SPLDAM_LIGHTNING) &&
+      ch != victim &&
+      IS_ANGEL(victim))
+  {
+    act("$N&+W grins wickedly as $e absorbs your spell!&n",
+      FALSE, ch, 0, victim, TO_CHAR);
+    act("&+WYess! You can feel the holy energies flowing into your body...&n",
+      FALSE, ch, 0, victim, TO_VICT);
+    act("$N&+W grins wickedly as $e absorbs&n $n&+L's spell!&n",
       FALSE, ch, 0, victim, TO_NOTVICT);
     vamp(victim,  dam / 4, GET_MAX_HIT(victim) * 1.15);
     return DAM_NONEDEAD;

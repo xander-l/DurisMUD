@@ -270,7 +270,7 @@ static void LoadNewbyShit(P_char ch, int *items)
 void load_obj_to_newbies(P_char ch)
 {
   int     *random;
-  int     *newbie_kits[LAST_RACE][CLASS_COUNT];
+  int     *newbie_kits[LAST_RACE][CLASS_COUNT + 1];
 
   static int torch[] = { 1134, -1 };
 
@@ -433,8 +433,8 @@ void load_obj_to_newbies(P_char ch)
 
   CREATE_KIT(RACE_HUMAN, CLASS_THEURGIST, ((int[])
                                              {
-                                             1112, 1114, 1115, 209, 614,
-                                             1131, -1}));
+                                             1112, 1114, 1115, 1141, 1142,
+                                             1143, -1}));
 /*END Human Classes*/
 
 
@@ -601,8 +601,8 @@ void load_obj_to_newbies(P_char ch)
   
   CREATE_KIT(RACE_GNOME, CLASS_THEURGIST, ((int[])
                                              {
-                                             1112, 1114, 1115, 209, 614,
-                                             1131, -1}));
+                                             1112, 1114, 1115, 1141, 1142,
+                                             1143, -1}));
 
 /*END Gnome Classes*/
 
@@ -672,8 +672,8 @@ void load_obj_to_newbies(P_char ch)
 
   CREATE_KIT(RACE_HALFELF, CLASS_THEURGIST, ((int[])
                                              {
-                                             1112, 1114, 1115, 209, 614,
-                                             1131, -1}));
+                                             1112, 1114, 1115, 1141, 1142,
+                                             1143, -1}));
 /*END Half Elf Classes*/
 
 /*Halfling Basics*/
