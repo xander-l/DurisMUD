@@ -362,9 +362,9 @@ const char *stat_to_string3(int val)
   int     si = STAT_INDEX2(val);
 
   if (si < 0)
-    return (stat_names3[0]);
-  else if (si > 12)
     return (stat_names3[12]);
+  else if (si > 12)
+    return (stat_names3[0]);
   else
     return (stat_names3[si]);
 }
