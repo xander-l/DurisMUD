@@ -50,7 +50,7 @@ extern P_room world;
 extern const char *event_names[];
 extern const struct stat_data stat_factor[];
 extern const struct racial_data_type racial_data[];
-int spell_pulse_data[LAST_RACE + 1];
+float spell_pulse_data[LAST_RACE + 1];
 extern int spl_table[TOTALLVLS][MAX_CIRCLE];
 extern struct zone_data *zone_table;
 extern struct time_info_data time_info;
@@ -814,18 +814,20 @@ int SpellCastTime(P_char ch, int spl)
 {
   int      dura;
 
-  dura = skills[spl].beats;
-  dura = (int) (dura * spell_pulse_data[GET_RACE(ch)]);
-  dura = (int) (dura + get_property("spellcast.pulse.racial.All", 1.000)); // Affects all racial modifiers.
-  dura = (int) (dura * (12.0 + ch->points.spell_pulse)/12 );
+  dura = (int)skills[spl].beats;
+  dura = (dura * spell_pulse_data[GET_RACE(ch)]);
+  dura = (dura + get_property("spellcast.pulse.racial.All", 1.000)); // Affects all racial modifiers.
+  dura = (dura * (12.0 + ch->points.spell_pulse)/12 );
 
   if (IS_AFFECTED2(ch, AFF2_FLURRY))
   {
-    dura = (int) (dura * .3);
+    dura = (dura * .3);
+  debug("%d", dura);
   }
   else if (IS_AFFECTED(ch, AFF_HASTE))
   {
-    dura = (int) (dura * .8);
+    dura = (dura * .8);
+  debug("%d", dura);
   }
   
   return MAX(1, dura);
@@ -2636,7 +2638,7 @@ void update_spellpulse_data()
   for (i = 0; i <= LAST_RACE; i++)
   {
     sprintf(buf, "spellcast.pulse.racial.%s", race_names_table[i].no_spaces);
-    spell_pulse_data[i] = (int) get_property(buf, 1.0);
+    spell_pulse_data[i] = get_property(buf, 1.0);
   }
 }
 

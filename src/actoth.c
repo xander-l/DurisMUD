@@ -5726,7 +5726,7 @@ void ascend_theurgist(P_char ch)
     return;
   }
 
-  if(ch->only.pc->epics < (int) get_property("ascend.epicCost", 10))
+  if(ch->only.pc->epics < (int) get_property("ascend.epicCost.Eladrin", 250))
   {
     sprintf(buff, "It costs &+W%d&n epics to ascend...\n", (int) get_property("descend.epicCost", 10));
     send_to_char(buff, ch);
@@ -5929,9 +5929,12 @@ void do_descend(P_char ch, char *arg, int cmd)
       send_to_char("You do not have enough experience to descend into the depths of evil.\r\n" ,ch);
       return;
     }
-    if(ch->only.pc->epics < (int) get_property("descend.epicCost", 10))
+    if((GET_CLASS(ch, CLASS_ANTIPALADIN) && 
+	(ch->only.pc->epics < (int) get_property("descend.epicCost", 10))) ||
+       (GET_CLASS(ch, CLASS_NECROMANCER) &&
+	(ch->only.pc->epics < (int) get_property("descend.epicCost.Lich", 250))))
     {
-      sprintf(buff, "It costs &+W%d&n epics to descend...\n", (int) get_property("descend.epicCost", 10));
+      sprintf(buff, "It costs &+W%d&n epics to descend...\n", (GET_CLASS(ch, CLASS_ANTIPALADIN) ? (int) get_property("descend.epicCost", 10) : (int) get_property("descend.epicCost.Lich", 250))) ;
       send_to_char(buff, ch);
       return;
     }

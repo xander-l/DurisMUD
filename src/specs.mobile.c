@@ -16422,10 +16422,7 @@ int monk_remort(P_char ch, P_char pl, int cmd, char *arg)
   
     if ((GET_RACE(pl) != RACE_HUMAN) &&
         (GET_RACE(pl) != RACE_GNOME) &&
-        (GET_RACE(pl) != RACE_GITHZERAI) &&
-        (GET_RACE(pl) != RACE_ORC) &&
-        (GET_RACE(pl) != RACE_KUOTOA) &&
-        (GET_RACE(pl) != RACE_KOBOLD))
+        (GET_RACE(pl) != RACE_GITHZERAI))
     {
       send_to_char("I do not teach your kind!  Be gone!\n", pl);
       return TRUE;

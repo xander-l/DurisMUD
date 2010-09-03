@@ -189,6 +189,7 @@ int race_size(int race)
     case RACE_GOBLIN:
     case RACE_ANIMAL:
     case RACE_SHADE:
+    case RACE_KOBOLD:
       return SIZE_SMALL;
       break;
       
@@ -232,7 +233,6 @@ int race_size(int race)
     case RACE_BRALANI:
     case RACE_GHAELE:
     case RACE_KUOTOA:
-    case RACE_KOBOLD:
     default:
       return SIZE_MEDIUM;
       break;

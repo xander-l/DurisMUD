@@ -2442,7 +2442,7 @@ void spell_undead_to_death(int level, P_char ch, char *arg, int type,
     return;
   }
   
-  if(!IS_UNDEADRACE(victim) || !IS_ANGEL(victim) ||
+  if(!IS_UNDEADRACE(victim) ||
      IS_ELITE(victim))
   {
     send_to_char("Your spell fails.\r\n", ch);
