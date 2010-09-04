@@ -4893,8 +4893,12 @@ void event_torment_spirits(P_char ch, P_char victim, P_obj obj, void *data)
   
   if(!number(0, 1) &&
      resists_spell(ch, victim))
-      return;
- 
+  {
+    add_event(event_torment_spirits, 2 * PULSE_VIOLENCE,
+      ch, victim, NULL, 0, &ts, sizeof(ts));
+    return;
+  }
+  
   dam = number(GET_LEVEL(ch) / 2, GET_LEVEL(ch) * 2) + 8;
 
   if(IS_AFFECTED3(victim, AFF3_GR_SPIRIT_WARD))
