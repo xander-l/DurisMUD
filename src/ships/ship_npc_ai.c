@@ -470,7 +470,7 @@ bool NPCShipAI::find_new_target()
                     continue;
                 if (contacts[i].range > 10 && (contacts[i].ship->m_class == SH_SLOOP || contacts[i].ship->m_class == SH_YACHT))
                     continue;
-                if (number(0, (int)contacts[i].range * 15) > 0)
+                if (number(0, (int)contacts[i].range * 20) > 0)
                     continue;
             }
             if (is_valid_target(contacts[i].ship))
