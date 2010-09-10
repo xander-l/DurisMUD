@@ -1521,7 +1521,8 @@ void do_dragon_punch(P_char ch, char *argument, int cmd)
 
   dam = dice(60, 8);
   dam = dam * MAX(30, skl_lvl) / 100;
-  
+
+  notch_skill(ch, SKILL_DRAGON_PUNCH, get_property("skill.notch.offensive", 15));
   // Gona try making them always land, but have damage based on skill.
   /*
   if (!notch_skill(ch, SKILL_DRAGON_PUNCH,

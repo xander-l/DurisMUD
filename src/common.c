@@ -649,6 +649,8 @@ flagDef  extra2_bits[] = {
   {"LINKABLE", "Linkable Object", 1, 0},
   {"NOPROC", "Ignore proc", 0, 0},
   {"NOTIMER", "Ignore timer proc", 0, 0},
+  {"NOLOOT", "Not lootable", 1, 0},
+  {"CRUMBLELOOT", "Crumble when looted", 1, 0},
   {0}
 };
 

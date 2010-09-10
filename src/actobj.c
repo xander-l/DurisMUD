@@ -129,7 +129,6 @@ void get(P_char ch, P_obj o_obj, P_obj s_obj, int showit)
       IS_SET(s_obj->value[1], PC_CORPSE))
     corpse = s_obj;
 
-
   if (s_obj && IS_OBJ_STAT(s_obj, ITEM_NOSHOW))
     showit = TRUE;
 
@@ -286,6 +285,12 @@ void get(P_char ch, P_obj o_obj, P_obj s_obj, int showit)
   }
   if (s_obj)
   {
+    if (IS_OBJ_STAT2(o_obj, ITEM2_NOLOOT) && !IS_TRUSTED(ch))
+    {
+      send_to_char("&+LYou cannot take that.&n\n\r", ch);
+      return;
+    }
+
     if (OBJ_CARRIED(s_obj))
     {
       GET_CARRYING_W(ch) -= GET_OBJ_WEIGHT(s_obj);
@@ -294,7 +299,6 @@ void get(P_char ch, P_obj o_obj, P_obj s_obj, int showit)
     }
     else
       obj_from_obj(o_obj);
-    obj_to_char(o_obj, ch);
 
 #if USE_SPACE
     s_obj->space -= GET_OBJ_SPACE(o_obj);
@@ -312,16 +316,22 @@ void get(P_char ch, P_obj o_obj, P_obj s_obj, int showit)
       if (showit && !slip)
         act("$n gets $p from $P.", 1, ch, o_obj, s_obj, TO_ROOM);
     }
+    obj_to_char(o_obj, ch);
   }
   else
   {
+    if (IS_OBJ_STAT2(o_obj, ITEM2_NOLOOT) && !IS_TRUSTED(ch))
+    {
+      send_to_char("&+LYou cannot take that.&n\n\r", ch);
+      return;
+    }
+
     obj_from_room(o_obj);
-    obj_to_char(o_obj, ch);
     act("You get $p.", 0, ch, o_obj, 0, TO_CHAR);
     if (showit && !slip)
       act("$n gets $p.", 1, ch, o_obj, 0, TO_ROOM);
+    obj_to_char(o_obj, ch);
   }
-
 
   if (corpse)
     writeCorpse(corpse);
@@ -2263,10 +2273,10 @@ void do_give(P_char ch, char *argument, int cmd)
     return;
   }
   obj_from_char(obj, TRUE);
-  obj_to_char(obj, vict);
   act("$n gives $p to $N.", 1, ch, obj, vict, TO_NOTVICT);
   act("$n gives you $p.", 0, ch, obj, vict, TO_VICT);
   send_to_char("Ok.\r\n", ch);
+  obj_to_char(obj, vict);
   if (IS_TRUSTED(ch))
   {
     wizlog(GET_LEVEL(ch), "%s gives %s to %s.",

@@ -1253,6 +1253,7 @@ int char_to_room(P_char ch, int room, int dir)
 void obj_to_char(P_obj object, P_char ch)
 {
   P_obj    o;
+  char Gbuf[MAX_STRING_LENGTH];
 
   if (!ch)
   {
@@ -1283,6 +1284,19 @@ void obj_to_char(P_obj object, P_char ch)
     return;
 */
   }
+  
+  if (IS_OBJ_STAT2(object, ITEM2_CRUMBLELOOT) && IS_PC(ch) && !IS_TRUSTED(ch))
+  {
+    if (ch->in_room)
+    {
+      sprintf(Gbuf, "&+LThe magic within %s &+Lfades causing it to crumble to dust.\r\n", object->short_description);
+      send_to_room(Gbuf, ch->in_room);
+    }
+    extract_obj(object, TRUE);
+    object = NULL;
+    return;
+  }
+
   if (ch->carrying && (ch->carrying->R_num == object->R_num))
   {
     object->next_content = ch->carrying;

@@ -219,6 +219,8 @@ typedef unsigned int uint;
 #define ITEM2_LINKABLE     BIT_8   /* Makes an item linkable by a player */
 #define ITEM2_NOPROC       BIT_9
 #define ITEM2_NOTIMER      BIT_10
+#define ITEM2_NOLOOT       BIT_11
+#define ITEM2_CRUMBLELOOT  BIT_12
 /* Bitvector for 'anti_flags' */
 /*
 #define ITEM_ALLOW_ALL         BIT_1
