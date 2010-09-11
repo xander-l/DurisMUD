@@ -53,7 +53,7 @@ heartwood wood sliver totem~
 &+ya &+ys&+rli&+Wv&n&+yer of &+rheart&+ywood&n~
 &+yA small piece of wood is lying on the ground.&n~
 ~
-34 6 2 1 10 0 33566720 8404993 1024 0 0
+34 6 2 1 10 0 33566720 8404993 0 0 0
 3 0 0 0 0 0 0 0
 1 8921 100
 E
@@ -125,7 +125,7 @@ handful blossom blossoms shimmering~
 &+Ma h&n&+man&+Mdfu&n&+ml of &+Msh&n&+mi&+Mmm&n&+meri&+Mng b&n&+ml&+Mo&n&+mss&+Moms&n~
 &+gA handful of &+Msh&n&+mi&+Mmm&n&+meri&+Mng b&n&+ml&+Mo&n&+mss&+Moms&n&+g have been discarded and left to wilt.~
 ~
-8 30 2 1 9 0 12288 176181249 1024 0 0
+8 30 2 1 9 0 12288 176181249 0 0 0
 0 0 0 0 0 0 0 0
 1 500 100
 E
@@ -190,7 +190,7 @@ blossom blossoms shimmering red~
 &+Ra h&n&+ran&+Rdfu&n&+rl o&+Rf sh&n&+ri&+Rmm&n&+reri&+Rng b&n&+rl&+Ro&n&+rss&+Roms&n~
 &+gA &+Rh&n&+ran&+Rdfu&n&+rl o&+Rf sh&n&+ri&+Rmm&n&+reri&+Rng b&n&+rl&+Ro&n&+rss&+Roms&+g lies on the ground.&n~
 ~
-8 30 2 1 10 50 12288 176181249 1024 1 0
+8 30 2 1 10 50 12288 176181249 0 1 0
 0 0 0 0 0 0 0 0
 1 500 100
 E
@@ -209,7 +209,7 @@ handful blossom blossoms yellow white~
 &+Ya h&+Wan&+Ydfu&+Wl o&+Yf sh&+Wi&+Ymm&+Weri&+Yng b&+Wl&+Yo&+Wss&+Yoms&n~
 &+gA &+Yh&+Wan&+ydfu&+Wlo&+Yf sh&+Wi&+Ymm&+Weri&+Yng b&+Wl&+Yo&+Wss&+Yoms&n&+g lies on the ground.&n~
 ~
-8 30 2 1 10 50 28672 176181249 1024 0 0
+8 30 2 1 10 50 28672 176181249 0 0 0
 0 0 0 0 0 0 0 0
 1 500 100
 E
@@ -228,7 +228,7 @@ handful blossom blossoms shimmering blue~
 &+Ba h&n&+ban&+Bdfu&n&+bl o&+Bf sh&n&+bi&+Bmm&n&+beri&+Bng b&n&+bl&+Bo&n&+bss&+Boms&n~
 &+gA &+Bh&n&+ban&+Bdfu&n&+bl o&+Bf sh&n&+bi&+Bmm&n&+beri&+Bng b&n&+bl&+Bo&n&+bss&+Bms&n&+g lies on the ground.&n~
 ~
-11 30 2 1 10 50 12288 176181249 1024 0 0
+11 30 2 1 10 50 12288 176181249 0 0 0
 0 0 0 0 0 0 0 0
 1 500 100
 E
@@ -320,7 +320,7 @@ serrated blade~
 &+ra blo&+Ro&+rdstain&+ye&+rd ser&+wra&+rted &+wbl&+rade&n~
 &+yA &+rblo&+Ro&+rdstain&+ye&+rd ser&+wra&+rted &+wbl&+rade&+y lies here.&n~
 ~
-5 18 4 15 11 60 34078792 8193 1024 0 0
+5 18 4 15 11 60 34078792 8193 0 0 0
 8 4 5 3 0 0 0 0
 15 1 100
 E
@@ -338,7 +338,7 @@ tattered robes robe silk~
 &+rso&+mm&+re ta&+mt&+rter&+med purple &+ran&+md &+rred r&+mob&+res&n~
 &+rA heap of ta&+mt&+rter&+med purple &+ran&+md &+rred s&+mil&+rk lies here.&n~
 ~
-9 3 3 1 11 20 8256 1033 1024 0 0
+9 3 3 1 11 20 8256 1033 0 0 0
 -10 0 0 1 0 0 0 0
 1 205975 100 67108864 0 0 0
 E
@@ -357,7 +357,7 @@ bow longbow carved~
 &+ya c&+rar&+yv&+re&+yd bo&+rw&n~
 &+yA bo&+rw &+yc&+rar&+yv&+re&+yd with ani&+rma&+yl run&+res&+y lays here.&n~
 ~
-6 6 3 2 9 25 33566784 5267457 1024 0 0
+6 6 3 2 9 25 33566784 5267457 0 0 0
 0 2 0 1 0 0 0 0
 8 2500 100
 E
@@ -376,7 +376,7 @@ quiver fringed~
 &+ya fringed quiver&n~
 &+yA quiver with fringe down one side lies abandoned.&n~
 ~
-30 14 3 5 9 25 274432 9437185 1024 1 0
+30 14 3 5 9 25 274432 9437185 0 1 0
 50 1 1 45 0 0 0 0
 5 1600 100
 E
@@ -862,7 +862,7 @@ vial essence~
 &+ma vi&+Ma&+ml of &+ces&+Csen&+cce of c&+Cre&+cature&n~
 &+mA vi&+Ma&+ml filled with a dark liquid sits here.&n~
 ~
-10 8 1 1 9 15 33562688 0 1024 0 0
+10 8 1 1 9 15 33562688 0 0 0 0
 21 28 -1 -1 0 0 0 0
 1 50676 100
 E
@@ -877,7 +877,7 @@ vial eyes~
 &+wa v&+yia&+rl of f&+yre&+wshly s&+rque&+yeze&+wd l&+yand st&+wri&+yd&+wer e&+rye&+ys&n~
 &+wA v&+yia&+rl of f&+yre&+wshly s&+rque&+yeze&+wd l&+yand st&+wri&+yd&+wer e&+rye&+ys sits here.&n~
 ~
-10 8 1 1 9 15 33562689 8404993 1024 0 0
+10 8 1 1 9 15 33562689 8404993 0 0 0
 46 19 -1 -1 0 0 0 0
 1 102556 100
 E
@@ -890,7 +890,7 @@ vial red dragonfly blood~
 &+ra via&+yl o&+rf dra&+yg&+ronf&+yl&+ry blo&+yo&+rd&n~
 &+rA via&+yl o&+rf dra&+yg&+ronf&+yl&+ry blo&+yo&+rd si&+yts h&+rere.&n~
 ~
-10 8 1 1 9 15 33562689 8404993 1024 0 0
+10 8 1 1 9 15 33562689 8404993 0 0 0
 41 96 -1 -1 0 0 0 0
 1 75250 100
 E
@@ -903,7 +903,7 @@ vial white dragonfly blood~
 &+wa via&+Wl o&+wf dra&+Wg&+wonf&+Wl&+wy blo&+Wo&+wd&n~
 &+wA via&+Wl o&+wf dra&+Wg&+wonf&+Wl&+wy blo&+Wo&+wd si&+Wt&+ws her&+We.&n~
 ~
-10 8 1 1 9 15 33562689 8404993 1280 0 0
+10 8 1 1 9 15 33562689 8404993 256 0 0
 41 97 -1 -1 0 0 0 0
 1 75250 100
 E
@@ -916,7 +916,7 @@ vial blue dragonfly blood~
 &+Ba via&+Yl o&+Bf dra&+Yg&+Bonf&+Yl&+By blo&+Yo&+Bd&n~
 &+BA via&+Yl o&+Bf dra&+Yg&+Bonf&+Yl&+By blo&+Yo&+Bd si&+Yt&+Bs he&+Yr&+Be.&n~
 ~
-10 8 1 1 9 15 33562689 8404993 1024 0 0
+10 8 1 1 9 15 33562689 8404993 0 0 0
 41 98 -1 -1 0 0 0 0
 1 75250 100
 E
@@ -1207,7 +1207,7 @@ crystal shard~
 &+ma c&+Mrys&+mt&+Mal s&+mha&+Mr&+md&n~
 A very sharp piece of &+mc&+Mrys&+mt&+Mal&n lies here.~
 ~
-5 8 2 1 12 80 33566784 10493953 1280 0 0
+5 8 2 1 12 80 33566784 10493953 256 0 0
 2 2 4 11 0 0 0 0
 1 50885 100 33554432 16 2097152 0
 E
@@ -1472,7 +1472,7 @@ earring butterfly coral~
 &+Ma &n&+mb&+Mut&n&+mterf&+Ml&n&+my ea&+Mrr&n&+ming&n~
 &+yAn &+mea&+Mrr&n&+ming&+y made from the &+Mw&n&+ming&+Ms&n&+y of a &+mco&+Mra&n&+ml b&+Mut&n&+mterf&+Ml&n&+my&+y lie here.&n~
 ~
-11 26 0 0 11 40 270337 524289 1088 0 0
+11 26 0 0 11 40 270337 524289 64 0 0
 0 0 0 0 0 0 0 0
 0 22500 100 0 0 64 0
 E

@@ -67,7 +67,7 @@ ring special sapphire~
 a &+Bsap&+bph&+Bire&n &+Br&ni&+Bng&n~
 A special &+Bsap&+bph&+Bire r&ni&+Bng&n lies here.~
 ~
-8 33 3 0 11 0 4104 3 1024 0 0
+8 33 3 0 11 0 4104 3 0 0 0
 0 0 0 0 0 0 0 0
 2 2343 100
 E
@@ -138,7 +138,7 @@ web spider silk~
 &+Lspider&n &+Ws&+Ci&+Wl&+Ck&n~
 a small piece of &+Lspider&n &+Ws&+Ci&+Wl&+Ck&n lies here.~
 ~
-9 3 3 0 7 0 4096 17 1024 0 0
+9 3 3 0 7 0 4096 17 0 0 0
 -10 0 0 300 0 0 0 0
 0 2300 100
 E
