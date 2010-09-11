@@ -13484,10 +13484,12 @@ void spell_sunray(int level, P_char ch, char *arg, int type, P_char victim,
         dam = (int)(dam * 0.85);
   else if(!IS_OUTSIDE(victim->in_room))
         dam = (int)(dam * 0.95);
-    
-  int mod = MAX(0, (int)((GET_LEVEL(ch) - GET_LEVEL(victim)), 20));
+
+  int mod = BOUNDED(0, (GET_LEVEL(ch) - GET_LEVEL(victim)), 20);
   if(!NewSaves(victim, SAVING_SPELL, mod))
+  {
       dam = (int)(dam * 1.30);
+  }
     
   if(!NewSaves(victim, SAVING_SPELL, (int)(mod / 3)) &&
      !IS_BLIND(victim))

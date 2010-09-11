@@ -991,6 +991,9 @@ void spell_psychic_crush(int level, P_char ch, char *arg, int type, P_char victi
   
   dam = dice(level * 2, 9) + number(1, 20);
 
+  if(!NewSaves(victim, SAVING_SPELL, 0))
+     dam = (int)(dam * 1.15);
+  
   if (GET_SPEC(ch, CLASS_PSIONICIST, SPEC_ENSLAVER))
      dam = (int)(dam * 1.10);
 

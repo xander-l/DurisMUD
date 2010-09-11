@@ -1046,7 +1046,6 @@ void spell_spirit_anguish(int level, P_char ch, char *arg, int type,
 void spell_gaseous_cloud(int level, P_char ch, char *arg, int type,
                          P_char victim, P_obj obj)
 {
-  int  dam, was_poisoned;
   struct affected_type af;
   struct damage_messages messages = {
     "&+GWith a wave of your hand, you cause $N &+Gto choke painfully on your &+ggaseous cloud&n.",
@@ -1063,9 +1062,9 @@ void spell_gaseous_cloud(int level, P_char ch, char *arg, int type,
      !IS_ALIVE(victim))
         return;
 
-  dam = dice(level * 3, 6);
+  int dam = dice(level * 3, 6);
   
-  int mod = MAX(0, (int)((GET_LEVEL(ch) - GET_LEVEL(victim)), 20));
+  int mod = BOUNDED(0, (GET_LEVEL(ch) - GET_LEVEL(victim)), 20);
 
   if(NewSaves(victim, SAVING_BREATH, mod))
     dam = (int) (dam * 0.75);
@@ -1074,7 +1073,7 @@ void spell_gaseous_cloud(int level, P_char ch, char *arg, int type,
   
   if(spell_damage(ch, victim, dam, SPLDAM_GAS, 0, &messages) == DAM_NONEDEAD)
   {
-    was_poisoned = affected_by_spell(victim, SPELL_POISON);
+    int was_poisoned = affected_by_spell(victim, SPELL_POISON);
 
     if(!IS_GREATER_RACE(victim) &&
        (GET_RACE(victim) != RACE_PLANT) &&
@@ -1099,7 +1098,7 @@ void spell_gaseous_cloud(int level, P_char ch, char *arg, int type,
 void spell_arieks_shattering_iceball(int level, P_char ch, char *arg,
                                      int type, P_char victim, P_obj object)
 {
-  int mod, dam, in_room, room;
+  int room;
   P_obj    obj;
   struct damage_messages messages = {
     "Your &+Ciceball&n shatters upon impacting $N&n, rending flesh and sending blood flying.",
@@ -1117,11 +1116,12 @@ void spell_arieks_shattering_iceball(int level, P_char ch, char *arg,
      ch->in_room != victim->in_room)
       return;
   
-  mod = MAX(0, (int)((GET_LEVEL(ch) - GET_LEVEL(victim)), 20));
   
 // A little less than sunray but without the blinding + larger damage fork
-  dam = dice(level * 3, 5) + number(1, 80); 
+  int dam = dice(level * 3, 5) + number(1, 80); 
 
+  int mod = BOUNDED(0, (GET_LEVEL(ch) - GET_LEVEL(victim)), 20);
+  
   if(!NewSaves(victim, SAVING_SPELL, mod))
     dam = (int) (dam * 1.30);
 
