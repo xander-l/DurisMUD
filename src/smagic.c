@@ -1068,7 +1068,7 @@ void spell_gaseous_cloud(int level, P_char ch, char *arg, int type,
   int mod = MAX(0, (int)((GET_LEVEL(ch) - GET_LEVEL(victim)), 20));
 
   if(NewSaves(victim, SAVING_BREATH, mod))
-    dam = (int) (dam * 0.66);
+    dam = (int) (dam * 0.75);
 
   do_point(ch, victim);
   
@@ -1119,11 +1119,11 @@ void spell_arieks_shattering_iceball(int level, P_char ch, char *arg,
   
   mod = MAX(0, (int)((GET_LEVEL(ch) - GET_LEVEL(victim)), 20));
   
-// A little less than sunray but without the blinding. Sunray does less damage indoors, too.
-  dam = dice((int)(level * 2.3), 5); 
+// A little less than sunray but without the blinding + larger damage fork
+  dam = dice(level * 3, 5) + number(1, 80); 
 
   if(!NewSaves(victim, SAVING_SPELL, mod))
-    dam = (int) (dam * 1.10);
+    dam = (int) (dam * 1.30);
 
   do_point(ch, victim);
   

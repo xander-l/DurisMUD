@@ -6319,10 +6319,10 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
     {
       return hit(ch, mount, weapon);
     }
-    else if (is_natural_mount(victim, mount) && (GET_LEVEL(victim) * 0.3 > number(0, 100))) // for natural mounts skill is equal to level
+    /*else if (is_natural_mount(victim, mount) && (GET_LEVEL(victim) * 0.3 > number(0, 100))) // for natural mounts skill is equal to level
     {
       return hit(ch, mount, weapon);
-    }
+    }*/
   }
 
   if (!can_hit_target(ch, victim))
@@ -7228,7 +7228,7 @@ void set_fighting(P_char ch, P_char vict)
   }
   if (P_char mount = get_linked_char(ch, LNK_RIDING))
   {
-      if (!GET_CHAR_SKILL(ch, SKILL_MOUNTED_COMBAT) && !is_natural_mount(ch, mount))
+      if (!GET_CHAR_SKILL(ch, SKILL_MOUNTED_COMBAT)/* && !is_natural_mount(ch, mount)*/)
       {
         send_to_char("I'm afraid you aren't quite up to mounted combat.\r\n", ch);
         act("$n quickly slides off $N's back.", TRUE, ch, 0, mount, TO_NOTVICT);

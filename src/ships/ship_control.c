@@ -251,7 +251,8 @@ int order_maneuver(P_char ch, P_ship ship, char* arg)
             obj_to_room(SHIP_OBJ(ship), ship->location);
             send_to_room_f(ship->location, "%s &Nmaneuvers in from the %s.\r\n", ship->name, dirs[rev_dir[dir]]);
             act_to_all_in_ship_f(ship, "Your ship manuevers to the %s.", dirs[dir]);
-            ship->timer[T_MANEUVER] = 5;
+            if (!IS_TRUSTED(ch))
+                ship->timer[T_MANEUVER] = 5;
             everyone_look_out_ship(ship);
             if (IS_SET(world[ship->location].room_flags, DOCKABLE))
             {

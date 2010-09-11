@@ -598,6 +598,7 @@ extern const char *ship_symbol[NUM_SECT_TYPES];
 #define IS_NPC_SHIP(shipdata) ((shipdata)->race == NPCSHIP)
 #define IS_MERCHANT(shipdata) (SHIPTYPE_KIND((shipdata)->m_class) == SHK_MERCHANT)
 #define IS_WARSHIP(shipdata) (SHIPTYPE_KIND((shipdata)->m_class) == SHK_WARSHIP)
+#define HAS_VALID_TARGET(shipdata) ((shipdata->target != 0) && (!SHIP_SINKING(shipdata->target)) && (shipdata->target->race != shipdata->race))
 
 //Cargo related stuff
 #define SHIP_MAX_CARGO(shipdata) ((int)(SHIPTYPE_CARGO(SHIP_CLASS(shipdata)) * shipdata->crew.get_maxcargo_mod()))

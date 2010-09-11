@@ -1299,7 +1299,7 @@ void ship_activity()
                         if (ship->repair == 0)
                             act_to_all_in_ship(ship, "&+RThe ship is out of repair materials!.&N");
                         ship->crew.reduce_stamina(3, ship);
-                        ship->crew.rpar_skill_raise((ship->timer[T_BSTATION] > 0 && ship->target && !SHIP_SINKING(ship->target) && ship->target->race != ship->race) ? 0.1 : 0.01);
+                        ship->crew.rpar_skill_raise((ship->timer[T_BSTATION] > 0 && HAS_VALID_TARGET(ship)) ? 0.1 : 0.01);
                         update_ship_status(ship);
                     }
                 } 
@@ -1327,7 +1327,7 @@ void ship_activity()
                                 if (ship->repair == 0)
                                     act_to_all_in_ship(ship, "&+RThe ship is out of repair materials!.&N");
                                 ship->crew.reduce_stamina(1, ship);
-                                ship->crew.rpar_skill_raise((ship->timer[T_BSTATION] > 0 && ship->target && !SHIP_SINKING(ship->target) && ship->target->race != ship->race) ? 0.1 : 0.01);
+                                ship->crew.rpar_skill_raise((ship->timer[T_BSTATION] > 0 && HAS_VALID_TARGET(ship)) ? 0.1 : 0.01);
                             }
                         }
                     }
@@ -1367,7 +1367,7 @@ void ship_activity()
                             if (ship->repair == 0)
                                 act_to_all_in_ship(ship, "&+RThe ship is out of repair materials!.&N");
                             ship->crew.reduce_stamina(2, ship);
-                            ship->crew.rpar_skill_raise((ship->timer[T_BSTATION] > 0 && ship->target && !SHIP_SINKING(ship->target) && ship->target->race != ship->race) ? 0.1 : 0.01);
+                            ship->crew.rpar_skill_raise((ship->timer[T_BSTATION] > 0 && HAS_VALID_TARGET(ship)) ? 0.1 : 0.01);
                             update_ship_status(ship);
                         }
                     }
@@ -1397,7 +1397,7 @@ void ship_activity()
                                 if (ship->armor == 0)
                                     act_to_all_in_ship(ship, "&+RThe ship is out of repair materials!.&N");
                                 ship->crew.reduce_stamina(4, ship);
-                                ship->crew.rpar_skill_raise((ship->timer[T_BSTATION] > 0 && ship->target && !SHIP_SINKING(ship->target) && ship->target->race != ship->race) ? 0.1 : 0.01);
+                                ship->crew.rpar_skill_raise((ship->timer[T_BSTATION] > 0 && HAS_VALID_TARGET(ship)) ? 0.1 : 0.01);
                                 update_ship_status(ship);
                             }
                         }
@@ -1649,7 +1649,7 @@ void ship_activity()
                             }
                             // affect crew stamina
                             ship->crew.reduce_stamina((float)weapon_data[ship->slot[j].index].weight / SHIP_HULL_MOD(ship), ship);
-                            if (ship->target && !SHIP_SINKING(ship->target) && ship->race != ship->target->race)
+                            if (HAS_VALID_TARGET(ship))
                                 ship->crew.guns_skill_raise(0.003);
                         }
                     }

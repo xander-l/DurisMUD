@@ -1181,7 +1181,7 @@ int fire_weapon(P_ship ship, int w_num, int t_contact, int hit_chance, P_char ch
 
     // reducing crew stamina
     ship->crew.reduce_stamina((float)weapon_data[w_index].weight / (SHIP_HULL_MOD(ship) / 10.0), ship);
-    if (ship->race != target->race && !SHIP_SINKING(target))
+    if (HAS_VALID_TARGET(ship))
         ship->crew.guns_skill_raise(0.1);
 
     return TRUE;

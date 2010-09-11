@@ -713,8 +713,6 @@ int wagon_exit_room(int room, P_char ch, int cmd, char *arg)
 
 bool is_natural_mount(P_char ch, P_char mount)
 {
-  return false; // Disabling per Kitsero.
-
     if (IS_GOBLIN(ch) && isname("warg", GET_NAME(mount)))
         return true;
     return false; // TODO
