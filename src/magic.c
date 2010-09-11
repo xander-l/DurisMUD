@@ -11263,7 +11263,7 @@ void spell_mend_soul(int level, P_char ch, char *arg, int type,
     act
       ("$N chants something odd and takes a look at $n, a weird look in $S eyes.",
        TRUE, ch, 0, victim, TO_NOTVICT);
-    act("Um... $N isn't undead...", TRUE, ch, 0, victim, TO_CHAR);
+    act("Um... $N isn't angelic...", TRUE, ch, 0, victim, TO_CHAR);
     return;
   }
   spell_cure_blind(level, ch, NULL, SPELL_TYPE_SPELL, victim, obj);
