@@ -11919,7 +11919,7 @@ void spell_turn_undead(int level, P_char ch, char *arg, int type, P_char tch,
   {
     next = victim->next_in_room;
 
-    if(IS_UNDEADRACE(victim) && should_area_hit(ch, victim))
+    if((IS_UNDEADRACE(victim) || IS_ANGEL(victim)) && should_area_hit(ch, victim))
     {
       diff = level - GET_LEVEL(victim);
       if(diff <= 0 && !IS_PC_PET(victim))
@@ -18808,7 +18808,8 @@ void spell_single_banish(int level, P_char ch, char *arg, int type, P_char victi
   if(chance > number(1,100))
   {
   
-    if(IS_UNDEADRACE(victim))
+    if(IS_UNDEADRACE(victim) ||
+	IS_ANGEL(victim))
     {
       act("You break the binding energies and watch as $N crumbles to dust.", FALSE, ch, 0, victim, TO_CHAR);
       act("$N &+Lsuddenly becomes lifeless once more and crumbles to dust.&n", FALSE, ch, 0, victim, TO_NOTVICT);
@@ -18868,7 +18869,7 @@ bool can_banish(P_char ch, P_char victim)
     if(mob_index[GET_RNUM(victim)].virtual_number == 250 || 
        mob_index[GET_RNUM(victim)].virtual_number == 63)
     {
-      return TRUE;
+      return true;
     }
     
     if(GET_RACE(victim) == RACE_E_ELEMENTAL &&
@@ -18897,6 +18898,19 @@ bool can_banish(P_char ch, P_char victim)
     {
       send_to_char("This is the water plane. Your banish spell fails!", ch);
       return false;
+    }
+    
+    if(IS_ANGEL(victim))
+    {
+      if(world[victim->in_room].sector_type == SECT_ETHEREAL)
+      {      
+        send_to_char("This is the ethereal plane. Your banish spell fails!", ch);
+        return false;
+      }
+      else
+      {
+        return true;
+      }
     }
     
     if(IS_UNDEADRACE(victim))
