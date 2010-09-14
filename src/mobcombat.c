@@ -941,7 +941,7 @@ bool DragonCombat(P_char ch, int awe)
      * 6  panic flee, no save 7-18  save vs para at +1 or flee in
      * terror 19-50  save vs para at -2 or flee
      */
-    if (!IS_DRAGON(ch))
+    if (!IS_DRAGON(ch) && !IS_TITAN(ch) && !IS_AVATAR(ch))
     {                           
       send_to_char("No roaring for you, bud.\r\n", ch);
       return FALSE;
