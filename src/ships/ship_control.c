@@ -309,7 +309,7 @@ int order_ram(P_char ch, P_ship ship, char* arg)
     {
         if (IS_SET(ship->flags, RAMMING)) 
         {
-            act_to_all_in_ship(ship, "&+WStand down from ramming speed!");
+            act_to_all_in_ship(ship, "&+WYour crew has returned to their battle stations!");
             REMOVE_BIT(ship->flags, RAMMING);
             return TRUE;
         } 
@@ -321,7 +321,7 @@ int order_ram(P_char ch, P_ship ship, char* arg)
     } 
     else 
     {
-        send_to_char("Syntax: order ram or order ram off\r\n", ch);
+        send_to_char("Valid syntax: order ram [off]\r\n", ch);
         return TRUE;
     }
 }
@@ -1307,7 +1307,7 @@ int claim_coffer(P_char ch, P_ship ship)
 
 int do_commands_help(P_ship ship, P_char ch)
 {
-    send_to_char("Valid info commands:\r\n", ch);
+    send_to_char("Info commands:\r\n", ch);
     send_to_char(" look commands\r\n", ch);
     send_to_char(" look ship/status\r\n", ch);
     send_to_char(" look crew\r\n", ch);
@@ -1317,7 +1317,7 @@ int do_commands_help(P_ship ship, P_char ch)
     send_to_char(" look tactical [<x> <y>]\r\n", ch);
     send_to_char(" scan [<id>]\r\n\r\n", ch);
 
-    send_to_char("Valid control commands:\r\n", ch);
+    send_to_char("Control commands:\r\n", ch);
     send_to_char(" order heading <N/E/S/W/NW/NE/SW/SE/heading>\r\n", ch);
     send_to_char(" order speed <speed>:\r\n", ch);
     send_to_char(" order sail <N/E/S/W/heading/off> <distance>:\r\n", ch);
@@ -1329,7 +1329,7 @@ int do_commands_help(P_ship ship, P_char ch)
     send_to_char(" order signal <id> <message>\r\n", ch);
     send_to_char(" get coins/money\r\n\r\n", ch);
 
-    send_to_char("Valid combat commands:\r\n", ch);
+    send_to_char("Combat commands:\r\n", ch);
     send_to_char(" lock <id>/off\r\n", ch);
     send_to_char(" look sight/weapon <weapon>\r\n", ch);
     send_to_char(" fire <weapon/fore/rear/port/starboard>\r\n", ch);

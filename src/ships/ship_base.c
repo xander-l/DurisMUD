@@ -1222,7 +1222,7 @@ void ship_activity()
         }
         if (ship->timer[T_RAM] == 1)
         {
-            act_to_all_in_ship(ship, "Your ship has recovered from ram impact.&N");
+            act_to_all_in_ship(ship, "Your crew has returned to their battle stations.");
         }
         if (ship->timer[T_MINDBLAST] == 1) 
         {

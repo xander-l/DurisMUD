@@ -989,12 +989,20 @@ int try_ram_ship(P_ship ship, P_ship target, float tbearing)
         stun_all_in_ship(target, PULSE_VIOLENCE);
         act_to_all_in_ship(ship, " &+YThe impact knocks you off your feet!&N");
         stun_all_in_ship(ship, PULSE_VIOLENCE);
+
+
+        // Setting ram timers for successful ram
+        float whole_crew_mod = (ship->crew.sail_mod_applied + ship->crew.guns_mod_applied + ship->crew.rpar_mod_applied) / 3.0;
+        ship->timer[T_RAM]         = MAX(1, (int)(50.0 * (1.0 - whole_crew_mod * 0.15)));
+        ship->timer[T_RAM_WEAPONS] = MAX(1, (int)(25.0 * (1.0 - ship->crew.guns_mod_applied * 0.15)));
+    }
+    else
+    {
+        // Setting ram timers for failed ram
+        float whole_crew_mod = (ship->crew.sail_mod_applied + ship->crew.guns_mod_applied + ship->crew.rpar_mod_applied) / 3.0;
+        ship->timer[T_RAM]         = MAX(1, (int)(25.0 * (1.0 - whole_crew_mod * 0.15)));
     }
 
-    // Setting ram timers
-    float whole_crew_mod = (ship->crew.sail_mod_applied + ship->crew.guns_mod_applied + ship->crew.rpar_mod_applied) / 3.0;
-    ship->timer[T_RAM]         = MAX(1, (int)(50.0 * (1.0 - whole_crew_mod * 0.15)));
-    ship->timer[T_RAM_WEAPONS] = MAX(1, (int)(25.0 * (1.0 - ship->crew.guns_mod_applied * 0.15)));
 
     if (IS_SET(ship->flags, RAMMING)) REMOVE_BIT(ship->flags, RAMMING);
     update_ship_status(target, ship);

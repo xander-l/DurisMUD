@@ -1672,7 +1672,7 @@ int salvage_cargo(P_char ch, P_ship ship, int crates)
     }
     if (i == 0)
     {
-        if (ch) send_to_char("There is not nothing to pick up here.\r\n", ch);
+        if (ch) send_to_char("There is not nothing to salvage here.\r\n", ch);
         return TRUE;
     }
     if (ch) send_to_char_f(ch, "Your crew hooks %d crates from the ocean surface.\r\n", i);
