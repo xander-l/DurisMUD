@@ -90,6 +90,7 @@ extern struct mm_ds *dead_mob_pool;
 extern struct mm_ds *dead_pconly_pool;
 
 void affect_to_end(P_char ch, struct affected_type *af);
+int conjure_terrain_check(P_char, P_char);
 
 int      portal_id;
 extern bool identify_random(P_obj);
@@ -1831,6 +1832,7 @@ void spell_conjour_elemental(int level, P_char ch, char *arg, int type,
   int      life = GET_CHAR_SKILL(ch, SKILL_INFUSE_LIFE);
   int      charisma = GET_C_CHA(ch) + (GET_LEVEL(ch) / 5);
   int      sum, mlvl, lvl, duration, room = ch->in_room;
+  int      good_terrain = 0;
   static struct
   {
     const int mob_number;
@@ -1928,14 +1930,10 @@ void spell_conjour_elemental(int level, P_char ch, char *arg, int type,
     SET_BIT(mob->specials.affected_by, AFF_INFRAVISION);
   }
 
-  if(ch->player.spec == 2 &&
-    (IS_WATER_ROOM(room) ||
-    world[room].sector_type == SECT_OCEAN))
+  good_terrain = conjure_terrain_check(ch, mob);
+
+  if(good_terrain == 1)
   {
-    act("$N &+Labsorbs vast quantities of &+Bwater &+Lfrom the surrounding area!",
-      TRUE, ch, 0, mob, TO_ROOM);
-    act("$N &+Labsorbs vast quantities of &+Bwater &+Lfrom the surrounding area!",
-      TRUE, ch, 0, mob, TO_CHAR);
 
     if(IS_SET(mob->specials.affected_by2, AFF2_SLOW))
     {
@@ -2195,12 +2193,133 @@ bool can_conjure_greater_elem(P_char ch, int level)
   return TRUE;
 }
 
+/* The conjure_terrain_check() function checks if it is a specialized conjurer  */
+/* trying to conjure on terrain appropriate for the elemental type, and handles */
+/* appropriate messages. Bonuses/maluses themselves are attributed in the       */
+/* conjour_elemental() and conjure_specialized() functions.                     */
+/* Return values from this function are:                                        */
+/* -1 - bad terrain for the elemental type                                      */
+/* 0 - neutral terrain                                                          */ 
+/* 1 - good terrain for the conjurer elemental type                             */
+
+int conjure_terrain_check(P_char ch, P_char mob)
+{
+  int room = ch->in_room;
+
+  if (!ch || !mob || !IS_ALIVE(ch))
+    return 0;
+
+  if (!GET_CLASS(ch, CLASS_CONJURER))
+	  return 0;
+
+  if (!ch->player.spec)
+	  return 0;
+
+  switch (ch->player.spec)
+  {
+	case 1: /* AIR conjurer*/
+
+	if (world[room].sector_type == SECT_AIR_PLANE)
+	{
+	  act("$N &+Labsorbs vast quantities of &+Cair &+Lfrom the surrounding area!",
+          TRUE, ch, 0, mob, TO_ROOM);
+    act("$N &+Labsorbs vast quantities of &+Cair &+Lfrom the surrounding area!",
+          TRUE, ch, 0, mob, TO_CHAR);
+	  return 1;
+	}
+	else if (world[room].sector_type == SECT_EARTH_PLANE)
+	{
+	  act("$N &+Lfeebly tries to draw &+Cair &+Lbut there is so little...",
+          TRUE, ch, 0, mob, TO_ROOM);
+    act("$N &+Lfeebly tries to draw &+Cair &+Lbut there is so little...",
+          TRUE, ch, 0, mob, TO_CHAR);
+      return -1;
+	}
+	else		
+	  return 0;
+
+	break;
+
+	case 2: /* WATER conjurer*/
+
+    if (IS_FIRE(room) || world[room].sector_type == SECT_FIREPLANE)
+	{
+	  act("$N &+rfeebly tries to draw &+Bwater &+Lbut there is so little...",
+          TRUE, ch, 0, mob, TO_ROOM);
+    act("$N &+rfeebly tries to draw &+Bwater &+Lbut there is so little...",
+          TRUE, ch, 0, mob, TO_CHAR);
+      return -1;
+	}
+    else if (IS_WATER_ROOM(room) || world[room].sector_type == SECT_OCEAN)
+	{
+	  act("$N &+Labsorbs vast quantities of &+Bwater &+Lfrom the surrounding area!",
+          TRUE, ch, 0, mob, TO_ROOM);
+    act("$N &+Labsorbs vast quantities of &+Bwater &+Lfrom the surrounding area!",
+          TRUE, ch, 0, mob, TO_CHAR);
+	  return 1;
+	}
+    else
+      return 0;
+
+	break;
+
+	case 3: /* FIRE conjurer*/
+
+	if (IS_FIRE(room) || world[room].sector_type == SECT_FIREPLANE)
+	{
+	  act("$N &+Labsorbs vast quantities of &+Rfire &+Lfrom the surrounding area!",
+          TRUE, ch, 0, mob, TO_ROOM);
+    act("$N &+Labsorbs vast quantities of &+Rfire &+Lfrom the surrounding area!",
+          TRUE, ch, 0, mob, TO_CHAR);
+      return 1;
+	}
+    else if (IS_WATER_ROOM(room) || world[room].sector_type == SECT_OCEAN)
+	{
+	  act("$N &+bfeebly tries to draw &+Rfire &+bbut there is so little...",
+          TRUE, ch, 0, mob, TO_ROOM);
+    act("$N &+bfeebly tries to draw &+Rfire &+bbut there is so little...",
+          TRUE, ch, 0, mob, TO_CHAR);
+      return -1;
+	}
+    else
+      return 0;
+
+    break;
+
+	case 4: /* EARTH conjurer*/
+		
+	if (world[room].sector_type == SECT_EARTH_PLANE)
+	{
+	  act("$N &+Labsorbs vast quantities of &+yearth &+Lfrom the surrounding area!",
+          TRUE, ch, 0, mob, TO_ROOM);
+    act("$N &+Labsorbs vast quantities of &+yearth &+Lfrom the surrounding area!",
+          TRUE, ch, 0, mob, TO_CHAR);
+	  return 1;
+	}
+	else if (world[room].sector_type == SECT_AIR_PLANE)
+	{
+	  act("$N &+Lfeebly tries to draw &+yearth &+Lbut there is so little...",
+          TRUE, ch, 0, mob, TO_ROOM);
+    act("$N &+Lfeebly tries to draw &+yearth &+Lbut there is so little...",
+          TRUE, ch, 0, mob, TO_CHAR);
+	  return -1;
+	}
+	else		
+	  return 0;
+
+	break;
+  }
+
+  return 0;
+}
+
 void conjure_specialized(P_char ch, int level)
 {
   P_char   mob;
   int      summoned, room;
   int      life = GET_CHAR_SKILL(ch, SKILL_INFUSE_LIFE);
   int      charisma = GET_C_CHA(ch) + (GET_LEVEL(ch) / 5);
+  int      good_terrain = 0;
   char    *summons[] = {
     "&+CA HUGE gust of wind solidifies into&n $n.",
     "$n &+Bforms from a nearby lake in front of you.",
@@ -2291,27 +2410,17 @@ void conjure_specialized(P_char ch, int level)
     pets[summoned].damroll + number(0, 5);
   MonkSetSpecialDie(mob);
   mob->points.damsizedice = (int)(0.8 * mob->points.damsizedice);
+
+  good_terrain = conjure_terrain_check(ch, mob);
   
-  if(GET_SPEC(ch, CLASS_CONJURER, SPEC_WATER) &&
-     (IS_FIRE(room) ||
-     world[room].sector_type == SECT_FIREPLANE))
+  if(good_terrain == -1)
   {
-    act("$N &+rfeebly tries to draw &+Bwater &+Lbut there is so little...",
-      TRUE, ch, 0, mob, TO_ROOM);
-    act("$N &+rfeebly tries to draw &+Bwater &+Lbut there is so little...",
-      TRUE, ch, 0, mob, TO_CHAR);
     GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit =
       (int) (50 + number(1, 100) + (life * 2) + (charisma));
     GET_SIZE(mob) = SIZE_MEDIUM;
   }
-  else if(GET_SPEC(ch, CLASS_CONJURER, SPEC_WATER) &&
-          (IS_WATER_ROOM(room) ||
-          world[room].sector_type == SECT_OCEAN))
+  else if(good_terrain == 1)
   {
-    act("$N &+Labsorbs vast quantities of &+Bwater &+Lfrom the surrounding area!",
-      TRUE, ch, 0, mob, TO_ROOM);
-    act("$N &+Labsorbs vast quantities of &+Bwater &+Lfrom the surrounding area!",
-      TRUE, ch, 0, mob, TO_CHAR);
 
     if(IS_SET(mob->specials.affected_by2, AFF2_SLOW))
     {

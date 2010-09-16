@@ -988,6 +988,21 @@ void chant_jin_touch(P_char ch, char *argument, int cmd)
 
   debug("(%s) jin skill is (%d).", GET_NAME(ch), skl_lvl);
 
+  if(IS_FIGHTING(ch))
+    vict = ch->specials.fighting;
+  else if (argument)
+  {
+    one_argument(argument, name);
+    vict = get_char_room_vis(ch, name);
+  }
+  
+  if(!vict ||
+     !IS_ALIVE(vict))
+  {
+    send_to_char("&+GChant on whom?\r\n", ch);
+    return;
+  }
+  
   if(number(1, 50) > skl_lvl)
   {
     send_to_char("You forgot the words for the chant.\r\n", ch);
@@ -1003,21 +1018,6 @@ void chant_jin_touch(P_char ch, char *argument, int cmd)
       }
     }
 
-    return;
-  }
-  
-  if(IS_FIGHTING(ch))
-    vict = ch->specials.fighting;
-  else if (argument)
-  {
-    one_argument(argument, name);
-    vict = get_char_room_vis(ch, name);
-  }
-  
-  if(!vict ||
-     !IS_ALIVE(vict))
-  {
-    send_to_char("&+GChant on whom?\r\n", ch);
     return;
   }
   

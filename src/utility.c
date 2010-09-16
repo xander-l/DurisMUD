@@ -2301,7 +2301,9 @@ bool StatSave(P_char ch, int stat, int mod)
    * change this when adding other stats
    */
   if ((stat != APPLY_AGI) && (stat != APPLY_INT) &&
-      (stat != APPLY_POW) && (stat != APPLY_DEX))
+      (stat != APPLY_POW) && (stat != APPLY_DEX) &&
+	  (stat != APPLY_CON) && (stat != APPLY_WIS) &&
+	  (stat != APPLY_STR))
     return FALSE;
 
   switch (stat)
@@ -2340,7 +2342,7 @@ bool StatSave(P_char ch, int stat, int mod)
      * there are a few bonuses
      */
     if (IS_AFFECTED(ch, AFF_FLY) || IS_AFFECTED(ch, AFF_LEVITATE))
-      save_num += 3;
+      save_num += 1;
     break;
 
   case APPLY_DEX:
@@ -2350,7 +2352,7 @@ bool StatSave(P_char ch, int stat, int mod)
       save_num += 10;
 
     if (IS_AFFECTED(ch, AFF_HASTE))
-      save_num += 5;
+      save_num += 2;
 
     if (IS_AFFECTED2(ch, AFF2_SLOW))
       save_num /= 2;
@@ -2384,12 +2386,21 @@ bool StatSave(P_char ch, int stat, int mod)
     if (has_innate(ch, INNATE_QUICK_THINKING))
       save_num += 5;
     break;
+  case APPLY_CON:
+    save_num = STAT_INDEX(GET_C_CON(ch)) + mod;
+    break;
+  case APPLY_WIS:
+    save_num = STAT_INDEX(GET_C_WIS(ch)) + mod;
+    break;
+  case APPLY_STR:
+    save_num = STAT_INDEX(GET_C_STR(ch)) + mod;
+    break;
   default:
     return FALSE;
     break;
   }
 
-  return (number(1, 20) < BOUNDED(1, save_num, 20));
+  return (number(1, 21) < BOUNDED(1, save_num, 20));
 }
 
 /*

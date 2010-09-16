@@ -1811,7 +1811,8 @@ void justice_action_invader(P_char ch)
   if(IS_INVADER(ch))
   {
     if((GET_RACEWAR(ch) == RACEWAR_EVIL) &&
-      !(number(0, 9)))
+      !(number(0, 9)) &&
+      get_property("justice.alarms.good", 1.000))
     { 
       int rnum = number(1, 4);
       if(rnum == 1)
@@ -1826,7 +1827,8 @@ void justice_action_invader(P_char ch)
       return;
     }
     else if((GET_RACEWAR(ch) == RACEWAR_GOOD) &&
-              !number(0, 32))
+              !number(0, 32) &&
+	      (int)get_property("justice.alarms.evil", 0.000))
     {
       justice_hometown_echo(CHAR_IN_TOWN(ch), "&+yHorns begin to &+Ybellow &+yand drums &+cthunder&n &+yto the &+RCall to Arms!&n");
       return;

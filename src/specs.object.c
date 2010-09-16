@@ -6998,46 +6998,46 @@ int wall_generic(P_obj obj, P_char ch, int cmd, char *arg)
     sprintf(buffer, "$n &+Ris surrounded by flames as $e goes to the %s.",
             dirs[dircmd]);
     act(buffer, TRUE, ch, obj, NULL, TO_ROOM);
-
-    if (GET_RACE(ch) != RACE_F_ELEMENTAL)
+/* XXX */
+    if (!ENJOYS_FIRE_DAM(ch))
+	{
       send_to_char("&+RYou enter into a wall of flames...OUCH!&n\n", ch);
 
-    if (IS_AFFECTED(ch, AFF_PROT_FIRE) && (GET_RACE(ch) != RACE_F_ELEMENTAL))
-      dam /= 3;
+      if (IS_AFFECTED(ch, AFF_PROT_FIRE))
+          dam /= 3;
 
-    if (IS_NPC(ch) && !IS_MORPH(ch))
-      dam = 1;
+      if (IS_NPC(ch) && !IS_MORPH(ch) && !IS_PC_PET(ch))
+        dam = 1;
 
-    if (((GET_HIT(ch) - 8) < dam) && (GET_RACE(ch) != RACE_F_ELEMENTAL))
-    {
-      send_to_char
-        ("&+RYou are overwhelmed by the heat and&n&+L fall into darkness...\n",
-         ch);
-      do_simple_move_skipping_procs(ch, dircmd, 0);
-      act("$n &+Rfalls through the flames burnt to a crisp!&n", FALSE, ch,
+      if (((GET_HIT(ch) - 8) < dam))
+      {
+        send_to_char
+          ("&+RYou are overwhelmed by the heat and&n&+L fall into darkness...\n", ch);
+        do_simple_move_skipping_procs(ch, dircmd, 0);
+        act("$n &+Rfalls through the flames burnt to a crisp!&n", FALSE, ch,
           obj, NULL, TO_NOTVICT);
-      die(ch, ch);
-      return TRUE;
-    }
+        die(ch, ch);
+        return TRUE;
+      }
 
-    if (IS_NPC(ch) && (GET_RACE(ch) == RACE_F_ELEMENTAL))
-    {
+      GET_HIT(ch) -= dam;
+      spell_blindness(obj->value[4], ch, 0, SPELL_TYPE_SPELL, ch, NULL);
+	  do_simple_move_skipping_procs(ch, dircmd, 0);
+	  act("$n &+Rsteps through the flames!&n", TRUE, ch, NULL, NULL, TO_ROOM);
+    }
+	else
+	{
       send_to_char("&+RYou feel the healing power of the flames!&n\n", ch);
       GET_HIT(ch) = MIN(GET_HIT(ch) + dam, GET_MAX_HIT(ch));
       do_simple_move_skipping_procs(ch, dircmd, 0);
-      act("$n &+Rsteps through the flames grinning!&n", TRUE, ch, NULL, NULL,
-          TO_ROOM);
-      return TRUE;
-    }
+      act("$n &+Rsteps through the flames grinning!&n", TRUE, ch, NULL, NULL, TO_ROOM);
+	}
 
-    GET_HIT(ch) -= dam;
-    spell_blindness(obj->value[4], ch, 0, SPELL_TYPE_SPELL, ch, NULL);
-    do_simple_move_skipping_procs(ch, dircmd, 0);
-    act("$n &+Rsteps through the flames!&n", TRUE, ch, NULL, NULL, TO_ROOM);
     update_pos(ch);
     StartRegen(ch, EVENT_HIT_REGEN);
     drag_followers = TRUE;
     break;
+/* XXX */
 
   case WALL_OF_ICE:
     act("Oof! You bump into $p...", TRUE, ch, obj, 0, TO_CHAR);
