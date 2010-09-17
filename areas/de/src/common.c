@@ -415,6 +415,14 @@ flagDef  affected5_bits[] = {
   {"TITAN FORM", "Titan form", 1, 0},
   {"DELIRIUM", "Delirium", 1, 0},
   {"SHADE_MOVEMENT", "Shade movement", 1, 0},
+  {"NO BLIND", "No blind", 0, 0},
+  {"MAGICAL GLOW", "Magical glow", 0, 0},
+  {"REFRESHING GLOW", "Refreshing glow", 0, 0},
+  {"MINE", "Mine", 1, 0},
+  {"STANCE OFFENSIVE", "Stance offensive", 0, 0},
+  {"STANCE DEFENSIVE", "Stance defensive", 0, 0},
+  {"OBSCURING MIST", "Obscuring mist", 1, 0},
+  {"NOT OFFENSIVE", "Non-offensive", 0, 0},
   {0}
 };
 

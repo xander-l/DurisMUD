@@ -8287,6 +8287,31 @@ void spell_blur(int level, P_char ch, char *arg, int type, P_char victim,
   return;
 }
 
+
+void spell_miners_sight(int level, P_char ch, char *arg, int type, P_char victim,
+                 P_obj obj)
+{
+  if (IS_AFFECTED5(ch, AFF5_MINE))
+  {
+    if (ch == victim)
+      send_to_char("You are already under the influence of miners sight.\r\n", ch);
+    act("$N is already under the influence of miners sight.", TRUE, ch, 0, victim, TO_CHAR);
+    return;
+  }
+  
+  if (!affected_by_spell(victim, SPELL_MINER))
+  {
+    act("A faint glimmer passes across your eyes as you feel your ability to detect minerals improve.", FALSE, ch, 0, victim, TO_CHAR);
+    //act("A faint glimmer passes across $N eyes as $S ability to detect minerals improve.", FALSE, ch, 0, victim, TO_CHAR);
+    struct affected_type af;
+    bzero(&af, sizeof(af));
+    af.type = SPELL_MINER;
+    af.bitvector5 = AFF5_MINE;
+    af.duration = number(5, 7);
+    affect_to_char(victim, &af);
+  }
+}
+
 void spell_haste(int level, P_char ch, char *arg, int type, P_char victim,
                  P_obj obj)
 {

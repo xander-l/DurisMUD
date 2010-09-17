@@ -629,6 +629,7 @@ int get_circle_memtime(P_char ch, int circle, bool bStatOnly)
   if(IS_PUNDEAD(ch) ||
      GET_CLASS(ch, CLASS_WARLOCK) ||
      IS_UNDEADRACE(ch) ||
+     IS_ANGEL(ch) ||
      is_wearing_necroplasm(ch))
   {
     return calculate_undead_time(ch, circle, bStatOnly);

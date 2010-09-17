@@ -663,7 +663,8 @@
 #define SPELL_HOLY_BLADE             614
 #define SPELL_HOLY_LIGHT             615
 #define SPELL_CALL_ARCHON            616
-#define LAST_SPELL  SPELL_CALL_ARCHON
+#define SPELL_MINER                  617
+#define LAST_SPELL  SPELL_MINER
 
 #define FIRST_SKILL                  1000  /* should be a decent split point */
 #define SKILL_SNEAK                  1000

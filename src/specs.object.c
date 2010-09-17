@@ -3001,6 +3001,48 @@ int vapor(P_obj obj, P_char ch, int cmd, char *arg)
   }
 // End normal proc.
 
+  if(cmd == CMD_SAY)
+  {
+    if (isname(arg, "ignite") &&
+	!affected_by_spell(ch, SPELL_FIRESHIELD))
+    {
+      act("$n says 'ignite' to $p.", FALSE, ch, obj, 0, TO_ROOM);
+      act("You say 'ignite'", FALSE, ch, 0, 0, TO_CHAR);
+      if (affected_by_spell(ch, SPELL_COLDSHIELD))
+      {
+	act("&+rYou let out a silence scream as the $p &+rfeeds on your life force.&n ",
+          FALSE, ch, obj, 0, TO_CHAR);
+        act("&+r$n lets out a silent scream as the $p &+rfeeds on $m!&n",
+            FALSE, ch, obj, 0, TO_ROOM);
+        GET_HIT(ch) = MAX(1, GET_HIT(ch) - 30);
+	affect_from_char(ch, SPELL_COLDSHIELD);
+      }
+      act("$p &+Yignites &+Linto a &+rf&+Ri&+rr&+Re&+ry &+Lshield of protection!", FALSE, ch, obj, 0, TO_ROOM);
+      act("$p &+Yignites &+Linto a &+rf&+Ri&+rr&+Re&+ry &+Lshield of protection!", FALSE, ch, obj, 0, TO_CHAR);
+      spell_fireshield(55, ch, NULL, SPELL_TYPE_SPELL, ch, 0);
+      return TRUE;
+    }
+    else if (isname(arg, "freeze") &&
+	     !affected_by_spell(ch, SPELL_COLDSHIELD))
+    {
+      act("$n says 'freeze' to $p.", FALSE, ch, obj, 0, TO_ROOM);
+      act("You say 'freeze'", FALSE, ch, 0, 0, TO_CHAR);
+      if (affected_by_spell(ch, SPELL_FIRESHIELD))
+      {
+	act("&+rYou let out a silence scream as the $p &+rfeeds on your life force.&n ",
+          FALSE, ch, obj, 0, TO_CHAR);
+        act("&+r$n lets out a silent scream as the $p &+rfeeds on $m!&n",
+            FALSE, ch, obj, 0, TO_ROOM);
+        GET_HIT(ch) = MAX(1, GET_HIT(ch) - 30);
+	affect_from_char(ch, SPELL_FIRESHIELD);
+      }
+      act("$p &+Cfreezes &+Linto a &+cc&+Ch&+ci&+Cl&+cl&+Ci&+cn&+Cg &+Lshield of protection!", FALSE, ch, obj, 0, TO_ROOM);
+      act("$p &+Cfreezes &+Linto a &+cc&+Ch&+ci&+Cl&+cl&+Ci&+cn&+Cg &+Lshield of protection!", FALSE, ch, obj, 0, TO_CHAR);
+      spell_coldshield(55, ch, NULL, SPELL_TYPE_SPELL, ch, 0);
+      return TRUE;
+    }
+  }
+
   if(cmd == CMD_GOTHIT)
   {
     // recurse self
@@ -3010,7 +3052,7 @@ int vapor(P_obj obj, P_char ch, int cmd, char *arg)
     }
     // It's on body
     if(OBJ_WORN_BY(obj, ch) &&
-      !affected_by_spell(ch, SPELL_COLDSHIELD))
+      !affected_by_spell(ch, SPELL_GLOBE))
     {
       if(IS_PC(ch))
       {
@@ -3020,7 +3062,7 @@ int vapor(P_obj obj, P_char ch, int cmd, char *arg)
             FALSE, ch, obj, 0, TO_ROOM);
         GET_HIT(ch) = MAX(1, GET_HIT(ch) - 30);
       }
-      spell_coldshield(55, ch, NULL, SPELL_TYPE_SPELL, ch, 0);
+      spell_globe(55, ch, NULL, SPELL_TYPE_SPELL, ch, 0);
       return FALSE;
     }
 

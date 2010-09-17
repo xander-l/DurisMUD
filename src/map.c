@@ -342,9 +342,11 @@ int whats_in_maproom(P_char ch, int room, int distance, int show_regardless)
           val = MIN(val, CONTAINS_CORPSE);
         }
       }
-      else if(GET_OBJ_VNUM(obj) == MINE_VNUM && 
-              (( has_innate(ch, INNATE_MINER) && distance < 3 ) ||
-              IS_TRUSTED(ch) ) ) 
+      else if(GET_OBJ_VNUM(obj) == MINE_VNUM &&
+              (( (has_innate(ch, INNATE_MINER) ||
+		  IS_AFFECTED5(ch, AFF5_MINE)) &&
+		 distance < 3 ) ||
+              IS_TRUSTED(ch) ) )
       {
         val = MIN(val, CONTAINS_MINE);
       } 

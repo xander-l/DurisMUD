@@ -2426,6 +2426,7 @@ void spell_unmaking(int, P_char, char *, int, P_char, P_obj);
 void spell_flamestrike(int, P_char, char *, int, P_char, P_obj);
 void spell_full_heal(int, P_char, char *, int, P_char, P_obj);
 void cast_gate(int, P_char, char *, int, P_char, P_obj);
+void spell_miners_sight(int, P_char, char *, int, P_char, P_obj);
 void spell_haste(int, P_char, char *, int, P_char, P_obj);
 void spell_heal(int, P_char, char *, int, P_char, P_obj);
 void spell_natures_touch(int, P_char, char *, int, P_char, P_obj);

@@ -2028,6 +2028,10 @@ SPELL_CREATE("vigorize light", SPELL_VIGORIZE_LIGHT, PULSE_SPELLCAST * 2,
                 TAR_IGNORE | TAR_NOCOMBAT, cast_prismatic_cube);
   SPELL_ADD(CLASS_CONJURER, 11);
 
+  SPELL_CREATE_MSG("miners sight", SPELL_MINER, PULSE_SPELLCAST,
+               TAR_SELF_ONLY | TAR_NOCOMBAT, spell_miners_sight,
+	       "The glimmer in your eyes fades as your vision returns to normal.");
+
   SPELL_CREATE_MSG("haste", SPELL_HASTE, (PULSE_SPELLCAST * 3) / 2,
                TAR_CHAR_ROOM, spell_haste,
                "The world speeds up around you.");

@@ -759,7 +759,9 @@ typedef unsigned int uint;
 #define AFF5_MINE               BIT_21
 #define AFF5_STANCE_OFFENSIVE   BIT_22
 #define AFF5_STANCE_DEFENSIVE   BIT_23
-
+#define AFF5_OBSCURING_MIST     BIT_24
+#define AFF5_NOT_OFFENSIVE      BIT_25
+#define AFF5_MINER              BIT_26
 
 /* modifiers to char's abilities */
 

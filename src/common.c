@@ -972,7 +972,7 @@ flagDef  affected5_bits[] = {
   {"NO BLIND", "No blind", 0, 0},
   {"MAGICAL GLOW", "Magical glow", 0, 0},
   {"REFRESHING GLOW", "Refreshing glow", 0, 0},
-  {"MINE", "Mine", 0, 0},
+  {"MINE", "Mine", 1, 0},
   {"STANCE OFFENSIVE", "Stance offensive", 0, 0},
   {"STANCE DEFENSIVE", "Stance defensive", 0, 0},
   {"OBSCURING MIST", "Obscuring mist", 1, 0},
