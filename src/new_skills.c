@@ -942,7 +942,7 @@ void chant_quivering_palm(P_char ch, char *argument, int cmd)
 
   if (GET_CHAR_SKILL(ch, SKILL_ANATOMY) &&
       5 + GET_CHAR_SKILL(ch, SKILL_ANATOMY)/10 > number(0,100)) {
-    dam = (int) (dam * 1.1);
+    dam = (int) (dam * 1.5);
   }
 
   /*  can't for the life of me figure out why we need 2 messages for this skill...

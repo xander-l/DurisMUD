@@ -345,12 +345,12 @@ int calculate_hitpoints(P_char ch)
   else
   {
     if(toughness < 50)
-      hps += (int) (toughness * get_property("epic.skill.toughness.monk", 0.800));
+      hps += (int) (toughness * get_property("epic.skill.toughness.monk.low", 0.800));
     else if(toughness >= 50 &&
              toughness <= 90)
-      hps += (int) (toughness * get_property("epic.skill.toughness.monk", 1.000));
+      hps += (int) (toughness * get_property("epic.skill.toughness.monk.medium", 1.000));
     else
-      hps += (int) (toughness * get_property("epic.skill.toughness.monk", 1.250));    
+      hps += (int) (toughness * get_property("epic.skill.toughness.monk.high", 1.250));    
   }
   if (hps < 0)
   {
