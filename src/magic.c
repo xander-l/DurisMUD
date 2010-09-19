@@ -1094,7 +1094,7 @@ void spell_energy_drain(int level, P_char ch, char *arg, int type,
       if(affected_by_spell(victim, SPELL_ENERGY_DRAIN))
         moves /= 2;
         
-      GET_VITALITY(victim) -= moves;
+      GET_VITALITY(victim) = MAX(1, (GET_VITALITY(victim) - moves));
       GET_VITALITY(ch) += moves;
       debug("E DRAIN: (%s&n) loses and (%s&n) gained (%d) moves.", 
         J_NAME(victim), J_NAME(ch), moves);
