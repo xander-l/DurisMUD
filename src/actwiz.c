@@ -7947,6 +7947,7 @@ void concat_which_flags(const char *flagType, const char **flagNames, char *buf)
   strcat(buf, "\n\n");
 }
 */
+
 void concat_which_flagsde(const char *flagType, const flagDef flagNames[],
                           char *buf)
 {
@@ -7998,11 +7999,26 @@ bool check_flagsde(int *value, const flagDef flagNames[],
   return TRUE;
 }
 
+bool check_apply(int *value, const char *flagName)
+{
+  int i;
+
+  for ( i = 0; apply_types[i] != NULL &&
+      str_cmp(apply_types[i], flagName); i++) ;
+
+  if (apply_types[i] == NULL)
+    return FALSE;
+
+  *value = i;
+
+  return TRUE;
+}
+
 void do_which(P_char ch, char *args, int cmd)
 {
   typedef enum _whichObjFlagsEnum
   { wear = 0, extra, extra2, anti, anti2, aff, aff2, aff3, aff4,
-    aff5
+    aff5, apply
   } whichObjFlagsEnum;
 
   P_char   t_ch = NULL;
@@ -8134,6 +8150,8 @@ void do_which(P_char ch, char *args, int cmd)
       whichObjFlags = aff4;
     else if (check_flagsde(&i, affected5_bits, arg2))
       whichObjFlags = aff5;
+    else if (check_apply(&i, arg2))
+      whichObjFlags = apply;
     else
     {
       // assume we won't go over max_string_length?  let's see what happens :)
@@ -8150,6 +8168,7 @@ void do_which(P_char ch, char *args, int cmd)
       concat_which_flagsde("Aff3", affected3_bits, buf1);
       concat_which_flagsde("Aff4", affected4_bits, buf1);
       concat_which_flagsde("Aff5", affected5_bits, buf1);
+      //add applies to objects here..
 
       page_string(ch->desc, buf1, 1);
       return;
@@ -8201,6 +8220,14 @@ void do_which(P_char ch, char *args, int cmd)
         found = (t_obj->bitvector5 & w_bit);
         break;
 
+      case apply:
+	for (j = 0; j < 3; j++)
+	{
+	  if (found = (t_obj->affected[j].location == i))
+	    break;
+	}
+	break;
+	
       default:
         found = FALSE;          // shrug
       }
