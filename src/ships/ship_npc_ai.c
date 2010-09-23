@@ -107,6 +107,7 @@ NPCShipAI::NPCShipAI(P_ship s, P_char ch)
     speed_restriction = -1;
     since_last_fired_right = 0;
     target_side = SIDE_REAR;
+    prev_hd = 0;
 
     if (SHIP_HULL_WEIGHT(ship) > 200)
     {
