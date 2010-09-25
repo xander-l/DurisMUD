@@ -14610,7 +14610,7 @@ void spell_resurrect(int level, P_char ch, char *arg, int type, P_char victim,
     resu_exp = obj->value[4];
     if (resu_exp == 0)
     {
-      send_to_char("&-RERROR! Player corpse with zero exp, please notify a god!&n\r\n", ch);
+      //send_to_char("&-RERROR! Player corpse with zero exp, please notify a god!&n\r\n", ch);
       wizlog(56, "MEMORY ERROR: Player corpse with zero exp!");
     }
     
