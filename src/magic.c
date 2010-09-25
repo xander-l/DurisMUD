@@ -11509,7 +11509,8 @@ void spell_prot_undead(int level, P_char ch, char *arg, int type,
   struct affected_type af;
 
   if(!IS_UNDEADRACE(victim) &&
-     !IS_ANGEL(victim))
+     !IS_ANGEL(victim) &&
+     GET_RACE(victim) != RACE_GOLEM)
   {
     send_to_char("The target is not undead!\r\n", ch);
     return;
