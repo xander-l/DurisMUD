@@ -3751,11 +3751,13 @@ void do_headbutt(P_char ch, char *argument, int cmd)
         TO_CHAR);
     return;
   }
+  /*
   if (!HAS_FOOTING(ch))
   {
     send_to_char("You have no footing here!\n", ch);
     return;
   }
+  */
   if (!CanDoFightMove(ch, victim))
     return;
 

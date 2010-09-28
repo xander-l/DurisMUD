@@ -4388,7 +4388,8 @@ int cast_as_damage_area(P_char ch,
       continue;
     if (!is_char_in_room(ch, ch_room))
       break;
-    if (has_innate(tch, INNATE_EVASION))
+    if (has_innate(tch, INNATE_EVASION) &&
+	GET_SPEC(tch, CLASS_MONK, SPEC_WAYOFSNAKE))
     {
       if ((GET_LEVEL(tch) - ((int) get_property("innate.evasion.removechance", 15.000))) > number(1,100))
       {

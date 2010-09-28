@@ -1993,6 +1993,7 @@ void MoveShadower(P_char, int);
 void StopShadowers(P_char);
 void chant_buddha_palm(P_char, char *, int);
 void chant_calm(P_char, char *, int);
+void chant_diamond_soul(P_char, char *, int);
 void chant_heroism(P_char, char *, int);
 void chant_quivering_palm(P_char, char *, int);
 void chant_regenerate(P_char, char *, int);

@@ -302,6 +302,7 @@ void initialize_skills()
   SKILL_ADD(CLASS_DREADLORD, 56, 100);
   SKILL_ADD(CLASS_AVENGER, 56, 100);
   SPEC_SKILL_ADD(CLASS_WARRIOR, 56, 60, SPEC_SWORDSMAN);//Changed from 40 9/25/2008 Zion
+  SPEC_SKILL_ADD(CLASS_WARRIOR, 56, 80, SPEC_SWASHBUCKLER);
   SPEC_SKILL_ADD(CLASS_RANGER, 55, 100, SPEC_BLADEMASTER);
 
   SKILL_CREATE("shield punch", SKILL_SHIELDPUNCH, TAR_PHYS);
@@ -3604,6 +3605,11 @@ SPELL_ADD(CLASS_NONE, 1);
   SKILL_CREATE_WITH_MESSAGES("heroism", SKILL_HEROISM,
                              TAR_MENTAL,
                              "You no longer feel like a hero!", NULL);
+  SKILL_ADD(CLASS_MONK, 1, 100);
+  
+  SKILL_CREATE_WITH_MESSAGES("diamond soul", SKILL_DIAMOND_SOUL,
+                             TAR_MENTAL,
+                             "You no longer feel resistant to magic!", NULL);
   SKILL_ADD(CLASS_MONK, 1, 100);
 
   SKILL_CREATE("chant", SKILL_CHANT, TAR_MENTAL);

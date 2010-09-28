@@ -681,6 +681,71 @@ void chant_calm(P_char ch, char *argument, int cmd)
   CharWait(ch, PULSE_VIOLENCE);
 }
 
+void chant_diamond_soul(P_char ch, char *argument, int cmd)
+{
+  struct affected_type af;
+  char     buf[100];
+  int      skl_lvl = 0;
+  int duration = MAX(5, (GET_LEVEL(ch) / 4)  + 2);
+
+  if (!GET_CLASS(ch, CLASS_MONK) && !IS_TRUSTED(ch))
+  {
+    send_to_char("Try becoming a monk first.\r\n", ch);
+    return;
+  }
+
+  if (!affect_timer(ch,
+	WAIT_SEC * get_property("timer.secs.MonkDiamon", 120),
+	SKILL_DIAMOND_SOUL))
+  {
+    send_to_char("Your mind needs rest...\r\n", ch);
+    return;
+  }
+
+  if(IS_PC(ch) ||
+     IS_PC_PET(ch))
+        skl_lvl = GET_CHAR_SKILL(ch, SKILL_DIAMOND_SOUL);
+  else
+    skl_lvl = GET_LEVEL(ch) * 2;
+
+  if (affected_by_spell(ch, SKILL_DIAMOND_SOUL))
+  {
+    send_to_char("You are already under the affects of diamond soul.\r\n", ch);
+    return;
+  }
+  
+  if (affected_by_spell(ch, SKILL_HEROISM))
+  {
+    send_to_char("You cannot call upon the diamon soul technique while under the influence of heroism.\r\n", ch);
+    return;
+  }
+    
+  if (!notch_skill(ch, SKILL_DIAMOND_SOUL, 30) &&
+      number(1, 105) > skl_lvl) // 5 percent chance to fail at max pc skill.
+  {
+    send_to_char("Your inner thoughts are in turmoil.\r\n", ch);
+    CharWait(ch, PULSE_VIOLENCE);
+    return;
+  }
+  
+  sprintf(buf, "You feel your magical resistance harden like a diamond.\r\n");
+  bzero(&af, sizeof(af));
+  af.type = SKILL_DIAMOND_SOUL;
+  af.flags = AFFTYPE_NODISPEL;
+  af.duration = duration;
+  
+  af.modifier = -(MAX(2, (int) (GET_LEVEL(ch) / 4)));
+  af.location = APPLY_SAVING_SPELL;
+  affect_to_char(ch, &af);
+
+  af.modifier = -(MAX(2, (int) (GET_LEVEL(ch) / 4)));
+  af.location = APPLY_SAVING_PARA;
+  affect_to_char(ch, &af);
+
+  send_to_char(buf, ch);
+
+  CharWait(ch, PULSE_VIOLENCE);
+}
 
 void chant_heroism(P_char ch, char *argument, int cmd)
 {
@@ -715,6 +780,12 @@ void chant_heroism(P_char ch, char *argument, int cmd)
     return;
   }
   
+  if (affected_by_spell(ch, SKILL_HEROISM))
+  {
+    send_to_char("You cannot call upon the heroism technique while under the influence of diamond soul.\r\n", ch);
+    return;
+  }
+    
   if (!notch_skill(ch, SKILL_HEROISM, 30) &&
       number(1, 105) > skl_lvl) // 5 percent chance to fail at max pc skill.
   {
@@ -1377,6 +1448,7 @@ void do_chant(P_char ch, char *argument, int cmd)
     "chi purge",
     "ki strike",
     "tiger palm",
+    "diamond soul",
     "\n"
   };
 
@@ -1391,6 +1463,7 @@ void do_chant(P_char ch, char *argument, int cmd)
     SKILL_CHI_PURGE,
     SKILL_KI_STRIKE,
     SKILL_TIGER_PALM,
+    SKILL_DIAMOND_SOUL,
     0
   };
   int      skl_lvl = 0;
@@ -1430,6 +1503,8 @@ void do_chant(P_char ch, char *argument, int cmd)
       sprintf(buf, "%sKi Strike\r\n", buf);
     if (GET_CHAR_SKILL(ch, SKILL_TIGER_PALM) > 0)
       sprintf(buf, "%sTiger Palm\r\n", buf);
+    if (GET_CHAR_SKILL(ch, SKILL_DIAMOND_SOUL) > 0)
+      sprintf(buf, "%sDiamond Soul\r\n", buf);
 
     send_to_char(buf, ch);
     return;
@@ -1492,6 +1567,9 @@ void do_chant(P_char ch, char *argument, int cmd)
       break;
     case 9:
       chant_tiger_palm(ch, argument, cmd);
+      break;
+    case 10:
+      chant_diamond_soul(ch, argument, cmd);
       break;
     default:
       send_to_char("Error in chant, please report.\r\n", ch);
