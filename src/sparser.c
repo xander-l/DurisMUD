@@ -1264,6 +1264,19 @@ bool parse_spell_arguments(P_char ch, struct spell_target_data * data,
         }
       }
 
+      if (!target_ok && IS_SET(skills[spl].targets, TAR_WALL))
+      {
+        int var = dir_from_keyword(Gbuf1);
+  
+        if (check_visible_wall(ch, var))
+        {
+          obj = get_wall_dir(ch, var);
+        }
+        
+        if (obj)
+      	  target_ok = TRUE;
+      }
+
 //    if ((vict = get_char_vis(ch, Gbuf1))) {
       //      if (!racewar(ch, vict)) target_ok = TRUE;  /* can't be too careful */
       //      if (!is_introd(vict, ch)) target_ok = FALSE;
@@ -1404,7 +1417,7 @@ bool parse_spell_arguments(P_char ch, struct spell_target_data * data,
   data->t_char = vict;
   data->t_obj = obj;
   data->arg = tar_arg;
-
+  
   return TRUE;
 }
 

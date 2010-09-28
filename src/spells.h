@@ -1092,6 +1092,9 @@
 #define TAR_EPIC          BIT_26
 #define TAR_SPELL         BIT_27
 #define TAR_POISON        BIT_28
+#define TAR_WALL          BIT_29 
+/* TAR_WALL checks arguments for directional keywords, and returns pointer 
+   to a target object if ch can see a wall in that direction */
 
 /* Possible Targets:
 
