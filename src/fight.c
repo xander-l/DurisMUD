@@ -5125,7 +5125,7 @@ void check_vamp(P_char ch, P_char victim, double fdam, uint flags)
          tch != victim &&
          !IS_AFFECTED4(tch, AFF4_HOLY_SACRIFICE) &&
          !affected_by_spell(tch, SPELL_PLAGUE))
-            vamp(tch, sac_gain, (GET_MAX_HIT(tch) + (GET_MAX_HIT(tch)/3)));
+            vamp(tch, sac_gain, GET_MAX_HIT(tch));
     }
   }
 }
@@ -7628,8 +7628,8 @@ int blockSucceed(P_char victim, P_char attacker, P_obj wpn)
   }
 
   if(GET_CHAR_SKILL(victim, SKILL_IMPROVED_SHIELD_COMBAT) &&
-    number(1, 400) < MAX(20, GET_CHAR_SKILL(victim, SKILL_IMPROVED_SHIELD_COMBAT) &&
-    !MIN_POS(victim, POS_STANDING + STAT_NORMAL)))
+    number(1, 400) < MAX(20, GET_CHAR_SKILL(victim, SKILL_IMPROVED_SHIELD_COMBAT)) &&
+    MIN_POS(victim, POS_STANDING + STAT_NORMAL))
   {
     struct damage_messages messages = 
     {
