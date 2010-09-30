@@ -116,6 +116,7 @@ extern void displayShutdownMsg(P_char);
 extern void map_look_room(P_char ch, int room, int show_map_regardless);
 extern const char *get_function_name(void *);
 extern void show_world_events(P_char ch, const char* arg);
+extern struct quest_data quest_index[];
 void display_map(P_char ch, int n, int show_map_regardless);
 
 extern HelpFilesCPPClass help_index;
@@ -3352,7 +3353,7 @@ void do_world(P_char ch, char *argument, int cmd)
     arg[MAX_INPUT_LENGTH];
   long     ct, diff_time;
   char    *tmstr;
-  int      count, i, choice, zone_count, world_index, room_count, length;
+  int      count, i, tmp, choice, zone_count, world_index, room_count, length;
   struct zone_data *z_num = &zone_table[world[ch->in_room].zone];
   P_obj    t_obj;
   P_char   t_mob;
@@ -3653,22 +3654,44 @@ void do_world(P_char ch, char *argument, int cmd)
     *buff = '\0';
     length = 0;
     count = 0;
+
     for (i = 0; i <= top_of_mobt; i++)
       if ((mob_index[i].virtual_number >= world[z_num->real_bottom].number) &&
           (mob_index[i].virtual_number <= world[z_num->real_top].number) && 
           (mob_index[i].qst_func))
       {
+	    
+		    bool real_quest = FALSE;
         
         if ((t_mob = read_mobile(mob_index[i].virtual_number, VIRTUAL)))
         {
           if (IS_SET(t_mob->specials.act, ACT_SPEC))
             REMOVE_BIT(t_mob->specials.act, ACT_SPEC);
           char_to_room(t_mob, ch->in_room, -2);
-          sprintf(buf, "%6d  %5d  %5d  %-s\n",
-                  mob_index[i].virtual_number, mob_index[i].number - 1,
+		  
+		      for (tmp = 0; quest_index[tmp].quester; tmp++)
+          {
+		        if (quest_index[tmp].quester == i)
+			      {
+			        if (quest_index[tmp].quest_complete)
+			        real_quest = TRUE;
+			        break;
+			      }
+		      }
+		  
+		      if (real_quest)
+            sprintf(buf, " %6d  %5d  %5d  %-s\n",
+		              mob_index[i].virtual_number, mob_index[i].number - 1,
                   mob_index[i].limit,
                   (t_mob->player.short_descr) ?
                   t_mob->player.short_descr : "None");
+          else
+            sprintf(buf, "!%6d  %5d  %5d  %-s\n",
+		              mob_index[i].virtual_number, mob_index[i].number - 1,
+                  mob_index[i].limit,
+                  (t_mob->player.short_descr) ?
+                  t_mob->player.short_descr : "None");
+          
           count++;
           if (t_mob)
           {
