@@ -4199,7 +4199,7 @@ int spell_damage(P_char ch, P_char victim, double dam, int type, uint flags,
     }
 
     int necropets[] = {3, 4, 5, 6, 7, 8, 9, 10, 78, 79, 80, 81, 82, 83, 84, 85};
-    if (IS_NPC(ch))
+    if (IS_NPC(ch) && IS_PC(victim))
     {
       for (int r = 0; r < 16; r++)
       {
