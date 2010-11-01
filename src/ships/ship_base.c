@@ -1808,9 +1808,23 @@ void finish_sinking(P_ship ship)
         if (ship->m_class != SH_SLOOP) // no insurance for sloops
         {
             if (SHIP_SUNK_BY_NPC(ship))
-                insurance = (int)(SHIPTYPE_COST(ship->m_class) * 0.90); // if sunk by NPC, you loose same amount as for switching hulls
-            else if (IS_MERCHANT(ship)) 
-                insurance = (int)(SHIPTYPE_COST(ship->m_class) * 0.75);
+            {
+                if (ship->race == GOODIESHIP)
+                {
+                    insurance = calculate_full_cost(ship); // TODO: remove it when goodies are okay
+                }
+                else
+                    insurance = (int)(SHIPTYPE_COST(ship->m_class) * 0.90); // if sunk by NPC, you loose same amount as for switching hulls
+            }
+            else if (IS_MERCHANT(ship))
+            {
+                if (ship->race == GOODIESHIP)
+                {
+                    insurance = calculate_full_cost(ship); // TODO: remove it when goodies are okay
+                }
+                else
+                    insurance = (int)(SHIPTYPE_COST(ship->m_class) * 0.75);
+            }
             else if (IS_WARSHIP(ship))
                 insurance = (int)(SHIPTYPE_COST(ship->m_class) * 0.50);  // only partial insurance for warships
         }
@@ -1818,9 +1832,9 @@ void finish_sinking(P_ship ship)
 
         if (P_char owner = get_char2(str_dup(SHIP_OWNER(ship))))
         {
-                    GET_BALANCE_PLATINUM(owner) += insurance / 1000;
-                    wizlog(56, "Ship insurance to account: %d", insurance / 1000);
-                    logit(LOG_SHIP, "%s's insurance deposit to account: %d", ship->ownername, insurance / 1000);
+            GET_BALANCE_PLATINUM(owner) += insurance / 1000;
+            wizlog(56, "Ship insurance to account: %d", insurance / 1000);
+            logit(LOG_SHIP, "%s's insurance deposit to account: %d", ship->ownername, insurance / 1000);
         }
         else
         {

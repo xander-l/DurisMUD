@@ -4373,6 +4373,9 @@ void spell_spirit_jump(int level, P_char ch, char *arg, int type,
   if(IS_AFFECTED3(victim, AFF3_NON_DETECTION) ||
       IS_HOMETOWN(ch->in_room) ||
       IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
+      world[victim->in_room].sector_type == SECT_CASTLE ||
+      world[victim->in_room].sector_type == SECT_CASTLE_WALL ||
+      world[victim->in_room].sector_type == SECT_CASTLE_GATE ||
       (IS_PC(victim) && IS_SET(victim->specials.act2, PLR2_NOLOCATE)
        && !is_introd(victim, ch)))
   {

@@ -141,8 +141,8 @@ const char *sector_symbol[NUM_SECT_TYPES] = {
   ",",                          /* UD low ceilings */
   " ",                          /* UD liquid mithril */
   "o",                          /* UD mushroom forest */
-  " ",                          /* Castle Wall */
-  "T",                          /* Castle TOWER */
+  "#",                          /* Castle Wall */
+  "^",                          /* Castle Porticulus */
   "O",                           /* Castle Itself */
   " ",                           // "Negative Plane",
   " ",                           // "Plane of Avernus",
@@ -298,6 +298,15 @@ int whats_in_maproom(P_char ch, int room, int distance, int show_regardless)
 
   int from_room = ch->in_room;
   
+  if((world[room].sector_type == SECT_CASTLE ||
+      world[room].sector_type == SECT_CASTLE_WALL ||
+      world[room].sector_type == SECT_CASTLE_GATE) &&
+     (world[from_room].sector_type != SECT_CASTLE &&
+      world[from_room].sector_type != SECT_CASTLE_WALL))
+  {
+    return 0;
+  }
+
   if(IS_SET(world[room].room_flags, MAGIC_DARK) &&
     !IS_SET(world[room].room_flags, MAGIC_LIGHT))
   {

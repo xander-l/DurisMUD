@@ -24,8 +24,13 @@ using namespace std;
 // Building structure mob vnums
 #define BUILDING_OUTPOST_MOB     97800
 
+// Building object vnums
+#define BUILDING_RUBBLE          97800
+#define BUILDING_PORTAL          97801
+
 // Normal mobs relating to outposts
 #define OUTPOST_GATEGUARD_WAR    97801
+#define MAX_OUTPOST_GATEGUARDS   2
 
 struct Building
 {
@@ -44,12 +49,19 @@ struct Building
   int type;
   int room_vnum;
   int level;
+  int golem_room;
+  int golem_dir;
 
   bool loaded;  
   
   P_char mob;
   mob_proc_type mob_proc;  
-  
+
+  P_obj portal_op;
+  P_obj portal_gh;
+
+  P_char golems[MAX_OUTPOST_GATEGUARDS];
+
   vector<P_room> rooms;
   
   int gate_room() 
@@ -83,6 +95,8 @@ struct BuildingType
 
 int initialize_buildings(); // called from comm.c
 BuildingType get_type(int type);
+Building* get_building_from_gateguard(P_char ch);
+Building* get_building_from_rubble(P_obj rubble);
 Building* get_building_from_char(P_char ch);
 Building* get_building_from_room(int rroom);
 Building* load_building(int guildid, int type, int location, int level);

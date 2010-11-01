@@ -1048,6 +1048,17 @@ UD 0 16777217 7
 56 190 -100 100d15+8000 10d10+70
 0.0.0.0 0
 8 8 0
+#86
+zombie pumpkin~
+&+La zombie &+ypumpkin&n~
+&+LA zombie &+ypumpkin&+L whails and cackles here next to you.&n
+~
+~
+133130 0 0 403243032 0 0 0 0 S
+zo 0 1 3
+30 120 -200 25d5+200 6d4+20
+0.0.0.0 0
+8 8 0
 #99
 (null)~
 something~

@@ -712,11 +712,11 @@ int can_enter_room(P_char ch, int room, int show_msg)
                      (mob_index[GET_RNUM(ch)].number == 11004)))
     return FALSE;
 
-  if (world[room].sector_type == SECT_CASTLE_WALL)
+  if (check_castle_walls(ch->in_room, room))
   {
     if (show_msg)
       send_to_char
-        ("Castle walls can't be simply walked through. You've gotta scale them!\n",
+        ("Castle walls can't be simply walked through!\n",
          ch);
     return FALSE;
   }

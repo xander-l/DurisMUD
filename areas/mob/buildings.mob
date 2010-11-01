@@ -10,13 +10,13 @@ OG 0 0 7
 0.0.0.0 0
 8 8 0
 #97801
-gateguard gate guard~
+gateguard gate guard _ignore_~
 A gate guard~
 A gate guard stands here defending the gates.
 ~
 ~
-33585162 0 0 0 0 0 0 0 S
+100694090 0 0 671162520 14556 17825792 68162560 0 S
 OG 0 1 4
-60 0 0 1d1+1 1d1+1
+60 200 -444 3000d10+30000 10d10+50
 0.0.0.0 0
 8 8 1

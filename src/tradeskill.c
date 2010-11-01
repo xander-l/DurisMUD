@@ -32,6 +32,7 @@
 #include "objmisc.h"
 #include "tradeskill.h"
 #include "map.h"
+#include "specs.prototypes.h"
 
 #define SMITH_MAX_ITEMS   20
 
@@ -788,6 +789,10 @@ void event_mine_check(P_char ch, P_char victim, P_obj, void *data)
     obj_to_room(ore, ch->in_room);
     return;
   }
+    
+  if (get_property("halloween", 0.000) &&
+      (number(0, 100) < get_property("halloween.zombie.chance", 5.000)))
+    halloween_mine_proc(ch);
 
   if (GET_VITALITY(ch) < 10)
   {

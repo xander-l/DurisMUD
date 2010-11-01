@@ -9960,6 +9960,7 @@ void do_givepet(P_char ch, char *arg, int cmd)
     }
     else if (isdigit(*pet))
     {
+      msg[0] = '\0';
       mob = read_mobile(atoi(pet), VIRTUAL);
       wizlog(56, "%s has loaded pet %s(Level: %d) for %s.", GET_NAME(ch), mob->player.short_descr, GET_LEVEL(mob), GET_NAME(victim));
       logit(LOG_WIZ, "(%s) has loaded pet (%s)(Level: %d) for (%s).",
@@ -9972,7 +9973,8 @@ void do_givepet(P_char ch, char *arg, int cmd)
       mob->only.npc->aggro_flags = 0;
       char_to_room(mob, victim->in_room, 0);
       setup_pet(mob, victim, -1, PET_NOCASH | PET_NOAGGRO);
-      act(msg, TRUE, victim, 0, mob, TO_CHAR);
+      if (msg)
+        act(msg, TRUE, victim, 0, mob, TO_CHAR);
       add_follower(mob, victim);
     }
     else

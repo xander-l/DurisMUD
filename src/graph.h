@@ -98,6 +98,9 @@ extern int bfs_cur_marker;
                                         world[TOROOM(room,dir)].sector_type != SECT_MOUNTAIN && \
                                         world[TOROOM(room,dir)].sector_type != SECT_UNDRWLD_MOUNTAIN && \
                                         world[TOROOM(room,dir)].sector_type != SECT_OCEAN && \
+                                        world[TOROOM(room,dir)].sector_type != SECT_CASTLE && \
+                                        world[TOROOM(room,dir)].sector_type != SECT_CASTLE_GATE && \
+                                        world[TOROOM(room,dir)].sector_type != SECT_CASTLE_WALL && \
                                         world[room].continent == world[TOROOM(room,dir)].continent)
 
 #define VALID_WAGON_EDGE(x, y) (world[(x)].dir_option[(y)] && \

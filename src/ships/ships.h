@@ -748,6 +748,7 @@ P_ship get_ship_from_char(P_char ch);
 int anchor_room(int room);
 int num_people_in_ship(P_ship ship);
 void clear_cargo(P_ship ship);
+int calculate_full_cost(P_ship ship);
 P_char captain_is_aboard(P_ship ship);
 bool pc_is_aboard(P_ship ship);
 float get_turning_speed(P_ship ship);

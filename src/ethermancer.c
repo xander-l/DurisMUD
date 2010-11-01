@@ -496,6 +496,9 @@ void spell_windwalk(int level, P_char ch, char *arg, int type, P_char victim,
   location = victim->in_room;
 
   if (IS_SET(world[location].room_flags, NO_TELEPORT) ||
+      world[location].sector_type == SECT_CASTLE ||
+      world[location].sector_type == SECT_CASTLE_WALL ||
+      world[location].sector_type == SECT_CASTLE_GATE ||
       racewar(ch, victim) || (GET_MASTER(ch) && IS_PC(victim)))
   {
     send_to_char("&+yYou failed.\r\n", ch);

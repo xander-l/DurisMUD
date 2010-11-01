@@ -45,6 +45,8 @@
 #include "avengers.h"
 #include "multiplay_whitelist.h"
 #include "guildhall.h"
+#include "outposts.h"
+#include "buildings.h"
 
 /*
  * external variables
@@ -1984,7 +1986,8 @@ bool special(P_char ch, int cmd, char *arg)
          IS_NPC(k) &&
          AWAKE(k) &&
          mob_index[GET_RNUM(k)].func.mob &&
-         !IS_IMMOBILE(k))
+         (!IS_IMMOBILE(k) ||
+	  (IS_NPC(k) && (GET_VNUM(k) == BUILDING_OUTPOST_MOB))))
       {
         if ((*mob_index[GET_RNUM(k)].func.mob) (k, ch, cmd, arg))
         {
@@ -2541,12 +2544,12 @@ void assign_command_pointers(void)
   CMD_Y(CMD_GROUNDSLAM, STAT_NORMAL + POS_STANDING, do_groundslam, 0);
   CMD_Y(CMD_LEGLOCK, STAT_NORMAL + POS_PRONE, do_leglock, 0);
 
-//  CMD_N(CMD_BUILD, STAT_NORMAL + POS_STANDING, do_build, 0);
+  CMD_N(CMD_BUILD, STAT_NORMAL + POS_STANDING, do_build, 0);
   CMD_Y(CMD_PRESTIGE, STAT_NORMAL + POS_STANDING, do_prestige, 0);
   CMD_N(CMD_ALLIANCE, STAT_RESTING + POS_PRONE, do_alliance, 0);
   CMD_Y(CMD_ACC, STAT_SLEEPING + POS_PRONE, do_acc, 0);
   CMD_Y(CMD_SMITE, STAT_NORMAL + POS_STANDING, do_holy_smite, 0);
-//  CMD_N(CMD_OUTPOST, STAT_RESTING + POS_PRONE, do_outpost, 0);
+  CMD_N(CMD_OUTPOST, STAT_RESTING + POS_PRONE, do_outpost, 0);
   CMD_Y(CMD_OFFENSIVE, STAT_RESTING + POS_PRONE, do_offensive, 0);
   CMD_Y(CMD_FOCUS, STAT_RESTING + POS_KNEELING, do_assimilate, 0);
  

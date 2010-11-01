@@ -515,3 +515,12 @@ int super_cannon(P_obj obj, P_char ch, int cmd, char *arg)
   }
   return FALSE;
 }
+
+void halloween_mine_proc(P_char ch)
+{
+  char buff[MAX_STRING_LENGTH];
+  sprintf(buff, " %s 86", GET_NAME(ch));
+  act("Your dig hits a burried &+ypumpkin&n.&LSuddenly it begins to move and digs itself out of the mine!", TRUE, ch, 0, 0, TO_CHAR);
+  act("$n dig hits a burried &+ypumpkin&n.&LSuddenly it begins to move and digs itself out of the mine!", TRUE, ch, 0, 0, TO_ROOM);
+  do_givepet(ch, buff, CMD_GIVEPET);
+}

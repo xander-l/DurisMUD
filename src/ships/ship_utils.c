@@ -1683,3 +1683,19 @@ int salvage_cargo(P_char ch, P_ship ship, int crates)
     return TRUE;
 }
 
+
+int calculate_full_cost(P_ship ship)
+{
+    int cost = SHIPTYPE_COST(ship->m_class);
+
+    for (int slot = 0 ; slot < MAXSLOTS; ++slot) 
+    {
+        if (ship->slot[slot].type == SLOT_WEAPON) 
+            cost += weapon_data[ship->slot[slot].index].cost;
+        if (ship->slot[slot].type == SLOT_EQUIPMENT)
+            cost += equipment_data[ship->slot[slot].index].cost;
+    }
+
+    return cost;
+}
+

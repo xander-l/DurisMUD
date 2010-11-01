@@ -24,8 +24,10 @@
 
 int init_outposts();
 int load_outposts();
+void show_outposts(P_char);
 void do_outpost(P_char, char*, int);
 void outpost_death(P_char, P_char, Building*);
+int get_outpost_owner(Building *building);
 int get_current_outpost_hitpoints(Building*);
 void set_current_outpost_hitpoints(Building*);
 int get_outpost_resources(Building*, int);
@@ -38,8 +40,13 @@ void reset_outposts(P_char);
 int outpost_rubble(P_obj, P_char, int, char*);
 void outpost_create_wall(int, int, int);
 int outpost_generate_walls(Building*, int, int);
-int outpost_load_gateguard(int, int);
-void outpost_setup_gateguards(int, int, int);
+int outpost_load_gateguard(int, int, Building*, int);
+void outpost_setup_gateguards(int, int, int, Building*);
+int outpost_gateguard_proc(P_char, P_char, int, char*);
+void event_outpost_repair(P_char, P_char, P_obj, void*);
+void update_outpost_owner(int, Building*);
+int outpost_generate_portals(Building*);
+int get_killing_association(P_char);
 
 // For op_resources.c
 #define RES_COPSE_VNUM      97820

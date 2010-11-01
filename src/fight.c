@@ -2116,9 +2116,9 @@ void die(P_char ch, P_char killer)
     remove_disguise(ch, TRUE);
   }
   
-  //if (ch && killer)
-  //  if (check_outpost_death(ch, killer))
-  //    return;
+  if (ch && killer)
+    if (check_outpost_death(ch, killer))
+      return;
 
   act("$n is dead! &+RR.I.P.&n", TRUE, ch, 0, 0, TO_ROOM);
   act("&-L&+rYou feel yourself falling to the ground.&n", FALSE, ch, 0, 0, TO_CHAR);
@@ -5732,6 +5732,8 @@ int calculate_thac_zero(P_char ch, int skill)
   else if(GET_CLASS(ch, CLASS_WARRIOR)||
            GET_CLASS(ch, CLASS_DREADLORD) ||
            GET_CLASS(ch, CLASS_AVENGER) ||
+           GET_CLASS(ch, CLASS_PALADIN) ||
+           GET_CLASS(ch, CLASS_ANTIPALADIN) ||
            affected_by_spell(ch, SPELL_COMBAT_MIND) ||
            is_wearing_necroplasm(ch))
   {
@@ -5741,19 +5743,16 @@ int calculate_thac_zero(P_char ch, int skill)
           GET_CLASS(ch, CLASS_REAVER) ||
           GET_CLASS(ch, CLASS_RANGER)  ||
           GET_CLASS(ch, CLASS_BERSERKER) ||
-          GET_CLASS(ch, CLASS_PALADIN) ||
-          GET_CLASS(ch, CLASS_ANTIPALADIN) ||
           GET_SPEC(ch, CLASS_NECROMANCER, SPEC_REAPER) ||
 	  GET_SPEC(ch, CLASS_THEURGIST, SPEC_THAUMATURGE) ||
-          GET_SPEC(ch, CLASS_CLERIC, SPEC_ZEALOT) ||
-          GET_CLASS(ch, CLASS_ASSASSIN) ||
-          GET_SPEC(ch, CLASS_ROGUE, SPEC_ASSASSIN))
+          GET_SPEC(ch, CLASS_CLERIC, SPEC_ZEALOT))
   {
     to_hit = get_property("to.hit.HitterTankTypes", 8);
   }
   else if(GET_CLASS(ch, CLASS_THIEF) ||
          GET_CLASS(ch, CLASS_BARD) ||
          GET_CLASS(ch, CLASS_ROGUE) ||
+         GET_CLASS(ch, CLASS_ASSASSIN) ||
 	 GET_CLASS(ch, CLASS_MONK))
   {
     to_hit = get_property("to.hit.RogueTypes", 7);

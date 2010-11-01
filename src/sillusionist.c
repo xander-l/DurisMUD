@@ -374,6 +374,9 @@ void spell_shadow_travel(int level, P_char ch, char *arg, int type,
 
   if (IS_SET(world[location].room_flags, NO_TELEPORT) ||
       IS_HOMETOWN(location) ||
+      world[location].sector_type == SECT_CASTLE ||
+      world[location].sector_type == SECT_CASTLE_GATE ||
+      world[location].sector_type == SECT_CASTLE_WALL ||
       racewar(ch, victim) || (GET_MASTER(ch) && IS_PC(victim)))
   {
     send_to_char("&+yYou failed.\r\n", ch);

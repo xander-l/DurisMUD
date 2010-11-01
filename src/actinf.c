@@ -2206,6 +2206,11 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
       send_to_char("You see nothing special...\n", ch);
       return;
     }
+    if (check_castle_walls(ch->in_room, EXIT(ch, keyword_no)->to_room))
+    {
+      send_to_char("You cannot see over the castle walls.\r\n", ch);
+      return;
+    }
     /* there IS an exit in that direction */
     if ((vis_mode == 3) &&
         (IS_SET(EXIT(ch, keyword_no)->exit_info, EX_CLOSED) ||

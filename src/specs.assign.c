@@ -28,6 +28,8 @@
 #include "specs.keleks.h"
 #include "specs.caertannad.h"
 #include "specs.firep.h"
+#include "outposts.h"
+#include "buildings.h"
 
 extern int top_of_world;
 extern P_index mob_index;
@@ -1301,7 +1303,8 @@ void assign_objects(void)
   obj_index[real_object0(354)].func.obj = artifact_monolith;
 
   /* outposts */
-//  obj_index[real_object0(97800)].func.obj = outpost_rubble;
+  //obj_index[real_object0(97800)].func.obj = outpost_rubble; 
+  mob_index[real_mobile0(97800)].func.mob = building_mob_proc;
   
   /* ailvio */
   obj_index[real_object0(29328)].func.obj = burbul_map_obj;

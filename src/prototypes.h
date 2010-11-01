@@ -3031,5 +3031,8 @@ void unspecialize(P_char ch, P_obj obj);
 /* proc libs */
 void do_proclib(P_char ch, char *argument, int cmd);
 
+/* global outpost.h define */
+int check_castle_walls(int, int);
+
 #endif /* _SOJ_PROTOTYPES_H_ */
 

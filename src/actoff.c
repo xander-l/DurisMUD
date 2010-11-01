@@ -2602,7 +2602,7 @@ void event_combination(P_char ch, P_char victim, P_obj obj, void *data)
     return;
   }
 
-  if(GET_C_LUCK(ch) / 10 > number(0, 100))
+  if(GET_C_LUCK(ch) / 2 > number(0, 100))
   {
     percent = (int) (percent * 1.05);
   }
@@ -5322,7 +5322,7 @@ void parlay(P_char ch, P_char victim)
     return;
   }
 
-  if(GET_C_LUCK(ch) > number(0, 100)) {
+  if(GET_C_LUCK(ch) / 2 > number(0, 100)) {
     skl_lvl = (int) (skl_lvl * 1.1);
   }
 
@@ -5455,12 +5455,12 @@ void do_tackle(P_char ch, char *arg, int cmd)
 
   percent_chance = (int) BOUNDED(20, GET_CHAR_SKILL(ch, SKILL_TACKLE), 100);
 
-  percent_chance = (int) (percent_chance * ((double) BOUNDED(8, 10 + (GET_LEVEL(ch) - GET_LEVEL(vict)) / 10, 12)) / 10);
+  //percent_chance = (int) (percent_chance * ((double) BOUNDED(8, 10 + (GET_LEVEL(ch) - GET_LEVEL(vict)) / 10, 12)) / 10);
 
   if(affected_by_spell(vict, SKILL_TACKLE))
   {
     send_to_char("They are aware of deviousness but you try anyways!\n", ch);
-    percent_chance = (int) (percent_chance * 0.70);
+    percent_chance = (int) (percent_chance * 0.95);
   }
 
   if(!on_front_line(ch) || // Not currently being used
@@ -5470,15 +5470,15 @@ void do_tackle(P_char ch, char *arg, int cmd)
     percent_chance = (int) (percent_chance * 0.5);
   }
 
-  if(GET_C_LUCK(ch) < number(1, 1000))
+  if(GET_C_LUCK(ch) / 2 > number(1, 100))
     percent_chance = (int) (percent_chance * 1.1);
   
-  if(GET_C_LUCK(vict) < number(1, 1000))
+  if(GET_C_LUCK(vict) / 2 > number(1, 100))
     percent_chance = (int) (percent_chance * 0.90);
 
   if(IS_AFFECTED(vict, AFF_AWARE))
   {
-    percent_chance = (int) (percent_chance * 0.90);
+    percent_chance = (int) (percent_chance * 0.93);
     
     if(GET_CHAR_SKILL(ch, SKILL_TACKLE) > number(1, 110) &&
        number(0, 4) == 4)                                         // Easter egg message
@@ -5521,7 +5521,7 @@ void do_tackle(P_char ch, char *arg, int cmd)
       door = number(0, NUM_EXITS - 1);
       
       if(CAN_GO(ch, door) &&
-         !check_wall(ch->in_room, door) &&
+	 !check_wall(ch->in_room, door) &&
          !IS_OCEAN_ROOM(target_room = world[ch->in_room].dir_option[door]->to_room))
       {
         act("You &+ctackle&N $N &+RHARD&N in the chest and go &+Wflying&N out of the room with $m.",

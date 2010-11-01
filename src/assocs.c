@@ -2591,6 +2591,138 @@ int deposit_asc(P_char member, int pc, int gc, int sc, int cc)
    if there is not enough money 0 is returned,
    if there is a problem with the association file -1 is returned */
 
+int sub_money_asc(P_char member, int pc, int gc, int sc, int cc)
+{
+
+  FILE    *f;
+  char     Gbuf1[MAX_STR_NORMAL];
+  char     Gbuf2[MAX_STR_NORMAL];
+  char     buf[ASC_SAVE_SIZE];
+  int      i, dummy2, dummy3, dummy4, dummy5;
+  long int temp;
+  ush_int  asc_number;
+  char     *tmp2;
+
+	  
+  /* check for sanity of calling proc */
+  if ((pc < 0) || (gc < 0) || (sc < 0) || (cc < 0))
+    return (0);
+
+  temp = GET_A_BITS(member);
+  asc_number = GET_A_NUM(member);
+  
+  if( (pc+gc+sc+cc) <= 0 )
+  {
+    send_to_char("Don't be silly.\r\n", member);
+    return(0);
+  }
+  
+  /* only members can do this */
+  if(!IS_NPC(member)){
+  
+    if (!IS_MEMBER(temp) || !asc_number)
+   {
+    send_to_char("How about joining an association first?\r\n", member);
+    return (0);
+   }
+ // Only banks can handle this kind of things, let people die with money
+
+  if (!test_atm_present(member))
+  {
+    send_to_char("I don't see a bank around here.\r\n", member);
+    return(0);
+  }
+  /* deputies or higher only */
+   if (!GT_OFFICER(temp))
+   {
+    send_to_char("You wish you could do that, don't you?\r\n", member);
+    return (0);
+   }
+  
+  /* people with debts can't do this */
+   if (IS_DEBT(temp) && !IS_TRUSTED(member))
+   {
+     send_to_char("Pay your dues! Let's see some cash...\r\n", member);
+     return (0);
+   }
+  }
+  else{
+ 
+    tmp2 = strstr(GET_NAME(member), "assoc");
+    if (!tmp2)
+	 return 0;
+     asc_number = (ush_int) atoi(tmp2 + 5);
+  }
+  
+
+  /* open association file */
+  sprintf(Gbuf1, "%sasc.%u", ASC_DIR, asc_number);
+  f = fopen(Gbuf1, "r");
+  if (!f)
+  {
+    update_member(member, 1);
+    return (-1);
+  }
+  /* goto cash, copy on the way */
+  fgets(Gbuf2, MAX_STR_NORMAL, f);
+  strcpy(buf, Gbuf2);
+  for (i = 0; i < 9; i++)
+  {
+    fgets(Gbuf2, MAX_STR_NORMAL, f);
+    strcat(buf, Gbuf2);
+  }
+
+  /* check if association has the money */
+  fscanf(f, "%i %i %i %i\n", &dummy2, &dummy3, &dummy4, &dummy5);
+  if (dummy2 < pc || dummy3 < gc || dummy4 < sc || dummy5 < cc)
+  {
+    fclose(f);
+    send_to_char("Deficit spending is forbidden...\r\n", member);
+    return (0);
+  }
+  /* update association cash */
+  sprintf(Gbuf2, "%i %i %i %i\n", dummy2 - pc, dummy3 - gc, dummy4 - sc,
+          dummy5 - cc);
+  strcat(buf, Gbuf2);
+
+  /* copy past members */
+  while (fgets(Gbuf2, MAX_STR_NORMAL, f))
+    strcat(buf, Gbuf2);
+  fclose(f);
+
+  /* now write the buffer with money changes, only now change player money */
+  GET_PLATINUM(member) += pc;
+  GET_GOLD(member) += gc;
+  GET_SILVER(member) += sc;
+  GET_COPPER(member) += cc;
+  f = fopen(Gbuf1, "w");
+  if (!f)
+  {
+    update_member(member, 1);
+    return (-1);
+  }
+  fwrite(buf, strlen(buf), 1, f);
+  fclose(f);
+  logit(LOG_PLAYER, "Guild Withdrawal %d p %d g %d s %d c by %s", pc, gc, sc,
+        cc, GET_NAME(member));
+  send_to_char("Ok, use that money for your association though.\r\n", member);
+  
+  if( IS_PC(member) )
+  {
+    sprintf(buf, "&+y%s withdrew &+W%dp&n&+y, &+Y%dg&n&+y, &+w%ds&n&+y, and &+y%dc", GET_NAME(member), pc, gc, sc, cc);
+    insert_guild_transaction(asc_number, buf);
+  }
+  
+  /* return one for success */
+  return (1);
+}
+
+
+/* pay money from association account, deputy or higher
+   if successful, then 1 is returned,
+   if there is not enough money 0 is returned,
+   if there is a problem with the association file -1 is returned */
+
 int withdraw_asc(P_char member, int pc, int gc, int sc, int cc)
 {
 

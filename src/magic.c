@@ -40,7 +40,7 @@
 #include "map.h"
 #include "sql.h"
 #include "graph.h"
-#
+#include "outposts.h"
 
 /*
  * external variables
@@ -4556,7 +4556,10 @@ void spell_dimension_door(int level, P_char ch, char *arg, int type,
      IS_AFFECTED3(victim, AFF3_NON_DETECTION) ||
      IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
      IS_HOMETOWN(ch->in_room) ||
-     world[ch->in_room].sector_type == SECT_OCEAN)
+     world[ch->in_room].sector_type == SECT_OCEAN ||
+     world[victim->in_room].sector_type == SECT_CASTLE ||
+     world[victim->in_room].sector_type == SECT_CASTLE_WALL ||
+     world[victim->in_room].sector_type == SECT_CASTLE_GATE)
   {
     send_to_char("&+CYou failed.\n", ch);
     return;

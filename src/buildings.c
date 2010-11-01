@@ -26,7 +26,7 @@ vector<Building*> buildings;
 // basic information for building types:
 // building type, building mob vnum, required wood, required stone, hitpoints, generator function, 
 BuildingType building_types[] = {
-  {BUILDING_OUTPOST, BUILDING_OUTPOST_MOB, 100000, 10000, 100000, outpost_generate},
+  {BUILDING_OUTPOST, BUILDING_OUTPOST_MOB, 100000, 10000, 300000, outpost_generate},
   {0}
 };
 
@@ -74,15 +74,66 @@ Building* get_building_from_room(int rroom)
   return NULL;
 }
 
+Building* get_building_from_gateguard(P_char ch)
+{
+  if( !affected_by_spell(ch, TAG_GUILDHALL) )
+    return NULL;
+
+  struct affected_type *af = NULL, *hjp;
+  for (hjp = ch->affected; hjp; hjp = hjp->next)
+  {
+    if (hjp->type == TAG_GUILDHALL)
+    {
+      af = hjp;
+      break;
+    }
+  }
+  if (!af)
+    return NULL;
+
+  for( int i = 0; i < buildings.size(); i++ )
+  {
+    if( buildings[i] && buildings[i]->id == af->modifier )
+      return buildings[i];
+  }
+  
+  return NULL;
+}
+
+Building* get_building_from_rubble(P_obj rubble)
+{
+  if (!rubble)
+  {
+    debug("called get_building_from_rubble with no obj");
+    return NULL;
+  }
+
+  for( int i = 0; i < buildings.size(); i++ )
+  {
+    if( buildings[i] && buildings[i]->id == rubble->value[3] )
+      return buildings[i];
+  }
+
+  return NULL;
+}
+
 Building* get_building_from_char(P_char ch)
 {
   if( !affected_by_spell(ch, TAG_BUILDING) )
     return NULL;
   
-  struct affected_type *af;
-  if( !(af = get_spell_from_char(ch, TAG_BUILDING)) )
+  struct affected_type *af = NULL, *hjp;
+  for (hjp = ch->affected; hjp; hjp = hjp->next)
+  {
+    if (hjp->type == TAG_BUILDING)
+    {  
+      af = hjp;
+      break;
+    }
+  }
+  if (!af)
     return NULL;
-  
+
   for( int i = 0; i < buildings.size(); i++ )
   {
     if( buildings[i] && buildings[i]->id == af->modifier )
@@ -164,7 +215,7 @@ int check_outpost_death(P_char ch, P_char killer)
   if( !affected_by_spell(ch, TAG_BUILDING) )
     return FALSE;
 
-  act("$n has been destroyed!&n", TRUE, ch, 0, 0, TO_ROOM);
+  act("&+W$n has been destroyed!&n", TRUE, ch, 0, 0, TO_ROOM);
   
   if (ch->specials.fighting)
     stop_fighting(ch);
@@ -219,13 +270,13 @@ int building_mob_proc(P_char ch, P_char pl, int cmd, char *arg)
 
   if( !ch )
     return FALSE;
-  
+
   if( cmd == CMD_SET_PERIODIC )
   {
     SET_BIT(ch->specials.act, ACT_SPEC_DIE);
-    return FALSE;
+    return TRUE;
   }
-  
+
   if( !affected_by_spell(ch, TAG_BUILDING) )
     return FALSE;
   
@@ -257,7 +308,8 @@ int building_mob_proc(P_char ch, P_char pl, int cmd, char *arg)
   if( cmd == CMD_ENTER )
   {
     // Guild and Alliance checks
-    if ((GET_A_NUM(pl) == building->guild_id) ||
+    if (IS_TRUSTED(pl) ||
+	(GET_A_NUM(pl) == building->guild_id) ||
         // Build command, or neutral outposts, no owner yet...
 	(building->guild_id == 0))
       allow = TRUE;
@@ -266,6 +318,18 @@ int building_mob_proc(P_char ch, P_char pl, int cmd, char *arg)
              (GET_A_NUM(pl) == alliance->joining_assoc_id)))
       allow = TRUE;
 
+    if (!allow && pl->group)
+    {
+      struct group_list *gl;
+      gl = pl->group;
+      while (gl)
+      {
+	if (GET_A_NUM(gl->ch) == GET_A_NUM(ch))
+	  allow = TRUE;
+        gl = gl->next;
+      }
+    }
+    
     if (!allow)
     {
       send_to_char("You don't own this outpost!\r\n", pl);
@@ -276,7 +340,7 @@ int building_mob_proc(P_char ch, P_char pl, int cmd, char *arg)
     if( !(tmob = get_char_room_vis(pl, arg)) || tmob != ch )
       return FALSE;
            
-    if( !building->gate_room() )
+    if( !building->rooms[0]->number )
       return FALSE;
   
     act("You enter $N.", TRUE, pl, 0, tmob, TO_CHAR);
@@ -325,8 +389,8 @@ int Building::load()
     return FALSE;  
   
   mob = read_mobile(building_type.mob_vnum, VIRTUAL);
-  if (building_type.type == BUILDING_OUTPOST)
-    mob_index[real_mobile0(building_type.mob_vnum)].func.mob = building_mob_proc;
+  //if (building_type.type == BUILDING_OUTPOST)
+    //mob_index[real_mobile0(building_type.mob_vnum)].func.mob = building_mob_proc;
 
   if( !mob )
     return FALSE;
@@ -338,13 +402,20 @@ int Building::load()
   if( !(*building_type.generator)(this) )
     return FALSE;
   
+  portal_op = NULL;
+  portal_gh = NULL;
+  for (int i = 0; i < MAX_OUTPOST_GATEGUARDS; i++)
+    golems[i] = NULL;
+  golem_room = 0;
+  golem_dir = 0;
+
   struct affected_type af;
   bzero(&af, sizeof(af));
   
   af.type = TAG_BUILDING;
   af.modifier = id;
   af.duration = -1;
-  
+ 
   affect_to_char(mob, &af);  
   char_to_room(mob, location(), -1);
   
@@ -462,7 +533,7 @@ int outpost_mob(P_char ch, P_char pl, int cmd, char *arg)
   
   if( cmd == CMD_MOB_MUNDANE )
   {
-    mobsay(ch, "&+Cmundane");
+    //mobsay(ch, "&+Cmundane");
     return TRUE;
   }
   

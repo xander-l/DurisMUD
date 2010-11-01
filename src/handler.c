@@ -1783,6 +1783,11 @@ P_char get_char_ranged(const char *name, P_char ch, int distance, int dir)
 
   if (vict)
   {
+    if (check_castle_walls(ch->in_room, vict->in_room))
+    {
+      send_to_char("&+LYou can't breach the castle wall.&n\r\n", ch);
+      return NULL;
+    }
     if (GET_ZONE(ch) == GET_ZONE(vict))
       return (vict);
     else

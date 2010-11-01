@@ -569,7 +569,8 @@ int race_size(int race);
         (EXIT(ch, door)->to_room != NOWHERE) && \
         (!IS_SET(EXIT(ch, door)->exit_info, EX_CLOSED) || \
         IS_AFFECTED2(ch, AFF2_PASSDOOR)) && \
-        !IS_SET(EXIT(ch, door)->exit_info, EX_SECRET | EX_BLOCKED))
+        !IS_SET(EXIT(ch, door)->exit_info, EX_SECRET | EX_BLOCKED) && \
+	!check_castle_walls(ch->in_room, EXIT(ch, door)->to_room))
 
 #define VIRTUAL_CAN_GO(room, door) \
         (VIRTUAL_EXIT(room, door) && \

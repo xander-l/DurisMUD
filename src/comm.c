@@ -50,6 +50,7 @@
 #include "graph.h"
 #include "profile.h"
 #include "guildhall.h"
+#include "outposts.h"
 
 /* external variables */
 
@@ -377,7 +378,7 @@ void run_the_game(int port)
   reset_racewar_stat_mods();
   init_nexus_stones();
  
-  //init_outposts();
+  init_outposts();
 
   fprintf(stderr, "-- Loading alliances\r\n");
   load_alliances();
