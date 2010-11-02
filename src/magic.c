@@ -17260,7 +17260,8 @@ void event_cdoom(P_char ch, P_char victim, P_obj obj, void *data)
 
   if (!cDoomData->area)
   {
-     if(!IS_ALIVE(victim))
+     if(!IS_ALIVE(victim) ||
+	 victim->in_room <= 0)
          cDoomData->waves = 0;
   }
 

@@ -946,7 +946,10 @@ bool invalid_mine_room(int rroom_id)
       world[rroom_id].sector_type == SECT_UNDRWLD_INSIDE ||
       world[rroom_id].sector_type == SECT_UNDRWLD_CITY ||
       world[rroom_id].sector_type == SECT_OCEAN ||
-      world[rroom_id].sector_type == SECT_INSIDE )
+      world[rroom_id].sector_type == SECT_INSIDE ||
+      world[rroom_id].sector_type == SECT_CASTLE ||
+      world[rroom_id].sector_type == SECT_CASTLE_WALL ||
+      world[rroom_id].sector_type == SECT_CASTLE_GATE)
     return TRUE;
   
   for( P_obj tobj = world[rroom_id].contents; tobj; tobj = tobj->next )

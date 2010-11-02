@@ -39,7 +39,7 @@ struct continent
   {CONT_EC, "&+LEvil Continent", 607066},
   {CONT_IC, "&+WIce &+CCrag", 521504},
   {CONT_KK, "&+gKhomani-Khan", 608451},
-  {CONT_UC, "Undead Continent", 567408},
+  {CONT_UC, "&+rUndead Continent", 567408},
   {CONT_JADE, "&+GJade &+gEmpire", 644892},
   {CONT_DRAGONS, "&+cIsland &+yof &+cDragons", 643968},
   {CONT_CEOTHIA, "&+bCeothia", 628685},

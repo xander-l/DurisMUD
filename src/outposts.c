@@ -159,10 +159,12 @@ void show_outposts(P_char ch)
   char title[MAX_STRING_LENGTH], Gbuf2[MAX_STRING_LENGTH];
   int i;
   FILE *f;
+  Building *building;
 
   send_to_char("&+WList of outposts:&n\r\n", ch);
   for (i = 0; i <= buildings.size(); i++)
   {
+    building = get_building_from_id(i+1);
     if (!qry("SELECT id, owner_id FROM outposts WHERE id = %d", i))
     {
       debug("show_outposts() cant read from db");
@@ -186,17 +188,17 @@ void show_outposts(P_char ch)
     if (!f)
     {
       sprintf(title, "Unknown");
-      sprintf(buff, "ID: %-2d Owner: %s\r\n", i, title);
-      send_to_char(buff, ch);
-      continue;
     }
-    fgets(Gbuf2, MAX_STR_NORMAL, f);
-    Gbuf2[strlen(Gbuf2)-1] = 0;
-    Gbuf2[MAX_STR_ASC-1] = 0;
-    strcpy(title, Gbuf2);
-    fclose(f);
+    else
+    {
+      fgets(Gbuf2, MAX_STR_NORMAL, f);
+      Gbuf2[strlen(Gbuf2)-1] = 0;
+      Gbuf2[MAX_STR_ASC-1] = 0;
+      strcpy(title, Gbuf2);
+      fclose(f);
+    }
 
-    sprintf(buff, "ID: %-2d Owner: %s\r\n", i, title);
+    sprintf(buff, "&+W*ID: &+c%2d &+WContinent: &+c%-18s&n &+WOwner: &+c%-15s&n\r\n", i+1, pad_ansi(continent_name(world[building->location()].continent), 18).c_str(), title);
     send_to_char(buff, ch);
   }
 }

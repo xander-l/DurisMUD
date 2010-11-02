@@ -54,6 +54,21 @@ BuildingType get_type(int type)
   return building_types[i];
 }
 
+Building* get_building_from_id(int id)
+{
+  for( int i = 0; i < buildings.size(); i++ )
+  {
+    if( !buildings[i] )
+      continue;
+    
+    if( buildings[i]->id == id )
+      return buildings[i];
+    
+  }
+  
+  return NULL;
+}
+
 Building* get_building_from_room(int rroom)
 {
   int vnum = world[rroom].number;

@@ -1120,7 +1120,8 @@ IS_GIANT(ch) || IS_PC_PET(ch) || IS_PC(ch) || IS_UNDEAD(ch)) && !IS_ANIMAL(ch))
   (GET_RACE(ch) == RACE_PLICH) || \
   (GET_RACE(ch) == RACE_ELADRIN) || \
   (GET_RACE(ch) == RACE_TITAN) || \
-  (GET_RACE(ch) == RACE_AVATAR))
+  (GET_RACE(ch) == RACE_AVATAR) || \
+  (GET_RACE(ch) == RACE_CONSRUCT))
 
 #define SKILL_DATA(ch, skill)   (skills[(skill)].m_class[flag2idx((ch)->player.m_class)-1])
 #define SKILL_DATA2(ch, skill)   (skills[(skill)].m_class[flag2idx((ch)->player.secondary_class)-1])

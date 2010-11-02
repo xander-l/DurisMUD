@@ -99,6 +99,7 @@ Building* get_building_from_gateguard(P_char ch);
 Building* get_building_from_rubble(P_obj rubble);
 Building* get_building_from_char(P_char ch);
 Building* get_building_from_room(int rroom);
+Building* get_building_from_id(int id);
 Building* load_building(int guildid, int type, int location, int level);
 void do_build(P_char ch, char *argument, int cmd);
 int building_mob_proc(P_char ch, P_char pl, int cmd, char *arg);

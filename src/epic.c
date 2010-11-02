@@ -1035,6 +1035,7 @@ int epic_stone(P_obj obj, P_char ch, int cmd, char *arg)
     if( zone_number )
     {
       statuslog(GREATER_G, "%s touched the epic stone in %s", ch->player.name, zone_table[real_zone0(zone_number)].name);
+      logit(LOG_EPIC, "%s touched the epic stone in %s", ch->player.name, strip_ansi(zone_table[real_zone0(zone_number)].name).c_str());
     }
 
     epic_stone_one_touch(obj, ch, epic_value);
