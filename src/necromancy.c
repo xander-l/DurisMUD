@@ -632,19 +632,22 @@ void raise_undead(int level, P_char ch, P_char victim, P_obj obj,
            (IS_PC(ch) ? GET_NAME(ch) :
             ch->player.short_descr), world[ch->in_room].number);
     corpselog = TRUE;
-    create_saved_corpse(obj, undead);
   }
 
   /* move objects in corpse to undead's inventory */
-  for (obj_in_corpse = obj->contains; obj_in_corpse; obj_in_corpse = next_obj)
+  if (obj->contains)
   {
-    if (corpselog)
-      logit(LOG_CORPSE, "%s raised with eq: [%d] %s", obj->short_description,
+    create_saved_corpse(obj, undead);
+    for (obj_in_corpse = obj->contains; obj_in_corpse; obj_in_corpse = next_obj)
+    {
+      if (corpselog)
+        logit(LOG_CORPSE, "%s raised with eq: [%d] %s", obj->short_description,
             obj_index[obj_in_corpse->R_num].virtual_number,
             obj_in_corpse->name);
-    next_obj = obj_in_corpse->next_content;
-    obj_from_obj(obj_in_corpse);
-    obj_to_char(obj_in_corpse, undead);
+      next_obj = obj_in_corpse->next_content;
+      obj_from_obj(obj_in_corpse);
+      obj_to_char(obj_in_corpse, undead);
+    }
   }
 
   if ((typ >= THEURPET_START) && (typ <= THEURPET_END))
@@ -1077,11 +1080,11 @@ void spell_call_titan(int level, P_char ch, char *arg, int type, P_char victim, 
            (IS_PC(ch) ? GET_NAME(ch) : ch->player.short_descr),
            world[ch->in_room].number);
     corpselog = TRUE;
-    create_saved_corpse(obj, mob);
   }
 
   if (obj->contains)
   {
+    create_saved_corpse(obj, mob);
     for (obj_in_corpse = obj->contains; obj_in_corpse;
          obj_in_corpse = next_obj)
     {
@@ -1374,11 +1377,11 @@ void spell_create_dracolich(int level, P_char ch, char *arg, int type, P_char vi
            (IS_PC(ch) ? GET_NAME(ch) : ch->player.short_descr),
            world[ch->in_room].number);
     corpselog = TRUE;
-    create_saved_corpse(obj, mob);
   }
 
   if (obj->contains)
   {
+    create_saved_corpse(obj, mob);
     for (obj_in_corpse = obj->contains; obj_in_corpse;
          obj_in_corpse = next_obj)
     {
@@ -1609,9 +1612,9 @@ void create_golem(int level, P_char ch, P_char victim, P_obj obj,
 
   if (obj->contains)
   {
+    create_saved_corpse(obj, mob);
     for (obj_in_corpse = obj->contains; obj_in_corpse; obj_in_corpse = next_obj)
     {
-      create_saved_corpse(obj, mob);
       if (corpselog)
         logit(LOG_CORPSE, "%s raised with eq: [%d] %s",
               obj->short_description,
@@ -1823,11 +1826,11 @@ void spell_call_avatar(int level, P_char ch, char *arg, int type,
            (IS_PC(ch) ? GET_NAME(ch) : ch->player.short_descr),
            world[ch->in_room].number);
     corpselog = TRUE;
-    create_saved_corpse(obj, mob);
   }
 
   if (obj->contains)
   {
+    create_saved_corpse(obj, mob);
     for (obj_in_corpse = obj->contains; obj_in_corpse;
          obj_in_corpse = next_obj)
     {
@@ -2052,11 +2055,11 @@ void spell_create_greater_dracolich(int level, P_char ch, char *arg, int type,
            (IS_PC(ch) ? GET_NAME(ch) : ch->player.short_descr),
            world[ch->in_room].number);
     corpselog = TRUE;
-    create_saved_corpse(obj, mob);
   }
 
   if (obj->contains)
   {
+    create_saved_corpse(obj, mob);
     for (obj_in_corpse = obj->contains; obj_in_corpse;
          obj_in_corpse = next_obj)
     {

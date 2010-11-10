@@ -17264,6 +17264,10 @@ void event_cdoom(P_char victim, P_char ch, P_obj obj, void *data)
 	 victim->in_room <= 0)
          cDoomData->waves = 0;
   }
+  else
+  {
+    ch = victim;
+  }
 
   if(cDoomData->waves == 0)
   {
@@ -17338,7 +17342,10 @@ void spell_cdoom(int level, P_char ch, char *arg, int type, P_char victim,
   act("&+LA &+gpl&+Lag&+gue &+Lof &+minsects and arachnids&+L flow like an ocean.", TRUE, ch, 0, victim, TO_ROOM);
   act("&+LYou send out a &+mwave of insects&+L!", TRUE, ch, 0, victim, TO_CHAR);
   //engage(ch, victim);
-  add_event(event_cdoom, 0, victim, ch, NULL, 0, &cDoomData, sizeof(CDoomData));
+  if (victim)
+    add_event(event_cdoom, 0, victim, ch, NULL, 0, &cDoomData, sizeof(CDoomData));
+  else
+    add_event(event_cdoom, 0, ch, 0, NULL, 0, &cDoomData, sizeof(CDoomData));
 }
 
 void spell_sense_follower(int level, P_char ch, char *arg, int type,
