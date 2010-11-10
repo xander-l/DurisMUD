@@ -1009,7 +1009,7 @@ int staff_of_blue_flames(P_obj obj, P_char ch, int cmd, char *arg)
       act("&+bThe flames of your&N $q &+Bintensify.&N", FALSE, ch, obj, obj, TO_CHAR);
       act("$n says 'haste' to $p.", FALSE, ch, obj, obj, TO_ROOM);
       act("$n's&N $q &+Bglows intently!", TRUE, ch, obj, 0, TO_ROOM);
-      if (ch->group && (obj->timer[1] + number(100, 150) <= curr_time) && IS_TRUSTED(ch))
+      if (ch->group /*&& (obj->timer[1] + number(100, 150) <= curr_time) && IS_TRUSTED(ch)*/)
 	  {
            cast_as_area(ch, SPELL_HASTE, 50, 0);
            obj->timer[1] = curr_time;
@@ -1050,7 +1050,7 @@ int staff_of_blue_flames(P_obj obj, P_char ch, int cmd, char *arg)
       act("&+YThe flames of your&N $q &+Yglow brightly.&N", FALSE, ch, obj, obj, TO_CHAR);
       act("$n says 'grow' to $p.", FALSE, ch, obj, obj, TO_ROOM);
       act("$n's&N $q &+Yglows brightly!", TRUE, ch, obj, 0, TO_ROOM);
-      if (ch->group && (obj->timer[2] + number(15, 25) <= curr_time)&& IS_TRUSTED(ch))
+      if (ch->group /*&& (obj->timer[2] + number(15, 25) <= curr_time)&& IS_TRUSTED(ch)*/)
 	  {
             cast_as_area(ch, SPELL_ENLARGE, 50, 0);
 	    obj->timer[2] = curr_time;
@@ -1079,7 +1079,7 @@ int staff_of_blue_flames(P_obj obj, P_char ch, int cmd, char *arg)
       act("&+bThe flames of your&N $q &+Bintensify.&N", FALSE, ch, obj, obj, TO_CHAR);
       act("$n says 'stone' to $p.", FALSE, ch, obj, obj, TO_ROOM);
       act("$n's&N $q &+Bglows intently!", TRUE, ch, obj, 0, TO_ROOM);
-      if (ch->group && (obj->timer[3] + number(30, 40) <= curr_time) && IS_TRUSTED(ch))
+      if (ch->group /*&& (obj->timer[3] + number(30, 40) <= curr_time) && IS_TRUSTED(ch)*/)
 	  {
            cast_as_area(ch, SPELL_STONE_SKIN, 50, 0);
            obj->timer[3] = curr_time;
@@ -1096,7 +1096,7 @@ int staff_of_blue_flames(P_obj obj, P_char ch, int cmd, char *arg)
       act("&+bThe flames of your&N $q &+Bintensify.&N", FALSE, ch, obj, obj, TO_CHAR);
       act("$n says 'globe' to $p.", FALSE, ch, obj, obj, TO_ROOM);
       act("$n's&N $q &+Bglows intently!", TRUE, ch, obj, 0, TO_ROOM);
-      if (ch->group && (obj->timer[4] + number(200, 250) <= curr_time) && IS_TRUSTED(ch))
+      if (ch->group /*&& (obj->timer[4] + number(200, 250) <= curr_time) && IS_TRUSTED(ch)*/)
 	  {
            cast_as_area(ch, SPELL_GLOBE, 50, 0);
            obj->timer[4] = curr_time;
