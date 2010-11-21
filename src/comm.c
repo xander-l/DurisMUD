@@ -808,8 +808,11 @@ void game_loop(int s)
 //    if (!(pulse % PULSES_IN_TICK))
 //      wimps_in_accept_queue();
 
-    if (!(pulse % WAIT_SEC * 60 * 60))
+    if (!(pulse % (WAIT_SEC * 60 * 60)))
+    {  
       epic_zone_balance();
+      outposts_upkeep();
+    }
 
     PROFILE_END(activities);
 

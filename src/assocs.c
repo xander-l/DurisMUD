@@ -2602,6 +2602,7 @@ int sub_money_asc(int asc, int pc, int gc, int sc, int cc)
   long int temp;
   ush_int  asc_number = (ush_int)asc;
   char     *tmp2;
+  int      banksum, wsum;
 
 	  
   /* check for sanity of calling proc */
@@ -2627,14 +2628,27 @@ int sub_money_asc(int asc, int pc, int gc, int sc, int cc)
 
   /* check if association has the money */
   fscanf(f, "%i %i %i %i\n", &dummy2, &dummy3, &dummy4, &dummy5);
-  if (dummy2 < pc || dummy3 < gc || dummy4 < sc || dummy5 < cc)
+  
+  // convert to sum totals
+  banksum = (dummy2*1000) + (dummy3*100) + (dummy4*10) + dummy5;
+  wsum = (pc*1000) + (gc*100) + (sc*10) + cc;
+  if (banksum < wsum)
   {
     fclose(f);
     return (0);
   }
+  // convert back to pgsc format.
+  banksum -= wsum; // subtract cash
+  dummy2 = banksum / 1000;
+  banksum = banksum % 1000;
+  dummy3 = banksum / 100;
+  banksum = banksum % 100;
+  dummy4 = banksum / 10;
+  banksum = banksum % 10;
+  dummy5 = banksum;
+
   /* update association cash */
-  sprintf(Gbuf2, "%i %i %i %i\n", dummy2 - pc, dummy3 - gc, dummy4 - sc,
-          dummy5 - cc);
+  sprintf(Gbuf2, "%i %i %i %i\n", dummy2, dummy3, dummy4, dummy5);
   strcat(buf, Gbuf2);
 
   /* copy past members */

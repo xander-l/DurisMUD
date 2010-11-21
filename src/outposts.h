@@ -47,6 +47,7 @@ void event_outpost_repair(P_char, P_char, P_obj, void*);
 void update_outpost_owner(int, Building*);
 int outpost_generate_portals(Building*);
 int get_killing_association(P_char);
+void outposts_upkeep();
 
 // For op_resources.c
 #define RES_COPSE_VNUM      97820

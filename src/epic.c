@@ -1109,7 +1109,7 @@ void epic_zone_balance()
     
     //debug("zone %d alignment %d", epic_zones[i].number, alignment);
 
-    if (time(NULL) - lt < ((int)get_property("epic.alignment.reset.hour", 7*24*60*60)*60*60))
+    if (time(NULL) - lt < ((int)get_property("epic.alignment.reset.hour", 7*24)*60*60))
     {
       if(alignment > 0)
         delta = -1;

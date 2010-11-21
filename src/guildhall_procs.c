@@ -124,6 +124,17 @@ int guildhall_golem(P_char ch, P_char pl, int cmd, char *arg)
     {
       allowed = allowed || IS_ASSOC_MEMBER(t_ch, alliance->forging_assoc_id) || IS_ASSOC_MEMBER(t_ch, alliance->joining_assoc_id);
     }
+    if(!allowed && pl->group)
+    {
+      struct group_list *gl;
+      gl = pl->group;
+      while (gl)
+      {
+	if (GET_A_NUM(gl->ch) == GET_A_NUM(ch))
+	  allowed = TRUE;
+	gl = gl->next;
+      }
+    }
     
     if( IS_TRUSTED(pl) )
     {
