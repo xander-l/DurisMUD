@@ -62,7 +62,9 @@ int lucrot_mindstone(P_obj obj, P_char ch, int cmd, char *arg)
       
       if(obj->timer[0] + 1200 <= curr_time)
       {
-        int to_room = real_room(19401);
+        int to_room = GET_HOME(ch);
+	if (to_room <= 0)
+	  to_room = real_room0(19721);
 
         act("You say 'Journey'",FALSE, ch, 0, 0, TO_CHAR);
         act("\n&+cYour&n $q &+cpulses!&n\n",

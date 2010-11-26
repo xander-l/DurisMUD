@@ -16944,13 +16944,13 @@ void spell_immolate(int level, P_char ch, char *arg, int type, P_char victim,
       engage(ch, victim);
     }
     if(IS_ALIVE(victim) &&
-      spell_damage(ch, victim, (int) GET_LEVEL(ch) * 4 + number(4, 20),
-        SPLDAM_FIRE, SPLDAM_NODEFLECT, NULL) == DAM_NONEDEAD);
+      (spell_damage(ch, victim, (int) GET_LEVEL(ch) * 4 + number(4, 20), SPLDAM_FIRE, SPLDAM_NODEFLECT, NULL) == DAM_NONEDEAD));
     {
+      debug("adding event");
       if(ch &&
         IS_ALIVE(victim)) // Adding another check.
       {
-        //gain_exp(ch, victim, 0, EXP_DAMAGE);
+	//gain_exp(ch, victim, 0, EXP_DAMAGE);
         add_event(event_immolate, PULSE_VIOLENCE, ch, victim, NULL, 0, &burn, sizeof(burn));
       }
     }
@@ -19000,6 +19000,7 @@ void spell_single_banish(int level, P_char ch, char *arg, int type, P_char victi
     {
       act("You break the binding energies and watch as $N crumbles to dust.", FALSE, ch, 0, victim, TO_CHAR);
       act("$N &+Lsuddenly becomes lifeless once more and crumbles to dust.&n", FALSE, ch, 0, victim, TO_NOTVICT);
+      check_saved_corpse(victim);
       extract_char(victim);
       return;
     }   
@@ -19039,6 +19040,7 @@ void spell_single_banish(int level, P_char ch, char *arg, int type, P_char victi
         act("Divine power sweeps over $N and $E is no more.", FALSE, ch, 0, victim, TO_NOTVICT);
         break;
     }
+    check_saved_corpse(victim);
     extract_char(victim);
   }
 }
