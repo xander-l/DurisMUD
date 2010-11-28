@@ -146,7 +146,7 @@ M 0 4008 4 4048 100 0 0 0          * a large orc
 M 0 4008 4 4048 100 0 0 0          * a large orc
 M 0 4009 1 4049 100 0 0 0          * the orc chief
 E 1 4025 1 14 100 0 0 0            *   an engraved bracelet of human bones
-E 1 4006 5 16 100 0 0 0            *   a huge club of bleached tighbone
+E 1 4006 5 16 100 0 0 0            *   a huge club of bleached thighbone
 M 0 4013 3 4055 100 0 0 0          * a primitive human warrior
 G 1 398 9999 0 100 0 0 0           *    (object type not in this .obj file)
 M 0 4013 3 4056 100 0 0 0          * a primitive human warrior
