@@ -4852,6 +4852,10 @@ void check_vamp(P_char ch, P_char victim, double fdam, uint flags)
      (dam < 1))
         return;
 
+  if((GOOD_RACE(ch) && GOOD_RACE(victim)) ||
+     (EVIL_RACE(ch) && EVIL_RACE(victim)))
+      return;
+
 // Allowing cannibalize through all weapons.
         
   if(IS_AFFECTED3(ch, AFF3_CANNIBALIZE) &&
@@ -5134,6 +5138,7 @@ void check_vamp(P_char ch, P_char victim, double fdam, uint flags)
     (flags & RAWDAM_HOLYSAC) &&
     !affected_by_spell(victim, SPELL_PLAGUE))
   {
+    wizlog(56, "dam = %d", dam);
     sac_gain = dam * get_property("vamping.holySacrifice", 0.050);
 
     for (group = victim->group; group; group = group->next)
@@ -5144,7 +5149,7 @@ void check_vamp(P_char ch, P_char victim, double fdam, uint flags)
          tch != victim &&
          !IS_AFFECTED4(tch, AFF4_HOLY_SACRIFICE) &&
          !affected_by_spell(tch, SPELL_PLAGUE))
-            vamp(tch, sac_gain, (GET_MAX_HIT(tch) + (GET_MAX_HIT(tch)/3)));
+            vamp(tch, sac_gain, GET_MAX_HIT(tch)); // Holy Sac only vamps to max hp - Jexni 12/9/10
     }
   }
 }
