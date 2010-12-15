@@ -1,0 +1,950 @@
+#135400
+crown naga overlord~
+&+Lthe &nC&+Wro&nw&+Ln of the N&+Mag&+La Ov&+we&+Wrl&+Lord&n~
+&+LA &+mbe&+Mjewel&+med &+Wcrown &+Ldecorated with interlocking serpents has been left here.~
+~
+11 27 2 0 12 0 0 17 64 0 0
+0 0 0 0 0 0 0 0
+0 5000000 100
+E
+crown~
+&+mThis crown comes from a Kingdom of Naga, and is a symbol that any naga will
+&+mreconize as a symbol of rulership. Made of mThis crown is made of mithril
+&+mand decorated with gems and interlocking serpents of gold. The star sapphires
+&+mhave been embedded into eyes of every serpent.
+~
+A
+34 6
+A
+22 5
+#135401
+ring nagakind~
+&+Lthe &nr&+Win&ng&+L of n&+Mag&+La&nk&+Wi&nn&+Ld&n~
+&+LA &+Wring &+Lwith the head of a n&+Mag&+La has been left here.&n~
+~
+11 15 1 0 10 0 0 3 64 0 0
+0 0 0 0 0 0 0 0
+1 640000 100
+E
+ring nagakind~
+&+MThe ring of Nagakind is an old ancient ring that yuan-ti of the Fanged Kingdom
+&+Mconstructed to keep better tabs on their naga slaves. This ring has the head of
+&+Ma screaming naga embeded into a night blue stone gem.
+~
+A
+35 4
+A
+5 6
+#135402
+tongue _id_~
+&+Lthe &+Wforked &+ytongue&+L of a yu&na&+Cn&+L-ti &+rabo&+Rminat&+rion&n~
+&+LThis appear to be a forked tongue of a yu&na&+Cn&+L-ti &+rab&+Rominati&+ron &+Lthat has been severed has been left here.&n~
+~
+11 15 3 0 7 0 136 524289 0 0 0
+0 0 0 0 0 0 0 0
+0 200000 100
+E
+tongue~
+&+LThis tongue is forked like a serpent and was severed in a battle with what
+&+Lcould only be a yuan-ti abomination.
+~
+E
+_id_name_~
+&+LThe tongue of a severed yuan-ti abomination
+~
+A
+2 8
+A
+26 8
+#135403
+platemail suit~
+&+La &+rs&+Rui&+rt&+L of yu&na&+Cn&+L-ti &npl&+Watema&nil &+Lbearing a Serp&n&+we&+Wnts F&n&+wa&+Lng&n~
+&+LA &nse&+Wrpenti&nne&+L set of yu&na&+Cn&+L-ti platemail has been foolishly left here.&n~
+~
+9 19 3 0 10 0 0 9 192 0 0
+100 0 0 2 1 0 0 0
+4 4599999 100
+E
+platemail suit~
+&+LThis suit of platemail has been designed by yuan-ti blacksmiths so that the wearer can
+&+Ltake advantage of full movement of the arms and legs. It's made from a combination
+&+Lof mithril, steel, and bronze for flexiablity. The chest plate bears the
+&+LSerpents Fang sigil.
+~
+A
+19 6
+A
+58 -1
+#135404
+eyepatch~
+&+Lan &+Ley&ne&+Cpa&nt&+Lch of &+rli&+Rvi&+rng&+L d&+Ba&+brkne&+Bs&+Ls and scr&nea&+Wming sh&nado&+Lws~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+9 15 2 0 13 0 8192 131073 64 0 0
+25 0 0 3 0 0 0 0
+1 799999 100
+E
+eyepatch~
+&+LThis eyepatch was forged on the Demi-Plane of Shadows. It's made of ethereal silk,
+&+La material that is infused with magic to capture, bind, and hold otherwordly creatures.
+&+LThose captured lend a fraction of their power and strength to whomever wears it.
+&+LA torrent of the faces of lost souls screach and scream to be released from the
+&+Lthis evil device.
+~
+A
+19 4
+A
+18 5
+#135405
+stilletto trainted kiss~
+&+La &nse&+Wrpenti&nne&+L &+bst&+Bi&+Llle&+bt&+bto&+L named '&+rTa&+Rin&+Lted &+RKi&+rss&+L'&n~
+&+LA serpentine stilletto with a twin serpent hilt has been left here.&n~
+~
+5 19 3 0 10 0 17047808 8193 192 0 0
+2 4 5 0 0 0 0 0
+3 688880 100
+E
+stilletto trainted kiss~
+&+bThis dagger is of high craftmanship, made of mithril and dark mithril.
+&+bThe hilt is serpentine with the blade part made to appear like
+&+btwin serpents of night and shadow.
+~
+A
+18 4
+A
+19 5
+#135406
+lance~
+&+Lthe yu&na&+Cn&+L-ti d&ne&+Wath lan&nc&+Le of the &+WSer&+wpe&+Lnt Lo&+wr&+Wds&n~
+&+LA coiled &nse&+Wrpenti&nne lance has been left here upon the ground.&n~
+~
+5 16 3 0 10 0 37756928 8193 64 0 0
+16 2 20 0 0 0 0 0
+5 609990 100
+E
+lance~
+&+LThis lance was designed for yuan-ti pure-bloods and yuan-ti half-blood knights
+&+Lmounted on huge snakes or dragons. The lance resembles a huge python with
+&+La serpentine handle, and a maleovent visage.
+~
+A
+18 6
+A
+19 3
+#135407
+bracelet star sapphire eyes~
+&+ma &+ms&+Me&+Wrpe&+Mn&+mt b&+Mr&+Wacel&+Me&+mt &+mwith &+ms&+Mt&+War sapphi&+Mr&+me e&+My&+Wes&n~
+&+mA bracelet of a serpent with &+me&+My&+We&+ms of s&+Mt&+War&+m sapphire staring up at you as has been left here.&n~
+~
+9 33 2 0 7 0 8192 4097 64 0 0
+25 0 0 3 0 0 0 0
+2 3000000 100
+E
+bracelet star sapphire eyes~
+&+mThis bracelet is made of gold, chased with platinum serpents and
+&+mserpentine runes traced along the wrist guard for scales. A single
+&+mserpent with sapphire eyes twinkle with a magical glint.
+~
+A
+34 4
+A
+35 4
+#135408
+ring~
+&+Wa &+gr&+Win&+Gg &no&+Wf &nse&+Wrpen&nts &+gd&+Gev&+Wour&+Gin&+gg&+L &ne&+Wac&nh o&+Wthe&nr~
+&+gA r&+Gin&+gg of two &nse&+Wrpen&nts&+g devouring each other has been left on the ground.&n~
+~
+11 27 1 0 11 0 1 3 64 0 0
+0 0 0 0 0 0 0 0
+1 600999 100
+E
+ring~
+&+LThis beautiful ring is beautiful to behold, a gold band with with white gold
+&+Lserpents all embeded with diamond eyes. The serpents devour each other
+&+Lin a never ending loop.
+~
+A
+20 -4
+A
+35 3
+#135409
+circlet~
+&+La &+Lyu&n&+wa&+Cn&+L-ti Ni&n&+wg&+Wht Se&n&+wrp&+Lent &n&+rci&+Rrcl&n&+ret&n~
+&+LThe circlet of a night serpent has been left here.~
+~
+9 18 3 0 11 0 33562625 4097 64 0 0
+15 0 0 4 0 0 0 0
+4 2565650 100
+E
+circlet~
+&+LThis circlet is the symbol of anyone wearing it that they have been blessed
+&+Lby Dendar, the Night Serpent. Dendar only gives this highly prized circlet
+&+Lonce an eon. Made of dark mithril which gives it a night blue look and
+&+Lshaped into the terrifying visage of a mid night blue serpent.
+~
+A
+19 4
+A
+26 9
+#135410
+necklace crowns skulls kings~
+&+Lthe &+rb&+Ru&+Yr&+Wn&+Yi&+Rn&+rg &+Yc&+Wr&now&+Wn&+Ys&+L and &ns&+Wkull&ns&+L of &+bf&+Ba&+Lllen kin&+Bg&+bs~
+&+LA &+rf&+Rl&+Ya&+Wm&+Yi&+Rn&+rg &nm&+Wi&nt&+Wh&nr&+Wi&nl c&+Whai&nn&+L with the crowns and heads of fallen kings floats here in mid-air.~
+~
+9 15 2 0 13 0 67379200 5 64 0 0
+20 0 0 2 0 0 0 0
+1 7909000 100
+E
+necklace crowns skulls kings~
+&+rThis necklace is horrifying to look upon. Connected by linked mithril chains,
+&+rthat has been magically infused with hellfire. Dangling from the chain are
+&+rthe crowns and skulls of fallen kings. The twisted natures of the infernal
+&+rflames have kept the fallen kings alive, to wither and scream out in
+&+ranguish and agony for eternity. Whomever created this chain of burning
+&+rskulls is a sick twisted dark soul.
+~
+A
+31 5
+A
+1 10
+#135411
+crown witch king~
+&nt&+Whe &nC&+Wrow&nn o&+Wf th&ne&+W Wi&+Ct&nc&+Lh &+WK&+Ci&nn&+Lg&n~
+&+LThe &nc&+Wrow&nn &+Lof a yu&na&+Cn&+L-ti &+Mso&+mrcer&+Mer&+L is here, floating in mid-air.~
+~
+9 18 2 0 13 0 0 17 0 0 0
+25 0 0 1 0 0 0 0
+1 6060609 100
+E
+crown witch king~
+&+LThis crown is made of mithril, chased through with gold and white gold.
+&+LFashioned to appear like a serpent with its coils wrapped around the head
+&+Lof whomever wears it. This is an ancient grown of rulership deviced by
+&+Lthe yuan-ti Fanged Kingdom. Any yuan-ti who views this crown will kneel
+&+Lbefore the wearer.
+~
+A
+33 5
+A
+13 25
+#135412
+gown witch queen~
+&+Lthe sh&nado&+Wwy floor le&nng&+Lth go&nwn of t&+Whe &+WWi&+Ct&nc&+Lh &+WQu&+Ce&ne&+Ln&n~
+&+LA Sh&nado&+Wwy shroud of m&nist is her&+Le, floating in mid-air.&n~
+~
+9 1 3 0 13 0 67117057 9 64 0 0
+60 0 0 2 0 0 0 0
+0 4070700 100
+E
+gown witch queen~
+&+LThis gown is made of swirling shadows and ethereal mist. Whenever
+&+Llooking closely at the shadows the appear to be shadows of serpents
+&+Lwith red glowing ember eyes.
+~
+A
+24 -5
+A
+35 5
+#135413
+onslaught weapon slaazh kingslayer~
+&+L'&nOn&+Wslaug&nht&+L' the &nW&+Weapo&nn&+L of &+WS&nl&+Wa&na&+Wz&n&+Wh&+L, the Ki&nn&+Cgs&nla&+Lyer&n~
+&+LA &nm&+Wi&nt&+Wh&nr&+Wi&nl &nwa&+Wrhamm&ner&+L of awesome power and might has been left here.&n~
+~
+5 15 3 0 7 0 88350992 8193 192 0 0
+4 5 10 0 0 0 0 0
+0 0 100
+A
+19 6
+A
+58 -2
+#135414
+onslaught warhammer slaazh kingslayer~
+&+L'&nOn&+Wslaug&nht&+L' the &nWa&+Wrhamm&ner&+L of &+WS&nl&+Wa&na&+Wz&n&+Wh&+L, the Ki&nn&+Cgs&nla&+Lyer&n~
+&+LA &nm&+Wi&nt&+Wh&nr&+Wi&nl &nwa&+Wrhamm&ner&+L of awesome power and might has been left here.&n~
+~
+5 15 3 0 7 0 88350992 8193 192 0 0
+4 5 10 0 0 0 0 0
+0 0 100
+A
+19 6
+A
+58 -2
+#135415
+onslaught mace slaazh kingslayer~
+&+L'&nOn&+Wslaug&nht&+L' the &nM&+Wac&ne&+L of &+WS&nl&+Wa&na&+Wz&n&+Wh&+L, the Ki&nn&+Cgs&nla&+Lyer&n~
+&+LA &nm&+Wi&nt&+Wh&nr&+Wi&nl &nwa&+Wrhamm&ner&+L of awesome power and might has been left here.&n~
+~
+5 15 3 0 7 0 88350992 8193 192 0 0
+4 5 10 0 0 0 0 0
+0 0 100
+A
+19 6
+A
+58 -2
+#135416
+onslaught vorpal sword slaazh kingslayer~
+&+L'&nOn&+Wslaug&nht&+L' the &nVo&+Wrpal Swo&nrd&+L of &+WS&nl&+Wa&na&+Wz&n&+Wh&+L, the Ki&nn&+Cgs&nla&+Lyer&n~
+&+LA &nm&+Wi&nt&+Wh&nr&+Wi&nl &nwa&+Wrhamm&ner&+L of awesome power and might has been left here.&n~
+~
+5 15 3 0 7 0 88350992 8193 192 0 0
+4 5 10 0 0 0 0 0
+0 0 100
+A
+19 6
+A
+58 -2
+#135417
+onslaught claws slaazh kingslayer~
+&+L'&nOn&+Wslaug&nht&+L' the &nC&+Wlaw&ns&+L of &+WS&nl&+Wa&na&+Wz&n&+Wh&+L, the Ki&nn&+Cgs&nla&+Lyer&n~
+&+LA &nm&+Wi&nt&+Wh&nr&+Wi&nl &nwa&+Wrhamm&ner&+L of awesome power and might has been left here.&n~
+~
+5 15 3 0 7 0 88350992 8193 192 0 0
+4 5 10 0 0 0 0 0
+0 0 100
+A
+19 6
+A
+58 -2
+#135418
+onslaught staff slaazh kingslayer~
+&+L'&nOn&+Wslaug&nht&+L' the &nS&+Wtaf&nf&+L of &+WS&nl&+Wa&na&+Wz&n&+Wh&+L, the Ki&nn&+Cgs&nla&+Lyer&n~
+&+LA &nm&+Wi&nt&+Wh&nr&+Wi&nl &nwa&+Wrhamm&ner&+L of awesome power and might has been left here.&n~
+~
+5 15 3 0 7 0 88350992 8193 192 0 0
+4 5 10 0 0 0 0 0
+0 0 100
+A
+19 6
+A
+58 -2
+#135419
+onslaught dagger slaazh kingslayer~
+&+L'&nOn&+Wslaug&nht&+L' the &nD&+Wagge&nr&+L of &+WS&nl&+Wa&na&+Wz&n&+Wh&+L, the Ki&nn&+Cgs&nla&+Lyer&n~
+&+LA &nm&+Wi&nt&+Wh&nr&+Wi&nl &nwa&+Wrhamm&ner&+L of awesome power and might has been left here.&n~
+~
+5 15 3 0 7 0 88350992 8193 192 0 0
+4 5 10 0 0 0 0 0
+0 0 100
+A
+19 6
+A
+58 -2
+#135420
+onslaught pick hammer slaazh kingslayer~
+&+L'&nOn&+Wslaug&nht&+L' the &nPi&+Wck Hamm&ner&+L of &+WS&nl&+Wa&na&+Wz&n&+Wh&+L, the Ki&nn&+Cgs&nla&+Lyer&n~
+&+LA &nm&+Wi&nt&+Wh&nr&+Wi&nl &nwa&+Wrhamm&ner&+L of awesome power and might has been left here.&n~
+~
+5 15 3 0 7 0 88350992 8193 192 0 0
+4 5 10 0 0 0 0 0
+0 0 100
+A
+19 6
+A
+58 -2
+#135421
+coils death serpent~
+&+Lthe insi&ndious c&+Woils of a d&neath ser&+Lpent~
+&+LA black as m&nid-night s&+Werpent of death is h&nere, coiled to str&+Like at anything.~
+~
+9 2 2 0 12 0 67117216 257 64 0 0
+45 0 0 1 0 0 0 0
+1 3656500 100
+E
+coils death serpent~
+&+LAn insidious serpent of death and living dead is the creed of these twin
+&+Lmalice serpents. It coils around the arms of its users sapping alittle of
+&+Ltheir life force to live, but giving back tremendous power in return.
+~
+A
+22 -4
+A
+33 6
+#135422
+head shrunken illithidlich illithid lich~
+&+mth&+Me &+ms&+Mh&+Lrunk&+Me&+mn &nh&+Wea&nd&+M o&+mf a&+Mn &+mil&+Ml&+Lithidl&+Mi&+mch~
+&+mThe hea&+Md of a shr&+Lunken undead illithid with dried up sk&+Min has been l&+meft here.~
+~
+11 2 1 0 5 0 12416 8388609 0 0 0
+0 0 0 0 0 0 0 0
+1 2609000 100
+E
+head shrunken illithidlich illithid lich~
+&+mThis is the severed head of an illithidlich. the head doesnt appear to
+&+mglisten with slime nor have the mauve color that is accustom to illithid.
+&+mThe pupiles eyes stare out in shock and horror.
+~
+A
+37 2
+A
+27 4
+#135423
+gloves~
+&+Lsome &+mm&+Ma&+Luve-skinn&+Me&+md &nfi&+Wngerle&Nss g&+Wlove&ns&+L of an &+mil&+Ml&+Lithidl&+Mi&+mch&n~
+&+mSome &ng&+Wlove&ns&+m made from the skin of an &+Millithid&+m has been left here on the ground.~
+~
+9 2 1 0 8 0 8192 129 64 0 0
+20 0 0 1 0 0 0 0
+1 4600000 100
+E
+gloves~
+&+mThese gloves are made from the mauve skin of an mindflayer who has been skinned
+&+malive. These gloves represent a prize among illithid outcasts whom have taken
+&+mup sorcerery instead of psionics.
+~
+A
+35 5
+A
+37 5
+#135424
+gloves~
+&+Lsome &+ga&+Gstra&+gl-f&+Gorge&+gd &ng&+Wlove&ns&+L of &+bs&+Bp&+ce&+Cl&+Wlwea&+Cv&+ci&+Bn&+bg~
+&+gSome made of a&+Wstra&+gl &nm&+Wi&ns&+Wt&+g has been left here, floating in mid-air.&n~
+~
+9 1 1 0 14 0 101851168 129 64 0 0
+30 0 0 1 0 0 0 0
+1 7900000 100
+E
+gloves~
+&+gThese gloves were forged upon the astral-plane. Mainly made up of
+&+gastral mist and stiched together with strands of astral silk, and
+&+ggithyanki hair.
+~
+A
+35 4
+A
+57 -1
+#135425
+spellfire scroll case~
+&+La &+Ms&+mp&+re&+Rllf&+ri&+mr&+Me &ns&+Wcrol&nl-c&+Was&ne &+Lof &+bl&+Bi&+Lving mag&+Bi&+bc~
+&+LA &nc&+Wloa&nk&+L of &+bl&+Bi&+Lving mag&+Bi&+bc&+L crackling with waves of spellfire is here, floating in mid-air.~
+~
+9 1 1 0 12 0 100671488 5242881 64 0 0
+20 0 0 1 0 0 0 0
+1 2800000 100
+E
+spellfire scroll case~
+&+mThis scrollcase is highly prized by any spellcaster whom practice in the
+&+marts of sorcerery, conjureration, or elementalism. The a living mantle
+&+mof magic, it crackles and sparkles with spellfire magic.
+~
+A
+5 7
+A
+3 7
+#135426
+ethereal prism~
+&+Lan &+me&+Mt&+Lhere&+Ma&+ml &np&+Wris&nm&+L of &nt&+Wrappe&nd&+L li&n&+wg&+Wht&+L and dar&n&+wkne&+Wss~
+&+LAn &+me&+Mt&+Lhere&+Ma&+ml &+Lpris&nm of pu&+Wsling white li&nght and d&+Larkness fl&noats here i&+Wn mid-&+Lair.~
+~
+9 7 0 0 13 0 100937760 8388609 64 0 0
+15 0 0 1 0 0 0 0
+0 2300000 100
+E
+ethereal prism~
+&+LThis prism is diamond shaped and made of glass, in its heart is a pusling power
+&+Lof trapped sun and moon light. The two lights mix and swirls together creating
+&+La gray hue as it pulses with a life of its own in rythem with a heart beat.
+~
+A
+13 10
+A
+22 -2
+#135427
+visage mask doppleganger face~
+&+mt&+Lh&+Me &+me&+Mv&+Ler-shifti&+Mn&+mg v&+Lisag&+me o&+Mf &+La &+md&+Mo&+Lpplegang&+Me&+mr~
+&+LThe face of a &+md&+Mo&+Lpplegang&+Me&+mr&+L that keep shifting from one image to another.~
+~
+9 2 2 0 6 0 1048576 262145 64 0 0
+30 0 0 1 0 0 0 0
+1 9560000 100
+E
+visage mask doppleganger~
+&+mThis is the visage of someone who has seen too much. The face of
+&+ma doppleganger who saw a nightmare only Dendar, the Night Serpent
+&+mcould show. Shifting from so fast from image, to image that the
+&+meyes of any mortal could never keep up with. Changing to a halfling,
+&+mthen a drow, to a duergar, and then changing so fast through another
+&+mseries of images. A dwarf, a thri-kreen, a ogre, and then a grey elf.
+~
+A
+18 4
+A
+19 6
+#135428
+horns vaprak god~
+&+Lthe &nh&+Worn&ns&+L of &+rVap&+Lrak&+L, the &nG&+Wo&nd&+L of &+rMino&+Ltaurs&n~
+&+rThe &nh&+Worn&ns&+r of the &+LAv&na&+Ct&+Lar of &+rMino&+Ltaurs&+r has been foolishly left here by some stupid &nc&+Wo&nw.&n~
+~
+9 15 4 0 11 0 33824768 16777217 64 0 0
+45 0 0 5 1 0 0 0
+3 7890000 100
+E
+horns vaprak god~
+&+rWhile not the actual horns of Vaprak, the God of Minotaurs, these
+&+rhorns are a sign to minotaurs that whomever wearers them are blessed
+&+rby their God and Patron.
+~
+A
+19 4
+A
+18 4
+#135429
+eye sseth~
+&+Lthe &na&+Wll-seei&nng &+GE&+gye&+L of &+GS&+gseth&+L, the &nG&+Wo&nd&+L of &nSe&+Wrpen&nts~
+&+gThe &nse&+Wrpenti&nne&+g all-seeing &+gE&+Gye&+g of &+GS&+get floats here in mid-air.&n~
+~
+3 2 2 0 10 0 100929537 8404993 64 0 0
+45 6 6 409 0 0 0 0
+1 5900000 100
+E
+eye set~
+&+gThe all-seeing Eye of Set, the God of Serpents. The eye has a serpent
+&+glike iris. Staring out with pure malice, that gives anyone looking into
+&+git the impression of predator staring at prey just before it strikes.
+~
+A
+13 10
+A
+30 8
+#135430
+ivy horn unicorn~
+&+Ca t&+Cwiste&+Wd u&+Cnicor&+Wn &+Ch&+Wor&+Cn &+Wn&+Came&+Wd '&+CI&+Wv&+Cy&+W'&n~
+&+CAn ivory twisted unicorn horn has been foolishly left here on the ground.&n~
+~
+3 15 1 0 14 0 33554497 1064961 64 0 0
+31 3 3 2 0 0 0 0
+1 3500000 100
+E
+ivy horn unicorn~
+&+CThis beautiful wand was fashioned to look like the twisted horn of
+&+Ca majestic unicorn. It pulses and sparkles with soft motes of
+&+Carcane magic.
+~
+A
+20 -2
+A
+24 -2
+#135431
+key~
+&+La &nse&+Wrpenti&nne &nk&+We&ny&n~
+&+LA &nk&+We&ny&+L shaped into a &nse&+Wrpen&nts&+L has been left here.&n~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135432
+totem dark naga~
+&+Lthe &nt&+Wote&nm&+L of the &+md&+Ma&+Lrk n&+Mag&+La~
+&+mA &nse&+Wrpenti&nne t&+Wote&nm&+m that has the ugly visage of an old crone has been left here.~
+~
+34 12 2 0 10 0 8193 24577 64 0 0
+34 0 0 0 0 0 0 0
+1 2340000 100
+E
+totem dark naga~
+&+mThis totem has a serpentine look to it, coiling around a wooden handle,
+&+mand rising up to its apex. It bearers the image of an ugly old crone.
+~
+A
+13 25
+A
+34 5
+#135433
+tail bone naga rattle~
+&+Lthe ra&ntt&+Wle t&nai&+Ll of a &+Wb&no&+Wn&ne &+Ln&+Mag&+La~
+&+LA coiled &nse&+Wrpenti&nne&+L tail made of &+Wb&no&+Wn&ne&+L has been left here.&n~
+~
+11 15 2 0 9 0 4224 33554433 64 0 0
+0 0 0 0 0 0 0 0
+1 1900000 100
+E
+tail bone naga rattle~
+&+LThis is the tail of an undead bone naga. It has a rattle end to it
+&+Lsimular to that of a rattle-snake.
+~
+A
+22 -3
+A
+24 -3
+#135434
+mithril belt buckle brute strength~
+&+La &+mm&+Mi&+Lthr&+Mi&+ml &+bb&+Be&+Llt buck&+Bl&+be &+Lcalled &+W'&nB&+Wrut&ne S&+Wtrengt&nh&+W'~
+&+mA m&+Mi&+Lthril-plat&+Me&+md&+L belt buckle with a symbol of a flexing arm has been left here.&n~
+~
+9 18 2 0 7 0 0 8388609 0 0 0
+30 0 0 4 0 0 0 0
+1 1800000 100
+E
+mithril belt buckle brute strength~
+&+mThis belt buckle is made of mithril and plated with dark mithril.
+&+mDcorated with gold and platnium traceries. Inscribed into the buckle
+&+mit the Titan symbol of strength.
+~
+A
+31 2
+A
+1 4
+#135435
+arquebuse gond wonderbringer~
+&+Lthe &+ra&+Rr&+Lque&+Lbu&+Rs&+re&+L of &+WG&non&+Wd&+L, the &nWo&+Wnde&nrbr&+Wing&ner~
+&+LA smoking &+ra&+Rr&+Lquebu&+Rs&+re&+L with the symbol of &+WG&non&+Wd&+L, the &nWo&+Wnde&nrbr&+Wing&ner&+L has been left here.&n~
+~
+5 19 2 0 14 0 8192 8193 192 0 0
+10 2 20 0 0 0 0 0
+1 2000000 100
+E
+arquebuse gond wonderbringer~
+&+LThe design for this smokepowdered weapon could have only come from
+&+La god known as Gond, the Wonderbringer. In his struggle to prove
+&+Lthat mechanics is better then magic, he designed this smokepowerdered
+&+Lweapon to present to Mystra, Goddess of Magic. Gond was so pleased
+&+Lwith his work, he left the secrets of the designs in three books
+&+Lso the knowledge of the smokepowdered weapon would spread across
+&+Lthe planes.
+~
+A
+19 5
+A
+40 8
+#135436
+dreamsinger moon elven sword~
+&+L'&+bD&+Br&+ce&+Ca&+Wmsi&+Cn&+cg&+Be&+br&+L' the &nE&+Wlve&nn &nM&+Coo&nn &nS&+Wwor&nd of &nM&+Wyt&nh Dr&+Wann&nor~
+&+CA fabled elven m&+Woon swor&+Cd, flowing with m&+Woo&+Cn light floats here singing in mid-air.~
+~
+5 15 3 0 15 0 104210689 8396801 66 0 0
+5 3 10 0 0 0 0 0
+1 9090000 100
+E
+dreamsinger moon elven sword~
+&+LThis magnificent blade tingles with strong ancient &+bm+Lagi&+bc&+L, &nbl&+Wossomi&nng
+&+Lwith the &Wc&nold &+Lbrightness of &+bm&+Bo&+Lonfi&+Br&+be&+L, and &+bm&+Bo&+Lonfi&+Br&+be&+L swirling out of its
+&+Ltip. A silky &+Ldisembodied &+Lvoice &ns&+Wing&ns&+L from the sword, a voice so sweet and
+&+Lloving it could rival even the singing of a &nG&+Woddes&ns of B&+Ward&ns&+L. As the sword
+&+Lsings, drifting motes of white &+Lradiance pulses up and down the blade of
+&+Lthe sword. It &+Lwas rumored that this &+Lonce belong to an elf named:
+
+&nEl&+Wtargr&nim&+L, &nIr&+With&nyl&+L, &nCo&+Wrenal of Cormant&nhor&+L.
+~
+A
+18 5
+A
+19 5
+#135437
+book~
+an alchemist book titled 'Gunsmithing'~
+A alchemist book with a strange design of a smoke powderweapon has been left here.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135438
+book~
+the Wonderbring book titled 'Muskets and Arquebuses'~
+A book with the holy symbol of Gond, the Wonderbringer has been left here.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135439
+book~
+a battle-forgers book titled 'Smokepowder'~
+A book with mithril bindings and a battle-forgers sigil has been left here.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135440
+object unnamed~
+the hide of Kezef, the Chaos Hound~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135441
+object unnamed~
+the corpse of an elf Moon Warrior~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135442
+visage dendar~
+the visage of Dendar, the Elder Eternal Evil~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135443
+scimitar~
+&+La &nse&+Wrpent&nine &+Ltwo-handed yu&na&+Cn&+L-ti scimitar~
+&+LA &nse&+Wrpenti&nne&+L two-handed scimitar has been left on the ground here.&n~
+~
+5 19 3 0 7 0 4194304 8193 0 0 0
+13 2 6 0 0 0 0 0
+1 20000 100
+E
+scimitar~
+&+LThis huge sword was crafted by a yuan-ti, with its curvy serpentine look, the
+&+Lsword is two-handed and crated from dark metal.
+~
+A
+18 1
+A
+19 1
+#135444
+scimitar~
+&+La &nse&+Wrpent&nine &+Lyu&na&+Cn&+L-ti scimitar~
+&+LA &nse&+Wrpenti&nne&+L scimitar has been left on the ground here.&n~
+~
+5 19 3 0 7 0 0 8193 0 0 0
+5 2 6 0 0 0 0 0
+1 20000 100
+E
+scimitar~
+&+LThis huge sword was crafted by a yuan-ti, with its curvy serpentine look, the
+&+Lsword is two-handed and crated from dark metal.
+~
+A
+18 1
+A
+19 1
+#135445
+dagger~
+&+La &nse&+Wrpent&nine &+Lyu&na&+Cn&+L-ti dagger~
+&+LA &nse&+Wrpenti&nne&+L dagger has been left on the ground here.&n~
+~
+5 19 3 0 7 0 0 8193 0 0 0
+2 2 6 0 0 0 0 0
+1 20000 100
+E
+scimitar~
+&+LThis huge sword was crafted by a yuan-ti, with its curvy serpentine look, the
+&+Lsword is two-handed and crated from dark metal.
+~
+A
+18 1
+A
+19 1
+#135446
+lance~
+&+La &nse&+Wrpent&nine &+Lyu&na&+Cn&+L-ti lance~
+&+LA &nse&+Wrpenti&nne&+L lance has been left on the ground here.&n~
+~
+5 19 3 0 7 0 4194304 8193 0 0 0
+16 2 6 0 0 0 0 0
+1 20000 100
+E
+scimitar~
+&+LThis huge sword was crafted by a yuan-ti, with its curvy serpentine look, the
+&+Lsword is two-handed and crated from dark metal.
+~
+A
+18 1
+A
+19 1
+#135447
+shield~
+&+La &+rs&+Rhiel&+rd&+L bearing a yu&na&+Cn&+L-ti sigil&n~
+&+LA &nse&+Wrpenti&nne&+L shield with a yu&na&+Cn&+L-ti sigil has been left hre.&n~
+~
+9 19 3 0 7 0 0 513 0 0 0
+40 0 0 4 0 0 0 0
+2 25000 100
+E
+platemail~
+&+LThis armor is standard issued kits for yuan-ti protecting the
+&+LTemple of the Elder Eternal Evil. It has a serpentine style
+&+Lto its, and decorated with a sigil of a serpent devouring a sun.
+~
+#135448
+platemail~
+&+La &+rs&+Rui&+rt&+L of &nse&+Wrpenti&nne&+L yu&na&+Cn&+L-ti &npl&+Watema&nil&n~
+&+LA suit of &nse&+Wrpenti&nne&+L armor with a yu&na&+Cn&+L-ti sigil has been left hre.&n~
+~
+9 19 3 0 7 0 0 9 0 0 0
+40 0 0 4 0 0 0 0
+2 25000 100
+E
+platemail~
+&+LThis armor is standard issued kits for yuan-ti protecting the
+&+LTemple of the Elder Eternal Evil. It has a serpentine style
+&+Lto its, and decorated with a sigil of a serpent devouring a sun.
+~
+#135449
+viser helmet~
+&+La yu&na&+Cn&+L-ti &+rh&+Relme&+rt&+L with a &nse&+Wrpenti&nne &+rv&+Rise&+rr&n~
+&+LA &nse&+Wrpenti&nne&+L &+rh&+Relme&+rt&+L with a yu&na&+Cn&+L-ti sigil has been left hre.&n~
+~
+9 19 3 0 7 0 0 17 0 0 0
+40 0 0 4 0 0 0 0
+2 25000 100
+E
+platemail~
+&+LThis armor is standard issued kits for yuan-ti protecting the
+&+LTemple of the Elder Eternal Evil. It has a serpentine style
+&+Lto its, and decorated with a sigil of a serpent devouring a sun.
+~
+#135450
+platemail~
+&+La &+rs&+Rui&+rt&+L of &nse&+Wrpenti&nne&+L yu&na&+Cn&+L-ti &npl&+Watema&nil&n~
+&+LA suit of &nse&+Wrpenti&nne&+L armor with a yu&na&+Cn&+L-ti sigil has been left hre.&n~
+~
+9 19 3 0 7 0 0 9 0 0 0
+40 0 0 4 0 0 0 0
+2 25000 100
+E
+platemail~
+&+LThis armor is standard issued kits for yuan-ti protecting the
+&+LTemple of the Elder Eternal Evil. It has a serpentine style
+&+Lto its, and decorated with a sigil of a serpent devouring a sun.
+~
+#135451
+object unnamed~
+the scale of the Death Serpent~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135452
+object unnamed~
+the scale of the Night Serpent~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135453
+object unnamed~
+the scale of the Shadow Serpent~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135454
+object unnamed~
+the scale of the Emerald Serpent~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135455
+standard vaprak~
+&+Lthe &+Wstandard&+L of &+rVap&+Lrak&+L, the &nG&+Wo&nd&+L of &+rMino&+Ltaurs&n~
+&+LA &+rbl&+Roody drench&+red &+Lbattle-standard of a bull has been left here.&n~
+~
+13 15 3 0 7 0 8728577 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+standard vaprak~
+&+rThis waving flag is drenched in blood. The flag appears to never
+&+rstop bleeding. Made with a simple iron-shod rod, the flag made
+&+rof an unknown  cloth. Upon the standard itself is the brutal
+&+rlooking symbol of Vap&+Lrak&+r, the &nG&+Wo&nd&+r of Mino&+Ltaurs&+r.
+~
+#135456
+switch naga~
+&+La &ns&+Wwitc&nh&+L with the head of a &+Ln&+Mag&+La&n~
+&+La &ns&+Wwitc&nh&+L with the head of a &+Ln&+Mag&+La~
+~
+29 15 3 0 10 0 100937729 0 64 0 0
+340 135523 1 0 0 0 0 0
+1 1 100
+E
+staff spirit naga~
+&+LThis staff is shaped into a serpent with a humanoid head. Shaped into
+&+Lan ugly old crone, and its handle is made of platnium and shot
+&+Lthrough with gold traceries of serpents with diamond eyes.
+~
+#135457
+switch shadow~
+&+La &ns&+Wwitc&nh&+L with the head of a sh&nad&+Wow &+rse&+Rrpe&+rnt&n~
+&+La &ns&+Wwitc&nh&+L with the head of a sh&nad&+Wow &+rse&+Rrpe&+rnt&n~
+~
+29 15 3 0 10 0 100937729 0 64 0 0
+340 135515 3 0 0 0 0 0
+1 3999000 100
+E
+staff spirit naga~
+&+LThis staff is shaped into a serpent with a humanoid head. Shaped into
+&+Lan ugly old crone, and its handle is made of platnium and shot
+&+Lthrough with gold traceries of serpents with diamond eyes.
+~
+#135458
+key~
+&+La &nk&+We&ny&+L with the &ns&+Wkul&nl&+L of a &+bf&+Ba&+Lllen ki&+Bn&+bg~
+&+LA &+Wkey&+L with the crown and skull of a &+bf&+Ba&+Lllen ki&+Bn&+bg&+L has been left here.~
+~
+18 15 3 0 7 0 8462336 0 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+#135459
+key elder eternal evil~
+&+Lthe &nk&+We&ny&+L of the El&nd&+Ce&+Lr Eter&nn&+Ca&+Ll E&nv&+Ci&+Ll~
+A key of everlasting darkness and eternal evil floats here in mid-air.~
+~
+18 15 3 0 7 0 75563008 1 0 0 0
+0 100 0 0 0 0 0 0
+0 0 100
+#135460
+key emerald~
+&+gthe &nk&+We&ny&+g of the &+yEm&+Yera&+yld &+gSe&+Grpe&+gnt&n~
+&+gA &nk&+We&ny &+gcarved from a single em&+Gera&+gld shaped into a se&+Grpe&+gnt has been left here.&n~
+~
+18 15 3 0 7 0 75501568 1 0 0 0
+0 100 0 0 0 0 0 0
+0 0 100
+#135461
+circle seven serpent~
+the circlet of the seven serpents~
+A circlet that resembles serpent of intwined snakes devouring each other has been left here.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135462
+object unnamed~
+&+W'&+wDe&+Wathga&+wze&+W'&+L the &+WV&+wiso&+Wr&+L of the &+rA&+Rb&+Lyssal Ravag&+Re&+rr&n~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135463
+object unnamed~
+&+ma&+Ln &+ma&+Mm&+Lethys&+Mt&+ms e&+Ma&+Lrri&+Mn&+mg &+Lnamed &+M'&+mM&+Lagi&+mk&+M'&n~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135464
+object unnamed~
+&+La &+Wc&+wloa&+Wk&+L of &+rl&+Ri&+Lvi&+Rn&+rg &+Yf&+La&+we&+Wr&+Yi&+Le &+rf&+Rl&+Le&+Rs&+rh&n~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135465
+object unnamed~
+&+La &+Wf&+woo&+Wt&+L long &+Ws&+we&+Wr&+wr&+Wa&+wt&+We&+wd &+Wun&+Cico&+Wrn &+Ch&+Wor&+Cn&n~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135466
+object unnamed~
+&+Lan &+ma&+Mn&+Lcie&+Mn&+mt n&+Me&+Lckla&+Mc&+me&+L of dangling &+ms&+Mh&+Lam&+Ma&+mn r&+Mu&+Ln&+Me&+ms~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
