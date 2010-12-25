@@ -81,14 +81,14 @@ mob unnamed~
 An unnamed mob stands here, looking lonely and forelorn.
 ~
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 0 -1
-1 0 0 1d1+1 1d1+1
+8 0 0 0 0 0 0 -1000 S
+pt 0 1 -1
+41 0 0 1d1+1 1d1+1
 0.0.0.0 0
-8 8 0
+8 8 1
 #138008
 rumblind rock golem humanoid _no_move_~
-&+La ru&+ymb&+Lli&+ynd &+crock &+Lgolem&n~
+&+La ru&+ymb&+Lli&+yng &+crock &+Lgolem&n~
 &+LA pile of rumbling &+crocks &+Land &+ydirt &+Lcrashes about the area here, a faintly &+whumanoid &+Lshape burried within.&n
 ~
 ~

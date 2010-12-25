@@ -6,14 +6,22 @@ The Lair of Tiamat~
 *
 *
 *
+O 0 135208 1 135201 100 0 0 0      * The Pillar of Skulls
 *
-M 0 135212 2 135201 100 0 0 0      * a golem of fused demon bones
-M 0 135212 2 135201 100 0 0 0      * a golem of fused demon bones
+M 0 135212 4 135201 100 0 0 0      * a golem of fused demon bones
+M 0 135212 4 135201 100 0 0 0      * a golem of fused demon bones
+M 0 135212 4 135201 100 0 0 0      * a golem of fused demon bones
+M 0 135212 4 135201 100 0 0 0      * a golem of fused demon bones
+M 0 135209 1 135216 100 0 0 0      * Zenalithianathisa, the ancient white dragon consort
 M 0 135214 4 135220 100 0 0 0      * a dragonkin seer
 M 0 135214 4 135220 100 0 0 0      * a dragonkin seer
 M 0 135214 4 135220 100 0 0 0      * a dragonkin seer
 M 0 135214 4 135220 100 0 0 0      * a dragonkin seer
 M 0 135215 1 135221 100 0 0 0      * Mordukhavar the reaver
+M 0 135208 1 135237 100 0 0 0      * Kalanakanitan, the ancient black dragon consort
+M 0 135207 1 135249 100 0 0 0      * Xasormalathin, the ancient green dragon consort
+M 0 135210 1 135260 100 0 0 0      * Tenanizeothian, the ancient blue dragon consort
+M 0 135206 1 135274 100 0 0 0      * Ephelemon, the ancient red dragon consort
 M 0 135218 1 135279 100 0 0 0      * Zyla, the destroyer
 *
 S

@@ -54,9 +54,9 @@ PH 0 0 -1
 0.0.0.0 0
 8 8 0
 #135206
-mob unnamed~
+ephelemon ancient red dragon consort _no_move_~
 &+rEp&+Rhelem&+ron&+L, the ancient &+rr&+Re&+rd &+Ldragon consort&n~
-An unnamed mob stands here, looking lonely and forelorn.
+&+rA &+RHUGE &+rred dragon stands here, towering above the rest of his kind.&n
 ~
 ~
 8 0 0 0 0 0 0 0 S
@@ -65,7 +65,7 @@ PH 0 0 -1
 0.0.0.0 0
 8 8 0
 #135207
-mob unnamed~
+xasormalathin ancient green dragon consort _no_move_~
 &+gXa&+Gsormalath&+gin&+L, the ancient &+gg&+Gr&+ge&+Ge&+gn &+Ldragon consort&n~
 An unnamed mob stands here, looking lonely and forelorn.
 ~
@@ -76,7 +76,7 @@ PH 0 0 -1
 0.0.0.0 0
 8 8 0
 #135208
-mob unnamed~
+kalanakanitan ancient black dragon consort _no_move_~
 &+LKa&+wlanakanit&+Lan, the ancient b&+wlac&+Lk dragon consort&n~
 An unnamed mob stands here, looking lonely and forelorn.
 ~
@@ -87,7 +87,7 @@ PH 0 0 -1
 0.0.0.0 0
 8 8 0
 #135209
-mob unnamed~
+zenalithiananthisa ancient white dragon consort _no_move_~
 &+WZenalithianathisa&+L, the ancient &+Wwhite &+Ldragon consort&n~
 An unnamed mob stands here, looking lonely and forelorn.
 ~
@@ -98,7 +98,7 @@ PH 0 0 -1
 0.0.0.0 0
 8 8 0
 #135210
-mob unnamed~
+tenanizeothian ancient blue dragon consort _no_move_~
 &+bTe&+Bnanizeothi&+ban&+L, the ancient &+bb&+Bl&+bu&+Be &+Ldragon consort&n~
 An unnamed mob stands here, looking lonely and forelorn.
 ~
@@ -187,8 +187,8 @@ PH 0 0 -1
 8 8 0
 #135218
 zyla destroyer daughter abishai~
-&+LZ&+ry&+Ll&+ra&+L, the &+gd&+Ge&+gs&+Gt&+gr&+Go&+gy&+Ge&+gr&n~
-&+LZ&+ry&+Ll&+ra&+L, &+cdaughter &+Lof Tiamat, and &+mQueen &+Lof the &+rAb&+wish&+rai &+Lstands here, awaiting to enter into her mothers presence.
+&+rZyla&+L, the &+gd&+Ge&+gs&+Gt&+gr&+Go&+gy&+Ge&+gr&n~
+&+rZyla&+L, daughter of Tiamat, and &+mQueen &+Lof the &+rabashai &+Lstands here, awaiting to enter into her mothers presence.&n
 ~
 ~
 8 0 0 0 0 0 0 0 S

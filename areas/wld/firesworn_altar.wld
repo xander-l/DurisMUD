@@ -23,16 +23,16 @@ small zone, 20ish rooms at most. No repop once the portal is opened.
 illusionist will be worth epics, maybe small stone. (will show players possibly that TK is being
 done... more scouting potential...
 ~
-1351 0 0
+1351 0 0 0
 D0
 ~
 ~
 0 0 135102
 S
 #135102
-A Cobblestone Path Enshrouded By Thick Foliage~
+&+LA Co&+ybb&+Lle&+yst&+Lon&+ye &+LPath Enshrouded By Thick &+gFoliage&n~
 ~
-1351 0 0
+1351 0 0 0
 D0
 ~
 ~
@@ -43,9 +43,9 @@ D2
 0 0 135101
 S
 #135103
-A Bend in the Cobblestone Road~
+&+LA Bend in the Co&+ybb&+Lle&+yst&+Lon&+ye &+LRoad&n~
 ~
-1351 0 0
+1351 0 0 0
 D1
 ~
 ~
@@ -56,9 +56,9 @@ D2
 0 0 135102
 S
 #135104
-Nearing a Grand Archway~
+&+LNearing a Grand &+rArchway&n~
 ~
-1351 0 0
+1351 0 0 0
 D0
 ~
 ~
@@ -71,7 +71,7 @@ S
 #135105
 &+LBefore the &+rArchway &+Lto the &+WAltars &+Lof &+cTr&+Cans&+Wen&+Cden&+cce~
 ~
-1351 0 0
+1351 0 0 0
 D0
 ~
 ~
@@ -82,9 +82,9 @@ D2
 0 0 135104
 S
 #135106
-The Grand Foyer Within the Temple~
+&+LThe Grand &+cFoyer &+LWithin the &+WTemple&n~
 ~
-1351 0 0
+1351 0 0 0
 D0
 ~
 ~
@@ -95,9 +95,9 @@ D2
 0 0 135105
 S
 #135107
-Within the Foyer of the Firesworn Altars~
+&+LWithin the Foyer of the &+rF&+Ri&+Yr&+Wesw&+Yo&+Rr&+rn &+LSpires&n~
 ~
-1351 0 0
+1351 0 0 0
 D0
 ~
 ~
@@ -108,9 +108,9 @@ D2
 0 0 135106
 S
 #135108
-An Illuminated Cathedral~
+&+LAn &+WIl&+Ylu&+Wmi&+Yna&+Wte&+Yd &+LCathedral&n~
 ~
-1351 0 0
+1351 0 0 0
 D0
 ~
 ~
@@ -137,9 +137,9 @@ D9
 0 0 135113
 S
 #135109
-A Spiral Stairwell~
+&+LA &+mSpiral &+LStairwell&n~
 ~
-1351 0 0
+1351 0 0 0
 D2
 ~
 ~
@@ -150,9 +150,9 @@ D4
 0 0 135122
 S
 #135110
-The Base of a Highrise Spire~
+&+LThe Base of a Highrise &+BS&+bp&+Bi&+br&+Be&n~
 ~
-1351 0 0
+1351 0 0 0
 D4
 ~
 ~
@@ -163,9 +163,9 @@ D7
 0 0 135108
 S
 #135111
-Within a Highrise Spire~
+&+LInside the North Eastern &+BS&+bp&+Bi&+br&+Be&n~
 ~
-1351 0 0
+1351 0 0 0
 D4
 ~
 ~
@@ -176,18 +176,18 @@ D5
 0 0 135110
 S
 #135112
-The Altar of Temperance~
+&+LA &+rBl&+Roo&+rd-Spl&+Ra&+rtt&+Re&+rr&+Re&+rd &+LChamber&n~
 ~
-1351 0 0
+1351 0 0 0
 D5
 ~
 ~
 0 0 135111
 S
 #135113
-The Base of a Highrise Spire~
+&+LThe Base of a Highrise &+gS&+Gp&+gi&+Gr&+ge&n~
 ~
-1351 0 0
+1351 0 0 0
 D4
 ~
 ~
@@ -198,9 +198,9 @@ D6
 0 0 135108
 S
 #135114
-Within the South-Eastern Spire~
+&+LInside the South Eastern &+gS&+Gp&+gi&+Gr&+ge&n~
 ~
-1351 0 0
+1351 0 0 0
 D4
 ~
 ~
@@ -211,18 +211,18 @@ D5
 0 0 135113
 S
 #135115
-The Altar of Transcendence~
+&+LA &+rF&+Ri&+rr&+Re &+LScorched Chamber&n~
 ~
-1351 0 0
+1351 0 0 0
 D5
 ~
 ~
 0 0 135114
 S
 #135116
-Unnamed~
+&+LThe Base of a Highrise &+rS&+Rp&+ri&+Rr&+re&n~
 ~
-1351 0 0
+1351 0 0 0
 D4
 ~
 ~
@@ -233,9 +233,9 @@ D8
 0 0 135108
 S
 #135117
-the mid of the south west spire~
+&+LInside the South Western &+rS&+Rp&+ri&+Rr&+re&n~
 ~
-1351 0 0
+1351 0 0 0
 D4
 ~
 ~
@@ -246,18 +246,18 @@ D5
 0 0 135116
 S
 #135118
-the altar of somethingelse~
+&+LA Chamber of Flowing &+CM&+ci&+Cs&+ct&+Cs&n~
 ~
-1351 0 0
+1351 0 0 0
 D5
 ~
 ~
 0 0 135117
 S
 #135119
-Unnamed~
+&+LThe Base of a Highrise &+CS&+cp&+Ci&+cr&+Ce&n~
 ~
-1351 0 0
+1351 0 0 0
 D4
 ~
 ~
@@ -268,9 +268,9 @@ D9
 0 0 135108
 S
 #135120
-middle of the north west spire~
+&+LWithin the North Western &+cS&+Cp&+ci&+Cr&+ce&n~
 ~
-1351 0 0
+1351 0 0 0
 D4
 ~
 ~
@@ -281,18 +281,18 @@ D5
 0 0 135119
 S
 #135121
-the altar of anotherthing~
+&+LAn En&+cch&+Lan&+ctm&+Len&+Ct &+LInfused Chamber&n~
 ~
-1351 0 0
+1351 0 0 0
 D5
 ~
 ~
 0 0 135120
 S
 #135122
-Atop a Spire Stairwell~
+&+LAtop a &+mSpire &+LStairwell&n~
 ~
-1351 0 0
+1351 0 0 0
 D0
 ~
 ~
@@ -303,9 +303,9 @@ D5
 0 0 135109
 S
 #135123
-A Fire-Blasted Bloodstone Hall~
+&+LA &+rF&+Ri&+rr&+Re&+L-Blasted &+rBl&+Roo&+rd&+Lstone Hallway&n~
 ~
-1351 0 0
+1351 0 0 0
 D0
 ~
 ~
@@ -324,9 +324,9 @@ D3
 0 0 135126
 S
 #135124
-A Fire-Blasted Bloodstone Hallway~
+&+LA &+rF&+Ri&+rr&+Re&+L-Blasted &+rBl&+Roo&+rd&+Lstone Hallway&n~
 ~
-1351 0 0
+1351 0 0 0
 D0
 ~
 ~
@@ -337,27 +337,27 @@ D2
 0 0 135123
 S
 #135125
-A Private Spellcasting Chamber~
+&+MA Private Spellcasting Chamber&n~
 ~
-1351 0 0
+1351 0 0 0
 D3
 ~
 ~
 0 0 135123
 S
 #135126
-A Private Spellcasting Chamber~
+&+LA Small Alcove&n~
 ~
-1351 0 0
+1351 0 0 0
 D1
 ~
 ~
 0 0 135123
 S
 #135127
-A Fire-Blasted Bloodstone Hallway~
+&+LA &+rF&+Ri&+rr&+Re&+L-Blasted &+rBl&+Roo&+rd&+Lstone Hallway&n~
 ~
-1351 0 0
+1351 0 0 0
 D2
 ~
 ~
@@ -368,9 +368,9 @@ D3
 0 0 135128
 S
 #135128
-A Fire-Blasted Bloodstone Hallway~
+&+LA &+rF&+Ri&+rr&+Re&+L-Blasted &+rBl&+Roo&+rd&+Lstone Hallway&n~
 ~
-1351 0 0
+1351 0 0 0
 D0
 ~
 ~
@@ -381,9 +381,9 @@ D1
 0 0 135127
 S
 #135129
-A Stairwell Composed of Engraved Bloodstone Steps~
+&+LA Stairwell Composed of &+cE&+Ln&+cg&+Lr&+ca&+Lv&+ce&+Ld &+rBl&+Roo&+rd&+Lstone &+LSteps&n~
 ~
-1351 0 0
+1351 0 0 0
 D2
 ~
 ~
@@ -394,9 +394,9 @@ D4
 0 0 135130
 S
 #135130
-A Stairwell Composed of Engraved Bloodstone Steps~
+&+LA Stairwell Composed of &+cE&+Ln&+cg&+Lr&+ca&+Lv&+ce&+Ld &+rBl&+Roo&+rd&+Lstone &+LSteps~
 ~
-1351 0 0
+1351 0 0 0
 D4
 ~
 ~
@@ -407,9 +407,9 @@ D5
 0 0 135129
 S
 #135131
-&+LA &+gCir&+Gcu&+glar &+LChamber Atop the &+BS&+bp&+Bi&+br&+Be &+Lof Malsheam~
+&+LA &+gCi&+Grc&+gul&+Gar &+LChamber Atop the &+rF&+Ri&+Yr&+Wesw&+Yo&+Rr&+rn &+LSpire&n~
 ~
-1351 0 0
+1351 0 0 0
 D5
 ~
 ~

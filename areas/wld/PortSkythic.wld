@@ -86,8 +86,9 @@ into a wide flat expanse which at one time held several merchant stalls
 that would greet travelers coming to the city with some of the best
 silks, foods and drinks in the area. Now all thats left is the burnt
 out husks of the stalls. A large pitched battle seems to have taken
-place here. The bodies have been removed, however who layed seige
-to the city remains to be seen.
+place here. Pools of dried blood seem to have gathered where bodies
+were once piled. Smears of dirt and blood hint that the bodies were
+recently draged away.
 ~
 1380 0 2 0
 D0
@@ -103,9 +104,10 @@ S
 &+LThe &+rDevistated &+LFront &+WGates &+Lof &+bPort S&+Bk&+Cy&+Wt&+Ch&+Bi&+bc&n~
    Standing between the large stone walls of the port city, the wood and
 steel front gate seems to have been torn apart by an unnatural force.
-Shards of the shattered gates lies all about the area, as if some sort
-of magical boot kicked the gates down. Wicked scortch marks marr the
-stone on the walls and road way leading towards the plains.
+Shards of the shattered gates lie all about the area, as if some sort
+of magical explosion slamed into the otherwise sturdy gates. Wicked
+scortch marks marr the stone on the walls and road way leading towards
+the merchants row.
 ~
 1380 0 2 0
 D0
@@ -137,9 +139,10 @@ D3
 S
 #138008
 &+LA Ravaged &+yStone &+LBridge&n~
-   Winding your way through the rabble, access to the west here is blocked.
-Climbing over some of the piles of debris to the north looks to be the only
-way through this section of the bridge.
+   Winding your way through the rabble, access to the western end of
+the bridge is blocked. Piles of blasted stone lay in heaps all around.
+To the north, a path through the rubble has been cleared while back to
+the east you can return to the outer gates of the port city.
 ~
 1380 0 2 0
 D0
@@ -153,9 +156,11 @@ D1
 S
 #138009
 &+LA Ravaged &+yStone &+LBridge&n~
-   Nearing the western end of the ancient stone bridge, the second inner
-gates of the port city can be seen to the west. Piles of rubble make
-passage on this bridge difficult at best.
+   Nearing the north western end of the ancient stone bridge, the second inner
+gates of the port city can be seen to the west. The destruction to the bridge
+actually looks to have been caused by weapons from the inner gates, maybe
+in an attempt to slow the attackers advance on the city. Piles of rubble have
+been moved to open a path around some of the larger stone obstructions.
 ~
 1380 0 2 0
 D2
@@ -181,10 +186,18 @@ The absence of bodies shows that the seige has been over for some
 time.
 ~
 1380 0 2 0
+D0
+~
+~
+0 0 138108
 D1
 ~
 ~
 0 0 138009
+D2
+~
+~
+0 0 138109
 D3
 ~
 ~
@@ -192,6 +205,13 @@ D3
 S
 #138011
 &+LThe Ruins of the &+yKings &+gWalkway&n~
+   The Kings Walkway was once a wide and very smooth road that lead from
+the eastern gates into the main bulk of the city. Paved with some stones
+brought in from the Bloodstone mountains, this roads resistance to wear
+and tear was put to the test during the invasion. Rubble from nearby
+buildings clutter the streets, but the stones themselves still seem
+in remarkably good condition. The road travels to the north and south
+and used to allow access to number of stores and taverns.
 ~
 1380 0 1 0
 D0
@@ -209,6 +229,13 @@ D2
 S
 #138012
 &+LThe Ruins of the &+yKings &+gWalkway&n~
+   The Kings Walkway was once a wide and very smooth road that lead from
+the eastern gates into the main bulk of the city. Paved with some stones
+brought in from the Bloodstone mountains, this roads resistance to wear
+and tear was put to the test during the invasion. Rubble from nearby
+buildings clutter the streets, but the stones themselves still seem
+in remarkably good condition. The road travels to the north and south
+and used to allow access to number of stores and taverns.
 ~
 1380 0 1 0
 D0
@@ -222,6 +249,12 @@ D2
 S
 #138013
 &+LOutside a &+rDestroyed &+LTavern&n~
+   At this point along the Kings Walkway, a tremendous amount of burnt
+rubble litters the street. To the west, the remains of a burnt out
+tavern lie, utterly gutted. Scattered around the this section of road
+lie various tables, chairs and broken casks. Pillaged for everything
+it was worth, the remains of the taverns sign hang as a silent marker
+for a once busy establishment.
 ~
 1380 0 1 0
 D0
@@ -247,8 +280,8 @@ D1
 0 0 138013
 D3
 ~
-~
-0 0 138015
+door~
+1 0 138015
 S
 #138015
 &+LA Dark Storage Room&n~
@@ -256,8 +289,8 @@ S
 1380 0 1 0
 D1
 ~
-~
-0 0 138014
+door~
+1 0 138014
 D3
 ~
 ~
@@ -274,6 +307,13 @@ D1
 S
 #138017
 &+LThe Ruins of the &+yKings &+gWalkway&n~
+   The Kings Walkway was once a wide and very smooth road that lead from
+the eastern gates into the main bulk of the city. Paved with some stones
+brought in from the Bloodstone mountains, this roads resistance to wear
+and tear was put to the test during the invasion. Rubble from nearby
+buildings clutter the streets, but the stones themselves still seem
+in remarkably good condition. The road travels to the north and south
+and used to allow access to number of stores and taverns.
 ~
 1380 0 0 0
 D0
@@ -312,8 +352,8 @@ D1
 0 0 138018
 D3
 ~
-~
-0 0 138020
+curtains~
+5 0 138020
 S
 #138020
 &+MA Plush &+LHidden &+MLounge&n~
@@ -321,12 +361,12 @@ S
 1380 0 0 0
 D1
 ~
-~
-0 0 138019
+curtains~
+9 0 138019
 D3
 ~
-~
-0 0 138021
+door~
+9 0 138021
 S
 #138021
 &+LA &+rBlood &+LSplattered &+MBrothel&n~
@@ -334,11 +374,18 @@ S
 1380 0 0 0
 D1
 ~
-~
-0 0 138020
+door~
+9 0 138020
 S
 #138022
 &+LThe Ruins of the &+yKings &+gWalkway&n~
+   The Kings Walkway was once a wide and very smooth road that lead from
+the eastern gates into the main bulk of the city. Paved with some stones
+brought in from the Bloodstone mountains, this roads resistance to wear
+and tear was put to the test during the invasion. Rubble from nearby
+buildings clutter the streets, but the stones themselves still seem
+in remarkably good condition. The road travels to the north and south
+and used to allow access to number of stores and taverns.
 ~
 1380 0 0 0
 D0
@@ -352,6 +399,13 @@ D2
 S
 #138023
 &+LThe Ruins of the &+yKings &+gWalkway&n~
+   The Kings Walkway was once a wide and very smooth road that lead from
+the eastern gates into the main bulk of the city. Paved with some stones
+brought in from the Bloodstone mountains, this roads resistance to wear
+and tear was put to the test during the invasion. Rubble from nearby
+buildings clutter the streets, but the stones themselves still seem
+in remarkably good condition. The road travels to the north and south
+and used to allow access to number of stores and taverns.
 ~
 1380 0 0 0
 D0
@@ -710,6 +764,13 @@ D3
 S
 #138049
 &+LThe Ruins of the &+yKings &+gWalkway&n~
+   The Kings Walkway was once a wide and very smooth road that lead from
+the eastern gates into the main bulk of the city. Paved with some stones
+brought in from the Bloodstone mountains, this roads resistance to wear
+and tear was put to the test during the invasion. Rubble from nearby
+buildings clutter the streets, but the stones themselves still seem
+in remarkably good condition. The road travels to the north and south
+and used to allow access to number of stores and taverns.
 ~
 1380 0 1 0
 D0
@@ -723,6 +784,13 @@ D2
 S
 #138050
 &+LThe Ruins of the &+yKings &+gWalkway&n~
+   The Kings Walkway was once a wide and very smooth road that lead from
+the eastern gates into the main bulk of the city. Paved with some stones
+brought in from the Bloodstone mountains, this roads resistance to wear
+and tear was put to the test during the invasion. Rubble from nearby
+buildings clutter the streets, but the stones themselves still seem
+in remarkably good condition. The road travels to the north and south
+and used to allow access to number of stores and taverns.
 ~
 1380 0 1 0
 D0
@@ -1446,4 +1514,32 @@ S
 &+LA &+cR&+Ci&+cf&+Ct &+Lin &+BS&+bp&+Ba&+bc&+Be &+Land T&+mi&+Lm&+me&n~
 ~
 1380 0 0 0
+S
+#138108
+&+LAn Inner &+cGatehouse&n~
+   This large guard tower seems to have housed numerous guards during
+its final moments of the siege. Discarded and broken crossbows and
+barrels of spilt oil lay scattered about the room, showing the resolve
+that the guardians of this city went through while attempting to resist
+the invaders.
+~
+1380 0 0 0
+D2
+~
+~
+0 0 138010
+S
+#138109
+&+LAn Inner &+CGatehouse&n~
+   This large guard tower seems to have housed numerous guards during
+its final moments of the siege. Discarded and broken crossbows and
+barrels of spilt oil lay scattered about the room, showing the resolve
+that the guardians of this city went through while attempting to resist
+the invaders.
+~
+1380 0 0 0
+D0
+~
+~
+0 0 138010
 S

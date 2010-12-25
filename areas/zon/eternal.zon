@@ -1,0 +1,368 @@
+#1354
+The Spires of the Elder Eternal Evil~
+135732 2 0 40 50 1
+*
+* Zone edited with durisEdit v2.99de
+*
+*
+D 0 135443 3 2 100 0 0 0
+*     west exit from "The Emerald Chamber of the Hissing Serpent" to
+*     "Inside the Spire of the Emerald Serpent" - closed/locked
+*
+D 0 135651 1 2 100 0 0 0
+*     east exit from "Inside the Spire of the Emerald Serpent" to
+*     "The Emerald Chamber of the Hissing Serpent" - closed/locked
+*
+D 0 135515 3 12 100 0 0 0
+*     west exit from "Hall of the Eternal Eclipse" to
+*     "Inside the Spire of the Shadow Serpent" - open/secret/blocked
+*
+D 0 135645 1 4 100 0 0 0
+*     east exit from "Inside the Spire of the Shadow Serpent" to
+*     "Hall of the Eternal Eclipse" - open/secret
+*
+D 0 135523 1 12 100 0 0 0
+*     east exit from "Hall of the Eternal Eclipse" to
+*     "Inside the Spire of the Naga Overlord" - open/secret/blocked
+*
+D 0 135639 3 12 100 0 0 0
+*     west exit from "Inside the Spire of the Naga Overlord" to
+*     "Hall of the Eternal Eclipse" - open/secret/blocked
+*
+D 0 135605 2 2 100 0 0 0
+*     south exit from "A Serpentine Chamber within the Outer Sanctum" to
+*     "The Chamber of the Kingslayer" - closed/locked
+*
+D 0 135608 0 2 100 0 0 0
+*     north exit from "The Chamber of the Kingslayer" to
+*     "A Serpentine Chamber within the Outer Sanctum" - closed/locked
+*
+D 0 135632 0 2 100 0 0 0
+*     north exit from "Before the Spire of the Elder Eternal Evil" to
+*     "The Spire of the Elder Eternal Evil" - closed/locked
+*
+D 0 135633 2 2 100 0 0 0
+*     south exit from "The Spire of the Elder Eternal Evil" to
+*     "Before the Spire of the Elder Eternal Evil" - closed/locked
+*
+*
+O 0 135439 1 135418 100 0 0 0      * a battle-forgers book titled 'Smokepowder'
+O 0 135429 1 135548 100 0 0 0      * the all-seeing Eye of Sseth, the God of Serpents
+O 0 135426 1 135560 100 0 0 0      * an ethereal prism of trapped light and darkness
+O 0 135456 1 135562 100 0 0 0      * a switch with the head of a naga
+O 0 135457 1 135616 100 0 0 0      * a switch with the head of a shadow serpent
+O 0 135455 1 135625 100 0 0 0      * the standard of Vaprak, the God of Minotaurs
+O 0 135430 1 135625 100 0 0 0      * a twisted unicorn horn named 'Ivy'
+O 0 135434 1 135625 100 0 0 0      * a mithril belt buckle called 'Brute Strength'
+O 0 135437 1 135625 100 0 0 0      * an alchemist book titled 'Gunsmithing'
+O 0 135438 1 135656 100 0 0 0      * the Wonderbring book titled 'Muskets and Arquebuses'
+*
+M 0 135420 30 135401 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135401 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135401 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135426 14 135401 100 0 0 0     * a yuan-ti mage
+M 0 135420 30 135403 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135403 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135426 14 135403 100 0 0 0     * a yuan-ti mage
+M 0 135421 2 135411 100 0 0 0      * a yuan-ti lord
+M 0 135423 4 135411 100 0 0 0      * a yuan-ti mage
+M 0 135421 2 135412 100 0 0 0      * a yuan-ti lord
+F 1 135422 2 135412 100 0 0 0      * a yuan-ti (following)
+E 1 135448 4 5 100 0 0 0           *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+F 1 135422 2 135412 100 0 0 0      * a yuan-ti (following)
+E 1 135448 4 5 100 0 0 0           *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135418 8 135414 100 0 0 0      * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135418 8 135414 100 0 0 0      * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135418 8 135414 100 0 0 0      * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135418 8 135414 100 0 0 0      * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135418 8 135417 100 0 0 0      * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135418 8 135417 100 0 0 0      * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135418 8 135417 100 0 0 0      * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135418 8 135417 100 0 0 0      * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135425 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135425 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135425 6 135425 100 0 0 0      * a yuan-ti lord
+M 0 135420 30 135430 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135430 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135430 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135425 6 135433 100 0 0 0      * a yuan-ti lord
+M 0 135426 14 135433 100 0 0 0     * a yuan-ti mage
+M 0 135426 14 135433 100 0 0 0     * a yuan-ti mage
+M 0 135420 30 135438 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135438 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135438 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135438 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135425 6 135441 100 0 0 0      * a yuan-ti lord
+M 0 135426 14 135441 100 0 0 0     * a yuan-ti mage
+M 0 135426 14 135441 100 0 0 0     * a yuan-ti mage
+M 0 135420 30 135443 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135443 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135443 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135413 1 135447 100 0 0 0      * Ityak-Ortheel, the Elf-Eater
+M 0 135407 1 135453 100 0 0 0      * Ss'thar'tiss'ssun, the Emerald Princess
+E 1 135408 1 1 100 0 0 0           *   a ring of serpents devouring each other
+M 0 135420 30 135458 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135458 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135430 2 135481 100 0 0 0      * a bone naga
+M 0 135431 2 135481 100 0 0 0      * a dark naga
+M 0 135432 2 135481 100 0 0 0      * a spirit naga
+M 0 135430 2 135483 100 0 0 0      * a bone naga
+M 0 135431 2 135483 100 0 0 0      * a dark naga
+M 0 135432 2 135483 100 0 0 0      * a spirit naga
+M 0 135429 1 135492 100 0 0 0      * a spirit naga
+E 1 135401 1 1 100 0 0 0           *   the ring of nagakind
+M 0 135427 1 135496 100 0 0 0      * a bone naga
+G 1 135433 1 0 100 0 0 0           *    the rattle tail of a bone naga
+M 0 135428 1 135499 100 0 0 0      * a dark naga
+E 1 135432 1 16 100 0 0 0          *   the totem of the dark naga
+M 0 135403 1 135502 100 0 0 0      * Najara, the Naga Overlord
+E 1 135400 1 6 100 0 0 0           *   the Crown of the Naga Overlord
+M 0 135420 30 135509 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135509 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135509 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135426 14 135509 100 0 0 0     * a yuan-ti mage
+M 0 135426 14 135512 100 0 0 0     * a yuan-ti mage
+M 0 135444 1 135513 100 0 0 0      * a doppleganger
+M 0 135420 30 135515 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135515 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135426 14 135516 100 0 0 0     * a yuan-ti mage
+M 0 135426 14 135516 100 0 0 0     * a yuan-ti mage
+M 0 135425 6 135522 100 0 0 0      * a yuan-ti lord
+M 0 135425 6 135522 100 0 0 0      * a yuan-ti lord
+M 0 135420 30 135523 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135523 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135426 14 135526 100 0 0 0     * a yuan-ti mage
+M 0 135401 1 135545 100 0 0 0      * Ssythar, the Chosen
+E 1 135409 1 14 100 0 0 0          *   a yuan-ti Night Serpent circlet
+M 0 135416 1 135547 100 0 0 0      * Lady Izsestra, Darkhiss
+E 1 135407 1 14 100 0 0 0          *   a serpent bracelet with star sapphire eyes
+M 0 135402 1 135550 100 0 0 0      * Sss'yin'tia'saminass, the Feathered Serpent
+M 0 135439 1 135551 100 0 0 0      * Istania, the Priestess of Sseth
+G 1 135431 1 0 100 0 0 0           *    a serpentine key
+M 0 135437 3 135552 100 0 0 0      * A shadow yuan-ti
+E 1 135445 11 16 100 0 0 0         *   a serpentine yuan-ti dagger
+E 1 135445 11 17 100 0 0 0         *   a serpentine yuan-ti dagger
+M 0 135437 3 135553 100 0 0 0      * A shadow yuan-ti
+E 1 135445 11 16 100 0 0 0         *   a serpentine yuan-ti dagger
+E 1 135445 11 17 100 0 0 0         *   a serpentine yuan-ti dagger
+M 0 135437 3 135554 100 0 0 0      * A shadow yuan-ti
+E 1 135445 11 16 100 0 0 0         *   a serpentine yuan-ti dagger
+E 1 135445 11 17 100 0 0 0         *   a serpentine yuan-ti dagger
+M 0 135400 1 135555 100 0 0 0      * Eshadow, the Shadow Serpent
+E 1 135405 1 16 100 0 0 0          *   a serpentine stilletto named 'Tainted Kiss'
+E 1 135445 11 17 100 0 0 0         *   a serpentine yuan-ti dagger
+E 1 135404 1 19 100 0 0 0          *   an eyepatch of living darkness and screaming shadows
+M 0 135436 2 135555 100 0 0 0      * A shadow yuan-ti
+E 1 135445 11 16 100 0 0 0         *   a serpentine yuan-ti dagger
+E 1 135445 11 17 100 0 0 0         *   a serpentine yuan-ti dagger
+M 0 135436 2 135555 100 0 0 0      * A shadow yuan-ti
+E 1 135445 11 16 100 0 0 0         *   a serpentine yuan-ti dagger
+E 1 135445 11 17 100 0 0 0         *   a serpentine yuan-ti dagger
+M 0 135423 4 135565 100 0 0 0      * a yuan-ti mage
+M 0 135423 4 135565 100 0 0 0      * a yuan-ti mage
+M 0 135423 4 135566 100 0 0 0      * a yuan-ti mage
+F 1 135424 2 135566 100 0 0 0      * a yuan-ti (following)
+E 1 135448 4 5 100 0 0 0           *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+F 1 135424 2 135566 100 0 0 0      * a yuan-ti (following)
+E 1 135448 4 5 100 0 0 0           *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135419 8 135568 100 0 0 0      * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135419 8 135568 100 0 0 0      * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135419 8 135568 100 0 0 0      * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135419 8 135568 100 0 0 0      * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135419 8 135571 100 0 0 0      * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135419 8 135571 100 0 0 0      * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135419 8 135571 100 0 0 0      * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135419 8 135571 100 0 0 0      * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135404 1 135572 100 0 0 0      * Vrael'oloiss, the Serpent Lords
+E 1 135402 1 21 100 0 0 0          *   the forked tongue of a yuan-ti abomination
+E 1 135406 1 16 100 0 0 0          *   the yuan-ti death lance of the Serpent Lords
+F 1 135438 2 135572 100 0 0 0      * a yuan-ti lord (following)
+F 1 135438 2 135572 100 0 0 0      * a yuan-ti lord (following)
+M 0 135425 6 135574 100 0 0 0      * a yuan-ti lord
+M 0 135426 14 135574 100 0 0 0     * a yuan-ti mage
+M 0 135426 14 135574 100 0 0 0     * a yuan-ti mage
+M 0 135443 1 135576 100 0 0 0      * Flant, the Priest of Gond, the Wonderbringer
+M 0 135433 3 135579 100 0 0 0      * a yuan-ti apprentice
+M 0 135433 3 135579 100 0 0 0      * a yuan-ti apprentice
+M 0 135417 1 135580 100 0 0 0      * Zz's'zika, the Arcaneist
+E 1 135424 1 9 100 0 0 0           *   some astral-forged gloves of spellweaving
+E 1 135425 1 27 100 0 0 0          *   a spellfire scroll-case of living magic
+M 0 135433 3 135580 100 0 0 0      * a yuan-ti apprentice
+M 0 135420 30 135581 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135581 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135440 1 135587 100 0 0 0      * Tix, the horrified doppleganger
+M 0 135420 30 135605 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135420 30 135605 100 0 0 0     * a yuan-ti
+E 1 135450 46 5 100 0 0 0          *   a suit of serpentine yuan-ti platemail
+E 1 135449 50 6 100 0 0 0          *   a yuan-ti helmet with a serpentine viser
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+M 0 135426 14 135605 100 0 0 0     * a yuan-ti mage
+M 0 135408 1 135606 100 0 0 0      * Terpenzi, the Witch King
+E 1 135411 1 6 100 0 0 0           *   the Crown of the Witch King
+G 1 135460 1 0 100 0 0 0           *    the key of the Emerald Serpent
+F 1 135409 1 135606 100 0 0 0      * Sa'kowlyn'raa, the Witch Queen (following)
+E 1 135412 1 5 100 0 0 0           *   the shadowy floor length gown of the Witch Queen
+M 0 135410 1 135608 100 0 0 0      * Slaazh, the Kingslayer
+E 1 135410 1 3 100 0 0 0           *   the burning crowns and skulls of fallen kings
+E 1 135413 1 16 100 0 0 0          *   'Onslaught' the Weapon of Slaazh, the Kingslayer
+M 0 135414 1 135609 100 0 0 0      * Xaod, the Death Serpent
+E 1 135421 1 10 100 0 0 0          *   the insidious coils of a death serpent
+F 1 135415 1 135609 100 0 0 0      * Oothoous, the Alhoon (following)
+E 1 135423 1 9 100 0 0 0           *   some mauve-skinned fingerless gloves of an illithidlich
+G 1 135422 1 0 100 0 0 0           *    the shrunken head of an illithidlich
+M 0 135435 2 135610 100 0 0 0      * a yuan-ti conjurer
+M 0 135435 2 135610 100 0 0 0      * a yuan-ti conjurer
+M 0 135405 1 135631 100 0 0 0      * Hss'tafin, the yuan-ti abomination
+E 1 135403 1 5 100 0 0 0           *   a suit of yuan-ti platemail bearing a Serpents Fang
+E 1 135443 51 16 100 0 0 0         *   a serpentine two-handed yuan-ti scimitar
+F 1 135406 1 135631 100 0 0 0      * Se'Sehen, the yuan-ti half-blood (following)
+M 0 135411 1 135670 100 0 0 0      * Dendar, the Night Serpent
+G 1 135442 1 0 100 0 0 0           *    the visage of Dendar, the Elder Eternal Evil
+M 0 135441 1 135672 100 0 0 0      * Issis, the Queen of the Fanged Kingdom
+M 0 135442 1 135674 100 0 0 0      * Horanth,  the Champion of Vaprak
+M 0 135412 1 135732 100 0 0 0      * Kezef, the Chaos Hound
+*
+S

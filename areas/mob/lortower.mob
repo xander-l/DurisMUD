@@ -49,13 +49,13 @@ orc knight~
 &+Lhis resurrection. He seems like a warrior possessed with a cause and that
 &+Lis a fearsome individual indeed.                  &n
 ~
-2154 0 0 65560 294912 0 0 -999 S
-HO 0 5 -1
-42 0 0 1d1+1 1d1+1
+2122 0 0 65560 294912 0 0 -999 S
+HO 0 17 -1
+50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #134004
-ogre mercenary~
+ogre mercenary _spec1_~
 &n&+yan &+Logre &n&+ymercenary&n~
 &n&+yAn &+Logre &n&+ymercenary stands here playing with a &n&+rdecapitated &n&+yhead.&n&n
 ~
@@ -65,9 +65,9 @@ ogre mercenary~
 &+Logre seems totally engrossed in playing with the decapitated head of a dead
 &+Lfarmer.&n
 ~
-2282 0 0 8 0 0 0 -1000 S
-PO 0 15 -1
-40 0 0 1d1+1 1d1+1
+2250 1 0 8 0 0 0 -1000 S
+PO 0 16384 -1
+50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #134005
@@ -80,9 +80,9 @@ apprentice mage conjurer~
 &+Land his apprentices have talents along various fields. This one seems to be
 &+Lstudied in conjuration magic.&n
 ~
-2282 0 0 134217880 2049 0 0 -603 S
-PH 0 12 -1
-40 0 0 1d1+1 1d1+1
+2250 0 0 134217880 2049 0 0 -603 S
+PH 0 2048 -1
+50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #134006
@@ -95,9 +95,9 @@ orc guard~
 &+Lmilitant clerics of Sargon. He wears a lesser unholy symbol around his neck,
 &+Lalong with a napkin as he wolfs down his food.&n
 ~
-67111018 0 0 8 0 0 0 -895 S
+67110986 1 0 8 0 0 0 -895 S
 HO 0 1 -1
-40 0 0 1d1+1 1d1+1
+50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #134007
@@ -110,9 +110,9 @@ giant hill thug~
 &n&+yand a little cash. It is dressed in almost nothing and seems to be quite
 &n&+ycontent with its life, especially when it gets to destroy things.&n
 ~
-2282 0 0 152 64 0 0 -500 S
+2250 1 0 152 64 0 0 -500 S
 G 0 1 -1
-45 0 0 1d1+1 1d1+1
+50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #134008
@@ -126,9 +126,9 @@ goblin cook~
 &+Gand has accumulated a large pile of earnings by gaming... trading... and
 &+Gstealing.&n
 ~
-2286 0 0 8 0 0 0 -500 S
-PG 0 13 -1
-40 0 0 1d1+1 1d1+1
+2254 1 0 8 0 0 0 -500 S
+HG 0 33 -1
+50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #134009
@@ -142,9 +142,9 @@ ogress cook~
 &+Lsomething in a big pot. Her cooking is universally hated by all the guards,
 &+Lexcept the ogres who think she is a genius.&n
 ~
-2282 0 0 0 0 0 0 -592 S
+2250 1 0 0 0 0 0 -592 S
 PO 0 1 -1
-40 0 0 1d1+1 1d1+1
+49 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
 #134010
@@ -178,8 +178,8 @@ orc acolyte~
 &+Lfellow clerics, he is still above every rank guard.&n
 ~
 1073743978 0 0 65576 32832 0 0 -956 S
-HO 0 6 -1
-40 0 0 1d1+1 1d1+1
+HO 0 32 -1
+49 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #134012
@@ -192,8 +192,8 @@ unholy orc warrior~
 &+Land lead him down the path of evil. He seems to be very serious about his
 &+Lpraying.&n
 ~
-2154 0 0 65560 294976 0 0 -952 S
-HO 0 5 -1
+2122 1 0 65560 32832 0 0 -952 S
+HO 0 1 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -207,9 +207,9 @@ ogre guard~
 &n&+ba one will bring him fame and fortune he has come to earn money and hopefully
 &n&+ba woman.&n
 ~
-1073743976 0 0 24 0 0 0 -582 S
+1073743944 1 0 24 0 0 0 -582 S
 PO 0 1 -1
-41 0 0 1d1+1 1d1+1
+50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #134014
@@ -222,9 +222,9 @@ A strong &n&+ytroll &n&+ywarrior&n stands here off duty.&n
 &+gthat are abnormally strong and brutal. This one, like its fellows passed his
 &+gtests, the others became ash.&n
 ~
-106 0 0 1048600 0 0 0 -999 S
+74 0 0 1048600 0 0 0 -999 S
 PT 0 1 -1
-44 0 0 1d1+1 1d1+1
+50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #134015
@@ -235,10 +235,9 @@ fire giant~
 &n&+r   This large fire giant is about fifteen feet tall and seems to be a rather
 &n&+rsmall version of his kind. Likely thrown out of his village for being such
 &n&+ra runt he is still huge by other races standards. He seems to enjoy being
-&n&+rmean to the troll who seems to be oversensitive to fire.
-&n
+&n&+rmean to the troll who seems to be oversensitive to fire&n
 ~
-1073743978 0 0 536870936 1 0 0 -859 S
+1073743978 1 0 536870936 4194305 0 0 -859 S
 G 0 1 -1
 43 0 0 1d1+1 1d1+1
 0.0.0.0 0

@@ -1,9 +1,33 @@
 #1380
 The Ruins of Port Skythic~
-138107 2 0 40 50 1
+138109 2 0 40 50 1
 *
 * Zone edited with durisEdit v2.99de
 *
+*
+D 0 138014 3 1 100 0 0 0
+*     west exit from "Within the Remnants of the Raging Boar Tavern" to
+*     "A Dark Storage Room" - closed
+*
+D 0 138015 1 1 100 0 0 0
+*     east exit from "A Dark Storage Room" to
+*     "Within the Remnants of the Raging Boar Tavern" - closed
+*
+D 0 138019 3 5 100 0 0 0
+*     west exit from "Within the Inn of the Dancing Sun" to
+*     "A Plush Hidden Lounge" - closed/secret
+*
+D 0 138020 1 5 100 0 0 0
+*     east exit from "A Plush Hidden Lounge" to
+*     "Within the Inn of the Dancing Sun" - closed/secret
+*
+D 0 138020 3 5 100 0 0 0
+*     west exit from "A Plush Hidden Lounge" to
+*     "A Blood Splattered Brothel" - closed/secret
+*
+D 0 138021 1 5 100 0 0 0
+*     east exit from "A Blood Splattered Brothel" to
+*     "A Plush Hidden Lounge" - closed/secret
 *
 *
 O 0 138008 1 138006 100 0 0 0      * some twisted and torn steel from the front gates
@@ -14,13 +38,14 @@ O 0 138005 1 138015 100 0 0 0      * some broken wine casks
 O 0 138006 1 138016 100 0 0 0      * a well maintained poker table
 P 1 138007 1 138006 100 0 0 0      *   a handful of poker chips
 O 0 138003 1 138018 100 0 0 0      * the burnt wooden sign of the Dancing Sun Inn
+O 0 138012 1 138021 100 0 0 0      * the remains of a beaten prostitute
 O 0 138004 1 138031 100 0 0 0      * a pile of rubble
 O 0 138000 1 138060 100 0 0 0      * a blood splattered statue of a platinum dragon
 O 0 138001 1 138063 100 0 0 0      * a statue of the sun god Pelor
 *
-M 0 138008 4 138006 100 0 0 0      * a rumblind rock golem
-M 0 138008 4 138006 100 0 0 0      * a rumblind rock golem
-M 0 138008 4 138010 100 0 0 0      * a rumblind rock golem
-M 0 138008 4 138010 100 0 0 0      * a rumblind rock golem
+M 0 138008 4 138006 100 0 0 0      * a rumbling rock golem
+M 0 138008 4 138006 100 0 0 0      * a rumbling rock golem
+M 0 138008 4 138010 100 0 0 0      * a rumbling rock golem
+M 0 138008 4 138010 100 0 0 0      * a rumbling rock golem
 *
 S
