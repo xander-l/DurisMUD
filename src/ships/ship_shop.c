@@ -2399,6 +2399,8 @@ int crew_shop_proc(int room, P_char ch, int cmd, char *arg)
 
 #define IS_MOONSTONE(obj)          (obj_index[obj->R_num].virtual_number == AUTOMATONS_MOONSTONE)
 #define IS_MOONSTONE_FRAGMENT(obj) (obj_index[obj->R_num].virtual_number == AUTOMATONS_MOONSTONE_FRAGMENT)
+#define IS_MOONSTONE_CORE(obj) (obj_index[obj->R_num].virtual_number == AUTOMATONS_MOONSTONE_CORE)
+#define IS_MOONSTONE_PART(obj) (IS_MOONSTONE_FRAGMENT(obj) || IS_MOONSTONE_CORE(obj))
 
 int moonstone_fragment(P_obj obj, P_char ch, int cmd, char *argument)
 {
@@ -2413,20 +2415,27 @@ int moonstone_fragment(P_obj obj, P_char ch, int cmd, char *argument)
     if (obj->loc_p == LOC_CARRIED && obj->loc.carrying != 0)
     {
       ch = obj->loc.carrying;
-      int fragment_count = 0;
+      int fragment_count = 0, core_count = 0;
       for (P_obj obj = ch->carrying; obj; obj = obj->next_content)
       {
         if (IS_MOONSTONE_FRAGMENT(obj))
           fragment_count++;
+        if (IS_MOONSTONE_CORE(obj))
+          core_count++;
       }
-      if (fragment_count == 3)
+      if (core_count > 1)
+      {
+          // TODO: something nasty
+          return TRUE;
+      }
+      if (fragment_count == 2 && core_count == 1)
       {
         send_to_char("&+WMoonstone &+Rf&+rra&+Rg&+rme&+Rn&+rts &+Gsuddenly glow &+Wbrightly &+Gin your hands and combine into &+Rh&+rea&+Rr&+rt-&+Rs&+rha&+Rp&+red &+Wobject&+G!&N\r\n\r\n", ch);
         P_obj next_obj = 0;
         for (P_obj obj = ch->carrying; obj; obj = next_obj)
         {
           next_obj = obj->next_content;
-          if (IS_MOONSTONE_FRAGMENT(obj))
+          if (IS_MOONSTONE_PART(obj))
           {
               obj_from_char(obj, TRUE);
               extract_obj(obj, TRUE);
@@ -2446,6 +2455,15 @@ int moonstone_fragment(P_obj obj, P_char ch, int cmd, char *argument)
   return FALSE;
 }
 
+P_obj has_moonstone_part(P_char ch)
+{
+  for (P_obj obj = ch->carrying; obj; obj = obj->next_content)
+  {
+    if (IS_MOONSTONE_PART(obj))
+      return obj;
+  }
+  return NULL;
+}
 P_obj has_moonstone_fragment(P_char ch)
 {
   for (P_obj obj = ch->carrying; obj; obj = obj->next_content)
@@ -2533,7 +2551,7 @@ int erzul_proc(P_char ch, P_char pl, int cmd, char *arg)
   if (cmd == CMD_ASK)
   {
     half_chop(arg, arg1, arg2);
-    if (has_moonstone_fragment(pl))
+    if (has_moonstone_part(pl))
     {
        send_to_char ("Erzul says '&+GYou have it! You have the moonstone!\r\n", pl);
        send_to_char ("&+G  What?! It's broken! You broke my masterpiece!!&N'\r\n", pl);

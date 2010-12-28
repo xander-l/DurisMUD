@@ -826,6 +826,7 @@ extern ShipObjHash shipObjHash;
 
 
 #define AUTOMATONS_MOONSTONE          12001
+#define AUTOMATONS_MOONSTONE_CORE     12029
 #define AUTOMATONS_MOONSTONE_FRAGMENT 12028
 //int moonstone_fragment(P_obj obj, P_char ch, int cmd, char *argument);
 //int erzul_proc(P_char ch, P_char pl, int cmd, char *arg);
