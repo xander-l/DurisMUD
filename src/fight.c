@@ -9094,7 +9094,7 @@ bool critical_attack(P_char ch, P_char victim, int msg)
             attack_hit_text[msg].singular);
     sprintf(victim_msg, "$n's mighty %s knocks your weapon from your grasp!&n",
             attack_hit_text[msg].plural);
-    if(!critical_disarm(ch, victim))
+    if(critical_disarm(ch, victim))
     {
       act(attacker_msg, TRUE, ch, NULL, victim, TO_CHAR);
       act(victim_msg, TRUE, ch, NULL, victim, TO_VICT);
