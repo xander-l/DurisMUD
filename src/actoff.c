@@ -8528,7 +8528,7 @@ void gaze(P_char ch, P_char victim)
     return;
   }
   
-  if(IS_AFFECTED4(ch, AFF4_NOFEAR))
+  if(IS_AFFECTED4(victim, AFF4_NOFEAR))
   {
     act("$N &+Wgazes right back at you, completely immune to the fear.", FALSE, ch, 0, victim, TO_CHAR);
     CharWait(ch, (int) (PULSE_VIOLENCE));
