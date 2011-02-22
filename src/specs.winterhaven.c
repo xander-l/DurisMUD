@@ -636,9 +636,9 @@ int snowogre_warhammer(P_obj obj, P_char ch, int cmd, char *arg)
       {
 
         act("You say '&+rf&+Ru&+rr&+ry&n'", TRUE, ch, obj, vict, TO_CHAR);
-        act("&+WYou grip $q &+Win your hands which suddenly unleashes the &+wF&+ru&+Rr&+Ly &+Wof the &+bSnow &+BOgre &nKings!&n", TRUE, ch, obj, vict, TO_CHAR);
+        act("&+WYou whisper to $p &+Wunleashing the &+rF&+Ru&+rr&+Ry &+Wof the Snow &+bOgre &+Wkings!&n", TRUE, ch, obj, vict, TO_CHAR);
         act("$n says '&+rf&+Ru&+rr&+Ry&n'", TRUE, ch, obj, vict, TO_ROOM);
-        act("$n &+Wgrips $q &+Win $s hands which suddenly unleashes the &+wF&+ru&+Rr&+Ly &+Wof the &+bSnow &+BOgre &nKings!&n", TRUE, ch, obj, vict, TO_ROOM);
+        act("$n&+W's $q &+Wunleashes the &+rF&+Ru&+rr&+Ry &+Wof the Snow &+bOgre &+WKings!&n", TRUE, ch, obj, vict, TO_ROOM);
 
         if(!IS_AFFECTED(ch, AFF_HASTE))
         {
@@ -707,9 +707,9 @@ int snowogre_warhammer(P_obj obj, P_char ch, int cmd, char *arg)
     {
       case 0:
       {
-        act("&+WYou grip $q &+Win your hands which suddenly unleashes the &+wF&+ru&+Rr&+Ly &+Wof the &+LV&+rol&+Rc&+ran&+Lo&n", TRUE, ch, obj, vict, TO_CHAR);
-        act("$n &+Wgrips $q &+Win $s hands which suddenly unleashes the &+wF&+ru&+Rr&+Ly &+Wof the &+LV&+rol&+Rc&+ran&+Lo&n", TRUE, ch, obj, vict, TO_NOTVICT);
-        act("$n &+Wgrips $q &+Win $s hands which suddenly unleashes the &+wF&+ru&+Rr&+Ly &+Wof the &+LV&+rol&+Rc&+ran&+Lo &+Wupon you!&n", TRUE, ch, obj, vict, TO_VICT);
+        act("$p &+Wsuddenly unleashes the &+wF&+ru&+Rr&+Ly &+Wof the &+LV&+rol&+Rc&+ran&+Lo&n", TRUE, ch, obj, vict, TO_CHAR);
+        act("$p &+Wsuddenly unleashes the &+wF&+ru&+Rr&+Ly &+Wof the &+LV&+rol&+Rc&+ran&+Lo&n", TRUE, ch, obj, vict, TO_NOTVICT);
+        act("$p &+Wsuddenly unleashes the &+wF&+ru&+Rr&+Ly &+Wof the &+LV&+rol&+Rc&+ran&+Lo &+Wupon you!&n", TRUE, ch, obj, vict, TO_VICT);
 
         if(affected_by_spell(ch, SPELL_COLDSHIELD))
         {
@@ -736,7 +736,7 @@ int snowogre_warhammer(P_obj obj, P_char ch, int cmd, char *arg)
             spell_fireball(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
             break;
           case 4:
-            spell_firestorm(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
+            spell_sunray(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
             break;
           default:
             break;          
@@ -752,14 +752,14 @@ int snowogre_warhammer(P_obj obj, P_char ch, int cmd, char *arg)
           spell_fireshield(50, vict, 0, SPELL_TYPE_SPELL, vict, 0);
         }
 
-        return true;
+        return TRUE;
       }
     
       case 1:
       {
-        act("&+WYou grip $q &+Win your hands which suddenly unleashes the &+wF&+yu&+Yr&+wy &+Wof the &+wD&+ye&+Yse&+ye&+wt&n", TRUE, ch, obj, vict, TO_CHAR);
-        act("$n &+Wgrips $q &+Win $s hands which suddenly unleashes the &+wF&+yu&+Yr&+wy &+Wof the &+wD&+ye&+Yse&+ye&+wt&n", TRUE, ch, obj, vict, TO_NOTVICT);
-        act("$n &+Wgrips $q &+Win $s hands which suddenly unleashes the &+wF&+yu&+Yr&+wy &+Wof the &+wD&+ye&+Yse&+ye&+wt &+Wupon you!&n", TRUE, ch, obj, vict, TO_VICT);
+        act("$p &+Wsuddenly unleashes the &+wF&+yu&+Yr&+wy &+Wof the &+wD&+ye&+Yse&+yr&+wt&n", TRUE, ch, obj, vict, TO_CHAR);
+        act("$p &+Wsuddenly unleashes the &+wF&+yu&+Yr&+wy &+Wof the &+wD&+ye&+Yse&+yr&+wt&n", TRUE, ch, obj, vict, TO_NOTVICT);
+        act("$p &+Wsuddenly unleashes the &+wF&+yu&+Yr&+wy &+Wof the &+wD&+ye&+Yse&+yr&+wt &+Wupon you!&n", TRUE, ch, obj, vict, TO_VICT);
 
         act("A powerful &+Ysand&+ystorm &npummels $N!&n", TRUE, ch, obj, vict, TO_CHAR);
         act("A powerful &+Ysand&+ystorm &npummels $N!&n", TRUE, ch, obj, vict, TO_NOTVICT);
@@ -797,15 +797,15 @@ int snowogre_warhammer(P_obj obj, P_char ch, int cmd, char *arg)
           affect_from_char(vict, SPELL_GLOBE);        
         }
         
-        return true;
+        return TRUE;
       }
     
       case 2:
       {
      
-        act("&+WYou grip $q &+Win your hands which suddenly unleashes the &+wF&+cu&+Cr&+wy &+Wof the &+wgl&+ca&+Cc&+ci&+wer&n", TRUE, ch, obj, vict, TO_CHAR);
-        act("$n &+Wgrips $q &+Win $s hands which suddenly unleashes the &+wF&+cu&+Cr&+wy &+Wof the &+wgl&+ca&+Cc&+ci&+wer&n", TRUE, ch, obj, vict, TO_NOTVICT);
-        act("$n &+Wgrips $q &+Win $s hands which suddenly unleashes the &+wF&+cu&+Cr&+wy &+Wof the &+wgl&+ca&+Cc&+ci&+wer &+Wupon you!&n", TRUE, ch, obj, vict, TO_VICT);
+        act("$p &+Wsuddenly unleashes the &+wF&+cu&+Cr&+wy &+Wof the &+wgl&+ca&+Cc&+ci&+wer&n", TRUE, ch, obj, vict, TO_CHAR);
+        act("$p &+Wsuddenly unleashes the &+wF&+cu&+Cr&+wy &+Wof the &+wgl&+ca&+Cc&+ci&+wer&n", TRUE, ch, obj, vict, TO_NOTVICT);
+        act("$p suddenly unleashes the &+wF&+cu&+Cr&+wy &+Wof the &+wgl&+ca&+Cc&+ci&+wer &+Wupon you!&n", TRUE, ch, obj, vict, TO_VICT);
 
         if(affected_by_spell(ch, SPELL_FIRESHIELD))
         {
@@ -829,7 +829,7 @@ int snowogre_warhammer(P_obj obj, P_char ch, int cmd, char *arg)
             spell_cone_of_cold(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
             break;
           case 3:
-            spell_ice_storm(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
+            spell_cold_snap(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
             break;
           default:
             break;
@@ -845,22 +845,22 @@ int snowogre_warhammer(P_obj obj, P_char ch, int cmd, char *arg)
           spell_coldshield(50, vict, 0, SPELL_TYPE_SPELL, vict, 0);
         }
         
-        return true;
+        return TRUE;
       }
     
       case 3:
       {
-        act("&+WYou grip $q &+Win your hands which suddenly unleashes the &+lF&+Bu&+Cr&+By &+Wof the &+bs&+Bq&+Cua&+Bl&+bl&n", TRUE, ch, obj, vict, TO_CHAR);
-        act("$n &+Wgrips $q &+Win $s hands which suddenly unleashes the &+lF&+Bu&+Cr&+By &+Wof the &+bs&+Bq&+Cua&+Bl&+bl&n", TRUE, ch, obj, vict, TO_NOTVICT);
-        act("$n &+Wgrips $q &+Win $s hands which suddenly unleashes the &+lF&+Bu&+Cr&+By &+Wof the &+bs&+Bq&+Cua&+Bl&+bl &+Wupon you!&n", TRUE, ch, obj, vict, TO_VICT);
+        act("&+W$p &+Win your hands which suddenly unleashes the &+lF&+Bu&+Cr&+By &+Wof the &+bs&+Bq&+Cua&+Bl&+bl&n", TRUE, ch, obj, vict, TO_CHAR);
+        act("$p &+Wsuddenly unleashes the &+lF&+Bu&+Cr&+By &+Wof the &+bs&+Bq&+Cua&+Bl&+bl&n", TRUE, ch, obj, vict, TO_NOTVICT);
+        act("$p &+Wsuddenly unleashes the &+lF&+Bu&+Cr&+By &+Wof the &+bs&+Bq&+Cua&+Bl&+bl &+Wupon you!&n", TRUE, ch, obj, vict, TO_VICT);
 
-        switch(number(0, 4))
+        switch(number(0, 3))
         {
           case 0:
             spell_call_lightning(50, ch, vict, 0);
             break;
           case 1:
-            spell_tempest(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
+            spell_lightning_bolt(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
             break;
           case 2:
             spell_forked_lightning(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
@@ -868,19 +868,16 @@ int snowogre_warhammer(P_obj obj, P_char ch, int cmd, char *arg)
           case 3:
             spell_cyclone(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
             break;
-          case 4:
-            spell_lightning_bolt(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
-            break;
           default:
             break;
         }
-        return true;
+        return TRUE;
       }
     
       case 4:
       {
-        act("&+WYour $q &+Wglows brightly with a &+Che&+Wal&+Cin&+Wg a&+Cur&+Wa!&n", TRUE, ch, obj, vict, TO_CHAR);
-        act("&+W$n's $q &+Wglows brightly with a &+Che&+Wal&+Cin&+Wg a&+Cur&+Wa!&n", TRUE, ch, obj, vict, TO_ROOM);
+        act("&+WYour $q &+wsuddenly &+Wglows brightly!&n", TRUE, ch, obj, vict, TO_CHAR);
+        act("&+W$n's $q &+wsuddenly &+Wglows brightly!&n", TRUE, ch, obj, vict, TO_ROOM);
             
         rand = number(0, 9);
           
@@ -897,7 +894,7 @@ int snowogre_warhammer(P_obj obj, P_char ch, int cmd, char *arg)
           spell_mending(GET_LEVEL(ch), ch, 0, SPELL_TYPE_SPELL, ch, 0);
         }
         
-        return true;
+        return TRUE;
       }
       default:
         break;
@@ -3663,19 +3660,19 @@ int earring_powers(P_obj obj, P_char ch, int cmd, char *arg)
     {
       case 0:
         obj->affected[2].location = APPLY_SAVING_SPELL;
-        obj->affected[2].modifier = number(-2,-10);
+        obj->affected[2].modifier = number(-2,-5);
         break;
       case 1:
         obj->affected[2].location = APPLY_SAVING_FEAR;
-        obj->affected[2].modifier = number(-2,-10);
+        obj->affected[2].modifier = number(-2,-5);
         break;
       case 2:
         obj->affected[2].location = APPLY_SAVING_PARA;
-        obj->affected[2].modifier = number(-2,-10);
+        obj->affected[2].modifier = number(-2,-5);
         break;
       case 3:
         obj->affected[2].location = APPLY_SAVING_BREATH;
-        obj->affected[2].modifier = number(-2,-10);
+        obj->affected[2].modifier = number(-2,-5);
         break;
       default:
         break;
@@ -3685,39 +3682,39 @@ int earring_powers(P_obj obj, P_char ch, int cmd, char *arg)
     {
       case 0:
         obj->affected[0].location = APPLY_STR_MAX;
-        obj->affected[0].modifier = number(3, 15);
+        obj->affected[0].modifier = number(3, 5);
         break;
       case 1:
         obj->affected[0].location = APPLY_DEX_MAX;
-        obj->affected[0].modifier = number(3, 15);
+        obj->affected[0].modifier = number(3, 5);
         break;        
       case 2:
         obj->affected[0].location = APPLY_AGI_MAX;
-        obj->affected[0].modifier = number(3, 15);
+        obj->affected[0].modifier = number(3, 5);
         break;
       case 3:
         obj->affected[0].location = APPLY_CON_MAX;
-        obj->affected[0].modifier = number(3, 10);
+        obj->affected[0].modifier = number(3, 5);
         break;
       case 4:
         obj->affected[0].location = APPLY_INT_MAX;
-        obj->affected[0].modifier = number(3, 10);
+        obj->affected[0].modifier = number(3, 5);
         break;
       case 5:
         obj->affected[0].location = APPLY_WIS_MAX;
-        obj->affected[0].modifier = number(3, 10);
+        obj->affected[0].modifier = number(3, 5);
         break;
       case 6:
         obj->affected[0].location = APPLY_POW_MAX;
-        obj->affected[0].modifier = number(10, 15);
+        obj->affected[0].modifier = number(3, 5);
         break;
       case 7:
         obj->affected[0].location = APPLY_CHA_MAX;
-        obj->affected[0].modifier = number(10, 30);
+        obj->affected[0].modifier = number(3, 5);
         break;
       case 8:
         obj->affected[0].location = APPLY_LUCK_MAX;
-        obj->affected[0].modifier = number(10, 20);
+        obj->affected[0].modifier = number(3, 5);
         break;
       default:
         break;
@@ -3727,39 +3724,39 @@ int earring_powers(P_obj obj, P_char ch, int cmd, char *arg)
     {
       case 0:
         obj->affected[1].location = APPLY_STR_MAX;
-        obj->affected[1].modifier = number(3, 15);
+        obj->affected[1].modifier = number(3, 5);
         break;
       case 1:
         obj->affected[1].location = APPLY_DEX_MAX;
-        obj->affected[1].modifier = number(3, 15);
+        obj->affected[1].modifier = number(3, 5);
         break;        
       case 2:
         obj->affected[1].location = APPLY_AGI_MAX;
-        obj->affected[1].modifier = number(3, 15);
+        obj->affected[1].modifier = number(3, 5);
         break;
       case 3:
         obj->affected[1].location = APPLY_CON_MAX;
-        obj->affected[1].modifier = number(3, 10);
+        obj->affected[1].modifier = number(3, 5);
         break;
       case 4:
         obj->affected[1].location = APPLY_INT_MAX;
-        obj->affected[1].modifier = number(3, 10);
+        obj->affected[1].modifier = number(3, 5);
         break;
       case 5:
         obj->affected[1].location = APPLY_WIS_MAX;
-        obj->affected[1].modifier = number(3, 10);
+        obj->affected[1].modifier = number(3, 5);
         break;
       case 6:
         obj->affected[1].location = APPLY_POW_MAX;
-        obj->affected[1].modifier = number(10, 15);
+        obj->affected[1].modifier = number(3, 5);
         break;
       case 7:
         obj->affected[1].location = APPLY_CHA_MAX;
-        obj->affected[1].modifier = number(10, 30);
+        obj->affected[1].modifier = number(3, 5);
         break;
       case 8:
         obj->affected[1].location = APPLY_LUCK_MAX;
-        obj->affected[1].modifier = number(10, 20);
+        obj->affected[1].modifier = number(3, 5);
         break;
       default:
         break;

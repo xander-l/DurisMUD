@@ -2550,7 +2550,7 @@ void spell_undead_to_death(int level, P_char ch, char *arg, int type,
                              P_char victim, P_obj obj)
 {
 
-  int save, dam, hits;
+  int save = 0, dam, hits;
   struct affected_type af;
   
   struct damage_messages messages = {
@@ -2573,36 +2573,36 @@ void spell_undead_to_death(int level, P_char ch, char *arg, int type,
     return;
   }
   
-  if((!IS_UNDEADRACE(victim) && !IS_ANGEL(victim)) ||
-     IS_ELITE(victim))
+  if(!IS_UNDEADRACE(victim))
   {
-    send_to_char("Your spell fails.\r\n", ch);
+    send_to_char("They aren't even undead!", ch);
     return;
-  }
-  
-  save = 5 + BOUNDED(-20, (GET_LEVEL(ch) - GET_LEVEL(victim)), 20);
-  
+  }  
+
+  save += BOUNDED(-10, GET_LEVEL(ch) - GET_LEVEL(victim), 10);
+
   if(IS_GREATER_RACE(ch) ||
      IS_ELITE(ch) ||
      IS_PC_PET(victim))
   {
-    save += 5;
+    save = 5;
   }
   
-  dam = (15 * level) + number(1, 160);
+  dam = (6 * level) + number(-40, 40);
 
   if(IS_AFFECTED2(victim, AFF2_SOULSHIELD))
   {
     dam = (int) (dam * 0.50);
+    save -= 2;
   }
   
   if(!NewSaves(victim, SAVING_FEAR, save))
   {
-    spell_damage(ch, victim, dam, SPLDAM_GENERIC, SPLDAM_NOSHRUG, &messages);
+    spell_damage(ch, victim, dam, SPLDAM_HOLY, SPLDAM_NOSHRUG, &messages);
   }
   else if(!number(0, 3))
   {
-    spell_damage(ch, victim, (int) (dam * 0.75), SPLDAM_GENERIC, SPLDAM_NOSHRUG, &messages);
+    spell_damage(ch, victim, (int) (dam * 0.75), SPLDAM_HOLY, SPLDAM_NOSHRUG, &messages);
   }
   else if(GET_HIT(victim) > GET_MAX_HIT(victim))
   {
@@ -2643,7 +2643,7 @@ void spell_undead_to_death(int level, P_char ch, char *arg, int type,
   }
   else
   {
-    spell_damage(ch, victim, (int) (dam / 2), SPLDAM_GENERIC, SPLDAM_NOSHRUG, &messages);
+    spell_damage(ch, victim, (int) (dam / 2), SPLDAM_HOLY, SPLDAM_NOSHRUG, &messages);
   }
 }
 
@@ -2675,14 +2675,19 @@ void spell_taint(int level, P_char ch, char *arg, int type,
     return;
   }
 
-  dam = 9 * MIN(level, 56) + number(-40, 40);
-  dam *= 1.8;
-// dam = 13 * level + number(0, level);
-  if(saves_spell(victim, SAVING_SPELL))
-    dam >>= 1;
+  dam = 7 * MIN(level, 56) + number(-40, 40);
+  
+  if(IS_AFFECTED2(victim, AFF2_SOULSHIELD))
+  {
+    dam *= (int) .5;
+  }
 
-  spell_damage(ch, victim, dam, SPLDAM_NEGATIVE, 0,
-               &messages);
+  if(saves_spell(victim, SAVING_SPELL))
+  {
+    dam >>= 1;
+  }
+
+  spell_damage(ch, victim, dam, SPLDAM_NEGATIVE, 0,               &messages);
 }
 
 /*

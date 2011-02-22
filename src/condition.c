@@ -122,19 +122,19 @@ const char *item_damage_messages[][2] = {
   {"is filled with electrical energy!",
    "exploded spreading charges of electrical energy!"},
   {"was corroded by gas.",
-   "crumbled consumed by the toxic gas."},
+   "crumbled as it was consumed by the toxic gas."},
   {"was corroded by acid.",
    "melted corroded by the acid."},
   {"is blasted by the negative energy!",
    "was disintegrated by the negative energy!"},
   {"is burned by the light!",
-   "shattered into million pieces by the divine fury!"},
+   "shattered into a million pieces by the divine fury!"},
   {"cracks as the tortured body writhes!",
    "shattered in bits as the tortured body spasms and quivers!"},
   {"is corrupted by spiritual anger!",
    "was destroyed by the blast!"},
   {"cracks attacked by the sound wave.",
-   "shattered into million pieces as the sound wave hit it!"},
+   "shattered into a million pieces as the sound wave hit it!"},
    
 };
 
