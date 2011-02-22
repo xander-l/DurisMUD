@@ -3879,7 +3879,7 @@ void do_headbutt(P_char ch, char *argument, int cmd)
     if (get_takedown_size(victim) < get_takedown_size(ch))
       dam = (int) (dam * 1.5);
 
-    if (melee_damage(victim, ch, dam, PHSDAM_NOPOSITION | PHSDAM_TOUCH, &fail_messages)
+    if (melee_damage(victim, ch, dam, PHSDAM_NOPOSITION | PHSDAM_TOUCH | PHSDAM_NOREDUCE, &fail_messages)
         != DAM_NONEDEAD)
       return;
 
@@ -3897,7 +3897,7 @@ void do_headbutt(P_char ch, char *argument, int cmd)
   else
   {
     // success!
-    dam = (int) ((GET_LEVEL(ch) / 51) * (number(-5, 25) + GET_CHAR_SKILL(ch, SKILL_HEADBUTT)));
+    dam = (int) ((GET_LEVEL(ch) / 51) * (number(-5, 25) + GET_C_STR(ch) + GET_CHAR_SKILL(ch, SKILL_HEADBUTT)));
     
     if (GET_RACE(ch) == RACE_MINOTAUR)
     {
@@ -3912,7 +3912,7 @@ void do_headbutt(P_char ch, char *argument, int cmd)
     if (get_takedown_size(victim) > get_takedown_size(ch))
       dam = (int) (dam * get_property("damage.headbutt.damPenaltyVsLarger", 0.900));    
     
-    if (melee_damage(ch, victim, dam, PHSDAM_NOPOSITION | PHSDAM_TOUCH, messages))
+    if (melee_damage(ch, victim, dam, PHSDAM_NOPOSITION | PHSDAM_TOUCH | PHSDAM_NOREDUCE, messages))
       return;
 
     if(GET_CHAR_SKILL(ch, SKILL_DOUBLE_HEADBUTT) > number(0,300))
@@ -3922,8 +3922,7 @@ void do_headbutt(P_char ch, char *argument, int cmd)
         act("You deftly pull back your head and ram it into $N again!", FALSE, ch, 0, victim, TO_CHAR);
         act("With a quick move, $n pulls back $s head and rams it into you again!", FALSE, ch, 0, victim, TO_VICT);
         act("$n deftly pulls back $s head and slams it into $N again!", FALSE, ch, 0, victim, TO_NOTVICTROOM);
-
-        if (melee_damage(ch, victim, (int) (dam / j), PHSDAM_NOPOSITION | PHSDAM_TOUCH, messages))
+        if (melee_damage(ch, victim, (int) (dam / j), PHSDAM_NOPOSITION | PHSDAM_TOUCH | PHSDAM_NOREDUCE , messages))
           return;        
       }
     }
