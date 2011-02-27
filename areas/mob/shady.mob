@@ -85,7 +85,7 @@ and training. With a sword in one hand, his duty appears quite
 simple. His eyes glare icly to you as he warns, "STAY out of
 UNLAWFUL activity!"
 ~
-1140852750 64 0 72 3 0 0 -1000 S
+1140852746 64 0 72 3 0 0 -1000 S
 HO 0 1024 -1
 30 8 3 30d44+330 3d6+4
 0.5.7.1 26730
@@ -890,9 +890,9 @@ An &+Worc guard&N of the &+LBlack Order&N is here watching your every action.
 He watches everyone and keeps an eye out for danger.  He glances at you
 and continues with his work.
 ~
-1174407308 2112 0 33554468 0 0 0 -1000 S
+1107298440 2112 0 33554468 0 0 67108864 -1000 S
 HO 0 1 -1
-31 8 16 26d65+338 3d6+4
+45 8 16 26d65+338 3d6+4
 7.2.6.1 23166
 8 8 1
 #97561
@@ -920,9 +920,9 @@ any signs of troubles that he might encounter here in the Shady Grove.
 This orc has a well developed build and wears a tattoo over his face.
 He is a warrior by nature and his cold eyes stare deep into your soul.
 ~
-1174407372 2112 0 33554476 12480 0 0 -1000 S
+1107298504 2112 0 33554476 12480 0 0 -1000 S
 HO 0 1 -1
-51 -1 -69 45d107+2025 6d6+12
+56 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
 #97563
@@ -1306,9 +1306,9 @@ powerful arms and legs are all armed with claws.  Four round eyes are
 postioned evenly across the forehead of the creature, each one centered
 on its prey.
 ~
-1073743946 64 0 24 0 0 0 -1000 S
+1073743946 64 0 316 28 0 67108864 -1000 S
 og 13 1 5
-31 0 0 1d1+1 1d1+1
+61 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
 #97590
@@ -1466,7 +1466,7 @@ UNLAWFUL activity!"
 ~
 67110986 64 0 33620184 10 0 0 -1000 S
 HO 0 1 -1
-51 -5 -101 52d131+4420 7d6+30
+53 -5 -101 52d131+4420 7d6+30
 7.9.5.6 210600
 8 8 1
 #97602
@@ -1482,7 +1482,7 @@ UNLAWFUL activity!"
 ~
 67110986 64 0 33619976 10 0 0 -1000 S
 HO 0 1 -1
-35 -5 -101 52d131+4420 7d6+30
+45 -5 -101 52d131+4420 7d6+30
 7.9.5.6 210600
 8 8 1
 #97603

@@ -441,7 +441,7 @@ int artifact_stone(P_obj obj, P_char ch, int cmd, char *argument)
 int artifact_shadow_shield(P_obj obj, P_char ch, int cmd, char *argument)
 {
   char    *arg;
-  int      curr_time;
+  int      curr_time, i;
   P_char   temp_ch;
 
   if (cmd == CMD_SET_PERIODIC)
@@ -460,8 +460,22 @@ int artifact_shadow_shield(P_obj obj, P_char ch, int cmd, char *argument)
       return FALSE;
   }
 
+  if(!temp_ch)
+    return FALSE;
+
   if (!OBJ_WORN(obj))
     return FALSE;
+
+  for(i = 0;i < MAX_WEAR;i++)
+  {
+    if(temp_ch->equipment[i] == obj)
+    {
+      if(i == WEAR_ATTACH_BELT_1 ||
+         i == WEAR_ATTACH_BELT_2 ||
+         i == WEAR_ATTACH_BELT_3)
+           return FALSE;
+    }
+  }
 
   if (cmd)
     return FALSE;

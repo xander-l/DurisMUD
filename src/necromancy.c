@@ -2588,7 +2588,7 @@ void spell_undead_to_death(int level, P_char ch, char *arg, int type,
     save = 5;
   }
   
-  dam = (6 * level) + number(-40, 40);
+  dam = (9 * level) + number(-40, 40);
 
   if(IS_AFFECTED2(victim, AFF2_SOULSHIELD))
   {
@@ -2596,7 +2596,7 @@ void spell_undead_to_death(int level, P_char ch, char *arg, int type,
     save -= 2;
   }
   
-  if(!NewSaves(victim, SAVING_FEAR, save))
+  if(!NewSaves(victim, SAVING_SPELL, save))
   {
     spell_damage(ch, victim, dam, SPLDAM_HOLY, SPLDAM_NOSHRUG, &messages);
   }
@@ -2675,7 +2675,7 @@ void spell_taint(int level, P_char ch, char *arg, int type,
     return;
   }
 
-  dam = 7 * MIN(level, 56) + number(-40, 40);
+  dam = 9 * MIN(level, 56) + number(-40, 40);
   
   if(IS_AFFECTED2(victim, AFF2_SOULSHIELD))
   {
@@ -2687,7 +2687,7 @@ void spell_taint(int level, P_char ch, char *arg, int type,
     dam >>= 1;
   }
 
-  spell_damage(ch, victim, dam, SPLDAM_NEGATIVE, 0,               &messages);
+  spell_damage(ch, victim, dam, SPLDAM_NEGATIVE, 0, &messages);
 }
 
 /*

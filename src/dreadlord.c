@@ -52,7 +52,10 @@ void do_dread_wrath(P_char ch, P_char victim)
   struct affected_type af, *afp;
 
   if (GET_OPPONENT(ch) != victim)
-  return;
+    return;
+
+  if(IS_CONSTRUCT(victim) || IS_AFFECTED4(victim, AFF4_NOFEAR))
+    return;
 
   afp = get_spell_from_char(victim, TAG_DREAD_WRATH);
   if (!afp)

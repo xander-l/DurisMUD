@@ -221,8 +221,8 @@ void assign_mobiles(void)
   world[real_room0(55203)].funct = pet_shops; /* WH Mounts */
   world[real_room0(55126)].funct = welfare_well;
   mob_index[real_mobile0(55128)].func.mob = world_quest; /* WH Questmaster */
-  mob_index[real_mobile0(55021)].func.mob = winterhaven_shout_one;
-  mob_index[real_mobile0(55022)].func.mob = winterhaven_shout_two; 
+  //mob_index[real_mobile0(55021)].func.mob = winterhaven_shout_one;
+  //mob_index[real_mobile0(55022)].func.mob = winterhaven_shout_two; 
   mob_index[real_mobile0(55008)].func.mob = wh_janitor; 
   mob_index[real_mobile0(55009)].func.mob = wh_janitor; 
   mob_index[real_mobile0(55010)].func.mob = wh_janitor; 
@@ -2338,7 +2338,7 @@ void assign_rooms(void)
   /* Shady */
   world[real_room0(97757)].funct = pet_shops;
   world[real_room0(76241)].funct = pet_shops;
-
+  mob_index[real_mobile0(97562)].func.mob = winterhaven_shout_two;
 
   world[real_room0(97663)].funct = inn;
 
@@ -2393,6 +2393,7 @@ void assign_rooms(void)
   world[real_room0(55418)].funct = crew_shop_proc;  // Winterhaven
   //world[real_room0()].funct = crew_shop_proc;  // TODO: Stronghold
   world[real_room0(22648)].funct = crew_shop_proc;  // Stronghold -temporary room
+  mob_index[real_mobile0(132546)].func.mob = winterhaven_shout_one;
 
   // Fiord on west side of GC.
   world[real_room0(559633)].funct = ship_shop_proc;

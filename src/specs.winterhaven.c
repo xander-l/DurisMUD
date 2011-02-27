@@ -151,11 +151,11 @@ int wh_corpse_decay(P_obj obj, P_char ch, int cmd, char *args)
 
 int winterhaven_shout_one(P_char ch, P_char tch, int cmd, char *arg)
 {
-  int      helpers[] = { 55241, 55255, 55258, 55259, 0 };
+  int      helpers[] = { 55241, 55255, 55258, 55259, 132520, 132521, 0 };
   if (cmd == CMD_SET_PERIODIC)
     return TRUE;
   if (!tch && !number(0, 4))
-    return shout_and_hunt(ch, 100,
+    return shout_and_hunt(ch, 5,
                           "&+GGuards! %s &+Gis invading our beloved city! To arms!",
                           NULL, helpers, 0, 0);
   return FALSE;
@@ -163,11 +163,11 @@ int winterhaven_shout_one(P_char ch, P_char tch, int cmd, char *arg)
 
 int winterhaven_shout_two(P_char ch, P_char tch, int cmd, char *arg)
 {
-  int      helpers[] = { 55240, 55256, 55257, 55260, 0 };
+  int      helpers[] = { 55240, 55256, 55257, 55260, 97560, 97562, 0 };
   if (cmd == CMD_SET_PERIODIC)
     return TRUE;
   if (!tch && !number(0, 4))
-    return shout_and_hunt(ch, 100,
+    return shout_and_hunt(ch, 5,
                           "&+GGuards! %s &+Gis invading our beloved city! To arms!",
                           NULL, helpers, 0, 0);
   return FALSE;

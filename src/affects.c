@@ -827,17 +827,10 @@ void apply_affs(P_char ch, int mode)
   ch->points.mana_reg = TmpAffs.mana_reg;
   switch(TmpAffs.spell_pulse)
   {
-    case 10:
-      TmpAffs.spell_pulse = 4;
-      break;
-    case 9:
-    case 8:
-    case 7:
-    case 6:
     case 5:
+    case 4:
       TmpAffs.spell_pulse = 3;
       break;
-    case 4:
     case 3:
     case 2:
       TmpAffs.spell_pulse = 2;
@@ -853,17 +846,15 @@ void apply_affs(P_char ch, int mode)
       break;
     case -2:
     case -3:
-    case -4:
       TmpAffs.spell_pulse = -2;
       break;
+    case -4:
     case -5:
+      TmpAffs.spell_pulse = -3;
+      break;
     case -6:
     case -7:
     case -8:
-    case -9:
-      TmpAffs.spell_pulse = -3;
-      break;
-    case -10:
       TmpAffs.spell_pulse = -4;
       break;
     default:
@@ -874,19 +865,8 @@ void apply_affs(P_char ch, int mode)
   
   switch(TmpAffs.combat_pulse)
   {
-    case 12:
-    case 11:
-    case 10:
-      TmpAffs.combat_pulse = 4;
-      break;
-    case 9:
-    case 8:
-    case 7:
-    case 6:
-    case 5:
       TmpAffs.combat_pulse = 3;
       break;
-    case 4:
     case 3:
     case 2:
       TmpAffs.combat_pulse = 2;
@@ -902,20 +882,22 @@ void apply_affs(P_char ch, int mode)
       break;
     case -2:
     case -3:
-    case -4:
       TmpAffs.combat_pulse = -2;
       break;
+    case -4:
     case -5:
-    case -6:
-    case -7:
-    case -8:
-    case -9:
       TmpAffs.combat_pulse = -3;
       break;
+    case -6:
+    case -7:
+      TmpAffs.combat_pulse = -4;
+      break;
+    case -8:
+    case -9:
     case -10:
     case -11:
     case -12:
-      TmpAffs.combat_pulse = -4;
+      TmpAffs.combat_pulse = -5;
       break;
     default:
       TmpAffs.combat_pulse = 0;

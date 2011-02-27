@@ -5929,7 +5929,7 @@ void spell_curse(int level, P_char ch, char *arg, int type, P_char victim, P_obj
      if(!NewSaves(victim, SAVING_SPELL, 5))
        return;
   }
-  else if(IS_NPC(victim) && !NewSaves(victim, SAVING_SPELL, 2))
+  else if(IS_NPC(victim) && !NewSaves(victim, SAVING_SPELL, 10))
   {
       return;
   }
@@ -13066,7 +13066,7 @@ void spell_blackmantle(int level, P_char ch, char *arg, int type, P_char victim,
     return;
   }
   
-  if(IS_NPC(ch) && !NewSaves(victim, SAVING_SPELL, 10))
+  if(IS_NPC(ch) && !NewSaves(victim, SAVING_SPELL, 12))
   {  
     act("&+LA blanketing shroud of &+bnegative energy &+Lcoalesces around $N&+L...", FALSE, ch, 0, victim, TO_CHAR);
     act("&+LA blanketing shroud of &+bnegative energy &+Lcoalesces around $N&+L...", FALSE, ch, 0, victim, TO_NOTVICT);
@@ -13078,7 +13078,7 @@ void spell_blackmantle(int level, P_char ch, char *arg, int type, P_char victim,
     af.modifier = 4000;
     affect_to_char(victim, &af);
   }
-  else if(IS_PC(ch) && !NewSaves(victim, SAVING_SPELL, 2))
+  else if(IS_PC(ch) && !NewSaves(victim, SAVING_SPELL, 3))
   {  
     act("&+LA blanketing shroud of &+bnegative energy &+Lcoalesces around $N&+L...", FALSE, ch, 0, victim, TO_CHAR);
     act("&+LA blanketing shroud of &+bnegative energy &+Lcoalesces around $N&+L...", FALSE, ch, 0, victim, TO_NOTVICT);

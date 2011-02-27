@@ -1174,7 +1174,7 @@ int outpost_gateguard_proc(P_char ch, P_char pl, int cmd, char *arg)
       // don't show anything when immortals enter the GH
       return FALSE;
     }
-    else if( allowed )
+    else if(allowed && !number(0, 2))
     {
       act("$N stands impassively as you pass by.", FALSE, pl, 0, ch, TO_CHAR);
       act("$N stands impassively as $n passes by.", FALSE, pl, 0, ch, TO_NOTVICTROOM);
@@ -1339,7 +1339,7 @@ void outposts_upkeep()
       if (owners[j] > 1)
         for (k = 1; k < owners[j]; k++)
           deduct *= get_property("outpost.cost.upkeep.multi.modifier", 5);
-      deduct /= 12; // per hour cost
+      deduct /= 24; // per hour cost
       debug("owned: %d, owner: %d, deduct: %s", owners[j], j, coin_stringv(deduct));
       int p = deduct / 1000;
       deduct = deduct % 1000;

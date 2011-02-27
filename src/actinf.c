@@ -942,20 +942,45 @@ void show_visual_status(P_char ch, P_char tar_char)
     sprintf(buf, "This %s %%s",
             race_names_table[(int) GET_RACE1(tar_char)].ansi);
 
-  if (percent >= 100)
-    sprintf(buf2, buf, "is in an &+Gexcellent&n condition.");
+  if (percent >= 100)	
+    sprintf(buf2, buf, "is in &+Gexcellent&n condition.");
   else if (percent >= 90)
     sprintf(buf2, buf, "has a &+yfew scratches&n.");
   else if (percent >= 75)
-    sprintf(buf2, buf, "has &+Ysome small wounds and bruises&n.");
+  {
+    if(IS_CONSTRUCT(tar_char))
+      sprintf(buf2, buf, "has &+Ysome gouges and cracks in its surface&n.");
+    else
+      sprintf(buf2, buf, "has &+Ysome small wounds and bruises&n.");
+  }
   else if (percent >= 50)
+  {
+    if(IS_CONSTRUCT(tar_char))
+      sprintf(buf2, buf, "has &+Mdeep gouges and serious cracks in its surface&n.");
+    else
     sprintf(buf2, buf, "has &+Mquite a few wounds&n.");
+  }
   else if (percent >= 30)
+  {
+    if(IS_CONSTRUCT(tar_char))
+      sprintf(buf2, buf, "has &+mbegun to crumble from the seige&n.");
+    else
     sprintf(buf2, buf, "has &+msome big nasty wounds and scratches&n.");
+  }
   else if (percent >= 15)
-    sprintf(buf2, buf, "looks &+Rpretty hurt&n.");
+  {
+    if(IS_CONSTRUCT(tar_char))
+      sprintf(buf2, buf, "has &+Rlarge holes and cracks in its surface&n.");
+    else
+      sprintf(buf2, buf, "looks &+Rpretty hurt&n.");
+  }
   else if (percent >= 0)
-    sprintf(buf2, buf, "is in &+rawful condition&n.");
+  {
+    if(IS_CONSTRUCT(tar_char))
+      sprintf(buf2, buf, "is &+ralmost completely destroyed&n.");
+    else
+      sprintf(buf2, buf, "is in &+rawful condition&n.");
+  }
   else
     sprintf(buf2, buf, "is &+rbleeding awfully from big wounds&n.");
   SVS(buf2);

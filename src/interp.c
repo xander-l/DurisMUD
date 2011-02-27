@@ -1651,16 +1651,24 @@ void command_interpreter(P_char ch, char *argument)
           {
             send_to_char("You are already meditating.\n", ch);
           }
-          else if (cmd != CMD_PRAY && cmd != CMD_MEMORIZE && cmd != CMD_ASSIMILATE && cmd != CMD_FOCUS &&
-            cmd != CMD_GCC && cmd != CMD_HELP && cmd != CMD_RWC)
+          else if (cmd != CMD_PRAY && 
+                   cmd != CMD_MEMORIZE && 
+                   cmd != CMD_ASSIMILATE && 
+                   cmd != CMD_FOCUS &&
+                   cmd != CMD_GCC && 
+                   cmd != CMD_HELP && 
+                   cmd != CMD_RWC && 
+                   cmd != CMD_OUTPOST && 
+                   cmd != CMD_NEXUS &&
+                   cmd != CMD_FRAGLIST &&
+                   cmd != CMD_ARTIFACTS)
           {
             if(10 + GET_CHAR_SKILL(ch, SKILL_ADVANCED_MEDITATION) < number(10, 60) ||
               (cmd != CMD_GSAY &&
                cmd != CMD_SAY &&
                cmd != CMD_TELL &&
-               cmd != CMD_LOOK &&
-               cmd != CMD_NCHAT) &&
-               cmd != CMD_EMOTE)
+               cmd != CMD_NCHAT &&
+               cmd != CMD_EMOTE))
             {
               send_to_char("You stop meditating.\r\n", ch);
               stop_meditation(ch);

@@ -6059,7 +6059,7 @@ void maul(P_char ch, P_char victim)
   int percent_chance, ch_size, vict_size, dam;
   int percentroll = number(1, 100); 
   bool too_big;
-  
+  struct affected_type af;  
   struct damage_messages messages = {
     "You ferociously &+yMAUL&N $N!",
     "$n ferociously &+yMAULS&N YOU!",
@@ -6119,18 +6119,18 @@ void maul(P_char ch, P_char victim)
       FALSE, ch, 0, victim, TO_CHAR);
       
   percent_chance = takedown_check(ch, victim, percent_chance, SKILL_MAUL,
-    APPLY_ALL ^ FOOTING);
+    APPLY_ALL);
     
   if(percent_chance == TAKEDOWN_CANCELLED)
     return;
   else if(percent_chance == TAKEDOWN_PENALTY)
   {
     SET_POS(ch, POS_SITTING + GET_STAT(ch));
-    CharWait(ch, (int) (PULSE_VIOLENCE * 1.5));
+    CharWait(ch, (int) (PULSE_VIOLENCE * 2));
     return;
   }
   else
-    percent_chance = BOUNDED(2, percent_chance, 95);
+    percent_chance = BOUNDED(2, percent_chance, 90);
     
   vict_size = get_takedown_size(victim);
   ch_size = get_takedown_size(ch);
@@ -6244,20 +6244,29 @@ void maul(P_char ch, P_char victim)
     if(GET_SPEC(ch, CLASS_BERSERKER, SPEC_MAULER) ||
        IS_ELITE(ch))
     { 
-      CharWait(victim, (int) (PULSE_VIOLENCE * 1.300));
+      CharWait(victim, (int) (PULSE_VIOLENCE * 1.200));
       CharWait(ch, (int) (PULSE_VIOLENCE * 1.800));
       set_short_affected_by(ch, SKILL_BASH, (int) (PULSE_VIOLENCE * 
-        get_property("skill.maul.IsMauler.ShieldBashlag", 1.000)));
+        get_property("skill.maul.IsMauler.ShieldBashlag", 1.800)));
     }
     else
     {
       CharWait(victim, (int) (PULSE_VIOLENCE * 1.000));
       CharWait(ch, (int) (PULSE_VIOLENCE * 2.000));
       set_short_affected_by(ch, SKILL_BASH, (int) (PULSE_VIOLENCE * 
-        get_property("skill.maul.IsNotMauler.ShieldBashlag", 1.500)));
+        get_property("skill.maul.IsNotMauler.ShieldBashlag", 2.000)));
     }
     
     melee_damage(ch, victim, dam, PHSDAM_TOUCH, 0);
+    
+    if(!affected_by_spell(victim, SKILL_AWARENESS))
+    {
+      bzero(&af, sizeof(af));
+      af.type = SKILL_AWARENESS;
+      af.duration = 1;
+      af.bitvector = AFF_AWARE;
+      affect_to_char(victim, &af);
+    }
   }
   else
   {
@@ -8155,9 +8164,10 @@ int flank(P_char ch, P_char victim)
   }
 
   set_short_affected_by(ch, SKILL_FLANK, PULSE_VIOLENCE * 4);
-  CharWait(ch, PULSE_VIOLENCE / 2);
   
   appear(ch);
+
+  CharWait(ch, PULSE_VIOLENCE * 2);
 
   if(!notch_skill(ch, SKILL_FLANK,
                    get_property("skill.notch.offensive", 15)) &&
@@ -8503,6 +8513,7 @@ void gaze(P_char ch, P_char victim)
 {
   int percent_chance, anatomy_skill, standing = 1, battling = 1;
   bool death_door;
+  P_char temp_ch;
 
   if(!(ch))
   {
@@ -8519,6 +8530,12 @@ void gaze(P_char ch, P_char victim)
   }
   
   appear(ch);
+
+  if(victim == (temp_ch = get_linked_char(ch, LNK_FLANKING)))
+  {
+     send_to_char("How can you gaze into the eyes of someone that isn't facing you?\r\n", ch);
+     return;
+  }
  
   if(has_innate(victim, INNATE_EYELESS))
   {
@@ -8691,19 +8708,9 @@ void gaze(P_char ch, P_char victim)
   
   if(notch_skill(ch, SKILL_GAZE, get_property("skill.notch.offensive", 15)) ||
       percent_chance > number(0, 100))
-  {
-    if(IS_SET(victim->specials.affected_by4, AFF4_NOFEAR))
-    {
-      act("You &+Lgaze&n upon $N, and $E looks right back at you with &+Wno fear!&n",
-        FALSE, ch, 0, victim, TO_CHAR);
-      act("$N looks right into $n's gaze without any fear.",
-        FALSE, ch, 0, victim, TO_NOTVICT);
-      act("$n's &+Leyeless gaze&n does not seem to affect you.",
-        FALSE, ch, 0, victim, TO_VICT);
-      return;
-    }    
+  {    
     anatomy_skill = GET_CHAR_SKILL(ch, SKILL_ANATOMY) - 25; // returns -25 to 70 int
-    
+
     if(GET_HIT(victim) < (int)(((number(0,100) + anatomy_skill))/2))
     {
       if(GET_CLASS(ch, CLASS_AVENGER))

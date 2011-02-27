@@ -1802,16 +1802,14 @@ void justice_action_invader(P_char ch)
     add_event(event_justice_raiding, 800, ch, 0, 0, 0, &room, sizeof(room));
   }
 
-
-  // For hometown invading
-  if (RACE_EVIL(ch))
-    justice_send_guards(NOWHERE, ch, MOB_SPEC_J_OUTCAST, 4);
-  
   if(IS_INVADER(ch))
   {
+    if (!number(0, 12))
+      justice_send_guards(NOWHERE, ch, MOB_SPEC_J_OUTCAST, 2);
+  
     if((GET_RACEWAR(ch) == RACEWAR_EVIL) &&
-      !(number(0, 9)) &&
-      get_property("justice.alarms.good", 1.000))
+        !(number(0, 9)) &&
+        get_property("justice.alarms.good", 1.000))
     { 
       int rnum = number(1, 4);
       if(rnum == 1)
@@ -1826,8 +1824,8 @@ void justice_action_invader(P_char ch)
       return;
     }
     else if((GET_RACEWAR(ch) == RACEWAR_GOOD) &&
-              !number(0, 32) &&
-	      (int)get_property("justice.alarms.evil", 0.000))
+              !number(0, 9) &&
+	      (int)get_property("justice.alarms.evil", 1.000))
     {
       justice_hometown_echo(CHAR_IN_TOWN(ch), "&+yHorns begin to &+Ybellow &+yand drums &+cthunder&n &+yto the &+RCall to Arms!&n");
       return;
