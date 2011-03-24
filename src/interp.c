@@ -2535,7 +2535,7 @@ void assign_command_pointers(void)
   CMD_Y(CMD_WIZHELP, STAT_DEAD + POS_PRONE, do_wizhelp, IMMORTAL);
   CMD_Y(CMD_WIZMSG, STAT_DEAD + POS_PRONE, do_wizmsg, 0);
   CMD_Y(CMD_WORLD, STAT_DEAD + POS_PRONE, do_world, 0);
-  CMD_Y(CMD_CAPTURE, STAT_NORMAL + POS_STANDING, do_capture, 0);
+//  CMD_Y(CMD_CAPTURE, STAT_NORMAL + POS_STANDING, do_capture, 0);
   CMD_Y(CMD_ROUNDKICK, STAT_NORMAL + POS_STANDING, do_roundkick, 0);
   CMD_Y(CMD_HAMSTRING, STAT_NORMAL + POS_STANDING, do_hamstring, 0);
 //  CMD_Y(CMD_DECREE, STAT_NORMAL + POS_STANDING, do_decree, 0);
