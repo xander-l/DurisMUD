@@ -1456,11 +1456,6 @@ void all_affects(P_char ch, int mode)
     {
       affect_modify(af->location, af->modifier, &(af->bitvector), FALSE);
     }
-    
-    if(af->location == 136)
-    {
-      logit(LOG_DEBUG, "%s has the loc 136 item.", GET_NAME(ch));
-    }
   }
 
   get_epic_stat_affects(ch);
