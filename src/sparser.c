@@ -2468,7 +2468,7 @@ void event_spellcast(P_char ch, P_char victim, P_obj obj, void *data)
     gvict = grapple_attack_check(tar_char);
     if (gvict && (gvict != ch))
     {
-      chance = grapple_attack_chance(ch, gvict, 1);
+      chance = grapple_misfire_chance(ch, gvict, 1);
       if (number(1, 100) <= chance)
       {
         tar_char = gvict;

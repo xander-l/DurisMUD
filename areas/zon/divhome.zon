@@ -133,6 +133,8 @@ M 0 40719 10 40709 100 0 0 0       * a tiny mist creature
 M 0 40719 10 40711 100 0 0 0       * a tiny mist creature
 M 0 40719 10 40713 100 0 0 0       * a tiny mist creature
 M 0 40719 10 40713 100 0 0 0       * a tiny mist creature
+M 0 40760 1 40713 100 0 0 0        * Snent
+G 1 40772 1 0 100 0 0 0            *    the dark heart of Snent
 M 0 40719 10 40715 100 0 0 0       * a tiny mist creature
 M 0 40713 2 40717 100 0 0 0        * a young soldier of fortune
 M 0 40713 2 40717 100 0 0 0        * a young soldier of fortune
@@ -293,8 +295,6 @@ M 0 40747 1 40803 100 0 0 0        * Vain, the drow conjurer
 G 1 40756 1 0 100 0 0 0            *    the dark heart of Vain
 M 0 40755 1 40803 100 0 0 0        * Gravet
 G 1 40757 1 0 100 0 0 0            *    the dark heart of Gravet
-M 0 40760 1 40803 100 0 0 0        * Snent
-G 1 40772 1 0 100 0 0 0            *    the dark heart of Snent
 M 0 40761 1 40803 100 0 0 0        * Relazier
 G 1 40776 1 0 100 0 0 0            *    the dark heart of Relazier
 M 0 40744 9 40807 100 0 0 0        * a tiny mist creature

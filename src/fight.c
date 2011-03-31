@@ -6546,7 +6546,7 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
     gvict = grapple_attack_check(victim);
     if (gvict && (gvict != ch))
     {
-      chance = grapple_attack_chance(ch, gvict, 0);
+      chance = grapple_misfire_chance(ch, gvict, 0);
       if (number(1, 100) <= chance)
       {
         victim = gvict;
@@ -6637,29 +6637,26 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
     if (GET_CHAR_SKILL(victim, SKILL_INDOMITABLE_RAGE) > number(50, 160) &&
       affected_by_spell(victim, SKILL_BERSERK))
     {
-      act("The critical hit sends you into a pure berserk trance! &+RROARRRRRRR!&n\n", TRUE, ch,
+      act("$n&+W's critical hit sends you into a &+rpure &+Rberserk &+rtrance! &+RROARRRRRRR!&n\n", TRUE, ch,
             0, victim, TO_VICT);
       act("$N lets out a fearsome &+RROAR&n!\n", TRUE, ch, 0, victim, TO_CHAR);
       sic = 0;
-      if (!fear_check(ch) &&
-            NewSaves(ch, SAVING_FEAR, 0))
-      //do_flee(ch, 0, 0);
-            bzero(&ir, sizeof(ir));
+
+      bzero(&ir, sizeof(ir));
       ir.type = SKILL_INDOMITABLE_RAGE;
       ir.duration = 5;
       ir.flags = AFFTYPE_SHORT;
       //hitroll
-      ir.modifier = -20;
+      ir.modifier = 5;
       ir.location = APPLY_HITROLL;
         affect_to_char(ch, &ir);
       //damroll
-      ir.modifier = -20;
+      ir.modifier = 5;
       ir.location = APPLY_DAMROLL;
         affect_to_char(ch, &ir);
       //save fear
-      ir.modifier = 20;
+      ir.modifier = -5;
       ir.location = APPLY_SAVING_FEAR;
-      
       affect_to_char(ch, &ir);
     }
   }
@@ -6724,7 +6721,7 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
     dam = dice(ch->points.damnodice, ch->points.damsizedice);
   }
   else
-    dam = number(0, 2);         /* 1d3 - 1 dam with bare hands */
+    dam = number(1, 4);         /* 1d4 dam with bare hands */
 
   if (weapon)
   {
@@ -6745,11 +6742,11 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
 
   if (sic == -1 && GET_CHAR_SKILL(ch, SKILL_DEVASTATING_CRITICAL) > devcrit)
   {
-    dam = (int) ((float) dam * ((float) number(4, 7) / 1.5));
+    dam = (int) (dam * 2.5);
   }
   else if (sic == -1)
   {
-    dam = (int) ((float) dam * ((float) number(4, 7) / 2.00));
+    dam = (int) (dam * 2.0);
   }
 
   if(GET_CLASS(ch, CLASS_MONK) &&
@@ -6772,11 +6769,10 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
     }
   }
 
-  // low weapon skill affects damage - used to be offense skill check
-  if(sic != -1 &&
-    wpn_skill < number(1, 101))
+  // Weapon skill check, used to be offense.
+  if(sic != -1)
   {
-    dam = (int) (dam * number(3, 10) / 10);
+    dam = (int) (dam * (wpn_skill / 100)); // maxes at .95 mod
   }
   
   if (has_divine_force(ch))
@@ -6800,7 +6796,7 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
     
     if(IS_NPC(ch) &&
        IS_ELITE(ch))
-          vs_skill += 100;
+          vs_skill += number(25, 100);
   }
   if (vs_skill > 0 &&
       (notch_skill(ch, SKILL_VICIOUS_STRIKE,
@@ -6813,7 +6809,9 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
              * GET_CHAR_SKILL(ch, SKILL_VICIOUS_STRIKE);
     }
     else if(IS_ELITE(ch))
-      dam += GET_LEVEL(ch) * 2;
+      dam += (int) GET_LEVEL(ch) * 1.5;
+    else if(IS_GREATER_RACE(ch))
+      dam += GET_LEVEL(ch) * 1.25;
     else if(IS_NPC(ch))
       dam += GET_LEVEL(ch);
 

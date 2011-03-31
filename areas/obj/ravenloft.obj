@@ -797,7 +797,7 @@ scroll embalming~
 #58348
 scroll word recall~
 &+La &+yscroll&+L of &+Wword &+Lof &+Crecall&N~
-&+LAn old but intensely &+mpowerful &+Lscroll lies here, foregotten.~
+&+LAn old but intensely &+mpowerful &+Lscroll lies here, forgotten.~
 ~
 2 29 1 0 7 0 4097 16385 64 0 0
 60 42 0 0 0 0 0 0
@@ -895,7 +895,7 @@ droplet blackest shadow potion~
 #58355
 thick iron sword~
 &+ca thick iron sword&N~
-&+cA thick iron sword has been left here, &+yforegotten&+c.~
+&+cA thick iron sword has been left here, &+yforgotten&+c.~
 ~
 5 15 3 0 4 0 0 8193 64 0 0
 5 3 4 0 0 0 0 0
@@ -1058,7 +1058,7 @@ A
 #58365
 stitched leggings knights raven~
 &+Lsome stitched leggings of the &+rKnights of the Raven~
-&+LSome stitched leggings of the &+rKnights of the Raven &+Llie here, foregotten.~
+&+LSome stitched leggings of the &+rKnights of the Raven &+Llie here, forgotten.~
 ~
 9 3 3 0 14 0 0 33 64 0 0
 10 0 0 0 0 0 0 0
@@ -1104,7 +1104,7 @@ A
 #58368
 document abyssal~
 &+ya document in &+LAbyssal&N~
-&+yAn old dirty tome written in &+LAbyssal&+y lies here, foregotten.~
+&+yAn old dirty tome written in &+LAbyssal&+y lies here, forgotten.~
 ~
 2 29 1 0 7 0 69632 16385 64 0 0
 60 380 0 0 0 0 0 0
@@ -1120,7 +1120,7 @@ document abyssal scroll~
 #58369
 document ravenloft indulgence scroll~
 &+ya document of &+rRavenloft Indulgence&N~
-&+yA document entitled '&+rRavenloft Indulgence&+y' lies here, foregotten.~
+&+yA document entitled '&+rRavenloft Indulgence&+y' lies here, forgotten.~
 ~
 8 29 3 0 7 0 4096 16385 0 0 0
 0 0 0 0 0 0 0 0
@@ -1136,7 +1136,7 @@ document ravenloft indulgence scroll~
 #58370
 document ravenloft lenience~
 &+ya document of &+cRavenloft Lenience&N~
-&+yAn old document entitled 'Ravenloft Lenience' lies herem foregotten.~
+&+yAn old document entitled 'Ravenloft Lenience' lies herem forgotten.~
 ~
 8 29 1 0 7 0 4096 16385 64 0 0
 0 0 0 0 0 0 0 0
@@ -1178,7 +1178,7 @@ old battered chest~
 #58373
 boots thundering might~
 &+yboots of &+Bt&+yh&+Bu&+yn&+Bd&+ye&+Br&+yi&+Bn&+yg might&N~
-&+yThe boots of &+Ythundering &+ymight have been left here, &+Lforegotten.~
+&+yThe boots of &+Ythundering &+ymight have been left here, &+Lforgotten.~
 ~
 9 15 3 0 7 0 33558528 65 64 0 0
 10 0 0 0 0 0 0 0
@@ -1265,7 +1265,7 @@ A
 #58379
 oathstone pendant~
 &+Lan &+Coath&+cstone &+Lpendant&N~
-&+LA dangling pendant baring a single &+Coath&+cstone &+Llies here, foregotten.~
+&+LA dangling pendant baring a single &+Coath&+cstone &+Llies here, forgotten.~
 ~
 9 11 1 0 3 0 33554432 5 64 0 0
 6 0 0 3 0 0 0 0
@@ -1281,7 +1281,7 @@ A
 #58380
 gold band two-fingered focusing~
 &+La two-fingered &+Ygold band of &+Bfoc&+Cus&+Bing&N~
-&+LA &+Ygolden band &+Lof &+Bfocus&+Cing &+Lhas been left here, foregotten.~
+&+LA &+Ygolden band &+Lof &+Bfocus&+Cing &+Lhas been left here, forgotten.~
 ~
 9 24 3 0 11 0 1 3 64 0 0
 5 0 0 0 0 0 0 0
@@ -1312,7 +1312,7 @@ A
 #58382
 skull-headed skull headed staff _id_~
 &+La &+Wskull-headed &+Lstaff&N~
-&+LA skull-headed &+gro&+Gwa&+gn staff&+L lies here, foregotten.~
+&+LA skull-headed &+gro&+Gwa&+gn staff&+L lies here, forgotten.~
 ~
 4 6 2 0 7 0 33554432 16385 64 0 0
 60 6 6 358 0 0 0 0
@@ -1567,7 +1567,7 @@ A
 #58395
 potion soulripping~
 &+La &+cpotion &+Lof &+msoul&+Wripping&N~
-&+LA &+cpotion &+Lof &+msoul&+Wripping&+L has been left here, foregotten.~
+&+LA &+cpotion &+Lof &+msoul&+Wripping&+L has been left here, forgotten.~
 ~
 10 7 0 0 7 0 1 16385 64 0 0
 50 321 467 163 0 0 0 0
@@ -1645,7 +1645,7 @@ A
 #58400
 vorpal sword shimmer~
 &+ca &+Cvorpal &+csword &+Lnamed '&+CSh&+cim&+Cm&+ce&+Cr&+L'~
-&+cA &+Cvorpal &+csword &+Lhas been left here, foregotten.~
+&+cA &+Cvorpal &+csword &+Lhas been left here, forgotten.~
 ~
 5 22 3 0 14 0 33555456 8193 67 119664667 0
 9 4 4 0 0 0 0 0
@@ -1695,7 +1695,7 @@ An unnamed object lies here, looking lonely and forelorn.~
 #58403
 vial sorrow potion~
 &+La vial of &+Wso&Nrr&+Low&N~
-&+LA vial of liquid &+Wso&Nrr&+Low &+Llies here, foregotten.~
+&+LA vial of liquid &+Wso&Nrr&+Low &+Llies here, forgotten.~
 ~
 10 15 3 0 7 0 0 16385 64 0 0
 60 318 136 99 0 0 0 0
@@ -1805,7 +1805,7 @@ key ravenloft royal courtyard~
 #58409
 vial mindripper~
 &+La &+cvial &+Lof the &+Mm&+ri&+Mn&+rd&+Wripper&N~
-&+LA &+cvial &+Lof the &+mm&+ri&+Mn&+rd&+Wripper &+Llies here, foregotten.~
+&+LA &+cvial &+Lof the &+mm&+ri&+Mn&+rd&+Wripper &+Llies here, forgotten.~
 ~
 10 7 3 0 7 0 0 16385 0 0 0
 60 163 392 182 33 0 0 0
@@ -1909,7 +1909,7 @@ treasury key~
 #58416
 hastily-written note hastily written~
 &+Wa hastily-written note&N~
-&+WA small, partially-crumbled note lies here, foregotten.~
+&+WA small, partially-crumbled note lies here, forgotten.~
 ~
 8 28 0 0 7 0 0 16385 0 0 0
 0 0 0 0 0 0 0 0
@@ -1973,7 +1973,7 @@ old key ravenloft catacombs~
 #58420
 silver key ring~
 &+La &+Csilver &+Lkey ring&N~
-&+LA &+Csilver &+Lkey ring has been left here, foregotten.~
+&+LA &+Csilver &+Lkey ring has been left here, forgotten.~
 ~
 15 22 3 0 9 0 4096 16385 0 0 0
 5 0 0 4 0 0 0 0

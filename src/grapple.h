@@ -113,7 +113,7 @@ int grapple_check_entrapment(P_char ch);
 int grapple_check_hands(P_char ch);
 int grapple_flee_check(P_char ch);
 P_char grapple_attack_check(P_char ch);
-int grapple_attack_chance(P_char ch, P_char victim, int type);
+int grapple_misfire_chance(P_char ch, P_char victim, int type);
 void do_bearhug(P_char ch, char *argument, int cmd);
 void event_bearhug(P_char ch, P_char victim, P_obj obj, void *data);
 void do_headlock(P_char ch, char *argument, int cmd);

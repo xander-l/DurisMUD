@@ -162,11 +162,6 @@ E 1 15108 1 5 100 0 0 0            *   a suit of crimson bloodstained scalemail
 E 1 15109 1 6 100 0 0 0            *   a spiked dragon helmet
 E 1 15107 1 16 100 0 0 0           *   a flaming-red dragon spear
 G 1 15104 1 0 100 0 0 0            *    a key made from bones
-M 0 15120 1 15141 100 0 0 0        * the undead wizard
-G 1 15119 100 0 100 0 0 0          *    a fiery red potion
-G 1 15119 100 0 100 0 0 0          *    a fiery red potion
-G 1 15119 100 0 100 0 0 0          *    a fiery red potion
-G 1 15119 100 0 100 0 0 0          *    a fiery red potion
 M 0 15127 9 15142 100 0 0 0        * a shadow lord
 M 0 15113 1 15143 100 0 0 0        * Dranum the Slayer
 E 1 15141 1 5 100 0 0 0            *   the platemail of the great wraith Dranum

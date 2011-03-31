@@ -389,5 +389,10 @@ E 1 13574 1 8 100 0 0 0            *   some furlined deerskin boots
 E 1 13577 1 12 100 0 0 0           *   a fox fur cape
 E 1 13576 2 13 100 0 0 0           *   a snakeskin belt
 M 0 13503 1 13587 100 0 0 0        * a woman
+M 0 15120 1 15141 100 0 0 0        * the undead wizard      THIS MOB MOVED FROM NEW_CAVECITY.ZON BECAUSE IT IS AN EPIC SKILL TEACHER
+G 1 15119 100 0 100 0 0 0          *    a fiery red potion  AND NEEDS TO RESET TO STAY IN GAME. CC DOES NOT RESET.  RETURN THIS MOB
+G 1 15119 100 0 100 0 0 0          *    a fiery red potion  TO THAT FILE IF IT NO LONGER IS A TEACER - Jexni 3/30/11
+G 1 15119 100 0 100 0 0 0          *    a fiery red potion
+G 1 15119 100 0 100 0 0 0          *    a fiery red potion
 *
 S
