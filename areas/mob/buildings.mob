@@ -10,7 +10,7 @@ OG 0 0 7
 0.0.0.0 0
 8 8 0
 #97801
-gateguard gate guard _ignore_~
+gateguard gate guard _ignore_ _no_move_~
 A gate guard~
 A gate guard stands here defending the gates.
 ~
