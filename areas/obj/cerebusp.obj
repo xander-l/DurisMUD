@@ -502,7 +502,7 @@ A
 18 4
 #22032
 puredark pure dark mace~
-&+wthe &+rdemonic&+w warmace '&+LPureDark&+w'&n~
+&+wthe &+rdemonic&+w warmace '&+LPure-Dark&+w'&n~
 &+wA &+rdemonic&+w warmace has been left on the ground here.&n~
 ~
 5 15 3 0 7 0 17409 8193 64 35864995 0
@@ -919,7 +919,7 @@ elephant tusk~
 &+WA long &+welephant&+W tusk has been dropped here.&n~
 ~
 5 10 3 0 7 0 17408 8193 0 86359642 0
-13 6 4 11 0 0 0 0
+13 3 4 11 0 0 0 0
 0 9890 100
 E
 elephant tusk~

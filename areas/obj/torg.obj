@@ -1319,7 +1319,7 @@ hand elven prodigy~
 ~
 #28986
 sword blaze humming~
-&+Wthe humming sword named&n "&+rB&+ml&+ga&+bz&+ce&n"&n~
+&+Wthe humming sword named&n '&+rB&+ml&+ga&+bz&+ce&n'&n~
 &nA sword is here sparking random &+rc&+mo&+glo&+br&+cs&n at the end of it.&n~
 ~
 5 18 3 0 12 0 33554432 8193 64 4203119076 0
@@ -1331,15 +1331,15 @@ sword blaze humming~
 ~
 E
 _room_msg~
-&+WSuddenly, the entire blade of $q &+Wbursts into &+rfl&+Ram&+res&+W and rains fiery &+Lde&+rvi&+wst&+rat&+Lion &+Wupon his enemies!&n
+&+WSuddenly, the entire blade of $q &+Wbursts into &+rfl&+Ram&+res&+W and rains fiery &+Lde&+rve&+wst&+rat&+Lion &+Wupon $s enemies!&n
 ~
 E
 _victim_msg~
-&+WSuddenly, the entire blade of $q &+Wbursts into &+rfl&+Ram&+res&+W and rains fiery &+Lde&+rvi&+wst&+rat&+Lion &+Wupon his enemies!&n
+&+WSuddenly, the entire blade of $q &+Wbursts into &+rfl&+Ram&+res&+W and rains fiery &+Lde&+rve&+wst&+rat&+Lion &+Wupon you!&n
 ~
 E
 _char_msg~
-&n$q &+Wbursts into &+Rflames&+W!&n
+&nYour $q &+Wbursts into &+Rflames&+W!&n
 ~
 A
 18 4
