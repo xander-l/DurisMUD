@@ -56,14 +56,14 @@ hummer(P_obj obj)
   if (!obj || number(0,9))
     return;
   if ((OBJ_WORN(obj) || OBJ_CARRIED(obj)) && !IS_AFFECTED(obj->loc.wearing, AFF_HIDE)) {
-    act("&+LA faint hum can be heard from&N $p&n&+L carried by $n&n.",
+    act("&+LA faint hum can be heard from $p&+L carried by $n.",
         FALSE, obj->loc.wearing, obj, 0, TO_ROOM);
-    act("&+LA faint hum can be heard from&N $p&n&+L you are carrying.",
+    act("&+LA faint hum can be heard from $p&+L you are carrying.",
         FALSE, obj->loc.wearing, obj, 0, TO_CHAR);
   } else if (OBJ_ROOM(obj)) {
-    act("&+LA strange humming sound comes from&N $p&+L.",
+    act("&+LA strange humming sound comes from $p&+L.",
         0, world[obj->loc.room].people, obj, 0, TO_ROOM);
-    act("&+LA strange humming sound comes from&N $p&+L.",
+    act("&+LA strange humming sound comes from $p&+L.",
         0, world[obj->loc.room].people, obj, 0, TO_ROOM);
 
   }
@@ -117,9 +117,9 @@ int hammer(P_obj obj, P_char ch, int cmd, char *arg)
   {
     if (!number(0, 20))
     {
-      act("Your $q glows brightly as &=LBlightning bolts&N streak out of it.",
+      act("Your $q glows brightly as &=LBlightning bolts streak out of it.",
           FALSE, obj->loc.wearing, obj, 0, TO_CHAR);
-      act("$n's $q glows brightly as &=LBlightning bolts&N streak out of it!",
+      act("$n's $q glows brightly as &=LBlightning bolts streak out of it!",
           FALSE, obj->loc.wearing, obj, 0, TO_ROOM);
       spell_lightning_bolt(51, ch, 0, SPELL_TYPE_SPELL, vict, 0);
 /*
@@ -242,11 +242,11 @@ int dragonkind(P_obj obj, P_char ch, int cmd, char *arg)
       if (obj->timer[0] + 60 <= curr_time)
       {
         act("You say 'protect me'", FALSE, ch, 0, 0, TO_CHAR);
-        act("&+WYour $q &+Wcalls upon the power of the dragonkind.&N", FALSE,
+        act("&+WYour $q &+Wcalls upon the power of the dragonkind.", FALSE,
             ch, obj, obj, TO_CHAR);
         act("$n says 'protect me'", TRUE, ch, obj, NULL, TO_ROOM);
         act
-          ("&+WThe $q &+Whums as the aura of &+gdragonkind&+W embraces $n.&N",
+          ("&+WThe $q &+Whums as the aura of &+gdragonkind&+W embraces $n.",
            TRUE, ch, obj, NULL, TO_ROOM);
         spell_biofeedback(56, ch, 0, SPELL_TYPE_SPELL, ch, 0);
         spell_globe(56, ch, 0, SPELL_TYPE_SPELL, ch, 0);
@@ -278,10 +278,10 @@ int dragonkind(P_obj obj, P_char ch, int cmd, char *arg)
     {
     case 1:                    // FIRE BREATH
       act
-        ("&+rYour veins pulse with dragon blood...&N\n&+LYour &+Rfire breath&+L fills the area!&N",
+        ("&+rYour veins pulse with dragon blood...\n&+LYour &+Rfire breath&+L fills the area!",
          0, ch, obj, 0, TO_CHAR);
       act
-        ("$n &+Lpulses with the power of &+rdragons&+L...&N\n&+L$n&N &+Rbreathes fire&n&+L, filling the surrounding area!&N",
+        ("$n &+Lpulses with the power of &+rdragons&+L...\n&+L$n &+Rbreathes fire&+L, filling the surrounding area!",
          1, ch, obj, 0, TO_ROOM);
       for (vict = world[ch->in_room].people; vict; vict = temp)
       {
@@ -296,10 +296,10 @@ int dragonkind(P_obj obj, P_char ch, int cmd, char *arg)
       return TRUE;
     case 2:                    //// FROST BREATH
       act
-        ("&+rYour veins pulse with dragon blood...&N\n&+LYour &+Bfrost breath&+L fills the area!&N",
+        ("&+rYour veins pulse with dragon blood...\n&+LYour &+Bfrost breath&+L fills the area!",
          0, ch, obj, 0, TO_CHAR);
       act
-        ("$n &+Lpulses with the power of &+rdragons&+L...&N\n&+L$n&N &+Bbreathes frost&n&+L, filling the surrounding area!&N",
+        ("$n &+Lpulses with the power of &+rdragons&+L...\n&+L$n &+Bbreathes frost&+L, filling the surrounding area!",
          1, ch, obj, 0, TO_ROOM);
       for (vict = world[ch->in_room].people; vict; vict = temp)
       {
@@ -314,10 +314,10 @@ int dragonkind(P_obj obj, P_char ch, int cmd, char *arg)
       return TRUE;
     case 3:                    //GAS BREATH
       act
-        ("&+rYour veins pulse with dragon blood...&N\n&+LYour &+ggaseous breath&+L fills the area!&N",
+        ("&+rYour veins pulse with dragon blood...\n&+LYour &+ggaseous breath&+L fills the area!",
          0, ch, obj, 0, TO_CHAR);
       act
-        ("$n &+Lpulses with the power of &+rdragons&+L...&N\n&+L$n&N &+gbreathes gas&n&+L, filling the surrounding area!&N",
+        ("$n &+Lpulses with the power of &+rdragons&+L...\n&+L$n &+gbreathes gas&+L, filling the surrounding area!",
          1, ch, obj, 0, TO_ROOM);
       for (vict = world[ch->in_room].people; vict; vict = temp)
       {
@@ -332,10 +332,10 @@ int dragonkind(P_obj obj, P_char ch, int cmd, char *arg)
       return TRUE;
     case 4:                    //ACID BREATH
       act
-        ("&+rYour veins pulse with dragon blood...&N\n&+LYour &+Gacid breath&+L fills the area!&N",
+        ("&+rYour veins pulse with dragon blood...\n&+LYour &+Gacid breath&+L fills the area!",
          0, ch, obj, 0, TO_CHAR);
       act
-        ("$n &+Lpulses with the power of &+rdragons&+L...&N\n&+L$n&N &+Gbreathes acid&n&+L, filling the surrounding area!&N",
+        ("$n &+Lpulses with the power of &+rdragons&+L...\n&+L$n &+Gbreathes acid&+L, filling the surrounding area!",
          1, ch, obj, 0, TO_ROOM);
       for (vict = world[ch->in_room].people; vict; vict = temp)
       {
@@ -359,10 +359,10 @@ int dragonkind(P_obj obj, P_char ch, int cmd, char *arg)
       P_char   tch, tch_next;
 
       act
-        ("$n's $q &+Lsummons forth a visage of a &+gDRAGON&N\n&+LThe &+gdragon&+L visage of the &+Waxe&+L lashes out with its mighty tail!&N",
+        ("$n's $q &+Lsummons forth a visage of a &+gDRAGON\n&+LThe &+gdragon&+L visage of the &+Waxe&+L lashes out with its mighty tail!",
          TRUE, ch, obj, NULL, TO_ROOM);
       act
-        ("Your $q &+Lsummons forth a visage of a &+gDRAGON&N\n&+LThe &+gdragon&+L visage of the &+Waxe&+L lashes out with its mighty tail!&N",
+        ("Your $q &+Lsummons forth a visage of a &+gDRAGON\n&+LThe &+gdragon&+L visage of the &+Waxe&+L lashes out with its mighty tail!",
          TRUE, ch, obj, vict, TO_CHAR);
 
       for (tch = world[ch->in_room].people; tch; tch = tch_next)
@@ -413,10 +413,10 @@ int dragonkind(P_obj obj, P_char ch, int cmd, char *arg)
     {
 
       act
-        ("&+rYour veins pulse with dragon blood...&N\n&+LYour &+RROAR&+L fills your victims with sheer terror!&N",
+        ("&+rYour veins pulse with dragon blood...\n&+LYour &+RROAR&+L fills your victims with sheer terror!",
          0, ch, obj, 0, TO_CHAR);
       act
-        ("$n &+Lpulses with the power of &+rdragons&+L...&N\n&+L$n&N &+RROARS&n&+L, filling your heart with sheer terror!&N",
+        ("$n &+Lpulses with the power of &+rdragons&+L...\n&+L$n &+RROARS&+L, filling your heart with sheer terror!",
          1, ch, obj, 0, TO_ROOM);
 
       for (tchar1 = world[ch->in_room].people; tchar1; tchar1 = tchar2)
@@ -496,13 +496,13 @@ int lightning(P_obj obj, P_char ch, int cmd, char *arg)
         if ((number(0, (SIZE_GARGANTUAN + 2)) - 2) > GET_ALT_SIZE(vict))
         {
           act
-            ("Your &+CWHIRLWIND&n picks up $N and tosses $M against the wall!",
+            ("Your &+CWHIRLWIND picks up $N and tosses $M against the wall!",
              FALSE, obj->loc.wearing, obj, vict, TO_CHAR);
           act
-            ("$n's &+CWHIRLWIND&n picks up $N and tosses $M against the wall!",
+            ("$n's &+CWHIRLWIND picks up $N and tosses $M against the wall!",
              FALSE, obj->loc.wearing, obj, vict, TO_NOTVICT);
           act
-            ("$n's &+CWHIRLWIND&n picks you up and tosses you against the wall!",
+            ("$n's &+CWHIRLWIND picks you up and tosses you against the wall!",
              FALSE, obj->loc.wearing, obj, vict, TO_VICT);
           SET_POS(vict, POS_PRONE + GET_STAT(vict));
           stop_fighting(vict);
@@ -651,13 +651,13 @@ int orb_of_the_sea(P_obj obj, P_char ch, int cmd, char *arg)
       if (!number(0, 2))
       {
         act
-          ("&+WA ghostly banshee appears in a puff of mist, and points at&n $N!",
+          ("&+WA ghostly banshee appears in a puff of mist, and points at $N!",
            FALSE, obj->loc.wearing, obj, victim, TO_CHAR);
         act
-          ("&+WA ghostly banshee appears in a puff of mist, and points at&n $N!",
+          ("&+WA ghostly banshee appears in a puff of mist, and points at $N!",
            FALSE, obj->loc.wearing, obj, victim, TO_NOTVICT);
         act
-          ("&+WA ghostly banshee appears in a puff of mist, and points at&n YOU!",
+          ("&+WA ghostly banshee appears in a puff of mist, and points at YOU!",
            FALSE, obj->loc.wearing, obj, victim, TO_VICT);
         char_from_room(victim);
         new_room = new_room = real_room(number(WATERP_VNUM_BEGIN, WATERP_VNUM_END));
@@ -718,12 +718,12 @@ int mace(P_obj obj, P_char ch, int cmd, char *arg)
 {
   P_char   vict;
   struct damage_messages messages = {
-    "Your $q &+Wslams &+L$N with a &+yhuge boulder&+L!&N",
-    "$n's $q &+Wslams &+Lyou with a &+yhuge boulder&+L!&N",
-    "$n's $q &+Wslams &+L$N with a &+yhuge boulder&+L!&N",
-    "A &+yhuge boulder&+L from your $q &+Wsmashes &n$N to a &+rbloody&n pulp!",
+    "Your $q &+Wslams &+L$N with a &+yhuge boulder&+L!",
+    "$n's $q &+Wslams &+Lyou with a &+yhuge boulder&+L!",
+    "$n's $q &+Wslams &+L$N with a &+yhuge boulder&+L!",
+    "A &+yhuge boulder&+L from your $q &+Wsmashes $N to a &+rbloody pulp!",
     "A &+yhuge boulder&+L from $n's $q shoots right towards your face!",
-    "A &+yhuge boulder&+L from $n's $q &+Wsmashes &n$N to a &+rbloody&n pulp!",
+    "A &+yhuge boulder&+L from $n's $q &+Wsmashes $N to a &+rbloody pulp!",
     0, obj
   };
 
@@ -767,11 +767,11 @@ int flamberge(P_obj obj, P_char ch, int cmd, char *arg)
   room = ch->in_room;
   vict = (P_char)arg;
 
-  act("Your $q &+rsummons the power of fire and flames at&n $N.",
+  act("Your $q &+rsummons the power of fire and flames at $N.",
     FALSE, ch, obj, vict, TO_CHAR);
   act("$n's $q &+rsummons the power of fire and flames at you.",
     FALSE, ch, obj, vict, TO_VICT);
-  act("$n's $q &+rsummons the power of fire and flames at&n $N.",
+  act("$n's $q &+rsummons the power of fire and flames at $N.",
     FALSE, ch, obj, vict, TO_NOTVICT);
     
   spell_incendiary_cloud(60, ch, 0, 0, vict, 0);
@@ -846,17 +846,17 @@ int doombringer(P_obj obj, P_char ch, int cmd, char *arg)
      (!number(0, 24)) &&
      (CheckMultiProcTiming(ch) || !number(0, 2)))
   {
-    act("&+LYour $q blurs as it calls upon the elements of &+Blightning, &N&+rfire, &+Cand ice to strike&N $N.",
+    act("&+LYour $q blurs as it calls upon the elements of &+Blightning, &+rfire, &+Cand ice to strike $N.",
        FALSE, ch, obj, vict, TO_CHAR);
-    act("&+L$n's $q blurs as it strikes you with &+Blightning, &N&+rfire, &+Cand ICE!",
+    act("&+L$n's $q blurs as it strikes you with &+Blightning, &+rfire, &+Cand ICE!",
        FALSE, ch, obj, vict, TO_VICT);
-    act("&+L$n's $q blurs as it calls upon the elements of &+Blightning, &N&+rfire, &+Cand ice to strike&N $N.",
+    act("&+L$n's $q blurs as it calls upon the elements of &+Blightning, &+rfire, &+Cand ice to strike $N.",
        FALSE, ch, obj, vict, TO_NOTVICT);
     
     
-    act("&+LDoombringer continues to grow with a putrid power, and unleashes &=LBLIGHTNING&n&+L...&n",
+    act("&+LDoombringer continues to grow with a putrid power, and unleashes &=LBLIGHTNING&+L...",
        FALSE, ch, obj, vict, TO_CHAR);
-    act("&+LFoul black &=LBLIGHTNING&n&+L surges forth from $q&+L...&n",
+    act("&+LFoul black &=LBLIGHTNING&+L surges forth from $q&+L...",
        FALSE, ch, obj, vict, TO_ROOM);
     
     if(spell_damage(ch, vict, number(100, 200), SPLDAM_LIGHTNING,
@@ -865,9 +865,9 @@ int doombringer(P_obj obj, P_char ch, int cmd, char *arg)
       return false;
     }
     
-    act("&+LDoombringer continues to grow with a putrid power, and unleashes &=LRFIRE&n&+L...&n",
+    act("&+LDoombringer continues to grow with a putrid power, and unleashes &=LRFIRE&+L...",
        FALSE, ch, obj, vict, TO_CHAR);
-    act("&+LThe blade of $q &+Lcontinues to grow with a putrid power, and unleashes &=LRFIRE&n&+L...&n",
+    act("&+LThe blade of $q &+Lcontinues to grow with a putrid power, and unleashes &=LRFIRE&+L...",
        FALSE, ch, obj, vict, TO_ROOM);
     if(spell_damage(ch, vict, number(100, 200), SPLDAM_FIRE,
         SPLDAM_NODEFLECT | SPLDAM_NOSHRUG, 0) != DAM_NONEDEAD)
@@ -875,9 +875,9 @@ int doombringer(P_obj obj, P_char ch, int cmd, char *arg)
       return false;
     }
     
-    act("&+LDoombringer continues to grow with a putrid power, and unleashes &=LCICE&n&+L...&n",
+    act("&+LDoombringer continues to grow with a putrid power, and unleashes &=LCICE&+L...",
        FALSE, ch, obj, vict, TO_CHAR);
-    act("&+LSuddenly, the air surrounding $q&+L grows eerily cold, and &=LCICE&n&+L pours forth!&n",
+    act("&+LSuddenly, the air surrounding $q&+L grows eerily cold, and &=LCICE&+L pours forth!",
        FALSE, ch, obj, vict, TO_ROOM);
     
     if(spell_damage(ch, vict, number(100, 200), SPLDAM_COLD,
@@ -886,11 +886,11 @@ int doombringer(P_obj obj, P_char ch, int cmd, char *arg)
       return false;
     }
     
-    act("&+LYour $q blurs as it strikes&N $N.",
+    act("&+LYour $q blurs as it strikes $N.",
       FALSE, ch, obj, vict, TO_CHAR);
     act("&+L$n's $q blurs as it strikes you.",
       FALSE, ch, obj, vict, TO_VICT);
-    act("&+L$n's $q blurs as it strikes&N $N.",
+    act("&+L$n's $q blurs as it strikes $N.",
       FALSE, ch, obj, vict, TO_NOTVICT);
     
     for (i = 0;
@@ -910,9 +910,9 @@ int unholy_avenger_bloodlust(P_obj obj, P_char ch, int cmd, char *arg)
   P_char   vict;
   int  dam;
   struct damage_messages messages = {
-    "&+rBlood red&N energy travels into your hand and up your arm, seeping into your veins!",
-    "You feel yourself becoming weak as the &+rblood&n is sucked out of you!",
-    "&+rBlood red&N energy travels into $n's hand and up $s arm, apparently strengthening $m.",
+    "&+rBlood red energy travels into your hand and up your arm, seeping into your veins!",
+    "You feel yourself becoming weak as the &+rblood is sucked out of you!",
+    "&+rBlood red energy travels into $n's hand and up $s arm, apparently strengthening $m.",
     "", "", "", 0, obj};
 
   if (cmd != CMD_MELEE_HIT || !ch)
@@ -926,11 +926,11 @@ int unholy_avenger_bloodlust(P_obj obj, P_char ch, int cmd, char *arg)
      !IS_UNDEADRACE(vict))
   {
     dam = BOUNDED(0, (GET_HIT(vict) + 9), 100);
-    act("Your $q turns &+rblood red&N as it slashes into $N!", FALSE, ch,
+    act("Your $q turns &+rblood red as it slashes into $N!", FALSE, ch,
         obj, vict, TO_CHAR);
-    act("$n's $q turns &+rblood red&N as it slashes into $N!", FALSE, ch,
+    act("$n's $q turns &+rblood red as it slashes into $N!", FALSE, ch,
         obj, vict, TO_NOTVICT);
-    act("$n's $q turns &+rblood red&N as it slashes into you!", FALSE, ch,
+    act("$n's $q turns &+rblood red as it slashes into you!", FALSE, ch,
         obj, vict, TO_VICT);
     spell_damage(ch, vict, 300, SPLDAM_NEGATIVE,
         SPLDAM_NODEFLECT | SPLDAM_NOSHRUG | RAWDAM_NOKILL, &messages);
@@ -950,12 +950,12 @@ int mace(P_obj obj, P_char ch, int cmd, char *arg)
   int      curr_time;
   P_char   vict;
   struct damage_messages messages = {
-    "Your $q &+Wslams &+L$N with a &+yhuge boulder&+L!&N",
-    "$n's $q &+Wslams &+Lyou with a &+yhuge boulder&+L!&N",
-    "$n's $q &+Wslams &+L$N with a &+yhuge boulder&+L!&N",
-    "A &+yhuge boulder&+L from your $q &+Wsmashes &n$N to a &+rbloody&n pulp!",
+    "Your $q &+Wslams &+L$N with a &+yhuge boulder&+L!",
+    "$n's $q &+Wslams &+Lyou with a &+yhuge boulder&+L!",
+    "$n's $q &+Wslams &+L$N with a &+yhuge boulder&+L!",
+    "A &+yhuge boulder&+L from your $q &+Wsmashes $N to a &+rbloody pulp!",
     "A &+yhuge boulder&+L from $n's $q shoots right towards your face!",
-    "A &+yhuge boulder&+L from $n's $q &+Wsmashes &n$N to a &+rbloody&n pulp!",
+    "A &+yhuge boulder&+L from $n's $q &+Wsmashes $N to a &+rbloody pulp!",
     0, obj
   };
 
@@ -1039,11 +1039,11 @@ int mace(P_obj obj, P_char ch, int cmd, char *arg)
                        SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &messages);
         else
         {
-          act("&+yThe earth and rock heals&n $N!",
+          act("&+yThe earth and rock heals $N!",
             FALSE, 0, obj, vict, TO_CHAR);
-          act("$n &+yheals you with the power of the earth and rock.&n",
+          act("$n &+yheals you with the power of the earth and rock.",
             FALSE, 0, obj, vict, TO_VICT);
-          act("$n &+yheals&n $N &+ywith the power of earth and rock.&n",
+          act("$n &+yheals $N &+ywith the power of earth and rock.",
             FALSE, 0, obj, vict, TO_NOTVICT);
           vamp(vict, 100, (int) (GET_MAX_HIT(ch) * 1.3));
         }
@@ -1084,22 +1084,22 @@ int unholy_avenger_bloodlust(P_obj obj, P_char ch, int cmd, char *arg)
   {
     if (!number(0, 24))
     {
-      act("Your $q turns &+rblood red&N as it slashes into $N!", FALSE, ch,
+      act("Your $q turns &+rblood red as it slashes into $N!", FALSE, ch,
           obj, vict, TO_CHAR);
       act
-        ("&+rBlood red&N energy travels into your hand and up your arm, seeping into your veins!",
+        ("&+rBlood red energy travels into your hand and up your arm, seeping into your veins!",
          FALSE, ch, obj, vict, TO_CHAR);
 
-      act("$n's $q turns &+rblood red&N as it slashes into $N!", FALSE, ch,
+      act("$n's $q turns &+rblood red as it slashes into $N!", FALSE, ch,
           obj, vict, TO_NOTVICT);
       act
-        ("&+rBlood red&N energy travels into $n's hand and up $s arm, apparently strengthening $m.",
+        ("&+rBlood red energy travels into $n's hand and up $s arm, apparently strengthening $m.",
          FALSE, ch, obj, vict, TO_NOTVICT);
 
-      act("$n's $q turns &+rblood red&N as it slashes into you!", FALSE, ch,
+      act("$n's $q turns &+rblood red as it slashes into you!", FALSE, ch,
           obj, vict, TO_VICT);
       act
-        ("You feel yourself becoming weak as the &+rblood&n is sucked out of you!",
+        ("You feel yourself becoming weak as the &+rblood is sucked out of you!",
          FALSE, ch, obj, vict, TO_VICT);
 
       vamp(ch, dam / 2, (int) (GET_MAX_HIT(ch) * 1.3));
@@ -1159,13 +1159,13 @@ int flamberge(P_obj obj, P_char ch, int cmd, char *arg)
       if (char_in_list(vict))
       {
         act
-          ("&+rA &+Rse&+Yari&+Rng &+Yburst &+rleaps from your $q&+r and hits $N &+Rdead on&N!",
+          ("&+rA &+Rse&+Yari&+Rng &+Yburst &+rleaps from your $q&+r and hits $N &+Rdead on!",
            FALSE, obj->loc.wearing, obj, vict, TO_CHAR);
         act
-          ("&+rA &+Rse&+Yari&+Rng &+Yburst &+rleaps from $n's $q&+r and hits you &+Rdead on&N!",
+          ("&+rA &+Rse&+Yari&+Rng &+Yburst &+rleaps from $n's $q&+r and hits you &+Rdead on!",
            FALSE, obj->loc.wearing, obj, vict, TO_VICT);
         act
-          ("&+rA &+Rse&+Yari&+Rng &+Yburst &+rleaps from $n's $q&+r and hits $N &+Rdead on&N!",
+          ("&+rA &+Rse&+Yari&+Rng &+Yburst &+rleaps from $n's $q&+r and hits $N &+Rdead on!",
            FALSE, obj->loc.wearing, obj, vict, TO_NOTVICT);
         damage(ch, vict, 350, SPELL_IMMOLATE);
 
@@ -1220,8 +1220,8 @@ int nightbringer(P_obj obj, P_char ch, int cmd, char *arg)
 
     if( !number(0,40) )
     {
-      act("Billowing clouds of &+Ldarkness &nspill out of $p&n!", TRUE, ch, obj, 0, TO_ROOM);
-      act("Billowing clouds of &+Ldarkness &nspill out of $p&n!", TRUE, ch, obj, 0, TO_CHAR);
+      act("Billowing clouds of &+Ldarkness spill out of $p!", TRUE, ch, obj, 0, TO_ROOM);
+      act("Billowing clouds of &+Ldarkness spill out of $p!", TRUE, ch, obj, 0, TO_CHAR);
       spell_darkness(51, ch, 0, 0, 0, 0);
     }
 
@@ -1285,7 +1285,7 @@ int avernus(P_obj obj, P_char ch, int cmd, char *arg)
      (CheckMultiProcTiming(ch) || !number(0, 2)) &&
      !IS_UNDEADRACE(vict) && !IS_CONSTRUCT(vict))
   {
-    act("&+LAvernus, the life stealer &N&+Wglows brightly in your hands as it dives into $N.&N",
+    act("&+LAvernus, the life stealer &+Wglows brightly in your hands as it dives into $N.",
        FALSE, ch, obj, vict, TO_CHAR);
     act("&+L$p draws the life force out of $N, feeding energy to you.",
         FALSE, ch, obj, vict, TO_CHAR);
@@ -2096,10 +2096,10 @@ int tiamat(P_char ch, P_char pl, int cmd, char *arg)
     
   if(cmd == CMD_DEATH)
   {
-    debug("&+LTiamat death called.&n");
-    act("&+WWith her very last breath, &+LTiamat &+Wcloses her eyes.\n&n"
-        "&+LTiamat's &+Wbody begins to shimmer brilliantly, her flesh becoming more and more translucent!\n&n"
-        "&+WAs the light subsides, only a few pieces of her once great body remain.&n", FALSE, ch, 0, 0, TO_ROOM);
+    debug("&+LTiamat death called.");
+    act("&+WWith her very last breath, &+LTiamat &+Wcloses her eyes.\n"
+        "&+LTiamat's &+Wbody begins to shimmer brilliantly, her flesh becoming more and more translucent!\n"
+        "&+WAs the light subsides, only a few pieces of her once great body remain.", FALSE, ch, 0, 0, TO_ROOM);
 
     for (t_obj = ch->carrying; t_obj; t_obj = next)
     {
@@ -2127,7 +2127,7 @@ int tiamat(P_char ch, P_char pl, int cmd, char *arg)
       act("$N &+Rgrowls in anger, as you approach $S treasure!", FALSE, pl, 0,
           ch, TO_CHAR);
       act
-        ("$N &+Rgrowls in anger, as&N $n&+R makes an attempt at $S treasure!",
+        ("$N &+Rgrowls in anger, as $n&+R makes an attempt at $S treasure!",
          FALSE, pl, 0, ch, TO_ROOM);
       
       MobStartFight(ch, pl);
@@ -2143,7 +2143,7 @@ int tiamat(P_char ch, P_char pl, int cmd, char *arg)
     
     if (affected_by_spell(ch, SPELL_SILENCE))
     {
-      act("&+LWith a mighty &+RROAR&+l, &+LTiamat shreds the blanket of silence!&n", 0,
+      act("&+LWith a mighty &+RROAR&+l, &+LTiamat shreds the blanket of silence!", 0,
           ch, 0, 0, TO_ROOM);
       affect_from_char(ch, SPELL_SILENCE);
     }
@@ -2151,7 +2151,7 @@ int tiamat(P_char ch, P_char pl, int cmd, char *arg)
     if(!IS_SET(world[ch->in_room].room_flags, MAGIC_LIGHT))
     {
       act
-        ("A beam of light radiates from &+LTiamats&N eyes, lighting a sconce upon the wall.",
+        ("A beam of light radiates from &+LTiamats eyes, lighting a sconce upon the wall.",
          0, ch, 0, 0, TO_ROOM);
       SET_BIT(world[ch->in_room].room_flags, MAGIC_LIGHT);
     }                           /*
@@ -2249,7 +2249,7 @@ int tiamat(P_char ch, P_char pl, int cmd, char *arg)
       {
         struct damage_messages msgs = {
           "", "&+RHer tail lashes out, stabbing you deep in the back!",
-          "$N makes a strange sound as &+LTiamat's&N tail stabs $M in the back!",
+          "$N makes a strange sound as &+LTiamat's tail stabs $M in the back!",
           msgs.attacker, msgs.victim, msgs.room
         };
 
@@ -2276,16 +2276,16 @@ int tiamat(P_char ch, P_char pl, int cmd, char *arg)
         vict = ch->specials.fighting;
       if (vict)
       {
-        sprintf(bufs[0], "You bite $N with your %s head&N.", colors[i - 1]);
-        sprintf(bufs[1], "The %s head&N of $n lashes out and bites you.",
+        sprintf(bufs[0], "You bite $N with your %s head.", colors[i - 1]);
+        sprintf(bufs[1], "The %s head of $n lashes out and bites you.",
                 colors[i - 1]);
-        sprintf(bufs[2], "$n bites $N with $m %s head&N.", colors[i - 1]);
+        sprintf(bufs[2], "$n bites $N with $m %s head.", colors[i - 1]);
         sprintf(bufs[3],
-                "You bite $N with your %s head&N until they are dead.",
+                "You bite $N with your %s head until they are dead.",
                 colors[i - 1]);
-        sprintf(bufs[4], "The %s head&N of $n bites you... to DEATH!",
+        sprintf(bufs[4], "The %s head of $n bites you... to DEATH!",
                 colors[i - 1]);
-        sprintf(bufs[5], "$n bites $N in two with $m %s head&N! $N is dead.",
+        sprintf(bufs[5], "$n bites $N in two with $m %s head! $N is dead.",
                 colors[i - 1]);
         switch (i)
         {
@@ -2329,16 +2329,16 @@ int tiamat(P_char ch, P_char pl, int cmd, char *arg)
       switch (i)
       {
       case 1:
-        act("&+LTiamat's&N&+R red head breathes fire!", 1, ch, 0, 0, TO_ROOM);
+        act("&+LTiamat's&+R red head breathes fire!", 1, ch, 0, 0, TO_ROOM);
         funct = spell_fire_breath;
         break;
       case 2:
-        act("&+LTiamat's&N&+B blue head breathes &=LBelectricity!", 1, ch, 0,
+        act("&+LTiamat's&+B blue head breathes &=LBelectricity!", 1, ch, 0,
             0, TO_ROOM);
         funct = spell_lightning_breath;
         break;
       case 3:
-        act("&+LTiamat's&N&+W white head breathes frost!", 1, ch, 0, 0,
+        act("&+LTiamat's&+W white head breathes frost!", 1, ch, 0, 0,
             TO_ROOM);
         funct = spell_frost_breath;
         break;
@@ -2347,11 +2347,11 @@ int tiamat(P_char ch, P_char pl, int cmd, char *arg)
         funct = spell_acid_breath;
         break;
       case 5:
-        act("&+LTiamat's black head breathes blackness!&n", 1, ch, 0, 0, TO_ROOM);
+        act("&+LTiamat's black head breathes blackness!", 1, ch, 0, 0, TO_ROOM);
         funct = spell_shadow_breath_2;
         break;
       default:
-        act("&+LTiamat's&N&+g green head breathes poison gas!", 1, ch, 0, 0,
+        act("&+LTiamat's&+g green head breathes poison gas!", 1, ch, 0, 0,
             TO_ROOM);
         funct = spell_gas_breath;
         break;
@@ -2398,10 +2398,10 @@ int tiamat(P_char ch, P_char pl, int cmd, char *arg)
             {
               struct damage_messages msgs = {
                 "$N's&+B face turns a shade of blue, as $s heart stops for a moment!",
-                "&+BBetween your spell of haste and &N&+LTiamat's &N&+Belectrical discharge, your heart cracks under the strain!",
+                "&+BBetween your spell of haste and &+LTiamat's &+Belectrical discharge, your heart cracks under the strain!",
                 "$N's&+B face turns a shade of blue, as $s heart stops for a moment!",
                 "$N's&+B face turns a shade of blue, as $s heart stops for a moment!",
-                "&+BBetween your spell of haste and &N&+LTiamat's &N&+Belectrical discharge, your heart cracks under the strain!",
+                "&+BBetween your spell of haste and &+LTiamat's &+Belectrical discharge, your heart cracks under the strain!",
                 "$N's&+B face turns a shade of blue, as $s heart stops for a moment!"
               };
               spell_damage(ch, vict, dice(20, 20), SPLDAM_LIGHTNING,
@@ -2427,9 +2427,9 @@ int tiamat(P_char ch, P_char pl, int cmd, char *arg)
           if (!number(0, 5))
           {
             {
-              act("&+LTiamat &+RROARS &+Lloudly, and her tailsweep sends you crashing into the wall!&n",
+              act("&+LTiamat &+RROARS &+Lloudly, and her tailsweep sends you crashing into the wall!",
                   FALSE, ch, 0, vict, TO_VICT);
-              act("&+LTiamat &+RROARS &+Lloudly, and in a frightening display, whips her tail deftly about the room!&n",
+              act("&+LTiamat &+RROARS &+Lloudly, and in a frightening display, whips her tail deftly about the room!",
                   FALSE, ch, 0, vict, TO_NOTVICT);
               SET_POS(vict, POS_SITTING + GET_STAT(vict));
               
@@ -2898,9 +2898,9 @@ void barb_proc_dwarven_ancestor(int level, P_char ch, P_char victim)
   GET_SIZE(mob) = GET_SIZE(victim);
 
   char_to_room(mob, ch->in_room, -1);
-  act("&+rIn a column of &+RROARING&+r fire, $N&+r makes $S entrance.&n",
+  act("&+rIn a column of &+RROARING&+r fire, $N&+r makes $S entrance.",
       FALSE, ch, 0, mob, TO_CHAR);
-  act("&+rIn a column of &+RROARING&+r fire, $N&+r makes $S entrance.&n",
+  act("&+rIn a column of &+RROARING&+r fire, $N&+r makes $S entrance.",
       FALSE, ch, 0, mob, TO_ROOM);
 
   if(!IS_AFFECTED4(mob, AFF4_NOFEAR))
@@ -2981,22 +2981,22 @@ int barb(P_obj obj, P_char ch, int cmd, char *arg)
   struct proc_data *data;
 
   struct damage_messages messages = {
-    "A &+WMASSIVE&n &=LBlightning bolt&N strikes $N from the sky!",
-    "A &+WMASSIVE&n &=LBlightning bolt&N from the heavens strikes you!",
-    "A &+WMASSIVE&n &=LBlightning bolt&N strikes $N from the sky!",
-    "Your &+WMASSIVE&n &=LBlightning bolt&N shatters $N to pieces.",
+    "A &+WMASSIVE &=LBlightning bolt strikes $N from the sky!",
+    "A &+WMASSIVE &=LBlightning bolt from the heavens strikes you!",
+    "A &+WMASSIVE &=LBlightning bolt strikes $N from the sky!",
+    "Your &+WMASSIVE &=LBlightning bolt shatters $N to pieces.",
     "Your last vision is that of little kites circling your head, all being struck by lightning.",
-    "$N is utterly shattered from the force of a &=LBlightning bolt&n from the sky.",
+    "$N is utterly shattered from the force of a &=LBlightning bolt from the sky.",
       0
   };
   
   struct damage_messages messages_deflect = {
-    "&+bA wave of &+Bmagical &+Cenergy&n&+b released from your weapon strikes down at $N!",
+    "&+bA wave of &+Bmagical &+Cenergy&+b released from your weapon strikes down at $N!",
     "&+bYou are hit with a wave of &+Bmagical &+Cenergy!",
-    "&+bA wave of &+Bmagical &+Cenergy&n&+b strikes down at $N!",
-    "&+bA wave of &+Bmagical &+Cenergy&n&+b release from your weapon overwhelms $N, and he is no more!",
-    "&+bA wave of &+Bmagical &+Cenergy&n&+b overwhelms you, the rest is darkness...",
-    "&+bA wave of &+Bmagical &+Cenergy&n&+b overwhelms $N, an he is no more.",
+    "&+bA wave of &+Bmagical &+Cenergy&+b strikes down at $N!",
+    "&+bA wave of &+Bmagical &+Cenergy&+b release from your weapon overwhelms $N, and he is no more!",
+    "&+bA wave of &+Bmagical &+Cenergy&+b overwhelms you, the rest is darkness...",
+    "&+bA wave of &+Bmagical &+Cenergy&+b overwhelms $N, an he is no more.",
     0
   };
   
@@ -3033,14 +3033,14 @@ int barb(P_obj obj, P_char ch, int cmd, char *arg)
     /*act("$q begins to twist and writhe in $n's hands, his corruption seeping into it!", FALSE, ch, obj, vict, TO_ROOM);
       act("$q begins to twist and writhe in your hands, your will corrupting it!", FALSE, ch, obj, vict, TO_CHAR);
       */
-    sprintf(buf1, "&+bthe mighty warhammer of the ogre chiefs&n");
+    sprintf(buf1, "&+bthe mighty warhammer of the ogre chiefs");
     obj->short_description = NULL;
     obj->str_mask |= STRUNG_DESC2;
     obj->short_description = str_dup(buf1);
   }
   else if (GET_RACE(ch) == RACE_BARBARIAN)
   {
-    sprintf(buf3, "&+ythe mystical warhammer of the barbarian kings&n");
+    sprintf(buf3, "&+ythe mystical warhammer of the barbarian kings");
     obj->short_description = NULL;
     obj->str_mask |= STRUNG_DESC2;
     obj->short_description = str_dup(buf3);
@@ -3048,14 +3048,14 @@ int barb(P_obj obj, P_char ch, int cmd, char *arg)
   else if(GET_RACE(ch) == RACE_MOUNTAIN ||
           GET_RACE(ch) == RACE_DUERGAR)
   {
-    sprintf(buf3, "&+Lthe warhammer of the &+yancient dwarven &+Rb&+ra&+Ltt&+Rl&+re&+Lr&+ra&+Rge&+Lr&+rs&n");
+    sprintf(buf3, "&+Lthe warhammer of the &+yancient dwarven &+Rb&+ra&+Ltt&+Rl&+re&+Lr&+ra&+Rge&+Lr&+rs");
     obj->short_description = NULL;
     obj->str_mask |= STRUNG_DESC2;
     obj->short_description = str_dup(buf3);
   }
   else if (GET_CLASS(ch, CLASS_BERSERKER))
   {
-    sprintf(buf2, "&+rthe great warhammer of the &+RRa&+rGe&+Rlo&+rRd&n");
+    sprintf(buf2, "&+rthe great warhammer of the &+RRa&+rGe&+Rlo&+rRd");
     obj->short_description = NULL;
     obj->str_mask |= STRUNG_DESC2;
     obj->short_description = str_dup(buf2);
@@ -3084,7 +3084,7 @@ int barb(P_obj obj, P_char ch, int cmd, char *arg)
                 (GET_RACE(ch) == RACE_OGRE))
       {
         act("You say 'power'", FALSE, ch, 0, 0, TO_CHAR);
-        act("Your $q hums and you fill with &+RRAGE&n!", FALSE, ch, obj, obj, TO_CHAR);
+        act("Your $q hums and you fill with &+RRAGE!", FALSE, ch, obj, obj, TO_CHAR);
         act("$n says 'power'", TRUE, ch, obj, NULL, TO_ROOM);
         act("$n's $q bestows them with power.", TRUE, ch, obj, NULL, TO_ROOM);
         spell_stone_skin(55, ch, 0, SPELL_TYPE_SPELL, ch, 0);
@@ -3097,7 +3097,7 @@ int barb(P_obj obj, P_char ch, int cmd, char *arg)
                GET_RACE(ch) == RACE_DUERGAR) && !GET_CLASS(ch, CLASS_BERSERKER))
       {
         act("You say 'power'", FALSE, ch, 0, 0, TO_CHAR);
-        act("Your $q fills you with the power of the &+yancient dwarven battleragers!&n", FALSE, ch, obj, NULL, TO_CHAR);
+        act("Your $q fills you with the power of the &+yancient dwarven battleragers!", FALSE, ch, obj, NULL, TO_CHAR);
         act("$n says 'power'", TRUE, ch, obj, NULL, TO_ROOM);
         act("$n's $q bestows them with power.", TRUE, ch, obj, NULL, TO_ROOM);
         spell_stone_skin(GET_LEVEL(ch), ch, 0, SPELL_TYPE_SPELL, ch, 0);
@@ -3119,9 +3119,9 @@ int barb(P_obj obj, P_char ch, int cmd, char *arg)
               (GET_CLASS(ch, CLASS_BERSERKER)))
       {
         act("You say 'power'", FALSE, ch, 0, 0, TO_CHAR);
-        act("Your $q fills you with a &+rSuRGe&n of &+RBl&+rOOdL&+RusT&n!!!", FALSE, ch, obj, obj, TO_CHAR);
+        act("Your $q fills you with a &+rSuRGe of &+RBl&+rOOdL&+RusT!!!", FALSE, ch, obj, obj, TO_CHAR);
         act("$n says 'power'", TRUE, ch, obj, NULL, TO_ROOM);
-        act("$n's $q fills them with a &+rSuRGe&n of &+RBl&+rOOdL&+RusT&n!!!", TRUE, ch, obj, NULL, TO_ROOM);
+        act("$n's $q fills them with a &+rSuRGe of &+RBl&+rOOdL&+RusT!!!", TRUE, ch, obj, NULL, TO_ROOM);
         spell_haste(GET_LEVEL(ch), ch, 0, SPELL_TYPE_SPELL, ch, 0);
         spell_purify_spirit(GET_LEVEL(ch), ch, 0, SPELL_TYPE_SPELL, ch, 0);
       
@@ -3171,20 +3171,20 @@ int barb(P_obj obj, P_char ch, int cmd, char *arg)
       BarbProcData.attacktype = 0;
     }
 
-    act("&+cA &+Ctranslucent&n&+c field &+Wflashes&n&+c briefly around $n&n&+c as $s $o&n&+c absorbs your assault...",
+    act("&+cA &+Ctranslucent&+c field &+Wflashes&+c briefly around $n&+c as $s $o&+c absorbs your assault...",
        FALSE, ch, obj, vict, TO_VICT);
-    act("&+cA &+Ctranslucent&n&+c field &+Wflashes&n&+c briefly around $n&n&+c as $s $o&n&+c absorbs $N&n&+c's assault...",
+    act("&+cA &+Ctranslucent&+c field &+Wflashes&+c briefly around $n&+c as $s $o&+c absorbs $N&+c's assault...",
        FALSE, ch, obj, vict, TO_NOTVICT);
-    act("&+cA &+Ctranslucent&n&+c field &+Wflashes&n&+c briefly around you as your $o&n&+c absorbs $N&n&+c's assault...",
+    act("&+cA &+Ctranslucent&+c field &+Wflashes&+c briefly around you as your $o&+c absorbs $N&+c's assault...",
        FALSE, ch, obj, vict, TO_CHAR);
 
     if (BarbProcData.damage) 
     {
-      act("&+c...and releases a previously stored &+Bmagical energy&n&+c straight back at &+Wyou!",
+      act("&+c...and releases a previously stored &+Bmagical energy&+c straight back at &+Wyou!",
          FALSE, ch, obj, vict, TO_VICT);
-      act("&+c...and releases a previously stored &+Bmagical energy&n&+c straight back at&n $N!",
+      act("&+c...and releases a previously stored &+Bmagical energy&+c straight back at $N!",
          FALSE, ch, obj, vict, TO_NOTVICT);
-      act("&+c...and releases a previously stored &+Bmagical energy&n&+c straight back at&n $N!",
+      act("&+c...and releases a previously stored &+Bmagical energy&+c straight back at $N!",
          FALSE, ch, obj, vict, TO_CHAR);
 
       if (BarbProcData.messages_set)
@@ -3276,11 +3276,11 @@ int barb(P_obj obj, P_char ch, int cmd, char *arg)
            GET_RACE(ch) == RACE_OGRE &&
            CheckMultiProcTiming(ch))
     {
-      act("Your $q &+bfills you with the &+WPOWER&+b of the ogre chieftains!&n",
+      act("Your $q &+bfills you with the &+WPOWER&+b of the ogre chieftains!",
           FALSE, obj->loc.wearing, obj, vict, TO_CHAR);
-      act("$n's $q &+bfills them with the &+WPOWER&+b of the ogre chieftains!&n",
+      act("$n's $q &+bfills them with the &+WPOWER&+b of the ogre chieftains!",
          FALSE, obj->loc.wearing, obj, vict, TO_VICT);
-      act("$n's $q &+bfills them with the &+WPOWER&+b of the ogre chieftains!&n",
+      act("$n's $q &+bfills them with the &+WPOWER&+b of the ogre chieftains!",
           FALSE, obj->loc.wearing, obj, vict, TO_NOTVICT);
 
       if (IS_ALIVE(vict))
@@ -3294,11 +3294,11 @@ int barb(P_obj obj, P_char ch, int cmd, char *arg)
       {
         if(MIN_POS(vict, POS_STANDING + STAT_NORMAL)) // if standing knock them down.
         {
-          act("$q &+bsmashes into&n $N&+b, sending them reeling into the wall!&n",
+          act("$q &+bsmashes into $N&+b, sending them reeling into the wall!",
             FALSE, obj->loc.wearing, obj, vict, TO_CHAR);
-          act("$n's $q &+bsmashes into you, sending you flying towards the wall!&n",
+          act("$n's $q &+bsmashes into you, sending you flying towards the wall!",
             FALSE, obj->loc.wearing, obj, vict, TO_VICT);
-          act("$n's $q &+bsmashes into&n $N&+b, sending them flying into the wall!&n",
+          act("$n's $q &+bsmashes into $N&+b, sending them flying into the wall!",
             FALSE, obj->loc.wearing, obj, vict, TO_NOTVICT);
 
           SET_POS(vict, POS_SITTING + GET_STAT(vict));
@@ -3317,11 +3317,11 @@ int barb(P_obj obj, P_char ch, int cmd, char *arg)
             GET_RACE(ch) == RACE_DUERGAR)) &&
             CheckMultiProcTiming(ch))
     {
-      act("Your $q &+Lfills you with the &+RPOWER&+L of the dwarven battleragers!&n",
+      act("Your $q &+Lfills you with the &+RPOWER&+L of the dwarven battleragers!",
           FALSE, obj->loc.wearing, obj, vict, TO_CHAR);
-      act("$n's $q &+Lfills them with the &+RPOWER&+L of the dwarven battleragers!&n",
+      act("$n's $q &+Lfills them with the &+RPOWER&+L of the dwarven battleragers!",
          FALSE, obj->loc.wearing, obj, vict, TO_VICT);
-      act("$n's $q &+Lfills them with the &+RPOWER&+L of the dwarven battleragers!&n",
+      act("$n's $q &+Lfills them with the &+RPOWER&+L of the dwarven battleragers!",
           FALSE, obj->loc.wearing, obj, vict, TO_NOTVICT);
           
       hammer_berserk_check(ch);
@@ -3405,11 +3405,11 @@ int barb(P_obj obj, P_char ch, int cmd, char *arg)
             GET_CHAR_SKILL(ch, SKILL_BERSERK) > 0 &&
             CheckMultiProcTiming(ch))
     {
-      act("Your $q &+rfills you with BlOOdLUsT, causing you to strike down&n $N!&n",
+      act("Your $q &+rfills you with BlOOdLUsT, causing you to strike down $N!",
           FALSE, obj->loc.wearing, obj, vict, TO_CHAR);
-      act("$n's $q &+rsmashes into you, nearly knocking you off your feet!&n",
+      act("$n's $q &+rsmashes into you, nearly knocking you off your feet!",
          FALSE, obj->loc.wearing, obj, vict, TO_VICT);
-      act("$n's $q &+rsmashes into&n $N&+r, causing them to scream in pain!&n",
+      act("$n's $q &+rsmashes into $N&+r, causing them to scream in pain!",
           FALSE, obj->loc.wearing, obj, vict, TO_NOTVICT);
           
       hammer_berserk_check(ch);
@@ -3429,23 +3429,23 @@ int barb(P_obj obj, P_char ch, int cmd, char *arg)
 
       if( affected_by_spell(vict, SPELL_STONE_SKIN) )
       {
-        act("$n shatters $N's &+Lstone skin&n!", FALSE, ch, obj, vict, TO_ROOM);
-        act("$n shatters your &+Lstone skin&n!", FALSE, ch, obj, vict, TO_VICT);
-        act("You shatter $N's &+Lstone skin&n!", FALSE, ch, obj, vict, TO_CHAR);
+        act("$n shatters $N's &+Lstone skin!", FALSE, ch, obj, vict, TO_ROOM);
+        act("$n shatters your &+Lstone skin!", FALSE, ch, obj, vict, TO_VICT);
+        act("You shatter $N's &+Lstone skin!", FALSE, ch, obj, vict, TO_CHAR);
         affect_from_char(vict, SPELL_STONE_SKIN);
       }
       else if( affected_by_spell(vict, SPELL_BIOFEEDBACK) )
       {
-        act("$n pierces through $N's &+Gmisty barrier&n!", FALSE, ch, obj, vict, TO_ROOM);
-        act("$n pierces through your &+Gmisty barrier&n!", FALSE, ch, obj, vict, TO_VICT);
-        act("You pierce through $N's &+Gmisty barrier&n!", FALSE, ch, obj, vict, TO_CHAR);
+        act("$n pierces through $N's &+Gmisty barrier!", FALSE, ch, obj, vict, TO_ROOM);
+        act("$n pierces through your &+Gmisty barrier!", FALSE, ch, obj, vict, TO_VICT);
+        act("You pierce through $N's &+Gmisty barrier!", FALSE, ch, obj, vict, TO_CHAR);
         affect_from_char(vict, SPELL_BIOFEEDBACK);
       }
       else if( affected_by_spell(vict, SPELL_SHADOW_SHIELD) )
       {
-        act("$n obliterates $N's &+Lshadowy shield&n!", FALSE, ch, obj, vict, TO_ROOM);
-        act("$n obliterates your &+Lshadowy shield&n!", FALSE, ch, obj, vict, TO_VICT);
-        act("You obliterate $N's &+Lshadowy shield&n!", FALSE, ch, obj, vict, TO_CHAR);
+        act("$n obliterates $N's &+Lshadowy shield!", FALSE, ch, obj, vict, TO_ROOM);
+        act("$n obliterates your &+Lshadowy shield!", FALSE, ch, obj, vict, TO_VICT);
+        act("You obliterate $N's &+Lshadowy shield!", FALSE, ch, obj, vict, TO_CHAR);
         affect_from_char(vict, SPELL_SHADOW_SHIELD);
       }
     } 
@@ -3485,7 +3485,7 @@ void gfstone_event(P_char ch, P_char vict, P_obj obj, void *data)
       switch (gf)
       {
       case SHIVA:
-        send_to_char("&+WYour summon is complete!&N\n", ch);
+        send_to_char("&+WYour summon is complete!\n", ch);
         send_to_room
           ("&+CA huge icicle breaks through the ground, showering ice everywhere!\n",
            ch->in_room);
@@ -3493,12 +3493,12 @@ void gfstone_event(P_char ch, P_char vict, P_obj obj, void *data)
           ("&+CThe icicle splits apart, revealing Keja, the Queen of Ice.\n",
            ch->in_room);
         send_to_room
-          ("&+CShe suddenly shatters into a million shards of ice, swirling around like an angry blizzard!&N\n",
+          ("&+CShe suddenly shatters into a million shards of ice, swirling around like an angry blizzard!\n",
            ch->in_room);
         spell_ice_storm(60, ch, 0, SPELL_TYPE_SPELL, NULL, 0);
         spell_ice_storm(60, ch, 0, SPELL_TYPE_SPELL, NULL, 0);
         spell_ice_storm(60, ch, 0, SPELL_TYPE_SPELL, NULL, 0);
-        send_to_room("&+CThe shards dissipate and are gone.&N\n",
+        send_to_room("&+CThe shards dissipate and are gone.\n",
                      ch->in_room);
         CharWait(ch, PULSE_VIOLENCE);
         obj->value[gf] += 20;
@@ -3509,16 +3509,16 @@ void gfstone_event(P_char ch, P_char vict, P_obj obj, void *data)
         break;
 
       case IFRIT:
-        send_to_char("&+WYour summon is complete!&N\n", ch);
+        send_to_char("&+WYour summon is complete!\n", ch);
         send_to_room
-          ("&+RThe ground splits open and Jera, the hell goddess, floats out of the chasm.&N\n",
+          ("&+RThe ground splits open and Jera, the hell goddess, floats out of the chasm.\n",
            ch->in_room);
         if (OUTSIDE(ch))
         {
           send_to_room
-            ("&+RJera rises high into the air, spewing curses about whiners.&N\n",
+            ("&+RJera rises high into the air, spewing curses about whiners.\n",
              ch->in_room);
-          send_to_room("&+RBOOM!! Jera throws meteors at the whiners!&N\n",
+          send_to_room("&+RBOOM!! Jera throws meteors at the whiners!\n",
                        ch->in_room);
           for (vict = world[ch->in_room].people; vict;
                vict = vict->next_in_room)
@@ -3533,17 +3533,17 @@ void gfstone_event(P_char ch, P_char vict, P_obj obj, void *data)
         else
         {
           send_to_room
-            ("&+RJera roars 'Who summons me indoors? Don't you know I'm claustrophobic?!'&N\n",
+            ("&+RJera roars 'Who summons me indoors? Don't you know I'm claustrophobic?!'\n",
              ch->in_room);
           send_to_room
-            ("&+RBOOM!! Jera explodes into jets of fire and the ground begins to shake!&N\n",
+            ("&+RBOOM!! Jera explodes into jets of fire and the ground begins to shake!\n",
              ch->in_room);
           spell_earthquake(60, ch, 0, SPELL_TYPE_STAFF, NULL, 0);
           spell_firestorm(60, ch, 0, SPELL_TYPE_STAFF, NULL, 0);
-          send_to_room("&+RThe flames form back into Jera.&N\n", ch->in_room);
+          send_to_room("&+RThe flames form back into Jera.\n", ch->in_room);
         }
         send_to_room
-          ("&+RJera slowly sinks back into the ground and disappears.&N\n",
+          ("&+RJera slowly sinks back into the ground and disappears.\n",
            ch->in_room);
         CharWait(ch, PULSE_VIOLENCE * 2);
         obj->value[gf] += 30;
@@ -3562,16 +3562,16 @@ void gfstone_event(P_char ch, P_char vict, P_obj obj, void *data)
         break;
 
       case DOOMTRAIN:
-        send_to_char("&+WYour summon is complete!&N\n", ch);
-        send_to_room("&+rCython&+L steps out of the shadows.&N\n",
+        send_to_char("&+WYour summon is complete!\n", ch);
+        send_to_room("&+rCython&+L steps out of the shadows.\n",
                      ch->in_room);
         send_to_room
-          ("Cython gets a &+RBIG RED BUTTON&N from his &+La portable hole&N.\n",
+          ("Cython gets a &+RBIG RED BUTTON from his &+La portable hole.\n",
            ch->in_room);
-        send_to_room("Cython presses a &+RBIG RED BUTTON&N.\n", ch->in_room);
-        send_to_room("&+Y  __   _   _  _  _&N\n", ch->in_room);
-        send_to_room("&+Y  |_) | | | | |\\/| |||&N\n", ch->in_room);
-        send_to_room("&+Y  |_) |_| |_| |  | ...&N\n", ch->in_room);
+        send_to_room("Cython presses a &+RBIG RED BUTTON.\n", ch->in_room);
+        send_to_room("&+Y  __   _   _  _  _\n", ch->in_room);
+        send_to_room("&+Y  |_) | | | | |\\/| |||\n", ch->in_room);
+        send_to_room("&+Y  |_) |_| |_| |  | ...\n", ch->in_room);
         for (vict = world[ch->in_room].people; vict;
              vict = vict->next_in_room)
         {
@@ -3589,7 +3589,7 @@ void gfstone_event(P_char ch, P_char vict, P_obj obj, void *data)
             spell_sleep(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
           }
         }
-        send_to_room("&+rCython&+L disappears into the shadows.&N\n",
+        send_to_room("&+rCython&+L disappears into the shadows.\n",
                      ch->in_room);
         CharWait(ch, PULSE_VIOLENCE * 3);
         obj->value[gf] += 30;
@@ -3609,19 +3609,19 @@ void gfstone_event(P_char ch, P_char vict, P_obj obj, void *data)
         if ((obj->value[CEREBUS] < 500) || (obj->value[CARBUNCLE] < 500))
         {
           send_to_char
-            ("&+rCython, seeing that Raxxel and Dakta hate you, gets pissed off.&N\n",
+            ("&+rCython, seeing that Raxxel and Dakta hate you, gets pissed off.\n",
              ch);
           obj->value[DOOMTRAIN] = 200;
         }
         break;
 
       case CEREBUS:
-        send_to_char("&+WYour summon is complete!&N\n", ch);
+        send_to_char("&+WYour summon is complete!\n", ch);
         send_to_room
-          ("&+LDakta, the lord of Lust and perversion, appears before you.&N\n",
+          ("&+LDakta, the lord of Lust and perversion, appears before you.\n",
            ch->in_room);
         send_to_room
-          ("Dakta says 'I can make you faster, stronger, and longer lasting for&N\n",
+          ("Dakta says 'I can make you faster, stronger, and longer lasting for\n",
            ch->in_room);
         send_to_room("when you're mine!'\n", ch->in_room);
 
@@ -3633,7 +3633,7 @@ void gfstone_event(P_char ch, P_char vict, P_obj obj, void *data)
           spell_bless(51, ch, 0, SPELL_TYPE_SPELL, vict, 0);
           spell_lionrage(51, ch, 0, SPELL_TYPE_SPELL, vict, 0);
         }
-        send_to_room("&+LYou feel really REALLY wierd.&N\n", ch->in_room);
+        send_to_room("&+LYou feel really REALLY wierd.\n", ch->in_room);
 
         CharWait(ch, PULSE_VIOLENCE);
 
@@ -3653,13 +3653,13 @@ void gfstone_event(P_char ch, P_char vict, P_obj obj, void *data)
         break;
 
       case CARBUNCLE:
-        send_to_char("&+WYour summon is complete!&N\n", ch);
+        send_to_char("&+WYour summon is complete!\n", ch);
         send_to_room
-          ("&+cA small hole appears in the ground and a small rainbow colored creature&N\n",
+          ("&+cA small hole appears in the ground and a small rainbow colored creature\n",
            ch->in_room);
-        send_to_room("&+cwith a ruby on its forhead pops out!&N\n",
+        send_to_room("&+cwith a ruby on its forhead pops out!\n",
                      ch->in_room);
-        send_to_room("&+cRaxxel, the imp of mischief is here!&N\n",
+        send_to_room("&+cRaxxel, the imp of mischief is here!\n",
                      ch->in_room);
         send_to_room("Raxxel says 'Don't let anyone know I'm doing this!'\n",
                      ch->in_room);
@@ -3667,7 +3667,7 @@ void gfstone_event(P_char ch, P_char vict, P_obj obj, void *data)
         cast_as_area(ch, SPELL_GLOBE, 51, NULL);
         cast_as_area(ch, SPELL_SOULSHIELD, 51, NULL);
         send_to_room
-          ("&+cRaxxel pops back into the hole, and it disappears.&N\n",
+          ("&+cRaxxel pops back into the hole, and it disappears.\n",
            ch->in_room);
 
         CharWait(ch, PULSE_VIOLENCE);
@@ -3780,8 +3780,8 @@ int gfstone(P_obj obj, P_char ch, int cmd, char *arg)
     if (isname(arg, "keja"))
     {
       gf = SHIVA;
-      act("&+CYou start summoning Keja.&N", FALSE, ch, 0, 0, TO_CHAR);
-      act("&+C$n starts summoning Keja.&N", TRUE, ch, obj, NULL, TO_ROOM);
+      act("&+CYou start summoning Keja.", FALSE, ch, 0, 0, TO_CHAR);
+      act("&+C$n starts summoning Keja.", TRUE, ch, obj, NULL, TO_ROOM);
     }
 
     if (isname(arg, "jera"))
@@ -3789,8 +3789,8 @@ int gfstone(P_obj obj, P_char ch, int cmd, char *arg)
       gf = IFRIT;
       if (obj->value[gf] < 500)
         return FALSE;
-      act("&+RYou start summoning Jera.&N", FALSE, ch, 0, 0, TO_CHAR);
-      act("&+R$n starts summoning Jera.&N", TRUE, ch, obj, NULL, TO_ROOM);
+      act("&+RYou start summoning Jera.", FALSE, ch, 0, 0, TO_CHAR);
+      act("&+R$n starts summoning Jera.", TRUE, ch, obj, NULL, TO_ROOM);
     }
 
     if (isname(arg, "cython"))
@@ -3798,8 +3798,8 @@ int gfstone(P_obj obj, P_char ch, int cmd, char *arg)
       gf = DOOMTRAIN;
       if (obj->value[gf] < 500)
         return FALSE;
-      act("&+rYou start summoning Cython.&N", FALSE, ch, 0, 0, TO_CHAR);
-      act("&+r$n starts summoning Cython.&N", TRUE, ch, obj, NULL, TO_ROOM);
+      act("&+rYou start summoning Cython.", FALSE, ch, 0, 0, TO_CHAR);
+      act("&+r$n starts summoning Cython.", TRUE, ch, obj, NULL, TO_ROOM);
     }
 
     if (isname(arg, "dakta"))
@@ -3807,8 +3807,8 @@ int gfstone(P_obj obj, P_char ch, int cmd, char *arg)
       gf = CEREBUS;
       if (obj->value[gf] < 500)
         return FALSE;
-      act("&+LYou start summoning Dakta.&N", FALSE, ch, 0, 0, TO_CHAR);
-      act("&+L$n starts summoning Dakta.&N", TRUE, ch, obj, NULL, TO_ROOM);
+      act("&+LYou start summoning Dakta.", FALSE, ch, 0, 0, TO_CHAR);
+      act("&+L$n starts summoning Dakta.", TRUE, ch, obj, NULL, TO_ROOM);
     }
 
     if (isname(arg, "raxxel"))
@@ -3816,8 +3816,8 @@ int gfstone(P_obj obj, P_char ch, int cmd, char *arg)
       gf = CARBUNCLE;
       if (obj->value[gf] < 500)
         return FALSE;
-      act("&+cYou start summoning Raxxel.&N", FALSE, ch, 0, 0, TO_CHAR);
-      act("&+c$n starts summoning Raxxel.&N", TRUE, ch, obj, NULL, TO_ROOM);
+      act("&+cYou start summoning Raxxel.", FALSE, ch, 0, 0, TO_CHAR);
+      act("&+c$n starts summoning Raxxel.", TRUE, ch, obj, NULL, TO_ROOM);
     }
 
     if (isname(arg, "godmode") && IS_TRUSTED(ch))
@@ -3835,7 +3835,7 @@ int gfstone(P_obj obj, P_char ch, int cmd, char *arg)
   {
     if (isname(arg, "stone god"))
     {
-      sprintf(buf, "&+WCompatability with: %s&N\n", owner);
+      sprintf(buf, "&+WCompatability with: %s\n", owner);
       send_to_char(buf, ch);
 
       for (i = 1; i <= TOTAL_GF; i++)
@@ -3845,25 +3845,25 @@ int gfstone(P_obj obj, P_char ch, int cmd, char *arg)
           switch (i)
           {
           case SHIVA:
-            sprintf(buf, "&+CKeja&N");
+            sprintf(buf, "&+CKeja");
             break;
           case IFRIT:
-            sprintf(buf, "&+RJera&N");
+            sprintf(buf, "&+RJera");
             break;
           case DOOMTRAIN:
-            sprintf(buf, "&+rCython&N");
+            sprintf(buf, "&+rCython");
             break;
           case CEREBUS:
-            sprintf(buf, "&+LDakta&N");
+            sprintf(buf, "&+LDakta");
             break;
           case CARBUNCLE:
-            sprintf(buf, "&+cRaxxel&N");
+            sprintf(buf, "&+cRaxxel");
             break;
           default:
-            sprintf(buf, "&+WERROR&N");
+            sprintf(buf, "&+WERROR");
             break;
           }
-          sprintf(buf2, "%-17s: &+W%-5d&N\n", buf, obj->value[i]);
+          sprintf(buf2, "%-17s: &+W%-5d\n", buf, obj->value[i]);
           send_to_char(buf2, ch);
         }
       }
@@ -3875,7 +3875,7 @@ int gfstone(P_obj obj, P_char ch, int cmd, char *arg)
   {
     if (obj->value[0] > 0)
     {
-      send_to_char("&+WYou are already summoning!\n&N", ch);
+      send_to_char("&+WYou are already summoning!\n", ch);
       return TRUE;
     }
     count = (int) (obj->value[gf] / 100);
@@ -3904,20 +3904,20 @@ void event_tsunamiwave(P_char ch, P_char victim, P_obj obj, void *data)
     success = true;
     if (should_area_hit(ch, victim)) {
       if (IS_WATER_ROOM(room) && number(0,2)) {
-        act("&+BA HUGE wall of water crashes into the room pushing&n $n &+Bbelow"
-            " the surface.&n", FALSE, victim, 0, 0, TO_ROOM);
+        act("&+BA HUGE wall of water crashes into the room pushing $n &+Bbelow"
+            " the surface.", FALSE, victim, 0, 0, TO_ROOM);
         act("&+BA HUGE wave sweeps into the room knocking you over pushing you "
-            "below the surface.&n", FALSE, victim, 0, 0, TO_CHAR);
+            "below the surface.", FALSE, victim, 0, 0, TO_CHAR);
       } else if (HAS_FOOTING(victim) && number(0,1)) {
         act("&+LThe ground splits apart as a &+Bmass of water&+L erupts "
-            "from below knocking&n $n off $s feet.", FALSE, victim, 0, 0, TO_ROOM);
+            "from below knocking $n off $s feet.", FALSE, victim, 0, 0, TO_ROOM);
         act("&+LThe ground splits apart as a &+Bmass of water&+L erupts "
             "from below knocking you off your feet.", FALSE, victim, 0, 0, TO_CHAR);
       } else if (!HAS_FOOTING(victim) && !IS_WATER_ROOM(room) && !number(0,2)) {
-        act("&+CStorm winds sweep through the room tearing at &n$n &+Cforcing "
-            "$m to $s knees.&n", FALSE, victim, 0, 0, TO_ROOM);
+        act("&+CStorm winds sweep through the room tearing at $n &+Cforcing "
+            "$m to $s knees.", FALSE, victim, 0, 0, TO_ROOM);
         act("&+CStorm winds slam into you forcing you kneel or be blown off "
-            "your feet.&n", FALSE, victim, 0, 0, TO_CHAR);
+            "your feet.", FALSE, victim, 0, 0, TO_CHAR);
       } else {
         success = false;
       }
@@ -3932,6 +3932,7 @@ int SeaKingdom_Tsunami(P_obj obj, P_char ch, int cmd, char *arg)
 {
 
   int      dam = cmd / 1000, curr_time;
+  struct affected_type *af;
   P_char   vict;
 
   curr_time = time(NULL);
@@ -3953,8 +3954,8 @@ int SeaKingdom_Tsunami(P_obj obj, P_char ch, int cmd, char *arg)
   /*
      if (curr_time >= obj->timer[0] + 15)
      {
-     act("$q &+Ysuddenly glows brightly!&N", FALSE, ch, obj, obj, TO_CHAR);
-     act("$n's&N $q glows brightly!", TRUE, ch, obj, obj, TO_ROOM);
+     act("$q &+Ysuddenly glows brightly!", FALSE, ch, obj, obj, TO_CHAR);
+     act("$n's $q glows brightly!", TRUE, ch, obj, obj, TO_ROOM);
      cast_mass_heal(55, ch, 0, SPELL_TYPE_SPELL, ch, 0);
      cast_mass_heal(55, ch, 0, SPELL_TYPE_SPELL, ch, 0);
      obj->timer[0] = curr_time;
@@ -3976,19 +3977,19 @@ int SeaKingdom_Tsunami(P_obj obj, P_char ch, int cmd, char *arg)
             TO_ROOM);
 
         send_to_room
-          ("\n&+BT&+Csun&+Wami&+C, t&+Bhe &N&+btri&+Bden&+Ct o&+Wf s&+Ctor&+Bm s&N&+budd&+Benl&+Cy e&+Wrup&+Cts &+Bint&N&+bo a&+B gu&+Cshi&+Wng &+Cflo&+Bw o&N&+bf p&+Bure&+C wh&+Wite&+C,&N\n",
+          ("\n&+BT&+Csun&+Wami&+C, t&+Bhe &+btri&+Bden&+Ct o&+Wf s&+Ctor&+Bm s&+budd&+Benl&+Cy e&+Wrup&+Cts &+Bint&+bo a&+B gu&+Cshi&+Wng &+Cflo&+Bw o&+bf p&+Bure&+C wh&+Wite&+C,\n",
            ch->in_room);
         send_to_room
-          ("&+Bfro&+Cthi&+Wng &+Cwat&+Ber,&N&+b co&+Bale&+Csin&+Wg i&+Cnto&+B a &N&+bnea&+Brly&+C pe&+Wrfe&+Cct &+Bfor&N&+bm r&+Bese&+Cmbl&+Wing&+C Po&+Bsei&N&+bdon&+B,  &+Crul&+Wer&N\n",
+          ("&+Bfro&+Cthi&+Wng &+Cwat&+Ber,&+b co&+Bale&+Csin&+Wg i&+Cnto&+B a &+bnea&+Brly&+C pe&+Wrfe&+Cct &+Bfor&+bm r&+Bese&+Cmbl&+Wing&+C Po&+Bsei&+bdon&+B,  &+Crul&+Wer\n",
            ch->in_room);
         send_to_room
-          ("&N&+bof&+B th&+Ce S&+Wea &+CKin&+Bgdo&N&+bm. &+B  H&+Cis &+Wmou&+Cth &+Bope&N&+bn i&+Bn a&+C si&+Wlen&+Ct s&+Bcre&N&+bam &+Bof &+Cpro&+Wtes&+Ct, &+Bthe&N&+b sh&+Bape&+C of&N\n",
+          ("&+bof&+B th&+Ce S&+Wea &+CKin&+Bgdo&+bm. &+B  H&+Cis &+Wmou&+Cth &+Bope&+bn i&+Bn a&+C si&+Wlen&+Ct s&+Bcre&+bam &+Bof &+Cpro&+Wtes&+Ct, &+Bthe&+b sh&+Bape&+C of\n",
            ch->in_room);
         send_to_room
-          ("&+Bt&N&+bhe &+Bfal&+Clen&+W Go&+Cd e&+Bxpl&N&+bode&+Bs i&+Cnto&+W je&+Ct s&+Btre&N&+bams&+B of&+C vi&+Wtal&+Cizi&+Bng &N&+bwat&+Ber,&+C sh&+Woot&+Cing&+B ab&N&+broa&+Bd i&+Cn\n",
+          ("&+Bt&+bhe &+Bfal&+Clen&+W Go&+Cd e&+Bxpl&+bode&+Bs i&+Cnto&+W je&+Ct s&+Btre&+bams&+B of&+C vi&+Wtal&+Cizi&+Bng &+bwat&+Ber,&+C sh&+Woot&+Cing&+B ab&+broa&+Bd i&+Cn\n",
            ch->in_room);
         send_to_room
-          ("&+Ball&N&+b di&+Brec&+Ctio&+Wns &+Cand&+B en&N&+bgul&+Bfin&+Cg y&+Wour&+C al&+Blie&N&+bs w&+Bith&+C  t&+Whe &+Clon&+Bg f&N&+borg&+Bott&+Cen &+Wpow&+Cers&+B of&N&+b ol&+Bd.\n\n",
+          ("&+Ball&+b di&+Brec&+Ctio&+Wns &+Cand&+B en&+bgul&+Bfin&+Cg y&+Wour&+C al&+Blie&+bs w&+Bith&+C  t&+Whe &+Clon&+Bg f&+borg&+Bott&+Cen &+Wpow&+Cers&+B of&+b ol&+Bd.\n\n",
            ch->in_room);
 
         for (vict = world[ch->in_room].people; vict;
@@ -3999,39 +4000,45 @@ int SeaKingdom_Tsunami(P_obj obj, P_char ch, int cmd, char *arg)
             if ((ch->group && (ch->group == vict->group)))
             {
               act
-                ("&+W$N&N&+L is &+Bvit&+Cal&+Wiz&+Ced by &+WTsu&+Bna&N&+bmi's&N&+W pow&Ner&+W!&N",
+                ("&+W$N&+L is &+Bvit&+Cal&+Wiz&+Ced by &+WTsu&+Bna&+bmi's&+W power&+W!",
                  FALSE, ch, obj, vict, TO_ROOM);
               spell_vitality(60, ch, 0, SPELL_TYPE_SPELL, vict, 0);
             }
             else if (vict == ch)
             {
               act
-                ("&+W$n&N&+L is &+Bvit&+Cal&+Wiz&+Ced by &+WTsu&+Bna&N&+bmi's&N&+W pow&Ner&+W!&N",
+                ("&+W$n&+L is &+Bvit&+Cal&+Wiz&+Ced by &+WTsu&+Bna&+bmi's&+W power&+W!",
                  FALSE, ch, obj, vict, TO_ROOM);
               spell_vitality(60, ch, 0, SPELL_TYPE_SPELL, ch, 0);
             }
           }
           else
           {
+            struct affected_type *af1;
+            for (af1 = vict->affected; af1; af1 = af1->next)
+            {
+              if(af1->type == SPELL_VITALITY)
+              {
+                 af1->duration = 15;
+              }
+            }
             if (vict == ch)
             {
-              act
-                ("&+bThe &+Bwater&N&+b from $q&N&+b flows around &+Wyou&N&+b with no effect.&N",
+              act("&+bThe &+Bwater&+b from $q&+b flows around &+Wyou&+b, refreshing your &+Wvitality&+b!",
                  TRUE, ch, obj, NULL, TO_CHAR);
             }
             else
             {
-              act
-                ("&+bThe &+Bwater &N&+bfrom $q&N&+b flows around &+W$N&N&+b with no effect.&N",
+              act("&+bThe &+Bwater &+bfrom $q&+b flows around &+W$N&+b, refreshing your &+Wvitality&+b!",
                  TRUE, ch, obj, vict, TO_CHAR);
             }
-            act
-              ("&+bThe &+Bwater &N&+bfrom $q &N&+bflows around &+W$N&N&+b with no effect.&N",
+            
+            act("&+bThe &+Bwater &+bfrom $q &+bflows around &+W$N&+b, refreshing your &+Wvitality&+b!",
                TRUE, ch, obj, vict, TO_ROOM);
           }
         }
         send_to_room
-          ("\n&+WTsu&+Bna&N&+bmi&+L,&N&+b the trident of &+cstorms &+b vibrates &+Bviolently&N&+b and suddenly becomes &+Lstill.&N\n",
+          ("\n&+WTsu&+Bna&+bmi&+L,&+b the trident of &+cstorms &+b vibrates &+Bviolently&+b and suddenly becomes &+Lstill.\n",
            ch->in_room);
         obj->timer[0] = curr_time;
         return TRUE;
@@ -4040,7 +4047,7 @@ int SeaKingdom_Tsunami(P_obj obj, P_char ch, int cmd, char *arg)
       else
       {
         act
-          ("You &+Ltap&N and tap and &+Wtap&N but no &+Bwa&N&+bter's&N comin outta &+Wthis&N &+Bs&+Ch&+Wa&+Cf&+Bt&N.",
+          ("You &+Ltap and tap and &+Wtap but no &+Bwa&+bter's comin outta &+Wthis &+Bs&+Ch&+Wa&+Cf&+Bt.",
            TRUE, ch, obj, NULL, TO_CHAR);
         return TRUE;
       }
@@ -4081,9 +4088,9 @@ int sevenoaks_longsword(P_obj obj, P_char ch, int cmd, char *arg)
   P_char   vict;
   int i, room;
   struct damage_messages messages = {
-    "Your $q &+rhums&n briefly as it unleashes a &+Cr&+Wai&+Cn&n of sharp &+Wic&+Ci&+Bc&+Cl&+Wes&n at $N!",
-    "$n's $q &+rhums&n briefly as it unleashes a &+Cr&+Wai&+Cn&n of sharp &+Wic&+Ci&+Bc&+Cl&+Wes&n at you!",
-    "$n's $q &+rhums&n briefly as it unleashes a &+Cr&+Wai&+Cn&n of sharp &+Wic&+Ci&+Bc&+Cl&+Wes&n at $N!",
+    "Your $q &+rhums briefly as it unleashes a &+Cr&+Wai&+Cn of sharp &+Wic&+Ci&+Bc&+Cl&+Wes at $N!",
+    "$n's $q &+rhums briefly as it unleashes a &+Cr&+Wai&+Cn of sharp &+Wic&+Ci&+Bc&+Cl&+Wes at you!",
+    "$n's $q &+rhums briefly as it unleashes a &+Cr&+Wai&+Cn of sharp &+Wic&+Ci&+Bc&+Cl&+Wes at $N!",
     "", "", "", 0, obj};
     
   if(cmd != CMD_MELEE_HIT ||
@@ -4104,11 +4111,11 @@ int sevenoaks_longsword(P_obj obj, P_char ch, int cmd, char *arg)
   if(CheckMultiProcTiming(ch) &&
     !number(0, 32))
   {
-    act("&+LYour $q blurs as it strikes&N $N.",
+    act("&+LYour $q blurs as it strikes $N.",
       FALSE, ch, obj, vict, TO_CHAR);
     act("&+L$n's $q blurs as it strikes you.",
       FALSE, ch, obj, vict, TO_VICT);
-    act("&+L$n's $q blurs as it strikes&N $N.",
+    act("&+L$n's $q blurs as it strikes $N.",
       FALSE, ch, obj, vict, TO_NOTVICT);
         
     for (i = 0;
@@ -4162,13 +4169,13 @@ int sevenoaks_mace(P_obj obj, P_char ch, int cmd, char *arg)
   {
     if (!number(0, 30))
     {
-      act("Your $q &+Bvibrates then becomes very &+Cchilly!&N", FALSE,
+      act("Your $q &+Bvibrates then becomes very &+Cchilly!", FALSE,
           obj->loc.wearing, obj, vict, TO_CHAR);
       act
-        ("$n's $q &+Bvibrates violently, directing &+Ccold&+B energy at you!&N",
+        ("$n's $q &+Bvibrates violently, directing &+Ccold&+B energy at you!",
          FALSE, obj->loc.wearing, obj, vict, TO_VICT);
       act
-        ("$n's $q &+Bvibrates violently then explodes in &+Cchilly &+Bforce!&N",
+        ("$n's $q &+Bvibrates violently then explodes in &+Cchilly &+Bforce!",
          FALSE, obj->loc.wearing, obj, vict, TO_NOTVICT);
       spell_ice_storm(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
     }
@@ -4244,19 +4251,19 @@ int tendrils(P_obj obj, P_char ch, int cmd, char *arg)
       if (t_align < 351)
       {
         act
-          ("$p &=LCshimmers&n, blasts you with power and vanishes from your hand!",
+          ("$p &=LCshimmers, blasts you with power and vanishes from your hand!",
            FALSE, ch, obj, 0, TO_CHAR);
-        act("$p &=LCshimmers&n and blasts $n before vanishing!", FALSE, ch,
+        act("$p &=LCshimmers and blasts $n before vanishing!", FALSE, ch,
             obj, 0, TO_ROOM);
         obj_to_room(obj, number(zone_table[0].real_top + 1, top_of_world));
       }
       else
       {
-        act("$p &=LCshimmers&n, blasts you with power and leaps to $N!",
+        act("$p &=LCshimmers, blasts you with power and leaps to $N!",
             FALSE, ch, obj, vict, TO_CHAR);
-        act("$p &=LCshimmers&n and blasts $n as it leaps to $N!",
+        act("$p &=LCshimmers and blasts $n as it leaps to $N!",
             FALSE, ch, obj, vict, TO_NOTVICT);
-        act("$p &=LCshimmers&n and blasts $n as it leaps to you!",
+        act("$p &=LCshimmers and blasts $n as it leaps to you!",
             FALSE, ch, obj, vict, TO_VICT);
         obj_to_char(obj, vict);
       }
@@ -4304,12 +4311,12 @@ int tendrils(P_obj obj, P_char ch, int cmd, char *arg)
 
   if(!number(0, 10))
   {
-    act("Before $N can recover $n grabs $M by the throat and utters a single &+Wword&n.\n"
-        "$N spasms in &+Rpain&n as tiny &+Bbolts&n of &+Blight&n surge through $S body!", FALSE, ch, 0, vict, TO_NOTVICT);
-    act("Before your can recover $n grabs your throat and utters a single &+Wword&n.\n"
-     "You spasm in &+Rpain&n as tiny &+Bbolts&n of &+Blight&n surge through your body!", TRUE, ch, 0, vict, TO_VICT);
-    act("Before $N can recover you grab $M by the throat and utter a single &+Wword&n.\n"
-        "$N spasms in &+Rpain&n as tiny &+Bbolts&n of &+Blight&n surge through $S body!", FALSE, ch, 0, vict, TO_CHAR);
+    act("Before $N can recover $n grabs $M by the throat and utters a single &+Wword.\n"
+        "$N spasms in &+Rpain as tiny &+Bbolts of &+Blight surge through $S body!", FALSE, ch, 0, vict, TO_NOTVICT);
+    act("Before your can recover $n grabs your throat and utters a single &+Wword.\n"
+     "You spasm in &+Rpain as tiny &+Bbolts of &+Blight surge through your body!", TRUE, ch, 0, vict, TO_VICT);
+    act("Before $N can recover you grab $M by the throat and utter a single &+Wword.\n"
+        "$N spasms in &+Rpain as tiny &+Bbolts of &+Blight surge through $S body!", FALSE, ch, 0, vict, TO_CHAR);
     spell_stone_skin(60, ch, 0, 0, ch, 0);
     Stun(vict, ch, PULSE_VIOLENCE * 2, TRUE);
     damage(ch, vict, dice(10, 45), TYPE_UNDEFINED);
