@@ -74,7 +74,8 @@ OBJS	=  \
 	common.o \
 	condition.o \
 	constant.o \
-	db.o \
+	CTF.o \
+        db.o \
 	debug.o \
 	disguise.o \
 	dreadlord.o \

@@ -383,6 +383,11 @@ void run_the_game(int port)
   fprintf(stderr, "-- Loading alliances\r\n");
   load_alliances();
   
+#if CTF_MODE
+  fprintf(stderr, "-- CTF MODE engaged\r\n");
+  init_CTF();
+#endif
+
   loadHints();
   epic_initialization();
   time_after = clock();
