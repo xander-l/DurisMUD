@@ -3189,14 +3189,15 @@ bool kick(P_char ch, P_char victim)
       takedown_chance = (int) (takedown_chance / 5);
     }
     
+    int gh = (zone_table[world[ch->in_room].zone].number == GH_ZONE_NUMBER);
     if(takedown_chance > random_number &&
       csize > (vsize + 1))
     {
-      door = number(0, 9);
+      door = number(0+gh, 9);
       
       if((door == UP) || (door == DOWN))
       {
-        door = number(0, 3);
+        door = number(0+gh, 3);
       }
       
       if(CAN_GO(victim, door) &&
@@ -6913,10 +6914,10 @@ void do_rearkick(P_char ch, char *argument, int cmd)
       
   if(takedown_chance > number(0, 100))
   {
-    door = number(0, 9);
+    int gh = (zone_table[world[ch->in_room].zone].number == GH_ZONE_NUMBER);
+    door = number(0+gh, 9);
     if((door == UP) || (door == DOWN))
-      door = number(0, 3);
-    // TODO: make sure doesn't get roomkicked past guildhall golem
+      door = number(0+gh, 3);
     if((CAN_GO(victim, door)) && (!check_wall(victim->in_room, door)))
     {
       act("&+LYour mighty rearkick sends&n $N &+Lflying out of the room!&n",
