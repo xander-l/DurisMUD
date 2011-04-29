@@ -348,8 +348,9 @@ bool get_boon_progress_data(int id, int pid, BoonProgress *bpg)
   if (!bpg)
     return FALSE;
 
-  if (!qry("SELECT id, boonid, pid, counter WHERE id = '%d' AND pid = '%d'", id, pid))
+  if (!qry("SELECT id, boonid, pid, counter FROM boons_progress WHERE boonid = '%d' AND pid = '%d'", id, pid))
   {
+    debug("%d, %d", id, pid);
     debug("get_boon_progress_data(): cant read from db");
     return FALSE;
   }
@@ -380,7 +381,7 @@ bool get_boon_shop_data(int pid, BoonShop *bshop)
   if (!bshop)
     return FALSE;
 
-  if (!qry("SELECT id, pid, points, stats, WHERE pid = '%d'", bshop->pid))
+  if (!qry("SELECT id, pid, points, stats from boons_shop WHERE pid = '%d'", bshop->pid))
   {
     debug("get_boon_shop_data(): cant read from db");
     return FALSE;
@@ -987,7 +988,7 @@ int parse_boon_args(P_char ch, BoonData *bdata, char *argument)
 	    if (retval == 1)
 	      send_to_char("&+WA negative vnum?&n\r\n", ch);
 	    if (retval == 2)
-	      send_to_char_f(ch, "&+WThere is no monster with vnum '%s'.&n\r\n", (int)bdata->criteria);
+	      send_to_char_f(ch, "&+WThere is no monster with vnum '%d'.&n\r\n", (int)bdata->criteria);
 	    if (retval == 3)
 	      send_to_char("&+WMonster failed to load.&n\r\n", ch);
 	    if (retval == 4)
@@ -1789,11 +1790,11 @@ int create_boon(BoonData *bdata)
       }
 
       MYSQL_ROW row = mysql_fetch_row(res);
-      id = atoi(row[0]);
+      bdata->id = atoi(row[0]);
       mysql_free_result(res);
     }
 
-    boon_notify(id, NULL, BN_CREATE);
+    boon_notify(bdata->id, NULL, BN_CREATE);
 
     return TRUE;
   }
@@ -1809,13 +1810,27 @@ int create_boon_progress(BoonProgress *bpg)
     return FALSE;
   }
 
-  if (!qry("INSERT into boons_progress (boonid, pid, counter) VALUES (%d, %d, %f)",
+  if (qry("INSERT into boons_progress (boonid, pid, counter) VALUES (%d, %d, %f)",
 	bpg->boonid, bpg->pid, bpg->counter))
   {
-    return FALSE;
-  }
-  else
+    if (qry("SELECT MAX(id) FROM boons_progress"))
+    {
+      MYSQL_RES *res = mysql_store_result(DB);
+      if (mysql_num_rows(res) < 1)
+      {
+	mysql_free_result(res);
+	return FALSE;
+      }
+
+      MYSQL_ROW row = mysql_fetch_row(res);
+      bpg->id = atoi(row[0]);
+      mysql_free_result(res);
+    }
+
     return TRUE;
+  }
+
+  return FALSE;
 }
 
 int create_boon_shop_entry(BoonShop *bshop)
@@ -1826,7 +1841,7 @@ int create_boon_shop_entry(BoonShop *bshop)
     return FALSE;
   }
 
-  if (!qry("INSERT into boon_shops (pid, points, stats) VALUES (%d, %d, %d)",
+  if (!qry("INSERT into boons_shops (pid, points, stats) VALUES (%d, %d, %d)",
 	bshop->pid, bshop->points, bshop->stats))
   {
     return FALSE;
@@ -1940,7 +1955,6 @@ void boon_notify(int id, P_char ch, int action)
 	case BN_EXTEND:
 	  {
 	    sprintf(buff, "&+CThe duration for Boon # %d has been extended.&n\r\n", bdata.id);
-
 	    break;
 	  }
 	case BN_NOTCH: // Progress notification
@@ -1955,7 +1969,7 @@ void boon_notify(int id, P_char ch, int action)
 		sprintf(tmp, "Invalid Race");
 	      else
 		sprintf(tmp, "%s", race_names_table[(int)bdata.criteria2].ansi);
-	      sprintf(buff, "&+CYou have killed %d of %d %s&n(s) for boon # %d.&n\r\n", (int)bpg.counter, (int)bdata.criteria, race_names_table[(int)bdata.criteria2].ansi, bdata.id);
+	      sprintf(buff, "&+CYou have killed %d of %d %s&+C(s) for boon # %d.&n\r\n", (int)bpg.counter, (int)bdata.criteria, race_names_table[(int)bdata.criteria2].ansi, bdata.id);
 	    }
 	    if (bdata.option == BOPT_MOB)
 	    {
@@ -1968,7 +1982,7 @@ void boon_notify(int id, P_char ch, int action)
 		sprintf(tmp, "%s", J_NAME(mob));
 	      else
 		sprintf(tmp, "Invalid Mob");
-	      sprintf(buff, "&+CYou have killed %d of %d %s&n(s) for boon # %d.&n\r\n", (int)bpg.counter, (int)bdata.criteria, tmp, bdata.id);
+	      sprintf(buff, "&+CYou have killed %d of %d %s&+C(s) for boon # %d.&n\r\n", (int)bpg.counter, (int)bdata.criteria, tmp, bdata.id);
 	    }
 	    if (bdata.option == BOPT_FRAGS)
 	      sprintf(buff, "&+CYou have obtained %.2f out of %.2f frags for boon # %d.&n\r\n", bpg.counter, bdata.criteria, bdata.id);
@@ -2142,6 +2156,9 @@ void boon_random_maintenance()
 // bottom of boon_maintenance().
 void check_boon_completion(P_char ch, P_char victim, double data, int option)
 {
+  if (IS_NPC(ch))
+    return;
+
   BoonData bdata;
   char buff[MAX_STRING_LENGTH];
   char dbqry[MAX_STRING_LENGTH];
@@ -2244,39 +2261,37 @@ void check_boon_completion(P_char ch, P_char victim, double data, int option)
 	send_to_char("Failed to create a progress entry, please contact an Immortal.\r\n", ch);
 	continue;
       }
-      // and notify if its a progression boon option
-      if (boon_options[option].progress)
-	boon_notify(bdata.id, ch, BN_NOTCH);
     }
     // otherwise, we've found the boon, if we're dealing with progression
-    else if (boon_options[option].progress)
+    else if (boon_options[option].progress && bpg.counter != -1)
     {
       // let's notch up their counter appropriately
-      if (!qry("UPDATE boon_progress SET counter = '%d' WHERE id = '%d'", (bpg.counter + ((bdata.option == BOPT_FRAGS) ? data : 1)), bpg.id))
+      if (!qry("UPDATE boons_progress SET counter = '%f' WHERE id = '%d'", (bpg.counter+(bdata.option == BOPT_FRAGS ? data : 1.0)), bpg.id))
       {
 	debug("check_boon_completion(): failed to update bpg DB entry");
 	send_to_char("Failed to update your progress entry for this boon, please contact an Immortal.\r\n", ch);
 	continue;
       }
-      // and notify
-      if (boon_options[option].progress)
-	boon_notify(bdata.id, ch, BN_NOTCH);
-      
-      // let's check and see if these progressions are complete
-      if (bpg.counter < bdata.criteria)
-	return;
-      // otherwise, they're complete, and will continue below...
-      // so let's reset the counter
-      else
-	qry("UPDATE boon_progress SET counter = '%d' WHERE id = '%d'", (bdata.repeat ? 0 : -1), bpg.id);
+      bpg.counter += (bdata.option == BOPT_FRAGS ? data : 1.0);
     }
     // or if we're dealing with non progression and it's not repeatable (counter = -1)
     else
-    {
       // They've completed this non repeatable boon before, so no bonuses for them!
       if (bpg.counter = -1)
-	return;
+	continue;
+      
+    // and notify if its a progression boon option
+    if (boon_options[option].progress)
+    {
+      boon_notify(bdata.id, ch, BN_NOTCH);
+      if (bpg.counter < bdata.criteria)
+	continue;
+      else
+	qry("UPDATE boons_progress SET counter = '%d' WHERE id = '%d'", (bdata.repeat ? 0 : -1), bpg.id);
     }
+    else
+      qry("UPDATE boons_progress SET counter = '%d' WHERE id = '%d'", (bdata.repeat ? 0 : -1), bpg.id);
+
     
     // OK, if we've made it here, they successfully completed a boon
     
@@ -2449,7 +2464,7 @@ void check_boon_completion(P_char ch, P_char victim, double data, int option)
 	    }
 	    else
 	    {
-	      if (!qry("UPDATE boon_shops SET stats = '%d' WHERE pid = '%d'", (bshop.stats + (int)bdata.bonus), GET_PID(ch)))
+	      if (!qry("UPDATE boons_shop SET stats = '%d' WHERE pid = '%d'", (bshop.stats + (int)bdata.bonus), GET_PID(ch)))
 	      {
 		debug("check_boon_completion(): failed to update shop DB entry");
 		send_to_char("Failed to update your shop data for this boon, please contact an Immortal.\r\n", ch);
@@ -2476,7 +2491,7 @@ void check_boon_completion(P_char ch, P_char victim, double data, int option)
 	    }
 	    else
 	    {
-	      if (!qry("UPDATE boon_shops SET points = '%d' WHERE pid = '%d'", (bshop.points + (int)bdata.bonus), GET_PID(ch)))
+	      if (!qry("UPDATE boons_shop SET points = '%d' WHERE pid = '%d'", (bshop.points + (int)bdata.bonus), GET_PID(ch)))
 	      {
 		debug("check_boon_completion(): failed to update shop DB entry");
 		send_to_char("Failed to update your shop data for this boon, please contact an Immortal.\r\n", ch);

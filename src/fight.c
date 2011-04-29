@@ -811,6 +811,7 @@ void AddFrags(P_char ch, P_char victim)
         if (IS_ILLITHID(tch))
           illithid_advance_level(tch);
 
+	debug("Someone died2");
 	check_boon_completion(tch, victim, ((double)real_gain/100), BOPT_FRAG);
 	check_boon_completion(tch, victim, ((double)real_gain/100), BOPT_FRAGS);
       }
@@ -2261,6 +2262,12 @@ void die(P_char ch, P_char killer)
     death_cry(ch);
   }
   
+  if (!IS_PC_PET(ch))
+  {
+    check_boon_completion(killer, ch, 0, BOPT_MOB);
+    check_boon_completion(killer, ch, 0, BOPT_RACE);
+  }
+
   // dragon mobs now will drop a dragon scale
   if(GET_RACE(ch) == RACE_DRAGON)
   {
@@ -2609,12 +2616,6 @@ void die(P_char ch, P_char killer)
         send_to_arena("&+LOne side has been completely vanquished!&N\r\n", -1);
         arena.stage++;
       }
-    }
-
-    if (!IS_PC_PET(ch))
-    {
-      check_boon_completion(killer, ch, 0, BOPT_MOB);
-      check_boon_completion(killer, ch, 0, BOPT_RACE);
     }
 
     return;
