@@ -726,7 +726,7 @@ int parse_boon_args(P_char ch, BoonData *bdata, char *argument)
 	  break;
 	}
       }
-      if (!bit)
+      if (!bit || !aff)
       {
 	send_to_char_f(ch, "&+W'%s' is not a valid affect.  Valid options are:&n\r\n", arg);
 	char flagbuff[MAX_STRING_LENGTH];
@@ -2353,31 +2353,34 @@ void check_boon_completion(P_char ch, P_char victim, double data, int option)
 	  bzero(&af, sizeof(af));
 	  af.type = TAG_BOON;
 	  af.duration = 60;
-	  if (bdata.bonus2 == 1)
+	  *buff = '\0';
+	  if ((int)bdata.bonus == 1)
 	  {
-	    sprintf(buff, "%s", affected1_bits[(int)bdata.bonus].flagLong);
-	    af.bitvector = 1 << (int)bdata.bonus;
+	    sprintf(buff, "%s", affected1_bits[(int)bdata.bonus2].flagLong);
+	    af.bitvector = 1 << (int)bdata.bonus2;
 	  }
-	  if (bdata.bonus2 == 2)
+	  if ((int)bdata.bonus == 2)
 	  {
-	    sprintf(buff, "%s", affected2_bits[(int)bdata.bonus].flagLong);
-	    af.bitvector2 = 1 << (int)bdata.bonus;
+	    sprintf(buff, "%s", affected2_bits[(int)bdata.bonus2].flagLong);
+	    af.bitvector2 = 1 << (int)bdata.bonus2;
 	  }
-	  if (bdata.bonus2 == 3)
+	  if ((int)bdata.bonus == 3)
 	  {
-	    sprintf(buff, "%s", affected3_bits[(int)bdata.bonus].flagLong);
-	    af.bitvector3 = 1 << (int)bdata.bonus;
+	    sprintf(buff, "%s", affected3_bits[(int)bdata.bonus2].flagLong);
+	    af.bitvector3 = 1 << (int)bdata.bonus2;
 	  }
-	  if (bdata.bonus2 == 4)
+	  if ((int)bdata.bonus == 4)
 	  {
-	    sprintf(buff, "%s", affected4_bits[(int)bdata.bonus].flagLong);
-	    af.bitvector4 = 1 << (int)bdata.bonus;
+	    sprintf(buff, "%s", affected4_bits[(int)bdata.bonus2].flagLong);
+	    af.bitvector4 = 1 << (int)bdata.bonus2;
 	  }
-	  if (bdata.bonus2 == 5)
+	  if ((int)bdata.bonus == 5)
 	  {
-	    sprintf(buff, "%s", affected5_bits[(int)bdata.bonus].flagLong);
-	    af.bitvector5 = 1 << (int)bdata.bonus;
+	    sprintf(buff, "%s", affected5_bits[(int)bdata.bonus2].flagLong);
+	    af.bitvector5 = 1 << (int)bdata.bonus2;
 	  }
+	  if (!*buff)
+	    sprintf(buff, "Undefined");
 	  affect_to_char_with_messages(ch, &af, "&+CYour bonus power fa&+cdes away...&n\r\n", NULL);
 	  boon_notify(bdata.id, ch, BN_COMPLETE);
 	  send_to_char_f(ch, "You have been granted the power of %s for a while.\r\n", buff);
