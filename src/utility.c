@@ -1177,6 +1177,11 @@ int ac_can_see(P_char sub, P_char obj, bool check_z)
   {
     /* if the fellow is non-detectable you ain't gonna see jack */
 
+#ifdef defined(CTF_MUD) && (CTF_MUD == 1)
+    if (!affected_by_spell(obj, TAG_CTF))
+      return 0;
+#endif
+
     if(IS_AFFECTED3(obj, AFF3_NON_DETECTION))
       return 0;
 

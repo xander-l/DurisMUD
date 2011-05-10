@@ -488,6 +488,19 @@ void event_move_regen(P_char ch, P_char victim, P_obj obj, void *data)
   }
 
   int per_tick = move_regen(ch);
+
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+  affected_type *af;
+  if ((af = get_spell_from_char(ch, TAG_CTF_BONUS)) != NULL)
+  {
+    int num = af->modifier;
+    if (num >= 10)
+    {
+      per_tick *= 2;
+    }
+  }
+#endif
+  
   if ((per_tick == 0) ||
       (GET_VITALITY(ch) == GET_MAX_VITALITY(ch) && per_tick > 0) ||
       (GET_VITALITY(ch) < 0 && per_tick < 0))
@@ -535,6 +548,18 @@ void event_hit_regen(P_char ch, P_char victim, P_obj obj, void *data)
 
   update_pos(ch);
   int per_tick = hit_regen(ch);
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+  affected_type *af;
+  if ((af = get_spell_from_char(ch, TAG_CTF_BONUS)) != NULL)
+  {
+    int num = af->modifier;
+    if (num >= 10)
+    {
+      per_tick *= 2;
+    }
+  }
+#endif
+  
   healCondition(ch, per_tick); // no idea if it really needed, disabled by NEW_COMBAT  -Odorf
 
   if (GET_HIT(ch) > GET_MAX_HIT(ch) && per_tick > 0)

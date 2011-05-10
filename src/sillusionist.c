@@ -35,6 +35,7 @@
 #   include "damage.h"
 #   include "disguise.h"
 #   include "sql.h"
+#   include "ctf.h"
 
 /*
  * external variables
@@ -1363,6 +1364,13 @@ void spell_shadow_rift(int level, P_char ch, char *arg, int type,
              SET_POS(targ, GET_POS(targ) + STAT_NORMAL);
           send_to_char
             ("&+WYou open your eyes and see:&N\r\n", targ);
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+    if (ctf_carrying_flag(targ) == CTF_PRIMARY)
+    {
+      send_to_char("You can't carry that with you.\r\n", targ);
+      drop_ctf_flag(targ);
+    }
+#endif
           char_from_room(targ);
           char_to_room(targ, location, -1);
           if (GET_STAT(targ) > STAT_SLEEPING)
@@ -1390,6 +1398,13 @@ void spell_shadow_rift(int level, P_char ch, char *arg, int type,
     act("&+LYou drift into the world of dreams...&N",
        FALSE, ch, 0, 0, TO_CHAR);
 
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+    if (ctf_carrying_flag(ch) == CTF_PRIMARY)
+    {
+      send_to_char("You can't carry that with you.\r\n", ch);
+      drop_ctf_flag(ch);
+    }
+#endif
     char_from_room(ch);
     
     if(GET_STAT(ch) > STAT_SLEEPING &&

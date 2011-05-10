@@ -337,9 +337,11 @@ bool flying_transport_cmd_give(P_char ch, P_char victim, char *arg)
   TRANSPORT_STEP(victim) = 0;
 
 #if defined(CTF_MUD) && (CTF_MUD == 1)
-  send_to_char("Oops, you can't take that with you!\r\n", victim);
-  while (affected_by_spell(victim, TAG_CTF))
-    drop_ctf_flag(ch);
+    if (ctf_carrying_flag(ch) == CTF_PRIMARY)
+    {
+      send_to_char("You can't carry that with you.\r\n", ch);
+      drop_ctf_flag(ch);
+    }
 #endif
 
   act("You climb up and ride $n.", FALSE, victim, 0, ch, TO_VICT);

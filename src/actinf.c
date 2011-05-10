@@ -5124,6 +5124,12 @@ void do_score(P_char ch, char *argument, int cmd)
         last = aff->type - 1;
       }
     
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+    affected_type *af2;
+    if ((af2 = get_spell_from_char(ch, TAG_CTF_BONUS)) != NULL)
+      sprintf(buf + strlen(buf), "CTF Bonus Level %d", af2->modifier);
+#endif
+    
     if(*buf &&
        !affected_by_spell(ch, SPELL_FEEBLEMIND))
     {

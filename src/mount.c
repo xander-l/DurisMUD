@@ -177,9 +177,12 @@ void do_mount(P_char ch, char *argument, int cmd)
     return;
   }
 
-#if defined (CTF_MUD) && (CTF_MUD == 1)
-  while (affected_by_spell(ch, TAG_CTF))
-    drop_ctf_flag(ch);
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+    if (ctf_carrying_flag(ch) == CTF_PRIMARY)
+    {
+      send_to_char("You can't carry that with you.\r\n", ch);
+      drop_ctf_flag(ch);
+    }
 #endif
 
   GET_VITALITY(ch) -= movescost;

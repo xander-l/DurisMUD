@@ -550,8 +550,11 @@ void spell_windwalk(int level, P_char ch, char *arg, int type, P_char victim,
   }
 
 #if defined(CTF_MUD) && (CTF_MUD == 1)
-  if (affected_by_spell(ch, TAG_CTF))
-    drop_ctf_flag(ch);
+    if (ctf_carrying_flag(ch) == CTF_PRIMARY)
+    {
+      send_to_char("You can't carry that with you.\r\n", ch);
+      drop_ctf_flag(ch);
+    }
 #endif
 
   char_from_room(ch);
@@ -2093,8 +2096,11 @@ void spell_ethereal_travel(int level, P_char ch, char *arg, int type,
       stop_fighting(ch);
 
 #if defined(CTF_MUD) && (CTF_MUD == 1)
-  if (affected_by_spell(ch, TAG_CTF))
-    drop_ctf_flag(ch);
+    if (ctf_carrying_flag(ch) == CTF_PRIMARY)
+    {
+      send_to_char("You can't carry that with you.\r\n", ch);
+      drop_ctf_flag(ch);
+    }
 #endif
 
     // move the char

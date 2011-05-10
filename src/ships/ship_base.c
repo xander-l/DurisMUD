@@ -1126,6 +1126,13 @@ int ship_obj_proc(P_obj obj, P_char ch, int cmd, char *arg)
     {
 //            if (SHIP_DOCKED(ship) || SHIP_ANCHORED(ship))
       {
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+    if (ctf_carrying_flag(ch) == CTF_PRIMARY)
+    {
+      send_to_char("You can't carry that with you.\r\n", ch);
+      drop_ctf_flag(ch);
+    }
+#endif
         act("$n enters through the docking bay of $p.", TRUE, ch, ship->shipobj, 0, TO_ROOM);
         char_from_room(ch);
         act("You step through the docking bay of $p.", FALSE, ch, ship->shipobj, 0, TO_CHAR);
@@ -1141,6 +1148,13 @@ int ship_obj_proc(P_obj obj, P_char ch, int cmd, char *arg)
     }
     else 
     {
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+    if (ctf_carrying_flag(ch) == CTF_PRIMARY)
+    {
+      send_to_char("You can't carry that with you.\r\n", ch);
+      drop_ctf_flag(ch);
+    }
+#endif
         act("$n boards $p.", TRUE, ch, ship->shipobj, 0, TO_ROOM);
         char_from_room(ch);
         act("You board $p.", FALSE, ch, ship->shipobj, 0, TO_CHAR);

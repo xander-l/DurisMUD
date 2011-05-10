@@ -13969,12 +13969,12 @@ int portal_general_internal( P_obj obj, P_char ch, int cmd, char *arg,
   act("&+W$p suddenly glows brightly!", FALSE, ch, obj, 0, TO_ROOM);
 */
 
-#if defined (CTF_MUD) && (CTF_MUD == 1)
-  while (affected_by_spell(ch, TAG_CTF))
-  {
-    send_to_char("You can't carry that with you!\r\n", ch);
-    drop_ctf_flag(ch);
-  }
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+    if (ctf_carrying_flag(ch) == CTF_PRIMARY)
+    {
+      send_to_char("You can't carry that with you.\r\n", ch);
+      drop_ctf_flag(ch);
+    }
 #endif
 
   act(msg->step_in_to_room, FALSE, ch, obj, 0, TO_ROOM);

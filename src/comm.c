@@ -702,6 +702,9 @@ void game_loop(int s)
       else if (IS_AFFECTED2(t_ch, AFF2_SLOW) && !IS_TRUSTED(t_ch) &&
                (pulse % 2) && !GET_CLASS(t_ch, CLASS_MONK))
         continue;
+      else if (affected_by_spell(t_ch, TAG_CTF) && !IS_TRUSTED(t_ch) &&
+	       (pulse % 2))
+	continue;
 
       /* check for hella long wait time here..  bandaid solution but it should (sort of) work */
 

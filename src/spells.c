@@ -773,8 +773,11 @@ void cast_plane_shift(int level, P_char ch, char *arg, int type,
       plane_id = search_block(Gbuf4, planes_name, FALSE);
       
 #if defined(CTF_MUD) && (CTF_MUD == 1)
-  if (affected_by_spell(ch, TAG_CTF))
-    drop_ctf_flag(ch);
+    if (ctf_carrying_flag(ch) == CTF_PRIMARY)
+    {
+      send_to_char("You can't carry that with you.\r\n", ch);
+      drop_ctf_flag(ch);
+    }
 #endif
 
       if(plane_id == 6 &&

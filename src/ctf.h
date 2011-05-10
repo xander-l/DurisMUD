@@ -4,12 +4,15 @@
 #include "structs.h"
 #include "boon.h"
 
-#define CTF_NO_FLAG	0
-#define CTF_PRIMARY	1
-#define CTF_SECONDARY	2
-#define CTF_BOON	3
+#define RANDOM		-1 // room setting, randomize at bootup
 
-#define CTF_MAX		3
+// flag types
+#define CTF_NO_FLAG	0
+#define CTF_PRIMARY	1 // main flags, you must capture on
+#define CTF_SECONDARY	2 // secondary flags, settable and perm
+#define CTF_RANDOM	3 // temp flags set via boons
+#define CTF_BOON	4 // flags that respawn randomly when captured
+#define CTF_MAX		4
 
 #define CTF_ACT_CAPTURE	1
 #define CTF_ACT_RETURN	2
@@ -53,4 +56,6 @@ int ctf_reload_flag(int);
 P_char get_flag_carrier(int);
 void ctf_delete_flag(int);
 int ctf_get_random_room(int);
+int ctf_carrying_flag(P_char);
+void ctf_update_bonus(P_char);
 #endif

@@ -38,6 +38,7 @@
 #include "disguise.h"
 #include "sql.h"
 #include "vnum.obj.h"
+#include "ctf.h"
 
 /*
  * external variables
@@ -1480,6 +1481,26 @@ void all_affects(P_char ch, int mode)
     GET_MAX_MANA(ch) += calculate_mana(ch);
     GET_MANA(ch) = GET_MAX_MANA(ch) - missing_mana;
   }
+
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+  if ((af = get_spell_from_char(ch, TAG_CTF_BONUS)) != NULL)
+  {
+    int      missing_hps = GET_MAX_HIT(ch) - GET_HIT(ch);
+    int      missing_vitality = GET_MAX_VITALITY(ch) - GET_VITALITY(ch);
+    int num = af->modifier;
+    GET_MAX_HIT(ch) += (num*15);
+    GET_HIT(ch) = GET_MAX_HIT(ch) - missing_hps;
+    GET_MAX_VITALITY(ch) = GET_VITALITY(ch) += (num*20);
+    GET_VITALITY(ch) = GET_MAX_VITALITY(ch) - missing_vitality;
+    ch->points.hitroll += num;
+    ch->points.damroll += num;
+    if (num >= 15)
+    {
+      ch->points.combat_pulse /= 2;
+      ch->points.spell_pulse /= 2;
+    }
+  }
+#endif
 
 }
 

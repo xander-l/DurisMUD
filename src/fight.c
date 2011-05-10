@@ -44,6 +44,7 @@
 #include "dreadlord.h"
 #include "outposts.h"
 #include "boon.h"
+#include "ctf.h"
 
 /*
  * external variables
@@ -2094,6 +2095,16 @@ void die(P_char ch, P_char killer)
     return;
   }
   
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+  if (affected_by_spell(ch, TAG_CTF))
+  {
+    int stat = GET_STAT(ch);
+    SET_POS(ch, GET_POS(ch) + STAT_NORMAL);
+    drop_ctf_flag(ch);
+    SET_POS(ch, GET_POS(ch) + stat);
+  }
+#endif
+  
   for (af = ch->affected; af; af = af->next)
   {
     if(af->type == TAG_RACE_CHANGE)
@@ -2260,7 +2271,7 @@ void die(P_char ch, P_char killer)
   {
     death_cry(ch);
   }
-  
+
   // dragon mobs now will drop a dragon scale
   if(GET_RACE(ch) == RACE_DRAGON)
   {

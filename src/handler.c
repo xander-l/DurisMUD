@@ -2641,7 +2641,12 @@ void extract_char(P_char ch)
   }
 #if defined (CTF_MUD) && (CTF_MUD == 1)
   while (affected_by_spell(ch, TAG_CTF))
+  {
+    int stat = GET_STAT(ch);
+    SET_POS(ch, GET_POS(ch) + STAT_NORMAL);
     drop_ctf_flag(ch);
+    SET_POS(ch, GET_POS(ch) + stat);
+  }
 #endif
   if (IS_MORPH(ch))
   {                             /*

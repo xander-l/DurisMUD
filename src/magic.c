@@ -4637,8 +4637,11 @@ void spell_dimension_door(int level, P_char ch, char *arg, int type,
   }
 
 #if defined(CTF_MUD) && (CTF_MUD == 1)
-  if (affected_by_spell(ch, TAG_CTF))
-    drop_ctf_flag(ch);
+    if (ctf_carrying_flag(ch) == CTF_PRIMARY)
+    {
+      send_to_char("You can't carry that with you.\r\n", ch);
+      drop_ctf_flag(ch);
+    }
 #endif
 
   char_from_room(ch);
@@ -4757,8 +4760,11 @@ void spell_relocate(int level, P_char ch, char *arg, int type, P_char victim,
     FALSE, ch, 0, 0, TO_CHAR);
 
 #if defined(CTF_MUD) && (CTF_MUD == 1)
-  if (affected_by_spell(ch, TAG_CTF))
-    drop_ctf_flag(ch);
+    if (ctf_carrying_flag(ch) == CTF_PRIMARY)
+    {
+      send_to_char("You can't carry that with you.\r\n", ch);
+      drop_ctf_flag(ch);
+    }
 #endif
 
   char_from_room(ch);
@@ -4968,8 +4974,11 @@ void spell_teleport(int level, P_char ch, char *arg, int type, P_char victim,
         stop_fighting(t_ch);
   if(vict->in_room != to_room) {
 #if defined(CTF_MUD) && (CTF_MUD == 1)
-  if (affected_by_spell(ch, TAG_CTF))
-    drop_ctf_flag(ch);
+    if (ctf_carrying_flag(ch) == CTF_PRIMARY)
+    {
+      send_to_char("You can't carry that with you.\r\n", ch);
+      drop_ctf_flag(ch);
+    }
 #endif
     char_from_room(vict);
     char_to_room(vict, to_room, -1);
@@ -7797,8 +7806,11 @@ void spell_word_of_recall(int level, P_char ch, char *arg, int type,
     GET_NAME(victim), world[victim->in_room].number);
 
 #if defined(CTF_MUD) && (CTF_MUD == 1)
-  if (affected_by_spell(ch, TAG_CTF))
-    drop_ctf_flag(ch);
+    if (ctf_carrying_flag(ch) == CTF_PRIMARY)
+    {
+      send_to_char("You can't carry that with you.\r\n", ch);
+      drop_ctf_flag(ch);
+    }
 #endif
 
   char_from_room(victim);
