@@ -869,25 +869,13 @@ int parse_boon_args(P_char ch, BoonData *bdata, char *argument)
     {
       argument = setbit_parseArgument(argument, arg);
       if (*arg && !strcmp(arg, "yes"))
-      {
-	debug("yes");
 	bdata->bonus2 = 1;
-      }
       else if (*arg && !strcmp(arg, "no"))
-      {
-	debug("no");
 	bdata->bonus2 = 0;
-      }
       else if (*arg && atoi(arg) == 0)
-      {
-	debug("0");
 	bdata->bonus2 = 0;
-      }
       else if (*arg && atoi(arg) == 1)
-      {
-	debug("1");
 	bdata->bonus2 = 1;
-      }
       else
       {
 	send_to_char("Invalid secondary bonus, please indicate whether or not to bypass epics (1 or yes, 0 or no).\r\n", ch);

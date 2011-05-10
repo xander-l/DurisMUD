@@ -30,6 +30,7 @@
 #include "buildings.h"
 #include "nexus_stones.h"
 #include "map.h"
+#include "ctf.h"
 
 /*
    extern variables
@@ -1521,6 +1522,11 @@ int elfgate(P_obj obj, P_char ch, int cmd, char *arg)
   if (!isname(Gbuf1, obj->name))
     return (FALSE);
 
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+  if (affected_by_spell(ch, TAG_CTF))
+    drop_ctf_flag(ch);
+#endif
+
   act("As you step into the $o, there is a blinding flash of light!", FALSE,
       ch, obj, 0, TO_CHAR);
   act
@@ -1595,6 +1601,11 @@ int nexus(P_obj obj, P_char ch, int cmd, char *arg)
       FALSE, ch, obj, 0, TO_CHAR);
   act("$n wades into the $o.", FALSE, ch, obj, 0, TO_ROOM);
 
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+  if (affected_by_spell(ch, TAG_CTF))
+    drop_ctf_flag(ch);
+#endif
+
   temp = (number(0, 3));
 #if 0
   teleport_to(ch, real_room(obj->value[temp]));
@@ -1648,6 +1659,11 @@ int magic_pool(P_obj obj, P_char ch, int cmd, char *arg)
       ("Hmm...  Looks like it's busted.  Might wanna notify a god.\n", ch);
     return (FALSE);
   }
+
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+  if (affected_by_spell(ch, TAG_CTF))
+    drop_ctf_flag(ch);
+#endif
 
   act("As you step into the $o, there is a blinding flash of light!", FALSE,
       ch, obj, 0, TO_CHAR);
@@ -1708,6 +1724,11 @@ int magic_map_pool(P_obj obj, P_char ch, int cmd, char *arg)
       ("Hmm...  Looks like it's busted.  Might wanna notify a god.\n", ch);
     return (FALSE);
   }
+
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+  if (affected_by_spell(ch, TAG_CTF))
+    drop_ctf_flag(ch);
+#endif
 
   act("As you step into the $o, there is a blinding flash of light!", FALSE,
       ch, obj, 0, TO_CHAR);

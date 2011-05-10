@@ -2138,6 +2138,9 @@ P_char read_mobile(int nr, int type)
     fscanf(mob_f, " %ld ", &tmp);
 //    GET_LEVEL(mob) = tmp;
     mob->player.level = tmp;
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+    mob->player.level = (int)(mob->player.level/2);
+#endif
 
 /*
  * The following initialises the # of spells useable for NPCs in a given

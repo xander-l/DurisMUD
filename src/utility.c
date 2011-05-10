@@ -1200,7 +1200,7 @@ int ac_can_see(P_char sub, P_char obj, bool check_z)
   if(IS_BLIND(sub))
     return 0;
   
-  if(IS_AFFECTED(obj, AFF_HIDE))// && (obj != sub))
+  if(IS_AFFECTED(obj, AFF_HIDE) && !affected_by_spell(obj, TAG_CTF))// && (obj != sub))
     return 0;
 
   /*

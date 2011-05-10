@@ -32,7 +32,7 @@
 #   include "damage.h"
 #   include "disguise.h"
 #   include "graph.h"
-
+#   include "ctf.h"
 
 /*
  * external variables
@@ -4442,6 +4442,11 @@ void spell_spirit_jump(int level, P_char ch, char *arg, int type,
     
     act(buf, FALSE, ch, 0, tmp, TO_VICT);
   }
+
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+  if (affected_by_spell(ch, TAG_CTF))
+    drop_ctf_flag(ch);
+#endif
 
   char_from_room(ch);
   char_to_room(ch, location, -1);

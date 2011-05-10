@@ -31,6 +31,7 @@
 #include "storage_lockers.h"
 #include "sql.h"
 #include "specs.winterhaven.h"
+#include "ctf.h"
 
 extern P_index obj_index;
 extern P_index mob_index;
@@ -952,6 +953,11 @@ int storage_locker_room_hook(int room, P_char ch, int cmd, char *arg)
     return TRUE;
   }
 
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+  if (affected_by_spell(ch, TAG_CTF))
+    drop_ctf_flag(ch);
+#endif
+
   send_to_char
     ("A member of the &+YStorage Locker Safety Commission&n escorts you to the locker\r\n",
      ch);
@@ -1118,6 +1124,11 @@ int guild_locker_room_hook(int room, P_char ch, int cmd, char *arg)
     return TRUE;
   }
   
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+  if (affected_by_spell(ch, TAG_CTF))
+    drop_ctf_flag(ch);
+#endif
+
   send_to_char
   ("A member of the &+YStorage Locker Safety Commission&n escorts you to the locker\r\n",
    ch);

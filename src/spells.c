@@ -26,6 +26,7 @@
 #include "map.h"
 #include "disguise.h"
 #include "necromancy.h"
+#include "ctf.h"
 
 /*
    external variables
@@ -771,6 +772,11 @@ void cast_plane_shift(int level, P_char ch, char *arg, int type,
   
       plane_id = search_block(Gbuf4, planes_name, FALSE);
       
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+  if (affected_by_spell(ch, TAG_CTF))
+    drop_ctf_flag(ch);
+#endif
+
       if(plane_id == 6 &&
         GET_PRIME_CLASS(ch, CLASS_DRUID) &&
         char_is_on_plane(ch))
