@@ -397,8 +397,8 @@ int building_mob_proc(P_char ch, P_char pl, int cmd, char *arg)
       return FALSE;
  
 #if defined(CTF_MUD) && (CTF_MUD == 1)
-    if (affected_by_spell(ch, TAG_CTF))
-      drop_ctf_flag(ch);
+    if (affected_by_spell(pl, TAG_CTF))
+      drop_ctf_flag(pl);
 #endif
 
     act("You enter $N.", TRUE, pl, 0, tmob, TO_CHAR);
