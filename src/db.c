@@ -2143,7 +2143,7 @@ P_char read_mobile(int nr, int type)
       mob->player.level = (int)(mob->player.level/2);
 
     if (IS_SET(mob->specials.act, ACT_ELITE))
-      mob->player.level -= number(5, 15);
+      mob->player.level -= number(10, 20);
     
     if (IS_SET(mob->specials.act, ACT_TEACHER) ||
 	IS_SET(mob->specials.act, ACT_SPEC_TEACHER))

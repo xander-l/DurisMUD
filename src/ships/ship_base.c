@@ -25,6 +25,7 @@ Updated with warships. Nov08 -Lucrot
 #include "events.h"
 #include "map.h"
 #include "limits.h"
+#include "ctf.h"
 
 extern char buf[MAX_STRING_LENGTH];
 
@@ -1126,7 +1127,7 @@ int ship_obj_proc(P_obj obj, P_char ch, int cmd, char *arg)
     {
 //            if (SHIP_DOCKED(ship) || SHIP_ANCHORED(ship))
       {
-#if defined(CTF_MUD) && (CTF_MUD == 1)
+#if (1)
     if (ctf_carrying_flag(ch) == CTF_PRIMARY)
     {
       send_to_char("You can't carry that with you.\r\n", ch);
@@ -1148,7 +1149,7 @@ int ship_obj_proc(P_obj obj, P_char ch, int cmd, char *arg)
     }
     else 
     {
-#if defined(CTF_MUD) && (CTF_MUD == 1)
+#if (1)
     if (ctf_carrying_flag(ch) == CTF_PRIMARY)
     {
       send_to_char("You can't carry that with you.\r\n", ch);

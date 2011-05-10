@@ -644,7 +644,6 @@ void show_ctf_score(P_char ch, char *argument)
   
   sprintf(dbqry + strlen(dbqry), " GROUP BY pid ORDER BY score DESC LIMIT 10");
  
-  debug(dbqry);
   if (!qry(dbqry))
   {
     send_to_char("No data\r\n", ch);

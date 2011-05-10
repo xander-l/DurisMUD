@@ -1171,16 +1171,12 @@ int ac_can_see(P_char sub, P_char obj, bool check_z)
   }
 
   /* Object is invisible and subject does not have detect invis */
-  if(IS_AFFECTED(obj, AFF_INVISIBLE) ||
+  if((IS_AFFECTED(obj, AFF_INVISIBLE) ||
     IS_AFFECTED2(obj, AFF2_MINOR_INVIS) ||
-    IS_AFFECTED3(obj, AFF3_ECTOPLASMIC_FORM))
+    IS_AFFECTED3(obj, AFF3_ECTOPLASMIC_FORM)) &&
+    !affected_by_spell(obj, TAG_CTF))
   {
     /* if the fellow is non-detectable you ain't gonna see jack */
-
-#ifdef defined(CTF_MUD) && (CTF_MUD == 1)
-    if (!affected_by_spell(obj, TAG_CTF))
-      return 0;
-#endif
 
     if(IS_AFFECTED3(obj, AFF3_NON_DETECTION))
       return 0;
