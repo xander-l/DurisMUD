@@ -678,7 +678,7 @@ void show_ctf_score(P_char ch, char *argument)
 void do_ctf(P_char ch, char *arg, int cmd)
 {
   char arg1[MAX_STRING_LENGTH], arg2[MAX_STRING_LENGTH];
-
+  int i;
 
   half_chop(arg, arg1, arg2);
 
@@ -686,6 +686,29 @@ void do_ctf(P_char ch, char *arg, int cmd)
   {
     show_ctf_score(ch, arg2);
     return;
+  }
+
+  if (!strcmp(arg1, "reset"))
+  {
+    if (arg2 && isdigit(*arg2))
+    {
+      for (i = 1; ctfdata[i].id; i++)
+      {
+	if (i == atoi(arg2))
+	  break;
+      }
+      if (!ctfdata[i].id)
+      {
+	send_to_char("That flag id # is not valid.\r\n", ch);
+	return;
+      }
+      ctf_reload_flag(atoi(arg2));
+    }
+    else
+    {
+      send_to_char("Please enter a valid ctf flag id #.\r\n", ch);
+      return;
+    }
   }
 
   show_ctf(ch);

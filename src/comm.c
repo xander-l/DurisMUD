@@ -703,7 +703,7 @@ void game_loop(int s)
                (pulse % 2) && !GET_CLASS(t_ch, CLASS_MONK))
         continue;
       else if (affected_by_spell(t_ch, TAG_CTF) && !IS_TRUSTED(t_ch) &&
-	       (pulse % 2))
+	       (pulse % (int)get_property("ctf.slowness", 3)))
 	continue;
 
       /* check for hella long wait time here..  bandaid solution but it should (sort of) work */

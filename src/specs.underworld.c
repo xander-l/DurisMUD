@@ -1650,6 +1650,14 @@ int magic_pool(P_obj obj, P_char ch, int cmd, char *arg)
     return (FALSE);
   }
 
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+    if (ctf_carrying_flag(ch) == CTF_PRIMARY)
+    {
+      send_to_char("You can't carry that with you.\r\n", ch);
+      drop_ctf_flag(ch);
+    }
+#endif
+
   act("As you step into the $o, there is a blinding flash of light!", FALSE,
       ch, obj, 0, TO_CHAR);
   act
