@@ -3769,9 +3769,11 @@ void select_attrib(P_desc d, char *arg)
   char buf[MAX_INPUT_LENGTH];
   char buf1[MAX_INPUT_LENGTH];
   char buf2[MAX_STRING_LENGTH] = "\0";  
+  char instr[MAX_STRING_LENGTH];
+  int num = 0, stat = 0, alloc = allocation_total(d->character, -1), choice = 0, allocation = ALLOCATE_AMT;
+  int min = (int)get_property("charcreation.stat.min", 30);
+  int max = (int)get_property("charcreation.stat.max", 80);
 
-  int num, stat = 0, alloc, choice = 0, allocation = ALLOCATE_AMT;
-    
   half_chop(arg, buf, buf1);
   num = atoi(buf1);
   
@@ -3802,50 +3804,80 @@ void select_attrib(P_desc d, char *arg)
       stat = 8;
     break;
     case 'x':
+    {
+      if (alloc > 0)
+      {
+	send_to_char_f(d->character, "You have not used all you're allocated attribute pointes.  You have %d left.\r\n", alloc);
+	return;
+      }
       STATE(d) = CON_KEEPCHAR;
       stat = -1;
     break;
+    }
     case 'z':
       display_stats(d);
+    break;
+    case '?':
       SEND_TO_Q(attribmod, d);
     break;
     default:
-      stat = -2;
+    {
+      display_stats(d);
+      sprintf(instr, "Please select an attribute to modify, and an amount to modify it by.\r\nYou are allowed a total of 300 points, but no stat can be below %d or above %d.\r\n                      Choose wisely.", min, max);
+      SEND_TO_Q(instr, d);
+      SEND_TO_Q(attribmod, d);
+      sprintf(buf2 + strlen(buf2), "\r\nYou have %d points remaining to allocate.\r\n", alloc - num);
+      SEND_TO_Q(buf2, d);
+      return;
+    }
   }
 
   if(stat > 0)
   {
-    alloc = allocation_total(d->character, -1);
-    if(alloc < 0 && num > 0)
+    if(alloc <= 0 && num > 0)
     {
-      SEND_TO_Q("\r\nYou don't have that many points to spend...\r\n", d);
-      SEND_TO_Q("Please choose a statistic to change, and an amount to change it by: \r\n", d);
+      SEND_TO_Q("\r\nYou don't have any points left...\r\n", d);
+      SEND_TO_Q("Please choose a statistic to change, and an amount to change it by, or hit x to keep these settings. \r\n", d);
       return;
     }
-    else if(allocation_total(d->character, stat) + num > 85)
+    if (allocation_total(d->character, stat) >= max && num > 0)
     {
       SEND_TO_Q("\r\nYou can't allocate any more points to that stat...\r\n", d);
-      SEND_TO_Q("Please choose a statistic to change, and an amount to change it by: \r\n", d);
+      return;
+    }
+    else if (allocation_total(d->character, stat) <= min && num < 0)
+    {
+      SEND_TO_Q("\r\nYou can't go that low.\r\n", d);
+      return;
+    }
+    else if (num == 0)
+    {
+      SEND_TO_Q("\r\nPlease enter a valid amount.\r\n", d);
       return;
     }
     else
     {
+      int bal = 0;
+      if(allocation_total(d->character, stat) + num > max)
+	bal = num = (int)get_property("charcreation.stat.max", 80) - allocation_total(d->character, stat);
+      
+      if (allocation_total(d->character, stat) + num < min)
+	bal = num = (int)get_property("charcreation.stat.min", 30) - allocation_total(d->character, stat);
+
+      if (bal)
+      {
+	sprintf(buf2, "\r\nYou can't apply that many points to that stat, using %d points.\r\n", bal);
+	SEND_TO_Q(buf2, d);
+      }
+      
       if(alloc > -1)
-        sprintf(buf2 + strlen(buf2), "You have %d points remaining to allocate.\r\n", alloc);
       add_stat_bonus(d->character, stat, num);
+      display_stats(d);
+      sprintf(buf2 + strlen(buf2), "\r\nYou have %d points remaining to allocate.\r\n", alloc - num);
       SEND_TO_Q(buf2, d);
     }
   }
-  display_stats(d);
-  SEND_TO_Q(attribmod, d);
 
-  if (stat == -2)
-  {
-    SEND_TO_Q("Please choose a statistic to change, and an amount to change it by: \r\n", d);
-    SEND_TO_Q("Ex: a -5, s 7 etc.  (z) to refresh...\r\n", d);
-    return;
-  }
-  
   if(STATE(d) == CON_KEEPCHAR)
   {
     display_characteristics(d);
@@ -3857,7 +3889,7 @@ void select_attrib(P_desc d, char *arg)
  
 int allocation_total(P_char ch, int which)
 {
-  int total;
+  int total = 0;
 
   if(which == -1)
   {
@@ -4376,12 +4408,12 @@ void select_hometown(P_desc d, char *arg)
   GET_BIRTHPLACE(d->character) = home;
   GET_ORIG_BIRTHPLACE(d->character) = home;
 
-  STATE(d) = CON_BONUS1;
+  STATE(d) = CON_STATMOD;
   roll_basic_abilities(d->character, 0);
   display_characteristics(d);
   //display_stats(d);
   //SEND_TO_Q(reroll, d);
-  SEND_TO_Q("\r\nPress return to continue adding stat bonuses.\r\n", d);
+  SEND_TO_Q("\r\nPress enter to continue to stat bonuses.\r\n", d);
 }
 
 void select_keepchar(P_desc d, char *arg)
@@ -4438,7 +4470,7 @@ void display_characteristics(P_desc d)
   char     buffer[MAX_STRING_LENGTH];
 
   sprintf(Gbuf1,
-          "\r\n\r\n---------------------------------------\r\nNAME:   %s\r\n",
+          "\r\n\r\n---------------------------------------\r\nNAME:     %s\r\n",
           GET_NAME(d->character));
 
   if (d->character->player.sex == SEX_MALE)
@@ -4510,40 +4542,40 @@ void display_characteristics(P_desc d)
 
 void add_stat_bonus(P_char ch, int which, int what)
 {
-  int      tmp;
-
-  tmp = what;
+  int tmp = what;
+  int max = get_property("charcreation.stat.max", 80);     
+  int min = get_property("charcreation.stat.min", 30);  
 
   // changing these bounds from 100 to 85, as 85 will be our max stat after
   // attribute allocation for wipe 2011 - Jexni 5/14/11
   switch (which)
   {
   case 1:
-    ch->base_stats.Str = BOUNDED(30, ch->base_stats.Str + tmp, 80);
+    ch->base_stats.Str = BOUNDED(min, ch->base_stats.Str + tmp, max);
     break;
   case 2:
-    ch->base_stats.Dex = BOUNDED(30, ch->base_stats.Dex + tmp, 80);
+    ch->base_stats.Dex = BOUNDED(min, ch->base_stats.Dex + tmp, max);
     break;
   case 3:
-    ch->base_stats.Agi = BOUNDED(30, ch->base_stats.Agi + tmp, 80);
+    ch->base_stats.Agi = BOUNDED(min, ch->base_stats.Agi + tmp, max);
     break;
   case 4:
-    ch->base_stats.Con = BOUNDED(30, ch->base_stats.Con + tmp, 80);
+    ch->base_stats.Con = BOUNDED(min, ch->base_stats.Con + tmp, max);
     break;
   case 5:
-    ch->base_stats.Pow = BOUNDED(30, ch->base_stats.Pow + tmp, 80);
+    ch->base_stats.Pow = BOUNDED(min, ch->base_stats.Pow + tmp, max);
     break;
   case 6:
-    ch->base_stats.Int = BOUNDED(30, ch->base_stats.Int + tmp, 80);
+    ch->base_stats.Int = BOUNDED(min, ch->base_stats.Int + tmp, max);
     break;
   case 7:
-    ch->base_stats.Wis = BOUNDED(30, ch->base_stats.Wis + tmp, 80);
+    ch->base_stats.Wis = BOUNDED(min, ch->base_stats.Wis + tmp, max);
     break;
   case 8:
-    ch->base_stats.Cha = BOUNDED(30, ch->base_stats.Cha + tmp, 80);
+    ch->base_stats.Cha = BOUNDED(min, ch->base_stats.Cha + tmp, max);
     break;
   case 9:
-    ch->base_stats.Luck = BOUNDED(30, ch->base_stats.Luck + tmp, 80);
+    ch->base_stats.Luck = BOUNDED(min, ch->base_stats.Luck + tmp, max);
     break;
   }
   ch->curr_stats = ch->base_stats;

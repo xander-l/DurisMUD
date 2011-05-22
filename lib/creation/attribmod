@@ -1,6 +1,3 @@
-Please select an attribute to modify, and an amount to modify it by.
-You are allowed a total of 300 points, but no stat can be above 80.
-                            Choose wisely.
 
 (s) Strength
 (d) Dexterity
@@ -13,4 +10,7 @@ You are allowed a total of 300 points, but no stat can be above 80.
 
 (x) Done
 (z) Re-display stats
+(?) This list
 
+Please choose a statistic to change, and an amount to change it by:
+Ex: a -5, s 7, etc.  (z) to refresh, and (?) to diaplay this menu again.
