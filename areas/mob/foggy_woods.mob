@@ -8,8 +8,8 @@ angered by your presence in its territory. With its hair standing on end,
 the wolf contemplates a leap at your throat as an evil glint grows in its
 red eyes.
 ~
-72 1 0 0 0 0 0 -1000 S
-A 0 0 -1
+72 1 0 0 0 0 0 0 -1000 S
+A 0 0 0 -1
 12 15 61 12d23+48 2d5+2
 0.0.0.0 5832
 8 8 1
@@ -24,8 +24,8 @@ large yellow canines capable of bringing down the largest of forest
 animals. Perhaps it wants you to soothe its appetite for fresh meat and
 blood.
 ~
-76 1 0 524288 0 0 0 -1000 S
-A 0 0 -1
+76 1 0 0 524288 0 0 0 -1000 S
+A 0 0 0 -1
 15 15 51 15d23+60 2d5+2
 0.0.0.0 7290
 8 8 2
@@ -41,8 +41,8 @@ to kill with its sharp fangs from sheer desperate hunger. You have to be
 tough to survive in the forest of the north and this wolf looks like a
 survivor.
 ~
-2062 1 0 0 0 0 0 -1000 S
-A 0 0 -1
+2062 1 0 0 0 0 0 0 -1000 S
+A 0 0 0 -1
 12 15 61 12d23+48 2d5+2
 0.0.0.0 5832
 8 8 1
@@ -55,8 +55,8 @@ This large wolf has a beautiful coat of silky white fur..which stands on
 end in your presence as it growls. Slit eyes of gold stare into yours as
 the wolf readies its attack.
 ~
-2058 1 0 0 0 0 0 -1000 S
-A 0 0 -1
+2058 1 0 0 0 0 0 0 -1000 S
+A 0 0 0 -1
 16 13 48 16d30+80 3d4+2
 0.0.0.0 7776
 5 5 1
@@ -70,8 +70,8 @@ mandibles, which it uses to crush and eat wood. A thick plate
 protects the beetle from its enemies and this guy looks quite
 content to snack on some more wood chips.
 ~
-131082 0 0 0 0 0 0 0 S
-I 0 0 -1
+131082 0 0 0 0 0 0 0 0 S
+I 0 0 0 -1
 8 18 74 8d18+28 2d3+1
 4.2.0.0 1036
 8 8 0
@@ -88,8 +88,8 @@ with powerful runes and clothes himself in the furs of the forest
 creatures. He looks none too pleased at this intrusion of his private
 forest dwelling and grove of worship.
 ~
-2058 1 0 252 0 0 0 -1000 S
-H 0 256 -1
+2058 1 0 0 252 0 0 0 -1000 S
+H 0 256 0 -1
 55 -5 -111 55d121+4620 7d6+30
 0.2.7.6 222750
 8 8 1
@@ -103,8 +103,8 @@ transparent and easily hides itself from sight. Driven by a evil
 magic know only to its lord the Beastmaster, it will defend him to
 the death.
 ~
-1073743882 1 0 1048696 0 0 0 -1000 S
-U 0 1 -1
+1073743882 1 0 0 1048696 0 0 0 -1000 S
+U 0 1 0 -1
 40 2 -28 40d95+920 4d7+10
 0.0.0.0 51840
 8 8 0
@@ -118,8 +118,8 @@ magics which cause it to be covered in small glowing runes. From the
 eye sockets, an evil red light spills forth which seems to seep into your
 soul with an icy stab.
 ~
-10 1 0 234946600 0 0 0 -1000 S
-U 0 1024 -1
+10 1 0 0 234946600 0 0 0 -1000 S
+U 0 1024 0 -1
 30 8 3 30d44+330 3d6+4
 0.0.0.0 26730
 8 8 0
@@ -132,8 +132,8 @@ The mass of red mist takes on a more definite form as a malevolent looking
 demonic being. It's upper body is hideous and demon-like, sprouting huge
 blood red claws and fangs, while the lower body is a swirl of reddish mist.
 ~
-1073875018 1 0 134217784 0 0 0 -1000 S
-X 0 1024 -1
+1073875018 1 0 0 134217784 0 0 0 -1000 S
+X 0 1024 0 -1
 55 -1 -84 45d72+2250 6d6+12
 5.9.4.6 164025
 8 8 0
@@ -147,8 +147,8 @@ of the cloud sprout four solid tentacles tipped with sharp looking
 talons. Two bright glowing spots in the cloud must be the creature's
 eyes as the focus on you.
 ~
-131144 1 0 134217744 0 0 0 -750 S
-X 0 0 -1
+131144 1 0 0 134217744 0 0 0 -750 S
+X 0 0 0 -1
 20 13 20 20d30+240 3d4+2
 0.9.6.0 14580
 8 8 0
@@ -160,8 +160,8 @@ muskrat rat~
 This little fellow has dirty brown fur and tiny claws. He looks happy
 as a muskrat swimming along in the stream looking for some food.
 ~
-262282 0 0 0 0 0 0 0 S
-A 0 0 -1
+262282 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
 3 20 90 3d15+11 1d5+0
 0.0.0.0 388
 8 8 1
@@ -173,8 +173,8 @@ muskrat rat~
 This little fellow has dirty brown fur and tiny claws. She looks happy
 as a muskrat swimming along in the stream looking for some food.
 ~
-262282 0 0 0 0 0 0 0 S
-A 0 0 -1
+262282 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
 3 20 90 3d15+11 1d5+0
 0.0.0.0 388
 8 8 2
@@ -189,8 +189,8 @@ the course golden hair of the aurumvorax you see rippling muscle, it
 would seem this badger is well prepared to chase any intruders out of
 its lair.
 ~
-138 1 0 536871088 0 0 0 0 S
-A 0 0 -1
+138 1 0 0 536871088 0 0 0 0 S
+A 0 0 0 -1
 20 13 35 20d30+100 3d4+2
 0.0.0.0 9720
 8 8 1
@@ -205,8 +205,8 @@ the forest, he has somehow managed to survive in the woodlands of the
 far north despite the hardships and dangers. He wears heavy wool clothes
 and thick boots to protect himself from the rigors of the outdoors.
 ~
-1073744074 0 0 0 0 0 0 0 S
-H 0 1 -1
+1073744074 0 0 0 0 0 0 0 0 S
+H 0 1 0 -1
 45 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -221,8 +221,8 @@ attire. On his huge muscular body he wears scalemail made from dragonhide
 which alone would qualify him as a powerful being. He rubs a silver bead
 necklace as he prays to his lord and god for guidance in battle.
 ~
-2058 0 0 232 0 0 0 -750 S
-G 0 256 -1
+2058 0 0 0 232 0 0 0 -750 S
+G 0 256 0 -1
 50 -3 -85 50d110+2950 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -236,8 +236,8 @@ definitely look capable of handing anyone of your stature with the
 huge wooden club he wields. The thought of it smashing into you makes
 you shudder in involuntary pain.
 ~
-1073743944 0 0 8 0 0 0 -750 S
-G 0 1 -1
+1073743944 0 0 0 8 0 0 0 -750 S
+G 0 1 0 -1
 35 6 -2 35d83+770 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -251,8 +251,8 @@ definitely looks capable of handling anyone of your stature with the
 huge wooden club she wields. The thought of it smashing into you makes
 you shudder in involuntary pain.
 ~
-1073743944 0 0 8 0 0 0 -750 S
-G 0 1 -1
+1073743944 0 0 0 8 0 0 0 -750 S
+G 0 1 0 -1
 38 6 -2 35d83+770 4d6+7
 9.9.1.2 45360
 8 8 2
@@ -265,8 +265,8 @@ A giant of many years, wrinkles line her face and her muscles sag from
 age. Of course, even old giant muscles could rip a man apart, though
 it looks like she'd prefer slicing you up for a good meal for her kids.
 ~
-138 0 0 0 0 0 0 0 S
-G 0 0 -1
+138 0 0 0 0 0 0 0 0 S
+G 0 0 0 -1
 30 8 13 30d55+480 3d6+4
 0.5.7.1 26730
 8 8 2
@@ -279,8 +279,8 @@ Being a fairly young fog giant, this male is only twenty feet or so
 tall. Still, he is a huge being and playfulness could mean the
 tossing of a full grown man twenty feet in the air and catching them.
 ~
-220 0 0 0 0 0 0 -700 S
-G 0 0 -1
+220 0 0 0 0 0 0 0 -700 S
+G 0 0 0 -1
 30 13 55 17d30+170 3d4+2
 8.6.2.0 8262
 8 8 1
@@ -293,8 +293,8 @@ A big stinky rat with filthy fur sits up on its hind legs and munches
 on an unrecognizable piece of foodstuff. You probably don't want to
 know what it is...it almost makes you sick just looking at it.
 ~
-200 1 0 1048576 0 0 0 -1000 S
-A 0 0 -1
+200 1 0 0 1048576 0 0 0 -1000 S
+A 0 0 0 -1
 3 20 90 3d15+11 1d5+0
 0.0.0.0 388
 8 8 0
@@ -307,8 +307,8 @@ This is an exceptionally large rat being over three feet long with
 dirty gray fur. As you look at him, his body shifts into more
 insubstantial mist, then back again into a solid form.
 ~
-1074266314 1 0 0 0 0 0 -1000 S
-D 0 256 -1
+1074266314 1 0 0 0 0 0 0 -1000 S
+D 0 256 0 -1
 43 -1 -82 43d99+2322 6d6+12
 3.8.7.10 208980
 8 8 0
@@ -321,8 +321,8 @@ A larger variety of the southern grey squirrel, this guy has a thick
 coat of fur and a big bushy tail. Kept busy looking for food in the
 harsh northern forests, it looks up at you and scampers off to a tree.
 ~
-200 0 0 0 0 0 0 0 S
-A 0 0 -1
+200 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
 3 20 90 3d15+11 1d5+0
 0.0.0.0 40000000
 8 8 1
@@ -337,8 +337,8 @@ a general storekeeper. For some reason, Ulon was spared whatever
 killed off the rest of the camp's inhabitants and he's pretty
 happy about it!
 ~
-33556506 0 0 8400 0 0 0 100 S
-H 0 32 -1
+33556506 0 0 0 8400 0 0 0 100 S
+H 0 32 0 -1
 55 -5 -111 55d121+4620 7d6+30
 0.2.7.6 222750
 8 8 1
@@ -351,8 +351,8 @@ Being a fairly young fog giant, this female is only twenty feet or so
 tall. Still she is a huge being and playfulness could mean the
 tossing of a full grown man twenty feet in the air and catching them.
 ~
-220 0 0 0 0 0 0 -700 S
-G 0 0 -1
+220 0 0 0 0 0 0 0 -700 S
+G 0 0 0 -1
 17 13 55 17d30+170 3d4+2
 8.6.2.0 8262
 8 8 2
@@ -365,8 +365,8 @@ A larger variety of the southern grey squirrel, this guy has a thick
 coat of fur and a big bushy tail. Kept busy looking for food in the
 harsh northern forests, it looks up at you and scampers off to a tree.
 ~
-200 0 0 0 0 0 0 0 S
-A 0 0 -1
+200 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
 3 20 90 3d15+11 1d5+0
 0.0.0.0 40000000
 8 8 2
@@ -380,8 +380,8 @@ the light of the sun. Large talons allow it to catch rabbits,
 squirrels and other woodlands creatures for food. As you approach,
 he slowly turns his head to look at you with a wise gaze.
 ~
-131082 0 0 134217728 0 0 0 0 S
-B 0 0 -1
+131082 0 0 0 134217728 0 0 0 0 S
+B 0 0 0 -1
 6 18 80 6d18+21 2d3+1
 0.0.0.0 777
 8 8 1
@@ -395,8 +395,8 @@ thick wolf-skin fur clothing, he is prepared to brave the cold damp weather
 for extended periods of time. He spots you as you approach and prepares to
 attack.
 ~
-1107296330 0 0 296 2 0 0 -750 S
-G 0 1 -1
+1107296330 0 0 0 296 2 0 0 -750 S
+G 0 1 0 -1
 30 8 13 30d65+540 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -410,8 +410,8 @@ He ducks and hides about in a mock game of 'copsi', a game played by
 fog giants where they attempt to dodge and catch an opponent giant's
 thrown boulders. He's not only muscular but very dextrous for a giant.
 ~
-1073741898 0 0 33554688 0 0 0 -750 S
-G 0 16384 -1
+1073741898 0 0 0 33554688 0 0 0 -750 S
+G 0 16384 0 -1
 33 6 5 33d83+726 4d6+7
 7.8.0.2 42768
 8 8 1
@@ -425,8 +425,8 @@ by one of the logging camp's lumberjacks. Howling in agony, the
 transparent form wants no reminders of its past life and seeks
 to destroy any living humanoid it sees...
 ~
-2122 1 0 134217768 0 0 0 -1000 S
-U 0 0 -1
+2122 1 0 0 134217768 0 0 0 -1000 S
+U 0 0 0 -1
 29 8 7 29d55+319 3d6+4
 0.0.0.0 25839
 8 8 0
@@ -440,8 +440,8 @@ angered by your presence in its territory. With its hair standing on end,
 the wolf contemplates a leap at your throat as an evil glint grows in its
 red eyes.
 ~
-1073741898 1 0 0 0 0 0 -1000 S
-A 0 0 -1
+1073741898 1 0 0 0 0 0 0 -1000 S
+A 0 0 0 -1
 17 13 45 17d30+85 3d4+2
 0.0.0.0 8262
 8 8 1
@@ -456,8 +456,8 @@ large yellow canines capable of bringing down the largest of forest
 animals. Perhaps it wants you to soothe its appetite for fresh meat and
 blood.
 ~
-1073741902 1 0 524288 0 0 0 -1000 S
-A 0 0 -1
+1073741902 1 0 0 524288 0 0 0 -1000 S
+A 0 0 0 -1
 19 13 39 19d30+95 3d4+2
 0.0.0.0 9234
 8 8 2
@@ -470,8 +470,8 @@ Standing about 25 feet tall, this is one big and mean looking
 giant. He stands alert by the tribal shaman's side, eagerly
 awaiting the oportunity to prove himself in combat.
 ~
-1073743946 0 0 33554728 0 0 0 -750 S
-G 0 1 -1
+1073743946 0 0 0 33554728 0 0 0 -750 S
+G 0 1 0 -1
 35 6 -2 35d83+770 4d6+7
 9.9.1.2 45360
 8 8 0
