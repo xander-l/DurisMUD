@@ -7,8 +7,8 @@ It resembles a statue, standing about fifteen feet tall and made of what looks
 like pitch-black stone.  It wields no weapon, but its huge fists look
 formidable indeed.
 ~
-1073743882 0 0 128 0 0 0 0 S
-H 0 1 -1
+1073743882 0 0 0 128 0 0 0 0 S
+H 0 1 0 -1
 46 -3 -72 46d119+2530 6d6+25
 6.0.9.4 111780
 8 8 0
@@ -18,8 +18,8 @@ huge slaad~
 &+LA massive form stands here ready for battle.&n
 ~
 ~
-1075017802 1 0 402653246 262144 67108864 8192 0 S
-EA 0 576 7
+1075017802 1 0 0 402653246 262144 67108864 8192 0 S
+EA 0 576 0 7
 60 175 -100 10d10+29500 10d5+40
 0.0.0.0 1000000
 8 8 0
@@ -29,8 +29,8 @@ fire wyrm ancient~
 &+RAn ancient fire wyrm guards the vault from intruders.
 ~
 ~
-2090 1 0 1573016 2049 0 4096 0 S
-d 0 1 -1
+2090 1 0 0 1573016 2049 0 4096 0 S
+d 0 1 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -40,8 +40,8 @@ ice wyrm ancient~
 &+BAn ancient ice wyrm guards the vault from intruders.&n
 ~
 ~
-2570 1 0 1573016 0 2097152 0 0 S
-d 0 1 -1
+2570 1 0 0 1573016 0 2097152 0 0 S
+d 0 1 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -51,8 +51,8 @@ shock wyrm ancient~
 &+bAn ancient shock wyrm is looking for an easy meal.&n
 ~
 ~
-2314 1 0 1573048 2048 0 0 0 S
-d 0 4 -1
+2314 1 0 0 1573048 2048 0 0 0 S
+d 0 4 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -62,19 +62,19 @@ assassin stealthy wyrm~
 &+LA stealthy wyrm hides in the shadows.&n
 ~
 ~
-18446 1 0 2417492024 34816 67633152 0 0 S
-dk 0 4096 3
+18446 1 0 0 2417492024 34816 67633152 0 0 S
+dk 0 4096 0 3
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #19906
 dark wyrm~
-&+LA dark wyrm&n~
+&+La dark wyrm&n~
 &+LA dark wyrm stands here devouring all light.&n
 ~
 ~
-1074792458 1 0 1572920 4194304 0 256 0 S
-d 0 16777216 -1
+1074792458 1 0 0 1572920 4194304 0 256 0 S
+d 0 16777216 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -84,8 +84,8 @@ guardian wyrm~
 &+LA large &+rwyrm &+Lstands guard over Tiamat's treasure.&n
 ~
 ~
-2058 0 0 0 0 0 0 0 S
-d 0 2 -1
+2058 0 0 0 0 0 0 0 0 S
+d 0 2 0 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -97,8 +97,8 @@ githyanki high mage~
 The figure is hidden behind a thick-auburn cloak, covered in intricate runes.
 A pair of glowing-red eyes stare at you, and seem to shift in hue.
 ~
-1073743886 1 0 33554602 0 0 0 -1000 S
-GI 0 1028 -1
+1073743886 1 0 0 33554602 0 0 0 -1000 S
+GI 0 1028 0 -1
 55 -5 -126 55d88+4950 7d6+30
 0.2.0.9 334125
 8 8 0
@@ -114,8 +114,8 @@ usually take the form of a cone-like heap, striated in disgusting blackish
 greens, foul browns and yellows, and sticky translucent grays and ambers.
 From this mass protrude several glaring red eyes.
 ~
-1073875020 1 0 33554602 0 0 0 -1000 S
-D 0 32 -1
+1073875020 1 0 0 33554602 0 0 0 -1000 S
+D 0 32 0 -1
 60 -10 -152 60d132+6840 7d6+35
 6.6.9.22 486000
 8 8 1

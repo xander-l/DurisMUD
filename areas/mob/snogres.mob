@@ -12,8 +12,8 @@ snow ogre berserker insane one _spec2_~
 &+rsubstantial loincloth covers the thing's genitals, though not with much success.
 &+rTribal tattoos cover most of the creature's arm(s) and torso.&N
 ~
-1090811912 1 0 838967612 268447966 84181120 101725696 -1000 S
-SO 0 1048576 5
+1090811912 1 0 0 838967612 268447966 84181120 101725696 -1000 S
+SO 0 1048576 0 5
 61 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -28,8 +28,8 @@ ogre snow tribal guard _spec2_~
 &+WHis eyes are somewhat bloodshot and his breath reeks of alcohol.  &+rTribal &+Ltattoos
 &+Wtrace intricate lines and patterns across most of his skin.&N
 ~
-1140852744 1 0 268435772 66 0 4096 -1000 S
-SO 0 1 5
+1140852744 1 0 0 268435772 66 0 4096 -1000 S
+SO 0 1 0 5
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -44,8 +44,8 @@ ogre snow tribal shaman _spec1_~
 &+Cmeander about the creature's neck and face.  The hair of the beast is tied back
 &+Cwith several thin leather thongs.&N
 ~
-1342572552 1 0 285247932 32862 160 22024192 -1000 S
-SO 0 256 -1
+1342572552 1 0 0 285247916 32862 160 22024192 -1000 S
+SO 0 256 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -61,8 +61,8 @@ ogre snow ogress tribeswoman~
 &+mis massive and doesn't appear to be extremely light on her feet.  Her swagger is
 &+mone of careless freedom as she lumbers about the cavern.&N
 ~
-1073743880 1 0 268435516 94 32768 4096 -1000 S
-SO 0 1 5
+1073743880 1 0 0 268435500 94 32768 4096 -1000 S
+SO 0 1 0 5
 57 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -79,8 +79,8 @@ ogre snow death knight armored _block_north_ _spec2_~
 &+Lhave been inlaid with &+Csilver&+L.  Two onyx pommels protrude from the ends of the
 &+Lscabbards, waiting for use.&N
 ~
-1359114250 1 0 805380412 47326 32768 34616832 -1000 S
-SO 0 16 5
+1359114250 1 0 0 805380412 47326 32768 34616832 -1000 S
+SO 0 16 0 5
 61 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -95,8 +95,8 @@ ogre snow tribal guard _spec2_~
 &+WHis eyes are somewhat bloodshot and his breath reeks of alcohol.  &+rTribal &+Ltattoos
 &+Wtrace intricate lines and patterns across most of his skin.&N
 ~
-67241992 1 0 268435772 2114 0 4096 -1000 S
-SO 0 1 5
+67241992 1 0 0 268435772 2114 0 4096 -1000 S
+SO 0 1 0 5
 56 90 -300 2500d6+1500 20d4+65
 0.0.0.25 540000
 8 8 1
@@ -111,8 +111,8 @@ ogre snow shamaness _spec1_~
 &+Ccadenced precisely and even though it has a gutteral tone to it, it is strangely
 &+Cmelodic.&N
 ~
-2056 1 0 268509500 32798 32896 4096 -1000 S
-SO 0 256 5
+2056 1 0 0 268509484 32798 32896 4096 -1000 S
+SO 0 256 0 5
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -127,8 +127,8 @@ ogre snow tribal guardian _spec2_~
 &+WHis eyes are somewhat bloodshot and his breath reeks of alcohol.  &+rTribal &+Ltattoos
 &+Wtrace intricate lines and patterns across most of his skin.&N
 ~
-1140852744 1 0 268435772 66 0 4096 -1000 S
-SO 0 1 5
+1140852744 1 0 0 268435772 66 0 4096 -1000 S
+SO 0 1 0 5
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -144,8 +144,8 @@ ogre snow elite guardian _spec2_~
 &+WHis eyes are somewhat bloodshot and his breath reeks of alcohol.  &+rTribal &+Ltattoos
 &+Wtrace intricate lines and patterns across most of his skin.&N
 ~
-1140852744 1 0 268435772 66 0 4096 -1000 S
-SO 0 1 5
+1140852744 1 0 0 268435772 66 0 4096 -1000 S
+SO 0 1 0 5
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -163,8 +163,8 @@ ogre snow champion _spec1_ _ignore_~
 &+Wchampion.  His look of powerful malice would stop most meek creatures in their
 &+Wtracks.&N
 ~
-1157650440 1 0 805380412 268710110 67141760 109065728 -1000 S
-SO 0 1 5
+1157650440 1 0 0 805380412 268710110 67141760 109065728 -1000 S
+SO 0 1 0 5
 62 150 -500 20000d4+18000 12d9+70
 0.0.0.500 950500
 8 8 1
@@ -178,8 +178,8 @@ hound moor large~
 &+ylow growl escape from deep within its throat.  It has a pointed tail nearly as long
 &+yas its four foot long body, which writhes behind it in a weaving dance.&N
 ~
-1073743880 1 0 35127356 66 0 0 0 S
-AC 0 1 3
+1073743880 1 0 0 35127356 66 0 0 0 S
+AC 0 1 0 3
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -197,8 +197,8 @@ rampager reptilian beast _spec2_~
 &+rA thick tongue lolls out of the creature's mouth as it stops to take in the
 &+rsurroundings.&N
 ~
-1074022408 1 0 35127356 66 0 12288 0 S
-AC 0 2097152 4
+1074022408 1 0 0 35127356 66 0 12288 0 S
+AC 0 2097152 0 4
 57 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -216,8 +216,8 @@ sundew mass vines mutated _spec2_~
 &+Gmutated by the climate and perhaps some other source to become this large and
 &+Gaggressive.&N
 ~
-1073772552 1 0 319324204 263234 262144 12288 0 S
-VT 0 64 5
+1073772552 1 0 0 319324204 263234 262144 12288 0 S
+VT 0 64 0 5
 57 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -232,8 +232,8 @@ spider phase ethereal arachnid _nobite_~
 &+wthe aggressive and protective nature of the creature can make for a headache
 &+wwhen encountering one.  Phase spiders are not known to be poisonous.&N
 ~
-1140852744 1 0 35127614 66 0 2048 0 S
-AS 0 4096 3
+1140852744 1 0 0 35127614 66 0 2048 0 S
+AS 0 4096 0 3
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -247,8 +247,8 @@ wraith formless being _spec2_~
 &+Leasily and with a rapidity that can shift it from place to place with
 &+Lfrightening speed.  A faint aura of evil emenates from the center of its being.&N
 ~
-1409447944 1 0 35127356 264274 2097416 117446656 -1000 S
-U 0 512 2
+1409447944 1 0 0 35127356 264274 2097416 117446656 -1000 S
+U 0 512 0 2
 59 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -268,8 +268,8 @@ dragon swamp draconian creature _spec2_~
 &+Lof scale and bone which curve over the eye and run down towards the back of the
 &+Ljawline.  An haze of cold air seems to swim about the creature.&N
 ~
-1360165384 1 0 973152700 268712130 0 654324224 -1000 S
-D 0 4194320 7
+1360165384 1 0 0 973152700 268712130 0 654324224 -1000 S
+D 0 4194320 0 7
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -284,8 +284,8 @@ goblin ice malevolent _spec1_~
 &+creptilian creature.  The clawed hands of the goblin work the stick with a
 &+cferocity that can only come with malice of the highest level.&N
 ~
-1140852872 1 0 35127356 66 0 0 -1000 S
-HG 0 65536 1
+1140852872 1 0 0 35127356 66 0 0 -1000 S
+HG 0 65536 0 1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -300,8 +300,8 @@ goblin ice malevolent _spec2_~
 &+creptilian creature.  The clawed hands of the goblin work the stick with a
 &+cferocity that can only come with malice of the highest level.&N
 ~
-1140852872 1 0 35127356 66 0 0 -1000 S
-HG 0 4194304 1
+1140852872 1 0 0 35127356 66 0 0 -1000 S
+HG 0 4194304 0 1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -316,8 +316,8 @@ goblin ice malevolent~
 &+creptilian creature.  The clawed hands of the goblin work the stick with a
 &+cferocity that can only come with malice of the highest level.&N
 ~
-1140852872 1 0 35127356 66 0 0 -1000 S
-HG 0 512 1
+1140852872 1 0 0 35127356 66 0 0 -1000 S
+HG 0 512 0 1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -332,8 +332,8 @@ goblin ice malevolent _spec3_~
 &+creptilian creature.  The clawed hands of the goblin work the stick with a
 &+cferocity that can only come with malice of the highest level.&N
 ~
-1140852872 1 0 35127356 66 0 0 -1000 S
-HG 0 8192 1
+1140852872 1 0 0 35127356 66 0 0 -1000 S
+HG 0 8192 0 1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -348,8 +348,8 @@ troll ice shaggy~
 &+Cblack and the few teeth in its maw are a discolored yellow.  It sniffs the area
 &+Cas it prowls, searching for something warm and tasty amidst the snow.&N
 ~
-1073743880 1 0 33554492 66 0 8192 -1000 S
-PT 0 1 4
+1073743880 1 0 0 33554492 66 0 8192 -1000 S
+PT 0 1 0 4
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -364,8 +364,8 @@ troll ice shaggy~
 &+Cblack and the few teeth in its maw are a discolored yellow.  It sniffs the area
 &+Cas it prowls, searching for something warm and tasty amidst the snow.&N
 ~
-1073743880 1 0 33554492 66 0 8192 -1000 S
-PT 0 16384 4
+1073743880 1 0 0 33554492 66 0 8192 -1000 S
+PT 0 16384 0 4
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -381,8 +381,8 @@ troll snow shaggy~
 &+Cno hair upon its bald head.  It sniffs the area as it prowls, searching for
 &+Csomething warm and tasty amidst the snow.&N
 ~
-1073743880 1 0 33554492 66 0 8192 -1000 S
-PT 0 1 4
+1073743880 1 0 0 33554492 66 0 8192 -1000 S
+PT 0 1 0 4
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -398,8 +398,8 @@ troll snow shaggy~
 &+Cno hair upon its bald head.  It sniffs the area as it prowls, searching for
 &+Csomething warm and tasty amidst the snow.&N
 ~
-1073743880 1 0 33554492 66 0 8192 -1000 S
-PT 0 16384 4
+1073743880 1 0 0 33554492 66 0 8192 -1000 S
+PT 0 16384 0 4
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -416,8 +416,8 @@ remorhaz deadly polar worm _ignore_~
 &+CBony ridges, plates and spines extend outwards from the main body of the worm,
 &+Cperhaps acting as defense.&N
 ~
-1073760264 1 0 303038508 1090 0 8392704 -1000 S
-ac 0 0 6
+1073760264 1 0 0 303038508 1090 0 8392704 -1000 S
+ac 0 0 0 6
 57 0 0 15000d2+5000 10d7+60
 0.0.0.0 0
 8 8 1
@@ -434,8 +434,8 @@ astereater angered ball floating~
 &+rgiant flap of skin which closes over the top of it.  The creature makes no
 &+rindication of breathing and makes no sounds of any kind.&N
 ~
-1090652170 0 0 436207804 66 18350080 12288 -1000 S
-BK 0 4 4
+1090652170 0 0 0 436207804 66 18350080 12288 -1000 S
+BK 0 4 0 4
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -451,8 +451,8 @@ ogre snow war chief massive _spec1_~
 &+rsteel-shod boots adorn the thing's feet, and a thick kilt of chainmail covers
 &+rmost of his abdomen and legs.  His gaze is level and fixed, almost lucid.&N
 ~
-1073760266 1 0 838934844 12510 32768 8192 -1000 S
-SO 0 1 5
+1073760266 1 0 0 838934844 12510 32768 8192 -1000 S
+SO 0 1 0 5
 62 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -469,8 +469,8 @@ ogre snow worshipper elite _spec2_~
 &+Cear to the other, crossing his chin and mouth.  A thin, crooked staff held
 &+Cwithin his left hand bends under his weight as he leans upon it.&N
 ~
-1073760266 1 0 302063932 12510 2129920 12288 -1000 S
-SO 0 256 5
+1073760266 1 0 0 302063932 12510 2129920 12288 -1000 S
+SO 0 256 0 5
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -486,8 +486,8 @@ ogre snow worshipper elite _spec2_~
 &+Rbrow.  A single gauntlet of adamantite covers the hand and lower arm of the
 &+Rogre's left side.&N
 ~
-1073760266 1 0 302063932 12510 32768 8400896 -1000 S
-SO 0 256 5
+1073760266 1 0 0 302063932 12510 32768 8400896 -1000 S
+SO 0 256 0 5
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -507,8 +507,8 @@ ogre snow tribal chieftain revered elite _spec1_~
 &+Lsmokey, almost glass-like stones.  His skin is unmarred, taut and smooth and
 &+Lwhat little hair he has grows thickly from the top of his skull.&N
 ~
-1358977034 1 0 302063932 274654 17858560 605042184 -1000 S
-SO 0 17039360 6
+1358977034 1 0 0 302063932 274654 17858560 605042184 -1000 S
+SO 0 17039360 0 6
 62 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -524,8 +524,8 @@ wardog dog war enraged~
 &+rback and forth quickly, taking in its surroundings and contrasting wildly with
 &+rits droopy ears.&N
 ~
-1140852746 1 0 33628476 12510 0 1052672 -1000 S
-AC 0 1048576 3
+1140852746 1 0 0 33628476 12510 0 1052672 -1000 S
+AC 0 1048576 0 3
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -540,8 +540,8 @@ ogre snow tribesman~
 &+cexposed.  A few scars and mottled patches of skin speak to a hard life, but this
 &+cogre hasn't spent much time in battle.&N
 ~
-1073743880 1 0 268435516 94 32768 4096 -1000 S
-SO 0 0 5
+1073743880 1 0 0 268435516 94 32768 4096 -1000 S
+SO 0 0 0 5
 57 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -556,8 +556,8 @@ wardog dog war~
 &+rsmaller creature.  Its ears perk up at any strange sound and it seems very alert
 &+rof its surroundings.&N
 ~
-1140852744 1 0 35201340 12510 262144 1052672 -1000 S
-AC 0 1 3
+1140852744 1 0 0 35201340 12510 262144 1052672 -1000 S
+AC 0 1 0 3
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -582,8 +582,8 @@ lich lrethlamn gaunt _ignore_~
 &+Wentrapped within the deep sockets.  He makes no moves and seems to be utterly
 &+Wunaware of your presence.&N
 ~
-286427678 0 0 33628476 277726 17039360 668218912 -1000 S
-UL 0 17040400 0
+286427678 0 0 0 33628476 277726 17039360 668218912 -1000 S
+UL 0 17040400 0 0
 62 0 -500 35000d4+30000 30d4+80
 0.0.0.12500 10000000
 8 8 1
@@ -603,8 +603,8 @@ golem flesh four-armed massive _spec1_ _block_south_ _ignore_~
 &+rthough it does appear to have some means of locomotion.  The smell of the
 &+ything is indescribably terrible, putrid and nauseating.&N
 ~
-1166039050 0 0 33628476 268710110 67371008 571487746 0 S
-OG 0 576 7
+1166039050 0 0 0 33628476 268710110 67371008 571487746 0 S
+OG 0 576 0 7
 62 0 -500 18000d4+15000 75d3+45
 0.0.0.0 0
 8 8 0
@@ -624,8 +624,8 @@ sundew mass vines mutated gigantic huge elite~
 &+Gand aggressive.  Something glows from deep within the thing, perhaps the
 &+Gsource of the corruption.&N
 ~
-1073772552 1 0 3003228220 12482 262144 12288 0 S
-VT 0 64 5
+1073772552 1 0 0 3003228220 12482 262144 12288 0 S
+VT 0 64 0 5
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -642,8 +642,8 @@ skulking illithid enslaver _spec1_~
 &+mdistinctly colored to match the confines of the underdark.  A wicked-looking
 &+mwhip flips and dances about as the creature twitches its spindly wrist.&N
 ~
-1073874952 1 0 3087608124 12510 18350088 85202432 -1000 S
-MF 0 17039360 2
+1073874952 1 0 0 3087608124 12510 18350088 85202432 -1000 S
+MF 0 17039360 0 2
 61 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -662,8 +662,8 @@ hydra ice beast~
 &+bcreature to blend into the surroundings at times when it is at rest or in
 &+bdanger.  Even a predator of this size can be prey.&N
 ~
-1090537992 1 0 268435516 92 262144 1061376 -1000 S
-DK 0 64 7
+1090537992 1 0 0 268435516 92 262144 1061376 -1000 S
+DK 0 64 0 7
 61 0 0 8500d4+4000 1d1+1
 0.0.0.0 0
 8 8 2
@@ -680,8 +680,8 @@ ogre snow guardian _spec2_~
 &+Wbrow.  &+rTribal &+Ltattoos &+Wtrace intricate lines and patterns across most of
 &+Whis skin.&N
 ~
-1140852744 1 0 268435772 66 0 4096 -1000 S
-SO 0 1 5
+1140852744 1 0 0 268435772 66 0 4096 -1000 S
+SO 0 1 0 5
 59 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -698,8 +698,8 @@ ogre snow search leader~
 &+Wstretch off in all directions.  What exactly the part is searching for isn't readily
 &+Wapparent.&N
 ~
-1140852744 1 0 268435772 66 0 4096 -1000 S
-SO 0 16 5
+1140852744 1 0 0 268435772 66 0 4096 -1000 S
+SO 0 16 0 5
 62 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -716,8 +716,8 @@ ogre snow searching _spec1_~
 &+Wmost of her body.  A pair of stone-studded fur boots protect her feet from the
 &+Wnasty conditions of the swamp.&N
 ~
-1140852744 1 0 268435772 66 0 4096 -1000 S
-SO 0 896 5
+1140852744 1 0 0 268435772 66 0 4096 -1000 S
+SO 0 896 0 5
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -737,8 +737,8 @@ pit fiend nefarious _block_west_ _spec1_~
 &+rbeast.  A foul stench blasts off the body of the demon in an awesome wave
 &+rof noxious fume.&N
 ~
-387086346 1 0 940646718 276702 295040 122950656 -1000 S
-X 0 17826832 6
+387086346 1 0 0 940646718 276702 295040 122950656 -1000 S
+X 0 17826832 0 6
 62 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -753,8 +753,8 @@ leppts tinker man~
 &+Ythe land of Duris.  His keen blue eyes gaze upon the world with a mirth only
 &+Yfound in those that are truly at peace with the world.&N
 ~
-2056 0 0 268435772 2 0 0 0 S
-PH 0 0 2
+2056 0 0 0 268435772 2 0 0 0 S
+PH 0 0 0 2
 62 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -774,8 +774,8 @@ golem flesh four-armed massive _spec1_ _ignore_~
 &+rthough it does appear to have some means of locomotion.  The smell of the
 &+ything is indescribably terrible, putrid and nauseating.&N
 ~
-1149392906 1 0 33628476 268710110 67371008 571487746 0 S
-OG 0 64 7
+1149392906 1 0 0 33628476 268710110 67371008 571487746 0 S
+OG 0 64 0 7
 62 0 -300 5000d2+3000 12d8+40
 0.0.0.0 350000
 8 8 0
