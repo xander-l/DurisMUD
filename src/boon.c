@@ -1061,10 +1061,20 @@ int parse_boon_args(P_char ch, BoonData *bdata, char *argument)
 	send_to_char_f(ch, "&+W'%s' is not a valid race.  Please enter a race name.&n\r\n", arg);
 	return FALSE;
       }
+      // check for exact match first
       for (i = 0; i <= LAST_RACE; i++)
       {
-	if (is_abbrev(arg, race_names_table[i].normal))
+	if (!strcmp(arg, race_names_table[i].normal))
 	  bdata->criteria2 = i;
+      }
+      // otherwise check for abbreviation
+      if (i == 0)
+      {	
+	for (i = 0; i <= LAST_RACE; i++)
+	{
+	  if (is_abbrev(arg, race_names_table[i].normal))
+	    bdata->criteria2 = i;
+	}
       }
     }
 
