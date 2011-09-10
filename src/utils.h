@@ -808,6 +808,7 @@ for ((IN_ROOM) = world[(PLAYER)->in_room].people; (IN_ROOM) != NULL; (IN_ROOM) =
            (GET_RACE(ch) == RACE_PILLITHID) || \
            (GET_RACE(ch) == RACE_KUOTOA)    || \
            (GET_RACE(ch) == RACE_WOODELF)   || \
+           (GET_RACE(ch) == RACE_EFREET)    || \
            (GET_RACE(ch) == RACE_ARCHON)    || \
            (GET_RACE(ch) == RACE_ASURA)     || \
            (GET_RACE(ch) == RACE_GHAELE)    || \
