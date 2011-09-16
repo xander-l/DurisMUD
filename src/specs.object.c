@@ -14553,8 +14553,10 @@ int flame_blade(P_obj obj, P_char ch, int cmd, char *argument)
     tch = obj->loc.wearing;
   else if (OBJ_CARRIED(obj))
     tch = obj->loc.carrying;
+  else
+    return FALSE;
 
-  if (!tch)
+  if (!tch || IS_NPC(tch))
     return FALSE;
 
   if (GET_PID(tch) != obj->timer[1])
