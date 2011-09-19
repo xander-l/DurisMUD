@@ -603,7 +603,8 @@ void gain_epic(P_char ch, int type, int data, int amount)
   if (GET_LEVEL(ch) >= get_property("exp.maxExpLevel", 46) &&
       GET_LEVEL(ch) < get_property("epic.maxFreeLevel", 50))
   {
-	  epic_free_level(ch);
+     //epic_free_level(ch);
+     advance_level(ch, FALSE);   
   }
 
   // feed artifacts
@@ -825,8 +826,6 @@ void epic_stone_feed_artifacts(P_obj obj, P_char ch)
     default:
       feed_amount = 0;
   }
-
-  //epic_feed_artifacts(ch, feed_amount);
 }
 
 void epic_stone_set_affect(P_char ch)
@@ -839,6 +838,7 @@ void epic_stone_set_affect(P_char ch)
   affect_to_char(ch, &af);
 }
 
+__attribute__ ((deprecated))
 void epic_free_level(P_char ch)
 {
   char buf[256];

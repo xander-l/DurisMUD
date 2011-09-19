@@ -556,76 +556,42 @@ void illithid_advance_level(P_char ch)
   }
 }
 
-bool check_advancement(P_char player)
+bool check_advancement(P_char ch)
 {
+  char buf[256], buf2[256];
   bool tf = FALSE;
-
-  if(GET_LEVEL(player) < 49)
-    return TRUE;
-
-  switch(GET_LEVEL(player))
+  if(GET_LEVEL(ch) + 1 < 46)
   {
-    case 56:
-     break;
-    case 55:
-     if(player->only.pc->frags > 4.00 &&
-        player->only.pc->epics > 4000)
-       tf = TRUE;
-     else
-       tf = FALSE;
-     break;
-    case 54:
-     if(player->only.pc->frags > 2.00 &&
-        player->only.pc->epics > 3000)
-       tf = TRUE;
-     else
-       tf = FALSE;
-     break;
-     case 53:
-     if(player->only.pc->frags > 1.00 &&
-        player->only.pc->epics > 2000)
-       tf = TRUE;
-     else
-       tf = FALSE;
-     break;
-     case 52:
-     if(player->only.pc->frags > 0.50 &&
-        player->only.pc->epics > 1000)
-       tf = TRUE;
-     else
-       tf = FALSE;
-     break;
-     case 51:
-     if(player->only.pc->frags > 0.25 &&
-        player->only.pc->epics > 500)
-       tf = TRUE;
-     else
-       tf = FALSE;
-     break;
-     case 50:
-     if(player->only.pc->frags > 0.10 &&
-        player->only.pc->epics > 250)
-       tf = TRUE;
-     else
-       tf = FALSE;
-     break;
-     case 49:
-     if(player->only.pc->epics > 100)
-       tf = TRUE;
-     else
-       tf = FALSE;
-     break;
-     default:
-     break;
-   }
+    tf = TRUE;
+    return tf;
+  }
+  sprintf(buf, "epic.forLevel.%d", GET_LEVEL(ch) + 1);
+  sprintf(buf2, "frag.required.%d", GET_LEVEL(ch) + 1);
+  int epics_for_level = get_property(buf, 1 << ((GET_LEVEL(ch) + 1) - 43));
+  int frags_for_level = get_property(buf2, 1 << ((GET_LEVEL(ch) + 1) - 43));
+  if(GET_EXP(ch) >= new_exp_table[GET_LEVEL(ch) + 1] &&
+         ch->only.pc->epics >= epics_for_level &&
+         ch->only.pc->frags >= frags_for_level)
+  {
+     GET_EXP(ch) -= new_exp_table[GET_LEVEL(ch) + 1];
+     wizlog(56, "%s has attained epic level &+W%d&n!", GET_NAME(ch), GET_LEVEL(ch));
+     tf = TRUE;
+  }
+  else
+  {
+     tf = FALSE;
+  }
 
   return tf;
 }
     
 void advance_level(P_char ch, bool bypass)
 {
-  if(!bypass || !check_advancement(ch))
-    return;
+  if(!bypass)
+  {
+    if(!check_advancement(ch))
+      return;
+  }
 
   int      add_mana = 0, i;
   int      prestige = 100;

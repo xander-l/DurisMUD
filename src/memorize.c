@@ -631,9 +631,9 @@ int calculate_harpy_time(P_char ch, int circle, bool bStatOnly)
 
 float new_circle_memtime(P_char ch, int circle, bool check)
 {
-  int level;
+  int level = GET_LEVEL(ch);
   float time = 0, memtime = get_property("memorize.base.spell.time", 12.000);
-  float tick_factor;
+  float tick_factor, interm;
 
   if(IS_NPC(ch))
     return memtime;
@@ -644,9 +644,8 @@ float new_circle_memtime(P_char ch, int circle, bool check)
     raise(SIGSEGV);
   }
 
-  time = circle * memtime;
+  time = circle * memtime * 4; // 4 pulses / second of memtime
   time = mem_time_modifiers(ch, time, check);
-  time = BOUNDED(1, time / (int) (level / 5), 256);
 
   if(book_class(ch))
   {
@@ -661,14 +660,17 @@ float new_circle_memtime(P_char ch, int circle, bool check)
     tick_factor = STAT_INDEX(GET_C_WIS(ch)) - get_property("memorize.wis.tick.factor", 13.000);
   }
 
-  time = MAX(1, time - (tick_factor * 4)); // compensation for pulses/sec
+  time = MAX(1, time - (tick_factor * 4)); // tick_factor removes 1 second / factor over 100
+  interm = MAX(1, level / 4);
+  time = MAX(1, time / interm);
+
   return time;
 }
 
 float mem_time_modifiers(P_char ch, float time, bool check)
 {
   int level;
-  float time_mult;
+  float time_mult = 1.00;
   P_nevent e;
   
   if(!ch || !IS_ALIVE(ch))
@@ -677,19 +679,21 @@ float mem_time_modifiers(P_char ch, float time, bool check)
     raise(SIGSEGV);
   }
 
-  if(IS_SEMI_CASTER(ch) &&
-     !IS_MULTICLASS_PC(ch))
+  if(IS_SEMI_CASTER(ch))
   {
-    level = MAX(1, level - 2);
-    time_mult = 2.25;
-  }
-  else if(IS_MULTICLASS_PC(ch))
-  {
-    time_mult = get_property("memorize.factor.multiclass", 1.75);
-  }
-  else
-  {
-    time_mult = 1.25;
+     if(!IS_MULTICLASS_PC(ch))
+     {
+       level = MAX(1, level - 2);
+       time_mult = 2.25;
+     }
+     else if(IS_MULTICLASS_PC(ch))
+     {
+       time_mult = get_property("memorize.factor.multiclass", 1.75);
+     }
+     else
+     {
+       time_mult = 1.25;
+     }
   }
 
   time *= time_mult;
@@ -753,7 +757,7 @@ float mem_time_modifiers(P_char ch, float time, bool check)
     // slight disadvantage to those who tupor while awake
     if(AWAKE(ch) || GET_POS(ch) != POS_PRONE)
     {
-      time *= 1.5;
+      time *= 1.25;
     }
   }
   else if(IS_PUNDEAD(ch) ||
@@ -765,7 +769,7 @@ float mem_time_modifiers(P_char ch, float time, bool check)
     time *= 0.9;
   }
   
-  return 1 + time;
+  return time;
 }
 
 __attribute__ ((deprecated))
@@ -1061,7 +1065,7 @@ void handle_undead_mem(P_char ch)
   if(highest_empty)
   {
     // time = get_circle_memtime(ch, highest_empty);
-    time = (int) new_circle_memtime(ch, highest_empty);
+    time = (int) new_circle_memtime(ch, highest_empty) / 4;
     add_event(event_memorize, time * WAIT_SEC, ch, 0, 0, 0, &time, sizeof(time));
   }
   else if(!(USES_COMMUNE(ch) || USES_FOCUS(ch)))
@@ -1294,7 +1298,7 @@ void do_assimilate(P_char ch, char *argument, int cmd)
       need_mem = circle;
       sprintf(Gbuf1 + strlen(Gbuf1), "  (%d seconds)", 
            //(get_circle_memtime(ch, circle, true) * (max_spells_in_circle(ch, circle) - available))/WAIT_SEC);
-             ((int) new_circle_memtime(ch, circle, true) * (max_spells_in_circle(ch, circle) - available)));
+             ((int) new_circle_memtime(ch, circle, true) * (max_spells_in_circle(ch, circle) - available)) / 4);
     }
     strcat(Gbuf1, "\n");
   }

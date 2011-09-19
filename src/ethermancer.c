@@ -632,7 +632,7 @@ void spell_vapor_strike(int level, P_char ch, char *arg, int type,
       if(af1->type == SPELL_VAPOR_STRIKE)
       {
         af1->duration = MAX(5, (int)(level / 2));
-        send_to_char("&+cYour &+Cvapor strike &+c ability was refreshed!\r\n", victim);
+        send_to_char("&+cYour &+Cvapor strike &+cability was refreshed!\r\n", victim);
       }
     }
   }
