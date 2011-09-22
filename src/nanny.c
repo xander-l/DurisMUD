@@ -85,7 +85,7 @@ extern int new_exp_table[];
 #define PLR_FLAGS(ch)          ((ch)->specials.act)
 #define PLR_FLAGGED(ch, flag)  (IS_SET(PLR_FLAGS(ch), flag))
 #define PLR_TOG_CHK(ch, flag)  ((TOGGLE_BIT(PLR_FLAGS(ch), (flag))) & (flag))
-#define ALLOCATE_AMT 200
+#define ALLOCATE_AMT get_property("char.creation.allocation.amt", 200.000)
 
 void     email_player_info(char *, char *, struct descriptor_data *);
 extern int email_in_use(char *, char *);
@@ -3806,9 +3806,9 @@ void select_attrib(P_desc d, char *arg)
     break;
     case 'x':
     {
-      if (GET_CR_PNTS(d) > 0)
+      if(GET_CR_PNTS(d) > 0)
       {
-	send_to_char_f(d->character, "You have not used all you're allocated attribute points.  You have %d left.\r\n", GET_CR_PNTS(d));
+	send_to_char_f(d->character, "You have not used all of your allocated attribute points.  You have %d left.\r\n", GET_CR_PNTS(d));
 	return;
       }
       STATE(d) = CON_KEEPCHAR;
@@ -3841,17 +3841,12 @@ void select_attrib(P_desc d, char *arg)
       SEND_TO_Q("Please choose a statistic to change, and an amount to change it by, or (x) to keep these settings. \r\n", d);
       return;
     }
-    if (!allocation_check(d->character, stat, num) && num < 0)
+    else if(!allocation_check(d->character, stat, num) && num < 0)
     {
       SEND_TO_Q("\r\nYou can't unallocate that many points from that stat...\r\n", d);
       return;
     }
-    else if (!allocation_check(d->character, stat, num) && num < 0)
-    {
-      SEND_TO_Q("\r\nYou can't go that low.\r\n", d);
-      return;
-    }
-    else if (num == 0)
+    else if(num == 0)
     {
       SEND_TO_Q("\r\nPlease enter a valid amount.\r\n", d);
       return;
@@ -3859,18 +3854,17 @@ void select_attrib(P_desc d, char *arg)
     else
     {
       total = allocation_check(d->character, stat, num);
-      if(total == -1)
-      {
-        SEND_TO_Q("You cannot allocate that many points to that stat.\r\n", d);
-        return;
-      }
-      else if(total > 0 || total < 0)
+      if(total > 0 || total < 0)
       {
         GET_CR_PNTS(d) -= total;
         add_stat_bonus(d->character, stat, num);
       }
+      else if(total == 0)
+      {
+        SEND_TO_Q("\r\nAllocation amount exceeds bounds, please try again.\r\n", d);
+      }
       else
-        SEND_TO_Q("Something has gone wrong...\r\n", d); 
+        SEND_TO_Q("\r\nSomething has gone wrong...\r\n", d); 
       display_stats(d);
       sprintf(buf2 + strlen(buf2), "\r\nYou have %d points remaining to allocate.\r\n", GET_CR_PNTS(d));
       SEND_TO_Q(buf2, d);
@@ -3920,7 +3914,8 @@ int allocation_check(P_char ch, int which, int amt)
     return 0;
   }
 
-  if(total > ch->only.pc->creation_pnts)
+  if(total > ch->only.pc->creation_pnts || 
+     ch->only.pc->creation_pnts - total > get_property("char.creation.allocate.amt", 200.000))
     return 0;
 
   return total;
@@ -3929,9 +3924,7 @@ int allocation_check(P_char ch, int which, int amt)
 int calc_attr_cost(int attr, int amount)
 {
   int final_cost = 0, i = 0;
-  int attr_floor = get_property("charcreation.stat.min", 30);
-  int attr_start = get_property("charcreation.stat.start", 50);
-
+  int attr_floor = get_property("char.creation.stat.min", 30.000);
   if(amount > 0)
   {
     for(amount;amount > 0;amount--)
@@ -3955,21 +3948,21 @@ int calc_attr_cost(int attr, int amount)
   }
   else if(amount < 0)
   {
-    for(amount;amount >= (-1 * (attr_start - attr_floor));amount--)
+    for(amount;amount < 0;amount++)
     {
       i = attr;
       if(i > attr_floor && i < 75)
-        final_cost += 1;
+        final_cost -= 1;
       else if(i > 74)
-        final_cost += 2;
+        final_cost -= 2;
       else if(i > 79)
-        final_cost += 4;
+        final_cost -= 4;
       else if(i > 84)
-        final_cost += 8;
+        final_cost -= 8;
       else if(i > 89)
-        final_cost += 16;
+        final_cost -= 16;
       else if(i > 94)
-        final_cost += 32;
+        final_cost -= 32;
       attr--;
       if(attr <= attr_floor)
         break;
@@ -3980,13 +3973,7 @@ int calc_attr_cost(int attr, int amount)
     //nothing allocated!  derp!
   }
 
-  if(attr + amount > 100)
-  {
-    final_cost = -1;
-  }
-  
   return final_cost;
-
 }
   
 /* Krov: select_class_info eaten up by select_class */
