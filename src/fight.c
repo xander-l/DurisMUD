@@ -109,7 +109,11 @@ float    racial_spldam_defensive_factor[LAST_RACE + 1][LAST_SPLDAM_TYPE + 1];
 
  /* Weapon attack texts */
 struct attack_hit_type attack_hit_text[] = {
+<<<<<<< HEAD
   {"punch", "punches", "punched"},              /* TYPE_HIT      */
+=======
+  {"punch", "punches", "punched"},               /* TYPE_HIT      */
+>>>>>>> 9587a37f921bbd265e3ada8d7b6a24725301c301
   {"bludgeon", "bludgeons", "bludgeoned"},      /* TYPE_BLUDGEON */
   {"pierce", "pierces", "pierced"},             /* TYPE_PIERCE   */
   {"slash", "slashes", "slashed"},              /* TYPE_SLASH    */
