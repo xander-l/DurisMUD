@@ -117,18 +117,38 @@ a percent equal to a new property.
 void tetherheal( P_char ch, int damageamount )
 {
    P_char victim = tethering( ch );
-//   int vampamount;
+   struct group_list *group;
+   int healamount, groupies;
 //   char message [100];
 
    if( victim )
-   {
-//      vampamount = damageamount * get_property( "innate.cabalist.healing_mod", 2.00 );
-//      vamp( victim, vampamount, GET_MAX_HIT(victim) );
+      vamp( victim, damageamount * get_property( "innate.cabalist.healing_mod", 0.200), GET_MAX_HIT(victim) );
+//      healamount = damageamount * get_property( "innate.cabalist.healing_mod", 2.00 );
+//      vamp( victim, healamount, GET_MAX_HIT(victim) );
 //      sprintf( message, "You tether-healed $N for %d hps.", vampamount );
 //      act( message, FALSE, ch, NULL, victim, TO_CHAR );
-      vamp( victim, damageamount * get_property( "innate.cabalist.healing_mod", 0.200), GET_MAX_HIT(victim) );
-   }
    else
-      //group_tether_heal( ch, damageamount );
-      act( "You are not tethering anyone.", FALSE, ch, NULL, NULL, TO_CHAR );
+   {
+      // Count the people in group and in room.
+      groupies = 0;
+      for( group = ch->group; group; group = group->next )
+      {
+         if( group->ch->in_room == ch->in_room && group->ch != ch )
+            groupies++;
+      }
+      // If nobody to heal
+      if( groupies == 0 )
+         return;
+
+      // Calculate the heal amount.
+      healamount = damageamount * get_property( "innate.cabalist.healing_mod", 2.00 );
+      healamount /= groupies;
+
+      // Heal each person in group and in room.
+      for( group = ch->group; group; group = group->next )
+      {
+         if( group->ch->in_room == ch->in_room && group->ch != ch )
+            vamp( group->ch, healamount, GET_MAX_HIT(group->ch) );
+      }
+   }
 }

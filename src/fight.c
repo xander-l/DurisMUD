@@ -4238,7 +4238,7 @@ int spell_damage(P_char ch, P_char victim, double dam, int type, uint flags,
     result = raw_damage(ch, victim, dam, RAWDAM_DEFAULT ^ flags, messages);
 
     // Tether code here
-    if( is_tethering(ch) )
+    if( GET_CLASS( ch, CLASS_CABALIST ) )
     {
        tetherheal( ch, dam );
     }
