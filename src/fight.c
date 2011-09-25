@@ -4242,9 +4242,6 @@ int spell_damage(P_char ch, P_char victim, double dam, int type, uint flags,
     {
        tetherheal( ch, dam );
     }
-    else
-       send_to_char("You are not tethering! ?\n", ch);
-
 
     if(type == SPLDAM_ACID &&
       !number(0, 3))
