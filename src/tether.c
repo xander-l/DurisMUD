@@ -16,7 +16,10 @@ bool is_tethering( P_char ch )
 {
    struct char_link_data *cld;
 
-   for( cld = ch->linked; cld; cld = cld->next_linked )
+   if( !ch )
+      return FALSE;
+
+   for( cld = ch->linking; cld; cld = cld->next_linking )
       if( cld->type == LNK_TETHER )
          return TRUE;
    return FALSE;
@@ -27,9 +30,12 @@ P_char tethering( P_char ch )
 {
    struct char_link_data *cld;
 
-   for( cld = ch->linked; cld; cld = cld->next_linked )
+   if( !ch )
+      return NULL;
+
+   for( cld = ch->linking; cld; cld = cld->next_linking )
       if( cld->type == LNK_TETHER )
-         return cld->linking;
+         return cld->linked;
    return NULL;
 }
 
@@ -111,12 +117,16 @@ a percent equal to a new property.
 void tetherheal( P_char ch, int damageamount )
 {
    P_char victim = tethering( ch );
+//   int vampamount;
+//   char message [100];
 
    if( victim )
    {
-      vamp( victim, damageamount * get_property( "innate.cabalist.healing_mod", 0.700), GET_MAX_HIT(ch) );
-      act( "You are tethering $N.", FALSE, ch, NULL, victim, TO_CHAR );
-      //single_tether_heal( ch, damageamount );
+//      vampamount = damageamount * get_property( "innate.cabalist.healing_mod", 2.00 );
+//      vamp( victim, vampamount, GET_MAX_HIT(victim) );
+//      sprintf( message, "You tether-healed $N for %d hps.", vampamount );
+//      act( message, FALSE, ch, NULL, victim, TO_CHAR );
+      vamp( victim, damageamount * get_property( "innate.cabalist.healing_mod", 0.200), GET_MAX_HIT(victim) );
    }
    else
       //group_tether_heal( ch, damageamount );

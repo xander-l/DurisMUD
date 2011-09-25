@@ -4237,6 +4237,15 @@ int spell_damage(P_char ch, P_char victim, double dam, int type, uint flags,
     messages->type |= type << 24;
     result = raw_damage(ch, victim, dam, RAWDAM_DEFAULT ^ flags, messages);
 
+    // Tether code here
+    if( is_tethering(ch) )
+    {
+       tetherheal( ch, dam );
+    }
+    else
+       send_to_char("You are not tethering! ?\n", ch);
+
+
     if(type == SPLDAM_ACID &&
       !number(0, 3))
     {
@@ -5108,12 +5117,6 @@ void check_vamp(P_char ch, P_char victim, double fdam, uint flags)
             vamp(tch, sac_gain, GET_MAX_HIT(tch)); // Holy Sac only vamps to max hp - Jexni 12/9/10
       }
     }
-
-   // Tether code here
-   if( dam > 2 && is_tethering(ch) )
-   {
-      tetherheal( ch, dam);
-   }
 
   }
 }
