@@ -62,6 +62,17 @@ void do_tether( P_char ch, char *argument, int cmd )
       return;
    }
 
+   // Show who they are tethered to.
+   if( isname( argument, "who" ) )
+   {
+      victim = tethering( ch );
+      if( victim )
+         act( "You are tethering $N.", FALSE, ch, NULL, victim, TO_CHAR );
+      else
+         act( "You aren't tethering anyone.", FALSE, ch, NULL, NULL, TO_CHAR );
+      return;
+   }
+
    victim = get_char_room_vis( ch, argument );
    if( victim == NULL )
    {
