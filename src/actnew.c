@@ -28,6 +28,7 @@
 #include "objmisc.h"
 #include "listen.h"
 #include "disguise.h"
+#include "config.h"
 
 /*
  * external variables
@@ -72,7 +73,7 @@ extern const flagDef affected2_bits[];
 extern const flagDef affected3_bits[];
 extern const flagDef affected4_bits[];
 extern const flagDef affected5_bits[];
-
+extern int top_of_zone_table;
 
 void     yank_make_item(P_char, P_obj);
 
@@ -2513,6 +2514,18 @@ void do_dirttoss(P_char ch, char *arg, int cmd)
   return;
 }
 
+char *get_str_zone( P_obj obj )
+{
+   static char buffer[200];
+   int zone = 0;
+
+   while( zone < top_of_zone_table
+      && world[zone_table[zone].real_bottom].number <= obj_index[obj->R_num].virtual_number )
+      zone++;
+
+      return zone_table[zone-1].name;
+}
+
 void do_lore(P_char ch, char *arg, int cmd)
 {
   int      i, percent = 0, skl_lvl;
@@ -2550,29 +2563,29 @@ void do_lore(P_char ch, char *arg, int cmd)
   // always check for item in inventory first
   if (!(obj = get_obj_in_list_vis(ch, name, ch->carrying)))
   {
-	  // ok no object in inv, now check for players
-	  if ( lore_power < 2 )
-	  {
-        send_to_char("You can't recall any legends or stories ever told about that!\r\n", ch);
-	    return;
-	  }
+    // ok no object in inv, now check for players
+    if ( lore_power < 2 )
+    {
+       send_to_char("You can't recall any legends or stories ever told about that!\r\n", ch);
+       return;
+    }
 
-	  //---------------------------------------
-	  // lore char in room
-	  P_char   tmp_char;
-	  P_obj    tmp_object;
-	  if ( generic_find(name, FIND_CHAR_ROOM, ch, &tmp_char, &tmp_object) && tmp_char )
-	  {
-		  sprintf(name,"%s",GET_NAME(tmp_char));
-		  act("With but a quick glance, you are suddenly aware of the exploits of $N's life, past and present.",
+    //---------------------------------------
+    // lore char in room
+    P_char   tmp_char;
+    P_obj    tmp_object;
+    if ( generic_find(name, FIND_CHAR_ROOM, ch, &tmp_char, &tmp_object) && tmp_char )
+    {
+      sprintf(name,"%s",GET_NAME(tmp_char));
+      act("With but a quick glance, you are suddenly aware of the exploits of $N's life, past and present.",
 				  TRUE, ch, 0, tmp_char, TO_CHAR);
 		  act("$n nonchalantly glances at $N, his features taking a stern look of concentration.",
 				  TRUE, ch, 0, tmp_char, TO_NOTVICT);
 		  act("$n gives you a quick glance, taking in your traits and features.",
 				  TRUE, ch, 0, tmp_char, TO_VICT);
 		  is_in_room = TRUE;
-	  }
-	  //---------------------------------------
+    }
+    //---------------------------------------
 
 	  target = (struct char_data *) mm_get(dead_mob_pool);
 	  target->only.pc = (struct pc_only_data *) mm_get(dead_pconly_pool);
@@ -2584,10 +2597,11 @@ void do_lore(P_char ch, char *arg, int cmd)
 	      free_char(target);
 	      target = NULL;
 	    }
-        send_to_char("You can't recall any legends or stories ever told about that!\r\n", ch);
+            send_to_char("You can't recall any legends or stories ever told about that!\r\n", ch);
 	    return;
 	  }
   }
+
 
   skl_lvl = GET_CHAR_SKILL(ch, SKILL_LORE);
   if (IS_TRUSTED(ch) || cmd == 999)
@@ -2598,8 +2612,9 @@ void do_lore(P_char ch, char *arg, int cmd)
   if (percent > skl_lvl)
   {
     notch_skill(ch, SKILL_LORE, 30);
-    send_to_char
-      ("You can't recall any legends or stories ever told about that!\r\n", ch);
+    sprintf( Gbuf1, "This item is from the zone: %s.\n", get_str_zone(obj) );
+    send_to_char( Gbuf1, ch );
+    send_to_char("That's all you can recall about this item.\r\n", ch);
     CharWait(ch, 2);
     return;
   }
