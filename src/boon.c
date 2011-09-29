@@ -3,13 +3,9 @@
 // Created April 2011 - Venthix
 
 // TODO:
-// update AGGR_* flags to new setup.
-// learn to compile de in windows
-// figure out how to update website with updated copies of de for download.
 // in addition to the debug's setup some real logging incase someone completes a boon
 //   and gets an error message to contact an imm because the db wouldn't update or
 //   create.
-// ptest!
 // make automatic random boon engine
 // finish boon command random controller
 // the boon shop
@@ -191,9 +187,11 @@ struct boon_data_struct boon_data[] = {
 };
 
 struct BoonRandomStandards random_std[] = {
-// Racewar Side 	low	high	boon_data
-  {RACEWAR_GOOD,	1,	20,	0},
-  {RACEWAR_EVIL,	1,	20,	0}
+// ID	Racewar Side 	low	high	boon_data
+  {0,	0,		0,	0,	0},
+  {1,	RACEWAR_GOOD,	1,	20,	0},
+  {2,	RACEWAR_EVIL,	1,	20,	0},
+  {0}
 };
 
 bool check_boon_combo(int type, int option, int random)
@@ -402,7 +400,7 @@ bool get_boon_shop_data(int pid, BoonShop *bshop)
   if (!bshop)
     return FALSE;
 
-  if (!qry("SELECT id, pid, points, stats from boons_shop WHERE pid = '%d'", bshop->pid))
+  if (!qry("SELECT id, pid, points, stats from boons_shop WHERE pid = '%d'", pid))
   {
     debug("get_boon_shop_data(): cant read from db");
     return FALSE;
@@ -468,9 +466,6 @@ int validate_boon_data(BoonData *bdata, int flag)
 	  return 1;
 	if (bdata->type && !check_boon_combo(bdata->type, bdata->option, FALSE))
 	  return 2;
-#if !defined(CTF_MUD) || (CTF_MUD != 1)
-	  return 3;
-#endif
         break;
       }
     case BARG_CRITERIA:
@@ -1066,10 +1061,20 @@ int parse_boon_args(P_char ch, BoonData *bdata, char *argument)
 	send_to_char_f(ch, "&+W'%s' is not a valid race.  Please enter a race name.&n\r\n", arg);
 	return FALSE;
       }
+      // check for exact match first
       for (i = 0; i <= LAST_RACE; i++)
       {
-	if (is_abbrev(arg, race_names_table[i].normal))
+	if (!strcmp(arg, race_names_table[i].normal))
 	  bdata->criteria2 = i;
+      }
+      // otherwise check for abbreviation
+      if (i == 0)
+      {	
+	for (i = 0; i <= LAST_RACE; i++)
+	{
+	  if (is_abbrev(arg, race_names_table[i].normal))
+	    bdata->criteria2 = i;
+	}
       }
     }
 
@@ -1240,7 +1245,10 @@ void do_boon(P_char ch, char *argument, int cmd)
   else if (!strcmp(arg, "shop"))
   {
     //handle shop stuff
-    send_to_char("Boon Shops not implemented yet.\r\n", ch);
+    //send_to_char("Boon Shops not implemented yet.\r\n", ch);
+    //return;
+
+    boon_shop(ch, argument);
     return;
   }
 
@@ -1422,6 +1430,209 @@ void do_boon(P_char ch, char *argument, int cmd)
   // How'd we get here?  wrong arguments...
   send_to_char("Invalid control argument.  Valid arguments: list, add, remove, extend, random, help.\r\n", ch);
   return;
+}
+
+void boon_shop(P_char ch, char *argument)
+{
+  char arg[MAX_STRING_LENGTH];
+  int stat = 0;
+  int i;
+
+  argument = one_argument(argument, arg);
+
+  BoonShop bshop;
+  if (!get_boon_shop_data(GET_PID(ch), &bshop))
+  {
+    bshop.id = 0;
+    bshop.pid = GET_PID(ch);
+    bshop.points = 0;
+    bshop.stats = 0;
+  }
+  
+  // handle arg's.. buy, etc...
+  if (!strcmp(arg, "stat") ||
+      !strcmp(arg, "stats"))
+  {
+    if (!bshop.stats)
+    {
+      send_to_char("You don't have any stat points available.\r\n", ch);
+      return;
+    }
+
+    argument = one_argument(argument, arg);
+
+    if (!*arg ||
+	isdigit(*arg))
+    {
+      send_to_char("Please choose a stat you wish to apply your stat point towards.\r\n", ch);
+      return;
+    }
+    for (i = 1; i < MAX_ATTRIBUTES; i++)
+    {
+      if (is_abbrev(arg, attr_names[i].abrv) || is_abbrev(arg, attr_names[i].name))
+      {
+	stat = i;
+	break;
+      }
+    }
+    if (!stat)
+    {
+      send_to_char("That's not a valid stat, please choose from the following: str, dex, agi, con, pow, int, wis, con.\r\n", ch);
+      return;
+    }
+    else
+    {
+      bshop.stats--;
+      switch (stat)
+      {
+	case STR:
+	  {
+	    if (ch->base_stats.Str >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
+	    ch->base_stats.Str = BOUNDED(0, ch->base_stats.Str+1, 100);
+	    send_to_char("You feel stronger!\r\n", ch);
+	    break;
+	  }
+	case DEX:
+	  {
+	    if (ch->base_stats.Dex >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
+	    ch->base_stats.Dex = BOUNDED(0, ch->base_stats.Dex+1, 100);
+	    send_to_char("You feel more dextrous!\r\n", ch);
+	    break;
+	  }
+	case AGI:
+	  {
+	    if (ch->base_stats.Agi >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
+	    ch->base_stats.Agi = BOUNDED(0, ch->base_stats.Agi+1, 100);
+	    send_to_char("You feel more agile!\r\n", ch);
+	    break;
+	  }
+	case CON:
+	  {
+	    if (ch->base_stats.Con >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
+	    ch->base_stats.Con = BOUNDED(0, ch->base_stats.Con+1, 100);
+	    send_to_char("You feel ten years younger!\r\n", ch);
+	    break;
+	  }
+	case POW:
+	  {
+	    if (ch->base_stats.Pow >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
+	    ch->base_stats.Pow = BOUNDED(0, ch->base_stats.Pow+1, 100);
+	    send_to_char("Your mind suddenly feels ten times as powerful!\r\n", ch);
+	    break;
+	  }
+	case INT:
+	  {
+	    if (ch->base_stats.Int >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
+	    ch->base_stats.Int = BOUNDED(0, ch->base_stats.Int+1, 100);
+	    send_to_char("You feel smarter! Man, you were a real dumbass before.\r\n", ch);
+	    break;
+	  }
+	case WIS:
+	  {
+	    if (ch->base_stats.Wis >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
+	    ch->base_stats.Wis = BOUNDED(0, ch->base_stats.Wis+1, 100);
+	    send_to_char("You feel wiser!\r\n", ch);
+	    break;
+	  }
+	case CHA:
+	  {
+	    if (ch->base_stats.Cha >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
+	    ch->base_stats.Cha = BOUNDED(0, ch->base_stats.Cha+1, 100);
+	    send_to_char("Suddenly one of the pimples on your face dissapears!\r\n", ch);
+	    break;
+	  }
+	case LUCK:
+	  {
+	    if (ch->base_stats.Luck >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
+	    ch->base_stats.Luck = BOUNDED(0, ch->base_stats.Luck+1, 100);
+	    send_to_char("You feel as if you could roll Tripple Tiamat's at the slots...\r\n", ch);
+	    break;
+	  }
+	case KARMA:
+	  {
+	    if (ch->base_stats.Karma >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
+	    ch->base_stats.Karma = BOUNDED(0, ch->base_stats.Karma+1, 100);
+	    send_to_char("You feel strange.\r\n", ch);
+	    break;
+	  }
+	default:
+	  {
+	    //well that's not suppose to happen... add the stat back.
+	    bshop.stats++;
+	    break;
+	  }
+      }
+      if (!qry("UPDATE boons_shop SET stats = '%d' WHERE pid = '%d'", bshop.stats, GET_PID(ch)))
+      {
+	debug("boon_shop(): failed to update shop DB entry");
+	return;
+      }
+    }
+  }
+  
+  // no arguments
+  if (!*arg)
+  {
+    send_to_char("&+WBoon Shop&n\r\n", ch);
+    send_to_char_f(ch, "&+CShop points available: %d\r\n", bshop.points);
+    send_to_char_f(ch, "&+CStat points available: %d\r\n", bshop.stats);
+    send_to_char("&+CItems available:\r\n", ch);
+    //send data
+    // but for now...
+    send_to_char("No items available.\r\n", ch);
+    // reclaiming stats
+    return;
+  }
 }
 
 int boon_display(P_char ch, char *argument)
@@ -1819,6 +2030,7 @@ int boon_display(P_char ch, char *argument)
 	    break;
 	  }
 	  sprintf(buffoption, boon_options[option].desc, (int)criteria, J_NAME(mob));
+	  extract_char(mob);
 	  break;
 	}
       case BOPT_RACE:
@@ -1976,7 +2188,7 @@ int create_boon_shop_entry(BoonShop *bshop)
     return FALSE;
   }
 
-  if (!qry("INSERT into boons_shops (pid, points, stats) VALUES (%d, %d, %d)",
+  if (!qry("INSERT into boons_shop (pid, points, stats) VALUES (%d, %d, %d)",
 	bshop->pid, bshop->points, bshop->stats))
   {
     return FALSE;
@@ -2114,7 +2326,10 @@ void boon_notify(int id, P_char ch, int action)
 	      if ((int)bdata.criteria2 > 0 &&
 		  (r_num = real_mobile((int)bdata.criteria2)) > 0 &&
 		  (mob = read_mobile(r_num, REAL)))
+	      {
 		sprintf(tmp, "%s", J_NAME(mob));
+	        extract_char(mob);
+	      }
 	      else
 		sprintf(tmp, "Invalid Mob");
 	      sprintf(buff, "&+CYou have killed %d of %d %s&+C(s) for boon # %d.&n\r\n", (int)bpg.counter, (int)bdata.criteria, tmp, bdata.id);
@@ -2275,8 +2490,88 @@ void boon_maintenance()
 
 void boon_random_maintenance()
 {
-
+  return;
+  BoonData bdata;
+  int i, j;
+  int id[MAX_BOONS];
+  int r[MAX_BOONS];
+  
   // assure appropriate levels of random boons in game
+  for (i = 0; i < MAX_BOONS; i++)
+  {
+    id[i] = 0;
+    r[i] = 0;
+  }
+
+
+  if (!qry("SELECT id, random FROM boons WHERE active = '1' & random > '0'"))
+  {
+    debug("boon_maintenance(): can't read from db");
+    return;
+  }
+
+  MYSQL_RES *res = mysql_store_result(DB);
+
+  if (mysql_num_rows(res) < 1)
+  {
+    mysql_free_result(res);
+    return;
+  }
+
+  MYSQL_ROW row;
+  
+  i = 0;
+  while (row = mysql_fetch_row(res))
+  {
+    id[i] = atoi(row[0]);
+    r[i] = atoi(row[1]);
+    i++;
+  }
+  
+  mysql_free_result(res);
+
+  // loop through random standards list and load missing boons
+  for (i = 1; random_std[i].id; i++)
+  {
+    for (j = 0; r[j]; j++)
+      if (r[j] == random_std[i].id)
+	break;
+    if (r[j])
+      continue;
+    // if we didn't find it, load one up
+    zero_boon_data(&bdata);
+   
+    bdata.duration = 120;
+    bdata.racewar = random_std[i].racewar;
+    bdata.type = boon_data[random_std[i].boon_data].type;
+    bdata.option = boon_data[random_std[i].boon_data].option;
+    bdata.random = i;
+    bdata.active = 1;
+    bdata.repeat = 1;
+
+    // refer to boon_data struct for which we're adding in 
+    switch (random_std[i].boon_data)
+    {
+      case 0: // BTYPE_EXPM, BOPT_NONE
+	{
+	  bdata.criteria = boon_get_random_zone(j);
+	  bdata.criteria2 = 0;
+	  bdata.bonus = number(20, 50);
+	  bdata.bonus2 = 0;
+	  break;
+	}
+      default:
+	continue;
+    }
+    // set boon
+    // create_boon(&bdata);
+  }
+}
+
+int boon_get_random_zone(int std)
+{
+  if (!random_std[std].id)
+    return 0;
 }
 
 // The function placed throughout the code to check for completion of boons
@@ -2315,14 +2610,14 @@ void check_boon_completion(P_char ch, P_char victim, double data, int option)
     sprintf(buff, " AND (criteria = '%d' OR criteria = '0')", GET_LEVEL(ch));
   else if (option == BOPT_MOB)
   {
-    if (IS_NPC(victim))
+    if (IS_NPC(victim) && !IS_PC_PET(victim))
       sprintf(buff, " AND (criteria2 = '%d')", GET_VNUM(victim));
     else
       return;
   }
   else if (option == BOPT_RACE)
   {
-    if (IS_NPC(victim) || racewar(ch, victim))
+    if (IS_NPC(victim) && !IS_PC_PET(victim) || racewar(ch, victim))
       sprintf(buff, " AND (criteria2 = '%d')", GET_RACE(victim));
     else
       return;
@@ -2385,7 +2680,7 @@ void check_boon_completion(P_char ch, P_char victim, double data, int option)
     if (!get_boon_progress_data(bdata.id, GET_PID(ch), &bpg))
     {
       // it doesn't exist, we create one, for anyone...
-      // this is for tracking purposes fror if the option is repeatable or not.
+      // this is for tracking purposes for if the option is repeatable or not.
       if (bdata.option == BOPT_FRAGS)
 	counter = data;
       else if (bdata.option == BOPT_RACE ||
@@ -2418,9 +2713,11 @@ void check_boon_completion(P_char ch, P_char victim, double data, int option)
     }
     // or if we're dealing with non progression and it's not repeatable (counter = -1)
     else
+    {
       // They've completed this non repeatable boon before, so no bonuses for them!
-      if (bpg.counter = -1)
+      if (bpg.counter == -1)
 	continue;
+    }
       
     // and notify if its a progression boon option
     if (boon_options[option].progress)

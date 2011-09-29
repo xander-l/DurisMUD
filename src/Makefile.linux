@@ -84,6 +84,7 @@ OBJS	=  \
 	editor.o \
   encounters.o \
 	epic.o \
+	epic_bonus.o \
   ethermancer.o \
 	events.o \
 	new_events.o \
@@ -165,6 +166,7 @@ OBJS	=  \
 	specs.ioun.o \
 	specs.jot.o \
 	specs.library.o \
+	specs.lohrr.o \
 	specs.mobile.o \
      specs.morgs.o \
      specs.mist.o \
@@ -195,7 +197,8 @@ OBJS	=  \
 	sql.o	\
 	statistics.o \
 	storage_lockers.o \
-  timers.o \
+	tether.o \
+	timers.o \
 	track.o \
 	tradeskill.o \
   trap.o \

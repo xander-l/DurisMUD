@@ -3,8 +3,8 @@ shimmering rift torn dreams~
 &+La &+csh&+Cim&+Wme&+Cri&+cng &+Lrift of &+rtorn &+Ldr&+mea&+Lms&n~
 &+LA &+csh&+Cim&+Wme&+Cri&+cng &+rrift &+Llies here, leading deep into the realm of dreams.&n~
 ~
-13 15 3 0 7 0 0 0 0 0 0
-0 0 0 0 0 0 0 0
+25 15 3 0 7 0 0 0 0 0 0
+135157 7 -1 0 0 0 0 0
 0 0 100
 #135102
 altar harnessed negative energy~
@@ -15,9 +15,9 @@ altar harnessed negative energy~
 0 0 0 0 0 0 0 0
 0 0 100
 #135103
-object unnamed~
+altar positive energy~
 &+Lan &+Waltar &+Lof harnessed &+Yp&+Wo&+Ys&+Wi&+Yt&+Wi&+Yv&+We &+cenergy&n~
-An unnamed object lies here, looking lonely and forelorn.~
+&+LAn &+Waltar &+Lof harnessed &+Yp&+Wo&+Ys&+Wi&+Yt&+Wi&+Yv&+We &+cenergy &+Lrests here, &N&-Ypulsing&n&+L.&n~
 ~
 13 15 3 0 7 0 0 0 0 0 0
 0 0 0 0 0 0 0 0
@@ -25,7 +25,7 @@ An unnamed object lies here, looking lonely and forelorn.~
 #135104
 altar astral forged metal~
 &+Lan &+Waltar &+Lof &+ra&+Rs&+rt&+Rr&+ra&+Rl &+Lforged &+cmetal&n~
-An unnamed object lies here, looking lonely and forelorn.~
+&+LAn &+Waltar &+Lof &+ra&+Rs&+rt&+Rr&+ra&+Rl &+Lforged &+cmetal &+Llies here, &N&-Ypulsing&n&+L.&n~
 ~
 13 15 3 0 7 0 0 0 0 0 0
 0 0 0 0 0 0 0 0
@@ -33,54 +33,54 @@ An unnamed object lies here, looking lonely and forelorn.~
 #135105
 altar imbued bloodstone~
 &+Lan &+Waltar &+Lof &+ci&+Lm&+cb&+Lu&+ce&+Ld &+rblood&+Lstone&n~
-An unnamed object lies here, looking lonely and forelorn.~
+&+LAn &+Waltar &+Lof &+ci&+Lm&+cb&+Lu&+ce&+Ld &+rblood&+Lstone lies here, &n&-Ypulsing&N&+L.~
 ~
 13 15 3 0 7 0 0 0 0 0 0
 0 0 0 0 0 0 0 0
 0 0 100
 #135106
-object unnamed~
+divine essence blood~
 &+Lthe &+Ydivine &+Lessence of &+rbl&+Roo&+rd&n~
-An unnamed object lies here, looking lonely and forelorn.~
+&+LA swirling energy that moves like blood lies here.&n~
 ~
-13 15 3 0 7 0 0 0 0 0 0
+13 40 3 0 7 0 8388617 16385 0 0 0
 0 0 0 0 0 0 0 0
 0 0 100
 #135107
-object unnamed~
+divine essence fire~
 &+Lthe &+Ydivine &+Lessence of &+rf&+Ri&+rr&+Re&n~
-An unnamed object lies here, looking lonely and forelorn.~
+&+LAn oddly dancing fusion of energy and fire dances here.&n~
 ~
-13 15 3 0 7 0 0 0 0 0 0
+13 40 3 0 7 0 8388617 16385 0 0 0
 0 0 0 0 0 0 0 0
 0 0 100
 #135108
-object unnamed~
+divine essence mist~
 &+Lthe &+Ydivine &+Lessence of &+cm&+Ci&+cs&+Ct&n~
-An unnamed object lies here, looking lonely and forelorn.~
+&+LA strange fusion of energy and mist seems to slowly swirl on the ground here.&n~
 ~
-13 15 3 0 7 0 0 0 0 0 0
+13 40 3 0 7 0 8388617 16385 0 0 0
 0 0 0 0 0 0 0 0
 0 0 100
 #135109
-object unnamed~
+divine essence enchantment~
 &+Lthe &+Ydivine &+Lessence of en&+mch&+Lan&+mtm&+Len&+mt&n~
-An unnamed object lies here, looking lonely and forelorn.~
+&+LA strange ball of energy lies here, emitting a strange sparkle.&n~
 ~
-13 15 3 0 7 0 0 0 0 0 0
+13 40 3 0 7 0 0 16385 0 0 0
 0 0 0 0 0 0 0 0
 0 0 100
 #135110
 key divine passage~
-&+Lthe key of &+Wdivine &+Lpassage&n~
-&+LA key lies here, glowing with a &+wdivine &+Llight.&n~
+&+WTiliwibble's &+ws&+Wk&+we&+Wl&+we&+Wt&+wo&+Wn &+Lkey of &+cunlocking&n~
+&+LA strange looking &+ws&+Wk&+we&+Wl&+we&+Wt&+wo&+Wn &+Lkey lies here.&n~
 ~
 18 15 3 0 7 0 0 1 0 0 0
 0 100 0 0 0 0 0 0
 0 0 100
 #135111
 forged steel key~
-&+La key of forged &+csteel&n~
+&+La key of forged &+bshadow&+csteel&n~
 &+LA key of forged &+csteel &+Llies here, discarded.&n~
 ~
 18 15 3 0 7 0 8388608 0 0 0 0
@@ -91,6 +91,250 @@ sword dancing fire~
 &+Lthe sword of dancing &+rf&+Ri&+Yr&+We&n~
 &+LA sword of smoldering flames lies here.&n~
 ~
-5 15 3 0 7 0 0 0 2048 0 0
-5 5 5 0 0 0 0 0
+5 15 3 0 7 0 0 8193 2048 0 0
+5 5 5 0 0 390521 51 1
+0 0 100
+#135113
+frost encrusted hammer shadow steel shadowsteel~
+&+La &+Cf&+cr&+Co&+cs&+Ct&+L-&+we&+Wn&+wc&+Wr&+wu&+Ws&+wt&+We&+wd &+Lhammer of sh&+wa&+Ld&+wo&+Lw&+bsteel&n~
+&+LA frost covered hammer lies here, fumbled aside.&n~
+~
+5 15 3 0 7 0 1 8193 2048 0 0
+4 4 4 0 0 393525 56 1
+0 0 100
+#135114
+hidden enchantment priest proc~
+&+Lhidden blood priest proc 1&n~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135115
+hidden enchantment priest proc~
+hidden enchantment priest proc 2~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135116
+priest proc weapon~
+hidden enchantment priest proc 1~
+priest proc weapon sits here, not being seen by players.~
+~
+5 15 3 0 7 0 2 8192 0 0 0
+4 4 4 0 0 1573425351 50 10
+0 0 100
+E
+_room_msg~
+&N&+LCalling upon the &+bp&+Bo&+bw&+Be&+br&+Bs &+Lof &+cenc&+Chant&+cment&+L, $n &+Lbrings forth the power of the elements at $N!&n
+~
+E
+_victim_msg~
+&N$n stares at you as he calls
+&+Lupon the power of the false god to harm you! Elemental
+&+Lpowers surge through the priests hands as he touches you!&n
+~
+#135117
+object unnamed~
+&+Lhidden blood priest proc 2&n~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135118
+wickedly barbed shadowsteel greatsword~
+&+La w&+ri&+Lc&+rk&+Le&+rd&+Ll&+ry &+Lbarbed &+bshadow&+csteel&+L greatsword&n~
+&+LA sword your to weak to hold lies here.&n~
+~
+5 15 3 0 7 0 1 8193 2048 0 0
+13 4 10 0 0 235 51 10
+0 0 100
+E
+_victim_msg~
+&N$n &+Lfixes you with an intent gaze before lurching forward and spewing &N&-Rmolten &N&+bshadow&+csteel &+Lat you!&n
+~
+E
+_room_msg~
+&N$n &+Llurches forward suddenly and spews forth a &N&-Rmolten &N&+Lmixture of &+bshadow&+csteel &+Lat $N!&n
+~
+A
+58 2
+A
+18 9
+#135119
+jagged hilt studded gems~
+&+La j&+ya&+Lg&+yg&+Le&+yd &+Lhilt studded with &+mgems&n~
+&+LThe hilt of a broken sword lies here.&n~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135120
+shattered fragment silvery blade~
+&+La &+yshattered &+rfragment &+Lof a &+cs&+Ci&+cl&+Cv&+ce&+Cr&+cy &+Lblade&n~
+&+LA shattered length of silvery blade lies here.&n~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135121
+hidden maelshem proc~
+hidden maelshem proc~
+maelshem's proc lies here. dont even think about taking it.~
+~
+5 15 3 0 7 0 2 8192 0 0 0
+13 5 8 0 0 535 50 15
+0 0 100
+E
+_victim_msg~
+&N$n &+Llets out an &+Yinsane &+Wcackle &+Las he calls upon the power of &+cd&+Lr&+ce&+La&+cm&+Ls
+&N&+Land &+mn&+Mi&+mg&+Mh&+mt&+Mm&+ma&+Mr&+me&+Ms &+Lto engulf you!&n
+~
+E
+_room_msg~
+&N$n &+Llets out an &+Yinsane &+Wcackle &+Las he waves his hand.
+&N&+LCalling upon his divine powers, a flood of &+mn&+Mi&+mg&+Mh&+mt&+Mm&+ma&+Mr&+me&+Ms &+Lfills the room....&n
+~
+A
+18 15
+#135122
+hidden projection proc~
+hidden projection proc~
+hidden projection proc~
+~
+5 15 3 0 7 0 2 8192 0 0 0
+5 5 5 0 0 264283 59 10
+0 0 100
+E
+_room_msg~
+&N&+LThe shadow of the fallen god &+bMaelshem &+Lopens its arms wide as a surge of &+Yp&+Wr&+Gi&+Rs&+Bm&+Ma&+Lt&+Wi&+Yc &+Lenergy floods the nexus...
+&N&+LCalling forth the powers, the nightmare projection lets out an insane cackle as strange waves of &+rp&+Ro&+rw&+Re&+rr &+Lflow about!&n
+~
+E
+_victim_msg~
+&N&+LFocusing a gaze of pure loathing, the shattered essence of &+BMaelshem &+Lunleashes a barage of &+re&+Rl&+re&+Rm&+re&+Rn&+rt&+Ra&+rl &+cp&+Co&+cw&+Ce&+cr&+Cs&+L....&n
+~
+A
+58 2
+A
+18 9
+#135123
+key blood~
+&+La key of &+rblood&n~
+&+LA key of blood lies here.&n~
+~
+18 40 3 0 7 0 0 16385 0 0 0
+0 100 0 0 0 0 0 0
+0 0 100
+#135124
+key mist~
+&+La key of solidified &+cm&+Ci&+cs&+Ct&+cs&n~
+&+LA key of solidified mists lies here.&n~
+~
+18 1 3 0 7 0 0 16385 0 0 0
+0 100 0 0 0 0 0 0
+0 0 100
+#135125
+fire imbued key~
+&+La &+rfire &+Limbued key&n~
+&+LA blacksteel key imbued with &+rfire &+Llies here.&n~
+~
+18 15 3 0 7 0 0 16385 0 0 0
+0 100 0 0 0 0 0 0
+0 0 100
+#135126
+key binding enchantment~
+&+La key of binding en&+mch&+Lan&+mtm&+Len&+mt&n~
+&+LA key lies here, infused with strange magic.&n~
+~
+18 15 3 0 7 0 0 16385 0 0 0
+0 100 0 0 0 0 0 0
+0 0 100
+#135127
+torch~
+&+La large torch&n~
+&+LA large torch hangs here, &+Willuminating &+Lthe bloodstone hallway.&n~
+~
+13 15 3 0 7 0 1 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#135128
+ebonwood desk~
+&+Lan ebonwood desk&n~
+&+LA large ebonwood desk sits here, covered with ancient &+mtomes&+L.&n~
+~
+15 15 3 0 7 0 0 0 0 0 0
+10000 5 0 100 0 0 0 0
+0 0 100
+#135129
+thick tome wizards guide dating~
+&+La thick &+ytome &+Lentitled '&+LThe &+MWizards &+LGuide to &+GDating&+L'&n~
+&+LA well used tome lies here, discarded.&n~
+~
+33 29 3 0 14 0 0 8404993 0 0 0
+0 0 225 0 0 0 0 0
+0 33264 100
+E
+thick tome wizards guide dating~
+                         8888  8888888
+                  888888888888888888888888
+               8888:::8888888888888888888888888
+             8888::::::8888888888888888888888888888
+            88::::::::888:::8888888888888888888888888
+          88888888::::8:::::::::::88888888888888888888
+        888 8::888888::::::::::::::::::88888888888   888
+           88::::88888888::::m::::::::::88888888888    8
+         888888888888888888:M:::::::::::8888888888888
+        88888888888888888888::::::::::::M88888888888888
+        8888888888888888888888:::::::::M8888888888888888
+         8888888888888888888888:::::::M888888888888888888
+        8888888888888888::88888::::::M88888888888888888888
+      88888888888888888:::88888:::::M888888888888888   8888
+     88888888888888888:::88888::::M::;o*M*o;888888888    88
+    88888888888888888:::8888:::::M:::::::::::88888888    8
+   88888888888888888::::88::::::M:;:::::::::::888888888
+  8888888888888888888:::8::::::M::aAa::::::::M8888888888       8
+  88   8888888888::88::::8::::M:::::::::::::888888888888888 8888
+ 88  88888888888:::8:::::::::M::::::::::;::88:88888888888888888
+ 8  8888888888888:::::::::::M::"@@@@@@@"::::8w8888888888888888
+  88888888888:888::::::::::M:::::"@a@":::::M8i888888888888888
+ 8888888888::::88:::::::::M88:::::::::::::M88z88888888888888888
+8888888888:::::8:::::::::M88888:::::::::MM888!888888888888888888
+888888888:::::8:::::::::M8888888MAmmmAMVMM888*88888888   88888888
+888888 M:::::::::::::::M888888888:::::::MM88888888888888   8888888
+8888   M::::::::::::::M88888888888::::::MM888888888888888    88888
+ 888   M:::::::::::::M8888888888888M:::::mM888888888888888    8888
+  888  M::::::::::::M8888:888888888888::::m::Mm88888 888888   8888
+   88  M::::::::::::8888:88888888888888888::::::Mm8   88888   888
+   88  M::::::::::8888M::88888::888888888888:::::::Mm88888    88
+   8   MM::::::::8888M:::8888:::::888888888888::::::::Mm8     4
+       8M:::::::8888M:::::888:::::::88:::8888888::::::::Mm    2
+      88MM:::::8888M:::::::88::::::::8:::::888888:::M:::::M
+     8888M:::::888MM::::::::8:::::::::::M::::8888::::M::::M
+    88888M:::::88:M::::::::::8:::::::::::M:::8888::::::M::M
+   88 888MM:::888:M:::::::::::::::::::::::M:8888:::::::::M:
+   8 88888M:::88::M:::::::::::::::::::::::MM:88::::::::::::M
+
+          &n&-RHow to not be an Idiot, in 5 simple steps!&n
+~
+T
+2 15 1 51
+#135130
+bloodstone key~
+&+La &+rbl&+Roo&+rd&+Lstone key&n~
+&+LA bloodstone key lies here.&n~
+~
+18 11 3 0 7 0 4097 16385 0 0 0
+0 100 0 0 0 0 0 0
+0 0 100
+#135131
+tear rift fabric dreams~
+&+La &+Bt&+bea&+Br &+Lin the &+rfa&+Rbr&+ric &+Lof d&+cr&+Le&+ca&+Lm&+cs&n~
+&+LA &+Bt&+bea&+Br &+Lin the &+rfa&+Rbr&+ric &+Lof the d&+Cr&+Le&+Ca&+Lm realm lies here, ri&+wppi&+Lng itself apart.&n~
+~
+25 15 3 0 7 0 1 0 0 0 0
+0 7 -1 0 0 0 0 0
 0 0 100

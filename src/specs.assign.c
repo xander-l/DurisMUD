@@ -273,6 +273,7 @@ void assign_mobiles(void)
   mob_index[real_mobile0(6816)].func.mob = dragonnia_heart;
   mob_index[real_mobile0(29025)].func.mob = lanella_heart;
   mob_index[real_mobile0(22024)].func.mob = cerberus_load;
+  mob_index[real_mobile0(55264)].func.mob = leviathan;
 
   /* Aravne */
   mob_index[real_mobile0(21673)].func.mob = wh_corpse_to_object;
@@ -1304,6 +1305,8 @@ void assign_objects(void)
 {
   obj_index[real_object0(354)].func.obj = artifact_monolith;
 
+  obj_index[real_object0(83457)].func.obj = miners_helmet;
+
   /* outposts */
   //obj_index[real_object0(97800)].func.obj = outpost_rubble; 
   mob_index[real_mobile0(97800)].func.mob = building_mob_proc;
@@ -1690,7 +1693,7 @@ void assign_objects(void)
 
   /*specs.object.c */
   obj_index[real_object0(23056)].func.obj = lifereaver;
-
+  obj_index[real_object0(366)].func.obj = flame_blade;
   /* sea kingdom */
 
   obj_index[real_object0(31514)].func.obj = SeaKingdom_Tsunami;
@@ -1973,6 +1976,10 @@ void assign_objects(void)
    */
   obj_index[real_object0(24404)].func.obj = magic_pool;
   obj_index[real_object0(24406)].func.obj = lightning;
+  /*
+    Plane of Air Two
+  */
+  obj_index[real_object0(131616)].func.obj = sevenoaks_longsword;
 
   /*
      Plane of Water

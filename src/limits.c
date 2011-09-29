@@ -32,6 +32,7 @@
 #include "nexus_stones.h"
 #include "boon.h"
 #include "ctf.h"
+#include "epic_bonus.h"
 
 /*
  * external variables
@@ -278,6 +279,8 @@ int hit_regen(P_char ch)
 
   gain += ch->points.hit_reg;
 
+  gain += (int)((float)gain * get_epic_bonus(ch, EPIC_BONUS_HEALTH));
+
   if (IS_AFFECTED4(ch, AFF4_REGENERATION) ||
       has_innate(ch, INNATE_REGENERATION) ||
       has_innate(ch, INNATE_ELEMENTAL_BODY))
@@ -400,7 +403,9 @@ int move_regen(P_char ch)
   if(gain > 0 &&
     IS_AFFECTED4(ch, AFF4_TUPOR))
       gain += 20;
-  
+ 
+  gain += (int)((float)gain * get_epic_bonus(ch, EPIC_BONUS_MOVES));
+
   /* This is another pretty hack to increase movement points
    * due to having the IMPROVED ENDURANCE epic skill. Once
    * again, remove this or comment it out if this skill
@@ -1091,6 +1096,8 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
     XP = gain_exp_modifiers(ch, victim, XP);
     XP = gain_exp_modifiers_race_only(ch, victim, XP);    
     XP = check_nexus_bonus(ch, (int)XP, NEXUS_BONUS_EXP);
+// debug("damage 7 exp gain (%d)", (int)XP);
+    XP = XP + (int)((float)XP * get_epic_bonus(ch, EPIC_BONUS_EXP));
   }
   else if(type == EXP_HEALING)
   {
@@ -1230,6 +1237,13 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
   int XP_final = (int)XP;
   int range = new_exp_table[GET_LEVEL(ch) + 1] / 3;
   XP_final = BOUNDED(-range, XP_final, range);
+ 
+  // if(XP_final > 0 &&
+     // GET_EXP(ch) > (new_exp_table[GET_LEVEL(ch) + 1]));
+  // {
+    // XP_final = 1;
+    // send_to_char("&+LYour exps are capped and you must gain a level to accumulate more exps.\r\n", ch);
+  // }
   
   // increase exp only to some limit (cumulative exp till 61)
   if(XP_final < 0 || GET_EXP(ch) < global_exp_limit)

@@ -34,16 +34,6 @@ extern int mini_mode;
 #define QUEST_FILE "areas/world.qst"
 #define MINI_QUEST_FILE "areas/mini.qst"
 
-#define QUEST_GOAL_ITEM      1
-#define QUEST_GOAL_ITEM_TYPE 2
-#define QUEST_GOAL_COINS     3
-#define QUEST_GOAL_SKILL     4
-#define QUEST_GOAL_EXP       5
-#define QUEST_GOAL_UNKNOWN   10
-
-#define QC_ACTION      "qc_action"
-#define QC_GREET       "qc_nocorpse"
-
 struct quest_data quest_index[MAX_QUESTS];
 int      number_of_quests = 0;
 

@@ -830,6 +830,9 @@ extern unsigned int game_locked;
 #define CMD_BOON        803
 #define CMD_CTF		804
 #define CMD_GARROTE     805
+#define CMD_TETHER	806
+#define CMD_QUESTWHERE  807
+#define CMD_NEWBSA      808
 
 /* cmds below are not real commands, they are
                 used in item special procedures to identify

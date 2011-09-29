@@ -8,8 +8,8 @@ hooker layla~
 &+Lbut a translucent &+Csilk &+Lsarong about her waist, leaving all other
 &+Lnooks and crevices visible to &+Rsex&+L-hungry eyes.&n
 ~
-2058 0 0 0 0 0 2 -1000 S
-PM 0 4096 2
+2058 0 0 0 0 0 0 2 -1000 S
+PM 0 4096 0 2
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -26,8 +26,8 @@ big-breasted slut~
 &+Land has a slightly &+rreddish &+Lhue to them, probably from all the
 &+Lspanking.&n
 ~
-2058 0 0 0 0 0 2 -1000 S
-pe 0 4096 3
+2058 0 0 0 0 0 0 2 -1000 S
+pe 0 4096 0 3
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -41,8 +41,8 @@ receptionist~
 &+Lto her, and she is known for going out of her way to have guests
 &+Lenjoy their stay.&n
 ~
-10 0 0 0 0 0 0 1000 S
-PH 0 1 3
+10 0 0 0 0 0 0 0 1000 S
+PH 0 1 0 3
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -54,8 +54,8 @@ drunk patron~
 &+L   This poor man is completely drunk and seems to be trying to
 &+Lget the attention of one of the barmaids. He goes unnoticed.&n
 ~
-10 0 0 0 0 0 0 -1000 S
-pb 0 1 -1
+10 0 0 0 0 0 0 0 -1000 S
+pb 0 1 0 -1
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -67,8 +67,8 @@ drunk patron~
 &+L   This poor man is completely drunk and seems to be trying to
 &+Lget the attention of one of the barmaids. He goes unnoticed.&n
 ~
-10 0 0 0 0 0 0 -1000 S
-p2 0 1 -1
+10 0 0 0 0 0 0 0 -1000 S
+p2 0 1 0 -1
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -83,8 +83,8 @@ cute barmaid~
 &+Lis snug and her &+wlarge breasts &+Lseem to pop out from the top of
 &+Lher undersized shirt, much to the enjoyment of the guests.&n
 ~
-10 0 0 0 0 0 0 0 S
-ph 0 1 -1
+10 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -98,8 +98,8 @@ sex-crazed man noble~
 &+Ldaily basis. The women here don't seem to mind, since he's awfully
 &+Lrich.&n
 ~
-10 0 0 0 0 0 0 -1000 S
-pf 0 1 -1
+10 0 0 0 0 0 0 0 -1000 S
+pf 0 1 0 -1
 18 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -113,8 +113,8 @@ street sweeper~
 &+wholds his broom fiercely in his hands and continues his daily work
 &+wwhile whistling a little tune.&n
 ~
-2056 0 0 0 0 0 0 0 S
-ph 0 1 -1
+2056 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -128,8 +128,8 @@ street sweeper~
 &+wholds his broom fiercely in his hands and continues his daily work
 &+wwhile whistling a little tune.&n
 ~
-2056 0 0 0 0 0 0 0 S
-ph 0 1 -1
+2056 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 9 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -143,8 +143,8 @@ street sweeper~
 &+wholds his broom fiercely in his hands and continues his daily work
 &+wwhile whistling a little tune.&n
 ~
-2056 0 0 0 0 0 0 0 S
-ph 0 1 -1
+2056 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 13 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -158,8 +158,8 @@ city guard member militia~
 &+Lmight be up to no good. He has a &+wsilver &+Lbadge on his armor showing his
 &+Lrank as a &+mprivate&+L.&n
 ~
-67108872 0 0 0 0 0 0 500 S
-ph 0 1 -1
+67108872 0 0 0 0 0 0 0 500 S
+ph 0 1 0 -1
 10 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -173,8 +173,8 @@ city guard member militia~
 &+Lmight be up to no good. He has a &+wsilver &+Lbadge on his armor showing his
 &+Lrank as a &+Ycorporal&+L.&n
 ~
-67108872 0 0 0 0 0 0 500 S
-ph 0 1 -1
+67108872 0 0 0 0 0 0 0 500 S
+ph 0 1 0 -1
 14 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -188,8 +188,8 @@ city guard member militia _nosneak_~
 &+Lmight be up to no good. He has a &+wsilver &+Lbadge on his armor showing his
 &+Lrank as a &+Csergeant&+L.&n
 ~
-67108872 0 0 0 0 0 0 500 S
-ph 0 1 -1
+67108872 0 0 0 0 0 0 0 500 S
+ph 0 1 0 -1
 18 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -204,8 +204,8 @@ city mason~
 &+La massive hammer and other various instruments. His face is dark
 &+Land leathery and was definitely hired for his strength.&n
 ~
-2056 0 0 0 0 0 0 500 S
-pb 0 1 -1
+2056 0 0 0 0 0 0 0 500 S
+pb 0 1 0 -1
 7 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -220,8 +220,8 @@ city mason~
 &+La massive hammer and other various instruments. His face is dark
 &+Land leathery and was definitely hired for his strength.&n
 ~
-2056 0 0 0 0 0 0 500 S
-ph 0 1 -1
+2056 0 0 0 0 0 0 0 500 S
+ph 0 1 0 -1
 11 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -236,8 +236,8 @@ city mason~
 &+La massive hammer and other various instruments. His face is dark
 &+Land leathery and was definitely hired for his strength.&n
 ~
-2056 0 0 0 0 0 0 500 S
-ph 0 1 -1
+2056 0 0 0 0 0 0 0 500 S
+ph 0 1 0 -1
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -250,8 +250,8 @@ cat tiny brown~
 &+yyou playing with his tail. He notices you looking at him and walks over
 &+yto your legs, purring and meowing up a storm.&n
 ~
-8 0 0 0 0 0 0 -1000 S
-a 0 1 -1
+8 0 0 0 0 0 0 0 -1000 S
+a 0 1 0 -1
 2 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -264,8 +264,8 @@ tiny yellow cat~
 &+Yyou wiggling her large ears. She notices you looking at her and walks
 &+Yover to your legs, purring and meowing up a storm.&n
 ~
-8 0 0 0 0 0 0 -1000 S
-a 0 1 -1
+8 0 0 0 0 0 0 0 -1000 S
+a 0 1 0 -1
 4 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -278,8 +278,8 @@ small black dog~
 &+Lowner to care for him. The hair at the base of his tail looks extremely
 &+Lthin, probably a result from pesky fleas.&n
 ~
-8 0 0 0 0 0 0 -1000 S
-a 0 1 -1
+8 0 0 0 0 0 0 0 -1000 S
+a 0 1 0 -1
 2 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -294,8 +294,8 @@ massive guard warrior~
 &+Lwatching for intruders and he looks ready to leap into any fight at a
 &+Lmoments notice.&n
 ~
-67504138 0 0 134217788 2076 0 67108864 0 S
-ph 0 1 -1
+67504138 0 0 0 134217788 2076 0 67108864 0 S
+ph 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -310,8 +310,8 @@ mighty wizard~
 &+Lliving &+Blightning &+Lare wrapped around both his arms, ready to &+rexplode
 &+Lin a fury towards whatever danger threatens the peace of this city.&n
 ~
-67504138 0 0 134742072 28 0 67239936 0 S
-pe 0 512 -1
+67504138 0 0 0 134742072 28 0 67239936 0 S
+pe 0 512 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -326,8 +326,8 @@ massive guard warrior~
 &+Lwatching for intruders and he looks ready to leap into any fight at a
 &+Lmoments notice.&n
 ~
-1074137096 0 0 403177656 28 0 67108864 0 S
-ph 0 2 -1
+1074137096 0 0 0 403177656 28 0 67108864 0 S
+ph 0 2 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -342,8 +342,8 @@ mighty warrior _nosneak_~
 &+wis interested in any of your nonsense, so it would be best
 &+wfor you to leave him alone.&n
 ~
-67110986 640 0 134217784 0 0 0 0 S
-ph 0 67108864 -1
+67110986 640 0 0 134217784 0 0 0 0 S
+ph 0 67108864 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -356,8 +356,8 @@ obnoxious gambler~
 &+Llook scary in order to impress his boss. Tattoos cover his body and the gang
 &+Lsymbol, a dagger wrapped in a scarf, is proudly displayed on his forehead.&n
 ~
-2058 0 0 0 0 0 0 0 S
-ph 0 4096 -1
+2058 0 0 0 0 0 0 0 0 S
+ph 0 4096 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -367,8 +367,8 @@ neophyte cleric _hireling_~
 &+WA neophyte &+Ccleric&+W stands here, ready for battle.&N
 ~
 ~
-393224 0 0 0 0 0 0 1000 S
-PH 0 32 -1
+393224 0 0 0 0 0 0 0 1000 S
+PH 0 32 0 -1
 14 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -383,8 +383,8 @@ volo traveler~
 &+Lvery air itself seems to ripple as he moves. You get the distinct sense
 &+Lthat he isn't very pleased to be in your company.&n
 ~
-303040520 0 0 0 2048 71303168 262144 0 S
-PH 0 6 -1
+303040520 0 0 0 0 2048 71303168 262144 0 S
+PH 0 6 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -394,8 +394,8 @@ furious lich lichlord~
 &+LA f&+mur&+Li&+mou&+Ls l&+mic&+Lhl&+mor&+Ld stands here, awaiting commands from its &+mmaster&+L.&n
 ~
 ~
-8 0 0 24 1 0 262144 -1000 S
-ul 0 512 3
+8 0 0 0 24 1 0 262144 -1000 S
+ul 0 512 0 3
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -405,8 +405,8 @@ maddened vampire~
 &+LA m&+rad&+Lde&+rne&+Ld v&+ram&+Lp&+rir&+Le stands here, awaiting commands from its &+rmaster&+L.&n
 ~
 ~
-8 0 0 24 1 0 262144 -1000 S
-um 0 1 4
+8 0 0 0 24 1 0 262144 -1000 S
+um 0 1 0 4
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -416,8 +416,8 @@ menacing shadow shadowmaster~
 &+LA m&+wen&+Lac&+win&+Lg shadow&+wmaster &+Lstands here, awaiting commands from its &+wmaster&+L.&n
 ~
 ~
-8 0 0 24 1 0 262144 -1000 S
-sw 0 4 3
+8 0 0 0 24 1 0 262144 -1000 S
+sw 0 4 0 3
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -427,8 +427,8 @@ demonic minion bel~
 &+LA &+rdemonic &+Lminion of &+rBel &+Lhulks in the corner.&n
 ~
 ~
-8 0 0 24 1 0 262144 -1000 S
-x 0 16 5
+8 0 0 0 24 1 0 262144 -1000 S
+x 0 16 0 5
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -438,8 +438,8 @@ salyyn battle priest _spec1_~
 &+LA &+Mfear&+msome &+Lpriest stands here, drenched in &+rblo&+Rod&+L.&n
 ~
 ~
-1074137096 0 0 1572864 0 0 0 0 S
-ct 0 32 -1
+1074137096 0 0 0 1572864 0 0 0 0 S
+ct 0 32 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 8 2
@@ -451,8 +451,8 @@ keeper forest~
 &+g   This young woman spends her time keeping an eye on the
 &+gmany plants and animals that fill the &+WKing&+g's Forest.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -462,8 +462,8 @@ mighty kraken~
 &+bA mig&+Bht&+by Kr&+Bak&+ben lu&+Bmb&+bers a&+Bro&+bund.&n
 ~
 ~
-8 0 0 24 0 0 262144 0 S
-ew 0 128 4
+8 0 0 0 24 0 0 262144 0 S
+ew 0 128 0 4
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -476,8 +476,8 @@ tarn bloodblade outlaw~
 &+Lobviously knows his way around with a sword. He looks at you with an icy
 &+Lstare of hatred, and spits in your direction.&n
 ~
-1140852744 1 0 524312 2049 0 0 -1000 S
-ph 0 8192 3
+1140852744 1 0 0 524312 2049 0 0 -1000 S
+ph 0 8192 0 3
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -492,8 +492,8 @@ sand crab~
 &+Yaggressive at night, and are prone to attacking anyone in their
 &+Ypath!&n
 ~
-393224 5 0 8 0 0 0 -750 S
-ac 0 1 -1
+393224 5 0 0 8 0 0 0 -750 S
+ac 0 1 0 -1
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -504,8 +504,8 @@ fiddler crab~
 ~
 &+r   This little fiddler crab is busy making a hole.&n
 ~
-393224 5 0 0 0 0 0 -500 S
-ac 0 1 -1
+393224 5 0 0 0 0 0 0 -500 S
+ac 0 1 0 -1
 4 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -518,8 +518,8 @@ seagull~
 &+Lbe a pest to the many visitors. They are very aggressive and will often
 &+Lswoop in and snatch a meal out of the hands of hungry beachgoers.&n
 ~
-393224 0 0 0 0 0 0 -300 S
-b 0 1 -1
+393224 0 0 0 0 0 0 0 -300 S
+b 0 1 0 -1
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -531,8 +531,8 @@ turtle seaturtle baby~
 &+g   This &+Wbaby &+gseaturtle is hurrying down the beach in a race to get to
 &+gthe ocean before it becomes somebody's lunch.&n
 ~
-393224 0 0 0 0 0 0 300 S
-r 0 1 -1
+393224 0 0 0 0 0 0 0 300 S
+r 0 1 0 -1
 8 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -547,8 +547,8 @@ turtle seaturtle female~
 
 &+g   This &+Wbaby &+gseaturtle is hurrying down the beach in a race to get to
 ~
-393224 0 0 0 0 0 0 300 S
-r 0 1 -1
+393224 0 0 0 0 0 0 0 300 S
+r 0 1 0 -1
 12 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -561,8 +561,8 @@ female bum~
 &+Ythe regulars at the beach and her dark, leathery skin bears testiment
 &+Yto the dangers of overexposure to the sun.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -580,8 +580,8 @@ male bum~
 &+Ythe regulars at the beach and her dark, leathery skin bears testiment
 &+Yto the dangers of overexposure to the sun.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 17 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -599,8 +599,8 @@ lifeguard~
 &+Yendanger themselves by trying to swim out too far. He maintains a sharp
 &+Yeye for the tell-tale signs of a struggling swimmer.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 19 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -613,8 +613,8 @@ beach guard~
 &+Ythe regulars at the beach and her dark, leathery skin bears testiment
 &+Yto the dangers of overexposure to the sun.&n
 ~
-1141245960 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1141245960 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -627,8 +627,8 @@ slimy leech long~
 &+Lby a thin layer of green slime. This species has evolved a pair of light
 &+Lsensitive eyes, allowing it to more easily find prey.&n
 ~
-393224 1 0 0 0 0 0 -1000 S
-a 0 1 -1
+393224 1 0 0 0 0 0 0 -1000 S
+a 0 1 0 -1
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -641,8 +641,8 @@ skullback spider~
 &+Lbe fairly docile. It is a spider that actively hunts for its next
 &+Lmeal, rather than building an intricate web.&n
 ~
-393224 5 0 0 0 0 0 -1000 S
-as 0 1 -1
+393224 5 0 0 0 0 0 0 -1000 S
+as 0 1 0 -1
 3 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -655,8 +655,8 @@ hairy bat~
 &+yaround catching various insects. It's fairly comforting knowing that this
 &+ybat is busy eating the insects that would otherwise be eating you.&n
 ~
-393224 0 0 0 0 0 0 -500 S
-a 0 1 -1
+393224 0 0 0 0 0 0 0 -500 S
+a 0 1 0 -1
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -670,8 +670,8 @@ large sewer rat~
 &+yhelping to control the overwhelming amount of trash in the sewers, they
 &+yare considered to be vile and nobody really wants them around.&n
 ~
-393224 0 0 0 0 0 0 -500 S
-a 0 1 -1
+393224 0 0 0 0 0 0 0 -500 S
+a 0 1 0 -1
 10 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -685,8 +685,8 @@ small sewer rat~
 &+yhelping to control the overwhelming amount of trash in the sewers, they
 &+yare considered to be vile and nobody really wants them around.&n
 ~
-393224 0 0 0 0 0 0 -500 S
-a 0 1 -1
+393224 0 0 0 0 0 0 0 -500 S
+a 0 1 0 -1
 7 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -698,8 +698,8 @@ puffadder~
 &+L   With teeth the size of daggers, this snake is definitely
 &+Lnot one you want to mess with. It hisses loudly as you approach.&n
 ~
-395274 1 0 0 0 0 0 -1000 S
-rs 0 1 -1
+395274 1 0 0 0 0 0 0 -1000 S
+rs 0 1 0 -1
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -713,8 +713,8 @@ green king snake~
 &+gabout five feet in length and has small pits on its nose, allowing
 &+git to see the bodyheat of prey in total darkness.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-r 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+r 0 1 0 -1
 12 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -727,8 +727,8 @@ alligator sewer~
 &+glooking at one. This fellow is four feet long and sports a vicious set
 &+gof teeth. It makes a living eating those pesty rats.&n
 ~
-1074137096 0 0 0 0 0 0 -500 S
-r 0 1 -1
+1074137096 0 0 0 0 0 0 0 -500 S
+r 0 1 0 -1
 16 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -741,8 +741,8 @@ a &+Lgrim &+ymercenary&n~
 &+Lfeatures, this one appears to have survived many a fight. He is hunched over
 &+Lin thought, planning something with his comrads.&n
 ~
-1140852744 0 0 524312 2049 0 0 -1000 S
-ph 0 16384 3
+1140852744 0 0 0 524312 2049 0 0 -1000 S
+ph 0 16384 0 3
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -755,8 +755,8 @@ a &+cslack-jawed &+Cprostitute&n~
 &+chope. However, her mouth promises experience well worth overlooking a few
 &+cfacial blemishes.&n
 ~
-1140852744 0 0 524312 2049 0 0 -1000 S
-ph 0 512 3
+1140852744 0 0 0 524312 2049 0 0 -1000 S
+ph 0 512 0 3
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -768,8 +768,8 @@ a &+yshitting &+Cyouth&n~
 &+L  His face is bright &+Rred&+L, and he is hunched over as if trying to conceil
 &+Lsomething. He is busy &+yshitting&+L.&n
 ~
-1140852744 0 0 524312 2048 0 0 -1000 S
-ph 0 4194304 3
+1140852744 0 0 0 524312 2048 0 0 -1000 S
+ph 0 4194304 0 3
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -781,8 +781,8 @@ a &+Lbattle &+rscarred &+ymercenary&n~
 &+y   Many scars and nicks mark the tough looking skin of this mercenary, who
 &+yobviously knows his way around with a sword.&n
 ~
-1140852744 0 0 524312 2048 0 0 -1000 S
-pb 0 16384 3
+1140852744 0 0 0 524312 2048 0 0 -1000 S
+pb 0 16384 0 3
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -795,8 +795,8 @@ melfist local dyer~
 &+Wcolors. He looks at you, smiles, and says, 'If you're looking to dye any of
 &+Wthose faded pieces of clothing, you shall look no further.'&n
 ~
-67110920 0 0 524312 2049 0 0 1000 S
-ph 0 1 3
+67110920 0 0 0 524312 2049 0 0 1000 S
+ph 0 1 0 3
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -807,8 +807,8 @@ monk white clad white-clad~
 ~
 &+WThis monk is dressed in all white clothing.&n
 ~
-67502090 0 0 0 0 0 0 0 S
-ph 0 64 -1
+67502090 0 0 0 0 0 0 0 0 S
+ph 0 64 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 8 1
@@ -825,8 +825,8 @@ on the alert; looking for trouble.  The heroes that train within the
 Tower are the Winterhaven's last line of defense against evil, and they
 are entitled to the highest degree of safety.
 ~
-67502090 0 0 0 0 0 0 0 S
-ph 0 9 -1
+67502090 0 0 0 0 0 0 0 0 S
+ph 0 9 0 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 8 1
@@ -839,8 +839,8 @@ jail guard soldier~
 &+Lday is the same for him and he only hopes that somehow the many
 &+Lprisoners manage to escape and thus free him from his boredom.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 8 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 8 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 8 1
@@ -854,8 +854,8 @@ appearance alone.  Likely, he is versed in magic, but which branch is
 unknown.  He paces the hallways, likely waiting for an appointment with
 his guildmaster.
 ~
-1074137096 0 0 0 0 0 0 0 S
-ph 0 512 -1
+1074137096 0 0 0 0 0 0 0 0 S
+ph 0 512 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -870,8 +870,8 @@ fearsome warrior~
 &+Lwatching for intruders and he looks ready to leap into any fight at a
 &+Lmoments notice.&n
 ~
-67504136 33555328 0 134217756 2076 0 67108896 0 S
-sg 0 1048576 -1
+67504136 33555328 0 0 134217756 2076 0 67108896 0 S
+sg 0 1048576 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -883,8 +883,8 @@ dryad forest~
 &+g   This young woman spends her time keeping an eye on the
 &+gmany plants and animals that fill the &+WKing&+g's Forest.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-h 0 128 -1
+1074137096 0 0 0 0 0 0 0 0 S
+h 0 128 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -899,8 +899,8 @@ powerful sage _nosneak_~
 &+Lwatching for intruders and he looks ready to leap into any fight at a
 &+Lmoments notice.&n
 ~
-67504136 33555328 0 134217756 8390684 0 67635200 0 S
-an 0 512 -1
+67504136 33555328 0 0 134217756 8390684 0 67635200 0 S
+an 0 512 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -915,8 +915,8 @@ divine guardsman _nosneak_~
 &+Lwatching for intruders and he looks ready to leap into any fight at a
 &+Lmoments notice.&n
 ~
-67502088 896 0 134217756 2076 0 67108864 0 S
-mg 0 8 -1
+67502088 896 0 0 134217756 2076 0 67108864 0 S
+mg 0 8 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -926,8 +926,8 @@ beach scorpion~
 &+YA &+yb&+Yea&+ych &+msc&+Mo&+mrp&+Mio&+mn &+Ycrawls around looking for a place to &+mh&+Mi&+md&+Me&+Y.&n
 ~
 ~
-393224 5 0 0 0 0 0 -750 S
-as 0 1 -1
+393224 5 0 0 0 0 0 0 -750 S
+as 0 1 0 -1
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -938,8 +938,8 @@ ghost crab~
 ~
 &+L   This ghost crab is the size of a small cat.&n
 ~
-393224 5 0 8 0 0 0 -500 S
-ac 0 1 -1
+393224 5 0 0 8 0 0 0 -500 S
+ac 0 1 0 -1
 7 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -951,8 +951,8 @@ pelican~
 &+Y   This pelican is very large and has a long slender bill
 &+Yused to catch lots of fish in one swoop.&n
 ~
-393224 0 0 0 0 0 0 -300 S
-b 0 1 -1
+393224 0 0 0 0 0 0 0 -300 S
+b 0 1 0 -1
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -964,8 +964,8 @@ turtle seaturtle young~
 &+g   This &+Wbaby &+gseaturtle is hurrying down the beach in a race to get to
 &+gthe ocean before it becomes somebody's lunch.&n
 ~
-393224 0 0 0 0 0 0 300 S
-r 0 1 -1
+393224 0 0 0 0 0 0 0 300 S
+r 0 1 0 -1
 9 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -980,8 +980,8 @@ turtle seaturtle male~
 
 &+g   This &+Wbaby &+gseaturtle is hurrying down the beach in a race to get to
 ~
-393224 0 0 0 0 0 0 300 S
-r 0 1 -1
+393224 0 0 0 0 0 0 0 300 S
+r 0 1 0 -1
 13 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -994,8 +994,8 @@ female bum~
 &+Ythe regulars at the beach and her dark, leathery skin bears testiment
 &+Yto the dangers of overexposure to the sun.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 16 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1013,8 +1013,8 @@ male bum~
 &+Ythe regulars at the beach and her dark, leathery skin bears testiment
 &+Yto the dangers of overexposure to the sun.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 18 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1032,8 +1032,8 @@ lifeguard~
 &+Yendanger themselves by trying to swim out too far. He maintains a sharp
 &+Yeye for the tell-tale signs of a struggling swimmer.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1046,8 +1046,8 @@ beach guard~
 &+Ythe regulars at the beach and her dark, leathery skin bears testiment
 &+Yto the dangers of overexposure to the sun.&n
 ~
-1141245960 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1141245960 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1060,8 +1060,8 @@ slimy leech long~
 &+Lby a thin layer of green slime. This species has evolved a pair of light
 &+Lsensitive eyes, allowing it to more easily find prey.&n
 ~
-393224 1 0 0 0 0 0 -1000 S
-a 0 1 -1
+393224 1 0 0 0 0 0 0 -1000 S
+a 0 1 0 -1
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1074,8 +1074,8 @@ spider redskull~
 &+Lbe fairly docile. It is a spider that actively hunts for its next
 &+Lmeal, rather than building an intricate web.&n
 ~
-393224 5 0 0 0 0 0 -1000 S
-as 0 1 -1
+393224 5 0 0 0 0 0 0 -1000 S
+as 0 1 0 -1
 4 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1088,8 +1088,8 @@ hairy bat~
 &+yaround catching various insects. It's fairly comforting knowing that this
 &+ybat is busy eating the insects that would otherwise be eating you.&n
 ~
-393224 0 0 0 0 0 0 -500 S
-a 0 1 -1
+393224 0 0 0 0 0 0 0 -500 S
+a 0 1 0 -1
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1103,8 +1103,8 @@ small sewer rat~
 &+yhelping to control the overwhelming amount of trash in the sewers, they
 &+yare considered to be vile and nobody really wants them around.&n
 ~
-393224 0 0 0 0 0 0 -500 S
-a 0 1 -1
+393224 0 0 0 0 0 0 0 -500 S
+a 0 1 0 -1
 8 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1118,8 +1118,8 @@ large sewer rat~
 &+yhelping to control the overwhelming amount of trash in the sewers, they
 &+yare considered to be vile and nobody really wants them around.&n
 ~
-393224 0 0 0 0 0 0 -500 S
-a 0 1 -1
+393224 0 0 0 0 0 0 0 -500 S
+a 0 1 0 -1
 11 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1133,8 +1133,8 @@ green king snake~
 &+gabout five feet in length and has small pits on its nose, allowing
 &+git to see the bodyheat of prey in total darkness.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-r 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+r 0 1 0 -1
 13 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1147,8 +1147,8 @@ alligator sewer~
 &+glooking at one. This fellow is four feet long and sports a vicious set
 &+gof teeth. It makes a living eating those pesty rats.&n
 ~
-1074137096 0 0 0 0 0 0 -500 S
-r 0 1 -1
+1074137096 0 0 0 0 0 0 0 -500 S
+r 0 1 0 -1
 17 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1162,8 +1162,8 @@ wealthy merchant~
 &+Yon his shoulders. He has a pouch of coins attached to his belt, which he
 &+Ykeeps a sharp eye on.&n
 ~
-1074137112 0 0 0 0 0 0 500 S
-pb 0 65536 -1
+1074137112 0 0 0 0 0 0 0 500 S
+pb 0 65536 0 -1
 18 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1177,8 +1177,8 @@ wealthy merchant~
 &+Yon his shoulders. He has a pouch of coins attached to his belt, which he
 &+Ykeeps a sharp eye on.&n
 ~
-1074137112 0 0 0 0 0 0 750 S
-pe 0 65536 -1
+1074137112 0 0 0 0 0 0 0 750 S
+pe 0 65536 0 -1
 19 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1191,8 +1191,8 @@ poor commoner~
 &+cand his overall appearance indicates that he makes barely enough money to
 &+ckeep hunger away. He looks at you with a sullen face, hoping for charity.&n
 ~
-395272 0 0 0 0 0 0 500 S
-ph 0 1 -1
+395272 0 0 0 0 0 0 0 500 S
+ph 0 1 0 -1
 8 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1205,8 +1205,8 @@ female commoner~
 &+Ldress made from cotton. Her blouse is very faded, but has been kept
 &+Lclean. She carries herself with pride and has a smile on her face.&n
 ~
-395272 0 0 0 0 0 0 500 S
-ph 0 1 -1
+395272 0 0 0 0 0 0 0 500 S
+ph 0 1 0 -1
 11 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1219,8 +1219,8 @@ male commoner~
 &+cpeople as they walk by. For a commoner, that's the most entertainment you
 &+ccan get without spending any money.&n
 ~
-395272 0 0 0 0 0 0 500 S
-ph 0 1 -1
+395272 0 0 0 0 0 0 0 500 S
+ph 0 1 0 -1
 13 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1233,8 +1233,8 @@ filthy beggar~
 &+Lis covered in a thick combination of sweat, dirt and piss. He smells
 &+Lterrible and is just an unpleasant sight.&n
 ~
-395272 0 0 0 0 0 0 -500 S
-pf 0 65536 -1
+395272 0 0 0 0 0 0 0 -500 S
+pf 0 65536 0 -1
 7 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1247,8 +1247,8 @@ street performer~
 &+Wor interpretive dance, which isn't very high. This man is busy juggling
 &+Wballs and dancing a jig that looks more painful than entertaining.&n
 ~
-395272 0 0 0 0 0 0 0 S
-ph 0 1 -1
+395272 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 14 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1261,8 +1261,8 @@ noble local~
 &+Cwalks around the city with the simple purpose of showing everyone else
 &+Chow wealthy he is.&n
 ~
-395272 0 0 0 0 0 0 500 S
-ph 0 1 -1
+395272 0 0 0 0 0 0 0 500 S
+ph 0 1 0 -1
 16 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1275,8 +1275,8 @@ noble local~
 &+Cwalks around the city with the simple purpose of showing everyone else
 &+Chow wealthy he is.&n
 ~
-395272 0 0 0 0 0 0 500 S
-ph 0 1 -1
+395272 0 0 0 0 0 0 0 500 S
+ph 0 1 0 -1
 17 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1289,8 +1289,8 @@ devoted follower~
 &+Cwalks around the city with the simple purpose of showing everyone else
 &+Chow wealthy he is.&n
 ~
-395272 0 0 0 0 0 0 1000 S
-p2 0 1 -1
+395272 0 0 0 0 0 0 0 1000 S
+p2 0 1 0 -1
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1303,8 +1303,8 @@ preacher man~
 &+Cwalks around the city with the simple purpose of showing everyone else
 &+Chow wealthy he is.&n
 ~
-395272 0 0 0 0 0 0 1000 S
-pm 0 32 -1
+395272 0 0 0 0 0 0 0 1000 S
+pm 0 32 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1315,8 +1315,8 @@ black crow~
 ~
 &+L   This small bird is really loud and annoying.&n
 ~
-393224 0 0 0 0 0 0 -1000 S
-b 0 1 -1
+393224 0 0 0 0 0 0 0 -1000 S
+b 0 1 0 -1
 3 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1332,8 +1332,8 @@ kzantha weaponsmith~
 &+Lhis expression is that of someone who still cannot
 &+Lfind the one thing that will bring him &+Whappiness&+L.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-p2 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+p2 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1343,8 +1343,8 @@ merchant~
 &+LA &+Wmerchant &+Lstands here, selling &+WKzantha's&+L finely crafted weaponry.&n
 ~
 ~
-395274 0 0 0 0 0 0 1000 S
-ph 0 1 -1
+395274 0 0 0 0 0 0 0 1000 S
+ph 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1360,8 +1360,8 @@ armorer davril~
 &+Lguard relies solely on his expertise as a craftsman. You notice
 &+Lhim looking towards an empty &+Wspace &+Lon his wall.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-pb 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+pb 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1371,8 +1371,8 @@ merchant~
 &+LA &+Wmerchant &+Lstands here, selling &+WDavril's&+L masterly created armor.&n
 ~
 ~
-395274 0 0 0 0 0 0 1000 S
-ph 0 1 -1
+395274 0 0 0 0 0 0 0 1000 S
+ph 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1387,8 +1387,8 @@ bipplewizzlille alchemist~
 &+Lsmall pieces. He has a large nose and a small chin hidden under a
 &+Lwhite beard. You notice a &+Wlocket &+Lhanging around his neck.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-pg 0 524288 -1
+1074137098 0 0 0 0 0 0 0 0 S
+pg 0 524288 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1398,8 +1398,8 @@ merchant~
 &+LA &+Wmerchant &+Lstands here, selling &+WBipplewizzlille's&+L potions and ingredients.&n
 ~
 ~
-395274 0 0 0 0 0 0 1000 S
-ph 0 1 -1
+395274 0 0 0 0 0 0 0 1000 S
+ph 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1409,8 +1409,8 @@ merchant~
 &+LA &+Wmerchant &+Lstands here, selling &+WRosenthal's&+L delectible treats.&n
 ~
 ~
-395274 0 0 0 0 0 0 1000 S
-ph 0 1 -1
+395274 0 0 0 0 0 0 0 1000 S
+ph 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1425,8 +1425,8 @@ rosenthal baker~
 &+Lgrease or batter. He looks into the batter he is preparing
 &+Land &+Wsighs&+L.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1441,8 +1441,8 @@ enfil fisherman barbarian~
 &+Lbarrels and places the finished fillets onto a bed of sea salt. His
 &+Wknife &+Llooks a bit dull.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-pb 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+pb 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1452,8 +1452,8 @@ merchant fish~
 &+LA &+Wmerchant &+Lstands here, selling &+WEnfil's&+L fish steaks.&n
 ~
 ~
-395274 0 0 0 0 0 0 1000 S
-pm 0 32 -1
+395274 0 0 0 0 0 0 0 1000 S
+pm 0 32 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1467,8 +1467,8 @@ sootfoot blacksmith~
 &+Lfiercely, sending sparks flying as he hammers out a red-hot piece
 &+Lof iron.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-pf 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+pf 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1478,8 +1478,8 @@ merchant~
 &+LA &+Wmerchant &+Lstands here, selling &+WSootfoot's &+Lforged items.&n
 ~
 ~
-395274 0 0 0 0 0 0 1000 S
-ph 0 1 -1
+395274 0 0 0 0 0 0 0 1000 S
+ph 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1489,8 +1489,8 @@ merchant~
 &+LA &+Wmerchant &+Lstands here, selling &+WXola's&+L magical supplies.&n
 ~
 ~
-395274 0 0 0 0 0 0 1000 S
-ph 0 1 -1
+395274 0 0 0 0 0 0 0 1000 S
+ph 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1505,8 +1505,8 @@ xola enchantress~
 &+Lher presence. She holds a &+Wscroll &+Lin her hand and seems to be a
 &+Lbit frustrated.
 ~
-1074137098 0 0 0 0 0 0 0 S
-pe 0 512 -1
+1074137098 0 0 0 0 0 0 0 0 S
+pe 0 512 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1516,8 +1516,8 @@ fiercesome drakenhorse horse draken _hireling_~
 &+LA &+Rf&+rie&+Rrc&+re&+Rs&+ro&+Rm&+re &+Ldr&+Rak&+Len&+Rho&+Lrs&+Re &+Lsnarls at you with empty eyesockets.&n
 ~
 ~
-134217736 0 0 134217728 0 0 512 0 S
-ae 0 1 -1
+134217736 0 0 0 134217728 0 0 512 0 S
+ae 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1533,8 +1533,8 @@ mangrel stablemaster~
 &+Lbrush in one hand and a bucket of water in the other. You notice a
 &+Ljockey's &+Wwhip &+Lhanging from his belt.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 256 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 256 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1544,8 +1544,8 @@ powerful horse warhorse~
 &+WA &+Ypowerful &+Wwarhorse stands ready for battle.
 ~
 ~
-134217736 0 0 0 0 0 0 0 S
-ae 0 1 -1
+134217736 0 0 0 0 0 0 0 0 S
+ae 0 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1562,8 +1562,8 @@ mercenary thorl~
 &+LAlthough things look good for this battle-scarred veteran, there is
 &+La touch of &+Wsadness &+Lin his breath.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-pb 0 16384 -1
+1074137098 0 0 0 0 0 0 0 0 S
+pb 0 16384 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1580,8 +1580,8 @@ buzzbeef~
 &+Lproducts with the leftover hemp materials. Now, if only he could find
 &+Lhis lucky &+Wpipe&+L.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-pf 0 128 -1
+1074137098 0 0 0 0 0 0 0 0 S
+pf 0 128 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1596,8 +1596,8 @@ bristhol~
 &+Lcall a masonry extraordinaire. If theres anything about &+Wmasonry &+Lthis
 &+Lman doesn't know, then it's probably not worth knowing.
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1612,8 +1612,8 @@ urthylyl~
 &+Lnoise. He has two large vemon sacs on either side of neck, which
 &+Lseem to pulsate with every beat of his heart.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-tk 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+tk 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1627,8 +1627,8 @@ bashere barrel-maker~
 &+Lshorts. Although this man looks to be quite focused on the day's work, there
 &+Lis a glimmer of &+Wworry &+Lin his eyes.
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1642,8 +1642,8 @@ branay jeweler~
 &+Wancestors, she has a unique set of skills that has
 &+Wmade the jewelry she produces extremely valuable.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-pe 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+pe 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1660,8 +1660,8 @@ sir espet commander~
 &+Wfew dark creases mark his face, and it's clear there's
 &+Wsomething he's worrying about.&n
 ~
-1074137098 0 0 0 0 0 0 -1000 S
-ph 0 16 -1
+1074137098 0 0 0 0 0 0 0 -1000 S
+ph 0 16 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1675,8 +1675,8 @@ ohjal constable~
 &+Wof the city. Along with his outstanding moral attributes, he
 &+Wis also very knowledgeable with paintings and antiques.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-pg 0 256 -1
+1074137098 0 0 0 0 0 0 0 0 S
+pg 0 256 0 -1
 47 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1691,8 +1691,8 @@ grenthal butcher~
 &+WHis services are not limited to only the nobility, but he
 &+Wis more than willing to work with ordinary people, like you.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 64 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 64 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1707,8 +1707,8 @@ monfit tanner~
 &+Wtypes of apparel. Monfit is only about four feet tall
 &+Wbut looks sturdy in his stance.&n
 ~
-1074137098 0 0 0 0 0 0 1000 S
-pf 0 1 -1
+1074137098 0 0 0 0 0 0 0 1000 S
+pf 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1722,8 +1722,8 @@ bisoti woodcarver~
 &+Wand only recently moved to this city. One of Bisoti's
 &+Wspecialties is making fine wooden totems.&n
 ~
-1074137098 0 0 0 0 0 0 1000 S
-pe 0 128 -1
+1074137098 0 0 0 0 0 0 0 1000 S
+pe 0 128 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1737,8 +1737,8 @@ seyb weaver~
 &+Wneedles and picks that are used when producing high quality
 &+Wbolts of cloth and silk.&n
 ~
-1074137098 0 0 0 0 0 0 1000 S
-pf 0 2 -1
+1074137098 0 0 0 0 0 0 0 1000 S
+pf 0 2 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1754,8 +1754,8 @@ swityl cleaner~
 &+Worder. That's why he was commissioned as the head honcho
 &+Wfor the Winterhaven street sweepers assocation.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1772,8 +1772,8 @@ thyz rogue~
 &+Lmuscular, his controlled movements indicate that he definitely knows how to
 &+Lhandle himself in a fight.&n
 ~
-1074137098 0 0 0 0 0 0 -1000 S
-pm 0 4096 -1
+1074137098 0 0 0 0 0 0 0 -1000 S
+pm 0 4096 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1788,8 +1788,8 @@ svivel banker~
 &+Lof others. He has a shady and dangerous look to him, like a man
 &+Lwho would slit the throat of his own mother if she offended him.&n
 ~
-1074137114 0 0 0 0 0 0 -1000 S
-ph 0 4096 -1
+1074137114 0 0 0 0 0 0 0 -1000 S
+ph 0 4096 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1805,8 +1805,8 @@ siren sierra~
 &+Lin corners around the world and the story of her arrival here is
 &+Lstill somewhat of &+Wmystery&n&+L.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-h 0 32768 -1
+1074137098 0 0 0 0 0 0 0 0 S
+h 0 32768 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1820,8 +1820,8 @@ mendsen doctor, healer~
 &nconfidence, knowing that there are very few ailments that he is
 &nunable to &+Wcure&n.
 ~
-1074137098 0 0 0 0 0 0 1000 S
-ph 0 32 -1
+1074137098 0 0 0 0 0 0 0 1000 S
+ph 0 32 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1835,8 +1835,8 @@ ohnagra explorer~
 &+LHe is a man who has memorized the surrounding lands and knows
 &+Lexactly what eager adventurers require before venturing out.&n
 ~
-1074137098 0 0 0 0 0 0 1000 S
-ph 0 2 -1
+1074137098 0 0 0 0 0 0 0 1000 S
+ph 0 2 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1852,8 +1852,8 @@ sexy bartender~
 &+Lthe Black Swan to enjoy her drinks. She is also well known as being
 &+Lthe &+wmaster of quests&+L.&n
 ~
-1074137098 0 0 8 0 0 0 1000 S
-ph 0 8 -1
+1074137098 0 0 0 8 0 0 0 1000 S
+ph 0 8 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1868,8 +1868,8 @@ speek auctioneer~
 &+Lexcept for his voice and obvious skill at speaking faster than
 &+Lcan be heard.&n
 ~
-1074137098 0 0 0 0 0 0 -500 S
-ph 0 4194304 -1
+1074137098 0 0 0 0 0 0 0 -500 S
+ph 0 4194304 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1885,8 +1885,8 @@ maxolan adventurer~
 &+Llong since retired and spends his days drinking and ogling the many
 &+Lattractive women of this city.&n
 ~
-1074137098 0 0 0 0 0 0 -500 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 -500 S
+ph 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1901,8 +1901,8 @@ executioner muredach~
 &+Lthe condemned. Many have accused him of taking too much of a
 &+Lliking to his profession.&n
 ~
-1074137098 0 0 0 0 0 0 -1000 S
-ph 0 16 -1
+1074137098 0 0 0 0 0 0 0 -1000 S
+ph 0 16 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1917,8 +1917,8 @@ artist aevenyl~
 &+Lher paintings. However, she looks to be quite &+Wfrustrated &+Lwith her
 &+Lcurrent painting.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1933,8 +1933,8 @@ grendilyn tailor~
 &+Lforeign &+Gfabrics &+Lare what she loves using, and it appears that she
 &+Lhas misplaced her two more exquisite ones.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-pe 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+pe 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1949,8 +1949,8 @@ ranger guardsman guard~
 &+wis interested in any of your nonsense, so it would be best
 &+wfor you to leave him alone.&n
 ~
-67110986 0 0 134217752 0 0 0 0 S
-ph 0 2 -1
+67110986 0 0 0 134217752 0 0 0 0 S
+ph 0 2 0 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1967,8 +1967,8 @@ ambassador forgotten mansion~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of The Obsidian Citadel.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+ph 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1985,8 +1985,8 @@ ambassador village werrun~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of The Obsidian Citadel.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+ph 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2003,8 +2003,8 @@ ambassador quintaragon castle~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of The Obsidian Citadel.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+ph 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2017,8 +2017,8 @@ jailor klamp~
 &+Lwith large broad shoulders, ready to process and throw the key for
 &+Lwhatever scum gets dragged here.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2031,8 +2031,8 @@ This is Spij, once a feared raider from the Underdark.  He's personally
 slain hundreds of powerful good raced beings.  However, he's in jail
 now, and a threat to no one.
 ~
-1074137098 1 0 0 0 0 262144 0 S
-pl 0 2048 -1
+1074137098 1 0 0 0 0 0 262144 0 S
+pl 0 2048 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2045,8 +2045,8 @@ This is Golrith, a feared raider responsible for the deaths of countless
 good raced beings.  He sits in jail, head slunk down, a shell of his
 former self.
 ~
-1074137098 1 0 0 0 0 262144 0 S
-pd 0 32 -1
+1074137098 1 0 0 0 0 0 262144 0 S
+pd 0 32 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2056,8 +2056,8 @@ ogre~
 &nAn &+BOgre &n(large) &+rThE FuRy &+L*-* &+rClan BloodLust &+L*-* &nstands in mid-air here.&n
 ~
 ~
-1074137098 1 0 0 0 0 262144 0 S
-po 0 1 -1
+1074137098 1 0 0 0 0 0 262144 0 S
+po 0 1 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2067,8 +2067,8 @@ githyanki~
 &nA &+GGith&+Wyanki &n(medium) &+LDr&+wea&+WdL&+wo&+LrD &+L*-& &+rClan BloodLust &+L*-*&n stands in mid-air here.&n
 ~
 ~
-1074137098 1 0 0 0 0 262144 0 S
-gi 0 4 -1
+1074137098 1 0 0 0 0 0 262144 0 S
+gi 0 4 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2078,8 +2078,8 @@ goblin~
 &nA &+GGoblin &n(tiny) &+LDr&+wea&+WdL&+wo&+LrD &+L*-* &+rClan BloodLust &+L*-* &nstands in mid-air here.&n
 ~
 ~
-1074137098 1 0 0 0 65536 262144 0 S
-hg 0 512 -1
+1074137098 1 0 0 0 0 65536 262144 0 S
+hg 0 512 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2089,8 +2089,8 @@ orc~
 &nAn &+LOrc &n(medium) &+WZe&+wrke&+LrL&+wo&+WrD &+L*-* &+rClan BloodLust &+L*-* &nstands in mid-air here.&n
 ~
 ~
-1074137098 1 0 0 0 0 262144 0 S
-ho 0 8192 -1
+1074137098 1 0 0 0 0 0 262144 0 S
+ho 0 8192 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2100,8 +2100,8 @@ troll~
 &nA &+GTroll &n(large) &+rThE FuRy &+L*-* &+rClan BloodLust &+L*-* &ntands in mid-air here.&n
 ~
 ~
-1074137098 1 0 0 0 0 262144 0 S
-pt 0 1 -1
+1074137098 1 0 0 0 0 0 262144 0 S
+pt 0 1 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2111,8 +2111,8 @@ thri kreen thri-kreen~
 &nA &+GThri-&+YKreen &n(medium) &+RS&+rpa&+Rwn &+L*-* &+rClan BloodLust &+L*-*&n stands in mid-air here.&n
 ~
 ~
-1074137098 1 0 0 0 0 262144 0 S
-tk 0 1 -1
+1074137098 1 0 0 0 0 0 262144 0 S
+tk 0 1 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2126,8 +2126,8 @@ guard security~
 &+Lmight be up to no good. He has a &+wsilver &+Lbadge on his armor showing his
 &+Lrank as a &+Csergeant&+L.&n
 ~
-1140852744 0 0 0 0 0 0 500 S
-ph 0 1 -1
+1140852744 0 0 0 0 0 0 0 500 S
+ph 0 1 0 -1
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2141,8 +2141,8 @@ clerk jail~
 &+Lmight be up to no good. He has a &+wsilver &+Lbadge on his armor showing his
 &+Lrank as a &+Csergeant&+L.&n
 ~
-1073743882 0 0 0 0 0 0 1000 S
-ph 0 72 -1
+1073743882 0 0 0 0 0 0 0 1000 S
+ph 0 72 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2152,8 +2152,8 @@ inmate escape~
 &+LAn &+Cinmate &+Lthat has managed to escape from &+YJail &+Lsits in hiding.&n
 ~
 ~
-1074153480 1 0 0 0 0 262144 0 S
-re 0 20480 -1
+1074153480 1 0 0 0 0 0 262144 0 S
+re 0 20480 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2163,8 +2163,8 @@ inmate~
 &+LA gruesome &+Rinmate &+Lis has escape the &+YJail &+Land found a place to hide.&n
 ~
 ~
-1074137096 1 0 0 0 0 262144 0 S
-uw 0 1 -1
+1074137096 1 0 0 0 0 0 262144 0 S
+uw 0 1 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2180,8 +2180,8 @@ lancer tracker~
 &+Lwho are looking to explore the wonders of this realm. He
 &+Loccasionally looks at a map of the &+MUnderdark&+L.&n
 ~
-1074137098 0 0 0 0 0 0 0 S
-pe 0 2 -1
+1074137098 0 0 0 0 0 0 0 0 S
+pe 0 2 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2191,8 +2191,8 @@ noble~
 &+LA &+cnoble &+Lstares at you with a condescending gaze.&n
 ~
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2202,8 +2202,8 @@ noble man~
 &+LA &+Cnoble &+Lstands here, wondering why you are in his living room.&n
 ~
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 47 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2213,8 +2213,8 @@ noble female~
 &+LA &+Wfemale &+cnoble &+Lscreams at you to leave her house.&n
 ~
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 39 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2224,8 +2224,8 @@ male commoner~
 &+LA &+Wmale &+ccommoner &+Lstands here, oblivious to your presence.&n
 ~
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2235,8 +2235,8 @@ female commoner~
 &+LA &+Wfemale &+ccommoner &+Lstands here yelling at her husband.&n
 ~
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2246,8 +2246,8 @@ male commoner~
 &+LA &+cmale &+Wcommoner &+Lis busy slapping his wife.&n
 ~
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2257,8 +2257,8 @@ female commoner~
 &+LA &+cfemale &+Wcommoner &+Lscreams as her husband slaps her face.&n
 ~
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2268,8 +2268,8 @@ drug addict~
 &+LA &+Wdrug &+gaddict &+Lsits and moans with his face in his hands.
 ~
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 8 1
@@ -2279,8 +2279,8 @@ male commoner~
 &+LA &+rmale &+Wcommoner &+Lis busy pleasuring his wife.&n
 ~
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2290,8 +2290,8 @@ female commoner~
 &+LA &+Rfemale &+Wcommoner &+Lholds her husbands head and moans loudly.&n
 ~
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2301,8 +2301,8 @@ male commoner~
 &+LA &+mmale &+ccommoner &+Lsits and stares at the ceiling.&n
 ~
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 8 1
@@ -2312,8 +2312,8 @@ male commoner~
 &+LA &+Wmale &+rcommoner &+Lis busy painting his house.&n
 ~
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 8 1
@@ -2323,8 +2323,8 @@ male commoner~
 &+LA &+ymale &+Wcommoner &+Lis busy painting his house.&n
 ~
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 8 1
@@ -2334,8 +2334,8 @@ male commoner~
 &+LA &+Ymale &+Wcommoner &+Lis busy painting his house.&n
 ~
 ~
-1074137098 0 0 0 0 0 0 0 S
-ph 0 1 -1
+1074137098 0 0 0 0 0 0 0 0 S
+ph 0 1 0 -1
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 8 1
@@ -2348,8 +2348,8 @@ apprentice~
 of magic she trains under.  She walks through the tower purposely,
 likely doing some errand for her guildmaster.
 ~
-1074137096 0 0 0 0 0 0 0 S
-ph 0 32 -1
+1074137096 0 0 0 0 0 0 0 0 S
+ph 0 32 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2359,8 +2359,8 @@ llavarna grey elf druid~
 &+WLlavarna &+Lthe &+cGrey Elf &+gDruid &+Lis perfectly in tune with &+Gnature&+L.&n
 ~
 ~
-1074169866 0 0 0 0 0 0 0 S
-pe 0 128 -1
+1074169866 0 0 0 0 0 0 0 0 S
+pe 0 128 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2370,8 +2370,8 @@ aeda cleric dwarf~
 &+WAeda &+Lthe &+YDwarf &+cCleric &+Lis busy mending the &+rw&+Rou&+rnds &+Lof the injured.&n
 ~
 ~
-1074169866 0 0 0 0 0 0 0 S
-pm 0 32 -1
+1074169866 0 0 0 0 0 0 0 0 S
+pm 0 32 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2381,8 +2381,8 @@ mrajani sorcerer wildmage wicked _spec1_~
 &+WMrajani &+Lthe &+rwicked &+RGnome &+mWild&+Mmage &+Lis busy focusing her &+rp&+Ro&+rw&+Re&+rr&+L.&n
 ~
 ~
-1074169866 0 0 0 0 0 0 0 S
-pg 0 512 -1
+1074169866 0 0 0 0 0 0 0 0 S
+pg 0 512 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2392,8 +2392,8 @@ ibaron legendary conjurer~
 &+WIbaron &+Lthe &+mLe&+Mge&+mnd&+Mar&+my &+YConjurer &+Lbends the &+Rel&+Yem&+Wen&+Bts &+Lto his will.&n
 ~
 ~
-1074169866 0 0 0 0 0 0 0 S
-pg 0 2048 -1
+1074169866 0 0 0 0 0 0 0 0 S
+pg 0 2048 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2409,8 +2409,8 @@ elements to develop some sort of new spell.  To finance her studies, she
 has agreed to teach new ethermancers in the Tower and help them develop
 their own powers.  She will help you, as well.
 ~
-1074169866 0 0 0 0 0 0 0 S
-pg 0 33554432 -1
+1074169866 0 0 0 0 0 0 0 0 S
+pg 0 33554432 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2428,8 +2428,8 @@ Despite his rough appearance, one feels at peace standing in the room
 with him.  Duule has taught many would-be shamans how to enhance their
 powers, and he will be happy to help you enhance yours.
 ~
-1074169866 0 0 0 0 0 0 0 S
-mt 0 256 -1
+1074169866 0 0 0 0 0 0 0 0 S
+mt 0 256 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2439,8 +2439,8 @@ theft rogue halfling _spec1_~
 &+WTheft &+Lthe &+yHalfling &+rRogue &+Lbalances a dagger on the tip of his &+rto&+Rng&+rue&+L.&n
 ~
 ~
-1074169882 0 0 0 0 0 0 0 S
-pf 0 4096 -1
+1074169882 0 0 0 0 0 0 0 0 S
+pf 0 4096 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2450,8 +2450,8 @@ ugruk barbarian mercenary~
 &+WUgruk &+Lthe &+BBarbarian &+yMercenary &+Lcracks his knuckles as a jesture of strength.&n
 ~
 ~
-1074169866 0 0 0 0 0 0 0 S
-pb 0 16384 -1
+1074169866 0 0 0 0 0 0 0 0 S
+pb 0 16384 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2461,8 +2461,8 @@ marigold halfling illusionist~
 &+WMarigold &+Lthe &+yHalfling &+WIl&+Clu&+csi&+Con&+Wist &+Lenjoys making things disappear.&n
 ~
 ~
-1074169866 0 0 0 0 0 0 0 S
-pf 0 4194304 -1
+1074169866 0 0 0 0 0 0 0 0 S
+pf 0 4194304 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2472,8 +2472,8 @@ nubija human necromancer~
 &+WNubija &+Lthe &+WGith&+Gzerai &+mNecromancer &+Lmasters the art of animating the &+rd&+Rea&+rd&+L.&n
 ~
 ~
-1074235402 0 0 0 0 0 0 0 S
-gz 0 1024 -1
+1074235402 0 0 0 0 0 0 0 0 S
+gz 0 1024 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2483,8 +2483,8 @@ killian centaur ranger~
 &+WKillian &+Lthe &+gCen&+Ltaur &+GRanger &+Lstands tall and proud as a &+Wmighty &+Lfighter.&n
 ~
 ~
-1074169866 0 0 0 0 0 0 0 S
-ct 0 2 -1
+1074169866 0 0 0 0 0 0 0 0 S
+ct 0 2 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2494,8 +2494,8 @@ dada human monk~
 &+WDada &+Lthe &+CHuman &+LM&+won&+Lk is busy practicing some &+Wmartial arts&+L.&n
 ~
 ~
-1074169866 0 0 0 0 0 0 0 S
-ph 0 64 -1
+1074169866 0 0 0 0 0 0 0 0 S
+ph 0 64 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2505,8 +2505,8 @@ meddlebottle gnome alchemist~
 &+WMeddlebottle &+Lthe &+RGnome &+CAlc&+chem&+Cist &+Lis busy mixing up some potions.&n
 ~
 ~
-1074169866 0 0 0 0 0 0 0 S
-pg 0 524288 -1
+1074169866 0 0 0 0 0 0 0 0 S
+pg 0 524288 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2516,8 +2516,8 @@ bweec half-elf bard~
 &+WBweec &+Lthe &+CHalf&+c-Elf &+LB&+Bar&+Ld sings a tune while doing some &+mf&+Mu&+mnk&+My &+rma&+Rgi&+rc&+L.&n
 ~
 ~
-1074169866 0 0 0 0 0 0 0 S
-p2 0 32768 -1
+1074169866 0 0 0 0 0 0 0 0 S
+p2 0 32768 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2527,8 +2527,8 @@ slade stormcrow barbarian battlemaster~
 &+WSlade Stormcrow &+Lthe &+BBarbarian &+RBattle&+rMaster &+Lis organizing his weapons.&n
 ~
 ~
-1074169866 0 0 0 0 0 0 0 S
-pb 0 1 -1
+1074169866 0 0 0 0 0 0 0 0 S
+pb 0 1 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2538,8 +2538,8 @@ tetabo human paladin~
 &+WTetabo &+Lthe &+CHuman &+WPaladin &+Lradiates a &+WHoly &+Laura.&n
 ~
 ~
-1074169866 0 0 0 0 0 0 0 S
-ph 0 8 -1
+1074169866 0 0 0 0 0 0 0 0 S
+ph 0 8 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2551,8 +2551,8 @@ merchant~
    Ohnagra's shy assistant, this man handles the more monotous part of
 running the supply store.
 ~
-395274 0 0 0 0 0 0 1000 S
-ph 0 1 -1
+395274 0 0 0 0 0 0 0 1000 S
+ph 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2566,8 +2566,8 @@ priest high winterhaven~
 &+Land citizens of this great city. His movements are very gentle
 &+Land his demeanor radiates a calm and controlled attitude.&n
 ~
-424010 0 0 1057071356 47325 17301632 72364544 1000 S
-PH 0 928 -1
+424010 0 0 0 1057071356 47325 17301632 72364544 1000 S
+PH 0 928 0 -1
 62 140 500 5000d4+5000 50d4+200
 0.0.0.0 0
 8 8 1
@@ -2582,8 +2582,8 @@ barkeep~
 &+Lbroad shoulders and thick arms, probably a result from restocking heavy
 &+Lbarrels of ale.&n
 ~
-395274 0 0 0 0 0 0 1000 S
-ph 0 1 -1
+395274 0 0 0 0 0 0 0 1000 S
+ph 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2593,8 +2593,8 @@ powerful horse warhorse~
 &+WA &+Ypowerful &+Wwarhorse stands ready for battle.
 ~
 ~
-134217736 0 0 0 0 0 0 0 S
-ae 0 1 -1
+134217736 0 0 0 0 0 0 0 0 S
+ae 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2604,8 +2604,8 @@ small speckled pony~
 &+LA &+Ws&+Lm&+Wa&+Ll&+Wl &+Ls&+Wp&+Le&+Wc&+Lk&+Wl&+Le&+Wd &+Lp&+Wo&+Ln&+Wy stands here.&n
 ~
 ~
-134217736 0 0 0 0 0 0 0 S
-ae 0 1 -1
+134217736 0 0 0 0 0 0 0 0 S
+ae 0 1 0 -1
 10 0 0 10d10+60 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2615,8 +2615,8 @@ sick impotent mare~
 &+WOne of the most &+Gp&+ga&+Gt&+gh&+Ge&+gt&+Gi&+gc &+mm&+Ma&+mr&+Me&+ms &+Wyou've ever seen stands here.&n
 ~
 ~
-134217736 0 0 0 0 0 0 0 S
-ae 0 1 -1
+134217736 0 0 0 0 0 0 0 0 S
+ae 0 1 0 -1
 1 0 0 4d5+20 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2626,8 +2626,8 @@ novice spellslinger _hireling_~
 &+WA novice &+rSpell&+Mslinger &+Wstands by your side.&n
 ~
 ~
-393224 0 0 0 0 0 0 0 S
-pg 0 512 -1
+393224 0 0 0 0 0 0 0 0 S
+pg 0 512 0 -1
 7 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2637,8 +2637,8 @@ amateur spellslinger _hireling_~
 &+WAn amateur &+rSpell&+Mslinger &+Wawaits your orders.&n
 ~
 ~
-393224 0 0 0 0 0 0 0 S
-pg 0 512 -1
+393224 0 0 0 0 0 0 0 0 S
+pg 0 512 0 -1
 14 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2648,8 +2648,8 @@ apprentice spellslinger _hireling_~
 &+WAn apprentice &+rSpell&+Mslinger &+Wis ready for combat.&n
 ~
 ~
-393224 0 0 0 0 0 0 0 S
-pg 0 512 -1
+393224 0 0 0 0 0 0 0 0 S
+pg 0 512 0 -1
 22 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2659,8 +2659,8 @@ initiate spellslinger _hireling_~
 &+WAn initiate &+rSpell&+Mslinger &+Wis ready to do some serious damage.&n
 ~
 ~
-393224 0 0 0 0 0 0 0 S
-pg 0 512 -1
+393224 0 0 0 0 0 0 0 0 S
+pg 0 512 0 -1
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2670,8 +2670,8 @@ unskilled warrior _hireling_~
 &+WAn unskilled &+gWar&+Grior &+Wdoesn't know which end is up with his sword.&n
 ~
 ~
-393224 0 0 0 0 0 4202496 0 S
-pb 0 1 -1
+393224 0 0 0 0 0 0 4202496 0 S
+pb 0 1 0 -1
 8 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2681,8 +2681,8 @@ skilled warrior _hireling_~
 &+WA skilled &+gWar&+Grior &+Wis ready to serve you.&n
 ~
 ~
-393224 0 0 0 0 0 4202496 0 S
-pb 0 1 -1
+393224 0 0 0 0 0 0 4202496 0 S
+pb 0 1 0 -1
 18 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2692,8 +2692,8 @@ seasoned warrior _hireling_~
 &+WA seasoned &+gWar&+Grior &+Wis ready to lay down some punishment.&n
 ~
 ~
-393224 0 0 0 0 0 0 0 S
-pb 0 1 -1
+393224 0 0 0 0 0 0 0 0 S
+pb 0 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2703,8 +2703,8 @@ muscular paladin _hireling_~
 &+WA muscular &+MPal&+radin &+Wshines with a divine presence.&n
 ~
 ~
-393224 0 0 0 0 0 4202496 0 S
-p2 0 8 -1
+393224 0 0 0 0 0 0 4202496 0 S
+p2 0 8 0 -1
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2714,8 +2714,8 @@ war hardened war-hardened paladin _hireling_~
 &+WA war-hardened &+MPal&+radin &+Wguards his master closely.&n
 ~
 ~
-393224 0 0 0 0 0 4202496 0 S
-p2 0 8 -1
+393224 0 0 0 0 0 0 4202496 0 S
+p2 0 8 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2725,8 +2725,8 @@ serene druid _hireling_~
 &+WA serene &+GDr&+gui&+Gd &+Wuses nature to aid you.&n
 ~
 ~
-393224 0 0 0 0 0 0 0 S
-pe 0 128 -1
+393224 0 0 0 0 0 0 0 0 S
+pe 0 128 0 -1
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2743,8 +2743,8 @@ ambassador jade empire~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of &+gThe &+GJade &+gEmpire&+L.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-g 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+g 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2761,8 +2761,8 @@ ambassador du'maathe castle~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of the &+rDu'Maathe &+LCastle.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-ef 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+ef 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2779,8 +2779,8 @@ ambassador icecrag castle~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of the &+WIce&+Ccrag &+LCastle.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-g 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+g 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2797,8 +2797,8 @@ ambassador fort boyard~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of &+rFort &+RBoyard&+L.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-g 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+g 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2815,8 +2815,8 @@ ambassador sky city ultarium~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of The &+BSky &+WCity of Ultarium&+L.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-g 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+g 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2833,8 +2833,8 @@ ambassador jotunheim~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of &+CJotunheim&+L.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-g 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+g 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2851,8 +2851,8 @@ ambassador krethik keep~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of &+WKre&+Lthik Ke&+Wep&+L.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-HO 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+HO 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2869,8 +2869,8 @@ ambassador temple skrentherlog~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of The Temple of &+YSkrentherlog&+L.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-HO 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+HO 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2887,8 +2887,8 @@ ambassador forest city aravne~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of the &+WForest City of Aravne&+L.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-HO 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+HO 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2905,8 +2905,8 @@ ambassador domain lost souls~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of the Domain of &+WLost &+CS&+co&+Cul&+cs&+L.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-HO 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+HO 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2923,8 +2923,8 @@ ambassador tribal oasis~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of the &+yTribal &+CO&+Gasi&+Cs&+L.&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-HO 0 1 -1
+1074137096 0 0 0 0 0 0 0 0 S
+HO 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2939,8 +2939,8 @@ drahknalloth figure projection mental drow elf hazy~
 &+Ldifficult to stand still or keep your focus. It appears this apparition is
 &+Ltrying to tell you something...&n
 ~
-1074137096 0 0 0 0 0 0 0 S
-ug 0 262657 -1
+1074137096 0 0 0 0 0 0 0 0 S
+ug 0 262657 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -2950,8 +2950,8 @@ drahknalloth drow hunter~
 &+mDrahknalloth&+L, the &+GGr&+gea&+Gt Dr&+ga&+Gg&+go&+Gn H&+gu&+Gnt&+ge&+Gr &+Lis shackled to the wall.&n
 ~
 ~
-1074137098 0 0 0 0 0 0 0 S
-pl 0 262657 -1
+1074137098 0 0 0 0 0 0 0 0 S
+pl 0 262657 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -2965,8 +2965,8 @@ indomitable snowman~
 &+Lis one of a very few surviving snowmen. He is a proud creature and stands
 &+Lin the bitter cold, waiting for the &+Wsignal&+L.&n
 ~
-1073743880 0 0 0 0 0 0 0 S
-so 0 1048577 -1
+1073743880 0 0 0 0 0 0 0 0 S
+so 0 1048577 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -2976,8 +2976,8 @@ ithaquua illithid~
 &nAn &+MIllithid &n(medium) &+MEnrager &nof &+MClan Love Tentacle &nstands here.&n
 ~
 ~
-17176650 0 0 0 0 0 0 0 S
-mf 0 262144 -1
+17176650 0 0 0 0 0 0 0 0 S
+mf 0 262144 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -2987,8 +2987,8 @@ zalphanz headless mercenary~
 &+BAn enormous &+Yheadless &+Bmercenary somehow clings to the shadows.&n
 ~
 ~
-1074137096 0 0 1572864 0 0 0 0 S
-g 0 16384 -1
+1074137096 0 0 0 1572864 0 0 0 0 S
+g 0 16384 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2998,8 +2998,8 @@ elyra black~
 &+LElyra, the black, stands before you in a state of trance.&n
 ~
 ~
-1074137096 0 0 1572864 0 0 0 -1000 S
-sh 0 2097152 -1
+1074137096 0 0 0 1572864 0 0 0 -1000 S
+sh 0 2097152 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3014,8 +3014,8 @@ massive guard warrior city patrol~
 &+Lwatching for intruders and he looks ready to leap into any fight at a
 &+Lmoments notice.&n
 ~
-1074137096 0 0 403177656 28 0 67108864 0 S
-pm 0 1 -1
+1074137096 0 0 0 403177656 28 0 67108864 0 S
+pm 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3032,8 +3032,8 @@ ambassador new cave city~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of &+yNew Cave &+LCity.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+ph 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3050,8 +3050,8 @@ ambassador prisons carthapia~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of The Prisons of &+mCarthapia&+L.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-mg 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+mg 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3068,8 +3068,8 @@ ambassador labyrinth~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of &+wLabyrinth &+Lof &+rNo Return&+L.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-r 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+r 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3086,8 +3086,8 @@ ambassador swamp~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of the &+gSw&+mam&+gp&+L.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-pt 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+pt 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3104,8 +3104,8 @@ ambassador keep evil~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of the Keep of Evil.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+ph 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3122,8 +3122,8 @@ ambassador citadel~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of The &+BCitadel&+L.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+ph 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3140,8 +3140,8 @@ ambassador obsidian citadel~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of The Obsidian Citadel.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+ph 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3158,8 +3158,8 @@ ambassador zalkapfaan~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of Zalkapfaan.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+ph 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3177,8 +3177,8 @@ ambassador lair gibberling king~
 &+Lman takes a lot of pride in wearing the sigil of the &+WLair of the Gibberling
 &+WKing&+L.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+ph 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3195,8 +3195,8 @@ ambassador high moor forest~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of &+gThe &+CHigh &+MMoor &+gForest&+L.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+ph 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3213,8 +3213,8 @@ ambassador ice tower~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of the &+WI&+Cc&+We &+CT&+Wo&+Cw&+We&+Cr&+L.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+ph 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3228,8 +3228,8 @@ snow ogre chief large beast~
 &+Wand this strange desolate world doesn't seem to have a lot of
 &+Wavailable food.&n
 ~
-2058 0 0 0 0 0 0 1000 S
-po 0 0 -1
+2058 0 0 0 0 0 0 0 1000 S
+po 0 0 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3239,8 +3239,8 @@ snow ogre shaman glacier~
 &+WA snow &+bogre &+Wshaman of the &+wgl&+ca&+Cc&+ci&+wer &+Wstands here.&n
 ~
 ~
-2058 0 0 0 0 0 0 0 S
-po 0 1 -1
+2058 0 0 0 0 0 0 0 0 S
+po 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3250,8 +3250,8 @@ snow ogre shaman volcano~
 &+WA snow &+bogre &+Wshaman of the &+Lv&+rol&+Rc&+ran&+Lo &+Wstands here.&n
 ~
 ~
-2058 0 0 0 0 0 0 0 S
-po 0 1 -1
+2058 0 0 0 0 0 0 0 0 S
+po 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3261,8 +3261,8 @@ snow ogre shaman squall~
 &+WA snow &+bogre &+Wshaman of the &+bs&+Bq&+Cua&+Bl&+bl &+Wstands here.&n
 ~
 ~
-2058 0 0 0 0 0 0 0 S
-po 0 1 -1
+2058 0 0 0 0 0 0 0 0 S
+po 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3272,8 +3272,8 @@ snow ogre shaman desert~
 &+WA snow &+bogre &+Wshaman of the &+wd&+ye&+Yse&+yr&+wt &+Wstands here.&n
 ~
 ~
-2058 0 0 0 0 0 0 0 S
-po 0 1 -1
+2058 0 0 0 0 0 0 0 0 S
+po 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3290,8 +3290,8 @@ frenbar gangleader~
 &+rof staying ahea&+Ld of the law. &+rStrangely, i&+Lt looks as i&+rf he is miss&+Ling his left
 &+rindex finge&+Lr.&n
 ~
-16779274 0 0 0 0 0 0 0 S
-p2 0 24576 -1
+16779274 0 0 0 0 0 0 0 0 S
+p2 0 24576 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3304,8 +3304,8 @@ dirty henchman~
 &+Llook scary in order to impress his boss. Tattoos cover his body and the gang
 &+Lsymbol, a dagger wrapped in a scarf, is proudly displayed on his forehead.&n
 ~
-2058 0 0 0 0 0 0 0 S
-ph 0 4096 -1
+2058 0 0 0 0 0 0 0 0 S
+ph 0 4096 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3318,8 +3318,8 @@ fat henchman~
 &+Llook scary in order to impress his boss. Tattoos cover his body and the gang
 &+Lsymbol, a dagger wrapped in a scarf, is proudly displayed on his forehead.&n
 ~
-2058 0 0 0 0 0 0 0 S
-ph 0 4096 -1
+2058 0 0 0 0 0 0 0 0 S
+ph 0 4096 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3336,8 +3336,8 @@ bojaxx bodyguard~
 &+Lgone. &+rHopefully you've f&+Lound a way to make&+r him up the key pe&+Lacefully because
 &+Lsom&+rething tells you t&+Lhat you won't be g&+retting it by force&+L.&n
 ~
-2058 0 0 0 0 0 0 0 S
-ph 0 4096 -1
+2058 0 0 0 0 0 0 0 0 S
+ph 0 4096 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3354,8 +3354,8 @@ ambassador hall knighthood~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of &+YDawndale&+L.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+ph 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3370,8 +3370,8 @@ chibbleniffle great scientist~
 &+Lconstantly around his laboratory, tinkering with various
 &+Lgizmos and gadets in his never-ending quest for knowledge.&n
 ~
-1074137098 0 0 134217736 28 0 0 0 S
-pg 0 2560 -1
+1074137098 0 0 0 134217736 28 0 0 0 S
+pg 0 2560 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3386,8 +3386,8 @@ divine guardsman _nosneak_~
 &+Lwatching for intruders and he looks ready to leap into any fight at a
 &+Lmoments notice.&n
 ~
-67502090 896 0 134217756 2076 0 67108864 0 S
-mg 0 8 -1
+67502090 896 0 0 134217756 2076 0 67108864 0 S
+mg 0 8 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3402,8 +3402,8 @@ unholy guardian~
 &+Lwatching for intruders and he looks ready to leap into any fight at a
 &+Lmoments notice.&n
 ~
-67504138 896 0 134217756 2076 0 67108864 0 S
-mg 0 16 -1
+67504138 896 0 0 134217756 2076 0 67108864 0 S
+mg 0 16 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3420,8 +3420,8 @@ ambassador venan'trut~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of &+YDawndale&+L.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+ph 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3438,8 +3438,8 @@ ambassador rogue plains~
 &+Lties and expand upon trading opportunities. It is very obvious that his
 &+Lman takes a lot of pride in wearing the sigil of &+YDawndale&+L.&n
 ~
-1074137096 0 0 134217736 28 0 0 0 S
-ph 0 1 -1
+1074137096 0 0 0 134217736 28 0 0 0 S
+ph 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3453,8 +3453,8 @@ traveling mystic~
 &+Lof the Palace of Winterhaven. She briefly casts an inquisitive gaze towards
 &+Lyou.&n
 ~
-133130 0 0 0 0 0 0 0 S
-sh 0 3584 -1
+133130 0 0 0 0 0 0 0 0 S
+sh 0 3584 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3464,8 +3464,8 @@ drunk gambler~
 &+LA drunk &+rgam&+Lbler sits here, trying to cheat at a game of &+races&+L.&n
 ~
 ~
-2058 0 0 0 0 0 0 0 S
-ph 0 4096 -1
+2058 0 0 0 0 0 0 0 0 S
+ph 0 4096 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3479,8 +3479,8 @@ tall psychomia treant~
 &+gforest floor. Many find that the leaves of the psychomia
 &+gplant make for an excellent high.&n
 ~
-8390664 0 0 0 0 0 0 0 S
-a 0 0 -1
+8390664 0 0 0 0 0 0 0 0 S
+a 0 0 0 -1
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3493,8 +3493,8 @@ addicted gambler~
 &+Llook scary in order to impress his boss. Tattoos cover his body and the gang
 &+Lsymbol, a dagger wrapped in a scarf, is proudly displayed on his forehead.&n
 ~
-2058 0 0 0 0 0 0 0 S
-ph 0 4096 -1
+2058 0 0 0 0 0 0 0 0 S
+ph 0 4096 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3507,8 +3507,8 @@ slutty tramp~
 &+Llook scary in order to impress his boss. Tattoos cover his body and the gang
 &+Lsymbol, a dagger wrapped in a scarf, is proudly displayed on his forehead.&n
 ~
-2058 0 0 0 0 0 0 0 S
-ph 0 4096 -1
+2058 0 0 0 0 0 0 0 0 S
+ph 0 4096 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3521,8 +3521,8 @@ vicious thug dark-eyed~
 &+Llook scary in order to impress his boss. Tattoos cover his body and the gang
 &+Lsymbol, a dagger wrapped in a scarf, is proudly displayed on his forehead.&n
 ~
-2058 0 0 0 0 0 0 0 S
-ph 0 4096 -1
+2058 0 0 0 0 0 0 0 0 S
+ph 0 4096 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3535,8 +3535,8 @@ stupid lackey~
 &+Llook scary in order to impress his boss. Tattoos cover his body and the gang
 &+Lsymbol, a dagger wrapped in a scarf, is proudly displayed on his forehead.&n
 ~
-2058 0 0 0 0 0 0 0 S
-ph 0 4096 -1
+2058 0 0 0 0 0 0 0 0 S
+ph 0 4096 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3546,8 +3546,8 @@ treant large~
 &+gA l&+Gar&+gge &+Gtr&+gea&+Gnt &+gwa&+Gnd&+ger&+Gs t&+ghe &+Gar&+gea&+G.&n
 ~
 ~
-2056 0 0 0 0 0 0 0 S
-vt 0 5 -1
+2056 0 0 0 0 0 0 0 0 S
+vt 0 5 0 -1
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3558,8 +3558,8 @@ figureless haze~
 ~
    &+LThis thing appears to have no substance at all.&n
 ~
-8 0 0 0 0 0 0 0 S
-ug 0 1 -1
+8 0 0 0 0 0 0 0 0 S
+ug 0 1 0 -1
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3570,8 +3570,8 @@ figureless haze~
 ~
    &+LThis thing appears to have no substance at all.&n
 ~
-8 0 0 0 0 0 0 0 S
-ug 0 1 -1
+8 0 0 0 0 0 0 0 0 S
+ug 0 1 0 -1
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3582,8 +3582,8 @@ figureless haze~
 ~
    &+LThis thing appears to have no substance at all.&n
 ~
-8 0 0 0 0 0 0 0 S
-ug 0 1 -1
+8 0 0 0 0 0 0 0 0 S
+ug 0 1 0 -1
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3598,8 +3598,8 @@ divine guardsman _nosneak_~
 &+Lwatching for intruders and he looks ready to leap into any fight at a
 &+Lmoments notice.&n
 ~
-67504138 896 0 134217756 2076 0 67108864 0 S
-mg 0 8 -1
+67504138 896 0 0 134217756 2076 0 67108864 0 S
+mg 0 8 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3614,8 +3614,8 @@ unholy guardian~
 &+Lwatching for intruders and he looks ready to leap into any fight at a
 &+Lmoments notice.&n
 ~
-67504138 896 0 134217756 2076 0 67108864 0 S
-mg 0 16 -1
+67504138 896 0 0 134217756 2076 0 67108864 0 S
+mg 0 16 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3630,8 +3630,8 @@ fearsome warrior~
 &+Lwatching for intruders and he looks ready to leap into any fight at a
 &+Lmoments notice.&n
 ~
-67504138 33555328 0 134217756 2076 0 67108896 0 S
-sg 0 1048576 -1
+67504138 33555328 0 0 134217756 2076 0 67108896 0 S
+sg 0 1048576 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3646,8 +3646,8 @@ fearsome warrior~
 &+Lwatching for intruders and he looks ready to leap into any fight at a
 &+Lmoments notice.&n
 ~
-67504138 33555328 0 134217756 2076 0 67108896 0 S
-sg 0 1048576 -1
+67504138 33555328 0 0 134217756 2076 0 67108896 0 S
+sg 0 1048576 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3662,8 +3662,8 @@ powerful sage~
 &+Lwatching for intruders and he looks ready to leap into any fight at a
 &+Lmoments notice.&n
 ~
-67504138 33555328 0 134217756 8390684 0 67635200 0 S
-an 0 512 -1
+67504138 33555328 0 0 134217756 8390684 0 67635200 0 S
+an 0 512 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3678,8 +3678,8 @@ powerful sage~
 &+Lwatching for intruders and he looks ready to leap into any fight at a
 &+Lmoments notice.&n
 ~
-67504138 33555328 0 134217756 8390684 0 67635200 0 S
-an 0 512 -1
+67504138 33555328 0 0 134217756 8390684 0 67635200 0 S
+an 0 512 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3689,8 +3689,8 @@ salt dockmaster~
 &+WSalt, &+ythe peg-legged &+Ldockmaster &+ykeeps a watchful eye over the &+Lpier&+y.&n
 ~
 ~
-395274 0 0 0 0 0 0 0 S
-pm 0 16384 -1
+395274 0 0 0 0 0 0 0 0 S
+pm 0 16384 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3700,8 +3700,8 @@ large funnelweb spider~
 &+LA large &+Wfunnelweb &+Lspider crawls around in the dark.&n
 ~
 ~
-395274 1 0 0 0 0 0 0 S
-as 0 64 -1
+395274 1 0 0 0 0 0 0 0 S
+as 0 64 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3711,8 +3711,8 @@ royal guardsman guard~
 &+WA &+Yroyal &+Wguardsman stands tall and motionless.&n
 ~
 ~
-395274 0 0 0 0 0 0 0 S
-sg 0 8 -1
+395274 0 0 0 0 0 0 0 0 S
+sg 0 8 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3722,8 +3722,8 @@ leviathan princess abyssal~
 &+bL&+Lev&+bi&+Lat&+bh&+Lan, the &+bA&+Lbyssal &+bP&+Lrincess of the &+bS&+Lea searches for her next ocean-faring victim.&n
 ~
 ~
-1359349768 0 0 0 0 0 0 -1000 S
-x 0 32 -1
+1359349768 0 0 0 0 0 0 0 -1000 S
+x 0 32 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3733,8 +3733,8 @@ adryv sahaugin priest~
 &+WAdryv&+L, the &+bS&+Lahaugin &+bp&+Lriest of &+bSekolah &+Lglares in your direction.&n
 ~
 ~
-395274 0 0 0 0 0 0 0 S
-x 0 16 -1
+395274 0 0 0 0 0 0 0 0 S
+x 0 16 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3744,8 +3744,8 @@ salty sailor~
 &+yA &+Ysalty &+ysailor leans against a very large &+Lanchor&+y.&n
 ~
 ~
-2058 0 0 0 0 0 0 0 S
-PH 0 16384 -1
+2058 0 0 0 0 0 0 0 0 S
+PH 0 16384 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3755,8 +3755,8 @@ big-breasted barmaid~
 &+LA big-&+rbreasted &+Lbarmaid hurries to service a patron.&n
 ~
 ~
-2058 0 0 0 0 0 0 0 S
-PH 0 16384 -1
+2058 0 0 0 0 0 0 0 0 S
+PH 0 16384 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3770,8 +3770,8 @@ white-tailed deer~
 &+Lof brown and has a very lovely dappled pattern of white on her
 &+Lbelly.&n
 ~
-8388616 0 0 0 0 0 0 0 S
-a 0 0 -1
+8388616 0 0 0 0 0 0 0 0 S
+a 0 0 0 -1
 18 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3784,8 +3784,8 @@ young doe~
 &+yclearing, eating leaves and grass from the nearby foliage. Her ears
 &+yperk up at the sound of a twig snapping underneath a heavy foot.&n
 ~
-8781832 0 0 0 0 0 0 0 S
-a 0 0 -1
+8781832 0 0 0 0 0 0 0 0 S
+a 0 0 0 -1
 14 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3799,8 +3799,8 @@ royal buck~
 &+LA large pair of antlers sits comfortably on his head as a status
 &+Lsymbol showing all the other deer that he is not to be challenged.&n
 ~
-1082132488 0 0 0 0 0 0 0 S
-a 0 0 -1
+1082132488 0 0 0 0 0 0 0 0 S
+a 0 0 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3811,8 +3811,8 @@ fat duck~
 ~
 &+Y   This fat duck is quacking happily at you.
 ~
-8781832 0 0 0 0 0 0 0 S
-b 0 0 -1
+8781832 0 0 0 0 0 0 0 0 S
+b 0 0 0 -1
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3826,8 +3826,8 @@ small rabbit~
 &+gare long and furry. The rabbit seems to found a comfortable
 &+gresting place.&n
 ~
-8781832 0 0 0 0 0 0 0 S
-a 0 0 -1
+8781832 0 0 0 0 0 0 0 0 S
+a 0 0 0 -1
 4 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3839,8 +3839,8 @@ hyper squirrel~
 &+y   This squirrel is very hyper and is busy jumping from tree
 &+yto tree in search of nuts.&n
 ~
-8781832 0 0 0 0 0 0 0 S
-a 0 0 -1
+8781832 0 0 0 0 0 0 0 0 S
+a 0 0 0 -1
 2 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3851,8 +3851,8 @@ bluejay~
 ~
 &+B   This bluejay is filling the forest with an echanting song.&n
 ~
-8781832 0 0 0 0 0 0 0 S
-b 0 0 -1
+8781832 0 0 0 0 0 0 0 0 S
+b 0 0 0 -1
 8 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3865,8 +3865,8 @@ shy raccoon~
 &+yin the open. He's found a comfortable hiding spot under a
 &+ysmall bush and plans to stay there.&n
 ~
-8781832 0 0 0 0 0 0 0 S
-a 0 0 -1
+8781832 0 0 0 0 0 0 0 0 S
+a 0 0 0 -1
 10 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3880,8 +3880,8 @@ red fox~
 &+rstream-lined body. A thin strip of white fur can be seen on his
 &+rbelly and under his tail.&n
 ~
-1082525704 0 0 0 0 0 0 0 S
-a 0 0 -1
+1082525704 0 0 0 0 0 0 0 0 S
+a 0 0 0 -1
 16 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3894,8 +3894,8 @@ majestic eagle~
 &+Wbird is nearly six feet. She comes equipped with vicious talons and
 &+Wa very sharp beak.&n
 ~
-1082525704 0 0 0 0 0 0 0 S
-b 0 0 -1
+1082525704 0 0 0 0 0 0 0 0 S
+b 0 0 0 -1
 22 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3907,8 +3907,8 @@ happy chipmunk~
 &+y   This chipmunk is fairly small and has a furry tail. He is
 &+ybusy foraging for some food.&n
 ~
-8781832 0 0 0 0 0 0 0 S
-a 0 0 -1
+8781832 0 0 0 0 0 0 0 0 S
+a 0 0 0 -1
 3 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3921,8 +3921,8 @@ small hedgehog~
 &+Lin search of food and a safe place to rest. His quills are
 &+Lquite long and look very sharp.&n
 ~
-8781832 0 0 0 0 0 0 0 S
-a 0 0 -1
+8781832 0 0 0 0 0 0 0 0 S
+a 0 0 0 -1
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3934,8 +3934,8 @@ beautiful hummingbird~
 &+Y   This beautiful hummingbird is busy cleaning its feathers
 &+Ybefore it begins its endless hunt for food.&n
 ~
-8781832 0 0 0 0 0 0 0 S
-b 0 0 -1
+8781832 0 0 0 0 0 0 0 0 S
+b 0 0 0 -1
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3946,8 +3946,8 @@ swallow agile~
 ~
 &+c   This swallow is busy catching insects in mid-air.&n
 ~
-8781832 0 0 0 0 0 0 0 S
-b 0 0 -1
+8781832 0 0 0 0 0 0 0 0 S
+b 0 0 0 -1
 9 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3962,8 +3962,8 @@ spotted wildcat~
 &+ycomfortable living close to the city. Even though she stands two feet tall
 &+yher claws are razor sharp and could prove fatal.&n
 ~
-8388616 0 0 0 0 0 0 0 S
-a 0 0 -1
+8388616 0 0 0 0 0 0 0 0 S
+a 0 0 0 -1
 19 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3977,8 +3977,8 @@ ugly vulture~
 &+yThe beak of the creature was cracked at some point, and one small piece is
 &+ymissing.&n
 ~
-1082525704 0 0 0 0 0 0 0 S
-b 0 0 -1
+1082525704 0 0 0 0 0 0 0 0 S
+b 0 0 0 -1
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3991,8 +3991,8 @@ furry monkey~
 &+ytrees in search of ripe fruit and is always on the lookout for any
 &+yfemale monkeys that might be in the area.&n
 ~
-1082132488 0 0 0 0 0 0 0 S
-a 0 0 -1
+1082132488 0 0 0 0 0 0 0 0 S
+a 0 0 0 -1
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -4003,8 +4003,8 @@ baby duckling~
 ~
 &+Y   This duckling is swimming around in the pond, looking for its mother.
 ~
-8781834 0 0 0 0 0 0 0 S
-b 0 0 -1
+8781834 0 0 0 0 0 0 0 0 S
+b 0 0 0 -1
 2 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -4015,8 +4015,8 @@ small carp~
 ~
 &+B   This carp is small and lives its life in this small pond.&n
 ~
-8650762 0 0 0 0 0 0 0 S
-f 0 0 -1
+8650762 0 0 0 0 0 0 0 0 S
+f 0 0 0 -1
 3 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -4027,8 +4027,8 @@ medium carp~
 ~
 &+B   This carp is small and lives its life in this small pond.&n
 ~
-8650762 0 0 0 0 0 0 0 S
-f 0 0 -1
+8650762 0 0 0 0 0 0 0 0 S
+f 0 0 0 -1
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -4039,8 +4039,8 @@ large carp~
 ~
 &+B   This carp is small and lives its life in this small pond.&n
 ~
-8650762 0 0 0 0 0 0 0 S
-f 0 0 -1
+8650762 0 0 0 0 0 0 0 0 S
+f 0 0 0 -1
 7 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -4052,8 +4052,8 @@ puffadder pregnant~
 &+L   With teeth the size of daggers, this snake is definitely
 &+Lnot one you want to mess with. It hisses loudly as you approach.&n
 ~
-8783882 1 0 0 0 0 0 -1000 S
-rs 0 1 -1
+8783882 1 0 0 0 0 0 0 -1000 S
+rs 0 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -4063,8 +4063,8 @@ incarnate fire man~
 &+RA ma&+rn co&+Rmpos&+red e&+Rnti&+rre&+Rl&+ry o&+Rf f&+rir&+Re &+rburn&+Rs b&+Ref&+rore &+Ryo&+ru.&n
 ~
 ~
-1082525704 0 0 0 0 0 0 0 S
-ef 0 1 -1
+1082525704 0 0 0 0 0 0 0 0 S
+ef 0 1 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -4074,8 +4074,8 @@ incarnate frost snowman~
 &+BA s&+Cno&+Bwm&+Ca&+Bn h&+Cas c&+Bom&+Ce &+Bto &+Cl&+Bif&+Ce &+Bbe&+Cfo&+Bre &+Cyo&+Bur e&+Cy&+Bes.&n
 ~
 ~
-1082525704 0 0 0 0 0 0 0 S
-ew 0 1 -1
+1082525704 0 0 0 0 0 0 0 0 S
+ew 0 1 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -4085,8 +4085,8 @@ incarnate stone pile rocks~
 &+LA &+wl&+Lar&+wg&+Le p&+wil&+Le o&+wf &+Lro&+wck&+Ls m&+wo&+Lve&+ws ar&+Loun&+wd t&+Lhe r&+woo&+Lm.&n
 ~
 ~
-1082525704 0 0 0 0 0 0 0 S
-ee 0 1 -1
+1082525704 0 0 0 0 0 0 0 0 S
+ee 0 1 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -4096,8 +4096,8 @@ incarnate air cyclone~
 &+WA p&+Yo&+Wwe&+Yrf&+Wul c&+Yyc&+Wlo&+Yne &+Wfl&+Yi&+Wes q&+Wu&+Yi&+Wc&+Yk&+Wly ab&+You&+Wt t&+Yh&+We r&+Yoo&+Wm.&n
 ~
 ~
-1082525704 0 0 0 0 0 0 0 S
-ea 0 1 -1
+1082525704 0 0 0 0 0 0 0 0 S
+ea 0 1 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -4107,8 +4107,8 @@ incarnate something naughty mischief~
 &+MSo&+mme&+Mthi&+mng r&+Mea&+mll&+My na&+mug&+Mhty a&+mnd &+Mmi&+Msch&+mievi&+Mous i&+ms r&+Munni&+mng a&+Mrou&+mn&+Md he&+mre.&n
 ~
 ~
-1082525704 0 0 0 0 0 0 0 S
-ug 0 1 -1
+1082525704 0 0 0 0 0 0 0 0 S
+ug 0 1 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0

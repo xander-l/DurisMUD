@@ -4804,7 +4804,8 @@ void do_wear(P_char ch, char *argument, int cmd)
   };
   int      loop = 0;
 
-  if (IS_ANIMAL(ch) || IS_DRAGON(ch))
+  // Letting dragons wear eq
+  if (IS_ANIMAL(ch))
   {
     send_to_char("DUH!\r\n", ch);
     return;
@@ -4948,7 +4949,7 @@ void do_wield(P_char ch, char *argument, int cmd)
   char     Gbuf1[MAX_STRING_LENGTH], Gbuf2[MAX_STRING_LENGTH];
   char     Gbuf3[MAX_STRING_LENGTH];
 
-  if (IS_ANIMAL(ch) || IS_DRAGON(ch))
+  if (IS_ANIMAL(ch))
   {
     send_to_char("DUH!\r\n", ch);
     return;

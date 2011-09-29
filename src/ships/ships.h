@@ -684,6 +684,7 @@ void volley_hit_event(P_char ch, P_char victim, P_obj obj, void *data);
 void stun_all_in_ship(P_ship ship, int timer);
 int damage_sail(P_ship ship, P_ship target, int dam);
 int damage_hull(P_ship ship, P_ship target, int dam, int arc, int armor_pierce);
+int ch_damage_hull(P_char ship, P_ship target, int dam, int arc, int armor_pierce);
 void damage_weapon(P_ship ship, P_ship target, int arc, int dam);
 void force_anchor(P_ship ship);
 bool ship_gain_frags(P_ship ship, P_ship target, int frags);
@@ -756,6 +757,7 @@ int get_acceleration(P_ship ship);
 int get_next_speed_change(P_ship ship);
 
 void act_to_all_in_ship_f(P_ship ship, const char *msg, ... );
+void act_to_all_in_ship(P_ship ship, const char *msg, P_char victim);
 void act_to_all_in_ship(P_ship ship, const char *msg);
 void act_to_outside_ships(P_ship ship, P_ship notarget, int range, const char *msg, ... );
 void act_to_outside(P_ship ship, int range, const char *msg, ... );

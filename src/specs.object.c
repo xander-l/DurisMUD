@@ -14538,3 +14538,80 @@ int rightous_blade(P_obj obj, P_char ch, int cmd, char *arg)
 
   return FALSE;
 }
+
+int flame_blade(P_obj obj, P_char ch, int cmd, char *argument)
+{
+  if (!ch || !obj)
+    return FALSE;
+
+  if (cmd == CMD_SET_PERIODIC)
+    return FALSE;
+
+  P_char tch;
+
+  if (OBJ_WORN(obj))
+    tch = obj->loc.wearing;
+  else if (OBJ_CARRIED(obj))
+    tch = obj->loc.carrying;
+  else
+    return FALSE;
+
+  if (!tch || IS_NPC(tch))
+    return FALSE;
+
+  if (GET_PID(tch) != obj->timer[1])
+  {
+    //Lamify it!
+    obj->value[5] = 0;
+    obj->value[6] = 0;
+    obj->value[7] = 0;
+    obj->bitvector = 0;
+    obj->bitvector2 = 0;
+    
+    //Lets go ahead and kill the timer
+    obj->timer[0] = 1;
+    return FALSE;
+  }
+  
+  return FALSE;
+}
+
+int miners_helmet(P_obj obj, P_char ch, int cmd, char *argument)
+{
+   char *arg;
+   int curr_time;
+
+   if (cmd == CMD_SET_PERIODIC)
+      return FALSE;
+
+   if (!ch || !obj) 
+      return FALSE;
+
+   if (!OBJ_WORN(obj)) 
+      return FALSE;
+
+   if (argument && (cmd == CMD_SAY))
+   {
+      arg = argument;
+
+      while (*arg == ' ')
+         arg++;
+
+      if (!strcmp(arg, "paydirt"))
+      {
+
+         curr_time = time(NULL);
+
+         // 10 minute timer = 600 sec.
+         if (obj->timer[0] + 600 <= curr_time)
+         {
+             obj->timer[0] = curr_time;
+             spell_lodestone_vision( 60, ch, arg, SPELL_LODESTONE, ch, obj );
+         }
+
+         return TRUE;
+      }
+   }
+   return FALSE;
+}
+

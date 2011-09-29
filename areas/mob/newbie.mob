@@ -11,8 +11,8 @@ burbul halfling newbie~
 &+yand clink together as he moves, causing a cacophony of sound to go along with the
 &+ybewildering streaks of color produced by his rapid movements.&N
 ~
-10 0 0 0 0 0 0 0 S
-PF 6 32768 -1
+10 0 0 0 0 0 0 0 0 S
+PF 6 32768 0 -1
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -27,8 +27,8 @@ woman fleurita silver whore~
 &+Cface. A pale white silken robe shifts lightly over a tall, lithe and&n
 &+Cathletic body as she moves around the alcove.&n
 ~
-33566798 0 0 0 0 0 0 0 S
-P2 15 0 3
+33566798 0 0 0 0 0 0 0 0 S
+P2 15 0 0 3
 13 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -43,8 +43,8 @@ janella lady woman whore barbarian~
 &+rwearing anything more than the brown wollen blanket precariously&n
 &+rhanging from her ample bosom.&n
 ~
-33566798 0 0 0 0 0 0 0 S
-PB 11 0 4
+33566798 0 0 0 0 0 0 0 0 S
+PB 11 0 0 4
 13 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -58,8 +58,8 @@ lady laurel centaur woman whore~
 &+ychestnut hair flows down her shoulders and back, giving a feminine&n
 &+ysoft look that sets off her well muscled and toned body.&n
 ~
-33566798 0 0 0 0 0 0 0 S
-CT 14 0 4
+33566798 0 0 0 0 0 0 0 0 S
+CT 14 0 0 4
 13 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -74,8 +74,8 @@ boy slave barbarian serving~
 &+wcontact. Dark, angry bruises on his arms and legs are a testament to&n
 &+whis harsh, demanding lifestyle, and ill tempered employers.&n
 ~
-33566798 0 0 0 0 0 0 0 S
-PB 10 0 2
+33566798 0 0 0 0 0 0 0 0 S
+PB 10 0 0 2
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -91,8 +91,8 @@ minstrel human performer~
 &+mscanning the crowds. Perhaps looking for signs of trouble, but more&n
 &+mlikely keeping a watch for pretty women.&n
 ~
-33566798 0 0 0 0 0 0 0 S
-PH 0 32768 3
+33566798 0 0 0 0 0 0 0 0 S
+PH 0 32768 0 3
 11 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -106,8 +106,8 @@ elderly man gnome~
 &+wgrizzled gnome man giggles gleefully as his stumpy legs pump up and&n
 &+wdown dancing in time to the music.&n
 ~
-33566794 0 0 0 0 0 0 0 S
-PG 7 0 1
+33566794 0 0 0 0 0 0 0 0 S
+PG 7 0 0 1
 8 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -122,8 +122,8 @@ insect larvae bug~
 &+Ginstinct and knows no higher train of thought. The tiny grub could&n
 &+Geasily be squished by even the smallest child.&n
 ~
-33828936 0 0 0 0 0 0 0 S
-I 0 0 1
+33828936 0 0 0 0 0 0 0 0 S
+I 0 0 0 1
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -139,8 +139,8 @@ fish eel~
 &+Laround it, the large head snapping around to face the intruder in its&n
 &+Ldomain.&n
 ~
-33828936 0 0 0 0 0 0 0 S
-F 0 0 2
+33828936 0 0 0 0 0 0 0 0 S
+F 0 0 0 2
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -154,8 +154,8 @@ fish gurnard~
 &+yorange bright in color its scales and fins are fantastic like some&n
 &+yunder-water winged creature, beautiful yet deadly sharp.&n
 ~
-33828936 0 0 0 0 0 0 0 S
-F 0 0 2
+33828936 0 0 0 0 0 0 0 0 S
+F 0 0 0 2
 4 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -170,8 +170,8 @@ otter mob~
 &+ycleaning itself, with its snout while basking in the sunlight that&n
 &+ypours down from the sky above.&n
 ~
-33828936 0 0 0 0 0 0 0 S
-A 0 0 2
+33828936 0 0 0 0 0 0 0 0 S
+A 0 0 0 2
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -186,8 +186,8 @@ fish herring~
 &+Chumans smallest finger the herring depends on speed to keep clear of&n
 &+Cthe larger fish and predators of the waterways.&n
 ~
-33828936 0 0 0 0 0 0 0 S
-F 0 0 1
+33828936 0 0 0 0 0 0 0 0 S
+F 0 0 0 1
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -202,8 +202,8 @@ tiny bug dragonfly fly~
 &+Gthe small insect is instinctively cautious of larger creatures,&n
 &+Gprotective of its own short lifespan.&n
 ~
-33960008 0 0 0 0 0 0 0 S
-I 0 0 1
+33960008 0 0 0 0 0 0 0 0 S
+I 0 0 0 1
 2 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -218,8 +218,8 @@ lady cook fat~
 &+cgrubby stained apron, she turns to you and grins toothlessly, her&n
 &+cjowls quivering grossly.&n
 ~
-33566794 0 0 33554728 0 0 0 0 S
-PB 10 0 4
+33566794 0 0 0 33554728 0 0 0 0 S
+PB 10 0 0 4
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -235,8 +235,8 @@ wench serving barmaid lady woman~
 &+cto you and pastes a cheerful smile on her face, raising her eyebrow&n
 &+cquizzically.&n
 ~
-33587278 0 0 0 0 0 0 0 S
-PH 0 0 3
+33587278 0 0 0 0 0 0 0 0 S
+PH 0 0 0 3
 9 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -251,8 +251,8 @@ centaur alchemist old chyron~
 &+gtogether in a frustrated frown of worry as he mutters about something lost
 &+gand brushes vials and parchments aside as he searches frantically.&n
 ~
-10 0 0 0 0 0 0 0 S
-CT 16 0 4
+10 0 0 0 0 0 0 0 0 S
+CT 16 0 0 4
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -268,8 +268,8 @@ mier sadev pimp proprietor~
 &+wand his eyes flick restlessly and suspicously around the room, keeping&n
 &+wan eye on his girls.&n
 ~
-33566794 0 0 0 0 0 0 0 S
-CT 14 0 5
+33566794 0 0 0 0 0 0 0 0 S
+CT 14 0 0 5
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -285,8 +285,8 @@ herb woman old hag maerg~
 &+yingredients the array of goods she displays and carries is not a&n
 &+ypretty sight.&n
 ~
-33566798 0 0 0 0 0 0 -500 S
-PH 0 256 3
+33566798 0 0 0 0 0 0 0 -500 S
+PH 0 256 0 3
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -302,8 +302,8 @@ dubious beggar thief figure man gentleman~
 &+Lhis surroundings. Face expressionless and weary eyes make you question&n
 &+Lthe intentions of this seemingly harmless gentleman.&n
 ~
-33566734 0 0 0 0 0 0 0 S
-PF 6 65536 2
+33566734 0 0 0 0 0 0 0 0 S
+PF 6 65536 0 2
 9 0 0 1d1+1 1d1+1
 0.0.0.4 0
 8 8 1
@@ -319,8 +319,8 @@ grubby barbarian child waif~
 &+whealthy and well fed underneath the filth, a huge &+Wsmile &+wlighting up&n
 &+wher face.&n
 ~
-33566794 0 0 0 0 0 0 0 S
-PB 10 0 2
+33566794 0 0 0 0 0 0 0 0 S
+PB 10 0 0 2
 4 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 6 2
@@ -335,8 +335,8 @@ child centaur~
 &+yadorable mini version of the proud and majestic Ailvio outpost&n
 &+ycentaurs.&n
 ~
-33566796 0 0 0 0 0 0 0 S
-CT 14 0 2
+33566796 0 0 0 0 0 0 0 0 S
+CT 14 0 0 2
 3 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -353,8 +353,8 @@ forest sprite gandharvas~
 &+gthe ground, brushing the ground as he walks on the thin taloned legs&n
 &+gof a bird.&n
 ~
-33697864 0 0 0 0 0 0 0 S
-HF 4 0 1
+33697864 0 0 0 0 0 0 0 0 S
+HF 4 0 0 1
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -370,8 +370,8 @@ drow wretched sniveling mob slave~
 &+mremains of the leather battle armor that did little to protect him&n
 &+mfrom capture.&n
 ~
-1174417486 0 0 0 0 0 0 -300 S
-PL 2 0 3
+1174417486 0 0 0 0 0 0 0 -300 S
+PL 2 0 0 3
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -386,8 +386,8 @@ mob child drow slave~
 &+mthrough the dull skin hanging like a paper thin cloak on a live&n
 &+mskeleton.&n
 ~
-1174417486 0 0 0 0 0 0 0 S
-PL 2 0 2
+1174417486 0 0 0 0 0 0 0 0 S
+PL 2 0 0 2
 2 0 0 1d1+1 1d1+1
 0.0.0.0 0
 9 9 1
@@ -402,8 +402,8 @@ drow mother~
 &+mher strong gaze, determination etched in the expression on her face as&n
 &+mshe calls for her children.&n
 ~
-1174417482 0 0 0 0 0 0 -400 S
-PL 2 0 3
+1174417482 0 0 0 0 0 0 0 -400 S
+PL 2 0 0 3
 4 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -419,8 +419,8 @@ brodi fisherman old man~
 &+cto the lake and having made fishing his life there very little he
 &+cdoes know and if asked he may provide a wealth of information.&n
 ~
-33828938 0 0 0 0 0 0 0 S
-CT 14 0 3
+33828938 0 0 0 0 0 0 0 0 S
+CT 14 0 0 3
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -434,8 +434,8 @@ rat rodent large~
 &+yIt's dark red eyes cannot be missed however, nor can the flash of&n
 &+ywhite razor sharp teeth as it consumes any morsel within its path.&n
 ~
-72 0 0 0 0 0 0 0 S
-A 0 0 2
+72 0 0 0 0 0 0 0 0 S
+A 0 0 0 2
 1 0 0 1d1+1 1d1+1
 3.0.0.0 0
 8 8 0
@@ -451,8 +451,8 @@ drunk centaur~
 &+yyou, greeting you with a large putrid belch as he scratches his&n
 &+ystomach.&n
 ~
-10 0 0 0 0 0 0 0 S
-CT 16 0 4
+10 0 0 0 0 0 0 0 0 S
+CT 16 0 0 4
 9 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -467,8 +467,8 @@ woman maenad worshiper dancer~
 &+gclothing is in disarray, torn and unkempt, as is her hair which whips&n
 &+garound her face and over her mad eyes.&n
 ~
-2056 0 0 0 0 0 0 0 S
-PH 15 0 3
+2056 0 0 0 0 0 0 0 0 S
+PH 15 0 0 3
 6 0 0 1d1+1 1d1+1
 0.0.5.0 0
 8 8 2
@@ -483,8 +483,8 @@ mother centaur young~
 &+gstained from the demanding job of keeping up with the children that&n
 &+gare her charges.&n
 ~
-67110920 0 0 0 0 0 0 0 S
-CT 15 0 4
+67110920 0 0 0 0 0 0 0 0 S
+CT 15 0 0 4
 7 0 0 1d1+1 1d1+1
 0.0.10.0 0
 8 8 2
@@ -499,8 +499,8 @@ centaur child~
 &+gabove his hooves, his body is streaked with dirt and his hair sticks&n
 &+gout in spikes. He appears to have avoided bathing for quite some time.&n
 ~
-2056 0 0 0 0 0 0 0 S
-CT 15 0 2
+2056 0 0 0 0 0 0 0 0 S
+CT 15 0 0 2
 4 0 0 1d1+1 1d1+1
 0.2.0.0 0
 8 8 1
@@ -516,8 +516,8 @@ keeps it swept away from her face with a seashell comb. Her teaching
 abilities are never questioned, atleast not from anyone who has lived to
 tell about it.
 ~
-32778 0 0 134217728 0 0 67239936 1000 S
-PE 0 512 2
+32778 0 0 0 134217728 0 0 67239936 1000 S
+PE 0 512 0 2
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -532,8 +532,8 @@ an avid gardener and loves to forge and is always quick to help
 others learn how to mix potions. He wears white overalls with alot
 of pockets and has a twinkle in his eyes.
 ~
-34826 0 0 134217728 0 0 67239936 1000 S
-PH 0 524288 3
+34826 0 0 0 134217728 0 0 67239936 1000 S
+PH 0 524288 0 3
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -552,8 +552,8 @@ Drinnan, the &+yhalfling&n il&+Clu&+csi&+Con&nist&n casts spells while waiting f
 &+cis a bit blurred. A hooded black cloak around her form helps to&n
 &+ccamouflage her when needed.&n
 ~
-34826 0 0 134217728 0 0 67239936 1000 S
-PF 0 4194304 1
+34826 0 0 0 134217728 0 0 67239936 1000 S
+PF 0 4194304 0 1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -568,8 +568,8 @@ Wielded is a dragonbone longbow, said to have the best range of any
 bow. Upon Llerrad's face are scars of battle, he has retired now to
 train instruct rangers.
 ~
-32778 0 0 134217728 0 0 0 1000 S
-CT 0 2 4
+32778 0 0 0 134217728 0 0 0 1000 S
+CT 0 2 0 4
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -584,8 +584,8 @@ she has a friendly smile upon her face. Despite her large size,
 Creyset is very dainty in nature and always willing to help when
 called upon.
 ~
-32778 0 0 134217728 0 0 67239936 1000 S
-MT 0 256 4
+32778 0 0 0 134217728 0 0 67239936 1000 S
+MT 0 256 0 4
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -603,8 +603,8 @@ Lapney, the &+gcen&+Ltaur &+gdruid &+wpeacefully communes.&n
 &+Gunkempt beard as well, which has various things that don't belong
 &+Gembedded solidly within.  He watches you carefully as you gaze at him.&N
 ~
-32778 0 0 0 0 0 0 1000 S
-CT 0 128 4
+32778 0 0 0 0 0 0 0 1000 S
+CT 0 128 0 4
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -621,8 +621,8 @@ gnome cleric roshenbly gnomish teacher~
 &+Wshe is intently praying.  She occasionally glances upwards and sees people
 &+Wentering and leaving, but she makes no move to help until asked.&N
 ~
-32778 0 0 0 0 0 0 1000 S
-PG 0 32 2
+32778 0 0 0 0 0 0 0 1000 S
+PG 0 32 0 2
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 5 8 2
@@ -637,8 +637,8 @@ insect-like body. He comes from a much feared hunting clan, and
 students should feel honored someone such of his prestige decides
 to instruct them.
 ~
-32842 0 0 134217728 0 0 0 1000 S
-TK 13 1 4
+32842 0 0 0 134217728 0 0 0 1000 S
+TK 13 1 0 4
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 5 8 1
@@ -653,8 +653,8 @@ battle and he wields the blade of a true Paladin, the artifact known
 as &+ythe holy avenger of Ambran&n. He bows to you as he notices you
 enter.
 ~
-34826 0 0 134217728 0 1073741824 0 1000 S
-P2 0 8 3
+34826 0 0 0 134217728 0 1073741824 0 1000 S
+P2 0 8 0 3
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 5 8 1
@@ -672,8 +672,8 @@ grinda master builder~
 &+yhas a wealth of information for any who may ask with a polite hello&n
 &+yenquiry.&n
 ~
-33845322 0 0 0 0 0 0 0 S
-PM 0 1 3
+33845322 0 0 0 0 0 0 0 0 S
+PM 0 1 0 3
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -690,8 +690,8 @@ eian human collector~
 &+Lanother, he seems to be someone you could ask for &+Whelp&n &+Lor &+Winformation&n
 &+Labout the bank financial services or the equipment &+Wlockers&n &+Lalso here.&n
 ~
-33583114 0 0 268435464 0 0 0 0 S
-PH 0 0 3
+33583114 0 0 0 268435464 0 0 0 0 S
+PH 0 0 0 3
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -707,8 +707,8 @@ deline beast mistress woman~
 &+chas a natural empathy and affinity with animals both great and small,&n
 &+cmaking her job here at the Stables a perfect match.&n
 ~
-33583178 0 0 0 0 0 0 0 S
-PH 0 0 3
+33583178 0 0 0 0 0 0 0 0 S
+PH 0 0 0 3
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -722,8 +722,8 @@ small squirrel~
 &+yscurries away restlessly, constantly searching for a new bright&n
 &+ytreasure or tasy morsel.&n
 ~
-8 0 0 0 0 0 0 0 S
-A 0 0 2
+8 0 0 0 0 0 0 0 0 S
+A 0 0 0 2
 4 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -737,8 +737,8 @@ young attack dog guard~
 &+yready to spring. Blood tinged drool drips between gleaming ivory fangs&n
 &+yas it voices a low pitched, rumbling warning growl.&n
 ~
-1107304522 1 0 0 0 0 0 0 S
-A 0 0 3
+1107304522 1 0 0 0 0 0 0 0 S
+A 0 0 0 3
 3 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -754,8 +754,8 @@ broken attack dog old~
 &+yof the programme that the animals must go through to become one of the&n
 &+yfew that make it to the Outposts attack and protection force.&n
 ~
-1107304522 1 0 0 0 0 0 0 S
-A 0 0 3
+1107304522 1 0 0 0 0 0 0 0 S
+A 0 0 0 3
 3 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -771,8 +771,8 @@ archery apprentice youth~
 &+ytired muscles of his arms, sore from the long and strenuous archery&n
 &+ylessons and practise.&n
 ~
-33957960 0 0 0 0 0 0 0 S
-PB 0 2 4
+33957960 0 0 0 0 0 0 0 0 S
+PB 0 2 0 4
 7 0 0 1d1+1 1d1+1
 0.0.0.4 0
 8 8 1
@@ -786,8 +786,8 @@ druid apprentice child centaur~
 &+ycorners of his mouth as he nervously twists his fingers around each&n
 &+yother, visibly squirming under your gaze.&n
 ~
-33566794 0 0 0 0 0 0 0 S
-CT 0 0 3
+33566794 0 0 0 0 0 0 0 0 S
+CT 0 0 0 3
 8 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 6 1
@@ -803,8 +803,8 @@ tor chief guardsman guard~
 &+Lof skin. His expertise in battle may prove useful to you if you are&n
 &+Linterested in asking his advice.&n
 ~
-1107703882 0 0 0 0 0 0 0 S
-PB 0 1 4
+1107703882 0 0 0 0 0 0 0 0 S
+PB 0 1 0 4
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -819,8 +819,8 @@ vaugh tired adventurer~
 &+Cmotions you to take a seat, and appears very friendly and happy to&n
 &+Ctalk about his experiences in the wilds.&n
 ~
-2122 0 0 0 0 0 0 0 S
-PH 0 0 3
+2122 0 0 0 0 0 0 0 0 S
+PH 0 0 0 3
 13 0 0 1d1+1 1d1+1
 0.0.0.0 0
 5 5 1
@@ -835,8 +835,8 @@ fire fantail tiny bird~
 &+rfor its tail which spreads out like a fan, to catch small bugs flying&n
 &+rthrough the air for its dinner.&n
 ~
-8 0 0 0 0 0 0 0 S
-B 0 0 1
+8 0 0 0 0 0 0 0 0 S
+B 0 0 0 1
 4 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -853,8 +853,8 @@ victa beast hawk master man~
 &+yand small beasts for the entertainment and amusement of the outposts&n
 &+yresidents.&n
 ~
-33583178 0 0 0 0 0 0 0 S
-PH 0 0 3
+33583178 0 0 0 0 0 0 0 0 S
+PH 0 0 0 3
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -871,8 +871,8 @@ sapphire dragon dragonnet lizard~
 &+bmaking it an ideal household pet, if one does not mind the occasional&n
 &+bsinged clothing or houseware item from its attempts at dragonfire.&n
 ~
-8 0 0 0 0 0 0 0 S
-D 0 0 2
+8 0 0 0 0 0 0 0 0 S
+D 0 0 0 2
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -889,8 +889,8 @@ huge mottled moa bird~
 &+yalso recently been domesticated to provide a cheap but effective means&n
 &+yof mounted travel.&n
 ~
-134217736 0 0 0 0 0 0 0 S
-B 0 0 5
+134217736 0 0 0 0 0 0 0 0 S
+B 0 0 0 5
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -906,8 +906,8 @@ black mountain pony horse~
 &+Lclimates is nevertheless a shiny and glossy black from constant and&n
 &+Lcareful grooming.&n
 ~
-134217736 0 0 0 0 0 0 0 S
-AE 0 0 3
+134217736 0 0 0 0 0 0 0 0 S
+AE 0 0 0 3
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -923,8 +923,8 @@ burnarg armorer man~
 &+ythe quality of the products sold by Burnarg are a particular point of&n
 &+ypride and honor.&n
 ~
-74 0 0 0 0 0 0 0 S
-PB 0 1 4
+74 0 0 0 0 0 0 0 0 S
+PB 0 1 0 4
 17 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -938,8 +938,8 @@ much of his day perfecting his art, practicing his skills and teaching
 new recruits. Today he's showing students how to use a rope and capture
 a target.
 ~
-34826 0 0 134217728 0 0 0 0 S
-PB 10 16384 4
+34826 0 0 0 134217728 0 0 0 0 S
+PB 10 16384 0 4
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -955,8 +955,8 @@ herself into believing her was one of her transformed zarbons, and
 trusting him with her Jewels. Needless to say he escaped with the
 jewels and more importantly, he lived to tell the story.
 ~
-34890 0 0 0 0 0 0 0 S
-PF 7 4096 2
+34890 0 0 0 0 0 0 0 0 S
+PF 7 4096 0 2
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -972,8 +972,8 @@ scar on his chin is the only evidence that this man knows battle. He
 is lean by dwarven standards as he is constantly on the go and training
 to stay fit.
 ~
-34954 0 0 0 0 0 0 0 S
-PM 6 8192 3
+34954 0 0 0 0 0 0 0 0 S
+PM 6 8192 0 3
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -988,8 +988,8 @@ wrap-around robe which is made of simple cloth. His dark hair is pulled
 back into a simple band and a long braid hangs down his back. He greets
 new students with care but make sure not to confuse that with weakness.
 ~
-34826 0 0 134217728 0 0 0 0 S
-GZ 0 64 3
+34826 0 0 0 134217728 0 0 0 0 S
+GZ 0 64 0 3
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1005,8 +1005,8 @@ of people. Her hair is pulled back off her shoulders in a pig-tail,
 and she wears a simple gown with matching slippers. A pouch dangles
 off her waist with other tools of the trade.
 ~
-34826 0 0 134742016 0 0 0 0 S
-PE 15 32768 -1
+34826 0 0 0 134742016 0 0 0 0 S
+PE 15 32768 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1022,8 +1022,8 @@ Osule, the &+Chuman&n &+Lethermancer&n sits fiddling with a spell.
 &+Cshe does have long nails with what&+L appears to be small sparks of lightning
 &+Cforking between here left and rig&+Lht finger tips.
 ~
-34890 0 0 0 0 0 0 1000 S
-ph 0 33554432 3
+34890 0 0 0 0 0 0 0 1000 S
+ph 0 33554432 0 3
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 5 6 2
@@ -1038,25 +1038,25 @@ one of the best conjurer's in all the land. He barely reaches
 What he lacks in size and fashion sense he makes up in conjuring
 and teaching. Beware, he takes passion in his choosen path.
 ~
-34890 0 0 134217856 0 0 0 0 S
-PG 7 2048 1
+34890 0 0 0 134217856 0 0 0 0 S
+PG 7 2048 0 1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
 #29264
-taiz half-elf necromancer teacher~
-Taiz, the &+Chalf&+c-elf&n &+mnecromancer&n~
-Taiz, the &+Chalf&+c-elf&n &+mnecromancer&n embalms corpses.
+taiz half-elf theurgist teacher~
+Taiz, the &+Chalf&+c-elf&n &+Cth&+Weurgi&+Cst&n~
+Taiz, the &+Chalf&+c-elf&n &+Cth&+Weurgi&+Cst&n stands here redeeming corpses.
 ~
-&+L   This rather bloated and ancient man has very thin black hair that drapes
-&+Llazily across his brow.  His skin is pale and chafed, which makes him look
-&+Lalmost dead himself.  He barely stands five feet tall, and his far too large
-&+Lrobes bunch up at his feet where they create an ankle-high pile of cloth.
-&+LHis piercing green eyes watch over his students carefully, taking in their
-&+Lstudies and actions with a keen awareness.&N
+&+W   Standing before you, the redeemed half-elf studies the abandoned &+mnecromancer
+&+Lcrypt&+W. In an attempt to purify and cleanse the area, he has returned to cast
+&+Whis holy magics into the &+Ldark &+Wand &+Ldank &+Wareas where &+mnecromancy &+Whas seeped its
+&+Wevil claws into the world. Radiating an aura of calm and warmth, the revered
+&+Wtheurgist stands here, waiting to help you bring the light back to the world
+&+Wof the &+Ldeprived &+Wand &+rwicked&+W.&n
 ~
-32778 0 0 0 0 0 262144 0 S
-PH 0 1024 3
+32778 0 0 0 0 0 0 262144 0 S
+PH 0 134218752 0 3
 17 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1068,8 +1068,8 @@ A &+Lblack&n wolf waits here for his master's command.&n
 A black wolf that waits obediently for its masters command.
 He does not make a sound and kneels on the floor.
 ~
-8 0 0 0 0 0 0 0 S
-A 0 0 2
+8 0 0 0 0 0 0 0 0 S
+A 0 0 0 2
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 5 5 0
@@ -1082,8 +1082,8 @@ A man stands here, tired and worn by all the poverty and sickness that has
 plagued his family. He looks at you and asks, "&+CDo you have some food to
 &+Cspare?&n"
 ~
-74 0 0 134217728 0 0 0 0 S
-PH 0 1 3
+74 0 0 0 134217728 0 0 0 0 S
+PH 0 1 0 3
 12 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1095,8 +1095,8 @@ A hungry child rummages around looking for food.
 A small child vainly looks through the room from one side to another in an
 attempt to satisify his desperate need for food.
 ~
-24648 0 0 32768 0 0 2 0 S
-PH 0 524288 3
+24648 0 0 0 32768 0 0 2 0 S
+PH 0 524288 0 3
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1107,8 +1107,8 @@ A &+Mplump&n &+Rro&+rbi&+Rn&n flutters here &+Bsinging&n.
 ~
 A plump robin that flutters low to the ground while it sings a pretty tune.
 ~
-138 0 0 0 0 0 0 0 S
-B 0 65537 1
+138 0 0 0 0 0 0 0 0 S
+B 0 65537 0 1
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1121,8 +1121,8 @@ The grandmother kneels here with a worried look on her face. She
 worries for her grandchild who has taken ill. She can barely move
 around much herself, much less seek the journey for medicine.
 ~
-74 32 0 0 1024 0 0 0 S
-PH 0 128 2
+74 32 0 0 0 1024 0 0 0 S
+PH 0 128 0 2
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 5 5 2
@@ -1136,8 +1136,8 @@ superior ability. This huge being fades in and out of visibility,
 almost as if it is struggling to return to where it came from. This
 creature harnesses great &+Cmagical&n abilities.
 ~
-10 0 0 0 0 0 0 0 S
-PH 0 0 -1
+10 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1149,8 +1149,8 @@ The &+Rvam&+rpi&+Rre&n of &+WOld Man Jeeves&n stands here.
 A corpse of a long dead man that has been embalmed and raised into a
 Necromancer pet called a Vampire
 ~
-10 0 0 0 0 0 0 0 S
-UM 0 1 -1
+10 0 0 0 0 0 0 0 0 S
+UM 0 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1160,8 +1160,8 @@ a &+Lblack dracolich&n~
 A &+Lblack dracolich&n is here, with &+Rflesh&n hanging off its rotting bones.
 ~
 ~
-10 0 0 0 0 0 0 0 S
-U 0 1 -1
+10 0 0 0 0 0 0 0 0 S
+U 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1175,8 +1175,8 @@ her mouth to sing and nothing comes out. Sadly she tries again and again.
 Until recently the bard had one of the most angelic singing voices in
 the land, but a horrible evil witch stole the human's voice from her.
 ~
-10 0 0 0 0 0 0 0 S
-PH 0 32768 -1
+10 0 0 0 0 0 0 0 0 S
+PH 0 32768 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 6 2
@@ -1189,8 +1189,8 @@ A large black bear lays here with claws extended ready to pounce
 on anyone who even comes close to her bear cubs. Bones of her last
 intruder lay off to the side of the cave.
 ~
-67108874 1 0 8 0 0 0 0 S
-A 0 1 4
+67108874 1 0 0 8 0 0 0 0 S
+A 0 1 0 4
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1201,8 +1201,8 @@ tired bear cub~
 ~
 A small sleepy bear that curls up to his mother for protection.
 ~
-10 0 0 0 0 0 0 0 S
-A 0 1 2
+10 0 0 0 0 0 0 0 0 S
+A 0 1 0 2
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 4 4 1
@@ -1214,8 +1214,8 @@ A young &+Yacolyte&n stands here, praying.
 A young acolyte who has devoted his life to the clergy. He walks
 thoughtout the town giving blessings to those who pass by.
 ~
-8 0 0 0 0 0 0 0 S
-PG 7 32 2
+8 0 0 0 0 0 0 0 0 S
+PG 7 32 0 2
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1225,8 +1225,8 @@ a &+ggrubby&n bandit~
 A &+ggrubby&n bandit stands here pushing a &+Cgirl&n around.
 ~
 ~
-10 4 0 0 0 0 0 0 S
-PH 0 4096 3
+10 4 0 0 0 0 0 0 0 S
+PH 0 4096 0 3
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1236,8 +1236,8 @@ a &+yrugged&n &+bbarbarian&n~
 A &+yrugged&n &+bbarbarian&n holds onto a girl roughly.&n
 ~
 ~
-10 4 0 0 0 0 0 0 S
-PB 0 4096 3
+10 4 0 0 0 0 0 0 0 S
+PB 0 4096 0 3
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1247,8 +1247,8 @@ a &+ymountain dwarf&n~
 A &+ymountain dwarf&n stands here looking up a &+Cgirls&n dress.
 ~
 ~
-10 4 0 0 0 0 0 0 S
-PM 0 4096 3
+10 4 0 0 0 0 0 0 0 S
+PM 0 4096 0 3
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1258,8 +1258,8 @@ a &+byoung&n &+Cgirl&n~
 A &+cscared&n young &+Cgirl&n looks to be taken against her will.
 ~
 ~
-10 0 0 0 0 0 0 0 S
-PE 0 32 3
+10 0 0 0 0 0 0 0 0 S
+PE 0 32 0 3
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1269,8 +1269,8 @@ xorn earth large~
 &+YA &+ylarge&n &+Yxorn&n &+ystands here, three arms flailing.&n
 ~
 ~
-10 0 0 128 0 0 0 0 S
-EE 0 0 -1
+10 0 0 0 128 0 0 0 0 S
+EE 0 0 0 -1
 10 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1282,8 +1282,8 @@ A young &+Yacolyte&n stands here, praying.
 A young acolyte who has devoted his life to the clergy. He walks the town
 giving blessings to those who pass by.
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 32 2
+8 0 0 0 0 0 0 0 0 S
+PH 0 32 0 2
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1297,8 +1297,8 @@ acknowledges your presense, "&+Mitems of magic I sell, be careful of the items
 though, as they sometimes are too much for one to handle!&n" With a soft cackle
 to herself she turns away and looks through her pile of books.
 ~
-8 0 0 134217728 0 0 0 0 S
-PG 0 0 -1
+8 0 0 0 134217728 0 0 0 0 S
+PG 0 0 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1310,8 +1310,8 @@ A &+Ysick&n child lies here, coughing and sneezing.&n
 A very sick child lies here coughing and sneezing, desperately holding onto
 what little life they have left.
 ~
-74 32 0 32768 1024 0 2 0 S
-PH 0 128 2
+74 32 0 0 32768 1024 0 2 0 S
+PH 0 128 0 2
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 5 5 2
@@ -1323,8 +1323,8 @@ A large &+Lwolf&n stands here in a defensive stance.
 A large hungry looking wolf baring his fangs as he growls at you. Unless you
 are a skilled warrior you may want to retreat QUICKLY!
 ~
-8 0 0 0 0 0 0 0 S
-A 0 0 2
+8 0 0 0 0 0 0 0 0 S
+A 0 0 0 2
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 5 5 0
@@ -1335,8 +1335,8 @@ A &+Wwhite&n owl&n sits here on a tree branch.
 ~
 &+WThis owl silently turns its head from side to side, searching for food.
 ~
-138 0 0 0 0 0 0 0 S
-B 0 65537 1
+138 0 0 0 0 0 0 0 0 S
+B 0 65537 0 1
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1348,8 +1348,8 @@ A &+cstray cat struts around like it owns the place.
 &+cA stray cat with ruffled fur and a hungry look in his eyes struts around like
 &+che owns the place.&n
 ~
-72 0 0 524288 0 0 0 0 S
-A 0 0 -1
+72 0 0 0 524288 0 0 0 0 S
+A 0 0 0 -1
 2 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1360,8 +1360,8 @@ dragonfly fly~
 ~
 &+LA dragonfly buzzes around annoying the masses.&n
 ~
-72 0 0 524288 0 0 0 0 S
-I 0 0 -1
+72 0 0 0 524288 0 0 0 0 S
+I 0 0 0 -1
 2 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1373,8 +1373,8 @@ gremlin~
 The green gremlin is a hardworking soul who makes sure your items are put back
 in the chests where they belong.
 ~
-24586 0 0 0 0 0 0 0 S
-HG 0 0 -1
+24586 0 0 0 0 0 0 0 0 S
+HG 0 0 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1386,8 +1386,8 @@ A young &+bwarrior&n practices his skills.
 A young dwarf who has come to test his skills and become a strong warrior like
 the other men in his tribe.
 ~
-8 0 0 0 0 0 0 0 S
-PM 7 1 3
+8 0 0 0 0 0 0 0 0 S
+PM 7 1 0 3
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1399,8 +1399,8 @@ A new &+Granger&n practices his archery.&n
 A young human who has come to test his skills and become a strong warrior like
 the other men in his tribe.
 ~
-8 0 0 0 0 0 0 0 S
-PH 7 2 3
+8 0 0 0 0 0 0 0 0 S
+PH 7 2 0 3
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1412,8 +1412,8 @@ A young &+mmage&n practices spells.
 A young grey elf who is trying real hard to get the spells right so she may
 cast &+Bchilling touches&n like the rest of the students.
 ~
-8 0 0 0 0 0 0 0 S
-PE 7 2048 3
+8 0 0 0 0 0 0 0 0 S
+PE 7 2048 0 3
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1425,8 +1425,8 @@ A young &+Mmage&n practices spells.
 A young grey elf who is trying real hard to get the spells right so she may
 cast &+Bchill touch&n like the rest of the students.
 ~
-8 0 0 0 0 0 0 0 S
-PE 7 512 3
+8 0 0 0 0 0 0 0 0 S
+PE 7 512 0 3
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1437,8 +1437,8 @@ A shadow &+Lmonster&n stands here in mid-air.&n
 ~
 &+LThis being scares the HELL out of you.&n
 ~
-133130 0 0 134217728 0 0 0 0 S
-UG 0 4194304 -1
+133130 0 0 0 134217728 0 0 0 0 S
+UG 0 4194304 0 -1
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1449,8 +1449,8 @@ A shadow &+Lmonster&n stands here in mid-air.&n
 ~
 &+LThis being scares the HELL out of you.&n
 ~
-133130 0 0 134217728 0 0 0 0 S
-UG 0 4194304 -1
+133130 0 0 0 134217728 0 0 0 0 S
+UG 0 4194304 0 -1
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1462,8 +1462,8 @@ living elemental~
 &+LThis being, composed of solid living earthen stone stands here glaring
 at YOU.&n
 ~
-2122 0 0 134217728 0 0 0 0 S
-EE 0 1 -1
+2122 0 0 0 134217728 0 0 0 0 S
+EE 0 1 0 -1
 10 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1475,8 +1475,8 @@ A young &+gdruid&n tries out some new spells.
 This is a cute young human druid who is attempting to master some of the
 cantrips of the trade.
 ~
-10 0 0 0 0 0 0 0 S
-PH 0 128 -1
+10 0 0 0 0 0 0 0 0 S
+PH 0 128 0 -1
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1487,8 +1487,8 @@ A &+Yyoung child&n runs around playing without a care.&n
 ~
 &+YA child runs around without a care of the poverty around him.&n
 ~
-10 0 0 0 0 0 0 0 S
-PH 0 128 -1
+10 0 0 0 0 0 0 0 0 S
+PH 0 128 0 -1
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1499,8 +1499,8 @@ A young &+ymercenary&n in training lies on the ground, bound.&n
 ~
 A young &+ymercenary&n gets taught the effects of being bound, the hard way.
 ~
-10 0 0 0 0 0 0 0 S
-PH 0 16384 -1
+10 0 0 0 0 0 0 0 0 S
+PH 0 16384 0 -1
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 9 9 1
@@ -1511,8 +1511,8 @@ A young &+ymercenary&n watches training.
 ~
 A young &+ymercenary&n gets taught the effects of being bound, the hard way.
 ~
-10 0 0 0 0 0 0 0 S
-PB 0 16384 -1
+10 0 0 0 0 0 0 0 0 S
+PB 0 16384 0 -1
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 9 9 1
@@ -1523,8 +1523,8 @@ An amateur &+Lassassin&n lurks in the &+bshadows.&n
 ~
 An amateur assassin that is still learning her trade from her instructor Risp.
 ~
-10 0 0 0 0 0 0 0 S
-PH 0 8192 -1
+10 0 0 0 0 0 0 0 0 S
+PH 0 8192 0 -1
 6 0 0 1d1+1 1d1+1
 0.0.0.2 0
 8 8 2
@@ -1536,8 +1536,8 @@ An &+Calc&+chem&+Cist&n forages around for ingredients.
 A young alchemist is busy foraging in the garden for ingredients to make up a
 batch of potions.
 ~
-10 0 0 0 0 0 0 0 S
-PG 0 524288 -1
+10 0 0 0 0 0 0 0 0 S
+PG 0 524288 0 -1
 10 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1552,8 +1552,8 @@ human man bleeding~
 &+whe clenches his sword with a deathly grasp. He is in desperate need of
 &+wsome bandaging.
 ~
-8 0 0 0 0 0 0 1000 S
-PH 0 2 -1
+8 0 0 0 0 0 0 0 1000 S
+PH 0 2 0 -1
 3 0 0 1d1+1 1d1+1
 0.0.0.0 0
 9 9 1
@@ -1568,8 +1568,8 @@ a variety of roots that has been intrically wooven and holds a deity's
 markings close to her neck. Her dark brown hair is in a numberous amount
 of tangles and is clenching her hands together as if she is praying.
 ~
-8 0 0 0 0 0 0 0 S
-p2 0 128 -1
+8 0 0 0 0 0 0 0 0 S
+p2 0 128 0 -1
 3 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 6 2
@@ -1582,8 +1582,8 @@ vine overgrown~
 &+glife by some magical means. It sways side to side in what would seem an
 &+gangry manner.
 ~
-74 1 0 16779552 0 0 4096 0 S
-ap 0 1 3
+74 1 0 0 16779552 0 0 4096 0 S
+ap 0 1 0 3
 3 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0

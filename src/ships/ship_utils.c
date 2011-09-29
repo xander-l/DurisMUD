@@ -282,6 +282,21 @@ void act_to_all_in_ship(P_ship ship, const char *msg)
   }
 }
 
+void act_to_all_in_ship(P_ship ship, const char *msg, P_char victim)
+{
+  if (ship == NULL)
+    return;
+
+  for (int i = 0; i < ship->room_count; i++)
+  {
+    if ((SHIP_ROOM_NUM(ship, i) != -1) && world[real_room(SHIP_ROOM_NUM(ship, i))].people)
+    {
+      act(msg, FALSE, world[real_room(SHIP_ROOM_NUM(ship, i))].people, 0, victim, TO_ROOM);
+      act(msg, FALSE, world[real_room(SHIP_ROOM_NUM(ship, i))].people, 0, victim, TO_CHAR);
+    }
+  }
+}
+
 void act_to_outside(P_ship ship, int rng, const char *msg, ... )
 {
   va_list args;

@@ -1,6 +1,6 @@
 #1351
 The Altar of the Firesworn~
-135143 2 0 40 50 1
+135171 2 0 40 50 1
 *
 * Zone edited with durisEdit v2.99de
 *
@@ -13,6 +13,46 @@ D 0 135106 2 2 100 0 0 0
 *     south exit from "The Grand Foyer Within the Temple" to
 *     "Before the Archway to the Altars of Transendence" - closed/locked
 *
+D 0 135108 0 2 100 0 0 0
+*     north exit from "An Illuminated Cathedral" to
+*     "A Spiral Stairwell" - closed/locked
+*
+D 0 135109 2 2 100 0 0 0
+*     south exit from "A Spiral Stairwell" to
+*     "An Illuminated Cathedral" - closed/locked
+*
+D 0 135110 4 2 100 0 0 0
+*     up exit from "The Base of a Highrise Spire" to
+*     "Inside the North Eastern Spire" - closed/locked
+*
+D 0 135111 5 1 100 0 0 0
+*     down exit from "Inside the North Eastern Spire" to
+*     "The Base of a Highrise Spire" - closed
+*
+D 0 135113 4 2 100 0 0 0
+*     up exit from "The Base of a Highrise Spire" to
+*     "Inside the South Eastern Spire" - closed/locked
+*
+D 0 135114 5 1 100 0 0 0
+*     down exit from "Inside the South Eastern Spire" to
+*     "The Base of a Highrise Spire" - closed
+*
+D 0 135116 4 2 100 0 0 0
+*     up exit from "The Base of a Highrise Spire" to
+*     "Inside the South Western Spire" - closed/locked
+*
+D 0 135117 5 1 100 0 0 0
+*     down exit from "Inside the South Western Spire" to
+*     "The Base of a Highrise Spire" - closed
+*
+D 0 135119 4 2 100 0 0 0
+*     up exit from "The Base of a Highrise Spire" to
+*     "Within the North Western Spire" - closed/locked
+*
+D 0 135120 5 1 100 0 0 0
+*     down exit from "Within the North Western Spire" to
+*     "The Base of a Highrise Spire" - closed
+*
 D 0 135122 0 2 100 0 0 0
 *     north exit from "Atop a Spire Stairwell" to
 *     "A Fire-Blasted Bloodstone Hallway" - closed/locked
@@ -21,26 +61,90 @@ D 0 135123 2 2 100 0 0 0
 *     south exit from "A Fire-Blasted Bloodstone Hallway" to
 *     "Atop a Spire Stairwell" - closed/locked
 *
+D 0 135129 4 1 100 0 0 0
+*     up exit from "A Stairwell Composed of Engraved Bloodstone Steps" to
+*     "A Stairwell Composed of Engraved Bloodstone Steps" - closed
 *
+D 0 135130 5 1 100 0 0 0
+*     down exit from "A Stairwell Composed of Engraved Bloodstone Steps" to
+*     "A Stairwell Composed of Engraved Bloodstone Steps" - closed
+*
+D 0 135130 4 1 100 0 0 0
+*     up exit from "A Stairwell Composed of Engraved Bloodstone Steps" to
+*     "A Circular Chamber Atop the Firesworn Spire" - closed
+*
+D 0 135131 5 1 100 0 0 0
+*     down exit from "A Circular Chamber Atop the Firesworn Spire" to
+*     "A Stairwell Composed of Engraved Bloodstone Steps" - closed
+*
+*
+O 0 135105 1 135112 100 0 0 0      * an altar of imbued bloodstone
+O 0 135104 1 135115 100 0 0 0      * an altar of astral forged metal
+O 0 135103 1 135118 100 0 0 0      * an altar of harnessed positive energy
+O 0 135102 1 135121 100 0 0 0      * an altar of harnessed negative energy
+O 0 135127 5 135123 100 0 0 0      * a large torch
+O 0 135127 5 135124 100 0 0 0      * a large torch
+O 0 135128 1 135126 100 0 0 0      * an ebonwood desk
+P 1 135129 1 135128 100 0 0 0      *   a thick tome entitled 'The Wizards Guide to Dating'
+O 0 135127 5 135127 100 0 0 0      * a large torch
+O 0 135127 5 135128 100 0 0 0      * a large torch
+O 0 135127 5 135129 100 0 0 0      * a large torch
 *
 M 0 135109 1 135105 100 0 0 0      * Vrolithin, the devil priest of Maelshem
+G 1 135111 1 0 100 0 0 0           *    a key of forged shadowsteel
 M 0 135108 11 135105 100 0 0 0     * a firesworn legion sentry
 M 0 135108 11 135105 100 0 0 0     * a firesworn legion sentry
 M 0 135108 11 135105 100 0 0 0     * a firesworn legion sentry
-M 0 135112 1 135109 100 0 0 0      * Calian, high priestess of Maelshem
 M 0 135108 11 135110 100 0 0 0     * a firesworn legion sentry
 M 0 135108 11 135110 100 0 0 0     * a firesworn legion sentry
+G 1 135123 1 0 100 0 0 0           *    a key of blood
 M 0 135103 1 135112 100 0 0 0      * the guardian of the blood
+G 1 135106 1 0 100 0 0 0           *    the divine essence of blood
 M 0 135108 11 135113 100 0 0 0     * a firesworn legion sentry
 M 0 135108 11 135113 100 0 0 0     * a firesworn legion sentry
+G 1 135125 1 0 100 0 0 0           *    a fire imbued key
 M 0 135104 1 135115 100 0 0 0      * the guardian of the fire
+E 1 135112 2 16 100 0 0 0          *   the sword of dancing fire
+E 1 135112 2 17 100 0 0 0          *   the sword of dancing fire
+G 1 135107 1 0 100 0 0 0           *    the divine essence of fire
 M 0 135108 11 135116 100 0 0 0     * a firesworn legion sentry
 M 0 135108 11 135116 100 0 0 0     * a firesworn legion sentry
+G 1 135124 1 0 100 0 0 0           *    a key of solidified mists
 M 0 135105 1 135118 100 0 0 0      * the guardian of the mists
+E 1 135113 2 16 100 0 0 0          *   a frost-encrusted hammer of shadowsteel
+E 1 135113 2 17 100 0 0 0          *   a frost-encrusted hammer of shadowsteel
+G 1 135108 1 0 100 0 0 0           *    the divine essence of mist
 M 0 135108 11 135119 100 0 0 0     * a firesworn legion sentry
 M 0 135108 11 135119 100 0 0 0     * a firesworn legion sentry
+G 1 135126 1 0 100 0 0 0           *    a key of binding enchantment
 M 0 135106 1 135121 100 0 0 0      * the guardian of enchantment
-M 0 135113 1 135122 100 0 0 0      * a construct of infused shadowsteel
+E 1 135116 2 16 100 0 0 0          *   hidden enchantment priest proc 1
+E 1 135116 2 17 100 0 0 0          *   hidden enchantment priest proc 1
+G 1 135109 1 0 100 0 0 0           *    the divine essence of enchantment
+M 0 135113 2 135122 100 0 0 0      * a construct of infused shadowsteel
+E 1 135118 2 16 100 0 0 0          *   a wickedly barbed shadowsteel greatsword
+M 0 135113 2 135122 100 0 0 0      * a construct of infused shadowsteel
+E 1 135118 2 16 100 0 0 0          *   a wickedly barbed shadowsteel greatsword
+G 1 135130 1 0 100 0 0 0           *    a bloodstone key
+M 0 135111 3 135130 100 0 0 0      * a shadow infused hellhound
+M 0 135111 3 135130 100 0 0 0      * a shadow infused hellhound
+M 0 135111 3 135130 100 0 0 0      * a shadow infused hellhound
 M 0 135110 1 135131 100 0 0 0      * Maelshem, the false god
+E 1 135121 1 16 100 0 0 0          *   hidden maelshem proc
+G 1 135101 1 0 100 0 0 0           *    a shimmering rift of torn dreams
+M 0 135114 1 135140 100 0 0 0      * Tiliwibble, the halfling thief
+M 0 135116 4 135147 100 0 0 0      * a torrent of projected nightmares
+M 0 135116 4 135147 100 0 0 0      * a torrent of projected nightmares
+M 0 135116 4 135147 100 0 0 0      * a torrent of projected nightmares
+M 0 135116 4 135147 100 0 0 0      * a torrent of projected nightmares
+M 0 135115 4 135147 100 0 0 0      * an elemental of rampaging dreams
+M 0 135115 4 135147 100 0 0 0      * an elemental of rampaging dreams
+M 0 135115 4 135147 100 0 0 0      * an elemental of rampaging dreams
+M 0 135115 4 135147 100 0 0 0      * an elemental of rampaging dreams
+M 0 135117 1 135154 100 0 0 0      * the nightmare projection of Maelshem
+E 1 135122 1 16 100 0 0 0          *   hidden projection proc
+G 1 135131 1 0 100 0 0 0           *    a tear in the fabric of dreams
+F 1 135118 2 135154 100 0 0 0      * a nightmare empowered hellhound (following)
+F 1 135118 2 135154 100 0 0 0      * a nightmare empowered hellhound (following)
 *
 S

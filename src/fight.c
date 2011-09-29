@@ -45,6 +45,7 @@
 #include "outposts.h"
 #include "boon.h"
 #include "ctf.h"
+#include "tether.h"
 
 /*
  * external variables
@@ -109,17 +110,17 @@ float    racial_spldam_defensive_factor[LAST_RACE + 1][LAST_SPLDAM_TYPE + 1];
 
  /* Weapon attack texts */
 struct attack_hit_type attack_hit_text[] = {
-  {"strike", "strikes", "struck"},       /* TYPE_HIT      */
+  {"punch", "punches", "punched"},              /* TYPE_HIT      */
   {"bludgeon", "bludgeons", "bludgeoned"},      /* TYPE_BLUDGEON */
-  {"pierce", "pierces", "pierced"},     /* TYPE_PIERCE   */
-  {"slash", "slashes", "slashed"},      /* TYPE_SLASH    */
-  {"whip", "whips", "whipped"}, /* TYPE_WHIP     */
-  {"claw", "claws", "clawed"},  /* TYPE_CLAW     */
-  {"bite", "bites", "bitten"},  /* TYPE_BITE     */
-  {"sting", "stings", "stung"}, /* TYPE_STING    */
-  {"crush", "crushes", "crushed"},      /* TYPE_CRUSH    */
-  {"maul", "mauls", "mauled"},  /* TYPE_MAUL     */
-  {"thrash", "thrashes", "thrashed"}    /* TYPE_THRASH   */
+  {"pierce", "pierces", "pierced"},             /* TYPE_PIERCE   */
+  {"slash", "slashes", "slashed"},              /* TYPE_SLASH    */
+  {"whip", "whips", "whipped"},                 /* TYPE_WHIP     */
+  {"claw", "claws", "clawed"},                  /* TYPE_CLAW     */
+  {"bite", "bites", "bitten"},                  /* TYPE_BITE     */
+  {"sting", "stings", "stung"},                 /* TYPE_STING    */
+  {"crush", "crushes", "crushed"},              /* TYPE_CRUSH    */
+  {"maul", "mauls", "mauled"},                  /* TYPE_MAUL     */
+  {"thrash", "thrashes", "thrashed"}            /* TYPE_THRASH   */
 };
 
 struct melee_death_messages
@@ -813,8 +814,8 @@ void AddFrags(P_char ch, P_char victim)
         if (IS_ILLITHID(tch))
           illithid_advance_level(tch);
 
-	check_boon_completion(tch, victim, ((double)real_gain/100), BOPT_FRAG);
-	check_boon_completion(tch, victim, ((double)real_gain/100), BOPT_FRAGS);
+	check_boon_completion(tch, victim, ((double)(real_gain/100)), BOPT_FRAG);
+	check_boon_completion(tch, victim, ((double)(real_gain/100)), BOPT_FRAGS);
       }
     }
   }
@@ -4257,6 +4258,12 @@ int spell_damage(P_char ch, P_char victim, double dam, int type, uint flags,
     messages->type |= type << 24;
     result = raw_damage(ch, victim, dam, RAWDAM_DEFAULT ^ flags, messages);
 
+    // Tether code here
+    if( GET_CLASS( ch, CLASS_CABALIST ) )
+    {
+       tetherheal( ch, dam );
+    }
+
     if(type == SPLDAM_ACID &&
       !number(0, 3))
     {
@@ -5074,6 +5081,7 @@ void check_vamp(P_char ch, P_char victim, double fdam, uint flags)
             vamp(tch, sac_gain, GET_MAX_HIT(tch)); // Holy Sac only vamps to max hp - Jexni 12/9/10
       }
     }
+
   }
 }
 
@@ -6650,7 +6658,7 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
     !affected_by_spell(ch, SKILL_WHIRLWIND) &&
     !vicious_hit &&
     GET_POS(ch) == POS_STANDING &&
-    !GET_RACE(victim) == RACE_CONSTRUCT)
+    GET_RACE(victim) != RACE_CONSTRUCT )
   {
     if(notch_skill(ch, SKILL_VICIOUS_ATTACK,
                     get_property("skill.notch.offensive.auto", 100)) ||

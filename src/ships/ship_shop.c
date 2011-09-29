@@ -14,6 +14,7 @@
 #include "nexus_stones.h"
 #include "epic.h"
 #include "ships.h"
+#include "epic_bonus.h"
 
 extern char buf[MAX_STRING_LENGTH];
 extern char arg1[MAX_STRING_LENGTH];
@@ -44,6 +45,9 @@ int list_cargo(P_char ch, P_ship ship, int owned)
     send_to_char ("&+y---=== For sale ===---&N\r\n", ch);
     
     int cost = cargo_sell_price(rroom);
+    
+    // hook for epic bonus
+    cost -= (int) (cost * get_epic_bonus(ch, EPIC_BONUS_CARGO));
 
     //if( GET_LEVEL(ch) < 50 )
     //    cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);
@@ -73,6 +77,10 @@ int list_cargo(P_char ch, P_ship ship, int owned)
         {
             send_to_char ("\r\n&+L---=== Contraband for sale ===---&N\r\n", ch);
             cost = contra_sell_price(rroom);
+	    
+	    // hook for epic bonus
+	    cost -= (int) (cost * get_epic_bonus(ch, EPIC_BONUS_CARGO));
+
             send_to_char_f(ch, "%s&n: %s &+Lper crate.&N\r\n", contra_type_name(rroom), coin_stringv(cost));
         }
         bool caption = false;
@@ -1284,7 +1292,10 @@ int buy_cargo(P_char ch, P_ship ship, char* arg)
     }
 
     int unit_cost = cargo_sell_price(rroom);
-    int cost = asked_for * unit_cost; 
+    int cost = asked_for * unit_cost;
+
+    // hook for epic bonus
+    cost -= (int) (cost * get_epic_bonus(ch, EPIC_BONUS_CARGO));
 
     //if (GET_LEVEL(ch) < 50)
     //    cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);

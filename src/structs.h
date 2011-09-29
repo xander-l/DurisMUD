@@ -278,7 +278,8 @@ struct edit_data {
 #define LNK_PALADIN_AURA    17
 #define LNK_GRAPPLED        18
 #define LNK_CIRCLING        19
-#define LNK_MAX             19
+#define LNK_TETHER	    20
+#define LNK_MAX             20
 
 #define LNKFLG_ROOM            BIT_1
 #define LNKFLG_AFFECT          BIT_2
@@ -2030,6 +2031,11 @@ struct mcname {
 //Illu Specs
 #define SPEC_DECEIVER 1
 #define SPEC_DARK_DREAMER 2
+
+/* CLASS_CABALIST Specs */
+#define SPEC_DRAGONBORN   1
+#define SPEC_ABYSSAL      2
+#define SPEC_DARK_TEMPEST 3
 
 //Avenger Specs
 #define SPEC_LIGHTBRINGER 1

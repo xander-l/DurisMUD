@@ -11,7 +11,6 @@ O 0 83284 4 41028 100 0 0 0        * (object type not in this .obj file)
 O 0 83284 4 41048 100 0 0 0        * (object type not in this .obj file)
 O 0 83284 4 41051 100 0 0 0        * (object type not in this .obj file)
 O 0 41004 1 41059 100 0 0 0        * a Cronus Flower
-O 0 41005 1 41059 100 0 0 0        * a Cronus Flower
 *
 M 0 41003 10 41009 100 0 0 0       * a greater zombie
 M 0 41002 10 41010 100 0 0 0       * a lesser zombie

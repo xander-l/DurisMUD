@@ -49,6 +49,7 @@
 #include "buildings.h"
 #include "boon.h"
 #include "ctf.h"
+#include "tether.h"
 
 /*
  * external variables
@@ -1050,6 +1051,9 @@ const char *command[] = {
   "boon",
   "ctf",
   "garrote",
+  "tether",
+  "questwhere",
+  "newbsa",
   "\n"                          /* MAX_CMD_LIST is now 1000 */
 };
 
@@ -2214,9 +2218,11 @@ void assign_command_pointers(void)
   CMD_GRT(CMD_STATISTIC, STAT_DEAD + POS_PRONE, do_statistic, FORGER);
   CMD_GRT(CMD_STORAGE, STAT_DEAD + POS_PRONE, do_storage, GREATER_G);
   CMD_GRT(CMD_NEWBSU, STAT_DEAD + POS_PRONE, do_newb_spellup, LESSER_G);
+  CMD_GRT(CMD_NEWBSA, STAT_DEAD + POS_PRONE, do_newb_spellup_all, LESSER_G);
   CMD_GRT(CMD_GIVEPET, STAT_DEAD + POS_PRONE, do_givepet, GREATER_G);
   CMD_GRT(CMD_PETITION_BLOCK, STAT_DEAD + POS_PRONE, do_petition_block, FORGER);
   CMD_GRT(CMD_WHITELIST, STAT_DEAD + POS_PRONE, do_whitelist, IMMORTAL);
+  CMD_GRT(CMD_QUESTWHERE, STAT_NORMAL + POS_STANDING, do_questwhere, IMMORTAL);
 
 
   /*
@@ -2568,7 +2574,11 @@ void assign_command_pointers(void)
   CMD_Y(CMD_FOCUS, STAT_RESTING + POS_KNEELING, do_assimilate, 0);
   CMD_Y(CMD_BOON, STAT_SLEEPING + POS_PRONE, do_boon, 0);
   CMD_Y(CMD_CTF, STAT_NORMAL + POS_STANDING, do_ctf, 0);
+<<<<<<< HEAD
   CMD_Y(CMD_GARROTE, STAT_NORMAL + POS_STANDING, do_garrote, 0);
+=======
+  CMD_Y(CMD_TETHER, STAT_NORMAL + POS_STANDING, do_tether, 0);
+>>>>>>> a6c2c54eacdd3acf47f9aaf6bd25e705f31c768e
 
   /*
    * 'commands' which exist only to trigger specials

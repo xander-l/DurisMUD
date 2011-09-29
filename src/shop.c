@@ -20,6 +20,7 @@
 #include "salchemist.h"
 #include "specs.prototypes.h"
 #include "sql.h"
+#include "epic_bonus.h"
 
 /*
  * external variables
@@ -46,6 +47,8 @@ const char *operator_str[] = {
   "&*",
   "^'"
 };
+
+void lore_item( P_char ch, P_obj obj );
 
 void push(struct stack_data *stack, int pushval)
 {
@@ -494,7 +497,7 @@ void shopping_buy(char *arg, P_char ch, P_char keeper, int shop_nr)
   
   cost_factor = (float) cha_app[STAT_INDEX(MAX(100, GET_C_CHA(ch)))].modifier;
   if (GET_RACE(ch) != GET_RACE(keeper))
-    cost_factor = cost_factor / 2.;
+    cost_factor = cost_factor * 2.;
 
   cost_factor =
     shop_index[shop_nr].sell_percent * (1.0 - (cost_factor / 100.));
@@ -510,6 +513,9 @@ void shopping_buy(char *arg, P_char ch, P_char keeper, int shop_nr)
   }
 
   sale = (int) (temp1->cost * cost_factor);
+	
+  // hook for epic bonus
+  sale -= (int) (sale * get_epic_bonus(ch, EPIC_BONUS_SHOP));
 
   if (sale < 1)
     sale = 1;
@@ -890,7 +896,7 @@ void shopping_list(char *arg, P_char ch, P_char keeper, int shop_nr)
 
   cost_factor = (float) cha_app[STAT_INDEX(MAX(100, GET_C_CHA(ch)))].modifier;
   if (GET_RACE(ch) != GET_RACE(keeper))
-    cost_factor = cost_factor / 2.;
+    cost_factor = cost_factor * 2.;
 
   cost_factor =
     shop_index[shop_nr].sell_percent * (1.0 - (cost_factor / 100.));
@@ -954,6 +960,9 @@ void shopping_list(char *arg, P_char ch, P_char keeper, int shop_nr)
         found_obj = TRUE;
 
         sale = (int) (temp1->cost * cost_factor);
+
+	// hook for epic bonus
+	sale -= (int) (sale * get_epic_bonus(ch, EPIC_BONUS_SHOP));
 
         if (sale < 1)
           sale = 1;
@@ -1759,4 +1768,24 @@ bool transact(P_char from, P_obj merchandise, P_char to, int value)
     }
   }
   return FALSE;
+}
+
+// Stats objects for sale, like in locker code.
+// Must be duplicated because do_lore is limited to inventory.
+void shopping_stat( P_char ch, P_char keeper, char *arg, int cmd )
+{
+   int i = 0;
+   P_obj obj;
+
+   if( !ch || !keeper )
+      return;
+
+   for( obj = keeper->carrying; obj; obj = obj->next_content )
+      if( CAN_SEE_OBJ( ch, obj ) && ( obj->cost > 0 ) )
+         if( ++i == atoi(arg) )
+         { 
+            lore_item( ch, obj );
+            return;
+         }
+   mobsay( keeper, "I do not sell that item." );
 }

@@ -4,8 +4,8 @@ firesworn soldier demon~
 An unnamed mob stands here, looking lonely and forelorn.
 ~
 ~
-8 1 0 402653336 0 0 0 -1000 S
-y 0 1 -1
+8 1 0 0 402653336 0 0 0 -1000 S
+y 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -15,19 +15,19 @@ commander firesworn legion demon~
 &+LA commander in the firesworn legion stands here, directing soldiers.&n
 ~
 ~
-268466184 1 0 24 0 0 0 -1000 S
-Y 0 513 -1
+268466184 1 0 0 24 0 0 0 -1000 S
+Y 0 513 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #135103
-guardian blood~
+guardian blood _no_move_~
 &+Lthe guardian of the &+rbl&+Roo&+rd&n~
 &+LA priest garbed in &+rblood s&+Lp&+rl&+La&+rt&+Lt&+re&+Lr&+re&+Ld robes stands here, guarding the altar.&n
 ~
 ~
-268453960 0 0 0 0 0 0 -1000 S
-y 0 768 -1
+268453962 1 0 0 0 0 0 0 -1000 S
+y 0 768 0 -1
 59 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -37,118 +37,184 @@ guardian fire _spec1_~
 &+LA priest dressed in &+Wb&+wi&+Wl&+wl&+Wo&+ww&+Wi&+wn&+Wg &+Lrobes of &+Rf&+ri&+Rr&+re &+Lstands here, guarding the altar.&n
 ~
 ~
-2088 0 0 0 0 0 0 -1000 S
-y 0 2097152 -1
+2090 0 0 0 0 0 0 0 -1000 S
+y 0 2097152 2 -1
 59 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
 #135105
-mob unnamed~
+guardian mists priest _no_move_~
 &+Lthe guardian of the &+cm&+Ci&+cs&+Ct&+cs&n~
 &+LA priest enshrouded in a cloak of &+cm&+Ci&+cs&+Ct&+cs &+Lstands here, guarding the altar.&n
 ~
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 0 -1
-1 0 0 1d1+1 1d1+1
+268466186 1 0 0 24 0 2097152 0 -1000 S
+Y 0 2097152 1 -1
+59 0 0 1d1+1 1d1+1
 0.0.0.0 0
-8 8 0
+8 8 1
 #135106
-mob unnamed~
+guardian priest enchantment~
 &+Lthe guardian of en&+mch&+Lan&+mtm&+Len&+mt&n~
 &+LA priest stands here, complex ma&+Ygi&+Lca&+Yl e&+Lne&+Yrg&+Lie&+Ys &+Lweaving a pr&+mot&+Lec&+mti&+Lon around the altar.&n
 ~
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 0 -1
-1 0 0 1d1+1 1d1+1
+8 0 0 0 0 0 0 0 -1000 S
+Y 0 33281 0 -1
+59 0 0 1d1+1 1d1+1
 0.0.0.0 0
-8 8 0
+8 8 1
 #135107
-firesworn legion shock troop devil _spec3_~
+firesworn legion shock troop devil _no_move_~
 &+La &+rf&+Ri&+Yr&+Wesw&+Yo&+Rr&+rn &+Llegion &+Yshock &+Ltroop&n~
 &+LA &+rf&+Ri&+Yr&+Wesw&+Yo&+Rr&+rn &+Llegion &+Yshock &+Ltroop stands here, ready to pounce.&n
 ~
 ~
-30728 1 0 24 0 0 0 -1000 S
-Y 0 1 -1
+30730 1 0 0 24 0 0 0 -1000 S
+Y 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #135108
-firesworn legion entry demon~
+firesworn legion demon sentry _no_move_~
 &+La &+rf&+Ri&+Yr&+Wesw&+Yo&+Rr&+rn &+Llegion &+bse&+Bnt&+bry&n~
 &+LA burly &+rf&+Ri&+Yr&+Wesw&+Yo&+Rr&+rn &+bse&+Bnt&+bry &+Lstands here, guarding access to the Spires of Ascendance.&n
 ~
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 0 -1
-1 0 0 1d1+1 1d1+1
+30794 0 0 0 268435512 0 0 0 -1000 S
+Y 0 16385 0 -1
+56 0 0 1d1+1 1d1+1
 0.0.0.0 0
-8 8 0
+8 8 1
 #135109
-mob unnamed~
+vrolithin devil priest _no_move_~
 &+rVrolithin&+L, the devil priest of &+bMaelshem&n~
 &+LStanding guard here, the d&+re&+Lv&+ri&+Ll priest known as &+rVrolithin &+Lblocks entrance to the Spires.&n
 ~
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 0 -1
-1 0 0 1d1+1 1d1+1
+423946 1 0 0 0 0 0 0 -1000 S
+Y 0 1048608 0 -1
+59 0 0 1d1+1 1d1+1
 0.0.0.0 0
-8 8 0
+8 8 1
 #135110
 maelshem false god~
 &+bMaelshem&+L, the &+Yfalse &+Wgod&n~
 &+BMaelshem&+L, the &+Yfalse &+Wgod&+L, stands here awaiting &+Btr&+Can&+Wsend&+Cen&+Bce&+L.&n
 ~
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 0 -1
-1 0 0 1d1+1 1d1+1
+30730 1 0 0 24 1 16777216 1024 -1000 S
+SW 0 16777472 0 -1
+60 0 0 1d1+1 1d1+1
 0.0.0.0 0
-8 8 0
+8 8 1
 #135111
-mob unnamed~
+shadow infused hellhound~
 &+La shadow infused &+rhell&+Rhound&n~
-An unnamed mob stands here, looking lonely and forelorn.
+&+LThe form of a giant beast stands here, enshrouded in &+rfire &+Land &+rflame&+L.&n
 ~
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 0 -1
-1 0 0 1d1+1 1d1+1
+30762 1 0 0 0 0 0 0 -1000 S
+sw 0 1048576 2 -1
+58 0 0 1d1+1 1d1+1
 0.0.0.0 0
-8 8 0
+8 8 1
 #135112
 calian high priestess human~
 &+LCalian, &+chigh priestess &+Lof &+bMaelshem&n~
 &+LA small &+Chuman &+Ygirl &+Lstands here, draped in &+rpriestess &+Lrobes.&n
 ~
 ~
-268453962 0 0 939524248 0 0 0 -1000 S
-PH 0 544 -1
+268453962 0 0 0 939524248 0 0 0 -1000 S
+PH 0 544 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
 #135113
-construct infused shadowsteel golem~
+construct infused shadowsteel golem _no_move_~
 &+La &+rconstruct &+Lof infused &+bshadow&+csteel&n~
 &+LA &+bshadow&+csteel &+rconstruct &+Lstands here, blocking entrance to the upper spire.&n
 ~
 ~
-30792 0 0 0 0 0 0 0 S
-CN 0 16777280 -1
-60 0 0 1d1+1 1d1+1
+30794 1 0 0 402653208 0 0 0 -1000 S
+CN 0 18874368 2 -1
+58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
 #135114
+tiliwibble halfling thief~
+&+WTiliwibble&+L, the &+yhalfling &+Lthief&n~
+&+LA slender &+yhalfling &+Lsteps lightly through the illusionary forest here.&n
+~
+&+L   Standing before you, this slender female thief looks to be very well
+&+Laware of her surroundings. Dressed in a suit of very well crafted &+Cchain
+&+Land &+yleather &+Larmor, she carries herself with an air of &+rmischief&+L. Supple
+&+Lleather boots make the sound of her steps fade into n&+wot&+Wh&+win&+Lg while the
+&+Lglimmer of a slender &+Csilver&+L-&+Cblue &+Lshort sword can be seen sheathed on
+&+Lher hip. Embossed across the leather chest piece, the &+rbl&+Roo&+rd r&+Re&+rd &+Lsymbol
+&+Lof the &+bF&+Bi&+Cr&+We H&+Ca&+Bn&+bd &+Lthieves guild stands out. Looking at her face its
+&+Lnearly impossible to determine her age however, looking deep into her
+&+Leyes, you can see that she has seen many terrible things unfold before
+&+Lher. Giving you a curt nod and a small wave, she says greets you with
+&+La soft '&+WHello&+L'.&n
+~
+30794 0 0 0 402653336 1048576 0 33559552 0 S
+PF 0 4096 2 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#135115
+elemental rampaging dreams~
+&+Lan &+celemental &+Lof &+rr&+Ra&+rm&+Rp&+ra&+Rg&+ri&+Rn&+rg &+Ldreams&n~
+&+LAn elemental conglomeration of shifting dreams flows about the merky void.&n
+~
+~
+30728 0 0 0 0 0 0 0 0 S
+VE 0 1048576 2 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#135116
+torrent projected nightmare~
+&+La &+Gt&+go&+Gr&+gr&+Ge&+gn&+Gt &+Lof &+cprojected &+Ln&+mi&+Lg&+mh&+Lt&+mm&+La&+mr&+Le&+m&+Ls&n~
+&+LThe shimmering form of nightmare like monsters stomp around the void here.&n
+~
+~
+8 1 0 0 24 8388608 0 0 0 S
+VE 0 4194304 2 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#135117
+nightmare projection maelshem~
+&+Lthe nightmare &+Lprojection of &+bMaelshem&n~
+&+LThe shattered reminates of the &+Yfalse &+Wgod &+bMaelshem &+Lfloats admist the void, trying to regain form.&n
+~
+~
+16807976 1 0 0 402653208 8400896 16777216 33554432 -1000 S
+VE 0 16777761 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#135118
+nightmare empowered hellhound~
+&+La n&+mi&+Lg&+mh&+Lt&+mm&+La&+mr&+Le &+Ce&+cmpowere&+Cd &+rhellhound&n~
+&+LA vicious &+rhellhound &+Lstands here, guarding the weakend projection of &+bMaelshem.&n
+~
+~
+40 1 0 0 0 4194304 0 0 0 S
+AE 0 1 1 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#135119
 mob unnamed~
-an unnamed mob~
+a chained devil of~
 An unnamed mob stands here, looking lonely and forelorn.
 ~
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 0 -1
+8 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0

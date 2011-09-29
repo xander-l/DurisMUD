@@ -677,6 +677,74 @@ int damage_hull(P_ship attacker, P_ship target, int dam, int arc, int armor_pier
     return TRUE;
 }
 
+int ch_damage_hull(P_char attacker, P_ship target, int dam, int arc, int armor_pierce)
+{
+    if (!attacker)
+        return FALSE;
+    
+    if (dam < 1)
+        dam = 1;
+    
+    act("You hit a ship!", FALSE, attacker, NULL, NULL, TO_CHAR );
+
+    act_to_all_in_ship_f(target, "&+WYour ship&N has been hit for &+R%d&N %s of damage on the %s side!", dam, (dam == 1) ? "point" : "points", get_arc_name(arc));
+    act_to_outside_ships(target, target, DEFAULT_RANGE, "&+W[%s]&N:%s&N has been hit for %d %s of damage on the %s side!", SHIP_ID(target), SHIP_NAME(target), dam, (dam == 1) ? "point" : "points", get_arc_name(arc));
+
+    
+    int weapon_hit_chance = 15;
+
+    if (SHIP_ARMOR(target, arc) != 0)
+    {
+        SHIP_ARMOR(target, arc) -= dam;
+        if (SHIP_ARMOR(target, arc) < 0)
+        {
+            dam = -SHIP_ARMOR(target, arc);
+            SHIP_ARMOR(target, arc) = 0;
+        }
+        else
+        {
+            if (number(0, 99) < armor_pierce)
+            { // critical hit, hitting internal
+                act_to_all_in_ship(target, " &+WCRITICAL HIT!&N");
+                act("&+WCRITICAL HIT!&N!", FALSE, attacker, NULL, NULL, TO_CHAR );
+                dam = dam / 2;
+                weapon_hit_chance = 50;
+            }
+            else
+            {
+                return TRUE;
+            }
+        }
+    }
+
+    if (SHIP_INTERNAL(target, arc) < 1)
+    {// chance to bypass a rubble and hit random another arc from inside
+        int other_arc = number (1, 9);
+        if (other_arc < 4)
+        {
+            other_arc = (arc + other_arc) % 4;
+            if (SHIP_INTERNAL(target, other_arc) > 0)
+                arc = other_arc;
+        }
+    }
+    if (SHIP_INTERNAL(target, arc) < 1)
+        weapon_hit_chance = 100;
+
+    SHIP_INTERNAL(target, arc) -= dam;
+
+    if (number(0, 99) < weapon_hit_chance)
+    {
+        damage_weapon(target, target, arc, dam * 5);
+    }
+    if (number(1, 9) == 9)
+    {
+        act_to_all_in_ship(target, " &+YThe blast knocks you off your feet!&N");
+        stun_all_in_ship(target, PULSE_VIOLENCE * 2);
+    }
+
+    return TRUE;
+}
+
 void damage_weapon(P_ship attacker, P_ship target, int arc, int dam)
 {
     int arc_weapons[MAXSLOTS];

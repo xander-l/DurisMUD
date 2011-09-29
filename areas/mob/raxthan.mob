@@ -9,8 +9,8 @@ raxthan enslaver br_c~
 &+LHis arms are a mass of muscles layered upon muscles, with legs to match.  He&n
 &+Lseems as though he is busy training slaves in the arts of pleasure.&n
 ~
-33962570 1 0 838959448 45250 0 0 -1000 S
-X 0 1 -1
+33962570 1 0 0 838959448 45250 0 0 -1000 S
+X 0 1 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -25,8 +25,8 @@ a &+Lcrazed &+rraxian&n~
 &+Lpoor monster is missing some of its fingers.  Perhaps they have been bitten off&n
 &+Lor cut off.&n
 ~
-33554504 1 0 302055720 0 0 0 1000 S
-AA 0 1 -1
+33554504 1 0 0 302055720 0 0 0 1000 S
+AA 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -42,8 +42,8 @@ graskal devil spawn br_a~
 &+Lmuscles and the arms the size of an ogre.  His wings are a strange &+mmagenta&n
 &+Lcolor and have &+rstains &+Lof past victims upon them.&n
 ~
-1107704906 1 0 840532414 309443 0 0 -1000 S
-Y 0 512 -1
+1107704906 1 0 0 840532414 309443 0 0 -1000 S
+Y 0 512 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -59,8 +59,8 @@ trosat witch doctor troll~
 &+gempty &+bazure &+Bpools &+gthat hold no substance.  Almost like you look into them and&n
 &+gthey are not even there.&n
 ~
-2181085258 33569088 0 536969480 32768 0 0 -1000 S
-PT 0 256 -1
+2181085258 33569088 0 0 536969480 32768 0 0 -1000 S
+PT 0 256 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -78,8 +78,8 @@ norvort spine breaker troll~
 &+rburned &+ginto his right.  Perhaps this is a nick name of some sort that he got&n
 &+ggrowing up as a child on the streets of reality.&n
 ~
-100677706 1 0 536969480 0 0 0 -1000 S
-PT 0 16384 -1
+100677706 1 0 0 536969480 0 0 0 -1000 S
+PT 0 16384 0 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -95,8 +95,8 @@ drakst slave master troll~
 &+yhalfling&+L.  This creature seems to be some sort of slave trader and you can hear&n
 &+Lhim mumble something about the raven realms.&N
 ~
-100677706 1 0 536969480 0 0 0 -1000 S
-PT 0 1 -1
+100677706 1 0 0 536969480 0 0 0 -1000 S
+PT 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -111,8 +111,8 @@ huge raxian guard~
 &+Lskin is a dark ebon color and has many scars on it.  He looks like he can hold&n
 &+Lhis own with almost any would be warrior.&n
 ~
-1174550602 1 0 302088488 2 0 0 1000 S
-G 0 1 -1
+1174550602 1 0 0 302088488 2 0 0 1000 S
+G 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -127,8 +127,8 @@ huge raxian guard~
 &+rred &+Lcolor.  His hair is a long raven black color with streaks of &+bazure &+Lrunning&n
 &+Ldown it.  This &+rraxian &+Llooks like he has been in many a fight to say the least.&n
 ~
-1174550602 1 0 302088488 2 0 0 1000 S
-PO 0 1 -1
+1174550602 1 0 0 302088488 2 0 0 1000 S
+PO 0 1 0 -1
 49 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -144,8 +144,8 @@ a &+rraxian &+Wchampion&n~
 &+Lseems to be some sort of a &+Wchampion&+L.  Perhaps he has pleased his master &+rRax&+Rtha&+rn&n
 &+Land been granted freedom from the &+ypits &+Land hard labor for a time.&n
 ~
-33568840 14336 0 302055720 0 0 0 1000 S
-AA 0 1 2
+33568840 14336 0 0 302055720 0 0 0 1000 S
+AA 0 1 0 2
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -162,8 +162,8 @@ a &+rraxian &+Rguard&n~
 &+La battle to say the least.  Judging by the size of him you would assume he has&n
 &+Lcome out the victor more times than not.&n
 ~
-33568840 14336 0 33620232 0 0 0 1000 S
-AA 0 1 2
+33568840 14336 0 0 33620232 0 0 0 1000 S
+AA 0 1 0 2
 43 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -179,8 +179,8 @@ a &+rraxian &+cwarrior&n~
 &+Land a faded &+ybrownish &+Lcolor.  He has some scars on his face and arms from fights&n
 &+Lor perhaps from being beaton.&n
 ~
-33568840 14336 0 33620232 0 0 0 1000 S
-AA 0 1 2
+33568840 14336 0 0 33620232 0 0 0 1000 S
+AA 0 1 0 2
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -195,8 +195,8 @@ raxian short stocky~
 &+Lgaps in them.  This creature has many whip wounds on his back perhaps for not&n
 &+Lbeing able to do enough slave labor.&n
 ~
-33566792 14336 0 33554696 0 0 0 1000 S
-AA 0 1 2
+33566792 14336 0 0 33554696 0 0 0 1000 S
+AA 0 1 0 2
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -211,8 +211,8 @@ raxian hunter drustl~
 &+Lbears some scars on his face from battles long since past.  This &+rraxian &+Llooks&n
 &+Llike some sort of hunter.&n
 ~
-1107441738 33568768 0 302055720 0 0 0 1000 S
-P2 0 2 -1
+1107441738 33568768 0 0 302055720 0 0 0 1000 S
+P2 0 2 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -226,8 +226,8 @@ orcish slave merchant orc~
 &+LHis skin is a dark ebon color and has some scars of battles evident.  He seems&n
 &+Lto have a rather decent build and to be in rather good health.&n
 ~
-3254958152 268435456 0 33554698 32770 0 0 -1000 S
-HO 0 512 -1
+3254958152 268435456 0 0 33554698 32770 0 0 -1000 S
+HO 0 512 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -243,8 +243,8 @@ orcish dangerous assassin orc~
 &+Lruns well past his shoulders.  He seems like he can handle himself alright in a&n
 &+Lfight.&N
 ~
-1107441864 268450056 0 301990152 32770 0 0 -1000 S
-HO 0 8192 -1
+1107441864 268450056 0 0 301990152 32770 0 0 -1000 S
+HO 0 8192 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -258,8 +258,8 @@ volgk slave trader infamous~
 &+Lcolor that seems to absorb all the light.  His hair is rather long and a very&n
 &+Lodd &+mmagenta &+Lcolor.  He seems to be looking around for something or someone.&n
 ~
-3254958282 33569088 0 840532248 32770 0 0 -1000 S
-PD 6 16384 2
+3254958282 33569088 0 0 840532248 32770 0 0 -1000 S
+PD 6 16384 0 2
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -275,8 +275,8 @@ raxian shady primitive~
 &+Lbeing the scummy bastard that he is.  This creature also has a very bad smell&n
 &+Lto it, and its hair is lined with &+Wmaggots&+L.&n
 ~
-33568840 14336 0 33554696 0 0 0 1000 S
-AA 0 1 2
+33568840 14336 0 0 33554696 0 0 0 1000 S
+AA 0 1 0 2
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -291,8 +291,8 @@ raxian massive primitive~
 &+Lback.  His eyes are a strong and firm &+ychestnut &+Lbrown, and seem to be filled&n
 &+Lwith many battles.&n
 ~
-33566792 14336 0 33554688 0 0 0 1000 S
-AA 0 1 3
+33566792 14336 0 0 33554688 0 0 0 1000 S
+AA 0 1 0 3
 37 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -308,8 +308,8 @@ raxian pit fighter~
 &+Lshade of &+Bblue&+L.  It seems like all emotion has faded from this poor creature,&n
 &+Lall it knows now is survival.&n
 ~
-33566792 14336 0 33554688 0 0 0 1000 S
-AA 0 1 3
+33566792 14336 0 0 33554688 0 0 0 1000 S
+AA 0 1 0 3
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -324,8 +324,8 @@ raxian scrawny~
 &+Lback and his face.  Perhaps he has been beaton for some reason or maybe he just&n
 &+Llost a fight.&n
 ~
-33568840 14336 0 33554688 0 0 0 1000 S
-AA 0 1 2
+33568840 14336 0 0 33554688 0 0 0 1000 S
+AA 0 1 0 2
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -341,8 +341,8 @@ raxian smelly~
 &+Lalmost unbearable.  Perhaps this &+rraxian &+Lhas never heard of the concept of a&n
 &+Lshower or even a bath.&n
 ~
-1107441736 14336 0 33554688 0 0 0 1000 S
-AA 0 0 2
+1107441736 14336 0 0 33554688 0 0 0 1000 S
+AA 0 0 0 2
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -359,8 +359,8 @@ ugly raxian disfigured~
 &+Lrespected member of his culture.  Now he is simply a horrible outcast, that&n
 &+Lnobody even wants to look at.&n
 ~
-1107441736 14336 0 33554688 0 0 0 1000 S
-AA 0 0 3
+1107441736 14336 0 0 33554688 0 0 0 1000 S
+AA 0 0 0 3
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -375,8 +375,8 @@ raxian pudgy~
 &+Lhas many scars that adorn his face.  Perhaps this &+rraxian &+Lhas been beaton by&n
 &+Lsomeone or something.&n
 ~
-33568840 14336 0 33554688 0 0 0 1000 S
-AA 0 0 2
+33568840 14336 0 0 33554688 0 0 0 1000 S
+AA 0 0 0 2
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -391,8 +391,8 @@ raxian tall skinny~
 &+Lpick, he seems to have almost no muscle on his body.  Perhaps this &+rraxian &+Lhas&n
 &+Lbeen starved for some reason.&n
 ~
-33568840 14336 0 33554688 0 0 0 1000 S
-AA 0 0 3
+33568840 14336 0 0 33554688 0 0 0 1000 S
+AA 0 0 0 3
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -405,8 +405,8 @@ mobat large bat~
 &+Lblack and has stains of &+Rblood &+Lon it.  His &+Wteeth &+Lare rather sharp looking and&n
 &+Lseem as though they can inflict some serious pain.&n
 ~
-135240 64 0 33652992 0 0 0 -1000 S
-A 0 0 4
+135240 64 0 0 33652992 0 0 0 -1000 S
+A 0 0 0 4
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -420,8 +420,8 @@ raxian slave beaten bruised~
 &+Lhighlights of &+rcrimson&+L.  Her eyes are a hallow dull &+Bazure &+Lblue color.  She seems&n
 &+Lto of been beaten recently with bruises just now starting to form.&n
 ~
-33554632 0 0 33554688 0 0 0 1000 S
-AA 0 0 -1
+33554632 0 0 0 33554688 0 0 0 1000 S
+AA 0 0 0 -1
 19 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -434,8 +434,8 @@ cave bat rabid~
 &+Lare covered in &+Rblood &+Lof mortals.  Raven black body for a soul of darkness.  A&n
 &+Lflying minion of the night, this bat seems to be &+rrabid&+L.&n
 ~
-33689672 1 0 33653000 0 0 0 -1000 S
-A 0 0 -1
+33689672 1 0 0 33653000 0 0 0 -1000 S
+A 0 0 0 -1
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -450,8 +450,8 @@ baby raxian female girl~
 &+LShe has already been trained in some ways to please and soon many more lessons&n
 &+Lwill follow.&n
 ~
-33554632 0 0 33554688 0 0 0 1000 S
-AA 0 0 1
+33554632 0 0 0 33554688 0 0 0 1000 S
+AA 0 0 0 1
 13 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -464,8 +464,8 @@ strange ooze~
 &+mcr&+Mea&+mt&+Mu&+mr&+Me &+mis a &+Mstrange &+mmagenta c&+Mo&+ml&+Mo&+mr that s&+Mee&+mms to &+Mabsorb &+mwhat l&+Mi&+mttl&+Me &+Llight&n
 &+mth&+Me&+mr&+Me i&+ms &+Mi&+mn th&+Me &+mr&+Moo&+mm.&n
 ~
-33554504 0 0 0 0 0 0 0 S
-AH 0 0 -1
+33554504 0 0 0 0 0 0 0 0 S
+AH 0 0 0 -1
 9 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -479,8 +479,8 @@ raxian slave pleasure gagged~
 &+Lcomplexion is rather pale.  Her eyes are a deep ocean &+Bblue&+L, and her lips a&n
 &+Lmajestic &+Rcrimson&+L.&n
 ~
-33554632 0 0 33571072 0 0 0 1000 S
-AA 0 0 -1
+33554632 0 0 0 33571072 0 0 0 1000 S
+AA 0 0 0 -1
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 5 8 2
@@ -495,8 +495,8 @@ guardian orc demonic~
 &+Lcheek of this orc.  He seems to be a &+rguardian &+Lof some sort, and gives off an&N
 &+Leerie &+bcold &+Lfeeling.&N
 ~
-1107441866 64 0 301990168 294914 0 0 -1000 S
-HO 0 16 -1
+1107441866 64 0 0 301990168 294914 0 0 -1000 S
+HO 0 16 0 -1
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -512,8 +512,8 @@ hook horror~
 &+whooked beak creates the nose.  Eyes stare back from a heart filled only with&N
 &+wdismal despair.&N
 ~
-33562696 1 0 268501288 0 0 0 -1000 S
-PB 0 1 -1
+33562696 1 0 0 268501288 0 0 0 -1000 S
+PB 0 1 0 -1
 21 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -528,8 +528,8 @@ giant slug br_a~
 &+Lof &+wgloomy &+Lgrey.  Its body extends about thirty feet and &+gp&+Ga&+gt&+Gc&+gh&+Ge&+gs &+Lof slime are&N
 &+Levident.  The monster appears to be hungry, who shall be the next meal.&N
 ~
-33567818 1 0 33587456 8192 0 0 0 S
-AC 0 0 6
+33567818 1 0 0 33587456 8192 0 0 0 S
+AC 0 0 0 6
 44 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -544,8 +544,8 @@ slug slime speckled br_a~
 &+Lof &+wdull &+Lgrey.  Its body extends over thirty feet and &+Gs&+gp&+Ge&+gc&+Gk&+gl&+Ge&+gs &+Lof slime are&N
 &+Levident upon it.&N
 ~
-33567818 1 0 33587456 8192 0 0 0 S
-G 0 0 6
+33567818 1 0 0 33587456 8192 0 0 0 S
+G 0 0 0 6
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -561,8 +561,8 @@ noctule demon lesser br_a~
 &+LAnvil shaped spikes spring forth from massive scale covered arms.  The hands&N
 &+Lof this monster &+Rglow &+La devilish dread red.&N
 ~
-33963082 1 0 805404730 309442 0 0 -1000 S
-X 0 16 -1
+33963082 1 0 0 805404730 309442 0 0 -1000 S
+X 0 16 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -578,8 +578,8 @@ elytron head hunter~
 &+Lcheek of this entity.  Long raven &+bb&+Llack hair cr&+be&+Leps down upon b&+br&+Load should&+be&+Lrs.&N
 &+LSlivers of &+Wbone &+Land &+wflesh &+Lcan be seen wedged between terror &+wtorn &+Lteeth.&N
 ~
-33568842 1 0 805404728 309378 0 0 -1000 S
-MT 0 16 -1
+33568842 1 0 0 805404728 309378 0 0 -1000 S
+MT 0 16 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -594,8 +594,8 @@ zvorgast fanged muscular beast~
 &+Lshoulders.  Claws dotted by dried &+rcrimson &+Lextend from hands the size of small&N
 &+Lelven children.&N
 ~
-1107572808 1 0 67207192 8194 0 0 1000 S
-A 0 1 2
+1107572808 1 0 0 67207192 8194 0 0 1000 S
+A 0 1 0 2
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -610,8 +610,8 @@ zvorgast large bull beast~
 &+Lshoulders.  Claws dotted by dried &+rcrimson &+Lextend from hands the size of small&N
 &+Bbarbarian &+Lchildren.&N
 ~
-33830984 1 0 67207192 8194 0 0 1000 S
-MT 0 1 4
+33830984 1 0 0 67207192 8194 0 0 1000 S
+MT 0 1 0 4
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -628,8 +628,8 @@ dravkult ancient one~
 &+Lthe mangled mess.  Perhaps this being was once the leader of his people, yet&N
 &+Lnow he is an outcast even to his own kind.&N
 ~
-33568842 14336 0 32792 2 0 0 1000 S
-PH 0 64 -1
+33568842 14336 0 0 32792 2 0 0 1000 S
+PH 0 64 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -644,8 +644,8 @@ rethorn raxian craftsman~
 &+LHe seems to be a craftsman or &+wblacksmith &+Lof some sort, perhaps even a merchant.&N
 &+LStrange &+mrunes &+Lhave been branded into the chest of this muscular creature.&N
 ~
-2181085258 0 0 98328 8194 0 0 1000 S
-PB 0 1 -1
+2181085258 0 0 0 98328 8194 0 0 1000 S
+PB 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -662,8 +662,8 @@ morklar serpentine dragon br_g~
 &+Lfoul smelling &+gswamp&+L.  Perhaps this predator has existed here for untold passed&N
 &+Lcenturies.  A dealer of eternal ever lasting fate, loving only twisted torment.&N
 ~
-101595210 1 0 805405112 309379 0 0 -1000 S
-D 0 1 -1
+101595210 1 0 0 805405112 309379 0 0 -1000 S
+D 0 1 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -679,8 +679,8 @@ epolon prince figure cloaked~
 &+Lhave been burned into the freckled forehead of this bastard elf monster.  Most&N
 &+Llikely he is some sort of mystical warrior or &+Wprince&+L.&N
 ~
-33568842 0 0 167772160 0 0 0 1000 S
-P2 0 512 -1
+33568842 0 0 0 167772160 0 0 0 1000 S
+P2 0 512 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -696,8 +696,8 @@ zvorgast giant beast blood~
 &+Lhave been &+Rd&+ro&+Rt&+rt&+Re&+rd &+Lby crimson stains beyond repair.  Stalking its prey, causing&N
 &+Lthem to pray without hope.  A monster who feasts on the &+rflesh &+Lof mortal fools.&N
 ~
-33962056 1 0 33652920 2050 0 0 1000 S
-G 0 1 -1
+33962056 1 0 0 33652920 2050 0 0 1000 S
+G 0 1 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -714,8 +714,8 @@ malstrog bloodbeast beast~
 &+Lthat have came.  This diabolical creature wanders this dismal dreary place in&N
 &+Lsearch of weary travelers.&N
 ~
-1107703914 1 0 570526104 12419 262144 0 1000 S
-RA 0 1 3
+1107703914 1 0 0 570526104 12419 262144 0 1000 S
+RA 0 1 0 3
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -730,8 +730,8 @@ t'rin priestess drow trin~
 &+Lthis being.  A symbol of &+RBozk &+Lhas been burned into the forehead of this demonic&N
 &+Levil entity.  The monster seems to be some sort of diabolical priestess.&N
 ~
-3255220296 0 0 268534072 32770 0 0 -1000 S
-PL 0 32 -1
+3255220296 0 0 0 268534072 32770 0 0 -1000 S
+PL 0 32 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -747,8 +747,8 @@ drasklor dark figure minion~
 &+Lextend from horrid time torn hands.  The symbol of &+RBozk &+Ldominates the wrinkled&N
 &+Lforehead of this entity.&N
 ~
-1107703882 0 128 34701624 303106 0 0 -1000 S
-HO 0 16 -1
+1107703882 0 128 0 34701624 303106 0 0 -1000 S
+HO 0 16 0 -1
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -763,8 +763,8 @@ grobklarn azure figure small~
 &+Lneglected to say the least.  &+wDrool &+Lrolls out of the spoon shaped mouth falling&N
 &+Lupon the ground here.  &+RScars &+Land strange &+mrunes &+Ladorn the body of this monster.&N
 ~
-1107310666 0 0 537952568 32898 0 0 -1000 S
-HG 0 256 -1
+1107310666 0 0 0 537952568 32898 0 0 -1000 S
+HG 0 256 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -780,8 +780,8 @@ hook horror large~
 &+whooked beak creates the nose.  Eyes stare back from a heart filled only with&N
 &+wdismal despair.&N
 ~
-33562698 1 0 269549864 0 0 0 -1000 S
-PB 0 1 -1
+33562698 1 0 0 269549864 0 0 0 -1000 S
+PB 0 1 0 -1
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -797,8 +797,8 @@ raxian pit fighter humanoid~
 &+Lshade of &+Bblue&+L.  It seems like all emotion has faded from this poor creature,&n
 &+Lall it knows now is survival.&n
 ~
-33566792 0 0 33554688 0 0 0 1000 S
-H 0 1 -1
+33566792 0 0 0 33554688 0 0 0 1000 S
+H 0 1 0 -1
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -813,8 +813,8 @@ darthus wretched one creature~
 &+Lthis vile being.  The monster is giving off signs that he is afraid, or perhaps&N
 &+Lhiding from something.&N
 ~
-33699914 0 0 1114368 2 0 0 1000 S
-AA 0 1 3
+33699914 0 0 0 1114368 2 0 0 1000 S
+AA 0 1 0 3
 21 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -831,8 +831,8 @@ agama naked female creature~
 &+La decent meal in a very long time.  A &+Rcrimson &+Lsymbol has been &+wbranded &+Linto the&N
 &+Lright arm of this battered beast.&N
 ~
-33699912 0 0 65560 2 0 0 1000 S
-PH 0 1 3
+33699912 0 0 0 65560 2 0 0 1000 S
+PH 0 1 0 3
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -847,8 +847,8 @@ zvorgast fanged massive monster~
 &+Lshoulders.  Claws dotted by dried &+rcrimson &+Lextend from hands the size of small&N
 &+Lelven children.&N
 ~
-1107572808 1 0 67207192 8194 0 0 1000 S
-AA 0 1 3
+1107572808 1 0 0 67207192 8194 0 0 1000 S
+AA 0 1 0 3
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -863,8 +863,8 @@ zvorgast fanged muscular beast~
 &+Lshoulders.  Claws dotted by dried &+rcrimson &+Lextend from hands the size of small&N
 &+Lelven children.&N
 ~
-1107572808 1 0 67207192 8194 0 0 1000 S
-A 0 1 2
+1107572808 1 0 0 67207192 8194 0 0 1000 S
+A 0 1 0 2
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -877,8 +877,8 @@ snarklarv slime glob ooze~
 &+Lentity lives off the slivers of &+rflesh &+Lupon the &+wbones &+Lwithin this cavern.  Tiny&N
 &+Lbits of armor and other objects float on the surface of this being.&N
 ~
-72 0 0 67108864 0 0 0 1000 S
-AP 0 1 0
+72 0 0 0 67108864 0 0 0 1000 S
+AP 0 1 0 0
 18 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -891,8 +891,8 @@ gibber shrim~
 &+LFlesh &+gfl&+Goa&+gts &+Gu&+gp&+Go&+gn th&+Ge &+gs&+Gu&+grf&+Ga&+gc&+Ge&+g, t&+Gi&+gny sl&+Gi&+gv&+Ge&+grs &+Gg&+gl&+Gi&+gs&+Gt&+ge&+Gn&+gi&+Gn&+gg r&+Ge&+gfl&+Ge&+gct&+Gi&+gng &+Gee&+gr&+Gie light&+g.&N
 &+gSh&+Gi&+gv&+Ge&+grs sh&+Gi&+gmm&+Ge&+gr&+Gi&+gng cr&+Gea&+gt&+Gi&+gng n&+Go&+gt q&+Gui&+gt&+Ge &+gtw&+Gi&+gl&+Gi&+gght, f&+Ga&+gd&+Gi&+gng &+Gi&+gnt&+Go &+Lnocturnal &+gfr&+Gi&+gght.&N
 ~
-33554504 0 0 0 0 0 0 1000 S
-AP 0 1 0
+33554504 0 0 0 0 0 0 0 1000 S
+AP 0 1 0 0
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -905,8 +905,8 @@ gabber shrum~
 &+LFlesh &+bfl&+Boa&+bts &+Bu&+bp&+Bo&+bn th&+Be &+bs&+Bu&+brf&+Ba&+bc&+Be&+b, t&+Bi&+bny sl&+Bi&+bv&+Be&+brs &+Bg&+bl&+Bi&+bs&+Bt&+be&+Bn&+bi&+Bn&+bg r&+Be&+bfl&+Be&+bct&+Bi&+bng &+Bee&+br&+Bie light&+b.&N
 &+bSh&+Bi&+bv&+Be&+brs sh&+Bi&+bmm&+Be&+br&+Bi&+bng cr&+Bea&+bt&+Bi&+bng n&+Bo&+bt q&+Bui&+bt&+Be &+btw&+Bi&+bl&+Bi&+bght, f&+Ba&+bd&+Bi&+bng &+Bi&+bnt&+Bo &+Lnocturnal &+bfr&+Bi&+bght.&N
 ~
-33554504 0 0 0 0 0 0 1000 S
-AP 0 1 0
+33554504 0 0 0 0 0 0 0 1000 S
+AP 0 1 0 0
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -922,8 +922,8 @@ hook horror~
 &+whooked beak creates the nose.  Eyes stare back from a heart filled only with&N
 &+wdismal despair.&N
 ~
-33562696 1 0 268501288 0 0 0 -1000 S
-H 0 1 4
+33562696 1 0 0 268501288 0 0 0 -1000 S
+H 0 1 0 4
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -939,8 +939,8 @@ hook horror large~
 &+whooked beak creates the nose.  Eyes stare back from a heart filled only with&N
 &+wdismal despair.&N
 ~
-33562698 1 0 269549864 0 0 0 -1000 S
-PB 0 1 4
+33562698 1 0 0 269549864 0 0 0 -1000 S
+PB 0 1 0 4
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -955,8 +955,8 @@ rankar ravenous~
 &+Lgaze penetrates the &+Cs&+co&+Cu&+cl&+Cs &+Lof the feeble lost.  Hatred is the only instinct this&N
 &+Lvile noctambulant entity knows.&N
 ~
-1107441736 1 0 65544 2 0 0 1000 S
-A 0 1 2
+1107441736 1 0 0 65544 2 0 0 1000 S
+A 0 1 0 2
 9 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -971,8 +971,8 @@ snardval beast diabolical~
 &+Lof the past mark dreary hell forged fate bringers.  Skin devoid of any colors,&N
 &+Lprotecting a black uncaring heathen heart.&N
 ~
-33699914 1 0 65816 2 0 0 1000 S
-RA 0 1 3
+33699914 1 0 0 65816 2 0 0 1000 S
+RA 0 1 0 3
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -987,8 +987,8 @@ snardval beast diabolical~
 &+Lof the past mark dreary hell forged fate bringers.  Skin devoid of any colors,&N
 &+Lprotecting a black uncaring heathen heart.&N
 ~
-33699914 1 0 65816 2 0 0 1000 S
-RA 0 1 3
+33699914 1 0 0 65816 2 0 0 1000 S
+RA 0 1 0 3
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1003,8 +1003,8 @@ snardval beast diabolical~
 &+Lof the past mark dreary hell forged fate bringers.  Skin devoid of any colors,&N
 &+Lprotecting a black uncaring heathen heart.&N
 ~
-1107441738 1 0 65816 2 0 0 1000 S
-RA 0 1 3
+1107441738 1 0 0 65816 2 0 0 1000 S
+RA 0 1 0 3
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1019,8 +1019,8 @@ rankar ravenous large~
 &+Lgaze penetrates the &+Cs&+co&+Cu&+cl&+Cs &+Lof the feeble lost.  Hatred is the only instinct this&N
 &+Lvile noctambulant entity knows.&N
 ~
-1107441736 1 0 65544 2 0 0 1000 S
-A 0 1 3
+1107441736 1 0 0 65544 2 0 0 1000 S
+A 0 1 0 3
 13 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1035,8 +1035,8 @@ yngve aarseth merchant dead~
 &+gof the back.  The being seems to be a &+Lmerchant &+gof some sort, buying as well as&N
 &+gselling several diffrent types of objects and even rare kinds of &+Gpl&+ga&+Gn&+gt&+Gs&+g.&N
 ~
-33978378 0 0 1640520 262146 0 0 -666 S
-PT 0 1 5
+33978378 0 0 0 1640520 262146 0 0 -666 S
+PT 0 1 0 5
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1

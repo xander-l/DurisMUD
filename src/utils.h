@@ -937,7 +937,7 @@ for ((IN_ROOM) = world[(PLAYER)->in_room].people; (IN_ROOM) != NULL; (IN_ROOM) =
 
 #define CAN_SPEAK(ch)  \
 ((IS_HUMANOID(ch) || IS_DRAGON(ch) || IS_DRAGONKIN(ch) || IS_DEMON(ch) || \
-IS_GIANT(ch) || IS_PC_PET(ch) || IS_PC(ch) || IS_UNDEAD(ch)) && !IS_ANIMAL(ch))
+IS_GIANT(ch) || IS_PC_PET(ch) || IS_PC(ch) || IS_UNDEAD(ch) || IS_EFREET(ch)) && !IS_ANIMAL(ch))
 
 /* For Moradin's lag command but useful for other things, so I put it here. */
 /* #define GET_VICTIM_ROOM(v, c, a)  (v) = get_char_room((c), (a)) */

@@ -243,11 +243,11 @@ int storm_legplates(P_obj obj, P_char ch, int cmd, char *arg)
       data = (struct proc_data *) arg;
       vict = data->victim;
 
-      act("$q &+wsizzles with &+Yenergy &+was $N tries to hit you.&n", TRUE, ch, obj, NULL, TO_CHAR);
+      act("$q &+wsizzles with &+Yenergy &+was $N tries to hit you.&n", TRUE, ch, obj, vict, TO_CHAR);
 
-      act("$q &+wsizzles with &+Yenergy &+was you try to hit $n.&n", TRUE, ch, obj, NULL, TO_VICT);
+      act("$q &+wsizzles with &+Yenergy &+was you try to hit $n.&n", TRUE, ch, obj, vict, TO_VICT);
 
-      act("$q &+wsizzles with &+Yenergy &+was $N &+wtries to hit $n&+w.&n", TRUE, ch, obj, NULL, TO_NOTVICT);
+      act("$q &+wsizzles with &+Yenergy &+was $N &+wtries to hit $n&+w.&n", TRUE, ch, obj, vict, TO_NOTVICT);
 
       spell_lightning_bolt(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
       spell_lightning_bolt(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
@@ -2396,7 +2396,7 @@ int buckler_saints(P_obj obj, P_char ch, int cmd, char *arg)
       }
     }
   }
-/*
+
   if (arg && (cmd == CMD_SAY))
   {
     if (isname(arg, "verdonnaly"))
@@ -2417,7 +2417,7 @@ int buckler_saints(P_obj obj, P_char ch, int cmd, char *arg)
         }
         else
         {
-          spell_vitality(50, ch, 0, SPELL_TYPE_SPELL, 0, 0);
+        spell_vitality(50, ch, 0, SPELL_TYPE_SPELL, ch, 0);
         }
 
         obj->timer[0] = curr_time;
@@ -2425,7 +2425,7 @@ int buckler_saints(P_obj obj, P_char ch, int cmd, char *arg)
       }
     }
   }
-*/
+
   if(IS_FIGHTING(ch))
   {
     if (cmd == CMD_GOTHIT && !number(0,25))
@@ -3882,11 +3882,11 @@ int damnation_staff(P_obj obj, P_char ch, int cmd, char *arg)
     data = (struct proc_data *) arg;
     vict = data->victim;
 
-    act("&+LYour $q &+mflares &+rbril&+Rli&+rantly &+Las it intercepts &n$N's &+Lattack and &+rsav&+Rag&+rely &+Lstrikes back!&n", TRUE, ch, obj, NULL, TO_CHAR);
+    act("&+LYour $q &+mflares &+rbril&+Rli&+rantly &+Las it intercepts &n$N's &+Lattack and &+rsav&+Rag&+rely &+Lstrikes back!&n", TRUE, ch, obj, vict, TO_CHAR);
 
-    act("$n's $q &+mflares &+rbril&+Rli&+rantly &+Las it intercepts &nyour &+Lattack and &+rsav&+Rag&+rely &+Lstrikes back!&n", TRUE, ch, obj, NULL, TO_VICT);
+    act("$n's $q &+mflares &+rbril&+Rli&+rantly &+Las it intercepts &nyour &+Lattack and &+rsav&+Rag&+rely &+Lstrikes back!&n", TRUE, ch, obj, vict, TO_VICT);
 
-    act("$n's $q &+mflares &+rbril&+Rli&+rantly &+Las it intercepts &n$N's &+Lattack and &+rsav&+Rag&+rely &+Lstrikes back!&n", TRUE, ch, obj, NULL, TO_NOTVICT);
+    act("$n's $q &+mflares &+rbril&+Rli&+rantly &+Las it intercepts &n$N's &+Lattack and &+rsav&+Rag&+rely &+Lstrikes back!&n", TRUE, ch, obj, vict, TO_NOTVICT);
 
     switch(number(0,2))
     {
@@ -3960,11 +3960,11 @@ int nuke_damnation(P_obj obj, P_char ch, int cmd, char *arg)
     data = (struct proc_data *) arg;
     vict = data->victim;
 
-    act("&+LYour $q &+mflares &+rbril&+Rli&+rantly &+Las &n$N's &+Lspell is tranformed and deflected!&n", TRUE, ch, obj, NULL, TO_CHAR);
+    act("&+LYour $q &+mflares &+rbril&+Rli&+rantly &+Las &n$N's &+Lspell is tranformed and deflected!&n", TRUE, ch, obj, vict, TO_CHAR);
 
-    act("$n's $q &+mflares &+rbril&+Rli&+rantly &+Las your spell is tranformed and deflected back at you!&n", TRUE, ch, obj, NULL, TO_VICT);
+    act("$n's $q &+mflares &+rbril&+Rli&+rantly &+Las your spell is tranformed and deflected back at you!&n", TRUE, ch, obj, vict, TO_VICT);
 
-    act("$n's $q &+mflares &+rbril&+Rli&+rantly &+Las &n$N's &+Lspell is tranformed and deflected!&n", TRUE, ch, obj, NULL, TO_NOTVICT);
+    act("$n's $q &+mflares &+rbril&+Rli&+rantly &+Las &n$N's &+Lspell is tranformed and deflected!&n", TRUE, ch, obj, vict, TO_NOTVICT);
 
     switch(number(0,1))
     {

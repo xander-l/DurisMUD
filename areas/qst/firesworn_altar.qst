@@ -1,7 +1,102 @@
 #135113
+S
+#135114
 M
-default~
+maelshem~
+&+L"Yes... &+BMaelshem&+W... he is a strange looking one... &+rred &+Wtinted skin... but the
+&+W size of a normal human... From my scouting, I have seen that he has infused
+&+W a priest guardian at each of his altars. My guild has sent me here to stop
+&+W his attempt to reach divinity. I need your help! Can you bring me the &+Ydivine
+ &+Lenergies &+Wthat he has empowered as part of his grand spell? If you do this, I
+&+W will reward you with a skeleton key that can unlock the upper levels of his
+&+W tower.. defeat him before he reaches godhood, and you'll also gain access to
+&+W the hoards of magical items he has collected in his quest for godhood! But beware!
+&+W he has summoned with him a legion of devils to guard him known as the &+rF&+Ri&+Yr&+Wesw&+Yo&+Rr&+rn
+&+L Legion! &+WFearsome devils with no remorse!
+
+&+LTurning to look at the tower that rises over the illusionary woods, &+WTiliwibble
+&+Ljumps for a second as if remembering something.
+
+&+L"Oh! I can also give you a couple other items I've picked up in my travels!
+ &+WI know that this hilt I have belongs to a sword that was broken by the gods
+ &+Wthemselves to keep its power from the realms! Maybe after seeking more
+ &+Winformation inside the Library of Drakenstone, you'll be able to finish
+ &+Wreforging this amazing weapon!"
+~
+M
+tower~
+&+L"Ah.. so you want to know about the tower of Ascension.... Well.. I can help!
+ &+WRecently the forest has been under seige by the forces of the Firesworn Legion!
+ &+rDevils &+Wof all shapes and sizes have been seen coming and going from the tower
+ &+Win service to their new lord and master, &+BMaelshem&+W!&+L"&n
+~
+M
+treasures~
+&+LA huge smile breaks out across Tiliwibbles &+Lface as she continues excitedly
+
+&+L"&+WOh yes, there are great treasures in this area... Inside this forest for example!
+ &+WI know that to the north and west of here, there is a &+Ltower &+Wof a crazed mage that
+ &+Wis attempting to gain the powers of a god! Or to the east deeper into the forest,
+ &+Wthe entrance to the royal castle can be found! I've heard many whisperings about
+ &+Wlooting the &+YL&+yegendary &+ML&+mibrar&+My &+Lof &+gDr&+Ga&+gk&+Ge&+gnst&+Go&+gn&+Ge&+W....&+L"&n
+~
+M
+voluntown~
+&+LA look of pain crosses the face of Tiliwibble&+L..
+
+&+L"&+WSeveral members of my guild have attempted to break into the crypts of Voluntown...
+ &+WI havnt seen them since... I once thought about trying myself, but as I neared the
+ &+Wentrance to that necropolise... I swear I heard the screams of something undead and
+ &+Wwicked trying to lure me inside..."
+
+&+LUnable to stop herself, a huge shudder wracks Tiliwibbles body and she refuses to say
+&+Lany more about it. A look of slight panic on her face, you can tell she's hoping you
+&+Lwill instead as more about the &+Ytreasure &+Lor... something thats not this dreaded city...
+~
+M
+frost queen auril~
+&+LNoding as you mention her, Tiliwibble &+Lcontinues to explain...
+
+&+L"&+WYes, the Frost Queen... Auril. I heard her presence has been felt in Ice Crag Castle...
+ &+WHer scourge of hate continued well into this area as well... Cursing the royal familes of
+ &+Wthe Drakenstone Castle as well as several other royal lines... I have even heard a rumor
+ &+Wthat she unleashed a wicked and evil magic upon the royal burial grounds of the Ice Crag
+ &+Wdynasties... the few who have dared to loot the crypts of &+rVoluntown &+Whave never been seen
+ &+Wsince their expedition...&+L"&n
+~
+M
+hi hello~
+&+LBeaming you a mischievous smile, &+WTiliwibble &+Lbows smartly before the group and raises an eyebrow.
+
+&+L"&+WSo, I see you've come to seek the &+Ytreasures &+Wof the Ice Crag &+Wroyals, have we? Fair warning, the
+&+CFr&+cost Que&+Cen &+Wherself has cursed the lands in this area...&+L"&n
+~
+M
+firesworn legion devils~
+&+WTiliwibble &+Lnods again...
+
+ &+L'&+WYeah... the &+rF&+Ri&+Yr&+Wesw&+Yo&+Rr&+rn &+LLegion&+W. Directly from the nine hells, and known
+  &+Wto be the elite of the devils that inhabit the &+LPlane of &+cAv&+Cer&+cnu&+Cs&+W...
+  &+WThese devils are among the most powerful and the favored of the dragon
+  &+Wqueen as guardians near her lair inside Avernus. I've heard that Maelshem
+  &+Whas struck a bargain with the dragon queen, and when he reaches godhood,
+  &+Whe will support Tiamat's next attack upon Bahamut and his followers...&+L'&n
+
+&+LLetting out a soft shudder, the &+yhalfling &+Lcontinues...
+
+ &+L'&+WHowever, I have also heard, that because of their long exposure and time in Avernus
+  &+Wthat they are highly vulnerable to cold spells! They writhe in agony when assulted
+  &+Win such a manner!&+L'
+
+&+LLooking pleased with herself, the &+yhalfling &+Lnods once again...&n
 ~
 QA
 ~
+R I 135110
+R I 135119
+R I 135120
+G I 135106
+G I 135107
+G I 135108
+G I 135109
 S

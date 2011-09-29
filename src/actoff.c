@@ -4187,9 +4187,9 @@ void do_headbutt(P_char ch, char *argument, int cmd)
   else
   {
     // success!
-    dam = (int) (GET_LEVEL(ch) * 3) * (GET_CHAR_SKILL(ch, SKILL_HEADBUTT) / 95) + (GET_C_STR(ch) / 2);
+    dam = ((GET_LEVEL(ch) * (number(-5, 25))/51 + GET_C_STR(ch) + GET_CHAR_SKILL(ch, SKILL_HEADBUTT)));
 
-    if(GET_RACE(ch) == RACE_MINOTAUR)
+    if (GET_RACE(ch) == RACE_MINOTAUR)
     {
       dam = (int) (dam * get_property("damage.headbutt.damBonusMinotaur", 1.250));
     }
@@ -5158,7 +5158,7 @@ if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
 
   if(IS_HUMANOID(ch))
   {
-    if(!(ch->equipment[WEAR_SHIELD]) &&
+    if(!(ch->equipment[WEAR_SHIELD]) && 
        (GET_CLASS(ch, CLASS_PALADIN) ||
        GET_CLASS(ch, CLASS_ANTIPALADIN)) &&
        GET_CHAR_SKILL(ch, SKILL_SHIELDLESS_BASH) < 1)

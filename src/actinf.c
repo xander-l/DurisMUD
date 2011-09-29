@@ -42,6 +42,7 @@ using namespace std;
 #include "nexus_stones.h"
 #include "ships.h"
 #include "ctf.h"
+#include "epic_bonus.h"
 
 /* * external variables */
 
@@ -118,6 +119,7 @@ extern void map_look_room(P_char ch, int room, int show_map_regardless);
 extern const char *get_function_name(void *);
 extern void show_world_events(P_char ch, const char* arg);
 extern struct quest_data quest_index[];
+extern struct epic_bonus_data ebd[];
 void display_map(P_char ch, int n, int show_map_regardless);
 
 extern HelpFilesCPPClass help_index;
@@ -4637,6 +4639,14 @@ void do_score(P_char ch, char *argument, int cmd)
       send_to_char(buf, ch);
     }
   }
+
+  EpicBonusData ebdata;
+  if (!get_epic_bonus_data(ch, &ebdata))
+  {
+    ebdata.type = EPIC_BONUS_NONE;
+  }
+  send_to_char_f(ch, "&nEpic Bonus: &+C%s&n (&+C%.2f%%&n)\r\n", ebd[ebdata.type].description, get_epic_bonus(ch, ebdata.type)*100);
+
   send_to_char("&+RFrags:&n   ", ch);
 
   fragnum = (float) ch->only.pc->frags;
@@ -5752,8 +5762,8 @@ void do_who(P_char ch, char *argument, int cmd)
       {
         sprintf(buf, "&N&n[&+w%%2d&N&+g%%s%%-%ds&N&n]%%s",
                 strlen(get_class_name(who_list[j], ch)) -
-                ansi_strlen(get_class_name(who_list[j], ch)) + 13);
-        if(!IS_SET((who_list[j])->specials.act, PLR_ANONYMOUS) ||
+                ansi_strlen(get_class_name(who_list[j], ch)) + 16);
+        if (!IS_SET((who_list[j])->specials.act, PLR_ANONYMOUS) ||
             IS_TRUSTED(ch))
           sprintf(who_output + strlen(who_output), buf,
                   GET_LEVEL(who_list[j]), (IS_TRUSTED(ch) &&

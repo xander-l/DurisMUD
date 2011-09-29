@@ -1,3 +1,4 @@
+
 /*
  * ***************************************************************************
  *  file: affects.c                                          part of Duris
@@ -97,6 +98,7 @@ extern void essence_broken(struct char_link_data *);
 extern void event_broken(struct char_link_data *);
 extern void charm_broken(struct char_link_data *);
 extern void casting_broken(struct char_link_data *);
+extern void tether_broken(struct char_link_data *);
 void     unlink_char_affect(P_char, struct affected_type *);
 struct link_description link_types[LNK_MAX + 1];
 
@@ -1423,16 +1425,16 @@ void all_affects(P_char ch, int mode)
     int      missing_hps = GET_MAX_HIT(ch) - GET_HIT(ch);
     int      missing_vitality = GET_MAX_VITALITY(ch) - GET_VITALITY(ch);
     int num = af->modifier;
-    GET_MAX_HIT(ch) += (num*15);
+    GET_MAX_HIT(ch) += (MIN(num, 20)*5);
     GET_HIT(ch) = GET_MAX_HIT(ch) - missing_hps;
-    GET_MAX_VITALITY(ch) += (num*20);
+    GET_MAX_VITALITY(ch) += (MIN(num, 20)*5);
     GET_VITALITY(ch) = GET_MAX_VITALITY(ch) - missing_vitality;
-    ch->points.hitroll += num;
-    ch->points.damroll += num;
-    if (num >= 15)
+    ch->points.hitroll += BOUNDED(0, ch->points.hitroll + num, 20);
+    ch->points.damroll += BOUNDED(0, ch->points.damroll + num, 20);
+    if (num >= 50)
     {
-      ch->points.combat_pulse /= 2;
-      ch->points.spell_pulse /= 2;
+      ch->points.combat_pulse = (int)((float)ch->points.combat_pulse / 1.5);
+      ch->points.spell_pulse = (int)((float)ch->points.spell_pulse / 1.5);
     }
   }
 #endif
@@ -2396,6 +2398,7 @@ void initialize_links()
    define_link(LNK_PALADIN_AURA, "PALADIN_AURA", aura_broken, LNKFLG_AFFECT | LNKFLG_ROOM);
   define_link(LNK_GRAPPLED, "GRAPPLED", NULL, LNKFLG_ROOM);
   define_link(LNK_CIRCLING, "CIRCLING", NULL, LNKFLG_ROOM | LNKFLG_EXCLUSIVE);
+  define_link(LNK_TETHER, "TETHERING", tether_broken, LNKFLG_ROOM);
 }
 
 //---------------------------------------------------------------------------------

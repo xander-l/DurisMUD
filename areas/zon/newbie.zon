@@ -22,12 +22,12 @@ D 0 29310 0 0 100 0 0 0
 *     "Inside the Druid's Guild" - open
 *
 D 0 29236 5 1 100 0 0 0
-*     down exit from "Inside a Necromancer's Crypt" to
+*     down exit from "Inside a Redeemed Necromancer's Crypt" to
 *     "Corpse Storage" - closed
 *
 D 0 29292 4 1 100 0 0 0
 *     up exit from "Corpse Storage" to
-*     "Inside a Necromancer's Crypt" - closed
+*     "Inside a Redeemed Necromancer's Crypt" - closed
 *
 D 0 29242 1 1 100 0 0 0
 *     east exit from "A Small Overgrown Path" to
@@ -287,7 +287,7 @@ M 0 29233 1 29234 100 0 0 0        * Red, the human alchemist
 M 0 29296 3 29234 100 0 0 0        * a living stone elemental
 M 0 29296 3 29234 100 0 0 0        * a living stone elemental
 M 0 29296 3 29234 100 0 0 0        * a living stone elemental
-M 0 29264 1 29236 100 0 0 0        * Taiz, the half-elf necromancer
+M 0 29264 1 29236 100 0 0 0        * Taiz, the half-elf theurgist
 E 1 29207 1 5 100 0 0 0            *   some flowing deep purple robes
 G 1 29206 1 0 100 0 0 0            *    a glowing black tome with a bone splint spine
 M 0 29227 7 29238 100 0 0 0        * a large rat

@@ -9,8 +9,8 @@ dragon vermithrax~
 &+Lhide, sometimes jumping to nearby objects.  A deep throated growl escapes
 &+Lhis lips as he notices you looking at him.&n
 ~
-100796746 1 0 440 2177 0 0 0 S
-D 0 1 7
+100796746 1 0 0 440 2177 0 0 0 S
+D 0 1 0 7
 59 -7 -148 59d143+6785 7d6+35
 4.5.9.19 477900
 8 8 1
@@ -22,8 +22,8 @@ mage karig wolfen gwynhar~
    &+LThis &+ywolfen&+L mage appears to be deeply troubled about something, as his
 &+Lfurry face is creased by concentration and his &+Rcrimson&+L eyes seem very distant.&n
 ~
-100665354 0 0 33554472 14529 0 0 0 S
-H 0 512 -1
+100665354 0 0 0 33554472 14529 0 0 0 S
+H 0 512 0 -1
 51 -5 -98 51d88+4233 7d6+30
 6.9.4.6 206550
 8 8 1
@@ -36,8 +36,8 @@ vost captain wolfen burly~
 &+Land corded muscles.  His stance is one of confidence, but his eyes reveal a
 &+Lnervous look.&n
 ~
-1140852808 0 0 56 0 0 0 0 S
-H 0 2 -1
+1140852808 0 0 0 56 0 0 0 0 S
+H 0 2 0 -1
 51 -5 -98 51d131+4335 7d6+30
 6.9.4.6 206550
 8 8 1
@@ -52,8 +52,8 @@ celicus fahrn priest wolfen~
 &+Leye is completely devoid of pigmentation, making it possible to see the &+Rblood
 &+Lpumping through the arteries just behind his iris.&n
 ~
-67110986 0 0 74016 0 0 0 0 S
-H 0 32 -1
+67110986 0 0 0 74016 0 0 0 0 S
+H 0 32 0 -1
 41 -1 -56 41d99+1804 6d6+12
 1.7.6.3 99630
 8 8 1
@@ -68,8 +68,8 @@ druid wolfen eieslinn~
 &+Llarge and inquisitive eyes.  Her toothy smile is at first unnerving, but
 &+Leventually it becomes a source of mute assurance.&n
 ~
-2122 0 0 16777216 12480 0 0 0 S
-H 0 128 -1
+2122 0 0 0 16777216 12480 0 0 0 S
+H 0 128 0 -1
 36 2 -15 36d88+792 4d7+10
 0.1.2.2 46656
 8 8 2
@@ -83,8 +83,8 @@ mayor wolfen estidan pompous~
 &+Lis the center of the universe, and all is well in the universe, regardless of
 &+Lwhat is going on outside.&n
 ~
-1074006154 0 0 248 0 0 0 0 S
-H 0 8192 -1
+1074006154 0 0 0 248 0 0 0 0 S
+H 0 8192 0 -1
 35 6 -12 35d70+525 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -100,8 +100,8 @@ a &+Lbeast &+Rspawn&n~
 &+Lof pure &+Cenergy&+L, having possibly come from the lightning that surrounds its
 &+Lform.&n
 ~
-1073743944 0 0 0 128 0 0 0 S
-H 0 16384 -1
+1073743944 0 0 0 0 128 0 0 0 S
+H 0 16384 0 -1
 31 6 0 31d83+527 4d6+7
 5.7.9.1 40176
 8 8 0
@@ -117,8 +117,8 @@ a &+Ldiseased &+ywolfen&n~
 &+Lcannot make out enough sexual characteristics to determine the creature's
 &+Lgender.&n
 ~
-262220 1 0 2097168 128 0 0 -250 S
-H 0 0 -1
+262220 1 0 0 2097168 128 0 0 -250 S
+H 0 0 0 -1
 30 8 3 30d55+330 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -131,8 +131,8 @@ a &+Ldiseased&+y bear&n~
 &+LWrithing with the &+Rburning&+L, this bear mindlessly tears through the &+Gforest
 &+Lsearching for something to stem its torture.&n
 ~
-72 1 0 2097168 128 0 0 -250 S
-AC 0 0 -1
+72 1 0 0 2097168 128 0 0 -250 S
+AC 0 0 0 -1
 30 8 3 30d55+330 3d6+4
 0.0.0.0 26730
 8 8 1
@@ -147,8 +147,8 @@ a &+Lwretched-looking &+Cfemale &+cbugbear&n~
 &+Ldraped over her body, are covered in patches of &+Rred&+L bumpy flesh that oozes
 &+Lsweat in buckets.&n
 ~
-72 1 0 2097168 128 0 0 -250 S
-H 0 0 -1
+72 1 0 0 2097168 128 0 0 -250 S
+H 0 0 0 -1
 30 8 3 30d55+330 3d6+4
 0.5.7.1 26730
 8 8 2
@@ -162,8 +162,8 @@ a &+Lrabid-looking &+ystag&n~
 &+Lflare open and close with &+Rdemonic&+L grace.  Constantly beating his rack against
 &+Lthe trees about him, this &+ystag&+L is looking for a fight.&n
 ~
-72 1 0 2097168 128 0 0 -250 S
-AH 0 0 -1
+72 1 0 0 2097168 128 0 0 -250 S
+AH 0 0 0 -1
 30 8 3 30d55+330 3d6+4
 0.0.0.0 26730
 8 8 1
@@ -177,8 +177,8 @@ a &+Rferal &+Lwolf&n~
 &+Rburning&+L, except in those places where hair has begin to fall out, replaced by
 &+Lthe dark red &+rgooseflesh&+L of the disease.&n
 ~
-72 1 0 2097168 128 0 0 -250 S
-A 0 0 -1
+72 1 0 0 2097168 128 0 0 -250 S
+A 0 0 0 -1
 30 8 3 30d55+330 3d6+4
 0.0.0.0 26730
 8 8 1
@@ -190,8 +190,8 @@ a &+ywolfen&+L commoner&n~
    &+LThis &+ywolfen&+L wanders about town trying to act normally.  However, his
 &+Lfear of something, possibly the &+Rburning&+L, is evident on his haggard face.&n
 ~
-2248 0 0 0 0 0 0 0 S
-H 0 0 -1
+2248 0 0 0 0 0 0 0 0 S
+H 0 0 0 -1
 30 8 3 30d55+330 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -204,8 +204,8 @@ a &+ywolfen&+m noble&n~
 &+Labout him.  The idea that something could be wrong with this &+Cproletarian &n
 &+Lstate that surrounds him, is simply preposterous.&n
 ~
-264392 0 0 80 0 0 0 0 S
-H 0 2048 -1
+264392 0 0 0 80 0 0 0 0 S
+H 0 2048 0 -1
 45 -1 -69 45d72+1935 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -218,8 +218,8 @@ a &+ywolfen &+cchild&n~
 &+Lsettled over this town.  Wielding a &+ystick&+L, this child practices to be a member
 &+Lof the &+CMayor's&+L elite guard when he grows up.&n
 ~
-2264 0 0 0 0 0 0 0 S
-H 0 1 -1
+2264 0 0 0 0 0 0 0 0 S
+H 0 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
 8 8 1
@@ -233,8 +233,8 @@ a &+ywolfen&+M merchant~
 &+Lbusiness at the moment.  Something tells you that the &+Rburning&+L has affected
 &+Lthe fiscal world as well as the physical one.&n
 ~
-1073743944 0 0 0 0 0 0 0 S
-H 0 512 -1
+1073743944 0 0 0 0 0 0 0 0 S
+H 0 512 0 -1
 25 11 19 25d32+200 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -248,8 +248,8 @@ a &+ywolfen &+Lcity &+rguard&n~
 &+Lcity &+rguard&+L this &+ywolfen&+L is female; raised from birth to hold a position of
 &+Lsupervision over the masses.&n
 ~
-1141114952 0 0 144 0 0 0 0 S
-H 0 1 -1
+1141114952 0 0 0 144 0 0 0 0 S
+H 0 1 0 -1
 41 -1 -56 41d107+1845 6d6+12
 1.7.6.3 99630
 8 8 2
@@ -263,8 +263,8 @@ a &+ywolfen&+L elite &+Rguard&n~
 &+Lin his eyes that he is recalling &+ystick&+L wars fought as a child, back when he
 &+Laspired to be what he now is.&n
 ~
-1174669386 0 0 208 0 0 0 0 S
-H 0 1 -1
+1174669386 0 0 0 208 0 0 0 0 S
+H 0 1 0 -1
 46 -3 -72 46d119+2530 6d6+25
 6.0.9.4 111780
 8 8 1
@@ -279,8 +279,8 @@ wolfen jhary herbalist undiseased~
 &+Lhouse, to find a cure to the burning.  She, obviously, is deep in
 &+Lconcentration.&n
 ~
-2122 0 0 32856 12480 0 0 0 S
-H 0 128 -1
+2122 0 0 0 32856 12480 0 0 0 S
+H 0 128 0 -1
 41 -1 -56 41d99+1804 6d6+12
 1.7.6.3 99630
 8 8 2
@@ -295,8 +295,8 @@ aliester kroelly man merchant~
 &+LHis straight dark &+yhair&+L is parted down the center, and cascades down to the
 &+Ltop of his muscled shoulders.&n
 ~
-1107462154 0 0 839491900 276674 0 0 0 S
-H 0 32768 -1
+1107462154 0 0 0 839491900 276674 0 0 0 S
+H 0 32768 0 -1
 51 -5 -98 51d121+4284 7d6+30
 6.9.4.6 206550
 8 8 1
