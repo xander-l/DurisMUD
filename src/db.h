@@ -93,6 +93,16 @@ using namespace std;
 #define TERM_ARRAY_CHAR '\n'
 #define NULL_FILE "\0"
 
+#define QUEST_GOAL_ITEM      1
+#define QUEST_GOAL_ITEM_TYPE 2
+#define QUEST_GOAL_COINS     3
+#define QUEST_GOAL_SKILL     4
+#define QUEST_GOAL_EXP       5
+#define QUEST_GOAL_UNKNOWN   10
+
+#define QC_ACTION      "qc_action"
+#define QC_GREET       "qc_nocorpse"
+
 struct ship_reg_node {
 
     char *name;

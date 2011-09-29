@@ -1487,60 +1487,120 @@ void boon_shop(P_char ch, char *argument)
       {
 	case STR:
 	  {
+	    if (ch->base_stats.Str >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
 	    ch->base_stats.Str = BOUNDED(0, ch->base_stats.Str+1, 100);
 	    send_to_char("You feel stronger!\r\n", ch);
 	    break;
 	  }
 	case DEX:
 	  {
+	    if (ch->base_stats.Dex >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
 	    ch->base_stats.Dex = BOUNDED(0, ch->base_stats.Dex+1, 100);
 	    send_to_char("You feel more dextrous!\r\n", ch);
 	    break;
 	  }
 	case AGI:
 	  {
+	    if (ch->base_stats.Agi >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
 	    ch->base_stats.Agi = BOUNDED(0, ch->base_stats.Agi+1, 100);
 	    send_to_char("You feel more agile!\r\n", ch);
 	    break;
 	  }
 	case CON:
 	  {
+	    if (ch->base_stats.Con >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
 	    ch->base_stats.Con = BOUNDED(0, ch->base_stats.Con+1, 100);
 	    send_to_char("You feel ten years younger!\r\n", ch);
 	    break;
 	  }
 	case POW:
 	  {
+	    if (ch->base_stats.Pow >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
 	    ch->base_stats.Pow = BOUNDED(0, ch->base_stats.Pow+1, 100);
 	    send_to_char("Your mind suddenly feels ten times as powerful!\r\n", ch);
 	    break;
 	  }
 	case INT:
 	  {
+	    if (ch->base_stats.Int >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
 	    ch->base_stats.Int = BOUNDED(0, ch->base_stats.Int+1, 100);
 	    send_to_char("You feel smarter! Man, you were a real dumbass before.\r\n", ch);
 	    break;
 	  }
 	case WIS:
 	  {
+	    if (ch->base_stats.Wis >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
 	    ch->base_stats.Wis = BOUNDED(0, ch->base_stats.Wis+1, 100);
 	    send_to_char("You feel wiser!\r\n", ch);
 	    break;
 	  }
 	case CHA:
 	  {
+	    if (ch->base_stats.Cha >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
 	    ch->base_stats.Cha = BOUNDED(0, ch->base_stats.Cha+1, 100);
 	    send_to_char("Suddenly one of the pimples on your face dissapears!\r\n", ch);
 	    break;
 	  }
 	case LUCK:
 	  {
+	    if (ch->base_stats.Luck >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
 	    ch->base_stats.Luck = BOUNDED(0, ch->base_stats.Luck+1, 100);
 	    send_to_char("You feel as if you could roll Tripple Tiamat's at the slots...\r\n", ch);
 	    break;
 	  }
 	case KARMA:
 	  {
+	    if (ch->base_stats.Karma >= 100)
+	    {
+	      send_to_char("You already have 100 points in that stat.\r\n", ch);
+	      bshop.stats++;
+	      break;
+	    }
 	    ch->base_stats.Karma = BOUNDED(0, ch->base_stats.Karma+1, 100);
 	    send_to_char("You feel strange.\r\n", ch);
 	    break;

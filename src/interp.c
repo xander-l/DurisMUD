@@ -1051,6 +1051,7 @@ const char *command[] = {
   "boon",
   "ctf",
   "tether",
+  "questwhere",
   "newbsa",
   "\n"                          /* MAX_CMD_LIST is now 1000 */
 };
@@ -2220,6 +2221,7 @@ void assign_command_pointers(void)
   CMD_GRT(CMD_GIVEPET, STAT_DEAD + POS_PRONE, do_givepet, GREATER_G);
   CMD_GRT(CMD_PETITION_BLOCK, STAT_DEAD + POS_PRONE, do_petition_block, FORGER);
   CMD_GRT(CMD_WHITELIST, STAT_DEAD + POS_PRONE, do_whitelist, IMMORTAL);
+  CMD_GRT(CMD_QUESTWHERE, STAT_NORMAL + POS_STANDING, do_questwhere, IMMORTAL);
 
 
   /*

@@ -143,10 +143,14 @@ extern const char *get_event_name(P_event);
 extern const char *get_function_name(void *);
 extern const char *spldam_types[];
 extern const char *craftsmanship_names[];
+extern int number_of_quests;
+extern struct quest_data quest_index[];
 
 void apply_zone_modifier(P_char ch);
 static P_char load_locker_char(P_char ch, char *locker_name, int bValidateAccess);
 void shopping_stat( P_char ch, P_char keeper, char *arg, int cmd );
+bool is_quested_item( P_obj obj );
+
 /*
  * Macros
  */
@@ -10097,4 +10101,75 @@ void do_petition_block(P_char ch, char *argument, int cmd)
       GET_NAME(vict), GET_NAME(ch));
     //sql_log(ch, WIZLOG, "Petition blocked %s", GET_NAME(vict));
   }
+}
+
+void do_questwhere(P_char ch, char *arg, int cmd)
+{
+   P_obj obj;
+   char buf[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH];
+   int count = 0, length = 0;
+   bool stop = FALSE;
+
+   if( !ch )
+      return;
+
+   while( *arg == ' ' )
+      arg++;
+   if( !(*arg) )
+   {
+      send_to_char( "The questwhere command requires an argument.\n", ch );
+      return;
+   }
+
+   buf[0] = '\0';
+
+   for( obj = object_list; obj && !stop; obj = obj->next )
+   {
+      if( isname( arg, obj->name) && is_quested_item( obj ) )
+      {
+         sprintf( buf2, "%3d. [%6d] %s - ", ++count, 
+            obj_index[obj->R_num].virtual_number,
+            pad_ansi( obj->short_description, 40).c_str() );
+            strcat( buf2, where_obj( obj, FALSE ));
+            strcat( buf2, "\n" );
+         if( strlen(buf2) + length + 35 > MAX_STRING_LENGTH)
+         {
+            strcpy( buf2, " ... The list is too long.\n" );
+            stop = TRUE;
+         }
+         strcat( buf, buf2 );
+         length += strlen(buf2);
+      }
+   }
+   if( !count )
+      send_to_char( "No items found.\n", ch );
+   else
+      page_string( ch->desc, buf, 1);
+}
+
+bool is_quested_item( P_obj obj )
+{
+   struct quest_complete_data *qcp;
+   struct goal_data *gp;
+   int vnum = obj_index[obj->R_num].virtual_number;
+   int count = 0;
+   static int count2 = 0;
+
+   // For each quest on the mud.
+   for( qcp = quest_index[0].quest_complete; count < number_of_quests;
+      qcp = quest_index[++count].quest_complete )
+   {
+      // If there is quest completion data, look through it
+      if( qcp )
+      for( gp = qcp->receive; gp; gp = gp->next )
+      {
+         // If the item received from the quest has the right vnum
+         if( gp->goal_type == QUEST_GOAL_ITEM )
+         {
+            if( gp->number == vnum )
+               return TRUE;
+         }
+      }
+   }
+   return FALSE;
 }

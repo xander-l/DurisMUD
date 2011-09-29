@@ -550,6 +550,7 @@ void do_poofInSound(P_char, char *, int);
 void do_poofOutSound(P_char, char *, int);
 void do_ptell(P_char, char *, int);
 void do_purge(P_char, char *, int);
+void do_questwhere(P_char, char *, int);
 void do_reinitphys(P_char, char *, int);
 void do_release(P_char, char *, int);
 void do_reroll(P_char, char *, int);
