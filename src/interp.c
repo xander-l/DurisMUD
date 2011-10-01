@@ -1072,7 +1072,7 @@ int search_block(char *arg, const char **list, int exact)
 {
   register int i, l;
 
-  if (!arg)
+  if(!arg)
     return -1;
 
   /*
@@ -1081,21 +1081,21 @@ int search_block(char *arg, const char **list, int exact)
   for (l = 0; *(arg + l); l++)
     *(arg + l) = LOWER(*(arg + l));
 
-  if (exact)
+  if(exact)
   {
     for (i = 0; **(list + i) != '\n'; i++)
-      if (!str_cmp(arg, *(list + i)))
+      if(!str_cmp(arg, *(list + i)))
         return (i);
   }
   else
   {
-    if (!l)
+    if(!l)
       l = 1;                    /*
                                  * Avoid "" to match the first available
                                  * string
                                  */
     for (i = 0; **(list + i) != '\n'; i++)
-      if (!strn_cmp(arg, *(list + i), (unsigned) l))
+      if(!strn_cmp(arg, *(list + i), (unsigned) l))
         return (i);
   }
 
@@ -1107,7 +1107,7 @@ int old_search_block(const char *argument, const uint begin, uint length,
 {
   int      guess, found, search;
 
-  if (!argument)
+  if(!argument)
     return -1;
 
   /*
@@ -1119,7 +1119,7 @@ int old_search_block(const char *argument, const uint begin, uint length,
    * Search for a match
    */
 
-  if (mode == 2)
+  if(mode == 2)
   {
     /* in mode 2, first check for an exact match, then check for a mere
        "left side" match if nothing found */
@@ -1132,7 +1132,7 @@ int old_search_block(const char *argument, const uint begin, uint length,
       guess++;
     }
 
-    if (!found)
+    if(!found)
       guess = 0;
     else
       return guess;
@@ -1145,7 +1145,7 @@ int old_search_block(const char *argument, const uint begin, uint length,
       guess++;
     }
   }
-  else if (mode)
+  else if(mode)
   {
     while (!found && (*(list[guess]) != '\n'))
     {
@@ -1174,7 +1174,7 @@ int old_search_block(const char *argument, const uint begin, uint length,
  */
 void do_confirm(P_char ch, int yes)
 {
-  if (IS_NPC(ch) || !ch->desc)  /*
+  if(IS_NPC(ch) || !ch->desc)  /*
                                  * was a force, or npc doing it.
                                  */
     return;
@@ -1182,7 +1182,7 @@ void do_confirm(P_char ch, int yes)
   /*
    * the putz just entered yes or no without a pending command
    */
-  if (ch->desc->confirm_state != CONFIRM_AWAIT)
+  if(ch->desc->confirm_state != CONFIRM_AWAIT)
   {
     send_to_char("What do you wish to confirm?\r\n", ch);
     return;
@@ -1190,7 +1190,7 @@ void do_confirm(P_char ch, int yes)
   /*
    * they said no
    */
-  if (!yes)
+  if(!yes)
   {
     ch->desc->confirm_state = CONFIRM_NONE;
     send_to_char("Did not think you wanted to do that... :P\r\n", ch);
@@ -1219,10 +1219,10 @@ void command_interpreter(P_char ch, char *argument)
   char    *ch_ptr;
   P_char   target, t_ch;
 
-  if (debug_mode)
+  if(debug_mode)
     cmdlog(ch, argument);
 
-  if (IS_PC(ch) && IS_SET(ch->specials.act, PLR_FROZEN))
+  if(IS_PC(ch) && IS_SET(ch->specials.act, PLR_FROZEN))
   {
     send_to_char("You are frozen! You can't do anything! Nah Nah! :P\r\n",
                  ch);
@@ -1239,15 +1239,15 @@ void command_interpreter(P_char ch, char *argument)
     *(argument + begin + look_at) = LOWER(*(argument + begin + look_at));
   }
 
-  if (IS_PC(ch) && ch->desc)
-    if (ch->desc->confirm_state == CONFIRM_AWAIT)
+  if(IS_PC(ch) && ch->desc)
+    if(ch->desc->confirm_state == CONFIRM_AWAIT)
     {
-      if (*(argument + begin) == 'y')
+      if(*(argument + begin) == 'y')
       {
         do_confirm(ch, 1);
         return;
       }
-      else if (*(argument + begin) == 'n')
+      else if(*(argument + begin) == 'n')
       {
         do_confirm(ch, 0);
         return;
@@ -1255,10 +1255,10 @@ void command_interpreter(P_char ch, char *argument)
     }
   cmd = old_search_block(argument, begin, look_at, command, 2);
 
-  if (!cmd)
+  if(!cmd)
     return;
 #if 0
-  if ((cmd != CMD_PETITION) && IS_PC(ch) && IS_ILLITHID(ch) &&
+  if((cmd != CMD_PETITION) && IS_PC(ch) && IS_ILLITHID(ch) &&
       (GET_LEVEL(ch) < 52))
   {
     send_to_char("Don't you know, the Elder Brain wants you home!\r\n", ch);
@@ -1267,7 +1267,7 @@ void command_interpreter(P_char ch, char *argument)
 #endif
 
 #if 0
-  if( cmd != CMD_LOOK && cmd != CMD_GET && cmd != CMD_RENT &&
+  if(cmd != CMD_LOOK && cmd != CMD_GET && cmd != CMD_RENT &&
       cmd != CMD_TELL && cmd != CMD_PETITION && cmd != CMD_SAY &&
       cmd != CMD_GIVE && cmd != CMD_STAND && cmd != CMD_INVENTORY &&
       cmd != CMD_SCORE && cmd != CMD_WHO && cmd != CMD_EQUIPMENT &&
@@ -1277,7 +1277,7 @@ void command_interpreter(P_char ch, char *argument)
   {
     for( P_desc d = descriptor_list; d; d = d->next )
     {
-      if( ch->desc && d->character && 
+      if(ch->desc && d->character && 
           ch != d->character && 
           !IS_TRUSTED(ch) && !IS_TRUSTED(d->character) &&
           ch->only.pc->last_ip == d->character->only.pc->last_ip )
@@ -1291,31 +1291,31 @@ void command_interpreter(P_char ch, char *argument)
 
   /* happy little hack to make all 'say' procs work */
 
-  if (cmd == CMD_SAY2)
+  if(cmd == CMD_SAY2)
     cmd = CMD_SAY;
 
-  if (IS_PC(ch) && IS_SET(ch->specials.act, PLR_AFK))
+  if(IS_PC(ch) && IS_SET(ch->specials.act, PLR_AFK))
     REMOVE_BIT(ch->specials.act, PLR_AFK);
 
-  if (world[ch->in_room].chance_fall &&
+  if(world[ch->in_room].chance_fall &&
       number(1, 100) < world[ch->in_room].chance_fall)
-    if (falling_char(ch, FALSE, false))
+    if(falling_char(ch, FALSE, false))
       return;
 
-  if (world[ch->in_room].current_speed && !IS_TRUSTED(ch))
-    if (IS_WATER_ROOM(ch->in_room) && !IS_AFFECTED(ch, AFF_LEVITATE) &&
+  if(world[ch->in_room].current_speed && !IS_TRUSTED(ch))
+    if(IS_WATER_ROOM(ch->in_room) && !IS_AFFECTED(ch, AFF_LEVITATE) &&
         !IS_AFFECTED(ch, AFF_FLY) && cmd != CMD_PETITION)
-      if (number(1, 101) < world[ch->in_room].current_speed)
+      if(number(1, 101) < world[ch->in_room].current_speed)
       {
         current = world[ch->in_room].current_direction;
-        if (CAN_GO(ch, current))
+        if(CAN_GO(ch, current))
         {
           send_to_char("The current sweeps you away!\r\n", ch);
           do_move(ch, 0, exitnumb_to_cmd(current));
           return;
         }
       }
-  if (IS_AFFECTED2(ch, AFF2_CASTING))
+  if(IS_AFFECTED2(ch, AFF2_CASTING))
   {
     /* check for spellcast loop bug!!!!! */
     P_event  ev;
@@ -1324,22 +1324,22 @@ void command_interpreter(P_char ch, char *argument)
       /* this is POSSIBLY a spellcast event in the wrong place.
          Instead of just nuking it, see how long it has.  If more
          then 5 pulses, then nuke it */
-      if (IS_PC(ch) && (ev->type == EVENT_SPELLCAST) &&
+      if(IS_PC(ch) && (ev->type == EVENT_SPELLCAST) &&
           (event_time(ev, T_PULSES) > 5))
     {
       statuslog(AVATAR, "Spellcast bug on %s aborted", GET_NAME(ch));
       StopCasting(ch);
     }
-    if (cmd != CMD_PETITION && cmd != CMD_RETURN)
+    if(cmd != CMD_PETITION && cmd != CMD_RETURN)
     {
       send_to_char("You're busy spellcasting! \r\n", ch);
       return;
     }
   }
-  if (IS_AFFECTED(ch, AFF_KNOCKED_OUT))
-    if ((STAT_MASK & cmd_info[cmd].minimum_position) != STAT_DEAD)
+  if(IS_AFFECTED(ch, AFF_KNOCKED_OUT))
+    if((STAT_MASK & cmd_info[cmd].minimum_position) != STAT_DEAD)
     {
-      if (!(affected_by_spell(ch, SPELL_CHANNEL) && cmd == CMD_SAY))
+      if(!(affected_by_spell(ch, SPELL_CHANNEL) && cmd == CMD_SAY))
       {
         send_to_char
           ("Being knocked unconscious strictly limits what you can do.\r\n",
@@ -1354,11 +1354,11 @@ void command_interpreter(P_char ch, char *argument)
 
   /* mortals may never use the magical newline */
 
-  if (!IS_TRUSTED(ch))
+  if(!IS_TRUSTED(ch))
   {
     for (ch_ptr = argument; *ch_ptr != '\0'; ch_ptr++)
     {
-      if (*ch_ptr == '&')
+      if(*ch_ptr == '&')
         switch (*(ch_ptr + 1))
         {
         case 'L':
@@ -1368,13 +1368,12 @@ void command_interpreter(P_char ch, char *argument)
         }
     }
 
-    if (!
-        ((cmd == CMD_SOCIETY) || (cmd == CMD_CONSTRUCT) || (cmd == CMD_BUY) ||
-         (cmd == CMD_RENAME) || (cmd == CMD_TESTCOLOR)))
+    if(!((cmd == CMD_SOCIETY) || (cmd == CMD_CONSTRUCT) || (cmd == CMD_BUY) ||
+          (cmd == CMD_RENAME) || (cmd == CMD_TESTCOLOR)))
     {
       for (ch_ptr = argument; *ch_ptr != '\0'; ch_ptr++)
       {
-        if (*ch_ptr == '&')
+        if(*ch_ptr == '&')
           switch (*(ch_ptr + 1))
           {
           case '+':
@@ -1392,275 +1391,283 @@ void command_interpreter(P_char ch, char *argument)
     /* Check for sound stuff, ditto */
     for (ch_ptr = argument; *ch_ptr != '\0'; ch_ptr++)
     {
-      if (*ch_ptr == '!')
-        if (*(ch_ptr + 1) == '!')
-          if (isupper(*(ch_ptr + 2)))
+      if(*ch_ptr == '!')
+        if(*(ch_ptr + 1) == '!')
+          if(isupper(*(ch_ptr + 2)))
           {
-            send_to_char("Pardon? No sound sequences allowed as input.\r\n",
-                         ch);
+            send_to_char("Pardon? No sound sequences allowed as input.\r\n", ch);
             return;
           }
     }
   }
-  if ((cmd > 0) && (cmd_info[cmd].command_pointer != 0))
+  if((cmd > 0) && (cmd_info[cmd].command_pointer != 0))
   {
-    if (!MIN_POS(ch, cmd_info[cmd].minimum_position) ||
+     if(!MIN_POS(ch, cmd_info[cmd].minimum_position) ||
         (IS_FIGHTING(ch) && !cmd_info[cmd].in_battle))
-    {
-      if (GET_STAT(ch) < (cmd_info[cmd].minimum_position & STAT_MASK))
-        switch (GET_STAT(ch))
-        {
-        case STAT_DEAD:
-          send_to_char("Lie still; you are DEAD!!!\r\n", ch);
-          break;
-        case STAT_INCAP:
-        case STAT_DYING:
-          send_to_char
-            ("You are in pretty bad shape, unable to do anything!\r\n", ch);
-          break;
-        case STAT_SLEEPING:
-          send_to_char("In your dreams, or what?\r\n", ch);
-          break;
-        case STAT_RESTING:
-          send_to_char("Nah... You feel too relaxed to do that...\r\n", ch);
-          break;
+     {
+       if(GET_STAT(ch) < (cmd_info[cmd].minimum_position & STAT_MASK))
+       {
+         switch (GET_STAT(ch))
+         {
+            case STAT_DEAD:
+              send_to_char("Lie still; you are DEAD!!!\r\n", ch);
+              break;
+            case STAT_INCAP:
+            case STAT_DYING:
+              send_to_char("You are in pretty bad shape, unable to do anything!\r\n", ch);
+              break;
+            case STAT_SLEEPING:
+              send_to_char("In your dreams, or what?\r\n", ch);
+              break;
+            case STAT_RESTING:
+              send_to_char("Nah... You feel too relaxed to do that...\r\n", ch);
+              break;
+          }
         }
-      if (GET_POS(ch) < (cmd_info[cmd].minimum_position & 3))
-        switch (GET_POS(ch))
+        if(GET_POS(ch) < (cmd_info[cmd].minimum_position & 3))
         {
-        case POS_PRONE:
-          send_to_char("Sorry, you can't do that while laying around.\r\n",
-                       ch);
-          break;
-        case POS_KNEELING:
-          send_to_char("Maybe you should get up off your knees first?\r\n",
-                       ch);
-          break;
-        case POS_SITTING:
-          send_to_char("Maybe you should get on your feet first?\r\n", ch);
-          break;
+           switch (GET_POS(ch))
+           {
+              case POS_PRONE:
+                send_to_char("Sorry, you can't do that while laying around.\r\n", ch);
+                break;
+              case POS_KNEELING:
+                send_to_char("Maybe you should get up off your knees first?\r\n", ch);
+                break;
+              case POS_SITTING:
+                send_to_char("Maybe you should get on your feet first?\r\n", ch);
+                break;
+           }
         }
-      if (IS_FIGHTING(ch) && !cmd_info[cmd].in_battle)
-        send_to_char("Sorry, you aren't allowed to do that in combat.\r\n",
-                     ch);
+        if(IS_FIGHTING(ch) && !cmd_info[cmd].in_battle)
+        {
+           send_to_char("Sorry, you aren't allowed to do that in combat.\r\n", ch);
+        }
+        return;
+     }
+     else
+     {
+        if((IS_AFFECTED2(ch, AFF2_MINOR_PARALYSIS) ||
+            IS_AFFECTED2(ch, AFF2_MAJOR_PARALYSIS)) &&
+           !CAN_CMD_PARALYSIS(cmd) && !IS_TRUSTED(ch))
+        {
+           if((IS_NPC(ch) || IS_NPC(ch)) && ch->following)
+           {
+              send_to_char("It can't, being paralyzed limits what you can do.\r\n", ch->following);
+           }
+           else if(ch)
+           {
+              send_to_char("You can't!  You're paralyzed to the bone.\r\n", ch);
+           }
+           return;
+        }
 
-      return;
-    }
-    else
-    {
-      if ((IS_AFFECTED2(ch, AFF2_MINOR_PARALYSIS) ||
-           IS_AFFECTED2(ch, AFF2_MAJOR_PARALYSIS)) &&
-          !CAN_CMD_PARALYSIS(cmd) && !IS_TRUSTED(ch))
-      {
-        if ((IS_NPC(ch) || IS_NPC(ch)) && ch->following)
-          send_to_char("It can't being paralyzed.\r\n", ch->following);
-        else if (ch)
-          send_to_char("You can't!  You're paralyzed to the bone.\r\n", ch);
-        return;
-      }
-      if (affected_by_spell(ch, SKILL_GAZE))
-      {
-        send_to_char("You are too petrified with fear to try that.\r\n", ch);
-        return;
-      }
-      if ((target = get_linked_char(ch, LNK_ESSENCE_OF_WOLF)))
-      {
-        clear_links(ch, LNK_ESSENCE_OF_WOLF);
-      }
-      if (IS_AFFECTED2(ch, AFF2_SCRIBING) &&
-          (cmd != CMD_PETITION && cmd != CMD_TELL && cmd != CMD_MOVE &&
-           cmd != CMD_LOOK && cmd != CMD_WHISPER))
-      {
-        send_to_char("You're busy scribing a spell into your spellbook!\r\n",
-                     ch);
-        return;
-      }
-      if (affected_by_spell(ch, SKILL_WHIRLWIND)) {
-        send_to_char("You slow down unable to stay fully focused on melee.\n", ch);
-        affect_from_char(ch, SKILL_WHIRLWIND);
-      }
-/*   charmees who are not naturally aggro, may not follow aggro order   */
-      if(IS_AGG_CMD(cmd) &&
-         IS_SET(ch->specials.affected_by, AFF_CHARM) &&
-         (IS_PC(ch) || !IS_SET(ch->only.npc->aggro_flags, AGGR_ALL)))
-      {
-        i = number(1, 101);
-        
-        if(IS_UNDEADRACE(ch) &&
-          !IS_PC(ch))
+        if(affected_by_spell(ch, SKILL_GAZE))
         {
-          i = MAX(1, i - 50);
-        }
-	else if (IS_THEURPET_RACE(ch) &&
-	    !IS_PC(ch))
-	{
-	  i = MAX(1, i - 50);
-	}
-	else if(IS_ELEMENTAL(ch) ||
-                GET_RACE(ch) == RACE_DEMON)
-        {
-          i = MAX(1, i - 25);
-        }
-        
-        if(ch->following &&
-         ((IS_UNDEADRACE(ch) && GET_CLASS(ch->following, CLASS_NECROMANCER)) ||
-	 (IS_THEURPET_RACE(ch) && GET_CLASS(ch->following, CLASS_THEURGIST))))
-        {
-          i = 0;
-        }
-        
-        if(IS_ANIMAL(ch) &&
-           GET_SPEC(ch->following, CLASS_SHAMAN, SPEC_ANIMALIST))
-        {
-          i >> 1;
-        }
-        
-        if(ch->following &&
-          GET_CLASS(ch->following, CLASS_MINDFLAYER))
-        {
-          i = i - GET_C_POW(ch->following);     /* illithids get power bonus */
-        }
-        
-        if(ch->following &&
-          (i > (BOUNDED(0, GET_C_CHA(ch->following), 100))) &&
-          !number(0, 2))
-        {
-          if(((IS_UNDEADRACE(ch) || IS_THEURPET_RACE(ch)) &&
-             !IS_PC(ch)) ||
-             IS_ELEMENTAL(ch))
-          {
-            REMOVE_BIT(ch->specials.affected_by, AFF_CHARM);
-          }
-          
-          send_to_char("&+LUh oh. They don't seem to have agreed with that &+Wlast order.\r\n", ch->following);
-          
-          if((IS_UNDEADRACE(ch) || IS_THEURPET_RACE(ch)) &&
-             IS_NPC(ch) &&
-            !IS_SET(ch->only.npc->aggro_flags, AGGR_ALL))
-          {
-            SET_BIT(ch->only.npc->aggro_flags, AGGR_ALL);
-          }
-          
+          send_to_char("You are too petrified with fear to try that.\r\n", ch);
           return;
         }
-      }
-      /* can_exec checks level and granted settings */
 
-/*      if (cmd_info[cmd].minimum_level > GET_LEVEL(ch)) {*/
-      if (!can_exec_cmd(ch, cmd))
-      {
-        send_to_char("Pardon?\r\n", ch);
-        return;
-      }
-      if (((cmd_info[cmd].minimum_position & STAT_MASK) > STAT_SLEEPING) ||
-          (cmd_info[cmd].command_pointer == do_action))
-      {
-        if ((cmd != CMD_LOOK) && (cmd != CMD_MEMORIZE) &&
-            (cmd != CMD_GCC) && (cmd != CMD_HELP) &&
-            (cmd != CMD_PRAY) && (cmd != CMD_REST) &&
-            (cmd != CMD_SLEEP) && (cmd != CMD_SIT) &&
-            (cmd != CMD_RECLINE) && (cmd != CMD_EAT) &&
-            (cmd != CMD_DRINK) && (cmd != CMD_MEDITATE) &&
-            (cmd != CMD_RWC) && (cmd != CMD_ASSIMILATE) &&
-            IS_AFFECTED2(ch, AFF2_MINOR_INVIS))
+        if((target = get_linked_char(ch, LNK_ESSENCE_OF_WOLF)))
         {
-          send_to_char("You reappear, visible to all.\r\n", ch);
-          affect_from_char(ch, SPELL_INVISIBLE);
+          clear_links(ch, LNK_ESSENCE_OF_WOLF);
         }
-        if (((cmd != CMD_LOOK) && (cmd != CMD_LISTEN) &&
-             (cmd != CMD_SNEAK) && (cmd != CMD_GLANCE) &&
-             (cmd != CMD_READ) && (cmd != CMD_STEAL) &&
-             (cmd != CMD_SCAN) && IS_SET(ch->specials.affected_by, AFF_HIDE)))
+
+        if(IS_GRAPPLED(ch) &&
+          (cmd == CMD_KNEEL || cmd == CMD_RECLINE || cmd == CMD_SIT))
         {
+          send_to_char("You can't do that, you're locked in a hold!", ch);
+        }
 
-          if (affected_by_spell(ch, SKILL_AMBUSH))
-          {
-            if (cmd == CMD_TACKLE || cmd == CMD_BACKSTAB ||
-                cmd == CMD_HEADBUTT)
-              if (number(0, 101) < GET_CHAR_SKILL(ch, SKILL_AMBUSH))
-                send_to_char("&+LYou remain well prepared.&n\r\n", ch);
-              else
+        if(IS_AFFECTED2(ch, AFF2_SCRIBING) &&
+          (cmd != CMD_PETITION && cmd != CMD_TELL && cmd != CMD_MOVE &&
+           cmd != CMD_LOOK && cmd != CMD_WHISPER))
+        {
+           send_to_char("You're busy scribing a spell into your spellbook!\r\n", ch);
+           return;
+        }
+
+        if(affected_by_spell(ch, SKILL_WHIRLWIND)) 
+        {
+           send_to_char("You slow down unable to stay fully focused on melee.\n", ch);
+           affect_from_char(ch, SKILL_WHIRLWIND);
+        }
+
+      //  charmees who are not naturally aggro, may not follow aggro order
+        if(IS_AGG_CMD(cmd) && IS_SET(ch->specials.affected_by, AFF_CHARM) &&
+          (IS_PC(ch) || !IS_SET(ch->only.npc->aggro_flags, AGGR_ALL)))
+        {
+           i = number(1, 101);
+        
+           if(IS_UNDEADRACE(ch) && !IS_PC(ch))
+           {
+              i = MAX(1, i - 50);
+           }
+  	   else if(IS_THEURPET_RACE(ch) && !IS_PC(ch))
+           {
+	     i = MAX(1, i - 50);
+	   }
+	   else if(IS_ELEMENTAL(ch) || GET_RACE(ch) == RACE_DEMON)
+           {
+              i = MAX(1, i - 25);
+           }
+        
+           if(ch->following &&
+             ((IS_UNDEADRACE(ch) && GET_CLASS(ch->following, CLASS_NECROMANCER)) ||
+	     (IS_THEURPET_RACE(ch) && GET_CLASS(ch->following, CLASS_THEURGIST))))
+           {
+              i = 0;
+           }
+        
+           if(IS_ANIMAL(ch) && GET_SPEC(ch->following, CLASS_SHAMAN, SPEC_ANIMALIST))
+           {
+              i >> 1;
+           }
+        
+           if(ch->following && GET_CLASS(ch->following, CLASS_MINDFLAYER))
+           {
+              i = i - GET_C_POW(ch->following);     /* illithids get power bonus */
+           }
+        
+           if(ch->following && (i > (BOUNDED(0, GET_C_CHA(ch->following), 100))) && 
+              !number(0, 2))
+           {
+              if(((IS_UNDEADRACE(ch) || IS_THEURPET_RACE(ch)) && !IS_PC(ch)) || IS_ELEMENTAL(ch))
               {
-                notch_skill(ch, SKILL_AMBUSH, 100);
-                affect_from_char(ch, SKILL_AMBUSH);
-                REMOVE_BIT(ch->specials.affected_by5, AFF5_SHADE_MOVEMENT);
-                REMOVE_BIT(ch->specials.affected_by, AFF_HIDE);
+                 REMOVE_BIT(ch->specials.affected_by, AFF_CHARM);
               }
+          
+              send_to_char("&+LUh oh. They don't seem to have agreed with that &+Wlast order.\r\n", ch->following);
+          
+              if((IS_UNDEADRACE(ch) || IS_THEURPET_RACE(ch)) && IS_NPC(ch) &&
+                 !IS_SET(ch->only.npc->aggro_flags, AGGR_ALL))
+              {
+                 SET_BIT(ch->only.npc->aggro_flags, AGGR_ALL);
+              }
+              return;
+           }
+        }
+        
+        //  can_exec checks level and granted settings
+
+        //if(cmd_info[cmd].minimum_level > GET_LEVEL(ch)) {
+        if(!can_exec_cmd(ch, cmd))
+        {
+          send_to_char("Pardon?\r\n", ch);
+          return;
+        }
+        if(((cmd_info[cmd].minimum_position & STAT_MASK) > STAT_SLEEPING) ||
+            (cmd_info[cmd].command_pointer == do_action))
+        {
+          if((cmd != CMD_LOOK) && (cmd != CMD_MEMORIZE) &&
+             (cmd != CMD_GCC) && (cmd != CMD_HELP) &&
+             (cmd != CMD_PRAY) && (cmd != CMD_REST) &&
+             (cmd != CMD_SLEEP) && (cmd != CMD_SIT) &&
+             (cmd != CMD_RECLINE) && (cmd != CMD_EAT) &&
+             (cmd != CMD_DRINK) && (cmd != CMD_MEDITATE) &&
+             (cmd != CMD_RWC) && (cmd != CMD_ASSIMILATE) &&
+              IS_AFFECTED2(ch, AFF2_MINOR_INVIS))
+          {
+            send_to_char("You reappear, visible to all.\r\n", ch);
+            affect_from_char(ch, SPELL_INVISIBLE);
+          }
+          if(((cmd != CMD_LOOK) && (cmd != CMD_LISTEN) &&
+              (cmd != CMD_SNEAK) && (cmd != CMD_GLANCE) &&
+              (cmd != CMD_READ) && (cmd != CMD_STEAL) &&
+              (cmd != CMD_SCAN) && IS_SET(ch->specials.affected_by, AFF_HIDE)))
+          {
+
+            if(affected_by_spell(ch, SKILL_AMBUSH))
+            {
+               if(cmd == CMD_TACKLE || cmd == CMD_BACKSTAB ||
+                  cmd == CMD_HEADBUTT || cmd == CMD_GARROTE)
+               {
+                  if(number(0, 101) < GET_CHAR_SKILL(ch, SKILL_AMBUSH))
+                  {
+                     send_to_char("&+LYou remain well prepared.&n\r\n", ch);
+                  }
+                  else
+                  {
+                     notch_skill(ch, SKILL_AMBUSH, 100);
+                     affect_from_char(ch, SKILL_AMBUSH);
+                     REMOVE_BIT(ch->specials.affected_by5, AFF5_SHADE_MOVEMENT);
+                     REMOVE_BIT(ch->specials.affected_by, AFF_HIDE);
+                  }
+               }
+               else
+               {
+                  notch_skill(ch, SKILL_AMBUSH, 50);
+                  affect_from_char(ch, SKILL_AMBUSH);
+                  REMOVE_BIT(ch->specials.affected_by5, AFF5_SHADE_MOVEMENT);
+                  REMOVE_BIT(ch->specials.affected_by, AFF_HIDE);
+               }
+            }
+          }
+          else if(IS_SET(ch->specials.affected_by5, AFF5_SHADE_MOVEMENT))
+          {
+            if(((cmd >= CMD_NORTH && cmd <= CMD_DOWN) ||
+                (cmd >= CMD_NORTHWEST && cmd <= CMD_SE)) && 
+                !IS_SUNLIT(ch->in_room) && !IS_TWILIGHT_ROOM(ch->in_room))
+            {
+               send_to_char("&+LYou walk with the shadows.&n\r\n", ch);
+            }
             else
             {
-              notch_skill(ch, SKILL_AMBUSH, 50);
-              affect_from_char(ch, SKILL_AMBUSH);
-              REMOVE_BIT(ch->specials.affected_by5, AFF5_SHADE_MOVEMENT);
-              REMOVE_BIT(ch->specials.affected_by, AFF_HIDE);
-
-            }
-
-          }
-          else
-           if (IS_SET(ch->specials.affected_by5, AFF5_SHADE_MOVEMENT))
-          {
-            if (((cmd >= CMD_NORTH && cmd <= CMD_DOWN) ||
-                 (cmd >= CMD_NORTHWEST && cmd <= CMD_SE))
-                && !IS_SUNLIT(ch->in_room) && !IS_TWILIGHT_ROOM(ch->in_room))
-            {
-              send_to_char("&+LYou walk with the shadows.&n\r\n", ch);
-            }
-            else
-            {
-              send_to_char("&+LYou quickly step out of the shadow.&n\r\n",
-                           ch);
-              REMOVE_BIT(ch->specials.affected_by5, AFF5_SHADE_MOVEMENT);
-              REMOVE_BIT(ch->specials.affected_by, AFF_HIDE);
+               send_to_char("&+LYou quickly step out of the shadows.&n\r\n", ch);
+               REMOVE_BIT(ch->specials.affected_by5, AFF5_SHADE_MOVEMENT);
+               REMOVE_BIT(ch->specials.affected_by, AFF_HIDE);
             }
           }
-          else 
-           if (affected_by_spell(ch, SPELL_SHADOW_MERGE)) 
+          else if(affected_by_spell(ch, SPELL_SHADOW_MERGE)) 
           {
-            if (((cmd >= CMD_NORTH && cmd <= CMD_DOWN) ||
-                 (cmd >= CMD_NORTHWEST && cmd <= CMD_SE))
-                && (ch->following))
+             if(((cmd >= CMD_NORTH && cmd <= CMD_DOWN) ||
+                 (cmd >= CMD_NORTHWEST && cmd <= CMD_SE)) && (ch->following))
             {
-              send_to_char("You move in the &+Lshadows&n.\r\n", ch);
+               send_to_char("You move in the &+Lshadows&n.\r\n", ch);
             }
             else 
             {
-              send_to_char("You step out of the &+Lshadows&n.\r\n", ch); 
-              if (affected_by_spell(ch, SPELL_SHADOW_MERGE)) {
-                affect_from_char(ch, SPELL_SHADOW_MERGE);
-              }
-              REMOVE_BIT(ch->specials.affected_by, AFF_HIDE);
+               send_to_char("You step out of the &+Lshadows&n.\r\n", ch); 
+               if(affected_by_spell(ch, SPELL_SHADOW_MERGE)) 
+               {
+                  affect_from_char(ch, SPELL_SHADOW_MERGE);
+               }
+               REMOVE_BIT(ch->specials.affected_by, AFF_HIDE);
             }
           }
-          else if (affected_by_spell(ch, SPELL_SHADOW_PROJECTION))
+          else if(affected_by_spell(ch, SPELL_SHADOW_PROJECTION))
           {
-            if ((IS_AGG_CMD(cmd) || (cmd == CMD_OPEN) || (cmd == CMD_GET) || (cmd == CMD_TAKE) || (cmd == CMD_DRAG)) && argument)
+            if((IS_AGG_CMD(cmd) || (cmd == CMD_OPEN) || (cmd == CMD_GET) || 
+               (cmd == CMD_TAKE) || (cmd == CMD_DRAG)) && argument)
             {
-              send_to_char("&+LYour interaction causes you to phase back into existence.&n\r\n", ch);
-              affect_from_char(ch, SPELL_SHADOW_PROJECTION);
+               send_to_char("&+LYour interaction causes you to phase back into existence.&n\r\n", ch);
+               affect_from_char(ch, SPELL_SHADOW_PROJECTION);
             }
             else
             {
-              send_to_char("&+LYou effortlessly maneuver through the shadows, unseen by your foes.&n\r\n", ch);
+               send_to_char("&+LYou effortlessly maneuver through the shadows, unseen by your foes.&n\r\n", ch);
             }
           }
           else
-           // Problem here cause raw_damage from function CMD_FIRE calls appear.
-           if ((cmd == CMD_FIRE) && GET_CHAR_SKILL(ch, SKILL_SHADOW_ARCHERY))
-           {
-             send_to_char("&+LYou fire silently from the shadows...&n\r\n", ch);
-             notch_skill(ch, SKILL_SHADOW_ARCHERY, 100);
-           }
-          else
-            REMOVE_BIT(ch->specials.affected_by, AFF_HIDE);
+          {
+             // Problem here cause raw_damage from function CMD_FIRE calls appear.
+            if((cmd == CMD_FIRE) && GET_CHAR_SKILL(ch, SKILL_SHADOW_ARCHERY))
+            {
+               send_to_char("&+LYou fire silently from the shadows...&n\r\n", ch);
+               notch_skill(ch, SKILL_SHADOW_ARCHERY, 100);
+            }
+            else
+              REMOVE_BIT(ch->specials.affected_by, AFF_HIDE);
+          }
         }
 
-        if (IS_AFFECTED(ch, AFF_MEDITATE))
+        if(IS_AFFECTED(ch, AFF_MEDITATE))
         {
-          if(cmd == CMD_MEDITATE)
-          {
-            send_to_char("You are already meditating.\n", ch);
-          }
-          else if (cmd != CMD_PRAY && 
+           if(cmd == CMD_MEDITATE)
+           {
+              send_to_char("You are already meditating.\n", ch);
+           }
+           else if(cmd != CMD_PRAY && 
                    cmd != CMD_MEMORIZE && 
                    cmd != CMD_ASSIMILATE && 
                    cmd != CMD_FOCUS &&
@@ -1671,48 +1678,45 @@ void command_interpreter(P_char ch, char *argument)
                    cmd != CMD_NEXUS &&
                    cmd != CMD_FRAGLIST &&
                    cmd != CMD_ARTIFACTS)
-          {
-            if(10 + GET_CHAR_SKILL(ch, SKILL_ADVANCED_MEDITATION) < number(10, 60) ||
-              (cmd != CMD_GSAY &&
-               cmd != CMD_SAY &&
-               cmd != CMD_TELL &&
-               cmd != CMD_NCHAT &&
-               cmd != CMD_EMOTE))
-            {
-              send_to_char("You stop meditating.\r\n", ch);
-              stop_meditation(ch);
-            }
-            else
-            {
-              send_to_char("You continue your meditation uninterrupted.\n", ch);
-            }
-          }
+           { 
+              if(10 + GET_CHAR_SKILL(ch, SKILL_ADVANCED_MEDITATION) < number(10, 60) ||
+                (cmd != CMD_GSAY && cmd != CMD_SAY && cmd != CMD_TELL &&
+                 cmd != CMD_NCHAT && cmd != CMD_EMOTE))
+              {
+                 send_to_char("You stop meditating.\r\n", ch);
+                 stop_meditation(ch);
+              }
+              else
+              {
+                 send_to_char("You continue your meditation uninterrupted.\n", ch);
+              }
+           }
         }
-      }
-      if (!no_specials && special(ch, cmd, argument + begin + look_at))
+
+     if(!no_specials && special(ch, cmd, argument + begin + look_at))
         return;
 
       /*
        * Hack for item_teleport objects
        */
-      if (ch && check_item_teleport(ch, argument + begin + look_at, cmd))
+      if(ch && check_item_teleport(ch, argument + begin + look_at, cmd))
         return;
 
       /*
        * execute the bloody thing!!!
        */
-      if ((cmd_info[cmd].req_confirm == 1) &&
+      if((cmd_info[cmd].req_confirm == 1) &&
           (IS_NPC(ch) || (ch->desc->confirm_state == CONFIRM_DONE)))
       {
-        if (ch->desc)
+        if(ch->desc)
           ch->desc->confirm_state = CONFIRM_NONE;
         command_confirm = TRUE;
         ((*cmd_info[cmd].command_pointer) (ch, argument + begin + look_at,
                                            cmd));
       }
-      else if (cmd_info[cmd].req_confirm == 1)
+      else if(cmd_info[cmd].req_confirm == 1)
       {
-        if (ch->desc)
+        if(ch->desc)
           ch->desc->confirm_state = CONFIRM_AWAIT;
         strcpy(ch->desc->last_command, argument);
         command_confirm = FALSE;
@@ -1721,7 +1725,7 @@ void command_interpreter(P_char ch, char *argument)
       }
       else
       {
-        if (ch->desc)
+        if(ch->desc)
           ch->desc->confirm_state = CONFIRM_NONE;
 
         while (*(argument + begin + look_at) == ' ')
@@ -1737,12 +1741,12 @@ void command_interpreter(P_char ch, char *argument)
    * Unknown or un-implemented command
    */
 
-  if (IS_TRUSTED(ch) && sscanf(argument + begin, "%d ", &j) == 1)
+  if(IS_TRUSTED(ch) && sscanf(argument + begin, "%d ", &j) == 1)
     /*
      * sick multicommand kludge, not yet supported 'officially', but I
      * wasn't able to live without this. So sue me. -Torm
      */
-    if ((j >= 1) && (j <= 20) &&
+    if((j >= 1) && (j <= 20) &&
         !sscanf(argument + begin + look_at, " %d ", &k))
     {
 
@@ -1751,13 +1755,13 @@ void command_interpreter(P_char ch, char *argument)
         command_interpreter(ch, argument + begin + look_at);
       return;
     }
-  if ((cmd > 0) && (cmd_info[cmd].command_pointer == 0))
+  if((cmd > 0) && (cmd_info[cmd].command_pointer == 0))
     send_to_char("Sorry, but that command has yet to be implemented...\r\n",
                  ch);
   else
     send_to_char("Pardon?\r\n", ch);
 
-  if (ch->desc)
+  if(ch->desc)
     ch->desc->confirm_state = CONFIRM_NONE;
 }
 
@@ -1765,7 +1769,7 @@ void argument_interpreter(char *argument, char *first_arg, char *second_arg)
 {
   int      look_at, found, begin;
 
-  if (!argument)
+  if(!argument)
   {
     *first_arg = '\0';
     *second_arg = '\0';
@@ -1773,7 +1777,7 @@ void argument_interpreter(char *argument, char *first_arg, char *second_arg)
   }
   found = begin = 0;
 
-  if (strlen(argument) >= MAX_INPUT_LENGTH)
+  if(strlen(argument) >= MAX_INPUT_LENGTH)
   {
     logit(LOG_SYS, "too long arg in argument_interpreter.");
     *(first_arg) = '\0';
@@ -1829,23 +1833,23 @@ int is_number(char *str)
 {
   int look_at;
 
-  if (*str == '\0')
+  if(*str == '\0')
     return (0);
 
   for (look_at = 0; *(str + look_at) != '\0'; look_at++)
-    if ((*(str + look_at) < '0') || (*(str + look_at) > '9'))
+    if((*(str + look_at) < '0') || (*(str + look_at) > '9'))
       return (0);
   return (1);
 }
 */
 int is_number(char *str)
 {
-  if (!str || !*str)            /* Test for NULL pointer or string. */
+  if(!str || !*str)            /* Test for NULL pointer or string. */
     return FALSE;
-  if (*str == '-')              /* -'s in front are valid. */
+  if(*str == '-')              /* -'s in front are valid. */
     str++;
   while (*str)
-    if (!isdigit(*(str++)))
+    if(!isdigit(*(str++)))
       return FALSE;
 
   return TRUE;
@@ -1861,12 +1865,12 @@ char    *one_argument(const char *argument, char *first_arg)
 
   found = begin = 0;
 
-  if (!argument)
+  if(!argument)
   {
     *first_arg = '\0';
     return NULL;
   }
-  if (strlen(argument) >= MAX_INPUT_LENGTH)
+  if(strlen(argument) >= MAX_INPUT_LENGTH)
   {
     logit(LOG_SYS, "too long arg in one_argument.");
     *(first_arg) = '\0';
@@ -1908,11 +1912,11 @@ int is_abbrev(const char *arg1, const char *arg2)
 {
   int      i;
 
-  if (!arg1 || !arg2)
+  if(!arg1 || !arg2)
     return 0;
 
   for (i = 0; *(arg1 + i); i++)
-    if (LOWER(*(arg1 + i)) != LOWER(*(arg2 + i)))
+    if(LOWER(*(arg1 + i)) != LOWER(*(arg2 + i)))
       return (0);
 
   return (1);
@@ -1923,13 +1927,13 @@ int is_abbrev(const char *arg1, const char *arg2)
  */
 void half_chop(char *string, char *arg1, char *arg2)
 {
-  if (!string)
+  if(!string)
   {
     *arg1 = '\0';
     *arg2 = '\0';
     return;
   }
-  if (strlen(string) >= MAX_INPUT_LENGTH)
+  if(strlen(string) >= MAX_INPUT_LENGTH)
   {
     logit(LOG_SYS, "too long arg in half_chop.");
     *(arg1) = '\0';
@@ -1962,8 +1966,8 @@ bool special(P_char ch, int cmd, char *arg)
   /*
    * special in room?
    */
-  if (world[ch->in_room].funct)
-    if ((*world[ch->in_room].funct) (ch->in_room, ch, cmd, arg))
+  if(world[ch->in_room].funct)
+    if((*world[ch->in_room].funct) (ch->in_room, ch, cmd, arg))
       return (1);
 
   /*
@@ -1971,9 +1975,9 @@ bool special(P_char ch, int cmd, char *arg)
    */
   for (j = 0; j <= (MAX_WEAR - 1); j++)
   {
-    if (ch->equipment[j] && (ch->equipment[j]->R_num >= 0) &&
+    if(ch->equipment[j] && (ch->equipment[j]->R_num >= 0) &&
         obj_index[ch->equipment[j]->R_num].func.obj)
-      if ((*obj_index[ch->equipment[j]->R_num].func.obj) (ch->equipment[j],
+      if((*obj_index[ch->equipment[j]->R_num].func.obj) (ch->equipment[j],
             ch, cmd, arg))
         return (1);
   }
@@ -1982,11 +1986,11 @@ bool special(P_char ch, int cmd, char *arg)
    */
   for (i = ch->carrying; i; i = i->next_content)
   {
-    if ((i->R_num >= 0) && obj_index[i->R_num].func.obj)
-      if ((*obj_index[i->R_num].func.obj) (i, ch, cmd, arg))
+    if((i->R_num >= 0) && obj_index[i->R_num].func.obj)
+      if((*obj_index[i->R_num].func.obj) (i, ch, cmd, arg))
         return (1);
   }
-  if (!ALONE(ch))
+  if(!ALONE(ch))
   {
 
     /*
@@ -2006,7 +2010,7 @@ bool special(P_char ch, int cmd, char *arg)
          (!IS_IMMOBILE(k) ||
 	  (IS_NPC(k) && (GET_VNUM(k) == BUILDING_OUTPOST_MOB))))
       {
-        if ((*mob_index[GET_RNUM(k)].func.mob) (k, ch, cmd, arg))
+        if((*mob_index[GET_RNUM(k)].func.mob) (k, ch, cmd, arg))
         {
           return (1);
         }
@@ -2016,16 +2020,16 @@ bool special(P_char ch, int cmd, char *arg)
      * quest mobile present?
      */
     for (k = world[ch->in_room].people; k; k = k->next_in_room)
-      if ((k != ch) && IS_NPC(k) && AWAKE(k) && mob_index[GET_RNUM(k)].qst_func)
-        if ((*mob_index[GET_RNUM(k)].qst_func) (k, ch, cmd, arg))
+      if((k != ch) && IS_NPC(k) && AWAKE(k) && mob_index[GET_RNUM(k)].qst_func)
+        if((*mob_index[GET_RNUM(k)].qst_func) (k, ch, cmd, arg))
           return (1);
   }
   /*
    * special in object present?
    */
   for (i = world[ch->in_room].contents; i; i = i->next_content)
-    if ((i->R_num >= 0) && obj_index[i->R_num].func.obj)
-      if ((*obj_index[i->R_num].func.obj) (i, ch, cmd, arg))
+    if((i->R_num >= 0) && obj_index[i->R_num].func.obj)
+      if((*obj_index[i->R_num].func.obj) (i, ch, cmd, arg))
         return (1);
 
   return (0);
