@@ -361,7 +361,7 @@ DK 0 128 -1
 #30621
 dove small~
 &+Wa small dove~
-&+WA small white dove flys through the area gently apon the wind.
+&+WA small white dove flies through the area gently apon the wind.
 ~
 &+WThis small bird appears to just be worried about getting from place to place
 &+Wand nothing else seem to bother it a bit. Its wings seem to glow in an eerie
@@ -529,9 +529,9 @@ B 0 1 2
 #30632
 swallow small~
 &+La small swallow~
-&+LA small sparrow flys here through the air.
+&+LA small sparrow flies here through the air.
 ~
-&+LThis small bird flys through the air looking for food for its family.
+&+LThis small bird flies through the air looking for food for its family.
 ~
 133320 0 0 134217728 0 0 0 -100 S
 B 0 1 1

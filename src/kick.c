@@ -115,7 +115,7 @@ const char *att_kick_miss_victim[] = {
   "You nimbly flitter away from $n's kick.",
   "You sneer as you sidestep $n's kick.",
   "$n's kick bounces off your tough hide.",
-  "$n tries to kick you, but your too tough.",
+  "$n tries to kick you, but you're too tough.",
   "$n tries to kick you, but you easily deflect $s blow with a fin.",
   "You avoid $n's feeble attempt to kick you.",
   "You float deftly out of the way, avoiding $n's feeble sweep."

@@ -1351,7 +1351,7 @@ void vampire_bite(P_char ch, P_char victim)
     "You savagely bite $N's neck!",
     "$n savagely bites at YOUR NECK!",
     "$n savagely bites $N's neck!",
-    "Your savage bite opens a deadly wound in $N's neck $S!",
+    "Your savage bite opens a deadly wound in $N's neck!",
     "$n savagely bites at YOUR NECK!\nYou slowly fall into darkness "
       "as the last drops of blood are sucked out from you..",
     "$n's savage bite opens a deadly wound in $N's neck!"

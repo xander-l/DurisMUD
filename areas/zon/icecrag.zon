@@ -333,9 +333,9 @@ D 0 97117 2 1 100 0 0 0
 *     south exit from "A Frigid Viewing Chamber" to
 *     "The Northeastern Corner of the Court of the Icess" - closed
 *
-D 0 97119 1 2 100 0 0 0
+D 0 97119 1 1 100 0 0 0
 *     east exit from "The End of the Darkened Passage" to
-*     "A Darkened Passage" - closed/locked
+*     "A Darkened Passage" - closed
 *
 D 0 97120 3 2 100 0 0 0
 *     west exit from "A Darkened Passage" to

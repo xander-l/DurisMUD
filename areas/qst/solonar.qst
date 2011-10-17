@@ -226,49 +226,49 @@ G I 30638
 S
 #30631
 Q
-&+yThe hawk swoops down and grabs the mouse out of you hand then flys back
+&+yThe hawk swoops down and grabs the mouse out of you hand then flies back
 &+yinto the air.
 ~
 R C 10000
 G I 30668
 D
-&+yThe hawk flys off into the distance.
+&+yThe hawk flies off into the distance.
 ~
 S
 #30632
 Q
-&+LThe sparrow flys down and reaches for the worm then swoops back up into the
+&+LThe sparrow flies down and reaches for the worm then swoops back up into the
 &+Lair never glancing back.
 ~
 R C 5000
 G I 30669
 D
-&+LThe sparrow flys off into the distance disappearing.
+&+LThe sparrow flies off into the distance, disappearing rapidly.
 ~
 S
 #30635
 M
 quill orb~
-&+g"well hello there how are you today? Quill you say? sure I have one of those"
-&+g"whats it worth to ya? I hear the elementals out there have some small magical"
-&+g"properties and I would like to get my hands on those if I could maybe trade"
-&+g"it to you or even make new ones for you."
+&+g"Well hello there how are you today? Quill you say? Sure I have one of those
+&+gWhats it worth to ya? I hear the elementals out there have some small magical
+&+gproperties and I would like to get my hands on those if I could, maybe trade
+&+git to you or even make a new one for you."
 ~
 Q
-&+g"Ah yes these the one the ones" as he starts to cast an arcane spell as he
-&+gdoes the the two items come together to form one item a cyrstaline structure
+&+g"Ah yes these are the ones," as he starts to cast an arcane spell.  As he
+&+gdoes, the the two items come together to form a crystalline structure, and
 &+gthen form into a sharp pointed quill.
-  &+g"here you go you might need this someday"
+  &+g"Here you go, you might need this someday."
 ~
 R I 30641
 R C 6000
 G I 30643
 G I 30646
 Q
-&+g"Here let me see those things" as he grabs the items and starts to cast a
-&+gstrange spell, the walls around you seem to talk and the forest itself seems
-&+gto come alive then in a bright flash a crystaline orb appears and floats to
-&+gthe ground right in front of you and the items he held are gone.
+&+g"Here let me see those things," as he grabs the items and starts to cast a
+&+gstrange spell. The walls around you seem to talk and the forest itself seems
+&+gto come alive, momentarily, then in a bright flash a crystalline orb appears
+&+gand floats to the ground right in front of you and the items he held are gone.
 ~
 R I 30640
 G I 30644
@@ -279,15 +279,16 @@ S
 #30638
 M
 pickaxe axe pick~
-&+r "oh ya one of those aye? ya I made one of those one time, looks into his bag"
-&+r "well I got most of the things I need for it, could you get me a radiant"
-&+r "diamond from that other bumbling gnome? And that Ogre had a heart of some"
-&+r "sort of strange metal could use that if ya could"
+&+r "Oh ya one of those aye? Ya I made one of those one time," he says as he looks
+&+rinto his bag. "Well I got most of the things I need for it, could you get me a
+&+rradiant diamond from that other bumbling gnome? And that Ogre had a heart of some
+&+rsort of strange metal could use that if ya could find it..."&n
 ~
 Q
-&+r "thank you well here ya go" starts to cast an enchantment spell "ah yes"
-&+r and puts all the pieces into his bag on his hip then reaches in it almost
-&+r seems his whole hand then pulls out a shiny new pick axe and hands it to you
+&+r"Thank you, well here ya go." He starts to cast an enchantment spell
+&+rand puts all the pieces into his bag on his hip, then he reaches in and it 
+&+ralmost seems to engulf his whole hand, then he pulls out a shiny new pick
+&+raxe and hands it to you.&n
 ~
 R I 30665
 G I 30662

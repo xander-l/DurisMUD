@@ -8417,7 +8417,7 @@ S
 &+LA Large Tunnel&n~
     This large tunnel is nothing special, merely functional.  The
 floor is fairly smooth, and the width is sufficient to allow a whole
-band of tribesmen to pass through.  A huge portculis to the east
+band of tribesmen to pass through.  A huge portcullis to the east
 closes off the narrow wet tunnel leading to &+Gmerrow &ngrounds. The
 Commons Square lies through an archway to the west.
 ~
@@ -8428,9 +8428,9 @@ The Commons Clan war room.
 ~
 0 0 15680
 D1
-A dark wide tunnel, behind a sturdy portculis.
+A dark wide tunnel, behind a sturdy portcullis.
 ~
-portculis~
+portcullis~
 1 0 15681
 D3
 The commons square.
@@ -8464,7 +8464,7 @@ S
 connects to a natural tunnel to the east that leads to the south
 bank of &+BOgre Lake.  &nThe best kills that are given in homage to the
 &+Gmerrow, &nthe ogre's fierce aquatic cousin, all go through this tunnel.
-An iron portculis locks on the other side during times of bad
+An iron portcullis locks on the other side during times of bad
 relations.
 ~
 152 142639169 15
@@ -8476,7 +8476,7 @@ The tunnel continues towards the Merrow caves.
 D3
 The Commons clanhouse.
 ~
-portculis~
+portcullis~
 1 0 15679
 S
 #15682

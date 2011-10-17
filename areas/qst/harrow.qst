@@ -1,7 +1,7 @@
 #29411
 M
 qc_action 90~
-The kitten goes '&+Mmeow meow&+m :3&n'
+The kitten goes '&+MMeow meow&+m :3&n'
 ~
 M
 qc_action 70~
@@ -99,20 +99,21 @@ qc_action 70~
 ~
 M
 qc_action 80~
-&+BBom&n sits back and says, 'I've caught so many fish today, I would gladly give some for trade for one of them nice artsy items.'
+&+BBom&n sits back and says, "I've caught so many fish today, I would gladly give some for trade for one of them nice artsy items."
 ~
 M
 fish artsy items trade~
-&+BBom&n says, 'I am a great lover of the art they do around here
- but my talents lie in my fishing skills. I would trade you some
-fish I caught for something nice to hang in my cabin.'
+&+BBom&n says, "I am a great lover of the art they do around here 
+but my talents lie in my fishing skills. I would trade you some
+fish I caught for something nice to hang in my cabin."
 ~
 M
 hi hello~
-Bom nods at you, 'Hi there. Lovely day we're having.'
+Bom nods at you, "Hi there. Lovely day we're having."
 ~
 Q
- 'Oh what a nice painting this is!' &+BBom&n sets the picture aside and takes out some fish and hands them to you. 'Now these will help your health some, make sure you eat them soon ok?'
+"Oh what a nice painting this is!" &+BBom&n sets the picture aside and takes out some fish and hands them to you. "Now these will help your 
+health some, make sure you eat them soon ok?"
 ~
 R I 318
 R I 319
@@ -122,7 +123,7 @@ S
 #29447
 M
 qc_action 90~
-The &+gleaves&n from the large &+ytrees&n above russle in the &+Cwind&n.
+The &+gleaves&n from the large &+ytrees&n above rustle in the &+Cwind&n.
 ~
 M
 qc_action 70~
@@ -139,7 +140,7 @@ qc_action 80~
 The &+Ygoldfish&n swims around in circles blowing . . o o O O
 ~
 QA
-&NA &+Ygold&N&+yfish &Nhurridly chomps the &n&+gfish food&N down and then swirls around $N in jubilent appreciation.
+A &+Ygold&N&+yfish &Nhurridly chomps the &n&+gfish food&N down and then swirls around $N in jubilant appreciation.
 ~
 R E 4000
 G I 29460
@@ -147,20 +148,22 @@ S
 #29451
 M
 qc_action 80~
-The &+Ygoldfish&n swims around in circles blowing . .o o O O
+The &+Ygoldfish&n swims around in circles blowing . . o o O O
 ~
 M
 qc_action 85~
-A fluffy &+Wwhite&n kitten tries to meow but only tiny &+Cbubbles&n float out of its mouth.
+A fluffy &+Wwhite&n kitten tries to meow, but only tiny &+Cbubbles&n float out of its mouth.
 ~
 S
 #29454
 M
 qc_action 56~
-The &+GLeprechaun&n takes a puff of his pipe and says, 'ye bring me a pot of &+Ygold&n and I'll give you a lucky clover.
+The &+GLeprechaun&n takes a puff of his pipe and says, "Ye bring me a pot of 
+&+Ygold&n and I'll give you a lucky clover."
 ~
 Q
-The &+gLeprechaun&n says, 'Well honestly I was joking, I didn't think ye would bring me a pot of &+Ygold&n. However a deal's a deal. Here is your lucky clover.
+The &+gLeprechaun&n says, "Well honestly I was joking, I didn't think ye would
+bring me a pot of &+Ygold&n. However a deal's a deal. Here is your lucky clover."
 ~
 R I 29453
 R C 77777
@@ -172,6 +175,6 @@ S
 #29455
 M
 qc_action 45~
-&+La&n &+yh&+wa&+ym&+ws&+yt&+we&+yr&n &+Lrolls around in his &+Rball&+L, bumping into everything.&n *bump*&n
+&+LA&n &+yh&+wa&+ym&+ws&+yt&+we&+yr&n &+Lrolls around in his &+Rball&+L, bumping into everything.&n *bump*&n
 ~
 S

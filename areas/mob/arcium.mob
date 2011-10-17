@@ -243,7 +243,7 @@ B 0 0 -1
 #85717
 bat~
 &+La giant &+ybat&n~
-&+LA giant &+ybat&+L is flys here screehing.&N
+&+LA giant &+ybat&+L is flying here, screeching.&N
 ~
 &+Y   The creature is about three feet long with a wing span of twice that.
 &+YIt's equipped with large fangs that could puncture a neck.  The bat
@@ -276,7 +276,7 @@ crow black~
 &+LAn evil looking black crow sits here.&n
 ~
 &+L   The crow has tar black feathers and a sharp beak.  The bird is sitting
-&+Lnearby and staring at you with an evil intent.  Daylight seems to irate
+&+Lnearby and staring at you with an evil intent.  Daylight seems to irritate
 &+Lthis creature.&n
 ~
 1073874952 2 0 134219776 2 0 0 -100 S
@@ -290,7 +290,7 @@ lizard tiny~
 &+gA tiny repulsive lizard lies here ready to attack.&n
 ~
 &+g   The tiny lizard has a vicious look about it.  Its body consists of rough
-&+gscales that are staggered across its body.  The lizards tongue waves wildly
+&+gscales that are staggered across its body.  The lizard's tongue waves wildly
 &+gfrom its mouth.&N
 ~
 1073743880 0 0 2048 2 0 0 -100 S
@@ -352,13 +352,13 @@ kurlon mercenary~
 &+LK&+wur&+Llon&n,&+L the mercenary of endless battles&n~
 &+LK&+wur&+Llon&+w,&+L the mercenary of endless battles stands here sharpening his d&+Wa&+wgg&+We&+Lr.&n
 ~
-&+L   A scared mercenary stands here working on his battle skills.  He moves
+&+L   A scarred mercenary stands here working on his battle skills.  He moves
 &+Lquickly back and forth showing his agile foot work.  K&+wur&+Llon is a proud
 &+wMino&+rtaur&+L who has made &+WA&+wrc&+Lium his home away from home.  An aura of power
 &+Lemanates from the very core of K&+wur&+Llon and you feel honored being in his
 &+Lpresence.  K&+wur&+Llon has been god of endless battles for untold eons and
 &+Lthinks &+WA&+wrc&+Lium's people are weak.  As you approach he glances at you as
-&+Lif your nothing.&n
+&+Lif you're nothing.&n
 ~
 1073752074 0 0 2088 2 0 0 -1000 S
 MT 0 16384 -1
@@ -391,7 +391,7 @@ kelien aid druid~
 &+Gthe very core of Kelien, and you feel prompted to bow in show of your homage.
 &+GKelien has been god of pure nature for untold eons and he is sadened to see
 &+Gwhat his forest has become today. He is also wearing garments made from
-&+Gnatures gifts.&n
+&+Gnature's gifts.&n
 ~
 1073752074 0 0 2088 2 0 0 -100 S
 CT 0 128 -1
@@ -475,9 +475,19 @@ ettercap mischievous etter~
 &+La &+Gmischievous &+Lettercap&n~
 &+LAn ettercap is hidden here, waiting to &+Gparalyze&+L its victim.&n
 ~
-Ettercaps are ugly bipedal creatures that get along very well with all types of giant spiders. These creatures of low intelligence are exceedingly cruel, very cunning, and are skilled in setting traps --  very deadly traps -- much like the spiders that often live around them.
-        Ettercaps stand around six feet tall, even with their stooping gait and hunched shoulders. The creatures have short, spindly legs, long arms that reach nearly to their ankles, and large pot-bellies. The hands of ettercaps have a thumb and three long fingers that end in razor sharp claws. Their bodies are covered by tufts of thick, wiry, black hair, and their skin is dark and thick. Ettercaps' heads are almost equine in shape, but they have large reptilian eyes, usually blood-red in color, and large fangs, one protruding downward from each side of the mouth. The mouth itself is large and lined with very sharp teeth.
-                Ettercaps do not have a formal language. They express themselves through a combination of high-pitched chittering noises, shrieks, and violent actions.
+Ettercaps are ugly, bipedal creatures that get along very well with all types of giant
+spiders. These creatures of low intelligence are exceedingly cruel, very cunning, and
+are skilled in setting traps -- very deadly traps -- much like the spiders that often
+live around them. Ettercaps stand around six feet tall, even with their stooping gait
+and hunched shoulders. The creatures have short, spindly legs, long arms that reach
+nearly to their ankles, and large pot-bellies. The hands of ettercaps have a thumb and
+three long fingers that end in razor sharp claws. Their bodies are covered by tufts of
+thick, wiry, black hair, and their skin is dark and thick. Ettercaps' heads are almost
+equine in shape, but they have large reptilian eyes, usually blood-red in color, and
+large fangs, one protruding downward from each side of the mouth. The mouth itself is
+large and lined with very sharp teeth. Ettercaps do not have a formal language. They
+express themselves through a combination of high-pitched chittering noises, shrieks,
+and violent actions.
 ~
 1073743882 1 0 1050632 0 0 0 -100 S
 AC 0 0 -1
@@ -489,8 +499,11 @@ frog poisonous tree~
 &+ga &+Ypoi&+Gs&+Yon&+Gou&+Ys &+gtree frog&n~
 &+gA &+Ypoi&+Gs&+Yon&+Gou&+Ys&+g tree frog sits still while watching you.&n
 ~
-Giant Frogs: Giant frogs resemble their more common relatives in everything but size. Their enormous size means that they consider larger creatures as a source of food, making small creatures and even demihumans possible prey. A giant frog can range from 2 to 6 feet in length and weigh between 50 and 250 pounds (a 2-foot frog weighs 50 pounds, adding 50 pounds for each additional foot of length). Frogs with 1 Hit Die are 2 feet long, while those 2 to 4 feet long have 2 Hit Dice, and those over 4 feet long have 3 Hit Dice.
-        The distance that a giant frog can jump is based upon its weight, with the maximum jumping distance for a 50-pound frog being 180 feet. Subtract 20 feet for every additional 50 pounds the frog weighs. A giant frog cannot jump backward or directly to either side, but can leap 30 feet straight up.
+Giant frogs resemble their more common relatives in everything but size. Their
+enormous size means that they consider larger creatures as a source of food,
+making small creatures and even humanoids possible prey. The distance that a giant
+frog can jump is based upon its weight. A giant frog cannot jump backward or
+directly to either side, but can leap 30 feet straight up.
 ~
 788488 0 0 2056 0 0 0 -100 S
 A 0 0 -1
@@ -502,7 +515,8 @@ gargoyle stone~
 &+La stone gargoyle&n~
 &+LA stone gargoyle sits here watching over the kingdom of &+WA&+wrc&+Lium.&n
 ~
-These monsters are ferocious predators of a magical nature, typically found amid ruins or dwelling in underground caverns.
+These monsters are ferocious predators of a magical nature, typically found amid ruins
+or dwelling in underground caverns.
 ~
 1073743882 0 0 2056 0 0 0 -1000 S
 OG 0 1 -1
@@ -514,8 +528,12 @@ ghoul deranged~
 &+La deranged g&+wh&+Wo&+wu&+Ll&n~
 &+LA deranged g&+wh&+Wo&+wu&+Ll stands here eatting some r&+go&+Ltt&+gin&+Lg &+gfl&+Le&+gs&+Lh.&n
 ~
-Ghouls are undead creatures, once human, who now feed on the flesh of corpses. Although the change from human to ghoul has deranged and destroyed their minds, ghouls have a terrible cunning which enables them to hunt their prey most effectively.
-        Ghouls are vaguely recognizable as once having been human, but have become horribly disfigured by their change to ghouls. The tongue becomes long and tough for licking marrow from cracked bones, the teeth become sharp and elongated, and the nails grow strong and sharp like claws.
+Ghouls are undead creatures, once human, who now feed on the flesh of corpses. Although the change
+from human to ghoul has deranged and destroyed their minds, ghouls have a terrible cunning which
+enables them to hunt their prey most effectively. Ghouls are vaguely recognizable as once having
+been human, but have become horribly disfigured by their change to ghouls. The tongue becomes long
+and tough for licking marrow from cracked bones, the teeth become sharp and elongated, and the nails
+grow strong and sharp like claws.
 ~
 1073743880 0 0 2056 0 0 0 -1000 S
 U 0 0 -1
@@ -542,8 +560,8 @@ treant angry tree~
 &+gA human like tree stand here with an &+Langry face&+g.&n
 ~
 &+g   This creature oddly enough could be considered a human or a tree.  Its
-&+gskin has the texture of bark, and its limb are branch like in nature.  In
-&+gfact if this treant was standing still you might just think it's another tree.&n
+&+gskin has the texture of bark, and its limbs are branch-like in nature.  In
+&+gfact if this treant was standing still you might just think it was another tree.&n
 ~
 1073741834 0 0 2048 0 0 0 -1000 S
 VT 0 1 -1
@@ -558,7 +576,7 @@ wight cruel~
 &+L   This &+Gwight&+L is a nightmarish reflections of its former self.  Once this
 &+Lwight was a soldier in the &+WA&+wrc&+Lium military, but now it's a twisted skeleton
 &+Lcovered with minimal flesh and armed with sharp claws.  When he glances at
-&+Lyou with its&+r burning eyes&+L it seems he has cruel intentions.&n
+&+Lyou with its &+rburning eyes&+L it seems he has cruel intentions.&n
 ~
 1073743880 0 0 2048 0 0 0 -1000 S
 uw 0 1 -1
@@ -570,7 +588,7 @@ wraith deadly~
 &+La deadly w&+wr&+Wai&+wt&+Lh&n~
 &+LA deadly w&+wr&+Wai&+wt&+Lh hovers here.&n
 ~
-&+L   This evil spirit is a powerful magician.  He's dress in a black hooded
+&+L   This evil spirit is a powerful magician.  He's dressed in a black hooded
 &+Lcloak under which his glowing red eyes can be seen.  This frail figure is
 &+Lshaped like a humanoid.&n
 ~
@@ -586,7 +604,7 @@ tree haunting~
 ~
 &+y   The tree has dark gray wood and dim green leaves.  The tree engulfs the
 &+yground with shadows, and blocks out incoming light.  The tree's trunk looks
-&+ylike a face of some short.  Oddly this tree seems to be alive.&n
+&+ylike a face of some sort.  Oddly this tree seems to be alive.&n
 ~
 1073741832 0 0 2048 0 0 0 0 S
 VT 0 0 -1
@@ -599,7 +617,7 @@ alligator large gator~
 &+gA large alligator is here looking for prey&n.
 ~
 &+g   The large alligator is about ten feet long and unbelievably strong.  He is
-&+garmored with the many scales about his body.  Its jagged row of teeth are
+&+garmored with the many scales about his body.  Its jagged rows of teeth are
 &+gready to snap at anything that moves.&n
 ~
 1074006026 1 0 2048 2 0 0 0 S
@@ -696,10 +714,10 @@ boar wild~
 &+ya wild boar&n~
 &+yA wild boar stands here bearing his tusks.&n
 ~
-&+y   The beast weights around two hundred and fifty pounds.  It has short brown
+&+y   The beast weighs around two hundred and fifty pounds.  It has short brown
 &+yhair and a pig like snout.  With its four inch tusks this creature is not
 &+yto be taken lightly.  Living in the wild this boar has not learned to fear
-&+yman-kind&n
+&+yman-kind.&n
 ~
 1073741832 0 0 2048 0 0 0 -100 S
 A 0 0 -1
@@ -769,7 +787,8 @@ gargoyle stone~
 &+La stone gargoyle&n~
 &+LA stone gargoyle sits here watching over the kingdom of &+WA&+wrc&+Lium.&n
 ~
-These monsters are ferocious predators of a magical nature, typically found amid ruins or dwelling in underground caverns.
+These monsters are ferocious predators of a magical nature, typically found amid
+ruins or dwelling in underground caverns.
 ~
 1073743882 0 0 2056 0 0 0 -1000 S
 OG 0 1 -1

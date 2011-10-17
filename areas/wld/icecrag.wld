@@ -3100,7 +3100,7 @@ S
 D1
 ~
 door~
-3 97001 97120
+1 97001 97120
 D3
 ~
 vault~
@@ -3111,14 +3111,14 @@ S
 &+L   The walls appear to be rough cut black stone, soft to the touch but
 &+Lstrong.  The light gets sucked up by the room leaving it quite dim.  No
 &+Lsound reaches your ears from outside the heavy vault door. Condensation
-&+Ldrips from the cieling, making a few scattered puddles that seem to be
+&+Ldrips from the ceiling, making a few scattered puddles that seem to be
 &+Lcultivating some moss.
 ~
 970 8421449 0
 D0
 ~
 vault~
-3 97000 97126
+1 97000 97126
 D3
 ~
 door~
@@ -4511,7 +4511,7 @@ S
 &+L   Sneaking in through tiny cracks around the edges of arrow hatches, an icy &N
 &+Ldraft crawls down the hall.  The constant hissing and whistling grows &N
 &+Lincreasingly louder as the wind picks up.  Many of the torches have gone out &N
-&+Lin this area, leaving it dark and unattended.  Pieces of cieling are beginning &N
+&+Lin this area, leaving it dark and unattended.  Pieces of ceiling are beginning &N
 &+Lto crumble and fall away, exposing the understone that makes up the framework &N
 &+Lof the castle.  To the south the guards walk continues, and an iron door leads &N
 &+Lnorth.&N

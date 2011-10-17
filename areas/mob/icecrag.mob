@@ -7,8 +7,8 @@ The portly woman is dressed in garish silks and furs of awful colors and
 design.  She spills her drink as she comments on the eastern influence
 and the amazing use of negative space.
 ~
-141 0 0 0 0 0 0 -350 S
-H 0 0 -1
+141 0 0 0 0 0 0 0 -350 S
+H 0 0 0 -1
 20 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 8 8 2
@@ -22,8 +22,8 @@ existence as a janitor in a castle built in the middle of no where.
 His uniform is clean and trim, and he goes about his business with
 surprising enthusiasm.
 ~
-141 0 0 0 0 0 0 -351 S
-H 0 0 -1
+141 0 0 0 0 0 0 0 -351 S
+H 0 0 0 -1
 15 18 74 8d18+28 2d3+1
 4.2.0.0 1036
 8 8 1
@@ -36,8 +36,8 @@ ice artist~
 observer that he is a stark raving lunatic.  He whips his tools back and
 forth in front of the sculpture as if trying to get its attention.
 ~
-1073743947 0 0 33554480 0 0 0 -500 S
-H 0 1 -1
+1073743947 0 0 0 33554480 0 0 0 -500 S
+H 0 1 0 -1
 45 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -53,8 +53,8 @@ devilish father, but his build is pure barbarian.  Long, thin black hair
 cascades over his brow, covering his dull red eyes, and the black heart
 of chaos beats strong in his chest.
 ~
-1082132491 1 0 570523708 14528 0 0 -1000 S
-G 0 1 -1
+1082132491 1 0 0 570523708 14528 0 0 -1000 S
+G 0 1 0 -1
 60 -10 -122 60d143+6600 7d6+35
 6.6.9.7 243000
 4 4 1
@@ -68,8 +68,8 @@ with the court patrol.  It is widely known that the patrol is a prepatory
 assignment for admission to the the Upper Echelon.  He prances through the
 court as if he had already gotten the promotion.
 ~
-67110988 0 0 0 0 0 0 -750 S
-H 0 1 -1
+67110988 0 0 0 0 0 0 0 -750 S
+H 0 1 0 -1
 35 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -83,8 +83,8 @@ servants and the prisoners.  A dime a dozen, these are the humans that
 just could'nt cut it in Strife's army.  Unlike the hearty barbarians, he
 looks lost in the cold, as if daydreaming of warm sandy beaches.
 ~
-67110985 0 0 0 0 0 0 -1000 S
-H 0 1 -1
+67110985 0 0 0 0 0 0 0 -1000 S
+H 0 1 0 -1
 31 8 16 26d65+338 3d6+4
 7.2.6.1 23166
 8 8 1
@@ -99,8 +99,8 @@ almost transluscent.  Thin green veins show through on his forehead and
 arms.  Sickly looking pink eyes peer out of white sockets that hold no
 pain.  Amazingly enough he is quite a joyous man for one so struck by fate.
 ~
-2123 0 0 65552 64 0 0 -800 S
-PB 0 1 -1
+2123 0 0 0 65552 64 0 0 -800 S
+PB 0 1 0 -1
 46 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -114,8 +114,8 @@ constantly supply the castle with goods from the south.  Dressed in gawdy
 blues and purples, he can barely stand, let alone get another drink in
 his fat gullet.
 ~
-93 0 0 0 1024 0 0 -900 S
-H 0 1 -1
+93 0 0 0 0 1024 0 0 -900 S
+H 0 1 0 -1
 40 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -130,8 +130,8 @@ the robe at his waist.  At the next ascension he will receive his wide
 silver belt, and at the third and final ascension he will be given his
 silver circlet.
 ~
-1140852811 0 0 65584 64 0 0 -1000 S
-H 0 32 -1
+1140852811 0 0 0 65584 64 0 0 -1000 S
+H 0 32 0 -1
 50 -1 -69 45d99+1980 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -145,8 +145,8 @@ Upper Echelon in commanding respect, this barbarian has shown fierce
 prowess in not only combat, but in the arcane arts.  His ancestors were
 probably tribal shamans, and he has inherited the gift.
 ~
-67119114 1 0 33587256 0 0 0 -1000 S
-H 0 512 -1
+67119114 1 0 0 33587256 0 0 0 -1000 S
+H 0 512 0 -1
 59 -7 -128 59d96+6077 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -159,8 +159,8 @@ servant~
 Guard's Walk patrolmen.  Dressed in unimpressive clothes, she is no
 different than servants around the world.
 ~
-2268 0 0 0 0 0 0 -100 S
-H 0 0 -1
+2268 0 0 0 0 0 0 0 -100 S
+H 0 0 0 -1
 15 18 67 10d18+35 2d3+1
 5.3.0.0 1296
 8 8 1
@@ -173,8 +173,8 @@ attendant ice garden~
 and snow from the path, that Strife may walk freely through her arctic
 paradise.  A dull existence to most, but he seems genuinely enthusiastic.
 ~
-141 0 0 0 64 0 0 -600 S
-H 0 0 -1
+141 0 0 0 0 64 0 0 -600 S
+H 0 0 0 -1
 20 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 8 8 1
@@ -189,8 +189,8 @@ forehead is on the verge of rupture.  His eyes are glazed over, and his
 lips tremble with rage.  He has tasted the kill many times, and yearns to
 do so again.
 ~
-67119179 1 0 33587256 64 0 0 -1000 S
-G 0 1 -1
+67119179 1 0 0 33587256 64 0 0 -1000 S
+G 0 1 0 -1
 60 -7 -118 59d143+6490 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -202,8 +202,8 @@ A recently woken guest of the castle is standing here befuddled.
    Dressed in night clothes, he hardly looks dangerous.  Baggy eyes and
 pale skin indicate he is hung over and probably oblivious to the world.
 ~
-2058 0 0 0 0 0 0 -1000 S
-H 0 1 -1
+2058 0 0 0 0 0 0 0 -1000 S
+H 0 1 0 -1
 49 2 -28 40d80+840 4d7+10
 3.3.3.3 51840
 4 8 1
@@ -216,8 +216,8 @@ raucous guest~
 aristocracy is very prevalant.  While he looks weak, and talks alot of
 talk, there is something beneath his demeanor that hints at power.
 ~
-1073743949 0 0 570425416 0 0 0 -850 S
-H 0 512 -1
+1073743949 0 0 0 570425416 0 0 0 -850 S
+H 0 512 0 -1
 51 -1 -69 45d72+1935 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -230,8 +230,8 @@ quiet guest~
 Drab clothes and a lack of flashy equipment show him to be a man of
 limited means, or perhaps just a man who enjoys his anonymity.
 ~
-1073744072 0 0 35127328 0 0 0 -1000 S
-H 0 8192 -1
+1073744072 0 0 0 35127328 0 0 0 -1000 S
+H 0 8192 0 -1
 50 -1 -69 45d90+1935 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -245,8 +245,8 @@ forehead and exaggerated jawbone.  He has trouble peeling the potatoes
 without crushing them between his disproportionately large fingers.  He
 wears only leather pants and a chefs apron.
 ~
-67110987 0 0 16 0 0 0 -500 S
-PB 0 1 -1
+67110987 0 0 0 16 0 0 0 -500 S
+PB 0 1 0 -1
 41 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -259,8 +259,8 @@ off duty off-duty patrol~
 he is a guardsman is the insignia on his sleeve.  He looks lost in the
 moment, doing his best to forget the dismal failure he calls life.
 ~
-2120 0 0 0 0 0 0 -800 S
-H 0 1 -1
+2120 0 0 0 0 0 0 0 -800 S
+H 0 1 0 -1
 32 8 16 26d65+338 3d6+4
 7.2.6.1 23166
 8 8 1
@@ -273,8 +273,8 @@ sentry guard~
 majority of his clothing, to shield him from the frigid temperatures no
 doubt.  His face is red and cracked from windburn and mild frostbite.
 ~
-67110991 0 0 33554432 0 0 0 -800 S
-H 0 1 -1
+67110991 0 0 0 33554432 0 0 0 -800 S
+H 0 1 0 -1
 31 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -287,8 +287,8 @@ sentry guard~
 huffs and puffs, doing his best to keep up.  He was'nt born in this
 frigid hell and he is ill equipped to deal with it.
 ~
-67110991 0 0 33554432 0 0 0 -500 S
-H 0 1 -1
+67110991 0 0 0 33554432 0 0 0 -500 S
+H 0 1 0 -1
 31 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -302,8 +302,8 @@ he looks more at home.  He steps lightly over the snow and ice as though
 it has been his home for ages.  While he is human, he acts more like a
 barbarian.
 ~
-1140852808 0 0 33554448 0 0 0 -1000 S
-H 0 1 -1
+1140852808 0 0 0 33554448 0 0 0 -1000 S
+H 0 1 0 -1
 41 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -317,8 +317,8 @@ only six foot five inches.  He looks lean and trim, not outwardly massive
 like most of his kin tend to be.  His skin is lighter, as though he spent
 most of his time indoors.
 ~
-1140852811 0 0 33554448 0 0 0 -1000 S
-PB 0 1 -1
+1140852811 0 0 0 33554448 0 0 0 -1000 S
+PB 0 1 0 -1
 55 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 6 8 1
@@ -331,8 +331,8 @@ sentinel private guard~
 clothes and equipment.  He hasnt much else to do, his job is to stand here
 and guard, though what he is guarding he hasnt quite figured out yet.
 ~
-67110986 0 0 0 0 0 0 -1000 S
-H 0 1 -1
+67110986 0 0 0 0 0 0 0 -1000 S
+H 0 1 0 -1
 35 8 10 28d65+364 3d6+4
 8.3.7.1 24948
 8 8 1
@@ -346,8 +346,8 @@ merchants who supply the castle, and a few underground figures as well.
 His thin jawline and wispy hair reflect his weak character, and his only
 physical skill seems to be in pushing a quill.
 ~
-67110987 0 0 8 0 0 0 -1000 S
-H 0 2 -1
+67110987 0 0 0 8 0 0 0 -1000 S
+H 0 2 0 -1
 50 -1 -69 45d72+1935 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -360,8 +360,8 @@ treasury guard~
 blinking, never losing concentration once.  Dressed in the drab browns
 and blacks of the castle guard, he looks much like everyone else.
 ~
-67110927 0 0 33620024 0 0 0 -600 S
-H 0 1 -1
+67110927 0 0 0 33620024 0 0 0 -600 S
+H 0 1 0 -1
 51 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -374,8 +374,8 @@ off duty patrol~
 working.  He appears to be off duty at the moment however, judging from
 his apparrel.
 ~
-2120 0 0 0 0 0 0 -600 S
-H 0 1 -1
+2120 0 0 0 0 0 0 0 -600 S
+H 0 1 0 -1
 32 8 16 26d65+338 3d6+4
 7.2.6.1 23166
 8 8 1
@@ -390,8 +390,8 @@ grow out of his skull in patches, leaving most of his head bald.  Long
 thin fingers that must be seven inches long, crack and pop as he picks up
 instruments.
 ~
-1073752136 1 0 1572920 0 0 0 -1000 S
-H 0 24577 -1
+1073752136 1 0 0 1572920 0 0 0 -1000 S
+H 0 24577 0 -1
 60 -10 -132 60d143+6300 7d6+35
 6.6.9.7 243000
 8 8 1
@@ -405,8 +405,8 @@ at the table.  He wears an ice white robe with blue piping, and a silver
 cinch band at the waist.  He regards you with a repressed sneer, as
 though he were pushing down the idea of banishing you to another plane.
 ~
-2120 0 0 0 0 0 0 -1000 S
-H 0 32 -1
+2120 0 0 0 0 0 0 0 -1000 S
+H 0 32 0 -1
 45 2 -28 40d88+880 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -419,8 +419,8 @@ craftsman mason~
 here and was contracted out to do the job.  Not very content with what he
 has seen here, he wonders if he will ever leave.
 ~
-141 0 0 0 0 0 0 500 S
-H 0 0 -1
+141 0 0 0 0 0 0 0 500 S
+H 0 0 0 -1
 22 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 8 8 1
@@ -434,8 +434,8 @@ dangerous appearance.  He weapon is a quill, with which he devises plans
 to find and exploit a weakness.  He is a very dangerous man when his
 talents are used correctly.
 ~
-67110987 0 0 8 0 0 0 -1000 S
-H 0 2 -1
+67110987 0 0 0 8 0 0 0 -1000 S
+H 0 2 0 -1
 50 -1 -69 45d72+1935 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -449,8 +449,8 @@ white and baggy, he could be mistaken for undead.  His eyes are glazed
 over and cloudy, with tiny pink veins all around the edges.  In all
 likelyhood, he is completely blind and works on memory alone.
 ~
-1073743945 0 0 704708780 14529 0 0 -1000 S
-G 0 512 -1
+1073743945 0 0 0 704708780 14529 0 0 -1000 S
+G 0 512 0 -1
 58 -5 -101 55d88+4840 7d6+30
 0.2.7.6 222750
 8 8 1
@@ -463,8 +463,8 @@ assistant~
 eyes are lowered and yet he walks with an air of impunity.  Business is
 top priority for him, and nothing can keep him from shelving his books.
 ~
-1073744077 0 0 67174408 0 0 0 -800 S
-H 0 512 -1
+1073744077 0 0 0 67174408 0 0 0 -800 S
+H 0 512 0 -1
 30 8 10 28d44+308 3d6+4
 8.3.7.1 24948
 8 8 1
@@ -478,8 +478,8 @@ these books that dont seem to fit into any category.  She wears a knit
 shawl with lovely blue and white cross-hatchings, and a blue jumper to
 match.
 ~
-1073744077 0 0 67174408 0 0 0 -800 S
-H 0 512 -1
+1073744077 0 0 0 67174408 0 0 0 -800 S
+H 0 512 0 -1
 30 8 10 28d44+308 3d6+4
 8.3.7.1 24948
 8 8 2
@@ -493,8 +493,8 @@ the finest the elves can spin, and his boots are the finest leather
 available this side of the Ice Flow.  If he were any snobbier, he would
 begin to criticize himself.
 ~
-2125 0 0 0 0 0 0 -750 S
-H 0 1 -1
+2125 0 0 0 0 0 0 0 -750 S
+H 0 1 0 -1
 50 -1 -56 41d90+1763 6d6+12
 1.7.6.3 99630
 8 8 1
@@ -508,8 +508,8 @@ west halls, he looks quite content.  In his dark blue robes and hood he
 looks alot like a monk, but the fizzle of ether and the crackle of mana
 around him reveal him to be a practitioner of the arcane arts.
 ~
-2120 0 0 134217736 0 0 0 -700 S
-H 0 512 -1
+2120 0 0 0 134217736 0 0 0 -700 S
+H 0 512 0 -1
 33 8 10 28d44+308 3d6+4
 8.3.7.1 24948
 8 8 1
@@ -524,8 +524,8 @@ of the guard.  Reporting directly to Strife herself, he goes through no
 middle men.  He is a pround, arrogant looking man of strong barbarian
 descent.
 ~
-1140861002 1 0 302022904 0 0 0 -1000 S
-H 0 1 -1
+1140861002 1 0 0 302022904 0 0 0 -1000 S
+H 0 1 0 -1
 56 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -545,8 +545,8 @@ strife icess~
 &+Lrobe covered in glittering icicles further underscores the magical and
 &+Ldazzling appearance of Strife.
 ~
-1073760840 1 0 0 0 2097152 0 -1000 S
-Y 0 513 6
+1073760840 1 0 0 0 0 2097152 0 -1000 S
+Y 0 513 0 6
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -560,8 +560,8 @@ and the Captain to serve as the castle's elite protectorate.  Cut like
 a statue, he is flawless in every respect.  Rivers of rage hurdle through
 his veins, waiting to explode on a hapless victim.
 ~
-1140861002 1 0 33554448 0 0 0 -900 S
-H 0 1 -1
+1140861002 1 0 0 33554448 0 0 0 -900 S
+H 0 1 0 -1
 41 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -576,8 +576,8 @@ of his travel garments.  Soft buffalo hide shoes make walking look almost
 fun.  His loose fitting cotton pants look mighty comfortable, and with
 eye protection in place he is ready for anything.
 ~
-1107314700 0 0 571998330 2048 67239936 4203520 0 S
-P2 0 24576 -1
+1107314700 0 0 0 571998330 2048 67239936 4203520 0 S
+P2 0 24576 0 -1
 60 -7 -128 59d143+6195 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -596,8 +596,8 @@ the sharpness of his wit, he is in a constant state of alert.
 &+LMyrke the Stalker&n says to you, '&+WThat bastard &+LCaptain &+Wisn't around here
 &+Wis he?&n'&n
 ~
-1107326988 0 0 974725182 14401 67108864 4195328 -1000 S
-P2 0 8192 -1
+1107326988 0 0 0 974725182 14401 67108864 4195328 -1000 S
+P2 0 8192 0 -1
 60 -10 -132 60d143+6300 7d6+35
 6.6.9.7 243000
 8 8 1
@@ -611,8 +611,8 @@ mans job is strictly as a helper.  He may function as a gopher for food,
 drink, information, or any number of tasks.  He is trained in the art of
 combat as well, should the Viscount fall prey to attack.
 ~
-1140852815 0 0 16 0 0 0 -800 S
-H 0 1 -1
+1140852815 0 0 0 16 0 0 0 -800 S
+H 0 1 0 -1
 45 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -626,8 +626,8 @@ mans job is strictly as a helper.  He may function as a gopher for food,
 drink, information, or any number of tasks.  He is trained in the art of
 combat as well, should the Siege Master fall prey to attack.
 ~
-1140852815 0 0 16 0 0 0 -800 S
-H 0 1 -1
+1140852815 0 0 0 16 0 0 0 -800 S
+H 0 1 0 -1
 45 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -641,8 +641,8 @@ mans job is strictly as a helper.  He may function as a gopher for food,
 drink, information, or any number of tasks.  He is trained in the art of
 combat as well, should the Ice Priest fall prey to attack.
 ~
-1140852815 0 0 16 0 0 0 -800 S
-H 0 1 -1
+1140852815 0 0 0 16 0 0 0 -800 S
+H 0 1 0 -1
 45 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -656,8 +656,8 @@ the obscure job of guarding a stairway.  All the glory of battle and the
 riches of pillaging are reserved for those of barbarian heritage.  This
 is about as far as a human can go here.
 ~
-1140852814 0 0 0 0 0 0 -1000 S
-H 0 1 -1
+1140852814 0 0 0 0 0 0 0 -1000 S
+H 0 1 0 -1
 41 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -671,8 +671,8 @@ the obscure job of guarding a stairway.  All the glory of battle and the
 riches of pillaging are reserved for those of barbarian heritage.  This
 is about as far as a human can go here.
 ~
-1140852814 0 0 0 0 0 0 -1000 S
-H 0 1 -1
+1140852814 0 0 0 0 0 0 0 -1000 S
+H 0 1 0 -1
 41 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -686,8 +686,8 @@ the obscure job of guarding a stairway.  All the glory of battle and the
 riches of pillaging are reserved for those of barbarian heritage.  This
 is about as far as a human can go here.
 ~
-1140852814 0 0 0 0 0 0 -900 S
-H 0 1 -1
+1140852814 0 0 0 0 0 0 0 -900 S
+H 0 1 0 -1
 41 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -701,8 +701,8 @@ the obscure job of guarding a stairway.  All the glory of battle and the
 riches of pillaging are reserved for those of barbarian heritage.  This
 is about as far as a human can go here.
 ~
-1140852814 0 0 0 0 0 0 -900 S
-H 0 1 -1
+1140852814 0 0 0 0 0 0 0 -900 S
+H 0 1 0 -1
 41 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -716,8 +716,8 @@ the obscure job of guarding a stairway.  All the glory of battle and the
 riches of pillaging are reserved for those of barbarian heritage.  This
 is about as far as a human can go here.
 ~
-1140852814 0 0 0 0 0 0 -900 S
-H 0 1 -1
+1140852814 0 0 0 0 0 0 0 -900 S
+H 0 1 0 -1
 41 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -731,8 +731,8 @@ the obscure job of guarding a stairway.  All the glory of battle and the
 riches of pillaging are reserved for those of barbarian heritage.  This
 is about as far as a human can go here.
 ~
-1140852814 0 0 0 0 0 0 -900 S
-H 0 1 -1
+1140852814 0 0 0 0 0 0 0 -900 S
+H 0 1 0 -1
 41 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -746,8 +746,8 @@ the obscure job of guarding a stairway.  All the glory of battle and the
 riches of pillaging are reserved for those of barbarian heritage.  This
 is about as far as a human can go here.
 ~
-1140852814 0 0 0 0 0 0 -900 S
-H 0 1 -1
+1140852814 0 0 0 0 0 0 0 -900 S
+H 0 1 0 -1
 41 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -761,8 +761,8 @@ the obscure job of guarding a stairway.  All the glory of battle and the
 riches of pillaging are reserved for those of barbarian heritage.  This
 is about as far as a human can go here.
 ~
-1140852814 0 0 0 0 0 0 -900 S
-H 0 1 -1
+1140852814 0 0 0 0 0 0 0 -900 S
+H 0 1 0 -1
 41 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -779,8 +779,8 @@ elven dignitary~
 &+wJudging by the respect he gets from the guards of the castle he must be&n
 &+wa fearsome opponent indeed.
 ~
-1107298380 0 0 941097020 2076 0 1024 0 S
-PE 0 1 -1
+1107298380 0 0 0 941097020 2076 0 1024 0 S
+PE 0 1 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -794,8 +794,8 @@ snowfox the icon of the northern wildnerness.  Its trademark paw prints track
 from one end of the tundra to the other, proudly proclaiming stake to all
 that lies between.
 ~
-1073743948 1 0 33554448 0 0 0 0 S
-A 0 0 -1
+1073743948 1 0 0 33554448 0 0 0 0 S
+A 0 0 0 -1
 9 18 80 6d18+21 2d3+1
 0.0.0.0 777
 8 8 2
@@ -808,8 +808,8 @@ coyote rogue~
 searching for food and a place to sleep the night.  He appears to do well
 judging from his healthy build.
 ~
-1073743948 1 0 33554448 0 0 0 0 S
-A 0 0 -1
+1073743948 1 0 0 33554448 0 0 0 0 S
+A 0 0 0 -1
 9 18 80 6d18+21 2d3+1
 0.0.0.0 777
 8 8 1
@@ -824,8 +824,8 @@ that scream with fury, threaten to burst from their sockets if denied the
 pleasure of ripping a living being limb from limb.  It towers a
 staggering 12 feet tall, and probably weighs 1500 pounds.
 ~
-1140881417 1 0 167870524 14529 0 0 -1000 S
-G 0 1 -1
+1140881417 1 0 0 167870524 14529 0 0 -1000 S
+G 0 1 0 -1
 60 -10 -122 60d143+6600 7d6+35
 6.6.9.7 243000
 8 8 1
@@ -839,8 +839,8 @@ grows stronger with each transformation.  Judging from the look on his
 face, he has'nt had much to eat in the last day or two.  Thick brown
 drool slides off his jowls, leaving a puddle where he stands.
 ~
-1140860936 1 0 167870524 0 0 0 -1000 S
-A 0 0 -1
+1140860936 1 0 0 167870524 0 0 0 -1000 S
+A 0 0 0 -1
 50 -1 -69 45d90+1935 6d6+12
 0.0.0.0 109350
 8 8 1
@@ -853,8 +853,8 @@ vapor ghastly black~
 It appears as a sickening black cloud, choking the room with darkness.
 The closer you get, the more you can feel the core of evil within.
 ~
-1073772559 1 0 570523710 14529 0 0 -1000 S
-G 0 512 -1
+1073772559 1 0 0 570523710 14529 0 0 -1000 S
+G 0 512 0 -1
 60 -10 -122 60d96+6480 7d6+35
 6.6.9.7 243000
 8 8 1
@@ -867,8 +867,8 @@ sentinel private guard~
 clothes and equipment.  He hasnt much else to do, his job is to stand here
 and guard, though what he is guarding he hasnt quite figured out yet.
 ~
-67110986 0 0 0 0 0 0 -1000 S
-H 0 1 -1
+67110986 0 0 0 0 0 0 0 -1000 S
+H 0 1 0 -1
 35 8 10 28d65+364 3d6+4
 8.3.7.1 24948
 8 8 1
@@ -881,8 +881,8 @@ sentinel private guard~
 clothes and equipment.  He hasnt much else to do, his job is to stand here
 and guard, though what he is guarding he hasnt quite figured out yet.
 ~
-67110986 0 0 0 0 0 0 -1000 S
-H 0 1 -1
+67110986 0 0 0 0 0 0 0 -1000 S
+H 0 1 0 -1
 35 8 10 28d65+364 3d6+4
 8.3.7.1 24948
 8 8 1
@@ -895,8 +895,8 @@ sentinel private guard~
 clothes and equipment.  He hasnt much else to do, his job is to stand here
 and guard, though what he is guarding he hasnt quite figured out yet.
 ~
-67110986 0 0 0 0 0 0 -1000 S
-H 0 1 -1
+67110986 0 0 0 0 0 0 0 -1000 S
+H 0 1 0 -1
 35 8 10 28d65+364 3d6+4
 8.3.7.1 24948
 8 8 1
@@ -909,8 +909,8 @@ sentinel private guard~
 clothes and equipment.  He hasnt much else to do, his job is to stand here
 and guard, though what he is guarding he hasnt quite figured out yet.
 ~
-67110986 0 0 0 0 0 0 -1000 S
-H 0 1 -1
+67110986 0 0 0 0 0 0 0 -1000 S
+H 0 1 0 -1
 35 8 10 28d65+364 3d6+4
 8.3.7.1 24948
 8 8 1
@@ -924,8 +924,8 @@ Mahdrel has found them to make excellent guard's when properly trained
 and confined.  They have a unique form unlike any other on this plane,
 they are shrouded by intense heat than emanates from the core of thier body.
 ~
-2095 1 0 570523710 14529 0 0 -1000 S
-G 0 1 -1
+2095 1 0 0 570523710 14529 0 0 -1000 S
+G 0 1 0 -1
 60 -10 -122 60d143+6600 7d6+35
 6.6.9.7 243000
 8 8 1
@@ -938,8 +938,8 @@ guard lone guardsman~
 tear the walls down from sheer boredom.  His fingernails are bitten down
 and his beard is scruffy and unkempt.
 ~
-67119118 1 0 453058616 2049 0 0 -900 S
-H 0 1 -1
+67119118 1 0 0 453058616 2049 0 0 -900 S
+H 0 1 0 -1
 58 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -953,8 +953,8 @@ to phase him, and he is completely oblivious to the world around him.
 Physically, he looks normal enough, but beneath that, there is something
 disturbed.
 ~
-1107298312 0 0 33554432 0 0 0 -1000 S
-H 0 2 -1
+1107298312 0 0 0 33554432 0 0 0 -1000 S
+H 0 2 0 -1
 51 -1 -69 45d72+1935 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -968,8 +968,8 @@ room, has been passed down to him. This is not an easy task since the room is
 just in a big mess. Though he is dressed in the typical guard outfit, he
 sure looks tougher than the average guard.
 ~
-67110987 0 0 40 0 0 0 -1000 S
-H 0 1 -1
+67110987 0 0 0 40 0 0 0 -1000 S
+H 0 1 0 -1
 50 8 16 26d65+338 3d6+4
 7.2.6.1 23166
 8 8 1
@@ -985,8 +985,8 @@ ice para-elemental elemental protector~
 &+cstance.  This being moves with incredible speed, swirling itself in
 &+cfront of anything that could possibly harm the Icess.
 ~
-67110920 0 0 0 0 2097152 0 -350 S
-EW 0 64 5
+67110920 0 0 0 0 0 2097152 0 -350 S
+EW 0 64 0 5
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0

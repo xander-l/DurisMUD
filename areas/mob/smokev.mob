@@ -94,7 +94,7 @@ B 0 1 1
 #20206
 dew faerie~
 &na &+cdew &+gfaerie&N~
-&+gA &+cdew &+gfaerie flys around here.&N
+&+gA &+cdew &+gfaerie flies around here.&N
 ~
 &+c   This tiny creature stands not even a foot in height.  She has small&n
 &+cbutterfly like wings and a very tiny wand.  The wand is not even close to the&n
@@ -125,11 +125,11 @@ I 0 1 0
 #20208
 swallow bird~
 &na &+cswallow&N~
-&+yA &+cswallow &+yflys here looking for food.&N
+&+yA &+cswallow &+yflies here looking for food.&N
 ~
 &+c   This female bird is not even close to a foot in height, and seems to be of a&n
 &+crather sickly build.  She has small dotted &+Bocean &+Cblue &+ceyes, and her wings seem&n
-&+cto show some signs of aging.  She flys around looking for food, or perhaps she&n
+&+cto show some signs of aging.  She flies around looking for food, or perhaps she&n
 &+cis in search of one of her wayward young.&n
 ~
 131144 0 0 33619968 0 0 0 1000 S
@@ -255,7 +255,7 @@ humming bird hummer~
 &na &+chumming &+Cbird&N~
 &+CA &+chumming &+Cbird is here flying from flower to flower.&N
 ~
-&+c   This insect like bird flys from flower to flower, making a rather strange&n
+&+c   This insect like bird flies from flower to flower, making a rather strange&n
 &+chumming sound.  Her small wings flap in a very frantic motion making the sight&n
 &+csomething to behold.  Her nose seems to come to a rather odd looking point and&n
 &+cextends a fair amount of distance away from her minuscule body.&n
@@ -744,7 +744,7 @@ bat cave ghastly~
 ~
 &+L   This creature is rather tiny and has a long wing span.  It has small red&n
 &+Leyes filled with an eerie &+rhatred&+L.  The being makes a loud high pitch sound as&n
-&+Lit flys around here.&n
+&+Lit flies around here.&n
 ~
 131144 0 0 33554432 0 0 0 0 S
 A 0 0 1
