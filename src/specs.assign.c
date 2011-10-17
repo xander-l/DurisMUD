@@ -171,6 +171,9 @@ void assign_mobiles(void)
 {
   int      i;
 
+  /* speed wipe entry to Tharn Rifts */
+  mob_index[real_mobile0(500129)].func.mob = Baltazo;
+  obj_index[real_object0(500055)].func.obj = tharnrifts_portal;
   /* scorched valley */
   mob_index[real_mobile0(71223)].func.mob = block_up;
   mob_index[real_mobile0(71259)].func.mob = yeenoghu;

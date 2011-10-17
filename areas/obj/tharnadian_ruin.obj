@@ -520,3 +520,27 @@ An unnamed object lies here, looking lonely and forelorn.~
 13 15 3 0 7 0 2 0 0 0 0
 0 0 0 0 0 0 0 0
 0 0 100
+#5537
+pile rubble large~
+&+La pile of &+yr&+Lu&+yb&+Lb&+yl&+Le&n~
+&+LA large pile of &+yru&+Lbb&+yle &+Llies here, blocking passage past the remains of the demolished roadway.&n~
+~
+13 11 3 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#5538
+corpse seasoned adventurer~
+&+Lthe corpse of a seasoned adventurer&n~
+&+LThe charred and burnt remains of a seasoned adventurer lie here, &+rsmoldering&+L.&n~
+~
+15 2 3 0 7 0 0 0 0 0 0
+23123 0 0 2312 0 0 0 0
+0 0 100
+#5539
+shadowrift~
+&+La rather ominous shadowrift&n~
+&+LAn ominous shadowrift pulsates here.&n~
+~
+25 15 3 0 7 0 0 0 0 0 0
+568439 7 -1 0 0 0 0 0
+0 0 100

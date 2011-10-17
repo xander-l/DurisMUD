@@ -16,8 +16,34 @@ O 0 23616 4 542492 100 0 0 0       * (object type not in this .obj file)
 O 0 500037 1 549305 100 0 0 0      * a *HUGE* sign
 O 0 53665 1 559633 100 0 0 0       * (object type not in this .obj file)
 O 0 500002 1 564065 100 0 0 0      * an old wooden cabin
+O 0 500054 25 567637 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 567638 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 567639 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 567640 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 567641 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 568037 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 568038 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 568039 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 568040 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 568041 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 568437 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 568438 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 568439 100 0 0 0     * this is a anti-wall object
+O 0 500055 1 568439 100 0 0 0      * a pulsating shadowrift
+O 0 500054 25 568440 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 568441 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 568837 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 568838 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 568839 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 568840 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 568841 100 0 0 0     * this is a anti-wall object
 O 0 500039 1 568886 100 0 0 0      * a sign
 O 0 500038 1 568893 100 0 0 0      * a large sign
+O 0 500054 25 569237 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 569238 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 569239 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 569240 100 0 0 0     * this is a anti-wall object
+O 0 500054 25 569241 100 0 0 0     * this is a anti-wall object
 O 0 500025 24 571406 100 0 0 0     * a huge blood crystal
 O 0 500025 24 572615 100 0 0 0     * a huge blood crystal
 O 0 500025 24 574601 100 0 0 0     * a huge blood crystal
@@ -630,6 +656,7 @@ M 0 500050 5 567706 100 0 0 0      * a halfling lieutenant
 F 1 500049 15 567706 100 0 0 0     * a member of the Woodseer Brigade (following)
 F 1 500049 15 567706 100 0 0 0     * a member of the Woodseer Brigade (following)
 F 1 500049 15 567706 100 0 0 0     * a member of the Woodseer Brigade (following)
+M 0 500129 1 568439 100 0 0 0      * a sickly, emaciated ex-general
 M 0 500050 5 568502 100 0 0 0      * a halfling lieutenant
 F 1 500049 15 568502 100 0 0 0     * a member of the Woodseer Brigade (following)
 F 1 500049 15 568502 100 0 0 0     * a member of the Woodseer Brigade (following)

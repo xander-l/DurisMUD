@@ -1,7 +1,7 @@
 #2001
 &+YOn the Rocky Trail~
  &+yThis is the start of a rocky trail which travels to the east. It is very
-&+ydusty, dirty, and seems well travelled upon.  To the east you see a small
+&+ydusty, dirty, and seems well traveled upon.  To the east you see a small
 &+yvalley which the trail seems to travel through.  To the west you see a turning
 &+ypoint of roads which lead north through the hills, before turning west
 &+ytowards the city of Tharnadia.
@@ -137,7 +137,7 @@ The trail leads to a rocky trail in that direction.
 S
 #2008
 &+YA Trail in the Valley of Crushk~
-   &+yThis trail seems to be very well travelled upon.  Hundreds of trees cover
+   &+yThis trail seems to be very well traveled upon.  Hundreds of trees cover
 &+ythe hills north and south of the trail.  Many animals prance about looking for
 &+yfood and playing.  The trail continues east and west from here.
 ~
@@ -349,7 +349,7 @@ S
 #2020
 &+YAn Intersection of Roads~
   &+yThis is an intersection of four roads.  To the north, the road leads into
-&+ya dark forest.  To the south, looks like a well travelled road.  The east
+&+ya dark forest.  To the south, looks like a well traveled road.  The east
 &+yroad leads in a direction around the hills.  To the west is the trail through
 &+ythe Valley of Crushk.  There is a large sign here.
 ~
@@ -365,7 +365,7 @@ There is a road leading around the hills in that direction.
 ~
 0 0 2055
 D2
-There is a well travelled road in that direction.
+There is a well traveled road in that direction.
 ~
 ~
 0 0 2067
@@ -1207,7 +1207,7 @@ The gravel road continues in that direction.
 S
 #2068
 &+LTurn On a Gravel Road~
-   &+yThe well travelled, gravel road makes a turn to the east here.  It is still
+   &+yThe well traveled, gravel road makes a turn to the east here.  It is still
 &+yhard to determine where the sides of the road are to due to the amount of
 &+yheavy travel.  The road leads to the east and north from here.
 ~

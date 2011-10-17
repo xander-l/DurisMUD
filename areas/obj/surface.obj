@@ -786,6 +786,22 @@ A
 19 2
 A
 14 16
+#500054
+anti-wall object~
+this is a anti-wall object~
+This is an anti-wall object.~
+~
+12 15 3 0 7 0 32770 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#500055
+shadowrift~
+&+ra &+rpu&+Rl&+ws&+Wa&+wt&+Ri&+rng &+Lshadowrift&n~
+&+rA pulsating rift of &+Ldark shadows &+rbeckons only the fearless here.&n~
+~
+25 1 5 0 15 0 33587200 0 0 0 0
+0 7 -1 0 0 0 0 0
+0 0 100
 #500102
 large chunk flamewood~
 &+ya large chunk of &+rfl&+Ra&+rme&+ywood&n~

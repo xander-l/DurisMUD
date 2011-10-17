@@ -14,7 +14,7 @@ door~
 1 0 5548
 S
 #5501
-&+LA Pathway Under the Arch&N~
+&+LA Pathway Under the Arch&n~
    The rubble of stones, and other building material used as part of
 the city's walls is all around this area.  Elegant onyx menhirs once
 lined this path, but they are all now smashed and worthless.  East
@@ -33,7 +33,7 @@ D3
 S
 #5502
 The Road Leading From the Devastated Ruins of Tharnadia~
-   Once travelled by thousands of individuals on a daily basis, the road
+   Once traveled by thousands of individuals on a daily basis, the road
 leading from Tharnadia now lies in ruins and is completely desolate.  The
 amount of trash and rubble makes it impossible for anything other than foot
 traffic. From here, it is plainly evident how utterly devastated Tharnadia
@@ -2704,11 +2704,6 @@ it nearly impossible.  The &+ydirt&n road looks very ancient, with &+gweeds&n cr
 from the sides, and littered with potholes and shallow dips.
 ~
 55 142639168 4
-D0
-Tern road continues north.
-~
-~
-0 0 -1
 D2
    Tern road continues in that direction.
 ~
@@ -3749,7 +3744,7 @@ beds bed~
 S
 #5658
 The Road Leading From the Devastated Ruins of Tharnadia~
-   Once travelled by thousands of individuals on a daily basis, the road
+   Once traveled by thousands of individuals on a daily basis, the road
 leading from Tharnadia now lies in ruins and is completely desolate.  The
 amount of trash and rubble makes it impossible for anything other than foot
 traffic. From here, it is plainly evident how utterly devastated Tharnadia
@@ -3767,7 +3762,7 @@ D3
 0 0 5502
 S
 #5659
-The Road Leading From the Devastated Ruins of Tharnadia~
+&+LAdmist the R&+yu&+Lb&+yb&+Ll&+ye &+Lof a Massive &+rM&+Re&+rte&+Ro&+rr&n~
    Once travelled by thousands of individuals on a daily basis, the road
 leading from Tharnadia now lies in ruins and is completely desolate.  The
 amount of trash and rubble makes it impossible for anything other than foot
@@ -3776,10 +3771,6 @@ is.  The sight is enough to make anyone who remembers Tharnadia's former
 glory ill. Rubble makes travel impossible anywhere but east and west.
 ~
 55 134250496 2
-D1
-~
-~
-0 0 570424
 D3
 ~
 ~
@@ -4127,10 +4118,6 @@ D3
 ~
 ~
 0 0 5676
-D5
-~
-~
-0 0 718038
 S
 #5678
 &+LA Community &+yShit&+Lhouse&N~

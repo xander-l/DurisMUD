@@ -8,8 +8,8 @@ sa'dah sa dah labyrinthmaster minotaur~
 &+Lmuscles and broad shoulders hint at the pain one would
 &+Lface if you sought this beasts demise.&n
 ~
-1074137096 0 0 402653208 4194304 32768 0 0 S
-mt 0 17 -1
+1074137096 0 0 0 402653208 4194304 32768 0 0 S
+mt 0 17 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -22,8 +22,8 @@ immature leucrotta~
 &+Lbasic control of its body. It walks around sniffing the ground and
 &+Loccasionally falling over or yelping for its mother.&n
 ~
-8 1 0 67108864 0 0 0 0 S
-a 0 1 -1
+8 1 0 0 67108864 0 0 0 0 S
+a 0 1 0 -1
 10 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -39,8 +39,8 @@ male mature leucrotta~
 &+Lridges that are used as teeth. Its eyes glow with a feral red
 &+Lhue.&n
 ~
-1073743880 1 0 67108872 0 0 0 0 S
-a 0 1 -1
+1073743880 1 0 0 67108872 0 0 0 0 S
+a 0 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -56,8 +56,8 @@ female leucrotta~
 &+Lridges that are used as teeth. Its eyes glow with a feral red
 &+Lhue.&n
 ~
-1073743880 1 0 67108872 0 0 0 0 S
-a 0 1 -1
+1073743880 1 0 0 67108872 0 0 0 0 S
+a 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -71,8 +71,8 @@ large crocodile~
 &+gjaws of this massive reptillian beast. It is a dull green color
 &+gwith a hint of brown for camouflage.&n
 ~
-1073743880 1 0 67108872 0 0 0 0 S
-r 0 1 3
+1073743880 1 0 0 67108872 0 0 0 0 S
+r 0 1 0 3
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -86,8 +86,8 @@ large female crocodile~
 &+gjaws of this massive reptillian beast. It is a dull green color
 &+gwith a hint of brown for camouflage.&n
 ~
-1073743880 1 0 67108872 0 0 0 0 S
-r 0 1 3
+1073743880 1 0 0 67108872 0 0 0 0 S
+r 0 1 0 3
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -101,8 +101,8 @@ shambling mound~
 &+gswamps. The vegatated body of this golem-like creature
 &+gshines with a glistening membrance of slime and muck.&n
 ~
-1074137096 1 0 67108872 0 0 0 0 S
-r 0 1 -1
+1074137096 1 0 0 67108872 0 0 0 0 S
+r 0 1 0 -1
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -117,8 +117,8 @@ vicious lizardman~
 &+Llizard-like head with an elongated mouth sits atop a thick muscular
 &+Lbody. Sharp teeth peer out of the lipless face of this beast.&n
 ~
-1073743880 1 0 67108872 0 0 0 -1000 S
-h 0 1 -1
+1073743880 1 0 0 67108872 0 0 0 -1000 S
+h 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -131,8 +131,8 @@ stealthy orc bandit~
 &+wnothing but his bare hands and a small length of rope. He appears to
 &+wbe quite sneaky and looks eager to ambush anyone who walks close by.&n
 ~
-1073743880 1 0 67108872 0 0 0 -1000 S
-ho 0 1 -1
+1073743880 1 0 0 67108872 0 0 0 -1000 S
+ho 0 1 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -145,8 +145,8 @@ experienced orc raider~
 &+wnothing but his bare hands and a small length of rope. He appears to
 &+wbe quite sneaky and looks eager to ambush anyone who walks close by.&n
 ~
-1073743880 1 0 67108872 0 0 0 -1000 S
-ho 0 1 -1
+1073743880 1 0 0 67108872 0 0 0 -1000 S
+ho 0 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -159,8 +159,8 @@ devious orc thief~
 &+wnothing but his bare hands and a small length of rope. He appears to
 &+wbe quite sneaky and looks eager to ambush anyone who walks close by.&n
 ~
-1073743880 1 0 67108864 0 0 0 -1000 S
-ho 0 65536 -1
+1073743880 1 0 0 67108864 0 0 0 -1000 S
+ho 0 65536 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -173,8 +173,8 @@ large black wolf~
 &+Lferocious. It has a set of very large and very sharp teeth,
 &+Lperfect for sinking into the soft flesh of someone's neck.&n
 ~
-1073743880 1 0 67633152 0 0 0 0 S
-a 0 1 -1
+1073743880 1 0 0 67633152 0 0 0 0 S
+a 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -187,8 +187,8 @@ cloaked orc~
 &+wnothing but his bare hands and a small length of rope. He appears to
 &+wbe quite sneaky and looks eager to ambush anyone who walks close by.&n
 ~
-1073743880 1 0 67633152 0 0 0 -1000 S
-ho 0 64 -1
+1073743880 1 0 0 67633152 0 0 0 -1000 S
+ho 0 64 0 -1
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -203,8 +203,8 @@ burly lizardman warrior~
 &+Llizard-like head with an elongated mouth sits atop a thick muscular
 &+Lbody. Sharp teeth peer out of the lipless face of this beast.&n
 ~
-1073743880 1 0 67108872 0 0 0 -1000 S
-h 0 1 -1
+1073743880 1 0 0 67108872 0 0 0 -1000 S
+h 0 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -219,8 +219,8 @@ lizardman witch doctor~
 &+Llizard-like head with an elongated mouth sits atop a thick muscular
 &+Lbody. Sharp teeth peer out of the lipless face of this beast.&n
 ~
-1073743880 1 0 67633160 0 0 0 -1000 S
-h 0 256 -1
+1073743880 1 0 0 67633160 0 0 0 -1000 S
+h 0 256 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -233,8 +233,8 @@ swamp rat large~
 &+Land looks to have one nasty disease-filled bite. It would be a
 &+Lgood idea to try to avoid this creature.&n
 ~
-1073743880 1 0 67108864 0 0 0 0 S
-a 0 1 -1
+1073743880 1 0 0 67108864 0 0 0 0 S
+a 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -247,8 +247,8 @@ will wisp~
 &+Lfeeding off the life energy of all those who are nearby. It simply
 &+Lbobs around in the area like a flameless light.&n
 ~
-8 1 0 67633154 0 0 0 -500 S
-ug 0 1 -1
+8 1 0 0 67633154 0 0 0 -500 S
+ug 0 1 0 -1
 10 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -261,8 +261,8 @@ large will wisp~
 &+Lfeeding off the life energy of all those who are nearby. It simply
 &+Lbobs around in the area like a flameless light.&n
 ~
-8 1 0 67633154 0 0 0 -750 S
-ug 0 1 -1
+8 1 0 0 67633154 0 0 0 -750 S
+ug 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -277,8 +277,8 @@ one eyed one-eyed pirate~
 &+Lall sorts of nasty crimes, he is now retired and spends his days
 &+Lconvincing honest sailors to buy his contraband.&n
 ~
-2058 1 0 67108864 0 0 0 -500 S
-h2 0 1 -1
+2058 1 0 0 67108864 0 0 0 -500 S
+h2 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -292,8 +292,8 @@ jade commoner~
 &+gvery tall or strong, but looks like he is more than able
 &+gto carry his own in a fight.&n
 ~
-1073743944 0 0 67108864 0 0 0 0 S
-ph 0 1 -1
+1073743944 0 0 0 67108864 0 0 0 0 S
+ph 0 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -306,8 +306,8 @@ water ox~
 &+yand fat, with large, narrow eyes and a smell that could
 &+ywake the dead.&n
 ~
-1073743944 0 0 67108864 0 0 0 0 S
-ah 0 0 -1
+1073743944 0 0 0 67108864 0 0 0 0 S
+ah 0 0 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -321,8 +321,8 @@ rickshaw worker~
 &+yhis hands, suggesting that he is most likely not in a hurry
 &+yto return to work.&n
 ~
-1073743944 0 0 67108864 0 0 0 0 S
-ph 0 1 -1
+1073743944 0 0 0 67108864 0 0 0 0 S
+ph 0 1 0 -1
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -335,8 +335,8 @@ marsh viper~
 &+gpissed. You should probably avoid this little critter
 &+gif possible.&n
 ~
-1073743944 1 0 68681736 0 0 0 0 S
-rs 0 0 -1
+1073743944 1 0 0 68681736 0 0 0 0 S
+rs 0 0 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -351,8 +351,8 @@ powerful mystic~
 &+Lto pierce right through to your soul. You wonder what she
 &+Lis doing here.&n
 ~
-100665354 0 0 67108888 0 0 0 0 S
-cn 0 1049281 4
+100665354 0 0 0 67108888 0 0 0 0 S
+cn 0 1049281 0 4
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -366,8 +366,8 @@ jagunk ja fisherman orc~
 &+Lstands here, constantly slinging his line into the waters attempting
 &+Lto catch a fish.  Ja'Gunk looks quite frustrated.
 ~
-2122 0 0 67108872 0 0 0 -1000 S
-ho 0 1 -1
+2122 0 0 0 67108872 0 0 0 -1000 S
+ho 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -378,8 +378,8 @@ giant black spider~
 ~
    &+LThis giant black spider has large fangs and hundreds of tiny eyes.
 ~
-1073743944 1 0 67108864 0 0 0 0 S
-as 0 1 1
+1073743944 1 0 0 67108864 0 0 0 0 S
+as 0 1 0 1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -396,8 +396,8 @@ krekish vicefang orc knight~
 &+Lgrunts with a deep, gruff grimmace and dominantly walks through
 &+Lthe area with combat on his mind and determination in his eye.
 ~
-1073743944 0 0 67633176 0 0 0 -1000 S
-ho 0 1 -1
+1073743944 0 0 0 67633176 0 0 0 -1000 S
+ho 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -411,8 +411,8 @@ gr'tak gr tak orog raider~
 &+rdarker skin and deeper set eyes, resembling the cross between
 &+ran ogre and an orc.
 ~
-1073743944 0 0 67108888 0 0 0 -1000 S
-or 0 16385 -1
+1073743944 0 0 0 67108888 0 0 0 -1000 S
+or 0 16385 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -427,8 +427,8 @@ agnut shaman ogre~
 &+Bflames to burn higher, waves to crash faster, and winds to blow
 &+Bharder.
 ~
-2122 0 0 67108888 0 0 0 -1000 S
-po 0 256 -1
+2122 0 0 0 67108888 0 0 0 -1000 S
+po 0 256 0 -1
 43 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -442,8 +442,8 @@ wild ettercap~
 &+yvery large fangs protrude from its mouth and a set of very
 &+ylong and skinny arms look coiled and ready to strike.&n
 ~
-1073743880 1 0 67108864 0 0 0 -500 S
-ac 0 1 -1
+1073743880 1 0 0 67108864 0 0 0 -500 S
+ac 0 1 0 -1
 10 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -457,8 +457,8 @@ hungry ettercap~
 &+yvery large fangs protrude from its mouth and a set of very
 &+ylong and skinny arms look coiled and ready to strike.&n
 ~
-1073743880 1 0 67108872 0 0 0 -500 S
-ac 0 1 -1
+1073743880 1 0 0 67108872 0 0 0 -500 S
+ac 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -472,8 +472,8 @@ forest ettercap~
 &+yvery large fangs protrude from its mouth and a set of very
 &+ylong and skinny arms look coiled and ready to strike.&n
 ~
-1073743880 1 0 67108872 0 0 0 -500 S
-ac 0 1 -1
+1073743880 1 0 0 67108872 0 0 0 -500 S
+ac 0 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -488,8 +488,8 @@ dangerous lizardman hunter~
 &+Llizard-like head with an elongated mouth sits atop a thick muscular
 &+Lbody. Sharp teeth peer out of the lipless face of this beast.&n
 ~
-1073743880 1 0 67108872 0 0 0 -1000 S
-h 0 1 -1
+1073743880 1 0 0 67108872 0 0 0 -1000 S
+h 0 1 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -504,8 +504,8 @@ swamp troll~
 &+gand mammals, delightfully eating them raw whenever a catch
 &+gis made.&n
 ~
-1074137096 1 0 67633152 0 0 0 -1000 S
-pt 0 1 -1
+1074137096 1 0 0 67633152 0 0 0 -1000 S
+pt 0 1 0 -1
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -520,8 +520,8 @@ troll marauder~
 &+gand mammals, delightfully eating them raw whenever a catch
 &+gis made.&n
 ~
-1074137096 1 0 67633152 0 0 0 -1000 S
-pt 0 1 -1
+1074137096 1 0 0 67633152 0 0 0 -1000 S
+pt 0 1 0 -1
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -536,8 +536,8 @@ displacer beast feline fierce~
 &+ryour view. Nevertheless, this vicious beast is not very
 &+rfriendly and doesn't look very happy to see you nearby.&n
 ~
-1073743880 1 0 67633152 0 0 0 -500 S
-ac 0 1 4
+1073743880 1 0 0 67633152 0 0 0 -500 S
+ac 0 1 0 4
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -552,8 +552,8 @@ vicious snardval~
 &+Lof this animal is marked with deep scars which
 &+Lseem to have been sutured up in a sloppy way.&n
 ~
-1073743880 1 0 67633160 0 0 0 -500 S
-ra 0 1 -1
+1073743880 1 0 0 67633160 0 0 0 -500 S
+ra 0 1 0 -1
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -568,8 +568,8 @@ sightless bog wyrm bogwyrm~
 &+gand mammals, delightfully eating them raw whenever a catch
 &+gis made.&n
 ~
-1074137096 1 0 67108872 0 0 0 -1000 S
-ac 0 1 -1
+1074137096 1 0 0 67108872 0 0 0 -1000 S
+ac 0 1 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -583,8 +583,8 @@ double-headed dragonfly~
 &+ycreatures is not very long, and it seems that the only thing
 &+ythey do is eat and reproduce.&n
 ~
-1074137096 1 0 67108864 0 0 0 0 S
-i 0 1 1
+1074137096 1 0 0 67108864 0 0 0 0 S
+i 0 1 0 1
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -598,8 +598,8 @@ sand spider~
 &+yand sandy head.  This spider is brown and blends in well.  It is most easily-
 &+ywatched by its shadow.
 ~
-8 1 0 67108864 0 0 0 -400 S
-as 0 1 1
+8 1 0 0 67108864 0 0 0 -400 S
+as 0 1 0 1
 11 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -612,8 +612,8 @@ wemic scout~
 &+LWith a lion body and a human torso, this wemic bares striking, powerful
 &+Lfeatures and is ready at all times to do battle.
 ~
-2120 0 0 67108864 0 0 0 -349 S
-h 0 1 4
+2120 0 0 0 67108864 0 0 0 -349 S
+h 0 1 0 4
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -626,8 +626,8 @@ decorated tharnadian human watchman~
 &+Wlands, keeping a keen eye on anything and everything.  He has large muscles
 &+Wand stands quite tall for a human.
 ~
-1140852744 128 0 67108888 0 0 0 1000 S
-ph 0 1 -1
+1140852744 128 0 0 67108888 0 0 0 1000 S
+ph 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -640,8 +640,8 @@ human traveller~
 carries a small sack with him that is bursting with what appear to be
 camping supplies.  He walks through here proudly and determined.
 ~
-2120 0 0 67108864 0 0 0 0 S
-PH 0 1 -1
+2120 0 0 0 67108864 0 0 0 0 S
+PH 0 1 0 -1
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -652,8 +652,8 @@ rabbit~
 ~
    &nThis small rabbit gracefully hops through the grass.
 ~
-8 0 0 67108864 0 0 0 0 S
-a 0 1 2
+8 0 0 0 67108864 0 0 0 0 S
+a 0 1 0 2
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -666,8 +666,8 @@ barbarian hunter~
 carries a small sack with him that is bursting with what appear to be
 camping supplies.  He walks through here proudly and determined.
 ~
-2120 0 0 67108864 0 0 0 0 S
-pb 0 1 -1
+2120 0 0 0 67108864 0 0 0 0 S
+pb 0 1 0 -1
 19 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -679,8 +679,8 @@ deer~
    &+yThis strong-looking deer stands here calmly grazing on some grass.  It
 &+yhas a shiny coat and a noble form.
 ~
-72 0 0 67108864 0 0 0 0 S
-a 0 1 -1
+72 0 0 0 67108864 0 0 0 0 S
+a 0 1 0 -1
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -693,8 +693,8 @@ dwarven trapper~
 &+Ygolden blonde beard with matching bushy eyebrows.  He is currently
 &+Ysetting traps while checking on other ones.
 ~
-2120 0 0 67108864 0 0 0 150 S
-pm 0 1 -1
+2120 0 0 0 67108864 0 0 0 150 S
+pm 0 1 0 -1
 17 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -706,8 +706,8 @@ huge boar~
    This large fat pig rushes through the area, snarling and drooling
 as it hungrily attacks.
 ~
-8 1 0 67108864 0 0 0 -351 S
-a 0 1 -1
+8 1 0 0 67108864 0 0 0 -351 S
+a 0 1 0 -1
 6 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -721,8 +721,8 @@ standard leather garments and patrols the countryside on constant watch of
 evil forces who have an immensely-long running history of attacks on these
 lands in an attempt to control the surface.
 ~
-1140852808 128 0 67108888 0 0 0 600 S
-pb 0 1 -1
+1140852808 128 0 0 67108888 0 0 0 600 S
+pb 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -736,8 +736,8 @@ standard leather garments and patrols the countryside on constant watch of
 evil forces who have an immensely-long running history of attacks on these
 lands in an attempt to control the surface.
 ~
-1140852808 128 0 67108888 0 0 0 666 S
-pf 0 1 -1
+1140852808 128 0 0 67108888 0 0 0 666 S
+pf 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -751,8 +751,8 @@ standard leather garments and patrols the countryside on constant watch of
 evil forces who have an immensely-long running history of attacks on these
 lands in an attempt to control the surface.
 ~
-1140852808 128 0 67108888 0 0 0 666 S
-pf 0 1 -1
+1140852808 128 0 0 67108888 0 0 0 666 S
+pf 0 1 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -766,8 +766,8 @@ standard leather garments and patrols the countryside on constant watch of
 evil forces who have an immensely-long running history of attacks on these
 lands in an attempt to control the surface.
 ~
-1140852808 128 0 67108888 0 0 0 666 S
-pm 0 1 -1
+1140852808 128 0 0 67108888 0 0 0 666 S
+pm 0 1 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -781,8 +781,8 @@ crodog forgefire mountaineer dwarf~
 &+Gduring movement.  Crodog Forgefire, the fourth son of Ratroper Forgefire
 &+Gthe now-aged goldsmith of Kimordril.
 ~
-1140850760 128 0 67108888 0 0 0 1000 S
-pm 0 1 -1
+1140850760 128 0 0 67108888 0 0 0 1000 S
+pm 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -794,8 +794,8 @@ green iguana~
    &+gThis small green reptile jumps from branch to branch here, looking around
 &+gand blending in quite nicely.
 ~
-8 0 0 67108864 0 0 0 0 S
-r 0 1 -1
+8 0 0 0 67108864 0 0 0 0 S
+r 0 1 0 -1
 4 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -809,8 +809,8 @@ standard leather garments and patrols the countryside on constant watch of
 evil forces who have an immensely-long running history of attacks on these
 lands in an attempt to control the surface.
 ~
-1140852808 128 0 67108888 0 0 0 600 S
-pg 0 1 -1
+1140852808 128 0 0 67108888 0 0 0 600 S
+pg 0 1 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -826,8 +826,8 @@ meldar tharnadian marshall~
 &+WMeldar fights for these very ancestors, wearing his Marshall's badge
 &+Wwith pride and protecting the highways under the protection of Tharnadia.
 ~
-536872968 128 0 67108888 0 0 0 10000 S
-PH 0 8 -1
+536872968 128 0 0 67108888 0 0 0 10000 S
+PH 0 8 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -840,8 +840,8 @@ noble white steed~
 &+Wsun.  This horse wears an extremely-well made black elather
 &+Wsaddle and is also very well groomed.
 ~
-1207961608 0 0 67108888 2048 0 0 600 S
-ae 0 1 4
+1207961608 0 0 0 67108888 2048 0 0 600 S
+ae 0 1 0 4
 44 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -854,8 +854,8 @@ magnificent horse~
 sun.  This horse wears an extremely-well made black elather
 saddle and is also very well groomed.
 ~
-1207961608 0 0 67108888 2048 0 0 600 S
-ae 0 1 4
+1207961608 0 0 0 67108888 2048 0 0 600 S
+ae 0 1 0 4
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -869,8 +869,8 @@ standard leather garments and patrols the countryside on constant watch of
 evil forces who have an immensely-long running history of attacks on these
 lands in an attempt to control the surface.
 ~
-603981896 128 0 67108888 0 0 0 600 S
-ph 0 1 -1
+603981896 128 0 0 67108888 0 0 0 600 S
+ph 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -884,8 +884,8 @@ standard leather garments and patrols the countryside on constant watch of
 evil forces who have an immensely-long running history of attacks on these
 lands in an attempt to control the surface.
 ~
-603981896 128 0 67108888 0 0 0 600 S
-ph 0 1 -1
+603981896 128 0 0 67108888 0 0 0 600 S
+ph 0 1 0 -1
 44 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -899,8 +899,8 @@ standard leather garments and patrols the countryside on constant watch of
 evil forces who have an immensely-long running history of attacks on these
 lands in an attempt to control the surface.
 ~
-67110984 128 0 67108888 0 0 0 600 S
-ph 0 1 -1
+67110984 128 0 0 67108888 0 0 0 600 S
+ph 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -913,8 +913,8 @@ huge owlbear~
 &+Lof an owl.  It has two huge antlers that spring up out of its head
 &+Land has strange feathers growing from different parts of its body.
 ~
-1073743944 0 0 83886080 0 0 0 10 S
-ac 0 1 5
+1073743944 0 0 0 83886080 0 0 0 10 S
+ac 0 1 0 5
 39 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -927,8 +927,8 @@ huge owlbear~
 &+Lof an owl.  It has two huge antlers that spring up out of its head
 &+Land has strange feathers growing from different parts of its body.
 ~
-1073743944 0 0 83886080 0 0 0 10 S
-ac 0 1 4
+1073743944 0 0 0 83886080 0 0 0 10 S
+ac 0 1 0 4
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -941,8 +941,8 @@ snarling wolf~
 &+Lpaws and a bushy tail.  Large yellowed fangs framed with bright red gums
 &+Lare exposed as this snarling wolf shows its drool-glistenned teeth.
 ~
-1140850888 1 0 67108864 0 0 0 -600 S
-a 0 1 3
+1140850888 1 0 0 67108864 0 0 0 -600 S
+a 0 1 0 3
 22 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -955,8 +955,8 @@ gnoll~
 &+cfor this scavenger race.  This dog-faced warrior fights with an unmatched
 &+cdog-like ferocity as well.
 ~
-2056 1 0 67108864 0 0 0 -800 S
-h 0 1 -1
+2056 1 0 0 67108864 0 0 0 -800 S
+h 0 1 0 -1
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -968,8 +968,8 @@ faerie sprite~
    &+GThis small faerie sprite floats through the area, bobbing through the
 &+Gtrees and blessing these forests.
 ~
-200 0 0 67108864 0 0 0 500 S
-hf 0 2080 1
+200 0 0 0 67108864 0 0 0 500 S
+hf 0 2080 0 1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -981,8 +981,8 @@ glowing wisp~
    &+CThis small speck of light floats through various areas of these
 &+Cforests, glowing with a suttle, yet bright intensity.
 ~
-2120 0 0 67108864 0 0 0 0 S
-sp 0 1 0
+2120 0 0 0 67108864 0 0 0 0 S
+sp 0 1 0 0
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -995,8 +995,8 @@ caribou~
 &+ycoat warding off the harsh cold of the Tundra.  This caribou has thick black
 &+yhooves and wide brown eyes.
 ~
-72 0 0 67108864 0 0 0 -400 S
-a 0 1 4
+72 0 0 0 67108864 0 0 0 -400 S
+a 0 1 0 4
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1009,8 +1009,8 @@ snow buffalo~
 &+WThe snow buffalo has two tusks and a wide, powerful mouth able
 &+Wto deliver a vicious bite.
 ~
-8 0 0 67108864 0 0 0 -500 S
-a 0 1 5
+8 0 0 0 67108864 0 0 0 -500 S
+a 0 1 0 5
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1023,8 +1023,8 @@ snow fox~
 &+Wthe cold winters of the Ice Crag Tundra.  This small animal has small, sharp
 &+Wteeth and runs with nimble quickness.
 ~
-72 0 0 67108864 0 0 0 0 S
-a 0 1 2
+72 0 0 0 67108864 0 0 0 0 S
+a 0 1 0 2
 9 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1042,8 +1042,8 @@ sir jonius verspin watchman~
 &+Wwatch everything at once.  Quick on his feet, but even quicker with a
 &+Wsword, this noble watchman patrols the highway of the tundra.
 ~
-603981896 128 0 67108864 0 0 0 1000 S
-PH 0 67108864 -1
+603981896 128 0 0 67108864 0 0 0 1000 S
+PH 0 67108864 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1058,8 +1058,8 @@ thri thri-kreen~
 &+Gthri-kreens produce.  Nevertheless, this thri-kreen still looks like
 &+git would put up a strong fight.
 ~
-2120 0 0 67108864 0 0 0 0 S
-tk 0 1 -1
+2120 0 0 0 67108864 0 0 0 0 S
+tk 0 1 0 -1
 8 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1073,8 +1073,8 @@ minotaur~
 &+La gnarly face characterize this minotaur well with his brutal battleaxe
 &+Land devilish grin.
 ~
-1073743944 0 0 67108864 0 0 0 -100 S
-mt 0 1 4
+1073743944 0 0 0 67108864 0 0 0 -100 S
+mt 0 1 0 4
 10 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1087,8 +1087,8 @@ young ape~
 It leaps through the forest with ease and jumps from rock to rock
 when it is on land.
 ~
-2120 0 0 67108864 0 0 0 0 S
-aa 0 1 3
+2120 0 0 0 67108864 0 0 0 0 S
+aa 0 1 0 3
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1101,8 +1101,8 @@ huge grey ape~
 It leaps through the forest with ease and jumps from rock to rock
 when it is on land.
 ~
-2120 0 0 67108864 0 0 0 0 S
-aa 0 1 5
+2120 0 0 0 67108864 0 0 0 0 S
+aa 0 1 0 5
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1117,8 +1117,8 @@ jorl'gan stargazer~
 &+gescape from a labyrinth that was thought to be impossible for
 &+gany mortal to handle, much to the dismay of the &+Llabyrinth&+rmaster&+g.&n
 ~
-1073743880 0 0 67633152 1048576 65536 512 0 S
-x 0 2048 -1
+1073743880 0 0 0 67633152 1048576 65536 512 0 S
+x 0 2048 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1134,8 +1134,8 @@ cho'van philosopher~
 &+che has conducted quite a few experiments, some of which may have been
 &+ca bit controversial by his peers.&n
 ~
-1074137096 0 0 67633152 0 0 512 0 S
-x 0 33554432 -1
+1074137096 0 0 0 67633152 0 0 512 0 S
+x 0 33554432 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1147,8 +1147,8 @@ mountain eagle~
    &+yThis majestic mountain eagle soars through the mountains, perched
 &+yup high.  It has a large yellow beak and long brown and white feathers.
 ~
-2120 0 0 67108864 0 0 0 0 S
-b 0 1 -1
+2120 0 0 0 67108864 0 0 0 0 S
+b 0 1 0 -1
 12 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1164,8 +1164,8 @@ merrova traveler~
 &+mmore and more corrupted, and piece by piece, she brought a dark evil back
 &+mwith her, an evil that some might find alluring.&n
 ~
-1074137096 0 0 67633152 0 0 512 0 S
-x 0 2048 -1
+1074137096 0 0 0 67633152 0 0 512 0 S
+x 0 2048 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1181,8 +1181,8 @@ thorne enchanter~
 &+Bhave faced this dark master, only to have fallen before him in
 &+Bbrutal agony.&n
 ~
-1074137096 0 0 67633152 1048576 0 512 0 S
-x 0 4194304 -1
+1074137096 0 0 0 67633152 1048576 0 512 0 S
+x 0 4194304 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1196,8 +1196,8 @@ undead behemoth~
 &+Ltowards enemies through special glands that have survived since the
 &+Lreincarnation of this behemoth.
 ~
-1073743944 1 0 67108888 0 0 0 -1000 S
-u 0 1 5
+1073743944 1 0 0 67108888 0 0 0 -1000 S
+u 0 1 0 5
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1212,8 +1212,8 @@ powerful lich~
 &+Lhas been reanimated into this form of undeath, spewing forth the very
 &+Ldarkness that give it this unnatural life.
 ~
-1073743944 1 0 67108888 0 0 0 -1000 S
-ul 0 1024 -1
+1073743944 1 0 0 67108888 0 0 0 -1000 S
+ul 0 1024 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1226,8 +1226,8 @@ skeleton~
 &+Wdisfigured with disproportionate limbs and bone types.  Nevertheless,
 &+Wthis freakish skeleton has been constructed to do one thing:  kill.
 ~
-2120 1 0 67108864 0 0 0 -1000 S
-sk 0 1 -1
+2120 1 0 0 67108864 0 0 0 -1000 S
+sk 0 1 0 -1
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1238,8 +1238,8 @@ zombie~
 ~
    &+gThis rotting zombie stinks and is covered with ragged clothes and worms.
 ~
-72 1 0 67108864 0 0 0 -1000 S
-zo 0 1 -1
+72 1 0 0 67108864 0 0 0 -1000 S
+zo 0 1 0 -1
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1250,8 +1250,8 @@ shade~
 ~
    &+LA dark shade that appears to take on the form of the shadows on the ground.
 ~
-1074792520 1 0 201326616 0 0 0 -1000 S
-sw 0 1 2
+1074792520 1 0 0 201326616 0 0 0 -1000 S
+sw 0 1 0 2
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1267,8 +1267,8 @@ behemoth~
 &+Lof different sizes and in different positions, giving it a monstrous, grotesque
 &+Lappearance.
 ~
-1073743944 1 0 67108888 0 0 0 -1000 S
-bk 0 1 6
+1073743944 1 0 0 67108888 0 0 0 -1000 S
+bk 0 1 0 6
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1281,8 +1281,8 @@ large skeletal knight~
 &+Wdisfigured with disproportionate limbs and bone types.  Nevertheless,
 &+Wthis freakish skeleton has been constructed to do one thing:  kill.
 ~
-2120 1 0 67108888 0 0 0 -1000 S
-sk 0 1 4
+2120 1 0 0 67108888 0 0 0 -1000 S
+sk 0 1 0 4
 37 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1296,8 +1296,8 @@ nightcrawler shadow~
 &+Lhumanoid-sized shape floats through the air, it slowly leaves off a
 &+Ltrail of dissipating darkness.
 ~
-1073742152 1 0 67108888 0 0 0 -1000 S
-sw 0 516 -1
+1073742152 1 0 0 67108888 0 0 0 -1000 S
+sw 0 516 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1308,8 +1308,8 @@ headless zombie~
 ~
    &+gThis grotesque zombie wanders aimlessly and headlessly.
 ~
-72 1 0 67108864 0 0 0 -1000 S
-zo 0 1 -1
+72 1 0 0 67108864 0 0 0 -1000 S
+zo 0 1 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1320,8 +1320,8 @@ skeletal zombie~
 ~
    &+gThis zombie has rotting, decaying flesh hanging from its skeletal body.
 ~
-72 1 0 67108864 0 0 0 -1000 S
-zo 0 1 -1
+72 1 0 0 67108864 0 0 0 -1000 S
+zo 0 1 0 -1
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1334,8 +1334,8 @@ green wyrm~
 &+gand renowned for their incredible speed, this creature deftly and swiftly
 &+gmakes its way through the forests like a serpent in the water.
 ~
-1073743944 1 0 67108864 0 0 0 -1000 S
-dk 0 1 4
+1073743944 1 0 0 67108864 0 0 0 -1000 S
+dk 0 1 0 4
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1349,8 +1349,8 @@ large undead wolf~
 &+Ldeeper ferocity that is only momentarily sated by the warm
 &+Lsoft tear of living flesh.
 ~
-1073743944 1 0 67108888 0 0 0 -1000 S
-u 0 1 4
+1073743944 1 0 0 67108888 0 0 0 -1000 S
+u 0 1 0 4
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1364,8 +1364,8 @@ kres'nesthius fisherman elf kres~
 &+Gand can still handle himself quite well, once having fought in the
 &+Gbattle of Charings Fall, Kres'Nesthius is no stranger to combat.
 ~
-2122 0 0 67108888 0 0 0 1000 S
-pe 0 1 -1
+2122 0 0 0 67108888 0 0 0 1000 S
+pe 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1381,8 +1381,8 @@ undead ape~
 &+Lit incredible tracking abilities. This vicious treedweller is
 &+Ldefinitely not one that you would like to adopt as a pet.&n
 ~
-1074137096 0 0 67633152 0 0 0 -1000 S
-zo 0 1 -1
+1074137096 0 0 0 67633152 0 0 0 -1000 S
+zo 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1396,8 +1396,8 @@ chesynn tundra hunter~
 &+Cis dressed in heavy coats and garments, the leg of his pants bloodied
 &+Cby a deep snow panther bite.
 ~
-1073744074 0 0 67108888 0 0 0 600 S
-pe 0 2 -1
+1073744074 0 0 0 67108888 0 0 0 600 S
+pe 0 2 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1410,8 +1410,8 @@ Grey Fang &+Wthe alpha panther&N~
 &+WGrey Fang has a large trunk of a body and huge sharp fangs.  A vicious
 &+Wsnarl covers the face of this pack leader as it stalks across the tundra.
 ~
-1073743946 1 0 67108880 0 0 0 -600 S
-a 0 1 4
+1073743946 1 0 0 67108880 0 0 0 -600 S
+a 0 1 0 4
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1427,8 +1427,8 @@ tren tind halfling nomad~
 &+yCalimshan desert as well, already accomplished as a druid and animal
 &+yshaman there.
 ~
-2120 0 0 67108888 0 0 0 0 S
-pf 0 384 -1
+2120 0 0 0 67108888 0 0 0 0 S
+pf 0 384 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1441,8 +1441,8 @@ wyvern~
 &+ywings and shrieking endlessly.  The wyvern shrieks and hisses as a forked
 &+ytongue shakes from within its mouth.
 ~
-2152 1 0 67108864 0 0 0 -700 S
-b 0 1 5
+2152 1 0 0 67108864 0 0 0 -700 S
+b 0 1 0 5
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1458,8 +1458,8 @@ snardag dark wizard~
 &+Lblow around him like waves around rocks as he stoically stands planted on these
 &+Lbluffs.
 ~
-2250 0 0 67108888 0 0 0 -1000 S
-pl 0 516 -1
+2250 0 0 0 67108888 0 0 0 -1000 S
+pl 0 516 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 5 5 1
@@ -1474,8 +1474,8 @@ krethin centaur peak seer~
 &+Lmagical glow.  Krethin communes high up here in these mountains, becoming one
 &+Lwith the earth.
 ~
-2122 0 0 67108888 0 0 0 0 S
-ct 0 128 -1
+2122 0 0 0 67108888 0 0 0 0 S
+ct 0 128 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1489,8 +1489,8 @@ azikarzith demilich lich~
 &+Lto but a mere floating skull, projecting its thoughts and dark, evil magic
 &+Lacross the desolate wastelands of Death Isle.
 ~
-2120 0 0 67108888 0 0 0 -1000 S
-ul 0 4 2
+2120 0 0 0 67108888 0 0 0 -1000 S
+ul 0 4 0 2
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1504,8 +1504,8 @@ flegnus ancient larethian~
 &+Ygolden robes and floats with a mystical power, communing with the earth
 &+Yand the spirits of Olde.
 ~
-2120 0 0 67108888 0 0 0 500 S
-PH 0 1 -1
+2120 0 0 0 67108888 0 0 0 500 S
+PH 0 1 0 -1
 49 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1519,8 +1519,8 @@ flamewood treant~
 &+gthe long days of this Northern climate. This is a rare
 &+gtreant as well, a member of the &+rfl&+Ra&+rme&+ywoods&+g.&n
 ~
-1074137096 128 0 524288 0 0 0 0 S
-vt 0 1 -1
+1074137096 128 0 0 524288 0 0 0 0 S
+vt 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1534,8 +1534,8 @@ spiritwood treant~
 &+gthe long days of this Northern climate. This is a rare
 &+gtreant as well, a member of the &+Wsp&+Cir&+Wit&+ywood&+g.&n
 ~
-1074137096 128 0 524288 0 0 0 0 S
-vt 0 1 -1
+1074137096 128 0 0 524288 0 0 0 0 S
+vt 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1549,8 +1549,8 @@ elven guard~
 &+gfor a fight, because he simply doesn't get paid enough to
 &+gtake that kind of abuse.&n
 ~
-1074137096 128 0 8 0 0 0 0 S
-pe 0 1 -1
+1074137096 128 0 0 8 0 0 0 0 S
+pe 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1564,8 +1564,8 @@ elite elven guard~
 &+gfor a fight, because he simply doesn't get paid enough to
 &+gtake that kind of abuse.&n
 ~
-1074137096 128 0 8 0 0 0 0 S
-pe 0 1 -1
+1074137096 128 0 0 8 0 0 0 0 S
+pe 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1579,8 +1579,8 @@ human soldier~
 &+gfor a fight, because he simply doesn't get paid enough to
 &+gtake that kind of abuse.&n
 ~
-1074137096 128 0 8 0 0 0 0 S
-ph 0 1 -1
+1074137096 128 0 0 8 0 0 0 0 S
+ph 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1594,8 +1594,8 @@ elite human soldier~
 &+gfor a fight, because he simply doesn't get paid enough to
 &+gtake that kind of abuse.&n
 ~
-1074137096 128 0 8 0 0 0 0 S
-ph 0 1 -1
+1074137096 128 0 0 8 0 0 0 0 S
+ph 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1608,8 +1608,8 @@ barbarian mercenary~
 &+wto serve as added protection against the many enemies
 &+wthat threaten the peace of the local lands.&n
 ~
-1074137096 128 0 8 0 0 0 0 S
-pb 0 16384 -1
+1074137096 128 0 0 8 0 0 0 0 S
+pb 0 16384 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1623,8 +1623,8 @@ centaur guard guardsman~
 &+gfor a fight, because he simply doesn't get paid enough to
 &+gtake that kind of abuse.&n
 ~
-1074137096 128 0 8 0 0 0 0 S
-ct 0 1 -1
+1074137096 128 0 0 8 0 0 0 0 S
+ct 0 1 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1637,8 +1637,8 @@ gnomish observer~
 &+Lpen and a pad of paper, taking notes on the locations of certain
 &+Lstars. He is completely focused on the task at hand.&n
 ~
-8 0 0 0 0 0 0 0 S
-pg 0 524288 -1
+8 0 0 0 0 0 0 0 0 S
+pg 0 524288 0 -1
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1652,8 +1652,8 @@ moldug barbarian fisherman~
 &+ynot like his warrior tribemen, as he sits calmly and patiently, awaiting a fish
 &+yto catch.  &+WMoldug &+ygreets strangers with a smile and a hearty &+Y'Hello.'
 ~
-2058 0 0 8 0 0 0 25 S
-pb 0 1 4
+2058 0 0 0 8 0 0 0 25 S
+pb 0 1 0 4
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1666,8 +1666,8 @@ huge furry ram~
 &+Wface of an oversized goat.  It has huge hoofs and a massive body, covered
 &+Win thick, knotted hair.
 ~
-2120 0 0 67108864 0 0 0 0 S
-a 0 1 5
+2120 0 0 0 67108864 0 0 0 0 S
+a 0 1 0 5
 39 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1680,8 +1680,8 @@ A &+Wwild &Nhorse of the sylvan woodlands trots about here briskly.
 &+Wraised in the sylvan woodlands of Evermeet, this young, wild horse has white
 &+Whair and piercing eyes.  It seems like it may be tameable.
 ~
-134481928 0 0 67108888 0 0 0 600 S
-ae 0 1 4
+134481928 0 0 0 67108888 0 0 0 600 S
+ae 0 1 0 4
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1694,8 +1694,8 @@ hill giant humanoid~
 &+yextending from his shoulders to his wasit, this large hill giant&n
 &+yis out seeking food, pretty objects and other treasures.&n
 ~
-1073743880 1 0 67108888 0 0 0 0 S
-G 0 16384 6
+1073743880 1 0 0 67108888 0 0 0 0 S
+G 0 16384 0 6
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1710,8 +1710,8 @@ hill giant humanoid unworried~
 &+yYet, there is no doubt she would as easily make a coat from your
 &+yhide, too.
 ~
-1073743880 1 0 67108888 0 0 0 0 S
-G 0 256 6
+1073743880 1 0 0 67108888 0 0 0 0 S
+G 0 256 0 6
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1721,8 +1721,8 @@ prophet fire _spec3_~
 &+rThe &+RProphet &+rof &+RFire &+ris busy conjuring &+RFlames&+r.&n
 ~
 ~
-67110922 0 0 0 0 0 0 0 S
-ef 0 2048 -1
+67110922 0 0 0 0 0 0 0 0 S
+ef 0 2048 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1732,8 +1732,8 @@ prophet ice _spec2_~
 &+bThe &+CProphet &+bof &+CIce &+bis busy conjuring &+Cicicles&+b.&n
 ~
 ~
-67108874 0 0 0 0 0 0 0 S
-ew 0 33554432 -1
+67108874 0 0 0 0 0 0 0 0 S
+ew 0 33554432 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1743,8 +1743,8 @@ guardian fire~
 &+Lthe &+RGuardian &+Lof &+rthe Altar of &+RFire &+Lstands here, motionless.&n
 ~
 ~
-67108874 0 0 0 0 0 0 0 S
-ef 0 1 -1
+67108874 0 0 0 0 0 0 0 0 S
+ef 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1754,8 +1754,8 @@ guardian ice~
 &+LThe &+CGuardian &+Lof &+bthe Altar of &+CIce &+Lstands here, motionless.&n
 ~
 ~
-67108874 0 0 0 0 0 0 0 S
-ie 0 1 -1
+67108874 0 0 0 0 0 0 0 0 S
+ie 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1765,8 +1765,8 @@ young gnomish scientist~
 &+WA young &+RGn&+romi&+Rsh Sc&+rie&+Rnt&+ri&+Rst &+Wwanders around this &+gSecluded Island&+W.&n
 ~
 ~
-8 0 0 0 0 0 0 0 S
-ph 0 524288 -1
+8 0 0 0 0 0 0 0 0 S
+ph 0 524288 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1779,8 +1779,8 @@ flann broad-chested shipmaster~
 &+yof &+mVella's Bordello&+y, he's also hung like one. He has a large gap in his smile
 &+yand has a tattoo of an anchor and rapier on his arm.&n
 ~
-2058 0 0 8 0 0 0 0 S
-PH 0 64 5
+2058 0 0 0 8 0 0 0 0 S
+PH 0 64 0 5
 59 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1794,8 +1794,8 @@ human seafarer~
 &+Cthe western &N&+ydocks&+C for the completion of his latest repairs and
 &+Cupgrades, contracted by &n&+yFlann&+C.
 ~
-2058 0 0 0 0 0 0 600 S
-PH 0 1 -1
+2058 0 0 0 0 0 0 0 600 S
+PH 0 1 0 -1
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1812,8 +1812,8 @@ battle-scarred shield dwarf sailor~
 &+Ydwarf&+L pays this realm a visit, awaiting a repair to
 &+Lhis ship.
 ~
-2058 0 0 24 0 0 0 600 S
-pm 0 1 -1
+2058 0 0 0 24 0 0 0 600 S
+pm 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1827,8 +1827,8 @@ dock worker~
 &+yHe answers to Flann, working with a strong dedication to his
 &+ycraft, and a stronger devotion to the coin.
 ~
-2058 0 0 0 0 0 0 50 S
-h 0 1 -1
+2058 0 0 0 0 0 0 0 50 S
+h 0 1 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1843,8 +1843,8 @@ barbarian traveler~
 &+Bthe thick &+Wfurred &+Bhides of the beasts personally-slain in
 &+Bhis locality.
 ~
-2058 0 0 0 0 0 0 200 S
-pb 0 16384 -1
+2058 0 0 0 0 0 0 0 200 S
+pb 0 16384 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1854,8 +1854,8 @@ frzzt undead boatman~
 &+rFrz&+Lzt, the undead &+rboat&+Lman stands here, waiting to take you on a one way journey.&n
 ~
 ~
-2058 0 0 8 0 0 0 -1000 S
-sk 0 1 -1
+2058 0 0 0 8 0 0 0 -1000 S
+sk 0 1 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1865,8 +1865,8 @@ undead minion~
 &+LAn undead &+rmin&+Lion is busy loading cargo onto a nearby ship.&n
 ~
 ~
-2058 0 0 8 0 0 0 -999 S
-sk 0 0 -1
+2058 0 0 0 8 0 0 0 -999 S
+sk 0 0 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1881,11 +1881,22 @@ seni revered theurgist eladrin teacher _spec3_ _spec2_ _spec1_~
 &+cher eyes seems to draw you in, and you feel like you could learn much
 &+cof the ways of the Theurgist by listening to this woman speak.&n
 ~
-2147530760 384 0 402727064 309340 0 4194304 1000 S
-EL 0 134217728 -1
+2147530760 384 0 0 402727064 309340 0 4194304 1000 S
+EL 0 134217728 0 -1
 59 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
+#500129
+general sickly emaciated decorated~
+&+La &+gsi&+Gck&+gly&+L, emaciated &+gex-general&n~
+&+LAn emaciated and sickly &+ghu&+Gm&+gan &+Ldecorated with &+ymany &+Ymedals &+Llurks here.&n
+~
+~
+8417290 0 0 0 0 0 0 4096 -1000 S
+PH 0 16777216 1 3
+62 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
 #500150
 reaver snudk goblin shock_reaver teacher _spec3_~
 &+gSnudk&+L, the &+Ggoblin &+Yshock &+Lreaver&N~
@@ -1898,8 +1909,8 @@ reaver snudk goblin shock_reaver teacher _spec3_~
 &+Lgrey, beneath a rather large brow.  What is left of his hair has been tied
 &+Lback behind his head with a silver strand.&N
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-HG 0 2097152 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+HG 0 2097152 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1916,8 +1927,8 @@ reaver vacket orc ice_reaver teacher _spec1_~
 &+Llip.  A heavy iron mace is strapped by leather thongs to a rather large
 &+Lmetallic belt about his waist.&N
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-HO 0 2097152 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+HO 0 2097152 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1934,8 +1945,8 @@ reaver silurilith drow elf flame_reaver teacher _spec2_~
 &+rmovements are calculated and precise, leaving little doubt to the prowess
 &+rshe wields in combat.&N
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-PL 0 2097152 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+PL 0 2097152 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1952,8 +1963,8 @@ warrior gurthuz troll guardian teacher _spec2_~
 &+Ghas a few missing teeth, and some rather impressive burn marks, but on
 &+Gthe whole appears hale and healthy.&N
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-PT 0 1 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+PT 0 1 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1971,8 +1982,8 @@ warrior urghegg ogre swordsman teacher _spec1_~
 &+Ysince forgotten and healed.  His large grey eyes scan the area warily,
 &+Ysearching perhaps for the next challenger.&N
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-PO 0 1 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+PO 0 1 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1988,8 +1999,8 @@ xixxrelaa githyanki pyrokinetic robed flames teacher _spec1_~
 &+Lrobe of the creature, and the bottom of the garment drags for a couple feet
 &+Lbehind the methodical steps of the woman.&N
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-GI 0 4 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+GI 0 4 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2005,8 +2016,8 @@ k'vi'shiiu githyanki master enslaver teacher _spec2_~
 &+Wof black and gold.  A strange black mist shrouds the very bottom portion of
 &+Wher body, swirling slowly about the area where her feet must be.&N
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-GI 0 4 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+GI 0 4 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2021,8 +2032,8 @@ zjojth githyanki master psycheporter teacher _spec3_~
 &+minto holes around his jaw, and overall - even for a gith - he appears
 &+memaciated and in dire need of food.  His toothy smile is genuine, however.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-GI 0 4 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+GI 0 4 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2037,8 +2048,8 @@ vlu'rruq githyanki figure black dark_knight teacher _spec1_~
 &+Lfaint red mist seems to hang about the entire body of the githyanki knight,
 &+Lbillowing about and making the already impressive visage almost supernatural.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-GI 0 16 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+GI 0 16 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2053,8 +2064,8 @@ morthreck orc demonic_rider teacher _spec2_~
 &+rordeal and has lived out his life since as a mentor to those that would
 &+rbring death upon their foes while mounted.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-HO 0 16 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+HO 0 16 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2069,8 +2080,8 @@ orethma goblin windtalker teacher _spec1_~
 &+Yin her left hand.  A glint of something peculiar rests just within her deep
 &+Yblue eyes.&n
 ~
-2147524616 0 0 33554472 30 0 0 -500 S
-HG 0 33554432 -1
+2147524616 0 0 0 33554472 30 0 0 -500 S
+HG 0 33554432 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2085,8 +2096,8 @@ kwarooe orc frost_magus teacher _spec2_~
 &+cfrom stark white animals hides, and also appear very soft and comfortable.
 &+cThe magus eyes you and awaits your question.&n
 ~
-2147524616 0 0 33554472 30 0 0 -500 S
-HO 0 33554432 -1
+2147524616 0 0 0 33554472 30 0 0 -500 S
+HO 0 33554432 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2100,8 +2111,8 @@ thuu goblin cosmomancer teacher _spec3_~
 &+yabout him than any biography could ever portray.  His garb is wildly colorful
 &+Yand helps to give his appearance even more incredulity.&n
 ~
-2147524616 0 0 33554472 30 0 0 -500 S
-HG 0 33554432 -1
+2147524616 0 0 0 33554472 30 0 0 -500 S
+HG 0 33554432 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2116,8 +2127,8 @@ bwizx goblin disharmonist teacher _spec1_~
 &+rdamage with his voice at any time.  He travels here now, searching for a
 &+rstudent to train.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-HG 0 32768 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+HG 0 32768 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2131,8 +2142,8 @@ fnoth orc scoundrel teacher _spec2_~
 &+Gglint in his eyes suggests only malice in his heart, yet he draws no weapon.
 &+GPerhaps he's waiting for someone else to make the first move.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-HO 0 32768 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+HO 0 32768 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2147,8 +2158,8 @@ jerastras drow elven minstrel teacher _spec3_~
 &+mA delicate looking flute rests comfortably in her hands as she blows gently
 &+mover the instrument.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-PL 0 32768 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+PL 0 32768 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2163,8 +2174,8 @@ zroz drow elven wildmage teacher _spec1_~
 &+centertaining nonetheless.  For now, he's looking to gather energy for a spell
 &+cfor some ulterior motive, no doubt.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-PL 0 512 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+PL 0 512 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2178,8 +2189,8 @@ iu goblin wizard teacher _spec2_~
 &+yand actions might have made a rather dubious account of the wizard, his looks
 &+yand current behavior do nothing to support the long-standing rumors.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-HG 0 512 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+HG 0 512 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2194,8 +2205,8 @@ be'tre orc unseen shadowmage teacher _spec3_~
 &+Lfrom one place to another.  As you look at him, he smiles and once more fades
 &+Laway.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-HO 0 512 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+HO 0 512 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2209,8 +2220,8 @@ kjrell drow elven diabolis teacher _spec1_~
 &+mcreated by the bones beneath.  Her tongue is long and black, and lolls out the
 &+mside of her mouth as she furiously exhumes a corpse from the ground.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-PL 0 1024 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+PL 0 1024 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2225,8 +2236,8 @@ theralana drow elven necrolyte teacher _spec2_~
 &+Wwill is left in her cohorts.  She searches now for students willing to take in
 &+Wthis information wealth she has accumulated.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-PL 0 1024 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+PL 0 1024 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2241,8 +2252,8 @@ screcksis drow elven reaper teacher _spec3_~
 &+rhead.  A rather formidable blade rests comfortably in his hands as he searches
 &+rthe lands for more souls to send away.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-PL 0 1024 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+PL 0 1024 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2256,8 +2267,8 @@ skivv githyanki air_magus teacher _spec1_~
 &+Cchose the plane of air and hence the specialization of air magus.  Now aged and
 &+Cwisened by his years afield, he seeks students to learn the ways of the air.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-GI 0 2048 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+GI 0 2048 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2272,8 +2283,8 @@ skarvv githyanki water_magus teacher _spec2_~
 &+Band wisened by his years afield, he seeks students to learn the ways of the
 &+Bwater.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-GI 0 2048 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+GI 0 2048 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2288,8 +2299,8 @@ skuvv githyanki fire_magus teacher _spec3_~
 &+rand wisened by his years afield, he seeks students to learn the ways of the
 &+rflames.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-GI 0 2048 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+GI 0 2048 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2304,8 +2315,8 @@ skevv githyanki earth_magus teacher _spec4_~
 &+yand wisened by his years afield, he seeks students to learn the ways of the
 &+yearth.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-GI 0 2048 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+GI 0 2048 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2319,8 +2330,8 @@ spuzz duergar assassin teacher _spec1_~
 &+rin their spine.  His toothy grin is a match for his demeanor, as he dashes
 &+rto and fro in a blur.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-PD 0 4096 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+PD 0 4096 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2335,8 +2346,8 @@ tylck orc thief teacher _spec2_~
 &+Ljust about any countermeasures to his skills.  He winks at you before
 &+Ldisappearing once more into the shadows.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-HO 0 4096 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+HO 0 4096 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2352,8 +2363,8 @@ feqt drow elven swashbuckler teacher _spec3_~
 &+Cother underhanded means to obtain an advantage against his foes, all the while
 &+Cwearing a dashing smile.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-PL 0 1 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+PL 0 1 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2367,8 +2378,8 @@ dreikk duergar archer shadow_archer teacher _spec4_~
 &+Gseveral black, feather fletched arrows.  His right eye socket has had the
 &+Gskin pulled over and sewn shut in some macabre surgical procedure.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-PD 0 4096 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+PD 0 4096 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2383,8 +2394,8 @@ lloj troll brigand teacher _spec1_~
 &+yhired hands in the land has earned him respect and a considerable amount of
 &+ywealth.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-PT 0 16384 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+PT 0 16384 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2398,8 +2409,8 @@ myrkt troll hunter bounty_hunter teacher _spec2_~
 &+yhowever, Myrkt is anything but.  He moves with the practiced skill of a master
 &+yas he looks for his current quarry.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-PT 0 16384 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+PT 0 16384 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2413,8 +2424,8 @@ ruukoz orog berserker mauler teacher _spec1_~
 &+rthus been sent out to teach others the skills of the mauler.  His jaw is covered
 &+rby a thick beard which still has bits of flesh and bone stuck to it.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-OR 0 1048576 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+OR 0 1048576 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2429,8 +2440,8 @@ boq orc berserker ragelord teacher _spec2_~
 &+Lbut his actions do not seek to tear everything apart.  He has wandered far
 &+Lafield trying to find another who seeks the knowledge of the ragelords.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-HO 0 1048576 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+HO 0 1048576 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2444,8 +2455,8 @@ thoemaa orc magician teacher _spec1_~
 &+wnot his motives are clear, it is clear that he is a master at his craft, and
 &+wis more than willing to train those who wish to follow the same path.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-HO 0 4194304 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+HO 0 4194304 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2460,8 +2471,8 @@ ugreth orc dark_dreamer teacher _spec2_~
 &+mprevent him from creating haunting images that would make most people flee
 &+min panic.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-HO 0 4194304 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+HO 0 4194304 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2476,8 +2487,8 @@ koztk vampire deathlord teacher _spec1_~
 &+rparticular dreadlord is seeking an understudy to which he will bestow
 &+runtold power upon.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-UV 0 16777216 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+UV 0 16777216 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2492,8 +2503,8 @@ szezt vampire shadowlord teacher _spec2_~
 &+rparticular dreadlord is seeking an understudy to which he will bestow
 &+runtold power upon.&n
 ~
-2147524616 64 0 33554472 30 0 0 -500 S
-UV 0 16777216 -1
+2147524616 64 0 0 33554472 30 0 0 -500 S
+UV 0 16777216 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2506,8 +2517,8 @@ perin half elf forest druid teacher _spec1_~
 &+ghas an eagle eye admired from Verzanan to Sylvandawn.  He will gladly
 &+gteach anyone some druid skills, for a price..
 ~
-2147526668 384 0 570499176 12480 0 0 789 S
-P2 0 128 -1
+2147526668 384 0 0 570499176 12480 0 0 789 S
+P2 0 128 0 -1
 60 -3 -95 50d110+2700 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -2523,8 +2534,8 @@ weather are harnessed through devout worship and these are his favored weapons.
 Now he seeks others to join his cause by using the same tactics he has perfected
 and enjoys.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-CT 0 128 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+CT 0 128 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2537,8 +2548,8 @@ mugtogg barbarian elementalist teacher _spec1_~
 &+mthis shaman is great indeed.  He may even teach you a little something,
 &+mif requested.
 ~
-2147526668 384 0 570499176 12480 0 0 473 S
-PB 0 256 -1
+2147526668 384 0 0 570499176 12480 0 0 473 S
+PB 0 256 0 -1
 60 -3 -95 50d110+2700 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -2554,8 +2565,8 @@ keira barbarian spiritualist teacher _spec2_~
 &+WKeira has twisted natures forces in unique ways. She is willing to teach
 &+Wothers in an effort to further the cause of good.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-PB 0 256 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+PB 0 256 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2571,8 +2582,8 @@ chimel halfling animalist teacher _spec3_~
 &+ytrance, channeling his spiritual energy and strengthening a companion greatly.
 &+yHe shares his knowledge with those that wish to follow in his footsteps.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-PF 0 256 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+PF 0 256 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2585,8 +2596,8 @@ surak dwarf guardian teacher _spec2_~
 &+ysomething, he may be an egomaniac, but at least he knows what he's
 &+ytalking about.
 ~
-2147526668 384 0 973185148 12480 0 0 500 S
-PM 0 1 -1
+2147526668 384 0 0 973185148 12480 0 0 500 S
+PM 0 1 0 -1
 60 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -2603,8 +2614,8 @@ xzch thrikreen swordsman teacher _spec1_~
 &+Ypeople. He has decided to share his techniques with others and seeks out
 &+Ywilling students to teach.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-TK 0 1 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+TK 0 1 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2617,8 +2628,8 @@ jaer human bounty hunter teacher _spec2_~
 &+ymoney.  However, he has called it quits, teaching many students in the
 &+yname of money instead.
 ~
-2147526668 384 0 973152380 12480 0 0 -329 S
-PH 0 16384 -1
+2147526668 384 0 0 973152380 12480 0 0 -329 S
+PH 0 16384 0 -1
 56 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -2635,8 +2646,8 @@ branok barbarian brigand teacher _spec1_~
 &+yknowledge to other mercenaries by training anyone that wishes to fight, and be,
 &+ylike him.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-PB 0 16384 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+PB 0 16384 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2650,8 +2661,8 @@ kortril grey elf minstrel teacher _spec3_~
 &+mpools of serenity within his serenely shaped face.  He beckons to anyone
 &+mwilling to listen to his songs.&n
 ~
-2147526668 384 0 570499176 12480 0 0 913 S
-PE 0 32768 -1
+2147526668 384 0 0 570499176 12480 0 0 913 S
+PE 0 32768 0 -1
 56 -3 -95 50d110+2700 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -2667,8 +2678,8 @@ rasteril halfling scoundrel teacher _spec2_~
 &+rskills to emphasize that. He doesn.t mind sharing his skills with others as
 &+rlong as they are willing to pay.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-PF 0 32768 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+PF 0 32768 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2684,8 +2695,8 @@ sythandria half elf disharmonist teacher _spec1_~
 &+mheights, she has developed her magical voice to the extreme and she has been
 &+mknown to share these original abilities.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-P2 0 32768 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+P2 0 32768 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2699,8 +2710,8 @@ ghiran human wizard teacher _spec2_~
 &+bquiet inflection and pondering; he seems utterly unaware of most of his
 &+bsurroundings.&n
 ~
-2147526664 384 0 33554472 30 0 0 500 S
-PH 0 512 -1
+2147526664 384 0 0 33554472 30 0 0 500 S
+PH 0 512 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2714,8 +2725,8 @@ valiwilwoor grey elf shadowmage teacher _spec3_~
 &+rand appearing to be in several places at once, his movements are confusing
 &+rand confounding.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-PE 0 512 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+PE 0 512 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2730,8 +2741,8 @@ wanyol half elf wildmage teacher _spec1_~
 &+Codd scars(and most likely stories to go along with them).  He seems jovial
 &+Cand kind, however.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-P2 0 512 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+P2 0 512 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2744,8 +2755,8 @@ valyn grey elf huntsman teacher _spec2_~
 &+gteach those who will listen.  His movements are precise and calculated, and
 &+gnot a thing goes unnoticed in front of his well-trained eyes.
 ~
-2147526664 384 0 33554472 30 0 0 500 S
-PE 0 2 -1
+2147526664 384 0 0 33554472 30 0 0 500 S
+PE 0 2 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2759,8 +2770,8 @@ llyriv half elf bladesman teacher _spec1_~
 &+Wworld are kept secretive, as much so as his motives.  Few can call him
 &+Wfriend, though he turns no callous eye to those that would learn his ways.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-P2 0 2 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+P2 0 2 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2776,8 +2787,8 @@ zermeiel centaur marshall teacher _spec3_~
 &+Lmarked by white patches of hair interspersed with grey.  He looks gravely upon you
 &+Las you look.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-CT 0 2 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+CT 0 2 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2789,8 +2800,8 @@ alana human crusader teacher _spec1_~
 &+WHaving fought in hundreds of holy battles, Alana is just the woman to
 &+Wspeak to if you're interested in the holy profession's skills yourself.
 ~
-2147526664 384 0 33554472 30 0 0 500 S
-CT 0 8 -1
+2147526664 384 0 0 33554472 30 0 0 500 S
+CT 0 8 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2804,8 +2815,8 @@ bregtar half elf cavalier teacher _spec1_~
 &+Wvisage is a constant reminder of the clean and pure hand which guides his
 &+Wactions.&n
 ~
-2147524616 384 0 33554472 30 0 0 1000 S
-P2 0 8 -1
+2147524616 384 0 0 33554472 30 0 0 1000 S
+P2 0 8 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2818,8 +2829,8 @@ sir dravor human lightbringer teacher _spec1_~
 &+cextreme dedication to fighting against the evil rulers of the land. He
 &+ctravels near and far to ensure the safety of his people.&n
 ~
-3288377352 384 0 134226048 0 0 0 0 S
-PH 0 67108864 -1
+3288377352 384 0 0 134226048 0 0 0 0 S
+PH 0 67108864 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2832,8 +2843,8 @@ father benali human holyman teacher _spec2_~
 &+yfor his goodwill to races everywhere.  He is also reknowned for his
 &+ywillingness to teach others the holy ways of virtue.&n
 ~
-2147526664 384 0 33554472 30 0 0 500 S
-PH 0 32 -1
+2147526664 384 0 0 33554472 30 0 0 500 S
+PH 0 32 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2847,8 +2858,8 @@ ryllinae grey elf healer teacher _spec3_~
 &+GHer expertise at healing has been sought by many decrepit kings wishing to
 &+Gextend their lives even for a few more days.&n
 ~
-2147524616 384 0 33554472 30 0 0 1000 S
-PE 0 32 -1
+2147524616 384 0 0 33554472 30 0 0 1000 S
+PE 0 32 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2861,8 +2872,8 @@ burbrumly gnome zealot teacher _spec1_~
 &+Rworld, the peoples of Duris, his faith and devotion and perhaps a million
 &+Rother topics.  His ruddy cheeks are a blur as he continues another tirade.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-PG 0 32 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+PG 0 32 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2876,8 +2887,8 @@ mu human red_dragon teacher _spec1_~
 &+ymore humble than the lowest slave.  However, if approached, he will
 &+ygladly teach a bit of the martial arts.
 ~
-2147526664 384 0 33554472 30 0 0 500 S
-PH 0 64 -1
+2147526664 384 0 0 33554472 30 0 0 500 S
+PH 0 64 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2890,8 +2901,8 @@ k'thruu githzerai elaphidist teacher _spec2_~
 &+Cpractices his mantra.  His smooth and precise movements leave no doubt
 &+Cas to his prowess in battle.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-GZ 0 64 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+GZ 0 64 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2905,8 +2916,8 @@ kralim human diabolis teacher _spec1_~
 &+Lnecromancer.  He is extroverted enough, however, to teach people
 &+Lhere and there.
 ~
-2147526664 384 0 33554472 30 0 0 -300 S
-PH 0 1024 -1
+2147526664 384 0 0 33554472 30 0 0 -300 S
+PH 0 1024 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2921,8 +2932,8 @@ nebretych human necrolyte teacher _spec2_~
 &+Yappear as eerie orbs of bluish light.  He beckons you closer as he speaks
 &+Yquietly over the corpse.&n
 ~
-2147524616 384 0 33554472 30 0 0 -300 S
-PH 0 1024 -1
+2147524616 384 0 0 33554472 30 0 0 -300 S
+PH 0 1024 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2936,8 +2947,8 @@ bhui human reaper teacher _spec3_~
 &+mdelight and satisfaction with returning sinners to the ground is only matched
 &+mby the dementia and megalomania that rages through his psyche.&n
 ~
-2147524616 384 0 33554472 30 0 0 -300 S
-PH 0 1024 -1
+2147524616 384 0 0 33554472 30 0 0 -300 S
+PH 0 1024 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2951,8 +2962,8 @@ suri gnome earth_magus teacher _spec4_~
 &+Ycasters hands down.  Bored of adventuring, she now wanders the byways
 &+Yof the world, occasionally dispensing tidbits of information.
 ~
-2147526664 384 0 33554472 30 0 0 500 S
-PG 0 2048 -1
+2147526664 384 0 0 33554472 30 0 0 500 S
+PG 0 2048 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2966,8 +2977,8 @@ d'renzd githzerai water_magus teacher _spec2_~
 &+bHis bald head is adorned with tattoos that seem to waver and blur as he
 &+brides the wave of water towards some unknown destination.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-GZ 0 2048 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+GZ 0 2048 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2981,8 +2992,8 @@ kiovock human fire_magus teacher inferno _spec3_~
 &+Rthe amazing power of the substance, he has long since mastered every facet of
 &+Rfire control.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-PH 0 2048 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+PH 0 2048 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2996,8 +3007,8 @@ cruthuallyr grey elf air_magus teacher _spec1_~
 &+Wand perhaps any other.  He has a benevolent smile and long tresses of dark blonde
 &+Whair.&n
 ~
-2147524616 384 0 33554472 30 0 0 1000 S
-PE 0 2048 -1
+2147524616 384 0 0 33554472 30 0 0 1000 S
+PE 0 2048 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3010,8 +3021,8 @@ favi halfling thief teacher _spec2_~
 &+Lthief.  Lucky for you he has given up killing others for fun and
 &+Lprofit and instead now educates them.
 ~
-2147526664 384 0 33554472 30 0 0 -300 S
-PF 0 4096 -1
+2147526664 384 0 0 33554472 30 0 0 -300 S
+PF 0 4096 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3024,8 +3035,8 @@ nival human assassin teacher _spec1_~
 &+reye somehow tells you he could kill you right now without thinking,
 &+rbut that he simply doesn't want to waste the time.
 ~
-2147526664 384 0 33554472 30 0 0 -300 S
-PH 0 4096 -1
+2147526664 384 0 0 33554472 30 0 0 -300 S
+PH 0 4096 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3039,8 +3050,8 @@ llwystyn grey elf swashbuckler teacher _spec3_~
 &+Gmost elven maiden's spines.  Dashing good looks and a personality to match
 &+Gmakes him a very dangerous opponent.&n
 ~
-2147524616 384 0 33554472 30 0 0 1000 S
-PE 0 1 -1
+2147524616 384 0 0 33554472 30 0 0 1000 S
+PE 0 1 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3054,8 +3065,8 @@ hiliddipply gnome shadow_archer teacher _spec4_~
 &+Lthough none of this seems to bother the wearer.  His eyes are keenly focused
 &+Lon the path ahead, and whatever lies at the end of his journey.&n
 ~
-2147524616 384 0 33554472 30 0 0 1000 S
-PG 0 4096 -1
+2147524616 384 0 0 33554472 30 0 0 1000 S
+PG 0 4096 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3069,8 +3080,8 @@ taa human magician teacher _spec1_~
 &+Bare a dull grey in color, but have a hidden mirth within them that speaks
 &+Bof quite a bit of inner strength.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-PH 0 4194304 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+PH 0 4194304 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3084,8 +3095,8 @@ maelia halfling dark_dreamer teacher _spec2_~
 &+mlearn all they could about the shadows.  Having studied long and hard, she now
 &+mwishes to impart her knowledge to others.&n
 ~
-2147524616 384 0 33554472 30 0 0 500 S
-PF 0 4194304 -1
+2147524616 384 0 0 33554472 30 0 0 500 S
+PF 0 4194304 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3100,8 +3111,8 @@ erull gnome windtalker teacher _spec1_~
 &+Yin her left hand.  A glint of something peculiar rests just within her deep
 &+Ybrown eyes.&n
 ~
-2147524616 0 0 33554472 30 0 0 500 S
-PG 0 33554432 -1
+2147524616 0 0 0 33554472 30 0 0 500 S
+PG 0 33554432 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3116,8 +3127,8 @@ xaula human frost_magus teacher _spec2_~
 &+cfrom stark white animals hides, and also appear very soft and comfortable.
 &+cThe magus eyes you and awaits your question.&n
 ~
-2147524616 0 0 33554472 30 0 0 500 S
-PH 0 33554432 -1
+2147524616 0 0 0 33554472 30 0 0 500 S
+PH 0 33554432 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3131,8 +3142,8 @@ jamael gnome cosmomancer teacher _spec1_~
 &+yabout him than any biography could ever portray.  His garb is wildly colorful
 &+Yand helps to give his appearance even more incredulity.&n
 ~
-2147524616 0 0 33554472 30 0 0 500 S
-PG 0 33554432 -1
+2147524616 0 0 0 33554472 30 0 0 500 S
+PG 0 33554432 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3145,8 +3156,8 @@ eom half elf inquisitor teacher _spec2_~
 &+mto her cause.  Her beauty belies the inner fire that helps her dominate her
 &+menemies.&n
 ~
-2147524616 384 0 33554472 30 0 0 1000 S
-P2 0 67108864 -1
+2147524616 384 0 0 33554472 30 0 0 1000 S
+P2 0 67108864 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3158,8 +3169,8 @@ draknah drow conjurer teacher~
 &+mTall and slender, this handsome drow is quite the lady killer and is
 &+mknown for his wild drinking binges (perhaps related?).
 ~
-2181081096 64 0 0 0 0 0 -1000 S
-PL 3 2048 -1
+2181081096 64 0 0 0 0 0 0 -1000 S
+PL 3 2048 0 -1
 56 -3 -95 50d80+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -3174,8 +3185,8 @@ sodolum drow necromancer necro teacher~
 &+Lthose less knowledgeable than herself, her mind seems to be on
 &+Lbigger, better tasks.
 ~
-2181081096 64 0 0 0 0 0 -1000 S
-PL 3 1024 -1
+2181081096 64 0 0 0 0 0 0 -1000 S
+PL 3 1024 0 -1
 56 -3 -95 50d80+2650 6d6+25
 0.3.1.5 121500
 8 8 2
@@ -3188,8 +3199,8 @@ ofnil sorcerer drow teacher~
 &+gabout.  Wizened by his experiences, Ofnil is almost civil to even his
 &+Gmost dimwitted students.
 ~
-2181081096 64 0 0 0 0 0 -1000 S
-PL 3 512 -1
+2181081096 64 0 0 0 0 0 0 -1000 S
+PL 3 512 0 -1
 56 -3 -95 50d80+2650 6d6+25
 0.3.1.5 121500
 8 8 1

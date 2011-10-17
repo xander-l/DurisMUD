@@ -1,4 +1,5 @@
       /* Made by Zion, to house all of his zany procs in one special location of pure love */
+      /* Hijacked by Jexni with love */
 #include <ctype.h>
 #include <stdio.h>
 #include <strings.h>
@@ -30,8 +31,106 @@ extern P_index obj_index;
 extern Skill skills[];
 extern char *spells[];
 extern bool has_skin_spell(P_char);
-
+extern P_room world;
 bool exit_wallable(int room, int dir, P_char ch);
+
+int tharnrifts_portal(P_obj obj, P_char ch, int cmd, char *arg)
+{
+  if (cmd == CMD_SET_PERIODIC)
+  {
+    return TRUE;
+  }
+
+  if (!obj || !ch)
+    return FALSE;
+
+  if (cmd == CMD_PERIODIC && !number(0, 15))
+  {
+    act("&+LThe shadowrift &+rpulsates &+Rwildly &+La moment, causing the &+Rmolten &+rrocks &+Lin the area to levitate briefly.&n", FALSE, ch, obj, 0, TO_ROOM);
+    return FALSE;
+  }
+
+  if (cmd == CMD_ENTER && arg)
+  {
+    if (isname(arg, "portal") || isname(arg, "shadowrift"))
+    {
+      if(RACE_GOOD(ch))
+        obj->value[0] = 5569;
+      else
+        obj->value[0] = 5583;
+    }
+  }
+  return FALSE;
+}
+
+int Baltazo(P_char ch, P_char victim, int cmd, char *arg)
+{
+  int j, i, devil2load;
+
+  if(cmd == CMD_SET_PERIODIC)
+    return TRUE;
+
+  if(cmd == CMD_PERIODIC && !number(0, 5))
+  {
+     act("$n&+g's skin bubbles and &+Yemits &+Ggreenish&+g-&+Yyellow &+yooze&+g.&n", FALSE, ch, 0, 0, TO_ROOM);
+     return FALSE;
+  }
+
+   if(arg && (IS_AGG_CMD(cmd)))
+   {
+     if(isname(arg, "emaciated") || isname(arg, "decorated") || isname(arg, "general") || isname(arg, "sickly"))
+     {
+       send_to_char("Something tells you that would end badly for you...\n", ch);
+       return TRUE;
+     }
+   }
+
+ /* if(cmd == CMD_DEATH)
+  {
+     act("$n &+Lraises $s arms and $s &+reyes &+Rflash &+Lwith an inner &+Rfire&+L.", FALSE, ch, 0, 0, TO_ROOM);
+     act("&+LA deep voice seems to echo from within $m, '&+GFool mortal trash.  Your insolence&n", FALSE, ch, 0, 0, TO_ROOM);
+     act("&+Gwill be repaid one thousand times over.  &+RHollow Heart &+Gdoes not forgive...'&n", FALSE, ch, 0, 0, TO_ROOM);
+     act("&+YThe image of the man is replaced by a gaping &+Lshadowrift&+Y, which pulses rapidly...&n", FALSE, ch, 0, 0, TO_ROOM);
+     for(j = 0;j < 11;j++)
+     {
+        i = 90702;
+        if(!number(0, 1))
+        {
+           i += number(0, 4);
+        }
+        devil2load = BOUNDED(90702, i, 90706);
+        P_char devil = read_mobile(devil2load, VIRTUAL);
+        if (!devil)
+        {
+          logit(LOG_DEBUG, "Baltazo failed to load a mob, specs.zion.c");
+          continue;
+        }
+        SET_BIT(devil->specials.act, ACT_SENTINEL);
+        if(affected_by_spell(devil, AFF_INVISIBLE))
+          affect_from_char(devil, AFF_INVISIBLE);
+        char_to_room(devil, ch->in_room, -1);
+        act("$n &+rsteps through the &+Lshadowrift&+r, and does not look pleased...&n", FALSE, devil, 0, 0, TO_ROOM);
+
+        P_char tch, temp;
+        for(tch = world[real_room0(devil->in_room)].people; tch; tch = temp)
+        {
+           temp = tch->next_in_room;
+           wizlog(56, "tch is %s", GET_NAME(tch));
+           if(IS_TRUSTED(tch))
+             continue;
+           if(IS_PC(tch))// && number(0, 2))
+           {
+             MobStartFight(tch, devil);
+             break;
+           }
+        }
+     }
+     char_to_room(ch, 500, -2);
+     return FALSE;
+  }*/
+
+  return FALSE;
+}  
 
 int zion_shield_absorb_proc(P_obj obj, P_char ch, int cmd, char *arg)
 {

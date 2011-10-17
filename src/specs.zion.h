@@ -5,4 +5,5 @@ int zion_light_dark(P_obj, P_char, int, char *);
 int zion_dispator(P_obj, P_char, int, char *);
 int zion_netheril(P_obj, P_char, int, char *);
 int zion_mace_of_earth(P_obj, P_char, int, char *);
-
+int Baltazo(P_char, P_char, int, char *);
+int tharnrifts_portal(P_obj, P_char, int, char *);

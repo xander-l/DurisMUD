@@ -7,8 +7,8 @@ Grongor is a hulking, enormous man clad in plate mail.  He is fully 6'11",
 and massive, covered in black body hair, and always refers to himself in the
 third person.
 ~
-33900555 1 0 939526584 2050 0 0 0 S
-OG 0 17 -1
+33900555 1 0 0 939526584 2050 0 0 0 S
+OG 0 17 0 -1
 60 0 0 100d10+3000 10d10+54
 0.0.0.0 0
 8 8 1
@@ -21,8 +21,8 @@ The formorian giant is hideously deformed, its facial features mutated,
 and turned odd directions.  It stares stupidly ahead, heading the will
 of its masters.
 ~
-67119178 1 0 671091096 2 0 0 -1000 S
-G 0 1 -1
+67119178 1 0 0 671091096 2 0 0 -1000 S
+G 0 1 0 -1
 59 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -34,8 +34,8 @@ illithid overseer~
 This illithid is dressed in the traditional black and purple of his race.
 His milky eyes stare at you in an alien manner.
 ~
-1107327051 1 0 2281703480 2 18350080 0 -1000 S
-MF 0 4 7
+1107327051 1 0 0 2281703480 2 18350080 0 -1000 S
+MF 0 4 0 7
 60 0 0 10d10+30000 15d20+40
 0.0.0.0 0
 8 8 0
@@ -48,8 +48,8 @@ This derro is one of the elite spellcasters of its race.  Hovering slightly
 off the ground, its evil eyes flicker with a madness granted by the dark
 powers that rule its life.
 ~
-74 1 0 201852936 2 0 0 -1000 S
-PD 0 256 -1
+74 1 0 0 201852936 2 0 0 -1000 S
+PD 0 256 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -61,8 +61,8 @@ kuo toa guard~
 The guard stands approximately 8 feet tall, and bears the same wild-eyed
 fish look that is the calling card of his race.  He looks particularly mean.
 ~
-1140852810 1 0 939526168 66 0 0 -1000 S
-H 0 1 -1
+1140852810 1 0 0 939526168 66 0 0 -1000 S
+H 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -73,8 +73,8 @@ A &+yderro&N guard of Shaboath stands here.
 ~
 This derro is clad in spiked armor, and ready for a fight.
 ~
-1140852808 1 0 201852952 2 0 0 -1000 S
-PD 0 1 -1
+1140852808 1 0 0 201852952 2 0 0 -1000 S
+PD 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -85,8 +85,8 @@ A &+yderro&N guard of Shaboath stands here.
 ~
 This derro is clad in spiked armor, and ready for a fight.
 ~
-1140852808 1 0 201852952 2 0 0 -1000 S
-PD 0 16385 -1
+1140852808 1 0 0 201852952 2 0 0 -1000 S
+PD 0 16385 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -100,8 +100,8 @@ pointy hat.  He is slave to the aboleth, and works in the tower of
 distillations, preparing potions, and purifying the waters of the Sunless
 Sea.
 ~
-407562 1 0 402655420 2050 0 0 0 S
-PH 0 512 -1
+407562 1 0 0 402655420 2050 0 0 0 S
+PH 0 512 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -113,8 +113,8 @@ aboleth master~
 The master of distillations looks like a large slug.  Not really any different
 than any other aboleth.
 ~
-1074006090 1 0 402655672 14400 0 0 -1000 S
-GI 0 512 -1
+1074006090 1 0 0 402655672 14400 0 0 -1000 S
+GI 0 512 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -124,8 +124,8 @@ moray giant _size_giant_~
 &+bA giant moray eel swims around here.&N
 ~
 ~
-264200 1 0 134219792 0 0 0 0 S
-F 0 1 -1
+264200 1 0 0 134219792 0 0 0 0 S
+F 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -138,8 +138,8 @@ Aboleths are eel-like creatures of immense size and power.  They are three-eyed,
 aquatic beasts with several tentacles and four mucus-producing glands on their
 soft underside.
 ~
-1074006090 1 0 402655672 14400 0 0 -1000 S
-GI 0 4 -1
+1074006090 1 0 0 402655672 14400 0 0 -1000 S
+GI 0 4 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -152,8 +152,8 @@ Aboleths are eel-like creatures of immense size and power.  They are three-eyed,
 aquatic beasts with several tentacles and four mucus-producing glands on their
 soft underside.
 ~
-1074006090 1 0 402655672 14400 0 0 -1000 S
-GI 0 4 -1
+1074006090 1 0 0 402655672 14400 0 0 -1000 S
+GI 0 4 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -166,8 +166,8 @@ Aboleths are eel-like creatures of immense size and power.  They are three-eyed,
 aquatic beasts with several tentacles and four mucus-producing glands on their
 soft underside.
 ~
-1074006090 1 0 402655672 14400 0 0 -1000 S
-GI 0 4 -1
+1074006090 1 0 0 402655672 14400 0 0 -1000 S
+GI 0 4 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -180,8 +180,8 @@ The baby aboleth, a mere 3 feet long, does not bear any semblance to the
 cuteness typical of infant creatures.  These things truly have a face
 only a mother could love.
 ~
-1074018376 1 0 402655240 0 0 0 -1000 S
-GI 0 4 -1
+1074018376 1 0 0 402655240 0 0 0 -1000 S
+GI 0 4 0 -1
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -194,8 +194,8 @@ The baby aboleth, a mere 3 feet long, does not bear any semblance to the
 cuteness typical of infant creatures.  These things truly have a face
 only a mother could love.
 ~
-1074018376 1 0 402655240 0 0 0 -1000 S
-GI 0 5 -1
+1074018376 1 0 0 402655240 0 0 0 -1000 S
+GI 0 5 0 -1
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -208,8 +208,8 @@ Aboleths are eel-like creatures of immense size and power.  They are three-eyed,
 aquatic beasts with several tentacles and four mucus-producing glands on their
 soft underside.
 ~
-1074006090 1 0 402655672 14400 0 0 -1000 S
-GI 0 5 -1
+1074006090 1 0 0 402655672 14400 0 0 -1000 S
+GI 0 5 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -221,8 +221,8 @@ kuo toa guard _size_large_ monitor~
 The guard stands approximately 8 feet tall, and bears the same wild-eyed
 fish look that is the calling card of his race.  He looks particularly mean.
 ~
-1140852808 1 0 939526168 66 0 0 -1000 S
-H 0 1 -1
+1140852808 1 0 0 939526168 66 0 0 -1000 S
+H 0 1 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -235,8 +235,8 @@ This derro is one of the elite spellcasters of its race.  Hovering slightly
 off the ground, its evil eyes flicker with a madness granted by the dark
 powers that rule its life.
 ~
-1073741898 1 0 201852936 2 0 0 -1000 S
-PD 0 256 -1
+1073741898 1 0 0 201852936 2 0 0 -1000 S
+PD 0 256 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -248,8 +248,8 @@ illithid slavemaster master~
 This illithid is dressed in the traditional black and purple of his race.
 His milky eyes stare at you in an alien manner.
 ~
-1073760331 1 0 2281703480 2 18350080 0 -1000 S
-MF 0 4 -1
+1073760331 1 0 0 2281703480 2 18350080 0 -1000 S
+MF 0 4 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -262,8 +262,8 @@ The ixichitl is an intelligent form of ray, normally found underwater.
 The spellcasters of their race, however, have found ways to allow them
 to breathe air, fly, and cast all sorts of nasty spells.
 ~
-1074135116 1 0 671091000 0 0 0 -1000 S
-EW 0 2048 -1
+1074135116 1 0 0 671091000 0 0 0 -1000 S
+EW 0 2048 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -276,8 +276,8 @@ The ixichitl is an intelligent form of ray, normally found underwater.
 The spellcasters of their race, however, have found ways to allow them
 to breathe air, fly, and cast all sorts of nasty spells.
 ~
-1074135118 1 0 671091000 0 0 0 -1000 S
-EW 0 512 -1
+1074135118 1 0 0 671091000 0 0 0 -1000 S
+EW 0 512 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -290,8 +290,8 @@ Aboleths are eel-like creatures of immense size and power.  They are three-eyed,
 aquatic beasts with several tentacles and four mucus-producing glands on their
 soft underside.
 ~
-1074022408 1 0 402655672 14400 0 0 -1000 S
-GI 0 5 -1
+1074022408 1 0 0 402655672 14400 0 0 -1000 S
+GI 0 5 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -304,8 +304,8 @@ The ixichitl is an intelligent form of ray, normally found underwater.
 The spellcasters of their race, however, have found ways to allow them
 to breathe air, fly, and cast all sorts of nasty spells.
 ~
-393294 1 0 671091000 0 0 0 -1000 S
-EW 0 68 -1
+393294 1 0 0 671091000 0 0 0 -1000 S
+EW 0 68 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -318,8 +318,8 @@ The ixichitl is an intelligent form of ray, normally found underwater.
 The spellcasters of their race, however, have found ways to allow them
 to breathe air, fly, and cast all sorts of nasty spells.
 ~
-393294 1 0 671091000 0 0 0 -1000 S
-EW 0 132 -1
+393294 1 0 0 671091000 0 0 0 -1000 S
+EW 0 132 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -332,8 +332,8 @@ This slave, paled by his long stay in the underdark, is a pitiful creature
 indeed.  Open sores mark his body, and his vacant, lifeless eyes stare
 forward, his mind, ravaged by the aboleth, void of any thought.
 ~
-262348 0 0 134220032 0 0 0 0 S
-PH 0 0 -1
+262348 0 0 0 134220032 0 0 0 0 S
+PH 0 0 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -346,8 +346,8 @@ This slave, paled by his long stay in the underdark, is a pitiful creature
 indeed.  Open sores mark his body, and his vacant, lifeless eyes stare
 forward, his mind, ravaged by the aboleth, void of any thought.
 ~
-262348 0 0 134220032 0 0 0 0 S
-PD 0 0 -1
+262348 0 0 0 134220032 0 0 0 0 S
+PD 0 0 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -360,8 +360,8 @@ This slave, paled by his long stay in the underdark, is a pitiful creature
 indeed.  Open sores mark his body, and his vacant, lifeless eyes stare
 forward, his mind, ravaged by the aboleth, void of any thought.
 ~
-262348 0 0 134220032 0 0 0 0 S
-PE 0 0 -1
+262348 0 0 0 134220032 0 0 0 0 S
+PE 0 0 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -374,8 +374,8 @@ This slave, paled by his long stay in the underdark, is a pitiful creature
 indeed.  Open sores mark his body, and his vacant, lifeless eyes stare
 forward, his mind, ravaged by the aboleth, void of any thought.
 ~
-262348 0 0 134220032 0 0 0 0 S
-HO 0 0 -1
+262348 0 0 0 134220032 0 0 0 0 S
+HO 0 0 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -388,8 +388,8 @@ Tall, dark, handsome, and psychopathic, &+WStrychnesch&N adorns himself
 with all mannor of jewelry.  His helm, with yellow gem-lenses set into
 the eyes is pulled down over his face.
 ~
-1174681677 1 0 939592120 0 0 0 -1000 S
-PH 0 1 -1
+1174681677 1 0 0 939592120 0 0 0 -1000 S
+PH 0 1 0 -1
 58 0 0 10d10+25000 10d15+30
 0.0.0.0 0
 8 8 1
@@ -403,8 +403,8 @@ flaxen-haired half-elf is, quite simply, a homocidal lunatic.
 He has green eyes, tattooed serpents on his forearms and forehead,
 and only half a right ear.
 ~
-1174681677 1 0 939592120 0 262144 0 -1000 S
-P2 0 16384 -1
+1174681677 1 0 0 939592120 0 262144 0 -1000 S
+P2 0 16384 0 -1
 58 0 0 10d10+25000 15d15+40
 0.0.0.0 0
 8 8 1
@@ -416,8 +416,8 @@ The human anti-paladin &+RMorgoor&N stands here.
 Morgoor is a fearsome enemy, her average height and only slightly
 stronger than average build belie her magical strength.
 ~
-1174681677 1 0 939592120 0 0 0 -1000 S
-PH 0 16 -1
+1174681677 1 0 0 939592120 0 0 0 -1000 S
+PH 0 16 0 -1
 58 0 0 10d10+30000 10d15+40
 0.0.0.0 0
 8 8 2
@@ -429,8 +429,8 @@ redpal human wizard~
 Redpal is just over five feet in height, and has an unremarkable
 appearence, being mousy and dumpy.
 ~
-1174681677 1 0 939592120 0 0 0 -1000 S
-PH 0 512 -1
+1174681677 1 0 0 939592120 0 0 0 -1000 S
+PH 0 512 0 -1
 58 0 0 10d10+20000 10d10+20
 0.0.0.0 0
 8 8 2
@@ -440,8 +440,8 @@ cyvrand aa~
 The human priest &+GCyvrand&N stands here.&N
 ~
 ~
-1174681677 1 0 939592120 0 0 0 -1000 S
-PH 0 288 -1
+1174681677 1 0 0 939592120 0 0 0 -1000 S
+PH 0 288 0 -1
 58 0 0 10d10+25000 10d10+40
 0.0.0.0 0
 8 8 2
@@ -453,8 +453,8 @@ illithid doorman~
 This illithid is dressed in the traditional black and purple of his race.
 His milky eyes stare at you in an alien manner.
 ~
-18506 1 0 2281703480 2 0 0 -1000 S
-MF 0 4 -1
+18506 1 0 0 2281703480 2 0 0 -1000 S
+MF 0 4 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -467,8 +467,8 @@ The formorian giant is hideously deformed, its facial features mutated,
 and turned odd directions.  It stares stupidly ahead, heading the will
 of its masters.
 ~
-67184714 1 0 671090968 2 0 0 -1000 S
-G 0 65 -1
+67184714 1 0 0 671090968 2 0 0 -1000 S
+G 0 65 0 -1
 59 0 0 10d10+25000 10d10+30
 0.0.0.0 0
 8 8 1
@@ -480,8 +480,8 @@ illithid~
 This illithid is dressed in the traditional black and purple of his race.
 His milky eyes stare at you in an alien manner.
 ~
-2122 1 0 201328696 2 0 0 -1000 S
-MF 0 262148 -1
+2122 1 0 0 201328696 2 0 0 -1000 S
+MF 0 262148 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -493,8 +493,8 @@ illithid~
 This illithid is dressed in the traditional black and purple of his race.
 His milky eyes stare at you in an alien manner.
 ~
-2122 1 0 2348812344 2 0 0 -1000 S
-MF 0 4 -1
+2122 1 0 0 2348812344 2 0 0 -1000 S
+MF 0 4 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -506,8 +506,8 @@ schandreptibus illithid _multiclass_ _cleric_ _psionicist_~
 This illithid is dressed in the traditional black and purple of his race.
 His milky eyes stare at you in an alien manner.
 ~
-2122 1 0 2348812344 2 18350080 0 -1000 S
-MF 0 36 -1
+2122 1 0 0 2348812344 2 18350080 0 -1000 S
+MF 0 36 0 -1
 60 0 0 10d10+20000 10d15+20
 0.0.0.0 0
 8 8 0
@@ -519,8 +519,8 @@ caranthazal _multiclass_ _sorcerer_ _psionicist_~
 This illithid is dressed in the traditional black and purple of his race.
 His milky eyes stare at you in an alien manner.
 ~
-1108367439 1 0 3087009850 2 18350080 0 -1000 S
-MF 0 516 -1
+1108367439 1 0 0 3087009850 2 18350080 0 -1000 S
+MF 0 516 0 -1
 58 0 0 10d10+20000 10d10+10
 0.0.0.0 0
 8 8 0
@@ -530,8 +530,8 @@ grizinthalor dragon spectral br_l~
 &+CGrizinthalor&N, the spectral dragon rests here at the feet of its masters.
 ~
 ~
-67516488 1 0 939600382 47296 0 0 -1000 S
-D 0 1 -1
+67516488 1 0 0 939600382 47296 0 0 -1000 S
+D 0 1 0 -1
 58 0 0 10d10+40000 15d20+30
 0.0.0.0 0
 8 8 1
@@ -543,8 +543,8 @@ A tall, gaunt butler stands here.
 The butler stands very tall for a human.  He is frail, and his sunken
 eyes show a dark light within them.
 ~
-14351 1 0 134220072 0 0 0 0 S
-PH 0 1 -1
+14351 1 0 0 134220072 0 0 0 0 S
+PH 0 1 0 -1
 49 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -555,8 +555,8 @@ A servant of the &+rbaatezu&N stands here.&N
 ~
 The servant is a tall, thin human, dressed in a tidy white uniform.
 ~
-14409 0 0 134220072 0 0 0 0 S
-PH 0 1 -1
+14409 0 0 0 134220072 0 0 0 0 S
+PH 0 1 0 -1
 41 -100 -30 5d5+10000 5d5+30
 0.0.0.0 50000
 8 8 1
@@ -568,8 +568,8 @@ pallistren representative~
 Pallistren, a strikingly handsome man.  He stands about six feet tall,
 and is dressed in fine clothes.  He has an arrogant smirk on his face.
 ~
-30733 0 0 134220072 0 0 0 0 S
-PH 0 1 -1
+30733 0 0 0 134220072 0 0 0 0 S
+PH 0 1 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -581,8 +581,8 @@ petrechella~
 Petrechella is a young woman with exquisite auburn hair and perfect
 ivory skin.
 ~
-1073903695 0 0 671615416 0 0 0 -1000 S
-Y 0 528 -1
+1073903695 0 0 0 671615416 0 0 0 -1000 S
+Y 0 528 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -594,8 +594,8 @@ hamatula~
 The hamatula is a clawed, mandibaled, barbed torso horro straight from
 hell.
 ~
-1140865098 1 0 671615288 1 0 0 -1000 S
-Y 0 1 -1
+1140865098 1 0 0 671615288 1 0 0 -1000 S
+Y 0 1 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -605,8 +605,8 @@ gargoyle golem~
 &+WA huge gargoyle golem stands here.&N
 ~
 ~
-1140996201 1 0 134220184 0 0 0 0 S
-OG 0 1 -1
+1140996201 1 0 0 134220184 0 0 0 0 S
+OG 0 1 0 -1
 59 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -618,8 +618,8 @@ petrechella secretary _no_tk_~
 Petrechella is a young woman with exquisite auburn hair and perfect
 ivory skin.
 ~
-14349 1 0 134220072 0 0 0 -1000 S
-Y 0 80 -1
+14349 1 0 0 134220072 0 0 0 -1000 S
+Y 0 80 0 -1
 59 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -629,8 +629,8 @@ pallistren pit fiend~
 &+RPallistren&N, the pit fiend stands here cackling maniacly.
 ~
 ~
-1140996173 1 0 671615420 309441 0 0 -1000 S
-Y 0 4160 -1
+1140996173 1 0 0 671615420 309441 0 0 -1000 S
+Y 0 4160 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -640,8 +640,8 @@ guardian beast br_a~
 &+LA huge horned guardian beast stands here, snarling at you.&N
 ~
 ~
-1107572810 1 0 940149178 309441 0 0 -1000 S
-Y 0 1 -1
+1107572810 1 0 0 940149178 309441 0 0 -1000 S
+Y 0 1 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -654,8 +654,8 @@ This small raccoon appears to have been treated a bit harshly by someone.
 Nasty scars mark its back and it has a nasty, fearless disposition that is
 quite appalling.
 ~
-1073887308 1 0 940050872 2049 0 0 0 S
-A 0 1 -1
+1073887308 1 0 0 940050872 2049 0 0 0 S
+A 0 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -668,8 +668,8 @@ This small raccoon appears to have been treated a bit harshly by someone.
 Nasty scars mark its back and it has a nasty, fearless disposition that is
 quite appalling.
 ~
-1073887244 0 0 940050872 2049 0 0 0 S
-A 0 1 -1
+1073887244 0 0 0 940050872 2049 0 0 0 S
+A 0 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -682,8 +682,8 @@ Aboleths are eel-like creatures of immense size and power.  They are three-eyed,
 aquatic beasts with several tentacles and four mucus-producing glands on their
 soft underside.
 ~
-1074006026 1 0 402655672 14400 0 0 -1000 S
-GI 0 260 -1
+1074006026 1 0 0 402655672 14400 0 0 -1000 S
+GI 0 260 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -693,8 +693,8 @@ golem iron _br_f_~
 &+LA huge &+miron&+L golem stands here guarding the way.&N
 ~
 ~
-14378 1 0 671090832 14528 0 0 0 S
-OG 0 1 -1
+14378 1 0 0 671090832 14528 0 0 0 S
+OG 0 1 0 -1
 59 0 0 10d10+20000 10d15+30
 0.0.0.0 0
 8 8 0
@@ -706,8 +706,8 @@ illithid overseer~
 This illithid is dressed in the traditional black and purple of his race.
 His milky eyes stare at you in an alien manner.
 ~
-1073743883 1 0 134219832 2 0 0 -1000 S
-MF 0 20 -1
+1073743883 1 0 0 134219832 2 0 0 -1000 S
+MF 0 20 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -720,8 +720,8 @@ Aboleths are eel-like creatures of immense size and power.  They are three-eyed,
 aquatic beasts with several tentacles and four mucus-producing glands on their
 soft underside.
 ~
-1074006026 1 0 402655672 14400 0 0 -1000 S
-GI 0 516 -1
+1074006026 1 0 0 402655672 14400 0 0 -1000 S
+GI 0 516 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -734,8 +734,8 @@ Aboleths are eel-like creatures of immense size and power.  They are three-eyed,
 aquatic beasts with several tentacles and four mucus-producing glands on their
 soft underside.
 ~
-1074006027 1 0 402655672 14400 0 0 -1000 S
-GI 0 20 -1
+1074006027 1 0 0 402655672 14400 0 0 -1000 S
+GI 0 20 0 -1
 60 0 0 10d10+25000 10d15+20
 0.0.0.0 0
 8 8 0
@@ -748,8 +748,8 @@ This derro is one of the elite spellcasters of its race.  Hovering slightly
 off the ground, its evil eyes flicker with a madness granted by the dark
 powers that rule its life.
 ~
-1073741832 1 0 201852936 2 0 0 -1000 S
-PD 0 256 -1
+1073741832 1 0 0 201852936 2 0 0 -1000 S
+PD 0 256 0 -1
 59 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -762,8 +762,8 @@ Aboleths are eel-like creatures of immense size and power.  They are three-eyed,
 aquatic beasts with several tentacles and four mucus-producing glands on their
 soft underside.
 ~
-1074006026 1 0 402655672 14400 0 0 -1000 S
-MF 0 5 -1
+1074006026 1 0 0 402655672 14400 0 0 -1000 S
+MF 0 5 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -775,8 +775,8 @@ illithid overseer~
 This illithid is dressed in the traditional black and purple of his race.
 His milky eyes stare at you in an alien manner.
 ~
-1073760264 1 0 134219832 2 0 0 -1000 S
-MF 0 4 -1
+1073760264 1 0 0 134219832 2 0 0 -1000 S
+MF 0 4 0 -1
 59 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -789,8 +789,8 @@ The formorian giant is hideously deformed, its facial features mutated,
 and turned odd directions.  It stares stupidly ahead, heading the will
 of its masters.
 ~
-67119178 1 0 671090968 2 0 0 -1000 S
-G 0 1 -1
+67119178 1 0 0 671090968 2 0 0 -1000 S
+G 0 1 0 -1
 59 0 0 10d10+20000 15d15+30
 0.0.0.0 0
 8 8 1
@@ -801,8 +801,8 @@ golem iron br_f~
 ~
 This golem has been crafted from iron.
 ~
-1107392554 1 0 671090840 14528 0 0 0 S
-OG 0 513 -1
+1107392554 1 0 0 671090840 14528 0 0 0 S
+OG 0 513 0 -1
 60 0 0 10d10+30000 15d15+40
 0.0.0.0 0
 8 8 0
@@ -812,8 +812,8 @@ imp pesky~
 &+rA pesky imp stands here, cackling at you.&N
 ~
 ~
-1073743880 1 0 134219792 0 0 0 -1000 S
-Y 0 1 -1
+1073743880 1 0 0 134219792 0 0 0 -1000 S
+Y 0 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -823,8 +823,8 @@ caryatid column golem~
 &+LA caryatid column stands here, motionless.&N
 ~
 ~
-264526 1 0 134220184 0 0 0 0 S
-UV 0 1 -1
+264526 1 0 0 134220184 0 0 0 0 S
+UV 0 1 0 -1
 59 0 0 10d10+20000 15d20+20
 0.0.0.0 0
 8 8 0
@@ -835,8 +835,8 @@ golem shaboath~
 ~
 This golem appears to be crafted from magically-formed water.
 ~
-788558 1 0 134220184 0 0 0 0 S
-OG 0 1 -1
+788558 1 0 0 134220184 0 0 0 0 S
+OG 0 1 0 -1
 60 0 0 10d10+20000 15d15+40
 0.0.0.0 0
 8 8 0
@@ -849,8 +849,8 @@ Aboleths are eel-like creatures of immense size and power.  They are three-eyed,
 aquatic beasts with several tentacles and four mucus-producing glands on their
 soft underside.
 ~
-1074022922 1 0 402655672 47168 0 0 -1000 S
-OG 0 548 -1
+1074022922 1 0 0 402655672 47168 0 0 -1000 S
+OG 0 548 0 -1
 59 0 0 10d10+30000 10d10+40
 0.0.0.0 0
 8 8 0
@@ -863,8 +863,8 @@ The formorian giant is hideously deformed, its facial features mutated,
 and turned odd directions.  It stares stupidly ahead, heading the will
 of its masters.
 ~
-67119178 1 0 671090968 2 0 0 -1000 S
-U 0 1 -1
+67119178 1 0 0 671090968 2 0 0 -1000 S
+U 0 1 0 -1
 59 0 0 10d10+20000 15d15+30
 0.0.0.0 0
 8 8 1
@@ -875,8 +875,8 @@ golem bone~
 ~
 This is a typical golem, crafted from bone.
 ~
-264782 1 0 134220184 0 0 0 0 S
-OG 0 1025 -1
+264782 1 0 0 134220184 0 0 0 0 S
+OG 0 1025 0 -1
 60 0 0 10d10+25000 15d20+30
 0.0.0.0 0
 8 8 0
@@ -889,8 +889,8 @@ Aboleths are eel-like creatures of immense size and power.  They are three-eyed,
 aquatic beasts with several tentacles and four mucus-producing glands on their
 soft underside.
 ~
-1074022922 1 0 402655676 47168 0 0 -1000 S
-OG 0 1060 -1
+1074022922 1 0 0 402655676 47168 0 0 -1000 S
+OG 0 1060 0 -1
 60 0 0 10d10+30000 15d15+30
 0.0.0.0 0
 8 8 0
@@ -900,8 +900,8 @@ victim~
 &+LAn unfortunate victim of the aboleth tower stands here.&N
 ~
 ~
-8 0 0 134219776 0 0 0 0 S
-PH 0 0 -1
+8 0 0 0 134219776 0 0 0 0 S
+PH 0 0 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -911,8 +911,8 @@ water elemental~
 &+BA huge water elemental swims here.&N
 ~
 ~
-264202 1 0 134220032 2048 0 0 0 S
-EW 0 1 -1
+264202 1 0 0 134220032 2048 0 0 0 S
+EW 0 1 0 -1
 60 0 0 10d10+20000 15d15+100
 0.0.0.0 0
 8 8 0
@@ -925,8 +925,8 @@ Aboleths are eel-like creatures of immense size and power.  They are three-eyed,
 aquatic beasts with several tentacles and four mucus-producing glands on their
 soft underside.
 ~
-1074022922 1 0 402655672 14400 0 0 -1000 S
-OG 0 2084 -1
+1074022922 1 0 0 402655672 14400 0 0 -1000 S
+OG 0 2084 0 -1
 59 0 0 10d10+35000 10d10+50
 0.0.0.0 0
 8 8 0
@@ -937,8 +937,8 @@ stalker invisible~
 ~
 The stalker is nearly formless...
 ~
-67594 1 0 134219794 0 0 0 0 S
-EA 0 1 -1
+67594 1 0 0 134219794 0 0 0 0 S
+EA 0 1 0 -1
 51 0 0 7d5+9000 1d1+1
 0.0.0.0 0
 8 8 0
@@ -949,8 +949,8 @@ golem iron~
 ~
 This is a typical golem, crafted from iron.
 ~
-14378 1 0 671090832 14528 0 0 0 S
-OG 0 5 -1
+14378 1 0 0 671090832 14528 0 0 0 S
+OG 0 5 0 -1
 59 0 0 10d10+40000 20d20+60
 0.0.0.0 0
 8 8 0
@@ -963,8 +963,8 @@ Aboleths are eel-like creatures of immense size and power.  They are three-eyed,
 aquatic beasts with several tentacles and four mucus-producing glands on their
 soft underside.
 ~
-1074022922 1 0 402655672 14400 0 0 -1000 S
-OG 0 548 -1
+1074022922 1 0 0 402655672 14400 0 0 -1000 S
+OG 0 548 0 -1
 59 0 0 10d10+40000 10d10+40
 0.0.0.0 0
 8 8 0
@@ -977,8 +977,8 @@ Aboleths are eel-like creatures of immense size and power.  They are three-eyed,
 aquatic beasts with several tentacles and four mucus-producing glands on their
 soft underside.
 ~
-1074022922 1 0 402655672 14400 0 0 -1000 S
-MF 0 33 -1
+1074022922 1 0 0 402655672 14400 0 0 -1000 S
+MF 0 33 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -988,8 +988,8 @@ ju juju ju-ju zombie~
 &+WA &+Lju-&+Rju&+W zombie stands here.&N
 ~
 ~
-1073752138 1 0 671090968 2 0 0 -1000 S
-zo 0 1 -1
+1073752138 1 0 0 671090968 2 0 0 -1000 S
+zo 0 1 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1002,8 +1002,8 @@ Aboleths are eel-like creatures of immense size and power.  They are three-eyed,
 aquatic beasts with several tentacles and four mucus-producing glands on their
 soft underside.
 ~
-1082411531 1 0 402655672 14400 0 0 -1000 S
-MF 0 33 -1
+1082411531 1 0 0 402655672 14400 0 0 -1000 S
+MF 0 33 0 -1
 59 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1016,8 +1016,8 @@ The formorian giant is hideously deformed, its facial features mutated,
 and turned odd directions.  It stares stupidly ahead, heading the will
 of its masters.
 ~
-67119178 1 0 671090968 2 0 0 -1000 S
-G 0 1 -1
+67119178 1 0 0 671090968 2 0 0 -1000 S
+G 0 1 0 -1
 59 0 0 10d10+50000 15d15+50
 0.0.0.0 0
 8 8 1
@@ -1029,8 +1029,8 @@ A lost &+Wspirit&N wanders aimlessly here.&N
 The spirit is a ghost of some worker of magic, slain at the altar
 of the blood queen.
 ~
-33685706 0 0 134220072 0 0 0 0 S
-UG 0 10 -1
+33685706 0 0 0 134220072 0 0 0 0 S
+UG 0 10 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1043,8 +1043,8 @@ This derro is one of the elite spellcasters of its race.  Hovering slightly
 off the ground, its evil eyes flicker with a madness granted by the dark
 powers that rule its life.
 ~
-1073807370 1 0 201852936 2 0 0 -1000 S
-PD 0 257 -1
+1073807370 1 0 0 201852936 2 0 0 -1000 S
+PD 0 257 0 -1
 60 0 0 10d20+3000 10d5+50
 0.0.0.0 0
 8 8 1
@@ -1054,8 +1054,8 @@ shaharazar efreeti~
 &+RShaharazar&N, &+rthe efreeti floats here by her master.&N
 ~
 ~
-67336234 1 0 940050844 47105 0 0 -1000 S
-E 0 5 -1
+67336234 1 0 0 940050844 47105 0 0 -1000 S
+E 0 5 0 -1
 60 0 0 10d10+3000 10d15+5
 0.0.0.0 0
 8 8 0
@@ -1073,8 +1073,8 @@ the front of its head. Four pulsating blue-black orificices line the bottom of
 its body and secrete gray slime that smells like rancid grease. Four leathery
 tentacles dripping secrete, each 15 feet in length, grow from its head.
 ~
-1083471883 1 0 939600312 47324 0 0 -1000 S
-X 0 37 -1
+1083471883 1 0 0 939600312 47324 0 0 -1000 S
+X 0 37 0 -1
 60 150 -200 100d10+3500 15d15+50
 0.0.0.0 0
 8 8 0
@@ -1087,8 +1087,8 @@ The ixichitl is an intelligent form of ray, normally found underwater.
 The spellcasters of their race, however, have found ways to allow them
 to breathe air, fly, and cast all sorts of nasty spells.
 ~
-1074135118 1 0 671091000 0 0 0 -1000 S
-MF 0 4 -1
+1074135118 1 0 0 671091000 0 0 0 -1000 S
+MF 0 4 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0

@@ -7,8 +7,8 @@ These monsters resemble birds in that they can fly, but that's where
 the similarities end.  A stirge feeds on blood, and apparently it has
 selected yours for its next meal.
 ~
-149514 1 0 67108920 0 0 0 -800 S
-I 0 1 4
+149514 1 0 0 67108920 0 0 0 -800 S
+I 0 1 0 4
 44 20 90 3d15+11 1d5+0
 0.0.0.0 388
 11 11 0
@@ -23,8 +23,8 @@ very sharp teeth and claws.  They stink of disease and rot.  One
 of these is no match for a seasoned adventurer, but as a swarm,
 they are deadly.
 ~
-18504 1 0 24 0 0 0 0 S
-AC 0 1 4
+18504 1 0 0 24 0 0 0 0 S
+AC 0 1 0 4
 39 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -38,8 +38,8 @@ thanks to some unknown power.  Grey ooze on its fur indicates
 that it is diseased.  The sight of this thing is enough to
 make even a hardened adventurer's skin crawl.
 ~
-1073741896 1 0 0 0 0 0 0 S
-AC 0 1 4
+1073741896 1 0 0 0 0 0 0 0 S
+AC 0 1 0 4
 44 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -55,8 +55,8 @@ and so on.  It does have the capability for limited common speech,
 including its own ratman language.  Ratmen are very territorial, and
 you are sure to be attacked as soon as you are discovered.
 ~
-2120 1 0 8 0 0 0 -800 S
-AC 0 16384 3
+2120 1 0 0 8 0 0 0 -800 S
+AC 0 16384 0 3
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -73,8 +73,8 @@ including its own ratman language.  Ratmen are very territorial, and
 you are sure to be attacked as soon as you are discovered.  This
 particular ratmen holds a shortbow in its hands.
 ~
-2120 1 0 8 0 0 0 -800 S
-AC 0 1 3
+2120 1 0 0 8 0 0 0 -800 S
+AC 0 1 0 3
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -92,8 +92,8 @@ you are sure to be attacked as soon as you are discovered.  This
 ratman wears mage-like robes.  It's demigod has granted it limited
 magical powers.
 ~
-2120 1 0 8 0 0 0 -800 S
-AC 0 256 3
+2120 1 0 0 8 0 0 0 -800 S
+AC 0 256 0 3
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -108,8 +108,8 @@ beast is the leader of the ratmen, and the cause of the
 infestation of Braddistock Mansion.  Do Winterhaven a favor
 and slay this disgusting thing!
 ~
-18506 1 0 56 2048 67239936 4096 -1000 S
-AC 0 257 4
+18506 1 0 0 56 2048 67239936 4096 -1000 S
+AC 0 257 0 4
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -125,8 +125,8 @@ and so on.  It does have the capability for limited common speech,
 including its own ratman language.  Ratmen are very territorial, and
 you are sure to be attacked as soon as you are discovered.
 ~
-2122 1 0 0 0 0 0 -800 S
-AC 0 16384 3
+2122 1 0 0 0 0 0 0 -800 S
+AC 0 16384 0 3
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -143,8 +143,8 @@ including its own ratman language.  Ratmen are very territorial, and
 you are sure to be attacked as soon as you are discovered.  This
 particular ratmen holds a shortbow in its hands.
 ~
-2122 1 0 0 0 0 0 -800 S
-AC 0 1 3
+2122 1 0 0 0 0 0 0 -800 S
+AC 0 1 0 3
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -162,8 +162,8 @@ you are sure to be attacked as soon as you are discovered.  This
 ratman wears mage-like robes.  It's demigod has granted it limited
 magical powers.
 ~
-2122 1 0 0 0 0 0 -800 S
-AC 0 256 3
+2122 1 0 0 0 0 0 0 -800 S
+AC 0 256 0 3
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -179,8 +179,8 @@ spirit lord braddistock~
 Lord Braddistock says in common, "Come to help me with my rat problem,
 have you?"
 ~
-133134 0 0 671088824 14493 0 0 0 S
-G 0 1 -1
+133134 0 0 0 671088824 14493 0 0 0 S
+G 0 1 0 -1
 59 -7 -148 59d143+6785 7d6+35
 4.5.9.19 477900
 11 11 1
@@ -195,8 +195,8 @@ very sharp teeth and claws.  They stink of disease and rot.  One
 of these is no match for a seasoned adventurer, but as a swarm,
 they are deadly.
 ~
-18506 1 0 24 0 0 0 0 S
-AC 0 1 4
+18506 1 0 0 24 0 0 0 0 S
+AC 0 1 0 4
 39 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -211,8 +211,8 @@ appearance, clearly identifying it as a ghost.  While very
 fearsome looking, it is not threatened by your presence.  It
 eyes you lazily for a moment, then proceeds to groom itself.
 ~
-2122 0 0 16 0 0 0 0 S
-UG 0 1 4
+2122 0 0 0 16 0 0 0 0 S
+UG 0 1 0 4
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -227,8 +227,8 @@ here in prayer -- his task to try and banish Lord Braddistock
 from the prime material plane.  He is not having much luck,
 however.
 ~
-1073743946 32 0 0 0 0 0 1000 S
-PH 0 32 -1
+1073743946 32 0 0 0 0 0 0 1000 S
+PH 0 32 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1

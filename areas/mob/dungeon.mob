@@ -214,8 +214,8 @@ HG 0 1 -1
 8 8 1
 #93015
 lizard man lizardman~
-a &+rvicious &+glizardman&n~
-A &+rvicious &+glizardman eyes the room cautiously and hisses loudly.&n
+&+ga &+rvicious &+glizardman&n~
+&+gA &+rvicious &+glizardman eyes the room cautiously and hisses loudly.&n
 ~
    This scaly humanoid looks like a giant &+glizard &Nthat's standing on his hind
 legs. He carries a dagger and jumps around the room with great agility
@@ -228,8 +228,8 @@ R 0 4096 -1
 8 8 0
 #93016
 king lizard lizardman~
-the &+glizard &+Yking&n~
-The &+gLizard &+Yking &+wis standing here looking very angry at something.
+&+wthe &+glizard &+Yking&n~
+&+wThe &+gLizard &+Yking &+wis standing here looking very angry at something.
 ~
    The &+Yking &Npaces across the room hissing and roaring as he moves by.
 He is much larger then most lizards and carries a small &+Bshort sword&N.
@@ -242,8 +242,8 @@ R 0 1 -1
 8 8 0
 #93017
 dragon red~
-the &+rred &+gdragon&n~
-A &+rRed &+gDragon &+wsits here guarding his &+ytreasure hoard
+&+gthe &+rred &+gdragon&n~
+&+gA &+rRed &+gDragon &+wsits here guarding his &+ytreasure hoard
 ~
    The &+rdragon &Nis pretty damn huge about 48 feet. This has got to be the source
 of &+Rheat &Nsince even as he normally breathes, intense &+rfire blows out of his
@@ -283,8 +283,8 @@ PO 0 1 -1
 8 8 1
 #93020
 ogre chief~
-the &+Rogre &+Lchief&n~
-The &+Rogre &+Lchief stands here looking upset at your arrival.&n
+&+Lthe &+Rogre &+Lchief&n~
+&+LThe &+Rogre &+Lchief stands here looking upset at your arrival.&n
 ~
    He is incredibly tall nearly as tall as a giant which gives him an aura of
 respect around other ogres and he has huge &+Rmuscles &Nto match. When he roars

@@ -1819,6 +1819,9 @@ void death_cry(P_char ch)
   int      door, was_in, room;
   char     buf[MAX_INPUT_LENGTH];
 
+  if(IS_SET(ch->specials.act, ACT_SPEC_DIE))
+    return;
+
   switch(number(1,5))
   {
   case 1:
@@ -2148,10 +2151,12 @@ void die(P_char ch, P_char killer)
     if (check_outpost_death(ch, killer))
       return;
 
-  act("$n is dead! &+RR.I.P.&n", TRUE, ch, 0, 0, TO_ROOM);
-  act("&-L&+rYou feel yourself falling to the ground.&n", FALSE, ch, 0, 0, TO_CHAR);
-  act("&-L&+rYour soul leaves your body in the cold sleep of death...&n", FALSE,
-      ch, 0, 0, TO_CHAR);
+  if(!IS_SET(ch->specials.act, ACT_SPEC_DIE))
+  {
+     act("$n is dead! &+RR.I.P.&n", TRUE, ch, 0, 0, TO_ROOM);
+     act("&-L&+rYou feel yourself falling to the ground.&n", FALSE, ch, 0, 0, TO_CHAR);
+     act("&-L&+rYour soul leaves your body in the cold sleep of death...&n", FALSE, ch, 0, 0, TO_CHAR);
+  }
 
   if(check_reincarnate(ch))
   {

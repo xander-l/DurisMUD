@@ -2925,6 +2925,17 @@ bool exit_wallable(int room, int dir, P_char ch)
     return FALSE;
   }
 
+  P_obj obj, next_obj;
+  for (obj = world[room].contents; obj; obj = next_obj)
+  {
+     next_obj = obj->next_content;
+     if (obj->R_num == real_object(500054))
+     {
+       send_to_char("The magic attempts to take hold, but disperses suddenly...", ch);
+       return FALSE;
+     }
+  }
+
   dir_room = (world[room].dir_option[dir])->to_room;
   reverse_exit = rev_dir[dir];
 
