@@ -5,104 +5,104 @@ mask nightmares~
 ~
 9 40 10 1 15 0 0 262145 0 0 0
 10 0 0 0 0 0 0 0
-1 12829 100
+1 12829 100 0
 A
 20 -2
 A
 22 -4
 #30402
-gateway~
+gateway swirling~
 &+La &+Gswirling gateway&n~
 &+GA swirling gateway makes a tear in the mist&n.~
 ~
-13 15 3 0 5 0 0 0 0 0 0
+15 1 3 0 5 0 0 0 0 0 0
 0 0 0 0 0 0 0 0
-0 0 100
+0 0 100 0
 #30403
 pool crimson~
 &+ra large crimson pool&n~
 &+rA large crimson pool is here.&n~
 ~
-12 15 3 0 5 0 0 0 0 0 0
+15 1 3 0 5 0 0 0 0 0 0
 12401 0 0 0 0 0 0 0
-0 0 100
+0 0 100 0
 #30404
-rift large~
+rift flaming~
 &+Ra large flaming rift&n~
-&+RA large flaming rift in is here.&n~
+&+RA large flaming rift opens up here.&n~
 ~
-12 15 3 0 5 0 0 0 0 0 0
+15 1 3 0 5 0 0 0 0 0 0
 25410 0 0 0 0 0 0 0
-0 0 100
+0 0 100 0
 #30405
-rift~
-&+ya large rift&n~
-&+yA large rift in the mist is here.&n~
+rift colorful~
+&+ya colorful rift&n~
+&+yA colorful rift in the mist is here.&n~
 ~
-12 15 3 0 5 0 0 0 0 0 0
+15 1 3 0 5 0 0 0 0 0 0
 23901 0 0 0 0 0 0 0
-0 0 100
+0 0 100 0
 #30406
-rift~
+rift large~
 &+Wa large rift&n~
 &+WA large rift in the mist is here.&n~
 ~
-12 15 3 0 5 0 0 0 0 0 0
+15 1 3 0 5 0 0 0 0 0 0
 24401 0 0 0 0 0 0 0
-0 0 100
+0 0 100 0
 #30407
-rift~
-&+ba large rift&n~
-&+bA large rift in the mist is here.&n~
+rift dark~
+&+ba dark rift&n~
+&+bA dark rift in the mist is here.&n~
 ~
-12 15 3 0 5 0 0 0 0 0 0
+15 1 3 0 5 0 0 0 0 0 0
 23324 0 0 0 0 0 0 0
-0 0 100
+0 0 100 0
 #30408
-rift~
-&+Ya large rift&n~
-&+YA large rift in the mist is here.&n~
+rift whirling~
+&+Ya whirling rift&n~
+&+YA whirling  rift in the mist is here.&n~
 ~
-12 15 3 0 5 0 0 0 0 0 0
+15 1 3 0 5 0 0 0 0 0 0
 33480 0 0 0 0 0 0 0
-0 0 100
+0 0 100 0
 #30409
-rift~
-&+ma large rift&n~
-&+mA large rift in the mist is here.&n~
+gate large~
+&+ma large gate&n~
+&+mA large gate in the mist is here.&n~
 ~
-12 15 3 0 5 0 0 0 0 0 0
+15 1 3 0 5 0 0 0 0 0 0
 26205 0 0 0 0 0 0 0
-0 0 100
+0 0 100 0
 #30410
-rift~
+rift small~
 &+ca small rift&n~
 &+cA small rift in the mist is here.&n~
 ~
-12 15 3 0 5 0 0 0 0 0 0
+15 1 3 0 5 0 0 0 0 0 0
 93641 0 0 0 0 0 0 0
-0 0 100
+0 0 100 0
 #30411
-rift~
-&+ga small rift&n~
-&+gA small rift in the mist is here.&n~
+gate small~
+&+ga small gate&n~
+&+gA small gate in the mist is here.&n~
 ~
-12 15 3 0 5 0 0 0 0 0 0
+15 1 3 0 5 0 0 0 0 0 0
 74009 0 0 0 0 0 0 0
-0 0 100
+0 0 100 0
 #30412
-rift~
-&+La small rift&n~
-&+LA small rift in the mist is here.&n~
+rift medium~
+&+La medium rift&n~
+&+LA medium-sized rift in the mist is here.&n~
 ~
-12 15 3 0 5 0 0 0 0 0 0
+15 1 3 0 5 0 0 0 0 0 0
 4082 0 0 0 0 0 0 0
-0 0 100
+0 0 100 0
 #30413
-rift~
+rift invisible~
 &+La near-invisible rift&n~
 &+LA near-invisible rift opens up here.&n~
 ~
-12 15 3 0 5 0 0 0 0 0 0
+15 1 3 0 5 0 0 0 0 0 0
 19706 0 0 0 0 0 0 0
-0 0 100
+0 0 100 0

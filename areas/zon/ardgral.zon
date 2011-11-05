@@ -2,26 +2,26 @@
 &+LArd'gral, plane of dreams&n~
 30464 2 0 40 50 1
 *
-* Zone edited with dikuEdit v2.98i
+* Zone edited with durisEdit v2.99de
 *
 *
 *
 O 0 30402 6 30401 100 0 0 0        * a swirling gateway
 O 0 30402 6 30405 100 0 0 0        * a swirling gateway
-O 0 30412 1 30407 100 0 0 0        * a small rift
-O 0 30407 1 30414 100 0 0 0        * a large rift
+O 0 30412 1 30407 100 0 0 0        * a medium rift
+O 0 30407 1 30414 100 0 0 0        * a dark rift
 O 0 30406 1 30418 100 0 0 0        * a large rift
 O 0 30402 6 30427 100 0 0 0        * a swirling gateway
 O 0 30402 6 30430 100 0 0 0        * a swirling gateway
-O 0 30405 1 30432 100 0 0 0        * a large rift
+O 0 30405 1 30432 100 0 0 0        * a colorful rift
 O 0 30404 1 30441 100 0 0 0        * a large flaming rift
 O 0 30402 6 30443 100 0 0 0        * a swirling gateway
-O 0 30409 1 30447 100 0 0 0        * a large rift
-O 0 30411 1 30449 100 0 0 0        * a small rift
+O 0 30409 1 30447 100 0 0 0        * a large gate
+O 0 30411 1 30449 100 0 0 0        * a small gate
 O 0 30410 1 30452 100 0 0 0        * a small rift
 O 0 30402 6 30455 100 0 0 0        * a swirling gateway
 O 0 30403 1 30457 100 0 0 0        * a large crimson pool
-O 0 30408 1 30458 100 0 0 0        * a large rift
+O 0 30408 1 30458 100 0 0 0        * a whirling rift
 O 0 30413 1 30462 100 0 0 0        * a near-invisible rift
 *
 M 0 30401 1 30422 100 0 0 0        * the essence of nightmares
