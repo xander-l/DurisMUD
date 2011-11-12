@@ -897,7 +897,7 @@ void epic_stone_one_touch(P_obj obj, P_char ch, int epic_value)
   if(!obj || !ch || !epic_value)
     return;
 
-  if(get_zone_exp(ch, world[ch->in_room].zone) < calc_min_zone_exp(ch))	
+  /*if(get_zone_exp(ch, world[ch->in_room].zone) < calc_min_zone_exp(ch))	
   {
     act("The burst of &+Bblue energy&n from $p flows around $n, leaving them unaffected!",
         FALSE, ch, obj, ch, TO_NOTVICT);
@@ -905,7 +905,7 @@ void epic_stone_one_touch(P_obj obj, P_char ch, int epic_value)
         FALSE, ch, obj, 0, TO_CHAR);
     send_to_char("You did not gain enough experience here before trying to gain more power!\n", ch);
     return;
-  }
+  }*/
 
   act("The mystic &+Bblue energy&n from $p flows into $n!", FALSE, ch, obj, ch, TO_NOTVICT);
   act("The mystic &+Bblue energy&n from $p flows into you!", FALSE, ch, obj, 0, TO_CHAR);
@@ -1019,6 +1019,7 @@ int epic_stone(P_obj obj, P_char ch, int cmd, char *arg)
     }
 
     /* stones must be touched in the zone in which they were loaded */
+    
     if(zone_number && world[ch->in_room].zone != real_zone(zone_number))
     {
       act("A sick noise emanates from $p, and a large crack runs down the side! Something was misplaced!",
@@ -1076,14 +1077,14 @@ int epic_stone(P_obj obj, P_char ch, int cmd, char *arg)
 
       // set completed flag
       epic_zone_completions.push_back(epic_zone_completion(zone_number, time(NULL), delta));
-      db_query("UPDATE zones SET last_touch='%d' WHERE number='%d'", time(NULL), zone_number);
+      db_query("UPDATE zones SET last_touch = '%d' WHERE number = '%d'", time(NULL), zone_number);
 
       //  Allow !reset zones to possibly reset somewhere down the line...  - Jexni 11/7/11
       if(!zone_table[zone_number].reset_mode)
       {
-        struct zone_data *zone = &zone_table[zone_number];
-        add_event(event_reset_zone, WAIT_SEC, 0, 0, 0, 0, &zone, sizeof(zone));
-        db_query("update zones set reset_perc = 1 where number = '%d'", zone_number);
+        wizlog(56, "zone number %d, being passed to event", zone_number);
+        add_event(event_reset_zone, 1, 0, 0, 0, 0, &zone_number, sizeof(zone_number));
+        db_query("UPDATE zones SET reset_perc = 1 WHERE number = '%d'", zone_number);
       }
     }
 

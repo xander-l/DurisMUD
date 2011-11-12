@@ -1364,18 +1364,12 @@ void boot_world(int mini_mode)
           (!world[room_nr].dir_option[5] ||
            (world[room_nr].dir_option[5]->to_room == room_nr)))
       {
-        logit(LOG_DEBUG,
-              "Room %d, is NO_GROUND but has no valid 'down' exit",
-              world[room_nr].number);
         world[room_nr].sector_type = SECT_INSIDE;
       }
       if ((world[room_nr].chance_fall > 0) &&
           (!world[room_nr].dir_option[5] ||
            (world[room_nr].dir_option[5]->to_room == room_nr)))
       {
-        logit(LOG_DEBUG,
-              "Room %d, has %d%% chance fall but has no valid 'down' exit",
-              world[room_nr].number, world[room_nr].chance_fall);
         world[room_nr].chance_fall = 0;
       }
       if (world[room_nr].room_flags & ROOM_IS_INN)
@@ -3000,7 +2994,7 @@ P_obj read_object(int nr, int type)
   return (obj);
 }
 
-#define RESET_COUNTER 1
+
 /*  Function to reset no_reset zones...
  *  This function will be called at a time during boot
  *     A) After the original stone has been touched
@@ -3014,7 +3008,6 @@ P_obj read_object(int nr, int type)
  */
 void no_reset_zone_reset(int zone_number)
 {
-  int i;
   struct zone_data *zone = &zone_table[zone_number];
 
   if(!qry("SELECT reset_perc FROM zones WHERE number = '%d'", zone_number))
@@ -3028,23 +3021,23 @@ void no_reset_zone_reset(int zone_number)
   if(mysql_num_rows(res) < 1)
   {
     logit(LOG_DEBUG, "No data retrieved from DB for no_reset_zone_reset...");
+    mysql_free_result(res);
     return;
   }
   
   MYSQL_ROW row = mysql_fetch_row(res);
-    
+
   if(atoi(row[0]) > number(0, 99))
   {
-    zone_purge(zone_number);
-    wizlog(56, "Resetting no_reset zone %d, %s", zone_number, strip_ansi(zone->name).c_str()); 
-    reset_zone(zone_number, FALSE); // does not require a forced repop
-                                    // due to the zone_purge function
+    zone_purge(real_zone0(zone_number));
+    wizlog(56, "Resetting no_reset zone %d", zone_number); 
+    reset_zone(real_zone0(zone_number), TRUE);
+    db_query("UPDATE zones SET reset_perc = '%d' WHERE number = '%d'", 0, zone_number);
   }
   else
   {
-    wizlog(56, "incrementing");
-    add_event(event_reset_zone, WAIT_SEC, 0, 0, 0, 0, &zone, sizeof(zone));
-    db_query("UPDATE zones SET reset_perc = '%d' where number = '%d'", row[0] + 1, zone_number);
+    add_event(event_reset_zone, 1, 0, 0, 0, 0, &zone_number, sizeof(zone_number));
+    db_query("UPDATE zones SET reset_perc = '%d' WHERE number = '%d'", atoi(row[0]) + 1, zone_number);
   }
 }
 

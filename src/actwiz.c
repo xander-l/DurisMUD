@@ -2477,7 +2477,8 @@ void do_stat(P_char ch, char *argument, int cmd)
       break;
     }
 	
-    sprintf(buf1, "  &+YIn room [&N%d&+Y]", world[k->in_room].number);
+    sprintf(buf1, "  &+YIn room: [&N%d&+Y] Zone: [&n%d&+Y](&n%d&+Y) %s", world[k->in_room].number,
+                  zone_table[world[k->in_room].zone].number, world[k->in_room].zone, zone_table[world[k->in_room].zone].name);
     sprintf(buf2, "%s %s%s  ", buf,
             (IS_PC(k) ? "&+YPC" : (IS_PC(k) ? "&+RNPC" : "&+GMOB")),
             (t_mob) ? "" : buf1);
@@ -5416,7 +5417,7 @@ void do_zreset(P_char ch, char *argument, int cmd)
 
   if(!*arg)
   {
-    send_to_char("Syntax: zreset ok\n", ch);
+    send_to_char("Syntax: zreset ok or full(purge and reset)\n", ch);
   }
   else if(!str_cmp(arg, "ok"))
   {
