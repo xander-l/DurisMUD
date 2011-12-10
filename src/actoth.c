@@ -905,7 +905,6 @@ void do_rage(P_char ch, char *argument, int cmd)
 	return;
   }
 
-  
   if(number(1, 105) > GET_CHAR_SKILL(ch, SKILL_RAGE))
   {
     send_to_char("&+RYou are unable to call forth the rage within you...\r\n", ch);
@@ -913,26 +912,24 @@ void do_rage(P_char ch, char *argument, int cmd)
     return;
   }
   
-  notch_skill(ch, SKILL_RAGE, (int) get_property("skill.notch.offensive", 1.));
+  notch_skill(ch, SKILL_RAGE, (int) get_property("skill.notch.offensive", 10));
         
   if(!(GET_SPEC(ch, CLASS_BERSERKER, SPEC_RAGELORD)))
     CharWait(ch, 1.5 * PULSE_VIOLENCE);
   else
     CharWait(ch, (int)(0.5 * PULSE_VIOLENCE));
 
-  act("&+rYou feel a rage start to come from within...\n",
-    FALSE, ch, 0, 0, TO_CHAR);
+  act("&+rYou feel a rage start to come from within...\n", FALSE, ch, 0, 0, TO_CHAR);
   send_to_char("&+rYou are filled with a HUGE rush of BLOODLUST!\r\n", ch);
-  act("$n fills with a &+RSURGE&n of &+rBLoOdLuST! ROARRRRRRRR!!!\r\n",
-    FALSE, ch, 0, 0, TO_ROOM);
+  act("$n fills with a &+RSURGE&n of &+rBLoOdLuST! ROARRRRRRRR!!!\r\n", FALSE, ch, 0, 0, TO_ROOM);
 
-  dura = (4 * PULSE_VIOLENCE * GET_CHAR_SKILL(ch, SKILL_RAGE)) / 100;
+  dura = PULSE_VIOLENCE * (GET_CHAR_SKILL(ch, SKILL_RAGE) / 10);
 
   ch->specials.combat_tics = 3;
   memset(&af, 0, sizeof(struct affected_type));
   af.type = SKILL_RAGE;
   af.flags = AFFTYPE_SHORT;
-  //af.bitvector2 = AFF2_FLURRY; Removing flurry from rage, and lets try just making it increase their damage output instead.
+  af.bitvector2 = AFF2_FLURRY; 
   af.duration = dura;
   affect_to_char(ch, &af);
 
@@ -6010,7 +6007,7 @@ void do_ascend(P_char ch, char *arg, int cmd)
       {
         ch->player.spec = spec;
         send_to_char(
-          "You pray to your god, asking for judgement over your past deeds,\n"
+          "You pray to your god, asking for judgment over your past deeds,\n"
           "seeking further enlightment. A &+Wholy glow&n seems to encase you,\n"
           "lifting your spirits and heightening your awareness.\n"
           "Your prayers have been answered, as you ascend into the ranks of\n"
@@ -6057,7 +6054,7 @@ void do_ascend(P_char ch, char *arg, int cmd)
     do_start(ch, 1);
     ch->only.pc->epics = MAX(0, ch->only.pc->epics - (int) get_property("ascend.epicCost", 250));
     send_to_char(
-        "You pray to your god, asking for judgement over your past deeds,\n"
+        "You pray to your god, asking for judgment over your past deeds,\n"
         "seeking further enlightment. A &+Wholy glow&n seems to encase you,\n"
         "lifting your spirits and heightening your awareness.\n"
         "Your prayers have been answered, as you ascend into the ranks of\n"

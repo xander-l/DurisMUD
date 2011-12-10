@@ -355,7 +355,6 @@ void update_dam_factors()
   dam_factor[DF_SLSHIELDINCREASE] = get_property("damage.soulnegshield.increase", 1.5);
   dam_factor[DF_CHAOSSHIELD] = get_property("damage.reduction.chaosshield.mod", 0.90);
   dam_factor[DF_BERSERKRAGE] = get_property("damage.increase.berserk.rage", 1.350);
-  dam_factor[DF_RAGED] = get_property("damage.increase.rage", 2.000);
   dam_factor[DF_ENERGY_CONTAINMENT] = get_property("damage.reduction.EnergyContainment", 0.750);
   dam_factor[DF_GUARDIANS_BULWARK] = get_property("damage.reduction.guardians.bulwark", 0.850);
 }
@@ -3077,6 +3076,12 @@ int try_riposte(P_char ch, P_char victim, P_obj wpn)
     (ch, SKILL_RIPOSTE, get_property("skill.notch.defensive", 40)))
       return false;
   
+  // Much harder to riposte while knocked down
+  // Negatory Ghost Rider, impossible to riposte while
+  // knocked down... - Jexni
+  if(!MIN_POS(ch, POS_STANDING + STAT_NORMAL))
+     return false;
+
   // Skill range is 1 to 100.
   expertriposte = GET_CHAR_SKILL(ch, SKILL_EXPERT_RIPOSTE);
 
@@ -3088,18 +3093,18 @@ int try_riposte(P_char ch, P_char victim, P_obj wpn)
       GET_CLASS(ch, CLASS_DREADLORD) ||
       GET_CLASS(ch, CLASS_AVENGER))
     {
-      skl += 100;
+      skl += GET_LEVEL(ch) * (1. + (number(1, 10) / 20));
       npcepicriposte == true;
     }
-  }
-  
-/*  Blademasters are slightly better, though they don't get
- *  the full riposte skill
- */
+  }  
+
+  /*  Blademasters are slightly better, though they don't get
+   *  the full riposte skill
+   */
   if(GET_SPEC(ch, CLASS_RANGER, SPEC_BLADEMASTER))
     skl *= 1.05;
 
-/*  Hey, lets do the same for Swashbucklers */
+  /*  Hey, lets do the same for Swashbucklers */
   if(GET_SPEC(ch, CLASS_WARRIOR, SPEC_SWASHBUCKLER))
     skl *= 1.10;
 
@@ -3109,31 +3114,23 @@ int try_riposte(P_char ch, P_char victim, P_obj wpn)
   else
     skl *= 0.95;
 
-// Harder to riposte while stunned.
+  // Harder to riposte while stunned.
   if(IS_STUNNED(ch))
     skl *= 0.50;
 
-// Easier to riposte versus stunned attacker.
+  // Easier to riposte versus stunned attacker.
   if(IS_STUNNED(victim))
     skl *= 1.15;
-
-// Much harder to riposte while knocked down.
-  if(!MIN_POS(ch, POS_STANDING + STAT_NORMAL))
-    skl *= 0.50;
     
-// Much harder to riposte something you are not fighting.
+  // Much harder to riposte something you are not fighting, 
+  // unless you are an expert...  - Jexni
   if(ch->specials.fighting != victim)
-    skl *= 0.50;
+     if(expertriposte < number(1, 101))
+       skl *= 0.50;
 
   if(IS_AFFECTED5(ch, AFF5_DAZZLEE))
     skl *= 0.85;
 
-// Expert riposte.
-  if(expertriposte)
-  {
-    skl += expertriposte;
-  }
-  
   if(GET_CHAR_SKILL(ch, SKILL_MANGLE) > 0 &&
     try_mangle(ch, victim) > 0)
       return FALSE;
@@ -4575,13 +4572,12 @@ int check_shields(P_char ch, P_char victim, int dam, int flags)
   return result;
 }
 
-/**
+/*
  * this functions handles physical damage and modifies it against stoneskin type spells,
  * calculates vamping from melee damage and also resolves damage from fireshield type
  * spells to the attacker.
  */
-int melee_damage(P_char ch, P_char victim, double dam, int flags,
-                 struct damage_messages *messages)
+int melee_damage(P_char ch, P_char victim, double dam, int flags, struct damage_messages *messages)
 {
   struct damage_messages dummy_messages;
   int      vamp_dam, i, result, shld_result;
@@ -4663,13 +4659,8 @@ int melee_damage(P_char ch, P_char victim, double dam, int flags,
       dam = (dam * BOUNDED(1, ((GET_MAX_HIT(ch) / GET_HIT(ch)) / 4), 2)); 
     else
       dam = (dam * BOUNDED(1, ((GET_MAX_HIT(ch) / GET_HIT(ch)) / 2), 3));
-
-  // Since rage no longer flurries, this is going to be a damage increase
-  // while the berserker is raged. 
-  if(affected_by_spell(ch, SKILL_RAGE))
-      dam *= dam_factor[DF_RAGED];
   }
-  
+
   // Earth elementals ignore earth aura.
   if(IS_AFFECTED2(victim, AFF2_EARTH_AURA) &&
     !number(0, 5) &&
@@ -5157,8 +5148,8 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags,
     appear(ch);
     appear(victim);
    
-   if(victim != ch)
-    {
+    if(victim != ch)
+    { 
       if(CHAR_IN_SAFE_ZONE(ch))
       {
         return DAM_NONEDEAD;
@@ -5174,8 +5165,6 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags,
       {
         return DAM_NONEDEAD;
       }
-      
-      //justice_witness(ch, victim, CRIME_ATT_MURDER);
 
       if(victim->following == ch)
       {
@@ -5189,10 +5178,10 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags,
       }
 
       if(IS_HARDCORE(ch))
-        dam = (int) dam *1.09;
+        dam = (int) dam * 1.09;
 
       if(IS_HARDCORE(victim))
-        dam = (int) dam *0.91;
+        dam = (int) dam * 0.91;
 
       if(IS_GOOD(ch) &&
         affected_by_spell(ch, SPELL_HOLY_SWORD) &&
@@ -5205,7 +5194,7 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags,
         affected_by_spell(ch, SPELL_HOLY_SWORD) &&
         IS_GOOD(victim))
       {
-        dam = ( (int) dam - dice(2, 6) );
+        dam = ((int) dam - dice(2, 6));
       }
       
       if(IS_AFFECTED4(victim, AFF4_SANCTUARY) &&
@@ -5233,7 +5222,7 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags,
       
       if(get_spell_from_room(&world[ch->in_room], SPELL_BINDING_WIND))
       {
-        dam = (int) dam *0.80;
+        dam = (int) dam * 0.80;
       }
 
       if(IS_AFFECTED3(victim, AFF3_PROT_ANIMAL) &&
@@ -5242,11 +5231,11 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags,
         dam = dam_factor[DF_PROTANIMAL] * dam;
       }
 
-      if(IS_AFFECTED3( ch, AFF3_PALADIN_AURA ) &&
-        has_aura(ch, AURA_BATTLELUST ) )
+      if(IS_AFFECTED3( ch, AFF3_PALADIN_AURA) &&
+        has_aura(ch, AURA_BATTLELUST))
       {
         dam += dam *
-         (( get_property("innate.paladin_aura.battlelust_mod", 0.2 ) * aura_mod(ch, AURA_BATTLELUST) ) / 100 );
+         (( get_property("innate.paladin_aura.battlelust_mod", 0.2) * aura_mod(ch, AURA_BATTLELUST)) / 100);
       }
       
       if(has_innate(ch, INNATE_WARCALLERS_FURY))
@@ -5282,18 +5271,14 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags,
       !IS_MORPH(ch) &&
       (IS_PC(victim) || IS_PC_PET(victim) || IS_MORPH(victim)))
     {
-      dam = dam * (dam_factor[DF_NPCTOPC] / 2);
+      dam = dam * (dam_factor[DF_NPCTOPC]);
       if(GET_RACEWAR(victim) == RACEWAR_GOOD)
         dam = dam * (float)get_property("damage.modifier.npcToPc.good", 1.000);
       if(GET_RACEWAR(victim) == RACEWAR_EVIL)
 	dam = dam * (float)get_property("damage.modifier.npcToPc.evil", 1.000);
     }
-    else
-    {
-      dam = ((int) dam) >> 1;
-    }
     
-    dam = BOUNDED(1, (int) dam, 32766);
+    dam = BOUNDED(1, (int) dam, 9999);
 
     check_blood_alliance(victim, (int)dam);
 
@@ -5473,7 +5458,7 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags,
       IS_NPC(victim) &&
       !(flags & RAWDAM_NOKILL) &&
       GET_VNUM(victim) == 250 &&
-      (GET_HIT(victim) < 15 || damage_dealt > 240) )
+      (GET_HIT(victim) < 15))
     {
       act("Upon being struck, $n disappears into thin air.", TRUE,
           victim, 0, 0, TO_ROOM);
@@ -5599,7 +5584,6 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags,
 
     if(GET_HIT(victim) < 0 && affected_by_spell(ch, TAG_BUILDING))
     {
-      debug("killed building");
       new_stat = STAT_DEAD;
     }
     
@@ -5626,16 +5610,6 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags,
     {
       berserk(victim, 10 * PULSE_VIOLENCE);
     }
-
-    /*
-    if(GET_SPEC(victim, CLASS_BERSERKER, SPEC_RAGELORD)
-        && (GET_HIT(victim) < GET_MAX_HIT(victim) / 2))
-      if(!affected_by_spell(victim, SKILL_BERSERK))
-    {
-      int duration = 3 * (MAX(24, (GET_CHAR_SKILL(victim, SKILL_BERSERK) + GET_LEVEL(victim))));
-      berserk(victim, MAX(duration, 8 * PULSE_VIOLENCE));
-    }
-     */
 
     if(has_innate(victim, INNATE_EMBRACE_DEATH))
     {
@@ -6369,7 +6343,7 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
 
   //an increased chance to critical hit if affected by rage
   if(affected_by_spell(ch, SKILL_RAGE))
-	  diceroll -= (GET_CHAR_SKILL(ch, SKILL_RAGE) / 10);
+    diceroll = BOUNDED(1, diceroll - (GET_CHAR_SKILL(ch, SKILL_RAGE) / 10), 100);
 
   if(diceroll < 5)
     hit_type = -1; // critical hit
@@ -6378,21 +6352,18 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
   else
     hit_type = 1; // critical miss
 
-  if((hit_type == -1) &&
-       has_innate(victim, INNATE_AMORPHOUS_BODY))
+  if((hit_type == -1) && has_innate(victim, INNATE_AMORPHOUS_BODY))
   {
-  	act("You try to find a vital spot on your enemy, but $S body is too amorphous!",
-  	    FALSE, ch, NULL, victim, TO_CHAR);
-  	act("$e tried to find a vital spot on you, but your body is too amorphous for that!",
-  	    FALSE, ch, NULL, victim, TO_VICT);
+    act("You try to find a vital spot, but $S body is too amorphous!", FALSE, ch, NULL, victim, TO_CHAR);
+    act("$e tried to find a vital spot, but your body is too amorphous!", FALSE, ch, NULL, victim, TO_VICT);
     hit_type = 0;
   }
 
   wpn_skill = BOUNDED(GET_LEVEL(ch) / 2, wpn_skill, 100);
 
-  if(hit_type == -1 && number(30, 101) > wpn_skill + (GET_C_LUCK(ch) / 4) &&
-      !GET_CLASS(ch, CLASS_MONK))
+  if(hit_type == -1 && number(30, 101) > wpn_skill + (GET_C_LUCK(ch) / 4) && !GET_CLASS(ch, CLASS_MONK))
     hit_type = 0;
+
   if(hit_type == 1 && number(1, 101) <= wpn_skill + (GET_C_AGI(ch) / 2))
     hit_type = 0;
 
@@ -6589,13 +6560,10 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
   }
 
   if(hit_type == -1)
-  {
+  {  //  negate critical hits against when ragelord is flurried
     if(GET_SPEC(victim, CLASS_BERSERKER, SPEC_RAGELORD) &&
-        IS_AFFECTED2(victim, AFF2_FLURRY))
+        affected_by_skill(victim, SKILL_RAGE))
     {
-      send_to_char
-        ("&+rYour RaGe overwhelms you, making you blind to the enemies battering assaults.\n",
-         victim);
       hit_type = 0;
     }
   }
@@ -7379,6 +7347,7 @@ int dodgeSucceed(P_char char_dodger, P_char attacker, P_obj wpn)
     return 0;
   }
 
+  //  rage means no dodging
   if(affected_by_spell(char_dodger, SKILL_RAGE) && attacker != char_dodger->specials.fighting)
   {
     return 0;
@@ -7496,7 +7465,7 @@ int blockSucceed(P_char victim, P_char attacker, P_obj wpn)
     !(shield = victim->equipment[WEAR_SHIELD]))
       return false;
   
-  if(affected_by_spell(victim, SKILL_RAGE) && attacker != victim->specials.fighting)
+  if(affected_by_spell(victim, SKILL_RAGE | SKILL_BERSERK) && attacker != victim->specials.fighting)
       return false;
 
   if(notch_skill(victim, SKILL_SHIELD_BLOCK, get_property("skill.notch.defensive", 100)))
