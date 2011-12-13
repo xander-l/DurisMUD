@@ -77,20 +77,18 @@ extern struct mm_ds *dead_pconly_pool;
 
 extern int cast_as_damage_area(P_char,
                                void (*func) (int, P_char, char *, int, P_char,
-                                             P_obj), int, P_char, float,
-                               float);
+                                             P_obj), int, P_char, float, float);
 
 
-bool     exit_wallable(int room, int dir, P_char ch);
-bool     create_walls(int room, int exit, P_char ch, int level, int type,
+bool exit_wallable(int room, int dir, P_char ch);
+bool create_walls(int room, int exit, P_char ch, int level, int type,
                       int power, int decay, char *short_desc, char *desc,
                       ulong flags);
 extern bool has_skin_spell(P_char);
 
 /* Let's do some spells yah! */
 
-void spell_phantom_armor(int level, P_char ch, char *arg, int type,
-                         P_char victim, P_obj obj)
+void spell_phantom_armor(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
 
@@ -100,42 +98,43 @@ void spell_phantom_armor(int level, P_char ch, char *arg, int type,
     raise(SIGSEGV);
   }
 
-  if(!affected_by_spell(victim, SPELL_PHANTOM_ARMOR))
+  if(!ARMORED(victim))
   {
     bzero(&af, sizeof(af));
     af.type = SPELL_PHANTOM_ARMOR;
-    af.duration = 15;
+    af.duration = level / 4;
     af.modifier = -(level);
     af.bitvector = AFF_ARMOR;
     af.location = APPLY_AC;
     affect_to_char(victim, &af);
-    send_to_char
-      ("&+LShadowy &+Wphantoms&N blur your image to the outside!\r\n", victim);
+    send_to_char("&+LShadowy &+Wphantoms&N blur your image to the outside!\r\n", victim);
   }
   else
   {
     struct affected_type *af1;
 
     for(af1 = victim->affected; af1; af1 = af1->next)
+    {
       if(af1->type == SPELL_PHANTOM_ARMOR)
       {
-      send_to_char
-        ("&+LShadowy &+Wphantoms&N blur your image to the outside!\r\n", victim);
+        send_to_char("&+LShadowy &+Wphantoms&N blur your image to the outside!\r\n", victim);
         af1->duration = 15;
       }
+    }
+    return;
   }
+
+  send_to_char("Nothing new happens.", ch);
 }
 
-void spell_shadow_monster(int level, P_char ch, char *arg, int type,
-                          P_char victim, P_obj obj)
+void spell_shadow_monster(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   P_char   mob;
   int      summoned = 0;
   struct char_link_data *cld;
 
-  if(!ch ||
-     !victim)
-      return;
+  if(!ch || !victim)
+    return;
 
   if(CHAR_IN_SAFE_ZONE(ch))
   {
@@ -171,7 +170,7 @@ void spell_shadow_monster(int level, P_char ch, char *arg, int type,
   char_to_room(mob, ch->in_room, 0);
   act("$n &+wappears from nowhere!", TRUE, mob, 0, 0, TO_ROOM);
 
-  mob->player.level = BOUNDED(1, number(level - 5, level + 1), 55);
+  mob->player.level = BOUNDED(1, number(level - 5, level + 1), 25);
 
   mob->player.m_class = 0;
   remove_plushit_bits(mob);
@@ -186,15 +185,13 @@ void spell_shadow_monster(int level, P_char ch, char *arg, int type,
   mob->points.base_damroll = mob->points.damroll = GET_LEVEL(ch) / 2;
   mob->points.damnodice = (int) GET_LEVEL(ch) / 5;
   mob->points.damsizedice = (int) GET_LEVEL(ch) / 6;
-// play_sound(SOUND_ELEMENTAL, NULL, ch->in_room, TO_ROOM);
 
   MobStartFight(mob, victim);
   group_add_member(ch, mob);
 }
 
 
-void spell_insects(int level, P_char ch, char *arg, int type, P_char victim,
-                   P_obj obj)
+void spell_insects(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   P_char   mob;
   int      summoned, i;
@@ -236,7 +233,7 @@ void spell_insects(int level, P_char ch, char *arg, int type, P_char victim,
     char_to_room(mob, ch->in_room, 0);
     act("$n &+Lappears from nowhere!", TRUE, mob, 0, 0, TO_ROOM);
 
-    mob->player.level = MIN(30, MAX(1, number(level - 7, level - 2)));
+    mob->player.level = BOUNDED(5, number(level - 5, level), 15);
 
     SET_BIT(mob->specials.affected_by, AFF_HASTE);
 
@@ -269,10 +266,7 @@ void spell_insects(int level, P_char ch, char *arg, int type, P_char victim,
   }
 }
 
-
-
-void spell_boulder(int level, P_char ch, char *arg, int type, P_char victim,
-                   P_obj obj)
+void spell_boulder(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   int      dam;
   struct damage_messages messages = {
@@ -286,42 +280,37 @@ void spell_boulder(int level, P_char ch, char *arg, int type, P_char victim,
 
   if(!(victim && ch))
   {
-    logit(LOG_EXIT, "Damm boulders it's messed up!");
+    logit(LOG_EXIT, "spell_boulder, no ch/victim, exiting...");
     raise(SIGSEGV);
   }
 
   dam = dice(2 * level, 8);
   
   if(NewSaves(victim, SAVING_SPELL, 0))
-    dam >>= 1;
+    dam >> 1;
 
-  if(spell_damage(ch, victim, dam, SPLDAM_GENERIC, SPLDAM_GLOBE, &messages)
-      != DAM_NONEDEAD)
+  if(spell_damage(ch, victim, dam, SPLDAM_GENERIC, SPLDAM_GLOBE, &messages) != DAM_NONEDEAD)
     return;
 
-   if(!IS_AFFECTED2(victim, AFF2_GLOBE) &&
+  if(!IS_AFFECTED2(victim, AFF2_GLOBE) &&
      (GET_POS(victim) == POS_STANDING) &&
      !IS_ELITE(victim) &&
      !IS_GREATER_RACE(victim))
-   {
+  {
 
-     if(!number(0, 9))
-     {
-      act("&+LYour &+Wboulder&n &+Lhit's $N dead on, knocking $M to the ground!&n",
-        0, ch, 0, victim, TO_CHAR);
-      act("$N is knocked to the ground as $n's &+Wboulder hit's $M dead on!&n",
-        0, ch, 0, victim, TO_NOTVICT);
-      act("$n's &+Wboulder hit's dead on knocking you to the ground!&n",
-        0, ch, 0, victim, TO_VICT);
+    if(!number(0, 9))
+    {
+      act("&+LYour &+Wboulder &+Lhit's $N dead on, knocking $M to the ground!", 0, ch, 0, victim, TO_CHAR);
+      act("$N is knocked to the ground as $n's &+Wboulder hit's $M dead on!", 0, ch, 0, victim, TO_NOTVICT);
+      act("$n's &+Wboulder hit's dead on knocking you to the ground!", 0, ch, 0, victim, TO_VICT);
       SET_POS(victim, POS_SITTING + GET_STAT(victim));
       CharWait(victim, (int)(PULSE_VIOLENCE * 0.5));
-     }
-   }
+    }
+  }
 }
 
 
-void spell_shadow_travel(int level, P_char ch, char *arg, int type,
-                         P_char victim, P_obj obj)
+void spell_shadow_travel(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   int      location;
   char     buf[256] = { 0 };
@@ -445,9 +434,7 @@ void spell_shadow_travel(int level, P_char ch, char *arg, int type,
   }
 }
 
-
-void spell_stunning_visions(int level, P_char ch, char *arg, int type,
-                            P_char victim, P_obj obj)
+void spell_stunning_visions(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
 
   int percent = level + number(-10, 10);
@@ -456,11 +443,17 @@ void spell_stunning_visions(int level, P_char ch, char *arg, int type,
     !(victim) ||
     !IS_ALIVE(victim) ||
     GET_HIT(victim) < 1 ||
-    !IS_ALIVE(ch) ||
-    IS_TRUSTED(victim) ||
+    !IS_ALIVE(ch))
+  {
+    logit(LOG_EXIT, "stunning_visions called with invalid args, exiting...");
+    raise(SIGSEGV);
+  }
+
+  if(IS_TRUSTED(victim) ||
     IS_ZOMBIE(victim) ||
     GET_RACE(victim) == RACE_GOLEM ||
     GET_RACE(victim) == RACE_PLANT ||
+    GET_RACE(victim) == RACE_CONSTRUCT ||
     IS_GREATER_RACE(victim))
   {
     send_to_char("&+rYour target is immune!\r\n", ch);
@@ -479,10 +472,10 @@ void spell_stunning_visions(int level, P_char ch, char *arg, int type,
   }
  
   if(NewSaves(ch, SAVING_SPELL, 0))
-    percent /= 2;
+    percent >> 2;
 
   if(IS_PC_PET(victim))
-    percent *= 2;
+    percent << 2;
   
   percent += (level - GET_LEVEL(victim));
 
@@ -491,7 +484,7 @@ void spell_stunning_visions(int level, P_char ch, char *arg, int type,
   act("&+cYou send a wave of incredible visions toward&n $N.",
     FALSE, ch, 0, victim, TO_CHAR);
   
-  if(percent < 11)
+  if(percent < 20)
   {
     act("$n &+ctries to mesmerize you with some stunning visions, but fails miserably!\r\n",
       FALSE, ch, 0, victim, TO_VICT);
@@ -501,11 +494,9 @@ void spell_stunning_visions(int level, P_char ch, char *arg, int type,
 
   if(percent > 90)
   {
-    act("&+cYour wave of visions seems to completely entrance&n $N!", 
-      FALSE, ch, 0, victim, TO_CHAR);
-    act("$n's &+cstunning visions seem to completely entrance&n $N!", 
-      FALSE, ch, 0, victim, TO_NOTVICT);
-    act("$n &+ccauses visions to dance before your eyes, causing you to fall in a deep trance!&n.",
+    act("&+cYour wave of visions seems to completely entrance&n $N!", FALSE, ch, 0, victim, TO_CHAR);
+    act("$n's &+cstunning visions seem to completely entrance&n $N!", FALSE, ch, 0, victim, TO_NOTVICT);
+    act("$n &+cconjures visions to dance before your eyes; you to fall in a deep trance!&n.",
       FALSE, ch, 0, victim, TO_VICT);
 
     if(IS_FIGHTING(victim))
@@ -519,11 +510,9 @@ void spell_stunning_visions(int level, P_char ch, char *arg, int type,
   }
   else if(percent > 60)
   {
-    act("&+cYour wave of visions seems to entrance&n $N!", 
-      FALSE, ch, 0, victim, TO_CHAR);
-    act("$n's &+Cstunning visions seem to entrance&n $N!",
-      FALSE, ch, 0, victim, TO_NOTVICT);
-    act("$n &+ccauses visions to dance before your eyes, causing you to fall into a trance!&n.",
+    act("&+cYour wave of visions seems to entrance&n $N!", FALSE, ch, 0, victim, TO_CHAR);
+    act("$n's &+Cstunning visions seem to entrance&n $N!", FALSE, ch, 0, victim, TO_NOTVICT);
+    act("$n &+cconjures visions to dance before your eyes; you to fall into a trance!&n.",
       FALSE, ch, 0, victim, TO_VICT);
 
     if(IS_FIGHTING(victim))
@@ -537,12 +526,9 @@ void spell_stunning_visions(int level, P_char ch, char *arg, int type,
   }
   else if(percent > 40)
   {
-    act("&+cYour wave of visions seems to mesmerize&n $N!", 
-      FALSE, ch, 0, victim, TO_CHAR);
-    act("$n's &+cstunning visions seem to mesmerize&n $N!", 
-      FALSE, ch, 0, victim, TO_NOTVICT);
-    act("$n &+ccauses visions to dance before your eyes mesmerizing you!&n.",
-      FALSE, ch, 0, victim, TO_VICT);
+    act("&+cYour wave of visions seems to mesmerize&n $N!",  FALSE, ch, 0, victim, TO_CHAR);
+    act("$n's &+cstunning visions seem to mesmerize&n $N!",  FALSE, ch, 0, victim, TO_NOTVICT);
+    act("$n &+ccauses visions to dance before your eyes, mesmerizing you!&n.", FALSE, ch, 0, victim, TO_VICT);
 
     if(IS_FIGHTING(victim))
     {
@@ -552,14 +538,11 @@ void spell_stunning_visions(int level, P_char ch, char *arg, int type,
     Stun(victim, ch, PULSE_VIOLENCE * number(1, 2), FALSE);
     return;
   }
-  else if(percent >= 11)
+  else if(percent >= 20)
   {
-    act("&+cYour wave of visions seems to slightly mesmerize&n $N!",
-      FALSE, ch, 0, victim, TO_CHAR);
-    act("$n's &+cstunning visions seem to slightly mesmerize&n $N!",
-      FALSE, ch, 0, victim, TO_NOTVICT);
-    act("$n &+ccauses visions to dance before your eyes, bewildering you!&n.",
-      FALSE, ch, 0, victim, TO_VICT);
+    act("&+cYour wave of visions seems to slightly mesmerize&n $N!", FALSE, ch, 0, victim, TO_CHAR);
+    act("$n's &+cstunning visions seem to slightly mesmerize&n $N!", FALSE, ch, 0, victim, TO_NOTVICT);
+    act("$n &+ccauses visions to dance before your eyes, bewildering you!&n.", FALSE, ch, 0, victim, TO_VICT);
 
     if(IS_FIGHTING(victim))
     {
@@ -571,9 +554,7 @@ void spell_stunning_visions(int level, P_char ch, char *arg, int type,
   }
 }
 
-
-void spell_reflection(int level, P_char ch, char *arg, int type,
-                      P_char victim, P_obj obj)
+void spell_reflection(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   P_char   image, tch, tch2;
   struct affected_type af;
@@ -674,9 +655,7 @@ void spell_reflection(int level, P_char ch, char *arg, int type,
     }
     
     image->only.npc->str_mask = (STRUNG_KEYS | STRUNG_DESC1 | STRUNG_DESC2);
-    
-    image->points.base_hit = GET_MAX_HIT(image) = GET_HIT(image) =
-      level * 4 + number(0, 50);
+    image->points.base_hit = GET_MAX_HIT(image) = GET_HIT(image) = level * 4 + number(0, 50);
 
     while(image->affected)
     {
@@ -691,23 +670,17 @@ void spell_reflection(int level, P_char ch, char *arg, int type,
     SET_BIT(image->specials.affected_by, AFF_DETECT_INVISIBLE);
 
     balance_affects(image);
-
-    setup_pet(image, ch, 3, PET_NOCASH);
-    
+    setup_pet(image, ch, 3, PET_NOCASH);    
     add_follower(image, ch);
 
     /* string it */
 
     logit(LOG_DEBUG, "REFLECTION: (%s) casting on (%s).", GET_NAME(ch), GET_NAME(victim));
-
-    sprintf(Gbuf1, "image %s %s", GET_NAME(victim),
-            race_names_table[GET_RACE(victim)].normal);
+    sprintf(Gbuf1, "image %s %s", GET_NAME(victim), race_names_table[GET_RACE(victim)].normal);
     
     image->player.name = str_dup(Gbuf1);
     image->player.short_descr = str_dup(victim->player.name);
-
-    sprintf(Gbuf1, "%s stands here.\r\n", victim->player.name);
-    
+    sprintf(Gbuf1, "%s stands here.\r\n", victim->player.name);    
     image->player.long_descr = str_dup(Gbuf1);
 
     if(GET_TITLE(victim))
@@ -747,8 +720,7 @@ void spell_reflection(int level, P_char ch, char *arg, int type,
 }
 
 
-void spell_mask(int level, P_char ch, char *arg, int type, P_char victim,
-                P_obj tar_obj)
+void spell_mask(int level, P_char ch, char *arg, int type, P_char victim, P_obj tar_obj)
 {
   bool     loss_flag = FALSE;
   bool     casting_on_self = FALSE;
@@ -773,8 +745,6 @@ void spell_mask(int level, P_char ch, char *arg, int type, P_char victim,
       target = NULL;
     }
   }
-
-
 
   if((target && IS_PC(target) && GET_PID(target) == GET_PID(ch)) || casting_on_self)
   {
@@ -871,8 +841,7 @@ void spell_mask(int level, P_char ch, char *arg, int type, P_char victim,
   return;
 }
 
-void spell_watching_wall(int level, P_char ch, char *arg, int type,
-                         P_char tar_ch, P_obj tar_obj)
+void spell_watching_wall(int level, P_char ch, char *arg, int type, P_char tar_ch, P_obj tar_obj)
 {
   char buf1[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH], Gbuf4[MAX_STRING_LENGTH];
   int  var = 0;
@@ -899,12 +868,8 @@ void spell_watching_wall(int level, P_char ch, char *arg, int type,
   {
     SET_BIT(EXIT(ch, var)->exit_info, EX_BREAKABLE);
     SET_BIT(VIRTUAL_EXIT((world[ch->in_room].dir_option[var])->to_room, rev_dir[var])->exit_info, EX_BREAKABLE);
-    sprintf(buf1,
-            "&+yA massive eye-covered stone wall appears to the %s!&n\r\n",
-            dirs[var]);
-    sprintf(buf2,
-            "&+yA massive eye-covered stone wall appears to the %s!&n\r\n",
-            dirs[rev_dir[var]]);
+    sprintf(buf1, "&+yA massive eye-covered stone wall appears to the %s!&n\r\n", dirs[var]);
+    sprintf(buf2, "&+yA massive eye-covered stone wall appears to the %s!&n\r\n", dirs[rev_dir[var]]);
 
     send_to_room(buf1, ch->in_room);
     send_to_room(buf2, (world[ch->in_room].dir_option[var])->to_room);
@@ -914,9 +879,8 @@ void spell_watching_wall(int level, P_char ch, char *arg, int type,
 void spell_illusionary_wall(int level, P_char ch, char *arg, int type,
                             P_char victim, P_obj obj)
 {
-  char     buf1[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH],
-    Gbuf4[MAX_STRING_LENGTH];
-  int      var = 0;
+  char buf1[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH], Gbuf4[MAX_STRING_LENGTH];
+  int var = 0;
 
   one_argument(arg, Gbuf4);
   var = dir_from_keyword(Gbuf4);
@@ -928,8 +892,7 @@ void spell_illusionary_wall(int level, P_char ch, char *arg, int type,
 
   if(CHAR_IN_TOWN(ch) && IS_DISGUISE_ILLUSION(ch))
   {
-    send_to_char
-      ("You cannot create any walls when disguised in any town!\r\n", ch);
+    send_to_char("You cannot create any walls when disguised in any town!\r\n", ch);
     return;
   }
 
@@ -939,8 +902,7 @@ void spell_illusionary_wall(int level, P_char ch, char *arg, int type,
                    ITEM_SECRET))
   {
     sprintf(buf1, "&+LThe exit to the %s disappears!&n\r\n", dirs[var]);
-    sprintf(buf2, "&+LThe exit to the %s disappears!&n\r\n",
-            dirs[rev_dir[var]]);
+    sprintf(buf2, "&+LThe exit to the %s disappears!&n\r\n", dirs[rev_dir[var]]);
 
     send_to_room(buf1, ch->in_room);
     send_to_room(buf2, (world[ch->in_room].dir_option[var])->to_room);
@@ -951,12 +913,9 @@ void spell_illusionary_wall(int level, P_char ch, char *arg, int type,
   }
 }
 
-
-void spell_nightmare(int level, P_char ch, char *arg, int type, P_char victim,
-                     P_obj obj)
+void spell_nightmare(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
-  int      dam;
-  int      temp;
+  int dam;
 
   if(!(victim && ch))
   {
@@ -969,156 +928,36 @@ void spell_nightmare(int level, P_char ch, char *arg, int type, P_char victim,
 
   if(IS_DEMON(victim) || IS_DRAGON(victim) || IS_TRUSTED(victim))
   {
-
     act("How can you give $N nightmares? Nothing scares $M!", FALSE, ch, 0,
         victim, TO_CHAR);
-
     return;
-
   }
 
   if(GET_STAT(ch) == STAT_DEAD)
     return;
 
-  if(!saves_spell(victim, SAVING_SPELL))
+  if(!saves_spell(victim, SAVING_FEAR))
   {
+     act("You show $N a horror filled nightmare!", FALSE, ch, 0, victim, TO_CHAR);
+     act("A wave of painful terror overcomes you as $n shows you a horrible nightmare!", FALSE, ch, 0, victim, TO_VICT);
+     act("$n shows $N! his worst nightmare!", FALSE, ch, 0, victim, TO_NOTVICT);
 
-    switch (GET_RACE(victim))
-    {
-    case RACE_TROLL:
-      act("You show $N a nightmare of $M taking a bath!", FALSE, ch, 0,
-          victim, TO_CHAR);
-      act
-        ("A wave of painful terror overcomes you as $n shows you a nightmare of you taking a bath!",
-         FALSE, ch, 0, victim, TO_VICT);
-      act("$n shows $N! his worst nightmare!", FALSE, ch, 0, victim,
-          TO_NOTVICT);
-      break;
-    case RACE_HUMAN:
-      act("You show $N a nightmare of an ogre sitting on $S face!", FALSE, ch,
-          0, victim, TO_CHAR);
-      act
-        ("A wave of painful terror overcomes you as $n shows you a nightmare of an ogre sitting on your face!",
-         FALSE, ch, 0, victim, TO_VICT);
-      act("$n shows $N! his worst nightmare!", FALSE, ch, 0, victim,
-          TO_NOTVICT);
-      break;
-    case RACE_MOUNTAIN:
-    case RACE_DUERGAR:
-      act("You show $N a nightmare of $M getting $S beard cut off!", FALSE,
-          ch, 0, victim, TO_CHAR);
-      act
-        ("A wave of painful terror overcomes you as $n shows you a nightmare with you getting your beard cut off!",
-         FALSE, ch, 0, victim, TO_VICT);
-      act("$n shows $N! his worst nightmare!", FALSE, ch, 0, victim,
-          TO_NOTVICT);
-      break;
-    case RACE_HALFLING:
-      act
-        ("You show $N a nightmare of $M getting $S hand caught in a cookie jar!",
-         FALSE, ch, 0, victim, TO_CHAR);
-      act
-        ("A wave of painful terror overcomes you as $n shows you a nightmare with you getting your hand caught in a cookie jar!",
-         FALSE, ch, 0, victim, TO_VICT);
-      act("$n shows $N! his worst nightmare!", FALSE, ch, 0, victim,
-          TO_NOTVICT);
-      break;
-    case RACE_OGRE:
-      act("You show $N a nightmare of a little white mouse.", FALSE, ch, 0,
-          victim, TO_CHAR);
-      act
-        ("A wave of painful terror overcomes you as $n shows you a nightmare of a little white mouse jumping in front of you!",
-         FALSE, ch, 0, victim, TO_VICT);
-      act("$n shows $N! his worst nightmare!", FALSE, ch, 0, victim,
-          TO_NOTVICT);
-      break;
-    case RACE_THRIKREEN:
-      act("You show $N a nightmare of $M getting stuffed into a freezer.",
-          FALSE, ch, 0, victim, TO_CHAR);
-      act
-        ("A wave of painful terror overcomes you as $n shows you a nightmare of you getting stuffed into a freezer!",
-         FALSE, ch, 0, victim, TO_VICT);
-      act("$n shows $N! his worst nightmare!", FALSE, ch, 0, victim,
-          TO_NOTVICT);
-      break;
-    case RACE_CENTAUR:
-      act
-        ("You show $N a nightmare of a old lady storm giant trying to ride $M.",
-         FALSE, ch, 0, victim, TO_CHAR);
-      act
-        ("A wave of painful terror overcomes you as $n shows you a nightmare of a old lady storm giant trying to mount you!",
-         FALSE, ch, 0, victim, TO_VICT);
-      act("$n shows $N! his worst nightmare!", FALSE, ch, 0, victim,
-          TO_NOTVICT);
-      break;
-    case RACE_MINOTAUR:
-      act("You show $N a nightmare of $M getting killed by a bull fighter!",
-          FALSE, ch, 0, victim, TO_CHAR);
-      act
-        ("A wave of painful terror overcomes you as $n shows you a nightmare of you getting killed by a bull fighter!",
-         FALSE, ch, 0, victim, TO_VICT);
-      act("$n shows $N! his worst nightmare!", FALSE, ch, 0, victim,
-          TO_NOTVICT);
-      break;
-    case RACE_GOBLIN:
-    case RACE_GNOME:
-      act("You show $N a nightmare of $M getting stepped upon by a giant foot!",
-          FALSE, ch, 0, victim, TO_CHAR);
-      act
-        ("A wave of painful terror overcomes you as $n shows you a nightmare with you getting stepped on!",
-         FALSE, ch, 0, victim, TO_VICT);
-      act("$n shows $N! his worst nightmare!", FALSE, ch, 0, victim,
-          TO_NOTVICT);
-      break;
-    case RACE_PLICH:
-    case RACE_PVAMPIRE:
-      act
-        ("You show $N a nightmare of $M getting stabbed by a wooden stake through the heart!",
-         FALSE, ch, 0, victim, TO_CHAR);
-      act
-        ("A wave of painful terror overcomes you as $n shows you a nightmare of you getting stabbed through the heart by a wooden stake!",
-         FALSE, ch, 0, victim, TO_VICT);
-      act("$n shows $N! his worst nightmare!", FALSE, ch, 0, victim,
-          TO_NOTVICT);
-      break;
-    default:
-      act("You show $N a horror filled nightmare!", FALSE, ch, 0, victim,
-          TO_CHAR);
-      act
-        ("A wave of painful terror overcomes you as $n shows you a horrible nightmare!",
-         FALSE, ch, 0, victim, TO_VICT);
-      act("$n shows $N! his worst nightmare!", FALSE, ch, 0, victim,
-          TO_NOTVICT);
-      break;
-    }
+     dam = GET_LEVEL(ch) * 2 + number(10, 40);
+     if(spell_damage(ch, victim, dam, SPLDAM_GENERIC, SPLDAM_NOSHRUG, 0) != DAM_NONEDEAD)
+       return;
 
-/*
-    temp = MIN(35, level);
-    dam = dice(2 * temp, 3);
-    dam = dam * DAMFACTOR;
-
-    damage(ch, victim, dam, SPELL_NIGHTMARE);
-
-    if(char_in_list(victim) && !courage_check(victim))
-      do_flee(victim, 0, 2);
-*/
-    if(char_in_list(victim) && !fear_check(victim))
-      do_flee(victim, 0, 2);
-
-
+     if(char_in_list(victim) && !fear_check(victim))
+       do_flee(victim, 0, 2);
   }
   else
   {
-    act
-      ("$N doesn't look frightened of $n's nightmares.. $E DOES look pissed off though.",
-       FALSE, ch, 0, victim, TO_CHAR);
-    act("$N looks pissed at $n for some reason.", TRUE, ch, 0, victim,
-        TO_NOTVICT);
+    act("$N is only angered by your attempt to bring $S worst fears to bear...", FALSE, ch, 0, victim, TO_CHAR);
+    act("$N looks pissed at $n for some reason.", TRUE, ch, 0, victim, TO_NOTVICT);
     act("$n's nightmares do not impress you.", TRUE, ch, 0, victim, TO_VICT);
   }
+
   if(ch->in_room == victim->in_room)
   {
-
     if(IS_NPC(victim) && CAN_SEE(victim, ch))
     {
       remember(victim, ch);
@@ -1128,21 +967,15 @@ void spell_nightmare(int level, P_char ch, char *arg, int type, P_char victim,
   }
 }
 
-
-
-
-void spell_shadow_shield(int level, P_char ch, char *arg, int type,
-                         P_char victim, P_obj obj)
+void spell_shadow_shield(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
   int      absorb = (level / 6) + number(1, 4);
 
   if(!has_skin_spell(victim))
   {
-    act("&+LShadows start to swirl around and cover&n $n's &+Lskin.&n",
-        TRUE, victim, 0, 0, TO_ROOM);
-    act("&+LYou feel a strange shadowy mist cover your body.&n",
-        TRUE, victim, 0, 0, TO_CHAR);
+    act("&+LShadows start to swirl around and cover&n $n's &+Lskin.&n", TRUE, victim, 0, 0, TO_ROOM);
+    act("&+LYou feel a strange shadowy mist cover your body.&n", TRUE, victim, 0, 0, TO_CHAR);
   }
   else
   {
@@ -1158,8 +991,7 @@ void spell_shadow_shield(int level, P_char ch, char *arg, int type,
 
 }
 
-void spell_vanish(int level, P_char ch, char *arg, int type, P_char victim,
-                  P_obj obj)
+void spell_vanish(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
   int room;
@@ -1205,13 +1037,12 @@ void spell_vanish(int level, P_char ch, char *arg, int type, P_char victim,
 }
 
 
-void spell_hammer(int level, P_char ch, char *arg, int type, P_char victim,
-                  P_obj obj)
+void spell_hammer(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct damage_messages messages = {
     "Your massive &+Bhammer&N causes $N to double over in pain!",
     "$n creates a &+Bhammer&N out of thin air that smashes into you!",
-    "$n creates a &+Bhammer&N out of thin air that smashes into $N, bits of &+yflesh&n and &+Wbone&n fly everywhere!",
+    "$n creates a &+Bhammer&N that smashes into $N, bits of &+yflesh&n and &+Wbone&n fly everywhere!",
     "Your &+Billusional hammer&N smashes into $N's body, killing $M instantly!",
     "$n's massive &+Bhammer&N is the last thing you ever see.",
     "$n's &+Bhammer&N strikes $N smashing $M into the ground!"
@@ -1251,8 +1082,7 @@ void spell_hammer(int level, P_char ch, char *arg, int type, P_char victim,
   }
 }
 
-void spell_detect_illusion(int level, P_char ch, char *arg, int type,
-                           P_char victim, P_obj obj)
+void spell_detect_illusion(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
 
@@ -1285,8 +1115,7 @@ void spell_detect_illusion(int level, P_char ch, char *arg, int type,
 
 }
 
-void spell_shadow_rift(int level, P_char ch, char *arg, int type,
-                       P_char victim, P_obj obj)
+void spell_shadow_rift(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   int      location;
   P_char   targ;
@@ -1408,7 +1237,6 @@ void spell_shadow_rift(int level, P_char ch, char *arg, int type,
   }
 }
 
-
 /*
 Help function to detect illusions one for
 mobile/player illusions and one for object..
@@ -1471,8 +1299,7 @@ void spell_clone_form(int level, P_char ch, char *arg, int type,
   
   if(!IS_TRUSTED(ch) && GET_LEVEL(victim) > 56)
   {
-    send_to_char
-      ("&+LTry to find something that is a lower level to clone.&N\r\n", ch);
+    send_to_char("&+LTry to find something that is a lower level to clone.&N\r\n", ch);
     return;
   }
 
@@ -1507,7 +1334,6 @@ void spell_clone_form(int level, P_char ch, char *arg, int type,
       send_to_char("&+LMaking you looking like yourself is beyond you.&N\r\n", ch);
       return;
     }
-
     else
     {
       for(tch = world[ch->in_room].people; tch; tch = next_ch)
@@ -1528,9 +1354,7 @@ void spell_clone_form(int level, P_char ch, char *arg, int type,
         return;
       }
     }
-
   }
-
 
   if(IS_NPC(target))
   {
@@ -1568,12 +1392,9 @@ void spell_clone_form(int level, P_char ch, char *arg, int type,
   }
   else
   {
-
     if(!IS_TRUSTED(ch) && target && GET_LEVEL(target) > 56)
     {
-      send_to_char
-        ("&+LYou don't know what the divine look like to make their illusions.&N\r\n",
-         ch);
+      send_to_char("&+LYou don't know what the divine look like to make their illusions.&N\r\n", ch);
       return;
     }
     if(IS_TRUSTED(ch))
@@ -1587,9 +1408,7 @@ void spell_clone_form(int level, P_char ch, char *arg, int type,
     if(target)
       if((GET_ALT_SIZE(ch) > (GET_ALT_SIZE(target) + 1)) && !IS_TRUSTED(ch))
       {
-        send_to_char
-          ("You're too big to even think of making yourself look like that!\r\n",
-           ch);
+        send_to_char("You're too big to even think of making yourself look like that!\r\n", ch);
         return;
       }
       else
@@ -1640,17 +1459,13 @@ void spell_imprison(int level, P_char ch, char *arg, int type, P_char victim,
 
   if(IS_FIGHTING(victim))
   {
-    send_to_char
-      ("With this much commotion you can't seem to get a fix on them!\r\n",
-       ch);
+    send_to_char("With this much commotion you can't seem to get a fix on them!\r\n", ch);
     return;
   }
   
   if(victim == ch)
   {
-    send_to_char
-      ("&+CYou instantly disbelieve the illusion for what it really is...\r\n",
-       ch);
+    send_to_char("&+CYou instantly disbelieve the illusion for what it really is...\r\n", ch);
     return;
   }
   
@@ -1667,9 +1482,7 @@ void spell_imprison(int level, P_char ch, char *arg, int type, P_char victim,
 
   if(shell != NULL)
   {
-    send_to_char
-      ("This poor guy is already deeply convinced that they are imprisoned!\r\n",
-       ch);
+    send_to_char("This poor guy is already deeply convinced that they are imprisoned!\r\n", ch);
     return;
   }
 
@@ -1681,36 +1494,34 @@ void spell_imprison(int level, P_char ch, char *arg, int type, P_char victim,
     return;
   }
 
+  int save = (GET_LEVEL(ch) - GET_LEVEL(victim));
+  save = (save < 0 ? save : save >> 1);
+
   if(number(0, 1))
   {
-    if(NewSaves(victim, SAVING_FEAR, 10))
+    if(NewSaves(victim, SAVING_FEAR, save))
     {
-      act
-        ("$N is almost encased in a $q, but $E believes it is just an illusion.",
-         TRUE, victim, shell, victim, TO_ROOM);
+      act("$N is almost encased in a $q, but $E believes it is just an illusion.",
+          TRUE, victim, shell, victim, TO_ROOM);
       act("$n tries to encase you in a $q, but you disbelieve it!", FALSE, ch,
           shell, victim, TO_VICT);
       return;
     }
   }
 
-  shell_hps = 400 + MAX(0, MIN(level, 53) - 46) * 40;
+  shell_hps = GET_LEVEL(ch) * 15;
 
   if(NewSaves(victim, SAVING_FEAR, 3))
   {
     shell_hps = (int) (shell_hps * 0.65);
-    act("$N blinks in &+cdi&+Csb&+cel&+Cie&+cf &nas a $q &nencases $M!", TRUE,
-        victim, shell, victim, TO_ROOM);
-    act
-      ("You blink in &+cdi&+Csb&+cel&+Cie&+cf &nas a $q &ncreated by $n wraps around you!",
+    act("$N blinks in &+cdi&+Csb&+cel&+Cie&+cf &nas a $q &nencases $M!", TRUE, victim, shell, victim, TO_ROOM);
+    act("You blink in &+cdi&+Csb&+cel&+Cie&+cf &nas a $q &ncreated by $n wraps around you!",
        FALSE, ch, shell, victim, TO_VICT);
   }
   else
   {
-    act("$N freezes in &+ct&+Ce&+cr&+Cr&+co&+Cr &nas a $q &nencases $M!",
-        TRUE, victim, shell, victim, TO_ROOM);
-    act
-      ("You freeze in &+ct&+Ce&+cr&+Cr&+co&+Cr &nas a $q &ncreated by $n wraps around you!",
+    act("$N freezes in &+ct&+Ce&+cr&+Cr&+co&+Cr &nas a $q &nencases $M!", TRUE, victim, shell, victim, TO_ROOM);
+    act("You freeze in &+ct&+Ce&+cr&+Cr&+co&+Cr &nas a $q &ncreated by $n wraps around you!",
        FALSE, ch, shell, victim, TO_VICT);
   }
 
@@ -1784,7 +1595,6 @@ bool handle_imprison_damage(P_char ch, P_char victim, int dam)
   return TRUE;
 }
 
-
 void spell_nonexistence(int level, P_char ch, char *arg, int type,
                         P_char victim, P_obj obj)
 {
@@ -1834,8 +1644,7 @@ void spell_nonexistence(int level, P_char ch, char *arg, int type,
   // }
 }
 
-void spell_dragon(int level, P_char ch, char *arg, int type, P_char victim,
-                  P_obj obj)
+void spell_dragon(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   P_char   mob;
   int      summoned = 0;
@@ -1860,7 +1669,7 @@ void spell_dragon(int level, P_char ch, char *arg, int type, P_char victim,
     }
   }
 
-  if(summoned >= MAX(1, GET_LEVEL(ch) / 14))
+  if(summoned >= MAX(1, GET_LEVEL(ch) / 21))
   {
     send_to_char("You cannot summon any more dragons here!\r\n", ch);
     return;
@@ -1875,7 +1684,7 @@ void spell_dragon(int level, P_char ch, char *arg, int type, P_char victim,
   }
 
   char_to_room(mob, ch->in_room, 0);
-  act("$n &+w appears from nowhere!", TRUE, mob, 0, 0, TO_ROOM);
+  act("$n &+wappears from nowhere!", TRUE, mob, 0, 0, TO_ROOM);
 
   mob->player.level = BOUNDED(1, number(level - 5, level + 1), 55);
 
@@ -1889,8 +1698,6 @@ void spell_dragon(int level, P_char ch, char *arg, int type, P_char victim,
 
   balance_affects(mob);
 
-// play_sound(SOUND_ELEMENTAL, NULL, ch->in_room, TO_ROOM);
-
   setup_pet(mob, ch, 1, PET_NOORDER | PET_NOCASH);
   group_add_member(ch, mob);
   MobStartFight(mob, victim);
@@ -1898,8 +1705,7 @@ void spell_dragon(int level, P_char ch, char *arg, int type, P_char victim,
 
 #   define TITAN_NUMBER 650
 
-void spell_titan(int level, P_char ch, char *arg, int type, P_char victim,
-                 P_obj obj)
+void spell_titan(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct follow_type *k;
   P_char   mob;
@@ -1964,8 +1770,7 @@ void spell_titan(int level, P_char ch, char *arg, int type, P_char victim,
 
   remove_plushit_bits(mob);
 
-  GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit =
-    (int) (GET_MAX_HIT(ch) * 0.7);
+  GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit = (int) (GET_MAX_HIT(ch) * 0.7);
 
   GET_SIZE(mob) = SIZE_GIANT;
 
@@ -1976,13 +1781,11 @@ void spell_titan(int level, P_char ch, char *arg, int type, P_char victim,
   mob->specials.act |= ACT_SPEC_DIE;
 
   mob->only.npc->str_mask = (STRUNG_KEYS | STRUNG_DESC1 | STRUNG_DESC2);
-  sprintf(Gbuf1, "titan huge illusion %s %s", GET_NAME(ch),
-          race_names_table[GET_RACE(ch)].normal);
+  sprintf(Gbuf1, "titan huge illusion %s %s", GET_NAME(ch), race_names_table[GET_RACE(ch)].normal);
   mob->player.name = str_dup(Gbuf1);
   sprintf(Gbuf1, "&+BA &+Yhuge&+B illusion of &+R%s&n", ch->player.name);
   mob->player.short_descr = str_dup(Gbuf1);
-  sprintf(Gbuf1, "&+BA &+Yhuge&+B illusion of &+R%s &+Bstands here.&n\r\n",
-          ch->player.name);
+  sprintf(Gbuf1, "&+BA &+Yhuge&+B illusion of &+R%s &+Bstands here.&n\r\n", ch->player.name);
   mob->player.long_descr = str_dup(Gbuf1);
 
   if(GET_TITLE(ch))
@@ -2001,8 +1804,7 @@ void spell_titan(int level, P_char ch, char *arg, int type, P_char victim,
 
 }
 
-void spell_delirium(int level, P_char ch, char *arg, int type, P_char victim,
-                    P_obj obj)
+void spell_delirium(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
   int      percent = 0;
@@ -2010,31 +1812,27 @@ void spell_delirium(int level, P_char ch, char *arg, int type, P_char victim,
 
   save = victim->specials.apply_saving_throw[SAVING_SPELL];
 
-  percent = BOUNDED( 0, (GET_C_POW(ch) - GET_C_INT(victim) + save + (GET_LEVEL(ch) - GET_LEVEL(victim))), 100);
+  percent = BOUNDED(0, (GET_C_POW(ch) - GET_C_INT(victim) + save + (GET_LEVEL(ch) - GET_LEVEL(victim))), 100);
 
   if(IS_NPC(ch))
   {
-    act("It's confused enough!!&n", TRUE, ch, 0, victim, TO_CHAR);
+    act("$E's confused enough!!&n", TRUE, ch, 0, victim, TO_CHAR);
     return;
   }
 
   if(ch == victim)
   {
-    act("Can't really, I mean who am I, and who is what and when?!&n", TRUE,
-        ch, 0, victim, TO_CHAR);
+    act("Can't really, I mean who am I, and who is what and when?!&n", TRUE, ch, 0, victim, TO_CHAR);
     return;
 
   }
 
-  act("$n sends a delirius ray streaking towards $N!", TRUE, ch, 0, victim,
-      TO_NOTVICT);
-  act("$n sends a delirius ray streaking YOU!", TRUE, ch, 0, victim, TO_VICT);
-  act("You grin evilly as you send delirius ray streaking towards $N!", TRUE,
-      ch, 0, victim, TO_CHAR);
+  act("$n sends a mesmerizing ray streaking towards $N!", TRUE, ch, 0, victim, TO_NOTVICT);
+  act("$n sends a mesmerizing ray streaking YOU!", TRUE, ch, 0, victim, TO_VICT);
+  act("You grin evilly as you send mesmerizing ray streaking towards $N!", TRUE, ch, 0, victim, TO_CHAR);
 
   if(percent > 10)
   {
-    //if(!saves_spell(victim, SAVING_SPELL) && (!number(0, 1))) {
 
     if(!affected_by_spell(victim, SPELL_DELIRIUM))
     {
@@ -2045,9 +1843,7 @@ void spell_delirium(int level, P_char ch, char *arg, int type, P_char victim,
       af.bitvector5 = AFF5_DELIRIUM;
       affect_to_char(victim, &af);
 
-
-      act("$N &+Wlooks a bit &+Gconfused!&n", TRUE, ch, 0, victim,
-          TO_NOTVICT);
+      act("$N &+Wlooks a bit &+Gconfused!&n", TRUE, ch, 0, victim, TO_NOTVICT);
       act("&+WYou feel a bit &+Gconfused&n!", TRUE, ch, 0, victim, TO_VICT);
       act("$N &+Wlooks a bit &+Gconfused!&n", TRUE, ch, 0, victim, TO_CHAR);
     }
@@ -2059,19 +1855,16 @@ void spell_delirium(int level, P_char ch, char *arg, int type, P_char victim,
 
 }
 
-void spell_flicker(int level, P_char ch, char *arg, int type, P_char victim,
-                   P_obj obj)
+void spell_flicker(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
-
   struct group_list *gl;
 
   if(ch && ch->group)
   {
-
-    act("&+L$n creates a sh&+cim&+Cme&+cri&+Lng orb of light, casting s&+mha&+Mdo&+mw&+Ls over the room!&n", TRUE, ch, 0, victim,
-      TO_NOTVICT);
-    act("&+LYou create a sh&+cim&+Cme&+cri&+Lng orb of light, casting s&+mha&+Mdo&+mw&+Ls over the room!&n", TRUE,
-      ch, 0, victim, TO_CHAR);
+    act("&+L$n creates a sh&+cim&+Cme&+cri&+Lng orb of light, casting s&+mha&+Mdo&+mw&+Ls over the room!&n",
+         TRUE, ch, 0, victim, TO_NOTVICT);
+    act("&+LYou create a sh&+cim&+Cme&+cri&+Lng orb of light, casting s&+mha&+Mdo&+mw&+Ls over the room!&n",
+         TRUE, ch, 0, victim, TO_CHAR);
 
     act("&+LThe room is blanketed in da&+mnci&+Mng sh&+mado&+Lws.&n", 0, ch, 0, 0, TO_ROOM);
     act("&+LThe room is blanketed in da&+mnci&+Mng sh&+mado&+Lws.&n", 0, ch, 0, 0, TO_CHAR);
@@ -2090,25 +1883,19 @@ void spell_flicker(int level, P_char ch, char *arg, int type, P_char victim,
   }
 }
 
-
-void spell_greater_flicker(int level, P_char ch, char *arg, int type,
-                           P_char victim, P_obj obj)
+void spell_greater_flicker(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   send_to_char("This spell is not yet implemented.\r\n", ch);
 }
 
-
-void spell_obscuring_mist(int level, P_char ch, char *arg, int type,
-                             P_char victim, P_obj obj)
+void spell_obscuring_mist(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
 
   if(!IS_AFFECTED5(victim, AFF5_OBSCURING_MIST))
   {
-    act("&+cA &npale grey &+cmist swirls around $n&+L!", TRUE,
-        victim, 0, 0, TO_ROOM);
-    act("&+cA &npale grey &+cmist swirls around you!", TRUE, victim, 0, 0,
-        TO_CHAR);
+    act("&+cA &npale grey &+cmist swirls around $n&+L!", TRUE, victim, 0, 0, TO_ROOM);
+    act("&+cA &npale grey &+cmist swirls around you!", TRUE, victim, 0, 0, TO_CHAR);
     bzero(&af, sizeof(af));
     af.type = SPELL_OBSCURING_MIST;
     af.duration = (level / 4 + 1);
@@ -2117,17 +1904,13 @@ void spell_obscuring_mist(int level, P_char ch, char *arg, int type,
     affect_to_char(victim, &af);
 
     affect_total(victim, FALSE);
-
   }
   else
-    send_to_char
-      ("You must are already surrounded by &+ctons of mist&n.\n",
-       victim);
+    send_to_char("You must are already surrounded by &+ctons of mist&n.\n", victim);
 }
 
 
-void spell_suppress_sound(int level, P_char ch, char *arg, int type,
-                         P_char victim, P_obj obj)
+void spell_suppress_sound(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct group_list *gl;
   if(ch && ch->group)
@@ -2146,9 +1929,7 @@ void spell_suppress_sound(int level, P_char ch, char *arg, int type,
   }
 }
 
-
-void spell_sound_suppression(int level, P_char ch, char *arg, int type, P_char victim,
-                    P_obj obj)
+void spell_sound_suppression(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
   int counter;
