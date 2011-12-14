@@ -27,6 +27,7 @@
 #include "objmisc.h"
 #include "epic.h"
 #include "profile.h"
+#include "vnum.obj.h"
 
 #define MAX_FUNCTIONS 5000
 #define FUNCTION_NAMES_FILE "lib/misc/event_names"
@@ -438,6 +439,43 @@ void ne_init_events(void)
   logit(LOG_STATUS, "Done scheduling events.\n");
 }
 
+void zone_purge(int zone_number)
+{
+   P_char vict, next_v;
+   P_obj obj, next_o;
+   struct zone_data to_purge = zone_table[zone_number];
+   int k;   
+
+   for(k = to_purge.real_bottom;k != NOWHERE && k <= to_purge.real_top;k++)
+   {
+     for (vict = world[k].people; vict; vict = next_v)
+     {
+        next_v = vict->next_in_room;
+        if(IS_NPC(vict) && !IS_MORPH(vict))
+        {
+          extract_char(vict);
+          vict = NULL;
+        }
+      }
+
+      for (obj = world[k].contents; obj; obj = next_o)
+      {
+         next_o = obj->next_content;
+
+         if(obj->R_num == real_object(VOBJ_WALLS))
+           continue;
+  
+         if(obj->type == ITEM_CORPSE && !obj->contains) // Don't purge corpses w/ contents
+         {}
+         else
+         {
+           extract_obj(obj, TRUE);
+           obj = NULL;
+         }
+      }
+   }
+}
+
 void event_broken(struct char_link_data *cld)
 {
   P_char   ch = cld->linking;
@@ -463,6 +501,9 @@ char *get_function_name(void *func)
     if (function_names[i].func == func)
       return function_names[i].func_name;
   }
+
+  if( event_autosave == func )
+    return "autosave";
 
   return "unknown function";
 }

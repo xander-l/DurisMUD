@@ -17,6 +17,7 @@
 #include "comm.h"
 #include "db.h"
 #include "events.h"
+#include "epic.h"
 #include "interp.h"
 #include "prototypes.h"
 #include "specs.prototypes.h"
@@ -30,7 +31,7 @@
 #include "sql.h"
 #include "ships.h"
 #include "assocs.h"
-
+#include "objmisc.h"
 /*
  * external variables
  */
@@ -68,6 +69,7 @@ extern void event_mob_skin_spell(P_char, P_char, P_obj, void*);
 extern struct social_messg *soc_mess_list;
 void recalc_zone_numbers();
 void ne_init_events();
+extern void event_reset_zone(P_char, P_char, P_obj, void*);
 
 /**************************************************************************
 *  declarations of most of the 'global' variables                         *
@@ -114,6 +116,7 @@ char    *generaltable = NULL;   /* * race/class comparison charts * */
 char    *racewars = NULL;       /* * good/evil race explanation * */
 char    *classtable = NULL;     /* * class selection tables * */
 char    *racetable = NULL;      /* * race selection tables * */
+//char    *attribmod = NULL;      /* * attribute modification for wipe 2011 * */
 char    *namechart = NULL;
 char    *reroll = NULL;
 char    *bonus = NULL;
@@ -456,6 +459,8 @@ void boot_db(int mini_mode)
   generaltable = file_to_string(GENERALTABLE_FILE);
   logit(LOG_STATUS, "Reading Race table.");
   racetable = file_to_string(RACETABLE_FILE);
+//  logit(LOG_STATUS, "Reading Attribute Mod Message(wipe 2011)");
+//  attribmod = file_to_string(ATTRIBMOD_FILE);
   logit(LOG_STATUS, "Reading Class table.");
   classtable = file_to_string(CLASSTABLE_FILE);
   logit(LOG_STATUS, "Reading Racewars explanation.");
@@ -1360,18 +1365,12 @@ void boot_world(int mini_mode)
           (!world[room_nr].dir_option[5] ||
            (world[room_nr].dir_option[5]->to_room == room_nr)))
       {
-        logit(LOG_DEBUG,
-              "Room %d, is NO_GROUND but has no valid 'down' exit",
-              world[room_nr].number);
         world[room_nr].sector_type = SECT_INSIDE;
       }
       if ((world[room_nr].chance_fall > 0) &&
           (!world[room_nr].dir_option[5] ||
            (world[room_nr].dir_option[5]->to_room == room_nr)))
       {
-        logit(LOG_DEBUG,
-              "Room %d, has %d%% chance fall but has no valid 'down' exit",
-              world[room_nr].number, world[room_nr].chance_fall);
         world[room_nr].chance_fall = 0;
       }
       if (world[room_nr].room_flags & ROOM_IS_INN)
@@ -2136,7 +2135,6 @@ P_char read_mobile(int nr, int type)
     }
     /* The new easy monsters */
     fscanf(mob_f, " %ld ", &tmp);
-//    GET_LEVEL(mob) = tmp;
     mob->player.level = tmp;
 #if defined(CTF_MUD) && (CTF_MUD == 1)
     if (!IS_SET(mob->specials.act, ACT_ELITE))
@@ -2154,7 +2152,7 @@ P_char read_mobile(int nr, int type)
  * The following initialises the # of spells useable for NPCs in a given
  * spell circle based on the spl_table[level][spell_circle] in memorize.c.
  * Element 0 of this tracking array serves as an accumulator used in
- * repleneshing used slots. - SKB 31 Mar 1995
+ * replenishing used slots. - SKB 31 Mar 1995
  */
     mob->specials.undead_spell_slots[0] = 0;
 
@@ -2178,11 +2176,7 @@ P_char read_mobile(int nr, int type)
     mob->points.hitroll = mob->points.base_hitroll;
 
     fscanf(mob_f, " %ld ", &tmp);
-#if 1
-    if ((tmp > -10) && (tmp < 10))
-      tmp *= 10;
-    mob->points.base_armor = BOUNDED(-1000, tmp, 0);
-#endif
+    mob->points.base_armor = BOUNDED(-250, tmp, 250);
 
     tmp = 0;
     tmp2 = 0;
@@ -2271,11 +2265,8 @@ P_char read_mobile(int nr, int type)
             mob_index[nr].virtual_number, mob->points.hit);
 
     fscanf(mob_f, " %ld ", &tmp);
-#if 1
-    if ((tmp > -10) && (tmp < 10))
-      tmp *= 10;
-    mob->points.base_armor = BOUNDED(-100, tmp, 0);
-#endif
+
+    mob->points.base_armor = 250;
 
     fscanf(mob_f, " %ld ", &tmp);
     mob->points.mana = mob->points.base_mana = mob->points.max_mana = tmp;
@@ -2434,13 +2425,13 @@ P_char read_mobile(int nr, int type)
       strstr(mob->player.name, "warrior"))
     {
       while (mob->base_stats.Str < min_stats_for_class[1][0])
-        mob->base_stats.Str += number(20, 50);
+        mob->base_stats.Str += number(10, 20);
       while (mob->base_stats.Dex < min_stats_for_class[1][1])
-        mob->base_stats.Dex += number(20, 50);
+        mob->base_stats.Dex += number(10, 20);
       while (mob->base_stats.Agi < min_stats_for_class[1][2])
-        mob->base_stats.Agi += number(20, 50);
+        mob->base_stats.Agi += number(10, 20);
       while (mob->base_stats.Con < min_stats_for_class[1][3])
-        mob->base_stats.Con += number(20, 50);
+        mob->base_stats.Con += number(10, 20);
     }
     if (strstr(mob->player.name, "thief") ||
         strstr(mob->player.name, "rogue") ||
@@ -2448,13 +2439,13 @@ P_char read_mobile(int nr, int type)
         strstr(mob->player.name, "assassin"))
     {
       while (mob->base_stats.Dex < min_stats_for_class[13][1])
-        mob->base_stats.Dex += number(20, 50);
+        mob->base_stats.Dex += number(10, 20);
       while (mob->base_stats.Agi < min_stats_for_class[13][2])
-        mob->base_stats.Agi += number(20, 50);
+        mob->base_stats.Agi += number(10, 20);
       while (mob->base_stats.Int < min_stats_for_class[13][5])
-        mob->base_stats.Int += number(20, 50);
+        mob->base_stats.Int += number(10, 20);
       while (mob->base_stats.Cha < min_stats_for_class[13][7])
-        mob->base_stats.Cha += number(20, 50);
+        mob->base_stats.Cha += number(10, 20);
       if (GET_CLASS(mob, CLASS_ROGUE) && (!mob_index[GET_RNUM(mob)].func.mob))
         mob_index[GET_RNUM(mob)].func.mob = thief;
     }
@@ -2462,14 +2453,14 @@ P_char read_mobile(int nr, int type)
       if (!mob_index[GET_RNUM(mob)].func.mob)
         mob_index[GET_RNUM(mob)].func.mob = citizenship;
 
-    mob->base_stats.Str = BOUNDED(50, mob->base_stats.Str, 100);
-    mob->base_stats.Dex = BOUNDED(50, mob->base_stats.Dex, 100);
-    mob->base_stats.Agi = BOUNDED(50, mob->base_stats.Dex, 100);
-    mob->base_stats.Con = BOUNDED(50, mob->base_stats.Con, 100);
-    mob->base_stats.Pow = BOUNDED(50, mob->base_stats.Con, 100);
-    mob->base_stats.Int = BOUNDED(50, mob->base_stats.Int, 100);
-    mob->base_stats.Wis = BOUNDED(50, mob->base_stats.Wis, 100);
-    mob->base_stats.Cha = BOUNDED(50, mob->base_stats.Wis, 100);
+    mob->base_stats.Str = BOUNDED(25, mob->base_stats.Str, 200);
+    mob->base_stats.Dex = BOUNDED(25, mob->base_stats.Dex, 200);
+    mob->base_stats.Agi = BOUNDED(25, mob->base_stats.Dex, 200);
+    mob->base_stats.Con = BOUNDED(25, mob->base_stats.Con, 200);
+    mob->base_stats.Pow = BOUNDED(25, mob->base_stats.Con, 200);
+    mob->base_stats.Int = BOUNDED(25, mob->base_stats.Int, 200);
+    mob->base_stats.Wis = BOUNDED(25, mob->base_stats.Wis, 200);
+    mob->base_stats.Cha = BOUNDED(25, mob->base_stats.Wis, 200);
 
     /* * variable mana */
     i = 80 + dice(MAX(1, GET_LEVEL(mob)), IS_ANIMAL(mob) ? 1 : 4) +
@@ -2484,7 +2475,7 @@ P_char read_mobile(int nr, int type)
 
     /* at this point, i ranges from 83 to 696, there are a few other cases */
     if (GET_LEVEL(mob) >= 56)
-      i += 5000;
+      i += 1000;
     else if (GET_LEVEL(mob) > 53)
       i += 500;
     else if (GET_LEVEL(mob) > 50)
@@ -2622,23 +2613,7 @@ P_char read_mobile(int nr, int type)
           GET_DAMROLL(mob) + mob->points.damnodice,
           GET_DAMROLL(mob) +
           (mob->points.damnodice * mob->points.damsizedice));
-/*
-    mob->points.base_damroll = bar / 3;
-    bar -= mob->points.base_damroll;
-    mob->points.damsizedice = 7;
-    mob->points.damnodice = MAX(1, bar / 4);
-    logit(LOG_MOB, "MOB: %d damage reduced to: %dd%d + %d (%d to %d)",
-          mob_index[nr].virtual_number, mob->points.damnodice,
-          mob->points.damsizedice, mob->points.base_damroll,
-          mob->points.base_damroll + mob->points.damnodice,
-          mob->points.base_damroll +
-          (mob->points.damnodice * mob->points.damsizedice));
-*/
   }
-  /*
-   * Result of these adjustments: mob damage = max average of 120 for
-   * nondemon/dragons, 200 for dragons/demons.
-   */
 
   mob->curr_stats = mob->base_stats;
 
@@ -2843,10 +2818,15 @@ P_obj read_object(int nr, int type)
   obj->value[7] = tmp;
   fscanf(obj_f, " %d ", &tmp);
   obj->weight = tmp;
-  fscanf(obj_f, " %d \n", &tmp);
+  fscanf(obj_f, " %d ", &tmp);
   obj->cost = tmp;
   fscanf(obj_f, " %d \n", &tmp);
   obj->condition = tmp;
+//  fscanf(obj_f, " %d \n", &tmp);
+//  obj->max_condition = tmp;  wipe2011
+//  if(obj->max_condition < 100)
+//    obj->max_condition = 100;
+
   if (fscanf(obj_f, " %lu \n", &utmp) == 1)
   {
     obj->bitvector = utmp;
@@ -2861,11 +2841,17 @@ P_obj read_object(int nr, int type)
       }
     }
   }
+
+//  if(obj->craftsmanship > ((OBJCRAFT_HIGHEST - 1) / 2))
+//  {
+//    obj->max_condition = (int) BOUNDED(100, (50 * 1.4285 * (obj->craftsmanship - 6)), 500);
+    // 1.4285 = 10 / 7(max condition is 1000, there are 7 values after average craftsmanship)
+//  } 
+//  obj->condition = obj->max_condition;  wipe2011
+
   // nuke the proclib flag - it'll be put back if needed
   REMOVE_BIT(obj->extra_flags, ITEM_PROCLIB);
   /* *** extra descriptions *** */
-
-
 
   while (fscanf(obj_f, " %s \n", chk), *chk == 'E')
   {
@@ -2996,7 +2982,10 @@ P_obj read_object(int nr, int type)
   /* arti check every minute */
 
   if (IS_ARTIFACT(obj))
+  {
     add_event(event_artifact_poof, 2 * WAIT_SEC, 0, 0, obj, 0, 0, 0);
+    obj->timer[5] = time(NULL);
+  }
 
   /* init justice flag */
 //  obj->justice_status = 0;
@@ -3004,6 +2993,51 @@ P_obj read_object(int nr, int type)
 
   convertObj(obj);
   return (obj);
+}
+
+
+/*  Function to reset no_reset zones...
+ *  This function will be called at a time during boot
+ *     A) After the original stone has been touched
+ *     B) Random event timer expires(event is applied after touch)
+ *     C) Incremental chance of reset occurring above random roll
+ *
+ *  Why have this?  It moves us closer to a game-world that is persistent
+ *  and auto-refreshes.  Incremental time will be stored in DB and will
+ *  be modified by frequency of overall zone resets occurring through
+ * this method.
+ */
+void no_reset_zone_reset(int zone_number)
+{
+  if(!qry("SELECT reset_perc FROM zones WHERE id = '%d'", zone_number))
+  {
+    logit(LOG_DEBUG, "no_reset_zone_reset: could not find zone information for zone id %d", zone_number);
+    return;
+  }
+
+  MYSQL_RES *res = mysql_store_result(DB);
+
+  if(mysql_num_rows(res) < 1)
+  {
+    logit(LOG_DEBUG, "No data retrieved from DB for no_reset_zone_reset...");
+    mysql_free_result(res);
+    return;
+  }
+
+  MYSQL_ROW row = mysql_fetch_row(res);
+
+  if(atoi(row[0]) > number(0, 99))
+  {
+    zone_purge(zone_number);
+    reset_zone(zone_number, TRUE);
+    db_query("UPDATE zones SET reset_perc = '%d' WHERE id = '%d'", 0, zone_number);
+    epic_zone_erase_touch(zone_table[zone_number].number);
+  }
+  else
+  {
+    add_event(event_reset_zone, WAIT_MIN * 60, 0, 0, 0, 0, &zone_number, sizeof(zone_number));
+    db_query("UPDATE zones SET reset_perc = '%d' WHERE id = '%d'", atoi(row[0]) + 1, zone_number);
+  }
 }
 
 #define ZCMD zone_table[zone].cmd[cmd_no]
@@ -3089,20 +3123,14 @@ void reset_zone(int zone, int force_item_repop)
           if (get_current_artifact_info
               (temp, 0, NULL, NULL, NULL, NULL, FALSE, NULL))
           {
-            statuslog(56, "didn't load arti obj #%d because already tracked",
-                      obj_index[temp].virtual_number);
+            //statuslog(56, "didn't load arti obj #%d because already tracked",
+            //          obj_index[temp].virtual_number);
             break;
           }
 
           obj = read_object(temp, REAL);
-          if (!obj)
+         if (!obj)
             break;
-	  if (IS_ARTIFACT(obj) && 
-	      get_property("artifact.respawn", 0) == 0)
-	  {
-	    extract_obj(obj, TRUE);
-	    break;
-	  }
           obj_to = get_obj_num(ZCMD.arg3);
           if (!obj_to)
             break;
@@ -3138,20 +3166,14 @@ void reset_zone(int zone, int force_item_repop)
         if (get_current_artifact_info
             (temp, 0, NULL, NULL, NULL, NULL, FALSE, NULL))
         {
-          statuslog(56, "didn't load arti obj #%d because already tracked",
-                    obj_index[temp].virtual_number);
+          //statuslog(56, "didn't load arti obj #%d because already tracked",
+          //          obj_index[temp].virtual_number);
           break;
         }
 
         obj = read_object(temp, REAL);
         if (!obj)
           break;
-	if (IS_ARTIFACT(obj) && 
-	    get_property("artifact.respawn", 0) == 0)
-	{
-	  extract_obj(obj, TRUE);
-	  break;
-	}
         obj_to_room(obj, ZCMD.arg3);
         obj->timer[3] = time(NULL);
         last_cmd = 1;
@@ -3174,20 +3196,14 @@ void reset_zone(int zone, int force_item_repop)
           if (get_current_artifact_info
               (temp, 0, NULL, NULL, NULL, NULL, FALSE, NULL))
           {
-            statuslog(56, "didn't load arti obj #%d because already tracked",
-                      obj_index[temp].virtual_number);
+            //statuslog(56, "didn't load arti obj #%d because already tracked",
+            //          obj_index[temp].virtual_number);
             break;
           }
 
           obj = read_object(temp, REAL);
           if (!obj)
             break;
-	  if (IS_ARTIFACT(obj) && 
-	      get_property("artifact.respawn", 0) == 0)
-	  {
-	    extract_obj(obj, TRUE);
-	    break;
-	  }
           if (mob)              /* last mob */
           {
             obj_to_char(obj, mob);
@@ -3256,9 +3272,9 @@ void reset_zone(int zone, int force_item_repop)
                   (ZCMD.arg1, 0, NULL, NULL, NULL, NULL, FALSE, NULL))
               {
                 last_cmd = 0;
-                statuslog(56,
-                          "didn't load arti obj #%d because already tracked",
-                          obj_index[ZCMD.arg1].virtual_number);
+              //  statuslog(56,
+              //            "didn't load arti obj #%d because already tracked",
+              //            obj_index[ZCMD.arg1].virtual_number);
                 break;
               }
 
@@ -3271,12 +3287,6 @@ void reset_zone(int zone, int force_item_repop)
               }
               if (obj)
               {
-	        if (IS_ARTIFACT(obj) && 
-	            get_property("artifact.respawn", 0) == 0)
-		{
-		  extract_obj(obj, TRUE);
-	          break;
-		}
                 obj_to_room(obj, ZCMD.arg3);
                 obj->timer[3] = time(NULL);
                 last_cmd = 1;
@@ -3312,9 +3322,9 @@ void reset_zone(int zone, int force_item_repop)
             if (get_current_artifact_info
                 (ZCMD.arg1, 0, NULL, NULL, NULL, NULL, FALSE, NULL))
             {
-              statuslog(56,
-                        "didn't load arti obj #%d because already tracked",
-                        obj_index[ZCMD.arg1].virtual_number);
+             // statuslog(56,
+             //           "didn't load arti obj #%d because already tracked",
+             //           obj_index[ZCMD.arg1].virtual_number);
               break;
             }
 
@@ -3330,12 +3340,6 @@ void reset_zone(int zone, int force_item_repop)
               obj_to = get_obj_num(ZCMD.arg3);
               if (obj_to)
               {
-	        if (IS_ARTIFACT(obj) && 
-	            get_property("artifact.respawn", 0) == 0)
-	        {
-		  extract_obj(obj, TRUE);
-		  break;
-		}
 		obj_to_obj(obj, obj_to);
                 obj->timer[3] = time(NULL);
                 last_cmd = 1;
@@ -3368,9 +3372,9 @@ void reset_zone(int zone, int force_item_repop)
             if (get_current_artifact_info
                 (ZCMD.arg1, 0, NULL, NULL, NULL, NULL, FALSE, NULL))
             {
-              statuslog(56,
-                        "didn't load arti obj #%d because already tracked",
-                        obj_index[ZCMD.arg1].virtual_number);
+              //statuslog(56,
+              //          "didn't load arti obj #%d because already tracked",
+              //          obj_index[ZCMD.arg1].virtual_number);
               break;
             }
 
@@ -3383,12 +3387,6 @@ void reset_zone(int zone, int force_item_repop)
             }
             if (obj)
             {
-	        if (IS_ARTIFACT(obj) && 
-	            get_property("artifact.respawn", 0) == 0)
-	        {
-		  extract_obj(obj, TRUE);
-		  break;
-		}
               if (mob)
               {
                 obj_to_char(obj, mob);
@@ -3437,9 +3435,9 @@ void reset_zone(int zone, int force_item_repop)
             if (get_current_artifact_info
                 (ZCMD.arg1, 0, NULL, NULL, NULL, NULL, FALSE, NULL))
             {
-              statuslog(56,
-                        "didn't load arti obj #%d because already tracked",
-                        obj_index[ZCMD.arg1].virtual_number);
+              //statuslog(56,
+              //          "didn't load arti obj #%d because already tracked",
+              //          obj_index[ZCMD.arg1].virtual_number);
               break;
             }
 
@@ -3452,12 +3450,6 @@ void reset_zone(int zone, int force_item_repop)
             }
             if (obj)
             {
-	        if (IS_ARTIFACT(obj) && 
-	            get_property("artifact.respawn", 0) == 0)
-	        {
-		  extract_obj(obj, TRUE);
-		  break;
-		}
               obj->timer[3] = time(NULL);
               if (mob && (ZCMD.arg3 > 0) && (ZCMD.arg3 <= CUR_MAX_WEAR))
               {

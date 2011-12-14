@@ -1067,13 +1067,20 @@ __attribute__((deprecated)) bool Schedule(int type, long pulses, int flag, void 
 void event_reset_zone(P_char ch, P_char victim, P_obj obj, void *data) 
 {
   int zone = *((int*)data);
-
   zone_table[zone].age++;
-  add_event(event_reset_zone, PULSES_IN_TICK, 0, 0, 0, 0, &zone, sizeof(zone));
 
   if (zone_table[zone].age >= zone_table[zone].lifespan &&
      (zone_table[zone].reset_mode == 2 || is_empty(zone)))
+  {
     reset_zone(zone, FALSE);
+  }
+  else if(!zone_table[zone].reset_mode)
+  {
+    no_reset_zone_reset(zone);
+    return;
+  }
+
+  add_event(event_reset_zone, PULSES_IN_TICK, 0, 0, 0, 0, &zone, sizeof(zone));
 }
 
 /*

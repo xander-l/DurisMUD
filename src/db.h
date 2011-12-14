@@ -111,7 +111,7 @@ struct ship_reg_node {
 };
 
 extern struct ship_reg_node *ship_reg_db;
-
+void no_reset_zone_reset(int);
 
 struct reboot_data {
   char reboot_option[30];

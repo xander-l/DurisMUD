@@ -54,6 +54,8 @@ struct epic_zone_completion
   int delta;
 };
 
+int devotion_spell_check(int);
+void spell_resistance_check(P_char, P_char, void *);
 void do_epic(P_char ch, char *arg, int cmd);
 void do_epic_trophy(P_char ch, char *arg, int cmd);
 void do_epic_zones(P_char ch, char *arg, int cmd);
@@ -92,6 +94,7 @@ void update_epic_zone_mods();
 void update_epic_zone_frequency(int zone_number);
 vector<epic_zone_data> get_epic_zones();
 float get_epic_zone_frequency_mod(int zone_number);
+void epic_zone_erase_touch(int);
 bool epic_zone_done_now(int zone_number);
 bool epic_zone_done(int zone_number);
 void epic_zone_balance();
