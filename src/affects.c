@@ -3299,14 +3299,14 @@ bool falling_char(P_char ch, const int kill_char, bool caller_is_event)
 
     /* oh dear, we seem to have run out of falling room!  Muhahaha  */
 
-    dam = (int) (GET_MAX_HIT(ch) * ((speed / 2.5) / 100)) + (number(80, 120) - GET_C_AGI(ch));
+    dam = (int) (GET_MAX_HIT(ch) * ((speed / 2.5) / 100)) + (number(40, 100) - GET_C_AGI(ch));
 
-    if (dam < 2)
-      dam = 2;
+    if (dam < 1)
+      dam = 1;
 
     if (GET_CHAR_SKILL(ch, SKILL_SAFE_FALL))
       if (GET_CHAR_SKILL(ch, SKILL_SAFE_FALL) > number(1, 101))
-        dam <<= 1;
+        dam >> 1; // as someone originally screwed this check up to be backwards, nice job! - Jexni
 
     if (world[ch->in_room].dir_option[DOWN])
     { 
