@@ -4605,6 +4605,12 @@ int backstab(P_char ch, P_char victim)
     return FALSE;
   }
 
+  if(ch->equipment[WEAR_SHIELD])
+  {
+    send_to_char("Not while holding that shield, bub.", ch);
+    return FALSE;
+  }
+
   victim = misfire_check(ch, victim, DISALLOW_SELF | DISALLOW_BACKRANK);
 
   percent_chance = (int) (0.9 * GET_CHAR_SKILL(ch, SKILL_BACKSTAB));
