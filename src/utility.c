@@ -1136,21 +1136,22 @@ int ac_can_see(P_char sub, P_char obj, bool check_z)
   }
 
   // No idea what happened, but let's hack this until we figure it out.
-  if (sub->in_room == -1)
+  if(sub->in_room == -1)
     return 0;
 
-  if (!AWAKE(sub))
+  if(!AWAKE(sub))
     return 0;
+
   if(IS_BLIND(sub))
     return 0;
 
   if(sub == obj)
     return 1;
 
-  if (WIZ_INVIS(sub, obj))
+  if(WIZ_INVIS(sub, obj))
     return 0;
 
-  if (GET_LEVEL(sub) > MAXLVLMORTAL)
+  if(GET_LEVEL(sub) > MAXLVLMORTAL)
     return 1;
 
   /* Flyers */
@@ -1232,14 +1233,10 @@ int ac_can_see(P_char sub, P_char obj, bool check_z)
   if(GET_MASTER(sub) == obj)
       return 1;
 
-  if(IS_AFFECTED2(sub, AFF2_ULTRAVISION) &&
-    IS_PC(sub))
+  if(IS_AFFECTED2(sub, AFF2_ULTRAVISION) && IS_PC(sub))
   {
-    if((IS_SUNLIT(obj->in_room) ||
-       (IS_SET(world[obj->in_room].room_flags, MAGIC_LIGHT) &&
-       !IS_TWILIGHT_ROOM(obj->in_room))) &&
-       !globe)
-        return 0;
+    if((IS_SUNLIT(obj->in_room) || IS_SET(world[obj->in_room].room_flags, MAGIC_LIGHT)) && !globe)
+      return 0;
     else
       return 1;
   }
@@ -1288,17 +1285,12 @@ int ac_can_see_obj(P_char sub, P_obj obj)
     raise(SIGSEGV);
   }
 
-  // As mobs don't directly act upon what they "see", I'm removing them entirely
-  // from this particular check - Jexni 5/7/11
-  if(IS_NPC(sub))
-    return 0;
-
   /* wraiths can't see any objects */
-  if (IS_AFFECTED(sub, AFF_WRAITHFORM))
+  if(IS_AFFECTED(sub, AFF_WRAITHFORM))
     return 0;
 
   /* sub is flying, obj isn't */
-  if (OBJ_ROOM(obj))
+  if(OBJ_ROOM(obj))
   {
     if (sub->specials.z_cord != obj->z_cord)
     {
