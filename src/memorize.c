@@ -1564,7 +1564,7 @@ void do_memorize(P_char ch, char *argument, int cmd)
                   (circle == 2) ? "nd" : (circle == 3) ? "rd" :
                   "th", skills[af->modifier].name, 
                   book_class(ch) ? (SpellInSpellBook(ch, af->modifier,
-                  (SBOOK_MODE_IN_INV+SBOOK_MODE_AT_HAND+SBOOK_MODE_ON_BELT)) ? "" : "  [not in spell book]") : "");
+                  (SBOOK_MODE_IN_INV+SBOOK_MODE_AT_HAND+SBOOK_MODE_ON_BELT)) ? "" : "") : "");//  [not in spell book]") : "");
         }
       }
     }
@@ -1617,7 +1617,8 @@ void do_memorize(P_char ch, char *argument, int cmd)
                                  SBOOK_MODE_IN_INV + SBOOK_MODE_AT_HAND +
                                  SBOOK_MODE_ON_BELT);
         send_to_char("You continue your study.\n", ch);
-        strcpy(Gbuf1, "$n opens $p and begins studying it intently.");
+//        strcpy(Gbuf1, "$n opens $p and begins studying it intently.");
+        strcpy(Gbuf1, "$n opens a spellbook, and begins studying it intently.");
       }
       else
       {
@@ -1718,7 +1719,8 @@ void do_memorize(P_char ch, char *argument, int cmd)
       sprintf(Gbuf1, "$n takes out $s %sholy symbol and begins "
               "praying intently.", IS_EVIL(ch) ? "un" : "");
     else
-      strcpy(Gbuf1, "$n opens $p and begins studying it intently.");
+//      strcpy(Gbuf1, "$n opens $p and begins studying it intently.");
+      strcpy(Gbuf1, "$n opens a spellbook and begins studying it intently.");
     act(Gbuf1, TRUE, ch, sbook, 0, TO_ROOM);
     add_event(event_memorize, time / 2, ch, 0, 0, 0, &time, sizeof(time));
   }
