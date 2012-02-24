@@ -1169,7 +1169,9 @@ bool parse_spell_arguments(P_char ch, struct spell_target_data * data,
     if (*Gbuf1)
     {
       if (!target_ok && IS_SET(skills[spl].targets, TAR_SELF_ONLY))
-        if (str_cmp(GET_NAME(ch), Gbuf1) == 0)
+        if(str_cmp(GET_NAME(ch), Gbuf1) == 0 ||
+           str_cmp("self", Gbuf1) == 0 ||
+           str_cmp("me", Gbuf1) == 0)
         {
           vict = ch;
           target_ok = TRUE;
