@@ -3543,32 +3543,31 @@ void do_use(P_char ch, char *argument, int cmd)
 
   argument = one_argument(argument, Gbuf1);
 
-  /*
-   ** To avoid player killing, we restrict wands to be usable
-   ** by either a PC, or an NPC who is not charmed.
-   */
-
   if (CHAR_IN_NO_MAGIC_ROOM(ch))
   {
-    send_to_char
-      ("No magic exists around here for the wand to draw upon!\r\n", ch);
+    send_to_char("No magic exists around here for the wand to draw upon!\r\n", ch);
     return;
   }
+
   if (IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM))
     return;
 
   if (!(stick = get_object_in_equip_vis(ch, Gbuf1, &i)))
   {
-    send_to_char
-      ("Use applies only to objects in your equipment list (usually held).\r\n",
-       ch);
+    send_to_char("Use applies only to objects in your equipment list (usually held).\r\n", ch);
     return;
   }
+
+  if(stick->value[0] > GET_LEVEL(ch) + 5)
+  {
+    send_to_char("You don't possess the power to use that item.", ch);
+    return;
+  }
+
   if (stick->type == ITEM_STAFF)
   {
     act("$n taps $p three times on the ground.", TRUE, ch, stick, 0, TO_ROOM);
-    act("You tap $p three times on the ground.", FALSE, ch, stick, 0,
-        TO_CHAR);
+    act("You tap $p three times on the ground.", FALSE, ch, stick, 0, TO_CHAR);
 
     if (GET_LEVEL(ch) > MAXLVLMORTAL)
     {
