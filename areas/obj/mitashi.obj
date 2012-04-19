@@ -1339,7 +1339,7 @@ katana sword retribution~
 &+cThe magical katana '&n&+LRet&n&+rribut&n&+Lion&n&+c' has been mistakenly dropped.&n~
 ~
 5 16 3 0 15 0 16384 24577 1 32774 0
-5 4 5 3 0 115115016 30 25
+5 4 5 3 0 115015015 30 25
 8 100000 100 268435456 0 0 0
 E
 katana sword retribution~
@@ -1352,6 +1352,10 @@ the decades of civil war and infighting between the Clans.
 Since that time, the seven swords have been given out to the six leaders
 of the most powerful clans, while the seventh and most powerful sword
 had been hidden away.  'Retribution' is that seventh weapon.
+~
+E
+_room_msg~
+&+LThe power of the &+gJ&+Gad&+ge &+LEm&+wpi&+Wre &+Yinfuses &+La &+Wk&+Latana &+Wc&+Lalled &+C'&+LRet&+rribut&+Lion&+C' &+Lwith an enveloping &+gg&+Gree&+gn &+Wlight&+L.&n
 ~
 A
 18 4
