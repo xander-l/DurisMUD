@@ -112,6 +112,7 @@ M 0 135214 4 135220 100 0 0 0      * a dragonkin seer
 M 0 135214 4 135220 100 0 0 0      * a dragonkin seer
 M 0 135214 4 135220 100 0 0 0      * a dragonkin seer
 M 0 135214 4 135220 100 0 0 0      * a dragonkin seer
+M 0 135220 1 135221 100 0 0 0      * the stone dragon Ynndakaneil
 M 0 135211 10 135228 100 0 0 0     * a dragon-knight protector
 E 1 135212 10 16 100 0 0 0         *   a wickedly barbed two-handed greatsword
 M 0 135211 10 135228 100 0 0 0     * a dragon-knight protector
@@ -143,6 +144,7 @@ M 0 135203 9 135243 100 0 0 0      * an ancient green dragon
 M 0 135203 9 135243 100 0 0 0      * an ancient green dragon
 M 0 135203 9 135243 100 0 0 0      * an ancient green dragon
 M 0 135207 1 135249 100 0 0 0      * Xasormalathin, the ancient green dragon consort
+E 1 135234 1 16 100 0 0 0          *   hidden xasormalathin proc
 G 1 135202 1 0 100 0 0 0           *    the essence of the green dragon flight
 M 0 135211 10 135251 100 0 0 0     * a dragon-knight protector
 E 1 135212 10 16 100 0 0 0         *   a wickedly barbed two-handed greatsword
@@ -176,6 +178,7 @@ M 0 135205 9 135269 100 0 0 0      * an ancient red dragon
 M 0 135205 9 135269 100 0 0 0      * an ancient red dragon
 M 0 135205 9 135269 100 0 0 0      * an ancient red dragon
 M 0 135206 1 135274 100 0 0 0      * Ephelemon, the ancient red dragon consort
+E 1 135233 1 16 100 0 0 0          *   hidden ephelemon proc 1
 G 1 135201 1 0 100 0 0 0           *    the essence of the red dragon flight
 M 0 135221 1 135281 100 0 0 0      * Tiamat Place Holder
 G 1 135232 1 0 100 0 0 0           *    a ruby encrusted key
