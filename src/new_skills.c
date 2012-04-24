@@ -478,7 +478,6 @@ int MonkDamage(P_char ch)
   dam = dam * ((float)skl_lvl / 90);
   if(IS_PC(ch))
     dam = BOUNDED(1, dam - ((wornweight(ch) / 3) * (float)(GET_LEVEL(ch) / 56)), dam); 
-  dam = dam * BOUNDED(0.70, (float) (GET_DAMROLL(ch) / GET_LEVEL(victim)), 1.20);
   return dam;
 }
 
@@ -1299,7 +1298,7 @@ void chant_regenerate(P_char ch, char *argument, int cmd)
   af.type = SPELL_REGENERATION;
   af.duration = 4;
   af.location = APPLY_HIT_REG;
-  af.modifier = GET_CHAR_SKILL(ch, SKILL_REGENERATE) / 4; // 7/notch, 3+ at full skill - Jexni 3/19/12
+  af.modifier = GET_CHAR_SKILL(ch, SKILL_REGENERATE) / 2; // 7/notch, 5+ at full skill - Jexni 3/19/12
   affect_to_char(ch, &af);
 
   CharWait(ch, PULSE_VIOLENCE);
