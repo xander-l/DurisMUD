@@ -613,7 +613,7 @@ int spell_class(int spl)
 
   for (i = 0; i < CLASS_COUNT; i++)
     if ((skills[spl].m_class[i].rlevel[0] > 0) &&
-        (skills[spl].m_class[i].rlevel[0]<= MAXLVLMORTAL))
+        (skills[spl].m_class[i].rlevel[0] <= MAXLVLMORTAL))
       switch (1 << (i + 1))
       {
       case CLASS_SORCERER:
@@ -626,15 +626,21 @@ int spell_class(int spl)
         j |= 1;
         break;
       case CLASS_CLERIC:
-      case CLASS_DRUID:
       case CLASS_PALADIN:
-      case CLASS_ETHERMANCER:
       case CLASS_ANTIPALADIN:
         j |= 2;
         break;
       case CLASS_SHAMAN:
         j |= 4;
         break;
+      case CLASS_PSIONICIST:
+      case CLASS_MINDFLAYER:
+       j |= 8;
+       break;
+      case CLASS_DRUID:
+      case CLASS_ETHERMANCER:
+       j |= 16;
+       break;
       }
   return j;
 }
@@ -642,6 +648,8 @@ int spell_class(int spl)
 #define IS_MAGESPELL(spl) ((spell_class((spl)) & 1))
 #define IS_CLERICSPELL(spl) ((spell_class((spl)) & 2))
 #define IS_SHAMANSPELL(spl) ((spell_class((spl)) & 4))
+#define IS_PSISPELL(spl) ((spell_class((spl)) & 8))
+#define IS_NATURESPELL(spl) ((spell_class((spl)) & 16))
 
 void say_spell(P_char ch, int si)
 {
@@ -745,7 +753,7 @@ void say_spell(P_char ch, int si)
   sprintf(Gbuf2, "$n utters the word%s '%s'", space ? "s" : "", Gbuf1);
   sprintf(Gbuf1, "$n utters the word%s '%s'", space ? "s" : "", skills[si].name);
   
-// This for allows players who hear a spell being casted the opportunity to notch.
+  // This for allows players who hear a spell being cast the opportunity to notch.
   for (tch = world[ch->in_room].people; tch; tch = tch->next_in_room)
   {
     if(tch->in_room != ch->in_room) // Not in same room.
@@ -781,27 +789,35 @@ void say_spell(P_char ch, int si)
          GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_CLERICAL) > 1) || 
         (IS_SHAMANSPELL(si) &&
          rand >= GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_SHAMAN) &&
-         GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_SHAMAN) > 1))
+         GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_SHAMAN) > 1) ||
+        (IS_NATURESPELL(si) &&
+         rand >= GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_NATURE) &&
+         GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_NATURE) > 1))
       {
         act(Gbuf1, FALSE, ch, 0, tch, TO_VICT | ACT_SILENCEABLE);
         
         if(IS_MAGESPELL(si) &&
            IS_MAGE(tch))
         {
-          notch_skill(tch, SKILL_SPELL_KNOWLEDGE_MAGICAL, 100);
+           notch_skill(tch, SKILL_SPELL_KNOWLEDGE_MAGICAL, 100);
         }
         else if(IS_CLERICSPELL(si) &&
                 (IS_CLERIC(tch) ||
                  IS_HOLY(tch)))
         {
-          notch_skill(tch, SKILL_SPELL_KNOWLEDGE_CLERICAL, 100);
+           notch_skill(tch, SKILL_SPELL_KNOWLEDGE_CLERICAL, 100);
         }
         else if(IS_SHAMANSPELL(si) &&
                 GET_CLASS(tch, CLASS_SHAMAN))
         {
-          notch_skill(tch, SKILL_SPELL_KNOWLEDGE_SHAMAN, 100);
+           notch_skill(tch, SKILL_SPELL_KNOWLEDGE_SHAMAN, 100);
         }
-
+        else if(IS_NATURESPELL(si) &&
+                (GET_CLASS(tch, CLASS_DRUID) ||
+                 GET_CLASS(tch, CLASS_ETHERMANCER)))
+        {
+           notch_skill(tch, SKILL_SPELL_KNOWLEDGE_NATURE, 100);
+        }
       }
       else
       {
@@ -818,7 +834,7 @@ int SpellCastTime(P_char ch, int spl)
   dura = (int)skills[spl].beats;
   dura = (dura * spell_pulse_data[GET_RACE(ch)]);
   dura = (dura + get_property("spellcast.pulse.racial.All", 1.000)); // Affects all racial modifiers.
-  dura = (dura * (12.0 + ch->points.spell_pulse)/12 );
+  dura = (dura * (12.0 + ch->points.spell_pulse) / 12);
 
   if (IS_AFFECTED2(ch, AFF2_FLURRY))
   {
@@ -835,7 +851,7 @@ int SpellCastTime(P_char ch, int spl)
 void SpellCastShow(P_char ch, int spl)
 {
   P_char   tch;
-  int      idok, detharm;
+  int      idok, detharm, skill;
   char     Gbuf1[MAX_STRING_LENGTH];
   
   if(!(ch))
@@ -857,12 +873,26 @@ void SpellCastShow(P_char ch, int spl)
     detharm = 0;
     int rand = number(1, 101);
 
+    if (IS_NATURESPELL(spl) && (rand <= GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_NATURE)))
+    {
+      skill = SKILL_SPELL_KNOWLEDGE_NATURE;
+      idok = 4;
+    }
     if (IS_SHAMANSPELL(spl) && (rand <= GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_SHAMAN)))
+    {
+      skill = SKILL_SPELL_KNOWLEDGE_SHAMAN;
       idok = 3;
+    }
     if (IS_CLERICSPELL(spl) && (rand <= GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_CLERICAL)))
+    {
+      skill = SKILL_SPELL_KNOWLEDGE_CLERICAL;
       idok = 2;
+    }
     if (IS_MAGESPELL(spl) && (rand <= GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_MAGICAL)))
+    {
+      skill = SKILL_SPELL_KNOWLEDGE_MAGICAL;
       idok = 1;
+    }
 
     if (idok)
     {
@@ -888,12 +918,7 @@ void SpellCastShow(P_char ch, int spl)
             idok ? "'" : "");
     act(Gbuf1, TRUE, ch, 0, tch, TO_VICT);
 
-    if (idok == 1)
-      notch_skill(ch, SKILL_SPELL_KNOWLEDGE_MAGICAL, 100);
-    else if (idok == 2)
-      notch_skill(ch, SKILL_SPELL_KNOWLEDGE_CLERICAL, 100);
-    else if (idok == 3)
-      notch_skill(ch, SKILL_SPELL_KNOWLEDGE_SHAMAN, 100);
+    notch_skill(ch, skill, 100);
   }
 }
 
@@ -998,21 +1023,18 @@ void show_abort_casting(P_char ch)
     if (meming_class(ch))
     {
       send_to_char("&+rYou abort your spell before it's done!\n", ch);
-      act("$n&n&+r stops invoking abruptly!", TRUE, ch, 0, 0, TO_ROOM);
+      act("$n &+rstops invoking abruptly!", TRUE, ch, 0, 0, TO_ROOM);
     }
     else if (GET_CLASS(ch, CLASS_PSIONICIST) ||
              GET_CLASS(ch, CLASS_MINDFLAYER))
     {
-      send_to_char
-        ("&+rYou abort your mental image before it has become reality!\n",
-         ch);
-      act("$n&n&+r's face flushes white for a moment.", TRUE, ch, 0, 0,
-          TO_ROOM);
+      send_to_char("&+rYou abort your mental image before it has become reality!\n", ch);
+      act("$n&+r's face flushes white for a moment.", FALSE, ch, 0, 0, TO_ROOM);
     }
     else
     {
       send_to_char("&+rYou abort your prayer before it's done!\n", ch);
-      act("$n&n&+r stops chanting abruptly!", TRUE, ch, 0, 0, TO_ROOM);
+      act("$n &+rstops chanting abruptly!", TRUE, ch, 0, 0, TO_ROOM);
     }
     for (P_nevent e1 = ch->nevents; e1; e1 = e1->next) {
       if ( e1->func == event_spellcast) {
@@ -1129,14 +1151,12 @@ bool cast_common_generic(P_char ch, int spl)
   {
     if (!GET_CLASS(ch, CLASS_PSIONICIST))
     {
-      send_to_char
-        ("Too bad, looks like you've been stopped in your tracks!\n", ch);
+      send_to_char("Too bad, looks like you've been stopped in your tracks!\n", ch);
       return FALSE;
     }
   }
   return TRUE;
 }
-
 
 bool parse_spell_arguments(P_char ch, struct spell_target_data * data,
                            char *argument)
@@ -1397,16 +1417,13 @@ bool parse_spell_arguments(P_char ch, struct spell_target_data * data,
 
     if (!AdjacentInRoom(ch, vict) && (vict != ch))
     {
-      send_to_char
-        ("&+WYou feel too uncomfortable casting at someone that far away in such tight quarters.\n",
-         ch);
+      send_to_char("&+WYou feel too uncomfortable casting at someone that far away in such tight quarters\r\n", ch);
       return FALSE;
     }
   }
   if (GET_MASTER(ch))
-    if ((((                     /*IS_SET(skills[spl].targets, TAR_CHAR_WORLD) || */
-            IS_SET(skills[spl].targets, TAR_CHAR_RANGE) ||
-            IS_SET(skills[spl].targets, TAR_CHAR_ROOM)) &&
+    if ((((IS_SET(skills[spl].targets, TAR_CHAR_RANGE) ||
+           IS_SET(skills[spl].targets, TAR_CHAR_ROOM)) &&
           (GET_MASTER(ch) == vict)) ||
          (IS_SET(skills[spl].targets, TAR_IGNORE) &&
           should_area_hit(ch, GET_MASTER(ch)))) && IS_AGG_SPELL(spl))
@@ -1421,8 +1438,7 @@ bool parse_spell_arguments(P_char ch, struct spell_target_data * data,
   return TRUE;
 }
 
-bool parse_spell(P_char ch, char *argument, 
-    struct spell_target_data* target_data, int cmd)
+bool parse_spell(P_char ch, char *argument, struct spell_target_data* target_data, int cmd)
 {
   int      qend;
   int      free_slots;
@@ -1455,13 +1471,9 @@ bool parse_spell(P_char ch, char *argument,
   if (*argument != '\'')
   {
     if (GET_CLASS(ch, CLASS_PSIONICIST) || GET_CLASS(ch, CLASS_MINDFLAYER))
-      send_to_char
-        ("To will that into reality, you must think of it enclosed in the mystical 'apostrophes'.\n",
-         ch);
+      send_to_char("To will that into reality, you must think of it enclosed in the mystical 'apostrophes'.\n", ch);
     else
-      send_to_char
-        ("Magic must always be enclosed by the holy symbols known only as 'apostrophes'.\n",
-         ch);
+      send_to_char("Magic must always be enclosed by the holy symbols known only as 'apostrophes'.\n", ch);
     return FALSE;
   }
   /*
@@ -1473,13 +1485,10 @@ bool parse_spell(P_char ch, char *argument,
 
   if (*(argument + qend) != '\'')
   {
-    send_to_char
-      ("Spells are always to be enclosed by the holy symbols known only as 'apostrophes'.\n",
-       ch);
+    send_to_char("Spells are always to be enclosed by the holy symbols known only as 'apostrophes'.\n", ch);
     return FALSE;
   }
-  spl = 
-    old_search_block(argument, 1, (uint) (MAX(0, (qend - 1))), spells, 0) - 1;
+  spl =  old_search_block(argument, 1, (uint) (MAX(0, (qend - 1))), spells, 0) - 1;
 
   if (spl < 0 || (!IS_SPELL(spl) && !(IS_TRUSTED(ch) && IS_POISON(spl))))
   {
@@ -1521,8 +1530,7 @@ bool parse_spell(P_char ch, char *argument,
   {
     if (GET_MANA(ch) < 1 && circle != -1)
     {
-      send_to_char("&+mYou don't have the energy left to alter reality!\n",
-                   ch);
+      send_to_char("&+mYou don't have the energy left to alter reality.\r\n", ch);
       return FALSE;
     }
   }
@@ -1532,25 +1540,23 @@ bool parse_spell(P_char ch, char *argument,
     if (circle != -1 && !ch->specials.undead_spell_slots[circle])
     {
       if (GET_CLASS(ch, CLASS_DRUID))
-        send_to_char("&+gYou must commune with nature more before "
-                     "invoking its power.\n", ch);
+        send_to_char("&+gYou must commune with nature more before invoking its power.\r\n", ch);
       else if (GET_CLASS(ch, CLASS_PSIONICIST) || GET_CLASS(ch, CLASS_MINDFLAYER))
       {
-        send_to_char("&+mYour thoughts have not collected enough to cast THAT spell.&n\n", ch);
+        send_to_char("&+mYour thoughts have not collected enough to cast THAT spell.\r\n", ch);
       }
       else if (IS_ANGEL(ch))
       {
-	send_to_char("&+WYour illumination is not sufficient enough to cast that spell.&n\n", ch);
+	send_to_char("&+WYour illumination is not sufficient enough to cast that spell.\r\n", ch);
       }
       else
-        send_to_char("&+LYour power reserves are not sufficient to "
-                     "cast that spell!\n", ch);
+        send_to_char("&+LYour power reserves are not sufficient to cast that spell!\r\n", ch);
       return FALSE;
     }
   }
   else if ((circle != -1) && !IS_TRUSTED(ch))
   {
-    send_to_char("&+RYou don't have that spell memorized.\n", ch);
+    send_to_char("&+RYou don't have that spell memorized.\r\n", ch);
     return FALSE;
   }
 
@@ -1571,22 +1577,19 @@ bool parse_spell(P_char ch, char *argument,
   {
     if (IS_TRUSTED(ch))
     {
-      send_to_char
-        ("You don't have the right totem, but since you're a god..\n", ch);
+      send_to_char("You don't have the right totem, but since you're a god..\n", ch);
     }
     else if(IS_MULTICLASS_PC(ch))
-        {
+    {
         ; //try to handle  totems for shaman spells..
-        }
+    }
     else if(GET_CHAR_SKILL(ch, SKILL_TOTEMIC_MASTERY) > number(1, 100))
     {
-      send_to_char
-      ("Using your mastery of the spirit realm, you prepare your spell without the aid of a focus...\n", ch);
+      send_to_char("Using your mastery of the spirit realm, you prepare your spell without the aid of a focus...\n", ch);
     }
     else 
     {
-      send_to_char
-        ("You aren't holding the correct totem to cast that spell.\n", ch);
+      send_to_char("You aren't holding the correct totem to cast that spell.\n", ch);
       // CharWait(ch, PULSE_VIOLENCE);
       return FALSE;
     }
@@ -1600,8 +1603,7 @@ bool parse_spell(P_char ch, char *argument,
   return true;
 }
 
-bool parse_spell(P_char ch, char *argument, 
-    struct spell_target_data* target_data)
+bool parse_spell(P_char ch, char *argument, struct spell_target_data* target_data)
 {
   return parse_spell(ch, argument, target_data, CMD_CAST);
 }
@@ -1662,8 +1664,7 @@ bool check_mob_retaliate(P_char ch, P_char tar_char, int spl)
          reason to call this. The only problem with this code, is that
          someone else in the room might (or might not) notice the aggression.
 
-         This code, unfortunatly, limits everyones knowledge to basically the
-
+         This code, unfortunately, limits everyones knowledge to basically the
          same as the victims. :(
        */
 
@@ -2337,15 +2338,18 @@ void event_spellcast(P_char ch, P_char victim, P_obj obj, void *data)
     }
     if(IS_PC(ch)) // no point in sending messages to mobs  -Odorf
     {
-      if (GET_CHAR_SKILL(ch, SKILL_SPELL_KNOWLEDGE_SHAMAN))
+      if(GET_CHAR_SKILL(ch, SKILL_SPELL_KNOWLEDGE_PSIONIC))
+        skl = SKILL_SPELL_KNOWLEDGE_PSIONIC;
+      else if(GET_CHAR_SKILL(ch, SKILL_SPELL_KNOWLEDGE_NATURE))
+        skl = SKILL_SPELL_KNOWLEDGE_NATURE;
+      else if(GET_CHAR_SKILL(ch, SKILL_SPELL_KNOWLEDGE_SHAMAN))
         skl = SKILL_SPELL_KNOWLEDGE_SHAMAN;
       else if(GET_CHAR_SKILL(ch, SKILL_SPELL_KNOWLEDGE_CLERICAL))
         skl = SKILL_SPELL_KNOWLEDGE_CLERICAL;
       else
         skl = SKILL_SPELL_KNOWLEDGE_MAGICAL;
      
-      if(GET_CLASS(ch, CLASS_PSIONICIST | CLASS_DRUID | CLASS_ETHERMANCER) ||
-          number(1, 100) <= GET_CHAR_SKILL(ch, skl))
+      if(number(1, 100) <= GET_CHAR_SKILL(ch, skl))
       {
         sprintf(buf, "Casting: %s ", skills[arg->spell].name);
         for (i = 0; i < (arg->timeleft / 4); i++)
@@ -2354,7 +2358,13 @@ void event_spellcast(P_char ch, P_char victim, P_obj obj, void *data)
         send_to_char(buf, ch);
       }
       else
+      {
+        if(IS_PC(ch) && skl == SKILL_SPELL_KNOWLEDGE_PSIONIC)
+        {
+          wizlog(56, "trying to notch psionic");
+        }
         notch_skill(ch, skl, 100);
+      }
     }
     i = MIN(arg->timeleft, 4);
     arg->timeleft -= i;

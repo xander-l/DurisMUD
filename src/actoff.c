@@ -1100,7 +1100,7 @@ void lance_charge(P_char ch, char *argument)
   char     arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
   P_obj    weapon, other_weapon;
   int      knockdown_chance, percent_chance, dam, dir = -1, continue_dir = -1;
-  int      effect, available_exits = 0, choice, i;
+  int      effect, available_exits = 0, choice, i, skill;
   char     buf[512];
 
   half_chop(argument, arg1, arg2);
@@ -1112,7 +1112,7 @@ void lance_charge(P_char ch, char *argument)
   if(!SanityCheck(ch, "lance_charge"))
     return;
 
-  if(GET_CHAR_SKILL(ch, SKILL_LANCE_CHARGE) < 1)
+  if((skill = GET_CHAR_SKILL(ch, SKILL_LANCE_CHARGE)) < 1)
   {
     send_to_char("You do not have the appropriate training.\n", ch);
     return;
@@ -1191,8 +1191,7 @@ void lance_charge(P_char ch, char *argument)
 
   set_short_affected_by(ch, SKILL_LANCE_CHARGE, 2 * PULSE_VIOLENCE);
   
-  percent_chance =
-    (int) (0.9 * MAX(70, GET_CHAR_SKILL(ch, SKILL_LANCE_CHARGE)));
+  percent_chance = (int) (0.9 * MAX(70, skill));
 
   if(GET_C_LUCK(ch) / 10 > number(0, 100))
     percent_chance = (int) (percent_chance * 1.1);
@@ -1201,20 +1200,16 @@ void lance_charge(P_char ch, char *argument)
     percent_chance = (int) (percent_chance * 0.9);
 
   percent_chance =
-    (int) (percent_chance *
-           ((double)
-            BOUNDED(8, 10 + (GET_LEVEL(ch) - GET_LEVEL(victim)) / 10,
-                    11)) / 10);
+    (int) (percent_chance * ((double) BOUNDED(8, 10 + (GET_LEVEL(ch) - GET_LEVEL(victim)) / 10, 11)) / 10);
 
   if(IS_AFFECTED(victim, AFF_AWARE))
     percent_chance = (int) (percent_chance * get_property("skill.lance.charge.AwareMod", 0.850));
 
-  knockdown_chance = (int) (percent_chance *
-      get_property("skill.lance.charge.KnockDownMod", 0.650));
+  knockdown_chance = (int) (percent_chance * get_property("skill.lance.charge.KnockDownMod", 0.650));
 
   dam = dice(weapon->value[2], weapon->value[1]) + weapon->value[2];
-  dam = (int) (dam * ((double) GET_LEVEL(ch)) / 100 + 1);
-  dam *= MAX(2, (int)(GET_LEVEL(ch) / 5));
+  dam += GET_DAMROLL(ch);
+  dam = dam * ((float) skill / 100);
 
   if(dir != -1)
     dam = (int) (dam * get_property("skill.lance.charge.RangeDamMod", 2.000));    // ranged charge
@@ -1234,12 +1229,9 @@ void lance_charge(P_char ch, char *argument)
 
   if(dir == -1)
   {
-    act("$n spurs $s mount and charges $N, the $q pointed at $S chest.", TRUE,
-        ch, weapon, victim, TO_NOTVICT);
-    act("$n spurs $s mount and charges $N, the $q pointed at YOUR chest.",
-        TRUE, ch, weapon, victim, TO_VICT);
-    act("You spur your mount and charge $N, the $q pointed at $S chest.",
-        TRUE, ch, weapon, victim, TO_CHAR);
+    act("$n spurs $s mount and charges $N, the $q pointed at $S chest.", FALSE, ch, weapon, victim, TO_NOTVICT);
+    act("$n spurs $s mount and charges $N, the $q pointed at YOUR chest.", FALSE, ch, weapon, victim, TO_VICT);
+    act("You spur your mount and charge $N, the $q pointed at $S chest.", FALSE, ch, weapon, victim, TO_CHAR);
   }
   else
   {
@@ -1395,7 +1387,7 @@ void lance_charge(P_char ch, char *argument)
   {
     case 0:
     case 1:
-      dam = dam + dice(20, 5);
+      dam = dam + dice(5, 5);
       act("With a &+Wbone c&+wr&+Wu&+ws&+Wh&+wi&+Wn&+wg thud the $q slams into $N impaling $M.",
          FALSE, ch, weapon, victim, TO_NOTVICT);
       act("With a &+Wbone c&+wr&+Wu&+ws&+Wh&+wi&+Wn&+wg thud the $q slams into $N impaling $M.",
@@ -1406,7 +1398,7 @@ void lance_charge(P_char ch, char *argument)
         DamageOneItem(ch, SPLDAM_GENERIC, weapon, FALSE);
       break;
     case 2:
-      dam = dam / 2 + dice(15, 5);
+      dam = dam / 2 + dice(3, 5);
       act("You glance $N with the tip of your $q causing a small surface wound.",
          FALSE, ch, weapon, victim, TO_CHAR);
       act("$n glances $N with the tip of $s $q causing a small surface wound.",
@@ -1427,7 +1419,7 @@ void lance_charge(P_char ch, char *argument)
       {
         int      target_room =
           world[ch->in_room].dir_option[continue_dir]->to_room;
-        dam = dam + dice(20, 6);
+        dam = dam + dice(3, 6);
         sprintf(buf, "You ram your $q through $N sending both veering out %s.",
                 dirs[continue_dir]);
         act(buf, FALSE, ch, weapon, victim, TO_CHAR);
@@ -1450,7 +1442,7 @@ void lance_charge(P_char ch, char *argument)
         break;
       }
     case 4:
-      dam = dam + dice(30, 6);
+      dam = dam + dice(6, 6);
       act("You ram your $q right through $N causing &+Rb&+rl&+Ro&+ro&+Rd&n to pour from $S body.",
          FALSE, ch, weapon, victim, TO_CHAR);
       act("$n rams $s $q right through $N causing &+Rb&+rl&+Ro&+ro&+Rd&n to pour from $S body.",
@@ -1464,7 +1456,7 @@ void lance_charge(P_char ch, char *argument)
       break;
   }
 
-  if(melee_damage(ch, victim, dam / 4, PHSDAM_NOPOSITION, 0) != DAM_NONEDEAD)
+  if(melee_damage(ch, victim, dam, PHSDAM_NOPOSITION, 0) != DAM_NONEDEAD)
     return;
 
   if(!IS_ALIVE(ch))
@@ -2029,7 +2021,7 @@ void do_circle(P_char ch, char *argument, int cmd)
   P_char   victim;
   P_obj    weapon, first_w, second_w;
   byte     percent_chance;
-  int   dam;
+  int      dam, skill;
   struct affected_type af, *af_ptr;
   struct damage_messages eng_messages = {
     "You pretend to aim at $N's stomach only to circle $M around and place $p right in $S back.",
@@ -2087,7 +2079,7 @@ void do_circle(P_char ch, char *argument, int cmd)
 
   first_w = ch->equipment[WIELD];
   second_w = ch->equipment[SECONDARY_WEAPON];
-
+  skill = GET_CHAR_SKILL(ch, SKILL_CIRCLE)
   if((!first_w || !IS_BACKSTABBER(first_w)) &&
       (!second_w || !IS_BACKSTABBER(second_w)))
   {
@@ -2097,12 +2089,12 @@ void do_circle(P_char ch, char *argument, int cmd)
 
   if(victim->specials.fighting && victim->specials.fighting == ch)
   {
-    if(GET_CHAR_SKILL(ch, SKILL_CIRCLE) < 75)
+    if(skill < 75)
       send_to_char("Although you haven't mastered circling someone hitting you, you try anyway..\n", ch);
-    percent_chance = 3 * (MAX(0, GET_CHAR_SKILL(ch, SKILL_CIRCLE) - 70));
+    percent_chance = 3 * (MAX(0, skill - 70));
     messages = &eng_messages;
   } else {
-    percent_chance = MIN(100, 20 + GET_CHAR_SKILL(ch, SKILL_CIRCLE));
+    percent_chance = MIN(100, 20 + skill);
     messages = &reg_messages;
   }
 
@@ -2129,9 +2121,9 @@ void do_circle(P_char ch, char *argument, int cmd)
       percent_chance > number(0,100))
   {
     dam = (dice(weapon->value[1], MAX(1, weapon->value[2])) + weapon->value[2]);
-    dam *= GET_LEVEL(ch)/5;
-    melee_damage
-        (ch, victim, dam, PHSDAM_NOREDUCE | PHSDAM_NOPOSITION, messages);
+    dam += GET_DAMROLL(ch);
+    dam = dam * number(skill, 95); 
+    melee_damage(ch, victim, dam, PHSDAM_NOREDUCE | PHSDAM_NOPOSITION, messages);
   }
   else
   {
@@ -4241,14 +4233,12 @@ void event_sneaky_strike(P_char ch, P_char victim, P_obj obj, void *data)
   /* notch_skill(ch, SKILL_SNEAKY_STRIKE, get_property("skill.notch.offensive", 15)); */
 
   dam += str_app[STAT_INDEX(GET_C_STR(ch))].todam;
-  dam = (int) (dam * (1 + ((double) GET_LEVEL(ch)) / MAXLVLMORTAL) * (((double) skill) / 100));
+  dam = (int) (dam * (1 + (double)skill / 100));
 
-  melee_damage(ch, victim, dam, PHSDAM_NOREDUCE | PHSDAM_NOPOSITION,
-               &messages);
+  melee_damage(ch, victim, dam, PHSDAM_NOREDUCE | PHSDAM_NOPOSITION, &messages);
 
   CharWait(ch, PULSE_VIOLENCE * number(1, 2));
 }
-
 
 bool is_preparing_for_sneaky_strike(P_char ch)
 {
@@ -5778,10 +5768,6 @@ void buck(P_char ch)
   SET_POS(victim, POS_PRONE + GET_STAT(victim));
 
   unlink_char(ch, victim, LNK_RIDING);
-/*
-  GET_HIT(victim) -= dice(3, 4);
-  update_pos(victim);
-*/
   melee_damage(ch, victim, 1, 0, 0);
 }
 
@@ -6323,7 +6309,7 @@ void maul(P_char ch, P_char victim)
   vict_size = get_takedown_size(victim);
   ch_size = get_takedown_size(ch);
   
-  dam = dice(MIN(30, GET_LEVEL(ch)), 6) *
+  dam = 5 + (GET_LEVEL(ch) / 2) *
     (int) (get_property("skill.maul.damfactor", 1.000));
   
   if(GET_SPEC(ch, CLASS_BERSERKER, SPEC_MAULER))
@@ -8280,10 +8266,11 @@ void do_flank(P_char ch, char *argument, int cmd)
     return;
   }
   
-  if(ch->specials.fighting)
+  if(ch->specials.fighting && !GET_SPEC(ch, CLASS_ROGUE, SPEC_ASSASSIN))
   {
     send_to_char("You can't seem to flank your opponent while they are watching...", ch);
     return;
+   
   }
 
   one_argument(argument, target);
@@ -8293,7 +8280,11 @@ void do_flank(P_char ch, char *argument, int cmd)
     send_to_char("Flank who?\n", ch);
   }
   else
+  {
+    if(GET_CLASS(ch, CLASS_ASSASSIN))
+      send_to_char("Your mastery of subterfuge aids you in flanking your opponent...", ch);
     flank(ch, victim);
+  }
 }
 
 void event_unflank(P_char ch, P_char victim, P_obj obj, void *args)
@@ -8430,13 +8421,8 @@ void event_call_grave(P_char ch, P_char victim, P_obj obj, void *data)
     return;
   }
 
-  act
-    ("&+LThe ground starts to buckle and crack as &+Wskeletons &+Lburst from the ground.",
-     FALSE, ch, 0, 0, TO_CHAR);
-
-  act
-    ("&+LThe ground trembles, only to buckle and crack as &+Wskeletons &+Lrise from their cold graves.",
-     FALSE, ch, 0, 0, TO_NOTVICT);
+  act("&+LThe ground starts to buckle and crack as &+Wskeletons &+Lburst from the ground.", FALSE, ch, 0, 0, TO_CHAR);
+  act("&+LThe ground trembles, only to buckle and crack as &+Wskeletons &+Lrise from their cold graves.", FALSE, ch, 0, 0, TO_NOTVICT);
   
   if(GET_RACE(ch) == RACE_PLICH)
   {
@@ -8457,7 +8443,7 @@ void event_call_grave(P_char ch, P_char victim, P_obj obj, void *data)
       return;
     }
  
-    skeleton->player.level =  BOUNDED(6, (GET_LEVEL(ch) - number(15, 35)), 42);
+    skeleton->player.level = BOUNDED(6, (GET_LEVEL(ch) - number(15, 35)), 42);
 
     if(!number(0, 4))
        skeleton->player.m_class = CLASS_WARRIOR;
@@ -8469,8 +8455,8 @@ void event_call_grave(P_char ch, P_char victim, P_obj obj, void *data)
     GET_MAX_HIT(skeleton) = GET_HIT(skeleton) = skeleton->points.base_hit = (int) (GET_LEVEL(ch) * number(3, 5));
 
     MonkSetSpecialDie(skeleton);      
-    skeleton->points.hitroll = (int) GET_LEVEL(skeleton) / 2;
-    skeleton->points.damroll = (int) GET_LEVEL(skeleton) + 10;
+    skeleton->points.hitroll = (int) GET_LEVEL(skeleton);
+    skeleton->points.damroll = (int) GET_LEVEL(skeleton);
     
     char_to_room(skeleton, ch->in_room, -2);
     setup_pet(skeleton, ch, GET_LEVEL(ch) / 2 + number(0, 10), PET_NOCASH);
@@ -8483,23 +8469,18 @@ void event_call_grave(P_char ch, P_char victim, P_obj obj, void *data)
 
 void event_call_grave_target(P_char ch, P_char victim, P_obj obj, void *data)
 {
-
   int      dmg = 0;
 
-  act
-    ("Skeletons and other abominations rise from the cold graves tearing and clawing at $N's flesh.",
-     FALSE, ch, 0, victim, TO_CHAR);
+  act("Skeletons and other abominations rise from the cold graves tearing and clawing at $N's flesh.",
+       FALSE, ch, 0, victim, TO_CHAR);
 
-  act
-    ("Skeletons and other abominations rise from the cold graves tearing and clawing at $N's flesh.",
-     FALSE, ch, 0, victim, TO_NOTVICT);
+  act("Skeletons and other abominations rise from the cold graves tearing and clawing at $N's flesh.",
+       FALSE, ch, 0, victim, TO_NOTVICT);
 
-  act
-    ("Skeletons and other abominations rise from the cold graves tearing and clawing at your flesh.",
-     FALSE, ch, 0, victim, TO_VICT);
+  act("Skeletons and other abominations rise from the cold graves tearing and clawing at your flesh.",
+       FALSE, ch, 0, victim, TO_VICT);
 
-  // damage: [dreadlord_level +- 1d10] hp
-  dmg = (GET_LEVEL(ch) - 10 + number(0, 20));
+  dmg = (GET_LEVEL(ch) / 2 + number(0, 10));
 
   damage(ch, victim, MAX(1, dmg), TYPE_UNDEFINED);
 }
@@ -8509,20 +8490,16 @@ void event_bye_grave(P_char ch, P_char victim, P_obj obj, void *data)
   if(ch->following && ch->in_room == ch->following->in_room)
   {
     act("$N &nturns toward you and bows slightly before vanishing, "
-        "sinking back into its cold grave.", FALSE, ch->following, 0, ch,
-        TO_CHAR);
+        "sinking back into its cold grave.", FALSE, ch->following, 0, ch,  TO_CHAR);
 
     act("$N &nturns toward $n and bows slightly before vanishing, "
-        "sinking back into its cold grave.", FALSE, ch->following, 0, ch,
-        TO_NOTVICT);
+        "sinking back into its cold grave.", FALSE, ch->following, 0, ch, TO_NOTVICT);
   }
   else
   {
     if(ch->following)
     {
-      send_to_char
-        ("&+LYour called &+Wskeleton &+Lreturns to its cold grave.\n",
-         ch->following);
+      send_to_char("&+LYour called &+Wskeleton &+Lreturns to its cold grave.\n", ch->following);
     }
   }
   extract_char(ch);
@@ -9032,18 +9009,15 @@ void do_shriek(P_char ch, char *argument, int cmd)
   // get the level of skill the player or mob is at
   skl_lvl = GET_CHAR_SKILL(ch, SKILL_SHRIEK);
 
-  damage = (skl_lvl / 2) + dice(1, 20);
+  damage = (skl_lvl / 3) + dice(1, 20);
 
   // let the char know (s)he shrieked
-  send_to_char
-    ("You expel your welled-up rage in a mind-aching &+RSHRIEK!&n\r\n", ch);
-  act("$n expels $s welled-up rage in a mind-aching &+RSHRIEK!&n", FALSE, ch,
-      0, 0, TO_ROOM);
+  send_to_char("You expel your welled-up rage in a mind-aching &+RSHRIEK!&n\r\n", ch);
+  act("$n expels $s welled-up rage in a mind-aching &+RSHRIEK!&n", FALSE, ch, 0, 0, TO_ROOM);
 
   // for each person in the room
   for (person = world[ch->in_room].people; person; person = next_person)
   {
-
     // figure out who the next person to test will be
     next_person = person->next_in_room;
 

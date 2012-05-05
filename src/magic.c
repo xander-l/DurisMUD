@@ -6139,7 +6139,7 @@ void event_healing_salve(P_char ch, P_char vict, P_obj obj, void *data)
   if(GET_HIT(vict) < GET_MAX_HIT(vict))
     send_to_char("You feel a &+Wwarm wave&n going through your body.\n", vict);
 
-  x = vamp(vict, number(GET_LEVEL(ch), ((int) GET_LEVEL(ch) * 1.5)), GET_MAX_HIT(vict));
+  x = vamp(vict, dice(20, 2) + (GET_LEVEL(ch) / 4), GET_MAX_HIT(vict));
   
   update_pos(vict);
   
@@ -6158,15 +6158,11 @@ void spell_healing_salve(int level, P_char ch, char *arg, int type, P_char victi
 {
   int waves = level / 14;
 
-  act("Upon $n's touch a &+Csoft glow&n flows from $s hands and surrounds $N.",
-     FALSE, ch, 0, victim, TO_NOTVICT);
-  act("Upon $n's touch a &+Csoft glow&n flows from $s hands and surrounds you.",
-     FALSE, ch, 0, victim, TO_VICT);
-  act("You touch $N invoking a &+Chealing energy&n to cure $S wounds.", FALSE,
-      ch, 0, victim, TO_CHAR);
+  act("Upon $n's touch a &+Csoft glow&n flows from $s hands and surrounds $N.", FALSE, ch, 0, victim, TO_NOTVICT);
+  act("Upon $n's touch a &+Csoft glow&n flows from $s hands and surrounds you.", FALSE, ch, 0, victim, TO_VICT);
+  act("You touch $N invoking a &+Chealing energy&n to cure $S wounds.", FALSE, ch, 0, victim, TO_CHAR);
   
-  add_event(event_healing_salve, (int) (PULSE_VIOLENCE * 0.1), ch, victim, 0, 0,
-            &waves, sizeof(waves));
+  add_event(event_healing_salve, (int) (PULSE_VIOLENCE * 0.1), ch, victim, 0, 0, &waves, sizeof(waves));
 
   if(IS_AFFECTED4(victim, AFF4_CARRY_PLAGUE))
     REMOVE_BIT(victim->specials.affected_by4, AFF4_CARRY_PLAGUE);

@@ -934,7 +934,9 @@
 #define SKILL_TIGER_PALM             1263
 #define SKILL_DIAMOND_SOUL           1264
 #define SKILL_GARROTE                1265
-#define LAST_SKILL                   SKILL_GARROTE
+#define SKILL_SPELL_KNOWLEDGE_PSIONIC 1266
+#define SKILL_SPELL_KNOWLEDGE_NATURE 1267
+#define LAST_SKILL                   SKILL_SPELL_KNOWLEDGE_NATURE
 
 #define FIRST_SECONDARY_SKILL        1501
 

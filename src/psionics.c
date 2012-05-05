@@ -361,17 +361,21 @@ void spell_adrenaline_control(int level, P_char ch, char *arg, int type, P_char 
     return;
   }
   
-  bzero(&af, sizeof(af));
-  af.type = SPELL_ADRENALINE_CONTROL;
-  af.duration = dur;
-  af.location = APPLY_STR;
-  af.modifier = level / 14;
-  affect_to_char(ch, &af);
-  af.location = APPLY_CON;
-  affect_to_char(ch, &af);
+  if(!affected_by_spell(victim, SPELL_ENHANCED_STR) ||
+     !affected_by_spell(victim, SPELL_ENHANCED_CON))
+  {
+    bzero(&af, sizeof(af));
+    af.type = SPELL_ADRENALINE_CONTROL;
+    af.duration = dur;
+    af.location = APPLY_STR;
+    af.modifier = level / 14;
+    affect_to_char(ch, &af);
+    af.location = APPLY_CON;
+    affect_to_char(ch, &af);
 
-  send_to_char("&+CYou feel a massive rush of adrenaline!\r\n", ch);
-  return;
+    send_to_char("&+CYou feel a massive rush of adrenaline!\r\n", ch);
+    return;
+  }
 }
 
 void spell_aura_sight(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
@@ -675,7 +679,7 @@ void spell_biofeedback(int level, P_char ch, char *arg, int type, P_char victim,
   affect_to_char(victim, &af);
 
   send_to_char("&+GYou are surrounded by a green mist!\r\n", ch);
-  act("&+G$n&+G is suddenly surrounded by a green mist!", FALSE, ch, 0, 0, TO_NOTVICT);
+  act("$n&+G is suddenly surrounded by a green mist!", FALSE, ch, 0, 0, TO_NOTVICT);
 }
 
 
@@ -870,6 +874,15 @@ void spell_fire_aura(int level, P_char ch, char *arg, int type, P_char victim, P
 void spell_ego_blast(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   int  dam;
+
+  struct damage_messages messages = {
+    "&+MYou mentally blast $N's ego.",
+    "&+M$n mentally blasts your mind with stunning force!",
+    "&+M$n squints and $N&+M screams out in pain, holding $S head!",
+    "&+MYou destroy your opponents mind with a thought...",
+    "&+MYour mind is utterly destroyed by the attack...",
+    "&+M$N collapses, $S mind utterly destroyed..."
+  };
   
   if(!(ch) ||
      !(victim))
@@ -877,25 +890,19 @@ void spell_ego_blast(int level, P_char ch, char *arg, int type, P_char victim, P
   
   if(IS_BRAINLESS(victim))
   {
-    act("$N lacks any mental capacity whatsoever!&n",
-      FALSE, ch, 0, victim, TO_CHAR);
+    act("$N lacks any mental capacity whatsoever!", FALSE, ch, 0, victim, TO_CHAR);
     return;
   }
 
   if(ch == victim)
     return;
   
-  dam = dice(28, 2) + level / 4;
+  dam = dice(32, 2) + level / 4;
   
   if(StatSave(victim, APPLY_POW, POW_DIFF(ch, victim)))
     dam >> 1;
 
-  act("&+MYou mentally blast $N's ego.", TRUE, ch, 0, victim, TO_CHAR);
-  act("&+M$n mentally blasts your mind with stunning force!", TRUE, ch, 0, victim, TO_VICT);
-  act("&+M$n squints and $N&+M screams out in great pain, holding $S head!", FALSE, ch, 0, victim, TO_NOTVICT);
-
-  spell_damage(ch, victim, dam, SPLDAM_PSI, SPLDAM_NOSHRUG, 0);
-  return;
+  spell_damage(ch, victim, dam, SPLDAM_PSI, SPLDAM_NOSHRUG, &messages);
 }
 
 void spell_create_sound(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
@@ -936,7 +943,7 @@ void spell_psychic_crush(int level, P_char ch, char *arg, int type, P_char victi
     return;
   }
   
-  dam = dice(63, 2) + level / 4;
+  dam = dice(66, 2) + level / 4;
   
   if(StatSave(victim, APPLY_POW, POW_DIFF(ch, victim)))
     dam >> 1;
@@ -1038,9 +1045,9 @@ void spell_single_death_field(int level, P_char ch, char *args, int type, P_char
   if(IS_BRAINLESS(victim))
     return;
 
-  dam = dice(56, 2) + level / 4;
+  dam = dice(60, 2) + level / 4;
     
-  if(!StatSave(victim, APPLY_POW, POW_DIFF(ch, victim)))
+  if(StatSave(victim, APPLY_POW, POW_DIFF(ch, victim)))
     dam >> 1;
 
   if(IS_PC_PET(ch))
@@ -1108,12 +1115,12 @@ void spell_detonate(int level, P_char ch, char *arg, int type, P_char victim, P_
      !(victim))
         return;
       
-  dam = dice(42, 2) + level / 4;
+  dam = dice(48, 2) + level / 4;
   
   if(victim == ch)
     dam = 1;
     
-  if(!StatSave(victim, APPLY_POW, POW_DIFF(ch, victim)))
+  if(StatSave(victim, APPLY_POW, POW_DIFF(ch, victim)))
     dam >> 1;
   
   if(GET_SPEC(ch, CLASS_PSIONICIST, SPEC_PYROKINETIC))
@@ -1309,7 +1316,15 @@ void spell_ectoplasmic_form(int level, P_char ch, char *arg, int type, P_char vi
 void spell_ego_whip(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   int  dam;
-  
+  struct damage_messages messages = {
+    "&+MYou mentally beat upon $N's ego.",
+    "&+M$n mentally beats upon your mind with stunning force!",
+    "&+M$n squints and $N&+M screams out in pain, holding $S head!",
+    "&+MYou destroy your opponents mind with a thought...",
+    "&+MYour mind is utterly destroyed by the attack...",
+    "&+M$N collapses, $S mind utterly destroyed..."
+  };
+
   if(!(ch) ||
      !(victim))
       return;
@@ -1325,14 +1340,10 @@ void spell_ego_whip(int level, P_char ch, char *arg, int type, P_char victim, P_
   if(StatSave(victim, APPLY_POW, POW_DIFF(ch, victim)))
     dam >> 1;
 
- if(victim == ch)
+  if(victim == ch)
     dam = 1;
-  
-  act("&+MYou mentally beat upon $N's ego.", TRUE, ch, 0, victim, TO_CHAR);
-  act("&+M$n mentally beats upon your mind with stunning force!", TRUE, ch, 0, victim, TO_VICT);
-  act("&+M$n squints and $N&+M screams out in pain, holding $S head!", FALSE, ch, 0, victim, TO_NOTVICT);
 
-  spell_damage(ch, victim, dam, SPLDAM_PSI, SPLDAM_NOSHRUG, 0);
+  spell_damage(ch, victim, dam, SPLDAM_PSI, SPLDAM_NOSHRUG, &messages);
 }
 
 void spell_energy_containment(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
@@ -1418,19 +1429,21 @@ void spell_enhanced_strength(int level, P_char ch, char *arg, int type, P_char v
     return;
   }
   
-  bzero(&af, sizeof(af));
-  af.type = SPELL_ENHANCED_STR;
-  af.duration = dur;
+  if(!affected_by_spell(victim, SPELL_ADRENALINE_CONTROL))
+  {
+    bzero(&af, sizeof(af));
+    af.type = SPELL_ENHANCED_STR;
+    af.duration = dur;
+    af.location = APPLY_STR;
+    af.modifier = 4 + (level / 14);
+    affect_to_char(victim, &af);
   
-  af.location = APPLY_STR;
-  af.modifier = 4 + (level / 14);
-  affect_to_char(victim, &af);
+    send_to_char("Your muscles begin to expand.\r\n", victim);
   
-  send_to_char("Your muscles begin to expand.\r\n", victim);
-  
-  act("$n looks physically stronger.", FALSE, victim, 0, 0, TO_ROOM);
+    act("$n looks physically stronger.", FALSE, victim, 0, 0, TO_ROOM);
 
-  return;
+    return;
+  }
 }
 
 void spell_enhanced_dexterity(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
@@ -1576,17 +1589,19 @@ void spell_enhanced_constitution(int level, P_char ch, char *arg, int type, P_ch
       
     return;
   }
-  
-  bzero(&af, sizeof(af));
-  af.type = SPELL_ENHANCED_CON;
-  af.duration = dur;
-  
-  af.location = APPLY_CON;
-  af.modifier = 4 + (level / 14);
-  affect_to_char(victim, &af);
 
-  send_to_char("You feel more &+Cvitalized.\r\n", victim);
-  return;
+  if(!affected_by_spell(victim, SPELL_ADRENALINE_CONTROL))
+  {
+    bzero(&af, sizeof(af));
+    af.type = SPELL_ENHANCED_CON;
+    af.duration = dur; 
+    af.location = APPLY_CON;
+    af.modifier = 4 + (level / 14);
+    affect_to_char(victim, &af);
+
+    send_to_char("You feel more &+Cvitalized.\r\n", victim);
+    return;
+  }
 }
 
 void spell_flesh_armor(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
@@ -1616,6 +1631,12 @@ void spell_flesh_armor(int level, P_char ch, char *arg, int type, P_char victim,
       }
     send_to_char("&+yYour fleshy armor is renewed!\r\n", victim);
     return;
+  }
+
+  if(ARMORED(victim))
+  {
+     send_to_char("Nothing seems to happen...\n", ch);
+     return;
   }
 
   if(GET_CLASS(ch, CLASS_PSIONICIST | CLASS_MINDFLAYER))
@@ -1707,7 +1728,7 @@ void spell_inflict_pain(int level, P_char ch, char *arg, int type, P_char victim
     return;
   }
       
-  dam = dice(28, 2) + level / 4;
+  dam = dice(32, 2) + level / 4;
   
   if(victim == ch)
     dam = 1;
@@ -2528,8 +2549,8 @@ void spell_pyrokinesis(int level, P_char ch, char *arg, int type, P_char victim,
      !IS_ALIVE(victim))
       return;
 
-  int phys_dam = dice(level * 2, 5);
-  int fire_dam = dice(level * 2, 5);
+  int phys_dam = dice(level, 2);
+  int fire_dam = dice(level, 2);
 
   if(GET_SPEC(ch, CLASS_PSIONICIST, SPEC_PYROKINETIC))
      fire_dam = (int)(fire_dam * 1.20);
@@ -2540,6 +2561,9 @@ void spell_pyrokinesis(int level, P_char ch, char *arg, int type, P_char victim,
   if(NewSaves(ch, SAVING_PARA, 0))
     phys_dam >> 1;
   
+ if(!StatSave(victim, APPLY_POW, POW_DIFF(ch, victim)))
+    fire_dam = ((float)fire_dam * 1.25);
+
   spell_damage(ch, victim, fire_dam, SPLDAM_FIRE, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT | RAWDAM_NOKILL, 0);
   if(IS_ALIVE(victim))
   {
@@ -3144,8 +3168,7 @@ void spell_control_flames(int level, P_char ch, char *arg, int type, P_char vict
 
       act ("&+r$N's $p suddenly flares up, engulfing $M in flames!", TRUE, ch, obj, victim, TO_CHAR);
       act ("&+rYour $p suddenly flares up, engulfing you in flames!", TRUE, ch, obj, victim, TO_VICT);
-      act ("&+r$N's $p suddenly flares up, engulfing $M in flames!", TRUE, ch, obj, victim,
-TO_NOTVICT);
+      act ("&+r$N's $p suddenly flares up, engulfing $M in flames!", TRUE, ch, obj, victim, TO_NOTVICT);
 
   damage(ch, victim, dam, SPELL_EGO_BLAST);     // no messages in file, so this works
 
@@ -3255,7 +3278,7 @@ void event_psionic_wave_blast(P_char ch, P_char victim, P_obj obj, void *data)
     return;
   }
   
-  dam = dice(level , 16);
+  dam = dice(level, 4);
   
   if(!StatSave(victim, APPLY_POW, POW_DIFF(ch, victim)))
     dam = (int)(dam * 1.25);
