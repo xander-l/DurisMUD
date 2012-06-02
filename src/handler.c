@@ -846,6 +846,10 @@ int char_to_room(P_char ch, int room, int dir)
   }
 #endif
 
+  // putting these here for a point_update to ensure regen updates for any travel
+  StartRegen(ch, EVENT_HIT_REGEN);
+  StartRegen(ch, EVENT_MOVE_REGEN);
+
   if (!IS_SET(world[room].room_flags, SINGLE_FILE))
   {
     ch->next_in_room = world[room].people;
@@ -911,8 +915,6 @@ int char_to_room(P_char ch, int room, int dir)
 //      broadcast_to_arena("%s has entered the arena.\r\n", ch, 0, room);
     }
   }
-
-
 
   for (gl = ch->group; gl; gl = gl->next)
   {
@@ -1139,8 +1141,6 @@ int char_to_room(P_char ch, int room, int dir)
 
   t_ch = PickTarget(ch);
   
-
-
   /*
    * delay is 0 to 7, 0 to 5 for avg. dex, 0 to 4 for 18, 0 to 1 for
    * 23+, that's pulses, so at most, delay < 2 seconds.  delays for
