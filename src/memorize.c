@@ -2272,6 +2272,11 @@ int ScriberSillyChecks(P_char ch, int spl)
       return;
     }
 #endif
+  if( !IS_SPELL(spl) )
+  {
+    send_to_char( "Try scribing a SPELL.\n", ch );
+    return FALSE;
+  }
 
   d = find_spell_description(o1);
   if(d && SpellInThisSpellBook(d, spl))
