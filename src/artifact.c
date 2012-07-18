@@ -20,19 +20,29 @@
 #include "mm.h"
 #include "spells.h"
 #include "sql.h"
+#include "files.h"
 
 #define ARTIFACT_DIR "Players/Artifacts/"
 #define ARTIFACT_MORT_DIR "Players/Artifacts/Mortal/"
 #define ARTI_BIND_DIR "Players/Artifacts/Bind/"
 #define ARTIFACT_BLOOD_DAYS 3
+#define ARTIFACT_MAIN   0
+#define ARTIFACT_UNIQUE 1
+#define ARTIFACT_IOUN   2
 
+extern P_obj object_list;
+extern P_char character_list;
 extern P_index obj_index;
+extern int top_of_objt;
 extern struct mm_ds *dead_mob_pool;
 extern struct mm_ds *dead_pconly_pool;
 extern char *artilist_mortal_main;
 extern char *artilist_mortal_unique;
 extern char *artilist_mortal_ioun;
 
+void poof_arti( P_char ch, char *arg );
+void swap_arti( P_char ch, char *arg );
+void set_timer_arti( P_char ch, char *arg );
 
 //
 // setupMortArtiList : copies everything over from 'real' arti list, to
@@ -295,11 +305,6 @@ void feed_artifact(P_char ch, P_obj obj, int feed_seconds, int bypass)
   if( !ch || !obj )
   {
     statuslog(56, "feed_artifact(): called with null ch or obj");
-    return;
-  }
-
-  if (!(int)get_property("artifact.feed", 1))
-  {
     return;
   }
 
@@ -572,81 +577,62 @@ int get_current_artifact_info(int rnum, int vnum, char *pname, int *id,
   return owner_race;
 }
 
-
-//
-// do_list_artis
-//
-
-void do_list_artis(P_char ch, char *arg, int cmd)
+void list_artifacts(P_char ch, char *arg, int type)
 {
   DIR     *dir;
-  struct dirent *dire;
+  struct   dirent *dire;
+  char     dirname[512];
   char     htmllist[8048];
-  char     strn[8048], strn1[8048], strn2[256], pname[512], dirname[512],
-    blooddate[256];
+  char     strn[8048], strn1[8048], strn2[256], pname[512], blooddate[256];
   int      vnum, id, t_uo;
-  int      show_iouns = 0;
-  int      show_uniques = 0;
   time_t   last_time, blood;
   int      blood_time;
   int      days = 0, hours = 0, minutes = 0;
-  P_obj    obj;
   int      writehtml = 0;
   int      goodies = 0;
   int      evils = 0;
   int      undeads = 0;
   int      others = 0;
   int      owning_side;
-
-  if (!ch)
-    return;
+  P_obj    obj;
 
   sprintf(strn1, "");
-//   send_to_char("&+YDisabled till we fix it, apprently this is crashing us once in a while.&n\r\n\r\n", ch);
-//    return;
 
-#ifdef THARKUN_ARTIS
-  if (arg && *arg && is_abbrev(arg, "ioun") )
-    show_iouns = 1;
-
-  if (arg && *arg && is_abbrev(arg, "unique") )
-    show_uniques = 1;
-#else
-  if (arg && *arg && is_abbrev(arg, "ioun"))
-    show_iouns = 1;
-
-  if (arg && *arg && is_abbrev(arg, "unique"))
-    show_uniques = 1;
-#endif
-
-
-  if (!IS_TRUSTED(ch) && artilist_mortal_ioun && show_iouns && !show_uniques)
+  if( type < ARTIFACT_MAIN || type > ARTIFACT_IOUN )
   {
-    send_to_char("&+YOwner               Artifact\r\n\r\n", ch);
-    page_string(ch->desc, artilist_mortal_ioun, 0);
-    return;
-  }
-  if (!IS_TRUSTED(ch) && artilist_mortal_unique && !show_iouns &&
-      show_uniques)
-  {
-    send_to_char("&+YOwner               Artifact\r\n\r\n", ch);
-    page_string(ch->desc, artilist_mortal_unique, 0);
-    return;
-  }
-  if (!IS_TRUSTED(ch) && artilist_mortal_main && !show_iouns && !show_uniques)
-  {
-    send_to_char("&+YOwner               Artifact\r\n\r\n", ch);
-    page_string(ch->desc, artilist_mortal_main, 0);
+    send_to_char( "Invalid artifact type.\n\r", ch );
     return;
   }
 
-
-  //    strcpy(dirname, ARTIFACT_MORT_DIR);
-  if (1)
+  if( !IS_TRUSTED(ch) && type == ARTIFACT_MAIN )
   {
-    strcpy(dirname, ARTIFACT_DIR);
-//      artilist_mortal_main = file_to_string(MORTAL_ARTI_MAIN);
+    if( artilist_mortal_main )
+    {
+      send_to_char("&+YOwner               Artifact\r\n\r\n", ch);
+      page_string(ch->desc, artilist_mortal_main, 0);
+      return;
+    }
   }
+  if( !IS_TRUSTED(ch) && type == ARTIFACT_UNIQUE )
+  {
+    if( artilist_mortal_unique )
+    {
+      send_to_char("&+YOwner               Unique\r\n\r\n", ch);
+      page_string(ch->desc, artilist_mortal_unique, 0);
+      return;
+    }
+  }
+  if( !IS_TRUSTED(ch) && type == ARTIFACT_IOUN )
+  {
+    if( artilist_mortal_ioun )
+    {
+      send_to_char("&+YOwner               Ioun\r\n\r\n", ch);
+      page_string(ch->desc, artilist_mortal_ioun, 0);
+      return;
+    }
+  }
+
+  strcpy(dirname, ARTIFACT_DIR);
   dir = opendir(dirname);
 
   if (!dir)
@@ -682,15 +668,15 @@ void do_list_artis(P_char ch, char *arg, int cmd)
     if (!obj)
       continue;
 
-    if ((show_iouns && !CAN_WEAR(obj, ITEM_WEAR_IOUN)) ||
-        (!show_iouns && CAN_WEAR(obj, ITEM_WEAR_IOUN)))
+    if ((type == ARTIFACT_IOUN && !CAN_WEAR(obj, ITEM_WEAR_IOUN)) ||
+        (type != ARTIFACT_IOUN && CAN_WEAR(obj, ITEM_WEAR_IOUN)))
     {
       extract_obj(obj, FALSE);
       continue;
     }
 
-    if ((show_uniques && !isname("unique", obj->name)) ||
-        (!show_uniques && isname("unique", obj->name)) ||
+    if ((type == ARTIFACT_UNIQUE && !isname("unique", obj->name)) ||
+        (type != ARTIFACT_UNIQUE && isname("unique", obj->name)) ||
         (GET_LEVEL(ch) < 57 && isname("token", obj->name)))
     {
       extract_obj(obj, FALSE);
@@ -744,33 +730,33 @@ void do_list_artis(P_char ch, char *arg, int cmd)
     }
     else
     {
-//      if (!t_uo)
-//      {
       sprintf(strn, "%-20s%s\r\n", pname, obj->short_description);
 
       send_to_char(strn, ch);
       sprintf(strn1 + strlen(strn1), "%s", strn);
 
-      if (show_iouns == FALSE && show_uniques == FALSE)
+      if( type == ARTIFACT_MAIN )
       {
         writehtml = 1;
       }
-      else if (show_iouns == FALSE && show_uniques == TRUE)
+      else if( type == ARTIFACT_UNIQUE )
       {
         writehtml = 2;
       }
-      else if (show_iouns == TRUE && show_uniques == FALSE)
+      else if( type == ARTIFACT_IOUN )
       {
         writehtml = 3;
       }
-//      }
     }
 
     extract_obj(obj, FALSE);
   }
 
   sprintf(strn,
-          "\r\n\t       &+r------&+LSummary&+r------&n\r\n\t\t&+WGoodies: \t%d&n\r\n\t\t&+rEvils: \t\t%d&n\r\n\t\t&+WTotal: \t\t&+W%d\r\n",
+          "\r\n       &+r------&+LSummary&+r------&n\r\n"
+              "         &+WGoodies:      %d&n\r\n"
+              "         &+rEvils:        %d&n\r\n"
+              "         &+WTotal:        %d\r\n",
           goodies, evils,
           goodies + evils);
   send_to_char(strn, ch);
@@ -794,6 +780,64 @@ void do_list_artis(P_char ch, char *arg, int cmd)
   }
 
   closedir(dir);
+
+}
+
+
+void do_artifact(P_char ch, char *arg, int cmd)
+{
+  char buf[MAX_STRING_LENGTH];
+
+  if (!ch)
+    return;
+
+  arg = one_argument( arg, buf );
+
+  if( !buf || !*buf || is_abbrev(buf, "list") )
+  {
+    list_artifacts( ch, arg, ARTIFACT_MAIN );
+    return;
+  }
+
+  if( buf && *buf && is_abbrev(buf, "unique") )
+  {
+    list_artifacts( ch, arg, ARTIFACT_UNIQUE );
+    return;
+  }
+
+  if( buf && *buf && is_abbrev(buf, "ioun") )
+  {
+    list_artifacts( ch, arg, ARTIFACT_IOUN );
+    return;
+  }
+
+  if( GET_LEVEL(ch) < FORGER )
+  {
+    send_to_char( "Valid arguments are list, unique or ioun.\n\r", ch );
+    return;
+  }
+
+  if( buf && *buf && is_abbrev(buf, "poof") )
+  {
+    poof_arti( ch, arg );
+    return;
+  }
+
+  if( buf && *buf && is_abbrev(buf, "swap") )
+  {
+    swap_arti( ch, arg );
+    return;
+  }
+
+  if( buf && *buf && is_abbrev(buf, "timer") )
+  {
+    set_timer_arti( ch, arg );
+    return;
+  }
+
+  send_to_char( "Valid arguments are list, unique, ioun, swap, "
+    "poof or timer.\n\r", ch );
+
 }
 
 void event_artifact_poof(P_char ch, P_char victim, P_obj obj, void *data)
@@ -885,5 +929,617 @@ void artifact_switch_check(P_char ch, P_obj obj)
   if ((op != owner_pid) || (t != timer))
   {
     sql_update_bind_data(vnum, &owner_pid, &timer);  
+  }
+}
+
+void poof_arti( P_char ch, char *arg )
+{
+  char buf[MAX_STRING_LENGTH];
+  char buf2[MAX_STRING_LENGTH];
+  char buf3[MAX_STRING_LENGTH];
+  P_obj obj;
+  P_char owner;
+  DIR *dir;
+  FILE *f;
+  struct dirent *dire;
+  int vnum = 0;
+  int t_id, t_last_time, t_tu, t_blood, i;
+
+  one_argument( arg, buf );
+
+  send_to_char( "\n\r | ", ch );
+  send_to_char( buf, ch );
+  send_to_char( " |\n\r", ch );
+
+  // Check for artifact in game:
+  obj = object_list;
+  while( obj )
+  {
+    // Skip objects held by gods.
+    if( OBJ_CARRIED(obj) && IS_TRUSTED(obj->loc.carrying)
+      || OBJ_WORN(obj) && IS_TRUSTED(obj->loc.wearing) )
+    {
+      obj = obj->next;
+      continue;
+    }
+    if( IS_ARTIFACT(obj) && isname(buf, obj->name) )
+      break;
+    obj = obj->next;
+  }
+
+  if( obj )
+  {
+    if( OBJ_WORN(obj) || OBJ_CARRIED(obj) )
+    {
+      // Set timer to poof and update.
+      obj->timer[3] = time(NULL) - 6 * 86400;
+      // Yes, artifact_poof only cares about obj.
+      event_artifact_poof(NULL, NULL, obj, NULL);
+    }
+    else
+    {
+      act("$p suddenly vanishes in a bright flash of light!", FALSE,
+        NULL, obj, 0, TO_ROOM);
+      act("$p suddenly vanishes in a bright flash of light!", FALSE,
+        ch, obj, 0, TO_CHAR);
+      extract_obj( obj, TRUE );
+    }
+    return;
+  }
+
+  // Arti is not in game, so check pfiles:
+  dir = opendir(ARTIFACT_DIR);
+  if (!dir)
+  {
+    sprintf(buf, "poof_arti: could not open arti dir (%s)\r\n", ARTIFACT_DIR);
+    send_to_char(buf, ch);
+    return;
+  }
+
+  while( dire = readdir(dir) )
+  {
+    vnum = atoi(dire->d_name);
+    if (!vnum)
+      continue;
+    obj = read_object(vnum, VIRTUAL);
+    if( isname( buf, obj->name) )
+    {
+      extract_obj(obj, FALSE);
+      break;
+    }
+    vnum = 0;
+    extract_obj(obj, FALSE);
+  }
+  if( vnum )
+  {
+    // Get name from arti file.
+    sprintf(buf2, ARTIFACT_DIR "%d", vnum);
+    f = fopen(buf2, "rt");
+    if (!f)
+    {
+      sprintf(buf2, "poof_arti: could not open arti dir (%s)\r\n", buf );
+      send_to_char(buf2, ch);
+      return;
+    }
+    fscanf(f, "%s %d %d %d %d", buf2, &t_id, &t_last_time, &t_tu, &t_blood);
+    fclose(f);
+
+    // Load pfile
+    owner = (P_char) mm_get(dead_mob_pool);
+    clear_char(owner);
+    owner->only.pc = (struct pc_only_data *) mm_get(dead_pconly_pool);
+    owner->desc = NULL;
+    if( restoreCharOnly( owner, buf2 ) < 0 )
+    {
+      sprintf( buf, "poof_arti: %s has bad pfile.\n\r", buf2 );
+      send_to_char( buf, ch );
+      return;
+    }
+    restoreItemsOnly( owner, 100 );
+    owner->next = character_list;
+    character_list = owner;
+    setCharPhysTypeInfo( owner );
+    // Find/Poof arti
+    for( i = 0; i < MAX_WEAR; i++ )
+    {
+      if( !owner->equipment[i] )
+        continue;
+      if( obj_index[owner->equipment[i]->R_num].virtual_number == vnum )
+        break;
+    }
+    if( i == MAX_WEAR )
+    {
+      obj = owner->carrying;
+      while( obj )
+      {
+        if( obj_index[obj->R_num].virtual_number == vnum )
+          break;
+        obj = obj->next_content;
+      }
+    }
+    else
+      obj = owner->equipment[i];
+    // obj == artifact at this point or person doesn't have it?!
+    if( !obj )
+    {
+      sprintf( buf3, "Arti '%s' %d is not on %s's pfile.", buf, vnum, buf2 );
+      wizlog( 56, buf3 );
+    }
+    else
+    {
+      obj->timer[3] = time(NULL) - 6 * 86400;
+      event_artifact_poof(NULL, NULL, obj, NULL);
+      writeCharacter( owner, RENT_POOFARTI, owner->in_room );
+    }
+
+    // Free memory
+    extract_char( owner );
+  }
+  else
+  {
+    send_to_char( "Could not find artifact '", ch );
+    send_to_char( buf, ch );
+    send_to_char( "'.\n\r", ch );
+  }
+}
+
+void swap_arti( P_char ch, char *arg )
+{
+  char arti1name[MAX_STRING_LENGTH];
+  char arti2name[MAX_STRING_LENGTH];
+  char buf[MAX_STRING_LENGTH];
+  char buf2[MAX_STRING_LENGTH];
+  P_obj arti1;
+  P_obj arti2;
+  P_char owner = NULL;
+  DIR *dir;
+  FILE *f;
+  struct dirent *dire;
+  int vnum = 0;
+  int wearloc, i;
+  int t_id, t_last_time, t_tu, t_blood;
+
+  arg = one_argument( arg, arti1name );
+  arg = one_argument( arg, arti2name );
+
+  if( strlen(arti1name) == 0 || strlen(arti2name) == 0 )
+  {
+    send_to_char( "Format is 'artifact swap <artifact> <artifact>.\n\r", ch );
+    return;
+  }
+
+  send_to_char( "\n\r | ", ch );
+  send_to_char( arti1name, ch );
+  send_to_char( " | ", ch );
+  send_to_char( arti2name, ch );
+  send_to_char( " |\n\r", ch );
+
+  // Find arti2 in game:
+  arti2 = object_list;
+  while( arti2 )
+  {
+    // Skip objects held by gods.
+    if( OBJ_CARRIED(arti2) && IS_TRUSTED(arti2->loc.carrying)
+      || OBJ_WORN(arti2) && IS_TRUSTED(arti2->loc.wearing) )
+    {
+      arti2 = arti2->next;
+      continue;
+    }
+    if( IS_ARTIFACT(arti2) && isname(arti2name, arti2->name) )
+      break;
+    arti2 = arti2->next;
+  }
+
+  // Arti2 is not in game, so check pfiles:
+  if( !arti2 )
+  {
+    dir = opendir(ARTIFACT_DIR);
+    if (!dir)
+    {
+      sprintf(buf, "swap_arti: could not open arti dir (%s)\r\n", ARTIFACT_DIR);
+      send_to_char(buf, ch);
+      return;
+    }
+    while( dire = readdir(dir) )
+    {
+      vnum = atoi(dire->d_name);
+      if( !vnum )
+        continue;
+      arti2 = read_object(vnum, VIRTUAL);
+      if( isname( arti2name, arti2->name) )
+      {
+        extract_obj(arti2, FALSE);
+        arti2 = NULL;
+        break;
+      }
+      vnum = 0;
+      extract_obj(arti2, FALSE);
+      arti2 = NULL;
+    }
+  }
+  // If found, send error arti2 already in game and return
+  if( arti2 || vnum )
+  {
+    sprintf(buf, "Artifact '%s' already in game.\r\n", arti2name);
+    send_to_char(buf, ch);
+    if( arti2 )
+      sprintf( buf, "Artifact: %s.\n\r", arti2->short_description );
+    else
+      sprintf( buf, "Artifact: %d.\n\r", vnum );
+    send_to_char(buf, ch);
+    return;
+  }
+
+  // Find arti1 in game or save file.
+  // Check for artifact in game:
+  arti1 = object_list;
+  while( arti1 )
+  {
+    // Skip objects held by gods.
+    if( OBJ_CARRIED(arti1) && IS_TRUSTED(arti1->loc.carrying)
+      || OBJ_WORN(arti1) && IS_TRUSTED(arti1->loc.wearing) )
+    {
+      arti1 = arti1->next;
+      continue;
+    }
+    if( IS_ARTIFACT(arti1) && isname(arti1name, arti1->name) )
+      break;
+    arti1 = arti1->next;
+  }
+  // If not found, check save files
+  vnum = 0;
+  if( !arti1 )
+  {
+    dir = opendir(ARTIFACT_DIR);
+    if (!dir)
+    {
+      sprintf(buf, "swap_arti: could not open arti dir (%s)\r\n", ARTIFACT_DIR);
+      send_to_char(buf, ch);
+      return;
+    }
+    while( dire = readdir(dir) )
+    {
+      vnum = atoi(dire->d_name);
+      if( !vnum )
+        continue;
+      arti1 = read_object(vnum, VIRTUAL);
+      if( isname( arti1name, arti1->name) )
+      {
+        extract_obj(arti1, FALSE);
+        arti1 = NULL;
+        break;
+      }
+      vnum = 0;
+      extract_obj(arti1, FALSE);
+      arti1 = NULL;
+    }
+  }
+  // If vnum then arti is on pfile.
+  if( vnum )
+  {
+    // Get name from arti file.
+    sprintf(buf, ARTIFACT_DIR "%d", vnum);
+    f = fopen(buf, "rt");
+    if (!f)
+    {
+      sprintf(buf2, "swap_arti: could not open arti dir (%s)\r\n", buf );
+      send_to_char(buf2, ch);
+      return;
+    }
+    fscanf(f, "%s %d %d %d %d", buf2, &t_id, &t_last_time, &t_tu, &t_blood);
+    fclose(f);
+
+    // Load pfile
+    owner = (P_char) mm_get(dead_mob_pool);
+    clear_char(owner);
+    owner->only.pc = (struct pc_only_data *) mm_get(dead_pconly_pool);
+    owner->desc = NULL;
+    if( restoreCharOnly( owner, buf2 ) < 0 )
+    {
+      sprintf( buf, "poof_arti: %s has bad pfile.\n\r", buf2 );
+      send_to_char( buf, ch );
+      return;
+    }
+    restoreItemsOnly( owner, 100 );
+    owner->next = character_list;
+    character_list = owner;
+    setCharPhysTypeInfo( owner );
+    // Find arti1 on owner.
+    arti1 = owner->carrying;
+    while( arti1 )
+    {
+      if( obj_index[arti1->R_num].virtual_number == vnum )
+        break;
+      arti1 = arti1->next_content;
+    }
+    // If not in inventory, check equipment
+    if( !arti1 )
+    {
+      for( wearloc = 0; wearloc < MAX_WEAR; wearloc++ )
+      {
+        if( !owner->equipment[wearloc] )
+          continue;
+        if( obj_index[owner->equipment[wearloc]->R_num].virtual_number == vnum )
+        {
+          arti1 = owner->equipment[wearloc];
+          break;
+        }
+      }
+    }
+  }
+  if( arti1 )
+  {
+    // Find arti2 and load it.
+    for( i = 0;i <= top_of_objt; i++ )
+    {
+      if( isname( arti2name, obj_index[i].keys ) )
+      {
+        // load arti2.
+        arti2 = read_object(i, REAL);
+        if( !arti2 )
+        {
+          send_to_char( "Could not load arti2.\n\r", ch );
+          if( vnum )
+            extract_char( owner );
+          return;
+        }
+        if( IS_ARTIFACT(arti2) )
+          break;
+        else
+        {
+          // free arti2.
+          extract_obj( arti2, TRUE );
+          arti2 = NULL;
+        }
+      }
+    }
+    if( !arti2 )
+    {
+      sprintf( buf, "Could not find artifact '%s'.\n\r", arti2name );
+      send_to_char( buf, ch );
+      if( vnum )
+        extract_char( owner );
+      return;
+    }
+
+    // Set timer and swap.
+    arti2->timer[3] = arti1->timer[3];
+    if( !OBJ_ROOM(arti1) )
+    {
+      // Assumption: arti1 is not in a container, and not nowhere.
+      // Thus, if it's not in a room, it's on a person.
+      if( !owner )
+      {
+        if (OBJ_WORN(arti1))
+          owner = arti1->loc.wearing;
+        else if (OBJ_CARRIED(arti1))
+          owner = arti1->loc.carrying;
+        else
+        {
+          sprintf( buf, "Artifact '%s' in undefined position.\r\n", arti1name );
+          send_to_char( buf, ch );
+          return;
+        }
+      }
+      // If worn, need to stick arti2 in its slot.
+      if( OBJ_WORN( arti1 ) )
+      {
+        for( wearloc = 0; wearloc < MAX_WEAR;wearloc++ )
+          if( owner->equipment[wearloc] == arti1 )
+            break;
+        // This should never happen, but better safe than sorry.
+        if( wearloc == MAX_WEAR )
+        {
+          sprintf( buf, "Artifact '%s' not on owner, but is worn!?\r\n", arti1name );
+          send_to_char( buf, ch );
+          if( vnum )
+            extract_char( owner );
+          return;
+        }
+        act( "$p suddenly tranforms in a bright flash of light!", FALSE,
+          NULL, arti1, 0, TO_ROOM );
+        act( "$p suddenly tranforms in a bright flash of light!", FALSE,
+          owner, arti1, 0, TO_CHAR );
+        act( "$p suddenly tranforms in a bright flash of light!", FALSE,
+          ch, arti1, 0, TO_CHAR );
+        // Remove arti1 & poof it.
+        unequip_char( owner, wearloc );
+        extract_obj( arti1, TRUE );
+        // Put arti2 in inventory.
+        obj_to_char( arti2, owner );
+      }
+      else if (OBJ_CARRIED(arti1))
+      {
+        act( "$p suddenly tranforms in a bright flash of light!", FALSE,
+          NULL, arti1, 0, TO_ROOM );
+        act( "$p suddenly tranforms in a bright flash of light!", FALSE,
+          owner, arti1, 0, TO_CHAR );
+        act( "$p suddenly tranforms in a bright flash of light!", FALSE,
+          ch, arti1, 0, TO_CHAR );
+        obj_from_char( arti1, TRUE );
+        obj_to_char( arti2, owner );
+      }
+      else
+      {
+        sprintf( buf, "Artifact '%s' in undefined position!\r\n", arti1name );
+        send_to_char( buf, ch );
+        return;
+      }
+    }
+    else
+    {
+      arti2->timer[3] = arti1->timer[3];
+      obj_to_room( arti2, arti1->loc.room );
+      act( "$p suddenly tranforms in a bright flash of light!", FALSE,
+        NULL, arti1, 0, TO_ROOM );
+      act( "$p suddenly tranforms in a bright flash of light!", FALSE,
+        ch, arti1, 0, TO_CHAR );
+      extract_obj( arti1, TRUE );
+      return;
+    }
+  }
+  else
+  {
+    // If not found, send error not found and return.
+    sprintf( buf, "Could not find artifact '%s'.\r\n", arti1name );
+    send_to_char( buf, ch );
+    if( vnum )
+      extract_char( owner );
+    return;
+  }
+  // write pfile if applicable
+  if( vnum )
+  {
+    writeCharacter( owner, RENT_SWAPARTI, owner->in_room );
+    extract_char( owner );
+  }
+}
+
+void set_timer_arti( P_char ch, char *arg )
+{
+  char artiname[MAX_STRING_LENGTH];
+  char strtimer[MAX_STRING_LENGTH];
+  char buf[MAX_STRING_LENGTH];
+  char buf2[MAX_STRING_LENGTH];
+  char buf3[MAX_STRING_LENGTH];
+  P_obj obj;
+  P_char owner;
+  DIR *dir;
+  FILE *f;
+  struct dirent *dire;
+  int timer, t_id, t_last_time, t_tu, t_blood, i;
+  int vnum = 0;
+
+  arg = one_argument( arg, artiname );
+  arg = one_argument( arg, strtimer );
+  timer = atoi( strtimer );
+
+  if( strlen(artiname) == 0 || strlen(strtimer) == 0 || timer <= 0 )
+  {
+    send_to_char( "Format is 'artifact timer <artifact> <minutes>'.\n\r", ch );
+    return;
+  }
+
+  send_to_char( "\n\r | ", ch );
+  send_to_char( artiname, ch );
+  send_to_char( " | ", ch );
+  send_to_char( strtimer, ch );
+  send_to_char( " |\n\r", ch );
+
+  // Find arti in game
+  obj = object_list;
+  while( obj )
+  {
+    // Skip objects held by gods.
+    if( OBJ_CARRIED(obj) && IS_TRUSTED(obj->loc.carrying)
+      || OBJ_WORN(obj) && IS_TRUSTED(obj->loc.wearing) )
+    {
+      obj = obj->next;
+      continue;
+    }
+    if( IS_ARTIFACT(obj) && isname(artiname, obj->name) )
+      break;
+    obj = obj->next;
+  }
+
+  if( obj )
+  {
+    // Set timer to last timer minutes: current - 5 days + minutes,
+    obj->timer[3] = time(NULL) - 5 * 86400 + 60 * timer;
+    return;
+  }
+
+  // Arti is not in game, so check pfiles:
+  dir = opendir(ARTIFACT_DIR);
+  if (!dir)
+  {
+    sprintf(buf, "set_timer_arti: could not open arti dir (%s)\r\n", ARTIFACT_DIR);
+    send_to_char(buf, ch);
+    return;
+  }
+  while( dire = readdir(dir) )
+  {
+    vnum = atoi(dire->d_name);
+    if (!vnum)
+      continue;
+    obj = read_object(vnum, VIRTUAL);
+    if( isname( artiname, obj->name) )
+    {
+      extract_obj(obj, FALSE);
+      break;
+    }
+    vnum = 0;
+    extract_obj(obj, FALSE);
+  }
+  // If arti is on pfile
+  if( vnum )
+  {
+    // Get name from arti file.
+    sprintf(buf, ARTIFACT_DIR "%d", vnum);
+    f = fopen(buf, "rt");
+    if (!f)
+    {
+      sprintf(buf2, "set_timer_arti: could not open arti dir (%s)\r\n", buf );
+      send_to_char(buf2, ch);
+      return;
+    }
+    fscanf(f, "%s %d %d %d %d", buf2, &t_id, &t_last_time, &t_tu, &t_blood);
+    fclose(f);
+
+    // Load pfile
+    owner = (P_char) mm_get(dead_mob_pool);
+    clear_char(owner);
+    owner->only.pc = (struct pc_only_data *) mm_get(dead_pconly_pool);
+    owner->desc = NULL;
+    if( restoreCharOnly( owner, buf2 ) < 0 )
+    {
+      sprintf( buf, "set_timer_arti: %s has bad pfile.\n\r", buf2 );
+      send_to_char( buf, ch );
+      return;
+    }
+    restoreItemsOnly( owner, 100 );
+    owner->next = character_list;
+    character_list = owner;
+    setCharPhysTypeInfo( owner );
+    // Find/Poof arti
+    for( i = 0; i < MAX_WEAR; i++ )
+    {
+      if( !owner->equipment[i] )
+        continue;
+      if( obj_index[owner->equipment[i]->R_num].virtual_number == vnum )
+        break;
+    }
+    if( i == MAX_WEAR )
+    {
+      obj = owner->carrying;
+      while( obj )
+      {
+        if( obj_index[obj->R_num].virtual_number == vnum )
+          break;
+        obj = obj->next_content;
+      }
+    }
+    else
+      obj = owner->equipment[i];
+    // obj == artifact at this point or person doesn't have it?!
+    if( !obj )
+    {
+      sprintf( buf3, "Arti '%s' %d is not on %s's pfile.", buf, vnum, buf2 );
+      wizlog( 56, buf3 );
+    }
+    else
+    {
+      obj->timer[3] = time(NULL) - 5 * 86400 + 60 * timer;
+      writeCharacter( owner, RENT_INN, owner->in_room );
+    }
+
+    // Free memory
+    extract_char( owner );
+  }
+  else
+  {
+    send_to_char( "Could not find artifact '", ch );
+    send_to_char( buf, ch );
+    send_to_char( "'.\n\r", ch );
   }
 }

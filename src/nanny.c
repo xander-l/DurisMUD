@@ -2099,6 +2099,17 @@ void enter_game(P_desc d)
       send_to_char("\r\nRetrieving items from linkdead storage...\r\n", ch);
       cost = restoreItemsOnly(ch, 200);
     }
+    else if(d->rtype == RENT_POOFARTI)
+    {
+      send_to_char("\r\nThe gods have taken your artifact...\r\n", ch);
+      cost = restoreItemsOnly(ch, 100);
+    }
+    else if(d->rtype == RENT_SWAPARTI)
+    {
+      send_to_char("\r\nThe gods have taken your artifact... and "
+	"replaced it with another!\r\n", ch);
+      cost = restoreItemsOnly(ch, 100);
+    }
     else if (d->rtype == RENT_DEATH)
     {
       if (ch->only.pc->pc_timer[PC_TIMER_HEAVEN] > time(NULL))
