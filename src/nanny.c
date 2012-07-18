@@ -85,6 +85,7 @@ extern int new_exp_table[];
 #define PLR_FLAGS(ch)          ((ch)->specials.act)
 #define PLR_FLAGGED(ch, flag)  (IS_SET(PLR_FLAGS(ch), flag))
 #define PLR_TOG_CHK(ch, flag)  ((TOGGLE_BIT(PLR_FLAGS(ch), (flag))) & (flag))
+#define ALLOCATE_AMT get_property("char.creation.allocate.amt", 200.000)
 
 void     email_player_info(char *, char *, struct descriptor_data *);
 extern int email_in_use(char *, char *);
@@ -100,13 +101,14 @@ long unsigned int ip2ul(const char *ip);
 unsigned int game_locked = 0;       /* 0x00000001;  no creation */
 struct mm_ds *dead_pconly_pool = NULL;
 long int highestPCidNumb;
+bool opposite_racewar(P_char ch, P_char victim);
 
 int getNewPCidNumb(void)
 {
   FILE    *file;
 
   file = fopen(SAVE_DIR "/pc_idnumb", "wt");
-  if (!file)
+  if(!file)
   {
     logit(LOG_FILE, "could not open pc_idnumb file for writing");
     return -1;
@@ -126,10 +128,10 @@ void setNewPCidNumbfromFile(void)
   FILE    *file;
 
   file = fopen(SAVE_DIR "/pc_idnumb", "rt");
-  if (!file)
+  if(!file)
   {
     file = fopen(SAVE_DIR "/pc_idnumb", "wt");
-    if (!file)
+    if(!file)
     {
       logit(LOG_FILE, "could not open pc_idnumb file for writing");
       highestPCidNumb = 1;
@@ -152,7 +154,7 @@ void init_height_weight(P_char ch)
 {
   float    f, i;
 
-  if (IS_NPC(ch))
+  if(IS_NPC(ch))
     return;
 
   i = number(racial_values[GET_RACE(ch) - 1][0],
@@ -161,7 +163,7 @@ void init_height_weight(P_char ch)
 
   /* females a tad bit shorter */
 
-  if (ch->player.sex == SEX_FEMALE)
+  if(ch->player.sex == SEX_FEMALE)
     ch->player.height *= number(90, 100) / 100;
 
 #define tuuma 2.54
@@ -201,7 +203,7 @@ void init_height_weight(P_char ch)
   }
   /* As a rule, females are more slender than males, thus
      (slightly) lower height, and lesser weight. */
-  if (ch->player.sex == SEX_FEMALE)
+  if(ch->player.sex == SEX_FEMALE)
     f = (float) f *0.8;
 
   /* char's build.. from 70% to 120% of relative height-to-weight
@@ -235,7 +237,7 @@ static void LoadNewbyShit(P_char ch, int *items)
 
   for (i = 0; items[i] != -1; i++)
   {
-    if ((obj = read_object(items[i], VIRTUAL)) == NULL)
+    if((obj = read_object(items[i], VIRTUAL)) == NULL)
     {
       logit(LOG_DEBUG, "Cannot load init item with virtual number: %d for %s",
             items[i], GET_NAME(ch));
@@ -243,15 +245,15 @@ static void LoadNewbyShit(P_char ch, int *items)
     else
     {
       obj->cost = 1;
-      if (obj->type != ITEM_FOOD && obj->type != ITEM_WEAPON && obj->type !=
+      if(obj->type != ITEM_FOOD && obj->type != ITEM_WEAPON && obj->type !=
           ITEM_SPELLBOOK && obj->type != ITEM_LIGHT && obj->type !=
           ITEM_TOTEM && IS_PC(ch))
         SET_BIT(obj->extra_flags, ITEM_TRANSIENT);
-      if (obj->type == ITEM_SPELLBOOK)
+      if(obj->type == ITEM_SPELLBOOK)
       {
           for (int j = FIRST_SPELL; j <= LAST_SPELL; j++)
           {
-            if (get_spell_circle(ch, j) == 1)
+            if(get_spell_circle(ch, j) == 1)
             {
                 AddSpellToSpellBook(ch, obj, j);
                 obj->value[3]++;
@@ -259,7 +261,7 @@ static void LoadNewbyShit(P_char ch, int *items)
           }
       }
       obj_to_char(obj, ch);
-      if (!IS_PC(ch))
+      if(!IS_PC(ch))
         CheckEqWorthUsing(ch, obj);
     }
   }
@@ -271,527 +273,178 @@ void load_obj_to_newbies(P_char ch)
 {
   int     *random;
   int     *newbie_kits[LAST_RACE][CLASS_COUNT + 1];
-
+  P_obj bandage;
   static int torch[] = { 1134, -1 };
 
-
-/*Thrikreen Basics*/
-  static int thrikreen_good_eq[] = { 613, 398, 398, 1176, 1167, -1 };
-
-  static int thrikreen_evil_eq[] = { 613, 1170, 1173, -1 };
-
 /*Minotaur Basics*/
-  static int minotaur_good_eq[] = { 398, 398, 1176, 1167, 1182, 603, -1 };
-
-  static int minotaur_evil_eq[] = { 1170, 1173, 1182, 603, -1 };
-
+  static int minotaur_good_eq[] = {398, 398, 1176, 1167, 1182, 603, -1};
+  static int minotaur_evil_eq[] = {1170, 1173, 1182, 603, -1};
 
   memset(newbie_kits, 0, sizeof(newbie_kits));
 
-  CREATE_KIT(RACE_BARBARIAN, 0, ((int[])
-                                 {
-                                 560, 603, 398, 398, 1154, 1155, -1}));
+/*Barbarian Basics*/
+  CREATE_KIT(RACE_BARBARIAN, 0, ((int[]) {560, 603, 398, 398, 1154, 1155, -1}));
   CREATE_KIT(RACE_BARBARIAN, CLASS_WARRIOR, ((int[])
-                                             {
-                                             1101, 1102, 1103, 1104, 1105,
-                                             1105, 1106, 1107, 1108, 1109,
-                                             -1}));
+            {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1108, 1109, -1}));
   CREATE_KIT(RACE_BARBARIAN, CLASS_SHAMAN, ((int[])
-                                            {
-                                            105, 106, 107, 1144, 1145, 1146,
-                                            1127, -1}));
+            {105, 106, 107, 1144, 1145, 1146, 1127, -1}));
   CREATE_KIT(RACE_BARBARIAN, CLASS_MERCENARY, ((int[])
-                                               {
-                                               1101, 1102, 1103, 1104, 1106,
-                                               1107, 1108, 1112, -1}));
+            {1101, 1102, 1103, 1104, 1106, 1107, 1108, 1112, -1}));
 
 /*Githzerai Basics*/
-  CREATE_KIT(RACE_GITHZERAI, 0, ((int[])
-                             {
-                             566, 390, 398, 398, 1152, 1153, -1}));
+  CREATE_KIT(RACE_GITHZERAI, 0, ((int[]) {566, 390, 398, 398, 1152, 1153, -1}));
 
 /*Githzerai Classes*/
-  CREATE_KIT(RACE_GITHZERAI, CLASS_SORCERER, ((int[])
-                                          {
-                                          1114, 1115, 1131, 706, 735, 731,
-                                          731, -1}));
-
-  CREATE_KIT(RACE_GITHZERAI, CLASS_CONJURER, ((int[])
-                                          {
-                                          1114, 1115, 1131, 706, 735, 731,
-                                          731, -1}));
-
-  CREATE_KIT(RACE_GITHZERAI, CLASS_MONK, ((int[])
-                                      {
-                                      1147, 1148, 1149, 1150, 1151, -1}));
-
-  CREATE_KIT(RACE_GITHZERAI, CLASS_CLERIC, ((int[])
-                                        {
-                                        1119, 1120, 1121, 1122, 1124, 1126,
-                                        1127, -1}));
-
+  CREATE_KIT(RACE_GITHZERAI, CLASS_SORCERER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_GITHZERAI, CLASS_CONJURER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_GITHZERAI, CLASS_MONK, ((int[]) {1147, 1148, 1149, 1150, 1151, -1}));
+  CREATE_KIT(RACE_GITHZERAI, CLASS_CLERIC, ((int[]) {1119, 1120, 1121, 1122, 1124, 1126, 1127, -1}));
 
 /*Human Basics*/
-  CREATE_KIT(RACE_HUMAN, 0, ((int[])
-                             {
-                             566, 390, 398, 398, 1152, 1153, -1}));
+  CREATE_KIT(RACE_HUMAN, 0, ((int[]) {566, 390, 398, 398, 1152, 1153, -1}));
 
 /*Human Classes*/
-  CREATE_KIT(RACE_HUMAN, CLASS_WARRIOR, ((int[])
-                                         {
-                                         1101, 1102, 1103, 1104, 1105, 1105,
-                                         1106, 1107, 1108, 1109, -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_RANGER, ((int[])
-                                        {
-                                        1101, 1102, 1103, 1104, 1105, 1105,
-                                        1106, 1107, 1113, 1113, 1114, 1115,
-                                        1116, 1117, 1117, 1117, 1117, 1117,
-                                        1117, 1117, 1117, 1117, 1117, 1118,
-                                        -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_PALADIN, ((int[])
-                                         {
-                                         1101, 1102, 1103, 1107, 1110, -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_ANTIPALADIN, ((int[])
-                                             {
-                                             1101, 1102, 1103, 1107, 1111,
-                                             -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_CLERIC, ((int[])
-                                        {
-                                        1119, 1120, 1121, 1122, 1124, 1126,
-                                        1127, -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_DRUID, ((int[])
-                                       {
-                                       1135, 1136, 1137, 1138, 1139, 1140,
-                                       -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_SHAMAN, ((int[])
-                                        {
-                                        105, 106, 107, 1144, 1145, 1146, 1127,
-                                        -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_SORCERER, ((int[])
-                                          {
-                                          1114, 1115, 1131, 706, 735, 731,
-                                          731, -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_NECROMANCER, ((int[])
-                                             {
-                                             1112, 1114, 1115, 1141, 1142,
-                                             1143, -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_CONJURER, ((int[])
-                                          {
-                                          1114, 1115, 1131, 706, 735, 731,
-                                          731, -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_MONK, ((int[])
-                                      {
-                                      1147, 1148, 1149, 1150, 1151, -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_MERCENARY, ((int[])
-                                           {
-                                           1101, 1102, 1103, 1104, 1106, 1107,
-                                           1108, 1112, -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_THIEF, ((int[])
-                                       {
-                                       1112, 1128, 1129, 1130, 1131, 1132,
-                                       412, 412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_ROGUE, ((int[])
-                                       {
-                                       1112, 1128, 1129, 1130, 1131, 1132,
-                                       412, 412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_ASSASSIN, ((int[])
-                                          {
-                                          1112, 1112, 1128, 1129, 1130, 1131,
-                                          -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_BARD, ((int[])
-                                      {
-                                      1112, 1128, 1129, 1130, 1131, 1134,
-                                      -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_ALCHEMIST, ((int[])
-                                           {
-                                           377, 676, 52, -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_ILLUSIONIST, ((int[])
-                                             {
-                                             1114, 1115, 1131, 706, 735, 731,
-                                             731, -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_ETHERMANCER, ((int[])
-                                             {
-                                             706, 735, 731, 731, -1}));
-
-  CREATE_KIT(RACE_HUMAN, CLASS_THEURGIST, ((int[])
-                                             {
-                                             1112, 1114, 1115, 1141, 1142,
-                                             1143, -1}));
-/*END Human Classes*/
-
+  CREATE_KIT(RACE_HUMAN, CLASS_WARRIOR, ((int[]) 
+            {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1108, 1109, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_RANGER, ((int[]) 
+            {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1113, 1113, 1114, 1115, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_PALADIN, ((int[]) {1101, 1102, 1103, 1107, 1110, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_ANTIPALADIN, ((int[]) {1101, 1102, 1103, 1107, 1111, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_CLERIC, ((int[]) {1119, 1120, 1121, 1122, 1124, 1126, 1127, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_DRUID, ((int[]) {1135, 1136, 1137, 1138, 1139, 1140, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_SHAMAN, ((int[]) {105, 106, 107, 1144, 1145, 1146, 1127, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_SORCERER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_NECROMANCER, ((int[]) {1112, 1114, 1115, 1141, 1142, 1143, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_CONJURER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_MONK, ((int[]) {1147, 1148, 1149, 1150, 1151, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_MERCENARY, ((int[]) {1101, 1102, 1103, 1104, 1106, 1107, 1108, 1112, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_THIEF, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_ROGUE, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_ASSASSIN, ((int[]) {1112, 1112, 1128, 1129, 1130, 1131, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_BARD, ((int[]) {1112, 1128, 1129, 1130, 1131, 1134, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_ALCHEMIST, ((int[]) {377, 676, 52, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_ILLUSIONIST, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_ETHERMANCER, ((int[]) {706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_HUMAN, CLASS_THEURGIST, ((int[]) {1112, 1114, 1115, 1141, 1142, 1143, -1}));
 
 /*Drow Elf Basics*/
-  CREATE_KIT(RACE_DROW, 0, ((int[])
-                            {
-                            561, 604, 36016, 1156, 1157, -1}));
+  CREATE_KIT(RACE_DROW, 0, ((int[]) {561, 604, 36016, 1156, 1157, -1}));
 
 /*Drow Elf Classes*/
-  CREATE_KIT(RACE_DROW, CLASS_WARRIOR, ((int[])
-                                        {
-                                        1101, 1102, 1103, 1104, 1105, 1105,
-                                        1106, 1107, 1108, 1109, -1}));
+  CREATE_KIT(RACE_DROW, CLASS_WARRIOR, ((int[]) {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1108, 1109, -1}));
+  CREATE_KIT(RACE_DROW, CLASS_CLERIC, ((int[]) {1119, 1120, 1121, 1123, 1125, 1126, 1127, -1}));
+  CREATE_KIT(RACE_DROW, CLASS_SORCERER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_DROW, CLASS_CONJURER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_DROW, CLASS_NECROMANCER, ((int[]) {1112, 1114, 1115, 1141, 1142, 1143, -1}));
 
-  CREATE_KIT(RACE_DROW, CLASS_CLERIC, ((int[])
-                                       {
-                                       1119, 1120, 1121, 1123, 1125, 1126,
-                                       1127, -1}));
-
-  CREATE_KIT(RACE_DROW, CLASS_SORCERER, ((int[])
-                                         {
-                                         1114, 1115, 1131, 706, 735, 731, 731,
-                                         -1}));
-
-  CREATE_KIT(RACE_DROW, CLASS_CONJURER, ((int[])
-                                         {
-                                         1114, 1115, 1131, 706, 735, 731, 731,
-                                         -1}));
-
-  CREATE_KIT(RACE_DROW, CLASS_NECROMANCER, ((int[])
-                                            {
-                                            1112, 1114, 1115, 1141, 1142,
-                                            1143, -1}));
-
-  CREATE_KIT(RACE_DROW, CLASS_THIEF, ((int[])
-                                      {
-                                      1112, 1128, 1129, 1130, 1131, 1132, 412,
-                                      412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_DROW, CLASS_ROGUE, ((int[])
-                                      {
-                                      1112, 1128, 1129, 1130, 1131, 1132, 412,
-                                      412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_DROW, CLASS_ASSASSIN, ((int[])
-                                         {
-                                         1112, 1112, 1128, 1129, 1130, 1131,
-                                         -1}));
-
-  CREATE_KIT(RACE_DROW, CLASS_BARD, ((int[])
-                                     {
-                                     1112, 1128, 1129, 1130, 1131, 1134,
-                                     -1}));
-
-  CREATE_KIT(RACE_DROW, CLASS_REAVER, ((int[])
-                                       {
-                                       1109, 1108, 1107, 1106, 1105, 1105,
-                                       1104, 1103, 1102, 110, 604, 1157, 1156,
-                                       1115, 1114, -1}));
-
-/*END Drow Elf Classes*/
+  CREATE_KIT(RACE_DROW, CLASS_THIEF, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_DROW, CLASS_ROGUE, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_DROW, CLASS_ASSASSIN, ((int[]) {1112, 1112, 1128, 1129, 1130, 1131, -1}));
+  CREATE_KIT(RACE_DROW, CLASS_BARD, ((int[]) {1112, 1128, 1129, 1130, 1131, 1134, -1}));
+  CREATE_KIT(RACE_DROW, CLASS_REAVER, ((int[]) 
+            {1109, 1108, 1107, 1106, 1105, 1105, 1104, 1103, 1102, 110, 604, 1157, 1156, 1115, 1114, -1}));
 
 /*Duergar Basics*/
-  CREATE_KIT(RACE_DUERGAR, 0, ((int[])
-                               {
-                               562, 605, 1164, 1165, -1}));
+  CREATE_KIT(RACE_DUERGAR, 0, ((int[]) {562, 605, 1164, 1165, -1}));
 
 /*Duergar Classes*/
-  CREATE_KIT(RACE_DUERGAR, CLASS_ASSASSIN, ((int[])
-                                            {
-                                            1112, 1112, 1128, 1129, 1130,
-                                            1131, -1}));
-
-  CREATE_KIT(RACE_DUERGAR, CLASS_CLERIC, ((int[])
-                                          {
-                                          1119, 1120, 1121, 1123, 1125, 1126,
-                                          1127, -1}));
-
-  CREATE_KIT(RACE_DUERGAR, CLASS_MERCENARY, ((int[])
-                                             {
-                                             1101, 1102, 1103, 1104, 1106,
-                                             1107, 1108, 1112, -1}));
-
-  CREATE_KIT(RACE_DUERGAR, CLASS_THIEF, ((int[])
-                                         {
-                                         1112, 1128, 1129, 1130, 1131, 1132,
-                                         412, 412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_DUERGAR, CLASS_ROGUE, ((int[])
-                                         {
-                                         1112, 1128, 1129, 1130, 1131, 1132,
-                                         412, 412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_DUERGAR, CLASS_WARRIOR, ((int[])
-                                           {
-                                           1101, 1102, 1103, 1104, 1105, 1105,
-                                           1106, 1107, 1108, 1109, -1}));
-/*END Duergar Classes*/
+  CREATE_KIT(RACE_DUERGAR, CLASS_ASSASSIN, ((int[]) {1112, 1112, 1128, 1129, 1130, 1131, -1}));
+  CREATE_KIT(RACE_DUERGAR, CLASS_CLERIC, ((int[]) {1119, 1120, 1121, 1123, 1125, 1126, 1127, -1}));
+  CREATE_KIT(RACE_DUERGAR, CLASS_MERCENARY, ((int[]) {1101, 1102, 1103, 1104, 1106, 1107, 1108, 1112, -1}));
+  CREATE_KIT(RACE_DUERGAR, CLASS_THIEF, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_DUERGAR, CLASS_ROGUE, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_DUERGAR, CLASS_WARRIOR, ((int[]) {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1108, 1109, -1}));
 
 /*Gnome Basics*/
-  CREATE_KIT(RACE_GNOME, 0, ((int[])
-                             {
-                             563, 605, 398, 398, 1166, 1167, -1}));
+  CREATE_KIT(RACE_GNOME, 0, ((int[]) {563, 605, 398, 398, 1166, 1167, -1}));
 
 /*Gnome Classes*/
-  CREATE_KIT(RACE_GNOME, CLASS_CLERIC, ((int[])
-                                        {
-                                        1119, 1120, 1121, 1122, 1124, 1126,
-                                        1127, -1}));
-  CREATE_KIT(RACE_GNOME, CLASS_CONJURER, ((int[])
-                                          {
-                                          276, 454, 436, 728, -1}));
-  CREATE_KIT(RACE_GNOME, CLASS_MERCENARY, ((int[])
-                                           {
-                                           1101, 1102, 1103, 1104, 1106, 1107,
-                                           1108, 1112, -1}));
-
-  CREATE_KIT(RACE_GNOME, CLASS_CONJURER, ((int[])
-                                          {
-                                          1114, 1115, 1131, 706, 735, 731,
-                                          731, -1}));
-
-  CREATE_KIT(RACE_GNOME, CLASS_SORCERER, ((int[])
-                                          {
-                                          1114, 1115, 1131, 706, 735, 731,
-                                          731, -1}));
-
-  CREATE_KIT(RACE_GNOME, CLASS_THIEF, ((int[])
-                                       {
-                                       1112, 1128, 1129, 1130, 1131, 1132,
-                                       412, 412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_GNOME, CLASS_ROGUE, ((int[])
-                                       {
-                                       1112, 1128, 1129, 1130, 1131, 1132,
-                                       412, 412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_GNOME, CLASS_WARRIOR, ((int[])
-                                         {
-                                         1101, 1102, 1103, 1104, 1105, 1105,
-                                         1106, 1107, 1108, 1109, -1}));
-
-  CREATE_KIT(RACE_GNOME, CLASS_SHAMAN, ((int[])
-                                        {
-                                        677, 454, 678, 679, 680, 436, 105,
-                                        106, 107, -1}));
-
-  CREATE_KIT(RACE_GNOME, CLASS_PSIONICIST, ((int[])
-                                            {
-                                            276, 454, 436, 728, -1}));
-
-  CREATE_KIT(RACE_GNOME, CLASS_ALCHEMIST, ((int[])
-                                           {
-                                           377, 676, 52, -1}));
-
-  CREATE_KIT(RACE_GNOME, CLASS_ILLUSIONIST, ((int[])
-                                             {
-                                             1114, 1115, 1131, 706, 735, 731,
-                                             731, -1}));
-
-  CREATE_KIT(RACE_GNOME, CLASS_ETHERMANCER, ((int[])
-                                             {
-                                             706, 735, 731, 731, -1}));
-  
-  CREATE_KIT(RACE_GNOME, CLASS_THEURGIST, ((int[])
-                                             {
-                                             1112, 1114, 1115, 1141, 1142,
-                                             1143, -1}));
-
-/*END Gnome Classes*/
-
+  CREATE_KIT(RACE_GNOME, CLASS_CLERIC, ((int[]) {1119, 1120, 1121, 1122, 1124, 1126, 1127, -1}));
+  CREATE_KIT(RACE_GNOME, CLASS_CONJURER, ((int[]) {276, 454, 436, 728, -1}));
+  CREATE_KIT(RACE_GNOME, CLASS_MERCENARY, ((int[]) {1101, 1102, 1103, 1104, 1106, 1107, 1108, 1112, -1}));
+  CREATE_KIT(RACE_GNOME, CLASS_CONJURER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_GNOME, CLASS_SORCERER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_GNOME, CLASS_THIEF, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_GNOME, CLASS_ROGUE, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_GNOME, CLASS_WARRIOR, ((int[]) {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1108, 1109, -1}));
+  CREATE_KIT(RACE_GNOME, CLASS_SHAMAN, ((int[]) {677, 454, 678, 679, 680, 436, 105, 106, 107, -1}));
+  CREATE_KIT(RACE_GNOME, CLASS_PSIONICIST, ((int[]) {276, 454, 436, 728, -1}));
+  CREATE_KIT(RACE_GNOME, CLASS_ALCHEMIST, ((int[]) {377, 676, 52, -1}));
+  CREATE_KIT(RACE_GNOME, CLASS_ILLUSIONIST, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_GNOME, CLASS_ETHERMANCER, ((int[]) {706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_GNOME, CLASS_THEURGIST, ((int[]) {1112, 1114, 1115, 1141, 1142, 1143, -1}));
 
 /*Half Elf Basics*/
-  CREATE_KIT(RACE_HALFELF, 0, ((int[])
-                               {
-                               564, 607, 398, 398, 1160, 1161, -1}));
+  CREATE_KIT(RACE_HALFELF, 0, ((int[]) {564, 607, 398, 398, 1160, 1161, -1}));
 
-/*Half Elf Class EQ*/
-  CREATE_KIT(RACE_HALFELF, CLASS_WARRIOR, ((int[])
-                                           {
-                                           1101, 1102, 1103, 1104, 1105, 1105,
-                                           1106, 1107, 1108, 1109, -1}));
-
-  CREATE_KIT(RACE_HALFELF, CLASS_CONJURER, ((int[])
-                                            {
-                                            1114, 1115, 1131, 706, 735, 731,
-                                            731, -1}));
-
-  CREATE_KIT(RACE_HALFELF, CLASS_SORCERER, ((int[])
-                                            {
-                                            1114, 1115, 1131, 706, 735, 731,
-                                            731, -1}));
-
-  CREATE_KIT(RACE_HALFELF, CLASS_NECROMANCER, ((int[])
-                                            {
-                                            1114, 1115, 1143, 706, 735, 731,
-                                            731, -1}));
-
-  CREATE_KIT(RACE_HALFELF, CLASS_RANGER, ((int[])
-                                          {
-                                          1101, 1102, 1103, 1104, 1105, 1105,
-                                          1106, 1107, 1113, 1113, 1114, 1115,
-                                          1116, 1117, 1117, 1117, 1117, 1117,
-                                          1117, 1117, 1117, 1117, 1117, 1118,
-                                          -1}));
-
-  CREATE_KIT(RACE_HALFELF, CLASS_DRUID, ((int[])
-                                         {
-                                         1135, 1136, 1137, 1138, 1139, 1140,
-                                         -1}));
-
-  CREATE_KIT(RACE_HALFELF, CLASS_BARD, ((int[])
-                                        {
-                                        1112, 1128, 1129, 1130, 1131, 1134,
-                                        -1}));
-
-  CREATE_KIT(RACE_HALFELF, CLASS_ASSASSIN, ((int[])
-                                            {
-                                            1112, 1112, 1128, 1129, 1130,
-                                            1131, -1}));
-
-  CREATE_KIT(RACE_HALFELF, CLASS_THIEF, ((int[])
-                                         {
-                                         1112, 1128, 1129, 1130, 1131, 1132,
-                                         412, 412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_HALFELF, CLASS_ROGUE, ((int[])
-                                         {
-                                         1112, 1128, 1129, 1130, 1131, 1132,
-                                         412, 412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_HALFELF, CLASS_PALADIN, ((int[])
-	                                         {
-			                 1101, 1102, 1103, 1107, 1110, -1}));
-
-  CREATE_KIT(RACE_HALFELF, CLASS_THEURGIST, ((int[])
-                                             {
-                                             1112, 1114, 1115, 1141, 1142,
-                                             1143, -1}));
-/*END Half Elf Classes*/
+/*Half Elf Classes*/
+  CREATE_KIT(RACE_HALFELF, CLASS_WARRIOR, ((int[]) {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1108, 1109, -1}));
+  CREATE_KIT(RACE_HALFELF, CLASS_CONJURER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_HALFELF, CLASS_SORCERER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_HALFELF, CLASS_NECROMANCER, ((int[]) {1114, 1115, 1143, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_HALFELF, CLASS_RANGER, ((int[]) 
+            {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1113, 1113, 1114, 1115, 1116, -1}));
+  CREATE_KIT(RACE_HALFELF, CLASS_DRUID, ((int[]) {1135, 1136, 1137, 1138, 1139, 1140, -1}));
+  CREATE_KIT(RACE_HALFELF, CLASS_BARD, ((int[]) {1112, 1128, 1129, 1130, 1131, 1134, -1}));
+  CREATE_KIT(RACE_HALFELF, CLASS_ASSASSIN, ((int[]) {1112, 1112, 1128, 1129, 1130, 1131, -1}));
+  CREATE_KIT(RACE_HALFELF, CLASS_THIEF, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_HALFELF, CLASS_ROGUE, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_HALFELF, CLASS_PALADIN, ((int[]) {1101, 1102, 1103, 1107, 1110, -1}));
+  CREATE_KIT(RACE_HALFELF, CLASS_THEURGIST, ((int[]) {1112, 1114, 1115, 1141, 1142, 1143, -1}));
 
 /*Halfling Basics*/
-  CREATE_KIT(RACE_HALFLING, 0, ((int[])
-                                {
-                                565, 608, 398, 398, 1168, 1169, -1}));
+  CREATE_KIT(RACE_HALFLING, 0, ((int[]) {565, 608, 398, 398, 1168, 1169, -1}));
 
 /*Halfling Classes*/
-  CREATE_KIT(RACE_HALFLING, CLASS_WARRIOR, ((int[])
-                                            {
-                                            1101, 1102, 1103, 1104, 1105,
-                                            1105, 1106, 1107, 1108, 1109,
-                                            -1}));
+  CREATE_KIT(RACE_HALFLING, CLASS_WARRIOR, ((int[]) {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1108, 1109, -1}));
+  CREATE_KIT(RACE_HALFLING, CLASS_CLERIC, ((int[]) {1119, 1120, 1121, 1122, 1124, 1126, 1127, -1}));
+  CREATE_KIT(RACE_HALFLING, CLASS_DRUID, ((int[]) {1119, 1120, 1121, 1122, 1124, 1126, 1127, -1}));
+  CREATE_KIT(RACE_HALFLING, CLASS_SHAMAN, ((int[]) {105, 106, 107, 1144, 1145, 1127, -1}));
+  CREATE_KIT(RACE_HALFLING, CLASS_SORCERER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_HALFLING, CLASS_THIEF, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_HALFLING, CLASS_ROGUE, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_HALFLING, CLASS_BARD, ((int[]) {1112, 1128, 1129, 1130, 1131, 1134, -1}));
+  CREATE_KIT(RACE_HALFLING, CLASS_ILLUSIONIST, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
 
-  CREATE_KIT(RACE_HALFLING, CLASS_CLERIC, ((int[])
-                                           {
-                                           1119, 1120, 1121, 1122, 1124, 1126,
-                                           1127, -1}));
-  
-  CREATE_KIT(RACE_HALFLING, CLASS_DRUID, ((int[])
-                                           {
-                                           1119, 1120, 1121, 1122, 1124, 1126,
-                                           1127, -1}));
-
-  CREATE_KIT(RACE_HALFLING, CLASS_SHAMAN, ((int[])
-                                           {
-                                          105, 106, 107, 1144, 1145, 1127,
-                                            -1}));
-
-  CREATE_KIT(RACE_HALFLING, CLASS_SORCERER, ((int[])
-                                             {
-                                             1114, 1115, 1131, 706, 735, 731,
-                                             731, -1}));
-
-  CREATE_KIT(RACE_HALFLING, CLASS_THIEF, ((int[])
-                                          {
-                                          1112, 1128, 1129, 1130, 1131, 1132,
-                                          412, 412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_HALFLING, CLASS_ROGUE, ((int[])
-                                          {
-                                          1112, 1128, 1129, 1130, 1131, 1132,
-                                          412, 412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_HALFLING, CLASS_BARD, ((int[])
-                                         {
-                                         1112, 1128, 1129, 1130, 1131, 1134,
-                                         -1}));
-
-  CREATE_KIT(RACE_HALFLING, CLASS_ILLUSIONIST, ((int[])
-                                                {
-                                                1114, 1115, 1131, 706, 735,
-                                                731, 731, -1}));
-
-/*END Halfling Classes*/
-
+/*Thrikreen Basics*/
+  static int thrikreen_good_eq[] = {613, 398, 398, 1176, 1167, -1};
+  static int thrikreen_evil_eq[] = {613, 1170, 1173, -1};
+  static int thrikreen_gcler_eq[] = {613, 398, 398, 1176, 1167, 1122, 1124, -1};
+  static int thrikreen_ecler_eq[] = {613, 398, 398, 1170, 1173, 1123, 1125, -1};
 
 /*Thrikreen Classes*/
-  CREATE_KIT(RACE_THRIKREEN, CLASS_WARRIOR, ((int[])
-                                             {
-                                             1101, 1101, 1102, 1104, 1104,
-                                             1105, 1105, 1105, 1105, 1106,
-                                             580, 580, 580, 580, 581, 581,
-                                             -1}));
-/*END Thrikreen Classes*/
+  CREATE_KIT(RACE_THRIKREEN, CLASS_WARRIOR, ((int[]) 
+            {1101, 1101, 1102, 1104, 1104, 1105, 1105, 1105, 1105, 1106, 580, 580, 580, 580, 581, 581, -1}));
+  CREATE_KIT(RACE_THRIKREEN, CLASS_CLERIC, ((int[])
+            {1101, 1101, 1102, 1104, 1104, 1105, 1105, 1127, 693, -1})); 
+
+
+/*Minotaur Classes*/
+  CREATE_KIT(RACE_MINOTAUR, CLASS_MERCENARY, ((int[]) {1101, 1104, 1107, 1108, 1112, -1}));
+  CREATE_KIT(RACE_MINOTAUR, CLASS_WARRIOR, ((int[]) {1101, 1104, 1105, 1105, 1107, 1108, 1109, -1}));
+  CREATE_KIT(RACE_MINOTAUR, CLASS_SHAMAN, ((int[]) {105, 106, 107, 1127, 731, 731, 1186, 706, 676, 729, 729 - 1}));
+  CREATE_KIT(RACE_MINOTAUR, CLASS_SORCERER, ((int[]) {1114, 1115, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_MINOTAUR, CLASS_BERSERKER, ((int[]) {1101, 1104, 1105, 1105, 1107, 699, 699, -1}));
+
+
+/* Harpy Classes */
+  CREATE_KIT(RACE_HARPY, CLASS_SORCERER, ((int[]) {706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_HARPY, CLASS_CONJURER, ((int[]) {706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_HARPY, CLASS_ETHERMANCER, ((int[]) {706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_HARPY, CLASS_BARD, ((int[]) {1128, 1130, 1131, 1134, -1}));
+  CREATE_KIT(RACE_HARPY, CLASS_SHAMAN, ((int[]) {731, 731, 706, 735, 107, 106, 105, 679, 388, -1}));
 
 
 /*Centaur Basics*/
-  CREATE_KIT(RACE_CENTAUR, 0, ((int[])
-                               {
-                               398, 398, 591, 590, 1178, 1179, -1}));
+  CREATE_KIT(RACE_CENTAUR, 0, ((int[]) {398, 398, 591, 590, 1178, 1179, -1}));
 
 /*Centaur Classes*/
-  CREATE_KIT(RACE_CENTAUR, CLASS_WARRIOR, ((int[])
-                                           {
-                                           1101, 1104, 1105, 1105, 1106, 1107,
-                                           1108, 1109, -1}));
-
-  CREATE_KIT(RACE_CENTAUR, CLASS_RANGER, ((int[])
-                                          {
-                                          1101, 1104, 1105, 1105, 1106, 1107,
-                                          1113, 1113, 1114, 1115, 1116, 1117,
-                                          1117, 1117, 1117, 1117, 1117, 1117,
-                                          1117, 1117, 1117, 1118, -1}));
-
-  CREATE_KIT(RACE_CENTAUR, CLASS_DRUID, ((int[])
-                                         {
-                                         1135, 1138, 1139, 1140, -1}));
-
-  CREATE_KIT(RACE_CENTAUR, CLASS_SHAMAN, ((int[])
-                                          {
-                                          105, 106, 107, 1144, 1145, 1127,
-                                          -1}));
-
-  CREATE_KIT(RACE_CENTAUR, CLASS_BARD, ((int[])
-                                        {
-                                        1112, 1128, 1130, 1134, -1}));
-
-/*END Centaur Classes*/
-
-  CREATE_KIT(RACE_HARPY, CLASS_SORCERER, ((int[])
-                                          {
-                                          706, 735, 731, 731, -1}));
-  CREATE_KIT(RACE_HARPY, CLASS_CONJURER, ((int[])
-                                          {
-                                          706, 735, 731, 731, -1}));
-  CREATE_KIT(RACE_HARPY, CLASS_ETHERMANCER, ((int[])
-                                             {
-                                             706, 735, 731, 731, -1}));
-  CREATE_KIT(RACE_HARPY, CLASS_BARD, ((int[])
-                                      {
-                                      1128, 1130, 1131, 1134, -1}));
-
-  CREATE_KIT(RACE_HARPY, CLASS_SHAMAN, ((int[])
-                                      {
-                                      731, 731, 706, 735, 107, 106, 105,
-679, 388, -1}));
-
+  CREATE_KIT(RACE_CENTAUR, CLASS_WARRIOR, ((int[]) {1101, 1104, 1105, 1105, 1106, 1107, 1108, 1109, -1}));
+  CREATE_KIT(RACE_CENTAUR, CLASS_RANGER, ((int[]) 
+            {1101, 1104, 1105, 1105, 1106, 1107, 1113, 1113, 1114, 1115, 1116, -1}));
+  CREATE_KIT(RACE_CENTAUR, CLASS_DRUID, ((int[]) {1135, 1138, 1139, 1140, -1}));
+  CREATE_KIT(RACE_CENTAUR, CLASS_SHAMAN, ((int[]) {105, 106, 107, 1144, 1145, 1127, -1}));
+  CREATE_KIT(RACE_CENTAUR, CLASS_BARD, ((int[]) {1112, 1128, 1130, 1134, -1}));
 
 /*Planetbound Illithid Basic*/
   CREATE_KIT(RACE_ILLITHID, 0, ((int[])
@@ -842,56 +495,18 @@ void load_obj_to_newbies(P_char ch)
 
 
 /*Githyanki Basic*/
-  CREATE_KIT(RACE_GITHYANKI, 0, ((int[])
-                                 {
-                                 1180, 1181, -1}));
-                                 
-  CREATE_KIT(RACE_GITHYANKI, CLASS_CLERIC, ((int[])
-                                      {
-                                      1119, 1120, 1121, 1123, 1125, 1126,
-                                      1127, -1}));
+  CREATE_KIT(RACE_GITHYANKI, 0, ((int[]) {1180, 1181, -1}));
+  CREATE_KIT(RACE_GITHYANKI, CLASS_CLERIC, ((int[]) {1119, 1120, 1121, 1123, 1125, 1126, 1127, -1}));
 
 /*Githyanki Classes*/
-  CREATE_KIT(RACE_GITHYANKI, CLASS_WARRIOR, ((int[])
-                                             {
-                                             1101, 1102, 1103, 1104, 1105,
-                                             1105, 1106, 1107, 1108, 1109,
-                                             -1}));
-
-  CREATE_KIT(RACE_GITHYANKI, CLASS_ANTIPALADIN, ((int[])
-                                                 {
-                                                 1101, 1102, 1103, 1107, 1111,
-                                                 -1}));
-
-  CREATE_KIT(RACE_GITHYANKI, CLASS_SORCERER, ((int[])
-                                              {
-                                              1114, 1115, 1131, 706, 735, 731,
-                                              731, -1}));
-
-  CREATE_KIT(RACE_GITHYANKI, CLASS_NECROMANCER, ((int[])
-                                                 {
-                                                 1112, 1114, 1115, 1141, 1142,
-                                                 1143, -1}));
-
-  CREATE_KIT(RACE_GITHYANKI, CLASS_BARD, ((int[])
-                                          {
-                                          1112, 1128, 1129, 1130, 1131, 1134,
-                                          -1}));
-
-  CREATE_KIT(RACE_GITHYANKI, CLASS_CONJURER, ((int[])
-                                              {
-                                              1114, 1115, 1131, 706, 735, 731,
-                                              731, -1}));
-
-  CREATE_KIT(RACE_GITHYANKI, CLASS_PSIONICIST, ((int[])
-                                                {
-                                                624, 735, -1}));
-  CREATE_KIT(RACE_GITHYANKI, CLASS_REAVER, ((int[])
-                                             {
-                                             1101, 1102, 1103, 1104, 1105,
-                                             1105, 1106, 1107, 1108, 1108,
-                                             -1}));
-/*End Githyanki Classes*/
+  CREATE_KIT(RACE_GITHYANKI, CLASS_WARRIOR, ((int[]) {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1108, 1109, -1}));
+  CREATE_KIT(RACE_GITHYANKI, CLASS_ANTIPALADIN, ((int[]) {1101, 1102, 1103, 1107, 1111, -1}));
+  CREATE_KIT(RACE_GITHYANKI, CLASS_SORCERER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_GITHYANKI, CLASS_NECROMANCER, ((int[]) {1112, 1114, 1115, 1141, 1142, 1143, -1}));
+  CREATE_KIT(RACE_GITHYANKI, CLASS_BARD, ((int[]) {1112, 1128, 1129, 1130, 1131, 1134, -1}));
+  CREATE_KIT(RACE_GITHYANKI, CLASS_CONJURER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_GITHYANKI, CLASS_PSIONICIST, ((int[]) {624, 735, -1}));
+  CREATE_KIT(RACE_GITHYANKI, CLASS_REAVER, ((int[]) {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1108, 1108, -1}));
 
 /*Phantom Basic*/
   CREATE_KIT(RACE_PHANTOM, 0, ((int[])
@@ -912,274 +527,74 @@ void load_obj_to_newbies(P_char ch)
 
 /* End Phantom Classes */
 
-/*Minotaur Classes*/
-  CREATE_KIT(RACE_MINOTAUR, CLASS_MERCENARY, ((int[])
-                                              {
-                                              1101, 1104, 1107, 1108, 1112,
-                                              -1}));
-
-  CREATE_KIT(RACE_MINOTAUR, CLASS_WARRIOR, ((int[])
-                                            {
-                                            1101, 1104, 1105, 1105, 1107,
-                                            1108, 1109, -1}));
-
-  CREATE_KIT(RACE_MINOTAUR, CLASS_SHAMAN, ((int[])
-                                           {
-                                           105, 106, 107, 1127, 731, 731,
-                                           1186, 706, 676, 729, 729 - 1}));
-
-  CREATE_KIT(RACE_MINOTAUR, CLASS_SORCERER, ((int[])
-                                          {
-                                          1114, 1115, 706, 735, 731,
-                                          731, -1}));
-
-  CREATE_KIT(RACE_MINOTAUR, CLASS_BERSERKER, ((int[])
-                                         {1101, 1104, 1105, 1105, 1107, 699, 699, -1}));
-
-/*END Minotaur Classes*/
-
-
 /*Grey Elf Basics*/
-  CREATE_KIT(RACE_GREY, 0, ((int[])
-                            {
-                            568, 610, 398, 398, 1158, 1159, -1}));
+  CREATE_KIT(RACE_GREY, 0, ((int[]) {568, 610, 398, 398, 1158, 1159, -1}));
 
 /*Grey Elf Classes*/
-  CREATE_KIT(RACE_GREY, CLASS_WARRIOR, ((int[])
-                                        {
-                                        1101, 1102, 1103, 1104, 1105, 1105,
-                                        1106, 1107, 1108, 1109, -1}));
-
-  CREATE_KIT(RACE_GREY, CLASS_RANGER, ((int[])
-                                       {
-                                       1101, 1102, 1103, 1104, 1105, 1105,
-                                       1106, 1107, 1113, 1113, 1114, 1115,
-                                       1116, 1117, 1117, 1117, 1117, 1117,
-                                       1117, 1117, 1117, 1117, 1117, 1118,
-                                       -1}));
-
-  CREATE_KIT(RACE_GREY, CLASS_CLERIC, ((int[])
-                                       {
-                                       1119, 1120, 1121, 1122, 1124, 1126,
-                                       1127, -1}));
-
-  CREATE_KIT(RACE_GREY, CLASS_CONJURER, ((int[])
-                                         {
-                                         1114, 1115, 1131, 706, 735, 731, 731,
-                                         -1}));
-
-  CREATE_KIT(RACE_GREY, CLASS_DRUID, ((int[])
-                                      {
-                                      1135, 1136, 1137, 1138, 1139, 1140,
-                                      -1}));
-
-  CREATE_KIT(RACE_GREY, CLASS_SORCERER, ((int[])
-                                         {
-                                         1114, 1115, 1131, 706, 735, 731, 731,
-                                         -1}));
-
-  CREATE_KIT(RACE_GREY, CLASS_THIEF, ((int[])
-                                      {
-                                      1112, 1128, 1129, 1130, 1131, 1132, 412,
-                                      412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_GREY, CLASS_ROGUE, ((int[])
-                                      {
-                                      1112, 1128, 1129, 1130, 1131, 1132, 412,
-                                      412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_GREY, CLASS_BARD, ((int[])
-                                     {
-                                     1112, 1128, 1129, 1130, 1131, 1134,
-                                     -1}));
-
-/*END Grey Elf Classes*/
-
+  CREATE_KIT(RACE_GREY, CLASS_WARRIOR, ((int[]) {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1108, 1109, -1}));
+  CREATE_KIT(RACE_GREY, CLASS_RANGER, ((int[]) {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1113, 1113, 1114, 1115, -1}));
+  CREATE_KIT(RACE_GREY, CLASS_CLERIC, ((int[]) {1119, 1120, 1121, 1122, 1124, 1126, 1127, -1}));
+  CREATE_KIT(RACE_GREY, CLASS_CONJURER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_GREY, CLASS_DRUID, ((int[]) {1135, 1136, 1137, 1138, 1139, 1140, -1}));
+  CREATE_KIT(RACE_GREY, CLASS_SORCERER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_GREY, CLASS_THIEF, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_GREY, CLASS_ROGUE, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_GREY, CLASS_BARD, ((int[]) {1112, 1128, 1129, 1130, 1131, 1134, -1}));
 
 /*Dwarf Basic*/
-  CREATE_KIT(RACE_MOUNTAIN, 0, ((int[])
-                                {
-                                569, 611, 398, 398, 1162, 1163, -1}));
+  CREATE_KIT(RACE_MOUNTAIN, 0, ((int[]) {569, 611, 398, 398, 1162, 1163, -1}));
 
 /*Dwarf Classes*/
-  CREATE_KIT(RACE_MOUNTAIN, CLASS_CLERIC, ((int[])
-                                           {
-                                           1119, 1120, 1121, 1122, 1124, 1126,
-                                           1127, -1}));
-
-  CREATE_KIT(RACE_MOUNTAIN, CLASS_MERCENARY, ((int[])
-                                              {
-                                              1101, 1102, 1103, 1104, 1106,
-                                              1107, 1108, 1112, -1}));
-
-  CREATE_KIT(RACE_MOUNTAIN, CLASS_THIEF, ((int[])
-                                          {
-                                          1112, 1128, 1129, 1130, 1131, 1132,
-                                          412, 412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_MOUNTAIN, CLASS_ROGUE, ((int[])
-                                          {
-                                          1112, 1128, 1129, 1130, 1131, 1132,
-                                          412, 412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_MOUNTAIN, CLASS_WARRIOR, ((int[])
-                                            {
-                                            254, 1101, 1102, 1103, 1104, 1105,
-                                            1105, 1106, 1107, 1109, -1}));
-
-/*END Dwarf Classes*/
-
+  CREATE_KIT(RACE_MOUNTAIN, CLASS_CLERIC, ((int[]) {1119, 1120, 1121, 1122, 1124, 1126, 1127, -1}));
+  CREATE_KIT(RACE_MOUNTAIN, CLASS_MERCENARY, ((int[]) {1101, 1102, 1103, 1104, 1106, 1107, 1108, 1112, -1}));
+  CREATE_KIT(RACE_MOUNTAIN, CLASS_THIEF, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_MOUNTAIN, CLASS_ROGUE, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_MOUNTAIN, CLASS_WARRIOR, ((int[]) {254, 1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1109, -1}));
 
 /*Ogre Basic*/
-  CREATE_KIT(RACE_OGRE, 0, ((int[])
-                            {
-                            570, 612, 1170, 1183, 1183,
-                            1184, -1}));
+  CREATE_KIT(RACE_OGRE, 0, ((int[]) {570, 612, 1170, 1183, 1183, 1184, -1}));
 
 /*Ogre Classes*/
-  CREATE_KIT(RACE_OGRE, CLASS_MERCENARY, ((int[])
-                                          {
-                                          1105, 1105, 1185, -1}));
-
-  CREATE_KIT(RACE_OGRE, CLASS_SHAMAN, ((int[])
-                                       {
-                                       105, 106, 107, 1127, -1}));
-
-  CREATE_KIT(RACE_OGRE, CLASS_WARRIOR, ((int[])
-                                       {
-                                       1103, 1104, 1105, 1105,
-                                       1106, 1107, 1185, 1109, -1}));
-/*END Ogre Classes*/
+  CREATE_KIT(RACE_OGRE, CLASS_MERCENARY, ((int[]) {1105, 1105, 1185, -1}));
+  CREATE_KIT(RACE_OGRE, CLASS_SHAMAN, ((int[]) {105, 106, 107, 1127, -1}));
+  CREATE_KIT(RACE_OGRE, CLASS_WARRIOR, ((int[]) {1103, 1104, 1105, 1105, 1106, 1107, 1185, 1109, -1}));
 
 /*Orog Basics*/
-  CREATE_KIT(RACE_OROG, 0, ((int[])
-                           {
-                           1172, 1173, 612, -1}));
+  CREATE_KIT(RACE_OROG, 0, ((int[]) {1172, 1173, 612, -1}));
                            
 /*Orog Classes*/
-  CREATE_KIT(RACE_OROG, CLASS_SHAMAN, ((int[])
-    {105, 106, 107, 676, -1}));
-
-  CREATE_KIT(RACE_OROG, CLASS_WARRIOR, ((int[])
-                                       {
-                                       1101, 1102, 1103, 1104, 1105, 1105,
-                                       1106, 1107, 1108, 1109, -1}));
-
-  CREATE_KIT(RACE_OROG, CLASS_CLERIC, ((int[])
-                                      {
-                                      1119, 1120, 1121, 1123, 1125, 1126,
-                                      1127, -1}));
-
-  CREATE_KIT(RACE_OROG, CLASS_BERSERKER, ((int[])
-                                         {
-                                         1101, 1102, 1103, 1104, 1105, 1105,
-                                         1106, 1107, 699, 1109, -1}));
-
-  CREATE_KIT(RACE_OROG, CLASS_MERCENARY, ((int[])
-                                         {
-                                         1101, 1102, 1103, 1104, 1105, 1105,
-                                         1106, 1107, 699, 1109, -1}));
+  CREATE_KIT(RACE_OROG, CLASS_SHAMAN, ((int[]) {1105, 106, 107, 676, -1}));
+  CREATE_KIT(RACE_OROG, CLASS_WARRIOR, ((int[]) {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1108, 1109, -1}));
+  CREATE_KIT(RACE_OROG, CLASS_CLERIC, ((int[]) {1119, 1120, 1121, 1123, 1125, 1126, 1127, -1}));
+  CREATE_KIT(RACE_OROG, CLASS_BERSERKER, ((int[]) {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 699, 1109, -1}));
+  CREATE_KIT(RACE_OROG, CLASS_MERCENARY, ((int[]) {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 699, 1109, -1}));
 
 /*Orc Basics*/
-  CREATE_KIT(RACE_ORC, 0, ((int[])
-                           {
-                           1172, 1173, 612, -1}));
+  CREATE_KIT(RACE_ORC, 0, ((int[]) {1172, 1173, 612, -1}));
 
 /*Orc Classes*/
-  CREATE_KIT(RACE_ORC, CLASS_WARRIOR, ((int[])
-                                       {
-                                       1101, 1102, 1103, 1104, 1105, 1105,
-                                       1106, 1107, 1108, 1109, -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_SHAMAN, ((int[])
-                                      {
-                                      105, 106, 107, 1144, 1145, 1146, 1127,
-                                      -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_CLERIC, ((int[])
-                                      {
-                                      1119, 1120, 1121, 1123, 1125, 1126,
-                                      1127, -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_NECROMANCER, ((int[])
-                                           {
-                                           1112, 1114, 1115, 1141, 1142, 1143,
-                                           -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_SORCERER, ((int[])
-                                        {
-                                        1114, 1115, 1131, 706, 735, 731, 731,
-                                        -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_MONK, ((int[])
-                                    {
-                                    1147, 1148, 1149, 1150, 1151, -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_CONJURER, ((int[])
-                                        {
-                                        1114, 1115, 1131, 706, 735, 731, 731,
-                                        -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_MERCENARY, ((int[])
-                                         {
-                                         1101, 1102, 1103, 1104, 1106, 1107,
-                                         1108, 1112, -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_ASSASSIN, ((int[])
-                                        {
-                                        1112, 1112, 1128, 1129, 1130, 1131,
-                                        -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_ANTIPALADIN, ((int[])
-                                           {
-                                           1101, 1102, 1103, 1107, 1111,
-                                           -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_THIEF, ((int[])
-                                     {
-                                     1112, 1128, 1129, 1130, 1131, 1132, 412,
-                                     412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_ROGUE, ((int[])
-                                     {
-                                     1112, 1128, 1129, 1130, 1131, 1132, 412,
-                                     412, 412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_BARD, ((int[])
-                                    {
-                                    1112, 1128, 1129, 1130, 1131, 1134, -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_ALCHEMIST, ((int[])
-                                         {
-                                         377, 676, 52, -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_ILLUSIONIST, ((int[])
-                                           {
-                                           1114, 1115, 1131, 706, 735, 731,
-                                           731, -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_BERSERKER, ((int[])
-                                         {
-                                         1101, 1102, 1103, 1104, 1105, 1105,
-                                         1106, 1107, 699, 1109, -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_REAVER, ((int[])
-                                         {
-                                         1109, 1108, 1107, 1106, 1105, 1104,
-                                         1103, 1102, 1101, 604, 1157, 1156,
-                                         1115, 1114, -1}));
-
-  CREATE_KIT(RACE_ORC, CLASS_ETHERMANCER, ((int[])
-                                             {
-                                             706, 735, 731, 731, -1}));
-
-
-/*END Orc Classes*/
+  CREATE_KIT(RACE_ORC, CLASS_WARRIOR, ((int[]) {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1108, 1109, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_SHAMAN, ((int[]) {105, 106, 107, 1144, 1145, 1146, 1127, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_CLERIC, ((int[]) {1119, 1120, 1121, 1123, 1125, 1126, 1127, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_NECROMANCER, ((int[]) {1112, 1114, 1115, 1141, 1142, 1143, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_SORCERER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_MONK, ((int[]) {1147, 1148, 1149, 1150, 1151, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_CONJURER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_MERCENARY, ((int[]) {1101, 1102, 1103, 1104, 1106, 1107, 1108, 1112, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_ASSASSIN, ((int[]) {1112, 1112, 1128, 1129, 1130, 1131, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_ANTIPALADIN, ((int[]) {1101, 1102, 1103, 1107, 1111, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_THIEF, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_ROGUE, ((int[]) {1112, 1128, 1129, 1130, 1131, 1132, 412, 412, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_BARD, ((int[]) {1112, 1128, 1129, 1130, 1131, 1134, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_ALCHEMIST, ((int[]) {377, 676, 52, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_ILLUSIONIST, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_BERSERKER, ((int[]) {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 699, 1109, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_REAVER, ((int[]) 
+            {1109, 1108, 1107, 1106, 1105, 1104, 1103, 1102, 1101, 604, 1157, 1156, 1115, 1114, -1}));
+  CREATE_KIT(RACE_ORC, CLASS_ETHERMANCER, ((int[]) {706, 735, 731, 731, -1}));
 
 /*Lich Basics*/
-  CREATE_KIT(RACE_PLICH, 0, ((int[])
-                             {
-                             1172, 1173, 612, -1}));
+  CREATE_KIT(RACE_PLICH, 0, ((int[]) {1172, 1173, 612, -1}));
 
   /*Lich Classes */
   CREATE_KIT(RACE_PLICH, CLASS_ALCHEMIST, ((int[])
@@ -1373,106 +788,33 @@ void load_obj_to_newbies(P_char ch)
 
 
 /*Troll Basic*/
-  CREATE_KIT(RACE_TROLL, 0, ((int[])
-                             {
-                             1172, 1155, 571, 613, -1}));
+  CREATE_KIT(RACE_TROLL, 0, ((int[]) {1172, 1155, 571, 613, -1}));
 
 /*Troll Classes*/
-  CREATE_KIT(RACE_TROLL, CLASS_MERCENARY, ((int[])
-                                           {
-                                           1101, 1102, 1103, 1104, 1106, 1107,
-                                           1108, 1112, -1}));
-
-  CREATE_KIT(RACE_TROLL, CLASS_SHAMAN, ((int[])
-                                        {
-                                        105, 106, 107, 1144, 1145, 1146, 1127,
-                                        -1}));
-
-  CREATE_KIT(RACE_TROLL, CLASS_WARRIOR, ((int[])
-                                         {
-                                         1101, 1102, 1103, 1104, 1105, 1105,
-                                         1106, 1107, 1108, 1109, -1}));
-
-/*END Troll Classes*/
-
+  CREATE_KIT(RACE_TROLL, CLASS_MERCENARY, ((int[]) {1101, 1102, 1103, 1104, 1106, 1107, 1108, 1112, -1}));
+  CREATE_KIT(RACE_TROLL, CLASS_SHAMAN, ((int[]) {105, 106, 107, 1144, 1145, 1146, 1127, -1}));
+  CREATE_KIT(RACE_TROLL, CLASS_WARRIOR, ((int[]) {1101, 1102, 1103, 1104, 1105, 1105, 1106, 1107, 1108, 1109, -1}));
 
 /*Goblin Basics*/
-  CREATE_KIT(RACE_GOBLIN, 0, ((int[])
-                              {
-                              1172, 1173, 612, -1}));
+  CREATE_KIT(RACE_GOBLIN, 0, ((int[]) {1172, 1173, 612, -1}));
 
 /*Goblin Classes*/
-  CREATE_KIT(RACE_GOBLIN, CLASS_CLERIC, ((int[])
-                                         {706, 735, 731, 731, -1}));
-
-  CREATE_KIT(RACE_GOBLIN, CLASS_REAVER, ((int[])
-                                         {
-                                         1109, 1108, 1107, 1106, 1105, 1104,
-                                         1103, 1102, 1101, 604, 1157, 1156,
-                                         1115, 1114, -1}));
-
-  CREATE_KIT(RACE_GOBLIN, CLASS_WARRIOR, ((int[])
-                                          {
-                                          1109, 1108, 1107, 1106, 1105, 1104,
-                                          1103, 1102, 1101, 604, 1157, 1156, -1
-                                          }));
-
-  CREATE_KIT(RACE_GOBLIN, CLASS_ILLUSIONIST, ((int[])
-                                              {
-                                              1114, 1115, 1131, 706, 735, 731,
-                                              731, -1}));
-
-  CREATE_KIT(RACE_GOBLIN, CLASS_SORCERER, ((int[])
-                                           {
-                                           1114, 1115, 1131, 706, 735, 731,
-                                           731, -1}));
-
-  CREATE_KIT(RACE_GOBLIN, CLASS_NECROMANCER, ((int[])
-                                              {
-                                              1114, 1115, 1131, 706, 735, 731,
-                                              731, -1}));
-
-  CREATE_KIT(RACE_GOBLIN, CLASS_CONJURER, ((int[])
-                                           {
-                                           1114, 1115, 1131, 706, 735, 731,
-                                           731, -1}));
-
-  CREATE_KIT(RACE_GOBLIN, CLASS_SHAMAN, ((int[])
-                                         {
-                                         105, 106, 107, 1144, 1145, 1146,
-                                         1127, -1}));
-
-  CREATE_KIT(RACE_GOBLIN, CLASS_BARD, ((int[])
-                                       {
-                                       1112, 1128, 1129, 1130, 1131, 1134,
-                                       -1}));
-
-  CREATE_KIT(RACE_GOBLIN, CLASS_ALCHEMIST, ((int[])
-                                            {
-                                            1108, 1107, 1106, 1105, 1104,
-                                            1103, 1102, 1101, 604, 1157, 1156, 52,
-                                            -1 }));
-
-  CREATE_KIT(RACE_GOBLIN, CLASS_ASSASSIN, ((int[])
-                                           {
-                                           1112, 1112, 1128, 1129, 1130, 1131,
-                                           -1}));
-
-  CREATE_KIT(RACE_GOBLIN, CLASS_ROGUE, ((int[])
-                                           {
-                                           1112, 1128, 1129, 1130, 1131,
-                                           412, 412, 412, -1}));
-
-  CREATE_KIT(RACE_GOBLIN, CLASS_ETHERMANCER, ((int[])
-                                             {
-                                             706, 735, 731, 731, -1}));
-
-  CREATE_KIT(RACE_AGATHINON, CLASS_AVENGER, ((int[])
-                                         {
-                                         1101, 1102, 1103, 1107, 1110, -1}));
-
-
-/*END Goblin Classes*/
+  CREATE_KIT(RACE_GOBLIN, CLASS_CLERIC, ((int[]) {706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_GOBLIN, CLASS_REAVER, ((int[]) 
+            {1109, 1108, 1107, 1106, 1105, 1104, 1103, 1102, 1101, 604, 1157, 1156, 1115, 1114, -1}));
+  CREATE_KIT(RACE_GOBLIN, CLASS_WARRIOR, ((int[]) 
+            {1109, 1108, 1107, 1106, 1105, 1104, 1103, 1102, 1101, 604, 1157, 1156, -1}));
+  CREATE_KIT(RACE_GOBLIN, CLASS_ILLUSIONIST, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_GOBLIN, CLASS_SORCERER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_GOBLIN, CLASS_NECROMANCER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_GOBLIN, CLASS_CONJURER, ((int[]) {1114, 1115, 1131, 706, 735, 731, 731, -1}));
+  CREATE_KIT(RACE_GOBLIN, CLASS_SHAMAN, ((int[]) {105, 106, 107, 1144, 1145, 1146, 1127, -1}));
+  CREATE_KIT(RACE_GOBLIN, CLASS_BARD, ((int[]) {1112, 1128, 1129, 1130, 1131, 1134, -1}));
+  CREATE_KIT(RACE_GOBLIN, CLASS_ALCHEMIST, ((int[]) 
+            {1108, 1107, 1106, 1105, 1104, 1103, 1102, 1101, 604, 1157, 1156, 52, -1 }));
+  CREATE_KIT(RACE_GOBLIN, CLASS_ASSASSIN, ((int[]) {1112, 1112, 1128, 1129, 1130, 1131, -1}));
+  CREATE_KIT(RACE_GOBLIN, CLASS_ROGUE, ((int[]) {1112, 1128, 1129, 1130, 1131, 412, 412, 412, -1}));
+  CREATE_KIT(RACE_GOBLIN, CLASS_ETHERMANCER, ((int[]) {706, 735, 731, 731, -1}));
 
 /*Drider Basics*/
   CREATE_KIT(RACE_DRIDER, 0, ((int[])
@@ -1519,7 +861,7 @@ void load_obj_to_newbies(P_char ch)
                               {
                               1172, 1173, 612, -1}));
 
-/*Goblin Classes*/
+/*Kobold Classes*/
   CREATE_KIT(RACE_KOBOLD, CLASS_CLERIC, ((int[])
                                          {706, 735, 731, 731, -1}));
 
@@ -1593,7 +935,7 @@ void load_obj_to_newbies(P_char ch)
                              {
                              1172, 1155, 571, 613, -1}));
 
-/*Troll Classes*/
+/*Kuo Toa Classes*/
   CREATE_KIT(RACE_KUOTOA, CLASS_CLERIC, ((int[])
                                          {706, 735, 731, 731, -1}));
   
@@ -1616,8 +958,6 @@ void load_obj_to_newbies(P_char ch)
                                            {
                                            1112, 1128, 1129, 1130, 1131,
                                            412, 412, 412, -1}));
-
-/*END Troll Classes*/
 
 /* Firbolg Basic */
   CREATE_KIT(RACE_FIRBOLG, 0, ((int[])
@@ -1701,49 +1041,58 @@ void load_obj_to_newbies(P_char ch)
 
 /*END Wood Elf Classes*/
   
-  if (ch->carrying && IS_PC(ch))        /* we are _NOT_ here to give people free eq many times */
+  if(ch->carrying && IS_PC(ch))        /* we are _NOT_ here to give people free eq many times */
     return;
 
-  if (newbie_kits[GET_RACE(ch)][0])
+  if(newbie_kits[GET_RACE(ch)][0])
     LoadNewbyShit(ch, newbie_kits[GET_RACE(ch)][0]);
 
-  if (GET_RACE(ch) == RACE_THRIKREEN)
-    if (GET_ALIGNMENT(ch) >= 0)
-      LoadNewbyShit(ch, thrikreen_good_eq);
+  if(GET_RACE(ch) == RACE_THRIKREEN)
+  {
+    if(GET_ALIGNMENT(ch) >= 0)
+    {
+      if(GET_CLASS(ch, CLASS_WARRIOR))
+      {
+        LoadNewbyShit(ch, thrikreen_good_eq);
+      }
+      else if(GET_CLASS(ch, CLASS_CLERIC))
+      {
+        LoadNewbyShit(ch, thrikreen_gcler_eq);
+      }
+    }
     else
-      LoadNewbyShit(ch, thrikreen_evil_eq);
+    {     
+      if(GET_CLASS(ch, CLASS_WARRIOR))
+      {
+        LoadNewbyShit(ch, thrikreen_evil_eq);
+      }
+      else if(GET_CLASS(ch, CLASS_CLERIC))
+      {
+        LoadNewbyShit(ch, thrikreen_ecler_eq);
+      }
+    }
+  }
 
-  if (GET_RACE(ch) == RACE_MINOTAUR)
-    if (GET_ALIGNMENT(ch) >= 0)
+  if(GET_RACE(ch) == RACE_MINOTAUR)
+    if(GET_ALIGNMENT(ch) >= 0)
       LoadNewbyShit(ch, minotaur_good_eq);
     else
       LoadNewbyShit(ch, minotaur_evil_eq);
 
-  if (newbie_kits[GET_RACE(ch)][flag2idx(ch->player.m_class)])
-    LoadNewbyShit(ch,
-                  newbie_kits[GET_RACE(ch)][flag2idx(ch->player.m_class)]);
+  if(newbie_kits[GET_RACE(ch)][flag2idx(ch->player.m_class)])
+    LoadNewbyShit(ch, newbie_kits[GET_RACE(ch)][flag2idx(ch->player.m_class)]);
 
-  if (world[ch->in_room].number == 29201) {
+  if(world[ch->in_room].number == 29201) 
+  {
     P_obj note = read_object(29319, VIRTUAL);
-
     obj_to_char(note, ch);
   }
-
- P_obj bandage = read_object(393, VIRTUAL);
- obj_to_char(bandage, ch);
-
- bandage = read_object(393, VIRTUAL);
-  obj_to_char(bandage, ch);
-
- bandage = read_object(393, VIRTUAL);
-  obj_to_char(bandage, ch);
-
- bandage = read_object(393, VIRTUAL);
-  obj_to_char(bandage, ch);
   
- bandage = read_object(393, VIRTUAL);
-  obj_to_char(bandage, ch);
-  
+  for(int i = 0;i < 6;i++)
+  {
+    bandage = read_object(393, VIRTUAL);
+    obj_to_char(bandage, ch);
+  }
 }
 
 #undef CREATE_KIT
@@ -1812,10 +1161,10 @@ bool _parse_name(char *arg, char *name)
     "\n"
   };
 
-  if (strlen(arg) > 12)         /* max name size */
+  if(strlen(arg) > 12)         /* max name size */
     return TRUE;
 
-  if (strlen(arg) < 2)          /* min name size */
+  if(strlen(arg) < 4)          /* min name size */
     return TRUE;
 
   for (i = 0; i < strlen(arg); i++)
@@ -1823,7 +1172,7 @@ bool _parse_name(char *arg, char *name)
     name[i] = LOWER(arg[i]);
     /* check for high bit chars, non-alphas, and if any letter other
        then the first is CAPS */
-    if ((arg[i] < 0) || !isalpha(arg[i]) || (i && (name[i] != arg[i])))
+    if((arg[i] < 0) || !isalpha(arg[i]) || (i && (name[i] != arg[i])))
       return TRUE;
   }
   name[strlen(arg)] = '\0';
@@ -1831,14 +1180,14 @@ bool _parse_name(char *arg, char *name)
   /* if any player or mob already has this name, we can't use it */
 
   for (i = 0; i <= top_of_mobt; i++)
-    if (isname(name, mob_index[i].keys))
+    if(isname(name, mob_index[i].keys))
       return TRUE;
 
-  if (search_block(name, command, TRUE) >= 0)
+  if(search_block(name, command, TRUE) >= 0)
     return TRUE;
-  if (search_block(name, fill_words, TRUE) >= 0)
+  if(search_block(name, fill_words, TRUE) >= 0)
     return TRUE;
-  if (search_block(name, smart_ass, TRUE) >= 0)
+  if(search_block(name, smart_ass, TRUE) >= 0)
     return TRUE;
 
   return FALSE;
@@ -1851,14 +1200,14 @@ bool valid_password(P_desc d, char *arg)
   char    *p, name[MAX_INPUT_LENGTH], password[MAX_INPUT_LENGTH];
   int      i, ucase, lcase, other;
 
-  if (strlen(arg) < 5)
+  if(strlen(arg) < 5)
   {
     SEND_TO_Q("Passwords must be at least 5 characters long.\r\n", d);
     return FALSE;
   }
   /* sure as I'm writing this code, some feeb will use one of my examples as a password. JAB */
 
-  if (!strncmp("HjuoB", arg, 5) || !strncmp("4ys-&c9", arg, 7) ||
+  if(!strncmp("HjuoB", arg, 5) || !strncmp("4ys-&c9", arg, 7) ||
       !strncmp("$s34567", arg, 7))
   {
     SEND_TO_Q
@@ -1888,7 +1237,7 @@ bool valid_password(P_desc d, char *arg)
   while (*(d->account->acct_name + i));
 #endif
 
-  if (strstr(name, password) || strstr(password, name))
+  if(strstr(name, password) || strstr(password, name))
   {
     SEND_TO_Q
       ("Don't even THINK about using your character's name as a password.\r\n",
@@ -1905,7 +1254,7 @@ bool valid_password(P_desc d, char *arg)
     other = other || !isalpha(*p);
   }
 
-  if ((!ucase || !lcase) && !other)
+  if((!ucase || !lcase) && !other)
   {
     SEND_TO_Q
       ("Valid passwords contain a mixture of upper and lowercase letters, or a mixture\r\n"
@@ -1919,7 +1268,7 @@ bool valid_password(P_desc d, char *arg)
 
 
 /*
- * Turn on echoing (sepcific to telnet client)
+ * Turn on echoing (specific to telnet client)
  * Turn on echoing after echo has been turned off by "echo_off".  This
  * function only works if the player is using a telnet client since
  * it sends it TELNET protocol sequence to turn echo on.  "sock" is
@@ -1981,7 +1330,7 @@ void perform_eq_wipe(P_char ch)
   // actually remove their eq!
   int i;
   for (i = 0; i < MAX_WEAR; i++)
-    if (ch->equipment[i])
+    if(ch->equipment[i])
       extract_obj(unequip_char(ch, i), TRUE);
 
   P_obj obj, obj2;
@@ -2013,21 +1362,21 @@ int alt_hometown_check(P_char ch, int room, int count)
   //int good_rooms[] = {95553,6074, 66001, 39310};
   //int evil_rooms[] = {11901, 15264, 97628, 36539, 17021};
 
-  //if (count > MAX_HT_ESCAPE) {
+  //if(count > MAX_HT_ESCAPE) {
   //  return room;
   //}
   //new_count = count + 1;
 
   //current_zone = &zone_table[world[room].zone];
 
-  //if (current_zone->status > ZONE_NORMAL) {
+  //if(current_zone->status > ZONE_NORMAL) {
   //  new_room = number(0,4);
-  //  if (EVIL_RACE(ch)) {
+  //  if(EVIL_RACE(ch)) {
   //    send_to_char("&+RThe town is currently under attack, &+Wyou are rushed to safety!\n", ch);
   //    return alt_hometown_check(ch, real_room(evil_rooms[new_room]), new_count);
   //  }
 
-  //  if (GOOD_RACE(ch)) {
+  //  if(GOOD_RACE(ch)) {
   //    send_to_char("&+RThe town is currently under attack, &+Wyou are rushed to safety!\n", ch);
   //    return alt_hometown_check(ch, real_room(good_rooms[new_room]), new_count);
   //  }
@@ -2039,21 +1388,21 @@ int alt_hometown_check(P_char ch, int room, int count)
 void schedule_pc_events(P_char ch)
 {
   add_event(event_autosave, 1200, ch, 0, 0, 0, 0, 0);
-  if (has_innate(ch, INNATE_HATRED))
+  if(has_innate(ch, INNATE_HATRED))
     add_event(event_hatred_check,
         get_property("innate.timer.hatred", WAIT_SEC),
         ch, 0, 0, 0, 0, 0);
-  if (GET_CHAR_SKILL(ch, SKILL_SMITE_EVIL))
+  if(GET_CHAR_SKILL(ch, SKILL_SMITE_EVIL))
     add_event(event_smite_evil,
         get_property("skill.timer.secs.smiteEvil", 5) * WAIT_SEC,
         ch, 0, 0, 0, 0, 0);
-  if (GET_RACE(ch) == RACE_HALFLING)
+  if(GET_RACE(ch) == RACE_HALFLING)
     add_event(event_halfling_check, 1, ch, 0, 0, 0, 0, 0);
 
-  if ( affected_by_spell(ch, SPELL_RIGHTEOUS_AURA) )
+  if(affected_by_spell(ch, SPELL_RIGHTEOUS_AURA))
     add_event(event_righteous_aura_check, WAIT_SEC, ch, 0, 0, 0, 0, 0);
 
-  if ( affected_by_spell(ch, SPELL_BLEAK_FOEMAN) )
+  if(affected_by_spell(ch, SPELL_BLEAK_FOEMAN))
     add_event(event_bleak_foeman_check, WAIT_SEC, ch, 0, 0, 0, 0, 0);
 }
 /*
@@ -2070,42 +1419,54 @@ void enter_game(P_desc d)
   int      mana_g;
   char     Gbuf1[MAX_STRING_LENGTH];
   P_char   ch = d->character;
+  P_desc   i;
   
-  if (GET_LEVEL(ch))
+  if(GET_LEVEL(ch))
   {
     ch->desc = d;
     reset_char(ch);
 
     cost = 0;
-    if ((d->rtype == RENT_CRASH) || (d->rtype == RENT_CRASH2))
+    if((d->rtype == RENT_CRASH) || (d->rtype == RENT_CRASH2))
     {
       send_to_char("\r\nRestoring items and pets from crash save info...\r\n",
                    ch);
       cost = restoreItemsOnly(ch, 100);
     }
-    else if (d->rtype == RENT_CAMPED)
+    else if(d->rtype == RENT_CAMPED)
     {
       send_to_char("\r\nYou break camp and get ready to move on...\r\n", ch);
       cost = restoreItemsOnly(ch, 0);
     }
-    else if (d->rtype == RENT_INN)
+    else if(d->rtype == RENT_INN)
     {
       send_to_char("\r\nRetrieving rented items from storage...\r\n", ch);
       cost = restoreItemsOnly(ch, 100);
     }
-    else if (d->rtype == RENT_LINKDEAD)
+    else if(d->rtype == RENT_LINKDEAD)
     {
       send_to_char("\r\nRetrieving items from linkdead storage...\r\n", ch);
       cost = restoreItemsOnly(ch, 200);
     }
-    else if (d->rtype == RENT_DEATH)
+    else if(d->rtype == RENT_DEATH)
     {
-      if (ch->only.pc->pc_timer[PC_TIMER_HEAVEN] > time(NULL))
+      if(ch->only.pc->pc_timer[PC_TIMER_HEAVEN] > time(NULL))
         send_to_char("\r\nYour soul finds its way to the afterlife...\r\n",
                      ch);
       else
         send_to_char("\r\nYou rejoin the land of the living...\r\n", ch);
       restoreItemsOnly(ch, 0);
+    }
+    else if(d->rtype == RENT_POOFARTI)
+    {
+      send_to_char("\r\nThe gods have taken your artifact...\r\n", ch);
+      cost = restoreItemsOnly(ch, 100);
+    }
+    else if(d->rtype == RENT_SWAPARTI)
+    {
+      send_to_char("\r\nThe gods have taken your artifact... and "
+	"replaced it with another!\r\n", ch);
+      cost = restoreItemsOnly(ch, 100);
     }
     else
     {
@@ -2113,7 +1474,7 @@ void enter_game(P_desc d)
                    ch);
     }
 
-  if (cost == -2)
+  if(cost == -2)
     {
       send_to_char
         ("\r\nSomething is wrong with your saved items information - "
@@ -2122,7 +1483,7 @@ void enter_game(P_desc d)
     /* to avoid problems if game is shutdown/crashed while they are in 'camp'
        mode, kill the affect if it's active here. */
 
-    if (IS_AFFECTED(ch, AFF_CAMPING))
+    if(IS_AFFECTED(ch, AFF_CAMPING))
       affect_from_char(ch, SKILL_CAMP);
 
     ch->specials.affected_by = 0;
@@ -2141,11 +1502,11 @@ void enter_game(P_desc d)
     //    clear_sacks(ch);
 
     /* this may fix the disguise not showing on who bug */
-    if (PLR_FLAGGED(ch, PLR_NOWHO))
+    if(PLR_FLAGGED(ch, PLR_NOWHO))
       PLR_TOG_CHK(ch, PLR_NOWHO);
 
     /* check mail
-       if (mail_ok && has_mail(GET_NAME(ch)))
+       if(mail_ok && has_mail(GET_NAME(ch)))
        send_to_char("&=LWMail awaits you at your local postoffice.&n\r\n", ch);
      */
 
@@ -2159,7 +1520,7 @@ void enter_game(P_desc d)
     heal_time = MAX(0, (time_gone - 120));
 
   
-    if (d->rtype != RENT_DEATH)
+    if(d->rtype != RENT_DEATH)
     {
       hit_g = BOUNDED(0, hit_regen(ch) * heal_time, 3000);
       mana_g = BOUNDED(0, mana_regen(ch) * heal_time, 3000);
@@ -2174,11 +1535,11 @@ void enter_game(P_desc d)
     GET_MANA(ch)     = BOUNDED(1, GET_MANA(ch) + mana_g, GET_MAX_MANA(ch));
     GET_VITALITY(ch) = BOUNDED(1, GET_VITALITY(ch) + move_g, GET_MAX_VITALITY(ch));
 
-    if (GET_HIT(ch) != GET_MAX_HIT(ch))
+    if(GET_HIT(ch) != GET_MAX_HIT(ch))
       StartRegen(ch, EVENT_HIT_REGEN);
-    if (GET_MANA(ch) != GET_MAX_MANA(ch))
+    if(GET_MANA(ch) != GET_MAX_MANA(ch))
       StartRegen(ch, EVENT_MANA_REGEN);
-    if (GET_VITALITY(ch) != GET_MAX_VITALITY(ch))
+    if(GET_VITALITY(ch) != GET_MAX_VITALITY(ch))
       StartRegen(ch, EVENT_MOVE_REGEN);
 
     set_char_size(ch);
@@ -2194,12 +1555,12 @@ void enter_game(P_desc d)
   character_list = ch;
   affect_total(ch, FALSE);
 
-  if ((d->rtype == RENT_QUIT && GET_LEVEL(ch) < 2) || d->rtype == RENT_DEATH)
+  if((d->rtype == RENT_QUIT && GET_LEVEL(ch) < 2) || d->rtype == RENT_DEATH)
   {
     /* defaults to birthplace on quit/death */
     r_room = real_room(GET_BIRTHPLACE(ch));
   }
-  else if (d->rtype == RENT_CRASH)
+  else if(d->rtype == RENT_CRASH)
   {
     r_room = real_room(ch->specials.was_in_room);
   }
@@ -2211,54 +1572,54 @@ void enter_game(P_desc d)
       r_room = ch->in_room;
   }
   
-  if (zone_table[world[r_room].zone].flags & ZONE_CLOSED)
+  if(zone_table[world[r_room].zone].flags & ZONE_CLOSED)
     r_room = real_room(GET_BIRTHPLACE(ch));
     
-  if (ch->only.pc->pc_timer[PC_TIMER_HEAVEN] > time(NULL))
+  if(ch->only.pc->pc_timer[PC_TIMER_HEAVEN] > time(NULL))
   {
-    if (IS_ILLITHID(ch))
+    if(IS_ILLITHID(ch))
       r_room = real_room(ILLITHID_HEAVEN_ROOM);
-    else if (GOOD_RACE(ch))
+    else if(GOOD_RACE(ch))
       r_room = real_room(GOOD_HEAVEN_ROOM);
-    else if (PUNDEAD_RACE(ch))
+    else if(PUNDEAD_RACE(ch))
       r_room = real_room(UNDEAD_HEAVEN_ROOM);
-    else if (EVIL_RACE(ch))
+    else if(EVIL_RACE(ch))
       r_room = real_room(EVIL_HEAVEN_ROOM);
     else
       r_room = real_room(ILLITHID_HEAVEN_ROOM);
   }
 
-  if (r_room == NOWHERE)
+  if(r_room == NOWHERE)
   {
-    if (GET_HOME(ch))
+    if(GET_HOME(ch))
       r_room = real_room(GET_HOME(ch));
     else
       r_room = real_room(GET_BIRTHPLACE(ch));
 
-    if (r_room == NOWHERE)
-      if (IS_TRUSTED(ch))
+    if(r_room == NOWHERE)
+      if(IS_TRUSTED(ch))
         r_room = real_room0(1200);
       else
         r_room = GET_ORIG_BIRTHPLACE(ch);
 
-    if (r_room == NOWHERE)
+    if(r_room == NOWHERE)
       r_room = real_room0(11);
   }
   // old guildhalls (deprecated)
-//  else if (world[r_room].number >= 48000 &&
+//  else if(world[r_room].number >= 48000 &&
 //           world[r_room].number <= 48999 &&
 //           find_house(world[r_room].number) == NULL)
 //  {
 //    GET_HOME(ch) = GET_BIRTHPLACE(ch) = GET_ORIG_BIRTHPLACE(ch);
 //    r_room = real_room(GET_HOME(ch));
 //  }
-  else if (world[r_room].number >= SHIP_ZONE_START &&
+  else if(world[r_room].number >= SHIP_ZONE_START &&
            world[r_room].number <= SHIP_ZONE_END)
   {
     r_room = real_room(GET_BIRTHPLACE(ch));
   }
 
-  if (r_room > top_of_world)
+  if(r_room > top_of_world)
     r_room = real_room(11);
 
   // check home/birthplace/spawn room to see if it's in a GH and if ch is allowed
@@ -2272,7 +1633,7 @@ void enter_game(P_desc d)
 
   update_member(ch, 1);
 
-  if (IS_MEMBER(GET_A_BITS(ch)))
+  if(IS_MEMBER(GET_A_BITS(ch)))
   {
     do_gmotd(ch, "", 0);
   }
@@ -2280,10 +1641,10 @@ void enter_game(P_desc d)
   /* check the fraglist .. */
 
   checkFragList(ch);
-  if (!ch->player.short_descr)
+  if(!ch->player.short_descr)
     generate_desc(ch);
 
-  if (!ch->player.name)
+  if(!ch->player.name)
   {
     wizlog(57,
            "&+WSomething fucked up with character name. Tell a coder immediately!&n");
@@ -2293,7 +1654,7 @@ void enter_game(P_desc d)
     STATE(d) = CON_FLUSH;
   }
 
-  if (!d->host)
+  if(!d->host)
   {
     wizlog(57, "%s had null host.", GET_NAME(ch));
     sprintf(d->host, "UNKNOWN \0");
@@ -2301,22 +1662,19 @@ void enter_game(P_desc d)
 
   ch->only.pc->last_ip = ip2ul(d->host);
   
-  if (!d->login)
+  if(!d->login)
   {
     wizlog(57, "%s had null login.", GET_NAME(ch));
     sprintf(d->login, "UNKNOWN \0");
   }
 
-  if (IS_TRUSTED(ch))
+  if(IS_TRUSTED(ch))
   {
-/*
-   ch->only.pc->wiz_invis = MIN(59,GET_LEVEL(ch) - 1);
- */
-    ch->only.pc->wiz_invis = 56;
-    do_vis(ch, 0, -4);          /* remind them of vis level */
+     ch->only.pc->wiz_invis = GET_LEVEL(ch);
+     do_vis(ch, 0, -4);          /* remind them of vis level */
   }
 
-  if (d->rtype == RENT_DEATH)
+  if(d->rtype == RENT_DEATH)
   {
     act("$n has returned from the dead.", TRUE, ch, 0, 0, TO_ROOM);
     GET_COND(ch, FULL) = -1;
@@ -2327,41 +1685,64 @@ void enter_game(P_desc d)
     act("$n has entered the game.", TRUE, ch, 0, 0, TO_ROOM);
 
   // inform gods that a newbie has entered the game
-  if( IS_NEWBIE(ch)) {
-    statuslog(ch->player.level, "&+GNEWBIE %s HAS ENTERED THE GAME! Help him out :) ", GET_NAME(ch));
+  if(IS_NEWBIE(ch))
+  {
+     statuslog(ch->player.level, "&+GNEWBIE %s HAS ENTERED THE GAME! Help him out :) ", GET_NAME(ch));
+     // Message to guides.
+    sprintf( Gbuf1, "&+GNEWBIE %s HAS ENTERED THE GAME! Help him out :)\n", 
+      GET_NAME(ch));
+
+    for (i = descriptor_list; i; i = i->next)
+    {
+      if(i->connected)
+        continue;
+
+      if( opposite_racewar( ch, i->character ) )
+        continue;
+      if(!IS_SET(i->character->specials.act2, PLR2_NCHAT))
+        continue;
+      if(!IS_SET(PLR2_FLAGS(i->character), PLR2_NEWBIE_GUIDE))
+        continue;
+      if(IS_DISGUISE_PC(i->character) ||
+        IS_DISGUISE_ILLUSION(i->character) ||
+        IS_DISGUISE_SHAPE(i->character))
+        continue;
+
+      send_to_char(Gbuf1, i->character, LOG_PRIVATE);
+    }
   }
-  
-  if (!GET_LEVEL(ch))
+
+  if(!GET_LEVEL(ch))
   {
     do_start(ch, 0);
     load_obj_to_newbies(ch);
     set_town_flag_justice(ch, TRUE);
   }
-  else if (IS_SET(ch->specials.act2, PLR2_NEWBIEEQ) && !ch->carrying)
+  else if(IS_SET(ch->specials.act2, PLR2_NEWBIEEQ) && !ch->carrying)
     load_obj_to_newbies(ch);
 
   // hack to handle improperly set highest_level
-  if( ch->only.pc->highest_level > MAXLVL )
+  if(ch->only.pc->highest_level > MAXLVL)
   {
     ch->only.pc->highest_level = GET_LEVEL(ch);
   }    
   
-  if (time_gone > 1)
+  if(time_gone > 1)
   {
     strcpy(Gbuf1, "  (MIA: ");
-    if (time_gone > 10080)
+    if(time_gone > 10080)
       sprintf(Gbuf1 + strlen(Gbuf1), "%d week%s, ",
               (int) (time_gone / 10080),
               ((time_gone / 10080) > 1) ? "s" : "");
-    if ((time_gone % 10080) > 1440)
+    if((time_gone % 10080) > 1440)
       sprintf(Gbuf1 + strlen(Gbuf1), "%d day%s, ",
               (int) ((time_gone % 10080) / 1440),
               (((time_gone % 10080) / 1440) > 1) ? "s" : "");
-    if ((time_gone % 1440) > 60)
+    if((time_gone % 1440) > 60)
       sprintf(Gbuf1 + strlen(Gbuf1), "%d hour%s, ",
               (int) (time_gone % 1440) / 60,
               (((time_gone % 1440) / 60) > 1) ? "s" : "");
-    if (time_gone % 60)
+    if(time_gone % 60)
       sprintf(Gbuf1 + strlen(Gbuf1), "%d minute%s, ",
               (int) (time_gone % 60), ((time_gone % 60) > 1) ? "s" : "");
     Gbuf1[strlen(Gbuf1) - 2] = ')';
@@ -2382,16 +1763,16 @@ void enter_game(P_desc d)
 //  /* multiplay check */
 //  for (P_desc k = descriptor_list; k; k = k->next)
 //  {
-//    if( d == k || !k->character )
+//    if(d == k || !k->character)
 //      continue;
 //    
-//    if (k->connected == CON_PLYNG && d->host && k->host && !str_cmp(d->host, k->host) )
+//    if(k->connected == CON_PLYNG && d->host && k->host && !str_cmp(d->host, k->host))
 //    {
 //      logit(LOG_STATUS, "%s and %s are logged in from the same IP address",
 //            d->character->player.name, k->character->player.name);
 //      sql_log(d->character, PLAYERLOG, "%s and %s logged in from same IP address", d->character->player.name, k->character->player.name);
 //
-//      if( d->character->in_room != k->character->in_room )
+//      if(d->character->in_room != k->character->in_room)
 //      {
 //        wizlog(AVATAR, "%s and %s are logged in from the same IP address but not in the same room",
 //               d->character->player.name, k->character->player.name);
@@ -2404,7 +1785,7 @@ void enter_game(P_desc d)
   /* clean up justice goofs */
   /* ignore linkdead, camp, quit from fixing, to avoid clearing
      cheaters. We dont care about rent, since there is no inn in jail */
-  if (d->rtype != RENT_QUIT && d->rtype != RENT_LINKDEAD &&
+  if(d->rtype != RENT_QUIT && d->rtype != RENT_LINKDEAD &&
       d->rtype != RENT_CAMPED && (CHAR_IN_TOWN(ch)))
   {
     while ((crec = crime_find(hometowns[CHAR_IN_TOWN(ch) - 1].crime_list,
@@ -2413,7 +1794,7 @@ void enter_game(P_desc d)
     {
       crec->crime = CRIME_NONE;
       crec->status = J_STATUS_DELETED;
-      if (ch->in_room == real_room(hometowns[CHAR_IN_TOWN(ch) - 1].jail_room))
+      if(ch->in_room == real_room(hometowns[CHAR_IN_TOWN(ch) - 1].jail_room))
       {
         char_from_room(ch);
         char_to_room(ch, GET_BIRTHPLACE(ch), -1);
@@ -2426,7 +1807,7 @@ void enter_game(P_desc d)
   // setbit hardcore  off
   REMOVE_BIT(ch->specials.act2, PLR2_HARDCORE_CHAR);
   // if not trusted, make sure they are level 55
-  if (GET_LEVEL(ch) == 53)
+  if(GET_LEVEL(ch) == 53)
   {
     ch->player.level = 52;  // so they are raised one level, which will fix skills
   }
@@ -2434,16 +1815,16 @@ void enter_game(P_desc d)
   // changing this to conform with Kitsero's version of chaos
   while (GET_LEVEL(ch) < 53)
   {
-    advance_level(ch);
+    advance_level(ch, TRUE);
   }
 #endif
 
   // chaos - level them up, and setbit hardcore off them!
-#if defined(CHAOS_MUD) && (CHAOS_MUD == 1)
+#if defined(CHAOS_MUD) && (CHAOS_MUD == 1) && (CTF_MUD == 0)
   // setbit hardcore  off
   REMOVE_BIT(ch->specials.act2, PLR2_HARDCORE_CHAR);
   // if not trusted, make sure they are level 55
-  if (GET_LEVEL(ch) == 56)
+  if(GET_LEVEL(ch) == 56)
   {
     ch->player.level = 54;  // so they are raised one level, which will fix skills
   }
@@ -2451,7 +1832,7 @@ void enter_game(P_desc d)
   // changing this to conform with Kitsero's version of chaos
   while (GET_LEVEL(ch) < 56)
   {
-    advance_level(ch);
+    advance_level(ch, TRUE);
   }
 #endif
 
@@ -2466,21 +1847,19 @@ void enter_game(P_desc d)
   
   if(IS_SET(ch->specials.act, PLR_SMARTPROMPT))
      REMOVE_BIT(ch->specials.act, PLR_SMARTPROMPT);     
-  //if (IS_SET(ch->specials.act, PLR_SMARTPROMPT) && IS_ANSI_TERM(d))
+  //if(IS_SET(ch->specials.act, PLR_SMARTPROMPT) && IS_ANSI_TERM(d))
   //  InitScreen(ch);
 
   schedule_pc_events(ch);
 
-//  play_sound(SOUND_START_GAME, ch, 0, TO_CHAR);
-
-  if (EVIL_RACE(ch) && PLR_FLAGGED(ch, PLR_NOWHO))
+  if(EVIL_RACE(ch) && PLR_FLAGGED(ch, PLR_NOWHO))
   {
     PLR_TOG_CHK(ch, PLR_NOWHO);
   }
 
   struct affected_type *af;
 
-  if ((af = get_spell_from_char(ch, TAG_RACE_CHANGE)) != NULL)
+  if((af = get_spell_from_char(ch, TAG_RACE_CHANGE)) != NULL)
   {
     ch->player.race = af->modifier;
     affect_remove(ch, af);
@@ -2496,7 +1875,7 @@ void enter_game(P_desc d)
   {
     REMOVE_BIT(ch->specials.act, PLR_ANONYMOUS);
   }
-  
+#if 0 // may have nixed the need for this with the skill system update - Jexni 5/21/12  
   memset(&af1, 0, sizeof(af1));
   af1.type = TAG_SKILL_TIMER;
   af1.flags = AFFTYPE_STORE | AFFTYPE_SHORT;
@@ -2507,7 +1886,7 @@ void enter_game(P_desc d)
 
   af1.modifier = TAG_PHYS_SKILL_NOTCH;
   affect_to_char(ch, &af1);
-  
+#endif
   initialize_logs(ch, true);
 
   send_offline_messages(ch);
@@ -2519,11 +1898,11 @@ void select_terminal(P_desc d, char *arg)
   int      temp = 1;
   char     temp_buf[200];
 
-  if ((term = (int) strtol(arg, NULL, 0)) == 0)
+  if((term = (int) strtol(arg, NULL, 0)) == 0)
   {
-    if (*arg == '?')
+    if(*arg == '?')
       term = TERM_HELP;
-    else if (!*arg)             /* carriage return */
+    else if(!*arg)             /* carriage return */
       term = TERM_ANSI;
     else
       term = TERM_UNDEFINED;
@@ -2609,10 +1988,10 @@ bool pfile_exists(const char *dir, char *name)
   for (; *buff; buff++)
     *buff = LOWER(*buff);
   sprintf(Gbuf1, "%s/%c/%s", dir, buf[0], buf);
-  if (stat(Gbuf1, &statbuf) != 0)
+  if(stat(Gbuf1, &statbuf) != 0)
   {
     sprintf(Gbuf1, "%s/%c/%s", dir, buf[0], name);
-    if (stat(Gbuf1, &statbuf) != 0)
+    if(stat(Gbuf1, &statbuf) != 0)
       return FALSE;
   }
   return TRUE;
@@ -2656,7 +2035,7 @@ void select_name(P_desc d, char *arg, int flag)
   int      i = 1;
 
   for (; isspace(*arg); arg++) ;
-  if (!*arg)
+  if(!*arg)
   {
 	SEND_TO_Q("Illegal name, please try another.\r\n", d);
 	SEND_TO_Q("Name: ", d);
@@ -2664,7 +2043,7 @@ void select_name(P_desc d, char *arg, int flag)
   //  close_socket(d);
     return;
   }
-  if (_parse_name(arg, tmp_name))
+  if(_parse_name(arg, tmp_name))
   {
     SEND_TO_Q("Illegal name, please try another.\r\n", d);
     SEND_TO_Q("Name: ", d);
@@ -2673,7 +2052,7 @@ void select_name(P_desc d, char *arg, int flag)
   else
   {
     for (t_d = descriptor_list; t_d; t_d = t_d->next)
-      if ((t_d != d) && t_d->character && t_d->connected &&
+      if((t_d != d) && t_d->character && t_d->connected &&
           !str_cmp(tmp_name, GET_NAME(t_d->character)))
       {
         close_socket(t_d);
@@ -2692,11 +2071,11 @@ void select_name(P_desc d, char *arg, int flag)
   *tmp_name = toupper(*tmp_name);
 
   /* first time through here?  If so, let's latch on a character struct */
-  if (!d->character)
+  if(!d->character)
   {
     d->character = (struct char_data *) mm_get(dead_mob_pool);
     clear_char(d->character);
-    if (!dead_pconly_pool)
+    if(!dead_pconly_pool)
       dead_pconly_pool = mm_create("PC_ONLY",
                                    sizeof(struct pc_only_data),
                                    offsetof(struct pc_only_data, switched),
@@ -2712,7 +2091,7 @@ void select_name(P_desc d, char *arg, int flag)
   }
   /* get passwd */
 
-  if (isname("generate", tmp_name))
+  if(isname("generate", tmp_name))
   {
     SEND_TO_Q("\nI'd suggest one of the following names for you:\n\n", d);
     while (i < 13)
@@ -2720,11 +2099,11 @@ void select_name(P_desc d, char *arg, int flag)
       get_name(tmp_name);
       SEND_TO_Q("&+W", d);
       SEND_TO_Q(tmp_name, d);
-      if (i < 12)
+      if(i < 12)
         SEND_TO_Q("&n, ", d);
       else
         SEND_TO_Q(".", d);
-      if (i == 4 || i == 8)
+      if(i == 4 || i == 8)
         SEND_TO_Q("\n", d);
       i++;
     }
@@ -2735,7 +2114,7 @@ void select_name(P_desc d, char *arg, int flag)
 
   }
 
-  if (!pfile_exists("Players", tmp_name) &&
+  if(!pfile_exists("Players", tmp_name) &&
       pfile_exists("Players/Declined", tmp_name))
   {
     SEND_TO_Q
@@ -2744,9 +2123,9 @@ void select_name(P_desc d, char *arg, int flag)
     return;
   }
 
-  if (flag)
+  if(flag)
   {
-    if ((d->rtype = restorePasswdOnly(d->character, tmp_name)) >= 0)
+    if((d->rtype = restorePasswdOnly(d->character, tmp_name)) >= 0)
     {
 
       /* legal name for existing character */
@@ -2755,13 +2134,13 @@ void select_name(P_desc d, char *arg, int flag)
       echo_off(d);
       return;
     }
-    else if (d->rtype == -2)
+    else if(d->rtype == -2)
     {
       /* player file exists, but there is a problem reading it */
       SEND_TO_Q
         ("Seems to be a problem reading that player file.  Please choose another\r\n"
          "name and report this problem to an Immortal.\r\n\r\n", d);
-      if (d->character)
+      if(d->character)
       {
         free_char(d->character);
         d->character = NULL;
@@ -2770,12 +2149,12 @@ void select_name(P_desc d, char *arg, int flag)
       return;
     }
   }
-  else if (pfile_exists("Players", tmp_name))
+  else if(pfile_exists("Players", tmp_name))
   {
     SEND_TO_Q("Name is in use already. Please enter new name.\r\nName:", d);
     return;
   }
-  else if (pfile_exists("Players/Declined", tmp_name))
+  else if(pfile_exists("Players/Declined", tmp_name))
   {
     SEND_TO_Q
       ("That name has been declined before, and would be now too!\r\nName:",
@@ -2783,9 +2162,9 @@ void select_name(P_desc d, char *arg, int flag)
     return;
   }
   /* new player */
-  if (IS_SET(game_locked, LOCK_CREATE) || !strcmp(get_mud_info("lock").c_str(), "create"))
+  if(IS_SET(game_locked, LOCK_CREATE) || !strcmp(get_mud_info("lock").c_str(), "create"))
   {
-    if (!flag && d->character)
+    if(!flag && d->character)
     {
       free_char(d->character);
       d->character = NULL;
@@ -2794,7 +2173,7 @@ void select_name(P_desc d, char *arg, int flag)
     STATE(d) = CON_NME;
     return;
   }
-  else if (bannedsite(d->host, 1))
+  else if(bannedsite(d->host, 1))
   {
     SEND_TO_Q
       ("New characters have been banned from your site. If you want the ban lifted\r\n"
@@ -2806,7 +2185,7 @@ void select_name(P_desc d, char *arg, int flag)
     STATE(d) = CON_NME;
     return;
   }
-  else if ((IS_SET(game_locked, LOCK_CONNECTIONS)) ||
+  else if((IS_SET(game_locked, LOCK_CONNECTIONS)) ||
            ((IS_SET(game_locked, LOCK_MAX_PLAYERS)) &&
             (number_of_players() >= MAX_PLAYERS_BEFORE_LOCK)))
   {
@@ -2817,7 +2196,7 @@ void select_name(P_desc d, char *arg, int flag)
   else
   {
 
-    if (flag)
+    if(flag)
     {
       d->character->player.name = str_dup(tmp_name);
       sprintf(Gbuf1, "You wish to be known as %s (Y/N)? ", tmp_name);
@@ -2846,14 +2225,14 @@ P_char find_ch_from_same_host(P_desc d)
   // first, run through descriptor list to see if they are connected
   for (P_desc k = descriptor_list; k; k = k->next)
   {
-    if( d == k || !k->character )
+    if(d == k || !k->character)
       continue;
     
-    if (k->connected == CON_PLYNG && 
+    if(k->connected == CON_PLYNG && 
         d->character != k->character && 
         !IS_TRUSTED(k->character) && 
         d->host && k->host && 
-        !str_cmp(d->host, k->host) )
+        !str_cmp(d->host, k->host))
     {
       // ch connected from same host
       return k->character;
@@ -2863,11 +2242,11 @@ P_char find_ch_from_same_host(P_desc d)
   // next, run through character list to make sure they didn't just drop link  
   for (P_char tmp_ch = character_list; tmp_ch; tmp_ch = tmp_ch->next)
   {
-    if (!tmp_ch->desc && 
+    if(!tmp_ch->desc && 
         IS_PC(tmp_ch) && 
         str_cmp(GET_NAME(tmp_ch), GET_NAME(d->character)) &&
         !IS_TRUSTED(tmp_ch) && 
-        tmp_ch->only.pc->last_ip == ip2ul(d->host) )
+        tmp_ch->only.pc->last_ip == ip2ul(d->host))
     {
       return tmp_ch;
     }
@@ -2878,14 +2257,14 @@ P_char find_ch_from_same_host(P_desc d)
 
 bool is_multiplaying(P_desc d)
 {
-  if( IS_TRUSTED(d->character) )
+  if(IS_TRUSTED(d->character))
   {
     return false;
   }
   
-  if (P_char t_ch = find_ch_from_same_host(d))
+  if(P_char t_ch = find_ch_from_same_host(d))
   {
-    if (whitelisted_host(d->host))
+    if(whitelisted_host(d->host))
     {
       wizlog(AVATAR, "%s on multiplay whitelist, entering game.", GET_NAME(d->character));
       sql_log(d->character, PLAYERLOG, "On multiplay whitelist, entering game.");
@@ -2935,9 +2314,9 @@ void reconnect(P_desc d, P_char tmp_ch)
   sql_log(d->character, CONNECTLOG, "Reconnected");
   /* if they were morph'ed when they lost link, put them
    back... */
-  if (IS_SET(tmp_ch->specials.act, PLR_MORPH))
+  if(IS_SET(tmp_ch->specials.act, PLR_MORPH))
   {
-    if (!tmp_ch->only.pc->switched ||
+    if(!tmp_ch->only.pc->switched ||
         !IS_MORPH(tmp_ch->only.pc->switched) ||
     /*              (tmp_ch != ((P_char)
      tmp_ch->only.pc->switched->only.npc->memory))) */
@@ -2959,25 +2338,26 @@ void select_pwd(P_desc d, char *arg)
   P_char   tmp_ch;
   P_desc   k;
   char     Gbuf1[MAX_STRING_LENGTH];
+  char buf[MAX_INPUT_LENGTH];
 
   switch (STATE(d))
   {
 
     /* password for existing player */
   case CON_PWDNRM:
-    if (!*arg)
+    if(!*arg)
     {
       close_socket(d);
     }
     else
     {
-      if (strn_cmp
+      if(strn_cmp
           (CRYPT(arg, d->character->only.pc->pwd), d->character->only.pc->pwd,
-           10))
+           39))
       {
         SEND_TO_Q("Invalid password.\r\n", d);
         SEND_TO_Q("Invalid password ... disconnecting.\r\n", d);
-        if (!IS_TRUSTED(d->character))
+        if(!IS_TRUSTED(d->character))
         {
           logit(LOG_PLAYER, "Invalid password for %s from %s@%s.",
                 GET_NAME(d->character), d->login, d->host);
@@ -2990,11 +2370,11 @@ void select_pwd(P_desc d, char *arg)
       /* Check if already playing */
       for (k = descriptor_list; k; k = k->next)
       {
-        if ((k->character != d->character) && k->character)
+        if((k->character != d->character) && k->character)
         {
-          if (k->original)
+          if(k->original)
           {
-            if (GET_NAME(k->original) &&
+            if(GET_NAME(k->original) &&
                 (!str_cmp(GET_NAME(k->original), GET_NAME(d->character))))
             {
               SEND_TO_Q("Overriding old connection...\r\n", d);
@@ -3003,7 +2383,7 @@ void select_pwd(P_desc d, char *arg)
           }
           else
           {                     /* No switch has been made */
-            if (GET_NAME(k->character) &&
+            if(GET_NAME(k->character) &&
                 (!str_cmp(GET_NAME(k->character), GET_NAME(d->character))))
             {
               SEND_TO_Q("Overriding old connection...\r\n", d);
@@ -3015,7 +2395,7 @@ void select_pwd(P_desc d, char *arg)
 
       for (tmp_ch = character_list; tmp_ch; tmp_ch = tmp_ch->next)
       {
-        if (!tmp_ch->desc && IS_PC(tmp_ch) &&
+        if(!tmp_ch->desc && IS_PC(tmp_ch) &&
             !str_cmp(GET_NAME(d->character), GET_NAME(tmp_ch)))
         {          
           reconnect(d, tmp_ch);
@@ -3023,13 +2403,13 @@ void select_pwd(P_desc d, char *arg)
         }
       }
       
-      if ((d->rtype =
+      if((d->rtype =
            restoreCharOnly(d->character, GET_NAME(d->character))) >= 0)
       {
 
         /* by reserving the last available socket for an immort, gods should
            almost always be able to connect.  JAB */
-        if ((used_descs >= avail_descs) && (GET_LEVEL(d->character) < AVATAR))
+        if((used_descs >= avail_descs) && (GET_LEVEL(d->character) < AVATAR))
         {
           SEND_TO_Q
             ("Sorry, the game is almost full and the last slot is reserved...\r\n",
@@ -3038,13 +2418,13 @@ void select_pwd(P_desc d, char *arg)
           return;
         }
       }
-      else if (d->rtype == -2)
+      else if(d->rtype == -2)
       {
         /* player file exists, but there is a problem reading it */
         SEND_TO_Q
           ("Seems to be a problem reading that player file.  Please choose another\r\n"
            "name and report this problem to an Immortal.\r\n\r\n", d);
-        if (d->character)
+        if(d->character)
         {
           free_char(d->character);
           d->character = NULL;
@@ -3053,7 +2433,7 @@ void select_pwd(P_desc d, char *arg)
         return;
       }
       
-      if ((IS_SET(game_locked, LOCK_CONNECTIONS)) &&
+      if((IS_SET(game_locked, LOCK_CONNECTIONS)) &&
           (GET_LEVEL(d->character) <= MAXLVLMORTAL))
       {
         SEND_TO_Q("\r\nGame is temporarily closed to additional players.\r\n",
@@ -3063,7 +2443,7 @@ void select_pwd(P_desc d, char *arg)
         return;
       }
       
-      if ((IS_SET(game_locked, LOCK_MAX_PLAYERS)) &&
+      if((IS_SET(game_locked, LOCK_MAX_PLAYERS)) &&
           (GET_LEVEL(d->character) <= MAXLVLMORTAL) &&
           (number_of_players() >= MAX_PLAYERS_BEFORE_LOCK))
       {
@@ -3076,19 +2456,19 @@ void select_pwd(P_desc d, char *arg)
       }
 
       // multiplay check: if the user already has another character in game, don't let them connect a new character
-      if( is_multiplaying(d) )
+     /* if(is_multiplaying(d))
       {
         STATE(d) = CON_FLUSH;
         return;
-      }
+      }*/
       
       logit(LOG_COMM, "%s [%s@%s] has connected.", GET_NAME(d->character),
             d->login, d->host);
       sql_log(d->character, CONNECTLOG, "Connected");
 
-      if (GET_LEVEL(d->character) > MAXLVLMORTAL)
+      if(GET_LEVEL(d->character) > MAXLVLMORTAL)
       {
-        if (!wizconnectsite(d->host, GET_NAME(d->character), 0))
+        if(!wizconnectsite(d->host, GET_NAME(d->character), 0))
         {
           wizlog(AVATAR, "WARNING: %s connected from an invalid site: %s",
                  GET_NAME(d->character), d->host);
@@ -3113,7 +2493,7 @@ void select_pwd(P_desc d, char *arg)
     /* password for a new player */
   case CON_PWDGET:
     echo_on(d);
-    if (!valid_password(d, arg))
+    if(!valid_password(d, arg))
     {
       sprintf(Gbuf1, "Please enter a password for %s: ",
               GET_NAME(d->character));
@@ -3121,9 +2501,13 @@ void select_pwd(P_desc d, char *arg)
       echo_off(d);
       return;
     }
-    strncpy(d->character->only.pc->pwd, CRYPT(arg, d->character->player.name),
-            10);
-    *(d->character->only.pc->pwd + 10) = '\0';
+
+    // This changes to a better encryption and uses the whole password.
+    sprintf( buf, "$1$" );
+    strcat( buf, d->character->player.name );
+
+    strncpy(d->character->only.pc->pwd, CRYPT(arg, buf), 39);
+    *(d->character->only.pc->pwd + 40) = '\0';
     echo_on(d);
     SEND_TO_Q("\r\nPlease retype password: ", d);
     echo_off(d);
@@ -3133,9 +2517,9 @@ void select_pwd(P_desc d, char *arg)
 
     /* confirmation of new password */
   case CON_PWDCNF:
-    if (strn_cmp
+    if(strn_cmp
         (CRYPT(arg, d->character->only.pc->pwd), d->character->only.pc->pwd,
-         10))
+         40))
     {
       echo_on(d);
       sprintf(Gbuf1,
@@ -3147,8 +2531,6 @@ void select_pwd(P_desc d, char *arg)
       return;
     }
     echo_on(d);
-
-	// send to "are you a newbie on duris?" question
 	SEND_TO_Q("\r\nAre you new to the World of Duris? (y/n) ", d);
 	STATE(d) = CON_NEWBIE;
 /*    SEND_TO_Q(racetable, d);
@@ -3157,9 +2539,9 @@ void select_pwd(P_desc d, char *arg)
 
     /* new password for an existing player */
   case CON_PWDNEW:
-    if (strn_cmp
+    if(strn_cmp
         (CRYPT(arg, d->character->only.pc->pwd), d->character->only.pc->pwd,
-         10))
+         39))
     {
       echo_on(d);
       SEND_TO_Q("\r\nInvalid password, password change aborted.\r\n", d);
@@ -3176,15 +2558,20 @@ void select_pwd(P_desc d, char *arg)
     /* Retype new pw when changing */
   case CON_PWDNGET:
     echo_on(d);
-    if (!valid_password(d, arg))
+    if(!valid_password(d, arg))
     {
       SEND_TO_Q("\r\nPassword: ", d);
       echo_off(d);
       return;
     }
-    strncpy(d->character->only.pc->pwd, CRYPT(arg, d->character->player.name),
-            10);
-    *(d->character->only.pc->pwd + 10) = '\0';
+
+    // This changes to a better encryption and uses the whole password.
+    sprintf( buf, "$1$" );
+    strcat( buf, d->character->player.name );
+
+    strncpy(d->character->only.pc->pwd, CRYPT(arg, buf), 39);
+
+    *(d->character->only.pc->pwd + 40) = '\0';
     echo_on(d);
     SEND_TO_Q("\r\nPlease retype your new password: ", d);
     echo_off(d);
@@ -3194,9 +2581,9 @@ void select_pwd(P_desc d, char *arg)
     /* Confirm pw for changing pw */
   case CON_PWDNCNF:
     echo_on(d);
-    if (strn_cmp
+    if(strn_cmp
         (CRYPT(arg, d->character->only.pc->pwd), d->character->only.pc->pwd,
-         10))
+         39))
     {
       SEND_TO_Q("\r\nPasswords don't match.\r\nPassword change aborted\r\n",
                 d);
@@ -3212,15 +2599,15 @@ void select_pwd(P_desc d, char *arg)
 
     STATE(d) = CON_SLCT;
     SEND_TO_Q(MENU, d);
-    if (d->rtype > 20)
+    if(d->rtype > 20)
       d->rtype -= 20;           /* let them off the hook (for an expired password).  JAB */
     break;
 
     /* Confirm pw for deleting character */
   case CON_PWDDCNF:
-    if (strn_cmp
+    if(strn_cmp
         (CRYPT(arg, d->character->only.pc->pwd), d->character->only.pc->pwd,
-         10))
+         39))
     {
       echo_on(d);
       SEND_TO_Q("\r\nInvalid password, character delete aborted.\r\n", d);
@@ -3252,7 +2639,7 @@ void select_main_menu(P_desc d, char *arg)
   /* a little chicanery to force them to enter a valid password.  If they are in in CON_SLCT with a d->rtype
      greater than 20 (6 is normal max), they have to do the 'change password' thing.  JAB */
 
-  if (d->rtype > 20)
+  if(d->rtype > 20)
   {
     SEND_TO_Q
       ("Your password has been expired.  Please enter your current password:",
@@ -3268,7 +2655,7 @@ void select_main_menu(P_desc d, char *arg)
     close_socket(d);
     break;
   case '1':                    /* enter game */
-    if( is_multiplaying(d) )
+    if(is_multiplaying(d))
     {
       break;
     }
@@ -3294,7 +2681,7 @@ void select_main_menu(P_desc d, char *arg)
        is checked for, and STATE changed in string_add() in modify.c */
     SEND_TO_Q("\r\nEnter your new description.\r\n\r\n", d);
     SEND_TO_Q("(/s saves /h for help)\r\n", d);
-    if (d->character->player.description)
+    if(d->character->player.description)
     {
       SEND_TO_Q("Current description:\r\n", d);
       SEND_TO_Q(d->character->player.description, d);
@@ -3316,7 +2703,7 @@ void select_main_menu(P_desc d, char *arg)
     STATE(d) = CON_EXDSCR;
     break;
   case '5':                    /* delete char */
-    if (GET_LEVEL(d->character) > 40)
+    if(GET_LEVEL(d->character) > 40)
     {
       SEND_TO_Q("Nope, i'm 2 tired to restore you, soo you're not..\r\n", d);
       SEND_TO_Q(MENU, d);
@@ -3430,7 +2817,7 @@ void select_sex(P_desc d, char *arg)
   }
 
   /*
-	if( !IS_NEWBIE(d->character)) {
+	if(!IS_NEWBIE(d->character)) {
 	  SEND_TO_Q
 	    ("\r\n\r\nDo you want to play hardcore? Hardcore char can only die 5 times, then it's gone for ever.\r\n",
 	     d);
@@ -3463,15 +2850,15 @@ void select_race(P_desc d, char *arg)
   /*
    ** Since we have turned off echoing for telnet client,
    ** if a telnet client is indeed used, we need to skip the
-   ** initial 5 bytes ( -1, -4, 1, 13, 0 ) if they are sent back by
+   ** initial 5 bytes ( -1, -4, 1, 13, 0) if they are sent back by
    ** client program.
    */
-  if (*arg == -1)
+  if(*arg == -1)
   {
-    if ((arg[1] != '0') && (arg[2] != '0') && (arg[3] != '0') &&
+    if((arg[1] != '0') && (arg[2] != '0') && (arg[3] != '0') &&
         (arg[4] != '0'))
     {
-      if (arg[5] == '0')
+      if(arg[5] == '0')
       {
         STATE(d) = CON_QRACE;
         return;
@@ -3552,23 +2939,19 @@ void select_race(P_desc d, char *arg)
   case 'T':
     strcpy(Gbuf, "SWAMP TROLL");
     break;
-  /*
-  case 'f':
+/*  case 'f':
     GET_RACE(d->character) = RACE_HALFELF;
     break;
   case 'F':
     strcpy(Gbuf, "HALF ELF");
     break;
-    */
-/*  
   case 'i':
     GET_RACE(d->character) = RACE_PILLITHID;
     break;
   case 'I':
     strcpy(Gbuf, "ILLITHID");
     break;
-    */
-    /*   case 'i':
+       case 'i':
        GET_RACE(d->character) = RACE_ILLITHID;
        break;
        case 'I':                                     REMOVED ILLITHIDS
@@ -3593,42 +2976,45 @@ void select_race(P_desc d, char *arg)
   case 'K':
     strcpy(Gbuf, "THRI-KREEN");
     break;
-
   case 'n':
     GET_RACE(d->character) = RACE_GITHZERAI;
     break;
   case 'N':
     strcpy(Gbuf, "GITHZERAI");
     break;
-
   case 'v':
     GET_RACE(d->character) = RACE_GOBLIN;
     break;
   case 'V':
     strcpy(Gbuf, "GOBLIN");
     break;
-  case 'c':
+/*  case 'c':
     GET_RACE(d->character) = RACE_CENTAUR;
     break;
   case 'C':
     strcpy(Gbuf, "CENTAUR");
-    break;
+    break; */
   case 's':
     GET_RACE(d->character) = RACE_MINOTAUR;
     break;
   case 'S':
     strcpy(Gbuf, "MINOTAUR");
     break;
-/*
   case 'p':
-    GET_RACE(d->character) = RACE_FIRBOLG;
+    GET_RACE(d->character) = RACE_OROG;
     break;
   case 'P':
-    strcpy(Gbuf, "FIRBOLG");
+    strcpy(Gbuf, "OROG");
     break;
-  case 'w':
+  case 'f':
+    GET_RACE(d->character) = RACE_HARPY;
+    break;
+  case 'F':
+    strcpy(Gbuf, "HARPY");
+    break;
+/*  case 'w':
     GET_RACE(d->character) = RACE_WOODELF;
-    break;
+    break;  
   case 'W':
     strcpy(Gbuf, "WOOD ELF");
     break;
@@ -3650,8 +3036,7 @@ void select_race(P_desc d, char *arg)
   case '#':
     strcpy(Gbuf, "KUO TOA");
     break;
-    */
-    /*   
+       // RACEWAR 3 RACES, if RACEWAR 3 is ever opened
        case '1':
        GET_RACE(d->character) = RACE_PLICH;
        break;
@@ -3724,12 +3109,12 @@ void select_race(P_desc d, char *arg)
     return;
   }
 
-  if (*Gbuf)
+  if(*Gbuf)
   {
     do_help(d->character, Gbuf, -4);
     return;
   }
-  else if (GET_RACE(d->character) == RACE_NONE)
+  else if(GET_RACE(d->character) == RACE_NONE)
   {
     SEND_TO_Q("\r\n[Press Return or Enter to return to the Race Menu]", d);
     return;
@@ -3738,7 +3123,7 @@ void select_race(P_desc d, char *arg)
 
   // not anymore, it's sex/class baby
 
-  if (invitemode && EVIL_RACE(d->character) &&
+  if(invitemode && EVIL_RACE(d->character) &&
       !is_invited(GET_NAME(d->character)))
   {
     SEND_TO_Q
@@ -3749,11 +3134,11 @@ void select_race(P_desc d, char *arg)
 
     GET_RACE(d->character) = RACE_NONE;
   }
-  else if ((GET_RACE(d->character) != RACE_ILLITHID) &&
+  else if((GET_RACE(d->character) != RACE_ILLITHID) &&
            (GET_RACE(d->character) != RACE_PILLITHID))
   {
-    SEND_TO_Q("\r\nIs your character Male or Female (Z for race)? (M/F/Z) ",
-              d);
+    SEND_TO_Q("\r\nIs your character Male or Female (Z for race)? (M/F/Z) ", d);
+    GET_CR_PNTS(d) = ALLOCATE_AMT;
     STATE(d) = CON_QSEX;
   }
   else
@@ -3765,11 +3150,225 @@ void select_race(P_desc d, char *arg)
   }
 }
 
+// select_attrib allows players to allocate an amount(ALLOCATE_AMT) of points
+// to their stats at creation time to allow for more diversity and customization
+// for each character.  Stats above a threshold can be made to cost additional
+// points to keep things in check. - Jexni 6/1/11
 
+void select_attrib(P_desc d, char *arg)
+{
+  char buf[MAX_INPUT_LENGTH];
+  char buf1[MAX_INPUT_LENGTH];
+  char buf2[MAX_STRING_LENGTH] = "\0";  
+  char instr[MAX_STRING_LENGTH];
+  int num = 0, stat = 0, choice = 0, total = 0, allocation = (int) ALLOCATE_AMT;
+  int min = (int) get_property("charcreation.stat.min", 30.00);
+  half_chop(arg, buf, buf1);
+  num = atoi(buf1);
+  
+  switch(LOWER(*buf))
+  {
+    case 's':
+      stat = 1;
+    break;
+    case 'd':
+      stat = 2;
+    break;
+    case 'a':
+      stat = 3;
+    break;
+    case 'c':
+      stat = 4;
+    break;
+    case 'p':
+      stat = 5;
+    break;
+    case 'i':
+      stat = 6;
+    break;
+    case 'w':
+      stat = 7;
+    break;
+    case 'h':
+      stat = 8;
+    break;
+    case 'x':
+    {
+      if(GET_CR_PNTS(d) > 0)
+      {
+	send_to_char_f(d->character, "You have not used all of your allocated attribute points.  You have %d left.\r\n", GET_CR_PNTS(d));
+	return;
+      }
+      STATE(d) = CON_KEEPCHAR;
+      stat = -1;
+    break;
+    }
+    case 'z':
+      display_stats(d);
+    break;
+    case '?':
+      SEND_TO_Q(attribmod, d);
+    break;
+    default:
+    {
+      display_stats(d);
+      sprintf(instr, "        Please select an attribute to modify, and an amount to modify it by.\r\n"
+                     "         You are allowed a total of %d points, but no stat can be below %d.\r\n"
+                     "Stats above 75 come at a higher and higher price, take this into account when choosing.\r\n"
+                     "                                 Choose wisely.", allocation, min);
+      SEND_TO_Q(instr, d);
+      SEND_TO_Q(attribmod, d);
+      sprintf(buf2 + strlen(buf2), "\r\nYou have %d points remaining to allocate.\r\n", GET_CR_PNTS(d));
+      SEND_TO_Q(buf2, d);
+      return;
+    }
+  }
 
+  if(stat > 0)
+  {
+    if(!allocation_check(d->character, stat, num) && num > 0)
+    {
+      SEND_TO_Q("\r\nYou don't have enough points left...\r\n", d);
+      SEND_TO_Q("Please choose a statistic to change, and an amount to change it by, or (x) to keep these settings. \r\n", d);
+      return;
+    }
+    else if(!allocation_check(d->character, stat, num) && num < 0)
+    {
+      SEND_TO_Q("\r\nYou can't unallocate that many points from that stat...\r\n", d);
+      return;
+    }
+    else if(num == 0)
+    {
+      SEND_TO_Q("\r\nPlease enter a valid amount.\r\n", d);
+      return;
+    }
+    else
+    {
+      total = allocation_check(d->character, stat, num);
+      if(total > 0 || total < 0)
+      {
+        GET_CR_PNTS(d) -= total;
+        add_stat_bonus(d->character, stat, num);
+      }
+      else if(total == 0)
+      {
+        SEND_TO_Q("\r\nAllocation amount exceeds bounds, please try again.\r\n", d);
+      }
+      else
+        SEND_TO_Q("\r\nSomething has gone wrong...\r\n", d); 
+      display_stats(d);
+      sprintf(buf2 + strlen(buf2), "\r\nYou have %d points remaining to allocate.\r\n", GET_CR_PNTS(d));
+      SEND_TO_Q(buf2, d);
+      SEND_TO_Q("Please choose a statistic to change, and an amount to change it by, or (x) to keep these settings. \r\n", d);
+    }
+  }
+
+  if(STATE(d) == CON_KEEPCHAR)
+  {
+    display_characteristics(d);
+    display_stats(d);
+    SEND_TO_Q(keepchar, d);
+    return;
+  }
+}
+ 
+int allocation_check(P_char ch, int which, int amt)
+{
+  int total;
+
+  switch(which)
+  {
+    case 1:
+    total = calc_attr_cost(ch->base_stats.Str, amt);
+    break;
+    case 2:
+    total = calc_attr_cost(ch->base_stats.Dex, amt);
+    break;
+    case 3:
+    total = calc_attr_cost(ch->base_stats.Agi, amt);
+    break;
+    case 4:
+    total = calc_attr_cost(ch->base_stats.Con, amt);
+    break;
+    case 5:
+    total = calc_attr_cost(ch->base_stats.Pow, amt);
+    break;
+    case 6:
+    total = calc_attr_cost(ch->base_stats.Int, amt);
+    break;
+    case 7:
+    total = calc_attr_cost(ch->base_stats.Wis, amt);
+    break;
+    case 8:
+    total = calc_attr_cost(ch->base_stats.Cha, amt);
+    break;
+    default:
+    return 0;
+  }
+
+  if(total > ch->only.pc->creation_pnts || 
+     ch->only.pc->creation_pnts - total > get_property("char.creation.allocate.amt", 200.000))
+    return 0;
+
+  return total;
+}
+
+int calc_attr_cost(int attr, int amount)
+{
+  int final_cost = 0, i = 0;
+  int attr_floor = get_property("char.creation.stat.min", 30.000);
+  if(amount > 0)
+  {
+    for(amount;amount > 0;amount--)
+    {
+      i = attr++;
+      if(i > 74)
+        final_cost += 2;
+      else if(i > 79)
+        final_cost += 4;
+      else if(i > 84)
+        final_cost += 8;
+      else if(i > 89)
+        final_cost += 16;
+      else if(i > 94)
+        final_cost += 32;
+      else if(i < 75)
+        final_cost += 1;
+      else if(attr > 100)
+        break;
+    }
+  }
+  else if(amount < 0)
+  {
+    for(amount;amount < 0;amount++)
+    {
+      i = attr;
+      if(i > attr_floor && i < 75)
+        final_cost -= 1;
+      else if(i > 74)
+        final_cost -= 2;
+      else if(i > 79)
+        final_cost -= 4;
+      else if(i > 84)
+        final_cost -= 8;
+      else if(i > 89)
+        final_cost -= 16;
+      else if(i > 94)
+        final_cost -= 32;
+      attr--;
+      if(attr <= attr_floor)
+        break;
+    }
+  }
+  else
+  {
+    //nothing allocated!  derp!
+  }
+
+  return final_cost;
+}
+  
 /* Krov: select_class_info eaten up by select_class */
-
-
 void select_reroll(P_desc d, char *arg)
 {
   /* skip whitespaces */
@@ -3780,7 +3379,8 @@ void select_reroll(P_desc d, char *arg)
   case 'N':
   case 'n':
     SEND_TO_Q("\r\n\r\nAccepting these stats.\r\n\r\n", d);
-    STATE(d) = CON_BONUS1;
+   // STATE(d) = CON_BONUS1;  changed for wipe 2011
+    STATE(d) = CON_STATMOD;
     break;
   default:
     SEND_TO_Q("\r\n\r\nRerolling this character.\r\n\r\n", d);
@@ -3792,11 +3392,13 @@ void select_reroll(P_desc d, char *arg)
     break;
   }
 
-  if (STATE(d) == CON_BONUS1)
+  if(STATE(d) == CON_STATMOD) //STATE(d) == CON_BONUS1) wipe 2011
   {
     display_stats(d);
-    SEND_TO_Q(bonus, d);
-    SEND_TO_Q("\r\n\r\nEnter stat for first bonus:  ", d);
+   //    SEND_TO_Q(bonus, d); wipe 2011
+    SEND_TO_Q(attribmod, d);
+   //    SEND_TO_Q("\r\n\r\nEnter stat for first bonus:  ", d);  wipe 2011
+    SEND_TO_Q("\r\n\r\nPlease select an attribute to modify, and by how much:  ", d);
   }
 }
 
@@ -3872,7 +3474,7 @@ void select_bonus(P_desc d, char *arg)
     break;
   }
 
-  if (!i)
+  if(!i)
   {
     SEND_TO_Q("\r\nIllegal input.\r\n", d);
     SEND_TO_Q("Enter desired bonus stat, or '?' to see explanation again:  ",
@@ -3882,7 +3484,7 @@ void select_bonus(P_desc d, char *arg)
   /* Krov: this now adds randomly 5/10/15 points */
   add_stat_bonus(d->character, i, 5);
 
-  if (STATE(d) == CON_BONUS5)
+  if(STATE(d) == CON_BONUS5)
   {
     display_characteristics(d);
     display_stats(d);
@@ -3914,15 +3516,13 @@ void select_bonus(P_desc d, char *arg)
 }
 
 
-
-
 /* Krov: show_avail_class, has_avail_class, and display_avail_class
    are gone for good */
 
 /* Krov: select_class is now a simple menu choice.
    Letter to press for class now depends on name of class, making
    it easy to add/delete classes without disturbing alphabetic order.
-   Help is now added by Big letters. */
+   Help files for each race denoted by capital letters. */
 void select_class(P_desc d, char *arg)
 {
   int      home, cls;
@@ -3938,11 +3538,11 @@ void select_class(P_desc d, char *arg)
 
   for (cls = 1; cls <= CLASS_COUNT; cls++)
   {
-    if (*arg == class_names_table[cls].letter)
+    if(*arg == class_names_table[cls].letter)
       d->character->player.m_class = 1 << (cls - 1);
-    else if (tolower(*arg) == class_names_table[cls].letter)
+    else if(tolower(*arg) == class_names_table[cls].letter)
       strcpy(Gbuf, class_names_table[cls].normal);
-    else if (tolower(*arg) == 'z')
+    else if(tolower(*arg) == 'z')
     {
       SEND_TO_Q("\r\nIs your character Male or Female (Z for race)? (M/F/Z) ",
                 d);
@@ -3953,7 +3553,7 @@ void select_class(P_desc d, char *arg)
     break;
   }
 
-  if (cls > CLASS_COUNT)
+  if(cls > CLASS_COUNT)
   {
     display_classtable(d);
     STATE(d) = CON_QCLASS;
@@ -3961,17 +3561,17 @@ void select_class(P_desc d, char *arg)
   }
 
   /* Krov: help */
-  if (*Gbuf)
+  if(*Gbuf)
   {
     do_help(d->character, Gbuf, -4);
     return;
   }
-  else if (d->character->player.m_class == CLASS_NONE)
+  else if(d->character->player.m_class == CLASS_NONE)
   {
     SEND_TO_Q("\r\n[Press Return or Enter to return to the Class Menu]", d);
     return;
   }
-  if (class_table[GET_RACE(d->character)]
+  if(class_table[GET_RACE(d->character)]
       [flag2idx(d->character->player.m_class)] == 5)
   {
     SEND_TO_Q("\r\nThis is not an allowed class for your race!", d);
@@ -4005,13 +3605,13 @@ void select_class(P_desc d, char *arg)
     STATE(d) = CON_ALIGN;
     SEND_TO_Q("\r\n\r\n", d);
     SEND_TO_Q(alignment_table, d);
-    if (class_table[(int) GET_RACE(d->character)]
+    if(class_table[(int) GET_RACE(d->character)]
         [flag2idx(d->character->player.m_class)] != 4)
       SEND_TO_Q("G)ood\r\n", d);
     SEND_TO_Q("N)eutral\r\n", d);
-/*    if (!invitemode && (class_table[(int) GET_RACE(d->character)][flag2idx(d->character->player.m_class)] != 3) &&
+/*    if(!invitemode && (class_table[(int) GET_RACE(d->character)][flag2idx(d->character->player.m_class)] != 3) &&
         (!RACE_NEUTRAL(d->character) || is_invited(GET_NAME(d->character))))*/
-    if (class_table[(int) GET_RACE(d->character)]
+    if(class_table[(int) GET_RACE(d->character)]
         [flag2idx(d->character->player.m_class)] != 3)
       SEND_TO_Q("E)vil\r\n", d);
     SEND_TO_Q("Alignment only affects your character's alignment and not the chosen racewar side.\n", d);
@@ -4020,20 +3620,20 @@ void select_class(P_desc d, char *arg)
     break;
   }
 
-  if (OLD_RACE_GOOD(d->character))
+  if(OLD_RACE_GOOD(d->character))
     GET_RACEWAR(d->character) = RACEWAR_GOOD;
-  else if (OLD_RACE_EVIL(d->character))
+  else if(OLD_RACE_EVIL(d->character))
     GET_RACEWAR(d->character) = RACEWAR_EVIL;
-  else if (OLD_RACE_PUNDEAD(d->character))
+  else if(OLD_RACE_PUNDEAD(d->character))
     GET_RACEWAR(d->character) = RACEWAR_UNDEAD;
-  else if (IS_HARPY(d->character))
+  else if(IS_HARPY(d->character))
     GET_RACEWAR(d->character) = RACEWAR_NEUTRAL;
 
-  /* pass through here, they don't get an alignment d->characterchoice. */
+  /* pass through here, they don't get an alignment */
 
   home = find_hometown(GET_RACE(d->character), false);
 
-  if (home == HOME_CHOICE)
+  if(home == HOME_CHOICE)
   {
     STATE(d) = CON_HOMETOWN;
     SEND_TO_Q("\r\n\r\n", d);
@@ -4047,12 +3647,13 @@ void select_class(P_desc d, char *arg)
   GET_ORIG_BIRTHPLACE(d->character) = home;
 
   /* Krov: didn't get hometown choice either, roll the stats */
-  STATE(d) = CON_BONUS1;
+//  STATE(d) = CON_BONUS1;  changed for wipe 2011
+  STATE(d) = CON_STATMOD;
   roll_basic_abilities(d->character, 0);
   display_characteristics(d);
 
-    //display_stats(d);
-  //SEND_TO_Q(reroll, d);
+    //display_stats(d); wipe 2011
+  //SEND_TO_Q(reroll, d); wipe 2011
   SEND_TO_Q("\r\nPress return to continue with adding stat bonuses.\r\n", d);
 }
 
@@ -4069,7 +3670,7 @@ void display_classtable(P_desc d)
 
   buf[0] = 0;
   for (cls = 1; cls <= CLASS_COUNT; cls++)
-    if (class_table[GET_RACE(d->character)][cls] != 5)
+    if(class_table[GET_RACE(d->character)][cls] != 5)
     {
       sprintf(template_buf, "\r\n%%c) %%-%ds(%%c for help)",
               strlen(class_names_table[cls].ansi) -
@@ -4082,7 +3683,7 @@ void display_classtable(P_desc d)
   strcat(buf, "\r\n");
   SEND_TO_Q(buf, d);
 
-  if (GET_RACE(d->character) == RACE_ILLITHID)
+  if(GET_RACE(d->character) == RACE_ILLITHID)
     SEND_TO_Q("\r\nz) Return to previous menu (selecting your race).", d);
   else
     SEND_TO_Q("\r\nz) Return to previous prompt (selecting your sex).", d);
@@ -4106,7 +3707,7 @@ void select_alignment(P_desc d, char *arg)
   {
   case 'G':
   case 'g':
-    if (class_table[(int) GET_RACE(d->character)]
+    if(class_table[(int) GET_RACE(d->character)]
         [flag2idx(d->character->player.m_class)] == 4)
       err = 1;
     else
@@ -4118,7 +3719,7 @@ void select_alignment(P_desc d, char *arg)
     break;
   case 'E':
   case 'e':
-    if (class_table[(int) GET_RACE(d->character)]
+    if(class_table[(int) GET_RACE(d->character)]
         [flag2idx(d->character->player.m_class)] == 3)
       err = 1;
     else
@@ -4129,7 +3730,7 @@ void select_alignment(P_desc d, char *arg)
     break;
   }
 
-  if (err)
+  if(err)
   {
     SEND_TO_Q
       ("\r\nThat is not a valid alignment\r\nPlease choose an alignment: ",
@@ -4140,18 +3741,18 @@ void select_alignment(P_desc d, char *arg)
   /* record it */
   GET_ALIGNMENT(d->character) = align;
 
-  if (OLD_RACE_GOOD(d->character))
+  if(OLD_RACE_GOOD(d->character))
     GET_RACEWAR(d->character) = RACEWAR_GOOD;
-  else if (OLD_RACE_EVIL(d->character))
+  else if(OLD_RACE_EVIL(d->character))
     GET_RACEWAR(d->character) = RACEWAR_EVIL;
-  else if (OLD_RACE_PUNDEAD(d->character))
+  else if(OLD_RACE_PUNDEAD(d->character))
     GET_RACEWAR(d->character) = RACEWAR_UNDEAD;
-  else if (IS_HARPY(d->character))
+  else if(IS_HARPY(d->character))
     GET_RACEWAR(d->character) = RACEWAR_NEUTRAL;
 
   /* does this race get to choose a hometown ? */
   home = find_hometown(GET_RACE(d->character), false);
-  if (home == HOME_CHOICE)
+  if(home == HOME_CHOICE)
   {
     STATE(d) = CON_HOMETOWN;
     SEND_TO_Q("\r\n\r\n", d);
@@ -4173,7 +3774,8 @@ void select_alignment(P_desc d, char *arg)
 
     //display_stats(d);
   //SEND_TO_Q(reroll, d);
-   STATE(d) = CON_BONUS1;
+  //STATE(d) = CON_BONUS1;
+    STATE(d) = CON_STATMOD; // wipe 2011
   SEND_TO_Q("\r\nPress return to continue adding stat bonuses.\r\n", d);
 }
 
@@ -4191,21 +3793,21 @@ void select_hometown(P_desc d, char *arg)
   for (int i = 0; i <= LAST_HOME; i++)
   {
     char town_letter = LOWER(town_name_list[i][0]);
-    // if (i == HOME_SHADY)
+    // if(i == HOME_SHADY)
       // town_letter = 'a';
-    // else if (i == HOME_GOBLIN)
+    // else if(i == HOME_GOBLIN)
       // town_letter = 'g';
-    // else if (i == HOME_SYLVANDAWN)
+    // else if(i == HOME_SYLVANDAWN)
       // town_letter = 's';
 
-    if ((avail_hometowns[i][GET_RACE(d->character)] == 1) &&
+    if((avail_hometowns[i][GET_RACE(d->character)] == 1) &&
         (LOWER(*arg) == LOWER(town_name_list[i][0])))
     {
       home = i;
       break;
     }
   }
-  if (-1 == home)
+  if(-1 == home)
   {
     SEND_TO_Q
       ("\r\nThat is not a valid hometown\r\nPlease choose a real hometown: ",
@@ -4215,7 +3817,7 @@ void select_hometown(P_desc d, char *arg)
   }
 
   /* did they select one that is allowed for their race */
-  if (avail_hometowns[home][(int) GET_RACE(d->character)] != 1)
+  if(avail_hometowns[home][(int) GET_RACE(d->character)] != 1)
   {
     SEND_TO_Q("\r\nThat is not a hometown for your race.\r\n ", d);
     SEND_TO_Q("Please select again.\r\n\r\nHometown: ", d);
@@ -4227,12 +3829,12 @@ void select_hometown(P_desc d, char *arg)
   GET_BIRTHPLACE(d->character) = home;
   GET_ORIG_BIRTHPLACE(d->character) = home;
 
-  STATE(d) = CON_BONUS1;
+  STATE(d) = CON_STATMOD;
   roll_basic_abilities(d->character, 0);
   display_characteristics(d);
   //display_stats(d);
   //SEND_TO_Q(reroll, d);
-  SEND_TO_Q("\r\nPress return to continue adding stat bonuses.\r\n", d);
+  SEND_TO_Q("\r\nPress enter to continue to stat bonuses.\r\n", d);
 }
 
 void select_keepchar(P_desc d, char *arg)
@@ -4244,7 +3846,7 @@ void select_keepchar(P_desc d, char *arg)
   case 'n':
     SEND_TO_Q("\r\n\r\nDeleting this character.r\n", d);
     STATE(d) = CON_NME;
-    if (d->term_type == TERM_GENERIC)
+    if(d->term_type == TERM_GENERIC)
       SEND_TO_Q(GREETINGS, d);
     else
       SEND_TO_Q(greetinga, d);
@@ -4264,35 +3866,22 @@ void select_keepchar(P_desc d, char *arg)
 
 void display_stats(P_desc d)
 {
-  char     Gbuf1[MAX_STRING_LENGTH];
+  char buf1[MAX_STRING_LENGTH] = "\0";
 
-  strcpy(Gbuf1, "\r\nYour basic stats:\r\n");
+  strcpy(buf1, "\r\nYour basic stats:\r\n");
 
-  sprintf(Gbuf1 + strlen(Gbuf1),
-          "Strength:     %15s      Power:        %s\r\n",
-          stat_to_string2((int) d->character->base_stats.Str),
-          stat_to_string2((int) d->character->base_stats.Pow));
-
-  sprintf(Gbuf1 + strlen(Gbuf1),
-          "Dexterity:    %15s      Intelligence: %s\r\n",
-          stat_to_string2((int) d->character->base_stats.Dex),
-          stat_to_string2((int) d->character->base_stats.Int));
-
-  sprintf(Gbuf1 + strlen(Gbuf1),
-          "Agility:      %15s      Wisdom:       %s\r\n",
-          stat_to_string2((int) d->character->base_stats.Agi),
-          stat_to_string2((int) d->character->base_stats.Wis));
-
-  sprintf(Gbuf1 + strlen(Gbuf1),
-          "Constitution: %15s      Charisma:     %s\r\n\r\n",
-          stat_to_string2((int) d->character->base_stats.Con),
-          stat_to_string2((int) d->character->base_stats.Cha));
-
-  sprintf(Gbuf1 + strlen(Gbuf1), "Luck: %15s      Unused:     %s\r\n\r\n",
+  sprintf(buf1 + strlen(buf1),
+          "Strength:     %5d  Power:        %d\r\n", d->character->base_stats.Str, d->character->base_stats.Pow);
+  sprintf(buf1 + strlen(buf1),
+          "Dexterity:    %5d  Intelligence: %d\r\n", d->character->base_stats.Dex, d->character->base_stats.Int);
+  sprintf(buf1 + strlen(buf1),
+          "Agility:      %5d  Wisdom:       %d\r\n", d->character->base_stats.Agi, d->character->base_stats.Wis);
+  sprintf(buf1 + strlen(buf1),
+          "Constitution: %5d  Charisma:     %d\r\n\r\n", d->character->base_stats.Con, d->character->base_stats.Cha);
+/*  sprintf(buf1 + strlen(buf1), "Luck: %15s      Unused:     %s\r\n\r\n",
           stat_to_string2((int) d->character->base_stats.Luck),
-          stat_to_string2((int) d->character->base_stats.Karma));
-
-  SEND_TO_Q(Gbuf1, d);
+          stat_to_string2((int) d->character->base_stats.Karma)); */
+  SEND_TO_Q(buf1, d);
 }
 
 
@@ -4302,10 +3891,10 @@ void display_characteristics(P_desc d)
   char     buffer[MAX_STRING_LENGTH];
 
   sprintf(Gbuf1,
-          "\r\n\r\n---------------------------------------\r\nNAME:   %s\r\n",
+          "\r\n\r\n---------------------------------------\r\nNAME:     %s\r\n",
           GET_NAME(d->character));
 
-  if (d->character->player.sex == SEX_MALE)
+  if(d->character->player.sex == SEX_MALE)
     strcat(Gbuf1, "SEX:      Male\r\n");
   else
     strcat(Gbuf1, "SEX:      Female\r\n");
@@ -4320,13 +3909,13 @@ void display_characteristics(P_desc d)
   sprintf(Gbuf1 + strlen(Gbuf1), "CLASS:    %s\r\n",
           get_class_string(d->character, buffer));
 
-  if (GET_ALIGNMENT(d->character) == 1000)
+  if(GET_ALIGNMENT(d->character) == 1000)
     strcat(Gbuf1, "ALIGN:    Good\r\n");
-  else if (GET_ALIGNMENT(d->character) == -1000)
+  else if(GET_ALIGNMENT(d->character) == -1000)
     strcat(Gbuf1, "ALIGN:    Evil\r\n");
   else
   {
-    if (GET_ALIGNMENT(d->character) != 0)
+    if(GET_ALIGNMENT(d->character) != 0)
     {
       logit(LOG_STATUS, "display_characteristics: unknown alignment, %d\n",
             GET_ALIGNMENT(d->character));
@@ -4335,7 +3924,7 @@ void display_characteristics(P_desc d)
     strcat(Gbuf1, "ALIGNMENT:    Neutral\r\n");
   }
 
-  if (GET_HOME(d->character) > 0)
+  if(GET_HOME(d->character) > 0)
   {
     sprintf(Gbuf1 + strlen(Gbuf1), "HOMETOWN: %s\r\n",
             town_name_list[GET_HOME(d->character)]);    
@@ -4351,14 +3940,14 @@ void display_characteristics(P_desc d)
   
   sprintf(Gbuf1 + strlen(Gbuf1), "\nPossible specializations:\n");
   
-  if( !append_valid_specs(Gbuf1, d->character) )
+  if(!append_valid_specs(Gbuf1, d->character))
   {
     sprintf(Gbuf1 + strlen(Gbuf1), "None\n");    
   }
     
   /*
   sprintf(Gbuf1 + strlen(Gbuf1), "HARDCORE: ");
-  if (IS_HARDCORE(d->character))
+  if(IS_HARDCORE(d->character))
     sprintf(Gbuf1 + strlen(Gbuf1), "YES\r\n");
   else
     sprintf(Gbuf1 + strlen(Gbuf1), "NO\r\n");
@@ -4370,42 +3959,44 @@ void display_characteristics(P_desc d)
 
 
 
-/* Krov: this adds now 5/10/15 depending on what 1..3 to stat which */
+// Krov: this adds now 5/10/15 depending on what 1..3 to stat which
+// Jexni: No, now it adds a single point based upon which attribute was
+//        selected(wipe 2011)
 
 void add_stat_bonus(P_char ch, int which, int what)
 {
-  int      tmp;
-
-  tmp = what;
+  int tmp = what;
+  int max = get_property("charcreation.stat.max", 100);     
+  int min = get_property("charcreation.stat.min", 30);  
 
   switch (which)
   {
   case 1:
-    ch->base_stats.Str = BOUNDED(1, ch->base_stats.Str + tmp, 100);
+    ch->base_stats.Str = BOUNDED(min, ch->base_stats.Str + tmp, max);
     break;
   case 2:
-    ch->base_stats.Dex = BOUNDED(1, ch->base_stats.Dex + tmp, 100);
+    ch->base_stats.Dex = BOUNDED(min, ch->base_stats.Dex + tmp, max);
     break;
   case 3:
-    ch->base_stats.Agi = BOUNDED(1, ch->base_stats.Agi + tmp, 100);
+    ch->base_stats.Agi = BOUNDED(min, ch->base_stats.Agi + tmp, max);
     break;
   case 4:
-    ch->base_stats.Con = BOUNDED(1, ch->base_stats.Con + tmp, 100);
+    ch->base_stats.Con = BOUNDED(min, ch->base_stats.Con + tmp, max);
     break;
   case 5:
-    ch->base_stats.Pow = BOUNDED(1, ch->base_stats.Pow + tmp, 100);
+    ch->base_stats.Pow = BOUNDED(min, ch->base_stats.Pow + tmp, max);
     break;
   case 6:
-    ch->base_stats.Int = BOUNDED(1, ch->base_stats.Int + tmp, 100);
+    ch->base_stats.Int = BOUNDED(min, ch->base_stats.Int + tmp, max);
     break;
   case 7:
-    ch->base_stats.Wis = BOUNDED(1, ch->base_stats.Wis + tmp, 100);
+    ch->base_stats.Wis = BOUNDED(min, ch->base_stats.Wis + tmp, max);
     break;
   case 8:
-    ch->base_stats.Cha = BOUNDED(1, ch->base_stats.Cha + tmp, 100);
+    ch->base_stats.Cha = BOUNDED(min, ch->base_stats.Cha + tmp, max);
     break;
   case 9:
-    ch->base_stats.Luck = BOUNDED(1, ch->base_stats.Luck + tmp, 100);
+    ch->base_stats.Luck = BOUNDED(min, ch->base_stats.Luck + tmp, max);
     break;
   }
   ch->curr_stats = ch->base_stats;
@@ -4413,8 +4004,6 @@ void add_stat_bonus(P_char ch, int which, int what)
 
 
 /* Krov: char_quals_for_class - gone for good */
-
-
 void show_avail_hometowns(P_desc d)
 {
   int      i, race;
@@ -4424,14 +4013,14 @@ void show_avail_hometowns(P_desc d)
 
   for (i = 0; i <= LAST_HOME; i++)
   {
-    if (avail_hometowns[i][race] == 1)
+    if(avail_hometowns[i][race] == 1)
     {
-      // if (i == HOME_SHADY)
+      // if(i == HOME_SHADY)
       // {
         // strcpy(Gbuf1, "S) Shady\r\n");
         // SEND_TO_Q(Gbuf1, d);
       // }
-      // else if (i == HOME_GOBLIN)
+      // else if(i == HOME_GOBLIN)
       // {
         // strcpy(Gbuf1, "G) Moregeeth\r\n");
         // SEND_TO_Q(Gbuf1, d);
@@ -4454,7 +4043,7 @@ int find_hometown(int race, bool force)
   int      i, count = 0, home = 0;
   char     Gbuf1[MAX_STRING_LENGTH];
 
-  if ((race < 1) || (race > LAST_RACE))
+  if((race < 1) || (race > LAST_RACE))
   {
     sprintf(Gbuf1, "find_hometown: illegal race, %d\n", race);
     logit(LOG_STATUS, Gbuf1);
@@ -4462,20 +4051,20 @@ int find_hometown(int race, bool force)
   }
   for (i = 0; i <= LAST_HOME; i++)
   {
-    if (avail_hometowns[i][race] == 1)
+    if(avail_hometowns[i][race] == 1)
     {
-      if (home == 0)
+      if(home == 0)
         home = i;
       count++;
     }
   }
-  if (count == 0)
+  if(count == 0)
   {                             /* none found, avail_hometowns matrix fucked */
     sprintf(Gbuf1, "find_hometown: race %d has no avail hometowns\n", race);
     logit(LOG_STATUS, Gbuf1);
     return (HOME_THARN);    /* default */
   }
-  else if (count == 1 || force)          /* what we expect, 1 town, return it */
+  else if(count == 1 || force)          /* what we expect, 1 town, return it */
     return (home);
 
   else                          /* multiple hometows avail, let player choose */
@@ -4487,13 +4076,13 @@ void find_starting_location(P_char ch, int hometown)
   int      guild_num;
   char     Gbuf1[MAX_STRING_LENGTH];
 
-  if (hometown == 0)
+  if(hometown == 0)
   {
     hometown = find_hometown(GET_RACE(ch), true);
-    if (hometown == HOME_CHOICE)
+    if(hometown == HOME_CHOICE)
       hometown = 0;
   }
-  if ((hometown < 1) || (hometown > LAST_HOME))
+  if((hometown < 1) || (hometown > LAST_HOME))
   {
     sprintf(Gbuf1, "find_starting_location: illegal hometown %d for %s",
             hometown, GET_NAME(ch));
@@ -4501,7 +4090,7 @@ void find_starting_location(P_char ch, int hometown)
     GET_HOME(ch) = guild_locations[HOME_THARN][0];  /* default */
     return;
   }
-  if ((ch->player.m_class < 1) ||
+  if((ch->player.m_class < 1) ||
       (ch->player.m_class > (1 << (CLASS_COUNT - 1))))
   {
     sprintf(Gbuf1, "find_starting_location: illegal class %d for %s",
@@ -4512,7 +4101,7 @@ void find_starting_location(P_char ch, int hometown)
   }
   guild_num = guild_locations[hometown][flag2idx(ch->player.m_class)];
 
-  if (guild_num == -1)
+  if(guild_num == -1)
   {
     sprintf(Gbuf1,
             "find_starting_location: hometown %d, no guild for class %d (%s)",
@@ -4528,13 +4117,13 @@ int find_starting_alignment(int race, int m_class)
 {
   char     Gbuf1[MAX_STRING_LENGTH];
 
-  if ((race < 1) || (race > LAST_RACE))
+  if((race < 1) || (race > LAST_RACE))
   {
     sprintf(Gbuf1, "find_starting_alignment: illegal race, %d\n", race);
     logit(LOG_STATUS, Gbuf1);
     return (0);                 /* default */
   }
-  if ((m_class < 1) || (m_class > (1 << (CLASS_COUNT - 1))))
+  if((m_class < 1) || (m_class > (1 << (CLASS_COUNT - 1))))
   {
     sprintf(Gbuf1, "find_starting_alignment: illegal class, %d\n", m_class);
     logit(LOG_STATUS, Gbuf1);
@@ -4588,7 +4177,7 @@ void set_char_height_weight(P_char ch)
       mean_w = 175;
       max_under_w = 80;
       max_over_w = 125;
-      if (GET_SEX(ch) == SEX_FEMALE)
+      if(GET_SEX(ch) == SEX_FEMALE)
         female = 95;
         break;
     case RACE_BARBARIAN:
@@ -4604,7 +4193,7 @@ void set_char_height_weight(P_char ch)
       mean_w = 210;
       max_under_w = 70;
       max_over_w = 150;
-      if (GET_SEX(ch) == SEX_FEMALE)
+      if(GET_SEX(ch) == SEX_FEMALE)
         female = 85;
         break;
     case RACE_PVAMPIRE:
@@ -4619,7 +4208,7 @@ void set_char_height_weight(P_char ch)
       range_h = 24;
       max_under_w = 65;
       max_over_w = 180;
-      if (GET_SEX(ch) == SEX_FEMALE)
+      if(GET_SEX(ch) == SEX_FEMALE)
         female = 85;
         break;
     case RACE_HALFLING:
@@ -4628,7 +4217,7 @@ void set_char_height_weight(P_char ch)
       mean_w = 55;
       max_under_w = 85;
       max_over_w = 150;
-      if (GET_SEX(ch) == SEX_FEMALE)
+      if(GET_SEX(ch) == SEX_FEMALE)
         female = 95;
         break;
     case RACE_GNOME:
@@ -4640,7 +4229,7 @@ void set_char_height_weight(P_char ch)
       mean_w = 55;
       max_under_w = 75;
       max_over_w = 120;
-      if (GET_SEX(ch) == SEX_FEMALE)
+      if(GET_SEX(ch) == SEX_FEMALE)
         female = 95;
         break;
     case RACE_PLICH:
@@ -4657,7 +4246,7 @@ void set_char_height_weight(P_char ch)
       mean_w = 125;
       max_under_w = 90;
       max_over_w = 115;
-      if (GET_SEX(ch) == SEX_FEMALE)
+      if(GET_SEX(ch) == SEX_FEMALE)
         female = 95;
         break;
     case RACE_HALFELF:
@@ -4666,7 +4255,7 @@ void set_char_height_weight(P_char ch)
       mean_w = 145;
       max_under_w = 80;
       max_over_w = 145;
-      if (GET_SEX(ch) == SEX_FEMALE)
+      if(GET_SEX(ch) == SEX_FEMALE)
         female = 90;
         break;
     case RACE_CENTAUR:
@@ -4675,7 +4264,7 @@ void set_char_height_weight(P_char ch)
       range_h = 24;
       max_under_w = 65;
       max_over_w = 100;
-      if (GET_SEX(ch) == SEX_FEMALE)
+      if(GET_SEX(ch) == SEX_FEMALE)
         female = 90;
         break;
   }
@@ -4786,6 +4375,7 @@ void init_char(P_char ch)
   ch->only.pc->screen_length = 24;      /* default */
   ch->only.pc->wiz_invis = 0;
   ch->only.pc->law_flags = 0;
+  ch->only.pc->justice_level = 0;
   ch->only.pc->highest_level = 1;
   ch->player.short_descr = 0;
   ch->player.long_descr = 0;
@@ -4808,10 +4398,11 @@ void init_char(P_char ch)
   ch->points.mana = GET_MAX_MANA(ch);
   ch->points.hit = GET_MAX_HIT(ch);
   ch->points.vitality = GET_MAX_VITALITY(ch);
-  ch->points.base_armor = 0;
+  ch->points.base_armor = 100;
+
   for (i = 0; i < MAX_SKILLS; i++)
   {
-    if (GET_LEVEL(ch) < MINLVLIMMORTAL)
+    if(GET_LEVEL(ch) < MINLVLIMMORTAL)
     {
       ch->only.pc->skills[i].learned = 0;
     }
@@ -4833,33 +4424,33 @@ void init_char(P_char ch)
   ch->specials.affected_by5 = 0;
   /* ok, some innate powers just set bits, so we need to reset those */
 
-  if (has_innate(ch, INNATE_WATERBREATH))
+  if(has_innate(ch, INNATE_WATERBREATH))
     SET_BIT(ch->specials.affected_by, AFF_WATERBREATH);
-  if (has_innate(ch, INNATE_INFRAVISION))
+  if(has_innate(ch, INNATE_INFRAVISION))
     SET_BIT(ch->specials.affected_by, AFF_INFRAVISION);
-  if (has_innate(ch, INNATE_FLY))
+  if(has_innate(ch, INNATE_FLY))
     SET_BIT(ch->specials.affected_by, AFF_FLY);
-  if (has_innate(ch, INNATE_HASTE))
+  if(has_innate(ch, INNATE_HASTE))
     SET_BIT(ch->specials.affected_by, AFF_HASTE);
-  if (has_innate(ch, INNATE_FARSEE))
+  if(has_innate(ch, INNATE_FARSEE))
     SET_BIT(ch->specials.affected_by, AFF_FARSEE);
-  if (has_innate(ch, INNATE_ULTRAVISION))
+  if(has_innate(ch, INNATE_ULTRAVISION))
     SET_BIT(ch->specials.affected_by2, AFF2_ULTRAVISION);
-  if (has_innate(ch, INNATE_ANTI_GOOD))
+  if(has_innate(ch, INNATE_ANTI_GOOD))
   {
     SET_BIT(ch->specials.affected_by, AFF_PROTECT_GOOD);
     SET_BIT(ch->specials.affected_by2, AFF2_DETECT_GOOD);
   }
-  if (has_innate(ch, INNATE_ANTI_EVIL))
+  if(has_innate(ch, INNATE_ANTI_EVIL))
   {
     SET_BIT(ch->specials.affected_by, AFF_PROTECT_EVIL);
     SET_BIT(ch->specials.affected_by2, AFF2_DETECT_EVIL);
   }
-  if (has_innate(ch, INNATE_PROT_FIRE))
+  if(has_innate(ch, INNATE_PROT_FIRE))
     SET_BIT(ch->specials.affected_by, AFF_PROT_FIRE);
-  if (has_innate(ch, INNATE_VAMPIRIC_TOUCH))
+  if(has_innate(ch, INNATE_VAMPIRIC_TOUCH))
     SET_BIT(ch->specials.affected_by2, AFF2_VAMPIRIC_TOUCH);
-  if (has_innate(ch, INNATE_DAUNTLESS))
+  if(has_innate(ch, INNATE_DAUNTLESS))
     SET_BIT(ch->specials.affected_by4, AFF4_NOFEAR);
 
 
@@ -4896,12 +4487,12 @@ void newby_announce(P_desc d)
           class_names_table[flag2idx(d->character->player.m_class)].ansi,
           d->login ? d->login : "unknown", d->host ? d->host : "UNKNOWN");
   for (i = descriptor_list; i; i = i->next)
-    if (!i->connected && i->character &&
+    if(!i->connected && i->character &&
         IS_SET(i->character->specials.act, PLR_NAMES) &&
         IS_TRUSTED(i->character))
       send_to_char(Gbuf1, i->character);
   /* timer, so they don't sit here forever */
-  if (d->character->only.pc->prestige > 3)
+  if(d->character->only.pc->prestige > 3)
   {
     SEND_TO_Q
       ("\r\nAppears that no one is free or cares to review you. Enjoy the game.\r\n",
@@ -4918,7 +4509,7 @@ void wimps_in_accept_queue(void)
   P_desc   d;
 
   for (d = descriptor_list; d; d = d->next)
-    if (STATE(d) == CON_ACCEPTWAIT)
+    if(STATE(d) == CON_ACCEPTWAIT)
       newby_announce(d);
 }
 
@@ -5044,11 +4635,6 @@ void nanny(P_desc d, char *arg)
     account_new_char_name(d, arg);
     break;
 
-
-
-
-
-
 #else
     /* Name of player */
   case CON_NME:
@@ -5064,7 +4650,7 @@ void nanny(P_desc d, char *arg)
   case CON_NMECNF:
     /* skip whitespaces */
     for (; isspace(*arg); arg++) ;
-    if (*arg == 'y' || *arg == 'Y')
+    if(*arg == 'y' || *arg == 'Y')
     {
       SEND_TO_Q("\r\nEntering new character generation mode.\r\n", d);
       SEND_TO_Q(namechart, d);
@@ -5072,7 +4658,7 @@ void nanny(P_desc d, char *arg)
     }
     else
     {
-      if (*arg == 'n' || *arg == 'N')
+      if(*arg == 'n' || *arg == 'N')
       {
         SEND_TO_Q("\r\nOk, what IS it, then? Type 'generate' for name generator.",
                   d);
@@ -5100,7 +4686,7 @@ void nanny(P_desc d, char *arg)
     break;
   case CON_ENTER_HOST:
     sprintf(d->registered_host, "%s", arg);
-    if (email_in_use(d->registered_login, d->registered_host))
+    if(email_in_use(d->registered_login, d->registered_host))
     {
       SEND_TO_Q("That email is in use already.\n\r", d);
       STATE(d) = CON_EXIT;
@@ -5114,7 +4700,7 @@ void nanny(P_desc d, char *arg)
     break;
   case CON_CONFIRM_EMAIL:
     for (; isspace(*arg); arg++) ;
-    if (*arg == 'y' || *arg == 'Y')
+    if(*arg == 'y' || *arg == 'Y')
     {                           /* continue */
 //      sprintf(Gbuf1, "Please enter your sex? (M/F) ");
 //      SEND_TO_Q(Gbuf1, d);
@@ -5137,10 +4723,10 @@ void nanny(P_desc d, char *arg)
   case CON_APROPOS:
     /* skip whitespaces */
     for (; isspace(*arg); arg++) ;
-    if (*arg == 'y' || *arg == 'Y')
+    if(*arg == 'y' || *arg == 'Y')
     {
 /*
-   if (mini_mode) {
+   if(mini_mode) {
    SEND_TO_Q("We now need an email address for authorization.\n\rPlease type in your login or userid: ",d);
    STATE(d) = CON_ENTER_LOGIN;
    } else {
@@ -5160,7 +4746,7 @@ void nanny(P_desc d, char *arg)
     }
     else
     {
-      if (*arg == 'n' || *arg == 'N')
+      if(*arg == 'n' || *arg == 'N')
       {
         SEND_TO_Q
           ("Resetting...\r\n\r\nBy what name do you wish to be known? Type 'generate' to get to name generator.",
@@ -5187,21 +4773,21 @@ void nanny(P_desc d, char *arg)
     /* skip whitespaces */
     for (; isspace(*arg); arg++) ;
 
-    if (STATE(d) == CON_PWDNEW ||
+    if(STATE(d) == CON_PWDNEW ||
         STATE(d) == CON_PWDGET || STATE(d) == CON_PWDNRM)
     {
       /*
        ** Since we have turned off echoing for telnet client,
        ** if a telnet client is indeed used, we need to skip the
-       ** initial 3 bytes ( -1, -3, 1 ) if they are sent back by
+       ** initial 3 bytes ( -1, -3, 1) if they are sent back by
        ** client program.
        */
 
-      if (*arg == -1)
+      if(*arg == -1)
       {
-        if (arg[1] != '0' && arg[2] != '0')
+        if(arg[1] != '0' && arg[2] != '0')
         {
-          if (arg[3] == '0')
+          if(arg[3] == '0')
           {                     /* Password on next read  */
             return;
           }
@@ -5255,33 +4841,38 @@ void nanny(P_desc d, char *arg)
     select_reroll(d, arg);
     break;
 
-    /* Stat bonus 1 for new player */
-  case CON_BONUS1:
-    /* record how many bonuses the char gets, 1d3 */
-    select_bonus(d, arg);
+//    /* Stat bonus 1 for new player */
+//  case CON_BONUS1:
+//    /* record how many bonuses the char gets, 1d3 */
+//    select_bonus(d, arg);
+//    break;
+
+//    /* Stat bonus 2 for new player */
+//  case CON_BONUS2:
+//    select_bonus(d, arg);
+//    break;
+
+//    /* Stat bonus 3 for new player */
+//  case CON_BONUS3:
+//    select_bonus(d, arg);
+//    break;
+
+//    /* Stat bonus 4 for new player */
+//  case CON_BONUS4:
+//    select_bonus(d, arg);
+//    break;
+
+//    /* Stat bonus 5 for new player */
+//  case CON_BONUS5:
+//    select_bonus(d, arg);
+//    break;
+
+   /* Attribute modification for wipe 2011 */
+  case CON_STATMOD:
+    select_attrib(d, arg);
     break;
 
-    /* Stat bonus 2 for new player */
-  case CON_BONUS2:
-    select_bonus(d, arg);
-    break;
-
-    /* Stat bonus 3 for new player */
-  case CON_BONUS3:
-    select_bonus(d, arg);
-    break;
-
-    /* Stat bonus 4 for new player */
-  case CON_BONUS4:
-    select_bonus(d, arg);
-    break;
-
-    /* Stat bonus 5 for new player */
-  case CON_BONUS5:
-    select_bonus(d, arg);
-    break;
-
-    /* Select alignment for new player, when appropriate */
+   /* Select alignment for new player, when appropriate */
   case CON_ALIGN:
     select_alignment(d, arg);
     break;
@@ -5294,7 +4885,7 @@ void nanny(P_desc d, char *arg)
     /* Keep the chosen character */
   case CON_KEEPCHAR:
     select_keepchar(d, arg);
-    if (STATE(d) == CON_RMOTD)
+    if(STATE(d) == CON_RMOTD)
     {
       logit(LOG_NEW, "%s [%s] new player.", GET_NAME(d->character),
             d->host);
@@ -5356,16 +4947,13 @@ void nanny(P_desc d, char *arg)
       SEND_TO_Q
         ("\r\n\r\nYou have selected Yes, and hereby agree to all conditions in the set of rules.\r\n",
          d);
-      SEND_TO_Q
-        ("Now you have to wait for your character to be approved by a god.\r\nProcess should not take long.\r\n",
-         d);
       break;
     default:
       SEND_TO_Q("\r\nThat is not a correct response. Try again.\r\n", d);
       return;
       break;
     }
-    if (pfile_exists("Players/Accepted", GET_NAME(d->character)))
+    if(pfile_exists("Players/Accepted", GET_NAME(d->character)))
     {
       SEND_TO_Q
         ("This name has been accepted before, and it is accepted once more.\r\n\r\n"
@@ -5375,19 +4963,16 @@ void nanny(P_desc d, char *arg)
                 "%s auto-accepted due to having been accepted before.",
                 GET_NAME(d->character));
     }
-    else if (!IS_TRUSTED(d->character) && accept_mode)
+    else if(!IS_TRUSTED(d->character) && accept_mode)
     {
       SEND_TO_Q
-        ("Now you have to wait for your character to be approved by a god.\r\nProcess should not take long.\r\nIf no god is on to approve you, you will be auto-approved in 5 mins.\r\n",
+        ("Now you have to wait for your character to be approved by a god.\r\nThis process should not take long.\r\nIf no god is on to approve you, you will be auto-approved in 5 mins.\r\n",
          d);
       STATE(d) = CON_ACCEPTWAIT;
       newby_announce(d);
     }
     else
     {
-      SEND_TO_Q
-        ("Now you have to wait for your character to be approved by a god.\r\nProcess should not take long.\r\nIf no god is on to approve you, you will be auto-approved in 5 mins.\r\n",
-         d);
       SEND_TO_Q("\r\n*** PRESS RETURN:\r\n", d);
       writeCharacter(d->character, 2, NOWHERE);
       STATE(d) = CON_RMOTD;
@@ -5398,7 +4983,7 @@ void nanny(P_desc d, char *arg)
     case 'y':
       SEND_TO_Q(
                  "\r\n\r\nYou have selected Yes, and hereby agree to all conditions in the disclaimer.\r\n", d);
-      if (!IS_TRUSTED(d->character) && accept_mode) {
+      if(!IS_TRUSTED(d->character) && accept_mode) {
                   writeCharacter(d->character, 2, NOWHERE);
         SEND_TO_Q("Now you have to wait for your character to be approved by a god.\r\nProcess should not take long.\r\n", d);
         STATE(d) = CON_ACCEPTWAIT;
@@ -5430,7 +5015,7 @@ void nanny(P_desc d, char *arg)
 
   case CON_WELCOME:
 #if 0
-    if (mini_mode)
+    if(mini_mode)
     {
       struct registration_node *x;
       CREATE(x, struct registration_node, 1);
@@ -5487,21 +5072,15 @@ void nanny(P_desc d, char *arg)
     /* Flush output messages, then kill the descriptor */
   case CON_FLUSH:
   default:
-    if (STATE(d) != CON_FLUSH)
+    if(STATE(d) != CON_FLUSH)
+    {
       logit(LOG_EXIT, "Nanny: illegal state of con'ness #1 (%d)", STATE(d));
-    if (d->character && d->character->events)
+    } 
+    if(d->character && d->character->events)
       ClearCharEvents(d->character);
-    if (d->output.head == 0)
+    if(d->output.head == 0)
       close_socket(d);
     return;
-#if 0
-    /* better not get here or something is hosed */
-  default:
-    logit(LOG_EXIT, "Nanny: illegal state of con'ness (%d)", STATE(d));
-    raise(SIGSEGV);
-    break;
-
-#endif
   }
 }
 
@@ -5525,7 +5104,7 @@ void email_player_info(char *login, char *host, struct descriptor_data *d)
     password[counter] = (random() % 10) + 48;
   password[8] = '\0';
   sprintf(buf, "/tmp/%s.REG", GET_NAME(d->character));
-  if (!(fp = fopen(buf, "w")))
+  if(!(fp = fopen(buf, "w")))
   {
     ereglog(AVATAR, "Could not open emailreg temp file! (%s)",
             GET_NAME(d->character));
@@ -5537,7 +5116,7 @@ void email_player_info(char *login, char *host, struct descriptor_data *d)
   fprintf(fp, "Your password is %s\n", password);
   fprintf(fp, ".\n");
   fclose(fp);
-  if (!(fp = fopen("EmailReg.Q", "at")))
+  if(!(fp = fopen("EmailReg.Q", "at")))
   {
     ereglog(AVATAR, "Could not open Q file! (%s)", GET_NAME(d->character));
     return;
@@ -5547,9 +5126,6 @@ void email_player_info(char *login, char *host, struct descriptor_data *d)
   ereglog(AVATAR, "Executing Command %s", buf);
   fclose(fp);
 }
-
-
-
 
 char    *hint_array[1000];
 int      iLOADED = 0;
@@ -5562,13 +5138,13 @@ void loadHints()
 
   f = fopen("lib/information/hints.txt", "r");
 
-  if (!f)
+  if(!f)
     return;
 
   while (!feof(f))
   {
 
-    if (fgets(buf2, MAX_STR_NORMAL * 10 - 1, f))
+    if(fgets(buf2, MAX_STR_NORMAL * 10 - 1, f))
     {
       hint_array[i] = str_dup(buf2);
       i++;
@@ -5583,7 +5159,7 @@ int tossHint(P_char ch)
 {
   char     buf2[MAX_STR_NORMAL * 10];
 
-  if (iLOADED < 1)
+  if(iLOADED < 1)
     return 0;
   sprintf(buf2, "&+MHint: &+m%s", hint_array[number(0, iLOADED - 1)]);
   send_to_char(buf2, ch);
@@ -5598,7 +5174,7 @@ void Decrypt(char *text, int sizeOfText, const char *key, int sizeOfKey)
 
   for (; i < sizeOfText; ++i, ++offSet)
   {
-    if (offSet >= sizeOfKey)
+    if(offSet >= sizeOfKey)
       offSet = 0;
 
     int      value = text[i];
