@@ -2070,6 +2070,7 @@ void enter_game(P_desc d)
   int      mana_g;
   char     Gbuf1[MAX_STRING_LENGTH];
   P_char   ch = d->character;
+  P_desc   i;
   
   if (GET_LEVEL(ch))
   {
@@ -2097,6 +2098,17 @@ void enter_game(P_desc d)
     {
       send_to_char("\r\nRetrieving items from linkdead storage...\r\n", ch);
       cost = restoreItemsOnly(ch, 200);
+    }
+    else if(d->rtype == RENT_POOFARTI)
+    {
+      send_to_char("\r\nThe gods have taken your artifact...\r\n", ch);
+      cost = restoreItemsOnly(ch, 100);
+    }
+    else if(d->rtype == RENT_SWAPARTI)
+    {
+      send_to_char("\r\nThe gods have taken your artifact... and "
+	"replaced it with another!\r\n", ch);
+      cost = restoreItemsOnly(ch, 100);
     }
     else if (d->rtype == RENT_DEATH)
     {
@@ -2327,10 +2339,32 @@ void enter_game(P_desc d)
     act("$n has entered the game.", TRUE, ch, 0, 0, TO_ROOM);
 
   // inform gods that a newbie has entered the game
-  if( IS_NEWBIE(ch)) {
+  if( IS_NEWBIE(ch))
+  {
     statuslog(ch->player.level, "&+GNEWBIE %s HAS ENTERED THE GAME! Help him out :) ", GET_NAME(ch));
+    // Message to guides.
+    sprintf( Gbuf1, "&+GNEWBIE %s HAS ENTERED THE GAME! Help him out :)\n", 
+      GET_NAME(ch));
+    for (i = descriptor_list; i; i = i->next)
+    {
+      if(i->connected)
+        continue;
+ 
+      if( opposite_racewar( ch, i->character ) )
+        continue;
+      if(!IS_SET(i->character->specials.act2, PLR2_NCHAT))
+        continue;
+      if(!IS_SET(PLR2_FLAGS(i->character), PLR2_NEWBIE_GUIDE))
+        continue;
+      if(IS_DISGUISE_PC(i->character) ||
+        IS_DISGUISE_ILLUSION(i->character) ||
+        IS_DISGUISE_SHAPE(i->character))
+        continue;
+ 
+      send_to_char(Gbuf1, i->character, LOG_PRIVATE);
+    }
   }
-  
+
   if (!GET_LEVEL(ch))
   {
     do_start(ch, 0);

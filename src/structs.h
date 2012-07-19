@@ -563,6 +563,7 @@ struct scribing_data_type {
 #define SBOOK_MODE_NO_SCROLL 4
 #define SBOOK_MODE_NO_BOOK   8
 #define SBOOK_MODE_ON_BELT   16
+#define SBOOK_MODE_ON_GROUND 32
 
 struct climate {
   char season_wind[MAX_SEASONS];

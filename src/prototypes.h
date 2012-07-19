@@ -612,7 +612,7 @@ void setupMortArtiList(void);
 int add_owned_artifact(P_obj, P_char, int);
 int remove_owned_artifact(P_obj, P_char, int);
 int get_current_artifact_info(int, int, char *, int *, time_t *, int *, int, time_t *);
-void do_list_artis(P_char, char *, int);
+void do_artifact(P_char, char *, int);
 void feed_artifact(P_char ch, P_obj obj, int feed_seconds, int bypass);
 void artifact_switch_check(P_char ch, P_obj obj);
 

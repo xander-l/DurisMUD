@@ -194,6 +194,8 @@ int guildhall_window_room(int room, P_char ch, int cmd, char *arg)
 
 int guildhall_window(P_obj obj, P_char ch, int cmd, char *arg)
 {
+  char *arg2;
+
   if ( !obj )
     return FALSE;
   
@@ -206,11 +208,14 @@ int guildhall_window(P_obj obj, P_char ch, int cmd, char *arg)
   if( ch && cmd == CMD_LOOK )
   {
     char buff[MAX_STRING_LENGTH];
-    half_chop(arg, buff, arg);
+    if( *arg )
+      half_chop(arg, buff, arg2);
+    else
+      buff[0] = '\0';
 
     if( *buff && is_abbrev(buff, "in") )
     {
-      arg = one_argument(arg, buff);
+      arg2 = one_argument(arg2, buff);
 
       if( isname(buff, obj->name) )
       {

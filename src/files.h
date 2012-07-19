@@ -88,9 +88,11 @@
 #define RENT_QUIT               2
 #define RENT_INN                3
 #define RENT_DEATH              4
-#define RENT_LINKDEAD   5
+#define RENT_LINKDEAD           5
 #define RENT_CAMPED             6
 #define RENT_CRASH2             7
+#define RENT_POOFARTI           8
+#define RENT_SWAPARTI           9
 
 /*
  * these macros are a very good idea, I salute whoever thought of it.

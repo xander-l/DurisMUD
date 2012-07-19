@@ -5,7 +5,7 @@ ulimit -c unlimited
   if [ $1 ]; then
     PORT=$1
   else
-    PORT=7878
+    PORT=7788
   fi
 
   mv src/dms_new dms
