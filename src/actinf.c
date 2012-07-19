@@ -8147,7 +8147,8 @@ void do_recall(P_char ch, char *argument, int cmd)
   }
   else if (*arg)
   {
-    pattern = arg;
+    if( strcmp( arg, "all" ) )
+      pattern = arg;
     size = PRIVATE_LOG_SIZE;
   }
 
@@ -8162,7 +8163,7 @@ void do_recall(P_char ch, char *argument, int cmd)
   
   ITERATE_LOG_LIMIT(ch, LOG_PRIVATE, size)
   {
-    if( !pattern || isname( pattern, LOG_MSG()) )
+    if( !pattern || isname( pattern, strip_ansi(LOG_MSG()).c_str() ) )
       send_to_char( LOG_MSG(), ch, LOG_NONE );
   }
 
