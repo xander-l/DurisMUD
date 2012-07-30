@@ -6373,7 +6373,7 @@ void maul(P_char ch, P_char victim)
     SET_POS(victim, POS_KNEELING + GET_STAT(victim));
 
     if((percent_chance / 5) > percentroll && !IS_STUNNED(victim))
-          Stun(victim, ch, PULSE_VIOLENCE, TRUE);
+         // Stun(victim, ch, PULSE_VIOLENCE, TRUE); //removing stun from maul - should not be better than regular takedown
     
     if(GET_SPEC(ch, CLASS_BERSERKER, SPEC_MAULER) ||
        IS_ELITE(ch))
