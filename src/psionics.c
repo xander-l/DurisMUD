@@ -2108,11 +2108,27 @@ void spell_pyrokinesis(int level, P_char ch, char *arg, int type, P_char victim,
 
   if(!NewSaves(victim, SAVING_SPELL, 0))
   {
-     phys_dam = (int)(phys_dam * 1.15);
+     phys_dam = (int)(phys_dam * 1.2);
      fire_dam = (int)(fire_dam* 1.15);
   }
   
-  spell_damage(ch, victim, fire_dam, SPLDAM_FIRE, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT | RAWDAM_NOKILL, 0);
+  if(IS_NPC(victim))
+    {
+    act("&+LYou &+mwill &+rthe f&+Rl&+Ya&+Rm&+res &+Lof the &+rabyss &+Lto overwhelm and consume your foe...", FALSE, ch, 0, 0, TO_CHAR);
+    act("&+L$n &+mwills &+rthe f&+Rl&+Ya&+Rm&+res &+Lof the &+rabyss &+Lto overwhelm and consume thier foe...", FALSE, ch, 0, 0, TO_ROOM);
+    spell_damage(ch, victim, fire_dam, SPLDAM_FIRE, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT | RAWDAM_NOKILL, 0);
+    if(IS_ALIVE(victim))
+     {
+      if ((IS_AFFECTED2(victim, AFF2_FIRE_AURA) && IS_AFFECTED2(victim, AFF2_FIRESHIELD)) || GET_RACE(victim) == RACE_F_ELEMENTAL)
+        return;
+      if(spell_damage(ch, victim, phys_dam, SPLDAM_PSI, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &messages) != DAM_NONEDEAD)
+        return;
+     }
+    }
+
+  else
+    {
+  //spell_damage(ch, victim, fire_dam, SPLDAM_FIRE, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT | RAWDAM_NOKILL, 0);
   if(IS_ALIVE(victim))
   {
       if ((IS_AFFECTED2(victim, AFF2_FIRE_AURA) && IS_AFFECTED2(victim, AFF2_FIRESHIELD)) || GET_RACE(victim) == RACE_F_ELEMENTAL)
@@ -2120,7 +2136,7 @@ void spell_pyrokinesis(int level, P_char ch, char *arg, int type, P_char victim,
       if(spell_damage(ch, victim, phys_dam, SPLDAM_PSI, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &messages) != DAM_NONEDEAD)
         return;
   }
-  
+    }
   if(!affected_by_spell(victim, SPELL_PYROKINESIS))
   {
     bzero(&af, sizeof(af));
@@ -2152,6 +2168,7 @@ void spell_pyrokinesis(int level, P_char ch, char *arg, int type, P_char victim,
     }
     affect_to_char(victim, &af);
   }
+  CharWait(ch, 8);
 }
 
 void spell_celerity(int level, P_char ch, char *arg, int type,
