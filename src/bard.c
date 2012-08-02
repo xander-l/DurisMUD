@@ -585,23 +585,37 @@ void bard_charm(int l, P_char ch, P_char victim, int song)
   int      i;
   struct follow_type *k;
 
-  /* re-enable charm, 15 lvls below though */
+  /* re-enable charm */
   /* return; *//* charm shouldn't be working .. */
 
   if(GET_MASTER(victim))
     return;
-  if(GET_LEVEL(victim) > (GET_LEVEL(ch) - 15) && IS_PC(ch))
+ /*
+    if(GET_LEVEL(victim) > (GET_LEVEL(ch) - 5) && IS_PC(ch))
     return;
-  if(GET_LEVEL(ch) < (GET_LEVEL(victim) - 5) && IS_PC(ch))
+
+  if(GET_LEVEL(ch) < (GET_LEVEL(victim)) && IS_PC(ch)) 
     return;
+ */
+    if(GET_LEVEL(victim) > 50 && IS_PC(ch))
+	return;
+
+    if(GET_LEVEL(victim) > GET_LEVEL(ch) && IS_PC(ch))
+	return;
+    
   if(victim == ch)
     return;
   if(circle_follow(victim, ch))
     return;
+  /*
   if(victim->player.m_class &
       (CLASS_SORCERER | CLASS_PSIONICIST | CLASS_CLERIC |
        CLASS_CONJURER | CLASS_WARLOCK | CLASS_ILLUSIONIST) && IS_PC(ch))
     return;
+  */
+  if(victim->player.m_class &
+	(CLASS_WARLOCK | CLASS_ILLUSIONIST) && IS_PC(ch))
+	return;
 
   if(bard_saves(ch, victim, song) && !IS_NPC(ch))
     return;

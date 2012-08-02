@@ -1988,8 +1988,8 @@ spell_confuse(int level, P_char ch, char *arg, int type, P_char victim,
   P_char   tch, next;
   P_char   cht, next_ch;
 
-/*  struct affected_type af; */
 
+/*  struct affected_type af; */
   if (!(ch))
   {
     logit(LOG_EXIT, "assert: bogus parms in confuse");
@@ -2003,8 +2003,16 @@ spell_confuse(int level, P_char ch, char *arg, int type, P_char victim,
   }
   appear(ch);
 
+  if(GET_CLASS(ch, CLASS_BARD))
+    {
+    act("&+yYou &+Wsin&+Yg a s&+yong whic&+Yh seem&+Ws to con&+Yfuse you&+yr enemies thou&+Yght&+Ws!", FALSE, ch, 0, 0, TO_CHAR);
+    act("&+y$n &+Wsin&+Ygs a s&+yong whic&+Yh seem&+Ws to con&+Yfuse you&+yr thou&+Yght&+Ws!", FALSE, ch, 0, 0, TO_ROOM);
+    }
+  else
+    {
   act("&+LYou send out a wave of confusion!", FALSE, ch, 0, 0, TO_CHAR);
   act("&+L$n sends out a wave of energy!", FALSE, ch, 0, 0, TO_ROOM);
+    }
 
   max_level = level * 3;
 
@@ -2031,6 +2039,7 @@ spell_confuse(int level, P_char ch, char *arg, int type, P_char victim,
           break;
         case 4:
         case 5:
+		
         case 6:
           if (IS_FIGHTING(tch))
           {
