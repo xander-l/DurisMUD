@@ -1800,11 +1800,13 @@ return;
     return;
 
 
-  /*Original Justice 
+  //Original Justice 
   if (!justice_send_guards(NOWHERE, ch, MOB_SPEC_J_OUTCAST,
                            (MAX(11, GET_LEVEL(ch)) / 11) + 1))
-    return;
-*/
+   {
+    //return;
+   }
+
 
 
 
