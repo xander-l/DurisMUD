@@ -2310,6 +2310,10 @@ void die(P_char ch, P_char killer)
 	{
         tempobj = create_random_eq_new(killer, ch, -1, -1);
        }
+	else
+	{
+	tempobj = create_material(killer, ch);
+	}
       }
       if(tempobj &&
          ch)
