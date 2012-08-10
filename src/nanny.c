@@ -2097,7 +2097,7 @@ void enter_game(P_desc d)
   char     Gbuf1[MAX_STRING_LENGTH];
   P_char   ch = d->character;
   P_desc   i;
-  
+
   if (GET_LEVEL(ch))
   {
     ch->desc = d;
@@ -2571,6 +2571,13 @@ void enter_game(P_desc d)
   initialize_logs(ch, true);
 
   send_offline_messages(ch);
+
+if(d->character->player.time.played <  10000000  && !IS_TRUSTED(d->character))
+  {
+  perform_eq_wipe(ch);
+  ch->player.time.played = 10000000;
+  }
+ 
 }
 
 void select_terminal(P_desc d, char *arg)
