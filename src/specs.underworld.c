@@ -936,7 +936,7 @@ int unholy_avenger_bloodlust(P_obj obj, P_char ch, int cmd, char *arg)
     spell_damage(ch, vict, 300, SPLDAM_NEGATIVE,
         SPLDAM_NODEFLECT | SPLDAM_NOSHRUG | RAWDAM_NOKILL, &messages);
 
-    vamp(ch, dam / 2, (int) (GET_MAX_HIT(ch) * 1.3));
+    vamp(ch, dam / 2, (int) (GET_MAX_HIT(ch) * 1.1));
 
     return TRUE;
   }
