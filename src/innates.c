@@ -3781,7 +3781,7 @@ int resists_spell(P_char caster, P_char victim)
   
   if (has_innate(victim, INNATE_MAGIC_RESISTANCE))
   {
-    if(number(1, 101) > get_innate_resistance(victim))
+    if(number(1, 101) > get_innate_resistance(victim)/10)
     {
       return FALSE;
     }
@@ -3795,7 +3795,7 @@ int resists_spell(P_char caster, P_char victim)
       act("&+W$n&+W's central eye glows brightly as it negates $N&+W's spell!",
          TRUE, victim, 0, caster, TO_NOTVICT);
       
-      return true;
+      return TRUE;
     }
      
     if(GET_CHAR_SKILL(caster, SKILL_SPELL_PENETRATION) ||
