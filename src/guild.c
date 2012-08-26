@@ -262,7 +262,8 @@ int SpellCopyCost(P_char ch, int spell)
    // new simple cost formula, none of that other BS - Jexni 1/2/12
    circle = get_spell_circle(ch, spell);
    cost = circle * get_property("spell.cost.plat.per.circle", 1000.000);
-   return cost;
+   // All spells are currently free to scribe. - Lohrr
+   return 0;
 }
 
 #if 0
@@ -687,12 +688,16 @@ void do_spells(P_char ch, char *argument, int cmd)
       if( !SKILL_DATA_ALL(target, spell).maxlearn[0] &&
           !SKILL_DATA_ALL(target, spell).maxlearn[target->player.spec] )
         continue;
-      
+#ifdef SKILLPOINTS
         sprintf(buf, "%3d %s%-25s %s", 
           (target && IS_PC(target)) ? target->only.pc->skills[spell].taught : 0,
           (target && (circle > get_max_circle(target))) ? "&+L" : "",
           skills[spell].name, buf2);
-
+#else
+        sprintf(buf, "%s%-25s %s", 
+          (target && (circle > get_max_circle(target))) ? "&+L" : "",
+          skills[spell].name, buf2);
+#endif
       if (target)
       {
         if (meming_class(target))
