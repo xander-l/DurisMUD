@@ -688,10 +688,10 @@ void do_spells(P_char ch, char *argument, int cmd)
           !SKILL_DATA_ALL(target, spell).maxlearn[target->player.spec] )
         continue;
       
-        sprintf(buf, "%s%-25s %s",
-              (target &&
-               (circle > get_max_circle(target))) ? "&+L" : "",
-              skills[spell].name, buf2);
+        sprintf(buf, "%3d %s%-25s %s", 
+          (target && IS_PC(target)) ? target->only.pc->skills[spell].taught : 0,
+          (target && (circle > get_max_circle(target))) ? "&+L" : "",
+          skills[spell].name, buf2);
 
       if (target)
       {
@@ -799,12 +799,7 @@ void do_skills(P_char ch, char *argument, int cmd)
         target->only.pc->skills[skl].learned) ||
         GET_LVL_FOR_SKILL(target, skl) > 0 &&
         GET_LVL_FOR_SKILL(target, skl) <= MAXLVLMORTAL )
-#ifdef SKILLPOINTS
-        && ( IS_SKILL(skl) || IS_INSTRUMENT_SKILL(skl) || IS_BARD_SONG(skl)
-          || IS_SPELL(skl) ) )
-#else
         && ( IS_SKILL(skl) || IS_INSTRUMENT_SKILL(skl) || IS_BARD_SONG(skl) ) )
-#endif
       {
         if (IS_PC(target))
         {
@@ -961,7 +956,7 @@ void do_practice(P_char ch, char *arg, int cmd)
     {
       *buf1 = '\0';
       strcat(obuf, "\n&+BSpell                    Cost to Scribe\n&n");
-      for (spl = FIRST_SKILL; spl <= LAST_SKILL; spl++)
+      for (spl = FIRST_SPELL; spl <= LAST_SPELL; spl++)
       {
         if( GET_LVL_FOR_SKILL(ch, spl) <= GET_LEVEL(ch) &&
             GET_LVL_FOR_SKILL(teacher, spl) <= GET_LEVEL(teacher)
@@ -1317,7 +1312,8 @@ char    *replace_it(char *g_string, char *replace_from, char *replace_to)
 
 int skill_cost( P_char ch, int skl )
 {
-  if( skl < FIRST_SKILL || skl > LAST_SKILL )
+  if(  (skl < FIRST_SKILL || skl > LAST_SKILL)
+    && (skl < FIRST_SPELL || skl > LAST_SPELL) )
     return -1;
   return 1;
 }
@@ -1326,7 +1322,7 @@ void do_practice_new( P_char ch, char *arg, int cmd )
 {
   char   buf[MAX_STRING_LENGTH], buf1[MAX_STRING_LENGTH],
          obuf[MAX_STRING_LENGTH];
-  int    skl, spl, circle, i, meming_cl, cost, ret;
+  int    skl, spl, circle, i, cost, ret;
   P_char teacher;
   
   if( !(ch) || !IS_ALIVE(ch) || !IS_PC(ch) )
@@ -1337,7 +1333,6 @@ void do_practice_new( P_char ch, char *arg, int cmd )
   *buf = '\0';
   *buf1 = '\0';
   *obuf = '\0';
-  meming_cl = meming_class(ch);
 
   // List skills available to be taught
   if( !*arg && teacher )
@@ -1360,27 +1355,21 @@ void do_practice_new( P_char ch, char *arg, int cmd )
     }
     strcat( obuf, buf1 );
 
-    if( meming_cl )
+    *buf1 = '\0';
+    strcat(obuf, "\n&+BSpell                    Cost\n&n");
+    for (spl = FIRST_SPELL; spl <= LAST_SPELL; spl++)
     {
-      *buf1 = '\0';
-      strcat(obuf, "\n&+BSpell                    Cost to Scribe\n&n");
-      for (spl = FIRST_SKILL; spl <= LAST_SKILL; spl++)
+// PENIS : THIS CRASHES MUD with SEG FAULT
+      if( GET_LVL_FOR_SKILL(ch, spl) <= GET_LEVEL(ch)
+        && GET_LVL_FOR_SKILL(teacher, spl) <= GET_LEVEL(teacher)
+        && IS_SPELL(spl) && skill_cost( ch, spl) > 0 )
       {
-        if( GET_LVL_FOR_SKILL(ch, spl) <= GET_LEVEL(ch)
-          && GET_LVL_FOR_SKILL(teacher, spl) <= GET_LEVEL(teacher)
-          && IS_SPELL(spl) && skill_cost( ch, spl) > 0 )
-        {
-          circle = get_spell_circle(ch, spl);
-          if (circle <= get_max_circle(ch) && circle < MAX_CIRCLE + 1
-            && circle > 0)
-          {
-            sprintf( buf, "%-25s %d\n", skills[skl].name, skill_cost( ch, spl) );
-            strcat(buf1, buf);
-          }
-        }
+        circle = get_spell_circle(ch, spl);
+        sprintf( buf, "%-25s %d\n", skills[spl].name, skill_cost( ch, spl) );
+        strcat(buf1, buf);
       }
-      strcat(obuf, buf1);
     }
+    strcat(obuf, buf1);
     page_string(ch->desc, obuf, 1);
     return;
   }
@@ -1393,10 +1382,7 @@ void do_practice_new( P_char ch, char *arg, int cmd )
     arg = skip_spaces(arg);
     if (!str_cmp(arg, "all"))
     {
-      if( meming_cl )
-        prac_all_spells(ch);
-      else
-        send_to_char( "Try practicing a specific skill.\n", ch );
+      prac_all_spells(ch);
       return;
     }
     skl = search_block(arg, (const char **) spells, FALSE);
@@ -1446,15 +1432,6 @@ void do_practice_new( P_char ch, char *arg, int cmd )
         return;
       }
     }
-
-    if (IS_SPELL(skl) && !meming_class(ch))
-      if (ch->only.pc->skills[i].learned)
-      {
-        send_to_char
-          ("You need not prac spells! Your deity grants it to you, if you are deemed worthy of it.\n",
-           ch);
-        return;
-      }
 
     if( skill_cost( ch, skl ) > ch->only.pc->skillpoints )
     {
