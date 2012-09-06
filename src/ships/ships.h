@@ -60,7 +60,8 @@
 #define SH_FRIGATE             9
 #define SH_CRUISER            10
 #define SH_DREADNOUGHT        11
-#define MAXSHIPCLASS          12
+#define SH_ZONE_SHIP          12
+#define MAXSHIPCLASS          13
 
 #define SHK_MERCHANT          1
 #define SHK_WARSHIP           2

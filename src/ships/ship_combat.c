@@ -355,6 +355,8 @@ bool sink_ship(P_ship ship, P_ship attacker)
 
     if (ship == cyrics_revenge)
         ship->timer[T_SINKING] = 7500; // to let people clear it/take nexus
+    if (ship == zone_ship)
+        ship->timer[T_SINKING] = -1; // The zone ship does not sink.
     else if (IS_NPC_SHIP(ship))
         ship->timer[T_SINKING] = number(1000, 1500); // to let people clear it
     else

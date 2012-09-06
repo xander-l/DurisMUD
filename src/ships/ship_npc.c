@@ -74,6 +74,8 @@ bool is_npc_ship_name(const char *name)
     }
     if (!strcmp(strip_ansi(name).c_str(), strip_ansi(CYRICS_REVENGE_NAME).c_str()))
         return true;
+    if (!strcmp(strip_ansi(name).c_str(), strip_ansi(ZONE_SHIP_NAME).c_str()))
+        return true;
     return false;
 }
 
@@ -704,6 +706,7 @@ NPCShipSetup npcShipSetup [] = {
     { SH_DREADNOUGHT, 4, 25, &setup_npc_dreadnought_01 },
     { SH_DREADNOUGHT, 4, 25, &setup_npc_dreadnought_02 },
     { SH_DREADNOUGHT, 4, 25, &setup_npc_dreadnought_03 },
+    { SH_ZONE_SHIP,   4, 25, &setup_npc_dreadnought_01 },
 };
 
 
@@ -1320,4 +1323,48 @@ bool load_cyrics_revenge_crew(P_ship ship)
 int get_cyrics_revenge_nexus_rvnum(P_ship ship)
 {
     return SHIP_ROOM_NUM(ship, 7);
+}
+
+/////////////////////////////
+//  Zone Ship
+/////////////////////////////
+
+P_ship zone_ship = 0;
+
+bool load_zone_ship()
+{
+    if (zone_ship != 0)
+        return false;
+
+    int i = 0, room;
+    for (; i < 200; i++)
+    {
+        room = number (0, top_of_world);
+        if (IS_MAP_ROOM(room) && world[room].sector_type == SECT_OCEAN)
+            break;
+    }
+    if (i == 200) return false;
+
+
+    NPCShipSetup* setup = find_ship_setup(4, SH_ZONE_SHIP, -1);
+    if (!setup)
+        return false;
+
+    zone_ship = create_npc_ship(setup, 0);
+    if (!zone_ship)
+        return false;
+
+    name_ship(ZONE_SHIP_NAME, zone_ship);
+    if (!load_ship(zone_ship, room))
+        return false;
+
+    setup->setup(zone_ship);
+    zone_ship->npc_ai->type = NPC_AI_HUNTER;
+    zone_ship->npc_ai->advanced = 1;
+    zone_ship->npc_ai->permanent = true;
+    zone_ship->npc_ai->mode = NPC_AI_CRUISING;
+
+    assignid(zone_ship, NULL, true);
+    REMOVE_BIT(zone_ship->flags, DOCKED);
+    return true;
 }

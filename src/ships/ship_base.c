@@ -71,6 +71,7 @@ void initialize_ships()
 
   initialize_ship_cargo();
   load_cyrics_revenge();
+  load_zone_ship();
   if (!load_moonstone_fragments())
   {
     logit(LOG_FILE, "Error initializing automatons quest!\r\n");
@@ -490,6 +491,8 @@ void delete_ship(P_ship ship, bool npc)
         delete ship->npc_ai;
     if (ship == cyrics_revenge)
         cyrics_revenge = 0;
+    if( ship == zone_ship )
+        zone_ship = 0;
         
 
     logit(LOG_STATUS, "Ship \"%s\" (%s) deleted", strip_ansi(ship->name).c_str(), ship->ownername);
@@ -515,6 +518,8 @@ void clear_references_to_ship(P_ship ship)
 //--------------------------------------------------------------------
 void set_ship_layout(P_ship ship, int m_class)
 {
+//    int to_room = 0;
+
     ship->bridge = 0;
     switch (m_class) {
     case SH_SLOOP:
@@ -755,6 +760,13 @@ void set_ship_layout(P_ship ship, int m_class)
         ship->entrance = 14;
         ship->room_count = 15;
         break;
+    case SH_ZONE_SHIP:
+        SHIP_ROOM_EXIT(ship, 0, SOUTH) = 1;
+        SHIP_ROOM_EXIT(ship, 1, NORTH) = 1;
+
+        ship->entrance = 1;
+        ship->room_count = 2;
+        break;
     default:
         break;
     }
@@ -823,7 +835,7 @@ bool set_ship_physical_layout(P_ship ship)
         int rroom = real_room0(SHIP_ROOM_NUM(ship, j));
         if (!rroom)
             return FALSE;
-        
+
         for (int dir = 0; dir < NUM_EXITS; dir++) 
         {
             if (SHIP_ROOM_EXIT(ship, j, dir) != -1) 
@@ -851,6 +863,22 @@ bool set_ship_physical_layout(P_ship ship)
     ship->bridge = SHIP_ROOM_NUM(ship, 0);
     ship->entrance = SHIP_ROOM_NUM(ship, ship->entrance);
     name_ship_rooms(ship);
+// LOHRR - SET ROOM HERE.
+    if( ship == zone_ship )
+    {
+      int to_room = real_room( ZONE_SHIP_ZONE_ENTRANCE );
+      if( !to_room )
+        fprintf(stderr, "Failed to link zone ship to zone.\r\n");
+      else
+      {
+        world[real_room(ship->room[1].roomnum)].dir_option[NORTH]->to_room = to_room;
+        if (!world[to_room].dir_option[SOUTH]) 
+          CREATE(world[to_room].dir_option[SOUTH], room_direction_data, 1, MEM_TAG_DIRDATA);
+        world[to_room].dir_option[SOUTH]->to_room = real_room(ship->room[1].roomnum);
+        world[to_room].dir_option[SOUTH]->exit_info = 0;
+      }
+    }
+
     return TRUE;
 }
 
@@ -1287,6 +1315,8 @@ void ship_activity()
                 if (IS_NPC_SHIP(ship))
                     stamina_inc = 4;
                 if (ship == cyrics_revenge)
+                    stamina_inc = 15;
+                if (ship == zone_ship)
                     stamina_inc = 15;
                 if (SHIP_DOCKED(ship) || SHIP_ANCHORED(ship))
                     stamina_inc *= 4;
@@ -1787,6 +1817,10 @@ void crash_land(P_ship ship)
 
 void finish_sinking(P_ship ship)
 {
+    // The zone ship does not sink completely.
+    if( ship == zone_ship )
+      return;
+
     if (IS_NPC_SHIP(ship) && pc_is_aboard(ship))
     {
         ship->timer[T_SINKING] = 30;
