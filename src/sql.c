@@ -315,10 +315,14 @@ int sql_save_player_core(P_char ch)
   db_query_nolog
     ("INSERT INTO players_core (pid, name, race, classname, spec, guild, webinfo_toggle, racewar, level, money, balance, playtime, epics) VALUES( %d, '', '', '', '', '', 0, 0 ,0 ,0,0,0,0)",
      GET_PID(ch));
+
+  sprintf(query, "UPDATE players_core SET active = 0 WHERE name = '%s' and pid != %d", p->name, GET_PID(ch));
+  db_query(query);
+
   sprintf(query,
           "UPDATE players_core SET name='%s', race = '%s', classname = '%s', "
           "spec = '%s', guild = '%s', webinfo_toggle = %d, "
-          "level = %d, racewar=%d        WHERE pid = %d", p->name,
+          "level = %d, racewar=%d, active=1 WHERE pid = %d", p->name,
           race_names_table[p->race].ansi, get_class_name(ch, ch),
           spec_name, assoc_name_sql,
           (IS_SET(ch->specials.act2, PLR2_WEBINFO) ? 1 : 0),
