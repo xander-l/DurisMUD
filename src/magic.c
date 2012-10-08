@@ -17522,8 +17522,10 @@ void spell_cdoom(int level, P_char ch, char *arg, int type, P_char victim,
   else
 	{
     	add_event(event_cdoom, 0, ch, 0, NULL, 0, &cDoomData, sizeof(CDoomData));
-	zone_spellmessage(ch->in_room,
-                    "&+LThe &+minsects &+Lof the &+yarea&+L seem to be called away...&n\r\n");
+	
+  zone_spellmessage(ch->in_room,
+    "&+LThe &+minsects &+Lof the &+yarea&+L seem to be called away...&n\r\n",
+    "&+LThe &+minsects &+Lof the &+yarea&+L seem to be called away to the %s...&n\r\n");
 	}
 }
 

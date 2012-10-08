@@ -1185,12 +1185,15 @@ int illithid_axe(P_obj obj, P_char ch, int cmd, char *arg)
           act("$q &+Lhas failed to take you to your destination and gives you a powerful jolt.&n",
             TRUE, ch, obj, ch, TO_CHAR);
 
-          // Detonate spell does 1 damage to self.
-          // spell_detonate(50, ch, 0, SPELL_TYPE_SPELL, ch, 0);
-      
-          spell_damage(ch, ch, number(100, 400), SPLDAM_GENERIC, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, 0);
           
-          obj->timer[0] = curr_time;
+	   obj->timer[0] = curr_time;
+	    spell_inflict_pain(50, ch, 0, SPELL_TYPE_SPELL, ch, 0);
+	    spell_inflict_pain(50, ch, 0, SPELL_TYPE_SPELL, ch, 0);
+
+      
+          //spell_damage(ch, ch, number(100, 400), SPLDAM_GENERIC, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, 0);
+          
+          
           return FALSE;
         }
         
