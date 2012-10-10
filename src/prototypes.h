@@ -1289,6 +1289,7 @@ void spell_control_weather(int, P_char, P_char, P_obj);
 void spell_create_water(int, P_char, char *, int, P_char, P_obj);
 void spell_innate_darkness(int, P_char, P_char, P_obj);
 void spell_energy_drain(int, P_char, char*, int, P_char, P_obj);
+void spell_life_leech(int, P_char, char*, int, P_char, P_obj);
 void spell_faerie_fire(int, P_char, char*, int, P_char, P_obj);
 void spell_faerie_fog(int, P_char, char*, int, P_char, P_obj);
 void spell_farsee(int, P_char, char*, int, P_char, P_obj);

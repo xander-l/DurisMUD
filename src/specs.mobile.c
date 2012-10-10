@@ -13822,8 +13822,8 @@ int conj_specpet_slyph(P_char ch, P_char pl, int cmd, char *arg)
         return false;
     act("$n&+C gains a burst of &+Wenergy&+C!", FALSE, ch, 0, vict, TO_ROOM);
     spell_cyclone(45, ch, NULL, SPELL_TYPE_SPELL, vict, 0);
-    if (is_char_in_room(ch, room) && is_char_in_room(vict, room))
-      spell_cyclone(45, ch, NULL, SPELL_TYPE_SPELL, vict, 0);
+   // if (is_char_in_room(ch, room) && is_char_in_room(vict, room))
+      //spell_cyclone(45, ch, NULL, SPELL_TYPE_SPELL, vict, 0);
   }
   return FALSE;
 }

@@ -1023,6 +1023,91 @@ void spell_enervation(int level, P_char ch, char *arg, int type,
   }
 }
 
+void spell_life_leech(int level, P_char ch, char *arg, int type,
+                        P_char victim, P_obj obj)
+{
+  int mana, dam, result, moves;
+  bool saved  = FALSE;
+  
+  struct damage_messages messages = {
+    "&+LYou reach out and touch $N, &+rleeching &+Lsome of $S's &+Llife&+wfor&+Wce.&n",
+    "&+LYour &+rlife &+force seems to slip away as&n $n &+Ltouches you.&n",
+    "$n &+Lseems to suck the &+rlife &+Lright out of&n $N!",
+    "$N &+rapparently has no more &+Rlife &+rto leech!&n",
+    "&+LAs&n $n &+Ltouches you, you feel the last bit of your &+rlife &+Lseep out of you.&n",
+    "$n &+Lsucks the last bit of &+rlife &+Lout of &n$N &+Lwho falls to the &+yground &+Llifeless."
+  };
+
+  if(!(ch) ||
+     !(victim) ||
+     !IS_ALIVE(ch) ||
+     !IS_ALIVE(victim) ||
+     victim == ch)
+  {
+    return;
+  }
+
+  if(resists_spell(ch, victim))
+    return;
+
+  dam = dice(1.5 * level, 5);
+  
+  
+  if(IS_AFFECTED4(victim, AFF4_DEFLECT))
+  {
+    spell_damage(ch, victim, dam, SPLDAM_GENERIC, SPLDAM_NOSHRUG | SPLDAM_NOVAMP | SPLDAM_NODEFLECT, &messages);
+    return;
+  }
+
+  if(NewSaves(victim, SAVING_SPELL, 0))
+  {
+    saved = TRUE;
+    dam = (int)(dam * 0.80);
+  }
+  
+  if(GET_LEVEL(victim) <= (level / 10))
+  {
+    /*
+     * Kill the sucker
+     */
+    act(messages.death_attacker, FALSE, ch, 0, victim, TO_CHAR);
+    act(messages.death_victim, FALSE, ch, 0, victim, TO_VICT);
+    act(messages.death_room, FALSE, ch, 0, victim, TO_NOTVICT);
+    die(victim, ch);
+    victim = NULL;
+  }
+  else
+  {
+    if(!IS_AFFECTED4(victim, AFF4_NEG_SHIELD) &&
+       !IS_UNDEADRACE(victim) && (!GET_CLASS(ch, CLASS_NECROMANCER)))
+    {
+      if(IS_PC(ch) || 
+         IS_PC_PET(ch))
+      {
+        vamp(ch, (int)(dam / 5), (int) (GET_MAX_HIT(ch) * 1.00));
+      }
+      else
+        vamp(ch, (int)(dam / 2), (int) (GET_MAX_HIT(ch) * 1.00));
+	 
+    }
+
+    StartRegen(ch, EVENT_MOVE_REGEN);
+    StartRegen(victim, EVENT_MOVE_REGEN);
+      
+// Vamping still occurs as above. We do not want double vamping undead. 
+    spell_damage(ch, victim, dam, SPLDAM_NEGATIVE, SPLDAM_NOSHRUG | SPLDAM_NOVAMP, &messages);
+  }
+
+  if(!IS_ALIVE(victim) ||
+     !IS_ALIVE(ch))
+        return;
+
+}
+
+
+
+
+
 void spell_energy_drain(int level, P_char ch, char *arg, int type,
                         P_char victim, P_obj obj)
 {
@@ -1084,18 +1169,18 @@ void spell_energy_drain(int level, P_char ch, char *arg, int type,
     if(!IS_AFFECTED4(victim, AFF4_NEG_SHIELD) &&
        !IS_UNDEADRACE(victim) && (!GET_CLASS(ch, CLASS_NECROMANCER)))
     {
-      if(IS_PC(ch) || //disabling vamp
+      if(IS_PC(ch) || 
          IS_PC_PET(ch))
       {
-        vamp(ch, (int)(dam / 5), (int) (GET_MAX_HIT(ch) * 1.10));
+        vamp(ch, (int)(dam / 5), (int) (GET_MAX_HIT(ch) * 1.00));
       }
       else
-        vamp(ch, (int)(dam / 2), (int) (GET_MAX_HIT(ch) * 1.10));
+        vamp(ch, (int)(dam / 2), (int) (GET_MAX_HIT(ch) * 1.00));
 	 
     }
 
-    send_to_char("&+LYour life energy is &+rtapped&+L.\n", victim);
-
+/*    send_to_char("&+LYour life energy is &+rtapped&+L.\n", victim);
+ No more sapping moves - drannak
     if(GET_VITALITY(victim) >= 25 &&
       !IS_AFFECTED4(victim, AFF4_NEG_SHIELD))
     {
@@ -1109,6 +1194,7 @@ void spell_energy_drain(int level, P_char ch, char *arg, int type,
       debug("E DRAIN: (%s&n) loses and (%s&n) gained (%d) moves.", 
         J_NAME(victim), J_NAME(ch), moves);
     }
+*/
 
     StartRegen(ch, EVENT_MOVE_REGEN);
     StartRegen(victim, EVENT_MOVE_REGEN);
@@ -1137,8 +1223,8 @@ void spell_energy_drain(int level, P_char ch, char *arg, int type,
   }
   else if(!saved)
   {
-    send_to_char("&+LYour spell saps the energy from your foe, leaving you invigorated in return.\r\n", ch);
-    send_to_char("&+LYour energy is sapped! You feel sluggish and weak...\r\n", victim);
+    //send_to_char("&+LYour spell saps the energy from your foe, leaving you invigorated in return.\r\n", ch);
+    //send_to_char("&+LYour energy is sapped! You feel sluggish and weak...\r\n", victim);
     struct affected_type af;
     memset(&af, 0, sizeof(af));
     af.type = SPELL_ENERGY_DRAIN;
