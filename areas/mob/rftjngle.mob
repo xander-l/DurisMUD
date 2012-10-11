@@ -9,8 +9,8 @@ in advance of any sort of attack by the more violent denizens of the jungle.
 He wears well-worn armor and carries a small crossbow as well as a short
 sword.
 ~
-1073743948 128 0 553648144 12480 0 0 800 S
-PF 7 1 -1
+1073743948 128 0 0 553648144 12480 0 0 800 S
+PF 7 1 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -26,8 +26,8 @@ stranger flowers in the jungle.  Despite her apparent obliviousness to her
 threatening surroundings one gets the impression that she is quite able to
 protect herself.
 ~
-1107298380 128 0 0 0 0 0 0 S
-PF 7 32768 -1
+1107298380 128 0 0 0 0 0 0 0 S
+PF 7 32768 0 -1
 31 6 0 31d77+496 4d6+7
 5.7.9.1 40176
 8 8 2
@@ -42,8 +42,8 @@ will likely die quite soon if nobody helps him.  His dark brown eyes appear to
 plead for help, and he can be heard mumbling prayers to several different gods
 as he attempts to find a way out of the jungle.
 ~
-1073744076 128 0 0 0 0 0 0 S
-PH 1 1 -1
+1073744076 128 0 0 0 0 0 0 0 S
+PH 1 1 0 -1
 20 13 35 20d35+140 3d4+2
 0.9.3.0 9720
 8 8 1
@@ -57,8 +57,8 @@ dared to come here alone.  He has complete confidence that his god shall
 protect him from the evil creatures of the jungle as well as assisting him in
 their destruction.
 ~
-33556556 160 0 8192 32768 0 0 1000 S
-PH 1 8 -1
+33556556 160 0 0 8192 32768 0 0 1000 S
+PH 1 8 0 -1
 36 2 -15 36d95+828 4d7+10
 0.1.2.2 46656
 8 8 1
@@ -72,8 +72,8 @@ agility with which he picks his way through the forest.  There is little else
 elven about him, he is stronger than most human men, strong enough to even
 cause some barbarians to pause before starting a fight.
 ~
-1073743948 128 0 0 0 0 0 800 S
-P2 0 2 -1
+1073743948 128 0 0 0 0 0 0 800 S
+P2 0 2 0 -1
 26 8 16 26d65+338 3d6+4
 7.2.6.1 23166
 8 8 1
@@ -87,8 +87,8 @@ flies into things with reckless abandon.  His lower feathers are tinged with
 red and yellow and white tufts mark the top of his head.  Though drunk, the
 jungle creatures stay away from him, fearing his insanity if not his strength.
 ~
-1073875020 0 0 167772216 0 0 0 0 S
-PF 0 4096 -1
+1073875020 0 0 0 167772216 0 0 0 0 S
+PF 0 4096 0 -1
 26 8 16 26d55+286 3d6+4
 7.2.6.1 23166
 8 8 0
@@ -102,8 +102,8 @@ this a perfect place for it to hunt.  Young enough to appear sex-less to
 anything other than another bullywug, this creature marches about with evil
 intents written all over its face and eyes.
 ~
-1074006092 1 0 33554432 0 0 0 -800 S
-H 0 1 -1
+1074006092 1 0 0 33554432 0 0 0 -800 S
+H 0 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
 8 8 0
@@ -118,8 +118,8 @@ hunched over so has a much greater mass and strength.  It is completely at home
 in the jungle, few creatures bother to eat bullywugs poisonous flesh so most of
 the jungle creatures will only attack them if they are attacked first.
 ~
-1074006092 0 0 33554432 0 0 0 -800 S
-H 0 1 -1
+1074006092 0 0 0 33554432 0 0 0 -800 S
+H 0 1 0 -1
 20 13 35 20d35+140 3d4+2
 0.9.3.0 9720
 8 8 0
@@ -134,8 +134,8 @@ carefully and quietly than most rangers are able to manage.  It is clear that
 he has been outcast from Woodseer, something difficult to accomplish accept
 for the most hideous of crimes.
 ~
-1073743948 128 0 524288 0 0 0 0 S
-PF 0 4096 -1
+1073743948 128 0 0 524288 0 0 0 0 S
+PF 0 4096 0 -1
 20 13 35 20d30+100 3d4+2
 0.9.3.0 9720
 8 8 1
@@ -149,8 +149,8 @@ has clearly seen a great deal of the world, and stolen as much as he could
 while travelling.  His plain features make him the perfect thief because he is
 easily forgotten by those that see him.
 ~
-1073743950 1 0 17301648 0 0 0 -400 S
-PF 0 4096 -1
+1073743950 1 0 0 17301648 0 0 0 -400 S
+PF 0 4096 0 -1
 35 6 -12 35d70+525 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -165,8 +165,8 @@ will probably be many years before he can gain the respect he desires.  Light
 brown hair hangs in curls down past his shoulders, somehow making him look even
 smaller than he is.
 ~
-1073743946 1 0 16777360 0 0 0 -400 S
-PF 0 4096 -1
+1073743946 1 0 0 16777360 0 0 0 -400 S
+PF 0 4096 0 -1
 30 8 3 30d55+330 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -180,8 +180,8 @@ but is willing to put up with anything to learn from the masters.  His bright
 blue eyes and serene expression make him seem quite out of place here but he
 clearly has a job that he takes quite seriously.
 ~
-1073743950 1 0 16777232 0 0 0 -400 S
-PH 0 4096 -1
+1073743950 1 0 0 16777232 0 0 0 -400 S
+PH 0 4096 0 -1
 20 13 35 20d30+100 3d4+2
 0.9.3.0 9720
 8 8 1
@@ -196,8 +196,8 @@ her left cheek and the constant grimace that tightens her mouth.  Though she
 stands guard duty here the dagger at her hip suggests that she is one of the
 higher ranking thieves in the guild of outcasts.
 ~
-1073743950 1 0 16777232 0 0 0 -400 S
-P2 0 4096 -1
+1073743950 1 0 0 16777232 0 0 0 -400 S
+P2 0 4096 0 -1
 20 13 35 20d30+100 3d4+2
 0.9.3.0 9720
 8 8 2
@@ -213,8 +213,8 @@ eyepatch covers the spot where his left eye belongs.  Juaraldo has been outcast
 from Woodseer but he hasn't stopped working, or planning for the day when he
 will overthrow Ctenmir and become master of all the halfling thieves.
 ~
-1073743886 1 0 17367192 28 0 0 -500 S
-PF 0 4096 -1
+1073743886 1 0 0 17367192 28 0 0 -500 S
+PF 0 4096 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -227,8 +227,8 @@ This massive creature feeds on the rotting vegetation of the jungle floor.
 Fortunately,it has a hard cuticle that both protects it and makes it
 unappetizing to most jungle creatures.
 ~
-2248 0 0 33554432 0 0 0 -375 S
-I 0 0 -1
+2248 0 0 0 33554432 0 0 0 -375 S
+I 0 0 0 -1
 12 15 61 12d23+48 2d5+2
 0.0.0.0 5832
 8 8 0
@@ -241,8 +241,8 @@ Covered in a thin layer of flames this mutant beetle has a high metabolism,
 requiring huge amounts of food to feed its swift moving body as well as the
 magical flames that encircle it.
 ~
-1073743944 0 0 570425488 12481 0 0 0 S
-I 0 1 -1
+1073743944 0 0 0 570425488 12481 0 0 0 S
+I 0 1 0 -1
 18 13 42 18d35+126 3d4+2
 0.0.0.0 8748
 8 8 0
@@ -255,8 +255,8 @@ This young tapir is one of the many creatures of the jungle that spends much
 of its time avoiding predators.  Eating only grubs and small beetles, it is of
 little threat to anyone.
 ~
-2060 0 0 33554432 0 0 0 0 S
-A 0 0 -1
+2060 0 0 0 33554432 0 0 0 0 S
+A 0 0 0 -1
 10 18 67 10d18+35 2d3+1
 0.0.0.0 1296
 8 8 0
@@ -269,8 +269,8 @@ This tapir values its life enough to flee from almost any battle, it has no
 real ability to defend itself so it has had to learn to hide and run away more
 effectively than most of the other creatures of the jungle.
 ~
-2124 0 0 33554432 0 0 0 0 S
-A 0 1 -1
+2124 0 0 0 33554432 0 0 0 0 S
+A 0 1 0 -1
 16 13 48 16d35+112 3d4+2
 0.0.0.0 7776
 8 8 0
@@ -284,8 +284,8 @@ dark coat of this weasel-like creature is quite soft and fine, yet thick
 enough to give it a great deal of protection.  Its beady eyes glow with a feral
 inner light that hints at its normal disposition.
 ~
-1073743948 1 0 33554448 0 0 0 -500 S
-AC 0 1 -1
+1073743948 1 0 0 33554448 0 0 0 -500 S
+AC 0 1 0 -1
 12 15 61 12d27+72 2d5+2
 0.0.0.0 5832
 8 8 0
@@ -298,8 +298,8 @@ This ancient grison has survived many years in the jungle on the basis of its
 strength, speed and intelligence.  It has clearly developed tactics for
 attacking its prey in the swiftest and most deadly manner possible.
 ~
-2122 1 0 51904568 0 0 0 -500 S
-AC 0 1 -1
+2122 1 0 0 51904568 0 0 0 -500 S
+AC 0 1 0 -1
 26 8 16 26d65+338 3d6+4
 0.0.0.0 23166
 8 8 1
@@ -313,8 +313,8 @@ for grubs and small insects in the soft, rotting humus.  Unlike tapir though,
 the boar has an angry disposition and relies on its tusks and tough hide to
 protect it from predators.
 ~
-1073743944 1 0 50331648 0 0 0 0 S
-A 0 1 -1
+1073743944 1 0 0 50331648 0 0 0 0 S
+A 0 1 0 -1
 8 18 74 8d21+44 2d3+1
 0.0.0.0 1036
 8 8 0
@@ -328,8 +328,8 @@ method of attack make most presume it is a scorpion.  It strikes with
 lightning-like speed and accuracy, but is actually fairly frail.  Its poison
 makes it well-respected by the creatures around it however.
 ~
-1073743944 1 0 51904656 0 0 0 -500 S
-AS 0 0 -1
+1073743944 1 0 0 51904656 0 0 0 -500 S
+AS 0 0 0 -1
 5 20 83 5d15+17 1d5+0
 0.0.0.0 648
 8 8 0
@@ -342,8 +342,8 @@ This spider is covered with fine hairs that help it sense everything around
 it.  It isn't terribly intelligent and has been known to foolishly attack
 creatures many times its own size.
 ~
-2124 1 0 33554488 0 0 0 0 S
-AS 0 0 -1
+2124 1 0 0 33554488 0 0 0 0 S
+AS 0 0 0 -1
 10 18 67 10d18+35 2d3+1
 0.0.0.0 1296
 8 8 0
@@ -357,8 +357,8 @@ is almost black, causing it to blend in well with the rotting vegetation of the
 jungle floor.  It doesn't seem particularly dangerous, but it would probably
 be safest to leave it alone.
 ~
-2124 0 0 33554432 0 0 0 0 S
-I 0 0 -1
+2124 0 0 0 33554432 0 0 0 0 S
+I 0 0 0 -1
 14 15 55 14d23+56 2d5+2
 0.0.0.0 6804
 8 8 0
@@ -372,8 +372,8 @@ neck leading to an over-sized head.  Its lengthy tail ends in a heavy bone
 ball that it swings about like a weapon.  Even though this creature is
 extremely young, it is large and dangerous.
 ~
-1073743950 1 0 536871096 0 0 0 -700 S
-AC 0 1 -1
+1073743950 1 0 0 536871096 0 0 0 -700 S
+AC 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 0.0.0.0 22275
 8 8 0
@@ -388,8 +388,8 @@ its prey and pin them down until they are dead.  A single ant alone is not much
 to fear but they always travel in groups and seem able to eat everything in
 their path.
 ~
-1073743946 1 0 33554448 0 0 0 -400 S
-I 0 0 -1
+1073743946 1 0 0 33554448 0 0 0 -400 S
+I 0 0 0 -1
 3 20 90 3d15+11 1d5+0
 0.0.0.0 388
 8 8 0
@@ -403,8 +403,8 @@ for food to bring back to the mound.  This ant is really not large enough to
 be a threat alone the problem is that there are always other ants following it.
 It is the swarm of ants that needs to be feared.
 ~
-1073743944 1 0 33554576 0 0 0 -500 S
-I 0 0 -1
+1073743944 1 0 0 33554576 0 0 0 -500 S
+I 0 0 0 -1
 5 20 83 5d15+17 1d5+0
 0.0.0.0 648
 8 8 0
@@ -419,8 +419,8 @@ ground.  It has two very human-like arms and hands on its upper torso but its
 head is definitely that of a snake, simply larger and possessed with a great
 deal more intelligence.
 ~
-1074006092 0 0 50364432 0 0 0 -800 S
-H 0 1 -1
+1074006092 0 0 0 50364432 0 0 0 -800 S
+H 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -434,8 +434,8 @@ rotting mulch of the jungle floor.  Though most of its cousins are desert
 dwellers this giant pandinus scorpion has completely adjusted to the humidity
 of the jungle and is one of its most poisonous creatures.
 ~
-1073743948 0 0 34078736 0 0 0 -400 S
-AS 0 1 -1
+1073743948 0 0 0 34078736 0 0 0 -400 S
+AS 0 1 0 -1
 15 15 51 15d27+90 2d5+2
 0.0.0.0 7290
 8 8 0
@@ -449,8 +449,8 @@ It prefers to eat ants, especially the army ants that are so feared in the
 jungle.  Its deep brown body has several dark green bands that help it remain
 almost invisible in the jungle undergrowth.
 ~
-1073743944 0 0 50331664 0 0 0 0 S
-I 0 0 -1
+1073743944 0 0 0 50331664 0 0 0 0 S
+I 0 0 0 -1
 18 13 42 18d30+90 3d4+2
 0.0.0.0 8748
 8 8 0
@@ -463,8 +463,8 @@ Bright colors tend to indicate some sort of hidden danger when they are worn
 by creatures of the jungle.  This creature is no exception, though it doesn't
 have a poisonous bite, eating its flesh can kill one in mere seconds.
 ~
-1073743944 0 0 50331664 0 0 0 -400 S
-I 0 0 -1
+1073743944 0 0 0 50331664 0 0 0 -400 S
+I 0 0 0 -1
 13 15 58 13d23+52 2d5+2
 0.0.0.0 6318
 8 8 0
@@ -478,8 +478,8 @@ camouflage it as it hunts in the jungle.  At home in the tree tops as well as
 on the jungle floor, he is an opportunistic hunter and will take whatever prey
 comes along.
 ~
-1107298376 0 0 50855952 0 0 0 -400 S
-AC 0 1 -1
+1107298376 0 0 0 50855952 0 0 0 -400 S
+AC 0 1 0 -1
 20 13 35 20d35+140 3d4+2
 0.0.0.0 9720
 8 8 0
@@ -493,8 +493,8 @@ along the jungle floor, hunting in the canopy only at night.  Its skin isn't
 really completely black, it has different shades of black that are only
 visible from very close by.
 ~
-1073743944 0 0 50855952 0 0 0 -400 S
-AC 0 1 -1
+1073743944 0 0 0 50855952 0 0 0 -400 S
+AC 0 1 0 -1
 23 11 26 23d47+230 3d5+3
 0.0.0.0 20493
 8 8 0
@@ -508,8 +508,8 @@ largest of the jungle cats, this animal fears nothing and will hunt whatever
 it pleases.  Unfortunately for it, its skin is considered quite valuable and
 fetches a good price in many cities.
 ~
-1073743944 0 0 50855952 0 0 0 -400 S
-AC 0 1 -1
+1073743944 0 0 0 50855952 0 0 0 -400 S
+AC 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.0.0.0 26730
 8 8 0
@@ -524,8 +524,8 @@ the darkness of the jungle.  Yet, not only has it survived, it has thrived,
 showing that it must be incredibly fast and ferocious.  Larger than any other
 tiger in the forest, this creature clearly has earned respect.
 ~
-1073743880 0 0 50430136 0 0 0 -500 S
-AC 0 1 -1
+1073743880 0 0 0 50430136 0 0 0 -500 S
+AC 0 1 0 -1
 50 -3 -95 50d119+2750 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -539,8 +539,8 @@ largest of the jungle cats, this animal fears nothing and will hunt whatever
 it pleases.  Unfortunately for it, its skin is considered quite valuable and
 fetches a good price in many cities.
 ~
-1073743944 0 0 50855952 0 0 0 -400 S
-AC 0 1 -1
+1073743944 0 0 0 50855952 0 0 0 -400 S
+AC 0 1 0 -1
 26 8 16 26d65+338 3d6+4
 0.0.0.0 23166
 8 8 0
@@ -555,8 +555,8 @@ probably almost as welcome to him as the desert heat he grew up with.  His
 four arms and tough shell make him a powerful adversary for any of the jungle
 creatures he might come across.
 ~
-1073743948 128 0 50397312 12510 0 0 0 S
-TK 0 1 -1
+1073743948 128 0 0 50397312 12510 0 0 0 S
+TK 0 1 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 0
@@ -571,8 +571,8 @@ the odd collection suggesting it may be something quite other than friendly.
 Fortunately, it appears to have no real intelligence, making it easy to escape
 from.
 ~
-74 1 0 1048632 262272 0 0 -1000 S
-VT 0 0 -1
+74 1 0 0 1048632 262272 0 0 -1000 S
+VT 0 0 0 -1
 45 -1 -69 45d90+2385 6d6+12
 0.0.0.0 109350
 8 8 0
@@ -586,8 +586,8 @@ exception that it is a bit larger and seems to move more quickly.  There are
 dark spots along its brown skin that look almost green rather than black,
 setting it apart from most other squirrels in the world.
 ~
-2248 0 0 0 0 0 0 0 S
-A 0 0 -1
+2248 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
 8 18 74 8d18+28 2d3+1
 0.0.0.0 1036
 8 8 0
@@ -603,8 +603,8 @@ defend itself with, but its large flat teeth show that it is anything but a
 carnivore.  It strips bark and even some of the epiphytic flowers off the
 jungle trees and eats them, as well as any insects that might be within.
 ~
-2124 0 0 570458240 12508 0 0 0 S
-AH 0 1 -1
+2124 0 0 0 570458240 12508 0 0 0 S
+AH 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.0.0.0 26730
 8 8 0
@@ -619,8 +619,8 @@ has been named as a sign of luck, both good and bad.  Its dark fur and red
 eyes give it a sinister appearance, but its delicate features and small size
 make it difficult to fear.
 ~
-1073743944 0 0 587825336 274652 0 0 -500 S
-A 0 1 -1
+1073743944 0 0 0 587825336 274652 0 0 -500 S
+A 0 1 0 -1
 14 15 55 14d27+84 2d5+2
 0.0.0.0 6804
 8 8 0
@@ -634,8 +634,8 @@ spots, or diamonds, it has a mottled green color.  Random spots of different
 sizes and patterns are made up of different shades of green.  Though fairly
 small, its fangs drip with venom.
 ~
-1073744072 1 0 50856064 0 0 0 -400 S
-RS 0 1 -1
+1073744072 1 0 0 50856064 0 0 0 -400 S
+RS 0 1 0 -1
 6 18 80 6d21+33 2d3+1
 0.0.0.0 777
 8 8 0
@@ -649,8 +649,8 @@ and will remain uninterested in attacking anything for quite some time.  Its
 deep green and brown coloration runs in bands of differing sizes throughout the
 length of its body.
 ~
-1073743944 0 0 50888704 0 0 0 -400 S
-RS 0 1 -1
+1073743944 0 0 0 50888704 0 0 0 -400 S
+RS 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 0.0.0.0 22275
 8 8 0
@@ -665,8 +665,8 @@ speed.  It is dangerous due to the strange whip-like appendages it has
 immediately over its eyes.  These strange organs bear a poison that has been
 known to paralyze even the largest animals.
 ~
-1073743944 1 0 51904656 0 0 0 -500 S
-RS 0 1 -1
+1073743944 1 0 0 51904656 0 0 0 -500 S
+RS 0 1 0 -1
 2 20 93 2d17+11 1d5+0
 0.0.0.0 259
 8 8 0
@@ -679,8 +679,8 @@ This strange vine is lined with sharp thorns, most of which appear to be
 hollow.  The vine itself is quite thick and sturdy but the thorns would make
 it difficult to climb.
 ~
-2122 1 0 51380224 262144 0 0 -800 S
-A 0 1 -1
+2122 1 0 0 51380224 262144 0 0 -800 S
+A 0 1 0 -1
 15 15 51 15d27+90 2d5+2
 0.0.0.0 7290
 8 8 0
@@ -693,8 +693,8 @@ Looking much like a normal vine, this sinister plant clings to trees until
 prey walks beneath it, then it drops from the tree to cover its prey with all
 its thin tendrils.
 ~
-2122 1 0 50331648 0 0 0 -400 S
-A 0 1 -1
+2122 1 0 0 50331648 0 0 0 -400 S
+A 0 1 0 -1
 10 18 67 10d21+55 2d3+1
 0.0.0.0 1296
 8 8 0
@@ -707,8 +707,8 @@ This pretty yellow flower has attached itself to a thorny vine.  Its sweet
 aroma is quite attractive, helping to dispel some of the stench of rot and
 decay.
 ~
-2122 1 0 50364416 262144 0 0 -500 S
-A 0 1 -1
+2122 1 0 0 50364416 262144 0 0 -500 S
+A 0 1 0 -1
 12 15 61 12d27+72 2d5+2
 0.0.0.0 5832
 8 8 0
@@ -721,8 +721,8 @@ Dreaded quick moss lies here.  This acidic moss encircles anyone foolish
 enough to step on it with lightning-like speed.  It glistens with moisture, an
 acidic moisture that can destroy even the finest armor.
 ~
-2122 1 0 50331688 0 0 0 -500 S
-A 0 1 -1
+2122 1 0 0 50331688 0 0 0 -500 S
+A 0 1 0 -1
 8 18 74 8d21+44 2d3+1
 0.0.0.0 1036
 8 8 0
@@ -737,8 +737,8 @@ blue petals, all of which are attached to the bulb at the base of the flower.
 It is not unheard of for plants in the Rift Valley Jungle to eat other
 creatures so one had best be cautious.
 ~
-2122 0 0 50331648 0 0 0 0 S
-A 0 0 -1
+2122 0 0 0 50331648 0 0 0 0 S
+A 0 0 0 -1
 16 13 48 16d30+80 3d4+2
 0.0.0.0 7776
 8 8 0
@@ -752,8 +752,8 @@ than happy to eat any pour soul that comes along.  A tough, bark-like skin
 gives him a great deal of protection, and vicious claws make him a tough
 fighter.
 ~
-1073743948 1 0 50429952 0 0 0 -1000 S
-PT 0 1 -1
+1073743948 1 0 0 50429952 0 0 0 -1000 S
+PT 0 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
 8 8 1
@@ -766,8 +766,8 @@ An injured troll rests here, trying to grow back the fingers it has lost and
 recover from its other wounds.  Angry at everything around it, it seems quite
 ready to attack despite its injuries.
 ~
-1073743948 0 0 33554432 0 0 0 -1000 S
-PT 0 1 -1
+1073743948 0 0 0 33554432 0 0 0 -1000 S
+PT 0 1 0 -1
 20 13 35 20d35+140 3d4+2
 0.9.3.0 9720
 5 5 1
@@ -781,8 +781,8 @@ quite soon.  It is likely he has wandered here from the bullywug village after
 drinking far more ale than he needed and is now completely lost.  He looks
 around with bleary eyes, bumping into roots and vines with his sturdy frame.
 ~
-1073743948 0 0 0 0 0 0 -1000 S
-HO 0 1 -1
+1073743948 0 0 0 0 0 0 0 -1000 S
+HO 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -796,8 +796,8 @@ bulge beneath his light shirt, looking even more massive due to his short
 stature.  His odd yellow eyes carefully study the jungle around him, helping
 him avoid the dangers that come upon most adventurers here.
 ~
-1073743948 0 0 33554432 0 0 0 -1000 S
-HO 0 1 -1
+1073743948 0 0 0 33554432 0 0 0 -1000 S
+HO 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -812,8 +812,8 @@ through the canopy with ease, darting over and under branches as if they
 weren't really even there.  Bright yellow and red tail feathers add to its
 already bright green plumage to create a truly spectacular sight.
 ~
-1107429448 0 0 184549376 0 0 0 0 S
-B 0 0 -1
+1107429448 0 0 0 184549376 0 0 0 0 S
+B 0 0 0 -1
 12 15 61 12d23+48 2d5+2
 0.0.0.0 5832
 8 8 0
@@ -827,8 +827,8 @@ seem to sprout from its rear.  The bird moves so quickly it is hard to examine
 it carefully.  The bright feathers of this bird are extraordinarily valuable,
 making it well-hunted.
 ~
-1107429452 0 0 184549392 0 0 0 0 S
-B 0 1 -1
+1107429452 0 0 0 184549392 0 0 0 0 S
+B 0 1 0 -1
 17 13 45 17d35+119 3d4+2
 0.0.0.0 8262
 8 8 0
@@ -843,8 +843,8 @@ a predator, and a dangerous one at that.  Every feather of its body appears to
 be made from stone, though it is clear a creature truly made from stone would
 be unable to fly so quickly through the canopy.
 ~
-1107429452 0 0 721526912 12480 0 0 0 S
-B 0 1 -1
+1107429452 0 0 0 721526912 12480 0 0 0 S
+B 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 0.0.0.0 22275
 8 8 0
@@ -858,8 +858,8 @@ safe from the monkey-eating eagles that travel through the canopy.  Its small
 size and short hair make it clear that it is one of the younger monkeys in the
 tribe.
 ~
-1073744078 0 0 50331648 0 0 0 0 S
-AA 0 0 -1
+1073744078 0 0 0 50331648 0 0 0 0 S
+AA 0 0 0 -1
 7 18 77 7d18+24 2d3+1
 0.0.0.0 907
 8 8 0
@@ -873,8 +873,8 @@ of her body.  Dark, warm eyes watch over all the young monkeys in the area,
 ready to leap to their protection.  She is still small though, and would
 likely run from one of the huge birds that tends to eat her kind.
 ~
-1073744078 0 0 50331648 0 0 0 0 S
-AA 0 0 -1
+1073744078 0 0 0 50331648 0 0 0 0 S
+AA 0 0 0 -1
 10 18 67 10d18+35 2d3+1
 0.0.0.0 1296
 8 8 2
@@ -888,8 +888,8 @@ watch for eagles.  His dark eyes survey the skies watching for any eagles that
 seem to be coming close.  The gray hair along his body has begun to turn more
 black and brown, showing his gaining maturity.
 ~
-1140852814 0 0 50331648 0 0 0 0 S
-AA 0 0 -1
+1140852814 0 0 0 50331648 0 0 0 0 S
+AA 0 0 0 -1
 12 15 61 12d23+48 2d5+2
 0.0.0.0 5832
 8 8 1
@@ -904,8 +904,8 @@ his small tribe.  A thick main of black hair surrounds his head and face like a
 false wig and beard.  Scars line his arms where he has been attacked in the
 past, survival of that attack alone hints at his strength.
 ~
-1174407246 0 0 50331792 0 0 0 0 S
-AA 0 1 -1
+1174407246 0 0 0 50331792 0 0 0 0 S
+AA 0 1 0 -1
 20 13 35 20d35+140 3d4+2
 0.0.0.0 9720
 8 8 1
@@ -921,8 +921,8 @@ talons and a vicious beak mark it as a powerful predator, one of several large
 birds that will feed on almost any other animal in the canopy, especially
 monkeys.
 ~
-1107429454 0 0 167837696 0 0 0 -400 S
-B 0 1 -1
+1107429454 0 0 0 167837696 0 0 0 -400 S
+B 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 0.0.0.0 22275
 8 8 0
@@ -936,8 +936,8 @@ beak, yet it is still fed by its parents.  The feathers around its head have
 not yet developed into the large hood with the false, harpy-like face
 that it will possess when it is full grown.
 ~
-1073875022 0 0 167837696 0 0 0 -400 S
-B 0 1 -1
+1073875022 0 0 0 167837696 0 0 0 -400 S
+B 0 1 0 -1
 14 15 55 14d27+84 2d5+2
 0.0.0.0 6804
 8 8 0
@@ -952,8 +952,8 @@ young can be released on their own and killing is simply second nature to
 her.  She will kill even when she is not hungry to insure that she has food
 for her young.
 ~
-1073875022 1 0 167837696 0 0 0 -400 S
-B 0 1 -1
+1073875022 1 0 0 167837696 0 0 0 -400 S
+B 0 1 0 -1
 18 13 42 18d35+126 3d4+2
 0.0.0.0 8748
 8 8 2
@@ -967,8 +967,8 @@ sharp talons bear a threat that is difficult to fathom.  A massive hood of
 feathers surrounds his head, creating a second face that makes it look
 much like a harpy from a distance.
 ~
-1073875022 0 0 167837696 0 0 0 -400 S
-B 0 1 -1
+1073875022 0 0 0 167837696 0 0 0 -400 S
+B 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.0.0.0 26730
 8 8 1
@@ -983,8 +983,8 @@ canopy in silent ease.  Eagles such as this one tend to hunt monkeys and
 lizards as well as other birds that live in the canopy.  They usually don't
 bother more intelligent or larger creatures.
 ~
-1073875016 0 0 167837696 0 0 0 -400 S
-B 0 1 -1
+1073875016 0 0 0 167837696 0 0 0 -400 S
+B 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 0.0.0.0 22275
 8 8 0
@@ -998,8 +998,8 @@ an equally bright yellow.  Sharp talons and powerful wings suggest that this
 eagle is a powerful enough hunter to simply snatch even large monkeys off
 branches and fly away with them.
 ~
-1073875016 0 0 167772160 0 0 0 -400 S
-B 0 1 -1
+1073875016 0 0 0 167772160 0 0 0 -400 S
+B 0 1 0 -1
 23 11 26 23d47+230 3d5+3
 0.0.0.0 20493
 8 8 0
@@ -1016,8 +1016,8 @@ in the vague light of the night-time sky and its dark body allows it to fly
 through the night like a ghost, snatching up any monkeys or lizards that are
 to far out in the open.
 ~
-1107429384 0 0 167772216 2 0 0 -600 S
-B 0 1 -1
+1107429384 0 0 0 167772216 2 0 0 -600 S
+B 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.0.0.0 26730
 8 8 0
@@ -1031,8 +1031,8 @@ bands will warn away predators and keep it safe.  Unfortunately for it, many
 jungle predators have developed an immunity to its poisonous flesh and will
 willingly eat it.
 ~
-2120 0 0 33554432 0 0 0 0 S
-R 0 0 -1
+2120 0 0 0 33554432 0 0 0 0 S
+R 0 0 0 -1
 8 18 74 8d18+28 2d3+1
 0.0.0.0 1036
 8 8 0
@@ -1045,8 +1045,8 @@ This lizard depends on stealth and its dark coloration to keep it safe.  It
 creeps through the canopy searching for flowers that attract some of its
 insect prey.
 ~
-2120 0 0 34078720 0 0 0 0 S
-R 0 0 -1
+2120 0 0 0 34078720 0 0 0 0 S
+R 0 0 0 -1
 10 18 67 10d18+35 2d3+1
 0.0.0.0 1296
 8 8 0
@@ -1062,8 +1062,8 @@ can kill even an ogre in seconds.  Brave hunters sometimes try to collect these
 creatures to use its poison, the poison doesn't last long when separated from
 the frog so it is generally left alone.
 ~
-2184 0 0 33554432 0 0 0 0 S
-R 0 0 -1
+2184 0 0 0 33554432 0 0 0 0 S
+R 0 0 0 -1
 2 20 93 2d15+7 1d5+0
 0.0.0.0 259
 8 8 0
@@ -1079,8 +1079,8 @@ look out of its massive deep red head and it scales go from a deep blood
 red at its head to a bright red at its tail.  This creature is clearly quite
 ancient and only a fool would anger it.
 ~
-1107953678 128 0 721461432 12508 0 0 1000 S
-D 0 32 -1
+1107953678 128 0 0 721461432 12508 0 0 1000 S
+D 0 32 0 -1
 60 -10 -152 60d132+6840 7d6+35
 6.6.9.22 486000
 8 8 1
@@ -1097,8 +1097,8 @@ any other creatures in the jungle that are this magnificent.  Despite its huge
 size, its long body is extremely flexible and it appears to be able to move
 easily through the trees and branches of the jungle.
 ~
-1107953740 128 0 721461432 12508 0 0 1000 S
-D 0 512 -1
+1107953740 128 0 0 721461432 12508 0 0 1000 S
+D 0 512 0 -1
 50 -3 -115 50d80+3150 6d6+25
 0.3.7.14 243000
 8 8 1
@@ -1114,8 +1114,8 @@ above ground cousins.  His eyes pierce the darkness and every step is
 carefully placed as he moves slowly and cautiously through the jungle seeking a
 worthwhile adversary.
 ~
-1107327052 0 0 67174544 28 0 0 -1000 S
-PL 0 1 -1
+1107327052 0 0 0 67174544 28 0 0 -1000 S
+PL 0 1 0 -1
 50 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -1129,8 +1129,8 @@ drain 4-5 times its weight in blood before being sated, and this alone can
 kill its victim.  Sharp teeth gash the skin of its victim and powerful mouth
 and throat muscles work on draining the blood that comes from the wound.
 ~
-2122 1 0 33554432 0 0 0 -800 S
-AP 0 0 -1
+2122 1 0 0 33554432 0 0 0 -800 S
+AP 0 0 0 -1
 9 18 71 9d18+31 2d3+1
 0.0.0.0 1166
 8 8 0
@@ -1145,8 +1145,8 @@ friends.  This small fish is one of the most feared animals in the river.  Its
 keen senses allow it to detect even the smallest movements in the water and
 it is willing to attack even the largest creatures in the jungle.
 ~
-1074006026 1 0 33556664 0 0 0 -500 S
-F 0 1 -1
+1074006026 1 0 0 33556664 0 0 0 -500 S
+F 0 1 0 -1
 3 20 90 3d17+17 1d5+0
 0.0.0.0 388
 8 8 0
@@ -1161,8 +1161,8 @@ into the river instead of to tear flesh from helpless victims.  If angered,
 those same jaws can be put to its defense, but this is generally a harmless
 fish, though fairly good to eat.
 ~
-1074006024 0 0 33556480 0 0 0 0 S
-F 0 0 -1
+1074006024 0 0 0 33556480 0 0 0 0 S
+F 0 0 0 -1
 18 13 42 18d30+90 3d4+2
 0.0.0.0 8748
 8 8 0
@@ -1176,8 +1176,8 @@ still in an effort to keep from being bothered by anything or anyone.  To have
 grown so large this creature must be quite powerful, and certainly quite
 dangerous if angered.
 ~
-1107560522 0 0 587204752 12508 0 0 0 S
-G 0 1 -1
+1107560522 0 0 0 587204752 12508 0 0 0 S
+G 0 1 0 -1
 45 -1 -59 45d107+2250 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -1192,8 +1192,8 @@ incredible speeds.  Fortunately, it also seems to enjoy spending time basking
 in the sun.  Long red stripes run down the length of its body, distinguishing
 it from its somewhat larger cousins.
 ~
-1107560522 1 0 2192 0 0 0 -600 S
-R 0 1 -1
+1107560522 1 0 0 2192 0 0 0 -600 S
+R 0 1 0 -1
 35 6 -12 35d83+595 4d6+7
 0.0.0.0 45360
 4 4 0
@@ -1207,8 +1207,8 @@ almost twenty feet in length and bear an even more impressive set of teeth.
 Even now it could probably take down something as large as a barbarian, if it
 can fight on its own ground.
 ~
-1107560520 1 0 50333696 0 0 0 -500 S
-R 0 1 -1
+1107560520 1 0 0 50333696 0 0 0 -500 S
+R 0 1 0 -1
 8 18 74 8d21+44 2d3+1
 0.0.0.0 1036
 8 8 0
@@ -1224,8 +1224,8 @@ propel it through the water at astounding speeds.  This creature may not be the
 most fearsome in the jungle, but it is certainly one of the largest and most
 dangerous floating in the rivers.
 ~
-1107560520 0 0 50333824 0 0 0 -500 S
-R 0 1 4
+1107560520 0 0 0 50333824 0 0 0 -500 S
+R 0 1 0 4
 25 11 19 25d47+250 3d5+3
 0.0.0.0 22275
 8 8 0
@@ -1242,8 +1242,8 @@ His skin is a mottled brown and green like the majority of bullywugs, and his
 hands have been stained purple somehow by the different treatments he uses on
 his hides.
 ~
-1073743950 0 0 50331792 0 0 0 -500 S
-PD 0 1 -1
+1073743950 0 0 0 50331792 0 0 0 -500 S
+PD 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -1257,8 +1257,8 @@ his loyalty to the chief is such that he will only wet his skin when his
 shift is clearly over.  Bulbous eyes take in everything around, and his
 weapons are ready for instant action.
 ~
-1107560526 1 0 50331648 0 0 0 -800 S
-H 0 1 -1
+1107560526 1 0 0 50331648 0 0 0 -800 S
+H 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -1272,8 +1272,8 @@ energy.  He acts as if he will attack ANYTHING without much excuse needed.
 It is also quite clear that he is one of the chief's chosen guards and can
 therefore get away with just about anything he cares to do.
 ~
-1107560526 1 0 50331648 0 0 0 -800 S
-H 0 1 -1
+1107560526 1 0 0 50331648 0 0 0 -800 S
+H 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -1287,8 +1287,8 @@ brethren, but at the same time shows a speed and dexterity that none of the
 others can match.  Some say that he is the most powerful warrior in the
 village and few would care to test whether or not it is true.
 ~
-1107560526 1 0 50331792 0 0 0 -800 S
-H 0 1 -1
+1107560526 1 0 0 50331792 0 0 0 -800 S
+H 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -1304,8 +1304,8 @@ piercing, analyzing everything around him.  This bullywug is clearly one
 that will think before acting, and will probably negotiate rather than start a
 war.
 ~
-1107560526 1 0 50331792 0 0 0 -800 S
-H 0 1 -1
+1107560526 1 0 0 50331792 0 0 0 -800 S
+H 0 1 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -1320,8 +1320,8 @@ be almost as tall as a human if he stood up straight, instead he stands
 hunched in on himself, doing his best to remain smaller than his chief and
 to stay out of his way.
 ~
-1107560526 1 0 50331792 0 0 0 -800 S
-PD 0 256 -1
+1107560526 1 0 0 50331792 0 0 0 -800 S
+PD 0 256 0 -1
 26 8 16 26d60+312 3d6+4
 7.2.6.1 23166
 8 8 1
@@ -1335,8 +1335,8 @@ forelorn expression on this woman's face would indicate that she hopes
 she will never find out.  She sobs, "Just kill me you bastard."
 continuously, not even noticing who enters or leaves.
 ~
-33556558 0 0 0 0 0 0 0 S
-PH 0 0 -1
+33556558 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 5 20 83 5d15+17 1d5+0
 3.1.0.0 648
 5 5 2
@@ -1351,8 +1351,8 @@ are.  Some are clearly female, some clearly male, and most, like this one, are
 somewhat in between.  It may be that their sexual characteristics become more
 distinct after they have mated.
 ~
-1107560524 0 0 33554432 0 0 0 -800 S
-H 0 1 -1
+1107560524 0 0 0 33554432 0 0 0 -800 S
+H 0 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
 8 8 0
@@ -1368,8 +1368,8 @@ green and gray mottled skin has recently been wet and glistens with
 moisture.  Dark eyes swivel in their sockets as the young adult begins to
 enjoy its new-found freedom.
 ~
-1107560524 0 0 33554432 0 0 0 -800 S
-H 0 1 -1
+1107560524 0 0 0 33554432 0 0 0 -800 S
+H 0 1 0 -1
 12 15 61 12d27+72 2d5+2
 6.4.2.0 5832
 8 8 0
@@ -1383,8 +1383,8 @@ being followed by several youngsters.  Many bullywugs seem to be almost
 sex-less, but this matronly bullywug is clearly very much a female.  If the
 rumors are true, a bullywug's sex isn't noticeable until after it has mated.
 ~
-1107560526 0 0 33554432 0 0 0 -800 S
-H 0 0 -1
+1107560526 0 0 0 33554432 0 0 0 -800 S
+H 0 0 0 -1
 15 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 8 8 2
@@ -1399,8 +1399,8 @@ waddling gait give no hint of her incredible dexterity.  She is able to cut
 and clean the fish that have been brought to her in seconds using swift,
 economical strokes with a sharp knife.
 ~
-1107560526 0 0 33554432 0 0 0 -800 S
-H 0 0 -1
+1107560526 0 0 0 33554432 0 0 0 -800 S
+H 0 0 0 -1
 16 13 48 16d30+80 3d4+2
 8.6.2.0 7776
 8 8 2
@@ -1413,8 +1413,8 @@ This elderly female has done her share of tending to young, as well as bearing
 them.  She rests most of her days now, only going out into the village when
 she absolutely needs to.
 ~
-1107560526 0 0 33554432 0 0 0 -800 S
-H 0 1 -1
+1107560526 0 0 0 33554432 0 0 0 -800 S
+H 0 1 0 -1
 13 15 58 13d27+78 2d5+2
 6.5.2.0 6318
 5 5 2
@@ -1428,8 +1428,8 @@ waddle that this woman contorts herself into as she walks through the village.
 Bullywugs, though violent and despicable, show a great deal of respect to
 their elders, probably because so few bullywugs are able to live very long.
 ~
-1107560524 0 0 33554432 0 0 0 -800 S
-H 0 0 -1
+1107560524 0 0 0 33554432 0 0 0 -800 S
+H 0 0 0 -1
 16 13 48 16d30+80 3d4+2
 8.6.2.0 7776
 8 8 2
@@ -1444,8 +1444,8 @@ of protector, whether male or female, and, at least in theory, do whatever
 they are told.  This child's skin has been kept extremely moist to protect it
 from over-drying.
 ~
-1107560526 0 0 33554432 0 0 0 -800 S
-H 0 0 -1
+1107560526 0 0 0 33554432 0 0 0 -800 S
+H 0 0 0 -1
 7 18 77 7d18+24 2d3+1
 3.2.0.0 907
 8 8 0
@@ -1460,8 +1460,8 @@ of protector, whether male or female, and, at least in theory, do whatever
 they are told.  This child's skin has been kept extremely moist to protect it
 from over-drying.
 ~
-1107560526 0 0 33554432 0 0 0 -800 S
-H 0 0 -1
+1107560526 0 0 0 33554432 0 0 0 -800 S
+H 0 0 0 -1
 8 18 74 8d18+28 2d3+1
 4.2.0.0 1036
 8 8 0
@@ -1475,8 +1475,8 @@ the jungle to hunt.  His bright eyes and nearly upright stance show that he
 is both young and confident.  Mottled gray and green skin will help him blend
 into the jungle, making it easier for him to sneak up on prey.
 ~
-1107560524 0 0 33554432 0 0 0 -800 S
-H 0 1 -1
+1107560524 0 0 0 33554432 0 0 0 -800 S
+H 0 1 0 -1
 17 13 45 17d35+119 3d4+2
 8.6.2.0 8262
 8 8 0
@@ -1490,8 +1490,8 @@ nods to several of the other villagers has he walks past them, a smirk-like
 smile upon his face.  His skin looks a bit dried an wrinkled despite the humid
 air, it is clear he has been away for a fair amount of time.
 ~
-1107560524 0 0 33554432 0 0 0 -800 S
-H 0 1 -1
+1107560524 0 0 0 33554432 0 0 0 -800 S
+H 0 1 0 -1
 20 13 35 20d35+140 3d4+2
 0.9.3.0 9720
 8 8 1
@@ -1505,8 +1505,8 @@ let alone be given guard duty.  At the same time, it does have a confident air
 about it that suggests it has been given this authority for a reason.  Its
 dark eyes watch both bullywug and visitor alike trying to keep the peace.
 ~
-1174669388 0 0 33554432 0 0 0 -800 S
-H 0 1 -1
+1174669388 0 0 0 33554432 0 0 0 -800 S
+H 0 1 0 -1
 18 13 42 18d35+126 3d4+2
 9.7.3.0 8748
 8 8 0
@@ -1521,8 +1521,8 @@ legs, trying to be patient as it stands at the gates watching everyone that
 enters and departs. Its wet green and brown skin highlights its huge black
 eyes, making them appear even more bulbous and grotesque than usual.
 ~
-1174669390 0 0 33554432 0 0 0 -800 S
-H 0 1 -1
+1174669390 0 0 0 33554432 0 0 0 -800 S
+H 0 1 0 -1
 20 13 35 20d35+140 3d4+2
 0.9.3.0 9720
 8 8 0
@@ -1537,8 +1537,8 @@ showing that he has seen at least a few battles.  His lids droop lazily over
 his bulbous eyes, but it is apparent that he is keeping a close watch on the
 village gates.
 ~
-1174669390 0 0 33554432 0 0 0 -800 S
-H 0 1 -1
+1174669390 0 0 0 33554432 0 0 0 -800 S
+H 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -1552,8 +1552,8 @@ blotches on it rather than the more mottled coloration that most bullywug's
 possess.  He walks with a confident gait, the steps of one that knows exactly
 who they are and what they are doing.
 ~
-1107560524 0 0 33554432 0 0 0 -800 S
-H 0 1 -1
+1107560524 0 0 0 33554432 0 0 0 -800 S
+H 0 1 0 -1
 22 11 29 22d47+220 3d5+3
 4.0.5.0 19602
 8 8 1
@@ -1567,8 +1567,8 @@ than his share of battles, and with the intensity that he scrutinizes his
 weapons and those that pass by him one would guess he shall have more fights in
 the future.
 ~
-1107560524 0 0 33554432 0 0 0 -800 S
-H 0 1 -1
+1107560524 0 0 0 33554432 0 0 0 -800 S
+H 0 1 0 -1
 23 11 26 23d47+230 3d5+3
 5.1.6.0 20493
 8 8 1
@@ -1581,8 +1581,8 @@ A glistening green and brown skin indicates that this young bullywug has
 recently wet its skin and is ready to play'.  It appears to be constantly
 looking for a fight, picking on and teasing anyone it thinks it can beat.
 ~
-1107560524 0 0 33554432 0 0 0 -800 S
-H 0 1 -1
+1107560524 0 0 0 33554432 0 0 0 -800 S
+H 0 1 0 -1
 18 13 42 18d35+126 3d4+2
 9.7.3.0 8748
 8 8 0
@@ -1595,8 +1595,8 @@ It appears that this warrior is sleeping off his last battle, or perhaps
 whatever scouting duty it might have been sent out on.  Waking it would only
 make it angry, and angry bullywugs tend to kill without reason.
 ~
-1107560524 1 0 33554432 0 0 0 -800 S
-H 0 1 -1
+1107560524 1 0 0 33554432 0 0 0 -800 S
+H 0 1 0 -1
 24 11 23 24d47+240 3d5+3
 6.1.6.0 21384
 4 4 1
@@ -1608,8 +1608,8 @@ bullywug woman~
 Her mottled green and gray skin glistens with fresh moisture, it is clear that
 she is on a trip through the town to pick up a few things and to wet her skin.
 ~
-1107560524 0 0 33554432 0 0 0 -800 S
-H 0 0 -1
+1107560524 0 0 0 33554432 0 0 0 -800 S
+H 0 0 0 -1
 15 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 8 8 2
@@ -1621,8 +1621,8 @@ bullywug adult~
 Lazily bathing in the water, this bullywug has come to the village pool to wet
 its skin and meet a few of its friends and neighbors.
 ~
-1107560524 0 0 33556480 0 0 0 -800 S
-H 0 0 -1
+1107560524 0 0 0 33556480 0 0 0 -800 S
+H 0 0 0 -1
 12 15 61 12d23+48 2d5+2
 6.4.2.0 5832
 8 8 0
@@ -1634,8 +1634,8 @@ bullywug adult~
 Lazily bathing in the water, this bullywug has come to the village pool to wet
 its skin and meet a few of its friends and neighbors.
 ~
-1107560524 0 0 33556480 0 0 0 -800 S
-H 0 0 -1
+1107560524 0 0 0 33556480 0 0 0 -800 S
+H 0 0 0 -1
 12 15 61 12d23+48 2d5+2
 6.4.2.0 5832
 8 8 0
@@ -1649,8 +1649,8 @@ before they get large enough to travel on land.  Unfortunately, this one isn't
 intelligent enough to know what it is small enough to eat and what is big
 enough to kill it instead.
 ~
-264270 1 0 33556480 0 0 0 -800 S
-F 0 0 -1
+264270 1 0 0 33556480 0 0 0 -800 S
+F 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 0.0.0.0 518
 8 8 1
@@ -1663,8 +1663,8 @@ This young tadpole now has strong enough legs to walk on land so it
 is making a few more rounds about the pond before it begins to try
 walking.
 ~
-1107560524 0 0 33556480 0 0 0 -800 S
-H 0 0 -1
+1107560524 0 0 0 33556480 0 0 0 -800 S
+H 0 0 0 -1
 7 18 77 7d18+24 2d3+1
 3.2.0.0 907
 8 8 0
@@ -1677,8 +1677,8 @@ Considered easy duty' by the bullywug guards, this guard has to guard
 the pond and the young that are within it.  At the same time he gets to enjoy
 the water and swim around.
 ~
-1174669390 0 0 33556480 0 0 0 -800 S
-H 0 1 -1
+1174669390 0 0 0 33556480 0 0 0 -800 S
+H 0 1 0 -1
 22 11 29 22d47+220 3d5+3
 4.0.5.0 19602
 8 8 1
@@ -1692,8 +1692,8 @@ by strength or by wits, it is still so young it is difficult to even guess what
 sex it might be.  Its skin glistens with water, showing that it has plenty of
 extra time to spend in the village pond.
 ~
-1074006094 0 0 50331648 0 0 0 -800 S
-H 0 1 -1
+1074006094 0 0 0 50331648 0 0 0 -800 S
+H 0 1 0 -1
 26 8 16 26d65+338 3d6+4
 7.2.6.1 23166
 8 8 0
@@ -1709,8 +1709,8 @@ polite and civil, and more than willing to make a deal.  His mottled green
 and gray skin is kept damp by a wet cloth shirt that he keeps damp through
 constant additions of water with a skin hanging at his side.
 ~
-1107560458 0 0 50397200 0 0 0 -800 S
-H 0 1 -1
+1107560458 0 0 0 50397200 0 0 0 -800 S
+H 0 1 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -1727,8 +1727,8 @@ seems to ignore them, unworried about his appearance.  Bullywug villagers are
 in awe of him, not only because of his power, but also of his ability to deal
 evenly and fairly with everyone he meets.
 ~
-1107560462 0 0 50397312 0 0 0 -1000 S
-PD 0 256 -1
+1107560462 0 0 0 50397312 0 0 0 -1000 S
+PD 0 256 0 -1
 35 6 -12 35d77+560 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -1742,8 +1742,8 @@ it can learn about the intricacies of magic.  A smile crosses its face at
 every bow it receives from other villagers.  Long brown patches cover its dark
 green skin from the shoulders all the way down its back.
 ~
-1074006092 0 0 50331648 0 0 0 -800 S
-H 0 256 -1
+1074006092 0 0 0 50331648 0 0 0 -800 S
+H 0 256 0 -1
 16 13 48 16d33+96 3d4+2
 8.6.2.0 7776
 8 8 0
@@ -1756,8 +1756,8 @@ The low, sloping frog-like forehead of this creature seems to be furrowed in
 deep concentration.  Pale brown spots mix with darker brown and green mottling
 of its skin to create a more toad-like appearance.
 ~
-1107560524 0 0 0 0 0 0 -800 S
-H 0 256 -1
+1107560524 0 0 0 0 0 0 0 -800 S
+H 0 256 0 -1
 20 13 35 20d33+120 3d4+2
 0.9.3.0 9720
 8 8 0
@@ -1770,8 +1770,8 @@ Sweaty blond hair is pasted to his skull by the heat and humidity, making him
 look even smaller.  His body is tense and ready for action, but the alcohol
 has clearly begun to affect his judgment.
 ~
-1073743950 128 0 0 0 0 0 0 S
-PF 0 1 -1
+1073743950 128 0 0 0 0 0 0 0 S
+PF 0 1 0 -1
 16 13 48 16d35+112 3d4+2
 8.6.2.0 7776
 8 8 1
@@ -1786,8 +1786,8 @@ jokes in a load, booming voice.  Light brown hair is pasted to his skull by
 the moisture in the air.  His pale blue eyes have a hint of malice in them,
 a faint suggestion that he is trying to start a fight.
 ~
-1107298382 128 0 0 0 0 0 -400 S
-PH 0 1 -1
+1107298382 128 0 0 0 0 0 0 -400 S
+PH 0 1 0 -1
 18 13 42 18d35+126 3d4+2
 9.7.3.0 8748
 8 8 1
@@ -1803,8 +1803,8 @@ doesn't look as though she has ever seen any violence.  Her drunken stupor
 has prevented her from noticing the dangerous, leering glances she has begun
 to receive.
 ~
-1073743886 128 0 0 0 0 0 0 S
-PH 0 512 -1
+1073743886 128 0 0 0 0 0 0 0 S
+PH 0 512 0 -1
 14 15 55 14d18+56 2d5+2
 7.5.2.0 6804
 8 8 2
@@ -1818,8 +1818,8 @@ simply refuses to sit down or be tamed.  Dark brown eyes are framed by an
 angular, deeply tanned, face.  It is hard to explain why he is here, he
 doesn't really seem to be drinking much.
 ~
-1107298382 0 0 0 0 0 0 -1000 S
-PH 0 16 -1
+1107298382 0 0 0 0 0 0 0 -1000 S
+PH 0 16 0 -1
 18 13 42 18d35+126 3d4+2
 9.7.3.0 8748
 8 8 1
@@ -1833,8 +1833,8 @@ against the bar drinking his drinks and ignoring everything around him.  His
 left leg appears to be a bit hobbled by a long scar that runs along the pale
 green and brown skin, but there is no doubt that he can still fight.
 ~
-1107560526 0 0 35784704 0 0 0 -1000 S
-H 0 1 -1
+1107560526 0 0 0 35784704 0 0 0 -1000 S
+H 0 1 0 -1
 20 13 35 20d35+140 3d4+2
 0.9.3.0 9720
 8 8 1
@@ -1847,8 +1847,8 @@ This squat, stinking creature, must be a skilled hunter to survive the
 depths of the jungle.  Its normally wet skin has actually begun to dry and
 rot in places, giving it a completely unnatural stench.
 ~
-1107560526 0 0 35784704 0 0 0 -1000 S
-H 0 16384 -1
+1107560526 0 0 0 35784704 0 0 0 -1000 S
+H 0 16384 0 -1
 18 13 42 18d35+126 3d4+2
 9.7.3.0 8748
 8 8 1
@@ -1862,8 +1862,8 @@ foolish gray-skinned bullywug is doing its best to lose all of its recently
 found wealth.  Though it looks almost ready to collapse, it keeps playing,
 and will probably continue to gamble until it is out of money or falls over.
 ~
-33818702 0 0 33556480 0 0 0 -1000 S
-H 0 16384 -1
+33818702 0 0 0 33556480 0 0 0 -1000 S
+H 0 16384 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 0
@@ -1878,8 +1878,8 @@ be kept moist like a bullywug's and massive bulging eyes with frog-like
 eyelids.  It is surprising that such an abomination would be allowed to
 live.
 ~
-1107560526 0 0 33556480 0 0 0 -1000 S
-H 0 1 -1
+1107560526 0 0 0 33556480 0 0 0 -1000 S
+H 0 1 0 -1
 19 13 39 19d35+133 3d4+2
 9.7.3.0 9234
 8 8 1
@@ -1894,8 +1894,8 @@ sort of pigment, a closer look shows that the spots are actually part of his
 natural skin color.  Unlike most of the bullywugs, this one will serve anyone
 that has enough money to buy a drink.
 ~
-33818702 0 0 35784704 0 0 0 -1000 S
-H 0 1 -1
+33818702 0 0 0 35784704 0 0 0 -1000 S
+H 0 1 0 -1
 27 8 13 27d65+351 3d6+4
 8.3.7.1 24057
 8 8 1
@@ -1909,8 +1909,8 @@ it to hide quite well in the roof of a cavern.  Though its first attack is
 quite dangerous, it is relatively small and weak and can't withstand long
 battles.
 ~
-2122 1 0 120719360 0 0 0 -400 S
-AC 0 0 -1
+2122 1 0 0 120719360 0 0 0 -400 S
+AC 0 0 0 -1
 10 18 67 10d18+35 2d3+1
 0.0.0.0 1296
 8 8 0
@@ -1923,8 +1923,8 @@ The pale white skin shows that it hasn't ever spent any time in the sun.  Its
 ancestors must have been washed here from the jungle above and found a way
 to survive, eventually losing all their coloration.
 ~
-1074006088 0 0 589432976 0 0 0 0 S
-F 0 0 -1
+1074006088 0 0 0 589432976 0 0 0 0 S
+F 0 0 0 -1
 20 13 35 20d30+100 3d4+2
 0.0.0.0 9720
 8 8 0
@@ -1938,8 +1938,8 @@ what its size might be.  Despite its lack of color and poor vision in the
 sunless caverns, it has an astounding ability to sense movement through
 water and is easily able to find prey that way.
 ~
-1074006088 1 0 52561936 0 0 0 -400 S
-F 0 1 -1
+1074006088 1 0 0 52561936 0 0 0 -400 S
+F 0 1 0 -1
 7 18 77 7d21+38 2d3+1
 0.0.0.0 907
 8 8 0
@@ -1953,8 +1953,8 @@ lake itself to avoid predators from either area.  Though it is almost entirely
 blind it has acute senses of smell and hearing which allow it to hunt smaller
 creatures quite effectively.
 ~
-1074006088 0 0 2230272 0 0 0 0 S
-R 0 0 -1
+1074006088 0 0 0 2230272 0 0 0 0 S
+R 0 0 0 -1
 7 18 77 7d18+24 2d3+1
 3.2.0.0 907
 8 8 0
@@ -1969,8 +1969,8 @@ bulges with powerful muscles that ripple when he moves.  This lizardman is
 certainly of one of the more intelligent tribes and is at least somewhat
 peaceful.
 ~
-1107298382 0 0 52559872 0 0 0 -400 S
-PB 0 1 -1
+1107298382 0 0 0 52559872 0 0 0 -400 S
+PB 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -1985,8 +1985,8 @@ one.  It hangs from the barren ceiling waiting for unsuspecting prey, not
 realizing that it is easily visible and can be avoided by anything intelligent
 enough to be aware of their surroundings.
 ~
-2058 1 0 35782784 0 0 0 -400 S
-AC 0 0 -1
+2058 1 0 0 35782784 0 0 0 -400 S
+AC 0 0 0 -1
 14 15 55 14d23+56 2d5+2
 0.0.0.0 6804
 8 8 0
@@ -2000,8 +2000,8 @@ more in the coming years.  His loud laughter echoes off the walls and his eyes
 look bright and cheerful.  His scaly skin is pale green in color, but it will
 darken into a deep green over time.
 ~
-1073743950 0 0 52559872 0 0 0 -400 S
-PB 0 1 -1
+1073743950 0 0 0 52559872 0 0 0 -400 S
+PB 0 1 0 -1
 20 13 35 20d35+140 3d4+2
 0.9.3.0 9720
 8 8 1
@@ -2015,8 +2015,8 @@ carry a deep intelligence and curiosity that one would not normally expect
 from his kind.  He works intently on a small carving, ignoring most of what
 is going on around him.
 ~
-1073743950 0 0 52559872 0 0 0 -400 S
-PB 0 1 -1
+1073743950 0 0 0 52559872 0 0 0 -400 S
+PB 0 1 0 -1
 28 8 10 28d65+364 3d6+4
 8.3.7.1 24948
 8 8 1
@@ -2031,8 +2031,8 @@ her back, an interesting coloration that will make her attractive to lizardman
 males later on.  She is clearly so bored that she has become hyperkinetic
 while waiting for something, anything, to do.
 ~
-1107298382 0 0 52559872 0 0 0 -400 S
-PB 0 0 -1
+1107298382 0 0 0 52559872 0 0 0 -400 S
+PB 0 0 0 -1
 20 13 35 20d30+100 3d4+2
 0.9.3.0 9720
 8 8 2
@@ -2047,8 +2047,8 @@ long, thin scar runs down from his left shoulder across his chest and abdomen
 to end near his waist.  Dark green eyes watch everything around him as he
 relaxes from a long night in the jungle.
 ~
-1107298380 128 0 52559888 0 0 0 -400 S
-PB 0 1 -1
+1107298380 128 0 0 52559888 0 0 0 -400 S
+PB 0 1 0 -1
 32 6 -2 32d83+544 4d6+7
 6.8.0.2 41472
 8 8 1
@@ -2063,8 +2063,8 @@ to lie on.  Her scales have become dull, and her eyes show signs of great
 age.  Though she works quietly and says little, even the youngest of children
 shows her great respect.
 ~
-1107298382 0 0 52559872 0 0 0 -400 S
-PB 0 0 -1
+1107298382 0 0 0 52559872 0 0 0 -400 S
+PB 0 0 0 -1
 28 8 10 28d55+308 3d6+4
 8.3.7.1 24948
 8 8 2
@@ -2078,8 +2078,8 @@ enjoys watching them run back and forth through the caverns.  Powerful muscles
 ripple underneath her scaly skin, all accept for her left arm which seems
 strangely withered and weak.
 ~
-1107298382 0 0 52559872 0 0 0 -400 S
-PB 0 0 -1
+1107298382 0 0 0 52559872 0 0 0 -400 S
+PB 0 0 0 -1
 34 6 -8 34d70+510 4d6+7
 8.9.0.2 44064
 8 8 2
@@ -2095,8 +2095,8 @@ fellow tribesman as they greet him.  Easily as tall as a barbarian, his muscles
 aren't quite the same as the other lizardman, perhaps because he spends most of
 his time painting in the caves rather than hunting or fishing for food.
 ~
-1107298382 128 0 52559888 0 0 0 -400 S
-PB 0 1 -1
+1107298382 128 0 0 52559888 0 0 0 -400 S
+PB 0 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -2113,8 +2113,8 @@ lavender-eyed priestess makes no effort to call others to join her, she simply
 continues her ceremony.  Deep purple robes hang down from her broad shoulders,
 covering her body with their folds.
 ~
-1107298382 128 0 52625536 45276 0 0 -1000 S
-PB 0 32 -1
+1107298382 128 0 0 52625536 45276 0 0 -1000 S
+PB 0 32 0 -1
 32 6 -2 32d77+512 4d6+7
 6.8.0.2 41472
 8 8 2
@@ -2127,8 +2127,8 @@ She has played hard and long, forcing her to take a nap so that she can gather
 the energy to go out and play some more.  Her gentle intake of breath contrasts
 with the almost constant activity in the rest of the cavern.
 ~
-1107298382 0 0 52559872 0 0 0 -400 S
-PB 0 0 -1
+1107298382 0 0 0 52559872 0 0 0 -400 S
+PB 0 0 0 -1
 20 13 35 20d30+100 3d4+2
 0.9.3.0 9720
 8 8 2
@@ -2142,8 +2142,8 @@ muscles ripple beneath the skin of his forearms, as well as the rest of his
 body.  Large hands gently go over each weapon, checking for nicks, or other
 signs of damage that might make a weapon fail in battle.
 ~
-1107298382 128 0 52559888 0 0 0 -400 S
-PB 0 1 -1
+1107298382 128 0 0 52559888 0 0 0 -400 S
+PB 0 1 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -2156,8 +2156,8 @@ He lays on his side, one hand near a large club, ready to enter battle at a
 moments notice.  Bandages cover a recent wound in his left shoulder, but even
 the bandages look minor when taken in relation to his size and strength.
 ~
-1107298382 128 0 52559888 0 0 0 -400 S
-PB 0 1 -1
+1107298382 128 0 0 52559888 0 0 0 -400 S
+PB 0 1 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 4 4 1
@@ -2171,8 +2171,8 @@ prepared to fight.  This lizardman woman bears the scars of a number of fights,
 most of which probably occurred on hunting trips in the jungle.  There is a
 faint smile on her face as she carefully tends her spears and nets.
 ~
-1107298380 128 0 52559888 0 0 0 -400 S
-PB 0 1 -1
+1107298380 128 0 0 52559888 0 0 0 -400 S
+PB 0 1 0 -1
 32 6 -2 32d83+544 4d6+7
 6.8.0.2 41472
 8 8 2
@@ -2185,8 +2185,8 @@ Shouting gleefully as he plays, this boy twirls about parrying and thrusting,
 swinging at imaginary opponents.  His dark eyes look clear and happy as he
 screams Ha! Die Elf!' and continues his mock battle.
 ~
-1107298382 0 0 52559872 0 0 0 -400 S
-PB 0 1 -1
+1107298382 0 0 0 52559872 0 0 0 -400 S
+PB 0 1 0 -1
 22 11 29 22d47+220 3d5+3
 4.0.5.0 19602
 8 8 1
@@ -2199,8 +2199,8 @@ Mumbling in his sleep, this young lizardman is clearly having some sort of
 nightmare.  Nearby lizardmen watch carefully, ready to come to comfort him
 if they are needed, but not daring to wake him unless it is needed.
 ~
-1107298382 0 0 52559872 0 0 0 -400 S
-PB 0 0 -1
+1107298382 0 0 0 52559872 0 0 0 -400 S
+PB 0 0 0 -1
 20 13 35 20d30+100 3d4+2
 0.9.3.0 9720
 4 4 1
@@ -2214,8 +2214,8 @@ is willing to fish in the deep lakes and rivers that flow underground as well
 as in the river that runs through the jungle.  He carries a long, thin scaling
 knife, but really not much else.
 ~
-1107298382 128 0 52559872 0 0 0 -400 S
-PB 0 1 -1
+1107298382 128 0 0 52559872 0 0 0 -400 S
+PB 0 1 0 -1
 33 6 -5 33d83+561 4d6+7
 7.8.0.2 42768
 4 4 1
@@ -2229,8 +2229,8 @@ in his eyes.  Nimble fingers swiftly repair the nets he is working on as he
 sits bowed over them.  Several ugly scars run across his arms and back, it
 would appear he as done more than simply fish during his lifetime.
 ~
-1107298382 128 0 52559872 0 0 0 -400 S
-PB 0 1 -1
+1107298382 128 0 0 52559872 0 0 0 -400 S
+PB 0 1 0 -1
 36 2 -15 36d95+828 4d7+10
 0.1.2.2 46656
 8 8 1
@@ -2246,8 +2246,8 @@ entire tribe, but is relatively thin for such great height.  Her deep green
 eyes soak in everything around her, striving to learn and remember every
 detail.
 ~
-1107298382 128 0 52559872 0 0 0 -400 S
-PB 0 1 -1
+1107298382 128 0 0 52559872 0 0 0 -400 S
+PB 0 1 0 -1
 28 8 10 28d65+364 3d6+4
 8.3.7.1 24948
 8 8 2
@@ -2261,8 +2261,8 @@ decide upon the best way to create new caverns.  As he scribbles on sheets of
 bark he mumbles, "Yes, we can build an entire city here, just cut it right out
 of the stone."
 ~
-1107298382 128 0 52559872 0 0 0 -400 S
-PB 0 1 -1
+1107298382 128 0 0 52559872 0 0 0 -400 S
+PB 0 1 0 -1
 38 2 -21 38d95+874 4d7+10
 1.2.2.2 49248
 8 8 1
@@ -2276,8 +2276,8 @@ different pieces of armor.  His size would make one think such intricate work
 would be difficult, but he is completely at ease with his skins and all the
 different compounds he treats them with.
 ~
-1107298382 128 0 52559888 0 0 0 -400 S
-PB 0 1 -1
+1107298382 128 0 0 52559888 0 0 0 -400 S
+PB 0 1 0 -1
 36 2 -15 36d95+828 4d7+10
 0.1.2.2 46656
 8 8 1
@@ -2294,8 +2294,8 @@ they are sick or injured almost as often as they go to the tribal priests.
 They always come to him when they need potions though, often bearing fine
 gifts.
 ~
-1107298382 128 0 52559872 0 0 0 -400 S
-PB 0 256 -1
+1107298382 128 0 0 52559872 0 0 0 -400 S
+PB 0 256 0 -1
 34 6 -8 34d77+544 4d6+7
 8.9.0.2 44064
 8 8 1
@@ -2310,8 +2310,8 @@ has no where near as much knowledge as her mentor.  Ever cautious to remain out
 of his way, she gently steps around the many vials and jars filled with a
 number of mysterious items.
 ~
-1107298382 128 0 52559872 0 0 0 -400 S
-PB 0 256 -1
+1107298382 128 0 0 52559872 0 0 0 -400 S
+PB 0 256 0 -1
 25 11 19 25d44+225 3d5+3
 6.2.6.1 22275
 8 8 2
@@ -2324,8 +2324,8 @@ Dark eyes study the secret entryways to the tribe's domain.  It is clear that
 this lizardman won't trust anyone that isn't of his own race, any non-lizardman
 daring to enter will most certainly be attacked on sight.
 ~
-1107298382 1 0 52559888 0 0 0 -400 S
-PB 0 1 -1
+1107298382 1 0 0 52559888 0 0 0 -400 S
+PB 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -2339,8 +2339,8 @@ even a well-trained warrior a good fight.  He is confident in his abilities and
 makes no effort to attack visitors, though he will certainly protect his fellow
 tribesmen in the event of a fight.
 ~
-1174407244 128 0 52559888 0 0 0 -400 S
-PB 0 0 -1
+1174407244 128 0 0 52559888 0 0 0 -400 S
+PB 0 0 0 -1
 30 8 3 30d55+330 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -2353,8 +2353,8 @@ A vicious scar runs down his left cheek and neck giving his face slightly
 twisted look.  The scar is quite close to his left eye, which appears to
 wander, making one wonder whether he can see very well.
 ~
-1107298382 1 0 52559888 0 0 0 -400 S
-PB 0 1 -1
+1107298382 1 0 0 52559888 0 0 0 -400 S
+PB 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -2368,8 +2368,8 @@ scales have dulled with age but his muscles and mind remain strong and capable.
 An ancient elven sword is at his side, and he clearly has the skill and
 knowledge to use it.
 ~
-1174407246 128 0 52559888 0 0 0 -400 S
-PB 0 1 -1
+1174407246 128 0 0 52559888 0 0 0 -400 S
+PB 0 1 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -2383,8 +2383,8 @@ Piercing everything they look at, they show a clear sign of great intelligence
 and wisdom.  Mumbling something about elves as he paces back and forth, he
 barely notices when anyone enters or departs.
 ~
-1107298382 128 0 52559888 0 0 0 -400 S
-PB 0 1 -1
+1107298382 128 0 0 52559888 0 0 0 -400 S
+PB 0 1 0 -1
 42 -1 -59 42d107+1890 6d6+12
 2.8.7.3 102060
 8 8 1
@@ -2398,8 +2398,8 @@ some time.  He stands completely naked in front of a tree, carving it carefully
 with his fingernails.  Rarely lookup up from his work, he ignores all that goes
 on around him.
 ~
-1107298382 384 0 790735036 14556 0 0 0 S
-PH 0 512 -1
+1107298382 384 0 0 790735036 14556 0 0 0 S
+PH 0 512 0 -1
 50 -3 -95 50d80+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -2416,8 +2416,8 @@ stuff that is tougher than the hardest metal, and yet somehow seems flexible
 and light.  The creature moves with an astounding agility and speed for
 something of its size.
 ~
-1107298382 384 0 52559888 0 0 0 0 S
-D 0 512 -1
+1107298382 384 0 0 52559888 0 0 0 0 S
+D 0 512 0 -1
 60 -10 -152 60d96+6780 7d6+35
 6.6.9.22 486000
 8 8 1
@@ -2431,8 +2431,8 @@ that prevent it from returning to its proper plane of existence.  It opens its
 mouth at times in an effort to scream, but no sound emerges, the same magic
 that has trapped it here must have silenced it as well.
 ~
-33556558 0 0 589430800 1 0 0 -400 S
-EF 0 1 -1
+33556558 0 0 0 589430800 1 0 0 -400 S
+EF 0 1 0 -1
 45 -1 -79 45d107+2025 6d6+12
 0.0.0.0 109350
 8 8 1
@@ -2446,8 +2446,8 @@ bounces off the invisible barriers that have trapped it here.  It turns to you
 in an effort to speak, but silently returns to its frustrating efforts to
 escape.
 ~
-33556558 0 0 52562072 12316 0 0 -400 S
-EW 0 1 -1
+33556558 0 0 0 52562072 12316 0 0 -400 S
+EW 0 1 0 -1
 45 -1 -79 45d107+2025 6d6+12
 0.0.0.0 109350
 8 8 1
@@ -2461,8 +2461,8 @@ some sort of small fragment of its normal plane.  It is clear that the barriers
 set here are quite beyond its abilities to escape, but the only sound it makes
 is the faint whistle and hum as it spins about.
 ~
-33687630 0 0 253886608 220 0 0 -400 S
-EA 0 1 -1
+33687630 0 0 0 253886608 220 0 0 -400 S
+EA 0 1 0 -1
 45 -1 -79 45d107+2025 6d6+12
 0.0.0.0 109350
 8 8 1
@@ -2476,8 +2476,8 @@ against the invisible barriers that enclose it making no effort to move.  A
 creature such as this is not tamed or beaten easily, but this particular
 elemental looks completely drained, almost ready to lie down and die.
 ~
-1107298382 0 0 589430928 12508 0 0 -400 S
-EE 0 1 -1
+1107298382 0 0 0 589430928 12508 0 0 -400 S
+EE 0 1 0 -1
 45 -1 -79 45d107+2025 6d6+12
 0.0.0.0 109350
 8 8 1
@@ -2491,8 +2491,8 @@ as agile and swift.  This gray-eyed elf takes his duties quite seriously, and
 will die to protect his village.  A thin scar crosses the bridge of his nose
 and the left side of his face giving him a somewhat roguish air.
 ~
-1174407246 384 0 52559888 0 0 0 0 S
-PE 0 1 -1
+1174407246 384 0 0 52559888 0 0 0 0 S
+PE 0 1 0 -1
 48 -1 -59 42d107+1890 6d6+12
 2.8.7.3 102060
 8 8 1
@@ -2507,8 +2507,8 @@ Woodseer, those that are rumored to be able to see even invisible wizards.
 Scars lining his forearms would suggest that he has seen quite a bit of battle
 and is more than willing to fight to protect his village.
 ~
-1174407246 384 0 589471932 12508 0 0 0 S
-PE 0 1 -1
+1174407246 384 0 0 589471932 12508 0 0 0 S
+PE 0 1 0 -1
 45 -3 -72 46d119+2530 6d6+25
 6.0.9.4 111780
 8 8 1
@@ -2522,8 +2522,8 @@ to detect hidden and invisible people and objects.  Anyone sneaking about in
 the village of Moonhollow is probably going to find themselves unwelcome,
 perhaps even slain.
 ~
-1174407244 384 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1174407244 384 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 38 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -2537,8 +2537,8 @@ more strength than any of his grey-elf cousins might possess.  He is one of the
 special elven guards that heads into the jungle to scout the lizardmen and
 bullywugs to insure that they aren't planning any attacks on the village.
 ~
-1107298380 384 0 52559872 0 0 0 0 S
-PE 0 2 -1
+1107298380 384 0 0 52559872 0 0 0 0 S
+PE 0 2 0 -1
 38 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -2553,8 +2553,8 @@ failing her village.  Her pale brown hair has been wound into a tight bun on
 the back of her head to keep it out of her way in the forest.  Delicate
 features highlight her deep blue eyes, eyes which glow with an inner light.
 ~
-1107298382 384 0 52559888 0 0 0 0 S
-PE 0 2 -1
+1107298382 384 0 0 52559888 0 0 0 0 S
+PE 0 2 0 -1
 36 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 2
@@ -2568,8 +2568,8 @@ his hair shows that me must be hundreds of years old, yet his smile is that of
 a young child.  He walks with a slight limp, but something about him suggests
 that he can still fight a powerful battle.
 ~
-1107298380 384 0 52560060 0 0 0 0 S
-PE 0 1 -1
+1107298380 384 0 0 52560060 0 0 0 0 S
+PE 0 1 0 -1
 35 -1 -59 42d107+1890 6d6+12
 2.8.7.3 102060
 8 8 1
@@ -2583,8 +2583,8 @@ anything.  He holds a lizardman's finger in his hand as some sort of trophy.
 Though he looks extremely young, he is clearly ready to assume the duties he
 has been given.
 ~
-1174407246 384 0 589463736 12508 0 0 0 S
-PE 0 1 -1
+1174407246 384 0 0 589463736 12508 0 0 0 S
+PE 0 1 0 -1
 35 -1 -59 42d107+1890 6d6+12
 2.8.7.3 102060
 8 8 1
@@ -2598,8 +2598,8 @@ more battles than most people would dare to dream of.  There is a hardness to
 his eyes and his body born of many battles and long years of watching others
 die.  He keeps an emotionless watch on the jungle below.
 ~
-1174407246 384 0 589504700 12508 0 0 0 S
-PE 0 2 -1
+1174407246 384 0 0 589504700 12508 0 0 0 S
+PE 0 2 0 -1
 32 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -2615,8 +2615,8 @@ known.  Her eyes are a pale greenish-white, a color much like one of the Duris
 moons during the summer and stare like unflinching stones at whatever seems
 most important.
 ~
-1174444110 384 0 589471932 12508 0 0 0 S
-PE 0 2 -1
+1174444110 384 0 0 589471932 12508 0 0 0 S
+PE 0 2 0 -1
 45 -7 -114 56d143+5880 7d6+35
 1.3.8.6 226800
 8 8 2
@@ -2629,8 +2629,8 @@ Bulging muscles stretch her tunic with every soft breath she takes.  A brutal
 scar runs down the right-hand side of her face, but she is otherwise quite
 beautiful.
 ~
-1174407246 384 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1174407246 384 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 38 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 4 4 1
@@ -2644,8 +2644,8 @@ sharpens his weapons and paces back and forth while waiting for his next shift.
 Deep green eyes stand out against his pale blond hair and light colored skin,
 they glow with an eager desire to be back at work.
 ~
-1174407246 384 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1174407246 384 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 36 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -2659,8 +2659,8 @@ his gaze.  Muscles bulge beneath his chain armor as he steps cautiously through
 the village.  There is a grim hardness to his face, as if every motion, every
 action, even every breath is of great importance.
 ~
-1107298380 0 0 52559872 0 0 0 0 S
-PE 0 2 -1
+1107298380 0 0 0 52559872 0 0 0 0 S
+PE 0 2 0 -1
 44 -3 -78 48d119+2640 6d6+25
 8.1.0.5 116640
 8 8 1
@@ -2674,8 +2674,8 @@ It is clear that this elf is an apprentice to Teglaron and that part of his
 duties lie in tending the shop when Teglaron wishes to remain at the forge.  He
 is young, but strong and handsome, and may someday be a great armorer.
 ~
-1107298382 384 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1107298382 384 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 42 -1 -59 42d107+1890 6d6+12
 2.8.7.3 102060
 8 8 1
@@ -2695,8 +2695,8 @@ substances, even dragon scale and other strange substances.  His age is written
 in deep soot-filled wrinkles on his face, it may be true that he is only here
 seeking a challenge to his great skill at the forge.
 ~
-1107335246 384 0 35791000 0 0 0 500 S
-PM 0 1 -1
+1107335246 384 0 0 35791000 0 0 0 500 S
+PM 0 1 0 -1
 56 -7 -114 56d143+5880 7d6+35
 1.3.8.6 226800
 8 8 1
@@ -2710,8 +2710,8 @@ almost every flower she passes.  Her youth and beauty are almost as striking as
 her shining silver eyes and long, flowing hair.  A faint smile seems
 permanently etched upon her face.
 ~
-1107331148 384 0 52559872 0 0 0 0 S
-PE 0 512 -1
+1107331148 384 0 0 52559872 0 0 0 0 S
+PE 0 512 0 -1
 31 8 16 26d44+286 3d6+4
 7.2.6.1 23166
 8 8 2
@@ -2725,8 +2725,8 @@ one.  Even though she could ask her neighbors for assistance she stubbornly
 wears her old clothing and scrapes by with what she has.  Her pride prevents
 her from even thinking about asking for assistance.
 ~
-1107298380 384 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1107298380 384 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 26 8 16 26d65+338 3d6+4
 7.2.6.1 23166
 8 8 2
@@ -2740,8 +2740,8 @@ thick wooden peg has been put it its place, but it doesn't help an elven woman
 with little beauty to begin with.  Her bright smile and dynamic teaching make
 up for her lack of beauty, at least in the minds of her pupils.
 ~
-1174407246 384 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1174407246 384 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 34 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 2
@@ -2754,8 +2754,8 @@ Wild, unkempt hair frames an angelic face.  He is bored with whatever lessons
 are being taught and has shut them out completely, daydreaming about a
 different time and place.
 ~
-1107298382 0 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1107298382 0 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 24 13 35 20d35+140 3d4+2
 0.9.3.0 9720
 8 8 1
@@ -2768,8 +2768,8 @@ Her eyes droop and her head bobs as she struggles vainly to stay awake and pay
 attention.  She can be seen pinching herself at times, but that is also in
 vain, she is simply to tired to be attentive.
 ~
-1107298382 0 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1107298382 0 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 24 13 35 20d35+140 3d4+2
 0.9.3.0 9720
 8 8 2
@@ -2782,8 +2782,8 @@ His green eyes are tightly focused on everything the teacher says and does.  He
 clearly enjoys the lesson, and seems to be doing quite well in school, at least
 for today.
 ~
-1107298382 0 0 52559888 0 0 0 0 S
-PE 0 1 -1
+1107298382 0 0 0 52559888 0 0 0 0 S
+PE 0 1 0 -1
 26 11 29 22d47+220 3d5+3
 4.0.5.0 19602
 8 8 1
@@ -2797,8 +2797,8 @@ lives.  This is one of the many children that lost both their parents in the
 battles with the lizardmen.  There is a subdued nature to this child, and a
 tentativeness that one hopes shall leave with age.
 ~
-1107298380 0 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1107298380 0 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 25 13 35 20d35+140 3d4+2
 0.9.3.0 9720
 8 8 1
@@ -2812,8 +2812,8 @@ screaming and laughing while playing in some imaginary world.  It is good that
 they play now, for all to soon they shall grow to adulthood and be faced with
 the hard tasks of life.
 ~
-1107298380 0 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1107298380 0 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 20 13 35 20d35+140 3d4+2
 0.9.3.0 9720
 8 8 1
@@ -2825,8 +2825,8 @@ elf infant~
 This bald newborn whimpers softly for his mother, it must be time for a feeding
 or a diaper change.
 ~
-8 0 0 0 0 0 0 0 S
-PE 0 0 -1
+8 0 0 0 0 0 0 0 0 S
+PE 0 0 0 -1
 1 20 96 1d15+4 1d5+0
 1.0.0.0 129
 8 8 1
@@ -2839,8 +2839,8 @@ Lack of sleep has etched small lines beneath her eyes, but those shall fade
 when she finally is able to sleep again.  Despite her fatigue she seems
 genuinely happy, her baby has brought her great joy and happiness.
 ~
-1174407246 384 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1174407246 384 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 33 6 -5 33d83+561 4d6+7
 7.8.0.2 42768
 8 8 2
@@ -2853,8 +2853,8 @@ Laugh lines surround his eyes and highlight his face.  He is known for even
 dealing in foods and clothing, and many elves and other visitors like to visit
 him just for his sense of humor.
 ~
-1107331150 0 0 589430972 12508 0 0 0 S
-PE 0 1 -1
+1107331150 0 0 0 589430972 12508 0 0 0 S
+PE 0 1 0 -1
 42 -1 -59 42d107+1890 6d6+12
 2.8.7.3 102060
 8 8 1
@@ -2868,8 +2868,8 @@ say that Windstrider has the finest restaurant in all the world.  Her deep
 green eyes are lost in thought as she ponders a new recipe, wondering whether
 the combination of spices will work properly.
 ~
-1107331148 384 0 52559872 0 0 0 0 S
-PE 0 2 -1
+1107331148 384 0 0 52559872 0 0 0 0 S
+PE 0 2 0 -1
 44 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 2
@@ -2882,8 +2882,8 @@ He stands with his back straight, and his face stern and serious.  Serving food
 in Windstrider's restaurant is quite an honor, and a good way to make money
 because the tips are quite nice.
 ~
-1107298382 384 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1107298382 384 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 50 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -2897,8 +2897,8 @@ bathed since coming back in from the jungle, another very un-elven thing to do.
 He ignores the stares that other elves, and even the other travellers give him
 and continues drinking.
 ~
-1107298382 0 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1107298382 0 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 30 2 -21 38d95+874 4d7+10
 1.2.2.2 49248
 8 8 1
@@ -2912,8 +2912,8 @@ clearly at home here among the spices and cooking pans, humming as he works.
 The heat of the ovens has coated him with sweat, even his hair has become
 matted down with perspiration.
 ~
-1107298382 384 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1107298382 384 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 32 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -2927,8 +2927,8 @@ welcome here despite his youth.  It appears that he has only recently reached
 adulthood, yet he has a wisdom beyond his years, or is at least smart enough to
 remain quiet to make people think he does.
 ~
-1107298382 384 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1107298382 384 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 32 -1 -59 42d107+1890 6d6+12
 2.8.7.3 102060
 8 8 1
@@ -2942,8 +2942,8 @@ captivating, attracting the attention of everyone in the room when she pauses
 to look at them.  Though perhaps not beautiful, she is charismatic and
 friendly.
 ~
-1107298382 0 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1107298382 0 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 2
@@ -2957,8 +2957,8 @@ bun at the back of her head.  Faint violet flecks seem to float around in her
 deep blue eyes as she looks at everything around her.  She smiles at all she
 greets, even those that try to ignore her.
 ~
-1107298382 0 0 52559888 0 0 0 0 S
-PF 0 1 -1
+1107298382 0 0 0 52559888 0 0 0 0 S
+PF 0 1 0 -1
 35 -1 -65 44d107+1980 6d6+12
 4.9.8.3 106920
 8 8 1
@@ -2972,8 +2972,8 @@ speed and grace.  Scars up and down his arms show that he to was a warrior
 once, and the fact that not a single soul dares to raise their voice to him
 suggests he hasn't forgotten all his skills.
 ~
-1107298382 0 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1107298382 0 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 42 -1 -59 42d107+1890 6d6+12
 2.8.7.3 102060
 8 8 1
@@ -2987,8 +2987,8 @@ can't really play many instruments, he still has his voice, and a beautiful
 voice it is.  His hair has been kept extremely short, perhaps just to show a
 different style or to make him more recognizable.
 ~
-1107331150 384 0 52559872 0 0 0 0 S
-PE 0 32768 -1
+1107331150 384 0 0 52559872 0 0 0 0 S
+PE 0 32768 0 -1
 33 -1 -69 45d99+1980 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -3003,8 +3003,8 @@ however, and a sense that there is a great weight upon his shoulders.  He has
 been elected the village leader, it is his duty to protect the village and keep
 it prosperous at all times.
 ~
-1107335244 384 0 52428800 0 0 0 0 S
-PE 0 32 -1
+1107335244 384 0 0 52428800 0 0 0 0 S
+PE 0 32 0 -1
 56 -7 -114 56d132+5824 7d6+35
 1.3.8.6 226800
 5 5 1
@@ -3018,8 +3018,8 @@ looking up rarely to see who might be trying to speak with him.  It seems he
 has devoted his life to making different potions, celebrating when he has found
 a new recipe.
 ~
-1107331150 384 0 52559888 0 0 0 0 S
-PE 0 512 -1
+1107331150 384 0 0 52559888 0 0 0 0 S
+PE 0 512 0 -1
 50 -3 -95 50d80+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -3033,8 +3033,8 @@ He rarely talks to anyone, other than himself, and walks slowly through the
 village when he walks anyplace at all.  Most of the children give him a wide
 berth, fearing he is insane.
 ~
-1107331150 0 0 52559872 0 0 0 0 S
-PE 0 512 -1
+1107331150 0 0 0 52559872 0 0 0 0 S
+PE 0 512 0 -1
 38 2 -21 38d64+798 4d7+10
 1.2.2.2 49248
 8 8 1
@@ -3049,8 +3049,8 @@ of instruments she possesses, but she can certainly practice with all of them
 here.  A bright green skirt and blouse highlight her light hair and green eyes,
 bringing out her beauty in a serene, understated manner.
 ~
-1107331150 384 0 52559888 0 0 0 0 S
-PE 0 32768 -1
+1107331150 384 0 0 52559888 0 0 0 0 S
+PE 0 32768 0 -1
 46 -3 -72 46d110+2484 6d6+25
 6.0.9.4 111780
 8 8 2
@@ -3063,8 +3063,8 @@ This middle-aged elf walks with an odd shuffle, it almost looks as if his left
 leg is longer than his right.  There is little distinctive about him, accept
 for the distinct odor of saw dust and freshly cut wood.
 ~
-1107298382 0 0 52559888 0 0 0 0 S
-PE 0 1 -1
+1107298382 0 0 0 52559888 0 0 0 0 S
+PE 0 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -3078,8 +3078,8 @@ the jungle alone, though one wonders whether any of the elves are willing to
 buy her wares.  It seems that she is mostly selling gems and jewelry, something
 that the elves don't often see.
 ~
-1107302476 0 0 19005456 0 0 0 0 S
-PH 0 1 -1
+1107302476 0 0 0 19005456 0 0 0 0 S
+PH 0 1 0 -1
 44 -1 -65 44d107+1980 6d6+12
 4.9.8.3 106920
 8 8 2
@@ -3092,8 +3092,8 @@ This young boy is clearly destined to become some sort of woodworker.  He
 carves at a small piece of wood while wearing a pleasant smile.  The act of
 carving clearly gives him a sense of peace and worth.
 ~
-1107298382 0 0 52559872 0 0 0 0 S
-PE 0 1 -1
+1107298382 0 0 0 52559872 0 0 0 0 S
+PE 0 1 0 -1
 28 8 10 28d65+364 3d6+4
 8.3.7.1 24948
 8 8 1
@@ -3108,8 +3108,8 @@ battles and his green eyes have a hardness to them from seeing to much death
 in even his long lifetime.  He is slightly taller and more muscular than his
 grey elf cousins, but otherwise it would be impossible to tell the difference.
 ~
-1174411342 384 0 52568252 12508 0 0 0 S
-PE 0 2 -1
+1174411342 384 0 0 52568252 12508 0 0 0 S
+PE 0 2 0 -1
 50 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -3123,8 +3123,8 @@ wide awake however, knowing that his duty is extremely important.  Long hair
 hangs down past his shoulders in waves of shimmering color.  His angular face
 and blue eyes look more like that of a bard than of a warrior.
 ~
-1174411358 1 0 52568124 0 0 0 0 S
-PE 0 1 -1
+1174411358 1 0 0 52568124 0 0 0 0 S
+PE 0 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 6 6 1
@@ -3139,8 +3139,8 @@ life, no matter what her past might have been.  Her voice is soft, but
 beautiful, and the scars that mar her arms and hands do not reach to her
 aquiline face.
 ~
-1107331150 0 0 52559872 0 0 0 0 S
-PE 0 32768 -1
+1107331150 0 0 0 52559872 0 0 0 0 S
+PE 0 32768 0 -1
 30 8 3 30d60+360 3d6+4
 0.5.7.1 26730
 8 8 2
@@ -3154,8 +3154,8 @@ it is quite clear from the hunger in his eyes that he is only thinking about
 the spicy aromas wafting in from the kitchen.  His pale skin and light hair
 suggest this human likely came from someplace far to the north.
 ~
-1107298382 384 0 2228224 0 0 0 0 S
-PH 0 1 -1
+1107298382 384 0 0 2228224 0 0 0 0 S
+PH 0 1 0 -1
 35 -1 -65 44d107+1980 6d6+12
 4.9.8.3 106920
 8 8 1
@@ -3169,8 +3169,8 @@ completely in love and oblivious to everything around her.  Pretty already, she
 has put a garland of flowers around her neck, their scent floating through the
 air.  Her green eyes have dreamy look to them.
 ~
-1073743950 384 0 52559872 0 0 0 0 S
-PE 0 512 -1
+1073743950 384 0 0 52559872 0 0 0 0 S
+PE 0 512 0 -1
 33 8 16 26d44+286 3d6+4
 7.2.6.1 23166
 8 8 2
@@ -3186,8 +3186,8 @@ he gives her.  His burly, scarred arms and somewhat brutal face look soft
 and appealing in her presence, but the agility with which he moves suggests he
 is quite a fine warrior.
 ~
-1174407246 384 0 52560016 0 0 0 0 S
-PE 0 1 -1
+1174407246 384 0 0 52560016 0 0 0 0 S
+PE 0 1 0 -1
 31 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -3202,8 +3202,8 @@ move with a great deal of speed as they carefully weave a few feathers together
 and put them aside.  Her hair has gone completely to silver and her shoulders
 are now stooped and bent with age.
 ~
-1073743950 0 0 52559872 0 0 0 0 S
-PE 0 0 -1
+1073743950 0 0 0 52559872 0 0 0 0 S
+PE 0 0 0 -1
 28 8 10 28d55+308 3d6+4
 8.3.7.1 24948
 8 8 2
@@ -3220,8 +3220,8 @@ his years but his broad smile and  twinkling eyes suggest that they
 have been happy years indeed.  It is likely that this gentle elf
 has forgotten more in his time then most will ever learn.
 ~
-1107335244 384 0 589463724 12508 0 0 0 S
-PE 0 32768 -1
+1107335244 384 0 0 589463724 12508 0 0 0 S
+PE 0 32768 0 -1
 56 -7 -114 56d132+5824 7d6+35
 1.3.8.6 226800
 8 8 1
@@ -3237,8 +3237,8 @@ the undergrowth give him a wide berth, his anger frightening them as much
 as his skills.  He wears almost no armor at all, trusting more to his
 skills and his sword than to armor.
 ~
-1107302476 384 0 589439164 12508 0 0 1000 S
-PE 0 2 -1
+1107302476 384 0 0 589439164 12508 0 0 1000 S
+PE 0 2 0 -1
 56 -7 -114 56d143+5880 7d6+35
 1.3.8.6 226800
 8 8 1
@@ -3255,8 +3255,8 @@ quite the mystery, but the elementals seem to treat him as one of their
 own.  His clothes have suffered from the elemental extremes, but he,
 apparently, has not.
 ~
-1174542860 1 0 989964478 14557 0 0 0 S
-PB 0 2 -1
+1174542860 1 0 0 989964478 14557 0 0 0 S
+PB 0 2 0 -1
 60 -10 -132 60d143+6300 7d6+35
 6.6.9.7 243000
 8 8 1
@@ -3271,8 +3271,8 @@ long scars.  Piercing black eyes show a deep intelligence and
 understanding of the world around him, this massive creature is not one to
 be trifled with.
 ~
-1107310670 384 0 536870968 12508 0 0 -1000 S
-G 0 256 -1
+1107310670 384 0 0 536870968 12508 0 0 -1000 S
+G 0 256 0 -1
 36 2 -5 36d88+972 4d7+10
 0.1.2.2 46656
 8 8 1
@@ -3285,8 +3285,8 @@ Like all his clan, this giant is completely hairless.  His bald skull
 looks almost like a giant rock itself, but few would dare to take such a
 creature lightly.  His massive size alone is quite frightening.
 ~
-1073756238 384 0 8 0 0 0 -1000 S
-G 0 1 -1
+1073756238 384 0 0 8 0 0 0 -1000 S
+G 0 1 0 -1
 30 8 13 30d65+540 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -3300,8 +3300,8 @@ a run for their money.  Deep lines run through her thick skin, suggesting
 that she is quite old.  She grunts and mumbles as she works away on
 preparing food.
 ~
-1073743884 384 0 0 0 0 0 -800 S
-G 0 1 -1
+1073743884 384 0 0 0 0 0 0 -800 S
+G 0 1 0 -1
 32 6 8 32d83+704 4d6+7
 6.8.0.2 41472
 8 8 2
@@ -3314,8 +3314,8 @@ stone giant child~
 ogre.  He has a pleasant, curious demeanor and appears to be actively
 exploring everything around him.
 ~
-1073743948 0 0 0 0 0 0 -800 S
-G 0 1 -1
+1073743948 0 0 0 0 0 0 0 -800 S
+G 0 1 0 -1
 26 8 26 26d65+468 3d6+4
 7.2.6.1 23166
 8 8 0
@@ -3329,8 +3329,8 @@ of wandering the mountains.  He seems more burly than the other giants,
 but has a strange hunch to his shoulders that suggests of an old injury or
 disease.
 ~
-1073743944 0 0 0 0 0 0 -800 S
-G 0 1 -1
+1073743944 0 0 0 0 0 0 0 -800 S
+G 0 1 0 -1
 34 6 2 34d83+748 4d6+7
 8.9.0.2 44064
 6 6 1
@@ -3344,8 +3344,8 @@ tribe.  Though clearly quite old, his massive body speaks of untold
 strength and power.  Few giants could stand against him, let alone
 ordinary men.
 ~
-1073756234 416 0 0 0 0 0 -800 S
-G 0 1 -1
+1073756234 416 0 0 0 0 0 0 -800 S
+G 0 1 0 -1
 40 2 -18 40d95+1120 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -3361,8 +3361,8 @@ is quite ancient, and it is clear that he knows the ways of the jungle
 extremely well.  In fact, he walks so easily through the jungle it almost
 seems that the jungle knows him as well.
 ~
-1073756236 384 0 705241276 12508 0 0 500 S
-PE 0 2 -1
+1073756236 384 0 0 705241276 12508 0 0 500 S
+PE 0 2 0 -1
 56 -7 -114 56d143+5880 7d6+35
 1.3.8.6 226800
 8 8 1

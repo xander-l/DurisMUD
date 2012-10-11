@@ -7,8 +7,8 @@ The citizen is wearing shabby clothes, and stands about 5'10" tall.
 His build is rather small, probably due to malnutrition.  The
 citizen stops and looks at you, probably sizing up your purse.
 ~
-2061 0 0 65536 0 0 0 -500 S
-PH 0 0 -1
+2061 0 0 0 65536 0 0 0 -500 S
+PH 0 0 0 -1
 16 18 77 7d18+24 2d3+1
 3.2.0.0 907
 8 8 1
@@ -23,8 +23,8 @@ stick.  Quite noticeable, is the amount of hair on this woman's
 arms.  If she had any more, she could probably pass as a Svalich
 Wereboar.  It looks as if life for her has been hard indeed.
 ~
-2249 0 0 65536 0 0 0 -500 S
-PH 0 0 -1
+2249 0 0 0 65536 0 0 0 -500 S
+PH 0 0 0 -1
 7 18 80 6d18+21 2d3+1
 3.2.0.0 777
 8 8 2
@@ -38,8 +38,8 @@ stands here picking his nose, showing off the treasures that he finds.
 
 &+Wa little brat tells you in common, 'Do you want some?'.
 ~
-2249 0 0 65536 0 0 0 -300 S
-PH 0 0 -1
+2249 0 0 0 65536 0 0 0 -300 S
+PH 0 0 0 -1
 3 20 90 3d15+11 1d5+0
 2.1.0.0 388
 8 8 1
@@ -52,8 +52,8 @@ The man looks very wise and solem.  His robe conceals his body well so that
 nothing else can be seen.  The thick black robe of this clergyman is
 covered with ornate glyphs.  The clergyman studies you intently.
 ~
-67110925 0 0 65536 0 0 0 -1000 S
-PH 0 32 -1
+67110925 0 0 0 65536 0 0 0 -1000 S
+PH 0 32 0 -1
 35 6 -2 32d77+512 4d6+7
 6.8.0.2 41472
 8 8 1
@@ -67,8 +67,8 @@ menacing and wise from his travels.  The merchant breaks his concentration
 and notices you staring at him.  With a smirk, he discards you as
 common trash and begins to ponder once again.
 ~
-2253 0 0 65536 0 0 0 -500 S
-PH 0 0 -1
+2253 0 0 0 65536 0 0 0 -500 S
+PH 0 0 0 -1
 26 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 8 8 1
@@ -82,8 +82,8 @@ The wino has an average build and probably could do some damage
 if he were not in such a terrible condition.  The wino murmurs
 a few words and returns to the bottle.
 ~
-2253 0 0 65536 0 0 0 0 S
-PH 0 0 -1
+2253 0 0 0 65536 0 0 0 0 S
+PH 0 0 0 -1
 6 20 87 4d15+14 1d5+0
 2.1.0.0 518
 8 8 1
@@ -95,8 +95,8 @@ peddler~
 The peddler looks like an ordinary citizen trying to make a living.
 The peddler tells you, &+W'Could I interest you in something today?'&N
 ~
-2063 0 0 0 0 0 0 -300 S
-PH 0 0 -1
+2063 0 0 0 0 0 0 0 -300 S
+PH 0 0 0 -1
 25 11 19 25d40+200 3d5+3
 6.2.6.1 22275
 6 6 1
@@ -108,8 +108,8 @@ A &+gtimid prisoner &nis standing here, wishing he were free.
 The prisoner does not look very tough at all.  He was probably
 picked up trying to steal some food to feed his family.
 ~
-2125 0 0 0 0 0 0 0 S
-PH 0 0 -1
+2125 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 26 20 87 4d15+14 1d5+0
 2.1.0.0 518
 8 8 1
@@ -121,8 +121,8 @@ A &+Lshady &nprisoner is standing here &+rglaring &nat you.
 The prisoner looks somewhat troublesome.  From the looks of
 the guy's face, he was picked up for brawling.
 ~
-2125 1 0 0 0 0 0 -200 S
-PH 0 0 -1
+2125 1 0 0 0 0 0 0 -200 S
+PH 0 0 0 -1
 34 18 74 8d18+28 2d3+1
 4.2.0.0 1036
 8 8 1
@@ -134,8 +134,8 @@ A &+msinister &nprisoner is standing here looking you over.
 The prisoner looks very hardened.  Probably this person has
 been here in this prison for most of his life.
 ~
-2249 0 0 0 0 0 0 -400 S
-PH 0 0 -1
+2249 0 0 0 0 0 0 0 -400 S
+PH 0 0 0 -1
 40 11 32 21d40+168 3d5+3
 4.0.5.0 18711
 8 8 1
@@ -147,8 +147,8 @@ A &+rmenacing &nprisoner is standing here.
 This prisoner looks to be the fiercest of the lot.  He most certainly
 runs the lower levels of the prison.
 ~
-2249 0 0 0 0 0 0 -900 S
-PH 0 0 -1
+2249 0 0 0 0 0 0 0 -900 S
+PH 0 0 0 -1
 55 6 -12 35d70+525 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -161,8 +161,8 @@ Covered in leather, this massive man wears the hood of death.  Around
 his neck is a necklace made of human ears, souvenirs of the many
 deaths by his hand.
 ~
-67110925 0 0 65536 0 0 0 -1000 S
-PH 0 1 -1
+67110925 0 0 0 65536 0 0 0 -1000 S
+PH 0 1 0 -1
 50 -1 -65 44d107+1980 6d6+12
 4.9.8.3 106920
 8 8 1
@@ -176,8 +176,8 @@ robes.  His beard is braided into a tail, as is his greying hair. His hands
 are heavy with impressive looking rings.  The baron seems to be occupied
 with a thought.
 ~
-1073743887 1 0 805306428 35008 0 0 -1000 S
-PH 0 256 5
+1073743887 1 0 0 805306428 35008 0 0 -1000 S
+PH 0 256 0 5
 60 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -197,8 +197,8 @@ The field boss looks at you.
 &+WThe field boss tells you in common, 'God damn pervert!  Be gone!'
 The field boss reaches around and wipes his ass with a corn husk.
 ~
-2248 0 0 65536 0 0 0 -500 S
-PH 0 0 -1
+2248 0 0 0 65536 0 0 0 -500 S
+PH 0 0 0 -1
 13 15 58 13d23+52 2d5+2
 6.5.2.0 6318
 6 8 1
@@ -209,8 +209,8 @@ A sparrow stands here, looking for some meat.
 ~
 *Tweet* *Tweet*  How cute.
 ~
-9 0 0 0 0 0 0 0 S
-B 0 0 -1
+9 0 0 0 0 0 0 0 0 S
+B 0 0 0 -1
 1 20 96 1d15+4 1d5+0
 0.0.0.0 129
 8 8 1
@@ -221,8 +221,8 @@ black squirrel~
 ~
 The squirrel freezes, and hopes that nobody can see it.
 ~
-9 0 0 0 0 0 0 0 S
-A 0 0 -1
+9 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
 2 20 93 2d15+7 1d5+0
 0.0.0.0 259
 8 8 1
@@ -233,8 +233,8 @@ A big fuzzy black squirrel is sitting here scavenging for some food.
 ~
 The squirrel urinates in your direction.
 ~
-9 0 0 0 0 0 0 0 S
-A 0 0 -1
+9 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
 2 20 93 2d15+7 1d5+0
 0.0.0.0 259
 8 8 1
@@ -246,8 +246,8 @@ the &+Lblack crow&n~
 The crow is black and revolting.  From its beak dangles
 a piece of flesh.  The bird stares at you with cold intent.
 ~
-9 0 0 0 0 0 0 -90 S
-B 0 0 -1
+9 0 0 0 0 0 0 0 -90 S
+B 0 0 0 -1
 2 20 93 2d15+7 1d5+0
 0.0.0.0 259
 8 8 1
@@ -261,8 +261,8 @@ beard on this man is nappy, and contains small pieces of
 food.  A quick glance at his hands reveals long and grimy
 fingernails.
 ~
-2061 0 0 0 0 0 0 -300 S
-PH 0 0 -1
+2061 0 0 0 0 0 0 0 -300 S
+PH 0 0 0 -1
 23 11 19 25d40+200 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -277,8 +277,8 @@ this man is lean and could be somewhat fierce if provoked.
 
 &+WA salesman tells you in common, 'Can I sell you something?'&N
 ~
-2061 0 0 0 0 0 0 -100 S
-PH 0 0 -1
+2061 0 0 0 0 0 0 0 -100 S
+PH 0 0 0 -1
 37 -1 -65 44d90+1892 6d6+12
 4.9.8.3 106920
 8 8 1
@@ -293,8 +293,8 @@ life in the Svalich woods has hardened this man into a tough
 adversary.  Worn and tired, this man seeks no skirmish and the Keep
 offers a nice place to rest.
 ~
-2061 0 0 0 0 0 0 0 S
-PH 0 0 -1
+2061 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 14 15 55 14d23+56 2d5+2
 7.5.2.0 6804
 8 8 1
@@ -310,8 +310,8 @@ hand out towards you and shakes a parchment.
 The parchment reads:
      &+y Will work for food!  May Grolantor bless you.&N
 ~
-2253 0 0 0 0 0 0 0 S
-PH 0 0 -1
+2253 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 5 20 83 5d15+17 1d5+0
 3.1.0.0 648
 8 8 1
@@ -328,8 +328,8 @@ holes is a long thin bone which signifies this man's position.
 &+WA servant tells you in common, 'Look at me again knave, and I&N
 &+Wshall run you through.'&N.
 ~
-2253 0 0 0 0 0 0 -200 S
-PH 0 0 -1
+2253 0 0 0 0 0 0 0 -200 S
+PH 0 0 0 -1
 12 15 61 12d23+48 2d5+2
 6.4.2.0 5832
 8 8 1
@@ -340,8 +340,8 @@ black wolf~
 ~
 The wolf stares very coldly at you, fangs bared.
 ~
-1140852811 1 0 33554464 0 0 0 -400 S
-A 0 0 -1
+1140852811 1 0 0 33554464 0 0 0 -400 S
+A 0 0 0 -1
 7 18 77 7d18+24 2d3+1
 0.0.0.0 907
 8 8 1
@@ -358,8 +358,8 @@ the head.
 
 A forest lurker glares at you icely.
 ~
-67110989 1 0 0 0 0 0 -100 S
-AA 0 0 -1
+67110989 1 0 0 0 0 0 0 -100 S
+AA 0 0 0 -1
 20 13 35 20d30+100 3d4+2
 0.0.0.0 9720
 8 8 1
@@ -374,8 +374,8 @@ close to 600 pounds.  A wise adventurer would stay clear.
 The bear gives you an indifferent look and urinates in your
 direction.
 ~
-2057 1 0 0 0 0 0 -10 S
-A 0 0 -1
+2057 1 0 0 0 0 0 0 -10 S
+A 0 0 0 -1
 20 13 35 20d30+100 3d4+2
 0.0.0.0 9720
 8 8 1
@@ -388,8 +388,8 @@ There is a great resemblance between gnolls and hyenas.  This gnoll
 has unusually dark skin with a reddish gray mane.  The gnoll flashes
 you a startling grin, every yellow tooth made quite apparent.
 ~
-67111117 1 0 0 0 0 0 -900 S
-AC 0 0 -1
+67111117 1 0 0 0 0 0 0 -900 S
+AC 0 0 0 -1
 15 15 51 15d23+60 2d5+2
 0.0.0.0 7290
 8 8 1
@@ -404,8 +404,8 @@ skulls.  Quite noticeable are long thorns which lay flush against the
 ear seeker's body.  This most likely causes great pain to those
 who try to pull the seeker from his newly found den.
 ~
-67111116 1 0 1048576 0 0 0 -200 S
-AS 0 0 -1
+67111116 1 0 0 1048576 0 0 0 -200 S
+AS 0 0 0 -1
 5 20 83 5d15+17 1d5+0
 0.0.0.0 648
 8 8 0
@@ -420,8 +420,8 @@ jackalwere has a look of pain splashed across its face.
 The discomfort is most likely due to the unnatural rearrangement
 of its former bones and joints.
 ~
-2252 1 0 0 0 0 0 -300 S
-AC 0 0 -1
+2252 1 0 0 0 0 0 0 -300 S
+AC 0 0 0 -1
 17 13 45 17d30+85 3d4+2
 0.0.0.0 8262
 8 8 1
@@ -436,8 +436,8 @@ mouth of this beast.
 
 The wereboar snarls menancingly at you.
 ~
-2248 1 0 0 0 0 0 -300 S
-A 0 0 -1
+2248 1 0 0 0 0 0 0 -300 S
+A 0 0 0 -1
 20 13 35 20d30+100 3d4+2
 0.0.0.0 9720
 8 8 1
@@ -450,8 +450,8 @@ The little cub looks very cuddly.  Not yet 2 months old, the cat is
 relatively harmless to the experienced adventurer.  The cub pays
 no attention to you, and focuses on a swirling leaf.
 ~
-201 1 0 0 0 0 0 -200 S
-A 0 0 -1
+201 1 0 0 0 0 0 0 -200 S
+A 0 0 0 -1
 10 20 90 3d15+11 1d5+0
 0.0.0.0 388
 8 8 1
@@ -464,8 +464,8 @@ This manticore looks very mean.  No doubt that this creature is the
 hunter for the pride.  The manticore's coloration is that of its
 various parts - lion colored body, bat brown wings, human flesh head.
 ~
-134219977 1 0 0 0 0 0 -500 S
-A 0 0 -1
+134219977 1 0 0 0 0 0 0 -500 S
+A 0 0 0 -1
 34 13 48 16d30+80 3d4+2
 0.0.0.0 7776
 8 8 2
@@ -480,8 +480,8 @@ The mane of this beast is pitch black, and the body covered with
 battle scars.  A smart adventurer would think twice about
 tangling with this creature.
 ~
-1073743883 1 0 1048760 0 0 0 -1000 S
-A 0 0 -1
+1073743883 1 0 0 1048760 0 0 0 -1000 S
+A 0 0 0 -1
 52 8 3 30d55+330 3d6+4
 0.0.0.0 26730
 8 8 1
@@ -496,8 +496,8 @@ tall and has powerful-looking limbs.  You cannot help but notice that a
 few creatures have become entangled within the vegetation of the
 shambler's torso.
 ~
-1073743945 1 0 0 0 0 0 0 S
-VT 0 0 -1
+1073743945 1 0 0 0 0 0 0 0 S
+VT 0 0 0 -1
 22 15 51 15d23+210 2d5+2
 0.0.0.0 7290
 8 8 0
@@ -511,8 +511,8 @@ feathers of the stirge are rusty red.  Its eyes and feet are
 yellowish.  The dangling probiscus of the stirge is pink at
 the tip, fading to gray at the base.
 ~
-133321 1 0 0 0 0 0 -300 S
-A 0 0 -1
+133321 1 0 0 0 0 0 0 -300 S
+A 0 0 0 -1
 5 20 83 5d15+17 1d5+0
 0.0.0.0 648
 8 8 1
@@ -527,8 +527,8 @@ looks slightly singed, and her skin has a countless number of
 welts and boils.  By the looks of this creature, it is easy to
 see why she lives here, in this isolated place.
 ~
-2124 1 0 0 0 0 0 0 S
-H 0 0 -1
+2124 1 0 0 0 0 0 0 0 S
+H 0 0 0 -1
 10 18 67 10d18+35 2d3+1
 5.3.0.0 1296
 8 8 2
@@ -545,8 +545,8 @@ servants have stolen the symbol of right, the ring of Bloodstone.
 Kill my brother once again, and bring to me his ring.  I shall
 reward you!
 ~
-2063 0 0 536871040 128 0 0 0 S
-PH 0 4096 -1
+2063 0 0 0 536871040 128 0 0 0 S
+PH 0 4096 0 -1
 45 -1 -69 45d90+1935 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -563,8 +563,8 @@ mud and marsh.  Please help me!  If you help, I will give you the key
 to the upper levels of the prison.  I hear they have a very important
 person locked away in there.
 ~
-72 0 0 536936528 128 0 0 0 S
-PH 0 0 -1
+72 0 0 0 536936528 128 0 0 0 S
+PH 0 0 0 -1
 30 8 3 30d55+330 3d6+4
 0.5.7.1 26730
 6 6 1
@@ -576,8 +576,8 @@ gilden~
 &+WGilden tells you in common, 'Hey, did you just come to look or
 &+Ware you going to buy something!'
 ~
-2059 0 0 136 64 0 0 0 S
-PH 0 1 -1
+2059 0 0 0 136 64 0 0 0 S
+PH 0 1 0 -1
 50 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -589,8 +589,8 @@ gynter~
 &+WGynter tells you in common, 'Don't waste your time looking at me, when
 &+Wyou can be eating one of my famous stirge roasts'
 ~
-2059 0 0 128 64 0 0 0 S
-PH 0 0 -1
+2059 0 0 0 128 64 0 0 0 S
+PH 0 0 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -601,8 +601,8 @@ t'lothka~
 ~
 &+WT'Lothka tells you in common, 'Can I be of service friend?'
 ~
-2059 0 0 128 64 0 0 0 S
-PH 0 512 -1
+2059 0 0 0 128 64 0 0 0 S
+PH 0 512 0 -1
 50 -3 -95 50d80+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -613,8 +613,8 @@ waqar~
 ~
 &+WWaqar tells you in common, 'Either buy a weapon or go away!'
 ~
-2059 0 0 128 64 0 0 0 S
-PH 0 0 -1
+2059 0 0 0 128 64 0 0 0 S
+PH 0 0 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -625,8 +625,8 @@ helda~
 ~
 &+WHelda tells you in common, 'The merchandise is over there!'
 ~
-2059 0 0 128 64 0 0 0 S
-PH 0 0 -1
+2059 0 0 0 128 64 0 0 0 S
+PH 0 0 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 2
@@ -640,8 +640,8 @@ anyone who can drink him under the table.
 
 &+WStefan tells you in common, 'We have the finest rooms in all of Bloodstone!'
 ~
-2059 0 0 144 64 0 0 0 S
-PH 0 1 -1
+2059 0 0 0 144 64 0 0 0 S
+PH 0 1 0 -1
 53 13 48 16d35+112 3d4+2
 8.6.2.0 7776
 8 8 1
@@ -657,8 +657,8 @@ light.  The man's face is lustrous with perspiration.
 
 &+WA young man tells you in common, 'Get lost buddy, I am busy!'
 ~
-67110925 0 0 65536 0 0 0 -500 S
-PH 0 1 -1
+67110925 0 0 0 65536 0 0 0 -500 S
+PH 0 1 0 -1
 15 18 77 7d21+38 2d3+1
 3.2.0.0 907
 6 6 1
@@ -676,8 +676,8 @@ back.
 &+WA young woman tells you in common, 'Be gone pervert, else my man shall
 &+Wlearn you some manners!'
 ~
-67110987 0 0 65536 0 0 0 -500 S
-PH 0 0 -1
+67110987 0 0 0 65536 0 0 0 -500 S
+PH 0 0 0 -1
 13 18 77 7d18+24 2d3+1
 3.2.0.0 907
 5 5 2
@@ -691,8 +691,8 @@ a prostitute looks you over.
 &+Wthere is a room at the brothel just for you and me.'
 a prostitute winks at you seductively.
 ~
-2253 0 0 65536 0 0 0 -500 S
-PH 0 0 -1
+2253 0 0 0 65536 0 0 0 -500 S
+PH 0 0 0 -1
 10 18 77 7d18+24 2d3+1
 3.2.0.0 907
 8 8 2
@@ -703,8 +703,8 @@ horse stallion~
 ~
 The horse has a sleek black muscular build.  A fine horse it is.
 ~
-134217736 0 0 0 0 0 0 0 S
-AE 0 0 -1
+134217736 0 0 0 0 0 0 0 0 S
+AE 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 0.0.0.0 518
 8 8 1
@@ -716,8 +716,8 @@ warhorse~
 The horse has a sleek black muscular build.  It bears the emblem
 of the mighty Keep Bloodstone.
 ~
-134219784 0 0 0 0 0 0 0 S
-AE 0 0 -1
+134219784 0 0 0 0 0 0 0 0 S
+AE 0 0 0 -1
 10 18 67 10d18+35 2d3+1
 0.0.0.0 1296
 8 8 1
@@ -728,8 +728,8 @@ A big fuzzy &+Lblack &nsquirrel is sitting here scavenging for some food.
 ~
 The squirrel urinates in your direction.
 ~
-11 0 0 0 0 0 0 0 S
-A 0 0 -1
+11 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
 2 20 93 2d15+7 1d5+0
 0.0.0.0 259
 8 8 1
@@ -740,8 +740,8 @@ An ugly black crow stands here squawking.  *squawk*
 ~
 The bird stares at you with cold intent.
 ~
-11 0 0 0 0 0 0 -90 S
-A 0 0 -1
+11 0 0 0 0 0 0 0 -90 S
+A 0 0 0 -1
 2 20 93 2d15+7 1d5+0
 0.0.0.0 259
 8 8 1
@@ -752,8 +752,8 @@ A large tame &+Lblack wolf &nsits here.
 ~
 The wolf stares in admiration.
 ~
-2059 0 0 0 0 0 0 -400 S
-A 0 0 -1
+2059 0 0 0 0 0 0 0 -400 S
+A 0 0 0 -1
 15 15 51 15d23+60 2d5+2
 0.0.0.0 7290
 8 8 1
@@ -764,8 +764,8 @@ A huge tame &+ybear &nis resting here.
 ~
 The bear looks at you with admiration.
 ~
-2059 0 0 0 0 0 0 -10 S
-A 0 0 -1
+2059 0 0 0 0 0 0 0 -10 S
+A 0 0 0 -1
 20 13 35 20d30+100 3d4+2
 0.0.0.0 9720
 8 8 1
@@ -778,8 +778,8 @@ This manticore looks very mean.  No doubt that this creature is the
 hunter for the pride.  The manticore's coloration is that of its
 various parts - lion colored body, bat brown wings, human flesh head.
 ~
-134219787 0 0 0 0 0 0 -300 S
-A 0 0 -1
+134219787 0 0 0 0 0 0 0 -300 S
+A 0 0 0 -1
 22 13 48 16d30+80 3d4+2
 0.0.0.0 7776
 8 8 2
@@ -793,8 +793,8 @@ feathers of the stirge are rusty red.  Its eyes and feet are
 yellowish.  The dangling proboscis of the stirge is pink at
 the tip, fading to gray at the base.
 ~
-11 0 0 0 0 0 0 -300 S
-A 0 0 -1
+11 0 0 0 0 0 0 0 -300 S
+A 0 0 0 -1
 8 18 74 8d18+28 2d3+1
 0.0.0.0 1036
 8 8 1
@@ -805,8 +805,8 @@ anele~
 ~
 &+WAnele tells you in common, 'The merchandise is over there!'&N.
 ~
-2059 0 0 128 64 0 0 0 S
-PH 0 0 -1
+2059 0 0 0 128 64 0 0 0 S
+PH 0 0 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 2
@@ -818,8 +818,8 @@ A greedy banker is sitting behind a counter, stacking coins.
 &+Wa greedy looking banker tells you in common, 'Where's your transaction&N
 &+Wslip?  Read the sign you idiot...NEXT!'&N.
 ~
-2059 0 0 128 64 0 0 0 S
-PH 0 0 -1
+2059 0 0 0 128 64 0 0 0 S
+PH 0 0 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -830,8 +830,8 @@ Trenton, the adventurer, is here stocking his shelves.
 ~
 &+WTrenton tells you in common, 'What can I sell you young one?'
 ~
-2059 0 0 128 64 0 0 0 S
-PH 0 0 -1
+2059 0 0 0 128 64 0 0 0 S
+PH 0 0 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -842,8 +842,8 @@ Enochel, the gemsmith, is sitting behind a counter sorting gems.
 ~
 &+WEnochel tells you in common, 'If you're not here to buy, then go away!'&N.
 ~
-2059 0 0 128 64 0 0 0 S
-PH 0 0 -1
+2059 0 0 0 128 64 0 0 0 S
+PH 0 0 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -855,20 +855,20 @@ Veriallo, the barreler, is here behind the counter looking at you.
 &+WVeriallo tells you in common, 'Ahh, you want a barrel.  You've come to the&N
 &+Wright place!'&N.
 ~
-2059 0 0 128 64 0 0 0 S
-PH 0 0 -1
+2059 0 0 0 128 64 0 0 0 S
+PH 0 0 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 1
 #74060
-cerrio~
+cerrio bartender~
 Cerrio, the bartender~
 Cerrio, the bartender, is here behind the bar looking at you.
 ~
 &+WCerrio the Bartender tells you in common, 'Have a drink would you?'&N.
 ~
-2059 0 0 128 64 0 0 0 S
-PH 0 0 -1
+2059 0 0 0 128 64 0 0 0 S
+PH 0 0 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -880,8 +880,8 @@ Ghelian, the baker, looks at you with anticipation.
 &+WGhelian the Baker tells you in common, 'Can I interest you in some of my&N
 &+Wfine delites?'&N.
 ~
-2057 0 0 128 64 0 0 0 S
-PH 0 0 -1
+2057 0 0 0 128 64 0 0 0 S
+PH 0 0 0 -1
 44 -1 -65 44d90+1892 6d6+12
 4.9.8.3 106920
 8 8 1
@@ -892,8 +892,8 @@ horse wild black stallion~
 ~
 The horse has a sleek black muscular build.  A fine horse it is.
 ~
-2056 0 0 0 0 0 0 0 S
-AE 0 0 -1
+2056 0 0 0 0 0 0 0 0 S
+AE 0 0 0 -1
 6 20 87 4d15+14 1d5+0
 0.0.0.0 518
 8 8 1
@@ -904,8 +904,8 @@ A spirit guardian is here, hovering in front of you.
 ~
 You can barely see the humanoid figure.
 ~
-2120 1 0 56 0 0 0 -10 S
-UG 0 0 -1
+2120 1 0 0 56 0 0 0 -10 S
+UG 0 0 0 -1
 51 -1 -79 45d90+1935 6d6+12
 0.0.0.0 109350
 8 8 1
@@ -919,8 +919,8 @@ ivory tusks.  The beast has pale black eyes set deeply into a
 thick brown exoskeleton.  Black and bristled hair sparsely emerge
 from between joints in the creature's armor.
 ~
-1073743883 1 0 8 0 0 0 -500 S
-A 0 0 -1
+1073743883 1 0 0 8 0 0 0 -500 S
+A 0 0 0 -1
 26 8 16 26d55+286 3d6+4
 0.0.0.0 23166
 8 8 2
@@ -932,8 +932,8 @@ A handsome male slave comes over to attend to you.
 The human man bares his chest showing off his flawless build
 and raging muscles.
 ~
-2249 0 0 0 0 0 0 900 S
-PH 0 0 -1
+2249 0 0 0 0 0 0 0 900 S
+PH 0 0 0 -1
 7 18 77 7d18+24 2d3+1
 3.2.0.0 907
 8 8 1
@@ -945,8 +945,8 @@ A beautiful &+gdruid &nslave girl is standing here half naked.
 The girl is young, slender and the thin gown that she
 wears hints at the succulent breasts hidden beneath.
 ~
-2249 0 0 0 0 0 0 900 S
-PH 0 128 -1
+2249 0 0 0 0 0 0 0 900 S
+PH 0 128 0 -1
 7 18 77 7d19+31 2d3+1
 3.2.0.0 907
 8 8 2
@@ -960,8 +960,8 @@ Legs like steel clubs, the master springs about the floor with the
 agility of a finely tuned manticore.  The master bends his body like
 fluid dodging the feeble attacks of his students.
 ~
-34826 0 0 0 0 0 0 -1000 S
-PH 0 16 -1
+34826 0 0 0 0 0 0 0 -1000 S
+PH 0 16 0 -1
 56 8 3 30d55+330 3d6+4
 0.5.7.1 26730
 6 6 1
@@ -978,8 +978,8 @@ fingers drumming to some melody.
 
 &+WThe weapon foger tells you in common, 'What can I sell you today?'
 ~
-2059 0 0 0 0 0 0 -1000 S
-PH 0 0 -1
+2059 0 0 0 0 0 0 0 -1000 S
+PH 0 0 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -994,8 +994,8 @@ behind a counter keeping an eye upon his slaves.
 
 &+WThe brothel keeper tells you in common, 'Drink up and be very merry!'
 ~
-2059 0 0 0 0 0 0 -1000 S
-PH 0 0 -1
+2059 0 0 0 0 0 0 0 -1000 S
+PH 0 0 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -1012,8 +1012,8 @@ his might.
 
 &+WA dark paladin tells you in common, 'Only the blackest hearts may pass.'
 ~
-2059 0 0 0 0 0 0 -1000 S
-PH 0 16 -1
+2059 0 0 0 0 0 0 0 -1000 S
+PH 0 16 0 -1
 50 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -1025,8 +1025,8 @@ A &+rcitizen&n is here, sleeping soundly.
 The citizen is wearing shabby clothes, and stands about 5'10" tall.
 His build is rather small, probably due to malnutrition.
 ~
-1073744015 0 0 65536 0 0 0 -500 S
-PH 0 0 -1
+1073744015 0 0 0 65536 0 0 0 -500 S
+PH 0 0 0 -1
 18 18 77 7d18+24 2d3+1
 3.2.0.0 907
 4 4 1
@@ -1039,8 +1039,8 @@ Young and frail, this poor village boy has been enslaved by the
 field boss for cheap labor.  The boy looks tired and weak from
 hunger.
 ~
-2248 0 0 65536 0 0 0 -500 S
-PH 0 0 -1
+2248 0 0 0 65536 0 0 0 -500 S
+PH 0 0 0 -1
 3 20 90 3d15+11 1d5+0
 2.1.0.0 388
 8 8 1
@@ -1060,8 +1060,8 @@ The field boss looks at you.
 &+WThe field boss tells you in common, 'God damn pervert!  Be gone!'
 The field boss reaches around and wipes his ass with a corn husk.
 ~
-2248 0 0 65536 0 0 0 -500 S
-PH 0 0 -1
+2248 0 0 0 65536 0 0 0 -500 S
+PH 0 0 0 -1
 27 15 58 13d23+52 2d5+2
 6.5.2.0 6318
 6 8 1
@@ -1079,8 +1079,8 @@ wicked looking saber in a sly manner.  The man approaches you
 cautiously as if to engage in conversation.  It would be wise
 to listen to the words of this warrior.
 ~
-2058 0 0 73820 0 0 0 -900 S
-PH 0 1 -1
+2058 0 0 0 73820 0 0 0 -900 S
+PH 0 1 0 -1
 36 2 -24 39d95+897 4d7+10
 2.2.3.2 50544
 8 8 1
@@ -1094,8 +1094,8 @@ master in an attempt to pick up some experience.  Soon this
 young warrior will go unto the world, and search out the blood
 of all who are good.
 ~
-2249 0 0 0 0 0 0 -900 S
-PH 0 16 -1
+2249 0 0 0 0 0 0 0 -900 S
+PH 0 16 0 -1
 13 15 58 13d23+52 2d5+2
 6.5.2.0 6318
 8 8 1
@@ -1108,8 +1108,8 @@ The fish has a blue luster that is quite eyecatching.  The size
 of the fish is somewhat small, but the creature does sport a large
 mouth.
 ~
-262152 0 0 34816 0 0 0 0 S
-F 0 0 -1
+262152 0 0 0 34816 0 0 0 0 S
+F 0 0 0 -1
 4 20 93 2d15+7 1d5+0
 0.0.0.0 259
 8 8 0
@@ -1122,8 +1122,8 @@ The fish is as white as the clouds in the sky.  Its sleek body
 shimmers under the cool water of the pond.  The fish looks
 to be close to a foot in length.
 ~
-262152 0 0 34816 0 0 0 0 S
-F 0 0 -1
+262152 0 0 0 34816 0 0 0 0 S
+F 0 0 0 -1
 4 20 90 3d15+11 1d5+0
 0.0.0.0 388
 8 8 0
@@ -1136,8 +1136,8 @@ The fish has a blue luster that is quite eyecatching.  The size
 of the fish is somewhat small, but the creature does sport a large
 mouth.
 ~
-262152 0 0 34816 0 0 0 0 S
-F 0 0 -1
+262152 0 0 0 34816 0 0 0 0 S
+F 0 0 0 -1
 4 20 96 1d15+4 1d5+0
 0.0.0.0 129
 8 8 0
@@ -1150,8 +1150,8 @@ Some two feet in length, this fish seems to have the run of the
 pond.  Its mouth is quite large, big enough to swallow many of the
 smaller blue fish.
 ~
-262152 0 0 34816 0 0 0 0 S
-F 0 0 -1
+262152 0 0 0 34816 0 0 0 0 S
+F 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 0.0.0.0 518
 8 8 0
@@ -1163,8 +1163,8 @@ A &+Yfish with golden scales&N is here swimming close to the surface.
 By far the most beautiful fish in the pond, this creatures scales
 glimmer like a platinum coin.
 ~
-262152 0 0 34816 0 0 0 0 S
-F 0 0 -1
+262152 0 0 0 34816 0 0 0 0 S
+F 0 0 0 -1
 5 20 93 2d15+7 1d5+0
 0.0.0.0 259
 8 8 0
@@ -1178,8 +1178,8 @@ shop's wares, selling goods to priests of the adventuring kind.
 
 &+WThe temple shopkeeper tells you in common, 'What can I sell you friend?'
 ~
-2058 0 0 8 3 0 0 -200 S
-PH 0 0 -1
+2058 0 0 0 8 3 0 0 -200 S
+PH 0 0 0 -1
 55 -5 -111 55d110+4565 7d6+30
 0.2.7.6 222750
 8 8 1
@@ -1199,8 +1199,8 @@ The guard wields a massive two-handed sword.
 &+WThe guard tells you in common, 'Try your luck with me boy!'
 The guard throws his head back and cackles with insane glee.
 ~
-2059 0 0 8 3 0 0 -1000 S
-PH 0 0 -1
+2059 0 0 0 8 3 0 0 -1000 S
+PH 0 0 0 -1
 51 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -1213,8 +1213,8 @@ The acolyte looks a bit shabby and malnourished.  His robes flow
 freely against his frail thin body.  The skin of this man is pale
 white, as if he has never seen the rays of the sun.
 ~
-2056 0 0 0 0 0 0 -300 S
-PH 0 0 -1
+2056 0 0 0 0 0 0 0 -300 S
+PH 0 0 0 -1
 10 18 67 10d18+35 2d3+1
 5.3.0.0 1296
 8 8 1
@@ -1228,8 +1228,8 @@ about various philosophies, this student's attention occasionally wanders.
 The very livid bruises on his face are testament to his inability to keep
 his mind focused.
 ~
-2056 0 0 0 0 0 0 -300 S
-PH 0 0 -1
+2056 0 0 0 0 0 0 0 -300 S
+PH 0 0 0 -1
 10 18 67 10d18+35 2d3+1
 5.3.0.0 1296
 5 5 1
@@ -1244,8 +1244,8 @@ them, almost as if hinting at the power his gods have granted him.
 Upon noting your gaze he pauses to look at you intently, almost as if
 measuring up your entire worth in a single glance.
 ~
-34826 0 0 0 0 0 0 -1000 S
-PH 0 0 -1
+34826 0 0 0 0 0 0 0 -1000 S
+PH 0 0 0 -1
 30 8 3 30d55+330 3d6+4
 0.5.7.1 26730
 6 6 1
@@ -1258,8 +1258,8 @@ The citizen is wearing shabby clothes, and stands about 5'10" tall.
 His build is rather small, probably due to malnutrition.  The
 citizen stops and looks at you, probably sizing up your purse.
 ~
-2248 0 0 65536 0 0 0 -500 S
-PH 0 0 -1
+2248 0 0 0 65536 0 0 0 -500 S
+PH 0 0 0 -1
 16 18 77 7d18+24 2d3+1
 3.2.0.0 907
 8 8 1
@@ -1274,8 +1274,8 @@ stick.  Quite noticeable is the amount of hair on this woman's
 arms.  If she had any more, she could probably pass as a Svalich
 Wereboar.  It looks as if life for her has been hard indeed.
 ~
-2249 0 0 65536 0 0 0 -500 S
-PH 0 0 -1
+2249 0 0 0 65536 0 0 0 -500 S
+PH 0 0 0 -1
 6 18 80 6d18+21 2d3+1
 3.2.0.0 777
 8 8 2
@@ -1289,8 +1289,8 @@ stands here picking his nose, showing off the treasures that he finds.
 
 &+Wa little brat tells you in common, 'Do you want some?'.
 ~
-2249 0 0 65536 0 0 0 -300 S
-PH 0 0 -1
+2249 0 0 0 65536 0 0 0 -300 S
+PH 0 0 0 -1
 3 20 90 3d15+11 1d5+0
 2.1.0.0 388
 8 8 1
@@ -1302,8 +1302,8 @@ A &+rcitizen&N is sleeping soundly here.
 The citizen is wearing shabby clothes, and stands about 5'10" tall.
 His build is rather small, probably due to malnutrition.
 ~
-1073744015 0 0 65536 0 0 0 -500 S
-PH 0 0 -1
+1073744015 0 0 0 65536 0 0 0 -500 S
+PH 0 0 0 -1
 16 18 77 7d18+24 2d3+1
 3.2.0.0 907
 4 4 1
@@ -1318,8 +1318,8 @@ stick.  Quite noticeable is the amount of hair on this woman's
 arms.  If she had any more, she could probably pass as a Svalich
 Wereboar.  It looks as if life for her has been hard indeed.
 ~
-1073744015 0 0 65536 0 0 0 -500 S
-PH 0 0 -1
+1073744015 0 0 0 65536 0 0 0 -500 S
+PH 0 0 0 -1
 6 18 80 6d18+21 2d3+1
 3.2.0.0 777
 4 4 2
@@ -1330,8 +1330,8 @@ A rat is scavenging for food here.
 ~
 Small and furry, the rat nibbles at your foot.
 ~
-2057 0 0 0 0 0 0 0 S
-A 0 0 -1
+2057 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
 1 20 96 1d15+4 1d5+0
 0.0.0.0 129
 8 8 1
@@ -1345,8 +1345,8 @@ The wino has an average build and probably could do some damage
 if he were not in such a terrible condition.  The wino murmurs
 a few words and returns to the bottle.
 ~
-2253 0 0 65536 0 0 0 0 S
-PH 0 0 -1
+2253 0 0 0 65536 0 0 0 0 S
+PH 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 2.1.0.0 518
 8 8 1
@@ -1357,8 +1357,8 @@ A &+mnecromancer &napprentice is standing here, wondering aloud.
 ~
 &+Wa necromancer apprentice tells you in common, 'I just learned a new spell.'
 ~
-2056 0 0 0 0 0 0 -300 S
-PH 0 1024 -1
+2056 0 0 0 0 0 0 0 -300 S
+PH 0 1024 0 -1
 10 18 67 10d14+35 2d3+1
 5.3.0.0 1296
 8 8 1
@@ -1369,8 +1369,8 @@ A &+mnecromancer &napprentice is kneeling here, listening to his master.
 ~
 &+Wa necromancer apprentice tells you in common, 'Not now!  I am busy.'
 ~
-2056 0 0 0 0 0 0 -300 S
-PH 0 1024 -1
+2056 0 0 0 0 0 0 0 -300 S
+PH 0 1024 0 -1
 10 18 67 10d14+35 2d3+1
 5.3.0.0 1296
 8 8 1
@@ -1386,8 +1386,8 @@ The ancient necromancer looks you over carefully.
 The ancient necromancer beams a smile at you.
 &+WThe ancient necromancer tells you in common, 'Have you come to learn?'
 ~
-34826 0 0 0 0 0 0 -1000 S
-PH 0 1024 -1
+34826 0 0 0 0 0 0 0 -1000 S
+PH 0 1024 0 -1
 30 8 3 30d44+330 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -1399,8 +1399,8 @@ A &+rthief &napprentice is here, listening to the Grandfather.
 The thief listens carefully to the advice of the Grandfather of thieves.
 He is a short thin man, lean and nimble.
 ~
-2056 0 0 0 0 0 0 -300 S
-PH 0 4096 -1
+2056 0 0 0 0 0 0 0 -300 S
+PH 0 4096 0 -1
 10 18 67 10d18+35 2d3+1
 5.3.0.0 1296
 6 6 1
@@ -1412,8 +1412,8 @@ A thief apprentice is here, looking at your pockets.
 The man is tall, and somewhat thin.  His thin body size allows him
 to creep in through windows, and between iron bars.
 ~
-2056 0 0 0 0 0 0 -800 S
-PH 0 4096 -1
+2056 0 0 0 0 0 0 0 -800 S
+PH 0 4096 0 -1
 10 18 67 10d18+35 2d3+1
 5.3.0.0 1296
 8 8 1
@@ -1429,8 +1429,8 @@ The Grandfather looks you over carefully.
 The Grandfather beams a smile at you.
 &+WThe Grandfather tells you in common, 'There's room enough for one more.'&N.
 ~
-34826 0 0 0 0 0 0 -1000 S
-PH 0 4096 -1
+34826 0 0 0 0 0 0 0 -1000 S
+PH 0 4096 0 -1
 30 8 3 30d55+330 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -1441,8 +1441,8 @@ An &+rassassin &napprentice is here, listening to the master.
 ~
 The assassin listens carefully to the advice of the master.
 ~
-1073743880 1 0 0 0 0 0 -300 S
-PH 0 8192 -1
+1073743880 1 0 0 0 0 0 0 -300 S
+PH 0 8192 0 -1
 10 18 67 10d18+35 2d3+1
 5.3.0.0 1296
 6 6 1
@@ -1454,8 +1454,8 @@ An assassin is here, looking to practice some murder.
 The man is tall, and somewhat thin.  His thin body size allows him
 to creep in through windows, and deliver an unseen backstab.
 ~
-1073743880 1 0 0 0 0 0 -800 S
-PH 0 8192 -1
+1073743880 1 0 0 0 0 0 0 -800 S
+PH 0 8192 0 -1
 10 18 67 10d18+35 2d3+1
 5.3.0.0 1296
 8 8 1
@@ -1471,8 +1471,8 @@ The Master looks you over carefully.
 The Master beams a smile at you.
 &+WThe Master tells you in common, 'There's room enough for one more.'&N.
 ~
-67143690 0 0 0 0 0 0 -1000 S
-PH 0 8192 -1
+67143690 0 0 0 0 0 0 0 -1000 S
+PH 0 8192 0 -1
 30 8 3 30d55+330 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -1487,8 +1487,8 @@ to the words of the master.
 a student of magic looks at you.
 &+Wa student of magic tells you in common, 'Not now, I am busy.'
 ~
-2063 0 0 0 0 0 0 -300 S
-PH 0 2048 -1
+2063 0 0 0 0 0 0 0 -300 S
+PH 0 2048 0 -1
 10 18 67 10d14+35 2d3+1
 5.3.0.0 1296
 6 6 1
@@ -1500,8 +1500,8 @@ A &+Bstudent of magic&N is standing here, gazing at nothing.
 a student of magic looks at you.
 &+Wa student of magic tells you in common, 'Not now, I am busy.'
 ~
-2063 0 0 0 0 0 0 -500 S
-PH 0 2048 -1
+2063 0 0 0 0 0 0 0 -500 S
+PH 0 2048 0 -1
 10 18 67 10d14+35 2d3+1
 5.3.0.0 1296
 8 8 1
@@ -1517,8 +1517,8 @@ The Mystic Master looks you over carefully.
 The Mystic Master glares at you icely.
 &+WThe Mystic Master tells you in common, 'What! Late again knave?'
 ~
-34826 0 0 0 0 0 0 -1000 S
-PH 0 512 -1
+34826 0 0 0 0 0 0 0 -1000 S
+PH 0 512 0 -1
 50 8 3 30d44+330 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -1529,8 +1529,8 @@ Marion, the thief, waits patiently here, keeping a close eye on your hands.
 ~
 &+WMarion tells you in common, 'The merchandise is over there!'
 ~
-2059 0 0 128 64 0 0 0 S
-PH 0 0 -1
+2059 0 0 0 128 64 0 0 0 S
+PH 0 0 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -1541,8 +1541,8 @@ Blithymre, the assassin, waits patiently here.
 ~
 &+WBlithymre tells you in common, 'The merchandise is over there!'&N.
 ~
-2059 0 0 128 64 0 0 0 S
-PH 0 0 -1
+2059 0 0 0 128 64 0 0 0 S
+PH 0 0 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -1553,8 +1553,8 @@ Hilphio, the necromancer, waits while you make your selection.
 ~
 &+WHilphio tells you in common, 'What can I help you with today brother?'&N.
 ~
-2059 0 0 128 64 0 0 0 S
-PH 0 0 -1
+2059 0 0 0 128 64 0 0 0 S
+PH 0 0 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -1565,8 +1565,8 @@ Amanap, the mage, floats here in midair while you take a look around.
 ~
 &+WAmanap tells you in common, 'You should be looking at my wares.'&N.
 ~
-2063 0 0 128 64 0 0 0 S
-PH 0 2048 -1
+2063 0 0 0 128 64 0 0 0 S
+PH 0 2048 0 -1
 50 -3 -95 50d80+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -1577,8 +1577,8 @@ Payton, the tavernkeeper, is here behind the bar looking at you.
 ~
 &+WPayton the Tavernkeeper tells you in common, 'Have a drink would you?'
 ~
-2059 0 0 128 64 0 0 0 S
-PH 0 0 -1
+2059 0 0 0 128 64 0 0 0 S
+PH 0 0 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -1592,8 +1592,8 @@ arms look as if they could crush your skull like a brittle peanut.
 
 a huge dark skinned ogre grunts at you.
 ~
-2059 0 0 0 3 0 0 -1000 S
-PO 0 0 -1
+2059 0 0 0 0 3 0 0 -1000 S
+PO 0 0 0 -1
 50 11 19 25d40+200 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -1609,8 +1609,8 @@ he guards.
 a towering assassin smirks.
 &+Wa towering assassin tells you in common, 'Go now, else you shall feel my sting.'
 ~
-1073743883 0 0 0 3 0 0 -1000 S
-PH 0 8192 -1
+1073743883 0 0 0 0 3 0 0 -1000 S
+PH 0 8192 0 -1
 50 11 19 25d40+200 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -1621,8 +1621,8 @@ pale necromancer~
 ~
 &+Wa pale necromancer tells you in common, 'Do you think you are worthy?'
 ~
-2059 0 0 0 3 0 0 -1000 S
-PH 0 1024 -1
+2059 0 0 0 0 3 0 0 -1000 S
+PH 0 1024 0 -1
 50 11 19 25d32+200 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -1638,8 +1638,8 @@ normal hands, and a small pair of human arms protruding from its chest.
 
 a black glabrezu demon pull furiously at its chain.
 ~
-100685903 0 0 570491004 12481 0 0 -1000 S
-X 0 512 -1
+100685903 0 0 0 570491004 12481 0 0 -1000 S
+X 0 512 0 -1
 56 -7 -129 56d96+6160 7d6+35
 1.3.2.9 340200
 8 8 0
@@ -1652,8 +1652,8 @@ The man looks very wise and solemn.  His robe conceals his body well so that
 nothing else can be seen.  The thick black robe of this clergyman is
 covered with ornate glyphs.
 ~
-67110927 1 0 0 0 0 0 -1000 S
-PH 0 32768 -1
+67110927 1 0 0 0 0 0 0 -1000 S
+PH 0 32768 0 -1
 28 8 10 28d65+364 3d6+4
 8.3.7.1 24948
 8 8 1
@@ -1664,8 +1664,8 @@ A royal bodyguard of the baron is here, standing watch.
 ~
 &+Wa royal bodyguard tells you in common, 'Prepare to die!'
 ~
-67110927 1 0 24 0 0 0 -1000 S
-PH 0 16 -1
+67110927 1 0 0 24 0 0 0 -1000 S
+PH 0 16 0 -1
 51 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -1676,8 +1676,8 @@ The royal keeper is standing here, guarding the entrance.
 ~
 &+WThe Royal Keeper tells you in common, 'Begone!'
 ~
-67110927 1 0 0 0 0 0 -1000 S
-PH 0 32768 -1
+67110927 1 0 0 0 0 0 0 -1000 S
+PH 0 32768 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 2
@@ -1688,8 +1688,8 @@ The royal keeper is standing here, guarding the entrance.
 ~
 &+WThe royal keeper tells you in common, 'Trespassers will die!'
 ~
-67110923 1 0 65576 0 0 0 -1000 S
-PH 0 16 -1
+67110923 1 0 0 65576 0 0 0 -1000 S
+PH 0 16 0 -1
 46 2 -28 40d88+880 4d7+10
 3.3.3.3 51840
 8 8 2
@@ -1700,8 +1700,8 @@ A burly bouncer is standing here, screening the customers.
 ~
 &+WA burly bouncer tells you in common, 'You bess not give us trouble.'
 ~
-100665359 0 0 106512 0 0 0 -1000 S
-PH 0 0 -1
+100665359 0 0 0 106512 0 0 0 -1000 S
+PH 0 0 0 -1
 35 8 3 30d55+330 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -1712,8 +1712,8 @@ A &+Mnaked &nwoman is laying here &+Mseductively&n.
 ~
 &+WA naked woman tells you in common, 'See anything you like?'
 ~
-134219785 0 0 0 0 0 0 -500 S
-PH 0 0 -1
+134219785 0 0 0 0 0 0 0 -500 S
+PH 0 0 0 -1
 18 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 5 8 2
@@ -1724,8 +1724,8 @@ A &+ynaked man &Nis sleeping here, looking quite &+yexhausted&n.
 ~
 A naked man rolls over, and flashes you his shapely behind.
 ~
-2059 0 0 0 0 0 0 -500 S
-PH 0 0 -1
+2059 0 0 0 0 0 0 0 -500 S
+PH 0 0 0 -1
 20 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 4 4 1
@@ -1737,8 +1737,8 @@ A naked man is standing here, looking bashful.
 &+WA naked man tells you in common, 'Tis not much I admit.'
 A naked man blushes.
 ~
-2057 0 0 0 0 0 0 -500 S
-PH 0 0 -1
+2057 0 0 0 0 0 0 0 -500 S
+PH 0 0 0 -1
 15 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 8 8 1
@@ -1749,8 +1749,8 @@ Marcel, the brothel keeper, waits patiently while you look around.
 ~
 &+WMarcel tells you in common, 'The merchandise is over there!'
 ~
-2059 0 0 128 64 0 0 0 S
-PH 0 0 -1
+2059 0 0 0 128 64 0 0 0 S
+PH 0 0 0 -1
 60 -10 -132 60d120+6180 7d6+35
 6.6.9.7 243000
 8 8 1
@@ -1764,8 +1764,8 @@ gates against those who might try to storm this mighty keep.  Always
 alert and ready to do battle, the guard carefully screens those who
 enter this place.
 ~
-1174407178 0 0 98360 0 0 0 -1000 S
-PH 0 1 -1
+1174407178 0 0 0 98360 0 0 0 -1000 S
+PH 0 1 0 -1
 50 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -1781,8 +1781,8 @@ and grimy dirt.
 a Bloodstone miner raises his eyebrow at you.
 &+Wa Bloodstone miner tells you in common, 'Hmm.. you look a bit scrawny.'
 ~
-2189 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2189 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 25 15 51 15d27+90 2d5+2
 7.6.2.0 7290
 8 8 1
@@ -1794,8 +1794,8 @@ A hefty looking miner is standing here.
 This miner seems to be a bit of a veteran amongst his peers.  He is
 notably older and wiser than most others in his line of work.
 ~
-2189 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2189 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 30 11 26 23d47+230 3d5+3
 5.1.6.0 20493
 8 8 1
@@ -1812,8 +1812,8 @@ a foreman of the mines looks down at a time piece.
 a foreman of the mines glares at you icely.
 &+Wa foreman of the mines tells you in common, 'Go on!  Move your ass!'
 ~
-8390797 0 0 0 0 0 0 0 S
-PH 0 1 -1
+8390797 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 37 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -1826,8 +1826,8 @@ The four foot long fish shoots through the water terrorizing all which
 get in its way.  The pike has a large prickly looking dorsal fin that
 resembles the edge of a cerated blade.
 ~
-264201 1 0 34816 0 0 0 -1000 S
-F 0 0 -1
+264201 1 0 0 34816 0 0 0 -1000 S
+F 0 0 0 -1
 8 18 74 8d18+28 2d3+1
 0.0.0.0 1036
 8 8 1
@@ -1838,8 +1838,8 @@ rat small~
 ~
 The rat is small, black and relatively non threatening.
 ~
-2185 0 0 0 0 0 0 0 S
-A 0 0 -1
+2185 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
 2 20 93 2d15+7 1d5+0
 0.0.0.0 259
 8 8 1
@@ -1850,8 +1850,8 @@ crow black~
 ~
 The crow has tar black feathers and beedy brown eyes.
 ~
-2057 0 0 0 0 0 0 0 S
-B 0 0 -1
+2057 0 0 0 0 0 0 0 0 S
+B 0 0 0 -1
 2 20 93 2d15+7 1d5+0
 0.0.0.0 259
 8 8 1
@@ -1863,8 +1863,8 @@ huge crow black~
 This crow is a lot larger than the rest in the area.  Its beak is
 notably longer as well.
 ~
-9 0 0 0 0 0 0 0 S
-B 0 0 -1
+9 0 0 0 0 0 0 0 0 S
+B 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 0.0.0.0 518
 8 8 1
@@ -1875,8 +1875,8 @@ A tom cat is crouching here close to the ground.
 ~
 The cat just looks at you and mmmmmeeewws.
 ~
-11 0 0 0 0 0 0 0 S
-A 0 0 -1
+11 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
 3 20 90 3d15+11 1d5+0
 0.0.0.0 388
 8 8 1
@@ -1888,8 +1888,8 @@ A rather plump looking cat is sitting here grooming itself.
 The cat looks as if it dines regularly as its belly drags close
 to the ground.
 ~
-11 0 0 0 0 0 0 0 S
-A 0 0 -1
+11 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 0.0.0.0 518
 8 8 1
@@ -1901,8 +1901,8 @@ A small sparrow is hopping about the ground here.
 The bird is small and frail.  The slightest offensive gesture could
 crush it easily.
 ~
-131081 0 0 0 0 0 0 0 S
-B 0 0 -1
+131081 0 0 0 0 0 0 0 0 S
+B 0 0 0 -1
 1 20 96 1d15+4 1d5+0
 0.0.0.0 129
 8 8 1
@@ -1915,8 +1915,8 @@ The snake is only the length a the average human foot.  Its green
 body lends some camoflauge as the snake tries to conceal itself from
 you.
 ~
-139 1 0 0 0 0 0 0 S
-RS 0 0 -1
+139 1 0 0 0 0 0 0 0 S
+RS 0 0 0 -1
 5 20 83 5d15+17 1d5+0
 0.0.0.0 648
 8 8 1
@@ -1928,8 +1928,8 @@ chameleon~
 The chameleon is very hard to spot due to its excellent camouflaging
 ability.  The tiny lizard is only a few inches long and quite harmless.
 ~
-8390667 0 0 1048576 0 0 0 0 S
-R 0 0 -1
+8390667 0 0 0 1048576 0 0 0 0 S
+R 0 0 0 -1
 2 20 93 2d15+7 1d5+0
 0.0.0.0 259
 8 8 1
@@ -1941,8 +1941,8 @@ panther~
 The black coat of this huge cat shimmers over the beast's lean and
 muscular build.  The cat's eyes are yellow and fixed coldy upon you.
 ~
-2121 1 0 1048576 0 0 0 -500 S
-AC 0 0 -1
+2121 1 0 0 1048576 0 0 0 -500 S
+AC 0 0 0 -1
 32 11 32 21d40+168 3d5+3
 0.0.0.0 18711
 8 8 1
@@ -1955,8 +1955,8 @@ The tuskmite looks similar to an overgrown insect of some sort.
 It brandishes long and deadly looking mandibles which look as
 if they could crush the chest of a human with little or no effort.
 ~
-2057 1 0 8 0 0 0 -500 S
-I 0 0 -1
+2057 1 0 0 8 0 0 0 -500 S
+I 0 0 0 -1
 29 13 48 16d30+80 3d4+2
 0.0.0.0 7776
 8 8 1
@@ -1968,8 +1968,8 @@ Coiled up and ready to strike is a &+ybrown pit asp&N.
 The snakes dull pale eyes seem to focus on nothing as its heat
 sensing tounge wriggles in and out.
 ~
-2185 1 0 8 0 0 0 -500 S
-RS 0 0 -1
+2185 1 0 0 8 0 0 0 -500 S
+RS 0 0 0 -1
 7 18 77 7d18+24 2d3+1
 0.0.0.0 907
 8 8 1
@@ -1982,8 +1982,8 @@ The deer is stocked regularly in this game preserve as food for the
 other animals.  The animals antlers have been sawed off so as not
 to cause injury when it is taken down by the preditors.
 ~
-2057 0 0 0 0 0 0 0 S
-A 0 0 -1
+2057 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
 31 18 77 7d18+24 2d3+1
 0.0.0.0 907
 8 8 1
@@ -1996,8 +1996,8 @@ The slave looks lean, ribs showing though a torn cotton garb that he
 wears.  Around his wrists are iron shackles, and about his legs are
 leg irons.
 ~
-2185 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2185 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 20 13 35 20d35+140 3d4+2
 0.9.3.0 9720
 8 8 1
@@ -2011,8 +2011,8 @@ seems to have some type of sickness or ailment.
 
 &+Wan ailing slave tells you in common, 'Leave me alone.'
 ~
-2185 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2185 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 29 13 48 16d35+112 3d4+2
 8.6.2.0 7776
 8 8 1
@@ -2029,8 +2029,8 @@ conceal his injury.
 
 &+Wa maimed slave tells you in common, 'Please don't stare!'
 ~
-2185 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2185 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 8 18 74 8d21+44 2d3+1
 4.2.0.0 1036
 8 8 1
@@ -2045,8 +2045,8 @@ arms and legs are swollen and are a greenish purple color.
 
 &+Wa criplled slave tells you in common, 'Put me out of my misery, won't you?'
 ~
-2057 0 0 0 0 0 0 0 S
-PH 0 0 -1
+2057 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 3 20 90 3d15+11 1d5+0
 2.1.0.0 388
 6 6 1
@@ -2059,8 +2059,8 @@ The slave looks young and fit, bearly a few months have past since
 he was inducted into service.  The slave parades back and forth over
 the platform carring a barrel full of sand.
 ~
-2185 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2185 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 14 15 55 14d27+84 2d5+2
 7.5.2.0 6804
 8 8 1
@@ -2073,8 +2073,8 @@ This scourge is one who raids villages and steals away the youth
 of the unsuspecting settlements.  He is tall and highly muscular with
 the look of a rough mercenary.
 ~
-2061 0 0 0 0 0 0 -1000 S
-PH 0 1 -1
+2061 0 0 0 0 0 0 0 -1000 S
+PH 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -2088,8 +2088,8 @@ for signs of trouble.
 
 &+Wa guard of the platform tells you in common, 'Move along, worm.'
 ~
-1073743885 0 0 0 0 0 0 -1000 S
-PH 0 1 -1
+1073743885 0 0 0 0 0 0 0 -1000 S
+PH 0 1 0 -1
 37 2 -21 38d95+874 4d7+10
 1.2.2.2 49248
 8 8 1
@@ -2102,8 +2102,8 @@ The woman looks like a commoner, a little shabby and undernourished.
 
 &+Wa woman tells you in common, 'Can you not see that I am praying?  Begone!'
 ~
-67111053 0 0 0 0 0 0 -200 S
-PH 0 0 -1
+67111053 0 0 0 0 0 0 0 -200 S
+PH 0 0 0 -1
 15 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 6 6 2
@@ -2116,8 +2116,8 @@ The man looks semi-respectable, perhaps he is a merchant of some type.
 
 &+Wa man tells you in common, 'Kneel before the altar!'
 ~
-67111053 0 0 0 0 0 0 -200 S
-PH 0 0 -1
+67111053 0 0 0 0 0 0 0 -200 S
+PH 0 0 0 -1
 20 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 6 6 1
@@ -2129,8 +2129,8 @@ A child kneels here, looking very bored and cranky.
 &+Wa child tells you in common, 'Do ya wanna play hide 'n seek with me?  I hate praying.'
 a child sniffs sadly.
 ~
-67111053 0 0 0 0 0 0 -200 S
-PH 0 0 -1
+67111053 0 0 0 0 0 0 0 -200 S
+PH 0 0 0 -1
 5 20 83 5d15+17 1d5+0
 3.1.0.0 648
 6 6 1
@@ -2147,8 +2147,8 @@ an elderly woman raises an eyebrow at you.
 an elderly woman squints her eyes in your direction.
 an elderly woman says, 'Who is there?'
 ~
-2061 0 0 0 0 0 0 0 S
-PH 0 0 -1
+2061 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 8 18 74 8d18+28 2d3+1
 4.2.0.0 1036
 8 8 2
@@ -2163,8 +2163,8 @@ an elderly man says, 'That you son?'
 an elderly man squints his eyes in your direction.
 an elderly man says, 'That you son?  I can hardly see you.'
 ~
-2061 0 0 0 0 0 0 0 S
-PH 0 0 -1
+2061 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 25 18 74 8d18+28 2d3+1
 4.2.0.0 1036
 8 8 1
@@ -2178,8 +2178,8 @@ to lead such an organization of thugs.  His face lends evidence
 to the number of skirmishes he has seen.  The large scars of
 old wounds are prominent on his face, arms, and hands.
 ~
-1140852749 0 0 33554576 12480 0 0 -1000 S
-PH 0 16384 -1
+1140852749 0 0 0 33554576 12480 0 0 -1000 S
+PH 0 16384 0 -1
 50 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -2194,8 +2194,8 @@ life in Bloodstone have soured this soul.  Now a young man,
 he has acquired a knack for killing the weak.  Most citizens
 know to stay clear of the likes of him.
 ~
-2059 0 0 0 0 0 0 -1000 S
-PH 0 1 -1
+2059 0 0 0 0 0 0 0 -1000 S
+PH 0 1 0 -1
 28 8 10 28d65+364 3d6+4
 8.3.7.1 24948
 8 8 1
@@ -2208,8 +2208,8 @@ A fierce warrior, this man stands some seven feet in height.
 His arms are the size of logs and look as if they could bash
 in the skull of most mortal men.
 ~
-1073743885 0 0 33554576 12480 0 0 -1000 S
-PH 0 16384 -1
+1073743885 0 0 0 33554576 12480 0 0 -1000 S
+PH 0 16384 0 -1
 50 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -2223,8 +2223,8 @@ a gang member glares icely at you.
 a gang member smirks at you.
 &+Wa gang member tells you in common, 'Piss off maggot!'
 ~
-1073743887 0 0 0 0 0 0 -1000 S
-PH 0 1 -1
+1073743887 0 0 0 0 0 0 0 -1000 S
+PH 0 1 0 -1
 28 8 10 28d65+364 3d6+4
 8.3.7.1 24948
 8 8 1
@@ -2242,8 +2242,8 @@ The baron's daughter looks your way.
 The baron's daughter beams a smile at you.
 You feel yourself being overcome with dizziness....
 ~
-1073744013 0 0 33554432 0 0 0 -600 S
-PH 0 512 -1
+1073744013 0 0 0 33554432 0 0 0 -600 S
+PH 0 512 0 -1
 52 -1 -56 41d72+1763 6d6+12
 1.7.6.3 99630
 8 8 2
@@ -2258,8 +2258,8 @@ this burly man.
 
 &+Wan elite body guard tells you in common, 'Move away.'
 ~
-2063 0 0 33554456 0 0 0 -1000 S
-PH 0 1 -1
+2063 0 0 0 33554456 0 0 0 -1000 S
+PH 0 1 0 -1
 53 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -2275,8 +2275,8 @@ stands ready to deliver justice should any of the Keep's laws be broken.
 &+Wa Bloodstone knight tells you in common, 'Jealousy will only drive you mad.'
 a Bloodstone knight chuckles at you.
 ~
-2063 0 0 33554456 0 0 0 -1000 S
-PH 0 1 -1
+2063 0 0 0 33554456 0 0 0 -1000 S
+PH 0 1 0 -1
 52 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -2289,8 +2289,8 @@ A &+cvicious &nkiller is here, stalking somebody.
 a serial killer cackles with insane glee.
 a serial killer wields a ceremonial dagger.
 ~
-1082132621 0 0 1572888 0 0 0 -1000 S
-PH 0 8192 -1
+1082132621 0 0 0 1572888 0 0 0 -1000 S
+PH 0 8192 0 -1
 40 2 -28 40d80+840 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -2304,8 +2304,8 @@ boots of glistening leather are ornately embroidered with
 fine lettering.  The man sports an cape of thick cotton which
 is draped around his neck.
 ~
-2061 0 0 0 0 0 0 -300 S
-PH 0 1 -1
+2061 0 0 0 0 0 0 0 -300 S
+PH 0 1 0 -1
 39 2 -21 38d95+874 4d7+10
 1.2.2.2 49248
 8 8 1
@@ -2322,8 +2322,8 @@ umbrella.
 &+Wa noble lady tells you in common, 'G'day to you friend.'
 a noble lady smiles warmly at you.
 ~
-2061 0 0 0 0 0 0 -100 S
-PH 0 1 -1
+2061 0 0 0 0 0 0 0 -100 S
+PH 0 1 0 -1
 26 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 2
@@ -2337,8 +2337,8 @@ Keep.  His clothes are nicely kept, and his belly is round.
 
 &+Wa pampered child tells you in common, 'Are you my new servant?'
 ~
-8390797 0 0 0 0 0 0 0 S
-PH 0 0 -1
+8390797 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 7 18 77 7d18+24 2d3+1
 3.2.0.0 907
 8 8 1
@@ -2349,8 +2349,8 @@ A tired old man is sitting here, resting his old bones.
 ~
 The man is sprawled out here, resting and enjoying the scenery.
 ~
-2189 0 0 0 0 0 0 200 S
-PH 0 1 -1
+2189 0 0 0 0 0 0 0 200 S
+PH 0 1 0 -1
 17 13 45 17d35+119 3d4+2
 8.6.2.0 8262
 5 5 1
@@ -2361,8 +2361,8 @@ wild rabbit~
 ~
 The rabbit is about the right size for a nice meal.
 ~
-8390793 0 0 0 0 0 0 1000 S
-PH 0 0 -1
+8390793 0 0 0 0 0 0 0 1000 S
+PH 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 2.1.0.0 518
 8 8 1
@@ -2378,8 +2378,8 @@ his collar are crusty dried stains of some unknown liquid.
 &+Wa smelly orphan tells you in common, 'Please adopt me.'
 a smelly orphan begs pleadingly.
 ~
-2189 0 0 0 0 0 0 0 S
-PH 0 0 -1
+2189 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 2.1.0.0 518
 8 8 1
@@ -2391,8 +2391,8 @@ A fat orphan is standing here with his finger in his navel.
 The child's belly is huge!  But not from spare eating mind you, it
 is swollen most likely to an instestinal infection.
 ~
-2189 0 0 0 0 0 0 0 S
-PH 0 0 -1
+2189 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 2.1.0.0 518
 8 8 1
@@ -2403,8 +2403,8 @@ A shy orphan is here, trying to conceal himself.
 ~
 The child notices you looking and sheepishly hides his face.
 ~
-2189 0 0 0 0 0 0 0 S
-PH 0 0 -1
+2189 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 2.1.0.0 518
 8 8 1
@@ -2415,8 +2415,8 @@ The major of the orphanage is standing here, looking bewildered.
 ~
 &+WThe orphan major tells you in common, 'How did you get in here!!'
 ~
-67110927 1 0 0 0 0 0 -1000 S
-PH 0 1 -1
+67110927 1 0 0 0 0 0 0 -1000 S
+PH 0 1 0 -1
 54 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -2428,8 +2428,8 @@ An old factory slave is standing here working hard.
 The man looks pretty worn out, almost as if the slightest
 breeze could send this man toppling over.
 ~
-2063 0 0 0 0 0 0 100 S
-PH 0 0 -1
+2063 0 0 0 0 0 0 0 100 S
+PH 0 0 0 -1
 44 18 67 10d18+35 2d3+1
 5.3.0.0 1296
 8 8 1
@@ -2440,8 +2440,8 @@ A tired factory hand is here, working with much fervor.
 ~
 &+Wa tired factory hand tells you in common, 'Could ya get me some water?'
 ~
-2063 0 0 0 0 0 0 100 S
-PH 0 0 -1
+2063 0 0 0 0 0 0 0 100 S
+PH 0 0 0 -1
 30 13 35 20d30+100 3d4+2
 0.9.3.0 9720
 8 8 1
@@ -2452,8 +2452,8 @@ A young factory slave is here working up a sweat.
 ~
 &+Wa young factory slave tells you in common, 'Get me some water now!'
 ~
-2063 0 0 0 0 0 0 100 S
-PH 0 0 -1
+2063 0 0 0 0 0 0 0 100 S
+PH 0 0 0 -1
 15 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 8 8 1
@@ -2465,8 +2465,8 @@ A factory gate guard stands here, watching over things carefully.
 The guard looks ready to defend this factory at all costs.  Saber
 ready, he looks quite the formidable match.
 ~
-67110927 0 0 0 0 0 0 -1000 S
-PH 0 1 -1
+67110927 0 0 0 0 0 0 0 -1000 S
+PH 0 1 0 -1
 38 2 -18 37d95+851 4d7+10
 0.1.2.2 47952
 8 8 1
@@ -2479,8 +2479,8 @@ a factory inspector raises his eyebrow at you.
 a factory inspector ponders about something.
 &+Wa factory inspector tells you in common, 'Ya here to pick up an order?'
 ~
-2063 0 0 0 0 0 0 -1000 S
-PH 0 1 -1
+2063 0 0 0 0 0 0 0 -1000 S
+PH 0 1 0 -1
 50 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -2494,8 +2494,8 @@ manhandles all of the workers in the factory.
 
 &+WThe factory manager tells you in common, 'Get to work!'
 ~
-8390671 0 0 0 0 0 0 -1000 S
-PH 0 1 -1
+8390671 0 0 0 0 0 0 0 -1000 S
+PH 0 1 0 -1
 45 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -2507,8 +2507,8 @@ The high &+Mmage &nof &+rBloodstone &nis standing here, contemplating something.
 The mystic is shrouded in a black hooded robe and hardly any attribute
 can be made out.
 ~
-1140881421 0 0 33554432 0 0 0 -1000 S
-PH 0 512 -1
+1140881421 0 0 0 33554432 0 0 0 -1000 S
+PH 0 512 0 -1
 60 -3 -72 46d80+2438 6d6+25
 6.0.9.4 111780
 8 8 1
@@ -2519,8 +2519,8 @@ An apprentice of the high mage is standing here, serving his master.
 ~
 &+Wan apprentice of the high mage tells you in common, 'The master is very powerful.'&N
 ~
-2061 0 0 0 0 0 0 -1000 S
-PH 0 1024 -1
+2061 0 0 0 0 0 0 0 -1000 S
+PH 0 1024 0 -1
 25 11 19 25d32+200 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -2532,8 +2532,8 @@ aldric vampknight vampire knight~
    Aldric is determined to protect his crypt from any defilers.  This means
 YOU.
 ~
-1073772622 1 0 268435644 14529 67108864 0 -1000 S
-UV 0 16 4
+1073772622 1 0 0 268435644 14529 67108864 0 -1000 S
+UV 0 16 0 4
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2546,8 +2546,8 @@ a large dog growls at you.
 *WOOF*
 a large dog barks at you.
 ~
-2057 0 0 8 0 0 0 -100 S
-A 0 0 -1
+2057 0 0 0 8 0 0 0 -100 S
+A 0 0 0 -1
 20 18 74 8d18+28 2d3+1
 0.0.0.0 1036
 8 8 1
@@ -2559,8 +2559,8 @@ the &+ckeep's&N &+Ccrier&N~
 The man is tall and lean, with a hint of stubble growing about
 his chin.
 ~
-8390795 0 0 0 0 0 0 -1000 S
-PH 0 1 -1
+8390795 0 0 0 0 0 0 0 -1000 S
+PH 0 1 0 -1
 24 11 29 22d47+220 3d5+3
 4.0.5.0 19602
 8 8 1
@@ -2575,8 +2575,8 @@ way to visit the graveyard, for sure.
 
 The captain of the keep's guard raises his unholy symbol and smiles broadly.
 ~
-1140852748 0 0 33554440 0 0 0 -1000 S
-PH 0 1 -1
+1140852748 0 0 0 33554440 0 0 0 -1000 S
+PH 0 1 0 -1
 55 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -2590,8 +2590,8 @@ been designated as the successor to the position of captain
 of the guard.  Only an insane fool would dare cross swords with
 this one.
 ~
-109053965 0 0 33554456 0 0 0 -1000 S
-PH 0 1 -1
+109053965 0 0 0 33554456 0 0 0 -1000 S
+PH 0 1 0 -1
 51 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 2
@@ -2603,8 +2603,8 @@ A fisherman is sitting here, waiting for a bite.
 &+Wa fisherman tells you in common, 'Ahh hell, they're not biting today.'
 a fisherman sighs loudly.
 ~
-2063 0 0 0 0 0 0 -1000 S
-PH 0 1 -1
+2063 0 0 0 0 0 0 0 -1000 S
+PH 0 1 0 -1
 26 8 10 28d65+364 3d6+4
 8.3.7.1 24948
 8 8 1
@@ -2616,8 +2616,8 @@ alligator~
 The reptile is looking directly back at you as if it intends to make
 you its dinner.
 ~
-1073743901 1 0 0 0 0 0 0 S
-R 0 0 -1
+1073743901 1 0 0 0 0 0 0 0 S
+R 0 0 0 -1
 15 15 51 15d23+60 2d5+2
 0.0.0.0 7290
 8 8 1
@@ -2631,8 +2631,8 @@ a young priest bows deeply before you.
 a young priest raises an unholy symbol.
 &+Wa young priest tells you in common, 'May Grolantor smile down upon you.'
 ~
-13 0 0 0 0 0 0 -1000 S
-PH 0 2147483648 -1
+13 0 0 0 0 0 0 0 -1000 S
+PH 0 2147483648 0 -1
 37 2 -18 37d88+814 4d7+10
 0.1.2.2 47952
 8 8 1
@@ -2646,8 +2646,8 @@ which she wears.
 
 The baron's mistress winks seductively at you.
 ~
-8390797 0 0 8 0 0 0 -1000 S
-PH 0 256 -1
+8390797 0 0 0 8 0 0 0 -1000 S
+PH 0 256 0 -1
 41 8 3 30d60+360 3d6+4
 0.5.7.1 26730
 8 8 2
@@ -2662,8 +2662,8 @@ this burly man.
 
 &+Wan elite body guard tells you in common, 'Piss off!'
 ~
-1073743887 0 0 24 0 0 0 -1000 S
-PH 0 1 -1
+1073743887 0 0 0 24 0 0 0 -1000 S
+PH 0 1 0 -1
 53 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -2675,8 +2675,8 @@ A hand maiden of the baron's mistress is standing here.
 a hand maiden curtseys.
 &+Wa hand maiden tells you in common, 'I have to attend to the mistress now.'
 ~
-2190 0 0 0 0 0 0 0 S
-PH 0 0 -1
+2190 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 25 11 19 25d40+200 3d5+3
 6.2.6.1 22275
 8 8 2
@@ -2691,8 +2691,8 @@ fishing lures.  His hair is tied back into a long red tail.
 &+WJoanah tells you in common, 'Greetings friend!  The fish is fresh today!'
 Joanah smiles happily.
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 32768 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 32768 0 -1
 59 -7 -128 59d132+6136 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -2707,8 +2707,8 @@ the shopkeeper points out some of his goods.
 &+Wthe shopkeeper tells you in common, 'These are the best in the keep!'
 the shopkeeper smiles.
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 32768 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 32768 0 -1
 59 -7 -128 59d132+6136 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -2719,8 +2719,8 @@ An immense figure stands before you, the Pliabus Khan, waiting for you to decide
 ~
 &+Wthe Pliabus Khan tells you in common, 'Buy something or leave!'
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 32768 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 32768 0 -1
 59 -7 -128 59d132+6136 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -2735,8 +2735,8 @@ Klovus snaps his fingers.
 &+WKlovus tells you in common, 'Ahh, this is the one you are looking for!'
 Klovus produces a map from behind the counter.
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 32768 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 32768 0 -1
 59 -7 -128 59d132+6136 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -2752,8 +2752,8 @@ nearby torch light.
 
 &+WClaire tells you in common, 'Looking for a gift for your sweetheart perhaps?'
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 32768 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 32768 0 -1
 59 -7 -128 59d132+6136 7d6+35
 4.5.9.6 238950
 8 8 2
@@ -2768,8 +2768,8 @@ the shopkeeper points out some of his goods.
 &+Wthe shopkeeper tells you in common, 'These are the best in the Keep!'&N
 the shopkeeper smiles.
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 32768 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 32768 0 -1
 59 -7 -128 59d132+6136 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -2784,8 +2784,8 @@ the shopkeeper points out some of his goods.
 &+Wthe shopkeeper tells you in common, 'These are the best in the Keep!'&N
 the shopkeeper smiles.
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 32768 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 32768 0 -1
 59 -7 -128 59d132+6136 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -2800,8 +2800,8 @@ the shopkeeper points out some of his goods.
 &+Wthe shopkeeper tells you in common, 'These are the best in the Keep!'&N
 the shopkeeper smiles.
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 32768 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 32768 0 -1
 59 -7 -128 59d132+6136 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -2816,8 +2816,8 @@ the shopkeeper points out some of his goods.
 &+Wthe shopkeeper tells you in common, 'These are the best in the Keep!'&N
 the shopkeeper smiles.
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 32768 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 32768 0 -1
 59 -7 -128 59d132+6136 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -2828,8 +2828,8 @@ An adoption clerk stands ready to service your inquiries.
 ~
 &+Wthe adoption clerk tells you in common, 'What type of child would you have?'
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 32768 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 32768 0 -1
 45 11 19 25d44+225 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -2841,8 +2841,8 @@ An old monk is here keeping shop.
 an old monk smiles.
 &+Wan old monk tells you in common, 'Greetings brother.'
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 64 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 64 0 -1
 50 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -2854,8 +2854,8 @@ Father Gephard is standing here, displaying his wares.
 Father Gephard smiles.
 &+WFather Gephard tells you in common, 'Greetings brother.'
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 32768 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 32768 0 -1
 59 -7 -128 59d132+6136 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -2868,8 +2868,8 @@ the quartermaster looks at you.
 &+Wthe quartermaster tells you in common, 'You looking at something punk?'
 the quartermaster smirks.
 ~
-2063 0 16384 152 0 0 0 0 S
-PH 0 32768 -1
+2063 0 16384 0 152 0 0 0 0 S
+PH 0 32768 0 -1
 51 -7 -128 59d132+6136 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -2881,8 +2881,8 @@ A man is standing here, tending the bar.
 &+Wthe bartender tells you in common, 'How about a drink mate?'
 the bartender pauses a moment to hear your response.
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 32768 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 32768 0 -1
 59 -7 -128 59d132+6136 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -2894,8 +2894,8 @@ Beolar, seller of fine slave apparel, is standing here.
 &+WBeolar tells you in common, 'How about a nifty set of thumbscrews buddy?'
 Beolar chuckles at you politely.
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 32768 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 32768 0 -1
 59 -7 -128 59d132+6136 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -2908,8 +2908,8 @@ The mystic, though concealed in a thick robe, looks to have the form
 of a woman.  Sitting squarly upon a crimson rug, she has laid out
 several vials containing a number of different liquids.
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 512 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 512 0 -1
 59 -7 -128 59d132+6136 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -2923,8 +2923,8 @@ boots of glistening leather are ornately embroidered with
 fine lettering.  The man sports a cape of thick cotton which
 is drapped around his neck.
 ~
-8390669 0 0 16 0 0 0 -300 S
-PH 0 1 -1
+8390669 0 0 0 16 0 0 0 -300 S
+PH 0 1 0 -1
 23 13 42 18d35+126 3d4+2
 9.7.3.0 8748
 6 8 1
@@ -2937,8 +2937,8 @@ the old master looks at you.
 the old master smiles broadly.
 &+Wthe old master tells you in common, 'Have you come to learn my son?'
 ~
-1107343435 0 0 536871096 14556 0 0 -1000 S
-PH 0 64 -1
+1107343435 0 0 0 536871096 14556 0 0 -1000 S
+PH 0 64 0 -1
 50 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 6 6 1
@@ -2954,8 +2954,8 @@ Sister Sabrina smiles at you.
 &+Wunwanted children, bring them back to me!'
 &+WSister Sabrina tells you in common, 'I do adore children so!'
 ~
-2189 0 0 0 0 0 0 0 S
-PH 0 2147549184 -1
+2189 0 0 0 0 0 0 0 0 S
+PH 0 2147549184 0 -1
 35 11 19 25d44+225 3d5+3
 6.2.6.1 22275
 8 8 2
@@ -2969,8 +2969,8 @@ a wrinkled old woman turns to face you.
 &+Wa wrinkled old woman tells you in common, 'I used to be royalty.'
 a wrinkled old woman starts to cry.
 ~
-8390669 0 0 0 0 0 0 0 S
-PH 0 2147484160 -1
+8390669 0 0 0 0 0 0 0 0 S
+PH 0 2147484160 0 -1
 46 15 51 15d25+75 2d5+2
 7.6.2.0 7290
 8 8 2
@@ -2983,8 +2983,8 @@ A slave auctioneer is standing here.
 the slave auctioneer stops and ponders for a moment.
 &+Wthe slave auctioneer tells you in common, '...well soon anyways!'
 ~
-2063 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2063 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 40 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -2995,8 +2995,8 @@ Vylak, the herder, is standing here.
 ~
 Vylak just points at the sign.
 ~
-2063 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2063 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 47 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -3008,8 +3008,8 @@ human slave~
 The slave looks lean and fit, probably newly acquired from
 the town of Verzanan far to the south.
 ~
-2063 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2063 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 7 18 77 7d21+38 2d3+1
 3.2.0.0 907
 8 8 1
@@ -3025,8 +3025,8 @@ situation.
 a female slave bows before you.
 &+Wa female slave tells you in common, 'How might I service you master?'
 ~
-2063 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2063 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 5 20 83 5d17+27 1d5+0
 3.1.0.0 648
 8 8 2
@@ -3040,8 +3040,8 @@ most likely taken in the mountainous regions around Faang.
 
 an ogre boy grunts at you.
 ~
-2063 0 0 0 0 0 0 0 S
-PO 0 1 -1
+2063 0 0 0 0 0 0 0 0 S
+PO 0 1 0 -1
 8 18 74 8d21+44 2d3+1
 4.2.0.0 1036
 8 8 1
@@ -3055,8 +3055,8 @@ which is matted with a long grey beard.  It's his age that probably
 caused him to be offered here on the platform, as the most worthy
 slaves are taken into the mines.
 ~
-2063 0 0 0 0 0 0 0 S
-PM 0 1 -1
+2063 0 0 0 0 0 0 0 0 S
+PM 0 1 0 -1
 5 20 83 5d17+27 1d5+0
 3.1.0.0 648
 8 8 1
@@ -3069,8 +3069,8 @@ a tall monk looks at you.
 &+Wa tall monk tells you in common, 'Only my brothers may pass.'
 a tall monk smiles.
 ~
-2063 0 0 0 0 0 0 0 S
-PH 0 64 -1
+2063 0 0 0 0 0 0 0 0 S
+PH 0 64 0 -1
 50 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -3080,8 +3080,8 @@ a young monk~
 A young monk is standing here, lost in thought.
 ~
 ~
-2061 0 0 0 0 0 0 0 S
-PH 0 64 -1
+2061 0 0 0 0 0 0 0 0 S
+PH 0 64 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
 8 8 1
@@ -3093,8 +3093,8 @@ A convicted rapist is standing here, rubbing his phallus.
 a convicted rapist rubs faster.
 a convicted rapist blows you a kiss.
 ~
-8390671 0 0 0 0 0 0 0 S
-PH 0 1 -1
+8390671 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 22 11 29 22d47+220 3d5+3
 4.0.5.0 19602
 8 8 1
@@ -3107,8 +3107,8 @@ A weeping mother is here, indulging her sorrows.
 &+Wa mother tells you in common, 'Won't you kill the rapist for me?'
 a mother turns her eyes away in shame.
 ~
-2063 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2063 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 22 11 29 22d47+220 3d5+3
 4.0.5.0 19602
 8 8 2
@@ -3119,8 +3119,8 @@ A father is sitting here, crying over the loss of a loved one.
 ~
 &+Wa father tells you in common, 'He killed my youngest boy!'
 ~
-2063 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2063 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -3132,8 +3132,8 @@ A convicted murderer is standing here, glaring at you.
 a convicted murderer cackles with insane glee!
 &+Wa convicted murderer tells you in common, 'Shall I kill you as well?'
 ~
-8390671 0 0 0 0 0 0 0 S
-PH 0 1 -1
+8390671 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -3144,8 +3144,8 @@ Asmond, the piper, is standing here.
 ~
 &+WAsmond tells you in common, 'I have lost my flute! Have you seen it?'
 ~
-2063 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2063 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -3157,8 +3157,8 @@ A boy, fuming with jealousy, is standing here.
 a jealous boy just turns away.
 &+Wa jealous boy tells you in common, 'I hate him!'
 ~
-2063 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2063 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 5 20 83 5d17+27 1d5+0
 3.1.0.0 648
 8 8 1
@@ -3172,8 +3172,8 @@ minotaur svalich~
 &+LHe roams these woods looking for travellers to kill, and for flesh to
 &+Leat.&N
 ~
-2063 1 0 268501176 2048 0 0 -1000 S
-G 0 1 -1
+2063 1 0 0 268501176 2048 0 0 -1000 S
+G 0 1 0 -1
 52 2 -14 39d80+1014 4d7+10
 2.2.3.2 50544
 8 8 1
@@ -3185,8 +3185,8 @@ A missionary from Verzanan is standing here.
 &+Wa missionary tells you in common, 'Subscribe not to evil my son.'
 A missionary raises his holy symbol and smiles broadly.
 ~
-1082132621 0 0 0 0 0 0 1000 S
-PH 0 2147483648 -1
+1082132621 0 0 0 0 0 0 0 1000 S
+PH 0 2147483648 0 -1
 51 -1 -62 43d99+1892 6d6+12
 3.8.7.3 104490
 8 8 1
@@ -3197,8 +3197,8 @@ A boy is standing here, gloating over his new hat.
 ~
 a spoiled boy sticks his tongue out at you.
 ~
-2063 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2063 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 5 20 83 5d17+27 1d5+0
 3.1.0.0 648
 8 8 1
@@ -3208,8 +3208,8 @@ a refinery guard~
 A refinery guard is standing here, watching over shop.
 ~
 ~
-2191 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2191 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 50 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -3219,8 +3219,8 @@ a young boy~
 A young boy is standing here.
 ~
 ~
-2063 0 0 0 0 0 0 0 S
-PH 0 0 -1
+2063 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 2.1.0.0 518
 8 8 1
@@ -3230,8 +3230,8 @@ a young girl~
 A young girl is standing here.
 ~
 ~
-2063 0 0 0 0 0 0 0 S
-PH 0 0 -1
+2063 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 2.1.0.0 518
 8 8 2
@@ -3242,8 +3242,8 @@ A drummer boy stands here, leading the execution parade.
 ~
 a drummer boy looks in your direction, but then quickly resumes his role.
 ~
-2063 0 0 0 0 0 0 0 S
-PH 0 0 -1
+2063 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 2.1.0.0 518
 8 8 1
@@ -3256,8 +3256,8 @@ a hooded strongman shoves you aside.
 a hooded strongman glares icily at you.
 &+Wa hooded strongman tells you in common, 'Off with you, worm!'
 ~
-67110927 0 0 24 0 0 0 -1000 S
-PH 0 1 -1
+67110927 0 0 0 24 0 0 0 -1000 S
+PH 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -3267,8 +3267,8 @@ hooded executioner~
 &+LA hooded executioner stands here, with axe in hand.&N
 ~
 ~
-67110927 0 0 24 0 0 0 -1000 S
-PH 0 1 -1
+67110927 0 0 0 24 0 0 0 -1000 S
+PH 0 1 0 -1
 46 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -3279,8 +3279,8 @@ The keep's majestrate is standing here, peering about at the nearby crowds.
 ~
 &+Wthe Keep's majestrate tells you in common 'Piss off, knave!'
 ~
-67110927 0 0 24 0 0 0 -1000 S
-PH 0 1 -1
+67110927 0 0 0 24 0 0 0 -1000 S
+PH 0 1 0 -1
 50 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -3290,8 +3290,8 @@ a watcher of the keep~
 A watcher of the keep stands ready to defend the citizenry.
 ~
 ~
-67110925 0 0 24 0 0 0 -1000 S
-PH 0 1 -1
+67110925 0 0 0 24 0 0 0 -1000 S
+PH 0 1 0 -1
 42 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -3303,8 +3303,8 @@ A condemned prisoner is standing here, being taken to his death.
 &+Wa condemed prisoner tells you in common, 'I didn't do it! I swear!'
 a condemed prisoner bursts into tears.
 ~
-2063 0 0 0 0 0 0 0 S
-PH 0 0 -1
+2063 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 10 18 67 10d18+35 2d3+1
 5.3.0.0 1296
 8 8 1
@@ -3315,8 +3315,8 @@ Faust, the wanderer of the woods, is sitting here, resting.
 ~
 &+WFaust tells you in common, 'Begone, let me be in my misery.'
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 2 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 2 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -3327,8 +3327,8 @@ Ferris, the royal musician, is standing here looking perplexed.
 ~
 &+WFerris tells you in common, 'Not now, I must recover my lyre.'
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 32768 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 32768 0 -1
 35 13 39 19d33+114 3d4+2
 9.7.3.0 9234
 8 8 1
@@ -3343,8 +3343,8 @@ the shopkeeper points out some of his goods.
 &+Wthe shopkeeper tells you in common, 'These are the best in the Keep!'&N
 the shopkeeper smiles.
 ~
-2063 0 0 144 0 0 0 0 S
-PH 0 32768 -1
+2063 0 0 0 144 0 0 0 0 S
+PH 0 32768 0 -1
 59 -7 -128 59d132+6136 7d6+35
 4.5.9.6 238950
 8 8 1
@@ -3356,8 +3356,8 @@ A factory gate guard stands here, watching over things carefully.
 The guard looks ready to defend this factory at all costs.  Saber
 ready, he looks quite the formidable match.
 ~
-1140852751 0 0 0 0 0 0 -1000 S
-PH 0 1 -1
+1140852751 0 0 0 0 0 0 0 -1000 S
+PH 0 1 0 -1
 37 2 -18 37d95+851 4d7+10
 0.1.2.2 47952
 8 8 1
@@ -3370,8 +3370,8 @@ The high hierophant of the Ogre Father is standing here.
 The high hierophant looks you over.
 &+WThe high hierophant tells you in common 'Pay homage to the Father, worm!'
 ~
-395279 0 0 0 12480 0 0 -1000 S
-PO 0 4096 -1
+395279 0 0 0 0 12480 0 0 -1000 S
+PO 0 4096 0 -1
 60 -10 -132 60d120+6180 7d6+35
 6.6.9.7 243000
 8 8 2
@@ -3383,8 +3383,8 @@ A warrior named Ajax is standing here enjoying the sites!
 &+WAjax the warrior tells you in common, 'Ah to be twenty once more!'
 Ajax the warrior snickers lecherously as he rubs his groin.
 ~
-1073743887 0 0 16 0 0 0 -1000 S
-PH 0 1 -1
+1073743887 0 0 0 16 0 0 0 -1000 S
+PH 0 1 0 -1
 36 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -3399,8 +3399,8 @@ abuse that he has suffered.
 a naked boy whimpers.
 a naked boy looks at you pleadingly.
 ~
-2063 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2063 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 2 20 93 2d17+11 1d5+0
 1.0.0.0 259
 8 8 1
@@ -3413,8 +3413,8 @@ An insane woman mumbles to herself, with a wild look in her eyes.
 can't seem to stop jabbering in nonsense words.  She doesn't look very
 friendly.
 ~
-1073744008 1 0 0 0 0 0 0 S
-PH 0 0 -1
+1073744008 1 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 4 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3427,8 +3427,8 @@ vrock~
 &+Rhell, but it also bears a resemblance to a troll.  Whatever it is it
 &+Ris HUNGRY.&N
 ~
-1073883208 1 0 134283388 0 0 0 -1000 S
-PT 0 1 -1
+1073883208 1 0 0 134283388 0 0 0 -1000 S
+PT 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3440,8 +3440,8 @@ demon baatzu~
    &+LThis lower demon only serves its own needs, which are primarily
 &+Lblood and flesh.&N
 ~
-1073756232 1 0 134283388 0 0 0 -1000 S
-X 0 1 -1
+1073756232 1 0 0 134283388 0 0 0 -1000 S
+X 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3456,8 +3456,8 @@ that he has had his share of fights and has lived to tell the tale. When
 he spots you standing here he snarls and says.
 &+WA guard of the keep tells you in common 'Move along worm!'&n
 ~
-1140852744 0 0 0 0 0 0 -800 S
-PH 11 1 -1
+1140852744 0 0 0 0 0 0 0 -800 S
+PH 11 1 0 -1
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3471,8 +3471,8 @@ brandishes a sword trying to master a new technique he just learned of
 his trainer. His eyes gleam with delight as he stares at the whirling
 blade.
 ~
-67110920 0 0 0 0 0 0 -450 S
-PH 11 1 -1
+67110920 0 0 0 0 0 0 0 -450 S
+PH 11 1 0 -1
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3486,8 +3486,8 @@ creature. It's golden fur shines as if it was made of pure gold.
 Its eyes are-deep red and watch the surroundings such alertness that
 one might think it is ready to pounce at anything.
 ~
-133128 0 0 134217744 0 0 0 0 S
-B 12 1 4
+133128 0 0 0 134217744 0 0 0 0 S
+B 12 1 0 4
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -3504,8 +3504,8 @@ maelborg dark magi~
 &+Lframed with wisps of dark hair is barely visible beneath the great
 &+Lhood of this maniacal, demonic figure of death and power.
 ~
-2433780874 0 0 939524248 309440 69730304 13112832 -1000 S
-PH 12 101 3
+2433780874 0 0 0 939524248 309440 69730304 13112832 -1000 S
+PH 12 101 0 3
 61 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3518,8 +3518,8 @@ dark-eyed adventurer~
 &+Lthis search has brought him to this darkstone tower.  His eyes have
 &+Lgone dark with evil chaos, wrenching his soul and plaguing his mind.
 ~
-133128 0 0 0 0 0 0 -1000 S
-PH 0 1 -1
+133128 0 0 0 0 0 0 0 -1000 S
+PH 0 1 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3532,8 +3532,8 @@ apprentice~
 &+Lotherwise frail and unmuscular body.  However, the power that dwells
 &+Lwithin the corrupted mind of this apprentice is ready to burst.
 ~
-67110922 0 0 24 0 0 0 -1000 S
-X 0 16777728 4
+67110922 0 0 0 24 0 0 0 -1000 S
+X 0 16777728 0 4
 47 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -3543,8 +3543,8 @@ moldar weaponsmith~
 &+WMoldar&+L, the &+Wweaponsmith &+Lstands here, working on a sword.&n
 ~
 ~
-10 0 0 8 0 0 0 0 S
-PH 0 0 -1
+10 0 0 0 8 0 0 0 0 S
+PH 0 0 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3554,8 +3554,8 @@ sark armorer~
 &+WSark&+L, the &+Warmorer &+Lstands here, hammering on an anvil.&n
 ~
 ~
-10 0 0 8 0 0 0 0 S
-PH 0 0 -1
+10 0 0 0 8 0 0 0 0 S
+PH 0 0 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3565,8 +3565,8 @@ navift blacksmith~
 &+WNavift &+Lthe &+wBlacksmith &+Lis busy working by his &+rforge&+L.&n
 ~
 ~
-10 0 0 8 0 0 0 0 S
-PH 0 0 -1
+10 0 0 0 8 0 0 0 0 S
+PH 0 0 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3576,8 +3576,8 @@ fibblefinger alchemist~
 &+WFibblefinger&+L, the &+YAlchemist &+Lis busy mixing potions.&n
 ~
 ~
-10 0 0 8 0 0 0 0 S
-PH 0 0 -1
+10 0 0 0 8 0 0 0 0 S
+PH 0 0 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -3587,8 +3587,8 @@ hedvig jeweler~
 &+WHedvig &+Lthe &+YJeweler &+Lstands here, touting his wares.&n
 ~
 ~
-10 0 0 0 0 0 0 0 S
-PH 0 0 -1
+10 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0

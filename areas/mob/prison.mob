@@ -6,8 +6,8 @@ guard prison~
 This huge, beast of a man stands at his post, determined to stop anyone
 trying to get out of here as well as those trying to get in....
 ~
-67110986 0 0 268435456 2 0 0 0 S
-PB 0 1 -1
+67110986 0 0 0 268435456 2 0 0 0 S
+PB 0 1 0 -1
 45 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -19,8 +19,8 @@ guard minotaur~
 &+rThis beast watches the room very carefully, looking at every passer-by
 &+rwith a gaze of caution and hatred.
 ~
-1140852810 0 0 268501248 2 0 0 -750 S
-MT 0 16384 -1
+1140852810 0 0 0 268501248 2 0 0 -750 S
+MT 0 16384 0 -1
 51 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -32,8 +32,8 @@ drow elf visiting~
 &+mThis forelorn looking drow sits at the window here talking with her
 &+mimprisoned love.
 ~
-202 0 0 256 2 0 0 -1000 S
-PL 3 0 -1
+202 0 0 0 256 2 0 0 -1000 S
+PL 3 0 0 -1
 15 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 6 6 2
@@ -45,8 +45,8 @@ duergar dwarf visiting~
 &+rThis duergar dwarf looks lost as he awaits his turn to talk to another
 &+rpoor soul imprisoned in the awful place.
 ~
-2254 0 0 256 2 0 0 -1000 S
-PD 6 0 -1
+2254 0 0 0 256 2 0 0 -1000 S
+PD 6 0 0 -1
 17 13 45 17d30+85 3d4+2
 8.6.2.0 8262
 6 6 1
@@ -58,8 +58,8 @@ shadowy figure visiting~
 &+LThis figure refuses to be noticed, taking every opportunity to
 &+Lsegregate himself from the rest of the visitors.
 ~
-2122 0 0 524552 2 0 0 -1000 S
-HO 13 8192 -1
+2122 0 0 0 524552 2 0 0 -1000 S
+HO 13 8192 0 -1
 35 6 -12 35d70+525 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -71,8 +71,8 @@ human stalky visiting~
 &+CThis human seems to be in a hurry to do whatever it is he came here
 &+Cfor. He cannot seem to sit still.
 ~
-2254 0 0 0 0 0 0 500 S
-PH 1 0 -1
+2254 0 0 0 0 0 0 0 500 S
+PH 1 0 0 -1
 15 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 8 8 0
@@ -87,8 +87,8 @@ gnome visiting~
 
 &+WA visiting gnome says, 'Fascinating.....'
 ~
-2254 0 0 33554432 0 0 0 1000 S
-PG 8 2048 -1
+2254 0 0 0 33554432 0 0 0 1000 S
+PG 8 2048 0 -1
 21 11 32 21d32+168 3d5+3
 4.0.5.0 18711
 8 8 1
@@ -100,8 +100,8 @@ halfling visiting~
 &+yThis halfling does not appear any fingers on his left hand. He sits
 &+yat the window talking with a cloaked figure.
 ~
-2250 0 0 33554432 0 0 0 100 S
-PF 7 4096 -1
+2250 0 0 0 33554432 0 0 0 100 S
+PF 7 4096 0 -1
 20 13 35 20d30+100 3d4+2
 0.9.3.0 9720
 8 8 1
@@ -114,8 +114,8 @@ This man stands at his post with a vigorous, stern gaze. My the look
 in his eye, he would seem be enjoying his job. His hands are covered
 in &+Rblood.
 ~
-67110986 1 0 256 2 0 0 0 S
-PB 0 1 -1
+67110986 1 0 0 256 2 0 0 0 S
+PB 0 1 0 -1
 45 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -128,8 +128,8 @@ This man stands at his post with a vigorous, stern gaze. My the look
 in his eye, he would seem be enjoying his job. His hands are covered
 in &+Rblood.
 ~
-67110986 1 0 256 2 0 0 0 S
-PB 0 1 -1
+67110986 1 0 0 256 2 0 0 0 S
+PB 0 1 0 -1
 45 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -142,8 +142,8 @@ interrogator man~
 &+Lgetting any information he wants from his unfortunate victims. Small
 &+Lspatter of &+Rblood&+L cover his face.
 ~
-1073743946 0 0 268435480 2 0 0 -1000 S
-TK 0 1 -1
+1073743946 0 0 0 268435480 2 0 0 -1000 S
+TK 0 1 0 -1
 51 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -156,8 +156,8 @@ drow inmate~
 &+wbody. His screams bathe the hall in exquisite dissonance as the
 &+Linterrogator&+w probes his body with the instruments of his trade.
 ~
-2122 0 0 16384 0 0 0 -1000 S
-PL 0 0 -1
+2122 0 0 0 16384 0 0 0 -1000 S
+PL 0 0 0 -1
 25 18 67 10d18+35 2d3+1
 5.3.0.0 1296
 5 5 1
@@ -169,8 +169,8 @@ orc~
 &+LThis orc is crouching in the corner awaiting his turn on the block.
 &+LHe looks for any chance to escape his ultimate demise.
 ~
-74 0 0 256 2 0 0 -1000 S
-HO 0 0 -1
+74 0 0 0 256 2 0 0 -1000 S
+HO 0 0 0 -1
 15 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 6 6 1
@@ -183,8 +183,8 @@ This man stands at his post with a vigorous, stern gaze. By the look
 in his eye, he would seem be enjoying his job. His hands are covered
 in &+Rblood.
 ~
-67110986 0 0 256 2 0 0 0 S
-PB 0 1 -1
+67110986 0 0 0 256 2 0 0 0 S
+PB 0 1 0 -1
 28 8 10 28d65+364 3d6+4
 8.3.7.1 24948
 8 8 1
@@ -197,8 +197,8 @@ This guard appears to have a special purpose. He is standing here on
 maximum alert waiting for any sign of trouble. His muscular form flinches
 at the sound of a pin drop.
 ~
-1140852810 0 0 268435736 2 0 0 0 S
-PB 0 1 -1
+1140852810 0 0 0 268435736 2 0 0 0 S
+PB 0 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -211,8 +211,8 @@ This guard appears to have a special purpose. He is standing here on
 maximum alert waiting for any sign of trouble. His muscular form flinches
 at the sound of a pin drop.
 ~
-1140852810 0 0 268435736 2 0 0 1000 S
-PM 0 32 -1
+1140852810 0 0 0 268435736 2 0 0 1000 S
+PM 0 32 0 -1
 40 2 -28 40d88+880 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -224,8 +224,8 @@ patrolling guard~
 &+wThis guard wanders the halls of the minimum security block looking
 &+wfor possible escaping inmates.
 ~
-1140852808 0 0 268435456 2 0 0 0 S
-MT 0 1 -1
+1140852808 0 0 0 268435456 2 0 0 0 S
+MT 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -238,8 +238,8 @@ This very large figure is fixated on a long list he has in front of him.
 He goes down the list very carefully, making check marks as he goes.
 Aparently nothing can disturb him.
 ~
-1073743946 0 0 33554448 2 0 0 500 S
-PB 0 256 -1
+1073743946 0 0 0 33554448 2 0 0 500 S
+PB 0 256 0 -1
 33 6 -5 33d77+528 4d6+7
 7.8.0.2 42768
 8 8 1
@@ -251,8 +251,8 @@ petty thief~
 This small figure is intent on find his way out of this facility. He eyes
 the walls with his skilled sight to no avail.
 ~
-1073743948 0 0 0 0 0 0 0 S
-PF 0 4096 -1
+1073743948 0 0 0 0 0 0 0 0 S
+PF 0 4096 0 -1
 33 6 -5 33d70+495 4d6+7
 7.8.0.2 42768
 8 8 1
@@ -265,8 +265,8 @@ fraudulent worker~
 &+wlooks back to the floor in great contemplation. It would appear he is
 &+wtrying to work some sort of.......  miracle?
 ~
-1073743944 0 0 33554432 0 0 0 -750 S
-PH 0 32 -1
+1073743944 0 0 0 33554432 0 0 0 -750 S
+PH 0 32 0 -1
 35 6 -12 35d77+560 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -279,8 +279,8 @@ ogre rapist~
 &+bvarious races of all sizes and shapes. All the other prisoners keep
 &+btheir distance from his terrorizing mass.
 ~
-1073743944 0 0 268435712 2 0 0 -1000 S
-PO 0 16384 -1
+1073743944 0 0 0 268435712 2 0 0 -1000 S
+PO 0 16384 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -294,8 +294,8 @@ frustration on his face. Every so often he'll clamber to his feet and
 shift positions in the cell, to remain out of sight of his hulking
 cellmate.
 ~
-2248 0 0 256 2 0 0 -1000 S
-PD 0 32 -1
+2248 0 0 0 256 2 0 0 -1000 S
+PD 0 32 0 -1
 30 8 3 30d60+360 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -308,8 +308,8 @@ renegade~
 &+Lhim. He looks up and mutters something about killing some 'rat
 &+Lbastard', then looks back into the corner.
 ~
-1073743944 0 0 33554432 0 0 0 -750 S
-HG 0 1 -1
+1073743944 0 0 0 33554432 0 0 0 -750 S
+HG 0 1 0 -1
 34 6 -8 34d83+578 4d6+7
 8.9.0.2 44064
 8 8 1
@@ -321,8 +321,8 @@ young revolutionary~
 &+wThis inmate keeps his cell very clean and tidy. He has a look of hope
 &+won his face, as if there were a plan in the works for his liberation.
 ~
-1073743944 0 0 33554432 0 0 0 0 S
-P2 0 128 -1
+1073743944 0 0 0 33554432 0 0 0 0 S
+P2 0 128 0 -1
 35 6 -12 35d77+560 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -334,8 +334,8 @@ duergar smuggler form~
 &+LThis dwarf roams about his cell, practising his various skills of
 &+Lstealth. He seems to be very good at his craft.
 ~
-1073743944 0 0 270008578 2 0 0 -1000 S
-PD 0 16384 -1
+1073743944 0 0 0 270008578 2 0 0 -1000 S
+PD 0 16384 0 -1
 39 2 -24 39d95+897 4d7+10
 2.2.3.2 50544
 8 8 1
@@ -347,8 +347,8 @@ menacing githyanki~
 &+LLooking as dangerous as the day he was admitted, this creature sits
 &+Lquietly in the center of his cell.
 ~
-1073743944 1 0 320 2 0 0 -1000 S
-GI 0 16 -1
+1073743944 1 0 0 320 2 0 0 -1000 S
+GI 0 16 0 -1
 31 6 0 31d83+527 4d6+7
 5.7.9.1 40176
 8 8 1
@@ -360,8 +360,8 @@ An &+MIllithid &Nstands here.
 This creature stands in his cell squinting at the bars. Every once in a
 while, it will flush white and begin again.
 ~
-1073743944 0 0 256 2 0 0 -1000 S
-MF 0 4 -1
+1073743944 0 0 0 256 2 0 0 -1000 S
+MF 0 4 0 -1
 26 8 16 26d60+312 3d6+4
 7.2.6.1 23166
 8 8 0
@@ -373,8 +373,8 @@ drunkard troll~
 &+gA reluctantly sober troll stands here making loud grunts and yelling
 &+gat the passing guard for some form of alcohol. His cries go unnoticed.
 ~
-1073743944 0 0 256 2 0 0 -1000 S
-PT 0 1 -1
+1073743944 0 0 0 256 2 0 0 -1000 S
+PT 0 1 0 -1
 37 2 -18 37d95+851 4d7+10
 0.1.2.2 47952
 8 8 1
@@ -386,8 +386,8 @@ angry assassin~
 &+LWith eyes of hatred, this assassin rushed to attack in an attempt
 &+Lto win his freedom.
 ~
-1073743944 0 0 1573128 2 0 0 -1000 S
-H2 0 8192 -1
+1073743944 0 0 0 1573128 2 0 0 -1000 S
+H2 0 8192 0 -1
 25 11 19 25d40+200 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -400,8 +400,8 @@ This inmate is so busy feeding himself he has no idea what is happening
 around him. Occasionally one of the other inmates will make a play
 for his food and a fight will break out.
 ~
-2122 0 0 33554432 0 0 0 -500 S
-H 0 1 -1
+2122 0 0 0 33554432 0 0 0 -500 S
+H 0 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -413,8 +413,8 @@ patrolling guard~
 &+wThis guard wanders the halls of the minimum security block looking
 &+wfor possible escaping inmates.
 ~
-1140852808 0 0 268435456 2 0 0 0 S
-MT 0 1 -1
+1140852808 0 0 0 268435456 2 0 0 0 S
+MT 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -426,8 +426,8 @@ cook~
 This man is sweating heavily as he massages a slab of beef for the inmates
 to consume.
 ~
-1073743946 0 0 570425368 2 0 0 -400 S
-H2 0 0 -1
+1073743946 0 0 0 570425368 2 0 0 -400 S
+H2 0 0 0 -1
 45 -1 -69 45d90+1935 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -440,8 +440,8 @@ man guardian~
 &+mthe other guards at all. No armor or weapons adorn him, but the air
 &+mair around him seems to crackle with energy.
 ~
-1140852810 0 0 301989928 2 0 0 500 S
-MT 0 512 -1
+1140852810 0 0 0 301989928 2 0 0 500 S
+MT 0 512 0 -1
 43 -1 -62 43d72+1849 6d6+12
 3.8.7.3 104490
 8 8 1
@@ -454,8 +454,8 @@ warden man gentleman~
 &+csomething. He is so fixated on finding his prize, that he notices
 &+cno one in the room, nor could he care if anyone else was there.
 ~
-1140852815 0 0 301989948 2 0 0 -1000 S
-UV 0 1536 -1
+1140852815 0 0 0 301989948 2 0 0 -1000 S
+UV 0 1536 0 -1
 60 -3 -95 50d80+2650 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -467,8 +467,8 @@ elite guard~
 &+cThis guard appears to be well trained in the art of war. He stands here
 &+cmotionless, awaiting further orders.
 ~
-1140852810 0 0 268435512 2 0 0 1000 S
-PH 0 8 -1
+1140852810 0 0 0 268435512 2 0 0 1000 S
+PH 0 8 0 -1
 45 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -480,8 +480,8 @@ elite guard~
 &+cThis guard appears to be well trained in the art of war. He stands here
 &+cmotionless, awaiting further orders.
 ~
-1140852810 0 0 268435512 2 0 0 500 S
-PB 0 1 -1
+1140852810 0 0 0 268435512 2 0 0 500 S
+PB 0 1 0 -1
 45 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -493,8 +493,8 @@ A &+GGith&+Wyanki&N stands here in mid-air.
 Intent on killing anything that passes for a "Goodie", this creature
 is intent getting its revenge.
 ~
-1073743884 64 0 134218008 2 0 0 -1000 S
-GI 0 4 -1
+1073743884 64 0 0 134218008 2 0 0 -1000 S
+GI 0 4 0 -1
 40 2 -28 40d88+880 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -506,8 +506,8 @@ A &+GGith&+Wyanki&N stands here in mid-air.
 Intent on killing anything that passes for a "Goodie", this creature
 is intent getting its revenge.
 ~
-1073743884 64 0 134218008 2 0 0 -1000 S
-GI 0 1024 -1
+1073743884 64 0 0 134218008 2 0 0 -1000 S
+GI 0 1024 0 -1
 40 2 -28 40d64+840 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -519,8 +519,8 @@ An &+bOgre&N stands here in mid-air.
 Hulking biceps and a gargantuan form are the cruz his intimidation. His
 massive shell can house a great stamina and constitution.
 ~
-1140852744 64 0 134218008 2 0 0 -1000 S
-PO 0 1 -1
+1140852744 64 0 0 134218008 2 0 0 -1000 S
+PO 0 1 0 -1
 41 -1 -56 41d107+1845 6d6+12
 1.7.6.3 99630
 8 8 1
@@ -532,8 +532,8 @@ A &+mDrow Elf&N stands here in mid-air.
 With hait of pure white and pitch black skin, this creature casts a sinister
 glance at those around him.
 ~
-1073743880 64 0 134218008 2 0 0 -1000 S
-PL 0 512 -1
+1073743880 64 0 0 134218008 2 0 0 -1000 S
+PL 0 512 0 -1
 41 -1 -56 41d72+1763 6d6+12
 1.7.6.3 99630
 8 8 1
@@ -545,8 +545,8 @@ A &+gTroll&N stands here in mid-air.
 This mighty mass has parts of bone jutting from his skin. He appears to
 be a rather robust type of creature.
 ~
-1140852744 64 0 134218008 2 0 0 -1000 S
-PT 0 1 -1
+1140852744 64 0 0 134218008 2 0 0 -1000 S
+PT 0 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -558,8 +558,8 @@ human outcast~
 This starved, wretched soul has long since felt the toll of imprisonment.
 He stands here bickering over a slab of meat.
 ~
-1073743948 128 0 272 2 0 0 -500 S
-PH 0 16384 -1
+1073743948 128 0 0 272 2 0 0 -500 S
+PH 0 16384 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -571,8 +571,8 @@ dwarven dwarf outcast~
 This lanky dwarf squats in the corner trying to keep his food away from
 his cellmates. He is fighting a losing battle.
 ~
-1073744076 128 0 33554448 0 0 0 -1000 S
-PM 0 32 -1
+1073744076 128 0 0 33554448 0 0 0 -1000 S
+PM 0 32 0 -1
 42 -1 -59 42d99+1848 6d6+12
 2.8.7.3 102060
 8 8 1
@@ -583,8 +583,8 @@ halfling outcast~
 ~
    This swarthy halfling appears to be hiding something.
 ~
-1073743948 1 0 33554456 0 0 0 -500 S
-PF 0 4096 -1
+1073743948 1 0 0 33554456 0 0 0 -500 S
+PF 0 4096 0 -1
 42 -1 -59 42d90+1806 6d6+12
 2.8.7.3 102060
 8 8 1
@@ -596,8 +596,8 @@ leader~
 &+RThis bloated man roams his cell with a watchful eye. By his abrupt blurts
 &+Rand gestures, it would appear he does not like being disturbed.
 ~
-1073743944 0 0 301990160 0 0 0 -1000 S
-H2 0 2048 -1
+1073743944 0 0 0 301990160 0 0 0 -1000 S
+H2 0 2048 0 -1
 45 -1 -69 45d72+1935 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -609,8 +609,8 @@ henchman~
 &+rThis rough looking individual relaxes here, with an occasional glance
 &+raround the room.
 ~
-67110984 1 0 280 2 0 0 -1000 S
-H2 0 1 -1
+67110984 1 0 0 280 2 0 0 -1000 S
+H2 0 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -622,8 +622,8 @@ a &+Rmanes~
 &+rThis fowl creature has gone through the 666 layers of the demonic
 &+rabyss only to become a foul undead horror in this stinking cage.
 ~
-1073743948 1 0 33040 262146 0 0 -1000 S
-U 0 512 -1
+1073743948 1 0 0 33040 262146 0 0 -1000 S
+U 0 512 0 -1
 46 -3 -72 46d80+2438 6d6+25
 0.0.0.0 111780
 8 8 0
@@ -636,8 +636,8 @@ This bull-like creature is covered with think metallic scales. Every time
 the beast exhales, the air in the room chills and life itself seems to
 flee in terror, or die outright.
 ~
-1107298377 1 0 268435864 2 0 0 -1000 S
-MT 0 1 -1
+1107298377 1 0 0 268435864 2 0 0 -1000 S
+MT 0 1 0 -1
 52 -5 -101 52d131+4420 7d6+30
 7.9.5.6 210600
 8 8 1
@@ -650,8 +650,8 @@ This disgusting creature has the body of a vulture and the head and torso
 of a woman. She sits in her cell emitting a strange, yet sweet sounding
 call.
 ~
-1073743948 1 0 134217752 2 0 0 -650 S
-MH 0 1 -1
+1073743948 1 0 0 134217752 2 0 0 -650 S
+MH 0 1 0 -1
 45 -1 -69 45d107+2025 6d6+12
 0.0.0.0 109350
 8 8 2
@@ -662,8 +662,8 @@ harpy queen~
 ~
    This filthy creature eyes the room looking for food.
 ~
-1073743948 1 0 402653208 2 0 0 -1000 S
-MH 0 4096 -1
+1073743948 1 0 0 402653208 2 0 0 -1000 S
+MH 0 4096 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.0.0.0 121500
 8 8 2
@@ -675,8 +675,8 @@ intellect devourer creature brain~
 &+MThis hideous creature looks like a huge brain held up by four powerful
 &+Mlooking clawed limbs.
 ~
-1107310664 1 0 805371928 12354 0 0 -1000 S
-MF 0 4 -1
+1107310664 1 0 0 805371928 12354 0 0 -1000 S
+MF 0 4 0 -1
 50 -3 -95 50d110+2700 6d6+25
 0.3.1.5 121500
 8 8 0
@@ -688,8 +688,8 @@ captain guard~
 &+cThis powerful looking warrior has many battle wounds and visible scars
 &+cabout his body. He looks as if he has seen it all when it comes to battle.
 ~
-1140861002 0 0 268443672 2 0 0 500 S
-MT 0 1 -1
+1140861002 0 0 0 268443672 2 0 0 500 S
+MT 0 1 0 -1
 51 -5 -98 51d131+4335 7d6+30
 6.9.4.6 206550
 8 8 1
@@ -701,8 +701,8 @@ crazed beholder~
 &+LThis wicked creature has been driven insane by its incarceration.
 &+LWho knows how long this wretched creature has been left here, forgotten.
 ~
-1107310664 1 0 940048824 12483 0 0 -1000 S
-BH 0 512 -1
+1107310664 1 0 0 940048824 12483 0 0 -1000 S
+BH 0 512 0 -1
 56 -7 -114 56d96+5768 7d6+35
 1.3.8.6 226800
 8 8 0
@@ -714,8 +714,8 @@ dragon smaug~
 &+LSmaug, one of the mightiest of dragons roams his eternal abode in hatred
 &+Lof all living things.
 ~
-1073756168 1 0 940638524 2051 0 0 -1000 S
-D 0 128 -1
+1073756168 1 0 0 940638524 2051 0 0 -1000 S
+D 0 128 0 -1
 57 -7 -137 57d132+6498 7d6+35
 2.4.6.19 461700
 8 8 1
@@ -727,8 +727,8 @@ robed figure~
 &+wThis odd looking form shows no skin whatsoever, if indeed it has skin.
 &+wAll that is visible is the strange robe it has adorning itself.
 ~
-41945163 0 0 402653338 2050 0 0 0 S
-U 0 1024 -1
+41945163 0 0 0 402653338 2050 0 0 0 S
+U 0 1024 0 -1
 55 -5 -111 55d88+4565 7d6+30
 0.0.0.0 222750
 8 8 0
@@ -740,8 +740,8 @@ statue gargoyle~
 &+LThis statue seems to be breathing, yet no motion is visible. It is
 &+Ladorned with many strange runes and symbols.
 ~
-1140852746 0 0 939524280 14530 0 0 0 S
-DK 0 1 -1
+1140852746 0 0 0 939524280 14530 0 0 0 S
+DK 0 1 0 -1
 55 -5 -121 55d131+5060 7d6+30
 0.2.0.13 222750
 8 8 0
@@ -752,8 +752,8 @@ morkoth being~
 ~
 This creature seems to be made out of a dark-liquid substance.
 ~
-1074018379 1 0 268437560 6210 0 0 -1000 S
-EW 0 256 -1
+1074018379 1 0 0 268437560 6210 0 0 -1000 S
+EW 0 256 0 -1
 60 -10 -142 60d132+6240 7d6+35
 0.0.0.0 243000
 8 8 0
@@ -764,8 +764,8 @@ holyman chaplain monk~
 ~
 &+W   This distiguished man stands here peacefully, praying to his god.
 ~
-1140897864 0 0 268443704 2052 0 0 1000 S
-PH 0 64 -1
+1140897864 0 0 0 268443704 2052 0 0 1000 S
+PH 0 64 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
 8 8 1
@@ -777,8 +777,8 @@ amaimon king~
 &+R   This figure stand at a dwarves hieght. His skin is made of pure bronze
 &+Rand his hair is a dancing flame.
 ~
-1174419529 1 0 805306392 2051 0 0 0 S
-EF 0 1 -1
+1174419529 1 0 0 805306392 2051 0 0 0 S
+EF 0 1 0 -1
 57 -7 -127 57d143+5985 7d6+35
 0.0.0.0 230850
 8 8 1
@@ -790,8 +790,8 @@ azer creature dwarf~
 &+R   This small dwarf-like entity stands here looking forelorn. The creature
 &+Rhas a skin of pure bronze and a flame burning atop its head.
 ~
-67123272 1 0 536870936 3 0 0 0 S
-EF 0 2048 -1
+67123272 1 0 0 536870936 3 0 0 0 S
+EF 0 2048 0 -1
 45 -1 -79 45d72+1935 6d6+12
 0.0.0.0 109350
 8 8 1
@@ -803,8 +803,8 @@ shedu creature~
    This mystical creature emanates a tangible mental presence. The being
 crawls about on its four hooved legs, scouring for an opponent.
 ~
-1073756232 32 0 402661432 2071 0 0 1000 S
-CT 0 4 -1
+1073756232 32 0 0 402661432 2071 0 0 1000 S
+CT 0 4 0 -1
 58 -7 -125 58d132+6032 7d6+35
 3.4.8.6 234900
 8 8 1
@@ -817,8 +817,8 @@ ki-rin creature horse~
 gold as are its flowing mane and tail. It is adorned with a golden-pink
 horn and hooves.
 ~
-1174550601 0 0 402653208 6174 0 0 1000 S
-EA 0 512 -1
+1174550601 0 0 0 402653208 6174 0 0 1000 S
+EA 0 512 0 -1
 60 -10 -142 60d96+6180 7d6+35
 0.0.0.0 243000
 8 8 0
@@ -830,8 +830,8 @@ devil erinyes~
 &+L   This winged devil sports a slender form. Its hollow eyes beg for any
 &+Lsoul to give itself to eternal damnation.
 ~
-1140996169 1 0 939589768 10255 0 0 -1000 S
-Y 0 1024 -1
+1140996169 1 0 0 939589768 10255 0 0 -1000 S
+Y 0 1024 0 -1
 51 -5 -113 51d88+4590 7d6+30
 6.9.5.8 206550
 8 8 0
@@ -843,8 +843,8 @@ devil erinyes~
 &+L   This winged devil sports a slender form. Its hollow eyes beg for any
 &+Lsoul to give itself to eternal damnation.
 ~
-1140996168 1 0 939589768 10255 0 0 -1000 S
-Y 0 256 -1
+1140996168 1 0 0 939589768 10255 0 0 -1000 S
+Y 0 256 0 -1
 41 -1 -71 41d99+2091 6d6+12
 1.7.0.5 99630
 8 8 0
@@ -856,8 +856,8 @@ xaren creature rock~
    This massive entity is composed of solid rock and metal. Though not
 very tall, this creature must wiegh many tons.
 ~
-1140865096 1 0 805306520 2254 0 0 0 S
-EE 0 1 -1
+1140865096 1 0 0 805306520 2254 0 0 0 S
+EE 0 1 0 -1
 60 -10 -142 60d143+6300 7d6+35
 0.0.0.0 243000
 8 8 0
@@ -870,8 +870,8 @@ creature tarrasque~
 &+Lbravest of warriors to flee in terror. Its gargantuan visage towers
 &+Lhigh into the gray mist above.
 ~
-1116092488 1 0 805372092 14559 0 0 -1000 S
-D 0 1 -1
+1116092488 1 0 0 805372092 14559 0 0 -1000 S
+D 0 1 0 -1
 60 -10 -152 60d143+6900 7d6+35
 6.6.9.22 486000
 8 8 0
@@ -883,8 +883,8 @@ statue gargoyle~
 &+LThis statue seems to be breathing, yet no motion is visible. It is
 &+Ladorned with many strange runes and symbols.
 ~
-1140852746 0 0 939524280 14530 0 0 0 S
-DK 0 512 -1
+1140852746 0 0 0 939524280 14530 0 0 0 S
+DK 0 512 0 -1
 55 -5 -121 55d88+4950 7d6+30
 0.2.0.13 222750
 8 8 0
@@ -896,8 +896,8 @@ elite guard~
 &+cThis guard appears to be well trained in the art of war. He stands here
 &+cmotionless, awaiting further orders.
 ~
-1140852810 0 0 268435512 2 0 0 500 S
-PB 0 1 -1
+1140852810 0 0 0 268435512 2 0 0 500 S
+PB 0 1 0 -1
 45 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -909,8 +909,8 @@ elite guard~
 &+cThis guard appears to be well trained in the art of war. He stands here
 &+cmotionless, awaiting further orders.
 ~
-1140852810 0 0 268435512 2 0 0 1000 S
-PH 0 8 -1
+1140852810 0 0 0 268435512 2 0 0 1000 S
+PH 0 8 0 -1
 45 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -923,8 +923,8 @@ man guardian~
 &+mthe other guards at all. No armor or weapons adorn him, but the air
 &+mair around him seems to crackle with energy.
 ~
-1140852810 0 0 301989928 2 0 0 500 S
-MT 0 512 -1
+1140852810 0 0 0 301989928 2 0 0 500 S
+MT 0 512 0 -1
 43 -1 -62 43d72+1849 6d6+12
 3.8.7.3 104490
 8 8 1
@@ -936,8 +936,8 @@ creature eater rocks rock~
 This pile of rocks seems to have an aura of life about it, tho any sign
 of movement is not forthcomming.
 ~
-1140852744 1 0 805306520 1 0 0 0 S
-EE 0 256 -1
+1140852744 1 0 0 805306520 1 0 0 0 S
+EE 0 256 0 -1
 50 -3 -105 50d110+2700 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -949,8 +949,8 @@ vortex~
 This gust of air is whipping around like a small tornado. It tosses particles
 of debris into the air as it goes.
 ~
-1140852744 1 0 671096890 2077 0 0 0 S
-EA 0 1 -1
+1140852744 1 0 0 671096890 2077 0 0 0 S
+EA 0 1 0 -1
 45 -1 -79 45d107+2025 6d6+12
 0.0.0.0 109350
 8 8 0

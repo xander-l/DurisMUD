@@ -8,8 +8,8 @@ tar'l keeper burly minotaur~
 &+Lhalf feet off his thick cranium, their heavy root bones accenting his dark
 &+Yyellow&+L irises and flaring nostrils.&n
 ~
-33568846 0 0 33620224 0 0 0 -1000 S
-MT 0 16 -1
+33568846 0 0 0 33620224 0 0 0 -1000 S
+MT 0 16 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -25,8 +25,8 @@ a &+Rmino&+rtaur &+Lgladiator&n~
 &+Lis white, a stark comparison to the tawny fur that covers the rest of her
 &+Lhead.&n
 ~
-1107310668 1 0 256 0 0 0 -1000 S
-MT 0 16384 -1
+1107310668 1 0 0 256 0 0 0 -1000 S
+MT 0 16384 0 -1
 20 13 35 20d35+140 3d4+2
 0.9.3.0 9720
 8 8 2
@@ -41,8 +41,8 @@ a &+Rmino&+rtaur &+Lgladiator&n~
 &+Lparts of his eyes.  A long scar decorated his muscular chest, the prize from
 &+La battle long since waged.&n
 ~
-1107310668 1 0 256 0 0 0 -1000 S
-MT 0 1 -1
+1107310668 1 0 0 256 0 0 0 -1000 S
+MT 0 1 0 -1
 20 13 35 20d35+140 3d4+2
 0.9.3.0 9720
 8 8 1
@@ -56,8 +56,8 @@ an &+Wundead &+Ldire wolf&n~
 &+Lsockets, casting an eerie glow into the room.  &+yDirt&+L and grime is engrained on
 &+Lthe white calcium of its undead &+Wbones&+L.&n
 ~
-1107304520 1 0 256 0 0 0 -1000 S
-U 1 0 -1
+1107304520 1 0 0 256 0 0 0 -1000 S
+U 1 0 0 -1
 25 11 19 25d40+200 3d5+3
 0.0.0.0 22275
 8 8 0
@@ -71,8 +71,8 @@ an &+Wundead &+Ldire wolf&n~
 &+Lsockets, casting an eerie glow into the room.  &+yDirt&+L and grime is engrained on
 &+Lthe white calcium of its undead &+Wbones&+L.&n
 ~
-1174413386 0 0 256 0 0 0 -1000 S
-U 1 0 -1
+1174413386 0 0 0 256 0 0 0 -1000 S
+U 1 0 0 -1
 30 8 3 30d55+330 3d6+4
 0.0.0.0 26730
 8 8 0
@@ -86,8 +86,8 @@ an &+Wundead &+Ldire wolf&n~
 &+Lsockets, casting an eerie glow into the room.  &+yDirt&+L and grime is engrained on
 &+Lthe white calcium of its undead &+Wbones&+L.&n
 ~
-1174413386 0 0 256 0 0 0 -1000 S
-U 1 0 -1
+1174413386 0 0 0 256 0 0 0 -1000 S
+U 1 0 0 -1
 20 13 35 20d30+100 3d4+2
 0.0.0.0 9720
 8 8 0
@@ -100,8 +100,8 @@ a &+WSin &+LBearer&n~
 &+Lback in a ponytail that reaches his mid-back.  His &+Beyes&+L are cold and
 &+Lanalytical, peering through you with cool calculation.&n
 ~
-1107306700 1 0 524544 0 0 0 -1000 S
-PL 0 1 -1
+1107306700 1 0 0 524544 0 0 0 -1000 S
+PL 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -113,8 +113,8 @@ a &+Wskeletal &+Lknight&n~
 &+L   This sickly knight has been forever cursed to wander this ancient keep,
 &+Lguarding its decaying halls even after death should have claimed his soul.&n
 ~
-33568782 1 0 296 262144 0 0 -1000 S
-U 0 16 -1
+33568782 1 0 0 296 262144 0 0 -1000 S
+U 0 16 0 -1
 25 11 19 25d47+250 3d5+3
 0.0.0.0 22275
 8 8 1
@@ -128,8 +128,8 @@ a &+Wdeath &+Lknight&n~
 &+Lfalling in disarray as he moves.  Well muscled, you are almost impressed by
 &+Lthis member of the orc race.&n
 ~
-1107310668 1 0 65792 0 0 0 -1000 S
-HO 0 16 -1
+1107310668 1 0 0 65792 0 0 0 -1000 S
+HO 0 16 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -143,8 +143,8 @@ a &+Wzombie &+Bcleric&n~
 &+Lhair grows in patches, large chunks of &+Rskin&+L having long since fallen prey to
 &+Lher leprocratic disease.&n
 ~
-1107306572 1 0 74016 0 0 0 -1000 S
-U 0 32 -1
+1107306572 1 0 0 74016 0 0 0 -1000 S
+U 0 32 0 -1
 31 6 0 31d77+496 4d6+7
 0.0.0.0 40176
 8 8 2
@@ -157,8 +157,8 @@ a &+Wsoul &+Lreaper&n~
 &+Cice&+L.  Flickering in and out, the specter is hard to keep track of as it makes
 &+Lits way through the halls of its demise.&n
 ~
-1107306572 1 0 296 0 0 0 -1000 S
-UG 0 1 -1
+1107306572 1 0 0 296 0 0 0 -1000 S
+UG 0 1 0 -1
 30 8 -7 30d65+390 3d6+4
 0.0.0.0 26730
 8 8 1
@@ -174,8 +174,8 @@ an &+Langered &+Rerinyes&n~
 &+Lscream.  You get the impression she wants to unleash her bloodlust on the
 &+Lprime plane.&n
 ~
-1107442187 1 0 34144552 32770 0 0 -1000 S
-Y 0 8192 2
+1107442187 1 0 0 34144552 32770 0 0 -1000 S
+Y 0 8192 0 2
 55 -5 -126 55d110+4950 7d6+30
 0.2.0.9 222750
 6 6 2
@@ -188,8 +188,8 @@ an &+Wundead &+Lcook&n~
 &+Lbackwards in time to a place where she was made of more substantial stuff.
 &+LEven in death she is not unattractive, with a long face and well formed body.&n
 ~
-1107441674 1 0 256 0 0 0 -1000 S
-UG 0 16384 -1
+1107441674 1 0 0 256 0 0 0 -1000 S
+UG 0 16384 0 -1
 36 2 -25 36d95+828 4d7+81
 0.0.0.0 46656
 8 8 2
@@ -204,8 +204,8 @@ an &+Wundead &+Lknight&n~
 &+La tight ponytail.  His muscles seem to stand upon each other as he flexes and
 &+Lsneers.&n
 ~
-33564686 64 0 256 0 0 0 -1000 S
-U 0 1 -1
+33564686 64 0 0 256 0 0 0 -1000 S
+U 0 1 0 -1
 55 2 -28 40d95+920 4d7+10
 0.0.0.0 51840
 8 8 1
@@ -218,8 +218,8 @@ a &+WSin &+LBearer&n~
 &+Lback in a ponytail that reaches his mid-back.  His &+Beyes&+L are cold and
 &+Lanalytical, peering through you with cool calculation.&n
 ~
-1107306696 1 0 256 0 0 0 -1000 S
-PL 0 1 -1
+1107306696 1 0 0 256 0 0 0 -1000 S
+PL 0 1 0 -1
 17 13 45 17d35+119 3d4+2
 8.6.2.0 8262
 8 8 1
@@ -232,8 +232,8 @@ a &+WSin &+LBearer&n~
 &+Lback in a ponytail that reaches his mid-back.  His &+Beyes&+L are cold and
 &+Lanalytical, peering through you with cool calculation.
 ~
-1107306698 1 0 256 0 0 0 -1000 S
-PL 0 1 -1
+1107306698 1 0 0 256 0 0 0 -1000 S
+PL 0 1 0 -1
 12 15 61 12d27+72 2d5+2
 6.4.2.0 5832
 8 8 1
@@ -246,8 +246,8 @@ a &+WSin &+LBearer&n~
 &+Lback in a ponytail that reaches his mid-back.  His &+Beyes&+L are cold and
 &+Lanalytical, peering through you with cool calculation.&n
 ~
-1107306698 1 0 256 0 0 0 -1000 S
-PL 0 1 -1
+1107306698 1 0 0 256 0 0 0 -1000 S
+PL 0 1 0 -1
 14 15 55 14d27+84 2d5+2
 7.5.2.0 6804
 8 8 1
@@ -261,8 +261,8 @@ a &+RR&+rot&+Rt&+red &+Lknight&n~
 &+Lwhats not rotted through, and his &+Wbones&+L are stained a dark yellow from years
 &+Lof contact with blood.&n
 ~
-1115695180 64 0 256 262144 0 0 -1000 S
-UV 0 1 -1
+1115695180 64 0 0 256 262144 0 0 -1000 S
+UV 0 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -276,8 +276,8 @@ a &+Gsickly &+Lknight&n~
 &+Lover her &+Wteeth&+L, its tip severed long ago, without ever quite healing.  Her
 &+Yyellowed &+Lteeth are sharp and fanged, a row of thrity-two pairs of daggers.&n
 ~
-1174415438 64 0 256 262144 0 0 -1000 S
-UV 0 1 -1
+1174415438 64 0 0 256 262144 0 0 -1000 S
+UV 0 1 0 -1
 40 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 2
@@ -292,8 +292,8 @@ a &+rmino&+Ltaur &+gbeast&+Gmaster&n~
 &+Lparts of his eyes.  A long scar decorated his muscular chest, the prize from
 &+La battle long since waged.&n
 ~
-1107310666 1 0 256 0 0 0 -1000 S
-MT 1 16 -1
+1107310666 1 0 0 256 0 0 0 -1000 S
+MT 1 16 0 -1
 41 -1 -56 41d107+1845 6d6+12
 1.7.6.3 99630
 8 8 1
@@ -308,8 +308,8 @@ targos minotaur blood lord~
 &+Lparts of his eyes.  A long scar decorated his muscular chest, the prize from
 &+La battle long since waged.&n
 ~
-1107310668 1 0 312 2 0 0 -1000 S
-MT 12 1 -1
+1107310668 1 0 0 312 2 0 0 -1000 S
+MT 12 1 0 -1
 51 -5 -98 51d131+4335 7d6+30
 6.9.4.6 206550
 8 8 1
@@ -321,8 +321,8 @@ a &+Ggith&+Wyanki &+Lanti-paladin&n~
 &+L   This ugly little bugger looks at you with a large &+Ggreen&+L snot dripping out
 &+Lhis pugish nose.&n
 ~
-1174419534 33554688 128 256 262144 0 0 -1000 S
-GI 12 16 -1
+1174419534 33554688 128 0 256 262144 0 0 -1000 S
+GI 12 16 0 -1
 46 -3 -72 46d119+2530 6d6+25
 6.0.9.4 111780
 8 8 1
@@ -337,8 +337,8 @@ boadwyn sir lord patriarch~
 &+La solid black, and his ears are slightly pointed, his sharp &+Wteeth&+L longer in
 &+Lthe front, and beneath his &+Rc&+rl&+Roa&+rk&+L you think you see a barded tail.&n
 ~
-1107699816 0 0 33554730 0 0 0 -1000 S
-Y 3 512 -1
+1107699816 0 0 0 33554730 0 0 0 -1000 S
+Y 3 512 0 -1
 60 -10 -147 60d96+6600 7d6+35
 6.6.4.10 243000
 8 8 1
@@ -353,8 +353,8 @@ a &+Rmino&+rtaur&+L anti-paladin&n~
 &+Lparts of his eyes.  A long scar decorated his muscular chest, the prize from
 &+La battle long since waged.&n
 ~
-1107310670 1 0 65832 262144 0 0 -1000 S
-MT 12 1 -1
+1107310670 1 0 0 65832 262144 0 0 -1000 S
+MT 12 1 0 -1
 46 -3 -72 46d119+2530 6d6+25
 6.0.9.4 111780
 8 8 1
@@ -368,8 +368,8 @@ azaz'lberith githyanki death lord~
 &+CCaptain&+L of the &+cGuards&+L.  Something in the way his face twitches as he looks at
 &+Lyou makes you feel he isn't completely aware of things around him.&n
 ~
-1174419534 33554432 128 264 262272 0 0 -1000 S
-GI 12 16 -1
+1174419534 33554432 128 0 264 262272 0 0 -1000 S
+GI 12 16 0 -1
 52 -5 -101 52d131+4420 7d6+30
 7.9.5.6 210600
 8 8 1
@@ -383,8 +383,8 @@ a &+Wzombie &+Cpriestess&n~
 &+Lhair grows in patches, large chunks of &+Rskin&+L having long since fallen prey to
 &+Lher leprocratic disease.&n
 ~
-1174415438 1 0 74016 0 0 0 -1000 S
-U 6 32 -1
+1174415438 1 0 0 74016 0 0 0 -1000 S
+U 6 32 0 -1
 41 -1 -56 41d99+1804 6d6+12
 0.0.0.0 99630
 8 8 2
@@ -398,8 +398,8 @@ a &+Wzombie &+cpriest&n~
 &+Lhair grows in patches, large chunks of &+Rskin&+L having long since fallen prey to
 &+Lher leprocratic disease.&n
 ~
-1107306572 1 0 74016 192 0 0 -1000 S
-U 6 32 -1
+1107306572 1 0 0 74016 192 0 0 -1000 S
+U 6 32 0 -1
 46 -3 -72 46d110+2484 6d6+25
 0.0.0.0 111780
 8 8 1
@@ -413,8 +413,8 @@ a &+Mb&+mra&+Mi&+mn &+Lsquid&n~
 &+Lthe result of four millenia of evolution.  Its large beak clacks seeking life
 &+Rblood&+L.&n
 ~
-1107572746 1 0 33556744 0 0 0 0 S
-TK 2 8192 -1
+1107572746 1 0 0 33556744 0 0 0 0 S
+TK 2 8192 0 -1
 50 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 0
@@ -430,8 +430,8 @@ a &+Lbeautiful &+Rerinyes&n~
 &+Lscream.  You get the impression she wants to unleash her bloodlust on the
 &+Lprime plane.&n
 ~
-1174546444 1 0 33554728 0 0 0 -1000 S
-Y 6 512 -1
+1174546444 1 0 0 33554728 0 0 0 -1000 S
+Y 6 512 0 -1
 55 -5 -126 55d88+4950 7d6+30
 0.2.0.9 222750
 8 8 2
@@ -447,8 +447,8 @@ a &+Lbeautiful &+Rerinyes&n~
 &+Lscream.  You get the impression she wants to unleash her bloodlust on the
 &+Lprime plane.&n
 ~
-1174546444 1 0 33554696 0 0 0 -1000 S
-X 6 1024 -1
+1174546444 1 0 0 33554696 0 0 0 -1000 S
+X 6 1024 0 -1
 55 -7 -129 56d96+6160 7d6+35
 1.3.2.9 226800
 8 8 2
@@ -464,8 +464,8 @@ a &+Lbeautiful &+Rerinyes&n~
 &+Lscream.  You get the impression she wants to unleash her bloodlust on the
 &+Lprime plane.&n
 ~
-1174546444 1 0 33554696 0 0 0 -1000 S
-Y 6 2048 -1
+1174546444 1 0 0 33554696 0 0 0 -1000 S
+Y 6 2048 0 -1
 55 -7 -132 57d96+6270 7d6+35
 2.4.2.9 230850
 8 8 2
@@ -482,8 +482,8 @@ a &+Rravenous &+Lblacktail &+wshark&n~
 &+Lits pointed snout, two bulbous black eyes scan the &+Bwater&+L, the nictitating
 &+Lmembrane all ready protecting the sensitive tissue beneath.&n
 ~
-1107570828 1 0 2344 0 0 0 0 S
-F 4 1 -1
+1107570828 1 0 0 2344 0 0 0 0 S
+F 4 1 0 -1
 55 -5 -111 55d131+4675 7d6+30
 0.0.0.0 222750
 8 8 0
@@ -495,8 +495,8 @@ a &+bdeep&+B sea &+Langler&n~
 &+L   This grotesque looking fish reminds you of a glowing &+Ylantern&+L attached via
 &+La fishing rod to a bloated pig's bladder.&n
 ~
-100933704 0 0 2304 0 0 0 0 S
-F 4 1 -1
+100933704 0 0 0 2304 0 0 0 0 S
+F 4 1 0 -1
 49 -3 -81 49d119+2695 6d6+25
 0.0.0.0 119070
 8 8 0
@@ -509,8 +509,8 @@ a &+Yt&+Li&+Yg&+Le&+Yr &+wshark&n~
 &+Llong black stripes.   Its jaws are filled with two rows of eighty pairs of
 &+Ljagged &+Wteeth&+L.&n
 ~
-1107572748 1 0 2344 0 0 0 0 S
-F 0 1 -1
+1107572748 1 0 0 2344 0 0 0 0 S
+F 0 1 0 -1
 50 -3 -95 50d119+2750 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -521,8 +521,8 @@ a &+Gsl&+ga&+Gyt&+gan&+Gi&+gan&+L eel&n~
 ~
 &+L   This &+Gg&+Gre&+Ge&+gn&+L eel swims about mindlessly, searching for its daily meal.&n
 ~
-33831048 256 0 2304 0 0 0 0 S
-F 0 4 -1
+33831048 256 0 0 2304 0 0 0 0 S
+F 0 4 0 -1
 35 6 -12 35d70+525 4d6+7
 0.0.0.0 45360
 8 8 0
@@ -534,8 +534,8 @@ an &+Lenormous &+wcarp&n~
 &+L   This large carp has two large bulbous eyes which seem to be pushing from
 &+Lits &+wgrey&+L scales.&n
 ~
-33824776 0 0 2304 0 0 0 0 S
-F 0 0 -1
+33824776 0 0 0 2304 0 0 0 0 S
+F 0 0 0 -1
 25 11 19 25d40+200 3d5+3
 0.0.0.0 22275
 8 8 0
@@ -549,8 +549,8 @@ lebaum sir court advisor~
 &+Loccupants.  For someone over four thousand years old, his complexion is beyond
 &+Lreproach.&n
 ~
-1174808586 0 0 264 0 0 0 -1000 S
-PL 3 1 -1
+1174808586 0 0 0 264 0 0 0 -1000 S
+PL 3 1 0 -1
 60 -10 -132 60d143+6300 7d6+35
 6.6.9.7 243000
 8 8 1
@@ -567,8 +567,8 @@ sagoth epopt demon bal~
 
 &+LHe says to you, '&+WAre you a &+Rhero&+W?&+L'&n
 ~
-1107700298 1 0 296 0 0 0 -1000 S
-X 0 512 -1
+1107700298 1 0 0 296 0 0 0 -1000 S
+X 0 512 0 -1
 56 -7 -129 56d96+6160 7d6+35
 1.3.2.9 340200
 6 6 1
@@ -580,8 +580,8 @@ a &+Wrabid &+yrat&n~
 &+L   Its &+yfur&+L torn and matted with &+Rblood&+L, this rat appears to have contracted
 &+Lrabies.  Its sharp &+Wteeth&+L are &+Yyellow&+L and covered in foam.&n
 ~
-1107566792 1 0 524552 0 0 0 0 S
-AC 0 0 -1
+1107566792 1 0 0 524552 0 0 0 0 S
+AC 0 0 0 -1
 15 15 51 15d23+60 2d5+2
 0.0.0.0 7290
 8 8 0
@@ -593,8 +593,8 @@ a &+Lcastle &+yrat&n~
 &+L   This rat looks like its seen better days, its ribs can be seen through its
 &+yfur&+L, marking its famine.&n
 ~
-1107568840 0 0 524544 0 0 0 0 S
-AC 0 0 -1
+1107568840 0 0 0 524544 0 0 0 0 S
+AC 0 0 0 -1
 5 20 83 5d15+17 1d5+0
 0.0.0.0 648
 8 8 0
@@ -609,8 +609,8 @@ a &+Rki&+rlar&+Lian beast&n~
 &+Lwhich the &+Rki&+rlar&+Lian beast uses to rend meat from its victims.  Each of its six
 &+Larms ends in a prehensile claw with sharp long bony nails.&n
 ~
-1174413386 0 0 264 0 0 0 -1000 S
-TK 1 1 2
+1174413386 0 0 0 264 0 0 0 -1000 S
+TK 1 1 0 2
 20 13 35 20d30+100 3d4+2
 0.9.3.0 9720
 8 8 0
@@ -625,8 +625,8 @@ a &+Rki&+rlar&+Lian beast&n~
 &+Lwhich the &+Rki&+rlar&+Lian beast uses to rend meat from its victims.  Each of its six
 &+Larms ends in a prehensile claw with sharp long bony nails.&n
 ~
-1174413386 0 0 264 0 0 0 -1000 S
-TK 1 1 2
+1174413386 0 0 0 264 0 0 0 -1000 S
+TK 1 1 0 2
 22 11 29 22d40+176 3d5+3
 4.0.5.0 19602
 8 8 0
@@ -641,8 +641,8 @@ a &+Rki&+rlar&+Lian beast&n~
 &+Lwhich the &+Rki&+rlar&+Lian beast uses to rend meat from its victims.  Each of its six
 &+Larms ends in a prehensile claw with sharp long bony nails.&n
 ~
-1174413386 0 0 264 0 0 0 -1000 S
-TK 1 1 2
+1174413386 0 0 0 264 0 0 0 -1000 S
+TK 1 1 0 2
 24 11 23 24d40+192 3d5+3
 6.1.6.0 21384
 8 8 0
@@ -657,8 +657,8 @@ samoth blood knight kvasir~
 &+Ldisciple of &+rKvasir&+L the first of the &+RBlood &+rKnights&+L, &+mSamoth&+L has come to accept
 &+La life of rigorous mayhem and a bloodlust exceeded only by his will to evil.&n
 ~
-1107437642 1 0 296 262144 0 0 -1000 S
-X 9 16 -1
+1107437642 1 0 0 296 262144 0 0 -1000 S
+X 9 16 0 -1
 55 -5 -126 55d131+5060 7d6+30
 0.2.0.9 334125
 6 6 1
@@ -673,8 +673,8 @@ dragas lord vampire tall~
 &+Llike small syringes.  His front two upper &+Wcanines&+L are about two inches long
 &+Leach, protruding over his lower lip with sinister appeal.&n
 ~
-1174808586 1 0 8 262144 0 0 -1000 S
-UV 9 1 -1
+1174808586 1 0 0 8 262144 0 0 -1000 S
+UV 9 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
 8 8 1
@@ -688,8 +688,8 @@ nargel sir royal advisor~
 &+Loccupants.  For someone over four thousand years old, his complexion is beyond
 &+Lreproach.&n
 ~
-1174808586 1 0 264 0 0 0 -1000 S
-PL 9 1 -1
+1174808586 1 0 0 264 0 0 0 -1000 S
+PL 9 1 0 -1
 50 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 6 1
@@ -702,8 +702,8 @@ a &+mkeep &+Mguard&n~
 &+Lback in a ponytail that reaches his mid-back.  His &+Beyes&+L are cold and
 &+Lanalytical, peering through you with cool calculation.&n
 ~
-1107306700 1 0 256 0 0 0 -1000 S
-PL 0 1 -1
+1107306700 1 0 0 256 0 0 0 -1000 S
+PL 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -716,8 +716,8 @@ a &+ybronze &+Lcyclops golem&n~
 &+Lcould forever guard the &+Rwar &+rcouncil's&+L chamber.  Its eye glows with a deep &+Rred
 &+Lmagical energy which is its life source.&n
 ~
-33565770 1 0 536871304 4224 0 0 0 S
-OG 0 1 -1
+33565770 1 0 0 536871304 4224 0 0 0 S
+OG 0 1 0 -1
 56 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 0
@@ -731,8 +731,8 @@ a &+Gsickly &+Lknight&n~
 &+Lover her &+Wteeth&+L, its tip severed long ago, without ever quite healing.  Her
 &+Yyellowed &+Lteeth are sharp and fanged, a row of thrity-two pairs of daggers.&n
 ~
-1174415438 64 0 256 262144 0 0 -1000 S
-UV 0 1 -1
+1174415438 64 0 0 256 262144 0 0 -1000 S
+UV 0 1 0 -1
 37 2 -18 37d95+851 4d7+10
 0.1.2.2 47952
 8 8 2
@@ -747,8 +747,8 @@ ihsahn drow swashbuckler~
 &+Llong &+Wwhite &+Lhair cascades over his shoulders, a long legacy braid drapes down
 &+Lhis neck, a symbol of his many victories.&n
 ~
-1174808780 0 0 33554696 0 0 0 -1000 S
-PL 3 2097152 -1
+1174808780 0 0 0 33554696 0 0 0 -1000 S
+PL 3 2097152 0 -1
 51 -5 -98 51d131+4335 7d6+30
 6.9.4.6 206550
 8 8 1
@@ -761,8 +761,8 @@ kvolg cleric duergar~
 &+Loff his companion.  A long twisting &+Wbeard&+L and matching &+Wmustache&+L drape off his
 &+Lface and fall over an ample belly.&n
 ~
-101066830 8 0 74016 0 0 0 -750 S
-PD 3 32 -1
+101066830 8 0 0 74016 0 0 0 -750 S
+PD 3 32 0 -1
 48 -3 -78 48d110+2592 6d6+25
 8.1.0.5 116640
 8 8 1
@@ -777,8 +777,8 @@ a &+mpenanggalan&n~
 &+Lsmall syringes.  Her front two upper &+Wcanines&+L are about two inches long each,
 &+Lprotruding over her lower lip with sinister appeal.&n
 ~
-1174808586 1 0 264 262144 0 0 -1000 S
-UV 9 32 -1
+1174808586 1 0 0 264 262144 0 0 -1000 S
+UV 9 32 0 -1
 50 -3 -95 50d110+2700 6d6+25
 0.3.1.5 121500
 8 8 2
@@ -793,8 +793,8 @@ a &+Rblood &+Lfiend&n~
 &+Llike small syringes.  His front two upper &+Wcanines&+L are about two inches long
 &+Leach, protruding over his lower lip with sinister appeal.&n
 ~
-1174808586 1 0 264 262144 0 0 -1000 S
-UV 9 1 -1
+1174808586 1 0 0 264 262144 0 0 -1000 S
+UV 9 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -809,8 +809,8 @@ a &+Rblood &+Lfiend&n~
 &+Llike small syringes.  His front two upper &+Wcanines&+L are about two inches long
 &+Leach, protruding over his lower lip with sinister appeal.&n
 ~
-1174808586 1 0 264 262144 0 0 -1000 S
-UV 9 1 -1
+1174808586 1 0 0 264 262144 0 0 -1000 S
+UV 9 1 0 -1
 45 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -829,8 +829,8 @@ erebus devil demon hulking~
 &+Lnails.  Legs similar to those on the rear of a horse, they hinge under his
 &+Ltorso and end in two hard hooves.&n
 ~
-1107568686 1 0 264 262144 0 0 -1000 S
-Y 6 512 -1
+1107568686 1 0 0 264 262144 0 0 -1000 S
+Y 6 512 0 -1
 60 -10 -147 60d96+6600 7d6+35
 6.6.4.10 243000
 8 8 1
@@ -847,8 +847,8 @@ euronymous devil dark form~
 &+Lfingers are long and gaunt, the knotted muscles able to rend a man's upper
 &+Lbody from his legs without any real opposition.&n
 ~
-1107769932 1 0 65928 262144 0 0 -1000 S
-Y 6 16 -1
+1107769932 1 0 0 65928 262144 0 0 -1000 S
+Y 6 16 0 -1
 61 -10 -147 60d60+30720 7d6+35
 6.6.4.10 243000
 8 8 1
@@ -862,8 +862,8 @@ kyeril frost dragon~
 &+Lcause for alarm.  Two beady &+Wwhite&+L eyes stare out of its thin skull, over its
 &+Lbony nose, right into your soul, making your knees slowly begin to rattle.&n
 ~
-1107700238 1 0 134217992 64 0 0 -1000 S
-D 6 1 -1
+1107700238 1 0 0 134217992 64 0 0 -1000 S
+D 6 1 0 -1
 60 -10 -152 60d143+6900 7d6+35
 6.6.9.22 486000
 8 8 0
@@ -877,8 +877,8 @@ a &+Wzombie &+mpriest&n~
 &+Lhair grows in patches, large chunks of &+Rskin&+L having long since fallen prey to
 &+Lher leprocratic disease.&n
 ~
-1107306572 1 0 74016 192 0 0 -1000 S
-U 6 32 -1
+1107306572 1 0 0 74016 192 0 0 -1000 S
+U 6 32 0 -1
 41 -1 -56 41d99+1804 6d6+12
 0.0.0.0 99630
 8 8 1
@@ -892,8 +892,8 @@ a &+Wzombie &+Mpriestess&n~
 &+Lhair grows in patches, large chunks of &+Rskin&+L having long since fallen prey to
 &+Lher leprocratic disease.&n
 ~
-1174415438 1 0 74016 0 0 0 -1000 S
-U 6 32 -1
+1174415438 1 0 0 74016 0 0 0 -1000 S
+U 6 32 0 -1
 47 -3 -75 47d110+2538 6d6+25
 0.0.0.0 114210
 8 8 2
@@ -907,8 +907,8 @@ a &+RR&+rot&+Rt&+red &+Lknight&n~
 &+Lwhats not rotted through, and his &+Wbones&+L are stained a dark yellow from years
 &+Lof contact with blood.&n
 ~
-1115695182 64 0 256 262144 0 0 -1000 S
-UV 0 1 -1
+1115695182 64 0 0 256 262144 0 0 -1000 S
+UV 0 1 0 -1
 50 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -922,8 +922,8 @@ a &+Gsickly &+Lknight&n~
 &+Lover her &+Wteeth&+L, its tip severed long ago, without ever quite healing.  Her
 &+Yyellowed &+Lteeth are sharp and fanged, a row of thrity-two pairs of daggers.&n
 ~
-1174415438 64 0 256 262144 0 0 -1000 S
-UV 0 1 -1
+1174415438 64 0 0 256 262144 0 0 -1000 S
+UV 0 1 0 -1
 45 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 2
@@ -938,8 +938,8 @@ a &+mpenanggalan&n~
 &+Lsmall syringes.  Her front two upper &+Wcanines&+L are about two inches long each,
 &+Lprotruding over her lower lip with sinister appeal.&n
 ~
-1174808588 1 0 264 262144 0 0 -1000 S
-UV 9 1 -1
+1174808588 1 0 0 264 262144 0 0 -1000 S
+UV 9 1 0 -1
 46 -3 -72 46d119+2530 6d6+25
 6.0.9.4 111780
 8 8 2
@@ -954,8 +954,8 @@ a &+mpenanggalan&n~
 &+Lsmall syringes.  Her front two upper &+Wcanines&+L are about two inches long each,
 &+Lprotruding over her lower lip with sinister appeal.&n
 ~
-1174808588 1 0 264 296963 0 0 -1000 S
-UV 9 1 -1
+1174808588 1 0 0 264 296963 0 0 -1000 S
+UV 9 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 2
@@ -968,8 +968,8 @@ a &+Wsoul &+Lreaper&n~
 &+Cice&+L.  Flickering in and out, the specter is hard to keep track of as it makes
 &+Lits way through the halls of its demise.&n
 ~
-1107306572 1 0 268435720 0 0 0 -1000 S
-UG 0 1 -1
+1107306572 1 0 0 268435720 0 0 0 -1000 S
+UG 0 1 0 -1
 35 6 -22 35d83+595 4d6+7
 0.0.0.0 45360
 8 8 1
@@ -982,8 +982,8 @@ a &+Rsoul &+Wreaper&n~
 &+Cice&+L.  Flickering in and out, the specter is hard to keep track of as it makes
 &+Lits way through the halls of its demise.&n
 ~
-1107306572 1 0 268435720 262144 0 0 -1000 S
-UV 0 1 -1
+1107306572 1 0 0 268435720 262144 0 0 -1000 S
+UV 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -996,8 +996,8 @@ a &+rsoul &+Wreaper&n~
 &+Cice&+L.  Flickering in and out, the specter is hard to keep track of as it makes
 &+Lits way through the halls of its demise.&n
 ~
-1107306572 1 0 268435720 262144 0 0 -1000 S
-UV 0 1 -1
+1107306572 1 0 0 268435720 262144 0 0 -1000 S
+UV 0 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -1011,8 +1011,8 @@ a &+Wzombie &+mcleric&n~
 &+Lhair grows in patches, large chunks of &+Rskin&+L having long since fallen prey to
 &+Lher leprocratic disease.&n
 ~
-1107306572 1 0 74016 0 0 0 -1000 S
-U 0 32 -1
+1107306572 1 0 0 74016 0 0 0 -1000 S
+U 0 32 0 -1
 35 6 -12 35d77+560 4d6+7
 0.0.0.0 45360
 8 8 2
@@ -1027,8 +1027,8 @@ a &+rblood &+Lfiend&n~
 &+Llike small syringes.  His front two upper &+Wcanines&+L are about two inches long
 &+Leach, protruding over his lower lip with sinister appeal.&n
 ~
-1174808648 1 0 264 262144 0 0 -1000 S
-UV 9 1 -1
+1174808648 1 0 0 264 262144 0 0 -1000 S
+UV 9 1 0 -1
 55 -5 -111 55d131+4675 7d6+30
 0.2.7.6 222750
 8 8 1
@@ -1041,8 +1041,8 @@ a &+mkeep &+Mguardian&n~
 &+Lback in a ponytail that reaches his mid-back.  His &+Beyes&+L are cold and
 &+Lanalytical, peering through you with cool calculation.&n
 ~
-1107306700 1 0 256 0 0 0 -1000 S
-PL 0 1 -1
+1107306700 1 0 0 256 0 0 0 -1000 S
+PL 0 1 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -1057,8 +1057,8 @@ a &+Rmino&+rtaur &+Lgladiator&n~
 &+Lparts of his eyes.  A long scar decorated his muscular chest, the prize from
 &+La battle long since waged.&n
 ~
-1107306572 1 0 256 0 0 0 -1000 S
-MT 0 1 -1
+1107306572 1 0 0 256 0 0 0 -1000 S
+MT 0 1 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 1
@@ -1074,8 +1074,8 @@ a &+Rmino&+rtaur &+Lgladiator&n~
 &+Lis white, a stark comparison to the tawny fur that covers the rest of her
 &+Lhead.&n
 ~
-1107306572 1 0 256 0 0 0 -1000 S
-MT 0 16384 -1
+1107306572 1 0 0 256 0 0 0 -1000 S
+MT 0 16384 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
 8 8 2

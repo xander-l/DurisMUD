@@ -76,12 +76,8 @@ O 0 500045 1 611875 100 0 0 0      * a sign
 O 0 23616 4 620259 100 0 0 0       * (object type not in this .obj file)
 O 0 500036 1 624087 100 0 0 0      * an impaled halfling
 O 0 500052 1 626598 100 0 0 0      * A Small and Shabby Hut
-O 0 500026 6 637471 100 0 0 0      * a wyvern egg
-O 0 500026 6 637471 100 0 0 0      * a wyvern egg
-O 0 500026 6 637471 100 0 0 0      * a wyvern egg
-O 0 500026 6 637874 100 0 0 0      * a wyvern egg
-O 0 500026 6 637874 100 0 0 0      * a wyvern egg
-O 0 500026 6 637874 100 0 0 0      * a wyvern egg
+O 0 500026 2 637471 100 0 0 0      * a wyvern egg
+O 0 500026 2 637874 100 0 0 0      * a wyvern egg
 O 0 23616 4 647172 100 0 0 0       * (object type not in this .obj file)
 *
 M 0 31405 5 511128 100 0 0 0       * (mob type not in this .mob file)
