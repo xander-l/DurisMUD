@@ -29,6 +29,7 @@ using namespace std;
 #include "trophy.h"
 #include "epic_bonus.h"
 
+extern long boot_time;
 extern P_room world;
 extern P_index obj_index;
 extern P_index mob_index;
@@ -763,16 +764,7 @@ int epic_stone_payout(P_obj obj, P_char ch)
   {
     for(struct group_list *gl = ch->group; gl; gl = gl->next)
     {
-      if(gl->ch == ch)
-      {
-        continue;
-      }
-      if(!IS_PC(gl->ch) ||
-         IS_TRUSTED(gl->ch))
-      {
-        continue;
-      }
-      if(gl->ch->in_room == ch->in_room)
+      if(gl->ch != ch && IS_PC(gl->ch) && !IS_TRUSTED(gl->ch) && gl->ch->in_room == ch->in_room)
       {
         num_players++;
       }
@@ -1057,14 +1049,15 @@ int epic_stone(P_obj obj, P_char ch, int cmd, char *arg)
     epic_stone_one_touch(obj, ch, epic_value);
 
     /* go through all members of group */
+    int group_size = 1;
+
     if(ch->group)
     {
       for(struct group_list *gl = ch->group; gl; gl = gl->next)
       {
-        if(gl->ch == ch) continue;
-        if(!IS_PC(gl->ch) || IS_TRUSTED(gl->ch)) continue;
-        if(gl->ch->in_room == ch->in_room)
+        if(gl->ch != ch && IS_PC(gl->ch) && !IS_TRUSTED(gl->ch) && gl->ch->in_room == ch->in_room )
         {
+          group_size++;
           epic_stone_one_touch(obj, gl->ch, epic_value);
         }
       }
@@ -1078,6 +1071,7 @@ int epic_stone(P_obj obj, P_char ch, int cmd, char *arg)
       // set completed flag
       epic_zone_completions.push_back(epic_zone_completion(zone_number, time(NULL), delta));
       db_query("UPDATE zones SET last_touch = '%d' WHERE number = '%d'", time(NULL), zone_number);
+      db_query("INSERT INTO zone_touches (boot_time, touched_at, zone_number, toucher_pid, group_size, epic_value, alignment_delta) VALUES (%d, %d, %d, %d, %d, %d, %d);", boot_time, time(NULL), zone_number, GET_PID(ch), group_size, epic_value, delta);
 
       //  Allow !reset zones to possibly reset somewhere down the line...  - Jexni 11/7/11
       if(!zone_table[zone_number].reset_mode)
