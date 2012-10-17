@@ -1362,7 +1362,7 @@ void do_disarm(P_char ch, char *arg, int cmd)
   P_obj    obj, trap;
   P_char   victim;
 
-  if ((GET_CHAR_SKILL(ch, SKILL_Disarm) == 0) && !IS_TRUSTED(ch))
+  if ((GET_CHAR_SKILL(ch, SKILL_DISARM) == 0) && !IS_TRUSTED(ch))
   {
     send_to_char("Heh, you might end up losing a finger.\n", ch);
     return;

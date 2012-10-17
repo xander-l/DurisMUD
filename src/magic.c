@@ -8896,6 +8896,13 @@ void spell_vitality(int level, P_char ch, char *arg, int type, P_char victim,
   if(IS_NPC(victim) &&
      GET_VNUM(victim) == IMAGE_REFLECTION_VNUM)
       return;
+
+if(affected_by_spell(ch, SPELL_MIELIKKI_VITALITY))
+  {
+    send_to_char("&+GThe Goddess Mielikki is aiding your health, and prevents the vitality spell from functioning...\r\n", victim);
+    return;
+  }
+
       
   if(!IS_PC(ch) &&
      !IS_PC(victim))
@@ -20904,6 +20911,13 @@ void spell_mielikki_vitality(int level, P_char ch, char *arg, int type, P_char v
     send_to_char("&+GThe blessings of the Goddess Mielikki are denied!\r\n", victim);
     return;
   }
+
+if(affected_by_spell(ch, SPELL_VITALITY))
+  {
+    send_to_char("&+GThe Goddess Mielikki cannot further bless your vitality...\r\n", victim);
+    return;
+  }
+
 
   if(affected_by_spell(ch, SPELL_MIELIKKI_VITALITY))
   {
