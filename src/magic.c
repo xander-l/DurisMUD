@@ -1420,7 +1420,7 @@ void spell_wither(int level, P_char ch, char *arg, int type, P_char victim,
   
   percent += (int) (GET_LEVEL(ch) - GET_LEVEL(victim));
 
-  if(NewSaves(victim, SAVING_SPELL, 0))
+  if(NewSaves(victim, SAVING_FEAR, 0))
     percent = (int) percent * .75;
 
   percent = BOUNDED(0, percent, 100);
@@ -7655,7 +7655,7 @@ void spell_sleep(int level, P_char ch, char *arg, int type, P_char victim,
   int      i;
 
   if(GET_STAT(ch) == STAT_DEAD)
-   send_to_char("They dont appear to able to sleep.&n\n", ch);
+   send_to_char("They are already... quite... asleep... for good.&n\n", ch);
     return;
 
   if(IS_AFFECTED(ch, AFF_INVISIBLE) || IS_AFFECTED2(ch, AFF2_MINOR_INVIS))
@@ -7671,7 +7671,7 @@ void spell_sleep(int level, P_char ch, char *arg, int type, P_char victim,
       if(victim->equipment[i] &&
           IS_SET(victim->equipment[i]->extra_flags, ITEM_NOSLEEP))
       {
-        send_to_char("&+CYou failed!\n", ch);
+        send_to_char("&+CYour target appears to be protected against sleeping!\n", ch);
         if(IS_PC(victim))
           send_to_char("You stifle a yawn.\n", victim);
         if(IS_NPC(victim) && CAN_SEE(victim, ch))
