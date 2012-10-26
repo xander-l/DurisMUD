@@ -4445,10 +4445,10 @@ bool single_stab(P_char ch, P_char victim, P_obj weapon)
         || !char_in_list(ch))
       return TRUE;
     
-   // if(obj_index[weapon->R_num].func.obj)
-   //   (*obj_index[weapon->R_num].func.obj) (weapon, ch, CMD_MELEE_HIT,
-   //                                         (char *) victim);
-   //  No weapon procs on backstabs - Jexni 3/24/11
+   if(obj_index[weapon->R_num].func.obj)
+   (*obj_index[weapon->R_num].func.obj) (weapon, ch, CMD_MELEE_HIT,
+   (char *) victim);
+   //  Yes weapon procs on backstabs - Drannak
   }
 
   if(weapon->value[4])
@@ -9517,7 +9517,7 @@ bool MobShouldFlee(P_char ch)
 
 bool CheckMultiProcTiming(P_char ch)
 {
-
+  return true; //disabling multiproc check
   if(!(ch) ||
      !IS_ALIVE(ch) ||
      affected_by_spell(ch, TAG_STOP_PROC))
@@ -9526,6 +9526,7 @@ bool CheckMultiProcTiming(P_char ch)
   }
   
   set_short_affected_by(ch, TAG_STOP_PROC, 1);
+  
   return true;
 }
   
