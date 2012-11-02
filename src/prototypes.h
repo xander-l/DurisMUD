@@ -356,6 +356,7 @@ void do_circle(P_char, char *, int);
 void do_defend(P_char, char *, int);
 void do_disengage(P_char, char *, int);
 void do_flee(P_char, char *, int);
+void do_riff(P_char, char *, int);
 void do_guard(P_char, char *, int);
 void do_headbutt(P_char, char *, int);
 void do_hit(P_char, char *, int);

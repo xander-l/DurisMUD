@@ -937,9 +937,10 @@
 #define SKILL_DIAMOND_SOUL           1264
 #define SKILL_RESTRAIN               1293
 #define SKILL_BLADE_BARRAGE		  1294
+#define SKILL_RIFF                   1295
 
 #ifndef SKILLPOINTS
-  #define LAST_SKILL                   SKILL_BLADE_BARRAGE
+  #define LAST_SKILL                   SKILL_RIFF
 #endif
 
 // New skills for skill points.

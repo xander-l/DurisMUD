@@ -1058,6 +1058,7 @@ const char *command[] = {
   "barrage",
   "blade",
   "consume",
+  "riff",
   "\n"                          /* MAX_CMD_LIST is now 1000 */
 };
 
@@ -2561,6 +2562,7 @@ void assign_command_pointers(void)
   CMD_Y(CMD_RAGE, STAT_NORMAL + POS_STANDING, do_rage, 0);
   CMD_Y(CMD_MAUL, STAT_NORMAL + POS_STANDING, do_maul, 0);
   CMD_Y(CMD_RESTRAIN, STAT_NORMAL + POS_STANDING, do_restrain, 0);
+  CMD_Y(CMD_RIFF, STAT_NORMAL + POS_STANDING, do_riff, 0);
   CMD_Y(CMD_CONSUME, STAT_NORMAL + POS_STANDING, do_consume, 0);
   CMD_Y(CMD_RAMPAGE, STAT_NORMAL + POS_STANDING, do_rampage, 0);
   CMD_Y(CMD_INFURIATE, STAT_NORMAL + POS_STANDING, do_infuriate, 0);

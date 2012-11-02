@@ -1864,3 +1864,158 @@ void do_play(P_char ch, char *arg, int cmd)
   }
 }
 
+void do_riff(P_char ch, char *arg, int cmd)
+{
+
+  int s, level, i, l, room;
+  struct affected_type *af, *af2;
+  struct char_link_data *cld, *next_cld;
+  struct echo_details echoDetails;
+  struct song_description *sd;
+  P_char tch, next;
+
+  
+  if(!(ch) ||
+    !IS_ALIVE(ch))
+  {
+    return;
+  }
+ 
+    if(affected_by_spell(ch, SKILL_RIFF))
+  {
+    send_to_char
+      ("You havent recovered yet from that last wild &+Criff&n!\n", ch);
+    return;
+  }
+
+ if(affected_by_spell(ch, FIRST_INSTRUMENT))
+  {
+    send_to_char("&+yYou haven't regained your composure.\r\n", ch);
+    return;
+  }
+  
+    if(!CAN_SING(ch))
+  {
+    send_to_char("&+WYou are unable to sing while in this state.\r\n", ch);
+    return;
+
+  }
+
+    if(!IS_AFFECTED3(ch, AFF3_SINGING))
+  {
+    send_to_char("&+mYou must actively be &+Mplaying &+ma song in order to &+Criff&+m!&n\n", ch);
+    return;
+  }
+  
+  arg = skip_spaces(arg);
+  if(!arg || !*arg)
+  {
+    send_to_char("&+YWhat &+Wsong &+Ywould you like to sing a quick verse from?\r\n", ch);
+    return;
+  }
+     
+  if(number(1, 100) < GET_CHAR_SKILL(ch, SKILL_RIFF))
+      {
+      notch_skill(ch, SKILL_RIFF, get_property("skill.notch.offensive", 15)); 
+      }
+
+  if(number(1, 90) > GET_CHAR_SKILL(ch, SKILL_RIFF))
+      {
+        act("$n &+ctries to sing a quick &+Cverse&+c, but they cannot seem to recall the lines.&n", FALSE, ch, 0, 0, TO_ROOM);
+        act("&+cYou &+ctry to sing a quick &+Cverse&+c, but cannot seem to recall the lines.&n", FALSE, ch, 0, 0, TO_CHAR);
+        set_short_affected_by(ch, SKILL_RIFF, (int) (2 * PULSE_VIOLENCE));
+        do_action(ch, 0, CMD_COUGH);
+        return;
+      }
+ 
+  s = -1;
+  for (i = 0; songs[i].name && s == -1; i++)
+    if(is_abbrev(arg, songs[i].name))
+    {
+      s = songs[i].song;
+    }
+  if(s == -1 || GET_CHAR_SKILL(ch, s) == 0)
+  {
+    send_to_char("You don't know that song.\r\n", ch);
+    return;
+  }
+  
+
+    if(ch &&
+    IS_ALIVE(ch))
+  {
+    for (i = 0; songwords[i].num; i++)
+    {
+      if(songwords[i].num == s)
+      {
+        act("$n &+Csuddenly breaks out a &+Wquick verse&+C from their &+Crepitiore &+Cof songs...&n", FALSE, ch, 0, 0, TO_ROOM);
+        act("&+CYou suddenly break out a &+Wquick verse&+C from your &+Crepitiore &+Cof songs...&n", FALSE, ch, 0, 0, TO_CHAR);
+
+	 act(songwords[i].tochar, FALSE, ch, 0, 0, TO_CHAR);
+        act(songwords[i].toroom, FALSE, ch, 0, 0, TO_ROOM);
+        if(number(1, 10) > 5)
+        {
+         do_action(ch, 0, CMD_DANCE);
+        }
+        else
+        {
+         do_action(ch, 0, CMD_TWIRL);
+        }
+        break;
+      }
+    }
+  }
+  l = bard_song_level(ch, s) + number(-2, 2);
+
+  if(l <= 0)
+  {
+    l = 1;
+  }
+  for (i = 0; songs[i].name; i++)
+  {
+    if(songs[i].song == s)
+    {
+      sd = &songs[i];
+      break;
+    }
+  }
+  room = ch->in_room;
+
+  for (tch = world[room].people; tch; tch = next)
+  {
+    next = tch->next_in_room;
+
+    if(IS_TRUSTED(tch))
+    {
+      continue;
+    }
+    
+    if((ch == tch &&
+      !(sd->flags & SONG_AGGRESSIVE)) ||
+      (grouped(ch, tch) && !(sd->flags & SONG_AGGRESSIVE)) ||
+      (ch != tch &&
+      !grouped(ch, tch) &&
+      !(sd->flags & SONG_ALLIES)))
+    {
+      if((sd->flags & SONG_AGGRESSIVE) &&
+        bard_saves(ch, tch, s))
+      {
+        if(!IS_FIGHTING(tch))
+        {
+          bard_aggro(tch, ch);
+        }
+      }
+      if(is_char_in_room(tch, room))
+      {
+        (sd->funct) (l, ch, tch, s);
+      }
+    }
+  }
+
+  set_short_affected_by(ch, SKILL_RIFF, (int) (4 * PULSE_VIOLENCE));
+  //CharWait(ch, (int)(2 * PULSE_VIOLENCE));
+}
+
+
+
+
