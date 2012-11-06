@@ -4086,7 +4086,7 @@ void spell_decaying_flesh(int level, P_char ch, char *arg, int type,
   af.type = SPELL_DECAYING_FLESH;
   af.bitvector5 = AFF5_DECAYING_FLESH;
   af.duration = 100;
-  af.flags = AFFTYPE_SHORT;;
+  af.flags = AFFTYPE_SHORT;
 
   if(!IS_AFFECTED5(victim, AFF5_DECAYING_FLESH))
   {

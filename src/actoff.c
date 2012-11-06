@@ -4671,6 +4671,19 @@ bool single_stab(P_char ch, P_char victim, P_obj weapon)
       FALSE, ch, 0, victim, TO_NOTVICTROOM);
     }
 
+  if(affected_by_spell(victim, SPELL_SHADOW_SHIELD))
+    {
+      affect_from_char(victim, SPELL_SHADOW_SHIELD);
+      dam = 1;
+    act("$n attempts to stab you in the back, but your &+Lshadow shield&n quickly absorbs the impact before fading away!",
+       FALSE, ch, 0, victim, TO_VICT);
+    act("You attempt to stab $N in the back, but their &+Lshadow shield&n quickly absorbs the impact before fading away!",
+       FALSE, ch, 0, victim, TO_CHAR);
+        act("$n attempts to stab $N in the back, but $N's &+Lshadow shield&n quickly absorbs the impact before fading away!",
+      FALSE, ch, 0, victim, TO_NOTVICTROOM);
+    }
+
+
   if(affected_by_spell(victim, SPELL_BIOFEEDBACK))
     {
       affect_from_char(victim, SPELL_BIOFEEDBACK);

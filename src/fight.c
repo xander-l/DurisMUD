@@ -8292,6 +8292,82 @@ int calculate_attacks(P_char ch, int attacks[])
 	  ADD_ATTACK(PRIMARY_WEAPON);
 	}
 
+        if(GET_SPEC(ch, CLASS_CLERIC, SPEC_ZEALOT))
+	{
+	  int zealproc;
+	  struct affected_type af;
+	  if (GET_C_STR(ch) > number(1, 340))
+	    {
+		  zealproc = (number(1,5));
+		  switch (zealproc)
+		   {
+		   case 1:
+		   bzero(&af, sizeof(af));
+		   af.duration = 30;
+		   af.location = APPLY_STR_MAX;
+		   af.modifier = 80;
+		   af.flags = AFFTYPE_SHORT;
+		   affect_to_char(ch, &af);
+		   af.location = APPLY_DAMROLL;
+		   af.modifier = 40;
+		   af.flags = AFFTYPE_SHORT;
+		   affect_to_char(ch, &af);
+		   act("&nThe power of your &+Wgod&n suddenly fills your body and you feel &+BMUCH&n stronger!&n",
+           FALSE, ch, 0, 0, TO_CHAR);
+		   act("&n$n gasps suddenly as their body is &+Benhanced&n by some &+Wother-worldly &npower!&n",
+           FALSE, ch, 0, 0, TO_NOTVICT);
+		   act("$n says 'Fill me with your strength!", FALSE, ch, 0, 0, TO_ROOM);
+		   break;
+		   case 2:
+		   act("&+WYour devotion to your god causes you to unleash a &+rF&+Rlurr&+ry&+W of attacks against $N!&n",
+           FALSE, ch, 0, 0, TO_CHAR);
+		   act("$n says 'The non-believer must be punished!", FALSE, ch, 0, 0, TO_ROOM);
+		   ADD_ATTACK(PRIMARY_WEAPON);
+		   ADD_ATTACK(PRIMARY_WEAPON);
+		   act("$n says 'What once was lost, is now found upon your skull!", FALSE, ch, 0, 0, TO_ROOM);
+		   break;
+		   case 3:
+		   bzero(&af, sizeof(af));
+		   af.duration = 30;
+		   af.location = APPLY_STR_MAX;
+		   af.modifier = 80;
+		   af.flags = AFFTYPE_SHORT;
+		   affect_to_char(ch, &af);
+		   af.location = APPLY_DAMROLL;
+		   af.modifier = 30;
+		   af.flags = AFFTYPE_SHORT;
+		   affect_to_char(ch, &af);
+		   act("&nThe power of your &+Wgod&n suddenly fills your body and you feel &+BMUCH&n stronger!&n",
+           FALSE, ch, 0, 0, TO_CHAR);
+		   act("&n$n gasps suddenly as their body is &+Benhanced&n by some &+Wother-worldly &npower!&n",
+           FALSE, ch, 0, 0, TO_NOTVICT);
+		   act("&+WYour devotion to your god causes you to unleash a &+rF&+Rlurr&+ry&+W of attacks against $N!&n",
+           FALSE, ch, 0, 0, TO_CHAR);
+		   act("$n says 'The non-believer must be punished!", FALSE, ch, 0, 0, TO_ROOM);
+		   ADD_ATTACK(PRIMARY_WEAPON);
+		   ADD_ATTACK(PRIMARY_WEAPON);
+		   break;
+		   case 4:
+		   act("&+WYour devotion to your god causes you to unleash a &+rF&+Rlurr&+ry&+W of attacks against $N!&n",
+           FALSE, ch, 0, 0, TO_CHAR);
+		   ADD_ATTACK(PRIMARY_WEAPON);
+		   act("$n says 'Beg for forgiveness and be saved!", FALSE, ch, 0, 0, TO_ROOM);
+		   ADD_ATTACK(PRIMARY_WEAPON);
+		   break;
+		   case 5:
+		   act("&+WYour devotion to your god causes you to unleash a &+rF&+Rlurr&+ry&+W of attacks against $N!&n",
+           FALSE, ch, 0, 0, TO_CHAR);
+		   act("$n says 'May your bloodshed be a willing sacrifice!", FALSE, ch, 0, 0, TO_ROOM);
+		   ADD_ATTACK(PRIMARY_WEAPON);
+		   ADD_ATTACK(PRIMARY_WEAPON);
+		   break;
+		   }
+		 }  
+	 
+	}
+	
+	
+
     if(GET_CLASS(ch, CLASS_PSIONICIST) &&
       affected_by_spell(ch, SPELL_COMBAT_MIND))
     {
