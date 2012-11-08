@@ -1565,10 +1565,10 @@ void show_char_to_char(P_char i, P_char ch, int mode)
 		  strcat(buffer, " (&+rF&+Rr&+ra&+Rg &+rL&+Ro&+rr&+Rd&n&N)");
 		if (IS_SET(i->specials.act3, PLR3_FRAGLOW))
 		  strcat(buffer, " (&+yFrag &+YFood&n&N)");
-             		if(IS_NEWBIE_GUIDE(ch)  && IS_NEWBIE(ch) ) 
-			{
+
+             		if(IS_SET(i->specials.act2, PLR2_NEWBIE))
 			strcat(buffer, " (&+GNewbie&N)");
-			}
+			
 	  //drannak2
           break;
         }
