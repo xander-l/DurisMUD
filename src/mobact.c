@@ -9703,11 +9703,11 @@ void mob_hunt_event(P_char ch, P_char victim, P_obj obj, void *d)
       if(!char_in_list(ch))
         return;
     }
-    else if(number(0, 3) &&
+  /*  else if(number(0, 3) &&
            IS_AFFECTED(vict, AFF_HIDE))
     {
       do_search(ch, NULL, 0);  
-    }
+    }*/
     else
       switch (number(0, CAN_SPEAK(ch) ? 114 : 110))
       {

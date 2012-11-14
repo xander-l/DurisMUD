@@ -1130,8 +1130,10 @@ bool ground_casting_check(P_char ch, int spl)
   /* check for if they were casting but just bashed, then check their groundcast skill */
   if( IS_SET(ch->specials.affected_by2, AFF2_CASTING) &&
       !IS_SET(skills[spl].targets, TAR_NOCOMBAT) &&
-      ( number(0,100) < (int) ( GET_CHAR_SKILL(ch, SKILL_GROUND_CASTING) / 2 ) ||
-        notch_skill(ch, SKILL_GROUND_CASTING, get_property("skill.notch.groundCasting", 100) ) )          
+      //( number(0,100) < (int) ( GET_CHAR_SKILL(ch, SKILL_GROUND_CASTING) / 2 ) ||
+      //  notch_skill(ch, SKILL_GROUND_CASTING, get_property("skill.notch.groundCasting", 50) ) )    
+      ( number(0,120) < (int) ( GET_CHAR_SKILL(ch, SKILL_CONCENTRATION) ) ||
+        notch_skill(ch, SKILL_CONCENTRATION, 100) )       
       )
   {
     act("$n continues preparing $s spell from the ground...", FALSE, ch, 0, 0, TO_ROOM);
@@ -1193,13 +1195,19 @@ bool cast_common_generic(P_char ch, int spl)
       send_to_char("Standing would be a good first step.\n", ch);
       break;
     case POS_KNEELING:
-      if( ground_casting_check(ch, spl) )
+      if( ground_casting_check(ch, spl))
+        {
+         //send_to_char("&+Wgroundcast success&n\n", ch);
         return TRUE;
+        }
       send_to_char("Get off your knees!\n", ch);
       break;
     case POS_SITTING:
-      if( ground_casting_check(ch, spl) )
+      if( ground_casting_check(ch, spl))
+        {
+         //send_to_char("&+Wgroundcast success&n\n", ch);
         return TRUE;
+        }
       send_to_char("You can't do this sitting!\n", ch);
       break;
     }

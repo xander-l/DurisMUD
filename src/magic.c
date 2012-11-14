@@ -4061,6 +4061,9 @@ void spell_decaying_flesh(int level, P_char ch, char *arg, int type,
 	send_to_char("You decide that would not be the best use of your dark arts.&n\n", ch);
        return;
    }
+
+    if(!victim)
+    victim = ch;
   
   if(!IS_ALIVE(ch) ||
     !IS_ALIVE(victim))

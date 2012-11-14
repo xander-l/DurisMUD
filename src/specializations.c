@@ -129,6 +129,7 @@ struct allowed_race_spec_struct {
 	{RACE_GNOME, CLASS_SORCERER,    SPEC_ALL},
 	{RACE_GNOME, CLASS_CONJURER,    SPEC_ALL},
 	{RACE_GNOME, CLASS_MERCENARY,   SPEC_ALL},
+       {RACE_GNOME, CLASS_ANTIPALADIN, SPEC_ALL},
 	/* End Gnome Options */
 
 	/* Start Ogre Options */
@@ -224,6 +225,7 @@ struct allowed_race_spec_struct {
 	{RACE_GOBLIN, CLASS_REAVER,       SPEC_ALL},
 	{RACE_GOBLIN, CLASS_SORCERER,    SPEC_ALL},
 	{RACE_GOBLIN, CLASS_CONJURER,    SPEC_ALL},
+       {RACE_GOBLIN, CLASS_ROGUE,       SPEC_ALL},
 	/* End Goblin Options */
 
 	/* Start Lich Options */

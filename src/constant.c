@@ -94,9 +94,9 @@ extern const int allowed_secondary_classes[CLASS_COUNT + 1][5];
 const int allowed_secondary_classes[CLASS_COUNT + 1][5] = {
  {-1}, 
  
-  {CLASS_MERCENARY, CLASS_CLERIC, CLASS_PSIONICIST, -1},      /* War */
+  {CLASS_MERCENARY, CLASS_CLERIC, -1},      /* War */
   {CLASS_WARRIOR, CLASS_DRUID, CLASS_ROGUE, -1},              /* Ran */
-  {-1},                         		              /* Psi */
+  {CLASS_CONJURER, -1},                         		              /* Psi */
   {CLASS_WARRIOR, -1},          		      /* Pal */
   {CLASS_WARRIOR, -1},          		              /* APa */
   {CLASS_DRUID, CLASS_BARD, CLASS_WARRIOR, CLASS_SHAMAN, -1}, /* Cle */
@@ -115,7 +115,7 @@ const int allowed_secondary_classes[CLASS_COUNT + 1][5] = {
   {-1},                         		              /* MnF */
   {-1},                         		              /* Alc */
   {-1},                         		              /* Ber */
-  {CLASS_SORCERER, CLASS_ROGUE, -1},                          /* Rea */
+  {CLASS_SORCERER, CLASS_ROGUE, CLASS_PSIONICIST, -1},                          /* Rea */
   {-1},                         		              /* Ilu */
   {-1},                                                       /* Cab */
   {-1},                                  	              /* Dre */
@@ -179,7 +179,7 @@ const mcname multiclass_names[] = {
   {CLASS_PSIONICIST, CLASS_SHAMAN,       "&+CTotemic &+bRage&n"},
   {CLASS_PSIONICIST, CLASS_SORCERER,     "Arcane Mentalist&n"},  
   {CLASS_PSIONICIST, CLASS_NECROMANCER,  "&+mDread &+bWave&n"},
-  {CLASS_PSIONICIST, CLASS_CONJURER,     "&+YEarth&+bbender&n"},  
+  {CLASS_PSIONICIST, CLASS_CONJURER,     "&+mMe&+Mnt&+Wal Man&+Mipu&+mlator&n"},  
   {CLASS_PSIONICIST, CLASS_ROGUE,        "&+LBack&+bbender&n"},  
   {CLASS_PSIONICIST, CLASS_MERCENARY,    "&+yArm&+bbender&n"},
   {CLASS_PSIONICIST, CLASS_BARD,         "&+MSong&+bbender&n"},  
@@ -367,6 +367,7 @@ const mcname multiclass_names[] = {
   {CLASS_BERSERKER, CLASS_THEURGIST,     "Lensing Maul"},
   {CLASS_REAVER, CLASS_ILLUSIONIST,      "Sly Blender"},
   {CLASS_REAVER, CLASS_DREADLORD,        "Dread Blend"},
+  {CLASS_REAVER, CLASS_PSIONICIST,       "&+LTra&+Wnsc&+Wendent&n"},
   {CLASS_REAVER, CLASS_ETHERMANCER,      "Sky Blend"},
   {CLASS_REAVER, CLASS_AVENGER,          "Blended Zeal"},
   {CLASS_REAVER, CLASS_THEURGIST,        "Lensed Blend"},
@@ -1606,12 +1607,12 @@ const int class_table[LAST_RACE + 1][CLASS_COUNT + 1] = {
   { 5 ,  1 ,  5 ,  5 ,  1 ,  5 ,  1 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  0 ,  5 ,  1 ,  5 ,  5 ,  5 ,  5 ,  5 ,  0 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 },  /* Mountain Dwarf */
   { 5 , -1 ,  5 ,  5 ,  5 , -1 , -1 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 , -1 ,  5 , -1 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 },  /* Duergar Dwarf */
   { 5 ,  5 ,  1 ,  5 ,  5 ,  5 ,  1 ,  5 ,  5 ,  3 ,  1 ,  5 ,  5 ,  3 ,  5 ,  5 ,  3 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 },  /* Halfling */
-  { 5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  3 ,  5 ,  5 ,  2 ,  5 ,  5 ,  3 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 },  /* Gnome */
+  { 5 ,  5 ,  5 ,  5 ,  5 , -1 ,  3 ,  5 ,  5 ,  2 ,  5 , -1 ,  3 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 },  /* Gnome */
   { 5 , -1 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 , -1 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 },  /* Ogre */
   { 5 , -1 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 , -1 ,  5 ,  5 ,  5 ,  5 ,  5 , -1 ,  5 ,  5 ,  5 ,  5 ,  5 , -1 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 },  /* Troll */
   { 5 ,  2 ,  1 ,  5 ,  1 ,  5 ,  2 ,  5 ,  0 ,  5 ,  2 ,  5 ,  2 ,  2 ,  5 ,  2 ,  2 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 },  /* Half-Elf */
   { 5 ,  5 ,  5 , -1 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 },  /* Illithid */
-  { 5 , -1 ,  5 ,  5 ,  5 , -1 , -1 ,  5 ,  5 , -1 , -1 , -1 , -1 , -1 ,  5 , -1 , -1 ,  5 ,  5 ,  5 ,  5 , -1 , -1 ,  5 ,  5 ,  5 ,  0 ,  5 ,  5 },  /* Orc */
+  { 5 , -1 ,  5 , -1 ,  5 , -1 , -1 ,  5 ,  5 , -1 , -1 , -1 , -1 , -1 ,  5 , -1 , -1 ,  5 ,  5 ,  5 ,  5 , -1 , -1 ,  5 ,  5 ,  5 ,  0 ,  5 ,  5 },  /* Orc */
   { 5 ,  2 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 },  /* Thri-Kreen */
   { 5 ,  1 ,  1 ,  5 ,  5 ,  5 ,  5 ,  5 ,  0 ,  3 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 },  /* Centaur */
   { 5 ,  5 ,  5 , -1 ,  5 , -1 ,  5 ,  5 ,  5 ,  5 , -1 ,  5 , -1 ,  5 ,  5 ,  5 , -1 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 ,  5 , -1 ,  5 ,  5 },  /* Githyanki */

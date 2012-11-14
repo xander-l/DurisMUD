@@ -2229,10 +2229,10 @@ static int location_mod[] = { 75,       /* light */
   65,                           /* l finger */
   95,                           /* neck 1 */
   95,                           /* neck 2 */
-  130,                          /* body */
-  120,                          /* head */
+  110,                          /* body */
+  105,                          /* head */
   95,                           /* legs */
-  140,                          /* feet */
+  125,                          /* feet */
   110,                          /* hands */
   95,                           /* arms */
   100,                          /* shield */
@@ -2240,16 +2240,16 @@ static int location_mod[] = { 75,       /* light */
   70,                           /* waist */
   75,                           /* r wrist */
   75,                           /* l wrist */
-  140,                          /* primary weapon */
-  140,                          /* hold */
+  1250,                          /* primary weapon */
+  100,                          /* hold */
   100,                          /* eyes */
   100,                          /* face */
   50,                           /* R earring */
   50,                           /* L earring */
   90,                           /* quiver */
   50,                           /* badge */
-  140,                          /* third wep */
-  140,                          /* 4th wep */
+  125,                          /* third wep */
+  125,                          /* 4th wep */
   100,                          /* back */
   50,                           /* belt1 */
   50,                           /* belt2 */
@@ -2263,7 +2263,7 @@ static int location_mod[] = { 75,       /* light */
   100,                          /* rear feet */
   80,                           /* nose */
   90,                           /* horn */
-  100,                          /* Ioun */
+  95,                          /* Ioun */
   0,                            /* Not used */
   0, 0, 0
 };
@@ -2362,7 +2362,7 @@ void do_steal(P_char ch, char *argument, int cmd)
   if (!(victim = get_char_room_vis(ch, victim_name)))
   {
     send_to_char("Steal what from who?\r\n", ch);
-    CharWait(ch, PULSE_VIOLENCE);
+    //CharWait(ch, PULSE_VIOLENCE);
     return;
   }
   else if (victim == ch)
@@ -2370,12 +2370,12 @@ void do_steal(P_char ch, char *argument, int cmd)
     send_to_char("Come on now, that's rather stupid!\r\n", ch);
     return;
   }
-  if (IS_PC(victim) && (GET_LEVEL(ch) < 35) &&
+ /* if (IS_PC(victim) && (GET_LEVEL(ch) < 35) &&
       !GET_SPEC(ch, CLASS_THIEF, SPEC_CUTPURSE))
   {
     send_to_char("Maybe you should practice more...\r\n", ch);
     return;
-  }
+  }*/
   if ((world[ch->in_room].room_flags & SINGLE_FILE) &&
       !AdjacentInRoom(ch, victim))
   {
@@ -2537,7 +2537,7 @@ void do_steal(P_char ch, char *argument, int cmd)
       send_to_char("Oooof!  Damn that's heavy!\r\n", ch);
       failed = TRUE;
     }
-    if (GET_SPEC(ch, CLASS_THIEF, SPEC_CUTPURSE))
+    if (GET_SPEC(ch, CLASS_ROGUE, SPEC_THIEF))
       percent -= location_mod[eq_pos] * 2 / 3;
     else
       percent -= location_mod[eq_pos];
@@ -2615,7 +2615,7 @@ void do_steal(P_char ch, char *argument, int cmd)
 
         obj_from_char(obj, TRUE);
         obj_to_char(obj, ch);
-        notch_skill(ch, SKILL_STEAL, 20);
+        notch_skill(ch, SKILL_STEAL, 10);
         if (IS_PC(victim))
         {
           wizlog(MINLVLIMMORTAL, "%s &=LMjust stole &n%s (%d) from %s (%d) percent (%d)",
@@ -2708,7 +2708,7 @@ void do_steal(P_char ch, char *argument, int cmd)
                 "Bingo! You got %d &+Wplatinum&N, %d &+Ygold&N, %d silver, and %d &+ycopper&N coins!\r\n",
                 gold[3], gold[2], gold[1], gold[0]);
         send_to_char(Gbuf1, ch);
-        notch_skill(ch, SKILL_STEAL, 20);
+        notch_skill(ch, SKILL_STEAL, 10);
       }
       else
         send_to_char("You couldn't get any coins...\r\n", ch);
@@ -2809,6 +2809,7 @@ void do_steal(P_char ch, char *argument, int cmd)
   /* tell everybody of the evil deed! */
 
   // set the victim AWARE for a short bit (wouldn't YOU be paranoid?)
+  /*
   struct affected_type *afp = get_spell_from_char(victim, SKILL_AWARENESS);
   if (!afp)
   {
@@ -2823,7 +2824,7 @@ void do_steal(P_char ch, char *argument, int cmd)
   {
     afp->duration = 1;
   }
-
+  */
   if (!failed)
   {
     if (type == 3)

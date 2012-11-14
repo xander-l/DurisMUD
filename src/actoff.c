@@ -2916,6 +2916,7 @@ void do_consume(P_char ch, char *argument, int cmd)
      send_to_char(buf, ch); 
      --af->modifier;
      REMOVE_BIT(victim->specials.affected_by5, AFF5_DECAYING_FLESH);
+     affect_from_char(victim, SPELL_DECAYING_FLESH);
      spell_damage(ch, victim, 3 * GET_LEVEL(ch), SPLDAM_GENERIC,0, 0);
      act("...with a final gesture, &+L$n&n tears the last bit of &+gr&+Go&+gt&+Gt&+gi&+Gn&+gg&+r flesh&n from $N&n's &+gco&+Lrrod&+ged&n body.&n\r\n", FALSE, ch, 0, victim, TO_NOTVICT);
      act("...with a final gesture, &+L$n&n tears the last bit of &+gr&+Go&+gt&+Gt&+gi&+Gn&+gg&+r flesh&n from your&n &+gco&+Lrrod&+ged&n body.&n\r\n", FALSE, ch, 0, victim, TO_VICT);
