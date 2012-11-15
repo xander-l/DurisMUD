@@ -4118,7 +4118,9 @@ int sunblade(P_obj obj, P_char ch, int cmd, char *arg)
       TRUE, ch, obj, victim, TO_NOTVICT);
     act("&+r$n's&n $q &+Rexplodes&n&+r in a torrent of pure &+Rflame!&n",
       TRUE, ch, obj, victim, TO_VICT);
-    
+   spell_sunray(GET_LEVEL(ch), ch, NULL, 0, victim, 0);
+
+  /*
     if(OUTSIDE(ch))
       spell_sunray(GET_LEVEL(ch), ch, NULL, 0, victim, 0);
     else if(number(0, 1))
@@ -4127,14 +4129,14 @@ int sunblade(P_obj obj, P_char ch, int cmd, char *arg)
       spell_firebrand(GET_LEVEL(ch), ch, NULL, 0, victim, 0);
     else
       spell_immolate(GET_LEVEL(ch), ch, NULL, 0, victim, 0);
-   
-    if(GET_C_LUCK(ch) > number(1, 1000))
-    {
+   */
+    //if(GET_C_LUCK(ch) > number(1, 1000))
+   // {
       act("$p &+memits a &+Msoft glow&n&+m.&n", TRUE, ch, obj, victim, TO_CHAR);
       act("$p &+memits a &+Msoft glow&n&+m.&n", TRUE, ch, obj, victim, TO_NOTVICT);
       act("$p &+memits a &+Msoft glow&n&+m.&n", TRUE, ch, obj, victim, TO_VICT);
       spell_heal(GET_LEVEL(ch), ch, 0, 0, ch, 0);
-    }
+  //  }
     
     return true;
   }

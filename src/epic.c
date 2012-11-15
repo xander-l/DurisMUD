@@ -874,8 +874,8 @@ void epic_stone_level_char(P_obj obj, P_char ch)
   int nostone_epics_for_level = epics_for_level * 2;
 #endif
 
-  if((GET_EXP(ch) >= new_exp_table[GET_LEVEL(ch)+1] &&
-      ch->only.pc->epics >= epics_for_level) || (GET_EXP(ch) >= new_exp_table[GET_LEVEL(ch)+1] && ch->only.pc->epics >= (nostone_epics_for_level)))
+  if(((GET_EXP(ch) >= new_exp_table[GET_LEVEL(ch)+1] &&
+      ch->only.pc->epics >= epics_for_level)) || ((GET_EXP(ch) >= new_exp_table[GET_LEVEL(ch)+1] && ch->only.pc->epics >= (nostone_epics_for_level))))
   {
     GET_EXP(ch) -= new_exp_table[GET_LEVEL(ch) + 1];
     advance_level(ch);//, TRUE); wipe2011
@@ -924,8 +924,9 @@ void epic_stone_one_touch(P_obj obj, P_char ch, int epic_value)
     /* not on epic errand, just give them the epic points */
     gain_epic(ch, EPIC_ZONE, obj->value[2], epic_value);
   }
+
   //Characters can now level up to 55 by epics and exp alone - 11/13/12 Drannak
-  if(GET_LEVEL(ch) == (obj->value[3] - 1) ||
+  if((GET_LEVEL(ch) == (obj->value[3] - 1)) ||
     (curr_epics > 500 && GET_LEVEL(ch) == 50) ||
     (curr_epics > 1000 && GET_LEVEL(ch) == 51) ||
     (curr_epics > 2000 && GET_LEVEL(ch) == 52) ||
