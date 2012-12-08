@@ -7,8 +7,8 @@ baby purple worm~
 &+Lgo before it becomes a fully grown adult. Even so, this little critter
 &+Lis already quite dangerous.&n
 ~
-2124 1 0 67108896 0 0 0 0 S
-PW 0 1 6
+2124 1 0 0 67108896 0 0 0 0 S
+PW 0 1 0 6
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -21,8 +21,8 @@ adolescent purple worm~
 &+Lways to go before it becomes a fully grown adult. Even so, this little
 &+Lbeast is already very dangerous.&n
 ~
-2124 1 0 67108896 0 0 0 0 S
-PW 0 1 6
+2124 1 0 0 67108896 0 0 0 0 S
+PW 0 1 0 6
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -35,8 +35,8 @@ small purple worm~
 &+La formitable beast. The scales on its body have become hard
 &+Land are able to deflect quite a bit of damage.&n
 ~
-2124 1 0 67108904 0 0 0 0 S
-PW 0 1 6
+2124 1 0 0 67108904 0 0 0 0 S
+PW 0 1 0 6
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -50,8 +50,8 @@ large purple worm~
 &+Lnatural preditors at this size and is at the top of the
 &+Lfood chain, even above you.&n
 ~
-2124 1 0 67108904 0 0 0 0 S
-PW 0 1 6
+2124 1 0 0 67108904 0 0 0 0 S
+PW 0 1 0 6
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -66,8 +66,8 @@ giant purple worm _nosneak_ _noblind_ _ignore_~
 &+Lweapon this worm has is its enormous mouth, which is large enough
 &+Lto swallow the most gargantuan of meals in one single gulp.&n
 ~
-1082394700 1 0 335544632 0 0 4096 0 S
-PW 0 1 6
+1082394700 1 0 0 335544632 0 0 4096 0 S
+PW 0 1 0 6
 60 0 0 5d5+6000 9d9+50
 0.0.0.0 0
 8 8 0
@@ -81,8 +81,8 @@ wicked drider~
 &+Lbody. The head is ill-shapen and a large set of fangs pretrude
 &+Lfrom the upper jaw.&n
 ~
-1073743948 1 0 67108896 0 0 0 0 S
-dr 0 16777216 3
+1073743948 1 0 0 67108896 0 0 0 0 S
+dr 0 16777216 0 3
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -96,8 +96,8 @@ vicious drider~
 &+Lbody. The head is ill-shapen and a large set of fangs pretrude
 &+Lfrom the upper jaw.&n
 ~
-1073743948 1 0 67108896 0 0 0 0 S
-dr 0 16777216 3
+1073743948 1 0 0 67108896 0 0 0 0 S
+dr 0 16777216 0 3
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -111,8 +111,8 @@ shadow drider~
 &+Lbody. The head is ill-shapen and a large set of fangs pretrude
 &+Lfrom the upper jaw.&n
 ~
-1073743948 1 0 67108904 0 0 0 0 S
-dr 0 16777216 3
+1073743948 1 0 0 67108904 0 0 0 0 S
+dr 0 16777216 0 3
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -126,8 +126,8 @@ deadly drider~
 &+Lbody. The head is ill-shapen and a large set of fangs pretrude
 &+Lfrom the upper jaw.&n
 ~
-1073743948 1 0 1007157304 0 262400 0 0 S
-dr 0 16777216 3
+1073743948 1 0 0 1007157304 0 262400 0 0 S
+dr 0 16777216 0 3
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -141,8 +141,8 @@ baby roper~
 &+Lbody and has dozens of tentacles that flap and flail around, attempting to
 &+Lsnatch and grab at anything nearby.&n
 ~
-1073743948 1 0 67108896 0 0 0 0 S
-ac 0 0 2
+1073743948 1 0 0 67108896 0 0 0 0 S
+ac 0 0 0 2
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -156,8 +156,8 @@ young roper~
 &+Lbody and has dozens of tentacles that flap and flail around, attempting to
 &+Lsnatch and grab at anything nearby.&n
 ~
-1073743948 1 0 67108896 0 0 0 0 S
-ac 0 1 4
+1073743948 1 0 0 67108896 0 0 0 0 S
+ac 0 1 0 4
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -171,8 +171,8 @@ mature roper~
 &+LTwo large eyes are fixed about the mouth, giving this beast a very
 &+Lgood view of its next meal.&n
 ~
-1073743948 1 0 67108896 0 0 0 0 S
-ac 0 1 5
+1073743948 1 0 0 67108896 0 0 0 0 S
+ac 0 1 0 5
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -186,8 +186,8 @@ ancient roper _noblind_ _nosneak_ _ignore_~
 &+LTwo large eyes are fixed about the mouth, giving this beast a very
 &+Lgood view of its next meal.&n
 ~
-1073772620 1 0 67108904 0 0 1052672 0 S
-ac 0 1 6
+1073772620 1 0 0 67108904 0 0 1052672 0 S
+ac 0 1 0 6
 60 0 0 5d5+4000 10d10+60
 0.0.0.0 0
 8 8 0
@@ -201,8 +201,8 @@ lizardman child~
 &+Lred eyes seem to cast a dull and lifeless gaze across the room. This
 &+Lchild has a tongue that flickers about wildly.&n
 ~
-1073743948 1 0 67108896 0 0 0 0 S
-r 0 1 3
+1073743948 1 0 0 67108896 0 0 0 0 S
+r 0 1 0 3
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -217,8 +217,8 @@ lizardman female~
 &+Lfemale looks to be quite focused on finding a place that will produce
 &+La large meal.&n
 ~
-1073743948 1 0 67108904 0 0 0 0 S
-r 0 1 3
+1073743948 1 0 0 67108904 0 0 0 0 S
+r 0 1 0 3
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -233,8 +233,8 @@ lizardman male~
 &+Lmale has a very aggressive look in his eyes and doesn't very interested
 &+Lin sharing any space with the likes of you.&n
 ~
-1073743948 1 0 67108904 0 0 0 0 S
-r 0 1 3
+1073743948 1 0 0 67108904 0 0 0 0 S
+r 0 1 0 3
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -250,8 +250,8 @@ lizardman witchdoctor doctor witch~
 &+Lin a strange trance and seems to evaluate and study everything that is
 &+Lgoing on around it.&n
 ~
-1073743948 1 0 67108896 0 0 0 0 S
-r 0 256 3
+1073743948 1 0 0 67108896 0 0 0 0 S
+r 0 256 0 3
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -265,8 +265,8 @@ lizardman hunter~
 &+Lred eyes seem to cast a dull and lifeless gaze across the room. This
 &+Lhunter has spent days tracking a herd of rothes.&n
 ~
-1073743948 1 0 67108904 0 0 0 0 S
-r 0 1 3
+1073743948 1 0 0 67108904 0 0 0 0 S
+r 0 1 0 3
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -281,8 +281,8 @@ lizardman worker~
 &+Lworker is obviously very low on the social food chain and has been
 &+Lgiven the task of manual labor.&n
 ~
-1073743948 1 0 67108896 0 0 0 0 S
-r 0 1 3
+1073743948 1 0 0 67108896 0 0 0 0 S
+r 0 1 0 3
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -298,8 +298,8 @@ lizardman chieftain~
 &+Lindividual rules without mercy and is very effective at mobilizing his
 &+Lwarriors in the event of a raid.&n
 ~
-1073743948 1 0 67108904 0 0 0 0 S
-r 0 16 3
+1073743948 1 0 0 67108904 0 0 0 0 S
+r 0 16 0 3
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -315,8 +315,8 @@ lizardman princess~
 &+Lthe nearby workers, relishing in the satisfaction of making others
 &+Lobey her commands.&n
 ~
-1073743948 1 0 67108904 0 0 0 0 S
-r 0 32 3
+1073743948 1 0 0 67108904 0 0 0 0 S
+r 0 32 0 3
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -331,8 +331,8 @@ lizardman guard~
 &+Lguard wanders around the surrounding areas in a desperate search for
 &+Lsomething to kill.&n
 ~
-1073743948 1 0 67108904 0 0 0 0 S
-r 0 1 3
+1073743948 1 0 0 67108904 0 0 0 0 S
+r 0 1 0 3
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -345,8 +345,8 @@ drow hunter~
 &+Lvarious victims. A slender rapier and buckler is all this drow
 &+Lcarries with him.&n
 ~
-1073743948 24 0 67108896 0 0 0 0 S
-pl 0 1 3
+1073743948 24 0 0 67108896 0 0 0 0 S
+pl 0 1 0 3
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -359,8 +359,8 @@ drow warmage~
 &+Lvarious victims. A small tome and a thin wand is all that this
 &+Lmighty warmage is carrying with her.&n
 ~
-1073743948 24 0 67108896 0 0 0 0 S
-pl 0 512 3
+1073743948 24 0 0 67108896 0 0 0 0 S
+pl 0 512 0 3
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -373,8 +373,8 @@ duergar raider~
 &+Lmake up the Underdark. His amazing stealth and improved vision
 &+Lgives him a distinct advantage when ambushing unsuspecting victims.&n
 ~
-1073743948 24 0 67108896 0 0 0 0 S
-pd 0 1 3
+1073743948 24 0 0 67108896 0 0 0 0 S
+pd 0 1 0 3
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -387,8 +387,8 @@ duergar warpriest~
 &+Lmake up the Underdark. Her amazing stealth and improved vision
 &+Lgives her a distinct advantage when ambushing unsuspecting victims.&n
 ~
-1073743948 24 0 67108896 0 0 0 0 S
-pd 0 33 3
+1073743948 24 0 0 67108896 0 0 0 0 S
+pd 0 33 0 3
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -401,8 +401,8 @@ raiding illithid~
 &+Lto have left the protection of the brain golems to seek out more
 &+Ladventurous surroundings.&n
 ~
-1073743948 1 0 67108896 0 0 0 0 S
-mf 0 262144 3
+1073743948 1 0 0 67108896 0 0 0 0 S
+mf 0 262144 0 3
 48 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -416,8 +416,8 @@ mind demon lesser~
 &+Ldestruction to the illithids and all those who occupy the same
 &+Ldimension.&n
 ~
-1073743948 1 0 67108896 0 0 0 0 S
-x 0 1310720 4
+1073743948 1 0 0 67108896 0 0 0 0 S
+x 0 1310720 0 4
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -431,8 +431,8 @@ mind demon greater~
 &+Ldestruction to the illithids and all those who occupy the same
 &+Ldimension.&n
 ~
-1073743948 1 0 67108896 0 0 0 0 S
-x 0 1310720 4
+1073743948 1 0 0 67108896 0 0 0 0 S
+x 0 1310720 0 4
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -447,8 +447,8 @@ ixichitl~
 &+Lbecome fearsome spellcasters, able to deal an amazing amount of
 &+Ldamage by their will.&n
 ~
-1073743948 1 0 134742074 0 0 0 0 S
-ew 0 132 -1
+1073743948 1 0 0 134742074 0 0 0 0 S
+ew 0 132 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -463,8 +463,8 @@ ixichitl~
 &+Lbecome fearsome spellcasters, able to deal an amazing amount of
 &+Ldamage by their will.&n
 ~
-1073743948 1 0 134742074 0 0 0 0 S
-ew 0 260 -1
+1073743948 1 0 0 134742074 0 0 0 0 S
+ew 0 260 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -478,8 +478,8 @@ illithid~
 &+mcreatures it comes across, for no reason other than for a quick
 &+mmoment of entertainment.&n
 ~
-1073743948 1 0 134742074 0 0 0 0 S
-mf 0 262144 -1
+1073743948 1 0 0 134742074 0 0 0 0 S
+mf 0 262144 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -493,8 +493,8 @@ kuo toa kuo-toa guard~
 &+gHe looks particularly grumpy. It's probably a good idea
 &+gto avoid him if possible.&n
 ~
-1073743948 1 0 134742074 0 0 0 0 S
-r 0 1 -1
+1073743948 1 0 0 134742074 0 0 0 0 S
+r 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -508,8 +508,8 @@ aboleth guard~
 &+bIt has a pair of long tentacles that it uses to weave
 &+bnasty spells in defense against invaders.&n
 ~
-1073743948 1 0 135790650 0 0 0 0 S
-mf 0 262656 -1
+1073743948 1 0 0 135790650 0 0 0 0 S
+mf 0 262656 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -524,8 +524,8 @@ haz'on'wyz drow fire magus _spec3_~
 &+Lof &+mDraknah &+Lhas become quite a master with the element
 &+Lof &+rfire&+L.
 ~
-1074137164 0 0 134217786 0 0 0 0 S
-pl 0 2048 -1
+1074137164 0 0 0 134217786 0 0 0 0 S
+pl 0 2048 0 -1
 57 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -541,8 +541,8 @@ ozman'dyzus drow traveler~
 &+Lthis drow traveler's face as he travels the underdark searching out
 &+Lthe most opportune expansion of his &+yhouse&+L.&n
 ~
-1074137164 0 0 134217786 0 0 0 0 S
-pl 0 1 -1
+1074137164 0 0 0 134217786 0 0 0 0 S
+pl 0 1 0 -1
 57 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -560,8 +560,8 @@ kryz'kyssik prophesied hunter~
 &+Lto an ancient &+bmagical &+Lenergy. He looks at the ground and snarls
 &+Lat the tracks of a &+glarge &+Groper&+L.&n
 ~
-1074137164 0 0 134217786 0 0 0 0 S
-pl 0 33 -1
+1074137164 0 0 0 134217786 0 0 0 0 S
+pl 0 33 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -575,8 +575,8 @@ orog raider~
 &+Lthat his intentions are not at all friendly. He flexes his
 &+Lmuscles and snickers as you flinch.&n
 ~
-1074137164 24 0 8 0 0 0 0 S
-or 0 1 -1
+1074137164 24 0 0 8 0 0 0 0 S
+or 0 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -590,8 +590,8 @@ orog hunter~
 &+Lthat his intentions are not at all friendly. He flexes his
 &+Lmuscles and snickers as you flinch.&n
 ~
-1074137164 24 0 8 0 0 0 0 S
-or 0 1 -1
+1074137164 24 0 0 8 0 0 0 0 S
+or 0 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -605,8 +605,8 @@ large myconid~
 &+mtheir time in dark areas of the Underdark, absorbing nutrients
 &+mfrom the ground.&n
 ~
-1073743948 0 0 8 0 0 0 0 S
-ah 0 0 -1
+1073743948 0 0 0 8 0 0 0 0 S
+ah 0 0 0 -1
 13 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -620,8 +620,8 @@ large myconid~
 &+mtheir time in dark areas of the Underdark, absorbing nutrients
 &+mfrom the ground.&n
 ~
-1073743948 0 0 8 0 0 0 0 S
-ah 0 0 -1
+1073743948 0 0 0 8 0 0 0 0 S
+ah 0 0 0 -1
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -633,8 +633,8 @@ goblin scout~
 &+L   This small &+ggoblin &+Lwanders around the &+munderdark &+Lin
 &+Lan endless search for valuable resources.&n
 ~
-1073743948 64 0 8 0 0 0 0 S
-hg 0 1 -1
+1073743948 64 0 0 8 0 0 0 0 S
+hg 0 1 0 -1
 19 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -648,8 +648,8 @@ rock daemon~
 &+cis actually part of the earth, and its movements seem
 &+cmore like an elemental than that of a daemon.&n
 ~
-1073743948 1 0 8 0 0 0 0 S
-x 0 512 -1
+1073743948 1 0 0 8 0 0 0 0 S
+x 0 512 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -663,8 +663,8 @@ rock daemon~
 &+cis actually part of the earth, and its movements seem
 &+cmore like an elemental than that of a daemon.&n
 ~
-1073743948 1 0 8 0 0 0 0 S
-x 0 512 -1
+1073743948 1 0 0 8 0 0 0 0 S
+x 0 512 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -679,8 +679,8 @@ deep gnome~
 &+Lsees you, an expression that resembles a predator smiling at
 &+Lan easy kill.&n
 ~
-1073743948 1 0 524296 0 0 0 0 S
-pg 0 1 -1
+1073743948 1 0 0 524296 0 0 0 0 S
+pg 0 1 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -695,8 +695,8 @@ deep gnome~
 &+Lsees you, an expression that resembles a predator smiling at
 &+Lan easy kill.&n
 ~
-1073743948 1 0 524296 0 0 0 0 S
-pg 0 512 -1
+1073743948 1 0 0 524296 0 0 0 0 S
+pg 0 512 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -710,8 +710,8 @@ huge earth elemental~
 &+yof rock and gravel. It looks extremely dangerous, so perhaps you should
 &+yfind something else to bother.&n
 ~
-1073743948 1 0 8 0 0 0 0 S
-ee 0 1 -1
+1073743948 1 0 0 8 0 0 0 0 S
+ee 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -725,8 +725,8 @@ huge lava elemental~
 &+yof fire and flames. It looks extremely dangerous, so perhaps you should
 &+yfind something else to bother.&n
 ~
-1073743948 1 0 8 0 0 0 0 S
-ef 0 1 -1
+1073743948 1 0 0 8 0 0 0 0 S
+ef 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -741,8 +741,8 @@ large rothe~
 &+ylife for these easy-going and gentle animals, but they're destined
 &+yfor the dinner plate.&n
 ~
-72 0 0 0 0 0 0 0 S
-a 0 1 -1
+72 0 0 0 0 0 0 0 0 S
+a 0 1 0 -1
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -757,8 +757,8 @@ gentle rothe~
 &+ylife for these easy-going and gentle animals, but they're destined
 &+yfor the dinner plate.&n
 ~
-72 0 0 0 0 0 0 0 S
-a 0 1 -1
+72 0 0 0 0 0 0 0 0 S
+a 0 1 0 -1
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -773,8 +773,8 @@ elder rothe~
 &+ylife for these easy-going and gentle animals, but they're destined
 &+yfor the dinner plate.&n
 ~
-72 0 0 0 0 0 0 0 S
-a 0 1 -1
+72 0 0 0 0 0 0 0 0 S
+a 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -789,8 +789,8 @@ mammoth rothe~
 &+ylife for these easy-going and gentle animals, but they're destined
 &+yfor the dinner plate.&n
 ~
-1073743944 0 0 8 0 0 0 0 S
-a 0 1 -1
+1073743944 0 0 0 8 0 0 0 0 S
+a 0 1 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -804,8 +804,8 @@ drow rothe herder~
 &+mareas. He also doesn't seem to enjoy having unwelcomed
 &+mvisitors in the rothe fields.&n
 ~
-1073743944 1 0 8 0 0 0 0 S
-pl 0 1 -1
+1073743944 1 0 0 8 0 0 0 0 S
+pl 0 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -820,8 +820,8 @@ ghastly shrieker~
 &+mthat it uses like arms. This creature is actually a fungi
 &+mand can only survive by feeding off the energy of others.&n
 ~
-1073741900 1 0 0 0 0 0 0 S
-ap 0 2 -1
+1073741900 1 0 0 0 0 0 0 0 S
+ap 0 2 0 -1
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -833,8 +833,8 @@ gnome scout~
 &+L   This small &+rgnome &+Lwanders around the &+mUnderdark &+Llooking
 &+Lfor signs of danger.&n
 ~
-1073743948 128 0 8 0 0 0 0 S
-pg 0 1 -1
+1073743948 128 0 0 8 0 0 0 0 S
+pg 0 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -847,8 +847,8 @@ small shambling mound~
 &+gusing a form of locomotion that resembles a pile of
 &+ggarbage rolling down a sloped hill.&n
 ~
-1073743948 1 0 8 0 0 0 0 S
-ah 0 1 6
+1073743948 1 0 0 8 0 0 0 0 S
+ah 0 1 0 6
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -861,8 +861,8 @@ immature kuo toa~
 &+gand obviously hasn't developed into any animal that
 &+gcould inflict too much damage to a novice adventurer.&n
 ~
-1073743948 1 0 0 0 0 0 0 S
-r 0 1 -1
+1073743948 1 0 0 0 0 0 0 0 S
+r 0 1 0 -1
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -875,8 +875,8 @@ cave scorpion~
 &+Lin length, but its pincers and venomous tail look to
 &+Lbe quite dangerous.&n
 ~
-1073743948 1 0 0 0 0 0 0 S
-i 0 2 2
+1073743948 1 0 0 0 0 0 0 0 S
+i 0 2 0 2
 11 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -889,8 +889,8 @@ gnomish guard sentry gnome~
 &+Lcaverns, ensuring that no unwanted guards come wandering too
 &+Lclosely to the great city of Ashrumite.&n
 ~
-1073743950 128 0 268435608 0 0 0 0 S
-pg 0 1 -1
+1073743950 128 0 0 268435608 0 0 0 0 S
+pg 0 1 0 -1
 47 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -905,8 +905,8 @@ skeletal roper~
 &+wto a bone-white exoskeleton. Nevertheless, this creature
 &+wdoesn't look very friendly.&n
 ~
-1073743948 1 0 8 0 0 0 0 S
-sk 0 1 4
+1073743948 1 0 0 8 0 0 0 0 S
+sk 0 1 0 4
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -921,8 +921,8 @@ mummified behemoth~
 &+Ldarkness, seeking out rotting and decaying flesh for a quick
 &+Land effortless source of energy.&n
 ~
-1073743948 1 0 8 0 0 0 0 S
-zo 0 1 -1
+1073743948 1 0 0 8 0 0 0 0 S
+zo 0 1 0 -1
 48 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -937,8 +937,8 @@ fierce wraith~
 &+Las it approaches you, the world seems to become silent
 &+Land time seems to slow down.&n
 ~
-1073743948 1 0 8 0 0 0 0 S
-wr 0 1 -1
+1073743948 1 0 0 8 0 0 0 0 S
+wr 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -951,8 +951,8 @@ shadow darkness~
 &+Lseems to simply drain from the room whenever this monster
 &+Lapproaches.&n
 ~
-1073743948 1 0 8 0 0 0 0 S
-sw 0 4 -1
+1073743948 1 0 0 8 0 0 0 0 S
+sw 0 4 0 -1
 37 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -965,8 +965,8 @@ ravenous fire daemon~
 &+rfire and seems to take devilish delight in torturing and
 &+rmaiming its victims.&n
 ~
-1073743948 1 0 8 0 0 0 0 S
-x 0 16 -1
+1073743948 1 0 0 8 0 0 0 0 S
+x 0 16 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -979,8 +979,8 @@ fire mephit~
 &+rfire and seems to take devilish delight in torturing and
 &+rmaiming its victims.&n
 ~
-1073743948 1 0 8 0 0 0 0 S
-y 0 512 -1
+1073743948 1 0 0 8 0 0 0 0 S
+y 0 512 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -993,8 +993,8 @@ lava golem~
 &+rfire and seems to take devilish delight in torturing and
 &+rmaiming its victims.&n
 ~
-1073743948 1 0 8 0 0 0 0 S
-ef 0 1048576 -1
+1073743948 1 0 0 8 0 0 0 0 S
+ef 0 1048576 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1009,8 +1009,8 @@ centipede~
 &+rwith a pair of long serrated fangs, perfectly designed
 &+rfor taking a quick bite out of an unsuspecting victim.&n
 ~
-2060 1 0 0 0 0 0 0 S
-i 0 1 1
+2060 1 0 0 0 0 0 0 0 S
+i 0 1 0 1
 2 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1026,8 +1026,8 @@ crimson death mist~
 &+rcelled parasites that join together to increase the
 &+rchance of overpowering bigger prey.&n
 ~
-1073743884 1 0 0 0 0 0 0 S
-i 0 1 1
+1073743884 1 0 0 0 0 0 0 0 S
+i 0 1 0 1
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0

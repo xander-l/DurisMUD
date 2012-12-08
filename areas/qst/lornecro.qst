@@ -81,16 +81,13 @@ key vault mithril~
 &+yDralor &nsays 'How did ye know of the Vault? Only a few even know of its
 existence. Hmmmm so you want into the vault do ye?? Well that is not likely,
 I know what is in the vault, and it is a great prize. It would be impossible,
-I would never give you the key. Hell, you would have to give me both the
-lost crown of Zalran, and one of our great lost axes before I would do that.
-Like I said, almost impossible.'
-
-&+yHe winks at you and says &+W'Also, you should give me the axe first!'&n
+I would never give you the key. Hell, you would have to give me that dark
+steal axe back plus 500 of those platinum pieace, sure I would give you the key."
 ~
 M
 maltheas demonic weapon dagger warhammer demon mold~
 &+wDralor says &+W'Hmmmm yes, if I was brought some mithril molding to shape the weapon, an ancient demonic scroll&n
-&+Wto perform the ritual and say 2,500 platinum as payment! Sure, I could re-forge this weapon.'&n
+&+Wto perform the ritual and say 1,000 platinum as payment! Sure, I could re-forge this weapon.'&n
 ~
 Q
    Apon giving him the crown he stands a bit taller and his eyes get a slight
@@ -123,7 +120,7 @@ aplenty for you.
 ~
 R I 138958
 G I 138943
-G I 138942
+G C 500000
 Q
 &+wDralor smiles and says &+W'You are indeed worthy of such a weapon! I shall shape and re-forge it right away.'&n
 &+RDralor begins forging the weapon and re-shaping it with the mithril dagger mold. Performing the final rights&n
@@ -133,7 +130,7 @@ R I 138963
 G I 138944
 G I 138952
 G I 138965
-G C 2500000
+G C 1000000
 Q
 &+wDralor smiles and says &+W'You are indeed worthy of such a weapon! I shall shape and re-forge it right away.'&n
 &+RDralor begins forging the weapon and re-shaping it with the mithril hammer mold. Performing the final rights&n
@@ -145,7 +142,7 @@ R I 138964
 G I 138962
 G I 138952
 G I 138965
-G C 2500000
+G C 1000000
 S
 #138927
 M

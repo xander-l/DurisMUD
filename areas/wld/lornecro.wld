@@ -167,7 +167,7 @@ S
 &+Bto be a bridge farther on. The current here is moving fast as bits of logs
 &+Band debris move past.
 ~
-1000000 134250496 6 0
+1000000 134250496 9 0
 D2
 ~
 ~
@@ -186,7 +186,7 @@ S
 &+Bto be a bridge that seems to be coming up fairly fast. The current here is
 &+Bmoving fast as bits of logs and debris move past.
 ~
-1000000 134250496 6 0
+1000000 134250496 9 0
 D0
 &+BYep, you guessed it, its the Wherston River.
 ~
@@ -213,7 +213,7 @@ Beneath the &+gWherston Bridge~
 &+Bmoving fast as bits of logs and debris move past. Above the Wherston bridge
 &+Bspans the river, rising like a monolith across the raging river.
 ~
-1000000 134250500 6 0
+1000000 134250500 9 0
 D0
    From the north flows a lot of water from the Wheston River.
 ~
@@ -241,7 +241,7 @@ S
 &+Bbridge is beginning to look a bit smaller. From here south the river begins
 &+Bto move into some serious rapids.
 ~
-1000000 134250496 6 0
+1000000 134250496 9 0
 D0
    From the north flows in a lot of water from the Wherston River.
 ~
@@ -264,7 +264,7 @@ S
 &+Bagainst a huge boulder and now begins moving east, taking everything in the
 &+Bcurrent with it.
 ~
-1000000 134250496 6 0
+1000000 134250496 9 0
 D0
    From the noth flows a lot of water from the Wherston River.
 ~
@@ -307,7 +307,7 @@ S
 &+Bnormal again, rushing through the gray granite mountains around it to the
 &+Bsouth.
 ~
-1000000 134250496 6 0
+1000000 134250496 9 0
 D2
    The Wherston River flows to the south.
 ~
@@ -329,7 +329,7 @@ S
 &+Bmoving fast as bits of logs and debris move past. Immediately south now a HUGE
 &+Bcrashing sound can be heard, without a doubt there is a waterfall ahead.
 ~
-1000000 134250496 6 0
+1000000 134250496 9 0
 D0
    To the north is the Wherston River.
 ~
@@ -418,7 +418,7 @@ S
 &+Bthis beautiful place. However they are doing one thing, stopping things from
 &+Bleaving, the only out seems to be... up.
 ~
-1000000 134250496 6 0
+1000000 134250496 9 0
 D0
 &+L   In that direction is more of the ruins of the ancient dwarven hold.
 ~
@@ -1804,7 +1804,7 @@ D0
 &+L   In that direction is more of the ruins of the ancient dwarven hold.
 ~
 ~
-0 0 512696
+0 0 512296
 D1
 &+y   To the east the Wherston Road continues.
 ~
@@ -1840,7 +1840,7 @@ S
 Beginning of the &+gWherston Road~
 &+y   Here begins what must be a trade road of some kind. To the east the road
 &+yseems to head into some hills that really don't look all that becoming,
-&+ywith the sparse lack of plants and all. To the south is a small building that
+&+ywith the sparse lack of plants and all. To the &+Wsouth&+y is a small building that
 &+yhas a large &+Wsign &n&+yout front. Even from here it is obvious that it is a
 &+ytrading station of some kind.
 ~

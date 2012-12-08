@@ -96,9 +96,9 @@ maltheas angel master~
 &+L   One of the dark heroes from the Wars of Light and Shadow, he has been
 &+Lreanimated to serve Zrack. He stands here ready to destroy anything.
 ~
-1073875020 1 0 0 805372088 268437697 67109056 0 -1000 S
-uv 0 16777216 1 4
-53 0 0 1d1+1 1d1+1
+1126307912 1 0 0 805372088 2240 67109056 0 -1000 S
+uv 0 17825792 0 3
+58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #138907
@@ -306,8 +306,8 @@ simple, a white frilly shirt and plain black cloth for pants, definitely
 working clothes. However there is something about him that makes him just look,
 sinister.
 ~
-1073741832 1 0 0 33554472 0 0 0 990 S
-uv 0 16 1 -1
+1073741832 1 0 0 24 0 0 0 -1000 S
+uv 0 17825792 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -445,9 +445,9 @@ minion nakral~
 &+LStanding here in a black robes he brings a message to Nakral's old student,
 &+LZrack. He seems to be in a foul mood.
 ~
-1073748040 1 0 0 536936602 309440 0 0 -999 S
-U 0 512 1 -1
-50 0 0 1d1+1 1d1+1
+1342199880 1 0 0 536936602 309440 0 0 -999 S
+ul 0 512 2 6
+58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #138929
@@ -490,8 +490,8 @@ iron golem br_a~
 &+Lstanding here waiting for any intruders.
 ~
 1107299402 1 0 0 805372056 276673 0 0 0 S
-OG 0 1 1 -1
-55 0 0 1d1+1 1d1+1
+OG 0 64 2 -1
+57 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
 #138932

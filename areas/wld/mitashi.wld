@@ -4718,10 +4718,6 @@ D1
 ~
 ~
 0 0 138396
-D2
-~
-~
-0 0 138409
 D3
 ~
 ~
@@ -4745,10 +4741,6 @@ D1
 ~
 ~
 0 0 138398
-D2
-~
-~
-0 0 138408
 D3
 ~
 ~
@@ -4772,14 +4764,6 @@ D1
 ~
 ~
 0 0 138399
-D2
-~
-~
-0 0 138407
-D3
-~
-~
-0 0 138405
 S
 #138401
 &+bThe&n &+BImperial&n &+bBay&n~
@@ -4874,10 +4858,6 @@ D0
 ~
 ~
 0 0 138404
-D1
-~
-~
-0 0 138400
 D2
 ~
 ~
@@ -4910,10 +4890,6 @@ S
 &+bthat swim close to the surface of the placid waters.
 ~
 1 0 7 0
-D0
-~
-~
-0 0 138400
 D1
 ~
 ~
@@ -4932,10 +4908,6 @@ S
 &+bthat swim close to the surface of the placid waters.
 ~
 1 0 7 0
-D0
-~
-~
-0 0 138399
 D1
 ~
 ~
@@ -4954,10 +4926,10 @@ S
 &+bthat swim close to the surface of the placid waters.
 ~
 1 0 7 0
-D0
+D2
 ~
 ~
-0 0 138398
+0 0 648088
 D3
 ~
 ~

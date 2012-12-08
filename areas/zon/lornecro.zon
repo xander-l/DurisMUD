@@ -224,7 +224,10 @@ P 1 138923 1 138922 100 0 0 0      *   a yellow potion
 P 1 138924 1 138922 100 0 0 0      *   a scroll with red letters
 P 1 138925 1 138922 100 0 0 0      *   a patched cloak
 O 0 138927 1 138956 100 0 0 0      * a loose board
-P 1 138928 1 138927 100 0 0 0      *   a green emerald
+P 1 138928 4 138927 100 0 0 0      *   a green emerald
+P 1 138928 4 138927 100 0 0 0      *   a green emerald
+P 1 138928 4 138927 100 0 0 0      *   a green emerald
+P 1 138928 4 138927 100 0 0 0      *   a green emerald
 O 0 138929 3 138967 100 0 0 0      * a black bladed short sword
 O 0 138934 1 138975 100 0 0 0      * a dwarven skeleton
 P 1 138942 1 138934 100 0 0 0      *   an old crown made of adamantium
@@ -234,7 +237,6 @@ O 0 138956 1 138987 100 0 0 0      * a pile of stones and gravel
 P 1 138955 1 138956 100 0 0 0      *   a large mithril key
 O 0 138944 1 138994 100 0 0 0      * the mold of a small mithril parrying dagger
 O 0 138962 1 138994 100 0 0 0      * the mold of a small mithril hammer
-O 0 138957 1 138994 25 0 0 0       * the stone armor of Zaldran
 O 0 225 3 138994 100 0 0 0         * (object type not in this .obj file)
 O 0 225 3 138994 100 0 0 0         * (object type not in this .obj file)
 O 0 225 3 138994 100 0 0 0         * (object type not in this .obj file)
@@ -245,11 +247,12 @@ O 0 233 3 138994 100 0 0 0         * (object type not in this .obj file)
 O 0 233 3 138994 100 0 0 0         * (object type not in this .obj file)
 O 0 233 3 138994 100 0 0 0         * (object type not in this .obj file)
 O 0 138930 1 138994 35 0 0 0       * the crowned-prince of Ironstar scepter of Sovereignty
+O 0 138957 1 138994 50 0 0 0       * Swordbreaker, the ancient armor of Clan Ironstar
 *
 M 0 138932 1 138900 80 0 0 0       * an apprentice of Urian
 E 1 138960 1 18 100 0 0 0          *   a long sealed letter
 E 1 138961 1 21 100 0 0 0          *   a blood-colored crystal tear
-M 0 138927 1 138900 35 0 0 0       * the spirit of Robert
+M 0 138927 1 138900 75 0 0 0       * the spirit of Robert
 M 0 138900 2 138927 100 0 0 0      * a wandering skeleton
 M 0 138901 9 138928 100 0 0 0      * a guardian wight
 M 0 138901 9 138928 100 0 0 0      * a guardian wight
@@ -313,6 +316,11 @@ F 1 138920 12 138970 100 0 0 0     * an undead dwarven warrior (following)
 E 1 138933 5 5 100 0 0 0           *   some tattered chainmail
 E 1 138932 5 16 100 0 0 0          *   an ancient battleaxe
 F 1 138901 9 138970 100 0 0 0      * a guardian wight (following)
+M 0 138928 1 138976 100 0 0 0      * a minion of Nakral
+G 1 138952 1 0 100 0 0 0           *    a scroll of demonhide
+G 1 138951 1 0 100 0 0 0           *    a note written in blood
+F 1 138929 2 138976 100 0 0 0      * a guardian skeleton (following)
+F 1 138929 2 138976 100 0 0 0      * a guardian skeleton (following)
 M 0 138923 1 138977 100 0 0 0      * Charringdeath
 G 1 138909 1 0 100 0 0 0           *    the scales of Charring Death
 M 0 138922 1 138977 100 0 0 0      * Zrack
@@ -334,19 +342,15 @@ E 1 138959 1 14 100 0 0 0          *   a duergar-made adamantine bracelet
 F 1 138920 12 138987 100 0 0 0     * an undead dwarven warrior (following)
 F 1 138920 12 138987 100 0 0 0     * an undead dwarven warrior (following)
 F 1 138920 12 138987 100 0 0 0     * an undead dwarven warrior (following)
-M 0 138928 1 138991 100 0 0 0      * a minion of Nakral
-G 1 138952 1 0 100 0 0 0           *    a scroll of demonhide
-G 1 138951 1 0 100 0 0 0           *    a note written in blood
-F 1 138929 2 138991 100 0 0 0      * a guardian skeleton (following)
-F 1 138929 2 138991 100 0 0 0      * a guardian skeleton (following)
-M 0 138906 1 138991 100 0 0 0      * Maltheas
+M 0 138931 3 138993 100 0 0 0      * a iron golem
+M 0 138931 3 138993 100 0 0 0      * a iron golem
+M 0 138931 3 138993 100 0 0 0      * a iron golem
+M 0 138906 1 138998 100 0 0 0      * Maltheas
 E 1 138915 1 11 100 0 0 0          *   a shield of molten metal
 E 1 138908 1 16 100 0 0 0          *   a burning blade called 'The Fury of Demons'
 G 1 138965 1 0 100 0 0 0           *    a broken demonic weapon called 'The Fury of Demons'
-F 1 138925 2 138991 100 0 0 0      * an angel of death (following)
-F 1 138925 2 138991 100 0 0 0      * an angel of death (following)
-M 0 138931 2 138993 100 0 0 0      * a iron golem
-M 0 138931 2 138993 100 0 0 0      * a iron golem
+F 1 138925 2 138998 100 0 0 0      * an angel of death (following)
+F 1 138925 2 138998 100 0 0 0      * an angel of death (following)
 M 0 138933 2 138999 100 0 0 0      * a wraith of the forgotten dead
 F 1 138920 12 138999 100 0 0 0     * an undead dwarven warrior (following)
 M 0 138933 2 138999 100 0 0 0      * a wraith of the forgotten dead

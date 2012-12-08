@@ -1939,6 +1939,61 @@ pm 0 1048576 1 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
+#500133
+cian elaphidist monk~
+&+gC&+Gian&+L the &+yElap&+Yhi&+ydist&+L of the &+gJ&+Gad&+ge &+LEm&+wpi&+Wre&n~
+&+gC&+Gian&+L the &+yElap&+Yhi&+ydist&+L of the &+gJ&+Gad&+ge &+LEm&+wpi&+Wre&+L is here, searching for students.&n
+~
+~
+3221260296 64 0 0 8 0 0 0 0 S
+ho 0 64 2 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#500134
+dantag red dragon monk~
+&+LDa&+wnt&+Wag&+L the &+rRe&+Rd Dra&+rgon&+L of the &+gJ&+Gad&+ge &+LEm&+wpi&+Wre&n~
+&+LDa&+wnt&+Wag&+L the &+rRe&+Rd Dra&+rgon&+L of the &+gJ&+Gad&+ge &+LEm&+wpi&+Wre&+L is here, searching for students.&n
+~
+~
+3221260296 64 0 0 8 0 0 0 0 S
+ho 0 64 1 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#500135
+ach'ali psycheporter limbo githzerai~
+&+gAch&+W'&+Gali&+L, the preeminant &+bPsyche&+Lporter of &+CL&+cimbo&n~
+&+gAch&+W'&+Gali&+L, the preeminant &+bPsyche&+Lporter of &+CL&+cimbo&n&+L, phasing in and out of reality.&n
+~
+~
+2147516424 128 0 0 8 0 0 0 0 S
+gz 0 4 3 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#500136
+ra'as master enslaver zerthimonian githzerai~
+&+gRa&+W'&+Gas&+L, master &+MEn&+mslav&+Mer&+L of &+mZ&+Me&+Lrthimoni&+Ma&+mn&n~
+&+gRa&+W'&+Gas&+L, master &+MEn&+mslav&+Mer&+L of &+mZ&+Me&+Lrthimoni&+Ma&+mn&+L, looking to teach enslavement&n
+~
+~
+2147516424 128 0 0 8 0 0 0 0 S
+gz 0 4 2 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#500137
+amon'kon pyrokinetic rrakkma githzerai~
+&+gAmon&+W'&+Gkon&+L, grand &+rPyr&+Rokine&+rtic&+L of the &+mRra&+rk&+mk&+rma&n~
+&+gAmon&+W'&+Gkon&+L, grand &+rPyr&+Rokine&+rtic&+L of the &+mRra&+rk&+mk&+rma&+L is here, searching for students.&n
+~
+~
+2147516424 128 0 0 8 0 0 0 0 S
+gz 0 4 1 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
 #500150
 reaver snudk goblin shock_reaver teacher _spec3_~
 &+gSnudk&+L, the &+Ggoblin &+Yshock &+Lreaver&N~

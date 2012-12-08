@@ -476,7 +476,7 @@ green emerald~
 ~
 8 13 3 0 7 0 0 16385 0 1 0
 0 0 0 0 0 0 0 0
-1 93549 100
+1 300000 100
 E
 green emerald~
 &+g   This emerald is quite beautiful, and would bring a pretty penny from a
@@ -984,13 +984,13 @@ gravel stones pile~
 what could have been dug out in these rich old dwarven tunnels.
 ~
 #138957
-stone armor zaldran _id_~
-&+Lthe stone ar&nm&+Co&+Wr&+L of Zaldran&N~
+stone armor zaldran swordbreaker ancient ironstar _id_~
+&+WSword&n&+Cbr&nea&+Lker, &+Lthe &+Wan&+Cci&+gen&+Lt ar&nm&+Co&+Wr &n&+Lof &+LClan Iro&n&+rn&+Rs&+Yt&n&+Ra&n&+rr&n~
 &+LSome full armor made of rock and stone.&N~
 ~
 9 19 3 0 15 0 537072704 9 0 83886137 0
-40 0 0 5 1 0 0 0
-20 305928 100 553721856 12480 0 0
+50 0 0 5 1 0 0 0
+20 305928 100 553648128 192 0 4096
 E
 stone armor zaldran stonebreaker ironstar~
 &+L   This ancient armor was forged in the early days of the dwarves. Originally
@@ -1016,7 +1016,7 @@ _id_name_~
 ironstar stone clan swordbreaker
 ~
 A
-19 1
+19 5
 A
 35 5
 #138958
@@ -1116,7 +1116,7 @@ molten dagger fury burning demon demons~
 &n&+ra b&+Rl&+Ya&+Wz&+Yi&+Rn&+rg &+Cdagger &n&+rcalled &+L'&n&+rThe Fury of &+WDe&+Cm&no&+Lns'&N~
 &n&+rA dagger of contained molten metal lays on the ground, steaming.&N~
 ~
-5 19 3 0 15 0 67125313 8193 0 268308478 0
+5 19 3 0 15 0 67126337 8193 0 2224131 0
 2 3 5 3 0 390 50 30
 10 300000 100 536870912 0 0 0
 E
@@ -1163,7 +1163,7 @@ warhammer molten hammer fury burning demon demons~
 &n&+ra b&+Rur&+Yn&+Rin&n&+rg &+Cwarhammer &n&+rcalled &+L'&n&+rThe Fury of &+WDe&+Cm&no&+Lns'&N~
 &n&+rA warhammer of contained molten metal lays on the ground, steaming.&N~
 ~
-5 19 3 0 15 0 67109953 8193 66 1572865 0
+5 19 3 0 15 0 67109953 8193 66 45630883 0
 4 3 6 3 0 390 50 30
 10 300000 100 536870912 0 0 0
 E

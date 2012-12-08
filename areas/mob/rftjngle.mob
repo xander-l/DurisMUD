@@ -2016,7 +2016,7 @@ from his kind.  He works intently on a small carving, ignoring most of what
 is going on around him.
 ~
 1073743950 0 0 0 52559872 0 0 0 -400 S
-PB 0 1 0 -1
+h 0 1 0 -1
 28 8 10 28d65+364 3d6+4
 8.3.7.1 24948
 8 8 1
@@ -2032,7 +2032,7 @@ males later on.  She is clearly so bored that she has become hyperkinetic
 while waiting for something, anything, to do.
 ~
 1107298382 0 0 0 52559872 0 0 0 -400 S
-PB 0 0 0 -1
+h 0 0 0 -1
 20 13 35 20d30+100 3d4+2
 0.9.3.0 9720
 8 8 2
@@ -2048,7 +2048,7 @@ to end near his waist.  Dark green eyes watch everything around him as he
 relaxes from a long night in the jungle.
 ~
 1107298380 128 0 0 52559888 0 0 0 -400 S
-PB 0 1 0 -1
+h 0 1 0 -1
 32 6 -2 32d83+544 4d6+7
 6.8.0.2 41472
 8 8 1
@@ -2064,7 +2064,7 @@ age.  Though she works quietly and says little, even the youngest of children
 shows her great respect.
 ~
 1107298382 0 0 0 52559872 0 0 0 -400 S
-PB 0 0 0 -1
+h 0 0 0 -1
 28 8 10 28d55+308 3d6+4
 8.3.7.1 24948
 8 8 2
@@ -2079,7 +2079,7 @@ ripple underneath her scaly skin, all accept for her left arm which seems
 strangely withered and weak.
 ~
 1107298382 0 0 0 52559872 0 0 0 -400 S
-PB 0 0 0 -1
+h 0 0 0 -1
 34 6 -8 34d70+510 4d6+7
 8.9.0.2 44064
 8 8 2
@@ -2096,7 +2096,7 @@ aren't quite the same as the other lizardman, perhaps because he spends most of
 his time painting in the caves rather than hunting or fishing for food.
 ~
 1107298382 128 0 0 52559888 0 0 0 -400 S
-PB 0 1 0 -1
+h 0 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
@@ -2114,7 +2114,7 @@ continues her ceremony.  Deep purple robes hang down from her broad shoulders,
 covering her body with their folds.
 ~
 1107298382 128 0 0 52625536 45276 0 0 -1000 S
-PB 0 32 0 -1
+h 0 32 0 -1
 32 6 -2 32d77+512 4d6+7
 6.8.0.2 41472
 8 8 2
@@ -2128,7 +2128,7 @@ the energy to go out and play some more.  Her gentle intake of breath contrasts
 with the almost constant activity in the rest of the cavern.
 ~
 1107298382 0 0 0 52559872 0 0 0 -400 S
-PB 0 0 0 -1
+h 0 0 0 -1
 20 13 35 20d30+100 3d4+2
 0.9.3.0 9720
 8 8 2
@@ -2143,7 +2143,7 @@ body.  Large hands gently go over each weapon, checking for nicks, or other
 signs of damage that might make a weapon fail in battle.
 ~
 1107298382 128 0 0 52559888 0 0 0 -400 S
-PB 0 1 0 -1
+h 0 1 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -2157,7 +2157,7 @@ moments notice.  Bandages cover a recent wound in his left shoulder, but even
 the bandages look minor when taken in relation to his size and strength.
 ~
 1107298382 128 0 0 52559888 0 0 0 -400 S
-PB 0 1 0 -1
+h 0 1 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 4 4 1
@@ -2172,7 +2172,7 @@ most of which probably occurred on hunting trips in the jungle.  There is a
 faint smile on her face as she carefully tends her spears and nets.
 ~
 1107298380 128 0 0 52559888 0 0 0 -400 S
-PB 0 1 0 -1
+h 0 1 0 -1
 32 6 -2 32d83+544 4d6+7
 6.8.0.2 41472
 8 8 2
@@ -2186,7 +2186,7 @@ swinging at imaginary opponents.  His dark eyes look clear and happy as he
 screams Ha! Die Elf!' and continues his mock battle.
 ~
 1107298382 0 0 0 52559872 0 0 0 -400 S
-PB 0 1 0 -1
+h 0 1 0 -1
 22 11 29 22d47+220 3d5+3
 4.0.5.0 19602
 8 8 1
@@ -2200,7 +2200,7 @@ nightmare.  Nearby lizardmen watch carefully, ready to come to comfort him
 if they are needed, but not daring to wake him unless it is needed.
 ~
 1107298382 0 0 0 52559872 0 0 0 -400 S
-PB 0 0 0 -1
+h 0 0 0 -1
 20 13 35 20d30+100 3d4+2
 0.9.3.0 9720
 4 4 1
@@ -2215,7 +2215,7 @@ as in the river that runs through the jungle.  He carries a long, thin scaling
 knife, but really not much else.
 ~
 1107298382 128 0 0 52559872 0 0 0 -400 S
-PB 0 1 0 -1
+h 0 1 0 -1
 33 6 -5 33d83+561 4d6+7
 7.8.0.2 42768
 4 4 1
@@ -2230,7 +2230,7 @@ sits bowed over them.  Several ugly scars run across his arms and back, it
 would appear he as done more than simply fish during his lifetime.
 ~
 1107298382 128 0 0 52559872 0 0 0 -400 S
-PB 0 1 0 -1
+h 0 1 0 -1
 36 2 -15 36d95+828 4d7+10
 0.1.2.2 46656
 8 8 1
@@ -2247,7 +2247,7 @@ eyes soak in everything around her, striving to learn and remember every
 detail.
 ~
 1107298382 128 0 0 52559872 0 0 0 -400 S
-PB 0 1 0 -1
+h 0 1 0 -1
 28 8 10 28d65+364 3d6+4
 8.3.7.1 24948
 8 8 2
@@ -2262,7 +2262,7 @@ bark he mumbles, "Yes, we can build an entire city here, just cut it right out
 of the stone."
 ~
 1107298382 128 0 0 52559872 0 0 0 -400 S
-PB 0 1 0 -1
+h 0 1 0 -1
 38 2 -21 38d95+874 4d7+10
 1.2.2.2 49248
 8 8 1
@@ -2277,7 +2277,7 @@ would be difficult, but he is completely at ease with his skins and all the
 different compounds he treats them with.
 ~
 1107298382 128 0 0 52559888 0 0 0 -400 S
-PB 0 1 0 -1
+h 0 1 0 -1
 36 2 -15 36d95+828 4d7+10
 0.1.2.2 46656
 8 8 1
@@ -2295,7 +2295,7 @@ They always come to him when they need potions though, often bearing fine
 gifts.
 ~
 1107298382 128 0 0 52559872 0 0 0 -400 S
-PB 0 256 0 -1
+h 0 256 0 -1
 34 6 -8 34d77+544 4d6+7
 8.9.0.2 44064
 8 8 1
@@ -2311,7 +2311,7 @@ of his way, she gently steps around the many vials and jars filled with a
 number of mysterious items.
 ~
 1107298382 128 0 0 52559872 0 0 0 -400 S
-PB 0 256 0 -1
+h 0 256 0 -1
 25 11 19 25d44+225 3d5+3
 6.2.6.1 22275
 8 8 2
@@ -2325,7 +2325,7 @@ this lizardman won't trust anyone that isn't of his own race, any non-lizardman
 daring to enter will most certainly be attacked on sight.
 ~
 1107298382 1 0 0 52559888 0 0 0 -400 S
-PB 0 1 0 -1
+h 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -2340,7 +2340,7 @@ makes no effort to attack visitors, though he will certainly protect his fellow
 tribesmen in the event of a fight.
 ~
 1174407244 128 0 0 52559888 0 0 0 -400 S
-PB 0 0 0 -1
+h 0 0 0 -1
 30 8 3 30d55+330 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -2354,7 +2354,7 @@ twisted look.  The scar is quite close to his left eye, which appears to
 wander, making one wonder whether he can see very well.
 ~
 1107298382 1 0 0 52559888 0 0 0 -400 S
-PB 0 1 0 -1
+h 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -2369,7 +2369,7 @@ An ancient elven sword is at his side, and he clearly has the skill and
 knowledge to use it.
 ~
 1174407246 128 0 0 52559888 0 0 0 -400 S
-PB 0 1 0 -1
+h 0 1 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -2384,7 +2384,7 @@ and wisdom.  Mumbling something about elves as he paces back and forth, he
 barely notices when anyone enters or departs.
 ~
 1107298382 128 0 0 52559888 0 0 0 -400 S
-PB 0 1 0 -1
+h 0 1 0 -1
 42 -1 -59 42d107+1890 6d6+12
 2.8.7.3 102060
 8 8 1

@@ -470,8 +470,8 @@ fish steak dried~
 &+MA steak of dried fish has been set on the ground where it emits an odor.&n~
 ~
 19 2 3 0 2 0 0 16385 0 1 0
-12 0 0 0 0 0 0 0
-0 455 100
+12 10 10 0 0 5 0 0
+0 15000 100
 E
 fish steak dried~
 This is a piece of salmon, dried a bit and cut into a small steak, suitable
@@ -673,7 +673,7 @@ dark green potion~
 &+gA dark green potion in a glass container lies on the floor.&n~
 ~
 10 40 3 0 7 0 64 16385 0 1 0
-21 66 34 53 0 0 0 0
+21 35 0 0 0 0 0 0
 1 50000 100
 E
 green potion~
@@ -685,7 +685,7 @@ ring steel bluish~
 &+ca r&+Cin&+cg of&n &+Cco&+cntemplati&+Con&n~
 &+cA steel ring with a distinct bluish tint lies on the ground.&n~
 ~
-9 16 3 0 14 0 66 3 0 0 0
+9 16 3 0 14 0 0 3 0 0 0
 15 0 0 1 0 0 0 0
 1 50000 100
 E
@@ -1339,8 +1339,8 @@ katana sword retribution~
 &+cThe magical katana '&n&+LRet&n&+rribut&n&+Lion&n&+c' has been mistakenly dropped.&n~
 ~
 5 16 3 0 15 0 16384 24577 65 0 0
-5 4 5 3 0 216015015 30 25
-8 200000 100 0 0 0 33554432
+5 3 4 3 0 216015015 30 30
+8 200000 100
 E
 katana sword retribution~
 This magical sword is called 'Retribution', and it is one of the seven
@@ -1366,6 +1366,6 @@ _char_msg~
 &+LYour &+Wk&+Latana &+Wc&+Lalled &+C'&+LRet&+rribut&+Lion&+C' &+Yshimmers &+Lwith a &+Whealing &+Ggreen &+Ylight &+Las a &+rwarm &+Lsensation fills your body.&n
 ~
 A
-18 4
+18 3
 A
-19 4
+19 3

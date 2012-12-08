@@ -43,7 +43,7 @@ baal~
 &+ra&+Rt&+rop h&+Re&+rr &+Rj&+ra&+Rd&+re thr&+Rown &+ras &+Rsh&+re l&+Rau&+rghs &+Ra&+rs th&+Ro&+rse &+Ro&+rf th&+Re l&+ri&+Rght &+ra&+Rr&+re t&+Ro&+rrt&+Ru&+rr&+Red &+rt&+Ri&+rll d&+Ri&+re&+R.&N
 ~
 A
-13 20
+13 22
 A
 20 -2
 #42902
@@ -79,7 +79,7 @@ spiked ring electrum~
 A
 19 2
 A
-2 5
+2 8
 #42904
 rock club primative~
 &na &+Lprimative rock club&n~
@@ -254,7 +254,7 @@ spiked raxian gauntlets pit~
 A
 20 -3
 A
-19 2
+19 3
 #42913
 silver curved longsword sword~
 &Na &+Lcurved &+csilver longsword&n~
@@ -374,7 +374,7 @@ shield crest volgk~
 &+Land has the crest of &+rVolgk &+Lthe infamous &+mslave &+Ltrader on it.&n
 ~
 A
-19 1
+19 3
 A
 13 21
 #42920
@@ -463,7 +463,7 @@ suit soul stone plate~
 A
 35 5
 A
-20 -3
+20 -4
 #42925
 gnome skin backpack bp~
 &na &+Rgnome&+Lskin backpack&N~
@@ -583,7 +583,7 @@ serpentine leggings legs~
 &+gfa&+Gd&+ge in t&+Gh&+ge li&+Gg&+ght.&n
 ~
 A
-24 -2
+24 -3
 A
 19 3
 #42931
@@ -637,7 +637,7 @@ boots~
 &+Lbeen crafted by a skilled craftsman.&N
 ~
 A
-13 10
+13 12
 A
 4 6
 #42934
@@ -695,7 +695,7 @@ sleeves~
 &+gfa&+Gd&+ge in t&+Gh&+ge li&+Gg&+ght.&n
 ~
 A
-24 -2
+24 -3
 A
 19 2
 #42937
@@ -703,7 +703,7 @@ scales large serpentine~
 &+Lsome large &+gs&+Ge&+gr&+Gp&+ge&+Gn&+gt &+Lscales&N~
 &+LSome large &+gs&+Ge&+gr&+Gp&+ge&+Gn&+gt &+Lscales rest upon the dismal ground here.&N~
 ~
-8 35 3 0 9 33 45056 16385 64 0 0
+8 35 3 0 9 33 45056 8404993 64 0 0
 0 8 1 5 0 0 0 0
 0 9000 100
 E
@@ -713,9 +713,9 @@ scales~
 &+Lare also very light.&N
 ~
 A
-4 9
+4 8
 A
-3 9
+3 8
 #42938
 slime covered earring~
 &+wa &+Gs&+gl&+Gi&+gm&+Ge &+gc&+Go&+gv&+Ge&+gr&+Ge&+gd &+Learring&N~
@@ -733,7 +733,7 @@ slime covered earring~
 A
 18 3
 A
-22 -2
+22 -3
 #42939
 head graskal~
 &nthe &+Lhead of &+rGraskal&n~
@@ -760,7 +760,7 @@ heart noctule~
 &nthe &+Lblack &+Rheart &+Lof &+rN&+Ro&+rc&+Rt&+ru&+Rl&+re&n~
 &+LSomeone has left a giant &+Rheart &+Lon the ground here.&n~
 ~
-8 2 3 0 15 55 4096 16385 0 0 0
+8 2 3 0 15 55 4096 8404993 0 0 0
 0 0 0 0 0 0 0 0
 1 9 100
 E
@@ -771,7 +771,7 @@ heart noctule~
 A
 12 20
 A
-13 13
+13 15
 #42941
 bracer bozk~
 &+wa &+Lbracer bearing the seal of &+RBozk&N~
@@ -779,7 +779,7 @@ bracer bozk~
 ~
 9 18 3 0 12 50 40960 20481 66 0 0
 8 0 0 5 1 0 0 0
-0 18000 100 536936448 10 0 0
+0 18000 100 536870912 10 0 0
 E
 bracer~
 &+L   This bracer seems to of been crafted from a magical metal.  The item bears&N
@@ -808,9 +808,9 @@ symbol bozk~
 &+Lmurder them in cold &+rbl&+Ro&+ro&+Rd&+L.  You realize to dream that is your death once more.&N
 ~
 A
-20 -2
+20 -3
 A
-24 -2
+24 -3
 #42942
 head elytron~
 &nthe &+Lhead of &+RElytron&n~
@@ -830,7 +830,7 @@ pendant twisted wolf~
 &+wa &+Ltwisted &+wwolf &+Lpendant&N~
 &+LA twisted pendant rests upon the gloomy ground here.&N~
 ~
-9 22 3 0 12 33 1056768 16389 67 306974212 0
+9 22 3 0 12 33 1056768 8404997 67 306974212 0
 8 0 0 5 0 0 0 0
 0 8000 100
 E
@@ -840,7 +840,7 @@ pendant twisted~
 &+Lsort of spirit bond with the &+wwolf&+L.&N
 ~
 A
-1 9
+1 10
 A
 18 2
 #42944
@@ -848,7 +848,7 @@ black heart morklar serpent~
 &+wthe &+Lblack heart of &+gM&+Go&+grkl&+Ga&+gr&N~
 &+LThe black heart of some large &+gs&+Ge&+grp&+Ge&+gn&+Gt &+Lcreature rests upon the ground here.&N~
 ~
-8 35 3 0 13 80 3190792 16385 64 0 0
+8 35 3 0 13 80 3190792 8404993 64 0 0
 0 0 0 0 0 0 0 0
 1 9000 100 0 8192 0 0
 E
@@ -1092,13 +1092,13 @@ bozk symbol seal~
 A
 32 5
 A
-19 2
+36 3
 #42948
 heart black bloodbeast~
 &+Lthe black &+Rheart &+Lof a &+RBl&+ro&+Ro&+rd&+Lbeast&N~
 &+LThe black &+Rheart &+Lof a giant creature rests upon the ground here.&N~
 ~
-8 2 3 0 11 9 45064 16385 0 0 0
+8 2 3 0 11 9 45064 8404993 0 0 0
 0 0 0 0 0 0 0 0
 1 9000 100
 E
@@ -1109,7 +1109,7 @@ heart black bloodbeast~
 &+Lthis unholy object.&N
 ~
 A
-12 18
+12 25
 A
 20 -3
 #42949
@@ -1145,7 +1145,7 @@ sabatons dragonscale boots~
 &+Lwere forged in the mystic &+rhe&+Rll&+Yfi&+Wre &+Lof hades.&N
 ~
 A
-1 9
+1 10
 A
 19 2
 #42951
@@ -1186,7 +1186,7 @@ seal serpentine badge~
 ~
 11 35 3 0 11 0 57344 10485761 0 402653184 0
 0 0 0 0 0 0 0 0
-0 1000 100
+0 1000 100 536870912 0 0 0
 E
 seal badge~
 &+L   This seal has been crafted from a very high quality material.  The item has&N
@@ -1224,9 +1224,9 @@ serpentine~
 &+Rth&+re s&+Ra&+rm&+Re c&+ro&+Rl&+ro&+Rr&+r.&N
 ~
 A
-2 5
+25 0
 A
-26 5
+26 6
 #42953
 potion azure~
 &+wan &+Ba&+bz&+Bu&+br&+Be &+Bpotion&N~
@@ -1285,9 +1285,9 @@ serpent symbol~
 &+Bth&+be s&+Ba&+bm&+Be c&+bo&+Bl&+bo&+Br&+b.&N
 ~
 A
-19 1
+19 2
 A
-2 6
+2 7
 #42956
 spine darthus~
 &+Lthe &+Wspine &+Lof Darthus&N~

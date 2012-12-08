@@ -520,6 +520,9 @@ M 0 500193 1 545661 100 0 0 0      * the muscle-bound dwarf named Surak
 E 1 500105 1 5 100 0 0 0           *   a suit of finely crafted dwarven chainmail
 M 0 500058 17 545739 100 0 0 0     * an elite highwayman
 M 0 500058 17 545743 100 0 0 0     * an elite highwayman
+M 0 500135 1 545814 100 0 0 0      * Ach'ali, the preeminant Psycheporter of Limbo
+M 0 500136 1 545814 100 0 0 0      * Ra'as, master Enslaver of Zerthimonian
+M 0 500137 1 545814 100 0 0 0      * Amon'kon, grand Pyrokinetic of the Rrakkma
 M 0 500051 20 546066 100 0 0 0     * a mountaineer
 M 0 500054 12 546866 100 0 0 0     * a gnomish grenadier
 E 1 500011 14 16 100 0 0 0         *   grenadier proc
@@ -1677,6 +1680,8 @@ M 0 500021 6 643297 100 0 0 0      * a rickshaw worker
 M 0 500021 6 643297 100 0 0 0      * a rickshaw worker
 M 0 500022 6 643696 100 0 0 0      * a marsh viper
 M 0 500022 6 643696 100 0 0 0      * a marsh viper
+M 0 500133 1 644094 100 0 0 0      * Cian the Elaphidist of the Jade Empire
+M 0 500134 1 644094 100 0 0 0      * Dantag the Red Dragon of the Jade Empire
 M 0 500022 6 644492 100 0 0 0      * a marsh viper
 M 0 500022 6 644492 100 0 0 0      * a marsh viper
 M 0 500019 6 645291 100 0 0 0      * a jade commoner
