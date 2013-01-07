@@ -676,7 +676,15 @@ int sell_slot (P_char ch, P_ship ship, int slot)
         return TRUE;
     } 
     else if (ship->slot[slot].type == SLOT_EQUIPMENT) 
-    {
+	 for (int i = 0; i < MAXSLOTS; i++)
+        if ((ship->slot[i].type == SLOT_CONTRABAND) || (ship->slot[i].type == SLOT_CARGO))
+		{
+		 if(has_eq_diplomat(ship))
+		 send_to_char("You cannot sell your diplomat flag with cargo onboard. Sell the cargo first!\r\n", ch);
+		 return TRUE;
+		}
+	else
+     {
         int cost = equipment_data[ship->slot[slot].index].cost;
         if (ship->slot[slot].index == E_RAM) cost = eq_ram_cost(ship);
         cost = cost * 0.9;
