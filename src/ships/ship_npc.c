@@ -1144,7 +1144,7 @@ P_char load_npc_ship_crew_member(P_ship ship, int room_no, int vnum, int load_eq
     GET_BIRTHPLACE(mob) = world[room].number;
     apply_zone_modifier(mob);
     char_to_room(mob, room, 0);
-
+/*
     if (load_eq > 0)
     {
         while (load_eq--)
@@ -1154,6 +1154,7 @@ P_char load_npc_ship_crew_member(P_ship ship, int room_no, int vnum, int load_eq
         }
         do_wear(mob, "all", 0);
     }
+*/
     return mob;
 }
 
