@@ -4907,7 +4907,7 @@ void do_salvage(P_char ch, char *argument, int cmd)
   int	rolled;
   
   int reciperoll = (number(1, 10000));
-  int playerroll = (GET_C_LUCK(ch) + (GET_LEVEL(ch)*2) + GET_CHAR_SKILL(ch, SKILL_CRAFT));
+  int playerroll = (GET_C_LUCK(ch) + (GET_LEVEL(ch)*2) + GET_CHAR_SKILL(ch, SKILL_SALVAGE));
 
   one_argument(argument, Gbuf4);
 
@@ -4924,7 +4924,7 @@ void do_salvage(P_char ch, char *argument, int cmd)
 
 
 
-  if(GET_CHAR_SKILL(ch, SKILL_CRAFT) < 1)
+  if(GET_CHAR_SKILL(ch, SKILL_SALVAGE) < 1)
   {
     send_to_char("Only &+ycrafters&n have the necessary &+yskill&n to break down &+Witems&n.\n", ch);
     return;
@@ -4968,11 +4968,12 @@ void do_salvage(P_char ch, char *argument, int cmd)
   }
   
   rolled = number(1, 105);
-  if  (GET_CHAR_SKILL(ch, SKILL_CRAFT) < rolled)
+  if  (GET_CHAR_SKILL(ch, SKILL_SALVAGE) < rolled)
    {
     act("&+LYou attempt to break down your $q, but end up &+Rbreaking &+Lit in the process.", FALSE, ch, 0, 0, TO_CHAR);
     act("$n attempts to salvage their $p, but clumsily destroys it.", TRUE, ch, temp, 0, TO_ROOM);
     extract_obj(temp, !IS_TRUSTED(ch));
+    notch_skill(ch, SKILL_SALVAGE, 20);
     return;
    }
 
@@ -4988,7 +4989,7 @@ void do_salvage(P_char ch, char *argument, int cmd)
        
     int rand1 = number(1, 16);
 	int rand2 = number(1, 3);
-	int objchance = (objcft * 7 / 2 + GET_CHAR_SKILL(ch, SKILL_CRAFT) / 2 - rand1); //better skill and better quality yields better chance for good material
+	int objchance = (objcft * 7 / 2 + GET_CHAR_SKILL(ch, SKILL_SALVAGE) / 2 - rand1); //better skill and better quality yields better chance for good material
 	if(objcft < 9)
 	{
 	 objchance = objchance - 10; //penalize for less than average
@@ -5773,8 +5774,9 @@ void do_salvage(P_char ch, char *argument, int cmd)
 		obj_to_char(read_object(matvnum, VIRTUAL), ch);
 		}
       
-              
-      if((reciperoll < playerroll) && IS_TRUSTED(ch))
+       notch_skill(ch, SKILL_SALVAGE, 20);
+       
+      if((reciperoll < playerroll))
       {
        /***RECIPE CREATE***/
        P_obj objrecipe;

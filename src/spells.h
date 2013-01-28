@@ -939,9 +939,10 @@
 #define SKILL_BLADE_BARRAGE		  1294
 #define SKILL_RIFF                   1295
 #define SKILL_CONCENTRATION          1296
+#define SKILL_SALVAGE		  1297
 
 #ifndef SKILLPOINTS
-  #define LAST_SKILL                   SKILL_CONCENTRATION
+  #define LAST_SKILL                   SKILL_SALVAGE
 #endif
 
 // New skills for skill points.

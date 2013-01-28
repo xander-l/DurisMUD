@@ -4421,13 +4421,13 @@ void event_sneaky_strike(P_char ch, P_char victim, P_obj obj, void *data)
   
   melee_damage(ch, victim, dam, PHSDAM_NOREDUCE | PHSDAM_NOPOSITION,
                &messages);
-  if(GET_SPEC(ch, CLASS_ROGUE, SPEC_THIEF)) //proc skill for thief - possibility to blind on sneaky strike
+  if(GET_SPEC(ch, CLASS_ROGUE, SPEC_THIEF)  || (GET_CLASS(ch, CLASS_BARD))) //proc skill for thief - possibility to blind on sneaky strike
     {
 	skl_lvl = (int) (GET_CHAR_SKILL(ch, SKILL_SNEAKY_STRIKE));
 	i = skl_lvl - (GET_C_AGI(victim) / 6);
 	if (number(1, 100) < i)
 	 {
-	  if(IS_NPC(victim))
+	  if(IS_NPC(victim)  || (GET_CLASS(ch, CLASS_BARD)))
 	    {
 	      act
     	      ("&+LYou quickly step into the sh&+wad&+Wows&+L, and suddenly appear behind $N &+Lstriking violently...",
@@ -4461,7 +4461,7 @@ void event_sneaky_strike(P_char ch, P_char victim, P_obj obj, void *data)
     
     } //endthiefspeccheck
 
-  if(GET_SPEC(ch, CLASS_ROGUE, SPEC_ASSASSIN) || (GET_CLASS(ch) == CLASS_BARD)) //proc skill for assassin and bard
+  if(GET_SPEC(ch, CLASS_ROGUE, SPEC_ASSASSIN)) //proc skill for assassin and bard
     {
 	skl_lvl = (int) (GET_CHAR_SKILL(ch, SKILL_SNEAKY_STRIKE));
 	i = skl_lvl - (GET_C_AGI(victim) / 6);
