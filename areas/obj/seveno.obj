@@ -121,12 +121,12 @@ an &+Mamulet&N of &+rfire dragon's &+rblood&N~
 An unwanted amulet sits here.~
 ~
 9 19 3 0 7 0 176256 5 64 0 0
-15 0 0 5 0 0 0 0
+20 0 0 5 0 0 0 0
 1 1000 100 536870916 0 0 0
 A
 23 -5
 A
-13 15
+13 22
 #38611
 fire dragon egg~
 a &+Rfire&N dragon egg~
@@ -136,9 +136,9 @@ A fire dragon egg sits on the ground here.~
 90 5 0 90 0 0 0 0
 -30 700 100
 A
-13 15
+13 18
 A
-17 -7
+17 -10
 #38612
 large skylight sky light~
 &+La large skylight&N~
@@ -250,9 +250,9 @@ A satanic bracelet is lying here glowing bright red.~
 5 0 0 4 0 0 0 0
 3 80099 100 65536 0 0 0
 A
-33 3
+33 4
 A
-13 20
+13 25
 #38622
 large mirror~
 &+Ya large mirror&n~
@@ -340,10 +340,10 @@ a cloak of &+Wwoven silver&N~
 A silver cloak has been tossed away here.~
 ~
 9 22 3 0 12 0 8193 1025 64 0 0
-15 0 0 4 0 0 0 0
+20 0 0 4 0 0 0 0
 6 200000 100
 A
-18 2
+18 3
 A
 19 4
 #38630
@@ -388,13 +388,13 @@ Through the skylight, the surrounding forests and heavens
 in all their beauty can be seen.
 ~
 #38634
-dagger despair~
-&+La dagger of despair&N~
-A dagger has been pitched on the ground here.~
+dagger ice sevenoaks~
+&nthe &+Ci&+Wce &+Cd&+Wagger&n of &+BSevenoaks&n~
+&+WA &+Cd&+Wagger of &+Cs&+Wh&+Cimmeri&+Wn&+Cg i&+Wce has been left here.&n~
 ~
-5 23 3 0 12 0 67252224 8193 64 0 0
-2 2 5 0 1 0 0 0
-7 70000 100
+5 1 3 0 15 0 84030736 8193 194 126976 0
+2 4 4 0 1 499467472 52 25
+7 170000 100 0 64 0 0
 E
 dagger darkness dark~
 Forged by a mischeivious rogue of a clan of ogres, the large dagger
@@ -402,9 +402,9 @@ pulses with a magical dark aura.  The blade is made from a flat-black
 metal and looks quite sharp.
 ~
 A
-18 3
+18 4
 A
-19 3
+19 4
 #38635
 tower key sevenoaks~
 &+Bthe sevenoaks' tower key&N~
@@ -439,10 +439,10 @@ shield silver dragon scales~
 An unwanted shield sits on the ground here.~
 ~
 37 35 3 0 7 0 12416 513 64 0 0
-1 3 4 188 0 0 0 0
-30 1000 100
+1 3 4 20 0 0 0 0
+30 1000 100 536870912 64 0 0
 A
-13 28
+13 30
 A
 19 3
 #38639
@@ -478,11 +478,11 @@ ugly green horn instrument~
 ~
 32 10 3 0 7 0 8320 16385 64 0 0
 189 51 0 0 0 0 0 0
-5 76000 100
+5 76000 100 16777216 0 0 0
 A
 13 20
 A
-28 8
+24 -3
 #38642
 medallion myrina~
 &+mthe medallion of &+rMyrina&N~
@@ -506,11 +506,11 @@ An unwanted ring collects among the rubble here.~
 ~
 11 18 3 0 10 0 3289089 3 64 0 0
 0 0 0 0 0 0 0 0
-3 45600 100 32 0 0 0
+3 45600 100 36 0 0 0
 A
-13 20
+13 22
 A
-24 -2
+24 -4
 #38645
 warrior platemail shining suit~
 a &+Yshining&N suit of &+Wwarrior's platemail&N~
@@ -537,7 +537,7 @@ the &+Wice mace&N of &+BSevenoaks&N~
 A cold mace sits on the ground here.~
 ~
 5 23 3 0 13 0 274560 8193 66 0 0
-6 3 4 0 0 459 50 40
+6 3 5 0 0 459 51 32
 7 92592 100 0 64 0 0
 E
 _char_msg~
@@ -564,7 +564,7 @@ An unwanted earring collects among the rubble here.~
 0 0 0 0 0 0 0 0
 2 58000 100 8 0 0 0
 A
-13 15
+13 20
 A
 24 -4
 #38649
@@ -580,17 +580,17 @@ A
 A
 19 4
 #38650
-silver pendant dragon teeth~
-&+Wa &+Lsi&+wlv&+Ler&N &+Wpendant of &+Gdragon &+Wteeth&N~
-An unwanted pendant collects among the rubble here.~
+silver buckle dragon teeth~
+&+Wa &+Lsi&+wlv&+Ler&N &+Wbelt-buckle of &+Gdragon &+Wteeth&N~
+An unwanted belt buckle collects among the rubble here.~
 ~
-9 10 3 0 7 0 29057 5 0 4279332985 0
-10 0 0 5 0 0 0 0
+9 10 3 0 7 0 30081 8390657 0 4279332985 0
+15 0 0 5 0 0 0 0
 8 780 100
 A
-5 6
+5 7
 A
-13 15
+23 -3
 #38651
 skeleton~
 &+Wa skeleton&N~
@@ -616,7 +616,7 @@ An unwanted amulet sits here.~
 A
 23 -4
 A
-13 20
+13 24
 #38653
 medallion fuerina~
 &+mthe medallion of &+RFuerina&N~
@@ -686,17 +686,17 @@ A
 A
 13 15
 #38660
-jewelled bracelet~
-&+ra &+bjewelled &+rbracelet&N~
-A satanic bracelet is lying here glowing bright red.~
+jewelled bracelet ancestral sevenoaks~
+&+Lthe &+Wanc&+west&+Lral &+bb&+Br&+Lacel&+Be&+bt&+L of &+BSevenoaks~
+&+LA legendary lost bracelet is lying here glowing bright red.~
 ~
 9 18 3 0 7 0 110592 4097 66 0 0
 10 0 0 4 0 0 0 0
-1 48000 100
+1 48000 100 16777216 0 64 0
 A
-18 2
+34 4
 A
-19 3
+35 4
 #38661
 sages purple belt~
 &+ma purple belt of sages&N~
@@ -728,17 +728,17 @@ An unwanted amulet sits here.~
 ~
 9 19 3 0 7 0 192640 5 0 9306112 0
 15 0 0 5 0 0 0 0
-3 99899 100 32 0 0 0
+3 99899 100 33554464 0 0 0
 A
 23 -3
 A
-13 20
+13 24
 #38664
 white glowing pearl~
 &+Wa glowing white pearl&N~
 A white pearl sits on the ground here.~
 ~
-9 8 3 0 7 0 8193 16385 0 0 0
+9 8 3 0 7 0 8193 8404993 0 0 0
 10 0 0 3 0 0 0 0
 0 0 100
 A

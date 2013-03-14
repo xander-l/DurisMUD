@@ -1082,6 +1082,20 @@ PH 0 0 0 -1
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
+#90
+lord ovorum~
+&+bF&+Be&+Ms&+Yt&+Cu&+Mm O&+Cv&+Yo&+Mr&+Bu&+bm, the Lord of the &+bE&+Ba&+Ms&+Yt&+ce&+Mr &+BE&+bg&+Bg &+bH&+Bunt&n~
+&+bF&+Be&+Ms&+Yt&+Cu&+Mm O&+Cv&+Yo&+Mr&+Bu&+bm, the Lord of the &+bE&+Ba&+Ms&+Yt&+ce&+Mr &+BE&+bg&+Bg &+bH&+Bunt is here, waiting to receive the hidden eggs.&n
+~
+&+LHe looks at you and simply says&+W "Octavaz didn't have time, she will write up a
+&+Wbetter one for me when she gets off of work! Just give me the damned egg and be on
+&+Wyour way!!!"
+~
+17236104 0 0 0 0 0 0 0 0 S
+av 0 96 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
 #99
 (null)~
 something~

@@ -87,7 +87,6 @@ D 0 142452 0 2 100 0 0 0
 *
 *
 O 0 142444 1 142446 100 0 0 0      * A massive pile of platinum coins
-O 0 359 2 142446 100 0 0 0         * an unnamed object
 O 0 142449 1 142447 100 0 0 0      * an astral metal hammer named 'Frozen Star'
 O 0 142450 1 142452 100 0 0 0      * a golden strand of time
 O 0 142412 1 142460 100 0 0 0      * a small golden box
@@ -99,6 +98,7 @@ P 1 142416 1 142415 100 0 0 0      *   the holy shield of blessed defense
 O 0 142410 1 142477 100 0 0 0      * a LARGE emerald
 O 0 142401 1 142481 100 0 0 0      * A large stone coffin
 P 1 142411 1 142401 100 0 0 0      *   the prayer beads of taoism
+P 1 142404 1 142401 100 0 0 0      *   a key fragment
 O 0 142426 1 142485 100 0 0 0      * a box of fine jewels
 O 0 142420 1 142492 100 0 0 0      * A massive golden coffin
 P 1 142406 1 142420 100 0 0 0      *   a key fragment
@@ -141,7 +141,6 @@ E 1 142447 1 12 100 0 0 0          *   a mithril breastplate with a golden cross
 E 1 142424 7 16 100 0 0 0          *   a massive unholy blade
 G 1 142400 1 0 100 0 0 0           *    a golden seal of the fates
 G 1 142448 1 0 100 0 0 0           *    the necklace of the icecrag royalty
-G 1 359 2 0 100 0 0 0              *    an unnamed object
 M 0 142427 1 142446 100 0 0 0      * Hynera Drakenstone
 E 1 142445 1 16 100 0 0 0          *   a green bladed dagger named 'Sepsis'
 E 1 142446 1 17 100 0 0 0          *   an iron dagger
