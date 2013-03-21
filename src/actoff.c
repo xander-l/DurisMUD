@@ -4428,7 +4428,7 @@ void event_sneaky_strike(P_char ch, P_char victim, P_obj obj, void *data)
 	i = skl_lvl - (GET_C_AGI(victim) / 6);
 	if (number(1, 100) < i)
 	 {
-	  if(IS_NPC(victim)  || (GET_CLASS(ch, CLASS_BARD)))
+	  if(IS_NPC(victim)  && (GET_CLASS(ch, CLASS_ROGUE)))
 	    {
 	      act
     	      ("&+LYou quickly step into the sh&+wad&+Wows&+L, and suddenly appear behind $N &+Lstriking violently...",
@@ -4442,6 +4442,15 @@ void event_sneaky_strike(P_char ch, P_char victim, P_obj obj, void *data)
      	      FALSE, ch, 0, victim, TO_CHAR);
 		act
 	       ("&+L...$n &+Lthen quickly fades into the sh&+wad&+Wow&+L, re-appearing only to attack again!",
+     	  	TRUE, ch, 0, victim, TO_NOTVICT);
+		single_stab(ch, victim, weapon);
+	    }
+	  else if(GET_CLASS(ch, CLASS_BARD))
+	    {
+    	      ("&+LYou quickly step into the sh&+wad&+Wows&+L, and suddenly appear behind $N &+Lstriking violently...",
+     	      FALSE, ch, 0, victim, TO_CHAR);
+	      act
+    	  	("$n &+Lquickly steps into the sh&+wad&+Wows&+L, and suddenly appears behind $N &+Lstriking violently...",
      	  	TRUE, ch, 0, victim, TO_NOTVICT);
 		single_stab(ch, victim, weapon);
 	    }

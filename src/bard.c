@@ -2081,7 +2081,7 @@ void do_riff(P_char ch, char *arg, int cmd)
   }
 
   set_short_affected_by(ch, SKILL_RIFF, (int) (4 * PULSE_VIOLENCE));
-  //CharWait(ch, (int)(2 * PULSE_VIOLENCE));
+  CharWait(ch, (int)(2 * PULSE_VIOLENCE));
 }
 
 

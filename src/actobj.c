@@ -5791,27 +5791,92 @@ void do_salvage(P_char ch, char *argument, int cmd)
 	   //ENDQualitycheck
 	   switch (rand2)
 		{
-		/*
-		case 2:
-		act("&+w...and at least you &+ysalvaged&n a decent amount.", FALSE, ch, 0, 0, TO_CHAR);
-		obj_to_char(read_object(matvnum, VIRTUAL), ch);
-		obj_to_char(read_object(matvnum, VIRTUAL), ch);
-		*/
-		break;
+		P_obj salvaged;
+		ulong newcost;
+              char dbug[MAX_STRING_LENGTH];
+
 		case 3:
 		act("&+w...and at least you &+ysalvaged&n a decent amount.", FALSE, ch, 0, 0, TO_CHAR);
-		obj_to_char(read_object(matvnum, VIRTUAL), ch);
-		obj_to_char(read_object(matvnum, VIRTUAL), ch);
-		/*
-		act("&+w...and it turns out you &+ysalvaged &+wquite a bit of &+Ymaterial&n!", FALSE, ch, 0, 0, TO_CHAR);
-		obj_to_char(read_object(matvnum, VIRTUAL), ch);
-		obj_to_char(read_object(matvnum, VIRTUAL), ch);
-		obj_to_char(read_object(matvnum, VIRTUAL), ch);
-		*/
+		salvaged = read_object(matvnum, VIRTUAL);
+		//Dynamic pricing - Drannak 3/21/2013
+  		 newcost = 200; //20 s starting point
+		long modifier;
+		modifier = GET_OBJ_VNUM(salvaged) - 399999;
+  		newcost = newcost * modifier; //since the vnum's are sequential, the greatest rarity gets a 1.3 modifier, lowest gets 100% of value.
+ 		  /*sprintf(dbug, "1 Current newcost value: %d\r\n", newcost);
+ 		  send_to_char(dbug, ch);*/
+ 		  newcost = (newcost * GET_LEVEL(ch)) / 56;
+     		 newcost = (newcost * GET_CHAR_SKILL(ch, SKILL_SALVAGE) / 100);
+ 		  if(GET_OBJ_VNUM(salvaged) < 400140)
+ 		   {
+  		   newcost = (newcost * 8) / 10; //anything less than gold gets a little bit of a reduction in price
+        	  }
+      		if(number(80, 140) < GET_C_LUCK(ch))
+  		 {
+  		   newcost *= 1.3;
+   		  send_to_char("&+mYou &+Ygently&+m break the &+Mmaterial &+mfree, preserving its natural form.&n\r\n", ch);
+          	 }
+      		  salvaged->cost = newcost;
+		obj_to_char(salvaged, ch);
+		 salvaged = read_object(matvnum, VIRTUAL);
+		//Dynamic pricing - Drannak 3/21/2013
+  		 newcost = 200; //20 s starting point
+		modifier = GET_OBJ_VNUM(salvaged) - 399999;
+  		newcost = newcost * modifier; //since the vnum's are sequential, the greatest rarity gets a 1.3 modifier, lowest gets 100% of value.
+ 		  sprintf(dbug, "1 Current newcost value: %d\r\n", newcost);
+ 		  send_to_char(dbug, ch);
+ 		  newcost = (newcost * GET_LEVEL(ch)) / 56;
+ 		  sprintf(dbug, "2 Current newcost value: %d\r\n", newcost);
+ 		  send_to_char(dbug, ch);
+     		 newcost = (newcost * GET_CHAR_SKILL(ch, SKILL_SALVAGE) / 100);
+		sprintf(dbug, "3 Current newcost value: %d\r\n", newcost);
+ 		  send_to_char(dbug, ch);
+ 		  if(GET_OBJ_VNUM(salvaged) < 400140)
+ 		   {
+  		   newcost = (newcost * 8) / 10; //anything less than gold gets a little bit of a reduction in price
+        	  }
+
+
+
+		sprintf(dbug, "4 Current newcost value: %d\r\n", newcost);
+ 		  send_to_char(dbug, ch);
+      		if(number(80, 140) < GET_C_LUCK(ch))
+  		 {
+  		   newcost *= 1.3;
+   		  send_to_char("&+mYou &+Ygently&+m break the &+Mmaterial &+mfree, preserving its natural form.&n\r\n", ch);
+          	 }
+      		  salvaged->cost = newcost;
+		obj_to_char(salvaged, ch);
+
+		
+		/*obj_to_char(read_object(matvnum, VIRTUAL), ch);
+		obj_to_char(read_object(matvnum, VIRTUAL), ch); Old Way*/
 		break;
 		default:
 		act("&+w...and you only came up with a single piece of &+ymaterial&n.", FALSE, ch, 0, 0, TO_CHAR);
-		obj_to_char(read_object(matvnum, VIRTUAL), ch);
+		 salvaged = read_object(matvnum, VIRTUAL);
+		//Dynamic pricing - Drannak 3/21/2013
+  		 newcost = 200; //20 s starting point
+		modifier = GET_OBJ_VNUM(salvaged) - 399999;
+  		newcost = newcost * modifier; //since the vnum's are sequential, the greatest rarity gets a 1.3 modifier, lowest gets 100% of value.
+ 		  /*sprintf(dbug, "1 Current newcost value: %d\r\n", newcost);
+ 		  send_to_char(dbug, ch);*/
+ 		  newcost = (newcost * GET_LEVEL(ch)) / 56;
+     		 newcost = (newcost * GET_CHAR_SKILL(ch, SKILL_SALVAGE) / 100);
+ 		  if(GET_OBJ_VNUM(salvaged) < 400140)
+ 		   {
+  		   newcost = (newcost * 8) / 10; //anything less than gold gets a little bit of a reduction in price
+        	  }
+
+
+
+      		if(number(80, 140) < GET_C_LUCK(ch))
+  		 {
+  		   newcost *= 1.3;
+   		  send_to_char("&+mYou &+Ygently&+m break the &+Mmaterial &+mfree, preserving its natural form.&n\r\n", ch);
+          	 }
+      		  salvaged->cost = newcost;
+		obj_to_char(salvaged, ch);
 		}
       
        notch_skill(ch, SKILL_SALVAGE, 25);

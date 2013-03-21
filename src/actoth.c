@@ -2336,7 +2336,7 @@ void do_steal(P_char ch, char *argument, int cmd)
     return;
   }
 
-  /*
+  
   if (affected_by_spell(ch, TAG_PVPDELAY))
   {
     send_to_char
@@ -2344,7 +2344,7 @@ void do_steal(P_char ch, char *argument, int cmd)
        ch);
     return;
   }
-  */
+  
 
 
   if (CHAR_IN_SAFE_ZONE(ch) &&
@@ -2507,14 +2507,14 @@ void do_steal(P_char ch, char *argument, int cmd)
 
   CharWait(ch, PULSE_VIOLENCE * 2);
   
-/* 
+ 
  if (obj && IS_ARTIFACT(obj) && 
       !IS_TRUSTED(ch))
   {
-    send_to_char("Dont even bother....better run.\r\n", ch);
+    send_to_char("That item appears to be &+Mmagically &nbound to them, better try to steal something else.\r\n", ch);
     return;
   }
-*/
+
 
   switch (type)
   {

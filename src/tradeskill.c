@@ -881,7 +881,8 @@ void event_mine_check(P_char ch, P_char victim, P_obj, void *data)
 {
   struct mining_data *mdata = (struct mining_data*)data;
   P_obj ore, pick;
-  char  buf[MAX_STRING_LENGTH];
+  char  buf[MAX_STRING_LENGTH], dbug[MAX_STRING_LENGTH];
+  int newcost;
   
   pick = get_pick(ch);
 
@@ -922,10 +923,33 @@ void event_mine_check(P_char ch, P_char victim, P_obj, void *data)
       wizlog(56, "Problem with ore item");
       return;
     }
+ 
+   //Dynamic pricing - Drannak 3/21/2013
+   newcost = 120000; //120 p starting point
+   /*sprintf(dbug, "1 Current newcost value: %d\r\n", newcost);
+   send_to_char(dbug, ch);*/
+   newcost = (newcost * GET_LEVEL(ch)) / 56;
     
+  newcost = (newcost * GET_CHAR_SKILL(ch, SKILL_MINE) / 100);
+   if(GET_OBJ_VNUM(ore) < 223)
+    {
+     newcost = (newcost * 80) / 100; //anything less than gold gets a little bit of a reduction in price
+        
+    }
+   newcost = (newcost * GET_OBJ_VNUM(ore)) / 233; //since the vnum's are sequential, the greatest rarity gets a 1.0 modifier, lowest gets 83% of value.
+      
+  if(number(80, 140) < GET_C_LUCK(ch))
+   {
+     newcost *= 1.3;
+     send_to_char("&+yYou &+Ygently&+y break the &+Lore &+yfree from the &+Lrock&+y, preserving its natural form.&n\r\n", ch);
+          
+   }
+         
     act("Your mining efforts turn up $p&n!", FALSE, ch, ore, 0, TO_CHAR);
     act("$n finds $p&n!", FALSE, ch, ore, 0, TO_ROOM);
-
+    
+    //SET_BIT(ore->cost, newcost);
+    ore->cost = newcost;
     obj_to_room(ore, ch->in_room);
     return;
   }
@@ -960,6 +984,9 @@ void event_mine_check(P_char ch, P_char victim, P_obj, void *data)
 
   mdata->counter--;
   add_event(event_mine_check, PULSE_VIOLENCE, ch, 0, 0, 0, mdata, sizeof(struct mining_data));
+  zone_spellmessage(ch->in_room,
+    "&+yThe sound of &+wmetal &+yhewing &+Lrock&+y can be heard in the distance...&n\r\n",
+    "&+yThe sound of &+wmetal &+yhewing &+Lrock&+y can be heard in the distance to the %s...&n\r\n");
 }
 
 int smith(P_char ch, P_char pl, int cmd, char *arg)
