@@ -4344,6 +4344,10 @@ D0
 ~
 ~
 0 0 97664
+D4
+~
+~
+0 0 97759
 S
 #97692
 &+WThe Path of the Damned&N~
@@ -5708,4 +5712,17 @@ S
 Shady hireling load room~
 ~
 975 134250496 0
+S
+#97759
+&+WKannard's &+mS&+Me&+Yc&+Gr&+Ce&+Rt &+yShop &nof &+CIntrigue&n~
+Formed by a &+clight blue&n, &+Mglowing &+cmist&n, this room seems to &+Cpulsate&n
+in and out of &+Lexistence&n. Various &+Cartifacts&n from reaches far beyond our own &+rrealm&n
+slowly &+cphase&n into view, providing a &+Cglimpse&n into &+Lother-worldy &nrealms. A
+&+Lcl&+woa&+Wked&n, &+Lhooded&n figure &+rhovers&n in the center of the room, beckoning you closer.
+~
+975 142639168 0
+D5
+~
+~
+0 0 97691
 S

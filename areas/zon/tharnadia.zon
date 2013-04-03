@@ -629,6 +629,7 @@ O 0 132607 2 133056 100 0 0 0      * @>--'---,---
 O 0 132519 4 133057 100 0 0 0      * a map of Tharnadia
 O 0 132505 3 133066 100 0 0 0      * the statue on the left
 O 0 132506 3 133066 100 0 0 0      * the statue on the right
+O 0 400216 1 133072 100 0 0 0      * (object type not in this .obj file)
 *
 M 0 132617 1 132500 100 0 0 0      * Kieta
 G 1 66709 999 0 100 0 0 0          *    (object type not in this .obj file)

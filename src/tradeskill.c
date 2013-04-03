@@ -1773,16 +1773,71 @@ int epic_store(P_char ch, P_char pl, int cmd, char *arg)
               "&+WKannard&+L slowly lifts his hood and smiles.'\n"
 	       "&+WKannard&+L &+wsays 'Welcome adventurer. I offer exotic items from the far reaches beyond our own realm in exchange for &+cepic points&n.'\n"
 	       "&+WKannard&+L &+wsays 'Please refer to my &+ysign&n for an explanation of each of these items and their affects.'\n"
-              "&+y=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n"
-              "&+y|&+W 1) &+ga M&+Ga&+Wg&+Gi&+gc&+Ga&+Wl &+GGreen &+gMu&+Gshro&+gom from the &+GSylvan &+yWoods&n		&+c125		&+y|\n"
-              "&+y=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n"
-		"\n");
+              "&+y=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n"
+		"&+y|		&+cItem Name					           Epic Cost            &+y|\n"																
+              "&+y|&+W 1) &+ga M&+Ga&+Wg&+Gi&+gc&+Ga&+Wl &+GGreen &+gMu&+Gshro&+gom from the &+GSylvan &+yWoods&n&+C%30d&n		&+y|\n"
+              "&+y|&+W 2) &+ya tightly wrapped vellum scroll named '&+LFix&+y'&n   &+C%30d&n		&+y|\n"
+              "&+y=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n"
+		"\n", 125, 85);
+      send_to_char(buffer, pl);
+      return TRUE;
+    }//endifnoarg
+  }//endiflist
+  else if(cmd == CMD_BUY)
+  {
+	if(!arg || !*arg)
+   {//ifnoarg
+      // practice called with no arguments
+      sprintf(buffer,
+              "&+WKannard&+L &+wsays 'What item would you like to buy?'\n");
+		
       send_to_char(buffer, pl);
       return TRUE;
     }//endifnoarg
 
+	else if(strstr(arg, "1"))
+    {//buy1
+	//check for 200 epics required to reset
+	int availepics = pl->only.pc->epics;
+	if (availepics < 125)
+	{
+	  send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
+	  return TRUE;
+        }
+	//subtract 125 epics
+       P_obj obj;
+	obj = read_object(400213, VIRTUAL);
+	pl->only.pc->epics -= 125;
+       send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
+	send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
+       act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
+       extract_obj(obj, FALSE);
+	obj_to_char(read_object(400213, VIRTUAL), pl);
+       return TRUE;
+    }//endbuy1
 
-  }//endiflist
+    //14126 - fix scroll
+	else if(strstr(arg, "2"))
+    {//buy2
+	//check for 85 epics required to reset
+	int availepics = pl->only.pc->epics;
+	if (availepics < 85)
+	{
+	  send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
+	  return TRUE;
+        }
+	//subtract 85 epics
+       P_obj obj;
+	obj = read_object(14126, VIRTUAL);
+	pl->only.pc->epics -= 125;
+       send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
+	send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
+       act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
+       extract_obj(obj, FALSE);
+	obj_to_char(read_object(14126, VIRTUAL), pl);
+       return TRUE;
+    }//endbuy2
+  }
   return FALSE;
 }
 

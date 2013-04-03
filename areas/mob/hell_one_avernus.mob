@@ -6,8 +6,8 @@ devil swarm~
 &+LThis small and annyoing devil runs in packs of
 &+Lnumbering in the hundereds to thousands at a time!&N
 ~
-1174800590 1 0 708518072 274624 0 0 -1000 S
-Y 0 4096 -1
+1174800590 1 0 0 708518072 274624 0 0 -1000 S
+Y 0 4096 0 -1
 10 18 52 10d18+105 2d3+1
 5.3.0.0 1296
 8 8 0
@@ -19,8 +19,8 @@ devil swarm~
 &+LThis small and annyoing devil runs in packs of
 &+Lnumbering in the hundereds to thousands at a time!&N
 ~
-1174800588 1 0 708518072 274624 0 0 -1000 S
-Y 0 4096 -1
+1174800588 1 0 0 708518072 274624 0 0 -1000 S
+Y 0 4096 0 -1
 10 18 52 10d18+105 2d3+1
 5.3.0.0 1296
 8 8 0

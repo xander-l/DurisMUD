@@ -1730,3 +1730,20 @@ pulsating piece illithid brain~
 19 2 1 0 15 0 33554440 16385 0 0 0
 0 0 0 0 0 0 0 0
 0 0 100
+#400216
+sign information~
+&+ya sign&n~
+&+ya wooden &+Litem &+Yinformation&+y sign is here.&n~
+~
+13 6 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+sign information~
+This sign contains information about the items for sale in this store:
+&+W 1) &+ga M&+Ga&+Wg&+Gi&+gc&+Ga&+Wl &+GGreen &+gMu&+Gshro&+gom from the &+GSylvan &+yWoods&n
+&+C-This item gives 1 level, up to 46, to any character that eats it.&n
+
+&+W 2) &+ya tightly wrapped vellum scroll named '&+LFix&+y'&n
+&+C-This item will repair any single item which it is recited on, even if it is otherwise unrepairable.&n
+~
