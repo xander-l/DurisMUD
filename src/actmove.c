@@ -2292,18 +2292,11 @@ void do_open(P_char ch, char *argument, int cmd)
 		 }
 
 	  }
-       if (IS_SET(robj->extra_flags, ITEM_SECRET))
-	{
-	  REMOVE_BIT(robj->extra_flags, ITEM_SECRET);
-	}
-	act("&+mWhen at last it clears the &+Mbag&+m is gone, and all that remains is &n$p&+m!\r\n", FALSE, ch, robj, 0, TO_CHAR);
-	P_obj reward;
+      	act("&+mWhen at last it clears the &+Mbag&+m is gone, and all that remains is &n$p&+m!\r\n", FALSE, ch, robj, 0, TO_CHAR);
+	/*P_obj reward;
 	reward = read_object(robjint, VIRTUAL);
-       if (IS_SET(reward->extra_flags, ITEM_SECRET))
-	{
-	  REMOVE_BIT(reward->extra_flags, ITEM_SECRET);
-	}
-	obj_to_char(reward, ch);       
+      	obj_to_char(reward, ch);  */
+	obj_to_char(robj, ch);     
 	obj_from_char(obj, TRUE);
 	 statuslog(ch->player.level,
         "&+MFaerie Bag:&n (%s&n) just got [%d] (%s&n) at [%d]!",
@@ -2311,7 +2304,7 @@ void do_open(P_char ch, char *argument, int cmd)
           obj_index[robj->R_num].virtual_number,
           robj->short_description,
           (ch->in_room == NOWHERE) ? -1 : world[ch->in_room].number);
-       extract_obj(robj, FALSE);
+       
 	return;
 	}
       REMOVE_BIT(obj->value[1], CONT_CLOSED);
