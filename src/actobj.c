@@ -4856,7 +4856,7 @@ void do_remove(P_char ch, char *argument, int cmd)
     	affect_to_char(ch, &af);
 	
 	//Battlemage robe
-	if (obj_index[obj_object->R_num].virtual_number == 400218 && !IS_MULTICLASS_PC(ch))
+	if (obj_index[temp_obj->R_num].virtual_number == 400218 && !IS_MULTICLASS_PC(ch))
 	{
 	  affect_from_char(ch, SPELL_BATTLEMAGE);
 	  send_to_char("&+rAs you remove the &+Ymaje&+rst&+Yic &+Yrobe&+r, you feel your enhanced &+mpower&+r fade.&n\r\n", ch);
