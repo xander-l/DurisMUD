@@ -845,11 +845,12 @@ void epic_free_level(P_char ch)
          ch->only.pc->epics >= epics_for_level)
      {
          GET_EXP(ch) -= new_exp_table[GET_LEVEL(ch) + 1];
+	ch->only.pc->epics -= epics_for_level;
          advance_level(ch);//, FALSE); wipe2011
 		 wizlog(56, "%s has attained epic level &+W%d&n!",
                 GET_NAME(ch),
                 GET_LEVEL(ch));
-	ch->only.pc->epics = 0;
+	
      }
 
 }
