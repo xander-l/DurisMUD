@@ -838,6 +838,7 @@ extern unsigned int game_locked;
 #define CMD_BLADE       811
 #define CMD_CONSUME     812
 #define CMD_RIFF        813
+#define CMD_LEADERBOARD 814
 
 /* cmds below are not real commands, they are
                 used in item special procedures to identify

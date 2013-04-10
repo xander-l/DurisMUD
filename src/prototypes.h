@@ -805,6 +805,7 @@ bool rapier_dirk(P_char, P_char);
 int calculate_thac_zero(P_char, int);
 bool opposite_racewar(P_char ch, P_char victim);
 void displayHardCore(P_char ch, char *arg, int cmd);
+void displayLeader(P_char ch, char *arg, int cmd);
 void displayRelic(P_char ch, char *arg, int cmd);
 int leapSucceed(P_char, P_char);
 int damage_modifier(P_char, P_char, int);
@@ -969,6 +970,14 @@ void deleteHallEntry(char names[15][MAX_STRING_LENGTH], int frags[15], int pos, 
 void insertHallEntry(char names[15][MAX_STRING_LENGTH], int frags[15], char *name, int newFrags, int pos, char killer[15][MAX_STRING_LENGTH], char *killername);
 void checkHallOfFame(P_char ch, char thekiller[1024]);
 void writeHallOfFame(P_char ch, char thekiller[1024]);
+
+/* leaderboard.c */
+int getLeaderBoardPts(P_char);
+void deleteLeaderEntry(char names[15][MAX_STRING_LENGTH], int frags[15], int pos, char killer[15][MAX_STRING_LENGTH]);
+void insertLeaderEntry(char names[15][MAX_STRING_LENGTH], int frags[15], char *name, int newFrags, int pos, char killer[15][MAX_STRING_LENGTH], char *killername);
+void checkLeaderBoard(P_char ch, char thekiller[1024]);
+void writeLeaderBoard(P_char ch, char thekiller[1024]);
+
 
 /* period.list.c */
 void place_period_books();
