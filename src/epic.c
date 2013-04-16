@@ -2073,7 +2073,7 @@ void do_epic(P_char ch, char *arg, int cmd)
     return;
 
   argument_interpreter(arg, buff2, buff3);
-
+/*
   if(!str_cmp("reset", buff2))
   {
     do_epic_reset(ch, arg, cmd);
@@ -2085,7 +2085,7 @@ void do_epic(P_char ch, char *arg, int cmd)
     do_epic_skills(ch, arg, cmd);
     return;
   }
-
+*/
   if(!str_cmp("trophy", buff2))
   {
     do_epic_trophy(ch, arg, cmd);

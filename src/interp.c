@@ -2329,7 +2329,7 @@ void assign_command_pointers(void)
   CMD_N(CMD_HARDCORE, STAT_DEAD + POS_PRONE, displayHardCore, 0);
   CMD_N(CMD_LEADERBOARD, STAT_DEAD + POS_PRONE, displayLeader, 0);
 //  CMD_N(CMD_RELIC, STAT_DEAD + POS_PRONE, displayRelic, 0);
- // CMD_N(CMD_EPIC, STAT_DEAD + POS_PRONE, do_epic, 0); - no longer doing epic skills like this - Drannak
+ CMD_N(CMD_EPIC, STAT_DEAD + POS_PRONE, do_epic, 0);
   CMD_N(CMD_NEXUS, STAT_DEAD + POS_PRONE, do_nexus, 0);
   CMD_N(CMD_TEST, STAT_DEAD + POS_PRONE, do_test, FORGER);
   CMD_Y(CMD_TRANQUILIZE, STAT_DEAD, do_tranquilize, 59);
