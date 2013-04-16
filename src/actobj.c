@@ -4719,19 +4719,20 @@ void do_grab(P_char ch, char *argument, int cmd)
   if (*Gbuf1)
   {
     obj_object = get_obj_in_list(Gbuf1, ch->carrying);
-     	            if (obj_index[obj_object->R_num].virtual_number == 400218 && IS_MULTICLASS_PC(ch))
-    		{
-			send_to_char("&nThe power of this item is too great for a multiclassed character!&n\r\n", ch);
-			return;
-  		  }  
     if (obj_object)
     {
+     if (obj_index[obj_object->R_num].virtual_number == 400218 && IS_MULTICLASS_PC(ch))
+      {
+	send_to_char("&nThe power of this item is too great for a multiclassed character!&n\r\n", ch);
+	return;
+      }
       wear(ch, obj_object, 13, 1);
     }
     else
     {
       sprintf(Gbuf3, "You do not seem to have the '%s'.\r\n", Gbuf1);
       send_to_char(Gbuf3, ch);
+      return;
     }
   }
   else

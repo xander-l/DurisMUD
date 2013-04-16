@@ -257,8 +257,8 @@ void displayHardCore(P_char ch, char *arg, int cmd)
 
   if (!(halloffameList = fopen(filename, "rt")))
   {
-    sprintf(name, "Couldn't open halloffamelist: %s\r\n", filename);
-    send_to_char(name, ch);
+   /* sprintf(name, "Couldn't open halloffamelist: %s\r\n", filename);
+    send_to_char(name, ch); */
     return;
   }
 
@@ -312,7 +312,7 @@ int getLeaderBoardPts(P_char ch)
   /*
  if(IS_MULTICLASS_NPC(ch))
    hardcorepts = hardcorepts * 2;
-   */
+  */ 
 
  return hardcorepts;         
 }
@@ -387,12 +387,14 @@ void displayLeader(P_char ch, char *arg, int cmd)
 
   if (!(halloffameList = fopen(filename, "rt")))
   {
-    sprintf(name, "Couldn't open leaderboard: %s\r\n", filename);
-    send_to_char(name, ch);
+   /*sprintf(name, "Couldn't open leaderboard: %s\r\n", filename);
+   send_to_char(name, ch);*/
+    return;
+  /* will imp below as a create function later - Drannak
     f = fopen("lib/information/leaderboard", "w");
     fprintf(f, "none 0 0\n");
     fclose(f);
-    return;
+    return;*/
   }
 
   int actualrecords = 0;
@@ -404,6 +406,11 @@ void displayLeader(P_char ch, char *arg, int cmd)
   fclose(halloffameList);
 
   halloffameList = fopen(filename, "rt");
+  if (!halloffameList)
+  {
+    return;
+  }
+
 
   strcpy(buf, "\r\n&+y=-=-=-=-=-=-=-=-=-=--= &+rDuris Mud &+WLeader Board&+y =-=-=-=-=-=-=-=-=-=-=-&n\r\n\r\n");
   sprintf(tempbuf, "   &+W%-15s           &+Y%s\r\n",
@@ -478,14 +485,8 @@ void writeLeaderBoard(P_char ch, char thekiller[1024])
 
   if (!halloffamelist)
   {
-    sprintf(buffer, "Couldn't open leaderboard: %s\r\n",
-            halloffamelist_file);
-    send_to_char(buffer, ch);
-    f = fopen("lib/information/leaderboard", "w");
-    fprintf(f, "none 0 0\n");
-    fclose(f);
     return;
-  }
+  }  
 
   if (isname(thekiller, "NotDead"))
     phalloffames = getHardCorePts(ch);
@@ -506,7 +507,13 @@ void writeLeaderBoard(P_char ch, char thekiller[1024])
   }
 
   fclose(halloffamelist);
+
   halloffamelist = fopen(halloffamelist_file, "rt");
+  if (!halloffamelist)
+  {
+    return;
+  }
+
   for (i = 0; i < actualrecords; i++)
   {
    /* if (feof(halloffamelist))
@@ -559,8 +566,8 @@ void writeLeaderBoard(P_char ch, char thekiller[1024])
     halloffamelist = fopen(halloffamelist_file, "wt");
     if (!halloffamelist)
     {
-      send_to_char("error: couldn't open halloffamelist for writing.\r\n",
-                   ch);
+    /*  send_to_char("error: couldn't open halloffamelist for writing.\r\n",
+                   ch);*/
       return;
     }
   
