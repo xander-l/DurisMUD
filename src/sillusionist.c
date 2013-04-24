@@ -495,7 +495,9 @@ void spell_stunning_visions(int level, P_char ch, char *arg, int type,
   
   percent += (level - GET_LEVEL(victim));
 
-  percent += (GET_C_POW(ch) - GET_C_POW(victim)) / 3;
+  //percent += (GET_C_POW(ch) - GET_C_POW(victim)) / 3;
+
+  percent += (int)((GET_C_POW(ch) - GET_C_POW(victim)) *.8);
 
   act("&+cYou send a wave of incredible visions toward&n $N.",
     FALSE, ch, 0, victim, TO_CHAR);
@@ -561,7 +563,7 @@ void spell_stunning_visions(int level, P_char ch, char *arg, int type,
     Stun(victim, ch, PULSE_VIOLENCE * number(1, 2), FALSE);
     return;
   }
-  else if (percent >= 11)
+  else if (percent >= 25)
   {
     act("&+cYour wave of visions seems to slightly mesmerize&n $N!",
       FALSE, ch, 0, victim, TO_CHAR);
