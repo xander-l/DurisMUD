@@ -35,6 +35,7 @@ O 0 41002 1 41223 100 0 0 0        * (object type not in this .obj file)
 O 0 41208 1 41223 100 0 0 0        * a mithril dagger
 O 0 41209 1 41223 100 0 0 0        * a pair of black boots
 O 0 359 1 41223 100 0 0 0          * (object type not in this .obj file)
+O 0 67219 1 41223 100 0 0 0        * (object type not in this .obj file)
 *
 M 0 41203 1 41209 100 0 0 0        * the undead beholder
 E 1 41206 1 2 100 0 0 0            *   a ring of the beholder

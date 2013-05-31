@@ -266,6 +266,8 @@ G 1 360 1 0 100 0 0 0              *    (object type not in this .obj file)
 G 1 25103 1 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 921 1 0 100 0 0 0              *    (object type not in this .obj file)
 G 1 26666 1 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 130027 1 0 100 0 0 0           *    the oaken staff of the woodlands
+G 1 130028 1 0 100 0 0 0           *    Krindors Incredible Device
 M 0 130030 1 130072 100 0 0 0      * a twisted statue
 M 0 130031 1 130072 100 0 0 0      * a twisted statue
 M 0 130032 1 130073 100 0 0 0      * a twisted statue

@@ -9,8 +9,8 @@ too. It is doubtful however that his drunkenness will affect his
 aggressive behavior and he will probably not hesitate to attack anyone who
 he feels is unfit to enter the camp.
 ~
-2058 128 0 0 0 0 0 -600 S
-PB 0 1 -1
+2058 128 0 0 0 0 0 0 -600 S
+PB 0 1 0 -1
 22 0 0 1d1+1 1d1+1
 30.20.0.0 0
 8 8 1
@@ -26,8 +26,8 @@ hood though what little can be seen appears to be a sickly white color.
 Although he carries no weapon and is rather small he still seems to appear
 extremely dangerous.
 ~
-2058 128 0 8 0 0 0 -600 S
-PH 0 512 -1
+2058 128 0 0 8 0 0 0 -600 S
+PH 0 512 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -42,8 +42,8 @@ to him. He looks dirty and wretched but is extremely lucky to have made it
 out of the camp. The fact that he has gone mad makes the chance of him
 figuring out how to walk away from the camp almost nothing.
 ~
-8 1 0 0 0 0 0 25 S
-PH 0 0 -1
+8 1 0 0 0 0 0 0 25 S
+PH 0 0 0 -1
 4 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -56,8 +56,8 @@ large cow~
 feeding from the trough not paying attention to anything else. Considering
 its size and weight it looks ready to be slaughtered very soon.
 ~
-2058 0 0 0 0 0 0 0 S
-A 0 1 -1
+2058 0 0 0 0 0 0 0 0 S
+A 0 1 0 -1
 11 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -72,8 +72,8 @@ poor looking cloth clothes and is barefoot. He does his job well evidently
 as the bandits have not decided to kill or sell him but to keep him for
 themselves.
 ~
-138 0 0 0 0 0 0 500 S
-PH 0 1 -1
+138 0 0 0 0 0 0 0 500 S
+PH 0 1 0 -1
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -87,8 +87,8 @@ to raid with the rest of the bandits. He dresses in leather armor and
 carries an iron longsword. He looks like he is still in his teens but is
 still a dangerous opponent nonetheless.
 ~
-1073743880 128 0 0 0 0 0 -500 S
-PH 0 1 -1
+1073743880 128 0 0 0 0 0 0 -500 S
+PH 0 1 0 -1
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -103,8 +103,8 @@ villages many times and is quite adept at swordsmanship. He is currently
 standing in the barracks taking full use of what precious time he has to
 relax.
 ~
-2056 128 0 0 0 0 0 -700 S
-PH 0 1 -1
+2056 128 0 0 0 0 0 0 -700 S
+PH 0 1 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -118,8 +118,8 @@ loin cloths and have thick shackles attached to their hands and feet.
 Sadly, they all appear quite young too and were probably kidnapped from
 a nearby village. They would not put up much of a fight if attacked.
 ~
-2056 0 0 0 0 0 0 500 S
-PH 0 0 -1
+2056 0 0 0 0 0 0 0 500 S
+PH 0 0 0 -1
 9 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -131,8 +131,8 @@ huge cockroach~
     This bug is positively disgusting and over 4 feet in length. It makes
 a fine home here in the slave pen.
 ~
-8 0 0 0 0 0 0 0 S
-AP 0 0 -1
+8 0 0 0 0 0 0 0 0 S
+AP 0 0 0 -1
 4 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -147,8 +147,8 @@ and has a thin wiry build. Although giving the appearance of a frail
 beast like most trolls is no doubt extremely strong and agile. He sits here
 relaxing and gnawing on food.
 ~
-2058 8 0 16 0 0 0 -800 S
-PT 0 1 -1
+2058 8 0 0 16 0 0 0 -800 S
+PT 0 1 0 -1
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -163,8 +163,8 @@ built and looks like a dangerous opponent in battle. Right now however
 he is busily sorting his belongings seemingly looking for something
 specific.
 ~
-2058 8 0 0 0 0 0 -800 S
-HO 0 1 -1
+2058 8 0 0 0 0 0 0 -800 S
+HO 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -180,8 +180,8 @@ very well built and is extraordinarily strong for a human. He looks just
 as evil as the other bandits though, as he keeps several scalps of his
 vanquished opponents on his belt.
 ~
-1073744072 128 0 33554432 0 0 0 -900 S
-PH 0 16384 -1
+1073744072 128 0 0 33554432 0 0 0 -900 S
+PH 0 16384 0 -1
 44 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -196,8 +196,8 @@ doubt make the rat extremely aggressive to anyone it sees. The reason
 the bandits let it exist in the camp is because this aggressiveness
 makes it function as a good guard.
 ~
-8 1 0 0 0 0 0 -250 S
-AC 0 0 -1
+8 1 0 0 0 0 0 0 -250 S
+AC 0 0 0 -1
 3 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -212,9 +212,9 @@ bandits. He wears durable armor and carries a wicked looking black sword
 in his scabbard. Currently he is reading over papers. He looks like he is
 incredibly skilled at fighting -- better leave him alone!
 ~
-1073743944 1 0 33554440 0 0 0 -900 S
-PH 0 16 -1
-46 0 0 1d1+1 1d1+1
+1073743944 1 0 0 33554440 0 0 0 -900 S
+PH 0 4096 2 -1
+35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #14814
@@ -228,8 +228,8 @@ buyers. He looks like an ex-merchant who has found greater profit in the
 slave trade. While he may look rather harmless, from the way he treats
 his slaves, it is evident that he is a very evil man.
 ~
-67110922 0 0 0 0 0 0 -900 S
-PO 0 1 -1
+67110922 0 0 0 0 0 0 0 -900 S
+PO 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -244,8 +244,8 @@ heavy iron and he stands on the platform with his head down looking as
 though he has lost all his pride. This ogre would not put up much of a
 fight if attacked.
 ~
-10 0 0 0 0 0 0 -900 S
-PO 0 1 -1
+10 0 0 0 0 0 0 0 -900 S
+PO 0 1 0 -1
 10 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -260,8 +260,8 @@ farms. He stands here eagerly yelling out bids on the slaves being brought
 for sale. This man looks overweight and weak and would be slain easily
 in a fight.
 ~
-2058 0 0 0 0 0 0 -500 S
-PH 0 0 -1
+2058 0 0 0 0 0 0 0 -500 S
+PH 0 0 0 -1
 5 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -275,8 +275,8 @@ He silently watches the auction take place while keeping an eye out for thieves
 and other troublemakers. Judging from his fine leather armor, sharp sword, and
 confident look in his face, he looks like he would put up quite a fight.
 ~
-1073743946 0 0 0 0 0 0 -600 S
-PH 0 1 -1
+1073743946 0 0 0 0 0 0 0 -600 S
+PH 0 1 0 -1
 17 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -291,8 +291,8 @@ to see which slave is for sale and trying with great difficulty to bid
 on whatever is for sale. Like most merchants this person is weak and a
 simple opponent to fight.
 ~
-2184 0 0 0 0 0 0 -500 S
-PH 0 0 -1
+2184 0 0 0 0 0 0 0 -500 S
+PH 0 0 0 -1
 19 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -305,8 +305,8 @@ guard tough~
 the horizon searching for any sign of enemies. At the sign of enemies he
 will definitely not hesitate to ring the gong nearby to alert the camp.
 ~
-1073743946 128 0 0 0 0 0 -500 S
-PH 0 1 -1
+1073743946 128 0 0 0 0 0 0 -500 S
+PH 0 1 0 -1
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -321,8 +321,8 @@ belt. He looks like he would be a deadly opponent to face in battle. While
 he may look intimidating, he has a holyness about him and appears to be
 extremely kind. Perhaps it would be wise to ask him if he needs help?
 ~
-2058 128 0 33554440 0 0 0 900 S
-PH 0 8 -1
+2058 128 0 0 33554440 0 0 0 900 S
+PH 0 8 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -335,8 +335,8 @@ small cow~
 no distinguishing features, and stands around looking for food. It does
 not have anything about it that makes it look especially interesting.
 ~
-10 0 0 0 0 0 0 0 S
-A 0 1 -1
+10 0 0 0 0 0 0 0 0 S
+A 0 1 0 -1
 7 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -350,8 +350,8 @@ a full set of leather armor and wields a worn looking sword. These men form
 the main body of the bandit army, beating their enemies through sheer
 numbers. Alone however, they are not very difficult to defeat.
 ~
-2056 128 0 0 0 0 0 -500 S
-PH 0 1 -1
+2056 128 0 0 0 0 0 0 -500 S
+PH 0 1 0 -1
 17 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -365,8 +365,8 @@ his scabbard. He looks middle-aged and to be a veteran warrior. He stands
 here watching the slaves making sure they don't try to escape or attack
 anyone. He looks bored from days of watching over the slaves.
 ~
-2058 0 0 33554432 0 0 0 -700 S
-PH 0 1 -1
+2058 0 0 0 33554432 0 0 0 -700 S
+PH 0 1 0 -1
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -381,8 +381,8 @@ bruises from repeated beatings. She is wearing a revealing purple robe,
 and sits on the bed, prisoner to Isoril. A thick metal chain attached to
 her wrist prevents her from leaving the room.
 ~
-2058 0 0 0 0 0 0 750 S
-P2 0 0 -1
+2058 0 0 0 0 0 0 0 750 S
+P2 0 0 0 -1
 14 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -397,8 +397,8 @@ middle aged, and looks like he would be quite a difficult opponent to
 fight. Currently he is sitting here resting waiting for the next group
 of slaves to come in.
 ~
-2058 0 0 0 0 0 0 -900 S
-PH 0 1 -1
+2058 0 0 0 0 0 0 0 -900 S
+PH 0 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -413,8 +413,8 @@ villages many times and is quite adept at swordsmanship. He is currently
 standing in the barracks taking full use of what precious time he has to
 relax.
 ~
-2056 128 0 0 0 0 0 -700 S
-PH 0 1 -1
+2056 128 0 0 0 0 0 0 -700 S
+PH 0 1 0 -1
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -429,8 +429,8 @@ villages many times and is quite adept at swordsmanship. He is currently
 standing in the barracks taking full use of what precious time he has to
 relax.
 ~
-2056 128 0 0 0 0 0 -700 S
-PH 0 1 -1
+2056 128 0 0 0 0 0 0 -700 S
+PH 0 1 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -445,8 +445,8 @@ villages many times and is quite adept at swordsmanship. He is currently
 standing in the barracks taking full use of what precious time he has to
 relax.
 ~
-2056 128 0 0 0 0 0 -700 S
-PH 0 1 -1
+2056 128 0 0 0 0 0 0 -700 S
+PH 0 1 0 -1
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -460,8 +460,8 @@ He silently watches the auction take place while keeping an eye out for thieves
 and other troublemakers. Judging from his fine leather armor, sharp sword, and
 confident look in his face, he looks like he would put up quite a fight.
 ~
-1140852808 0 0 0 0 0 0 -600 S
-PH 0 1 -1
+1140852808 0 0 0 0 0 0 0 -600 S
+PH 0 1 0 -1
 17 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1

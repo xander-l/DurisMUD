@@ -84,6 +84,7 @@ O 0 6839 1 6801 1 0 0 0            * a woven dragon scale belt
 O 0 6849 1 6801 1 0 0 0            * a ceremonial candlestick
 O 0 6854 1 6801 50 0 0 0           * an ornate red cloak
 O 0 1210 1 6801 100 0 0 0          * (object type not in this .obj file)
+O 0 1230 1 6801 100 0 0 0          * (object type not in this .obj file)
 O 0 6838 1 6837 100 0 0 0          * a golden chest
 P 1 6817 1 6838 100 0 0 0          *   a polished golden bracelet
 P 1 6858 1 6838 100 0 0 0          *   a glittering golden bracelet
