@@ -2828,10 +2828,10 @@ void kill_gain(P_char ch, P_char victim)
       
       send_to_char("You receive your share of experience.\r\n", gl->ch);
       gain_exp(gl->ch, victim, (XP + (XP*(group_size*.25))), EXP_KILL);
-    update_achievements(ch, victim, 0, 2);//this is for all kinds of kill-type quests
+    update_achievements(gl->ch, victim, 0, 2);//this is for all kinds of kill-type quests
     if(GET_LEVEL(victim) > 30)
 	{
-	  if((number(1, 5000) < GET_C_LUCK(ch)) || (GET_RACE(victim) == RACE_DRAGON && (GET_VNUM(victim) > 10) && (GET_LEVEL(victim) > 49)))
+	  if((number(1, 5000) < GET_C_LUCK(gl->ch)) || (GET_RACE(victim) == RACE_DRAGON && (GET_VNUM(victim) > 10) && (GET_LEVEL(victim) > 49)))
 	   {
 		send_to_char("&+cAs your body absorbs the &+Cexperience&+c, you seem to feel a bit more epic!\r\n", gl->ch);
               P_char recipient = gl->ch;
