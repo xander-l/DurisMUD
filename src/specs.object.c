@@ -4652,25 +4652,28 @@ int treasure_chest(P_obj obj, P_char ch, int cmd, char *argument)
 
 int demo_scimitar(P_obj obj, P_char ch, int cmd, char *arg)
 {
+  int      dam = cmd / 1000;
   P_char   victim;
 
   /*
      check for periodic event calls
    */
   if (cmd == CMD_SET_PERIODIC)
+    return TRUE;
+
+ /* if (cmd != CMD_MELEE_HIT)
+    return (FALSE);*/
+
+  if (!dam)
     return FALSE;
 
-  if (cmd != CMD_MELEE_HIT)
-    return (FALSE);
   if (!ch)
     return (FALSE);
 
-  if (!OBJ_WORN(obj) || (obj->loc.wearing != ch))
-    return (FALSE);
   victim = (P_char) arg;
   if (!victim)
     return (FALSE);
-  if (number(0, 35))
+  if (number(0, 28))
     return (FALSE);
   act("$p &+Lcarried by $n&+L slices into $N's&+L soul...&n", TRUE, ch, obj,
       victim, TO_NOTVICT);
@@ -4679,10 +4682,11 @@ int demo_scimitar(P_obj obj, P_char ch, int cmd, char *arg)
   act("$p &+Lcarried by $n&+L slices into your&+L soul...&n", TRUE, ch, obj,
       victim, TO_VICT);
 
-  GET_VITALITY(victim) = MAX(0, GET_VITALITY(victim) - 40);
+  GET_VITALITY(victim) = MAX(0, GET_VITALITY(victim) - (number(10, 40)));
+
 
   act("&+L$N&+L goes limp for a moment.&n", FALSE, ch, 0, victim, TO_NOTVICT);
-  act("&+LYou&+L goes limp for a moment.&n", FALSE, ch, 0, victim, TO_VICT);
+  act("&+LYou feel your body&+L go limp for a moment.&n", FALSE, ch, 0, victim, TO_VICT);
   act("&+L$N&+L goes limp for a moment.&n", FALSE, ch, 0, victim, TO_CHAR);
 
   return (TRUE);

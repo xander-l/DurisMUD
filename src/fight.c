@@ -4194,7 +4194,14 @@ int spell_damage(P_char ch, P_char victim, double dam, int type, uint flags,
     if(affected_by_spell(victim, SPELL_SOULSHIELD) && GET_CLASS(victim, CLASS_PALADIN))
         dam *= .75;
 
-
+    if(!IS_PC(victim))
+    {
+     if(GET_VNUM(victim) >= 48000 && GET_VNUM(victim) <= 48002)
+     {
+     dam *= 0;
+     send_to_char("Your victim is &+Rimmune&n to your attacks!\r\n", ch);
+     }
+    }
        
  
  
@@ -4780,6 +4787,15 @@ int melee_damage(P_char ch, P_char victim, double dam, int flags,
    if(GET_SPEC(ch, CLASS_ROGUE, SPEC_THIEF))
        dam *= 1.3;
 
+     if(!IS_PC(victim))
+    {
+     if(GET_VNUM(victim) >= 48000 && GET_VNUM(victim) <= 48002)
+     {
+     dam *= 0;
+     send_to_char("Your victim is &+Rimmune&n to your attacks!\r\n", ch);
+     }
+    }
+
     if(IS_RIDING(ch) && GET_SPEC(ch, CLASS_ANTIPALADIN, SPEC_DEMONIC))
       dam *= 1.20;
 
@@ -4933,6 +4949,15 @@ int melee_damage(P_char ch, P_char victim, double dam, int flags,
 
   dam = MAX(1, dam);
 
+     if(!IS_PC(victim))
+    {
+     if(GET_VNUM(victim) >= 48000 && GET_VNUM(victim) <= 48002)
+     {
+     dam *= 0;
+     send_to_char("Your victim is &+Rimmune&n to your attacks!\r\n", ch);
+     }
+    }
+
   messages->type |= 1 << 24;
   result = raw_damage(ch, victim, dam, RAWDAM_DEFAULT | flags, messages);
 
@@ -5000,7 +5025,9 @@ void check_vamp(P_char ch, P_char victim, double fdam, uint flags)
       StartRegen(victim, EVENT_MANA_REGEN);   
     }
 
-    GET_MANA(victim) -= can_mana;
+    can_mana = BOUNDED(0, can_mana, 100);
+   
+    GET_MANA(victim) -= BOUNDED(0, number(1, can_mana), GET_MANA(ch));
     
     if (GET_MANA(victim) < GET_MAX_MANA(victim))
     {

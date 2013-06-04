@@ -2584,14 +2584,11 @@ spell_mind_blank(int level, P_char ch, char *arg, int type, P_char victim,
   return;
 }
 
-void
-spell_cannibalize(int level, P_char ch, char *arg, int type, P_char victim,
+void spell_cannibalize(int level, P_char ch, char *arg, int type, P_char victim,
                  P_obj obj)
 {
   struct affected_type af;
 
-  if (IS_NPC(ch)) //quick fix for mobs draining pcs
-  return;
 
   if (!(victim && ch))
   {
