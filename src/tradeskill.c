@@ -2833,10 +2833,13 @@ void update_achievements(P_char ch, P_char victim, int cmd, int ach)
   if ((ach == 2) && !affected_by_spell(ch, AIP_DRAGONSLAYER))
   apply_achievement(ch, AIP_DRAGONSLAYER);
 
-  if(!IS_PC(victim))
+  if(ach ==2)
   {
-  if ((ach == 2) && (GET_VNUM(victim) == 91031) && !affected_by_spell(ch, AIP_YOUSTRAHDME2) && !affected_by_spell(ch, AIP_YOUSTRAHDME))
-  apply_achievement(ch, AIP_YOUSTRAHDME);
+   if(!IS_PC(victim))
+   {
+    if ((ach == 2) && (GET_VNUM(victim) == 91031) && !affected_by_spell(ch, AIP_YOUSTRAHDME2) && !affected_by_spell(ch, AIP_YOUSTRAHDME))
+    apply_achievement(ch, AIP_YOUSTRAHDME);
+    }
   }
 
 
