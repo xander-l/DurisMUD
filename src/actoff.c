@@ -4488,6 +4488,10 @@ void event_sneaky_strike(P_char ch, P_char victim, P_obj obj, void *data)
 				obj, victim, TO_VICT);
 			numb = number(4, 7);
 			add_event(event_bleedproc, PULSE_VIOLENCE, victim, 0, 0, 0, &numb, sizeof(numb));
+		act
+	       ("&+L...$n &+Lthen quickly fades into the sh&+wad&+Wow&+L, re-appearing only to attack again!",
+     	  	TRUE, ch, 0, victim, TO_NOTVICT);
+		single_stab(ch, victim, weapon);
 	   }
 
 	  else
@@ -4502,6 +4506,10 @@ void event_sneaky_strike(P_char ch, P_char victim, P_obj obj, void *data)
 				obj, victim, TO_VICT);
 			numb = number(4, 7);
 			add_event(event_bleedproc, PULSE_VIOLENCE, victim, 0, 0, 0, &numb, sizeof(numb));
+		act
+	       ("&+L...$n &+Lthen quickly fades into the sh&+wad&+Wow&+L, re-appearing only to attack again!",
+     	  	TRUE, ch, 0, victim, TO_NOTVICT);
+		single_stab(ch, victim, weapon);
 
           }
 	 }
@@ -10009,7 +10017,7 @@ void do_shadowstep(P_char ch, char *, int)
       {
         continue;
       }
-     if(GET_OPPONENT(victim) == ch);
+     if(GET_OPPONENT(victim) == ch)
      stop_fighting(victim);
     }
    }

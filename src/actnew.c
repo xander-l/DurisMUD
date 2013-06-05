@@ -2464,7 +2464,7 @@ void do_dirttoss(P_char ch, char *arg, int cmd)
     }
   }
 
-  skl_lvl = (int) (0.9*GET_CHAR_SKILL(ch, SKILL_DIRTTOSS));
+  skl_lvl = (int) (GET_CHAR_SKILL(ch, SKILL_DIRTTOSS));
   
   if (skl_lvl <= 0)
     return;
@@ -2503,7 +2503,7 @@ void do_dirttoss(P_char ch, char *arg, int cmd)
 
   justice_witness(ch, vict, CRIME_ATT_MURDER);
 
-  i = skl_lvl - (GET_C_AGI(vict) / 5);
+  i = skl_lvl - (GET_C_AGI(vict) / 6);
 
   act
     ("You reach for the ground, quickly tossing a clump of dirt at $N's face!",
