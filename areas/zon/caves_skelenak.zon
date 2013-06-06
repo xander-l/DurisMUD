@@ -161,6 +161,7 @@ M 0 4026 2 4069 100 0 0 0          * a piercer
 M 0 4026 2 4070 100 0 0 0          * a piercer
 M 0 4025 1 4072 100 0 0 0          * a lurker above
 M 0 4028 3 4074 100 0 0 0          * a huge poisonous snake
+G 1 67270 1 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 4028 3 4074 100 0 0 0          * a huge poisonous snake
 M 0 4028 3 4074 100 0 0 0          * a huge poisonous snake
 M 0 4027 1 4076 100 0 0 0          * Goortok

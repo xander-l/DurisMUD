@@ -7,8 +7,8 @@ It is hairy, with dark-green skin and yellow eyes.  A globe of
 horrible body odor follows it around.  It is a repulsive looking
 being, wearing simple rags for clothing.
 ~
-140 0 0 0 0 0 0 -360 S
-H 0 0 -1
+140 0 0 0 0 0 0 0 -360 S
+H 0 0 0 -1
 10 18 67 10d18+35 2d3+1
 5.3.0.0 1296
 8 8 0
@@ -20,8 +20,8 @@ A large &+Ggreen snake&N is here slithering around in the water.
 The snake is about ten feet long, resembling a huge python.  Its
 fangs look very sharp, and it eyes you with an evil expression.
 ~
-262154 1 0 8 0 0 0 -900 S
-A 0 0 -1
+262154 1 0 0 8 0 0 0 -900 S
+A 0 0 0 -1
 25 11 19 25d40+200 3d5+3
 0.0.0.0 22275
 8 8 0
@@ -33,8 +33,8 @@ A large &+Ggreen snake&N is here slithering around in the water.
 The snake is about ten feet long, resembling a huge python.  Its
 fangs look very sharp, and it eyes you with an evil expression.
 ~
-262154 1 0 8 0 0 0 -900 S
-A 0 0 -1
+262154 1 0 0 8 0 0 0 -900 S
+A 0 0 0 -1
 26 8 16 26d55+286 3d6+4
 0.0.0.0 23166
 8 8 0
@@ -46,8 +46,8 @@ A large &+Ggreen snake&N is here slithering around in the water.
 The snake is about ten feet long, resembling a huge python.  Its
 fangs look very sharp, and it eyes you with an evil expression.
 ~
-262154 1 0 8 0 0 0 -900 S
-A 0 0 -1
+262154 1 0 0 8 0 0 0 -900 S
+A 0 0 0 -1
 26 8 16 26d55+286 3d6+4
 0.0.0.0 23166
 8 8 0
@@ -59,8 +59,8 @@ A large &+Ggreen snake&N is here slithering around in the water.
 The snake is about ten feet long, resembling a huge python.  Its
 fangs look very sharp, and it eyes you with an evil expression.
 ~
-262154 1 0 8 0 0 0 -900 S
-A 0 0 -1
+262154 1 0 0 8 0 0 0 -900 S
+A 0 0 0 -1
 26 8 16 26d55+286 3d6+4
 0.0.0.0 23166
 8 8 0
@@ -72,8 +72,8 @@ A huge &+Ggreen snake&N is here slithering around in the water.
 The snake is about ten feet long, resembling a huge python.  Its
 fangs look very sharp, and it eyes you with an evil expression.
 ~
-262154 1 0 8 0 0 0 -900 S
-A 0 0 -1
+262154 1 0 0 8 0 0 0 -900 S
+A 0 0 0 -1
 30 8 3 30d55+330 3d6+4
 0.0.0.0 26730
 8 8 0
@@ -85,8 +85,8 @@ An &+gorc &+Lwarrior&N stands ready to fight.
 It stands about five feet tall, with brown eyes and dark-brown
 skin.  Two large, pointy fangs protrude from its bottom lip.
 ~
-10 64 0 0 2 0 0 -750 S
-HO 0 1 -1
+10 64 0 0 0 2 0 0 -750 S
+HO 0 1 0 -1
 1 20 96 1d17+6 1d5+0
 1.0.0.0 129
 8 8 0
@@ -98,8 +98,8 @@ A &+glarge orc&N is standing here, looking for something to kill.
 This orc stands a good five and a half feet tall, with dark-brown
 skin and black eyes.  It is very muscular looking.
 ~
-2124 1 0 40 0 0 0 -800 S
-H 0 0 -1
+2124 1 0 0 40 0 0 0 -800 S
+H 0 0 0 -1
 8 18 74 8d18+28 2d3+1
 4.2.0.0 1036
 8 8 0
@@ -111,8 +111,8 @@ The orc chief stands here, glaring icily around at nothing in particular.
 This large orc stands a good six feet tall, with huge arms and
 beady black eyes.  He smells bad, and looks very mean.
 ~
-2058 1 0 40 0 0 0 -1000 S
-H 0 32 -1
+2058 1 0 0 40 0 0 0 -1000 S
+H 0 32 0 -1
 24 11 23 24d44+216 3d5+3
 6.1.6.0 21384
 8 8 0
@@ -124,8 +124,8 @@ A small &+yhobgoblin&N is standing here, looking lost.
 Its yellowish-green skin and red eyes make it a disgusting looking
 creature.  It resembles a goblin in some respects.
 ~
-12 0 0 0 0 0 0 -370 S
-H 0 0 -1
+12 0 0 0 0 0 0 0 -370 S
+H 0 0 0 -1
 6 18 80 6d18+21 2d3+1
 3.2.0.0 777
 8 8 0
@@ -137,8 +137,8 @@ A &+Ylarge hobgoblin&N is standing here, looking mean.
 Its yellowish-green skin and beady red eyes make this creature
 look disgusting.  It is about six feet tall, and very muscular.
 ~
-12 0 0 0 0 0 0 -800 S
-H 0 0 -1
+12 0 0 0 0 0 0 0 -800 S
+H 0 0 0 -1
 20 13 35 20d30+100 3d4+2
 0.9.3.0 9720
 8 8 0
@@ -151,8 +151,8 @@ This human resembles a cave man in many respects, with shaggy brown
 hair, simply skins for clothing.  He is extremely dirty, and mean
 looking.
 ~
-158 1 0 0 0 0 0 -800 S
-H 0 0 -1
+158 1 0 0 0 0 0 0 -800 S
+H 0 0 0 -1
 7 18 77 7d18+24 2d3+1
 3.2.0.0 907
 8 8 0
@@ -164,8 +164,8 @@ A &+rprimitive human warrior&N is standing here, ready to fight.
 This primitive looking human resembles a cave man in most respects,
 though he is pretty big and bulky looking.
 ~
-2062 1 0 0 0 0 0 -1000 S
-H 0 1 -1
+2062 1 0 0 0 0 0 0 -1000 S
+H 0 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
 8 8 0
@@ -176,8 +176,8 @@ An ugly &+Rkobold&N is standing here.
 ~
 It stands about three feet tall, with slimy yellow skin.
 ~
-12 0 0 0 0 0 0 -200 S
-H 0 0 -1
+12 0 0 0 0 0 0 0 -200 S
+H 0 0 0 -1
 10 18 67 10d18+35 2d3+1
 5.3.0.0 1296
 8 8 0
@@ -189,8 +189,8 @@ A large &+Ggreen snake&N is here slithering around in the water.
 The snake is about ten feet long, resembling a huge python.  Its
 fangs look very sharp, and it eyes you with an evil expression.
 ~
-262154 1 0 8 0 0 0 -900 S
-A 0 0 -1
+262154 1 0 0 8 0 0 0 -900 S
+A 0 0 0 -1
 26 8 16 26d55+286 3d6+4
 0.0.0.0 23166
 8 8 0
@@ -204,8 +204,8 @@ about five and a half feet tall.  He is also a bit
 larger as well.  He has red eyes and sharp pointy teeth,
 and is dressed in a large, brown apron.
 ~
-14 1 0 8 0 0 0 -400 S
-H 0 0 -1
+14 1 0 0 8 0 0 0 -400 S
+H 0 0 0 -1
 15 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 8 8 0
@@ -219,8 +219,8 @@ eyes, except that he is a bit bulkier and looks more experienced in
 fighting.  He carries a wary look about him, giving the impression
 that he is quite temperamental.
 ~
-142 0 0 32 0 0 0 -500 S
-H 0 0 -1
+142 0 0 0 32 0 0 0 -500 S
+H 0 0 0 -1
 25 11 19 25d40+200 3d5+3
 6.2.6.1 22275
 8 8 0
@@ -233,8 +233,8 @@ This goblin is Big, far bigger than most of the others you've seen,
 and from the many scars on his body, it is obvious he knows how to
 fight.
 ~
-14 1 0 40 0 0 0 -600 S
-H 0 0 -1
+14 1 0 0 40 0 0 0 -600 S
+H 0 0 0 -1
 27 8 13 27d55+297 3d6+4
 8.3.7.1 24057
 8 8 0
@@ -247,8 +247,8 @@ The king is an older looking goblin, with graying hair and
 pale-green skin.  His hair is graying a bit, and many wrinkles
 cover his stout features.
 ~
-2058 1 0 40 0 0 0 -1000 S
-H 0 1 -1
+2058 1 0 0 40 0 0 0 -1000 S
+H 0 1 0 -1
 32 6 -2 32d83+544 4d6+7
 6.8.0.2 41472
 8 8 0
@@ -261,8 +261,8 @@ This goblin is very small, and weak looking.  His sagging arms and
 bony chest indicate that this one doesn't get fed well.  He has very
 pale, green skin.
 ~
-142 0 0 0 0 0 0 -350 S
-H 0 0 -1
+142 0 0 0 0 0 0 0 -350 S
+H 0 0 0 -1
 2 20 93 2d15+7 1d5+0
 1.0.0.0 259
 8 8 0
@@ -274,8 +274,8 @@ A &+ggoblin sentry&N is sleeping here, snoring loudly.
 The sentry is a typical looking goblin with green skin and yellow
 eyes, except that he is a bit bulkier and has a few more scars.
 ~
-142 0 0 32 0 0 0 -500 S
-H 0 0 -1
+142 0 0 0 32 0 0 0 -500 S
+H 0 0 0 -1
 20 13 35 20d30+100 3d4+2
 0.9.3.0 9720
 4 4 0
@@ -287,8 +287,8 @@ A huge man-eating &+Lrat&N is here, scrounging around for some food.
 The rat stands about three feet high, and two feet across with
 glowing red eyes, and razor sharp teeth.
 ~
-10 1 0 32 0 0 0 0 S
-A 0 0 -1
+10 1 0 0 32 0 0 0 0 S
+A 0 0 0 -1
 15 15 51 15d23+60 2d5+2
 0.0.0.0 7290
 8 8 0
@@ -301,8 +301,8 @@ The lizard man stands about six feet tall, with green scaly skin,
 and red eyes.  Its hands and feet are webbed, and it wears a
 brown leathery looking vest.
 ~
-2058 1 0 33554472 0 0 0 -1000 S
-H 0 1 -1
+2058 1 0 0 33554472 0 0 0 -1000 S
+H 0 1 0 -1
 34 6 -8 34d83+578 4d6+7
 8.9.0.2 44064
 8 8 0
@@ -315,8 +315,8 @@ The cave fisher resembles a huge spider, except that this one is
 perched on its ledge, and has a bony exo-skeleton.  It has long
 arms for grabbing and pulling in prey.
 ~
-26 1 0 1048616 0 0 0 -100 S
-AS 0 0 -1
+26 1 0 0 1048616 0 0 0 -100 S
+AS 0 0 0 -1
 15 15 51 15d23+60 2d5+2
 0.0.0.0 7290
 8 8 0
@@ -329,8 +329,8 @@ The lurker resembles a huge manta-ray with grey skin and small
 black eyes on its head.  It has a large mouth in its midsection
 used to biting prey.
 ~
-10 1 0 1048616 0 0 0 -500 S
-H 0 0 -1
+10 1 0 0 1048616 0 0 0 -500 S
+H 0 0 0 -1
 10 18 67 10d18+35 2d3+1
 5.3.0.0 1296
 8 8 0
@@ -342,8 +342,8 @@ A &+yhuge stalactite&N moves, as if about to fall.
 The piercer resembles a large stalactite, except that it is has
 two small black dots for eyes near its top, and is light grey.
 ~
-11 1 0 1048608 0 0 0 0 S
-H 0 0 -1
+11 1 0 0 1048608 0 0 0 0 S
+H 0 0 0 -1
 15 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 8 8 0
@@ -356,8 +356,8 @@ The ogre magi is BIG, standing some ten feet tall, with a body the
 size of a bear.  Its massive fists and sharp fangs make it look
 extremely deadly.
 ~
-2063 1 0 168 0 0 0 -1000 S
-PO 0 256 -1
+2063 1 0 0 168 0 0 0 -1000 S
+PO 0 256 0 -1
 46 -3 -72 46d110+2484 6d6+25
 6.0.9.4 111780
 8 8 0
@@ -369,8 +369,8 @@ A &+Yhuge poisonous snake&N is here, hissing loudly.
 This snake is about fifteen feet long, with a huge head and glossy
 white fangs.  It rises up like a cobra to strike at you.
 ~
-10 1 0 32 0 0 0 -800 S
-A 0 0 -1
+10 1 0 0 32 0 0 0 -800 S
+A 0 0 0 -1
 20 13 35 20d30+100 3d4+2
 0.0.0.0 9720
 8 8 0
@@ -382,8 +382,8 @@ A pool of &+Ggreen slime&N reaches outwards to attack!
 The pool is about five feet in diameter, and bright green in color.
 It smells horrible, and moves rather quickly for such a monster.
 ~
-14 1 0 40 0 0 0 0 S
-AP 0 0 -1
+14 1 0 0 40 0 0 0 0 S
+AP 0 0 0 -1
 8 18 74 8d18+28 2d3+1
 0.0.0.0 1036
 8 8 0
@@ -394,8 +394,8 @@ A &+gfilthy goblin&N runs foward, hungry for an easy meal.
 ~
 The goblin is very gross looking, with yellowish skin and beady red eyes.
 ~
-2058 1 0 0 0 0 0 -500 S
-H 0 0 -1
+2058 1 0 0 0 0 0 0 -500 S
+H 0 0 0 -1
 10 18 67 10d18+35 2d3+1
 5.3.0.0 1296
 8 8 0
@@ -407,8 +407,8 @@ A &+Lhuge hob&+ggoblin&N is standing here, looking for an easy meal.
 This is a very *large* hobgoblin, standing almost seven feet tall, with a
 large pot belly and yellowish-green skin.  It drools as it watches you.
 ~
-2058 1 0 8 0 0 0 -800 S
-H 0 1 -1
+2058 1 0 0 8 0 0 0 -800 S
+H 0 1 0 -1
 20 13 35 20d35+140 3d4+2
 0.9.3.0 9720
 8 8 0
@@ -420,8 +420,8 @@ The floor here looks strange.
 The trapper is about fifteen feet square, and resembles a dull-grey carpet
 Its edges sharpen to very fine points as it moves, for impaling prey.
 ~
-10 1 0 34603048 0 0 0 0 S
-AC 0 0 -1
+10 1 0 0 34603048 0 0 0 0 S
+AC 0 0 0 -1
 23 11 26 23d40+184 3d5+3
 0.0.0.0 20493
 8 8 0
@@ -433,8 +433,8 @@ A &+gfive-headed &+Ghydra&+g is standing here, looking very hungry..
 The hydra resembles a small dragon, except that it has three heads, all
 connected to a huge body.  This does not look like an easy monster to defeat!
 ~
-2058 1 0 33554472 0 0 0 -1000 S
-D 0 0 3
+2058 1 0 0 33554472 0 0 0 -1000 S
+D 0 0 0 3
 30 8 -17 30d55+630 3d6+4
 0.5.9.4 53460
 8 8 0
@@ -447,8 +447,8 @@ The pyrohydra has nine heads, each dull-red in color connecting to a
 rose colored torso.  The heads each move about independently,
 resembling a pile of twisting snakes.
 ~
-264235 1 0 33554472 0 0 0 -1000 S
-D 0 1048576 3
+264235 1 0 0 33554472 0 0 0 -1000 S
+D 0 1048576 0 3
 45 -7 -148 59d96+6667 7d6+35
 4.5.9.19 477900
 8 8 0
@@ -460,8 +460,8 @@ An &+gorc&N wanders around, looking for something to eat.
 It stands about five feet tall, with brown eyes and dark-brown
 skin.  Two large, pointy fangs protrude from its bottom lip.
 ~
-2056 1 0 0 2 0 0 -500 S
-HO 0 1 -1
+2056 1 0 0 0 2 0 0 -500 S
+HO 0 1 0 -1
 6 18 80 6d21+33 2d3+1
 3.2.0.0 777
 8 8 0
@@ -473,8 +473,8 @@ A &+gfive-headed &+Ghydra&+g is standing here, looking very hungry..
 The hydra resembles a small dragon, except that it has five heads, all
  connected to one body.  This does not look like an easy monster to defeat!
 ~
-2058 1 0 33554472 0 0 0 -1000 S
-D 0 0 3
+2058 1 0 0 33554472 0 0 0 -1000 S
+D 0 0 0 3
 35 8 -17 30d55+630 3d6+4
 0.5.9.4 53460
 8 8 0
@@ -486,8 +486,8 @@ A &+gseven-headed &+Ccryo&+Ghydra&+g is standing here, looking very hungry..
 The hydra resembles a dragon, except that it has seven heads, all connected
 to a white-hued body.  This does not look like an easy monster to defeat!
 ~
-2570 1 0 33554472 0 0 0 -1000 S
-D 0 0 3
+2570 1 0 0 33554472 0 0 0 -1000 S
+D 0 0 0 3
 40 8 -17 30d55+630 3d6+4
 0.5.9.4 53460
 8 8 0
@@ -504,8 +504,8 @@ reached an inner peace. He turns towards you, and flashes you a smile.
 
 &+C'&+WGreetings.&+C'
 ~
-84150346 0 0 335552516 0 0 33554432 600 S
-PH 22 64 -1
+84150346 0 0 0 335552516 0 0 33554432 600 S
+PH 22 64 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1

@@ -6,8 +6,8 @@ su monster _nomoney_~
   Standing nearly seven feet tall in height, this black faced, black tailed,
 ape like creature with blood red paws jumps around in the trees here.
 ~
-1073743944 0 0 0 0 0 0 0 S
-H 0 0 -1
+1073743944 0 0 0 0 0 0 0 0 S
+H 0 0 0 -1
 35 6 -12 35d70+525 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -20,8 +20,8 @@ su elder _nomoney_~
 His fur has gone from gray to white, and from black to gray. His once
 blood red paws are now a soft pink.
 ~
-2058 0 0 0 0 0 0 0 S
-H 0 0 -1
+2058 0 0 0 0 0 0 0 0 S
+H 0 0 0 -1
 36 2 -15 36d80+756 4d7+10
 0.1.2.2 46656
 8 8 1
@@ -36,8 +36,8 @@ She has a scar up her left arm, and a tattoo on the other. She dressess in
 various things every day and takes care of this small campsite as if it were
 her home.
 ~
-34826 0 0 0 0 0 0 1000 S
-P2 0 32768 -1
+34826 0 0 0 0 0 0 0 1000 S
+P2 0 32768 0 -1
 30 8 3 30d60+360 3d6+4
 0.5.7.1 26730
 8 8 2
@@ -51,8 +51,8 @@ He has an average build and light brown hair. His blue eyes reflect the
 sunlight well. He has very dirty hands from trying to fix his carriage and
 looks a bit worried.
 ~
-10 0 0 0 0 0 0 1000 S
-PH 0 1 -1
+10 0 0 0 0 0 0 0 1000 S
+PH 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 1
@@ -65,8 +65,8 @@ grellinar ranger~
 He has long brown hair reaching down past his collar. He has dark green eyes
 and very tanned skin.
 ~
-1073774602 0 0 0 0 0 0 1000 S
-PH 0 2 -1
+1073774602 0 0 0 0 0 0 0 1000 S
+PH 0 2 0 -1
 30 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 1

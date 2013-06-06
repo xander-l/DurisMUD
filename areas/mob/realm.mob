@@ -8,8 +8,8 @@ resemble those of a brilliantly colored butterfly.  She is overall a cute
 little faerie, with a mischievous little smirk on her face.  The little
 pixie flutters around you in curiosity, and then goes on her way.
 ~
-0 0 0 167780392 0 0 0 700 S
-H 0 256 -1
+0 0 0 0 167780392 0 0 0 700 S
+H 0 256 0 -1
 9 18 71 9d19+40 2d3+1
 4.3.0.0 1166
 8 8 2
@@ -20,8 +20,8 @@ scruffy rat~
 ~
 This little guy looks a little nasty and overly vicious for how puny he is...
 ~
-68 1 0 34078720 0 0 0 -10 S
-A 0 0 -1
+68 1 0 0 34078720 0 0 0 -10 S
+A 0 0 0 -1
 1 20 96 1d15+4 1d5+0
 1.0.0.0 129
 8 8 0
@@ -34,8 +34,8 @@ The snapdragon is a small, brightly colored, carnivorous flower which has
 evolved into a hunter, capable of moving around by retracting its sinewy
 roots out of the ground and walking around on them.
 ~
-64 0 0 0 0 0 0 -500 S
-I 0 0 -1
+64 0 0 0 0 0 0 0 -500 S
+I 0 0 0 -1
 5 20 83 5d15+17 1d5+0
 3.1.0.0 648
 8 8 0
@@ -49,8 +49,8 @@ clashing of patterns.  A rather rotund Tinker, he is adept at fixing almost
 anything,.. and even better at selling it.  Fulbar is a hard bargainer, but
 always fair.
 ~
-130 0 0 40 0 0 0 1000 S
-H 0 0 -1
+130 0 0 0 40 0 0 0 1000 S
+H 0 0 0 -1
 53 -5 -104 53d110+4399 7d6+30
 8.0.6.6 214650
 8 8 1
@@ -65,8 +65,8 @@ and acknowledges your look.  You wonder if perhaps he was once a warrior
 which got too tired of fighting... you could certainly imagine it; in a suit
 of armor and a trusty sword, Guhan would be a worthy opponent.
 ~
-1107298374 0 0 33554592 0 0 0 1000 S
-H 0 2 -1
+1107298374 0 0 0 33554592 0 0 0 1000 S
+H 0 2 0 -1
 55 -5 -111 55d131+4675 7d6+30
 0.2.7.6 222750
 8 8 1
@@ -79,8 +79,8 @@ You see an adventurer who has been beaten down and battered by the rigors
 of adventuring.  You wonder how long this fellow has been stuck in
 the Faerie Realm.
 ~
-130 0 0 0 0 0 0 0 S
-H 0 1 -1
+130 0 0 0 0 0 0 0 0 S
+H 0 1 0 -1
 18 13 42 18d35+126 3d4+2
 9.7.3.0 8748
 4 8 1
@@ -94,8 +94,8 @@ camp and looks out for potential danger to the Tinker camp.  On a moments
 notice the Tinkers are ready to pack up and leave if she gives the command
 that harm is near.  She looks pretty tough for a tinker.
 ~
-2180 0 0 524296 0 0 0 1000 S
-H 0 32 -1
+2180 0 0 0 524296 0 0 0 1000 S
+H 0 32 0 -1
 23 11 26 23d44+207 3d5+3
 5.1.6.0 20493
 8 8 2
@@ -108,8 +108,8 @@ The Tinker woman looks bright eyed and merry.  She smiles at you and says,
 "Would you like some fresh veggie stew?"  She reminds you of the mom you never
 knew.
 ~
-130 0 0 0 0 0 0 1000 S
-H 0 0 -1
+130 0 0 0 0 0 0 0 1000 S
+H 0 0 0 -1
 16 13 48 16d30+80 3d4+2
 8.6.2.0 7776
 8 8 2
@@ -121,8 +121,8 @@ A Tinker boy is here running around, driving you nuts.
 Filled with far too much energy, this little Tinker boy zooms around you
 and off to find adventure of his own creation.
 ~
-196 0 0 0 0 0 0 800 S
-H 0 0 -1
+196 0 0 0 0 0 0 0 800 S
+H 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 2.1.0.0 518
 8 8 1
@@ -136,8 +136,8 @@ pull the Tinker wagons now since he was a boy.  Old and worn out, he's looks
 forward now literally passing the reins onto a young, Tinker.  Bandor
 smiles at you warmly.
 ~
-130 0 0 0 0 0 0 850 S
-H 0 2 -1
+130 0 0 0 0 0 0 0 850 S
+H 0 2 0 -1
 29 8 7 29d65+377 3d6+4
 9.4.7.1 25839
 8 8 1
@@ -149,8 +149,8 @@ A Tinker stableboy is here, grooming the horses.
 The stableboy is a Tinker not quite come of age.  He hopes someday to fill
 Bandor's shoes as horse leader of the Tinkers.
 ~
-130 0 0 0 0 0 0 1000 S
-H 0 0 -1
+130 0 0 0 0 0 0 0 1000 S
+H 0 0 0 -1
 15 15 51 15d23+60 2d5+2
 7.6.2.0 7290
 8 8 1
@@ -162,8 +162,8 @@ A strong Tinker horse is here, quietly nibbling on some hay.
 Built to survive the rigors of nomadic life, the Tinker horses seem to have
 been bred to take abuse and long, hard days of work.
 ~
-2 0 0 0 0 0 0 700 S
-A 0 0 -1
+2 0 0 0 0 0 0 0 700 S
+A 0 0 0 -1
 12 15 61 12d23+48 2d5+2
 0.0.0.0 5832
 8 8 0
@@ -176,8 +176,8 @@ The Tinker man is dressed in the typical garb of Tinkers, colors clashing
 in every possible way.  He sits here by the campfire singing of ages
 gone past, and of the Tinkers' quest to find their lost Song.
 ~
-130 0 0 0 0 0 0 1000 S
-H 0 0 -1
+130 0 0 0 0 0 0 0 1000 S
+H 0 0 0 -1
 16 13 48 16d30+80 3d4+2
 8.6.2.0 7776
 8 8 1
@@ -189,8 +189,8 @@ A Tinker girl is here, dancing around the fire to the songs of her elders.
 The Tinker girl dances gracefully around you, swaying in sync to the song
 which fills the air.
 ~
-194 0 0 0 0 0 0 1000 S
-H 0 0 -1
+194 0 0 0 0 0 0 0 1000 S
+H 0 0 0 -1
 5 20 83 5d15+17 1d5+0
 3.1.0.0 648
 8 8 2
@@ -206,8 +206,8 @@ again... It seems that mystery is solved, but how can he still be here after
 15 years gone past and not look a day over 24?  This Realm of Fays  frightens
 you in its scope of power and magic...
 ~
-2051 0 0 33562860 0 0 0 1000 S
-G 0 32 -1
+2051 0 0 0 33562860 0 0 0 1000 S
+G 0 32 0 -1
 60 -7 -115 58d132+6322 7d6+35
 3.4.8.6 234900
 8 8 1
@@ -225,8 +225,8 @@ what secrets she holds about the Realm of Fays.  As if reading your mind she
 smiles at you and says, "whatever knowledge you seek in this realm can
 be found in the library on the second floor of this cottage."
 ~
-2064 0 0 33554600 0 0 0 1000 S
-H 0 128 -1
+2064 0 0 0 33554600 0 0 0 1000 S
+H 0 128 0 -1
 56 -7 -114 56d132+5824 7d6+35
 1.3.8.6 226800
 8 8 2
@@ -239,8 +239,8 @@ This is animal is large for a cat.  Yet, besides its size it seems a bit
 odd looking.  The ears seem to long, the face too narrow, and paws far
 to large even for a big cat.  What kind of cat is this?
 ~
-33556610 0 0 34603082 0 0 0 200 S
-N 0 0 -1
+33556610 0 0 0 34603082 0 0 0 200 S
+N 0 0 0 -1
 25 11 19 25d40+200 3d5+3
 6.2.6.1 22275
 8 8 0
@@ -252,8 +252,8 @@ forest sprite~
 This little faerie is frolicking around looking for fun.  It is a short
 faerie, wearing simple brown garb, and a little green hat.
 ~
-33554564 0 0 33554478 0 0 0 200 S
-HF 0 0 -1
+33554564 0 0 0 33554478 0 0 0 200 S
+HF 0 0 0 -1
 12 15 61 12d23+48 2d5+2
 6.4.2.0 5832
 8 8 0
@@ -266,8 +266,8 @@ This faerie is a lanky little fellow, with long brown hair and bright green
 eyes.  He grins at you and then hurries along after a task Anna has laid
 out for him.
 ~
-33554624 0 0 34078760 0 0 0 200 S
-H 0 32 -1
+33554624 0 0 0 34078760 0 0 0 200 S
+H 0 32 0 -1
 10 18 67 10d19+45 2d3+1
 5.3.0.0 1296
 8 8 1
@@ -281,8 +281,8 @@ notices you drooling over the pies and breads she's making and snaps at
 you threateningly, "Wait till it's all done!!  Get out of my kitchen!."
 She waves a rolling pin at you menacingly; temper, temper.
 ~
-33554434 0 0 33562680 0 0 0 200 S
-H 0 32 -1
+33554434 0 0 0 33562680 0 0 0 200 S
+H 0 32 0 -1
 20 13 35 20d33+120 3d4+2
 0.9.3.0 9720
 8 8 2
@@ -296,8 +296,8 @@ His idea of a good time is biting the heads off of iron nails and chewing
 them into belt-buckles.  How he found his way into the Faerie Realm is
 anyone's guess.
 ~
-33556486 0 0 33554632 0 0 0 -700 S
-H 0 16384 -1
+33556486 0 0 0 33554632 0 0 0 -700 S
+H 0 16384 0 -1
 34 6 -8 34d83+578 4d6+7
 8.9.0.2 44064
 8 8 1
@@ -309,8 +309,8 @@ root sinewy small~
 This small but tough looking root is flexible and quick in it whip-like
 motions.  It seems to find you with no problem and attack you mindlessly.
 ~
-67108866 56 0 34078760 0 0 0 -100 S
-VT 0 1 -1
+67108866 56 0 0 34078760 0 0 0 -100 S
+VT 0 1 0 -1
 43 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 0
@@ -322,8 +322,8 @@ root arm thick~
 This root is about as thick as your arm, and moves through the ground,
 mindlessly attacking any trespassers within these tunnels.
 ~
-67108866 56 0 34078760 0 0 0 -100 S
-VT 0 1 -1
+67108866 56 0 0 34078760 0 0 0 -100 S
+VT 0 1 0 -1
 50 -1 -69 45d107+2025 6d6+12
 5.9.8.4 109350
 8 8 0
@@ -336,8 +336,8 @@ This fairly large root moves frighteningly fast for its size.  Quick and
 destructive the root is powerful enough to rip you apart if you are not
 careful.
 ~
-67108866 56 0 302514232 0 0 0 -100 S
-VT 0 1 -1
+67108866 56 0 0 302514232 0 0 0 -100 S
+VT 0 1 0 -1
 55 -5 -98 51d131+4335 7d6+30
 6.9.4.6 206550
 8 8 0
@@ -350,8 +350,8 @@ This root is colossal in size, and moves with earth shaking power through
 the ground.  It immediately senses your presence within these deep tunnels,
 and attacks you with mindless, destructive power.
 ~
-2 56 0 34086968 0 0 0 -100 S
-VT 0 1 -1
+2 56 0 0 34086968 0 0 0 -100 S
+VT 0 1 0 -1
 55 -5 -101 52d131+4420 7d6+30
 7.9.5.6 210600
 8 8 0
@@ -366,8 +366,8 @@ limbs are those of a man.  Energy swirls about him in eerie streams of gold
 and green ribbons.  He is hulking, huge, and angry beyond mortal understanding
 that you could invade his seat of power, deep under the earth.
 ~
-8394757 56 0 33562872 0 0 0 498 S
-G 0 512 -1
+8394757 56 0 0 33562872 0 0 0 498 S
+G 0 512 0 -1
 55 -5 -101 55d88+4840 7d6+30
 0.2.7.6 222750
 8 8 1
@@ -379,8 +379,8 @@ root tiny~
 This little root immediately sensed your presence in the room; attacking
 you for no reason at all.
 ~
-2 1 0 35127336 0 0 0 0 S
-VT 0 0 -1
+2 1 0 0 35127336 0 0 0 0 S
+VT 0 0 0 -1
 30 8 3 30d55+330 3d6+4
 0.5.7.1 26730
 8 8 0
@@ -395,8 +395,8 @@ She looks meekly at you, and says "Welcome visitor, to the grounds of
 Oberon's Temple."  A tear catches in her eye, and she turns away before
 she starts to cry.
 ~
-0 0 0 33554632 0 0 0 900 S
-PE 0 256 -1
+0 0 0 0 33554632 0 0 0 900 S
+PE 0 256 0 -1
 45 -1 -69 45d99+1980 6d6+12
 5.9.8.4 109350
 8 8 2
@@ -409,8 +409,8 @@ This faerie prances around you in childish merriment.  A faerie about four
 feet tall, with a roguish grin and sandy blond hair, he is looking for
 fun, and apparently he thinks you're it.
 ~
-33554561 0 0 34078764 0 0 0 -300 S
-HF 0 1 -1
+33554561 0 0 0 34078764 0 0 0 -300 S
+HF 0 1 0 -1
 14 15 55 14d27+84 2d5+2
 7.5.2.0 6804
 8 8 1
@@ -423,8 +423,8 @@ This old and scrawny goblin was ostracized long ago by his own kind.  Somehow
 he found his way to the faerie realm and now hides among these ancient ruins.
 Quite the pack rat, over the years he has amassed quite a horde of oddities.
 ~
-130 0 0 33554432 0 0 0 -920 S
-HG 0 4096 -1
+130 0 0 0 33554432 0 0 0 -920 S
+HG 0 4096 0 -1
 25 18 74 8d18+28 2d3+1
 4.2.0.0 1036
 8 8 1
@@ -436,8 +436,8 @@ gold bug~
 This little bug has a shiny outer shell like that of a beetle, yet its
 shell can open up to reveal golden colored insect wings.
 ~
-131072 0 0 0 0 0 0 0 S
-I 0 0 -1
+131072 0 0 0 0 0 0 0 0 S
+I 0 0 0 -1
 2 20 93 2d15+7 1d5+0
 0.0.0.0 259
 8 8 0
@@ -449,8 +449,8 @@ A beautiful &+Lmo&+Yna&+Lrc&+Yh butterfly&N flits through the air here.
 The butterfly's wings are delicate and beautiful,... it darts through the
 air with nimble ease into the sky above.
 ~
-131072 0 0 134217728 0 0 0 300 S
-I 0 0 -1
+131072 0 0 0 134217728 0 0 0 300 S
+I 0 0 0 -1
 3 20 90 3d15+11 1d5+0
 0.0.0.0 388
 8 8 0
@@ -462,8 +462,8 @@ A lowly worm is here wriggling around in the dirt.
 This little earthworm found its way to the surface and is now wriggling
 around in the dirt, trying to find its way back.
 ~
-0 0 0 33554464 0 0 0 0 S
-I 0 0 -1
+0 0 0 0 33554464 0 0 0 0 S
+I 0 0 0 -1
 1 20 96 1d15+4 1d5+0
 0.0.0.0 129
 8 8 0
@@ -475,8 +475,8 @@ brown bat~
 This rodent with wings is just trying to find some sleep in the dark quiet
 of the cave; posing harm to no one.
 ~
-131074 0 0 33554464 0 0 0 0 S
-A 0 0 -1
+131074 0 0 0 33554464 0 0 0 0 S
+A 0 0 0 -1
 5 20 83 5d15+17 1d5+0
 0.0.0.0 648
 8 8 0
@@ -490,8 +490,8 @@ little muzzle to sniff the air at your arrival, and trembles in fear at the
 presence of a stranger.  It lets out a little yip, hoping its mother might
 hear.
 ~
-2 0 0 34078720 0 0 0 400 S
-A 0 0 -1
+2 0 0 0 34078720 0 0 0 400 S
+A 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 0.0.0.0 518
 8 8 0
@@ -504,8 +504,8 @@ The adult, silver fox is old enough to be wary of the likes of strangers
 in her territory.  The fox takes one look at you and gives you a wide
 berth, slinking into the shadows.
 ~
-68 0 0 34078720 0 0 0 100 S
-A 0 0 -1
+68 0 0 0 34078720 0 0 0 100 S
+A 0 0 0 -1
 7 18 77 7d18+24 2d3+1
 0.0.0.0 907
 8 8 2
@@ -518,8 +518,8 @@ This floppy-eared, baby bunny looks frightened beyond belief at your
 presence.  Frozen in fear, all the poor thing can do is stare at you
 and quiver.
 ~
-128 0 0 0 0 0 0 800 S
-A 0 0 -1
+128 0 0 0 0 0 0 0 800 S
+A 0 0 0 -1
 2 20 93 2d15+7 1d5+0
 0.0.0.0 259
 8 8 0
@@ -531,8 +531,8 @@ A floppy-eared mama bunny is here nibbling nervously.
 The mama bunny shifts her hind legs nervously in your presence, uncertain
 what to do with a large humanoid suddenly looming down upon her.
 ~
-128 0 0 0 0 0 0 800 S
-A 0 0 -1
+128 0 0 0 0 0 0 0 800 S
+A 0 0 0 -1
 3 20 90 3d15+11 1d5+0
 0.0.0.0 388
 8 8 2
@@ -545,8 +545,8 @@ The speckled-brown papa bunny looks too startled to know what to do.
 He's not used to large, ugly humanoids suddenly bursting into his hidden
 home in the brambles.
 ~
-128 0 0 0 0 0 0 800 S
-A 0 0 -1
+128 0 0 0 0 0 0 0 800 S
+A 0 0 0 -1
 3 20 90 3d15+11 1d5+0
 0.0.0.0 388
 8 8 1
@@ -561,8 +561,8 @@ guy vaguely resembles a dark skinned spider, skittering along his way
 to some unknown destination.  He is wearing simple garb and has dark matted
 hair on his head which trails down to his waist.
 ~
-33554432 0 0 33554476 0 0 0 -600 S
-H 0 16384 -1
+33554432 0 0 0 33554476 0 0 0 -600 S
+H 0 16384 0 -1
 18 13 42 18d35+126 3d4+2
 9.7.3.0 8748
 8 8 1
@@ -577,8 +577,8 @@ when the wind catches it creates a golden aura around her head.  She is
 wearing a loose fitting tunic and breaches which don't cover much of her
 nut tan skin.  Her emerald green eyes sparkle when you meet her gaze.
 ~
-33554432 0 0 34078764 0 0 0 800 S
-HF 0 2048 -1
+33554432 0 0 0 34078764 0 0 0 800 S
+HF 0 2048 0 -1
 35 15 55 14d18+56 2d5+2
 7.5.2.0 6804
 8 8 2
@@ -591,8 +591,8 @@ This toadstool seems to be pretty large for a poisonous mushroom.  It
 even seems to be the wrong color; it has a weird shade of blue with speckled
 bit of yellow all over it.  Weird...
 ~
-33554498 0 0 34078760 0 0 0 -700 S
-H 0 2048 -1
+33554498 0 0 0 34078760 0 0 0 -700 S
+H 0 2048 0 -1
 8 18 74 8d14+28 2d3+1
 4.2.0.0 1036
 8 8 0
@@ -606,8 +606,8 @@ the length of her fiery red hair.  She is wearing simple brown garb and little
 tiny slippers.  She watches over the roses and loves them as would any
 mother love her child.
 ~
-0 0 0 33562664 0 0 0 600 S
-H 0 512 -1
+0 0 0 0 33562664 0 0 0 600 S
+H 0 512 0 -1
 9 18 71 9d14+31 2d3+1
 4.3.0.0 1166
 8 8 2
@@ -620,8 +620,8 @@ A faerie who has chosen to devote her life to the care of the azaleas
 within the garden of the temple smiles at you.  She is about three feet tall
 and is wearing a bright yellow dress and little slippers.
 ~
-0 0 0 33562664 0 0 0 600 S
-H 0 512 -1
+0 0 0 0 33562664 0 0 0 600 S
+H 0 512 0 -1
 9 18 71 9d14+31 2d3+1
 4.3.0.0 1166
 8 8 2
@@ -634,8 +634,8 @@ The faerie is about three feet tall with pale green skin and nearly white
 hair.  She prances about the garden shamefully naked.  She looks at you
 and grins wickedly.
 ~
-0 0 0 33562664 0 0 0 600 S
-H 0 512 -1
+0 0 0 0 33562664 0 0 0 600 S
+H 0 512 0 -1
 7 18 77 7d14+24 2d3+1
 3.2.0.0 907
 8 8 2
@@ -649,8 +649,8 @@ garden.  The violet faerie is dressed in white with dark black hair, and
 pale skin.  Her hazy, violet eyes capture yours, as she smiles sweetly at
 you.
 ~
-0 0 0 33562664 0 0 0 600 S
-H 0 2048 -1
+0 0 0 0 33562664 0 0 0 600 S
+H 0 2048 0 -1
 14 18 71 9d14+31 2d3+1
 4.3.0.0 1166
 8 8 2
@@ -665,8 +665,8 @@ the color of amber wine and her hair the color of dark bronze.  She is
 lying here among her favorite flowers, humming softly to herself, lost in
 a daydream.
 ~
-0 0 0 33562664 0 0 0 600 S
-H 0 32 -1
+0 0 0 0 33562664 0 0 0 600 S
+H 0 32 0 -1
 6 18 80 6d19+27 2d3+1
 3.2.0.0 777
 8 8 2
@@ -679,8 +679,8 @@ This little black cricket is hidden fairly well under the leafy cover of the
 forest underbrush.  Chirping away merrily, this little guy skitters away
 even before you can finish looking at it.
 ~
-1 0 0 270008320 0 0 0 0 S
-I 0 0 -1
+1 0 0 0 270008320 0 0 0 0 S
+I 0 0 0 -1
 1 20 96 1d15+4 1d5+0
 0.0.0.0 129
 8 8 0
@@ -692,8 +692,8 @@ A chestnut colored stag with a formidable set of antlers stands here.
 Standing tall and proud the stag regards you calmly, never taking his gaze
 off of you.
 ~
-0 0 0 20 0 0 0 0 S
-A 0 0 -1
+0 0 0 0 20 0 0 0 0 S
+A 0 0 0 -1
 14 15 55 14d23+56 2d5+2
 7.5.2.0 6804
 8 8 1
@@ -706,8 +706,8 @@ The doe looks at you with high apprehension, calmly backing away from you
 to make a dash for the cover of the woods if you should so much as sneeze.
 Her fur is a pretty light brown, with speckles of black on her hind flanks.
 ~
-0 0 0 4 0 0 0 400 S
-A 0 0 -1
+0 0 0 0 4 0 0 0 400 S
+A 0 0 0 -1
 7 18 77 7d18+24 2d3+1
 0.0.0.0 907
 8 8 2
@@ -720,8 +720,8 @@ This little fawn seems to be having a lot of fun as it tramps around the
 forest.  The fawn is a light brown color with speckles of black and white
 on his hind flanks.
 ~
-0 0 0 4 0 0 0 550 S
-A 0 0 -1
+0 0 0 0 4 0 0 0 550 S
+A 0 0 0 -1
 5 20 83 5d15+17 1d5+0
 0.0.0.0 648
 8 8 1
@@ -734,8 +734,8 @@ This little bandit will seek out any free meal it can find and is not be too
 shy about it.  With his trademark mask and quick little paws, the raccoon
 resembles a thief crouching through the underbrush .
 ~
-4 0 0 524320 0 0 0 -400 S
-A 0 0 -1
+4 0 0 0 524320 0 0 0 -400 S
+A 0 0 0 -1
 2 20 93 2d15+7 1d5+0
 0.0.0.0 259
 8 8 0
@@ -748,8 +748,8 @@ This little squirrel scampers around looking for nuts, carefully staying
 away from anything that might try and eat it.  It looks at you nervously
 and then darts up a tree.
 ~
-0 0 0 33554432 0 0 0 400 S
-A 0 0 -1
+0 0 0 0 33554432 0 0 0 400 S
+A 0 0 0 -1
 1 20 96 1d15+4 1d5+0
 0.0.0.0 129
 8 8 0
@@ -763,8 +763,8 @@ sell at the faerie market in the Valley of Dancing Lights.  A skinny fellow
 with light blue eyes and light golden skin and greenish silver hair, he
 smiles brightly at you, waves, and then is off on his way again.
 ~
-2180 0 0 33554472 0 0 0 500 S
-H 0 512 -1
+2180 0 0 0 33554472 0 0 0 500 S
+H 0 512 0 -1
 35 6 -12 35d56+525 4d6+7
 9.9.1.2 45360
 8 8 1
@@ -778,8 +778,8 @@ pointy hat and a broad face.  The hob is rolly polly for his size but skips
 about at an astonishing pace for his size.  This little faerie seems
 good-natured and not nearly as impish as a derrick.
 ~
-64 0 0 33554474 0 0 0 800 S
-H 0 0 -1
+64 0 0 0 33554474 0 0 0 800 S
+H 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 2.1.0.0 518
 8 8 1
@@ -791,8 +791,8 @@ A quick silverfish darts among the cracks and crevices of the rocks here.
 This little bug is not much larger than the size of your fingernail but
 it seems to dart away before you can even get close to it.
 ~
-0 0 0 268435488 0 0 0 0 S
-I 0 0 -1
+0 0 0 0 268435488 0 0 0 0 S
+I 0 0 0 -1
 2 20 93 2d15+7 1d5+0
 0.0.0.0 259
 8 8 0
@@ -807,8 +807,8 @@ charming baby-like face.  Yet you've heard too many tales of this impish
 character to believe in his innocence.  Robin bows to you in a mock display
 of submissiveness and then grins wickedly at you.
 ~
-2112 0 0 38273258 0 0 0 -800 S
-H 0 512 -1
+2112 0 0 0 38273258 0 0 0 -800 S
+H 0 512 0 -1
 34 6 -8 34d56+510 4d6+7
 8.9.0.2 44064
 8 8 1
@@ -823,8 +823,8 @@ and doning a long, floppy cap he smirks at you and says, "Anna's cottage?
 Oh sure, first you wanna go west, then north, then east, and then south
 and you should be right there.  If not, I can't help it if you're a fool."
 ~
-64 0 0 33554472 0 0 0 -900 S
-H 0 0 -1
+64 0 0 0 33554472 0 0 0 -900 S
+H 0 0 0 -1
 5 20 83 5d15+17 1d5+0
 3.1.0.0 648
 8 8 1
@@ -837,8 +837,8 @@ This little sparrow is not much larger than the size of your hand with beedy
 black eyes and speckled brown plumage.  It hops and flutters about looking
 for some speck of food.
 ~
-131200 0 0 4 0 0 0 0 S
-B 0 0 -1
+131200 0 0 0 4 0 0 0 0 S
+B 0 0 0 -1
 2 20 93 2d15+7 1d5+0
 0.0.0.0 259
 8 8 0
@@ -850,8 +850,8 @@ green tree frog~
 This little tree frog has bulging red eyes and a yellowy-white underbelly.
 He clings perilously to the tree branch with acrobadic ease.
 ~
-0 0 0 4 0 0 0 0 S
-A 0 0 -1
+0 0 0 0 4 0 0 0 0 S
+A 0 0 0 -1
 1 20 96 1d15+4 1d5+0
 0.0.0.0 129
 8 8 0
@@ -865,8 +865,8 @@ do more damage to you than you'd want if you aren't careful.  The dark
 bird looks you up and down and then lets out a loud echoing 'caw', warning
 you off from doing anything stupid.
 ~
-131078 0 0 4 0 0 0 -1000 S
-B 0 0 -1
+131078 0 0 0 4 0 0 0 -1000 S
+B 0 0 0 -1
 6 18 80 6d18+21 2d3+1
 0.0.0.0 777
 8 8 0
@@ -879,8 +879,8 @@ This white dove sits here peacefully watching you from her perch.  She
 ruffles her feathers slightly at the sight of a big, ungainly humanoid in
 her tree, but then resumes her peaceful calm.
 ~
-131074 0 0 4 0 0 0 1000 S
-B 0 0 -1
+131074 0 0 0 4 0 0 0 1000 S
+B 0 0 0 -1
 3 20 90 3d15+11 1d5+0
 0.0.0.0 388
 8 8 2
@@ -896,8 +896,8 @@ the bowels of this tree, unnoticed, and liking it that way.  The chacodyn
 rears up from its nest to pounce on you, ready to dine again, and keep
 the secret of its abode just that... a secret.
 ~
-1073874946 56 0 34603130 0 0 0 -500 S
-A 0 1 -1
+1073874946 56 0 0 34603130 0 0 0 -500 S
+A 0 1 0 -1
 55 -5 -118 51d131+4845 7d6+30
 6.9.6.18 413100
 8 8 0
@@ -913,8 +913,8 @@ seeing you his old face brightens, and his cloudy blue eyes become clear
 again.  Tatterfoal winds a finger through his long, silky beard and tells
 you, "good day, mortal traveler."
 ~
-33556482 0 0 34078954 0 0 0 900 S
-H 0 256 -1
+33556482 0 0 0 34078954 0 0 0 900 S
+H 0 256 0 -1
 46 -3 -72 46d110+2484 6d6+25
 6.0.9.4 111780
 8 8 1
@@ -929,8 +929,8 @@ is tied in a topknot on his head.  He is wearing a simple wool vest and
 breaches made from the bark of a tree.  Habetrot is notoriously curious
 but very benevolent to travelers of the Faerie Realm.
 ~
-132 0 0 33554472 0 0 0 500 S
-H 0 1 -1
+132 0 0 0 33554472 0 0 0 500 S
+H 0 1 0 -1
 38 13 42 18d35+126 3d4+2
 9.7.3.0 8748
 8 8 1
@@ -944,8 +944,8 @@ it can't seem to end its incessant song.  You think you are going to have
 to kill it just because it's tipping the balance of "too much joy" in the
 world.
 ~
-131074 0 0 134217732 0 0 0 900 S
-B 0 0 -1
+131074 0 0 0 134217732 0 0 0 900 S
+B 0 0 0 -1
 4 20 87 4d15+14 1d5+0
 0.0.0.0 518
 8 8 0
@@ -960,8 +960,8 @@ if you are a threat to the Seelie Court.  He's doesn't look too happy
 to see mortals wandering among the realm; perhaps it would be best to
 leave him before he attacks you for simply existing.
 ~
-2 32 0 50339882 0 0 0 950 S
-H 0 2 -1
+2 32 0 0 50339882 0 0 0 950 S
+H 0 2 0 -1
 26 8 16 26d65+338 3d6+4
 7.2.6.1 23166
 8 8 1
@@ -977,8 +977,8 @@ not have a cowlick, but instead defines the term, and his feet seem so
 large that it would make standing a chore to not trip over them.  He
 blushes as you stare at him and tries to stumble away from you.
 ~
-33554432 0 0 33554472 0 0 0 600 S
-H 0 0 -1
+33554432 0 0 0 33554472 0 0 0 600 S
+H 0 0 0 -1
 8 18 74 8d18+28 2d3+1
 4.2.0.0 1036
 8 8 1
@@ -994,8 +994,8 @@ vaunted his search.  He is now simply trying to get some peace and quiet
 in the shade of the gazebo.  The knight sips his cup of tea and looks up
 at you with the silent question "whaddya want?"
 ~
-33556482 0 0 40 0 0 0 700 S
-H 0 1 -1
+33556482 0 0 0 40 0 0 0 700 S
+H 0 1 0 -1
 58 -5 -111 55d131+4675 7d6+30
 0.2.7.6 222750
 8 8 1
@@ -1011,8 +1011,8 @@ new lands, Jivbo has lived more in one life than many men could even
 hope to dream of in their wildes fantasies.  Jivbo stands tall and well
 built for a gleeman, a person not to be triffled with.
 ~
-33556548 0 0 524536 0 0 0 0 S
-H 0 512 -1
+33556548 0 0 0 524536 0 0 0 0 S
+H 0 512 0 -1
 45 -1 -69 45d72+1935 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -1028,8 +1028,8 @@ oberon spirit~
 &+Ckindly demeanor and fiercely protects his crypt from anyone that
 &+Ctrespasses within it.&N
 ~
-1073770568 1 0 268435710 2051 0 0 0 S
-UG 0 65 6
+1073770568 1 0 0 268435710 2051 0 0 0 S
+UG 0 65 0 6
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1042,8 +1042,8 @@ This root is colossal in size, and moves with earth shaking power through
 the ground.  It immediately senses your presence within these deep tunnels,
 and attacks you with mindless, destructive power.
 ~
-2 1 0 34086968 0 0 0 -100 S
-VT 0 1 -1
+2 1 0 0 34086968 0 0 0 -100 S
+VT 0 1 0 -1
 55 -5 -101 52d131+4420 7d6+30
 7.9.5.6 210600
 8 8 0
@@ -1053,8 +1053,8 @@ jamfluul legendary blacksmith svirfneblin cantankerous~
 &nA cantankerous &+ysvirfneblin&n searches for his forge.&n
 ~
 ~
-1073743880 0 0 8 0 0 0 1000 S
-pg 0 1 -1
+1073743880 0 0 0 8 0 0 0 1000 S
+pg 0 1 0 -1
 62 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1064,8 +1064,8 @@ dopplepopper scrawny gnome tinker~
 &nA scrawny &+Rgnome &nwanders here, in search of his forge.&n
 ~
 ~
-1073743880 0 0 8 0 0 0 0 S
-pg 0 1 -1
+1073743880 0 0 0 8 0 0 0 0 S
+pg 0 1 0 -1
 62 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1

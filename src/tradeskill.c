@@ -525,7 +525,7 @@ void do_forge(P_char ch, char *argument, int cmd)
       send_to_char("You dont appear to have that &+Wrecipe&n in your list.&n\n", ch);
       return;
      }
-
+/*
     foundry = check_foundry(ch);
 
     if (!foundry) 
@@ -533,6 +533,7 @@ void do_forge(P_char ch, char *argument, int cmd)
 	act("&+LYou need to be by your foundry to forge...&n", FALSE, ch, 0, 0, TO_CHAR);
 	return;
      }
+*/
 
    tobj = read_object(selected, VIRTUAL);
 

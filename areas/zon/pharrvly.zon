@@ -460,6 +460,7 @@ M 0 40217 2 40378 100 0 0 0        * a gartham warrior
 M 0 40217 2 40380 100 0 0 0        * a gartham warrior
 M 0 40215 1 40381 100 0 0 0        * the leader
 G 1 40213 1 0 100 0 0 0            *    a gartham carapace
+G 1 67255 1 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 40218 1 40383 100 0 0 0        * a gartham female
 M 0 40219 5 40383 100 0 0 0        * a young gartham
 M 0 40219 5 40383 100 0 0 0        * a young gartham

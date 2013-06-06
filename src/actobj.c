@@ -5094,6 +5094,12 @@ void do_salvage(P_char ch, char *argument, int cmd)
         return;
 	}
 
+  if(GET_OBJ_VNUM(temp) == 366)
+   {
+    send_to_char("You cheezy swine, no salvaging this.&n\r\n", ch);
+    return;
+   }
+
   if (temp->type == ITEM_FOOD)
    {
     act("Why would you want to salvage anything from your &+Ydinner&n?", FALSE, ch, 0, 0, TO_CHAR);

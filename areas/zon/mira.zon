@@ -356,6 +356,7 @@ M 0 82502 4 82607 100 0 0 0        * a palace guard
 M 0 82544 1 82608 100 0 0 0        * the Tri-Lord of Spirits
 E 1 82532 1 18 100 0 0 0           *   the totem of the Tri-Lord
 M 0 82546 1 82609 100 0 0 0        * the Tri-Lord of Time
+G 1 67221 1 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 82545 1 82610 100 0 0 0        * the Tri-Lord of Gravity
 M 0 82501 5 82611 100 0 0 0        * an archer
 M 0 82539 5 82613 100 0 0 0        * a first class hunter guard

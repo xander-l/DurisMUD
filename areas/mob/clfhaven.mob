@@ -9,8 +9,8 @@ the giant &+gtrees&n, and its large teeth allow it to eat both flesh and plant
 life.  A little more intelligent than most forest animals, it has adapted to
 the human presence in the area by learing to cleverly steal food.
 ~
-2120 0 0 256 30 0 0 0 S
-A 0 0 3
+2120 0 0 0 256 30 0 0 0 S
+A 0 0 0 3
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -25,8 +25,8 @@ uses to power its arial leaps through the air.  Using its bulk and leaping
 ability to knock down prey, it looks to be a dangerous opponent.  It is valued
 by nobles within &+gAravne&n for its soft, thick &+Wwhite&n coat.
 ~
-1073743944 0 0 256 2 0 0 0 S
-A 0 1 2
+1073743944 0 0 0 256 2 0 0 0 S
+A 0 1 0 2
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -41,8 +41,8 @@ beast.  A large sharp hook, the size of a small dagger, sits at the top of
 each wing.  Its two muscular feet are adorned with reverse facing claws, which
 allow it to snag prey from the ground while in flight.
 ~
-133128 0 0 0 2 0 0 0 S
-A 0 0 2
+133128 0 0 0 0 2 0 0 0 S
+A 0 0 0 2
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -59,8 +59,8 @@ viciously clawed front paws to batter opponents to &+rbloody&n messes.  The
 &+gT&+ro&+gr&n is a part of every legend in the area in one way or another,
 and its visage is often carved into holy objects and sturctures.
 ~
-1073743944 0 0 8 0 0 0 1000 S
-AC 0 1 4
+1073743944 0 0 0 8 0 0 0 1000 S
+AC 0 1 0 4
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -73,8 +73,8 @@ An experienced &+ycaravan guard&n looks about.
 those new to the trade are called upon to make.  As they have already dropped
 off their cargo in &+gAravne&n, this guard looks more relaxed than alert.
 ~
-1140852750 0 0 256 30 0 0 0 S
-PH 0 1 3
+1140852750 0 0 0 256 30 0 0 0 S
+PH 0 1 0 3
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -90,8 +90,8 @@ to relax, even though he has already dropped off whatever cargo he was carrying
 to &+gAravne&n.  He almost seems to look guilty, and haunted by that phantom
 which often lurks within those who have betrayed their own nature.
 ~
-2190 0 0 256 2 0 0 -1000 S
-PH 0 0 3
+2190 0 0 0 256 2 0 0 -1000 S
+PH 0 0 0 3
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -105,8 +105,8 @@ for targets.  His long, dexterous fingers rest on the sting of his &+glongbow&n,
 ready to let death rain down upon his enemies.  He is very noble looking for a
 &+Lbandit&n, and has the appearance of a person of &+Whonor&n.
 ~
-1073743882 0 0 256 2 0 0 400 S
-PH 0 1 3
+1073743882 0 0 0 256 2 0 0 400 S
+PH 0 1 0 3
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -120,8 +120,8 @@ confident.  His moves betray a smooth grace and agility, further honed by years
 of practice and experience.  His clothes, although dirty and a bit tattered,
 are kept in perfect order, and have the appearance of nobles garb.
 ~
-1073743882 0 0 256 2 0 0 -400 S
-PH 0 1 3
+1073743882 0 0 0 256 2 0 0 -400 S
+PH 0 1 0 3
 37 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -137,8 +137,8 @@ the ledge to the &+yclearing&n below.  The amount of courage and skill this kind
 of dangerous maneuver this takes is considerable, these men are therefore not
 typical cowardly theives.
 ~
-1140852746 0 0 256 2 0 0 -400 S
-PH 0 1 3
+1140852746 0 0 0 256 2 0 0 -400 S
+PH 0 1 0 3
 39 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -152,8 +152,8 @@ elite swashbuckler~
 he looks seasoned in battle.  Although not directly in command, he also helps
 to maintain disipline and order among the other &+Lbandits&n.
 ~
-1140852746 0 0 256 2 0 0 -400 S
-PH 0 1 3
+1140852746 0 0 0 256 2 0 0 -400 S
+PH 0 1 0 3
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -168,8 +168,8 @@ they have become a considerable force.  His face does not hold a single sign
 of guilt, yet rather looks like that of a man making a &+Wnoble sacrafice&n.
 He seems to be muttering something about a weapons shipment.
 ~
-1073743946 0 0 284 30 0 0 400 S
-PH 0 2 2
+1073743946 0 0 0 284 30 0 0 400 S
+PH 0 2 0 2
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -184,8 +184,8 @@ and legs, which end in very long fingers and toes which it uses for gripping.
 This &+gtree&+Lclimber&n is probably very young, perhaps in its first year,
 and will stay within the family unit until it is two or three years old.
 ~
-1073743882 0 0 0 0 0 0 0 S
-A 0 0 2
+1073743882 0 0 0 0 0 0 0 0 S
+A 0 0 0 2
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -200,8 +200,8 @@ and legs, which end in very long fingers and toes which it uses for gripping.
 This &+gtree&+Lclimber&n is the families &+Lfather&n, and will guard the young
 from harm for the next several years before starting a new family.
 ~
-1073743882 0 0 0 0 0 0 0 S
-A 0 1 2
+1073743882 0 0 0 0 0 0 0 0 S
+A 0 1 0 2
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -216,8 +216,8 @@ and legs, which end in very long fingers and toes which it uses for gripping.
 This &+gfemale tree&+Lclimber&n is most likely the mother of the family, and
 will look after the young for the next few years.
 ~
-2058 0 0 0 0 0 0 0 S
-A 0 0 2
+2058 0 0 0 0 0 0 0 0 S
+A 0 0 0 2
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -235,8 +235,8 @@ however, does have a tinge of &+Ldarkness&n at the edge, hinting that perhaps
 not all is well with her host tree.  She holds a broken &+Lw&+ran&+Ld&n, and
 continues to &+Wweep&n uncontrollably.
 ~
-33962058 0 0 151003438 2078 0 0 1000 S
-HF 0 128 3
+33962058 0 0 0 151003438 2078 0 0 1000 S
+HF 0 128 0 3
 60 0 0 2000d4+10000 1d1+1
 0.0.0.0 0
 8 8 2
@@ -252,8 +252,8 @@ might be.  His body is completely hairless, and sports an oversized head with
 a jutting jaw.  A mottled &+ggreen&n in color, this giant is hard to detect
 within the &+gforest&n exept through close observation.
 ~
-1107302476 0 0 328 30 0 0 1000 S
-G 0 1 6
+1107302476 0 0 0 328 30 0 0 1000 S
+G 0 1 0 6
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -269,8 +269,8 @@ completely unconcerned with his surroundings, and his grin never fades from
 his face.  This &+Csatyr&n seems to posses their races instinctive love for
 music, and sings incessantly to himself.
 ~
-2252 0 0 8 30 0 0 750 S
-H 0 32768 3
+2252 0 0 0 8 30 0 0 750 S
+H 0 32768 0 3
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -287,8 +287,8 @@ without any sense of intelligence or wisdom.  A small &+Lrotted&n patch can be
 seen near its base, an unusual sight for a magical creature.  Something is most
 definitely wrong here.
 ~
-67127368 0 0 285212680 6174 0 0 1000 S
-VT 0 1 4
+67127368 0 0 0 285212680 6174 0 0 1000 S
+VT 0 1 0 4
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -303,8 +303,8 @@ are caked in sweat and dirt, and his muscles ripple beneath his tattered
 work clothes.  His sole purpose in life seems to move objects from one place
 to another.
 ~
-1073743882 0 0 0 0 0 0 0 S
-PH 0 1 3
+1073743882 0 0 0 0 0 0 0 0 S
+PH 0 1 0 3
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -319,8 +319,8 @@ the forest floor for trouble, normally the most boring of all duty's, does not
 seem like it is troubling this warrior.  In fact, he seems very enthusiastic,
 perhaps even a little nervous.  Perhaps his job is not so boring after all.
 ~
-1140852810 0 0 264 0 0 0 500 S
-PH 0 1 3
+1140852810 0 0 0 264 0 0 0 500 S
+PH 0 1 0 3
 44 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -336,8 +336,8 @@ some form of &+Llycanthropy&n.  Even her death will not postpone the inevitable
 transformation into a &+LW&+re&+Lr&+re&n form of whatever species of &+Llycanth&n
 attacked her and left her for dead.
 ~
-2058 1 0 256 2 0 0 -500 S
-L 0 0 3
+2058 1 0 0 256 2 0 0 -500 S
+L 0 0 0 3
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -354,8 +354,8 @@ force and the strength of the &+Llycanthropy&n effecting it, it will either
 wander as a zombie or return to life in its &+Lw&+re&+Lr&+re&n form during the peak of
 its next cycle.
 ~
-2058 1 0 0 2 0 0 -1000 S
-L 0 1 3
+2058 1 0 0 0 2 0 0 -1000 S
+L 0 1 0 3
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -370,8 +370,8 @@ sharp fangs are revealed in its jowl,  and wickedly curved claws did into
 the earthen forest floor.  Its cheeks and frontquarters are stained with
 dried blood, some of it appearing rather fresh.
 ~
-1073743882 1 0 256 4098 0 0 -1000 S
-L 0 1 4
+1073743882 1 0 0 256 4098 0 0 -1000 S
+L 0 1 0 4
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -386,8 +386,8 @@ sharp fangs are revealed in its jowl,  and wickedly curved claws did into
 the earthen forest floor.  Its cheeks and frontquarters are stained with
 dried blood, some of it appearing rather fresh.
 ~
-1073743946 0 0 268435752 30 0 0 0 S
-AC 0 1 3
+1073743946 0 0 0 268435752 30 0 0 0 S
+AC 0 1 0 3
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -402,8 +402,8 @@ graceful looking movements this could very well be true.  Her entire body is
 concealed by robes, except for a small patch of skin on one of her ankles
 which looks as though it has been severly &+rburned&n.
 ~
-1073915978 0 0 264 0 0 0 0 S
-PF 0 12 -1
+1073915978 0 0 0 264 0 0 0 0 S
+PF 0 12 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -418,8 +418,8 @@ his chitanous arms blur with quickness as he searches newcomers to the &+Ldump&n
 for &+rcontraband&n.  His top left shoulder plate is imbedded with several &+Wsilver&n
 &+Wstars&n, in recognition of his accomplishments.
 ~
-67110922 0 0 296 2050 262144 0 0 S
-TK 0 1 3
+67110922 0 0 0 296 2050 262144 0 0 S
+TK 0 1 0 3
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -432,8 +432,8 @@ An expressionless &+gcustoms &+Yguard&n performs his duties.
 confiscate something important.  Young and inexperienced, this &+Gthri&n-&+Ykreen&n's
 shell has not fully hardened yet.
 ~
-1073743946 0 0 256 0 262144 0 0 S
-TK 0 1 3
+1073743946 0 0 0 256 0 262144 0 0 S
+TK 0 1 0 3
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -447,8 +447,8 @@ prepared to dispense his own personal brand of justice on the &+bdis&+Whonest&n.
 Part of his main segment is discolored, probably from a magical &+Bcold&n attack,
 which he obviously survived.
 ~
-67110926 0 0 40 2048 262144 0 0 S
-TK 0 1 3
+67110926 0 0 0 40 2048 262144 0 0 S
+TK 0 1 0 3
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -462,8 +462,8 @@ from the &+Ggarbage&n heaps.  Clothed in rags and worthless costume jewelry
 made of &+cc&+ro&+yl&+wo&+br&+ge&+Ld&n &+Wglass&n, he appears very pompous for someone who lives
 in a &+Ggarbage &+Ldump&n.
 ~
-1073743886 0 0 0 0 262144 0 0 S
-TK 0 0 3
+1073743886 0 0 0 0 0 262144 0 0 S
+TK 0 0 0 3
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -480,8 +480,8 @@ chastizes himself, mumbling "&+BDuty&n and &+Whonor&n necessitated that you take
 of your &+Lev&+ri&+Ll&n father, and you failed in the task."  He appears to
 be haggling with a &+gtrader&n for some kind of liquor.
 ~
-1073743882 0 0 0 0 0 0 250 S
-PH 0 1 3
+1073743882 0 0 0 0 0 0 0 250 S
+PH 0 1 0 3
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -495,8 +495,8 @@ large &+Gthri&n-&+Ykreen&n laid claim to this business and fought off all comers
 Now reaping the benifits of his 'aquisition', his body has become strong and
 well muscled from the constant &+Yprotein&n intake.
 ~
-1073743882 0 0 296 2048 262144 0 0 S
-TK 0 1 3
+1073743882 0 0 0 296 2048 262144 0 0 S
+TK 0 1 0 3
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -510,8 +510,8 @@ akhchzk innkeeper~
 of some childhood malady.  A large iron ring filled with keys dangles from a
 crude rope belt, creating a constant jangling sound as he moves.
 ~
-1073743946 0 0 296 2048 262144 0 0 S
-TK 0 1 3
+1073743946 0 0 0 296 2048 262144 0 0 S
+TK 0 1 0 3
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -526,8 +526,8 @@ for this &+rtavern&n, he inherited the business after years of loyal service.
 His chitanous body shows the nicks and scrapes of many fights, which he seldom
 lost.
 ~
-1073743946 0 0 268 2076 262144 0 0 S
-TK 0 1 3
+1073743946 0 0 0 268 2076 262144 0 0 S
+TK 0 1 0 3
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -542,8 +542,8 @@ spectacular, it is remote and outside the main &+Wcity&n of &+gAravne&n making i
 more attractive to his race.  He appears to be a skilled explorer, and a
 fighter by the look of it.
 ~
-1073743882 0 0 268 30 0 0 1000 S
-PE 0 1 3
+1073743882 0 0 0 268 30 0 0 1000 S
+PE 0 1 0 3
 37 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -557,8 +557,8 @@ times.  Her clothes are tattered and ripped, and her dirt covered face is
 smeared from crying.  She turns to you and cries out,
 &+W"I have lost my honor, I am worthless."&n
 ~
-2058 0 0 12 4 0 0 600 S
-PM 0 1 3
+2058 0 0 0 12 4 0 0 600 S
+PM 0 1 0 3
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -573,8 +573,8 @@ one on one.  And his &+Rrampage&n inside Southmountain when the &+Rgnome&n highm
 accidentally turned his wife into a &+gfrog&n is well known.  Most fail to
 meet his gaze, but instead find themselves staring at his large hairy feet.
 ~
-1073743882 0 0 524588 30 0 0 800 S
-PF 0 1 2
+1073743882 0 0 0 524588 30 0 0 800 S
+PF 0 1 0 2
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -588,8 +588,8 @@ He also looks very &+rsinister&n, and has an odd &+Levil&n gleam in his eyes.
 A &+Bbrand&n marking him as a &+rmurderer&n is permanently chiseled into his upper
 left shoulder plate.
 ~
-1073743946 0 0 268 2078 262144 0 -1000 S
-TK 0 1 3
+1073743946 0 0 0 268 2078 262144 0 -1000 S
+TK 0 1 0 3
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -603,8 +603,8 @@ this &+Gthri&n-&+Ykreen&n searches for &+Gjunk&n she can find a use for.  She lo
 tough, like all the villagers living in the &+Lundercity&n &+gforest&n, and does not
 look like she needs an escort for safety.
 ~
-1073743950 0 0 264 30 262144 0 300 S
-TK 0 1 3
+1073743950 0 0 0 264 30 262144 0 300 S
+TK 0 1 0 3
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -617,8 +617,8 @@ A &+gthri&n-&+ykreen&n &+rshoplifter&n cases the area.
 furtive glances about the room, and every once in a while he scoops up a
 piece of choice &+Gjunk&n and hides it away.
 ~
-1073743882 0 0 524544 28 262144 0 -1000 S
-TK 0 1 3
+1073743882 0 0 0 524544 28 262144 0 -1000 S
+TK 0 1 0 3
 39 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -634,8 +634,8 @@ fangs is cleanly sliced off, rumored to have been done by one of the very few
 &+MV&+mo&+Mrp&+ma&+Ml Bl&+ma&+Md&+me&+Ms&n in known existence.  That encounter is also
 rumored to be the only time &+rVlestk&n has even been cheated and defeated.
 ~
-1073743950 0 0 268 2076 262144 0 -100 S
-TK 0 1 3
+1073743950 0 0 0 268 2076 262144 0 -100 S
+TK 0 1 0 3
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -649,8 +649,8 @@ like a suit of &+Lblack&n armor.  He looks both menacing and cruel, and haggles
 over the price of a weapon destined for dark deeds.  A terrible looking scar
 traverses his right cheek, the result of a near deadly attack.
 ~
-1073743882 0 0 264 0 0 0 -1000 S
-PH 0 5 3
+1073743882 0 0 0 264 0 0 0 -1000 S
+PH 0 5 0 3
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -666,8 +666,8 @@ has only been in one fight in his entire life, in which he grabbed his enemies
 head and crushed it helm and all with his bare hands.  He has never been
 tested since.
 ~
-1073743946 0 0 268435724 2078 262144 0 600 S
-TK 0 1 3
+1073743946 0 0 0 268435724 2078 262144 0 600 S
+TK 0 1 0 3
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -678,8 +678,8 @@ huge giant leech~
 ~
 &n   Large, slimy, and rubbery looking.  Also very ugly.
 ~
-1074006026 0 0 2336 12288 0 0 -1000 S
-AP 0 1 4
+1074006026 0 0 0 2336 12288 0 0 -1000 S
+AP 0 1 0 4
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -694,8 +694,8 @@ doing a very good job, and looks as though she would be much better suited to
 roaming and hunting the &+gforest&n.  She spends most of her time keeping the
 young protected from the cold which could freeze them.
 ~
-2062 0 0 256 0 262144 0 1000 S
-TK 0 0 3
+2062 0 0 0 256 0 262144 0 1000 S
+TK 0 0 0 3
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -708,8 +708,8 @@ A &+gthri&n-&+ykreen&n &+yyouth&n runs rampant here.
 talents of his race.  Not yet very large, and with a carapace that has not
 yet fully hardened, he would not fare well vs a skilled warrior.
 ~
-2126 0 0 256 28 262144 0 0 S
-TK 0 1 3
+2126 0 0 0 256 28 262144 0 0 S
+TK 0 1 0 3
 21 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -723,8 +723,8 @@ as opposed the the normal nomadic lifestyle.  His good fortune have provided
 him with this dwelling, and the security of statue that only a permanent
 residence can provide.
 ~
-1073743886 0 0 256 30 262144 0 0 S
-TK 0 1 3
+1073743886 0 0 0 256 30 262144 0 0 S
+TK 0 1 0 3
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -737,8 +737,8 @@ A &+gretired &+Gthri&n-&+Ykreen&n admires his &+Gjunk&n.
 his prior profits.  He bears some battle scars, testament to his younger days
 of hot blooded fights.
 ~
-1073743886 0 0 268 28 0 0 200 S
-TK 0 1 -1
+1073743886 0 0 0 268 28 0 0 200 S
+TK 0 1 0 -1
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -752,8 +752,8 @@ up ways to increase his statue here in the &+Ldump&n.  Normally nomadic
 creatures, this permanent settlement has allowed this crafty &+cnoble&n to
 worm his way into the lap of luxury.
 ~
-1073743946 0 0 364 30 262144 0 -200 S
-TK 0 1 3
+1073743946 0 0 0 364 30 262144 0 -200 S
+TK 0 1 0 3
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -768,8 +768,8 @@ other residents of the &+Ldump&n, he has very few scars.  He looks very
 capable of dispatching an opponent however, and his eyes show no fear but
 only wisdom.
 ~
-1073747978 0 0 268 2078 262144 0 1000 S
-TK 0 1 3
+1073747978 0 0 0 268 2078 262144 0 1000 S
+TK 0 1 0 3
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -787,8 +787,8 @@ day finding what he needs to help him return to the &+Wst&+ca&+Wrs&n. Throughout
 quest to go back home he often scrys unique and valuable objects of the world,
 and has been known to share his knowledge to others for a small fee.
 ~
-1140865098 0 0 268443948 2142 262144 0 1000 S
-TK 0 32 3
+1140865098 0 0 0 268443948 2142 262144 0 1000 S
+TK 0 32 0 3
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -804,8 +804,8 @@ susceptible to physical and &+Bcold&n attacks.  Determination and the vigor
 of youth have propelled him to this position in the &+gvolunteer &+rguards&n, and he
 looks forward to &+Rbattle&n and &+rbloodshed&n.
 ~
-1140852748 0 0 264 28 262144 0 250 S
-TK 0 1 3
+1140852748 0 0 0 264 28 262144 0 250 S
+TK 0 1 0 3
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -819,8 +819,8 @@ carapace acts as a natural suit of armor, making him less susceptible to
 physical and cold attacks.  Determination is set hard in his features as
 he scans the area, awaiting his next battle.
 ~
-1073752138 0 0 268 94 262144 0 -300 S
-TK 0 1 3
+1073752138 0 0 0 268 94 262144 0 -300 S
+TK 0 1 0 3
 43 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -835,8 +835,8 @@ and claws have become abnormally enlarged, and its fur thick and ragged.  Its
 insatiable hunger is apparent through its voratious appetite and constant
 drooling.
 ~
-10314 1 0 268435724 30 0 0 -1000 S
-L 0 1 4
+10314 1 0 0 268435724 30 0 0 -1000 S
+L 0 1 0 4
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -851,8 +851,8 @@ sharp &+Wfangs&n are revealed in its jowl,  and wickedly curved claws did into
 the earthen forest floor.  Its cheeks and frontquarters are stained with dried
 &+Rblood&n, some of it appearing rather fresh.
 ~
-1073752136 1 0 268 30 0 0 -1000 S
-L 0 1 4
+1073752136 1 0 0 268 30 0 0 -1000 S
+L 0 1 0 4
 48 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -866,8 +866,8 @@ and gnashing of its &+Wfangs&n.  Small bits of &+Rgore&n can be seen protruding
 from its scissor like &+Wteeth&n.  It is hard to imagine a more fearsome opponent
 than the &+gt&+ro&+gr&n under the afflicion of &+Llycanthropy&n.
 ~
-1073752138 1 0 268 30 0 0 -1000 S
-L 0 1 4
+1073752138 1 0 0 268 30 0 0 -1000 S
+L 0 1 0 4
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -884,8 +884,8 @@ fighter, adorned by several wicked looking scars.  The effects of lycanthropy
 on this particular &+gt&+ro&+gr&n must have been strong indeed to produce such a
 fearsome predator.
 ~
-10250 1 0 300 2078 0 0 -1000 S
-L 0 1 4
+10250 1 0 0 300 2078 0 0 -1000 S
+L 0 1 0 4
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -902,8 +902,8 @@ by brute force, and slays and and all who stand is his way.  &+WHope&n for any
 being this far gone with the disease is for naught, as his body would rather
 perish than return to the weak thing it was before &+Llycanthropy&n.
 ~
-10314 1 0 268 2078 0 0 -1000 S
-L 0 1 4
+10314 1 0 0 268 2078 0 0 -1000 S
+L 0 1 0 4
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -919,8 +919,8 @@ the other tasks the upper level guards consider below them, he is young enough
 to still enjoy this kind of work.  Although not very experienced, he is well
 trained and brave.
 ~
-1140852808 0 0 268 30 0 0 250 S
-PH 0 1 3
+1140852808 0 0 0 268 30 0 0 250 S
+PH 0 1 0 3
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -934,8 +934,8 @@ for disturbances.  Although not as preferrable as working in the upper levels
 of &+gAravne&n, this post provides an opportinity to flex their muscle on some
 occasions.
 ~
-1140861002 0 0 296 2 0 0 200 S
-PH 0 1 3
+1140861002 0 0 0 296 2 0 0 200 S
+PH 0 1 0 3
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -948,8 +948,8 @@ cargo mover strong~
 heavy crates of &+ycargo&n all day.  He goes about his tasks with steadfast
 determination, even if lacking in enthusiasm.
 ~
-1073743946 0 0 268 30 0 0 400 S
-PH 0 1 3
+1073743946 0 0 0 268 30 0 0 400 S
+PH 0 1 0 3
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -963,8 +963,8 @@ comprised of a mountain of &+Yfat&n.  He must have a ferocious appetite, for
 the amount of power and endurance required to spin the &+ypulley &+bcrank&n with
 the ease and rapidity with which he does must require enormous energy.
 ~
-1073743882 0 0 268 30 0 0 500 S
-PB 0 1 4
+1073743882 0 0 0 268 30 0 0 500 S
+PB 0 1 0 4
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -979,8 +979,8 @@ aggressive, and does not attack unless provoked.  It would much prefer to hunt
 for easy to kill insects and vermin, for which it is actually prized by many
 a supply ship captain or storeroom clerk.
 ~
-2120 0 0 256 2 0 0 0 S
-I 0 1 2
+2120 0 0 0 256 2 0 0 0 S
+I 0 1 0 2
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -994,8 +994,8 @@ by pouring as many &+yales&n for himself as his customers.  It is amazing that
 &+bGungol&n has not himself become one of the yearly falling casualties as he
 stumbles about serving drinks.
 ~
-1073743946 0 0 256 2 0 0 -200 S
-PH 0 1 3
+1073743946 0 0 0 256 2 0 0 -200 S
+PH 0 1 0 3
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1009,8 +1009,8 @@ off to get drunk.  Perhaps he did not have a good day in the marketplace, for
 he seems upset and easily exiteable.  His clothes reek of &+gleaf&+mwine&n,
 and his chin is stained a telltale &+mpurple&n color.
 ~
-1073743882 0 0 256 2 0 0 -200 S
-PH 0 1 3
+1073743882 0 0 0 256 2 0 0 -200 S
+PH 0 1 0 3
 22 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1025,8 +1025,8 @@ of intense excitement and stress metered with periods of relaxation and severe
 intoxication.  Life as a salesman on the &+rbaazar&n can be rough, but never
 dull.
 ~
-1073743946 0 0 260 30 0 0 0 S
-PH 0 0 3
+1073743946 0 0 0 260 30 0 0 0 S
+PH 0 0 0 3
 19 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1042,8 +1042,8 @@ deal which will make his &+Wfortune&n.  As relieved as he seems to have reached
 this wonderous city, he will nonetheless soon grow bored and restless to
 continue his endless journey.
 ~
-2188 0 0 260 18 0 0 250 S
-PH 0 0 3
+2188 0 0 0 260 18 0 0 250 S
+PH 0 0 0 3
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1057,8 +1057,8 @@ to look a little untrustworthy.  He talks &+mfast&n, and almost starts to make
 sense at times.  The strange thing is, although he panders like a salesman he
 never seems to deliver with any hard real products.
 ~
-1073743946 0 0 260 30 0 0 -700 S
-PH 0 1 3
+1073743946 0 0 0 260 30 0 0 -700 S
+PH 0 1 0 3
 22 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1072,8 +1072,8 @@ glorious his products are as well as how &+Grotten&n his neighbors are.  This
 seems to be a favorite tactic of the vendors here due to the fierceness of
 competition.
 ~
-2062 0 0 256 2 0 0 -100 S
-PH 0 1 3
+2062 0 0 0 256 2 0 0 -100 S
+PH 0 1 0 3
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1089,8 +1089,8 @@ is stained with grease and meaty juices, and what looks suspiciously like a
 accusing their competitors of selling bad products, and instead shout about
 how wonderful their neighbors food is when they see him coming.
 ~
-2058 0 0 256 2 0 0 -1000 S
-PO 0 1 5
+2058 0 0 0 256 2 0 0 -1000 S
+PO 0 1 0 5
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1107,8 +1107,8 @@ decrease his credibility as &+Rmoneytaker&n.  As a matter of fact, there is
 very little food theft here due to the fact the &+Bbarbarian&n looks as though
 he would rather be &+rcracking &+Wskulls&n in the local tavern than be here.
 ~
-1073743946 0 0 260 30 0 0 0 S
-PB 0 1 4
+1073743946 0 0 0 260 30 0 0 0 S
+PB 0 1 0 4
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1123,8 +1123,8 @@ she is really attracted to the &+Bbarbarian &+Rmoneytaker&n.  What wench would
 be able to resist a wild &+Wskull&n &+rcracking&n, hard drinking love machine is the
 thought which constantly fills her mind.
 ~
-2126 0 0 260 30 0 0 -100 S
-PH 0 0 3
+2126 0 0 0 260 30 0 0 -100 S
+PH 0 0 0 3
 21 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1138,8 +1138,8 @@ restaurant than he does in the marketplace.  His colorful attire is spotted
 with grease stains on the front, and he seems to be currently trying to make
 more.
 ~
-1073743882 0 0 256 18 0 0 0 S
-PH 0 0 3
+1073743882 0 0 0 256 18 0 0 0 S
+PH 0 0 0 3
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1154,8 +1154,8 @@ sure all of the food is prepared properly and as it is needed for the dining
 room.  Probably preparing food since he was a boy, the &+Wchef&n loves his job,
 and does it with enthusiasm.
 ~
-1073743946 0 0 256 30 0 0 100 S
-PH 0 1 3
+1073743946 0 0 0 256 30 0 0 100 S
+PH 0 1 0 3
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1168,8 +1168,8 @@ prep cook~
 he is under a bit of stress.  His hands and fingers are skilled, and quickly
 manipulate the food into edible forms ready to be cooked.
 ~
-8 0 0 256 30 0 0 300 S
-PH 0 1 3
+8 0 0 0 256 30 0 0 300 S
+PH 0 1 0 3
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1183,8 +1183,8 @@ detect.  It continually prowls the fruit looking for &+Ginsects&n to devour.  It
 is allowed by the &+yfarmers&n to roam the fruit, as it keeps the parasites away
 from the produce.
 ~
-1073743882 0 0 288 30 0 0 0 S
-I 0 0 2
+1073743882 0 0 0 288 30 0 0 0 S
+I 0 0 0 2
 18 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1198,8 +1198,8 @@ reaches of the aravne &+gtrees&n, this &+yfarmer&n has turned those skills into
 a profitable enterprise.  He carries a box of his latest harvest, which he
 will soon exchange for his pay.
 ~
-2058 0 0 256 2 0 0 250 S
-PH 0 0 3
+2058 0 0 0 256 2 0 0 250 S
+PH 0 0 0 3
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1212,8 +1212,8 @@ slender wood elf gatherer~
 edible or medecinal &+glichens&n, &+Lm&+Wushroom&+Ls&n, and &+Gmosses&n.  He carries
 a bag full of his latest findings, which he has come here to sell&n.
 ~
-1073743882 0 0 84410636 30 0 0 0 S
-PE 0 1 3
+1073743882 0 0 0 84410636 30 0 0 0 S
+PE 0 1 0 3
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1227,8 +1227,8 @@ and streetwise looking man is well equipped to deal with the unique brand of
 customers &+rSalvadars&n attracts.  Although not a great fighter himself, he relies
 on his contacts and "business" partners to protect himself successfully.
 ~
-10250 0 0 256 0 0 0 -800 S
-PH 0 1 3
+10250 0 0 0 256 0 0 0 -800 S
+PH 0 1 0 3
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1242,8 +1242,8 @@ friendly type.  His clothes are a very dark &+ggreen&n, the shade of color which
 would fade easily into the background on a dark treetop night.  This seems
 like the kind of person who could put those skills to use as well.
 ~
-2186 0 0 33554688 0 0 0 -750 S
-PH 0 16384 3
+2186 0 0 0 33554688 0 0 0 -750 S
+PH 0 16384 0 3
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1258,8 +1258,8 @@ He looks to be quick to spill blood, and reckless with his thirst for &+Ygold&n.
 Luckily for some of his potential victims, he does not have the experience of
 a skilled &+rassassin&n...yet.
 ~
-2062 0 0 33554688 10 0 0 -800 S
-PH 0 8192 3
+2062 0 0 0 33554688 10 0 0 -800 S
+PH 0 8192 0 3
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1272,8 +1272,8 @@ serious henchman~
 thousands of years to hone his skills through battle experience, he has now
 taken the body of a slain &+Lorc&n as his own.
 ~
-67241994 0 0 134217820 30 0 0 -1000 S
-PL 0 1 3
+67241994 0 0 0 134217820 30 0 0 -1000 S
+PL 0 1 0 3
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1288,8 +1288,8 @@ far from his daggers, and none pass unshaken when his &+cicy&n gaze falls upon
 them.  &+rSalvadar&n can arrange an &+Lassassination&n with a single breath, and as
 easily perform the deed himself.
 ~
-1073780746 0 0 403177788 2078 0 0 -1000 S
-PL 0 8192 3
+1073780746 0 0 0 403177788 2078 0 0 -1000 S
+PL 0 8192 0 3
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1304,8 +1304,8 @@ success has allowed him this life of leisure, but it is not easy to maintain
 his current status with his current occupation, and the strain is beginning
 to show.
 ~
-1073743886 0 0 256 28 0 0 -400 S
-P2 0 1 3
+1073743886 0 0 0 256 28 0 0 -400 S
+P2 0 1 0 3
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1319,8 +1319,8 @@ instead makes his living by befriending those who can provide him with what he
 wants.  He does not look like a very capable fighter, most likely because he
 either weasels out of confrontation, or finds someone to bail him out of it.
 ~
-1073744010 0 0 256 2 0 0 -1000 S
-PH 0 0 3
+1073744010 0 0 0 256 2 0 0 -1000 S
+PH 0 0 0 3
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1334,8 +1334,8 @@ he cannot afford.  It is obvious by looking at him that much of his appearance
 is too expensive for one of his stature, yet still must be maintained in order
 to preserve his image.
 ~
-1073743882 0 0 33554688 30 0 0 0 S
-PF 0 1 2
+1073743882 0 0 0 33554688 30 0 0 0 S
+PF 0 1 0 2
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1350,8 +1350,8 @@ inexpensive but servicable clothes, and does not look like he misses many
 meals.  Like many young men who perform physical work, this boy is very well
 muscled, and looks like he can take care of himself well for one of his youth.
 ~
-1140852746 0 0 33554688 30 0 0 0 S
-PB 0 1 4
+1140852746 0 0 0 33554688 30 0 0 0 S
+PB 0 1 0 4
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1365,8 +1365,8 @@ by juggling several wooden globes continuously.  A small blanket rests near
 his feet, where passerby toss chunks of bread and food, and the occasional
 skin of &+gleaf&+mwine&n.
 ~
-2062 0 0 256 2 0 0 0 S
-PH 0 64 3
+2062 0 0 0 256 2 0 0 0 S
+PH 0 64 0 3
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1381,8 +1381,8 @@ keep their clothes tapered to prevent snags, this mans robe is already torn
 in many places.  He keeps his moneybag close at hand, and eyes the crowd with
 noticeable distrust.
 ~
-2124 0 0 256 30 0 0 200 S
-PH 0 1 3
+2124 0 0 0 256 30 0 0 200 S
+PH 0 1 0 3
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1395,8 +1395,8 @@ beastmaster master~
 &+gleaves&n.  Several thin cords made of woven &+Gvines&n are attached to his
 waist at one end, and various &+Lbeasts&n in training at the other end.
 ~
-1073752136 0 0 264 30 0 0 -200 S
-P2 0 1 3
+1073752136 0 0 0 264 30 0 0 -200 S
+P2 0 1 0 3
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1409,8 +1409,8 @@ large treejumper jumper~
 &+gfloor&n, this one probably lived much deeper and higher in the &+gAravne forest&n.
 Although trained this &+gtree&+Ljumper&n may be, tame he is not.
 ~
-1073743944 0 0 288 30 0 0 0 S
-A 0 1 4
+1073743944 0 0 0 288 30 0 0 0 S
+A 0 1 0 4
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1423,8 +1423,8 @@ forest cat~
 Two fang like teeth project from both the upper and lower jaws, crossing each
 other like scissors when she closes her snout.
 ~
-1073743944 0 0 32 30 0 0 -400 S
-A 0 1 3
+1073743944 0 0 0 32 30 0 0 -400 S
+A 0 1 0 3
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1441,8 +1441,8 @@ balance, and even looks strong and coordinated enough to possibly support its
 body weight.  This canine looks highly specialized, and highly dangerous here
 in its own environment.
 ~
-1073744072 0 0 32 30 0 0 -400 S
-AC 0 1 3
+1073744072 0 0 0 32 30 0 0 -400 S
+AC 0 1 0 3
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1456,8 +1456,8 @@ stargazer worshipper~
 His skin is a &+Ldark shade&n of &+ggreen&n, and he worships &+cAu&+Br&+cuos&n, the
 &+LNight &+WGod&n of &+cStars&n.
 ~
-1073743946 0 0 134218060 30 0 0 -600 S
-PE 0 1 3
+1073743946 0 0 0 134218060 30 0 0 -600 S
+PE 0 1 0 3
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1471,8 +1471,8 @@ stargazer disciple~
 His robe has a single &+cstar&n on each sleeve denoting his rank, but does not
 yet bear the scar of an acolyte.
 ~
-1107298314 0 0 268 30 0 0 -600 S
-PE 0 1 3
+1107298314 0 0 0 268 30 0 0 -600 S
+PE 0 1 0 3
 42 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1487,8 +1487,8 @@ he would be hard to discern from a &+mdrow&n, although nearly all of it is
 concealed beneath his dark robes.  A single &+Wglowing&n star shines from the
 left shoulder of his robes, and a star shaped scar adorns his forehead.
 ~
-1073743944 0 0 332 32798 0 0 -800 S
-PE 0 1 3
+1073743944 0 0 0 332 32798 0 0 -800 S
+PE 0 1 0 3
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1503,8 +1503,8 @@ master.  His skin is completely black, and is stretched to a paper thin
 across his bones.  Although his muscles have completely atrophied, his limbs
 possess a &+csupernatural&n strength and power which is considerable&n.
 ~
-67119114 0 0 316 264222 0 0 -1000 S
-GI 0 16 3
+67119114 0 0 0 316 264222 0 0 -1000 S
+GI 0 16 0 3
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1517,8 +1517,8 @@ auruos god stars~
 &+La thing.  Twisting, swirling, imperceptibly fading in and out of reality, this
 &+Lincarnation is a collection of raw &+cspiritual&+W Power&+L.
 ~
-33749066 1 0 402653694 2078 2097152 0 -1000 S
-Y 0 16 5
+33749066 1 0 0 402653694 2078 2097152 0 -1000 S
+Y 0 16 0 5
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1532,8 +1532,8 @@ rampage within city limits here, this &+yMountain Dwarf&n sleeps off his liquer
 while shackled to the tree here.  From the stocky look of him, he wasnt easy
 to subdue.
 ~
-14410 0 0 296 30 0 0 600 S
-PM 0 1 3
+14410 0 0 0 296 30 0 0 600 S
+PM 0 1 0 3
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 4 4 1
@@ -1547,8 +1547,8 @@ upset ogre~
 he quickly found himself restrained here until he regains his composure, or
 is deported, whichever comes first.
 ~
-1073743946 0 0 264 30 0 0 -1000 S
-PO 0 1 5
+1073743946 0 0 0 264 30 0 0 -1000 S
+PO 0 1 0 5
 39 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1562,8 +1562,8 @@ worried much about his current situation.  A &+LDark &+gForest &+Lelf&n, he make
 his living by ending others, and he is finally getting to be fairly good at it.
 Perhaps he is only waiting until nighttime to bust out of this predicament.
 ~
-1073744074 0 0 300 30 0 0 -1000 S
-PL 0 8192 3
+1073744074 0 0 0 300 30 0 0 -1000 S
+PL 0 8192 0 3
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1577,8 +1577,8 @@ are disproportionate even for the elf race.  He moves quickly, and keeps two
 short swords within close reach in case of trouble.  Although skilled, he
 seems fairly inexperienced.
 ~
-1073743948 0 0 256 30 0 0 0 S
-PE 0 2 -1
+1073743948 0 0 0 256 30 0 0 0 S
+PE 0 2 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1592,8 +1592,8 @@ of growing ahead of it.  Its long thin branches whip about recklessly at times,
 and it still seems a bit unused to free movement.  It nonetheless possesses
 the rudimentary link with nature that all treants are known for.
 ~
-2122 0 0 296 30 0 0 1000 S
-VT 0 128 4
+2122 0 0 0 296 30 0 0 1000 S
+VT 0 128 0 4
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1607,8 +1607,8 @@ the underbrush.  A shortbow in one hand and a flight arrow in the other, he
 constantly scans the area for game.  A leather bag slung across his back looks
 as though it already carries a small animal or two, soon to be someones dinner.
 ~
-1073743948 0 0 288 30 0 0 0 S
-PH 0 1 3
+1073743948 0 0 0 288 30 0 0 0 S
+PH 0 1 0 3
 16 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1621,8 +1621,8 @@ foraging herbalist~
 a festival, no small feat.  She walks very slowly along the path here, seeking
 out rare leaves and roots necessary for her potions and elixers.
 ~
-8 0 0 256 30 0 0 0 S
-PH 0 128 3
+8 0 0 0 256 30 0 0 0 S
+PH 0 128 0 3
 11 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1633,8 +1633,8 @@ deer~
 ~
 &n   Its a deer, complete with a small set of antlers, thus marking it as male.
 ~
-8 0 0 288 6 0 0 0 S
-A 0 1 3
+8 0 0 0 288 6 0 0 0 S
+A 0 1 0 3
 12 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1648,8 +1648,8 @@ small bridge, this human walks the area checking, repairing, and constructing
 snares and traps.  He seems to be after small game, and carries only a skinning
 knife for protection.
 ~
-1073743948 0 0 256 2 0 0 0 S
-PH 0 0 3
+1073743948 0 0 0 256 2 0 0 0 S
+PH 0 0 0 3
 14 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1662,8 +1662,8 @@ militia peacekeeper guard~
 six bladed mace, this peacekeeper intends to prove his toughness to the city
 guards in hope of being enlisted.
 ~
-67110988 0 0 256 0 0 0 0 S
-PH 0 1 3
+67110988 0 0 0 256 0 0 0 0 S
+PH 0 1 0 3
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1677,8 +1677,8 @@ time is money attitude.  Scarred knuckles and an ugly face are indicators of
 his enthusiasm if not lack of prowess in melee combat.  He glances about the
 area occasionally, prepared to quickly take action in the case of meddlers.
 ~
-1073743944 0 0 256 2 0 0 -1000 S
-PH 0 16384 3
+1073743944 0 0 0 256 2 0 0 -1000 S
+PH 0 16384 0 3
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1692,8 +1692,8 @@ and creatures for the highest bidder.  Sometimes his victims are beaten into
 submission and brought back alive, and sometimes he has the pleasure of taking
 their life first.
 ~
-1073743948 0 0 256 30 0 0 -1000 S
-PH 0 16384 3
+1073743948 0 0 0 256 30 0 0 -1000 S
+PH 0 16384 0 3
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1707,8 +1707,8 @@ chosen &+Wgod&n by practicing her healing arts and spreading the word of her
 faith.  She possesses a moderate amount of skill in her art, and obviosly is
 in favor of her chosen diety.
 ~
-1073743880 0 0 256 30 0 0 1000 S
-PH 0 32 3
+1073743880 0 0 0 256 30 0 0 1000 S
+PH 0 32 0 3
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1722,8 +1722,8 @@ metal, partially concealed by a thick dark set of robes, this tall orc peers
 about with a permanent sneer on his face.  A &+Lblack &+rrose&n is imprinted
 in the chain mail above his chest.
 ~
-1073743944 0 0 256 32798 0 0 -1000 S
-HO 0 16 3
+1073743944 0 0 0 256 32798 0 0 -1000 S
+HO 0 16 0 3
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1737,8 +1737,8 @@ sun, this whore still seems to attract her fair share of action.  She seems
 to be suffering from some kind of skin disease, which has focused much of its
 attack upon her face.
 ~
-2060 0 0 524288 2 0 0 -750 S
-PH 0 65536 3
+2060 0 0 0 524288 2 0 0 -750 S
+PH 0 65536 0 3
 21 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1753,8 +1753,8 @@ pets, and look to be well fed and cared for.  Several scratch marks can be
 seen on various patches of exposed flesh beneath the animal trainers lose
 clothes, the price of his particular choice of pet.
 ~
-1073744012 0 0 0 0 0 0 0 S
-PH 0 1 3
+1073744012 0 0 0 0 0 0 0 0 S
+PH 0 1 0 3
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1767,8 +1767,8 @@ trained tree climber treeclimber~
 prehensile tail, and sharp looking hook shaped claws.  It seems fairly
 intelligent, and obeys its master without thought of rebellion.
 ~
-1073743880 0 0 256 2 0 0 0 S
-A 0 1 2
+1073743880 0 0 0 256 2 0 0 0 S
+A 0 1 0 2
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1784,8 +1784,8 @@ which way across his torso, and a hairy gut pours over his animalhide belt.
 His hands defy logic with their great size, and a pair of hairy feet also seem
 disporportionately large even for his great frame.
 ~
-1073743950 0 0 292 28 0 0 0 S
-PB 0 1 4
+1073743950 0 0 0 292 28 0 0 0 S
+PB 0 1 0 4
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1803,8 +1803,8 @@ knowledge, whether the recipient is interested or not.
 &+W"The &+rhalbard&+W is great for taking someone out fast, but a lance is
 &+Wmuch better at landing a blow".
 ~
-78 0 0 268435752 28 0 0 -400 S
-PH 0 1 3
+78 0 0 0 268435752 28 0 0 -400 S
+PH 0 1 0 3
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1820,8 +1820,8 @@ in a speedy manner.
 The &+yshopkeeper&n looks up suddenly with a strange glint in his eye and declares,
 &+W"You'd better be prepared here in &+gAravne&+W nowadays!"&n
 ~
-74 0 0 256 28 0 0 0 S
-PE 0 0 3
+74 0 0 0 256 28 0 0 0 S
+PE 0 0 0 3
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1835,8 +1835,8 @@ A light suit of chain is covered by some &+gforest green&n light fitting cloth,
 and a rapier sits on his hip.  There is not even a hint of lazyness about this
 man, but the sense of confidence and skill radiates from his presence.
 ~
-1140861002 0 0 300 28 0 0 -400 S
-PH 0 1 3
+1140861002 0 0 0 300 28 0 0 -400 S
+PH 0 1 0 3
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1857,8 +1857,8 @@ to have crafted several blades which were then passed on to the &+mwizards guild
 for enchantment of great magics, and some whisper he had a hand in the creation
 of the &+rKings blade of &+gAravne&n.
 ~
-1073752074 0 0 264 26 0 0 0 S
-PB 0 1 4
+1073752074 0 0 0 264 26 0 0 0 S
+PB 0 1 0 4
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1874,8 +1874,8 @@ sleeve.  In his old age he has turned from his physical skills to his great
 intellectual prowess with numbers to earn his living, and seems to be very
 successful
 ~
-1073743882 0 0 260 30 0 0 0 S
-PH 0 1 3
+1073743882 0 0 0 260 30 0 0 0 S
+PH 0 1 0 3
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1890,8 +1890,8 @@ natural talent, have enabled him to excel at his craft to the level of master.
 Also a skilled hunter and tracker, he has few of the scratches and scrapes that
 normally mark the hands and face of those who travel the forest wilds.
 ~
-1073752138 0 0 316 30 0 0 0 S
-PE 0 1 3
+1073752138 0 0 0 316 30 0 0 0 S
+PE 0 1 0 3
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1906,8 +1906,8 @@ with this merchant, as his mouth seldom stops working.  For all his drawbacks,
 however, the wares he is selling seem to be of excellent quality, and he does
 very well at his trade.
 ~
-10 0 0 268 30 0 0 -500 S
-PH 0 0 3
+10 0 0 0 268 30 0 0 -500 S
+PH 0 0 0 3
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1923,8 +1923,8 @@ with his comments, and those few who do are not the experienced warriors but
 they youths who think there is no way a man with less skill than them might
 know more about weapons.
 ~
-10 0 0 8 2 0 0 0 S
-PH 0 0 3
+10 0 0 0 8 2 0 0 0 S
+PH 0 0 0 3
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1941,8 +1941,8 @@ silk purple ribbons.  A single signet ring adorns his hands, which end in long
 graceful fingers.  His eyes have a mesmerizing quality, and few dare to meet
 that gaze for long for fear of their hypnotizing nature.
 ~
-10 0 0 402653484 2078 0 0 -200 S
-P2 0 512 3
+10 0 0 0 402653484 2078 0 0 -200 S
+P2 0 512 0 3
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1957,8 +1957,8 @@ taking care of the plants here, and selling the finished products.  Orders are
 taken via a book he carries in a shoulder sling, and a ledger shows the daily
 sales.
 ~
-10 0 0 8 2 0 0 0 S
-PH 0 0 3
+10 0 0 0 8 2 0 0 0 S
+PH 0 0 0 3
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1972,8 +1972,8 @@ He watches both his money and his customers like a hawk, and shows no mercy to
 those who ask for a reprieve from loan repayment.
 &+W"We dont hold money for the likes of you!"&n
 ~
-2058 0 0 264 28 0 0 -1000 S
-PH 0 1 3
+2058 0 0 0 264 28 0 0 -1000 S
+PH 0 1 0 3
 40 0 0 1d1+1 1d1+1
 0.0.0.500 0
 8 8 1
@@ -1987,8 +1987,8 @@ the trees, he looks every bit the part.  A hemp suit drapes his lithe but very
 muscular body, and a coil of rope along with other tools adorns his vine belt.
 He relaxes here, sipping a mug of what smells like &+gleaf&+mwine&n.
 ~
-1140852746 0 0 268 30 0 0 0 S
-PH 0 1 3
+1140852746 0 0 0 268 30 0 0 0 S
+PH 0 1 0 3
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2003,8 +2003,8 @@ the branches around her dwelling, and occasionally having to do some hunting
 herself, she is a very capable and confident woman.  She also carries a belt
 adorn with tools, as well as a small hunting bow across her back.
 ~
-1140852746 0 0 300 30 0 0 0 S
-PH 0 1 3
+1140852746 0 0 0 300 30 0 0 0 S
+PH 0 1 0 3
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2021,8 +2021,8 @@ utility only, and a supple longbow is slung across his back.  He sits here
 with his family honing the tips of his arrows, looking forward to the next
 hunt.&n
 ~
-1140852746 0 0 256 30 0 0 0 S
-PH 0 1 3
+1140852746 0 0 0 256 30 0 0 0 S
+PH 0 1 0 3
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2037,8 +2037,8 @@ home, she often is entrusted with the responsibility of conducting business
 for the family in the merchants district.  Very attractive, and with a sparkle
 of craftyness in here eye, she is no doubt an effective haggler.
 ~
-1140852746 0 0 256 2 0 0 0 S
-PH 0 1 3
+1140852746 0 0 0 256 2 0 0 0 S
+PH 0 1 0 3
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2054,8 +2054,8 @@ a sure sign of recent use in combat.  His eyes sparkle with dedication and
 resolve, and his hair is drawn back in a single ponytail to facilitate quick
 movements.
 ~
-67110988 0 0 276 30 0 0 -500 S
-PL 0 1 3
+67110988 0 0 0 276 30 0 0 -500 S
+PL 0 1 0 3
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2071,8 +2071,8 @@ a brutal claw mark has torn flesh from the side of his skull.  Nonetheless, he
 is still in fair physical shape, and has the strength still to face his enemies
 and turn them back.
 ~
-67110984 0 0 268 30 0 0 0 S
-PH 0 1 3
+67110984 0 0 0 268 30 0 0 0 S
+PH 0 1 0 3
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2089,8 +2089,8 @@ wound, and he wears a brace to keep it in place.  His forehead has a slight
 dent in it from a hammer wound he recieved as a youth, forever removing what
 slight chance there ever may have been for him to earn a living with his mind.
 ~
-67110984 0 0 268 30 0 0 -500 S
-PB 0 1 4
+67110984 0 0 0 268 30 0 0 -500 S
+PB 0 1 0 4
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2105,8 +2105,8 @@ and paws like a savannah lion end in sharp claws.  A long, agile tail comes to
 an end in a mass of detachable spikes, which it can hurl the length of a field.
 Its head, however, is disturbingly human-like, and is set with a terrible grin.
 ~
-133128 1 0 264 30 0 0 -1000 S
-A 0 1 4
+133128 1 0 0 264 30 0 0 -1000 S
+A 0 1 0 4
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2122,8 +2122,8 @@ her grin, and her tangled hair has bits of rotting flesh still stuck within.
 Her feathers are the color of &+rblood&n, thus giving this species of harpy
 their name&n.
 ~
-2060 1 0 268 30 0 0 -1000 S
-MH 0 1 4
+2060 1 0 0 268 30 0 0 -1000 S
+MH 0 1 0 4
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2139,8 +2139,8 @@ term mercy.  A tatoo of &+gAravne&n &+rroyal service&n is burned into its neck,
 perhaps indicating that the evil which has invaded here has also infected the
 royal presence here in &+gAravne&n as well.
 ~
-2124 1 0 268960012 30 0 0 -1000 S
-PL 0 1 3
+2124 1 0 0 268960012 30 0 0 -1000 S
+PL 0 1 0 3
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2154,8 +2154,8 @@ to move with blinding speed when desired.  Hurling itself into the living, it
 usually seeks to knock the victim off its perch to its death below.  If this
 cannot be accomplished, it will simply pulverize the victim to its death.
 ~
-133320 1 0 288 30 0 0 -1000 S
-HF 0 1 2
+133320 1 0 0 288 30 0 0 -1000 S
+HF 0 1 0 2
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -2169,8 +2169,8 @@ standards.  Green and yellow patches cover the surface of the scales, while a
 pale yellowins color dominates the underneath.  Even though still young, this
 giant snake could probably take on a large treeclimber, or even a small tor.
 ~
-2120 0 0 260 30 0 0 -1000 S
-RS 0 1 4
+2120 0 0 0 260 30 0 0 -1000 S
+RS 0 1 0 4
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2183,8 +2183,8 @@ life leech~
 drip with the blood of its last victim.  The eyes seem to have a powerful
 effect with their &+Wgaze&n, often compared to the gaze of a &+rvampire&n.
 ~
-72 1 0 260 30 0 0 -1000 S
-UV 0 1 2
+72 1 0 0 260 30 0 0 -1000 S
+UV 0 1 0 2
 37 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -2199,8 +2199,8 @@ Athough it has the ability to use silk webstrands when needed for swinging from
 treebranch to treebranch, its considerable agility make that unecessary for
 most circumstances.
 ~
-2120 1 0 256 12446 0 0 -1000 S
-AS 0 1 6
+2120 1 0 0 256 12446 0 0 -1000 S
+AS 0 1 0 6
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2214,8 +2214,8 @@ thorns.  Green in color, it is streaked by blood red tiger stripes.  Some of
 the barbed thorns have bits of fur or other animal parts still clinging to
 them from what must have been vicious attacks.
 ~
-10 1 0 16 0 0 0 -1000 S
-VT 0 1 4
+10 1 0 0 16 0 0 0 -1000 S
+VT 0 1 0 4
 10 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -2228,8 +2228,8 @@ huge forest constrictor~
 devour animals the size of hill giants at full maturity.  This one looks like
 it could easily crush several ogres at once, in addition to you.
 ~
-2056 0 0 268435820 26 0 0 -1000 S
-RS 0 1 5
+2056 0 0 0 268435820 26 0 0 -1000 S
+RS 0 1 0 5
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -2248,8 +2248,8 @@ strengh and sharpness.  Hooves that have crushed the skulls of an &+bogre&n with
 ease support its great weight with uncanny grace, waiting only for the need
 to rise up and dispatch the &+Lwicked&n.
 ~
-14346 1 0 134226364 2206 0 0 1000 S
-DK 0 1 4
+14346 1 0 0 134226364 2206 0 0 1000 S
+DK 0 1 0 4
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2267,8 +2267,8 @@ perverted the golden color of the scales above her heart.  Whatever could have
 intruded the magical goodness of the &+Yki-rin&n with a &+Lshadow&n of &+Levil&n must be
 of great power indeed.
 ~
-145482 1 0 402653628 34846 0 0 1000 S
-DK 0 8 4
+145482 1 0 0 402653628 34846 0 0 1000 S
+DK 0 8 0 4
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -2281,8 +2281,8 @@ mindless zombie~
 True death its only release, it wants others to join it in its pain of being
 undead.  Bloodstained teeth bear witness to the many it has already turned.
 ~
-2120 1 0 65804 94 0 0 -1000 S
-U 0 1 3
+2120 1 0 0 65804 94 0 0 -1000 S
+U 0 1 0 3
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2298,8 +2298,8 @@ his choice is exacting upon him.  His only freedom from the chains which bind
 him to life, is true death.
 &+L"The key.....free me and take the key...."&n
 ~
-10250 1 0 300 94 0 0 -1000 S
-U 0 1 3
+10250 1 0 0 300 94 0 0 -1000 S
+U 0 1 0 3
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2315,8 +2315,8 @@ burning fire, are visible from beneath his hood.  One skeletal hand pokes out
 from within his sleeves, clasping a bone wand inscribed with glittering blue
 runes.
 ~
-10314 1 0 268501388 2142 0 512 -1000 S
-UL 0 2560 4
+10314 1 0 0 268501388 2142 0 512 -1000 S
+UL 0 2560 0 4
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2333,8 +2333,8 @@ destroy any who oppose its presence here, evil or not.  It seems the corruption
 of &+gAravne&n has spread even to the focal points of good and justice,  perverting
 them to evil causes through slight modifications&n.
 ~
-1073743948 0 0 268 30 0 0 -400 S
-PH 0 1 3
+1073743948 0 0 0 268 30 0 0 -400 S
+PH 0 1 0 3
 42 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2349,8 +2349,8 @@ gained through his dedicated service as a seeker before his promotion to the
 rank of holder.  Once dedicated to truth, lightholders now to convert others
 to their cause through any means possible.
 ~
-1073743944 0 0 268 30 0 0 -500 S
-PH 0 1 3
+1073743944 0 0 0 268 30 0 0 -500 S
+PH 0 1 0 3
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2366,8 +2366,8 @@ water and bread for sustenance, they prepare for their excursions of cleansing
 the unworthy.  Once dedicated to bringing truth to the ignorant, he now brings
 death to those who speak the truth.
 ~
-1073743944 0 0 268 30 0 0 -700 S
-PH 0 1 3
+1073743944 0 0 0 268 30 0 0 -700 S
+PH 0 1 0 3
 48 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2384,8 +2384,8 @@ contact with the mere material projection of &+YSolos&n, endowing him with
 some magical resistance.  His aura also emenates evil, where once it radiated
 with goodness.
 ~
-67119114 0 0 444 2079 0 0 -1000 S
-GI 0 1 3
+67119114 0 0 0 444 2079 0 0 -1000 S
+GI 0 1 0 3
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2396,8 +2396,8 @@ material projection solos god~
 ~
 &+YAttempting to glimpse Solos directly is like looking into the sun&n.
 ~
-26698 1 0 134226332 34847 0 0 1000 S
-G 0 1 5
+26698 1 0 0 134226332 34847 0 0 1000 S
+G 0 1 0 5
 60 0 0 10d10+20000 1d1+1
 0.0.0.0 0
 8 8 0
@@ -2411,8 +2411,8 @@ high in terms of rank, this guard loves his particular duty.  Strong looking
 muscles have been forged by breaking up numerous fights, and chasing down the
 many thieves and miscreants which walk the streets at night.
 ~
-67110988 0 0 260 30 0 0 0 S
-PE 0 1 3
+67110988 0 0 0 260 30 0 0 0 S
+PE 0 1 0 3
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2428,8 +2428,8 @@ sergeant.  Able to detect when things are amiss among his guards, he still
 possesses the strength to bring such activities to a halt.  He still wears his
 spiked steel breastplate, even though he is no longer in the royal service&n.
 ~
-67110984 0 0 268 30 0 0 0 S
-PH 0 1 3
+67110984 0 0 0 268 30 0 0 0 S
+PH 0 1 0 3
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2446,8 +2446,8 @@ way the guards acknowledge his presence, it seems he may have been expected or
 even invited to the city.  Jewels and baubles hang from nearly every body part
 where they can be easily attached.
 ~
-1073744076 0 0 260 30 0 0 -1000 S
-PE 0 0 3
+1073744076 0 0 0 260 30 0 0 -1000 S
+PE 0 0 0 3
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2462,8 +2462,8 @@ but seems to bear no weapon.  Perhaps he is one of the famed &+mAkis'arant&n, th
 most feared sect of warriors within the &+mflind&n army.  Having left the
 service young, he must not have recieved the full training.
 ~
-1073743944 0 0 260 30 0 0 -1000 S
-PE 0 1 3
+1073743944 0 0 0 260 30 0 0 -1000 S
+PE 0 1 0 3
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2479,8 +2479,8 @@ bare feet are exposed.  His hair has been shaved and bleached to a golden
 color, and his entire skin seems to have been burned by powerful &+Ysunlight&n.
 &+Y"Would you like to undergo the ritual of cleansing?  It doesnt hurt much."&n
 ~
-1073743944 0 0 260 30 0 0 -200 S
-PH 0 1 3
+1073743944 0 0 0 260 30 0 0 -200 S
+PH 0 1 0 3
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2496,8 +2496,8 @@ visiting merchants, a hand whips out and snatches one of their money pouches.
 Nobody the wiser, the pouch disappers into his robes and the performer dances
 on down the skyway.
 ~
-1073743944 0 0 260 30 0 0 -700 S
-PH 0 65536 3
+1073743944 0 0 0 260 30 0 0 -700 S
+PH 0 65536 0 3
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2513,8 +2513,8 @@ a vest of some kind of animal hide, and his horns are wrapped by a red ribbon.
 A large book hangs from his belt, filled with spells he has gathered through
 his wanderings&n.
 ~
-34892 0 0 268 30 0 0 -400 S
-MT 0 512 5
+34892 0 0 0 268 30 0 0 -400 S
+MT 0 512 0 5
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2530,8 +2530,8 @@ thousand year old evil spirits such as the rakshasa would not be greeted
 kindly by any.  Thus his floor length hooded robe serves to disguise his true
 identity, enabling him to walk the skyways unmolested.
 ~
-1073743948 0 0 268 30 0 0 -1000 S
-GI 0 16 3
+1073743948 0 0 0 268 30 0 0 -1000 S
+GI 0 16 0 3
 39 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2548,8 +2548,8 @@ guided by a &+ydwarven&n or &+celven&n mind.  Its ability to hammer in huge
 heavy planks with little effort could easily be transformed into a bout of
 skull smashing, were there not the fear of reprisal by the city guards&n.
 ~
-1073743948 0 0 260 30 0 0 -1000 S
-PT 0 1 4
+1073743948 0 0 0 260 30 0 0 -1000 S
+PT 0 1 0 4
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2564,8 +2564,8 @@ betting tickets, and the other is bunched into a fist which he waves around
 emphatically.  His emotions seesaw as the fight below rages back and forth
 between the champions.
 ~
-1073743946 0 0 268 30 0 0 -1000 S
-PE 0 1 3
+1073743946 0 0 0 268 30 0 0 -1000 S
+PE 0 1 0 3
 48 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2583,8 +2583,8 @@ regeneration causes his scars to disappear in a matter of days.  Where most
 gladiators wait and hope for their chance at freedom, these trolls are prized
 for their love of fighting.
 ~
-1073743946 1 0 28 2078 0 0 -1000 S
-PT 0 1 4
+1073743946 1 0 0 28 2078 0 0 -1000 S
+PT 0 1 0 4
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2602,8 +2602,8 @@ arms, which he uses very effectively to deflect weapon blows.  His eyes are
 burning anger.  He is rumored to have lost each limb at least once, and has
 risen up from near death several times to claim victory.
 ~
-14410 1 0 412 2078 0 8192 -1000 S
-PT 0 1 4
+14410 1 0 0 412 2078 0 8192 -1000 S
+PT 0 1 0 4
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2624,8 +2624,8 @@ village shamans in his service for their magical arts.  A circular dent on the
 left side of his skull gives his head a strange shape, but his intelligence
 was small enough that it was not significantly affected.
 ~
-14410 1 0 412 2078 0 0 -1000 S
-PO 0 1 5
+14410 1 0 0 412 2078 0 0 -1000 S
+PO 0 1 0 5
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2640,8 +2640,8 @@ walking stick, which although completely unnecessary for its purpose, is a
 masterpiece of precious metalwork.  Diamonds can be found on all his jewelry,
 sparkling brilliantly in the special lighting here.
 ~
-1073743944 0 0 268 30 0 0 -1000 S
-PH 0 1 3
+1073743944 0 0 0 268 30 0 0 -1000 S
+PH 0 1 0 3
 48 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2656,8 +2656,8 @@ hangs by his side.  His face shows his age to be right where the strength of
 youth is beginning to be supplemented by the wisdom of experience.  His eyes
 remain fixed on the walkway, ready at all times to respond to trouble.
 ~
-1140852808 0 0 284 30 0 0 -800 S
-PH 0 1 3
+1140852808 0 0 0 284 30 0 0 -800 S
+PH 0 1 0 3
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2674,8 +2674,8 @@ for cleanliness, these guards seem more interested in potential killing then
 keeping their boots free of dried blood.  Perhaps this is a hint of the
 perversion which grips all of &+gAravne&n in its subtle fist.
 ~
-67123210 0 0 284 30 0 0 -1000 S
-PE 0 1 3
+67123210 0 0 0 284 30 0 0 -1000 S
+PE 0 1 0 3
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2692,8 +2692,8 @@ exposure to the magic of the tree.  He has proven himself to the king though
 years and years of service and dedication, and has killed in the kings name
 numerous times.
 ~
-1140865096 1 0 2147483932 30 67108864 0 -1000 S
-GI 0 2097152 3
+1140865096 1 0 0 2147483932 30 67108864 0 -1000 S
+GI 0 2097152 0 3
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2710,8 +2710,8 @@ ashy green color, either through contact from the tree of due to the elven
 blood running in his veins.  His arms ripple with strength, and his eyes gaze
 sternly upon his foes.
 ~
-1140865096 1 0 412 2078 67108864 0 -1000 S
-GI 0 2097152 3
+1140865096 1 0 0 412 2078 67108864 0 -1000 S
+GI 0 2097152 0 3
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2729,8 +2729,8 @@ of dark blood slowly forms underneath him, small rivulets snaking their way
 across the chamber.  There is a sense of power constantly gravitating toward
 him, slowly growing in density about his form.
 ~
-14410 1 0 402653596 296990 0 0 -1000 S
-Y 0 4 5
+14410 1 0 0 402653596 296990 0 0 -1000 S
+Y 0 4 0 5
 59 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2748,8 +2748,8 @@ its own, which he is able to draw upon at will.  One of the wisps of fog
 emenating from the summoned devil seems to be reacting with the shadows,
 granting him even more dark power.
 ~
-14410 1 0 268 30 0 0 -1000 S
-PL 0 2048 3
+14410 1 0 0 268 30 0 0 -1000 S
+PL 0 2048 0 3
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2771,8 +2771,8 @@ being the kings sword, and the kings gloves.  It must have taken a powerful
 individual indeed to steal them, or perhaps someone who can manipulate the
 druidic power of the tree with greater ablility than the king.
 ~
-14410 1 0 412 296990 67108864 1024 -1000 S
-GI 0 1 3
+14410 1 0 0 412 296990 67108864 1024 -1000 S
+GI 0 1 0 3
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2785,8 +2785,8 @@ sand elemental~
 &+yforest floor without a purpose. This being seems to have be
 &+ythe half finished product of an aspiring conjurer.&n
 ~
-8783880 0 0 1572864 0 0 0 0 S
-ee 0 1 -1
+8783880 0 0 0 1572864 0 0 0 0 S
+ee 0 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0

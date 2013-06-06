@@ -224,7 +224,7 @@ M 0 77519 5 77539 100 0 0 0        * an undead shipmate
 M 0 77511 1 77541 100 0 0 0        * a refugee
 F 1 77512 2 77541 100 0 0 0        * a refugee (following)
 F 1 77512 2 77541 100 0 0 0        * a refugee (following)
-M 0 77504 1 77542 100 0 0 0        * a dwarven rockcutter
+M 0 77504 1 77542 100 0 0 0        * a dwarven rock cutter
 M 0 77510 1 77544 100 0 0 0        * a harpy geomancer
 E 1 77512 1 3 100 0 0 0            *   a feathered talisman
 M 0 77506 1 77546 100 0 0 0        * a harpy courier
@@ -276,7 +276,7 @@ M 0 77513 9 77563 100 0 0 0        * a high-elf lancer
 E 1 77503 11 16 100 0 0 0          *   a golden falchion
 M 0 77528 4 77564 100 0 0 0        * a high-elf student
 M 0 77528 4 77564 100 0 0 0        * a high-elf student
-M 0 77561 1 77568 35 0 0 0         * the lense-crafter
+M 0 77561 1 77568 35 0 0 0         * the lens-crafter
 E 1 77561 1 19 100 0 0 0           *   the golden monocle of Dawndale
 M 0 77530 4 77570 100 0 0 0        * a high-elf lancer
 E 1 77503 11 16 100 0 0 0          *   a golden falchion
@@ -297,6 +297,7 @@ M 0 77524 5 77575 100 0 0 0        * a naga myrmidon
 M 0 77525 1 77576 100 0 0 0        * the naga pool queen
 E 1 77527 1 18 100 0 0 0           *   the totem of the naga queen
 G 1 77564 1 0 100 0 0 0            *    a rough naga bone
+G 1 67208 1 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 77524 5 77576 100 0 0 0        * a naga myrmidon
 M 0 77524 5 77576 100 0 0 0        * a naga myrmidon
 M 0 77524 5 77577 100 0 0 0        * a naga myrmidon

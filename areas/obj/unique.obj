@@ -560,7 +560,7 @@ sleeves platinum life unique~
 10 0 0 5 0 0 0 0
 0 0 100
 A
-13 50
+35 8
 A
 20 -2
 #67239
@@ -570,7 +570,7 @@ door large gold rimmed gold-rimmed church unique~
 ~
 37 6 10 0 15 0 268443648 16897 64 0 0
 1 3 5 250 5 0 0 0
-30 0 100 16 0 0 0
+30 0 100 16 2048 0 0
 E
 door large gold rimmed gold-rimmed church unique~
 &+Y        Ripped off         &N

@@ -9,8 +9,8 @@ unwanted visitors out of the ship yards.  He wears a shiny
 suit of mail and wields a two-handed silver sword.  As you
 approach, he eyes you suspiciously.
 ~
-67139786 384 0 268435548 0 0 67108864 0 S
-PB 0 1 -1
+67139786 384 0 0 268435548 0 0 67108864 0 S
+PB 0 1 0 -1
 42 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -25,8 +25,8 @@ yard is always busy with customers wishing to use the bank's
 services.  Mazi, a well-experienced banker and man of trade,
 looks up and says &+W"How may I help you?"
 ~
-28874 0 0 268511484 0 0 0 1000 S
-PH 0 512 -1
+28874 0 0 0 268511484 0 0 0 1000 S
+PH 0 512 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -41,8 +41,8 @@ herself as she continues to shine a new stock of cannon
 balls.  She looks up and smiles as you enter her shop.
 She says &+W"Can I interest you in any of my new weapons?"&N
 ~
-1073772746 0 0 0 0 0 0 1000 S
-PM 0 16416 -1
+1073772746 0 0 0 0 0 0 0 1000 S
+PM 0 16416 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -56,8 +56,8 @@ shop organizing his stock.  Pol, a Tharnadian born human, has
 grown up in the local shipping family making sails.  He smiles
 at you as you enter his shop.
 ~
-1073772746 0 0 268509692 0 0 0 1000 S
-pf 0 2 -1
+1073772746 0 0 0 268509692 0 0 0 1000 S
+pf 0 2 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -72,8 +72,8 @@ becoming very frustrated with his workers, he shouts even
 louder with a more angry voice.  He eyes you suspiciously
 as you approach.
 ~
-1073772746 0 0 268435708 0 0 0 1000 S
-PH 0 1 -1
+1073772746 0 0 0 268435708 0 0 0 1000 S
+PH 0 1 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -87,8 +87,8 @@ shop organizing his stock.  Jad, a locally born centaur, has
 grown up in the local shipping family making sails.  He smiles
 at you as you enter his shop.
 ~
-1073772746 0 0 268509692 0 0 0 1000 S
-PH 0 2 -1
+1073772746 0 0 0 268509692 0 0 0 1000 S
+PH 0 2 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -103,8 +103,8 @@ becoming very frustrated with his workers, he shouts even
 louder with a more angry voice.  He eyes you suspiciously
 as you approach.
 ~
-1073772746 0 0 268435708 0 0 0 1000 S
-PH 0 1 -1
+1073772746 0 0 0 268435708 0 0 0 1000 S
+PH 0 1 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -119,8 +119,8 @@ herself as she continues to shine a new stock of cannon
 balls.  She looks up and smiles as you enter her shop.
 She says &+W"Can I interest you in any of my new weapons?"&N
 ~
-1073772746 0 0 0 0 0 0 1000 S
-PM 0 16416 -1
+1073772746 0 0 0 0 0 0 0 1000 S
+PM 0 16416 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -135,8 +135,8 @@ yard is always busy with customers wishing to use the bank's
 services.  Bendira, a well-experienced banker and woman of trade,
 looks up and says &+W"How may I help you?"
 ~
-1073772746 0 0 268511484 0 0 0 1000 S
-pe 0 512 -1
+1073772746 0 0 0 268511484 0 0 0 1000 S
+pe 0 512 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -151,8 +151,8 @@ unwanted visitors out of the ship yards.  He wears a shiny
 suit of mail and wields a two-handed silver sword.  As you
 approach, he eyes you suspiciously.
 ~
-1073772746 2368 0 268435548 0 0 0 -1000 S
-PO 0 1 -1
+1073772746 2368 0 0 268435548 0 0 0 -1000 S
+PO 0 1 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -167,8 +167,8 @@ yard is always busy with customers wishing to use the bank's
 services.  Tazi, a well-experienced banker and man of trade,
 looks up and says &+W"How may I help you?"
 ~
-28874 0 0 268511484 0 0 0 -1000 S
-ho 0 512 -1
+28874 0 0 0 268511484 0 0 0 -1000 S
+ho 0 512 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -183,8 +183,8 @@ herself as she continues to shine a new stock of cannon
 balls.  She looks up and smiles as you enter her shop.
 She says &+W"Can I interest you in any of my new weapons?"&N
 ~
-1073772746 0 0 0 0 0 0 -1000 S
-ho 0 16384 -1
+1073772746 0 0 0 0 0 0 0 -1000 S
+ho 0 16384 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -198,8 +198,8 @@ shop organizing his stock.  Ponit, a locally born orc, has
 grown up in the local shipping family making sails.  He smiles
 at you as you enter his shop.
 ~
-1073772746 0 0 268509692 0 0 0 -1000 S
-HO 0 256 -1
+1073772746 0 0 0 268509692 0 0 0 -1000 S
+HO 0 256 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -214,8 +214,8 @@ becoming very frustrated with his workers, he shouts even
 louder with a more angry voice.  He eyes you suspiciously
 as you approach.
 ~
-1073772746 0 0 268435708 0 0 0 -1000 S
-PT 0 1 -1
+1073772746 0 0 0 268435708 0 0 0 -1000 S
+PT 0 1 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -230,8 +230,8 @@ unwanted visitors out of the ship yards.  He wears a shiny
 suit of mail and wields a two-handed silver sword.  As you
 approach, he eyes you suspiciously.
 ~
-1073772744 2432 0 268435548 0 0 67108864 0 S
-PB 0 1 -1
+1073772744 2432 0 0 268435548 0 0 67108864 0 S
+PB 0 1 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -246,8 +246,8 @@ unwanted visitors out of the ship yards.  He wears a shiny
 suit of mail and wields a two-handed silver sword.  As you
 approach, he eyes you suspiciously.
 ~
-1073772744 2368 0 268435548 0 0 0 -1000 S
-ho 0 1 -1
+1073772744 2368 0 0 268435548 0 0 0 -1000 S
+ho 0 1 0 -1
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -261,8 +261,8 @@ found hard at work serving her customers.  She is a beautiful
 halfling whose magical eyes sparkle in the light.   Taneeha,
 looks up and says &+W"How may I help you?"
 ~
-28874 0 0 268511484 0 0 0 250 S
-PF 0 256 -1
+28874 0 0 0 268511484 0 0 0 250 S
+PF 0 256 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -277,8 +277,8 @@ focuus on keeping unwanted visitors out of the ship yards.  He
 wears a shiny suit of mail and wields a two-handed silver sword.
 As you approach, he eyes you suspiciously.
 ~
-30922 2432 0 268435548 0 0 0 0 S
-PB 0 1 -1
+30922 2432 0 0 268435548 0 0 0 0 S
+PB 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -293,8 +293,8 @@ He is dressed in a leather jump suit.  A small brooch can
 be seen around his neck.  He ignores your presence in the
 room.
 ~
-1073772746 0 0 268509692 0 0 0 1000 S
-PF 0 32768 -1
+1073772746 0 0 0 268509692 0 0 0 1000 S
+PF 0 32768 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -308,8 +308,8 @@ work doing one transaction or another.  But, this time, she rests
 along the Ocean of Despair getting some sunshine.  She doesnt have
 a care in the world.
 ~
-30922 0 0 268511484 0 0 0 1000 S
-PF 0 1 -1
+30922 0 0 0 268511484 0 0 0 1000 S
+PF 0 1 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -324,8 +324,8 @@ huge bartender~
 &+Lspeed dispensing drinks to all the fishermen and sailors who come
 &+Lto this establishment.
 ~
-2058 0 0 0 0 0 0 0 S
-pb 0 1 4
+2058 0 0 0 0 0 0 0 0 S
+pb 0 1 0 4
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -339,8 +339,8 @@ drunk fisherman~
 &+Lhere at the Fisherman's Hutch, relaxing and taking in the culture
 &+Lbefore continuing his fishing voyage.  He is also shitfaced.
 ~
-2122 0 0 0 0 0 0 0 S
-PH 0 1 3
+2122 0 0 0 0 0 0 0 0 S
+PH 0 1 0 3
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -354,8 +354,8 @@ sailor~
 &+Lhere at the Fisherman's Hutch, relaxing and taking in the culture
 &+Lbefore continuing his sailing voyage.  He is also sloshed.
 ~
-2122 0 0 0 0 0 0 0 S
-PH 0 1 3
+2122 0 0 0 0 0 0 0 0 S
+PH 0 1 0 3
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -368,8 +368,8 @@ sleepy fisherman~
 &+Lhutch.  His dirty garments lay in a small basket at the foot of his bed as he
 &+Ldesperately tries to get some rest before hitting the seas once again.
 ~
-2122 0 0 0 0 0 0 0 S
-PH 0 16384 -1
+2122 0 0 0 0 0 0 0 0 S
+PH 0 16384 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 4 4 1
@@ -382,8 +382,8 @@ tired sailor~
 &+Lhutch.  His dirty garments lay in a small basket at the foot of his bed as he
 &+Ldesperately tries to get some rest before hitting the seas once again.
 ~
-2122 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2122 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 4 4 1
@@ -398,8 +398,8 @@ voshen chef~
 &+W-haven  for his tasty pike fillet, this Chef currently paces
 &+Wback and forth in his kitchen, worried badly about something.
 ~
-2122 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2122 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -414,8 +414,8 @@ crendethyl elf sailor~
 &+Cfor the treaties between the high elves of Shaledrieth and the
 &+Cgrey elves of Fenaline.
 ~
-2122 0 0 0 0 0 0 400 S
-pe 0 3 -1
+2122 0 0 0 0 0 0 0 400 S
+pe 0 3 0 -1
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -429,8 +429,8 @@ fisherman~
 &+Lhere at Canderthal Harbor, fishing and taking in the culture
 &+Lbefore heading back indoors with his catches of the day.
 ~
-2122 0 0 0 0 0 0 0 S
-PH 0 1 3
+2122 0 0 0 0 0 0 0 0 S
+PH 0 1 0 3
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -444,8 +444,8 @@ tanned fisherman~
 &+Lhere at Canderthal Harbor, fishing and taking in the culture
 &+Lbefore heading back indoors with his catches of the day.
 ~
-2122 0 0 0 0 0 0 0 S
-PH 0 1 3
+2122 0 0 0 0 0 0 0 0 S
+PH 0 1 0 3
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -458,8 +458,8 @@ halfling fisherman~
 &+La strong physique and a proud, young face.  He carries long, wooden
 &+Lfishing poles and a huge net.
 ~
-2122 0 0 0 0 0 0 250 S
-pf 0 16384 -1
+2122 0 0 0 0 0 0 0 250 S
+pf 0 16384 0 -1
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -472,8 +472,8 @@ dwarf dwarven fisherman~
 &+La strong physique and a proud, young face.  He carries long, wooden
 &+Lfishing poles and a huge net.
 ~
-2122 0 0 0 0 0 0 0 S
-pm 0 1 -1
+2122 0 0 0 0 0 0 0 0 S
+pm 0 1 0 -1
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -487,8 +487,8 @@ A young fisherman walks through the town, eager to catch his next fish.
 &+Lhere at Canderthal Harbor, fishing and taking in the culture
 &+Lbefore heading back indoors with his catches of the day.
 ~
-2120 0 0 0 0 0 0 0 S
-PH 0 1 3
+2120 0 0 0 0 0 0 0 0 S
+PH 0 1 0 3
 21 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -502,8 +502,8 @@ merchant~
 &+cfrom a fisherman is from how he is constantly pitching his fish that he
 &+csimply buys directly from the fishermen themselves.
 ~
-2120 0 0 0 0 0 0 0 S
-h 0 1 -1
+2120 0 0 0 0 0 0 0 0 S
+h 0 1 0 -1
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -516,8 +516,8 @@ seasoned sailor~
 &+Lfrom many battles on land and many more at sea.  A keen, determined look
 &+Lis in the eye of this brave, strong, seasoned sailor.
 ~
-2122 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2122 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -530,8 +530,8 @@ noble sailor~
 &+Lfrom many battles on land and many more at sea.  A keen, determined look
 &+Lis in the eye of this brave, strong, seasoned sailor.
 ~
-2122 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2122 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -546,8 +546,8 @@ gringash dwarf dwarven barkeep~
 &+YHe cheerfully pours drinks for his customers who come to him from all
 &+Ywalks of life.
 ~
-2122 0 0 8 0 0 0 351 S
-pm 5 1 -1
+2122 0 0 0 8 0 0 0 351 S
+pm 5 1 0 -1
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -561,8 +561,8 @@ krintis rogue~
 &+rand currently hides below this inn.  It is a curiosity as to what this
 &+rrogue is hiding from.
 ~
-2122 0 0 0 0 0 0 -351 S
-PH 0 8193 -1
+2122 0 0 0 0 0 0 0 -351 S
+PH 0 8193 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -575,8 +575,8 @@ seagull~
 &+Wout fresh worms from the sandy dunes or scavenging for food along
 &+Wthe streets of this port.
 ~
-8 0 0 0 0 0 0 0 S
-b 0 1 1
+8 0 0 0 0 0 0 0 0 S
+b 0 1 0 1
 18 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -590,8 +590,8 @@ gelden shaman~
 &+Wdraped in fine priestly attire.  He currently resides here within
 &+WCanderthal Harbor, resting on the pier awaiting his ship to come.
 ~
-2122 0 0 0 0 0 0 0 S
-PH 0 256 -1
+2122 0 0 0 0 0 0 0 0 S
+PH 0 256 0 -1
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -607,8 +607,8 @@ chundel harbor master~
 &+Wthrough the docks of Canderthal Harbor constantly working and
 &+Walso protecting his port.
 ~
-2122 128 0 24 0 0 0 355 S
-pm 0 1 -1
+2122 128 0 0 24 0 0 0 355 S
+pm 0 1 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -623,8 +623,8 @@ unwanted visitors out of the ship yards.  He wears a shiny
 suit of mail and wields a two-handed silver sword.  As you
 approach, he eyes you suspiciously.
 ~
-67123274 2432 0 268435548 0 0 0 0 S
-PB 0 1 -1
+67123274 2432 0 0 268435548 0 0 0 0 S
+PB 0 1 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -638,8 +638,8 @@ fenaline guard~
 &+csmall shipping community.  This grey elf is dressed in
 &+cfine elven garments and wields a shimmering sword.
 ~
-67110986 128 0 24 0 0 0 360 S
-pe 0 1 -1
+67110986 128 0 0 24 0 0 0 360 S
+pe 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -654,8 +654,8 @@ elven worshipper~
 &+cnoble's form.  This respected elf fights for his gods and
 &+cthe woodlands themselves.
 ~
-1073743946 0 0 16 0 0 0 360 S
-pe 0 1 -1
+1073743946 0 0 0 16 0 0 0 360 S
+pe 0 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 6 1
@@ -668,8 +668,8 @@ elven fisherman~
 &+La strong physique and a proud, young face.  He carries long, wooden
 &+Lfishing poles and a huge net.
 ~
-2122 0 0 0 0 0 0 250 S
-pe 0 1 -1
+2122 0 0 0 0 0 0 0 250 S
+pe 0 1 0 -1
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -682,8 +682,8 @@ half-elven fisherman~
 &+La strong physique and a proud, young face.  He carries long, wooden
 &+Lfishing poles and a huge net.
 ~
-2122 0 0 0 0 0 0 250 S
-pe 0 1 -1
+2122 0 0 0 0 0 0 0 250 S
+pe 0 1 0 -1
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -699,8 +699,8 @@ elthindeal bartender~
 &+Mtravelers to their appropriate rooms here at the inn, as well
 &+Mas serves drinks to the patrons.
 ~
-2122 0 0 24 0 0 0 400 S
-pe 0 1 -1
+2122 0 0 0 24 0 0 0 400 S
+pe 0 1 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -713,8 +713,8 @@ experienced sailor~
 &+Lfrom many battles on land and many more at sea.  A keen, determined look
 &+Lis in the eye of this brave, strong, seasoned sailor.
 ~
-2122 0 0 0 0 0 0 0 S
-pe 0 1 -1
+2122 0 0 0 0 0 0 0 0 S
+pe 0 1 0 -1
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -727,8 +727,8 @@ well dressed sailor well-dressed~
 &+Lfrom many battles on land and many more at sea.  A keen, determined look
 &+Lis in the eye of this brave, strong, seasoned sailor.
 ~
-2122 0 0 0 0 0 0 0 S
-pe 0 1 -1
+2122 0 0 0 0 0 0 0 0 S
+pe 0 1 0 -1
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -742,8 +742,8 @@ trismerk hunter elf~
 &+Rfor their conduct or respect for other elven races, Trismerk
 &+Renjoys a drink, seated alone, in a grey elven town.
 ~
-2122 0 0 24 0 0 0 400 S
-pe 0 2 -1
+2122 0 0 0 24 0 0 0 400 S
+pe 0 2 0 -1
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -756,8 +756,8 @@ tired sailor~
 &+Linn.  His dirty garments lay in a small basket at the foot of his bed as he
 &+Ldesperately tries to get some rest before hitting the seas once again.
 ~
-2122 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2122 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 4 4 1
@@ -770,8 +770,8 @@ tired sailor~
 &+Linn.  His dirty garments lay in a small basket at the foot of his bed as he
 &+Ldesperately tries to get some rest before hitting the seas once again.
 ~
-2122 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2122 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 4 4 1
@@ -787,8 +787,8 @@ austugus fenaline captain~
 &+calbeit old body.  He walks proudly through Fenaline greeting
 &+ctravellers while keeping an eye on the horizon for danger.
 ~
-67110984 128 0 0 0 0 0 550 S
-pe 0 1 -1
+67110984 128 0 0 0 0 0 0 550 S
+pe 0 1 0 -1
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -802,8 +802,8 @@ merchant~
 &+cfrom a fisherman is from how he is constantly pitching his fish that he
 &+csimply buys directly from the fishermen themselves.
 ~
-2120 0 0 0 0 0 0 0 S
-h 0 1 -1
+2120 0 0 0 0 0 0 0 0 S
+h 0 1 0 -1
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -818,8 +818,8 @@ martinek owner~
 &+Rquite upset about something.  He is not currently cooking
 &+Rany clams for his patrons either.
 ~
-2122 0 0 24 0 0 0 500 S
-pe 0 1 3
+2122 0 0 0 24 0 0 0 500 S
+pe 0 1 0 3
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -832,8 +832,8 @@ high elven sailor elf~
 &+Wport city have to offer.  He is currently waiting for his
 &+Wship to ring in at the main docks of the city.
 ~
-2122 0 0 0 0 0 0 600 S
-pe 0 1 -1
+2122 0 0 0 0 0 0 0 600 S
+pe 0 1 0 -1
 37 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -846,8 +846,8 @@ hungry patron~
 &+LA stern look accompanies the twisted face on this patron as he
 &+Lgrunts, clutching his silverware.
 ~
-2122 0 0 0 0 0 0 0 S
-PH 0 0 -1
+2122 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -861,8 +861,8 @@ shaenae mystic~
 &+Cher nimble elven limbs.  Shaenae is the Mystic of Fenaline,
 &+Cblesser and keeper of the moonwell.
 ~
-2122 128 0 0 0 0 0 650 S
-pe 0 32 -1
+2122 128 0 0 0 0 0 0 650 S
+pe 0 32 0 -1
 39 0 0 1d1+1 1d1+1
 0.0.0.0 0
 5 5 2
@@ -877,8 +877,8 @@ robed grey elf~
 &+cnoble's form.  This respected elf fights for his gods and
 &+cthe woodlands themselves.
 ~
-1073743946 0 0 16 0 0 0 360 S
-pe 0 128 -1
+1073743946 0 0 0 16 0 0 0 360 S
+pe 0 128 0 -1
 37 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 6 1
@@ -891,8 +891,8 @@ young sailor~
 &+Cof a large vessel to accept him as a member of their crew.  Although
 &+Cvery young, this sailor looks like he can handle himself well.
 ~
-2120 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2120 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -906,8 +906,8 @@ young fisherman~
 &+Lhere at Fenaline, fishing and taking in the culture
 &+Lbefore heading back indoors with his catches of the day.
 ~
-2120 0 0 0 0 0 0 0 S
-PH 0 1 3
+2120 0 0 0 0 0 0 0 0 S
+PH 0 1 0 3
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -922,8 +922,8 @@ spirit avatar silvanos~
 &+Wan extension of the god Silvanos, blessing and renewing
 &+Wthe elven souls of Fenaline with its presence.
 ~
-18506 0 0 24 0 0 0 1000 S
-pe 0 513 -1
+18506 0 0 0 24 0 0 0 1000 S
+pe 0 513 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -936,8 +936,8 @@ orc fisherman~
 &+La strong physique and a proud, young face.  He carries long, wooden
 &+Lfishing poles and a huge net.
 ~
-2122 0 0 0 0 0 0 250 S
-ho 20 1 -1
+2122 0 0 0 0 0 0 0 250 S
+ho 20 1 0 -1
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -950,8 +950,8 @@ goblin fisherman~
 &+La strong physique and a proud, young face.  He carries long, wooden
 &+Lfishing poles and a huge net.
 ~
-2122 0 0 0 0 0 0 250 S
-hg 20 1 -1
+2122 0 0 0 0 0 0 0 250 S
+hg 20 1 0 -1
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -969,8 +969,8 @@ ayden stoneheart orc disciple~
 &+LThur'Gurax. Casting his great vision across the ocean, Ayden watches the
 &+Lseas for trouble from this vantage point.
 ~
-2122 0 0 24 0 0 0 -1000 S
-ho 20 288 -1
+2122 0 0 0 24 0 0 0 -1000 S
+ho 20 288 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -983,8 +983,8 @@ hulking troll watchman~
 &+gfor enemies as well as breaking up any fights that happen to frequent
 &+gthe Thur'Gurax tribesmen, especially if they havent eaten.
 ~
-67110984 64 0 0 0 0 0 -1000 S
-pt 20 1 -1
+67110984 64 0 0 0 0 0 0 -1000 S
+pt 20 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -999,8 +999,8 @@ vicious warg~
 &+youtsiders to the horde.  It snarls viciously, teeth showing,
 &+ypoised to kill.
 ~
-1073743944 1 0 16 0 0 0 -1000 S
-a 20 1 4
+1073743944 1 0 0 16 0 0 0 -1000 S
+a 20 1 0 4
 11 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1014,8 +1014,8 @@ young fisherman~
 &+Lhere at Fenaline, fishing and taking in the culture
 &+Lbefore heading back indoors with his catches of the day.
 ~
-2120 0 0 0 0 0 0 -1000 S
-ho 0 1 3
+2120 0 0 0 0 0 0 0 -1000 S
+ho 0 1 0 3
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1029,8 +1029,8 @@ kruthurgur kruth krgur crier orc~
 &+Lyears upon years.  Kruth'Urgur stands here yelling out to the rest
 &+Lof the orcs.
 ~
-1073743946 64 0 0 0 0 0 -1000 S
-ho 0 1 -1
+1073743946 64 0 0 0 0 0 0 -1000 S
+ho 0 1 0 -1
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1043,8 +1043,8 @@ thur'gurax warrior~
 &+Lhe doesn't recognize as Thur'Gurax or fishermen of the village.  He wears
 &+La stern grin across his face and constantly looks through the area.
 ~
-1073743944 1 0 0 0 0 0 -1000 S
-h 0 1 -1
+1073743944 1 0 0 0 0 0 0 -1000 S
+h 0 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1057,8 +1057,8 @@ huge ogre warrior~
 &+Lhe doesn't recognize as Thur'Gurax or fishermen of the village.  He wears
 &+La stern grin across his face and constantly looks through the area.
 ~
-1073743944 1 0 0 0 0 0 -1000 S
-po 0 1 5
+1073743944 1 0 0 0 0 0 0 -1000 S
+po 0 1 0 5
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1071,8 +1071,8 @@ vrash steelclaw sergeant orc~
 &+Rhowever, he resides in a dirty office hut, reviewing schematics
 &+Rfor the higher warlords regarding troop deployment.
 ~
-1073744074 64 0 0 0 0 0 -1000 S
-ho 0 1 -1
+1073744074 64 0 0 0 0 0 0 -1000 S
+ho 0 1 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1085,8 +1085,8 @@ barracks guard orc~
 &+Lhe doesn't recognize as Thur'Gurax or fishermen of the village.  He wears
 &+La stern grin across his face and constantly looks through the area.
 ~
-1073743946 1 0 0 0 0 0 -1000 S
-ho 0 1 -1
+1073743946 1 0 0 0 0 0 0 -1000 S
+ho 0 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1100,8 +1100,8 @@ black wolf~
 &+Lbeast stands when it is approached.  This wolf raises its mouth,
 &+Lshowing its teeth in their entirity and its gums as it snarls.
 ~
-1073743944 0 0 0 0 0 0 -1000 S
-a 0 1 3
+1073743944 0 0 0 0 0 0 0 -1000 S
+a 0 1 0 3
 22 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1115,8 +1115,8 @@ muscular sailor~
 &+Lhere at Fenaline, fishing and taking in the culture
 &+Lbefore heading back indoors with his catches of the day.
 ~
-2120 0 0 0 0 0 0 -1000 S
-ho 0 1 3
+2120 0 0 0 0 0 0 0 -1000 S
+ho 0 1 0 3
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1134,8 +1134,8 @@ cairme bloodfang~
 &+Lthe life of tavern ownership dockside at Thur'Gurax, the horde
 &+Lsettlement.
 ~
-2122 64 0 0 0 0 0 -1000 S
-ho 20 1 -1
+2122 64 0 0 0 0 0 0 -1000 S
+ho 20 1 0 -1
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1148,8 +1148,8 @@ seasoned sailor~
 &+Lfrom many battles on land and many more at sea.  A keen, determined look
 &+Lis in the eye of this brave, strong, seasoned sailor.
 ~
-2122 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2122 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1162,8 +1162,8 @@ drunk goblin sailor~
 &+Lfrom many battles on land and many more at sea.  A keen, determined look
 &+Lis in the eye of this brave, strong, seasoned sailor.
 ~
-2122 0 0 0 0 0 0 -1000 S
-hg 0 1 -1
+2122 0 0 0 0 0 0 0 -1000 S
+hg 0 1 0 -1
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1178,8 +1178,8 @@ grimashk dock lord~
 &+Lnose is brunted compared to a surface orcs, while his body and neck
 &+Lare longer, slightly arched in a slight hunch.
 ~
-2122 64 0 0 0 0 0 -1000 S
-or 0 1 -1
+2122 64 0 0 0 0 0 0 -1000 S
+or 0 1 0 -1
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1194,8 +1194,8 @@ bronak troll witchdoctor~
 &+yBronak wears lengths of ceremonnial garb and long necklaces, dangling
 &+ywith strange charms and shamanistic artifacts.
 ~
-2122 0 0 0 0 0 0 -1000 S
-pt 20 256 -1
+2122 0 0 0 0 0 0 0 -1000 S
+pt 20 256 0 -1
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1209,8 +1209,8 @@ troll shopkeeper~
 &+gsmiles revealing a &+Ygolden tooth&+g while peddling the dark shaman
 &+gritualistic items in this shop.
 ~
-2122 0 0 8 0 0 0 -1000 S
-pt 20 256 -1
+2122 0 0 0 8 0 0 0 -1000 S
+pt 20 256 0 -1
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1224,8 +1224,8 @@ troll henchman~
 &+gsmiles revealing a &+Ygolden tooth&+g while peddling the dark shaman
 &+gritualistic items in this shop.
 ~
-1140852810 0 0 8 0 0 0 -1000 S
-pt 20 1 -1
+1140852810 0 0 0 8 0 0 0 -1000 S
+pt 20 1 0 -1
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1240,8 +1240,8 @@ frull thelstone orc~
 &+Lor acquired himself from a raid.  He travels the city on
 &+Lthe lookout for someone.
 ~
-2120 0 0 0 0 0 0 -1000 S
-ho 0 1 -1
+2120 0 0 0 0 0 0 0 -1000 S
+ho 0 1 0 -1
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1255,8 +1255,8 @@ orc orcish bartender~
 &+Lbattle-ready beast, who resides here within the port village
 &+Lof Thur'Gurax.
 ~
-2122 0 0 0 0 0 0 -1000 S
-ho 0 1 -1
+2122 0 0 0 0 0 0 0 -1000 S
+ho 0 1 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1270,8 +1270,8 @@ goblin patron~
 &+gHis eyes are a bright shade of yellow, tiny buds deeply set into the
 &+ghead of this creature.
 ~
-2250 0 0 0 0 0 0 -1000 S
-hg 0 1 -1
+2250 0 0 0 0 0 0 0 -1000 S
+hg 0 1 0 -1
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1285,8 +1285,8 @@ drunk orc~
 &+Lbattle-ready beast, who resides here within the port village
 &+Lof Thur'Gurax.
 ~
-2122 0 0 0 0 0 0 -1000 S
-ho 0 1 -1
+2122 0 0 0 0 0 0 0 -1000 S
+ho 0 1 0 -1
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1300,8 +1300,8 @@ tired sailor~
 &+Lbattle-ready beast, who resides here within the port village
 &+Lof Thur'Gurax.
 ~
-2122 0 0 0 0 0 0 -1000 S
-ho 0 1 -1
+2122 0 0 0 0 0 0 0 -1000 S
+ho 0 1 0 -1
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1315,8 +1315,8 @@ sleepy sailor~
 &+Lbattle-ready beast, who resides here within the port village
 &+Lof Thur'Gurax.
 ~
-2122 0 0 0 0 0 0 -1000 S
-ho 0 1 -1
+2122 0 0 0 0 0 0 0 -1000 S
+ho 0 1 0 -1
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1333,8 +1333,8 @@ bestile axecrack orc warlord hero~
 &+Ltriumphant and the city has flourished as a great goblin settlement
 &+Lteaching the arts of war to the distant cousins of the orcs.
 ~
-2122 0 0 24 0 0 0 -1000 S
-ho 0 1 -1
+2122 0 0 0 24 0 0 0 -1000 S
+ho 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1348,8 +1348,8 @@ orc warlock~
 &+Lbattle-ready beast, who resides here within the port village
 &+Lof Thur'Gurax.
 ~
-2122 0 0 0 0 0 0 -1000 S
-ho 0 131072 -1
+2122 0 0 0 0 0 0 0 -1000 S
+ho 0 131072 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1364,8 +1364,8 @@ avatar spirit ferrik bloodyfist~
 &+Wking, this form of him is an opposing opponent nonetheless offering
 &+Wgreat opposition.
 ~
-18634 1 0 0 0 0 0 -1000 S
-wr 0 512 -1
+18634 1 0 0 0 0 0 0 -1000 S
+wr 0 512 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1379,8 +1379,8 @@ orc fisherman~
 &+Lbattle-ready beast, who resides here within the port village
 &+Lof Thur'Gurax.
 ~
-2120 0 0 0 0 0 0 -1000 S
-ho 0 1 -1
+2120 0 0 0 0 0 0 0 -1000 S
+ho 0 1 0 -1
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1394,8 +1394,8 @@ angry orc~
 &+Lbattle-ready beast, who resides here within the port village
 &+Lof Thur'Gurax.
 ~
-2120 1 0 0 0 0 0 -1000 S
-ho 0 1 -1
+2120 1 0 0 0 0 0 0 -1000 S
+ho 0 1 0 -1
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1408,8 +1408,8 @@ snapjaw turtle~
 &+Wsome food for sustenance.  The turtle has a large, razor-sharp
 &+Wbeak and a thick, spiked shell.
 ~
-1073743880 1 0 24 0 0 0 0 S
-r 0 1 4
+1073743880 1 0 0 24 0 0 0 0 S
+r 0 1 0 4
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1423,8 +1423,8 @@ stonescale pyrolisk~
 &+Lthis large lizard stomps across the lands, leaving a trail of
 &+Ldestruction.
 ~
-1073743912 1 0 24 0 0 0 -400 S
-r 0 1 5
+1073743912 1 0 0 24 0 0 0 -400 S
+r 0 1 0 5
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1436,8 +1436,8 @@ sand viper~
    &+LThis wyrm is very long and narrow.  It moves quickly through the sandy
 &+Ldeserts, darting its tongue in and out.
 ~
-2056 1 0 24 0 0 0 -400 S
-rs 0 1 2
+2056 1 0 0 24 0 0 0 -400 S
+rs 0 1 0 2
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1451,8 +1451,8 @@ tundra panther~
 &+Wlower fangs and two equally large upper fangs.  It prowls
 &+Wthrough the tundra on the hunt.
 ~
-1073743880 1 0 16 0 0 0 -400 S
-a 0 1 3
+1073743880 1 0 0 16 0 0 0 -400 S
+a 0 1 0 3
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1466,8 +1466,8 @@ highland samurai~
 &+Gacross the countryside of the Jade Empire, watching for
 &+Gsigns of an invasion.
 ~
-1140852744 0 0 16 0 0 0 0 S
-PH 0 1 -1
+1140852744 0 0 0 16 0 0 0 0 S
+PH 0 1 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1481,8 +1481,8 @@ green hydralisk~
 &+Lthis large lizard stomps across the lands, leaving a trail of
 &+Ldestruction.
 ~
-1074268168 1 0 24 0 0 0 -400 S
-r 0 1 5
+1074268168 1 0 0 24 0 0 0 -400 S
+r 0 1 0 5
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1495,8 +1495,8 @@ human bandit~
 &+rpeeled for those weaker than him that he can take advantage
 &+rof.
 ~
-1073743880 0 0 0 0 0 0 -500 S
-PH 0 8192 -1
+1073743880 0 0 0 0 0 0 0 -500 S
+PH 0 8192 0 -1
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1506,8 +1506,8 @@ gunner cadet~
 &+WA &+rgunner &+ccadet &+Wstands tall and is ready to join a captain on his ship.&n
 ~
 ~
-2058 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2058 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1517,8 +1517,8 @@ shipwright tyro~
 &+WA &nship&+yw&nr&+yi&ng&+yh&nt &+ytyro &+Wis busy bartering his services with a local captain.&n
 ~
 ~
-2058 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2058 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1528,8 +1528,8 @@ veteran boatswain~
 &+LA &+yvet&+Ye&+Wr&+Ya&+yn b&+Yo&+Wats&+Yw&+yain &+Lsits by the bar, waiting for his next payday.&n
 ~
 ~
-2058 0 0 0 0 0 0 0 S
-hg 0 16384 -1
+2058 0 0 0 0 0 0 0 0 S
+hg 0 16384 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0

@@ -11,8 +11,8 @@ exile exiled moon elf~
 &+W        the gates of the city, for two hundred and fifty platinum.
 &+W        That will teach them."
 ~
-1073743944 0 0 8 0 0 0 500 S
-PE 0 1 -1
+1073743944 0 0 0 8 0 0 0 500 S
+PE 0 1 0 -1
 44 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -26,8 +26,8 @@ orc treasure hunter~
 &+W        "The greatest ship to ever fly the skies lies here
 &+W        somewhere, and along with it, the greatest treasure."
 ~
-1073743882 0 0 0 0 0 0 0 S
-HO 0 1 -1
+1073743882 0 0 0 0 0 0 0 0 S
+HO 0 1 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -39,8 +39,8 @@ mountain goat~
 &+WThis goat wanders the mountains, feeding off the sparse vegetation,
 &+Wand nimbly hopping from one ledge to another.&n
 ~
-2120 0 0 0 0 0 0 0 S
-A 0 0 -1
+2120 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -54,8 +54,8 @@ dwarf rock cutter dwarven~
 &+ysmirk he anxiously slams his &+wrock-&+ycutting hammer into a new mount of
 &+ystone, eagerly searching for some grand vein of ore or rock.
 ~
-1073743946 0 0 0 0 0 0 1000 S
-PM 0 1 -1
+1073743946 0 0 0 0 0 0 0 1000 S
+PM 0 1 0 -1
 42 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -74,8 +74,8 @@ strong male harpy keen feather keenfeather~
 &+W        by archers. If you could assist us, I shall gladly give
 &+W        you my armlet as a token of appreciation."
 ~
-67110926 0 0 8 0 0 0 0 S
-MH 0 33554944 -1
+67110926 0 0 0 8 0 0 0 0 S
+MH 0 33554944 0 -1
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -90,8 +90,8 @@ harpy courier~
 &+yis a hard job, but one of honour, and only the strongest and most fit
 &+yare able to become couriers.&n
 ~
-10 0 0 0 0 0 0 0 S
-MH 0 1 -1
+10 0 0 0 0 0 0 0 0 S
+MH 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -105,8 +105,8 @@ spectre githzerai crewman crew~
 &+Lmountain. He wails in torment at his cursed unlife, doomed to remain where
 &+Lhe died in life until somehow the dreadful curse is broken.
 ~
-1073743880 1 0 0 0 0 0 -1000 S
-UG 0 8192 -1
+1073743880 1 0 0 0 0 0 0 -1000 S
+UG 0 8192 0 -1
 47 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -119,8 +119,8 @@ harpy commoner~
 &+yseems annoyed by any distraction except those from the local fowl, which
 &+yshe seems to listen keenly to.&n
 ~
-2058 0 0 0 0 0 0 0 S
-MH 0 0 -1
+2058 0 0 0 0 0 0 0 0 S
+MH 0 0 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -135,8 +135,8 @@ harpy matador~
 &+ythe-less extremely deadly to their foes, trained for battle, extremely
 &+yagile and adept at battle.&n
 ~
-67110922 0 0 0 0 0 0 0 S
-MH 0 1 -1
+67110922 0 0 0 0 0 0 0 0 S
+MH 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -150,8 +150,8 @@ harpy geomancer elderly~
 &+yfew still use but is quite potent. This harpy is one of the last of his
 &+ykind to still use this type of magic.
 ~
-1140852744 0 0 0 0 0 0 0 S
-MH 0 33556480 -1
+1140852744 0 0 0 0 0 0 0 0 S
+MH 0 33556480 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -167,8 +167,8 @@ forlorn solemn refugee~
 &+wkind. A glimmer of hope of some new location in which to settle would
 &+wdo him much good.
 ~
-2120 0 0 8 0 0 0 1000 S
-PH 0 1 -1
+2120 0 0 0 8 0 0 0 1000 S
+PH 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -182,8 +182,8 @@ refugee~
 &+wcan barely lift her head up to glance at you, and it is obvious she has
 &+wlost any shred of hope for her future.&n
 ~
-1073743882 0 0 0 0 0 0 1000 S
-PH 0 128 -1
+1073743882 0 0 0 0 0 0 0 1000 S
+PH 0 128 0 -1
 44 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -198,8 +198,8 @@ lancer high elf guard~
 &+ywith hostile intent and also watches over the museum habitat, making sure
 &+ynone of the "displays" attempt escape.&n
 ~
-67110924 0 0 0 0 0 0 -1000 S
-PE 0 1 -1
+67110924 0 0 0 0 0 0 0 -1000 S
+PE 0 1 0 -1
 49 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -215,8 +215,8 @@ phantom engineer~
 &+Lin the transformation of this once young, healthy, extremely intelligent
 &+Lman into the dark and bitter phantom he is now.
 ~
-10 0 0 8 0 0 0 -1000 S
-UP 0 260 -1
+10 0 0 0 8 0 0 0 -1000 S
+UP 0 260 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -232,8 +232,8 @@ moon elf labourer~
 &+wthis way for centuries. It explains the solemn, quiet, remorseful, and
 &+wcomplacent expression on the face of nearly every Moon-Elf in the city.
 ~
-2056 0 0 0 0 0 0 0 S
-P2 0 1 -1
+2056 0 0 0 0 0 0 0 0 S
+P2 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -248,8 +248,8 @@ spectre githyanki crewman crew man ghost~
 &+Lbeen transformed into that of bloodthirsty, ruthless, and chaotic un-
 &+Ldeath.
 ~
-8 1 0 8 0 0 0 -1000 S
-UG 0 8192 -1
+8 1 0 0 8 0 0 0 -1000 S
+UG 0 8192 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -259,8 +259,8 @@ captain astral dancer~
 &+LThe captain of the Astral &+WDancer&+L fights his nemesis for eternity.&n
 ~
 ~
-67110922 0 0 24 0 0 0 1000 S
-UG 0 67108864 3
+67110922 0 0 0 24 0 0 0 1000 S
+UG 0 67108864 0 3
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -270,8 +270,8 @@ spirit captain dlalgarvara~
 &+LThe spirit captain of the Dlalargava battles a never-ending sword-fight.&n
 ~
 ~
-67110922 0 0 24 0 0 0 -1000 S
-U 0 16777216 -1
+67110922 0 0 0 24 0 0 0 -1000 S
+U 0 16777216 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -288,8 +288,8 @@ undead shipmate mate~
 &+Llifted, they bear only a hideous resentment to all that they once cher-
 &+Lished.
 ~
-1073743880 1 0 0 0 0 0 -1000 S
-U 0 16384 -1
+1073743880 1 0 0 0 0 0 0 -1000 S
+U 0 16384 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -305,8 +305,8 @@ high chemist elf~
 &+yto the society and has single-handedly discovered cures for numerous ail-
 &+yments.&n
 ~
-18442 1 0 24 0 0 0 -1000 S
-PE 0 524288 -1
+18442 1 0 0 24 0 0 0 -1000 S
+PE 0 524288 0 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -319,8 +319,8 @@ royal guard~
 &+yover the chancellor. He is a grim and serious High-Elf, like most of
 &+yhis kin, and would use all his means in order to defend his mark.
 ~
-1140852746 0 0 0 0 0 0 -1000 S
-PE 0 1 -1
+1140852746 0 0 0 0 0 0 0 -1000 S
+PE 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -336,8 +336,8 @@ undead cargo handler~
 &+Lshadow of his former self, and he has become a massive monster of rage and
 &+Lhate, lashing out at anything he cannot have.
 ~
-1073743880 1 0 8 0 0 0 -1000 S
-UW 0 16 -1
+1073743880 1 0 0 8 0 0 0 -1000 S
+UW 0 16 0 -1
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -351,8 +351,8 @@ bloodthirsty undead githyanki crew crewman~
 &+Lwho still live. He prowls his subterranean hell for ages, hungry for
 &+Lrelease and revenge.&n
 ~
-1073743880 1 0 8 0 0 0 -1000 S
-U 0 2097152 -1
+1073743880 1 0 0 8 0 0 0 -1000 S
+U 0 2097152 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -367,8 +367,8 @@ naga myrmidon~
 &+byet he still attempts his best at protecting the pool, hoping one day
 &+bto overpower his captors and escape back to the wild.
 ~
-2058 1 0 8 0 0 0 -1000 S
-X 0 1 4
+2058 1 0 0 8 0 0 0 -1000 S
+X 0 1 0 4
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -384,8 +384,8 @@ naga pool queen~
 &+blike most of all the other 'displays' only clouds her judgment and fuels
 &+bher violent inner nature.
 ~
-1073743882 1 0 8 0 0 0 -1000 S
-X 0 256 3
+1073743882 1 0 0 8 0 0 0 -1000 S
+X 0 256 0 3
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -402,8 +402,8 @@ naga huntress~
 &+bor other bodies of water. They are quite intelligent, but the society
 &+bhere in the museum has become mad with rage over their imprisonment.
 ~
-8 1 0 0 0 0 0 0 S
-X 0 2097152 3
+8 1 0 0 0 0 0 0 0 S
+X 0 2097152 0 3
 47 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -423,8 +423,8 @@ drandagger leader drow~
 &+W        from the likes of you maybe. Do what you can, and I'll
 &+W        find a way to pay you."
 ~
-1073743882 0 0 8 0 0 0 -1000 S
-PL 0 768 -1
+1073743882 0 0 0 8 0 0 0 -1000 S
+PL 0 768 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -437,8 +437,8 @@ high elf student young younger~
 &+yHe spends much of his time studying, mostly high-elven history and the
 &+yarts of combat and war strategies.
 ~
-2058 0 0 0 0 0 0 -1000 S
-PE 0 1 -1
+2058 0 0 0 0 0 0 0 -1000 S
+PE 0 1 0 -1
 43 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -453,8 +453,8 @@ high elf scholar~
 &+ydeadly opponent, however the years have taken his toll on him and he
 &+yhas become frail from age and lack of exercise.
 ~
-2058 0 0 0 0 0 0 -1000 S
-PE 0 1 -1
+2058 0 0 0 0 0 0 0 -1000 S
+PE 0 1 0 -1
 48 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -468,8 +468,8 @@ lancer high elf guard~
 &+yspire. He is also strong enough and trained enough to usually carry out
 &+yhis racist insults with deadly force.
 ~
-2062 1 0 0 0 0 0 -1000 S
-PE 0 1 -1
+2062 1 0 0 0 0 0 0 -1000 S
+PE 0 1 0 -1
 49 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -484,8 +484,8 @@ young private high elf~
 &+ythe privates will need to leave &+YDawndale&+y and venture out into the world to
 &+yprove themselves before they can gain rank.
 ~
-2058 0 0 0 0 0 0 -1000 S
-PE 0 64 -1
+2058 0 0 0 0 0 0 0 -1000 S
+PE 0 64 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -500,8 +500,8 @@ high elf lieutenant~
 &+ywho tolerates very little, and looks back with you with a snarl and
 &+ythough not very large, his slender elven body ripples with muscles.
 ~
-1140852746 0 0 8 0 0 0 -1000 S
-PE 0 64 -1
+1140852746 0 0 0 8 0 0 0 -1000 S
+PE 0 64 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -518,8 +518,8 @@ doctor undead former~
 &+Lkin, only to be reborn as a living dead, cursed, wretched, and angry
 &+Lat everything.
 ~
-2058 1 0 152 0 0 0 -1000 S
-U 0 131073 -1
+2058 1 0 0 152 0 0 0 -1000 S
+U 0 131073 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -535,8 +535,8 @@ drow wizard~
 &+YHigh-Elves&+L expect of him, and only further stereotype him as nothing more
 &+Lthan a wild and untamed creature.
 ~
-1073743880 1 0 0 0 0 0 -1000 S
-PL 0 512 -1
+1073743880 1 0 0 0 0 0 0 -1000 S
+PL 0 512 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -551,8 +551,8 @@ drow wizard~
 &+Lthe area carefully, he wouldn't be able to escape very far, as all of the
 &+Lcity would be at arms and soon have him trapped within the capital spire.
 ~
-1342179338 1 0 0 0 0 0 -1000 S
-PL 0 512 -1
+1342179338 1 0 0 0 0 0 0 -1000 S
+PL 0 512 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -566,8 +566,8 @@ furious angry drow~
 &+Llong since become so enraged by becoming a 'display' he lashes out at
 &+Lanyone or anything that would cross his path.
 ~
-10 1 0 8 0 0 0 -100 S
-PL 0 1 -1
+10 1 0 0 8 0 0 0 -100 S
+PL 0 1 0 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -581,8 +581,8 @@ massive rockworm _noblind_ _nosneak_~
 &+yits nest of young larvae, viciously protecting its offspring against any
 &+yintrusions.
 ~
-26634 1 0 56 0 0 8192 -1000 S
-AC 0 1 6
+26634 1 0 0 56 0 0 8192 -1000 S
+AC 0 1 0 6
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -596,8 +596,8 @@ large rockworm rock worm _noblind_ _nosneak_~
 &+yits size makes it a serious danger as it blindly works its way through
 &+ythe tunnels, consuming anything that gets in its way.&n
 ~
-1073743880 1 0 40 0 0 0 -1000 S
-AC 0 1 4
+1073743880 1 0 0 40 0 0 0 -1000 S
+AC 0 1 0 4
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -612,8 +612,8 @@ student medicinal medicine~
 &+yis still a great honour to be aloud in his presence, and would defend
 &+yhim readily.
 ~
-67110922 0 0 8 0 0 0 -1000 S
-PE 0 32 -1
+67110922 0 0 0 8 0 0 0 -1000 S
+PE 0 32 0 -1
 47 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -627,8 +627,8 @@ student medicinal medicine~
 &+ybining the two to create unguents, potions, and salves that can be used to
 &+ycure the sick and treat ailments of various types.
 ~
-67110922 0 0 8 0 0 0 -1000 S
-PE 0 32 -1
+67110922 0 0 0 8 0 0 0 -1000 S
+PE 0 32 0 -1
 47 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -643,8 +643,8 @@ master hunter high-elf high elf~
 &+ythe nearby area, a task most&+Y High-Elves&+y wont do, for fear of leaving their
 &+yglorious city.
 ~
-67110920 0 0 8 0 0 0 -1000 S
-PE 0 2 -1
+67110920 0 0 0 8 0 0 0 -1000 S
+PE 0 2 0 -1
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -659,8 +659,8 @@ hunter high-elf high elf~
 &+yindiscriminate in their outings, attacking nearly anything they believe to
 &+ybe a threat, or good eating.&n
 ~
-67110922 0 0 8 0 0 0 -1000 S
-PE 0 1 -1
+67110922 0 0 0 8 0 0 0 -1000 S
+PE 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -678,8 +678,8 @@ smith high-elf high elf smithy~
 &+yspends his days working quite hard on forging and crafting various objects
 &+ywith gold and metal.
 ~
-18442 0 0 8 0 0 0 -1000 S
-PE 0 1 -1
+18442 0 0 0 8 0 0 0 -1000 S
+PE 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -692,8 +692,8 @@ rockworm rock worm _noblind_ _nosneak_~
 &+ythe surface of the earth, though its still unnerving to come across a worm
 &+yof this size, and always a precaution to stay clear of them if possible.
 ~
-1073743880 0 0 0 0 0 0 -1000 S
-AP 0 1 4
+1073743880 0 0 0 0 0 0 0 -1000 S
+AP 0 1 0 4
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -708,8 +708,8 @@ drider~
 &+Lform of a spider. With drow intelligence and the strength of an arachnid
 &+Lsix feet in height, they are best to be avoided.
 ~
-8 1 0 0 0 0 0 -1000 S
-dr 0 1 4
+8 1 0 0 0 0 0 0 -1000 S
+dr 0 1 0 4
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -722,8 +722,8 @@ off-duty guard~
 &+ygives a scowl at the sight of you then returns to his meal. He usually
 &+ypatrols the area between the great lens, museum halls, and habitat.&n
 ~
-67110922 0 0 8 0 0 0 -1000 S
-PE 0 1 -1
+67110922 0 0 0 8 0 0 0 -1000 S
+PE 0 1 0 -1
 48 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -736,8 +736,8 @@ soldier grim~
 &+ypatrol guards and spire guards. He is probably here to discuss combat with
 &+ythe guardsmen who eat and spend their off-duty hours here in the mess.
 ~
-1140852746 0 0 8 0 0 0 -1000 S
-PE 0 64 -1
+1140852746 0 0 0 8 0 0 0 -1000 S
+PE 0 64 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -752,8 +752,8 @@ drider webspinner spinner~
 &+Lsmall rations of food that the curators toss into the habitat from time
 &+Lto time and the females guarding and protecting over their area of web.
 ~
-10 1 0 8 0 0 0 -1000 S
-dr 0 5 4
+10 1 0 0 8 0 0 0 -1000 S
+dr 0 5 0 4
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -768,8 +768,8 @@ collector drider massive~
 &+Lhabitat, and even the guards stay well away from it whenever it emerges
 &+Lfrom its hidden lair behind the dark and dank mountain sentiment to feed.
 ~
-8 1 0 24 0 0 0 -1000 S
-dr 0 131073 5
+8 1 0 0 24 0 0 0 -1000 S
+dr 0 131073 0 5
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -786,8 +786,8 @@ captain guard~
 &+yand no one and nothing should be permitted even the slightest contact
 &+ywith them.
 ~
-2058 1 0 0 0 0 0 -1000 S
-PE 0 3 -1
+2058 1 0 0 0 0 0 0 -1000 S
+PE 0 3 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -800,8 +800,8 @@ royal guard~
 &+yover the chancellor. He is a grim and serious High-Elf, like most of
 &+yhis kin, and would use all his means in order to defend his mark.
 ~
-67110922 0 0 24 0 0 0 -1000 S
-PE 0 1 -1
+67110922 0 0 0 24 0 0 0 -1000 S
+PE 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -818,8 +818,8 @@ chancellor~
 &+yyears, however since most of the &+YHigh-Elven&+y candidates are extremely old
 &+ywhen they take office, most die before their term is up.
 ~
-2058 0 0 0 0 0 0 -1000 S
-PE 0 4194305 -1
+2058 0 0 0 0 0 0 0 -1000 S
+PE 0 4194305 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -835,8 +835,8 @@ matron mother drider~
 &+Lcurator's made sure she was completely sterile after capturing her for
 &+Lthe exhibit.
 ~
-1073743882 1 0 0 0 0 0 -1000 S
-dr 0 163840 4
+1073743882 1 0 0 0 0 0 0 -1000 S
+dr 0 163840 0 4
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -851,8 +851,8 @@ curator high-elf high elf~
 &+ybut most of the time he really has nothing to do so he just sort of
 &+ystands around.
 ~
-1073743880 0 0 24 0 0 0 -1000 S
-PE 0 4194304 -1
+1073743880 0 0 0 24 0 0 0 -1000 S
+PE 0 4194304 0 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -868,8 +868,8 @@ master professor high-elf high elf~
 &+yyou, far too concerned with a large stack of papers on his desk than any
 &+yintrusion, even from obvious outsiders.
 ~
-1140852746 0 0 268435472 0 0 0 -1000 S
-PE 0 2048 -1
+1140852746 0 0 0 268435472 0 0 0 -1000 S
+PE 0 2048 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -885,8 +885,8 @@ taskmaster master high-elf high elf~
 &+yareas clean and everything working properly with a management style only
 &+yjust short of beating his employees into submission.
 ~
-1140852744 0 0 24 0 0 0 -1000 S
-PE 0 16384 -1
+1140852744 0 0 0 24 0 0 0 -1000 S
+PE 0 16384 0 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -900,8 +900,8 @@ spectre githzerai crewman crew~
 &+Lmountain. He wails in torment at his cursed unlife, doomed to remain where
 &+Lhe died in life until somehow the dreadful curse is broken.
 ~
-1073743882 1 0 0 0 0 0 -1000 S
-UG 0 8192 -1
+1073743882 1 0 0 0 0 0 0 -1000 S
+UG 0 8192 0 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -917,8 +917,8 @@ lost storm giant whetstone~
 &+W        at all. I really wanted to see Emition about helping
 &+W        me forge something with my special metal."
 ~
-1073743882 0 0 8 0 0 0 1000 S
-SG 0 16384 -1
+1073743882 0 0 0 8 0 0 0 1000 S
+SG 0 16384 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -936,8 +936,8 @@ red star hunter~
 &+W        you can help them escape, Mctarvian and I can hold
 &+W        them back here."
 ~
-2058 0 0 24 0 0 0 0 S
-PB 0 16385 -1
+2058 0 0 0 24 0 0 0 0 S
+PB 0 16385 0 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -947,8 +947,8 @@ mountain manta~
 &+WA mountain &+cmanta&+W drifts over the flat &+yrock&+W here.&n
 ~
 ~
-2056 0 0 0 0 0 0 0 S
-B 0 1 2
+2056 0 0 0 0 0 0 0 0 S
+B 0 1 0 2
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -966,8 +966,8 @@ lens crafter lens-crafter~
 &+yquite possibly be the most important member of &+YDawndale&+y society, more
 &+yvaluable to the city than even the chancellor himself.
 ~
-2058 0 0 24 262144 2097152 0 -1000 S
-PE 0 128 -1
+2058 0 0 0 24 262144 2097152 0 -1000 S
+PE 0 128 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -981,8 +981,8 @@ firbolg scout~
 &+ying groups that can reach as high as thirty. This firbolg is an advance
 &+yscout for his pack, scouting the area in search of prey.
 ~
-1073743880 1 0 8 0 0 0 -1000 S
-G 0 1 -1
+1073743880 1 0 0 8 0 0 0 -1000 S
+G 0 1 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -997,8 +997,8 @@ firbolg sentry~
 &+yother than a loincloth around its waist that appears large enough to
 &+ybe used as a tent for an average man.
 ~
-10 1 0 8 0 0 0 -1000 S
-G 0 1 -1
+10 1 0 0 8 0 0 0 -1000 S
+G 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1017,8 +1017,8 @@ mctarvian lieutenant~
 &+w        at his captive lying at his feet. &+W"This beauty will net
 &+W        me a fortune at the mercenary and bounty hunter gathering."
 ~
-18442 0 0 268435608 1 67108864 0 0 S
-PH 0 16384 -1
+18442 0 0 0 268435608 1 67108864 0 0 S
+PH 0 16384 0 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1034,8 +1034,8 @@ firbolg warmonger monger~
 &+ynormally the largest, most violent firbolgs in the pack, wishing nothing
 &+yother than to smash stuff.
 ~
-1073743880 1 0 8 0 0 0 -1000 S
-G 0 16384 -1
+1073743880 1 0 0 8 0 0 0 -1000 S
+G 0 16384 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1051,8 +1051,8 @@ firbolg warchief chief~
 &+ywaiting for his scouts to report on anything up ahead, a chance to
 &+ysieze his prey, before leading his group onwards up the mountainside.
 ~
-10 1 0 24 0 0 0 -1000 S
-G 0 16385 -1
+10 1 0 0 24 0 0 0 -1000 S
+G 0 16385 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1066,8 +1066,8 @@ firbolg shaman~
 &+yshaman within the ranks of the firbolg hunting packs. He wanders the area
 &+yhere blessing his kinsmen with various mystical enchantments.
 ~
-1073743880 1 0 8 0 0 0 -1000 S
-G 0 256 -1
+1073743880 1 0 0 8 0 0 0 -1000 S
+G 0 256 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1082,8 +1082,8 @@ high elf scholar~
 &+yhe appears nearly completely unaware of anything going on around him. His
 &+ylips move slightly as he studies the pages.
 ~
-1073743882 0 0 0 0 0 0 -1000 S
-PE 0 524288 -1
+1073743882 0 0 0 0 0 0 0 -1000 S
+PE 0 524288 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1098,8 +1098,8 @@ cave monkey~
 &+yshadows looking for tiny bug larvae to eat, stopping only to pluck the
 &+ylice from his fur - then eat them too.
 ~
-2056 0 0 1572872 0 0 0 0 S
-AA 0 1 2
+2056 0 0 0 1572872 0 0 0 0 S
+AA 0 1 0 2
 43 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1

@@ -1142,6 +1142,7 @@ M 0 21646 1 21857 100 0 0 0        * Berbrathus the lich
 E 1 21614 1 19 100 0 0 0           *   the eyes of undead fire
 G 1 21654 10 0 100 0 0 0           *    the heart of Berbrathus
 G 1 21615 1 0 100 0 0 0            *    the bone wand of Berbrathus
+G 1 67242 1 0 100 0 0 0            *    (object type not in this .obj file)
 F 1 21644 13 21857 100 0 0 0       * a mindless zombie (following)
 F 1 21644 13 21857 100 0 0 0       * a mindless zombie (following)
 M 0 21647 6 21859 100 0 0 0        * a sun lightseeker
@@ -1290,7 +1291,7 @@ G 1 21646 2 0 100 0 0 0            *    a potion of dark power
 G 1 21659 10 0 100 0 0 0           *    the heart of Elan'Atol
 F 1 21670 1 21937 100 0 0 0        * Cacazar (following)
 E 1 21648 1 12 100 0 0 0           *   the shroud of hatred
-G 1 21647 1 0 100 0 0 0            *    elixer of demonic power
+G 1 21647 1 0 100 0 0 0            *    elixir of demonic power
 G 1 21658 10 0 100 0 0 0           *    the heart of Cacazar
 *
 S

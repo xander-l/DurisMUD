@@ -515,6 +515,7 @@ E 1 43106 1 18 100 0 0 0           *   a halfling-crafted harp
 M 0 43136 1 43233 100 0 0 0        * Krintis the Rogue
 G 1 45018 2 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 45018 2 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 67261 1 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 43132 8 43235 100 0 0 0        * a merchant
 M 0 43137 25 43235 100 0 0 0       * a seagull
 M 0 43131 8 43236 100 0 0 0        * a young fisherman

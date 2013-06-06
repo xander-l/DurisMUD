@@ -286,6 +286,7 @@ G 1 360 1 0 100 0 0 0              *    (object type not in this .obj file)
 G 1 32486 1 0 100 0 0 0            *    a huge flaming greatsword
 G 1 19730 1 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 55282 1 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 67202 1 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 32453 1 32469 100 0 0 0        * Yeddikadir, servant of Bel
 E 1 32451 1 3 100 0 0 0            *   the holy symbol of sanctity
 E 1 32420 1 13 75 0 0 0            *   the ceinture of giant strength

@@ -10,8 +10,8 @@ predators of this mountain pass.  Seeing you in his cave, the barbarian quickly
 grabs a spear and begins to look you over, determining if you're a threat.  The
 &+Bbarbarian &nwears the emblem of the Utuva tribe on his cuirass.
 ~
-2122 0 0 268435500 0 0 0 0 S
-PB 11 16385 -1
+2122 0 0 0 268435500 0 0 0 0 S
+PB 11 16385 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -25,8 +25,8 @@ A muscular &+Bbarbarian&n with empty eyes watches his pupils.
 &+bcharges to the attack.  When the barbarian is within striking distance you
 &+bcan see that his eyes are pale &+Wwhite&+b and unfeeling.
 ~
-2122 1 0 8 0 0 0 -1 S
-PB 11 1 -1
+2122 1 0 0 8 0 0 0 -1 S
+PB 11 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -39,8 +39,8 @@ a &+Bbarbarian &+yhenchman&n paces the area.
 &+bthe sorceress from any unwanted guests.  In almost zombie-like fashion, he
 &+bwalks back and forth in place showing no emotion.
 ~
-1073743944 1 0 8 0 0 0 -1 S
-PB 11 1 -1
+1073743944 1 0 0 8 0 0 0 -1 S
+PB 11 1 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -53,8 +53,8 @@ A &+Bbarbarian &+rguard&n follows his sergeants orders.
 &+bfollows his orders closely.  The guard shows little emotion as it trains in
 &+bthe small battle chamber.
 ~
-2122 1 0 8 0 0 0 -1 S
-PB 11 1 -1
+2122 1 0 0 8 0 0 0 -1 S
+PB 11 1 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -67,8 +67,8 @@ This dog-like creature stands about 3 feet tall at its neck and is about 4 feet
 long.  Large saliva covered fangs grin out of a maliciously growling jaw.  This
 beast probably hasn't been fed in a while to keep up its angry demeanor.
 ~
-1073743944 1 0 8 0 0 0 -500 S
-A 0 1 -1
+1073743944 1 0 0 8 0 0 0 -500 S
+A 0 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -81,8 +81,8 @@ ice elemental~
 &+Cpoor thinking ability relegate this beast to the simple task of patrolling
 &+Cthe ice tower in search of victims.
 ~
-1073743944 0 0 0 64 0 0 -1000 S
-EW 0 1 7
+1073743944 0 0 0 0 64 0 0 -1000 S
+EW 0 1 0 7
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -96,8 +96,8 @@ strange incantations.  The eyes of the woman have lost all color and seem
 to be nothing but pale &+Wwhite&n marbles.  The worshiper looks ready to attack
 at any moment to protect her home and master.
 ~
-1073743944 1 0 8 0 0 0 -1 S
-PB 11 512 -1
+1073743944 1 0 0 8 0 0 0 -1 S
+PB 11 512 0 -1
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -110,8 +110,8 @@ a &+Wsnow &+Yt&+Li&+Yg&+Le&+Yr~
 &+Wfood.  Upon approach it lifts its head in anticipation of feeding.  Eyes
 &+Wfixated, it attacks.
 ~
-1073743944 1 0 0 0 0 0 -1 S
-A 0 1 -1
+1073743944 1 0 0 0 0 0 0 -1 S
+A 0 1 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -127,8 +127,8 @@ of heat rush out of the hydra's nostrils with every breath heating up the
 large cavern.  The sight of a beast of this stature has been known to grip even
 the most battle hardened adventurers with unparalleled fear.
 ~
-145482 0 0 838860824 12480 0 0 -1000 S
-D 0 1 -1
+145482 0 0 0 838860824 12480 0 0 -1000 S
+D 0 1 0 -1
 49 0 0 1d1+1 1d1+1
 0.0.0.0 0
 4 8 2
@@ -141,8 +141,8 @@ This large bird of prey has &+ybrown &nand &+bblue &nfeathers which help to keep
 warm.  The hawk swoops down in an effort to turn you into its next meal.  Its
 sharp claws make the bird a dangerous foe especially in a large pack.
 ~
-1073743944 1 0 134217736 0 0 0 -500 S
-B 0 1 -1
+1073743944 1 0 0 134217736 0 0 0 -500 S
+B 0 1 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -155,8 +155,8 @@ cleric ice~
 &+cpraise to his dark god.  This cleric is a disciple of the frost giant god,
 &+cThr&+Lym&+c.
 ~
-1073743944 1 0 8 64 0 0 -1000 S
-PB 11 32 -1
+1073743944 1 0 0 8 64 0 0 -1000 S
+PB 11 32 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -169,8 +169,8 @@ golem ice tall~
 &+Ldetermination to kill intruders is admirable.  The &+Cice &+Lgolem, upon seeing
 &+Lyou, lumbers forward and attempts to separate your limbs from your torso.
 ~
-1073744456 1 0 8 0 0 0 -1000 S
-OG 0 1 -1
+1073744456 1 0 0 8 0 0 0 -1000 S
+OG 0 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -184,8 +184,8 @@ tend to be very ferocious in battle.  Most &+rmino&+Ltaurs&n are neutral by natu
 others such as this specimen cannot fend off the impulses for destruction and
 lash out in anger at all within their reach.
 ~
-1073743946 1 0 24 0 0 0 -1000 S
-MT 0 1 -1
+1073743946 1 0 0 24 0 0 0 -1000 S
+MT 0 1 0 -1
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -199,8 +199,8 @@ at you.  This massive humanoid could easily crush your skull with a single deft
 blow to the head.  In his hand a large club of &+Cice&n is readied to put a
 swift end to the lives of anyone foolish enough to cross the enormous beast.
 ~
-1073743976 1 0 8 0 0 0 -500 S
-G 0 1 -1
+1073743976 1 0 0 8 0 0 0 -500 S
+G 0 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -213,8 +213,8 @@ This dog-like creature stands about 3 feet tall at its neck and is about 4 feet
 long.  Large saliva covered fangs grin out of a maliciously growling jaw.  This
 beast probably hasn't been fed in a while to keep up its angry demeanor.
 ~
-1342181226 1 0 8 0 0 0 -500 S
-A 0 1 -1
+1342181226 1 0 0 8 0 0 0 -500 S
+A 0 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -228,8 +228,8 @@ golem granite humanoid~
 &+Luse of weapons, prefering to beat his opponents to death with his massive
 &+Lfists of rock.
 ~
-1073743978 1 0 200 0 0 0 -1000 S
-OG 0 1 -1
+1073743978 1 0 0 200 0 0 0 -1000 S
+OG 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -243,8 +243,8 @@ a &+Wwhite &nworm slithers along the tower floor.
 &+WIts hard to imagine what foul magics could produce such a creature.  The white
 &+Wworm seems quite intent on filling its belly with you.
 ~
-72 1 0 8 0 0 0 -500 S
-G 0 1 -1
+72 1 0 0 8 0 0 0 -500 S
+G 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -260,8 +260,8 @@ a vicious &+Cice &+rdrake&n guards the staircase.
 &+cadversaries of the &+Cice &+Wdrake&+c to shreds.  Perhaps visiting this tower was
 &+cnot such a good idea afterall.
 ~
-14922 0 0 805306392 0 0 0 -1000 S
-D 0 65 -1
+14922 0 0 0 805306392 0 0 0 -1000 S
+D 0 65 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -276,8 +276,8 @@ up to their potential.  He is in charge of the other slave drivers of the tower
 and dictates how the mining operation is run.  It is unlikely that this &+cgiant
 will take kindly to your barging into his office.
 ~
-2154 1 0 8 0 0 0 -1000 S
-G 0 1 -1
+2154 1 0 0 8 0 0 0 -1000 S
+G 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -292,8 +292,8 @@ tower.  Large gashes are numerous on the slave's back, from many lashings
 administered by the overbearing &+Wfrost &+cgiants&n.  This barbarian's eyes
 are completely white and show no signs of acknowledging your presence.
 ~
-2122 0 0 8 0 0 0 1000 S
-PB 11 1 -1
+2122 0 0 0 8 0 0 0 1000 S
+PB 11 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -306,8 +306,8 @@ This &+wfrost &+cgiant&n scowls as he barks orders at the &+bbarbarian &nslaves.
 must thoroughly enjoy his job, because an unmistakable smile appears on his
 face with every snap of his whip.
 ~
-1073743946 1 0 8 0 0 0 -1000 S
-G 0 1 -1
+1073743946 1 0 0 8 0 0 0 -1000 S
+G 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -321,8 +321,8 @@ duergar stealthy~
 &+Lprecision.  This dangerous rogue can often kill an opponent before they are
 &+Laware of the &+rduergar's &+Lpresence.
 ~
-1073744072 1 0 270008330 0 0 0 -1000 S
-PD 6 8192 -1
+1073744072 1 0 0 270008330 0 0 0 -1000 S
+PD 6 8192 0 -1
 42 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -342,8 +342,8 @@ free of the spell.  He then freed me by burning me as well.  The giants noticed
 that I wasn't under the spell and dragged me off and left me for dead.  I think
 my husband is still alive... I don't think they noticed him."
 ~
-2122 0 0 8 0 0 0 1000 S
-PB 11 1 -1
+2122 0 0 0 8 0 0 0 1000 S
+PB 11 1 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 5 5 2
@@ -358,8 +358,8 @@ tower.  Large gashes are numerous on the slave's back, from many lashings
 administered by the overbearing &+Wfrost &+cgiants&n.  Strangely enough, this
 man's eyes have their natural color.
 ~
-2122 0 0 8 0 0 0 1000 S
-PB 11 1 -1
+2122 0 0 0 8 0 0 0 1000 S
+PB 11 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -377,8 +377,8 @@ the true identity of the mountain to scare off any possible claims to the vast
 riches of the mines in the mountain.  She is unlikely to surrender her illusion
 away, and will fight to the death.
 ~
-26698 1 0 268435482 2048 0 0 -1000 S
-PL 3 512 -1
+26698 1 0 0 268435482 2048 0 0 -1000 S
+PL 3 512 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -392,8 +392,8 @@ Only the most skilled warriors are given the honor of protecting the
 which has caught the attention of &+LAs&+chiva&+Lhr&n.  This strong giant stands
 defiantly here, willing to give his life in protection of his master.
 ~
-10314 1 0 8 0 0 0 -1000 S
-G 0 1 -1
+10314 1 0 0 8 0 0 0 -1000 S
+G 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -407,8 +407,8 @@ has become quite adept at using the forces of &+gnature&n to acquire his goals.
 The &+Wfrost &+Cgiant&n has sold his services to the &+Cice sorceress&n in exchange
 for monetary compensation.
 ~
-14410 1 0 8 0 0 0 -1000 S
-G 0 256 -1
+14410 1 0 0 8 0 0 0 -1000 S
+G 0 256 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -424,8 +424,8 @@ It would be very foolhardy to underestimate the immense strength of the large
 humanoid.  With weapon in hand, this giant lumbers forth to defend the domain
 of his master.
 ~
-1073743944 1 0 268435468 2048 0 0 -1000 S
-G 0 1 -1
+1073743944 1 0 0 268435468 2048 0 0 -1000 S
+G 0 1 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1

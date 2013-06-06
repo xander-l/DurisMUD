@@ -32,6 +32,7 @@ M 0 95300 25 95337 100 0 0 0       * a su-monster
 M 0 95300 25 95337 100 0 0 0       * a su-monster
 M 0 95301 1 95339 100 0 0 0        * the su-elder
 E 1 95300 1 9 100 0 0 0            *   some disease covered spiked talons
+G 1 67259 1 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 95300 25 95339 100 0 0 0       * a su-monster
 M 0 95303 1 95340 100 0 0 0        * Myle, the merchant
 E 1 95302 1 15 100 0 0 0           *   some iron-plated bracers
