@@ -8819,7 +8819,8 @@ void perform_violence(void)
       real_attacks = number_attacks;
     }
 */
-    
+          real_attacks = number_attacks;
+
     if(!affected_by_spell(opponent, SKILL_BATTLE_SENSES) &&
        GET_CHAR_SKILL(opponent, SKILL_BATTLE_SENSES) &&
        GET_POS(opponent) == POS_STANDING &&
