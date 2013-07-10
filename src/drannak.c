@@ -937,8 +937,8 @@ void do_conjure(P_char ch, char *argument, int cmd)
  if (!*argument)
   {
   send_to_char("&+WThese are the &+mmys&+Mtic&+Wal commands for &+Yconjuring&+W:\n&n", ch);
-  send_to_char("&+W(&+Mconjure stat <number> - &+mreveal statistical properties about this &+Mminion&n.)\n&n", ch);
-  send_to_char("&+W(&+Mconjure summon <number> - &+mcall the &+Mminion&+m into existence&n.)\n&n", ch);
+  send_to_char("&+W(&+wconjure stat <number> &+m- &+mreveal statistical properties about this &+Mminion&n.)\n&n", ch);
+  send_to_char("&+W(&+wconjure summon <number> &+m- &+mcall the &+Mminion&+m into existence&n.)\n&n", ch);
   send_to_char("&+MYou have learned the following &+mMobs&+M:\n&n", ch);
   send_to_char("----------------------------------------------------------------------------\n", ch);
   send_to_char("&+MMob Number		              &+mMob Name&n\n\r", ch);
