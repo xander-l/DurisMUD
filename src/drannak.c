@@ -1255,24 +1255,6 @@ void do_dismiss(P_char ch, char *argument, int cmd)
   {
     victim = k->follower;
 
-    if(!IS_PC(victim))
-    {
-    count++;
-    }
-  }
-
-
-  if(count == 0)
-   {
-    send_to_char("You have no followers to dismiss.\r\n", ch);
-    return;
-    }
-	
-	
-  for (x = ch->followers, i = 0, j = 0; x; x = x->next)
-  {
-    victim = x->follower;
-
     if(!victim)
     break;
 
@@ -1283,7 +1265,15 @@ void do_dismiss(P_char ch, char *argument, int cmd)
     act("You make a &+Mmagical &+mgesture&n, sending $N back to the &+Lnether plane&n.", TRUE, ch, 0,
         victim, TO_CHAR);
      extract_char(victim);
+    count++;
     }
   }
+
+
+  if(count == 0)
+   {
+    send_to_char("You have no followers to dismiss.\r\n", ch);
+    return;
+    }
 
 }
