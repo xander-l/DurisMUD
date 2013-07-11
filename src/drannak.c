@@ -1250,6 +1250,8 @@ void do_dismiss(P_char ch, char *argument, int cmd)
    return;
   }
   
+  return;
+  
   for (k = ch->followers, i = 0, j = 0; k; k = k->next)
   {
     victim = k->follower;
