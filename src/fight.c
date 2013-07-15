@@ -48,7 +48,7 @@
 #include "tether.h"
 
 /*
- * external variables
+ * external variables //
  */
 
 extern P_char character_list;
