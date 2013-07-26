@@ -246,16 +246,16 @@ int order_anchor(P_char ch, P_ship ship)
         send_to_char("You are docked, undock first!\r\n", ch);
         return TRUE;
     }
-    if (ship->speed != 0) 
+  /*  if (ship->speed != 0) 
     {
         send_to_char("You need to stop to anchor!\r\n", ch);
         return TRUE;
-    }
+    }*/
 
     if (ship->autopilot) 
         stop_autopilot(ship);
 
-    act_to_all_in_ship(ship, "&+yYour ship anchors here and your crew begins repairs.&N\r\n");
+    act_to_all_in_ship(ship, "&+yYour ship drops anchor here and your crew begins repairs.&N\r\n");
     SET_BIT(ship->flags, ANCHOR);
     ship->speed = 0;
     ship->setspeed = 0;
