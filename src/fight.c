@@ -7093,6 +7093,32 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
 
    }
 
+  if(victim && 
+	GET_CLASS(victim, CLASS_MERCENARY) &&
+	!affected_by_spell(ch, SKILL_ARMLOCK) &&
+	MIN_POS(victim, POS_STANDING + STAT_NORMAL) &&
+	(number(1, GET_C_LUCK(victim)) > number(1, 900)))
+  {
+  struct affected_type af;
+
+
+  act("&+LAs $n&+L attempts to attack you, you &+Cintercept&+L the attack with your &+yhands&+L and &+ytwist&n $n's arm!&n",
+    TRUE, ch, 0, victim, TO_VICT);
+  act("&+LAs $n&+L attempts to attack $N, $N &+Cintercepts&+L the attack with their &+yhands&+L and &+ytwist&n $n's arm!&n",
+    TRUE, ch, 0, victim, TO_NOTVICT);
+  act("&+LAs you attempt to attack $N, they quickly reach out, &+Cintercepting&+L the attack with their &+yhands&+L and quickly &+ytwist&n your arm!&n",
+   TRUE, ch, 0, victim, TO_CHAR);
+
+
+  memset(&af, 0, sizeof(af));
+  af.type = SKILL_ARMLOCK;
+  af.duration = 100;
+  af.flags = AFFTYPE_SHORT;
+  affect_to_char_with_messages(ch, &af, "Your arm feels normal.", NULL);
+
+  }
+
+
 
   if (has_innate(ch, INNATE_MELEE_MASTER))
     dam *= get_property("damage.modifier.meleemastery", 1.100);
@@ -7260,6 +7286,8 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
 
   if ((GET_RACE(ch) == RACE_MINOTAUR) && minotaur_race_proc(ch, victim))
   return true;
+
+
 
 
   if (affected_by_spell(ch, ACH_YOUSTRAHDME) && ((GET_RACE(victim) == RACE_UNDEAD) || 
@@ -8200,8 +8228,8 @@ int parrySucceed(P_char victim, P_char attacker, P_obj wpn)
   
   // If attacker is significantly stronger than the defender, parry is reduced.
   // This will benefit giants, dragons, etc... which is logical.
-  if(GET_C_STR(attacker) > GET_C_STR(victim) + 65)
-    learnedattacker += GET_C_STR(attacker) - 65 - GET_C_STR(victim); 
+  if(GET_C_STR(attacker) > GET_C_STR(victim) + 35)
+    learnedattacker += GET_C_STR(attacker) - 35 - GET_C_STR(victim); 
   
   // Harder to parry incoming attacks when not standing.
   if(!MIN_POS(victim, POS_STANDING + STAT_NORMAL))
@@ -8275,6 +8303,11 @@ int parrySucceed(P_char victim, P_char attacker, P_obj wpn)
     GET_ITEM_TYPE(weapon) == ITEM_FIREWEAPON)
   {
     learnedvictim /= 10;
+  }
+
+  if(weapon)
+  {
+   learnedattacker += (GET_OBJ_WEIGHT(weapon) * 2);
   }
   
 // Harder to parry something you are not fighting.
@@ -8719,6 +8752,22 @@ int calculate_attacks(P_char ch, int attacks[])
   }
 
   //dex and dex max now grants extra attacks.
+  P_obj weapon = ch->equipment[WIELD]; //harder to swing a lot with heavier weapons.
+  double wpnweight = 0.00;
+
+  if(weapon)
+  wpnweight = (double)GET_OBJ_WEIGHT(weapon);
+  double currstr = (double)GET_C_STR(ch);
+  //debug("wpnweight: %f", wpnweight);
+
+  double wpnpct = wpnweight / currstr;
+  int actpct = (100 * wpnpct);
+
+
+
+
+  if(actpct <= 5)
+  {
   if(GET_C_DEX(ch) >= 155)
     {
      send_to_char("&nYour &+gsuper&+Gbly dext&+gerous movements allow you to throttle your enemy with attacks!&n\n\r", ch);
@@ -8728,15 +8777,42 @@ int calculate_attacks(P_char ch, int attacks[])
     }
   else if(GET_C_DEX(ch) >=140)
     {
-     send_to_char("&nYour &+Gimproved &+gdexterity&n allows you to easily attack your enemy!&n\n\r", ch);
+     send_to_char("&nYour &+Gimproved &+gdexterity&n allows you to swiftly attack your enemy!&n\n\r", ch);
      ADD_ATTACK(PRIMARY_WEAPON);
      ADD_ATTACK(PRIMARY_WEAPON);
     }
   else if(GET_C_DEX(ch) >=125)
     {
-     send_to_char("&nYour heightened &+gdexterity&n allows you to swiftly attack your enemy!&n\n\r", ch);
+     send_to_char("&nYour heightened &+gdexterity&n allows you to easily attack your enemy!&n\n\r", ch);
      ADD_ATTACK(PRIMARY_WEAPON);
     }
+   }
+
+  else if(actpct <= 10)
+  {
+  if(GET_C_DEX(ch) >= 155)
+    {
+     send_to_char("&nYour &+gimproved &+Gdexterity&n allows you to mitigate some of the &+Lweight&n of this weapon and attack!&n\n\r", ch);
+     ADD_ATTACK(PRIMARY_WEAPON);
+     ADD_ATTACK(PRIMARY_WEAPON);
+    }
+  else if(GET_C_DEX(ch) >=140)
+    {
+     send_to_char("&nThis weapon feels &+Wslightly&n heavy in your hands, but still allows you to move &+gquickly&n and attack!&n\n\r", ch);
+     ADD_ATTACK(PRIMARY_WEAPON);
+
+    }
+   }
+
+  else if(actpct <= 20)
+  {
+  if(GET_C_DEX(ch) >= 155)
+    {
+     send_to_char("&nAlthough quite &+gdexterous&n, the weight of this &+Lweapon&n makes it harder to &+Lswing!&n\n\r", ch);
+     ADD_ATTACK(PRIMARY_WEAPON);
+    }
+   }
+
 
   if(GET_CLASS(ch, CLASS_CLERIC) &&
      affected_by_spell(ch, SPELL_DIVINE_FURY))
@@ -8968,7 +9044,7 @@ void perform_violence(void)
    /*   (!GET_CLASS(ch, CLASS_PSIONICIST) &&
       IS_AFFECTED3(ch, AFF3_INERTIAL_BARRIER) ) ||*/
 
-    if(IS_AFFECTED3(opponent, AFF3_INERTIAL_BARRIER) || IS_ARMLOCK(ch))
+    if(IS_AFFECTED3(opponent, AFF3_INERTIAL_BARRIER) || IS_ARMLOCK(ch) || affected_by_spell(ch, SKILL_ARMLOCK))
     {
       real_attacks = number_attacks - (int) (number_attacks / 2);
     }

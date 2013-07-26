@@ -788,6 +788,7 @@ void set_surname(P_char ch, int num);
 void clear_surname(P_char ch);
 void display_surnames(P_char ch);
 bool lightbringer_weapon_proc(P_char, P_char);
+bool mercenary_defensiveproc(P_char, P_char);
 char get_alias(P_char ch, char *argument);
 void create_alias_file(const char *dir, char *name);
 void create_alias_name(char *name);

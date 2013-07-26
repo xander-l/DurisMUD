@@ -30,6 +30,7 @@
 #include "justice.h"
 #include "weather.h"
 #include "sound.h"
+#include "ships.h"
 
 
 /*
@@ -306,6 +307,7 @@ void checkHallOfFame(P_char ch, char killer[1024])
 
 long getLeaderBoardPts(P_char ch)
 {
+ update_shipfrags();
  int sf = calculate_shipfrags(ch); 
  long hardcorepts =
        (GET_LEVEL(ch) * 1000) + (ch->points.curr_exp / 10000) + (sf * 100) +
@@ -382,6 +384,8 @@ void displayLeader(P_char ch, char *arg, int cmd)
   char     i;
   float    pts = 0;
   char     filename[1024];
+  update_shipfrags();
+
 
   
   sprintf(filename, "lib/information/leaderboard");

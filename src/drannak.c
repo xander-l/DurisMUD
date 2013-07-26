@@ -432,6 +432,53 @@ bool lightbringer_weapon_proc(P_char ch, P_char victim)
   */
 }
 
+bool mercenary_defensiveproc(P_char victim, P_char ch) //victim is the merc being hit
+{
+  int num, room = ch->in_room, save, pos;
+
+  
+  if (!IS_FIGHTING(ch) ||
+      !(victim = ch->specials.fighting) ||
+      !IS_ALIVE(victim) ||
+      !(room) ||
+      number(0, 15)) // 3%
+    return false;
+
+  if(affected_by_spell(ch, SKILL_ARMLOCK))
+  return false;
+    
+  if(!MIN_POS(victim, POS_STANDING + STAT_NORMAL))
+  return false;
+
+  int num1 = number(1, GET_C_LUCK(victim));
+  int num2 = number(1, 1000);
+
+  debug("mercproc: num1: %d num2: %d", num1, num2);
+  if(num1 < num2)
+  return false;
+	
+  struct affected_type af;
+
+
+  act("&+LAs $n&+L attempts to attack you, you &+Cintercept&+L the attack with your &+yhands&+L and &+ytwist&n $n's arm!&n",
+    TRUE, ch, 0, victim, TO_VICT);
+  act("&+LAs $n&+L attempts to attack $n, $N &+Cintercepts&+L the attack with their &+yhands&+L and &+ytwist&n $n's arm!&n",
+    TRUE, ch, 0, victim, TO_NOTVICT);
+  act("&+LAs you attempt to attack $N, they quickly reach out, &+Cintercepting&+L the attack with their &+yhands&+L and quickly &+ytwist&n your arm!&n",
+   TRUE, ch, 0, victim, TO_CHAR);
+
+
+  memset(&af, 0, sizeof(af));
+  af.type = SKILL_ARMLOCK;
+  af.duration = 100;
+  af.flags = AFFTYPE_SHORT;
+  affect_to_char(ch, &af);
+  
+  return true;
+
+  
+}
+
 bool minotaur_race_proc(P_char ch, P_char victim)
 {
   int num, room = ch->in_room, save, pos, cmd;
@@ -968,6 +1015,28 @@ void do_conjure(P_char ch, char *argument, int cmd)
 
     #define TARGET_CONJ_MOB = tobj;
 
+    //set up stats
+    int chance = number(1, GET_C_CHA(ch));
+    debug("chance %d", chance);
+    
+    if(chance > 70)
+    {    
+	act("$n's &+mcha&+Mris&+Mma&n &+Cradiates&n as they call forth their minion!", TRUE, ch, 0,
+        tobj, TO_ROOM);
+    act("Your &+mcha&+Mris&+Mma&n &+Cradiates&n as you call forth your minion!", TRUE, ch, 0,
+        tobj, TO_CHAR);
+     GET_MAX_HIT(tobj) = GET_HIT(tobj) =  tobj->points.base_hit = (tobj->points.base_hit * (1 + (number(1, 4) * .1)));
+    }
+
+    if(chance < 30)
+    {
+	act("An &+Lug&+yli&+Ler &nside of $n seems to eminate as they call forth their minion.", TRUE, ch, 0,
+        tobj, TO_ROOM);
+    act("Your &+Lug&+yli&+Ler &nside seems to eminate as you call forth your minion.", TRUE, ch, 0,
+        tobj, TO_CHAR);
+     GET_MAX_HIT(tobj) = GET_HIT(tobj) = tobj->points.base_hit = (tobj->points.base_hit * (number(6, 9) * .1));
+    }
+
     //Set up NPCACT etc.
     if(tobj->points.base_hit > 8000)
     GET_MAX_HIT(tobj) = GET_HIT(tobj) = tobj->points.base_hit = 8000;
@@ -980,6 +1049,7 @@ void do_conjure(P_char ch, char *argument, int cmd)
      apply_achievement(tobj, TAG_CONJURED_PET);
       SET_BIT(tobj->specials.affected_by, AFF_INFRAVISION);
       REMOVE_BIT(tobj->specials.affected_by4, AFF4_DEFLECT);
+      REMOVE_BIT(tobj->specials.act, ACT_SCAVENGER);
     REMOVE_BIT(tobj->specials.act, ACT_PATROL);
    REMOVE_BIT(tobj->specials.act, ACT_SPEC); 
    REMOVE_BIT(tobj->specials.act, ACT_BREAK_CHARM);
@@ -1017,8 +1087,7 @@ void do_conjure(P_char ch, char *argument, int cmd)
   {
     memset(&af, 0, sizeof(af));
     af.type = SPELL_CONJURE_ELEMENTAL;
-    af.duration = 100;
-    af.flags = AFFTYPE_SHORT;
+    af.duration = 2;
     affect_to_char(ch, &af);
   }
 

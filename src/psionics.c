@@ -1296,6 +1296,9 @@ void spell_spinal_corruption(int level, P_char ch, char *arg, int type,
       act("&+MBut it's dead already!", TRUE, ch, 0, victim, TO_CHAR);
       return;
     }
+
+    if(affected_by_spell(ch, TAG_CONJURED_PET))
+    return;
     if(CheckMindflayerPresence(ch))
     {
       send_to_char
@@ -2559,6 +2562,9 @@ spell_mind_blank(int level, P_char ch, char *arg, int type, P_char victim,
       ("You sense an ethereal disturbance and abort your spell!\r\n", ch);
     return;
   }
+
+  if (affected_by_spell(ch, TAG_CONJURED_PET))
+  return;
 
   if (affected_by_spell(ch, SPELL_MIND_BLANK))
   {

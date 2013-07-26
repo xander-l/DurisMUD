@@ -2257,7 +2257,7 @@ int helmet_vampires(P_obj obj, P_char ch, int cmd, char *arg)
               break;
           }    
 
-          CharWait(ch,PULSE_VIOLENCE * 6);
+          CharWait(ch,PULSE_VIOLENCE * 1);
           CharWait(vict,PULSE_VIOLENCE * 1);
  
           act("$N is stunned!&n", TRUE, ch, obj, vict, TO_CHAR);

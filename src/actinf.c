@@ -4948,6 +4948,10 @@ void do_score(P_char ch, char *argument, int cmd)
 
     strcat(buf, "\n");
     send_to_char(buf, ch);
+
+    sprintf(buf, "&+LLea&+wder&+Wboard Points&n: &n%4d&n ", (getLeaderBoardPts(ch) / 100));
+    strcat(buf, "\n");
+    send_to_char(buf, ch);
   }
   
   buf[0] = 0;
