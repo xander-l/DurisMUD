@@ -146,7 +146,7 @@ string wiki_help(string str)
 string wiki_racial_stats(string title)
 {
   string return_str, race_str;
-  char race[MAX_STRING_LENGTH];
+  char race[MAX_STRING_LENGTH], buf[MAX_STRING_LENGTH] = "";
   int i;
 
   for (i = 0; i <= RACE_PLAYER_MAX; i++)
@@ -171,7 +171,8 @@ string wiki_racial_stats(string title)
   return_str += "Strength    : &+c";
   sprintf(race, "stats.str.%s", race_str.c_str());
   //return_str += stat_to_string3((int)get_property(race, 100));
-  return_str += (int)get_property(race, 100);
+  sprintf(buf, "%d", (int)get_property(race, 100));
+  return_str += buf;
   return_str += "&n\n";
   return_str += "Agility     : &+c";
   sprintf(race, "stats.agi.%s", race_str.c_str());
