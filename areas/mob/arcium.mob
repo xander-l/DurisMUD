@@ -8,8 +8,8 @@ joji odd hermit~
 &+yyear.  He does not possess many material objects, although his rope belt has
 &+ya few&+C sh&+Wi&+Cn&+Wn&+Cy &+Worbs&+y attached to it which he made himself from nearby elements.&n
 ~
-1107732490 0 0 2056 2 0 0 -100 S
-PH 0 32768 -1
+1107732490 0 0 0 2056 2 0 0 -100 S
+PH 0 32768 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -22,8 +22,8 @@ rat small diseased~
 &+yIts ears are full of a sick waxy subsistence.  The diseased rats teeth are
 &+yexposed giving you a sense of fear.&n
 ~
-1073741832 1 0 526368 2 0 0 -1000 S
-A 0 0 -1
+1073741832 1 0 0 526368 2 0 0 -1000 S
+A 0 0 0 -1
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -37,8 +37,8 @@ salmon bruised~
 &+Rthe skin has been torn and battered.  Once a gourmet meal this fish has
 &+Rbecome only edible to the most desperate of men.&n
 ~
-1074006024 0 0 2052 2 0 0 -1000 S
-F 0 0 -1
+1074006024 0 0 0 2052 2 0 0 -1000 S
+F 0 0 0 -1
 22 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -52,8 +52,8 @@ hunched hunchedover man shopkeeper keeper~
 &+Lthrown across himself.  With his tattered wardrobe it seems this shopkeeper
 &+Lis too cheap for new attire. &n
 ~
-1073752074 0 0 2088 2 0 0 -100 S
-U 0 1 -1
+1073752074 0 0 0 2088 2 0 0 -100 S
+U 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -67,8 +67,8 @@ wolf werewolf dark sinister~
 &+Lhas large claws that denote its lethal nature.  Standing seven feet tall this
 &+Lbeast has short &+ybrown hair&+L covering almost all of his body.&n
 ~
-1073743880 0 0 2056 2 0 0 -1000 S
-l 0 0 -1
+1073743880 0 0 0 2056 2 0 0 -1000 S
+l 0 0 0 -1
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -80,8 +80,8 @@ raccoon rabid~
 &+y   The raccoon has very thick fur, that makes it look so cute.
 &+yThis little raccoon is busy grooming himself.&n
 ~
-8 1 0 1050624 0 0 0 -100 S
-A 0 0 -1
+8 1 0 0 1050624 0 0 0 -100 S
+A 0 0 0 -1
 20 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -95,8 +95,8 @@ hawk blood~
 &+Lwith red eyes that&+R glow&+L with &+rhate&+L.  It seems not to be &+Raf&+rraid&+L of you as if it
 &+Lthinks your an easy kill.&n
 ~
-1073874952 16384 0 134219776 2 0 0 -100 S
-B 0 0 -1
+1073874952 16384 0 0 134219776 2 0 0 -100 S
+B 0 0 0 -1
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 11 8 0
@@ -110,8 +110,8 @@ horse undead~
 &+gch&+Lun&+gks &+Lof &+gflesh&+L.  The horse has only half the normal amount of flesh as a
 &+Lregular horse since its un&+wdead&+L.&n
 ~
-134217738 0 0 0 0 0 0 -1000 S
-u 0 1 -1
+134217738 0 0 0 0 0 0 0 -1000 S
+u 0 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -127,8 +127,8 @@ infant dragon~
 &+rtheres a hint of lucky, since this infant doesn't know how to breath fire
 &+ryet though.&n
 ~
-1073874952 1 0 2056 2 0 0 -1000 S
-D 0 1 6
+1073874952 1 0 0 2056 2 0 0 -1000 S
+D 0 1 0 6
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 11 8 0
@@ -143,8 +143,8 @@ mother magnificent dragon wyrm~
 &+rdragon breathes a quick shot of fire to ward off enemies.  Its wings have
 &+ran enormous span.&n
 ~
-1140983850 0 0 134219784 2 0 0 -1000 S
-DK 0 1 -1
+1140983850 0 0 0 134219784 2 0 0 -1000 S
+DK 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -158,8 +158,8 @@ slave undead irate~
 &+Lthe zombie is almost completely gone.  It has slowly been falling off of the
 &+Ld&+gea&+Ld bo&+gdy&+L.  The slave is moaning as if it's sad.&n
 ~
-1073743880 0 0 2080 2 0 0 -1000 S
-U 0 0 -1
+1073743880 0 0 0 2080 2 0 0 -1000 S
+U 0 0 0 -1
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -174,8 +174,8 @@ spider wolf wolfspider~
 &+LIt moves at an astonishing speed, zipping around endlessly.  Also it has been
 &+Lknown to kill animals much bigger than itself.&n
 ~
-1073743880 0 0 2056 2 0 0 -1000 S
-AS 0 1 -1
+1073743880 0 0 0 2056 2 0 0 -1000 S
+AS 0 1 0 -1
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -189,8 +189,8 @@ dungeon of the tower.  How he survived for this many years is a miracle.  The
 slave is also moaning as if it's sad.  When he sees you he tries to ask for
 some help.
 ~
-33564698 0 0 2048 2 0 0 100 S
-PH 0 1 -1
+33564698 0 0 0 2048 2 0 0 100 S
+PH 0 1 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -205,8 +205,8 @@ archer undead~
 &+Loff since the day he died.  He carries a &+yquiver of&+Y arrows&+L on his back and
 &+La &+ygiant bow&+L in hand.&n
 ~
-1073743882 0 0 2056 2 0 0 -100 S
-sk 0 2 -1
+1073743882 0 0 0 2056 2 0 0 -100 S
+sk 0 2 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -221,8 +221,8 @@ archer undead~
 &+Loff since the day he died.  He carries a &+yquiver of&+Y arrows&+L on his back and
 &+La &+ygiant bow&+L in hand.&n
 ~
-1073743882 0 0 2056 2 0 0 -100 S
-sk 0 2 -1
+1073743882 0 0 0 2056 2 0 0 -100 S
+sk 0 2 0 -1
 48 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -235,8 +235,8 @@ bat~
 &+YIt's equipped with large fangs that could puncture a neck.  The bat
 &+Yflutters around the room screeching loudly.&n
 ~
-1074135048 0 256 134219784 2 0 0 -100 S
-B 0 0 -1
+1074135048 0 256 0 134219784 2 0 0 -100 S
+B 0 0 0 -1
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -249,8 +249,8 @@ bat~
 &+YIt's equipped with large fangs that could puncture a neck.  The bat
 &+Yflutters around the room screeching loudly.&n
 ~
-1074135080 0 256 134219784 2 0 0 -100 S
-B 0 0 -1
+1074135080 0 256 0 134219784 2 0 0 -100 S
+B 0 0 0 -1
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -265,8 +265,8 @@ royal undead soldier~
 &+wflesh of the zombie is almost completely gone.  It has slowly been falling off
 &+wof the dead body.&n
 ~
-1141245960 0 0 2060 2 0 0 -1000 S
-zo 0 1 -1
+1141245960 0 0 0 2060 2 0 0 -1000 S
+zo 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -279,8 +279,8 @@ crow black~
 &+Lnearby and staring at you with an evil intent.  Daylight seems to irate
 &+Lthis creature.&n
 ~
-1073874952 2 0 134219776 2 0 0 -100 S
-B 0 0 -1
+1073874952 2 0 0 134219776 2 0 0 -100 S
+B 0 0 0 -1
 17 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -293,8 +293,8 @@ lizard tiny~
 &+gscales that are staggered across its body.  The lizards tongue waves wildly
 &+gfrom its mouth.&N
 ~
-1073743880 0 0 2048 2 0 0 -100 S
-R 0 0 -1
+1073743880 0 0 0 2048 2 0 0 -100 S
+R 0 0 0 -1
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -308,8 +308,8 @@ mercenary undead~
 &+Las if in his prime the man radiates success.  Think twice before challenging
 &+Lthis survivor.&n
 ~
-395272 0 0 524292 0 0 0 -1000 S
-UW 0 16384 -1
+395272 0 0 0 524292 0 0 0 -1000 S
+UW 0 16384 0 -1
 42 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -324,8 +324,8 @@ zombies previous life the maid's job was not as hard, because the family would
 clean up some of there own messes.  The flesh of the zombie is almost
 completely gone.  It has slowly been falling off of the dead body.
 ~
-1073743884 0 0 268437504 2 0 0 -1000 S
-U 0 1 -1
+1073743884 0 0 0 268437504 2 0 0 -1000 S
+U 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -342,8 +342,8 @@ granrn priest~
 &+Wand he feels disappointed with its people, yet compelled to sick by them
 &+Wduring the hard times.&n
 ~
-1073752074 0 0 134219784 2 0 0 500 S
-PM 0 32 -1
+1073752074 0 0 0 134219784 2 0 0 500 S
+PM 0 32 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -360,8 +360,8 @@ kurlon mercenary~
 &+Lthinks &+WA&+wrc&+Lium's people are weak.  As you approach he glances at you as
 &+Lif your nothing.&n
 ~
-1073752074 0 0 2088 2 0 0 -1000 S
-MT 0 16384 -1
+1073752074 0 0 0 2088 2 0 0 -1000 S
+MT 0 16384 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -376,8 +376,8 @@ fragnox king~
 &+Mof mind power for untold eons and continues to be unchallenged by Arcium.
 &+MIt seems to walk around as if it is invincible.&n
 ~
-1073752074 0 0 2088 2 0 0 -1000 S
-GI 0 4 -1
+1073752074 0 0 0 2088 2 0 0 -1000 S
+GI 0 4 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -393,8 +393,8 @@ kelien aid druid~
 &+Gwhat his forest has become today. He is also wearing garments made from
 &+Gnatures gifts.&n
 ~
-1073752074 0 0 2088 2 0 0 -100 S
-CT 0 128 -1
+1073752074 0 0 0 2088 2 0 0 -100 S
+CT 0 128 0 -1
 57 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -409,8 +409,8 @@ slican master assassin~
 &+ycore of Slican, and you feel scared to oppose him.  Slican has been god of
 &+ymurders for untold eons and may never die.&n
 ~
-1073743882 0 0 268437544 2 0 0 -1000 S
-P2 0 8192 -1
+1073743882 0 0 0 268437544 2 0 0 -1000 S
+P2 0 8192 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -424,8 +424,8 @@ drunk undead town~
 &+Lflesh of the zombie is almost completely gone.  It has slowly been falling
 &+Loff of the dead body.&n
 ~
-1140850698 0 0 2048 2 0 0 -1000 S
-U 0 0 -1
+1140850698 0 0 0 2048 2 0 0 -1000 S
+U 0 0 0 -1
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -439,8 +439,8 @@ beggar undead~
 &+Lto the town.  The flesh of the zombie is almost completely gone.  It has
 &+Lslowly been falling off of the dead body.  Some lice falls from his &+ynappy hair&+L.&n
 ~
-2062 0 0 0 2 0 0 -1000 S
-U 0 0 -1
+2062 0 0 0 0 2 0 0 -1000 S
+U 0 0 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -452,8 +452,8 @@ ghost spectral image~
    This ghost is a dimly lit white shape hovering around the room.  It is a
 lost soul searching for revenge.
 ~
-1074137096 0 0 134219784 2 0 0 -100 S
-UG 0 2 -1
+1074137096 0 0 0 134219784 2 0 0 -100 S
+UG 0 2 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -465,8 +465,8 @@ naiad~
 &+b   This water nymph is a vicious little bastard.  Nothing can disturb his
 &+bterritory without paying the consequences.  He swims around looking for food.&n
 ~
-1074003976 1 0 2048 2 0 0 -100 S
-F 0 0 -1
+1074003976 1 0 0 2048 2 0 0 -100 S
+F 0 0 0 -1
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -479,8 +479,8 @@ Ettercaps are ugly bipedal creatures that get along very well with all types of 
         Ettercaps stand around six feet tall, even with their stooping gait and hunched shoulders. The creatures have short, spindly legs, long arms that reach nearly to their ankles, and large pot-bellies. The hands of ettercaps have a thumb and three long fingers that end in razor sharp claws. Their bodies are covered by tufts of thick, wiry, black hair, and their skin is dark and thick. Ettercaps' heads are almost equine in shape, but they have large reptilian eyes, usually blood-red in color, and large fangs, one protruding downward from each side of the mouth. The mouth itself is large and lined with very sharp teeth.
                 Ettercaps do not have a formal language. They express themselves through a combination of high-pitched chittering noises, shrieks, and violent actions.
 ~
-1073743882 1 0 1050632 0 0 0 -100 S
-AC 0 0 -1
+1073743882 1 0 0 1050632 0 0 0 -100 S
+AC 0 0 0 -1
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -492,8 +492,8 @@ frog poisonous tree~
 Giant Frogs: Giant frogs resemble their more common relatives in everything but size. Their enormous size means that they consider larger creatures as a source of food, making small creatures and even demihumans possible prey. A giant frog can range from 2 to 6 feet in length and weigh between 50 and 250 pounds (a 2-foot frog weighs 50 pounds, adding 50 pounds for each additional foot of length). Frogs with 1 Hit Die are 2 feet long, while those 2 to 4 feet long have 2 Hit Dice, and those over 4 feet long have 3 Hit Dice.
         The distance that a giant frog can jump is based upon its weight, with the maximum jumping distance for a 50-pound frog being 180 feet. Subtract 20 feet for every additional 50 pounds the frog weighs. A giant frog cannot jump backward or directly to either side, but can leap 30 feet straight up.
 ~
-788488 0 0 2056 0 0 0 -100 S
-A 0 0 -1
+788488 0 0 0 2056 0 0 0 -100 S
+A 0 0 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -504,8 +504,8 @@ gargoyle stone~
 ~
 These monsters are ferocious predators of a magical nature, typically found amid ruins or dwelling in underground caverns.
 ~
-1073743882 0 0 2056 0 0 0 -1000 S
-OG 0 1 -1
+1073743882 0 0 0 2056 0 0 0 -1000 S
+OG 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 300000
 8 8 0
@@ -517,8 +517,8 @@ ghoul deranged~
 Ghouls are undead creatures, once human, who now feed on the flesh of corpses. Although the change from human to ghoul has deranged and destroyed their minds, ghouls have a terrible cunning which enables them to hunt their prey most effectively.
         Ghouls are vaguely recognizable as once having been human, but have become horribly disfigured by their change to ghouls. The tongue becomes long and tough for licking marrow from cracked bones, the teeth become sharp and elongated, and the nails grow strong and sharp like claws.
 ~
-1073743880 0 0 2056 0 0 0 -1000 S
-U 0 0 -1
+1073743880 0 0 0 2056 0 0 0 -1000 S
+U 0 0 0 -1
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -531,8 +531,8 @@ hellhound hound hell~
 &+rHe stands 3 feet high and has an eerie howl.  This beast also smells like
 &+Lsmoke &+rwhich is not surprising.&n
 ~
-1073743880 0 0 2048 1 0 0 -1000 S
-x 0 1 -1
+1073743880 0 0 0 2048 1 0 0 -1000 S
+x 0 1 0 -1
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -545,8 +545,8 @@ treant angry tree~
 &+gskin has the texture of bark, and its limb are branch like in nature.  In
 &+gfact if this treant was standing still you might just think it's another tree.&n
 ~
-1073741834 0 0 2048 0 0 0 -1000 S
-VT 0 1 -1
+1073741834 0 0 0 2048 0 0 0 -1000 S
+VT 0 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -560,8 +560,8 @@ wight cruel~
 &+Lcovered with minimal flesh and armed with sharp claws.  When he glances at
 &+Lyou with its&+r burning eyes&+L it seems he has cruel intentions.&n
 ~
-1073743880 0 0 2048 0 0 0 -1000 S
-uw 0 1 -1
+1073743880 0 0 0 2048 0 0 0 -1000 S
+uw 0 1 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -574,8 +574,8 @@ wraith deadly~
 &+Lcloak under which his glowing red eyes can be seen.  This frail figure is
 &+Lshaped like a humanoid.&n
 ~
-1073874952 0 0 134219784 0 0 0 -1000 S
-wr 0 512 -1
+1073874952 0 0 0 134219784 0 0 0 -1000 S
+wr 0 512 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -588,8 +588,8 @@ tree haunting~
 &+yground with shadows, and blocks out incoming light.  The tree's trunk looks
 &+ylike a face of some short.  Oddly this tree seems to be alive.&n
 ~
-1073741832 0 0 2048 0 0 0 0 S
-VT 0 0 -1
+1073741832 0 0 0 2048 0 0 0 0 S
+VT 0 0 0 -1
 44 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -602,8 +602,8 @@ alligator large gator~
 &+garmored with the many scales about his body.  Its jagged row of teeth are
 &+gready to snap at anything that moves.&n
 ~
-1074006026 1 0 2048 2 0 0 0 S
-R 0 0 -1
+1074006026 1 0 0 2048 2 0 0 0 S
+R 0 0 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -616,8 +616,8 @@ boa constrictor~
 log.  The snake swims through the swamp most of the day killing anything in
 its path.
 ~
-264200 1 0 2048 0 0 0 0 S
-RS 0 0 -1
+264200 1 0 0 2048 0 0 0 0 S
+RS 0 0 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -629,8 +629,8 @@ fish hostile~
    The fish is a light blue on top and white on its belly.  Its whole body
 is solid muscle.
 ~
-1074006024 0 0 2048 0 0 0 0 S
-F 0 0 -1
+1074006024 0 0 0 2048 0 0 0 0 S
+F 0 0 0 -1
 23 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -643,8 +643,8 @@ creature swamp~
 &+Mtroll.  It is tall, strong, and very ugly.  It has purple skin and green hair.
 &+MThe creature is covered in a bunch of skunk weed.
 ~
-1074006026 0 0 2056 0 0 0 0 S
-HG 0 0 -1
+1074006026 0 0 0 2056 0 0 0 0 S
+HG 0 0 0 -1
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -658,8 +658,8 @@ monster swamp~
 &+Mugly.  It has purple skin and green hair.  The creature is covered in a bunch
 &+Mof skunk weed.&n
 ~
-1141123114 0 0 2056 0 0 0 -1000 S
-G 0 16 -1
+1141123114 0 0 0 2056 0 0 0 -1000 S
+G 0 16 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -673,8 +673,8 @@ enchantress swamp~
 &+MThe creature is covered in a bunch of skunk weed.  This creature is staring
 &+Mat you as if it's trying to hypnotize you.&n
 ~
-1141123082 0 0 2056 0 0 0 -100 S
-HG 0 256 -1
+1141123082 0 0 0 2056 0 0 0 -100 S
+HG 0 256 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -686,8 +686,8 @@ flytrap venus fly trap~
 &+g   The venus flytrap stands about five feet tall.  The mouth stands open
 &+gawaiting its next victim.  The mouth is supported by leafy vine legs.&n
 ~
-2058 1 0 1050624 0 0 0 0 S
-AC 0 0 -1
+2058 1 0 0 1050624 0 0 0 0 S
+AC 0 0 0 -1
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -701,8 +701,8 @@ boar wild~
 &+yto be taken lightly.  Living in the wild this boar has not learned to fear
 &+yman-kind&n
 ~
-1073741832 0 0 2048 0 0 0 -100 S
-A 0 0 -1
+1073741832 0 0 0 2048 0 0 0 -100 S
+A 0 0 0 -1
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -715,8 +715,8 @@ viper deadly~
 &+rlightning quick reflexes, it would be best to keep a safe distance.  This
 &+rviper comes and goes unseen and could strike at anytime.&n
 ~
-1073743880 0 0 526336 0 0 0 -100 S
-RS 0 1 -1
+1073743880 0 0 0 526336 0 0 0 -100 S
+RS 0 1 0 -1
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -730,8 +730,8 @@ aquaelf lonely elf~
 &+gan enchanting creature would be lonely, but at least she has her loyal
 &+gelementals.  Two gill slits can been seen on her throat.&n
 ~
-1074014218 128 0 2056 0 0 0 -100 S
-PE 0 2048 -1
+1074014218 128 0 0 2056 0 0 0 -100 S
+PE 0 2048 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -744,8 +744,8 @@ mredock bartender~
 &+yand himself.  Behide his grim stare is a jolly fellow who just needs to get
 &+ywarmed up to you.  He has a dark beard and shoulder length hair.&n
 ~
-1073752074 0 0 2056 0 0 0 -1000 S
-PB 0 16384 -1
+1073752074 0 0 0 2056 0 0 0 -1000 S
+PB 0 16384 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -759,8 +759,8 @@ king arcium~
 &+Lland to be lifted.  He is a giant man dressed in shinning armor.  Even in
 &+Lhis undead state this man is very dangerous.&n
 ~
-1073744142 1 0 2056 0 0 0 -1000 S
-UV 0 1 4
+1073744142 1 0 0 2056 0 0 0 -1000 S
+UV 0 1 0 4
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -771,8 +771,8 @@ gargoyle stone~
 ~
 These monsters are ferocious predators of a magical nature, typically found amid ruins or dwelling in underground caverns.
 ~
-1073743882 0 0 2056 0 0 0 -1000 S
-OG 0 1 -1
+1073743882 0 0 0 2056 0 0 0 -1000 S
+OG 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 300000
 8 8 0
@@ -787,8 +787,8 @@ royal undead soldier~
 &+wflesh of the zombie is almost completely gone.  It has slowly been falling off
 &+wof the dead body.&n
 ~
-1140983818 0 0 2060 2 0 0 -1000 S
-zo 0 1 -1
+1140983818 0 0 0 2060 2 0 0 -1000 S
+zo 0 1 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -804,8 +804,8 @@ hatchling dragon~
 &+rtheres a hint of lucky, since this infant doesn't know how to breath fire
 &+ryet though.&n
 ~
-131082 0 0 2056 2 0 0 -1000 S
-D 0 1 6
+131082 0 0 0 2056 2 0 0 -1000 S
+D 0 1 0 6
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 11 8 0
@@ -817,8 +817,8 @@ rat water~
 &+y   The cold wet rat looks scared and desperate seeking safety
 &+yin the shadows.  This tattered fuzz ball is a true survivor.&N
 ~
-10 1 0 2048 2 0 0 -1000 S
-A 0 0 -1
+10 1 0 0 2048 2 0 0 -1000 S
+A 0 0 0 -1
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0

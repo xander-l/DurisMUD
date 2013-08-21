@@ -461,7 +461,6 @@ O 0 139030 1 139246 100 0 0 0      * a Flame
 O 0 139132 1 139252 100 0 0 0      * a fountain of flames
 O 0 139020 1 139313 100 0 0 0      * a pile of platinum coins
 O 0 60 1 139313 100 0 0 0          * (object type not in this .obj file)
-O 0 360 1 139313 100 0 0 0         * an unnamed object
 O 0 25105 1 139313 100 0 0 0       * (object type not in this .obj file)
 O 0 139019 1 139335 60 0 0 0       * a shield of dancing flames
 O 0 139134 1 139335 100 0 0 0      * chief of the guard's armoire
@@ -1052,6 +1051,7 @@ M 0 139075 10 139311 100 0 0 0     * an efreeti noble
 M 0 139011 1 139312 100 0 0 0      * Shadam Quilen, the Efreeti Sultan
 E 1 139036 1 6 100 0 0 0           *   the crown of might
 G 1 139023 1 0 100 0 0 0           *    the palace vault key
+G 1 430 1 0 100 0 0 0              *    (object type not in this .obj file)
 M 0 139093 2 139314 100 0 0 0      * a magma man
 M 0 139021 2 139315 100 0 0 0      * a member of the Order of Fiery Heart
 G 1 139022 1 0 100 0 0 0           *    a key of blue fire

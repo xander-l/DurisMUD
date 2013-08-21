@@ -150,6 +150,7 @@ E 1 142424 7 16 100 0 0 0          *   a massive unholy blade
 G 1 142400 1 0 100 0 0 0           *    a golden seal of the fates
 G 1 142448 1 0 100 0 0 0           *    the necklace of the icecrag royalty
 G 1 359 1 0 100 0 0 0              *    (object type not in this .obj file)
+G 1 22070 1 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 142427 1 142446 100 0 0 0      * Hynera Drakenstone
 E 1 142445 1 16 100 0 0 0          *   a green bladed dagger named 'Sepsis'
 E 1 142446 1 17 100 0 0 0          *   an iron dagger

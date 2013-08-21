@@ -1970,6 +1970,7 @@ void assign_objects(void)
    */
   obj_index[real_object0(25018)].func.obj = doombringer;
   //obj_index[real_object0(25030)].func.obj = flamberge;
+  obj_index[real_object0(430)].func.obj = flamberge;
   obj_index[real_object0(25080)].func.obj = ring_elemental_control;
 
   /*
@@ -2022,7 +2023,7 @@ void assign_objects(void)
   /*
      Plane of Hell Two
    */
-  obj_index[real_object0(51401)].func.obj = zion_dispator;
+  obj_index[real_object0(51401)].func.obj = dispator;
 
 
   /*
