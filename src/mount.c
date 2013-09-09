@@ -139,12 +139,7 @@ void do_mount(P_char ch, char *argument, int cmd)
                  ch);
     return;
   }
-  else if(GET_SIZE(ch) < GET_SIZE(mount))
-  {
-    send_to_char("It's a tad hard for you to mount much of anything.\r\n",
-                 ch);
-    return;
-  }
+
   else if (!IS_SET(mount->specials.act, ACT_MOUNT))
   {
     if((GET_RACE(mount) == RACE_ANIMAL) ||
