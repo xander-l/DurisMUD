@@ -4964,6 +4964,10 @@ SPELL_ADD(CLASS_NONE, 1);
   TAG_CREATE("fragged victim", TAG_RECENTLY_FRAGGED);
   TAG_CREATE("merc defensive proc", TAG_MERC_DEFENSE);
 
+  TAG_CREATE_WITH_MESSAGES("LAY HANDS", TAG_LAYONHANDS,
+                           "&+WYour &+yhands&+W surge with &+Yholy &+Wstrength once again.&n",
+                           "&+W$n's &+yhands&+W surge with &+Yholy &+Wstrength once again.&n");  
+
   TAG_CREATE("minotaur rage", TAG_MINOTAUR_RAGE);
   TAG_CREATE("conjured pet", TAG_CONJURED_PET);
   TAG_CREATE_WITH_MESSAGES("Potion Timer", TAG_POTION_TIMER,

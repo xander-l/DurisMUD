@@ -1144,6 +1144,7 @@
 #define TAG_CONJURED_PET		  2095
 #define TAG_POTION_TIMER	         2096
 #define TAG_MERC_DEFENSE             2097
+#define TAG_LAYONHANDS		  2098
 #define DAMAGE_FALLING               2100       /* From falling to the ground */
 
 #define SAVING_PARA   0

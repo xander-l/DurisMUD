@@ -4477,7 +4477,7 @@ void do_layhand(P_char ch, char *argument, int cmd)
     }
   }
 
-   rested = 1.0 - ((float)time) / timer;
+  /* rested = 1.0 - ((float)time) / timer;
 
   // Lom: enabled thus very informative messages
   if (time != -1)
@@ -4492,7 +4492,13 @@ void do_layhand(P_char ch, char *argument, int cmd)
         send_to_char("&+WYou're almost ready to lay hands.\r\n", ch);
         return;
      }
-  }
+  }*/
+
+    if (affected_by_spell(ch, TAG_LAYONHANDS))
+    {
+      send_to_char("You need more rest before laying hands.\r\n", ch);
+      return;
+    }
 
   /* Lom: dont need as now fixed informative messages
     if (time != -1)
@@ -4513,11 +4519,10 @@ void do_layhand(P_char ch, char *argument, int cmd)
   struct affected_type af;
 
   memset(&af, 0, sizeof(af));
-  af.type = TAG_INNATE_TIMER;
+  af.type = TAG_LAYONHANDS;
   af.location = INNATE_LAY_HANDS;
-  af.modifier = 1;
-  af.duration = timer;
-  af.flags = AFFTYPE_SHORT | AFFTYPE_STORE | AFFTYPE_PERM;
+  af.duration = 30;
+  af.flags = AFFTYPE_NOSHOW | AFFTYPE_PERM | AFFTYPE_NODISPEL;
 
   affect_to_char(ch, &af);
 
