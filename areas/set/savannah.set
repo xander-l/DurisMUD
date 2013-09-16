@@ -2,7 +2,7 @@ alias er edit room
 alias ee edit room
 alias aa load o 138545;get sleep
 set MainZoneName savannah
-set lastcommand stat o 138534
+set lastcommand edit o 138515
 set startroom 138665
 set menuprompt &+GYour choice, O mighty Ike? &N
 set objaffect true
