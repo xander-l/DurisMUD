@@ -339,6 +339,9 @@ void do_forge(P_char ch, char *argument, int cmd)
   char     first[MAX_INPUT_LENGTH];
   char     second[MAX_INPUT_LENGTH];
   char     rest[MAX_INPUT_LENGTH];
+  char tempdesc [MAX_INPUT_LENGTH];
+  char short_desc[MAX_STRING_LENGTH];
+  char keywords[MAX_INPUT_LENGTH];
   int i = 0;  
   int choice = 0;  
   P_obj hammer, foundry;
@@ -644,6 +647,15 @@ void do_forge(P_char ch, char *argument, int cmd)
   P_obj reward = read_object(selected, VIRTUAL);
   SET_BIT(reward->extra2_flags, ITEM2_CRAFTED);
   SET_BIT(reward->extra_flags, ITEM_NOREPAIR);
+
+  sprintf(keywords, "%s %s", reward->name, GET_NAME(ch));
+
+  sprintf(tempdesc, "%s", reward->short_description);
+  sprintf(short_desc, "%s &+ymade by&n &+r%s&n", tempdesc, GET_NAME(ch));
+  set_keywords(reward, keywords);
+  set_short_description(reward, short_desc);
+
+  randomizeitem(ch, reward);
 
   obj_to_char(reward, ch);
   act

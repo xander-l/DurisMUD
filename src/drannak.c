@@ -69,6 +69,8 @@ extern P_obj quest_item_reward(P_char ch);
 extern int find_map_place();
 extern int getItemFromZone(int zone);
 
+void     set_short_description(P_obj t_obj, const char *newShort);
+
 void set_surname(P_char ch, int num)
 {
   /* Surname List
@@ -786,6 +788,97 @@ void random_recipe(P_char ch, P_char victim)
  }
 
  return; 
+
+}
+
+void randomizeitem(P_char ch, P_obj obj)
+{
+  int i = 0, workingvalue = 0, range = 0, value = 0, limit = 0, good = 0, luckroll = 0;
+  char tempdesc [MAX_INPUT_LENGTH];
+  char short_desc[MAX_STRING_LENGTH];
+
+while (i < 2)
+ {
+	//Get current a0/1 value
+	if(obj->affected[i].location != 0)
+	//debug("obj->affected[i].location: %d\r\n", obj->affected[i].location);
+	{
+	 luckroll = (number(1, GET_C_LUCK(ch)));
+         
+	    //initialize workingvalue
+	 workingvalue = 0;
+	 //send_to_char("Item has been randomized\r\n", ch);
+	 workingvalue += obj->affected[i].modifier; //base value
+	 if(workingvalue >=10)
+	 range = 5;
+	 else if(workingvalue >=5)
+	 range = 3;
+	 else if(workingvalue >=1)
+	 range = 1;
+	 else if(workingvalue <= -10)
+	 range = -5;
+	 else if(workingvalue <= -5)
+	 range = -3;
+	 else if(workingvalue <= -1)
+	 range = -1;
+	 
+	 //check for negative values
+     if (range < 0)
+		{
+		  limit = range * -1;
+                if(luckroll > 90)
+                {
+		    range += -1;
+		    limit += -1;
+                }
+		  value = (number(range, limit));
+		  if(value != 0)
+		  {
+		   if (value < 0)
+		   good += 1;
+                 else
+                 good -= 1;
+
+		  value += workingvalue;
+		  SET_BIT(obj->affected[i].modifier, value);
+                obj->affected[i].modifier = value;
+		  }
+		}
+	  else
+	  {
+           limit = range * -1;
+                if(luckroll > 90)
+                {
+		    range += 1;
+		    limit += 1;
+                }
+	    value = (number(limit, range));
+		  if(value != 0)
+		  {
+		   if (value > 0)
+		   good += 1;
+                 else
+                 good -= 1;
+		  value += workingvalue;
+		  SET_BIT(obj->affected[i].modifier, value);
+                obj->affected[i].modifier = value;
+		  }
+	  }
+	}
+   i++;	
+  }
+ if(good > 0)
+ {
+  sprintf(tempdesc, "%s", obj->short_description);
+  sprintf(short_desc, "%s&n &+Lof su&+wp&+Wer&+wi&+Lor craftsmanship&n", tempdesc);
+  set_short_description(obj, short_desc);
+ }
+ else if(good < 0)
+ {
+  sprintf(tempdesc, "%s", obj->short_description);
+  sprintf(short_desc, "%s&n &+yof poor craftsmanship&n", tempdesc);
+  set_short_description(obj, short_desc);
+ }
 
 }
 

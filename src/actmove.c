@@ -2321,6 +2321,7 @@ void do_open(P_char ch, char *argument, int cmd)
 	{
          REMOVE_BIT(robj->extra_flags, ITEM_INVISIBLE);
 	}
+	
 
 
       	act("&+mWhen at last it clears the &+Mbag&+m is gone, and all that remains is &n$p&+m!\r\n", FALSE, ch, robj, 0, TO_CHAR);
