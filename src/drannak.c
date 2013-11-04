@@ -1117,7 +1117,7 @@ while (i < 2)
 		{  
 	  	 SET_BIT(obj->bitvector2, AFF2_PROT_ACID);
   	 	 send_to_char("&+LYou infuse the &+Mmagical&+L properties of your stone into your creation...\r\n", ch);
-               sprintf(emsg, " &+Lof &+Gacid &+ldefense&n");
+               sprintf(emsg, " &+Lof &+Gacid &+Ldefense&n");
 		}
  	   else
 		{  
