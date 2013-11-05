@@ -171,6 +171,9 @@ void assign_mobiles(void)
 {
   int      i;
 
+  /* speed wipe entry to Tharn Rifts */
+  mob_index[real_mobile0(500129)].func.mob = Baltazo;
+  obj_index[real_object0(500055)].func.obj = tharnrifts_portal;
   /* scorched valley */
   mob_index[real_mobile0(71223)].func.mob = block_up;
   mob_index[real_mobile0(71259)].func.mob = yeenoghu;
@@ -185,7 +188,7 @@ void assign_mobiles(void)
   mob_index[real_mobile0(22428)].func.mob = clear_epic_task_spec;
   
   /* monk quest mob */
-  mob_index[real_mobile0(55178)].func.mob = monk_remort;
+  //mob_index[real_mobile0(55178)].func.mob = monk_remort;
 
   /* player castles */
 
@@ -482,6 +485,9 @@ void assign_mobiles(void)
   mob_index[real_mobile0(65012)].func.mob = fooquest_mob;
   mob_index[real_mobile0(65013)].func.mob = fooquest_boss;
 
+  /* Goodie Highwayman */
+  mob_index[real_mobile0(500058)].func.mob = goodie_guardian;
+
   /* images */
   mob_index[real_mobile0(250)].func.mob = imageproc;
 
@@ -572,7 +578,7 @@ void assign_mobiles(void)
 
 
   mob_index[real_mobile0(15)].func.mob = witch_doctor;
-  mob_index[real_mobile0(21549)].func.mob = llyren;
+ // mob_index[real_mobile0(21549)].func.mob = llyren;
 
   /*
      The Underworld
@@ -717,6 +723,7 @@ void assign_mobiles(void)
 
   mob_index[real_mobile0(132593)].func.mob = janitor;
   mob_index[real_mobile0(132519)].func.mob = money_changer;
+  mob_index[real_mobile0(98718)].func.mob = money_changer;
   mob_index[real_mobile0(132501)].func.mob = tharn_tall_merchant;
   mob_index[real_mobile0(132509)].func.mob = tharn_beach_guard;
   mob_index[real_mobile0(132510)].func.mob = tharn_male_commoner;
@@ -791,6 +798,10 @@ void assign_mobiles(void)
  mob_index[real_mobile0(5347)].func.mob = world_quest;
  mob_index[real_mobile0(37718)].func.mob = world_quest;
  mob_index[real_mobile0(74060)].func.mob = world_quest;
+
+ mob_index[real_mobile0(132551)].func.mob = world_quest;
+ mob_index[real_mobile0(38309)].func.mob = world_quest;
+ mob_index[real_mobile0(49064)].func.mob = world_quest;
 
    mob_index[real_mobile0(132542)].func.mob = tharn_shady_mercenary;
   mob_index[real_mobile0(132543)].func.mob = tharn_shady_youth;
@@ -1514,6 +1525,7 @@ void assign_objects(void)
   obj_index[real_object0(99447)].func.obj = nightcrawler_dagger;
   obj_index[real_object0(66419)].func.obj = rightous_blade;
 
+
   /* mobs */
   mob_index[real_mobile0(70535)].func.mob = long_john_silver_shout;
   mob_index[real_mobile0(70542)].func.mob = undead_parrot;
@@ -1583,6 +1595,7 @@ void assign_objects(void)
   obj_index[real_object0(1252)].func.obj = set_proc;
   obj_index[real_object0(1251)].func.obj = encrusted_eq_proc;
   obj_index[real_object0(251)].func.obj = parchment_forge;
+  obj_index[real_object0(400210)].func.obj = learn_recipe;
 
   obj_index[real_object0(58)].func.obj = relic_proc;
   obj_index[real_object0(59)].func.obj = relic_proc;
@@ -1686,7 +1699,7 @@ void assign_objects(void)
   obj_index[real_object0(130007)].func.obj = vecna_dispel;
   obj_index[real_object0(130008)].func.obj = vecna_boneaxe;
   obj_index[real_object0(130027)].func.obj = vecna_staffoaken;
-  //obj_index[real_object0(130028)].func.obj = vecna_krindor_main;
+  obj_index[real_object0(130028)].func.obj = vecna_krindor_main;
   obj_index[real_object0(130018)].func.obj = vecna_death_mask;
   obj_index[real_object0(130038)].func.obj = mob_vecna_procs;
   
@@ -1727,7 +1740,7 @@ void assign_objects(void)
   obj_index[real_object0(80569)].func.obj = dragonarmor;
 
   /* highway */
-/*  obj_index[real_object0(70924)].func.obj = lobos_jacket; */
+ // obj_index[real_object0(70924)].func.obj = lobos_jacket; 
   obj_index[real_object0(41304)].func.obj = kearonor_hide;
   obj_index[real_object0(41349)].func.obj = hewards_mystical_organ;
   obj_index[real_object0(42235)].func.obj = amethyst_orb;
@@ -1798,6 +1811,7 @@ void assign_objects(void)
   obj_index[real_object0(54)].func.obj = huntsman_ward;
   obj_index[real_object0(73)].func.obj = huntsman_ward;
   obj_index[real_object0(77)].func.obj = huntsman_ward;
+  obj_index[real_object0(400229)].func.obj = huntsman_ward;
 
   /* Kobold Settlement */
   obj_index[real_object0(1421)].func.obj = item_switch;
@@ -1958,6 +1972,7 @@ void assign_objects(void)
    */
   obj_index[real_object0(25018)].func.obj = doombringer;
   //obj_index[real_object0(25030)].func.obj = flamberge;
+  obj_index[real_object0(430)].func.obj = flamberge;
   obj_index[real_object0(25080)].func.obj = ring_elemental_control;
 
   /*
@@ -2010,7 +2025,7 @@ void assign_objects(void)
   /*
      Plane of Hell Two
    */
-  obj_index[real_object0(51401)].func.obj = zion_dispator;
+  obj_index[real_object0(51401)].func.obj = dispator;
 
 
   /*
@@ -2264,13 +2279,13 @@ void assign_rooms(void)
 
 
   // testing for multiclass
-  world[real_room0(1200)].funct = multiclass_proc;
-  world[real_room0(6801)].funct = multiclass_proc;
+  //world[real_room0(1200)].funct = multiclass_proc;
+  //world[real_room0(6801)].funct = multiclass_proc;
   world[real_room0(52904)].funct = multiclass_proc;
   
 // Dwarf and duergar berserkers
 // Gilaxi's Hidden Chamber in Torgs
-  world[real_room0(29181)].funct = berserker_proc_room;
+//world[real_room0(29181)].funct = berserker_proc_room;
   
   /* squid arena */
   for (x = 11200; x <= 11217; x++)
@@ -2354,11 +2369,11 @@ void assign_rooms(void)
   world[real_room0(67710)].funct = inn;
 
   /* Khildarak */
-  world[real_room0(17075)].funct = duergar_guild;
+  /*world[real_room0(17075)].funct = duergar_guild;
   world[real_room0(17223)].funct = duergar_guild;
   world[real_room0(17554)].funct = duergar_guild;
   world[real_room0(17720)].funct = duergar_guild;
-  world[real_room0(17724)].funct = duergar_guild;
+  world[real_room0(17724)].funct = duergar_guild;*/
   world[real_room0(17302)].funct = pet_shops;
   world[real_room0(17591)].funct = pet_shops;
   world[real_room0(17087)].funct = inn;
@@ -2570,6 +2585,14 @@ void assign_rooms(void)
   mob_index[real_mobile0(58)].func.mob = epic_familiar;
   mob_index[real_mobile0(59)].func.mob = epic_familiar;
   
+  /* Tradeskills */
+  mob_index[real_mobile0(132674)].func.mob = learn_tradeskill;
+  mob_index[real_mobile0(17264)].func.mob = learn_tradeskill;
+  mob_index[real_mobile0(400000)].func.mob = epic_store;
+  mob_index[real_mobile0(400001)].func.mob = pvp_store;
+  mob_index[real_mobile0(132675)].func.mob = assoc_founder;
+  mob_index[real_mobile0(17265)].func.mob = assoc_founder;
+
   /* Bronze Citadel */ 
   obj_index[real_object0(32486)].func.obj = bel_sword;
 
@@ -2580,7 +2603,7 @@ void assign_rooms(void)
   obj_index[real_object0(36894)].func.obj = critical_attack_proc;
 
   /* Lost Temple of Tikitzopl */
-  obj_index[real_object0(44165)].func.obj = unmulti_altar; 
+  //obj_index[real_object0(44165)].func.obj = unmulti_altar; 
   
   /* Trakkia */
   world[real_room0(57068)].funct = pet_shops;
@@ -2590,7 +2613,7 @@ void assign_rooms(void)
   mob_index[real_mobile0(87543)].func.mob = jubilex_one;
 
   obj_index[real_object0(87546)].func.obj = mask_of_wildmagic; 
-  obj_index[real_object0(87600)].func.obj = ebb_vambraces; 
+  //obj_index[real_object0(87600)].func.obj = ebb_vambraces; 
   obj_index[real_object0(87601)].func.obj = flow_amulet; 
   obj_index[real_object0(87611)].func.obj = jubilex_grid_mob_generator; 
   obj_index[real_object0(67274)].func.obj = zion_netheril;

@@ -1002,6 +1002,18 @@ int justice_send_guards(int to_rroom, P_char victim, int type, int response_leve
   int i, town;
   int hunt_type;
   hunt_data data;
+  int ht = CHAR_IN_TOWN(victim);
+
+  //WIPE2013 - Drannak
+  return FALSE; //disabling
+
+  // Only good hts get guards atm.
+  if( ht <= 0 || ht > LAST_HOME
+    || !IS_SET( hometowns[ht-1].flags, JUSTICE_GOODHOME ))
+  {
+    wizlog(56, "Justice: %s not in good ht %d; no guards dispensed.", GET_NAME(victim), ht );
+    return FALSE;
+  }
 
   if((to_rroom == NOWHERE) && !victim)
     return FALSE;
@@ -1058,6 +1070,10 @@ int justice_send_guards(int to_rroom, P_char victim, int type, int response_leve
     else
       hunt_type = HUNT_JUSTICE_SPECROOM;
   }
+
+  // Can comment this out later.
+  wizlog(56, "Justice: Dispatching %d guard(s) for %s.", how_many, 
+    GET_NAME(victim) );
 
   /* now send them out! */
   while(response_level)
@@ -1813,6 +1829,7 @@ void justice_action_invader(P_char ch)
   if(IS_TRUSTED(ch))
     return;
 
+<<<<<<< HEAD
   if(!CHAR_IN_TOWN(ch))
     return;
 
@@ -1821,9 +1838,37 @@ void justice_action_invader(P_char ch)
 
 /*  Original Justice 
   if(!justice_send_guards(NOWHERE, ch, MOB_SPEC_J_OUTCAST,
-                           (MAX(11, GET_LEVEL(ch)) / 11) + 1))
-    return;
+=======
+
+/*
+#if 1
+return;
+#endif
 */
+
+/*
+  if (mini_mode)
+   return;
+*/
+
+
+  if (!CHAR_IN_TOWN(ch))
+    return;
+
+  if (!IS_INVADER(ch) && !IS_OUTCAST(ch))
+    return;
+
+
+  /*Original Justice 
+  if (!justice_send_guards(NOWHERE, ch, MOB_SPEC_J_OUTCAST,
+>>>>>>> master
+                           (MAX(11, GET_LEVEL(ch)) / 11) + 1))
+   {
+    return;
+   }
+*/
+
+
 
   zone_struct = &zone_table[world[ch->in_room].zone];
   room = ch->in_room;  
@@ -1850,6 +1895,7 @@ void justice_action_invader(P_char ch)
     add_event(event_justice_raiding, WAIT_SEC * get_property("justice.raiding.alarm.time", 300), ch, 0, 0, 0, &room, sizeof(room));
     zone_struct->status = ZONE_RAID;
 
+<<<<<<< HEAD
     if((GET_RACEWAR(ch) == RACEWAR_EVIL))
     { 
       int rnum = number(1, 4);
@@ -1873,16 +1919,35 @@ void justice_action_invader(P_char ch)
   else if(IS_INVADER(ch) && IS_PC(ch) && get_scheduled(ch, event_justice_raiding))
   {
     if((GET_RACEWAR(ch) == RACEWAR_EVIL) && !number(0, get_property("justice.alarms.good", 15)))
+=======
+  if(IS_INVADER(ch))
+  {
+    if (!number(0, 2))
+      justice_send_guards(NOWHERE, ch, MOB_SPEC_J_OUTCAST, 1);
+  /*
+    if((GET_RACEWAR(ch) == RACEWAR_EVIL) &&
+        !(number(0, 15)) &&
+        get_property("justice.alarms.good", 1.000))
+*/
+    
+    if(GET_RACEWAR(ch) == RACEWAR_EVIL)
+>>>>>>> master
     { 
       int rnum = number(1, 4);
       if(rnum == 1)
         justice_hometown_echo(CHAR_IN_TOWN(ch), "&+RAlarm bells sound, &+rsignaling an invasion!&n");
       if(rnum == 2)
-        justice_hometown_echo(CHAR_IN_TOWN(ch), "&+YThe bells from all the shrines erupt in a thundering chorus!&n");
+        justice_hometown_echo(CHAR_IN_TOWN(ch), "&+LMilitia forces muster to bolster the town's defenses against the &=Lrinvaders!!!&n");
       if(rnum == 3)
         justice_hometown_echo(CHAR_IN_TOWN(ch), "&+LMilitia forces muster to bolster the town's defenses against the &=Lrinvaders!!!&n");
       if(rnum == 4)
+<<<<<<< HEAD
         justice_hometown_echo(CHAR_IN_TOWN(ch), "&+WThere is a stillness in the air before the storm of battle...&n");
+=======
+        justice_hometown_echo(CHAR_IN_TOWN(ch), "&+RAlarm bells sound, &+rsignalling an invasion!&n");
+      
+      return;
+>>>>>>> master
     }
     else if((GET_RACEWAR(ch) == RACEWAR_GOOD) && !number(0, get_property("justice.alarms.evil", 15)))
     {

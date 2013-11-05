@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #9200
 catatonic~
 a &+mcatatonic&n~
@@ -230,3 +231,237 @@ PH 0 1 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
 8 8 1
+=======
+#9200
+catatonic~
+a &+mcatatonic&n~
+&+wA &+mcatatonic&N &+windividual stands here unmoving&n.
+~
+Unmoving and oblivious to the outside world, this poor soul seems to have
+lost his link to reality. His shaggy hair is long an unkept and it seems that
+a mother rat has made her nest there.
+~
+8 0 0 0 33554432 0 0 0 0 S
+PH 0 1 0 -1
+35 6 -12 35d83+595 4d6+7
+9.9.1.2 45360
+8 5 1
+#9201
+raving lunatic~
+a &+yraving lunatic&n~
+&+wA &+yraving lunatic&n stands here, screaming at the top of her lungs.
+~
+     &+W'The sky is falling! The sky is falling!'&n
+
+The raving lunatic waves her arms madly in the air, trying vainly
+to get your attention, her wild, bloodshot eyes darting about angrily.
+~
+1207961740 64 0 0 8200 8 0 0 -750 S
+PH 0 16 0 -1
+34 6 -8 34d83+578 4d6+7
+8.9.0.2 44064
+8 8 2
+#9202
+leper leperous man~
+a &+Lleper&N~
+&+wA &+Lleperous man&n &+wstands here, loosing bits and pieces of his body&n.
+~
+Walking about in a solemn manner, the man stoops occationally to pick up
+another piece of his body that has just fallen off. He looks and you and
+attemps to speak, but a part of his lower lip flicks off and you notice he
+has no tongue.
+~
+1073744012 1 0 0 33554432 32768 0 0 0 S
+PE 0 1 0 -1
+1 20 96 1d17+6 1d5+0
+1.0.0.0 129
+8 8 1
+#9203
+insane woman~
+an &+Rinsane woman&N~
+An &+Rinsane woman&N leaps at you, sharpened &+rnails&n aimed at your throat.
+~
+Eyes rolled into the back of her head, her mouth in in a perpeutal grin,
+rotten teeth showing through. Her face seems grey, dust having settled in the
+numerous wrinkles on her face. Tufts of greasy grey hair remain on her chicken-
+skinned head, the rest having been pulled out in desperation.
+~
+1073744012 1 0 0 35127296 32768 0 0 100 S
+H 0 4096 0 -1
+25 11 19 25d40+200 3d5+3
+6.2.6.1 22275
+8 8 2
+#9204
+madman~
+a &+rmadman&n~
+A &+rmadman&n grins as his dagger sinks into your back.
+~
+Grinning evilly and licking his lips, a dreamy look comes over his face.
+     '&+wI wonder... does your blood taste salty or sweet&n?'.
+~
+1073744012 1 0 0 35127304 32768 0 0 0 S
+PM 0 8192 0 -1
+44 -1 -65 44d90+1892 6d6+12
+4.9.8.3 106920
+8 8 1
+#9205
+initiate~
+an &+Ginitiate&N~
+&+wAn&n &+Ginitiate&N &+wgoes about her duties&n.
+~
+An initiate sucrries about frantically, long light-colored hair frizzing
+out from the french braid that binds her hair. Her large green eyes dart
+about quickly as she tries to remember the layout of the temple.
+     '&+wDon't you find this place complicated? I've only been here two
+      &+wdays, but I'm already hopelessly lost. The Mistress will not like
+      &+wmy being late&n'.
+She sighs, looks around once more, and shrugs.
+~
+1140852876 0 0 0 33554432 32768 0 0 0 S
+PH 0 4096 0 -1
+27 8 13 27d55+297 3d6+4
+8.3.7.1 24057
+8 8 2
+#9206
+priestess blue~
+a &+Bpriestess&N~
+&+wA&n &+Bpriestess&N &+wwalks about, searching for her ward&n.
+~
+Looking rather annoyed, she peers about the room. Her chestnut hair bound
+bound neatly in a braid, she carries herself with elegance and grace. She
+pays you no attention, obviouly figuring that you are here to pay homage
+to her goddess.
+     '&+wWhere has that girl gone to? I told her to meet me at the temple
+      &+wat the Hour of Rememberance. When I find her...&n'.
+~
+1140852876 0 0 0 33628192 32780 0 0 0 S
+PH 0 32 0 -1
+34 6 -8 34d77+544 4d6+7
+8.9.0.2 44064
+8 8 2
+#9207
+priestess red~
+a &+Rpriestess&N~
+A &+Rpriestess&N sits here, meditating.
+~
+Sitting peacefully in a meditative pose, she doesn't hear you enter. A
+serenity sits contently on her upturned brown face, youth fleeing from it
+slowly. Pale lips move to a silent chant. A glittering golden-red headband
+holds back hair of the same color. She has earned the priviledge to wear it
+in a flowing manner.
+~
+1140852878 0 0 0 33554648 32768 0 0 0 S
+PH 0 2048 0 -1
+39 2 -24 39d64+819 4d7+10
+2.2.3.2 50544
+8 8 2
+#9208
+priestess black~
+a &+Lpriestess&N~
+A &+Lpriestess&N stands here, drilling a hole in a patient's skull.
+~
+With a grim precision, she skillfully drills a hole in her patient's
+skull. She wipes the blood from her eyes as it squirts at her, and
+then wipes her hands of her robe.
+     '&+wThis will help free the evil spirits in your head&n.'
+She picks up a vial of leeches and places them strategically on her
+patient's body.
+     '&+wAnd this will draw out the bad blood. You should be good as
+      &+wnew soon!&n'.
+She smiles sweetly.
+~
+67110926 0 0 0 570499104 32832 0 0 0 S
+PH 0 32 0 -1
+46 -3 -72 46d110+2484 6d6+25
+6.0.9.4 111780
+8 8 2
+#9209
+head priestess~
+the &+rhead&N &+Lpriestess&N~
+&+wThe&n &+rhead&n &+Lpriestess&N of &+GLizizania&N &+wstands here, speaking to her goddess in an ancient tongue&n.
+~
+Speaking in ancient tongues to her goddess, the &+rHigh&n &+LPriestess&N of
+&+GLizizania&N stands behind her altar. She notices you enter, finishes her
+chant, and looks at you with crystal blue eyes.
+     '&+wHave you come to pay homage to the Goddess? Leave your offerings.
+      &+wShe will reward your service&n'.
+~
+1107298382 0 0 0 33554488 32960 0 0 0 S
+PB 0 256 0 -1
+50 -3 -95 50d110+2700 6d6+25
+0.3.1.5 121500
+8 8 2
+#9210
+unconcious patient~
+&+wan unconcious patient&n~
+&+wAn &+Lunconcious&N &+wpatient lies here, a drill protruding from his skull&N.
+~
+Lying here with a drill sticking out of his skull, this poor soul is none
+too happy with the process. He screams and thrashes against the restaints,
+his dull eyes wide open. He appears to be trying to force himself to
+unconciousness, but with no success.
+     '&+wYou bloody bitch! Get that damned thing outta my brain! There's
+      &+wnothing wrong with me that a stiff drink can't fix!&N'.
+~
+134217738 0 0 0 33554432 0 0 0 800 S
+PH 0 8 0 -1
+20 13 35 20d35+140 3d4+2
+0.9.3.0 9720
+5 5 1
+#9211
+male servant~
+a male servant~
+A male servant scurries about with a tray of food.
+~
+Clothes covered with spilt food and drink stains, he scurries about with
+a tray of food, nearly knocking you over in the process.
+~
+2120 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+20 13 35 20d30+100 3d4+2
+0.9.3.0 9720
+8 8 1
+#9212
+female servant~
+a female servant~
+A female servant rushes about on an errand.
+~
+Knotted dark hair, this small female rushes about looking for someone.
+She peers from room to room, and occationally down at the small cup of
+steaming coffee she holds carefully in her hands.
+~
+2184 0 0 0 0 0 0 0 0 S
+PB 0 0 0 -1
+22 11 29 22d40+176 3d5+3
+4.0.5.0 19602
+8 8 2
+#9213
+worshiper female~
+&+WA worshiper&N~
+&+WA worshiper&N goes to pay homage to her mistress.
+~
+Wrapped in warm woolen clothes, she travels to the temple to pay homage to
+her goddess and leave a small gift. Her worn face looks down, dull eyes
+following the path as she walks slowly.
+~
+2248 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
+25 11 19 25d47+250 3d5+3
+6.2.6.1 22275
+8 8 2
+#9214
+worshiper male~
+&+WA worshiper&N~
+&+WA worshiper&N goes to pay homage to his mistress.
+~
+With a grim look on his face, the male walks slowly, shivering.
+One cannot help but wonder if it is from the cold or from the
+thought of his destination. You assume the latter as he is
+dressed in rather warm clothes.
+~
+2120 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
+35 6 -12 35d83+595 4d6+7
+9.9.1.2 45360
+8 8 1
+>>>>>>> master

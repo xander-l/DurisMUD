@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #66400
 dead rat~
 &+La dead &+grat&+L named &n'&+WParka&n'~
@@ -1011,3 +1012,1026 @@ A
 13 17
 A
 5 4
+=======
+#66400
+dead rat~
+&+La dead &+grat&+L named &n'&+WParka&n'~
+&+LA dead rat lays here.&n~
+~
+19 15 3 0 7 0 0 8404993 0 0 0
+24 0 0 0 0 0 0 0
+1 1 100
+E
+dead rat~
+&+LThe idea that a halfling would keep his dead pet rat, is beyond the halfling
+&+Lculture.  Parka is a little rat, with brown fur and tiny little fangs.  Parka,
+&+Lthe rat, is dead.
+~
+#66401
+golden shell~
+&+Ya golden shell&n~
+&+YA golden shell lays here.&n~
+~
+37 24 3 0 7 1 5120 513 0 85475329 0
+1 1 4 175 3 0 0 0
+10 382022 100
+E
+golden shell~
+&+YFrom a dragon egg, this circular shell seems to emit a powerful aura.
+~
+A
+23 -3
+A
+24 -3
+#66402
+marble sign~
+&+La large ma&+crbl&+Le sign~
+&+LA large ma&+crbl&+Le sign is pegged into the ground.~
+~
+12 15 3 0 7 0 1056 0 64 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+marble sign~
+&+C _____________________________________________________________________________
+&+C|                                                                             |
+&+C|&+L     The ways of our kind have been &nbr&+rut&nal&+L to all of those who opposed us,  &+C |
+&+C|&+L   including those who we may at one time have called &nfr&+bien&nds&+L.  In a world   &+C|
+&+C|&+L     where&+W cities&+L are created or destroyed using &+mma&+Lgi&+Lc, we sought out a      &+C|
+&+C|&+L   solitude for our persons to practice and experiment in peace, untouched  &+C |
+&+C|&+L    by the &+gpo&+Liso&+Gns&+L of the &+rinfadels&+L and brutes of this &+bworld&+L.  In time we     &+C|
+&+C|&+L   found such a place.  How incredibly satisfying it was to create a stable  &+C|
+&+C|&+L   environment for which to work from, for it was productive.  These times   &+C|
+&+C|&+L   weren't meant to last it seems, as our&+W g&+Lo&+Wd&+Ls turned their backs to us, and &+C|
+&+C|&+L   we were forced to fight the collective onslaught of the many whom we had  &+C|
+&+C|&+L   wronged in the generations previous.  &+wVic&+wto&+Wry&+L after &+wvic&+Wto&+Wry&+L we achieved,  &+C|
+&+C|&+L   until we began to wane.  We fought for many years with much&+r blood&+L spilled&+C |
+&+C|&+L   on both sides, however, our fate had been sealed, a victory of this kind  &+C|
+&+C|&+L   would not bestill my&+b brethren&+L.  It was decided to instead move all that   &+C|
+&+C|&+L   we have construed through our &+Mmagic&+L and labor to another desolate region  &+C|
+&+C|&+L   of this continent, and when the time was nigh, retake what is ours.  That&+C |
+&+C|&+L                               time is &+Rw&+Wi&+Bll&+L come.                            &+C|
+&+C|&+C                                                                             &+C|
+&+C|_____________________________________________________________________________|
+&+C                                     | |
+                              &+C       | |
+                               &+C      | |
+                                  &+C   | |
+~
+#66403
+spiraling portal~
+&+Wa s&+cp&+Cira&+cl&+Wing portal~
+&+WA portal s&+cp&+Cira&+cl&+Ws into nothingness.~
+~
+25 15 3 0 7 0 0 0 0 0 0
+66448 7 -1 0 0 0 0 0
+5 0 100
+E
+spiraling portal~
+&+WA marvelous array of colors.
+~
+#66404
+portal spiraling sphere~
+&+Wa &+Ws&+cp&+Cira&+cl&+Wing sphere&n~
+&+WA sphere s&+cp&+Cira&+cl&+Ws into nothingness.~
+~
+25 15 3 0 7 0 1024 0 0 0 0
+66541 7 -1 0 0 0 0 0
+0 0 100
+E
+portal spiraling~
+&+WIt hovers in mid air.
+~
+#66405
+crystal bracer solid~
+&+Wa solid crystal bracer&n~
+&+WA solid crystal bracer sits here.~
+~
+9 15 3 0 7 0 5120 4097 64 85475329 0
+5 0 0 3 0 0 0 0
+5 2000 100
+E
+crystal bracer solid~
+&+WIt hums softly and is totally transparent.
+~
+A
+24 -3
+A
+19 3
+#66406
+solid crystal sleeves~
+&+Wsome solid crystal sleeves~
+&+WSome solid crystal sleeves lay here.~
+~
+9 15 3 0 7 0 5120 257 64 85475329 0
+10 0 0 3 0 0 0 0
+5 203 100
+E
+solid crystal sleeves~
+&+WNearly tansparent, yet strong as steel.
+~
+A
+19 3
+A
+24 -3
+#66407
+collar solid crystal~
+&+Wa solid crystal collar~
+&+WA solid crystal collar sits here.~
+~
+9 15 3 0 7 0 4096 5 64 0 0
+7 0 0 3 0 0 0 0
+5 2020 100
+E
+collar solid crystal~
+&+WNearly totally transparent, yet strong as steel.
+~
+A
+19 3
+A
+26 8
+#66408
+key steel~
+&+ca solid steel key~
+&+cA solid steel key lays here.~
+~
+18 16 3 0 7 0 8388608 16385 0 0 0
+0 100 0 0 0 0 0 0
+1 1 100
+E
+key steel~
+&+cA key made of steel.&n
+~
+#66409
+solid solid-steel steel leggings~
+&+Lsome solid-&+bsteel&+L leggings~
+&+LSome solid steel leggings lay here.&n~
+~
+9 15 3 0 7 0 1024 33 0 87572571 0
+10 0 0 5 0 0 0 0
+10 3040 100
+E
+solid solid-steel steel leggings~
+&+LThese leggings look like they can take a beating.
+~
+A
+18 4
+A
+2 9
+#66410
+table circular~
+&+ya circular table~
+&+YA circular table with many plans sprawled upon it.~
+~
+13 15 3 0 7 0 1024 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+table circular~
+Many plans are sprawled upon it.
+~
+#66411
+sword broad~
+&na broad sword~
+&nA broad sword lays here.~
+~
+5 15 3 0 7 0 1024 8193 0 87650395 0
+5 1 8 3 0 0 0 0
+5 10 100
+E
+sword broad~
+Used the guards to kick some ass.
+~
+#66412
+swirling potion~
+&+Wa swirling potion&n~
+&+WA swirling potion lays here.~
+~
+10 7 3 0 7 0 4096 1 64 0 0
+30 1 15 141 0 0 0 0
+3 1020 100
+E
+swirling potion~
+&+WIt swirls in its center.
+~
+#66413
+charge static chest~
+&+La &+cst&+Cati&+cc &+Lcharge~
+&+LA &+cst&+Cati&+cc&+L charge sparks &+bel&+Bect&+bric&+L current~
+~
+15 23 3 0 7 0 1024 0 0 0 0
+99 13 66414 99 0 0 0 0
+9999 1 100
+E
+charge static~
+&+LThe charge seems to form a chest of some sort.  It's perfectly square and has
+&+Lnear perfect right angles.  Its upper portion is curved, forming something like
+&+La treasure chest lid.
+~
+#66414
+key electric~
+&+Wan &+Celectric&+W key~
+&+WA key made of &+Celecticity &+Wflickers.~
+~
+18 23 3 0 7 0 8392704 16385 0 0 0
+0 0 0 0 0 0 0 0
+1 2030 100
+E
+key electric~
+It's nearly transparent.
+~
+#66415
+swirling mist~
+&+msome swirling mist~
+&+mSome swirling mist floats here.~
+~
+8 1 3 0 7 0 0 1 0 0 0
+0 0 0 0 0 0 0 0
+1 293 100
+E
+swirling mist~
+It seems to be a cloud of vapor.
+~
+#66416
+holy cross~
+&+Wa holy cross&n~
+&+WA holy cross lays here.~
+~
+8 38 3 0 7 0 0 1 0 0 0
+0 0 0 0 0 0 0 0
+5 2030 100
+E
+holy cross~
+&+WThis cross is nothing special, however, it seems to emit an aura.  There's
+&+Wnothing errie about this cross, yet whomever touches it get's a slight chill
+&+Wthrough their fingertips.
+~
+#66417
+abominable cloth~
+&+Lsome&n &+rabominable&+L cloth~
+&+LSome abominable material look horrific.~
+~
+8 23 3 0 7 0 70656 129 64 87650371 0
+0 0 0 2 0 0 0 0
+5 202 100 0 16 0 0
+E
+shimmering gloves~
+&+CThese gloves shimmer inbetween the state of visibility and transparency.  With
+&+Can odd color resembling that of silver, these things seem to adjust themselves
+&+Cto whomever wear's them.  What they are made of is difficult to tell, maybe they're
+&+Cof a substance from the spiritual world.
+~
+#66418
+book truth~
+&+Wa chronicles book~
+&+WA book lays here.~
+~
+16 28 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+1 2938 100
+E
+book truth~
+ Indeed our time had come, our strength   from our former homeland.  For there
+and resolution as a people was fading     are many things hidden from the
+rapidly.  Not many of our people had      eyes of the masses.  Do not look
+the courage enough to fight the evil      in our village, treasure hunters, for
+that was descending upon our village,     you will find it in vain.  We know
+the decision to leave our homeland was    where you will be successful.  If it
+decided upon by our council of elders.    be known that any treasure hunter has
+Indeed they were right to decide so, if   defiled our village in such attempts,
+we were to have stayed, we would have     we shall beat them perpetually, and
+been utterly destroyed for the evil was   after they are dead, we shall kill
+simply too powerful.                      you again.
+
+ Thus our story is written here so that   We have no treasure /in/ our village!
+whom may come after us realize what we    Thus not seek there!
+were up against, and why we abandoned
+our village.  If ever we return, and
+find the tyranny nonexistant, we shall
+seek to reward those who drove the evil
+~
+#66419
+holy longsword righteous~
+a &+Wholy gleaming longsword &+L'&+WRi&+wg&+ch&+Ct&+ce&+wo&+Wus&+L'~
+&+LA &+Wskull&+L handled flail rests here.~
+~
+5 23 3 0 15 10 1024 8193 66 87572483 0
+5 6 3 0 0 0 0 0
+15 282832 100 536879136 12480 0 0
+E
+skull flail blood zerker~
+&+WThe upper portion of the sword consists of a strange mist and looks to be
+&+Wmagic in nature.  The lower part of the sword, the handle, is construed
+&+Wof bone.  On either side where the handle and the mist adjoin, there seems
+&+Wto be a tiny runes, which speak the language of magic.
+
+       &+y    \ /
+      &+y  ___/ \___|_|_/___&+Y*
+         &+y   |     | \    &+Y*
+         &+y  / \
+
+&+WWhat they could mean, is left to the imagination.  This sword might slice
+&+Wthrew anything, maybe even the roughest of roughest of mountains, or even
+&+Wadamantite.
+~
+A
+19 4
+A
+18 4
+#66420
+sheathe belt~
+&+La sh&ne&+Wa&nt&+Lhe~
+&+LA belt with a sheathe lays here.&n~
+~
+9 12 3 0 7 0 0 2049 0 0 0
+5 0 0 3 0 0 0 0
+5 2019 100
+E
+sheathe belt~
+It should fit loosely about one's waste.
+~
+A
+18 4
+A
+26 9
+#66421
+leather studded sentry boots~
+&+Lsome &+yleather&n-&+Ystudded &+gse&+Gntr&+gy &+Lboots~
+&+LSome leather studded sentry boots lay here.&n~
+~
+9 13 3 0 7 0 1024 65 64 87572491 0
+4 0 0 4 0 0 0 0
+5 430 100
+E
+leather studded sentry boots~
+&+LThese boots were manufactored with care, for they are the boots of a soldier.
+&+LSoldiers are recognized by the smithy's for their uncanny ability to wear out
+&+Lshoes prematurely, through marching and battle alike.
+~
+A
+14 30
+A
+18 3
+#66422
+horn ring~
+&+Ya &+yhorn&+Y ring~
+&+YA ring fit for a horn lays here.&n~
+~
+9 44 3 0 7 0 0 134217729 64 0 0
+5 0 0 3 0 0 0 0
+2 2030 100
+E
+horn ring~
+&+YFrom the looks of it, this ring fits to a horn of some shape.  It's made of a
+&+Yglass steel, which makes it very durable.
+~
+A
+18 3
+A
+19 2
+#66423
+drow longsword two two-handed handed~
+&+La two-handed &+mdrow&n &+Llongsword~
+&+LA drow longsword lays on the ground.~
+~
+5 15 4 0 7 0 4195328 8193 0 67108888 0
+13 4 6 3 0 0 0 0
+15 2030 100
+E
+drow longsword two two-handed handed~
+&+LThis is a finely crafted two-handed longsword specially made for a drow.  Since
+&+Ldrows are physical inferior than other races, they need steel that is, in fact,
+&+Llight.  The hilt of the sword is intwined with a leather to further strengthen
+&+Lgrip.
+~
+#66424
+drow earring unholy~
+&+Lan earring of the &+munholy drow&n~
+&+LAn earring crafted by a drow lays here.~
+~
+9 38 3 0 10 0 512 524289 64 0 12
+1 0 0 2 0 0 0 0
+1 203 100 33554432 0 0 0
+E
+drow earring unholy~
+&+mThis earring is in a shape of a skull.  Drow are a sinister race, so they have
+&+mto stick together to survive the hardships of this plane of existance.  This
+&+mearring must be magic of some sort, for drows are a magical race.
+~
+A
+13 25
+A
+20 -3
+#66425
+skull~
+&+Wa skull&n~
+&+WA skull lays upon the floor.~
+~
+8 15 3 0 7 0 4097 1 0 0 0
+0 0 0 0 0 0 0 0
+5 1 100
+E
+skull~
+&+WThis skull seems belonged to a halfling.  It seems to be magical in nature, for
+&+Wit glows slightly.
+~
+#66426
+snakeskin vest~
+&+La &+ysnak&+Leskin&+L vest~
+&+LA snakeskin vest lays on the ground.~
+~
+9 2 3 0 7 0 0 1025 0 0 0
+8 0 0 2 0 0 0 0
+5 2939 100
+E
+snakeskin vest~
+&+LThis vest covers the upper torso, and is made of snakeskin.
+~
+A
+2 10
+A
+19 3
+#66427
+snakeskin~
+&+Lsome snakeskin~
+&+LSome snakeskin lays here.~
+~
+8 2 3 0 7 0 0 1 0 0 0
+0 0 0 0 0 0 0 0
+5 5 100
+E
+snakeskin~
+&+LSome snakeskin.
+~
+#66428
+orb crystal~
+&+Wa &+rwa&+Lr&+Wp&+Le&+rd &+Wcrystal orb&n~
+&+WA crystal orb lays here.~
+~
+9 23 2 0 12 0 1024 16385 64 46305188 0
+5 0 0 2 0 0 0 0
+5 2020 100 4 0 0 0
+E
+orb crystal~
+&+WThis transparent crystal orb swirls from within.  A strange mist spirals in
+&+Wmany a direction yet none at all.  It not weigh much, and one could hold it
+&+Weasily with two hands.
+~
+A
+13 30
+A
+33 3
+#66429
+eyepatch halfling~
+a &+yhalfling&+Y captain&+y eye&+Ypatch&n~
+&+mA halfling captain eyepatch lays here.~
+~
+9 15 3 0 7 0 1 131073 64 0 0
+4 0 0 3 0 0 0 0
+3 2020 100
+E
+eyepatch halfling~
+&+GThis eyepatch has been in the captain's family for generations and generations.
+&+GIt is said to hold special powers, and whomever it favors is endowed with
+&+Gspecial health and magic resistance.  Its make is unlike most eyepatches,
+&+Gfor that could be due to its antiqueness.  This eyepatch seems to adapt
+&+Gitself perfectly to whomever wears it, for it fits most pefectly well.
+~
+A
+13 20
+A
+24 -4
+#66430
+scalp~
+scalp of a soldier~
+The scalp of a soldiers lays here.~
+~
+8 15 3 0 7 0 0 1 0 0 0
+0 0 0 0 0 0 0 0
+4 1 100
+E
+scalp~
+Scalp of an orc.
+~
+#66431
+longsword long sword razor~
+&+La razor&+bsharp&+L longsword~
+&+LA razorsharp longsword lies here.~
+~
+5 15 3 0 7 0 1024 8193 64 87572483 0
+5 2 5 3 0 0 0 0
+15 4040 100
+E
+longsword long sword razor~
+&+bThis longsword looks sharper than most blades.  It seems magic in nature, and
+&+bcan be carried losely in one's hand without losing one's grip.  Some would
+&+bsay that this blade is alive, that it adapts to its wielder.  Power achieved
+&+bis power earned, or so the blade seems to whisper.
+~
+A
+19 1
+#66432
+board~
+&+ya &+Yboard~
+&+yA &+Ytown &+yboard&+y board is here.~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+board~
+&+YMost posts are illegible save a few ..
+
+&+C  __________/\/\______    _________/\/\/\_____/\/\/\_____
+&+C / &+cParka has gotten   &+C\  /&+cCongratulations are in order!&+C /
+&+C \ &+clost again, if any &+C/  \&+cFren and his wife Bar have   &+C \
+&+C / &+cone has seen him,  &+C\  /&+ca new born child!  A         &+C /
+&+C \ &+ccontact me please.&+C /  \&+ccelebration is scheduled     &+C \
+&+C / &n-&+yMalok&+C             \  /&+ctomorrow at noon.             &+C/
+&+C \/\__/\/\/\__________/  \&+cTheir son, Frenbar Tokee, has&+C \
+&+C                         /&+ca frightening appearance tho.&+C /
+&+C                         \&+cHe bares some resemblance to &+C \
+&+C                         /&+ca green skinned troll! O'well!&+C/
+&+C                         \ &n-&+mGolrith              &+C       \
+&+C                          \____/\/\/\/\/\__/\_____/\/\/\/
+&+C _________/\/\/\_____/\/\/\______/\/\_______/\/\/\/\/\___/\_
+&+C/&+c Has anyone had any frightening nightmares recently?      &+C/
+&+C\ &+cMy son, my husband, and I are having trouble sleeping    &+C\
+&+C/&+c at night due to nightmares.  The strange thing is,       &+C/
+&+C\ &+cwe're all having the same dream!  We dream about this    &+C\
+&+C/&+c horrific idea about running around in a place called     &+C/
+&+C\ &+cHubis.  It is a strange place with many a weird deities. &+C\
+&+C/ &+cOne of these deities calling himself Uklor insisted that &+C/
+&+C\ &+cwe all try out a thing he called a 'zone', and promised &+C \
+&+C/ &+cnot to get us killed!  What a horrible grump that deity &+C /
+&+C\ &+cis, a mere promise won't do us any good!  If anyone else&+C \
+&+C/ &+cis having strange dreams like this, please let me know.&+C  /
+&+C\ &n-&+MOcul&+C                                                    \
+&+C \__/\/\/\/\_________/\/\/\/\/\__/\_________/\/\/\/\/\_____/
+~
+#66433
+old posted sign~
+&nan &+Lold&n posted sign~
+&nAn &+Lold&n sign is posted.~
+~
+13 15 3 5 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+old posted sign~
+&+YIt reads ...
+
+&+gBe wary, if you are amoung my brethren, evil now engulfs our beloved temple
+&+gto the west.  Travel amoungst our former residence at your risk ..
+~
+#66434
+battered war helm warhelm~
+&+La ba&+bt&+Cte&+br&+Led &+Lwarhelm~
+&+LA battered warhelm lays here.~
+~
+9 15 4 0 12 0 1024 17 64 85475353 0
+12 0 0 4 0 0 0 0
+10 5050 100
+E
+battered war helm warhelm~
+&+LThis helm looks to have seen better days, it's a wonder it's still wearable.
+&+LWhy someone would want this to protect the skull is unreal, for it has so
+&+Lmany dents it's unreal.  Or perhaps that's just a reason to wear it, perhaps
+&+Lthere is some secret power unrevealed.
+~
+A
+1 10
+A
+2 10
+#66435
+stone drawbridge~
+&+La stone &+ydraw&+Lbridge&n~
+&+LA stone &+ydraw&+Lbridge is hovers above the moat.&n~
+~
+13 15 3 0 7 0 9216 0 0 0 0
+0 0 0 0 0 0 0 0
+9999 1 100
+E
+stone drawbridge~
+&+LThis bridge is made of stone.  It allows passage to and from the keep
+&+Lto the north.  The drawbridge is lowered welcoming all.
+~
+#66436
+spear wooden~
+&+La &+ywooden&+L spear~
+&+LA wooden spear lays here.~
+~
+5 15 3 0 7 0 1024 8193 0 87572483 0
+8 2 4 11 0 0 0 0
+15 3030 100
+E
+spear wooden~
+&+LA long wooden polearm.
+~
+#66437
+mask lazy~
+&+Ma mask of the &+gl&+ya&+rz&+wy~
+&+MA mask lays on the ground.~
+~
+9 15 3 0 7 0 0 262145 64 0 0
+6 0 0 2 0 0 0 0
+3 1234 100
+E
+mask lazy~
+&+MThis mask if very thin, very fragile.  It has the design of a clown upon it,
+&+Mand people seem to smile at the bearer.
+~
+A
+38 5
+A
+5 6
+#66438
+white fur gloves skin~
+&+Lsome &+Wwhite&n &+Yfur sk&+Lin glo&+Wves~
+&+LSome white fur skin gloves lay here.~
+~
+9 2 3 0 7 0 1024 129 64 87572571 0
+8 0 0 5 0 0 0 0
+5 1234 100
+E
+white fur gloves skin~
+&+LThese gloves come from the fur of a white ape.  These apes are urban legends
+&+Lcome to life.  Many unsuspecting travellers have been caught unaware by these
+&+Lbeasts, and ripped apart.
+~
+A
+19 3
+A
+32 3
+#66439
+linin badge~
+&+Ya &+Yli&+Lni&+b&+Yn&n &+Ybadge~
+&+YA linin badge lays on the ground.~
+~
+9 3 3 0 7 0 0 2097153 64 0 0
+1 0 0 2 0 0 0 0
+5 1234 100
+E
+badge linin~
+&+YA badge of the keep guard.
+~
+A
+18 1
+#66440
+transparent ring~
+&+Wa t&+wr&+Wan&+ws&+Wpa&+wre&+wn&+Wt &+Wr&+wi&+Wn&+wg~
+&+WA transparent ring lays here.~
+~
+9 52 3 0 7 0 0 3 64 0 0
+5 0 0 1 0 0 0 0
+1 10000 100
+E
+transparent ring~
+It fades in and out of reality, and appears to be made of electrum.
+~
+A
+13 20
+A
+3 5
+#66441
+statue lord demon~
+&+La statue of a &+rdemon&n &+Llord~
+&+LA statue of a &+rdemon&n &+Llord emanates a &+Rpowerful&+L aura.~
+~
+25 15 3 0 7 0 0 0 64 0 0
+66535 320 -1 0 0 0 0 0
+0 0 100
+E
+demon lord~
+&+LThis statue is of pure granite, and a master piece of art. There is no doubt
+&+Lthat a power from another realm created this. It rises ten feet high, and is
+&+Limmeasurable in width and diameter. Its most noticible feature is its
+&+Rfirery&+L eyes. Its powerful aura emminates through the caverns, it seems
+&+Lit is majestic. There is no question that it beholds some power, but
+&+Lhow the power manifests itself is mind boggling.
+~
+#66442
+serpent fang~
+&+La s&+ge&+Grp&+ge&+Lnt fang~
+&+LA serpent fang lays here.~
+~
+9 10 3 0 7 0 4096 2097153 64 0 0
+1 0 0 1 0 0 0 0
+1 1234 100
+E
+serpent fang~
+This is a serpent fang, it measures a couple inches in length, and is rather
+thin.
+~
+A
+19 1
+#66443
+altar life death~
+&+Wthe altar of &+Clife &+Wand &+LDeath&+L~
+&+WThe altar of &+Clife&+W and &+Ldeath&+W channels energies into the spirt realm.~
+~
+25 15 3 9999 7 0 1024 0 0 0 0
+66465 320 -1 0 0 0 0 0
+0 1 100
+E
+altar life death~
+&+LThere is nothing normal about this altar.  From the skull heads on one side,
+&+Lto the holy crosses on the other.  This altar must symbolize all that is good,
+&+Land all that is evil.
+~
+#66444
+beam light~
+&+Wa beam of light&n~
+&+WA beam of light shoots directly at the sky.~
+~
+25 15 3 0 7 0 1024 0 0 0 0
+66465 7 -1 0 0 0 0 0
+0 0 100
+E
+beem light~
+&+WA beautiful white light that shines vertically.
+~
+#66445
+orb cosmic~
+&+La &+Wc&+Bo&+Ws&+cm&+Mi&+Rc &+Lorb&n~
+&+LA &+Wc&+Bo&+Ws&+Cm&+Mi&+Rc &+Lorb radiates aether energy throughout the room.~
+~
+25 23 3 0 7 0 1024 0 0 0 0
+66465 320 -1 0 0 0 0 0
+0 0 100
+E
+fiery pit lava cosmic orb~
+&+LAn orb that holds the many galaxies within our universe.  The galaxies can be
+&+Lseen spiraling in all directions.
+~
+#66446
+vortex temporal~
+&+Wa temporal vortex~
+&+WA temporal vortex spirals into the &+bco&+Bs&+Wmos continuously.~
+~
+25 15 3 0 7 0 0 0 0 0 0
+66562 7 -1 0 0 0 0 0
+0 0 100
+E
+vortex temporal~
+&+WThis bright light glows a brilliant blue, and is in the center of the nexus.
+~
+#66447
+python eye~
+&+La &+rwrit&+Lhi&+rng p&+Lyt&+Lhon&+r eye~
+&+LA python eye lays here.~
+~
+9 2 3 1 7 0 5120 131073 0 87572571 0
+1 0 0 1 0 0 0 0
+0 2010 100
+E
+python eye~
+&+LAn eye of a python, it is blood red.
+~
+A
+19 2
+A
+18 3
+#66448
+demon lord statue~
+&+La statue of a &+rdemon&+L lord~
+&+LA statue of a &+rdemon&+L lord emanates a &+Rpowerful&+L aura.~
+~
+25 15 3 0 7 0 1024 0 64 0 0
+66534 320 -1 0 0 0 0 0
+0 0 100
+E
+demon lord statue~
+&+LThis statue is of pure granite, and a master piece of art.   There is no doubt
+&+Lthat a power from antoher realm created this.  It rises ten feet hight, and is
+&+Limmeasurable in width and diameter.  Its most noticible feature is its
+&+L&+Rfierery&+L eyes.  Its powerful aura emminates throught the caverns, it seems
+&+Lto become something majestic.  There is no question that it beholds some power,
+&+Lbut how the power manifests itself is the real riddle.
+~
+#66449
+shimmering crystal~
+&+Wa &+Cshimmering&+W crystal~
+&+WA shimmering crystal lays here.~
+~
+9 15 3 0 7 0 1 16385 64 0 0
+1 0 0 1 0 0 0 0
+1 1000 100
+E
+shimmering shawl~
+&+CThis crystal glows with a white aura.  It is impossible to discern its origin
+&+Chowever.
+~
+A
+24 -3
+A
+13 20
+#66450
+broad broadsword sword long~
+&+Wa long broadsword~
+&+WA long broadsword lays here.~
+~
+5 15 3 0 7 0 128 8193 0 0 0
+5 1 8 3 0 0 0 0
+5 3939 100
+E
+broad broadsword sword long~
+A very old longsword.
+~
+#66451
+book magic black~
+&+RMinanupoli's &+Lblack magic book~
+&+LA black magic book rests here.~
+~
+8 3 3 0 15 0 1 1 0 0 0
+0 0 0 0 0 0 0 0
+1 3029 100
+E
+book black magic~
+&+LThe black magic book belonging to the demon lord Minanupoli.  Its cover is
+&+Lblack laced with a gold trem.  Upon its cover are tiny skulls in each of the
+&+Lfour corners.
+~
+#66452
+white magic book~
+&+Wa white magic book&n~
+&+WA white magic book rests here.~
+~
+9 15 3 0 7 0 1025 8404993 64 100794872 0
+1 0 0 3 0 0 0 0
+4 9090 100
+E
+white magic book~
+&+WIts cover is laced with gold.  The book is very thick, and must contain many
+&+Wsecrets.
+~
+A
+54 20
+A
+34 3
+#66453
+unholy crystal medallion~
+&+Lan &+cu&+Ln&+Ch&+Lo&+cl&+Ly&+C c&+cr&+Ly&+Cs&+ct&+Lal&+L m&+ce&+Ld&+Cal&+Ll&+cio&+Ln~
+&+LAn unholy crystal medallion rests here.~
+~
+8 15 3 0 7 0 0 1 0 0 0
+0 0 0 0 0 0 0 0
+1 300929 100
+E
+unholy crystal medallion~
+&+LThis medallion is in the shape of an octagon, resembling a flat prism in every
+&+Lregard.
+~
+#66454
+holy crystal medallion~
+&+Wa &+ch&+Wo&+Cl&+Wy &+Cc&+cr&+Wy&+Cs&+ct&+Wal m&+ce&+Wd&+Cal&+Wl&+cio&+Wn~
+&+WA holy crystal medallion rests here.~
+~
+9 23 3 1 7 0 1 5 64 0 0
+7 0 0 1 0 0 0 0
+0 2939 100
+E
+holy crystal medallion~
+&+WA blessed crystal medallion.  It's in the shape of an octagon and resembles a
+&+Wprism.
+~
+A
+19 4
+A
+54 20
+#66455
+hammer large~
+&+La large war hammer&n~
+&+LA large warhammer rests here.~
+~
+5 19 3 0 7 0 4194304 8193 64 0 0
+4 3 4 0 0 0 0 0
+20 2999 100
+E
+large hammer~
+&+LA large adamantium hammer.
+~
+A
+18 2
+A
+19 2
+#66456
+skullsplitter skull splitter hammer huge~
+&+ga huge hammer named &+w'&+GSkullSplitter&+w'&n~
+&+GA huge hammer lies here, discarded.&n~
+~
+5 19 5 0 7 0 20972801 8396801 64 87048635 0
+4 5 3 6 0 0 0 0
+20 190282 100 16 28 0 0
+E
+goblinsmasher hammer goblin smasher huge~
+&+gThis large hammer is about the same size as a goblin.  In any instance that it
+&+gmight confront a goblin, there is little doubt that this hammer could pulverize
+&+gthe it.
+~
+A
+19 3
+A
+18 3
+#66457
+black ring etched runes~
+&+La black ring &+retched &+Lwith &+mrunes&n~
+&+LA black ring lays upon the ground.&n~
+~
+9 19 3 0 7 0 4096 33554433 64 0 0
+5 0 0 1 0 0 0 0
+1 2039 100
+E
+black ring etched runes~
+&+MThis ring is made of adamantium.  It is, however, too big for any finger.  It
+&+Mmust fit some other region of the body.  Looking directly at it is unadviseble,
+&+Mfor if it reflected sunlight of any kind, it could blind.
+~
+A
+32 4
+A
+19 3
+#66458
+bloody scalp~
+&+ra bloody &+Yscalp&n~
+&+rA bloody scalp sits here.~
+~
+9 2 3 0 7 0 0 17 64 0 0
+5 0 0 1 0 0 0 0
+1 1234 100
+E
+bloody scalp~
+&+rFrom a donated scalp from some third party, this combination of flesh and hair
+&+rhas been donated by some anonymous thrid party.  Its effects upon a person is
+&+runcertain, however, it seems to be endowed with magic.
+~
+A
+28 16
+A
+30 10
+#66459
+battle axe razor razor-edged edged~
+&+La &+brazor&+w-&+Ledged &+rmino&+Ltaur &+Lbattle&n-&+raxe&n~
+&+LA battle axe lays here.&n~
+~
+5 16 3 0 7 0 1024 8396801 64 87572483 0
+1 4 3 3 0 0 0 0
+15 28382 100
+E
+battle axe razor razor-edged edged~
+&+bThis battle axe looks sharper than steel.  Perhaps by magical means it has
+&+bbeen enhanced, regardless, by one glance upon the blade it is obvious that
+&+bit was mended by a skilled artisan.
+~
+A
+19 3
+A
+2 6
+#66460
+etched adamantium~
+&+man etched piece of adamantium~
+&+mAn etched piece of adamantium rests here.~
+~
+9 19 3 0 7 0 0 5 0 0 0
+5 0 0 1 0 0 0 0
+1 1234 100
+E
+adamantium etched~
+&+MA large hole on the upper portion of this adamantium has a string running
+&+Mthrough it.  By these means one could hang it over his neck, like a necklace.
+&+MEtched into this adamantium are small, clear words ...&+m'Messa called Jar Jar
+&+mPok'&+M.
+~
+A
+27 10
+A
+13 25
+#66461
+two two-handed handed longsword~
+&na &+Wtwo-handed&n longsword~
+&+WA two-handed longsword sits here.~
+~
+5 15 3 0 7 0 4194304 8193 0 0 0
+13 3 5 3 0 0 0 0
+15 2939 100
+E
+longsword two two-handed handed~
+This longsword is made of iron, and needs two very strong hands to wield it.
+~
+#66462
+halfling quilt halfling-made made soft~
+&+ba soft &+Yhalfling&n-&+Bmade &+bquilt~
+&+bA quilt woven by a halfling lays here.~
+~
+9 3 3 0 7 0 1536 16777217 64 87556227 533086208
+10 0 0 2 0 0 0 0
+3 2030 100
+E
+halfling quilt halfling-made made soft~
+&+bThis quilt would fit comfortably on the back of a horse.&n
+~
+A
+13 17
+A
+5 10
+>>>>>>> master

@@ -15,6 +15,9 @@
 #include "epic.h"
 #include "ships.h"
 #include "epic_bonus.h"
+#include "defines.h"
+#include "spells.h"
+#include "structs.h"
 
 extern char buf[MAX_STRING_LENGTH];
 extern char arg1[MAX_STRING_LENGTH];
@@ -451,8 +454,17 @@ int sell_cargo_slot(P_char ch, P_ship ship, int slot, int rroom)
         int crates = ship->slot[slot].val0;
         int cost = crates * cargo_buy_price(rroom, type);
         int profit = 100;
+	if(has_eq_diplomat(ship))
+	{
+	  cost *= 0.9;
+	}
+       if(has_innate(ch, INNATE_SEADOG))
+       {
+        send_to_char("Your &+csea&+Cfaring&n heritage has earned you a &+Ybonus&n in your sale...&n\r\n", ch);
+        cost *= 1.10;
+       }
         if (ship->slot[slot].val1 != 0)
-            profit = (int)(( ((float)cost / (float)ship->slot[slot].val1) - 1.00 ) * 100.0);
+            profit = (int)(( ((float)cost / (float)ship->slot[slot].val1) - 1.00 ) * float(profit));
         ship->slot[slot].clear();
 
         if (IS_WARSHIP(ship))
@@ -466,6 +478,8 @@ int sell_cargo_slot(P_char ch, P_ship ship, int slot, int rroom)
         logit(LOG_SHIP, strip_ansi(buf).c_str());
         
         send_to_char_f(ch, "You sell &+W%d&n crates of %s&n for %s&n, for a %d%% profit.\r\n", crates, cargo_type_name(type), coin_stringv(cost), profit);
+        /*if(affected_by_spell(ch, SPELL_STONE_SKIN))
+         send_to_char("You are stoned!\r\n", ch); Hell yeah - Drannak */
 
         // economy affect
         adjust_ship_market(SOLD_CARGO, rroom, type, crates);
@@ -524,6 +538,8 @@ int sell_cargo(P_char ch, P_ship ship, int slot)
     {
         total_cost = check_nexus_bonus(ch, total_cost, NEXUS_BONUS_CARGO);
         send_to_char_f(ch, "You receive %s&n.\r\n", coin_stringv(total_cost));
+	if(has_eq_diplomat(ship))
+	 send_to_char("Your &+bdip&+Blo&+bmat &nstatus costs you a &+W10&n percent cut on your profits.\r\n", ch);
         send_to_char("Thanks for your business!\r\n", ch);        
         ADD_MONEY(ch, total_cost);
 
@@ -671,7 +687,19 @@ int sell_slot (P_char ch, P_ship ship, int slot)
         return TRUE;
     } 
     else if (ship->slot[slot].type == SLOT_EQUIPMENT) 
-    {
+     {
+	 for (int i = 0; i < MAXSLOTS; i++)
+        {
+        if ((ship->slot[i].type == SLOT_CONTRABAND) || (ship->slot[i].type == SLOT_CARGO))
+		{
+		 if(has_eq_diplomat(ship))
+               {
+		 send_to_char("You cannot sell your diplomat flag with cargo onboard. Sell the cargo first!\r\n", ch);
+		 return TRUE;
+               }
+		} 
+	else
+     {
         int cost = equipment_data[ship->slot[slot].index].cost;
         if (ship->slot[slot].index == E_RAM) cost = eq_ram_cost(ship);
         cost = cost * 0.9;
@@ -683,6 +711,8 @@ int sell_slot (P_char ch, P_ship ship, int slot)
         write_ship(ship);
         return TRUE;
     } 
+   }
+  }
     else if (ship->slot[slot].type == SLOT_CARGO)
     {
         return sell_cargo(ch, ship, slot);
@@ -1547,12 +1577,13 @@ int buy_weapon(P_char ch, P_ship ship, char* arg1, char* arg2)
         send_to_char ("That weapon cannot be placed in that position, try another one.\r\n", ch);
         return TRUE;
     }
-
+/* -Removing frag requirements for weapons - Drannak 6/3/2013
     if (ship->frags < weapon_data[w].min_frags)
     {
         send_to_char ("I'm sorry, but not just anyone can buy this weapon!  You must earn it!\r\n", ch);
         return TRUE;
     }
+*/
 
     if (IS_SET(weapon_data[w].flags, CAPITOL)) 
     {
@@ -1577,6 +1608,9 @@ int buy_weapon(P_char ch, P_ship ship, char* arg1, char* arg2)
     SUB_MONEY(ch, cost, 0);
     set_weapon(ship, slot, w, arc);
     int buildtime = weapon_data[w].weight * 75;
+    int pvp = false;
+	//pvp = ocean_pvp_state();
+       // if (pvp) buildtime *= 4;
     send_to_char_f(ch, "Thank you for your purchase, it will take %d hours to install the part.\r\n", (int) (buildtime / 75));
     if (!IS_TRUSTED(ch) && BUILDTIME)
         ship->timer[T_MAINTENANCE] += buildtime;
@@ -1659,6 +1693,9 @@ int buy_equipment(P_char ch, P_ship ship, char* arg1)
     if (e == E_RAM) weight = eq_ram_weight(ship);
     if (e == E_LEVISTONE) weight = eq_levistone_weight(ship);
     int buildtime = equipment_data[e].weight * 75;
+    int pvp = false;
+    pvp = ocean_pvp_state();
+        if (pvp) buildtime *= 4;
     send_to_char_f(ch, "Thank you for your purchase, it will take %d hours to install the part.\r\n", (int) (buildtime / 75));
     if (!IS_TRUSTED(ch) && BUILDTIME)
         ship->timer[T_MAINTENANCE] += buildtime;
@@ -1771,6 +1808,10 @@ int buy_hull(P_char ch, P_ship ship, int owned, char* arg1, char* arg2)
             buildtime = 75 * (ship->m_class / 2 - oldclass / 3);
         else
             buildtime = 75 * (oldclass / 2 - ship->m_class / 3);
+    int pvp = false;
+    pvp = ocean_pvp_state();
+        if (pvp) buildtime *= 5;
+
 
         send_to_char_f(ch, "Thanks for your business, it will take %d hours to complete this upgrade.\r\n", buildtime / 75);
     }

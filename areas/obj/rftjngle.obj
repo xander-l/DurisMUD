@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #80000
 crossbow~
 &+ya crossbow&N~
@@ -3382,3 +3383,3389 @@ large river damn log~
 13 15 3 0 7 0 8192 0 0 0 0
 0 0 0 0 0 0 0 0
 0 0 100 100
+=======
+#80000
+crossbow~
+&+ya crossbow&N~
+&+yA small crossbow has been dropped here.&N~
+~
+6 6 2 0 9 20 9216 24577 0 96071683 0
+70 90 0 2 0 0 0 0
+5 3000 100
+E
+crossbow~
+Though it has been made of relatively plain wood, the construction is solid and
+the crossbow should last a very long time.  In fact, the bowstring and crossbar
+have clearly been replaced just recently.
+~
+#80001
+sword short~
+&+La blackened short sword&N~
+&+LA blackened short sword has been left here.&N~
+~
+5 16 2 0 9 0 1024 8193 0 96071707 0
+9 1 5 3 0 0 0 0
+2 4000 100
+E
+sword short~
+This fine weapon has been treated with some sort of purple-black dye to keep it
+from reflecting light in the darkness.  It is clearly the sort of weapon that
+one carries when they wish to remain unnoticed in the darkness and is often
+used by the jungle scouts of Woodseer as well as for other darker purposes.
+~
+A
+18 2
+A
+19 2
+#80002
+mandolin instrument~
+&+Lan ebonwood mandolin&N~
+&+LAn ebonwood mandolin has been left here.&N~
+~
+32 6 2 0 12 20 9216 16385 0 8499360 0
+186 10 0 1 0 0 0 0
+2 3500 100
+E
+mandolin~
+Intricate roses and orchids have been carved into the sides of this fine
+instrument, showing its value and power.  A faint magical aura surrounds the
+mandolin showing that it is more than meets the eye.  One would guess that a
+mandolin as fine as this would bring a good price in any major city.
+~
+A
+17 -5
+#80003
+robe tattered~
+&+ra tattered robe&N~
+&+rA tattered red robe has been tossed aside.&N~
+~
+9 3 3 0 7 0 8192 9 0 0 0
+5 3 1 1 0 0 0 0
+3 200 100
+E
+robe tattered~
+This robe was once quite a nice piece of work.  Fine embroidery lines the edges
+of the robe which has now become tattered from heavy travel and misuse.
+Despite the tears, the fine fabric should bring a nice price.
+~
+#80004
+mail banded~
+&+Wwhite banded mail&N~
+&+WA fine suit of white banded mail has been left here.&N~
+~
+9 16 3 0 7 0 1024 9 0 85475353 0
+18 3 1 3 0 0 0 0
+20 12000 100
+E
+mail banded~
+This armor has been fashioned from a number of flexible white steal bands which
+have been linked together with chains.  The banded mail is quite sturdy, but a
+but heavy and the white color prevents the wearer from even thinking about
+stealth.
+~
+#80005
+hammer warhammer~
+a spiked hammer~
+&+WA large, spiked hammer has been left here.&N~
+~
+5 16 3 0 9 0 4195328 8193 0 87572507 0
+4 3 5 7 0 0 0 0
+20 14000 100
+E
+hammer warhammer~
+This sturdy weapon has a long wooden shaft and a heavy steel head.  The steel
+head is flat on one end and spiked on the other to give the wielder more
+options for trying to crush through an opponents armor.
+~
+A
+18 3
+#80006
+bow long longbow~
+&+Lan ebonwood longbow&N~
+&+LSomeone has left an ebonwood longbow behind.&N~
+~
+6 6 3 4 14 0 4202496 24577 0 0 0
+70 60 0 1 0 0 0 0
+3 15000 100
+E
+bow long longbow~
+Carved from the finest ebonwood this longbow looks like more artwork than
+weapon.  The sinewy figures of several coatls have been carved along the length
+of the longbow, but certainly not in a way that would weaken it.  This bow is
+the perfect weapon for a hunter or archer, if they are strong enough to use it.
+~
+A
+18 1
+#80007
+quiver~
+&+ya soft quiver&N~
+&+yA soft, silky-looking quiver has been left here.&N~
+~
+30 3 3 0 7 0 9216 1048577 0 96071683 0
+45 0 1 0 0 0 0 0
+2 2300 100
+E
+quiver~
+At first glance this appears to be a rather plain brown quiver, closer
+inspection reveals that the cloth itself is silk that has been layered over at
+least ten times and stitched together.  It is hard to imagine why anyone would
+spend such money only to dye the fabric a plain brown color that covers the
+high quality of the silk and workmanship used to create this fine quiver.
+~
+#80008
+arrow~
+&+Lan ebonwood flight arrow&N~
+&+LAn ebonwood flight arrow has fallen here.&N~
+~
+7 6 3 3 14 20 8192 16385 0 0 0
+1 1 6 1 0 0 0 0
+1 1000 100
+E
+arrow~
+This long, thin arrow has a small, but sharp, hunting point at its end.  Its
+long shaft has been carefully feathered so that it will fly true over great
+distances.  The head of the arrow is light but extremely sharp.  This arrow
+might not puncture armor very easily but anything without heavy armor had
+better be extremely careful.
+~
+#80009
+harness weapons leather~
+&+ya kenku's weapons harness&N~
+&+yA pile of leather straps has been left here.&N~
+~
+15 14 3 0 7 0 8192 1025 0 0 0
+10 0 0 100 0 0 0 0
+1 800 100
+E
+harness weapons leather~
+Leather loops line these strange straps, loops that are clearly designed to
+hold weapons of some type.  It looks very much like the type of harness that
+kenku wear to hold their weapons and other items while they fly.
+~
+A
+17 -6
+#80010
+dagger granite~
+&+ga granite dagger&N~
+&+gA deep-green granite dagger has been left here.&N~
+~
+5 37 2 0 7 0 1040 8193 0 96071707 0
+2 1 2 11 0 0 0 0
+1 3500 100
+E
+dagger granite~
+Deep green granite with faint pink flecks has been chipped and shaped into an
+extremely sharp dagger.  The stone is extremely sharp, sharper than many steel
+weapons, but far easier to damage or destroy.
+~
+A
+18 2
+A
+19 2
+#80011
+club~
+&+ya bent club&N~
+&+yA worth-less bent club has been dropped here.&N~
+~
+5 6 3 0 7 0 8192 8193 0 4165209668 0
+10 2 2 6 0 0 0 0
+3 200 100
+E
+club~
+This water-logged wood is almost worth-less for any purpose, especially that of
+being a club.  Made of some bent, disfigured branch its owner never bothered to
+do any further work on it.
+~
+#80012
+spear~
+&+ya hunting spear&N~
+&+yA hunting spear has fallen here.&N~
+~
+5 6 3 0 7 0 4203536 24577 0 96071707 0
+8 1 5 11 0 0 0 0
+4 250 100
+E
+spear~
+The short shaft and long blade show that this spear is designed for short range
+throwing as well as close combat.  The blade is made from some sort of gray
+stone that appears to be quite sharp.
+~
+#80013
+armor black leather~
+&+Lsome black leather armor&N~
+&+LSome black leather armor has been left here.&N~
+~
+9 14 3 0 10 0 536880128 9 0 96071707 0
+20 3 1 3 0 0 0 0
+2 2000 100
+E
+armor black leather~
+This thin leather armor offers a small degree of protection while still
+remaining light and easy to move in.  It is also thin enough to be worn
+underneath a shirt so that it can remain unseen.
+~
+#80014
+wrist guard black leather~
+&+La black leather wrist guard&N~
+&+LA strip of black leather has been left here.&N~
+~
+9 14 3 0 7 10 9216 4097 0 96071683 0
+5 11 1 3 0 0 0 0
+0 5700 100
+E
+wrist guard black leather~
+This thick band of leather is clearly designed to be used as a wrist guard by
+archers and bowmen.  The black leather that has been used in its creation has
+been doubled over twice and stitched together creating a thick, protective
+strap that can be buckled to one's wrist.
+~
+A
+30 9
+A
+18 2
+#80015
+crossbow black steel~
+&+La black steel crossbow&N~
+&+LA black steel crossbow has been tossed here.&N~
+~
+6 16 3 0 7 0 0 24577 0 0 0
+105 90 0 3 0 0 0 0
+5 15000 100
+E
+crossbow black steel~
+This sturdy weapon has been made from blackened steel to keep it from
+reflecting light and giving away one's position.  It is a very small crossbow,
+but it clearly packs quite a punch.
+~
+#80016
+stiletto sharp~
+&+Wa sharp stiletto&N~
+&+WA sharp stiletto has been left here.&N~
+~
+5 16 3 5000 11 10 1024 8193 0 96071707 0
+2 1 2 11 0 0 0 0
+2 1 100
+E
+stiletto sharp~
+This extraordinarily sharp weapon gleams with a hungry light.  The blade of the
+stiletto is almost impossibly thin and sharp, undoubtedly treated with magic.
+A strange symbol has been engraved into the base of the blade right before its
+handle, it appears to represent a tiger's paw.
+~
+A
+18 3
+#80017
+dagger black~
+&+La plain black dagger&N~
+&+LA plain black dagger has been left here.&N~
+~
+5 16 2 0 10 0 0 8193 0 4194697696 0
+2 1 2 11 0 0 0 0
+1 2000 100
+E
+dagger black~
+This plain dagger is the staple of thieves and assassins everywhere.  It is
+relatively inexpensive and completely untraceable, it can be used to commit a
+crime and be left behind without any fear of repercussions.  Well enough
+balanced for throwing it makes a nearly perfect, though low quality, weapon.
+~
+A
+18 2
+A
+19 2
+#80018
+gloves~
+&+bJuaraldo's&+L gloves&N~
+&+LA pair of black leather gloves with blue stitching has been left here.&N~
+~
+9 14 3 0 14 0 13312 129 0 8499200 0
+10 7 1 5 0 0 0 0
+1 25000 100
+E
+gloves~
+These fine leather gloves have been stitched with the name Juaraldo' in bright
+blue thread.  The gloves themselves are clearly quite magical in nature, though
+one might worry about the name stitched into them.  There is a halfling thief
+named Juaraldo that has a violent reputation throughout much of the civilized
+world, he might decide he wants his gloves back.
+~
+A
+18 3
+A
+2 5
+#80019
+eyepatch black leather~
+&+La black leather eyepatch&N~
+&+LA black leather eyepatch has been dropped here.&N~
+~
+9 14 3 0 14 10 1122304 131073 0 0 0
+3 12 1 5 0 0 0 0
+0 1 100
+E
+eyepatch black leather~
+High quality leather has been used to make this small eyepatch, all of it dyed
+a deep black.  Stitching along the outer edges of the eyepatch is of the
+highest quality making the thick leather an attractive as well as protective
+piece.  A faint magical aura around the eyepatch gives it a faint glow at
+night.
+~
+A
+24 -1
+A
+18 2
+#80020
+stinger~
+a scorpion stinger~
+A no_show, poisoned scorpion stinger lies here.~
+~
+5 13 2 0 7 0 8388610 8193 0 0 0
+2 1 4 11 0 0 0 0
+0 1 100
+E
+stinger~
+This is a test to see whether or not I can avoid procs by making a no_show item
+that is equipped on a mob.
+~
+#80021
+skin tigerskin~
+&+ya t&+Lige&+yr skin&N~
+&+yThe skin of a tiger has been left here.~
+~
+13 12 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+skin tigerskin~
+This fine hide is in high demand in many cities.  Not only can it be used to
+create distinctive wall-hangings, rugs, and furniture, but it can also be made
+into very distinctive sets of armor.
+~
+#80022
+claws tiger~
+&+ya t&+Lige&+yr's claws&N~
+&+ySomeone has left some valuable t&+Lige&+yr claws here~
+~
+9 12 3 0 7 0 12288 129 0 0 0
+1 7 0 3 0 0 0 0
+2 2300 100
+E
+claws tiger~
+Tiger claws are often kept as trophies of a kill. The sharp talons of the claws
+can have many uses.  The claws themselves can even function as make-shift
+weapons if they are needed as such.
+~
+A
+19 2
+A
+24 2
+#80023
+armor tigerskin~
+&+ya full-suit of t&+Lig&+yer&+Ysk&+yin armor&N~
+&+yA carefull made suit of t&+Lig&+yer&+Ysk&+yin armor lies here.&N~
+~
+9 12 3 0 12 10 74752 9 0 96071707 0
+30 3 1 4 0 0 0 0
+3 25000 100
+E
+armor tigerskin~
+This fine leather armor is far more valuable than a standard suit of armor.
+Not really because it is better armor, but because it is extremely distinctive.
+The craftsman that made it has done an excellent job of keeping the tiger's
+stripes in line with the form of the armor making it even more attractive to
+gaze upon.
+~
+A
+18 2
+A
+19 1
+#80024
+skin tigerskin white~
+&+Wskin of a white tiger&N~
+&+WThe skin of a white tiger has been foolishly left here.&N~
+~
+13 12 3 0 7 0 12288 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+skin tigerskin white~
+This fine, thick hide is extremely soft and pliable.  In the hands of a good
+leatherworker it would probably make an excellent set of armor or clothing.
+~
+#80025
+boots white tigerskin~
+&+Wwhite tigerskin boots&N~
+&+WSome white tigerskin boots have been left here.~
+~
+9 12 3 0 11 0 3219456 65 0 0 0
+10 6 1 4 0 0 0 0
+1 35000 100
+E
+boots white tigerskin~
+These boots have been carefully constructed from the skin of a white tiger.
+The craftsman making them has used the teeth of the tiger as studs for lacing
+up the boots and the talons from its claws have been placed at both the toe and
+heel of the boots to give them more grip when climbing and walking.
+~
+A
+14 10
+A
+19 1
+#80026
+scimitar~
+&+ca silver scimitar&N~
+&+cA silver scimitar has been buried here.&N~
+~
+5 22 3 0 12 20 36864 8193 1 4198895460 82690
+5 1 6 3 0 0 0 0
+20 14000 100
+E
+scimitar~
+This scimitar has been made of the the finest silver, unfortunately it has been
+left in the humid jungle air for too long and it has become a bit tarnished.
+The tarnish isn't ugly however, it adds a bit of color to the blade, making it
+a bit more distinctive.
+~
+A
+18 2
+A
+19 3
+#80027
+ruby~
+&+Ra polished ruby&N~
+&+RA polished ruby has been dropped here.&N~
+~
+8 31 3 0 7 0 4096 16385 0 0 0
+0 0 0 0 0 0 0 0
+1 25000 100
+E
+ruby~
+This highly polished stone must have been carelessly left behind by someone on
+their travels.  Every facet of the small stone has been highly polished, making
+the stone worth a great deal of money.
+~
+#80028
+mithril chunk ore~
+&+ca chunk of mithril ore&N~
+&+CA chunk of almost pure mithril ore has been left here.&N~
+~
+8 18 3 0 7 0 4096 16385 0 0 0
+0 0 0 0 0 0 0 0
+5 12500 100
+E
+mithril chunk ore~
+This misshapen hunk of ore is extremely valuable.  Mithril is a highly prized
+metal and a good blacksmith or armorer can do fantastic things with it.
+~
+#80029
+chest~
+&+ya small, old chest&N~
+&+yA small chest has been buried here.&N~
+~
+15 6 3 0 7 0 4096 16385 0 0 0
+15 13 0 250 0 0 0 0
+6 100 100
+E
+chest~
+Though very old, this chest has a sturdy lock that would require a good
+locksmith or thief to open.  The key has surely been lost to time.  The chest
+is fairly heavy for its size so might actually contain something of value.
+~
+#80030
+bar platinum~
+&+Wa platinum bar&N~
+&+WA pure platinum bar rests here.&N~
+~
+8 25 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+10 10000 100
+E
+bar platinum~
+This heavy bar of platinum is certainly worth a great deal of money.  A stamp
+on the upper surface of the bar is marks it as coming from "The Igliento Mining
+Company", a name that has certainly been lost to time.
+~
+#80031
+sword broken~
+a broken sword~
+A broken sword has become buried in the jungle humus.~
+~
+8 16 3 0 7 0 4096 16385 0 0 0
+0 0 0 0 0 0 0 0
+12 450 100
+E
+sword broken~
+Completely worthless now, this sword must once have been a fine weapon.  A few
+gemstones were once mounted in the pommel but they have long since been
+removed.  It is hard to say how the sword was broken, but it would appear
+someone had a difficult battle at some time in the past.
+~
+#80032
+dagger shard rusted~
+&+Wa &+rrusted&+W dagger&N~
+&+WA &+rrusted&+W shard of metal sticks out of the ground.&N~
+~
+5 16 2 0 7 0 4096 24577 0 4227727392 0
+2 1 1 11 0 0 0 0
+0 1 100
+E
+dagger shard rusted~
+This rusty dagger has been poorly treated by the humid jungle air.  It is
+doubtful that anything can be done to make it useful again.
+~
+#80033
+staff broken~
+&+ya broken staff&N~
+&+yA staff lies on the ground in pieces.&N~
+~
+4 6 3 0 7 0 0 16385 0 0 0
+2 1 1 3 0 0 0 0
+4 400 100
+E
+staff broken~
+The staff appears to have been broken in the release of a powerful spell, yet
+no trace of any spellcaster can be found.  The shards of wood that lie on the
+ground appear to be oak, or some similar hard wood.
+~
+#80034
+cudgel cherry~
+&+ya &+Rcherry&+y wood cudgel&N~
+&+yA sturdy cudgel of &+Rcherry&+y wood has been abandoned.&N~
+~
+5 6 3 0 8 0 0 8193 0 0 0
+10 2 5 6 0 0 0 0
+4 2000 100
+E
+cudgel cherry~
+Strong cherry wood makes good clubs, and this cudgel is a fine example of why.
+The wood is exceptionally hard, yet retains a certain dark-grained beauty that
+is rare in other woods.  Cherry wood is usually used in furniture and not often
+seen used in other ways.
+~
+A
+18 2
+A
+19 1
+#80035
+earring emerald~
+&+Gan emerald earring&N~
+&+GAn emerald has been left on the ground.&N~
+~
+9 32 1 0 14 30 102400 524289 0 0 0
+5 14 0 5 0 0 0 0
+0 45000 100
+E
+emerald earring~
+A quick inspection of the emerald shows that the clasp that holds it to one's
+ear was bent, likely the reason its original owner dropped it.  It is easily
+fixed though, and provides a stylish conversation piece.
+~
+A
+18 1
+A
+24 -1
+#80036
+ring sapphire~
+&+Ba chipped sapphire ring&N~
+&+BA chipped sapphire ring has been dropped here.&N~
+~
+9 33 1 0 14 35 102400 100663299 0 0 0
+5 1 0 5 0 0 0 0
+0 35000 100
+E
+ring sapphire~
+Despite the small chip and crack in the stone, this sapphire ring is still
+quite beautiful.  It is possible that some sort of gem-cutter might be able to
+overcome the cracks in the gem by cutting it down even further, and it is large
+enough to be worth a fair amount of money in any case.
+~
+A
+2 4
+A
+18 1
+#80037
+bracelet sapphire~
+&+Ba sapphire-studded bracelet&N~
+&+BA beautiful bracelet has been dropped here.&N~
+~
+9 33 3 0 14 35 4096 4097 0 0 0
+5 11 1 5 0 0 0 0
+1 25000 100
+E
+sapphire bracelet~
+This fine piece of jewelry has been made from platinum and then studded with
+sapphires that have been mounted all along its edges.  The gems have been
+mounted securely and the platinum used has been well-cared for.  This bracelet
+can clearly endure many owners before needing even a single repair.
+~
+A
+3 5
+A
+13 5
+#80038
+medallion mithril~
+&+Wa strange mithral medallion&N~
+&+WSomeone has left behind an odd-looking mithral medallion.&N~
+~
+9 18 3 0 14 35 102400 5 0 0 0
+8 2 2 3 0 0 0 0
+1 45000 100
+E
+medallion mithral~
+The long mithral chain and the medallion that hangs from it are both quite odd.
+The links of the chain have been made in a very complicated twisting design,
+fitting together in a very odd fashion.  The medallion is even stranger, it has
+been magically treated to show the symbol of almost every god known in a random
+succession.
+~
+A
+4 5
+A
+13 10
+#80039
+totem tiger~
+&+Wa tiger totem&N~
+&+WA tiger totem carved from a tiger's tooth has been left behind.&N~
+~
+34 10 2 0 12 0 5120 16385 0 256 0
+15 0 0 0 0 0 0 0
+1 45000 100
+E
+totem tiger~
+This beautiful totem has been carved from the canine of a massive tiger.  The
+curving form of the tiger has been well-worn, it is clear that this totem is
+quite ancient.  Powerful symbols carved into its sides have become so worn
+down that it is difficult to tell exactly what sorts of magic it was made for.
+~
+A
+13 25
+#80040
+bromeliard flower~
+&+Wa lar&+mge brom&+Weliard&N~
+&+WA white and &+mpurple&N &+Wbromeliard sits on the jungle floor.&N~
+~
+13 13 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+bromeliard flower~
+This massive, bowl-like flower sits on the jungle floor collecting water and
+adding color to the surrounding jungle.  The cool inside of the flower has
+pulled water out of the humid air to collect in the bowl within.  This water
+acts as an attractant to small insects and frogs that help to spread its pollen
+and seeds.  The tips of the petals are white with a line of purple that extends
+down to the center of the flower.
+~
+#80041
+bromeliard flower~
+&+Ya yellow bromeliard&N~
+&+YA bright yellow bromeliard rests here.&N~
+~
+13 13 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+bromeliard flower~
+This somewhat small bromliard clings to the jungle floor, its roots reaching
+through the decay to touch upon the roots of the trees around it.  The flower
+thrives on the decaying vegetation, as well as the nutrients it drains from the
+trees of the jungle.
+~
+#80042
+bromeliard flower~
+&+Ya yellow and &+Rred&N &+Ybromeliard&N~
+&+YA bromeliard with &+Rred&+Y and yellow petals sits here.&N~
+~
+13 13 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+bromeliard flower~
+The bright yellow petals of this huge flower are fringed with pale red.  The
+basin of the flower contains a great deal of water, as well as several dead
+insects and frogs.
+~
+#80043
+orchid flower star~
+&+Ca rare star orchid&N~
+&+CA rare star orchid hangs from a nearby tree.&N~
+~
+13 13 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+orchid flower star~
+This beautiful flower is quite rare, and would be valuable if there was anyway
+to keep it alive.  It is one of the many epiphytic flowers of the jungle,
+surviving off the nutrients of other plants.  It sinks its narrow roots through
+the bark of trees and drains nutrients from them to feed itself.  The long,
+thin petals extend outward from the center making it look much like a star.
+~
+#80044
+orchid purple~
+&+ma deep purple orchid&N~
+&+mA deep purple orchid hangs from a vine.&N~
+~
+13 13 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+orchid purple~
+The deep purple of the flower is extremely attractive, the pungent, rotting
+aroma it exudes makes it something to stay away from.  The scent is meant to
+attract insects to pollinate it, not to be pleasant to others.
+~
+#80045
+flower gluka chain~
+&+Ra gluka flower chain&N~
+&+RA gluka flower chain winds around the base of a tree.&N~
+~
+13 13 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+flower gluka chain~
+The gluka is a vine that wraps around roots and trees.  When it is on bloom it
+has flowers all along the length of its surface.  This particular vine is
+studded with small red flowers.
+~
+#80046
+vine twisting~
+&+ga twisting vine&N~
+&+gA twisting vine climbs to the canopy on nearby trees.&N~
+~
+13 13 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+vine twisting~
+This thick vine twists as it climbs toward the canopy.  Like many jungle vines
+this one has a thin stem and small roots, depending on climbing to the sunlight
+in the canopy for all its energy and food.
+~
+#80047
+flower red~
+&+Ra tiny red flower&N~
+&+RA tiny red flower adds color to the jungle.&N~
+~
+13 13 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+flower red~
+This small red flower has a strange, peaceful beauty to it.  Far to small to be
+threatening in any way, and really to small to be of any use, it has been left
+alone by all the creatures of the jungle.  The bright red color of its tiny
+petals shines like a beacon in the darkness of the jungle.
+~
+#80048
+skin troll band wrist~
+&+ga trollskin wrist band&N~
+&+gA piece of troll's skin has been left here.&N~
+~
+9 12 3 0 9 0 0 4097 64 0 0
+3 11 1 3 0 0 0 0
+1 500 100
+E
+skin troll band wrist~
+A thick piece of troll's skin has been turned into a small wrist band.  One
+hopes the troll the skin once belonged to is quite dead, it is rumoured such
+creatures can regenerate and come back to haunt those that have fought with
+them.
+~
+A
+13 10
+A
+18 -2
+#80049
+gythka obsidian~
+&+Lan obsidian gythka&N~
+&+LA strange, long weapon made of obsidian has been dropped here.&N~
+~
+5 36 3 0 9 0 4195328 8193 0 87572507 0
+8 1 5 3 0 0 0 0
+20 5000 100
+E
+gythka obsidian~
+This odd stone weapon appears to have a sharper edge than most steel weapons.
+Stone has been flaked away from the edges to leave a razor-sharp blade behind.
+Though incredibly sharp, the gythka is large and difficult for most to wield,
+it probably does not stand up well to use either, needing to be cared for and
+repaired every so often.
+~
+A
+18 3
+A
+19 2
+#80050
+whip~
+a no_show whip~
+A no_show whip lies here.~
+~
+5 13 3 0 7 0 8388610 8193 0 0 0
+3 1 4 2 10 0 0 0
+0 1 100
+#80051
+stone stones rock rocks~
+&+Lan ancient stone marker&N~
+&+LSomeone has made a pile of stones here.&N~
+~
+13 11 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+stone stones rock rocks~
+The stones were piled here a very long time ago, yet the jungle has not
+overgrown them like it overgrows everything else that has been left behind.
+It almost seems as if the rocks act as some sort of magical marker.  The pile
+of stones is formless and random however, leaving no hint of what the marker
+is supposed to mean.
+~
+#80052
+alligatorskin bp backpack bag~
+&+gan alligatorskin backpack&N~
+&+gA shapeless bag made from alligatorskin has been left here.&N~
+~
+15 12 3 0 7 0 0 1025 0 0 0
+100 5 0 100 0 0 0 0
+0 35000 100
+E
+alligatorskin bp backpack bag~
+Though the backpack looks almost formless, a close inspection reveals that the
+straps are extremely well designed for distributing weight in an even manner.
+This helps travelers carry more when they are hiking through dangerous lands.
+The think alligatorskin that it is made of is rough and pebbly on the outside
+helping protect one's back.
+~
+A
+17 -8
+#80053
+feather quetzel green~
+&+Ga quetzel feather&N~
+&+GA delicate green quetzel feather has been left here.&N~
+~
+8 1 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 150 100
+E
+feather quetzel green~
+This long, delicate feather is soft and brightly colored making it perfect for
+making clothing or decorations.
+~
+#80054
+feather quetzel yellow~
+&+Ya quetzel feather~
+&+YA long, yellow quetzel feather has fallen here.&N~
+~
+8 1 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 150 100
+E
+feather quetzel yellow~
+This long tail feather is from one of the brightly colored quetzels that fly
+through the jungle canopy.  It is delicate and soft, and its bright yellow
+coloration makes it extremely distinctive.
+~
+#80055
+feather quetzel red~
+&+Ra quetzel feather&N~
+&+RA bright red quetzel feather has fallen here.&N~
+~
+8 1 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 150 100
+E
+feather quetzel red~
+This feather, like all the feathers of the beautiful quetzels that fly through
+the Rift Valley Jungle, is quite valuable, but only to those that know what
+to do with it.  Soft feathers such as this can be woven into garments or used
+to create soft garments themselves.
+~
+#80056
+nest hollow tree hole~
+a no_show nest~
+A no_show nest waits to be noticed.~
+~
+15 13 3 0 7 0 2 0 0 0 0
+40 0 0 100 0 0 0 0
+0 0 100
+#80057
+cloak feathered~
+&+Ga qu&+Ret&+Yzel &+Gfeather cloak&N~
+&+GSomeone has left a beautiful feathered cloak behind.&N~
+~
+9 50 3 0 12 0 2170880 1025 64 0 0
+8 9 32 1 0 0 0 0
+1 35000 100
+E
+cloak feathered feathers~
+This beautiful cloak has been constructed completely from soft quetzel
+feathers.  The feathers have been carefully preserved and woven together
+so that the bright colors will not fade.  The cloak is light and magical, and
+is a testament to the skill of its weaver.
+~
+A
+5 8
+A
+13 15
+#80058
+frogskin frog skin~
+&+rthe poisonous skin of a dartfrog&N~
+&+rThe poisonous skin of a dartfrog has been left here to rot.&N~
+~
+13 3 3 0 7 0 8396800 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+frogskin frog~
+It is a well-known fact that the poison can be extracted from these skins if
+one is extremely careful.  The problem is that few people will risk the dangers
+involved in the extraction of the poison.
+~
+#80059
+poison vial~
+&+ra vial of poison&N~
+&+rA vial with a blood-red liquid has been left here.&N~
+~
+17 13 3 0 7 0 8454144 16385 0 0 0
+1 1 0 10 0 0 0 0
+0 25000 100
+E
+vial poison~
+This poison has been extracted from the skins of several poison dart frogs
+and is extremely potent.  It is rumored to be able to paralyze or kill even the
+largest ogre.  Fortunately for victims, the poison is also rumored to decay
+quite quickly.
+~
+#80060
+hide couatl~
+&+rthe thick hide of an elder couatl&N~
+&+rThe thick, scaly hide of an elder couatl lies here.&N~
+~
+8 35 3 0 7 0 110592 16385 64 0 0
+0 0 0 0 0 0 0 0
+10 20000 100
+E
+hide couatl~
+This thick hide could probably be turned into a fine set of armor, if one
+could find the proper armorer and had enough money to induce them to do the
+required work.
+~
+#80061
+armor hide couatl~
+&+ra suit of couatl hide armor&N~
+&+rA precious suit of couatl hide armor has been left behind.&N~
+~
+9 35 3 0 14 50 536937472 9 64 96071707 0
+50 3 1 5 0 0 0 0
+20 80000 100
+E
+armor hide couatl~
+An expert blacksmith has worked on this fine coatl hide to create an astounding
+suit of armor.  Though the outer scales are harder than the toughest metal,
+the scales are quite small and fine and are connected to an extremely flexible
+skin.  The craftsman that made the armor carefully trimmed away excess hide
+and sealed the sides together at both the level of the skin and the scales on
+the outside of the skin to insure that there are no weak points in the armor.
+The pale, iridescent feathers that lined the couatl's wings have been used to
+decorate the armor as well.
+~
+A
+18 4
+A
+24 -4
+#80062
+hide couatl skin~
+&+Rhide of a young couatl&N~
+&+RThe hide of a young couatl has been left here.&N~
+~
+8 35 3 0 7 0 110592 16385 64 0 0
+0 0 0 0 0 0 0 0
+20 12000 100
+E
+hide couatl skin~
+This large hide comes from a young couatl.  Though its scales aren't as large
+as those of dragons, they are easily as tough and durable.  The small scales
+are attached to a soft and flexible skin that makes them extremely valuable.
+A good blacksmith and armorer that knows exactly what they are doing might
+be able to create some excellent pieces of armor from a hide such as this.
+~
+#80063
+boots couatl hide~
+&+Rcouatl-hide boots&N~
+&+RBoots made from a tough, scaly hide rest here.&N~
+~
+9 35 3 0 14 0 32768 65 64 0 0
+10 6 1 5 0 0 0 0
+7 25000 100
+E
+boots couatl hide~
+Tiny scales that are harder than any metal line the outside of these otherwise
+soft and flexible boots.  The scales are extremely small and layered over each
+other naturally to create a sturdy armor for the couatl that they normally
+belong to.  The skin that they are attached to is extremely soft and flexible
+and the craftsman that made the boots spared no effort in their creation.
+Every seam is meticulously done, in fact, the seams are virtually invisible.
+~
+A
+13 10
+A
+24 -2
+#80064
+couatl hide eyepatch~
+&+Ra couatl-hide eyepatch&N~
+&+RA small piece of a couatl hide lies here.&N~
+~
+9 35 3 0 14 0 204800 131073 64 0 0
+3 12 4 5 0 0 0 0
+0 45000 100
+E
+couatl hide eyepatch~
+At first glance, this small piece of couatl hide appears to be simply a scrap
+left over from making something larger.  Closer inspection reveals that this
+magical material has been fashioned into an eyepatch.  The small, hard couatl
+scales line the outside of the eyepatch and soft skin lines its inner portion.
+~
+A
+19 2
+A
+24 -1
+#80065
+couatl hide wrist guard~
+&+Ga couatl-hide wrist guard&N~
+&+GA strip of finely scaled green couatl hide lies here.&N~
+~
+9 35 3 0 12 0 200704 4097 64 0 0
+2 11 1 2 0 0 0 0
+1 25000 100
+E
+couatl hide wrist guard~
+The pale green scales shimmer showing that even though the couatl they came
+from is dead, they still contain a great deal of magic.  It is unfortunate that
+this particular piece is not terribly well-made.  Although it does give the
+wearer the advantages offered by the small, hard scales of the couatl,
+slightly better craftsmanship would have made it a truly awesome wrist guard.
+~
+A
+24 -2
+#80066
+bracer couatl hide~
+&+ga &+rburnished&+g couatl-hide bracer&N~
+&+rA bracer of fused &+gcouatl scales&+r lies here.&N~
+~
+9 35 3 0 15 50 3178496 4097 64 0 0
+8 11 1 5 0 0 0 0
+0 35000 100
+E
+bracer couatl hide~
+The couatl scales have been fused by some incredible magical fire to make a
+durable bracer that should last for centuries, probably longer.  The bracer
+winks with hints of a deeply magical nature.
+~
+A
+19 3
+A
+24 -2
+#80067
+egg couatl~
+&+Wan elongated couatl egg&N~
+&+WAn elongated couatl egg lies hidden in the jungle.&N~
+~
+8 13 3 0 7 0 8425472 16385 0 0 0
+0 0 0 0 0 0 0 0
+3 1 100
+E
+egg couatl~
+The egg is quite large and somewhat elongated in shape.  It appears to be the
+egg of one of the magnificent couatls that lives in the jungle.
+~
+#80068
+vine flower~
+&+ga &+Yflowering&N &+gvine&N~
+&+gA vine strung with bright &+Yyellow flowers&+g snakes along the canopy.&N~
+~
+13 13 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#80069
+fruit~
+&+man oblong fruit&N~
+&+mAn oblong purple fruit hangs from a nearby branch.&N~
+~
+19 48 3 0 7 0 0 16385 0 0 0
+12 0 0 0 0 0 0 0
+0 4 100
+E
+fruit~
+This odd fruit has many names, most of which simply translate to 'sweet and
+watery.'  The fruit is full of water, making it extremely delicate and really
+not terribly filling.  This would explain why a sweet fruit like this hasn't
+become a big seller in any major city, it is simply to difficult to transport
+without damaging it.
+~
+#80070
+flower rielikki~
+&+Ra rielikki flower&N~
+&+RA rare rielikki flower has made its home on a nearby branch.&N~
+~
+13 13 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+flower rielikki~
+This rare and delicate flower is one of the many epiphytic flowers found in the
+jungle.  This particular flower is especially attractive and delicate, as
+well as sweet-smelling.  These flowers only grow in the wild though, any
+effort to pick them or grow them elsewhere has always ended in failure.
+~
+#80071
+longsword drow sword~
+&+ma drow longsword&N~
+&+mA drow longsword decays here.&N~
+~
+5 16 3 0 7 0 8913920 8193 64 87572507 0
+5 4 6 3 0 0 0 0
+20 25000 100
+E
+longsword drow~
+Drow blades are carefully made and extremely sharp.  Unfortunately, this blade
+has seen to much sunlight and the drow metal has begun to decay.  It has a
+sharp blade for the moment but will undoubtedly decay in a short period of
+time.  Drow metals simply aren't made to withstand as much sunlight as this
+blade has seen.
+~
+A
+18 5
+A
+19 4
+#80072
+fruit weekkii~
+&+Ra red weekkii fruit&N~
+&+RA bright red weekkii fruit hangs from a nearby branch.&N~
+~
+19 48 3 0 7 0 0 16385 0 0 0
+8 0 0 0 0 0 0 0
+0 4 100
+E
+fruit weekkii~
+This hard, bright red fruit is a bit sour, but certainly good enough to eat.
+Hundreds of tiny seeds are hidden within the fruit to be spread by those that
+carry it away to eat it.
+~
+#80073
+burst fruit juice~
+&+Ma burst fruit&N~
+&+MA swollen burst fruit rests here.&N~
+~
+17 48 3 0 7 0 0 16385 0 0 0
+1 1 6 0 0 0 0 0
+0 5 100
+E
+burst fruit juice~
+Though clearly a jungle fruit, this burst fruit is not eaten at all.  It
+contains a tart watery juice that can be drunk when a hole is made in the
+skin of the fruit.
+~
+#80074
+purple flower~
+&+Ma delicate purple flower&N~
+&+MA delicate purple flower hangs from a nearby vine.&N~
+~
+11 1 3 0 7 0 0 134758401 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+purple flower~
+Delicate and beautiful, this purple flower is the type of thing that travelers
+pick up and wear in their ears or hang from their clothing.  It has no real
+use other than its beauty.
+~
+#80075
+shell turtle~
+&+gthe shell of a giant turtle&N~
+&+gThe shell of a giant turtle has been left here.&N~
+~
+8 13 3 0 7 0 4096 16385 0 0 0
+0 0 0 0 0 0 0 0
+15 15000 100
+E
+shell turtle~
+This gigantic shell is extremely thick and hard and could potentially be made
+into some useful armor if the proper craftsmen could be found to work with it.
+~
+#80076
+armor plate turtle shell~
+&+gsome turtle shell plate armor&N~
+&+gPlate armor made from the shell of a giant turtle has been left here.&N~
+~
+9 16 3 0 13 0 1024 9 64 119161017 0
+24 3 1 5 0 0 0 0
+12 25000 100
+E
+armor plate turtle shell~
+This heavy armor has been made from pieces of a giant turtle's shell.  The
+shell is thick and durable, harder than most metals, and has been most
+carefully cut and treated to make it even more flexible and durable.
+~
+A
+20 -2
+A
+19 2
+#80077
+skin alligator~
+&+gthe skin of a &+rred&N &+galligator&N~
+&+gThe skin of a &+rred&N &+galligator has been left here.&N~
+~
+8 12 3 0 7 0 12288 16385 0 0 0
+0 0 0 0 0 0 0 0
+5 1000 100
+E
+skin alligator~
+Though the skin isn't terribly large, it is quite tough as well as distinctive.
+A good leatherworker could probably do something quite nice with it, for a
+price.
+~
+#80078
+skin alligator~
+&+gskin of a giant alligator~
+&+gThe skin of a giant alligator has been left here.&N~
+~
+8 12 3 0 7 0 12288 16385 0 0 0
+0 0 0 0 0 0 0 0
+5 1000 100
+E
+skin alligator~
+This rough hide would make a good set of armor, or even a nice set of boots,
+but only if the proper leatherworker were found.  Most skilled craftsmen
+charge handsomely for their skills but the end product might be worth it.
+~
+#80079
+tunic alligatorskin~
+&+gan alligatorskin tunic&N~
+&+gAn alligatorskin tunic has been left here.&N~
+~
+9 14 3 0 9 0 8192 9 0 4165209668 0
+15 3 138 3 0 0 0 0
+5 10000 100
+E
+tunic alligatorskin~
+This really isn't the best piece of armor around, but it is fairly light and
+sturdy.  It is excellent for traveling in the humid jungle.  The rough ridges
+of the hide have been aligned to make them much more effective at protecting
+the wearer from blows.
+~
+A
+19 1
+A
+18 1
+#80080
+armor suit alligatorskin~
+&+ga suit of &+rred&+g alligatorskin armor&N~
+&+gA full suit &+rred&+g alligatorskin armor rests here.&N~
+~
+9 14 3 0 9 0 8192 9 0 4165209668 0
+20 3 1 4 1 0 0 0
+1 25000 100
+E
+armor suit alligatorskin~
+Even though red alligators are somewhat small, their tough hides bear many
+nasty burrs and spikes making it excellent for making a suit of armor.  This
+armor would bring a fairly good price in most cities, it is soft and supple
+and the red stripes along the skin give it a pleasant appearance.
+~
+A
+18 1
+A
+13 16
+#80081
+sword khopesh~
+&+Wa jagged steel khopesh&N~
+&+WA jagged steel khopesh has been dropped here.&N~
+~
+5 16 3 0 7 0 1024 8193 0 96071707 0
+5 1 6 3 0 0 0 0
+12 3500 100
+E
+sword khopesh~
+Although this isn't the finest weapon in the world, it has an extremely jagged
+edge that helps snag and tear armor and flesh.  The steel is not the best but
+it has been well-cared for and shouldn't break in battle.
+~
+A
+18 2
+#80082
+key wooden ugly~
+&+yan ugly wooden key&N~
+&+yAn ugly wooden key has been left here.&N~
+~
+18 5 1 0 7 0 8396800 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+key wooden ugly~
+This ugly wooden key is meant to fit a lock that is undoubtedly as ugly and
+poorly made as it is.
+~
+#80083
+key bone~
+&+Wa bone key&N~
+&+WA bone key has been carelessly left here.&N~
+~
+18 10 1 0 7 0 8388608 16385 0 0 0
+0 2 0 0 0 0 0 0
+0 1 100
+E
+key bone~
+It appears to have been made from a long, thin bone.  The teeth of the key look
+quite fragile and it would be wise to be very gentle with it.
+~
+#80084
+tunic ape ape-skin skin~
+&+Lan ape-skin tunic&N~
+&+LA tunic made from the skin of an ape has been left here.&N~
+~
+9 12 3 0 7 0 0 9 0 0 0
+10 3 138 4 0 0 0 0
+8 2000 100
+E
+tunic ape ape-skin skin~
+This horribly heavy tunic has been made from the uncured hide of a large ape.
+Though in decent shape now the skin will undoubtedly begin to rot and stink
+in time because it hasn't been properly cured.  The hair has been left on the
+skin, making it hot as well as heavy, a perfectly silly thing to wear in a
+jungle.
+~
+#80085
+armor skin~
+&+Lsome gorilla-skin armor&N~
+&+LSome gorilla-skin armor lies here.&N~
+~
+9 13 3 0 8 0 0 9 0 0 0
+14 3 1 4 0 0 0 0
+10 2000 100
+E
+armor skin gorilla gorilla-skin~
+This heavy gorilla skin has been carefully cured and stitched together to
+create a very effective piece of armor.  Whatever process was used to cure
+the skin has left it with an acrid odor that is hard to identify.
+~
+A
+5 4
+#80086
+club bone~
+&+Wa tiger thigh bone&N~
+&+WThe long thigh bone of a tiger has been dropped here.&N~
+~
+5 10 3 0 7 0 0 8193 0 0 0
+6 2 4 6 0 0 0 0
+3 2000 100
+E
+bone tiger thigh~
+The knobby end of this huge thigh bone has several sharpened ridges to make it
+a more powerful weapon.  Despite its size, it is relatively light and easy to
+wield.  Layers of some sort of polish add to its white sheen, making it stand
+out in the darkness of the jungle.
+~
+A
+18 1
+A
+19 1
+#80087
+tigerskin shield~
+&+ya t&+Lig&+yer&+Ysk&+yin shield&N~
+&+yA t&+Lig&+yer&+Ysk&+yin shield was dropped here.&N~
+~
+37 14 3 0 9 0 0 513 0 4165287492 0
+1 1 3 86 3 0 0 0
+6 3500 100
+E
+tigerskin shield~
+Two thick layers of tigerskin have been stretched taut over a solid wood
+framework to create a sturdy, light shield.
+~
+A
+1 7
+#80088
+club wood~
+&+ya hard wooden club&N~
+&+yA solid hard wooden club lies here.&N~
+~
+5 6 3 0 7 0 0 8193 0 0 0
+10 1 4 6 0 0 0 0
+3 1 100
+E
+club wood~
+This solid stick of wood makes an excellent weapon for those without the
+skills to use a sword.
+~
+A
+18 1
+#80089
+frogskin mask~
+&+ga &+Yfr&+Rog&+Ysk&+Rin &+gmask&N~
+&+GA bright &+Yfr&+Rog&+Ysk&+Rin &+Gmask lies here.&N~
+~
+9 14 3 0 10 5 0 262145 0 0 0
+3 13 1 3 0 0 0 0
+0 8000 100
+E
+frogskin mask~
+This brightly colored mask has been made from the skins of a number of
+the colorful frogs that live in the jungle.  Most of the frogs with these
+bright red and yellow skins are quite poisonous, some are even dangerous
+to touch.This makes the mask quite a novelty, both difficult to find and
+to create.
+~
+A
+18 1
+#80090
+earring tooth~
+&+Wa tiger's tooth earring&N~
+&+Wan earring made from a tiger's tooth lies here.&N~
+~
+11 10 1 0 10 0 0 524289 0 0 0
+0 0 0 0 0 0 0 0
+0 2000 100
+E
+earring tooth~
+Made from the eye tooth of a large tiger, this earring makes quite a statement
+to all that can see it.
+~
+A
+13 4
+#80091
+bracelet tigerbone~
+&+Wa tigerbone bracelet&N~
+&+WA tigerbone bracelet has been dropped here.&N~
+~
+9 10 3 0 8 0 0 4097 0 0 0
+3 11 1 3 0 0 0 0
+0 2000 100
+E
+bracelet tigerbone~
+A number of bones from a tiger's paw have been strung together to create this
+odd-looking bracelet.  The bones are quite solid though, and provide good
+protection for the wrist and forearm.
+~
+A
+30 5
+A
+28 -2
+#80092
+necklace tigerbone~
+&+Wa tigerbone necklace&N~
+&+WA tigerbone necklace has been dropped here.&N~
+~
+9 10 3 0 7 0 0 5 0 0 0
+2 2 2 3 0 0 0 0
+0 3000 100
+E
+necklace tigerbone~
+Bones and teeth of various sizes have been used to create this somewhat
+ugly necklace.  The bones and teeth all appear to be from tigers, but they have
+been so abused in the creation of the necklace it is hard to say for certain.
+~
+A
+19 1
+#80093
+shirt linen~
+&+Wa linen shirt&N~
+&+WA linen shirt has been left behind.&N~
+~
+11 3 3 0 7 0 0 9 0 0 0
+0 0 0 0 0 0 0 0
+1 400 100
+E
+shirt linen~
+This shirt is of no use as armor, but it does provide some protection from the
+elements.  Bullywugs like this cloth because it breathes well, and if it is wet
+properly it can help keep their skins moist in the jungle.
+~
+A
+17 -3
+#80094
+pants cloth~
+&+Wsome light cloth pants&N~
+&+WSome light cloth pants have been tossed aside&N~
+~
+11 3 3 0 7 0 0 33 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+pants cloth~
+These light pants are barely thick enough to help protect against thorns and
+sharp plant leaves in the jungle.  They are cool and light however, making
+them easy to wear in the jungle.
+~
+A
+17 -3
+#80095
+collar alligatorskin~
+&+gan alligatorskin collar&N~
+&+gA thick alligatorskin collar has been dropped here.&N~
+~
+9 14 3 0 9 0 0 5 0 0 0
+4 2 1 4 0 0 0 0
+1 2500 100
+E
+collar alligatorskin~
+A thick piece of rough alligatorskin has been turned into a wide collar.
+The rough bumps and ridges of the skin have all been placed along the
+outside edge of the collar to make it look a bit more impressive.
+~
+A
+18 1
+#80096
+bracer alligatorskin~
+&+gan alligatorskin bracelet&N~
+bracelet alligatorskin~
+~
+9 14 3 0 9 0 0 4097 0 0 0
+4 11 1 3 0 0 0 0
+1 2500 100
+E
+bracer alligatorskin~
+Thick strips of alligatorskin have been put together to create a crude bracer.
+The worksmanship, and the skins themselves, are fairly poor but the bracer
+is serviceable for at least a while longer.
+~
+A
+1 3
+A
+2 3
+#80097
+shield alligatorskin~
+&+gan alligatorskin shield&N~
+&+gAn alligatorskin shield has been set aside for later use.&N~
+~
+37 14 3 0 9 0 1024 513 0 121258171 0
+1 1 3 100 3 0 0 0
+5 4500 100
+E
+shield alligatorskin~
+Thick alligatorskin has been used to create a sturdy shield.  The wooden
+framework that the skin has been stretched over is fairly heavy, but the hard
+wood makes it very sturdy and unlikely to bend or break.  Thin bone spikes
+have been placed along the outer edge of the shield to make it even more
+useful for bashing over opponents.
+~
+A
+1 4
+#80098
+boots cloth~
+&+ysome muddy cloth boots&N~
+&+ySome muddy cloth boots are drying here.&N~
+~
+11 3 3 0 7 0 0 65 0 0 0
+0 0 0 0 0 0 0 0
+1 300 100
+E
+boots cloth~
+This pair of boots has been made from a thin cloth that was once dyed some
+bright color.  Years of abuse in the muddy swamps and jungle have left them
+stained and ugly, and of virtually no use at all.
+~
+A
+17 -2
+#80099
+boots tigerskin~
+&+ysome t&+Lig&+yer&+Ysk&+yin boots&N~
+&+yA pair of sturdy t&+Lig&+yer&+Ysk&+yin boots rests here.&N~
+~
+9 13 3 0 9 0 0 65 0 0 0
+6 6 1 3 0 0 0 0
+2 2000 100
+E
+boots tigerskin~
+This pair of boots has been made from two layers of tigerskin.  They are sturdy
+enough to withstand any long-term traveling and are quite comfortable to wear.
+~
+A
+14 10
+A
+2 4
+#80100
+skull~
+&+Wa tiger's skull&N~
+&+WA tiger's skull has been left here.&N~
+~
+9 10 3 0 7 0 0 17 0 4165287492 0
+6 4 1 3 0 0 0 0
+6 2000 100
+E
+skull~
+The lower bones of the skull have been broken away and the skull itself
+has been shaped into a helm.  The thick bone of the skull makes for a
+sturdy helm, one that can withstand a great deal of damage before
+shattering.
+~
+A
+18 1
+A
+24 2
+#80101
+belt tigerskin skin~
+&+ya t&+Lig&+yer&+Ysk&+yin belt&N~
+&+yA strip of t&+Lig&+yer&+Ysk&+yin has been dropped here.&N~
+~
+9 14 3 0 9 0 0 2049 0 0 0
+4 10 0 3 0 0 0 0
+1 2000 100
+E
+belt tigerskin skin~
+Holes have been punched along one end of the strip of skin and a buckle has
+been placed at the other end to create a serviceable belt.
+~
+A
+1 4
+#80102
+belt cloth~
+&+Wa cloth belt&N~
+&+WA thin cloth belt has been tossed aside.&N~
+~
+11 3 3 0 7 0 0 2049 0 0 0
+0 0 0 0 0 0 0 0
+0 200 100
+E
+belt cloth~
+The thick fabric is decent enough for holding up one's pants and for attaching
+a few things to, but is of little other use.
+~
+A
+17 -2
+#80103
+throne bone~
+a throne~
+&+WA throne of bone and &+galligatorskin&+W stands here.&N~
+~
+13 13 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+throne bone~
+This throne has been made from the bones of tigers and alligators, as well as
+the taut, stretched skin of a giant alligator that is used to pad the back
+and seat.  It was clearly meant to look impressive, and the number of bones
+used is impressive, but the craftsmanship is inept, several of the bones
+barely stay together.  It looks as if a few solid blows with a club would smash
+the throne to pieces.
+~
+#80104
+skin tigerskin~
+&+ya t&+Lig&+yer&+Ysk&+yin hanging&N~
+&+yA t&+Lig&+yer&+Ysk&+yin hangs from the wall.&N~
+~
+13 13 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+skin tigerskin~
+This skin is from a massive tiger, one much larger than the average tiger in
+the jungle.  It has been hung on the wall as a trophy, and as a sign of the
+chief's strength and prowess.  The claws have been left attached to the
+skin to give an additional hint of how large and powerful the tiger really was.
+~
+#80105
+javelin painted~
+&+Ya pain&+Rted jave&+Ylin&N~
+&+YA pain&+Rted jave&+Ylin has been left here.&N~
+~
+5 6 3 0 11 0 16790784 8193 0 96071683 0
+8 1 6 11 0 0 0 0
+3 10000 100
+E
+javelin painted~
+This wicked looking weapon has been painted with bright red and yellow colors
+to make it stand out.  At first glance it appears to be a simple ceremonial
+weapon, further study shows that it has a long, thin razor-sharp blade and is
+perfectly weighted for throwing.  Magical sigils have been carved into the
+shaft of the weapon, almost invisible under the bright paints.
+~
+A
+18 3
+#80106
+tooth alligator totem~
+&+gan alligator&+W tooth totem&N~
+&+WA carved alligator tooth has been left here.&N~
+~
+34 10 2 0 10 0 1024 16385 0 256 0
+3 0 0 0 0 0 0 0
+1 10000 100
+E
+tooth alligator totem~
+This large alligator tooth has been carefully inscribed with a number of
+different religious symbols.  It is certainly some sort of religious artifact.
+Carvings of hawks and large bears dominate the symbols, but there are
+additional symbols that are more difficult to interpret.
+~
+#80107
+rod steel spiked~
+&+Wa spiked steel rod&N~
+&+WA heavy steel rod with sharp spikes has been tossed here.&N~
+~
+5 16 3 0 7 0 0 8193 0 4165210052 0
+7 1 2 6 0 0 0 0
+25 8000 100
+E
+rod steel spiked~
+This heavy rod has been tipped at one end with a collection of wicked spikes.
+Several of the spikes even appear to have been barbed to cause additional
+damage when they are pulled out of  the wounds they create.  The rod itself
+is quite heavy, but it is well-balanced and easy to wield.
+~
+A
+18 2
+A
+19 2
+#80108
+leggings alligatorskin~
+&+gsome alligatorskin leggings&N~
+&+gSome alligatorskin leggings lie here.&N~
+~
+9 14 3 0 10 0 8192 33 0 4165287748 0
+7 5 1 4 0 0 0 0
+4 5000 100
+E
+leggings alligatorskin~
+The rough alligatorskin provides excellent protection, and the soft furry skin
+that has been used to line the leggings makes them comfortable to wear.
+~
+A
+18 1
+#80109
+sleeves alligatorskin~
+&+gsome alligatorskin sleeves&N~
+&+gA pair of well-made alligatorskin sleeves rests here.&N~
+~
+9 14 3 0 7 0 8192 257 0 4165287748 0
+7 8 1 4 0 0 0 0
+0 2300 100
+E
+sleeves alligatorskin~
+Rough alligatorskin makes for an excellent protective covering for any warrior,
+and the soft skin that has been used to line the sleeves makes them comfortable
+to wear.  The sleeves are a bit heavy and hot for jungle wear, but one could
+certainly adjust to them.
+~
+A
+19 1
+#80110
+desk cracked~
+&+ya cracked wooden desk&N~
+&+yA cracked wooden desk teeters on three legs.&N~
+~
+13 6 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+desk cracked~
+A long crack runs along one side of the desk down to the left front leg.  The
+leg itself has been broken off and the desk has been propped up with a rough
+piece of wood.  One of the drawers is missing, but the other two drawers
+remain.  Though it must be valued by its owner, this desk is of absolutely no
+value to anyone else.
+~
+#80111
+desk old~
+&+yan old desk&N~
+&+yAn ancient, but sturdy, wooden desk stands here.&N~
+~
+13 6 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+desk old~
+This desk is quite old, yet it has been treated extremely well.  The humid
+jungle air hasn't damaged it yet, a clear indication that its owner must
+polish and oil it regularly.  It appears to be made from some sort of heavy
+oak variety with tight veins, not the prettiest wood, but extremely sturdy
+and durable.
+~
+#80112
+desk ebonwood~
+&+Lan ebonwood desk&N~
+&+LAn ebonwood desk stands here.&N~
+~
+13 6 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+desk ebonwood~
+This solid desk is clearly of halfling design and building.  It is amazing that
+it has found its way into the bullywug village.  The owner of this piece must
+have spent a great deal of money either bribing someone for it or stealing it
+in order to become its owner.  There are no engravings or designs on its
+surfaces so it must be a simple trade piece, made by the halflings for outside
+sale.
+~
+#80113
+fish raw~
+some raw fish~
+Some raw fish has been left behind.~
+~
+19 48 3 0 7 0 0 16385 0 0 0
+8 0 0 0 0 0 0 0
+0 2 100
+E
+fish raw~
+This raw fish is unidentifiable.  It has been salted and treated to make it
+last a bit longer while traveling but looks like a dangerous and unsatisfying
+meal.
+~
+#80114
+fish smoked~
+&+Lsome smoked fish&N~
+&+LSome smoked fish has been left behind.&N~
+~
+19 48 3 0 7 0 0 16385 0 0 0
+20 0 0 0 0 0 0 0
+0 3 100
+E
+fish smoked~
+This black piranha meat has been smoked to add a bit of flavor to it and
+make it last a bit longer.  Black piranha are fruit eaters, quite unlike their
+bloodthirsty cousins, and grow quite large.  This slab of smoked fish
+would probably last an entire day for the average person.
+~
+#80115
+ration stale~
+a stale ration~
+A stale ration has been tossed aside to rot.~
+~
+19 48 3 0 7 0 0 0 0 0 0
+10 0 0 0 0 0 0 0
+0 1 100
+E
+ration stale~
+This stale ration has simply spent to much time uneaten.  Though it was
+well-made and preserved, it wasn't meant to last more than a few months
+and this ration has clearly exceeded that time limit.
+~
+#80116
+bed ebonwood~
+&+Lan ebonwood bed&N~
+&+LA small, elegant ebonwood bed stands here.&N~
+~
+13 6 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+bed ebonwood~
+This fine ebonwood bed was clearly made by a halfling craftsman.  It is only
+large enough for a halfling, gnome, or other small humanoid, but is sturdy
+and elegant in its design and creation.
+~
+#80117
+bar~
+&+ya long, rickety bar&N~
+&+yA long, rickety bar stands against the wall.&N~
+~
+13 5 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+bar~
+This long wooden bar looks ready to collapse at any moment.  Several notches
+along one edge of the bar would seem to indicate that some of the fights here
+have involved edged weapons.
+~
+#80118
+mug glass ale~
+&+ya wooden mug&N~
+&+yA wooden mug has been tossed here.&N~
+~
+17 5 8 0 7 0 0 16385 0 0 0
+1 1 4 0 0 0 0 0
+1 20 100
+E
+mug glass~
+This shoddy wooden mug is almost as cheap as the ale it is served in.  Probably
+for good reason, it is certain to suffer a great deal of abuse during its
+short life.
+~
+#80119
+card black prince~
+&+La black prince&N~
+&+LA black playing card has been left here.&N~
+~
+4 4 3 0 7 0 0 16385 0 0 0
+30 1 1 28 0 0 0 0
+0 2300 100
+E
+card black prince~
+Depending upon what game is being played, the black prince is the highest
+card in the deck.  The thin wooden playing card is flexible but sturdy, and
+a long-lasting ink has been used to create the designs, making this a card
+that should last a long time.
+~
+#80120
+card queen blood~
+&+rthe blood queen&N~
+&+rA playing card with a deep red design lies here.&N~
+~
+4 4 3 0 7 0 0 16385 0 0 0
+20 1 1 57 0 0 0 0
+0 10000 100
+E
+card queen blood~
+The blood queen is one of the higher cards in almost any game.  This card seems
+to have been magically treated for some reason.
+~
+#80121
+card blood ten~
+&+ra blood ten&N~
+&+rA playing card with a deep red design lies here.&N~
+~
+4 4 3 0 7 0 0 16385 0 0 0
+20 1 1 111 0 0 0 0
+0 10000 100
+E
+card blood ten 10~
+Though a numbered card, the blood ten is still one of the highest cards in
+the deck, depending on what game is being played of course.  The only higher
+suit is black, green and yellow are far below blood in almost every card
+game.
+~
+#80122
+card blood prince~
+&+rthe blood prince&N~
+&+rA playing card with a deep red design lies here.&N~
+~
+4 4 3 0 7 0 0 16385 0 0 0
+20 1 1 223 0 0 0 0
+0 10000 100
+E
+card blood prince~
+The blood prince is the highest card of the blood suit.  Only the black
+prince and black queen can trump it.  The card itself is poorly made, it looks
+as if the original card in the deck was lost and replaced with this poorly done
+copy.
+~
+#80123
+card black queen~
+&+Lthe black queen&N~
+&+LA black playing card has been dropped here.&N~
+~
+4 4 3 0 7 0 0 16385 0 0 0
+25 1 1 15 0 0 0 0
+0 10000 100
+E
+card black queen~
+Made of an incredibly thin and flexible piece of wood, this beautiful playing
+card is the second highest in the deck, only the black prince can top it.
+~
+#80124
+card green prince~
+&+gthe green prince&N~
+&+gA green playing card has been tossed aside.&N~
+~
+13 4 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+card green prince~
+A small chip in the upper left corner of this thin piece of wood surely allows
+any card player to be able to identify it.  The green prince is not the most
+powerful card in the deck, but knowledge of its presence can certainly help
+any gambler.
+~
+#80125
+card green queen~
+&+gthe green queen&N~
+&+gA green playing card has been tossed aside.&N~
+~
+13 4 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+card green queen~
+This thin wooden card has been worn by ages of hard use.  The plain design on
+its back makes it fit in fairly well with almost any standard deck.  The
+green queen is one of the higher cards, but almost any blood or black card
+can beat it.
+~
+#80126
+card green ten~
+&+ga green ten&N~
+&+gA green playing card has been tossed aside.&N~
+~
+13 4 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+card green ten~
+This thin wooden playing card is as flexible as a stiff piece of paper, but
+much more sturdy and long-lasting.  Green ink of some sort has been used to
+create an odd-looking rendition of the number ten.
+~
+#80127
+card yellow prince~
+&+Ythe yellow prince&N~
+&+YA bright yellow playing card lies here.&N~
+~
+13 4 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+card yellow prince~
+The bright yellow design of the prince adds color to any hand.  Unfortunately,
+he is the weakest prince in the deck, even low cards of other suits can beat
+it.
+~
+#80128
+card yellow queen~
+&+Ythe yellow queen&N~
+&+YA playing card with a yellow face has been tossed aside.&N~
+~
+13 4 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+card yellow queen~
+The queen painted on this card looks a bit sickly.  The dye used to create
+her image has soaked into the wood in an odd manner giving her a sickly
+yellow face rather than the bright yellow face she was meant to have.
+~
+#80129
+card yellow ten~
+&+Ya yellow ten&N~
+&+YA playing card with a yellow face has been left behind.&N~
+~
+13 4 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+card yellow ten~
+This poor yellow card is one of those most often discarded.  It may not be
+the lowest in the deck, but the yellow ten has little value to any gambler.
+~
+#80130
+card black ten~
+&+La black ten&N~
+&+LA playing card with a black face lies here.&N~
+~
+4 4 3 0 7 0 0 16385 0 0 0
+25 1 1 197 0 0 0 0
+0 10000 100
+E
+card black ten~
+Being a black card this ten is of the highest suit, making it at least
+somewhat worth keeping.
+~
+#80131
+net~
+&+Wa carefully woven net&N~
+&+WA carefully woven net has been left behind.&N~
+~
+13 3 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+net~
+This net is carefully woven from thin cloth strands.  It isn't worth very much
+because the materials are so cheap and easy to find that almost anyone can
+make one.
+~
+#80132
+figurine carving~
+&+ya wooden figurine&N~
+&+yA carefully carved, wooden figurine of a tiger lies here.&N~
+~
+8 6 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+1 4500 100
+E
+figurine carving~
+This beautifully carved tiger would be worth at least a few platinum in almost
+any city.  Even halflings would pay a few coins for such a carefully made
+piece.  The tiger crouches, poised to strike, and every rippling muscle is
+carefully detailed.  Artistic sanding as also created slightly different
+textures to give the tiger 'stripes' of a sort without resorting to paint or
+different inlays of wood.
+~
+#80133
+spear hunting~
+&+ya large hunting spear&N~
+&+yA large, heavy hunting spear lies here.&N~
+~
+5 6 4 0 8 0 20979712 8193 0 0 0
+8 1 5 11 0 0 0 0
+1 4500 100
+E
+spear hunting~
+This large, heavy spear is made from a dense wood that sounds as firm as rock
+when it is tapped softly.  A thin head of razor-sharp stone and carefully
+carved tail end show that it is meant to be thrown rather than used in one-on-
+one combat.
+~
+A
+18 3
+#80134
+bark~
+&+ysome thin, soft bark&N~
+&+ySome thin, soft bark has been left here.&N~
+~
+8 6 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+1 4500 100
+E
+bark~
+Some soft bark has been stripped from a tree in long, thin pieces and left here
+in a small pile.
+~
+#80135
+blanket bark~
+&+ya blanket of soft bark&N~
+&+yA bark blanket has been left here.&N~
+~
+9 6 3 0 7 0 0 1025 0 0 0
+8 9 34 3 0 0 0 0
+1 4500 100
+E
+blanket bark~
+Thin strips of soft bark have been woven into a soft blanket.  Though it has a
+woody aroma, the blanket is extremely pliable and is easily rolled into a small
+package for travel.
+~
+#80136
+necklace beads string~
+&+Ya necklace of yellow beads&N~
+&+YSomeone has dropped a long string of yellow beads.&N~
+~
+9 6 3 0 7 0 0 5 0 0 0
+5 2 2 3 0 0 0 0
+1 4500 100
+E
+necklace beads string~
+Bright yellow beads made from some sort of dyed clay have been strung together
+to create a bright necklace.
+~
+#80137
+petals flower~
+&+Rsome bright red flower petals&N~
+&+RSome bright red flower petals lie scattered about.&N~
+~
+8 6 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+1 4500 100
+E
+petals flower~
+An astounding, almost fluorescent, red pigment makes these flower petals stand
+out like a beacon anyplace they happen to fall.
+~
+#80138
+mask red war~
+&+Ra red &+rwar&+Rmask&N~
+&+RA bright red mask has been left here.&N~
+~
+9 6 3 0 11 10 0 262145 0 0 0
+7 13 1 4 0 0 0 0
+1 4500 100
+E
+mask red war~
+Bright red paint makes this mask stand out, even in the darkest of nights.
+Deeper red lines run down the mask in jagged trails that give it a sinister
+appearance.
+~
+A
+5 4
+A
+13 10
+#80139
+armor azurian~
+&+bsome azurian hide armor&N~
+&+bArmor made from the thick hide of an azurian has been tossed here.&N~
+~
+9 14 3 0 11 0 8192 9 0 4165209732 0
+20 3 1 5 0 0 0 0
+8 4500 100
+E
+armor azurian~
+The deep blue-black color of the hide gives it a sinister appearance.  The hair
+has been stripped from the hide and it has been polished and treated to make it
+much sturdier without removing any of its flexibility.
+~
+A
+1 8
+A
+18 2
+#80140
+sleeves~
+&+bsome azurian hide sleeves&N~
+&+bA pair of carefully made azurian hide sleeves has been left behind.&N~
+~
+9 14 3 0 11 0 8192 257 0 4165209604 0
+8 8 1 5 0 0 0 0
+2 4500 100
+E
+sleeves~
+The deep blue-black color of the azurian hide is quite unpleasant to look at.
+The sleeves are extremely well-made, yet there is something unappealing about
+them.  The sleeves are polished and hardened, yet still very flexible and
+light.
+~
+A
+2 7
+A
+18 2
+#80141
+leggings~
+&+bsome azurian hide leggings&N~
+&+bLeggings made from a deep blue-black leather have been left here.&N~
+~
+9 14 3 0 11 0 8192 33 0 4165209604 0
+8 5 1 5 0 0 0 0
+2 4500 100
+E
+leggings~
+Thick but flexible, these deep blue-black leggings demonstrate excellent
+workmanship.  They may be somewhat ugly to look at, but they are sturdy and
+functional, worth a great deal to any adventurer searching for good armor.
+~
+A
+18 2
+A
+30 -8
+#80142
+leaves crumpled~
+&+gsome crumpled green leaves&N~
+&+gSome crumpled green leaves lie here.&N~
+~
+8 6 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+1 10 100
+E
+leaves crumpled~
+Someone picked these leaves and then left them behind.  They have been crumpled
+a bit and the breaks in the leaves gives off a somewhat minty aroma.
+~
+#80143
+potion vial~
+&+ga green potion&N~
+&+gA green potion lies here in a small glass vial.&N~
+~
+10 6 3 0 7 0 0 16385 0 0 0
+30 234 234 -1 0 0 0 0
+1 4500 100
+E
+potion vial~
+The deep green potion looks thick and viscous in its clear glass vial.
+~
+#80144
+parchment plans~
+&+ya strange parchment&N~
+&+yA rolled parchment lies in the corner.&N~
+~
+8 6 3 0 7 0 4104 16385 0 0 0
+0 0 0 0 0 0 0 0
+1 10 100
+E
+parchment plans~
+A number of mathematical symbols and notations have been made all across the
+parchment, along with a number of marks where things have been crossed out and
+altered.
+~
+#80145
+tool brass~
+&+yan odd-looking brass tool&N~
+&+yAn odd-looking brass tool has been dropped here.&N~
+~
+8 17 3 0 14 0 0 16385 64 0 0
+0 0 0 0 0 0 0 0
+1 87000 100
+E
+tool brass~
+This odd-looking tool must have some sort of purpose, though what it might be
+is a mystery.  Odd flanges and points stick out of it at various points, when
+it is manipulated properly it almost looks like an armless man with movable
+legs.  However, it is definitely not a toy of any sort.
+~
+#80146
+totem cloud rock~
+&+Wa cloudy white totem&N~
+&+WA strange white rock shaped like a cloud has been left here.&N~
+~
+34 11 2 0 12 0 0 16385 0 0 0
+48 0 0 0 0 0 0 0
+1 4500 100
+E
+totem cloud rock~
+This soft rock has been cut and shaped to look somewhat like a cloud.  It is
+extremely light and easy to hold, though its purpose remains a mystery.
+~
+A
+17 -5
+A
+24 -2
+#80147
+collar bones~
+&+Wa collar of elven finger bones&N~
+&+WA bizarre string of bones has been tossed aside.&N~
+~
+9 10 3 0 8 0 0 5 0 0 0
+5 2 1 3 0 0 0 0
+1 4500 100
+E
+collar bones~
+Elven finger bones have been strung together to create a disgusting looking
+collar.  It is clear that the bones are trophies from dead elves that have been
+made into a disgusting, open display of someone's brutality.
+~
+A
+18 1
+#80148
+bracer stone~
+&+La stone bracer&N~
+&+LSomeone has dropped a plain stone bracer.&N~
+~
+9 11 3 0 9 0 0 4097 0 0 0
+5 11 1 4 0 0 0 0
+2 4500 100
+E
+bracer stone~
+Hard stone has been carved into a large bracelet.  Though quite protective, it
+is heavy and makes it difficult to move one's arms very quickly.
+~
+A
+1 4
+A
+19 1
+#80149
+sword elven silver~
+&+can ancient, silver sword&N~
+&+cAn ancient silver sword of elven design rests here.&N~
+~
+5 22 3 0 15 25 99336 8193 64 95993883 0
+5 1 6 3 0 0 0 0
+20 4500 100
+E
+sword elven silver~
+Crafted of fine silver, alloyed with some tougher metal, this sword has
+withstood years of battle and remains whole, free of nicks, and ready for more.
+Elven runes run down the length of the blade, but they are so ancient that only
+an elven sage would be able to interpret them.  Something about the sword hints
+at hidden powers but there is no easy way to learn how to use them.
+~
+A
+18 4
+A
+19 2
+#80150
+rod chieftain gold golden~
+&+Ygolden rod of the lizardman chieftain&N~
+&+YA golden rod has been dropped here.&N~
+~
+5 24 3 0 10 0 0 8193 64 4165287492 0
+10 1 3 6 0 0 0 0
+20 4500 100
+E
+rod chieftain gold golden~
+Solid gold has been used to create a heavy, scepter-like rod.  The symbol of
+one of the lizardman gods has been made on one end of the rod but it is
+otherwise unadorned.
+~
+A
+18 3
+#80151
+scale couatl~
+&+Ra small couatl scale&N~
+&+RA tiny, diamond-hard couatl scale lies here.&N~
+~
+11 35 10 0 14 0 0 524289 0 0 0
+0 0 0 0 0 0 0 0
+1 4500 100
+E
+scale couatl~
+Couatl scales are as hard has dragon scales, tough as diamond though almost
+impossible to chip or damage.  The scales are small though, and this tiny scale
+has been turned into a small earring.
+~
+A
+5 4
+A
+13 3
+#80152
+throne~
+&+Ra couatl-hide throne&N~
+&+RA throne made from the hide of a co&+ruatl&+R stands here.&N~
+~
+8 6 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+1 4500 100
+E
+throne~
+Couatl are mysterious, powerful beasts and are respected and feared by all in
+the jungle.  Only the greatest of warriors would even think of trying to fight
+such a beast, making this throne an extremely imposing piece of work.
+~
+#80153
+head~
+&+rthe bloody head of the lizardman chieftain&N~
+&+rThe bloody head of the lizardman chieftain has been left here.&N~
+~
+8 6 3 0 7 0 4104 16385 0 0 0
+0 0 0 0 0 0 0 0
+1 4500 100
+E
+head~
+This disgusting, bloody trophy is of little use to anyone, at least not anyone
+civilized.  The job of cutting the head off the body was completely botched,
+leaving an almost unrecognizable mess.
+~
+#80154
+amulet trinket silver~
+&+cSummerstorm's silver amulet&N~
+&+cA silver trinket lies on the ground.&N~
+~
+8 22 3 0 10 0 4104 16389 1 0 0
+0 0 0 0 0 0 0 0
+1 4500 100
+E
+amulet trinket silver~
+Elven writing on the back of the amulet says, "For My Dearest Summerstorm." The
+person giving the amulet has not signed it however.
+~
+#80155
+mask scales~
+&+ra co&+Ruatl&+r-hide mask&N~
+&+rA mask made from deep red scales lies here.&N~
+~
+9 35 3 0 14 0 0 262145 0 0 0
+5 13 1 5 0 0 0 0
+1 4500 100
+E
+mask scales~
+Couatl have small scales that line a tough, leathery hide.  The scales are as
+hard as dragon scales, but much smaller.  The tough hide they are attached to
+is quite pliable making it easier to work with.  The mask is thick and
+protective, but the holes are a bit small and make it somewhat difficult to
+see.
+~
+A
+18 3
+A
+30 10
+#80156
+granite stone~
+&+La slab of granite&N~
+&+LA massive slab of granite stands here.&N~
+~
+13 11 7 0 15 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+granite stone~
+The stone has an inexplicable magic to it, one that can't easily be explained
+or understood.  None of the jungle plants have attempted to overgrow it.
+Someone has carved a graceful scene into the stone with a skill that even
+the finest craftsman would be hard-pressed to match.
+~
+E
+carving scene picture~
+The carving depicts a massive crystalline dragon resting upon a cloud of some
+sort.  The intricate world that has been carved around the dragon doesn't
+appear to match anything in the vast world of Duris.  It must be a depiction
+of some other plane, or other world, perhaps of the artist's imagination.  In
+the dragon's hands is a large, twisted staff with a crystal of some sort at its
+head.
+~
+#80157
+staff~
+&+ya large, twisted staff with a &+Wcrystal head&N~
+&+yA massive wooden staff has been left here.&N~
+~
+8 6 3 0 15 0 77832 16385 0 0 0
+0 0 0 0 0 0 0 0
+14 1000 100
+E
+staff~
+This massive staff is far to large for any but a giant to even hold.  Despite
+its massive size, it is fairly light, though a tree might be easier to carry.
+The crystal glows with a faint light, sometimes the light it shines seems to
+encompass the staff and make it disappear, only to fade back into view a few
+moments later.  Strange runes and inscriptions have been made all along the
+length of the staff but they are completely uninterpretable, as if they were
+written in a language never known or spoken in the vast world of Duris.
+~
+#80158
+brazier bowl up~
+teleporter into the fire cage~
+A no-show teleporter into the fire cage.~
+~
+25 1 1 15 15 0 2 0 0 0 0
+80162 5 -1 0 0 0 0 0
+30 1000 100
+#80159
+brazier bowl down~
+teleporter out of the fire cage~
+A no-show teleporter out of the fire cage.~
+~
+25 1 1 15 15 0 2 0 0 0 0
+80061 6 -1 0 0 0 0 0
+30 1000 100
+#80160
+bowl up in~
+teleporter into the water cage~
+A no-show teleporter into the water cage.~
+~
+25 1 1 15 15 0 2 0 0 0 0
+80164 5 -1 0 0 0 0 0
+30 1000 100
+#80161
+bowl down out~
+teleporter out of water cage~
+A no-show teleporter out of the water cage.~
+~
+25 1 1 15 15 0 8194 0 0 0 0
+80072 6 -1 0 0 0 0 0
+30 1000 100
+#80162
+plane air light~
+&+Wa shimmering plane of light&N~
+&+WA shimmering plane of light floats in mid-air.&N~
+~
+25 1 4 15 15 0 67108865 0 64 0 0
+80161 7 -1 0 0 0 0 0
+30 1000 100
+E
+plane air light~
+This shimmering plane has little substance, when it can only be seen when one
+is facing it and the light is just right.  From one side or other though it is
+virtually invisible.
+~
+#80163
+plane air light~
+&+Wa shimmering plane of light&N~
+&+WA shimmering plane of light floats here, immune to the winds.&N~
+~
+25 1 4 15 15 0 67108865 0 64 0 0
+80060 7 -1 0 0 0 0 0
+30 1000 100
+E
+plane air light~
+This plane of light must be an exit from the prison.  It would seem that some
+elementals can't use it though, perhaps they can't enter the prime material
+plane unless they are summoned.
+~
+#80164
+bowl mud up~
+teleporter into the earth cage~
+A no-show teleporter into the earth cage.~
+~
+25 1 1 15 15 0 2 0 0 0 0
+80163 5 -1 0 0 0 0 0
+30 1000 100
+#80165
+bowl mud down~
+teleporter out of the earth cage~
+A no-show teleporter out of the earth cage.~
+~
+25 1 1 15 15 0 2 0 0 0 0
+80071 6 -1 0 0 0 0 0
+30 1000 100
+#80166
+amulet air~
+&+ca strange amulet of swirling air&N~
+&+cA bizarre amulet of swirling air lies here.&N~
+~
+8 1 3 0 15 0 77832 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1000 100
+E
+amulet air~
+This amulet is difficult to look at, it changes shapes continuously, yet
+somehow stays cohesive and whole.
+~
+#80167
+cloak air~
+&+Wa light and windy cloak&N~
+&+WA frail cloak made of air lies here.&N~
+~
+9 19 3 0 15 10 65537 1025 64 0 0
+10 9 34 5 0 0 0 0
+0 45000 100 134217728 0 0 0
+E
+cloak air~
+The air swirls and turns, but somehow remains whole.  This cloak is clearly
+from a different plane, and valuable for that alone, but it contains vague
+hints of other, greater powers that have yet to be identified.
+~
+A
+13 25
+A
+18 2
+#80168
+amulet earth~
+&+yan earthen amulet&N~
+&+yA strange, earthen amulet lies here.&N~
+~
+8 11 3 0 15 0 69640 16385 0 0 0
+0 0 0 0 0 0 0 0
+2 1000 100
+E
+amulet earth~
+Earth and stone together form this odd amulet, as well as the frail chain it
+hangs from.  It is hard to judge whether it may be worth anything or not, one
+would almost guess not.  It is fairly ugly, after all, and doesn't appear to
+have any useful magical properties.
+~
+#80169
+mask earth~
+&+ya mask of earth and stone&N~
+&+yA heavy mask of earth and stone has been left here.&N~
+~
+9 19 3 0 15 20 0 262145 64 0 0
+9 13 1 5 0 0 0 0
+1 1000 100 268435456 128 0 0
+E
+mask earth~
+Heavy earth and stone has been magically melded into a smooth-surfaced mask
+that carries a deep, magical aura.  Only a brave soul willing to wear the mask
+might be able to find out what properties it might have.
+~
+A
+19 3
+A
+18 1
+#80170
+amulet water~
+&+ba watery amulet&N~
+&+bA watery amulet has been left behind.&N~
+~
+8 40 3 0 15 0 77832 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1000 100
+E
+amulet water~
+A small globe of swirling water is attached to a thin string of water.  The
+stuff flows and eddies, but does not leave its magical containment.
+~
+#80171
+drum drums water instrument~
+&+bsome odd-shaped water drums&N~
+&+bSome odd-looking water drums have been left here.&N~
+~
+32 40 3 0 15 0 66560 16385 64 8421376 0
+188 50 0 1 0 0 0 0
+3 45000 100
+E
+drum drums water~
+Two spheres of water, or layers of water surrounding air are connected at one
+side.  The spheres are different sizes and emit slightly different tones
+depending upon where they are tapped, and how hard they are tapped.  Great
+skill would be required to play them properly, but if a skilled bard could be
+found the resulting sound would be priceless.
+~
+A
+13 25
+A
+19 3
+#80172
+medallion flaming fire~
+&+ra flaming medallion&N~
+&+rA flaming medallion hangs in mid-air on a chain of fire.&N~
+~
+8 1 3 0 15 0 67178504 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1000 100
+E
+medallion flaming fire~
+This fiery medallion seems to fold in on itself at times, disappearing and
+then reappearing.  The flames it breathes are cool to the touch, yet are
+clearly real, it seems that whoever holds the amulet can not feel the heat of
+its fire.
+~
+#80173
+javelin flaming~
+&+ra flaming javelin&N~
+&+rA flaming javelin rests in mid-air.&N~
+~
+5 19 3 0 15 0 369936 8193 0 85536769 0
+2 1 3 11 0 0 0 0
+1 1000 100 536870912 0 0 0
+E
+javelin flaming~
+Powerful magic has been used to create a javelin of ever-burning fire.  It
+bonds with its owner, always returning to their hand when it is thrown, and
+adds a fiery punch to every battle.
+~
+A
+18 4
+A
+19 4
+#80174
+longsword green sword~
+&+ga green longsword&N~
+&+gA longsword made from magical green steel lies here.&N~
+~
+5 18 3 0 13 0 1024 8193 0 96071707 0
+5 1 6 3 0 0 0 0
+20 1000 100
+E
+longsword green~
+Elven magic and dwarven blacksmithing have been combined in the creation of
+this fine sword.  The edges are carefully sharpened and hardened to prevent
+nicks and scratches that might weaken the blade over time.
+~
+A
+18 2
+#80175
+leggings jodani wood~
+&+ysome &+rjodani&+y wood leggings&N~
+&+yLeggings made from &+rjodani&+y wood lie here.&N~
+~
+9 6 3 0 13 0 8192 33 0 4165287492 0
+8 5 1 4 0 0 0 0
+3 12000 100
+E
+leggings jodani wood~
+Small scales have been carefully sealed together to create leggings that are
+both light and flexible.  Jodani wood is one of the hardest woods known, and is
+rumored to be very magical in nature.
+~
+A
+18 1
+A
+24 -1
+#80176
+sleeves jodani wood~
+&+ysome &+rjodani&+y wood sleeves&N~
+&+ySleeves made from &+rjodani&+y wood lie here.&N~
+~
+9 6 3 0 13 0 8192 257 0 4165287492 0
+8 8 1 4 0 0 0 0
+3 12000 100
+E
+sleeves jodani wood~
+The thick wooden scales that have been joined together are small enough to
+allow a great deal of flexibility, but still thick enough to provide excellent
+protection.
+~
+A
+19 1
+A
+23 -1
+#80177
+sword longsword orcslayer~
+&+ga &+Ggreen&+g longsword named "&+LOrc&+rslayer&+g"&N~
+&+gA green longsword has been left here.&N~
+~
+5 19 3 0 15 0 2196480 8193 0 87642115 4096
+5 1 6 3 0 0 0 0
+20 45000 100
+E
+sword longsword orcslayer~
+Dwarven runes mark this magical sword as "Orcslayer", a name of power and
+purpose.  A combination of elven magic and dwarven mastery have created a
+light, balanced sword with an incredibly fine edge
+~
+A
+18 4
+A
+19 4
+#80178
+circlet jodani wood~
+&+ya circlet of &+rjodani&+y wood&N~
+&+yA circlet of &+rjodani&+y wood has been dropped here.&N~
+~
+9 6 3 0 13 0 8192 17 0 0 0
+6 4 14 3 0 0 0 0
+2 1000 100
+E
+circlet jodani wood~
+This thick circlet of wood is designed to hold one's hair back out of their
+face.  Fine carvings of leaves and flowers adorn the outer edge of the circlet,
+and the wood glows with a fine polish.
+~
+A
+5 9
+A
+24 -1
+#80179
+bow jodani wood~
+&+ya &+rjodani&+y wood bow&N~
+&+yA &+rjodani&+y wood bow has been left here.&N~
+~
+6 6 3 0 13 0 9216 24577 0 87556099 0
+70 90 0 1 0 0 0 0
+4 7500 100
+E
+bow jodani wood~
+This heavy bow was designed for strong arms and hands, few inexperienced
+archers would even be able to hit a target with it.  It is quite a prize for
+any archer or hunter though, few bows will last as long as this one.
+~
+#80180
+arrow jodani wood~
+&+ya &+rjodani&+y wood arrow&N~
+&+yA &+rjodani&+y wood sheaf arrow has fallen here.&N~
+~
+7 6 3 0 13 0 8192 16385 0 0 0
+3 2 8 1 0 0 0 0
+1 3500 100
+E
+arrow jodani wood~
+The shaft of the arrow is perfectly straight and round, and the large feathers
+at its end balance the sharp steel point.  Though this arrow is to heavy to fly
+very far, it can pierce even the finest armor.
+~
+#80181
+meat~
+dried meat~
+Some dried and cured meat has been dropped here.~
+~
+19 48 2 0 7 0 0 16385 0 0 0
+18 0 0 0 0 0 0 0
+1 3 100
+E
+meat~
+This meat has been carefully dried and cured so that it will last a very long
+time.
+~
+#80182
+soup turtle~
+&+rspicy turtle soup&N~
+&+rA bowl of spicy turtle soup has been left here.&N~
+~
+19 48 2 0 13 0 134217728 16385 0 0 0
+24 0 0 0 0 0 0 0
+0 100 100
+E
+soup turtle~
+Just the right amount of spices and vegetables have been added to the soup so
+that it not only tastes wonderful, but is also wonderfully nutritious.
+~
+#80183
+stew tapir~
+&+ysome tapir stew&N~
+&+ySome tabir stew has been left here.&N~
+~
+19 48 2 0 13 0 134295560 16385 0 0 0
+24 0 0 0 0 0 0 0
+0 100 100
+E
+stew tapir _ignore_~
+The tough tapir meat has been simmered with potatoes and spices for several
+days until it has softened and gathered a sweet taste.
+~
+#80184
+roast quetzel~
+&+La roast quetzel&N~
+&+LA roast quetzel has been carelessly dropped here.&N~
+~
+19 48 2 0 13 0 134217728 16385 0 0 0
+24 0 0 0 0 0 0 0
+0 100 100
+E
+roast quetzel~
+Harsh spices and a gamy flavor mark this as a dish that one either loves or
+hates.  True gourmands rave about its glorious mixture of flavors, but many of
+the more normal' diners stick to more regular fare.
+~
+#80185
+potion blue~
+&+Ba bright blue potion&N~
+&+BA bright blue potion has been left behind.&N~
+~
+10 40 1 0 10 0 134283264 16385 0 0 0
+20 43 3 14 0 0 0 0
+1 5000 100
+E
+potion blue~
+A thick, bright blue potion is within the clear glass vial, there are no
+markings on the vial though to tell what it is.
+~
+#80186
+potion clear vial glass~
+a clear potion~
+A glass vial with a clear potion has been left here.~
+~
+10 40 1 0 15 0 134283264 16385 0 0 0
+20 215 221 204 0 0 0 0
+1 15000 100
+E
+potion clear vial glass~
+The potion is as clear as water, yet is as thick as heavy oil.  It has a
+somewhat pungent odor.
+~
+#80187
+potion brown~
+&+ya muddy brown potion&N~
+&+yA muddy brown potion has been dropped here.&N~
+~
+10 40 1 0 15 0 65536 16385 0 0 0
+20 192 1 204 0 0 0 0
+1 7500 100
+E
+potion brown~
+The stuff inside the vial looks as appealing as mud, and smells like manure.
+Only a fool would bother to quaff the stuff.
+~
+#80188
+guard wrist archer~
+&+yan &+rarcher's&+y wrist guard&N~
+&+yA &+rjodani&+y wood wrist guard has been left behind.&N~
+~
+9 6 3 0 12 0 8192 4097 0 0 0
+5 11 1 3 0 0 0 0
+1 1000 100
+E
+guard wrist archer~
+This wide wrist guard is designed for archers to help them avoid getting burned
+by their bowstrings.  It is fairly thin but extremely sturdy and durable.
+~
+A
+30 3
+A
+26 5
+#80189
+katana green mithril~
+&+ga green-hued &+Cmithril katana&N~
+&+CSomeone has dropped a katana made of &+ggreen-hued&+C mithril.&N~
+~
+5 18 3 0 14 25 1024 8193 0 96071707 0
+5 1 7 3 0 0 0 0
+20 35000 100
+E
+katana green mithril~
+Fine dwarven craftsmanship and elven magic have created an expensive, but high
+quality sword that any warrior would be proud to own.
+~
+A
+18 2
+A
+19 1
+#80190
+armor scalemail scale mithril~
+&+Csome mithril scalemail&N~
+&+CSome fool has left behind some mithril scalemail armor.&N~
+~
+9 18 3 0 14 10 134217728 9 0 4173708868 0
+20 3 1 1 0 0 0 0
+20 45000 100
+E
+armor scalemail scale mithril~
+This mithril body armor is expensive, extremely expensive, but it is well worth
+the money spent on it.  Elven magic has helped make the armor more flexible,
+and even lightened it a bit.
+~
+#80191
+sleeves scalemail scale mithril~
+&+Csome mithril scalemail sleeves&N~
+&+CSome fool has left behind some mithril scalemail sleeves.&N~
+~
+9 18 3 0 14 0 134217728 257 0 4173708868 0
+8 8 1 1 0 0 0 0
+4 10000 100
+E
+sleeves scalemail scale mithril~
+All mithril armor is expensive, extremely expensive, but it is well worth the
+cost.  Elven magic has helped make the armor more flexible, and even lightened
+it a bit, at the same time as adding the faint green hue that cuts down on the
+mithril's reflective properties.
+~
+A
+19 1
+A
+13 5
+#80192
+leggings scalemail scale mithril~
+&+Csome mithril scalemail leggings&N~
+&+CSome mithril scalemail leggings have foolishly been left behind.&N~
+~
+9 18 3 0 14 0 134217728 33 0 4173708868 0
+8 5 1 1 0 0 0 0
+5 10000 100
+E
+leggings scalemail scale mithril~
+Like all mithril armor, these leggings are quite costly, but well worth the
+price one pays.  The intricately worked mithril scales have been carefully
+joined together to make the leggings flexible without reducing their protective
+strength.  Elven magic has been used to make the leggings a bit lighter than
+the standard and to give the mithril a faint, non-reflective green hue.
+~
+A
+19 1
+A
+13 5
+#80193
+bracelet mithril gem gems~
+&+Ca mithril bracelet studded with &+Rgems&N~
+&+CA &+Gg&+Re&+Ym&+C-encrusted mithril bracelet lies here.&N~
+~
+8 18 3 0 9 0 0 20481 0 0 0
+0 0 0 0 0 0 0 0
+3 45000 100
+E
+bracelet mithril gem gems~
+Mithril is valuable alone, this bracelet adds valuable gems to an already
+valuable metal.  Though quite valuable, the workmanship is relatively poor.  It
+almost seems as if it was designed as a method for storing and carrying wealth
+rather than as jewelry.
+~
+#80194
+headband band silver~
+&+ca plain silver headband&N~
+&+cA plain silver headband has been left here.&N~
+~
+8 22 3 0 10 0 0 16401 1 0 0
+0 0 0 0 0 0 0 0
+3 35000 100
+E
+headband band silver~
+Made of solid silver, this headband adds an understated touch to any wardrobe.
+There are no distracting engravings or markings, simply solid, polished silver
+in a thick band.
+~
+#80195
+badge gold eagle~
+&+Ya golden eagle&N~
+&+YA golden eagle has been dropped here.&N~
+~
+8 24 1 0 10 0 0 2113537 0 0 0
+0 0 0 0 0 0 0 0
+3 25000 100
+E
+badge gold eagle~
+This gold badge has been carefully shaped into a perched eagle.  Tiny ruby eyes
+stare out of the eagle's face, looking almost real.
+~
+#80196
+bow crystal shard~
+&+Wa crystalline bow&N~
+&+WA magical bow made from pure white crystal lies here.&N~
+~
+6 35 3 0 15 50 4464641 24577 66 0 0
+105 90 0 1 0 0 0 0
+1 100000 100 4 0 0 0
+E
+bow crystal shard~
+It first appears to be a fine, long crystal, but closer inspection shows that
+it is as tough as dragon scales but surprisingly flexible.  The bow has a
+beauty and magic that are unmatched, and an unmistakable hum of power.  Few
+warriors would have the skill to use such an item, though many rangers or
+archers would certainly be able to benefit.
+~
+A
+18 6
+#80197
+armor leather~
+&+yleather armor with elven designs&N~
+&+yA suit of leather armor with elven designs lies here.&N~
+~
+9 14 3 0 9 0 8192 9 0 4165209668 0
+14 3 1 3 0 0 0 0
+5 3000 100
+E
+armor leather~
+Impressions of leaves and the symbols of several elven gods were put into the
+surface of the leather before it was cured and hardened.  The symbols mark it
+as armor made and used by elves, any non-elven people wearing it better be
+prepared to explain how they got it.
+~
+#80198
+desk~
+&+ya &+rjodani&+y wood desk&N~
+&+yA carefully crafted &+rjodani&+y wood desk stands here.&N~
+~
+15 6 3 0 13 0 0 0 0 0 0
+100 13 0 100 0 0 0 0
+0 0 100
+#80199
+hammer mithril~
+&+Ca small mithril hammer&N~
+&+CSomeone has dropped a small mithril hammer here.&N~
+~
+5 18 3 0 14 10 16777472 8193 0 4165209692 0
+4 1 5 6 0 0 0 0
+14 25000 100
+E
+hammer mithril~
+This mithril hammer is heavy for its size, yet perfectly balanced for throwing.
+There is a magical glow to it that is unmistakable, only a truly masterful
+craftsman could have made such a beautiful item.  Along the head of the hammer
+the symbol of a forge and hammer has been engraved.
+~
+A
+18 3
+A
+19 2
+#80200
+axe~
+&+CA mithril and&N &+csilver axe&N~
+&+CA massive axe of mithril and&+c silver&N &+Changs on the wall.&N~
+~
+13 18 3 0 14 0 1 0 64 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+axe~
+This massive axe has been made of pure mithril and trimmed in silver.  It looks
+as if it is in perfect condition, but something about the magic of the axe
+suggests it has seen many battles.
+~
+#80201
+sword longsword whistler~
+&+Wa longsword named "&+MWhistler&N&+W"~
+&+WA longsword has been left here.&N~
+~
+5 18 3 0 13 0 9216 8193 0 87572507 0
+5 1 6 3 0 0 0 0
+20 25000 100
+E
+sword longsword whistler~
+This odd longsword has groves cut at strange angles along the blade.  A close
+inspection reveals that they were carefully made so that they don't impair the
+weapon's strength in anyway.  When the blade is swung about at high speed, air
+flows through the grooves creating a whistling sound that must give the sword
+its name.
+~
+A
+18 3
+#80202
+horn silver elegant instrument~
+&+can elegant silver horn&N~
+&+cAn elegant, valuable silver horn has been left here.&N~
+~
+32 22 3 0 14 0 132096 16385 1 8421376 0
+189 50 0 1 0 0 0 0
+2 35000 100 0 64 0 0
+E
+horn silver elegant~
+This horn is one of the finest pieces of silver work that can be seen
+anyplace in the world.  The twisting tube is almost as beautiful as the
+sound it produces, the delicate silver looking far more frail than it
+really is.  A number of elven runes and symbols have been engraved into
+the horn, but they appear to be more decorative than meaningful.
+~
+A
+24 -3
+#80203
+leaf gold golden~
+&+Ya gold leaf&N~
+&+YA golden leaf has been dropped here.&N~
+~
+9 24 1 0 14 10 0 524289 64 0 0
+5 14 0 1 0 0 0 0
+0 25000 100
+E
+leaf gold golden~
+This thin, delicate golden leaf has been created with every exquisite
+detail in mind.  The smallest of veins is show, one would almost think
+that someone magically turned a real leaf into gold.  A powerful magic
+surrounds the earring, so powerful it is almost tangible.
+~
+A
+24 -1
+A
+33 2
+#80204
+collar wood jodani wooden~
+&+ya &+rjodani&+y wood collar&N~
+&+yA wooden collar has been tossed aside.&N~
+~
+9 6 3 0 14 20 12288 5 64 0 0
+4 2 1 5 0 0 0 0
+1 25000 100
+E
+collar wood jodani wooden~
+This thick wooden collar has been made of hard jodani wood.  Jodani wood
+is reputed to have magical powers of its own, combined with the careful
+craftsmanship of this piece, it is clear that it is incredibly valuable.
+~
+A
+18 3
+A
+2 6
+#80205
+milk silver flask~
+&+Ca shiny silver flask&N~
+&+CA shiny silver flask has been dropped here.&N~
+~
+17 22 1 0 10 10 12288 16385 65 0 0
+30 30 10 0 0 0 0 0
+-20 2000 100
+E
+silver flask~
+This tiny flask has been imbued with a great magic that allows it to
+contain far more liquid than it should.  Its light weight and small size
+would make it very easy to lose, it would be wise to keep close track of
+it.
+~
+A
+13 20
+A
+20 -4
+#80206
+amulet iron dull~
+&+La dull iron amulet&N~
+&+LAn iron amulet has been left behind here.&N~
+~
+13 15 3 0 7 0 65536 16389 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+amulet iron dull~
+This odd amulet looks worthless at first.  Further study reveals a hidden
+magical nature that seems related to the symbols that criss-cross it.
+Each of the four corners of the amulet contains an abstract depiction of
+an elemental trapped behind bars.  In fact, the large amulet appears to
+open in each of its four quarters, but certainly by some sort of magical
+means.
+~
+#80207
+look~
+Look at me (no show)~
+Old connections - East,80013 West80007, south 80021 (no show).~
+~
+13 15 3 0 7 0 2 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#80208
+mask water~
+&+bthe water mask&N~
+&+bA magical mask of glowing water lies here.&N~
+~
+9 40 2 0 12 20 1 262145 64 0 0
+7 13 1 3 0 0 0 0
+3 2000 100 2048 0 0 0
+E
+mask water~
+The water swirls in living eddies and glows with a magical light.
+Powerful magic was used to form the liquid into a mask, and the magic has
+been powerful enough to last quite a long time.
+~
+A
+18 3
+A
+1 5
+#80209
+dagger silver bright~
+&+Ca bright silver dagger&N~
+&+CA bright silver dagger has been dropped here.&N~
+~
+5 22 2 0 9 10 16778512 8193 65 96071707 0
+2 4 3 11 0 0 0 0
+0 2000 100 8 0 0 0
+E
+dagger silver bright~
+This bright dagger has been made of silver alloyed with some other magical
+metal to make it extremely strong, and yet extremely light.  It has a
+well-honed edge and jagged serrations marking it as a weapon for combat
+rather than something with other uses.  Its light weight and perfect
+balance make it perfect for throwing.
+~
+A
+18 4
+A
+19 4
+#80210
+bed blankets~
+a no_show bed~
+A no_show bed is in the corner.~
+~
+15 15 3 0 7 0 2 0 0 0 0
+20 0 0 40 0 0 0 0
+0 0 100
+#80211
+club stone~
+&+La large stone club&N~
+&+LA giant stone club has been left here.&N~
+~
+5 11 3 10 7 0 0 8193 0 0 0
+10 1 3 6 0 0 0 0
+30 1 100
+E
+club stone~
+This huge stone club could only be wielded effectively by a creature of
+immense strength.
+~
+#80212
+table~
+&+La large stone table&N~
+&+LA large stone table stands in the middle of the cavern.&N~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+table~
+Standing so high a full-sized human could walk beneath it, it is clear
+that this table is made for, and likely by, giants.
+~
+#80213
+mortar stone~
+&+La large stone mortar&N~
+&+LA larger stone mortar lies here.&N~
+~
+5 11 3 10 7 0 0 24577 0 0 0
+10 2 4 6 0 0 0 0
+30 1 100
+E
+mortar stone~
+This massive mortar has bits of broken bone embedded in its working end, a
+clear indication of what it is used for.  It is far to big for most to
+hold, but for a giant it would be a relatively small weapon.
+~
+#80214
+collar stone~
+&+La collar of stone spikes&N~
+&+LA collar of gray stone spikes has been dropped here.&N~
+~
+9 11 3 0 7 0 4096 5 0 0 0
+1 2 1 3 1 0 0 0
+2 1 100
+E
+collar stone~
+Wicked stone spikes surround the hard rock of the collar.  A clever stone
+clasp locks and unlock the collar so that it can be easily removed.
+~
+A
+18 2
+#80215
+bracelet stone~
+&+La spiked stone bracelet&N~
+&+LA stone bracelet has been left here.&N~
+~
+9 11 3 2 7 0 4096 4097 0 0 0
+1 11 1 3 0 0 0 0
+1 1 100
+E
+bracelet stone~
+The wide bracelet bears a long row of wicked stone spikes that make it
+quite useful in any sort of bar fight or brawl.
+~
+A
+18 2
+#80216
+old exit~
+Look at me~
+Old exit south use to connect to 80134.~
+~
+13 15 3 0 7 0 2 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#80217
+key~
+Key~
+This key says MH connects N from here to 80319 (old exit no show)~
+~
+13 15 3 0 7 0 2 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#80218
+small sign~
+&+wa small sign&n~
+A Small sign reading (North connected to 80405) sits here.~
+~
+13 15 3 0 7 0 8194 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#80219
+large river damn log~
+&+ya log dam&N~
+&+yA halfling-constructed log dam has diverted the river away from the north.&N~
+~
+13 15 3 0 7 0 8192 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+>>>>>>> master

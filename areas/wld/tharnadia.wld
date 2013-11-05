@@ -1901,6 +1901,10 @@ S
 &+wto one edge of the fountain here with some lines of text printed on it.&n
 ~
 1325 142639168 1 0
+D0
+~
+~
+0 0 133071
 D1
    The Tharnadian-Keats intersection is east of here.
 ~
@@ -5752,7 +5756,7 @@ S
 #132734
 &+gThe &+GDruids&+g Grove&n~
 &+g   This narrow pathway runs from east to west through a line of huge &+yoak&n
-&+gtrees, and appears to be well-kept and well-travelled.  A thick canopy of
+&+gtrees, and appears to be well-kept and well-traveled.  A thick canopy of
 &+gdense &+Gvegetation&+g filters out much of the illumination from the heavens.  The
 &+Wlight&+g that does make it through comes down in bright beams, forming random
 &+gpatterns on the soft &+Lsoil&+g.  The air here, near the forest floor, is cool and
@@ -12670,8 +12674,6 @@ A small hallway lies below you.
 ~
 ~
 0 0 133012
-F
-5
 S
 #133014
 &+WOn a &+LSpiral&+W Staircase Up the &+YConjurer's &+LTower~
@@ -12693,8 +12695,6 @@ The stairwell continues.
 ~
 ~
 0 0 133013
-F
-5
 S
 #133015
 &+WThe &+LTop&+W of Some Stairs~
@@ -14087,4 +14087,75 @@ D2
 ~
 ~
 0 0 133069
+S
+#133071
+&+yThe &+L'&+yMi&+Ygh&+yty &+LAn&+wv&+Lil'&n~
+As you enter this room, you are immediately overwhelmed with the smell
+of &+rm&+Re&+Ylt&+Rin&+rg &+Rmetals&n, &+Lsmoke&n, and &+Csweat&n. &+RSp&+Yar&+Rks&n fly throughout the room as
+a towering &+chuman&n hefts a large &+Lblacksmithing&n mallet down upon
+an &+Lanvil&n. Various &+Wweapons&n and &+Larmor&n rest upon &+yshelves&n scattered throught the room.
+~
+1325 180387852 0 0
+D2
+~
+~
+0 0 132573
+D3
+~
+~
+0 0 133073
+D4
+~
+~
+0 0 133072
+S
+#133072
+&+WKannard's &+mS&+Me&+Yc&+Gr&+Ce&+Rt &+yShop &nof &+CIntrigue&n~
+Formed by a &+clight blue&n, &+Mglowing &+cmist&n, this room seems to &+Cpulsate&n
+in and out of &+Lexistence&n. Various &+Cartifacts&n from reaches far beyond our own &+rrealm&n
+slowly &+cphase&n into view, providing a &+Cglimpse&n into &+Lother-worldy &nrealms. A
+&+Lcl&+woa&+Wked&n, &+Lhooded&n figure &+rhovers&n in the center of the room, beckoning you closer.
+~
+1325 142639308 0 0
+D4
+~
+~
+0 0 133074
+D5
+~
+~
+0 0 133071
+S
+#133073
+&+LThe &+yHall &+Lof &+gGuilds&n~
+This room is filled with documents of all sorts: Combat Scenarios,
+Battle Treaties, Governing Documents. A tall &+CHuman&n stands behind
+a &+ywooden&n counter, twirling his &+ymoustache&n and eyeing you.
+~
+1325 142639176 0 0
+D1
+~
+~
+0 0 133071
+E
+default~
+This room is filled with documents of all sorts: Combat Scenarios,
+Battle Treaties, Governing Documents. A tall &+CHuman&n stands behind
+a &+ywooden&n counter, twirling his &+ymoustache&n and eyeing you.
+~
+S
+#133074
+&+LA &+rWat&+Rerf&+rall &+LOf &+rB&+Rloo&+rd&n~
+&+rAs if formed by an &+Rextradimensional pocket, &+rthis room fluxes in and out of
+&+rreality. Seemingly &+Rfrom nowhere, thick crims&+ron waves of blood flow from an
+&+runknown source crea&+Rting the confines of the &+rroom, which disappear into a
+&+rseries of bleach wh&+Rite skulls which line the&+r floor, creating a soft crackle
+&+rbeneath your feet a&+Rs you walk into the room.&+r A solitary figure hovers about
+&+rthe center of the r&+Room, clothed in black, ar&+rms outstretched.
+~
+1325 176455756 0 0
+D5
+~
+~
+0 0 133072
 S

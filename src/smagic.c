@@ -218,6 +218,9 @@ void spell_spirit_walk(int level, P_char ch, char *arg, int type, P_char victim,
   if(!ch || !victim)
     return;
 
+  if(IS_NPC(ch))
+  return;
+
   // check npc/consent
   if(IS_NPC(victim) || !is_linked_to(ch, victim, LNK_CONSENT))
   {
@@ -912,6 +915,7 @@ void spell_greater_spirit_anguish(int level, P_char ch, char *arg, int type, P_c
   act("$N &+LSCREAMS&N in utter anguish, caused by $n's &+Wspiritual&N assault!",
      TRUE, ch, 0, victim, TO_NOTVICT);
   
+<<<<<<< HEAD
   if(spell_damage(ch, victim, dam, SPLDAM_PSI, SPLDAM_NODEFLECT | SPLDAM_NOSHRUG, 0) == DAM_NONEDEAD)
   {
     if(!IS_SET(victim->specials.affected_by2, AFF2_SLOW) &&
@@ -922,12 +926,34 @@ void spell_greater_spirit_anguish(int level, P_char ch, char *arg, int type, P_c
       af.duration = level / 4;
       af.modifier = 2;
       af.bitvector2 = AFF2_SLOW;
+=======
+  if(spell_damage(ch, victim, dam, SPLDAM_PSI, SPLDAM_NOSHRUG, 0) == DAM_NONEDEAD && GET_SPEC(ch, CLASS_SHAMAN, SPEC_SPIRITUALIST))
+  {
+    int rand1 = number(1, 100);
+    if(rand1 > 70)
+	{
+	if((dam > 200) && !IS_AFFECTED2(victim, AFF2_SLOW))
+   	 	{
+      		bzero(&af, sizeof(af));
+      		af.type = SPELL_SLOW;
+      		af.duration = .0001;
+      		af.modifier = .01;
+      		af.bitvector2 = AFF2_SLOW;
+>>>>>>> master
 
-      affect_to_char(victim, &af);
+      		affect_to_char(victim, &af);
 
+<<<<<<< HEAD
       act("$n &+mbegins to sllooowwww down.", TRUE, victim, 0, 0, TO_ROOM);
       send_to_char("&+WYour will to live wavers! &+mYou feel yourself slowing down.\r\n", victim);
     }
+=======
+
+      		act("$n &+mbegins to sllooowwww down.", TRUE, victim, 0, 0, TO_ROOM);
+      		send_to_char("&+WYour will to live wavers! &+mYou feel yourself slowing&n down.\r\n", victim);
+   	       }
+	}
+>>>>>>> master
   }
 }
 
@@ -1169,8 +1195,16 @@ void spell_single_earthen_rain(int level, P_char ch, char *arg, int type, P_char
     dam >> 1;
 
   // Spell does generic damage which is not receive the elementalist bonus.
+<<<<<<< HEAD
   if(IS_ELEMENTALIST(ch))
     dam = (int) (dam * get_property("damage.increase.elementalist", 1.150));
+=======
+  if(GET_SPEC(ch, CLASS_SHAMAN, SPEC_ELEMENTALIST))
+    //dam = (int) (dam * get_property("damage.increase.elementalist", 1.150));
+    {
+     dam = dam * 2.5;
+    }
+>>>>>>> master
  
   if (IS_PC(ch) && IS_PC(victim))
     dam = dam * get_property("spell.area.damage.to.pc", 0.5);
@@ -1237,6 +1271,9 @@ void earthen_grasp(int level, P_char ch, P_char victim, struct damage_messages *
     send_to_char("As if one fist isn't enough?!\n", ch);
     return;
   }
+  int attdiff = ((GET_C_STR(ch) - GET_C_STR(victim)) / 2);
+  attdiff = number(0, attdiff);
+  attdiff = BOUNDED(1, attdiff, 100);
 
   if(IS_NPC(victim) && IS_SET(victim->specials.act, ACT_IMMUNE_TO_PARA))
   {
@@ -1246,7 +1283,7 @@ void earthen_grasp(int level, P_char ch, P_char victim, struct damage_messages *
   {
     effect = EG_LONG;
   }
-  else if(!NewSaves(victim, SAVING_PARA, 5))
+  else if(!NewSaves(victim, SAVING_PARA, attdiff))
   {
     effect = EG_SHORT;
   }
@@ -1267,6 +1304,7 @@ void earthen_grasp(int level, P_char ch, P_char victim, struct damage_messages *
       act("&+yAn earthen fist bursts from the ground, grasping $n&+y!", FALSE, victim, 0, 0, TO_ROOM);
       act("$n&+y struggles valiantly, making a tighter grasp impossible.", FALSE, victim, 0, 0, TO_ROOM);
       af.flags = AFFTYPE_SHORT;
+<<<<<<< HEAD
       af.duration = level / 2;
     }
     else
@@ -1274,6 +1312,20 @@ void earthen_grasp(int level, P_char ch, P_char victim, struct damage_messages *
       send_to_char("&+yAn earthen fist bursts from the ground, grasping you tightly around the chest.\r\n", victim);
       act("&+yAn earthen fist bursts from the ground, grasping $n&+y tightly!", FALSE, victim, 0, 0, TO_ROOM);
       af.duration = level;
+=======
+      af.duration = attdiff;
+    }
+    else
+    {
+      send_to_char
+        ("&+yAn earthen fist bursts from the ground, grasping you tightly around the chest.&N\n",
+         victim);
+      act
+        ("&+yAn earthen fist bursts from the ground, grasping &n$n&n&+y tightly!&N",
+         FALSE, victim, 0, 0, TO_ROOM);
+      af.flags = AFFTYPE_SHORT;
+      af.duration = attdiff + 10;
+>>>>>>> master
     }
     
     dam = dice(20, 2) + (level / 4);
@@ -1969,8 +2021,13 @@ void spell_molevision(int level, P_char ch, char *arg, int type, P_char victim, 
     send_to_char("Nothing new seems to happen.\n", ch);
     return;
   }
+<<<<<<< HEAD
   
   //percent = shaman_wis_save_result(ch, victim);  no no no no no.  Jexni 1/28/12
+=======
+
+  percent = shaman_wis_save_result(ch, victim);
+>>>>>>> master
   
   if(IS_NPC(victim) &&
     CAN_SEE(victim, ch) &&
@@ -2789,11 +2846,19 @@ void spell_malison(int level, P_char ch, char *arg, int type, P_char victim,  P_
       MobStartFight(victim, ch);
   }
 
+<<<<<<< HEAD
   if(IS_SPIRITUALIST(ch))
     level += 4;
 
   if(NewSaves(victim, SAVING_SPELL, level / 14))
     return;
+=======
+  if(NewSaves(victim, SAVING_SPELL, 2))
+  {
+	send_to_char("Your victim has saved against your malison spell!&n\n", ch);  
+  	return;
+  }
+>>>>>>> master
 
   bzero(&af, sizeof(af));
 
@@ -3646,7 +3711,11 @@ void spell_mending(int level, P_char ch, char *arg, int type, P_char victim, P_o
   gain = dice(24, 2) + (level / 4);
 
   if(has_innate(ch, INNATE_IMPROVED_HEAL))
+<<<<<<< HEAD
     gain = ((float) gain * 1.1);
+=======
+    gain += (int) (number((int) (level / 2), (int) (level)));
+>>>>>>> master
 
   do_point(ch, victim);
   
@@ -3686,7 +3755,11 @@ void spell_greater_mending(int level, P_char ch, char *arg, int type, P_char vic
 // Spiritualists
   if(has_innate(ch, INNATE_IMPROVED_HEAL))
   {
+<<<<<<< HEAD
     gain = ((float) gain * 1.1);
+=======
+    gain += (int) (number((int) (level / 2), (int) (level)));
+>>>>>>> master
     if(level > 46)
     {
       if(affected_by_spell(victim, SPELL_DISEASE) ||
@@ -4108,6 +4181,12 @@ void spell_spirit_jump(int level, P_char ch, char *arg, int type, P_char victim,
       world[victim->in_room].sector_type == SECT_CASTLE_GATE ||
       (IS_PC(victim) && IS_SET(victim->specials.act2, PLR2_NOLOCATE)
        && !is_introd(victim, ch)))
+  {
+    send_to_char("&+CYou failed.\n", ch);
+    return;
+  }
+  P_char rider = get_linking_char(victim, LNK_RIDING);
+  if(IS_NPC(victim) && rider)
   {
     send_to_char("&+CYou failed.\n", ch);
     return;

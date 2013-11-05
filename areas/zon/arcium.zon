@@ -192,7 +192,6 @@ G 1 85745 2 0 100 0 0 0            *    a soldiers wrist guard
 G 1 85743 999 0 100 0 0 0          *    a steel soldiers mask
 G 1 85748 2 0 100 0 0 0            *    a soldiers belt
 G 1 412 999 0 100 0 0 0            *    (object type not in this .obj file)
-G 1 430 999 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 85706 7 85796 100 0 0 0        * a rabid raccoon
 M 0 85706 7 85797 100 0 0 0        * a rabid raccoon
 M 0 85706 7 85798 100 0 0 0        * a rabid raccoon

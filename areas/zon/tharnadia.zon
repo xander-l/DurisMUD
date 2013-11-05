@@ -1,6 +1,6 @@
 #1325
 &+WTharnadia &+L- City of &+CHumans&N~
-133070 2 4 15 25 1
+133074 2 4 15 25 1
 *
 * Zone edited with durisEdit v2.99de
 *
@@ -590,6 +590,15 @@ O 0 132634 1 132868 100 0 0 0      * a deposit box
 O 0 132656 1 132901 100 0 0 0      * the pond
 O 0 132657 2 132945 100 0 0 0      * a mahogany desk
 P 1 132654 2 132657 100 0 0 0      *   some gold coins
+O 0 132622 999 132949 100 0 0 0    * a spellbook
+O 0 132622 999 132949 100 0 0 0    * a spellbook
+O 0 132622 999 132949 100 0 0 0    * a spellbook
+O 0 132622 999 132949 100 0 0 0    * a spellbook
+O 0 132622 999 132949 100 0 0 0    * a spellbook
+O 0 132622 999 132949 100 0 0 0    * a spellbook
+O 0 132623 999 132949 100 0 0 0    * a glowing quill
+O 0 132623 999 132949 100 0 0 0    * a glowing quill
+O 0 132623 999 132949 100 0 0 0    * a glowing quill
 O 0 132636 4 132956 100 0 0 0      * a Scorpion Ballista
 O 0 132636 4 132958 100 0 0 0      * a Scorpion Ballista
 O 0 132660 4 132967 100 0 0 0      * a stained glass window
@@ -620,6 +629,7 @@ O 0 132607 2 133056 100 0 0 0      * @>--'---,---
 O 0 132519 4 133057 100 0 0 0      * a map of Tharnadia
 O 0 132505 3 133066 100 0 0 0      * the statue on the left
 O 0 132506 3 133066 100 0 0 0      * the statue on the right
+O 0 400216 1 133072 100 0 0 0      * (object type not in this .obj file)
 *
 M 0 132617 1 132500 100 0 0 0      * Kieta
 G 1 66709 999 0 100 0 0 0          *    (object type not in this .obj file)
@@ -631,6 +641,8 @@ G 1 191 999 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 363 999 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 368 999 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 369 999 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 400223 999 0 100 0 0 0         *    (object type not in this .obj file)
+G 1 400224 999 0 100 0 0 0         *    (object type not in this .obj file)
 M 0 132612 1 132501 100 0 0 0      * Malrik
 E 1 132629 1 5 100 0 0 0           *   a flowing robe of illusions
 M 0 132596 5 132502 100 0 0 0      * a militia guard
@@ -831,7 +843,7 @@ M 0 132557 2 132555 100 0 0 0      * a militia guard
 M 0 132558 1 132556 100 0 0 0      * an old lady
 G 1 132588 1 0 100 0 0 0           *    an apple
 M 0 132500 1 132557 100 0 0 0      * Kienar Verdock
-G 1 132507 1 0 100 0 0 0           *    a piece of fried mutton
+G 1 132507 999 0 100 0 0 0         *    a piece of fried mutton
 G 1 132508 1 0 100 0 0 0           *    a succulent roast
 G 1 132509 1 0 100 0 0 0           *    a light elvish pastry
 M 0 132548 10 132558 100 0 0 0     * a stray cat
@@ -1420,14 +1432,9 @@ M 0 132628 1 132869 100 0 0 0      * an experienced tracker
 M 0 132627 1 132869 100 0 0 0      * a young mercenary
 M 0 132626 1 132869 100 0 0 0      * a young soldier of fortune
 M 0 132636 13 132870 100 0 0 0     * a squirrel
-M 0 132639 15 132873 100 0 0 0     * a mesa scorpion
 M 0 132631 1 132876 100 0 0 0      * Kabanon, the prophet
 G 1 132635 2 0 100 0 0 0           *    a packet of maps
 M 0 132616 12 132876 100 0 0 0     * a tharnadian thief-hunter
-M 0 132639 15 132877 100 0 0 0     * a mesa scorpion
-M 0 132639 15 132878 100 0 0 0     * a mesa scorpion
-M 0 132639 15 132879 100 0 0 0     * a mesa scorpion
-M 0 132639 15 132880 100 0 0 0     * a mesa scorpion
 M 0 132638 12 132883 100 0 0 0     * a chipmunk
 M 0 132638 12 132883 100 0 0 0     * a chipmunk
 M 0 132637 12 132883 100 0 0 0     * a rabbit
@@ -1586,9 +1593,14 @@ G 1 132652 1 0 100 0 0 0           *    a jailkey
 M 0 132647 2 132940 100 0 0 0      * a dungeon jailor
 M 0 132639 15 132941 100 0 0 0     * a mesa scorpion
 M 0 132639 15 132941 100 0 0 0     * a mesa scorpion
-M 0 132639 15 132941 100 0 0 0     * a mesa scorpion
-M 0 132639 15 132941 100 0 0 0     * a mesa scorpion
 M 0 132658 1 132941 100 0 0 0      * an old inmate
+M 0 132639 15 132941 100 0 0 0     * a mesa scorpion
+M 0 132639 15 132941 100 0 0 0     * a mesa scorpion
+M 0 132639 15 132941 100 0 0 0     * a mesa scorpion
+M 0 132639 15 132941 100 0 0 0     * a mesa scorpion
+M 0 132639 15 132941 100 0 0 0     * a mesa scorpion
+M 0 132639 15 132941 100 0 0 0     * a mesa scorpion
+M 0 132639 15 132941 100 0 0 0     * a mesa scorpion
 M 0 132639 15 132942 100 0 0 0     * a mesa scorpion
 M 0 132639 15 132942 100 0 0 0     * a mesa scorpion
 M 0 132639 15 132942 100 0 0 0     * a mesa scorpion
@@ -1806,5 +1818,12 @@ M 0 132521 20 133066 100 0 0 0     * an elite guard
 M 0 132614 4 133066 100 0 0 0      * A tharnadian illusionist
 M 0 132575 3 133066 100 0 0 0      * a controller
 M 0 132521 20 133066 100 0 0 0     * an elite guard
+M 0 132674 1 133071 100 0 0 0      * Jodnan
+G 1 400223 999 0 100 0 0 0         *    (object type not in this .obj file)
+G 1 400224 999 0 100 0 0 0         *    (object type not in this .obj file)
+G 1 132507 999 0 100 0 0 0         *    a piece of fried mutton
+M 0 400000 1 133072 100 0 0 0      * (mob type not in this .mob file)
+M 0 132675 1 133073 100 0 0 0      * Kotil
+M 0 400001 1 133074 100 0 0 0      * (mob type not in this .mob file)
 *
 S

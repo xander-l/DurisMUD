@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #38600
 frozen berry bush~
 &+ga frozen &+mb&+re&+mr&+rr&+my &+gbush&N~
@@ -767,3 +768,774 @@ A
 5 10
 A
 19 3
+=======
+#38600
+frozen berry bush~
+&+ga frozen &+mb&+re&+mr&+rr&+my &+gbush&N~
+A frozen &+mb&+re&+mr&+rr&+my&N bush is here partially covered with snow.~
+~
+15 30 3 0 7 0 0 0 0 0 0
+10 0 0 10 0 0 0 0
+1000 1 100
+E
+frozen berry bush~
+&+WThis berry bush bears his fruits for all to enjoy.  There are a few
+&+Wpartially eaten berries on its branches.
+~
+#38601
+frozen berry~
+&+wa frozen &+mb&+re&+mr&+rr&+my~
+A berry sits here looking lonely.~
+~
+19 48 1 0 7 0 0 16385 0 0 0
+20 0 0 0 0 0 0 0
+1 1 100
+#38602
+large wooden mace~
+&+ya large wooden mace&N~
+An unwanted mace sits on the ground here.~
+~
+5 6 3 0 7 0 173056 8193 66 33685920 0
+6 3 4 0 0 0 0 0
+1 1 100
+A
+19 2
+A
+18 2
+#38603
+old rusty sword~
+&+Lan old rusty sword&N~
+An old rusty sword sits on the ground here.~
+~
+5 15 3 0 7 0 8 8193 64 0 0
+5 3 3 0 0 0 0 0
+1 1 100
+A
+19 2
+A
+18 2
+#38604
+large fountain~
+&+ba large fountain&N~
+&+bA large fountain bubbles with warmed water.&N~
+~
+17 11 4 0 7 0 1 0 0 0 0
+100 -1 0 0 0 0 0 0
+1 1 100
+#38605
+large statue flame~
+&+ra large statue of a &+Rflame&N~
+&+rA large statue of a &+Rflame&N &+rtowers over the surrounding area.&N~
+~
+25 31 6 0 13 0 1 0 0 0 0
+38651 139 -1 0 0 0 0 0
+1000 1 100
+E
+large statue flame~
+&+r  This large ruby state has been constructed in the form
+&+rof a large flame.  It towers over the surrounding area.
+&+rmany people stare in awe at this piece of art.  It gives
+&+roff an warm magical feeling.
+~
+#38606
+key fire~
+&+ra key of fire&N~
+A key of fire sits here.~
+~
+18 15 3 0 7 0 8388609 1 0 0 0
+0 100 0 0 0 0 0 0
+1 1 100
+#38607
+small bag flames~
+a small bag of &+rflames&N~
+A small bag collects among the rubble here.~
+~
+15 15 3 0 7 0 8192 16385 66 0 0
+20 29 38606 20 0 0 0 0
+7 120 100
+#38608
+small note~
+&+ma small note&N~
+A small note sits here.~
+~
+13 3 3 0 7 0 40960 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 100 100
+E
+small note~
+&+g---------------------&N
+&+g|  You may have     |&N
+&+g|  killed my minions|&N
+&+g|  but, to find me  |&N
+&+g|  you need to use  |&N
+&+g|  your head.       |&N
+&+g---------------------&N
+~
+#38609
+large head demon~
+&+ra large head of a demon&N~
+&+rA large head of a fire demon sits on the ground here.&N~
+~
+25 2 4 0 7 0 4096 0 0 0 0
+38667 187 -1 0 0 0 0 0
+1 1 100
+E
+large head demon~
+&+r  This is the large head of a fire demon.  It was once
+&+rthe greatest of Fuerina's creations.  But it had a weakness
+&+rwhich was discovered and it was pointed out by a loud
+&+relven druid.
+~
+#38610
+fire dragon amulet~
+an &+Mamulet&N of &+rfire dragon's &+rblood&N~
+An unwanted amulet sits here.~
+~
+9 19 3 0 7 0 176256 5 64 0 0
+20 0 0 5 0 0 0 0
+1 1000 100 536870916 0 0 0
+A
+23 -5
+A
+13 22
+#38611
+fire dragon egg~
+a &+Rfire&N dragon egg~
+A fire dragon egg sits on the ground here.~
+~
+15 10 3 0 7 0 8192 16385 66 0 0
+90 5 0 90 0 0 0 0
+-30 700 100
+A
+13 18
+A
+17 -10
+#38612
+large skylight sky light~
+&+La large skylight&N~
+A &+Llarge skylight&N sheds light down below on the laboratory.~
+~
+25 15 3 0 7 0 263168 0 0 0 0
+38606 7 -1 0 0 0 0 0
+1000 0 100
+E
+large sky light skylight~
+Through the skylight, the surrounding forests and heavens
+in all their beauty can be seen.
+~
+#38613
+large ice sculpture~
+&+Wa large ice sculpture&N~
+&+WA large ice sculpture, in the shape of a wind blown tree, sits here.&N~
+~
+25 7 3 0 7 0 0 0 0 0 0
+38659 259 -1 0 0 0 0 0
+1000 1 100
+E
+large ice sculpture~
+&+W  This large glass sculpture shines in the light of the room.
+&+WIt has been rubbed, polished, and shined to perfection in an
+&+Weffort to please the gods of art above.  This piece of art
+&+Wtruly has an exceptional quality about it.
+~
+#38614
+wind dragon egg~
+a &+Wwind&N dragon egg~
+A wind dragon egg sits on the ground here.~
+~
+15 10 3 0 7 0 8192 16385 66 0 0
+90 5 0 90 0 0 0 0
+-50 56000 100
+A
+13 15
+A
+4 5
+#38615
+medallion alyza~
+&+mthe medallion of &+WAlyza&N~
+An unwanted medallion sits here.~
+~
+18 15 3 0 9 0 8396929 5 64 0 0
+0 100 0 0 0 0 0 0
+1 100 100
+A
+1 1
+A
+2 2
+#38616
+small note~
+&+ga small note&N~
+A small note sits here.~
+~
+13 3 3 0 7 0 40960 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 100 100
+E
+small note~
+&+g---------------------&N
+&+g|  You may have     |&N
+&+g|  killed my minions|&N
+&+g|  but, to find me  |&N
+&+g|  you need to try  |&N
+&+g|  y       |&N
+&+g---------------------&N
+~
+#38617
+key wind~
+&+Wa key of wind&N~
+A key of fire sits here.~
+~
+18 15 3 0 7 0 8388609 1 0 0 0
+0 100 0 0 0 0 0 0
+1 1 100
+#38618
+small white portal~
+&+Wa small white portal&N~
+&+WA small white portal sits in the center of the room here.~
+~
+25 15 3 0 7 0 270336 0 64 0 0
+38672 7 -1 0 0 0 0 0
+100 1 100
+#38619
+small lab key~
+&+Wa small lab key&N~
+An unwanted key sits on the ground here.~
+~
+18 15 3 0 7 0 8400896 16385 0 0 0
+0 100 0 0 0 0 0 0
+0 10 100
+#38620
+medallion ayrina~
+&+mthe medallion of &+WAyrina&N~
+An unwanted medallion sits here.~
+~
+18 15 3 0 9 0 8396929 5 64 0 0
+0 100 0 0 0 0 0 0
+1 100 100
+#38621
+bracelet satanic~
+&+Ra &+Lsatanic &+Rbracelet&N~
+A satanic bracelet is lying here glowing bright red.~
+~
+9 8 3 0 7 0 45056 4097 64 0 0
+5 0 0 4 0 0 0 0
+3 80099 100 65536 0 0 0
+A
+33 4
+A
+13 25
+#38622
+large mirror~
+&+Ya large mirror&n~
+&+YA large mirror sits against the building here.&N~
+~
+25 8 3 0 7 0 9216 0 0 0 0
+38633 7 -1 0 0 0 0 0
+1000 1 100
+E
+large mirror~
+The mirror crackles with energy as it reflects new images.  Another
+area can be seen on the other side of the mirror.
+~
+#38623
+large mirror~
+&+Ya large mirror&n~
+&+YA large mirror sits against the building here.&N~
+~
+25 8 3 0 7 0 9216 0 0 0 0
+38615 7 -1 0 0 0 0 0
+1000 1 100
+E
+large mirror~
+The mirror crackles with energy as it reflects new images.  Another
+area can be seen on the other side of the mirror.
+~
+#38624
+large mirror~
+&+Ya large mirror&n~
+&+YA large mirror sits against the building here.&N~
+~
+25 8 3 0 7 0 9216 0 0 0 0
+38616 7 -1 0 0 0 0 0
+1000 1 100
+E
+large mirror~
+The mirror crackles with energy as it reflects new images.  Another
+area can be seen on the other side of the mirror.
+~
+#38625
+large mirror~
+&+Ya large mirror&n~
+&+YA large mirror sits against the building here.&N~
+~
+25 8 3 0 7 0 9216 0 0 0 0
+38636 7 -1 0 0 0 0 0
+1000 1 100
+E
+large mirror~
+The mirror crackles with energy as it reflects new images.  Another
+area can be seen on the other side of the mirror.
+~
+#38626
+small lab key~
+&+Ya small key&N~
+An unwanted key sits on the ground here.~
+~
+18 15 3 0 7 0 8400896 16385 0 0 0
+0 100 0 0 0 0 0 0
+0 10 100
+#38627
+small lab key blood~
+&+Ya small &+rblood-stained&N key&N~
+An unwanted key sits on the ground here.~
+~
+18 15 3 0 7 0 8400896 16385 0 0 0
+0 100 0 0 0 0 0 0
+0 10 100
+#38628
+large skylight sky light~
+&+La large skylight&N~
+A &+Llarge skylight&N sheds light down below on the laboratory.~
+~
+25 15 3 0 7 0 263168 0 0 0 0
+38646 7 -1 0 0 0 0 0
+1000 0 100
+E
+large sky light skylight~
+Through the skylight, the surrounding forests and heavens
+in all their beauty can be seen.
+~
+#38629
+cloak woven silver~
+a cloak of &+Wwoven silver&N~
+A silver cloak has been tossed away here.~
+~
+9 22 3 0 12 0 8193 1025 64 0 0
+20 0 0 4 0 0 0 0
+6 200000 100
+A
+18 3
+A
+19 4
+#38630
+medallion oslyra~
+&+mthe medallion of &+LOslyra&N~
+An unwanted medallion sits here.~
+~
+18 15 3 0 9 0 8396929 5 64 0 0
+0 100 0 0 0 0 0 0
+1 100 100
+#38631
+black satin robe long~
+a long &+Lblack satin&N robe~
+A pile of black linen sits on the ground here.~
+~
+15 3 3 0 15 0 3551233 1033 66 0 0
+500 5 0 250 0 0 0 0
+-100 19191 100 4 0 0 0
+A
+1 15
+A
+20 -3
+#38632
+coins copper money~
+&+Ysome copper coins&N~
+&+ySome coins sit on the ground here.&N~
+~
+20 15 1 0 7 0 4096 1 0 0 0
+10 0 0 0 0 0 0 0
+1 10 100
+#38633
+crack floor~
+&+La crack in the floor&N~
+&+LThere is a crack in the flooring here.&N~
+~
+25 15 3 0 7 0 5120 0 0 0 0
+38606 7 -1 0 0 0 0 0
+1000 0 100
+E
+large sky light skylight~
+Through the skylight, the surrounding forests and heavens
+in all their beauty can be seen.
+~
+#38634
+dagger ice sevenoaks~
+&nthe &+Ci&+Wce &+Cd&+Wagger&n of &+BSevenoaks&n~
+&+WA &+Cd&+Wagger of &+Cs&+Wh&+Cimmeri&+Wn&+Cg i&+Wce has been left here.&n~
+~
+5 1 3 0 15 0 84030736 8193 194 126976 0
+2 4 4 0 1 499467472 52 25
+7 170000 100 0 64 0 0
+E
+dagger darkness dark~
+Forged by a mischeivious rogue of a clan of ogres, the large dagger
+pulses with a magical dark aura.  The blade is made from a flat-black
+metal and looks quite sharp.
+~
+A
+18 4
+A
+19 4
+#38635
+tower key sevenoaks~
+&+Bthe sevenoaks' tower key&N~
+An unwanted key sits on the ground here.~
+~
+18 15 3 0 7 0 8761344 1 0 0 0
+0 100 0 0 0 0 0 0
+1 1 100
+#38636
+vault key sevenoaks~
+&+Bthe sevenoaks' vault key&N~
+An unwanted key sits on the ground here.~
+~
+18 15 3 0 7 0 8761344 1 64 0 0
+0 100 0 0 0 0 0 0
+1 1 100
+#38637
+sages green belt~
+&+ga green belt of sages&N~
+&+gA green belt sits among the rubble here.&N~
+~
+9 46 3 0 8 0 12416 2049 0 0 0
+10 0 0 5 0 0 0 0
+3 55000 100
+A
+13 27
+A
+24 -4
+#38638
+shield silver dragon scales~
+&+ma shield of &+Lsilver&N &+mdragon scales&N~
+An unwanted shield sits on the ground here.~
+~
+37 35 3 0 7 0 12416 513 64 0 0
+1 3 4 20 0 0 0 0
+30 1000 100 536870912 64 0 0
+A
+13 30
+A
+19 3
+#38639
+quarterstaff staff quarter oaken~
+&+yan oaken quarterstaff&N~
+A quarterstaff has been left here.~
+~
+5 6 3 0 7 0 0 8193 0 0 0
+12 3 3 0 0 0 0 0
+8 23000 100
+A
+1 4
+#38640
+longsword guard sword~
+&+La guard's longsword&N~
+An unwanted sword sits here~
+~
+5 15 3 0 7 0 0 8193 0 0 0
+5 3 4 0 0 0 0 0
+11 35460 100
+E
+longsword sword guard's~
+This is a stock training sword issued to all tower guards.
+~
+A
+18 3
+A
+19 2
+#38641
+ugly green horn instrument~
+&+gan ugly green horn&N~
+&+gA green horn sits among the rubble here.&N~
+~
+32 10 3 0 7 0 8320 16385 64 0 0
+189 51 0 0 0 0 0 0
+5 76000 100 16777216 0 0 0
+A
+13 20
+A
+24 -3
+#38642
+medallion myrina~
+&+mthe medallion of &+rMyrina&N~
+An unwanted medallion sits here.~
+~
+18 15 3 0 9 0 8396929 5 64 0 0
+0 100 0 0 0 0 0 0
+1 100 100
+#38643
+red blossom~
+&+ra red blossom&N~
+&+rA red blossom waits here to be enjoyed&N~
+~
+10 5 3 0 7 0 8192 16385 0 0 0
+25 1 3 141 0 0 0 0
+1 23 100
+#38644
+shiny ring faeries~
+a &+Yshiny&N ring of the &+Rfaeries&N~
+An unwanted ring collects among the rubble here.~
+~
+11 18 3 0 10 0 3289089 3 64 0 0
+0 0 0 0 0 0 0 0
+3 45600 100 36 0 0 0
+A
+13 22
+A
+24 -4
+#38645
+warrior platemail shining suit~
+a &+Yshining&N suit of &+Wwarrior's platemail&N~
+An unwanted warrior's plate sits here.~
+~
+9 18 3 0 11 0 271360 9 66 87556099 0
+25 0 0 5 0 0 0 0
+1 666 100
+A
+19 3
+A
+26 10
+#38646
+puddle blood~
+&+ra puddle of blood&N~
+&+rA puddle of blood collects on the floor here.&N~
+~
+17 15 3 0 7 0 1024 0 0 0 0
+1000 -1 13 0 0 0 0 0
+1000 1 100
+#38647
+ice mace sevenoaks~
+the &+Wice mace&N of &+BSevenoaks&N~
+A cold mace sits on the ground here.~
+~
+5 23 3 0 13 0 274560 8193 66 0 0
+6 3 5 0 0 459 51 32
+7 92592 100 0 64 0 0
+E
+_char_msg~
+Your $q &+Bvibrates then becomes very &+Cchilly!&N
+~
+E
+_victim_msg~
+&n$n's $q &+Bvibrates violently, directing &+Ccold&+B energy at you!&N
+~
+E
+_room_msg~
+&n$n's $q &+Bvibrates violently then explodes in &+Cchilly &+Bforce!&N
+~
+A
+18 4
+A
+19 4
+#38648
+sparkling ruby earring~
+&+Ya sparkling &+Rruby earring&N~
+An unwanted earring collects among the rubble here.~
+~
+11 19 3 0 12 0 45056 524289 66 0 0
+0 0 0 0 0 0 0 0
+2 58000 100 8 0 0 0
+A
+13 20
+A
+24 -4
+#38649
+longsword sword sevenoaks~
+a &+Wlongsword&N of &+BSevenoaks&N~
+A longsword has been dropped on the ground here.~
+~
+5 15 3 0 7 0 4207872 8193 64 87556123 0
+13 4 6 0 0 0 0 0
+10 100000 100
+A
+18 4
+A
+19 4
+#38650
+silver buckle dragon teeth~
+&+Wa &+Lsi&+wlv&+Ler&N &+Wbelt-buckle of &+Gdragon &+Wteeth&N~
+An unwanted belt buckle collects among the rubble here.~
+~
+9 10 3 0 7 0 30081 8390657 0 4279332985 0
+15 0 0 5 0 0 0 0
+8 780 100
+A
+5 7
+A
+23 -3
+#38651
+skeleton~
+&+Wa skeleton&N~
+&+WA frail skeleton sits lifeless on the ground.&N~
+~
+13 15 3 0 7 0 1024 0 0 0 0
+0 0 0 0 0 0 0 0
+1000 1 100
+E
+skeleton~
+This trapped soul has been chained to wall many years ago.  It
+appears that some beast has feasted on the remains.  There are
+small cracks and scratches on the bones.
+~
+#38652
+fire dragon amulet~
+an &+Mamulet&N of &+rfire dragon's &+rblood&N~
+An unwanted amulet sits here.~
+~
+9 19 3 0 7 0 241792 5 66 0 0
+15 0 0 5 0 0 0 0
+1 1000 100 536870912 0 0 0
+A
+23 -4
+A
+13 24
+#38653
+medallion fuerina~
+&+mthe medallion of &+RFuerina&N~
+An unwanted medallion sits here.~
+~
+18 15 3 0 9 0 8396929 5 64 0 0
+0 100 0 0 0 0 0 0
+1 100 100
+#38654
+small lab key~
+&+ra small lab key&N~
+An unwanted key sits on the ground here.~
+~
+18 15 3 0 7 0 8400896 16385 0 0 0
+0 100 0 0 0 0 0 0
+0 10 100
+#38655
+ice ring~
+&+Wan ice ring&N~
+An unwanted &+Wice ring&n sits on the ground here.~
+~
+11 44 3 0 11 0 438272 3 64 0 0
+0 0 0 0 0 0 0 0
+2 100000 100
+A
+13 25
+A
+23 -4
+#38656
+ice key sevenoaks~
+&+Wthe ice key of sevenoaks&N~
+A frozen key sits on the ground here.&N~
+~
+18 15 3 0 7 0 8388609 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#38657
+wooden staff~
+&+ya wooden staff&N~
+An unwanted wooden staff sits on the ground here.~
+~
+5 6 3 0 7 0 262144 8193 0 0 0
+6 2 4 0 0 0 0 0
+1 1000 100
+A
+18 2
+A
+19 2
+#38658
+ice amulet~
+&+Wthe ice amulet of &+CWyrina&N~
+An unwanted amulet sits on the ground here.&N~
+~
+18 8 3 0 7 0 8650753 16389 0 0 0
+0 0 0 0 0 0 0 0
+0 1000 100
+#38659
+soft wormskin boots worm~
+a pair of &+Msoft wormskin boots&N~
+Some boots sit here.~
+~
+9 46 3 0 7 0 0 65 0 0 0
+10 0 0 3 0 0 0 0
+4 10000 100
+A
+26 5
+A
+13 15
+#38660
+jewelled bracelet ancestral sevenoaks~
+&+Lthe &+Wanc&+west&+Lral &+bb&+Br&+Lacel&+Be&+bt&+L of &+BSevenoaks~
+&+LA legendary lost bracelet is lying here glowing bright red.~
+~
+9 18 3 0 7 0 110592 4097 66 0 0
+10 0 0 4 0 0 0 0
+1 48000 100 16777216 0 64 0
+A
+34 4
+A
+35 4
+#38661
+sages purple belt~
+&+ma purple belt of sages&N~
+&+mA purple belt sits among the rubble here.&N~
+~
+9 46 3 0 8 0 12416 2049 0 0 0
+10 0 0 5 0 0 0 0
+4 35000 100
+A
+13 15
+A
+20 -3
+#38662
+shield lined silver fangs~
+a &+mshield&N lined with &+Lsilver fangs&N~
+An unwanted shield sits on the ground here.~
+~
+37 35 3 0 7 0 12416 513 64 0 0
+1 3 4 192 0 1 0 0
+10 67000 100 0 8192 0 0
+A
+23 -4
+A
+31 3
+#38663
+amulet chaos~
+an &+Lamulet&N of &+rchaos&N~
+An unwanted amulet sits here.~
+~
+9 19 3 0 7 0 192640 5 0 9306112 0
+15 0 0 5 0 0 0 0
+3 99899 100 33554464 0 0 0
+A
+23 -3
+A
+13 24
+#38664
+white glowing pearl~
+&+Wa glowing white pearl&N~
+A white pearl sits on the ground here.~
+~
+9 8 3 0 7 0 8193 8404993 0 0 0
+10 0 0 3 0 0 0 0
+0 0 100
+A
+24 -5
+A
+13 25
+#38665
+glowing ruby earring~
+&+La glowing&N &+Rruby earring&N~
+An unwanted earring collects among the rubble here.~
+~
+9 19 3 0 12 0 45056 524289 66 0 0
+0 0 0 0 0 0 0 0
+2 74000 100 16 0 0 16777216
+A
+19 3
+#38666
+silver brooch~
+&+La silver brooch&N~
+A silver brooch~
+~
+9 25 3 0 12 0 40961 5 0 0 0
+10 0 0 0 0 0 0 0
+1 1000 100
+A
+5 10
+A
+19 3
+>>>>>>> master

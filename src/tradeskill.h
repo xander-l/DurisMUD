@@ -79,6 +79,12 @@ struct mining_data {
   int mine_quality;
 };
 
+struct fishing_data {
+  int room;
+  int counter;
+  int fish_quality;
+};
+
 /*
 
 234 - crude iron bar
@@ -105,5 +111,12 @@ int mine(P_obj obj, P_char ch, int cmd, char *arg);
 void event_mine_check(P_char ch, P_char victim, P_obj, void *data);
 void event_load_mines(P_char ch, P_char victim, P_obj, void *data);
 bool invalid_mine_room(int rroom_id);
+void event_fish_check(P_char ch, P_char victim, P_obj, void *data);
+
+
+
+bool player_recipes_exists(char *charname);
+void create_recipes_file(const char *dir, char *name);
+void create_recipes_name(char *name);
 
 #endif // _TRADESKILL_H_

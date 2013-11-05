@@ -625,7 +625,7 @@ M 0 16674 2 16598 100 0 0 0        * the young adventurer
 M 0 16525 1 16599 100 0 0 0        * a blind woodcarver
 G 1 16523 1 0 100 0 0 0            *    a jodani wood stag
 M 0 16669 1 16600 100 0 0 0        * the Councilor
-G 1 16601 1 0 30 0 0 0             *    a necklace of wooden beads
+G 1 16601 1 0 100 0 0 0            *    a necklace of wooden beads
 M 0 16670 1 16601 100 0 0 0        * the elegant halfling woman
 E 1 16603 1 5 100 0 0 0            *   a silk gown
 M 0 16678 4 16602 100 0 0 0        * the wealthy merchant

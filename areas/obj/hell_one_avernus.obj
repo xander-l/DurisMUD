@@ -23,7 +23,7 @@ staff hellspawn~
 &+rthe staff of Hellspawn&N~
 &+rSomeone has left the staff of the hellspawn here!&N~
 ~
-4 16 3 10 7 0 41985 16385 64 4197892 0
+3 16 3 10 7 0 41985 16385 64 4197892 0
 51 2 2 143 0 0 0 0
 5 100000 100 100
 A
@@ -66,9 +66,15 @@ tiamat stinger tail poison~
 &+LTiamat's &+Gpoison tail stinger&N~
 &+LThe tail stinger of a HUGE dragon is here.&N~
 ~
+<<<<<<< HEAD
 5 35 3 0 15 100 271594496 8193 64 8515584 0
 2 5 5 11 0 0 0 0
 10 1000000 100 100 268992528 14336 0 0
+=======
+5 35 3 0 15 100 271594496 8193 64 50331647 0
+2 7 3 11 0 0 0 0
+10 1000000 100 268992528 14336 0 0
+>>>>>>> master
 E
 tiamat stringer tail poison~
 &+LOver a foot long, and dripping with poison, this tail

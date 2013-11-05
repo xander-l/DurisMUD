@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #13300
 camp fire campfire~
 a &+ycamp&+rfire~
@@ -998,3 +999,1007 @@ A
 20 -2
 A
 13 20
+=======
+#13300
+camp fire campfire~
+a &+ycamp&+rfire~
+A &+ycamp&+rfire&n &+Lcr&nac&+Lkle&ns as it &+rburns.~
+~
+1 6 3 0 7 0 262144 0 0 0 0
+0 0 -1 0 0 0 0 0
+0 0 100
+E
+camp fire campfire~
+&+yThis fire was set up to provide light in the evenings and heat
+&+yfor cooking. It crackles with the kindling just thrown upon it.
+~
+#13301
+pond~
+&+Ba cold &+gforest &+Bpond~
+A &+Brefreshing&n &+gforest&n &+Bpond&n is nestled in between the &+rred&+ywoods.~
+~
+17 40 3 0 7 0 0 0 0 0 0
+-1 -1 0 0 0 0 0 0
+0 0 100
+E
+pond~
+&+BThis pond is full of cool and refreshing water.&n
+~
+#13302
+tent~
+a &+ytent~
+&+yA hastily constructed tent has been set up here.~
+~
+25 3 3 0 7 0 0 0 0 0 0
+13350 7 -1 0 0 0 0 0
+0 0 100
+E
+tent~
+&+yThis tent has been put up recently. It will be used by the drunk
+&+ypeople for a place to pass out.&n
+~
+#13303
+amulet kilospanatis~
+&+wthe &+Lamulet&+w of kil&+Lospa&+wnatis&n~
+&+wAn &+Lamulet&+w from the sect of kil&+Lospa&+wnatis lays here.&n~
+~
+9 11 3 0 7 0 0 5 0 0 0
+6 0 0 3 0 0 0 0
+1 1 100
+E
+amulet kilospanatis~
+&+LThis is a sacred amulet of the &+CDragon Queen&+L. It is worn by the monks
+&+Lof the shrine dedicated to her.
+~
+A
+13 10
+#13304
+scepter kilospanatis~
+the &+Yscepter&n of kil&+Lospa&nnatis~
+A &+Yscepter&n from the sect of kil&+Lospa&nnatis lays here.~
+~
+5 15 3 0 7 0 0 24577 0 0 0
+12 2 3 6 0 0 0 0
+1 1 100
+E
+scepter kilospanatis~
+This &+Yscepter&n is used as a &+Wprayer&n tool by the Arc&+Lhdea&ncon. It contains
+a small portion of &+bmagical energy&n used for sacred purposes.
+~
+A
+18 2
+A
+19 2
+#13305
+keg ale~
+&+Ya keg of &+yale~
+&+YA keg of &+yale&+Y rests here for everyones enjoyment.~
+~
+17 6 3 0 7 0 0 1 0 0 0
+20 20 3 0 0 0 0 0
+1 1 100
+E
+keg ale~
+&+yHope everyone is thirsty because this keg is full.&n
+~
+#13306
+statue~
+&+Wa magnificent statue~
+&+WA statue of a magnificent cavalier has been built here.~
+~
+15 15 3 0 7 0 1 0 0 0 0
+50 29 13311 50 0 0 0 0
+0 0 100
+E
+statue~
+&+WThis statue was erected in memory of a great knight. He is posing
+&+Wmagnificiently and wielding a large axe. It seems to have been of
+&+Wwonderful dwarven make.
+~
+#13307
+wyvern wing~
+&+ya wyvern wing&n~
+&+yThe broken wing of a wyvern has been left here.&n~
+~
+8 2 3 0 5 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+#13308
+ring liquid fire circlet~
+&+ra ring of liquid &+Rfire~
+&+rAn uncanny circlet of liquid &+Rfire&+r is left here.~
+~
+9 40 3 0 7 0 262144 16387 0 0 0
+3 0 0 1 0 0 0 0
+1 1 100 536870912 64 0 0
+E
+ring liquid fire circlet~
+&+rThis ring seems to flow with magma, yet it is cool to the touch.&n
+~
+A
+13 25
+A
+24 -4
+#13309
+eyepatch blue immortality~
+&+bthe eyep&+Batch of &+bimmorta&+Blity&n~
+&+bA hazy blu&+Be eyepatch has &+bbeen left here.~
+~
+9 1 3 0 7 0 1 131073 64 0 0
+10 0 0 3 0 0 0 0
+1 1 100 0 18 0 0
+E
+eyepatch blue immortality~
+&+bThis eyepatch is the symbol of &+LMav&+beri&+Lcks&+b true power and existence,
+&+bwhether or not it contains within it the power of immortality is yet
+&+bto be discovered, however it still glows with a strange blue light.
+~
+A
+35 4
+A
+18 3
+#13310
+arm plates armplates armageddon~
+&+Lthe armplates of &+rarmageddon&n~
+&+LArmplates of &+ranchary&+L and &+rarmageddon&+L are left here.&n~
+~
+9 16 3 0 7 0 0 257 0 0 0
+15 0 0 5 1 0 0 0
+1 1 100
+E
+arm plates armplates armageddon~
+&+LMav&+beri&+Lcks armplates are impedded with hooks and when placed on the arms
+&+Lthey seem to fold around, fastening themselves tightly to the wearer.
+~
+A
+18 3
+A
+19 3
+#13311
+key cosmic comos~
+&+Ykey o&+Gf the &+Bcosmos&n~
+&+Ya multi&+Gcoloured cos&+Bmic key has bee&+Yn dropped here.~
+~
+18 15 3 0 7 0 8388608 16385 0 0 0
+0 100 0 0 0 0 0 0
+1 1 100
+E
+key cosmic comos~
+&+YThis key glistens with cosmic powers.&n
+~
+#13312
+stone key~
+a stone key~
+A stone key has been dropped here.~
+~
+18 11 3 0 7 0 8392704 16385 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+stone key~
+&+wThis key seems to be fairly unique, with several dozen grooves,
+&+wdesigned to fit a complicated lock. It seems to be have carved from
+&+wsome sort of stone.&n
+~
+#13313
+chipped key rock~
+&+wa chipped key of rock&n~
+&+wA chipped key of rock lays here.&n~
+~
+18 11 3 0 7 0 8392704 16385 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+chipped key rock~
+&+wThis key, carved from a slendar chunk of rock, seems to be crumbling
+&+wfrom wear over the years, despite this it will probably still work
+&+wfine for awhile yet.&n
+~
+#13314
+key steel~
+&+ca key of steel~
+&+cA key of steel has been dropped here.~
+~
+18 16 3 0 7 0 8388608 16385 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+key steel~
+&+cThis key has been obviously forged for the sole purpose of using
+&+cit on a unique and important lock. It is made from strong steel
+&+cand fairly well-crafted.&n
+~
+#13315
+combat boots balance~
+&+cthe &+Lcombat&+c boots of &+Wbal&+wan&+Lce&n~
+&+LA pair of combat boots infused with &+ranarchism&+L have been dropped here.~
+~
+9 13 3 0 7 0 1024 65 0 121258043 0
+9 0 0 3 0 0 0 0
+1 1 100
+E
+leather combat boots~
+&+LThis boots were worn by the elite orc soldiers in the armies of
+&+rarmageddon&+L. Chaos seems to encircle them, aggitation seems to follow.
+~
+A
+19 3
+A
+32 3
+#13316
+cosmic collar silver~
+&+ca &+Yco&+Wsm&+Yic &+csilver &+ccollar&n~
+&+cA &+Yco&+Wsm&+Yic&+c silver collar collects dust here.&n~
+~
+9 22 3 0 9 0 1024 5 65 12619268 0
+5 0 0 3 0 0 0 0
+1 1 100
+E
+cosmic collar silver~
+&+cThis collar has been infused with the legendary arts of &+Wcosmocy&+c.
+&+cExactly who infused it remains a mystery, but the result is a very
+&+cstrong &+Csilver&+c collar with the ability to hieghten the wearers
+&+cnatural intelligence.&n
+~
+A
+24 -3
+A
+33 3
+#13317
+bone crested tower shield~
+&+ca &+Wbone&+Y c&+cr&+Ye&+cs&+Yt&+ce&+Yd&+c &+Wtower&+c shield&n~
+&+cA &+Ycrested&+c shield of &+Wbone&+c lies here.&n~
+~
+37 10 3 0 7 0 0 513 0 0 0
+1 3 4 186 4 0 0 0
+20 2991 100
+E
+bone crested tower shield~
+&+cThis shield stands nearly six feet in hieght, is quite thick, and
+&+ccarved from the &+Wbone&+c of some massive creature.  A crest has been
+&+cpainted and carved on the front of the shield is the mark of a
+&+cblazing, &+Ygolden&+c phoenix.&n
+~
+A
+18 2
+A
+1 6
+#13318
+hazy blue amulet~
+&+ba hazy, bl&+Bue amulet~
+&+bA hazy, bl&+Bue amulet has been &+b dropped here.~
+~
+9 1 3 0 7 0 1 5 0 0 0
+4 0 0 2 0 0 0 0
+1 1 100
+E
+hazy blue amulet~
+&+bThis amulet appears non-corpeal. It seems to fade in and out of existence.
+~
+A
+12 25
+A
+13 15
+#13319
+black stone war club~
+&+wa &+Lblack &+wsto&+Wne&+L war&+wclub&n~
+&+wA &+Lblack&+w sto&+Wne &+Lwar&+wclub has been left here.&n~
+~
+5 11 3 0 11 0 4195328 1 0 85475329 0
+11 3 4 6 0 0 0 0
+1 1 100
+E
+black stone war club~
+&+wThis warclub was created from a strong black stone. It is very
+&+wheavy and shaped with almost a hammer-shape on the head. It looks
+&+wlike it wouldn't be too difficult at crushing a skull with this
+&+wweapon.&n
+~
+A
+18 4
+A
+19 4
+#13320
+masters longbow long bow~
+&+Wth&+Re ma&+Wste&+Rrs &+Wlong&+Rbow&n~
+&+WA long&+Rbow o&+Wf gran&+Rd desig&+Wn has &+Rbee&+Wn dro&+Rpped &+Where.&n~
+~
+6 6 3 8 14 0 4195328 24577 0 87650331 0
+105 100 0 1 0 0 0 0
+1 61241 100 0 16 0 0
+E
+masters longbow long bow~
+&+WThis bow seems to be of the hig&+Rhest quality in the co&+Wuntry side. It
+&+Robviously once be&+Wlonged to a great ar&+Rcher or ranger. &n
+~
+A
+19 3
+A
+18 3
+#13321
+masters arrow~
+&+Wa mas&+Rters ar&+Wrow&n~
+&+WAn ar&+Rrow has be&+Wen left here.&n~
+~
+7 16 3 4 7 0 0 1 0 0 0
+5 4 3 1 0 0 0 0
+1 1 100
+E
+masters arrow~
+&+RThis arrow was designed for use in the mas&+Wters bow, it also see&+Rms to fit
+&+Rperfectly into t&+Whe masters quiver.
+~
+#13322
+tail ribbon pride~
+&+bthe &+Bribbon&+b of &+Bpride&n~
+&+bA tail &+Bribbon&n &+bhas been left here.&n~
+~
+9 3 3 0 7 0 0 33554433 2 0 0
+1 0 0 1 0 0 0 0
+1 1 100
+E
+tail ribbon pride~
+&+bThis tail ribbon carries with it a sense of pride and dignity, providing
+&+bthe wearer special extra abilities.
+~
+A
+13 15
+A
+24 -3
+#13323
+dying mercenary wild card~
+&+ya dying &+WW&+Li&+Wl&+Ld &+WC&+La&+Wr&+Ld &+ymercenary~
+&+yA dying mercenary from the &+WW&+Li&+Wl&+Ld &+WC&+La&+Wr&+Ld &+ycompany lays here.~
+~
+15 2 3 0 7 0 0 0 0 0 0
+5000 5 0 5000 0 0 0 0
+0 0 100
+E
+dying mercenary wild card~
+&+yThis mercenary is obviously dying. He is clutching a wound in his chest
+&+yand gasping for air. There is nothing you can do to help him anymore.
+&+yYou can not help but feel sorry for him.&n
+~
+#13324
+finely stitched combat vest~
+&+ma &+Lfi&+Mne&+mly&+L-&+mstit&+mched&+L combat &+Mve&+mst&n~
+&+mA &+Lfi&+Mne&+mly-&+mstitched &+Lcombat &+Mve&+mst&+L lies here.&n~
+~
+9 3 3 0 11 0 0 9 0 0 0
+20 0 0 2 0 0 0 0
+1 1 100
+E
+combat vest~
+&+LThis is a standard issue combat vest worn by the high ranking orcs in
+&+Lthe armies of &+rarmageddon.&n
+~
+A
+13 20
+A
+3 10
+#13325
+basin blood~
+&+La basin of &+rblood&n~
+&+LA blackened basin of sacrificial &+rblood&+L sits here.~
+~
+15 15 3 0 7 0 0 0 0 0 0
+50000 5 0 50000 0 0 0 0
+0 0 100
+E
+basin blood~
+&+LThis dark basin is full of &+rblood&+L as a symbol of loyalty to the dark god
+&+Lthe orc priests pray too.
+~
+#13326
+morning star starlight~
+&+L'&+YStarlight&+L' the &+Ygold-&+Llinked &+Ym&+Lo&+Yr&+Ln&+Yi&+Ln&+Yg star&n~
+&+LA &+Ym&+Lo&+Yr&+Ln&+Yi&+Ln&+Yg star&+L with a &+Ygold&+L chain links lies here.&n~
+~
+5 24 3 4 11 0 262144 24577 64 0 0
+14 1 5 0 0 21004 50 20
+1 46671 100
+E
+gold morning starlight~
+&+LThis magnificent &+Ymorning&+L star, crafted from the highest quality
+&+Lmetals and linked with a solid &+Ygold&+L chain is capable of crushing
+&+Lskulls with whip like action.  Infused with &+Wcosmosy&+L magic it only
+&+Lallows a small number to use it efficiently.&n
+~
+E
+_char_msg~
+&+YStarlight explodes with a flash of blinding light!
+~
+E
+_room_msg~
+&+YStarlight explodes with a flash of blinding light!
+~
+E
+_vict_msg~
+&+YStarlight explodes with a flash of blinding light!
+You try to shield your eyes!
+~
+A
+18 4
+A
+19 4
+#13327
+royal crested bracelet~
+&+La &+rro&+Wy&+ral&+L c&+rre&+rst&+Led bra&+wcel&+Wet&n~
+&+LA bra&+wcel&+Wet&+L with a &+rro&+Wy&+ral crest&+L has been left here.&n~
+~
+9 16 3 0 9 0 0 4097 64 0 0
+4 0 0 4 0 0 0 0
+1 12345 100
+E
+chain link bracelet~
+&+cThis bracelet is made up of several links of steel. It seems to
+&+chave hazy mystical properties about it, indicating it is just not
+&+cplain steel.&n
+~
+A
+19 3
+A
+18 3
+#13328
+helm armageddon war~
+&+Lthe helm of &+rarmageddon&n~
+&+LA black war helm has been left here.&n~
+~
+9 15 3 0 7 0 0 17 0 0 0
+9 0 0 3 0 0 0 0
+1 12345 100
+E
+helm armageddon~
+&+LThis helm is from the the elite shock troops of the armies of
+&+rarmageddon&+L.  It covers the ears and head with thick steel.
+~
+A
+31 3
+A
+18 4
+#13329
+fur lined cloak balance~
+&+ya fur&+L-&+Wlined&+y cloak marked with &+Lbal&+Wance&n~
+&+ySomeone has left a fur&+L-&+Wlined&+y cloak laying here.&n~
+~
+9 3 3 0 9 0 0 1025 0 0 0
+7 0 0 3 0 0 0 0
+1 1234 100
+E
+fur lined cloak balance~
+&+yThis cloak seems to be very warm and thick, offering the wearing much
+&+yprotection against phyiscal attacks. It is emblazoned with the mark
+&+yof &+Wbal&+Lance.&n
+~
+A
+13 20
+A
+18 3
+#13330
+tags wild card~
+&+cthe tags of a &+WWild &+LCard&n~
+&+cA set of tags of the &+WWild &+LCard&+c company have been dropped here.~
+~
+8 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+tags wild card~
+&+cThis tags bear the markings of the Wild Card mercenary company.&n
+~
+#13331
+dagger anarchy~
+&+La dagger of &+ranarchy&n~
+&+LA dagger of &+ranarchy&+L has been left here.~
+~
+5 11 3 0 7 0 0 8193 64 0 0
+2 2 2 11 0 0 0 0
+1 1000 100
+E
+dagger anarchy~
+&+LThis dagger seems to be surrounded with chaos magics. It once belonged
+&+Lto the thief lord in the armies or &+rarmageddon.
+~
+A
+18 2
+A
+19 2
+#13332
+cloak crimson nosferatu~
+&+Lthe &+rcrimson&+L cloak of &+rnos&+Lfer&+ratu&n~
+&+LA &+rcrismon dyed&+L cloak lies on the ground here.&n~
+~
+9 1 3 0 14 0 1048704 1025 64 0 0
+9 0 0 3 0 0 0 0
+1 1234 100
+E
+cloak crimson nosferatu~
+&+LThis cloak is the empitomy of undead. Worn by the legendary &+rvampires&+L
+&+Lthroughout the ages is possess powers over death, providing the
+&+Lwearer with extended life.&n
+~
+A
+33 3
+A
+13 20
+#13333
+blackened earring spiked~
+&+Wa &+Lspiked &+wbla&+Lck&+wen&+Led &+wear&+Wrin&+Lg&n~
+&+WA &+Lspiked, &+wbla&+Lcken&+Led &+wear&+Wrin&+Lg lies here.&n~
+~
+9 15 3 0 7 0 0 524289 0 0 0
+2 0 0 3 0 0 0 0
+1 1234 100
+E
+blackened ear earpiece piece~
+&+LThis appears to be nothing more than an earclasp burnt black by some
+&+Lsomething.&n
+~
+A
+19 3
+A
+13 10
+#13334
+taut band wyvern skin~
+&+ya &+Ytau&+yt ba&+Ynd of &+ywyvern &+Yskin&n~
+&+yA &+Ytau&+yt ban&+Yd of wyv&+yern skin ha&+Ys been left here.&n~
+~
+9 2 3 0 9 0 131072 2049 0 0 0
+4 0 0 4 0 0 0 0
+1 1234 100
+E
+strip thick wyvern skin~
+&+yThis strip of skin and flesh appears to have literally been cut from
+&+yan adult wyvern. It is long enough to fit around even an ogre's waist.&n
+~
+A
+24 -3
+A
+2 10
+#13335
+wings arch angel~
+&+Wa pair &+Larch&+Wangel&+W wings&n~
+&+WA set of &+Larch&+Wangel wings have been left here.&n~
+~
+8 15 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+wings arch angel archangel~
+&+WThe wings of an &+Larch&+Wangel are said to have magical powers. They are
+&+Wvery rare and seldom seen like the &+Larch&+Wangel itself.&n
+~
+T
+2 0 1 50
+#13336
+twisted tooth behemoth~
+&+ma twisted behe&+bmoth &+mtooth&n~
+&+mThe tooth of a behe&+bmoth&+m lies here.&n~
+~
+8 15 3 0 7 0 8392704 1 0 0 0
+0 0 0 3 0 0 0 0
+1 1 100
+E
+twisted tooth behemoth~
+&+mThe behe&+bmoth&n+m is a seldom seen creature around the land.  The tooth
+&+mis jagged and razor sharp, indicating that the beast that lost this
+&+mtooth was quite deadly.&n
+~
+#13337
+robes cosmocy cosmic~
+&+Ythe robe&+Ws of &+Yco&+Wsmo&+Ycy&n~
+&+WMystical and &+Yco&+Wsm&+Yic&+W, robes have been dropped here.&n~
+~
+9 3 3 0 12 0 1025 9 64 12619652 0
+14 0 0 3 0 0 0 0
+1 1202 100
+E
+robes cosmocy cosmic~
+&+LXavier's robes of &+Wcosmocy&+L contain strange chronomantic powers.  They
+&+Lseem to flow like a liquid and are cool to the touch.&n
+~
+A
+24 -3
+A
+13 18
+#13338
+dying mercenary soldier fortune~
+&+ya dying &+LSoldier of &+YFortune&n~
+&+yA dying mercenary from the &+LSoldiers of &+YFortune&+y lays here.~
+~
+15 2 3 0 7 0 0 0 0 0 0
+5000 5 0 5000 0 0 0 0
+0 0 100
+E
+dying mercenary wild card~
+&+yThis mercenary is obviously dying. He is clutching a wound in his chest
+&+yand gasping for air. There is nothing you can do to help him anymore.
+&+yYou can not help but feel sorry for him.&n
+~
+#13339
+rift~
+&+La &+mrift&+L in the cavern wall&n~
+&+LA huge &+mrift &+Mglows&+L ominously in the cavern wall here.&n~
+~
+25 15 3 0 7 0 1 0 0 0 0
+13429 7 -1 0 0 0 0 0
+0 0 100
+E
+rift~
+&+LThis &+mrift&+L glows&+L with a dark, ominous power.  The hazy, &+mpurple&+L,&n
+&+Llight coming from within seems to beat like a &+rheart&+L.  As told, the
+&+Lentering of the &+mrift&+L would lead to the &+rsource&+L of pure &+revil.&n
+~
+#13340
+soldier wounded myrabolan~
+&+ya wounded &+MMyrabolan&+y soldier&n~
+&+yA mortally wounded &+MMyrabolan&+y soldier clutches at a wound in his chest.&n~
+~
+15 2 3 0 7 0 0 0 0 0 0
+5000 5 0 5000 0 0 0 0
+0 0 100
+E
+myrabolan soldier wounded~
+&+yThis mercenary is obviously dying. He is clutching a wound in his chest
+&+yand gasping for air. There is nothing you can do to help him anymore.
+&+yYou can not help but feel sorry for him.&n
+~
+#13341
+pile corpses~
+&+La pile of corpses&n~
+&+LCorpses continue to pile up here, pushed against the wall.&n~
+~
+15 15 3 0 7 0 0 0 0 0 0
+5000 5 0 5000 0 0 0 0
+0 0 100
+E
+pile corpses~
+&+LA pile of corpses continue to pile up inside the caverns, growing
+&+Lsteadily as the combat between the united soldiers of balance fight
+&+Lagainst the army of &+rarmageddon&+L.  Pools of &+rblood&+L continue to run
+&+Lthroughout the tunnels as the corpses grow, ignorant of race.&n
+~
+#13342
+severed head renatta~
+&+rthe severed head of Renatta&n~
+&+rA severed head lies on the ground here.&n~
+~
+8 2 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+bloody head renatta~
+&+rThis head is proof of the death of Renatta, the orc lieutenant.&n
+~
+#13343
+severed head jigoog~
+&+rthe severed head of Jigoog&n~
+&+rA severed head lies on the ground here.&n~
+~
+8 2 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+severed head jigoog~
+&+rThis severed head is proof of the death of Jigoog, the goblin windmaster.&n
+~
+#13344
+shard electrum shimmering~
+&+Ca s&+chi&+Cmm&+cering &+Cshard&+c of electrum&n~
+&+CA shard of &+celectrum shi&+Cmm&+cers on the ground here.&n~
+~
+5 23 3 0 11 0 16778512 24577 0 8515584 0
+2 3 4 11 0 0 0 0
+3 1234 100
+E
+shard electrum shimmering~
+&+cThis is a long, sharp, shard of pure electrum.  It glows with the
+&+cradiance known for the element, and appears to be quite a sturdy
+&+cpiercing weapon.&n
+~
+A
+18 4
+A
+19 4
+#13345
+severed head veannan~
+&+rthe severed head of Veannan&n~
+&+rA severed head lies on the ground here.&n~
+~
+8 2 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+severed head veannan~
+&+rThis head is proof of the death of Veannan, the thief lord.&n
+~
+#13346
+severed head greeef~
+&+rthe severed head of Greeef&n~
+&+rA severed head lies on the ground here.&n~
+~
+8 2 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+severed head greeef~
+&+rThis severed head is proof of the death of Greeef, the ogre warlord.&n
+~
+#13347
+severed head endosa~
+&+rthe severed head of Endosa&n~
+&+rA severed head lies on the ground here.&n~
+~
+8 2 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+severed head endosa~
+&+rThis severed head is proof of the death of Endosa, the orc general.&n
+~
+#13348
+severed head zeelnar~
+&+rthe severed head of Zeelnar&n~
+&+rA severed head lies on the ground here.&n~
+~
+8 2 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+severed head zeelnar~
+&+rThis severed head acts as proof of the death of Zeelnar, the mage.&n
+~
+#13349
+beholder eyestalk eye stalk~
+&+wa &+Lbeho&+wlder &+Leye&+wstalk&n~
+&+wA se&+Lvere&+wd beh&+Lolde&+wr eye&+Lstalk &+whas been left here.&n~
+~
+8 15 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+beholder eyestalk eye stalk~
+&+wThis is an eyestalk severed from a small beholder. It is covered
+&+wwith goo and rather disgusting to look at. It doesn't seem to be of
+&+wmuch use as it is.&n
+~
+#13350
+wispy tendril flame~
+&+ra wisp&+Ry ten&+rdri&+Rl of flame&n~
+&+rA wisp&+Ry ten&+rdri&+Rl of flame&+r has been lef&+Rt here.&n~
+~
+8 1 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+wispy tendril flame~
+&+rThis tendril of flame seems to continue to burn without any fuel.
+&+rThe continous burning is caused by the elemental it was once a part
+&+rof.  Other than burning ones fingers it doesn't seem very useful.&n
+~
+#13351
+totem windmasters windmaster wind master~
+&+La &+Cto&+ct&+Cem&+L of the &+cwindmasters&n~
+&+LA &+Cto&+ct&+Cem&+L infused with the &+cwind&+L lays here.&n~
+~
+34 6 3 0 9 0 1024 8404993 0 33554688 0
+60 0 0 0 0 0 0 0
+1 1 100
+E
+totem windmasters windmaster wind master~
+&+cThis totem was once used by the &+ggoblin&+c windmaster tribe.  The same
+&+ctribe has been rumored to travel the world, recruiting new members,
+&+csometimes even outside races. It is a sturdy totem offering elemental
+&+cpowers.&n
+~
+A
+13 20
+A
+34 3
+#13352
+severed head maverick~
+&+rthe severed head of Maverick&n~
+&+rA severed head lies on the ground here.&n~
+~
+8 2 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+severed head maverick~
+&+rThis head is proof of the death of Maverick, the renegade Hunter.&n
+~
+#13353
+severed head argophel~
+&+rthe severed head of Argophel&n~
+&+rA severed head lies on the ground here.&n~
+~
+8 2 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+severed head argophel~
+&+rThis head is proof of the death of Argophel, the necromancer.&n
+~
+#13354
+severed head grue~
+&+rthe severed head of Grue&n~
+&+rA severed head lies on the ground here.&n~
+~
+8 2 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+severed head grue~
+&+rThis head is proof of the death of Grue, the slavemaster.&n
+~
+#13355
+severed head chowza~
+&+rthe severed head of Chowza&n~
+&+rA severed head lies on the ground here.&n~
+~
+8 2 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+severed head chowza~
+&+rThis head is proof of the death of Chowza, the wyvern trainer.&n
+~
+#13356
+severed head graiven~
+&+rthe severed head of Graiven&n~
+&+rA severed head lies on the ground here.&n~
+~
+8 2 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+severed head graiven~
+&+rThis head is proof of the death of Graiven, the orc priest.&n
+~
+#13357
+severed head maximas~
+&+rthe severed head of Maximas&n~
+&+rA severed head lies on the ground here.&n~
+~
+8 2 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+severed head maximas~
+&+rThis head prooves the death of Maximus, the human warlord.&n
+~
+#13358
+severed head krazzi~
+&+rthe severed head of Krazzi&n~
+&+rA severed head lies on the ground here.&n~
+~
+8 2 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+severed head krazzi~
+&+rThis head acts as proof of the death of Krazzi, the drow conjurer.&n
+~
+#13359
+tags myrabolan~
+&+cthe tags of the &+MMyrabolan&+c guard&n~
+&+cA set of tags of the &+MMyrabolan&+c guard have been left here.&n~
+~
+8 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+tags myrabolan~
+&+cThis are the standard tags worn by a member of the &+MMyrabolan&n
+&+chunter guards.&n
+~
+#13360
+bastard sword~
+&+Lan &+remblazoned&+L bastard sword&n~
+&+LAn &+remblazoned&+L bastard sword has been left here.&n~
+~
+5 15 3 0 7 0 4194304 8193 0 0 0
+13 2 3 3 0 0 0 0
+2 123 100
+A
+19 1
+A
+18 1
+#13361
+amulet cosmos~
+&+Wthe amul&+Yet of the &+Wco&+Ysm&+Wos&n~
+&+WThe amulet o&+Yf the cos&+Wmos has been le&+Yft here.&n~
+~
+9 1 3 0 11 0 1025 5 0 37883428 0
+4 0 0 3 0 0 0 0
+1 1 100
+E
+amulet cosmos~
+&+YThis amulet glows wit&+Gh the infused power of the cosm&+Bos, a rare
+&+Bpower rumored to originate fro&+Ym somewhere beyond the cele&+cstial
+&+cplanes.&n
+~
+A
+13 20
+A
+33 3
+#13362
+severed head hackzen~
+&+rthe severed head of Hackzen&n~
+&+rA severed head lies on the ground here.&n~
+~
+8 2 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+severed head hackzen~
+&+rThis head is proof of the death of Hackzen, the troll ragerlord.&n
+~
+#13363
+swirling portal~
+&+Wa swirling portal&n~
+&+WA swirling portal sits nearly hidden within the &+gtrees&+W.&n~
+~
+25 15 3 0 7 0 0 0 0 0 0
+82627 7 -1 0 0 0 0 0
+0 0 100
+#13364
+chest treasure~
+&+Ya &+ychest&+Y of treasure&n~
+&+YA treasure &+ychest&+Y full of bounty from the &+Lorcish&+Y hoarde is here.&n~
+~
+8 26 3 0 7 0 0 1 0 0 0
+0 0 0 0 0 0 0 0
+0 323881 100
+E
+chest treasure~
+&+yThis chest has been filled with treasures that were looted and
+&+yplundered from the orc caverns.  It is quite valuable, probably
+&+yto some people more than others.&n
+~
+#13365
+lost monkey~
+&+ya lost &+Ymonkey&n~
+&+yA lost little &+Ymonkey&+y sits in the tree here.&n~
+~
+8 2 3 0 7 0 4096 8388609 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+lost monkey~
+&+yThis little monkey has become lost while wandering about.  He is
+&+ylonely and sad and missing his owner.&n
+~
+#13366
+heart abbadon~
+&+rthe heart of Abbadon&n~
+&+rThe heart of the demon Abbadon has been dropped here.&n~
+~
+8 2 3 0 5 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+#13367
+blackened crown sixth legion~
+&+Lthe blackened &+rcrown&+L of the &+rSixth Legion&n~
+&+LA black and evil &+rcrown&+L has been dropped here.&n~
+~
+9 16 3 0 12 0 1 17 0 67137563 0
+6 0 0 0 0 0 0 0
+0 6677 100 73728 0 0 570425344
+A
+20 -4
+A
+24 -4
+#13368
+medallion cresent moon~
+&+ca medallion of the cr&+Wese&+cnt&+W moon&n~
+&+cA medallion with a cr&+Wese&+cnt&+W moon on it has been dropped here.&n~
+~
+9 16 3 0 7 0 0 5 0 0 0
+8 0 0 3 0 0 0 0
+0 34671 100 4 0 0 0
+A
+20 -4
+A
+13 20
+>>>>>>> master

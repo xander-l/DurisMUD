@@ -652,6 +652,10 @@ The street continues.
 ~
 ~
 0 0 17028
+D2
+~
+~
+0 0 17747
 D3
 The street continues.
 ~
@@ -15726,4 +15730,70 @@ D2
 ~
 ~
 0 0 24108
+S
+#17747
+&+GGixnif's &+Lhouse of &+gGreed&n~
+&+yBuilt from &+Ldirt&+y and rubble from the &+Walley&+y, this room is nothing more than
+&+ya makeshift burrow carved from the &+Learth&+y. &+wRats&+y and other vermin dart throughout
+&+ythe &+Lsh&+wad&+Lows&+y fighting for whatever scraps of &+rfood&+y they can find. In the
+&+yfar back of the room sits a &+Lshifty-eyed&+y, &+gfat &+Ggoblin&+y, picking its teeth with
+&+ya &+Ymuddy&+y &+Lpick axe&+y.
+~
+170 0 0
+D0
+~
+~
+0 0 17027
+D3
+~
+~
+0 0 17749
+D4
+~
+~
+0 0 17748
+S
+#17748
+&+WKannard's &+mS&+Me&+Yc&+Gr&+Ce&+Rt &+yShop &nof &+CIntrigue&n~
+Formed by a &+clight blue&n, &+Mglowing &+cmist&n, this room seems to &+Cpulsate&n
+in and out of &+Lexistence&n. Various &+Cartifacts&n from reaches far beyond our own &+rrealm&n
+slowly &+cphase&n into view, providing a &+Cglimpse&n into &+Lother-worldy &nrealms. A
+&+Lcl&+woa&+Wked&n, &+Lhooded&n figure &+rhovers&n in the center of the room, beckoning you closer.
+~
+170 0 0
+D4
+~
+~
+0 0 17750
+D5
+~
+~
+0 0 17747
+S
+#17749
+&+LThe &+yHall &+Lof &+gGuilds&n~
+s room is filled with documents of all sorts: Combat Scenarios,
+Battle Treaties, Governing Documents. A tall &+gTroll&n stands behind
+a &+ywooden&n counter, twirling his &+ymoustache&n and eyeing you.
+~
+170 142639176 0
+D1
+~
+~
+0 0 17747
+S
+#17750
+&+LA &+rWat&+Rerf&+rall &+LOf &+rB&+Rloo&+rd&n~
+&+rAs if formed by an &+Rextradimensional pocket, &+rthis room fluxes in and out of
+&+rreality. Seemingly &+Rfrom nowhere, thick crims&+ron waves of blood flow from an
+&+runknown source crea&+Rting the confines of the &+rroom, which disappear into a
+&+rseries of bleach wh&+Rite skulls which line the&+r floor, creating a soft crackle
+&+rbeneath your feet a&+Rs you walk into the room.&+r A solitary figure hovers about
+&+rthe center of the r&+Room, clothed in black, ar&+rms outstretched.
+~
+170 0 0
+D5
+~
+~
+0 0 17748
 S

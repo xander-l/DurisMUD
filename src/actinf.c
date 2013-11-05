@@ -44,8 +44,10 @@ using namespace std;
 #include "ctf.h"
 #include "epic_bonus.h"
 
+
 /* * external variables */
 
+extern float spell_pulse_data[LAST_RACE + 1];
 extern char *target_locs[];
 extern char *set_master_text[];
 extern int mini_mode;
@@ -122,6 +124,7 @@ extern struct quest_data quest_index[];
 extern struct epic_bonus_data ebd[];
 void display_map(P_char ch, int n, int show_map_regardless);
 
+
 extern HelpFilesCPPClass help_index;
 
 int astral_clock_setMapModifiers(void);
@@ -182,7 +185,7 @@ const char *stat_names3[13] = {
   "formidable",                 /* * 136-145 */
   "excellent",                  /* * 146-155 */
   "awesome",                    /* * 156-165 */
-  "incredible"                  /* * 166+ */
+  "incredible"                  /* * 166-280 */
 };
 
 const char *stat_outofrange[2] = {
@@ -1071,7 +1074,14 @@ void show_visual_status(P_char ch, P_char tar_char)
       IS_AFFECTED2(tar_char, AFF2_GLOBE))
     SVS("&+r$E's encased in a shimmering globe!");
 
+<<<<<<< HEAD
   if(IS_AFFECTED3(tar_char, AFF3_SPIRIT_WARD) ||
+=======
+   if (IS_AFFECTED5(tar_char, AFF5_DECAYING_FLESH))
+    SVS("&nTheir &+rflesh &nappears to be &+gdec&+Gay&+ging &nrapidly!");
+
+  if (IS_AFFECTED3(tar_char, AFF3_SPIRIT_WARD) ||
+>>>>>>> master
       IS_AFFECTED3(tar_char, AFF3_GR_SPIRIT_WARD))
     SVS("&+W$E's surrounded by a diffuse globe of light!");
 
@@ -1089,6 +1099,9 @@ void show_visual_status(P_char ch, P_char tar_char)
   if(IS_AFFECTED5(tar_char, AFF5_WET) ||
       IS_AFFECTED5(tar_char, AFF5_WET))
     SVS("&+b$E is all wet!");
+
+  if (affected_by_spell(tar_char, SKILL_DREADNAUGHT))
+    SVS("&+y$E is in a &+Ldefensive&+y position!");
 
   if(IS_AFFECTED4(tar_char, AFF4_CARRY_PLAGUE) ||
     affected_by_spell(tar_char, SPELL_PLAGUE))
@@ -1129,7 +1142,18 @@ void show_visual_status(P_char ch, P_char tar_char)
 	    SVS("&+w$E appears to be encased in a &+Lsw&+wir&+Llin&+wg &+Lbarrier &+wof &+Lgravitational energy!&n");
   }
 
+<<<<<<< HEAD
   if(IS_TRUSTED(ch))
+=======
+  if (GET_CLASS(ch, CLASS_RANGER) && !IS_PC(tar_char))
+  {
+    get_class_string(tar_char, buf2);
+    sprintf(buf, "Through your advanced training, you glean they are a level &+Y%d &N%s&n.", GET_LEVEL(tar_char), buf2, GET_HIT(tar_char), GET_MAX_HIT(tar_char));
+    SVS(buf);
+  }
+
+  if (IS_TRUSTED(ch))
+>>>>>>> master
   {
     get_class_string(tar_char, buf2);
     sprintf(buf, "&+YLevel: &N%d &+YClass(es): &N%s &+YHitpoints: %d/%d", GET_LEVEL(tar_char), buf2, GET_HIT(tar_char), GET_MAX_HIT(tar_char));
@@ -1165,7 +1189,14 @@ void create_in_room_status(P_char ch, P_char i, char buffer[])
   if(IS_AFFECTED5(i, AFF5_IMPRISON))
     strcat(buffer, " (&+cim&+Cpr&+cis&+Con&+ced&n) ");
 
+<<<<<<< HEAD
   if(IS_CASTING(i))
+=======
+  if(IS_PC_PET(i) && (!isname("image", GET_NAME(i))))
+   strcat(buffer, " &+w(&+Yminion&+w) ");
+
+  if (IS_CASTING(i))
+>>>>>>> master
     strcat(buffer, " (&+mcasting&n) ");
 
   if(IS_AFFECTED(i, AFF_CAMPING))
@@ -1393,14 +1424,14 @@ void show_char_to_char(P_char i, P_char ch, int mode)
                     race_names_table[(int) GET_RACE(i)].ansi,
                     size_types[GET_ALT_SIZE(i)]);
         }
-          
+        //Backrank display - Drannak  
         /*
 				if(i->group && !IS_BACKRANKED(i))
           strcat(buffer, "(&+RF&n)");
 
         if(i->group && IS_BACKRANKED(i))
           strcat(buffer, "(&+BB&n)");
-				*/
+		*/		
 
         if(IS_PC(i) && i->desc && i->desc->olc)
           strcat(buffer, " (&+MOLC&N)");
@@ -1550,6 +1581,20 @@ void show_char_to_char(P_char i, P_char ch, int mode)
             strcat(buffer, ", floating");
           if(!IS_RIDING(i))
             strcat(buffer, " here");
+/*
+              if (IS_SET(i->specials.act3, PLR3_FRAGLEAD))
+		  strcat(buffer, " (&+rF&+Rr&+ra&+Rg &+rL&+Ro&+rr&+Rd&n&N)");
+
+		if (IS_SET(i->specials.act3, PLR3_FRAGLOW))
+		  strcat(buffer, " (&+yFrag &+YFood&n&N)");
+*/
+
+             		if(IS_SET(i->specials.act2, PLR2_NEWBIE))
+			strcat(buffer, " (&+GNewbie&N)");
+
+
+			
+	  //drannak2
           break;
         }
         if(IS_RIDING(i))
@@ -3804,7 +3849,7 @@ void do_attributes(P_char ch, char *argument, int cmd)
   /* age, height, weight */
   sprintf(buf, "&+cAge: &+Y%d &n&+yyrs &+L/ &+Y%d &n&+ymths  "
           "&+cHeight: &+Y%d &n&+yinches "
-          "&+cWeight: &+Y%d &n&+ylbs  &+cSize: &+Y%s\n\n",
+          "&+cWeight: &+Y%d &n&+ylbs  &+cSize: &+Y%s\n\n", 
           GET_AGE(ch), age(ch).month, h, w, size_types[GET_ALT_SIZE(ch)]);
   send_to_char(buf, ch, LOG_NONE);
 
@@ -3885,6 +3930,11 @@ void do_attributes(P_char ch, char *argument, int cmd)
                 MAX(1,
                     (int) ((GET_C_CHA(ch) * 100 /
                             stat_factor[(int) GET_RACE(ch)].Cha) + .55)));
+<<<<<<< HEAD
+=======
+#endif
+/*
+>>>>>>> master
 
       sprintf(buf, "&+cSTR: &+Y%3d&n",
               MAX(1,
@@ -3922,6 +3972,82 @@ void do_attributes(P_char ch, char *argument, int cmd)
               MAX(1,
                   (int) ((GET_C_CHA(ch) * 100 /
                           stat_factor[(int) GET_RACE(ch)].Cha) + .55)));
+*/
+
+//drannak new way
+  char o_buf[MAX_STRING_LENGTH] = "", buf2[MAX_STRING_LENGTH] = "";
+
+ strcat(o_buf, "  &+GActual &n(&+gBase&n)     &+GActual &n(&+gBase&n)\n");
+ int i, i2, i3;
+ P_char k = ch;
+    for (i = 0, i3 = 0; i < MAX_WEAR; i++)
+      if(k->equipment[i])
+        i3++;
+    i2 = (int) (GET_HEIGHT(k));
+    i = (int) (i2 / 12);
+    i2 -= i * 12;
+
+    sprintf(buf,
+            "&+YStr: &n%3d&+Y (&n%3d&+Y)    Pow: &n%3d&+Y (&n%3d&+Y)\n",
+            GET_C_STR(k), MAX(1,
+                  (int) ((GET_C_STR(ch) * 100 /
+                          stat_factor[(int) GET_RACE(ch)].Str) + .55)), GET_C_POW(k), MAX(1,
+                  (int) ((GET_C_POW(ch) * 100 /
+                          stat_factor[(int) GET_RACE(ch)].Pow) + .55)));
+    strcat(o_buf, buf);
+
+    sprintf(buf,
+            "&+YDex: &n%3d&+Y (&n%3d&+Y)    Int: &n%3d&+Y (&n%3d&+Y)   \n",
+            GET_C_DEX(k), MAX(1,
+                  (int) ((GET_C_DEX(ch) * 100 /
+                          stat_factor[(int) GET_RACE(ch)].Dex) + .55)), GET_C_INT(k), MAX(1,
+                  (int) ((GET_C_INT(ch) * 100 /
+                          stat_factor[(int) GET_RACE(ch)].Int) + .55)));
+    strcat(o_buf, buf);
+
+    sprinttype(GET_ALT_SIZE(k), size_types, buf2);
+    sprintf(buf,
+            "&+YAgi: &n%3d&+Y (&n%3d&+Y)    Wis: &n%3d&+Y (&n%3d&+Y)\n",
+            GET_C_AGI(k), MAX(1,
+                  (int) ((GET_C_AGI(ch) * 100 /
+                          stat_factor[(int) GET_RACE(ch)].Agi) + .55)), GET_C_WIS(k), MAX(1,
+                  (int) ((GET_C_WIS(ch) * 100 /
+                          stat_factor[(int) GET_RACE(ch)].Wis) + .55)));
+    strcat(o_buf, buf);
+
+    sprintf(buf,
+            "&+YCon: &n%3d&+Y (&n%3d&+Y)    Cha: &n%3d&+Y (&n%3d&+Y)   Luc: &n%3d&+Y\n&+cEquipped Items: &n%3d&+Y     &+cCarried weight:&n%5d\n\n",
+            GET_C_CON(k), MAX(1,
+                  (int) ((GET_C_CON(ch) * 100 /
+                          stat_factor[(int) GET_RACE(ch)].Con) + .55)), GET_C_CHA(k), MAX(1,
+                  (int) ((GET_C_CHA(ch) * 100 /
+                          stat_factor[(int) GET_RACE(ch)].Cha) + .55)), GET_C_LUCK(k),
+            MAX(1,
+                  (int) ((GET_C_LUCK(ch) * 100 /
+                          stat_factor[(int) GET_RACE(ch)].Luck) + .55)),
+            i3, IS_CARRYING_W(k));
+    strcat(o_buf, buf);
+
+   /* sprintf(buf,
+            "&+YKar: &n%3d&+Y (&n%3d&+Y)    Luc: &n%3d&+Y (&n%3d&+Y)    Carried Items: &n%3d&+Y   Max Carry Weight:&n%5d\n",
+            GET_C_KARMA(k), k->base_stats.Karma, GET_C_LUCK(k),
+            k->base_stats.Luck, IS_CARRYING_N(k), CAN_CARRY_W(k));
+    strcat(o_buf, buf);*/
+
+    i = GET_C_STR(k) + GET_C_DEX(k) + GET_C_AGI(k) + GET_C_CON(k) +
+      GET_C_POW(k) + GET_C_INT(k) + GET_C_WIS(k) + GET_C_CHA(k);
+
+    i2 =
+      k->base_stats.Str + k->base_stats.Dex + k->base_stats.Agi +
+      k->base_stats.Con + k->base_stats.Pow + k->base_stats.Int +
+      k->base_stats.Wis + k->base_stats.Cha;
+
+ /*   sprintf(buf,
+            "&+YAvg: &n%3d&+Y (&n%3d&+Y)  Total mod: (&n%3d&+Y)              Load modifer: &n%3d\n\n",
+            (int) (i / 8), (int) (i2 / 8), (i - i2), load_modifier(k));
+    strcat(o_buf, buf);*/
+//    send_to_char(o_buf, ch);
+	sprintf(buf, o_buf);
 
 
     }
@@ -4634,9 +4760,17 @@ void do_score(P_char ch, char *argument, int cmd)
   {
     ebdata.type = EPIC_BONUS_NONE;
   }
+<<<<<<< HEAD
   send_to_char_f(ch, "&nEpic Bonus: &+C%s&n (&+C%.2f%%&n)\r\n", ebd[ebdata.type].description, get_epic_bonus(ch, ebdata.type)*100, LOG_NONE);
 
   send_to_char("&+RFrags:&n   ", ch, LOG_NONE);
+=======
+  send_to_char_f(ch, "&nEpic Bonus: &+C%s&n (&+C%.2f%%&n)\r\n", ebd[ebdata.type].description, get_epic_bonus(ch, ebdata.type)*100);
+#ifdef SKILLPOINTS
+  send_to_char_f(ch, "&nSkill Points: &+W%d&n\r\n", ch->only.pc->skillpoints);
+#endif
+  send_to_char("&+RFrags:&n   ", ch);
+>>>>>>> master
 
   fragnum = (float) ch->only.pc->frags;
   fragnum /= 100;
@@ -4762,7 +4896,13 @@ void do_score(P_char ch, char *argument, int cmd)
     strcat(buf, " &+WFly&n");
   if(IS_AFFECTED(ch, AFF_ARMOR))
     strcat(buf, " &+WArmor&n");
+<<<<<<< HEAD
   if(IS_AFFECTED(ch, AFF_HASTE))
+=======
+  if (IS_AFFECTED(ch, AFF_AWARE))
+    strcat(buf, " &+BA&+Ww&+Ba&+Wr&+Be&n");
+  if (IS_AFFECTED(ch, AFF_HASTE))
+>>>>>>> master
     strcat(buf, " &+RH&+ra&+Rs&+rt&+Re&n");
   if(IS_AFFECTED3(ch, AFF3_BLUR))
     strcat(buf, " &+CBlur&n");
@@ -4868,6 +5008,23 @@ void do_score(P_char ch, char *argument, int cmd)
 	int RemainingBartenderQuests = sql_world_quest_can_do_another(ch);
 	sprintf(buf, "&+yBartender Quests Remaining:&n %d\n", RemainingBartenderQuests);
 	send_to_char(buf, ch, LOG_NONE);
+  }
+
+  if(IS_PC(ch))
+  {
+  
+        sprintf(buf, "&+YCombat Pulse: &N%4d&+Y &+MSpell Pulse&n:  %.2f&+Y ",
+//            ch->specials.base_combat_round, ch->points.spell_pulse);
+         ch->specials.base_combat_round, (spell_pulse_data[GET_RACE(ch)] * ((12.0 + ch->points.spell_pulse)/12)));
+
+
+
+    strcat(buf, "\n");
+    send_to_char(buf, ch);
+
+    sprintf(buf, "&+LLea&+wder&+Wboard Points&n: &n%4d&n ", (getLeaderBoardPts(ch) / 100));
+    strcat(buf, "\n");
+    send_to_char(buf, ch);
   }
   
   buf[0] = 0;
@@ -5080,21 +5237,39 @@ void do_score(P_char ch, char *argument, int cmd)
                                  * affects with 2 structs
                                  */
           strcat(buf, skills[aff->type].name);
-          
-          if(!IS_AFFECTED2(ch, AFF2_DETECT_MAGIC) ||
-             (aff->duration > 2))
+    if(IS_SET(aff->flags, AFFTYPE_SHORT))
+    {
+
+            strcat(buf, " (&+Rless than a minute remaining&n)\n");
+
+    }
+
+    else
+      {
+	  if(aff->duration < 0)
           {
-            strcat(buf, "\n");
+	    char buf1[MAX_STRING_LENGTH];
+            //strcat(buf, "\n");
+	     sprintf(buf1, " (&+Bno expiration timer&n)\n");
+            strcat(buf, buf1);
+          }
+          else if(aff->duration > 1) //(!IS_AFFECTED2(ch, AFF2_DETECT_MAGIC) ||  
+          {
+	    char buf1[MAX_STRING_LENGTH];
+            //strcat(buf, "\n");
+	     sprintf(buf1, " (&+W%d &+Yminutes&n)\n", aff->duration);
+            strcat(buf, buf1);
           }
           else if(aff->duration <= 1)
           {
-            strcat(buf, " (fading rapidly)\n");
+            strcat(buf, " (&+Rless than a minute remaining&n)\n");
           }
           else if(aff->duration == 2)
           {
             strcat(buf, " (fading)\n");
           }
-        }
+       }
+      }
         last = aff->type - 1;
       }
     
@@ -5189,6 +5364,17 @@ void do_time(P_char ch, char *argument, int cmd)
 
   ct = time(0);
   uptime = real_time_passed(ct, boot_time);
+
+
+ 
+
+  //Auto Reboot - Drannak
+  if((uptime.day * 24 + uptime.hour) > 65)
+  {
+   do_shutdown(ch, "autoreboot 60", 1); 
+  }
+
+
   sprintf(Gbuf2, "Time elapsed since boot-up: %d:%s%d:%s%d\n",
           uptime.day * 24 + uptime.hour,
           (uptime.minute > 9) ? "" : "0", uptime.minute,
@@ -5597,10 +5783,16 @@ void do_who(P_char ch, char *argument, int cmd)
   for (d = descriptor_list; d; d = d->next)
   {
     tch = d->character;
+<<<<<<< HEAD
 
     if(d->connected || 
        racewar(ch, tch) || 
        IS_NPC(tch))
+=======
+    //Anyone can now see invis on who list - Drannak
+	if (d->connected || racewar(ch, tch) || IS_NPC(tch) || (!CAN_SEE(ch, tch) && IS_TRUSTED(tch)))
+    //if (d->connected || racewar(ch, tch) || !CAN_SEE(ch, tch) || IS_NPC(tch))
+>>>>>>> master
       continue;
       
     if(!CAN_SEE(ch, tch))
@@ -5773,6 +5965,7 @@ void do_who(P_char ch, char *argument, int cmd)
         {
           strcat(who_output, "[&+L - Anonymous -  &N] ");
         }
+	
         strcat(who_output, GET_NAME(who_list[j]));
         strcat(who_output, " ");
         if(GET_TITLE(who_list[j]))
@@ -5796,6 +5989,38 @@ void do_who(P_char ch, char *argument, int cmd)
 
 		if(IS_SET((who_list[j])->specials.act2, PLR2_NEWBIE_GUIDE))
 		  strcat(who_output, " (&+GGuide&N)");
+
+                if (IS_SET((who_list[j])->specials.act3, PLR3_FRAGLEAD))
+		  strcat(who_output, " (&+rF&+Rr&+ra&+Rg &+rL&+Ro&+rr&+Rd&n&N)");
+
+//Surtitles - Drannak
+        if(IS_SET((who_list[j])->specials.act3, PLR3_SURSERF))
+        strcat(who_output, "&n[&+ySerf&n]");
+        if(IS_SET((who_list[j])->specials.act3, PLR3_SURCOMMONER))
+        strcat(who_output, "&n[&+YCommoner&n]");
+        if(IS_SET((who_list[j])->specials.act3, PLR3_SURKNIGHT))
+        strcat(who_output, "&n[&+LK&+wn&+Wig&+wh&+Lt&n]");
+        if(IS_SET((who_list[j])->specials.act3, PLR3_SURNOBLE))
+        strcat(who_output, "&n[&+mN&+Mobl&+me&n]");
+        if(IS_SET((who_list[j])->specials.act3, PLR3_SURLORD))
+        strcat(who_output, "&n[&+rL&+Ror&+rd&n]");
+        if(IS_SET((who_list[j])->specials.act3, PLR3_SURKING))
+        strcat(who_output, "&n[&+yK&+Yin&+yg&n]");
+        if(IS_SET((who_list[j])->specials.act3, PLR3_SURLIGHT))
+        strcat(who_output, "&n[&+WLight&+wbri&+Lnger&n]");
+        if(IS_SET((who_list[j])->specials.act3, PLR3_SURDRAGON))
+        strcat(who_output, "&n[&+gDr&+Gag&+Lon &+gS&+Glaye&+gr&n]");
+        if(IS_SET((who_list[j])->specials.act3, PLR3_SURHEALS))
+        strcat(who_output, "&n[&+WD&+Ro&+rct&+Ro&+Wr&n]");
+        if(IS_SET((who_list[j])->specials.act3, PLR3_SURSERIAL))
+        strcat(who_output, "&n[&+LSe&+wr&+Wi&+wa&+Ll &+rKiller&n]");
+        if(IS_SET((who_list[j])->specials.act3, PLR3_SURREAPER))
+        strcat(who_output, "&n[&+LGr&+wi&+Wm Rea&+wp&+Ler&n]");
+        if(IS_SET((who_list[j])->specials.act3, PLR3_SURDECEPTICON))
+        strcat(who_output, "&n[&+LDe&+mCePTiC&+LoN&n]");
+
+               /* if (IS_SET((who_list[j])->specials.act3, PLR3_FRAGLOW))
+		  strcat(who_output, " (&+yFrag &+YFood&n&N)"); */
 
 		if( ( IS_TRUSTED(ch) || IS_NEWBIE_GUIDE(ch) ) && IS_NEWBIE(who_list[j]) ) {
 			strcat(who_output, " (&+GNewbie&N)");
@@ -6031,7 +6256,7 @@ void do_users(P_char ch, char *argument, int cmd)
     }
     
     sprintf(linebuf, " %s | %s | %4d | %s\r\n", 
-            (d->character ? pad_ansi(GET_NAME(d->character), 11).c_str() : "-          "),
+            ((d->character && GET_NAME(d->character)) ? pad_ansi(GET_NAME(d->character), 11).c_str() : "-          "),
             pad_ansi(connbuf, 11).c_str(),
             (d->wait / 240),            
             hostbuf
@@ -7823,8 +8048,9 @@ void do_scan(P_char ch, char *argument, int cmd)
           {
              sprintf(buf, "$N is %s here.", GET_POS(vict) == POS_PRONE ? "reclining" : GET_POS(vict) == POS_KNEELING ? "kneeling" : GET_POS(vict) == POS_SITTING ? "sitting" : "standing");
              act(buf , FALSE, ch, 0, vict, TO_CHAR);
+             
              found = TRUE;
-          }
+          } //drannak
         }
     if(!found)
       send_to_char("Noone here that you can see.\r\n", ch);
@@ -8102,35 +8328,86 @@ void do_recall(P_char ch, char *argument, int cmd)
 {
   int index, i;
   char arg[256];
+  char buf[2048];
   int size = 10;
+<<<<<<< HEAD
   char *pattern = NULL;
 
   one_argument(argument, arg);
 
   if(*arg && atoi(arg) > 0)
+=======
+  char *pattern = 0;
+  P_char victim = NULL;
+
+  argument = one_argument(argument, arg);
+  if( *argument && IS_TRUSTED(ch) )
+  {
+    victim = get_char_vis(ch, argument);
+    if( !victim )
+    {
+      sprintf( buf, "Could not find char '%s'.\n", argument );
+      send_to_char( buf, ch );
+      return;
+    }
+  }
+  if (*arg && atoi(arg) > 0)
+>>>>>>> master
   {
     size = MIN(atoi(arg), PRIVATE_LOG_SIZE);
   }
   else if(*arg)
   {
-    pattern = arg;
+    if( strcmp( arg, "all" ) )
+      pattern = arg;
     size = PRIVATE_LOG_SIZE;
   }
 
   if(!IS_PC(ch))
     return;
-
-  if( !GET_PLAYER_LOG(ch) )
+  if( victim && !IS_PC(victim) )
   {
-    logit(LOG_DEBUG, "Unintialized player log (%s) in do_recall()", GET_NAME(ch));
-    return;    
+    sprintf( buf, "'%s' is not a PC.\n", argument );
+    send_to_char( buf, ch );
+    return;
   }
-  
-  ITERATE_LOG_LIMIT(ch, LOG_PRIVATE, size)
+
+  if( victim )
   {
+    if( !GET_PLAYER_LOG(victim) )
+    {
+      logit(LOG_DEBUG, "Unintialized player log (%s) in do_recall()", GET_NAME(victim));
+      return;    
+    }
+  }
+  else
+  {
+<<<<<<< HEAD
     if( !pattern || isname( pattern, LOG_MSG()) )
       send_to_char( LOG_MSG(), ch, LOG_NONE );
   }  
+=======
+    if( !GET_PLAYER_LOG(ch) )
+    {
+      logit(LOG_DEBUG, "Unintialized player log (%s) in do_recall()", GET_NAME(ch));
+      return;    
+    }
+  }
+
+  if( victim )  
+    ITERATE_LOG_LIMIT(victim, LOG_PRIVATE, size)
+    {
+      if( !pattern || isname( pattern, strip_ansi(LOG_MSG()).c_str() ) )
+        send_to_char( LOG_MSG(), ch, LOG_NONE );
+    }
+  else
+    ITERATE_LOG_LIMIT(ch, LOG_PRIVATE, size)
+    {
+      if( !pattern || isname( pattern, strip_ansi(LOG_MSG()).c_str() ) )
+        send_to_char( LOG_MSG(), ch, LOG_NONE );
+    }
+
+>>>>>>> master
 }
 
 void unmulti(P_char ch, P_obj obj)

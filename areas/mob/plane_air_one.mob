@@ -71,7 +71,11 @@ he flies which is VERY hard to detect.  He is about 10' in diameter but has
 no definite shape.
 ~
 1090877764 1 0 0 941203706 0 67108992 603992064 0 S
+<<<<<<< HEAD
 EA 0 256 0 -1
+=======
+EA 0 768 0 -1
+>>>>>>> master
 61 150 -500 60d132+11240 10d12+50
 0.0.0.0 1
 8 8 0

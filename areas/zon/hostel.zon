@@ -1,0 +1,385 @@
+#1
+The Drakenwood Hostel~
+102 2 0 40 50 1
+*
+* Zone edited with durisEdit v2.99de
+*
+*
+D 0 2 0 2 100 0 0 0
+*     north exit from "Before a Huge Doorway" to
+*     "Inside a Stone Entryway" - closed/locked
+*
+D 0 3 2 2 100 0 0 0
+*     south exit from "Inside a Stone Entryway" to
+*     "Before a Huge Doorway" - closed/locked
+*
+D 0 6 0 2 100 0 0 0
+*     north exit from "The Main Corridor" to
+*     "A Barren Room covered in Debris" - closed/locked
+*
+D 0 11 2 2 100 0 0 0
+*     south exit from "A Barren Room covered in Debris" to
+*     "The Main Corridor" - closed/locked
+*
+D 0 7 2 2 100 0 0 0
+*     south exit from "The Main Corridor" to
+*     "A Room with Severe Structure Damage" - closed/locked
+*
+D 0 10 0 2 100 0 0 0
+*     north exit from "A Room with Severe Structure Damage" to
+*     "The Main Corridor" - closed/locked
+*
+D 0 22 1 2 100 0 0 0
+*     east exit from "The Main Corridor" to
+*     "A Huge Summoning Chamber" - closed/locked
+*
+D 0 23 3 2 100 0 0 0
+*     west exit from "A Huge Summoning Chamber" to
+*     "The Main Corridor" - closed/locked
+*
+D 0 25 3 5 100 0 0 0
+*     west exit from "A Bend in the Main Corridor" to
+*     "A Burned Out Guard Cove" - closed/secret
+*
+D 0 39 1 5 100 0 0 0
+*     east exit from "A Burned Out Guard Cove" to
+*     "A Bend in the Main Corridor" - closed/secret
+*
+D 0 27 0 2 100 0 0 0
+*     north exit from "The Main Corridor" to
+*     "A Well Furnished Entryway" - closed/locked
+*
+D 0 40 2 2 100 0 0 0
+*     south exit from "A Well Furnished Entryway" to
+*     "The Main Corridor" - closed/locked
+*
+D 0 30 0 6 100 0 0 0
+*     north exit from "A Burned Out Section of Corridor" to
+*     "A Ravaged Summoning Area" - closed/locked/secret
+*
+D 0 45 2 6 100 0 0 0
+*     south exit from "A Ravaged Summoning Area" to
+*     "A Burned Out Section of Corridor" - closed/locked/secret
+*
+D 0 32 3 2 100 0 0 0
+*     west exit from "The Main Corridor" to
+*     "A Messy Casting Chamber" - closed/locked
+*
+D 0 87 1 2 100 0 0 0
+*     east exit from "A Messy Casting Chamber" to
+*     "The Main Corridor" - closed/locked
+*
+D 0 34 1 5 100 0 0 0
+*     east exit from "Before a Pile of Blocking Debris" to
+*     "Outside a Heavily Damaged Structure" - closed/secret
+*
+D 0 35 3 5 100 0 0 0
+*     west exit from "Outside a Heavily Damaged Structure" to
+*     "Before a Pile of Blocking Debris" - closed/secret
+*
+D 0 36 3 5 100 0 0 0
+*     west exit from "Before a Heavily Damaged Structure" to
+*     "The South Side of a Pile of Blocking Debris" - closed/secret
+*
+D 0 37 1 5 100 0 0 0
+*     east exit from "The South Side of a Pile of Blocking Debris" to
+*     "Before a Heavily Damaged Structure" - closed/secret
+*
+D 0 41 0 6 100 0 0 0
+*     north exit from "A Lavish Sitting Room" to
+*     "A Lavish Alter of Summoning" - closed/locked/secret
+*
+D 0 43 2 6 100 0 0 0
+*     south exit from "A Lavish Alter of Summoning" to
+*     "A Lavish Sitting Room" - closed/locked/secret
+*
+D 0 41 1 2 100 0 0 0
+*     east exit from "A Lavish Sitting Room" to
+*     "A Room of Endless Bottles" - closed/locked
+*
+D 0 44 3 2 100 0 0 0
+*     west exit from "A Room of Endless Bottles" to
+*     "A Lavish Sitting Room" - closed/locked
+*
+D 0 41 3 2 100 0 0 0
+*     west exit from "A Lavish Sitting Room" to
+*     "A Large Side Room" - closed/locked
+*
+D 0 42 1 2 100 0 0 0
+*     east exit from "A Large Side Room" to
+*     "A Lavish Sitting Room" - closed/locked
+*
+D 0 78 1 2 100 0 0 0
+*     east exit from "The Outer Chamber of an Ancient Druidic Shrine" to
+*     "An Earthen Chamber Littered with Remains" - closed/locked
+*
+D 0 85 3 2 100 0 0 0
+*     west exit from "An Earthen Chamber Littered with Remains" to
+*     "The Outer Chamber of an Ancient Druidic Shrine" - closed/locked
+*
+D 0 79 1 6 100 0 0 0
+*     east exit from "The Inner Sanctum of an Ancient Druidic Shrine" to
+*     "A Hastily Constructed Casting Chamber" - closed/locked/secret
+*
+D 0 81 3 6 100 0 0 0
+*     west exit from "A Hastily Constructed Casting Chamber" to
+*     "The Inner Sanctum of an Ancient Druidic Shrine" - closed/locked/secret
+*
+D 0 79 2 2 100 0 0 0
+*     south exit from "The Inner Sanctum of an Ancient Druidic Shrine" to
+*     "An Outdoor Alter in the Center of the Shrine" - closed/locked
+*
+D 0 80 0 2 100 0 0 0
+*     north exit from "An Outdoor Alter in the Center of the Shrine" to
+*     "The Inner Sanctum of an Ancient Druidic Shrine" - closed/locked
+*
+D 0 80 3 6 100 0 0 0
+*     west exit from "An Outdoor Alter in the Center of the Shrine" to
+*     "An Abandoned Chamber of Worship" - closed/locked/secret
+*
+D 0 82 1 6 100 0 0 0
+*     east exit from "An Abandoned Chamber of Worship" to
+*     "An Outdoor Alter in the Center of the Shrine" - closed/locked/secret
+*
+D 0 92 0 6 100 0 0 0
+*     north exit from "At the Base of a Huge Stone Wall" to
+*     "A Tight Entryway to a Small Fiery Lair" - closed/locked/secret
+*
+D 0 101 2 6 100 0 0 0
+*     south exit from "A Tight Entryway to a Small Fiery Lair" to
+*     "At the Base of a Huge Stone Wall" - closed/locked/secret
+*
+*
+O 0 1 1 4 100 0 0 0                * a broken chair
+O 0 5 1 10 100 0 0 0               * some stones of protection
+O 0 53 1 23 100 0 0 0              * a ravaged corpse of a grey elf
+P 1 54 1 53 100 0 0 0              *   a pendant of the grey elven council
+O 0 19 1 43 100 0 0 0              * a simmering brazier
+O 0 25 1 45 100 0 0 0              * a fading portal
+O 0 26 1 46 100 0 0 0              * a fading portal~
+O 0 30 1 77 100 0 0 0              * a fading moonwell
+O 0 42 1 81 100 0 0 0              * a small granite chest
+P 1 31 1 42 100 0 0 0              *   a bracelet of enchanted thorns
+O 0 44 1 81 100 0 0 0              * a small sacrificial altar
+O 0 48 1 82 100 0 0 0              * a tarnished chest
+P 1 51 1 48 100 0 0 0              *   the boots of endless trails
+O 0 49 1 82 100 0 0 0              * an reinforced oaken chest
+P 1 50 1 49 100 0 0 0              *   the platinum sword of the astral flux
+O 0 52 1 85 100 0 0 0              * a small silver mirror
+O 0 57 1 87 100 0 0 0              * a shimmering gate
+O 0 58 1 87 100 0 0 0              * a glowing crystal orb
+O 0 61 1 88 100 0 0 0              * a glowing crystal orb
+O 0 59 1 96 100 0 0 0              * a mangled corpse of a robed man
+P 1 60 1 59 100 0 0 0              *   a small tooth shaped key
+*
+M 0 8 1 4 100 0 0 0                * an astral spectre
+M 0 54 4 5 100 0 0 0               * an ogre juggernaught
+M 0 54 4 9 100 0 0 0               * an ogre juggernaught
+M 0 1 1 10 100 0 0 0               * a terrified sorcerer
+E 1 3 1 3 100 0 0 0                *   the sigil of the summoner clan
+M 0 2 1 10 100 0 0 0               * an enraged baatezu
+G 1 4 1 0 100 0 0 0                *    the severed spine of a demon
+M 0 3 7 11 100 0 0 0               * a demon knight
+E 1 6 7 16 100 0 0 0               *   a shimmering obsidian longsword
+M 0 4 1 12 100 0 0 0               * a frail mage
+E 1 7 1 5 100 0 0 0                *   a masters robes of the summoner clan
+M 0 5 1 12 100 0 0 0               * a fiend of shadows
+M 0 6 1 12 100 0 0 0               * a scarred warlock
+G 1 12 1 0 100 0 0 0               *    an azure potion
+M 0 7 6 13 100 0 0 0               * a damaged shadow golem
+G 1 9 1 0 100 0 0 0                *    a silver key
+M 0 7 6 13 100 0 0 0               * a damaged shadow golem
+M 0 3 7 15 100 0 0 0               * a demon knight
+E 1 6 7 16 100 0 0 0               *   a shimmering obsidian longsword
+M 0 9 3 18 100 0 0 0               * a shadow mage
+G 1 2 1 0 100 0 0 0                *    a tarnished key
+M 0 9 3 18 100 0 0 0               * a shadow mage
+M 0 3 7 19 100 0 0 0               * a demon knight
+E 1 6 7 16 100 0 0 0               *   a shimmering obsidian longsword
+M 0 54 4 20 100 0 0 0              * an ogre juggernaught
+M 0 11 1 23 100 0 0 0              * a young summoner
+E 1 11 1 1 100 0 0 0               *   an enchanted ring illithidkind
+M 0 10 2 23 100 0 0 0              * a bloated hydra
+F 1 10 2 23 100 0 0 0              * a bloated hydra (following)
+G 1 10 1 0 100 0 0 0               *    the severed head of a hydra
+M 0 3 7 26 100 0 0 0               * a demon knight
+E 1 6 7 16 100 0 0 0               *   a shimmering obsidian longsword
+M 0 25 2 27 100 0 0 0              * a fiend of shadows
+F 1 25 2 27 100 0 0 0              * a fiend of shadows (following)
+M 0 54 4 29 100 0 0 0              * an ogre juggernaught
+M 0 3 7 31 100 0 0 0               * a demon knight
+E 1 6 7 16 100 0 0 0               *   a shimmering obsidian longsword
+M 0 3 7 34 100 0 0 0               * a demon knight
+E 1 6 7 16 100 0 0 0               *   a shimmering obsidian longsword
+M 0 3 7 37 100 0 0 0               * a demon knight
+E 1 6 7 16 100 0 0 0               *   a shimmering obsidian longsword
+M 0 7 6 39 100 0 0 0               * a damaged shadow golem
+F 1 9 3 39 100 0 0 0               * a shadow mage (following)
+G 1 70 1 0 100 0 0 0               *    a glossy key
+M 0 12 1 41 100 0 0 0              * an enraged beholder
+G 1 13 1 0 100 0 0 0               *    a tiny onyx key
+M 0 13 1 42 100 0 0 0              * an irritated duergar
+E 1 14 1 16 100 0 0 0              *   a serrated shortsword
+F 1 14 1 42 100 0 0 0              * a distracted duergar (following)
+E 1 15 1 14 100 0 0 0              *   a bracer engraved with unholy runes
+G 1 16 1 0 100 0 0 0               *    a shimmering key
+M 0 15 1 42 100 0 0 0              * a beaten grey elf
+M 0 18 1 43 100 0 0 0              * an angry dark naga
+G 1 20 1 0 100 0 0 0               *    a barbed stinger of a dark naga
+G 1 21 1 0 100 0 0 0               *    a severed heart of a dark naga
+M 0 19 1 43 100 0 0 0              * a wounded mage
+E 1 23 1 27 100 0 0 0              *   an arcane satchel engraved with runes
+M 0 20 1 43 100 0 0 0              * a skeletal naga
+M 0 21 1 43 100 0 0 0              * a grim man
+M 0 16 1 44 100 0 0 0              * a black abishai
+G 1 18 1 0 100 0 0 0               *    a rusted key
+M 0 17 1 44 100 0 0 0              * an agile imp
+E 1 17 4 16 100 0 0 0              *   a jagged elven leg bone
+M 0 7 6 45 100 0 0 0               * a damaged shadow golem
+M 0 7 6 45 100 0 0 0               * a damaged shadow golem
+M 0 7 6 45 100 0 0 0               * a damaged shadow golem
+M 0 22 1 46 100 0 0 0              * a gigantic dragon of shadow
+G 1 27 1 0 100 0 0 0               *    a bloody talon of shadows
+M 0 23 2 46 100 0 0 0              * a young shadow dragon
+M 0 23 2 46 100 0 0 0              * a young shadow dragon
+M 0 24 1 48 100 0 0 0              * a shady drow elf
+E 1 29 1 16 100 0 0 0              *   an acid edged adamantium shortsword
+G 1 28 1 0 100 0 0 0               *    the eyes of a drow
+G 1 40 1 0 100 0 0 0               *    a small pendant covered in runes
+M 0 26 8 49 100 0 0 0              * an outcasted spriggan
+F 1 27 8 49 100 0 0 0              * a spriggan mage (following)
+M 0 28 12 50 100 0 0 0             * a shadow treant
+M 0 26 8 51 100 0 0 0              * an outcasted spriggan
+F 1 27 8 51 100 0 0 0              * a spriggan mage (following)
+F 1 26 8 51 100 0 0 0              * an outcasted spriggan (following)
+F 1 27 8 51 100 0 0 0              * a spriggan mage (following)
+M 0 28 12 52 100 0 0 0             * a shadow treant
+M 0 32 12 52 100 0 0 0             * a withered shambling mound
+M 0 32 12 53 100 0 0 0             * a withered shambling mound
+M 0 49 9 53 100 0 0 0              * a minor shade
+M 0 26 8 54 100 0 0 0              * an outcasted spriggan
+F 1 27 8 54 100 0 0 0              * a spriggan mage (following)
+M 0 32 12 55 100 0 0 0             * a withered shambling mound
+M 0 49 9 55 100 0 0 0              * a minor shade
+M 0 26 8 56 100 0 0 0              * an outcasted spriggan
+F 1 27 8 56 100 0 0 0              * a spriggan mage (following)
+F 1 26 8 56 100 0 0 0              * an outcasted spriggan (following)
+F 1 27 8 56 100 0 0 0              * a spriggan mage (following)
+M 0 29 4 57 100 0 0 0              * an emerald forest dragon
+M 0 50 3 57 100 0 0 0              * a greater shade
+M 0 28 12 58 100 0 0 0             * a shadow treant
+M 0 49 9 58 100 0 0 0              * a minor shade
+M 0 49 9 59 100 0 0 0              * a minor shade
+M 0 32 12 59 100 0 0 0             * a withered shambling mound
+M 0 26 8 60 100 0 0 0              * an outcasted spriggan
+F 1 27 8 60 100 0 0 0              * a spriggan mage (following)
+M 0 49 9 60 100 0 0 0              * a minor shade
+M 0 49 9 61 100 0 0 0              * a minor shade
+M 0 32 12 61 100 0 0 0             * a withered shambling mound
+M 0 28 12 62 100 0 0 0             * a shadow treant
+M 0 49 9 62 100 0 0 0              * a minor shade
+M 0 26 8 63 100 0 0 0              * an outcasted spriggan
+F 1 27 8 63 100 0 0 0              * a spriggan mage (following)
+M 0 28 12 63 100 0 0 0             * a shadow treant
+M 0 28 12 64 100 0 0 0             * a shadow treant
+M 0 49 9 64 100 0 0 0              * a minor shade
+M 0 29 4 65 100 0 0 0              * an emerald forest dragon
+M 0 50 3 65 100 0 0 0              * a greater shade
+M 0 28 12 66 100 0 0 0             * a shadow treant
+M 0 28 12 66 100 0 0 0             * a shadow treant
+M 0 29 4 67 100 0 0 0              * an emerald forest dragon
+M 0 32 12 67 100 0 0 0             * a withered shambling mound
+M 0 32 12 68 100 0 0 0             * a withered shambling mound
+M 0 49 9 68 100 0 0 0              * a minor shade
+M 0 29 4 69 100 0 0 0              * an emerald forest dragon
+M 0 32 12 69 100 0 0 0             * a withered shambling mound
+M 0 28 12 70 100 0 0 0             * a shadow treant
+M 0 28 12 70 100 0 0 0             * a shadow treant
+M 0 28 12 72 100 0 0 0             * a shadow treant
+M 0 50 3 72 100 0 0 0              * a greater shade
+M 0 28 12 73 100 0 0 0             * a shadow treant
+M 0 32 12 73 100 0 0 0             * a withered shambling mound
+M 0 30 1 74 100 0 0 0              * a battle scarred cryohydra
+M 0 32 12 75 100 0 0 0             * a withered shambling mound
+M 0 32 12 76 100 0 0 0             * a withered shambling mound
+M 0 32 12 76 100 0 0 0             * a withered shambling mound
+M 0 33 1 77 100 0 0 0              * a huge shambling mound
+E 1 32 1 1 100 0 0 0               *   an elven ring of the forest
+F 1 31 2 77 100 0 0 0              * a fading druidic spirit (following)
+F 1 31 2 77 100 0 0 0              * a fading druidic spirit (following)
+M 0 34 2 78 100 0 0 0              * a large earthen golem
+M 0 34 2 78 100 0 0 0              * a large earthen golem
+G 1 33 1 0 100 0 0 0               *    a small earthen key
+M 0 35 1 79 100 0 0 0              * a zombie of Tarax the bloodfiend
+E 1 37 1 3 100 0 0 0               *   a shimmering emerald broach
+E 1 36 1 10 100 0 0 0              *   some ancient sleeves of a drow lord
+F 1 36 1 79 100 0 0 0              * a zombie of Saris the doombringer (following)
+E 1 71 1 5 100 0 0 0               *   some heavy chainmail of twilight
+E 1 63 1 16 100 0 0 0              *   a demonic mace of the frozen flame
+F 1 37 1 79 100 0 0 0              * a zombie of Toran the orcbane (following)
+E 1 72 1 7 100 0 0 0               *   a pair of dragonscale legplates
+G 1 39 1 0 100 0 0 0               *    a spectral key
+F 1 38 1 79 100 0 0 0              * a zombie of Eliria the mindmaster (following)
+E 1 35 1 3 100 0 0 0               *   a dangling shard of ether crystal~
+E 1 38 1 7 100 0 0 0               *   some abishai hide reinforced leggings
+M 0 41 1 80 100 0 0 0              * the spirit of Tarax
+F 1 42 1 80 100 0 0 0              * the spirit of Saris (following)
+F 1 43 1 80 100 0 0 0              * the spirit of Toran (following)
+G 1 46 1 0 100 0 0 0               *    a small orb of shifting colors
+F 1 44 1 80 100 0 0 0              * the spirit of Eliria (following)
+M 0 39 1 81 100 0 0 0              * an ancient necromancer
+G 1 41 1 0 100 0 0 0               *    a twisted metal key
+F 1 40 1 81 100 0 0 0              * an enormous dracolich (following)
+G 1 43 1 0 100 0 0 0               *    a sheared dracolich rib
+M 0 46 1 81 100 0 0 0              * a robed man covered in blood
+M 0 45 1 82 100 0 0 0              * the avatar of Athos
+M 0 64 1 83 100 0 0 0              * Vesuvius the great tanar'ri lord
+E 1 62 1 18 100 0 0 0              *   a totem of severed demon spine
+E 1 73 1 19 100 0 0 0              *   a jeweled eyepatch of the suffering
+G 1 34 1 0 100 0 0 0               *    a silvery mithril sledge named 'Juggernaught'
+M 0 65 1 83 100 0 0 0              * An Illithid
+G 1 64 1 0 100 0 0 0               *    a granite mask of demonic intuition
+G 1 65 1 0 100 0 0 0               *    a small drow skin bag
+M 0 47 1 85 100 0 0 0              * a blood thirsty demon
+M 0 48 1 85 100 0 0 0              * a shaggy demon
+M 0 52 1 86 100 0 0 0              * a burly leader
+G 1 56 1 0 100 0 0 0               *    a dull bronze key
+F 1 51 1 86 100 0 0 0              * a bored guard (following)
+F 1 53 1 86 100 0 0 0              * a pale guard (following)
+M 0 58 5 90 100 0 0 0              * a lesser imp
+M 0 66 3 91 100 0 0 0              * a sadistic marilith
+G 1 69 3 0 100 0 0 0               *    an obsidian shortsword
+G 1 67 3 0 100 0 0 0               *    a smoldering dagger~
+G 1 17 4 0 100 0 0 0               *    a jagged elven leg bone
+G 1 68 3 0 100 0 0 0               *    a crystalline scimitar
+M 0 66 3 92 100 0 0 0              * a sadistic marilith
+G 1 69 3 0 100 0 0 0               *    an obsidian shortsword
+G 1 67 3 0 100 0 0 0               *    a smoldering dagger~
+G 1 17 4 0 100 0 0 0               *    a jagged elven leg bone
+G 1 68 3 0 100 0 0 0               *    a crystalline scimitar
+M 0 59 4 92 100 0 0 0              * a demonic mindmage
+M 0 60 1 93 100 0 0 0              * a huge baatezu
+M 0 58 5 93 100 0 0 0              * a lesser imp
+M 0 59 4 94 100 0 0 0              * a demonic mindmage
+M 0 58 5 95 100 0 0 0              * a lesser imp
+M 0 61 2 96 100 0 0 0              * a feasting demon
+M 0 62 1 96 100 0 0 0              * a gorging osyluth
+M 0 61 2 96 100 0 0 0              * a feasting demon
+M 0 63 1 96 100 0 0 0              * a hungry abishai
+M 0 58 5 97 100 0 0 0              * a lesser imp
+M 0 58 5 98 100 0 0 0              * a lesser imp
+M 0 59 4 98 100 0 0 0              * a demonic mindmage
+M 0 66 3 99 100 0 0 0              * a sadistic marilith
+G 1 69 3 0 100 0 0 0               *    an obsidian shortsword
+G 1 67 3 0 100 0 0 0               *    a smoldering dagger~
+G 1 17 4 0 100 0 0 0               *    a jagged elven leg bone
+G 1 68 3 0 100 0 0 0               *    a crystalline scimitar
+M 0 59 4 100 100 0 0 0             * a demonic mindmage
+M 0 55 3 101 100 0 0 0             * a young hellhound pup
+M 0 55 3 101 100 0 0 0             * a young hellhound pup
+M 0 55 3 102 100 0 0 0             * a young hellhound pup
+M 0 56 1 102 100 0 0 0             * a large adult hellhound
+G 1 24 1 0 100 0 0 0               *    a ragged piece of furred flesh
+F 1 57 1 102 100 0 0 0             * a large female hellhound (following)
+*
+S

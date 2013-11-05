@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #82400
 &+yA Trail Through an &+gEn&+Gchan&+gted &+GGlade&N~
 &+g   Smooth &+wpe&+ybbl&+wes &+gline the path through this &+Yenc&+Whan&+Yted &+Gfo&+gre&+Gst&+g.  Hedges&N
@@ -1747,3 +1748,1754 @@ D2
 ~
 0 0 226623
 S
+=======
+#82400
+&+yA Trail Through an &+gEn&+Gchan&+gted &+GGlade&N~
+&+g   Smooth &+wpe&+ybbl&+wes &+gline the path through this &+Yenc&+Whan&+Yted &+Gfo&+gre&+Gst&+g.  Hedges&N
+&+gline the path and aged trees provide &+Lshade &+gfrom the &+Wbla&+Yzing &+Wsun &+gwhich&N
+&+galways seems to be overhead.&N
+~
+824 0 3
+D0
+~
+~
+0 0 82401
+D1
+~
+~
+0 0 82455
+D3
+~
+~
+0 0 82457
+S
+#82401
+&+yA Trail Through an &+gEn&+Gchan&+gted &+GGlade&N~
+&+g   Smooth &+wpe&+ybbl&+wes &+gline the path through this &+Yenc&+Whan&+Yted &+Gfo&+gre&+Gst&+g.  Hedges&N
+&+gline the path and aged trees provide &+Lshade &+gfrom the &+Wbla&+Yzing &+Wsun &+gwhich&N
+&+galways seems to be overhead.&N
+~
+824 0 3
+D0
+~
+~
+0 0 82402
+D1
+~
+~
+0 0 82453
+D2
+~
+~
+0 0 82400
+D3
+~
+~
+0 0 82458
+S
+#82402
+&+yA Bend in the &+gTr&+Ga&+gil&N~
+&+g   A large &+wpine &+gblocks further passage to the north.  This ancient tree seems&N
+&+gto be possessed of some malevolent spirit that is snarling at you.  Further&N
+&+gpassage into the glade continues off to the west but the path seems to have&N
+&+gtaken on a darker feeling.  Even though the &+Ysun &+gbreaks through the trees  a&N
+&+gstrange &+bchill &+gseems to emanate from the base of this &+wpine&+g.&N
+~
+824 0 3
+D0
+~
+roots~
+5 0 82409
+D2
+~
+~
+0 0 82401
+D3
+~
+~
+0 0 82403
+S
+#82403
+&+LA Darkened Trail in the &+gGlade&N~
+&+L   A gloom has settled over the path as some dark spirit seems to be&N
+&+Lcontrolling the trees and animals in this part of the glade.   Animal&N
+&+Ltrails cross the path and to appear to be in the form of a family of&N
+&+Lbears.  A large cave opening is off the southwest while the path seems to&N
+&+Lbrighten up ahead to the west.&N
+~
+824 1 3
+D1
+~
+~
+0 0 82402
+D3
+~
+~
+0 0 82404
+D7
+~
+~
+0 0 82407
+S
+#82404
+&+yA Bend in the &+gTr&+Ga&+gil&N~
+&+g   A large &+yoak &+gblocks further passage to the west.  This tree is rather&N
+&+gimposing and almost seems to be possessed by a sentient being.  One&N
+&+gshould be warry of intruding further into this forest without showing&N
+&+grespect to the spirits of the glade. A small path continues to the north&N
+&+gfor the daring adventurer.&N
+~
+824 0 2
+D0
+~
+~
+0 0 82405
+D1
+~
+~
+0 0 82403
+D3
+&+ga forest path&N
+~
+roots~
+5 0 82408
+S
+#82405
+&+wA Trail Leading to the &+YTe&+Wmp&+Yle&+w&N~
+&+w   The trees part and reveal a small pathway to the Temple of the Sun ahead.&N
+&+wA brilliant light shines down from the dome of the temple and warms the&N
+&+wstones of the pathway.  The chill that pervaded the forest is countered by the&N
+&+wmagnificence of the temple dome but there is still an feeling that something&N
+&+whas diminished the power and beauty of this holy place.&N
+~
+824 0 3
+D0
+~
+~
+0 0 82406
+D1
+~
+~
+0 0 82459
+D2
+~
+~
+0 0 82404
+D3
+~
+~
+0 0 82460
+S
+#82406
+&+LThe Gateway to a &+WTe&+Ymp&+Wle&N~
+&+g   A forbiding &+Lgateway &+gwhich appears to have been crafted from a solid slab&N
+&+gof &+Lgranite &+gblocks further passage to the north.  A &+Wgl&+Yowi&+Wng &+Gkeyhole &+ghas been&N
+&+gmagically crafted into the center of the left gate which appears to be the&N
+&+gonly way to gain access into the compound.  &+bSt&+Bro&+bng ma&+Bg&+bic &+gseems to emanate&N
+&+gfrom the keyhole and draw your mind to finding a way to gain entrance.&N
+~
+824 8 0
+D0
+~
+door~
+3 82420 82413
+D2
+~
+~
+0 0 82405
+S
+#82407
+&+LThe Entrance to a Cave&N~
+&+L  This cave is dark and warm.  The ideal resting place for a family of bears&N
+&+Lto rest out &+Bcold &+Cwint&+Bers &+Land raise their cubs.  Large scars line the walls&N
+&+Lwhere a growing bear has sharpened his claws to prepare for the hunt.  One&N
+&+Lshould tread lightly in the home of such a fearsome predator.&N
+~
+824 1073741824 0
+D3
+~
+~
+0 0 82410
+D8
+~
+~
+0 0 82403
+S
+#82408
+&+wThe &+yH&+wear&+yt &+wof th&+ye &+wOak&N~
+&+W   A warm glow com&+yes &+Wover you and you sudd&+yen&+Wly feel at peace with yourself.&N
+&+WThe center of this &+yoa&+Wk is healthy and strong &+yas&+W it should be in this&N
+&+Wenchanted grove.  This &+yis&+W the home of the spirit&+y of &+Wthe oak and you are&N
+&+Wwelcomed within to rest &+yan&+Wd recover from your travels.&N
+~
+824 131080 0
+D1
+&+yinside the tree
+~
+roots~
+5 0 82404
+S
+#82409
+&+wThe &+LH&+re&+Ra&+rr&+Lt &+wof the Pine&N~
+&+L   The insides of this &+ypine &+Lhave been charred and burned as an evil spirit&N
+&+Lhas taken over the &+Rhe&+ra&+Rrt &+Lof the tree and twisted it to a dark purpose.&N
+&+LPowerful magic would be required to heal this tree and return is to its&N
+&+Lformer beauty.  The force that altered the spirit of this tree must be&N
+&+Lvery &+bd&+Bar&+bk &+Land powerful.&N
+~
+824 1074003976 0
+D2
+~
+roots~
+5 0 82402
+S
+#82410
+&+LThe Entrance to a Bear Lair&N~
+&+L   Large and small &+Wbones &+Lline the floor. This room seems to be the&N
+&+Lcollection point for the food and remains.  Some of the bone look oddly large&N
+&+Land could have belonged to unprepared adventurers who disturbed the wrong&N
+&+Lmammal.&N
+~
+824 1073741824 0
+D1
+~
+~
+0 0 82407
+D3
+~
+~
+0 0 82411
+S
+#82411
+&+LThe Center of the Lair&N~
+&+L   The floor of the cave has been shaped to resemble the buttocks of a large&N
+&+Lbear who slumbers here during the depths of winter.  This part of the cave&N
+&+Lseems to have been abandoned of late which seems rather odd with all the&N
+&+Lsmall cubs abandoned to their own devices.  A &+Bchill &+Lcomes from the north wall&N
+&+Land seems to be the source of some evil power.  A large boulder has been&N
+&+Lproped up and might hide a secret entrance.&N
+~
+824 1073741824 0
+D0
+~
+rock~
+5 0 82412
+D1
+~
+~
+0 0 82410
+S
+#82412
+&+LA Hidden Alcove in the Cave&N~
+&+L   Scars line the walls where an animals has been madly scratching to try to&N
+&+Lseek escape.  Tufts of fur are piled around the walls as it appears whatever&N
+&+Lwas trapped in here was in a mad frenzy to escape.  No chains are present&N
+&+Lbut some strange magic seems to have created this mental and physical prison.&N
+~
+824 1073741824 0
+D2
+~
+rock~
+5 0 82411
+S
+#82413
+&+WThe Entryway to the Te&+Ymp&+Wle&N~
+&+wThe &+Wma&+Lrb&+Wle &+wfloors that are usually spotless have been soiled and stained&N
+&+wover an extended period of time.  It appears that the temple has been over&N
+&+wtaken by &+gfoul &+Ymonsters &+wwho care little for the serenity of the &+Gdr&+gui&+Gds &+wtry&N
+&+wto maintain.  Gnawed &+Wbones &+wand &+bcarcasses &+whave been discarded and line the walls&N
+&+was some filthy &+yanimal &+whas been grazing nearby.&N
+~
+824 134250568 0
+D0
+~
+~
+0 0 82414
+D2
+~
+door~
+3 82420 82406
+S
+#82414
+&+WA Hallway Leading to the &+YShrine&+W&N~
+&+W   Statues and marble basins line the walls leading to the main altar.&N
+&+WMany pilgrims bring gifts from their villages to pay homage to the sun god&N
+&+Wso that their crops may grow strong and hardy during the season.  Many&N
+&+Wimages of grapes and vines adorn the walls and statues because of the major&N
+&+Wexport of the druids.&N
+~
+824 134250568 0
+D0
+~
+~
+0 0 82415
+D2
+~
+~
+0 0 82413
+S
+#82415
+&+WA Central Chamber Before the &+YShrine&N~
+&+W   This is the central chamber of the temple.  The shrine to the sun god&N
+&+Wis straight ahead and offering are often placed on the altar for good luck.&N
+&+WTo the west are the guest chambers and to the east are the dormitories for&N
+&+Wthe druids of the temple.  The dome of the temple is above and usually&N
+&+Wradiates heat and warmth throughout the inner rooms.  The wine cellar is&N
+&+Wto the south west through the scullary.&N
+~
+824 134250568 0
+D0
+~
+~
+0 0 82416
+D1
+~
+~
+0 0 82417
+D2
+~
+~
+0 0 82414
+D3
+~
+~
+0 0 82419
+D4
+~
+stairwell~
+7 82423 82432
+S
+#82416
+&+WA Shrine to the &+YSun &+WGod&N~
+&+w   This room once contained a beautiful &+Yaltar &+wand a &+Yglowing &+Wshard &+wof crystal&N
+&+wwhich reflected the sunbeams that would shine through a &+Rst&+Yai&+Bne&+Gd g&+Cla&+Mss &+Ywi&+Gnd&+Wow&N
+&+win the northern wall.  What appears to be &+yanimal droppings &+wand other foul&N
+&+wmarkings cover the floor where a crate has been placed for a guard to sit.&N
+&+wThe windows have been chipped out and the gold plating has been removed&N
+&+wfrom the walls as some evil influence has defiled this holy place.&N
+~
+824 134250568 0
+D2
+~
+~
+0 0 82415
+S
+#82417
+&+WThe Eastern Hallway&N~
+&+W   Marble tiles cover this floor in a ch&+Lec&+Wke&+Lrb&+Woa&+Lrd &+Wpattern.  This hallway&N
+&+Wleads to the &+Bguest wing &+Wand also leads to the small research &+Clibrary &+Wto the&N
+&+Wnorth and a &+Rskullary &+Wto the south.  This floor is usually spotless but has&N
+&+Wbeen neglected of late since the shamans have taken over the workings of the&N
+&+Wtemple.&N
+~
+824 134250568 0
+D1
+~
+~
+0 0 82418
+D3
+~
+~
+0 0 82415
+S
+#82418
+&+WThe Eastern Hallway&N~
+&+W   Marble tiles cover this floor in a ch&+Lec&+Wke&+Lrb&+Woa&+Lrd &+Wpattern.  This hallway&N
+&+Wleads to the &+Bguest wing &+Wand also leads to the small research &+Clibrary &+Wto the&N
+&+Wnorth and a &+Rskullary &+Wto the south.  This floor is usually spotless but has&N
+&+Wbeen neglected of late since the shamans have taken over the workings of the&N
+&+Wtemple.&N
+~
+824 134250568 0
+D1
+~
+door~
+1 0 82437
+D3
+~
+~
+0 0 82417
+S
+#82419
+&+WThe Western Hallway&N~
+&+W   Marble tiles cover this floor in a ch&+Lec&+Wke&+Lrb&+Woa&+Lrd &+Wpattern.  This hallway&N
+&+Wleads to the &+Bguest wing &+Wand also leads to the small research &+Clibrary &+Wto the&N
+&+Wnorth and a &+Rskullary &+Wto the south.  This floor is usually spotless but has&N
+&+Wbeen neglected of late since the shamans have taken over the workings of the&N
+&+Wtemple.&N
+~
+824 134250568 0
+D1
+~
+~
+0 0 82415
+D2
+~
+door~
+1 0 82428
+D3
+~
+~
+0 0 82420
+S
+#82420
+&+WThe Western Hallway&N~
+&+W   Marble tiles cover this floor in a ch&+Lec&+Wke&+Lrb&+Woa&+Lrd &+Wpattern.  This hallway&N
+&+Wleads to the &+Bguest wing &+Wand also leads to the small research &+Clibrary &+Wto the&N
+&+Wnorth and a &+Rskullary &+Wto the south.  This floor is usually spotless but has&N
+&+Wbeen neglected of late since the shamans have taken over the workings of the&N
+&+Wtemple.&N
+~
+824 134250568 0
+D0
+~
+door~
+1 0 82421
+D1
+~
+~
+0 0 82419
+D3
+~
+door~
+1 0 82426
+S
+#82421
+&+WA Small &+cLibrary&+W&N~
+&+w   The smell of old &+yvellum and glue &+wpermeate the air of this small &+clibrary&+w.&N
+&+wThe &+gdruids &+wof the &+WTe&+Ymp&+Wle &+wpride themselves on their vast collection of books&N
+&+wthat have been gathered throughout the realms.
+~
+824 134250568 0
+D0
+~
+~
+0 0 82422
+D1
+~
+~
+0 0 82423
+D2
+~
+door~
+1 0 82420
+S
+#82422
+&+WBeside a Long &+yBookshelf&+W&N~
+&+w   Rows of books on &+mdrow &+wand &+rduergar &+wanatomy line the topmost shelf of this&N
+&+wreference library.  Odd cookbooks line the middle shelf with strange titles&N
+&+wlike "&+B100 &+WWays to Roast a &+MFlind&+w" and "&+bHow to get the stench out of &+BOgre&N
+&+bflesh for cooking.&+w"  The lower shelves are full of books on how to disect&N
+&+wand flay a &+Rrak&+Yshasa &+wwith out it dying too fast.&N
+~
+824 134250568 0
+D2
+~
+~
+0 0 82421
+S
+#82423
+&+WA Small &+cStudy &+WRoom&N~
+&+w   A small desk with a &+creading lamp &+wprovides an relaxing place to peruse the&N
+&+wvarious reference books contained in this library.  A chair composed of&N
+&+wcrafted jodani wood and cushioned with stuffed pillows provides a comfortable&N
+&+wspot for hours of reading.&N
+~
+824 134250568 0
+D0
+~
+~
+0 0 82424
+D1
+~
+~
+0 0 82425
+D3
+~
+~
+0 0 82421
+S
+#82424
+&+WBetween Two &+yBookshelves&N~
+&+w   Various &+yencyclopedias &+wline the shelves to the left.  An section on shaving&N
+&+wyour toes in the &+yhalfling &+wlanguage takes up the majority of the top left&N
+&+wshelf followed by a good section on &+Rgnomish &+winventions.  The &+Bbarbarian&N
+&+wencylopedia of crushing weapons fills the middle right shelf followed by&N
+&+wthe tharnadian guide to brothels.&N
+~
+824 134250568 0
+D2
+~
+~
+0 0 82423
+S
+#82425
+&+WA Quiet &+cReading &+WRoom&N~
+&+B   Plush carpet &+wand a warm &+Rgl&+row&+Ring fire &+wmake this room a comfortable place&N
+&+wto relax.  A &+yplump chair &+wand a reading table provide even more incentive to&N
+&+wrelax and spend some time studying in peace and comfort.  The smell of&N
+&+wbrewing tea leaves and fresh baked cookies add to the relaxing environment.&N
+~
+824 134250568 0
+D3
+~
+~
+0 0 82423
+S
+#82426
+&+wA Hallway in the &+BGuest &+wWing&N~
+&+w   A &+bfi&+Bne &+bcar&+Bpet &+wlines the hallway of the guest quarters for the distinguished&N
+&+gar&+Gtis&+gans&+w, &+mno&+Mbl&+mes &+wand &+bmus&+Bic&+bians &+wwho visit the temple from time to time.  Soft&N
+&+Wlighting &+wand a &+Ypl&+Gea&+Bsa&+Ynt &+wmurals line the walls.&N
+~
+824 134250568 0
+D0
+~
+~
+0 0 82427
+D1
+~
+door~
+1 0 82420
+S
+#82427
+&+wA Hallway in the &+BGuest &+wWing&N~
+&+w   A &+bfi&+Bne &+bcar&+Bpet &+wlines the hallway of the guest quarters for the distinguished&N
+&+gar&+Gtis&+gans&+w, &+mno&+Mbl&+mes &+wand &+bmus&+Bic&+bians &+wwho visit the temple from time to time.  Soft&N
+&+Wlighting &+wand a &+Ypl&+Gea&+Bsa&+Ynt &+wmurals line the walls.&N
+~
+824 134250568 0
+D0
+~
+~
+0 0 82429
+D2
+~
+~
+0 0 82426
+D3
+~
+door~
+1 0 82436
+S
+#82428
+&+yThe Entrance to the &+rSkullary&+y&N~
+&+g   Bubbling pots top a &+rwood &+Rburning &+rstove &+gand a &+Yfoul &+gstench emanates from&N
+&+geach of them.  A sack of &+wbones &+gand some &+Lfes&+Gter&+Ling &+rmeat &+glies in the corner&N
+&+gwaiting to be added to the stew.  A small stone oven is packed with glowing&N
+&+rr&+Roc&+rks &+gand &+yhairy &+Lfla&+gnks of &+rmeat &+gthat havent even been skinned.  At the door&N
+&+gof the oven is a varried collection of &+yhooves &+gwhich seem to belong to the&N
+&+gformer inhabitants of this temple.&N
+~
+824 134250568 0
+D0
+~
+door~
+1 0 82419
+D3
+~
+~
+0 0 82431
+S
+#82429
+&+wA Hallway in the &+BGuest &+wWing&N~
+&+w   A &+bfi&+Bne &+bcar&+Bpet &+wlines the hallway of the guest quarters for the distinguished&N
+&+gar&+Gtis&+gans&+w, &+mno&+Mbl&+mes &+wand &+bmus&+Bic&+bians &+wwho visit the temple from time to time.  Soft&N
+&+Wlighting &+wand a &+Ypl&+Gea&+Bsa&+Ynt &+wmurals line the walls.&N
+~
+824 134250568 0
+D0
+~
+~
+0 0 82430
+D1
+~
+door~
+1 0 82435
+D2
+~
+~
+0 0 82427
+S
+#82430
+&+wA Hallway in the &+BGuest &+wWing&N~
+&+w   A &+bfi&+Bne &+bcar&+Bpet &+wlines the hallway of the guest quarters for the distinguished&N
+&+gar&+Gtis&+gans&+w, &+mno&+Mbl&+mes &+wand &+bmus&+Bic&+bians &+wwho visit the temple from time to time.  Soft&N
+&+Wlighting &+wand a &+Ypl&+Gea&+Bsa&+Ynt &+wmurals line the walls.&N
+~
+824 134250568 0
+D2
+~
+~
+0 0 82429
+D3
+~
+door~
+1 0 82434
+S
+#82431
+&+yA Small &+rStorage &+yRoom&N~
+&+yA small storage room is packed with bags of flour and rice which can be added&N
+&+yto the &+gvegetables &+yand &+rmeats &+ywhich are imported to the temple on a weekly&N
+&+ybasis.  Shelves are also lined with canned vegetables which have been&N
+&+yprocessed for the harsh winter months.  A small handle can be seen on the&N
+&+ythe floor in the back corner of the room.&N
+~
+824 8 0
+D1
+~
+~
+0 0 82428
+D5
+~
+trapdoor~
+5 0 82441
+S
+#82432
+&+wA Stairwell Leading up to the &+YDome&N~
+&+wWalls enameled with pure gold lead the way up to the pinacle of the temple&N
+&+wwhere power is gathered and distributed to the winery below for heating of&N
+&+wthe vats and processing of the wine.  Stout guardians were purchased to&N
+&+wprotect the power source and prevent prying eyes from stealing the secret of&N
+&+wthe temples power.&N
+~
+824 134250568 0
+D4
+~
+trapdoor~
+3 82424 82433
+D5
+~
+stairwell~
+3 82423 82415
+S
+#82433
+&+WThe &+YDome &+Wof the Te&+Ymp&+Wle&N~
+&+W   This dome is the power source of the &+Yte&+Wmp&+Yle&+W.  The sun radiates its heat&N
+&+Won the dome and is used to &+Rh&+rea&+Rt &+Wthe water that flows in pipes around the center&N
+&+Wof the room.  These pipes then feed the heated water to the rest of the&N
+&+Wtemple for &+ycooking &+Wand &+Rhe&+rat&+Ring &+Wof the rooms during the winter.  The various&N
+&+Wvalves which control the flow of &+Bwa&+bt&+Ber &+Wthroughout the &+Yte&+Wmp&+Yle &+Whave been shut&N
+&+Woff by the demon present in the dome.&N
+~
+824 1073741824 3
+D5
+~
+trapdoor~
+3 82424 82432
+S
+#82434
+&+WA &+YLa&+Gvi&+Ysh &+BGuest &+WRoom&N~
+&+b   A &+Yco&+Gmf&+Yor&+Gta&+Yble &+bbed occupies the center of this room.  Thick carpet and many&N
+&+bhanging &+Wlamps &+bprovide a relaxing environment for either some reading or any&N
+&+bromantic inclinations.  Designed for the business traveller on the go, a&N
+&+bsmall &+ydesk &+band a &+ytable &+bprovide a work place for any small projects with&N
+&+bample space to lay out weapons and armor.&N
+~
+824 134250568 0
+D1
+~
+door~
+1 0 82430
+S
+#82435
+&+WA &+YLa&+Gvi&+Ysh &+BGuest &+WRoom&N~
+&+b   A &+Yco&+Gmf&+Yor&+Gta&+Yble &+bbed occupies the center of this room.  Thick carpet and many&N
+&+bhanging &+Wlamps &+bprovide a relaxing environment for either some reading or any&N
+&+bromantic inclinations.  Designed for the business traveller on the go, a&N
+&+bsmall &+ydesk &+band a &+ytable &+bprovide a work place for any small projects with&N
+&+bample space to lay out weapons and armor.&N
+~
+824 134250568 0
+D3
+~
+door~
+1 0 82429
+S
+#82436
+&+WA &+YLa&+Gvi&+Ysh &+BGuest &+WRoom&N~
+&+b   A &+Yco&+Gmf&+Yor&+Gta&+Yble &+bbed occupies the center of this room.  Thick carpet and many&N
+&+bhanging &+Wlamps &+bprovide a relaxing environment for either some reading or any&N
+&+bromantic inclinations.  Designed for the business traveller on the go, a&N
+&+bsmall &+ydesk &+band a &+ytable &+bprovide a work place for any small projects with&N
+&+bample space to lay out weapons and armor.&N
+~
+824 134250568 0
+D1
+~
+door~
+1 0 82427
+S
+#82437
+&+WA Hallway in the &+GDormitory&N~
+&+g   A quiet hallway lined with hanging plants and carpeted with small rugs&N
+&+gcrafted by various artisans from the realms of Duris marks off the spaces&N
+&+gbetween the cells of the druids of this temple.  Small candles light the&N
+&+gway and the images of animals and trees cover the walls in pastel murals.&N
+~
+824 134250568 0
+D0
+~
+~
+0 0 82438
+D3
+~
+door~
+2 0 82418
+S
+#82438
+&+WA Hallway in the &+GDormitory&N~
+&+g   A quiet hallway lined with hanging plants and carpeted with small rugs&N
+&+gcrafted by various artisans from the realms of Duris marks off the spaces&N
+&+gbetween the cells of the druids of this temple.  Small candles light the&N
+&+gway and the images of animals and trees cover the walls in pastel murals.&N
+~
+824 134250568 0
+D0
+~
+~
+0 0 82439
+D2
+~
+~
+0 0 82437
+S
+#82439
+&+WA Hallway in the &+GDormitory&N~
+&+g   A quiet hallway lined with hanging plants and carpeted with small rugs&N
+&+gcrafted by various artisans from the realms of Duris marks off the spaces&N
+&+gbetween the cells of the druids of this temple.  Small candles light the&N
+&+gway and the images of animals and trees cover the walls in pastel murals.&N
+~
+824 134250568 0
+D0
+~
+~
+0 0 82440
+D2
+~
+~
+0 0 82438
+S
+#82440
+&+WA Hallway in the &+GDormitory&N~
+&+g   A quiet hallway lined with hanging plants and carpeted with small rugs&N
+&+gcrafted by various artisans from the realms of Duris marks off the spaces&N
+&+gbetween the cells of the druids of this temple.  Small candles light the&N
+&+gway and the images of animals and trees cover the walls in pastel murals.&N
+~
+824 134250568 0
+D2
+~
+~
+0 0 82439
+S
+#82441
+&+yThe Entrance to the Cellar&N~
+&+y   A makeshift guard house has been nitched into this stairwell.  The trolls&N
+&+ywant to insure the winery continues to operate smoothly and have used their&N
+&+yability to control animal and mineral to provide cheap guards.  A troll guard&N
+&+yhas also been added to control access to the winery below.&N
+~
+824 1073741832 0
+D4
+~
+trapdoor~
+5 0 82431
+D5
+~
+trapdoor~
+1 0 82442
+S
+#82442
+&+yA Small Staircase Below the Temple&N~
+&+y   A wooden staircase leads down into the cellar of the temple.  &+mPurple&N
+&+mstains &+ycover the boards and the smell of sugar and grapes permeate the air&N
+&+yin this room.  A stirring paddle leans against the wall and some wooden&N
+&+ybuckets are piled near the bottom doorway.&N
+~
+824 134250568 0
+D4
+~
+trapdoor~
+1 0 82441
+D5
+~
+~
+0 0 82443
+S
+#82443
+&+yA Small Vat of &+RBluish &+yWine&N~
+&+y   A small oak vat of blush wine occupies the center of the room.  This vat&N
+&+yis the rather small so that a small tub can be placed near it to crush the&N
+&+yvirgin grapes to start a new batch of wine.  Many of the apprentice druids&N
+&+yhelp in this part of the processing of wine into grapes.&N
+~
+824 134250568 0
+D0
+~
+~
+0 0 82446
+D1
+~
+~
+0 0 82444
+D4
+~
+~
+0 0 82442
+S
+#82444
+&+yThe &+wFi&+rll&+Ring &+yRoom&N~
+&+y   Three large tables occupy the majority of the room.  Each table is covered&N
+&+yin dark &+ggreen bottles &+ywhich are aranged in a long line.  At the end of each&N
+&+ytable a long &+Ycopper tube &+ywhich is suspended from the ceiling hangs about an&N
+&+yinch above a bottle.  A small &+Wstopper &+yis placed in each pipe.  It appears&N
+&+ythese pipes deliver the &+Wwine &+yfrom the vats to the bottles.&N
+~
+824 134250568 0
+D0
+~
+~
+0 0 82445
+D1
+~
+~
+0 0 82447
+D3
+~
+~
+0 0 82443
+S
+#82445
+&+yA large Vat of &+wWhite Wine&N~
+&+y   A large kettle full of fermenting wine covers most of this room.  Small&N
+&+ycopper pipes curl and bend over the top of this vat and a bubbling sound can&N
+&+ybe heard as the yeasts do their work to convert the sugars in the grape&N
+&+yjuice into a potent concoction.&N
+~
+824 134250568 0
+D2
+~
+~
+0 0 82444
+D3
+~
+~
+0 0 82446
+S
+#82446
+&+yA Large Vat of &+rRed &+yWine&N~
+&+y   A large vat make of oak covers the majority of the room.  The oak adds to&N
+&+ythe rich flavor of the wine as it ferments.  A quiet bubbling sound can be&N
+&+yheard as the yeasts convert the sugars in the wine into alcohol which takes&N
+&+yabout two weeks or more before the process is complete.&N
+~
+824 134250568 0
+D1
+~
+~
+0 0 82445
+D2
+~
+~
+0 0 82443
+S
+#82447
+&+yA Small Hallway&N~
+&+y   A small hallway leads from the distillery to the storage cellar for the&N
+&+ymany bottles of wine which are aged for years before selling.  The room is&N
+&+ykept air tight so that the wine will age properly with out spoiling.&N
+~
+824 134250568 0
+D1
+~
+door~
+1 0 82448
+D3
+~
+~
+0 0 82444
+S
+#82448
+&+yA Room Strewn with Empty &+gBottles&N~
+&+y   Empty &+gbottles &+yand dried out corks litter the floor of this room.  A table&N
+&+yoccupies the center of the room and a moldy wedge of &+gcheese &+ysits on a platter&N
+&+yin the center.  This appears to be the tasting room in the cellar and&N
+&+yapparently a large amount of tasting has taken place.&N
+~
+824 134250568 0
+D0
+~
+~
+0 0 82451
+D1
+~
+~
+0 0 82449
+D3
+~
+door~
+1 0 82447
+S
+#82449
+&+yA Fully Stocked &+RWine &+yRack&N~
+&+y   Fully stocked racks of &+Rblush &+ywine cover the south and east walls of this&N
+&+yroom.  A fine layer of &+Ldust &+yhas settled on the top shelves.  These bottles&N
+&+yhave been aging for about five years and will be aged for another five before&N
+&+ythey are sold.&N
+~
+824 134250568 0
+D0
+~
+~
+0 0 82450
+D3
+~
+~
+0 0 82448
+S
+#82450
+&+yAn Empty &+rWine &+yRack&N~
+&+y   An empty rack lines the south wall.  This rack held a vintage of red wine&N
+&+ythat has not been produced in years.  Each bottle would bring a good price&N
+&+yat the bazaar in Tharnadia but has been wasted on the troll swine that have&N
+&+yinvaded the temple.&N
+~
+824 134250568 0
+D1
+~
+panel~
+1 0 82452
+D2
+~
+~
+0 0 82449
+D3
+~
+~
+0 0 82451
+S
+#82451
+&+yA Half Empty &+wWine &+yRack&N~
+&+y   Half empty wine racks line the north and west walls.  These racks contain&N
+&+ya few bottles of a fine white wine which have been ageing for ten years.&N
+&+yMade from the grapes gathered along the river Jakar, this wine has a sweet&N
+&+ytaste and a crisp body that goes well with chicken and fruit.  This is one&N
+&+yof the prefered wines of the elite guards in Woodseer.&N
+~
+824 134250568 0
+D1
+~
+~
+0 0 82450
+D2
+~
+~
+0 0 82448
+S
+#82452
+&+yA Storage Room in the Wine Cellar&N~
+&+y   Surplus corks and replacement planks are stored in this small closet.&N
+&+yA small carrying rack sitting in the corner is used to carry newly bottled&N
+&+ywines from the distillary to the racks for aging.  Blank labels and a large&N
+&+yink blotter are piled high on a small desk.&N
+~
+824 1073741832 0
+D3
+~
+panel~
+1 0 82450
+S
+#82453
+&+gA &+WSun&+Ylit &+GMe&+gad&+Gow&N~
+&+g   Sunlight streams down on this small meadow and warms the grasses and the&N
+&+ganimals that have come out to feed on the flowers.  This is a tranquil place&N
+&+gwhere one can comune with nature and relax after a long hard journey.&N
+~
+824 0 3
+D1
+~
+~
+0 0 82454
+D2
+~
+~
+0 0 82455
+D3
+~
+~
+0 0 82401
+S
+#82454
+&+gA &+WSun&+Ylit &+GMe&+gad&+Gow&N~
+&+g   Sunlight streams down on this small meadow and warms the grasses and the&N
+&+ganimals that have come out to feed on the flowers.  This is a tranquil place&N
+&+gwhere one can comune with nature and relax after a long hard journey.&N
+~
+824 0 3
+D2
+~
+~
+0 0 82456
+D3
+~
+~
+0 0 82453
+S
+#82455
+&+gA &+WSun&+Ylit &+GMe&+gad&+Gow&N~
+&+g   Sunlight streams down on this small meadow and warms the grasses and the&N
+&+ganimals that have come out to feed on the flowers.  This is a tranquil place&N
+&+gwhere one can comune with nature and relax after a long hard journey.&N
+~
+824 0 3
+D0
+~
+~
+0 0 82453
+D1
+~
+~
+0 0 82456
+D3
+~
+~
+0 0 82400
+S
+#82456
+&+gA &+WSun&+Ylit &+GMe&+gad&+Gow&N~
+&+g   Sunlight streams down on this small meadow and warms the grasses and the&N
+&+ganimals that have come out to feed on the flowers.  This is a tranquil place&N
+&+gwhere one can comune with nature and relax after a long hard journey.&N
+~
+824 0 3
+D0
+~
+~
+0 0 82454
+D3
+~
+~
+0 0 82455
+S
+#82457
+&+gA Thick Outcrop of Trees&N~
+&+gThe trees have grown very close to together in this part of the glade and&N
+&+gprevent any further exploration to the west.  Each of the trees looks small&N
+&+gand weedy but is strong enough to stop you from moving further into the glade.&N
+~
+824 0 3
+D0
+~
+~
+0 0 82458
+D1
+~
+~
+0 0 82400
+D2
+~
+~
+0 0 82493
+S
+#82458
+&+gA Thick Outcrop of Trees&N~
+&+gThe trees have grown very close to together in this part of the glade and&N
+&+gprevent any further exploration to the west.  Each of the trees looks small&N
+&+gand weedy but is strong enough to stop you from moving further into the glade.&N
+~
+824 0 0
+D1
+~
+~
+0 0 82401
+D2
+~
+~
+0 0 82457
+S
+#82459
+&+yThe Pathway to the &+GGardens&N~
+&+y   A small path leads east from the main trail to the temple.  This path&N
+&+yleads to the vegetable gardens which supply the druids with fresh produce&N
+&+yon a year round basis.  Farmers from throughout the lands of Duris&N
+&+yprovide only the finest seeds in exchange for a fine vintage.&N
+~
+824 4 3
+D1
+~
+~
+0 0 82471
+D3
+~
+~
+0 0 82405
+S
+#82460
+&+yThe Pathway to the &+MVineyard&N~
+&+y   A small gravel path leads from the main pathway to the temple to the&N
+&+yvineyards used to grow grapes for the delicious wine that is made by the&N
+&+ydruids.  Skilled farmers from around the land of Duris come here to help&N
+&+ytend the fragile plants and insure the quality of the grapes produced.&N
+~
+824 4 3
+D1
+~
+~
+0 0 82405
+D3
+~
+~
+0 0 82461
+S
+#82461
+&+yA Field of &+WGr&+Map&+me &+gVines&N~
+&+gWooden trelises hold up blossoming vines which will soon create grapes.  The&N
+&+gvines are of a hearty stock used by the ancient elves and were purchased by&N
+&+gthe centaurs of the temple many years ago. Each vine has been carefully&N
+&+gwatched to insure they grow healthy and strong and each year a splicing is&N
+&+gmade with an older growth to make the line even more robust.&N
+~
+824 0 2
+D0
+~
+~
+0 0 82462
+D1
+~
+~
+0 0 82460
+D2
+~
+~
+0 0 82469
+D3
+~
+~
+0 0 82470
+S
+#82462
+&+yA Field of &+WGr&+Map&+me &+gVines&N~
+&+gWooden trelises hold up blossoming vines which will soon create grapes.  The&N
+&+gvines are of a hearty stock used by the ancient elves and were purchased by&N
+&+gthe centaurs of the temple many years ago. Each vine has been carefully&N
+&+gwatched to insure they grow healthy and strong and each year a splicing is&N
+&+gmade with an older growth to make the line even more robust.&N
+~
+824 0 2
+D2
+~
+~
+0 0 82461
+D3
+~
+~
+0 0 82463
+S
+#82463
+&+yA Field of &+WGr&+Map&+me &+gVines&N~
+&+gWooden trelises hold up blossoming vines which will soon create grapes.  The&N
+&+gvines are of a hearty stock used by the ancient elves and were purchased by&N
+&+gthe centaurs of the temple many years ago. Each vine has been carefully&N
+&+gwatched to insure they grow healthy and strong and each year a splicing is&N
+&+gmade with an older growth to make the line even more robust.&N
+~
+824 0 2
+D1
+~
+~
+0 0 82462
+D2
+~
+~
+0 0 82470
+D3
+~
+~
+0 0 82464
+S
+#82464
+&+yA Field of &+WGr&+Map&+me &+gVines&N~
+&+gWooden trelises hold up blossoming vines which will soon create grapes.  The&N
+&+gvines are of a hearty stock used by the ancient elves and were purchased by&N
+&+gthe centaurs of the temple many years ago. Each vine has been carefully&N
+&+gwatched to insure they grow healthy and strong and each year a splicing is&N
+&+gmade with an older growth to make the line even more robust.&N
+~
+824 0 2
+D1
+~
+~
+0 0 82463
+D2
+~
+~
+0 0 82465
+S
+#82465
+&+yA Field of &+WGr&+Map&+me &+gVines&N~
+&+gWooden trelises hold up blossoming vines which will soon create grapes.  The&N
+&+gvines are of a hearty stock used by the ancient elves and were purchased by&N
+&+gthe centaurs of the temple many years ago. Each vine has been carefully&N
+&+gwatched to insure they grow healthy and strong and each year a splicing is&N
+&+gmade with an older growth to make the line even more robust.&N
+~
+824 0 2
+D0
+~
+~
+0 0 82464
+D1
+~
+~
+0 0 82470
+D2
+~
+~
+0 0 82466
+S
+#82466
+&+yA Field of &+WGr&+Map&+me &+gVines&N~
+&+gWooden trelises hold up blossoming vins which will soon create grapes.  The&N
+&+gvines are of a hearty stock used by the ancient elves and were purchased by&N
+&+gthe centaurs of the temple many years ago. Each vine has been carefully&N
+&+gwatched to insure they grow healthy and strong and each year a splicing is&N
+&+gmade with an older growth to make the line even more robust.&N
+~
+824 0 2
+D0
+~
+~
+0 0 82465
+D1
+~
+~
+0 0 82468
+D3
+~
+door~
+1 0 82467
+S
+#82467
+&+yA Small Storage Shed&N~
+&+ySacks and tools hang from the walls of this shed and small bits of twine&N
+&+ylie scattered on the ground.  This is the main storage shed for the vineyard&N
+&+ywhere the harvest bags and the tools needed to weed the vines are kept out of&N
+&+ythe weather.  Large pieces of timber are also dried out here and stored for&N
+&+yreplacement trelises.&N
+~
+824 0 0
+D1
+~
+door~
+1 0 82466
+S
+#82468
+&+yA Field of &+WGr&+Map&+me &+gVines&N~
+&+gWooden trelises hold up blossoming vines which will soon create grapes.  The&N
+&+gvines are of a hearty stock used by the ancient elves and were purchased by&N
+&+gthe centaurs of the temple many years ago. Each vine has been carefully&N
+&+gwatched to insure they grow healthy and strong and each year a splicing is&N
+&+gmade with an older growth to make the line even more robust.&N
+~
+824 0 2
+D0
+~
+~
+0 0 82470
+D1
+~
+~
+0 0 82469
+D3
+~
+~
+0 0 82466
+S
+#82469
+&+yA Field of &+WGr&+Map&+me &+gVines&N~
+&+gWooden trelises hold up blossoming vines which will soon create grapes.  The&N
+&+gvines are of a hearty stock used by the ancient elves and were purchased by&N
+&+gthe centaurs of the temple many years ago. Each vine has been carefully&N
+&+gwatched to insure they grow healthy and strong and each year a splicing is&N
+&+gmade with an older growth to make the line even more robust.&N
+~
+824 0 2
+D0
+~
+~
+0 0 82461
+D3
+~
+~
+0 0 82468
+S
+#82470
+&+yA Field of &+WGr&+Map&+me &+gVines&N~
+&+gWooden trelises hold up blossoming vines which will soon create grapes.  The&N
+&+gvines are of a hearty stock used by the ancient elves and were purchased by&N
+&+gthe centaurs of the temple many years ago. Each vine has been carefully&N
+&+gwatched to insure they grow healthy and strong and each year a splicing is&N
+&+gmade with an older growth to make the line even more robust.&N
+~
+824 0 2
+D0
+~
+~
+0 0 82463
+D1
+~
+~
+0 0 82461
+D2
+~
+~
+0 0 82468
+D3
+~
+~
+0 0 82465
+S
+#82471
+&+gA &+WVe&+Yge&+Mta&+Rb&+Gle &+gGarden&N~
+&+gRadishes, califlower, carrots, squash, potatos, and various other vegetables&N
+&+gare planted through out this garden.  One amazing thing about this garden&N
+&+gis the rich soil that wards off pesky weeds and vermen and keeps the produce&N
+&+gsafe and healthy.  Farmers stroll the rows checking for ripened vegetables to&N
+&+gadd to the nightly feast.&N
+~
+824 0 2
+D0
+~
+~
+0 0 82472
+D1
+~
+~
+0 0 82473
+D2
+~
+~
+0 0 82474
+D3
+~
+~
+0 0 82459
+S
+#82472
+&+gA &+WVe&+Yge&+Mta&+Rb&+Gle &+gGarden&N~
+&+gRadishes, califlower, carrots, squash, potatos, and various other vegetables&N
+&+gare planted through out this garden.  One amazing thing about this garden&N
+&+gis the rich soil that wards off pesky weeds and vermen and keeps the produce&N
+&+gsafe and healthy.  Farmers stroll the rows checking for ripened vegetables to&N
+&+gadd to the nightly feast.&N
+~
+824 0 2
+D1
+~
+~
+0 0 82475
+D2
+~
+~
+0 0 82471
+S
+#82473
+&+gA &+WVe&+Yge&+Mta&+Rb&+Gle &+gGarden&N~
+&+gRadishes, califlower, carrots, squash, potatos, and various other vegetables&N
+&+gare planted through out this garden.  One amazing thing about this garden&N
+&+gis the rich soil that wards off pesky weeds and vermen and keeps the produce&N
+&+gsafe and healthy.  Farmers stroll the rows checking for ripened vegetables to&N
+&+gadd to the nightly feast.&N
+~
+824 0 2
+D0
+~
+~
+0 0 82475
+D1
+~
+~
+0 0 82477
+D2
+~
+~
+0 0 82479
+D3
+~
+~
+0 0 82471
+S
+#82474
+&+gA &+WVe&+Yge&+Mta&+Rb&+Gle &+gGarden&N~
+&+gRadishes, califlower, carrots, squash, potatos, and various other vegetables&N
+&+gare planted through out this garden.  One amazing thing about this garden&N
+&+gis the rich soil that wards off pesky weeds and vermen and keeps the produce&N
+&+gsafe and healthy.  Farmers stroll the rows checking for ripened vegetables to&N
+&+gadd to the nightly feast.&N
+~
+824 0 2
+D0
+~
+~
+0 0 82471
+D1
+~
+~
+0 0 82479
+S
+#82475
+&+gA &+WVe&+Yge&+Mta&+Rb&+Gle &+gGarden&N~
+&+gRadishes, califlower, carrots, squash, potatos, and various other vegetables&N
+&+gare planted through out this garden.  One amazing thing about this garden&N
+&+gis the rich soil that wards off pesky weeds and vermen and keeps the produce&N
+&+gsafe and healthy.  Farmers stroll the rows checking for ripened vegetables to&N
+&+gadd to the nightly feast.&N
+~
+824 0 2
+D1
+~
+~
+0 0 82476
+D2
+~
+~
+0 0 82473
+D3
+~
+~
+0 0 82472
+S
+#82476
+&+gA &+WVe&+Yge&+Mta&+Rb&+Gle &+gGarden&N~
+&+gRadishes, califlower, carrots, squash, potatos, and various other vegetables&N
+&+gare planted through out this garden.  One amazing thing about this garden&N
+&+gis the rich soil that wards off pesky weeds and vermen and keeps the produce&N
+&+gsafe and healthy.  Farmers stroll the rows checking for ripened vegetables to&N
+&+gadd to the nightly feast.&N
+~
+824 0 2
+D1
+~
+~
+0 0 82492
+D2
+~
+~
+0 0 82477
+D3
+~
+~
+0 0 82475
+S
+#82477
+&+gA &+WVe&+Yge&+Mta&+Rb&+Gle &+gGarden&N~
+&+gRadishes, califlower, carrots, squash, potatos, and various other vegetables&N
+&+gare planted through out this garden.  One amazing thing about this garden&N
+&+gis the rich soil that wards off pesky weeds and vermen and keeps the produce&N
+&+gsafe and healthy.  Farmers stroll the rows checking for ripened vegetables to&N
+&+gadd to the nightly feast.&N
+~
+824 0 2
+D0
+~
+~
+0 0 82476
+D1
+~
+~
+0 0 82480
+D2
+~
+~
+0 0 82478
+D3
+~
+~
+0 0 82473
+S
+#82478
+&+gA &+WVe&+Yge&+Mta&+Rb&+Gle &+gGarden&N~
+&+gRadishes, califlower, carrots, squash, potatos, and various other vegetables&N
+&+gare planted through out this garden.  One amazing thing about this garden&N
+&+gis the rich soil that wards off pesky weeds and vermen and keeps the produce&N
+&+gsafe and healthy.  Farmers stroll the rows checking for ripened vegetables to&N
+&+gadd to the nightly feast.&N
+~
+824 0 2
+D0
+~
+~
+0 0 82477
+D1
+~
+~
+0 0 82487
+D3
+~
+~
+0 0 82479
+S
+#82479
+&+gA &+WVe&+Yge&+Mta&+Rb&+Gle &+gGarden&N~
+&+gRadishes, califlower, carrots, squash, potatos, and various other vegetables&N
+&+gare planted through out this garden.  One amazing thing about this garden&N
+&+gis the rich soil that wards off pesky weeds and vermen and keeps the produce&N
+&+gsafe and healthy.  Farmers stroll the rows checking for ripened vegetables to&N
+&+gadd to the nightly feast.&N
+~
+824 0 2
+D0
+~
+~
+0 0 82473
+D1
+~
+~
+0 0 82478
+D3
+~
+~
+0 0 82474
+S
+#82480
+&+gA Herbal Garden&n~
+&+gHere you find all sorts of herbs and other plants growing. You cannot recognize them
+&+gall but your untrained eye spots some mandrake root, green herbs, nightshade and
+&+ggarlic. How they have managed to grow such large quantities in such a limited area
+&+gis beyond you.&n
+~
+824 0 2
+D1
+~
+~
+0 0 82481
+D3
+~
+~
+0 0 82477
+S
+#82481
+&+gA Herbal Garden&n~
+&+gHere you find all sorts of herbs and other plants growing. You cannot recognize them
+&+gall but your untrained eye spots some mandrake root, green herbs, nightshade and
+&+ggarlic. How they have managed to grow such large quantities in such a limited area
+&+gis beyond you.&n
+~
+824 0 2
+D1
+~
+~
+0 0 82482
+D3
+~
+~
+0 0 82480
+S
+#82482
+&+gA Herbal Garden&n~
+&+gHere you find all sorts of herbs and other plants growing. You cannot recognize them
+&+gall but your untrained eye spots some mandrake root, green herbs, nightshade and
+&+ggarlic. How they have managed to grow such large quantities in such a limited area
+&+gis beyond you.&n
+~
+824 0 2
+D1
+~
+~
+0 0 82483
+D3
+~
+~
+0 0 82481
+S
+#82483
+&+yA Pathway between Rows&N~
+&+y   A small pathway between the rows of vegetables allows the farmers to move&N
+&+yeasily during harvest time.  Two trenches are worn into the path where a&N
+&+ywheelbarrow is used to haul the produce from the garden to the storage shed&N
+&+yor straight to the temple.&N
+~
+824 0 2
+D0
+~
+~
+0 0 82489
+D2
+~
+~
+0 0 82484
+D3
+~
+~
+0 0 82482
+S
+#82484
+&+yA Pathway between Rows&N~
+&+y   A small pathway between the rows of vegetables allows the farmers to move&N
+&+yeasily during harvest time.  Two trenches are worn into the path where a&N
+&+ywheelbarrow is used to haul the produce from the garden to the storage shed&N
+&+yor straight to the temple.&N
+~
+824 0 2
+D0
+~
+~
+0 0 82483
+D2
+~
+door~
+1 0 82488
+D3
+~
+~
+0 0 82485
+S
+#82485
+&+gA Row of &+GBeans&N~
+&+g   A screen &+cmesh &+ghas been staked up between two &+yposts &+gso that the long vines&N
+&+gof the beans can grow without falling to the ground.  &+GMa&+gtu&+Gre &+gpods hang from&N
+&+gthe thick vines while smaller pods blossom out under the warm &+ysun&+g.&N
+~
+824 0 2
+D1
+~
+~
+0 0 82484
+D3
+~
+~
+0 0 82486
+S
+#82486
+&+gA Row of &+GBeans&N~
+&+g   A screen &+cmesh &+ghas been staked up between two &+yposts &+gso that the long vines&N
+&+gof the beans can grow without falling to the ground.  &+GMa&+gtu&+Gre &+gpods hang from&N
+&+gthe thick vines while smaller pods blossom out under the warm &+ysun&+g.&N
+~
+824 0 2
+D1
+~
+~
+0 0 82485
+D3
+~
+~
+0 0 82487
+S
+#82487
+&+gA Row of &+GBeans&N~
+&+g   A screen &+cmesh &+ghas been staked up between two &+yposts &+gso that the long vines&N
+&+gof the beans can grow without falling to the ground.  &+GMa&+gtu&+Gre &+gpods hang from&N
+&+gthe thick vines while smaller pods blossom out under the warm &+ysun&+g.&N
+~
+824 0 2
+D1
+~
+~
+0 0 82486
+D3
+~
+~
+0 0 82478
+S
+#82488
+&+yA Small Storage Shed&N~
+&+ySacks and tools hang from the walls of this shed and small bits of twine&N
+&+ylie scattered on the ground.  This is the main storage shed for the vineyard&N
+&+ywhere the harvest bags and the tools needed to weed the vines are kept out of&N
+&+ythe weather.  Large pieces of timber are also dried out here and stored for&N
+&+yreplacement trelises.&N
+~
+824 0 0
+D0
+~
+door~
+1 0 82484
+S
+#82489
+&+yA Pathway between Rows&N~
+&+y   A small pathway between the rows of vegetables allows the farmers to move&N
+&+yeasily during harvest time.  Two trenches are worn into the path where a&N
+&+ywheelbarrow is used to haul the produce from the garden to the storage shed&N
+&+yor straight to the temple.&N
+~
+824 0 2
+D2
+~
+~
+0 0 82483
+D3
+~
+~
+0 0 82490
+S
+#82490
+&+gA Row of &+wTurn&+yips&N~
+&+g   Green leaves grow thick and strong and the bulbs of the turnips bulge&N
+&+gout from the ground.  This &+Lrich soil &+gprovides the perfect growing conditions&N
+&+gand create succulent turnips and greens on a yearly basis.  Only a few of the&N
+&+wturn&+yips &+gneed more time to rippen.&N
+~
+824 0 2
+D1
+~
+~
+0 0 82489
+D3
+~
+~
+0 0 82491
+S
+#82491
+&+gA Row of &+wTurn&+yips&N~
+&+g   Green leaves grow thick and strong and the bulbs of the turnips bulge&N
+&+gout from the ground.  This &+Lrich soil &+gprovides the perfect growing conditions&N
+&+gand create succulent turnips and greens on a yearly basis.  Only a few of the&N
+&+wturn&+yips &+gneed more time to rippen.&N
+~
+824 0 2
+D1
+~
+~
+0 0 82490
+D3
+~
+~
+0 0 82492
+S
+#82492
+&+gA Row of &+wTurn&+yips&N~
+&+g   Green leaves grow thick and strong and the bulbs of the turnips bulge&N
+&+gout from the ground.  This &+Lrich soil &+gprovides the perfect growing conditions&N
+&+gand create succulent turnips and greens on a yearly basis.  Only a few of the&N
+&+wturn&+yips &+gneed more time to rippen.&N
+~
+824 0 2
+D1
+~
+~
+0 0 82491
+D3
+~
+~
+0 0 82476
+S
+#82493
+&+gA Thick Outcrop of Trees&N~
+&+gThe trees have grown very close to together in this part of the glade and&N
+&+gprevent any further exploration to the west.  Each of the trees looks small&N
+&+gand weedy but is strong enough to stop you from moving further into the glade.&N
+~
+824 0 3
+D0
+~
+~
+0 0 82457
+D3
+~
+~
+0 0 519317
+S
+>>>>>>> master

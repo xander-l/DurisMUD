@@ -10,11 +10,22 @@
 #include "defines.h"
 #include "utils.h"
 #ifndef _DE_
+<<<<<<< HEAD
 #include "structs.h"
 #include "paladins.h"
 #include "reavers.h"
 #include "rogues.h"
 #include "avengers.h"
+=======
+#   include "structs.h"
+#   include "paladins.h"
+#   include "reavers.h"
+#   include "rogues.h"
+#   include "avengers.h"
+
+extern void do_epic_reset(P_char ch, char *arg, int cmd);
+extern void do_epic_reset_norefund(P_char ch, char *arg, int cmd);
+>>>>>>> master
 int      numSkills;
 #endif
 
@@ -37,6 +48,7 @@ extern int SortedSkills[];
 #include "necromancy.h"
 
 Skill    skills[MAX_AFFECT_TYPES+1];
+void initialize_skills_new();
 
 #if defined(_DE_) || defined(_PFILE_)
 #   define SPELL_CREATE_MSG(Name, Index, Beats, Targets, Spell_pointer, Wear_off) \
@@ -176,6 +188,21 @@ void SPELL_ADD(int Class, int Level)
 
 #endif
 
+#ifdef SKILLPOINTS
+// Skill has dependency of needing MinDepend in Dependency.
+void SKILL_DEPEND( int Skill, int Dependency, int MinDepend )
+{
+  for( int i = 0; i < 5; i++ )
+  {
+    if( skills[Skill].dependency[i] == 0 )
+    {
+      skills[Skill].dependency[i] = Dependency;
+      skills[Skill].mintotrain[i] = MinDepend;
+      break;
+    }
+  }
+}
+#endif
 
 void initialize_skills()
 {
@@ -191,8 +218,15 @@ void initialize_skills()
   //needed by setbit
   skills[MAX_AFFECT_TYPES].name = "\n";
  
+<<<<<<< HEAD
   SPELL_CREATE("repair one item", SPELL_REPAIR_ONE_ITEM, PULSE_SPELLCAST * 1,
     TAR_OBJ_INV | TAR_OBJ_EQUIP, spell_repair_one_item);
+=======
+#ifdef SKILLPOINTS
+  initialize_skills_new();
+  return;
+#endif
+>>>>>>> master
 
   // Psionicist
   SKILL_CREATE("flame mastery", SKILL_FLAME_MASTERY, TAR_MENTAL);
@@ -236,43 +270,60 @@ void initialize_skills()
   SKILL_ADD(CLASS_THIEF, 51, 100);
   SPEC_SKILL_ADD(CLASS_ROGUE, 51, 80, SPEC_THIEF);
 
+<<<<<<< HEAD
   //SKILL_CREATE("instant kill", SKILL_INSTANT_KILL, TAR_PHYS);
   //SPEC_SKILL_ADD(CLASS_ROGUE, 56, 100, SPEC_ASSASSIN);
+=======
+ /* SKILL_CREATE("instant kill", SKILL_INSTANT_KILL, TAR_PHYS);
+  SPEC_SKILL_ADD(CLASS_ROGUE, 56, 100, SPEC_ASSASSIN);*/
+>>>>>>> master
   
   /* Conj Specs */
   SPELL_CREATE("magma burst", SPELL_MAGMA_BURST, PULSE_SPELLCAST * 2,
                 TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_magma_burst);
-  SPEC_SPELL_ADD(CLASS_CONJURER, 8, SPEC_FIRE);
+ // SPEC_SPELL_ADD(CLASS_CONJURER, 8, SPEC_FIRE);
   SPELL_CREATE("solar flare", SPELL_SOLAR_FLARE, PULSE_SPELLCAST * 2,
                 TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_solar_flare);
   //SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_FIRE);
-  SPEC_SPELL_ADD(CLASS_CONJURER, 9, SPEC_FIRE);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 9, SPEC_FIRE);
 
   SPELL_CREATE("water to life", SPELL_WATER_TO_LIFE, PULSE_SPELLCAST * 2,
                 TAR_CHAR_ROOM, spell_water_to_life);
-  SPEC_SPELL_ADD(CLASS_CONJURER, 7, SPEC_WATER);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 7, SPEC_WATER);
 
   SPELL_CREATE_MSG("air form", SPELL_AIR_FORM, PULSE_SPELLCAST * 4, TAR_SELF_ONLY,
                 spell_air_form, "Your molecules return to normal.");
-  SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_AIR);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_AIR);
 
   SPELL_CREATE("ethereal grounds", SPELL_ETHEREAL_GROUNDS, PULSE_SPELLCAST * 4,
+<<<<<<< HEAD
                 TAR_IGNORE, spell_ethereal_grounds);
   SPEC_SPELL_ADD(CLASS_CONJURER, 11, SPEC_AIR);
+=======
+                TAR_IGNORE,
+                spell_ethereal_grounds);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 11, SPEC_AIR);
+>>>>>>> master
  
   SPELL_CREATE("electrical execution", SPELL_ELECTRICAL_EXECUTION, (int)(PULSE_SPELLCAST * 1.5),
                 TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_electrical_execution);
-  SPEC_SPELL_ADD(CLASS_CONJURER, 9, SPEC_AIR);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 9, SPEC_AIR);
+  SPELL_ADD(CLASS_SORCERER, 9);
   
   SPELL_CREATE2("earthen tomb", SPELL_EARTHEN_TOMB, PULSE_SPELLCAST * 4,
                 TAR_IGNORE | TAR_NOCOMBAT,
+<<<<<<< HEAD
                 cast_earthen_tomb, "&+yThe ground stops rumbling &+yand ceases to quake.&n",
                 "&+yThe ground stops rumbling &+yand ceases to quake.&n");
   SPEC_SPELL_ADD(CLASS_CONJURER, 12, SPEC_EARTH);
+=======
+                cast_earthen_tomb, "&+yThe ground stops to &+Lrumble &+yand ceases to quake.&n", "&+yThe ground stops to &+Lrumble &+yand ceases to quake.&n");
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 12, SPEC_EARTH);
+>>>>>>> master
 
   SPELL_CREATE("dread wave", SPELL_DREAD_WAVE, PULSE_SPELLCAST * 1,
                 TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_dread_wave);
-  SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_WATER);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_WATER);
 
   /* Cleric Specs */
   SPELL_CREATE("lesser sanctuary", SPELL_LESSER_SANCTUARY, PULSE_SPELLCAST * 2,
@@ -294,6 +345,7 @@ void initialize_skills()
   
   /* Warrior Specs */
   SKILL_CREATE("quadruple attack", SKILL_QUADRUPLE_ATTACK, TAR_PHYS);
+<<<<<<< HEAD
   SKILL_ADD(CLASS_DREADLORD, 56, 70);
   SKILL_ADD(CLASS_AVENGER, 56, 70);
   SPEC_SKILL_ADD(CLASS_WARRIOR, 56, 70, SPEC_SWORDSMAN);
@@ -306,6 +358,25 @@ void initialize_skills()
 
   SKILL_CREATE("shieldless bash", SKILL_SHIELDLESS_BASH, TAR_PHYS);
   SPEC_SKILL_ADD(CLASS_WARRIOR, 36, 85, SPEC_SWORDSMAN);
+=======
+  SKILL_ADD(CLASS_DREADLORD, 56, 80);
+  SPEC_SKILL_ADD(CLASS_ANTIPALADIN, 56, 100, SPEC_VIOLATOR);
+  SKILL_ADD(CLASS_AVENGER, 56, 80);
+  SPEC_SKILL_ADD(CLASS_WARRIOR, 56, 60, SPEC_SWORDSMAN);//Changed from 40 9/25/2008 Zion
+  SPEC_SKILL_ADD(CLASS_WARRIOR, 51, 80, SPEC_SWASHBUCKLER);
+  SPEC_SKILL_ADD(CLASS_RANGER, 55, 95, SPEC_BLADEMASTER);
+
+
+
+  SKILL_CREATE("shield punch", SKILL_SHIELDPUNCH, TAR_PHYS);
+  SPEC_SKILL_ADD(CLASS_WARRIOR, 46, 100, SPEC_GUARDIAN);
+
+  SKILL_CREATE("dreadnaught", SKILL_DREADNAUGHT, TAR_PHYS);
+  SPEC_SKILL_ADD(CLASS_WARRIOR, 30, 100, SPEC_GUARDIAN);
+
+
+  //SPEC_SKILL_ADD(CLASS_WARRIOR, 36, 100, SPEC_SWORDSMAN);
+>>>>>>> master
 
   SKILL_CREATE("sweeping thrust", SKILL_SWEEPING_THRUST, TAR_PHYS);
   SPEC_SKILL_ADD(CLASS_WARRIOR, 31, 90, SPEC_SWORDSMAN);
@@ -334,15 +405,31 @@ void initialize_skills()
   SKILL_CREATE("skewer", SKILL_SKEWER, TAR_PHYS);
   SKILL_ADD(CLASS_ANTIPALADIN, 41, 80);
   SKILL_ADD(CLASS_PALADIN, 41, 80);
+<<<<<<< HEAD
   SPEC_SKILL_ADD(CLASS_ANTIPALADIN, 36, 90, SPEC_KNIGHT);
   SPEC_SKILL_ADD(CLASS_PALADIN, 36, 90, SPEC_CRUSADER);
+=======
+  SPEC_SKILL_ADD(CLASS_ANTIPALADIN, 36, 100, SPEC_DARKKNIGHT);
+  SPEC_SKILL_ADD(CLASS_PALADIN, 36, 100, SPEC_CRUSADER);
+  SPEC_SKILL_ADD(CLASS_ANTIPALADIN, 0, 0, SPEC_VIOLATOR);
+>>>>>>> master
 
   SKILL_CREATE("smite evil", SKILL_SMITE_EVIL, TAR_PHYS);
   SPEC_SKILL_ADD(CLASS_PALADIN, 30, 100, SPEC_CRUSADER);
 
+<<<<<<< HEAD
   SPELL_CREATE("group heal", SPELL_GROUP_HEAL, PULSE_SPELLCAST * 3, TAR_IGNORE, spell_group_heal);
   SPELL_ADD(CLASS_PALADIN, 10);
   SPEC_SPELL_ADD(CLASS_CLERIC, 11, SPEC_HEALER);
+=======
+  SKILL_CREATE("restrain", SKILL_RESTRAIN, TAR_PHYS);
+  SPEC_SKILL_ADD(CLASS_ANTIPALADIN, 30, 100, SPEC_VIOLATOR);
+
+  SPELL_CREATE("group heal", SPELL_GROUP_HEAL, PULSE_SPELLCAST * 4,
+                TAR_IGNORE, spell_group_heal);
+ SPELL_ADD(CLASS_PALADIN, 10);
+ SPEC_SPELL_ADD(CLASS_CLERIC, 11, SPEC_HEALER);
+>>>>>>> master
 
   SPELL_CREATE("apocalypse", SPELL_APOCALYPSE, (7/2) * PULSE_SPELLCAST,
                 TAR_AREA | TAR_OFFAREA | TAR_AGGRO, spell_apocalypse);
@@ -368,10 +455,10 @@ void initialize_skills()
 
   SKILL_CREATE("spellweave", SKILL_SPELLWEAVE, TAR_MENTAL);
   SPEC_SKILL_ADD(CLASS_SORCERER, 41, 100, SPEC_WIZARD);
-
+/*
   SKILL_CREATE("ground casting", SKILL_GROUND_CASTING, TAR_MENTAL);
   SKILL_ADD(CLASS_SORCERER, 41, 100);
-
+*/
   SPELL_CREATE("chaotic ripple", SPELL_CHAOTIC_RIPPLE, PULSE_SPELLCAST * 2,
                 TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_chaotic_ripple);
   SPEC_SPELL_ADD(CLASS_SORCERER, 12, SPEC_WILDMAGE);
@@ -387,8 +474,13 @@ void initialize_skills()
   SPELL_CREATE_MSG("shadow projection", SPELL_SHADOW_PROJECTION, PULSE_SPELLCAST * 6,
                 TAR_SELF_ONLY | TAR_NOCOMBAT,
                 spell_shadow_projection, "&+LYour material form realigns with this plane.");
+<<<<<<< HEAD
   // SPEC_SPELL_ADD(CLASS_SORCERER, 12, SPEC_SHADOW);
   SPEC_SPELL_ADD(CLASS_ILLUSIONIST, 12, SPEC_DARK_DREAMER);
+=======
+// SPEC_SPELL_ADD(CLASS_SORCERER, 12, SPEC_SHADOW);
+//  SPEC_SPELL_ADD(CLASS_ILLUSIONIST, 12, SPEC_DARK_DREAMER);
+>>>>>>> master
   
   SPELL_CREATE("obtenebration", SPELL_OBTENEBRATION, PULSE_SPELLCAST * 2.5,
                 TAR_AREA | TAR_OFFAREA | TAR_AGGRO,
@@ -530,6 +622,19 @@ void initialize_skills()
   SPELL_CREATE("pleasantry", SPELL_PLEASANTRY, PULSE_SPELLCAST,
                 TAR_CHAR_ROOM | TAR_AGGRO, spell_pleasantry);
 
+  SPELL_CREATE("Auctions Disabled", SPELL_NOAUCTION, PULSE_SPELLCAST,
+		  TAR_CHAR_ROOM | TAR_AGGRO, do_nothing_spell);
+
+  SPELL_CREATE("Battle Mages Aura", SPELL_BATTLEMAGE, PULSE_SPELLCAST,
+		  TAR_CHAR_ROOM | TAR_AGGRO, do_nothing_spell);
+
+  SPELL_CREATE("contain being", SPELL_CONTAIN_BEING, PULSE_SPELLCAST * 3,
+		  TAR_CHAR_ROOM | TAR_FIGHT_VICT, spell_contain_being);
+  SPELL_ADD(CLASS_CONJURER, 5);
+
+  SPELL_CREATE("corpse portal", SPELL_CORPSE_PORTAL, PULSE_SPELLCAST,
+                TAR_CHAR_ROOM | TAR_NOCOMBAT, spell_corpse_portal);
+
   SPELL_CREATE("corpseform", SPELL_CORPSEFORM, PULSE_SPELLCAST * 7,
                 TAR_OBJ_ROOM | TAR_NOCOMBAT,spell_corpseform);
   SPELL_ADD(CLASS_NECROMANCER, 12);
@@ -577,42 +682,42 @@ void initialize_skills()
   SPELL_CREATE("transmute rock to mud", SPELL_TRANS_ROCK_MUD, PULSE_SPELLCAST * 4,
                 TAR_IGNORE | TAR_NOCOMBAT,
                 cast_transmute_rock_mud);
-  SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_EARTH);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_EARTH);
 
   SPELL_CREATE("transmute mud to rock", SPELL_TRANS_MUD_ROCK, PULSE_SPELLCAST * 4,
                 TAR_IGNORE | TAR_NOCOMBAT,
                 cast_transmute_mud_rock);
-  SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_EARTH);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_EARTH);
 
   SPELL_CREATE("transmute mud to water", SPELL_TRANS_MUD_WATER, PULSE_SPELLCAST * 4,
                 TAR_IGNORE | TAR_NOCOMBAT,
                 cast_transmute_mud_water);
-  SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_WATER);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_WATER);
 
   SPELL_CREATE("transmute water to mud", SPELL_TRANS_WATER_MUD, PULSE_SPELLCAST * 4,
                 TAR_IGNORE | TAR_NOCOMBAT,
                 cast_transmute_water_mud);
-  SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_WATER);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_WATER);
 
   SPELL_CREATE("transmute water to air", SPELL_TRANS_WATER_AIR, PULSE_SPELLCAST * 4,
                 TAR_IGNORE | TAR_NOCOMBAT,
                 cast_transmute_water_air);
-  SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_AIR);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_AIR);
 
   SPELL_CREATE("transmute air to water", SPELL_TRANS_AIR_WATER, PULSE_SPELLCAST * 4,
                 TAR_IGNORE | TAR_NOCOMBAT,
                 cast_transmute_air_water);
-  SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_AIR);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_AIR);
 
   SPELL_CREATE("transmute rock to lava", SPELL_TRANS_ROCK_LAVA, PULSE_SPELLCAST * 4,
                 TAR_IGNORE | TAR_NOCOMBAT,
                 cast_transmute_rock_lava);
-  SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_FIRE);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_FIRE);
 
   SPELL_CREATE("transmute lava to rock", SPELL_TRANS_LAVA_ROCK, PULSE_SPELLCAST * 4,
                 TAR_IGNORE | TAR_NOCOMBAT,
                 cast_transmute_lava_rock);
-  SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_FIRE);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_FIRE);
 
   SPELL_CREATE("vines", SPELL_VINES, PULSE_SPELLCAST * 3,
                 TAR_SELF_ONLY, cast_vines);
@@ -622,11 +727,25 @@ void initialize_skills()
                 cast_awaken_forest);
   SPEC_SPELL_ADD(CLASS_DRUID, 11, SPEC_FOREST);
 
+<<<<<<< HEAD
   SPELL_CREATE("spike growth", SPELL_SPIKE_GROWTH, PULSE_SPELLCAST * 5, TAR_AREA | TAR_AGGRO, 
                 cast_spike_growth);
   SPEC_SPELL_ADD(CLASS_DRUID, 11, SPEC_STORM);
 
   SPELL_CREATE("hurricane", SPELL_HURRICANE, PULSE_SPELLCAST * 5, TAR_AREA | TAR_AGGRO, cast_hurricane);
+=======
+  SPELL_CREATE("awaken forest", SPELL_AWAKEN_FOREST, PULSE_SPELLCAST * 4,
+                TAR_AREA | TAR_AGGRO, cast_awaken_forest);
+  SPEC_SPELL_ADD(CLASS_DRUID, 11, SPEC_WOODLAND);
+
+
+  SPELL_CREATE("spike growth", SPELL_SPIKE_GROWTH, PULSE_SPELLCAST * 5,
+                TAR_AREA | TAR_AGGRO, cast_spike_growth);
+  SPEC_SPELL_ADD(CLASS_DRUID, 11, SPEC_STORM);
+
+  SPELL_CREATE("hurricane", SPELL_HURRICANE, PULSE_SPELLCAST * 5,
+                TAR_AREA | TAR_AGGRO, cast_hurricane);
+>>>>>>> master
   SPEC_SPELL_ADD(CLASS_DRUID, 10, SPEC_STORM);
   SPEC_SPELL_ADD(CLASS_ETHERMANCER, 11, SPEC_WINDTALKER);
 
@@ -701,8 +820,13 @@ void initialize_skills()
                spell_ethereal_rift);
   SPELL_ADD(CLASS_MINDFLAYER, 10);
 
+<<<<<<< HEAD
   SPELL_CREATE("wormhole", SPELL_WORMHOLE, PULSE_SPELLCAST * 4, TAR_CHAR_WORLD | TAR_NOCOMBAT, 
                spell_wormhole);
+=======
+  SPELL_CREATE("wormhole", SPELL_WORMHOLE, PULSE_SPELLCAST * 7,
+                TAR_CHAR_WORLD | TAR_NOCOMBAT, spell_wormhole);
+>>>>>>> master
   SPELL_ADD(CLASS_PSIONICIST, 10);
   SPELL_ADD(CLASS_MINDFLAYER, 9);
 
@@ -775,9 +899,18 @@ void initialize_skills()
   SPELL_ADD(CLASS_MINDFLAYER, 2);
   SPELL_ADD(CLASS_PSIONICIST, 6);
 
+<<<<<<< HEAD
   SPELL_CREATE_MSG("combat mind", SPELL_COMBAT_MIND, PULSE_SPELLCAST, TAR_SELF_ONLY,
                    spell_combat_mind, "You forget your battle tactics.");
   SPELL_ADD(CLASS_PSIONICIST, 1);
+=======
+  SPELL_CREATE_MSG("combat mind", SPELL_COMBAT_MIND, PULSE_SPELLCAST,
+                TAR_SELF_ONLY,
+                spell_combat_mind, "You forget your battle tactics.");
+  SPEC_SPELL_ADD(CLASS_PSIONICIST, 1, SPEC_PSYCHEPORTER);
+  SPEC_SPELL_ADD(CLASS_PSIONICIST, 1, SPEC_ENSLAVER);
+  SPEC_SPELL_ADD(CLASS_PSIONICIST, 1, SPEC_PYROKINETIC);
+>>>>>>> master
   SPELL_ADD(CLASS_MINDFLAYER, 1);
 
 /* what the hell is this? -Zod */
@@ -798,8 +931,13 @@ void initialize_skills()
   SPELL_ADD(CLASS_PSIONICIST, 6);
   SPELL_ADD(CLASS_MINDFLAYER, 2);
 
+<<<<<<< HEAD
   SPELL_CREATE("death field", SPELL_DEATH_FIELD, PULSE_SPELLCAST * 2, TAR_AREA | TAR_OFFAREA, 
                spell_death_field);
+=======
+  SPELL_CREATE("death field", SPELL_DEATH_FIELD, PULSE_SPELLCAST * 3,
+                TAR_AREA | TAR_OFFAREA, spell_death_field);
+>>>>>>> master
   SPELL_ADD(CLASS_PSIONICIST, 10);
   SPELL_ADD(CLASS_MINDFLAYER, 10);
 
@@ -859,7 +997,9 @@ void initialize_skills()
   SPELL_CREATE_MSG("inertial barrier", SPELL_INERTIAL_BARRIER, PULSE_SPELLCAST, TAR_SELF_ONLY,
                    spell_inertial_barrier, "Your &+Winertial barrier&n fades away.");
   SPELL_ADD(CLASS_MINDFLAYER, 7);
-  SPELL_ADD(CLASS_PSIONICIST, 8);
+  SPEC_SPELL_ADD(CLASS_PSIONICIST, 8, SPEC_PSYCHEPORTER);
+  SPEC_SPELL_ADD(CLASS_PSIONICIST, 8, SPEC_ENSLAVER);
+  SPEC_SPELL_ADD(CLASS_PSIONICIST, 8, SPEC_PYROKINETIC);
 
   SPELL_CREATE("inflict pain", SPELL_INFLICT_PAIN, PULSE_SPELLCAST * 1,
                TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_inflict_pain);
@@ -895,6 +1035,7 @@ void initialize_skills()
   SPELL_ADD(CLASS_PSIONICIST, 9);
 
   SPELL_CREATE_MSG("pyrokinesis", SPELL_PYROKINESIS, PULSE_SPELLCAST * 1,
+<<<<<<< HEAD
                    TAR_CHAR_ROOM + TAR_FIGHT_VICT | TAR_AGGRO,
                    spell_pyrokinesis, "&+MYou feel your body recover from the heat.&n");
   SPELL_ADD(CLASS_PSIONICIST, 11);
@@ -902,6 +1043,19 @@ void initialize_skills()
   SPELL_CREATE_MSG("cannibalize", SPELL_CANNIBALIZE, PULSE_SPELLCAST, TAR_SELF_ONLY,
                    spell_cannibalize, "&+YYou can no longer drain your victim!&N");
   SPELL_ADD(CLASS_PSIONICIST, 8);
+=======
+                TAR_CHAR_ROOM + TAR_FIGHT_VICT | TAR_AGGRO,
+				spell_pyrokinesis, "&+MYou feel your body recover from the heat.&n");
+  //SPELL_ADD(CLASS_PSIONICIST, 11);
+  SPEC_SPELL_ADD(CLASS_PSIONICIST, 11, 1);
+
+  SPELL_CREATE_MSG("cannibalize", SPELL_CANNIBALIZE, PULSE_SPELLCAST,
+                TAR_SELF_ONLY,
+                spell_cannibalize, "&+YYou can no longer drain your victim!&N");
+    SPEC_SPELL_ADD(CLASS_PSIONICIST, 8, SPEC_PSYCHEPORTER);
+  SPEC_SPELL_ADD(CLASS_PSIONICIST, 8, SPEC_ENSLAVER);
+  SPEC_SPELL_ADD(CLASS_PSIONICIST, 8, SPEC_PYROKINETIC);
+>>>>>>> master
   SPELL_ADD(CLASS_MINDFLAYER, 7);
 
 /* Removed
@@ -966,6 +1120,11 @@ void initialize_skills()
   SPELL_ADD(CLASS_SORCERER, 4);
   SPELL_ADD(CLASS_CONJURER, 4);
   SPELL_ADD(CLASS_DRUID, 4);
+<<<<<<< HEAD
+=======
+//  SPELL_ADD(CLASS_RANGER, 7);
+  SPELL_ADD(CLASS_ETHERMANCER, 4);
+>>>>>>> master
   SPELL_ADD(CLASS_BARD, 6);
   SPEC_SPELL_ADD(CLASS_REAVER, 7, SPEC_SHOCK_REAVER);
 
@@ -994,8 +1153,18 @@ void initialize_skills()
   SPELL_ADD(CLASS_ANTIPALADIN, 11);
   SPELL_ADD(CLASS_THEURGIST, 9);
 
+<<<<<<< HEAD
   SPELL_CREATE_MSG("wither", SPELL_WITHER, PULSE_SPELLCAST, TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO,
                    spell_wither, "You feel less &+Lwithered&n.");
+=======
+  SPELL_CREATE("life leech", SPELL_LIFE_LEECH, PULSE_SPELLCAST * 4/ 3,
+		  TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_life_leech);
+  SPELL_ADD(CLASS_NECROMANCER, 4);
+
+  SPELL_CREATE_MSG("wither", SPELL_WITHER, PULSE_SPELLCAST,
+                TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO,
+                spell_wither, "You feel less &+Lwithered&n.");
+>>>>>>> master
   SPELL_ADD(CLASS_ANTIPALADIN, 8);
   SPELL_ADD(CLASS_NECROMANCER, 7);
   SPEC_SPELL_ADD(CLASS_CLERIC, 6, SPEC_ZEALOT);
@@ -1041,9 +1210,16 @@ void initialize_skills()
   SPELL_ADD(CLASS_REAVER, 11);
 
   SPELL_CREATE("solbeeps missile barrage", SPELL_MISSILE_BARRAGE, PULSE_SPELLCAST * 2,
+<<<<<<< HEAD
                TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO,
                spell_solbeeps_missile_barrage);
   SPELL_ADD(CLASS_SORCERER, 11);
+=======
+                TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO,
+                spell_solbeeps_missile_barrage);
+	SPELL_ADD(CLASS_SORCERER, 11);
+       SPEC_SPELL_ADD(CLASS_SORCERER, 0, SPEC_WIZARD);
+>>>>>>> master
 
   SPELL_CREATE("anti-magic ray", SPELL_ANTI_MAGIC_RAY, PULSE_SPELLCAST * 2,
                TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_anti_magic_ray);
@@ -1123,7 +1299,7 @@ void initialize_skills()
   SPELL_CREATE("earthen maul", SPELL_EARTHEN_MAUL, PULSE_SPELLCAST * 2,
                TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_earthen_maul);
   SPELL_ADD(CLASS_DRUID, 6);
-  SPEC_SPELL_ADD(CLASS_CONJURER, 7, SPEC_EARTH);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 7, SPEC_EARTH);
 
   SPELL_CREATE("earth spike", SPELL_GROW_SPIKES, PULSE_SPELLCAST * 2,
                TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_grow_spike);
@@ -1191,7 +1367,7 @@ void initialize_skills()
                    TAR_SELF_ONLY | TAR_NOCOMBAT,
                    spell_mielikki_vitality, "&+GMielikki's blessing fades...&n");
   SPELL_ADD(CLASS_DRUID, 7);
-  SPELL_ADD(CLASS_RANGER, 8);
+  //SPELL_ADD(CLASS_RANGER, 8);
   
   SPELL_CREATE_MSG("bless", SPELL_BLESS, PULSE_SPELLCAST,
                    TAR_OBJ_INV | TAR_OBJ_EQUIP | TAR_CHAR_ROOM | TAR_NOCOMBAT,
@@ -1445,6 +1621,10 @@ void initialize_skills()
   SPELL_CREATE("cure critic", SPELL_CURE_CRITIC, PULSE_SPELLCAST * 2, TAR_CHAR_ROOM, 
                spell_cure_critic);
   SPELL_ADD(CLASS_CLERIC, 3);
+<<<<<<< HEAD
+=======
+  //SPELL_ADD(CLASS_NECROMANCER, 4);
+>>>>>>> master
   SPELL_ADD(CLASS_PALADIN, 6);
 
   SPELL_CREATE("cause critical", SPELL_CAUSE_CRITICAL, PULSE_SPELLCAST * 4 / 3,
@@ -1452,7 +1632,13 @@ void initialize_skills()
   SPELL_ADD(CLASS_CLERIC, 3);
   SPELL_ADD(CLASS_ANTIPALADIN, 6);
 
+<<<<<<< HEAD
   SPELL_CREATE("heal", SPELL_HEAL, PULSE_SPELLCAST * 3 / 2, TAR_CHAR_ROOM, spell_heal);
+=======
+  SPELL_CREATE("heal", SPELL_HEAL,
+               PULSE_SPELLCAST * 3 / 2, TAR_CHAR_ROOM | TAR_FIGHT_VICT, spell_heal);
+//  SPELL_ADD(CLASS_DRUID, 6);
+>>>>>>> master
   SPELL_ADD(CLASS_CLERIC, 5);
   SPELL_ADD(CLASS_PALADIN, 8);
 
@@ -1465,7 +1651,12 @@ void initialize_skills()
                spell_sticks_to_snakes);
   SPELL_ADD(CLASS_DRUID, 2);
 
+<<<<<<< HEAD
   SPELL_CREATE("full heal", SPELL_FULL_HEAL, PULSE_SPELLCAST * 2, TAR_CHAR_ROOM, spell_full_heal);
+=======
+  SPELL_CREATE("full heal", SPELL_FULL_HEAL, PULSE_SPELLCAST * 2,
+                TAR_CHAR_ROOM | TAR_FIGHT_VICT, spell_full_heal);
+>>>>>>> master
   SPELL_ADD(CLASS_CLERIC, 7);
 
   SPELL_CREATE_MSG("vitalize undead", SPELL_VITALIZE_UNDEAD, PULSE_SPELLCAST * 7 / 3, TAR_CHAR_ROOM,
@@ -1599,10 +1790,15 @@ void initialize_skills()
   SPELL_CREATE("unmaking", SPELL_UNMAKING, PULSE_SPELLCAST * 3, TAR_OBJ_ROOM | TAR_NOCOMBAT, spell_unmaking);
   SPELL_ADD(CLASS_WARLOCK, 4);
   SPEC_SPELL_ADD(CLASS_NECROMANCER, 4, SPEC_DIABOLIS);
+  SPEC_SPELL_ADD(CLASS_ANTIPALADIN, 4, SPEC_VIOLATOR);
+/*
+  SPELL_CREATE("consume corpse", SPELL_UNMAKING, PULSE_SPELLCAST * 3,
+		  TAR_OBJ_ROOM | TAR_NOCOMBAT, spell_unmaking);
+  SPEC_SPELL_ADD(CLASS_ANTIPALADIN, 4, SPEC_VIOLATOR);
 
   SPELL_CREATE("return soul", SPELL_UNMAKING, PULSE_SPELLCAST * 3, TAR_OBJ_ROOM | TAR_NOCOMBAT, spell_unmaking);
   SPEC_SPELL_ADD(CLASS_THEURGIST, 4, SPEC_MEDIUM);
-
+*/
   SPELL_CREATE("dispel invisible", SPELL_DISPEL_INVISIBLE, PULSE_SPELLCAST * 2,
                TAR_CHAR_ROOM | TAR_OBJ_INV | TAR_OBJ_ROOM | TAR_OBJ_EQUIP | TAR_NOCOMBAT,
                spell_dispel_invisible);
@@ -1699,8 +1895,16 @@ void initialize_skills()
   SPELL_CREATE("cyclone", SPELL_CYCLONE, PULSE_SPELLCAST * 2, TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, 
                spell_cyclone);
   SPELL_ADD(CLASS_DRUID, 7);
+<<<<<<< HEAD
   SPEC_SPELL_ADD(CLASS_CONJURER, 7, SPEC_AIR);
   SPEC_SPELL_ADD(CLASS_ETHERMANCER, 7, SPEC_WINDTALKER);
+=======
+  //SPEC_SPELL_ADD(CLASS_DRUID, 7, SPEC_STORM);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 7, SPEC_AIR);
+
+ SPEC_SPELL_ADD(CLASS_ETHERMANCER, 7, SPEC_FROST_MAGUS);
+ SPEC_SPELL_ADD(CLASS_ETHERMANCER, 6, SPEC_WINDTALKER);
+>>>>>>> master
 
   SPELL_CREATE("sirens song", SPELL_SIREN_SONG, PULSE_SPELLCAST * 2,
                TAR_CHAR_ROOM | TAR_CHAR_RANGE | TAR_AGGRO, spell_siren_song);
@@ -1806,6 +2010,7 @@ void initialize_skills()
   SPELL_CREATE_MSG("pass without trace", SPELL_PASS_WITHOUT_TRACE, PULSE_SPELLCAST * 2, TAR_SELF_ONLY,
                    spell_pass_without_trace, "You feel less likely to pass unnoticed.");
   SPELL_ADD(CLASS_DRUID, 8);
+<<<<<<< HEAD
   SPEC_SPELL_ADD(CLASS_RANGER, 10, SPEC_HUNTSMAN);
 
   SPELL_CREATE_MSG("sanctuary", SPELL_SANCTUARY, PULSE_SPELLCAST, TAR_SELF_ONLY,
@@ -1815,6 +2020,23 @@ void initialize_skills()
   SPELL_CREATE_MSG("hellfire", SPELL_HELLFIRE, PULSE_SPELLCAST, TAR_SELF_ONLY,
                    spell_hellfire, "&+RYour burning hellfire &n&+rfades...");
   SPELL_ADD(CLASS_ANTIPALADIN, 11);
+=======
+  //SPEC_SPELL_ADD(CLASS_RANGER, 10, SPEC_WOODSMAN);
+
+
+  SPELL_CREATE_MSG("sanctuary", SPELL_SANCTUARY, PULSE_SPELLCAST,
+                TAR_SELF_ONLY,
+                spell_sanctuary, "&+WYour glowing sanctuary &n&+wfades.");
+  SPELL_ADD(CLASS_PALADIN, 10);
+
+  SPELL_CREATE_MSG("hellfire", SPELL_HELLFIRE, PULSE_SPELLCAST,
+                TAR_SELF_ONLY,
+                spell_hellfire, "&+RYour burning hellfire &n&+rfades.");
+  //SPEC_SPELL_ADD(CLASS_ANTIPALADIN, 10, SPEC_DARKKNIGHT);
+  //SPEC_SPELL_ADD(CLASS_ANTIPALADIN, 9, SPEC_DEMONIC);
+  SPELL_ADD(CLASS_ANTIPALADIN, 10);
+  SPEC_SPELL_ADD(CLASS_ANTIPALADIN, 0, SPEC_VIOLATOR);
+>>>>>>> master
 
   SPELL_CREATE_MSG("stornogs metamagic shroud", SPELL_STORNOGS_LOWERED_RES, PULSE_SPELLCAST * 3,
                    TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO,
@@ -1830,6 +2052,10 @@ void initialize_skills()
                spell_stornogs_spheres);
   SPELL_ADD(CLASS_CONJURER, 11);
 
+  SPELL_CREATE_MSG("decaying flesh", SPELL_DECAYING_FLESH, PULSE_SPELLCAST * 1,
+		TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_decaying_flesh, "The &+gdecay&n finally leaves your body.");
+  SPEC_SPELL_ADD(CLASS_ANTIPALADIN, 3, SPEC_VIOLATOR);
+
   SPELL_CREATE("group stornogs spheres", SPELL_STORNOGS_GREATER_SPHERES, PULSE_SPELLCAST * 7,
                TAR_SELF_ONLY, spell_group_stornog);
   SPELL_ADD(CLASS_CONJURER, 12);
@@ -1839,10 +2065,18 @@ void initialize_skills()
   SPELL_ADD(CLASS_NECROMANCER, 10);
   SPELL_ADD(CLASS_THEURGIST, 10);
 
+<<<<<<< HEAD
   SPELL_CREATE("acidimmolate", SPELL_ACIDIMMOLATE, PULSE_SPELLCAST * 2, 
                TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_acidimmolate);
   SPELL_ADD(CLASS_SORCERER, 9);
   SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_EARTH);
+=======
+  SPELL_CREATE("acidimmolate", SPELL_ACIDIMMOLATE, PULSE_SPELLCAST * 2,
+                TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_acidimmolate);
+ //SPELL_ADD(CLASS_SORCERER, 9);
+  SPELL_ADD(CLASS_CONJURER, 3);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_EARTH);
+>>>>>>> master
 
   SPELL_CREATE("immolate", SPELL_IMMOLATE, PULSE_SPELLCAST * 2, TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, 
                spell_immolate);
@@ -1853,9 +2087,19 @@ void initialize_skills()
                TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AREA | TAR_AGGRO, spell_cdoom);
   SPELL_ADD(CLASS_DRUID, 10);
 
+<<<<<<< HEAD
   SPELL_CREATE("prismatic cube", SPELL_PRISMATIC_CUBE, PULSE_SPELLCAST * 4, TAR_IGNORE | TAR_NOCOMBAT, 
                cast_prismatic_cube);
   SPELL_ADD(CLASS_CONJURER, 11);
+=======
+  SPELL_CREATE("prismatic cube", SPELL_PRISMATIC_CUBE, PULSE_SPELLCAST * 4,
+                TAR_IGNORE | TAR_NOCOMBAT, cast_prismatic_cube);
+SPELL_ADD(CLASS_CONJURER, 11);
+//SPEC_SPELL_ADD(CLASS_CONJURER, 11, SPEC_WATER);
+//SPEC_SPELL_ADD(CLASS_CONJURER, 11, SPEC_AIR);
+//SPEC_SPELL_ADD(CLASS_CONJURER, 11, SPEC_FIRE);
+//SPEC_SPELL_ADD(CLASS_CONJURER, 11, SPEC_EARTH);
+>>>>>>> master
 
   SPELL_CREATE_MSG("lodestone vision", SPELL_LODESTONE, PULSE_SPELLCAST,
                    TAR_SELF_ONLY | TAR_NOCOMBAT, spell_lodestone_vision,
@@ -1870,9 +2114,16 @@ void initialize_skills()
   SPEC_SPELL_ADD(CLASS_REAVER, 8, SPEC_SHOCK_REAVER);
   SPELL_ADD(CLASS_THEURGIST, 8);
 
+<<<<<<< HEAD
   SPELL_CREATE_MSG("group haste", SPELL_GROUP_HASTE, PULSE_SPELLCAST * 4, TAR_IGNORE, 
                    spell_group_haste, "The world speeds up around you.");
   SPEC_SPELL_ADD(CLASS_CONJURER, 9, SPEC_AIR);
+=======
+  SPELL_CREATE_MSG("group haste", SPELL_GROUP_HASTE, PULSE_SPELLCAST * 4,
+               TAR_IGNORE, spell_group_haste,
+               "The world speeds up around you.");
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 9, SPEC_AIR);
+>>>>>>> master
 
   SPELL_CREATE("word of recall", SPELL_WORD_OF_RECALL, 0, TAR_SELF_ONLY, spell_word_of_recall);
   SPELL_ADD(CLASS_CLERIC, 9);
@@ -1903,21 +2154,49 @@ void initialize_skills()
   SPELL_ADD(CLASS_BARD, 7);
   SPELL_ADD(CLASS_WARLOCK, 6);
 
+<<<<<<< HEAD
   SPELL_CREATE("conjure elemental", SPELL_CONJURE_ELEMENTAL, PULSE_SPELLCAST * 4, 
                TAR_IGNORE | TAR_NOCOMBAT,
                spell_conjure_elemental);
+=======
+  SPELL_CREATE("conjure elemental", SPELL_CONJURE_ELEMENTAL, PULSE_SPELLCAST * 4,
+                TAR_IGNORE,
+                spell_conjour_elemental);
+>>>>>>> master
   SPELL_ADD(CLASS_CONJURER, 5);
+  SPEC_SPELL_ADD(CLASS_CONJURER, 13, SPEC_AIR);
+  SPEC_SPELL_ADD(CLASS_CONJURER, 13, SPEC_FIRE);
+  SPEC_SPELL_ADD(CLASS_CONJURER, 13, SPEC_WATER);
+  SPEC_SPELL_ADD(CLASS_CONJURER, 13, SPEC_EARTH);
 
+<<<<<<< HEAD
   SPELL_CREATE("mirror image", SPELL_MIRROR_IMAGE, PULSE_SPELLCAST * 2, TAR_IGNORE | TAR_NOCOMBAT, 
                spell_mirror_image);
+=======
+  SPELL_CREATE("mirror image", SPELL_MIRROR_IMAGE, PULSE_SPELLCAST * 2,
+                TAR_IGNORE, spell_mirror_image);
+>>>>>>> master
   SPELL_ADD(CLASS_CONJURER, 2);
   SPELL_ADD(CLASS_BARD, 2);
   SPELL_ADD(CLASS_ILLUSIONIST, 3);
 
   SPELL_CREATE("conjure greater elemental", SPELL_CONJURE_GREATER_ELEMENTAL, PULSE_SPELLCAST * 4,
+<<<<<<< HEAD
                TAR_IGNORE | TAR_NOCOMBAT,
                spell_conjure_greater_elemental);
+=======
+                TAR_IGNORE,
+                spell_conjour_greater_elemental);
+>>>>>>> master
   SPELL_ADD(CLASS_CONJURER, 11);
+  SPEC_SPELL_ADD(CLASS_CONJURER, 13, SPEC_AIR);
+  SPEC_SPELL_ADD(CLASS_CONJURER, 13, SPEC_FIRE);
+  SPEC_SPELL_ADD(CLASS_CONJURER, 13, SPEC_WATER);
+  SPEC_SPELL_ADD(CLASS_CONJURER, 13, SPEC_EARTH);
+//SPEC_SPELL_ADD(CLASS_CONJURER, 11, SPEC_AIR);
+//SPEC_SPELL_ADD(CLASS_CONJURER, 11, SPEC_FIRE);
+//SPEC_SPELL_ADD(CLASS_CONJURER, 11, SPEC_WATER);
+//SPEC_SPELL_ADD(CLASS_CONJURER, 11, SPEC_EARTH);
 
   SPELL_CREATE("vitalize mana", SPELL_VITALIZE_MANA, PULSE_SPELLCAST, TAR_SELF_ONLY, spell_vitalize_mana);
 
@@ -2079,9 +2358,15 @@ void initialize_skills()
   SPELL_ADD(CLASS_SORCERER, 6);
   SPELL_ADD(CLASS_CONJURER, 6);
 
+<<<<<<< HEAD
   SPELL_CREATE("incendiary cloud", SPELL_INCENDIARY_CLOUD, (int) (PULSE_SPELLCAST * 2.5),
                TAR_AREA | TAR_OFFAREA | TAR_AGGRO,
                spell_incendiary_cloud);
+=======
+  SPELL_CREATE("incendiary cloud", SPELL_INCENDIARY_CLOUD, (int) (PULSE_SPELLCAST * 3),
+                TAR_AREA | TAR_OFFAREA | TAR_AGGRO,
+                spell_incendiary_cloud);
+>>>>>>> master
   SPELL_ADD(CLASS_SORCERER, 9);
 
   SPELL_CREATE("ice storm", SPELL_ICE_STORM, PULSE_SPELLCAST * 2, TAR_AREA | TAR_OFFAREA  | TAR_AGGRO, 
@@ -2190,14 +2475,20 @@ void initialize_skills()
                cast_wall_of_flames);
   SPELL_ADD(CLASS_CONJURER, 7);
 
+<<<<<<< HEAD
   SPELL_CREATE("wall of ice", SPELL_WALL_OF_ICE, PULSE_SPELLCAST * 4, TAR_IGNORE | TAR_NOCOMBAT, 
                cast_wall_of_ice);
+=======
+  SPELL_CREATE("wall of ice", SPELL_WALL_OF_ICE, PULSE_SPELLCAST * 6,
+                TAR_IGNORE | TAR_NOCOMBAT, cast_wall_of_ice);
+>>>>>>> master
   SPELL_ADD(CLASS_CONJURER, 7);
   SPEC_SPELL_ADD(CLASS_ETHERMANCER, 7, SPEC_FROST_MAGUS);
-  SPEC_SPELL_ADD(CLASS_ETHERMANCER, 9, SPEC_WINDTALKER);
+  //SPEC_SPELL_ADD(CLASS_ETHERMANCER, 9, SPEC_WINDTALKER);
   
   SPELL_CREATE("life ward", SPELL_LIFE_WARD, PULSE_SPELLCAST * 4, TAR_IGNORE | TAR_NOCOMBAT, cast_life_ward);
   SPELL_ADD(CLASS_WARLOCK, 10);
+<<<<<<< HEAD
 
   SPELL_CREATE("wall of stone", SPELL_WALL_OF_STONE, PULSE_SPELLCAST * 4, TAR_IGNORE | TAR_NOCOMBAT, 
                cast_wall_of_stone);
@@ -2213,9 +2504,29 @@ void initialize_skills()
   SPELL_ADD(CLASS_CONJURER, 9);
 	
   SPELL_CREATE("wall of bones", SPELL_WALL_OF_BONES, PULSE_SPELLCAST * 5,
+=======
+  SPELL_CREATE("wall of stone", SPELL_WALL_OF_STONE, PULSE_SPELLCAST * 6,
+                TAR_IGNORE | TAR_NOCOMBAT, cast_wall_of_stone);
+  SPELL_ADD(CLASS_CONJURER, 5);
+
+  SPELL_CREATE("wall of iron", SPELL_WALL_OF_IRON, PULSE_SPELLCAST * 7,
+                TAR_IGNORE | TAR_NOCOMBAT, cast_wall_of_iron);
+  SPELL_ADD(CLASS_CONJURER, 6);
+  SPEC_SPELL_ADD(CLASS_ETHERMANCER, 10, SPEC_COSMOMANCER);
+
+  SPELL_CREATE("wall of force", SPELL_WALL_OF_FORCE, PULSE_SPELLCAST * 2,
+                TAR_IGNORE | TAR_NOCOMBAT, cast_wall_of_force);
+  SPELL_ADD(CLASS_CONJURER, 4);
+ /* SPEC_SPELL_ADD(CLASS_CONJURER, 9, SPEC_AIR);
+  SPEC_SPELL_ADD(CLASS_CONJURER, 9, SPEC_WATER);
+  SPEC_SPELL_ADD(CLASS_CONJURER, 9, SPEC_EARTH);
+  SPEC_SPELL_ADD(CLASS_CONJURER, 9, SPEC_FIRE);*/
+
+  SPELL_CREATE("wall of bones", SPELL_WALL_OF_BONES, PULSE_SPELLCAST * 7,
+>>>>>>> master
                 TAR_IGNORE | TAR_NOCOMBAT, cast_wall_of_bones);
-  SPELL_ADD(CLASS_NECROMANCER, 10);
-  SPELL_ADD(CLASS_THEURGIST, 10);
+ // SPELL_ADD(CLASS_NECROMANCER, 10);
+ // SPELL_ADD(CLASS_THEURGIST, 10);
 
   SPELL_CREATE("lightning curtain", SPELL_LIGHTNING_CURTAIN, PULSE_SPELLCAST * 4, TAR_IGNORE | TAR_NOCOMBAT,
                 cast_lightning_curtain);
@@ -2225,6 +2536,15 @@ void initialize_skills()
   SPELL_CREATE_MSG("self comprehension", SPELL_SELF_COMPREHENSION, PULSE_SPELLCAST * 2,
                 TAR_SELF_ONLY | TAR_NOCOMBAT,
                 spell_comprehend_languages, "You can no longer understand languages.");
+<<<<<<< HEAD
+=======
+//   SPELL_ADD(CLASS_SORCERER, 4);
+//   SPELL_ADD(CLASS_CONJURER, 4);
+//   SPELL_ADD(CLASS_BARD, 4);
+//   SPELL_ADD(CLASS_NECROMANCER, 4);
+//   SPELL_ADD(CLASS_ILLUSIONIST, 4);
+  SPELL_ADD(CLASS_CLERIC, 4);
+>>>>>>> master
 
   SPELL_CREATE_MSG("comprehend languages", SPELL_COMPREHEND_LANGUAGES, PULSE_SPELLCAST * 2,
                 TAR_CHAR_ROOM | TAR_NOCOMBAT,
@@ -2265,11 +2585,21 @@ void initialize_skills()
   SPEC_SPELL_ADD(CLASS_PALADIN, 10, SPEC_CAVALIER);
   SPEC_SPELL_ADD(CLASS_PALADIN, 10, SPEC_CRUSADER);
 
+<<<<<<< HEAD
   SPELL_CREATE_MSG("battle ecstasy", SPELL_BATTLE_ECSTASY, PULSE_SPELLCAST * 3, TAR_SELF_ONLY, 
                    spell_battle_ecstasy, "&+WYou feel your inner turmoil disappear&n.");
   SPEC_SPELL_ADD(CLASS_ANTIPALADIN, 10, SPEC_KNIGHT);
   SPEC_SPELL_ADD(CLASS_ANTIPALADIN, 10, SPEC_DEMONIC);
   SPELL_ADD(CLASS_ANTIPALADIN, 11);
+=======
+  SPELL_CREATE_MSG("battle ecstasy", SPELL_BATTLE_ECSTASY, PULSE_SPELLCAST * 3,
+                TAR_SELF_ONLY, spell_battle_ecstasy,
+               "&+WYou feel your inner turmoil disappear&n.");
+  //SPEC_SPELL_ADD(CLASS_ANTIPALADIN, 9, SPEC_DARKKNIGHT);
+  //SPEC_SPELL_ADD(CLASS_ANTIPALADIN, 9, SPEC_DEMONIC);
+  SPELL_ADD(CLASS_ANTIPALADIN, 8);
+  SPEC_SPELL_ADD(CLASS_ANTIPALADIN, 0, SPEC_VIOLATOR);
+>>>>>>> master
 
   SPELL_CREATE("mass heal", SPELL_MASS_HEAL, PULSE_SPELLCAST * 2, TAR_IGNORE, spell_mass_heal);
   SPELL_ADD(CLASS_CLERIC, 8);
@@ -2600,7 +2930,12 @@ void initialize_skills()
                    spell_greater_spirit_ward, "The dim aura around you fades...");
   SPELL_ADD(CLASS_SHAMAN, 9);
 
+<<<<<<< HEAD
   SPELL_CREATE("etherportal", SPELL_ETHERPORTAL, PULSE_SPELLCAST * 10, TAR_CHAR_WORLD | TAR_NOCOMBAT | TAR_SPIRIT,
+=======
+  SPELL_CREATE("etherportal", SPELL_ETHERPORTAL, PULSE_SPELLCAST * 7,
+                TAR_CHAR_WORLD | TAR_NOCOMBAT | TAR_SPIRIT,
+>>>>>>> master
                 spell_etherportal);
   SPELL_ADD(CLASS_SHAMAN, 10);
 
@@ -2642,9 +2977,16 @@ void initialize_skills()
                    spell_ferrix_precision, "&+BYou feel less precise&n");
   SPELL_ADD(CLASS_REAVER, 7);
 
+<<<<<<< HEAD
   SPELL_CREATE_MSG("eshabalas vitality", SPELL_ESHABALAS_VITALITY, PULSE_SPELLCAST, TAR_SELF_ONLY,
                    spell_eshabalas_vitality, "&+mYou feel a bit worn out now that Eshabala has left you.&n");
   SPELL_ADD(CLASS_REAVER, 9);
+=======
+  SPELL_CREATE_MSG("eshabalas vitality", SPELL_ESHABALAS_VITALITY, PULSE_SPELLCAST,
+                TAR_SELF_ONLY,
+                spell_eshabalas_vitality, "&+mYou feel a bit worn out now that Eshabala has left you.&n");
+  //SPELL_ADD(CLASS_REAVER, 9);
+>>>>>>> master
 
   SPELL_CREATE_MSG("cegilunes searing blade", SPELL_CEGILUNE_BLADE, PULSE_SPELLCAST * 4 / 3,
                    TAR_SELF_ONLY | TAR_NOCOMBAT,
@@ -2720,9 +3062,15 @@ void initialize_skills()
   SPELL_CREATE("mask", SPELL_MASK, PULSE_SPELLCAST * 3, TAR_IGNORE | TAR_NOCOMBAT, spell_mask);
   SPELL_ADD(CLASS_ILLUSIONIST, 8);
 
+<<<<<<< HEAD
   SPELL_CREATE("watching wall", SPELL_WATCHING_WALL, PULSE_SPELLCAST * 5, TAR_IGNORE | TAR_NOCOMBAT, 
                spell_watching_wall);
   SPEC_SPELL_ADD(CLASS_ILLUSIONIST, 6, SPEC_MAGICIAN);
+=======
+  SPELL_CREATE("watching wall", SPELL_WATCHING_WALL, PULSE_SPELLCAST * 5,
+                TAR_IGNORE | TAR_NOCOMBAT, spell_watching_wall);
+  //SPEC_SPELL_ADD(CLASS_ILLUSIONIST, 6, SPEC_DECEIVER);
+>>>>>>> master
 
   SPELL_CREATE_MSG("nightmare", SPELL_NIGHTMARE, PULSE_SPELLCAST, TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO,
                    spell_nightmare, "You feel less frightend.");
@@ -2818,7 +3166,7 @@ void initialize_skills()
   SPELL_CREATE("ethereal recharge", SPELL_ETHEREAL_RECHARGE, PULSE_SPELLCAST * 3 / 2, TAR_CHAR_ROOM,
                spell_ethereal_recharge);
   SPELL_ADD(CLASS_ETHERMANCER, 8);
-  SPEC_SPELL_ADD(CLASS_CONJURER, 8, SPEC_AIR);
+  //SPEC_SPELL_ADD(CLASS_CONJURER, 8, SPEC_AIR);
 
   SPELL_CREATE("arcane whirlwind", SPELL_ARCANE_WHIRLWIND, PULSE_SPELLCAST * 3,
                TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_SELF_NONO | TAR_AGGRO,
@@ -2833,8 +3181,14 @@ void initialize_skills()
   SPELL_CREATE("purge", SPELL_PURGE, PULSE_SPELLCAST * 3, TAR_CHAR_ROOM | TAR_FIGHT_VICT, spell_purge);
   SPELL_ADD(CLASS_ETHERMANCER, 10);
 
+<<<<<<< HEAD
   SPELL_CREATE("conjure air", SPELL_CONJURE_AIR, PULSE_SPELLCAST * 3, TAR_IGNORE | TAR_NOCOMBAT, spell_conjure_air);
   SPEC_SPELL_ADD(CLASS_ETHERMANCER, 7, SPEC_WINDTALKER);
+=======
+  SPELL_CREATE("conjure air", SPELL_CONJURE_AIR, PULSE_SPELLCAST * 3,
+                TAR_IGNORE | TAR_NOCOMBAT, spell_conjure_air);
+  SPEC_SPELL_ADD(CLASS_ETHERMANCER, 5, SPEC_WINDTALKER);
+>>>>>>> master
 
   SPELL_CREATE("conjure void", SPELL_CONJURE_VOID, PULSE_SPELLCAST * 3, TAR_IGNORE | TAR_NOCOMBAT, 
                spell_conjure_void_elemental);
@@ -2874,9 +3228,9 @@ void initialize_skills()
 
   SPELL_CREATE_MSG("path of frost", SPELL_PATH_OF_FROST, PULSE_SPELLCAST * 5, TAR_SELF_ONLY,
                 spell_path_of_frost, "Your tracks return to normal.");
-  SPELL_ADD(CLASS_ETHERMANCER, 12);
-  SPEC_SPELL_ADD(CLASS_ETHERMANCER, 10, SPEC_FROST_MAGUS);
-  SPEC_SPELL_ADD(CLASS_ETHERMANCER, 11, SPEC_WINDTALKER);
+  //SPELL_ADD(CLASS_ETHERMANCER, 12);
+  //SPEC_SPELL_ADD(CLASS_ETHERMANCER, 10, SPEC_FROST_MAGUS);
+  //SPEC_SPELL_ADD(CLASS_ETHERMANCER, 11, SPEC_WINDTALKER);
   
   SPELL_CREATE("static discharge", SPELL_STATIC_DISCHARGE, PULSE_SPELLCAST, 
                TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_static_discharge);
@@ -2945,7 +3299,7 @@ void initialize_skills()
 
   SPELL_CREATE_MSG("holy sword", SPELL_HOLY_SWORD, PULSE_SPELLCAST * 4 / 3, TAR_SELF_ONLY,
                    spell_holy_sword, "&+wYour weapon ceases to glow with holy power.&n");
-  SPELL_ADD(CLASS_AVENGER, 11);
+  SPELL_ADD(CLASS_PALADIN, 10);
 
   SPELL_CREATE_MSG("divine power", SPELL_DIVINE_POWER, PULSE_SPELLCAST * 4, TAR_SELF_ONLY,
                    spell_divine_power, "&+wThe divine energies leave your body.&n");
@@ -2969,8 +3323,18 @@ void initialize_skills()
 
   SKILL_CREATE("dirt toss", SKILL_DIRTTOSS, TAR_PHYS);
   SKILL_ADD(CLASS_THIEF, 1, 90);
+<<<<<<< HEAD
   SPEC_SKILL_ADD(CLASS_ROGUE, 1, 80, SPEC_THIEF);
 #if 0
+=======
+  SPEC_SKILL_ADD(CLASS_ROGUE, 1, 90, SPEC_THIEF);
+
+  SKILL_CREATE("sneaky strike", SKILL_SNEAKY_STRIKE, TAR_PHYS);
+  SKILL_ADD(CLASS_BARD, 30, 90);
+  SKILL_ADD(CLASS_ROGUE, 30, 100);
+  SKILL_ADD(CLASS_MERCENARY, 30, 85);
+
+>>>>>>> master
   SKILL_CREATE("climb", SKILL_CLIMB, TAR_PHYS);
   SKILL_ADD(CLASS_ROGUE, 1, 100);
   SKILL_ADD(CLASS_THIEF, 1, 100);
@@ -3006,6 +3370,11 @@ void initialize_skills()
   SKILL_ADD(CLASS_THIEF, 20, 100);
   SKILL_ADD(CLASS_ROGUE, 20, 60);
 
+  SKILL_CREATE("riff", SKILL_RIFF, 0);
+  SPEC_SKILL_ADD(CLASS_BARD, 30, 100, SPEC_SCOUNDREL);
+  SPEC_SKILL_ADD(CLASS_BARD, 30, 100, SPEC_MINSTREL);
+  SPEC_SKILL_ADD(CLASS_BARD, 30, 100, SPEC_DISHARMONIST);
+
   SKILL_CREATE("disguise", SKILL_DISGUISE, 0);
   SKILL_ADD(CLASS_ROGUE, 46, 60);
   SPEC_SKILL_ADD(CLASS_ROGUE, 30, 95, SPEC_THIEF);
@@ -3015,7 +3384,7 @@ void initialize_skills()
 
   SKILL_CREATE("trip", SKILL_TRIP, TAR_PHYS);
   SKILL_ADD(CLASS_THIEF, 16, 100);
-  SPEC_SKILL_ADD(CLASS_BARD, 51, 50, SPEC_SCOUNDREL);
+  SPEC_SKILL_ADD(CLASS_BARD, 51, 95, SPEC_SCOUNDREL);
   SPEC_SKILL_ADD(CLASS_ROGUE, 16, 95, SPEC_THIEF);
 
 #if 0
@@ -3023,15 +3392,53 @@ void initialize_skills()
   SKILL_ADD(CLASS_NECROMANCER, 1, 100);
   SKILL_ADD(CLASS_THEURGIST, 1, 100);
   SKILL_ADD(CLASS_MONK, 1, 100);
+<<<<<<< HEAD
   SKILL_ADD(CLASS_THIEF, 25, 100);
   SPEC_SKILL_ADD(CLASS_ROGUE, 16, 100, SPEC_THIEF);
 #endif
+=======
+
+
+  SKILL_CREATE("salvage", SKILL_SALVAGE, TAR_PHYS);
+  SKILL_ADD(CLASS_ANTIPALADIN, 1, 100);
+  SKILL_ADD(CLASS_ASSASSIN, 1, 100);
+  SKILL_ADD(CLASS_BARD, 1, 100);
+  SKILL_ADD(CLASS_PSIONICIST, 1, 100);
+  SKILL_ADD(CLASS_MINDFLAYER, 1, 100);
+  SKILL_ADD(CLASS_CLERIC, 1, 100);
+  SKILL_ADD(CLASS_CONJURER, 1, 100);
+  SKILL_ADD(CLASS_DRUID, 1, 100);
+  SKILL_ADD(CLASS_MERCENARY, 1, 100);
+  SKILL_ADD(CLASS_PALADIN, 1, 100);
+  SKILL_ADD(CLASS_RANGER, 1, 100);
+  SKILL_ADD(CLASS_SORCERER, 1, 100);
+  SKILL_ADD(CLASS_WARLOCK, 1, 100);
+  SKILL_ADD(CLASS_NECROMANCER, 1, 100);
+  SKILL_ADD(CLASS_CABALIST, 1, 100);
+  SKILL_ADD(CLASS_ROGUE, 1, 100);
+  SKILL_ADD(CLASS_THIEF, 1, 100);
+  SKILL_ADD(CLASS_WARRIOR, 1, 100);
+  SKILL_ADD(CLASS_SHAMAN, 1, 100);
+  SKILL_ADD(CLASS_ETHERMANCER, 1, 100);
+  SKILL_ADD(CLASS_MONK, 1, 100);
+  SKILL_ADD(CLASS_ALCHEMIST, 1, 100);
+  SKILL_ADD(CLASS_BERSERKER, 1, 100);
+  SKILL_ADD(CLASS_ILLUSIONIST, 1, 100);
+  SKILL_ADD(CLASS_REAVER, 1, 100);
+  SKILL_ADD(CLASS_DREADLORD, 1, 100);
+  SKILL_ADD(CLASS_AVENGER, 1, 100);
+
+
+>>>>>>> master
 
   SKILL_CREATE("quivering palm", SKILL_QUIVERING_PALM, TAR_PHYS);
   SKILL_ADD(CLASS_MONK, 10, 100);
 
   SKILL_CREATE("combination attack", SKILL_COMBINATION, TAR_PHYS);
   SKILL_ADD(CLASS_MONK, 10, 100);
+
+  SKILL_CREATE("blade barrage", SKILL_BLADE_BARRAGE, TAR_PHYS);
+  SKILL_ADD(CLASS_RANGER, 16, 100);
 
   SKILL_CREATE("regenerate", SKILL_REGENERATE, TAR_PHYS);
   SKILL_ADD(CLASS_MONK, 20, 100);
@@ -3110,7 +3517,6 @@ void initialize_skills()
 
   SKILL_CREATE("craft", SKILL_CRAFT, TAR_PHYS);
   SKILL_ADD(CLASS_ALCHEMIST, 21, 100);
-
   SKILL_CREATE("encrust", SKILL_ENCRUST, TAR_PHYS);
   SKILL_ADD(CLASS_ALCHEMIST, 51, 100);
 
@@ -3137,6 +3543,7 @@ void initialize_skills()
 
   SKILL_CREATE("tainted blade", SKILL_TAINTED_BLADE, TAR_PHYS);
   SKILL_ADD(CLASS_DREADLORD, 26, 100);
+  SPEC_SKILL_ADD(CLASS_ANTIPALADIN, 1, 100, SPEC_VIOLATOR);
 
   SKILL_CREATE("holy blade", SKILL_HOLY_BLADE, TAR_PHYS);
   SKILL_ADD(CLASS_AVENGER, 26, 100);
@@ -3180,8 +3587,14 @@ void initialize_skills()
   SKILL_ADD(CLASS_MONK, 1, 75);
   SKILL_ADD(CLASS_RANGER, 1, 85);
   SKILL_ADD(CLASS_REAVER, 1, 85);
+<<<<<<< HEAD
   SKILL_ADD(CLASS_DREADLORD, 41, 90);
   SKILL_ADD(CLASS_AVENGER, 41, 90);
+=======
+  SKILL_ADD(CLASS_DREADLORD, 26, 90);
+  SKILL_ADD(CLASS_AVENGER, 26, 90);
+  SPEC_SKILL_ADD(CLASS_CLERIC, 31, 85, SPEC_ZEALOT);
+>>>>>>> master
   SPEC_SKILL_ADD(CLASS_ALCHEMIST, 31, 100, SPEC_BATTLE_FORGER);
   SPEC_SKILL_ADD(CLASS_WARRIOR, 31, 100, SPEC_SWASHBUCKLER);
   SPEC_SKILL_ADD(CLASS_ROGUE, 1, 50, SPEC_ASSASSIN);
@@ -3230,7 +3643,7 @@ void initialize_skills()
   // SKILL_ADD(CLASS_BARD, 51, 100);
 
   SKILL_CREATE("song of charming", SONG_CHARMING, TAR_MENTAL);
-  SKILL_ADD(CLASS_BARD, 56, 100);
+  SKILL_ADD(CLASS_BARD, 36, 100);
 
   SKILL_CREATE("song of discord", SONG_DISCORD, TAR_MENTAL);
   SKILL_ADD(CLASS_BARD, 16, 100);
@@ -3245,7 +3658,7 @@ void initialize_skills()
   SKILL_ADD(CLASS_BARD, 46, 100);
 
   SKILL_CREATE("song of dragons", SONG_DRAGONS, TAR_MENTAL);
-  SKILL_ADD(CLASS_BARD, 31, 100);
+  SKILL_ADD(CLASS_BARD, 36, 100);
 
   SKILL_CREATE("song of sleep", SONG_SLEEP, TAR_MENTAL);
   SKILL_ADD(CLASS_BARD, 6, 100);
@@ -3254,7 +3667,7 @@ void initialize_skills()
   SKILL_ADD(CLASS_BARD, 16, 100);
 
   SKILL_CREATE("song of healing", SONG_HEALING, TAR_MENTAL);
-  SKILL_ADD(CLASS_BARD, 36, 100);
+  SKILL_ADD(CLASS_BARD, 31, 100);
 
   SKILL_CREATE("song of revelation", SONG_REVELATION, TAR_MENTAL);
   //SKILL_CREATE_WITH_MESSAGES("song of revelation", SONG_REVELATION, TAR_MENTAL,
@@ -3270,8 +3683,15 @@ void initialize_skills()
   SKILL_CREATE("song of protection", SONG_PROTECTION, TAR_MENTAL);
   SKILL_ADD(CLASS_BARD, 21, 100);
 
+<<<<<<< HEAD
   SKILL_CREATE_WITH_MESSAGES("song of heroism", SONG_HEROISM, TAR_MENTAL, "You no longer feel like a hero.", NULL);
   SKILL_ADD(CLASS_BARD, 46, 100);
+=======
+  SKILL_CREATE_WITH_MESSAGES("song of heroism", SONG_HEROISM,
+                             TAR_MENTAL,
+                             "You no longer feel like a hero.", NULL);
+  SKILL_ADD(CLASS_BARD, 41, 100);
+>>>>>>> master
 
   SKILL_CREATE("song of cowardice", SONG_COWARDICE, TAR_MENTAL);
   SKILL_ADD(CLASS_BARD, 21, 100);
@@ -3310,7 +3730,7 @@ void initialize_skills()
   SPEC_SKILL_ADD(CLASS_BARD, 36, 100, SPEC_MINSTREL);
 
   SKILL_CREATE("song of drifting", SONG_DRIFTING, TAR_MENTAL);
-  SPEC_SKILL_ADD(CLASS_BARD, 51, 100, SPEC_MINSTREL);
+  SPEC_SKILL_ADD(CLASS_BARD, 46, 100, SPEC_MINSTREL);
 
   SKILL_CREATE("circle", SKILL_CIRCLE, TAR_PHYS);
   SKILL_ADD(CLASS_ROGUE, 1, 80);
@@ -3357,7 +3777,11 @@ void initialize_skills()
   SKILL_ADD(CLASS_SHAMAN, 1, 100);
   SKILL_ADD(CLASS_CLERIC, 1, 100);
   SKILL_ADD(CLASS_DRUID, 1, 100);
+<<<<<<< HEAD
   SKILL_ADD(CLASS_RANGER, 21, 70);
+=======
+  SKILL_ADD(CLASS_RANGER, 1, 70);
+>>>>>>> master
   SKILL_ADD(CLASS_BARD, 1, 90);
   SKILL_ADD(CLASS_ILLUSIONIST, 1, 100);
   SKILL_ADD(CLASS_REAVER, 21, 90);
@@ -3400,37 +3824,45 @@ void initialize_skills()
   SKILL_ADD(CLASS_ANTIPALADIN, 8, 100);
 
   SKILL_CREATE("1h bludgeon", SKILL_1H_BLUDGEON, TAR_PHYS);
-  SKILL_ADD(CLASS_PSIONICIST, 1, 50);
-  SKILL_ADD(CLASS_MINDFLAYER, 1, 50);
-  SKILL_ADD(CLASS_CLERIC, 1, 60);
-  SKILL_ADD(CLASS_CONJURER, 1, 80);
-  SKILL_ADD(CLASS_DRUID, 1, 60);
-  SKILL_ADD(CLASS_MERCENARY, 1, 90);
-  SKILL_ADD(CLASS_SORCERER, 1, 80);
-  SKILL_ADD(CLASS_WARLOCK, 1, 50);
-  SKILL_ADD(CLASS_NECROMANCER, 1, 85);
-  SKILL_ADD(CLASS_CABALIST, 1, 85);
+  SKILL_ADD(CLASS_PSIONICIST, 1, 100);
+  SKILL_ADD(CLASS_MINDFLAYER, 1, 100);
+  SKILL_ADD(CLASS_CLERIC, 1, 100);
+  SKILL_ADD(CLASS_CONJURER, 1, 100);
+  SKILL_ADD(CLASS_DRUID, 1, 100);
+  SKILL_ADD(CLASS_MERCENARY, 1, 100);
+  SKILL_ADD(CLASS_SORCERER, 1, 100);
+  SKILL_ADD(CLASS_WARLOCK, 1, 100);
+  SKILL_ADD(CLASS_NECROMANCER, 1, 100);
+  SKILL_ADD(CLASS_CABALIST, 1, 100);
   SKILL_ADD(CLASS_THEURGIST, 1, 100);
+<<<<<<< HEAD
   SKILL_ADD(CLASS_ROGUE, 1, 60);
   SKILL_ADD(CLASS_THIEF, 1, 60);
   SKILL_ADD(CLASS_SHAMAN, 1, 60);
   SKILL_ADD(CLASS_ETHERMANCER, 1, 85);
+=======
+ // SKILL_ADD(CLASS_ROGUE, 1, 100);
+  SKILL_ADD(CLASS_THIEF, 1, 100);
+  SKILL_ADD(CLASS_SHAMAN, 1, 100);
+  SKILL_ADD(CLASS_ETHERMANCER, 1, 100); //Changed from 100 9/25/2008 Zion
+>>>>>>> master
   SKILL_ADD(CLASS_ALCHEMIST, 1, 100);
   SKILL_ADD(CLASS_BERSERKER, 1, 100);
-  SKILL_ADD(CLASS_ILLUSIONIST, 1, 80);
+  SKILL_ADD(CLASS_ILLUSIONIST, 1, 100);
   SKILL_ADD(CLASS_WARRIOR, 1, 100);
   SKILL_ADD(CLASS_CABALIST, 1, 100);
   SKILL_ADD(CLASS_PALADIN, 1, 60);
   SKILL_ADD(CLASS_ANTIPALADIN, 1, 60);
   SPEC_SKILL_ADD(CLASS_WARRIOR, 0, 0, SPEC_SWASHBUCKLER);
-  SPEC_SKILL_ADD(CLASS_CLERIC, 1, 90, SPEC_ZEALOT);
-  SPEC_SKILL_ADD(CLASS_NECROMANCER, 1, 80, SPEC_NECROLYTE);
-  SPEC_SKILL_ADD(CLASS_THEURGIST, 1, 80, SPEC_TEMPLAR);
-  SPEC_SKILL_ADD(CLASS_REAVER, 30, 95, SPEC_ICE_REAVER);
-  SPEC_SKILL_ADD(CLASS_ROGUE, 30, 60, SPEC_THIEF);
+  SPEC_SKILL_ADD(CLASS_CLERIC, 1, 100, SPEC_ZEALOT);
+  SPEC_SKILL_ADD(CLASS_NECROMANCER, 1, 100, SPEC_NECROLYTE);
+  SPEC_SKILL_ADD(CLASS_THEURGIST, 1, 100, SPEC_TEMPLAR);
+  SPEC_SKILL_ADD(CLASS_REAVER, 30, 100, SPEC_ICE_REAVER);
+  //SPEC_SKILL_ADD(CLASS_ROGUE, 30, 100, SPEC_THIEF);
   SPEC_SKILL_ADD(CLASS_RANGER, 31, 100, SPEC_MARSHALL);
   
   SKILL_CREATE("1h slashing", SKILL_1H_SLASHING, TAR_PHYS);
+<<<<<<< HEAD
   SKILL_ADD(CLASS_ASSASSIN, 1, 50);
   SKILL_ADD(CLASS_DRUID, 1, 60);
   SKILL_ADD(CLASS_ETHERMANCER, 1, 85);
@@ -3468,57 +3900,123 @@ void initialize_skills()
   SPEC_SKILL_ADD(CLASS_NECROMANCER, 1, 90, SPEC_REAPER);
   SPEC_SKILL_ADD(CLASS_THEURGIST, 1, 90, SPEC_THAUMATURGE);
   SPEC_SKILL_ADD(CLASS_REAVER, 30, 95, SPEC_SHOCK_REAVER);
+=======
+  SKILL_ADD(CLASS_ASSASSIN, 1, 100);
+  SKILL_ADD(CLASS_DRUID, 1, 100);
+  SKILL_ADD(CLASS_ETHERMANCER, 1, 100);
+  SKILL_ADD(CLASS_MERCENARY, 1, 100);
+  SKILL_ADD(CLASS_RANGER, 1, 100);
+  //SKILL_ADD(CLASS_ROGUE, 1, 100);
+  //SKILL_ADD(CLASS_THIEF, 1, 100);
+  SKILL_ADD(CLASS_WARRIOR, 1, 100);
+  SKILL_ADD(CLASS_REAVER, 1, 100);
+  //SKILL_ADD(CLASS_BERSERKER, 1, 100);
+  SKILL_ADD(CLASS_PSIONICIST, 21, 100);
+  SPEC_SKILL_ADD(CLASS_NECROMANCER, 1, 100, SPEC_REAPER);
+  SPEC_SKILL_ADD(CLASS_THEURGIST, 1,100, SPEC_THAUMATURGE);
+  //SPEC_SKILL_ADD(CLASS_ROGUE, 1, 100, SPEC_ASSASSIN);
+  SPEC_SKILL_ADD(CLASS_REAVER, 30, 100, SPEC_SHOCK_REAVER);
+  SPEC_SKILL_ADD(CLASS_REAVER, 30, 100, SPEC_FLAME_REAVER);
+
+  SKILL_CREATE("1h piercing", SKILL_1H_PIERCING, TAR_PHYS);
+  SKILL_ADD(CLASS_ASSASSIN, 1, 100);
+  SKILL_ADD(CLASS_BARD, 1, 100);
+  SKILL_ADD(CLASS_PSIONICIST, 1, 100);
+  SKILL_ADD(CLASS_MINDFLAYER, 1, 100);
+  SKILL_ADD(CLASS_CONJURER, 1, 100);
+  SKILL_ADD(CLASS_MERCENARY, 1, 100);
+  SKILL_ADD(CLASS_NECROMANCER, 1, 100);
+  SKILL_ADD(CLASS_CABALIST, 1, 100);
+  SKILL_ADD(CLASS_THEURGIST, 1, 100);
+  SKILL_ADD(CLASS_RANGER, 1, 100);
+  SKILL_ADD(CLASS_SORCERER, 1, 100);
+  SKILL_ADD(CLASS_ETHERMANCER, 1, 100);
+  SKILL_ADD(CLASS_WARLOCK, 1, 100);
+  SKILL_ADD(CLASS_ROGUE, 1, 100); //Changed from 100 9/25/2008 Zion
+  SKILL_ADD(CLASS_THIEF, 1, 100);
+  SKILL_ADD(CLASS_WARRIOR, 1, 100);
+  SKILL_ADD(CLASS_ILLUSIONIST, 1, 100);
+  SPEC_SKILL_ADD(CLASS_NECROMANCER, 1, 100, SPEC_REAPER);
+  SPEC_SKILL_ADD(CLASS_THEURGIST, 1, 100, SPEC_THAUMATURGE);
+  SPEC_SKILL_ADD(CLASS_REAVER, 30, 100, SPEC_SHOCK_REAVER); //Changed from 100 9/25/2008 Zion
+>>>>>>> master
   SPEC_SKILL_ADD(CLASS_BARD, 1, 100, SPEC_SCOUNDREL);
   SPEC_SKILL_ADD(CLASS_ROGUE, 1, 100, SPEC_ASSASSIN);
 
   SKILL_CREATE("1h flaying", SKILL_1H_FLAYING, TAR_PHYS);
   SKILL_ADD(CLASS_MERCENARY, 1, 100);
+<<<<<<< HEAD
   SKILL_ADD(CLASS_BERSERKER, 1, 95);
   SKILL_ADD(CLASS_WARRIOR, 1, 80);
   SKILL_ADD(CLASS_REAVER, 1, 70);
   SPEC_SKILL_ADD(CLASS_CLERIC, 1, 90, SPEC_ZEALOT);
   SPEC_SKILL_ADD(CLASS_REAVER, 30, 90, SPEC_FLAME_REAVER);
+=======
+  SKILL_ADD(CLASS_BERSERKER, 1, 100);
+  SKILL_ADD(CLASS_WARRIOR, 1, 100);
+  SPEC_SKILL_ADD(CLASS_WARRIOR, 0, 0, SPEC_SWASHBUCKLER);
+  SPEC_SKILL_ADD(CLASS_CLERIC, 1, 100, SPEC_ZEALOT);
+  SPEC_SKILL_ADD(CLASS_REAVER, 30, 100, SPEC_FLAME_REAVER);
+>>>>>>> master
 
   SKILL_CREATE("2h bludgeon", SKILL_2H_BLUDGEON, TAR_PHYS);
   SKILL_ADD(CLASS_ANTIPALADIN, 1, 100); 
-  SKILL_ADD(CLASS_CLERIC, 1, 60);
   SKILL_ADD(CLASS_PALADIN, 1, 100); 
-  SKILL_ADD(CLASS_MERCENARY, 1, 70);
-  SKILL_ADD(CLASS_SHAMAN, 1, 60);
-  SKILL_ADD(CLASS_SORCERER, 1, 80);
-  SKILL_ADD(CLASS_WARLOCK, 1, 90);
-  SKILL_ADD(CLASS_NECROMANCER, 1, 80);
-  SKILL_ADD(CLASS_CABALIST, 1, 80);
-  SKILL_ADD(CLASS_THEURGIST, 1, 80);
-  SKILL_ADD(CLASS_CONJURER, 1, 80);
-  SKILL_ADD(CLASS_PSIONICIST, 1, 90);
-  SKILL_ADD(CLASS_MINDFLAYER, 1, 75);
+  SKILL_ADD(CLASS_MERCENARY, 1, 100);
+  SKILL_ADD(CLASS_SHAMAN, 1, 100);
+  SKILL_ADD(CLASS_SORCERER, 1, 100);
+  SKILL_ADD(CLASS_WARLOCK, 1, 100);
+  SKILL_ADD(CLASS_CABALIST, 1, 100);
+  SKILL_ADD(CLASS_THEURGIST, 1, 100);
+  SKILL_ADD(CLASS_CONJURER, 1, 100);
+  SKILL_ADD(CLASS_PSIONICIST, 1, 100);
+  SKILL_ADD(CLASS_MINDFLAYER, 1, 100);
   SKILL_ADD(CLASS_ALCHEMIST, 1, 100);
   SKILL_ADD(CLASS_BERSERKER, 1, 100);
-  SKILL_ADD(CLASS_ILLUSIONIST, 1, 80);
-  SKILL_ADD(CLASS_DREADLORD, 1, 70);
+  SKILL_ADD(CLASS_ILLUSIONIST, 1, 100);
+  SKILL_ADD(CLASS_DREADLORD, 1, 100);
   SKILL_ADD(CLASS_WARRIOR, 1, 100);
+<<<<<<< HEAD
   SKILL_ADD(CLASS_AVENGER, 1, 70);
   SPEC_SKILL_ADD(CLASS_CLERIC, 1, 90, SPEC_ZEALOT);
   SPEC_SKILL_ADD(CLASS_NECROMANCER, 1, 80, SPEC_NECROLYTE);
   SPEC_SKILL_ADD(CLASS_THEURGIST, 1, 80, SPEC_TEMPLAR);
   SPEC_SKILL_ADD(CLASS_REAVER, 45, 95, SPEC_ICE_REAVER);
+=======
+  SKILL_ADD(CLASS_AVENGER, 1, 100);
+  SPEC_SKILL_ADD(CLASS_WARRIOR, 0, 0, SPEC_SWASHBUCKLER);
+  SPEC_SKILL_ADD(CLASS_CLERIC, 1, 100, SPEC_ZEALOT);
+  SPEC_SKILL_ADD(CLASS_NECROMANCER, 1, 100, SPEC_NECROLYTE);
+  SPEC_SKILL_ADD(CLASS_THEURGIST, 1, 100, SPEC_TEMPLAR);
+  SPEC_SKILL_ADD(CLASS_REAVER, 53, 100, SPEC_ICE_REAVER);
+>>>>>>> master
 
   SKILL_CREATE("2h slashing", SKILL_2H_SLASHING, TAR_PHYS);
   SKILL_ADD(CLASS_ANTIPALADIN, 1, 100);
   SKILL_ADD(CLASS_PALADIN, 1, 100);
-  SKILL_ADD(CLASS_MERCENARY, 1, 60);
+  SKILL_ADD(CLASS_MERCENARY, 1, 100);
   SKILL_ADD(CLASS_DREADLORD, 1, 100);
   SKILL_ADD(CLASS_AVENGER, 1, 100);
   SKILL_ADD(CLASS_WARRIOR, 1, 100);
+<<<<<<< HEAD
   SPEC_SKILL_ADD(CLASS_REAVER, 1, 95, SPEC_FLAME_REAVER);
 
   SKILL_CREATE("2h flaying", SKILL_2H_FLAYING, TAR_PHYS);
   SKILL_ADD(CLASS_MERCENARY, 1, 100);
   SKILL_ADD(CLASS_BERSERKER, 1, 40);
   SKILL_ADD(CLASS_WARRIOR, 1, 60);
+=======
+  //SKILL_ADD(CLASS_BERSERKER, 1, 100);
   SPEC_SKILL_ADD(CLASS_WARRIOR, 0, 0, SPEC_SWASHBUCKLER);
-  SPEC_SKILL_ADD(CLASS_REAVER, 1, 90, SPEC_FLAME_REAVER);
+  //SPEC_SKILL_ADD(CLASS_REAVER, 1, 100, SPEC_FLAME_REAVER);
+
+  SKILL_CREATE("2h flaying", SKILL_2H_FLAYING, TAR_PHYS);
+  SKILL_ADD(CLASS_MERCENARY, 1, 100);
+  SPEC_SKILL_ADD(CLASS_BERSERKER, 1, 100, SPEC_RAGELORD);
+  SKILL_ADD(CLASS_WARRIOR, 1, 100);
+>>>>>>> master
+  SPEC_SKILL_ADD(CLASS_WARRIOR, 0, 0, SPEC_SWASHBUCKLER);
+  SPEC_SKILL_ADD(CLASS_REAVER, 1, 100, SPEC_FLAME_REAVER);
 
   SKILL_CREATE("ranged weapons", SKILL_ARCHERY, TAR_PHYS);  /* TASFALEN */
   SKILL_ADD(CLASS_RANGER, 1, 100);
@@ -3572,6 +4070,7 @@ void initialize_skills()
   SPELL_CREATE_MSG("elemental aura", SPELL_ELEMENTAL_AURA, PULSE_SPELLCAST * 4, TAR_SELF_ONLY | TAR_NOCOMBAT,
                    spell_elemental_aura, "&+BYour aura returns to normal.&N");
   SPELL_ADD(CLASS_DRUID, 11);
+  SPEC_SPELL_ADD(CLASS_CONJURER, 10, SPEC_WATER);
  //SPEC_SPELL_ADD(CLASS_DRUID, 11, SPEC_STORM);
 
   SPELL_CREATE("wind tunnel", SPELL_WIND_TUNNEL, PULSE_SPELLCAST * 1, TAR_IGNORE | TAR_NOCOMBAT | TAR_ELEMENTAL,
@@ -3634,7 +4133,12 @@ void initialize_skills()
                    spell_mass_barkskin, "Your skin loses its &+ybarklike &ntexture.");
   SPELL_ADD(CLASS_DRUID, 10);
 
+<<<<<<< HEAD
   SPELL_CREATE("moonwell", SPELL_MOONWELL, PULSE_SPELLCAST * 10, TAR_CHAR_WORLD | TAR_NOCOMBAT, spell_moonwell);
+=======
+  SPELL_CREATE("moonwell", SPELL_MOONWELL, PULSE_SPELLCAST * 7,
+                TAR_CHAR_WORLD | TAR_NOCOMBAT, spell_moonwell);
+>>>>>>> master
   SPELL_ADD(CLASS_DRUID, 10);
 
   SPELL_CREATE("shadow gate", SPELL_SHADOW_GATE, PULSE_SPELLCAST * 10, TAR_CHAR_WORLD | TAR_NOCOMBAT, spell_shadow_gate);
@@ -3708,18 +4212,28 @@ void initialize_skills()
   SPEC_SKILL_ADD(CLASS_ROGUE, 1, 100, SPEC_ASSASSIN);
   SPEC_SKILL_ADD(CLASS_ROGUE, 1, 80, SPEC_THIEF);
 
+  SKILL_CREATE("garrote", SKILL_GARROTE, TAR_PHYS);
+  SPEC_SKILL_ADD(CLASS_ROGUE, 1, 100, SPEC_ASSASSIN);
+
   SKILL_CREATE("critical stab", SKILL_CRITICAL_STAB, TAR_PHYS);
   SKILL_ADD(CLASS_ASSASSIN, 51, 100);
   SPEC_SKILL_ADD(CLASS_ROGUE, 51, 80, SPEC_ASSASSIN);
 
+  SKILL_CREATE("shadowstep", SKILL_SHADOWSTEP, TAR_PHYS);
+  SPEC_SKILL_ADD(CLASS_ROGUE, 41, 100, SPEC_THIEF);
+
+  
+
   SKILL_CREATE("pick lock", SKILL_PICK_LOCK, TAR_PHYS);
   SKILL_ADD(CLASS_ROGUE, 1, 60);
+  SPEC_SKILL_ADD(CLASS_ROGUE, 1, 100, SPEC_THIEF);
   SKILL_ADD(CLASS_THIEF, 1, 100);
   SKILL_ADD(CLASS_ASSASSIN, 1, 60);
 
   SKILL_CREATE("kick", SKILL_KICK, TAR_PHYS);
   SKILL_ADD(CLASS_WARRIOR, 1, 100);
   SKILL_ADD(CLASS_ANTIPALADIN, 1, 90);
+  SKILL_ADD(CLASS_ALCHEMIST, 1, 100);
   SKILL_ADD(CLASS_RANGER, 1, 80);
   SKILL_ADD(CLASS_MERCENARY, 1, 90);
   SKILL_ADD(CLASS_PALADIN, 1, 90);
@@ -3759,29 +4273,34 @@ void initialize_skills()
   SPEC_SKILL_ADD(CLASS_WARRIOR, 0, 0, SPEC_SWASHBUCKLER);
   SPEC_SKILL_ADD(CLASS_WARRIOR, 31, 100, SPEC_GUARDIAN);
   SKILL_ADD(CLASS_ANTIPALADIN, 20, 90);
+  SPEC_SKILL_ADD(CLASS_ANTIPALADIN, 0, 0, SPEC_VIOLATOR);
   SKILL_ADD(CLASS_PALADIN, 20, 90);
+  
 
   SKILL_CREATE("cleave", SKILL_CLEAVE, TAR_PHYS);
   SKILL_ADD(CLASS_PALADIN, 36, 100);
   SKILL_ADD(CLASS_ANTIPALADIN, 36, 100);
+  SPEC_SKILL_ADD(CLASS_ANTIPALADIN, 0, 0, SPEC_VIOLATOR);
 
   SKILL_CREATE("bash", SKILL_BASH, TAR_PHYS);
   SKILL_ADD(CLASS_PALADIN, 1, 100);
   SKILL_ADD(CLASS_ANTIPALADIN, 1, 100);
   SKILL_ADD(CLASS_WARRIOR, 1, 100);
   SPEC_SKILL_ADD(CLASS_WARRIOR, 0, 0, SPEC_SWASHBUCKLER);
+  SPEC_SKILL_ADD(CLASS_ANTIPALADIN, 0, 0, SPEC_VIOLATOR);
+
+
 
   SKILL_CREATE("mounted combat", SKILL_MOUNTED_COMBAT, TAR_PHYS);
   SKILL_ADD(CLASS_PALADIN, 10, 100);
   SKILL_ADD(CLASS_ANTIPALADIN, 10, 100);
+  SPEC_SKILL_ADD(CLASS_ANTIPALADIN, 0, 0, SPEC_VIOLATOR);
 
   SKILL_CREATE("rescue", SKILL_RESCUE, TAR_PHYS);
   SKILL_ADD(CLASS_WARRIOR, 1, 100);
   SKILL_ADD(CLASS_PALADIN, 1, 100);
-  SKILL_ADD(CLASS_RANGER, 1, 75);
-  SKILL_ADD(CLASS_MERCENARY, 1, 75);
   SKILL_ADD(CLASS_ANTIPALADIN, 31, 100);
-  SKILL_ADD(CLASS_BARD, 31, 50);
+   SPEC_SKILL_ADD(CLASS_ANTIPALADIN, 0, 0, SPEC_VIOLATOR);
 
   SKILL_CREATE("trap", SKILL_TRAP, TAR_PHYS);
   SPEC_SKILL_ADD(CLASS_RANGER, 31, 100, SPEC_HUNTSMAN);
@@ -3805,8 +4324,8 @@ void initialize_skills()
   SPEC_SKILL_ADD(CLASS_ROGUE, 15, 100, SPEC_THIEF);
 
   SKILL_CREATE("disarm", SKILL_DISARM, TAR_PHYS);
-  SKILL_ADD(CLASS_THIEF, 1, 80);
   SKILL_ADD(CLASS_WARRIOR, 1, 100);
+<<<<<<< HEAD
   SKILL_ADD(CLASS_ASSASSIN, 1, 70);
   SKILL_ADD(CLASS_DREADLORD, 46, 80);
   SPEC_SKILL_ADD(CLASS_ROGUE, 1, 100, SPEC_THIEF);
@@ -3818,6 +4337,15 @@ void initialize_skills()
   SKILL_ADD(CLASS_PALADIN, 1, 80);
   SKILL_ADD(CLASS_ANTIPALADIN, 1, 80);
   SKILL_ADD(CLASS_MERCENARY, 1, 85);
+=======
+
+
+  SKILL_CREATE("double attack", SKILL_DOUBLE_ATTACK, 0);
+  SKILL_ADD(CLASS_WARRIOR, 1, 100);
+  SKILL_ADD(CLASS_PALADIN, 1, 90);
+  SKILL_ADD(CLASS_ANTIPALADIN, 1, 90);
+  SKILL_ADD(CLASS_MERCENARY, 1, 100);
+>>>>>>> master
   SKILL_ADD(CLASS_RANGER, 1, 95);
   SKILL_ADD(CLASS_ROGUE, 1, 90);
   SKILL_ADD(CLASS_THIEF, 1, 95);
@@ -3830,6 +4358,7 @@ void initialize_skills()
   SKILL_ADD(CLASS_DREADLORD, 1, 100);
   SKILL_ADD(CLASS_AVENGER, 1, 100);
   SKILL_ADD(CLASS_ETHERMANCER, 1, 60);
+  SPEC_SKILL_ADD(CLASS_ANTIPALADIN, 1, 100, SPEC_VIOLATOR);
   SPEC_SKILL_ADD(CLASS_CLERIC, 51, 90, SPEC_ZEALOT);
   SPEC_SKILL_ADD(CLASS_CLERIC, 51, 50, SPEC_HOLYMAN);
   SPEC_SKILL_ADD(CLASS_BARD, 1, 85, SPEC_SCOUNDREL);
@@ -3845,9 +4374,16 @@ void initialize_skills()
   SKILL_ADD(CLASS_DREADLORD, 46, 85);
   SKILL_ADD(CLASS_AVENGER, 46, 80);
   SKILL_ADD(CLASS_WARRIOR, 56, 90);
+<<<<<<< HEAD
   SPEC_SKILL_ADD(CLASS_ALCHEMIST, 51, 80, SPEC_BATTLE_FORGER);
   SPEC_SKILL_ADD(CLASS_WARRIOR, 46, 100, SPEC_SWORDSMAN);
   SPEC_SKILL_ADD(CLASS_WARRIOR, 51, 100, SPEC_SWASHBUCKLER);
+=======
+  SPEC_SKILL_ADD(CLASS_ANTIPALADIN, 41, 100, SPEC_VIOLATOR);
+  SPEC_SKILL_ADD(CLASS_ALCHEMIST, 51, 70, SPEC_BATTLE_FORGER);
+  SPEC_SKILL_ADD(CLASS_WARRIOR, 51, 100, SPEC_SWORDSMAN);
+  SPEC_SKILL_ADD(CLASS_WARRIOR, 46, 100, SPEC_SWASHBUCKLER);
+>>>>>>> master
 
   SKILL_CREATE("dual wield", SKILL_DUAL_WIELD, TAR_PHYS);
   SKILL_ADD(CLASS_WARRIOR, 1, 100);
@@ -3906,6 +4442,7 @@ void initialize_skills()
 
   SKILL_CREATE("parry", SKILL_PARRY, TAR_PHYS);
   SKILL_ADD(CLASS_WARRIOR, 1, 100);
+<<<<<<< HEAD
   SKILL_ADD(CLASS_PALADIN, 1, 90);
   SKILL_ADD(CLASS_MERCENARY, 1, 70);
   SKILL_ADD(CLASS_RANGER, 1, 60);
@@ -3913,6 +4450,15 @@ void initialize_skills()
   SKILL_ADD(CLASS_BARD, 1, 40);
   SKILL_ADD(CLASS_ROGUE, 20, 50);
   SKILL_ADD(CLASS_THIEF, 20, 50);
+=======
+  SKILL_ADD(CLASS_PALADIN, 1, 100);
+  SKILL_ADD(CLASS_MERCENARY, 1, 80);
+  SKILL_ADD(CLASS_RANGER, 1, 100);
+  SKILL_ADD(CLASS_ANTIPALADIN, 1, 100);
+  SKILL_ADD(CLASS_BARD, 1, 95);
+  SKILL_ADD(CLASS_ROGUE, 20, 80);
+  SKILL_ADD(CLASS_THIEF, 20, 70);
+>>>>>>> master
   SKILL_ADD(CLASS_ASSASSIN, 36, 60);
   SKILL_ADD(CLASS_ALCHEMIST, 1, 60);
   SKILL_ADD(CLASS_BERSERKER, 1, 60);
@@ -3961,19 +4507,45 @@ void initialize_skills()
   SKILL_ADD(CLASS_REAVER, 1, 70);
   SKILL_ADD(CLASS_ILLUSIONIST, 1, 100);
   SKILL_ADD(CLASS_WARLOCK, 1, 100);
+<<<<<<< HEAD
   SKILL_ADD(CLASS_AVENGER, 1, 60);
+=======
+  SKILL_ADD(CLASS_AVENGER, 1, 85);
+  SKILL_ADD(CLASS_ETHERMANCER, 1, 100);
+>>>>>>> master
 
   SKILL_CREATE("apply poison", SKILL_APPLY_POISON, 0);
   SKILL_ADD(CLASS_ASSASSIN, 1, 100);
   SPEC_SKILL_ADD(CLASS_ROGUE, 31, 100, SPEC_ASSASSIN);
 
+  SKILL_CREATE("concentration", SKILL_CONCENTRATION, TAR_MENTAL);
+  SKILL_ADD(CLASS_BARD, 1, 100);
+  SKILL_ADD(CLASS_PSIONICIST, 1, 100);
+  SKILL_ADD(CLASS_CLERIC, 1, 100);
+  SKILL_ADD(CLASS_CONJURER, 1, 100);
+  SKILL_ADD(CLASS_DRUID, 1, 100);
+  SKILL_ADD(CLASS_NECROMANCER, 1, 100);
+  SKILL_ADD(CLASS_SHAMAN, 1, 100);
+  SKILL_ADD(CLASS_ETHERMANCER, 1, 100);
+  SKILL_ADD(CLASS_SORCERER, 1, 100);
+
   SKILL_CREATE("dodge", SKILL_DODGE, TAR_PHYS);
+<<<<<<< HEAD
   SKILL_ADD(CLASS_ANTIPALADIN, 1, 75);
   SKILL_ADD(CLASS_BARD, 11, 60);
   SKILL_ADD(CLASS_PSIONICIST, 31, 50);
   SKILL_ADD(CLASS_CLERIC, 16, 70);
   SKILL_ADD(CLASS_CONJURER, 26, 50);
   SKILL_ADD(CLASS_DRUID, 21, 70);
+=======
+  /*
+  SKILL_ADD(CLASS_ANTIPALADIN, 1, 80);
+  SKILL_ADD(CLASS_BARD, 1, 70);
+  SKILL_ADD(CLASS_PSIONICIST, 1, 70);
+  SKILL_ADD(CLASS_CLERIC, 1, 60);
+  SKILL_ADD(CLASS_CONJURER, 1, 50);
+  SKILL_ADD(CLASS_DRUID, 1, 85);
+>>>>>>> master
   SKILL_ADD(CLASS_MERCENARY, 1, 90);
   SKILL_ADD(CLASS_NECROMANCER, 31, 50);
   SKILL_ADD(CLASS_THEURGIST, 31, 50);
@@ -3997,6 +4569,7 @@ void initialize_skills()
   SPEC_SKILL_ADD(CLASS_CLERIC, 1, 80, SPEC_ZEALOT);
   SKILL_ADD(CLASS_ASSASSIN, 1, 80);
   SPEC_SKILL_ADD(CLASS_ROGUE, 1, 80, SPEC_ASSASSIN);
+  */
 
   SKILL_CREATE("mount", SKILL_MOUNT, TAR_PHYS);
   SKILL_ADD(CLASS_MERCENARY, 1, 90);
@@ -4012,11 +4585,13 @@ void initialize_skills()
   SKILL_ADD(CLASS_DRUID, 1, 90);
   SKILL_ADD(CLASS_CONJURER, 1, 90);
   SKILL_ADD(CLASS_NECROMANCER, 1, 90);
+  SKILL_ADD(CLASS_MONK, 1, 90);
   SKILL_ADD(CLASS_THEURGIST, 1, 90);
   SKILL_ADD(CLASS_ROGUE, 1, 90);
   SKILL_ADD(CLASS_THIEF, 1, 90);
   SKILL_ADD(CLASS_SHAMAN, 1, 90);
   SKILL_ADD(CLASS_ASSASSIN, 1, 90);
+  SKILL_ADD(CLASS_ETHERMANCER, 1, 90);
   SKILL_ADD(CLASS_BARD, 1, 90);
   SKILL_ADD(CLASS_ALCHEMIST, 1, 70);
   SKILL_ADD(CLASS_REAVER, 1, 90);
@@ -4051,7 +4626,11 @@ void initialize_skills()
   SKILL_ADD(CLASS_AVENGER, 1, 90);
   SPEC_SKILL_ADD(CLASS_ROGUE, 1, 80, SPEC_ASSASSIN);
 
-  SKILL_CREATE("mine", SKILL_MINE, TAR_MENTAL);
+
+  SKILL_CREATE("mine", SKILL_MINE, TAR_EPIC);
+  SKILL_CREATE("craft", SKILL_CRAFT, TAR_EPIC);
+  SKILL_CREATE("forge", SKILL_FORGE, TAR_EPIC);
+/*
   SKILL_ADD(CLASS_MERCENARY, 1, 100);
   SKILL_ADD(CLASS_RANGER, 1, 100);
   SKILL_ADD(CLASS_PALADIN, 1, 100);
@@ -4080,6 +4659,7 @@ void initialize_skills()
   SKILL_ADD(CLASS_DREADLORD, 1, 100);
   SKILL_ADD(CLASS_AVENGER, 1, 100);
   SPEC_SKILL_ADD(CLASS_ROGUE, 1, 100, SPEC_ASSASSIN);
+*/
 
   SKILL_CREATE("fishing", SKILL_FISHING, TAR_MENTAL);
   SKILL_ADD(CLASS_MERCENARY, 1, 100);
@@ -4177,16 +4757,16 @@ void initialize_skills()
   SPEC_SKILL_ADD(CLASS_ROGUE, 1, 70, SPEC_ASSASSIN);
   SPEC_SKILL_ADD(CLASS_WARRIOR, 1, 80, SPEC_SWASHBUCKLER);
 
-  SKILL_CREATE("capture", SKILL_CAPTURE, TAR_PHYS);  /* TASFALEN */
-  SKILL_ADD(CLASS_MERCENARY, 1, 100);    /* TASFALEN */
+ // SKILL_CREATE("capture", SKILL_CAPTURE, TAR_PHYS);  /* TASFALEN */
+ // SKILL_ADD(CLASS_MERCENARY, 1, 100);    /* TASFALEN */
 
   SKILL_CREATE("appraise", SKILL_APPRAISE, TAR_MENTAL);
-  SKILL_ADD(CLASS_ROGUE, 10, 75);
-  SKILL_ADD(CLASS_THIEF, 10, 75);
-  SKILL_ADD(CLASS_MERCENARY, 20, 40);
-  SKILL_ADD(CLASS_ASSASSIN, 20, 60);
+  SKILL_ADD(CLASS_ROGUE, 10, 90);
+  SKILL_ADD(CLASS_THIEF, 10, 90);
+  SKILL_ADD(CLASS_MERCENARY, 20, 80);
+  SKILL_ADD(CLASS_ASSASSIN, 20, 900);
   SKILL_ADD(CLASS_BARD, 10, 100);
-  SPEC_SKILL_ADD(CLASS_ROGUE, 1, 60, SPEC_ASSASSIN);
+  SPEC_SKILL_ADD(CLASS_ROGUE, 1, 90, SPEC_ASSASSIN);
 
   SKILL_CREATE("lore", SKILL_LORE, TAR_MENTAL);
   SKILL_ADD(CLASS_BARD, 10, 75);
@@ -4247,9 +4827,9 @@ void initialize_skills()
   SPEC_SKILL_ADD(CLASS_ROGUE, 1, 100, SPEC_THIEF);
 
   SKILL_CREATE("bearhug", SKILL_BEARHUG, TAR_PHYS);
-  SKILL_ADD(CLASS_MERCENARY, 25, 100);
+  //SKILL_ADD(CLASS_MERCENARY, 25, 100);
 
-  SKILL_CREATE("headlock", SKILL_HEADLOCK, TAR_PHYS);
+/*  SKILL_CREATE("headlock", SKILL_HEADLOCK, TAR_PHYS);
   SKILL_ADD(CLASS_MERCENARY, 35, 100);
 
   SKILL_CREATE("armlock", SKILL_ARMLOCK, TAR_PHYS);
@@ -4262,7 +4842,7 @@ void initialize_skills()
   SKILL_ADD(CLASS_MERCENARY, 45, 100);
 
   SKILL_CREATE("grappler combat", SKILL_GRAPPLER_COMBAT, TAR_PHYS);
-  SKILL_ADD(CLASS_MERCENARY, 25, 100);
+  SKILL_ADD(CLASS_MERCENARY, 25, 100);*/
 
   SPELL_CREATE("summon ghasts", SPELL_SUMMON_GHASTS, PULSE_SPELLCAST * 2, TAR_AREA | TAR_AGGRO, spell_summon_ghasts);
   SPELL_ADD(CLASS_NECROMANCER, 11);
@@ -4275,15 +4855,17 @@ void initialize_skills()
                spell_ghastly_touch);
 
  /* Epic Point Skills */
-  SKILL_CREATE("spell mastery", SKILL_SPELL_MASTERY, TAR_MENTAL | TAR_EPIC);
-  SKILL_CREATE("chant mastery", SKILL_CHANT_MASTERY, TAR_MENTAL | TAR_EPIC);
-  SKILL_CREATE("anatomy", SKILL_ANATOMY, TAR_MENTAL | TAR_EPIC);
+  //SKILL_CREATE("spell mastery", SKILL_SPELL_MASTERY, TAR_MENTAL | TAR_EPIC);
+  //SKILL_CREATE("chant mastery", SKILL_CHANT_MASTERY, TAR_MENTAL | TAR_EPIC);
+  //SKILL_CREATE("anatomy", SKILL_ANATOMY, TAR_MENTAL | TAR_EPIC);
+ SKILL_CREATE("anatomy", SKILL_ANATOMY, TAR_EPIC);
+ // SKILL_ADD(RACE_HALFLING, 1, 100);
   SKILL_CREATE("summon blizzard", SKILL_SUMMON_BLIZZARD, TAR_MENTAL | TAR_EPIC);
   SKILL_CREATE("summon familiar", SKILL_SUMMON_FAMILIAR, TAR_MENTAL | TAR_EPIC);
   SKILL_CREATE("advanced meditation", SKILL_ADVANCED_MEDITATION, TAR_MENTAL | TAR_EPIC);
   SKILL_CREATE("devotion", SKILL_DEVOTION, TAR_MENTAL | TAR_EPIC);
   SKILL_CREATE("scribe mastery", SKILL_SCRIBE_MASTERY, TAR_MENTAL | TAR_EPIC);
-  SKILL_CREATE("sneaky strike", SKILL_SNEAKY_STRIKE, TAR_PHYS | TAR_EPIC);
+  //SKILL_CREATE("sneaky strike", SKILL_SNEAKY_STRIKE, TAR_PHYS | TAR_EPIC);
   SKILL_CREATE("silent spell", SKILL_SILENT_SPELL, TAR_MENTAL | TAR_EPIC);
   SKILL_CREATE("shield combat", SKILL_SHIELD_COMBAT, TAR_PHYS | TAR_EPIC);
   SKILL_CREATE("improved shield combat", SKILL_IMPROVED_SHIELD_COMBAT, TAR_PHYS | TAR_EPIC);
@@ -4295,6 +4877,9 @@ void initialize_skills()
   SKILL_CREATE("infuse life", SKILL_INFUSE_LIFE, TAR_MENTAL | TAR_EPIC);
   SKILL_CREATE("spell penetration", SKILL_SPELL_PENETRATION, TAR_MENTAL | TAR_EPIC);
   SKILL_CREATE("devastating critical", SKILL_DEVASTATING_CRITICAL, TAR_PHYS | TAR_EPIC);
+
+  SKILL_CREATE("shieldless bash", SKILL_SHIELDLESS_BASH, TAR_PHYS | TAR_EPIC);
+
   SKILL_CREATE("toughness", SKILL_TOUGHNESS, TAR_MENTAL | TAR_EPIC);
   SKILL_CREATE("spatial focus", SKILL_SPATIAL_FOCUS, TAR_MENTAL | TAR_EPIC);
   SKILL_CREATE("improved endurance", SKILL_IMPROVED_ENDURANCE, TAR_MENTAL | TAR_EPIC);
@@ -4303,6 +4888,7 @@ void initialize_skills()
   SKILL_CREATE("infuse magical device", SKILL_INFUSE_MAGICAL_DEVICE, TAR_PHYS |TAR_EPIC);
   SKILL_CREATE("indomitable rage", SKILL_INDOMITABLE_RAGE, TAR_PHYS | TAR_EPIC);
   // Ripped from the alchemist class, for use as epic skills. What a copout!
+<<<<<<< HEAD
   // Zion's a jerk, putting them back in! - Jexni
   //SKILL_CREATE("fix", SKILL_FIX, TAR_PHYS | TAR_EPIC);
   //SKILL_CREATE("craft", SKILL_CRAFT, TAR_PHYS | TAR_EPIC);
@@ -4312,6 +4898,16 @@ void initialize_skills()
   //SKILL_CREATE("smelt", SKILL_SMELT, TAR_PHYS | TAR_EPIC);
   //SKILL_CREATE("forge", SKILL_FORGE, TAR_MENTAL | TAR_EPIC);
   // End alchemist jewing. - Will do!
+=======
+  SKILL_CREATE("fix", SKILL_FIX, TAR_EPIC);
+  //SKILL_CREATE("craft", SKILL_CRAFT, TAR_PHYS | TAR_EPIC);
+  SKILL_CREATE("encrust", SKILL_ENCRUST, TAR_PHYS | TAR_EPIC);
+  SKILL_CREATE("enchant", SKILL_ENCHANT, TAR_PHYS | TAR_EPIC);
+  SKILL_CREATE("spellbind", SKILL_SPELLBIND, TAR_PHYS | TAR_EPIC);
+  SKILL_CREATE("smelt", SKILL_SMELT, TAR_PHYS | TAR_EPIC);
+  //SKILL_CREATE("forge", SKILL_FORGE, TAR_MENTAL | TAR_EPIC);
+  // End alchemist jewing.
+>>>>>>> master
   SKILL_CREATE("totemic mastery", SKILL_TOTEMIC_MASTERY, TAR_MENTAL | TAR_EPIC);
   SKILL_CREATE("natures sanctity", SKILL_NATURES_SANCTITY, TAR_MENTAL | TAR_EPIC);
   SKILL_CREATE("expert parry", SKILL_EXPERT_PARRY, TAR_MENTAL | TAR_EPIC);
@@ -4344,6 +4940,53 @@ void initialize_skills()
   TAG_CREATE("orig", TAG_ALTERED_EXTRA2);
   TAG_CREATE("no misfire", TAG_NOMISFIRE);
   TAG_CREATE("witch spell", TAG_WITCHSPELL);
+  TAG_CREATE("racial skills", TAG_RACIAL_SKILLS);
+  TAG_CREATE("soulbind", TAG_SOULBIND);
+
+/*  ACHIEVEMENT TAGS - FORMAT: ACH_XXXX (completed), AIP_XXXX (Achievement In Progress) */
+  //PVP
+  TAG_CREATE("ach - unstoppable", ACH_UNSTOPPABLE);  //static check, 40 frags
+  TAG_CREATE("ach - lets get dirty", ACH_LETSGETDIRTY); //static, 1.0 frags
+  TAG_CREATE("ach - serial killer", ACH_SERIALKILLER); //static, 10.00 frags
+
+  //PVE
+  TAG_CREATE("ach - journey begins", ACH_JOURNEYBEGINS); //static, gain 1.0 levels
+  TAG_CREATE("aip - arachnophobia", AIP_ARACHNOPHOBIA); 
+  TAG_CREATE("ach - arachnophobia", ACH_ARACHNOPHOBIA);
+  TAG_CREATE("aip - Trollin", AIP_TROLLIN);
+  TAG_CREATE("ach - trollin", ACH_TROLLIN);
+  TAG_CREATE("aip - moo juice", AIP_MOOJUICE);
+  TAG_CREATE("ach - moo juice", ACH_MOOJUICE);
+  TAG_CREATE("aip - dragonslayer", AIP_DRAGONSLAYER);
+  TAG_CREATE("ach - dragonslayer", ACH_DRAGONSLAYER);
+  TAG_CREATE("aip - mayihealsyou", AIP_MAYIHEALSYOU);
+  TAG_CREATE("ach - mayihealsyou", ACH_MAYIHEALSYOU);
+  TAG_CREATE("aip - strahd me at hello", AIP_YOUSTRAHDME);
+  TAG_CREATE("aip - strahd me at hello pt 2", AIP_YOUSTRAHDME2);
+  TAG_CREATE("ach - strahd me at hello", ACH_YOUSTRAHDME);
+  TAG_CREATE("aip - decepticon", AIP_DECEPTICON);
+  TAG_CREATE("ach - decepticon", ACH_DECEPTICON);
+
+  TAG_CREATE("fragged victim", TAG_RECENTLY_FRAGGED);
+  TAG_CREATE("merc defensive proc", TAG_MERC_DEFENSE);
+
+  TAG_CREATE_WITH_MESSAGES("LAY HANDS", TAG_LAYONHANDS,
+                           "&+WYour &+yhands&+W surge with &+Yholy &+Wstrength once again.&n",
+                           "&+W$n's &+yhands&+W surge with &+Yholy &+Wstrength once again.&n");  
+
+  TAG_CREATE("minotaur rage", TAG_MINOTAUR_RAGE);
+  TAG_CREATE("conjured pet", TAG_CONJURED_PET);
+  TAG_CREATE_WITH_MESSAGES("Potion Timer", TAG_POTION_TIMER,
+                           "&+cYou feel like a potion could do you good once again.&n",
+                           "&+c$n's body appears to recover from the affects of the &+Wpotion&+c.&n");
+
+  //TRAPS
+  TAG_CREATE_WITH_MESSAGES("crippled", TAG_CRIPPLED,
+                           "&+yYou feel &+Ystrength &+yreturn to your legs.&n",
+                           "&+W$n's &+yleg looks &+Ystronger &+yas the wounds covering them dissipate.&n");
+
+  
+
   TAG_CREATE("recent frag obj", TAG_OBJ_RECENT_FRAG);
   TAG_CREATE_WITH_MESSAGES("phantasmal form", TAG_PHANTASMAL_FORM,
                            "&+WYou feel yourself return to normal as you leave your phantasmal form.&n",
@@ -4410,8 +5053,14 @@ void initialize_skills()
   TAG_CREATE("boon power", TAG_BOON);
   TAG_CREATE("flag carrier", TAG_CTF);
   TAG_CREATE("ctf flag bonus", TAG_CTF_BONUS);
+<<<<<<< HEAD
   TAG_CREATE("pvp rent delay", TAG_PVPDELAY);
   TAG_CREATE("pvp engagement", TAG_PVP_ENGAGE);
+=======
+  TAG_CREATE("salvation cooldown", TAG_SALVATION);
+  TAG_CREATE_WITH_MESSAGES("dreadnaught", TAG_DREADNAUGHT,
+				"&+yYou feel ready to &+Ycharge &+yinto battle once again.", "");
+>>>>>>> master
 
   TAG_CREATE_WITH_MESSAGES("recently fragged", TAG_PLR_RECENT_FRAG, 
                            "&+rThe thrill of the &+Lrecent &+Rkill &+rleaves your veins.", "");
@@ -4427,3 +5076,429 @@ void initialize_skills()
   TAG_CREATE_WITH_MESSAGES("arrow bleed", TAG_ARROW_BLEED, "&+WYour bleeding wound has healed.&n", "$n's bleeding wound has healed.&n");
   TAG_CREATE("summon spawn/ally", TAG_SPAWN);
 }
+
+#ifdef SKILLPOINTS
+void initialize_skills_new()
+{
+  // Base Trees
+  SKILL_CREATE( "Warrior", SKILL_BASEWARR,   TAR_IGNORE );
+  SKILL_CREATE( "Rogue",   SKILL_BASEROGUE,  TAR_IGNORE );
+  SKILL_CREATE( "Priest",  SKILL_BASEPRIEST, TAR_IGNORE );
+  SKILL_CREATE( "Mage",    SKILL_BASEMAGE,   TAR_IGNORE );
+
+  // Warrior Tree
+  SKILL_CREATE( "1h Combat", SKILL_1HCOMBAT, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_1HCOMBAT, SKILL_BASEWARR, 100 );
+  skills[SKILL_1HCOMBAT].maxtrainwarr = 100;
+  SKILL_CREATE( "1h Bludgeon", SKILL_1H_BLUDGEON, TAR_PHYS );
+  SKILL_DEPEND( SKILL_1H_BLUDGEON, SKILL_1HCOMBAT, 100 );
+  skills[SKILL_1H_BLUDGEON].maxtrainwarr = 100;
+  SKILL_CREATE( "1h Flaying", SKILL_1H_FLAYING, TAR_PHYS );
+  SKILL_DEPEND( SKILL_1H_FLAYING, SKILL_1HCOMBAT, 100 );
+  skills[SKILL_1H_FLAYING].maxtrainwarr = 100;
+  SKILL_CREATE( "1h Slash", SKILL_1H_SLASHING, TAR_PHYS );
+  SKILL_DEPEND( SKILL_1H_SLASHING, SKILL_1HCOMBAT, 100 );
+  skills[SKILL_1H_SLASHING].maxtrainwarr = 100;
+  SKILL_CREATE( "Rage Tactics", SKILL_RAGETACTICS, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_RAGETACTICS, SKILL_1H_BLUDGEON, 100 );
+  SKILL_DEPEND( SKILL_RAGETACTICS, SKILL_1H_FLAYING, 100 );
+  SKILL_DEPEND( SKILL_RAGETACTICS, SKILL_1H_SLASHING, 100 );
+  SKILL_DEPEND( SKILL_RAGETACTICS, SKILL_2H_BLUDGEON, 100 );
+  SKILL_DEPEND( SKILL_RAGETACTICS, SKILL_2H_FLAYING, 100 );
+  skills[SKILL_1H_BLUDGEON].maxtrainwarr = 100;
+  SKILL_CREATE_WITH_MESSAGES( "Berserk", SKILL_BERSERK, TAR_PHYS,
+    "Your blood cools, and you no longer see targets everywhere.",
+    "$n seems to have overcome $s battle madness." );
+  SKILL_DEPEND( SKILL_BERSERK, SKILL_RAGETACTICS, 100 );
+  skills[SKILL_BERSERK].maxtrainwarr = 100;
+  SKILL_CREATE_WITH_MESSAGES( "Infuriate", SKILL_INFURIATE, TAR_PHYS,
+    "&+RAs your R&+ra&+RG&+re&+R fades away, you return to your normal size.&n",
+    NULL );
+  SKILL_DEPEND( SKILL_INFURIATE, SKILL_BERSERK, 100 );
+  skills[SKILL_INFURIATE].maxtrainwarr = 100;
+  skills[SKILL_INFURIATE].specskill = TRUE;
+  SKILL_CREATE( "Rampage", SKILL_RAMPAGE, TAR_PHYS);
+  SKILL_DEPEND( SKILL_RAMPAGE, SKILL_INFURIATE, 100 );
+  skills[SKILL_RAMPAGE].maxtrainwarr = 100;
+  skills[SKILL_RAMPAGE].specskill = TRUE;
+  SKILL_CREATE_WITH_MESSAGES( "Rage", SKILL_RAGE, TAR_PHYS,
+    "You feel yourself return to normal as your rage abates.",
+    "$n returns to normal as $s rage abates." );
+  SKILL_DEPEND( SKILL_RAGE, SKILL_RAMPAGE, 100 );
+  skills[SKILL_RAGE].maxtrainwarr = 100;
+  skills[SKILL_RAGE].specskill = TRUE;
+
+  SKILL_CREATE( "2h Combat", SKILL_2HCOMBAT, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_2HCOMBAT, SKILL_BASEWARR, 100 );
+  skills[SKILL_2HCOMBAT].maxtrainwarr = 100;
+  SKILL_CREATE( "2h Bludgeon", SKILL_2H_BLUDGEON, TAR_PHYS );
+  SKILL_DEPEND( SKILL_2H_BLUDGEON, SKILL_2HCOMBAT, 100 );
+  skills[SKILL_2H_BLUDGEON].maxtrainwarr = 100;
+  SKILL_CREATE( "2h Flaying", SKILL_2H_FLAYING, TAR_PHYS );
+  SKILL_DEPEND( SKILL_2H_FLAYING, SKILL_2HCOMBAT, 100 );
+  skills[SKILL_2H_FLAYING].maxtrainwarr = 100;
+  SKILL_CREATE( "2h Slash", SKILL_2H_SLASHING, TAR_PHYS );
+  SKILL_DEPEND( SKILL_2H_SLASHING, SKILL_2HCOMBAT, 100 );
+  skills[SKILL_2H_SLASHING].maxtrainwarr = 100;
+
+  SKILL_CREATE( "Enhanced Melee", SKILL_ENHANCEDMELEE, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_ENHANCEDMELEE, SKILL_1H_BLUDGEON, 100 );
+  SKILL_DEPEND( SKILL_ENHANCEDMELEE, SKILL_1H_FLAYING, 100 );
+  SKILL_DEPEND( SKILL_ENHANCEDMELEE, SKILL_1H_SLASHING, 100 );
+  SKILL_DEPEND( SKILL_ENHANCEDMELEE, SKILL_2H_BLUDGEON, 100 );
+  SKILL_DEPEND( SKILL_ENHANCEDMELEE, SKILL_2H_SLASHING, 100 );
+  SKILL_DEPEND( SKILL_ENHANCEDMELEE, SKILL_2H_FLAYING, 100 );
+  SKILL_DEPEND( SKILL_ENHANCEDMELEE, SKILL_BAREHANDED_FIGHTING, 100 );
+  skills[SKILL_ENHANCEDMELEE].maxtrainwarr = 100;
+
+  SKILL_CREATE( "Double Attack", SKILL_DOUBLE_ATTACK, TAR_PHYS );
+  SKILL_DEPEND( SKILL_DOUBLE_ATTACK, SKILL_ENHANCEDMELEE, 100 );
+  skills[SKILL_DOUBLE_ATTACK].maxtrainwarr = 100;
+  SKILL_CREATE( "Triple Attack", SKILL_TRIPLE_ATTACK, TAR_PHYS );
+  SKILL_DEPEND( SKILL_TRIPLE_ATTACK, SKILL_DOUBLE_ATTACK, 100 );
+  skills[SKILL_TRIPLE_ATTACK].maxtrainwarr = 100;
+  SKILL_CREATE( "Quadruple Attack", SKILL_QUADRUPLE_ATTACK, TAR_PHYS);
+  SKILL_DEPEND( SKILL_QUADRUPLE_ATTACK, SKILL_TRIPLE_ATTACK, 100 );
+  skills[SKILL_QUADRUPLE_ATTACK].maxtrainwarr = 100;
+  skills[SKILL_QUADRUPLE_ATTACK].specskill = TRUE;
+  SKILL_CREATE( "Melee Mastery", SKILL_MELEE_MASTERY, TAR_PHYS );
+  SKILL_DEPEND( SKILL_MELEE_MASTERY, SKILL_DOUBLE_ATTACK, 100 );
+  skills[SKILL_MELEE_MASTERY].maxtrainwarr = 100;
+  skills[SKILL_MELEE_MASTERY].specskill = TRUE;
+  SKILL_CREATE( "Dual Wield", SKILL_DUAL_WIELD, TAR_PHYS );
+  SKILL_DEPEND( SKILL_DUAL_WIELD, SKILL_ENHANCEDMELEE, 100 );
+  skills[SKILL_DUAL_WIELD].maxtrainwarr = 100;
+  SKILL_CREATE( "Surprise", SKILL_SURPRISE, TAR_PHYS );
+  SKILL_DEPEND( SKILL_SURPRISE, SKILL_ENHANCEDMELEE, 100 );
+  skills[SKILL_SURPRISE].maxtrainwarr = 100;
+  SKILL_CREATE( "Critical Strike", SKILL_CRITICAL_ATTACK, TAR_PHYS );
+  SKILL_DEPEND( SKILL_CRITICAL_ATTACK, SKILL_SURPRISE, 100 );
+  skills[SKILL_CRITICAL_ATTACK].maxtrainwarr = 100;
+  SKILL_CREATE_WITH_MESSAGES( "Whirlwind", SKILL_WHIRLWIND, TAR_PHYS, 
+    "You slow down exhausted.",
+    "$n slows down exhausted." );
+  SKILL_DEPEND( SKILL_WHIRLWIND, SKILL_CRITICAL_ATTACK, 100 );
+  skills[SKILL_WHIRLWIND].maxtrainwarr = 100;
+  skills[SKILL_WHIRLWIND].specskill = TRUE;
+
+  SKILL_CREATE( "Barehanded Combat", SKILL_BAREHANDEDCOMBAT, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_BAREHANDEDCOMBAT, SKILL_BASEWARR, 100 );
+  skills[SKILL_BAREHANDEDCOMBAT].maxtrainwarr = 100;
+  SKILL_CREATE( "Barehanded Fighting", SKILL_BAREHANDED_FIGHTING, TAR_PHYS );
+  SKILL_DEPEND( SKILL_BAREHANDED_FIGHTING, SKILL_BAREHANDEDCOMBAT, 100 );
+  skills[SKILL_BAREHANDED_FIGHTING].maxtrainwarr = 100;
+  SKILL_CREATE( "Martial Arts", SKILL_MARTIAL_ARTS, TAR_PHYS );
+  SKILL_DEPEND( SKILL_MARTIAL_ARTS, SKILL_BAREHANDED_FIGHTING, 100 );
+  skills[SKILL_MARTIAL_ARTS].maxtrainwarr = 100;
+  SKILL_CREATE( "Combination Attack", SKILL_COMBINATION, TAR_PHYS );
+  SKILL_DEPEND( SKILL_COMBINATION, SKILL_MARTIAL_ARTS, 100 );
+  skills[SKILL_COMBINATION].maxtrainwarr = 100;
+  SKILL_CREATE( "Dragon Punch", SKILL_DRAGON_PUNCH, TAR_PHYS );
+  SKILL_DEPEND( SKILL_DRAGON_PUNCH, SKILL_MARTIAL_ARTS, 100 );
+  skills[SKILL_DRAGON_PUNCH].maxtrainwarr = 100;
+  SKILL_CREATE( "Ki Strike", SKILL_KI_STRIKE, TAR_PHYS | TAR_EPIC );
+  SKILL_DEPEND( SKILL_KI_STRIKE, SKILL_DRAGON_PUNCH, 100 );
+  skills[SKILL_KI_STRIKE].maxtrainwarr = 100;
+  skills[SKILL_KI_STRIKE].specskill = TRUE;
+  SKILL_CREATE( "Kick", SKILL_KICK, TAR_PHYS );
+  SKILL_DEPEND( SKILL_KICK, SKILL_BAREHANDEDCOMBAT, 100 );
+  skills[SKILL_KICK].maxtrainwarr = 100;
+  SKILL_CREATE( "Roundkick", SKILL_ROUNDKICK, TAR_PHYS );
+  SKILL_DEPEND( SKILL_ROUNDKICK, SKILL_KICK, 100 );
+  skills[SKILL_ROUNDKICK].maxtrainwarr = 100;
+  skills[SKILL_ROUNDKICK].specskill = TRUE;
+
+  SKILL_CREATE( "Takedowns", SKILL_TAKEDOWNS, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_TAKEDOWNS, SKILL_BASEWARR, 100 );
+  skills[SKILL_TAKEDOWNS].maxtrainwarr = 100;
+  SKILL_CREATE( "Bash", SKILL_BASH, TAR_PHYS );
+  SKILL_DEPEND( SKILL_BASH, SKILL_TAKEDOWNS, 100 );
+  skills[SKILL_BASH].maxtrainwarr = 100;
+  SKILL_CREATE( "Shieldless Bash", SKILL_SHIELDLESS_BASH, TAR_PHYS );
+  SKILL_DEPEND( SKILL_SHIELDLESS_BASH, SKILL_BASH, 100 );
+  skills[SKILL_SHIELDLESS_BASH].maxtrainwarr = 100;
+  SKILL_CREATE( "Skewer", SKILL_SKEWER, TAR_PHYS );
+  SKILL_DEPEND( SKILL_SKEWER, SKILL_BASH, 100 );
+  skills[SKILL_SKEWER].maxtrainwarr = 100;
+  SKILL_CREATE( "Springleap", SKILL_SPRINGLEAP, TAR_PHYS );
+  SKILL_DEPEND( SKILL_SPRINGLEAP, SKILL_TAKEDOWNS, 100 );
+  skills[SKILL_SPRINGLEAP].maxtrainwarr = 100;
+  SKILL_CREATE( "Maul", SKILL_MAUL, TAR_PHYS );
+  SKILL_DEPEND( SKILL_MAUL, SKILL_TAKEDOWNS, 100 );
+  skills[SKILL_MAUL].maxtrainwarr = 100;
+  SKILL_CREATE( "Trample", SKILL_TRAMPLE, TAR_PHYS );
+  SKILL_DEPEND( SKILL_TRAMPLE, SKILL_TAKEDOWNS, 100 );
+  skills[SKILL_TRAMPLE].maxtrainwarr = 100;
+
+  SKILL_CREATE( "Defensive Training", SKILL_DEFENSIVETRAINING, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_DEFENSIVETRAINING, SKILL_BASEWARR, 100 );
+  skills[SKILL_DEFENSIVETRAINING].maxtrainwarr = 100;
+  SKILL_CREATE( "Parry", SKILL_PARRY, TAR_PHYS );
+  SKILL_DEPEND( SKILL_PARRY, SKILL_BASEWARR, 100 );
+  skills[SKILL_PARRY].maxtrainwarr = 100;
+  SKILL_CREATE( "Enhanced Parry", SKILL_EXPERT_PARRY, TAR_MENTAL | TAR_EPIC );
+  SKILL_DEPEND( SKILL_EXPERT_PARRY, SKILL_PARRY, 100 );
+  skills[SKILL_EXPERT_PARRY].maxtrainwarr = 100;
+  skills[SKILL_EXPERT_PARRY].specskill = TRUE;
+  SKILL_CREATE( "Riposte", SKILL_RIPOSTE, TAR_PHYS );
+  SKILL_DEPEND( SKILL_RIPOSTE, SKILL_PARRY, 100 );
+  skills[SKILL_EXPERT_RIPOSTE].maxtrainwarr = 100;
+  SKILL_CREATE( "Follow-up Riposte", SKILL_FOLLOWUP_RIPOSTE, TAR_PHYS );
+  SKILL_DEPEND( SKILL_FOLLOWUP_RIPOSTE, SKILL_RIPOSTE, 100 );
+  skills[SKILL_FOLLOWUP_RIPOSTE].maxtrainwarr = 100;
+  skills[SKILL_FOLLOWUP_RIPOSTE].specskill = TRUE;
+  SKILL_CREATE( "Dodge", SKILL_DODGE, TAR_PHYS );
+  SKILL_DEPEND( SKILL_DODGE, SKILL_BASEWARR, 100 );
+  skills[SKILL_DODGE].maxtrainwarr = 100;
+  SKILL_CREATE( "Groundfighting", SKILL_GROUNDFIGHTING, TAR_PHYS );
+  SKILL_DEPEND( SKILL_GROUNDFIGHTING, SKILL_DODGE, 100 );
+  skills[SKILL_GROUNDFIGHTING].maxtrainwarr = 100;
+  SKILL_CREATE( "Rescue", SKILL_RESCUE, TAR_PHYS );
+  SKILL_DEPEND( SKILL_RESCUE, SKILL_BASEWARR, 100 );
+  skills[SKILL_RESCUE].maxtrainwarr = 100;
+  SKILL_CREATE( "Guard", SKILL_GUARD, TAR_PHYS );
+  SKILL_DEPEND( SKILL_GUARD, SKILL_RESCUE, 100 );
+  skills[SKILL_GUARD].maxtrainwarr = 100;
+  SKILL_CREATE( "Rescue All", SKILL_RESCUEALL, TAR_PHYS );
+  SKILL_DEPEND( SKILL_RESCUEALL, SKILL_GUARD, 100 );
+  skills[SKILL_RESCUEALL].maxtrainwarr = 100;
+  skills[SKILL_RESCUEALL].specskill = TRUE;
+  SKILL_CREATE( "Shield Block", SKILL_SHIELD_BLOCK, TAR_PHYS );
+  SKILL_DEPEND( SKILL_SHIELD_BLOCK, SKILL_BASEWARR, 100 );
+  skills[SKILL_SHIELD_BLOCK].maxtrainwarr = 100;
+  SKILL_CREATE( "Shield Punch", SKILL_SHIELDPUNCH, TAR_PHYS );
+  SKILL_DEPEND( SKILL_SHIELDPUNCH, SKILL_SHIELD_BLOCK, 100 );
+  skills[SKILL_SHIELDPUNCH].maxtrainwarr = 100;
+  SKILL_CREATE( "Enhanced Bash", SKILL_ENHANCEDBASH, TAR_PHYS );
+  SKILL_DEPEND( SKILL_ENHANCEDBASH, SKILL_SHIELDPUNCH, 100 );
+  skills[SKILL_ENHANCEDBASH].maxtrainwarr = 100;
+  skills[SKILL_ENHANCEDBASH].specskill = TRUE;
+
+  SKILL_CREATE( "Chants", SKILL_CHANTS, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_CHANTS, SKILL_BASEWARR, 100 );
+  skills[SKILL_CHANTS].maxtrainwarr = 100;
+
+  SKILL_CREATE( "Control of Hands", SKILL_HANDCONTROL, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_HANDCONTROL, SKILL_CHANTS, 100 );
+  skills[SKILL_HANDCONTROL].maxtrainwarr = 100;
+  SKILL_CREATE( "Quivering Palm", SKILL_QUIVERING_PALM, TAR_PHYS );
+  SKILL_DEPEND( SKILL_QUIVERING_PALM, SKILL_HANDCONTROL, WHITE_SKILL );
+  skills[SKILL_QUIVERING_PALM].maxtrainwarr = 100;
+  SKILL_CREATE( "Buddha Palm", SKILL_QUIVERING_PALM, TAR_PHYS );
+  SKILL_DEPEND( SKILL_BUDDHA_PALM, SKILL_HANDCONTROL, WHITE_SKILL );
+  skills[SKILL_BUDDHA_PALM].maxtrainwarr = 100;
+
+  SKILL_CREATE( "Control of Body", SKILL_BODYCONTROL, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_BODYCONTROL, SKILL_CHANTS, 100 );
+  skills[SKILL_BODYCONTROL].maxtrainwarr = 100;
+  SKILL_CREATE( "Chi Purge", SKILL_CHI_PURGE, TAR_PHYS );
+  SKILL_DEPEND( SKILL_CHI_PURGE, SKILL_BODYCONTROL, WHITE_SKILL );
+  skills[SKILL_CHI_PURGE].maxtrainwarr = 100;
+  SKILL_CREATE( "Calm", SKILL_CALM, TAR_PHYS );
+  SKILL_DEPEND( SKILL_CALM, SKILL_BODYCONTROL, WHITE_SKILL );
+  skills[SKILL_CALM].maxtrainwarr = 100;
+
+  SKILL_CREATE( "One with Mind", SKILL_ONEWITHMIND, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_ONEWITHMIND, SKILL_CHANTS, 100 );
+  skills[SKILL_ONEWITHMIND].maxtrainwarr = 100;
+  SKILL_CREATE( "Regenerate", SKILL_REGENERATE, TAR_PHYS );
+  SKILL_DEPEND( SKILL_REGENERATE, SKILL_ONEWITHMIND, WHITE_SKILL );
+  skills[SKILL_REGENERATE].maxtrainwarr = 100;
+  SKILL_CREATE( "Tiger Palm", SKILL_TIGER_PALM, TAR_MENTAL );
+  SKILL_DEPEND( SKILL_TIGER_PALM, SKILL_ONEWITHMIND, WHITE_SKILL );
+  skills[SKILL_TIGER_PALM].maxtrainwarr = 100;
+
+  SKILL_CREATE( "One with Body", SKILL_ONEWITHBODY, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_ONEWITHBODY, SKILL_CHANTS, 100 );
+  skills[SKILL_ONEWITHBODY].maxtrainwarr = 100;
+  SKILL_CREATE( "Diamond Soul", SKILL_DIAMOND_SOUL, TAR_MENTAL );
+  SKILL_DEPEND( SKILL_DIAMOND_SOUL, SKILL_ONEWITHBODY, WHITE_SKILL );
+  skills[SKILL_DIAMOND_SOUL].maxtrainwarr = 100;
+  SKILL_CREATE( "Heroism", SKILL_HEROISM, TAR_MENTAL );
+  SKILL_DEPEND( SKILL_HEROISM, SKILL_ONEWITHBODY, WHITE_SKILL );
+  skills[SKILL_HEROISM].maxtrainwarr = 100;
+  SKILL_CREATE( "Cell Adjustment", SKILL_CELLADJUSTMENT, TAR_MENTAL );
+  SKILL_DEPEND( SKILL_CELLADJUSTMENT, SKILL_ONEWITHBODY, WHITE_SKILL );
+  skills[SKILL_CELLADJUSTMENT].maxtrainwarr = 100;
+
+  SKILL_CREATE( "Natural Magic", SKILL_NATURALMAGIC, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_NATURALMAGIC, SKILL_BASEWARR, 100 );
+  skills[SKILL_NATURALMAGIC].maxtrainwarr = 100;
+
+  SKILL_CREATE( "Natures Protections", SKILL_NATURESPROTECTIONS, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_NATURESPROTECTIONS, SKILL_NATURALMAGIC, 100 );
+  skills[SKILL_NATURESPROTECTIONS].maxtrainwarr = 100;
+  SPELL_CREATE_MSG("barkskin", SPELL_BARKSKIN, PULSE_SPELLCAST, TAR_CHAR_ROOM,
+    spell_barkskin, "Your skin loses its &+ybarklike &ntexture.");
+  SKILL_DEPEND( SPELL_BARKSKIN, SKILL_NATURESPROTECTIONS, WHITE_SKILL );
+  skills[SPELL_BARKSKIN].maxtrainwarr = 100;
+  SPELL_CREATE_MSG("protection from animals", SPELL_PROTECT_FROM_ANIMAL, PULSE_SPELLCAST,
+    TAR_CHAR_ROOM | TAR_SPIRIT,
+    spell_protection_from_animals, "You no longer feel safe from &+yanimals&n.");
+  SKILL_DEPEND( SPELL_PROTECT_FROM_ANIMAL, SKILL_NATURESPROTECTIONS, WHITE_SKILL );
+  skills[SPELL_PROTECT_FROM_ANIMAL].maxtrainwarr = 100;
+  SPELL_CREATE_MSG("protection from evil", SPELL_PROTECT_FROM_EVIL, PULSE_SPELLCAST,
+    TAR_CHAR_ROOM,
+    spell_protection_from_evil, "You do not feel as safe from &+revil&n.");
+  SKILL_DEPEND( SKILL_PROTECT_FROM_EVIL, SKILL_NATURESPROTECTIONS, WHITE_SKILL );
+  skills[SKILL_PROTECT_FROM_EVIL].maxtrainwarr = 100;
+
+// YOU ARE HERE.
+// 
+  SKILL_CREATE( "Natures Senses", SKILL_NATURESSENSES, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_NATURESSENSES, SKILL_NATURESPROTECTIONS, 100 );
+  skills[SKILL_NATURESSENSES].maxtrainwarr = 100;
+
+
+  SKILL_CREATE( "Occult Magic", SKILL_OCCULTMAGIC, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_OCCULTMAGIC, SKILL_BASEWARR, 100 );
+  skills[SKILL_OCCULTMAGIC].maxtrainwarr = 100;
+  SKILL_CREATE( "Holy Magic", SKILL_HOLYMAGIC, TAR_IGNORE );
+  SKILL_DEPEND( SKILL_HOLYMAGIC, SKILL_BASEWARR, 100 );
+  skills[SKILL_HOLYMAGIC].maxtrainwarr = 100;
+
+}
+#endif
+
+
+
+void assign_racial_skills(P_char ch)
+{
+  struct affected_type af;
+  //if(!IS_SET(PLR3_FLAGS(ch), PLR3_RACIAL_SKILLS)) 
+
+     // if ((af = get_spell_from_char(ch, TAG_RACIAL_SKILLS)) == NULL)
+   if(!affected_by_spell(ch, TAG_RACIAL_SKILLS))
+     {
+	 do_epic_reset(ch, 0, 1); //player has never had their new racial skills set clear out ALL EPIC SKILLS
+  
+        memset(&af, 0, sizeof(struct affected_type));
+        af.type = TAG_RACIAL_SKILLS;
+        af.flags = AFFTYPE_NOSHOW | AFFTYPE_PERM | AFFTYPE_NODISPEL;
+        af.duration = -1;
+        affect_to_char(ch, &af);
+            }
+    update_racial_skills(ch);
+ 
+}
+
+void assign_racial_skills_norefund(P_char ch)
+{
+  struct affected_type af;
+   if(!affected_by_spell(ch, TAG_RACIAL_SKILLS))
+     {
+	 do_epic_reset_norefund(ch, 0, 1); //player doesnt need a refund
+  
+        memset(&af, 0, sizeof(struct affected_type));
+        af.type = TAG_RACIAL_SKILLS;
+        af.flags = AFFTYPE_NOSHOW | AFFTYPE_PERM | AFFTYPE_NODISPEL;
+        af.duration = -1;
+        affect_to_char(ch, &af);
+     }
+	 update_racial_skills(ch);
+ 
+}
+
+void update_racial_skills(P_char ch)
+{
+	  int currrace;
+         currrace = GET_RACE(ch);
+         if(GET_SPEC(ch, CLASS_SORCERER, SPEC_WIZARD))
+          {
+		ch->only.pc->skills[SKILL_SPELL_PENETRATION].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+		ch->only.pc->skills[SKILL_SPELL_PENETRATION].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+		do_save_silent(ch, 1); // racial skills require a save.
+           }
+	  switch (currrace)
+		 {
+			case RACE_GNOME:
+			//assign gnome racial epic skills
+			ch->only.pc->skills[SKILL_FIX].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_FIX].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			do_save_silent(ch, 1); // racial skills require a save.
+			break;
+			case RACE_HALFLING:
+			ch->only.pc->skills[SKILL_EXPERT_PARRY].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_EXPERT_PARRY].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			do_save_silent(ch, 1); // racial skills require a save.
+			break;
+			case RACE_GOBLIN:
+			ch->only.pc->skills[SKILL_EXPERT_PARRY].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_EXPERT_PARRY].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_FIX].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_FIX].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+
+			do_save_silent(ch, 1); // racial skills require a save.
+			break;
+			case RACE_GITHYANKI:
+			ch->only.pc->skills[SKILL_ADVANCED_MEDITATION].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_ADVANCED_MEDITATION].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			do_save_silent(ch, 1); // racial skills require a save.
+			break;
+			case RACE_HUMAN:
+			ch->only.pc->skills[SKILL_SHIELD_COMBAT].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_SHIELD_COMBAT].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_IMPROVED_SHIELD_COMBAT].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_IMPROVED_SHIELD_COMBAT].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_SCRIBE_MASTERY].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_SCRIBE_MASTERY].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_DEVOTION].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_DEVOTION].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_IMPROVED_ENDURANCE].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_IMPROVED_ENDURANCE].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			do_save_silent(ch, 1); // racial skills require a save.
+			break;
+			case RACE_ORC:
+			ch->only.pc->skills[SKILL_SHIELD_COMBAT].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_SHIELD_COMBAT].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_IMPROVED_SHIELD_COMBAT].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_IMPROVED_SHIELD_COMBAT].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_SCRIBE_MASTERY].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_SCRIBE_MASTERY].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_DEVOTION].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_DEVOTION].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_IMPROVED_ENDURANCE].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_IMPROVED_ENDURANCE].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			do_save_silent(ch, 1); // racial skills require a save.
+			break;
+			case RACE_CENTAUR:
+			ch->only.pc->skills[SKILL_EXPERT_RIPOSTE].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_EXPERT_RIPOSTE].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_TWOWEAPON].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_TWOWEAPON].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_IMPROVED_TWOWEAPON].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_IMPROVED_TWOWEAPON].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			do_save_silent(ch, 1); // racial skills require a save.
+			break;
+			case RACE_BARBARIAN:
+			ch->only.pc->skills[SKILL_ANATOMY].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_ANATOMY].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			do_save_silent(ch, 1); // racial skills require a save.
+			break;
+			case RACE_TROLL:
+			ch->only.pc->skills[SKILL_ANATOMY].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_ANATOMY].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_TOTEMIC_MASTERY].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_TOTEMIC_MASTERY].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			do_save_silent(ch, 1); // racial skills require a save.
+			break;
+			case RACE_OGRE:
+			ch->only.pc->skills[SKILL_DEVASTATING_CRITICAL].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_DEVASTATING_CRITICAL].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			do_save_silent(ch, 1); // racial skills require a save.
+			break;
+			case RACE_THRIKREEN:
+			//assign thri-kreen racial epic skills
+			ch->only.pc->skills[SKILL_SHIELDLESS_BASH].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_SHIELDLESS_BASH].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_IMPROVED_ENDURANCE].taught = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			ch->only.pc->skills[SKILL_IMPROVED_ENDURANCE].learned = BOUNDED(10, GET_LEVEL(ch) *2, 100);
+			do_save_silent(ch, 1); // racial skills require a save.
+			break;
+			default:
+			//do nothing - not a race that has skills
+			return;
+			break;
+		}
+}
+

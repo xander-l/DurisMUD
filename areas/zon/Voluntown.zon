@@ -1,0 +1,262 @@
+#1
+&+LThe &+BRo&+bya&+Bl &+wMau&+Lso&+wleum &+Lof Castle &+WIce&+CCrag&n~
+142532 0 0 40 50 4
+*
+* Zone edited with durisEdit v2.99de
+*
+*
+D 0 142400 3 2 100 0 0 0
+*     west exit from "A Snowy Mountain Trail" to
+*     "A Mountain Trail" - closed/locked
+*
+D 0 142401 1 2 100 0 0 0
+*     east exit from "A Mountain Trail" to
+*     "A Snowy Mountain Trail" - closed/locked
+*
+D 0 142402 0 1 100 0 0 0
+*     north exit from "Before a Run Down Shack" to
+*     "The Caretaker's Shack" - closed
+*
+D 0 142403 2 1 100 0 0 0
+*     south exit from "The Caretaker's Shack" to
+*     "Before a Run Down Shack" - closed
+*
+D 0 142408 0 1 100 0 0 0
+*     north exit from "A Massive Rusted Gate" to
+*     "Before the Crypt of the Crav Family" - closed
+*
+D 0 142409 2 1 100 0 0 0
+*     south exit from "Before the Crypt of the Crav Family" to
+*     "A Massive Rusted Gate" - closed
+*
+D 0 142409 0 1 100 0 0 0
+*     north exit from "Before the Crypt of the Crav Family" to
+*     "A Stairwell Descending into the Crypt" - closed
+*
+D 0 142470 2 1 100 0 0 0
+*     south exit from "A Stairwell Descending into the Crypt" to
+*     "Before the Crypt of the Crav Family" - closed
+*
+D 0 142411 0 1 100 0 0 0
+*     north exit from "Before the Boru family Crypt" to
+*     "A Stairway Leading Down into the Crypt" - closed
+*
+D 0 142453 2 1 100 0 0 0
+*     south exit from "A Stairway Leading Down into the Crypt" to
+*     "Before the Boru family Crypt" - closed
+*
+D 0 142415 0 1 100 0 0 0
+*     north exit from "Before the Crypt of the Platyr Family" to
+*     "A Marble Foyer" - closed
+*
+D 0 142521 2 1 100 0 0 0
+*     south exit from "A Marble Foyer" to
+*     "Before the Crypt of the Platyr Family" - closed
+*
+D 0 142420 0 1 100 0 0 0
+*     north exit from "Before the Crypt of the Llywelyn Family" to
+*     "The Entrance to an Ornate Crypt" - closed
+*
+D 0 142482 2 1 100 0 0 0
+*     south exit from "The Entrance to an Ornate Crypt" to
+*     "Before the Crypt of the Llywelyn Family" - closed
+*
+D 0 142424 0 1 100 0 0 0
+*     north exit from "Before the Crypt of the Sarum Family" to
+*     "A Room Made Entirely of Bone" - closed
+*
+D 0 142493 2 1 100 0 0 0
+*     south exit from "A Room Made Entirely of Bone" to
+*     "Before the Crypt of the Sarum Family" - closed
+*
+D 0 142426 0 1 100 0 0 0
+*     north exit from "Before the Crypt of the Tavinshir Family" to
+*     "Within the Pyramid Crypt" - closed
+*
+D 0 142509 2 1 100 0 0 0
+*     south exit from "Within the Pyramid Crypt" to
+*     "Before the Crypt of the Tavinshir Family" - closed
+*
+D 0 142431 0 2 100 0 0 0
+*     north exit from "In Front of the Massive Drakenstone Crypt" to
+*     "Within the Drakenstone Crypt" - closed/locked
+*
+D 0 142438 2 2 100 0 0 0
+*     south exit from "Within the Drakenstone Crypt" to
+*     "In Front of the Massive Drakenstone Crypt" - closed/locked
+*
+D 0 142451 2 2 100 0 0 0
+*     south exit from "Within the Shrine of Mary" to
+*     "Before the Monolith of Time" - closed/locked
+*
+D 0 142452 0 2 100 0 0 0
+*     north exit from "Before the Monolith of Time" to
+*     "Within the Shrine of Mary" - closed/locked
+*
+*
+O 0 142444 1 142446 100 0 0 0      * A massive pile of platinum coins
+O 0 142449 1 142447 100 0 0 0      * an astral metal hammer named 'Frozen Star'
+O 0 142450 1 142452 100 0 0 0      * a golden strand of time
+O 0 142412 1 142460 100 0 0 0      * a small golden box
+P 1 142414 1 142412 100 0 0 0      *   a platinum figurine of Bran Boru
+O 0 142415 1 142469 100 0 0 0      * a pedestal coffin
+P 1 142405 1 142415 100 0 0 0      *   a key fragment
+P 1 142413 1 142415 100 0 0 0      *   a tiny golden key
+P 1 142416 1 142415 100 0 0 0      *   the holy shield of blessed defense
+O 0 142410 1 142477 100 0 0 0      * a LARGE emerald
+O 0 142401 1 142481 100 0 0 0      * A large stone coffin
+P 1 142411 1 142401 100 0 0 0      *   the prayer beads of taoism
+P 1 142404 1 142401 100 0 0 0      *   a key fragment
+O 0 142426 1 142485 100 0 0 0      * a box of fine jewels
+O 0 142420 1 142492 100 0 0 0      * A massive golden coffin
+P 1 142406 1 142420 100 0 0 0      *   a key fragment
+P 1 142422 1 142420 100 0 0 0      *   an ancient crown of elven royalty
+O 0 142429 1 142500 100 0 0 0      * a HUGE black diamond
+O 0 142427 1 142508 100 0 0 0      * an obsidian coffin
+P 1 142430 1 142427 100 0 0 0      *   the staff of hellish destruction
+P 1 142407 1 142427 100 0 0 0      *   a key fragment
+O 0 142432 1 142520 100 0 0 0      * A large stone sarcophagus
+P 1 142408 1 142432 100 0 0 0      *   a key fragment
+P 1 142437 1 142432 100 0 0 0      *   some ruby studded greaves
+O 0 142434 1 142520 100 0 0 0      * a platinum sacrificial dagger
+O 0 142442 1 142526 100 0 0 0      * a large gold necklace
+O 0 142438 1 142530 100 0 0 0      * A large marble urn
+P 1 142409 1 142438 100 0 0 0      *   a key fragment
+P 1 142440 1 142438 100 0 0 0      *   the gauntlets of Torm's Justice
+*
+M 0 142400 1 142403 100 0 0 0      * The caretaker
+M 0 142403 7 142410 100 0 0 0      * A shadow stalker
+M 0 142403 7 142412 100 0 0 0      * A shadow stalker
+M 0 142407 9 142412 100 0 0 0      * A frozen corpse
+M 0 142403 7 142414 100 0 0 0      * A shadow stalker
+M 0 142403 7 142416 100 0 0 0      * A shadow stalker
+M 0 142407 9 142416 100 0 0 0      * A frozen corpse
+M 0 142407 9 142418 100 0 0 0      * A frozen corpse
+M 0 142403 7 142420 100 0 0 0      * A shadow stalker
+M 0 142403 7 142423 100 0 0 0      * A shadow stalker
+M 0 142407 9 142424 100 0 0 0      * A frozen corpse
+M 0 142403 7 142432 100 0 0 0      * A shadow stalker
+M 0 142406 9 142440 100 0 0 0      * A frost wight
+M 0 142426 4 142441 100 0 0 0      * A bonedaddy
+M 0 142426 4 142442 100 0 0 0      * A bonedaddy
+M 0 142426 4 142443 100 0 0 0      * A bonedaddy
+M 0 142406 9 142443 100 0 0 0      * A frost wight
+M 0 142426 4 142444 100 0 0 0      * A bonedaddy
+M 0 142406 9 142444 100 0 0 0      * A frost wight
+M 0 142406 9 142445 100 0 0 0      * A frost wight
+M 0 142425 1 142446 100 0 0 0      * Haratius Drakenstone
+E 1 142447 1 12 100 0 0 0          *   a mithril breastplate with a golden cross
+E 1 142424 7 16 100 0 0 0          *   a massive unholy blade
+G 1 142400 1 0 100 0 0 0           *    a golden seal of the fates
+G 1 142448 1 0 100 0 0 0           *    the necklace of the icecrag royalty
+G 1 359 1 0 100 0 0 0              *    (object type not in this .obj file)
+G 1 22070 1 0 100 0 0 0            *    (object type not in this .obj file)
+M 0 142427 1 142446 100 0 0 0      * Hynera Drakenstone
+E 1 142445 1 16 100 0 0 0          *   a green bladed dagger named 'Sepsis'
+E 1 142446 1 17 100 0 0 0          *   an iron dagger
+M 0 142401 1 142451 100 0 0 0      * Mary, tailor of time
+M 0 142406 9 142454 100 0 0 0      * A frost wight
+E 1 142417 10 16 100 0 0 0         *   a massive femur bone
+E 1 142417 10 17 100 0 0 0         *   a massive femur bone
+M 0 142407 9 142454 100 0 0 0      * A frozen corpse
+M 0 142407 9 142458 100 0 0 0      * A frozen corpse
+M 0 142406 9 142460 100 0 0 0      * A frost wight
+E 1 142417 10 16 100 0 0 0         *   a massive femur bone
+E 1 142417 10 17 100 0 0 0         *   a massive femur bone
+M 0 142406 9 142463 100 0 0 0      * A frost wight
+E 1 142417 10 16 100 0 0 0         *   a massive femur bone
+E 1 142417 10 17 100 0 0 0         *   a massive femur bone
+M 0 142406 9 142464 100 0 0 0      * A frost wight
+E 1 142417 10 16 100 0 0 0         *   a massive femur bone
+E 1 142417 10 17 100 0 0 0         *   a massive femur bone
+M 0 142407 9 142464 100 0 0 0      * A frozen corpse
+M 0 142407 9 142465 100 0 0 0      * A frozen corpse
+M 0 142406 9 142467 100 0 0 0      * A frost wight
+E 1 142417 10 16 100 0 0 0         *   a massive femur bone
+E 1 142417 10 17 100 0 0 0         *   a massive femur bone
+M 0 142407 9 142468 100 0 0 0      * A frozen corpse
+M 0 142408 1 142469 100 0 0 0      * Bran Boru
+E 1 142419 1 16 100 0 0 0          *   the legendary cutlass 'Sanguine Song'
+G 1 142418 1 0 100 0 0 0           *    the royal key of Boru
+F 1 142409 2 142469 100 0 0 0      * A frost giant skeleton (following)
+F 1 142409 2 142469 100 0 0 0      * A frost giant skeleton (following)
+M 0 142405 7 142473 100 0 0 0      * A crav cadaver
+M 0 142404 3 142475 100 0 0 0      * A rampaging dracolich
+M 0 142405 7 142475 100 0 0 0      * A crav cadaver
+M 0 142404 3 142477 100 0 0 0      * A rampaging dracolich
+M 0 142404 3 142478 100 0 0 0      * A rampaging dracolich
+M 0 142405 7 142478 100 0 0 0      * A crav cadaver
+M 0 142405 7 142480 100 0 0 0      * A crav cadaver
+M 0 142405 7 142480 100 0 0 0      * A crav cadaver
+M 0 142402 1 142481 100 0 0 0      * Thadeus Crav
+E 1 142403 1 13 100 0 0 0          *   the belt of lifted burdens
+G 1 142402 1 0 100 0 0 0           *    the royal key of Crav
+F 1 142405 7 142481 100 0 0 0      * A crav cadaver (following)
+F 1 142405 7 142481 100 0 0 0      * A crav cadaver (following)
+M 0 142412 5 142483 100 0 0 0      * A banshee
+M 0 142413 4 142483 100 0 0 0      * An elven boneblade
+E 1 142425 8 16 100 0 0 0          *   a flying elven scimitar
+E 1 142425 8 17 100 0 0 0          *   a flying elven scimitar
+M 0 142412 5 142485 100 0 0 0      * A banshee
+M 0 142413 4 142485 100 0 0 0      * An elven boneblade
+E 1 142425 8 16 100 0 0 0          *   a flying elven scimitar
+E 1 142425 8 17 100 0 0 0          *   a flying elven scimitar
+M 0 142413 4 142486 100 0 0 0      * An elven boneblade
+E 1 142425 8 16 100 0 0 0          *   a flying elven scimitar
+E 1 142425 8 17 100 0 0 0          *   a flying elven scimitar
+M 0 142412 5 142487 100 0 0 0      * A banshee
+M 0 142412 5 142488 100 0 0 0      * A banshee
+M 0 142413 4 142489 100 0 0 0      * An elven boneblade
+E 1 142425 8 16 100 0 0 0          *   a flying elven scimitar
+E 1 142425 8 17 100 0 0 0          *   a flying elven scimitar
+M 0 142412 5 142490 100 0 0 0      * A banshee
+M 0 142410 1 142492 100 0 0 0      * Rydian Llywelyn
+E 1 142423 1 16 100 0 0 0          *   an astral forged kris
+G 1 142421 1 0 100 0 0 0           *    the royal key of Llywelyn
+F 1 142414 1 142492 100 0 0 0      * A reanimated dreadknight (following)
+E 1 142424 7 16 100 0 0 0          *   a massive unholy blade
+M 0 142415 5 142496 100 0 0 0      * the lich of a wildmage
+M 0 142415 5 142498 100 0 0 0      * the lich of a wildmage
+M 0 142411 5 142499 100 0 0 0      * A ghastly morgh
+M 0 142415 5 142500 100 0 0 0      * the lich of a wildmage
+M 0 142411 5 142502 100 0 0 0      * A ghastly morgh
+M 0 142415 5 142502 100 0 0 0      * the lich of a wildmage
+M 0 142411 5 142503 100 0 0 0      * A ghastly morgh
+M 0 142415 5 142505 100 0 0 0      * the lich of a wildmage
+M 0 142411 5 142506 100 0 0 0      * A ghastly morgh
+M 0 142411 5 142507 100 0 0 0      * A ghastly morgh
+M 0 142417 1 142508 100 0 0 0      * Marr Sarum
+G 1 142428 1 0 100 0 0 0           *    the royal key of Sarum
+G 1 142431 1 0 100 0 0 0           *    the wand of the forgotten dead
+F 1 142416 1 142508 100 0 0 0      * a massive bone dragon (following)
+M 0 142418 4 142511 100 0 0 0      * a mummy
+M 0 142421 4 142512 100 0 0 0      * An archon guard
+M 0 142421 4 142514 100 0 0 0      * An archon guard
+M 0 142418 4 142514 100 0 0 0      * a mummy
+M 0 142418 4 142516 100 0 0 0      * a mummy
+M 0 142421 4 142517 100 0 0 0      * An archon guard
+M 0 142418 4 142518 100 0 0 0      * a mummy
+M 0 142421 4 142519 100 0 0 0      * An archon guard
+M 0 142420 1 142520 100 0 0 0      * Tyvinius Tavinshir
+E 1 142435 1 5 100 0 0 0           *   the flowing robes of vitality
+E 1 142436 1 14 100 0 0 0          *   the bangle of immunity
+G 1 142433 1 0 100 0 0 0           *    the royal key of Tavinshir
+F 1 142419 2 142520 100 0 0 0      * a royal mummy (following)
+F 1 142419 2 142520 100 0 0 0      * a royal mummy (following)
+M 0 142424 3 142522 100 0 0 0      * A ghostly cleric
+M 0 142424 3 142524 100 0 0 0      * A ghostly cleric
+M 0 142423 4 142525 100 0 0 0      * A spectral knight
+E 1 142424 7 16 100 0 0 0          *   a massive unholy blade
+M 0 142424 3 142526 100 0 0 0      * A ghostly cleric
+M 0 142423 4 142528 100 0 0 0      * A spectral knight
+E 1 142424 7 16 100 0 0 0          *   a massive unholy blade
+M 0 142422 1 142530 100 0 0 0      * Artavus Platyr
+E 1 142441 1 5 100 0 0 0           *   a ghostly suit of armor
+E 1 142424 7 16 100 0 0 0          *   a massive unholy blade
+G 1 142439 1 0 100 0 0 0           *    The royal key of Platyr
+F 1 142423 4 142530 100 0 0 0      * A spectral knight (following)
+E 1 142424 7 16 100 0 0 0          *   a massive unholy blade
+F 1 142423 4 142530 100 0 0 0      * A spectral knight (following)
+E 1 142424 7 16 100 0 0 0          *   a massive unholy blade
+*
+S

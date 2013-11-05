@@ -1,6 +1,6 @@
 #133
 &+LThe Caverns of &+rArmageddon&n~
-13448 1 0 40 50 1
+13448 1 0 40 50 2
 *
 * Zone edited with durisEdit v2.99de
 *
@@ -160,6 +160,7 @@ O 0 13305 5 13324 100 0 0 0        * a keg of ale
 O 0 13305 5 13324 100 0 0 0        * a keg of ale
 O 0 13363 1 13341 100 0 0 0        * a swirling portal
 O 0 13306 1 13355 100 0 0 0        * a magnificent statue
+P 1 13308 1 13306 100 0 0 0        *   a ring of liquid fire
 O 0 67278 1 13371 100 0 0 0        * (object type not in this .obj file)
 O 0 359 1 13371 100 0 0 0          * (object type not in this .obj file)
 O 0 13341 2 13383 100 0 0 0        * a pile of corpses
@@ -274,14 +275,17 @@ M 0 13354 3 13377 100 0 0 0        * an orc shock troop
 M 0 13354 3 13377 100 0 0 0        * an orc shock troop
 M 0 13354 3 13377 100 0 0 0        * an orc shock troop
 M 0 13361 1 13377 100 0 0 0        * Renatta, the orc lieutenant
+E 1 13360 9 16 100 0 0 0           *   an emblazoned bastard sword
 G 1 13342 1 0 100 0 0 0            *    the severed head of Renatta
 M 0 13346 7 13378 100 0 0 0        * an orc battle-mage
 M 0 13346 7 13378 100 0 0 0        * an orc battle-mage
 M 0 13346 7 13379 100 0 0 0        * an orc battle-mage
 M 0 13346 7 13379 100 0 0 0        * an orc battle-mage
 M 0 13368 1 13379 100 0 0 0        * Zeelnar
+E 1 13324 1 5 100 0 0 0            *   a finely-stitched combat vest
 G 1 13348 1 0 100 0 0 0            *    the severed head of Zeelnar
 M 0 13349 1 13380 100 0 0 0        * Grue, the slave master
+E 1 13360 9 16 100 0 0 0           *   an emblazoned bastard sword
 G 1 13354 1 0 100 0 0 0            *    the severed head of Grue
 M 0 13384 2 13380 100 0 0 0        * a flind guard
 M 0 13384 2 13380 100 0 0 0        * a flind guard
@@ -294,7 +298,7 @@ M 0 13359 3 13382 100 0 0 0        * a goblin windlord
 M 0 13380 1 13382 100 0 0 0        * a frenzied mercenary
 M 0 13374 1 13382 100 0 0 0        * Jigoog, the windmaster
 G 1 13343 1 0 100 0 0 0            *    the severed head of Jigoog
-M 0 13394 5 13382 100 0 0 0        * an orc priest
+M 0 13393 5 13382 100 0 0 0        * an orc priest
 M 0 13373 1 13384 100 0 0 0        * a valiant crusader
 M 0 13370 2 13384 100 0 0 0        * an elite orc soldier
 M 0 13369 9 13384 100 0 0 0        * a ravaging carrion beast
@@ -324,7 +328,7 @@ M 0 13369 9 13390 100 0 0 0        * a ravaging carrion beast
 M 0 13369 9 13390 100 0 0 0        * a ravaging carrion beast
 M 0 13336 6 13390 100 0 0 0        * an orc battle-mage
 M 0 13331 7 13391 100 0 0 0        * an orc sentry
-M 0 13394 5 13391 100 0 0 0        * an orc priest
+M 0 13393 5 13391 100 0 0 0        * an orc priest
 M 0 13376 17 13391 100 0 0 0       * a cave beetle
 M 0 13376 17 13391 100 0 0 0       * a cave beetle
 M 0 13376 17 13391 100 0 0 0       * a cave beetle
@@ -332,13 +336,13 @@ M 0 13334 4 13393 100 0 0 0        * an orc priest
 M 0 13334 4 13393 100 0 0 0        * an orc priest
 M 0 13362 1 13393 100 0 0 0        * Graiven, the orcish high priest
 G 1 13356 1 0 100 0 0 0            *    the severed head of Graiven
-M 0 13394 5 13393 100 0 0 0        * an orc priest
+M 0 13393 5 13393 100 0 0 0        * an orc priest
 M 0 13334 4 13394 100 0 0 0        * an orc priest
 M 0 13334 4 13394 100 0 0 0        * an orc priest
 M 0 13369 9 13395 100 0 0 0        * a ravaging carrion beast
 M 0 13347 1 13396 100 0 0 0        * Veannan, the orc thief lord
-E 1 13331 8 16 100 0 0 0           *   a dagger of anarchy
-E 1 13331 8 17 100 0 0 0           *   a dagger of anarchy
+E 1 13331 10 16 100 0 0 0          *   a dagger of anarchy
+E 1 13331 10 17 100 0 0 0          *   a dagger of anarchy
 G 1 13345 1 0 100 0 0 0            *    the severed head of Veannan
 M 0 13369 9 13397 100 0 0 0        * a ravaging carrion beast
 M 0 13369 9 13397 100 0 0 0        * a ravaging carrion beast
@@ -346,7 +350,7 @@ M 0 13369 9 13397 100 0 0 0        * a ravaging carrion beast
 M 0 13331 7 13398 100 0 0 0        * an orc sentry
 M 0 13331 7 13398 100 0 0 0        * an orc sentry
 M 0 13329 3 13398 100 0 0 0        * an orc major
-M 0 13394 5 13398 100 0 0 0        * an orc priest
+M 0 13393 5 13398 100 0 0 0        * an orc priest
 M 0 13338 4 13402 100 0 0 0        * a troll berserker
 M 0 13338 4 13402 100 0 0 0        * a troll berserker
 M 0 13338 4 13402 100 0 0 0        * a troll berserker
@@ -414,24 +418,25 @@ M 0 13348 3 13417 100 0 0 0        * an ogre assault soldier
 M 0 13348 3 13417 100 0 0 0        * an ogre assault soldier
 M 0 13348 3 13417 100 0 0 0        * an ogre assault soldier
 M 0 13365 1 13418 100 0 0 0        * Greeef, the ogre battlelord
+E 1 13360 9 16 100 0 0 0           *   an emblazoned bastard sword
 G 1 13346 1 0 100 0 0 0            *    the severed head of Greeef
 M 0 13331 7 13419 100 0 0 0        * an orc sentry
 M 0 13331 7 13419 100 0 0 0        * an orc sentry
 M 0 13329 3 13419 100 0 0 0        * an orc major
 M 0 13329 3 13419 100 0 0 0        * an orc major
-M 0 13394 5 13419 100 0 0 0        * an orc priest
+M 0 13393 5 13419 100 0 0 0        * an orc priest
 M 0 13385 15 13420 100 0 0 0       * an orc grunt
 M 0 13385 15 13420 100 0 0 0       * an orc grunt
 M 0 13385 15 13420 100 0 0 0       * an orc grunt
 M 0 13379 4 13421 100 0 0 0        * a deadly assassin
-E 1 13331 8 16 100 0 0 0           *   a dagger of anarchy
-E 1 13331 8 17 100 0 0 0           *   a dagger of anarchy
+E 1 13331 10 16 100 0 0 0          *   a dagger of anarchy
+E 1 13331 10 17 100 0 0 0          *   a dagger of anarchy
 M 0 13379 4 13421 100 0 0 0        * a deadly assassin
-E 1 13331 8 16 100 0 0 0           *   a dagger of anarchy
-E 1 13331 8 17 100 0 0 0           *   a dagger of anarchy
+E 1 13331 10 16 100 0 0 0          *   a dagger of anarchy
+E 1 13331 10 17 100 0 0 0          *   a dagger of anarchy
 M 0 13379 4 13421 100 0 0 0        * a deadly assassin
-E 1 13331 8 16 100 0 0 0           *   a dagger of anarchy
-E 1 13331 8 17 100 0 0 0           *   a dagger of anarchy
+E 1 13331 10 16 100 0 0 0          *   a dagger of anarchy
+E 1 13331 10 17 100 0 0 0          *   a dagger of anarchy
 M 0 13330 17 13422 100 0 0 0       * an orc soldier
 R 1 13372 6 13422 100 0 0 0        * a rabid warg (being ridden)
 M 0 13330 17 13422 100 0 0 0       * an orc soldier
@@ -452,6 +457,7 @@ M 0 13371 6 13425 100 0 0 0        * a gremlin fanatic
 M 0 13371 6 13425 100 0 0 0        * a gremlin fanatic
 M 0 13371 6 13425 100 0 0 0        * a gremlin fanatic
 M 0 13328 1 13426 100 0 0 0        * Endosa
+E 1 13360 9 16 100 0 0 0           *   an emblazoned bastard sword
 G 1 13347 1 0 100 0 0 0            *    the severed head of Endosa
 M 0 13339 3 13427 100 0 0 0        * a troll battle master
 M 0 13339 3 13427 100 0 0 0        * a troll battle master
@@ -463,6 +469,8 @@ M 0 13330 17 13428 100 0 0 0       * an orc soldier
 R 1 13381 1 13428 100 0 0 0        * an adult wyvern (being ridden)
 M 0 13326 1 13431 100 0 0 0        * Maverick
 E 1 13310 1 10 100 0 0 0           *   the armplates of armageddon
+E 1 13331 10 16 100 0 0 0          *   a dagger of anarchy
+E 1 13331 10 17 100 0 0 0          *   a dagger of anarchy
 G 1 13352 1 0 100 0 0 0            *    the severed head of Maverick
 M 0 13327 1 13431 100 0 0 0        * Abbadon
 E 1 13367 1 6 100 0 0 0            *   the blackened crown of the Sixth Legion
@@ -477,16 +485,16 @@ M 0 13332 7 13435 100 0 0 0        * a hazy blue sentinel
 M 0 13332 7 13436 100 0 0 0        * a hazy blue sentinel
 M 0 13332 7 13436 100 0 0 0        * a hazy blue sentinel
 M 0 13378 1 13437 100 0 0 0        * Maximas, the dark knight
-E 1 13360 5 16 100 0 0 0           *   an emblazoned bastard sword
+E 1 13360 9 16 100 0 0 0           *   an emblazoned bastard sword
 G 1 13357 1 0 100 0 0 0            *    the severed head of Maximas
 M 0 13383 4 13437 100 0 0 0        * a soldier of Maximas
-E 1 13360 5 16 100 0 0 0           *   an emblazoned bastard sword
+E 1 13360 9 16 100 0 0 0           *   an emblazoned bastard sword
 M 0 13383 4 13437 100 0 0 0        * a soldier of Maximas
-E 1 13360 5 16 100 0 0 0           *   an emblazoned bastard sword
+E 1 13360 9 16 100 0 0 0           *   an emblazoned bastard sword
 M 0 13383 4 13437 100 0 0 0        * a soldier of Maximas
-E 1 13360 5 16 100 0 0 0           *   an emblazoned bastard sword
+E 1 13360 9 16 100 0 0 0           *   an emblazoned bastard sword
 M 0 13383 4 13437 100 0 0 0        * a soldier of Maximas
-E 1 13360 5 16 100 0 0 0           *   an emblazoned bastard sword
+E 1 13360 9 16 100 0 0 0           *   an emblazoned bastard sword
 M 0 13377 1 13438 100 0 0 0        * a rotting golem
 M 0 13382 1 13438 100 0 0 0        * Argophel, the necromancer
 G 1 13353 1 0 100 0 0 0            *    the severed head of Argophel

@@ -534,19 +534,24 @@ void do_gcc(P_char ch, char *argument, int cmd)
         logit(LOG_CHAT, "%s gcc's '%s'", GET_NAME(ch), argument);
     }
     for (i = descriptor_list; i; i = i->next)
+      {
+
       if ((i->character != ch) && !i->connected &&
           !is_silent(i->character, FALSE) &&
+          (i->connected == CON_PLYNG ) &&
           IS_SET(i->character->specials.act, PLR_GCC) &&
           IS_MEMBER(GET_A_BITS(i->character)) &&
           (GET_A_NUM(i->character) == GET_A_NUM(ch)) &&
           (!(IS_AFFECTED4(i->character, AFF4_DEAF))) &&
-          (GT_PAROLE(GET_A_BITS(i->character))))
+          (GT_PAROLE(GET_A_BITS(i->character))) ||
+         (IS_TRUSTED(i->character) && IS_SET(i->character->specials.act, PLR_GCC) && (i->character != ch)))
       {
         sprintf(Gbuf1, "&+c%s&n&+c tells your guild '&+C%s&n&+c'\r\n",
                 PERS(ch, i->character, FALSE),
                 language_CRYPT(ch, i->character, argument));
         send_to_char(Gbuf1, i->character, LOG_PRIVATE);
       }
+       }
   }
 }
 
@@ -1948,21 +1953,22 @@ void do_yell(P_char ch, char *argument, int cmd)
         if (IS_MAP_ROOM(ch->in_room) && 
             calculate_map_distance(ch->in_room, i->character->in_room) > range)
           continue;
-
+/*
         if (racewar(ch, i->character))
         {
           act("$n shouts something but you can't understand.", FALSE, ch, 0,
               i->character, TO_VICT);
         }
         else
-        {
+*/
+        //{
           sprintf(Gbuf1, "$n shouts %s'%s'",
               language_known(ch, i->character), language_CRYPT(ch,
                 i->
                 character,
                 argument));
           act(Gbuf1, 0, ch, 0, i->character, TO_VICT | ACT_SILENCEABLE);
-        }
+        //}
         /* zone to zone method */
       }
     }

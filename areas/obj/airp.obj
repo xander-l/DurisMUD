@@ -30,7 +30,7 @@ A Lightning generator is here that the PC's can't see.~
 0 0 0 0 0 0 0 0
 0 0 100 100
 T
-129 5 2 35
+3576 5 500 31
 #131603
 gate smoke smoky~
 &+La smoky gate~
@@ -181,49 +181,76 @@ dagger wind _artifact_~
 &+cthe dagger of &+CWind&N~
 &+cThe dagger of &+CWind&N&+c lies here.~
 ~
+<<<<<<< HEAD
 5 44 2 0 15 100 67117088 8193 512 125470 0
 2 9 4 11 0 0 0 0
 1 0 100 100 134217754 192 0 0
+=======
+5 44 2 0 15 100 335553568 8193 576 42074021 0
+2 6 4 11 0 0 0 0
+1 0 100 134217754 192 0 0
+>>>>>>> master
 A
 18 5
 A
 19 5
 #131617
 cloak north wind~
-&+ca cloak of the north wind&N~
+&+Wthe &+cfr&+Cos&+Wt-&+cco&+Cver&+ced &+Cc&+Wloa&+Ck&+W of the &+Cnor&+cth w&+Cind&n~
 &+cA cloak of the north wind lies here.&N~
 ~
-11 15 3 0 7 0 32800 1025 0 1 0
+11 1 3 0 12 0 33824 1025 0 147099140 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 0 0 100 100 67108880 0 0 0
+=======
+0 181818 100 134217744 0 0 0
+>>>>>>> master
 A
-18 3
+33 4
 A
-13 15
+13 25
 #131618
-crystal earring~
-a &+cc&+br&+cy&+bs&+ct&+ba&+cl&N earring~
-A &+ccrystal&N earing lies here.~
+rainbow earring~
+&+ba&+Bn &+be&+Barring of &+rr&+ba&+Yi&N&+gn&+mb&+co&+rw&+bs&n~
+&+ba&+Bn &+be&+Barring of &+rr&+ba&+Yi&N&+gn&+mb&+co&+rw&+bs floats here in mid-air.&n~
 ~
-11 15 3 0 7 0 98336 524289 0 1 0
+11 15 3 0 7 0 99360 524289 0 181309348 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 0 0 100 100 268435456 0 0 0
+=======
+0 0 100 0 28 0 0
+>>>>>>> master
 A
-14 10
+27 10
 A
-13 10
+33 5
 #131619
-dagger tricksters~
-&+La &+Ytricksters&N&+L dagger~
+dagger tricksters deception and illusions _id_~
+&+La &+yt&+Yrickster&+ys&+L da&+wgg&+Wer&+L of &+rd&+Rec&+Lept&+Rio&+rn&+L and &+bi&+Bl&+cl&+Cu&+Ws&+ci&+co&+Bn&+bs&n~
 A &+Ldark-bladed&N dagger rests on end here.~
 ~
+<<<<<<< HEAD
 5 15 2 0 15 50 163968 8193 192 57344 0
 2 4 4 11 0 0 0 0
 1 0 100 100 67108864 0 0 0
+=======
+5 15 2 0 15 50 189776 8193 64 8515584 0
+2 4 4 11 0 1421406459 51 30
+1 450005 100 0 0 0 100663296
+E
+dagger tricksters deception and illusions~
+~
+E
+_char_msg~
+&+LThe &+Wleg&+wend&+Lary dagger fills you with the &+CP&+cower&+L and &+CK&+cnowledge&+L of &+bI&+Bl&+cl&+Cu&+Ws&+Ci&+co&+Bn&+bs&+L and &+yT&+Yricker&+yy&+L.&n
+~
+>>>>>>> master
 A
-18 3
+18 5
 A
-19 4
+19 5
 #131620
 bracelet rainbow~
 &+ba bracelet of &+rr&+ba&+Yi&N&+gn&+mb&+co&+rw&+bs~
@@ -309,7 +336,7 @@ medallion djinn~
 &+Ythe medallion of the Djinn&N~
 &+YA shiny gold medallion lies here.&N~
 ~
-11 15 3 0 7 0 233472 16389 0 1 0
+11 15 3 0 7 0 229376 16389 0 1 0
 0 0 0 0 0 0 0 0
 0 0 100 100
 #131628
@@ -326,28 +353,36 @@ A
 13 20
 #131629
 robe deva~
-&+Wa holy deva robe&N~
+&+Cthe &+Ch&+Woly &+wr&+Wobes&+C of the &+Wa&+Cnge&+Wl of &+Cc&+Wlou&+Cds&n~
 &+WA pure white robe lies here.&N~
 ~
-11 15 3 0 7 0 164097 9 0 416 0
+11 1 3 0 7 0 164097 9 0 416 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 0 0 100 100 1048576 0 0 0
+=======
+0 131111 100 134225920 192 0 0
+>>>>>>> master
 A
 34 5
 A
-24 -3
+24 -4
 #131630
 earring negative energy~
 &+Lan earring of negative energy&N~
 &+LA dark earring lies here, crackling with energy.&N~
 ~
-11 1 1 0 13 100 37024 524289 0 1 0
+11 1 1 0 13 100 37024 524289 0 0 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 1 0 100 100 524288 0 0 0
+=======
+1 0 100 0 0 0 536870912
+>>>>>>> master
 A
-5 5
+12 25
 A
-13 10
+56 25
 #131631
 sword ice~
 &+ca sword of &+Bice&N~
@@ -389,65 +424,89 @@ staff marid~
 40 3 3 254 0 0 0 0
 0 0 100 100
 #131635
-fiery ring~
-&+ra f&+Ri&N&+re&+Rr&N&+ry ring&N~
-&+rA ring of fire lies here.&N~
+efreeti earring tenflames~
+&+Ran &+ref&+Rre&+ret&+Ri &+re&+Ra&+rr&+Rr&+ri&+Rn&+rg&+R of &+rte&+Rn&+Yf&+Wl&+Ya&+Rm&+res~
+&+rA flaming earring of fire lies here.&N~
 ~
+<<<<<<< HEAD
 11 15 3 0 7 0 32768 3 0 2560 0
 0 0 0 0 0 0 0 0
 0 0 100 100 536870912 0 0 0
+=======
+9 1 3 0 15 0 49216 524289 64 0 0
+25 0 0 4 0 0 0 0
+0 156000 100 536870912 64 0 0
+>>>>>>> master
 A
-13 35
+13 25
 A
-14 20
+34 4
 #131636
-silvery gauntlets~
-&+ba pair of &+csilvery&+b gauntlets~
+legendary silverish gith's blessingsilvery gauntlets~
+&+cthe &+Wleg&+wend&+Lary &+Csilv&+cerish &+cga&+Cuntle&+cts of &+GGith's &+cB&+Cl&+Wessi&+Cn&+cg&n~
 &+bA finely made pair of gauntlets rests on the ground here.&N~
 ~
-9 15 3 0 7 0 163872 129 0 1 0
+9 22 3 0 15 0 164416 129 65 0 536903680
 15 7 0 5 0 0 0 0
+<<<<<<< HEAD
 0 0 100 100 4 4096 0 0
+=======
+0 456544 100 0 0 16777280 0
+>>>>>>> master
 A
-18 3
+18 4
+A
+19 4
+#131637
+hurricane vambraces~
+&+csome &+cva&+Wmbra&+Cces &+cdepicting a st&+Cyliz&+ced &+Whur&+Crica&+cne~
+&+csome &+cva&+Wmbra&+Cces &+cdepicting a st&+Cyliz&+ced &+Whur&+Crica&+cne&+c floats here in mid-air&n~
+~
+9 1 3 0 7 0 33856 257 0 87158875 0
+10 8 0 0 0 0 0 0
+<<<<<<< HEAD
+0 0 100 100 32768 0 0 0
+=======
+0 98000 100 67141632 0 0 1048576
+>>>>>>> master
 A
 19 3
-#131637
-mithral vambraces~
-&+csome &+Wmithral&N&+c vambraces~
-&+cA pair of &+Wmithral&N&+c vambraces lies here.~
-~
-9 15 3 0 7 0 32832 257 0 32798 0
-10 8 0 0 0 0 0 0
-0 0 100 100 32768 0 0 0
 A
-18 3
-A
-21 -3
+24 -3
 #131638
-holy symbol~
-&+Wa &N&+ydwarven-made&N&+W holy symbol&N~
-&+WA holy symbol rests on the gorund here.&N~
+breeze cloud motes~
+&+Wa &+Cb&+Wr&+Ce&+We&+Cz&+We of floating &+Cc&+Wloud&+Cs&+W and dr&+Cifti&+Wng &+Cmot&+ces&n~
+&+Wa swirling &+Cb&+Wr&+Ce&+We&+Cz&+We of floating &+Cc&+Wloud&+Cs&+W and dr&+Cifti&+Wng &+Cmot&+ces &+Wfloats here in mid-air.&n~
 ~
-11 15 3 0 7 0 32833 5 0 160 0
+11 1 3 0 12 0 33793 5 0 33685920 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 0 0 100 100 8192 8192 0 0
+=======
+0 123000 100 67108864 128 0 0
+>>>>>>> master
 A
-13 22
+13 25
 A
-20 -3
+34 4
 #131639
-bracer iron~
-&+Ga wrought-&+Liron&N &+Gbracer&N~
-&+LA wrought-iron bracer lies on the ground here.&N~
+saddle four winds~
+&+ct&+Che &+cs&+Caddle &+co&+Cf &+ct&+Che &+Cfou&+cr &+cw&+Cind&+Ws~
+&+ct&+Che &+cs&+Caddle &+co&+Cf &+ct&+Che &+Cfou&+crs &+cw&+Cind&+Ws &+chas been left here floating.&n~
 ~
+<<<<<<< HEAD
 9 15 3 0 7 0 163840 4097 0 1 0
 8 11 0 0 0 0 0 0
 0 0 100 100 65536 0 0 0
+=======
+9 1 3 0 10 0 184832 16777217 2 0 16384
+25 0 0 4 0 0 0 0
+0 110094 100 134217728 0 0 0
+>>>>>>> master
 A
-18 2
+22 -6
 A
-19 2
+24 -4
 #131640
 belt dragonscale~
 &+ga dragon&+Gscale&N&+g belt~
@@ -467,4 +526,336 @@ A &+Bportal made from clouds&n hovers here.&n~
 ~
 25 15 3 0 7 0 0 0 0 1 0
 1823 0 0 0 0 0 0 0
+<<<<<<< HEAD
 0 0 100 100
+=======
+0 0 100
+#131642
+essence ball essense storm four~
+&+cthe s&+Cwi&+Wrli&+Cn&+cg es&+Csen&+cce &+Co&+cf &+Ct&+che &+CFo&+cur &+CStor&+cms&n~
+&+WA ball of pure wind and power levitate here emiting a radiance of storms and lightning.~
+~
+12 1 3 0 7 100 67235904 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 130400 100
+E
+essence frost~
+&+W   This small ball seems to be the essense of all frost and air. Somehow in
+&+Wthis ball the two have been melded together to form something new.
+~
+#131643
+essence ball essense wind fate~
+&+cthe s&+Cwi&+Wrli&+Cn&+cg es&+Csen&+cce &+Co&+cf &+Ct&+che &+CW&+Wind&+Cs&+W of &+cF&+Ca&+Wt&+Ce&n~
+&+WA ball of pure wind and power levitate here emiting a radiance of storms and lightning.~
+~
+12 1 3 0 7 100 67235904 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 130400 100
+E
+essence frost~
+&+W   This small ball seems to be the essense of all frost and air. Somehow in
+&+Wthis ball the two have been melded together to form something new.
+~
+#131644
+essence ball essense great maelstrom~
+&+cthe s&+Cwi&+Wrli&+Cn&+cg es&+Csen&+cce &+Co&+cf &+Ct&+che &+cG&+Cre&+Wa&+ct &+CMa&+Wel&+ws&+ctr&+Com&n~
+&+WA ball of pure wind and power levitate here emiting a radiance of storms and lightning.~
+~
+12 1 3 0 7 100 67235904 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 130400 100
+E
+essence frost~
+&+W   This small ball seems to be the essense of all frost and air. Somehow in
+&+Wthis ball the two have been melded together to form something new.
+~
+#131645
+essence ball essense boundless blue~
+&+cthe s&+Cwi&+Wrli&+Cn&+cg es&+Csen&+cce &+Co&+cf &+Ct&+che &+bB&+Bo&+Cundless Bl&+Bu&+be&n~
+&+WA ball of pure wind and power levitate here emiting a radiance of storms and lightning.~
+~
+12 1 3 0 7 100 67235904 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 130400 100
+E
+essence frost~
+&+W   This small ball seems to be the essense of all frost and air. Somehow in
+&+Wthis ball the two have been melded together to form something new.
+~
+#131646
+essence ball essense unseen breeze~
+&+cthe s&+Cwi&+Wrli&+Cn&+cg es&+Csen&+cce &+Co&+cf &+Ct&+che &+CUn&+Wseen &+CBr&+Weeze&n~
+&+WA ball of pure wind and power levitate here emiting a radiance of storms and lightning.~
+~
+12 1 3 0 7 100 67235904 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 130400 100
+E
+essence frost~
+&+W   This small ball seems to be the essense of all frost and air. Somehow in
+&+Wthis ball the two have been melded together to form something new.
+~
+#131647
+essence ball essense maelstrom chaotic elemental fragment~
+&+cthe &+Wc&+Mh&+Ra&+yo&+Yt&+Ci&+mc &+re&+Rl&+Ye&+ym&+Ge&+gn&+Ct&+Ba&+bl &+rf&+Rr&+Lagme&+Rn&+rt &+cof the &+CMa&+Wel&+ws&+ctr&+Com&n~
+&+WA ball of pure wind and power levitate here emiting a radiance of storms and lightning.~
+~
+12 1 3 0 7 100 67235904 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 130400 100
+E
+essence frost~
+&+W   This small ball seems to be the essense of all frost and air. Somehow in
+&+Wthis ball the two have been melded together to form something new.
+~
+#131648
+warhammer hammer fearfrost~
+&+ca gr&+Ce&+Wa&+ct w&+Ca&+Wr&+cham&+Wm&+Ce&+cr named &+W'Fear&+Lfrost&+W'&n~
+&+cA secret warhammer emitting frost has been foolishly left here.&n~
+~
+5 44 2 0 15 100 9216 8193 578 3670075 0
+4 3 5 0 0 592465 46 30
+1 324400 100 0 64 2097152 0
+E
+warhammer hammer fearfrost~
+~
+E
+_char_msg~
+&+W'Fear&+Lfrost&+W' &+Cp&+culse &+Cw&+cith &+Cp&+cower &+Ce&+cncasing &+Cy&+cou &+Ci&+cn a &+Cp&+crotective &+Cs&+chield &+Co&+cf &+Cc&+Wol&+Cd.&n
+&+cT&+Ch&+ce b&+Cre&+Wa&+Cth &+co&+Cf a &+cfr&+Cost dra&+Wgo&+cn en&+Cs&+Whr&+Cou&+cds th&+Ce a&+crea i&+Cn &+ca sw&+Cirl&+cing &+Wm&+Cis&+Wt&+c of killing &+CI&+Wc&+Ce&+c and Fr&+Cost&+W.&n
+~
+E
+_victim_msg~
+&+cT&+Ch&+ce b&+Cre&+Wa&+Cth &+co&+Cf a &+cfr&+Cost dra&+Wgo&+cn en&+Cs&+Whr&+Cou&+cds th&+Ce a&+crea i&+Cn &+ca sw&+Cirl&+cing &+Wm&+Cis&+Wt&+c of killing &+CI&+Wc&+Ce&+c and Fr&+Cost&+W.&n
+~
+E
+_room_msg~
+&+cT&+Ch&+ce b&+Cre&+Wa&+Cth &+co&+Cf a &+cfr&+Cost dra&+Wgo&+cn en&+Cs&+Whr&+Cou&+cds th&+Ce a&+crea i&+Cn &+ca sw&+Cirl&+cing &+Wm&+Cis&+Wt&+c of killing &+CI&+Wc&+Ce&+c and Fr&+Cost&+W.&n
+~
+A
+18 5
+A
+19 5
+#131649
+gauntlets tempest storms~
+&+bT&+ce&+Cm&+Wp&+Ce&+cs&+bt&+B, the &+bsw&+Birli&+bng &+bg&+Ba&+cu&+Cn&+Wt&+Cl&n&+ce&+Bt&n&+bs &+Bof &+bs&+Bt&+Co&+cr&+Bm&+bs&n~
+&+Bthe &+bsw&+Birli&+bng &+bg&+Ba&+cu&+Cn&+Wt&+Cl&n&+ce&+Bt&n&+bs &+Bof &+bs&+Bt&+Co&+cr&+Bm&+bs is here floating in mid-air&n~
+~
+9 1 3 0 15 0 64 129 64 0 0
+25 0 0 5 0 0 0 0
+0 250000 100 134217752 192 0 0
+A
+24 -4
+A
+35 5
+#131650
+cloudseeker unseen breeze four winds~
+&+CClo&+Wudsee&+Cker&+W, the &+CU&+Wnsee&+Cn B&+Wr&+Ce&+We&+Cz&+We of the &+CF&+Wou&+Cr W&+Win&+Cds&n~
+&+Cthe &+Cu&+Wnsee&+Cn b&+Wr&+Ce&+We&+Cz&+We&+C of the &+Cf&+Wo&+wu&+Wr &+Cw&+Win&+Cds&+C of the four winds swirls throughout the area here.&n~
+~
+9 1 3 0 15 0 70262888 16778249 64 0 0
+45 0 0 5 0 0 0 0
+0 474747 100 134217728 2112 0 0
+A
+35 5
+A
+24 -5
+#131651
+akadi unseen divine spark~
+&+Wthe &+Cu&+Wn&+Cs&+We&+Ce&+Wn &+Cd&+Wivin&+Ce &+Ys&+Wpar&+Yk&+W of &+CAkadi&n~
+&+Wthe &+Cu&+Wn&+Cs&+We&+Ce&+Wn &+Ys&+Wpar&+Yk&+W of an &+cI&+Wmmorta&+cl &+Cs&+Wpiri&+Ct&+W hovers here &+Ysp&+Warkli&+Yng&+W with a divine radiance.&n~
+~
+13 15 3 0 7 0 8409192 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#131652
+yan-c-bin unseen divine spark~
+&+Wthe &+Cu&+Wn&+Cs&+We&+Ce&+Wn &+Cd&+Wivin&+Ce &+Ys&+Wpar&+Yk&+W of &+CYan-C-Bin&n~
+&+Wthe &+Cu&+Wn&+Cs&+We&+Ce&+Wn &+Ys&+Wpar&+Yk&+W of an &+cI&+Wmmorta&+cl &+Cs&+Wpiri&+Ct&+W hovers here &+Ysp&+Warkli&+Yng&+W with a divine radiance.&n~
+~
+13 15 3 0 7 0 8409192 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#131653
+air akadi maelstrom _id_~
+&+CAkadi Air Attack~
+&+cAkadi Maelstrom Attack~
+~
+5 15 2 0 10 0 2 8193 2048 0 0
+5 5 5 3 0 1449076480 60 28
+2 0 100 16 64 0 0
+E
+akadi maelstrom~
+~
+E
+_room_msg~
+&+CAkadi, &+LQueen &+Cof the Elemental Plane of &+WAir&+C raises her hands to the &+CHe&+Wave&+Cns and C&+Calls upon the primal powers of the &+CMa&+Wel&+ws&+ctr&+Com&n!
+
+&+cA gathering storm of &+CA&+Wi&+Cr&+c, &+YE&+yarth&+c, &+bW&+Bater&+c, &+rF&+Rire&+c, L&+Cightning&+c and &+cF&+Creezing Ic&+ce forms into the room and unleash their &+rE&+Rl&+Ye&+ym&+Ge&+Cn&+Bt&+ba&+Bl &+rF&+Rury&+c upon you!&n
+~
+E
+_victim_msg~
+&+CAkadi, &+LQueen &+Cof the Elemental Plane of &+WAir&+C raises her hands to the &+CHe&+Wave&+Cns and C&+Calls upon the primal powers of the &+CMa&+Wel&+ws&+ctr&+Com&n!
+
+&+cA gathering storm of &+CA&+Wi&+Cr&+c, &+YE&+yarth&+c, &+bW&+Bater&+c, &+rF&+Rire&+c, L&+Cightning&+c and &+cF&+Creezing Ic&+ce forms into the room and unleash their &+rE&+Rl&+Ye&+ym&+Ge&+Cn&+Bt&+ba&+Bl &+rF&+Rury&+c upon you!&n
+~
+A
+18 20
+A
+19 10
+#131654
+akadi elemental _id_~
+&+CAkadi Elemental Swarm Attack~
+&+cAkadi Maelstrom Attack~
+~
+5 15 2 0 10 0 2 8193 2048 0 0
+5 5 5 3 0 351351351 60 30
+2 0 100 16 64 0 0
+E
+akadi elemental~
+~
+E
+_room_msg~
+&+CAkadi, &+cQ&+Cuee&+cn &+Cof the Elemental Plane of &+WAir&+L calls upon all &+CE&+clemental &+CP&+crinces and &+CP&+crincess to send her aid!&n
+
+
+&+RI&+rm&+Ri&+rx, &+LPrince of the &+rElemental &+LPlane of &+rF&+Ri&+rr&+Re&+L calls from the heavens &+W"Lady, I hear you and send you reinforcements!"&n
+&+bOlhydra, &+Lthe Princess of the &+bElemental &+LPlane of &+bWater&+L calls from the heavens &+W"Lady, I hear you and send you reinforcements!"&n
+&+yOgr&+Lemoch and &+yEnt&+Lemoch, the twin &+yPrinces&+L of the &+yElemental &+LPlane of &+yEarth&+L calls from the heavens &+W"Lady, I hear you and send you reinforcements!"&n
+&+cYan-&+CC&+c-Bin, the &+CP&+crince of the &+CElemental &+LPlane of &+CA&+Wi&+Cr&n&+L calls from the heavens &+W"Lady, I hear you and send you reinforcements!"&n
+~
+E
+_victim_msg~
+&+CAkadi, &+cQ&+Cuee&+cn &+Cof the Elemental Plane of &+WAir&+L calls upon all &+CE&+clemental &+CP&+crinces and &+CP&+crincess to send her aid!&n
+
+
+&+RI&+rm&+Ri&+rx, &+LPrince of the &+rElemental &+LPlane of &+rF&+Ri&+rr&+Re&+L calls from the heavens &+W"Lady, I hear you and send you reinforcements!"&n
+&+bOlhydra, &+Lthe Princess of the &+bElemental &+LPlane of &+bWater&+L calls from the heavens &+W"Lady, I hear you and send you reinforcements!"&n
+&+yOgr&+Lemoch and &+yEnt&+Lemoch, the twin &+yPrinces&+L of the &+yElemental &+LPlane of &+yEarth&+L calls from the heavens &+W"Lady, I hear you and send you reinforcements!"&n
+&+cYan-&+CC&+c-Bin, the &+CP&+crince of the &+CElemental &+LPlane of &+CA&+Wi&+Cr&n&+L calls from the heavens &+W"Lady, I hear you and send you reinforcements!"&n
+~
+A
+18 20
+A
+19 5
+#131655
+banishing akadi elemental _id_~
+&+CAkadi Elemental Swarm Banishing Act~
+&+cAkadi Maelstrom Attack~
+~
+5 15 2 0 10 0 2 8193 2048 0 0
+5 5 5 3 0 495495495 62 25
+2 0 100 16 64 0 0
+E
+akadi elemental~
+~
+E
+_victim_msg~
+&+LDismissed by the &+CQueen of Air&+L, the elemetal armies of &+RI&+rm&+Ri&+rx&+L, &+bOlhydra&+L, &+cYan-&+CC&+c-Bin&+L, &+yOgr&+Lemoch and &+yEnt&+Lemoch return to their home plane.&n
+~
+A
+18 20
+A
+19 5
+#131656
+lightning akadi maelstrom attack _id_~
+&+CAkadi lIGHTNING Attack~
+&+cAkadi Maelstrom Attack~
+~
+14 15 2 0 10 0 2 8193 2048 0 0
+5 5 5 3 0 388524 60 1
+2 0 100 16 64 0 0
+E
+akadi maelstrom~
+~
+E
+_room_msg~
+&+CAkadi, &+LQueen &+Cof the Elemental Plane of &+WAir&+C raises her hands to the &+CHe&+Wave&+Cns and C&+Calls upon the primal powers of the &+CMa&+Wel&+ws&+ctr&+Com&n!
+
+&+cA gathering storm of &+CA&+Wi&+Cr&+c, &+YE&+yarth&+c, &+bW&+Bater&+c, &+rF&+Rire&+c, L&+Cightning&+c and &+cF&+Creezing Ic&+ce forms into the room and unleash their &+rE&+Rl&+Ye&+ym&+Ge&+Cn&+Bt&+ba&+Bl &+rF&+Rury&+c upon you!&n
+~
+E
+_victim_msg~
+&+CAkadi, &+LQueen &+Cof the Elemental Plane of &+WAir&+C raises her hands to the &+CHe&+Wave&+Cns and C&+Calls upon the primal powers of the &+CMa&+Wel&+ws&+ctr&+Com&n!
+
+&+cA gathering storm of &+CA&+Wi&+Cr&+c, &+YE&+yarth&+c, &+bW&+Bater&+c, &+rF&+Rire&+c, L&+Cightning&+c and &+cF&+Creezing Ic&+ce forms into the room and unleash their &+rE&+Rl&+Ye&+ym&+Ge&+Cn&+Bt&+ba&+Bl &+rF&+Rury&+c upon you!&n
+~
+A
+18 20
+A
+19 5
+#131657
+dagger illusions _id_~
+&+La da&+wgg&+Wer&+L of &+bi&+Bl&+cl&+Cu&+Ws&+ci&+co&+Bn&+bs&n~
+A &+Ldark-bladed&N dagger rests on end here.~
+~
+5 15 2 0 15 50 189778 8193 2112 8515584 0
+2 4 4 11 0 459433407 51 10
+1 450005 100 0 0 0 100663296
+E
+dagger tricksters deception and illusions~
+~
+E
+_char_msg~
+&+LThe &+Wleg&+wend&+Lary dagger fills you with the &+CP&+cower&+L and &+CK&+cnowledge&+L of &+bI&+Bl&+cl&+Cu&+Ws&+Ci&+co&+Bn&+bs&+L and &+yT&+Yricker&+yy&+L.&n
+~
+A
+18 5
+A
+19 5
+#131658
+sword of air lightning _id_~
+&+Ca &+cs&+Cword of a&+Wi&+Cr and &+cl&+Cightning&n~
+&+cA glimmering sword of &+Bice&N&+c rests here.&N~
+~
+5 15 2 0 10 0 2 8193 64 0 0
+5 5 5 3 0 76006374 56 35
+2 0 100 0 64 0 0
+E
+sword of air lightning~
+~
+E
+_victim_msg~
+&+cA gathering storm of &+CA&+Wi&+Cr&+c and &+cL&+Cightning&n
+~
+E
+_room_msg~
+&+cA gathering storm of &+CA&+Wi&+Cr&+c and &+cL&+Cightning&n
+~
+A
+18 10
+A
+19 4
+#131659
+three star sapphire eyepiece~
+a three-point star sapphire eyepiece~
+A three-point star sapphire floats in mid-air, pulsing with azure waves of power!~
+~
+9 15 3 0 7 0 0 131073 0 0 0
+7 0 0 0 0 0 0 0
+0 0 100
+#131660
+four point star sapphire eyepiece~
+a four-point star sapphire eyepiece~
+A four-point star sapphire floats in mid-air, pulsing with azure waves of power!~
+~
+9 15 3 0 7 0 0 131073 0 0 0
+7 0 0 0 0 0 0 0
+0 0 100
+#131661
+five star sapphire eyepiece~
+a five-point star sapphire eyepiece~
+A five-point star sapphire floats in mid-air, pulsing with azure waves of power!~
+~
+9 15 3 0 7 0 0 131073 0 0 0
+7 0 0 0 0 0 0 0
+0 0 100
+#131662
+six star sapphire eyepiece~
+a six-point star sapphire eyepiece~
+A six-point star sapphire floats in mid-air, pulsing with azure waves of power!~
+~
+9 15 3 0 7 0 0 131073 0 0 0
+7 0 0 0 0 0 0 0
+0 0 100
+>>>>>>> master

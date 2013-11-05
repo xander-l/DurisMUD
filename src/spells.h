@@ -664,8 +664,14 @@
 #define SPELL_HOLY_LIGHT             615
 #define SPELL_CALL_ARCHON            616
 #define SPELL_LODESTONE              617
-#define SPELL_BMANTLE                618
-#define LAST_SPELL  SPELL_BMANTLE
+#define SPELL_LIFE_LEECH             618
+#define SPELL_BMANTLE                619
+#define SPELL_DECAYING_FLESH	  620
+#define SPELL_NOAUCTION		  621
+#define SPELL_BATTLEMAGE		  622
+#define SPELL_CORPSE_PORTAL		  623
+#define SPELL_CONTAIN_BEING		  624
+#define LAST_SPELL  SPELL_CONTAIN_BEING
 
 #define FIRST_SKILL                  1000  /* should be a decent split point */
 #define SKILL_SNEAK                  1000
@@ -933,10 +939,62 @@
 #define SKILL_RAGE_REORIENT          1262 // Added to handle reorient on rage skill
 #define SKILL_TIGER_PALM             1263
 #define SKILL_DIAMOND_SOUL           1264
+<<<<<<< HEAD
 #define SKILL_GARROTE                1265
 #define SKILL_SPELL_KNOWLEDGE_PSIONIC 1266
 #define SKILL_SPELL_KNOWLEDGE_NATURE 1267
 #define LAST_SKILL                   SKILL_SPELL_KNOWLEDGE_NATURE
+=======
+#define SKILL_RESTRAIN               1293
+#define SKILL_BLADE_BARRAGE		  1294
+#define SKILL_RIFF                   1295
+#define SKILL_CONCENTRATION          1296
+#define SKILL_SALVAGE		  1297
+#define SKILL_DREADNAUGHT		  1298
+#define SKILL_SHADOWSTEP		  1299
+#define SKILL_GARROTE		  1300
+
+#ifndef SKILLPOINTS
+  #define LAST_SKILL                   SKILL_GARROTE
+#endif
+
+// New skills for skill points.
+#define SKILL_BASEWARR               1265
+#define SKILL_BASEROGUE              1266
+#define SKILL_BASEPRIEST             1267
+#define SKILL_BASEMAGE               1268
+#define SKILL_1HCOMBAT               1269
+#define SKILL_2HCOMBAT               1270
+#define SKILL_BAREHANDEDCOMBAT       1271
+#define SKILL_TAKEDOWNS              1272
+#define SKILL_DEFENSIVETRAINING      1273
+#define SKILL_CHANTS                 1274
+#define SKILL_NATURALMAGIC           1275
+#define SKILL_OCCULTMAGIC            1276
+#define SKILL_HOLYMAGIC              1277
+#define SKILL_RAGETACTICS            1278
+#define SKILL_ENHANCEDMELEE          1279
+#define SKILL_RESCUEALL              1280
+#define SKILL_ENHANCEDBASH           1281
+#define SKILL_GROUNDFIGHTING         1282
+#define SKILL_MELEE_MASTERY          1283
+#define SKILL_TRAMPLE                1284
+#define SKILL_HANDCONTROL            1285
+#define SKILL_BODYCONTROL            1286
+#define SKILL_ONEWITHMIND            1287
+#define SKILL_ONEWITHBODY            1288
+#define SKILL_CELLADJUSTMENT         1289
+#define SKILL_NATURESPROTECTIONS     1290
+#define SKILL_PROTECT_FROM_EVIL      1291
+#define SKILL_NATURESSENSES          1292
+
+
+#ifdef SKILLPOINTS
+#define WHITE_SKILL                  -1
+#define BLUE_SKILL                   -2
+#define LAST_SKILL                   SKILL_NATURESSENSES
+#endif
+>>>>>>> master
 
 #define FIRST_SECONDARY_SKILL        1501
 
@@ -1064,7 +1122,40 @@
 #define TAG_BOON		     2066
 #define TAG_CTF			     2067
 #define TAG_CTF_BONUS		     2068
+<<<<<<< HEAD
 #define TAG_PVP_ENGAGE               2069
+=======
+#define TAG_RACIAL_SKILLS		  2069
+#define TAG_SOULBIND			  2070
+#define ACH_UNSTOPPABLE		  2071
+#define ACH_LETSGETDIRTY		  2072
+#define ACH_SERIALKILLER		  2073
+#define ACH_JOURNEYBEGINS	         2074
+#define AIP_ARACHNOPHOBIA		  2075
+#define ACH_ARACHNOPHOBIA  		  2076
+#define ACH_TROLLIN			  2077
+#define ACH_MOOJUICE  		  2078
+#define ACH_DRAGONSLAYER		  2079
+#define ACH_MAYIHEALSYOU		  2080
+#define ACH_YOUSTRAHDME		  2081
+#define AIP_MOOJUICE			  2082
+#define AIP_DRAGONSLAYER		  2083
+#define AIP_MAYIHEALSYOU		  2084
+#define AIP_YOUSTRAHDME		  2085
+#define AIP_TROLLIN			  2086
+#define TAG_SALVATION		  2087
+#define TAG_DREADNAUGHT		  2088
+#define TAG_CRIPPLED			  2089
+#define AIP_YOUSTRAHDME2		  2090
+#define AIP_DECEPTICON		  2091
+#define ACH_DECEPTICON		  2092
+#define TAG_RECENTLY_FRAGGED	  2093
+#define TAG_MINOTAUR_RAGE		  2094
+#define TAG_CONJURED_PET		  2095
+#define TAG_POTION_TIMER	         2096
+#define TAG_MERC_DEFENSE             2097
+#define TAG_LAYONHANDS		  2098
+>>>>>>> master
 #define DAMAGE_FALLING               2100       /* From falling to the ground */
 
 #define SAVING_PARA   0

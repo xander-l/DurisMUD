@@ -108,6 +108,7 @@ void     do_summon_warg(P_char, char *, int);
 void     do_shift_ethereal(P_char, char *, int);
 void     do_fade(P_char, char *, int);
 
+<<<<<<< HEAD
 void     do_aura_protection(P_char, char *, int);
 void     do_aura_precision(P_char, char *, int);
 void     do_aura_battlelust(P_char, char *, int);
@@ -115,6 +116,16 @@ void     do_aura_endurance(P_char, char *, int);
 void     do_aura_healing(P_char, char *, int);
 void     do_aura_vigor(P_char, char *, int);
 void     do_divine_force(P_char, char *, int);
+=======
+void       do_aura_protection(P_char, char *, int);
+void       do_aura_precision(P_char, char *, int);
+void       do_aura_battlelust(P_char, char *, int);
+void       do_aura_endurance(P_char, char *, int);
+void       do_aura_healing(P_char, char *, int);
+void       do_aura_vigor(P_char, char *, int);
+void       do_divine_force(P_char, char *, int);
+void	    do_wall_climbing(P_char, char *, int);
+>>>>>>> master
 
 int      get_relic_num(P_char ch);
 int      fight_in_room(P_char ch);
@@ -252,7 +263,7 @@ const struct innate_data
   {"aura_of_endurance", do_aura_endurance},
   {"aura_of_improved_healing", do_aura_healing},
   {"aura_of_vigor", do_aura_vigor},
-  {"speedy", do_flurry},
+  {"speedy"},
   {"dauntless", 0},
   {"summon totem", do_summon_totem},
   {"entrapment", 0},
@@ -268,7 +279,7 @@ const struct innate_data
   {"call of the grave", do_call_grave},
   {"sacrilegious power", 0}, // Vampire innate
   {"blur"}, // I have no idea.
-  {"rapier and dirk", 0}, // Swashbuckler
+  {"swashbuckling", 0}, // Swashbuckler
   {"elemental body", 0},
   {"amorphous body", 0},
   {"engulf", do_engulf},
@@ -285,7 +296,18 @@ const struct innate_data
   {"longsword master", 0},
   {"melee mastery", 0},
   {"bulwark", 0},
+<<<<<<< HEAD
   {"elemental power", 0}
+=======
+  {"wall climbing", 0},
+  {"woodland renewal", 0},
+  {"natural movement", 0},
+  {"magic vulnerability", 0},
+  {"two-handed sword mastery", 0},
+  {"holy combat", 0},
+  {"giant avoidance", 0},
+  {"seadog", 0},
+>>>>>>> master
 };
 
 string list_innates(int race, int cls, int spec)
@@ -403,12 +425,19 @@ void assign_innates()
   ADD_RACIAL_INNATE(INNATE_HORSE_BODY, RACE_CENTAUR, 1);
   ADD_RACIAL_INNATE(INNATE_DOORKICK, RACE_CENTAUR, 1);
   ADD_RACIAL_INNATE(INNATE_STAMPEDE, RACE_CENTAUR, 21);
+  ADD_RACIAL_INNATE(TWO_HANDED_SWORD_MASTERY, RACE_CENTAUR, 31);
   /* List of Mountain Dwarf Innates */
   ADD_RACIAL_INNATE(INNATE_STRENGTH, RACE_MOUNTAIN, 1);
+  ADD_RACIAL_INNATE(INNATE_GIANT_AVOIDANCE, RACE_MOUNTAIN, 1);
   ADD_RACIAL_INNATE(INNATE_INFRAVISION, RACE_MOUNTAIN, 1);
   ADD_RACIAL_INNATE(INNATE_AXE_MASTER, RACE_MOUNTAIN, 11);
   ADD_RACIAL_INNATE(INNATE_HAMMER_MASTER, RACE_MOUNTAIN, 31);
   ADD_RACIAL_INNATE(INNATE_HATRED, RACE_MOUNTAIN, 21);
+<<<<<<< HEAD
+=======
+  ADD_RACIAL_INNATE(MAGICAL_REDUCTION , RACE_MOUNTAIN, 1);
+  //ADD_RACIAL_INNATE(INNATE_MINER, RACE_MOUNTAIN, 46);
+>>>>>>> master
   /* List of Eladrin Innates        */
   ADD_RACIAL_INNATE(INNATE_ULTRAVISION, RACE_ELADRIN, 1);
   ADD_RACIAL_INNATE(INNATE_MAGIC_RESISTANCE, RACE_ELADRIN, 1);
@@ -420,6 +449,7 @@ void assign_innates()
   ADD_RACIAL_INNATE(INNATE_BODYSLAM, RACE_FIRBOLG, 1);
   ADD_RACIAL_INNATE(INNATE_DOORBASH, RACE_FIRBOLG, 1);
   ADD_RACIAL_INNATE(INNATE_FOREST_SIGHT, RACE_FIRBOLG, 1);
+  ADD_RACIAL_INNATE(MAGIC_VULNERABILITY, RACE_FIRBOLG, 1);
   /* List of Githzerai Innates      */
   ADD_RACIAL_INNATE(INNATE_MAGIC_RESISTANCE, RACE_GITHZERAI, 1);
   ADD_RACIAL_INNATE(INNATE_DAYVISION, RACE_GITHZERAI, 1);
@@ -431,7 +461,7 @@ void assign_innates()
   ADD_RACIAL_INNATE(INNATE_INFRAVISION, RACE_GNOME, 1);
   ADD_RACIAL_INNATE(INNATE_ULTRAVISION, RACE_GNOME, 1);
   ADD_RACIAL_INNATE(INNATE_FARSEE, RACE_GNOME, 21);
-  ADD_RACIAL_INNATE(INNATE_MINER, RACE_GNOME, 51);
+  //ADD_RACIAL_INNATE(INNATE_MINER, RACE_GNOME, 51);
   /* List of Grey Elf Innates       */
   ADD_RACIAL_INNATE(INNATE_INFRAVISION, RACE_GREY, 1);
   ADD_RACIAL_INNATE(INNATE_OUTDOOR_SNEAK, RACE_GREY, 21);
@@ -444,10 +474,19 @@ void assign_innates()
   ADD_RACIAL_INNATE(INNATE_QUICK_THINKING, RACE_HALFELF, 30);
   ADD_RACIAL_INNATE(INNATE_LONGSWORD_MASTER, RACE_HALFELF, 11);
   /* List of Halfling Innates       */
+<<<<<<< HEAD
   ADD_RACIAL_INNATE(INNATE_HIDE, RACE_HALFLING, 31);
   ADD_RACIAL_INNATE(INNATE_PERCEPTION, RACE_HALFLING, 1);
   ADD_RACIAL_INNATE(INNATE_FLURRY, RACE_HALFLING, 36);  
+=======
+  ADD_RACIAL_INNATE(INNATE_HIDE, RACE_HALFLING, 1);
+  ADD_RACIAL_INNATE(INNATE_PERCEPTION, RACE_HALFLING, 11);
+  //ADD_RACIAL_INNATE(INNATE_FLURRY, RACE_HALFLING, 50);  
+  //ADD_RACIAL_INNATE(INNATE_BARTER, RACE_HALFLING, 1);
+  ADD_RACIAL_INNATE(INNATE_QUICK_THINKING, RACE_HALFLING, 1);
+>>>>>>> master
   /* List of Human Innates          */
+  ADD_RACIAL_INNATE(INNATE_SEADOG, RACE_HUMAN, 1);
   /* List of Wood Elf Innates       */
   ADD_RACIAL_INNATE(INNATE_OUTDOOR_SNEAK, RACE_WOODELF, 11);
   ADD_RACIAL_INNATE(INNATE_FOREST_SIGHT, RACE_WOODELF, 11);
@@ -460,7 +499,13 @@ void assign_innates()
   ADD_RACIAL_INNATE(INNATE_LEVITATE, RACE_DROW, 11);
   ADD_RACIAL_INNATE(INNATE_MAGIC_RESISTANCE, RACE_DROW, 1);
   ADD_RACIAL_INNATE(INNATE_FAERIE_FIRE, RACE_DROW, 1);
+<<<<<<< HEAD
   ADD_RACIAL_INNATE(INNATE_DARKNESS, RACE_DROW, 26);
+=======
+  //ADD_RACIAL_INNATE(INNATE_DARKNESS, RACE_DROW, 26);
+  ADD_RACIAL_INNATE(INNATE_VULN_SUN, RACE_DROW, 1);
+  ADD_RACIAL_INNATE(INNATE_GLOBE_OF_DARKNESS, RACE_DROW, 26);
+>>>>>>> master
   ADD_RACIAL_INNATE(INNATE_DAYBLIND, RACE_DROW, 1);
   ADD_RACIAL_INNATE(INNATE_LONGSWORD_MASTER, RACE_DROW, 11);
   /* List of Duergar Dwarf Innates   */
@@ -471,13 +516,34 @@ void assign_innates()
   ADD_RACIAL_INNATE(INNATE_BATTLE_FRENZY, RACE_DUERGAR, 16);
   ADD_RACIAL_INNATE(INNATE_BATTLE_RAGE, RACE_DUERGAR, 31);
   ADD_RACIAL_INNATE(INNATE_DAYBLIND, RACE_DUERGAR, 1);
+<<<<<<< HEAD
+=======
+  //ADD_RACIAL_INNATE(INNATE_MINER, RACE_DUERGAR, 46);
+>>>>>>> master
   /* List of Goblin Innates          */
   ADD_RACIAL_INNATE(INNATE_ULTRAVISION, RACE_GOBLIN, 1);
   ADD_RACIAL_INNATE(INNATE_DISAPPEAR, RACE_GOBLIN, 31);
   ADD_RACIAL_INNATE(INNATE_DAYBLIND, RACE_GOBLIN, 1);
   ADD_RACIAL_INNATE(INNATE_SUMMON_WARG, RACE_GOBLIN, 16);
   ADD_RACIAL_INNATE(INNATE_SUMMON_TOTEM, RACE_GOBLIN, 26);
+<<<<<<< HEAD
   ADD_RACIAL_INNATE(INNATE_FLURRY, RACE_GOBLIN, 36);
+=======
+  //ADD_RACIAL_INNATE(INNATE_FLURRY, RACE_GOBLIN, 36);
+  /* List of Kobold Innates                  */
+  ADD_RACIAL_INNATE(INNATE_ULTRAVISION, RACE_KOBOLD, 1);
+  ADD_RACIAL_INNATE(INNATE_DAYVISION, RACE_KOBOLD, 1);
+  //ADD_RACIAL_INNATE(INNATE_MINER, RACE_KOBOLD, 51);
+  ADD_RACIAL_INNATE(INNATE_CALMING, RACE_KOBOLD, 1);
+  ADD_RACIAL_INNATE(INNATE_UD_SNEAK, RACE_KOBOLD, 1);
+  /* List of Kuo Toa Innates         */
+  ADD_RACIAL_INNATE(INNATE_ULTRAVISION, RACE_KUOTOA, 1);
+  ADD_RACIAL_INNATE(INNATE_DAYBLIND, RACE_KUOTOA, 1);
+  ADD_RACIAL_INNATE(INNATE_VULN_SUN, RACE_KUOTOA, 1);
+  ADD_RACIAL_INNATE(INNATE_THROW_LIGHTNING, RACE_KUOTOA, 30);
+  ADD_RACIAL_INNATE(INNATE_WATERBREATH, RACE_KUOTOA, 15);
+  ADD_RACIAL_INNATE(INNATE_SWAMP_SNEAK, RACE_KUOTOA, 1);
+>>>>>>> master
   /* List of Githyanki Innates       */
   ADD_RACIAL_INNATE(INNATE_SHIFT_ASTRAL, RACE_GITHYANKI, 1);
   ADD_RACIAL_INNATE(INNATE_SHIFT_PRIME, RACE_GITHYANKI, 1);
@@ -512,10 +578,17 @@ void assign_innates()
   ADD_RACIAL_INNATE(INNATE_DOORBASH, RACE_OGRE, 1);
   ADD_RACIAL_INNATE(INNATE_OGREROAR, RACE_OGRE, 11);
   ADD_RACIAL_INNATE(INNATE_BODYSLAM, RACE_OGRE, 1);
+<<<<<<< HEAD
   ADD_RACIAL_INNATE(INNATE_DAUNTLESS, RACE_OGRE, 1);
+=======
+  ADD_RACIAL_INNATE(INNATE_VULN_SUN, RACE_OGRE, 1);
+  ADD_RACIAL_INNATE(INNATE_DAYBLIND, RACE_OGRE, 1);
+  ADD_RACIAL_INNATE(MAGIC_VULNERABILITY, RACE_OGRE, 1);
+>>>>>>> master
   /* List of Orc Innates             */
   ADD_RACIAL_INNATE(INNATE_DAYVISION, RACE_ORC, 1);
   ADD_RACIAL_INNATE(INNATE_SUMMON_HORDE, RACE_ORC, 11);
+  ADD_RACIAL_INNATE(INNATE_SEADOG, RACE_ORC, 1);
   /* List of Swamp Troll Innates     */
   ADD_RACIAL_INNATE(INNATE_ULTRAVISION, RACE_TROLL, 1);
   ADD_RACIAL_INNATE(INNATE_REGENERATION, RACE_TROLL, 1);
@@ -576,7 +649,7 @@ void assign_innates()
   ADD_RACIAL_INNATE(INNATE_VULN_FIRE, RACE_GARGOYLE, 1);
   ADD_RACIAL_INNATE(INNATE_ULTRAVISION, RACE_ILLITHID, 1);
   ADD_RACIAL_INNATE(INNATE_LEVITATE, RACE_ILLITHID, 1);
-  ADD_RACIAL_INNATE(INNATE_BLAST, RACE_ILLITHID, 1);
+  //ADD_RACIAL_INNATE(INNATE_BLAST, RACE_ILLITHID, 1);
   ADD_RACIAL_INNATE(INNATE_SHIFT_ASTRAL, RACE_ILLITHID, 1);
   ADD_RACIAL_INNATE(INNATE_SHIFT_PRIME, RACE_ILLITHID, 1);
   ADD_RACIAL_INNATE(INNATE_DAYBLIND, RACE_ILLITHID, 1);
@@ -741,6 +814,12 @@ void assign_innates()
   ADD_RACIAL_INNATE(INNATE_ELEMENTAL_BODY, RACE_W_ELEMENTAL, 1);
   ADD_RACIAL_INNATE(INNATE_ELEMENTAL_BODY, RACE_F_ELEMENTAL, 1);
 
+<<<<<<< HEAD
+=======
+ 
+
+
+>>>>>>> master
   /* List of Ghaele Innates*/
   ADD_RACIAL_INNATE(INNATE_ULTRAVISION, RACE_GHAELE, 1);
   ADD_RACIAL_INNATE(INNATE_SPELL_ABSORB, RACE_GHAELE, 21);
@@ -751,14 +830,26 @@ void assign_innates()
   ADD_RACIAL_INNATE(INNATE_SACRILEGIOUS_POWER, RACE_GHAELE, 46);
   ADD_RACIAL_INNATE(INNATE_EYELESS, RACE_GHAELE, 1); 
   
+<<<<<<< HEAD
   /* class innates */  
   ADD_CLASS_INNATE(INNATE_RAPIER_DIRK, CLASS_WARRIOR, 1, SPEC_SWASHBUCKLER);
 
+=======
+  /* class innates */
+
+  ADD_CLASS_INNATE(INNATE_WOODLAND_RENEWAL, CLASS_RANGER, 30, SPEC_WOODSMAN); 
+  ADD_CLASS_INNATE(INNATE_NATURAL_MOVEMENT, CLASS_RANGER, 46, SPEC_WOODSMAN);
+  
+  ADD_CLASS_INNATE(INNATE_RAPIER_DIRK, CLASS_WARRIOR, 1, SPEC_SWASHBUCKLER);
+  ADD_CLASS_INNATE(INNATE_RAPIER_DIRK, CLASS_MERCENARY, 1, 0);
+  ADD_CLASS_INNATE(INNATE_RAPIER_DIRK, CLASS_ROGUE, 1, SPEC_THIEF);
+  ADD_CLASS_INNATE(INNATE_RAPIER_DIRK, CLASS_BARD, 1, 0);
+>>>>>>> master
   ADD_CLASS_INNATE(INNATE_MELEE_MASTER, CLASS_WARRIOR, 1, SPEC_SWORDSMAN);
 
   ADD_CLASS_INNATE(INNATE_GUARDIANS_BULWARK, CLASS_WARRIOR, 41, SPEC_GUARDIAN);
 
-  ADD_CLASS_INNATE(INNATE_MINER, CLASS_ALCHEMIST, 36, SPEC_BLACKSMITH);
+ // ADD_CLASS_INNATE(INNATE_MINER, CLASS_ALCHEMIST, 36, SPEC_BLACKSMITH);
   ADD_CLASS_INNATE(INNATE_FOUNDRY, CLASS_ALCHEMIST, 41, SPEC_BLACKSMITH);
   ADD_CLASS_INNATE(INNATE_EVASION, CLASS_MONK, 36, 0);
   ADD_CLASS_INNATE(INNATE_EVASION, CLASS_ROGUE, 41, SPEC_SHARPSHOOTER);
@@ -784,6 +875,8 @@ void assign_innates()
 
   ADD_CLASS_INNATE(INNATE_WILDMAGIC, CLASS_SORCERER, 41, SPEC_WILDMAGE);
   ADD_CLASS_INNATE(INNATE_SUMMON_BOOK, CLASS_SORCERER, 30, SPEC_WIZARD);
+
+  ADD_CLASS_INNATE(HOLY_COMBAT, CLASS_PALADIN, 21, 0);
 
   ADD_CLASS_INNATE(INNATE_SUMMON_MOUNT, CLASS_PALADIN, 8, 0);
   ADD_CLASS_INNATE(INNATE_ANTI_EVIL, CLASS_PALADIN, 1, 0);
@@ -823,23 +916,35 @@ void assign_innates()
   ADD_CLASS_INNATE(INNATE_AURA_BATTLELUST, CLASS_ANTIPALADIN, 45, 0);
 
   ADD_CLASS_INNATE(INNATE_GOD_CALL, CLASS_CLERIC, 1, 0);
+  //ADD_CLASS_INNATE(INNATE_BLOOD_SCENT, CLASS_CLERIC, 1, SPEC_HEALER);
 
   ADD_CLASS_INNATE(INNATE_FLY, CLASS_ETHERMANCER, 1, 0);
+<<<<<<< HEAD
   ADD_CLASS_INNATE(INNATE_FLY, CLASS_CONJURER, 1, SPEC_AIR);
   ADD_CLASS_INNATE(INNATE_PROT_FIRE, CLASS_CONJURER, 1, SPEC_FIRE);
   ADD_CLASS_INNATE(INNATE_WATERBREATH, CLASS_CONJURER, 1, SPEC_WATER);
   ADD_CLASS_INNATE(INNATE_CONJURE_WATER, CLASS_CONJURER, 1, SPEC_WATER);
   ADD_CLASS_INNATE(MAGICAL_REDUCTION, CLASS_CONJURER, 1, SPEC_EARTH);
+=======
+  //ADD_CLASS_INNATE(INNATE_FLY, CLASS_CONJURER, 1, SPEC_AIR);
+  ADD_CLASS_INNATE(INNATE_HASTE, CLASS_CONJURER, 1, SPEC_AIR);
+  ADD_CLASS_INNATE(INNATE_PROT_FIRE, CLASS_CONJURER, 1, SPEC_WATER);
+  ADD_CLASS_INNATE(INNATE_PROT_COLD, CLASS_CONJURER, 1, SPEC_WATER);
+  //ADD_CLASS_INNATE(INNATE_WATERBREATH, CLASS_CONJURER, 1, SPEC_WATER);
+  //ADD_CLASS_INNATE(INNATE_CONJURE_WATER, CLASS_CONJURER, 1, SPEC_WATER);
+  ADD_CLASS_INNATE(INNATE_REGENERATION, CLASS_CONJURER, 1, SPEC_EARTH);
+>>>>>>> master
 
   ADD_CLASS_INNATE(INNATE_BATTLEAID, CLASS_MERCENARY, 41, SPEC_BOUNTY);
   ADD_CLASS_INNATE(INNATE_PERCEPTION, CLASS_MERCENARY, 31, SPEC_BOUNTY);
   ADD_CLASS_INNATE(INNATE_GROUNDFIGHTING, CLASS_MERCENARY, 21, 0);
   ADD_CLASS_INNATE(INNATE_ENTRAPMENT, CLASS_MERCENARY, 46, 0);  
 
-  ADD_CLASS_INNATE(INNATE_SNEAK, CLASS_THIEF, 1, 0);
+  ADD_CLASS_INNATE(INNATE_SNEAK, CLASS_ROGUE, 1, SPEC_THIEF);
   //ADD_CLASS_INNATE(INNATE_SNEAK, CLASS_ROGUE, 1, SPEC_THIEF);
   ADD_CLASS_INNATE(INNATE_TWO_DAGGERS, CLASS_ROGUE, 1, SPEC_THIEF);
   ADD_CLASS_INNATE(INNATE_QUICK_THINKING, CLASS_THIEF, 36, SPEC_TRICKSTER);
+  ADD_CLASS_INNATE(INNATE_WALL_CLIMBING, CLASS_ROGUE, 1, SPEC_THIEF);
 
   ADD_CLASS_INNATE(INNATE_EYELESS, CLASS_DREADLORD, 1, 0);
   ADD_CLASS_INNATE(INNATE_ACID_BLOOD, CLASS_DREADLORD, 1, 0);
@@ -981,7 +1086,7 @@ bool check_reincarnate(P_char ch)
   // innate resurrect! shaman spec
   if (has_innate(ch, INNATE_RESURRECTION))
   {
-    if (!number(0, 5))          // this may be tweeked later
+    if (!number(0, 8))          // this may be tweeked later
     {
       P_char   t, t_next;
 
@@ -1021,7 +1126,7 @@ bool check_reincarnate(P_char ch)
         }
       }
 
-      GET_HIT(ch) = GET_MAX_HIT(ch);
+      GET_HIT(ch) = BOUNDED(10, GET_MAX_HIT(ch), 100);
       CharWait(ch, dice(2, 2) * 4);
       update_pos(ch);
 
@@ -1990,6 +2095,12 @@ void do_enlarge(P_char ch, char *arg, int cmd)
         TO_NOTVICT);
   }
   CharWait(ch, PULSE_VIOLENCE);
+}
+
+void do_wall_climbing(P_char ch, char *arg, int cmd)
+{
+	struct affected_type af;
+	act("&+LThis &+Wability &+Lis always active.", TRUE, ch, 0, 0, TO_CHAR);
 }
 
 void do_flurry(P_char ch, char *arg, int cmd)
@@ -3571,6 +3682,9 @@ int get_innate_regeneration(P_char ch)
     default:
       break;
   }
+
+  if (GET_SPEC(ch, CLASS_RANGER, SPEC_WOODSMAN) && (world[ch->in_room].sector_type == SECT_FOREST))
+  return GET_LEVEL(ch) * 8;
   
   if (GET_SPEC(ch, CLASS_CONJURER, SPEC_WATER))
     return GET_LEVEL(ch);
@@ -3613,6 +3727,10 @@ int get_innate_resistance(P_char ch)
       res += count * (int) get_property("innate.rrakkma.stepPc", 5);
     } 
   }
+<<<<<<< HEAD
+=======
+  debug("resistance: %d", res);
+>>>>>>> master
   return (res >= 100) ? 100 : res;
 }
 
@@ -3635,7 +3753,11 @@ int resists_spell(P_char caster, P_char victim)
 void spell_resistance_check(P_char caster, P_char victim, void *data)
 {
   int in_room;
+<<<<<<< HEAD
   struct spell_res_data *messages = (struct spell_res_data*)data;
+=======
+  
+>>>>>>> master
 
   if(!caster || !victim)
   {
@@ -3664,19 +3786,70 @@ void spell_resistance_check(P_char caster, P_char victim, void *data)
   
   if(has_innate(victim, INNATE_MAGIC_RESISTANCE))
   {
+<<<<<<< HEAD
     if(number(1, 201) > get_innate_resistance(victim)) // wipe2011 chance halved(201 instead of 101) - Jexni 6/30/11
     {
       messages->true_false = FALSE;
       return;
+=======
+	//if(number(1, 101) > get_innate_resistance(victim)) old check - drannak
+	int shrugroll = number(1, 101);
+	//debug("shrug check roll: %d", shrugroll);
+	if(shrugroll > get_innate_resistance(victim))
+    {
+	return FALSE;
+>>>>>>> master
     }
-    
     if(GET_RACE(victim) == RACE_BEHOLDER)
     {
+<<<<<<< HEAD
       strcpy(messages->tochar, "&+W$N&+W's central eye glows brightly as it negates your spell!");
       strcpy(messages->tovict, "&+WYour central eye glows brightly as it negates $n&+W's spell!");
       strcpy(messages->toroom, "&+W$N&+W's central eye glows brightly as it negates $n&+W's spell!");
       messages->true_false = TRUE;
       return;
+=======
+      act("&+W$n&+W's central eye glows brightly as it negates your spell!",
+          TRUE, victim, 0, caster, TO_VICT);
+      act("&+WYour central eye glows brightly as it negates $N&+W's spell!",
+          TRUE, victim, 0, caster, TO_CHAR);
+      act("&+W$n&+W's central eye glows brightly as it negates $N&+W's spell!",
+         TRUE, victim, 0, caster, TO_NOTVICT);
+      
+      return TRUE;
+    }
+     
+    if(GET_CHAR_SKILL(caster, SKILL_SPELL_PENETRATION) ||
+      (IS_NPC(caster) &&
+      (IS_ELITE(caster) || IS_GREATER_RACE(caster))))
+    {
+      
+      skill /= 2;
+
+      if(IS_NPC(caster) &&
+         !IS_PC_PET(caster))
+            skill = GET_LEVEL(caster); // Added Nov08 -Lucrot
+      
+      if(number(0, 110) < BOUNDED(10, skill, (int)get_property("skill.spellPenetration.highEndPercent", 60.000)) &&
+         caster->in_room == victim->in_room)
+      {
+        struct affected_type af;
+
+        memset(&af, 0, sizeof(af));
+        af.type = SKILL_SPELL_PENETRATION;
+        af.flags = AFFTYPE_NOAPPLY | AFFTYPE_SHORT;
+        af.duration = 0;
+        affect_to_char(victim, &af);
+
+        act("&+CYour pure arcane focus causes your spell to burst through&n $N&+C's magical resistance!&n",
+          TRUE, caster, 0, victim, TO_CHAR);
+        act("$n&+C seems to focus for a moment, and $s spell bursts through your magical barrier!&n",
+          TRUE, caster, 0, victim, TO_VICT);
+        act("$n&+C seems to focus for a moment, and $s spell bursts through&n $N&+C's magical barrier!&n",
+          TRUE, caster, 0, victim, TO_NOTVICT);
+        return FALSE;
+      }
+>>>>>>> master
     }
     
     strcpy(messages->tovict, "&+MYour spell flows around&n $n&+M, leaving $m unharmed!");
@@ -3907,7 +4080,7 @@ void event_lifedrain(P_char ch, P_char victim, P_obj obj, void *data)
     return;
   }
 
-  if (GET_HIT(ch) >= 1.5 * GET_MAX_HIT(ch)) {
+  if (GET_HIT(ch) >= 1.1 * GET_MAX_HIT(ch)) {
     send_to_char("You cannot drain any more life forces!\n", ch);
     act("&+LYou feel better as a dark beam from $n fades.&n",
         FALSE, ch, 0, victim, TO_VICT);
@@ -4111,13 +4284,15 @@ void event_hatred_check(P_char ch, P_char victim, P_obj obj, void *data)
       ch, 0, 0, 0, 0, 0);
 }
 
-bool rapier_dirk_check(P_char ch)
+bool rapier_dirk_check(P_char ch) //now known as swashbuckling, single weapon.
 {
   P_obj weapon;
 
-  if(has_innate(ch, INNATE_RAPIER_DIRK) &&
+/*oldcheck: (has_innate(ch, INNATE_RAPIER_DIRK) &&
     (weapon = ch->equipment[PRIMARY_WEAPON]) && IS_SWORD(weapon) &&
-    (weapon = ch->equipment[SECONDARY_WEAPON]) && IS_DIRK(weapon))
+    (weapon = ch->equipment[SECONDARY_WEAPON]) && IS_DIRK(weapon) ) || */
+
+  if(GET_CLASS(ch, CLASS_BARD) || GET_CLASS(ch, CLASS_MERCENARY) || GET_SPEC(ch, CLASS_ROGUE, SPEC_THIEF))
   {
     return TRUE;
   }
@@ -4294,7 +4469,7 @@ void do_layhand(P_char ch, char *argument, int cmd)
     }
   }
 
-   rested = 1.0 - ((float)time) / timer;
+  /* rested = 1.0 - ((float)time) / timer;
 
   // Lom: enabled thus very informative messages
   if (time != -1)
@@ -4309,7 +4484,13 @@ void do_layhand(P_char ch, char *argument, int cmd)
         send_to_char("&+WYou're almost ready to lay hands.\r\n", ch);
         return;
      }
-  }
+  }*/
+
+    if (affected_by_spell(ch, TAG_LAYONHANDS))
+    {
+      send_to_char("You need more rest before laying hands.\r\n", ch);
+      return;
+    }
 
   /* Lom: dont need as now fixed informative messages
     if (time != -1)
@@ -4330,11 +4511,10 @@ void do_layhand(P_char ch, char *argument, int cmd)
   struct affected_type af;
 
   memset(&af, 0, sizeof(af));
-  af.type = TAG_INNATE_TIMER;
+  af.type = TAG_LAYONHANDS;
   af.location = INNATE_LAY_HANDS;
-  af.modifier = 1;
-  af.duration = timer;
-  af.flags = AFFTYPE_SHORT | AFFTYPE_STORE | AFFTYPE_PERM;
+  af.duration = 30;
+  af.flags = AFFTYPE_NOSHOW | AFFTYPE_PERM | AFFTYPE_NODISPEL;
 
   affect_to_char(ch, &af);
 
@@ -4408,7 +4588,7 @@ void holy_crusade_check(P_char ch, P_char victim)
   if (!has_innate(ch, INNATE_HOLY_CRUSADE) || !IS_EVIL(victim))
     return;
 
-  if (vamp(ch, 2 * GET_LEVEL(victim), 1.2 * GET_MAX_HIT(ch))) {
+  if (vamp(ch, 2 * GET_LEVEL(victim), 1.1 * GET_MAX_HIT(ch))) {
     act("As you execute the killing blow on the evil being, you feel the \n"
         "hand of your God reach down and imbue with heavenly might!",
         FALSE, ch, 0, 0, TO_CHAR);
@@ -4511,6 +4691,3 @@ bool has_divine_force(P_char ch)
     return false;
   }
 }
-
-
-

@@ -443,3 +443,36 @@ DETECT_ILLUSION - Detect illusion
 REV_POLARITY    - Reverse polarity
 NEG_SHIELD      - Negative shield
 TUPOR           - Tupor
+WILDMAGIC	  - Wildmagic
+
+
+
+Affect5 Flags
+
+DAZZLEE            
+MENTAL_ANGUISH     
+MEMORY_BLOCK       
+VINES              
+ETHEREAL_ALLIANCE  
+BLOOD_SCENT        
+FLESH_ARMOR       
+WET               
+HOLY_DHARMA        
+ENH_HIDE           
+LISTEN           
+PROT_UNDEAD      
+IMPRISON          
+TITAN_FORM        
+DELIRIUM           
+SHADE_MOVEMENT    
+NOBLIND            
+MAGICAL_GLOW       
+REFRESHING_GLOW   
+MINE              
+STANCE_OFFENSIVE  
+STANCE_DEFENSIVE  
+OBSCURING_MIST    
+NOT_OFFENSIVE    
+DECAYING_FLESH   
+DREADNAUGHT	    
+FOREST_SIGHT	    

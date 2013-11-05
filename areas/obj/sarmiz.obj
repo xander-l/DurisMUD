@@ -762,9 +762,15 @@ stomach dragon~
 &+ga dragon's stomach&n~
 a dragons stomach~
 ~
+<<<<<<< HEAD
 15 2 0 0 7 0 8912896 1 0 0 0
 10 0 0 0 0 0 0 0
 7 15390 100 100
+=======
+15 2 0 0 7 0 0 1 0 0 0
+100 0 0 0 0 0 0 0
+7 15390 100
+>>>>>>> master
 E
 stomach dragon~
 This is the bloody, oozing stomach from a freshly killed dragon. It is

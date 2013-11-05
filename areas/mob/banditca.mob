@@ -213,8 +213,13 @@ in his scabbard. Currently he is reading over papers. He looks like he is
 incredibly skilled at fighting -- better leave him alone!
 ~
 1073743944 1 0 0 33554440 0 0 0 -900 S
+<<<<<<< HEAD
 PH 0 16 0 -1
 46 0 0 1d1+1 1d1+1
+=======
+PH 0 4096 2 -1
+35 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #14814

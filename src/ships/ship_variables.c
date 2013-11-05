@@ -115,12 +115,14 @@ const WeaponData weapon_data[MAXWEAPON] = {
 
 #define EQFLAGS01  0        // Ram
 #define EQFLAGS02  CAPITOL  // Levistone
+#define EQFLAGS03  DIPLOMAT	// Pirate Suppression Flag
                                                             
 const EquipmentData equipment_data[MAXEQUIPMENT] = {
 // Name                         Cost  Frags Weight  Flags
 //
- { "Bronze Plated Ram",            0,    0,    0,  EQFLAGS01, },
+ { "&+yBronze&+L Plated Ram",            0,    0,    0,  EQFLAGS01, },
  { "Zentharium Levistone",   5000000, 1600,    0,  EQFLAGS02, },
+ { "&+W A &+bDi&+Bploma&+bt's &+WFlag&n",    0,	    0,    0,  EQFLAGS03,  },
 };
 
                                                                                                
@@ -141,7 +143,8 @@ const ShipTypeData ship_type_data[MAXSHIPCLASS] = {
  { 9,    "Destroyer",  15000000,      0,  220,     8,   110,     130,    0,        0,       8,      64,    13,     14,      36,     16,       0,   SHK_WARSHIP  },
  {10,      "Frigate",  22000000,      0,  285,    10,   142,     140,    0,        0,      10,      55,     8,     10,      41,     20,       0,   SHK_WARSHIP  },
  {11,      "Cruiser",  36000000,      0,  400,    12,   200,     160,    0,        0,      15,      48,     5,      8,      46,     25,       0,   SHK_WARSHIP  },
- {12,  "Dreadnought",         0,      0,  600,    14,   300,     200,    0,        0,      20,      40,     4,      6,      51,     32,       0,   SHK_WARSHIP  } 
+ {12,  "Dreadnought",         0,      0,  600,    14,   300,     200,    0,        0,      20,      40,     4,      6,      51,     32,       0,   SHK_WARSHIP  },
+ {12,   "Large Ship",         0,      0,  600,    14,   300,     200,    0,        0,      20,      40,     4,      6,      51,     32,       0,   SHK_WARSHIP  } 
 
 };
 
@@ -186,20 +189,20 @@ const int ship_allowed_weapons [MAXSHIPCLASS][MAXWEAPON] = {
 extern const int ship_allowed_equipment [MAXSHIPCLASS][MAXEQUIPMENT];
 const int ship_allowed_equipment [MAXSHIPCLASS][MAXEQUIPMENT] = {
 
-//   Ram  LvStn
-  {   0,    0,  }, // Sloop
-  {   0,    0,  }, // Yacht
-  {   1,    1,  }, // Clipper
-  {   1,    1,  }, // Ketch
-  {   1,    1,  }, // Caravel
-  {   1,    1,  }, // Carrack
-  {   1,    1,  }, // Galleon
+//   Ram  LvStn  Diplomat
+  {   0,    0,    1,  }, // Sloop
+  {   0,    0,    1,  }, // Yacht
+  {   1,    1,    1,  }, // Clipper
+  {   1,    1,    1,  }, // Ketch
+  {   1,    1,    1,  }, // Caravel
+  {   1,    1,    1,  }, // Carrack
+  {   1,    1,    1,  }, // Galleon
               
-  {   1,    1,  }, // Corvette
-  {   1,    1,  }, // Destroyer
-  {   1,    1,  }, // Cruiser
-  {   1,    1,  }, // Frigate
-  {   1,    1,  }, // Dreadnought
+  {   1,    1,    1,  }, // Corvette
+  {   1,    1,    1,  }, // Destroyer
+  {   1,    1,    1,  }, // Cruiser
+  {   1,    1,    1,  }, // Frigate
+  {   1,    1,    1,  }, // Dreadnought
 };
 
 

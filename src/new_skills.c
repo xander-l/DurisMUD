@@ -571,6 +571,8 @@ void do_feign_death(P_char ch, char *arg, int cmd)
                HAS_MEMORY(tch))
             {
               debug("FEIGN: (%s) feigned death and mob (%s) removed.", GET_NAME(ch), J_NAME(tch));
+              if(!ch || !tch)
+              return;
               forget(tch, ch);
             }
           }
@@ -1106,9 +1108,25 @@ void chant_jin_touch(P_char ch, char *argument, int cmd)
   dam = (int)(dice(GET_C_DEX(ch), 3) + dice(GET_C_AGI(ch), 3) + dice(GET_C_WIS(ch), 3)) / 8;
   dam = dam * ((float)skl_lvl / 100);  
   
+<<<<<<< HEAD
   act("&+CYou harness your full Jin, and deliver a powerful strike to&n $N!", FALSE, ch, 0, vict, TO_CHAR);
   act("$n&+C chants a mantra, then touches&n $N&+C who reels in pain!", FALSE, ch, 0, vict, TO_NOTVICT);
   act("$n&+C's chants a mantra as $e touches you - pain courses throughout your body!", FALSE, ch, 0, vict, TO_VICT);
+=======
+  if(skl_lvl <= 80)
+    dam = (int) (0.4 * dam);
+  else if(skl_lvl <= 90)
+    dam = (int) (0.6 * dam);
+
+   dam = dam * 2;
+    
+  act("&+CYou harness your full Jin, and deliver a powerful strike to&n $N!&n",
+    FALSE, ch, 0, vict, TO_CHAR);
+  act("$n&+C chants a mantra, then touches&n $N&+C who reels in pain!&n",
+    FALSE, ch, 0, vict, TO_NOTVICT);
+  act("$n&+C's chants a mantra as $e touches you - pain courses throughout your body!&n",
+    FALSE, ch, 0, vict, TO_VICT);
+>>>>>>> master
     
   //debug("(%s) Jin Touch: damage upon (%s) for (%d).", GET_NAME(ch), GET_NAME(vict), dam);
 
@@ -2060,7 +2078,7 @@ void do_summon_mount(P_char ch, char *arg, int cmd)
       
   if (!IS_EVIL(ch) && IS_PC(ch) && GET_CLASS(ch, CLASS_ANTIPALADIN))
   {
-    send_to_char("Your innate skill seems to falter...\r\n", ch);
+    send_to_char("Your innate skill seems to falter. You must be evil.\r\n", ch);
     return;
   }
   if (!OUTSIDE(ch) && !IS_UNDERWORLD(ch->in_room))

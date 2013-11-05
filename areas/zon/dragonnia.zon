@@ -1,6 +1,6 @@
 #68
 &+yDragonnia&n~
-6868 1 0 40 50 2
+6868 0 0 40 50 5
 *
 * Zone edited with durisEdit v2.99de
 *
@@ -83,6 +83,7 @@ O 0 6846 1 6801 20 0 0 0           * a thick and jagged onyx ring
 O 0 6839 1 6801 1 0 0 0            * a woven dragon scale belt
 O 0 6849 1 6801 1 0 0 0            * a ceremonial candlestick
 O 0 6854 1 6801 50 0 0 0           * an ornate red cloak
+O 0 1210 1 6801 100 0 0 0          * (object type not in this .obj file)
 O 0 6838 1 6837 100 0 0 0          * a golden chest
 P 1 6817 1 6838 100 0 0 0          *   a polished golden bracelet
 P 1 6858 1 6838 100 0 0 0          *   a glittering golden bracelet
@@ -195,6 +196,8 @@ M 0 6830 12 6834 100 0 0 0         * an elite Dragonnian guard
 M 0 6816 1 6835 100 0 0 0          * Dragonnia
 E 1 6831 2 2 100 0 0 0             *   a gleaming platinum ring
 E 1 6701 1 18 100 0 0 0            *   a yellow and red key
+G 1 6826 1 0 100 0 0 0             *    the mystic axe of the dragonkind
+G 1 910 1 0 100 0 0 0              *    (object type not in this .obj file)
 M 0 6830 12 6835 100 0 0 0         * an elite Dragonnian guard
 M 0 6830 12 6835 100 0 0 0         * an elite Dragonnian guard
 M 0 6814 30 6835 100 0 0 0         * a Dragonnian guard

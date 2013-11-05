@@ -89,7 +89,12 @@ extern const char *carve_part_name[];
 extern const int carve_part_flag[];
 extern struct mm_ds *dead_mob_pool;
 extern struct mm_ds *dead_pconly_pool;
+<<<<<<< HEAD
 extern const char *craftsmanship_names[];
+=======
+extern void set_long_description(P_obj t_obj, const char *newDescription);
+extern void set_short_description(P_obj t_obj, const char *newDescription);
+>>>>>>> master
 
 // THE NEXT PERSON THAT OUTRIGHT COPIES A SPELL JUST TO CHANGE THE NAME/MESSAGES
 // IT OUTPUTS IS GOING TO BE CASTRATED BY ME AND FORCED TO EAT THEIR OWN GENITALIA.
@@ -112,6 +117,12 @@ int      cast_as_damage_area(P_char,
                                            P_obj), int, P_char, float, float,
                              bool (*s_func) (P_char, P_char));
  
+void do_nothing_spell(int level, P_char ch, char *arg, int type,
+                      P_char victim, P_obj obj)
+  {
+	return;
+  }
+
 // Universal call to determine if victim can be relocated/warped/dreamed. 
 bool can_relocate_to(P_char ch, P_char victim)
 {
@@ -128,6 +139,9 @@ bool can_relocate_to(P_char ch, P_char victim)
     send_to_char("&+CYou failed.\n", ch);
     return false;
   }
+
+  if(IS_NPC(ch) && IS_PC_PET(ch))
+   return false;
 
   if(!IS_TRUSTED(ch) &&
      IS_TRUSTED(victim))
@@ -844,7 +858,11 @@ void spell_restore_spirit(int level, P_char ch, char *arg, int type, P_char vict
     dam >> 1;
   }
   
+<<<<<<< HEAD
   vamp(ch, number(dam / 3, dam), (int) (GET_MAX_HIT(ch) * 1.25));
+=======
+  vamp(ch, (int)(dam / 4), (int) (GET_MAX_HIT(ch) * 1.10));
+>>>>>>> master
 
   if(GET_VITALITY(victim) >= 10 &&
      !IS_AFFECTED2(victim, AFF2_SOULSHIELD))
@@ -930,7 +948,11 @@ void spell_enervation(int level, P_char ch, char *arg, int type, P_char victim, 
     dam >> 1;
   }
   
+<<<<<<< HEAD
   vamp(ch, number(dam / 3, dam), (int) (GET_MAX_HIT(ch) * 1.10));
+=======
+  vamp(ch, (int)(dam / 4), (int) (GET_MAX_HIT(ch) * 1.10));
+>>>>>>> master
 
   if(GET_VITALITY(victim) >= 10 &&
      !IS_AFFECTED4(victim, AFF4_NEG_SHIELD))
@@ -973,7 +995,97 @@ void spell_enervation(int level, P_char ch, char *arg, int type, P_char victim, 
   }
 }
 
+<<<<<<< HEAD
 void spell_energy_drain(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
+=======
+void spell_life_leech(int level, P_char ch, char *arg, int type,
+                        P_char victim, P_obj obj)
+{
+  int mana, dam, result, moves;
+  bool saved  = FALSE;
+  
+  struct damage_messages messages = {
+    "&+LYou reach out and touch $N, &+rleeching &+Lsome of $S's &+Llife&+wfor&+Wce.&n",
+    "&+LYour &+rlife &+force seems to slip away as&n $n &+Ltouches you.&n",
+    "$n &+Lseems to suck the &+rlife &+Lright out of&n $N!",
+    "$N &+rapparently has no more &+Rlife &+rto leech!&n",
+    "&+LAs&n $n &+Ltouches you, you feel the last bit of your &+rlife &+Lseep out of you.&n",
+    "$n &+Lsucks the last bit of &+rlife &+Lout of &n$N &+Lwho falls to the &+yground &+Llifeless."
+  };
+
+  if(!(ch) ||
+     !(victim) ||
+     !IS_ALIVE(ch) ||
+     !IS_ALIVE(victim) ||
+     victim == ch)
+  {
+    return;
+  }
+
+  if(resists_spell(ch, victim))
+    return;
+
+  dam = dice(1.5 * level, 5);
+  
+  
+  if(IS_AFFECTED4(victim, AFF4_DEFLECT))
+  {
+    spell_damage(ch, victim, dam, SPLDAM_GENERIC, SPLDAM_NOSHRUG | SPLDAM_NOVAMP | SPLDAM_NODEFLECT, &messages);
+    return;
+  }
+
+  if(NewSaves(victim, SAVING_SPELL, 0))
+  {
+    saved = TRUE;
+    dam = (int)(dam * 0.80);
+  }
+  
+  if(GET_LEVEL(victim) <= (level / 10))
+  {
+    /*
+     * Kill the sucker
+     */
+    act(messages.death_attacker, FALSE, ch, 0, victim, TO_CHAR);
+    act(messages.death_victim, FALSE, ch, 0, victim, TO_VICT);
+    act(messages.death_room, FALSE, ch, 0, victim, TO_NOTVICT);
+    die(victim, ch);
+    victim = NULL;
+  }
+  else
+  {
+    if(!IS_AFFECTED4(victim, AFF4_NEG_SHIELD) &&
+       !IS_UNDEADRACE(victim))
+    {
+      if(IS_PC(ch) || 
+         IS_PC_PET(ch))
+      {
+        vamp(ch, (int)(dam / 5), (int) (GET_MAX_HIT(ch) * 1.00));
+      }
+      else
+        vamp(ch, (int)(dam / 2), (int) (GET_MAX_HIT(ch) * 1.00));
+	 
+    }
+
+    StartRegen(ch, EVENT_MOVE_REGEN);
+    StartRegen(victim, EVENT_MOVE_REGEN);
+      
+// Vamping still occurs as above. We do not want double vamping undead. 
+    spell_damage(ch, victim, dam, SPLDAM_NEGATIVE, SPLDAM_NOSHRUG | SPLDAM_NOVAMP, &messages);
+  }
+
+  if(!IS_ALIVE(victim) ||
+     !IS_ALIVE(ch))
+        return;
+
+}
+
+
+
+
+
+void spell_energy_drain(int level, P_char ch, char *arg, int type,
+                        P_char victim, P_obj obj)
+>>>>>>> master
 {
   int mana, dam, result, moves;
   bool saved  = FALSE;
@@ -1007,7 +1119,7 @@ void spell_energy_drain(int level, P_char ch, char *arg, int type, P_char victim
   if(NewSaves(victim, SAVING_SPELL, 0))
   {
     saved = TRUE;
-    dam = (int)(dam * 0.85);
+    dam = (int)(dam * 0.80);
   }
   
   if(GET_LEVEL(victim) <= (level / 10))
@@ -1026,21 +1138,22 @@ void spell_energy_drain(int level, P_char ch, char *arg, int type, P_char victim
     if(!IS_AFFECTED4(victim, AFF4_NEG_SHIELD) &&
        !IS_UNDEADRACE(victim))
     {
-      if(IS_PC(ch) ||
+      if(IS_PC(ch) || 
          IS_PC_PET(ch))
       {
-        vamp(ch, (int)(dam / 5), (int) (GET_MAX_HIT(ch) * 1.25));
+        vamp(ch, (int)(dam / 5), (int) (GET_MAX_HIT(ch) * get_property("vamping.maxHP.PC", 1.100)));
       }
       else
-        vamp(ch, (int)(dam / 2), (int) (GET_MAX_HIT(ch) * 1.25));
+        vamp(ch, (int)(dam / 2), (int) (GET_MAX_HIT(ch) * get_property("vamping.maxHP.PC", 1.100)));
+	 
     }
 
-    send_to_char("&+LYour life energy is &+rtapped&+L.\n", victim);
-
+/*    send_to_char("&+LYour life energy is &+rtapped&+L.\n", victim);
+ No more sapping moves - drannak
     if(GET_VITALITY(victim) >= 25 &&
       !IS_AFFECTED4(victim, AFF4_NEG_SHIELD))
     {
-      moves = number(5, level);
+      moves = number(5, 30); //old value (5, level)
       
       if(affected_by_spell(victim, SPELL_ENERGY_DRAIN))
         moves /= 2;
@@ -1050,6 +1163,7 @@ void spell_energy_drain(int level, P_char ch, char *arg, int type, P_char victim
       debug("E DRAIN: (%s&n) loses and (%s&n) gained (%d) moves.", 
         J_NAME(victim), J_NAME(ch), moves);
     }
+*/
 
     StartRegen(ch, EVENT_MOVE_REGEN);
     StartRegen(victim, EVENT_MOVE_REGEN);
@@ -1078,8 +1192,8 @@ void spell_energy_drain(int level, P_char ch, char *arg, int type, P_char victim
   }
   else if(!saved)
   {
-    send_to_char("&+LYour spell saps the energy from your foe, leaving you invigorated in return.\r\n", ch);
-    send_to_char("&+LYour energy is sapped! You feel sluggish and weak...\r\n", victim);
+    //send_to_char("&+LYour spell saps the energy from your foe, leaving you invigorated in return.\r\n", ch);
+    //send_to_char("&+LYour energy is sapped! You feel sluggish and weak...\r\n", victim);
     struct affected_type af;
     memset(&af, 0, sizeof(af));
     af.type = SPELL_ENERGY_DRAIN;
@@ -1234,8 +1348,21 @@ void spell_wither(int level, P_char ch, char *arg, int type, P_char victim, P_ob
     return;  
   }
 
+<<<<<<< HEAD
   if(IS_UNDEADRACE(victim))
   {   
+=======
+  if (IS_UNDEADRACE(victim))
+  {
+  
+    if(!number(0, 1) &&
+       resists_spell(ch,victim))
+       {
+	 send_to_char("Your victim resisted your &+Lwither&n attempt!\r\n", ch);
+          return;
+	}
+      
+>>>>>>> master
     struct damage_messages wither_undead = {
       "$N &+Lwavers under the power of your will, as $S &+Lundead flesh withers away!",
       "$n's &+Lpure will causes your undead flesh to wither away!",
@@ -1251,8 +1378,8 @@ void spell_wither(int level, P_char ch, char *arg, int type, P_char victim, P_ob
     return;
   }
   
-  if(resists_spell(ch,victim))
-    return;
+ /* if(resists_spell(ch,victim))
+    return;*/
     
   int save = victim->specials.apply_saving_throw[SAVING_SPELL];
 
@@ -1260,7 +1387,7 @@ void spell_wither(int level, P_char ch, char *arg, int type, P_char victim, P_ob
   
   percent += (int) (GET_LEVEL(ch) - GET_LEVEL(victim));
 
-  if(NewSaves(victim, SAVING_SPELL, 0))
+  if(NewSaves(victim, SAVING_FEAR, 0))
     percent = (int) percent * .75;
 
   percent = BOUNDED(0, percent, 100);
@@ -1502,7 +1629,7 @@ bool can_conjure_lesser_elem(P_char ch, int level)
   for (k = ch->followers, i = 0, j = 0; k; k = k->next)
   {
     victim = k->follower;
-    
+/*    
     if(IS_ELEMENTAL(victim))
     {
       if(!IS_GREATER_ELEMENTAL(victim))
@@ -1513,9 +1640,11 @@ bool can_conjure_lesser_elem(P_char ch, int level)
       {
         j++;
       }
-    }
+    }*/
+    if(IS_ELEMENTAL(victim) || IS_GREATER_ELEMENTAL(victim))
+    i++;
   }
-
+/*
   if(GET_LEVEL(ch) >= 56)
   {
     j--;
@@ -1536,6 +1665,9 @@ bool can_conjure_lesser_elem(P_char ch, int level)
   }
 
   if(j) //wipe2011, limited to single greater, no lesser - Jexni 4/1/12
+    return FALSE;
+*/
+  if(i >= 3)
     return FALSE;
 
   if(GET_LEVEL(ch) >= 41 && i >= 3)
@@ -1789,6 +1921,9 @@ void spell_conjure_elemental(int level, P_char ch, char *arg, int type, P_char v
     return;
   }
 
+  if(GET_RACE(ch) == RACE_PLICH)
+  return;
+
   if(IS_SPECIALIZED(ch))
     switch (ch->player.spec)
     {
@@ -1810,6 +1945,12 @@ void spell_conjure_elemental(int level, P_char ch, char *arg, int type, P_char v
   else
   {
     sum = number(0, 3);
+  }
+
+  if(IS_SPECIALIZED(ch) && GET_CLASS(ch, CLASS_CONJURER) && (IS_PC(ch) || IS_PC_PET(ch)))
+  {
+   send_to_char("Specialized &+Yconjurers&n use the &+cconjure&n command to manage their minions.\r\n", ch);
+   return;
   }
 
   mob = read_mobile(real_mobile(summons[sum].mob_number), REAL);
@@ -1845,9 +1986,19 @@ void spell_conjure_elemental(int level, P_char ch, char *arg, int type, P_char v
     mob->points.base_hitroll = mob->points.hitroll = level;
     mob->points.base_damroll = mob->points.damroll = level;
     
+<<<<<<< HEAD
     give_proper_stat(mob);
     
     GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit = (int) (dice(level, 8) + life + charisma);
+=======
+    if(!IS_SET(mob->specials.affected_by, AFF_HASTE))
+    {
+      SET_BIT(mob->specials.affected_by, AFF_HASTE);
+    }
+         apply_achievement(mob, TAG_CONJURED_PET);
+    mob->points.base_hitroll = mob->points.hitroll = GET_LEVEL(mob) / 2;
+    mob->points.base_damroll = mob->points.damroll = GET_LEVEL(mob) / 2;
+>>>>>>> master
     
     if(GET_C_CHA(ch) > number(105, 200))
     {
@@ -2023,16 +2174,20 @@ bool can_conjure_greater_elem(P_char ch, int level)
   for (k = ch->followers, j = 0; k; k = k->next)
   {
     victim = k->follower;
+<<<<<<< HEAD
 
     if(victim) // wipe2011, only single greater for a pet - Jexni 4/1/12
       return FALSE;
     
     if(IS_GREATER_ELEMENTAL(victim))
     {
+=======
+      if(IS_ELEMENTAL(victim) || IS_GREATER_ELEMENTAL(victim))
+>>>>>>> master
       j++;
-    }
+    
   }
-
+/*
   if(GET_LEVEL(ch) >= 56)
     j--;
     
@@ -2044,6 +2199,8 @@ bool can_conjure_greater_elem(P_char ch, int level)
     send_to_char("Your ability to inspire is amazing.\r\n", ch);
     j--;
   }
+
+
   if(GET_SPEC(ch, CLASS_CONJURER, SPEC_AIR) &&
      has_air_staff_arti(ch) &&
      j <= 2)
@@ -2061,6 +2218,20 @@ bool can_conjure_greater_elem(P_char ch, int level)
     return FALSE;
   }
   
+  return TRUE;
+*/
+  if(j >= 3)
+    return FALSE;
+
+  if(GET_LEVEL(ch) >= 41 && j >= 3)
+    return FALSE;
+  if((GET_LEVEL(ch) >= 31) && (GET_LEVEL(ch) < 41) && j >= 2)
+    return FALSE;
+  if((GET_LEVEL(ch) >= 21) && (GET_LEVEL(ch) < 31) && j >= 1)
+    return FALSE;
+  if(GET_LEVEL(ch) < 21)
+    return FALSE;
+
   return TRUE;
 }
 
@@ -2185,30 +2356,77 @@ void conjure_specialized(P_char ch, int level)
   } pets[] = // If you add or remove mobs, make sure to adjust 
               // IS_GREATER_ELEMENTAL define in utils.h -Lucrot
   {
+<<<<<<< HEAD
     {
     1130, 12, 20},
+=======
+  /*  {
+    1130, 500, 20},
+>>>>>>> master
     {
     1131, 8, 15},
     {
+<<<<<<< HEAD
     1132, 10, 17},             /* AIR */
+=======
+    1132, 600, 20},             // AIR 
+>>>>>>> master
     {
     1140, 12, 20},
     {
     1141, 8, 15},
     {
+<<<<<<< HEAD
     1142, 10, 17},             /* WATER */
+=======
+    1142, 600, 20},             // WATER 
+>>>>>>> master
     {
     1110, 12, 20},
     {
     1111, 8, 15},
     {
+<<<<<<< HEAD
     1112, 10, 17},             /* FIRE */
+=======
+    1112, 550, 20},             // FIRE 
+>>>>>>> master
     {
     1120, 8, 15},
     {
     1121, 12, 20},
     {
+<<<<<<< HEAD
     1122, 10, 17},             /* EARTH */
+=======
+    1122, 700, 25},             // EARTH 
+*/
+    {
+    43, 500, 20},
+    {
+    43, 400, 20},
+    {
+    43, 600, 20},             /* AIR */
+    {
+    44, 600, 25},
+    {
+    44, 600, 20},
+    {
+    44, 600, 20},             /* WATER */
+    {
+    41, 600, 20},
+    {
+    41, 700, 25},
+    {
+    41, 650, 20},             /* FIRE */
+    {
+    42, 600, 20},
+    {
+    42, 800, 30},
+    {
+    42, 700, 25},             /* EARTH */
+
+>>>>>>> master
   };
 
   summoned = 3 * (ch->player.spec - 1) + number(0, 2);
@@ -2231,6 +2449,8 @@ void conjure_specialized(P_char ch, int level)
   {
     SET_BIT(mob->specials.affected_by, AFF_INFRAVISION);
   }
+
+     apply_achievement(mob, TAG_CONJURED_PET);
   
   if(GET_LEVEL(ch) > 55)
     mob->player.level = (ubyte)number(51, 53);
@@ -2365,6 +2585,12 @@ void spell_conjure_greater_elemental(int level, P_char ch, char *arg, int type, 
     return;
   }
 
+  if(IS_SPECIALIZED(ch) && GET_CLASS(ch, CLASS_CONJURER) && (IS_PC(ch) || IS_PC_PET(ch)))
+  {
+   send_to_char("Specialized &+Yconjurers&n use the &+cconjure&n command to manage their minions.\r\n", ch);
+   return;
+  }
+
   if(GET_CLASS(ch, CLASS_CONJURER) &&
      IS_SPECIALIZED(ch))
   {
@@ -2394,20 +2620,32 @@ void spell_conjure_greater_elemental(int level, P_char ch, char *arg, int type, 
   act(summons[sum].message, FALSE, mob, 0, 0, TO_ROOM);
   mob->player.level = number(51, level);
 
+<<<<<<< HEAD
 #if wipe2011
     GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit = dice(level / 2, level) + (life * 4) + dice(charisma, 3);
 #else
     if(mob->player.level == 49)
     GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit = 550 + number(0,50) + (life * 3) + charisma;
+=======
+  mob->player.level = number(49, 53);
+  if(mob->player.level == 49)
+    GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit = 450 + number(0,50) + (life * 3) + charisma;
+>>>>>>> master
   else if(mob->player.level == 50)
-    GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit = 600 + number(0,50) + (life * 3) + charisma;
+    GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit = 500 + number(0,50) + (life * 3) + charisma;
   else if(mob->player.level == 51)
-    GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit = 650 + number(0,50) + (life * 3) + charisma;
+    GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit = 550 + number(0,50) + (life * 3) + charisma;
   else if(mob->player.level == 52)
+<<<<<<< HEAD
     GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit = 700 + number(0,50) + (life * 3) + charisma;
+=======
+    GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit =
+      600 + number(0,50) + (life * 3) + charisma;
+>>>>>>> master
   else
          //big bonus for highest level pet, since it's rare
     GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit =
+<<<<<<< HEAD
       800 + number(0,50) + (life * 3) + charisma;
 #endif
 
@@ -2415,6 +2653,17 @@ void spell_conjure_greater_elemental(int level, P_char ch, char *arg, int type, 
   mob->points.base_hitroll = mob->points.hitroll = level;
   mob->points.base_damroll = mob->points.damroll = level;
   MonkSetSpecialDie(mob);
+=======
+      700 + number(0,50) + (life * 3) + charisma;
+
+  SET_BIT(mob->specials.affected_by, AFF_INFRAVISION);
+
+  mob->points.base_hitroll = mob->points.hitroll = GET_LEVEL(mob) / 3;
+  mob->points.base_damroll = mob->points.damroll = GET_LEVEL(mob) / 4;
+
+  MonkSetSpecialDie(mob);       /* 2d6 to 4d5 */
+  mob->points.damsizedice = (int)(0.8 * mob->points.damsizedice);
+>>>>>>> master
 
   if(IS_PC(ch) &&              
     !has_air_staff_arti(ch) &&
@@ -2752,6 +3001,7 @@ int spell_solbeeps_single_missile(int level, P_char ch, char *arg, int type, P_c
 
   if(spell_damage(ch, victim, dam, SPLDAM_GENERIC, SPLDAM_NOSHRUG, saved ? &halfdam_messages : &fulldam_messages) == DAM_NONEDEAD)
   {
+   /*
     if(!saved && GET_SIZE(victim) < SIZE_HUGE &&
       !StatSave(victim, APPLY_AGI, -2 * (SIZE_LARGE - GET_SIZE(victim))) &&
       !IS_AFFECTED4(victim, AFF4_DEFLECT))
@@ -2767,7 +3017,12 @@ int spell_solbeeps_single_missile(int level, P_char ch, char *arg, int type, P_c
       stop_fighting(victim);
       CharWait(victim, PULSE_VIOLENCE * 1);
 
+<<<<<<< HEAD
     /*int door = number(0, 9);
+=======
+
+        int door = number(0, 9);
+>>>>>>> master
 
         if((CAN_GO(victim, door)) && (!check_wall(victim->in_room, door)))
         {
@@ -2789,8 +3044,13 @@ int spell_solbeeps_single_missile(int level, P_char ch, char *arg, int type, P_c
             CharWait(victim, PULSE_VIOLENCE * 1);
           }
           return FALSE;
+<<<<<<< HEAD
       }*/
+=======
+        }
+>>>>>>> master
     }
+  */
     return true;
   }
   return false;
@@ -2807,10 +3067,18 @@ void spell_solbeeps_missile_barrage(int level, P_char ch, char *arg, int type, P
   if(level >= 56 || !number(0, 55 - level))
     num_missiles++;
 
+<<<<<<< HEAD
   if(level >= 56 && !number(0, 3))
     num_missiles++;
 
   while(i < num_missiles &&
+=======
+ /* 
+    if (level >= 56 && !number(0, 3))
+    num_missiles++;
+ */
+  while( i < num_missiles &&
+>>>>>>> master
       IS_ALIVE(victim) &&
       IS_ALIVE(ch) &&
       victim)
@@ -2970,7 +3238,20 @@ void spell_cyclone(int level, P_char ch, char *arg, int type, P_char victim, P_o
      !IS_ALIVE(victim))
         return;
 
+<<<<<<< HEAD
   dam = dice(36, 2) + (level / 4);
+=======
+  if(victim == ch)
+  {
+    send_to_char("You suddenly decide against that, oddly enough.\n", ch);
+    return;
+  }
+
+       // dam = dice(level * 2, 9);
+	dam = dice((int) (MIN(level, 40) * 2), 10);
+
+/*  play_sound(SOUND_WIND3, NULL, ch->in_room, TO_ROOM); */
+>>>>>>> master
 
   if(NewSaves(victim, SAVING_SPELL, 0))
     dam >> 1;
@@ -2984,13 +3265,21 @@ void spell_cyclone(int level, P_char ch, char *arg, int type, P_char victim, P_o
     
     if(1) // affchance <= 5
     {
+<<<<<<< HEAD
       act("The gale force of your spell sends $N crashing to the ground!",
           FALSE, ch, 0, victim, TO_CHAR);
       act("The gale force of $n's cyclone sends you crashing to the ground!",
           FALSE, ch, 0, victim, TO_VICT);
       act("The gale force of $n's cyclone sends $N crashing to the ground!",
+=======
+      act("The gail force of your spell sends $N flying through the room!",
+          FALSE, ch, 0, victim, TO_CHAR);
+      act("The gail force of $n's spell sends you flying through the room!",
+          FALSE, ch, 0, victim, TO_VICT);
+      act("The gail force of $n's spell sends $N flying through the room!",
+>>>>>>> master
           FALSE, ch, 0, victim, TO_NOTVICT);
-      SET_POS(victim, POS_SITTING + GET_STAT(victim));
+      //SET_POS(victim, POS_SITTING + GET_STAT(victim));
 
       if(!IS_STUNNED(victim) && affchance <= 25)
       {
@@ -3001,13 +3290,21 @@ void spell_cyclone(int level, P_char ch, char *arg, int type, P_char victim, P_o
     }
 /*    else if(affchance <= 5)
     {
+<<<<<<< HEAD
       act("Your gale force sends $N crashing into the wall!", FALSE,
           ch, 0, victim, TO_CHAR);
       act("The gale force of $n's cyclone sends you crashing into the wall!",
           FALSE, ch, 0, victim, TO_VICT);
       act("The gale force of $n's cyclone  sends $N crashing into the wall!",
+=======
+      act("Your gail force sends $N flying through the room", FALSE,
+          ch, 0, victim, TO_CHAR);
+      act("The gail force of $n's spell sends you flying through the room",
+          FALSE, ch, 0, victim, TO_VICT);
+      act("The gail force of $n's spell sends $N flying through the room",
+>>>>>>> master
           FALSE, ch, 0, victim, TO_NOTVICT);
-      SET_POS(victim, POS_PRONE + GET_STAT(victim));
+      //SET_POS(victim, POS_PRONE + GET_STAT(victim));
 
       if(!IS_STUNNED(victim) && !number(0, 2))
       {                      
@@ -3057,8 +3354,16 @@ void spell_single_meteorswarm(int level, P_char ch, char *arg, int type, P_char 
     dam = dam * get_property("spell.area.damage.to.pc", 1.000); 
 
   dam = dam * get_property("spell.area.damage.factor.meteorSwarm", 1.000);
+<<<<<<< HEAD
 
   spell_damage(ch, victim, dam, SPLDAM_EXPLAN, 0, &messages);
+=======
+  if(GET_SPEC(ch, CLASS_SORCERER, SPEC_WIZARD))
+   {
+    dam = dam * 2;
+   }
+  spell_damage(ch, victim, dam, SPLDAM_GENERIC, 0, &messages);
+>>>>>>> master
 }
 
 void spell_meteorswarm(int level, P_char ch, char *arg, int type,
@@ -3675,7 +3980,127 @@ void spell_full_harm(int level, P_char ch, char *arg, int type, P_char victim, P
   spell_damage(ch, victim, dam, SPLDAM_HOLY, 0, &messages);
 }
 
+<<<<<<< HEAD
 void spell_fortitude(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
+=======
+void event_fleshdecay(P_char ch, P_char victim, P_obj obj, void *data)
+{
+  int dam;
+  int count = *((int*)data);
+  int rand1 = number(1, 100);
+
+  dam = dice(5, 10);
+
+  if ((GET_HIT(ch) - dam) > 0)
+  {
+    GET_HIT(ch) -= dam;
+    
+    if(rand1 > 50)
+    {
+    send_to_char("&nA &+gslimy &npiece of your &+rflesh&n breaks apart from your body and falls to the &+yground&n.\n", ch);
+    act("A &+gslimy&n piece of $n's &+rflesh &nbreaks apart from their body and falls to the &+yground&n\n", TRUE, ch, NULL, NULL,
+        TO_NOTVICT);
+    make_bloodstain(ch);
+    }
+    else
+    {
+    send_to_char("&nYour skin continues to &+gde&+Gca&+Ly &nas the spell consumes your &+rflesh&n.\n", ch);
+    act("$n's skin continues to &+gde&+Gca&+Ly &nas the spell consumes their &+rflesh&n.", TRUE, ch, NULL, NULL,
+        TO_NOTVICT);
+    make_bloodstain(ch);
+    }
+  }
+
+  if (count >= 0)
+  {
+    count--;
+    add_event(event_fleshdecay, PULSE_VIOLENCE, ch, 0, 0, 0, &count, sizeof(count));
+  }
+  
+}
+
+void spell_decaying_flesh(int level, P_char ch, char *arg, int type,
+                            P_char victim, P_obj obj)
+{
+  struct affected_type af;
+
+  if(ch == victim)
+   {
+	send_to_char("You decide that would not be the best use of your dark arts.&n\n", ch);
+       return;
+   }
+
+    if(!victim)
+    victim = ch;
+  
+  if(!IS_ALIVE(ch) ||
+    !IS_ALIVE(victim))
+  {
+    return;
+  }
+  if(IS_AFFECTED5(victim, AFF5_DECAYING_FLESH))
+  {
+    struct affected_type *af1;
+
+    for (af1 = victim->affected; af1; af1 = af1->next)
+      if(af1->type == SPELL_DECAYING_FLESH && af1->modifier >= 5)
+      {
+        
+        send_to_char("&nTheir flesh cannot be afflicted any further.\r\n",
+                     ch);
+		return;
+      }
+   
+  }
+
+  memset(&af, 0, sizeof(af));
+  af.type = SPELL_DECAYING_FLESH;
+  af.bitvector5 = AFF5_DECAYING_FLESH;
+  af.duration = 100;
+  af.flags = AFFTYPE_SHORT;
+
+  if(!IS_AFFECTED5(victim, AFF5_DECAYING_FLESH))
+  {
+    act("&+R$n &nraises their hand and points directly at &+L$N\n"
+	     "&+L$N &nsuddenly turns &+ggreen &nas their &+Rflesh &nbegins to &+Lwither&n and &+rrot&n.", FALSE, ch, 0, victim, TO_NOTVICT);
+    act("You &nraise your hand and point directly at &+L$N\n"
+	     "&+L$N &nsuddenly turns &+ggreen &nas their &+Rflesh &nbegins to &+Lwither&n and &+rrot&n.", FALSE, ch, 0, victim, TO_CHAR);
+   act("&+R$n &nraises their hand and points directly at &+LYOU&n!\n"
+	          "Your &+Rskin&n suddenly turns &+ggreen &nand starts &+Lwithering &nand &+rrotting &nright before your eyes!", FALSE, ch, 0, victim, TO_VICT);
+    af.modifier = 1;
+    affect_to_char(victim, &af);
+    int numb = number(2, 6);
+    add_event(event_fleshdecay, PULSE_VIOLENCE, victim, 0, 0, 0, &numb, sizeof(numb));
+
+	
+  }
+  else
+  {
+    act("&+R$n &nagain points at &+L$N &ncausing the existing &+gdecay&n to worsen&n.", FALSE, ch, 0, victim, TO_ROOM);
+    act("&+RYou &nagain point at &+L$N &ncausing the existing &+gdecay&n to worsen&n.", FALSE, ch, 0, victim, TO_CHAR);
+    //af.modifier += 1;
+   // af->modifier ++;
+  
+     struct affected_type *af1;
+
+    for (af1 = victim->affected; af1; af1 = af1->next)
+      if(af1->type == SPELL_DECAYING_FLESH)
+      {
+        
+        af1->modifier = af1->modifier++;
+        af1->duration = af1->duration + 100;
+      }
+  }  
+  attack_back(ch, victim, TRUE);
+}
+
+
+/*
+ * spells2.c - Not directly offensive spells
+ */
+void spell_fortitude(int level, P_char ch, char *arg, int type, P_char victim,
+                     P_obj obj)
+>>>>>>> master
 {
   struct affected_type af;
 
@@ -4278,7 +4703,13 @@ void spell_dimension_door(int level, P_char ch, char *arg, int type, P_char vict
     send_to_char("&+CYou failed.\n", ch);
     return;
   }
-  
+  P_char rider = get_linking_char(victim, LNK_RIDING);
+  if(IS_NPC(victim) && rider)
+  {
+    send_to_char("&+CYou failed.\n", ch);
+    return;
+  }
+
   if(!IS_TRUSTED(ch) &&
      IS_TRUSTED(victim))
   {
@@ -4480,8 +4911,8 @@ void spell_group_teleport(int level, P_char ch, char *arg, int type, P_char vict
   int from_room, dir, to_room, tries;
   P_char   targetChar;
   struct group_list *gl = 0;
-  int      range = get_property("spell.teleport.range", 30);
-  
+  //int      range = get_property("spell.teleport.range", 30);
+  int	range = 800000;
   if((ch && !is_Raidable(ch, 0, 0)) ||
      (victim && !is_Raidable(victim, 0, 0)))
   {
@@ -4506,14 +4937,27 @@ void spell_group_teleport(int level, P_char ch, char *arg, int type, P_char vict
     for( int i = 0; i < range; i++)
     {
       tries = 0;
-      do
+       do
+    {
+      to_room = number(zone_table[world[ch->in_room].zone].real_bottom,
+                       zone_table[world[ch->in_room].zone].real_top);
+      tries++;
+    }
+    while ((IS_SET(world[to_room].room_flags, PRIVATE) ||
+          IS_SET(world[to_room].room_flags, PRIV_ZONE) ||
+          IS_SET(world[to_room].room_flags, NO_TELEPORT) ||
+          IS_HOMETOWN(to_room) ||
+          world[to_room].sector_type == SECT_OCEAN) && tries < 1000);
+    }
+/*
+do
       {
         dir = number(0, 3);
       } while( tries++ < 20 && !VALID_TELEPORT_EDGE(to_room, dir, ch->in_room));
 
       if( tries < 20)
         to_room = TOROOM(to_room, dir);
-    }
+*/
   }
   else
   {
@@ -4533,7 +4977,7 @@ void spell_group_teleport(int level, P_char ch, char *arg, int type, P_char vict
   // if no suitable room was found, teleport back to the same room they're in
   if(tries == 1000)
     to_room = ch->in_room;
-
+/*
   // if this zone limits teleports, check to see if the teleportation range is too great
   if(LIMITED_TELEPORT_ZONE(ch->in_room))
   {
@@ -4541,7 +4985,7 @@ void spell_group_teleport(int level, P_char ch, char *arg, int type, P_char vict
       send_to_char("The magic gathers, but somehow fades away before taking effect.\n", ch);
     return;
   }
-
+*/
   // get the room the teleport is taking place so we don't have to move the teleporter last
   from_room = ch->in_room;
 
@@ -4884,6 +5328,7 @@ void spell_blindness(int level, P_char ch, char *arg, int type, P_char victim, P
 
 void spell_minor_creation(int level, P_char ch, P_char victim, P_obj obj)
 {
+  SET_BIT(obj->extra2_flags, ITEM2_STOREITEM);
   obj_to_room(obj, ch->in_room);
   obj->z_cord = ch->specials.z_cord;
   act("$p &+Wsuddenly appears.", FALSE, ch, obj, 0, TO_ROOM);
@@ -5523,7 +5968,7 @@ void spell_curse(int level, P_char ch, char *arg, int type, P_char victim, P_obj
 
   if(IS_TRUSTED(victim) || affected_by_spell(victim, SPELL_CURSE))
   {
-    send_to_char("Aren't they already cursed enough?", ch);
+    send_to_char("Aren't they already cursed enough?\r", ch);
     return;
   }
 
@@ -5539,15 +5984,27 @@ void spell_curse(int level, P_char ch, char *arg, int type, P_char victim, P_obj
   }
   else if(IS_GREATER_RACE(victim) || IS_ELITE(victim))
   {
+<<<<<<< HEAD
      if(!NewSaves(victim, SAVING_SPELL, GET_LEVEL(victim) / 8))
        return;
   }
   else if(IS_NPC(victim) && NewSaves(victim, SAVING_SPELL, GET_LEVEL(victim) / 14))
   {
      return;
+=======
+     if(NewSaves(victim, SAVING_SPELL, 5))
+     send_to_char("Your victim has saved against your curse spell!&n\n", ch);
+       return;
+  }
+  else if(IS_NPC(victim) && NewSaves(victim, SAVING_SPELL, 10))
+  {
+   send_to_char("Your victim has saved against your curse spell!&n\n", ch);
+      return;
+>>>>>>> master
   }
   else if(IS_PC(victim) && NewSaves(victim, SAVING_SPELL, 0))
   {
+    send_to_char("Your victim has saved against your curse spell!&n\n", ch);
      return;
   }
   else
@@ -5858,7 +6315,33 @@ void spell_full_heal(int level, P_char ch, char *arg, int type, P_char victim, P
 
   int healpoints = dice(40, num_dice) + level;
 
-  if(type == SPELL_TYPE_SPELL)
+  /*if(GET_CLASS(victim, CLASS_ANTIPALADIN) && affected_by_spell(victim, SPELL_HELLFIRE) && (GET_RACEWAR(ch) == GET_RACEWAR(victim)))
+  healpoints *= .3;*/
+
+
+  if(GET_SPEC(ch, CLASS_CLERIC, SPEC_HOLYMAN) && IS_PC(ch) && (ch != victim) && ((GET_RACEWAR(ch) != GET_RACEWAR(victim) && !IS_PC_PET(victim)) || (IS_NPC(victim) && !IS_PC_PET(victim))))
+ {
+    struct damage_messages messages = {
+    "&+cYou call upon the &+Cmight&+c of your &+Wgod &+cto &+rde&+Rst&+Wroy &+cthe &+rbody &+cof $N&+c, who stumbles from the &+Cimpact&+c!",
+    "&+cThe &+Cmight&+c of &n$n's&+W god &+cis thrust upon your &+rbody&+c, causing massive &+Cdamage&+c!",
+    "&+cThe &+Cmight&+c of &n$n's&+W god &+cis thrust upon &n$N&+c, causing massive &+Cdamage&+c!",
+    "&+cYou &+Cdestroy &+cwhat little there is left of &n$N's &+cbody, leaving only a pool of &+rblood &+cand &+ysinew&+c!",
+    "&+cThe &+Cpower &+cof &n$n's&+W god&+c is the last thing your &+rbody &+cfeels before &+Cexploding &+cinto chunky bits.",
+    "&+cThe &+Cpower &+cof &n$n's&+W god&+c destroys &n$N's &+rbody&+c which explodes, leaving only a pool of &+rblood &+cand &+ysinew&+c!", 0  };
+
+  int dam = 10 * level + number(1, 25);
+
+  if(!NewSaves(victim, SAVING_SPELL, 0))
+    dam = (int) (dam * 2.0);
+
+  dam = (int) (dam * .75);
+
+  spell_damage(ch, victim, dam, SPLDAM_GENERIC, 0, &messages);
+
+ }
+ else
+ {
+     if(type == SPELL_TYPE_SPELL)
   {
     if(GET_CHAR_SKILL(ch, SKILL_ANATOMY) &&
         ((GET_CHAR_SKILL(ch, SKILL_ANATOMY) + 5) / 10) > number(0, 100))
@@ -5869,8 +6352,13 @@ void spell_full_heal(int level, P_char ch, char *arg, int type, P_char victim, P
       healpoints += number(10, GET_CHAR_SKILL(ch, SKILL_ANATOMY) / 2);
     }
   }
+<<<<<<< HEAD
 
   if(ch == victim)
+=======
+  
+  if( ch == victim )
+>>>>>>> master
   {
     act("&+WA torrent of divine energy flows into your body, and your wounds begin to heal!", FALSE, ch, 0, victim, TO_CHAR);
   }
@@ -5887,7 +6375,7 @@ void spell_full_heal(int level, P_char ch, char *arg, int type, P_char victim, P
   spell_cure_blind(level, ch, NULL, SPELL_TYPE_SPELL, victim, obj);
   grapple_heal(victim);
   heal(victim, ch, healpoints, GET_MAX_HIT(victim) - number(1, 4));
-  update_pos(victim);
+  update_pos(victim);  }
 }
 
 void spell_heal(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
@@ -5952,6 +6440,30 @@ void spell_heal(int level, P_char ch, char *arg, int type, P_char victim, P_obj 
   
   healpoints = dice(20, num_dice);
 
+ /* if(GET_CLASS(victim, CLASS_ANTIPALADIN) && affected_by_spell(victim, SPELL_HELLFIRE) && (GET_RACEWAR(ch) == GET_RACEWAR(victim)))
+  healpoints *= .3;*/
+
+  if(GET_SPEC(ch, CLASS_CLERIC, SPEC_HOLYMAN) && IS_PC(ch) && ((GET_RACEWAR(ch) != GET_RACEWAR(victim) && !IS_PC_PET(victim)) || (IS_NPC(victim) && !IS_PC_PET(victim))))
+ {
+    struct damage_messages messages = {
+    "&+cYou call upon the &+Cmight&+c of your &+Wgod &+cto &+rde&+Rst&+Wroy &+cthe &+rbody &+cof $N&+c, who stumbles from the &+Cimpact&+c!",
+    "&+cThe &+Cmight&+c of &n$n's&+W god &+cis thrust upon your &+rbody&+c, causing &+Wsignificant &+Cdamage&+c!",
+    "&+cThe &+Cmight&+c of &n$n's&+W god &+cis thrust upon &n$N&+c, causing &+Wsignificant &+Cdamage&+c!",
+    "&+cYou &+Cdestroy &+cwhat little there is left of &n$N's &+cbody, leaving only a pool of &+rblood &+cand &+ysinew&+c!",
+    "&+cThe &+Cpower &+cof &n$n's&+W god&+c is the last thing your &+rbody &+cfeels before &+Cexploding &+cinto chunky bits.",
+    "&+cThe &+Cpower &+cof &n$n's&+W god&+c destroys &n$N's &+rbody&+c which explodes, leaving only a pool of &+rblood &+cand &+ysinew&+c!", 0  };
+
+  int dam = 5 * level + number(1, 25);
+
+  if(!NewSaves(victim, SAVING_SPELL, 0))
+    dam = (int) (dam * 2);
+
+  dam = (int) (dam * .75);
+
+  spell_damage(ch, victim, dam, SPLDAM_GENERIC, 0, &messages);
+ }
+else
+ {
   if(type == SPELL_TYPE_SPELL)
   {
     if(GET_CHAR_SKILL(ch, SKILL_ANATOMY) &&
@@ -5980,6 +6492,7 @@ void spell_heal(int level, P_char ch, char *arg, int type, P_char victim, P_obj 
   grapple_heal(victim);
   heal(victim, ch, healpoints, GET_MAX_HIT(victim) - number(1, 4));
   update_pos(victim);
+ }
   
   return;
 }
@@ -6051,6 +6564,7 @@ void spell_natures_touch(int level, P_char ch, char *arg, int type, P_char victi
     af.modifier = SECS_PER_MUD_HOUR  / duration * healpoints;
     af.bitvector4 = AFF4_REGENERATION;
     affect_to_char(victim, &af);
+    update_achievements(ch, victim, healpoints, 1);
     
     if(IS_FIGHTING(victim))
     {
@@ -6748,6 +7262,9 @@ void spell_remove_curse(int level, P_char ch, char *arg, int type, P_char victim
   P_obj    t_obj, nextobj;
   int      e_pos;
 
+  if (IS_NPC(ch) && (GET_VNUM(ch) == 63))
+  return;
+
   if(obj)
   {
     if(IS_SET(obj->extra_flags, ITEM_NODROP))
@@ -6795,6 +7312,7 @@ void spell_remove_curse(int level, P_char ch, char *arg, int type, P_char victim
           act
             ("&+LUpon being torn from you, $p &+Llets out a ghastly &n&+rSHRIEK!!!",
              FALSE, victim, t_obj, 0, TO_CHAR);
+          affect_from_char(ch, SPELL_VAMPIRE);
           spell_dispel_magic(60, victim, 0, SPELL_TYPE_SPELL, victim, 0);
         }
         if(IS_TRUSTED(victim))
@@ -6827,6 +7345,7 @@ void spell_remove_curse(int level, P_char ch, char *arg, int type, P_char victim
           act
             ("&+LUpon being torn from you, $p &+Llets out a ghastly &n&+rSHRIEK!!!",
              FALSE, victim, t_obj, 0, TO_CHAR);
+          affect_from_char(ch, SPELL_VAMPIRE);
           spell_dispel_magic(60, victim, 0, SPELL_TYPE_SPELL, victim, 0);
         }
         if(IS_TRUSTED(victim))
@@ -6944,10 +7463,34 @@ void spell_stone_skin(int level, P_char ch, char *arg, int type, P_char victim, 
       act("&+LLiving stone sprouts up and covers $n's flesh.", TRUE, victim, 0, 0, TO_ROOM);
       act("&+LLiving stone sprouts up and covers your flesh.", TRUE, victim, 0, 0, TO_CHAR);
     }
+   else if(GET_CLASS(ch, CLASS_CONJURER))
+    {
+      absorb = (int) (absorb * 1.2);
+      act("&+L$n's flesh melds with conjured rocks, turning it to stone.",
+        TRUE, victim, 0, 0, TO_ROOM);
+      act("&+LYour flesh melds with conjured rocks, turning it to stone.",
+        TRUE, victim, 0, 0, TO_CHAR);
+    }
+   else if(GET_CLASS(ch, CLASS_SORCERER))
+    {
+      absorb = (int) (absorb * 1.0);
+      act("&+L$n's flesh magically hardens, turning to stone.",
+        TRUE, victim, 0, 0, TO_ROOM);
+      act("&+LYour flesh magically hardens, turning to stone.",
+        TRUE, victim, 0, 0, TO_CHAR);
+    }
     else
     {
+<<<<<<< HEAD
       act("&+L$n&+L's skin seems to turn to stone.", TRUE, victim, 0, 0, TO_ROOM);
       act("&+LYou feel your skin harden to stone.", TRUE, victim, 0, 0, TO_CHAR);
+=======
+      absorb = (int) (absorb * .8);
+      act("&+L$n&+L's skin seems to turn to stone.",
+        TRUE, victim, 0, 0, TO_ROOM);
+      act("&+LYou feel your skin harden to stone.",
+        TRUE, victim, 0, 0, TO_CHAR);
+>>>>>>> master
     }
     
     if(affected_by_spell(victim, SPELL_BARKSKIN))
@@ -6980,7 +7523,12 @@ void spell_stone_skin(int level, P_char ch, char *arg, int type, P_char victim, 
 void spell_ironwood(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
+<<<<<<< HEAD
   int absorb = level;
+=======
+  int      absorb = (level / 5) + number(1, 4);
+
+>>>>>>> master
 
   if(!affected_by_spell(victim, SPELL_BARKSKIN))
   {
@@ -6989,8 +7537,17 @@ void spell_ironwood(int level, P_char ch, char *arg, int type, P_char victim, P_
   }
   if(!has_skin_spell(victim))
   {
+<<<<<<< HEAD
       act("&+y$n's &+ybarkskin seems to take on the texture of &+Liron.", TRUE, victim, 0, 0, TO_ROOM);
       act("&+yYou feel your barkskin harden to &+Liron.", TRUE, victim, 0, 0, TO_CHAR);
+=======
+
+     // absorb = (int) (absorb * 2);
+      act("&+y$n's &+ybarkskin seems to take on the texture of &+Liron.",
+        TRUE, victim, 0, 0, TO_ROOM);
+      act("&+yYou feel your barkskin harden to &+Liron.",
+        TRUE, victim, 0, 0, TO_CHAR);
+>>>>>>> master
   }
   else
   {
@@ -7020,13 +7577,19 @@ void spell_sleep(int level, P_char ch, char *arg, int type, P_char victim, P_obj
   int      i;
 
   if(GET_STAT(ch) == STAT_DEAD)
+   {
+   send_to_char("They are already... quite... asleep... for good.&n\n", ch);
     return;
+   }
 
   if(IS_AFFECTED(ch, AFF_INVISIBLE) || IS_AFFECTED2(ch, AFF2_MINOR_INVIS))
     appear(ch);
 
   if(resists_spell(ch, victim))
+  { 
+    send_to_char("Your victim resists your attempt to make them sleep.&n\n", ch);
     return;
+  }
 
   if(level > 0)
     for (i = 0; i < MAX_WEAR; i++)
@@ -7034,7 +7597,7 @@ void spell_sleep(int level, P_char ch, char *arg, int type, P_char victim, P_obj
       if(victim->equipment[i] &&
           IS_SET(victim->equipment[i]->extra_flags, ITEM_NOSLEEP))
       {
-        send_to_char("&+CYou failed!\n", ch);
+        send_to_char("&+CYour target appears to be protected against sleeping!\n", ch);
         if(IS_PC(victim))
           send_to_char("You stifle a yawn.\n", victim);
         if(IS_NPC(victim) && CAN_SEE(victim, ch))
@@ -7042,6 +7605,7 @@ void spell_sleep(int level, P_char ch, char *arg, int type, P_char victim, P_obj
           remember(victim, ch);
           if(!IS_FIGHTING(victim))
             MobStartFight(victim, ch);
+	send_to_char("Your victim does not want to sleep right now!&n\n", ch);
         }
         return;
       }
@@ -7081,6 +7645,7 @@ void spell_sleep(int level, P_char ch, char *arg, int type, P_char victim, P_obj
     remember(victim, ch);
     if(!IS_FIGHTING(victim))
       MobStartFight(victim, ch);
+   send_to_char("Your victim does not want to sleep right now!&n\n", ch);
   }
 }
 
@@ -7172,6 +7737,9 @@ void spell_word_of_recall(int level, P_char ch, char *arg, int type, P_char vict
 
   if(IS_NPC(victim) && (!GET_BIRTHPLACE(victim)))
     return;
+
+  if(IS_NPC(victim) && IS_PC_PET(victim))
+   return;
 
   if(IS_SET(world[ch->in_room].room_flags, ROOM_SILENT))
   {
@@ -7327,6 +7895,10 @@ void spell_group_recall(int level, P_char ch, char *arg, int type, P_char victim
       send_to_char("You are fighting for your life!\n", ch);
       return;
     }
+
+  if(IS_NPC(ch) && IS_PC_PET(ch))
+   return;
+
     for (gl = /*gl->next */ ch->group; gl; gl = gl->next)
     {
       if((gl->ch->in_room == ch->in_room) &&
@@ -8233,6 +8805,18 @@ void spell_vitality(int level, P_char ch, char *arg, int type, P_char victim, P_
   
   if(IS_NPC(victim) && GET_VNUM(victim) == IMAGE_REFLECTION_VNUM)
       return;
+
+if(affected_by_spell(victim, SPELL_MIELIKKI_VITALITY))
+  {
+    send_to_char("&+GThe Goddess Mielikki is aiding your health, and prevents the vitality spell from functioning...\r\n", victim);
+    return;
+  }
+
+  if(affected_by_spell(victim, SPELL_ESHABALAS_VITALITY))
+  {
+    send_to_char("&+rThe blessings of the vitality spell are denied by Eshabala!\r\n", victim);
+    return;
+  }
       
   if(!IS_PC(ch) &&
      !IS_PC(victim))
@@ -9410,7 +9994,14 @@ void spell_shadow_breath_1(int level, P_char ch, char *arg, int type, P_char vic
   if(NewSaves(victim, SAVING_BREATH, save))
     dam >> 1;
 
+<<<<<<< HEAD
   if(spell_damage(ch, victim, dam, SPLDAM_NEGATIVE, SPLDAM_BREATH | SPLDAM_NODEFLECT, &messages) != DAM_NONEDEAD);
+=======
+  dam = BOUNDED(1, dam, 80);
+
+  if(spell_damage(ch, victim, dam, SPLDAM_NEGATIVE, SPLDAM_BREATH | SPLDAM_NODEFLECT, &messages)!=
+    DAM_NONEDEAD);
+>>>>>>> master
       return;
 }
 
@@ -9435,6 +10026,8 @@ void spell_shadow_breath_2(int level, P_char ch, char *arg, int type, P_char vic
 
   if(NewSaves(victim, SAVING_BREATH, save))
     dam >> 1;
+
+  dam = BOUNDED(1, dam, 80);
 
   if(!NewSaves(victim, SAVING_SPELL, save))
   {
@@ -9469,7 +10062,12 @@ void spell_fire_breath(int level, P_char ch, char *arg, int type, P_char victim,
     dam >> 1;
 
   if(NewSaves(victim, SAVING_BREATH, save))
+<<<<<<< HEAD
     dam >> 1;
+=======
+    dam = (int) (dam / get_property("dragon.Breath.savedDamage", 2));
+  dam = BOUNDED(1, dam, 80);
+>>>>>>> master
 
   if(spell_damage(ch, victim, dam, SPLDAM_FIRE, SPLDAM_BREATH | SPLDAM_NODEFLECT, &messages) !=
     DAM_NONEDEAD)
@@ -9524,7 +10122,12 @@ void spell_frost_breath(int level, P_char ch, char *arg, int type, P_char victim
     dam >> 1;
 
   if(NewSaves(victim, SAVING_BREATH, save))
+<<<<<<< HEAD
     dam >> 1;
+=======
+    dam = (int) (dam / get_property("dragon.Breath.savedDamage", 2));
+  dam = BOUNDED(1, dam, 80);
+>>>>>>> master
 
   if(spell_damage(ch, victim, dam, SPLDAM_COLD, SPLDAM_BREATH | SPLDAM_NODEFLECT, &messages) !=
     DAM_NONEDEAD);
@@ -9581,6 +10184,8 @@ void spell_acid_breath(int level, P_char ch, char *arg, int type, P_char victim,
   if(NewSaves(victim, SAVING_BREATH, save))
     dam >> 1;
 
+  dam = BOUNDED(1, dam, 80);
+
   if(IS_AFFECTED2(victim, AFF2_PROT_ACID) &&
     number(0, 4))
       return;
@@ -9633,7 +10238,12 @@ void spell_gas_breath(int level, P_char ch, char *arg, int type, P_char victim, 
   if(IS_PC_PET(ch))
     dam >> 1;
   if(NewSaves(victim, SAVING_BREATH, save))
+<<<<<<< HEAD
     dam >> 1;
+=======
+    dam = (int) (dam / get_property("dragon.Breath.savedDamage", 2));
+  dam = BOUNDED(1, dam, 80);
+>>>>>>> master
 
   if(spell_damage(ch, victim, dam, SPLDAM_GAS, SPLDAM_BREATH | SPLDAM_NODEFLECT, &messages) ==
       DAM_NONEDEAD)
@@ -9667,6 +10277,8 @@ void spell_lightning_breath(int level, P_char ch, char *arg, int type, P_char vi
   if(NewSaves(victim, SAVING_BREATH, save))
     dam >> 1;
 
+  dam = BOUNDED(1, dam, 80);
+
   spell_damage(ch, victim, dam, SPLDAM_LIGHTNING, SPLDAM_BREATH | SPLDAM_NODEFLECT, &messages);
 }
 
@@ -9696,6 +10308,8 @@ void spell_blinding_breath(int level, P_char ch, char *arg, int type, P_char vic
   if(NewSaves(victim, SAVING_BREATH, save))
     dam >> 1;;
 
+  dam = BOUNDED(1, dam, 80);
+
   if(spell_damage(ch, victim, dam, SPLDAM_GAS, SPLDAM_BREATH | SPLDAM_NODEFLECT, &messages) !=
       DAM_NONEDEAD)
     return;
@@ -9706,7 +10320,208 @@ void spell_blinding_breath(int level, P_char ch, char *arg, int type, P_char vic
   {
     act("&+gThe toxic gas seems to have blinded $n&n!", FALSE, victim, 0, 0, TO_ROOM);
     send_to_char("&+gYour eyes sting as the toxic gas blinds you!\n", victim);
+<<<<<<< HEAD
     blind(ch, victim, 60 );
+=======
+    blind(ch, victim, 60 * WAIT_SEC);
+  }
+}
+
+void spell_basalt_light_2(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  spell_basalt_light(level, ch, arg, type, victim, obj);
+  if (!number(0, 4))
+  {
+    
+  }
+}
+
+void spell_basalt_light(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  int save, dam;
+  struct damage_messages messages = {
+    "$N is partially corroded by your &+Lbasalt &+wlight&n.",
+    "$n emits a &+Lbasalt &+wlight&n that corrodes you.",
+    "$N is corroded by $n's &+Lbasalt &+wlight&n.",
+    "$N is corroded to nothing by your &+Lbasalt &+wlight&n.",
+    "You are corroded to nothing as $n emits a &+Lbasalt &+wlight&n.",
+    "$n corrodes $N to nothing.", 0
+  };
+  if(!are_we_still_alive(ch , victim))
+    return;
+
+  save = calc_dragon_breath_save(ch, victim);
+  dam = (int) (dice(level + get_property("dragon.Breath.DamageMod", 1), 11) + level);
+  if(IS_PC_PET(ch))
+    dam /= 2;
+  if(NewSaves(victim, SAVING_BREATH, save))
+    dam = (int) (dam / get_property("dragon.Breath.savedDamage", 2));
+
+  dam = BOUNDED(1, dam, 80);
+
+  if(IS_AFFECTED2(victim, AFF2_PROT_ACID) &&
+    number(0, 4))
+      return;
+
+  if(spell_damage(ch, victim, dam, SPLDAM_ACID, SPLDAM_BREATH | SPLDAM_NODEFLECT, &messages) !=
+      DAM_NONEDEAD)
+    return;
+}
+
+void spell_jasper_light_2(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  spell_jasper_light(level, ch, arg, type, victim, obj);
+  if (!number(0, 3))
+  {
+    
+  }
+}
+
+void spell_jasper_light(int level, P_char ch, char *arg, int type,
+                      P_char victim, P_obj obj)
+{
+  int save, dam;
+  struct damage_messages messages = {
+    "$N is hit by your &+Gjasper &+glight&n.",
+    "$n emits a &+Gjasper&+g light&n.",
+    "$N chokes as $n emits a &+Gjasper &+glight&n.",
+    "$N chokes to death.",
+    "You die from the &+Gjasper &+glight&n.",
+    "$n kills $N with $s &+Gjasper &+glight&n.", 0
+  };
+  if(!are_we_still_alive(ch , victim))
+    return;
+
+  save = calc_dragon_breath_save(ch, victim);
+  dam = (int) (dice(level + get_property("dragon.Breath.DamageMod", 1), 7) + level);
+  if(IS_PC_PET(ch))
+    dam /= 2;
+  if(NewSaves(victim, SAVING_BREATH, save))
+    dam = (int) (dam / get_property("dragon.Breath.savedDamage", 2));
+
+  dam = BOUNDED(1, dam, 80);
+
+  if(spell_damage(ch, victim, dam, SPLDAM_GAS, SPLDAM_BREATH | SPLDAM_NODEFLECT, &messages) ==
+      DAM_NONEDEAD)
+  {
+    if(!IS_AFFECTED2(victim, AFF2_PROT_GAS) ||
+      !number(0, 4))
+        spell_poison(level, ch, 0, 0, victim, 0);
+  }
+}
+
+void spell_azure_light_2(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  spell_azure_light(level, ch, arg, type, victim, obj);
+  if (!number(0, 3))
+  {
+    
+  }
+}
+  
+void spell_azure_light(int level, P_char ch, char *arg, int type,
+                            P_char victim, P_obj obj)
+{
+  int save, dam;
+  struct damage_messages messages = {
+    "$N is hit.",
+    "$n emits an &+bazure &+Blight&n which shocks you!",
+    "$N looks shocked as $n emits a &+bazure &+Blight&n.",
+    "$N is killed by your &+bazure &+Blight&n.",
+    "You are killed by $n's &+bazure &+Blight&n.",
+    "$n kills $N with his &+bazure &+Blight&n.", 0
+  };
+  if(!are_we_still_alive(ch , victim))
+    return;
+
+  save = calc_dragon_breath_save(ch, victim);
+  dam = (int) (dice(level + get_property("dragon.Breath.DamageMod", 1), 8) + level);
+  if(IS_PC_PET(ch))
+    dam /= 2;
+  if(NewSaves(victim, SAVING_BREATH, save))
+    dam = (int) (dam / get_property("dragon.Breath.savedDamage", 2));
+
+  dam = BOUNDED(1, dam, 80);
+
+  if(IS_AFFECTED2(victim, AFF2_PROT_LIGHTNING) &&
+    number(0, 4))
+      return;
+
+  spell_damage(ch, victim, dam, SPLDAM_LIGHTNING, SPLDAM_BREATH | SPLDAM_NODEFLECT, &messages);
+}
+
+void spell_crimson_light_2(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  spell_crimson_light(level, ch, arg, type, victim, obj);
+  if (!number(0, 3))
+  {
+    
+  }
+}
+  
+void spell_crimson_light(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  struct damage_messages messages = {
+    "$N is hit.",
+    "$n burns you.",
+    "$N bakes in the &+Rcrimson &+rlight&n, as $n &+Wradiates&N.",
+    "$N is dead, flash-fried by your &+Rcrimson light&N.",
+    "You are burned to ashes as $n .",
+    "$n's &+Rcrimson light&n turns $N to ashes.", 0
+  };
+  int save, dam;
+  P_obj    burn = NULL;
+
+  if(!are_we_still_alive(ch , victim))
+    return;
+
+  save = calc_dragon_breath_save(ch, victim);
+  dam = (int) (dice(level + get_property("dragon.Breath.DamageMod", 1), 9) + level);
+
+  if(IS_PC_PET(ch))
+    dam /= 2;
+
+  if(NewSaves(victim, SAVING_BREATH, save))
+    dam = (int) (dam / get_property("dragon.Breath.savedDamage", 2));
+
+  dam = BOUNDED(1, dam, 80);
+
+  if(spell_damage(ch, victim, dam, SPLDAM_FIRE, SPLDAM_BREATH | SPLDAM_NODEFLECT, &messages) !=
+    DAM_NONEDEAD)
+      return;
+
+  if(IS_AFFECTED(victim, AFF_PROT_FIRE) &&
+    number(0, 4))
+      return;
+
+  /*
+   * And now for the damage on inventory
+   */
+  if(number(0, TOTALLVLS) < GET_LEVEL(ch))
+  {
+    if(!NewSaves(victim, SAVING_BREATH, save) &&
+      !CHAR_IN_ARENA(victim))
+    {
+      for (burn = victim->carrying;
+           burn && (((burn->type != ITEM_SCROLL) &&
+                     (burn->type != ITEM_WAND) &&
+                     (burn->type != ITEM_STAFF) &&
+                     (burn->type != ITEM_NOTE)) ||
+                    number(0, 2)); burn = burn->next_content) ;
+      if(burn)
+      {
+        act("&+r$p is turned into ash!", FALSE, victim, burn, 0, TO_CHAR);
+        extract_obj(burn, TRUE);
+        burn = NULL;
+      }
+    }
+>>>>>>> master
   }
 }
 
@@ -10029,6 +10844,13 @@ bool check_item_teleport(P_char ch, char *arg, int cmd)
     return FALSE;
   }
   */
+    if(400220 == obj_index[obj->R_num].virtual_number &&
+        !isname(GET_NAME(ch), obj->name))
+    {
+      send_to_char("You may not enter someone elses &+Gspirit&n portal!\r\n", ch);
+      return TRUE;
+    }
+
   /*
    * Ignore argument for now...eventually we could "throw dust Dbra"..
    */
@@ -10451,7 +11273,8 @@ if( (!(IS_NPC(victim)) && (world[ch->in_room].sector_type == SECT_FOREST)  && (C
   else
   {
     af.type = SPELL_ENTANGLE;
-    af.duration = 0;
+    af.duration = GET_LEVEL(ch);
+    af.flags = AFFTYPE_SHORT | AFFTYPE_NOSHOW;
     af.bitvector2 = AFF2_SLOW;
     send_to_char
       ("&+gVegetation &+Gbursts&+g from the ground, impeding your progress.&N\n",
@@ -10613,7 +11436,7 @@ void spell_heal_undead(int level, P_char ch, char *arg, int type,
   int      healpoints;
 
   if(!IS_UNDEADRACE(victim) &&
-     GET_RACE(victim) != RACE_GOLEM)
+     GET_RACE(victim) != RACE_GOLEM && !GET_CLASS(victim, CLASS_NECROMANCER))
   {
     act
       ("$N chants something odd and takes a look at $n, a weird look in $S eyes.",
@@ -10687,7 +11510,7 @@ void spell_prot_undead(int level, P_char ch, char *arg, int type,
 
   if(!IS_UNDEADRACE(victim) &&
      !IS_ANGEL(victim) &&
-     GET_RACE(victim) != RACE_GOLEM)
+     GET_RACE(victim) != RACE_GOLEM && !GET_CLASS(victim, CLASS_NECROMANCER))
   {
     send_to_char("The target is not undead!\r\n", ch);
     return;
@@ -10753,9 +11576,15 @@ void spell_prot_from_undead(int level, P_char ch, char *arg, int type, P_char vi
 
   bzero(&af, sizeof(af));
   af.type = SPELL_PROT_FROM_UNDEAD;
+<<<<<<< HEAD
   af.modifier = level;
   af.duration = level;
   af.bitvector = AFF5_PROT_UNDEAD;
+=======
+  af.modifier = GET_LEVEL(ch);
+  af.duration = BOUNDED(2, GET_LEVEL(ch) / 3, 20);
+  af.bitvector5 = AFF5_PROT_UNDEAD;
+>>>>>>> master
   affect_to_char(ch, &af);
   act("$N &+wis now protected from the &+Lundead&+w.", TRUE, ch, 0, victim, TO_CHAR);
   act("&+wA chill runs up your spine momentarily, as you are protected from the &+Lundead&+w.", TRUE, ch, 0, victim, TO_VICT);
@@ -11324,6 +12153,7 @@ void spell_globe_of_darkness(int level, P_char ch, char *arg, int type,
 
     char_light(victim);
     room_light(victim->in_room, REAL);
+
   }
   else
     send_to_char
@@ -11556,7 +12386,10 @@ void spell_single_incendiary_cloud(int level, P_char ch, char *arg, int type, P_
     dam = dam * get_property("spell.area.damage.to.pc", 0.5);
   
   dam = dam * get_property("spell.area.damage.factor.incendiaryCloud", 1.000);
-
+  if(GET_SPEC(ch, CLASS_SORCERER, SPEC_WIZARD))
+  {
+   dam = dam * 2;
+  }
   spell_damage(ch, victim, dam, SPLDAM_FIRE, 0, &messages);
 }
 
@@ -12090,8 +12923,13 @@ void spell_faerie_fire(int level, P_char ch, char *arg, int type,
     SET_BIT(victim->specials.affected_by2, AFF2_MINOR_INVIS);
   bzero(&af, sizeof(af));
   af.type = SPELL_FAERIE_FIRE;
+<<<<<<< HEAD
   af.duration =  3;
   af.modifier = 50;
+=======
+  af.duration =  5;
+  af.modifier = 20;
+>>>>>>> master
   af.location = APPLY_ARMOR;
 
   affect_to_char(victim, &af);
@@ -12220,7 +13058,7 @@ void spell_blackmantle(int level, P_char ch, char *arg, int type, P_char victim,
 
     bzero(&af, sizeof(af));
     af.type = SPELL_BMANTLE;
-    af.duration = level / 12;
+    af.duration = PULSE_VIOLENCE / 4;
     af.modifier = 4000;
     af.flags = AFFTYPE_NODISPEL;
     affect_to_char(victim, &af);
@@ -12233,7 +13071,7 @@ void spell_blackmantle(int level, P_char ch, char *arg, int type, P_char victim,
 
     bzero(&af, sizeof(af));
     af.type = SPELL_BMANTLE;
-    af.duration = level * PULSE_VIOLENCE;
+    af.duration = PULSE_VIOLENCE / 4; //level * PULSE_VIOLENCE
     af.modifier = 300;
     af.flags = AFFTYPE_NODISPEL;
     affect_to_char(victim, &af);
@@ -12308,7 +13146,11 @@ void astral_banishment(P_char ch, P_char victim, int hwordtype, int level)
   int new_room, lev = GET_LEVEL(victim), found;
 
   if(GET_RACE(victim) == (hwordtype == BANISHMENT_HOLY_WORD ? RACE_GITHYANKI : RACE_GITHZERAI) &&
+<<<<<<< HEAD
      number(0, 100) < 5 + BOUNDED(-2, level-lev, 2) &&
+=======
+     number(0,100) < 2 + BOUNDED(-2, level-lev, 2) &&
+>>>>>>> master
      !IS_HOMETOWN(ch->in_room) &&
      !IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) &&
      !(world[ch->in_room].sector_type == SECT_OCEAN))
@@ -12527,6 +13369,27 @@ void single_unholy_word(int level, P_char ch, char *arg, int type, P_char victim
   if(ch->in_room != victim->in_room)
     return;
   
+if(IS_NPC(victim) && IS_AFFECTED4(victim, AFF4_HELLFIRE))
+	{
+	  int rand1 = (number(1, 100));
+	  if (rand1 > victim->base_stats.Pow)
+	    {
+		act
+    	      ("&+LThe &+rHells&+L seem to heed the &+Ccall&+L of your &+rword&+W...",
+     	      FALSE, ch, 0, victim, TO_CHAR);
+		act
+    	      ("&+LThe &+rHells&+L seem to heed the &+Ccall&+L of $n&+L's &+rword&+W...",
+     	       TRUE, ch, 0, victim, TO_NOTVICT);
+		act
+    	      ("&+LA &+Ldark &+Ylight &+Ldecends upon $N&+L, returning its &+rfl&+Ram&+Yes &+Wof &+Rhell &+Lback into the abyss.",
+     	      FALSE, ch, 0, victim, TO_CHAR);
+		act
+		("&+LA &+Ldark &+Ylight &+Ldecends upon $N&+W, returning its &+rfl&+Ram&+Yes &+Wof &+Rhell &+Lback into the abyss.",
+     	  	TRUE, ch, 0, victim, TO_NOTVICT);
+	      REMOVE_BIT(victim->specials.affected_by4, AFF4_HELLFIRE);
+	    }
+	}
+
   if(GET_ALIGNMENT(victim) < 0 && !(IS_PC(victim) && opposite_racewar(victim, ch)))
   {
     act("$N is not good enough to be affected!", TRUE, ch, 0, victim, TO_CHAR);
@@ -12618,6 +13481,27 @@ void single_holy_word(int level, P_char ch, char *arg, int type, P_char victim, 
   
   if(ch->in_room != victim->in_room)
     return;
+
+  if(IS_NPC(victim) && IS_AFFECTED4(victim, AFF4_HELLFIRE))
+	{
+	  int rand1 = (number(1, 100));
+	  if (rand1 > victim->base_stats.Pow)
+	    {
+		act
+    	      ("&+WThe Heavens seem to heed the &+Ccall&+W of your &+Lword&+W...",
+     	      FALSE, ch, 0, victim, TO_CHAR);
+		act
+    	      ("&+WThe Heavens seem to heed the &+Ccall&+W of $n&+W's &+Lword&+W...",
+     	       TRUE, ch, 0, victim, TO_NOTVICT);
+		act
+    	      ("&+CA br&+Wig&+Cht &+Ylight &+Wdecends upon $N&+W, causing its &+rfl&+Ram&+Yes &+Wof &+Rhell &+Wto slowly fade away.",
+     	      FALSE, ch, 0, victim, TO_CHAR);
+		act
+		("&+CA br&+Wig&+Cht &+Ylight &+Wdecends upon $N&+W, causing its &+rfl&+Ram&+Yes &+Wof &+Rhell &+Wto slowly fade away.",
+     	  	TRUE, ch, 0, victim, TO_NOTVICT);
+	      REMOVE_BIT(victim->specials.affected_by4, AFF4_HELLFIRE);
+	    }
+	}
     
   if(GET_ALIGNMENT(victim) > 0 && !(IS_PC(victim) && opposite_racewar(victim, ch)))
   {
@@ -12684,8 +13568,7 @@ void spell_holy_word(int level, P_char ch, char *arg, int type, P_char victim, P
       return;
     }
   }
-
-  cast_as_damage_area(ch, single_holy_word, level, victim,
+       cast_as_damage_area(ch, single_holy_word, level, victim,
                       get_property("spell.area.minChance.holyWord", 60),
                       get_property("spell.area.chanceStep.holyWord", 20));                 
 }
@@ -12996,22 +13879,35 @@ void spell_pword_blind(int level, P_char ch, char *arg, int type,
   if(has_innate(victim, INNATE_EYELESS) ||
      IS_TRUSTED(victim))
         return;
+ int mindpower;
+ mindpower = ((GET_C_POW(ch) - GET_C_POW(victim)) / 2);
+  //save = victim->specials.apply_saving_throw[SAVING_SPELL];
+  save = NewSaves(victim, SAVING_SPELL, mindpower);
 
-  save = victim->specials.apply_saving_throw[SAVING_SPELL];
-  
   debug("PWB: (%s) saving throw is (%d).", J_NAME(victim), save);
 
+  if(NewSaves(victim, SAVING_SPELL, number(0, mindpower)))
+   {
+    send_to_char("Your victim has saved against your spell!\r\n", ch);
+    send_to_char("You have saved against your attacker's spell!\r\n", victim);
+    return;
+   }
+
+/*
   if(save < 0)
     save = (int) (save * 1.5);
 
   percent = BOUNDED( 0, (GET_C_POW(ch) - GET_C_POW(victim) + save + (GET_LEVEL(ch) - GET_LEVEL(victim))), 100);
+*/
+
+  percent = BOUNDED( 0, (GET_C_POW(ch) - GET_C_POW(victim) + (GET_LEVEL(ch) - GET_LEVEL(victim))), 100);
 
   if(IS_PC_PET(ch))
     percent = (int)(percent * 0.5);
 
   debug("PWB: (%s) casted pwb at (%s) percent (%d).",
     GET_NAME(ch), GET_NAME(victim), percent);
-
+/*
   if(percent < 10)
   {
     send_to_char("They are too powerful to blind this way!\n", ch);
@@ -13036,7 +13932,21 @@ void spell_pword_blind(int level, P_char ch, char *arg, int type,
     blind(ch, victim, number(10, 15) );
 
   else
+<<<<<<< HEAD
     blind(ch, victim, number(5, 10) );
+=======
+    blind(ch, victim, number(5, 10) * WAIT_SEC);
+*/
+  act("$N gropes around, blinded after hearing $n's powerful word!",
+      FALSE, ch, 0, victim, TO_NOTVICT);
+    act("&+rSuddenly, the world goes &+Lblack!",
+      FALSE, ch, 0, victim, TO_VICT);
+    act("$N won't be seeing much in the near future...",
+      TRUE, ch, 0, victim, TO_CHAR);
+   percent = BOUNDED(2, ((mindpower * 2) / 10), 10);
+   blind(ch, victim, number(1, mindpower * 1.5));
+
+>>>>>>> master
 }
 
 /* rocking spell now, stun is extremely unpleasant */
@@ -13044,7 +13954,9 @@ void spell_pword_blind(int level, P_char ch, char *arg, int type,
 void spell_pword_stun(int level, P_char ch, char *arg, int type,
                       P_char victim, P_obj obj)
 {
-  int percent = 50;
+  //int percent = 50;
+  int percent;
+  percent = (int) (GET_C_POW(ch) - GET_C_POW(victim)); //we now initate percent by checking difference between minds - Drannak 4/21/13
 
   if(!(ch) ||
     !(victim) ||
@@ -13073,7 +13985,7 @@ void spell_pword_stun(int level, P_char ch, char *arg, int type,
  
   percent += (int) (GET_LEVEL(ch) - GET_LEVEL(victim));
   
-  percent += (int) (GET_C_POW(ch) - GET_C_POW(victim)) * .75;
+  //percent += (int) (GET_C_POW(ch) - GET_C_POW(victim)) * .75;
   
   if(IS_PC_PET(victim))
     percent *= 2;
@@ -13085,7 +13997,13 @@ void spell_pword_stun(int level, P_char ch, char *arg, int type,
     percent *= 1.5;
 
   if(NewSaves(ch, SAVING_SPELL, number(-3, 3)))
+    {
     percent = (int) percent * .75;
+    }
+  else
+    {
+      percent = (int) percent * 1.15;
+    }
 
   if(percent < 30)
   {
@@ -13362,6 +14280,9 @@ void spell_resurrect(int level, P_char ch, char *arg, int type, P_char victim,
         CharWait(ch, 100);
   else
     CharWait(ch, 10);
+
+  if(IS_NPC(ch) && IS_PC_PET(ch))
+   return;
 
   if(IS_SET(obj->value[1], NPC_CORPSE))
   {
@@ -13836,6 +14757,9 @@ void spell_lesser_resurrect(int level, P_char ch, char *arg, int type, P_char vi
     send_to_char("You can only resurrect corpses!\n", ch);
     return;
   }
+
+  if(IS_NPC(ch))
+  return;
 
   if(GET_CHAR_SKILL(ch, SKILL_DEVOTION) <= 20 &&
     !IS_TRUSTED(ch) ||
@@ -15309,6 +16233,12 @@ void spell_reduce(int level, P_char ch, char *arg, int type, P_char victim, P_ob
   if(type == SPELL_ANIMAL_GROWTH)
     animal_growth = TRUE;
   
+  if(GET_SIZE(victim) == SIZE_TINY && !(victim->specials.affected_by3, AFF3_REDUCE))
+    {
+       send_to_char("Why would you want to reduce them? They are tiny enough!&n\n\r", ch);
+	return; //check to make sure they are not racial tiny.
+    }
+  
   if(!NewSaves(victim, SAVING_SPELL, 0) || (ch == victim) ||
       is_linked_to(ch, victim, LNK_CONSENT))
   {
@@ -16428,7 +17358,12 @@ void spell_cdoom(int level, P_char ch, char *arg, int type, P_char victim, P_obj
     }
   }
 
+<<<<<<< HEAD
   CreepingDoomData cDoomData;
+=======
+
+  CDoomData cDoomData;
+>>>>>>> master
   cDoomData.waves = number(4, 5);
   cDoomData.level = level;
   cDoomData.area = victim ? 0 : 1;
@@ -16441,11 +17376,49 @@ void spell_cdoom(int level, P_char ch, char *arg, int type, P_char victim, P_obj
 
   act("&+LA &+gpl&+Lag&+gue &+Lof &+minsects and arachnids&+L flow like an ocean.", TRUE, ch, 0, victim, TO_ROOM);
   act("&+LYou send out a &+mwave of &+Linsects &+mand &+Larachnids&+m!", TRUE, ch, 0, victim, TO_CHAR);
+<<<<<<< HEAD
 
+=======
+  
+  //engage(ch, victim);
+>>>>>>> master
   if (victim)
     add_event(event_cdoom, PULSE_VIOLENCE, ch, victim, 0, 0, &cDoomData, sizeof(CreepingDoomData));
   else
+<<<<<<< HEAD
     add_event(event_cdoom, PULSE_VIOLENCE, ch, 0, 0, 0, &cDoomData, sizeof(CreepingDoomData));
+=======
+    {
+        cast_as_damage_area(ch, spell_single_doom_aoe, level, victim,
+                      get_property("spell.area.minChance.creepingDoom", 50),
+                      get_property("spell.area.chanceStep.creepingDoom", 20));
+
+    }
+  /*else This is now target only. DRANNAK
+	{
+    	add_event(event_cdoom, 0, ch, 0, NULL, 0, &cDoomData, sizeof(CDoomData));
+	
+  zone_spellmessage(ch->in_room,
+    "&+LThe &+minsects &+Lof the &+yarea&+L seem to be called away...&n\r\n",
+    "&+LThe &+minsects &+Lof the &+yarea&+L seem to be called away to the %s...&n\r\n");
+	}*/
+}
+
+void spell_single_doom_aoe(int level, P_char ch, char *args, int type,
+                              P_char victim, P_obj obj)
+{
+  int      dam;
+  struct damage_messages messages = {
+    "", "", "",
+    "$N's body turns to &+Wbone&n as the &+yinsects&n consume $M.",
+    "Your body succumbs to the overwhelming &+yplague&n of &+ginsects&n.",
+    "$N's body turns to &+Wbone&n as the &+yinsects&n consume $M.", 0
+  };
+  dam = 110 + level * 3 + number(1, 10);
+
+
+  spell_damage(ch, victim, dam, SPLDAM_GENERIC, 0, &messages);
+>>>>>>> master
 }
 
 void spell_sense_follower(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
@@ -17728,6 +18701,140 @@ void spell_negative_concussion_blast(int level, P_char ch, char *arg,
   }
 }
 
+<<<<<<< HEAD
+=======
+void event_acidimmolate(P_char ch, P_char vict, P_obj obj, void *data)
+{
+  int dam, acidburntime, in_room;
+  struct damage_messages messages = {
+    "&+GG&+gr&+Ge&+ge&+Gn s&+gl&+Gi&+gm&+Ge eats away at $N&+G's skin!&N",
+    "&+GG&+gr&+Ge&+ge&+Gn s&+gl&+Gi&+gm&+Ge eats away at your skin!&N",
+    "&+GG&+gr&+Ge&+ge&+Gn s&+gl&+Gi&+gm&+Ge eats away at $N&+G's skin!&N",
+    "$N &+gmelts into a pile of &+GGOO&n ... $E is no more!",
+    "&+gThe &+Gs&+gl&+Gi&+gm&+Ge &+gconsuming your flesh devours you completely!",
+    "$N &+gmelts into a pile of &+GGOO&n ... $E is no more!", 0
+  };
+
+  if(!ch)
+  {
+    logit(LOG_EXIT, "event_acidimmolate called in magic.c with no ch");
+    raise(SIGSEGV);
+  }
+  if(!vict ||
+     !IS_ALIVE(vict))
+  {
+    return;
+  }
+  if(ch && // Just making sure.
+    vict)
+  {
+    if(!IS_ALIVE(ch))
+    {
+      return;
+    }
+    acidburntime = *((int *) data);
+   
+    if((acidburntime >= 4 && number(0, acidburntime--)) || acidburntime == 7)
+    {
+      act("&+GThe &+Ymo&+yrd&+Yant &+Gsubstance oozes off you!",
+        FALSE, ch, 0, vict, TO_VICT);
+       
+      if(ch->in_room == vict->in_room)
+        act("&+GThe &+Ymo&+yrd&+Yant &+Gsubstance oozes off of $N.",
+          FALSE, ch, 0, vict, TO_CHAR);
+      act("&+GThe &+Ymo&+yrd&+Yant &+Gsubstance oozes off of $N.",
+        FALSE, ch, 0, vict, TO_NOTVICT);
+      return;
+    }
+    else
+    {
+      acidburntime++;
+    }
+    //dam = (int) (GET_LEVEL(ch) * 2);
+    dam = 1; //this is now just a pulling spell.
+    if(!GET_CLASS(ch, CLASS_CONJURER))
+    {
+    if(acidburntime >= 3)
+    {
+      dam = (int) (GET_LEVEL(ch) * 2 - number(4, 20));
+    }
+    if(acidburntime >= 4)
+    {
+      dam = (int) GET_LEVEL(ch) + number(4, 12);
+    }
+    }
+    if(IS_ALIVE(vict) &&
+      !number(0, 4) && (spell_damage(ch, vict, dam, SPLDAM_ACID, SPLDAM_NODEFLECT |
+      SPLDAM_NOSHRUG, &messages) == DAM_NONEDEAD))
+    {
+      if(IS_ALIVE(vict)) // Adding another check.
+      {
+        add_event(event_acidimmolate, PULSE_VIOLENCE, ch, vict, NULL, 0,
+          &acidburntime, sizeof(acidburntime));
+        if(8 > number(1, 10))
+        {
+          stop_memorizing(vict);
+        }
+      }
+    return;
+    }
+   
+    if(spell_damage(ch, vict, dam, SPLDAM_ACID, SPLDAM_NODEFLECT,
+        &messages) == DAM_NONEDEAD)
+    {
+    if(IS_ALIVE(vict)) // Adding another check.
+      {
+        add_event(event_acidimmolate, PULSE_VIOLENCE, ch, vict, NULL, 0,
+          &acidburntime, sizeof(acidburntime));
+        if(3 > number(1, 10))
+        {
+          stop_memorizing(vict);
+        }
+      }
+    return;
+    }
+  }
+}
+
+void spell_acidimmolate(int level, P_char ch, char *arg, int type,
+                        P_char victim, P_obj obj)
+{
+  int acidburn = 0;
+  
+  if(!ch)
+  {
+    logit(LOG_EXIT, "spell_immolate called in magic.c with no ch");
+    raise(SIGSEGV);
+  }
+  
+  if(!(victim) ||
+     !IS_ALIVE(ch) ||
+     !IS_ALIVE(victim))
+  {
+    return;
+  }
+  
+  act("&+GYour bubbling spray of goo strikes $N&+G full on!&N", TRUE, ch, 0,
+    victim, TO_CHAR);
+  act("&+GA bubbling spray of goo spews from $n&+G striking you &+Gfull on!&N",
+    FALSE, ch, 0, victim, TO_VICT);
+  act("&+GA bubbling spray of goo spews from $n&+G striking $N &+Gfull on!&N",
+    FALSE, ch, 0, victim, TO_NOTVICT);
+  
+  engage(ch, victim);
+
+  if(spell_damage(ch, victim, (int) GET_LEVEL(ch) * 2 + number(20, 120),
+      SPLDAM_ACID, SPLDAM_NODEFLECT | SPLDAM_NOSHRUG, NULL) == DAM_NONEDEAD);
+  {
+    if(IS_ALIVE(victim)) // Adding double check.
+    {
+      add_event(event_acidimmolate, PULSE_VIOLENCE, ch, victim, NULL, 0, &acidburn, sizeof(acidburn));
+      //gain_exp(ch, victim, 0, EXP_DAMAGE);
+    }
+  }
+}
+
+>>>>>>> master
 #define RIPPLE_STUN BIT_1
 #define RIPPLE_BLIND BIT_2
 #define RIPPLE_FIREBALL BIT_3
@@ -18658,6 +19765,12 @@ void spell_moonwell(int level, P_char ch, char *arg, int type, P_char victim,
   if(!victim)
     victim = ch;
 
+  if(IS_NPC(ch))
+  return;
+
+  if(IS_NPC(victim))
+  return;
+
   if(victim == ch)
   {
     if(affected_by_spell(ch, SPELL_MOONSTONE))
@@ -18703,7 +19816,12 @@ void spell_moonwell(int level, P_char ch, char *arg, int type, P_char victim,
     set.decay_timer = (set.decay_timer / 2) * 3;
   }
   //--------------------------------
+<<<<<<< HEAD
   set.throughput = MAX(0, (int)( (ch->player.level-46)/2)) + number( 2, maxToPass + specBonus);
+=======
+  //set.throughput = MAX(0, (int)( (ch->player.level-46)/2 )) + number( 2, maxToPass + specBonus);
+  set.throughput = 20;
+>>>>>>> master
 
   if(    !can_do_general_portal(level, ch, victim, &set, &msg)
       //                || (!IS_TRUSTED(ch)     && (GET_MASTER(ch) && IS_PC(victim)))
@@ -18751,6 +19869,7 @@ void spell_moonstone(int level, P_char ch, char *arg, int type,
     memset(&af, 0, sizeof(af));
     af.type = SPELL_MOONSTONE;
     af.flags = /*AFFTYPE_NOSHOW |*/ AFFTYPE_NOSAVE | AFFTYPE_NODISPEL | AFFTYPE_NOAPPLY;
+    //af.flags = /*AFFTYPE_NOSHOW |*/ AFFTYPE_NOSAVE | AFFTYPE_NOAPPLY;
     af.modifier = ch->in_room;
     af.duration = duration / PULSES_IN_TICK;
 
@@ -18823,12 +19942,14 @@ bool can_do_general_portal( int level, P_char ch, P_char victim,
       return FALSE;
    }
   
+/* We are allowing non-raidable ppl to port again. - Lohrr 7/29/2012
   if((ch && !is_Raidable(ch, 0, 0)) ||
      (victim && !is_Raidable(victim, 0, 0)))
   {
     send_to_char("&+WYou or your target is not raidable. The spell fails!\r\n", ch);
     return false;
   }
+*/
 
    return TRUE;
 }
@@ -19522,7 +20643,7 @@ void spell_life_bolt(int level, P_char ch, char *arg, int type,
     {
       send_to_char("&+WYou send a quick prayer to your Deity, offering your &+Rlifeforce&+W and asking for divine energy to flow through you!\r\n", ch);
 
-      vamp(ch, self_dam/6, GET_MAX_HIT(ch) * 1.5);
+      vamp(ch, self_dam/6, GET_MAX_HIT(ch) * 1.1);
       //if (spell_damage(ch, ch, self_dam, SPLDAM_HOLY, RAWDAM_NOKILL | SPLDAM_NOSHRUG, 0) != DAM_NONEDEAD)
 	//        return;
     }
@@ -19568,6 +20689,13 @@ void spell_mielikki_vitality(int level, P_char ch, char *arg, int type, P_char v
     send_to_char("&+GThe blessings of the Goddess Mielikki are denied!\r\n", victim);
     return;
   }
+
+if(affected_by_spell(ch, SPELL_VITALITY))
+  {
+    send_to_char("&+GThe Goddess Mielikki cannot further bless your vitality...\r\n", victim);
+    return;
+  }
+
 
   if(affected_by_spell(ch, SPELL_MIELIKKI_VITALITY))
   {
@@ -19684,4 +20812,284 @@ void spell_healing_blade(int level, P_char ch, char *arg, int type,
                ch);
 
 }
+<<<<<<< HEAD
 */
+=======
+
+void spell_corpse_portal(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  P_obj    tobj;
+  int      found = 0;
+  int      location;
+
+  // find most recent corpse
+  for (tobj = object_list; tobj; tobj = tobj->next)
+  {
+    if(400220 == obj_index[tobj->R_num].virtual_number &&
+        isname(GET_NAME(victim), tobj->name))
+    {
+      found = 1;
+      break;
+    }
+  }
+
+  // if no corpse, fail!
+  if(!found || tobj->loc_p != LOC_ROOM)
+  {
+    act
+      ("&+L$n attempts to call upon the spirit realm, but is unable to make a connection.&N",
+       TRUE, ch, 0, 0, TO_ROOM);
+    act
+      ("&+gThe &+Gspirit &+grealm fails to answer your call for help.&N",
+       FALSE, ch, 0, 0, TO_CHAR);
+    return;
+  }
+
+  location = world[ch->in_room].number;
+
+  act
+    ("&+G$n's &+gbody begins to shake violently as if possessed by some &+Gother worldly &+gpower. With a blast of &+Gghastly &+Yflames&+g a portal suddenly materializes before them.&N",
+     TRUE, ch, 0, 0, TO_ROOM);
+  act
+    ("&+gYour body calls out to the &+Gspirit&+g realm, begging for assistance.  Every fiber within your body begins to &+Gtingle&+g as a &+Gghastly &+gessence begins to fill the room. Suddenly and without warning, a &+Gmystic &+gportal materializes before you, beckoning you to enter.&N",
+     FALSE, ch, 0, 0, TO_CHAR);
+  obj_from_room(tobj);
+  obj_to_room(tobj, real_room(location));
+
+}
+
+int has_soulbind(P_char ch)
+{
+  int result = 0;
+  struct affected_type *findaf, *next_af;
+     //  affect_remove(ch, af); save for later - from bard.c
+
+  for (findaf = ch->affected; findaf; findaf = next_af)
+   {
+    next_af = findaf->next;
+    if(findaf &&
+      findaf->type == TAG_SOULBIND)
+      {
+        //affect_remove(ch, af);
+       result = findaf->modifier;
+      }
+  }
+   return result;
+}
+
+void remove_soulbind(P_char ch)
+{
+  P_obj obj;
+  int found = 0;
+  // find any instance of their soulbound item and remove it
+  for (obj = object_list; obj; obj = obj->next)
+  {
+    if(IS_SET((obj)->extra2_flags, ITEM2_SOULBIND) &&
+        isname(GET_NAME(ch), obj->name))
+    {
+      extract_obj(obj, FALSE);
+    }
+  }
+}
+
+void do_soulbind(P_char ch, char *argument, int cmd)
+{
+
+    P_obj    obj;
+    char     gbuf1[MAX_STRING_LENGTH], gbuf2[MAX_STRING_LENGTH], buffer[MAX_STRING_LENGTH], gbuf3[MAX_STRING_LENGTH], bufbug[MAX_STRING_LENGTH];
+    argument_interpreter(argument, gbuf1, gbuf3);
+    struct affected_type af;
+
+    if(IS_TRUSTED(ch))
+      {
+       if(*gbuf1)
+        {
+         P_char victim = ParseTarget(ch, argument);
+           if(!victim)
+         	{
+       	  send_to_char("Remove Character's Soulbound Status. Syntax: soulbind <char>\r\n", ch);
+       	  return;
+       	}
+	      struct affected_type *findaf, *next_af;
+  		for (findaf = victim->affected; findaf; findaf = next_af)
+  		 {
+  		  next_af = findaf->next;
+  		  if(findaf &&
+   		   findaf->type == TAG_SOULBIND)
+   		   {
+   		     affect_remove(victim, findaf);
+                   sprintf(buffer, GET_NAME(victim));
+		     sprintf (gbuf3, "Cleared soulbind status on %s\r\n", buffer);
+                   send_to_char(gbuf3, ch);
+		    return;
+   		   }
+ 		 }
+	 }
+       else
+        {
+         send_to_char("Remove Character's Soulbound Status. Syntax: soulbind <char>\r\n", ch);
+         return;
+        }
+      }
+
+    if(get_frags(ch) < 2000)
+    {
+     send_to_char("&+LYou have not yet earned the right to use that ability.\r\n", ch);
+     return;
+    }
+
+    if(has_soulbind(ch) != 0)
+     {
+      remove_soulbind(ch);
+      send_to_char("&+yYour &+Ysoul &+ycalls out to the world to bring forth your &+ritem&+y...\r\n", ch);
+      load_soulbind(ch);
+      send_to_char("&+yAfter a brief moment, you feel &+Wwhole&+y once again, ready to &+rconquer &+ythe world.\r\n", ch);
+      return;
+     }
+   
+    if(*gbuf1)
+     {
+      obj = get_obj_in_list(gbuf1, ch->carrying);
+       if(!obj)
+      {
+       send_to_char("&+rYou must be carrying the item you wish to &+Wsoulbind&+r in your inventory.&n\r\n", ch);
+       return;
+      }
+      
+     if(affected_by_spell(ch, TAG_SOULBIND))
+     {
+       send_to_char("&+rA character may only &+Wsoulbind&+r once.&n\r\n", ch);
+       return;
+     }
+    //make sure objects are valid, no arti, etc.
+      if ((obj->type == ITEM_CONTAINER ||
+            obj->type == ITEM_STORAGE ||
+             obj->type == ITEM_TREASURE ||
+              obj->type == ITEM_POTION || 
+		obj->type == ITEM_TELEPORT ||
+		 obj->type == ITEM_WAND ||
+               obj->type == ITEM_KEY ||
+                obj->contains ||
+              obj->type == ITEM_FOOD ||
+              IS_OBJ_STAT2(obj, ITEM2_STOREITEM) ||
+		IS_OBJ_STAT2(obj, ITEM2_SOULBIND) ||
+	       IS_OBJ_STAT(obj, ITEM_NOSELL) ||
+	IS_SET(obj->extra_flags, ITEM_ARTIFACT)))
+      {
+       send_to_char("That item is not a valid type to &+Wsoulbind&n.\r\n", ch);
+       return;
+      }
+       memset(&af, 0, sizeof(struct affected_type));
+  	af.type = TAG_SOULBIND;
+  	af.modifier = (obj_index[obj->R_num].virtual_number);
+  	af.duration = -1;
+       af.location = 0;
+       af.flags = AFFTYPE_NOSHOW | AFFTYPE_PERM | AFFTYPE_NODISPEL;
+       affect_to_char(ch, &af);
+
+     //restring item with chars name
+           sprintf(gbuf2, "%s %s", GET_NAME(ch), obj->name);
+
+        FREE(obj->name);
+      obj->name = NULL;
+  	    obj->name = str_dup(gbuf2);
+
+	    sprintf(buffer, "%s &+Lbearing the &+Wsoul&+L of &+r%s&n", obj->short_description, GET_NAME(ch));
+	   set_short_description(obj, buffer);
+
+
+    SET_BIT(obj->extra_flags, ITEM_NOSELL);
+    SET_BIT(obj->extra_flags, ITEM_NORENT);
+  SET_BIT(obj->extra2_flags, ITEM2_CRUMBLELOOT);
+    SET_BIT(obj->extra2_flags, ITEM2_SOULBIND);
+     do_save_silent(ch, 1); // so our item updates right.
+    //acts here.
+
+  act
+    ("&+W$n &+rbegins to chant loudly, calling forth the &+Bblood &+rof their enemies. &+W$n's &+rhands begin to &+Rg&+rl&+Ro&+rw &+Rbrightly &+ras drops of blood begin to form.\r\n"
+     "&+W$n &+rgently takes the &+Rblood&+r and begins to spread it about their $p&+r, which starts to glow with an &+Lun&+rho&+Lly &+Rlight.&N",
+     TRUE, ch, obj, 0, TO_ROOM);
+  act
+    ("&+rYou begin to chant loudly, calling forth the &+Bblood &+rof your enemies. Your &+rhands begin to &+Rg&+rl&+Ro&+rw &+Rbrightly &+ras drops of blood begin to form.\r\n"
+      "&+rYou &+rgently take the &+Rblood&+r and begin to spread it about your $p&+r, which starts to glow with an &+Lun&+rho&+Lly &+Rlight.&N",
+     FALSE, ch, obj, 0, TO_CHAR);
+    }
+    if(!argument || !*argument)
+  send_to_char("What item would you like to &+Wsoulbind&n?\r\n", ch);
+}
+
+void load_soulbind(P_char ch)
+{
+  int item;
+  P_obj obj;
+    char     gbuf1[MAX_STRING_LENGTH], gbuf2[MAX_STRING_LENGTH], buffer[MAX_STRING_LENGTH];
+
+  item = has_soulbind(ch);
+  if(item == 0)
+  {
+   send_to_char("&+rYour &+Wsoul &+rhas not bound with anything yet.&n\r\n", ch);
+   return;
+  }
+ /* sprintf(gbuf2, "%d", item);
+  send_to_char(gbuf2, ch);*/
+  obj = read_object(item, VIRTUAL);
+           sprintf(gbuf2, "%s %s", GET_NAME(ch), obj->name);
+  	    obj->name = str_dup(gbuf2);
+	    sprintf(buffer, "%s &+Lbearing the &+Wsoul&+L of &+r%s&n", obj->short_description, GET_NAME(ch));
+	   set_short_description(obj, buffer);
+  obj_to_char(obj, ch); 
+  SET_BIT(obj->extra_flags, ITEM_NOSELL);
+  SET_BIT(obj->extra_flags, ITEM_NORENT);
+  SET_BIT(obj->extra2_flags, ITEM2_CRUMBLELOOT);
+  SET_BIT(obj->extra2_flags, ITEM2_SOULBIND); 
+    REMOVE_BIT(obj->extra_flags, ITEM_SECRET);
+    REMOVE_BIT(obj->extra_flags, ITEM_INVISIBLE);
+    SET_BIT(obj->extra_flags, ITEM_NOREPAIR);
+    REMOVE_BIT(obj->extra_flags, ITEM_NODROP);
+
+}
+
+void spell_contain_being(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  struct affected_type af;
+ 
+ if(!victim)
+ {
+  send_to_char("You must specify a target for this spell!\r\n", ch);
+  return;
+ }
+ 
+ if(victim == ch)
+ {
+  send_to_char("Haha, very funny.\r\n", ch);
+  return;
+ }
+
+ if(IS_PC(victim))
+ {
+  send_to_char("You cannot learn to contain players.\r\n", ch);
+  return;
+ }
+ 
+ if(IS_PC_PET(victim))
+ {
+  send_to_char("You cannot contain other's pets.\r\n", ch);
+  return;
+ }
+
+   act("&n$n &npoints at &+L$N &nwhose form begins to &+Lp&+Mh&+Wa&+ms&+Be &nin and out from this plane of existence...", FALSE, ch, 0, victim, TO_NOTVICT);
+   act("&nYou &npoint at &+L$N &nwhose form begins to &+Lp&+Mh&+Wa&+ms&+Be &nin and out from this plane of existence...", FALSE, ch, 0, victim, TO_CHAR);
+   act("&n$n &npoints at &+L$N &nwhose form begins to &+Lp&+Mh&+Wa&+ms&+Be &nin and out from this plane of existence...", FALSE, ch, 0, victim, TO_VICT);
+
+ 
+   memset(&af, 0, sizeof(af));
+  af.type = SPELL_CONTAIN_BEING;
+  af.duration = 100;
+  af.flags = AFFTYPE_SHORT;
+  affect_to_char_with_messages(victim, &af, "You your physical composure returns to normal.", "$n's &+Yphysical composure slowly returns to &+Lnormal&n.");
+
+ 
+}
+>>>>>>> master

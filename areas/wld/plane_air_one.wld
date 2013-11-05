@@ -847,7 +847,7 @@ Every so often a small chuck of floating rock can be seen in the distance
 and bellowing smoke can sometimes be seen. Gravity does not seem to exist here
 and travel looks possible in any direction.
 ~
-244 33558592 19
+244 33558596 19
 D0
 The elemental plane of air continues.
 ~
@@ -869,10 +869,9 @@ The elemental plane of air continues.
 ~
 0 0 24421
 D4
-The elemental plane of air continues.
 ~
 ~
-0 0 24447
+0 0 131600
 D5
 The elemental plane of air continues.
 ~
@@ -1873,11 +1872,6 @@ The elemental plane of air continues.
 ~
 ~
 0 0 24472
-D5
-The elemental plane of air continues.
-~
-~
-0 0 24422
 S
 #24448
 &+CThe Elemental Plane of Air~

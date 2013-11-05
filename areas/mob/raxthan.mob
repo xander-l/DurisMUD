@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #42900
 raxthan enslaver br_c~
 &+rRax&+Rtha&+rn&+L, The &+rEnslaver&n~
@@ -1040,3 +1041,1047 @@ PT 0 1 0 5
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
+=======
+#42900
+raxthan enslaver br_c~
+&+rRax&+Rtha&+rn&+L, The &+rEnslaver&n~
+&+rRax&+Rtha&+rn&+L, The &+rEnslaver &+Lstands here outraged by your intruding.&n
+~
+&+L   This creature stands well over twelve feet in height and is built like an&n
+&+Logre.  His hair is a long raven blackness that flows well past his shoulders&n
+&+Land down his massive back.  His eyes are filled with glowing death and &+rhatred&+L.&n
+&+LHis arms are a mass of muscles layered upon muscles, with legs to match.  He&n
+&+Lseems as though he is busy training slaves in the arts of pleasure.&n
+~
+33962570 1 0 0 838959448 45250 0 0 -1000 S
+X 0 1 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42901
+crazed raxian primative creature~
+a &+Lcrazed &+rraxian&n~
+&+LA primative creature walks here with a crazed look in his eyes.&n
+~
+&+L   This creature has many scars upon his face and his arms.  It looks like&n
+&+Lsomeone or something has beaton this thing without mercy.  His eyes are a deep&n
+&+bazure &+Lcolor and seem to be filled with a crazed look.  You notice that this&n
+&+Lpoor monster is missing some of its fingers.  Perhaps they have been bitten off&n
+&+Lor cut off.&n
+~
+33554504 1 0 0 302055720 0 0 0 1000 S
+AA 0 1 0 -1
+20 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42902
+graskal devil spawn br_a~
+&+rGraskal&+L, The Devil &+rSpawn&n~
+&+rGraskal&+L, The Devil &+rSpawn &+Lfloats here, eyes filled with unholy &+Rhate&+L.&n
+~
+&+L   This Creature stands well over nine feet tall perhaps as tall as thirteen&n
+&+Lfeet.  His eyes are a deep and very rich &+Rcrimson &+Lthat seem to shift and sway.&n
+&+LHis skin raven black and devoid of all light and injuries.  His build is that&n
+&+Lof which you have never seen before.  Broad massive shoulders layered with&n
+&+Lmuscles and the arms the size of an ogre.  His wings are a strange &+mmagenta&n
+&+Lcolor and have &+rstains &+Lof past victims upon them.&n
+~
+1107704906 1 0 0 840532414 309443 0 0 -1000 S
+Y 0 512 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#42903
+trosat witch doctor troll~
+&+gTrosat&+L, The &+mWitch &+cDoctor&n~
+&+gTrosat&+L, The &+mWitch &+cDoctor &+Lis here chanting to some unknown god.&n
+~
+&+g   This creature stands close to nine feet in height and seems to be rather&n
+&+goccupied with something.  He seems to be chanting to his god or gods, it almost&n
+&+gseems as though he does not realize you are even here.  Perhaps he is not all&n
+&+ghere himself, you notice his eyes are very odd looking.  They appear to be&n
+&+gempty &+bazure &+Bpools &+gthat hold no substance.  Almost like you look into them and&n
+&+gthey are not even there.&n
+~
+2181085258 33569088 0 0 536969480 32768 0 0 -1000 S
+PT 0 256 0 -1
+45 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42904
+norvort spine breaker troll~
+&+gNor&+Gv&+Lort&+L, The &+WSpine &+LBreaker&n~
+&+gNor&+Gv&+Lort, The &+WSpine &+LBreaker stands here, waiting for the &+rauction &+Lto start.&n
+~
+&+g   This creature stands about eight feet tall perhaps even nine feet its hard&n
+&+gto tell.  The green skinned beast keeps crouching over, perhaps trying to sneak&n
+&+gbehind you to backstab ya.  His eyes are an &+revil &+gglowing &+Rcrimson &+gcolor, that&n
+&+gseem to hold no compassion.  His build is rather large and he seems like he can&n
+&+gover power at least two &+Chumans &+gby himself.  You notice something carved into&n
+&+ghis arms, the word &+WSpine &+gis carved into his left arm and the word &+LBreaker &+gis&n
+&+rburned &+ginto his right.  Perhaps this is a nick name of some sort that he got&n
+&+ggrowing up as a child on the streets of reality.&n
+~
+100677706 1 0 0 536969480 0 0 0 -1000 S
+PT 0 16384 0 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42905
+drakst slave master troll~
+&+cDrakst&+L, The &+gSlave &+rMaster&n~
+&+cDrakst&+L, The &+gSlave &+rMaster &+Lstands here seemingly guarding something or someone.&n
+~
+&+L   This creature stands close to nine feet in height and has glowing dead red&n
+&+reyes&+L.  He has rotted rancid &+Yyellow &+Wteeth &+Lthat give off a nasty smell.  His hair&n
+&+Lis black and very long running well past his shoulders.  He sports a rather&n
+&+Limpressive build with a massive chest and arms the size of a fat and plump&n
+&+yhalfling&+L.  This creature seems to be some sort of slave trader and you can hear&n
+&+Lhim mumble something about the raven realms.&N
+~
+100677706 1 0 0 536969480 0 0 0 -1000 S
+PT 0 1 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42906
+huge raxian guard~
+&na &+LVery Huge &+rRaxian Guard&n~
+&+LA Very Huge &+rRaxian Guard &+Lstands here as if guarding something.&n
+~
+&+L   This creature stands well over twelve feet tall and he is built like a &+rFire&n
+&+LGiant.  He seems to be nothing more than a huge mass of muscle upon massive&n
+&+Lmuscle.  He has long flowing black hair and dull daft looking &+rred &+Leyes.  His&n
+&+Lskin is a dark ebon color and has many scars on it.  He looks like he can hold&n
+&+Lhis own with almost any would be warrior.&n
+~
+1174550602 1 0 0 302088488 2 0 0 1000 S
+G 0 1 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42907
+huge raxian guard~
+&na &+LHuge &+rRaxian Guard&n~
+&+LA Huge &+rRaxian Guard &+Lstands here as if guarding someone.&n
+~
+&+L   This creature stands at least twelve feet in height and seems to be of an&n
+&+Lungodly build.  This being seems to be just layers of muscle upon muscle, he&n
+&+Lseems to have almost no neck.  Just a big mass of muscle, his eyes are an empty&n
+&+rred &+Lcolor.  His hair is a long raven black color with streaks of &+bazure &+Lrunning&n
+&+Ldown it.  This &+rraxian &+Llooks like he has been in many a fight to say the least.&n
+~
+1174550602 1 0 0 302088488 2 0 0 1000 S
+PO 0 1 0 -1
+49 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42908
+raxian champion primative~
+a &+rraxian &+Wchampion&n~
+&+LA primative looking &+Wchampion &+Lis sizing you up and down here.&n
+~
+&+L   This creature stands a little over five feet in height and has a rather&n
+&+Ldecent sized build to him.  His arms are the size of a baby child and his chest&n
+&+Lis almost to big for his frame.  His eyes are a strong and uncaring shade of&n
+&+rred&+L.  His hair is a long flowing &+ybrown &+Lwith highlights of &+bazure &+Lin it.  He&n
+&+Lseems to be some sort of a &+Wchampion&+L.  Perhaps he has pleased his master &+rRax&+Rtha&+rn&n
+&+Land been granted freedom from the &+ypits &+Land hard labor for a time.&n
+~
+1174419528 14336 0 0 302055720 0 0 0 1000 S
+AA 0 1 0 2
+45 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42909
+raxian guard primative~
+a &+rraxian &+Rguard&n~
+&+LA primative looking &+Rguard&+L stands here with an odd look in his eyes.&n
+~
+&+L   This creature stands well over six feet in height and is built like an ogre.&n
+&+LHis chest is almost to massive for his frame and his arms are the size of a&n
+&+Lfull grown man.  His eyes are a dangerous looking &+rshade &+Lof red and his hair&n
+&+Lis short and a demanding shade of raven black.  He has many scars evident on&n
+&+Lhis body, perhaps from fighting in the &+ypits&+L.  He seems to be a survivor of many&n
+&+La battle to say the least.  Judging by the size of him you would assume he has&n
+&+Lcome out the victor more times than not.&n
+~
+1174419528 14336 0 0 33620232 0 0 0 1000 S
+AA 0 1 0 2
+43 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42910
+raxian warrior primative~
+a &+rraxian &+cwarrior&n~
+&+LA primative looking &+cwarrior&+L spits at you in disgust.&n
+~
+&+L   This creature stands a little over five feet in height and has a stocky&n
+&+Lbuild to him.  His shoulder span is rather wide for a creature of his size and&n
+&+Lhe is filled out rather nicely.  Almost as though he has one muscle placed upon&n
+&+Lanother.  His eyes are a strong and powerful &+bazure &+Lblue and his hair is short&n
+&+Land a faded &+ybrownish &+Lcolor.  He has some scars on his face and arms from fights&n
+&+Lor perhaps from being beaton.&n
+~
+33568840 14336 0 0 33620232 0 0 0 1000 S
+AA 0 1 0 2
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42911
+raxian short stocky~
+&na &+yshort &+Land stocky &+rraxian&n~
+&+LA &+yshort &+Land stocky &+rraxian &+Lpushes you out of their way.&n
+~
+&+L   This creature stands a little over five feet in height and has a rather&n
+&+Lstocky build to him.  He is shaped like a warped pear and emmits a rather acrid&n
+&+Lsmell.  His eyes are a dull and daft looking &+Bocean &+Lblue and his &+Wteeth &+Lhave many&n
+&+Lgaps in them.  This creature has many whip wounds on his back perhaps for not&n
+&+Lbeing able to do enough slave labor.&n
+~
+33566792 14336 0 0 33554696 0 0 0 1000 S
+AA 0 1 0 2
+38 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42912
+raxian hunter drustl~
+&+rDrustl&+L, The &+cGreat &+rRaxian &+LHunter&n~
+&+rDrustl&+L, The &+cGreat &+rRaxian &+LHunter stands here sharpening his swords.&n
+~
+&+L   This creature stands close to six feet in height and is rather muscular.  He&n
+&+Lhas very broad shoulders and his biceps are the size of a small toddler.  His&n
+&+Leyes are a strong and firm &+ybrown &+Lcolor and his hair is black and very long.  He&n
+&+Lbears some scars on his face from battles long since past.  This &+rraxian &+Llooks&n
+&+Llike some sort of hunter.&n
+~
+1107441738 33568768 0 0 302055720 0 0 0 1000 S
+P2 0 2 0 -1
+45 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42913
+orcish slave merchant orc~
+&nan &+Lorcish &+gslave &+cmerchant&n~
+&+LAn orcish &+gslave &+cmerchant &+Lis here looking for some fine ripe &+rraxians&+L.
+~
+&+L   This creature stands well over five feet in height and has long raven black&n
+&+Lhair.  His eyes are an eerie &+rredish &+Lcolor that seem to absorb light into them.&n
+&+LHis skin is a dark ebon color and has some scars of battles evident.  He seems&n
+&+Lto have a rather decent build and to be in rather good health.&n
+~
+3254958152 268435456 0 0 33554698 32770 0 0 -1000 S
+HO 0 512 0 -1
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42914
+orcish dangerous assassin orc~
+&na &+Ldangerous looking orcish &+rassassin&N~
+&+LA very dangerous looking orcish creature stands here.&n
+~
+&+L   This creature stands well over five feet in height and seems to hunch over.&n
+&+LAs if the creature is trying to hide or conceal something.  He seems to be&n
+&+Lsneaking around, like a lion stalking its &+rprey&+L.  His eyes are a &+Bcold &+Land&n
+&+Luncaring empty &+ybrown &+Lcolor.  His hair is a long flowing raven blackness that&n
+&+Lruns well past his shoulders.  He seems like he can handle himself alright in a&n
+&+Lfight.&N
+~
+1107441864 268450056 0 0 301990152 32770 0 0 -1000 S
+HO 0 8192 0 -1
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42915
+volgk slave trader infamous~
+&+rVolgk&+L, The infamous &+mslave &+Ltrader&n~
+&+rVolgk&+L, The infamous &+mslave &+Ltrader is here buying slaves to work the &+wcoal &+Lmines.&n
+~
+&+L   This creature is rather short standing only about four feet in height.  His&n
+&+Leyes are a very &+Bcold &+Land &+revil &+Llooking red color.  His skin is a darkened raven&n
+&+Lcolor that seems to absorb all the light.  His hair is rather long and a very&n
+&+Lodd &+mmagenta &+Lcolor.  He seems to be looking around for something or someone.&n
+~
+3254958282 33569088 0 0 840532248 32770 0 0 -1000 S
+PD 6 16384 0 2
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42916
+raxian shady primative~
+&na &+Lshady looking &+rraxian&n~
+&+LA rather shady looking &+rraxian &+Lis standing here looking at you strangely.&n
+~
+&+L   This &+rraxian &+Lhas very shifty eyes and knappy hair.  He seems like he can not&n
+&+Lbe trusted at all.  His skin is a sickenly blackish color, most likely from not&n
+&+Lbathing in a very long time.  His &+Wteeth &+Lhave many gaps in them making it seem&n
+&+Lthat some of his fellow people may have beaton him up.  Or perhaps for just&n
+&+Lbeing the scummy bastard that he is.  This creature also has a very bad smell&n
+&+Lto it, and its hair is lined with &+Wmaggots&+L.&n
+~
+33568840 14336 0 0 33554696 0 0 0 1000 S
+AA 0 1 0 2
+38 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42917
+raxian massive primative~
+&na &+Lrather &+cmassive &+Llooking &+rraxian~
+&+LA rather &+cmassive &+Llooking &+rraxian &+Lis here looking to spar with someone.&n
+~
+&+L   This &+rraxian &+Lis a little over six feet in height and has a rather &+cmassive&n
+&+Lbuild.  His arms are the size of small children and his legs that of &+ytree&n
+&+Ltrunks.  His hair is a long flowing raven blackness that runs down his massive&n
+&+Lback.  His eyes are a strong and firm &+ychestnut &+Lbrown, and seem to be filled&n
+&+Lwith many battles.&n
+~
+33566792 14336 0 0 33554688 0 0 0 1000 S
+AA 0 1 0 3
+37 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42918
+raxian pit fighter~
+&na &+rraxian &+ypit &+Lfighter&n~
+&+LScars from many a battle adorn this &+ypit &+Lfighter's face.&n
+~
+&+L   This creature bears many a scar on his face, most likely from fighting in&n
+&+Lthe slave &+ypits&+L.  He stands nearly six feet tall and his build is rather big.&n
+&+LHe has rather large biceps and an overly expanded chest.  Perhaps this &+rraxian&n
+&+Lhas taken some drugs to enhance his being.  His eyes are a very cold and empty&n
+&+Lshade of &+Bblue&+L.  It seems like all emotion has faded from this poor creature,&n
+&+Lall it knows now is survival.&n
+~
+33566792 14336 0 0 33554688 0 0 0 1000 S
+AA 0 1 0 3
+36 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42919
+raxian scrawny~
+&na &+yscrawny &+Llooking &+rraxian&n~
+&+LA &+yscrawny &+Llooking &+rraxian &+Lstands here trying to look tuff.&n
+~
+&+L   This creature stands a little under six feet tall.  His eyes are a very deep&n
+&+Bocean &+Lblue and his figure is rather petite.  His hair is a dull shade of &+ybrown&n
+&+Land is cut very short.  This &+rraxian &+Lhas what appear to be whip marks on his&n
+&+Lback and his face.  Perhaps he has been beaton for some reason or maybe he just&n
+&+Llost a fight.&n
+~
+33568840 14336 0 0 33554688 0 0 0 1000 S
+AA 0 1 0 2
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42920
+raxian smelly~
+&na &+Csmelly &+rraxian&n~
+&+LA rather &+Csmelly &+rraxian &+Lstands here.&n
+~
+&+L   This creature seems to be rather short and stubby even by his race's&n
+&+Lstandards.  He stands a little under four feet in height and his shape is that&n
+&+Lof a rancid apple.  His eyes are a dull &+gjade &+Lcolor and his hair is a rather&n
+&+Ldull shade of black.  This creature smells rather badly the smell of which is&n
+&+Lalmost unbearable.  Perhaps this &+rraxian &+Lhas never heard of the concept of a&n
+&+Lshower or even a bath.&n
+~
+1107441736 14336 0 0 33554688 0 0 0 1000 S
+AA 0 0 0 2
+33 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42921
+ugly raxian disfigured~
+&na &+Rdisfigured &+rraxian&n~
+&+LA very ugly and &+Rdisfigured &+rraxian &+Lstands here, the sight sickens you.&n
+~
+&+L   This creature seems to be rather tall for his primative race.  He stands a&n
+&+Llittle over six feet in height and his shape is rather bulky.  He seems to have&n
+&+La fair amount of muscle to go with his bulk.  His face has been badly &+Rdeformed&+L,&n
+&+Lit looks like it has been &+rbranded &+Lwith hot steel many times.  Perhaps this poor&n
+&+Lprimate was made an example to the others.  At one time he may of been a well&n
+&+Lrespected member of his culture.  Now he is simply a horrible outcast, that&n
+&+Lnobody even wants to look at.&n
+~
+1107441736 14336 0 0 33554688 0 0 0 1000 S
+AA 0 0 0 3
+31 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42922
+raxian pudgy~
+&na &+ypudgy &+rraxian&n~
+&+LA rather short and &+ypudgy &+rraxian &+Lroams this dismal cave.&n
+~
+&+L   This creature seems to be rather short and fat.  His stomach goes well past&n
+&+Lhis tiny feet.  His shape seems to be that of a pear, and his hair is a dull&n
+&+Lsort of blackish color.  His eyes are a pale and daft looking &+Bocean &+Lblue and he&n
+&+Lhas many scars that adorn his face.  Perhaps this &+rraxian &+Lhas been beaton by&n
+&+Lsomeone or something.&n
+~
+33568840 14336 0 0 33554688 0 0 0 1000 S
+AA 0 0 0 2
+29 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42923
+raxian tall skinny~
+&na &+Mskinny &+rraxian&n~
+&+LA rather tall and &+Mskinny &+rraxian &+Llurks here.&n
+~
+&+L   This creature seems to be rather tall for his race.  He is close to six feet&n
+&+Ltall you would assume.  His eyes are a dull sort of &+ybrown &+Lcolor and his hair is&n
+&+Lan odd &+bazure &+Lblue color.  His figure seems to be relative to that of a &+Wtooth&n
+&+Lpick, he seems to have almost no muscle on his body.  Perhaps this &+rraxian &+Lhas&n
+&+Lbeen starved for some reason.&n
+~
+33568840 14336 0 0 33554688 0 0 0 1000 S
+AA 0 0 0 3
+27 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42924
+mobat large bat~
+&na &+Llarge mobat&n~
+&+LA rather large mobat flaps about here.&n
+~
+&+L   This rather large batlike creature has glowing red &+reyes&+L.  Its fur is an ebon&n
+&+Lblack and has stains of &+Rblood &+Lon it.  His &+Wteeth &+Lare rather sharp looking and&n
+&+Lseem as though they can inflict some serious pain.&n
+~
+135240 64 0 0 33652992 0 0 0 -1000 S
+A 0 0 0 4
+20 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#42925
+raxian slave beaten bruised~
+&na &+Lbeaten and bruised &+rraxian &+mslave&n~
+&+LThis &+mslave &+Lhas been beaten and whipped several times it looks like.&n
+~
+&+L   This girl has been stripped naked and you notice what appear to be whip&n
+&+Lmarks on her back.  Her hair is a long flowing river of raven darkness with&n
+&+Lhighlights of &+rcrimson&+L.  Her eyes are a hallow dull &+Bazure &+Lblue color.  She seems&n
+&+Lto of been beaten recently with bruises just now starting to form.&n
+~
+33554632 0 0 0 33554688 0 0 0 1000 S
+AA 0 0 0 -1
+19 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#42926
+cave bat rabid~
+&na &+rrabid &+Lcave bat&n~
+&+LA &+rrabid&+L looking cave bat lunges for you here.&n
+~
+&+L   Eyes of &+rfire &+Ldance and flicker in sockets of brimstone.  &+WTeeth &+Lof the &+rdevil&n
+&+Lare covered in &+Rblood &+Lof mortals.  Raven black body for a soul of darkness.  A&n
+&+Lflying minion of the night, this bat seems to be &+rrabid&+L.&n
+~
+33689672 1 0 0 33653000 0 0 0 -1000 S
+A 0 0 0 -1
+15 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#42927
+baby raxian female girl~
+&na &+Bbaby &+rraxian&n~
+&+LA &+Bbaby &+rraxian &+Lgirl is here, growing up to be a pleasure slave.&n
+~
+&+L   This very young &+rraxian &+Lhas curly &+ybrown &+Lhair and &+bazure &+Lblue eyes.  Her face&n
+&+Lis a very pale &+Wpowder &+Lwhite.  Her &+rlips &+Lare a rather dull and unassuming reddish&n
+&+Lcolor.  This girl no doubt will be trained in the ways of pleasure and sold.&n
+&+LShe has already been trained in some ways to please and soon many more lessons&n
+&+Lwill follow.&n
+~
+33554632 0 0 0 33554688 0 0 0 1000 S
+AA 0 0 0 1
+13 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#42928
+strange ooze~
+&+msome strange ooze&n~
+&+mSome strange ooze moves about here.&n
+~
+&+m   Th&+Mi&+ms str&+Ma&+mng&+Me &+mm&+Mu&+mrky &+Mliquid &+mseems t&+Mo &+mmove on its &+Mo&+mwn as if its &+Malive&+m.  The&n
+&+mcr&+Mea&+mt&+Mu&+mr&+Me &+mis a &+Mstrange &+mmagenta c&+Mo&+ml&+Mo&+mr that s&+Mee&+mms to &+Mabsorb &+mwhat l&+Mi&+mttl&+Me &+Llight&n
+&+mth&+Me&+mr&+Me i&+ms &+Mi&+mn th&+Me &+mr&+Moo&+mm.&n
+~
+33554504 0 0 0 0 0 0 0 0 S
+AH 0 0 0 -1
+9 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#42929
+raxian slave pleasure gagged~
+&na &+Lbound and gagged &+rraxian &+mslave&n~
+&+LThis &+rpleasure &+mslave &+Lhas been bound, gagged and stripped naked.&n
+~
+&+L   This &+mslave &+Lhas been bound and gagged.  She looks as though she has been&n
+&+Lbeaten many times, among other things.  Her hair is long and blonde and her&n
+&+Lcomplexion is rather pale.  Her eyes are a deep ocean &+Bblue&+L, and her lips a&n
+&+Lmajestic &+Rcrimson&+L.&n
+~
+33554632 0 0 0 33571072 0 0 0 1000 S
+AA 0 0 0 -1
+23 0 0 1d1+1 1d1+1
+0.0.0.0 0
+5 8 2
+#42930
+guardian orc demonic~
+&na &+Ldemonic looking orc &+rguardian&N~
+&+LA demonic looking orc stands here as if &+rguarding &+Lsomething.&n
+~
+&+L   This being stands almost six feet in height.  His eyes &+Rglow &+La demonic shade&N
+&+Lof unholy dread.  The creature has a muscular build and seems as though it can&N
+&+Lhandle almost any situation.  A strange symbol has been burned into the right&N
+&+Lcheek of this orc.  He seems to be a &+rguardian &+Lof some sort, and gives off an&N
+&+Leerie &+bcold &+Lfeeling.&N
+~
+1107441866 64 0 0 301990168 294914 0 0 -1000 S
+HO 0 16 0 -1
+31 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42931
+hook horror~
+&+wa &+Lhook horror&N~
+&+LA hook horror wanders here in search of prey.&N
+~
+&+w   This creature stands about nine feet in total height.  The being has a very&N
+&+wtough looking mottled grey exoskeleton.  The monster almost appears to be some&N
+&+wsort of hellish &+Linsect&+w.  The limbs of this entity are sharp pointed hooks that&N
+&+whave spects of red upon them.  The head is shaped like that of a vulture and a&N
+&+whooked beak creates the nose.  Eyes stare back from a heart filled only with&N
+&+wdismal despair.&N
+~
+33562696 1 0 0 268501288 0 0 0 -1000 S
+PB 0 1 0 -1
+21 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42932
+giant slug br_a~
+&+wa &+Lgiant &+wslug&N~
+&+LA giant &+wslug &+Llurks here, waiting for something to eat.&N
+~
+&+L   This disgusting creature is covered by remnants of trash and other forms of&N
+&+Ldebris.  The eyes of this being &+rglow &+La faint tainted red. Stalks extend from&N
+&+Lits horrid head.  The skin of this entity is a demonic black mixed with fades&N
+&+Lof &+wgloomy &+Lgrey.  Its body extends about thirty feet and &+gp&+Ga&+gt&+Gc&+gh&+Ge&+gs &+Lof slime are&N
+&+Levident.  The monster appears to be hungry, who shall be the next meal.&N
+~
+33567818 1 0 0 33587456 8192 0 0 0 S
+AC 0 0 0 6
+44 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#42933
+slug slime speckled br_a~
+&+wa &+Lslime &+Gs&+gp&+Ge&+gc&+Gk&+gl&+Ge&+gd &+wslug&N~
+&+LA slime &+Gs&+gp&+Ge&+gc&+Gk&+gl&+Ge&+gd &+wslug &+Llurks here, waiting for something to eat.&N
+~
+&+L   This disgusting creature is covered by remnants of trash and other forms of&N
+&+Ldebris.  The eyes of this entity &+rglare &+La faint dread red. Stalks extend from&N
+&+Lits horrid head.  The skin of this being is a pitch black mixed with fades&N
+&+Lof &+wdull &+Lgrey.  Its body extends over thirty feet and &+Gs&+gp&+Ge&+gc&+Gk&+gl&+Ge&+gs &+Lof slime are&N
+&+Levident upon it.&N
+~
+33567818 1 0 0 33587456 8192 0 0 0 S
+G 0 0 0 6
+40 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#42934
+noctule demon lesser br_a~
+&+RN&+roc&+Rt&+ru&+Rl&+re&+L, &+LLesser Demon of &+RB&+raa&+Rl&N~
+&+RN&+roc&+Rt&+ru&+Rl&+re&+L, Lesser Demon of &+RB&+raa&+Rl &+Lstands here eyes dancing with infernal &+rfire&+L.&N
+~
+&+L   This creature stands well over nine feet in height.  Eyes of demonic fire&N
+&+Lburn within sockets of sadistic despair.  &+WFangs &+Lof fury bear marks of battles&N
+&+Llong since past.  Pitch black wings of sin are &+rstained &+Lby fallen mortal fools.&N
+&+LSymbols of suffering have been &+bburned &+Linto the muscular chest of this entity.&N
+&+LAnvil shaped spikes spring forth from massive scale covered arms.  The hands&N
+&+Lof this monster &+Rglow &+La devilish dread red.&N
+~
+33963082 1 0 0 805404730 309442 0 0 -1000 S
+X 0 16 0 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42935
+elytron head hunter~
+&+RElytron&+L, The Head &+rHunter&N~
+&+RElytron&+L, The Head &+rHunter &+Lstands here with eyes of hatred.&N
+~
+&+L   This vile creature stands well over nine feet in height.  &+REyes &+Lof hate gaze&N
+&+Lfrom sockets of sadistic suffering.  This monster's arms are the size of small&N
+&+Lelven children.  His chest is massive and bears many &+rscars &+Lfrom past battles.&N
+&+LA &+wsymbol &+Lof a goat within a geometric shape has been burned into the right&N
+&+Lcheek of this entity.  Long raven &+bb&+Llack hair cr&+be&+Leps down upon b&+br&+Load should&+be&+Lrs.&N
+&+LSlivers of &+Wbone &+Land &+wflesh &+Lcan be seen wedged between terror &+wtorn &+Lteeth.&N
+~
+33568842 1 0 0 805404728 309378 0 0 -1000 S
+MT 0 16 0 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42936
+zvorgast fanged muscular beast~
+&+wa &+Rzvorgast~
+&+LA &+Wfanged &+Lmuscular beast wanders in search of mortal flesh.&N
+~
+&+L   This &+Wfanged &+Lcreature stands well below six feet in total height.  Hatred&N
+&+Lburns within the eyes of this massive monster.  Arms nothing more than layers&N
+&+Lof muscle stacked upon each other.  Raven black hair flows down broad burly&N
+&+Lshoulders.  Claws dotted by dried &+rcrimson &+Lextend from hands the size of small&N
+&+Lelven children.&N
+~
+1107572808 1 0 0 67207192 8194 0 0 1000 S
+A 0 1 0 2
+33 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42937
+zvorgast large bull beast~
+&+wa &+Llarge &+Rzvorgast~
+&+LA large &+wbull &+Llike beast wanders in search of mortal &+rflesh&+L.&N
+~
+&+L   This &+wbull &+Llike creature stands well over six feet in total height.  Hatred&N
+&+Lburns within the eyes of this muscular monster.  Huge massive arms layers of&N
+&+Lmuscle stacked one upon each other.  Raven black hair flows down broad burly&N
+&+Lshoulders.  Claws dotted by dried &+rcrimson &+Lextend from hands the size of small&N
+&+Bbarbarian &+Lchildren.&N
+~
+33830984 1 0 0 67207192 8194 0 0 1000 S
+MT 0 1 0 4
+36 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42938
+dravkult ancient one~
+&+wDravkult&+L, The Ancient One&N~
+&+wDravkult&+L, The Ancient One &+Lstands here eyes void of emotion.&N
+~
+&+L   This creature stands about six feet in height.  His &+yeyes &+Lare a faint shade&N
+&+Lof brown.  His hair a long raven blackness that flows down upon broad massive&N
+&+Lshoulders.  The arms of this man have many &+rscars &+Lfrom battles long since cast&N
+&+Linto the past.  A long grey &+wbeard &+Lextends from the chin of this ancient figure&N
+&+Land comes to a point.  Bits of flesh and other debris can be seen tangled in&N
+&+Lthe mangled mess.  Perhaps this being was once the leader of his people, yet&N
+&+Lnow he is an outcast even to his own kind.&N
+~
+33568842 14336 0 0 32792 2 0 0 1000 S
+PH 0 64 0 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42939
+rethorn raxian craftsman~
+&+rR&+ye&+rth&+yo&+rrn&+L, The &+rRaxian &+LCraftsman&N~
+&+rR&+ye&+rth&+yo&+rrn&+L, The &+rRaxian &+LCraftsman stands here working on various items.&N
+~
+&+L   Eyes of &+Rfire &+Lburn within sockets of mortal despair.  Hair of raven darkness&N
+&+Lflows down a massive back.  Arms of muscle upon muscle, bearing &+rscars &+Lof many&N
+&+Lpast battles.  This menacing monster stands at least six feet in total height.&N
+&+LHe seems to be a craftsman or &+wblacksmith &+Lof some sort, perhaps even a merchant.&N
+&+LStrange &+mrunes &+Lhave been branded into the chest of this muscular creature.&N
+~
+2181085258 0 0 0 98328 8194 0 0 1000 S
+PB 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42940
+morklar serpentine dragon br_g~
+&+gM&+Go&+grkl&+Ga&+gr&+L, The &+gS&+Ge&+gr&+Gp&+ge&+Gn&+gt&+Gi&+gn&+Ge &+LDragon&N~
+&+gM&+Go&+grkl&+Ga&+gr&+L, The &+gS&+Ge&+gr&+Gp&+ge&+Gn&+gt&+Gi&+gn&+Ge &+LDragon lurks here eyes filled with unholy dread.&N
+~
+&+L   This &+gs&+Ge&+gr&+Gp&+ge&+Gn&+gt&+Gi&+gn&+Ge &+Ldragons scales are very long and a shade of deep &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd&+L.  A&N
+&+Llarge &+wscar &+Lcan be seen slashed into the neck of this diabolical demonical evil&N
+&+Lentity.  Wings extend from the ancient back of this in&+Chuman &+Lhell spawned beast.&N
+&+LEyes of despair stare a cold unglancing &+wdead &+Lspun glazed hatred filled glare.&N
+&+LThe monster most likely lives off those who dare to wander into this horrid&N
+&+Lfoul smelling &+gswamp&+L.  Perhaps this predator has existed here for untold passed&N
+&+Lcenturies.  A dealer of eternal ever lasting fate, loving only twisted torment.&N
+~
+101595210 1 0 0 805405112 309379 0 0 -1000 S
+D 0 1 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42941
+epolon prince figure cloaked~
+&+LEp&+bo&+Ll&+bo&+Ln, &+WPrince &+Lof &+wThrask&N~
+&+LA cloaked figure stands here with a look of fear and confusion in his eyes.&N
+~
+&+L   The feeble stain of fear dominates the dreary weary eyes of this creature.&N
+&+LImages of beings not of this world reflect within pupils of the darkest despair&N
+&+Lfilled mortality.  This entity has a very slight and sickly build.  His &+wbones&N
+&+Lcan be seen pushing against his dirty scarred skin.  Symbols of &+barcane &+Lnature&N
+&+Lhave been burned into the freckled forehead of this bastard elf monster.  Most&N
+&+Llikely he is some sort of mystical warrior or &+Wprince&+L.&N
+~
+33568842 0 0 0 167772160 0 0 0 1000 S
+P2 0 512 0 -1
+40 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42942
+zvorgast giant beast blood~
+&+wa &+Lgiant &+rfanged &+Rzvorgast&N~
+&+rA &+RBlood &+rstained giant beast wanders this dismal place in search of food.&N
+~
+&+L   This vile beast stands well over thirteen feet tall.  His eyes &+wburn &+Lwith a&N
+&+Ldemonical despair filled fire.  The arms of this being are the size of a full&N
+&+Lgrown &+Bbarbarian&+L.  Claws extend from horrid hands the size of a bulky &+rduergar&+L.&N
+&+LRaven black hair flows upon broad massive chiseled shoulders.  &+WFangs &+Lof fury&N
+&+Lhave been &+Rd&+ro&+Rt&+rt&+Re&+rd &+Lby crimson stains beyond repair.  Stalking its prey, causing&N
+&+Lthem to pray without hope.  A monster who feasts on the &+rflesh &+Lof mortal fools.&N
+~
+33962056 1 0 0 33652920 2050 0 0 1000 S
+G 0 1 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42943
+malstrog bloodbeast beast~
+&Na &+LMalstrog &+RBl&+ro&+Ro&+rd&+Lbeast&N~
+&+rA &+LMalstrog &+RBl&+ro&+Ro&+rd&+Lbeast &+rlurks here in search of mortal flesh.&N
+~
+&+L   Eyes of demonical fire burn with insatiable &+rbl&+Ro&+ro&+Rd&+rlust&+L.  A stare that casts&N
+&+Lan evil uncaring glancing glare.  Flames of fury flicker within sockets of the&N
+&+Ldarkest despair.  Arms the size of &+Bbarbarian &+Lchildren, horrid hands with sharp&N
+&+Lrazor spun claws extending.  Mangled hair, cloaked in &+rs&+Re&+rr&+Rp&+re&+Rn&+rt&+Ri&+rn&+Re &+Lstrands of the&N
+&+Lfiercest hate.  Fangs &+rs&+Rpot&+rted &+Lby crimson stains, all that remains from those&N
+&+Lthat have came.  This diabolical creature wanders this dismal dreary place in&N
+&+Lsearch of weary travelers.&N
+~
+1107703914 1 0 0 570526104 12419 262144 0 1000 S
+RA 0 1 0 3
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42944
+t'rin priestess drow trin~
+&+RT'&+rrin&+L, Priestess of &+RBozk&N~
+&+RT'&+rrin&+L, Priestess of &+RBozk &+Lwanders this place doing her master's bidding.&N
+~
+&+L   This creature stands almost six feet in total height.  Her eyes are a strong&N
+&+Lshade of the deepest &+bblue&+L.  She has a rather slight and slender build.  Skinny&N
+&+Larms hang from dark sleek shoulders.  &+wSmoke&+Ld h&+wa&+Lir flows upon the &+Wbone&+Ly back of&N
+&+Lthis being.  A symbol of &+RBozk &+Lhas been burned into the forehead of this demonic&N
+&+Levil entity.  The monster seems to be some sort of diabolical priestess.&N
+~
+3255220296 0 0 0 268534072 32770 0 0 -1000 S
+PL 0 32 0 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#42945
+drasklor dark figure minion~
+&+LDrasklor, &+rMinion &+Lof &+RBozk&N~
+&+LA dark figure hides in the shadows of this dismal dreary place.&N
+~
+&+L   This creature stands almost six feet in total height.  His eyes burn with a&N
+&+Lwicked demonical desire.  Raven d&+barkne&+Lss flows well past broad massive burly&N
+&+Lshoulders.  Scars adorn the cloaked beastial face of this vile being.  Perhaps&N
+&+Lthis monster is a servant or &+rminion &+Lof a dark sinister force.  Decayed fingers&N
+&+Lextend from horrid time torn hands.  The symbol of &+RBozk &+Ldominates the wrinkled&N
+&+Lforehead of this entity.&N
+~
+1107703882 0 128 0 34701624 303106 0 0 -1000 S
+HO 0 16 0 -1
+33 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42946
+grobklarn azure figure small~
+&+bGr&+Bo&+bbkl&+Ba&+brn&+L, &+bMystic &+Lof &+bMayhem&N~
+&+LA small &+Bazure &+Leyed figure hides in the shadows of this place.&N
+~
+&+L   This ugly creature stands about four feet in total height.  He has a very&N
+&+Lslight sickly build.  His eyes are a faded &+Bazure &+Lcolor which seem to hold no&N
+&+Lreal sign of any wisdom.  The hair of this creature is messy and seems to be&N
+&+Lneglected to say the least.  &+wDrool &+Lrolls out of the spoon shaped mouth falling&N
+&+Lupon the ground here.  &+RScars &+Land strange &+mrunes &+Ladorn the body of this monster.&N
+~
+1107310666 0 0 0 537952568 32898 0 0 -1000 S
+HG 0 256 0 -1
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42947
+hook horror large~
+&+wa &+Lhook horror&N~
+&+LA large hook horror lurks here in search of prey.&N
+~
+&+w   This creature stands over nine feet in total height.  The being has a very&N
+&+wtough looking mottled grey exoskeleton.  The monster almost appears to be some&N
+&+wsort of hellish &+Linsect&+w.  The limbs of this entity are sharp pointed hooks that&N
+&+whave spects of red upon them.  The head is shaped like that of a vulture and a&N
+&+whooked beak creates the nose.  Eyes stare back from a heart filled only with&N
+&+wdismal despair.&N
+~
+33562698 1 0 0 269549864 0 0 0 -1000 S
+PB 0 1 0 -1
+24 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42948
+raxian pit fighter humanoid~
+&na &+rraxian &+ypit &+Lfighter&n~
+&+LScars from many a battle adorn this &+ypit &+Lfighter's face.&n
+~
+&+L   This creature bears many a scar on his face, most likely from fighting in&n
+&+Lthe slave &+ypits&+L.  He stands nearly six feet tall and his build is rather big.&n
+&+LHe has rather large biceps and an overly expanded chest.  Perhaps this &+rraxian&n
+&+Lhas taken some drugs to enhance his being.  His eyes are a very cold and empty&n
+&+Lshade of &+Bblue&+L.  It seems like all emotion has faded from this poor creature,&n
+&+Lall it knows now is survival.&n
+~
+33566792 0 0 0 33554688 0 0 0 1000 S
+H 0 1 0 -1
+34 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42949
+darthus wretched one creature~
+&+LDarthus, The &+gWretched &+LOne&N~
+&+LA &+gwretched &+Lscum covered creature lurks within the shadows here.&N
+~
+&+L   This disgusting creature stands almost six feet in total height.  His &+Beyes&N
+&+Lare a faded shade of blue.  Raven black hair flows down upon a skinny scarred&N
+&+Lbattered back.  &+WMaggots &+Land other parasites can be seen crawling on the skin of&N
+&+Lthis vile being.  The monster is giving off signs that he is afraid, or perhaps&N
+&+Lhiding from something.&N
+~
+33699914 0 0 0 1114368 2 0 0 1000 S
+AA 0 1 0 3
+21 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42950
+agama naked female creature~
+&+rAgama&N~
+&+LA &+rnaked &+Lfemale creature wanders this abysmal dismal place here.&N
+~
+&+L   This &+rnaked &+Lfemale stands close to six feet in total height.  Her &+Rbreasts &+Lare&N
+&+La rosey red color.  Many marks and &+rscars &+Ladorn this once flawless body, perhaps&N
+&+Lfrom being whipped.  Faded azure &+Beyes &+Lstare with a cold uncaring glare.  Fear&N
+&+Lpermeates from within the &+Cs&+co&+Cu&+cl &+Lof this lost entity.  Mottled brown &+yhair &+Lflows&N
+&+Ldown past skinny &+Wbony &+Lshoulders.  This vixen does not appear as if it has had&N
+&+La decent meal in a very long time.  A &+Rcrimson &+Lsymbol has been &+wbranded &+Linto the&N
+&+Lright arm of this battered beast.&N
+~
+33699912 0 0 0 65560 2 0 0 1000 S
+PH 0 1 0 3
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#42951
+zvorgast fanged massive monster~
+&+wa &+Lmassive &+Rzvorgast&N~
+&+LA massive &+rfanged &+Lmonster lurks in search of mortal flesh.&N
+~
+&+L   This &+rfanged &+Lcreature stands well over six feet in total height.  Animosity&N
+&+Lburns within the eyes of this massive monster.  Arms nothing more than layers&N
+&+Lof muscle stacked upon each other.  Raven black hair flows down broad burly&N
+&+Lshoulders.  Claws dotted by dried &+rcrimson &+Lextend from hands the size of small&N
+&+Lelven children.&N
+~
+1107572808 1 0 0 67207192 8194 0 0 1000 S
+AA 0 1 0 3
+34 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42952
+zvorgast fanged muscular beast~
+&+wa &+Rzvorgast~
+&+LA &+Wfanged &+Lmuscular beast wanders in search of mortal flesh.&N
+~
+&+L   This &+Wfanged &+Lcreature stands around five feet in actual height.  Animosity&N
+&+Lburns within the eyes of this massive monster.  Arms nothing more than layers&N
+&+Lof muscle stacked upon each other.  Raven black hair flows down broad burly&N
+&+Lshoulders.  Claws dotted by dried &+rcrimson &+Lextend from hands the size of small&N
+&+Lelven children.&N
+~
+1107572808 1 0 0 67207192 8194 0 0 1000 S
+A 0 1 0 2
+31 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#42953
+snarklarv slime glob ooze~
+&+La snarklarv&N~
+&+LA black glob of hideous slime oozes along the dismal ground.&N
+~
+&+L   This glob of disgusting ooze slithers along the ground.  Most likely this&N
+&+Lentity lives off the slivers of &+rflesh &+Lupon the &+wbones &+Lwithin this cavern.  Tiny&N
+&+Lbits of armor and other objects float on the surface of this being.&N
+~
+72 0 0 0 67108864 0 0 0 1000 S
+AP 0 1 0 0
+18 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#42954
+gibber shrim~
+&+Ga &+gg&+Gi&+gb&+Gb&+ge&+Gr &+gs&+Gh&+gr&+Gi&+gm&N~
+&+GA &+gg&+Gi&+gb&+Gb&+ge&+Gr &+gs&+Gh&+gr&+Gi&+gm slithers along the &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn ground.&N
+~
+&+g   Tw&+Gi&+gst&+Gi&+gng sw&+Gi&+grl&+Gi&+gng sh&+Ga&+gd&+Ge&+gs &+Go&+gf sh&+Gi&+gft&+Gi&+gng &+Gi&+gm&+Ga&+gg&+Ge&+gs, &+Goo&+gz&+Ge &+gsl&+Gi&+gth&+Ge&+grs &+Ga&+gl&+Go&+gng th&+Ge &+ggr&+Gou&+gnd.&N
+&+LFlesh &+gfl&+Goa&+gts &+Gu&+gp&+Go&+gn th&+Ge &+gs&+Gu&+grf&+Ga&+gc&+Ge&+g, t&+Gi&+gny sl&+Gi&+gv&+Ge&+grs &+Gg&+gl&+Gi&+gs&+Gt&+ge&+Gn&+gi&+Gn&+gg r&+Ge&+gfl&+Ge&+gct&+Gi&+gng &+Gee&+gr&+Gie light&+g.&N
+&+gSh&+Gi&+gv&+Ge&+grs sh&+Gi&+gmm&+Ge&+gr&+Gi&+gng cr&+Gea&+gt&+Gi&+gng n&+Go&+gt q&+Gui&+gt&+Ge &+gtw&+Gi&+gl&+Gi&+gght, f&+Ga&+gd&+Gi&+gng &+Gi&+gnt&+Go &+Lnocturnal &+gfr&+Gi&+gght.&N
+~
+33554504 0 0 0 0 0 0 0 1000 S
+AP 0 1 0 0
+24 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#42955
+gabber shrum~
+&+Ba &+bg&+Ba&+bb&+Bb&+be&+Br &+bs&+Bh&+br&+Bu&+bm&N~
+&+BA &+bg&+Ba&+bb&+Bb&+be&+Br &+bs&+Bh&+br&+Bu&+bm oozes along the dismal ground&N
+~
+&+b   Tw&+Bi&+bst&+Bi&+bng sw&+Bi&+brl&+Bi&+bng sh&+Ba&+bd&+Be&+bs &+Bo&+bf sh&+Bi&+bft&+Bi&+bng &+Bi&+bm&+Ba&+bg&+Be&+bs, &+Boo&+bz&+Be &+bsl&+Bi&+bth&+Be&+brs &+Ba&+bl&+Bo&+bng th&+Be &+bgr&+Bou&+bnd.&N
+&+LFlesh &+bfl&+Boa&+bts &+Bu&+bp&+Bo&+bn th&+Be &+bs&+Bu&+brf&+Ba&+bc&+Be&+b, t&+Bi&+bny sl&+Bi&+bv&+Be&+brs &+Bg&+bl&+Bi&+bs&+Bt&+be&+Bn&+bi&+Bn&+bg r&+Be&+bfl&+Be&+bct&+Bi&+bng &+Bee&+br&+Bie light&+b.&N
+&+bSh&+Bi&+bv&+Be&+brs sh&+Bi&+bmm&+Be&+br&+Bi&+bng cr&+Bea&+bt&+Bi&+bng n&+Bo&+bt q&+Bui&+bt&+Be &+btw&+Bi&+bl&+Bi&+bght, f&+Ba&+bd&+Bi&+bng &+Bi&+bnt&+Bo &+Lnocturnal &+bfr&+Bi&+bght.&N
+~
+33554504 0 0 0 0 0 0 0 1000 S
+AP 0 1 0 0
+23 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#42956
+hook horror~
+&+wa &+Lhook horror&N~
+&+LA hook horror wanders here in search of prey.&N
+~
+&+w   This creature stands about nine feet in total height.  The being has a very&N
+&+wtough looking mottled grey exoskeleton.  The monster almost appears to be some&N
+&+wsort of hellish &+Linsect&+w.  The limbs of this entity are sharp pointed hooks that&N
+&+whave spects of red upon them.  The head is shaped like that of a vulture and a&N
+&+whooked beak creates the nose.  Eyes stare back from a heart filled only with&N
+&+wdismal despair.&N
+~
+33562696 1 0 0 268501288 0 0 0 -1000 S
+H 0 1 0 4
+23 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42957
+hook horror large~
+&+wa &+Lhook horror&N~
+&+LA large hook horror dwells here in search of prey.&N
+~
+&+w   This creature stands over nine feet in total height.  The being has a very&N
+&+wtough looking mottled grey exoskeleton.  The monster almost appears to be some&N
+&+wsort of hellish &+Linsect&+w.  The limbs of this entity are sharp pointed hooks that&N
+&+whave spects of red upon them.  The head is shaped like that of a vulture and a&N
+&+whooked beak creates the nose.  Eyes stare back from a heart filled only with&N
+&+wdismal despair.&N
+~
+33562698 1 0 0 269549864 0 0 0 -1000 S
+PB 0 1 0 4
+27 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42958
+rankar ravenous~
+&+La &+rravenous &+Lrankar&N~
+&+LA &+rravenous &+Lrankar wanders this abysmal dismal place.&N
+~
+&+L   This pitch black colored creature has diabolical fury fangs &+rd&+Ro&+rt&+Rt&+re&+Rd &+Lby stains&N
+&+Lof crimson &+wd&+Lr&+wead&+L.  A dealer of death, fate hated beast, killing all that it can&N
+&+Lwithout mercy.  Vicious sharp claws extend from muscular hairy legs.  Demonical&N
+&+Lgaze penetrates the &+Cs&+co&+Cu&+cl&+Cs &+Lof the feeble lost.  Hatred is the only instinct this&N
+&+Lvile noctambulant entity knows.&N
+~
+1107441736 1 0 0 65544 2 0 0 1000 S
+A 0 1 0 2
+9 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#42959
+snardval beast diabolical~
+&+La &+rsn&+Ra&+rrdv&+Ra&+rl&N~
+&+LA diabolical beast lurks within this dismal abysmal ghastly place.&N
+~
+&+L   Eyes filled with &+rhat&+Rr&+re&+Rd &+Lgaze from a scorn filled satanic &+Cs&+co&+Cu&+cl&+L.  Glare that&N
+&+Lfills all with diabolical demonical despair.  Fangs &+rd&+Ro&+rt&+Rt&+re&+Rd &+Lby crimson &+rs&+Re&+rr&+Rp&+re&+Rn&+rt&N
+&+Lspun &+bd&+Lr&+bead&+L.  Razor sharp claws extend from horrid pain stained hands.  Remnants&N
+&+Lof the past mark dreary hell forged fate bringers.  Skin devoid of any colors,&N
+&+Lprotecting a black uncaring heathen heart.&N
+~
+33699914 1 0 0 65816 2 0 0 1000 S
+RA 0 1 0 3
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42960
+snardval beast diabolical~
+&+La &+rsn&+Ra&+rrdv&+Ra&+rl&N~
+&+LA diabolical beast lurks within this dismal abysmal ghastly place.&N
+~
+&+L   Eyes filled with &+rhat&+Rr&+re&+Rd &+Lgaze from a scorn filled satanic &+Cs&+co&+Cu&+cl&+L.  Glare that&N
+&+Lfills all with diabolical demonical despair.  Fangs &+rd&+Ro&+rt&+Rt&+re&+Rd &+Lby crimson &+rs&+Re&+rr&+Rp&+re&+Rn&+rt&N
+&+Lspun &+bd&+Lr&+bead&+L.  Razor sharp claws extend from horrid pain stained hands.  Remnants&N
+&+Lof the past mark dreary hell forged fate bringers.  Skin devoid of any colors,&N
+&+Lprotecting a black uncaring heathen heart.&N
+~
+33699914 1 0 0 65816 2 0 0 1000 S
+RA 0 1 0 3
+34 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42961
+snardval beast diabolical~
+&+La &+rsn&+Ra&+rrdv&+Ra&+rl&N~
+&+LA diabolical beast lurks within this dismal abysmal ghastly place.&N
+~
+&+L   Eyes filled with &+rhat&+Rr&+re&+Rd &+Lgaze from a scorn filled satanic &+Cs&+co&+Cu&+cl&+L.  Glare that&N
+&+Lfills all with diabolical demonical despair.  Fangs &+rd&+Ro&+rt&+Rt&+re&+Rd &+Lby crimson &+rs&+Re&+rr&+Rp&+re&+Rn&+rt&N
+&+Lspun &+bd&+Lr&+bead&+L.  Razor sharp claws extend from horrid pain stained hands.  Remnants&N
+&+Lof the past mark dreary hell forged fate bringers.  Skin devoid of any colors,&N
+&+Lprotecting a black uncaring heathen heart.&N
+~
+1107441738 1 0 0 65816 2 0 0 1000 S
+RA 0 1 0 3
+33 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42962
+rankar ravenous large~
+&+La large &+rravenous &+Lrankar&N~
+&+LA large &+rravenous &+Lrankar wanders this abysmal dismal place.&N
+~
+&+L   This pitch black colored creature has diabolical fury fangs &+rd&+Ro&+rt&+Rt&+re&+Rd &+Lby stains&N
+&+Lof crimson &+bd&+Lr&+bead&+L.  A dealer of death, fate hated beast, killing all that it can&N
+&+Lwithout mercy.  Vicious sharp claws extend from muscular hairy legs.  Demonical&N
+&+Lgaze penetrates the &+Cs&+co&+Cu&+cl&+Cs &+Lof the feeble lost.  Hatred is the only instinct this&N
+&+Lvile noctambulant entity knows.&N
+~
+1107441736 1 0 0 65544 2 0 0 1000 S
+A 0 1 0 3
+13 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#42963
+yngve aarseth merchant dead~
+&+LY&+gngv&+Le Aa&+grs&+Le&+gth&N~
+&+LY&+gngv&+Le Aa&+grs&+Le&+gth &+Llurks here waiting to buy and trade merchandise.&N
+~
+&+g   This creature stands well over eight feet in total actual height.  His eyes&N
+&+gstare from sockets of &+Ldespair &+gwith a gloomy glare beyond any hope of repair.&N
+&+gTwisted &+Lraven &+ghair flows down past muscular shoulders ending near the small&N
+&+gof the back.  The being seems to be a &+Lmerchant &+gof some sort, buying as well as&N
+&+gselling several diffrent types of objects and even rare kinds of &+Gpl&+ga&+Gn&+gt&+Gs&+g.&N
+~
+33978378 0 0 0 1640520 262146 0 0 -666 S
+PT 0 1 0 5
+24 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+>>>>>>> master

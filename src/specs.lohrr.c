@@ -44,7 +44,7 @@ void proc_lohrr( P_obj obj, P_char ch, int cmd, char *argument )
       break;
    }
 }
-
+/*
 // It's a percentage chance to make them attack a few extra times.
 // It's size dependdent: < medium = 10, medium/large = 6, > large = 4
 int dagger_of_wind( P_obj obj, P_char ch, int cmd, char *argument )
@@ -87,8 +87,17 @@ int dagger_of_wind( P_obj obj, P_char ch, int cmd, char *argument )
    }
    return TRUE;
 }
+<<<<<<< HEAD
 
 // Proc for object vnum SPHINX_CROWN.
+=======
+*/
+// Alright, so... I made a first attempt at trying to hack some code together and
+//  wanted to see if I did it correct. I'm going to cut/paste the proc I put together.
+// Basicly, what I was intending, is for a proc that works on command, with a cooldown
+//  (yea, the current cooldown is to fast for this item, but i can tweak)... lemme know
+//  if it looks right, or what needs to change...
+>>>>>>> master
 int sphinx_prefect_crown( P_obj obj, P_char ch, int cmd, char *arg )
 {
    int curr_time;

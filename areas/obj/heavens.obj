@@ -1552,7 +1552,7 @@ totem pinewood raven~
 &+ya small pinewood raven totem&n~
 &+yA small raven totem lies here.&n~
 ~
-34 6 2 2 7 0 1024 16385 64 37883812 0
+34 6 2 2 7 0 1032 16385 64 37883812 0
 1 0 0 0 0 0 0 0
 2 392 100 0
 #106
@@ -1560,7 +1560,7 @@ totem limestone stone~
 &+ga small limestone totem&n~
 &+gA small limestone totem lies here.&n~
 ~
-34 39 2 2 7 0 1024 16385 64 37883812 0
+34 39 2 2 7 0 1032 16385 64 37883812 0
 4 0 0 0 0 0 0 0
 3 493 100 0
 #107
@@ -1568,7 +1568,7 @@ totem ivory~
 &+Wa small ivory totem&n~
 &+WA small ivory totem lies here.&n~
 ~
-34 34 2 2 7 0 1024 16385 64 37883812 0
+34 34 2 2 7 0 1032 16385 64 37883812 0
 16 0 0 0 0 0 0 0
 2 594 100 0
 #108
@@ -2400,7 +2400,7 @@ spellbook book spell~
 &+ya spellbook&n~
 A spellbook lies here, discarded.~
 ~
-33 28 2 1 7 0 0 16385 0 0 0
+33 28 2 1 7 0 8 16385 0 0 0
 0 0 80 0 0 0 0 0
 1 20 100 0
 #204
@@ -2408,7 +2408,7 @@ quill~
 a quill~
 A quill lies here, discarded.~
 ~
-21 5 1 1 7 0 0 16385 0 0 0
+21 5 1 1 7 0 8 16385 0 0 0
 0 0 0 0 0 0 0 0
 1 10 100 0
 #205
@@ -3029,7 +3029,7 @@ sword bastard steel~
 &+La steel bastard sword&N~
 &+LA steel bastard sword lies discarded here.&N~
 ~
-5 16 3 10 7 0 1024 8193 0 87572571 0
+5 16 3 10 7 0 1032 8193 0 87572571 0
 5 1 8 3 0 0 0 0
 10 2500 100 0
 #281
@@ -3037,7 +3037,7 @@ sword broad steel~
 &+La steel broad sword&N~
 &+LA steel broad sword has been tossed aside here.&N~
 ~
-5 16 3 10 7 0 0 8193 0 4198895524 0
+5 16 3 10 7 0 8 8193 0 4198895524 0
 5 1 8 3 0 0 0 0
 4 1000 100 0
 #282
@@ -3045,7 +3045,7 @@ sword khopesh steel curved~
 &+wa khopesh sword&N~
 &+wA steel sword with an unusual curved blade lies here.&N~
 ~
-5 16 3 10 7 0 1024 8193 0 87572571 0
+5 16 3 10 7 0 1032 8193 0 87572571 0
 5 1 8 3 0 0 0 0
 7 1000 100 0
 #283
@@ -3053,7 +3053,7 @@ sword long steel~
 &+wa steel long sword&N~
 &+wA steel long sword has been left here.&N~
 ~
-5 16 3 10 7 0 8192 8193 0 4198895524 0
+5 16 3 10 7 0 8200 8193 0 4198895524 0
 5 1 8 3 0 0 0 0
 4 1500 100 0
 #284
@@ -3069,7 +3069,7 @@ sword steel short~
 &+wa steel short sword&N~
 &+wA steel short sword lies discarded here.&n~
 ~
-5 16 2 10 7 0 0 8193 0 4198895524 0
+5 16 2 10 7 0 8 8193 0 4198895524 0
 9 1 6 11 0 0 0 0
 3 1000 100 0
 #286
@@ -3077,7 +3077,7 @@ sword two-handed steel two handed~
 &+La two-handed sword&N~
 &+LA two-handed sword, nearly six feet in length, lies here.&N~
 ~
-5 16 4 15 7 0 4195328 8193 0 87572571 0
+5 16 4 15 7 0 4195336 8193 0 87572571 0
 13 2 8 3 0 0 0 0
 15 5000 100 0
 #287
@@ -3093,7 +3093,7 @@ warhammer hammer steel~
 &+La steel warhammer&n~
 &+LA warhammer with a sturdy-looking steel head lies here.&N~
 ~
-5 16 3 8 7 0 0 8193 0 4173708804 0
+5 16 3 8 7 0 8 8193 0 4173708804 0
 4 1 6 6 0 0 0 0
 6 200 100 0
 #289
@@ -3146,7 +3146,7 @@ bass _fishing_~
 &+ca large bass&n~
 &+cA large bass lies here flapping weakly.&n~
 ~
-19 2 3 0 5 0 8388608 1 0 0 0
+19 2 3 0 5 0 0 1 0 0 0
 18 9 9 0 3 3 0 0
 0 0 100 0
 #294
@@ -3154,7 +3154,7 @@ piranha _fishing_~
 &+ra piranha&n~
 &+rA small piranha lies here quite dead.&n~
 ~
-19 2 3 0 5 0 8388608 1 0 0 0
+19 2 3 0 5 0 0 1 0 0 0
 9 10 9 0 0 0 5 0
 0 0 100 0
 #295
@@ -3162,7 +3162,7 @@ cod _fishing_~
 &+Wa medium sized cod&n~
 &+WA medium sized cod lies here.&n~
 ~
-19 2 3 0 5 0 8388608 1 0 0 0
+19 2 3 0 5 0 0 1 0 0 0
 10 7 7 0 0 0 4 0
 0 0 100 0
 #296
@@ -3357,7 +3357,7 @@ pike _fishing_~
 &+ca large pike fish&n~
 &+cA large pike lies here.&n~
 ~
-19 2 3 0 5 0 8388608 1 0 0 0
+19 2 3 0 5 0 0 1 0 0 0
 12 6 8 0 2 0 0 2
 0 100 100 0
 #319
@@ -3365,7 +3365,7 @@ impressive lobster _fishing_~
 an &+rimpressive &+Rlobster&n~
 &+rA red lobster crawls here snapping its claws.&n~
 ~
-19 2 3 0 5 0 8388608 1 0 0 0
+19 2 3 0 5 0 0 1 0 0 0
 15 8 6 0 0 5 0 0
 0 100 100 0
 #320
@@ -3453,7 +3453,7 @@ hairy crab _fishing_~
 &+ya large hairy crab&n~
 &+yA large hairy crab scurries to get away from you.&n~
 ~
-19 2 3 0 5 0 8388608 1 0 0 0
+19 2 3 0 5 0 0 1 0 0 0
 7 6 6 0 2 2 0 0
 0 0 100 0
 #331
@@ -3474,7 +3474,7 @@ shrimp _fishing_~
 a &+rlarge shrimp&n~
 &+rA large shrimp lies here dead as a bat.&n~
 ~
-19 15 3 0 5 0 8388608 1 0 0 0
+19 15 3 0 5 0 0 1 0 0 0
 4 8 6 0 0 0 3 0
 0 0 100 0
 #333
@@ -3482,7 +3482,7 @@ oyster _fishing_~
 &+wa large flat oyster&n~
 &+wA large flat &+Woyster &+wlies here on the ground.&n~
 ~
-19 15 3 0 5 0 8388608 1 0 0 0
+19 15 3 0 5 0 0 1 0 0 0
 4 8 6 0 0 3 0 1
 0 0 100 0
 #334
@@ -3490,7 +3490,7 @@ clam _fishing_~
 a &+ysmall clam&n~
 &+yA small clam lies here on the ground.&n~
 ~
-19 2 3 0 5 0 8388608 1 0 0 0
+19 2 3 0 5 0 0 1 0 0 0
 4 4 4 0 1 1 1 0
 0 100 100 0
 #335
@@ -3498,7 +3498,7 @@ mussel _fishing_~
 &+ba large &+Bmussel&n~
 &+bA large &+Bmussel&n lies here on the ground.&n~
 ~
-19 15 3 0 5 0 8388608 1 0 0 0
+19 15 3 0 5 0 0 1 0 0 0
 3 5 5 0 3 0 0 0
 0 0 100 0
 #336
@@ -3698,8 +3698,13 @@ perch _fishing_~
 &+cA perch lies on the ground, rotting.&n~
 ~
 19 2 3 0 5 0 0 1 0 0 0
+<<<<<<< HEAD
 10 0 0 2 0 0 0 0
 0 0 100 0
+=======
+10 0 0 0 0 0 0 0
+0 0 100
+>>>>>>> master
 #357
 beer bottle~
 &+ya bottle of stout beer&N~
@@ -4154,7 +4159,7 @@ torch wooden~
 &+Ya large wooden torch&N~
 &+YA large wooden torch has been discarded here.&N~
 ~
-1 6 3 8 7 0 0 16385 0 0 0
+1 6 3 8 7 0 8 16385 0 0 0
 0 0 12 0 0 0 0 0
 1 1 100 0
 #399
@@ -4481,7 +4486,7 @@ ring wispy astral unique~
 &+ca w&+Ci&+cs&+Cp&+cy &+Cas&+ctr&+Cal&+c-&+Ctw&+cin&+Ced &+mmin&+Md&+Cs&+Mt&+mone &+cr&+Ci&+cn&+Cg&n~
 &+CA vaporous metallic ring was left here.&n~
 ~
-9 1 3 0 15 0 271590408 540675 0 262276 0
+9 1 3 0 15 0 271590408 540675 0 33816708 0
 100 0 0 0 0 0 0 0
 1 0 100 100 402653184 0 128 0
 E
@@ -4557,7 +4562,23 @@ canoe~
 ~
 22 6 4 30 7 0 8200 1 0 0 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 65 4000 100 0
+=======
+65 4000 100
+#430
+holy flamberge efreeti sword~
+&+rthe holy flamberge of the efreeti&n~
+&+ra gigantic flamberge of pure flames rests here, searing the ground&n~
+~
+5 18 5 0 15 0 272900361 8193 64 0 0
+13 8 4 0 0 0 0 0
+5 0 100 805306384 0 0 4194304
+A
+18 8
+A
+19 8
+>>>>>>> master
 #431
 raft~
 &+ya small wooden raft&n~
@@ -5557,9 +5578,15 @@ crystal crystalline chatkcha~
 &+Wa crystalline chatkcha~
 &+WSomeone has left a crystalline chatkcha here.&N~
 ~
+<<<<<<< HEAD
 5 8 3 0 7 0 1025 8193 0 85458945 0
 9 1 4 0 0 0 0 0
 2 0 100 0
+=======
+5 8 3 0 7 0 1033 8193 0 85458945 0
+9 3 4 0 0 0 0 0
+2 0 100
+>>>>>>> master
 E
 chatkcha~
 &+WThis weapon is made of a crystalline substance that
@@ -5624,7 +5651,7 @@ bag rabbit skin~
 &+Wa small bag made from rabbit skin&N~
 &+WA small bag made from rabbit skin lies crumpled here.&n~
 ~
-15 12 3 3 7 0 0 16385 0 0 0
+15 12 3 3 7 0 8 16385 0 0 0
 30 1 0 50 0 0 0 0
 2 0 100 0
 #604
@@ -5704,7 +5731,7 @@ bag snakeskin skin snake~
 &+ga large snakeskin bag&N~
 &+gA large bag made from snakeskin lies here.&N~
 ~
-15 12 3 8 7 0 0 16385 0 0 0
+15 12 3 8 7 0 8 16385 0 0 0
 50 1 0 120 0 0 0 0
 2 0 100 0
 #614
@@ -6085,7 +6112,7 @@ hammer warhammer stone~
 &+La stone warhammer&N~
 &+LA sturdy warhammer with a head of greyish stone lies here.&N~
 ~
-5 11 3 8 7 0 0 8193 0 4169510912 0
+5 11 3 8 7 0 8 8193 0 4169510912 0
 4 1 6 6 0 0 0 0
 12 50 100 0
 #677
@@ -6093,7 +6120,7 @@ mace wooden gnoby wood~
 &+ya small wooden mace&N~
 &+yA gnoby piece of wood, perhaps a small mace, lies here.&N~
 ~
-5 6 3 8 7 0 8192 8193 0 0 0
+5 6 3 8 7 0 8200 8193 0 0 0
 6 1 6 7 0 0 0 0
 2 0 100 0
 #678
@@ -6333,7 +6360,7 @@ jerkin alligator skin skins shabby~
 &+ga shabby alligator skin jerkin&N~
 &+gA shabby looking jerkin of alligator skins has been discarded here.&N~
 ~
-9 12 3 8 7 0 8192 9 0 0 0
+9 12 3 8 7 0 8200 9 0 0 0
 4 3 1 3 0 0 0 0
 5 100 100 0
 #707
@@ -6533,7 +6560,7 @@ scarf blue woolen thick~
 &+Ba light blue scarf&N~
 &+BA thick blue woolen scarf has been tossed aside here.&N~
 ~
-11 3 3 3 7 0 0 5 0 0 0
+11 3 3 3 7 0 8 5 0 0 0
 0 0 0 4 0 0 0 0
 1 80 100 0
 #732
@@ -6565,7 +6592,7 @@ rod amber amber-colored metallic~
 &+yan amber-colored rod&N~
 &+yAn amber-colored metallic rod lies here.&N~
 ~
-5 15 3 4 7 0 0 8193 0 0 0
+5 15 3 4 7 0 8 8193 0 0 0
 10 1 6 7 0 0 0 0
 2 300 100 0
 #750
@@ -7332,7 +7359,7 @@ potion magic missile~
 ~
 #900
 blue ioun stone~
-&+Ma bright purple ioun stone&n~
+&+ma br&+Mig&+Wht &+mpurple ioun stone&n~
 &+MA bright purple stone floats here.&n~
 ~
 11 11 10 0 15 0 268435456 268435457 0 0 0
@@ -7373,7 +7400,7 @@ yellow ioun stone~
 0 0 0 0 0 0 0 0
 0 0 100 0
 A
-32 15
+32 25
 #904
 red ioun stone~
 &+ra dark red ioun stone&n~
@@ -7487,7 +7514,7 @@ oval blue ioun stone~
 0 0 0 0 0 0 0 0
 0 0 100 0
 A
-58 -2
+31 25
 #916
 glowing white ioun stone~
 &+Wa glowing white ioun stone&N~
@@ -7697,7 +7724,7 @@ large two handed two-handed twohanded sword~
 &+Wa large two-handed sword&N~
 &+WA large two-handed sword has been left here.&N~
 ~
-5 16 3 4 7 0 4203528 24577 0 67108872 0
+5 16 3 4 7 0 4203528 24577 0 67108889 0
 13 2 9 3 0 0 0 0
 4 1 100 0
 #1111
@@ -8749,7 +8776,7 @@ wooden lyre instrument~
 &+ya plain wooden lyre&N~
 &+yA small wooden lyre is here.&N~
 ~
-32 6 3 0 7 0 1024 16385 0 8421920 0
+32 6 3 0 7 0 1032 16385 0 8421920 0
 185 1 1 1 0 0 0 0
 0 1 100 0
 E

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #10600
 huge orc guard~
 &+Ya huge orc guard&n~
@@ -379,3 +380,386 @@ PD 0 0 0 -1
 9 18 71 9d18+31 2d3+1
 4.3.0.0 1166
 8 8 1
+=======
+#10600
+huge orc guard~
+&+Ya huge orc guard&n~
+&+YA huge orc guard is here watching the entrance.&n
+~
+&+yThis massive specimen of the orcish race wears rotting leather armor
+&+yand wields a nasty looking club. He watches the tunnel carefully, legs
+&+yspread and arms ready to keep anyone unwanted away.&n
+~
+100669442 1 0 0 40 0 0 0 -850 S
+HO 0 1 0 -1
+25 11 19 25d47+250 3d5+3
+6.2.6.1 22275
+8 8 1
+#10601
+smelly orc guard~
+&+ya smelly orc guard&n~
+&+yA large, smelly orc guard stands here.&n
+~
+&+yThis orc stands at seven feet, and sports a muscular frame, looking ready
+&+yto deal with any intruders that cause trouble within his home. Large tusks,
+&+ysharpened to a fine point, jut out from his lower jaw.&n
+~
+1174411332 1 0 0 33554436 0 0 0 -900 S
+HO 0 1 0 -1
+15 15 51 15d27+90 2d5+2
+7.6.2.0 7290
+8 8 1
+#10602
+lost gnome~
+&+Ra lost gnome&n~
+&+RA lost gnome shivers here, trying to find a way out.&n
+~
+&+RLosing its way from the rest of the group, this gnome is far from home.
+&+RFrantically looking in every direction, the gnome tries to find the exit. He
+&+Rlooks scratched, as though he has run into a few &+Lnasty &+Rchracters on his
+&+Rlittle journey.&n
+~
+212 0 0 0 34078720 0 0 0 500 S
+PG 0 0 0 -1
+7 18 77 7d18+24 2d3+1
+3.2.0.0 907
+8 8 1
+#10603
+fat orc cook~
+&+ga fat orcish cook&n~
+&+gA fat orc stands here, cooking and eating at the same time.&n
+~
+&+yMassive and taking up a large portion of the area, this cook looks like
+&+yhe has never left the kitchen. He doesn't notice anything, other than his
+&+yprecious food. Drool drips from his chin as he shuffles about, living his
+&+ybountiful life.&n
+~
+6 0 0 0 33587200 1088 0 0 -400 S
+HO 0 16384 0 -1
+20 13 35 20d35+140 3d4+2
+0.9.3.0 9720
+8 8 1
+#10604
+large orc warrior~
+&+Ban orcish warrior&n~
+&+BA large orc stands here and growls at nothing in particular.
+~
+&+bRed eyes glaring, mouth drooling, this orc does not seem very friendly.
+&+bStrong muscles and two huge fists can surely deal out harsh blows. Six feet
+&+btall and full of aggressiveness, this orc looks ready to battle.&n
+~
+2114 64 0 0 33554432 0 0 0 -900 S
+HO 0 1 0 -1
+18 13 42 18d35+126 3d4+2
+9.7.3.0 8748
+8 8 1
+#10605
+drevch~
+&+Ma drevch&n~
+&+mA drevch scuttles around here, attracted by the blood.
+~
+&+mTiny with ten legs and a long, thin snout, this creature can usually be
+&+mfound in places with blood underground. Eyeless, it feels and smells its way
+&+maround. A hard shell covers the top of its body.&n
+~
+33554514 0 0 0 571473920 13504 0 0 0 S
+I 0 0 0 -1
+1 20 96 1d15+4 1d5+0
+0.0.0.0 129
+8 8 0
+#10606
+orc shaman~
+&+ban orcish shaman&n~
+&+bA wise, old shaman stands here, performing some sort of ritual.&n
+~
+&+yStanding at five and a half feet, and hunched over, this orc seems no more
+&+ythan an old geezer, waiting to die. But in his eye is an evil glint that
+&+ysuggests hidden intelligence and a deadly cunning. Covered with a tattered
+&+yrobe and various amulets and talismans, the shaman looks as though he knows
+&+ya spell or two.&n
+~
+33556546 1 0 0 33554476 0 0 0 -950 S
+HO 0 256 0 -1
+40 2 -28 40d88+880 4d7+10
+3.3.3.3 51840
+8 8 1
+#10607
+drunk orc~
+&+ma drunk orc&n~
+&+mAn orc lies here on the floor, snoring and drooling.&n
+~
+&+gHaving passed out while drinking, this orc looks like he's not going to
+&+gwake up for quite some time. His pig-like nostrils flare as he snores loudly,
+&+gprobably dreaming about some orcish fantasy.&n
+~
+80 0 0 0 33554432 1024 0 0 -750 S
+HO 0 0 0 -1
+11 15 64 11d23+44 2d5+2
+5.4.1.0 5346
+4 4 1
+#10608
+guard orc~
+&+ran orc guard&n~
+&+rAn orc guard stands here, watching over the great hall.&n
+~
+&+LLarge and buff, this guard watches over the great hall, making sure there
+&+Lisn't anyone here alive who thinks killing a drunken orc is fun. Glaring
+&+Lconstantly and keeping an eye on everything, he waits for anyone to make
+&+La mistake.&n
+~
+100663362 1 0 0 33554464 0 0 0 -1000 S
+HO 0 1 0 -1
+25 11 19 25d47+250 3d5+3
+6.2.6.1 22275
+8 8 1
+#10609
+rekrok massive orc slavemaster~
+&+RRekrok the slavemaster&n~
+&+RA massive orc stands here, watching over the slaves.&n
+~
+&+rStanding at an amazing nine feet tall, this orc is much larger than the
+&+raverage orc. Wearing a leather loin-cloth and spiked bracers, this orc keeps
+&+rthe slaves in line, and watches for any that might try to escape. Hair up
+&+rin a pony tail, hanging down to the middle of his back, and the rest of
+&+rhis head is bald.&n
+~
+1174407234 1 0 0 33628200 0 0 0 -1000 S
+HO 0 1 0 -1
+39 2 -24 39d95+897 4d7+10
+2.2.3.2 50544
+8 8 1
+#10610
+derro slave~
+&+Wa derro slave&n~
+&+WA derro slave is here, chained to the wall.&n
+~
+Captured by the orcs, this poor derro have been forced to serve them. Its
+hair is all white, and it is a bit smaller than the duergar, but the same in
+all other respects. Both wrists are chained to the wall. He has been put here
+until the orcs need him for a job, or to work below.
+~
+33556562 0 0 0 33554432 1024 0 0 -500 S
+PD 0 1 0 -1
+9 18 71 9d21+49 2d3+1
+4.3.0.0 1166
+8 8 1
+#10611
+goblin slave~
+&+Ga goblin slave&n~
+&+GA goblin slave stands here, red eyes glaring.&n
+~
+&+GScratched and bruised, the goblin slave is chained to the wall, probably
+&+Gfor trying to run away. Red eyes glaring, and arms writhing in their shackles
+&+Ghe tugs away from the wall futilely.&n
+~
+33560642 64 0 0 0 0 0 0 -995 S
+HG 0 0 0 -1
+8 18 74 8d18+28 2d3+1
+4.2.0.0 1036
+8 8 1
+#10612
+gnome slave~
+&+Ra gnome slave&n~
+&+RA gnome slave is here, sitting on the dirty floor.&n
+~
+&+RCaptured by the orcs, the gnome is being forced to work, or being saved
+&+Rfor food. Short, with no hair, he sits on the floor, waiting to die. A large
+&+Rbruise is on his forehead, probably having been knocked out by an orc and
+&+Rcarried into the settlement.&n
+~
+33560642 0 0 0 33554432 0 0 0 0 S
+PG 0 0 0 -1
+7 18 77 7d18+24 2d3+1
+3.2.0.0 907
+6 6 1
+#10613
+hungry orc~
+&+ya hungry orc&n~
+&+yA hungry orc scrounges around here, looking for more food.&n
+~
+&+gDrool dripping down his chin, he looks around everywhere for food. Hands
+&+gdirty, and gripping a recently chewed on bone, he ignores everything except
+&+gthe location of a new meal.&n
+~
+6208 0 0 0 33554432 0 0 0 -800 S
+HO 0 0 0 -1
+13 15 58 13d23+52 2d5+2
+6.5.2.0 6318
+8 8 1
+#10614
+deadly basilisk~
+&+La deadly basilisk&n~
+&+LA deadly basilisk prowls around here.&n
+~
+&+gLike a large, scaled lizard, the length of this beast is approximately
+&+gtwenty feet long, and its height nine. Its tongue flicks out occaisionally,
+&+gsmelling for prey or intruders. Huge eyes alert and ready to stare down its
+&+gvictim and turn it to stone. Small, flat spikes run down the length of its
+&+gbody, from the top of its head to the end of its tail.&n
+~
+1107298368 760 0 0 570458168 4288 0 0 -1000 S
+AC 0 1 0 -1
+33 6 -5 33d83+561 4d6+7
+0.0.0.0 42768
+8 8 0
+#10615
+chief pragtog~
+&+rChief Pragtog&n~
+&+rPragtog lies here among his pillows, enjoying his orcish women.&n
+~
+   &+rLarge and bulky, it is easy to see why Pragtog is the chief. Nasty scars
+&+rtrace patterns across his malicious looking face. Wearing stone-plate armor,
+&+rand wielding a huge broadsword, he wouldn't be one to take on alone. His hair
+&+ris braided and tattoos cover his arms, shoulders and neck.&n
+~
+1174411330 1 0 0 570531900 12480 0 0 -1000 S
+HO 0 1 0 -1
+53 -5 -104 53d131+4505 7d6+30
+8.0.6.6 214650
+8 8 1
+#10616
+dwarven slave dwarf~
+&+Ya dwarf slave&n~
+&+YA dwarven slave is here, chipping away at the tunnels with a pick&n
+~
+&+YShort and stout, this slave is ideal for cutting away new tunnels for the
+&+Yorc, because of his being a dwarf. Long beard almost reaching the ground and
+&+ya bad temperment creasing his face, he works furiously, venting out his anger
+&+Yon the stone. He waits for an opportunity to escape, but in the meantime, he
+&+Yworks.&n
+~
+6210 0 0 0 33554432 0 0 0 900 S
+PM 0 1 0 -1
+12 15 61 12d27+72 2d5+2
+6.4.2.0 5832
+8 8 1
+#10617
+female woman orc~
+&+Man orc female&n~
+&+MAn orc female lies here for Pragtog.&n
+~
+   &+mNaked and pretty ugly, this orc woman is here for Progtog. Lounging on the
+&+mpillows in Pragtog's domain, she endures the cruelty of Pragtog in exchange
+&+mfor her life.&n
+~
+6354 0 0 0 33554432 0 0 0 -500 S
+HO 0 0 0 -1
+10 18 67 10d18+35 2d3+1
+5.3.0.0 1296
+5 5 2
+#10618
+evil orc~
+&+Lan evil orc&n~
+&+LAn evil orc is here, whipping the slaves into action.&n
+~
+&+LFilled with evil intent, this orc whips the slaves into work, giving any
+&+Lwho falls behind many lashes of his long, leather whip. Dressed in black
+&+Lleather boots and armor, he keeps an eye out for slackers.&n
+~
+67115074 1 0 0 33554448 0 0 0 -1000 S
+HO 0 1 0 -1
+24 11 23 24d47+240 3d5+3
+6.1.6.0 21384
+8 8 1
+#10619
+goblin slave~
+&+ra goblin slave&n~
+&+rA goblin slave cowers here.&n
+~
+&+rRagged clothes slashed where the whip has struck him, this goblin trembles
+&+rat the sight of any orc. Feeble hands grip the handle of a small pick, but
+&+rfear prevents him from doing any work.&n
+~
+6338 0 0 0 33554432 0 0 0 -1000 S
+HG 0 0 0 -1
+6 18 80 6d18+21 2d3+1
+3.2.0.0 777
+8 8 1
+#10620
+mimic mushroom purple blue~
+&+ma small mimic&n~
+&+gA &+mpurple &+gand &+Bblue &+gmushroom is here.&n
+~
+&+gThis small mushroom suddenly opens a mouth and snarls at your presence. It
+&+graises the suspicion that this ISN'T a mushroom.&n
+~
+66 0 0 0 34603008 0 0 0 0 S
+A 0 0 0 -1
+10 18 67 10d18+35 2d3+1
+0.0.0.0 1296
+8 8 0
+#10621
+spirit guardian glowing~
+&+Wa guardian spirit&n~
+&+WThe shimmering form of a spirit floats here, waiting for something.&n
+~
+&+WA spirit in the shape of a beautiful woman floats here, placed as a
+&+Wguardian of something. Its origin is unknown and it watches you impassively.
+&+WTransparent, you can see the other side of the room through her. Perhaps she
+&+Wis connected somehow to the glowing runes in the floor?&n
+~
+33554497 0 0 0 704749628 14528 0 0 1000 S
+UG 0 32 0 -1
+50 -3 -105 50d110+2700 6d6+25
+0.0.0.0 121500
+8 8 2
+#10622
+umber hulk umberhulk~
+&+Can umber hulk&n~
+&+CAn umber hulk is here, hunting for food.&n
+~
+&+cWith massive iron like claws, this creature is able to burrow through
+&+csolid stone in its search for food. standing 8ft high and over 5ft wide,
+&+cit is something not to run into unaware. Sharp mandibles on either side
+&+cof its gaping maw of pointed teeth, and a hard chitinous shell, it
+&+cresembles a large beetle on steroids that stands on two legs.&n
+~
+33560640 760 0 0 570531880 0 0 0 -750 S
+AC 0 1 0 -1
+37 2 -18 37d95+851 4d7+10
+0.0.0.0 47952
+8 8 0
+#10623
+angry trapped ghost~
+&+Wa trapped ghost&n~
+&+WA ghost floats by here, angry and frustrated.&n
+~
+&+WIn the shape of a tall, robed man with a beard down to his chest, this
+&+Wghost could possibly be someone who had died a terrible death in this very
+&+Wroom. It wanders about, forever lonely and enraged by its demise.&n
+~
+1107429440 760 0 0 33628268 4160 0 0 -800 S
+UG 0 2048 0 -1
+40 2 -38 40d64+840 4d7+10
+0.0.0.0 51840
+8 8 1
+#10624
+thief lurking~
+&+ra lurking thief&n~
+&+rA thief is here, looking for treasure.&n
+~
+&+LCarrying a small black bag, this thief has gotten far to be within these
+&+Lhalls. Here to find anything of value, he tries to stay concealed while
+&+Lhe prowls along these corridors. Dressed completely in black, he almost
+&+Lblends into the walls.&n
+~
+1073748166 760 0 0 34603040 0 0 0 -900 S
+PL 0 4096 0 -1
+45 13 35 20d30+100 3d4+2
+0.9.3.0 9720
+8 8 1
+#10625
+duergar slave~
+&+La duergar slave&n~
+&+LA duergar slave is lost here, muttering.&n
+~
+&+rDressed in torn and dirty clothing, this slave has lost his way after
+&+rescaping from the orcs. Confused and muttering the whole time, it continues
+&+rto wander around the tunnels.&n
+~
+4308 1 0 0 33554432 0 0 0 -600 S
+PD 0 0 0 -1
+9 18 71 9d18+31 2d3+1
+4.3.0.0 1166
+8 8 1
+>>>>>>> master

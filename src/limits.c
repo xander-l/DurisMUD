@@ -57,11 +57,14 @@ extern int get_innate_regeneration(P_char);
 extern P_index mob_index;
 struct mm_ds *dead_trophy_pool = NULL;
 extern struct race_names race_names_table[];
+extern void update_racial_skills(P_char);
 
 long      new_exp_table[TOTALLVLS];
 long     global_exp_limit;
 
 void     checkPeriodOfFame(P_char ch, char killer[1024]);
+void     advance_skillpoints( P_char ch );
+void     demote_skillpoints( P_char ch );
 
 #if 0
 #   define READ_TITLE(ch) (GET_SEX(ch) == SEX_MALE ?   \
@@ -186,10 +189,12 @@ int mana_regen(P_char ch)
     if (GET_CHAR_SKILL(ch, SKILL_ADVANCED_MEDITATION) >= 90)
     {
       gain = (int) (gain * 2.5);
+              notch_skill(ch, SKILL_ADVANCED_MEDITATION, 50);
     }
     else
     {
       gain *= 2;
+             notch_skill(ch, SKILL_ADVANCED_MEDITATION, 50);
     }
   }
   */
@@ -283,6 +288,7 @@ int hit_regen(P_char ch)
 
   if (IS_AFFECTED4(ch, AFF4_REGENERATION) ||
       has_innate(ch, INNATE_REGENERATION) ||
+      (has_innate(ch, INNATE_WOODLAND_RENEWAL) && (world[ch->in_room].sector_type == SECT_FOREST)) ||
       has_innate(ch, INNATE_ELEMENTAL_BODY))
     gain += get_innate_regeneration(ch);
 
@@ -302,18 +308,31 @@ int hit_regen(P_char ch)
         break;
     if (af)
       ;
+<<<<<<< HEAD
     else if(IS_AFFECTED4(ch, AFF4_REGENERATION))
       if(GET_RACE(ch) == RACE_TROLL)
         gain += 6;
       else
         gain >> 1;
+=======
+    else if (IS_AFFECTED4(ch, AFF4_REGENERATION))
+      gain >>= 1;
+    else if (has_innate(ch, INNATE_WOODLAND_RENEWAL) && (world[ch->in_room].sector_type == SECT_FOREST)) //can regen in battle in forest - Drannak
+	gain >>= 1;
+>>>>>>> master
     else
       gain = 0;
   }
+
   
   if (has_innate(ch, INNATE_VULN_SUN) && IS_SUNLIT(ch->in_room) &&
+<<<<<<< HEAD
      !IS_TWILIGHT_ROOM(ch->in_room))
     gain = -5; // wipe2011, was 0
+=======
+     !IS_TWILIGHT_ROOM(ch->in_room) && !IS_AFFECTED4(ch, AFF4_GLOBE_OF_DARKNESS))
+    gain = 0;
+>>>>>>> master
 
   if (IS_AFFECTED3(ch, AFF3_SWIMMING) || IS_AFFECTED2(ch, AFF2_HOLDING_BREATH)
       || IS_AFFECTED2(ch, AFF2_IS_DROWNING))
@@ -651,17 +670,28 @@ void advance_level(P_char ch, bool bypass)
   }
   
   /* level out skills */
+#ifdef SKILLPOINTS
+  advance_skillpoints( ch );
+#else
   update_skills(ch);
+#endif
 
+<<<<<<< HEAD
   if(GET_LEVEL(ch) == 21 && !IS_NEWBIE(ch)) 
   {
+=======
+  update_racial_skills(ch);
+
+/*
+  if (GET_LEVEL(ch) == 21 && !IS_NEWBIE(ch) ) {
+>>>>>>> master
     REMOVE_BIT(ch->specials.act2, PLR2_NCHAT);
-  }
+  }*/
 
   if(GET_LEVEL(ch) == 35) 
   {
     REMOVE_BIT(ch->specials.act2, PLR2_NEWBIE);
-    REMOVE_BIT(ch->specials.act2, PLR2_NCHAT);
+ //   REMOVE_BIT(ch->specials.act2, PLR2_NCHAT);
   }
 
   if(IS_PC(ch) && IS_GITHYANKI(ch) && (GET_LEVEL(ch) == 50) &&
@@ -671,7 +701,11 @@ void advance_level(P_char ch, bool bypass)
   if(IS_PC(ch) && (ch->only.pc->highest_level < GET_LEVEL(ch)))
     ch->only.pc->highest_level = GET_LEVEL(ch);
 
+<<<<<<< HEAD
   if(GET_LEVEL(ch) == get_property("exp.maxExpLevel", 45)) {
+=======
+  if ((GET_LEVEL(ch) == get_property("exp.maxExpLevel", 45)) && !IS_HARDCORE(ch) && (!GET_RACE(ch) == RACE_PLICH)) {
+>>>>>>> master
     char buf[512];
     sprintf(buf, 
         "You have gained a considerable amount of knowledge and experience, however",
@@ -736,7 +770,11 @@ void lose_level(P_char ch)
   ch->player.level = MAX(1, ch->player.level - 1);
   sql_update_level(ch);
 
+#ifdef SKILLPOINTS
+  demote_skillpoints(ch);
+#else
   update_skills(ch);
+#endif
 
   if (GET_LEVEL(ch) < MINLVLIMMORTAL)
     for (i = 0; i < 3; i++)
@@ -1271,13 +1309,28 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
 
   if (XP_final > 0)
   { 
-    for (int i = GET_LEVEL(ch) + 1;
+    if (IS_HARDCORE(ch) && (GET_LEVEL(ch) <= 55)) //Hardcores should level via exp only. - Drannak 11/30/12
+    {
+	  
+  	int i;
+     
+     	for (i = GET_LEVEL(ch) + 1;i <= 56 && (new_exp_table[i] <= GET_EXP(ch)); i++)
+  	{
+    	GET_EXP(ch) -= new_exp_table[i];
+    	advance_level(ch);
+  	}
+
+    }
+  else
+   {
+	for (int i = GET_LEVEL(ch) + 1;
         (i <= get_property("exp.maxExpLevel", 46)) && 
         (new_exp_table[i] <= GET_EXP(ch)); i++)
     {
       GET_EXP(ch) -= new_exp_table[i];
       advance_level(ch, FALSE);
     }
+   }
   }
   else
   {

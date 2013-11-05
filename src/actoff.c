@@ -463,8 +463,15 @@ int takedown_check(P_char ch, P_char victim, int chance, int skill,
   if((applicable & FOOTING) && 
     !HAS_FOOTING(ch))
   {
+    if(GET_RACE(ch) == RACE_W_ELEMENTAL && IS_PC_PET(ch) && IS_AFFECTED(ch, AFF_WATERBREATH) && GET_MASTER(ch)->player.spec == SPEC_WATER)
+	{
+	send_to_char("&+WYou are a water ele!\n", ch);
+	}
+    else
+	{
     send_to_char("You have no footing here!\n", ch);
     return TAKEDOWN_CANCELLED;
+	}
   }
 
   if((applicable & GHOST) &&
@@ -1524,7 +1531,8 @@ void do_charge(P_char ch, char *argument, int cmd)
     return;
   }
 
-  if(!has_innate(ch, INNATE_CHARGE))
+  if(!has_innate(ch, INNATE_CHARGE) ||
+     (IS_RIDING(ch) && (GET_CLASS(ch, CLASS_PALADIN) || (GET_CLASS(ch, CLASS_ANTIPALADIN)))))
   {
     lance_charge(ch, argument);
     return;
@@ -1630,6 +1638,13 @@ void do_charge(P_char ch, char *argument, int cmd)
     return;
   
   CharWait(ch, 2 * PULSE_VIOLENCE);
+
+    if (GET_VITALITY(ch) < 30)
+  {
+   send_to_char("You need to gather your energy before attempting to charge.\r\n", ch);
+   return;
+  }
+  GET_VITALITY(ch) -= 30;
   
   if(dir != -1)                /* try and move em */
   {
@@ -1683,7 +1698,7 @@ void do_charge(P_char ch, char *argument, int cmd)
     
     return;
   }
-  if(get_takedown_size(victim) < (get_takedown_size(ch) - 3))
+  if(get_takedown_size(victim) < (get_takedown_size(ch) - 2))
   {
     act("$n topples over $mself as $e tries to charge into $N.", FALSE, ch, 0, victim, TO_ROOM);
     act("$n topples over $mself as $e tries to charge into you.", FALSE, ch, 0, victim, TO_VICT);
@@ -1698,7 +1713,7 @@ void do_charge(P_char ch, char *argument, int cmd)
       SET_POS(ch, POS_KNEELING + GET_STAT(ch));
     }
     
-    engage(ch, victim);
+    //engage(ch, victim); - we charged, but why should we engage if we failed - Drannak
     return;
   }
 
@@ -1716,14 +1731,14 @@ void do_charge(P_char ch, char *argument, int cmd)
 
   percent_chance = (int) (percent_chance * ((double) BOUNDED(60, 100 + (GET_LEVEL(ch) - GET_LEVEL(victim)) * 2, 145)) / 100);
   
-  percent_chance = (int) (percent_chance * ((double) BOUNDED(60, 100 + (GET_C_DEX(ch) - GET_C_AGI(victim)) / 4, 145)) / 100);
+  percent_chance = (int) (percent_chance * ((double) BOUNDED(60, 100 + (GET_C_STR(ch) - GET_C_AGI(victim)) / 4, 145)) / 100);
   
-  percent_chance = (int) (percent_chance * ((double) BOUNDED(60, 100 + (get_takedown_size(victim) - get_takedown_size(ch)) * 5, 145)) / 100);
+ // percent_chance = (int) (percent_chance * ((double) BOUNDED(60, 100 + (get_takedown_size(victim) - get_takedown_size(ch)) * 5, 145)) / 100);
   
   percent_chance = (int) (percent_chance * ((GET_POS(victim) == POS_PRONE) ? 0.05 : (GET_POS(victim) != POS_STANDING) ? 0.15 : 1));
 
   if(IS_AFFECTED(victim, AFF_AWARE))
-    percent_chance = (int) (percent_chance * 0.50);
+    percent_chance = (int) (percent_chance * 0.80);
   
   if(affected_by_spell(victim, SPELL_GUARDIAN_SPIRITS))
   {
@@ -2958,6 +2973,263 @@ void do_combination(P_char ch, char *argument, int cmd)
       0, TO_CHAR);
 }
 
+//Drannak - Blade Barrage
+
+void event_barrage(P_char ch, P_char victim, P_obj obj, void *data)
+{
+  int      percent = 100, skill, stage = 0, dam = 0, move, result, skill_req;
+  struct damage_messages messages = {
+    0, 0, 0,
+    "...then you feign low and in a blur of speed leap into the air landing a swift roundkick to $S head.\n"
+      "$N topples to the ground, $s neck broken.",
+    "...then feigns low and in a blur of speed leaps into the air landing a swift roundkick to your head.\n"
+      "Your visions blurs as you topple to the ground, your neck broken.",
+    "...then feigns low and in a blur of speed leaps into the air and lands a swift roundkick to $S head.\n"
+      "$N topples to the ground, $s neck broken."
+  };
+
+  victim = ch->specials.fighting;
+  victim = guard_check(ch, victim);
+  affect_from_char(ch, SKILL_BLADE_BARRAGE);
+  if(!victim)
+  {
+    send_to_char("&+cYour opponent has escaped your deadly blade barrage.\n", ch);
+    return;
+  }
+
+  if(GET_POS(ch) < POS_STANDING)
+  {
+    send_to_char("&+cYou are unable to execute such a technique in your current position.\n", ch);
+    return;
+  }
+  
+  if(ch->in_room != victim->in_room)
+  {
+    send_to_char("&+cYour victim has escaped...\r\n", ch);
+    return;
+  }
+  
+
+  /* Ok, let's get it on! */
+  act("&+L$n &nbecomes a &+gF&+GL&+gu&+GR&+gr&+GY &nof &+Lweapons &nas they begin their onslaught...&n", TRUE, ch, 0, 0, TO_ROOM);
+  act("&nYou become a &+gF&+GL&+gu&+GR&+gr&+GY &nof &+Lweapons &nas you begin your onslaught&n...", TRUE, ch, 0, 0, TO_CHAR);
+
+  skill = GET_CHAR_SKILL(ch, SKILL_BLADE_BARRAGE);
+
+  if(!number(0, 30))
+  {
+    act("&+R$n attempts a fancy attack, but almost cuts $s fingers off in the process!",
+      FALSE, ch, 0, 0, TO_ROOM);
+    act("&+RYou attempt your blade barrage, but fail to execute the deadly attack!",
+      FALSE, ch, 0, 0, TO_CHAR);
+    return;
+  }
+
+  if(GET_C_LUCK(ch) / 2 > number(0, 100))
+  {
+    percent = (int) (percent * 1.05);
+  }
+
+  do
+  {
+    switch (stage)
+    {
+    case 0:
+      dam = number(1, 30);
+	  hit(ch, victim, ch->equipment[PRIMARY_WEAPON]);
+      if(GET_LEVEL(ch) < 50)
+        percent -= 10;
+      skill_req = 25;
+      break;
+    case 1:
+      if(GET_LEVEL(ch) < 50)
+        percent -= 5;
+      skill_req = 35;
+      dam = number(30, 60);
+	  hit(ch, victim, ch->equipment[SECONDARY_WEAPON]);
+      break;
+    case 2:
+      if(GET_LEVEL(ch) < 50)
+        percent -= 5;
+      skill_req = 40;
+      dam = number(40, 70);
+	  hit(ch, victim, ch->equipment[PRIMARY_WEAPON]);
+      break;
+    case 3:
+      percent -= 5;
+      skill_req = 55;
+      dam = number(50, 90);
+	  hit(ch, victim, ch->equipment[SECONDARY_WEAPON]);
+      break;
+    case 4:
+      percent -= 5;
+      skill_req = 70;
+      dam = number(60, 100);
+	  hit(ch, victim, ch->equipment[PRIMARY_WEAPON]);
+      break;
+    case 5:
+      skill_req = 85;
+      dam = number(60, 120);
+	  hit(ch, victim, ch->equipment[SECONDARY_WEAPON]);
+      break;
+    case 6:
+      dam = number(100, 150);
+         hit(ch, victim, ch->equipment[PRIMARY_WEAPON]);
+      break;
+    }
+    move = number(0, 1);
+    stage++;
+  }
+  while (skill >= skill_req &&
+         percent > number(0, 100) && stage < 7);
+  notch_skill(ch, SKILL_BLADE_BARRAGE, get_property("skill.notch.offensive", 15));
+  
+  CharWait(ch, 2 * PULSE_VIOLENCE);
+}
+
+
+
+void do_consume(P_char ch, char *argument, int cmd)	
+{
+	 P_char   victim = NULL;   
+       struct affected_type *af;
+	victim = ParseTarget(ch, argument); 
+
+    struct damage_messages messages = {
+    "The &=LBlightning bolt&N hits $N with full impact.",
+    "YOU'RE HIT!  A &=LBlightning bolt&N from $n has reached its goal.",
+    "$N wavers under the impact of the &=LBlightning bolt&N sent by $n.",
+    "Your &=LBlightning bolt&N shatters $N to pieces.",
+    "You feel enlightened by the &=LBlightning bolt&N $n sends, and then all is dark - RIP.",
+    "$N receives the full &+yblast&N of a &=LBlightning bolt&+B from $n ... and is no more.",
+      0
+  };
+
+    if(!ch)
+    return;
+    
+    if(!GET_SPEC(ch, CLASS_ANTIPALADIN, SPEC_VIOLATOR))
+    {
+     send_to_char("Consuming &+rflesh&n is too &+Ldark &nan art for you.&n\n", ch);
+     return;
+    }
+
+    if(!victim)
+   {
+    send_to_char("Who's &+gflesh &nwould you like to consume?&n\n", ch);
+    return;
+   }
+
+  if(!IS_AFFECTED5(victim, AFF5_DECAYING_FLESH))
+  {
+    send_to_char("Your victim does not appear to be affected by &+gdecaying &+Gflesh&n.\n", ch);
+    return;
+  }
+  else
+  {
+     int spell;
+     int dam;
+      act("&+L$n &nmakes a gesture, and chunks of &+R$N&n's &+grotten &+yflesh&n fall to the ground with a dull &+Lthud&n...&n", FALSE, ch, 0, victim, TO_NOTVICT);
+      act("&+L$n &nmakes a gesture, and chunks of your &+grotten &+yflesh&n fall to the ground with a dull &+Lthud&n...&n", FALSE, ch, 0, victim, TO_VICT);
+      act("You &nmake a gesture, and chunks of &+R$N&n's &+grotten &+yflesh&n fall to the ground with a dull &+Lthud&n...&n", FALSE, ch, 0, victim, TO_CHAR);
+      int tdam;
+      tdam = (int) (GET_LEVEL(ch) * .8);
+      /*if(!NewSaves(victim, SAVING_FEAR, 0))
+      tdam = (int) (tdam * 1.33);*/
+      af = get_spell_from_char(victim, SPELL_DECAYING_FLESH);
+      vamp(ch, tdam, GET_MAX_HIT(ch) * 1.10);
+      //spell_damage(ch, victim, 4 * GET_LEVEL(ch), SPLDAM_GENERIC, RAWDAM_NOKILL, 0);
+      while(--af->modifier > 0)
+     {
+
+       int temp_dam;
+       temp_dam = (int) (GET_LEVEL(ch) * .8);
+       act("...another chunk of &+R$N&n's &+grotten &+yflesh&n falls to the ground...&n", FALSE, ch, 0, victim, TO_NOTVICT);
+       act("...another chunk of your &+grotten &+yflesh&n falls to the ground...&n", FALSE, ch, 0, victim, TO_VICT);
+       act("...another chunk of &+R$N&n's &+grotten &+yflesh&n falls to the ground, and you feel your &+gprayer &nflow back into your mind...&n", FALSE, ch, 0, victim, TO_CHAR);
+            spell == memorize_last_spell(ch);
+       char buf[256];
+       send_to_char(buf, ch);
+       /*if(!NewSaves(victim, SAVING_FEAR, 0))
+       temp_dam = (int) (temp_dam * 1.33);*/
+       vamp(ch, temp_dam, GET_MAX_HIT(ch) * 1.10);
+       spell_damage(ch, victim, 3 * GET_LEVEL(ch), SPLDAM_GENERIC, RAWDAM_NOKILL, 0);
+     }
+     spell == memorize_last_spell(ch);
+     char buf[256];
+     send_to_char(buf, ch); 
+     --af->modifier;
+     REMOVE_BIT(victim->specials.affected_by5, AFF5_DECAYING_FLESH);
+     affect_from_char(victim, SPELL_DECAYING_FLESH);
+     spell_damage(ch, victim, 3 * GET_LEVEL(ch), SPLDAM_GENERIC,0, 0);
+     act("...with a final gesture, &+L$n&n tears the last bit of &+gr&+Go&+gt&+Gt&+gi&+Gn&+gg&+r flesh&n from $N&n's &+gco&+Lrrod&+ged&n body.&n\r\n", FALSE, ch, 0, victim, TO_NOTVICT);
+     act("...with a final gesture, &+L$n&n tears the last bit of &+gr&+Go&+gt&+Gt&+gi&+Gn&+gg&+r flesh&n from your&n &+gco&+Lrrod&+ged&n body.&n\r\n", FALSE, ch, 0, victim, TO_VICT);
+     act("...with a final gesture, &+Lyou&n tear the last bit of &+gr&+Go&+gt&+Gt&+gi&+Gn&+gg&+r flesh&n from $N&n's &+gco&+Lrrod&+ged&n body.&n\r", FALSE, ch, 0, victim, TO_CHAR);
+     act("The mass of &+gflesh&n is quickly absorbed by you, leaving your body &+rstrengthened&n and your &+Lprayers &nrefreshed.&n\n", FALSE, ch, 0, victim, TO_CHAR);
+     CharWait(ch, PULSE_VIOLENCE);
+  }  
+	attack_back(ch, victim, FALSE);
+}
+
+void do_barrage(P_char ch, char *argument, int cmd)
+{
+  struct affected_type af;
+
+  if(!ch)
+    return;
+
+
+  if(!GET_CHAR_SKILL(ch, SKILL_BLADE_BARRAGE) || !GET_CLASS(ch, CLASS_RANGER))
+  {
+    send_to_char("You would probably hurt yourself trying.\n", ch);
+    return;
+  }
+
+    if(!ch->equipment[WIELD])
+  {
+    send_to_char("&+CYou must have a weapon equipped in order to unleash a barrage!\n", ch);
+    return;
+  }  
+
+  if(!IS_FIGHTING(ch))
+  {
+    send_to_char("You brandish your blades!... to no one in particular.\n", ch);
+    return;
+  }
+   if(!affect_timer(ch,
+        get_property("timer.secs.monkCombination", 30) * WAIT_SEC,
+        SKILL_BLADE_BARRAGE))
+  {
+    send_to_char("You're still recovering from your last attempt.\n", ch);
+    return;
+  }
+
+
+  if(affected_by_spell(ch, SKILL_BLADE_BARRAGE))
+  {
+    send_to_char("&+WYou're already executing a deadly barrage!\n", ch);
+    return;
+  }
+
+  memset(&af, 0, sizeof(af));
+  af.type = SKILL_BLADE_BARRAGE;
+  af.flags = AFFTYPE_NODISPEL | AFFTYPE_NOSHOW;
+  af.duration = 1;
+  affect_to_char(ch, &af);
+  /* Yes, the higher the skill, the longer it takes to prepare */
+  add_event(event_barrage,
+            GET_LEVEL(ch) < 51 ? 2 * PULSE_VIOLENCE : PULSE_VIOLENCE, ch, 0,
+            0, 0, 0, 0);
+  act("&+L$n &nbrandishes their &+Lweapons &nin a formal stance...&n", TRUE, ch, 0,
+      0, TO_ROOM);
+  act("&+LYou grasp your &+Lweapons &nand prepare for the &+Lonslaught&n...", TRUE, ch, 0,
+      0, TO_CHAR);
+}
+
+//Drannak - endblade barrage
+
+
+
 void do_bash(P_char ch, char *argument, int cmd)
 {
   P_char   victim = NULL;
@@ -2974,6 +3246,7 @@ void do_bash(P_char ch, char *argument, int cmd)
      !IS_ALIVE(victim))
   {
     //CharWait(ch, (int)(0.5 * PULSE_VIOLENCE));
+    send_to_char("Bash who?\n", ch);
     return;
   }
 
@@ -3217,6 +3490,35 @@ void do_maul(P_char ch, char *argument, int cmd)
   maul(ch, victim);
 }
 
+void do_restrain(P_char ch, char *argument, int cmd)
+{
+  P_char   victim = NULL;
+
+  if(!(ch))
+  {
+    logit(LOG_EXIT, "assert: bogus params (do_maul) in actoff.c");
+    raise(SIGSEGV);
+  }
+
+  if(!IS_ALIVE(ch))
+    return;
+
+  if(GET_CHAR_SKILL(ch, SKILL_RESTRAIN) < 1)
+  {
+    send_to_char("&+LThe depths fail to respond to your incantation.&n\n", ch);
+    return;
+  }
+  victim = ParseTarget(ch, argument);
+
+  if(!(victim) ||
+     !IS_ALIVE(victim))
+  {
+    send_to_char("&+LWho would you like restrained?&n\n", ch);
+    return;
+  }   
+  restrain(ch, victim);
+}
+
 int chance_kick(P_char ch, P_char victim)
 {
   int percent_chance;
@@ -3269,6 +3571,9 @@ int chance_kick(P_char ch, P_char victim)
     return 0;
 
   percent_chance = GET_CHAR_SKILL(ch, SKILL_KICK);
+  
+  if(GET_RACE(ch) == RACE_CENTAUR)
+  percent_chance *= 2;
 
   percent_chance = (int) (percent_chance * ((double) BOUNDED(30, GET_C_DEX(ch), 120)) / 100);
 
@@ -3325,7 +3630,31 @@ bool kick(P_char ch, P_char victim)
       return false;
     }
     
+<<<<<<< HEAD
     dam = BOUNDED(5, (GET_CHAR_SKILL(ch, SKILL_KICK) / 4) + number(-5, 5), 30);
+=======
+    dam = MAX((int) (GET_C_STR(ch) / 2),
+           GET_CHAR_SKILL(ch, SKILL_MARTIAL_ARTS)) +
+           GET_CHAR_SKILL(ch, SKILL_KICK);
+
+// Randomize damage a bit. Jan08 -Lucrot
+    dam = number( (int) (dam/2), dam );
+
+// Adjust property for dragon damage. Jan08 -Lucrot
+    dam = (int) (dam * get_property("kick.damage.modifier", 1.000));
+
+// Dragons do more damage and adjusted by level and a bit quicker.
+// Includes dracoliches. Jan08 -Lucrot
+    if(IS_DRAGON(ch) || IS_CENTAUR(ch))
+    {
+      dam = (int) ( dam * 2 * (GET_LEVEL(ch) / 60) );
+      CharWait(ch, (int) (PULSE_VIOLENCE * 1.500));
+    }
+    else
+    {
+      CharWait(ch, PULSE_VIOLENCE * 2);
+    }
+>>>>>>> master
 
     CharWait(ch, PULSE_VIOLENCE * 2);
 
@@ -3363,16 +3692,32 @@ bool kick(P_char ch, P_char victim)
     
     if(csize <= (vsize - 2))
     {
-      takedown_chance = (vsize - csize) * 3 ; // This was 5 per level.
+      takedown_chance = (vsize - csize) * 4 ; // This was 5 per level.
     }
     else if(csize >= (vsize + 2))
     {
-      takedown_chance = (csize - vsize) * 3 ; // This was 5 per level.
+      takedown_chance = (csize - vsize) * 4 ; // This was 5 per level.
     }
     else 
     {
       return true;
     }
+<<<<<<< HEAD
+=======
+    
+    if(IS_NPC(ch) &&
+      !GET_MASTER(ch))
+    {
+      takedown_chance = (int) (takedown_chance * 1.2);
+    }
+
+    if((IS_CENTAUR(ch) || IS_OGRE(ch) || (GET_RACE(ch) == RACE_FIRBOLG) || (GET_RACE(ch) == RACE_BARBARIAN) || (GET_RACE(ch) == RACE_TROLL)) && !IS_NPC(ch))
+    {
+      takedown_chance = (int) (takedown_chance * 1.4);
+    }
+
+
+>>>>>>> master
     takedown_chance = takedown_check(ch, victim, takedown_chance, SKILL_KICK,
                                      APPLY_ALL ^ AGI_CHECK ^ FOOTING);
 
@@ -3387,6 +3732,9 @@ bool kick(P_char ch, P_char victim)
       takedown_chance = (int) (takedown_chance / 5);
     }
     
+    if(GET_RACE(ch) == RACE_CENTAUR)
+    takedown_chance *= 2;
+
     int gh = (zone_table[world[ch->in_room].zone].number == GH_ZONE_NUMBER);
     if(takedown_chance > random_number &&
       csize > (vsize + 1))
@@ -3430,7 +3778,7 @@ bool kick(P_char ch, P_char victim)
             victim, TO_VICT);
         act("$n's mighty kick sends $N crashing into the wall!", FALSE, ch, 0,
             victim, TO_NOTVICT);
-        SET_POS(victim, POS_SITTING + GET_STAT(victim));
+        SET_POS(victim, POS_PRONE + GET_STAT(victim));
         
         if(!number(0, 24) &&
            !IS_STUNNED(victim))
@@ -3600,7 +3948,7 @@ int chance_roundkick(P_char ch, P_char victim)
   if(IS_AFFECTED(victim, AFF_AWARE) &&
     AWAKE(victim))
   {
-    percent_chance = (int) (percent_chance * 0.75);
+    percent_chance = (int) (percent_chance * 0.95);
   }
   
   percent_chance = takedown_check(ch, victim, percent_chance, SKILL_ROUNDKICK, APPLY_ALL);
@@ -3915,7 +4263,7 @@ void do_headbutt(P_char ch, char *argument, int cmd)
   if(!victim)
   {
     send_to_char("Headbutt whom?\n", ch);
-    CharWait(ch, 1 * WAIT_SEC);
+    //CharWait(ch, 1 * WAIT_SEC);
     return;
   }
   
@@ -3932,22 +4280,32 @@ void do_headbutt(P_char ch, char *argument, int cmd)
     act("$N is clearly too quick and clever for such a brutish attack.", FALSE, ch, 0, victim, TO_CHAR);
     return;
   }
+<<<<<<< HEAD
   
   if(!HAS_FOOTING(ch))
+=======
+  /*
+  if (!HAS_FOOTING(ch))
+>>>>>>> master
   {
     send_to_char("You have no footing here!\n", ch);
     return;
   }
+<<<<<<< HEAD
  
   if(!CanDoFightMove(ch, victim))
+=======
+ */
+  if (!CanDoFightMove(ch, victim))
+>>>>>>> master
     return;
 
   if(GET_POS(victim) !=  POS_STANDING)
   {
-    if(get_takedown_size(victim) + 1 == get_takedown_size(ch) && GET_POS(victim) == POS_KNEELING)
+    if(get_takedown_size(victim) + 2 == get_takedown_size(ch) && GET_POS(victim) == POS_KNEELING)
     {
     }
-    else if(get_takedown_size(victim) + 2 == get_takedown_size(ch) && GET_POS(victim) == POS_SITTING)
+    else if(get_takedown_size(victim) + 3 == get_takedown_size(ch) && GET_POS(victim) == POS_SITTING)
     {
     }
     else
@@ -3968,7 +4326,11 @@ void do_headbutt(P_char ch, char *argument, int cmd)
   
   if(IS_PC(ch) && IS_PC(victim))
   {
+<<<<<<< HEAD
     if(get_takedown_size(victim) > get_takedown_size(ch) + 1 &&
+=======
+    if (get_takedown_size(victim) > get_takedown_size(ch) + 2 &&
+>>>>>>> master
         GET_POS(victim) > POS_KNEELING)
     {
       act("You'd have to grow considerably to do that!", FALSE, ch, 0, 0,
@@ -3995,7 +4357,7 @@ void do_headbutt(P_char ch, char *argument, int cmd)
     
     return;
   }
-
+  
   if(IS_ELITE(victim) ||
     IS_GREATER_RACE(victim))
   {
@@ -4018,16 +4380,25 @@ void do_headbutt(P_char ch, char *argument, int cmd)
     return;
   }
 
+<<<<<<< HEAD
   success = (GET_CHAR_SKILL(ch, SKILL_HEADBUTT) + ((56 - attlevel) / 2));
   success += BOUNDED(-20, attlevel - deflevel, 20);
 
   if(get_takedown_size(victim) > get_takedown_size(ch)) 
+=======
+  success = (GET_CHAR_SKILL(ch, SKILL_HEADBUTT) + attlevel) / 2;
+  //success += BOUNDED(-20, attlevel - deflevel, 20);
+
+/* dont care for the penalty for larger mobs - Drannak
+  if (get_takedown_size(victim) > get_takedown_size(ch)) 
+>>>>>>> master
   {
     for( int j = 0; j < ( get_takedown_size(victim) - get_takedown_size(ch) ); j++ )
     {
       success = (int) success * 0.90;
     }
   }
+*/
 
   // anatomy check
   if(GET_CHAR_SKILL(ch, SKILL_ANATOMY) &&
@@ -4037,13 +4408,18 @@ void do_headbutt(P_char ch, char *argument, int cmd)
 
   /*  maybe the attacker or victim are lucky */
 
+<<<<<<< HEAD
   if((GET_C_LUCK(ch) / 2) > number(0, 90)) {
+=======
+  if ((GET_C_LUCK(ch) / 2) > number(0, 80)) {
+>>>>>>> master
      success = (int) (success * 1.1);
   }
 
   if((GET_C_LUCK(victim) / 2) > number(0, 80)) {
      success = (int) (success * 0.9);
   }
+
   
   if(IS_TRUSTED(ch) || !AWAKE(victim))
   {
@@ -4080,7 +4456,11 @@ void do_headbutt(P_char ch, char *argument, int cmd)
     if(!number(0, 20 - GET_LEVEL(ch)))
       knock_out(ch, PULSE_VIOLENCE * number(2, 3));
   }
+<<<<<<< HEAD
   else if(tmp_num <= 15)
+=======
+  else if (tmp_num <= 5)
+>>>>>>> master
   {
     // merely failed
     dam = success + GET_LEVEL(ch) * 2;
@@ -4101,8 +4481,13 @@ void do_headbutt(P_char ch, char *argument, int cmd)
   else
   {
     // success!
+<<<<<<< HEAD
     dam = ((GET_LEVEL(ch) * (number(-5, 25))/51 + GET_C_STR(ch) + GET_CHAR_SKILL(ch, SKILL_HEADBUTT))) / 4;
 
+=======
+    dam = ((56 * (number(1, 25))/51 + GET_C_STR(ch) + GET_CHAR_SKILL(ch, SKILL_HEADBUTT)));
+    dam = (dam * 1.2);
+>>>>>>> master
     if (GET_RACE(ch) == RACE_MINOTAUR)
     {
       dam = (int) (dam * get_property("damage.headbutt.damBonusMinotaur", 1.250));
@@ -4121,7 +4506,11 @@ void do_headbutt(P_char ch, char *argument, int cmd)
 
     if(GET_CHAR_SKILL(ch, SKILL_DOUBLE_HEADBUTT) > number(0, 300))
     {
+<<<<<<< HEAD
       for(int j = 1; j < 4 && !number(0, j); j++)
+=======
+      for( int j = 1; j < 2 && !number(0,j); j++ ) //max 2 headbutts
+>>>>>>> master
       {
         act("You deftly pull back your head and ram it into $N again!", FALSE, ch, 0, victim, TO_CHAR);
         act("With a quick move, $n pulls back $s head and rams it into you again!", FALSE, ch, 0, victim, TO_VICT);
@@ -4140,17 +4529,29 @@ void do_headbutt(P_char ch, char *argument, int cmd)
     wizlog(56, "dam from headbutt %d", dam);
     tmp_num = number(1, 100 - (success / 2));
 
+<<<<<<< HEAD
     if(tmp_num < 3 && !IS_AFFECTED(victim, AFF_KNOCKED_OUT)) // 4% chance at 100% success - Jexni 2/15/11
     {
       knock_out(victim, PULSE_VIOLENCE * number(2,3));
     }
     else if(tmp_num < 7)
+=======
+    if (tmp_num < 6 && !IS_AFFECTED(victim, AFF_KNOCKED_OUT)) // 6% chance at 100% success - Jexni 2/15/11
+    {
+      knock_out(victim, PULSE_VIOLENCE * number(2,3));
+    }
+    else if (tmp_num < 13)
+>>>>>>> master
     {
       send_to_char("Wow!  Look at all those stars!!\n", victim);
       CharWait(victim, (int) (PULSE_VIOLENCE * 1));
       Stun(victim, ch, (int) (PULSE_VIOLENCE * 1.5), FALSE);
     }
+<<<<<<< HEAD
     else if(tmp_num < 11)
+=======
+    else if (tmp_num < 15)
+>>>>>>> master
     {
       send_to_char("Wow!  Look at all those stars!\n", victim);
 
@@ -4175,11 +4576,100 @@ void do_headbutt(P_char ch, char *argument, int cmd)
   }
 }
 
+void event_garroteproc(P_char ch, P_char victim, P_obj obj, void *data)
+{
+  int dam;
+  int count = *((int*)data);
+  int rand1 = number(1, 100);
+
+  dam = dice(3, 6);
+
+  if ((GET_HIT(ch) - dam) > 0)
+  {
+    GET_HIT(ch) -= dam;
+    if(rand1 > 50)
+    {
+    send_to_char("&+rYour bl&+Rood spl&+ratte&+Rrs as it hits the ground.&N\n", ch);
+    act("$n&+r's blo&+Rod spla&+rtter&+Rs as it hits the ground.&N", TRUE, ch, NULL, NULL,
+        TO_NOTVICT);
+    make_bloodstain(ch);
+    if(!number(0, 9) &&
+       !IS_GREATER_RACE(ch) &&
+       !IS_ELITE(ch))
+          StopCasting(ch);
+    }
+    else
+    {
+    send_to_char("&+rYour wound gushes &+Rblood &+rall over the surrounding area.&N\n", ch);
+    act("$n&+r's wound gushes &+Rblood &+rall over the surrounding area.", TRUE, ch, NULL, NULL,
+        TO_NOTVICT);
+    make_bloodstain(ch);
+    if(!number(0, 9) &&
+       !IS_GREATER_RACE(ch) &&
+       !IS_ELITE(ch))
+          StopCasting(ch);
+    }
+  }
+
+  if (count >= 0)
+  {
+    count--;
+    add_event(event_garroteproc, PULSE_VIOLENCE, ch, 0, 0, 0, &count, sizeof(count));
+  }
+  else
+  {
+    send_to_char("&+rYour bleeding appears to have stopped.&N\n", ch);
+  }
+}
+
+void event_bleedproc(P_char ch, P_char victim, P_obj obj, void *data)
+{
+  int dam;
+  int count = *((int*)data);
+  int rand1 = number(1, 100);
+
+  dam = dice(3, 6);
+
+  if ((GET_HIT(ch) - dam) > 0)
+  {
+    GET_HIT(ch) -= dam;
+    if(rand1 > 50)
+    {
+    send_to_char("&+rYour bl&+Rood spl&+ratte&+Rrs as it hits the ground.&N\n", ch);
+    act("$n&+r's blo&+Rod spla&+rtter&+Rs as it hits the ground.&N", TRUE, ch, NULL, NULL,
+        TO_NOTVICT);
+    make_bloodstain(ch);
+
+    }
+    else
+    {
+    send_to_char("&+rYour wound gushes &+Rblood &+rall over the surrounding area.&N\n", ch);
+    act("$n&+r's wound gushes &+Rblood &+rall over the surrounding area.", TRUE, ch, NULL, NULL,
+        TO_NOTVICT);
+    make_bloodstain(ch);
+
+    }
+  }
+
+  if (count >= 0)
+  {
+    count--;
+    add_event(event_bleedproc, PULSE_VIOLENCE, ch, 0, 0, 0, &count, sizeof(count));
+  }
+  else
+  {
+    send_to_char("&+rYour bleeding appears to have stopped.&N\n", ch);
+  }
+}
+
 void event_sneaky_strike(P_char ch, P_char victim, P_obj obj, void *data)
 {
   int      dam = 0;
   int      skill = GET_LEVEL(ch) * 2 - 12;
   P_obj    weapon;
+  int      skl_lvl = 0, sect;
+  int      i = 0;
+  struct affected_type *af, afs;
 
   struct damage_messages messages = {
     "You find weakness in $N's defenses and land a sneaky surprise attack!",
@@ -4191,6 +4681,15 @@ void event_sneaky_strike(P_char ch, P_char victim, P_obj obj, void *data)
   };
 
   affect_from_char(ch, SKILL_SNEAKY_STRIKE);
+
+   if(!(weapon = ch->equipment[WIELD]))/*
+    if(!weapon && !(weapon = ch->equipment[WIELD2]))
+      if(!weapon && !(weapon = ch->equipment[WIELD3]))
+        if(!weapon && !(weapon = ch->equipment[WIELD4]))*/
+        {
+          send_to_char("You must be wielding a weapon.\r\n", ch);
+          return;
+        }
 
   if(!victim || (ch->in_room != victim->in_room))
   {
@@ -4207,7 +4706,7 @@ void event_sneaky_strike(P_char ch, P_char victim, P_obj obj, void *data)
     return;
   }
 
-   if(has_innate(victim, INNATE_DRAGONMIND)&& !number(0,1))
+    if(has_innate(victim, INNATE_DRAGONMIND)&& !number(0,1))
      {
        send_to_char("Your victim notice your attempt and rolls out of the way!\n", ch);
        send_to_char("You sidestep $N's attack.\n", victim);
@@ -4229,6 +4728,7 @@ void event_sneaky_strike(P_char ch, P_char victim, P_obj obj, void *data)
   {
     dam = (IS_PC(ch) ? dice(1, skill / 5) : dice(ch->points.damnodice, ch->points.damsizedice));
   }
+<<<<<<< HEAD
 
   /* notch_skill(ch, SKILL_SNEAKY_STRIKE, get_property("skill.notch.offensive", 15)); */
 
@@ -4236,10 +4736,182 @@ void event_sneaky_strike(P_char ch, P_char victim, P_obj obj, void *data)
   dam = (int) (dam * (1 + (double)skill / 100));
 
   melee_damage(ch, victim, dam, PHSDAM_NOREDUCE | PHSDAM_NOPOSITION, &messages);
+=======
+  /* notch_skill(ch, SKILL_SNEAKY_STRIKE,
+              get_property("skill.notch.offensive", 15)); */
+   notch_skill(ch, SKILL_SNEAKY_STRIKE, 20);
+  dam *= 2;
 
+  dam += str_app[STAT_INDEX(GET_C_STR(ch))].todam + GET_C_DEX(ch) / 4;
+  dam =
+    (int) (dam * number(25, 30) *
+           (1 +
+            ((double) GET_LEVEL(ch)) / MAXLVLMORTAL) * (((double) skill) /
+                                                        100));
+
+	//dambonus for thiefs - roughly 10-15 damage more at 12
+	if(GET_SPEC(ch, CLASS_ROGUE, SPEC_THIEF)) //proc skill for thief - possibility to blind on sneaky strike
+    	{
+  	  dam /= 12;
+	}
+	else
+	{
+	  dam /= 16;
+	}
+  
+  melee_damage(ch, victim, dam, PHSDAM_NOREDUCE | PHSDAM_NOPOSITION,
+               &messages);
+  if(GET_SPEC(ch, CLASS_ROGUE, SPEC_THIEF)  || (GET_CLASS(ch, CLASS_BARD))) //proc skill for thief - possibility to blind on sneaky strike
+    {
+	skl_lvl = (int) (GET_CHAR_SKILL(ch, SKILL_SNEAKY_STRIKE));
+	i = skl_lvl - (GET_C_AGI(victim) / 6);
+	if (number(1, 100) < i)
+	 {
+	  if(IS_NPC(victim)  && (GET_CLASS(ch, CLASS_ROGUE)))
+	    {
+	      act
+    	      ("&+LYou quickly step into the sh&+wad&+Wows&+L, and suddenly appear behind $N &+Lstriking violently...",
+     	      FALSE, ch, 0, victim, TO_CHAR);
+	      act
+    	  	("$n &+Lquickly steps into the sh&+wad&+Wows&+L, and suddenly appears behind $N &+Lstriking violently...",
+     	  	TRUE, ch, 0, victim, TO_NOTVICT);
+		single_stab(ch, victim, weapon);
+		act
+    	      ("&+L...you then meld into your victim's sh&+wad&+Wow&+L, only to attack again!",
+     	      FALSE, ch, 0, victim, TO_CHAR);
+		act
+	       ("&+L...$n &+Lthen quickly fades into the sh&+wad&+Wow&+L, re-appearing only to attack again!",
+     	  	TRUE, ch, 0, victim, TO_NOTVICT);
+		single_stab(ch, victim, weapon);
+	    }
+	  else if(GET_CLASS(ch, CLASS_BARD))
+	    {
+    	      ("&+LYou quickly step into the sh&+wad&+Wows&+L, and suddenly appear behind $N &+Lstriking violently...",
+     	      FALSE, ch, 0, victim, TO_CHAR);
+	      act
+    	  	("$n &+Lquickly steps into the sh&+wad&+Wows&+L, and suddenly appears behind $N &+Lstriking violently...",
+     	  	TRUE, ch, 0, victim, TO_NOTVICT);
+		single_stab(ch, victim, weapon);
+	    }
+	  else if(!IS_AFFECTED(victim, AFF_BLIND))
+	    {
+	      act
+    	  	("&+LYou lash out from the sh&+wad&+Wows&+L, hitting $N right in the &+Wface&+L, causing them to temporarily black out.",
+     	  	FALSE, ch, 0, victim, TO_CHAR);
+	  	act
+    	  	("$n &+Lsteps quickly into the sh&+wad&+Wows&+L and darts quickly at your &+Wface&+L, causing you to temporarily black out.",
+     	  	TRUE, ch, 0, victim, TO_VICT);
+	  	act
+    	  	("$n &+Lfades into the sh&+wad&+Wows&+L and quickly strikes at $N's &+Wface&+L, causing them to see stars.",
+     	  	TRUE, ch, 0, victim, TO_NOTVICT);
+	   	blind(ch, victim, 1 * PULSE_VIOLENCE);
+          }
+	 }
+    
+    } //endthiefspeccheck
+
+  if(GET_SPEC(ch, CLASS_ROGUE, SPEC_ASSASSIN)) //proc skill for assassin and bard
+    {
+	skl_lvl = (int) (GET_CHAR_SKILL(ch, SKILL_SNEAKY_STRIKE));
+	i = skl_lvl - (GET_C_AGI(victim) / 6);
+	if (number(1, 100) < i)
+	 {
+	  if(IS_NPC(victim))
+	    {
+			int      numb;
+			numb = number(4, 7);
+			act("&+rYou sneak up on $N &+rand drive your &+Lweapon &+rdeep into a vital organ!&N", TRUE,
+				ch, obj, victim, TO_CHAR);
+			act("&+L$n &+rsneaks up on $N&+r driving their &+Lweapon &+rdeep into a vital organ!&N", TRUE,
+				ch, obj, victim, TO_NOTVICT);
+			act("&+L$n&+r appears behind you and drives their &+Lweapon &+rdeep into one of your vital organs!&N", TRUE, ch,
+				obj, victim, TO_VICT);
+			numb = number(4, 7);
+			add_event(event_bleedproc, PULSE_VIOLENCE, victim, 0, 0, 0, &numb, sizeof(numb));
+		act
+	       ("&+L...$n &+Lthen quickly fades into the sh&+wad&+Wow&+L, re-appearing only to attack again!",
+     	  	TRUE, ch, 0, victim, TO_NOTVICT);
+		single_stab(ch, victim, weapon);
+	   }
+
+	  else
+	    {
+	      int      numb;
+			numb = number(4, 7);
+			act("&+rYou sneak up on $N &+rand drive your &+Lweapon &+rdeep into a vital organ!&N", TRUE,
+				ch, obj, victim, TO_CHAR);
+			act("&+L$n &+rsneaks up on $N&+r driving their &+Lweapon &+rdeep into a vital organ!&N", TRUE,
+				ch, obj, victim, TO_NOTVICT);
+			act("&+L&n&+r appears behind you and drives their &+Lweapon &+rdeep into one of your vital organs!&N", TRUE, ch,
+				obj, victim, TO_VICT);
+			numb = number(4, 7);
+			add_event(event_bleedproc, PULSE_VIOLENCE, victim, 0, 0, 0, &numb, sizeof(numb));
+		act
+	       ("&+L...$n &+Lthen quickly fades into the sh&+wad&+Wow&+L, re-appearing only to attack again!",
+     	  	TRUE, ch, 0, victim, TO_NOTVICT);
+		single_stab(ch, victim, weapon);
+
+          }
+	 }
+    
+    } //endassassinspeccheck
+
+  	
+if(GET_CLASS(ch, CLASS_MERCENARY)) //proc skill for mercenary - sucks moves
+    {
+	skl_lvl = (int) (GET_CHAR_SKILL(ch, SKILL_SNEAKY_STRIKE));
+	i = skl_lvl - (GET_C_AGI(victim) / 6);
+	if (number(1, 100) < i)
+	 {
+	   if(IS_NPC(victim) && !IS_STUNNED(victim))
+	    {
+	      act
+    	      ("&+yYou fill with the &+RRAGE &+yof your &+Yancestors&+y, striking $N &+ywith all of your &+Bmight&+y!",
+     	      FALSE, ch, 0, victim, TO_CHAR);
+	      act
+    	  	("$n &+yseems to fill with unearthly &+RRAGE&+y, and strikes $N &+ywith all of their &+Bmight&+y!",
+     	  	TRUE, ch, 0, victim, TO_NOTVICT);
+		Stun(victim, victim, PULSE_VIOLENCE, FALSE);;
+	    }  
+	else
+	  {
+	act
+    	  ("&+yYou tighten up and skillfully hit $N right in the &+Ystomach&+y! $N appears a bit less energetic after that hit.",
+     	  FALSE, ch, 0, victim, TO_CHAR);
+	  act
+    	  ("$n &+yseems to tense up before unleasing a &+Ypowerful &+ystrike to your abdomen! You feel the a lot less &+Yenergetic&+y.",
+     	  TRUE, ch, 0, victim, TO_VICT);
+	  act
+    	  ("$n &+yseems to tense up before unleasing a &+Ypowerful &+ystrike to $N's &+yabdomen&+y, knocking the &+Cwind &+yout of them!",
+     	  TRUE, ch, 0, victim, TO_NOTVICT);
+	  i = number(20, 45);
+    	  if ((GET_VITALITY(victim) - i) < 20)
+      	  i = GET_VITALITY(victim) - 20;
+
+    	  GET_VITALITY(victim) -= i;
+
+    	  StartRegen(victim, EVENT_MOVE_REGEN);
+
+    	if (!affected_by_spell(victim, SKILL_AWARENESS))
+    	 {
+      	  bzero(&afs, sizeof(afs));
+      	  afs.type = SKILL_AWARENESS;
+      	  afs.duration = 5;
+      	  afs.bitvector = AFF_AWARE;
+      	  affect_to_char(victim, &afs);
+    	 }
+	}
+      }
+    } //endmercclasscheck
+>>>>>>> master
+
+
+<<<<<<< HEAD
+=======
   CharWait(ch, PULSE_VIOLENCE * number(1, 2));
-}
+} //drantemp
 
+>>>>>>> master
 bool is_preparing_for_sneaky_strike(P_char ch)
 {
   if(affected_by_spell(ch, SKILL_SNEAKY_STRIKE))
@@ -4253,7 +4925,24 @@ bool is_preparing_for_sneaky_strike(P_char ch)
 void sneaky_strike(P_char ch, P_char victim)
 {
   struct affected_type af;
+  P_obj weapon = ch->equipment[WIELD];
+  if(!weapon)
+        {
+          send_to_char("You must be wielding a weapon.\r\n", ch);
+          return;
+        }
 
+  int is_weapon = (GET_ITEM_TYPE(weapon) == ITEM_WEAPON);
+
+
+    if(!is_weapon)/*
+    if(!weapon && !(weapon = ch->equipment[WIELD2]))
+      if(!weapon && !(weapon = ch->equipment[WIELD3]))
+        if(!weapon && !(weapon = ch->equipment[WIELD4]))*/
+        {
+          send_to_char("You must be wielding a weapon.\r\n", ch);
+          return;
+        }
   send_to_char
     ("You think you noticed an opening in your victim defenses...\n", ch);
 
@@ -4329,6 +5018,7 @@ bool single_stab(P_char ch, P_char victim, P_obj weapon)
   dice_mod = get_property("backstab.diceMultiplier", 1.000);
   final_mult = get_property("backstab.finalMultiplier", 1.000);
   damroll_mult = get_property("backstab.DamrollMultiplier", 0.500); 
+<<<<<<< HEAD
   strdex_mod = get_property("backstab.StrDexMultiplier", 0.500);
 
   dam = dice(weapon->value[1], weapon->value[2]) * (float)dice_mod;
@@ -4337,19 +5027,124 @@ bool single_stab(P_char ch, P_char victim, P_obj weapon)
   dam = dam * (float) skill / 100;
   dam += GET_LEVEL(ch);
   dam = dam * (float) final_mult;
+=======
+  strdex_mod = get_property("backstab.StrDexMultiplier", 0.500); 
+
+  dam = (int)((float)GET_DAMROLL(ch) * damroll_mult);
+
+  dam += (GET_C_DEX(ch) + GET_C_STR(ch)) * strdex_mod; 
+
+  dam += (number (10, GET_C_LUCK(ch)) / 10);
+  
+  dam =  (int)((float)dam * ((float)skill / (float)100)); //(goes to 0)
+
+  dice_mult = (int) (weapon->value[1] + (weapon->value[2] / 2)) / 2;
+  dice_mult += weapon->value[1] + (weapon->value[1] / 2);
+  level_mult = (float) GET_LEVEL(ch) / 56;
+  dam = (int) dam * (dice_mult * dice_mod);
+
+  dam = (int) dam * level_mult;
+
+  dam = (int) dam * final_mult;
+>>>>>>> master
+
+
+ if(IS_AFFECTED(victim, AFF_AWARE) && IS_PC(victim) && ((GET_RACE(ch) != RACE_MOUNTAIN) && (GET_RACE(ch) != RACE_DUERGAR)))
+  {
+   int chance = GET_C_INT(victim);
+   int opportunity = number(1, (GET_C_AGI(ch) + GET_CHAR_SKILL(ch, SKILL_BACKSTAB)));
+   if(chance < opportunity)
+   {
+     send_to_char("&+LSince your victim is &+raware&+L of your presence, you are unable to take full advantage of them...\r\n", ch);
+     dam *= .6;
+   }
+  }
 
   if(IS_IMMOBILE(victim) ||
      GET_STAT(victim) <= STAT_SLEEPING)
+<<<<<<< HEAD
       dam = MAX(lvl * 2, dam);
   
   spinal_tap = get_property("backstab.SpinalTap.chance", 0.150);
   critical_stab = get_property("backstab.CriticalStab.chance", 0.200);
+=======
+      dam = MAX(80, dam);
+
+  spinal_tap = get_property("backstab.SpinalTap", 0.150);
+  critical_stab = get_property("backstab.CriticalStab", 0.200);
+>>>>>>> master
   critical_stab_mult = get_property("backstab.CriticalStab.Multiplier", 1.000);
  
   if(GET_STAT(victim) <= STAT_INCAP &&
      GET_STAT(victim) >= STAT_DYING)
+<<<<<<< HEAD
      dam = MAX(20, dam);
  
+=======
+     dam = MAX(200, dam);
+
+  if(affected_by_spell(victim, SPELL_STONE_SKIN))
+    {
+      affect_from_char(victim, SPELL_STONE_SKIN);
+      dam = 1;
+    act("$n attempts to stab you in the back, but your &+Lstone skin&n quickly absorbs the impact before fading away!",
+       FALSE, ch, 0, victim, TO_VICT);
+    act("You attempt to stab $N in the back, but their &+Lstone skin&n quickly absorbs the impact before fading away!",
+       FALSE, ch, 0, victim, TO_CHAR);
+        act("$n attempts to stab $N in the back, but $N's &+Lstone skin&n quickly absorbs the impact before fading away!",
+      FALSE, ch, 0, victim, TO_NOTVICTROOM);
+    }
+
+  if(affected_by_spell(victim, SPELL_SHADOW_SHIELD))
+    {
+      affect_from_char(victim, SPELL_SHADOW_SHIELD);
+      dam = 1;
+    act("$n attempts to stab you in the back, but your &+Lshadow shield&n quickly absorbs the impact before fading away!",
+       FALSE, ch, 0, victim, TO_VICT);
+    act("You attempt to stab $N in the back, but their &+Lshadow shield&n quickly absorbs the impact before fading away!",
+       FALSE, ch, 0, victim, TO_CHAR);
+        act("$n attempts to stab $N in the back, but $N's &+Lshadow shield&n quickly absorbs the impact before fading away!",
+      FALSE, ch, 0, victim, TO_NOTVICTROOM);
+    }
+
+
+  if(affected_by_spell(victim, SPELL_BIOFEEDBACK))
+    {
+      affect_from_char(victim, SPELL_BIOFEEDBACK);
+      dam = 1;
+    act("$n attempts to stab you in the back, but your &+Gbiofeedback&n quickly absorbs the impact before fading away!",
+       FALSE, ch, 0, victim, TO_VICT);
+    act("You attempt to stab $N in the back, but their &+Gbiofeedback&n quickly absorbs the impact before fading away!",
+       FALSE, ch, 0, victim, TO_CHAR);
+        act("$n attempts to stab $N in the back, but $N's &+Gbiofeedback&n quickly absorbs the impact before fading away!",
+      FALSE, ch, 0, victim, TO_NOTVICTROOM);
+    }
+
+  if(affected_by_spell(victim, SPELL_VINES))
+    {
+      affect_from_char(victim, SPELL_VINES);
+      dam = 1;
+    act("$n attempts to stab you in the back, but your &+Gvines&n quickly absorbs the impact before fading away!",
+       FALSE, ch, 0, victim, TO_VICT);
+    act("You attempt to stab $N in the back, but their &+Gvines&n quickly absorbs the impact before fading away!",
+       FALSE, ch, 0, victim, TO_CHAR);
+        act("$n attempts to stab $N in the back, but $N's &+Gvines&n quickly absorbs the impact before fading away!",
+      FALSE, ch, 0, victim, TO_NOTVICTROOM);
+    }
+
+   if(affected_by_spell(victim, SPELL_IRONWOOD))
+    {
+      affect_from_char(victim, SPELL_IRONWOOD);
+      dam = 1;
+    act("$n attempts to stab you in the back, but your &+yironwood&n quickly absorbs the impact before fading away!",
+       FALSE, ch, 0, victim, TO_VICT);
+    act("You attempt to stab $N in the back, but their &+yironwood&n quickly absorbs the impact before fading away!",
+       FALSE, ch, 0, victim, TO_CHAR);
+        act("$n attempts to stab $N in the back, but $N's &+yironwood&n quickly absorbs the impact before fading away!",
+      FALSE, ch, 0, victim, TO_NOTVICTROOM);
+    }
+
+>>>>>>> master
   if(GET_CHAR_SKILL(ch, SKILL_SPINAL_TAP) &&
     (notch_skill(ch, SKILL_SPINAL_TAP, get_property("skill.notch.offensive", 20)) ||
     ((float)spinal_tap * GET_CHAR_SKILL(ch, SKILL_SPINAL_TAP)) > number(1, 100)))
@@ -4357,16 +5152,25 @@ bool single_stab(P_char ch, P_char victim, P_obj weapon)
     if(melee_damage(ch, victim, dam * 0.8, PHSDAM_NOREDUCE | PHSDAM_NOPOSITION, &messages) ||
       !is_char_in_room(ch, room))
           return TRUE;
-    
+
     spinal = TRUE;
   }
-  else if(GET_CHAR_SKILL(ch, SKILL_CRITICAL_STAB) &&
+
+  //no longer else if - can spinal as well as critical stab.
+  if(GET_CHAR_SKILL(ch, SKILL_CRITICAL_STAB) &&
          (notch_skill(ch, SKILL_CRITICAL_STAB, get_property("skill.notch.offensive", 25)) ||
          (critical_stab * GET_CHAR_SKILL(ch, SKILL_CRITICAL_STAB)) > number(1, 100)))
   {
+<<<<<<< HEAD
     dam = dam + (dam * (float)critical_stab_mult);
     
     if(melee_damage(ch, victim, dam, PHSDAM_NOREDUCE | PHSDAM_NOPOSITION, &messages) ||
+=======
+    dam = dam + (dam * critical_stab_mult);
+
+    if(melee_damage
+      (ch, victim, dam, PHSDAM_NOREDUCE | PHSDAM_NOPOSITION, &messages) ||
+>>>>>>> master
       !is_char_in_room(ch, room))
           return TRUE;
     
@@ -4375,6 +5179,7 @@ bool single_stab(P_char ch, P_char victim, P_obj weapon)
     act("$n twists the blade causing $N to writhe in agony,", FALSE, ch, 0, victim, TO_NOTVICTROOM);
   }
   else if(melee_damage(ch, victim, dam, PHSDAM_NOREDUCE | PHSDAM_NOPOSITION, &messages) || 
+	   (room < 1) ||
           !is_char_in_room(ch, room))
     return TRUE;
 
@@ -4391,11 +5196,13 @@ bool single_stab(P_char ch, P_char victim, P_obj weapon)
         || !char_in_list(ch))
       return TRUE;
     
-   // if(obj_index[weapon->R_num].func.obj)
-   //   (*obj_index[weapon->R_num].func.obj) (weapon, ch, CMD_MELEE_HIT,
-   //                                         (char *) victim);
-   //  No weapon procs on backstabs - Jexni 3/24/11
+
+
   }
+
+   if(obj_index[weapon->R_num].func.obj)
+   (*obj_index[weapon->R_num].func.obj) (weapon, ch, CMD_MELEE_HIT,
+   (char *) victim);   //  Yes weapon procs on backstabs - Drannak
 
   if(weapon->value[4])
   {
@@ -4576,6 +5383,8 @@ int backstab(P_char ch, P_char victim)
   if(!CAN_SEE(victim, ch))
     percent_chance = (int) (percent_chance * 1.5);
 
+
+
   if(has_innate(victim, INNATE_DRAGONMIND) && number(0,1) ){
     act("$N notices your lethal attempt!", FALSE, ch,
         0, victim, TO_CHAR);
@@ -4637,6 +5446,7 @@ int backstab(P_char ch, P_char victim)
                     get_property("skill.notch.offensive", 25)) ||
         percent_chance > number(0, 100))
     {
+  
       if(single_stab(ch, victim, first_w))
         return TRUE;
     }
@@ -4716,10 +5526,11 @@ void attack(P_char ch, P_char victim)
   struct affected_type *af;
   int      skl;
 
-  if(!ch ||
-    !victim ||
-    !CanDoFightMove(ch, victim) ||
-    IS_IMMOBILE(ch))
+  if( !ch || !victim
+    || !CanDoFightMove(ch, victim)
+    || IS_IMMOBILE(ch)
+    // If victim & ch are at different heights, we don't attack.
+    || victim->specials.z_cord != ch->specials.z_cord )
   {
     return;
   }
@@ -4958,6 +5769,7 @@ void bash(P_char ch, P_char victim)
     return;
   }
   
+
   if(affected_by_spell(ch, SKILL_BASH))
   {
     send_to_char("You haven't reoriented yourself yet enough for another bash!\n", ch);
@@ -4970,18 +5782,17 @@ void bash(P_char ch, P_char victim)
     return;
   }
 
+  if(IS_AFFECTED2(ch, AFF2_AIR_AURA) || (GET_RACE(ch) == RACE_F_ELEMENTAL) || (GET_RACE(ch) == RACE_A_ELEMENTAL) || affected_by_spell(ch, SPELL_ETHEREAL_FORM))
+  {
+    send_to_char("You couldnt bash in your current form if you wanted to.\r\n", ch);
+    return;
+  }
+
   mount = get_linked_char(ch, LNK_RIDING);
   
   if(mount)
   {
     send_to_char("You cannot do that while riding! Try trample instead.\n", ch);
-    return;
-  }
-
-  if(!victim ||
-    (ch->in_room != victim->in_room))
-  {
-    send_to_char("Bash who?\n", ch);
     return;
   }
 
@@ -4994,6 +5805,19 @@ void bash(P_char ch, P_char victim)
      IS_SET(victim->specials.act, PLR_AGGIMMUNE))
   {
     send_to_char("Bash a god?  I think not.", ch);
+    return;
+  }
+
+   if(GET_POS(victim) != POS_STANDING)
+  {
+    act("As $N avoids your bash, you topple over and fall to the ground.",
+          FALSE, ch, 0, victim, TO_CHAR);
+      act("You dodge a bash from $n, who loses $s balance and falls.",
+          FALSE, ch, 0, victim, TO_VICT);
+      act("$N avoids being bashed by $n, who loses $s balance and falls.",
+          FALSE, ch, 0, victim, TO_NOTVICT);
+    SET_POS(ch, POS_SITTING + GET_STAT(ch));
+    CharWait(ch, (int) (PULSE_VIOLENCE * 2.000));
     return;
   }
   
@@ -5037,7 +5861,7 @@ void bash(P_char ch, P_char victim)
      ((has_innate(victim, INNATE_HORSE_BODY) ||
        has_innate(victim, INNATE_SPIDER_BODY) ||
        GET_RACE(ch) == RACE_QUADRUPED)  &&
-      ch_size < vict_size))
+      ch_size <= vict_size))
   {
     act("$n makes a futile attempt to bash $N, but $E is simply immovable.", FALSE, ch, 0, victim, TO_NOTVICT);
     act("$n makes a futile attempt to bash you, but you are simply immovable.", FALSE, ch, 0, victim, TO_VICT);
@@ -5088,7 +5912,7 @@ void bash(P_char ch, P_char victim)
     {
       if(ch->equipment[WEAR_SHIELD])
       {
-        percent_chance += (ch->equipment[WEAR_SHIELD]->weight / 2);
+        percent_chance += (ch->equipment[WEAR_SHIELD]->weight / 1.8);
       }
       else
       {
@@ -5139,17 +5963,31 @@ void bash(P_char ch, P_char victim)
     return;
   }
 
+<<<<<<< HEAD
   percent_chance = 
      (int) (percent_chance * ((GET_POS(victim) == POS_PRONE) ? 0.10 : (GET_POS(victim) != POS_STANDING) ? 0.20 : 1));
+=======
+  percent_chance =
+    (int) (percent_chance *
+           ((GET_POS(victim) == POS_PRONE) ? 0.00 :
+           (GET_POS(victim) != POS_STANDING) ? 0.00 :
+           1));
+>>>>>>> master
   
   if(!IS_PC_PET(ch))
   {
-    percent_chance = (int) (percent_chance * (1 + ((GET_C_DEX(ch) - GET_C_AGI(victim)) / 200)));
+    percent_chance = (int) (percent_chance * (1 + (((GET_C_STR(ch)+GET_C_AGI(ch) / 2) - GET_C_AGI(victim)) / 50)));
   }
   else
   {
     percent_chance -= 20;
   }
+
+  if (number(1, 105) > GET_C_AGI(ch))
+  {
+   percent_chance *= .75;
+  }
+  
 
   /*
    * if they are fighting something and try to bash something else
@@ -5226,6 +6064,10 @@ void bash(P_char ch, P_char victim)
    * final check to smarten mobs up a little, if odds are too low don't
    * try very often.  JAB
    */
+if(GET_POS(victim) != POS_STANDING)
+      percent_chance = 0;
+    
+
 
   rolled = number(1, 100);
 
@@ -5284,6 +6126,12 @@ void bash(P_char ch, P_char victim)
     {
       CharWait(victim, PULSE_VIOLENCE * 1);
     }
+//TODO
+    else if(GET_SPEC(ch, CLASS_WARRIOR, SPEC_GUARDIAN))
+    {
+	 CharWait(victim, (int) (PULSE_VIOLENCE * 2.5));
+    }
+
     else
     {
       CharWait(victim, (int) (PULSE_VIOLENCE * 2));
@@ -5291,18 +6139,52 @@ void bash(P_char ch, P_char victim)
     
     if(melee_damage(ch, victim, MAX(1, dmg), PHSDAM_TOUCH, 0) == DAM_NONEDEAD)
     {
+<<<<<<< HEAD
       act("Your bash knocks $N to the ground!", FALSE, ch, 0, victim, TO_CHAR);
       
       if(!LEGLESS(ch))
       {
         act("You are knocked to the ground by $n's mighty bash!", FALSE, ch, 0, victim, TO_VICT);
         act("$N is knocked to the ground by $n's mighty bash!", FALSE, ch, 0, victim, TO_NOTVICT);
+=======
+      //act("Your bash knocks $N to the ground!",
+      //  FALSE, ch, 0, victim, TO_CHAR);
+      //TODO
+      if(GET_SPEC(ch, CLASS_WARRIOR, SPEC_GUARDIAN))
+	{
+		act("Your skillful bash knocks $N to the ground!",
+        	FALSE, ch, 0, victim, TO_CHAR);
+		act("You are knocked to the ground by $n's skillful bash!",
+         	 FALSE, ch, 0, victim, TO_VICT);
+       	 act("$N is knocked to the ground by $n's skillful bash!",
+         	 FALSE, ch, 0, victim, TO_NOTVICT);
+        	set_short_affected_by(ch, SKILL_BASH, (int) (2.8 * PULSE_VIOLENCE));
+         }
+
+	else if(!LEGLESS(ch))
+      {
+       act("Your bash knocks $N to the ground!",
+        FALSE, ch, 0, victim, TO_CHAR); 
+	act("You are knocked to the ground by $n's mighty bash!",
+          FALSE, ch, 0, victim, TO_VICT);
+        act("$N is knocked to the ground by $n's mighty bash!",
+          FALSE, ch, 0, victim, TO_NOTVICT);
+>>>>>>> master
         set_short_affected_by(ch, SKILL_BASH, (int) (2.8 * PULSE_VIOLENCE));
       }
       else
       {
+<<<<<<< HEAD
         act("$n's mass &+rslams&n into you, knocking you to the &+yground!&n", FALSE, ch, 0, victim, TO_VICT);
         act("$n's mass &+rslams&n into $N, knocking $M to the &+yground!&n", FALSE, ch, 0, victim, TO_NOTVICT);
+=======
+       act("Your bash knocks $N to the ground!",
+        FALSE, ch, 0, victim, TO_CHAR); 
+	act("$n's mass &+rslams&n into you, knocking you to the &+yground!&n",
+          FALSE, ch, 0, victim, TO_VICT);
+        act("$n's mass &+rslams&n into $N, knocking $M to the &+yground!&n",
+          FALSE, ch, 0, victim, TO_NOTVICT);
+>>>>>>> master
         set_short_affected_by(ch, SKILL_BASH, (int) (1.5 * PULSE_VIOLENCE));
       }
       
@@ -5338,9 +6220,10 @@ void bash(P_char ch, P_char victim)
               ch->equipment[WIELD], victim, TO_CHAR);
           act("$n dives at $N skewering $M with $s $q.", FALSE, ch,
               ch->equipment[WIELD], victim, TO_NOTVICT);
-          if(melee_damage(ch, victim, dice(20, 10), 0, 0) == DAM_NONEDEAD)
+          //codemod dice(20, 10) - changed to make skewer do more damage instead of lag user longer
+		if(melee_damage(ch, victim, dice(45, 10), 0, 0) == DAM_NONEDEAD)
           {
-            CharWait(victim, (int) (PULSE_VIOLENCE * 2.5));
+            CharWait(victim, (int) (PULSE_VIOLENCE * 2.0));
           }
         }
       }
@@ -6300,7 +7183,7 @@ void maul(P_char ch, P_char victim)
   else if(percent_chance == TAKEDOWN_PENALTY)
   {
     SET_POS(ch, POS_SITTING + GET_STAT(ch));
-    CharWait(ch, (int) (PULSE_VIOLENCE * 2));
+    CharWait(ch, (PULSE_VIOLENCE * 2));
     return;
   }
   else
@@ -6309,20 +7192,25 @@ void maul(P_char ch, P_char victim)
   vict_size = get_takedown_size(victim);
   ch_size = get_takedown_size(ch);
   
+<<<<<<< HEAD
   dam = 5 + (GET_LEVEL(ch) / 2) *
     (int) (get_property("skill.maul.damfactor", 1.000));
+=======
+  dam = dice(MIN(30, GET_LEVEL(ch)), 6) *
+    (get_property("skill.maul.damfactor", 1.000));
+>>>>>>> master
   
   if(GET_SPEC(ch, CLASS_BERSERKER, SPEC_MAULER))
     dam *= 1.5;
   
   percent_chance = (int) (percent_chance * 
-    (int) (get_property("skill.maul.hitchance", 1.000)));
+    (get_property("skill.maul.hitchance", 1.000)));
  
   if(IS_AFFECTED(victim, AFF_AWARE))
-    percent_chance = (int) (percent_chance * 0.84);
+    percent_chance = (percent_chance * 0.84);
     
   if(IS_ELITE(ch) || GET_SPEC(ch, CLASS_BERSERKER, SPEC_MAULER))
-    percent_chance = (int) (percent_chance * 1.25);
+    percent_chance = (percent_chance * 1.25);
 
   if(GET_POS(victim) != POS_STANDING)
     percent_chance = 0;
@@ -6336,12 +7224,12 @@ void maul(P_char ch, P_char victim)
     !GET_SPEC(ch, CLASS_BERSERKER, SPEC_MAULER))
   {
     send_to_char("You are fighting something else! Nevertheless, you attempt the maul...\n", ch);
-    percent_chance = (int) (percent_chance * 0.7);
+    percent_chance = (percent_chance * 0.7);
   }
 
   if((has_innate(victim, INNATE_HORSE_BODY) ||
       has_innate(victim, INNATE_SPIDER_BODY)) &&
-    get_takedown_size(ch) < get_takedown_size(victim) + 1)
+    get_takedown_size(ch) <= get_takedown_size(victim))
         too_big = true;
   else if(vict_size > ch_size + 1)
         too_big = true;
@@ -6369,7 +7257,7 @@ void maul(P_char ch, P_char victim)
     }
     
     SET_POS(ch, POS_SITTING + GET_STAT(ch));
-    CharWait(ch, (int) (PULSE_VIOLENCE * 
+    CharWait(ch, (PULSE_VIOLENCE * 
       get_property("skill.maul.failedmaul.lag", 1.500)));
 
   }
@@ -6396,7 +7284,7 @@ void maul(P_char ch, P_char victim)
     }
     
     SET_POS(ch, POS_SITTING + GET_STAT(ch));
-    CharWait(ch, (int) (PULSE_VIOLENCE * 
+    CharWait(ch, (PULSE_VIOLENCE * 
       get_property("skill.maul.failedmaul.lag", 1.500)));
   }
   else if(percent_chance > percentroll)
@@ -6412,23 +7300,23 @@ void maul(P_char ch, P_char victim)
 
     SET_POS(victim, POS_KNEELING + GET_STAT(victim));
 
-    if((percent_chance / 5) > percentroll && !IS_STUNNED(victim))
-          Stun(victim, ch, PULSE_VIOLENCE, TRUE);
+   // if((percent_chance / 5) > percentroll && !IS_STUNNED(victim))
+         // Stun(victim, ch, PULSE_VIOLENCE, TRUE); //removing stun from maul - should not be better than regular takedown
     
     if(GET_SPEC(ch, CLASS_BERSERKER, SPEC_MAULER) ||
        IS_ELITE(ch))
     { 
-      CharWait(victim, (int) (PULSE_VIOLENCE * 1.200));
-      CharWait(ch, (int) (PULSE_VIOLENCE * 1.800));
-      set_short_affected_by(ch, SKILL_BASH, (int) (PULSE_VIOLENCE * 
-        get_property("skill.maul.IsMauler.ShieldBashlag", 1.800)));
+      CharWait(victim, (PULSE_VIOLENCE * 1.200));
+      CharWait(ch, (PULSE_VIOLENCE * 1.800));
+      set_short_affected_by(ch, SKILL_BASH, (PULSE_VIOLENCE * 
+        get_property("skill.maul.IsMauler.ShieldBashlag", 2.000)));
     }
     else
     {
-      CharWait(victim, (int) (PULSE_VIOLENCE * 1.000));
-      CharWait(ch, (int) (PULSE_VIOLENCE * 2.000));
-      set_short_affected_by(ch, SKILL_BASH, (int) (PULSE_VIOLENCE * 
-        get_property("skill.maul.IsNotMauler.ShieldBashlag", 2.000)));
+      CharWait(victim, (PULSE_VIOLENCE * 1.000));
+      CharWait(ch, (PULSE_VIOLENCE * 2.000));
+      set_short_affected_by(ch, SKILL_BASH, (PULSE_VIOLENCE * 
+        get_property("skill.maul.IsNotMauler.ShieldBashlag", 2.200)));
     }
     
     melee_damage(ch, victim, dam, PHSDAM_TOUCH, 0);
@@ -6452,7 +7340,7 @@ void maul(P_char ch, P_char victim)
       FALSE, ch, 0, victim, TO_CHAR);
     SET_POS(ch, POS_KNEELING + GET_STAT(ch));
 
-    CharWait(ch, (int) (PULSE_VIOLENCE * 
+    CharWait(ch, (PULSE_VIOLENCE * 
       get_property("skill.maul.failedmaul.lag", 1.500)));
   }
 }
@@ -7576,16 +8464,24 @@ void bodyslam(P_char ch, P_char victim)
   percent_chance =
     (int) (percent_chance *
            ((double)
-            BOUNDED(80, 100 + (GET_C_AGI(ch) - GET_C_AGI(victim)) / 4,
-                    125)) / 100);
+           // BOUNDED(80, 100 + (GET_C_AGI(ch) - GET_C_AGI(victim)) / 4,
+              BOUNDED(80, 100 + (GET_WEIGHT(ch) - GET_C_AGI(victim)) / 4,
+                    155)) / 100);
 
   if(IS_AFFECTED(victim, AFF_AWARE))
   {
-    percent_chance /= 4;
+    percent_chance *= .80;
   }
 
   percent_chance =
     takedown_check(ch, victim, percent_chance, SKILL_BODYSLAM, ~AGI_CHECK);
+
+  if (GET_VITALITY(ch) < 30)
+  {
+   send_to_char("You need to gather your energy before attempting to slam someone.\r\n", ch);
+   return;
+  }
+  GET_VITALITY(ch) -= 30;
 
   if(percent_chance == TAKEDOWN_CANCELLED)
   {
@@ -7603,7 +8499,7 @@ void bodyslam(P_char ch, P_char victim)
        FALSE, ch, 0, victim, TO_CHAR);
     act("$n trips over you, in a futile attempt to slam you down even further.",
        FALSE, ch, 0, victim, TO_VICT);
-    CharWait(ch, 2 * PULSE_VIOLENCE);
+    CharWait(ch, 3 * PULSE_VIOLENCE);
   }
   else if(get_takedown_size(victim) > get_takedown_size(ch))
   {
@@ -7612,7 +8508,7 @@ void bodyslam(P_char ch, P_char victim)
     act("$N is too huge for you to bodyslam!", FALSE, ch, 0, victim, TO_CHAR);
     act("$n tries to bodyslam you but merely bounces off your huge girth.",
         FALSE, ch, 0, victim, TO_VICT);
-    CharWait(ch, 2 * PULSE_VIOLENCE);
+    CharWait(ch, 3 * PULSE_VIOLENCE);
   }
   else if(get_takedown_size(victim) < get_takedown_size(ch) - 2)
   {
@@ -7623,7 +8519,7 @@ void bodyslam(P_char ch, P_char victim)
     send_to_char
       ("You may as well try and bodyslam a speck of dust!  Too small..\n",
        ch);
-    CharWait(ch, 2 * PULSE_VIOLENCE);
+    CharWait(ch, 3 * PULSE_VIOLENCE);
   }
   else if(percent_chance > number(1, 100))
   {
@@ -7634,9 +8530,10 @@ void bodyslam(P_char ch, P_char victim)
     act("You mindlessly slam $M with your mass!\n", TRUE, ch, 0, victim,
         TO_CHAR);
     fall = FALSE;
-    CharWait(victim, PULSE_VIOLENCE * 2);
+    CharWait(victim, PULSE_VIOLENCE * 3);
     SET_POS(victim, POS_PRONE + GET_STAT(victim));
-    CharWait(ch, 2 * PULSE_VIOLENCE);
+    engage(ch, victim);
+    CharWait(ch, 3 * PULSE_VIOLENCE);
     if(!damage
         (ch, victim, str_app[STAT_INDEX(GET_C_STR(ch))].todam + 5,
          SKILL_BODYSLAM))
@@ -7668,8 +8565,6 @@ void bodyslam(P_char ch, P_char victim)
       SET_POS(ch, POS_SITTING + GET_STAT(ch));
     else
       SET_POS(ch, POS_KNEELING + GET_STAT(ch));
-
-  engage(ch, victim);
 
   if(!affected_by_spell(victim, SKILL_AWARENESS))
   {
@@ -8136,7 +9031,7 @@ void do_trip(P_char ch, char *argument, int cmd)
   }
 
   percent_chance =
-    (int) (percent_chance * ((double) BOUNDED(72, GET_C_AGI(ch), 133)) / 100);
+    (int) (percent_chance * ((double) BOUNDED(72, GET_C_AGI(ch), 160)) / 100);
   percent_chance =
     takedown_check(ch, vict, percent_chance, SKILL_TRIP, APPLY_ALL);
 
@@ -8940,6 +9835,273 @@ void gaze(P_char ch, P_char victim)
 
 }
 
+void restrain(P_char ch, P_char victim)
+{
+  int percent_chance, anatomy_skill, standing = 1, battling = 1;
+  bool death_door;
+  P_char temp_ch;
+  struct affected_type af;
+
+  if(!(ch))
+  {
+    logit(LOG_EXIT, "restrain called in actoff.c with no ch");
+    raise(SIGSEGV);
+  }
+
+  if(ch == victim)
+  {
+    send_to_char
+      ("&+LOh, but that would be way too much fun...\n", ch);
+    CharWait(ch, PULSE_VIOLENCE);
+    return;
+  }
+  
+  appear(ch);
+
+    if(affected_by_spell(victim, SKILL_BASH))
+  {
+    send_to_char("&+LThey cannot be restrained in their current position.\n", ch);
+	CharWait(ch, (int) (PULSE_VIOLENCE));
+    return;
+  }
+
+  if(affected_by_spell(victim, SKILL_GAZE))
+  {
+    act("$N &+Lappears to be paralyzed as it is!&n", FALSE, ch, 0, victim, TO_CHAR);
+    CharWait(ch, (int) (2.5 * PULSE_VIOLENCE));
+    return;
+  }
+  
+  
+  if(affected_by_spell(ch, SKILL_BASH))
+  {
+    send_to_char("&+LYour &+rminions &+Lneed rest before restraining again.\n", ch);
+    return;
+  }
+
+  if(IS_NPC(victim) &&
+     (IS_GREATER_RACE(victim) ||
+     IS_ELITE(victim)))
+  {
+    act("&+LYou call your &+rminions &+Lfrom the depths to harness&n $N&+L, but it simply shrugs them away!",
+       FALSE, ch, 0, victim, TO_CHAR);
+    act("$N &+Lsimply shrugs away&n $n's &+Lattempt to restrain it...",
+       FALSE, ch, 0, victim, TO_NOTVICT);
+    act("&+LYou simply shrug away&n $N's &+Lattempt to restrain you...",
+        FALSE, ch, 0, victim, TO_VICT);
+    do_action(ch, 0, CMD_GROWL);
+    CharWait(ch, (int) (2.5 * PULSE_VIOLENCE));
+    return;
+  }
+  
+  if(get_takedown_size(victim) > get_takedown_size(ch) + 2)
+  {
+    act("&+LYou try to restrain&n $N&+L, but it easily breaks free of your &+rrestraints&+L.&n", FALSE,
+        ch, 0, victim, TO_CHAR);
+    act("$n &+Ltries to restrain&n $N&+L, but &n$E &+Leasily breaks free of the &+rrestraings&+L.&n", FALSE, ch,
+        0, victim, TO_NOTVICT);
+    act("$n's&+L minions attempt to restrain you, but you simply break free of the &+rrestraints&+L.&n", FALSE,
+        ch, 0, victim, TO_VICT);
+    CharWait(ch, (int) (2 * PULSE_VIOLENCE));
+    return;
+  }
+  
+  if(get_takedown_size(victim) < get_takedown_size(ch) - 2)
+  {
+    act("&+LYou try to restrain&n $N&+L, but it easily evades your &+rminions.",
+      FALSE, ch, 0, victim, TO_CHAR);
+    act("$n &+Ltries to restrain&n $N &+L, but they easily evade&n $n's &+rminions&n.",
+      FALSE, ch, 0, victim, TO_NOTVICT);
+    act("$n &+Ltries to restrain you, but you easily evade the attempt!&n",
+      FALSE, ch, 0, victim, TO_VICT);
+    CharWait(ch, (int) (2 * PULSE_VIOLENCE));
+    return;
+  }
+  
+
+  // any conditions past this will lag the char for the full duration
+  CharWait(ch, 2 * PULSE_VIOLENCE);
+
+  percent_chance = GET_CHAR_SKILL(ch, SKILL_RESTRAIN); // Base percentage
+  
+  if(GET_POS(victim) != POS_STANDING)
+  {
+    act("$E &+Lis not in a proper position to be restrained, but you summon your &+rminions &+Lanyway!",
+      FALSE, ch, 0, victim, TO_CHAR);
+    act("$n &+Lcalls forth $s &+rminions &+Lwhich have trouble restraining &n$N.",
+      FALSE, ch, 0, victim, TO_NOTVICT);
+    act("$n &+Lcalls forth $s &+rminions &+Lwhich have trouble restraining you&n.",
+      FALSE, ch, 0, victim, TO_VICT);
+    percent_chance = 0;  // Cannot restrain !standing victim.
+  }
+  
+  if(get_takedown_size(victim) == get_takedown_size(ch) + 2 ||
+     get_takedown_size(victim) == get_takedown_size(ch) - 2)
+  {
+    percent_chance = (int) (percent_chance * 0.6);
+  }
+
+  if(GET_C_LUCK(ch) / 2 > number(0, 110))
+  {
+    percent_chance = (int) (percent_chance * 1.05);
+  }
+  
+  if(GET_C_LUCK(victim) / 2 > number(0, 90))
+  {
+    percent_chance = (int) (percent_chance * 0.95);
+  }
+           
+  percent_chance = (int)(percent_chance *
+                       GET_C_POW(ch) / GET_C_POW(victim)) +
+                       GET_LEVEL(ch) -
+                       GET_LEVEL(victim) +
+                       number(-15, 0);
+  
+  percent_chance = BOUNDED(1, percent_chance, 90);
+
+  if(world[ch->in_room].room_flags & SINGLE_FILE &&
+     !AdjacentInRoom(ch, victim) &&
+     !IS_TRUSTED(ch))
+  {
+    act("&+LYour &+rminions &+Lwould have a difficult time in such a narrow area.",
+      FALSE, ch, 0, victim, TO_CHAR);
+    percent_chance = (int) (percent_chance * 0.65);
+  }
+  
+  if(IS_FIGHTING(ch) &&
+    victim->specials.fighting != ch &&
+    ch->specials.fighting != victim)
+  {
+    act("&+LYou turn from your current victim and direct your &+rsummons&+L toward&n $N&+L...&n",
+      FALSE, ch, 0, victim, TO_CHAR);
+    act("$n &+Lturns $s focus away from the current fight and makes a strange &+rgesture &+Ltoward &n$N...&n",
+      FALSE, ch, 0, victim, TO_NOTVICT);
+    act("$n &+Lturns $s focus away from the current fight and makes a strange &+rgesture &+Ltoward you.&n",
+      FALSE, ch, 0, victim, TO_VICT);
+    
+    percent_chance = (int) (percent_chance * 0.40);
+  }
+
+// DEBUG CODE SECTION ---------------------
+
+  if(GET_POS(victim) != POS_STANDING)
+  {
+    standing = 0;
+  }
+  
+  if(IS_FIGHTING(ch) &&
+    victim->specials.fighting != ch &&
+    ch->specials.fighting != victim)
+  {
+    battling = 0;
+  }
+  
+  debug("RESTRAIN: (%s) with (%d) percent at (%s&n) - standing? (%d) battling? (%d).",
+    GET_NAME(ch), percent_chance, J_NAME(victim), standing, battling);
+// ---------------------------------------
+  
+  if(notch_skill(ch, SKILL_RESTRAIN, get_property("skill.notch.offensive", 15)) ||
+      percent_chance > number(0, 100))
+  {    
+    anatomy_skill = GET_CHAR_SKILL(ch, SKILL_ANATOMY) - 25; // returns -25 to 70 int
+
+    if(GET_HIT(victim) < (int)(((number(0,100) + anatomy_skill))/2))
+    {
+      if(GET_CLASS(ch, CLASS_CABALIST))
+      {
+        act("Your powerful will easily dominates the inferior creature before you.\n"
+            "You draw $S soul into your essence sentencing $M to judgement.\n"
+            "The guilt is obvious for there are so few true of heart. You strip\n"
+            "the body of the soul and let the dead husk topple to the ground.",
+            FALSE, ch, 0, victim, TO_CHAR);
+        act("As you stare into&n $N's bottomless eyes you loose yourself\n"
+            "in the endless void. Powers beyond your understanding probe your soul\n"
+            "judging your deeds. The verdict is one - guilty. Your soul is ripped\n"
+            "from your body and the now dead husk topples to the ground.",
+            FALSE, ch, 0, victim, TO_VICT);
+        act("$N shudders as $E tries, and fails, to break free of the will of $n.\n"
+            "A second of silence passes before simply utters a silent sigh and topples over dead.",
+            FALSE, ch, 0, victim, TO_NOTVICT);
+      }
+      else
+      {
+        act("&+LYou turn to &n$N &+Land make an un&+who&+Wly &+Lgesture.\n"
+            "&+LA &nsmoking &+Ldark pit opens beneath &n$S's feet, the smell of death\n"
+            "&+Land decay fill the air. Suddenly, &+Wskeletal &+Lhands emerge, grasping\n"
+            "$N &+Ltightly! &n$N &+Llets out a final &+rsCCrrREEEaaMM &+Las they\n"
+            "&+Lare whisked away into the &+rabyss&+L.", FALSE, ch, 0, victim, TO_CHAR);
+        act("$n&+L turns to you &+Land makes an un&+who&+Wly &+Lgesture.\n"
+            "&+LA &nsmoking &+Ldark pit opens beneath your feet, the smell of death\n"
+            "&+Land decay fill the air. Suddenly, &+Wskeletal &+Lhands emerge, grasping\n"
+            "&+Lyou &+Ltightly! You struggle, but your efforts are fruitless...\n"
+            "&+LWith a final gasp, you cry out a final &+rsCCrrREEEaaMM &+Las you\n"
+            "&+Lare whisked away into the &+rabyss&+L.", FALSE, ch, 0, victim, TO_VICT);
+        act("$n&+L turns to &n$N &+Land makes an un&+who&+Wly &+Lgesture.\n"
+            "&+LA &nsmoking &+Ldark pit opens beneath &n$S's feet, the smell of death\n"
+            "&+Land decay fill the air. Suddenly, &+Wskeletal &+Lhands emerge, grasping\n"
+            "$N &+Ltightly! &n$N &+Llets out a final &+rsCCrrREEEaaMM &+Las they\n"
+            "&+Lare whisked away into the &+rabyss&+L.", FALSE, ch, 0, victim, TO_NOTVICT);
+      }
+      die(victim, ch);
+    }
+    else
+    {
+      if(GET_CLASS(ch, CLASS_AVENGER))
+      {
+        act("&+WYou stare at&n $N &+Wforcing $M into &+wsubmission.&n",
+          FALSE, ch, 0, victim, TO_CHAR);
+        act("$N &+wis lost in thought as $E meets&n $n's &+wgaze.",
+          FALSE, ch, 0, victim, TO_NOTVICT);
+        act("&+WCalming visions sweep over you as you gaze into&n $n's &+Weyes.&n",
+          FALSE, ch, 0, victim, TO_VICT);
+      }
+      else
+      {
+        act("&+LYou turn and make an un&+who&+Wly &+Lgesture in&n $N's &+Ldirection...\n"
+        "&+La band of &+Revil &+rminions &+Lsuddenly restrain &n$N&+L!",
+           FALSE, ch, 0, victim, TO_CHAR);
+        act("$N &+Lis suddenly overcome by&n $n's &+Lband of un&+who&+Wly &+rminions&+L!&n",
+           FALSE, ch, 0, victim, TO_NOTVICT);
+        act("&+LYou suddenly feel unable to move as&n $n's &+rminions &+Lsubdue you!&n",
+            FALSE, ch, 0, victim, TO_VICT);
+      }
+      
+      
+    memset(&af, 0, sizeof(af));
+    af.type = SKILL_RESTRAIN;
+    af.flags = AFFTYPE_SHORT | AFFTYPE_NODISPEL ;
+    af.duration = (PULSE_VIOLENCE * 2);
+    affect_to_char_with_messages(victim, &af, "&+LThe &+rminions&+L finally release their hold on you!", "$n &+Lfinally breaks free from the &+rminions &+Lrestraining them.");
+    set_short_affected_by(ch, SKILL_BASH, (int) (PULSE_VIOLENCE * 3.0));
+    victim->specials.combat_tics = victim->specials.base_combat_round;
+      //CharWait(victim, (int) (2.0 * PULSE_VIOLENCE));
+
+      if(IS_NPC(victim))
+        // they can't do any cmds anyway, so lag them so they can stack
+        // cmds the same as being bashed, etc.
+      {
+        CharWait(victim, (int) (2.0 * PULSE_VIOLENCE));
+      }
+      if(number(0, 2))
+      {
+        StopCasting(victim);
+      }
+      engage(ch, victim);
+    }
+  }
+  else
+  {
+    act("&+LYour &+rminions&+L attempt to restrain&n $N &+Lbut $E deftly escapes the attack.&n",
+      FALSE, ch, 0, victim, TO_CHAR);
+    act("$N &+Lmakes a dextrous move, quickly evading&n $n's &+rminions&+L.&n",
+      FALSE, ch, 0, victim, TO_NOTVICT);
+    act("&+LYou quickly jump out of the way of&n $n's &+Levil &+rmionions&+L.&n",
+      FALSE,  ch, 0, victim, TO_VICT);
+  }
+
+}
+
+
 // Shriek skill/2 + 1d20 area damage usable once every 5 minutes.
 void do_shriek(P_char ch, char *argument, int cmd)
 {
@@ -9125,7 +10287,7 @@ bool MobShouldFlee(P_char ch)
 
 bool CheckMultiProcTiming(P_char ch)
 {
-
+  return true; //disabling multiproc check
   if(!(ch) ||
      !IS_ALIVE(ch) ||
      affected_by_spell(ch, TAG_STOP_PROC))
@@ -9134,7 +10296,187 @@ bool CheckMultiProcTiming(P_char ch)
   }
   
   set_short_affected_by(ch, TAG_STOP_PROC, 1);
+  
   return true;
 }
   
+void do_dreadnaught(P_char ch, char *, int)
+{
+  struct affected_type af;
 
+  if(GET_CHAR_SKILL(ch, SKILL_DREADNAUGHT) < 1)
+   {
+    send_to_char("You have no training in such a specialized area of defensive abilities.\r\n", ch);
+	return;
+   }
+  
+  if(affected_by_spell(ch, TAG_DREADNAUGHT))
+  {
+    send_to_char("You are not ready to assume a defensive stance yet.\r\n", ch);
+	return;
+  }  
+
+  if(number(1, 102) < GET_CHAR_SKILL(ch, SKILL_DREADNAUGHT))
+    {
+    act("&+RCCCHHHAAARRGGEEEE!!!&+y You raise your defenses and assume a stoic stance!&n", FALSE, ch, 0, 0, TO_CHAR);
+    act("$n &+ysuddenly assumes a &+Ydefensive&+y position, shield and weapon at the ready!&n", FALSE, ch, 0, 0, TO_ROOM);
+  
+    memset(&af, 0, sizeof(af));
+	
+    af.type = SKILL_DREADNAUGHT;
+    af.bitvector5 = AFF5_DREADNAUGHT;
+    af.flags = AFFTYPE_SHORT | AFFTYPE_NODISPEL ;
+    af.duration = 40;
+	affect_to_char(ch, &af);
+
+    memset(&af, 0, sizeof(af));
+    af.type = SKILL_DREADNAUGHT;
+    af.bitvector4 = AFF4_NOFEAR;
+    af.duration = 40;
+    af.flags = AFFTYPE_SHORT | AFFTYPE_NODISPEL ;
+
+    affect_to_char_with_messages(ch, &af,
+                                 "&+yYou lower your &+Yguard&+y, and assume an offensive stance.",
+                                 "$n &+ylowers his guard, and assumes an offensive stance.&n");
+								 
+	set_short_affected_by(ch, TAG_DREADNAUGHT, 65);
+    notch_skill(ch, SKILL_DREADNAUGHT, 15);
+    return;
+    }
+    act("&nYou attempt to assume a &+ydefensive &nposition, but fail horribly!&n", FALSE, ch, 0, 0, TO_CHAR);
+    act("$n &+yattempts to assume a &+Ydefensive&+y position, but fails horribly!&n", FALSE, ch, 0, 0, TO_ROOM);
+    set_short_affected_by(ch, TAG_DREADNAUGHT, 65);
+    notch_skill(ch, SKILL_DREADNAUGHT, 15);
+}
+
+void do_shadowstep(P_char ch, char *, int)
+{
+
+  struct affected_type af;
+
+  if(GET_CHAR_SKILL(ch, SKILL_SHADOWSTEP) < 1)
+   {
+    send_to_char("&+LYou are not sneaky enough to attempt shadow stepping.\r\n", ch);
+	return;
+   }
+  
+  if(affected_by_spell(ch, SKILL_SHADOWSTEP))
+  {
+    send_to_char("&+LYou must wait for the &+wshadows&+L to coalesce before attempting to shadow step once again.\r\n", ch);
+	return;
+  }  
+    int dur = 140 - GET_CHAR_SKILL(ch, SKILL_SHADOWSTEP);
+ if(number(1, 102) < GET_CHAR_SKILL(ch, SKILL_SHADOWSTEP))
+    {
+
+    act("&+LPooF! You perform an evasive maneouver, quickling darting into the sha&+wdo&+Wws&+L!&n", FALSE, ch, 0, 0, TO_CHAR);
+    act("&+LPooF! &n$n &+ysuddenly performs an evasive maneouver, quickling darting into the sha&+wdo&+Wws&+L!&n", FALSE, ch, 0, 0, TO_ROOM);
+  
+    memset(&af, 0, sizeof(af));
+	
+    af.type = SKILL_SHADOWSTEP;
+    af.flags = AFFTYPE_SHORT | AFFTYPE_NODISPEL ;
+    af.duration = dur;
+    affect_to_char_with_messages(ch, &af,
+                                 "&+LYou grin as the sha&+wdo&+Wws &+Lslowly coalesce around you.&n",
+                                 "$n &+Lflashes a &+rwicked&+L grin as the sha&+wdo&+Wws &+Lslowly coalesce around them.&n");
+
+    memset(&af, 0, sizeof(af));
+    af.type = SKILL_SHADOWSTEP;
+    af.bitvector = AFF_HIDE;
+    af.duration = 20;
+    af.flags = AFFTYPE_SHORT | AFFTYPE_NODISPEL | AFFTYPE_NOSHOW ;
+	affect_to_char(ch, &af);
+    
+								 
+    notch_skill(ch, SKILL_SHADOWSTEP, 15);
+  if( IS_FIGHTING(ch) )
+   {
+    P_char victim, victim2;
+    for (victim = world[ch->in_room].people; victim; victim = victim2)
+    {
+      victim2 = victim->next_in_room;
+
+      // immortals are not effected
+      if(IS_TRUSTED(victim))
+      {
+        continue;
+      }
+     if(GET_OPPONENT(victim) == ch)
+     stop_fighting(victim);
+    }
+   }
+    stop_fighting(ch);
+
+
+    return;
+    }
+    act("&nYou attempt to step into the &+Lsha&+wdo&+Wws&n, but fail horribly!&n", FALSE, ch, 0, 0, TO_CHAR);
+    act("$n makes an attempt to step into the &+Lsha&+wdo&+Wws&n, but fails horribly!&n", FALSE, ch, 0, 0, TO_ROOM);
+    set_short_affected_by(ch, SKILL_SHADOWSTEP, dur);
+    notch_skill(ch, SKILL_SHADOWSTEP, 15);
+
+}
+
+void do_garrote(P_char ch, char *argument, int cmd)
+{
+  P_char   victim = NULL;
+
+  if(!(ch) ||
+    !IS_ALIVE(ch))
+  {
+    return;
+  }
+  
+  if(affected_by_spell(ch, SKILL_GARROTE))
+  {
+    send_to_char("You must wait before attempting to &+rgarrote&n again.\r\n", ch);
+	return;
+  }
+
+  victim = ParseTarget(ch, argument);
+  
+  if (GET_CHAR_SKILL(ch, SKILL_GARROTE) < 1)
+  {
+	send_to_char("Sure! You'll probably cut yourself trying!&n\r\n", ch);
+	return;
+  }
+  
+  if(!(victim) ||
+     !IS_ALIVE(victim))
+  {
+    //CharWait(ch, (int)(0.5 * PULSE_VIOLENCE));
+    send_to_char("Who's throat would you like to &+rcut&n?\n", ch);
+    return;
+  }
+
+  int success = GET_CHAR_SKILL(ch, SKILL_GARROTE);
+  notch_skill(ch, SKILL_GARROTE, 15);
+  if(number(1, 105) > success)
+  {
+    act("&+LYou try to slip behind &n$N&+L, but they notice the attempt and block your advance!",
+    FALSE, ch, 0, victim, TO_CHAR); 
+	act("&+LYou notice &n$n &+Lattempting to sneak behind you, but quickly block their advance!",
+    FALSE, ch, 0, victim, TO_VICT);
+    act("$N &+Ladeptly notices &n$n's attempt to &+rgarrote&+L them and blocks the attempt!",
+    FALSE, ch, 0, victim, TO_NOTVICT);
+    set_short_affected_by(ch, SKILL_GARROTE, (int) (2.8 * PULSE_VIOLENCE));
+    CharWait(ch, (int)(0.5 * PULSE_VIOLENCE));
+	return;
+  }
+  
+    act("&+LYou skillfully slip behind&n $N &+Land &+rslit &+Ltheir &+rth&+Rro&+rat&+L resulting in a &+Rmist &+Lof &+rblood&+L!&n",
+    FALSE, ch, 0, victim, TO_CHAR); 
+	act("&+rOUCH! &n$n &+Lsuddenly appears behind you and makes a &+rslashing &+Lmotion at your &+rth&+Rro&+rat&+L!",
+    FALSE, ch, 0, victim, TO_VICT);
+    act("$N &+Lsuddenly stumbles, grasping at their &+rneck&+L as &n$n &+Lstands behind them grinning!",
+    FALSE, ch, 0, victim, TO_NOTVICT);
+    set_short_affected_by(ch, SKILL_GARROTE, (int) (2.8 * PULSE_VIOLENCE));
+	int	numb = number(5, 8);
+    CharWait(ch, (int)(0.5 * PULSE_VIOLENCE));
+  if (!IS_FIGHTING(ch))
+    set_fighting(ch, victim);
+
+	add_event(event_garroteproc, PULSE_VIOLENCE, victim, 0, 0, 0, &numb, sizeof(numb));
+
+}

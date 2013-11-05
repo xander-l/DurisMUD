@@ -1185,12 +1185,15 @@ int illithid_axe(P_obj obj, P_char ch, int cmd, char *arg)
           act("$q &+Lhas failed to take you to your destination and gives you a powerful jolt.&n",
             TRUE, ch, obj, ch, TO_CHAR);
 
-          // Detonate spell does 1 damage to self.
-          // spell_detonate(50, ch, 0, SPELL_TYPE_SPELL, ch, 0);
-      
-          spell_damage(ch, ch, number(100, 400), SPLDAM_GENERIC, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, 0);
           
-          obj->timer[0] = curr_time;
+	   obj->timer[0] = curr_time;
+	    spell_inflict_pain(50, ch, 0, SPELL_TYPE_SPELL, ch, 0);
+	    spell_inflict_pain(50, ch, 0, SPELL_TYPE_SPELL, ch, 0);
+
+      
+          //spell_damage(ch, ch, number(100, 400), SPLDAM_GENERIC, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, 0);
+          
+          
           return FALSE;
         }
         
@@ -1885,7 +1888,7 @@ int demon_slayer(P_obj obj, P_char ch, int cmd, char *arg)
 
             act("&+rThe Prince of Demons &+Llooks at $n and says, &+W'&+CProt&+Bec&+Ction&+W'&n", TRUE, ch, obj, vict, TO_ROOM);
 
-            spell_displacement(56, ch, 0, SPELL_TYPE_SPELL, ch, 0);
+            //spell_displacement(56, ch, 0, SPELL_TYPE_SPELL, ch, 0);
             spell_stone_skin(56, ch, 0, SPELL_TYPE_SPELL, ch, 0);
             spell_globe(56, ch, 0, SPELL_TYPE_SPELL, ch, 0);
         }
@@ -1899,7 +1902,7 @@ int demon_slayer(P_obj obj, P_char ch, int cmd, char *arg)
             spell_enhanced_agility(56, ch, 0, SPELL_TYPE_SPELL, ch, 0);
             spell_enhanced_dexterity(56, ch, 0, SPELL_TYPE_SPELL, ch, 0);
             spell_blur(40, ch, 0, SPELL_TYPE_SPELL, ch, 0);
-            spell_reduce(40, ch, 0, SPELL_TYPE_SPELL, ch, 0);
+           // spell_reduce(40, ch, 0, SPELL_TYPE_SPELL, ch, 0);
         }
         else
         if(rand <= 94)
@@ -1911,7 +1914,7 @@ int demon_slayer(P_obj obj, P_char ch, int cmd, char *arg)
             spell_enhanced_strength(56, ch, 0, SPELL_TYPE_SPELL, ch, 0);
             spell_strength(56, ch, 0, SPELL_TYPE_SPELL, ch, 0);
             spell_lionrage(56, ch, 0, SPELL_TYPE_SPELL, ch, 0);
-            spell_enlarge(56, ch, 0, SPELL_TYPE_SPELL, ch, 0);
+          //  spell_enlarge(56, ch, 0, SPELL_TYPE_SPELL, ch, 0);
         }
         else
         if(rand > 97) //ho ho, hellfire? I think not -Z
@@ -2036,9 +2039,9 @@ int demon_slayer(P_obj obj, P_char ch, int cmd, char *arg)
         act("&+L$n's $q &+rfl&+Rar&+res &+Las it channels the powers of &+rBel &+Lupon $N!&n", TRUE, ch, obj, vict, TO_NOTVICT);
 
         spell_sunray(40, ch, 0, SPELL_TYPE_SPELL, vict, 0);
+      /*  spell_sunray(40, ch, 0, SPELL_TYPE_SPELL, vict, 0);
         spell_sunray(40, ch, 0, SPELL_TYPE_SPELL, vict, 0);
-        spell_sunray(40, ch, 0, SPELL_TYPE_SPELL, vict, 0);
-        spell_sunray(40, ch, 0, SPELL_TYPE_SPELL, vict, 0);
+        spell_sunray(40, ch, 0, SPELL_TYPE_SPELL, vict, 0);*/
 
       break;
       case 1:
@@ -2047,7 +2050,7 @@ int demon_slayer(P_obj obj, P_char ch, int cmd, char *arg)
         act("&+L$n's $q &+bbl&+Cu&+brs &+Las it channels the powers of &+rEuronymous &+Lupon $N!&n", TRUE, ch, obj, vict, TO_NOTVICT);
 
         spell_bigbys_crushing_hand(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
-        spell_bigbys_crushing_hand(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
+       /* spell_bigbys_crushing_hand(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);*/
 
       break;
       case 2:
@@ -2076,7 +2079,7 @@ int demon_slayer(P_obj obj, P_char ch, int cmd, char *arg)
           act("&+L$n's $q &+bbl&+Cu&+brs &+Las it channels the powers of &+rEuronymous &+Lupon you!&n", TRUE, ch, obj, vict, TO_VICT);
           act("&+L$n's $q &+bbl&+Cu&+brs &+Las it channels the powers of &+rEuronymous &+Lupon $N!&n", TRUE, ch, obj, vict, TO_NOTVICT);
 
-          spell_pword_kill(GET_LEVEL(ch), ch, 0, SPELL_TYPE_SPELL, vict, 0);
+          spell_immolate(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
 
         break;
         case 2:
@@ -2254,7 +2257,7 @@ int helmet_vampires(P_obj obj, P_char ch, int cmd, char *arg)
               break;
           }    
 
-          CharWait(ch,PULSE_VIOLENCE * 6);
+          CharWait(ch,PULSE_VIOLENCE * 1);
           CharWait(vict,PULSE_VIOLENCE * 1);
  
           act("$N is stunned!&n", TRUE, ch, obj, vict, TO_CHAR);
@@ -2411,14 +2414,14 @@ int buckler_saints(P_obj obj, P_char ch, int cmd, char *arg)
         act("$n &+Wutters a prayer for &+YSaint &+WVerdonnaly.&n", TRUE, ch, obj, vict, TO_ROOM);
         act("$n's $q hums loudly, sending waves of &+csoothing &+Wsensations through the &+Cair&+W.&n", TRUE, ch, obj, vict, TO_ROOM);
 
-        if (ch->group)
+     /*   if (ch->group)
         {
           cast_as_area(ch, SPELL_VITALITY, 50, 0);
         }
         else
-        {
+        {*/
         spell_vitality(50, ch, 0, SPELL_TYPE_SPELL, ch, 0);
-        }
+      //  }
 
         obj->timer[0] = curr_time;
         return TRUE;
@@ -4002,6 +4005,9 @@ int collar_frost(P_obj obj, P_char ch, int cmd, char *arg)
   if (IS_SET(world[ch->in_room].room_flags, LOCKER))
     return FALSE;
 
+  int level = GET_LEVEL(ch);
+
+
   if (arg && (cmd == CMD_SAY))
   {
     if ((isname(arg, "frost")))
@@ -4011,6 +4017,11 @@ int collar_frost(P_obj obj, P_char ch, int cmd, char *arg)
         send_to_char("You are too focused on fighting to complete the incantations!\n", ch);
         return FALSE;
       }
+        if(!can_conjure_lesser_elem(ch, level))
+   	 {
+  	   send_to_char("You have too many followers already.\n\r", ch);
+ 	   return FALSE;
+  	  }
 
       curr_time = time(NULL);
 
@@ -4138,6 +4149,8 @@ int collar_flames(P_obj obj, P_char ch, int cmd, char *arg)
       IS_SET(world[ch->in_room].room_flags, LOCKER))
     return FALSE;
   
+  int level = GET_LEVEL(ch);
+
   if (arg &&
      (cmd == CMD_SAY))
   {
@@ -4154,6 +4167,12 @@ int collar_flames(P_obj obj, P_char ch, int cmd, char *arg)
           "You are too focused on fighting to complete the incantations!\r\n", ch);
         return FALSE;
       }
+        if(!can_conjure_lesser_elem(ch, level))
+  	  {
+  	   send_to_char("You have too many followers already.\n\r", ch);
+ 	   return FALSE;
+ 	   }
+  
   
       curr_time = time(NULL);
 

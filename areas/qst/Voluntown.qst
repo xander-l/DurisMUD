@@ -1,0 +1,95 @@
+#142400
+MA
+necropolis~
+&+wThe old man pauses for a moment before speaking,"Eh? So your here to
+&+winquire about the &+bnecropolis&+w? Well I can tell you a few things that
+&+wyou might be interested in...my family has been the caretakers of this
+&+wnecropolis for some time. Many generations in fact, you see in times
+&+wgone by &+CIcecrag &+whad dynasties which lasted for either for few
+&+wyears to many hundreds of years. Each dynasty had a royal &+Yfamily &+wwho
+&+wruled the continent with absolute power.
+~
+MA
+family families~
+&+wThe royal families? Well there were seven before the dynasties fell
+&+wand the land was taken over by &+BAuril&+w. I'm sure you have heard of
+&+wher. Well, the names of the families who ruled were the Boru's, the
+&+wCrav's, the Sarum's, the Llywelyn's, the Tavenshir's, the Platyr's
+&+wand lastly the dynasty that lasted the longest and those who harmed
+&+wthis continents inhabitants the most the &+LDrakenstone &+wfamily. It
+&+wwas their deal with &+BAuril&+w that cursed the land and turned the
+&+wnecropolis into this twisted version of itself.
+~
+MA
+auril~
+&+wWe dare not speak of her. She is always listening but I will say
+&+wthat if you were to break her hold on &+CIcecrag &+wby freeing the
+&+wtailor of &+mtime&+w, &+WMary&+w, then you would do us all a boon. If
+&+wyou were to bring me proof of this then I would reward you with a
+&+wparticular object that is very powerful and has been in my family
+&+wfor as long as my family has served as caretakers here at the
+&+bnecropolis&+w.
+~
+MA
+drakenstone~
+&+wThis place is &+Lcursed &+wnow. The Drakenstones made a deal with
+&+BAuril&+w to rule the land forever. However, the Goddess being evil
+&+wand possessing a strong and wicked sense of irony granted their
+&+wrequest. The night after they made their deal, they were murdered
+&+win their sleep by their own servants. When they were interred here
+&+wwithin their tomb it is said they were raised by &+BAuril &+wherself.
+&+wMy ancestor managed to seal their tomb during daylight with the key
+&+wbearing the &+LDrakenstone &+wfamily crest. If you truly believe that
+&+wyou can destroy them you must venture into the tombs of the other
+&+wfamilies and collect all six fragments and bring them to me. Do
+&+wthis with the knowledge that the curse has spread out from the
+&+wDrakenstone tomb and now has corrupted the rest of all interred at
+&+wthe necropolis. No one ventures down there anymore. Not even me.
+&+wThere is a strange darkness which encompasses the entirety of the
+&+warea and the undead wander around seeking the &+rflesh &+wof the
+&+wliving. It is theirs now and only the spirit of &+WMary &+wkeeps
+&+wthem from leaving this place and roaming &+CIcecrag&+w.
+~
+MA
+mary tailor time~
+&+WMary &+wis the tailor of time. She helps to weave the fates of
+&+wworld. When the Drakenstone family made their deal it imprisoned
+&+wher here because it disrupted the balance of time. You see despite
+&+wthe Drakenstones being trapped here in an undead state, their
+&+wdynasty continues on forever. Nothing can last forever, because
+&+wfor everything there is a season. If the Drakenstones were to be
+&+wdestroyed it would release &+WMary &+wfrom her bondage here. Her
+&+wshrine is to the west of here on a cliff overlooking the necropolis.
+~
+QA
+&+WAh you have found all the fragments, it takes a truly courageous
+&+Wgroup to have gotten as far as you have. Let me forge the key so
+&+Wyou can finish this once and for all...here it is. Your quest is
+&+Wnot over yet I'm afraid.
+~
+R I 142443
+G I 142404
+G I 142405
+G I 142406
+G I 142407
+G I 142408
+G I 142409
+QA
+&+WSo you have freed Mary after all these years...Well done adventurers
+&+Wand here is the prized item I promised you. A cloak woven with strands
+&+Wof time, use it well...
+~
+R I 142451
+G I 142450
+S
+#142401
+MA
+drakenstone~
+&+WSo you have heard of the Darkenstones, yes I am bound here because
+&+Wof their curse. If you defeat them and bring the seal of the fates
+&+Wthat Auril used to bind them, I can finally leave here. You will be
+&+Wable to use the seal to gain access to the monolith of time behind
+&+Wthis altar. Free me and the caretaker will reward you with an item
+&+Wthat we, the Fates, have made ourselves for his family millenia ago.
+~
+S

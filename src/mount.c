@@ -56,6 +56,7 @@ void do_mount(P_char ch, char *argument, int cmd)
     send_to_char("Whom do you wish to ride?\r\n", ch);
     return;
   }
+
   if (mount == ch)
   {
     send_to_char("Ride on your own back?  How?\r\n", ch);
@@ -104,6 +105,12 @@ void do_mount(P_char ch, char *argument, int cmd)
     act("It's too difficult to ride on $N.", FALSE, ch, 0, mount, TO_CHAR);
     return;
   }
+  if (GET_SIZE(ch) > (GET_SIZE(mount) + 1))
+  {
+    act("$N is too small for you to ride, find something bigger.", FALSE, ch, 0, mount, TO_CHAR);
+    return;
+  }
+
   if (IS_PC(mount) && IS_CENTAUR(mount))
   {
     if (IS_CENTAUR(ch))
@@ -132,11 +139,30 @@ void do_mount(P_char ch, char *argument, int cmd)
                  ch);
     return;
   }
+
   else if (!IS_SET(mount->specials.act, ACT_MOUNT))
   {
-    act("It's too difficult to ride on $N.", FALSE, ch, 0, mount, TO_CHAR);
-    return;
-  }
+    if((GET_RACE(mount) == RACE_ANIMAL) ||
+	(GET_RACE(mount) == RACE_AQUATIC_ANIMAL) || 
+	(GET_RACE(mount) == RACE_QUADRUPED) ||
+	(GET_RACE(mount) == RACE_PRIMATE)  ||
+	(GET_RACE(mount) == RACE_HERBIVORE)  ||
+       (GET_RACE(mount) == RACE_CARNIVORE))
+	{
+	 int mounttry = (GET_CHAR_SKILL(ch, SKILL_MOUNT) + GET_LEVEL(ch));
+        int mountdef = (GET_LEVEL(mount) * 2);
+	 if (mountdef > mounttry)
+	  {
+          act("You attempt to mount $N, but find you are not yet skilled enough to ride that creature.", FALSE, ch, 0, mount, TO_CHAR);
+	   return;
+	  }
+	}
+    	else
+    	{
+    	  act("It's too difficult to ride on $N.", FALSE, ch, 0, mount, TO_CHAR);
+    	  return;
+   	}
+     }
   if (GET_MASTER(mount) &&
      GET_MASTER(mount) != ch &&
      !is_linked_to(ch, GET_MASTER(mount), LNK_CONSENT))

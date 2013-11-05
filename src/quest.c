@@ -447,6 +447,9 @@ int quester(P_char ch, P_char pl, int cmd, char *arg)
   if (((!CAN_SEE(ch, pl) || !CAN_SEE(pl, ch)) && (GET_LEVEL(pl) < MINLVLIMMORTAL)) || IS_FIGHTING(ch) || (GET_STAT(ch) <= STAT_SLEEPING))       /* if quester can't see player */
     return (FALSE);
 
+  if(affected_by_spell(ch, TAG_CONJURED_PET) || affected_by_spell(pl, TAG_CONJURED_PET))
+  return (FALSE);
+
   if (cmd == CMD_ASK || cmd == CMD_TELL)
   {                             /* player asked about quest */
     half_chop(arg, name, Gbuf1);

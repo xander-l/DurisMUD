@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #34400
 fire smoke campfire~
 a campfire~
@@ -1031,3 +1032,1038 @@ A vial has been dropped here.~
 10 15 3 0 7 0 524288 1 64 0 0
 50 14 3 92 20 0 0 0
 0 35000 100 100
+=======
+#34400
+fire smoke campfire~
+a campfire~
+&+LSmoke rises from a &+Rsmall campfire here.~
+~
+12 15 3 0 7 0 263168 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+campfire~
+&+RFlames dance and play about the burning wood,
+&+Rconsuming the material with their ferocious
+&+Rhunger.
+~
+#34401
+boobrie plumage~
+&+Msome plumage of a boobrie&N~
+&+MThe plumage of some giant boobrie lies here.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+plumage~
+&+MTufts of brillant short feathers are clumped together.&N
+~
+#34402
+hive beehive~
+a bee hive~
+&+YA bee&+L hive has been dropped here.~
+~
+15 15 3 0 7 0 0 0 0 0 0
+50 0 0 10 0 0 0 0
+0 1 100
+E
+hive beehive~
+&+wThe Beehive is closed.
+&+wHuge gray folds of paper like substance have
+&+wbeen produced and crafted in circular patterns
+&+wcreating a small elongated bowl type hive.
+&+wThe hive seems to be inactive.
+~
+#34403
+arrow black gleaming~
+&+La gleaming black arrow&N~
+&+LA gleaming black arrow lies here.&N~
+~
+7 15 3 0 7 0 4096 16385 2 0 0
+4 2 5 1 0 0 0 0
+0 1 100
+E
+gleaming~
+&+LThis arrow is pitch black.  A sharp &+Wsilver point&+L
+&+Lhas been fastened to the tip of the arrow.  The arrow is
+&+Lperfectly balanced.
+~
+A
+18 1
+#34404
+quiver burnt~
+&+La burnt quiver&N~
+&+LA burnt quiver covered in ash lies here.&N~
+~
+30 15 3 3 7 0 4096 1048577 0 0 0
+25 1 1 10 0 0 0 0
+1 30 100
+E
+quiver~
+&+LThis quiver was once made from a fine piece of
+&+Lleather.  It has since been charred and burned,
+&+Lyet it somehow remained intact.
+~
+#34405
+token holy symbol~
+&+La token of &+BSelune&N~
+&+WA holy &+Bsymbol&+w lies on the ground here.&N~
+~
+11 15 3 0 7 0 8 16385 66 0 0
+0 0 0 0 0 0 0 0
+1 65000 100
+E
+token~
+&+LA chain and amulet of sleek obsidian, adorned with&N
+&+Cseven silvery stars.&+L Two &+Beyes&+L peer out from the amulet&N
+~
+A
+4 5
+A
+13 20
+#34406
+sac venom~
+&+Ma venom&+L sac&N~
+&+wA translucent sac drips a &+Mthick liquid here.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 10 100
+E
+sac~
+&+WThis sac is white in color, when squeezed, &+La dark
+&+Lblack fluid can been seen within the sac.
+~
+#34407
+cauldron~
+&+La large black cauldron&N~
+&+LA large black cauldron sits over a small &+rfire&+L here.&N~
+~
+17 15 3 0 7 0 262144 0 64 0 0
+-1 -1 16 1 0 0 0 0
+0 10000 100
+E
+cauldron~
+&+LA rather large cauldron made from thick cast iron.&N
+~
+#34408
+cloak hooded skin panther~
+&+La hooded panther skin cloak&N~
+&+LA black fur skin lies on the ground here.&N~
+~
+9 15 3 0 7 0 0 1025 0 0 0
+8 0 0 3 0 0 0 0
+3 18000 100
+E
+cloak hooded skin panther~
+&+LThis cloak has been made from the skin of a panther.
+&+LIt has been well crafted and the fur is in remarkable
+&+Lcondition.  The fur is soft and has managed to keep it dark black color.
+~
+A
+18 1
+A
+2 4
+#34409
+bloody skin panther~
+&+Ra bloody&+L panther skin&N~
+&+RA blood covered&+L skin lies here.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+3 100 100
+E
+bloody skin panther~
+&+LThis skin is from a slain panther.  &+RBlood and gore
+&+Lstill cakes the inside of the fur.
+~
+#34410
+eyes eye frog~
+&+gsome eyes of a frog&N~
+&+gTwo small frog eyes have been dropped here.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+eyes eye frog~
+&+gThese large round eyes have been covered in a thin
+&+glayer of mucus substance.  They have managed to
+&+gretain their bright green and &+Yyellow&+g colors.
+~
+#34411
+wing bat~
+&+La wing of a bat&N~
+&+LA bat wing lies on the ground here.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 1
+E
+wing bat~
+&+LThese wings are very small and leathery.  They are
+&+Lstill caked with a light layer of &+Rblood&+L at
+&+Lthe end joins where the wings were severed.
+~
+#34412
+leg legs cricket~
+&+Ya pair of cricket legs&N~
+&+ya pair of tiny cricket legs have been dropped here.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 1
+E
+legs leg cricket~
+&+yThese legs seem to sparkle with a mystical green glow
+&+ythat hums softly.  The legs are very tiny and seem to
+&+yprick your fingers with its tiny bone-like spikes
+&+yprotruding from one side of the legs.
+~
+#34413
+snake skin~
+&+ra snake&+L skin&N~
+&+rA snake&+L skin has been dropped here.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 1
+E
+snake skin~
+&+wThe skin is very beautiful and smooth.  Diamond and
+&+wcolorful stripe pattern run a long the small scaled
+&+wsurface of the skin.
+~
+#34414
+head sabertooth~
+&+Lthe head of a &+ysabertooth&N~
+&+LThe head of a &+ysabertooth&+L is here.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 1
+E
+head sabertooth~
+&+yThis head has been severed from a sabertooth tiger.
+&+yIts monstrous cat eyes have been covered with white
+&+ymucus while its beautiful teeth protrude from its maw.
+~
+#34415
+feather black~
+&+La black feather&N~
+&+LA black feather lies here.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 1
+E
+black feather~
+&+LThis feather is black in color.  It is in perfect condition.
+~
+#34416
+feather red~
+&+Ra red feather&N~
+&+RA red feather lies here.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 1
+E
+red feather~
+&+RThis feather is bright red in color.  It is in perfect condition.
+~
+#34417
+feather yellow~
+&+Ya yellow feather&N~
+&+YA yellow feather lies here.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 1
+E
+yellow feather~
+&+YThis feather is bright yellow in color.  It is in perfect condition.
+~
+#34418
+fur red pelt~
+&+ra fox fur&N~
+&+rA pelt of red fur lies here.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+fur red pelt~
+&+rThis skin is from a slain panther.  Blood and gore
+&+rstill cakes the inside of the fur.
+~
+#34419
+eyes owl small~
+&+Ya pair of owl eyes&N~
+&+YA small pair of eyes rolls about here.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+eyes owl small~
+&+YThese eyes seem to glow with a brilliant yellow light.
+&+YAn inner fire seems to burn within the black motionless pupil.
+~
+#34420
+scarf fur fox~
+&+ra beautiful fox fur scarf&N~
+&+rA beautiful fur scarf has been dropped here.&N~
+~
+9 15 3 0 7 0 0 5 0 0 0
+6 0 0 2 0 0 0 0
+1 30000 100
+E
+scarf fur fox~
+&+rThis scarf has been made from the skins of
+&+ra fox. It has been well crafted and the fur
+&+ris in remarkable condition.  A dangling fox’s
+&+rtail has been attached to each end of the scarf.
+~
+A
+13 6
+#34421
+sabertooth head headdress~
+&+ya sabertooth &+Lheaddress&N~
+&+yThe head of a mighty sabertooth lies here.&N~
+~
+9 15 3 0 7 0 0 17 0 0 0
+11 0 0 4 0 0 0 0
+0 36000 100
+E
+headdress sabertooth~
+&+yThe head of a sabertooth tiger has been hollowed out
+&+yand cut to form a perfect headpiece.  A &+bblue&+y, &+rred&+y,
+&+yand &+Yyellow&+y, feather has been stuck in the top of the
+&+yhead creating a dazzling effect of beauty and color.
+&+ySmall colored gems have been encrusted into the
+&+ysabertooth tiger’s teeth.  A &+Lband of black silk&+y has
+&+ybeen attached to the bottom of the head making it easy
+&+yfor the wearer to pull the band beneath their chin to
+&+ysecure the headpiece.
+~
+A
+2 5
+A
+4 5
+#34422
+scales fish fishscales blue~
+&+bsome blue fishscales&N~
+&+bA small set of fishscales have been dropped here.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+blue scales fishscales~
+&+bThese scales have been scraped from a recently killed
+&+bblue fish.  They are very fine and shimmer with
+&+bbrilliance all on their own.
+~
+#34423
+scales fish fishscales red~
+&+rsome red fishscales&N~
+&+rA small set of red fishscales lies here.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+red scales fishscales~
+&+rThese scales have been scraped from a recently killed
+&+rred fish.  They are very fine and shimmer with
+&+rbrilliance all on their own.
+~
+#34424
+eggs fish fisheggs~
+&+Wsome fish eggs&N~
+&+WA glob fish eggs lies here drying.&N~
+~
+19 15 3 0 7 0 4096 1 0 0 0
+8 0 0 0 0 0 0 0
+0 1 100
+E
+eggs~
+&+WThese tiny eggs are pearly white.  Thick foam has encased
+&+Wthem making the eggs very sticky.
+~
+#34425
+kiss talona vine~
+&+Ma flowering &+LKiss of Talona vine&N~
+&+MA flowering &+Lkiss of talona vine grows here.&N~
+~
+12 15 3 0 7 0 8192 0 0 0 0
+0 0 0 0 0 0 0 0
+0 100 100
+E
+kiss talona vine~
+&+MThis small plant’s roots are very string and flimsy.
+&+MThe stem is a deep purple in color as it leads up to
+&+Ma beautiful flower.  The flower gives off a sweet smell
+&+Mof nectar and honey, inviting all to smell it.
+~
+#34426
+skin raccoon~
+&+La raccoon&+w skin&N~
+&+LA black &+Wand white&+y skin lies here drying.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+raccoon skin~
+&+rThis skin is from a slain raccoon.  Blood and gore
+&+rstill cakes the inside of the fur.
+~
+#34427
+head bloody~
+&+rthe bloody head of a knight&N~
+&+rThe bloody head of the knight rolls here.&N~
+~
+12 15 3 0 7 0 20480 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+head bloody~
+&+rThis head has been severed from the body of a massive
+&+rman.  It still oozes bodily fluids from its eyes,
+&+rnose, mouth, and the severed section.
+~
+#34428
+head bloody~
+&+rthe bloody head of the necromancer&N~
+&+rThe bloody head of the necromancer rolls here.&N~
+~
+12 15 3 0 7 0 20480 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+head bloody~
+&+rThis head has been severed from the body of a thin
+&+rman.  It still oozes bodily fluids from its eyes,
+&+rnose, mouth, and the severed section.
+~
+#34429
+head bloody~
+&+rthe bloody head of the chieftan&N~
+&+rThe bloody head of the chieftan rolls here.&N~
+~
+12 15 3 0 7 0 20480 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+head bloody~
+&+rThis head has been severed from the body of a deformed
+&+rgiant.  It still oozes bodily fluids from its eyes,
+&+rnose, mouth, and the severed section.
+~
+#34430
+head bloody~
+&+rthe bloody head of the enchantress&N~
+&+rThe bloody head of the enchantress rolls here.&N~
+~
+12 15 3 0 7 0 20480 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+head bloody~
+&+rThis head has been severed from the body of a woman.
+&+rIt still oozes bodily fluids from its eyes, nose,
+&+rmouth, and the severed section.
+~
+#34431
+head bloody~
+&+rthe bloody head of the dark priest&N~
+&+rThe bloody head of the dark priest rolls here.&N~
+~
+12 15 3 0 7 0 20480 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+head bloody~
+&+rThis head has been severed from the body of a dark
+&+rpriest.  It still oozes bodily fluids from its eyes,
+&+rnose, mouth, and the severed section.
+~
+#34432
+root briar~
+&+La briar root&N~
+&+LA dark briar root is covered in dirt here.&N~
+~
+19 15 3 0 7 0 4096 1 0 0 0
+4 0 0 1 0 0 0 0
+0 1000 100
+E
+briar root~
+&+LThis dark brown root gives off a strong smell of sweet
+&+Lhoney.  It rough surface is layered with tiny thorn-like
+&+Lspikes that can easily break the skin.
+~
+#34433
+root mandrake~
+&+Ysome mandrake root&N~
+&+YA root resembling a human body lies here.&N~
+~
+19 15 3 0 7 0 4096 1 0 0 0
+4 0 0 1 0 0 0 0
+0 11000 100
+E
+mandrake root~
+&+yThis root is shaped like a man.  It has a head, two arms, and
+&+ytwo legs.  It is covered with a rough brown skin and tiny
+&+ystringy roots protrude from each limb-like end of the root.
+~
+#34434
+leaves lotus~
+&+Gsome lotus leaves&N~
+&+GA lotus plant blooms here.&N~
+~
+19 15 3 0 7 0 4096 1 0 0 0
+4 0 0 1 0 0 0 0
+0 1000 100
+E
+lotus leaves~
+&+GThe leaves appear to be a bright green in color with black
+&+Gstringy veins running through the leafy matter.
+~
+#34435
+nightshade clump~
+&+ma clump of&+L nightshade&N~
+&+mA clump of&+L nightshade has sprouted here.&N~
+~
+19 15 3 0 7 0 4096 1 0 0 0
+4 0 0 1 0 0 0 0
+0 1000 100
+E
+clump nightshade~
+&+LThe leaves appear to be a blackish green with &+rred&+L veins running
+&+Lthrough the leafy matter.
+~
+#34436
+mushroom red~
+&+ra red mushroom&N~
+&+RA red mushroom&+g is growing here.&N~
+~
+19 15 3 0 7 0 8 1 0 0 0
+4 0 0 1 0 0 0 0
+0 1000 100
+E
+mushroom~
+&+RThis mushroom is bright red in color.  Small spores adorn the top of
+&+Rthe mushroom emitting a faint &+Yyellow&+R mist into the air.
+~
+#34437
+razor vine~
+&+La razor vine&N~
+&+LA razor vine circles about &+ga tree here.&N~
+~
+12 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 10 100
+E
+vine~
+&+LThis black vine covered in razor sharp barbs winds itself
+&+Labout the trees here.  A hardy plant indeed.
+~
+#34438
+talona kiss plant flowering~
+&+Lthe kiss of &+Mtalona bloom&N~
+A flowering &+M'Kiss of Talona' bloom&N hangs here.&N~
+~
+19 15 3 0 7 0 8462336 1 0 0 0
+3 0 0 1 0 0 0 0
+0 10000 100
+E
+kiss flowering bloom~
+&+MThis small plant’s bloom is a deep purple in color as it
+&+MThe flower gives off a sweet smell of nectar and honey,
+&+Minviting all to smell it.
+~
+#34439
+blood drop virgin~
+&+Ra drop of virgin blood&N~
+&+Ra single drop of blood forms here.&N~
+~
+12 15 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+0 80000 100
+E
+drop blood~
+&+RThe drop of blood glows softly with a deep red hue.
+~
+#34440
+root razor~
+&+ythe root of a razor vine&N~
+&+yThe root of a razor vine is covered in dirt here.&N~
+~
+19 15 3 0 7 0 4096 1 0 0 0
+4 0 0 1 0 0 0 0
+0 100 100
+E
+root razor~
+&+yThis root shimmering brightly, it entire body is
+&+ycovered in tiny razor sharp plates that tears
+&+ythrough flesh upon contact.
+~
+#34441
+wing dragazhar scrap bloody~
+&+ra bloody scrap of &+Ldragazhar wing&N~
+&+rA bloody scrap of &+Ldragazhar wing is here.&N~
+~
+12 15 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+scrap bloody wing~
+&+rThis leathery wing scrap have been cut from the body
+&+rdragazhar.  Blood still remains caked on various
+&+rsections of the rough skin.
+~
+#34442
+bulb wild tulip~
+&+Wthe bulb of a &+Mwild tulip&N~
+&+WThe bulb of a &+Mwild tulip&+W tries to grow here.&N~
+~
+12 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 100 100
+E
+tulip bulb~
+&+WThis bulb is very white and has a light layer of skin
+&+Wprotecting its soft pulp surface.
+~
+#34443
+vial red fluid slender~
+&+wa slender vial of &+rred fluid&N~
+&+wA slender vial of &+rred fluid&+w has been dropped here.&N~
+~
+10 15 3 0 7 0 0 1 0 0 0
+10 66 14 15 0 0 0 0
+0 7500 100
+E
+vial red fluid slender~
+&+RWithin this vial of glass, a glowing red liquid swirls
+&+Rlike a tornado, constantly mixing its fluids with a darker
+&+Rred fluid.
+~
+#34444
+vial green fluid tiny~
+&+wa tiny vial of &+Gglowing green fluid&N~
+&+gA tiny vial of glowing green fluid has been dropped here.&N~
+~
+10 15 3 0 7 0 0 1 0 0 0
+50 131 97 92 25 0 0 0
+0 12000 100
+E
+vial green fluid tiny~
+&+GGlowing green fluid spirals chaotically within a vial of
+&+Gclear crystal as tiny flakes of glowing white dance within
+&+Gthe maelstrom of force.
+~
+#34445
+vial glowing liquid shimmering~
+&+Ca shimmering vial of glowing bubbling liquid&N~
+&+CA shimmering vial of glowing bubbling liquid has been dropped here.&N~
+~
+10 15 3 0 7 0 0 1 0 0 0
+15 28 35 1 0 0 0 0
+0 26000 100
+E
+vial glowing liquid shimmering~
+&+CThis vial of crystal contains a violently bubbling liquid
+&+Cthat glows with a bright inner light of green and red.
+~
+#34446
+vial shadowy mist~
+&+La vial of shadowy &+wmist&N~
+&+LA vial of shadowy &+wmist&+L has been dropped here.&N~
+~
+10 15 3 0 7 0 0 1 0 0 0
+15 65 1 236 0 0 0 0
+0 35000 100
+E
+vial shadowy mist~
+&+LA swirling mist writhes within a vial of solid crystal.
+&+LDark shimmering flakes of matter seem to be held suspended
+&+Lwithin the mist.
+~
+#34447
+paste mushroom hollowed head~
+&+Ra hollowed out mushroom head &+Gfilled with paste&N~
+&+RA hollowed out mushroom head filled with paste lies here.&N~
+~
+10 15 3 0 7 0 0 1 0 0 0
+7 41 39 1 0 0 0 0
+0 9000 100
+E
+paste mushroom hollowed head~
+&+RThis bright red mushroom head contains a ghastly &+Ggreen paste
+&+Rthat emits a foul odor into the air.  The paste is very
+&+Rsticky and vile.
+~
+#34448
+leaf spores glowing red~
+&+Ga glowing leaf adorned with&N &+Rred spores&N~
+&+GA glowing leaf adorned with &+Rred spores&+G lies here.&N~
+~
+9 15 3 0 7 0 0 1 0 0 0
+8 20 10 4 0 0 0 0
+0 12000 100
+E
+leaf spores glowing red~
+&+GThis huge leaf is of the deepest green.  Small crimson
+&+Rspores&+G adorn the surface of the leaf giving off a faint
+&+Gpowdery &+Rred mist&+G.
+~
+#34449
+root mandrake venom~
+&+ya hollow mandrake root filled with &+Lvenom&N~
+&+yA hollow mandrake root lies here.&N~
+~
+10 15 3 0 7 0 0 1 0 0 0
+2 35 1 15 0 0 0 0
+0 21000 100
+E
+root mandrake venom~
+&+yThis root has been hollowed completely out and filled with a
+&+Lblack liquid&+y.  A light &+ggreen mist&+y seems to cover the top of
+&+ythe root preventing any of he contents from leaking out.
+~
+#34450
+boots boot well snakeskin~
+&+La pair of well-crafted&+R snakeskin boots &n~
+&+LA pair of boots have been dropped here.~
+~
+9 12 3 0 7 0 0 65 0 0 0
+7 0 0 3 0 0 0 0
+1 18000 100
+E
+boots boot well snakeskin~
+&+LWell crafted boots of made from numerous, exceptional snake skins.&N
+~
+A
+14 25
+A
+18 2
+#34451
+cap fur~
+&+wa ra&+Lcco&+won fur &+Lcap&N~
+&+wA fur &+Lcap&+w lies here.~
+~
+9 12 3 0 7 0 0 17 0 0 0
+6 0 0 3 0 0 0 0
+1 8000 100
+E
+cap~
+&+wThis cap has been made from the skin of a raccoon.
+&+wIt has been well crafted and the fur is in remarkable
+&+wcondition.  The raccoon’s tail hangs down the back of
+&+wthe cap.
+~
+A
+18 1
+A
+2 4
+#34452
+bracer symbol longhollow~
+&+Wa bracer bearing the &+BLonghollow&+Y symbol&n~
+&+bA small bracer lies on the ground here.~
+~
+9 35 3 0 14 75 131072 4097 66 0 0
+10 0 0 5 0 0 0 0
+3 90000 100
+E
+bracer symbol~
+&+YThis golden bracer edged with &+csilver&+Y has been delicately
+&+Yemblazoned with the symbol of Longhollow, two swords
+&+Ycrossed in front of an eagle.
+~
+A
+19 2
+A
+18 3
+#34453
+star woven symbol~
+&+Wa star woven symbol of &+LSelune&N~
+&+WA small symbol lies on the ground here.~
+~
+3 15 3 0 7 0 65536 5 66 0 0
+55 25 25 1 0 0 0 0
+2 22000 100
+E
+star woven symbol~
+&+WThis symbol glows with sheer power.  Runes writhe along its
+&+csilverish&+W-white surface of metal.  The symbol of&+L Selune&+W has
+&+Wbeen centered and emblazoned upon the symbol.  A thick
+&+Wplatinum chain has been attached to the top of the symbol,
+&+Wmaking it easy for anyone to wear it around the neck.
+~
+A
+17 -10
+A
+13 15
+#34454
+web spider fiddler~
+&+wa fiddler spider web&N~
+&+wA spider web sprawls across &+Ythe grass here.~
+~
+12 15 3 0 7 0 0 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+web~
+&+wThis web has been very intricately woven.  Small cocoons still
+&+wremain within the web from the spider’s recent kills.
+~
+#34455
+clump moss green~
+&+wa clump of &+ggreen moss&N~
+&+wA clump of &+ggreen moss&+w hangs here.~
+~
+12 15 3 0 7 0 0 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+green clump moss~
+&+gStrands of moss radiate a brilliant green color.  The moss seems
+&+gto be very strong and sheds a greenish white power when touched.
+~
+#34456
+corpses pile~
+&+ra pile of corpses&N~
+&+rA pile of children's &+wcorpses&+r is here oozing blood into the Market Square.~
+~
+15 15 3 0 7 0 8388608 0 0 0 0
+100 0 -1 0 0 0 0 0
+0 1 100
+E
+children children's corpse corpses pile~
+&+rA massive amount of children's corpses have been brought here
+&+rand stacks.  The bodies have been brutally mauled, decapitated,
+&+rand gutted.  Their life fluid has combined into a single stream
+&+rthat continuously trickles down the heap of flesh into the Market
+&+rSquare.
+~
+#34457
+corpse child small~
+&+ra corpse&N~
+&+rA gutted corpse of a small child lays here oozing blood.~
+~
+15 15 3 0 7 0 8388608 0 0 0 0
+40 0 -1 0 0 0 0 0
+0 1 100
+E
+corpse child small~
+&+rThe corpse appears to be a young girl.  It seems that some sort of beast
+&+rhas bitten into her frail body and pulled her organs out.  Bright red
+&+rblood flows form the corpse feeding the greedy earth below.
+~
+#34458
+corpse body beheaded~
+&+ra corpse&N~
+&+rA corpse of a beheaded body is here feeding the river of blood.~
+~
+15 15 3 0 7 0 8388608 0 0 0 0
+40 0 -1 0 0 0 0 0
+0 1 100
+E
+corpse body beheaded~
+&+rThe corpse has been brutally beaten.  The head is missing; it seems the
+&+rhead was torn away rather than cleanly cut.  Bright red blood flows from
+&+rthe body feeding itself into the crimson river.
+~
+#34459
+corpse mangled~
+&+ra corpse&N~
+&+rA mangled corpse is here.~
+~
+15 15 3 0 7 0 8388608 0 0 0 0
+40 0 -1 0 0 0 0 0
+0 1 100
+E
+corpse mangled~
+&+rThe corpse has been halfway eaten by some sort of beast.  Large teeth marks
+&+rhave been left into the remaining flesh.  Broken bones and other gores little
+&+rthe along the corpse.
+~
+#34460
+river blood gore~
+&+ra river of blood&N~
+&+rA river of blood and gore flows along the lane here.~
+~
+17 15 3 0 7 0 8388608 0 0 0 0
+-1 -1 25 0 0 0 0 0
+0 1 100
+E
+river blood gore~
+&+rThe river is composed of bright red blood.  Chunks of flesh matter floats along
+&+rthe stream as it flows between the mortared stones of the lane.
+~
+#34461
+river blood gore~
+&+ra river of blood&N~
+&+rA river of blood and gore flows along the road here.~
+~
+17 15 3 0 7 0 8388608 0 0 0 0
+-1 -1 25 0 0 0 0 0
+0 1 100
+E
+river blood gore~
+&+rThe river is composed of bright red blood.  Chunks of flesh matter floats along
+&+rthe stream as it flows between the mortared stones of the road.
+~
+#34462
+trail organs~
+&+Rsome organs&N~
+&+rA trail of organs is here.~
+~
+12 15 3 0 7 0 8388608 0 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+trail organs~
+&+rOrgans from gored corpses lay scatters about the area.  It seems something has
+&+rslung the organs about the area on purpose, or perhaps making abstract art.
+~
+#34463
+blood fountain pool~
+&+Ra pool of blood&N~
+&+RA massive pool of blood and gore is collecting here.~
+~
+17 15 3 0 7 0 0 0 64 0 0
+-1 -1 28 0 0 0 0 0
+0 1 100
+E
+blood fountain pool~
+&+RThe pool is deep crimson in color.  It bubbles slightly from the intensity of
+&+Rthe heat coming from the fires consuming the village.  Chunks of flesh matter
+&+Rand organs bob up and down chaotically as tiny bubbles continue to erupt from
+&+Rthe surface of the pool.
+~
+#34464
+moonstone exquisite gem~
+&+Wan exquisite moon&+Cstone&N~
+&+WA exquisite gem lies here.&N~
+~
+8 26 10 0 7 0 0 16385 64 0 0
+0 0 0 0 0 0 0 0
+1 25000 100
+E
+moonstone exquisite gem~
+&+WAn exquisite fist sized gem with a pearly translucence.&N
+~
+#34465
+raven obsidian totem~
+&+Lan obsidian r&+waven&N~
+&+LA raven totem carved in obsidian lies here.&N~
+~
+34 36 3 0 14 80 132097 16385 66 256 0
+42 0 0 0 0 0 0 0
+3 161000 100
+E
+raven obsidian totem~
+&+LA large chunk of obsidian has been carved into a raven&N
+~
+A
+13 15
+A
+4 5
+#34466
+chainmail suit bloodied chain~
+&+ra suit of bloodsta&+Wined chainmail&N~
+&+WA pile of chain lies here&+r covered in blood.~
+~
+9 18 10 0 13 75 0 9 64 0 0
+10 0 0 5 1 0 0 0
+15 50000 100
+E
+chainmail suit bloodied chain~
+&+rBlood and gore covers this &+wbeautifully crafted suit of mithril chainmail.&N
+~
+A
+19 2
+A
+2 5
+#34467
+buckler spiked shield~
+&+La spiked buckler&N~
+&+LA shield lies on the ground here.&N~
+~
+37 18 2 0 11 0 0 513 64 0 0
+1 3 4 95 1 0 0 0
+18 25000 100
+A
+2 4
+A
+26 4
+#34468
+set horseshoes blood bloodied~
+&+ra set of bloodi&+wed horseshoes&N~
+&+WA set of horseshoes lies here.&N~
+~
+11 15 10 0 12 0 512 16777217 64 0 16384
+0 0 0 0 0 0 0 0
+8 60000 100
+A
+14 50
+A
+26 6
+#34469
+saddle platinum pommeled~
+&+Wa platinum pommeled&+L saddle&N~
+&+WA platinum pommeled &+Lsaddle lies here.~
+~
+9 15 3 0 7 0 1536 16777217 64 95994243 533086208
+10 0 0 4 0 0 0 0
+0 45000 100
+A
+14 25
+A
+24 -2
+#34470
+glaive mithril darkward~
+&+Wa mithril glaive named '&+bDark&+Bward&+W'~
+A glaive lies here collecting dust.~
+~
+5 18 3 0 14 90 4203521 8193 66 67108872 0
+13 5 4 3 0 0 0 0
+6 85000 100
+A
+18 2
+A
+19 2
+#34471
+staff ice glowing~
+&+Ca glowing staff&+W of ice&N~
+&+CA staff lies here melting away.&N~
+~
+4 8 2 0 9 0 524288 16385 64 0 0
+41 6 6 191 0 0 0 0
+1 35000 100
+#34472
+loop gold platinum~
+&+Yan exquisite gold&+W and platinum loop&N~
+&+YA loop of gold and&+W platinum lies here.&N~
+~
+9 25 1 0 12 0 131072 201330689 64 0 0
+5 0 0 3 0 0 0 0
+0 40000 100
+A
+12 15
+A
+13 5
+#34473
+vial deep blue~
+&+La vial of&+b deep blue liquid&N~
+A vial has been dropped here.~
+~
+10 15 3 0 7 0 524288 1 64 0 0
+50 14 3 92 20 0 0 0
+0 35000 100
+>>>>>>> master

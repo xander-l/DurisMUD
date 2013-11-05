@@ -219,6 +219,7 @@ M 0 14828 2 14837 100 0 0 0        * an experienced bandit warrior
 G 1 14835 17 0 5 0 0 0             *    a bag filled with platinum, gold, and silver
 M 0 14813 1 14842 100 0 0 0        * Isoril the bandit leader
 E 1 14825 1 13 100 0 0 0           *   a segmented iron belt covered with symbols
+G 1 67262 1 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 14824 1 14843 100 0 0 0        * a young half-elven woman
 M 0 14822 11 14844 100 0 0 0       * a human bandit
 M 0 14807 2 14845 100 0 0 0        * a group of emaciated slaves

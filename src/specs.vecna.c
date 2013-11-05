@@ -423,20 +423,15 @@ int vecna_pestilence(P_obj obj, P_char ch, int cmd, char *arg)
 {
   P_char victim;
 
-  if (cmd == CMD_SET_PERIODIC || cmd == CMD_PERIODIC)
-    return FALSE;
-  
-  if (cmd != CMD_MELEE_HIT)
-    return FALSE;
+  if (cmd != CMD_MELEE_HIT || !ch)
+    return (FALSE);
 
-  if (!ch || !obj || !ch->specials.fighting)
-    return FALSE;
  
   // Making this procable in offhand since the proc situation can be rare.
-  if (!OBJ_WORN_POS(obj, WIELD) || !OBJ_WORN_POS(obj, WIELD2))
-    return FALSE;
+ /* if (!OBJ_WORN_POS(obj, WIELD) || !OBJ_WORN_POS(obj, WIELD2))
+    return FALSE; */
 
-  if (number(0, 100) <= 10 && GET_ALIGNMENT(ch) < -750)
+  if (number(0, 100) <= 30 && GET_ALIGNMENT(ch) < -750)
   {
     victim = ch->specials.fighting;
     

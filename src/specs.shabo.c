@@ -213,7 +213,7 @@ int stalker_cloak(P_obj obj, P_char ch, int cmd, char *argument)
         act("You whisper 'reduce' to your $q...", FALSE, ch, obj, obj,
             TO_CHAR);
         act("$n whispers 'reduce' to $q...&N", TRUE, ch, obj, NULL, TO_ROOM);
-        spell_reduce(35, ch, 0, 0, ch, 0);
+        spell_reduce(35, ch, 0, SPELL_TYPE_SPELL, ch, 0);
         obj->timer[0] = curr_time;
       }
       return TRUE;
@@ -235,7 +235,7 @@ int stalker_cloak(P_obj obj, P_char ch, int cmd, char *argument)
         act("You whisper 'enlarge' to your $q...", FALSE, ch, obj, obj,
             TO_CHAR);
         act("$n whispers 'enlarge' to $q...&N", TRUE, ch, obj, NULL, TO_ROOM);
-        spell_enlarge(35, ch, 0, 0, ch, 0);
+        spell_enlarge(35, ch, 0, SPELL_TYPE_SPELL, ch, 0);
         obj->timer[0] = curr_time;
       }
       return TRUE;
@@ -898,6 +898,22 @@ void event_shabo_racechange(P_char ch, P_char victim, P_obj obj, void *data)
     affect_remove(ch, af);
     send_to_char
       ("&+LYou feel greatly relieved as the magic twisting your body finally fades away...&n\r\n",
+       ch);
+    //Remove all equipment so no one can cheese thri-kreen arms - Drannak 12/12/12
+    int k = 0;
+    P_obj temp_obj;
+    for (k = 0; k < MAX_WEAR; k++)
+    {
+      temp_obj = ch->equipment[k];
+      if(temp_obj)
+      {
+        if (obj_index[temp_obj->R_num].func.obj != NULL)
+          (*obj_index[temp_obj->R_num].func.obj) (temp_obj, ch, CMD_REMOVE, (char *) "all");
+        obj_to_char(unequip_char(ch, k), ch);
+      }
+    }
+    send_to_char
+      ("...Brr, you suddenly feel very naked.\r\n",
        ch);
     return;
   }

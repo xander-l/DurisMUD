@@ -1,0 +1,241 @@
+#142000
+magma mephit~
+&+La &+rm&+Ra&+rg&+Rm&+ra &+Lmephit&n~
+&+LA &+rm&+Ra&+rg&+Rm&+ra &+Lmephit stands here, basking in the blistering heat.&n
+~
+&+L   Standing before you is a vaguely humanoid shaped mass of &+rmagma&+L. Known
+&+Las one of the mischievous magma mephits of the &+ypara elemental &+Lplane, this
+&+Lcreature moves about with a deceivingly &+Wswift &+Lspeed as bits of &+rsmoldering
+&+Lmagma are left in its wake. Dark pits of obsidian make for a set of ever
+&+Lshifting eyes as the creature watches your every move. Its need to consume
+&+Land destroy all flesh seems obvious as it shambles towards you, magma
+&+Lseething over its form, ready to melt the very essence off your &+Wbones&+L.&n
+~
+133128 1 0 0 134217744 1 0 0 -1000 S
+ef 0 1 1 -1
+57 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142001
+magma mephit lord~
+&+La &+rm&+Ra&+rg&+Rm&+ra &+Lmephit &+ylord&n~
+&+LA &+yHUGE &+Lmass of living &+rm&+Ra&+rg&+Rm&+ra &+Lstands here, towering over the rest of its kind.&n
+~
+&+L   Towering almost twenty feet tall, this &+ylord &+Lof its kind stalks the para
+&+Lelemental plane with a &+rfoul &+Ltemper. This &+ygreater lord &+Lof the magma mephits
+&+Lis roughly humanoid in shape, but stands above the rest of its kind with a
+&+Lnobility of an elevated sense of purpose. Seeking the &+rdes&+Ltruct&+rion &+Lof all
+&+Lmaterial objects, this lord's smoldering body &+rwrithes &+Land &+rburns &+Lwith a
+&+Lheat that rivals the core of the inner plane itself. A churning mass of
+&+Lmolten magma &+Bshifts &+Lacross his body and forms itself into plates of dense
+&+Larmor when assulted. Bringing down this foe will be a mighty task for any
+&+Lfoolish enough to brave it.&n
+~
+133160 1 0 0 402653208 0 0 0 -1000 S
+ef 0 1048576 2 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142002
+drake magma~
+&+La &+rm&+Ra&+rg&+Rm&+ra &+Ldrake&n~
+&+LA massive &+ydrake &+Lcomposed of smoldering &+rm&+Ra&+rg&+Rm&+ra &+Lflies here, surveying to blazing landscape.&n
+~
+&+L   The massive form of an elemental &+rdrake &+Llumbers before you. While not
+&+Lthe full size of a mighty dragon of its kind, this drake is a bit more
+&+Lslender and stretches much longer than the average dragon. Its body is
+&+Lcomposed of &+Yglowing &+Lscales of smoldering &+rmagma&+L. As the drake's movements
+&+Lstop, the magma scales harden into thick basalt plates. Movement from the
+&+Lmassive drake heats the scales into a smoldering mix of magma and stone.
+&+LWaves of &+rheat &+Lcan be seen coming from the very &+Wcore &+Lof this magma drake as
+&+Lthe air around it distorts in brutal &+ragony&+L. A single horn of basalt stands
+&+Lsharp on its wedge shaped head while thick shards of obsidian form a maw of
+&+Lincredibly sharp teeth. A deep seam of &+Ysuper &+Rheated &+rmagma &+Llies at the core
+&+Lof this massive creature, its &+rf&+Ri&+re&+Rr&+ry &+Lheart burning &+Wbright&+L.&n
+~
+161832 1 0 0 939524152 1 0 0 0 S
+d 0 513 0 -1
+59 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142003
+ancient red dragon sainafinalil~
+&+rSainafinalil &+Lthe ancient &+rr&+Re&+rd &+Ldragon&N~
+&+rA &+RHUGE &+rred dragon flies here, basking in the &+Lsm&+wol&+Lde&+wri&+Lng &+rheat of the elemental plane.&n
+~
+&+L   Before you stands an ancient beast of legend. Known as the &+WScourge &+Lof &+yMount &+rSiva&+L,
+&+Lthis massive red dragon embodies the power and destruction that their kind is known
+&+Lfor. &+rBlood red &+Lscales cover this dragons form as they reflect the withering heat of
+&+Lthe para elemental plane. Wicked black eyes survey everything around him as he basks
+&+Lin the glorious fires that surround him.
+~
+16777256 0 0 0 939524148 5242880 0 0 -1000 S
+D 0 16777728 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142004
+efreeti patrol leader~
+&+Yan &+re&+Rfr&+re&+Ret&+ri &+Ypatrol leader&n~
+&+LAn offical looking &+re&+Rfr&+re&+Ret&+ri &+Lstands here, leading his &+Ypatrol &+Lgroup.&n
+~
+~
+2088 1 0 0 402653208 2048 0 0 -1000 S
+E 0 1 1 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#142005
+efreeti soldier mean~
+&+Yan &+re&+Rfr&+re&+Ret&+ri &+Ysoldier&n~
+&+LA mean looking &+re&+Rfr&+re&+Ret&+ri &+Lsolider stands here, following his leader.&n
+~
+~
+8 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+1 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142006
+magman warrior sturdy~
+&+La &+rmagman &+Lwarrior&n~
+&+LA sturdy &+rmagman &+Lwarrior stands here, snarling at your presence.&n
+~
+~
+8 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+1 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142007
+fire giant soldier~
+&+La &+rf&+Ri&+rr&+Re &+ygiant &+Lsoldier&n~
+&+LA &+rf&+Ri&+rr&+Re &+ygiant &+Lsoldier stands here, guarding his &+bcharge&+L.&n
+~
+~
+8 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+1 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142008
+fire giant commander~
+&+La &+rf&+Ri&+rr&+Re &+ygiant &+ccom&+Cman&+cder&n~
+&+LA &+rf&+Ri&+rr&+Re &+ygiant &+ccom&+Cman&+cder &+Lstands here, organizing his soldiers to protect his &+memissary&+L.&n
+~
+~
+8 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+1 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142009
+grish emissary fire giant~
+&+rGrish&+L, emissary of the &+rf&+Ri&+rr&+Re &+ygiants&n~
+&+LAn official looking &+rf&+Ri&+rr&+Re &+ygiant &+Lstands here, dressed in &+melegant &+Lrobes.&n
+~
+~
+8 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+1 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142010
+fire giant shaman~
+&+La &+rf&+Ri&+rr&+Re &+ygiant &+Cshaman&n~
+&+LA &+rf&+Ri&+rr&+Re &+ygiant &+Cshaman &+Lstands here, guarding his emissary with the power of the &+Wspirits&+L.&n
+~
+~
+8 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+1 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142011
+dao slave trader wicked~
+&+ya d&+Ya&+yo &+Lslave &+ytrader&n~
+&+LA &+rwicked &+Llooking &+yd&+Ya&+yo &+Lstands here, looking for new &+mslaves &+Lto capture.&n
+~
+~
+8 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+1 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142012
+dao enforcer~
+&+La &+yd&+Ya&+yo &+renforcer&n~
+&+LA powerful &+yd&+Ya&+yo &+renforcer &+Lstands here, guarding his master.&n
+~
+~
+8 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+1 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142013
+erthol greater dao warlord~
+&+LErthol&+y, the greater d&+Ya&+yo &+rw&+Ra&+rrl&+Ro&+rrd&n~
+&+LErthol, the greater &+yd&+Ya&+y &+rw&+Ra&+rrl&+Ro&+rrd&n &+Lstands here, ready to invade.&n
+~
+~
+8 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+1 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142014
+plaenian legendary planes walker human~
+&+CPalenian&+L, the &+ylegendary &+Cplanes&+Wwalker&n~
+&+LA well dressed &+Cplanes &+Wwalker &+Lfloats here, observing the harsh climate of the plane.&n
+~
+~
+268859464 0 0 0 940056728 8402944 0 0 0 S
+PH 0 0 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#142015
+mob unnamed~
+&+La &+Wcaptive &+bwater &+Lelemental&n~
+An unnamed mob stands here, looking lonely and forelorn.
+~
+~
+8 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+1 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142016
+guardian magma mephit~
+&+La &+yguardian &+rmagma &+Lmephit&n~
+&+LA &+ylarge &+rmagma &+Lmephit stands here, protecting its lord from intrusion.&n
+~
+~
+8 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+1 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142017
+chilimba emperor lord magma~
+&+rC&+Rh&+Yi&+Wli&+Ym&+Rb&+ra&+L, the &+YSe&+Wari&+Yng &+LEmperor and Lord of All &+rM&+Ra&+rg&+Rm&+ra&n~
+&+rC&+Rh&+Yi&+Wli&+Ym&+Rb&+ra&+L, the Lord of the Elemental Plane of &+rM&+Ra&+rg&+Rm&+ra &+Lstands here, surveying his realm.&n
+~
+~
+8 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+1 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142018
+greater magma drake cypheral~
+&+Lthe greater &+rm&+Ra&+rg&+Rm&+ra &+Ldrake &+rCypheral&n~
+&+LA MASSIVE drake of smoldering magma stalks the plane, devouring all in sight.&n
+~
+~
+268437544 1 0 0 1006633112 0 0 0 -1000 S
+d 0 513 0 -1
+61 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1

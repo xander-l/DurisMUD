@@ -105,10 +105,10 @@ int hammer(P_obj obj, P_char ch, int cmd, char *arg)
 
   if (!ch)
     return (FALSE);
-
-  if (!OBJ_WORN_POS(obj, WIELD))
+/*
+  if (!OBJ_WORN_POS(obj, WIELD) || !OBJ_WORN_POS(obj, WIELD2))
     return (FALSE);
-
+*/
   vict = (P_char) arg;
 
   if (!vict)
@@ -560,10 +560,10 @@ int dispator(P_obj obj, P_char ch, int cmd, char *arg)
 
   if (!ch)
     return (FALSE);
-
-  if (!OBJ_WORN_POS(obj, WIELD))
+/*
+   if (!OBJ_WORN_POS(obj, WIELD) || !OBJ_WORN_POS(obj, WIELD2))
     return (FALSE);
-
+*/
   vict = (P_char) arg;
 
   if (OBJ_WORN_BY(obj, ch) && vict)
@@ -610,17 +610,17 @@ int orb_of_the_sea(P_obj obj, P_char ch, int cmd, char *arg)
 
   if (!ch)
     return (FALSE);
-
-  if (!OBJ_WORN_POS(obj, WIELD))
+/*
+   if (!OBJ_WORN_POS(obj, WIELD) || !OBJ_WORN_POS(obj, WIELD2))
     return (FALSE);
-
+*/
   if (cmd != CMD_GOTHIT)
     return FALSE;
 
   data = (struct proc_data *) arg;
   victim = data->victim;
 
-  if (OBJ_WORN_BY(obj, ch) && victim && !IS_SET(world[ch->in_room].room_flags, NO_TELEPORT))
+  if (OBJ_WORN_BY(obj, ch) && victim && !IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) && !IS_GH_GOLEM(victim) && GET_RACE(victim) != RACE_CONSTRUCT && !(strstr(victim->player.name, "_no_move_")))
   {
     if (!number(0, 30))
     {
@@ -736,12 +736,14 @@ int flamberge(P_obj obj, P_char ch, int cmd, char *arg)
 {
   P_char vict;
   int room;
+  P_char   temp_ch;
 
   if (cmd == CMD_SET_PERIODIC)
     return TRUE;
 
   if (cmd == 0)
     hummer(obj);
+
 
   if (cmd != CMD_MELEE_HIT || !ch || number(0, 30))
     return FALSE;
@@ -781,10 +783,10 @@ int doombringer(P_obj obj, P_char ch, int cmd, char *arg)
     hummer(obj);
     return TRUE;
   }
-
-  if (!OBJ_WORN_POS(obj, WIELD))
+/*
+  if (!OBJ_WORN_POS(obj, WIELD) || !OBJ_WORN_POS(obj, WIELD2))
     return (FALSE);
-
+*/
   if (arg && (cmd == CMD_SAY))
   {
     if (isname(arg, "stone"))
@@ -917,7 +919,7 @@ int unholy_avenger_bloodlust(P_obj obj, P_char ch, int cmd, char *arg)
     spell_damage(ch, vict, dam, SPLDAM_NEGATIVE,
         SPLDAM_NODEFLECT | SPLDAM_NOSHRUG | RAWDAM_NOKILL, &messages);
 
-    vamp(ch, dam / 2, (int) (GET_MAX_HIT(ch) * 1.3));
+    vamp(ch, dam / 2, (int) (GET_MAX_HIT(ch) * 1.4));
 
     return TRUE;
   }
@@ -1229,9 +1231,10 @@ int avernus(P_obj obj, P_char ch, int cmd, char *arg)
 
   if (!ch)
     return (FALSE);
-
-  if (!OBJ_WORN_POS(obj, WIELD))
+/*
+   if (!OBJ_WORN_POS(obj, WIELD) || !OBJ_WORN_POS(obj, WIELD2))
     return (FALSE);
+*/
 
   if (arg && (cmd == CMD_SAY))
   {
@@ -1262,10 +1265,13 @@ int avernus(P_obj obj, P_char ch, int cmd, char *arg)
   dam = BOUNDED(0, (GET_HIT(vict) + 9), 200);
 
   if((obj->loc.wearing == ch) &&
-     vict &&
-     (!number(0, 24)) &&
+     vict 
+
+	&&
+     (!number(0, 24)))/* &&
      (CheckMultiProcTiming(ch) || !number(0, 2)) &&
-     !IS_UNDEADRACE(vict) && !IS_CONSTRUCT(vict))
+     !IS_UNDEADRACE(vict) && !IS_CONSTRUCT(vict))*/
+	
   {
     act("&+LAvernus, the life stealer &+Wglows brightly in your hands as it dives into $N.",
        FALSE, ch, obj, vict, TO_CHAR);
@@ -1280,7 +1286,7 @@ int avernus(P_obj obj, P_char ch, int cmd, char *arg)
     act("&+LYou feel your life flowing away and $n &+Wlooks revitalized.",
         FALSE, ch, obj, vict, TO_VICT);
 
-    vamp(ch, dam / 2, (int) (GET_MAX_HIT(ch) * 1.3));
+    vamp(ch, dam / 2, (int) (GET_MAX_HIT(ch) * 1.6));
 
     spell_damage(ch, vict, (BOUNDED(0, (GET_HIT(vict) + 9), 150)),
            SPLDAM_NEGATIVE, SPLDAM_NODEFLECT | SPLDAM_NOSHRUG, 0);
@@ -2529,10 +2535,10 @@ int tiamat_stinger(P_obj obj, P_char ch, int cmd, char *arg)
 
   if (!ch)
     return (FALSE);
-
-  if (!OBJ_WORN_POS(obj, WIELD))
+/*
+   if (!OBJ_WORN_POS(obj, WIELD) || !OBJ_WORN_POS(obj, WIELD2))
     return (FALSE);
-
+*/
   vict = (P_char) arg;
 
   if (OBJ_WORN_BY(obj, ch) && vict)
@@ -2574,9 +2580,10 @@ int holy_mace(P_obj obj, P_char ch, int cmd, char *arg)
 
   if (cmd == CMD_MELEE_HIT)
   {
-    if (!OBJ_WORN_POS(obj, WIELD))
+   /*
+    if (!OBJ_WORN_POS(obj, WIELD) || !OBJ_WORN_POS(obj, WIELD2))
       return (FALSE);
-
+   */
     vict = (P_char) arg;
 
     if(OBJ_WORN_BY(obj, ch) &&
@@ -4080,8 +4087,7 @@ int sevenoaks_longsword(P_obj obj, P_char ch, int cmd, char *arg)
     "$n's $q &+rhums briefly as it unleashes a &+Cr&+Wai&+Cn of sharp &+Wic&+Ci&+Bc&+Cl&+Wes at $N!",
     "", "", "", 0, obj};
     
-  if(cmd != CMD_MELEE_HIT ||
-    !(ch))
+  if(cmd != CMD_MELEE_HIT || !(ch))
   {
     return (FALSE);
   }
@@ -4095,9 +4101,8 @@ int sevenoaks_longsword(P_obj obj, P_char ch, int cmd, char *arg)
     return false;
   }
 
-  /* if(CheckMultiProcTiming(ch) &&
-    !number(0, 32))
-  */
+  /* if(CheckMultiProcTiming(ch) && */
+  if(!number(0, 32))
   {
     act("&+LYour $q blurs as it strikes $N.",
       FALSE, ch, obj, vict, TO_CHAR);
@@ -4123,6 +4128,58 @@ int sevenoaks_longsword(P_obj obj, P_char ch, int cmd, char *arg)
       SPLDAM_NOSHRUG | SPLDAM_NODEFLECT | RAWDAM_NOKILL, &messages) == DAM_NONEDEAD)
   {
     return true;
+  }
+  
+  return FALSE;
+}
+
+int dagger_of_wind(P_obj obj, P_char ch, int cmd, char *arg)
+{
+  P_char   vict;
+  int i, room;
+  struct damage_messages messages = {
+    "Your $q &+ccalls forth the &+Cessen&+Wce of the Wind &+cas you strike at $N...",
+    "$n's $q &+ccalls forth the &+Cessen&+Wce of the Wind &+cas they strike at you...",
+    "$n's $q &+ccalls forth the &+Cessen&+Wce of the Wind &+cas they strike at $N...",
+    "", "", "", 0, obj};
+    
+  if(cmd != CMD_MELEE_HIT || !(ch))
+  {
+    return (FALSE);
+  }
+  
+  vict = (P_char) arg;
+  room = ch->in_room;
+  
+  if(!(vict) ||
+     !(room))
+  {
+    return false;
+  }
+
+  /* if(CheckMultiProcTiming(ch) && */
+  if(!number(0, 24))
+  {
+        if(IS_FIGHTING(ch))
+    {
+      stop_fighting(ch);
+    }
+    for (vict = world[ch->in_room].people; vict; vict = vict->next_in_room)
+    {
+      if(vict->specials.fighting == ch)
+      {
+        act("&+C...suddenly, $n &+Cis engulfed in a sw&+cwi&+Wrl&+cin&+Cg &+Ltornado &+Cof &+Wwind... sweeping them from &+rbattle&+c!", FALSE, ch,
+          0, vict, TO_ROOM);
+        stop_fighting(vict);
+       }
+      else if(ch != vict)
+      {
+        act("&+C...suddenly, $n &+Cis engulfed in a sw&+cwi&+Wrl&+cin&+Cg &+Ltornado &+Cof &+Wwind... sweeping them from &+rbattle&+c!", FALSE, ch,
+            0, vict, TO_VICT);
+      }
+    }
+    
+    return TRUE;
   }
   
   return FALSE;
@@ -4184,7 +4241,7 @@ int tendrils(P_obj obj, P_char ch, int cmd, char *arg)
 
   if (!obj)
     return FALSE;
-
+/*
   if (cmd == CMD_PERIODIC)
   {
     if (!number(0, 9))
@@ -4198,7 +4255,7 @@ int tendrils(P_obj obj, P_char ch, int cmd, char *arg)
       ch = obj->loc.carrying;
     else
       return FALSE;
-
+  
     w_align = (RACE_EVIL(ch) && !(GET_RACE(ch) == RACE_PHANTOM)) ? 0 :
       RACE_PUNDEAD(ch) ? 0 : GET_CLASS(ch, CLASS_MONK) ? 3 : 2;
     if (w_align == 2)
@@ -4274,25 +4331,39 @@ int tendrils(P_obj obj, P_char ch, int cmd, char *arg)
     }
 
   }
-
+*/
   if (cmd != CMD_GOTHIT || number(0, 7))
     return FALSE;
+
 
   data = (struct proc_data *) arg;
   vict = data->victim;
   if (GET_STAT(vict) == STAT_DEAD)
     return FALSE;
 
+<<<<<<< HEAD
   act("$n sidesteps $N's lunge only to slam $s face with an elbow!", FALSE, ch, 0, vict, TO_NOTVICT);
   act("$n completely sidesteps your lunge only to slam $s elbow into your face!", FALSE, ch, 0, vict, TO_VICT);
   act("You completely sidestep $N's lunge, only to slam your elbow into $s face!", FALSE, ch, 0, vict, TO_CHAR);
 
   if((damage(ch, vict, number(5, 20), TYPE_UNDEFINED) != DAM_NONEDEAD))
+=======
+  act("$n sidesteps $N's lunge only to slam $s face with an elbow!", TRUE,
+      ch, 0, vict, TO_NOTVICT);
+  act
+    ("$n completely sidesteps your lunge only to slam $s elbow into your face!",
+     TRUE, ch, 0, vict, TO_VICT);
+  act
+    ("You completely sidestep $N's lunge, only to slam your elbow into $s face!",
+     TRUE, ch, 0, vict, TO_CHAR);
+/*
+  if ((damage(ch, vict, dice(5, 20), TYPE_UNDEFINED) != DAM_NONEDEAD))
+>>>>>>> master
   {
     return TRUE;
   }
-
-  if(!number(0, 10))
+*/
+  if(!number(0, 7))
   {
     act("Before $N can recover $n grabs $M by the throat and utters a single &+Wword.\n"
         "$N spasms in &+Rpain as tiny &+Bbolts of &+Blight surge through $S body!", FALSE, ch, 0, vict, TO_NOTVICT);

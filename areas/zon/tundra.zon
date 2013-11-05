@@ -205,9 +205,6 @@ M 0 13721 53 13722 100 0 0 0       * an arctic fox
 M 0 13721 53 13722 100 0 0 0       * an arctic fox
 M 0 13715 13 13724 100 0 0 0       * a snow fox
 M 0 13724 1 13725 100 0 0 0        * a barbarian fishmonger
-G 1 334 999 0 100 0 0 0            *    (object type not in this .obj file)
-G 1 318 999 0 100 0 0 0            *    (object type not in this .obj file)
-G 1 319 999 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 13709 5 13728 100 0 0 0        * a hungry hook horror
 M 0 13700 6 13729 100 0 0 0        * a shimmering blue shark
 M 0 13700 6 13729 100 0 0 0        * a shimmering blue shark

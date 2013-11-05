@@ -1,0 +1,394 @@
+#142400
+caretaker man~
+The &+Gcaretaker&n~
+&+wA small wizened old man is here wondering what your up to.
+~
+&+wHe appears to be in some distress as he rocks back and forth in his rocking
+&+ychair&+w. He is a wise looking elderly man who clearly must be the caretaker of
+&+wthe &+bnecropolis&+w. He looks up at you expectantly.
+~
+268466250 0 0 0 939631032 269498590 85721280 114831888 1000 S
+P2 0 1049193 0 3
+61 0 0 100d100+1 10d10+1
+0.0.0.0 0
+8 8 1
+#142401
+mary woman tailor~
+&+WMary, tailor of &+mtime&n~
+&+WA woman dressed all in white, sits here working on her &+Ygolden loom&+W.&n
+~
+&+WShe barely notices you and continues working diligently on her loom.
+&+WShe is dressed all in white and has &+rauburn &+Whair. She radiates with
+&+Wa quiet power and peace. However, one can sense that she is not to be
+&+Wtrifled with and even the most powerful entities had best tread lightly.
+~
+2127946 0 0 0 3087081916 269793502 85721312 123221008 1000 S
+AV 0 67109483 0 -1
+62 0 -1000 1000d1000+1 100d100+1
+0.0.0.0 0
+8 8 2
+#142402
+thadeus crav zombie~
+&+WThadeus &+bCrav&n~
+&+LA wicked looking &+Gzom&+gbi&+Ge &+Lis here, moving incredibly &+Cfast&+L!&n
+~
+&+LThis creature sure looks angry that you have disturbed it's rest! It moves
+&+Lincredibly fast for something dead!
+~
+2127946 1 0 0 671195290 268712130 85196800 100667392 -1000 S
+RE 0 1048640 0 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142403
+shadow stalker~
+&+LA shadow stalker~
+&+LA black figure hangs in mid-air here, composed of solid blackness.
+~
+&+LThere is a humanoid form composed of pure blackness hanging in mid-air
+&+Land exuding an aura of pure terror. It has no features just seems to
+&+Lsuck all life and energy from the room as it glides towards you.
+~
+1074927688 1 0 0 404300186 2114 83886088 603983872 -1000 S
+SW 0 513 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142404
+rampaging dracolich~
+&+LA &+Rra&+rmp&+Rag&+rin&+Rg &+Ld&+rr&+La&+rc&+Lo&+rl&+Li&+rc&+Lh&n~
+&+LOne of the &+bCrav &+Lfamily pet dragons is here, risen from the dead.
+~
+&+LThe &+bCrav &+Lfamily studied dragons to enhance their martial arts and a few
+&+Lof these dragons decided to live with them. It is unclear whom was the
+&+Lreal pets the family or the dragons. Upon their deaths the dragons had
+&+Lwished to be buried with the family. When the curse fell upon this place
+&+Lit appears the dragons rose from their graves as well...and it does NOT
+&+Llook happy to be back.
+~
+1075992648 1 0 0 402727320 2114 17825792 68161536 -1000 S
+UD 0 1 0 7
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142405
+crav cadaver~
+&+LA &+bcrav &+rca&+Lda&+rve&+Lr&n~
+&+LA &+rreanimated &+Lmember of the &+bCrav &+Lfamily is here, charging toward you.
+~
+&+LThis frightful corpse is a former member of the &+bCrav &+Lfamily and it seems
+&+Lto move faster than most undead encountered before. Even in death the
+&+Lthe family seems to have retained its abilities of speed and martial
+&+Lprowess. It charges toward you with uncanny speed!
+~
+1073875016 1 0 0 402727320 268437570 84934656 605033472 -1000 S
+ZO 0 64 0 3
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142406
+frost wight~
+A &+Cfrost &+Rwi&+rgh&+Rt&n~
+&+LA massive corpse covered in &+Cfrost&+L, wanders here.
+~
+&+LThis hulking corpse definitely belonged to someone of rather large stature
+&+Lwhile they were alive. Now it is just a &+Gr&+go&+Gt&+gt&+Ge&+gd &+Lhusk which is covered in a
+&+Llight dusting of &+Bfr&+bos&+Bt&+L.&n
+~
+1073879624 1 0 0 402727064 268435522 84934656 68161536 -1000 S
+UW 0 1048576 0 5
+54 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142407
+frozen corpse~
+&+LA &+Bfr&+boz&+Ben &+Lcorpse&n~
+&+LA &+Bfr&+boz&+Ben &+Lcorpse wanders here, its body as hard as &+Wi&+Cc&+We&+L.&n
+~
+&+LThis &+rreanimated &+Lcorpse appears to be frozen in an eternal grimace due to the
+&+Lcold temperatures of &+CIcecrag&+L. Its eye sockets are empty and black, it moves
+&+Lstiffly but with purpose as it approaches you.
+~
+1073875528 1 0 0 402727064 2114 84934656 68161536 -1000 S
+ZO 0 16385 0 4
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142408
+cadaver bran boru~
+&+CBran Boru&n~
+&+cA sinister corpse in &+Ltar&+wni&+Lshe&+wd ar&+Lmo&+wr&+c is here, &+Rr&+re&+Rd e&+ry&+Re&+rs &+cglowing hotly.
+~
+~
+19036234 1 0 0 2550202808 268712158 68419584 101724672 -1000 S
+UW 0 49 0 6
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142409
+frost giant skeleton~
+&+LA &+Cfrost &+Bgi&+ban&+Bt &+Wsk&+wel&+Let&+Won&n~
+&+CA twenty foot tall &+Wskeleton&+C is here, standing next to it's master.
+~
+~
+67254792 1 0 0 402661528 268437726 68419584 34615808 -1000 S
+SK 0 16385 0 6
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142410
+rydian llywelyn corpse king~
+&+GRy&+gdi&+Gan &+gLlywelyn&n~
+&+LA &+cshriveled &+gelven &+Lcorpse is here chanting dark incantations.
+~
+~
+285374538 1 0 0 402727358 268712158 84934664 100676096 -1000 S
+UL 0 6294016 0 5
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142411
+morgh ghastly~
+&+LA ghastly morgh&n~
+&+LA ghastly morgh is here, swiftly coming at YOU!
+~
+~
+1074935880 1 0 0 403251480 268699870 84934656 68431872 -1000 S
+RE 0 1025 0 3
+54 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142412
+banshee~
+&+LA &+Wba&+wns&+Lhe&+we&n~
+&+LA dreaded &+Wba&+wns&+Lhe&+we &+Lscreams through the air here.
+~
+~
+1343227976 1 0 0 403185822 277100766 84934792 101989376 -1000 S
+wr 0 32768 1 3
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142413
+elven scimitar boneblade~
+&+LAn &+celven &+Wbo&+wne&+Lbl&+wad&+We&n~
+&+LA flying &+celven &+Cscimitar&+L sails through the air here.
+~
+~
+1073903688 1 0 0 940048536 268450014 83886080 68161536 -1000 S
+CN 0 2097152 3 2
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142414
+dreadknight knight dread~
+&+LA reanimated dreadknight&n~
+&+LA reanimated dreadknight stands guard over the lich of the &+gelven &+Yking&+L.
+~
+~
+68302858 1 0 0 402727064 272894174 1158676552 580137472 -1000 S
+UK 0 16777264 0 -1
+57 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142415
+lich wildmage~
+&+Lthe l&+mic&+Lh of a &+Mw&+mil&+Mdm&+mag&+Me&n~
+&+LA &+Rfi&+re&+Yr&+ry &+Re&+ry&+Re&+rd &+Ll&+mic&+Lh in tattered robes skulks about here.
+~
+&+LA freakish Lich wearing the tattered magenta robes of the infamous
+&+MWi&+mld&+mma&+Mge &+Lis charging at YOU!
+~
+1342584904 1 0 0 403186078 264286 16777216 67112960 -1000 S
+UL 0 512 1 3
+54 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142416
+massive megadragon dragon bone~
+&+Wa ma&+Ls&+wsi&+Wve b&+Lo&+wn&+We dragon&n~
+&+WThe skeleton of a Megadragon is chained to the wall here.
+~
+&+WThe reanimated skeleton of a megadragon is chained to the obsidian
+&+Wwall and it does not look happy to be bound here. It appears to be
+&+Wunder the orders of the skeletal mage guarding the coffin.
+~
+68319306 1 0 0 402661404 264222 0 1052672 -1000 S
+UD 0 1048576 2 7
+54 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142417
+marr sarum lich~
+&+mMarr Sarum&n~
+&+LThe &+mGrand &+LL&+mic&+Lh, &+mMarr Sarum&+L stands here, darkly incanting a spell.
+~
+&+LThe lich of the legendary &+mMarr Sarum &+Lstands here before you with a
+&+Llook of pure murder in his burning &+Rred &+Leyes.
+~
+268466250 1 0 0 402661534 264414 16777216 537145344 -1000 S
+UL 0 1536 0 4
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142418
+mummy~
+&+wa &+Wm&+wu&+Lm&+Wmy&n~
+&+wA &+Wm&+wum&+Lm&+Wy &+wis here, walking directly at you.
+~
+&+wThis mummy groans as it slowly walks towards you, arms outstretched.
+~
+67242056 1 0 0 402661400 262238 16777216 68169728 -1000 S
+U 0 513 0 -1
+54 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142419
+royal mummy~
+&+wa &+Bro&+bya&+Bl &+Wm&+wum&+Lm&+Wy&n~
+&+wA mummy adorned with &+Ygold&+w jewelry charges at you!
+~
+&+wA mummy adorned with gold jewelry and the trappings of royalty charges
+&+wtowards you and begins to incant a spell!
+~
+8 1 0 0 402661822 264414 16777216 538193920 -1000 S
+U 0 134218241 0 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142420
+tyvinius tavinshir mummy~
+&+RTyvinius Tavinshir&n~
+&+LThe &+Wmummy &+Lof &+RTyvinius Tavinshir&+L stands here, glaring about.
+~
+&+WThis mummy looks like it's in charge here. It points at you and
+&+Wit's followers begin to advance on you.
+~
+270682122 1 0 0 402661790 268699870 16777216 1323024 -1000 S
+RE 0 134351361 0 5
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142421
+archon guard~
+&+LAn &+Ra&+Yrc&+Rhon &+Lguard&n~
+&+LAn &+Ra&+Yrc&+Rhon &+Lcreated to guard the crypt wanders here.
+~
+&+LOne of the archons summoned into a corpse for the purpose of
+&+Lguarding this tomb is here looking for intruders.
+~
+1140983880 1 0 0 402661784 268699870 83886080 1060864 -1000 S
+AR 0 16449 0 -1
+54 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142422
+artavus platyr~
+&+WArtavus Platyr&n~
+&+WArtavus Platyr, &+wthe&+W ph&+Lant&+Wom paladin, stands here looking stern.&n
+~
+&+WA paladin who fought valiantly against the Darkenstones before he
+&+Wfell to the poison served to him by his own wife who was seduced
+&+Wby Haratius Drakenstone. He now forlornly guards this crypt from
+&+Wlooters.
+~
+67258378 1 0 0 402760126 297182 1090519048 89144576 1000 S
+UP 0 41 0 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142423
+spectral knight~
+&+wA &+Wspectral &+wkni&+Lgh&+wt&n~
+&+WAn apparition in the shape of a knight turns to face you!
+~
+&+WThis full bodied apparition appears to be that of a knight long
+&+Wsince dead. It turns to face you and raises its spectral sword.
+~
+8 1 0 0 402759998 268732638 1694498824 22035456 1000 S
+UG 0 521 0 -1
+54 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142424
+ghost ghostly cleric~
+&+wA &+Wghostly &+ccleric&n~
+&+WThe spirit of a long dead &+ccleric&+W floats through the air here.&n
+~
+&+WThis cleric doesn't seem to realize it's dead...it also doesn't like
+&+Wpeople who disturb it's rest!
+~
+8 1 0 0 403251358 262366 16777416 84948992 1000 S
+UG 0 33 0 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142425
+haratius drakenstone vampire~
+&+rHaratius Drakenstone&n~
+&+rThe vampire of Haratius Drakenstone glares at you, eyes burning.
+~
+&+rHaratius Drakenstone was a terrible man. He murdered, lied and he
+&+rstole his way to the top. He also seduced Hynera the queen of the
+&+rrightful king Artavus and convinced her to murder him with poison.
+&+rAfter marrying her he struck a deal with Auril for his dynasty to
+&+rlast forever...now as a bloodthirsty vampire he does just that...
+~
+285374538 1 0 0 402760126 268712158 83886088 1323008 -1000 S
+UM 0 17957376 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142426
+bonedaddy bone golem huge~
+&+wA &+Wbo&+wne&+Lda&+Wd&+wd&+Ly&n~
+&+LA &+whu&+Lg&+We bo&+Ln&+we go&+Lle&+Wm &+wstands hulklike here, defending the crypt.
+~
+&+WA fearsome thing of legend, a bonedaddy is a construct that has a
+&+Wlegendary quality. Only a few necromancers have ever been able to
+&+Wsuccessfully make one, these hulking giants are made from remains
+&+Wof murdered souls and are truly brutal and wicked.
+~
+1076000840 1 0 0 402759836 268712158 84148224 1052672 -1000 S
+CN 0 1064961 0 7
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142427
+hynera drakenstone zombie~
+&+GHy&+gn&+Ge&+gra &+GDr&+gak&+Gen&+gst&+Gon&+ge&n~
+&+GA ju-ju zombie clings to the arm of Haratius, dead skin weeping poison.
+~
+Hynera Drakenstone was formerly Hynera Platyr before she betrayed her
+husband and murdered him with poison. Auril thought it to be fitting
+that she be raised as a Ju-Ju zombie, the type of zombie who seeps a
+horrific poison from their skin. She is now married to Haratius for
+eternity.
+~
+8 1 0 0 403218618 276702 84934656 68431872 -1000 S
+UW 0 2109440 0 3
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142428
+mob unnamed~
+an unnamed mob~
+An unnamed mob stands here, looking lonely and forelorn.
+~
+~
+8 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+1 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#142429
+mob unnamed~
+an unnamed mob~
+An unnamed mob stands here, looking lonely and forelorn.
+~
+~
+8 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+1 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0

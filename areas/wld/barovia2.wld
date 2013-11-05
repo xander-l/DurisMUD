@@ -2068,7 +2068,7 @@ S
 &+Weffort to not fall from the extremely-narrow ledge.  This
 &+Wpass finds its way through the rocks, upwards through the
 &+Wvalley of Barovia.  Although steep and treacherous, this
-&+Wmountain pass seems to be as well-travelled as the gravel
+&+Wmountain pass seems to be as well-traveled as the gravel
 &+Wroad leading in to this place.
 ~
 588 134258752 4
@@ -2088,7 +2088,7 @@ S
 &+Weffort to not fall from the extremely-narrow ledge.  This
 &+Wpass finds its way through the rocks, upwards through the
 &+Wvalley of Barovia.  Although steep and treacherous, this
-&+Wmountain pass seems to be as well-travelled as the gravel
+&+Wmountain pass seems to be as well-traveled as the gravel
 &+Wroad leading in to this place.
 ~
 588 134250560 4
@@ -2108,7 +2108,7 @@ S
 &+Weffort to not fall from the extremely-narrow ledge.  This
 &+Wpass finds its way through the rocks, upwards through the
 &+Wvalley of Barovia.  Although steep and treacherous, this
-&+Wmountain pass seems to be as well-travelled as the gravel
+&+Wmountain pass seems to be as well-traveled as the gravel
 &+Wroad leading in to this place.
 ~
 588 134250560 4
@@ -2155,7 +2155,7 @@ S
 &+Weffort to not fall from the extremely-narrow ledge.  This
 &+Wpass finds its way through the rocks, upwards through the
 &+Wvalley of Barovia.  Although steep and treacherous, this
-&+Wmountain pass seems to be as well-travelled as the gravel
+&+Wmountain pass seems to be as well-traveled as the gravel
 &+Wroad leading in to this place.
 ~
 588 134250560 4
@@ -3685,6 +3685,19 @@ D3
 ~
 0 0 58957
 S
+#58959
+&+rA &+LC&+yl&+Lo&+yg&+Lg&+ye&+Ld &+rRefuse Drain&n~
+What would be considered a normal sewage system by most has been
+turned in to a swampy mess of floating &+rbody parts&n and &+ysewage&n.
+A small trickle of &+Rblood&n continously flows down from above, &+rlifeblood&n
+of strangers unfortunate enough to stumble upon this &+Lplace&n.
+~
+588 1073872896 0
+D4
+~
+grate bloody~
+1 0 58960
+S
 #58960
 &+LA R&+ge&+Lp&+gu&+Lls&+gi&+Lv&+ge &+rLair &+Lof &+MC&+ro&+Mr&+rp&+Ms&+re&+Ms&N~
    &+LThis disgusting &+rlair&+L is located in a small cave hidden behind
@@ -3694,12 +3707,16 @@ S
 &+Lequipment is seen stomped into the &+ymuddy &+Lfloor in all areas, giving
 &+La strange carpetted nature to the otherwise &+bdank&+L cavern floor.
 ~
-588 1073741824 0
+588 1207992384 0
 D3
 &+BThe Tser falls is located back to the west.
 ~
 cave~
 1 0 58954
+D5
+~
+grate bloody~
+1 0 58959
 S
 #58961
 &+MA Nymph Hideaway&N~

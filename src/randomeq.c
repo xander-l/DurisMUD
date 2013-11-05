@@ -386,8 +386,12 @@ const struct randomeq_slots slot_data[MAX_SLOT + 1] = {
   {49, "&+Lpauldron&N", 1.42, 1.1, ITEM_WEAR_ABOUT, 2, 0},
   {50, "&+Lgoggles&N", 1.1, 0.6, ITEM_WEAR_EYES, 2, 0},
   {51, "&+Lnose ring&N", 0.8, 0.0, ITEM_WEAR_NOSE, 1, 0},
+<<<<<<< HEAD
 //  {52, "&+Lspider armor&N", 0.7, 0.8, ITEM_SPIDER_BODY, 1, 0},
   {52, "&+Lfaceguard&N", 1.1, 0.75, ITEM_WEAR_FACE, 2, 0},
+=======
+  {52, "&+Lbelt buckle&N", 0.2, 0.1, ITEM_ATTACH_BELT, 1, 0},
+>>>>>>> master
   {53, "&+Lskull&N", 1.4, 0.5, ITEM_WEAR_HEAD, 2, 0},
   {54, "&+Lhorn&N", 1.0, 0.0, ITEM_WEAR_HORN, 1, 0},
   {55, "&+Lchainmail&N", 1.5, 1.3, ITEM_WEAR_BODY, 3, 0},
@@ -559,7 +563,7 @@ void create_randoms()
 
 P_obj create_material(int index)
 {
-  char     buf1[MAX_STRING_LENGTH];
+ /* char     buf1[MAX_STRING_LENGTH];
   char     buf2[MAX_STRING_LENGTH];
   char     buf3[MAX_STRING_LENGTH];
 
@@ -577,7 +581,11 @@ P_obj create_material(int index)
   SET_BIT(obj->wear_flags, BIT_15);
   SET_BIT(obj->wear_flags, BIT_1);
 
-  convertObj(obj);
+  convertObj(obj);*/
+
+  int matnum = number(400000, 400209);
+
+  P_obj obj = read_object(matnum, VIRTUAL);
 
   return obj;
 }
@@ -662,7 +670,7 @@ int check_random_drop(P_char ch, P_char mob, int piece)
   if ((char_lvl - mob_lvl) > 10)
     return 0;
 
-  while (i < 15)
+/*  while (i < 15)
   {
     if (highdrop_mobs[i] == GET_VNUM(mob))
     {
@@ -672,7 +680,7 @@ int check_random_drop(P_char ch, P_char mob, int piece)
       }
     }
     i++;
-  }
+  }*/
 
 //  if (!IS_TRUSTED(ch) && !IS_NPC(ch))
 //    for (tr = ch->only.pc->trophy; tr; tr = tr->next)

@@ -779,7 +779,7 @@ void cast_plane_shift(int level, P_char ch, char *arg, int type,
 
       if(plane_id == 6 &&
         GET_PRIME_CLASS(ch, CLASS_DRUID) &&
-        char_is_on_plane(ch))
+        char_is_on_plane(ch) && !IS_MULTICLASS_PC(ch))
       {
         act("$n slowly fades away...", 0, ch, 0, 0, TO_ROOM);
         char_from_room(ch);
@@ -2150,8 +2150,13 @@ void cast_vines(int level, P_char ch, char *arg, int type, P_char tar_ch, P_obj 
   af.type = SPELL_VINES;
   af.flags = AFFTYPE_NOSHOW | AFFTYPE_NODISPEL;
   af.bitvector5 = AFF5_VINES;
+<<<<<<< HEAD
   af.duration = 4;
   af.modifier = count * 5;
+=======
+  af.duration = level / 2;
+  af.modifier = 40 * count;
+>>>>>>> master
   affect_to_char(ch, &af);
 }
 
@@ -2571,11 +2576,20 @@ void cast_bloodstone(int level, P_char ch, char *arg, int type, P_char victim, P
     return;
   }
 
-  if(NewSaves(victim, SAVING_FEAR, random))
+ /* if(NewSaves(victim, SAVING_PARA, 5))
   {
     return;
-  }
+  } This now uses percent of health to determine duration - save is not needed. Drannak */
   
+
+  float duration = ((float)GET_HIT(victim) / (float)GET_MAX_HIT(victim));
+  debug("duration %f", duration);
+  duration = 1 - duration;
+  debug("duration %f", duration);
+  duration *= 100;
+  debug("duration %f", duration);
+  int dur = duration;
+  debug("duration: %f, dur: %d", duration, dur);  
   if (affected_by_spell(victim, SPELL_BLOODSTONE))
   {
     send_to_char("Their blood is already made of stone!\n", ch);
@@ -2585,7 +2599,13 @@ void cast_bloodstone(int level, P_char ch, char *arg, int type, P_char victim, P
   af.type = SPELL_BLOODSTONE;
   GET_VITALITY(victim) -= level / 2;
   StartRegen(victim, EVENT_MOVE_REGEN);
+<<<<<<< HEAD
   af.duration = (level / 4) * WAIT_SEC;
+=======
+
+  af.duration = dur;
+  af.flags = AFFTYPE_SHORT | AFFTYPE_NODISPEL;
+>>>>>>> master
   affect_to_char(victim, &af);
 
   if(level > 51)
@@ -2734,6 +2754,17 @@ bool exit_wallable(int room, int dir, P_char ch)
     if (ch != NULL)
       send_to_char("You see no exit in that direction!\r\n", ch);
     return FALSE;
+  }
+
+  P_obj obj, next_obj;
+  for (obj = world[room].contents; obj; obj = next_obj)
+  {
+     next_obj = obj->next_content;
+     if (obj->R_num == real_object(500054))
+     {
+       send_to_char("The magic attempts to take hold, but disperses suddenly...", ch);
+       return FALSE;
+     }
   }
 
   dir_room = (world[room].dir_option[dir])->to_room;

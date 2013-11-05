@@ -59,16 +59,21 @@ mace earth unique~
 &+yThe mace of the &+Learth is here.&n~
 ~
 5 19 4 8 15 100 272638977 8193 65 87572507 0
+<<<<<<< HEAD
 6 5 6 6 0 0 0 0
 1 200000 100 100 32 0 0 0
+=======
+6 7 6 6 0 0 0 0
+1 200000 100 48 2 0 0
+>>>>>>> master
 E
 mace of the earth~
 This glowing mace seems to be composed of rock and diamonds.
 ~
 A
-18 5
+31 10
 A
-19 5
+19 6
 #23806
 dusty gauntlets dust~
 &+La pair of gauntlets formed of &+ydust&n~
@@ -78,7 +83,7 @@ dusty gauntlets dust~
 10 0 0 5 0 0 0 0
 0 0 100 100
 A
-1 6
+31 6
 A
 19 3
 #23807

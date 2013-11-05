@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #13300
 wicks human mercenary~
 &+cWicks&n~
@@ -1437,3 +1438,1444 @@ HO 0 32 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
+=======
+#13300
+wicks human mercenary~
+&+cWicks&n~
+&+wThe famed &+chuman &+ymercenary, &+cWicks&n&+w waits here.&n
+~
+&+cWicks&n and &+WValquin&n have been friends for as long as either of them
+can remember.  They were introduced to the &+gHunters&n in the battle
+of the frost giants several years ago.  Ce&+Wci&nl continues to pressure
+them both into joining the &+LSoldiers Of &+YFortune&n but they always refuse,
+sure that they don't need to be in a special group to have a good time
+and make money.&n
+~
+1140852746 0 0 0 0 0 0 0 0 S
+PH 0 16384 0 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13301
+valquin human mercenary~
+&+WValquin&n~
+&+WValquin&+w, waits with his &+cpartner&n &+wpatiently.&n
+~
+&+WValquin&n, like his friend, is one of the best &+ymercenaries&n in the country.
+He casually taps his foot on the ground, waiting for the action to begin,
+although enjoying himself a great deal being around all the famaliar
+faces. Both &+cWicks&n and &+WValquin&n were called to this &+Gforest&n by &+WRol&+Land,
+the huntsmaster.&n
+~
+1140852746 0 0 0 0 0 0 0 0 S
+PH 0 16384 0 -1
+45 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13302
+shix engineer~
+&+gShi&+Gx&n~
+The &+Ycata&+ypult&n engineer, &+gShi&+Gx&n, wanders the &+Gforest.&n
+~
+&+gShix is probably De&+Lcke&+grs best friend in the world.  Years ago they
+&+gwere in the same army, De&+Lck&+ger an officer and Shix a &+Ycata&+ypult&+g engineer.
+&+gIt is rare that they see each other much any more, both travelling
+&+gin different roads of life. He is a strong fighter and adept at
+&+gmechanics.&n
+~
+1140852746 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13303
+mastiff minotaur~
+&+rMas&+Ltiff&n~
+&+rMas&+Ltiff&n, the &+LMino&+rtaur&n, mingles with the others.&n
+~
+&+LThis &+rmino&+Ltaur hasn't know the &+gHunters&+L for a long time, but has
+&+Lstrong ties to &+cWicks&+L and &+WValquin&+L who have ties with &+BRico&+L and &+yShantil&+L who
+&+Lin turn have ties with the &+gHunters&+L.  &+WRol&+Land has pulled out all the
+&+Lstops for this campaign, recruiting most all of the people he considers
+&+Lto be great fighters and &+rMas&+Ltiff surely is a great fighter.&n
+~
+1140852746 0 0 0 0 0 0 0 0 S
+MT 0 1 0 -1
+40 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13304
+clond centaur~
+&+YClo&+Wnd~
+&+YClo&+Wnd&n trots through here, his head held high in pride.
+~
+&+YClo&+Wnd&n is a chief of a nomadic band of &+gcent&+Laurs&n from the northern
+country. He has both assisted and been assisted by the &+LSoldiers of
+&+YFortune&n several times, and through Ce&+Wci&nl eventually met the &+gHunters.
+&+YClo&+Wnd&n has gathered many of his band's best warriors to come to
+the battle but as now, they have yet to arrive.
+~
+1073743880 0 0 0 0 0 0 0 0 S
+CT 0 2 0 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13305
+drimble halfling~
+&+yDrimble&n~
+Beaming with happiness, &+yDrimble&n frolicks around his friends.&n
+~
+&+yDrimble the halfling has tagged along with &+BRico&+y for many years now
+&+yand is truly disappointed he hasn't arrived yet.  This halfling thinks
+&+BRico&+y is really the coolest guy in the world, with &+WRol&+Land&+y coming in
+&+ysecond. He skips around the &+Mparty&+y happily and stays as far away
+&+yfrom the ale as possible.
+~
+2078 0 0 0 0 0 0 0 0 S
+PF 0 65536 0 -1
+36 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13306
+cecil~
+&+wCe&+Wci&+wl&n~
+&+wCe&+Wci&+wl, leader of the &+LSoldiers &+wof &+YFortune&+w, laughs with his friends.&n
+~
+Ce&+Wci&nl is the founding member of the &+LSoldiers of &+YFortune&+y mercenary
+company, the foremost &+ymercenary&n company in the country as well as
+here together in the &+Gforest&n.  Ce&+Wci&nl is a laid back adventurer, always
+in a good mood, ever moreso now.  He drinks the free &+yale&n casually and
+laughs with his soldiers and his friends, knowing quite well that
+when this &+Mparty&n ends, the battle of a life time will begin, and it
+could possibly be the last time he sees his friends again.
+~
+1140852744 0 0 0 0 0 0 0 0 S
+PH 0 16384 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13307
+soldier fortune~
+a member of the &+Lsoldiers&n of &+Yfortune&n~
+One of &nCe&+Wci&nl's &+Lsoldiers &nof &+Yfortune&n prepares for war.&n
+~
+Ce&+Wci&nl's soldiers are one of the several mercenary companies here to
+help the cause.  The are valiant and brave and confident the outcome
+of the battle will be positive.  Their secondary motive is fairly
+obvious as they always ask, &+W'Think we'll get hazard pay for this?'&n
+~
+2056 0 0 0 0 0 0 0 -500 S
+PH 0 16384 0 -1
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13308
+kantara hunter assassin~
+&+LKan&+mtara&n~
+&+LKan&+mtara&n, the &+Lassassin &+gHunter&n, chats with his friends.&n
+~
+&+LKan&+mtara&n is a quiet spoken, seldom seen &+gHunter&n.  Much like
+&+LMav&+mer&+Liss&n, instead of settling down in &+MMyrabolus&n, he spends his time
+still travelling around the world, searching for a spiritual peace.
+He is a master of &+Lninjitsu&n and adept at six other martial arts all
+learned within the borders of the &+gJade Empire&n.  He calmly talks to
+his friends he hasn't seen for some time and will spend an hour before
+they all enter the &+Lcaverns&n in quiet meditation.
+~
+1073743882 0 0 0 0 0 0 0 0 S
+PH 0 64 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13309
+roland hunter~
+&+WRol&+Land&n~
+&+WRol&+Land&+w is here in quiet reflection.&n
+~
+&+WRol&+Land&n has come to this quiet forest from his home in &+MMyrabolus&n because
+not to long ago, &+LMa&+mver&+Liss&n, a fellow &+gHunter&n who had yet to settle down
+sent him a message asking for assistance.  When &+WRol&+Land&n heard that his
+nemesis was hiding here, aided by a &+rdevil &+Lgeneral&n, he rounded up as
+many of his friends as he could and made the journey to meet &+LMa&+mver&+Liss
+and engage their common foe together.&n
+~
+67110922 0 0 0 0 0 0 0 0 S
+PH 0 2 0 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13310
+captain engleton~
+&+wCaptain &+WEng&nle&+Lton&n~
+&+WEng&nle&+Lton&+w, captain of the world's finest sailing ship, enjoys the &+Mparty.&n
+~
+Captain &+WEng&nle&+Lton&n is probably the bravest man in a forest of brave men.
+He has sailed around the world several times, battling fierce &+Lstorms&n,
+deadly &+Rbeasts&n, and occasionally the antics of &+cRuda&+Lmuse&n.  Not as
+much as a favor to the &+gHunters&n but as to an understanding of just
+how great the threat to the world, he has brought his band of crewmen
+to aid the rest of the force here in the fight.&n
+~
+10 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13311
+maveriss hunter~
+&+LMav&+mer&+Liss&n~
+&+LMav&+mer&+Liss&n the &+gHunter&n waits for his friends.&n
+~
+&+LMa&+mver&+Liss doesn't look like any&+mone you have ever seen bef&+Lore. He is
+&+Lwearing a black leat&+mher fur-lined jacket ov&+Ler a white unbuttoned
+&+Lshirt. Sev&+meral silver chains ha&+Lng from his neck, matching a chain
+&+mhanging off his leather belt with a s&+Lmall polished silver skull on
+&+Lthe end. The ba&+mck of his jacket is embla&+Lzoned with a pict&+mure
+&+mdepicting a dragon soaring thro&+Lugh a cresent moon in &+ma blaze of
+&+mmulticolours.  When he sees you he br&+Lushes the hair from his eyes
+&+Land gives a slight nod. &n
+~
+1073743946 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13312
+xavier hunter~
+&+LXavier~
+&+LXavier&n communes with the &+CDragon Queen.
+~
+&+LXavier has travelled with a few of his fellow &+gHunters&+L to this forest
+&+Lfor a reason of his own.  In his search for the ultimate &+bmagic&+L, &+Wcosmocy,
+&+Lhe has found another creature on the planet who has been rumoured to
+&+Lhave mastered a massive ammount of the &+barcane arts&+L.  Now he stands
+&+Lin the &+Gforest glade&+L, speaking to the legendary &+CDragon Queen&+L in hopes
+&+Lof gaining new knowledge that will help him reach his goal.&n
+~
+1073743882 0 0 0 0 0 0 0 0 S
+PH 0 512 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13313
+dragon queen~
+&+Cthe Dragon Queen~
+The &+CDragon Queen&n rests peacefully in her secluded &+ggrove&n.
+~
+&+cThe &+CDragon Queen&+c has made her home in this forest for generations now.
+&+cShe has protected the woods, the wildlife, and her followers in the
+&+Wtemple&+c, however much they displeased her with their incessant worship.
+&+cHowever, in her older age, the evil lurking deep within the caves
+&+cof this forest evaded her, and raised to a strength she was powerless
+&+cto battle against.  Now she welcomes the &+gHunters&+c to put a end to the
+&+cevil invading her home and teaches &+LXavier&+c all she knows about the
+&+bmystic arts&+c, including the amazing powers of &+Wcosmocy.&n
+~
+2058 0 0 0 268435584 0 0 0 1000 S
+D 0 8 0 -1
+59 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#13314
+frustrated monk~
+a frustrated m&+Lon&nk~
+A frustrated m&+Lon&nk, grumbles about the &+Mparty&n outside.
+~
+This m&+Lon&nk just seems to wander the &+Wtemple&n grumbling. He hasn't quite
+lost his &+rtemper&n yet but he seems very close.
+~
+2056 0 0 0 0 0 0 0 750 S
+PH 0 64 1 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13315
+enraged monk~
+&+wan en&+rrage&+wd &+wm&+Lon&+wk&n~
+An en&+rrage&nd m&+Lon&nk screams and attacks in &+ranger&n.
+~
+It is rare to see a m&+Lon&nk in such as state as this, wilding charging
+any intruder with a rather un-m&+Lon&nk-like &+rrage&n.  The &+Mparty&n outside must
+really be bothering him, even though in the end it will be for his
+own good.
+~
+1140852808 0 0 0 0 0 0 0 750 S
+PH 0 64 2 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13316
+praying monk~
+&+Wa praying &+wm&+Lon&+wk&n~
+&+WA praying&n m&+Lon&nk&+W blows his top.
+~
+This poor m&+Lon&nk has decided that grumbling or screaming won't do much
+good any more so he has decided to emerge himself in his prayers. Of
+course disturbing now him could quite easily push him over the edge.
+~
+1140850698 0 0 0 0 0 0 0 750 S
+PH 0 96 0 -1
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13317
+ajax knight~
+&+RAj&+Lax~
+&+RAj&+Lax&n is here, kneeling in silent&+W prayer.
+~
+&+RAj&+Lax&n travelled with &+WRol&+Land&n to this &+Gforest&n, expecting to engage in
+a epic battle and either come home victorious or not come home at
+all. Instead, he has found an &+Waltar&n dedicated to his father hiddin
+in a quiet thicket.  As he kneels in silent &+Wprayer&n, asking for
+the strength to continue, he wonders what will be in store for him.
+~
+1073743882 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+5 5 1
+#13318
+berelain vampire~
+&+mBere&+Llain&n~
+Ce&+Wci&nl's vampiric soldier, &+mBere&+Llain&n, stays in the &+Lshade.&n
+~
+&+mBere&+Llain is one of &nCec&+Wil&ns &+Lelite special force members.  As a vampire
+&+Lhe has the power to get to places and do things living people just cant.
+&+LHe is fairly rough around the edges, but knows the difference from
+&+Lright and wrong. He may have been stripped of his life but he has
+&+Lnot lost his soul.  The others at the &+Mparty&+L call him by his codename:
+&+L'Odin'
+~
+1073743946 0 0 0 0 0 0 0 0 S
+UV 0 512 0 -1
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13319
+abbot~
+the A&+Lbb&not~
+The A&+Lbbot&n stands here, defending the &+Lvault.
+~
+The A&+Lbb&not is much less composed than the Ar&+Lchdea&ncon. He seems to attack
+more in &+rfrustration&n than defense.  The &+rfrustration&n seems to stemmed
+more from keeping his colleagues in line than the &+Mparty&n outside.
+~
+10 1 0 0 128 0 67109056 37749760 1000 S
+gz 0 64 1 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13320
+arch deacon archdeacon~
+&+wthe Ar&+Lchdea&ncon~
+The Ar&+Lchdea&ncon attacks all intruders.
+~
+The leader of this &+Wtemple&n, almost cult-like in nature still remains
+&+Wcalm&n and &+Wcool&n. However, he does not allow any intrusion into his
+&+Lvault&n room and will defend it vehemently.
+~
+10 1 0 0 0 0 67108864 37749760 1000 S
+gz 0 96 0 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13321
+redana~
+&+LRe&+rdana&n~
+Ce&+Wci&nl's loyal &+Msorceress&n, &+LRe&+rdana&n, enjoys the &+Mparty.&n
+~
+&+rRe&+Ldana&n is quite a capable young &+Msorceress&n. She hasn't been working
+for Ce&+Wci&nl for very long, but already has gained much respect. She
+seems more worried about the number of drunken men around more
+than she is than the upcoming battle.
+~
+1140852808 0 0 0 0 0 0 0 0 S
+PH 0 512 0 -1
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#13322
+rudamuse pirate~
+&+cRuda&+Lmuse&n~
+Ce&+Wci&nl's pirate friend, &+cRuda&+Lmuse&n, slams back a pint of &+yale.&n
+~
+&+cRuda&+Lmuse&n has been working for Ce&+Wci&nl for quite awhile now. Before
+he joined the &+LSoldiers of &+YFortune&n he was a fairly well known pirate,
+sailing the seas, stealing loot from any other ships he and his men
+could find.  As the member of &+LSoldiers of &+YFortune&n now he still sails
+although instead of looting he gets paid legit. &n
+~
+1073743882 0 0 0 0 0 0 0 0 S
+PH 0 16384 0 -1
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13323
+fluffy bunny~
+&+Wa fluffy bunny~
+&+WA fluffy bunny hops through the &+gforest.&n
+~
+It seems unlikely this &+Wfluffy bunny&n will transform into a nightmarish
+demon. You never know, though.
+~
+8 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+4 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13324
+proud stag~
+&+ya proud stag~
+&+yA proud stag chews on the &+Ggrass&n &+yhere.
+~
+&+yThis stag wanders the forest, oblivious of the threat hiding in
+&+ycaverns just a short distance away.&n
+~
+2120 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+30 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13325
+bald-eagle bald eagle~
+&+wa &+Wbald&+L-eagle&n~
+&+wA graceful &+Wbald&+L-eagle&+w flies by with a loud screech.&n
+~
+This &+Leagle&n floats on a current of air not far over head. It squawks
+loudly at some unseen disturbance.
+~
+72 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+9 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13326
+maverick~
+&+LMa&+bver&+Lick~
+&+LMa&+bver&+Lick&n, the &+rsadistic&n &+Lre&nneg&+Lade&n Hun&+Lter&n sits up&+Lon hi&ns &+Wthrone&n of &+Wbones.
+~
+&+LMa&+bver&+Lick was, and in still some way still is a Hunter.  Unfortuately,
+&+Lthe power he gained while travelling with the others just made him
+&+Lhungry for more, it left him empty, and so he sought more. &+rAbbadon
+&+Lanswered him, mentoring him into a descent into madness yet leaving
+&+Lhim with the power to fufill his darkest fantasies.
+~
+1090537482 1 0 0 268509224 2048 67108864 4195328 -1000 S
+PH 0 2 1 3
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13327
+abbadon general~
+&+rAbbadon~
+&+rAbbadon, General of the &+LDamned&n, &+rurges his disciple deeper into &+Ldarkness.
+~
+&+rAbbadon has lived for centuries, watching time and space from his lair
+&+rsomewhere between the &+CHome of the Divine&+r and the planes of &+RHell&+r until
+&+ra short time ago when he discovered a young man with the potential
+&+rto rule this planet. Abbadon took it upon himself, in the propects
+&+rof causing his unique style of lawful chaos, to tutor this man, known
+&+ras &+LMa&+bver&+Lick&+r, and see just how much havoc they could wreak upon the globe.
+~
+16777226 1 0 0 268435608 2048 2097152 0 -1000 S
+Y 0 131584 0 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13328
+endosa orc~
+&+LEndosa~
+&+LEndosa, the elite orcish &+cgeneral&+L, commands his troops.
+~
+&+LEndosa is the general of the armies of &+rarmageddon&+L, bestowed the title by
+&+LMa&+bver&+Lick himself.  He will oversee the first assualt upon the surface
+&+Lcities and then the &+munderdark&+L and finally the planes.  All units in
+&+Lthe armies are his to command except for when Ma&+bver&+Lick is present. He
+&+Lwill have no reports to fill or advisements to make then, he will do
+&+Lsimply as he is told to do.
+~
+2058 1 0 0 8 0 0 0 -1000 S
+HO 0 16 1 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13329
+major orc~
+&+Lan orc major~
+&+LA &+Mmajor &+Lin the orcish army keeps his soldiers in line.
+~
+&+LThe majors in the army have been promoted not for their intelligence
+&+Lbut for their prowness in battle.  It is strange to ever see an orc
+&+Lgrow larger than six feet but something in these caves has produced
+&+Lsome extremely strong and deadly orcs. Of those, a handful are selected
+&+Lby Endosa to become majors in the army.&n
+~
+1073743882 1 0 0 8 0 0 0 -1000 S
+HO 0 1 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13330
+orc soldier~
+&+Lan orc &+rsoldier&n~
+&+LA &+rsoldier&+L in the army of &+rarmageddon&n &+Ltravels the caves.&n
+~
+&+LThe orc &+rsoldiers&+L are the back bone of the entire army. All
+&+Lof the other units do not have the sheer quantity of these &+rsoldiers&+L and
+&+Lalthough not as deadly as an &+bogre&+L or mage their population more than
+&+Lmakes up for it.&n
+~
+1073743880 1 0 0 8 0 0 0 -1000 S
+HO 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13331
+sentry orc~
+&+Lan orc sentry~
+&+LAn orc &+msentry&+L is posted here, guarding the caverns.
+~
+&+LThe orc sentries are a lower class of the soldiers. Still well trained,
+&+Lhowever, though when the army begins its rampage upon the surface, this
+&+Lorc will either be left behind to guard the caves or givin menial jobs.&n
+~
+2058 1 0 0 8 0 0 0 -1000 S
+HO 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13332
+misty blue sentinel~
+&+ba hazy blue sentinel~
+&+bA hazy &+Bblue&+b sentinel difts by.
+~
+&+BIt is obvious this creature is not from the prime material plane,
+&+bleading one to either two conclusions. The prime material plane has
+&+Bbeen replaced with something else, or this creature has been summoned
+&+bby some powerful force to patrol the area.&n
+~
+1073743880 1 0 0 0 0 0 0 -1000 S
+EA 0 4 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13333
+orc resting soldier~
+&+La resting orc &+rsoldier~
+&+LAn orc &+rsoldier&n &+Lrests here.
+~
+&+LThis orc soldier has been working all day preparing for the oncoming
+&+Lmilitary campaign. He is taking a break to catch up on some much needed
+&+Lsleep.&n
+~
+8 1 0 0 8 0 0 0 -750 S
+HO 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+5 5 1
+#13334
+priest orc~
+&+Lan orc &+Wpriest&n~
+&+LA &+Wpriest&n &+Lin the army of &+rarmageddon&+L wanders the hall.&n
+~
+&+LIt is unclear just which god the &+Wpriests&+L pray to gain their spells,
+&+Lhaving shunned many of the well known dieties when the &+rdevil&+L general
+&+Larrived. However they do get their spells, though, is not really the
+&+Lproblem, the unholy &+Wwrath&+L of a god blazing from their hands is...&n
+~
+1073743880 1 0 0 8 0 0 0 -1000 S
+HO 0 32 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13335
+pikachu~
+&+Ya pikachu~
+&+YA pikachu frolics in the woods, playing with the other wildlife.
+~
+&+YThis pikachu scampers through the forest playfully. He happily
+&+Ycommunicates in his 'pika pi' manner. &n
+~
+8 0 0 0 0 0 0 0 0 S
+A 0 256 0 -1
+21 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13336
+battle mage orc~
+&+Lan orc battle-&+mmage&n~
+&+LA battle-&+mmage&+L in the orcish army prowls for invaders.&n
+~
+&+LThe orc battle-mages in the dark army do not just cast offensive
+&+Lspells at their opponents. Several have special duties, wandering
+&+Lthe caves, summoning &+bmystical&+L creatures to aid them in the fight.
+&+LThey can be fearsome advasaries.&n
+~
+1073743880 1 0 0 8 0 0 0 -1000 S
+HO 0 512 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#13337
+high magistrate markam~
+&+MMar&+Rkam&n~
+The High &+rMagistrate&n of &+MMyrabolus&n pilots his &+Yspell&+Ljammer.&n
+~
+&+MMar&+Rkam&+c seemed to have arrived just in time.  He personally pilots
+&+cthe airship and oversees the evacuation process, greeting everyone
+&+cclimbing up the &+yrope ladder&+c warmly with a '&+WJob well done!&+c'  He ushers
+&+cthe survivors towards the stern of the ship where a second &+yrope ladder
+&+cwill lead down.  His smile of pride seems as radiant as the &+Ysun.&n
+~
+1140852810 0 0 0 268435612 0 0 0 0 S
+PH 0 1 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13338
+troll berserker~
+&+La &+gtroll&+L berserker~
+&+LA &+gtroll&+L berserker crouches here.
+~
+&+gThe troll berserkers in the army are mostly outcasts of their own
+&+grace.  The now serve the &+rdevil&+L general&+g to a degree. They are about as
+&+ghard to handle as the &+bogres&+g. Knowing that they will be givin the chance
+&+gto strike their kin's cities and outposts give them a stronger urge
+&+gand impatience to begin the campaign immediately.&n
+~
+1073743880 1 0 0 0 0 0 0 -1000 S
+PT 0 1048576 1 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13339
+troll battle master~
+&+La &+gtroll&+L battle master~
+&+LA &+gtroll&+L battle master in the army of &+rarmageddon&+L wanders here.
+~
+&+gThe troll battle masters are a fair bit more hesitant about going
+&+gafter the rest of the underdark trolls than the berserkers are. Unlike
+&+gthe berserkers, the battle master trolls were former elite troll
+&+gwarriors, lured into the army by wealth and women.  They have some
+&+greservations about killing their former allies, but they are trolls
+&+gafter all, and the thought of human killing more than makes up for
+&+gtheir doubts.&n
+~
+1073743880 1 0 0 0 0 0 0 -1000 S
+PT 0 1048576 2 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13340
+wyvern adult~
+&+yan adult wyvern~
+&+yAn adult wyvern nests between the rock.
+~
+&+yThe wyvern is a distant cousin of the the dragon and lacks any
+&+yfavourtism in the either the race war or the current battle.  It is
+&+ycontent to stay where it has nested for decades and nurse its young
+&+ywhich the orcs seem to take great interest in.
+~
+10 1 0 0 0 0 0 0 -1000 S
+DK 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#13341
+young wyvern~
+&+ya young wyvern~
+&+yA young wyvern stays close to its guardian.
+~
+&+yThis wyvern is probably only a few months old. It tries to stay
+&+ynear its mother but the &+Lorc&+y tamer is always looking for a way to
+&+ysnatch them and put them to use.&n
+~
+1073743882 1 0 0 0 0 0 0 -1000 S
+DK 0 1 0 -1
+30 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13342
+orc trainer chowza~
+&+yChowza, &+Lan orc &+ywyvern&+L trainer&n~
+&+yChowza, the &+Lorc&+y, tames and trains young &+ywyverns.&n
+~
+&+LThis orc trains the &+ywyverns&+L for the armies.  It isn't such a hard
+&+Ljob being as the &+ywyverns&+L are quite intelligent as learn quickly, however
+&+Lthe mother &+ywyvern&+L has a hard time letting go of her young and sometimes
+&+Lit can be alot of work to grab the hatchlings before she realizes
+&+Lwhat is happening.&n
+~
+10 1 0 0 8 2048 0 0 -1000 S
+HO 0 16384 1 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13343
+arch angel archangel~
+&+Wan &+Larch&+Wangel&n~
+&+WAn &+Larch&+Wangel, summoned by the &+Lbattle-&+mmages&+W protects the tunnel.&n
+~
+&+WThe archangels usually have been regular angels that have fallen
+&+Wthrough sin. Though not usually evil, they still have tendencies to
+&+Wcorruption. When they are not being summoned for other people's
+&+Wpurposes they wander the &+cair&+W plane or secluded areas on the material
+&+Wplane alone.&n
+~
+2058 1 0 0 8 0 0 0 -1000 S
+AN 0 2 0 4
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13344
+beholder small~
+&na &+wsmall&n &+wbe&+Lhol&n&+wder&n~
+&+wA small&+w be&+Lhol&+wder has been &+Lcaptured&+w and ordered to watch the &+Ltunnel.&n
+~
+&+wCap&+Ltured&+w by the battle-&+mmages&+w from a distant world this be&+Lhol&+wder is
+&+wsmaller than the majo&+Lrity of its race, h&+wowever, it is still extr&+Lemely&n
+&+Ldeadly, each one of th&+we ten eyestalks capable of a dif&+Lferent and powerful&n
+&+wattack.&n
+~
+2058 1 0 0 8 0 0 0 -1000 S
+BH 0 1 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13345
+enslaved fire elemental~
+&+ran enslaved &+Rfire&+r elemental~
+&+rAn enslaved &+Rfire&+r elemental howls in anger.&n
+~
+&+rThis fire elemental has be&+Ren summoned by the drow, &+MKrazzi&+r, to
+&+Rprotect a tunnel which hold&+rs the speciality creatu&+Rres of the army&n
+&+rof &+Rarmage&+rddon.&n
+~
+10 1 0 0 0 0 0 0 -1000 S
+EF 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13346
+battle mage orc~
+&+Lan orc battle-&+mmage&n~
+&+LAn orc battle-&+mmage&+L prepares for war.&n
+~
+&+LBefore the commander arrived in these caves the group of orcs living
+&+Lhere had no knowledge of the &+barcane&+L arts. Now, a special unit has been
+&+Ltrained in magic for the sole purpose of supporting the infantry in
+&+Lthe army. The battle &+mmages&+L will induce fear into the hearts of their
+&+Lopponents while they begin their synchronized meteor swarms upon the
+&+Lcities of both the surface and the underdark.&n
+~
+2058 1 0 0 0 0 0 0 -1000 S
+HO 0 512 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13347
+thief lord orc veannan~
+&+rVeannan&+L, the orc &+rthief &+Llord~
+&+rVeannan&+L, the orc &+rthief &+Llord of &+rarmageddon&+L watches his room.
+~
+&+LBefore the dark overlord arrived and siezed control of the caves as
+&+Lwell as all its inhabitants the only fairly civilized orcs were members
+&+Lof a thieves guild.  The guild has now dispersed but their former leader,
+&+Lnow stripped of most of his power, still waits in the caves hoping for
+&+Lthe chance to kill his enemies ruthlessly.&n
+~
+1073744008 1 0 0 8 0 0 0 -1000 S
+HO 0 106496 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13348
+ogre assault soldier~
+&+Lan &+bogre&+L assault soldier~
+&+LAn imposing &+bogre &+Lassault soldier snarls and attacks.
+~
+&+bThis giant underdark monster seems impatient to do battle. He snarls
+&+band wields a large tree as a weapon, hoping soon to crush someone or
+&+bsomething with it.  His mass and overwhelming strength is quite
+&+bvaluable to the dark army. &n
+~
+67110920 0 0 0 8 0 0 0 -1000 S
+PO 0 1 1 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13349
+slave master orc grue~
+&+LGrue, the&+m slave &+Lmaster~
+&+LGrue, the orc &+mslave &+Lmaster shouts orders from his office.
+~
+&+LThe &+mslave&+L master could quite possibly the cruelest orc within the
+&+Lcaverns. The general Endosa understood this and decided against putting
+&+Lhim in the army knowing that he would either be killed by an &+bogre
+&+Lor &+gtroll&+L in anger or he himself would kill several of his own kinsmen.
+&+LEndosa did the wise thing and put him in charge of the &+mslaves&+L, giving
+&+Lhim control to kill or beat whomever he wishes and told the rest of
+&+Lthe army to just stay as far away from him as possible. &n
+~
+16777226 1 0 0 8 0 0 0 -1000 S
+HO 0 16793600 0 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13350
+barbarian enslaved~
+an &+menslaved &+Bbarbarian~
+An &+menslaved &+Bbarbarian&n prays for rescue.
+~
+&+BThis barbarian's face is beaten very bad, but as he sees you, it
+&+Bisn't hard to see the broad smile form over bruised visage.  He
+&+Bgives a barbarian shout of freedom and walks off looking for a way
+&+Bout.&n
+~
+1073743880 0 0 0 0 0 0 0 500 S
+PB 0 1 0 -1
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13351
+prisoner mercenary~
+&+wa &+ymercenary &+wprisoner of war&n~
+&+wA captured member of a &+ymercenary&+w company has been sent to &+Lcompound.&n
+~
+It is hard to tell which &+ymercenary company&n this man belongs too, he is
+ragged and obviously been beaten for quite awhile.  He still holds his
+head high though and when he sees you he manages a determined smile,
+thankful for the rescue.
+~
+1073743880 0 0 0 0 0 0 0 500 S
+PH 0 16384 0 -1
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13352
+grey elf enslaved~
+&+wan &+menslaved &+cgrey elf&n~
+&+wAn &+menslaved &+cgrey elf&+w plots his escape.&n
+~
+&+cIt is unclear exactly just how this Grey Elf was capture, or even
+&+chow long ago.  He appears to be beaten, but not severely enough for him
+&+cto loose his defiance against his captors.&n
+~
+1073743880 0 0 0 0 0 0 0 1000 S
+PE 0 128 0 -1
+36 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#13353
+golem sentinel~
+&+ba cosmic &+Lgolem&n &+bsentinel&n~
+&+bA cosmically enhanced &+Lgolem&+b blocks the intersection.&n
+~
+&+bThis &+Lgolem&+b was probably once an orc. Through the bizarre powers of
+&+bthe battle-&+mmages&+b, it was enlarged to the size of an ogre, and givin
+&+bskin almost as hard of &+Lstone&+b. Its large, unblinking eyes constantly
+&+bscan the caves for any threats.&n
+~
+10 1 0 0 136 0 0 0 -1000 S
+OG 0 1 1 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13354
+shock troop orc~
+&+Lan orc &+Ws&+Lh&+Wo&+Lc&+Wk&+L troop&n~
+&+LAn orc &+Ws&+Lh&+Wo&+Lc&+Wk&+L troop drills for battle.
+~
+&+LThe orc shock troops have been deployed since news of the&n &+gHunters
+&+Lhad arrived with several &+ymercenary&+L companies to back them up. Ideally
+&+Lthe shock troop unit would have been used to clean up after the
+&+Lregular infantry had engaged. Now they will be used to hit the&n &+gHunters
+&+Lhead on should they enter the caves.&n
+~
+67108874 1 0 0 268501016 0 0 0 -1000 S
+HO 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13355
+behemoth~
+&+ma behe&+bmoth&n~
+&+mA monsterous behe&+bmoth&+m guards the tunnels here.&n
+~
+&+mThis monsterous creature is most common in deep caves such as this.
+&+mHowever, years ago, bounties were placed on the hides of behemoths
+&+mand hunters eventually killed most of their population. Now, one of
+&+mthe few remaining giant creatures serves the battle-mages in the
+&+mmilitary campaign.&n
+~
+2058 1 0 0 24 0 0 0 -1000 S
+D 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13356
+hazy blue overlord mist~
+&+ba &+Wmisty&+b sentinel overlord&n~
+&+bA hazy &+Wmist &+boverlord patrols the area here.&n
+~
+&+bThis mist overlord is several times larger than the other hazy
+&+Bcreatures that drift through this descending spiral, leading to&n
+&+bbelieve that it is much more deadly than its smaller kin.&n
+~
+1073743880 1 0 0 0 0 0 0 -1000 S
+EA 0 4 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13357
+krazzi drow~
+&+MKrazzi&n~
+&+MKrazzi&+m, the elite &+Mdrow&+m conjurer stands here.&n
+~
+&+MKrazzi&+L is the only &+Mdrow&+L within the army of &+rarmageddon&+L. Most of
+&+Lhis kin believe the army to be a pitiful waste of time and are
+&+Lnot especially fond of being around so many orcs and other sub-
+&+Lspieces. &+MKrazzi&+L, however, thought this could be a very good chance
+&+Lat striking back at the forces of &+cParanel &+Land &+MMyrabolus&+L once
+&+Land for all.&n
+~
+2058 1 0 0 0 0 0 0 -1000 S
+PL 0 2048 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13358
+bat~
+&+La vampire bat&n~
+&+LA &+rblood&+L thirsty vampire bat howls and attacks.&n
+~
+&+LThe bat is a fairly common sight inside tunnels, mines, and caves.
+&+LHowever this breed seems much more hostile, as if fueled by the
+&+Lintolerance and hatred that flows from the soldiers of &+rarmageddon&n
+&+Linside these caverns.&n
+~
+10 1 0 0 1048576 0 0 0 -1000 S
+UV 0 1 0 -1
+30 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13359
+goblin windlord~
+&+La &+Ggoblin&+c windlord&n~
+&+LA &+Ggoblin&+c windlord&+L travels the tunnels, preparing for war.&n
+~
+&+cThe &+Ggoblins&+c within the ranks of the army of &+rarmageddon&+c are trained
+&+cin the arts of air and shamanistic magic.  The are not extremely
+&+cdangerous alone but can cause problems when they attack in groups.&n
+~
+2056 1 0 0 8 0 0 0 -1000 S
+HG 0 256 0 -1
+33 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13360
+cave viper~
+&+ya &+Lcave&+y viper&n~
+&+yA &+Lcave&+y viper curls up and strikes.&n
+~
+&+LThis viper is a common sight within the &+ycaves&+L.  It is a fair-sized
+&+Lrock snake that is incredibly vicious.&n
+~
+2056 1 0 0 0 0 0 0 -1000 S
+R 0 0 0 -1
+22 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13361
+lieutenant orc renatta~
+&+YRenatta&+L, the orc &+Ylieutenant&n~
+&+YRenatta&+L, the orc &+Ylieutenant&+L prepares his &+rsoldiers.&n
+~
+&+YRenatta&+L leads many of the orcs on the first floor of the cavern,
+&+Lnearly all but a couple of the soldiers. He is a dedicated &+Ylieutenant&+L,
+&+Lserving Endosa faithfully, yet training his shock troops to obey him
+&+Lto the end.&n
+~
+83888138 1 0 0 8 0 0 4194304 -1000 S
+HO 0 16777216 1 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13362
+orc priest high graiven~
+&+WGraiven&+L, the orcish high&n &+Wpriest&n~
+&+WGraiven&+L, the high priest, watches over the basin.&n
+~
+&+WGraiven&+L leads the twisted &+Wpriests&+L of the army of &+rarmageddon.&n
+&+LLike all the other &+Wpriests&+L within the army he worships known of
+&+Lthe more well known gods within the planes, for he, like the army
+&+Lobey nothing but the thought of conquest. However his prayers are
+&+Lstill &+Lanswered when he asks his dieties to curse and blind and
+&+Ldestroy &+Lhis opponents.&n
+~
+83888138 1 0 0 8 0 0 0 -1000 S
+HO 0 32 3 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13363
+rock rockworm worm huge~
+&+La huge rock&+yworm&n~
+&+LA huge rock&+yworm&+L obeys its master.&n
+~
+&+LThe the giant rock&+yworms&+L within the caverns of &+rarmageddon&+L are used
+&+Las mounts for the orc warriors.  The are hostile to almost everyone
+&+Lother than their current riders.&n
+~
+134219786 1 0 0 0 0 0 0 -1000 S
+RS 0 1 0 6
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13364
+blicatch flind~
+&+MBlicatch&n~
+&+MBlicatch&n,&+w the &+Mflind&+w craftmaster, works here.&n
+~
+&+LThis &+Mflind&+L works on a huge table that takes up most of the room.
+&+LHe crafts weapons and armor for the army that occupies the caverns,
+&+Lat a costly price, as he doesn't ally himself with anyone. He uses
+&+Lonly the most rare and precious items to craft.&n
+~
+1073743882 0 0 0 0 0 0 0 -1000 S
+L 0 512 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13365
+greeef ogre~
+&+bGreeef&+B, the ogre&n &+Lbattlelord&n~
+&+bGreeef&+B, &+Lbattlelord&+L of the &+bogres&+L, stands here.&n
+~
+&+bGreeef&+L is an especially violent &+bogre&+L who leads his band of renegade,
+&+Lanarchastisic &+bogres&+L within the army of &+rarmageddon&+L. He has a rather bad
+&+Lhabit of controlling his temper and is known for not only fighting
+&+Lwith the orcs and &+gtrolls&+L within the army but his own troops as well.
+~
+16779274 1 0 0 8 0 0 0 -1000 S
+PO 0 1048576 1 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13366
+flind guardian~
+&+La &+Mflind&+L guardian&n~
+&+LA &+Mflind&+L guards the prison camp here.&n
+~
+&+LThis &+Mflind&+L is one of the protectors of the slave camp. He oversees
+&+Lmost of the transport of the prisoners deepers into the caverns as
+&+Lwell as executions that will eventually be used as undead for &+mArgophel.&n
+~
+67110920 1 0 0 0 0 0 0 -1000 S
+L 0 1 0 -1
+49 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13367
+rat wererat~
+&+La &+wvi&+Lcio&+wus&+L were&+yrat&n~
+&+LA &+wvi&+Lcio&+wus&+L &+Lcav&+wern&+L were&+yrat&+L hunts the tunnels here.&n
+~
+&+LThis creature is half-&+chuman&+L half-&+yrat&+L. It mantains the size of &+chuman&n
+&+Lyet most facial features as well as the personality belongs to the
+&+yrodent&+L in its body. It is a fearsome creature that lives within the
+&+Lcaves, serving no one, and hunting for food.&n
+~
+2056 1 0 0 1572864 0 0 0 -1000 S
+L 0 1 0 -1
+11 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13368
+zeelnar mage~
+&+mZeelnar&n~
+&+mZeelnar&+L, captain of the battle-&+mmages&+L, prepares his troops.&n
+~
+&+mZeelnar&+L commands the battle-&+mmage&+L regiment in the army of armageddon.
+&+LHimself and his troops could quite possibly be the biggest threat to
+&+Lall the soldiers of balance, as their dark, twisted magic can destroy
+&+Lsquads of men in mere seconds.&n
+~
+83888138 1 0 0 8 0 0 0 -1000 S
+HO 0 512 0 -1
+54 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13369
+carrion beast~
+&+La ravaging &+rcarrion&+L beast&n~
+&+LA ravaging &+rcarrion&+L beast eats the flesh of the wounded.&n
+~
+&+LThis &+rcarrion&+L beast is rather common throughout the underdark.
+&+LDespite their many races evolved from their cavern enviroment, the
+&+rcarrion &+Lcrawler still always have the common nessecity of feeding
+&+Loff the dead.&n
+~
+1073743880 0 0 0 0 0 0 0 -1000 S
+AC 0 0 0 5
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13370
+orc soldier young elite~
+&+Lan &+Celite&+L orc &+rsoldier&n~
+&+LA young, &+Celite&+L, &+rsoldier&+L in the army of &+rarmageddon&+L stands here.&n
+~
+&+LThe &+Celite&+r soldiers&+L within the army of &+rarmageddon&+L are much younger
+&+Lyet much, much, better trained than the regular &+rsoldiers&+L and sentries.
+&+LIn fact, most of the younger, &+Celite&+L, &+rsoldiers&+L have been trained by
+&+LEndosa&+L himself.  Viewing each of them full of enough promise to be
+&+Lworth the extra effort.&n
+~
+1073743882 1 0 0 268435480 0 0 0 -1000 S
+HO 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13371
+fanatic gremlin~
+&+La &+ggremlin&+L fanatic&n~
+&+LA suicidal &+ggremlin&+L charges fanaticly.&n
+~
+&+gThe gremlins inside these caverns are completely suicidal fanatics.
+&+gThey charge into enemy ranks with bags of black powder strapped around
+&+gtheir waists, igniting it when engaged, then exploding in a blast
+&+gof &+rguts&+g and &+rfire&+g, taking with them as many as their enemies as
+&+gpossible when they die.&n
+~
+12 0 0 0 1572872 0 0 0 -1000 S
+HG 0 1 0 -1
+22 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13372
+warg~
+&+ya rabid warg&n~
+&+yA rabid, fearsome, warg is used as a mount by the &+Lorc&+y soldiers.&n
+~
+&+yThe warg has always been used as both a pet and a mount for the
+&+Lorcs&+y.  Though these wolf-like animals are not known to enjoy the
+&+yenclosed space of &+Lcaves &+yor &+Lcaverns&+y, these, the ones used by the &+Larmy&n
+&+Lof &+rarmageddon&+y, seem unaffected by the tight, dark, surroundings and
+&+yact even more vicious than their surface dwelling kin.&n
+~
+134219786 1 0 0 0 0 0 0 -1000 S
+AC 0 1 0 -1
+36 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13373
+crusader valiant paladin~
+&+Wa &+wval&+Wiant&+w crusa&+Wder&n~
+&+WA &+wval&+Wiant&+w crusa&+Wder fights back the &+Lorc&+r soldiers.&n
+~
+&+wThis &+Wcrusader&+w has ventured into the caverns with the first wave
+&+wof the &+LSoldiers of &+YFortune&+w, the &+LSoldiers of &+WBal&+wan&+Lce&+w, and the &+WWild&n
+&+WCard, &+ymercenary &+Lcompanies&+w.  He stands nearly alone now, hacking
+&+wand slashing at the &+Lorcs&+w who continue to charge at him, corpses
+&+wpiling up at his feet.&n
+~
+2058 0 0 0 8 0 0 0 1000 S
+PH 0 4 0 -1
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13374
+jigoog goblin~
+&+GJigoog&+L, the &+cwindmaster&n~
+&+GJigoog&+L, the &+Ggoblin&+c windmaster&+L, prepares for war.&n
+~
+&+cJigoog is a tiny, devious, &+ggoblin&+c who follows &+LEndosa&+c in the army
+&+cof armageddon in hopes of attaining control of the goblin camps
+&+cwhen the sadistic general leads the army across the underdark,
+&+cconquering one and all.&n
+~
+1073760264 1 0 0 8 0 0 0 -1000 S
+HG 0 256 0 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13375
+rakshasa elite wizard~
+&+Lan &+Celite&+R rak&+Yshasa&+L wizard&n~
+&+LAn &+Celite&+R rak&+Yshasa&+L wizard yearns for combat.&n
+~
+&+LThe rakshasa has masters the arts of illusionary wizards for as
+&+Llong as any race can remember, however, those willing to deep into
+&+Lthe renegade magics fuel by an evil beyond imagination have managed
+&+Lto worm their way into the army of &+rarmageddon&+L. Though there isn't
+&+Lmany, they are still quite deadly.&n
+~
+1073743880 1 0 0 0 0 0 0 -1000 S
+RA 0 4194304 2 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13376
+cave beetle~
+&+La ca&+wve &+mbee&+Mtle&n~
+&+LAn angry ca&+wve &+mbee&+Mtle&+L chitters and attacks.&n
+~
+&+LOver the years the &+mbee&+Mtles&+L inside these caverns have grown in size
+&+Lconsiderbly which also lowered their insect cowardice, resulting in
+&+La fairly dangerous cave bug for the unwary.&n
+~
+2056 1 0 0 1573000 0 0 0 -1000 S
+I 0 4 0 -1
+16 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13377
+rotting golem~
+&+ba rotting &+Lgolem&n~
+&+bA rotting &+Lgolem&+b slumps here.&n
+~
+&+bThrough the dark arts of Argophel this is one of the rather unique
+&+bundead &+Lgolems&+b, raised from a corpse to create a dead-eyed monster
+&+bwith skin as strong as &+Lstone.&n
+~
+2058 1 0 0 128 0 0 0 -1000 S
+U 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13378
+maximas dark knight~
+&+rMa&+Lxi&+rmas&+L, the dark knight&n~
+&+rMa&+Lxi&+rmas&+L, the dark knight, protects his hidden chamber.&n
+~
+&+LMaximas is one of the rare &+Cmage knights&+L, a class of warriors who
+&+Lspecialize in infusing weapons with elemental power.  Though most of
+&+Lthe &+Cmage knights&+L follow the path of light, Maximas and a band of
+&+Lfollowers have been outcast, and now seek to destroy most of the
+&+Lhumans who have sent them here.&n
+~
+16779274 1 0 0 268435480 0 67108864 8389120 -1000 S
+PH 0 16 1 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13379
+orc deadly assassin~
+&+La deadly &+rassassin&n~
+&+LA deadly orc &+rassassin&+L slinks through the darkness.&n
+~
+&+LAs an &+rassassin&+L in the army of &+rarmageddon&+L this orc is charged
+&+Lwith the more tactical issues of combat, like eliminating enemy
+&+Lleaders quickly and efficiently.&n
+~
+1073744008 1 0 0 1572874 0 0 0 -1000 S
+HO 0 8192 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13380
+mercenary~
+&+ya &+Yfrenzied&+y mercenary&n~
+&+yA mercenary of &+Wbal&+wan&+Lce&+w fights in a fearsome &+Yfrenzy&+y here.&n
+~
+&+cAs one of the first waves of the protectors invading the tunnel
+&+cthis &+ymercenary&+c fights along side several his companions, slashing
+&+cthe &+Lorcs&+c and &+Ggoblins&+c away in a frenzied assault.  The movement
+&+cof his weapon is quickly turning into desperation.&n
+~
+2058 0 0 0 0 0 0 0 0 S
+PH 0 16384 0 -1
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13381
+wyvern adult~
+&+yan adult wyvern&n~
+&+yAn adult wyvern male is used for a mount.&n
+~
+&+yThe wyvern is a distant cousin of the the dragon and lacks any
+&+yfavourtism in the either the race war or the battle taking place.
+&+yCurrently this male is being used as a mount for the orc soldiers,
+&+yeven with the low &+Lcavern&+y ceiling the flight of the creature
+&+ystill prooves useful.&n
+~
+134219786 1 0 0 0 0 0 0 -1000 S
+DK 0 1 0 -1
+48 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#13382
+argophel necromancer human~
+&+mAr&+Lgo&+mphel, &+Lthe&+m necromancer&n~
+&+mAr&+Lgo&+mphel&+L, the &+chuman &+mnecromancer&+L, raises and infuses &+Lgolems.&n
+~
+&+LAr&+mgo&+Lphel commands the undead of the army of &+rarmageddon&+L.  From his
+&+Lhidden lair protected by hundreds of jagged rocks he sends out his
+&+Lminions to collect the bodies of the fallen and bring them back here.
+&+LOrc or &+chuman&+L, he cares little, they all will serve him in the afterlife.&n
+~
+16779274 1 0 0 0 0 0 0 -1000 S
+PH 0 1024 0 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13383
+soldier maximas~
+&+La &+rsoldier&+L of &+rMa&+Lxi&+rmas&n~
+&+LA &+rsoldier&+L of &+rMa&+Lxi&+rmas&+L paces here.&n
+~
+&+LThe elite &+rsoldiers&+L who study beneath Maximas are trained in the
+&+Lpowers of the mage knight.  As quite chaotic humans their mage
+&+Lknight skills focus on the dark element of &+rfire.&n
+~
+67110920 1 0 0 268435480 0 67108864 0 -1000 S
+PH 0 16 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13384
+flind guard~
+&+La &+Mflind&+L guard&n~
+&+LA &+Mflind&+L protects the &+mslave&+L master here.&n
+~
+&+LThis &+Mflind&+L protects the slave master, Grue.  Though he is not
+&+La warrior in any means he still will work magic to heal the
+&+Lslave master if any harm comes to him.&n
+~
+67110922 1 0 0 8 0 0 0 -1000 S
+L 0 1 0 -1
+49 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13385
+orc grunt~
+&+wan &+Lorc &+wgru&+Lnt&n~
+&+wAn &+Lorc &+wgru&+Lnt wanders here.&n
+~
+&+wThe &+Lorc&+w grunts are the fodder of the &+Larmy of &+rarmageddon&+w. They
+&+wusually are the first to attack and the first to die, and usually
+&+waren't that well trained.&n
+~
+67110920 0 0 0 8 0 0 0 -1000 S
+HO 0 1 0 -1
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13386
+hackzen troll ragelord~
+&+gHackzen&+L, the &+gtroll&+L ragelord&n~
+&+gHackzen&+L, the &+gtroll&+L ragelord, commands his troops from here.&n
+~
+&+gHackzen&+L is a burly &+gtroll&+L, almost a foot taller than his kinsmen he
+&+Lcommands within the army of &+rarmageddon&+L.  Unlike the other dark races
+&+Lhe was appointed as a leader not for his tactical insight or intelli-
+&+Lgence, but for his sheer size.&n
+~
+16779274 1 0 0 8 0 0 0 -1000 S
+PT 0 1048576 2 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13387
+troll captain~
+&+La &+gtroll&+L captain&n~
+&+LA &+gtroll&+L captain stands next to his superior.&n
+~
+&+LThis &+gtroll&+L protects the leader of his squad Hackzen, he dutifully
+&+Lcarries out all commands, regardless of how demeaning.  He does
+&+Lpossess a far ammount of skill in the shamanic arts and is best to
+&+Lbe left alone.&n
+~
+1073743882 1 0 0 8 0 0 0 -1000 S
+PT 0 16384 1 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13388
+huge grizzly bear~
+&+La huge gri&+wzz&+Lly bear&n~
+&+LA huge gri&+wzz&+Lly bear shambles through the woods here.&n
+~
+&+LThis huge gri&+wzz&+Lly bear wanders through the forest, chasing after
+&+Lsmall, electric rat pokemon like &+Ypikachu&+L, so he can eat it.&n
+~
+2120 0 0 0 0 0 0 0 0 S
+A 0 1 0 -1
+45 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13389
+orc grunt~
+&+wan &+Lorc &+wgru&+Lnt&n~
+&+wAn &+Lorc &+wgru&+Lnt&+w scouts the forest here.&n
+~
+&+wThe &+Lorc&+w grunts are the fodder of the &+Larmy of &+rarmageddon&+w. They
+&+wusually are the first to attack and the first to die, and usually
+&+waren't that well trained.&n
+~
+67110922 0 0 0 0 0 0 0 -1000 S
+HO 0 1 1 -1
+45 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13390
+captain guard elite~
+&+Lthe &+rcaptain&+L of the &+rguard&n~
+&+LThe &+Celite &+rcaptain&+L of the &+rguard&+L stands in his room here.&n
+~
+&+LThe &+rcaptain&+L of the &+rguard&+L watches most all of the regular &+rsoldiers&n
+&+Land orc &+wgru&+Lnts in the army of &+rarmageddon&+L.  He sends his orders out
+&+Lfrom a station deep within the caves beyond the barracks and is
+&+Lprotected by several loyal &+rsoldiers.&n
+~
+67110922 0 0 0 0 0 0 0 -1000 S
+HO 0 1 2 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13391
+cave spider~
+&+La &+wcav&+Le spi&+wder&n~
+&+LA chat&+wterin&+Lg ca&+wve spi&+Lder atta&+wcks viciously.&n
+~
+&+LThe ca&+wve spi&+Lder is one of regular annoyances that live within the
+&+Lcaverns.  They have grown quite large over the years and developed
+&+La shell as hard as rock.&n
+~
+67111048 1 0 0 1573002 0 0 0 -1000 S
+AS 0 1 0 -1
+31 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13392
+veteran half orc~
+&+La half-orc &+wveteran&n~
+&+LA half-orc &+wveteran&+L protects the &+rcaptain.&n
+~
+&+LThis orc protects the &+rcaptain&+L of the &+rguard&+L most of the time, while
+&+Lhe is not he watches over the barracks, a veteran gained by his campiagn
+&+Ltimes during the war of &+bSto&+Brm &+WPort&+L, where he was but a regular soldier
+&+Lis the local militia, many years ago.&n
+~
+2058 1 0 0 0 0 0 0 -1000 S
+H2 0 1 2 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#13393
+priest orc~
+&+Lan orc &+Wpriest&n~
+&+LAn orc &+Wpriest&+L stands here, healing his kin if needed.&n
+~
+&+LIt is unclear just which god the &+Wpriests&+L pray to gain their spells,
+&+Lhaving shunned many of the well known dieties when the &+rdevil&+L general
+&+Larrived. However they do get their spells, though, is not really the
+&+Lproblem, the unholy &+Wwrath&+L of a god blazing from their hands is...&n
+~
+2058 1 0 0 8 0 0 0 -1000 S
+HO 0 32 3 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+>>>>>>> master

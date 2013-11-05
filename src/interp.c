@@ -50,6 +50,7 @@
 #include "boon.h"
 #include "ctf.h"
 #include "tether.h"
+#include "auction_houses.h"
 
 /*
  * external variables
@@ -1054,6 +1055,23 @@ const char *command[] = {
   "tether",
   "questwhere",
   "newbsa",
+  "salvage",
+  "restrain",
+  "barrage",
+  "blade",
+  "consume",
+  "riff",
+  "leaderboard",
+  "soulbind",
+  "achievements",
+  "salvation",
+  "refine",
+  "dreadnaught",
+  "dice",
+  "shadowstep",
+  "garrote",
+  "conjure",
+  "dismiss",
   "\n"                          /* MAX_CMD_LIST is now 1000 */
 };
 
@@ -1199,6 +1217,28 @@ void do_confirm(P_char ch, int yes)
   /*
    * they said yes, so do it
    */
+  //Guild creation - Drannak
+  if (strstr(ch->desc->client_str, "found_asc"))
+   {
+    char guildinfo[MAX_INPUT_LENGTH];
+    if(GET_MONEY(ch) < 5000000)
+    {
+      send_to_char("You dont have enough money!\r\n", ch);
+    ch->desc->confirm_state = CONFIRM_DONE;
+    strcpy(ch->desc->client_str, "");
+    return;
+
+    }
+
+    sprintf(guildinfo, ch->desc->last_command);
+    int x = found_asc(ch, ch, "n", guildinfo);
+    if(x)
+    SUB_MONEY(ch, 5000000, 0);
+    ch->desc->confirm_state = CONFIRM_DONE;
+    strcpy(ch->desc->client_str, "");
+    return;
+   }
+  
   ch->desc->confirm_state = CONFIRM_DONE;
   command_interpreter(ch, ch->desc->last_command);
 }
@@ -1228,6 +1268,18 @@ void command_interpreter(P_char ch, char *argument)
                  ch);
     return;
   }
+/*
+  char testing = get_alias(ch, argument);
+  char blah[MAX_STRING_LENGTH];
+
+  if(!testing)
+  {
+  sprintf(blah, "%s", testing);
+  command_interpreter(ch, testing);
+  return;
+  }
+*/
+     
 
   /* Find first non blank */
   for (begin = 0; (*(argument + begin) == ' '); begin++) ;
@@ -1443,6 +1495,47 @@ void command_interpreter(P_char ch, char *argument)
         {
            send_to_char("Sorry, you aren't allowed to do that in combat.\r\n", ch);
         }
+<<<<<<< HEAD
+=======
+      if (IS_FIGHTING(ch) && !cmd_info[cmd].in_battle)
+        send_to_char("Sorry, you aren't allowed to do that in combat.\r\n",
+                     ch);
+
+      return;
+    }
+    else
+    {
+      if ((IS_AFFECTED2(ch, AFF2_MINOR_PARALYSIS) ||
+           IS_AFFECTED2(ch, AFF2_MAJOR_PARALYSIS)) &&
+          !CAN_CMD_PARALYSIS(cmd) && !IS_TRUSTED(ch))
+      {
+        if ((IS_NPC(ch) || IS_NPC(ch)) && ch->following)
+          send_to_char("It can't being paralyzed.\r\n", ch->following);
+        else if (ch)
+          send_to_char("You can't!  You're paralyzed to the bone.\r\n", ch);
+        return;
+      }
+      if (affected_by_spell(ch, SKILL_GAZE))
+      {
+        send_to_char("You are too petrified with fear to try that.\r\n", ch);
+        return;
+      }
+      if (affected_by_spell(ch, SKILL_RESTRAIN))
+      {
+        send_to_char("&+LYou are being restrained by a band of &+rminions&+L right now!\r\n", ch);
+        return;
+      }
+      if ((target = get_linked_char(ch, LNK_ESSENCE_OF_WOLF)))
+      {
+        clear_links(ch, LNK_ESSENCE_OF_WOLF);
+      }
+      if (IS_AFFECTED2(ch, AFF2_SCRIBING) &&
+          (cmd != CMD_PETITION && cmd != CMD_TELL && cmd != CMD_MOVE &&
+           cmd != CMD_LOOK && cmd != CMD_WHISPER))
+      {
+        send_to_char("You're busy scribing a spell into your spellbook!\r\n",
+                     ch);
+>>>>>>> master
         return;
      }
      else
@@ -1678,6 +1771,7 @@ void command_interpreter(P_char ch, char *argument)
                    cmd != CMD_NEXUS &&
                    cmd != CMD_FRAGLIST &&
                    cmd != CMD_ARTIFACTS)
+<<<<<<< HEAD
            { 
               if(10 + GET_CHAR_SKILL(ch, SKILL_ADVANCED_MEDITATION) < number(10, 60) ||
                 (cmd != CMD_GSAY && cmd != CMD_SAY && cmd != CMD_TELL &&
@@ -1691,6 +1785,25 @@ void command_interpreter(P_char ch, char *argument)
                  send_to_char("You continue your meditation uninterrupted.\n", ch);
               }
            }
+=======
+          {
+            if(10 + GET_CHAR_SKILL(ch, SKILL_ADVANCED_MEDITATION) < number(10, 60) ||
+              (cmd != CMD_GSAY &&
+               cmd != CMD_SAY &&
+               cmd != CMD_TELL &&
+               cmd != CMD_NCHAT &&
+               cmd != CMD_EMOTE))
+            {
+              send_to_char("You stop meditating.\r\n", ch);
+              stop_meditation(ch);
+            }
+            else
+            {
+              send_to_char("You continue your meditation uninterrupted.\n", ch);
+             notch_skill(ch, SKILL_ADVANCED_MEDITATION, 50);
+            }
+          }
+>>>>>>> master
         }
 
      if(!no_specials && special(ch, cmd, argument + begin + look_at))
@@ -2007,6 +2120,7 @@ bool special(P_char ch, int cmd, char *arg)
          IS_NPC(k) &&
          AWAKE(k) &&
          mob_index[GET_RNUM(k)].func.mob &&
+         !affected_by_spell(k, TAG_CONJURED_PET) &&
          (!IS_IMMOBILE(k) ||
 	  (IS_NPC(k) && (GET_VNUM(k) == BUILDING_OUTPOST_MOB))))
       {
@@ -2172,7 +2286,7 @@ void assign_command_pointers(void)
   CMD_GRT(CMD_RENAME, STAT_DEAD + POS_PRONE, do_rename, IMMORTAL);
   CMD_GRT(CMD_REROLL, STAT_DEAD + POS_PRONE, do_reroll, GREATER_G);
   CMD_GRT(CMD_RESTORE, STAT_DEAD + POS_PRONE, do_restore, GREATER_G);
-  CMD_GRT(CMD_EPICRESET, STAT_DEAD + POS_PRONE, do_epic_reset, GREATER_G);
+ // CMD_GRT(CMD_EPICRESET, STAT_DEAD + POS_PRONE, do_epic_reset, GREATER_G);
  
   CMD_GRT(CMD_SQL, STAT_DEAD + POS_PRONE, do_sql, OVERLORD);
   CMD_GRT(CMD_MAKEEXIT, STAT_DEAD + POS_PRONE, do_makeexit, GREATER_G);
@@ -2238,6 +2352,8 @@ void assign_command_pointers(void)
   CMD_Y(CMD_BERSERK, STAT_NORMAL + POS_STANDING, do_berserk, 0);
   CMD_CNF_N(CMD_SUICIDE, STAT_DEAD, do_suicide, 1);
 
+  
+
   /*
    * level restricted commands
    */
@@ -2268,9 +2384,11 @@ void assign_command_pointers(void)
   CMD_N(CMD_APPLY, STAT_RESTING + POS_PRONE, do_apply_poison, 0);
   CMD_N(CMD_ARTIFACTS, STAT_SLEEPING + POS_PRONE, do_artifact, 0);
   CMD_N(CMD_RAID, STAT_SLEEPING + POS_PRONE, do_raid, 0);
+  CMD_N(CMD_DISMISS, STAT_NORMAL + POS_STANDING, do_dismiss, 0);
    
   CMD_N(CMD_DISAPPEAR, STAT_RESTING + POS_KNEELING, do_disappear, 0);
   CMD_N(CMD_ASSIST, STAT_NORMAL + POS_STANDING, do_assist, 0);
+  CMD_N(CMD_DICE, STAT_NORMAL + POS_STANDING, do_dice, 0);
   CMD_N(CMD_AWARENESS, STAT_NORMAL + POS_STANDING, do_awareness, 0);
   CMD_N(CMD_BACKSTAB, STAT_NORMAL + POS_STANDING, do_backstab, 0);
   CMD_N(CMD_BALANCE, STAT_NORMAL + POS_STANDING, do_balance, 0);
@@ -2322,9 +2440,13 @@ void assign_command_pointers(void)
   // old guildhalls (deprecated)
 //  CMD_N(CMD_SACK, STAT_NORMAL + POS_STANDING, do_sack, 25);
   CMD_N(CMD_FRAGLIST, STAT_DEAD + POS_PRONE, displayFragList, 0);
-//  CMD_N(CMD_HARDCORE, STAT_DEAD + POS_PRONE, displayHardCore, 0);
+  CMD_N(CMD_HARDCORE, STAT_DEAD + POS_PRONE, displayHardCore, 0);
+  CMD_N(CMD_LEADERBOARD, STAT_DEAD + POS_PRONE, displayLeader, 0);
+  CMD_N(CMD_SOULBIND, STAT_DEAD + POS_PRONE, do_soulbind, 0);
+  CMD_N(CMD_REFINE, STAT_DEAD + POS_PRONE, do_refine, 0);
+  CMD_N(CMD_ACHIEVEMENTS, STAT_DEAD + POS_PRONE, display_achievements, 0);
 //  CMD_N(CMD_RELIC, STAT_DEAD + POS_PRONE, displayRelic, 0);
-  CMD_N(CMD_EPIC, STAT_DEAD + POS_PRONE, do_epic, 0);
+ CMD_N(CMD_EPIC, STAT_DEAD + POS_PRONE, do_epic, 0);
   CMD_N(CMD_NEXUS, STAT_DEAD + POS_PRONE, do_nexus, 0);
   CMD_N(CMD_TEST, STAT_DEAD + POS_PRONE, do_test, FORGER);
   CMD_Y(CMD_TRANQUILIZE, STAT_DEAD, do_tranquilize, 59);
@@ -2363,6 +2485,7 @@ void assign_command_pointers(void)
   CMD_N(CMD_REST, STAT_RESTING + POS_PRONE, do_rest, 0);
   CMD_N(CMD_RIDE, STAT_NORMAL + POS_STANDING, do_mount, 0);
   CMD_N(CMD_RULES, STAT_RESTING + POS_PRONE, do_rules, 0);
+  CMD_N(CMD_SALVAGE, STAT_NORMAL + POS_STANDING, do_salvage, 0);
   CMD_N(CMD_SCAN, STAT_RESTING + POS_STANDING, do_scan, 0);
   CMD_N(CMD_SCRIBE, STAT_RESTING + POS_SITTING, do_scribe, 0);
   CMD_N(CMD_SE, STAT_NORMAL + POS_PRONE, do_move, 0);
@@ -2428,12 +2551,16 @@ void assign_command_pointers(void)
    */
 
   CMD_Y(CMD_ABSORBE, STAT_NORMAL + POS_STANDING, do_absorbe, 0);
+  CMD_Y(CMD_CONJURE, STAT_NORMAL + POS_STANDING, do_conjure, 0);
   CMD_Y(CMD_AGGR, STAT_RESTING + POS_PRONE, do_aggr, 0);
+  CMD_Y(CMD_SALVATION, STAT_NORMAL + POS_STANDING, do_salvation, 0);
   CMD_Y(CMD_ALERT, STAT_RESTING + POS_PRONE, do_alert, 0);
   CMD_Y(CMD_ARENA, STAT_RESTING + POS_PRONE, do_arena, 0);
   CMD_Y(CMD_ASK, STAT_RESTING + POS_SITTING, do_ask, 0);
   CMD_Y(CMD_ATTRIBUTES, STAT_SLEEPING + POS_PRONE, do_attributes, 0);
   CMD_Y(CMD_BASH, STAT_NORMAL + POS_STANDING, do_bash, 0);
+  CMD_Y(CMD_DREADNAUGHT, STAT_NORMAL + POS_STANDING, do_dreadnaught, 0);
+  CMD_Y(CMD_SHADOWSTEP, STAT_NORMAL + POS_STANDING, do_shadowstep, 0);
   CMD_Y(CMD_PARLAY, STAT_NORMAL + POS_STANDING, do_parlay, 0);
   CMD_Y(CMD_THROWPOTION, STAT_NORMAL + POS_STANDING, do_throw_potion, 0);
   CMD_Y(CMD_GUARD, STAT_NORMAL + POS_STANDING, do_guard, 0);
@@ -2448,7 +2575,10 @@ void assign_command_pointers(void)
   CMD_Y(CMD_CHI, STAT_NORMAL + POS_SITTING, do_chi, 0);
   CMD_Y(CMD_CHANT, STAT_NORMAL + POS_STANDING, do_chant, 0);
   CMD_Y(CMD_CIRCLE, STAT_NORMAL + POS_STANDING, do_circle, 0);
+  CMD_Y(CMD_GARROTE, STAT_NORMAL + POS_STANDING, do_garrote, 0);
   CMD_Y(CMD_COMBINATION, STAT_NORMAL + POS_STANDING, do_combination, 0);
+  CMD_Y(CMD_BLADE, STAT_NORMAL + POS_STANDING, do_barrage, 0);
+  CMD_Y(CMD_BARRAGE, STAT_NORMAL + POS_STANDING, do_barrage, 0);
 /*  CMD_Y(CMD_CONDITION, STAT_RESTING + POS_SITTING, do_condition, 0); */
   CMD_Y(CMD_CONSENT, STAT_DEAD + POS_PRONE, do_consent, 0);
   CMD_Y(CMD_CONSIDER, STAT_RESTING + POS_SITTING, do_consider, 0);
@@ -2557,6 +2687,9 @@ void assign_command_pointers(void)
 //  CMD_Y(CMD_DECREE, STAT_NORMAL + POS_STANDING, do_decree, 0);
   CMD_Y(CMD_RAGE, STAT_NORMAL + POS_STANDING, do_rage, 0);
   CMD_Y(CMD_MAUL, STAT_NORMAL + POS_STANDING, do_maul, 0);
+  CMD_Y(CMD_RESTRAIN, STAT_NORMAL + POS_STANDING, do_restrain, 0);
+  CMD_Y(CMD_RIFF, STAT_NORMAL + POS_STANDING, do_riff, 0);
+  CMD_Y(CMD_CONSUME, STAT_NORMAL + POS_STANDING, do_consume, 0);
   CMD_Y(CMD_RAMPAGE, STAT_NORMAL + POS_STANDING, do_rampage, 0);
   CMD_Y(CMD_INFURIATE, STAT_NORMAL + POS_STANDING, do_infuriate, 0);
   CMD_Y(CMD_WAIL, STAT_RESTING + POS_SITTING, do_play, 0);
@@ -2580,6 +2713,7 @@ void assign_command_pointers(void)
   CMD_Y(CMD_CTF, STAT_NORMAL + POS_STANDING, do_ctf, 0);
   CMD_Y(CMD_GARROTE, STAT_NORMAL + POS_STANDING, do_garrote, 0);
   CMD_Y(CMD_TETHER, STAT_NORMAL + POS_STANDING, do_tether, 0);
+  CMD_Y(CMD_AUCTION, STAT_NORMAL + POS_STANDING, new_ah_call, 0);
 
   /*
    * 'commands' which exist only to trigger specials
@@ -2606,7 +2740,7 @@ void assign_command_pointers(void)
   CMD_TRIG(CMD_TURN_IN, 0);     /* TASFALEN3 */
   CMD_TRIG(CMD_CLAIM, 0);
   CMD_TRIG(CMD_HIRE, 0);
-  CMD_TRIG(CMD_AUCTION, 0);
+  //CMD_TRIG(CMD_AUCTION, 0);
   CMD_TRIG(CMD_TRAIN, 0);
   //CMD_TRIG(CMD_SPECIALIZE, 0);
   CMD_TRIG(CMD_HARVEST, 0);

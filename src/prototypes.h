@@ -298,7 +298,10 @@ int wield_item_size(P_char ch, P_obj obj);
 int get_numb_free_hands(P_char);
 bool put(P_char, P_obj, P_obj, int);
 int wear(P_char, P_obj, int, int);
+int remove_item(P_char, P_obj, int);
+int remove_and_wear(P_char, P_obj, int, int, int);
 bool find_chance(P_char);
+bool is_salvageable(P_obj);
 void do_drink(P_char, char *, int);
 void do_drop(P_char, char *, int);
 void do_eat(P_char, char *, int);
@@ -310,6 +313,7 @@ void do_junk(P_char, char *, int);
 void do_pour(P_char, char *, int);
 void do_put(P_char, char *, int);
 void do_remove(P_char, char *, int);
+void do_salvage(P_char, char *, int);
 void do_search(P_char, char *, int);
 void do_sip(P_char, char *, int);
 void do_taste(P_char, char *, int);
@@ -323,6 +327,20 @@ void weight_change_object(P_obj, int);
 void do_apply_poison(P_char, char *, int);
 void do_dropalldot(P_char, char *, int);
 bool is_stat_max(sbyte);
+
+/* tradeskill.c */
+int get_frags(P_char);
+void display_achievements(P_char ch, char *arg, int cmd);
+void update_achievements(P_char ch, P_char victim, int cmd, int ach);
+void apply_achievement(P_char ch, int ach);
+void do_salvation(P_char ch, char *arg, int cmd);
+void do_drandebug(P_char ch, char *arg, int cmd);
+int get_matstart(P_obj obj);
+bool has_affect(P_obj obj);
+void do_refine(P_char ch, char *arg, int cmd);
+int itemvalue(P_char ch, P_obj obj);
+void do_dice(P_char ch, char *arg, int cmd);
+
 
 /* actoff.c */
 bool CheckMultiProcTiming(P_char);
@@ -344,21 +362,27 @@ int backstab(P_char, P_char);
 void bash(P_char, P_char);
 void bodyslam(P_char, P_char);
 void buck(P_char);
+void do_dreadnaught(P_char, char *, int);
+void do_shadowstep(P_char, char *, int);
 void parlay(P_char, P_char);
 void do_assist(P_char, char *, int);
 void do_backstab(P_char, char *, int);
 void do_bash(P_char, char *, int);
+void do_garrote(P_char, char *, int);
 void do_combination(P_char, char *, int);
+void do_barrage(P_char, char *, int);
 void do_buck(P_char, char *, int);
 void do_circle(P_char, char *, int);
 void do_defend(P_char, char *, int);
 void do_disengage(P_char, char *, int);
 void do_flee(P_char, char *, int);
+void do_riff(P_char, char *, int);
 void do_guard(P_char, char *, int);
 void do_headbutt(P_char, char *, int);
 void do_hit(P_char, char *, int);
 void do_kick(P_char, char *, int);
 void do_maul(P_char, char *, int);
+void do_restrain(P_char, char *, int);
 void do_roundkick(P_char, char *, int);
 void do_garrote(P_char, char *, int);
 void garrote_decap(P_char, P_char);
@@ -373,6 +397,7 @@ void do_rescue(P_char, char *, int);
 void do_retreat(P_char, char *, int);
 void flee_lose_exp(P_char, P_char);
 void maul(P_char, P_char);
+void restrain(P_char, P_char);
 void rescue(P_char, P_char, bool);
 void do_trample(P_char, char *, int);
 int takedown_check(P_char, P_char, int, int, ulong);
@@ -394,6 +419,7 @@ void event_call_grave(P_char, P_char, P_obj, void *);
 void event_call_grave_target(P_char, P_char, P_obj, void *);
 void event_bye_grave(P_char, P_char, P_obj, void *);
 void do_gaze(P_char, char *, int);
+void do_consume(P_char, char *, int);
 void gaze(P_char, P_char);
 void do_sneaky_strike(P_char, char *, int);
 void sneaky_strike(P_char, P_char);
@@ -760,6 +786,33 @@ void hour_debug(void);
 void init_cmdlog(void);
 void loop_debug(void);
 
+/* drannak.c */
+bool quested_spell(P_char ch, int spl);
+int vnum_in_inv(P_char ch, int cmd);
+void vnum_from_inv(P_char ch, int item, int count);
+void set_surname(P_char ch, int num);
+void clear_surname(P_char ch);
+void display_surnames(P_char ch);
+bool lightbringer_weapon_proc(P_char, P_char);
+bool mercenary_defensiveproc(P_char, P_char);
+char get_alias(P_char ch, char *argument);
+void create_alias_file(const char *dir, char *name);
+void create_alias_name(char *name);
+int equipped_value(P_char ch);
+void newbie_reincarnate(P_char ch);
+void random_recipe(P_char ch, P_char victim);
+P_obj random_zone_item(P_char ch);
+void do_conjure(P_char ch, char *argument, int cmd);
+void create_spellbook_file(P_char ch);
+bool new_summon_check(P_char ch, P_char selected);
+void learn_conjure_recipe(P_char ch, P_char victim);
+bool minotaur_race_proc(P_char, P_char);
+void do_dismiss(P_char ch, char *argument, int cmd);
+bool valid_conjure(P_char, P_char);
+int calculate_shipfrags(P_char);
+void randomizeitem(P_char, P_obj);
+
+
 /* editor.c */
 void edit_free(struct edit_data *);
 void edit_string_add(struct edit_data *, char *);
@@ -795,12 +848,17 @@ void disarm_obj_events(P_obj, event_func_type);
 void clear_char_events(P_char, int, void*);
 int ne_event_time(P_nevent);
 void zone_purge(int);
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> master
 /* fight.c */
 bool rapier_dirk(P_char, P_char);
 int calculate_thac_zero(P_char, int);
 bool opposite_racewar(P_char ch, P_char victim);
 void displayHardCore(P_char ch, char *arg, int cmd);
+void displayLeader(P_char ch, char *arg, int cmd);
 void displayRelic(P_char ch, char *arg, int cmd);
 int leapSucceed(P_char, P_char);
 int damage_modifier(P_char, P_char, int);
@@ -966,6 +1024,14 @@ void insertHallEntry(char names[15][MAX_STRING_LENGTH], int frags[15], char *nam
 void checkHallOfFame(P_char ch, char thekiller[1024]);
 void writeHallOfFame(P_char ch, char thekiller[1024]);
 
+/* leaderboard.c */
+long getLeaderBoardPts(P_char);
+void deleteLeaderEntry(char names[15][MAX_STRING_LENGTH], int frags[15], int pos, char killer[15][MAX_STRING_LENGTH]);
+void insertLeaderEntry(char names[15][MAX_STRING_LENGTH], int frags[15], char *name, int newFrags, int pos, char killer[15][MAX_STRING_LENGTH], char *killername);
+void checkLeaderBoard(P_char ch, char thekiller[1024]);
+void writeLeaderBoard(P_char ch, char thekiller[1024]);
+
+
 /* period.list.c */
 void place_period_books();
 void display_book(P_char ch);
@@ -1049,6 +1115,7 @@ void unequip_all(P_char);
 struct affected_type *get_spell_from_char(P_char ch, int spell);
 struct room_affect *get_spell_from_room(P_room, int );
 bool affected_by_spell(P_char, int);
+int affected_by_spell_count(P_char, int);
 bool affected_by_spell_flagged(P_char, int, uint);
 bool affected_by_skill(P_char ch, int skill);
 bool isname(const char *, const char *);
@@ -1236,6 +1303,7 @@ void set_title(P_char);
  * and move everything back to its proper place. 06 May 2003 dbb */
  
 void spell_mielikki_vitality(int, P_char, char *, int, P_char, P_obj);
+void do_nothing_spell(int, P_char, char *, int, P_char, P_obj);
 bool can_relocate_to(P_char, P_char);
 void cure_arrow_wound(P_char);
 void set_up_portals(P_char, P_obj, P_obj, int);
@@ -1290,6 +1358,7 @@ void spell_control_weather(int, P_char, P_char, P_obj);
 void spell_create_water(int, P_char, char *, int, P_char, P_obj);
 void spell_innate_darkness(int, P_char, P_char, P_obj);
 void spell_energy_drain(int, P_char, char*, int, P_char, P_obj);
+void spell_life_leech(int, P_char, char*, int, P_char, P_obj);
 void spell_faerie_fire(int, P_char, char*, int, P_char, P_obj);
 void spell_faerie_fog(int, P_char, char*, int, P_char, P_obj);
 void spell_farsee(int, P_char, char*, int, P_char, P_obj);
@@ -1391,6 +1460,7 @@ int CheckMindflayerPresence(P_char);
 void charm_generic(int, P_char, P_char);
 void cont_light_dissipate_event(P_char ch, P_char victim, P_obj obj, void *data);
 void spell_stornogs_spheres(int, P_char, char *, int, P_char, P_obj);
+void spell_decaying_flesh(int, P_char, char *, int, P_char, P_obj);
 void spell_group_stornog(int, P_char, char *, int, P_char, P_obj);
 void spell_ether_sense(int, P_char, char *, int, P_char, P_obj);
 void spell_solbeeps_missile_barrage(int level, P_char ch, char *arg, int type, P_char victim, P_obj tar_obj);
@@ -1403,6 +1473,8 @@ void spell_life_bolt(int, P_char, char *, int, P_char, P_obj);
 void spell_enervation(int, P_char, char *, int, P_char, P_obj);
 void spell_restore_spirit(int, P_char, char *, int, P_char, P_obj);
 void spell_repair_one_item(int, P_char, char *, int, P_char, P_obj);
+void spell_corpse_portal(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj);
+void spell_contain_being(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj);
 int get_spell_component(P_char, int, int);
 
 
@@ -1986,6 +2058,11 @@ int getCharDodgeVal(const P_char vict, const P_char attacker,
                     const int body_loc_target, const P_obj weapon);
 const char *getDodgeEaseString(const int passedby, const int tochar);
 
+/* skills.c */
+void assign_racial_skills(P_char ch);
+void assign_racial_skills_norefund(P_char ch);
+void update_racial_skills(P_char ch);
+
 
 /* new_skills.c */
 
@@ -2313,6 +2390,11 @@ void negsector(P_char);
 /* items prefixed with spell_ have been cleaned up and their function definitions are found now in magic.c
  * these will gradually obsolete the spell_ declarations in the magic.c section of this file
  *  May 05 2003 dbb */
+
+int has_soulbind(P_char ch);
+void do_soulbind(P_char ch, char *argument, int cmd);
+void load_soulbind(P_char ch);
+void remove_soulbind(P_char ch);
 
 void spell_earthen_maul(int, P_char, char *, int, P_char, P_obj);
 void spell_acid_stream(int, P_char, char *, int, P_char, P_obj);
@@ -2683,6 +2765,7 @@ void spell_negative_feedback_barrier(int, P_char, char *, int, P_char, P_obj);
 void spell_etheric_gust(int, P_char, char *, int, P_char, P_obj);
 
 /* sspells.c */
+void spell_single_doom_aoe(int, P_char, char *, int, P_char, P_obj);
 
 void cast_restore_item(int, P_char, char *, int, P_char, P_obj);
 /* sillusionist.c */
@@ -2966,6 +3049,7 @@ int withdraw_asc (P_char, int, int, int, int);
 void str_to_money(char *, int *, int *, int *, int *);
 char *title_member(P_char, char *);
 void do_gmotd(P_char, char *, int);
+int assoc_founder(P_char ch, P_char victim, int cmd, char *arg);
 
 /* range.c */
 void event_arrow_bleeding(P_char, P_char, P_obj, void*);

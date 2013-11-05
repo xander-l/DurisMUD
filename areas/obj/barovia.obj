@@ -662,7 +662,7 @@ stone tablet liber blaspheme~
 &+La stone tablet entitled &+r'Liber Blaspheme'~
 &+LA stone tablet entitled &+r'Liber Blaspheme' &+Lhas been left here.~
 ~
-4 6 3 0 2 0 33554560 16385 64 0 0
+3 6 3 0 2 0 33554560 16385 64 0 0
 60 7 7 143 0 0 0 0
 10 5000 100 100
 E
@@ -692,7 +692,7 @@ heart blaspheme~
 &+Ldead against the living and into the dead.
 ~
 #91037
-gate key barovia~
+gate key barovia _noquest_~
 &+Lthe &+Cgate &+Lkey of Barovia&N~
 &+LThe &+Cgate &+Lkey of Barovia&N has been left here.~
 ~

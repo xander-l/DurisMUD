@@ -23,7 +23,7 @@ MA
 recipe~
 &+WThe Stone&+Ybrew &+Wcook says 'Okay for the special recipe that I will bring
 &+Wto the King himself will need the following: some garlic, &+ga green herb&+W,
-&+W&+ya small clam&+W, and an &+Rapple&+W'
+&+W&+ya small clam&+W, an &+Rapple&+W, and the bulb of a &+Mwild turnip&+W.'
 &+WThe Stone&+Ybrew &+Wcook grins and says 'I know it sounds a little weird, but
 &+Wtrust me!'  He snaps his fingers 'It will be perfect!'
 ~
@@ -47,6 +47,7 @@ G I 334
 G I 2657
 G I 823
 G I 826
+G I 34442
 S
 #83106
 M

@@ -165,9 +165,6 @@ int illesarus(P_obj obj, P_char ch, int cmd, char *arg)
   if (!ch || !obj)
     return FALSE;
 
-  if(!OBJ_WORN_POS(obj, WIELD))
-    return false;
- 
   curr_time = time(NULL);
 
   if (!has_skin_spell(ch) &&

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #66400
 halfling~
 &+ya halfling&n~
@@ -1124,3 +1125,1131 @@ MT 0 1 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
+=======
+#66400
+halfling~
+&+ya halfling&n~
+&+LA &+yhalfling&+L attempts to hide himself.&n
+~
+&+LThis little guy has been through alot it seems.  Smudge cover's his face, and
+&+Lmud cover's most of his clothing.  It's apparent he's not bathed in quite some
+&+Ltime, for he stinks ..really badly.
+~
+2074 0 0 0 1048576 0 0 0 400 S
+PF 0 1 1 -1
+60 0 0 1d1+1 1d1+1
+1.0.0.0 0
+8 8 1
+#66401
+minotaur soldier~
+&+La &+Lmino&+rtaur &+Lsoldier&n~
+&+LA &+Lmino&+rtaur &+Lsoldier sniffs a dead rat.
+~
+&+LA foot soldier in the service of the General Yax'Vigarn.  He stands well over
+&+Lsix feet tall.  He wears his outfit which symbolizes him as a soldier very
+&+Llosely over his body.&n
+~
+1073743880 0 0 0 24 0 0 0 -500 S
+MT 0 1 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66402
+lieutenant ohora~
+&+Llieute&+Cn&+ca&+Cn&+Lt Ohora&n~
+&+LThe lieute&+cn&+ca&+Cn&+Lt Ohora searches for the corpses for something useful.
+~
+&+LA vicious and ferocious leader, this minotaur moved up the ranks in this army
+&+Lincredibly fast.  Her task now is to mop up the battlefield of any remaining
+&+Lopposition that might have survived, of course, this means spearing almost every
+&+Lcadaver in the vicinity and not actually fighting hand to hand.  She is set in
+&+Lto her task, and will not stop until it is finished, however, she seems to be
+&+Lsearching the cadavers, looking for something...
+~
+1073743882 0 0 0 24 0 0 0 -500 S
+MT 0 512 1 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#66403
+guard sentry orc~
+&nan &+Lorc&n sentry&n~
+&nAn &+Lorc&n sentry stands guard.
+~
+&+LHaving been told he'd be cut limb from limb if he blinked even an eyelid,
+&+Lthis orc stands still upholding his oath to be true to his commander. Sweat
+&+Ltrickles down its brow. He takes his job seriously, even though he doesn't
+&+Lrealize that all the general uses him as is fodder.
+~
+67110922 1 0 0 8 0 0 0 -500 S
+HO 0 1 1 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66404
+orc off off-duty offduty duty~
+&+Lan off&n-&+Wduty&+L orc&n~
+&+LAn off&n-&+Wduty &+Lorc eats his stew.
+~
+&+LThis orc is a sentry when he's on duty.  He is however, off duty which permits
+&+Lhim to eat, sleep, eat some more, and then sleep some more.  His commanders
+&+Lsimply do not tolerate intolerable behavior.
+~
+2058 0 0 0 0 0 0 0 -500 S
+HO 0 1 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66405
+sentry guard~
+&+La &+gse&+Gntr&+gy&n~
+&+LA &+gse&+Gntr&+gy&+L scans the horizon attentively.
+~
+&+LHaving been placed i&+gn magical boots that forbid &+Ghim moving, this sentry is
+&+Lscanning the horizon.  I&+gt doesn't take much t&+Graining to be a sentry, all one
+&+Lhas to have is a pair of eye&+gs, and a pair &+Gof lungs to shout with.  No
+&+Lcooridination is necessary, for &+gthey do&+G not have to move, merely stand in one
+&+Lspot.  This sentry looks to be havin&+Gg&+G an easy time of it too.
+~
+67110922 0 0 0 24 0 0 0 -500 S
+HO 0 1 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66406
+stone golem~
+&+La stone golem&n~
+&+LA stone golem stands guard.
+~
+&+LThis stone golem has stood guard while its masters have been away.  It is
+&+Lmade of stone, and appears to have no eyes.  It stands well over ten feet
+&+Ltall, and is ready for a conflict.  Intruders in his eyes are but one thing,
+&+Ldead men walking.  His creators have seen to it that he methodically destroys
+&+Lany prohibited visitors.
+~
+2058 1 0 0 24 0 0 0 -400 S
+OG 0 1 2 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66407
+sphere dark~
+&+La dark s&+mp&+Mhe&+mr&+Le&n~
+&+LA dark s&+mp&+Mhe&+mr&+Le shimmers with rage.
+~
+&+LA swirling mist that seems to swirl with rage.  It appears to be some sort
+&+Lof spiraling gas, but its origins are from magic.  The entire thing is
+&+Lhued in too many colors to count, yet it is difficult to grasp any of them.
+~
+10 1 0 0 24 0 0 0 -500 S
+OG 0 1 2 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66408
+saryarz captain~
+&+LCaptain Saryarz&n~
+&+LCaptain Saryarz huffs and puffs and is ready to blow you out of his tent.
+~
+&+LThis captain takes his job very seriously.  The many dents in his armor
+&+Lsuggests that he's not a pencil pusher, but a head hunter.  A bloody
+&+Lbattleaxe is hung losely around his back.  The captain doesn't take crap
+&+Lfrom anyone within this camp, except for the general.  Most of his time is
+&+Lspent filling out paper work now, for he is the personal pencil pusher of
+&+Lthe man.
+~
+2058 0 0 0 8 0 0 0 -500 S
+MT 0 512 1 4
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66409
+guard armed~
+&+Lan armed gu&+ca&+Cr&+cd&n~
+&+LAn armed gu&+ca&+Cr&+cd &+Lprevents access to the war room.
+~
+&+LHaving orders to let none pass, this guard eyes anyone who comes near his tent,
+&+Lfor any and all could possibly be a perp. His platemail signifies him as one
+&+Lof the elite in the camp, the personal guard of the people in charge. Nothing
+&+Lhas or ever will deter this minotaur from doing his duty.
+~
+1140852746 1 0 0 8 0 0 0 -500 S
+MT 0 1 2 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66410
+grungish ogre~
+&+BGrungish&n~
+&+BGrungish&n, the &+bogre emissary&n watches over the proceedings.
+~
+&+BHaving been sent by one of the ogre clans, Grungish watches the proceedings
+&+Bwith little thought in mind, except lunch. He stands well over 7 feet tall
+&+Band stinks. He wears some battle worn leggings that look to provide more than
+&+Badequate protection during battle.  With his toothie grin in sight, it would be
+&+Bbest if no one stared at him. He is a wicked ogre with an even more wicked
+&+Bsmile. He likes to eat the heart of every oppenent he kills one on one. His
+&+Bbrute strength is legendary and the thickness of his skull is incredible.
+~
+2058 0 0 0 8 0 0 0 -500 S
+PO 0 1 2 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66411
+ungopi necromancer drow~
+&+MUngopi&n~
+&+MUngopi&n, the &+mdrow&n necromancer silently watches his protege.
+~
+&+MHe was selected by the dark artists that dwell underground to spearhead the
+&+Mmovement to reclaim what is theres.  The tower that they were forced to leave
+&+Mmany, many years ago. He is extremely smart and his dark art powers the forces
+&+Mof evil within the army. His dark robes cling to him shielding him from even
+&+MSlightest rays of sunlight. He is frail but very potent in magic.
+~
+2058 0 0 0 8 0 0 0 -999 S
+PL 0 1024 3 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66412
+narzul charlatan~
+&+MNarzul&n~
+&+MNarzul&n, the &+revil&n charlatan explains battle plans to his audience.
+~
+&+MHe is the protege of the powerful necromancer Ungopi. Until he has been proven
+&+Mhis intellectual compacity in the battlefield, he is not to be trained in the
+&+Mnecromancer ways. Ungopi, as any of the high drow, is reluctant to train
+&+Msomeone who has not yet proven himself in the extremities of combat and pressure.
+~
+2058 0 0 0 8 0 0 0 -999 S
+PL 0 512 2 4
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66413
+guard bodyguard loyal~
+&+La loyal body&+bg&+Bu&+ba&+Lrd&n~
+&+LA loyal body&+bg&+Bu&+ba&+Lrd protects the general.
+~
+&+LHe was assigned for his loyalty to the general, to protect him.  He eyes
+&+Lany who come near the general and is ready to strike at any moment.  His love
+&+Lfor the general is unparalled to any in the camp, and his skill is second
+&+Lto only the general himself.  It isn't difficult to understand why he was
+&+Lchosen by the general for his position.
+~
+1140852746 0 0 0 24 0 0 0 -500 S
+MT 0 1 2 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66414
+general yax vigarn yax'vigarn~
+&+LGeneral Yax'Vigarn&n~
+&+LGeneral Yax'Vigarn issues orders.
+~
+&+LHe's has a strong voice, and an even stronger sword arm.  Many scars along his
+&+Lperson reflect the nature of his being, war.  'To kill is to prime, to wage war
+&+Lis to rule', is his motto.  He doesn't feel any pain, he doesn't have the time
+&+Lto listen to conflicting points of view.  So in the event of someone under his
+&+Lcommand questioning his orders, he simply cuts their head off.
+~
+2058 0 0 0 24 0 67108864 0 -555 S
+MT 0 1 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66415
+galzox assistant~
+&+LGalzox&n~
+&+LGalzox&n, the &+rmino&+Ltaur&n assistant to &+LGeneral Yax'Vigarn&n.
+~
+&+LHe was assigned to this meeting in the absence of the general of the army.
+&+LThe general is busy in the field watching over his troops.  Anything said
+&+Lor done in this meeting would be relayed to him by Galzox.  Nothing would
+&+Lplease this minotaur more than hand to hand combat at this very moment.
+~
+2058 0 0 0 8 0 0 0 -500 S
+MT 0 1 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66416
+carrier~
+&+La carr&+bi&+Be&+br&n~
+&+LA carr&+bi&+Be&+br&+L listens attentively, anxiously awaiting to embark on his duties.
+~
+&+bThe sole purpose of him being here is to inform the regiment commanders of what
+&+btranspired.  He's in effect, the eye's and ears of those who can not attent
+&+bmeetings such as this.
+~
+2058 0 0 0 8 0 0 0 -500 S
+MT 0 1 2 -1
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66417
+sleepy sleeping soldier sleep~
+&+La sleepy so&+cl&+Cd&+ci&+Ler&n~
+&+LA sleeping soldier sits here.&n
+~
+&+LThis soldier looks to have had a long day, and simply wants to relax and sleep.
+&+LScars along its back hint that it has seen action, and the dents in its armor
+&+Llaying off to the side also attest to that. It is easy to irrate a sleeping
+&+Lsoldier, so the unspoken rule in these barracks is simple, keep your mouth
+&+Lshut or we'll cut your damn tung out.
+~
+67110922 0 0 0 8 0 0 0 -500 S
+MT 0 1 1 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+4 4 1
+#66418
+black smith blacksmith~
+&+La bl&nack&+Lsmith&n~
+&+LA bl&nack&+Lsmith inspects the weaponry.
+~
+&+LThis blacksmith inspects the weapons forged by others, it is his responsibility
+&+Lto fix broken weapons and to mend armor.  His huge forearms allow him to wield
+&+Lhis hammer, and mend almost anything.  When it comes down to working, he is
+&+Lthe best at his job, which is explains the ball and chain around his ankle, to
+&+Lprevent him from doing anything else.
+~
+2058 0 0 0 8 0 0 0 -500 S
+MT 0 1 1 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66419
+smelly minotaur~
+&+La smelly &+rmino&+Ltaur&n~
+&+LA grimacing &+rmino&+Ltaur strains trying to open his bowels.
+~
+&+LConcentrating very thoroughly, he fights the constipation that his bowels face.
+&+LThis minotaur doesn't seem to mind the openness of the crap house, infact, he
+&+Leven enjoys watching others suffer, for the smell of his waste is borderline
+&+Ltoxic. Never before has there been a fat minotaur until he came along, rolls
+&+Lof fat tumble over themselves upon his belly.
+~
+2058 0 0 0 8 0 0 0 -500 S
+MT 0 1 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66420
+crapping orc~
+&+La crapping orc&n~
+&+LA crapping orc takes relaxes his bowels.
+~
+&+LAll he wants, all he needs, all that matters at this very moment is dropping
+&+Lthat load. Whomever told this orc that he could never accomplish such things
+&+Las living, eating, and crapping, was wrong. For it appears that this orc has
+&+Ldone them all.
+~
+2058 0 0 0 8 0 0 0 -500 S
+HO 0 1 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66421
+crapping goblin~
+&+La crapping &+Ggoblin&n~
+&+LA crapping &+Ggoblin&+L takes a dump.
+~
+&+GThis goblin strains his face, and drops a load. It's unbelievable how foul
+&+Gits waste can be, but indeed it is deadly.
+~
+2058 0 0 0 8 0 0 0 0 S
+A 0 1 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66422
+grub eater~
+&+La grub eater&n~
+&+LA grub eater eats to his delight.&N
+~
+&+LHe sits comfortably on his stool eating the grub given to him.  He takes his
+&+Ltime amist the anarchy around him, for most of the others are food fighting.
+&+LThis grunt is a footsoldier in the regular army, his absence or death would
+&+Lscarcely be noticed.
+~
+1073743882 0 0 0 8 0 0 0 -500 S
+MT 0 32 1 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66423
+gorilla ape~
+&+ya gor&+Yi&+gll&+Ya&n~
+&+yA gor&+Yi&+gll&+Ya&+y charges madly.
+~
+&+yThis gorilla is rather large.  There is little doubt that it could squash a
+&+ytree if its forearm or topple buildings with a wave of his fist.  Its long
+&+ydark brown hair is rugged, and stinches.  It seems these gorillas do not take
+&+ypersonal hygiene seriously.
+~
+2056 1 0 0 24 0 0 0 500 S
+AA 0 1 2 3
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66424
+chimp chimpanzee~
+&+ya chimp&n~
+&+yA chimpanzee charges wildly.
+~
+&+yThis young chimp doesn't look too aggressive, however, if cornered he could pose
+&+yserious injury.  Chimps are generally peaceful creatures, however, they have
+&+ybeen known to defend their territory if they feel threatened.
+~
+2056 1 0 0 24 0 0 0 500 S
+AA 0 1 0 3
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66425
+ancient skeleton twisted~
+&+Wan ancient t&nw&+Wi&ns&+Wt&ne&+Wd s&+Lk&+We&+Ll&+We&+Lt&+Won&+L&n~
+&+WAn ancient skeleton stares blankly with &+rred&+W eyes.
+~
+&+WThis skeleton seems to be oblivious to the outside world, and mind numb.  There
+&+Wis little doubt that this skeleton is magical, to what end is uncertain.  Its
+&+Worigin or purpose is quite a mystery.  This skeleton appears to have the touch
+&+Wof the &+Cicy&+W cold hand of death.
+~
+1073743946 1 0 0 24 0 0 0 -999 S
+SK 0 1 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66426
+red spider~
+&+ya &+rred &+yspider&n~
+&+yA &+rred &+yspider snarls with vicious fangs.
+~
+&+yIt's a very large arachnid, about that size of a cow. Its fangs drip with
+&+ysaliva. Its long fur covered legs glide easily along the ground, and it has
+&+ythe swiftness of a cat, with the eyes. Its eyes are blood red, and they
+&+yswell with hatred. This beast is not natural. What ever dark art fills the
+&+ycaverns in which it lies, must have summoned it.
+~
+1073743946 1 0 0 24 0 0 0 -500 S
+as 0 1 0 4
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66427
+halfling cleric zombie~
+&+Lzombie of a &+yhalfling&+c cleric&n~
+&+LA zombie of a &+yhalfling&+c cleric&+L groans loadly.&n
+~
+&+LThis poor soul has the uttermost curse cast upon him, to walk with the living
+&+Leven in death. He moans very loadly and seems agitated. Perhaps this zombie
+&+Lwas a former resident of these parts, but who could tell. Ages seem to have
+&+Lpassed since this halfling was turned, one wonders what unfortunate creatures
+&+Lhad the bad luck of being accosted by this grewsome creature. Flesh can easily
+&+Lpeel off by touch alone, its eyes have been eaten out by birds, and its legs
+&+Llook ready to buckle under the amount of weight pressed upon them.
+~
+1073741834 1 0 0 8 0 0 0 -999 S
+ZO 0 32 3 4
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66428
+spirit shimmering~
+&+Ca shimmering spirit&n~
+&+CA shimmering spirit floats in mid air.&n
+~
+&+cThis poor soul must have broken his oath, now he is doomed to do in death,
+&+cwhat he could not do in life.  Until his oath is fulfilled, he shall never
+&+cknow peace.
+~
+10 0 0 0 8 0 0 0 999 S
+UG 0 512 2 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66429
+angry gorilla~
+&+Lan &nangry&+L gorilla&n~
+&+LAn &nangry&+L gorilla charges.
+~
+&+LWith white fur, a snarling mouth, and a scary roar, this gorilla seems
+&+Lreally upset about something.  It stands over seven feet tall, and has the
+&+Lstrength of eight men.  With the foul odor that comes from his armpits, this
+&+Lgorilla can single handedly tackle any army.
+~
+1073741898 1 0 0 24 0 0 0 -200 S
+AA 0 1 0 4
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66430
+orb humming~
+&+ma humming &+Morb~
+&+mA humming &+Morb&+m beckons you nearer.
+~
+&+MThis orb seems evil. Its excessive humming beckons all in its proximity to
+&+Mits presence, for the evidence is at its feet. No words could describe
+&+Mhow it looks, simply because those who gaze upon it are dazzled and into a
+&+Mtrance. Many generations have gone by, and many generations of bones lay
+&+Mpiled up just below it.
+~
+2058 1 0 0 285212696 2048 67141632 1024 -900 S
+OG 0 2 1 -1
+59 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66431
+king cobra~
+&+La king &+ycobra&n~
+&+LA king &+ycobra&+L prepares to strike.
+~
+&+yThis massive snake looks to have a lust for blood, for its eyes reveal that
+&+yit is not a natural phenomenon.  The eyes of this twenty foot creature are
+&+yglowing red, and its fangs are dripping poisonous venom.  This scaly reptile
+&+ylooks to feed on small cows regularly, for its size is unparallel to the
+&+ybenign world.  It's curled up and it prepares to strike.
+~
+2058 1 0 0 24 0 0 0 -500 S
+RS 0 64 1 4
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66432
+spider~
+&+ya spider&n~
+&+yA spider wanders the caverns.
+~
+&+yThis spider is rather large. It's about the size of a baby horse and has
+&+y&+yfangs the size of bananas. Its legs are as quick as a halflings and it's
+&+ycoated in a brown fur. This beast is not a native to these lands, for it was
+&+ysummoned by the dark art that plagues this abandoned temple. What ever evil
+&+yresides here now must be in grave need of protection.
+~
+1073741896 1 0 0 24 0 0 0 -500 S
+AS 0 1 0 3
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66433
+skeleton warrior~
+&+Wa skeleton warrior&n~
+&+WA skeleton warrior charges wildly.
+~
+&+WWith a sheathe strapped to his side, and a sword in hand, this skeleton looks
+&+Wreally pissed off about something, what it could be doesn't really matter, all
+&+Wthat does is avoiding this skeleton at all costs.  This skeleton must have been
+&+Wsummoned by some great evil force, for why would a powerful skeleton such as this
+&+Wbe at the beck and call of something less.
+~
+1073741834 1 0 0 24 0 0 0 -999 S
+SK 0 1 1 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66434
+orc soldier~
+&+Lan orc soldier&n~
+&+LAn orc soldier stands ready and alert.
+~
+&+LThis soldier is apart of the platoon that is guarding the encampment against
+&+Lany invadsion force.  If ever he were to fall asleep at his post, he would be
+&+Lstoned to death by his comrades, by his friends.  Falling asleep on one's duty
+&+Lcould mean the life of every person within this encampment, for he would fail
+&+Lto sight a raid party and henceforth not defend the gates.
+~
+1140852746 1 0 0 8 0 0 0 -200 S
+HO 0 1 2 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66435
+conveyor~
+&+Lthe conveyor&n~
+&+LThe conveyor stands attentively.
+~
+&+LIt is his duty to relay any enemy sightings to the general himself, using
+&+Lmagical means. This minotaur looks to be examining the machine that he is
+&+L'supposedly' learned on. If he were to fail to alert the guards of the
+&+Lsouthern most checkpoint, he would be stoned to death. Another more alert
+&+Lminotaur would replace him. This minotaur, however, looks VERY dangerous.
+~
+2058 0 0 0 24 0 0 0 -200 S
+MT 0 1 2 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66436
+vine dangling~
+&+ga dangling vine&n~
+&+gA dangling vine sways this way and that.
+~
+&+gThis vine blends perfectly in with the surrounding forest, it's difficult to
+&+gdiscern whether it's a conscious being.
+~
+10 1 0 0 8 0 0 0 0 S
+vt 0 0 0 3
+36 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66437
+sentry guard patrolling~
+a patrolling &+Lguard&n~
+A patrolling &+Lguard&n protects the camp.
+~
+&+LThis massive beast of a minotaur glances about the immediate area as if
+&+Lexpecting the unexpected. Being caught unaware could mean the death of his
+&+Lcomrades, and a vicious flogging by his peers. Soldiers die often in this
+&+Lrealm, however, only the strong manage to survive multiple battles, as this
+&+Lminotaur has. His battle scars along his body are blantly evident.
+~
+67110984 1 0 0 16 0 0 0 -500 S
+MT 0 1 2 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66438
+human paladin~
+&+Wa human paladin&N~
+&+WA human paladin charges the gates.&n
+~
+&+WHaving seen the oppresive tyranny that evil afflicts, this paladin is leading
+&+Wthe charge to topple the sentry outpost.  He wields his two handed sword with
+&+Wgreat ease.
+~
+1073743946 1 0 0 8 32768 0 0 1000 S
+PH 0 8 1 -1
+49 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66439
+halfling warrior~
+&+ya halfling &+Ywarrior&n~
+&+yA halfling &+Ywarrior&+y dodges arrows with ease.&n
+~
+&+yThis halfling has come to avenge his brethren.  He stands a little under four
+&+yfeet tall, however, he can fight with the best of them.  His quickness is his
+&+ystrength, and his ability to parry most attacks is unparallel.
+~
+1073743880 1 0 0 8 0 0 0 600 S
+PF 0 1 2 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66440
+ssor gold dragon~
+&+YSsor&n~
+&+YSsor the gold dragon rears up.
+~
+&+YThis monstrous beast is awe inspiring.  To those whom she wishes to live, they
+&+Ylive.  To those whom she chooses to die, they die.  This dragon stands well
+&+Yover thirty feet tall, and is imeasurable in length.  Her talons could
+&+Yconceivably rip through solid rock, and her magic is said to be unequivocal.
+~
+2122 0 0 0 24 32768 0 0 900 S
+D 0 1 1 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#66441
+halfling soldier~
+&+ya halfling soldier&n~
+&+yA halfling soldier rests here.
+~
+&+yThis soldier has seen some action in his time here.  Some dents in his armor
+&+yand blood smeared on his face hints this.  When the time comes for battle,
+&+ythis soldier of this regiment would react in an instant and prepare himself
+&+yfor an armed conflict.  It is his hope to die honorably in the spite of danger.
+&+yFear is not known to a halfling in combat, simply because they have too much
+&+yto think about, like dodging that axe blow to live.
+~
+1073743882 1 0 0 8 0 0 0 600 S
+PF 0 1 0 -1
+54 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66442
+foul ghoul~
+&+La foul &+Gghoul&n~
+&+LA foul &+Gghoul&+L moans loadly.
+~
+&+GThis creature is destined to walk the earth until it is utterly obliterated.
+&+GMost things that catch sight of this ghoul quickly run away in terror, for it
+&+Gis not a great thing to behold. Its limbs look ready to fall off at any
+&+Gmoment and its face scarcely resembles any humanoid. Its legs look ready
+&+Gto walk themselves into a grave, never to come out. A foul stinch comes from
+&+Gthis creatures lungs, perhaps it breathes poison. What ever evil had created
+&+Git must surely linger in its presence.
+~
+74 1 0 0 24 0 0 0 -999 S
+BH 0 1 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66443
+halfling zombie undead~
+&+Lundead &+yhalfling&n &+Lzombie&n~
+&+LAn undead &+yhalfling&+L zombie moans loudly.
+~
+&+LThis wretched being has suffered the ultimate curse, to walk in the land of
+&+Lthe living even in death. Some sort of evil must have swarmed its homeland,
+&+Land made it like some of his brethren, zombies. A powerful force must still
+&+Llinger in the vicinty working its evil will through the works of undead
+&+Lfollowers. The clothing it wears hangs loosely around its body, exposing the
+&+Lragged flesh that is readily peeling. Its limbs look ready to fall off but
+&+Lone touch from this creature can send anyone reeling in pain and confusion.
+~
+1073741898 1 0 0 24 0 0 0 -999 S
+ZO 0 1 1 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66444
+halfling captain~
+&+Ya halfling&+m captain&n~
+&+WThe &+yhalfling&+m captain&+W searches his files.
+~
+&+WThis halfling is in charge of his regiment which makes up this encampment.
+&+WMost of the soldiers in this camp would readily give their lives for this
+&+Wman, for they respect him.  He has a slight scar along his left arm, it
+&+Wstretches from wrist to elbow, perhaps an arrow wound, for it could not
+&+Whave possibly been anything else.
+~
+74 32 0 0 24 0 0 0 800 S
+PF 0 1 2 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66445
+deserting soldier~
+&+La &+gdeserting&+L soldier&n~
+&+LA &+gdeserting&+L soldier drifts off.
+~
+&+gThis soldier has called it quits, and now hides for his life as a search party
+&+gscours the area to find him.  He is a tiny orc, and it's a wonder he was
+&+gapart of any army, let alone the most reknowned one in the region.  If this
+&+gorc is caught, he would be beheaded and used as an example.  He shakes visibly
+&+gand seems to be drifting off to sleep, for he is infact, half asleep.
+~
+10 0 0 0 24 0 0 0 -400 S
+HO 0 1 1 -1
+59 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66446
+soldier elite~
+&+Lan el&+ci&+Ct&+ce &+Lsoldier&n~
+&+LAn el&+ci&+Ct&+ce&+L soldier searches for a deserter.
+~
+&+LThis soldiers has been assigned &+c&+Cthe special task of hunting down&+c the only
+&+Ldeserter this army has ever&+c known. &+C His kin have placed a s&+cpeacial bonus on
+&+Lthe head of the desert&+cer he is suppose&+Cd to decapitate,&+c one hundred platinum.
+&+LHe is dressed in &+cthe average garb of any &+Csoldier,&+c however, the razor sharp
+&+Lspecially is&+csued sword of his signifies his &+C&+cprestige.
+~
+1073741832 0 0 0 8 0 0 0 -600 S
+MT 0 1 1 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66447
+ballista~
+&+ya &+rballista&n~
+&+yA &+rballista&+y prepares to launch its missiles.
+~
+&+yThis ballista is manned by a couple of halfling engineers.  Their objective is
+&+ysimple, to destroy the parapet to the south and the evil soldiers within it.
+&+yFrom the make of this ballista, it seems well adequate for the task, for it
+&+ywas made by the dwarven hand, alongside the gnome ingenuity.  Perhaps the
+&+ymissiles that it projects were created by their human counter parts.
+&+yRegardless of who built it, it is deadly none the less.  The halfling soldiers
+&+ywithin it are very well guarded against a frontal conflict, for they are
+&+yburrowed into the heart of the machine and are not visible to the naked eye.
+&+yA little peep hole allows them visual contact with the scenario.  Atop of the
+&+yballista is where the projectiles are loaded, anything from small trees to
+&+yburning spears can be launched from this pad.  It would utterly destroy a
+&+ybuilding, and obliterate any being from the face of this planet.
+~
+10 1 0 0 24 1 32768 0 500 S
+VT 0 1 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66448
+pike vicious~
+&+ba vicious &+rpike&n~
+&+bA vicious &+rpike&+b searches for flesh.
+~
+&+bMan, let me tell ya, these guy's fangs could slice through stone!  And guess
+&+bwhat, they have four hundred of them!  In their own enviroment, these guys
+&+bhave the uncanny ability to strip flesh from bone in a matter of minutes.
+~
+74 1 0 0 0 0 0 0 -300 S
+F 0 0 0 -1
+3 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66449
+small squirrel~
+&+ya small s&+Yq&+Lu&+Li&+yr&+Yr&+Ye&+yl&n~
+&+yA small s&+Yq&+Lui&+yr&+Yre&+yl scurries through the forest.
+~
+&+yThis little fella just wants to live! His fur is rather rugged, but
+&+yit could care less. This little creature seems active in this forest, even
+&+ywhen most of the other wild life long since left.
+~
+8 0 0 0 0 0 0 0 500 S
+A 0 0 0 -1
+3 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66450
+minotaur mino guard large~
+a large &+rmino&+Ltaur&n~
+A large &+rmino&+Ltaur &nguards the gate.
+~
+&+LThis minotaur stands attentively with a spear in hand.  His duties include
+&+Lnothing aside from standing guard, all day long.  He is dressed in a lose
+&+Lgarb, with no armor.  A loin cloth is about he as on.
+~
+10 1 0 0 24 0 0 0 0 S
+MT 0 1 1 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66451
+corporal~
+&+Lthe &+wcorporal&n~
+&+LThe &+wcorporal&+L in charge of the deserter hunt sits here making an order.
+~
+&+MThis panzy couldn't get up if he wanted too, for he is a big blob.  He nearly
+&+Mdozes off completely, but at the last moment he jerks his head up, and the
+&+Mcycle starts once again.  There is no limit to this soldier's laziness, for
+&+Meven his own soldiers have a nickname for him, &n'&+WTubby&n'&+M.
+~
+10 0 0 0 24 0 0 0 -400 S
+MT 0 1 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66452
+spectre ghostly~
+&+Wa ghostly &nsp&+Wect&nre&n~
+&+WA ghostly &nsp&+Wect&nre&+W of a &+whu&+rnte&+Lr&+W fades in and out of existance.
+~
+&+WThe ghost hovers a few feet off the ground. It is nearly impossible to discern
+&+Wanything for it is nearly invisible. It seems to fade in and out of reality,
+&+Wnearly transparent. One thing is for certain, this being from another realm
+&+Whas unfinished business to attend to, for a pile of bones lay at below it.
+~
+74 1 0 0 8 0 0 0 -999 S
+SP 0 34 0 -1
+59 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66453
+body bodyguard guard~
+&+La body&+bguard&n~
+&+LA body&+bguard &+Lwatches over the corporal.
+~
+&+LHe has been appointed to watch over the most despised man within the camp, the
+&+Llazy assed corporal.  All day long the corporal eats, gives orders, and sleeps.
+&+LIt's a wonder he has not been flaugged by his own men yet.
+~
+67108874 0 0 0 24 0 0 0 -500 S
+MT 0 1 1 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66454
+elite guard~
+&+Lan&n &+bel&+rite&+L guard&n~
+&+LAn &+rel&+bite&+L guard serveys the lands.
+~
+&+LHe stands losely at his post when there are no ranking officers around. His
+&+Lbuild is that of a warrior, and his scars mark his experience. He is prepared
+&+Lto whoop some ass.
+~
+67110922 0 0 0 8 0 0 0 -500 S
+MT 0 1 1 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66455
+serpent large~
+&+La large &+Yserpent&n~
+&+LA large &+Yserpent&+L stirs in its nest.
+~
+&+LThis serpent must be twelve feet long. It seems that this whole building is
+&+Lits lair and anything that stumbles upon it meets and unsightly demise.
+&+Lsome say that serpents can dislocate their jaw when devouring lunch, this
+&+Ltechnique allows them to eat very wide, very fat animals. However, serpents
+&+Leatting such large creatures could possibly satisfy their hunger, therefore
+&+Lrendering them harmless. Unfortunately, this one doesn't look like it cares
+&+Labout such nonsense.
+~
+10 1 0 0 24 0 0 0 -500 S
+rs 0 1 0 5
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66456
+python large~
+&+La large pyt&+yho&+Ln~
+&+LA large pyt&+yho&+Ln slithers.
+~
+&+LThis mighty beast could swallow baby horses. Its width is immeasurable, and
+&+Lits body appears not to end. Its scales seem harder than rock. When it
+&+Lsnarls, its fangs spew a poisonous venom.
+~
+10 1 0 0 24 0 67108864 0 -500 S
+rs 0 1 0 6
+59 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66457
+soul lost~
+&+La &+Rlost&+L soul&n~
+&+LA &+Rlost&+L soul fills the air with shreaks.
+~
+&+RThis wretched soul was taken before its time by one of the devils that reside
+&+Rwithin this domain. It now serves the very same creatures that took its life.
+&+RIt assumes a ghastly shape and hovers in mid air. One glance at its entire
+&+Rfigure could drive one to insanity, for it is terrifying.
+~
+10 1 0 0 73752 34819 294912 8192 -999 S
+UG 0 256 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66458
+minanupoli demon lord~
+&+RMinanupoli&n~
+&+RMinanupoli, the demon lord &+Bcackles&+R with &+rlust&+R.
+~
+&+RThe demon lord himself. Mortal men know no fury like Minanupoli's wrath.
+&+RWith an utter breath, this being can topple civilizations. On his hands he
+&+Rwears something strange, however, that is overshadowed by the magic he
+&+Rwields. His huge horns on his head, the endoskeleon pertruding through his
+&+Rskin, and the glowing red eyes are mere manifestations of this being's true
+&+Rform. In his raw form, this creature is sheer power.
+~
+10 1 0 0 73752 2049 67141632 0 -999 S
+X 0 4 1 4
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66459
+hell hound~
+&+La hell &+Rhound&n~
+&+LA hell &+Rhound&+L sizzles in flames.
+~
+&+RA fiery collar engulfs its neck, however, it doesn't seem to notice. The
+&+Rchain with which the collar is attached too is latched to a ablazed wall.
+&+RIts shiny black coat takes a life of its own, for this beast lashes about
+&+Rwildly, struggling against its chains. A broad glow emanates from its
+&+Reyes, because this beast is, indeed, under the control of some awesome power.
+~
+10 1 0 0 24 1 67141632 0 -999 S
+Y 0 1 1 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66460
+basilisk lizard~
+&+La &+Rbasilisk&n~
+&+LA &+Rbasilisk&+L roars vehemently.
+~
+&+RThis huge lizard has hide tougher than rock, it breaths fire, and with one
+&+Rlook, can petrify the unwary.  It must weigh several tons, there is little
+&+Rdoubt that if it were to stomp upon someone, it would pulverize every bone
+&+Rin their body.  Its eyes glow an eerie &+Ggreen&+R, the mark of a summoned
+&+Rbeast from beyond.  Basilisks are said to be akin to dragon, perhaps this lizard
+&+Rwas summoned from brass, from the dragon kingdom itself.
+~
+10 1 0 0 24 1 67108864 0 -999 S
+D 0 1 2 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#66461
+mind flayer illithid~
+&+Man illithid&n~
+&+MAn&+M illithid floats in mid-air here.
+~
+&+GHaving come from another continuum, another dimension, this mind flayer hovers
+&+Gin mid-air meditating. Instead of dissecting the food things upon this realm,
+&+Git awaits orders from the being whom summoned it. Indeed, a being powerful
+&+Genough to control a mind flayer must have godly powers. Mind flayers are
+&+Gbelieved to have god like power themselves, and are the most feared race within
+&+Gthe known universe. Their tentacles suck dry the minds of the lesser races,
+&+Gmaking lunch of even the most powerful wills. Its eyes shimmer with an odd
+&+Gcolor &+Mpurple&+G, and show no trace of fear, or emotion for that matter. Its
+&+Gface twitches slightly, for it fights for its freedom against the great
+&+Gpower that has subdued it. There is something familiar about this illithid,
+&+Gsomething that just can't be placed.  Perhaps the collar around his neck if
+&+Ginspected could unravel this perplexity.
+~
+10 1 0 0 8 0 0 0 -999 S
+MF 0 4 1 5
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66462
+vongonkiliu devil lord~
+&+RVongonkiliu&n~
+&+RVongonkiliu, the devil lord, &+Gcackles&+R with &+Lglee&+R.
+~
+&+RVongonkiliu, the second eldest of the three demon lords. His power is greater
+&+Rthan the strongest all of the standing armies in the mortal realms combined.
+&+RWith a twitch of a finger, this lord can topple mountains. Runes have been
+&+Rtattooed upon his skin, runes that utterly boggle one's mind. Most of his
+&+Rupper body is blazing with flames, for this is one of his many means of
+&+Rwarding off physical blows to his body.
+~
+1073741898 1 0 0 73752 2049 0 0 -999 S
+Y 0 512 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66463
+ghost~
+&+Wa ghost&n~
+&+WA ghost hovers nearbye.
+~
+&+WThis restless spirit wanders the mortal plane, its sole purpose is seeking
+&+Wrevenge upon the mortals.  It's shrill voice fills the night air as it lusts
+&+Wfor blood.  It shimmers inbetween this plane and the beyond, and is barely
+&+Wvisible.
+~
+10 1 0 0 8 32768 0 0 -999 S
+UG 0 2 1 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66464
+justunian arch arch-angel angel~
+&+WJustunian&n~
+&+WJustunian, the arch-angel flaps his wings.
+~
+&+WWith the title arch-angel, Justunian is the highest ranking angel in the eyes
+&+Wof both his peers and to his master. An indentured servitude is nothing to
+&+Wfret over if you're in his kingdom. His wings stir softly as he prays before
+&+Wa shrine.
+~
+2058 0 0 0 8200 32768 0 0 999 S
+AN 0 2 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66465
+yar kalisteritax lord demi god demon demi-god~
+&+RKalisteritax&n~
+&+RKalisteritax the dragon lord &+Cr&+Bo&+ra&+Wr&+Ls&+R!
+~
+&+RThis dragon reigns surpreme in this plane.  He is the eldest of the three
+&+Rdemi-gods that rule along side him.  His form is a mere apparition, for he
+&+Rcan change it with a simple thought.  Doing battle with this demi-god will
+&+Rutimately end in death.
+~
+2122 512 0 0 73752 2049 67141888 0 -999 S
+D 0 512 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#66466
+dragon shadow xillianith~
+&+rXillianith&n~
+&+rXillianith&+R the &+Lshadow &+rdragon&+R roars vehemently!
+~
+&+rThis summoned dragon awaits its master's command. Its black scales gives
+&+rrise to the name 'shadow dragon'. This monster of a dragon could engulf an
+&+rentire army in flames if it wanted. Its mass is greater than any living
+&+rdragon on the mortal realm, and its power is unrivaled.
+~
+67108874 0 0 0 24 2048 67141632 0 -999 S
+D 0 1 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66467
+halfling small zombie~
+&+La zombie of a &+ysmall halfling&n~
+&+LA zombie of a &+ysmall halfling&+L lays here.
+~
+&+LHaving been deprived of his eternal sleep, this wretched soul has to wander
+&+Lthe mortal planes forever in his ragged state.  Only if its soul is cast into
+&+Loblivion can it rest forever in peace.  Its limbs look ready to fall off at
+&+Lany given moment, its moans never cease.  Its charcoal colored skin readily
+&+Ldrop to the ground, for its flesh rots steadily.  Its eyes glow an odd color
+&+Ggreen&+L, indeed, it is scary.
+~
+10 1 0 0 24 0 0 0 -999 S
+ZO 0 1 1 -1
+59 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66468
+snake small~
+&+ga small snake~
+&+gA small snake slithers away.
+~
+&+gThis tiny reptile slithers deeper into the forest.  It becomes easily startled
+&+gwhen it detects an outside presence within the forest.  Its scales are rather
+&+gslimy and moist, for the sunlight has never reached them.  The sounds it
+&+gcreates as it rattles the fallen leaves and bushes is unnerving.
+~
+8 0 0 0 0 0 0 0 0 S
+RS 0 0 0 -1
+3 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66469
+beholder eyed beast~
+&+Rthe beholder&n~
+&+RA many one eyed beast swirls its tentacles here.
+~
+&+RThis fantastic beast has about fifty eyes. It hovers just off the ground, for
+&+Rit is magi in nature. The tentacles that hang beneath him stir gentle as they
+&+Rsearch for something to thrash.
+~
+10 1 0 0 73752 2048 67108864 0 -999 S
+BK 0 512 1 -1
+59 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66470
+disgruntled sleeping soldier~
+&+La disgruntled so&+cl&+Cd&+ci&+Ler&n~
+&+LA sleeping soldier sits here.&n
+~
+&+LThis soldier looks to have had a long day, and simply wants to relax and sleep.
+&+LScars along his back hint that he has seen action, and the dents in his armor,
+&+Llying off to the side, also attest to that.  It is easy to irrate a sleeping
+&+Lsoldier, so the unspoken rule in these barracks is simple, keep your mouth
+&+Lshut or we'll cut your damn tongue out.
+~
+67110922 0 0 0 8 0 0 0 -500 S
+MT 0 1 1 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+6 8 1
+#66471
+minotaur captain~
+a &+rmino&+Ltaur captain&n~
+&+LA minotaur captain keeps a vigilant eye.
+~
+&+LThis captain keeps a vigilant eye out for anything suspicious. His duties
+&+Linclude keeping the orcs under his command in order incase anything out
+&+Lof the ordinary approaches the camp. If anything would befall the camp
+&+Lunder his, he would be put to death brutally.
+~
+1140852746 0 0 0 8 0 0 0 -555 S
+MT 0 1 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+>>>>>>> master

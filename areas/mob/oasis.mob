@@ -494,7 +494,11 @@ its upper torso shifts back and forth and its claws clench and release at the
 air.
 ~
 1073743944 1 0 0 268959800 14 0 0 -1000 S
+<<<<<<< HEAD
 TK 0 1 0 -1
+=======
+as 0 1 0 -1
+>>>>>>> master
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -555,7 +559,11 @@ makes their natural armor incredibly high.  These mantis, even when not using
 a weapon hit incredibly hard, and with a blinding speed!
 ~
 1073743944 1 0 0 268959800 14 0 0 -1000 S
+<<<<<<< HEAD
 TK 0 1 0 -1
+=======
+as 0 1 0 -1
+>>>>>>> master
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -658,7 +666,11 @@ the others.  They also have the ability to spit acid at their opponents, adding
 even more firepower to their arsenal.
 ~
 1073753160 1 0 0 268959788 2062 67108864 0 -1000 S
+<<<<<<< HEAD
 TK 0 1 0 -1
+=======
+as 0 1 0 -1
+>>>>>>> master
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -673,7 +685,11 @@ general who, in turn, receives his orders from an even higher source.  These
 rather ordinary soldiers are the infantry of the mantis army.
 ~
 1073743944 1 0 0 268959788 2062 0 0 -1000 S
+<<<<<<< HEAD
 TK 0 1 0 -1
+=======
+as 0 1 0 -1
+>>>>>>> master
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1

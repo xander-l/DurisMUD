@@ -60,6 +60,7 @@ extern struct time_info_data time_info;
 extern struct zone_data *zone;
 extern struct zone_data *zone_table;
 extern const int exp_table[];
+extern void event_bleedproc(P_char ch, P_char victim, P_obj obj, void *data);
 extern const struct racial_data_type racial_data[];
 int      do_simple_move_skipping_procs(P_char, int, unsigned int);
 extern Skill skills[];
@@ -2447,7 +2448,11 @@ void event_revenant_crown(P_char ch, P_char victim, P_obj obj, void *data)
     {
       temp_obj = ch->equipment[k];
       if(temp_obj)
+      {
+        if (obj_index[temp_obj->R_num].func.obj != NULL)
+          (*obj_index[temp_obj->R_num].func.obj) (temp_obj, ch, CMD_REMOVE, (char *) "all");
         obj_to_char(unequip_char(ch, k), ch);
+      }
     }
     send_to_char
       ("Brr, you suddenly feel very naked.\r\n",
@@ -2490,7 +2495,11 @@ int revenant_helm(P_obj obj, P_char ch, int cmd, char *arg)
       {
         temp_obj = temp_ch->equipment[k];
         if(temp_obj && (obj != temp_obj))
+	{
+        if (obj_index[temp_obj->R_num].func.obj != NULL)
+          (*obj_index[temp_obj->R_num].func.obj) (temp_obj, temp_ch, CMD_REMOVE, (char *) "all");
           obj_to_char(unequip_char(temp_ch, k), temp_ch);
+	}
       }
 
       CharWait(temp_ch, 5 * WAIT_SEC);
@@ -2588,7 +2597,11 @@ void event_dragonlord_check(P_char ch, P_char victim, P_obj obj, void *data)
     {
       temp_obj = ch->equipment[k];
       if(temp_obj)
+      {
+        if (obj_index[temp_obj->R_num].func.obj != NULL)
+          (*obj_index[temp_obj->R_num].func.obj) (temp_obj, ch, CMD_REMOVE, (char *) "all");
         obj_to_char(unequip_char(ch, k), ch);
+      }
     }
     send_to_char
       ("Brr, you suddenly feel very naked.\r\n",
@@ -2608,7 +2621,7 @@ void event_dragonlord_check(P_char ch, P_char victim, P_obj obj, void *data)
   // }
 }
 
-int dragonlord_plate(P_obj obj, P_char ch, int cmd, char *arg)
+int dragonlord_plate_old(P_obj obj, P_char ch, int cmd, char *arg)
 {
   P_obj temp_obj;
   P_char temp_ch;
@@ -2643,6 +2656,8 @@ int dragonlord_plate(P_obj obj, P_char ch, int cmd, char *arg)
         if(temp_obj &&
           (obj != temp_obj))
         {
+          if (obj_index[temp_obj->R_num].func.obj != NULL)
+            (*obj_index[temp_obj->R_num].func.obj) (temp_obj, temp_ch, CMD_REMOVE, (char *) "all");
           obj_to_char(unequip_char(temp_ch, k), temp_ch);
         }
       }
@@ -2675,7 +2690,39 @@ int dragonlord_plate(P_obj obj, P_char ch, int cmd, char *arg)
   return FALSE;
 }
 
-int dragonlord_plate_old(P_obj obj, P_char ch, int cmd, char *arg)
+int dragonlord_plate(P_obj obj, P_char ch, int cmd, char *arg)
+{
+  int curr_time;
+  P_char temp_ch;
+
+  /*
+     check for periodic event calls
+   */
+  if (cmd == -10)
+    return TRUE;
+ 
+ if (!cmd){
+    if(OBJ_WORN(obj)) {
+      temp_ch = obj->loc.wearing;
+      curr_time = time(NULL);
+      if (obj->timer[1] + 1800 <= curr_time && 
+	 !IS_AFFECTED4(temp_ch, AFF4_STORNOGS_SPHERES)) {
+        spell_stornogs_spheres(53, temp_ch, 0, SPELL_TYPE_SPELL, temp_ch, 0);
+        obj->timer[1] = curr_time;
+        return TRUE;
+      }
+      if (obj->timer[0] + 30 <= curr_time && !affected_by_spell(temp_ch, SPELL_STONE_SKIN)) {
+        spell_stone_skin(45, temp_ch, 0, SPELL_TYPE_SPELL, temp_ch, 0);
+        obj->timer[0] = curr_time;
+        return TRUE;
+      }
+    }
+  }
+  return(FALSE);
+}
+
+
+int dragonlord_plate_oldold(P_obj obj, P_char ch, int cmd, char *arg)
 {
   int curr_time;
   P_char temp_ch;
@@ -2840,6 +2887,7 @@ int living_necroplasm(P_obj obj, P_char ch, int cmd, char *arg)
         act("$p &+Rburns &+ran angry red &+Las it retreats from your body&n", FALSE, ch, obj, 0, TO_CHAR);
         obj_to_char(unequip_char(ch, plasm_slot), ch);
         // dispel any SPELL_VAMPIRE to prevent cheesing of removing arti, wearing plasm, wearing other arti
+        affect_from_char(ch, SPELL_VAMPIRE);
         if (affected_by_spell(ch, SPELL_VAMPIRE))
         {
           affect_from_char(ch, SPELL_VAMPIRE);
@@ -2914,7 +2962,8 @@ int living_necroplasm(P_obj obj, P_char ch, int cmd, char *arg)
     // if not worn, but carried, equip self
     if (OBJ_CARRIED_BY(obj, ch))
     {
-      if (can_prime_class_use_item(ch, obj)) // only folks who are primary allowed class can use this item
+     // if (can_prime_class_use_item(ch, obj)) // only folks who are primary allowed class can use this item
+      if(ch)
       {
         // verify that they have no other arti's before equip'ing
         for (int i = 0; i < MAX_WEAR; i++)
@@ -3821,7 +3870,7 @@ void good_evil_configSword(P_char ch, P_obj obj)
   obj->affected[0].location = APPLY_HITROLL;
   obj->affected[1].location = APPLY_DAMROLL;
 
-  if (GET_CLASS(ch, CLASS_PALADIN) || GET_CLASS(ch, CLASS_ANTIPALADIN) || GET_CLASS(ch, CLASS_AVENGER) || GET_CLASS(ch, CLASS_DREADLORD) || (GET_RACE(ch) == RACE_OGRE))
+  if (GET_CLASS(ch, CLASS_PALADIN) || GET_CLASS(ch, CLASS_ANTIPALADIN) || GET_CLASS(ch, CLASS_AVENGER) || GET_CLASS(ch, CLASS_DREADLORD) || (GET_RACE(ch) == RACE_OGRE) || (GET_RACE(ch) == RACE_MINOTAUR))
   {
     SET_BIT(obj->extra_flags, ITEM_TWOHANDS);
     obj->value[0] = 13;
@@ -4069,7 +4118,7 @@ int dranum_mask(P_obj obj, P_char ch, int cmd, char *arg)
   if (IS_FIGHTING(ch) && !number(0, 9) && cmd == 0)
   {
     vict = ch->specials.fighting;
-    if (IS_NPC(vict))
+    if (IS_NPC(vict) && !number(1, 24))
       return FALSE;             // no cheesing mobs
     act("$p &+Rscares &N&+rthe &+Rliving &+LSHIT &N&+rout of $N!&N", TRUE, ch,
         obj, vict, TO_CHAR);
@@ -4101,20 +4150,20 @@ int sunblade(P_obj obj, P_char ch, int cmd, char *arg)
   
   if (cmd == CMD_PERIODIC)
   {
-    // if (OBJ_WORN(obj))
-    // {
-      // temp_ch = obj->loc.wearing;
-      // curr_time = time(NULL);
+     if (OBJ_WORN(obj))
+     {
+       temp_ch = obj->loc.wearing;
+       curr_time = time(NULL);
 
-      // if (!has_skin_spell(temp_ch) &&
-          // obj->timer[0] +
-          // (int) get_property("timer.stoneskin.artifact.sunblade", 30) <= curr_time)
-      // {
-        // spell_stone_skin(45, temp_ch, 0, SPELL_TYPE_POTION, temp_ch, 0);
-        // obj->timer[0] = curr_time;
-        // return TRUE;
-      // }
-    // }
+       if (!has_skin_spell(temp_ch) &&
+           obj->timer[0] +
+           (int) get_property("timer.stoneskin.artifact.sunblade", 30) <= curr_time)
+       {
+         spell_stone_skin(45, temp_ch, 0, SPELL_TYPE_POTION, temp_ch, 0);
+         obj->timer[0] = curr_time;
+         return TRUE;
+       }
+     }
     hummer(obj);
     return TRUE;
   }
@@ -4142,7 +4191,9 @@ int sunblade(P_obj obj, P_char ch, int cmd, char *arg)
       TRUE, ch, obj, victim, TO_NOTVICT);
     act("&+r$n's&n $q &+Rexplodes&n&+r in a torrent of pure &+Rflame!&n",
       TRUE, ch, obj, victim, TO_VICT);
-    
+   spell_sunray(GET_LEVEL(ch), ch, NULL, 0, victim, 0);
+
+  /*
     if(OUTSIDE(ch))
       spell_sunray(GET_LEVEL(ch), ch, NULL, 0, victim, 0);
     else if(number(0, 1))
@@ -4151,14 +4202,14 @@ int sunblade(P_obj obj, P_char ch, int cmd, char *arg)
       spell_firebrand(GET_LEVEL(ch), ch, NULL, 0, victim, 0);
     else
       spell_immolate(GET_LEVEL(ch), ch, NULL, 0, victim, 0);
-   
-    if(GET_C_LUCK(ch) > number(1, 1000))
-    {
+   */
+    //if(GET_C_LUCK(ch) > number(1, 1000))
+   // {
       act("$p &+memits a &+Msoft glow&n&+m.&n", TRUE, ch, obj, victim, TO_CHAR);
       act("$p &+memits a &+Msoft glow&n&+m.&n", TRUE, ch, obj, victim, TO_NOTVICT);
       act("$p &+memits a &+Msoft glow&n&+m.&n", TRUE, ch, obj, victim, TO_VICT);
       spell_heal(GET_LEVEL(ch), ch, 0, 0, ch, 0);
-    }
+  //  }
     
     return true;
   }
@@ -4673,25 +4724,28 @@ int treasure_chest(P_obj obj, P_char ch, int cmd, char *argument)
 
 int demo_scimitar(P_obj obj, P_char ch, int cmd, char *arg)
 {
+  int      dam = cmd / 1000;
   P_char   victim;
 
   /*
      check for periodic event calls
    */
   if (cmd == CMD_SET_PERIODIC)
+    return TRUE;
+
+ /* if (cmd != CMD_MELEE_HIT)
+    return (FALSE);*/
+
+  if (!dam)
     return FALSE;
 
-  if (cmd != CMD_MELEE_HIT)
-    return (FALSE);
   if (!ch)
     return (FALSE);
 
-  if (!OBJ_WORN(obj) || (obj->loc.wearing != ch))
-    return (FALSE);
   victim = (P_char) arg;
   if (!victim)
     return (FALSE);
-  if (number(0, 35))
+  if (number(0, 28))
     return (FALSE);
   act("$p &+Lcarried by $n&+L slices into $N's&+L soul...&n", TRUE, ch, obj,
       victim, TO_NOTVICT);
@@ -4700,10 +4754,11 @@ int demo_scimitar(P_obj obj, P_char ch, int cmd, char *arg)
   act("$p &+Lcarried by $n&+L slices into your&+L soul...&n", TRUE, ch, obj,
       victim, TO_VICT);
 
-  GET_VITALITY(victim) = MAX(0, GET_VITALITY(victim) - 40);
+  GET_VITALITY(victim) = MAX(0, GET_VITALITY(victim) - (number(10, 40)));
+
 
   act("&+L$N&+L goes limp for a moment.&n", FALSE, ch, 0, victim, TO_NOTVICT);
-  act("&+LYou&+L goes limp for a moment.&n", FALSE, ch, 0, victim, TO_VICT);
+  act("&+LYou feel your body&+L go limp for a moment.&n", FALSE, ch, 0, victim, TO_VICT);
   act("&+L$N&+L goes limp for a moment.&n", FALSE, ch, 0, victim, TO_CHAR);
 
   return (TRUE);
@@ -7416,31 +7471,56 @@ int wall_generic(P_obj obj, P_char ch, int cmd, char *arg)
     break;
 
   case PRISMATIC_WALL:
-/*
-    if (GET_PID(ch) == obj->value[5])
+
+    //if (GET_PID(ch) == obj->value[5])
+     if((IS_PC(ch) && GET_PID(ch) == obj->value[5]) ||
+        (IS_NPC(ch) && GET_RNUM(ch) == obj->value[5]))
     {
       act("You walk through your own wall.", TRUE, ch, obj, NULL, TO_CHAR);
       do_simple_move_skipping_procs(ch, dircmd, 0);
       act("$n steps through the wall.", TRUE, ch, obj, NULL, TO_ROOM);
       return TRUE;
     }
-*/
+
     // let them walk through the wall 25% of the time
 
-    if (!number(0, 3) && (IS_PC(ch) || IS_PC_PET(ch)))
+    if (!number(0, 3) && IS_PC(ch))
     {
+      act("$p fades to shards of magic, and blows away...&n", TRUE, ch, obj, NULL, TO_ROOM);
+      send_to_char("The prismatic creation fades into nothing.\n", ch);
+      spell_dispel_magic(60, ch, NULL, SPELL_TYPE_SPELL, 0, obj);
       act("You walk through the wall.", TRUE, ch, obj, NULL, TO_CHAR);
       act("$n steps through the wall.", TRUE, ch, obj, NULL, TO_ROOM);
       do_simple_move_skipping_procs(ch, dircmd, 0);
       act("$n steps through the wall.", TRUE, ch, obj, NULL, TO_ROOM);
       GET_HIT(ch) = MAX(1, GET_HIT(ch) - 100);
-      return TRUE;
+
+
+     return TRUE;
     }
     else
     {
       act("Oof! You bump into $p...", TRUE, ch, obj, 0, TO_CHAR);
       act("Oof! $n bumps into $p...", TRUE, ch, obj, 0, TO_NOTVICT);
     }
+
+     if (!number(0, 3) && IS_PC_PET(ch))
+    {
+     
+      act("You walk through the wall.", TRUE, ch, obj, NULL, TO_CHAR);
+      act("$n steps through the wall.", TRUE, ch, obj, NULL, TO_ROOM);
+      do_simple_move_skipping_procs(ch, dircmd, 0);
+      act("$n steps through the wall.", TRUE, ch, obj, NULL, TO_ROOM);
+      GET_HIT(ch) = MAX(1, GET_HIT(ch) - 100);
+
+     return TRUE;
+    }
+    else
+    {
+      act("Oof! You bump into $p...", TRUE, ch, obj, 0, TO_CHAR);
+      act("Oof! $n bumps into $p...", TRUE, ch, obj, 0, TO_NOTVICT);
+    }
+
 
     dam = 0;
     spl = 0;
@@ -7569,27 +7649,85 @@ int wall_generic(P_obj obj, P_char ch, int cmd, char *arg)
     return FALSE;
 
   case WALL_OF_FORCE:
-    if ((IS_PC(ch) && GET_PID(ch) == obj->value[5]) ||
-        (IS_NPC(ch) && GET_RNUM(ch) == obj->value[5]))
+    /*if ((IS_PC(ch) && GET_PID(ch) == obj->value[5]) ||
+        (IS_NPC(ch) && GET_RNUM(ch) == obj->value[5])) */
+    if(IS_PC(ch))
     {
       act("&+L$n&+L passes right through $p&+L.", TRUE, ch, obj, 0, TO_ROOM);
       act("&+LYou pass right through $p&+L.", TRUE, ch, obj, 0, TO_CHAR);
       
       do_simple_move_skipping_procs(ch, dircmd, 0);
     }
-    else
+     if(IS_PC(ch) && GET_SPEC(ch, CLASS_ROGUE, SPEC_THIEF) && GET_LEVEL(ch) >= 56)
+     {
+      int rand1 = number(1, 100);
+      if (rand1 > 60)
+       {
+        act("&+L$n&+L slams up against the wall, slinks into a shadow, and quickly darts over the wall.", TRUE, ch, obj, 0, TO_ROOM);
+      	 act("&+LYou thrust yourself up against the wall and slip into a nearby shadow, quickly darting over the top of the wall and away.", TRUE, ch, obj, 0, TO_CHAR);
+	 do_simple_move_skipping_procs(ch, dircmd, 0);
+       }
+    	else
+    	{
+      act("Oof! You bump into $p...", TRUE, ch, obj, 0, TO_CHAR);
+      act("Oof! $n bumps into $p...", TRUE, ch, obj, 0, TO_NOTVICT);
+    	}
+    }
+    
+else
     {
       act("Oof! You bump into $p...", TRUE, ch, obj, 0, TO_CHAR);
       act("Oof! $n bumps into $p...", TRUE, ch, obj, 0, TO_NOTVICT);
     }
-    return TRUE;
+return TRUE;
   case WALL_OUTPOST:
   case WATCHING_WALL:
   case WALL_OF_IRON:
+    if(IS_PC(ch) && GET_SPEC(ch, CLASS_ROGUE, SPEC_THIEF) && GET_LEVEL(ch) >= 56)
+     {
+      int rand1 = number(1, 100);
+      if (rand1 > 60)
+       {
+        act("&+L$n&+L slams up against the wall, slinks into a shadow, and quickly darts over the wall.", TRUE, ch, obj, 0, TO_ROOM);
+      	 act("&+LYou thrust yourself up against the wall and slip into a nearby shadow, quickly darting over the top of the wall and away.", TRUE, ch, obj, 0, TO_CHAR);
+	 do_simple_move_skipping_procs(ch, dircmd, 0);
+       }
+    	else
+    	{
+      act("Oof! You bump into $p...", TRUE, ch, obj, 0, TO_CHAR);
+      act("Oof! $n bumps into $p...", TRUE, ch, obj, 0, TO_NOTVICT);
+    	}
+    }
+    
+else
+    {
+      act("Oof! You bump into $p...", TRUE, ch, obj, 0, TO_CHAR);
+      act("Oof! $n bumps into $p...", TRUE, ch, obj, 0, TO_NOTVICT);
+    }
+return TRUE;
   case WALL_OF_STONE:
-    act("Oof! You bump into $p...", TRUE, ch, obj, 0, TO_CHAR);
-    act("Oof! $n bumps into $p...", TRUE, ch, obj, 0, TO_NOTVICT);
-    return TRUE;
+    if(IS_PC(ch) && GET_SPEC(ch, CLASS_ROGUE, SPEC_THIEF) && GET_LEVEL(ch) >= 56)
+     {
+      int rand1 = number(1, 100);
+      if (rand1 > 60)
+       {
+        act("&+L$n&+L slams up against the wall, slinks into a shadow, and quickly darts over the wall.", TRUE, ch, obj, 0, TO_ROOM);
+      	 act("&+LYou thrust yourself up against the wall and slip into a nearby shadow, quickly darting over the top of the wall and away.", TRUE, ch, obj, 0, TO_CHAR);
+	 do_simple_move_skipping_procs(ch, dircmd, 0);
+       }
+    	else
+    	{
+      act("Oof! You bump into $p...", TRUE, ch, obj, 0, TO_CHAR);
+      act("Oof! $n bumps into $p...", TRUE, ch, obj, 0, TO_NOTVICT);
+    	}
+    }
+    
+else
+    {
+      act("Oof! You bump into $p...", TRUE, ch, obj, 0, TO_CHAR);
+      act("Oof! $n bumps into $p...", TRUE, ch, obj, 0, TO_NOTVICT);
+    }
+return TRUE;
   case WALL_OF_BONES:
     if (obj->value[2] < 10) /* Hackich assumption that if strength < 10 it's a thin dragonscale sheath */
 	  {
@@ -12914,6 +13052,36 @@ int huntsman_ward(P_obj obj, P_char ch, int cmd, char *argument)
       return FALSE;
     }
 
+    if (item == 400229)
+    {
+      struct affected_type af;
+      if (tch != NULL && ch->in_room != tch->in_room && !grouped(ch, tch))
+      {
+        sprintf(buf, "$N &+yhas sprung your &+rcrippling &+ytrap at&n %s!", world[ch->in_room].name);
+        act(buf, FALSE, tch, 0, ch, TO_CHAR);
+        REMOVE_BIT(obj->extra_flags, ITEM_SECRET);
+        obj->value[0] = 0;
+        ClearObjEvents(obj);
+
+        if (number(0, 120) < GET_C_INT(ch))
+          act("You notice you just broke a &+Wthin string&n attached to $p!",
+              FALSE, ch, obj, 0, TO_CHAR);
+			  
+    memset(&af, 0, sizeof(af));
+	
+    af.type = TAG_CRIPPLED;
+    af.flags = AFFTYPE_SHORT | AFFTYPE_NODISPEL ;
+    af.duration = 40;
+	affect_to_char(ch, &af);
+	    act("&+ROUCH!!&+y Without warning, a &+rrusty &+yclamp suddenly tears at your legs!&n", FALSE, ch, 0, 0, TO_CHAR);
+    act("$n &+ywinces in &+ragony &+yas a &+rrusty &+yclamp suddenly tears at their legs!&n", FALSE, ch, 0, 0, TO_ROOM);
+			int	numb = number(6, 10);
+			add_event(event_bleedproc, PULSE_VIOLENCE, ch, 0, 0, 0, &numb, sizeof(numb));
+        extract_obj(obj, TRUE);
+      }
+     return FALSE;
+    }
+
     if (item == 73)
     {
 
@@ -13457,7 +13625,7 @@ struct set_data {
 
 int set_proc(P_obj obj, P_char ch, int cmd, char *arg)
 {
-return FALSE;
+//return FALSE; -muhahaha drannak
   P_obj tobj, included[MAX_WEAR], cobj = obj;
   int s, i, j, count = 0;
   unsigned int flag = cmd ? ITEM2_NOPROC : ITEM2_NOTIMER;
@@ -13551,7 +13719,19 @@ int unspec_altar(P_obj obj, P_char ch, int cmd, char *arg)
   if (!strstr(arg, "altar"))
     return FALSE;
 
+ if(!ch)
+ return FALSE;
+
+        if(GET_SPEC(ch, CLASS_SORCERER, SPEC_WIZARD))
+          {
+		ch->only.pc->skills[SKILL_SPELL_PENETRATION].taught = 0;
+		ch->only.pc->skills[SKILL_SPELL_PENETRATION].learned = 0;
+		do_save_silent(ch, 1); // racial skills require a save.
+           }
+
+
   unspecialize(ch, obj);
+  update_racial_skills(ch);
 }
 
 int unmulti_altar(P_obj obj, P_char ch, int cmd, char *arg)
@@ -13569,6 +13749,7 @@ int unmulti_altar(P_obj obj, P_char ch, int cmd, char *arg)
   }
 
   unmulti(ch, obj);
+  update_racial_skills(ch);
 }
 
 int thought_beacon(P_obj obj, P_char ch, int cmd, char *arg)
@@ -13814,12 +13995,16 @@ int portal_door(P_obj obj, P_char ch, int cmd, char *arg)
       (((cmd == CMD_ENTER) ||
       (cmd == CMD_LOOK)) && ch))
    {
-   
+   /*
     if(ch && !is_Raidable(ch, 0, 0))
     {
       send_to_char("&=LWYou are not raidable! You shall not pass!\r\n", ch);
       return false;
     }
+	*/
+
+
+
       struct portal_action_messages msg = {
 /*in ch    */ "You enter $p and reappear elsewhere...",
 /*in ch r  */ "&+W$p suddenly glows brightly!\n"
@@ -13983,6 +14168,7 @@ int portal_general_internal( P_obj obj, P_char ch, int cmd, char *arg,
    */
   if (obj2 != obj)
     return FALSE;
+
 
   to_room = real_room(obj->value[0]);
   if (to_room == NOWHERE)

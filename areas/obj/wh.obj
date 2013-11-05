@@ -1850,7 +1850,7 @@ mark death~
 &+Lthe mark of &+rD&+Rea&+rth&n~
 &+LA strange symbol of &+rd&+Rea&+rth &+Llies here.&n~
 ~
-13 15 3 0 7 0 1 0 0 0 0
+13 15 3 0 7 0 1 16385 0 0 0
 0 0 0 0 0 0 0 0
 0 0 100 100 0 1024 0 0
 E
@@ -2738,7 +2738,7 @@ spiked mace death seekers _noquest_~
 &+Lthe &+rsp&+Li&+rk&+Le&+rd &+Lmace of the &+RD&+rea&+Rth S&+ree&+Rk&+re&+Rrs&n~
 &+LA large spiked mace lies here.&n~
 ~
-5 20 3 0 15 0 8192 8193 66 0 0
+5 20 3 0 15 0 8200 8193 66 0 0
 7 4 3 0 0 0 0 0
 5 0 100 100 16 0 0 0
 A
@@ -3896,7 +3896,11 @@ legplates storm _noquest_~
 ~
 9 1 2 0 14 0 8200 33 66 0 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 0 0 100 100 0 29 65536 0
+=======
+0 0 100 524288 29 0 0
+>>>>>>> master
 A
 33 4
 A
@@ -3972,7 +3976,7 @@ essence indomitable snowman _noquest_~
 T
 2 0 0 0
 #55322
-buckler saints _noquest_~
+buckler saints~
 &+Lthe &+Wb&+wu&+Lc&+wk&+Ll&+we&+Wr &+Lof the &+WS&+wa&+Lin&+wt&+Ws&n~
 &+LSomeone has carelessly thrown away a great looking &+Wb&+wu&+Lc&+wk&+Ll&+we&+Wr &+Lhere.&n~
 ~
@@ -4554,9 +4558,15 @@ gladius backstabber _noquest_~
 &+Wa &+Lgladius &+Wcalled '&+LBac&+wks&+Wta&+Rbb&+rer&+W'&n~
 &+LA peculiar gladius has been left behind here.&n~
 ~
+<<<<<<< HEAD
 5 16 2 0 15 0 9281 8193 72 126976 0
 2 3 8 0 0 0 0 0
 5 0 100 100 16 0 0 0
+=======
+5 16 2 0 15 0 268444737 8193 72 126976 0
+2 5 4 0 0 0 0 0
+5 0 100 524304 2048 0 0
+>>>>>>> master
 A
 18 5
 A
@@ -4737,8 +4747,13 @@ potion dazzling blue lesser battle readiness~
 &+CA blue potion lies here.&N~
 ~
 10 15 3 0 7 0 0 1 0 0 0
+<<<<<<< HEAD
 50 39 73 177 0 0 0 0
 0 7879 100 0
+=======
+50 39 73 0 0 0 0 0
+0 7879 100
+>>>>>>> master
 #55397
 vial dye yellow~
 &+La small vial of &+Yyellow &+Wdye&n~
@@ -5066,7 +5081,11 @@ tentacle illithid lord ithaquua~
 ~
 9 15 3 0 7 0 0 2049 0 0 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 0 0 100 100 0 0 524288 0
+=======
+0 0 100 33554732 28 16777216 0
+>>>>>>> master
 A
 30 10
 A

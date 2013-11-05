@@ -110,6 +110,7 @@ D 0 5672 3 2 100 0 0 0
 *     "Deep Inside a Tunnel of Living Rock" - closed/locked
 *
 *
+O 0 5537 2 5501 100 0 0 0          * a pile of rubble
 O 0 5515 6 5506 100 0 0 0          * centuries-old trash from a commoner's dwelling
 O 0 5519 6 5506 100 0 0 0          * ancient Tharnadian currency
 O 0 5520 1 5508 100 0 0 0          * the MASSIVE bank vault safe
@@ -155,6 +156,9 @@ O 0 5515 6 5654 100 0 0 0          * centuries-old trash from a commoner's dwell
 O 0 5519 6 5654 100 0 0 0          * ancient Tharnadian currency
 O 0 5515 6 5655 100 0 0 0          * centuries-old trash from a commoner's dwelling
 O 0 5519 6 5656 100 0 0 0          * ancient Tharnadian currency
+O 0 5537 2 5659 100 0 0 0          * a pile of rubble
+O 0 5538 1 5659 100 0 0 0          * the corpse of a seasoned adventurer
+O 0 5539 1 5659 100 0 0 0          * a rather ominous shadowrift
 O 0 5508 1 5660 100 0 0 0          * a sex rack
 P 1 5509 1 5508 100 0 0 0          *   the skeletal remains of a slack-jawed prostitute
 O 0 5536 1 5662 100 0 0 0          * coin repop stop

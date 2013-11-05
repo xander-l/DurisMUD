@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #23200
 water breathing potion~
 &+ba potion of water breathing~
@@ -82,3 +83,89 @@ This glowing orb of power seeths with power and life.
 ~
 A
 57 -1
+=======
+#23200
+water breathing potion~
+&+ba potion of water breathing~
+A potion of waterbreathnig has been left here~
+~
+10 7 2 4 7 0 0 1 64 0 0
+50 85 1 3 0 0 0 0
+1 50000 100
+E
+potion waterbreathing~
+The potion in this vial seems to be composed of a bright
+gel-like liquid!
+~
+#23201
+grey potion of stone skin~
+&+La grey stone skin potion~
+A potion of stone skin is here~
+~
+10 7 2 4 7 0 0 1 64 0 0
+61 36 0 0 0 0 0 0
+1 30000 100
+E
+potion grey~
+This potion bubbles with a grey liquid.
+~
+#23202
+earring black pearl~
+&+La black pearl earring&N~
+&+LA black pearl earring has been left here.&N~
+~
+9 10 0 0 7 0 12288 524289 0 0 0
+6 14 0 3 0 0 0 0
+5 10000 100 2048 0 0 0
+E
+black pearl earrring~
+This small glowing earring gives off an aura of great power.
+~
+A
+23 -6
+A
+19 2
+#23203
+cloak of the manta ray~
+&+bthe cloak of the &+Lmanta &+rray&N~
+&+bSome total moron has left olhyda's cloak of the manta-ray here!!!~
+~
+9 12 3 8 15 50 12288 1025 0 0 0
+15 9 1 3 0 0 0 0
+10 10000 100 2048 0 0 0
+E
+olhydra cloak manta ray~
+This huge bodycloak seems to be composed of a fleshy substance
+that seems to wrap around anyone who puts it on.
+~
+A
+23 -6
+A
+20 -2
+#23204
+color pool greeny~
+&+ga dark green color pool is here&n~
+&+gA dark green color pool floats here in the water.~
+~
+12 1 5 50 7 0 8192 0 64 0 0
+12492 200 0 0 0 0 0 0
+1 1 100
+E
+pool dark green~
+This pool seems to lead to some timeless void of grey swirling mist.
+~
+#23206
+orb sea unique~
+&+bthe orb of the &+gsea&N~
+&+bThe orb of the &+gsea is here.&n~
+~
+5 19 3 2 15 100 268444673 8193 0 37785088 0
+10 6 6 6 0 0 0 0
+1 200000 100 2064 0 0 0
+E
+orb of the sea~
+This glowing orb of power seeths with power and life.
+~
+A
+57 -1
+>>>>>>> master

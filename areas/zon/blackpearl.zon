@@ -1,0 +1,612 @@
+#705
+&+LTh&+we &+LBl&+wack &+LPe&+warl&n~
+142283 0 0 40 50 1
+*
+* Zone edited with durisEdit v2.99de
+*
+*
+D 0 142201 0 2 100 0 0 0
+*     north exit from "A Gaping Hole in the Side of a Pirate Ship" to
+*     "Within the Lower Deck" - closed/locked
+*
+D 0 142202 2 2 100 0 0 0
+*     south exit from "Within the Lower Deck" to
+*     "A Gaping Hole in the Side of a Pirate Ship" - closed/locked
+*
+D 0 142202 0 2 100 0 0 0
+*     north exit from "Within the Lower Deck" to
+*     "Within the lower deck" - closed/locked
+*
+D 0 142203 2 2 100 0 0 0
+*     south exit from "Within the lower deck" to
+*     "Within the Lower Deck" - closed/locked
+*
+D 0 142203 0 2 100 0 0 0
+*     north exit from "Within the lower deck" to
+*     "Within the lower deck" - closed/locked
+*
+D 0 142204 2 2 100 0 0 0
+*     south exit from "Within the lower deck" to
+*     "Within the lower deck" - closed/locked
+*
+D 0 142204 0 2 100 0 0 0
+*     north exit from "Within the lower deck" to
+*     "A Ladder Leading to the Cargo Hold" - closed/locked
+*
+D 0 142205 2 2 100 0 0 0
+*     south exit from "A Ladder Leading to the Cargo Hold" to
+*     "Within the lower deck" - closed/locked
+*
+D 0 142205 4 2 100 0 0 0
+*     up exit from "A Ladder Leading to the Cargo Hold" to
+*     "Within the Cargo Hold" - closed/locked
+*
+D 0 142206 5 2 100 0 0 0
+*     down exit from "Within the Cargo Hold" to
+*     "A Ladder Leading to the Cargo Hold" - closed/locked
+*
+D 0 142206 0 1 100 0 0 0
+*     north exit from "Within the Cargo Hold" to
+*     "A Large Storage Room" - closed
+*
+D 0 142209 2 1 100 0 0 0
+*     south exit from "A Large Storage Room" to
+*     "Within the Cargo Hold" - closed
+*
+D 0 142206 1 2 100 0 0 0
+*     east exit from "Within the Cargo Hold" to
+*     "A Small Storage Room" - closed/locked
+*
+D 0 142207 3 2 100 0 0 0
+*     west exit from "A Small Storage Room" to
+*     "Within the Cargo Hold" - closed/locked
+*
+D 0 142206 3 2 100 0 0 0
+*     west exit from "Within the Cargo Hold" to
+*     "A Small Storage Room" - closed/locked
+*
+D 0 142208 1 2 100 0 0 0
+*     east exit from "A Small Storage Room" to
+*     "Within the Cargo Hold" - closed/locked
+*
+D 0 142209 0 1 100 0 0 0
+*     north exit from "A Large Storage Room" to
+*     "North End of the Cargo Deck" - closed
+*
+D 0 142210 2 1 100 0 0 0
+*     south exit from "North End of the Cargo Deck" to
+*     "A Large Storage Room" - closed
+*
+D 0 142209 1 1 100 0 0 0
+*     east exit from "A Large Storage Room" to
+*     "A Dark Storage Room" - closed
+*
+D 0 142211 3 1 100 0 0 0
+*     west exit from "A Dark Storage Room" to
+*     "A Large Storage Room" - closed
+*
+D 0 142209 3 1 100 0 0 0
+*     west exit from "A Large Storage Room" to
+*     "A Dark Storage Room" - closed
+*
+D 0 142212 1 1 100 0 0 0
+*     east exit from "A Dark Storage Room" to
+*     "A Large Storage Room" - closed
+*
+D 0 142218 2 2 100 0 0 0
+*     south exit from "Within the Cargo Hold" to
+*     "A Small Closet" - closed/locked
+*
+D 0 142225 0 2 100 0 0 0
+*     north exit from "A Small Closet" to
+*     "Within the Cargo Hold" - closed/locked
+*
+D 0 142220 2 2 100 0 0 0
+*     south exit from "Within the Cargo Hold" to
+*     "A Small Closet" - closed/locked
+*
+D 0 142224 0 2 100 0 0 0
+*     north exit from "A Small Closet" to
+*     "Within the Cargo Hold" - closed/locked
+*
+D 0 142226 2 1 100 0 0 0
+*     south exit from "South End of the Cargo Deck" to
+*     "An Alchemists Workshop" - closed
+*
+D 0 142227 0 1 100 0 0 0
+*     north exit from "An Alchemists Workshop" to
+*     "South End of the Cargo Deck" - closed
+*
+D 0 142229 0 1 100 0 0 0
+*     north exit from "On the Top Deck" to
+*     "On the Top Deck" - closed
+*
+D 0 142230 2 1 100 0 0 0
+*     south exit from "On the Top Deck" to
+*     "On the Top Deck" - closed
+*
+D 0 142230 0 1 100 0 0 0
+*     north exit from "On the Top Deck" to
+*     "On the Top Deck" - closed
+*
+D 0 142231 2 1 100 0 0 0
+*     south exit from "On the Top Deck" to
+*     "On the Top Deck" - closed
+*
+D 0 142230 1 6 100 0 0 0
+*     east exit from "On the Top Deck" to
+*     "A Dark Forgotten Closet" - closed/locked/secret
+*
+D 0 142233 3 1 100 0 0 0
+*     west exit from "A Dark Forgotten Closet" to
+*     "On the Top Deck" - closed
+*
+D 0 142230 3 6 100 0 0 0
+*     west exit from "On the Top Deck" to
+*     "A Room Cluttered With Bones" - closed/locked/secret
+*
+D 0 142232 1 1 100 0 0 0
+*     east exit from "A Room Cluttered With Bones" to
+*     "On the Top Deck" - closed
+*
+D 0 142236 1 1 100 0 0 0
+*     east exit from "On the Top Deck" to
+*     "Within the Guards Keep" - closed
+*
+D 0 142237 3 1 100 0 0 0
+*     west exit from "Within the Guards Keep" to
+*     "On the Top Deck" - closed
+*
+D 0 142239 1 1 100 0 0 0
+*     east exit from "Within the Guards Keep" to
+*     "On the Top Deck" - closed
+*
+D 0 142240 3 1 100 0 0 0
+*     west exit from "On the Top Deck" to
+*     "Within the Guards Keep" - closed
+*
+D 0 142245 0 1 100 0 0 0
+*     north exit from "Within the Guards Keep" to
+*     "The Head Guard's Planning Room" - closed
+*
+D 0 142248 2 1 100 0 0 0
+*     south exit from "The Head Guard's Planning Room" to
+*     "Within the Guards Keep" - closed
+*
+D 0 142251 1 1 100 0 0 0
+*     east exit from "On the Top Deck" to
+*     "A Broken Down Cabin" - closed
+*
+D 0 142276 3 1 100 0 0 0
+*     west exit from "A Broken Down Cabin" to
+*     "On the Top Deck" - closed
+*
+D 0 142252 1 1 100 0 0 0
+*     east exit from "On the Top Deck" to
+*     "A Dark Cabin" - closed
+*
+D 0 142277 3 1 100 0 0 0
+*     west exit from "A Dark Cabin" to
+*     "On the Top Deck" - closed
+*
+D 0 142253 1 1 100 0 0 0
+*     east exit from "On the Top Deck" to
+*     "A Filthy Cluttered Cabin" - closed
+*
+D 0 142278 3 1 100 0 0 0
+*     west exit from "A Filthy Cluttered Cabin" to
+*     "On the Top Deck" - closed
+*
+D 0 142254 1 1 100 0 0 0
+*     east exit from "On the Top Deck" to
+*     "A Cabin" - closed
+*
+D 0 142279 3 1 100 0 0 0
+*     west exit from "A Cabin" to
+*     "On the Top Deck" - closed
+*
+D 0 142257 0 2 100 0 0 0
+*     north exit from "On the Top Deck" to
+*     "A Dark Passageway" - closed/locked
+*
+D 0 142269 2 2 100 0 0 0
+*     south exit from "A Dark Passageway" to
+*     "On the Top Deck" - closed/locked
+*
+D 0 142260 3 1 100 0 0 0
+*     west exit from "On the Top Deck" to
+*     "A Well Kept Cabin" - closed
+*
+D 0 142280 1 1 100 0 0 0
+*     east exit from "A Well Kept Cabin" to
+*     "On the Top Deck" - closed
+*
+D 0 142261 3 1 100 0 0 0
+*     west exit from "On the Top Deck" to
+*     "A FILTHY Cabin" - closed
+*
+D 0 142281 1 1 100 0 0 0
+*     east exit from "A FILTHY Cabin" to
+*     "On the Top Deck" - closed
+*
+D 0 142262 3 1 100 0 0 0
+*     west exit from "On the Top Deck" to
+*     "A Dank Cabin" - closed
+*
+D 0 142282 1 1 100 0 0 0
+*     east exit from "A Dank Cabin" to
+*     "On the Top Deck" - closed
+*
+D 0 142263 3 1 100 0 0 0
+*     west exit from "On the Top Deck" to
+*     "A Private Cabin" - closed
+*
+D 0 142283 1 1 100 0 0 0
+*     east exit from "A Private Cabin" to
+*     "On the Top Deck" - closed
+*
+D 0 142269 0 0 100 0 0 0
+*     north exit from "A Dark Passageway" to
+*     "A Dark Passageway" - open
+*
+D 0 142270 2 0 100 0 0 0
+*     south exit from "A Dark Passageway" to
+*     "A Dark Passageway" - open
+*
+D 0 142270 0 0 100 0 0 0
+*     north exit from "A Dark Passageway" to
+*     "A Dark Passageway" - open
+*
+D 0 142271 2 0 100 0 0 0
+*     south exit from "A Dark Passageway" to
+*     "A Dark Passageway" - open
+*
+D 0 142271 0 0 100 0 0 0
+*     north exit from "A Dark Passageway" to
+*     "A Dark Passageway" - open
+*
+D 0 142272 2 0 100 0 0 0
+*     south exit from "A Dark Passageway" to
+*     "A Dark Passageway" - open
+*
+D 0 142272 5 1 100 0 0 0
+*     down exit from "A Dark Passageway" to
+*     "An Unlit Room Within the Ship" - closed
+*
+D 0 142273 4 1 100 0 0 0
+*     up exit from "An Unlit Room Within the Ship" to
+*     "A Dark Passageway" - closed
+*
+D 0 142274 2 1 100 0 0 0
+*     south exit from "A Dark Guard Room" to
+*     "Long John Silver's Chambers" - closed
+*
+D 0 142275 0 1 100 0 0 0
+*     north exit from "Long John Silver's Chambers" to
+*     "A Dark Guard Room" - closed
+*
+*
+O 0 142260 5 142207 100 0 0 0      * a broken crate
+P 1 142285 1 142260 100 0 0 0      *   a threadbare flaxen sack
+O 0 142260 5 142208 100 0 0 0      * a broken crate
+P 1 142284 1 142260 100 0 0 0      *   a huge mound of gold coins
+O 0 142260 5 142211 100 0 0 0      * a broken crate
+P 1 142281 1 142260 100 0 0 0      *   a crumpled note
+P 1 142282 1 142260 100 0 0 0      *   an aged bottle of sailors rum
+P 1 142283 1 142260 100 0 0 0      *   some rat droppings
+O 0 142260 5 142212 100 0 0 0      * a broken crate
+P 1 142275 1 142260 100 0 0 0      *   some black leather thigh high buccaneer boots
+P 1 142276 1 142260 100 0 0 0      *   a scarlet silk waist sash
+P 1 142277 1 142260 100 0 0 0      *   a pile of copper coins
+O 0 142260 5 142212 100 0 0 0      * a broken crate
+P 1 142278 1 142260 100 0 0 0      *   some smuggled goods
+P 1 142279 1 142260 100 0 0 0      *   a skull and crossbones brooch
+P 1 142280 1 142260 100 0 0 0      *   a black leather eyepatch studded with silver
+O 0 142263 1 142227 100 0 0 0      * a large storage chest
+P 1 142264 1 142263 100 0 0 0      *   a small ingredients pouch
+P 1 142265 1 142263 100 0 0 0      *   an Alchy Assoc. membership badge
+P 1 142266 15 142263 100 0 0 0     *   a small glowing potion
+P 1 142266 15 142263 100 0 0 0     *   a small glowing potion
+P 1 142266 15 142263 100 0 0 0     *   a small glowing potion
+P 1 142266 15 142263 100 0 0 0     *   a small glowing potion
+P 1 142266 15 142263 100 0 0 0     *   a small glowing potion
+P 1 142266 15 142263 100 0 0 0     *   a small glowing potion
+P 1 142266 15 142263 100 0 0 0     *   a small glowing potion
+P 1 142266 15 142263 100 0 0 0     *   a small glowing potion
+P 1 142266 15 142263 100 0 0 0     *   a small glowing potion
+P 1 142266 15 142263 100 0 0 0     *   a small glowing potion
+P 1 142266 15 142263 100 0 0 0     *   a small glowing potion
+P 1 142266 15 142263 100 0 0 0     *   a small glowing potion
+P 1 142266 15 142263 100 0 0 0     *   a small glowing potion
+P 1 142266 15 142263 100 0 0 0     *   a small glowing potion
+P 1 142266 15 142263 100 0 0 0     *   a small glowing potion
+O 0 142251 1 142232 100 0 0 0      * a huge pile of bones
+P 1 142272 1 142251 100 0 0 0      *   a small pile of gleaming platinum coins
+P 1 142273 1 142251 100 0 0 0      *   an aged parchment
+*
+M 0 142215 1 142200 100 0 0 0      * Warthehr Ngolahn
+M 0 142216 1 142200 100 0 0 0      * Telrar
+M 0 142217 1 142200 100 0 0 0      * a frail thief
+E 1 142204 1 16 100 0 0 0          *   a sword fragment
+M 0 142218 1 142200 100 0 0 0      * an auction house patron
+M 0 142219 1 142200 100 0 0 0      * a young man
+M 0 142220 1 142200 100 0 0 0      * a gigantic spider
+G 1 142232 1 0 100 0 0 0           *    a dirty key
+M 0 142221 1 142200 100 0 0 0      * a gartham tinkerer
+G 1 142207 1 0 100 0 0 0           *    a sword fragment
+M 0 142222 1 142200 100 0 0 0      * Milerg
+M 0 142223 1 142200 100 0 0 0      * a great white wolf
+G 1 142216 1 0 100 0 0 0           *    the bloody head of the great white wolf
+M 0 142224 1 142200 100 0 0 0      * An Ogre-Gnome
+M 0 142225 1 142200 100 0 0 0      * a leper
+E 1 142217 1 16 100 0 0 0          *   a yo-yo
+M 0 142226 1 142200 100 0 0 0      * Derimous
+M 0 142227 1 142200 100 0 0 0      * a giant four-horned antelope
+G 1 142220 1 0 100 0 0 0           *    a severed antelope horn
+G 1 142221 1 0 100 0 0 0           *    a severed antelope horn
+G 1 142222 1 0 100 0 0 0           *    a severed antelope horn
+G 1 142223 1 0 100 0 0 0           *    a severed antelope horn
+M 0 142229 1 142200 100 0 0 0      * Abal
+M 0 142228 1 142200 100 0 0 0      * Lyle
+M 0 142230 1 142200 100 0 0 0      * Jyarl Truesteel
+M 0 142231 1 142200 100 0 0 0      * Ghalasax, daughter of Aghalhassax
+G 1 142218 1 0 100 0 0 0           *    the skin of a baby dragon
+M 0 142232 1 142200 100 0 0 0      * a barbarian warrior hunter
+M 0 142233 1 142200 100 0 0 0      * a gnomish mage hunter
+M 0 142234 1 142200 100 0 0 0      * a dwarven priest hunter
+M 0 142261 4 142200 100 0 0 0      * a ghostly pirate
+G 1 142240 1 0 100 0 0 0           *    a rusty iron key
+M 0 142261 4 142200 100 0 0 0      * a ghostly pirate
+G 1 142245 1 0 100 0 0 0           *    a heavy wooden key
+M 0 142261 4 142200 100 0 0 0      * a ghostly pirate
+G 1 142246 1 0 100 0 0 0           *    a bent and mangled key
+M 0 142261 4 142200 100 0 0 0      * a ghostly pirate
+G 1 142247 1 0 100 0 0 0           *    a small steel key
+M 0 142242 30 142201 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142202 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142203 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142204 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142205 100 0 0 0     * a friendly skeletal parrot
+M 0 142241 33 142206 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142206 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142206 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142207 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142208 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142243 1 142209 100 0 0 0      * the hulking lich of a guard
+G 1 142259 1 0 100 0 0 0           *    an orb of divination
+M 0 142239 18 142209 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142240 14 142209 100 0 0 0     * the zombie of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142257 19 142211 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142211 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142211 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142211 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142211 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142211 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142211 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142211 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142212 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142212 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142212 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142212 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142212 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142212 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142212 100 0 0 0     * a HUGE skeletal rat
+M 0 142241 33 142213 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142242 30 142213 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142213 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142213 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142213 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142213 100 0 0 0     * a friendly skeletal parrot
+M 0 142241 33 142215 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142239 18 142215 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142239 18 142215 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142240 14 142215 100 0 0 0     * the zombie of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142217 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142217 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142217 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142242 30 142217 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142217 100 0 0 0     * a friendly skeletal parrot
+M 0 142241 33 142219 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142219 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142219 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142219 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142239 18 142219 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142240 14 142219 100 0 0 0     * the zombie of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142242 30 142219 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142219 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142219 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142219 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142219 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142219 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142219 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142219 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142219 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142219 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142219 100 0 0 0     * a friendly skeletal parrot
+M 0 142241 33 142220 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142222 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142222 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142222 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142259 2 142224 100 0 0 0      * a slave in eternal pain
+G 1 142262 2 0 100 0 0 0           *    some heavy black iron shackles
+M 0 142259 2 142224 100 0 0 0      * a slave in eternal pain
+G 1 142262 2 0 100 0 0 0           *    some heavy black iron shackles
+M 0 142258 1 142225 100 0 0 0      * a scared gnoll
+G 1 142261 1 0 100 0 0 0           *    a darkly gleaming spiked ring
+M 0 142239 18 142226 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142240 14 142226 100 0 0 0     * the zombie of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142244 1 142227 100 0 0 0      * the spirit of an overworked alchemist
+E 1 142267 1 16 100 0 0 0          *   a rod of summoning
+M 0 142241 33 142228 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142242 30 142228 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142228 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142228 100 0 0 0     * a friendly skeletal parrot
+M 0 142240 14 142229 100 0 0 0     * the zombie of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142239 18 142229 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142239 18 142230 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+G 1 142250 1 0 100 0 0 0           *    a small brass key
+M 0 142240 14 142230 100 0 0 0     * the zombie of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142245 1 142231 100 0 0 0      * the undead lookout
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+G 1 142288 1 0 100 0 0 0           *    a rusty telescope
+M 0 142256 1 142231 100 0 0 0      * the spirit of the navigator
+G 1 142254 1 0 100 0 0 0           *    a small broken compass on a chain
+M 0 142246 1 142232 100 0 0 0      * a huge skeletal dragon
+G 1 142271 1 0 100 0 0 0           *    a large dragon's skull
+M 0 142257 19 142233 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142233 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142233 100 0 0 0     * a HUGE skeletal rat
+M 0 142257 19 142233 100 0 0 0     * a HUGE skeletal rat
+M 0 142260 1 142233 100 0 0 0      * the zombie of stowaway
+G 1 142274 1 0 100 0 0 0           *    a brightly painted leather rucksack
+M 0 142241 33 142235 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142235 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142235 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142239 18 142238 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142239 18 142238 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142239 18 142238 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142239 18 142239 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142239 18 142239 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142239 18 142239 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142240 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142242 30 142242 100 0 0 0     * a friendly skeletal parrot
+M 0 142240 14 142243 100 0 0 0     * the zombie of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142240 14 142243 100 0 0 0     * the zombie of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142239 18 142245 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142239 18 142245 100 0 0 0     * the spectre of a pirate guard
+G 1 142255 70 0 100 0 0 0          *    a long thin rapier
+M 0 142240 14 142246 100 0 0 0     * the zombie of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142240 14 142246 100 0 0 0     * the zombie of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142237 1 142248 100 0 0 0      * the skeletal remains of the captain of the guard
+E 1 142257 1 16 100 0 0 0          *   a large scimitar
+E 1 142255 70 17 100 0 0 0         *   a long thin rapier
+G 1 142252 1 0 100 0 0 0           *    a small bone key
+F 1 142238 2 142248 100 0 0 0      * the vampire of a lieutenant (following)
+E 1 142256 6 16 100 0 0 0          *   a heavy pirate's falchion
+E 1 142255 70 17 100 0 0 0         *   a long thin rapier
+F 1 142238 2 142248 100 0 0 0      * the vampire of a lieutenant (following)
+E 1 142256 6 16 100 0 0 0          *   a heavy pirate's falchion
+E 1 142255 70 17 100 0 0 0         *   a long thin rapier
+M 0 142240 14 142249 100 0 0 0     * the zombie of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142240 14 142249 100 0 0 0     * the zombie of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142250 100 0 0 0     * a skeletal pirate
+M 0 142241 33 142250 100 0 0 0     * a skeletal pirate
+M 0 142241 33 142250 100 0 0 0     * a skeletal pirate
+M 0 142240 14 142253 100 0 0 0     * the zombie of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142239 18 142255 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142239 18 142257 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142242 30 142257 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142257 100 0 0 0     * a friendly skeletal parrot
+M 0 142242 30 142257 100 0 0 0     * a friendly skeletal parrot
+M 0 142241 33 142259 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+E 1 142255 70 17 100 0 0 0         *   a long thin rapier
+G 1 142255 70 0 100 0 0 0          *    a long thin rapier
+M 0 142241 33 142259 100 0 0 0     * a skeletal pirate
+M 0 142241 33 142259 100 0 0 0     * a skeletal pirate
+M 0 142241 33 142262 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142264 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142264 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142241 33 142264 100 0 0 0     * a skeletal pirate
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142255 1 142266 100 0 0 0      * the animated remains of the pilot
+G 1 142258 1 0 100 0 0 0           *    a broken rudder handle
+M 0 142239 18 142267 100 0 0 0     * the spectre of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142240 14 142268 100 0 0 0     * the zombie of a pirate guard
+E 1 142255 70 16 100 0 0 0         *   a long thin rapier
+M 0 142247 2 142270 100 0 0 0      * a soulless assassin
+E 1 142268 4 16 100 0 0 0          *   a short rusty dagger
+E 1 142268 4 17 100 0 0 0          *   a short rusty dagger
+M 0 142247 2 142272 100 0 0 0      * a soulless assassin
+E 1 142268 4 16 100 0 0 0          *   a short rusty dagger
+E 1 142268 4 17 100 0 0 0          *   a short rusty dagger
+M 0 142248 4 142274 100 0 0 0      * the captain's guard
+E 1 142256 6 16 100 0 0 0          *   a heavy pirate's falchion
+E 1 142255 70 17 100 0 0 0         *   a long thin rapier
+M 0 142248 4 142274 100 0 0 0      * the captain's guard
+E 1 142256 6 16 100 0 0 0          *   a heavy pirate's falchion
+E 1 142255 70 17 100 0 0 0         *   a long thin rapier
+M 0 142235 1 142275 100 0 0 0      * the undead soul of Long John Silver
+E 1 142253 1 16 100 0 0 0          *   Long John Silver's Scimitar
+G 1 142270 1 0 100 0 0 0           *    the ribcage of Long John Silver
+F 1 142248 4 142275 100 0 0 0      * the captain's guard (following)
+E 1 142256 6 16 100 0 0 0          *   a heavy pirate's falchion
+E 1 142255 70 17 100 0 0 0         *   a long thin rapier
+F 1 142248 4 142275 100 0 0 0      * the captain's guard (following)
+E 1 142256 6 16 100 0 0 0          *   a heavy pirate's falchion
+E 1 142255 70 17 100 0 0 0         *   a long thin rapier
+M 0 142202 1 142276 100 0 0 0      * redbeard the pirate
+E 1 142286 1 18 100 0 0 0          *   redbeard's wooden leg
+M 0 142250 1 142277 100 0 0 0      * a thin weary slave
+G 1 142295 1 0 100 0 0 0           *    a pair of swashbucklers gauntlets
+M 0 142251 1 142278 100 0 0 0      * the wraith of a pirate merchant
+G 1 142290 1 0 100 0 0 0           *    a tiara made from rose pearls
+M 0 142249 1 142279 100 0 0 0      * the skeletal remains of a bard
+E 1 142289 1 27 100 0 0 0          *   a finely made ancient harp
+M 0 142254 1 142280 100 0 0 0      * Imaje, a buxom female pirate
+E 1 142292 1 5 100 0 0 0           *   a ruffled white pirate shirt
+G 1 142293 1 0 100 0 0 0           *    a large golden hoop earring
+M 0 142253 1 142281 100 0 0 0      * an angry vampire
+E 1 142294 1 14 100 0 0 0          *   a blue striped silk bandana
+M 0 142252 1 142282 100 0 0 0      * a lich of a cabin boy
+E 1 142291 1 21 100 0 0 0          *   a parrot feather earring
+M 0 142203 1 142283 100 0 0 0      * bluebeard the pirate
+E 1 142287 1 16 100 0 0 0          *   a large hook
+*
+S

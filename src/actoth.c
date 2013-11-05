@@ -923,7 +923,11 @@ void do_rage(P_char ch, char *argument, int cmd)
   memset(&af, 0, sizeof(struct affected_type));
   af.type = SKILL_RAGE;
   af.flags = AFFTYPE_SHORT;
+<<<<<<< HEAD
   af.bitvector2 = AFF2_FLURRY; 
+=======
+  af.bitvector2 = AFF2_FLURRY;
+>>>>>>> master
   af.duration = dura;
   affect_to_char(ch, &af);
 
@@ -1395,6 +1399,14 @@ void do_save_silent(P_char ch, int type)
     sprintf(tmp_buf, "%d", ch->only.pc->numb_deaths);
     checkHallOfFame(ch, tmp_buf);
   }
+  if (!IS_TRUSTED(ch))
+   {
+    sprintf(tmp_buf, "%d", ch->only.pc->numb_deaths);
+    checkLeaderBoard(ch, tmp_buf);
+   }
+
+  update_achievements(ch, 0, 0, 0);
+  set_surname(ch, 0);
 
   if ((ch->desc && !ch->desc->connected) || !ch->desc)
   {
@@ -1466,6 +1478,15 @@ void do_save(P_char ch, char *argument, int cmd)
     checkHallOfFame(ch, tmp_buf);
 
   }
+  if (!IS_TRUSTED(ch))
+   {
+    sprintf(tmp_buf, "%d", ch->only.pc->numb_deaths);
+    checkLeaderBoard(ch, tmp_buf);
+   }
+
+  update_achievements(ch, 0, 0, 0);
+  set_surname(ch, 0);
+
 
   if (IS_NPC(ch) && !IS_MORPH(ch))
   {
@@ -2217,27 +2238,27 @@ static int location_mod[] = { 75,       /* light */
   65,                           /* l finger */
   95,                           /* neck 1 */
   95,                           /* neck 2 */
-  130,                          /* body */
-  120,                          /* head */
+  110,                          /* body */
+  105,                          /* head */
   95,                           /* legs */
-  140,                          /* feet */
+  145,                          /* feet */
   110,                          /* hands */
-  95,                           /* arms */
+  100,                           /* arms */
   100,                          /* shield */
   100,                          /* about */
   70,                           /* waist */
   75,                           /* r wrist */
   75,                           /* l wrist */
-  140,                          /* primary weapon */
-  140,                          /* hold */
+  150,                          /* primary weapon */
+  120,                          /* hold */
   100,                          /* eyes */
   100,                          /* face */
   50,                           /* R earring */
   50,                           /* L earring */
   90,                           /* quiver */
   50,                           /* badge */
-  140,                          /* third wep */
-  140,                          /* 4th wep */
+  150,                          /* third wep */	
+  150,                          /* 4th wep */
   100,                          /* back */
   50,                           /* belt1 */
   50,                           /* belt2 */
@@ -2251,7 +2272,7 @@ static int location_mod[] = { 75,       /* light */
   100,                          /* rear feet */
   80,                           /* nose */
   90,                           /* horn */
-  100,                          /* Ioun */
+  95,                          /* Ioun */
   0,                            /* Not used */
   0, 0, 0
 };
@@ -2269,6 +2290,11 @@ void do_steal(P_char ch, char *argument, int cmd)
 
   if (IS_NPC(ch))
     return;
+  if(!IS_TRUSTED(ch))
+  {
+  send_to_char("Steal is temporarily disabled for rework. Go stab something.\r\n", ch);
+  return;
+  }
 
   if (GET_LEVEL(ch) < 10)
   {
@@ -2282,7 +2308,8 @@ void do_steal(P_char ch, char *argument, int cmd)
     return;
   }
   
-  if((IS_AFFECTED(ch, AFF_INVISIBLE) ||
+/* 
+ if((IS_AFFECTED(ch, AFF_INVISIBLE) ||
       IS_AFFECTED2(ch, AFF2_MINOR_INVIS)) &&
       !IS_AFFECTED(ch, AFF_DETECT_INVISIBLE))
   {
@@ -2291,6 +2318,7 @@ void do_steal(P_char ch, char *argument, int cmd)
        ch);
     return;
   }
+*/
   
   if (!GET_CHAR_SKILL(ch, SKILL_STEAL) &&
       !IS_TRUSTED(ch))
@@ -2322,6 +2350,7 @@ void do_steal(P_char ch, char *argument, int cmd)
     return;
   }
 
+  
   if (affected_by_spell(ch, TAG_PVPDELAY))
   {
     send_to_char
@@ -2329,6 +2358,7 @@ void do_steal(P_char ch, char *argument, int cmd)
        ch);
     return;
   }
+  
 
 
   if (CHAR_IN_SAFE_ZONE(ch) &&
@@ -2346,7 +2376,7 @@ void do_steal(P_char ch, char *argument, int cmd)
   if (!(victim = get_char_room_vis(ch, victim_name)))
   {
     send_to_char("Steal what from who?\r\n", ch);
-    CharWait(ch, PULSE_VIOLENCE);
+    //CharWait(ch, PULSE_VIOLENCE);
     return;
   }
   else if (victim == ch)
@@ -2354,12 +2384,12 @@ void do_steal(P_char ch, char *argument, int cmd)
     send_to_char("Come on now, that's rather stupid!\r\n", ch);
     return;
   }
-  if (IS_PC(victim) && (GET_LEVEL(ch) < 35) &&
+ /* if (IS_PC(victim) && (GET_LEVEL(ch) < 35) &&
       !GET_SPEC(ch, CLASS_THIEF, SPEC_CUTPURSE))
   {
     send_to_char("Maybe you should practice more...\r\n", ch);
     return;
-  }
+  }*/
   if ((world[ch->in_room].room_flags & SINGLE_FILE) &&
       !AdjacentInRoom(ch, victim))
   {
@@ -2428,7 +2458,7 @@ void do_steal(P_char ch, char *argument, int cmd)
 	if (!CAN_SEE(victim, ch))
     percent += 40;
   // cutpurses get an additional bonus...
-  if (GET_SPEC(ch, CLASS_THIEF, SPEC_CUTPURSE))
+  if (GET_SPEC(ch, CLASS_ROGUE, SPEC_THIEF))
     percent += 25;
 
   if (IS_TRUSTED(ch) ||
@@ -2491,12 +2521,14 @@ void do_steal(P_char ch, char *argument, int cmd)
 
   CharWait(ch, PULSE_VIOLENCE * 2);
   
-  if (obj && IS_ARTIFACT(obj) && 
+ 
+ if (obj && IS_ARTIFACT(obj) && 
       !IS_TRUSTED(ch))
   {
-    send_to_char("Dont even bother....better run.\r\n", ch);
+    send_to_char("That item appears to be &+Mmagically &nbound to them, better try to steal something else.\r\n", ch);
     return;
   }
+
 
   switch (type)
   {
@@ -2519,7 +2551,7 @@ void do_steal(P_char ch, char *argument, int cmd)
       send_to_char("Oooof!  Damn that's heavy!\r\n", ch);
       failed = TRUE;
     }
-    if (GET_SPEC(ch, CLASS_THIEF, SPEC_CUTPURSE))
+    if (GET_SPEC(ch, CLASS_ROGUE, SPEC_THIEF))
       percent -= location_mod[eq_pos] * 2 / 3;
     else
       percent -= location_mod[eq_pos];
@@ -2536,7 +2568,7 @@ void do_steal(P_char ch, char *argument, int cmd)
       /*
        * success, but heavy stuff increases chance of getting caught
        */
-      percent -= GET_OBJ_WEIGHT(obj);
+      //percent -= GET_OBJ_WEIGHT(obj);
       if (IS_PC(victim))
       {
       	wizlog(MINLVLIMMORTAL, "%s &=LMjust stole &n%s (%d) from %s (%d) with percent (%d)\n",
@@ -2568,7 +2600,7 @@ void do_steal(P_char ch, char *argument, int cmd)
   case 2:
     /* snitching something from target's inven */
     /* heavy items increase difficulty */
-    percent -= GET_OBJ_WEIGHT(obj);
+    //percent -= GET_OBJ_WEIGHT(obj);
 
     if (roll > MIN(percent, 99))
       failed = TRUE;
@@ -2597,7 +2629,7 @@ void do_steal(P_char ch, char *argument, int cmd)
 
         obj_from_char(obj, TRUE);
         obj_to_char(obj, ch);
-        notch_skill(ch, SKILL_STEAL, 20);
+        notch_skill(ch, SKILL_STEAL, 10);
         if (IS_PC(victim))
         {
           wizlog(MINLVLIMMORTAL, "%s &=LMjust stole &n%s (%d) from %s (%d) percent (%d)",
@@ -2690,7 +2722,7 @@ void do_steal(P_char ch, char *argument, int cmd)
                 "Bingo! You got %d &+Wplatinum&N, %d &+Ygold&N, %d silver, and %d &+ycopper&N coins!\r\n",
                 gold[3], gold[2], gold[1], gold[0]);
         send_to_char(Gbuf1, ch);
-        notch_skill(ch, SKILL_STEAL, 20);
+        notch_skill(ch, SKILL_STEAL, 10);
       }
       else
         send_to_char("You couldn't get any coins...\r\n", ch);
@@ -2700,7 +2732,7 @@ void do_steal(P_char ch, char *argument, int cmd)
 
   /* slap this delay on them to stop the incredibly annoying snatch and
    * run */
-  if (GET_SPEC(ch, CLASS_THIEF, SPEC_CUTPURSE))
+  if (GET_SPEC(ch, CLASS_ROGUE, SPEC_THIEF))
     CharWait(ch, 18);
   else
     CharWait(ch, 24);
@@ -2791,6 +2823,7 @@ void do_steal(P_char ch, char *argument, int cmd)
   /* tell everybody of the evil deed! */
 
   // set the victim AWARE for a short bit (wouldn't YOU be paranoid?)
+  /*
   struct affected_type *afp = get_spell_from_char(victim, SKILL_AWARENESS);
   if (!afp)
   {
@@ -2805,7 +2838,7 @@ void do_steal(P_char ch, char *argument, int cmd)
   {
     afp->duration = 1;
   }
-
+  */
   if (!failed)
   {
     if (type == 3)
@@ -3252,7 +3285,7 @@ void do_brief(P_char ch, char *argument, int cmd)
 
 void do_area(P_char ch, char *argument, int cmd)
 {
-  char  buf[MAX_STRING_LENGTH];
+  char  buf[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH];
 
 	if (IS_NPC(ch) && !IS_MORPH(ch))
 	{
@@ -3260,9 +3293,23 @@ void do_area(P_char ch, char *argument, int cmd)
     return;
   }
 
-  sprintf(buf, " %s\n", pad_ansi(zone_table[world[ch->in_room].zone].name, 30).c_str());
-  
+  sprintf(buf, "&+LZone Name: %s\r\n", pad_ansi(zone_table[world[ch->in_room].zone].name, 30).c_str());
+  int zone_id, zone_number;
+  struct zone_data *zone = 0;
+  zone_id = world[ch->in_room].zone;
+  zone = &zone_table[zone_id];
+
+
+  sprintf(buf2, "&+LAverage &+rmob&+L level in zone: &n%d\r\n ",
+            zone->avg_mob_level);
+  int zdiff = (zone->avg_mob_level - GET_LEVEL(ch));
+  if (zdiff > 15)
+  {
+  sprintf(buf2, "&-L&+RWarning&-L, some mobs in this zone may be very hazardous for you! Travel with care!&n\r\n");
+  strcat (buf, buf2);
+  }
   send_to_char(buf, ch);
+  send_to_char(buf2, ch);
   
 }
 
@@ -3363,6 +3410,19 @@ void do_quaff(P_char ch, char *argument, int cmd)
     }
   }
 
+  if(affected_by_spell(ch, TAG_POTION_TIMER))
+  {
+    send_to_char("Your body cannot yet handle another jolt of magical influence!\r\n", ch);
+    return;
+  }
+
+  struct affected_type af;
+  memset(&af, 0, sizeof(af));
+  af.type = TAG_POTION_TIMER;
+  af.duration = 6;
+  affect_to_char(ch, &af);
+
+
   act("$n &+yquaffs&n $p.", TRUE, ch, temp, 0, TO_ROOM);
   act("As you quaff $p, the vial disappears in a bright &+Wflash of light!&n",
       FALSE, ch, temp, 0, TO_CHAR);
@@ -3372,6 +3432,19 @@ void do_quaff(P_char ch, char *argument, int cmd)
   if(equipped)
     unequip_char(ch, HOLD);
 
+    /* value[5] specifies special functions for epic potions */
+/*
+  //make sure to add default spell to potion.
+  if(temp->value[5] > 0)
+  {
+    if(temp->value[5] == 1337)
+    {
+      advance_level(ch);
+      extract_obj(temp, TRUE);
+      return;
+    }
+  }
+*/
   /* value[4] specifies damage player takes from potion - considered non-magical */
 
   if(temp->value[4] > 0)
@@ -3771,6 +3844,7 @@ void show_toggles(P_char ch)
 	  "&+r     Show Quests :&+g %-3s    &+y|&N"
           "&+rBoon Notification:&+g %-3s    &+y|&N\r\n"
 	  "&+r   Newbie EQ   :&+g %-3s    &+y|&N\r\n"
+	  "&+r   Surname   :&+g %-3s    &+y|&N\r\n"
           "&+y-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
           "-=-=-=-=-=-=-=-=-=-=-=-=-=-&N\r\n",
           ONOFF(!PLR_FLAGGED(ch, PLR_NOTELL)),
@@ -3807,7 +3881,8 @@ void show_toggles(P_char ch)
           ONOFF(PLR2_FLAGGED(ch, PLR2_WEBINFO)),
 	  ONOFF(PLR2_FLAGGED(ch, PLR2_SHOW_QUEST)),
 	  ONOFF(PLR2_FLAGGED(ch, PLR2_NEWBIEEQ)),
-	  ONOFF(PLR2_FLAGGED(ch, PLR2_BOON)));
+	  ONOFF(PLR2_FLAGGED(ch, PLR2_BOON)),
+	  ONOFF(PLR3_FLAGGED(ch, PLR3_NOSUR)));
   send_to_char(Gbuf1, send_ch);
 
   if (GET_LEVEL(ch) >= AVATAR)
@@ -3947,6 +4022,7 @@ static const char *toggles_list[] = {
   "quest",
   "boon",
   "newbie",
+  "surname",
   "\n"
 };
 
@@ -4496,7 +4572,7 @@ void do_toggle(P_char ch, char *arg, int cmd)
     result = TOGGLE_BIT(ch->specials.act, PLR_AFK) & (PLR_AFK);
     break;
   case 41:
-     if((GET_LEVEL(ch) > 31) &&
+    /* if((GET_LEVEL(ch) > 31) &&
         (GET_LEVEL(ch) < 57) &&
         !IS_SET(PLR2_FLAGS(ch), PLR2_NCHAT) &&
         !IS_SET(PLR2_FLAGS(ch), PLR2_NEWBIE_GUIDE))
@@ -4505,7 +4581,7 @@ void do_toggle(P_char ch, char *arg, int cmd)
          ("Your level no longer qualifies you for newbie-chat, sorry.\r\n",
           ch);
        return;
-     }
+     }*/
     result = PLR2_TOG_CHK(ch, PLR2_NCHAT);
     break; 
   case 42:
@@ -4546,6 +4622,33 @@ void do_toggle(P_char ch, char *arg, int cmd)
     break;
   case 57:
     result = PLR2_TOG_CHK(ch, PLR2_NEWBIEEQ);
+    break;
+  case 58: //surname
+    arg = one_argument(arg, Gbuf1);
+
+   /* if (is_number(Gbuf1) && (wimp_lev = atoi(Gbuf1)))
+    {
+      if ((wimp_lev < 12) || (wimp_lev > 48))
+      {
+        send_to_char("Screen length must be between 12 and 48 lines\r\n",
+                     send_ch);
+        return;
+      }*/
+	  if(is_number(Gbuf1) && (wimp_lev = atoi(Gbuf1)))
+	  {
+	    set_surname(ch, wimp_lev);
+		return;
+    }
+  /*  else if (isname(Gbuf1, "off") || isname(Gbuf1, "default"))
+    {
+      result = FALSE;
+      strcpy(Gbuf3, " 24");
+    }*/
+    else
+    {
+      display_surnames(ch);
+      return;
+    }
     break;
   default:
     break;
@@ -5592,7 +5695,14 @@ void do_suicide(P_char ch, char *argument, int cmd)
     send_to_char("Your not skilled enough to kill yourself\r\n", ch);
     return;
   }
-  if (GET_LEVEL(ch) > 20)
+ /* if (GET_LEVEL(ch) > 20)
+  {
+    send_to_char("Suicide is not an option at your level, sorry.\r\n", ch);
+    ch->desc->confirm_state = CONFIRM_NONE;
+    return;
+  }*/
+
+ if (IS_TRUSTED(ch))
   {
     send_to_char("Suicide is not an option at your level, sorry.\r\n", ch);
     ch->desc->confirm_state = CONFIRM_NONE;
@@ -5894,8 +6004,9 @@ void make_alchemist(P_char ch)
   }
   if(ch) // Just making sure.
   {
-    if(IS_NPC(ch))
+    if(!IS_NPC(ch))
     {
+	send_to_char("&+WThis is too powerful an enchantment for you to master...&n\n\r",ch);
       return;
     }
     if(IS_TRUSTED(ch))
@@ -5904,6 +6015,7 @@ void make_alchemist(P_char ch)
         ("This would be really really really really really dumb........\n\r",ch);
       return;
     }
+<<<<<<< HEAD
     
     if(GET_CLASS(ch, CLASS_DRUID) || GET_CLASS(ch, CLASS_SHAMAN) || GET_CLASS(ch, CLASS_CLERIC))
     {
@@ -5911,6 +6023,16 @@ void make_alchemist(P_char ch)
     else
     {
       send_to_char("Your class cannot become an alchemist.\r\n", ch);
+=======
+    if (affected_by_spell(ch, TAG_RACE_CHANGE))
+    {
+      send_to_char("You cannot ascend until you're in your true form.\n\r", ch);
+      return;
+    }
+    if (GET_CLASS(ch, CLASS_THEURGIST))
+    {  
+      ascend_theurgist(ch);
+>>>>>>> master
       return;
     }
   
@@ -6055,6 +6177,110 @@ void do_descend(P_char ch, char *arg, int cmd)
 {
   P_char teacher;
   int SELECTION, i = 0;
+  int cost = 0;
+  char second_arg[MAX_INPUT_LENGTH], third_arg[MAX_INPUT_LENGTH];
+  char buff[64];
+
+    if(!GET_CLASS(ch, CLASS_NECROMANCER))
+    {
+      send_to_char("Your convictions aren't appropriate for this endeavour.\n", ch);
+      return;
+    }
+
+    if(GET_LEVEL(ch) < 50)
+    {
+     send_to_char("You must be level &+L50&n in order to descend.\r\n", ch);
+     return;
+    }
+
+  /*  if(GET_RACE(ch) == RACE_PLICH)
+    {
+      send_to_char("You could not get any &+Ldarker&n if you tried.\n", ch);
+      return;
+    }*/
+
+  //Check Items
+  int tome = vnum_in_inv(ch, 58424);
+  int book = vnum_in_inv(ch, 500032);
+  int orbs = vnum_in_inv(ch, 400231);
+
+  if  (
+	!tome ||
+	!book ||
+	!(orbs > 4))
+   {
+    send_to_char("You are missing a vital &+Lcomponent&n needed to &+cdescend&n farther into &+Ldarkness&n.\r\n", ch);
+    return;
+   }
+
+  //Do descend
+ if(GET_CLASS(ch, CLASS_NECROMANCER))
+    {
+      act
+      ("&+L&+LDeath&n &+Lturns to you, $S stare piercing your very &+Wsoul&+L.\n"
+       "&+LSoftly $E whispers '&+YI see your lust for the darkness is not quenched.  For your dedication\n"
+       "&+YI shall grant you the unspeakable &+rpower &+Lof the &+Rdread&+Y.&+L'\n\n"
+       "&+L&+LDeath&n &+Lapproaches and stands before you, softly chanting\n"
+       "&+Lwhile waving a small, curved &+Csacrificial &+Wkris &+Lbefore your chest. The chanting of\n"
+       "&+Lyour dark master rises to a crescendo as $E raises the &+wdagger &+Lhigh and brings it down\n" 
+       "&+Lfiercely upon your breast.\n\n"
+       "&+LIts sharp blade glides easily through your &+Rflesh&+L, freeing your &+rblood &+Lfrom the shell\n"
+       "&+Lof your body. Your vision fades as your eyes fill with stygian clouds of smoke and vapor.\n"       
+       "&+L&+RS&+re&+Ra&+rr&+Ri&+rn&+Rg pain &+Lrages through your body, awakening nerves and alerting the senses.\n\n"
+       "&+L&+LDeath&n &+Lspeaks once more, '&+YLet &+Ldarkness &+Ybe your &+Wsight&+Y.\n"
+       "&+YRely no longer on &+rmortal &+wsenses&+Y.&+L'\n\n"
+       "&+LVisions of d&+we&+Wa&+wt&+Lh and de&+rst&+Rru&+rct&+Lion &+Lfill your mind and temper your resolve.\n"
+       "&+LA wave of nausea overcomes your body, followed by a &+Rtingling &+Lin your head.\n"
+       "&+LYou fight off the ailments and realize that your new &+wvision &+Lhas returned,\n"
+       "&+Lalong with a sense of &+mpower &+Land &+rduty&+L.\n", FALSE, ch, 0, 0, TO_CHAR);
+      act
+      ("&+L&+LDeath&n &+Lturns to $n &+Land stares, piercing $s very &+Wsoul&+L.\n"
+       "&+LSoftly $E whispers '&+YI see your lust for the darkness is not quenched.  For your dedication\n"
+       "&+YI shall grant you the unspeakable &+rpower &+Lof the &+Rdread&+Y.&+L'\n\n"
+       "&+L&+LDeath&n &+Lapproaches $n &+Land stands before $m&+L, softly\n"
+       "&+Lchanting while waving a small, curved &+Csacrificial &+Wkris &+Lbefore $s chest. The\n"
+       "&+Lchanting of $s dark master rises to a crescendo as $E raises the &+wdagger &+Lhigh and\n"
+       "&+Lbrings it down fiercely upon $s breast.\n\n"
+       "&+LIts sharp blade glides easily through $s &+Rflesh&+L, freeing $s &+rblood &+Lfrom the shell\n"
+       "&+Lof $s body. $n's eyes cloud over with a stygian influx of smoke and vapor.\n"       
+       "&+L$n &+Lwrithes in enormous pain as the transformation begins to take hold of $s body.\n\n"
+       "&+LDeath&n &+Lspeaks once more, '&+YLet &+Ldarkness &+Ybe your &+Wsight&+Y... rely\n"
+       "&+Yno longer on &+rmortal &+wsenses&+Y.&+L'\n\n"
+       "&+LWith the rigors and torment of the &+rtransformation &+Lcomplete, $n &+Lraises $s head\n"
+       "&+Land grins with newfound &+Rmalevolence&+L.", FALSE, ch, 0, 0, TO_ROOM);
+    }
+
+  vnum_from_inv(ch, 58424, 1);
+  vnum_from_inv(ch, 500032, 1);
+  vnum_from_inv(ch, 400231, 5);
+    forget_spells(ch, -1);
+    GET_HOME(ch) = GET_BIRTHPLACE(ch) = GET_ORIG_BIRTHPLACE(ch) = 98735;
+    char_from_room(ch);
+    char_to_room(ch, real_room(98735), 0);
+    GET_RACEWAR(ch) = 3;
+    GET_SIZE(ch) = SIZE_MEDIUM;
+    GET_RACE(ch) = RACE_PLICH;
+    ch->player.m_class = CLASS_NECROMANCER;
+    ch->player.secondary_class = CLASS_SORCERER;
+    secede_asc(ch); //leave your guild!
+    ch->only.pc->frags = 0;
+    ch->only.pc->epics = 0;
+
+  for (i = 0; i < MAX_SKILLS; i++)
+  {
+    ch->only.pc->skills[i].learned = 0;
+  }
+  ch->points.max_mana = 0;
+  ch->points.max_vitality = 0;
+  NewbySkillSet(ch);
+  do_start(ch, 0);
+  do_save_silent(ch, 1);
+}
+
+void do_old_descend(P_char ch, char *arg, int cmd)
+{
+  P_char teacher;
+  int SELECTION, i = 0;
   const int INVALID = 0;
   const int WARRIOR = 1;
   const int MERC = 2;
@@ -6076,14 +6302,20 @@ void do_descend(P_char ch, char *arg, int cmd)
   }
   if(ch) // Just making sure.
   { 
-    if(IS_NPC(ch))
+    if(!IS_NPC(ch)) //disabling
     {
+	send_to_char("&+LThese powers are too dark for you to master...&n\n\r",ch);
       return;
     }
     if(IS_TRUSTED(ch))
     {
       send_to_char
         ("This would be really really really really really dumb........\n\r",ch);
+      return;
+    }
+    if (affected_by_spell(ch, TAG_RACE_CHANGE))
+    {
+      send_to_char("You cannot descend until you're in your true form.\n\r", ch);
       return;
     }
     if(!GET_CLASS(ch, CLASS_ANTIPALADIN) &&

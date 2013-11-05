@@ -74,6 +74,8 @@ bool is_npc_ship_name(const char *name)
     }
     if (!strcmp(strip_ansi(name).c_str(), strip_ansi(CYRICS_REVENGE_NAME).c_str()))
         return true;
+    if (!strcmp(strip_ansi(name).c_str(), strip_ansi(ZONE_SHIP_NAME).c_str()))
+        return true;
     return false;
 }
 
@@ -704,6 +706,7 @@ NPCShipSetup npcShipSetup [] = {
     { SH_DREADNOUGHT, 4, 25, &setup_npc_dreadnought_01 },
     { SH_DREADNOUGHT, 4, 25, &setup_npc_dreadnought_02 },
     { SH_DREADNOUGHT, 4, 25, &setup_npc_dreadnought_03 },
+    { SH_ZONE_SHIP,   4, 25, &setup_npc_dreadnought_01 },
 };
 
 
@@ -734,12 +737,12 @@ P_ship try_load_pirate_ship(P_ship target)
         {
             level = 0;
         }
-        else if (n < 800)
+        else if (n < 1200) //old value 800 - drannak
         {
             level = 1;
         }
-        else if (n < 1600 || number(1, 4) != 1)
-        {
+       else if (n < 2200 || number(1, 4) != 1)
+                {
             level = 2;
             if (number(1, 3) == 1)
                 type = NPC_AI_HUNTER;
@@ -749,6 +752,18 @@ P_ship try_load_pirate_ship(P_ship target)
             level = 3;
             type = NPC_AI_HUNTER;
         }
+
+      /* else if (n < 1600 || number(1, 4) != 1)
+        {
+            level = 2;
+            if (number(1, 3) == 1)
+                type = NPC_AI_HUNTER;
+        }
+        else
+        {
+            level = 3;
+            type = NPC_AI_HUNTER;
+        } */
     }
     else
     {
@@ -1129,7 +1144,7 @@ P_char load_npc_ship_crew_member(P_ship ship, int room_no, int vnum, int load_eq
     GET_BIRTHPLACE(mob) = world[room].number;
     apply_zone_modifier(mob);
     char_to_room(mob, room, 0);
-
+/*
     if (load_eq > 0)
     {
         while (load_eq--)
@@ -1139,6 +1154,7 @@ P_char load_npc_ship_crew_member(P_ship ship, int room_no, int vnum, int load_eq
         }
         do_wear(mob, "all", 0);
     }
+*/
     return mob;
 }
 
@@ -1321,3 +1337,49 @@ int get_cyrics_revenge_nexus_rvnum(P_ship ship)
 {
     return SHIP_ROOM_NUM(ship, 7);
 }
+
+/////////////////////////////
+//  Zone Ship
+/////////////////////////////
+
+/*
+P_ship zone_ship = 0;
+
+bool load_zone_ship()
+{
+    if (zone_ship != 0)
+        return false;
+
+    int i = 0, room;
+    for (; i < 200; i++)
+    {
+        room = number (0, top_of_world);
+        if (IS_MAP_ROOM(room) && world[room].sector_type == SECT_OCEAN)
+            break;
+    }
+    if (i == 200) return false;
+
+
+    NPCShipSetup* setup = find_ship_setup(4, SH_ZONE_SHIP, -1);
+    if (!setup)
+        return false;
+
+    zone_ship = create_npc_ship(setup, 0);
+    if (!zone_ship)
+        return false;
+
+    name_ship(ZONE_SHIP_NAME, zone_ship);
+    if (!load_ship(zone_ship, room))
+        return false;
+
+    setup->setup(zone_ship);
+    zone_ship->npc_ai->type = NPC_AI_HUNTER;
+    zone_ship->npc_ai->advanced = 1;
+    zone_ship->npc_ai->permanent = true;
+    zone_ship->npc_ai->mode = NPC_AI_CRUISING;
+
+    assignid(zone_ship, NULL, true);
+    REMOVE_BIT(zone_ship->flags, DOCKED);
+    return true;
+}
+*/

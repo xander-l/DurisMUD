@@ -469,7 +469,14 @@ void convertMob(P_char ch)
                   100 * 100 * (1 - hp_mob_con_factor)) * level * level +
                  2) * level * hp_mob_npc_pc_ratio);
 
+<<<<<<< HEAD
   hits *= class_hitpoints[flag2idx(ch->player.m_class)];
+=======
+  hits *= 1.3; //Drannak - quick tweak for 2013 wipe.
+  hits -=
+    (int) (0.5 * hits *
+           (1.0 - class_hitpoints[flag2idx(ch->player.m_class)]));
+>>>>>>> master
 
 #if defined(CHAOS_MUD) && (CHAOS_MUD == 1)
   hits = (int)(hits * (1/10));

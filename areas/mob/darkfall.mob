@@ -7,8 +7,13 @@ su monster _nomoney_~
 ape like creature with blood red paws jumps around in the trees here.
 ~
 1073743944 0 0 0 0 0 0 0 0 S
+<<<<<<< HEAD
 H 0 1 0 -1
 30 6 -12 35d70+525 4d6+7
+=======
+H 0 0 0 -1
+35 6 -12 35d70+525 4d6+7
+>>>>>>> master
 9.9.1.2 45360
 8 8 1
 #95301
@@ -21,8 +26,13 @@ His fur has gone from gray to white, and from black to gray. His once
 blood red paws are now a soft pink.
 ~
 2058 0 0 0 0 0 0 0 0 S
+<<<<<<< HEAD
 H 0 1 0 -1
 50 2 -15 36d80+756 4d7+10
+=======
+H 0 0 0 -1
+36 2 -15 36d80+756 4d7+10
+>>>>>>> master
 0.1.2.2 46656
 8 8 1
 #95302

@@ -418,6 +418,7 @@ int writeStatus(char *buf, P_char ch)
   ADD_INT(buf, 0);
   ADD_INT(buf, ch->only.pc->epics);
   ADD_INT(buf, ch->only.pc->epic_skill_points);
+  ADD_INT(buf, ch->only.pc->skillpoints);
   ADD_INT(buf, ch->only.pc->spell_bind_used);
 
   ADD_INT(buf, ch->specials.act);
@@ -2271,7 +2272,10 @@ int restoreStatus(char *buf, P_char ch)
   {
     ch->only.pc->epic_skill_points = 0;
   }
-  
+
+  if(stat_vers > 46)
+    ch->only.pc->skillpoints = GET_INTE(buf);
+
   if(stat_vers > 40)
     ch->only.pc->spell_bind_used = GET_INTE(buf);
     

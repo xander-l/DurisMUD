@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #42900
 &+LNarrow &+wPassage &+LInside a Dark Cave&n~
 &+L   The walls in this cave are dark and &+Bcold&+L.  Sounds can be heard coming from&n
@@ -3575,3 +3576,3582 @@ D4
 ~
 0 0 42997
 S
+=======
+#42900
+&+LNarrow &+wPassage &+LInside a Dark Cave&n~
+&+L   The walls in this cave are dark and &+Bcold&+L.  Sounds can be heard coming from&n
+&+Lthe south.  Drops of &+bwater &+Lfall from the ceiling above hitting your head.  A&n
+&+Lstrange smell of brimstone is in the room here.  You also notice some crude&n
+&+Ldrawings on the walls.  It shows what appears to be a giant beast whipping what&n
+&+Llooks like some sort of female humanoid.  Perhaps this is a warning of some&n
+&+Lkind, or maybe it has something to do with the history of the creatures that&n
+&+Lmay dwell or have dwelled here.&n
+~
+429 1216381133 0
+D0
+&+L   The &+wpassage &+Lopens into a &+wbone &+Lfilled cavern.&N
+~
+~
+0 0 42950
+D2
+&+L   The narrow &+wpassage &+Lcontinues on in this direction.&N
+~
+~
+0 0 42901
+S
+#42901
+&+LInside a Narrow &+wPassage &+LWithin Dark Cave&n~
+&+L   This narrow &+wpassage &+Lspans around nine feet in height.  Sounds can be heard&N
+&+Lcoming from the south.  The stench of brimstone is very stong within the arid&N
+&+Lstagnant air here.  Crudge images have been painted upon the walls here.  The&N
+&+Lpictures seem to show smaller humanoid creatures being tortured by a larger&N
+&+Lmuscular being.  Perhaps this serves as a warning of some sort, or maybe some&N
+&+Lstrange primative rituals.  Many &+wtracks &+Lare upon the ground here showing signs&N
+&+Lthat this place is rather well traveled.&N
+~
+429 1216385225 0
+D0
+&+L   The narrow &+wpassage &+Lcontinues on in this direction.&N
+~
+~
+0 0 42900
+D2
+&+L   The narrow &+wpassage &+Lcontinues on in this direction.&N
+~
+~
+0 0 42902
+S
+#42902
+&+LNarrow &+wPassage &+LWithin a Dark Cave&n~
+&+L   This narrow &+wpassage &+Lspans around nine feet in height.  Sounds can be heard&N
+&+Lcoming from the south.  The smell of brimstone is very strong within the dismal&N
+&+Ldreary air here.  The walls in this room have been adorned by primative images&N
+&+Land faded marks of &+rcrimson&+L.  The pictures show what appears to be a very large&N
+&+Lcreature attacking a bunch of smaller ones.  They seem to illustrate some sort&N
+&+Lof battle, where the smaller creatures are slayed and tortured without mercy.&N
+&+LPerhaps this is the depiction of the history of some race, or the end of one.&N
+~
+429 1216385225 0
+D0
+&+L   The narrow &+wpassage &+Lcontinues on in this direction.&N
+~
+~
+0 0 42901
+D2
+&+L   The &+wpassage &+Lseems to open up in this direction.&N
+~
+~
+0 0 42905
+E
+crimson marks words writing~
+&+L
+&+L                                               &N
+&+L                     The Arcane Light of Hecate&N
+                                                        &N
+&+r               Oh ancient one, thy the knowledge of&N
+&+L                               Death&N
+&+r                        rise from thy tomb&N
+&+r             and reveal thy wisdom, the secrets of life&N
+&+r                to the daughters of the endless night&N
+&+r                           born in my womb&N
+&+L                                                           &N
+&+r             Oh powerful queen, thy the knowledge of fear&N
+&+r               &+LDangerous&+r when crossed, the art of sorcery&N
+&+r                    thy bringers of Joy and misery&N
+&+r                 thy children never tell thy mystery&N
+&+L                                                       &N
+&+r               Oh mother of shadows, thy the knowledge of&N
+&+L                                sorrow&N
+&+r         Join the dance in the garden of &+LDionysus&+r delight&N
+&+r                    Joy of life (ecstasy of &+Rlust&+r)&N
+&+r                 We embrace thy shining light tonight&N
+&+L                                             &N
+&+L                                             &N
+~
+S
+#42903
+&+LTriad Inside a Dark Cave&n~
+&+L   Dismal darkness doth dwell within this domain.  Dank dark drops drip down&N
+&+Lfrom the void of sight that lurks above.  Putrid puddles of the vile pungent&N
+&+Lsubstance forms upon the gloomy ground.  Crude &+rcrimson &+Lcolored characters are&N
+&+Lupon the smoked wall.  An ominous odor looms within the dreary arid air here,&N
+&+Lcreating a feeling of despair.  The cave appears to continue on to the east,&N
+&+Lsouth, and to the west.&N
+~
+429 1216385101 0
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42904
+D2
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42906
+D3
+&+L   Flickers of &+Ge&+gm&+Ge&+gr&+Ga&+gl&+Gd &+Ltwilight &+cilluminate &+Lin this direction.&N
+~
+~
+0 0 42920
+E
+crimson characters~
+&+L
+&+L                                               &N
+&+L                     The Arcane Light of Hecate&N
+                                                        &N
+&+r               Oh ancient one, thy the knowledge of&N
+&+L                               Death&N
+&+r                        rise from thy tomb&N
+&+r             and reveal thy wisdom, the secrets of life&N
+&+r                to the daughters of the endless night&N
+&+r                           born in my womb&N
+&+L                                                           &N
+&+r             Oh powerful queen, thy the knowledge of fear&N
+&+r               &+LDangerous&+r when crossed, the art of sorcery&N
+&+r                    thy bringers of Joy and misery&N
+&+r                 thy children never tell thy mystery&N
+&+L                                                       &N
+&+r               Oh mother of shadows, thy the knowledge of&N
+&+L                                sorrow&N
+&+r         Join the dance in the garden of &+LDionysus&+r delight&N
+&+r                    Joy of life (ecstasy of &+Rlust&+r)&N
+&+r                 We embrace thy shining light tonight&N
+&+L                                             &N
+&+L                                             &N
+~
+S
+#42904
+&+LThree Trail Intersection Within a Dark Cave&n~
+&+L   The cold crude wall here is a dark smokey black color.  Symbols of &+RBaphomet&N
+&+Land M&+bui&+Lnr&+bo&+Lht are etched into it in crimson.  A primative picture of a larger&N
+&+Lhumanoid creature beating a smaller humanoid creature with a club is drawn upon&N
+&+Lthe ghastly ground.  Moist drops of a murky &+bliquid &+Ldrips down from the abysmal&N
+&+Lblackness above, forming in small sticky puddles.  A rancid wreak radiates the&N
+&+Larid air.  The cave seems to continue on to the east, south, and to the west.&N
+~
+429 1216385097 0
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42905
+D2
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42907
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42903
+E
+baphomet goat~
+&+r   This is a &+Lsymbol&+r that has been soaked in &+Rblood&+r.  The image consists of a&N
+&+rcircle that has an inverted pentagram drawn within it.  A &+Lgoat &+rhas also been&N
+&+rincluded inside the pentagram itself.  The &+Whorns &+rof the &+Lgoat &+rare thrust upward&N
+&+rin denial of the &+Rtr&+ri&+Rn&+ri&+Rty&+r.  The mouth downward and the ears occupy the east and&N
+&+rwest points.  The eyes of this creature seem to glare with an unholy sort of&N
+&+raware.  You feel a shiver run down along your &+Wspine&+r, meanwhile your feeble mind&N
+&+ris telling you that everything is just fine.  Thoughts of the past start to&N
+&+Linvade &+rthe present, causing resent to resurface and regret to run rampant.&N
+~
+E
+arcane muinroht mystic mystical~
+&+L   This arcane &+bsymbol &+Ldoes not seem like it was spawned from the mortal world.&N
+&+LThe &+Bmystic &+Lmark glows with an eerie glow that transfixes the eyes and shifts&N
+&+Lreality into a jaded blur.  Sounds of movement echo inside your head, calls of&N
+&+Lthe dead beckon to the &+cs&+Co&+cu&+Cl&+L.  Twisted &+bs&+Be&+brp&+Be&+bnts &+Lfrom the &+Bsea &+Lwrap around blades&N
+&+Lof a double edged sabre.  Eyes of demonic &+Rhunger &+Lburn with hate, seeking just&N
+&+Lto end mortal fate.  Scales of sorrow mask a heart of black dismal death, the&N
+&+Cs&+co&+Cu&+cl&+Cs &+Lof the lost taken to satisfy the infernal beasts.  Ancient rites spoken&N
+&+Lby priests who are from the darkest domains.  The stare of &+rsuffering &+Lflows to&N
+&+Lthe bottom of your &+Wspine&+L, suddenly not everything seems to be close to fine.&N
+~
+S
+#42905
+&+LIntersection Inside a Dark Cave&n~
+&+L   The gloom in this room fills mortal &+Cs&+co&+Cu&+cl&+Cs &+Lwith untold despair.  Eyes gaze in&N
+&+Lthe dismal darkness seeking a glance of something solid.  Sounds of creatures&N
+&+Lwho doth dwell in this decrepid hell, echo from all around.  Many marks adorn&N
+&+Lthe fatal floor of this abysmal abode.  Drops fall from out of the raven dark&N
+&+Lthat lurks above, forming in small rancid &+bpools &+Lshattered upon the ground.  A&N
+&+Lstench of decay and death is strong within the arid air.  This cave continues&N
+&+Lon all around thee.&N
+~
+429 1216385101 0
+D0
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42902
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42935
+D2
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42908
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42904
+S
+#42906
+&+LA Three Trail Split Inside a Dark Cave&n~
+&+L   The smokey black wall here has some odd markings painted upon it.  It shows&N
+&+Lwhat seems to be a humanoid getting whipped by a green creature.  The ground&N
+&+Lhere is marked by drops of a &+rcrimson &+Lsubstance.  A murky &+bliquid &+Ldrips down&N
+&+Lfrom the raven blackness above.  A rancid smell fills the dry air here.  Sounds&N
+&+Lof creatures seem to be coming from the south.  This cave continues on to the&N
+&+Lnorth, east, and to the south.&N
+~
+429 1216385097 0
+D0
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42903
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42907
+D2
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42909
+S
+#42907
+&+LIntersection Within a Dark Cave&n~
+&+L   The gloom in this room fills mortal &+cs&+Co&+cu&+Cl&+cs &+Lwith untold despair.  Eyes gaze in&N
+&+Lthe dismal darkness seeking a glance of something solid.  Sounds of creatures&N
+&+Lwho doth dwell in this decrepid hell, echo from all around.  Many marks adorn&N
+&+Lthe fatal floor of this abysmal abode.  Drops fall from out of the raven dark&N
+&+Lthat lurks above, forming in tiny rancid &+gpools &+Lscattered upon the ground.  A&N
+&+Lstench of decay and death is strong within the arid air.  This cave continues&N
+&+Lon all around you.&N
+~
+429 1216385097 0
+D0
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42904
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42908
+D2
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42910
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42906
+S
+#42908
+&+LTriad Split Inside a Dark Cave&n~
+&+L   Simple &+wsymbols &+Lof sadistic situations stained upon a smokey black wall.&N
+&+LMoist sticky muck manifests mainly near the morbid cracks upon the ground.  A&N
+&+Lputrid pungent pestilent stench permeates the arid air.  Dark &+bdrops &+Lof despair&N
+&+Ldrip down from the darkness above.  This dank dismal domain continues on to the&N
+&+Lnorth, south, and to the west.&N
+~
+429 1216385097 0
+D0
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42905
+D2
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42911
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42907
+E
+symbols~
+&+L   The symbols depict two situations, one is of a dragon locked in battle.  The&N
+&+Lother of a hydra in a vile melee with a foe.  Most likely these were drawn by&N
+&+Lthose who are of the &+wunlight&+L.  Bringers of nocturnal ever lasting &+Ct&+cw&+Ci&+cl&+Ci&+cg&+Ch&+ct&+L, the&N
+&+Lwarriors of fright.  Lurking in &+bshadows&+L, stalking suffering sadistic sight.&N
+~
+E
+hydra~
+&+L   This picture depicts a nine headed hydra in combat with a &+gs&+Ge&+grp&+Ge&+gnt&+Gi&+gn&+Ge &+Lbeing.&N
+&+LThe hydra seems to be winning the battle, three of its heads have clamped onto&N
+&+Lthe neck of the &+gs&+Ge&+grp&+Ge&+gnt &+Lcreature.  The tail of the hydra also seems like it is&N
+&+Labout to strike the back of the reptiles repulsive head.  This image probably&N
+&+Lis here to display the fact that might makes right.  The meek shall only have&N
+&+Ltheir cheeks broken and be used as food for those of the &+wunlight&+L.&N
+~
+E
+dragon~
+&+L   This depicts a battle of a large black dragon in combat with a &+gr&+Ge&+gpt&+Gi&+gl&+Gia&+gn&N
+&+Lcreature.  The dragon scales gleam an unholy blackness that sucks in all the&N
+&+Lfeeble light in sight.  The &+Wclaws &+Lof the dragon are covered with blood of its&N
+&+Ldoomed enemy.  The &+gr&+Ge&+gpt&+Gi&+gl&+Gia&+gn &+Lshows many signs that it is not going to become&N
+&+Lthe victor of this combat.  &+rBl&+Ro&+ro&+Rd &+Lflows from the lack luster &+gr&+Ge&+gpt&+Gi&+gl&+Gia&+gn &+Lmonster&N
+&+Land stains the deadly dragon.&N
+~
+S
+#42909
+&+LThree Path Intersection Within a Dark Cave&n~
+&+L   The hard wall in this abysmal place is a smoked black color and cold to the&N
+&+Ltouch.  Tiny &+bpuddles &+Lof a putrid looking liquid form in several pools upon the&N
+&+Lgloomy ground.  A pungent stench fills the dry arid air here.  Drops of a murky&N
+&+Lmoist substance drip down form the vile &+wBerethorn &+Lblackness.  Distant sounds of&N
+&+Lmovement can be heard.  Seemingly emanating from the east.  This cave continues&N
+&+Lon to the north, east, and to the south.&N
+~
+429 1216385097 0
+D0
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42906
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42910
+D2
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42921
+S
+#42910
+&+LThree Trail Intersection Inside a Dark Cave&n~
+&+L   The wall here is a dark and dismal smokey black color.  It bears strange&N
+&+Lmarkings upon it, what seems like some sort of primative hunting scene.  The&N
+&+Lground here has a grisly picture upon it, what appears to be a large humanoid&N
+&+Lcreature performing sexual acts to smaller humanoid creatures.  Tiny &+bdrops &+Lof&N
+&+La &+gmurky &+Lliquid falls from the darkness above, forming in small putrid puddles.&N
+&+LThe scent of suffering is strong within the air here.  This cave continues on&N
+&+Lto the north, east, and to the west.&N
+~
+429 1216385097 0
+D0
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42907
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42911
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42909
+S
+#42911
+&+LThree Path Convergence Inside a Dark Cave&n~
+&+L   The wall here is a pitch black color.  Drops of a clear moist liquid cascade&N
+&+Ldown from the raven darkness above.  The ground here is rough and uneven, with&N
+&+Lsome small puddles of an &+bazure &+Lsubstance evident.  This area of the cave seems&N
+&+Lto be rather well traveled.  Sounds of movment seem to be coming from the west.&N
+&+LThis place continues on to the north, south, and to the west.&N
+~
+429 1216385097 0
+D0
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42908
+D2
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42923
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42910
+S
+#42912
+&+LGloomy Bend Inside an &+gE&+Gm&+ge&+Gr&+ga&+Gl&+gd &+GC&+ga&+Gv&+ge&+Gr&+gn&n~
+&+L   This place radiates an odd energy that can't quite be explained.  The stone&N
+&+Lwithin this area almost seems to absorb mystical power.  Wards and symbols have&N
+&+Lbeen etched into the &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Lwalls.  Perhaps they are some primative alphabet&N
+&+Lletters or numbers.  Murky mists trail within arid empty air, images flicker&N
+&+Linto and out of faded view.  Remnants from the past, shifting into moments of&N
+&+Lthe noctambulant now.&N
+~
+429 1216385217 3
+D1
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42913
+D2
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42915
+S
+#42913
+&+LThree Trail Convergence Within an &+gE&+Gm&+ge&+Gr&+ga&+Gl&+gd &+GC&+ga&+Gv&+ge&+Gr&+gn&n~
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Lin this place radiates a dreary energy that seems to absorb the&N
+&+Lmystical forces of fate.  Demonic symbols have been drawn upon the dull gloomy&N
+&+Ljagged ground.  Perhaps they are some sort of wards to prevent the use of some&N
+&+Lkinds of invoking.  Mists twist and turn within the arid transfixed air, shades&N
+&+Lform then dissipate into forgotten view.  Memories long since past, remnants&N
+&+Lfaded ever more.  This &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on to the east, south, and to the west.&N
+~
+429 1216385225 0
+D1
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42914
+D2
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42916
+D3
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42912
+S
+#42914
+&+LDismal Bend Within an &+gE&+Gm&+ge&+Gr&+ga&+Gl&+gd &+GC&+ga&+Gv&+ge&+Gr&+gn&n~
+&+L   This place radiates an odd energy that can't quite be explained.  The stone&N
+&+Lwithin this area almost seems to absorb mystical power.  Wards and symbols have&N
+&+Lbeen burned into the north &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Lwall.  Perhaps they are some mating rituals&N
+&+Lor native dances.  Murky mists trail within arid air, morbid visions flicker&N
+&+Linto and out of faded view.  Remnants from the past, shifting into moments of&N
+&+Lthe nocturnal now.  The &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues to the south and to the wicked west.&N
+~
+429 1216385225 0
+D2
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42917
+D3
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42913
+S
+#42915
+&+LTriad Convergence Inside an &+gE&+Gm&+ge&+Gr&+ga&+Gl&+gd &+GC&+ga&+Gv&+ge&+Gr&+gn&n~
+&+L   This &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lradiates an odd energy that almost seems to absorb the&N
+&+Lmystical fabric of reality.  &+LS&+be&+Lrp&+be&+Lnt&+bi&+Ln&+be &+Lsymbols have been drawn upon the gloomy&N
+&+Lghastly ground here.  Images of despair, serving as warnings to those that dare&N
+&+Lto wander with wonder.  Mists and &+bshadows &+Lshift and sway within the arid empty&N
+&+Lair.  Colors form for moments, then fade back into forgotten memories.  Perhaps&N
+&+Lthis place was at one time a mine.&N
+~
+429 1216385225 0
+D0
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42912
+D1
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42916
+D2
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42918
+E
+serpentine serpent symbols~
+&+b   Th&+Bi&+bs &+Bs&+be&+Brp&+be&+Bnt i&+bs &+Bwr&+ba&+Bpp&+be&+Bd u&+bp&+Bo&+bn a &+Lpitchfork &+bi&+Bn a&+bn u&+Bnh&+bo&+Bly &+bl&+Boo&+bk&+Bi&+bng &+BS &+bsh&+Ba&+bp&+Be&+b.  I&+Bt&N
+&+Ba&+blm&+Bo&+bst &+Bs&+bee&+Bms a&+bs i&+Bf &+bth&+Bi&+bs i&+Bs a &+bcr&+Be&+bst &+Bo&+bf &+Bs&+bo&+Bm&+be &+Ldemonic &+bb&+Bei&+bng &+Bth&+ba&+Bt &+bl&+Bu&+brks &+Bi&+bn w&+Bo&+brlds&N
+&+bth&+Ba&+bt a&+Br&+be b&+Be&+by&+Bo&+bnd &+Bth&+be &+Bu&+bnd&+Be&+brst&+Ba&+bnd&+Bi&+bng o&+Bf &+bs&+Bi&+bmpl&+Be&+bt&+Bo&+bn &+Bm&+bo&+Brt&+ba&+Bls&+b.  Th&+Be e&+by&+Be&+bs o&+Bf &+bth&+Bi&+bs &+Lbeast
+&+Bgl&+bo&+Bw &+bw&+Bi&+bth &+Bh&+ba&+Btr&+be&+Bd a&+bnd &+Bb&+boun&+Bdl&+be&+Bss &+bdr&+Bea&+bd.  &+BTh&+be sc&+Ba&+bl&+Be&+bs o&+Bf &+bth&+Be r&+be&+Bpt&+bi&+Bl&+be s&+Bee&+bm &+Bt&+bo &+Bsw&+bi&+Bft&N
+&+ba&+Bnd sw&+ba&+By a&+bnd &+Bch&+ba&+Bng&+be fr&+Bo&+bm &+Bsh&+ba&+Bd&+be t&+Bo &+bsh&+Ba&+bd&+Be&+b, &+Bfr&+bo&+Bm &+bd&+Be&+bep &+Baz&+bur&+Be &+bt&+Bo &+ba &+Bgl&+bo&+Bw&+bi&+Bng &+bf&+Bo&+brm o&+Bf&N
+&+Bth&+be s&+Ba&+bm&+Be c&+bo&+Bl&+bo&+Br&+b.&N
+~
+E
+shadow shadows~
+&+bI&+Lm&+ba&+Lg&+be&+Ls &+bo&+Lf &+rsuffering &+bo&+Lf m&+bo&+Lrt&+ba&+Lls dr&+bi&+Lft &+bi&+Lnt&+bo &+Ls&+bi&+Lght, y&+bou &+Ls&+bee &+Lth&+bei&+Lr f&+bee&+Lbl&+be &+Lpl&+bi&+Lght.&N
+&+LH&+bo&+Lw s&+ba&+Ld th&+be&+Ly st&+bi&+Lll c&+bo&+Lnt&+bi&+Ln&+bue &+Lt&+bo &+Lf&+bi&+Lght, by wh&+ba&+Lt r&+bi&+Lght d&+bo &+Lth&+be&+Ly h&+ba&+Lv&+be m&+Lys&+bti&+Lc m&+bi&+Lght.&N
+&+LTh&+be&+Ly b&+ba&+Lttl&+be a&+Lg&+bai&+Lnst dr&+ba&+Lg&+bo&+Lns &+ba&+Lnd d&+be&+Lm&+bo&+Lns, &+Rdevils &+Ld&+be&+Lsc&+be&+Lnd d&+bo&+Lwn &+bu&+Lp&+bo&+Ln th&+be &+Lfr&+bo&+Lm th&+be&+Lm.&N
+&+LDr&+bi&+Lft&+bi&+Lng d&+bo&+Lwn fr&+bo&+Lm &+bou&+Lt &+bo&+Lf th&+be &+Lbl&+ba&+Lck sky, W&+bi&+Lngs &+bo&+Lf d&+barkne&+Lss spr&+bea&+Ld v&+boi&+Ld&+be&+Ld l&+bi&+Lght.&N
+&+LSh&+bado&+Lws sh&+bi&+Lft &+bi&+Lnt&+bo &+Lm&+bo&+Lrt&+ba&+Ll v&+bie&+Lw, tw&+bi&+Lst&+bi&+Lng &+ba&+Lnd t&+bu&+Lrn&+bi&+Lng &+bi&+Ln &+bd&+Le&+bv&+Li&+bl&+Li&+bsh &+revil &+Lt&+bo&+Lrt&+bu&+Lr&+be&+L.&N
+&+bA &+bcold &+Bchill &+bo&+Lf dead f&+bi&+Llls th&+bi&+Ls &+ba&+Lbysm&+ba&+Ll r&+boo&+Lm, c&+bau&+Ls&+bi&+Lng &+be&+Ly&+be&+Ls t&+bo &+Lf&+bo&+Lrm &+bi&+Lnt&+bo tear&+L.&N
+~
+S
+#42916
+&+LIntersection Within an &+gE&+Gm&+ge&+Gr&+ga&+Gl&+gd &+GC&+ga&+Gv&+ge&+Gr&+gn&n~
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Lin this place radiates an odd energy that seems to absorb the&N
+&+Lmystical forces of fate.  Sadistic symbols have been drawn upon the gloomy and&N
+&+Ljagged ground.  Perhaps they are some sort of wards to prevent the use of some&N
+&+Lforms of invoking.  Mists twist and turn within the arid transfixed air, shades&N
+&+Lform then dissipate into forgotten view.  Memories long since past, remnants&N
+&+Lrotted ever more.  This &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on to the north, east, south and west.&N
+~
+429 1216385225 0
+D0
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42913
+D1
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42917
+D2
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42919
+D3
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42915
+S
+#42917
+&+LTriad Convergence Within an &+gE&+Gm&+ge&+Gr&+ga&+Gl&+gd &+GC&+ga&+Gv&+ge&+Gr&+gn&n~
+&+L   This &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lradiates a dark energy that almost seems to absorb the&N
+&+Lmystical fabric of reality.  &+LSinister symbols have been drawn upon the gloomy&N
+&+Lghastly ground here.  Images of despair, serving as warnings to those that dare&N
+&+Lto wander with wonder.  Mists and &+gmusty &+Lvapores shift and sway within the arid&N
+&+Lair.  Colors form for moments, then fade back into forgotten memories.  Perhaps&N
+&+Lthis place was at one time used as a mine.&N
+~
+429 1216385225 0
+D0
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42914
+D2
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42920
+D3
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42916
+S
+#42918
+&+LA Narrow Bend Inside an &+gE&+Gm&+ge&+Gr&+ga&+Gl&+gd &+GC&+ga&+Gv&+ge&+Gr&+gn&n~
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Lin this place radiates a weary energy that seems to absorb the&N
+&+Lmystical forces of hate.  Sinister symbols have been drawn upon the dull gloomy&N
+&+Ljagged ground.  Perhaps they are some sort of wards to prevent the use of some&N
+&+Lkinds of invoking.  Mists twist and turn within the arid transfixed air, shades&N
+&+Lgain form then dissipate into faded view.  Memories long since past, remnants&N
+&+Lforgotten ever more.  This &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on to the nocturnal north and east.&N
+~
+429 1216385225 0
+D0
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42915
+D1
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42919
+S
+#42919
+&+LThree Path Convergence Inside an &+gE&+Gm&+ge&+Gr&+ga&+Gl&+gd &+GC&+ga&+Gv&+ge&+Gr&+gn&n~
+&+L   This &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lradiates a dark energy that almost seems to absorb the&N
+&+Lmystical fabric of reality.  &+LDaemonic symbols have been drawn upon the gloomy&N
+&+Lghastly ground here.  Images of despair, serving as warnings to those that dare&N
+&+Lto wander with wonder.  Mists and &+gmusty &+Lvapores shift and sway within the arid&N
+&+Lair.  Colors form for moments, then fade back into forgotten memories.  Perhaps&N
+&+Lthis place was at one time used as a mine.&N
+~
+429 1216385225 0
+D0
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42916
+D1
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42920
+D3
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42918
+S
+#42920
+&+LThree Path Intersection Inside an &+gE&+Gm&+ge&+Gr&+ga&+Gl&+gd &+GC&+ga&+Gv&+ge&+Gr&+gn&n~
+&+L   This place radiates an odd energy that can't quite be explained.  The stone&N
+&+Lwithin this area almost seems to absorb mystical power.  Wards and symbols have&N
+&+Lbeen burned into the &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Lground.  Perhaps they are some primative rituals&N
+&+Lor native dances.  Murky mists trail within arid air, morbid visions flicker&N
+&+Linto and out of faded view.  Remnants from the past, shifting into moments of&N
+&+Lthe noctambulant now.  The &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lnarrows to the east and opens to the west.&N
+~
+429 1216385225 0
+D0
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42917
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42903
+D3
+&+L   The &+ge&+Gm&+ge&+Gr&+ga&+Gl&+gd &+Gc&+ga&+Gv&+ge&+Gr&+gn &+Lcontinues on in this direction.&N
+~
+~
+0 0 42919
+S
+#42921
+&+bCreepy &+LCurve Inside a Dark Cave&n~
+&+L   The walls in this cave are a smokey black color.  They are very slick to the&N
+&+Ltouch, with some built up moisture.  Small droplets of an azure &+bliquid &+Ldrips&N
+&+Ldown from the darkness above.  Sounds of movement can be heard from what seems&N
+&+Lto be all around you.  The ground here is rather worn, showing many signs of&N
+&+Lpast travelers.  The cave continues on into the darkness to the north and seems&N
+&+Lto lead into a den to the west.&N
+~
+429 1216385097 0
+D0
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42909
+D3
+&+L   The cave seems to lead into a dark den.&N
+~
+~
+0 0 42922
+S
+#42922
+&+LThe Den of &+rDrustl&n~
+   &+LThe walls here are made from a smooth polished stone.  Many &+wheads &+Lof&N
+&+Ldifferent animals are mounted on the southern wall.  This seems to be some&N
+&+Lsort of lair, perhaps to a primative hunter.  Some primative drawings are on&N
+&+Lthe western wall, they show what seems to be a warrior hunting a large four&N
+&+Llegged creature.  The ground here has some odd markings, it shows a goat head&N
+&+Lthat is placed within a &+Rcrimson &+Lcircle, a &+rpentagram &+Lalso outlines the head of&N
+&+Lthe animal.  A smell of decomposing animals is rich in the air here, perhaps&N
+&+Lthe fallen prey has not been properly preserved.&N
+~
+429 1249939532 0
+D1
+&+L   A &+bcreepy &+Lbend within a dismal cave.&N
+~
+~
+0 0 42921
+E
+markings crimson pentagram goat~
+&+L   This symbol has been drawn here by one of those who is of the &+wunlight&+L.  It&N
+&+Ldepicts a goat within an inverted pentagram that is enclosed by a circle.  The&N
+&+Whorns&+L of the beast are thrust upward in denial of the &+rtr&+Ri&+rn&+Ri&+rty&+L and the mouth is&N
+&+Lpointed downward.  The ears of this being flow to the east and to the west and&N
+&+Lare within the points of the pentagram.  The eyes of this black goat seem to&N
+&+Lpenetrate the soul and sends an eerie &+Bchill&+L within the body.  Fears long since&N
+&+Lthought dead invade the mind and become the present.  The regrets of your life&N
+&+Lbecomes all that you can think of.  You wonder how you could of been so wrong&N
+&+Lin following the light.  D&+barkne&+Lss is the true power and to deny that is to&N
+&+Lremain feeble.  The visions blur and twist into an odd array of nothingness.&N
+~
+E
+heads animals mounted trophies~
+&+L   The heads of fallen creatures adorn the southern wall.  They consist of an&N
+&+Lowlbear, displacer beast, &+Wunicorn&+L, giant, &+gtroll&+L, black dragon, &+yhalfling&+L, and&N
+&+Lseveral &+rduergars&+L.  Most likely these &+wtrophies &+Lwere collected by a very skilled&N
+&+Lhunter.  Some of them seem like they were killed in a way to make them suffer.&N
+&+LPerhaps they were slain in mortal kombat or in self defense.&N
+~
+E
+owlbear~
+&+L   This creature seems to be a creation of some demented wizard, or perhaps a&N
+&+bmystic &+Lbet.  The monster seems to be a cross between an &+yowl &+Land a bear of some&N
+&+Lsort.  The beak of this being is an &+Wivory &+Lcolour and the terrifying eyes are&N
+&+Lred-&+rr&+Ri&+rmm&+Re&+rd&+L.  Life no longer fills this entity with aggression or torment, once&N
+&+Lfeared now only another trophied head forced into &+wdead&+L.&N
+~
+E
+displacer beast~
+&+L   Eyes that glow with an eerie green &+Ghaze&+Ld look even in dismal cold death.&N
+&+RF&+ra&+Rng&+rs &+Lof forgotten fury dotted by stains of slain prey that can no longer pray.&N
+&+LThe head of a puma like beast that gave so many release from the lie of life.&N
+&+LA hunter that was hunted and lost the final fight, &+Rcursed &+Lto be locked as an&N
+&+Leternal &+wtrophy&+L.  Mounted and displayed as if a pathetic prize captured within&N
+&+Lthe time it had to live.  A mind that is not one with the once broad bulky body&N
+&+Lof a hateful being.  &+rScars &+Lof battles that were not the last still can be seen&N
+&+Lupon the &+bface &+Lof this fallen foe.&N
+~
+E
+unicorn~
+&+L   This head comes from the mystical creature known as the &+Wunicorn&+L.  This once&N
+&+Lpowerful steed has a gleaming coat of pure white &+Whair&+L.  The eyes of this being&N
+&+Lare a &+bdeep &+Bsea &+Cblue &+Lthat no longer hold life within them.  Long, silky white&N
+&+Lstrands of &+Whair &+Lhang down from the mane and forelock.  A single &+Wivory&+L-colored&N
+&+Lhorn that spans about three feet in length grows from the center of the colt's&N
+&+Lforehead.  The &+Wpowder &+Lbeard beneath the entity's chin spans around one foot in&N
+&+Lsize.  This noble beast once dwelled inside majestic &+ywood&+Llands with his mate,&N
+&+Lnow he is just another &+wtrophy &+Lfor the delight of a hunter.  No longer to see&N
+&+Lthe &+Rs&+ru&+Rn &+Lrise, only to be &+rdamned &+Lto wander in the &+Reternal &+Ldemonical &+Ct&+cw&+Ci&+cl&+Ci&+cg&+Ch&+ct&+L.&N
+~
+E
+giant~
+&+L   A head that once rested upon a body that could bring untold dread.  Eyes of&N
+&+Lfallen &+Rfire&+L, now do not hold even a &+wflicker &+Lof desire.  A creature that walked&N
+&+Lthe lands, causing all who saw to feel feeble fear.  This huge head most likely&N
+&+Lwas not handed over to the hunter without a fearsome fight.  You wonder how a&N
+&+Lbeing that held so much might could be forced to lose sight.  Inside your glad&N
+&+Lthat this monster is no longer able to deal out any despair.  No feelings of&N
+&+Lloss are felt for this slain bitter beast.  Feasting on &+rflesh &+Lof mortals can&N
+&+Lnot be done for the giant is just that.&N
+~
+E
+troll~
+&+L   Green &+gskin &+Lfilled with untold unholy sin, &+Reyes &+Lof fire burn with hatred for&N
+&+Lall those who dare to stare.  A glare from beyond forcing mortal &+Cs&+co&+Cu&+cl&+Cs &+Lto &+rburn&N
+&+Lwith dismal despair.  The creature is mounted and a plaque at the bottom of it&N
+&+Lhas the word &+gF&+Gr&+ge&+Gn &+Letched into it.  Perhaps this is just wishful thinking or&N
+&+Lcould this be the head of the legend himself.  Wonder can only continue till&N
+&+Lthe &+bnight &+Lfades into the day, hide in the light or he shall end your sight.&N
+&+LCare for the plight of none, he only needs to hunt as one, not even in fear of&N
+&+Lthe sun.  Winds of death wash over shores of &+rK&+Lar&+ra&+L-&+rS&+Lheh&+rr&+L, broken &+Wbones &+Ldrift on&N
+&+Ltides of torment.  &+wOnly death is real&+L, reality is nothing but a dark delusion.&N
+~
+E
+black dragon~
+&+L   This head seems to of come from a rather old black dragon.  Eyes that once&N
+&+Lheld &+revil &+Ldesire, no longer even flicker with a glint of &+Rfire&+L.  &+WFangs &+Lfilled&N
+&+Lwith ferocious fury, now simply act as a symbol of a creature that once was.&N
+&+LCreature of the &+bnight&+L, bringer of untold fright, might once made it right and&N
+&+Lnow the being lacks even sight.  Decapatated in a &+rbl&+Ro&+ro&+Rd&+ry &+Lfight or slain while&N
+&+Lthe monster was simply faded into sleep.  A myth now forced into a memory with&N
+&+Lonly a pathetic &+wtrophy &+Lof what it once was.&N
+~
+E
+halfling~
+&+L   The head of this small &+yhalfling &+Lseems to show signs that it was bashed by a&N
+&+Lblunt object.  &+BEyes &+Lof blue that no longer know the lie that is called by many&N
+&+Llife.  Long gangly brown &+yhair &+Lthat once flowed past shoulders now simply flows&N
+&+Lwithout reason.  Now simply a head that has become a &+wtrophy &+Lof a game hunter.&N
+~
+E
+duergars several dorfs~
+&+L   These heads of fallen &+rduergars &+Lhave been preserved almost without flaw.  As&N
+&+Lyou gaze at the decapatated heads you wonder how and by who they were slain by.&N
+&+LThe heads number three in total, the first head has lifeless brown &+yeyes&+L, a long&N
+&+Lgangly beard that is an ebon color, ears that seem at least five sizes to big&N
+&+Lfor the creature and the name &+wSlappy &+Lhas been etched into the plaque that rests&N
+&+Lbelow the head.  The second head has eyes of &+rhat&+Lr&+re&+Ld that have been snuffed of&N
+&+Lany life, ears that stick out colored an odd tan, teeth that have mostly fell&N
+&+Linto &+Rrot &+Land left the being long before death, a &+Wbeard &+Lof white that no longer&N
+&+Lholds any fight and the name &+bT&+Le&+bz&+Lc&+ba&+Lt has been etched at the bottom of the beast.&N
+&+LThe third head of the final one who is dead, &+weyes &+Lno longer fueled with hatred&N
+&+Lor futile desire, fire that has &+rburn&+Led the ears of this small creature, teeth&N
+&+Lthat know little more then &+wdecay &+Land &+Rrot&+L, hair of raven blackness that flowed&N
+&+Lat one time upon a back of burden, an unruley beard that has heard voices from&N
+&+Lbeyond the grave, the name &+rGlovk &+Letched into the &+ctarnished &+Lplaque that the once&N
+&+Lproud neck of this dwarf has been mounted into.  Sounds of suffering can almost&N
+&+Lbe heard as you gaze into the eyes of these once mighty warriors.  No longer to&N
+&+Lfight for what they thought to be right, death is now their final plight.  Yet&N
+&+Lthat was not enough, forced to be &+wtrophies &+Lforever locked into &+rt&+Ro&+rrm&+Re&+rnt&+Led peril.&N
+~
+S
+#42923
+&+LNarrow Curve Inside a Dark Cave&n~
+&+L   The walls here are a dark and dismal black color.  They bear strange marks&N
+&+Lthat have been burned into them.  One picture seems to show what appears to be&N
+&+La primative hunting party killing a large &+wbull &+Llike animal.  Another image is&N
+&+Lof a larger creature whipping a smaller one with a nine fanged whip.  Smells&N
+&+Land sounds fill the arid dank dreary air here.  &+bDrop&+Ls cascade down from out of&N
+&+Lthe demonic darkness that dwells above.  The droplets form in small shallow&N
+&+Lmurky &+gpools &+Lwithin the cracks of the ghastly ground.&N
+~
+429 1216385097 0
+D0
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42911
+D2
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42924
+S
+#42924
+&+LNarrow Intersection of Three Paths Inside a Dark Cave&n~
+&+L   Dismal darkness doth dwell within this domain.  Tiny dark drops drip down&N
+&+Lfrom the void of sight that lurks above.  Rancid puddles of the vile pungent&N
+&+Lsubstance forms upon the ghastly ground.  Crude &+Ba&+bz&+Bu&+br&+Be &+Lcolored characters are&N
+&+Lupon the &+wsmoke&+Ld wall.  An ominous odor looms within the dreary arid air here,&N
+&+Lcreating a feeling of dread.  The cave ap&+gp&+Lears t&+go &+Lcon&+gt&+Linue on to the north,&N
+&+Least, and to the south.&N
+~
+429 1216385097 0
+D0
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42923
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42930
+D2
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42925
+E
+azure colored characters symbols~
+&+B   Th&+be&+Bs&+be &+Bsymb&+bo&+Bls s&+bee&+Bm l&+bi&+Bk&+be &+Bth&+be&+By w&+be&+Br&+be &+Bdr&+ba&+Bwn fr&+bo&+Bm th&+be &+Bw&+bi&+Bnds &+bo&+Bf th&+be nordic &+Lnight&+B.&N
+&+BIm&+ba&+Bg&+be&+Bs &+bo&+Bf d&+be&+Bm&+bo&+Bns &+ba&+Bnd d&+be&+Bv&+bi&+Bls l&+bo&+Bck&+bed &+bi&+Bn &+be&+Bt&+be&+Brn&+ba&+Bl &+Ldespair &+Bf&+ba&+Bd&+be i&+Bnt&+bo &+Bv&+bi&+Bs&+bio&+Bns &+bo&+Bf th&+be&N
+&+bnorthern &+Lhordes &+Br&+bi&+Bd&+bi&+Bng &+bi&+Bnt&+bo &+Bb&+ba&+Bttl&+be u&+Bnd&+be&+Br th&+be &+Bb&+ba&+Bnn&+be&+Br o&+Bf &+ba &+Bm&+bi&+Bghty k&+bi&+Bngd&+bo&+Bm.  Th&+be&N
+&+Bh&+bo&+Brs&+be&+Bs cr&+bea&+Bt&+be a &+Bb&+bea&+Bt &+bo&+Bf dr&+bu&+Bms th&+ba&+Bt r&+bo&+Blls &+bi&+Bnt&+bo &+Bth&+be &+Bm&+bi&+Bnd &+ba&+Bnd fl&+bo&+Bws d&+bo&+Bwn &+ba&+Bl&+bo&+Bng t&+bo&N
+&+Bth&+be &+Bb&+ba&+Bs&+be o&+Bf th&+be spine&+B, s&+bu&+Bdd&+be&+Bnly n&+bo&+Bt &+be&+Bv&+be&+Bryth&+bi&+Bng s&+bee&+Bms t&+bo &+Bb&+be &+Bf&+bi&+Bn&+be&+B.  &+BE&+By&+be&+Bs &+bo&+Bf th&+be&N
+&+Bm&+bo&+Brt&+ba&+Bls gaz&+be &+Bh&+bo&+Bp&+bi&+Bng t&+bo &+Bfind &+be&+Bv&+be&+Bn &+ba &+Bgl&+bi&+Bmm&+be&+Br &+bo&+Bf &+ba &+Bs&+bi&+Bgn.  C&+ba&+Blls &+bo&+Bf th&+be &+Bd&+ba&+Bmn&+be&+Bd &+ba&+Br&+be&N
+&+Bdr&+bo&+Bwn&+be&+Bd &+bou&+Bt by th&+be &+Bcr&+bie&+Bs &+bo&+Bf th&+bo&+Bs&+be &+Bwh&+bo &+Bm&+bu&+Bst s&+bu&+Bff&+be&+Br &+ba&+Bs th&+be &+Bw&+bea&+Bk.  D&+be&+Bc&+ba&+Bp&+ba&+Bt&+ba&+Bt&+be&+Bd&N
+&+Bh&+bea&+Bds pl&+ba&+Bc&+be&+Bd h&+bi&+Bgh &+bo&+Bn t&+bo&+Bp &+bo&+Bf &+Rbloody &+Bst&+ba&+Bk&+be&+Bs, w&+ba&+Brr&+bio&+Brs f&+ba&+Bll&+be&+Bn l&+bi&+Btt&+be&+Br th&+be &+Bgl&+boo&+Bmy&N
+&+Bgr&+bou&+Bnd.  W&+bea&+Bp&+bo&+Bns &+bo&+Bnc&+be u&+Bs&+be&+Bd t&+bo &+Bw&+ba&+Bg&+be &+Bw&+ba&+Br n&+bo&+Bw &+bu&+Bs&+be&+Bd t&+bo &+Bb&+bu&+Bry th&+bo&+Bs&+be &+Bwh&+bo &+Bd&+bie&+Bd by th&+be&N
+&+Lblood &+Bs&+boa&+Bk&+be&+Bd sw&+bo&+Brds &+bo&+Bf th&+bei&+Br f&+bo&+Brm&+be&+Br br&+bo&+Bth&+be&+Brs.  Sh&+bi&+Bv&+be&+Brs sl&+bo&+Bwly cr&+bee&+Bp d&+bo&+Bwn &+bi&+Bnt&+bo&N
+&+Bth&+be &+Bb&+bo&+Bdy &+bo&+Bf th&+be &+Bd&+biei&+Bng m&+bo&+Brt&+ba&+Bls, th&+be &+Bc&+bo&+Bld ch&+bi&+Bll &+bo&+Bf th&+be &+Ldead &+Bt&+bou&+Bch&+be&+Bs th&+be &+Bs&+Bo&+Bu&+Bl&+Bs&N
+&+bo&+Bf th&+bo&+Bs&+be &+Bwh&+bo a&+Br&+be &+Bf&+bo&+Br&+be&+Bv&+be&+Br t&+bo &+Bb&+be &+Bl&+bo&+Bst.  T&+bo&+Brm&+be&+Bnt &+ba&+Bnd t&+bo&+Brt&+bu&+Br&+be a&+Bll th&+ba&+Bt sh&+ba&+Bll b&+be&+B,&N
+&+Bn&+bo&+Bth&+bi&+Bng &+be&+Bls&+be &+Bsh&+ba&+Bll &+be&+Bv&+be&+Br f&+ba&+Bd&+be o&+Br fl&+bi&+Bck&+be&+Br &+bi&+Bnt&+bo &+Br&+bea&+Bl.  D&+bea&+Bls w&+bi&+Bth th&+be &+Bd&+bevil&+B, t&+bo&N
+&+Bl&+bie &+Bt&+bo &+By&+bou&+Brs&+be&+Blf &+ba&+Bnd try t&+bo &+Btr&+bi&+Bck th&+bo&+Bs&+be &+Bf&+boo&+Bl&+bi&+Bsh en&+bou&+Bgh t&+bo &+Bf&+bo&+Bll&+bo&+Bw y&+bou&+B.  Dr&+bea&+Bms&N
+&+Bdr&+bi&+Bft &+bi&+Bnt&+bo &+Bh&+be&+Bll&+bi&+Bsh &+Lnightmares&+B, p&+bai&+Bn st&+ba&+Brts t&+bo &+Br&+bai&+Bn &+bi&+Bnt&+bo &+By&+bou&+Br &+bi&+Bns&+ba&+Bn&+be &+Bfr&+bo&+Bz&+be&+Bn t&+bo&N
+&+Bd&+be&+Bs&+bo&+Bl&+ba&+Bt&+bio&+Bn br&+bai&+Bn.  Wh&+ba&+Bt sh&+ba&+Bll k&+bee&+Bp y&+bou &+Bfr&+bo&+Bm str&+ba&+By&+bi&+Bng fr&+bo&+Bm th&+be &+Bs&+ba&+Bn&+be&+B, why sh&+bou&+Bld&N
+&+By&+bou e&+Bv&+be&+Bn c&+ba&+Br&+be &+Bf&+bo&+Br &+ba&+Bny&+bo&+Bn&+be o&+Br &+ba &+Bd&+bo&+Bm&+bai&+Bn.  W&+ba&+Blk&+bi&+Bng y&+be&+Bt c&+ba&+Bst&+bi&+Bng n&+bo&+Bt &+ba &+Bsh&+ba&+Bd&+bo&+Bw, th&+ba&+Bt&N
+&+bi&+Bs th&+be &+Bc&+bu&+Brs&+be o&+Bf th&+be &+Bl&+bi&+Bv&+bi&+Bng, th&+bo&+Bs&+be &+Bwh&+bo a&+Br&+be &+Btr&+bu&+Bly n&+bo &+Bl&+bo&+Bng&+be&+Br, th&+be&+By try t&+bo &+Bd&+be&+Bc&+bei&+Bv&+be&N
+&+ba&+Bnd n&+be&+Bv&+be&+Br sh&+ba&+Bll th&+be&+By &+ba&+Bdm&+bi&+Bt t&+bo &+Br&+bea&+Bl&+bi&+Bty.  &+bI&+Bc&+be&+Bd w&+bi&+Bnds bl&+bo&+Bw, w&+ba&+Bsh&+bi&+Bng &+bo&+Bv&+be&+Br sh&+bo&+Br&+be&+Bs,&N
+&+Bw&+bi&+Bsd&+bo&+Bm &+bo&+Bf l&+bo&+Bst &+ba&+Bg&+be&+Bs f&+bi&+Bll&+bi&+Bng th&+be &+Bm&+bu&+Brky &+Lnight&+B.  Th&+bi&+Bngs &+ba&+Br&+be &+Bst&+ba&+Brt&+bi&+Bng t&+bo &+Bs&+bee&+Bm &+ba&+Bll&N
+&+Bt&+bo &+Br&+bi&+Bght, s&+bo&+Bm&+be&+Bth&+bi&+Bng h&+ba&+Bs t&+bo &+Bf&+bi&+Bll y&+bou &+Bw&+bi&+Bth fr&+bi&+Bght, s&+be&+Bc&+bo&+Bnd s&+bi&+Bght, c&+be&+Blt&+bi&+Bc fr&+bo&+Bst.&N
+~
+S
+#42925
+&+LWithin a Dark Cave&n~
+&+L   The walls in this cave are a smokey black color.  They are very slick to the&N
+&+Ltouch, with some built up moisture.  Several tiny drops of a pale liquid drips&N
+&+Ldown from the darkness above.  Sounds of movement can be heard from what seems&N
+&+Lto be all around you.  The ground here is rather worn, showing many signs of&N
+&+Lpast travelers.  Bits of &+Wbone &+Land other debris have been scattered upon the
+&+Lflawed floor.  The cave appears to continue on to the north and to the south.&N
+~
+429 1216385097 0
+D0
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42924
+D2
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42926
+S
+#42926
+&+LWithin a Dark Cave&n~
+&+L   The hard walls in this purtid place are a smoked black color and cold to the&N
+&+Ltouch.  Small &+bpuddles &+Lof a rancid looking liquid form in several pools upon the&N
+&+Lgloomy ground.  A pungent stench fills the dry arid air here.  Drops of a murky&N
+&+Lmoist substance drip down form the vile varathorn blackness.  Distant sounds of&N
+&+Lmovement can be heard.  This cave continues on to the north and to the south. &N
+~
+429 1216385097 0
+D0
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42925
+D2
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42927
+S
+#42927
+&+LNarrow Curve Within a Dark Cave&n~
+&+L   The walls here are a dark and dismal smokey black color.  They bear strange&N
+&+Lmarkings upon them, what seems like some sort of primative ritual scene.  The&N
+&+Lground here has a grisly picture upon it, what appears to be a large humanoid&N
+&+Lcreature performing sexual acts to smaller humanoid creatures.  Tiny &+bdrops &+Lof&N
+&+La &+gmurky &+Lliquid falls from the darkness above, forming in small putrid puddles.&N
+&+LThe scent of suffering is strong within the air here.  This cave continues on&N
+&+Lto the north and to the east.&N
+~
+429 1216385097 0
+D0
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42926
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42928
+S
+#42928
+&+LWithin a Dark Cave&n~
+&+L   The walls here are a dark and dismal black color.  They bear strange marks&N
+&+Lthat have been &+wburned &+Linto them.  One picture seems to show what appears to be&N
+&+La primative hunting party killing a demonic displacer beast.  Another image is&N
+&+Lof a larger creature whipping a smaller one with a nine fanged whip.  Scents&N
+&+Land sounds fill the arid dank dreary air here.  Drops cascade down from out of&N
+&+Lthe demonic darkness that dwells above.  The &+bliquid &+Lforms in several shallow&N
+&+Lmurky &+gpools &+Lwithin the cracks of the ghastly ground.&N
+~
+429 1216385097 0
+D1
+&+L   An &+ceerie &+Ldead end within a dismal cave.&N
+~
+~
+0 0 42929
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42927
+S
+#42929
+&+LAn &+cEerie &+LDead End Within a Cave&n~
+&+L   Demonical symbols and other crude illustrations adorn the wicked cold walls.&N
+&+LImages of beings who walk in the abysmal &+wunlight&+L, bringers of f&+ro&+Lrl&+ro&+Lrn fright.&N
+&+LK&+bnight&+Ls of noctural terror, bringers of sensational suffering.  Shadows cast,&N
+&+Lshades long since past.  Mist looms, dreary devils appear, creatures stalking&N
+&+Ltheir prey.  The chamber expands to the west, while ending to the east.&N
+~
+429 1216385101 0
+D3
+&+L   Out of the da&+brkne&+Lss &+Linto the dismal demonic &+bfright&+L.&N
+~
+~
+0 0 42928
+E
+symbols knight night demonical~
+&+B   Th&+be&+Bs&+be &+Bsymb&+bo&+Bls s&+bee&+Bm l&+bi&+Bk&+be &+Bth&+be&+By w&+be&+Br&+be &+Bdr&+ba&+Bwn fr&+bo&+Bm th&+be &+Bw&+bi&+Bnds &+bo&+Bf th&+be nordic &+Lnight&+B.&N
+&+BIm&+ba&+Bg&+be&+Bs &+bo&+Bf d&+be&+Bm&+bo&+Bns &+ba&+Bnd d&+be&+Bv&+bi&+Bls l&+bo&+Bck&+bed &+bi&+Bn &+be&+Bt&+be&+Brn&+ba&+Bl &+Ldespair &+Bf&+ba&+Bd&+be i&+Bnt&+bo &+Bv&+bi&+Bs&+bio&+Bns &+bo&+Bf th&+be&N
+&+bnorthern &+Lhordes &+Br&+bi&+Bd&+bi&+Bng &+bi&+Bnt&+bo &+Bb&+ba&+Bttl&+be u&+Bnd&+be&+Br th&+be &+Bb&+ba&+Bnn&+be&+Br o&+Bf &+ba &+Bm&+bi&+Bghty k&+bi&+Bngd&+bo&+Bm.  Th&+be&N
+&+Bh&+bo&+Brs&+be&+Bs cr&+bea&+Bt&+be a &+Bb&+bea&+Bt &+bo&+Bf dr&+bu&+Bms th&+ba&+Bt r&+bo&+Blls &+bi&+Bnt&+bo &+Bth&+be &+Bm&+bi&+Bnd &+ba&+Bnd fl&+bo&+Bws d&+bo&+Bwn &+ba&+Bl&+bo&+Bng t&+bo&N
+&+Bth&+be &+Bb&+ba&+Bs&+be o&+Bf th&+be spine&+B, s&+bu&+Bdd&+be&+Bnly n&+bo&+Bt &+be&+Bv&+be&+Bryth&+bi&+Bng s&+bee&+Bms t&+bo &+Bb&+be &+Bf&+bi&+Bn&+be&+B.  &+BE&+By&+be&+Bs &+bo&+Bf th&+be&N
+&+Bm&+bo&+Brt&+ba&+Bls gaz&+be &+Bh&+bo&+Bp&+bi&+Bng t&+bo &+Bfind &+be&+Bv&+be&+Bn &+ba &+Bgl&+bi&+Bmm&+be&+Br &+bo&+Bf &+ba &+Bs&+bi&+Bgn.  C&+ba&+Blls &+bo&+Bf th&+be &+Bd&+ba&+Bmn&+be&+Bd &+ba&+Br&+be&N
+&+Bdr&+bo&+Bwn&+be&+Bd &+bou&+Bt by th&+be &+Bcr&+bie&+Bs &+bo&+Bf th&+bo&+Bs&+be &+Bwh&+bo &+Bm&+bu&+Bst s&+bu&+Bff&+be&+Br &+ba&+Bs th&+be &+Bw&+bea&+Bk.  D&+be&+Bc&+ba&+Bp&+ba&+Bt&+ba&+Bt&+be&+Bd&N
+&+Bh&+bea&+Bds pl&+ba&+Bc&+be&+Bd h&+bi&+Bgh &+bo&+Bn t&+bo&+Bp &+bo&+Bf &+Rbloody &+Bst&+ba&+Bk&+be&+Bs, w&+ba&+Brr&+bio&+Brs f&+ba&+Bll&+be&+Bn l&+bi&+Btt&+be&+Br th&+be &+Bgl&+boo&+Bmy&N
+&+Bgr&+bou&+Bnd.  W&+bea&+Bp&+bo&+Bns &+bo&+Bnc&+be u&+Bs&+be&+Bd t&+bo &+Bw&+ba&+Bg&+be &+Bw&+ba&+Br n&+bo&+Bw &+bu&+Bs&+be&+Bd t&+bo &+Bb&+bu&+Bry th&+bo&+Bs&+be &+Bwh&+bo &+Bd&+bie&+Bd by th&+be&N
+&+Lblood &+Bs&+boa&+Bk&+be&+Bd sw&+bo&+Brds &+bo&+Bf th&+bei&+Br f&+bo&+Brm&+be&+Br br&+bo&+Bth&+be&+Brs.  Sh&+bi&+Bv&+be&+Brs sl&+bo&+Bwly cr&+bee&+Bp d&+bo&+Bwn &+bi&+Bnt&+bo&N
+&+Bth&+be &+Bb&+bo&+Bdy &+bo&+Bf th&+be &+Bd&+biei&+Bng m&+bo&+Brt&+ba&+Bls, th&+be &+Bc&+bo&+Bld ch&+bi&+Bll &+bo&+Bf th&+be &+Ldead &+Bt&+bou&+Bch&+be&+Bs th&+be &+Bs&+Bo&+Bu&+Bl&+Bs&N
+&+bo&+Bf th&+bo&+Bs&+be &+Bwh&+bo a&+Br&+be &+Bf&+bo&+Br&+be&+Bv&+be&+Br t&+bo &+Bb&+be &+Bl&+bo&+Bst.  T&+bo&+Brm&+be&+Bnt &+ba&+Bnd t&+bo&+Brt&+bu&+Br&+be a&+Bll th&+ba&+Bt sh&+ba&+Bll b&+be&+B,&N
+&+Bn&+bo&+Bth&+bi&+Bng &+be&+Bls&+be &+Bsh&+ba&+Bll &+be&+Bv&+be&+Br f&+ba&+Bd&+be o&+Br fl&+bi&+Bck&+be&+Br &+bi&+Bnt&+bo &+Br&+bea&+Bl.  D&+bea&+Bls w&+bi&+Bth th&+be &+Bd&+bevil&+B, t&+bo&N
+&+Bl&+bie &+Bt&+bo &+By&+bou&+Brs&+be&+Blf &+ba&+Bnd try t&+bo &+Btr&+bi&+Bck th&+bo&+Bs&+be &+Bf&+boo&+Bl&+bi&+Bsh en&+bou&+Bgh t&+bo &+Bf&+bo&+Bll&+bo&+Bw y&+bou&+B.  Dr&+bea&+Bms&N
+&+Bdr&+bi&+Bft &+bi&+Bnt&+bo &+Bh&+be&+Bll&+bi&+Bsh &+Lnightmares&+B, p&+bai&+Bn st&+ba&+Brts t&+bo &+Br&+bai&+Bn &+bi&+Bnt&+bo &+By&+bou&+Br &+bi&+Bns&+ba&+Bn&+be &+Bfr&+bo&+Bz&+be&+Bn t&+bo&N
+&+Bd&+be&+Bs&+bo&+Bl&+ba&+Bt&+bio&+Bn br&+bai&+Bn.  Wh&+ba&+Bt sh&+ba&+Bll k&+bee&+Bp y&+bou &+Bfr&+bo&+Bm str&+ba&+By&+bi&+Bng fr&+bo&+Bm th&+be &+Bs&+ba&+Bn&+be&+B, why sh&+bou&+Bld&N
+&+By&+bou e&+Bv&+be&+Bn c&+ba&+Br&+be &+Bf&+bo&+Br &+ba&+Bny&+bo&+Bn&+be o&+Br &+ba &+Bd&+bo&+Bm&+bai&+Bn.  W&+ba&+Blk&+bi&+Bng y&+be&+Bt c&+ba&+Bst&+bi&+Bng n&+bo&+Bt &+ba &+Bsh&+ba&+Bd&+bo&+Bw, th&+ba&+Bt&N
+&+bi&+Bs th&+be &+Bc&+bu&+Brs&+be o&+Bf th&+be &+Bl&+bi&+Bv&+bi&+Bng, th&+bo&+Bs&+be &+Bwh&+bo a&+Br&+be &+Btr&+bu&+Bly n&+bo &+Bl&+bo&+Bng&+be&+Br, th&+be&+By try t&+bo &+Bd&+be&+Bc&+bei&+Bv&+be&N
+&+ba&+Bnd n&+be&+Bv&+be&+Br sh&+ba&+Bll th&+be&+By &+ba&+Bdm&+bi&+Bt t&+bo &+Br&+bea&+Bl&+bi&+Bty.  &+bI&+Bc&+be&+Bd w&+bi&+Bnds bl&+bo&+Bw, w&+ba&+Bsh&+bi&+Bng &+bo&+Bv&+be&+Br sh&+bo&+Br&+be&+Bs,&N
+&+Bw&+bi&+Bsd&+bo&+Bm &+bo&+Bf l&+bo&+Bst &+ba&+Bg&+be&+Bs f&+bi&+Bll&+bi&+Bng th&+be &+Bm&+bu&+Brky &+Lnight&+B.  Th&+bi&+Bngs &+ba&+Br&+be &+Bst&+ba&+Brt&+bi&+Bng t&+bo &+Bs&+bee&+Bm &+ba&+Bll&N
+&+Bt&+bo &+Br&+bi&+Bght, s&+bo&+Bm&+be&+Bth&+bi&+Bng h&+ba&+Bs t&+bo &+Bf&+bi&+Bll y&+bou &+Bw&+bi&+Bth fr&+bi&+Bght, s&+be&+Bc&+bo&+Bnd s&+bi&+Bght, c&+be&+Blt&+bi&+Bc fr&+bo&+Bst.&N
+~
+E
+eerie light~
+&+c   Th&+Ce &+cl&+Ci&+cght &+Ci&+cn th&+Ci&+cs &+Cr&+coo&+Cm &+cs&+Cee&+cms t&+Co &+csh&+Ci&+cv&+Ce&+cr i&+Cnt&+co &+Csh&+ca&+Cd&+ce &+Ca&+cft&+Ce&+cr sh&+Ca&+cd&+Ce o&+cf cy&+Ca&+cn th&+Ca&+ct&N
+&+Cdr&+ci&+Cfts &+ci&+Cnt&+co d&+Ca&+crk&+Ce&+cr.  &+CI&+cmag&+Ce&+cs st&+Ca&+crt t&+Co &+cf&+Co&+crm w&+Ci&+cth&+Ci&+cn &+Cth&+ce &+Cai&+cr h&+Ce&+cr&+Ce&+c, y&+Cou&+cr p&+Ca&+cst f&+Co&+crms&N
+&+ci&+Cnt&+co &+Cy&+cou&+Cr &+cpr&+Ce&+cs&+Ce&+cnt.  &+CScr&+cea&+Cms &+cfr&+Co&+cm w&+Ci&+cth&+Ci&+cn y&+Cou&+cr &+Cs&+co&+Cu&+cl &+Ca&+ct s&+Ci&+cghts &+Cy&+cou w&+Ci&+csh&+Ce&+cd n&+Ceve&+cr,&N
+&+Cbr&+co&+Ck&+ce&+Cn th&+ce&+Cy &+cf&+Ca&+cd&+Ce j&+cu&+Cst a&+cs th&+Ce&+cy f&+Co&+crm&+Ce&+cd.  &+CS&+ci&+Cbl&+ci&+Cng&+cs &+Co&+cf y&+Cou&+Cr y&+cou&+Cth &+cy&+Cou &+cl&+Co&+cng w&+Ci&+csh&+Ce&+cd&N
+&+cd&+Cea&+cd f&+Ca&+cll &+Ci&+cn fr&+Co&+cnt &+Co&+cf y&+Cou &+ca&+Cnd &+ca&+Cr&+ce r&+Ci&+cpp&+Ce&+cd &+Ci&+cnt&+Co &+cshr&+Ce&+cds.  Th&+Ce&+cy b&+Ce&+cg f&+Co&+cr y&+Cou&+cr m&+Ce&+crcy&N
+&+Ca&+cnd &+Cy&+cou d&+Co &+cn&+Co&+ct kn&+Co&+cw wh&+Ca&+ct &+Ci&+ct d&+Co&+cth &+Cm&+cea&+Cn&+c.  &+CY&+cou gr&+Ci&+cn &+Ca&+cs &+Cy&+cou st&+Co&+cp th&+Cei&+cr l&+Ci&+cf&+Ce&+c, n&+Co&+cw&N
+&+cy&+Cou&+cr l&+Ci&+cf&+Ce &+cc&+Ca&+cn b&+Ce a&+cs &+Ci&+ct sh&+Cou&+cld b&+Ce&+c.  N&+Co &+cl&+Co&+cng&+Ce&+cr c&+Ca&+cn th&+Co&+cs&+Ce &+cth&+Ca&+ct st&+Ca&+cnd &+Ci&+cn y&+Cou&+cr w&+Ca&+cy&N
+&+Cst&+co&+Cp y&+cou&+C.  &+cD&+Co &+cn&+Co&+ct t&+Cu&+crn th&+Ce o&+cth&+Ce&+cr ch&+Cee&+ck s&+Ci&+cmply str&+Ci&+ck&+Ce i&+ct, d&+Co &+cn&+Co&+ct st&+Co&+cp, &+Ckill&+c.&N
+&+cR&+Cea&+cl&+Ci&+cty f&+Ci&+cghts t&+Co &+cb&+Ce&+cc&+Co&+cm&+Ce &+cr&+Cea&+cl &+Co&+cnc&+Ce &+cm&+Co&+cr&+Ce&+c, &+Cy&+cou&+Cr m&+ci&+Cnd st&+ca&+Crts t&+co &+Cs&+cee &+Ctr&+cai&+Cls th&+ca&+Ct&N
+&+Ca&+cr&+Ce &+cn&+Co&+ct th&+Ce&+cr&+Ce&+c.  &+CY&+cou&+Cr h&+ca&+Cnds p&+cass&+C, &+cy&+Ce&+ct th&+Ce&+cy d&+Co &+cn&+Co&+ct s&+Cee&+cm t&+Co &+cst&+Co&+cp, &+Cy&+cou st&+Ca&+cr&+Ce a&+cnd&N
+&+ci&+Cm&+ca&+Cg&+ce&+Cs &+cf&+Ca&+cd&+Ce o&+cnc&+Ce &+cm&+Co&+cr&+Ce&+c.  S&+Ca&+cn&+Ci&+cty &+Ci&+cs n&+Co&+ct s&+Cu&+cr&+Ce i&+cf i&+Ct &+ckn&+Co&+cws wh&+Co y&+cou a&+Cr&+ce&+C, &+cnor &+cdo &+Cyou&N
+&+Ckn&+co&+Cw &+co&+Cf &+ci&+Ct&+c.  L&+Co&+cst &+Ci&+cn &+Ca &+cw&+Co&+crld th&+Ca&+ct &+Ci&+cs w&+Ci&+cth&+Ci&+cn y&+Cou&+crs&+Celf&+c, n&+Ceve&+cr t&+Co &+cc&+Co&+cm&+Ce &+cb&+Ca&+cck d&+Co&+cwn.&N
+&+cY&+Cou&+cr s&+Cou&+cl l&+Cea&+cv&+Ce&+cs th&+Ce &+cb&+Co&+cdy t&+Co &+cpr&+Co&+cj&+Ce&+cct &+Ci&+ct&+Cself &+ci&+Cnt&+co th&+Ce &+cr&+Cea&+clm &+Co&+cf &+CB&+ca&+Crd &+cF&+Cau&+cst&+C.  &+cH&+Ce&N
+&+Cwh&+co &+Cm&+cu&+Cst s&+cu&+Cff&+ce&+Cr f&+co&+Cr th&+ce s&+Ci&+cns &+Co&+cf th&+Ce tr&+Cai&+ct&+Cor&+c, r&+Co&+cts &+Ci&+cn &+Ct&+co&+Crm&+ce&+Cnt &+cf&+Co&+cr n&+Co&+ct &+Cbe&+cing.&N
+&+LDead &+Ci&+cs th&+Ce o&+cnly th&+Ci&+cng th&+Ca&+ct &+Ci&+cs r&+Cea&+cl&+C, &+cth&+Ce o&+cnly th&+Ci&+cng th&+Ca&+ct &+Ci&+cs p&+Cu&+cr&+Ce&+c, t&+Co &+cb&+Ca&+cd h&+Ce i&+cs&N
+&+Cn&+co&+Cw &+cd&+Cea&+cd&+C.  Wh&+ce&+Cn &+ch&+Ce &+cl&+Ci&+cv&+Ce&+cd h&+Ce &+ch&+Ca&+cd tr&+Cue &+cl&+Ci&+cf&+Ce&+c, &+Ca &+csh&+Ca&+cm&+Ce &+ch&+Ce &+cn&+Ce&+cv&+Ce&+cr w&+Ca&+cnt&+Ce&+cd it, now h&+Ce.&N
+&+cV&+Ci&+cs&+Cio&+cn r&+Ce&+ct&+Cu&+crns &+Ci&+cnt&+Co &+cwh&+Ca&+ct s&+Cee&+cms t&+Co be n&+co&+Crmal&+c, c&+Co&+cl&+Co&+crs s&+Cee&+cm t&+Co &+cf&+Ca&+cd&+Ce i&+cnt&+Co &+creal&+City&+c.&N
+~
+S
+#42930
+&+LWithin a Dark Cave&n~
+&+L   The cold crude walls here are a dark smokey black color.  Symbols of &+mDarkuul&N
+&+Land M&+bui&+Lnr&+bo&+Lht are etched into it in crimson.  A primative picture of a larger&N
+&+Lhumanoid creature beating a smaller humanoid creature with a whip is drawn upon&N
+&+Lthe ghastly ground.  Many drops of a &+gmurky &+Lliquid drips down from the demonic&N
+&+Ldarkness above, forming in small sticky puddles.  A rancid smell radiates the&N
+&+Larid air.  The cave seems to continue on to the east and to the west.&N
+~
+429 1216385097 0
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42931
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42924
+E
+symbols darkuul~
+&+L   This dark magenta colored &+minsignia &+Ldoes not seem to be one that is of the&N
+&+Lfeeble light.  Most likely it spawns from that which is known as the &+wunlight&+L,&N
+&+Lthe true might.  Only those with the sight can ever see, never to be right,&N
+&+Lliving just to fight.  Serve the &+revil &+Ltill the day of no longer, worship the&N
+&+Lmaster or die.  &+mDarkuul &+Lis the dark lord who shall deliver us from the hordes&N
+&+Lof &+Chumans&+L.  The &+Ydwarves &+Lshall be tossed as they always have been, as in the now&N
+&+Land what becomes the past.  Words of wisdom no longer hold meaning in the realm&N
+&+Lof mortals.  Those that seem to be &+WImmortal &+Lmust kill all who dare to stand in&N
+&+Ltheir way.  Mercy is for the meek who shall be given nothing and all shall be&N
+&+Ltaken from them.  Power creates the rules, hiding in the shadows the goodies&N
+&+Llurk in their pathetic groups.  Men of twenty yet not even to have one, all for&N
+&+Lthemselves and nothing for the all.  Reality starts to fade into your eyes and&N
+&+Lyou gaze at what seems to be the symbol of a d&+barkne&+Lss.&N
+~
+E
+muinroht arcane mystic mystical~
+&+L   This arcane &+bsymbol &+Ldoes not seem like it was spawned from the mortal world.&N
+&+LThe &+Bmystic &+Lmark glows with an eerie glow that transfixes the eyes and shifts&N
+&+Lreality into a jaded blur.  Sounds of movement echo inside your head, calls of&N
+&+Lthe dead beckon to the &+cs&+Co&+cu&+Cl&+L.  Twisted &+bs&+Be&+brp&+Be&+bnts &+Lfrom the &+Bsea &+Lwrap around blades&N
+&+Lof a double edged sabre.  Eyes of demonic &+Rhunger &+Lburn with hate, seeking just&N
+&+Lto end mortal fate.  Scales of sorrow mask a heart of black dismal death, the&N
+&+Cs&+co&+Cu&+cl&+Cs &+Lof the lost taken to satisfy the infernal beasts.  Ancient rites spoken&N
+&+Lby priests who are from the darkest domains.  The stare of &+rsuffering &+Lflows to&N
+&+Lthe bottom of your &+Wspine&+L, suddenly not everything seems to be close to fine.&N
+~
+S
+#42931
+&+LWithin a Dark Cave&n~
+&+L   The smokey black walls here have some odd markings painted upon them.  They&N
+&+Lshow what seems to be a female getting whipped by a large creature.  The ground&N
+&+Lhere is marked by drops of a &+rcrimson &+Lsubstance.  A murky vile &+bliquid &+Ldrips down&N
+&+Lfrom the raven blackness above.  A putrid smell fills the dry air here.  Sounds&N
+&+Lof creatures seem to be coming from the west.  This cave appears to continue on&N
+&+Lto the east and to the west.&N
+~
+429 1216385097 0
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42932
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42930
+S
+#42932
+&+LGloomy Triad Intersection Within a Dark Cave&n~
+&+L   Simple symbols &+Lof many sadistic situations stained upon a smokey black wall.&N
+&+LMoist &+gmurky &+Lmuck manifests mainly near the morbid cracks upon the ground.  The&N
+&+Lputrid pungent pestilent stench permeates the arid air.  Dark &+bdrops &+Lof liquid&N
+&+Ldrip down from the darkness above.  This dank dismal domain continues on to the&N
+&+Lnorth, south, and to the west.&N
+~
+429 1216385097 0
+D0
+&+L   The den of &+wDravkult &+Lthe ancient one.&N
+~
+~
+0 0 42933
+D2
+&+L   The workshop of &+rR&+ye&+rth&+yo&+rrn&+L.&N
+~
+~
+0 0 42934
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42931
+S
+#42933
+&+LDen of &+wDravkult &+LThe Ancient One&N~
+&+L   Symbols from a time long since set into forgotten past, adorn the stone cold&N
+&+Lwalls.  Remnants from the past, serving as warnings to the feeble future.  Six&N
+&+wimages &+Lhave been drawn upon the gloomy ghastly ground.  They seem to show what&N
+&+Lis the birth of a new settlement.  Perhaps this is part of the history of these&N
+&+Lonce free creatures.  One of them appears to almost be a different race, maybe&N
+&+Lthat was their leader.  This dry den opens up to the sadistic &+rs&+Re&+rr&+Rp&+re&+Rn&+rt&+Ri&+rn&+Re &+Lsouth.&N
+~
+429 1216385101 0
+D2
+&+L   The dark cave seems to continue on.&N
+~
+~
+0 0 42932
+E
+images six~
+&+L   These images depict what seems to be the history of these people.  They seem&N
+&+Lto show a creature coming to the primates.  The humanoid is pictured teaching&N
+&+Lthem various skills.  From hunting, to cooking, even speaking, creating clothes&N
+&+Land weapons.  As you gaze you start to drift into the past.  You see the &+Rf&+ri&+Rr&+re&+Rs&N
+&+Lstarted, the sounds of the drums.  The dances and scents of exotic foods, their&N
+&+Lfeelings of joy fill your soul.  Shivers slowly slipping down your spine, your&N
+&+Lfeeling far past fine.  No need to ever look for a feeble sign.  The world of&N
+&+Lman soon shall end.  Torment does not exist, suffering forgotten along with the&N
+&+Lsins of strife.  Life becomes grand, a life born stand, colors soon shall fade&N
+&+Lback into hell.  Broken demonical spell, they soon shall come.  Those who are&N
+&+Lof the &+wunlight&+L, bringers of nocturnal fright.  Forgers of second sight, songs&N
+&+Lsung in night.&N
+&+L   Whips cracked upon naked bare backs, cries of children.  Race soon enslaved&N
+&+Linto pain.  They invade, led by the traitor, army of the darkness.  &+CS&+co&+Cu&+cl&+Cs &+Llong&N
+&+Lsince cast into lost.  Servants of daemonical forces, inflicting untold satanic&N
+&+Lrights.  Plight of the withered weak, slaughter minus mercy for the meek.  When&N
+&+Lits cold, and when its dark, the &+Cfr&+Wee&+Cz&+Wi&+Cng &+bmoon &+Lcan obsess you.&N
+&+L                                                           &N
+~
+E
+freezing moon~
+&+L                                                       &N
+&+L                          The &+CFr&+Wee&+Cz&+Wi&+Cng &+bMoon&N
+&+L                                                     &N
+&+L                    Everything here is so cold.&N
+&+L                    Everything here is so dark.&N
+&+L                  I remember it as from a dream.&N
+&+L                    I the coroner of this time.&N
+&+L                    Diabolical shapes float by.&N
+&+L                         Out from the dark.&N
+&+L                   I remember it was here I died.&N
+&+L                   By following The &+CFr&+Wee&+Cz&+Wi&+Cng &+bMoon&+L.&N
+&+L                It's night again, night you beatiful.&N
+&+L                I please my hunger, on living &+Chumans&+L.&N
+&+L                 Night of hunger follow its call.&N
+&+L                     Follow The &+CFr&+Wee&+Cz&+Wi&+Cng &+bMoon&+L.&N
+&+L                 D&+barkne&+Lss is growing, eternity opens.&N
+&+L                    The &+wcemetery &+Llights up again.&N
+&+L                        As in ancient times.&N
+&+L                   Fallen &+Cs&+co&+Cu&+cl&+Cs &+Ldie behind my steps.&N
+&+L                   By Following The &+CFr&+Wee&+Cz&+Wi&+Cng &+bMoon&+L.&N
+&+L                                                                         &N
+~
+E
+fires flames~
+&+R   Cr&+rim&+Rson &+ri&+Rma&+rges &+Rdan&+rce &+Ri&+rnto &+Ra &+rfl&+Ri&+rck&+Re&+rrin&+Rg &+rfad&+Red &+rd&+Ranc&+re &+Rmac&+ra&+Rbre.  Soun&+rd&+Rs of the&N
+&+rn&+Ror&+rd&+Ric &+rh&+Ro&+rrd&+Re&+rs c&+Ran &+rb&+Re h&+rea&+Rrd fr&+ro&+Rm &+rw&+Ri&+rth&+Ri&+rn the &+Rflame&+r.  I&+Rm&+ra&+Rge&+rs &+Ro&+rf &+Rb&+ra&+Rttl&+re&+Rs &+rl&+Ro&+rng &+Lset&N
+&+Ri&+rnt&+Ro &+rth&+Re p&+ras&+Rt&+r, &+Rr&+ri&+Rng &+rou&+Rt &+ro&+Rnc&+re &+Rm&+ro&+Rre &+rinside &+Ry&+rou&+Rr &+rm&+Ri&+rnd&+R.  &+rB&+Rea&+rts &+Ro&+rf &+Rdr&+ru&+Rms &+rcont&+Rinu&+re&N
+&+rw&+Ri&+rth &+Ra&+rn &+Ru&+rnrel&+Rent&+ring &+Rfl&+ro&+Rw&+r.  &+RA&+rn odd eerie &+Rglow&+r, &+Rs&+rt&+Ra&+ri&+Rns &+ro&+Rf &+rth&+Re &+rf&+Ra&+rll&+Re&+rn &+Rfl&+ro&+Rw&+r, &+Rdeath&N
+&+Rh&+ra&+Rs m&+ra&+Rde &+rit&+Rs &+rfr&+Roz&+re&+Rn &+rca&+Rll&+r.  &+RT&+rhe &+Rfi&+rr&+Res &+rdo not &+Rs&+ring&+Re &+rth&+Re &+rfl&+Re&+rsh&+R, &+rburn&+Ring &+ry&+Rou&+rr &+Rs&+rou&+Rl&N
+&+rw&+Ri&+rth &+Rhell&+rfire&+R.  &+rD&+Re&+rs&+Rir&+re &+Rdr&+rea&+Rms &+ro&+Rf &+rd&+Ris&+rmal &+Run&+rhollow &+Rscreams&+r, &+Rf&+ro&+Rll&+ro&+Rw &+rthe &+Revil &+rone&+R.&N
+&+RVision&+rs &+Rst&+ra&+Rrt t&+ro f&+Rad&+re &+Rb&+ra&+Rck &+ri&+Rnt&+ro &+Rth&+re f&+Rold &+rof &+Rnorm&+ra&+Rl &+rreal&+Rity&+r, &+Rthis &+rplight &+Rstarts&N
+&+rto &+Rdrift &+ro&+Ru&+rt &+Ro&+rf &+Rs&+re&+Rr&+rp&+Re&+rn&+Rt&+ri&+Rn&+re &+Rs&+ri&+Rg&+rh&+Rt&+r.&N
+~
+S
+#42934
+&+LThe Workshop &+Lof &+rR&+ye&+rth&+yo&+rrn&N~
+&+L   This room is a mixture of a primative blacksmith and a leather working shop.&N
+&+LMany &+citems &+Llay scattered upon the flawed floor and decayed &+wtables&+L.  There are&N
+&+Lsadistic symbols that have been etched into the eastern wall.  They depict what&N
+&+Lappears to be a larger creature molesting a smaller being.  Unlike some of the&N
+&+Lother paintings within the cave, this does not seem to be a normal ritual.  A&N
+&+Llook of horror and terror can be seen in the shorter creature's eyes.&N
+~
+429 1216385101 0
+D0
+&+L   The dark cave seems to continue on in this direction.&N
+~
+~
+0 0 42932
+E
+tables~
+&+L   These small &+wtables &+Lhave been crafted from a night colored soft &+wwood&+L.  They&N
+&+Lseem to show some signs of use, chips and odd &+mrunes &+Lare drawn upon the surface&N
+&+Lof the items.  The objects seem to be rather well &+wdust&+Led and pretty much well&N
+&+Lkept.  The legs have some symbols of &+gs&+Ge&+grp&+Ge&+gnts &+Ltwisting around in a spiral from&N
+&+Lthe bottom of the structure to where the connection converges at the top.&N
+~
+E
+serpents serpent~
+&+g   Th&+Gi&+gs &+Gs&+ge&+Grp&+ge&+Gnt i&+gs &+Gwr&+ga&+Gpp&+ge&+Gd u&+gp&+Go&+gn a &+Lpitchfork &+gi&+Gn a&+gn u&+Gnh&+go&+Gly &+gl&+Goo&+gk&+Gi&+gng &+GS &+gsh&+Ga&+gp&+Ge&+g.  I&+Gt&N
+&+Ga&+glm&+Go&+gst &+Gs&+gee&+Gms a&+gs i&+Gf &+gth&+Gi&+gs i&+Gs a &+gcr&+Ge&+gst &+Go&+gf &+Gs&+go&+Gm&+ge &+Ldemonic &+gb&+Gei&+gng &+Gth&+ga&+Gt &+gl&+Gu&+grks &+Gi&+gn w&+Go&+grlds&N
+&+gth&+Ga&+gt a&+Gr&+ge b&+Ge&+gy&+Go&+gnd &+Gth&+ge &+Gu&+gnd&+Ge&+grst&+Ga&+gnd&+Gi&+gng o&+Gf &+gs&+Gi&+gmpl&+Ge&+gt&+Go&+gn &+Gm&+go&+Grt&+ga&+Gls&+g.  Th&+Ge e&+gy&+Ge&+gs o&+Gf &+gth&+Gi&+gs &+Lbeast
+&+Ggl&+go&+Gw &+gw&+Gi&+gth &+Gh&+ga&+Gtr&+ge&+Gd a&+gnd &+Gb&+goun&+Gdl&+ge&+Gss &+gdr&+Gea&+gd.  &+GTh&+ge sc&+Ga&+gl&+Ge&+gs o&+Gf &+gth&+Ge r&+ge&+Gpt&+gi&+Gl&+ge s&+Gee&+gm &+Gt&+go &+Gsw&+gi&+Gft&N
+&+ga&+Gnd sw&+ga&+Gy a&+gnd &+Gch&+ga&+Gng&+ge fr&+Go&+gm &+Gsh&+ga&+Gd&+ge t&+Go &+gsh&+Ga&+gd&+Ge&+g, &+Gfr&+go&+Gm &+gd&+Ga&+grk &+Ggr&+gee&+Gn &+gt&+Go &+ga &+Ggl&+go&+Gw&+gi&+Gng &+gf&+Go&+grm o&+Gf&N
+&+Gth&+ge s&+Ga&+gm&+Ge c&+go&+Gl&+go&+Gr&+g.&N
+~
+E
+items metal bits~
+&+L   Bits of various kinds of &+cmetal &+Lare strewn around this room, varying from&N
+&+bmagical &+Lto the scales of s&+ye&+Lrp&+ye&+Lnt&+yi&+Ln&+ye &+Lmonsters.  About the only thing you do not&N
+&+Lsee are the scales of a dragon or the skin of a hydra.  The items all seem to&N
+&+Lbe from the finest grade of their respective materials, even the &+ciron &+Land the&N
+&+ybrass &+Lpieces shine and glitter with a &+Bmystic &+Lbeauty.  As you gaze at the bits&N
+&+Lof &+cmetal &+Lyou notice that some other objects are upon the ground as well, they&N
+&+Lconsist of stones, lichen, &+Wbones &+Land what seems to be a small figurine of the&N
+&+Lfabled &+Gja&+gde &+Gm&+gonk&+Gey&+L.  You wonder about life even though death is close, &+Rheat &+Lof&N
+&+Lthe furnace is almost unbearable, how the blacksmith works in this is amazing.&N
+~
+E
+tub large~
+&+L   This large tub has been filled with refreshing looking cool crisp &+Bwater&+L.&N
+&+LThis item is most likely used to cool off &+cmetal &+Lthat is being forged into a&N
+&+Lweapon of war, armor, or perhaps some other everyday items that are crafted&N
+&+Lwithin this blacksmith shop.  As you gaze with focus at this object you notice&N
+&+wwriting &+Lthat has been &+retched &+Linto the side of this thing.  Some signs of wear&N
+&+Lare evident upon the surface of this tarnished tub.&N
+~
+E
+arcane mystic symbol~
+&+L   This arcane &+bsymbol &+Ldoes not seem like it was spawned from the mortal world.&N
+&+LThe &+Bmystic &+Lmark glows with an eerie glow that transfixes the eyes and shifts&N
+&+Lreality into a jaded blur.  Sounds of movement echo inside your head, calls of&N
+&+Lthe dead beckon to the &+cs&+Co&+cu&+Cl&+L.  Twisted &+bs&+Be&+brp&+Be&+bnts &+Lfrom the &+Bsea &+Lwrap around blades&N
+&+Lof a double edged sabre.  Eyes of demonic &+Rhunger &+Lburn with hate, seeking just&N
+&+Lto end mortal fate.  Scales of sorrow mask a heart of black dismal death, the&N
+&+Cs&+co&+Cu&+cl&+Cs &+Lof the lost taken to satisfy the infernal beasts.  Ancient rites spoken&N
+&+Lby priests who are from the darkest domains.  The stare of &+rsuffering &+Lflows to&N
+&+Lthe bottom of your &+Wspine&+L, suddenly not everything seems to be close to fine.&N
+~
+E
+forlorn writing~
+&+L                Through the portal of forever frozen tears&N
+&+L                 This eve Ill ride with the sunsets flame&N
+&+L                 And forever Ill fly with the autumn wind&N
+&+L                                                         &N
+&+L                  A raven &+wwhispered &+Lthese words in my ear&N
+&+L                '&+wBe one with the moonlight, the night and&N
+&+L               &+wthe storm.  Hunt with wolves through forests&N
+&+L                    &+wof shades and rule from the throne&N
+&+L                            &+wof spirits insane&+L'&N
+&+L                                              &N
+&+L                  As a dancing mist in the autumn night&N
+&+L                  Can you feel my &+Rhunger&+L, hear my cries?&N
+&+L                   This eve Ill ride the sunsets flame&N
+&+L                   Forever to fly with the autumn wind&N
+&+L                                                      &N
+&+L                      Ill ride this wind forever now&N
+&+L                          For this &+bnight &+Lwas...&N
+&+L                Like an angel crowned in thorns so beautiful&N
+&+L                          And it seemed eternal&N
+&+L                                               &N
+&+L                      A vision of sorrow riding forth&N
+&+L                          On the coldest of winds&N
+&+L                           Under the weeping sky&N
+&+L                          It all seemed so F&+ro&+Lrl&+ro&+Lrn&N
+~
+E
+furnace~
+&+w   Coal &+Land hate filled heat reside within this furious furnace of fate.  The&N
+&+Rf&+ri&+Rr&+re&+Rs &+Lof fury flow and sway in a twisted array of &+rdamnation &+Lwithin this thing.&N
+&+LThis is where the weapons and armor of the &+rraxians &+Lare forged inside the &+Rheat&N
+&+Lof the made &+rf&+Rie&+rry &+Labyss.  Bits of chipped &+cmetal &+Land other things can be seen&N
+&+Lburied beneath cr&+wa&+Lck&+we&+Ld bits of &+wcoal &+Land other debris.&N
+~
+E
+jade monkey figurine~
+&+L   The legends must be true, can this truly be the legendary &+Gja&+gde &+Gm&+gonk&+Gey &+Lfrom&N
+&+Lthe lands before time.  In the time of the Glovk, the time before time, taken&N
+&+Lwas the fabled object.  Beasts of many eyes descended and stole what was never&N
+&+Lmeant to be for their kind.  The mystical magical force of the &+Gm&+gonk&+Gey &+Lwas set&N
+&+Lto the use of the &+revil &+Lones.  &+RFl&+ra&+Rm&+re&+Rs &+Lof torment fell upon the people who dared&N
+&+Lto live in what was supposed to be &+Wpeace&+L.  Cries from those who were raped and&N
+&+Lbeaton to death echo in the now darkened &+wsky&+L.  Torture turns to torment of the&N
+&+Cs&+co&+Cu&+cl&+Cs &+Lthat are now forever to be lost in the black abyss.  Winds from the past&N
+&+Lblow into the present, soon to be the future, never shall mortals shed vision&N
+&+Lin the dark.  Songs of suffering ring out in the Raven Realms, the dead shall&N
+&+Lwalk in the light once more.  Those of the &+wunlight &+Lshall rule the world, kill&N
+&+Lall who dare to even cast a stare to oppose.  Rivers of &+rbl&+Ro&+ro&+Rd &+Lflow, flickering&N
+&+Ldreams of life no longer hold any meaning.  &+CSh&+Wi&+Cv&+We&+Crs &+Lslowly roll down along the&N
+&+Wspine&+L, causing you to feel other then fine.  Sun never to shine again, demons&N
+&+Ldwell within the realms that man thinks himself the ruler of.  Deception from&N
+&+Lthose who seek only to gain power for themselves.  What is thought to be real&N
+&+Lfor you starts to fade back into mortal view.  You realize this is just a fake&N
+&+Lfigurine crafted by one who wishes to own the real, perhaps you will obtain it.&N
+~
+E
+anvil~
+&+L   This large slab of &+ciron &+Lrests here waiting to be used to forge a weapon of&N
+&+Lwar or perhaps some kind of armor.  The object shows many signs that it has&N
+&+Lbeen used rather often.  Marks from the blacksmith's hammer and other damage&N
+&+Lcan be seen upon the surface of the item.  As you gaze at this thing closer,&N
+&+Lyou notice that a &+Bmystic &+bsymbol &+Lhas been etched into the center of this sturdy&N
+&+Lstructure.  The sounds of creation can be heard as you stare at this anvil.&N
+~
+S
+#42935
+&+LWithin a Dark Cave&n~
+&+L   The walls in this cave are a smokey black color.  They are very slick to the&N
+&+Ltouch, with some built up moisture.  Several small drops of a pale liquid drips&N
+&+Ldown from the blackness above.  Sounds of movement can be heard from what seems&N
+&+Lto be all around you.  The ground here is rather worn, showing many signs from&N
+&+Lpast travelers.  Bits of &+Wbone &+Land other debris have been strewn about upon the
+&+Lflawed floor.  The cave appears to continue on to the east and to the west.&N
+~
+429 1216385097 0
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42936
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42905
+S
+#42936
+&+LWithin a Dark Cave&n~
+&+L   The hard walls in this dismal place are a smoked black color and cold to the&N
+&+Ltouch.  Tiny puddles of a putrid looking liquid form in several &+bpools &+Lupon the&N
+&+Lgloomy ground.  A pungent stench fills the dry arid air here.  Drops of a murky&N
+&+Lmoist substance drip down form the dreary demonic darkness.  Distant sounds of&N
+&+Lmovement can be heard.  This cave continues on to the east and to the west. &N
+~
+429 1216385097 0
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42937
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42935
+S
+#42937
+&+LWithin a Dark Cave&n~
+&+L   Dreary darkness doth dwell within this domain.  Tiny dark drops drip down&N
+&+Lfrom the void of sight that lurks above.  Putrid puddles of the vile pungent&N
+&+Lsubstance forms upon the ghastly ground.  Crude &+Rb&+rl&+Ro&+ro&+Rd &+Lcolored characters are&N
+&+Lupon the &+wsmoked&+L wall.  An ominous odor looms within the murky arid air here,&N
+&+Lcreating a feeling of dismal despair.  The cave appears to continue on to the&N
+&+Least and to the west.&N
+~
+429 1216385097 0
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42938
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42936
+E
+blood characters~
+&+L
+&+L                                               &N
+&+L                     The Arcane Light of Hecate&N
+                                                        &N
+&+r               Oh ancient one, thy the knowledge of&N
+&+L                               Death&N
+&+r                        rise from thy tomb&N
+&+r             and reveal thy wisdom, the secrets of life&N
+&+r                to the daughters of the endless night&N
+&+r                           born in my womb&N
+&+L                                                           &N
+&+r             Oh powerful queen, thy the knowledge of fear&N
+&+r               &+LDangerous&+r when crossed, the art of sorcery&N
+&+r                    thy bringers of Joy and misery&N
+&+r                 thy children never tell thy mystery&N
+&+L                                                       &N
+&+r               Oh mother of shadows, thy the knowledge of&N
+&+L                                sorrow&N
+&+r         Join the dance in the garden of &+LDionysus&+r delight&N
+&+r                    Joy of life (ecstasy of &+Rlust&+r)&N
+&+r                 We embrace thy shining light tonight&N
+&+L                                             &N
+&+L                                             &N
+~
+S
+#42938
+&+LWithin a Dark Cave&n~
+&+L   The walls here are a dark and dismal black color.  They bear strange marks&N
+&+Lthat have been &+wburned &+Linto them.  One picture seems to show what appears to be&N
+&+La primative hunting party killing a horrible hooked beast.  Another image shows&N
+&+La larger creature whipping a smaller entity with a eight fanged whip.  Scents&N
+&+Land sounds fill the arid dank dreary air here.  Drops cascade down from out of&N
+&+Lthe abysmal darkness that dwells above.  The &+bliquid &+Lforms in several shallow&N
+&+Lmurky &+gpools &+Lwithin the cracks of the ghastly ground.&N
+~
+429 1216385097 0
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42939
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42937
+S
+#42939
+&+LWithin a Dark Cave&n~
+&+L   The walls here are a dark and dismal &+wsmokey &+Lblack color.  They bear strange&N
+&+Lmarkings upon them, what seems like some sort of primative sexual scene.  The&N
+&+Lground here has a dreary picture upon it, what appears to be a large humanoid&N
+&+Lcreature performing sadistic acts to smaller humanoid creatures.  Tiny &+bdrops &+Lof&N
+&+La &+gmurky &+Lliquid falls from the darkness above, forming in small putrid puddles.&N
+&+LThe scent of suffering is strong within the air here.  This cave continues on&N
+&+Lto the east and to the west.&N
+~
+429 1216385097 0
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42940
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42938
+S
+#42940
+&+LInside a Dismal Dark Cave&n~
+&+L   The wall here is a pitch black color.  Drops of a moldy moist liquid cascade&N
+&+Ldown from the raven darkness above.  The ground here is rough and uneven, with&N
+&+Lsome tiny puddles of a &+gmurky &+Lsubstance evident.  This area of the cave seems&N
+&+Lto be rather well traveled.  Sounds of movement seem to be coming from near by.&N
+&+LThis place continues on to the east and to the weary west.&N
+~
+429 1216385097 0
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42941
+D2
+&+L   The cave appears like it might continue on in this direction.&N
+~
+slab~
+5 0 42945
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42939
+S
+#42941
+&+LWithin a Dark Cave&n~
+&+L   Morbid symbols &+Lof many sadistic situations stained upon a &+wsmoked &+Lblack wall.&N
+&+LMoist &+gmurky &+Lmuck manifests mainly near the creepy cracks upon the ground.  The&N
+&+Lputrid pungent pestilent stench permeates the arid air.  Tiny &+bdrops &+Lof liquid&N
+&+Ldrip down from the dank darkness.  This dark dismal domain continues on to the&N
+&+Least to the west.&N
+~
+429 1216385097 0
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42942
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42940
+S
+#42942
+&+LWithin a Dark Cave&n~
+&+L   These pitch black walls have been painted by centuries of mortal &+rblood&+L.  A&N
+&+Lchill of damnation permeates within the arid empty despair filled air.  Symbols&N
+&+Lof sadistic gods have been &+wburned &+Linto the gloomy ghastly ground.  Drops fall&N
+&+Lfrom out of the dismal demonical darkness that dwells above.  Dreams destroyed&N
+&+Land reality distorted, what being rules this chaotical cave.  Devil of hatred&N
+&+Llashing out and smiting those that only wish for &+Wpeace&+L.&N
+~
+429 1216385097 0
+D1
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42943
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42941
+S
+#42943
+&+LInside a &+wRock &+LFilled Room Within a Dark Cave&n~
+&+L   This room has many rocks strewn about all over the ground.  A rather large&N
+&+wrock &+Lis very evident resting upon the northern wall.  Several drops of liquid&N
+&+Ldrip down from the abysmal blackness above.  The symbol of &+rBaphomet &+Ldominates&N
+&+Lthe eastern wall here.  Stong scents of death and decay fill this place with&N
+&+Lfeelings of dismay.  Sounds can be heard emanating from the wicked west.&N
+~
+429 1216385097 0
+D0
+&+L   You shall never know what is not there, yet die trying to find it.&N
+~
+rock~
+8 0 42944
+D3
+&+L   The dark cave appears to continue on in this direction.&N
+~
+~
+0 0 42942
+E
+symbol~
+&+L   This symbol has been drawn here by one of those who is of the &+wunlight&+L.  It&N
+&+Ldepicts a goat within an inverted pentagram that is enclosed by a circle.  The&N
+&+Whorns&+L of the beast are thrust upward in denial of the &+rtr&+Ri&+rn&+Ri&+rty&+L and the mouth is&N
+&+Lpointed downward.  The ears of this being flow to the east and to the west and&N
+&+Lare within the points of the pentagram.  The eyes of this black goat seem to&N
+&+Lpenetrate the soul and sends an eerie &+Bchill&+L within the body.  Fears long since&N
+&+Lthought dead invade the mind and become the present.  The regrets of your life&N
+&+Lbecomes all that you can think of.  You wonder how you could of been so wrong&N
+&+Lin following the light.  D&+barkne&+Lss is the true power and to deny that is to&N
+&+Lremain feeble.  The visions blur and twist into an odd array of nothingness.&N
+~
+S
+#42944
+&+WM&+wa&+Lr&+wb&+Wle &+LChamber Within a Dismal Cave&N~
+&+L   This mystical dark chamber has been crafted from the finest grade of &+Wm&+wa&+Lr&+wb&+Wle&+L.&N
+&+LAlmost no flaws are evident in any area of this sinister sleek polished abode.&N
+&+LA large obsidian &+wstatue &+Ldominates the center of this remarkable ravishing room.&N
+&+LThe symbol of &+wchaos &+Lhas been burned into the hard noctambulant northern wall.&N
+&+LA strange &+gs&+Ge&+gr&+Gp&+ge&+Gn&+gt&+Gi&+gn&+Ge &+gs&+Gi&+gg&+Gi&+gl &+Lhas been drawn upon the grand gleaming icey &+bground&+L.&N
+&+LSouls of the lost cry out from the abysmal ever lasting demonical spun beyond.&N
+&+LImages drift and shift within the &+ceerie &+Lmist filled frigid arid immortal air.&N
+&+LFuneral &+wfog &+rflames &+Rflare&+L, causing boundless &+bshadow &+Lstalking suffering infernal&N
+&+Ltorment.  &+mRunes &+Ladorn this diabolical magical morbid dwelling in various s&+gp&+Go&+gt&+Ls.&N
+~
+429 1216516173 0
+D2
+&+w   Heads shall roll upon the &+gj&+Ga&+gd&+Ge&+gd &+wpath of wicked &+Ldemonic &+wsplender.&N
+~
+rock~
+1 0 42943
+E
+eerie~
+&+b   Th&+Be &+bl&+Bi&+bght &+Bi&+bn th&+Bi&+bs &+Br&+boo&+Bm &+bs&+Bee&+bms t&+Bo &+bsh&+Bi&+bv&+Be&+br i&+Bnt&+bo &+Bsh&+ba&+Bd&+be &+Ba&+bft&+Be&+br sh&+Ba&+bd&+Be o&+bf bl&+Bu&+be th&+Ba&+bt&N
+&+Bdr&+bi&+Bfts &+bi&+Bnt&+bo d&+Ba&+brk&+Be&+br.  &+BI&+bmag&+Be&+bs st&+Ba&+brt t&+Bo &+bf&+Bo&+brm w&+Bi&+bth&+Bi&+bn &+Bth&+be &+Bai&+br h&+Be&+br&+Be&+b, y&+Bou&+br p&+Ba&+bst f&+Bo&+brms&N
+&+bi&+Bnt&+bo &+By&+bou&+Br &+bpr&+Be&+bs&+Be&+bnt.  &+BScr&+bea&+Bms &+bfr&+Bo&+bm w&+Bi&+bth&+Bi&+bn y&+Bou&+br &+Bs&+bo&+Bu&+bl &+Ba&+bt s&+Bi&+bghts &+By&+bou w&+Bi&+bsh&+Be&+bd n&+Beve&+br,&N
+&+Bbr&+bo&+Bk&+be&+Bn th&+be&+By &+bf&+Ba&+bd&+Be j&+bu&+Bst a&+bs th&+Be&+by f&+Bo&+brm&+Be&+bd.  &+BS&+bi&+Bbl&+bi&+Bng&+bs &+Bo&+bf y&+Bou&+Br y&+bou&+Bth &+by&+Bou &+bl&+Bo&+bng w&+Bi&+bsh&+Be&+bd&N
+&+bd&+Bea&+bd f&+Ba&+bll &+Bi&+bn fr&+Bo&+bnt &+Bo&+bf y&+Bou &+ba&+Bnd &+ba&+Br&+be r&+Bi&+bpp&+Be&+bd &+Bi&+bnt&+Bo &+bshr&+Be&+bds.  Th&+Be&+by b&+Be&+bg f&+Bo&+br y&+Bou&+br m&+Be&+brcy&N
+&+Ba&+bnd &+By&+bou d&+Bo &+bn&+Bo&+bt kn&+Bo&+bw wh&+Ba&+bt &+Bi&+bt d&+Bo&+bth &+Bm&+bea&+Bn&+b.  &+BY&+bou gr&+Bi&+bn &+Ba&+bs &+By&+bou st&+Bo&+bp th&+Bei&+br l&+Bi&+bf&+Be&+b, n&+Bo&+bw&N
+&+by&+Bou&+br l&+Bi&+bf&+Be &+bc&+Ba&+bn b&+Be a&+bs &+Bi&+bt sh&+Bou&+bld b&+Be&+b.  N&+Bo &+bl&+Bo&+bng&+Be&+br c&+Ba&+bn th&+Bo&+bs&+Be &+bth&+Ba&+bt st&+Ba&+bnd &+Bi&+bn y&+Bou&+br w&+Ba&+by&N
+&+Bst&+bo&+Bp y&+bou&+B.  &+bD&+Bo &+bn&+Bo&+bt t&+Bu&+brn th&+Be o&+bth&+Be&+br ch&+Bee&+bk s&+Bi&+bmply str&+Bi&+bk&+Be i&+bt, d&+Bo &+bn&+Bo&+bt st&+Bo&+bp, &+Bkill&+b.&N
+&+bR&+Bea&+bl&+Bi&+bty f&+Bi&+bghts t&+Bo &+bb&+Be&+bc&+Bo&+bm&+Be &+br&+Bea&+bl &+Bo&+bnc&+Be &+bm&+Bo&+br&+Be&+b, &+By&+bou&+Br m&+bi&+Bnd st&+ba&+Brts t&+bo &+Bs&+bee &+Btr&+bai&+Bls th&+ba&+Bt&N
+&+Ba&+br&+Be &+bn&+Bo&+bt th&+Be&+br&+Be&+b.  &+BY&+bou&+Br h&+ba&+Bnds p&+bass&+B, &+by&+Be&+bt th&+Be&+by d&+Bo &+bn&+Bo&+bt s&+Bee&+bm t&+Bo &+bst&+Bo&+bp, &+By&+bou st&+Ba&+br&+Be a&+bnd&N
+&+bi&+Bm&+ba&+Bg&+be&+Bs &+bf&+Ba&+bd&+Be o&+bnc&+Be &+bm&+Bo&+br&+Be&+b.  S&+Ba&+bn&+Bi&+bty &+Bi&+bs n&+Bo&+bt s&+Bu&+br&+Be i&+bf i&+Bt &+bkn&+Bo&+bws wh&+Bo y&+bou a&+Br&+be&+B, &+bnor &+bdo &+Byou&N
+&+Bkn&+bo&+Bw &+bo&+Bf &+bi&+Bt&+b.  L&+Bo&+bst &+Bi&+bn &+Ba &+bw&+Bo&+brld th&+Ba&+bt &+Bi&+bs w&+Bi&+bth&+Bi&+bn y&+Bou&+brs&+Belf&+b, n&+Beve&+br t&+Bo &+bc&+Bo&+bm&+Be &+bb&+Ba&+bck d&+Bo&+bwn.&N
+&+bY&+Bou&+br s&+Bou&+bl l&+Bea&+bv&+Be&+bs th&+Be &+bb&+Bo&+bdy t&+Bo &+bpr&+Bo&+bj&+Be&+bct &+Bi&+bt&+Bself &+bi&+Bnt&+bo th&+Be &+br&+Bea&+blm &+Bo&+bf &+BB&+ba&+Brd &+bF&+Bau&+bst&+B.  &+bH&+Be&N
+&+Bwh&+bo &+Bm&+bu&+Bst s&+bu&+Bff&+be&+Br f&+bo&+Br th&+be s&+Bi&+bns &+Bo&+bf th&+Be tr&+Bai&+bt&+Bor&+b, r&+Bo&+bts &+Bi&+bn &+Bt&+bo&+Brm&+be&+Bnt &+bf&+Bo&+br n&+Bo&+bt &+Bbe&+bing.&N
+&+LDead &+Bi&+bs th&+Be o&+bnly th&+Bi&+bng th&+Ba&+bt &+Bi&+bs r&+Bea&+bl&+B, &+bth&+Be o&+bnly th&+Bi&+bng th&+Ba&+bt &+Bi&+bs p&+Bu&+br&+Be&+b, t&+Bo &+bb&+Ba&+bd h&+Be i&+bs&N
+&+Bn&+bo&+Bw &+bd&+Bea&+bd&+B.  Wh&+be&+Bn &+bh&+Be &+bl&+Bi&+bv&+Be&+bd h&+Be &+bh&+Ba&+bd tr&+Bue &+bl&+Bi&+bf&+Be&+b, &+Ba &+bsh&+Ba&+bm&+Be &+bh&+Be &+bn&+Be&+bv&+Be&+br w&+Ba&+bnt&+Be&+bd it, now h&+Be.&N
+&+bV&+Bi&+bs&+Bio&+bn r&+Be&+bt&+Bu&+brns &+Bi&+bnt&+Bo &+bwh&+Ba&+bt s&+Bee&+bms t&+Bo be n&+bo&+Brmal&+b, c&+Bo&+bl&+Bo&+brs s&+Bee&+bm t&+Bo &+bf&+Ba&+bd&+Be i&+bnt&+Bo &+breal&+Bity&+b.&N
+~
+E
+shadow shadows~
+&+bI&+Lm&+ba&+Lg&+be&+Ls &+bo&+Lf &+rsuffering &+bo&+Lf m&+bo&+Lrt&+ba&+Lls dr&+bi&+Lft &+bi&+Lnt&+bo &+Ls&+bi&+Lght, y&+bou &+Ls&+bee &+Lth&+bei&+Lr f&+bee&+Lbl&+be &+Lpl&+bi&+Lght.&N
+&+LH&+bo&+Lw s&+ba&+Ld th&+be&+Ly st&+bi&+Lll c&+bo&+Lnt&+bi&+Ln&+bue &+Lt&+bo &+Lf&+bi&+Lght, by wh&+ba&+Lt r&+bi&+Lght d&+bo &+Lth&+be&+Ly h&+ba&+Lv&+be m&+Lys&+bti&+Lc m&+bi&+Lght.&N
+&+LTh&+be&+Ly b&+ba&+Lttl&+be a&+Lg&+bai&+Lnst dr&+ba&+Lg&+bo&+Lns &+ba&+Lnd d&+be&+Lm&+bo&+Lns, &+Rdevils &+Ld&+be&+Lsc&+be&+Lnd d&+bo&+Lwn &+bu&+Lp&+bo&+Ln th&+be &+Lfr&+bo&+Lm th&+be&+Lm.&N
+&+LDr&+bi&+Lft&+bi&+Lng d&+bo&+Lwn fr&+bo&+Lm &+bou&+Lt &+bo&+Lf th&+be &+Lbl&+ba&+Lck sky, W&+bi&+Lngs &+bo&+Lf d&+barkne&+Lss spr&+bea&+Ld v&+boi&+Ld&+be&+Ld l&+bi&+Lght.&N
+&+LSh&+bado&+Lws sh&+bi&+Lft &+bi&+Lnt&+bo &+Lm&+bo&+Lrt&+ba&+Ll v&+bie&+Lw, tw&+bi&+Lst&+bi&+Lng &+ba&+Lnd t&+bu&+Lrn&+bi&+Lng &+bi&+Ln &+bd&+Le&+bv&+Li&+bl&+Li&+bsh &+revil &+Lt&+bo&+Lrt&+bu&+Lr&+be&+L.&N
+&+bA &+bcold &+Bchill &+bo&+Lf dead f&+bi&+Llls th&+bi&+Ls &+ba&+Lbysm&+ba&+Ll r&+boo&+Lm, c&+bau&+Ls&+bi&+Lng &+be&+Ly&+be&+Ls t&+bo &+Lf&+bo&+Lrm &+bi&+Lnt&+bo tear&+L.&N
+~
+E
+chaos~
+&+L   This symbol has an eye placed within the center of it and has pointed arrows&N
+&+Lwhich go in all directions outward.  &+wAs you gaze into the eye you &+Lstart to &+wsee&N
+&+La world where &+wthe chaos gods rule.  People are mutated into creatures &+Lbeyond&N
+&+Limagination.  &+wThe lands are in twisted ruins and humanity &+Lseems to be only &+wa&N
+&+wlost myth in this realm of chaos.  &+LSlaves to darkness with nothing left of&N
+&+Lwhat made them who, or what they once were.  You start to wonder if this is&N
+&+Lsome kind of warning from the past, or even the future.&N
+~
+E
+flames~
+&+R   Cr&+rim&+Rson &+ri&+Rma&+rges &+Rdan&+rce &+Ri&+rnto &+Ra &+rfl&+Ri&+rck&+Re&+rrin&+Rg &+rfad&+Red &+rd&+Ranc&+re &+Rmac&+ra&+Rbre.  Soun&+rd&+Rs of the&N
+&+rn&+Ror&+rd&+Ric &+rh&+Ro&+rrd&+Re&+rs c&+Ran &+rb&+Re h&+rea&+Rrd fr&+ro&+Rm &+rw&+Ri&+rth&+Ri&+rn the &+Rflame&+r.  I&+Rm&+ra&+Rge&+rs &+Ro&+rf &+Rb&+ra&+Rttl&+re&+Rs &+rl&+Ro&+rng &+Lset&N
+&+Ri&+rnt&+Ro &+rth&+Re p&+ras&+Rt&+r, &+Rr&+ri&+Rng &+rou&+Rt &+ro&+Rnc&+re &+Rm&+ro&+Rre &+rinside &+Ry&+rou&+Rr &+rm&+Ri&+rnd&+R.  &+rB&+Rea&+rts &+Ro&+rf &+Rdr&+ru&+Rms &+rcont&+Rinu&+re&N
+&+rw&+Ri&+rth &+Ra&+rn &+Ru&+rnrel&+Rent&+ring &+Rfl&+ro&+Rw&+r.  &+RA&+rn odd eerie &+Rglow&+r, &+Rs&+rt&+Ra&+ri&+Rns &+ro&+Rf &+rth&+Re &+rf&+Ra&+rll&+Re&+rn &+Rfl&+ro&+Rw&+r, &+Rdeath&N
+&+Rh&+ra&+Rs m&+ra&+Rde &+rit&+Rs &+rfr&+Roz&+re&+Rn &+rca&+Rll&+r.  &+RT&+rhe &+Rfi&+rr&+Res &+rdo not &+Rs&+ring&+Re &+rth&+Re &+rfl&+Re&+rsh&+R, &+rburn&+Ring &+ry&+Rou&+rr &+Rs&+rou&+Rl&N
+&+rw&+Ri&+rth &+Rhell&+rfire&+R.  &+rD&+Re&+rs&+Rir&+re &+Rdr&+rea&+Rms &+ro&+Rf &+rd&+Ris&+rmal &+Run&+rhollow &+Rscreams&+r, &+Rf&+ro&+Rll&+ro&+Rw &+rthe &+Revil &+rone&+R.&N
+&+RVision&+rs &+Rst&+ra&+Rrt t&+ro f&+Rad&+re &+Rb&+ra&+Rck &+ri&+Rnt&+ro &+Rth&+re f&+Rold &+rof &+Rnorm&+ra&+Rl &+rreal&+Rity&+r, &+Rthis &+rplight &+Rstarts&N
+&+rto &+Rdrift &+ro&+Ru&+rt &+Ro&+rf &+Rs&+re&+Rr&+rp&+Re&+rn&+Rt&+ri&+Rn&+re &+Rs&+ri&+Rg&+rh&+Rt&+r.&N
+~
+E
+funeral fog~
+&+w                          Funeral Fog            &N
+&+L                                            &N
+&+L                      Every time this year&N
+&+L                   This dark &+wfog &+Lshall appear&N
+&+L                   Up from the tombs it comes&N
+&+L                   To take one more life that&N
+&+L                          Can be near&N
+&+L                  In the middle of Transylvania&N
+&+L                 All natural life has for a long&N
+&+L                 Time ago gone, it's thin and so&N
+&+L                 Beautyful but also so dark and&N
+&+L                          Mysterous.&N
+&+L                Once again the preist is messing&N
+&+L                     May god bless us all.&N
+&+L                     The &+wfog &+Lis here again&N
+&+L                 That'll complete this &+wfuneral&+L.&N
+&+L                   From a place empty of life.&N
+&+L                Only dead trees are growing hear.&N
+&+L                     As it comes from a far&N
+&+L                Only dead trees are growing here&N
+&+L         ....&+wFuneral Fog&+L....&+wFuneral Fog&+L....&+wFuneral Fog&+L....&N
+&+L                                                        &N
+~
+E
+serpent~
+&+g   Th&+Gi&+gs &+Gs&+ge&+Grp&+ge&+Gnt i&+gs &+Gwr&+ga&+Gpp&+ge&+Gd u&+gp&+Go&+gn a &+Lpitchfork &+gi&+Gn a&+gn u&+Gnh&+go&+Gly &+gl&+Goo&+gk&+Gi&+gng &+GS &+gsh&+Ga&+gp&+Ge&+g.  I&+Gt&N
+&+Ga&+glm&+Go&+gst &+Gs&+gee&+Gms a&+gs i&+Gf &+gth&+Gi&+gs i&+Gs a &+gcr&+Ge&+gst &+Go&+gf &+Gs&+go&+Gm&+ge &+Ldemonic &+gb&+Gei&+gng &+Gth&+ga&+Gt &+gl&+Gu&+grks &+Gi&+gn w&+Go&+grlds&N
+&+gth&+Ga&+gt a&+Gr&+ge b&+Ge&+gy&+Go&+gnd &+Gth&+ge &+Gu&+gnd&+Ge&+grst&+Ga&+gnd&+Gi&+gng o&+Gf &+gs&+Gi&+gmpl&+Ge&+gt&+Go&+gn &+Gm&+go&+Grt&+ga&+Gls&+g.  Th&+Ge e&+gy&+Ge&+gs o&+Gf &+gth&+Gi&+gs &+Lbeast
+&+Ggl&+go&+Gw &+gw&+Gi&+gth &+Gh&+ga&+Gtr&+ge&+Gd a&+gnd &+Gb&+goun&+Gdl&+ge&+Gss &+gdr&+Gea&+gd.  &+GTh&+ge sc&+Ga&+gl&+Ge&+gs o&+Gf &+gth&+Ge r&+ge&+Gpt&+gi&+Gl&+ge s&+Gee&+gm &+Gt&+go &+Gsw&+gi&+Gft&N
+&+ga&+Gnd sw&+ga&+Gy a&+gnd &+Gch&+ga&+Gng&+ge fr&+Go&+gm &+Gsh&+ga&+Gd&+ge t&+Go &+gsh&+Ga&+gd&+Ge&+g, &+Gfr&+go&+Gm &+gd&+Ga&+grk &+Ggr&+gee&+Gn &+gt&+Go &+ga &+Ggl&+go&+Gw&+gi&+Gng &+gf&+Go&+grm o&+Gf&N
+&+Gth&+ge s&+Ga&+gm&+Ge c&+go&+Gl&+go&+Gr&+g.&N
+~
+E
+sigil~
+&+g   Th&+Gi&+gs &+Gs&+gi&+Gg&+gi&+Gl &+gde&+Gpi&+gcts &+Ga &+gtw&+Go &+gh&+Gead&+ged s&+Ge&+grpe&+Gn&+gt th&+Ga&+gt &+Gi&+gs i&+Gn &+gth&+Ge &+gsh&+Ga&+gp&+Ge o&+gf &+Ga&+gn &+GS &+gw&+Gi&+gth &+Ga&N
+&+gd&+Gou&+gbl&+Ge e&+gdg&+Ge p&+gi&+Gtc&+ghf&+Go&+grk &+Gi&+gnt&+Ge&+grs&+Ge&+gct&+Ging i&+gt.  &+GO&+gn&+Ge &+Ld&+got r&+Ge&+gs&+Gi&+gde&+Gs w&+Li&+gth&+Gi&+gn th&+Ge &+gc&+Le&+gnt&+Ge&+gr &+Go&+gf&N
+&+ge&+Ga&+gch &+Gl&+go&+Go&+gp &+Go&+gf th&+Ge &+Levil &+gdr&+Ga&+gwn &+Gei&+gght &+Ga&+gnd &+Ga &+gmy&+Gsti&+gc c&+Gi&+grcl&+Ge e&+gncl&+Go&+gs&+Ge&+gs &+Gi&+gt.&N
+~
+E
+serpentine~
+&+L   As you gaze at the &+gs&+Ge&+grp&+Ge&+gnt&+Gi&+gn&+Ge &+Lcreature you notice the word '&+RLeviathan&+L' has&N
+&+Lbeen etched into its tail.  Perhaps this is here for a reason, or perhaps it&N
+&+Lsimply is another relic from the past.  Sounds of battle start to fade into&N
+&+Lyour mind, the cries for mercy do not matter.  You start to see women slayed&N
+&+Lalongside their children.  A dark figure is upon a hill and stares at you with&N
+&+Lhis &+Rglowing &+Ldread red eyes.  The being does not seem to have a face yet it is&N
+&+Lthere filling your soul with despair.  The &+wDea&+Lth &+wD&+Lealer sits on top of a black&N
+&+Lsteed, perhaps a n&+bightma&+Lre.  For you know that this is worse than any, because&N
+&+Lyou know it to be real.  Birds of prey circle the darkened evil &+wsky &+Lwaiting to&N
+&+Lfeast upon your mortal flesh.&N
+~
+E
+statue~
+&+L   This &+wstatue &+Lhas been crafted from the finest grade of obsidian stone.  Not&N
+&+Leven a hint of a flaw is evident upon the dark surface.  The object depicts a&N
+&+Lgreat warrior wielding a large &+Rhellfire &+Lsword in both of his hands.  Armor of&N
+&+Ldemonical despair cloaks the well proportioned body.  A symbol of a &+wgoat &+Lhangs&N
+&+Lfrom the neck of this chiseled creature.  Crimson words have been engraved into&N
+&+Lthe base of this item.  They state '&+ROnly &+rdeath &+Ris real&+r, &+Ronly &+rdeath &+Ris pure&+r, the&N
+&+rend is only the beginning.&+L'  At the bottom of the writing is a dedication that&N
+&+Lreads '&+wIn memory of &+LBerethorn -Da&+ro&+Ll&+ro&+Lth-.'&N
+~
+E
+goat~
+&+r   This is a &+Lsymbol&+r that has been soaked in &+Rblood&+r.  The image consists of a&N
+&+rcircle that has an inverted pentagram drawn within it.  A &+Lgoat &+rhas also been&N
+&+rincluded inside the pentagram itself.  The &+Whorns &+rof the &+Lgoat &+rare thrust upward&N
+&+rin denial of the &+Rtr&+ri&+Rn&+ri&+Rty&+r.  The mouth downward and the ears occupy the east and&N
+&+rwest points.  The eyes of this creature seem to glare with an unholy sort of&N
+&+raware.  You feel a shiver run down along your &+Wspine&+r, meanwhile your feeble mind&N
+&+ris telling you that everything is just fine.  Thoughts of the past start to&N
+&+Linvade &+rthe present, causing resent to resurface and regret to run rampant.&N
+~
+E
+flare~
+&+r   Th&+Re &+rl&+Ri&+rght &+Ri&+rn th&+Ri&+rs &+Rr&+roo&+Rm &+rs&+Ree&+rms t&+Ro &+rsh&+Ri&+rv&+Re&+rr i&+Rnt&+ro &+Rsh&+ra&+Rd&+re &+Ra&+rft&+Re&+rr sh&+Ra&+rd&+Re o&+rf ha&+Rt&+re th&+Ra&+rt&N
+&+Rdr&+ri&+Rfts &+ri&+Rnt&+ro d&+Ra&+rrk&+Re&+rr.  &+RI&+rmag&+Re&+rs st&+Ra&+rrt t&+Ro &+rf&+Ro&+rrm w&+Ri&+rth&+Ri&+rn &+Rth&+re &+Rai&+rr h&+Re&+rr&+Re&+r, y&+Rou&+rr p&+Ra&+rst f&+Ro&+rrms&N
+&+ri&+Rnt&+ro &+Ry&+rou&+Rr &+rpr&+Re&+rs&+Re&+rnt.  &+RScr&+rea&+Rms &+rfr&+Ro&+rm w&+Ri&+rth&+Ri&+rn y&+Rou&+rr &+Rs&+ro&+Ru&+rl &+Ra&+rt s&+Ri&+rghts &+Ry&+rou w&+Ri&+rsh&+Re&+rd n&+Reve&+rr,&N
+&+Rbr&+ro&+Rk&+re&+Rn th&+re&+Ry &+rf&+Ra&+rd&+Re j&+ru&+Rst a&+rs th&+Re&+ry f&+Ro&+rrm&+Re&+rd.  &+RS&+ri&+Rbl&+ri&+Rng&+rs &+Ro&+rf y&+Rou&+Rr y&+rou&+Rth &+ry&+Rou &+rl&+Ro&+rng w&+Ri&+rsh&+Re&+rd&N
+&+rd&+Rea&+rd f&+Ra&+rll &+Ri&+rn fr&+Ro&+rnt &+Ro&+rf y&+Rou &+ra&+Rnd &+ra&+Rr&+re r&+Ri&+rpp&+Re&+rd &+Ri&+rnt&+Ro &+rshr&+Re&+rds.  Th&+Re&+ry b&+Re&+rg f&+Ro&+rr y&+Rou&+rr m&+Re&+rrcy&N
+&+Ra&+rnd &+Ry&+rou d&+Ro &+rn&+Ro&+rt kn&+Ro&+rw wh&+Ra&+rt &+Ri&+rt d&+Ro&+rth &+Rm&+rea&+Rn&+r.  &+RY&+rou gr&+Ri&+rn &+Ra&+rs &+Ry&+rou st&+Ro&+rp th&+Rei&+rr l&+Ri&+rf&+Re&+r, n&+Ro&+rw&N
+&+ry&+Rou&+rr l&+Ri&+rf&+Re &+rc&+Ra&+rn b&+Re a&+rs &+Ri&+rt sh&+Rou&+rld b&+Re&+r.  N&+Ro &+rl&+Ro&+rng&+Re&+rr c&+Ra&+rn th&+Ro&+rs&+Re &+rth&+Ra&+rt st&+Ra&+rnd &+Ri&+rn y&+Rou&+rr w&+Ra&+ry&N
+&+Rst&+ro&+Rp y&+rou&+R.  &+rD&+Ro &+rn&+Ro&+rt t&+Ru&+rrn th&+Re o&+rth&+Re&+rr ch&+Ree&+rk s&+Ri&+rmply str&+Ri&+rk&+Re i&+rt, d&+Ro &+rn&+Ro&+rt st&+Ro&+rp, &+Rkill&+r.&N
+&+rR&+Rea&+rl&+Ri&+rty f&+Ri&+rghts t&+Ro &+rb&+Re&+rc&+Ro&+rm&+Re &+rr&+Rea&+rl &+Ro&+rnc&+Re &+rm&+Ro&+rr&+Re&+r, &+Ry&+rou&+Rr m&+ri&+Rnd st&+ra&+Rrts t&+ro &+Rs&+ree &+Rtr&+rai&+Rls th&+ra&+Rt&N
+&+Ra&+rr&+Re &+rn&+Ro&+rt th&+Re&+rr&+Re&+r.  &+RY&+rou&+Rr h&+ra&+Rnds p&+rass&+R, &+ry&+Re&+rt th&+Re&+ry d&+Ro &+rn&+Ro&+rt s&+Ree&+rm t&+Ro &+rst&+Ro&+rp, &+Ry&+rou st&+Ra&+rr&+Re a&+rnd&N
+&+ri&+Rm&+ra&+Rg&+re&+Rs &+rf&+Ra&+rd&+Re o&+rnc&+Re &+rm&+Ro&+rr&+Re&+r.  S&+Ra&+rn&+Ri&+rty &+Ri&+rs n&+Ro&+rt s&+Ru&+rr&+Re i&+rf i&+Rt &+rkn&+Ro&+rws wh&+Ro y&+rou a&+Rr&+re&+R, &+rnor &+rdo &+Ryou&N
+&+Rkn&+ro&+Rw &+ro&+Rf &+ri&+Rt&+r.  L&+Ro&+rst &+Ri&+rn &+Ra &+rw&+Ro&+rrld th&+Ra&+rt &+Ri&+rs w&+Ri&+rth&+Ri&+rn y&+Rou&+rrs&+Relf&+r, n&+Reve&+rr t&+Ro &+rc&+Ro&+rm&+Re &+rb&+Ra&+rck d&+Ro&+rwn.&N
+&+rY&+Rou&+rr s&+Rou&+rl l&+Rea&+rv&+Re&+rs th&+Re &+rb&+Ro&+rdy t&+Ro &+rpr&+Ro&+rj&+Re&+rct &+Ri&+rt&+Rself &+ri&+Rnt&+ro th&+Re &+rr&+Rea&+rlm &+Ro&+rf &+RB&+ra&+Rrd &+rF&+Rau&+rst&+R.  &+rH&+Re&N
+&+Rwh&+ro &+Rm&+ru&+Rst s&+ru&+Rff&+re&+Rr f&+ro&+Rr th&+re s&+Ri&+rns &+Ro&+rf th&+Re tr&+Rai&+rt&+Ror&+r, r&+Ro&+rts &+Ri&+rn &+Rt&+ro&+Rrm&+re&+Rnt &+rf&+Ro&+rr n&+Ro&+rt &+Rbe&+ring.&N
+&+LDead &+Ri&+rs th&+Re o&+rnly th&+Ri&+rng th&+Ra&+rt &+Ri&+rs r&+Rea&+rl&+R, &+rth&+Re o&+rnly th&+Ri&+rng th&+Ra&+rt &+Ri&+rs p&+Ru&+rr&+Re&+r, t&+Ro &+rb&+Ra&+rd h&+Re i&+rs&N
+&+Rn&+ro&+Rw &+rd&+Rea&+rd&+R.  Wh&+re&+Rn &+rh&+Re &+rl&+Ri&+rv&+Re&+rd h&+Re &+rh&+Ra&+rd tr&+Rue &+rl&+Ri&+rf&+Re&+r, &+Ra &+rsh&+Ra&+rm&+Re &+rh&+Re &+rn&+Re&+rv&+Re&+rr w&+Ra&+rnt&+Re&+rd it, now h&+Re.&N
+&+rV&+Ri&+rs&+Rio&+rn r&+Re&+rt&+Ru&+rrns &+Ri&+rnt&+Ro &+rwh&+Ra&+rt s&+Ree&+rms t&+Ro be n&+ro&+Rrmal&+r, c&+Ro&+rl&+Ro&+rrs s&+Ree&+rm t&+Ro &+rf&+Ra&+rd&+Re i&+rnt&+Ro &+rreal&+Rity&+r.&N
+~
+E
+crimson markings~
+&+L
+&+L                                               &N
+&+L                     The Arcane Light of Hecate&N
+                                                        &N
+&+r               Oh ancient one, thy the knowledge of&N
+&+L                               Death&N
+&+r                        rise from thy tomb&N
+&+r             and reveal thy wisdom, the secrets of life&N
+&+r                to the daughters of the endless night&N
+&+r                           born in my womb&N
+&+L                                                           &N
+&+r             Oh powerful queen, thy the knowledge of fear&N
+&+r               &+LDangerous&+r when crossed, the art of sorcery&N
+&+r                    thy bringers of Joy and misery&N
+&+r                 thy children never tell thy mystery&N
+&+L                                                       &N
+&+r               Oh mother of shadows, thy the knowledge of&N
+&+L                                sorrow&N
+&+r         Join the dance in the garden of &+LDionysus&+r delight&N
+&+r                    Joy of life (ecstasy of &+Rlust&+r)&N
+&+r                 We embrace thy shining light tonight&N
+&+L                                             &N
+&+L                                             &N
+~
+E
+ground floor~
+&+L   The &+bcold&+Lness &+bof &+Lthe &+bbeyond&+L, the &+bslick &+Lsmooth of the &+bsouls &+Lof &+blost &+Lones.  I&N
+&+Ldo not &+bd&+Lwell &+bi&+Ln th&+be &+Llight of &+bmortal&+Listical man, images &+bbe&+Lcome &+breal&+Lity so you&N
+&+Lactually &+bthink&+L.  What &+bthings &+Lshall &+bo&+Lne e&+bver &+Lbe able to &+bsee &+Lin this &+blife&+Lless&N
+&+btime &+Ltha&+bt &+Lwe call t&+bo be &+Llife.  Why not search for something &+breal&+L, why do &+byou&N
+&+bfear &+Lthat which is &+breal&+L, only &+bdeath &+Lis real.  Sad yet &+btrue&+L, known to be &+bsoon&+Ler&N
+&+Lnot la&+bt&+Ler, till t&+bh&+Le day you b&+be&+Lcome late.  Not for the &+bmeeting&+L, nor &+bgather&+Ling,&N
+&+Lforever to be &+beternal&+L, finally you &+bbe&+Lcome &+breal&+L.  &+bD&+Larkness &+bI&+Lt shall b&+be&+L, worship&N
+&+Ljust t&+bo &+Lpray fo&+br &+Lthe lie of another &+bli&+Lf&+be&+L, do not &+bf&+Lol&+bl&+Low th&+bo&+Lse &+bw&+Lho are of the&N
+&+Lun&+blight&+L.  &+bP&+Llight s&+bo &+Lmany lack even to have sigh&+bt&+L, blocked &+bvisions &+Lthat can not&N
+&+Limagin&+be &+Lanythi&+bn&+Lg on &+bt&+Lh&+be&+Li&+br &+Lown.  Force&+bd &+Lto f&+bo&+Lllow a&+bs &+Lthe she&+be&+Lp, keep &+bd&+Lown those&N
+&+Lwho can &+bcreate&+L.  I really &+bhate &+Lthat, as open and &+bdirect &+Las I shall fade &+binto&N
+&+Ldestiny, &+brains &+Lof bl&+bo&+Lod &+bf&+Lall.  Cra&+bf&+Lted from raven bl&+ba&+Lckness, &+bt&+Louch&+be&+Ld by total&N
+&+Ldeath, Remain &+bo&+Ln a &+bf&+Loolish quest for unto&+bl&+Ld fame, n&+bo&+Lthing &+bs&+Lhall ever be &+bt&+Lhine&N
+&+bs&+Lame.  Y&+bou&+Lr time of a &+bl&+Les&+bs&+Lon into understandi&+bn&+Lg, &+bo&+Lr jus&+bt &+Lthin&+bk&+Ling you k&+bnow &+La&+bn&+Ly&N
+&+Lof what is &+btold&+L.  Something &+babout &+Lthis floor is far &+bfrom &+Lbeing anything called&N
+&+Lfine.  &+bNine &+Ldots cross, &+bpaths &+Lare spli&+bt&+L, freeze t&+bo &+Lsneeze, you &+bwonder&+L.&N
+~
+E
+runes~
+&+L   Nine &+mrunes &+Lhave been drawn in various spots upon the wicked &+Wm&+wa&+Lr&+wb&+Wle &+Lwalls in&N
+&+Lthis room.  They consist of the symbols of Demortes, &+RBaphomet&+L, &+RB&+raa&+Rl&+L, &+RBozk&+L, an&N
+&+Lodd &+bazure &+Limage, and the insignia of &+mDarkuul&+L.  While pictures of a &+wdemoness&+L, a&N
+&+Ldemonical creature, and a shadow scaled black dragon are etched in the ceiling.&N
+&+LMost likely these mystical drawings have been drawn by those who are not of the&N
+&+Llight.  Shadows that stalk the nocturnal noctambulant night.  Bringers of hell&N
+&+Lspun fright, rulers of &+Ct&+cw&+Ci&+cl&+Ci&+cg&+Ch&+ct&+L.  Dead minions from long since past, immortal&N
+&+Lever lasting pain.  Memories drove them far from sane, nordic hordes came.  A&N
+&+Lseal filled with &+Wsymbols &+Lform shape, drifting within the frigid frozen air.&N
+~
+E
+demortes~
+&+L
+&+L
+&+L
+&+r  D&+Leath &+rM&+Leans &+rT&+Lruth is all thou needs to know invades the mind and fills the&N
+&+Lbody.  Eyes of mortals die, cry, and seek to learn more then they should ever&N
+&+Ldare.  Soon oh so very soon the gaze flickers into n&+bightshade&+Ld &+Leternal &+rdamned&N
+&+bvisions&+L.  Images become reality things that not many mortals quite ever seem to&N
+&+Lsee.  Dragons with scales of &+gs&+Ge&+grp&+Ge&+gnt&+Gi&+gn&+Ge&+L wonderment fly within the air, soaring&N
+&+Lon wings of reptilian fury.  &+RF&+Yi&+Wre &+Lfills the sky and &+wsmoke&+L fills the lungs of&N
+&+wthose &+Lwho are not &+wof the unlight&+L.  Shivers of fright fill the body and &+Bchills&N
+&+Lthe sight.  Something here just is not normal, nor tis it right.&N
+&+L
+&+L
+&+L
+~
+E
+dragon scaled~
+&+L   Scales of darkness upon a beast of dismal despair.  The eyes of fire burn in&N
+&+Lsockets of &+rp&+Ra&+rg&+Ra&+rn &+Rf&+ri&+Rr&+re&+L.  Beastial images of death fade into your mind and shiver&N
+&+Ldown along your spine.  Nothing no longer seems to be even close to fine.  A&N
+&+Lsign is sort in the sky of the realms of the dark one.  Monsters morph into&N
+&+Lyour brain from the nine hells of the infernal plane.  Dreams of the lost are&N
+&+Lforever to be no longer.  Screams of torment ring out within your head, yes&N
+&+Lfilling you with dread.  The wings of this beast span at least eighteen feet&N
+&+Lacross and have stains of dried crimson on them.  The claws of terror also have&N
+&+Ltasted the blood of the eager to die meager.  This symbol has been drawn by&N
+&+wThose of The Unlight&+L.&N
+~
+E
+azure odd~
+&+L   This symbol seems to depict the &+Wnorthern &+Lhordes destroying the feeble weak.&N
+&+LThey seem to be &+bberserkers &+Land they are immune to almost anything they rush at&N
+&+Lthe meek and they smash and destroy.  Thine eyes dilated into a mystic image of&N
+&+Luntold deathless fear.  Perhaps they are on mushrooms or maybe they are just&N
+&+Lthe true warriors of this realm and any other.  The battle comes to life you&N
+&+Lsee the vyking horde destroying legions of lesser warriors with greater armies.&N
+&+LYet they are not even a match for the true hordes of the berserker masters, not&N
+&+Lthe would be zerkers that have been unleashed in many places.  These are the&N
+&+Lreal deal that are the facts and not the balanced weaklings that many wish to&N
+&+Lbe truth.  They slash and cut their way threw their out classed enemies, they&N
+&+Lalmost seem to be having fun.  The &+Wnordic &+Bthunder &+Ldestroys all that dare to&N
+&+Lstand in the path of &+rKvasir &+Land his &+rbl&+Ro&+ro&+Rd &+Lborn troops.  The mighty one can be&N
+&+Lseen holding his large hammer and smashing the &+Wskulls &+Lof all those that still&N
+&+Lhave life within them.  Suddenly the pictures fade back into nothingness and&N
+&+Lyou realize you can never be a true berserker for you lack the &+Rbloodlust&+L.&N
+~
+E
+baphomet~
+&+L   This symbol has been drawn here by one of those who is of the &+wunlight&+L.  It&N
+&+Ldepicts a goat within an inverted pentagram that is enclosed by a circle.  The&N
+&+Whorns&+L of the beast are thrust upward in denial of the &+rtr&+Ri&+rn&+Ri&+rty&+L and the mouth is&N
+&+Lpointed downward.  The ears of this being flow to the east and to the west and&N
+&+Lare within the points of the pentagram.  The eyes of this black goat seem to&N
+&+Lpenetrate the soul and sends an eerie &+Bchill&+L within the body.  Fears long since&N
+&+Lthought dead invade the mind and become the present.  The regrets of your life&N
+&+Lbecomes all that you can think of.  You wonder how you could of been so wrong&N
+&+Lin following the light.  D&+barkne&+Lss is the true power and to deny that is to&N
+&+Lremain feeble.  The visions blur and twist into an odd array of nothingness.&N
+~
+E
+baal~
+&+R   Cr&+ri&+Rms&+ron i&+Rs th&+re c&+Ru&+rre &+Rfo&+rr th&+Re f&+ree&+Rbl&+re m&+Ree&+rk wh&+Ro wi&+rsh t&+Ro se&+rek&+R.  &+rBl&+Ro&+ro&+Rd &+ro&+Rf t&+rhe l&+Ro&+rst&N
+&+rha&+Rs be&+ren &+Ru&+rse&+Rd &+rt&+Ro cr&+rea&+Rt&+re th&+Ris &+rs&+Ry&+rmb&+Rol &+rof &+Revil&+r.  &+RD&+rr&+Read &+reye&+Rs o&+rf th&+Re &+rdark &+Ro&+rne &+Rst&+ra&+Rrt&N
+&+Rt&+ro st&+Ra&+rr&+Re i&+rnt&+Ro y&+rou&+Rr &+rf&+Ree&+rble &+Rs&+ri&+Rmpl&+re&+Rt&+ron &+Rs&+rou&+Rl&+r.  &+RF&+rea&+Rr o&+rf d&+Ree&+rds y&+Rou &+rl&+Re&+rft &+Ru&+rnd&+Rone &+rsh&+Ri&+rft&N
+&+ri&+Rnt&+ro th&+Re &+rno&+Rw &+ra&+Rnd r&+rui&+Rn &+rth&+Re fut&+rure&+R, &+rf&+Ror &+ry&+Rou ha&+rve no&+Rne&+r.  &+RY&+rou&+Rr d&+re&+Rst&+ri&+Rny i&+rs &+Rt&+ro d&+Ri&+re &+Rby&N
+&+Rth&+re h&+Ra&+rnd &+Rof &+revil&+R, &+ro&+Rr t&+ro s&+Ru&+rrr&+Re&+rnd&+Re&+rr y&+Rou&+rr &+Rs&+rou&+Rl an&+rd s&+Re&+rrv&+Re th&+re &+Rd&+rarkne&+Rss&+r.  &+RTh&+ri&+rn&+Re &+rd&+Ru&+rst&N
+&+ro&+Rf d&+ren&+Rial &+rb&+Rea&+rts w&+Ri&+rth&+Rin &+rth&+Re h&+re&+Ra&+rrt &+Ro&+rf u&+Rtt&+re&+Rr a&+rnd t&+Ro&+rt&+Ra&+rl d&+Re&+rsp&+Rai&+rr.  &+RCr&+rie&+Rs o&+rf ch&+Ri&+rldr&+Re&+rn&N
+&+Rf&+rill th&+Re m&+ru&+Rrky &+rai&+Rr, y&+ret n&+Rob&+rody &+Rev&+ren st&+Rop&+rs t&+Ro &+rst&+Rar&+re, &+Re&+rve&+Rn t&+ro c&+Ra&+rre&+R.  &+rD&+Ro no&+rt sh&+Ra&+rr&+Re&N
+&+rwh&+Rat y&+rou h&+Ra&+rv&+Re w&+rit&+Rh &+ro&+Rther&+rs, &+Rne&+rv&+Rer &+rlo&+Rw&+rer y&+Rou&+rr &+Rg&+rua&+Rrd&+r.  &+RWo&+rrld&+Rs o&+rf d&+Re&+rm&+Ro&+rns &+Ra&+rnd d&+Rea&+rth&N
+&+Rsh&+rif&+Rt &+ri&+Rnt&+ro y&+Rou&+rr m&+Ri&+rnd &+Ra&+rnd &+Rc&+rau&+Rs&+re y&+Rou t&+ro &+Rcr&+ra&+Rck &+ra &+Rs&+ro&+Rrt &+ro&+Rf &+revil &+Rsm&+ri&+Rl&+re.  &+RB&+rath&+Ro&+rry &+Rs&+ri&+Rts&N
+&+ra&+Rt&+rop h&+Re&+rr &+Rj&+ra&+Rd&+re thr&+Rown &+ras &+Rsh&+re l&+Rau&+rghs &+Ra&+rs th&+Ro&+rse &+Ro&+rf th&+Re l&+ri&+Rght &+ra&+Rr&+re t&+Ro&+rrt&+Ru&+rr&+Red &+rt&+Ri&+rll d&+Ri&+re&+R.&N
+~
+E
+bozk~
+&+R   Eyes &+Lof demonical fire burn within a &+cs&+Co&+cu&+Cl &+Lscourned image of dismal death.&N
+&+LThe cries of the lost fill your mortal mind as you gaze at this symbol of the&N
+&+Lone known as &+RBozk&+L.  Graves that are filled with bodies of those who dared to&N
+&+Ldefy the d&+barkne&+Lss burn in the &+Ct&+cw&+Ci&+cl&+Ci&+cg&+Ch&+ct &+Lof &+wunlight&+L.  Suffering of the fallen&N
+&+Lfools who thought they could survive the fires of the black abyss.  Screams of&N
+&+Ltorment, torture of the meek, death to any who seek.  Focus wishes it was no&N
+&+Llonger as reality fades into a &+bnight&+Lmare.  Heads upon stakes, &+Rbl&+ro&+Ro&+rd &+Lapon thine&N
+&+Lground, eyes rolled by fatal fate.  Hate of the light, &+Bthunder &+Lcrackles within&N
+&+Lthe demonic air.  &+CSh&+Wi&+Cv&+We&+Crs &+Lslowly stream down your &+Wspine&+L, nothing at all seems&N
+&+Lto be even near fine.  Time drifts into limbo, what is real no longer can be&N
+&+Lrealized for sure.  Images from the past becomes the present, resent, descent,&N
+&+Lall flowing into &+Rpain&+L.  &+CRain &+Lof &+Ws&+Ce&+Wrp&+Ce&+Wnt&+Ci&+Wn&+Ce &+Lwinter falls from out the &+wclouded&N
+&+Lsky of the raven realms.  Flickering, fading, changing, pupils dilate, things&N
+&+Lalmost drift back into sane.  Insane voices echo inside your hollow head, yet&N
+&+Lyou can not make out what they are saying.  &+wWhispers &+Lfrom beyond eternal &+bnight&N
+&+Lfill the body with untold fright.  Might makes right, no matter the height, to&N
+&+Ldestroy those who dare to ever care.  Cast them not but a &+Bcold &+Llifeless stare,&N
+&+Lmurder them in cold &+rbl&+Ro&+ro&+Rd&+L.  You realize to dream that is your death once more.&N
+~
+E
+insignia darkuul~
+&+L   This dark magenta colored &+minsignia &+Ldoes not seem to be one that is of the&N
+&+Lfeeble light.  Most likely it spawns from that which is known as the &+wunlight&+L,&N
+&+Lthe true might.  Only those with the sight can ever see, never to be right,&N
+&+Lliving just to fight.  Serve the &+revil &+Ltill the day of no longer, worship the&N
+&+Lmaster or die.  &+mDarkuul &+Lis the dark lord who shall deliver us from the hordes&N
+&+Lof &+Chumans&+L.  The &+Ydwarves &+Lshall be tossed as they always have been, as in the now&N
+&+Land what becomes the past.  Words of wisdom no longer hold meaning in the realm&N
+&+Lof mortals.  Those that seem to be &+WImmortal &+Lmust kill all who dare to stand in&N
+&+Ltheir way.  Mercy is for the meek who shall be given nothing and all shall be&N
+&+Ltaken from them.  Power creates the rules, hiding in the shadows the goodies&N
+&+Llurk in their pathetic groups.  Men of twenty yet not even to have one, all for&N
+&+Lthemselves and nothing for the all.  Reality starts to fade into your eyes and&N
+&+Lyou gaze at what seems to be the symbol of a d&+barkne&+Lss.&N
+~
+E
+demonical creature~
+&+L   Eyes that have gazed upon the nine hells, wings that have glided upon the&N
+&+Linfernal winds of &+rHe&+Rll&+Yfi&+Wre&+L.  A pronged tail that deals out pain and utter&N
+&+Ldespair.  Horns that are thrust upward in denial of the feeble trinity.  A&N
+&+LKris style pitchfolk with waves of hatred burned into it.  This creature seems&N
+&+Lto be almost alive.  A cold &+Bchill &+Lfrom beyond shivers down your mortal &+Wspine&+L.&N
+&+LYour eyes start to burn with sorrow of those who have wronged you in your past.&N
+&+LHatred overcomes you as you decide it is time to strike down your enemies once&N
+&+Land for all.  The words &+rD&+Reat&+rh T&+Ro &+rP&+Reac&+re&+L, echo within your mind, and flow down&N
+&+Linto your hollow soul.&N
+~
+E
+demoness~
+&+L   This creature has been bound to an inverted pentagram, arms and legs tied&N
+&+Lwith the strands of &+Cl&+co&+Cs&+ct &+Ct&+ca&+Ctt&+ce&+Cr&+ce&+Cd &+cs&+Co&+cu&+Cl&+cs&+L.  The eyes of this beast glare with a&N
+&+Lstare of unholy demonic despair.  Your soul burns by the images that start to&N
+&+Lflow within your mortal mind.  Fine no longer, mine once again, you wonder why&N
+&+Levil must die.  Gazing into the &+Rs&+re&+Rrp&+re&+Rnt&+ri&+Rn&+re &+Rs&+rk&+Ry&+L, reality fades back again and&N
+&+Lfills this room with sight.&N
+~
+E
+symbols~
+&+C   Th&+We&+Cs&+We &+Csymb&+Wo&+Cls s&+Wee&+Cm l&+Wi&+Ck&+We &+Cth&+We&+Cy w&+We&+Cr&+We &+Cdr&+Wa&+Cwn fr&+Wo&+Cm th&+We &+Cw&+Wi&+Cnds &+Wo&+Cf th&+We nordic &+Lnight&+C.&N
+&+CIm&+Wa&+Cg&+We&+Cs &+Wo&+Cf d&+We&+Cm&+Wo&+Cns &+Wa&+Cnd d&+We&+Cv&+Wi&+Cls l&+Wo&+Cck&+We&+Cd &+Wi&+Cn &+We&+Ct&+We&+Crn&+Wa&+Cl d&+We&+Csp&+Wai&+Cr f&+Wa&+Cd&+We i&+Cnt&+Wo &+Cv&+Wi&+Cs&+Wio&+Cns &+Wo&+Cf th&+We&N
+&+Wnorthern &+Lhordes &+Cr&+Wi&+Cd&+Wi&+Cng &+Wi&+Cnt&+Wo &+Cb&+Wa&+Cttl&+We u&+Cnd&+We&+Cr th&+We &+Cb&+Wa&+Cnn&+We&+Cr o&+Cf &+Wa &+Cm&+Wi&+Cghty k&+Wi&+Cngd&+Wo&+Cm.  Th&+We&N
+&+Ch&+Wo&+Crs&+We&+Cs cr&+Wea&+Ct&+We a &+Cb&+Wea&+Ct &+Wo&+Cf dr&+Wu&+Cms th&+Wa&+Ct r&+Wo&+Clls &+Wi&+Cnt&+Wo &+Cth&+We &+Cm&+Wi&+Cnd &+Wa&+Cnd fl&+Wo&+Cws d&+Wo&+Cwn &+Wa&+Cl&+Wo&+Cng t&+Wo&N
+&+Cth&+We &+Cb&+Wa&+Cs&+We o&+Cf th&+We spine&+C, s&+Wu&+Cdd&+We&+Cnly n&+Wo&+Ct &+We&+Cv&+We&+Cryth&+Wi&+Cng s&+Wee&+Cms t&+Wo &+Cb&+We &+Cf&+Wi&+Cn&+We&+C.  &+CE&+Cy&+We&+Cs &+Wo&+Cf th&+We&N
+&+Cm&+Wo&+Crt&+Wa&+Cls g&+Wa&+Cz&+We &+Ch&+Wo&+Cp&+Wi&+Cng t&+Wo &+Cf&+Wi&+Cnd &+We&+Cv&+We&+Cn &+Wa &+Cgl&+Wi&+Cmm&+We&+Cr &+Wo&+Cf &+Wa &+Cs&+Wi&+Cgn.  C&+Wa&+Clls &+Wo&+Cf th&+We &+Cd&+Wa&+Cmn&+We&+Cd &+Wa&+Cr&+We&N
+&+Cdr&+Wo&+Cwn&+We&+Cd &+Wou&+Ct by th&+We &+Ccr&+Wie&+Cs &+Wo&+Cf th&+Wo&+Cs&+We &+Cwh&+Wo &+Cm&+Wu&+Cst s&+Wu&+Cff&+We&+Cr &+Wa&+Cs th&+We &+Cw&+Wea&+Ck.  D&+We&+Cc&+Wa&+Cp&+Wa&+Ct&+Wa&+Ct&+We&+Cd&N
+&+Ch&+Wea&+Cds pl&+Wa&+Cc&+We&+Cd h&+Wi&+Cgh &+Wo&+Cn t&+Wo&+Cp &+Wo&+Cf &+Rbloody &+Cst&+Wa&+Ck&+We&+Cs, w&+Wa&+Crr&+Wio&+Crs f&+Wa&+Cll&+We&+Cn l&+Wi&+Ctt&+We&+Cr th&+We &+Cgl&+Woo&+Cmy&N
+&+Cgr&+Wou&+Cnd.  W&+Wea&+Cp&+Wo&+Cns &+Wo&+Cnc&+We u&+Cs&+We&+Cd t&+Wo &+Cw&+Wa&+Cg&+We &+Cw&+Wa&+Cr n&+Wo&+Cw &+Wu&+Cs&+We&+Cd t&+Wo &+Cb&+Wu&+Cry th&+Wo&+Cs&+We &+Cwh&+Wo &+Cd&+Wie&+Cd by th&+We&N
+&+Lblood &+Cs&+Woa&+Ck&+We&+Cd sw&+Wo&+Crds &+Wo&+Cf th&+Wei&+Cr f&+Wo&+Crm&+We&+Cr br&+Wo&+Cth&+We&+Crs.  Sh&+Wi&+Cv&+We&+Crs sl&+Wo&+Cwly cr&+Wee&+Cp d&+Wo&+Cwn &+Wi&+Cnt&+Wo&N
+&+Cth&+We &+Cb&+Wo&+Cdy &+Wo&+Cf th&+We &+Cd&+Wiei&+Cng m&+Wo&+Crt&+Wa&+Cls, th&+We &+Cc&+Wo&+Cld ch&+Wi&+Cll &+Wo&+Cf th&+We &+Ldead &+Ct&+Wou&+Cch&+We&+Cs th&+We &+Cs&+co&+Cu&+cl&+Cs&N
+&+Wo&+Cf th&+Wo&+Cs&+We &+Cwh&+Wo a&+Cr&+We &+Cf&+Wo&+Cr&+We&+Cv&+We&+Cr t&+Wo &+Cb&+We &+Cl&+Wo&+Cst.  T&+Wo&+Crm&+We&+Cnt &+Wa&+Cnd t&+Wo&+Crt&+Wu&+Cr&+We a&+Cll th&+Wa&+Ct sh&+Wa&+Cll b&+We&+C,&N
+&+Cn&+Wo&+Cth&+Wi&+Cng &+We&+Cls&+We &+Csh&+Wa&+Cll &+We&+Cv&+We&+Cr f&+Wa&+Cd&+We o&+Cr fl&+Wi&+Cck&+We&+Cr &+Wi&+Cnt&+Wo &+Cr&+Wea&+Cl.  D&+Wea&+Cls w&+Wi&+Cth th&+We &+Cd&+Wevil&+C, t&+Wo&N
+&+Cl&+Wie &+Ct&+Wo &+Cy&+Wou&+Crs&+We&+Clf &+Wa&+Cnd try t&+Wo &+Ctr&+Wi&+Cck th&+Wo&+Cs&+We &+Cf&+Woo&+Cl&+Wi&+Csh en&+Wou&+Cgh t&+Wo &+Cf&+Wo&+Cll&+Wo&+Cw y&+Wou&+C.  Dr&+Wea&+Cms&N
+&+Cdr&+Wi&+Cft &+Wi&+Cnt&+Wo &+Ch&+We&+Cll&+Wi&+Csh &+Lnightmares&+C, p&+Wai&+Cn st&+Wa&+Crts t&+Wo &+Cr&+Wai&+Cn &+Wi&+Cnt&+Wo &+Cy&+Wou&+Cr &+Wi&+Cns&+Wa&+Cn&+We &+Cfr&+Wo&+Cz&+We&+Cn t&+Wo&N
+&+Cd&+We&+Cs&+Wo&+Cl&+Wa&+Ct&+Wio&+Cn br&+Wai&+Cn.  Wh&+Wa&+Ct sh&+Wa&+Cll k&+Wee&+Cp y&+Wou &+Cfr&+Wo&+Cm str&+Wa&+Cy&+Wi&+Cng fr&+Wo&+Cm th&+We &+Cs&+Wa&+Cn&+We&+C, why sh&+Wou&+Cld&N
+&+Cy&+Wou e&+Cv&+We&+Cn c&+Wa&+Cr&+We &+Cf&+Wo&+Cr &+Wa&+Cny&+Wo&+Cn&+We o&+Cr &+Wa &+Cd&+Wo&+Cm&+Wai&+Cn.  W&+Wa&+Clk&+Wi&+Cng y&+We&+Ct c&+Wa&+Cst&+Wi&+Cng n&+Wo&+Ct &+Wa &+Csh&+Wa&+Cd&+Wo&+Cw, th&+Wa&+Ct&N
+&+Wi&+Cs th&+We &+Cc&+Wu&+Crs&+We o&+Cf th&+We &+Cl&+Wi&+Cv&+Wi&+Cng, th&+Wo&+Cs&+We &+Cwh&+Wo a&+Cr&+We &+Ctr&+Wu&+Cly n&+Wo &+Cl&+Wo&+Cng&+We&+Cr, th&+We&+Cy try t&+Wo &+Cd&+We&+Cc&+Wei&+Cv&+We&N
+&+Wa&+Cnd n&+We&+Cv&+We&+Cr sh&+Wa&+Cll th&+We&+Cy &+Wa&+Cdm&+Wi&+Ct t&+Wo &+Cr&+Wea&+Cl&+Wi&+Cty.  &+WI&+Cc&+We&+Cd w&+Wi&+Cnds bl&+Wo&+Cw, w&+Wa&+Csh&+Wi&+Cng &+Wo&+Cv&+We&+Cr sh&+Wo&+Cr&+We&+Cs,&N
+&+Cw&+Wi&+Csd&+Wo&+Cm &+Wo&+Cf l&+Wo&+Cst &+Wa&+Cg&+We&+Cs f&+Wi&+Cll&+Wi&+Cng th&+We &+Cm&+Wu&+Crky &+Lnight&+C.  Th&+Wi&+Cngs &+Wa&+Cr&+We &+Cst&+Wa&+Crt&+Wi&+Cng t&+Wo &+Cs&+Wee&+Cm &+Wa&+Cll&N
+&+Ct&+Wo &+Cr&+Wi&+Cght, s&+Wo&+Cm&+We&+Cth&+Wi&+Cng h&+Wa&+Cs t&+Wo &+Cf&+Wi&+Cll y&+Wou &+Cw&+Wi&+Cth fr&+Wi&+Cght, s&+We&+Cc&+Wo&+Cnd s&+Wi&+Cght, c&+We&+Clt&+Wi&+Cc fr&+Wo&+Cst.&N
+~
+S
+#42945
+&+LDark Hall Within The Lair of &+rRax&+Rtha&+rn&n~
+&+L   Not even a flicker of &+Ct&+cw&+Ci&+cl&+Ci&+cg&+Ch&+ct &+Llurks within this dismal dreary dark hall.&N
+&+LSadistic &+rs&+Re&+rr&+Rp&+re&+Rn&+rt&+Ri&+rn&+Re &+Lsymbols have been etched into the wicked walls.  Markings&N
+&+Lfrom those who are of the &+wunlight&+L, bringers of nocturnal fright.  Destroy the&N
+&+Lfeeble light, might creates what is known as right.  Seers cursed lost sight,&N
+&+Lpawns tossed for feeble fights.  Prints adorn the ghastly ground, remnants of&N
+&+Lthose who serve &+revil &+Lwith delight.  Silent &+bshadows &+Lthat sway slowly in night.&N
+~
+429 1216385097 0
+D0
+&+L   Path leading out of this demonical diabolical twisted hell.&N
+~
+slab~
+5 0 42940
+D2
+&+L   The demonical diabolical dark hall seems to continue on in this direction.&N
+~
+~
+0 0 42946
+E
+serpentine serpent symbols symbol~
+&+r   Th&+Ri&+rs &+Rs&+re&+Rrp&+re&+Rnt i&+rs &+Rwr&+ra&+Rpp&+re&+Rd u&+rp&+Ro&+rn a &+Lpitchfork &+ri&+Rn a&+rn u&+Rnh&+ro&+Rly &+rl&+Roo&+rk&+Ri&+rng &+RS &+rsh&+Ra&+rp&+Re&+r.  I&+Rt&N
+&+Ra&+rlm&+Ro&+rst &+Rs&+ree&+Rms a&+rs i&+Rf &+rth&+Ri&+rs i&+Rs a &+rcr&+Re&+rst &+Ro&+rf &+Rs&+ro&+Rm&+re &+Ldemonic &+rb&+Rei&+rng &+Rth&+ra&+Rt &+rl&+Ru&+rrks &+Ri&+rn w&+Ro&+rrlds&N
+&+rth&+Ra&+rt a&+Rr&+re b&+Re&+ry&+Ro&+rnd &+Rth&+re &+Ru&+rnd&+Re&+rrst&+Ra&+rnd&+Ri&+rng o&+Rf &+rs&+Ri&+rmpl&+Re&+rt&+Ro&+rn &+Rm&+ro&+Rrt&+ra&+Rls&+r.  Th&+Re e&+ry&+Re&+rs o&+Rf &+rth&+Ri&+rs &+Lbeast
+&+Rgl&+ro&+Rw &+rw&+Ri&+rth &+Rh&+ra&+Rtr&+re&+Rd a&+rnd &+Rb&+roun&+Rdl&+re&+Rss &+rdr&+Rea&+rd.  &+RTh&+re sc&+Ra&+rl&+Re&+rs o&+Rf &+rth&+Re r&+re&+Rpt&+ri&+Rl&+re s&+Ree&+rm &+Rt&+ro &+Rsw&+ri&+Rft&N
+&+ra&+Rnd sw&+ra&+Ry a&+rnd &+Rch&+ra&+Rng&+re fr&+Ro&+rm &+Rsh&+ra&+Rd&+re t&+Ro &+rsh&+Ra&+rd&+Re&+r, &+Rfr&+ro&+Rm &+rbl&+Ro&+ro&+Rd &+rre&+Rd &+rt&+Ro &+ra &+Rgl&+ro&+Rw&+ri&+Rng &+rf&+Ro&+rrm o&+Rf&N
+&+Rth&+re s&+Ra&+rm&+Re c&+ro&+Rl&+ro&+Rr&+r.&N
+~
+S
+#42946
+&+LDirty Hall Within The Lair of &+rRax&+Rtha&+rn&n~
+&+L   Filth and &+wdust &+Ladorn the ghastly ground of this abysmal horrid hollow hall.&N
+&+LRemnants from those who have passed this way before, slivers suspended in time.&N
+&+LEternal &+rstains &+Lmark the wicked weary dreary &+Bcold &+Lsadistic stone walls.  Marks&N
+&+Lfrom battles long since past, memories cast into forever.  Dreams dashed into&N
+&+Lnever after.  Stench of diabolical decay invades the arid empty air, causing&N
+&+Leyes despair.  Sight flickers into twisted darkened &+Ct&+cw&+Ci&+cl&+Ci&+cg&+Ch&+ct &+Ltormented fright.&N
+~
+429 1216385097 0
+D0
+&+L   The diabolical dirty dark hall seems to continue on in this direction.&N
+~
+~
+0 0 42945
+D2
+&+L   The grand &+rauction &+Lroom of &+rRax&+Rtha&+rn&+L.&N
+~
+~
+0 0 42947
+S
+#42947
+&+LGrand &+rAuction &+LRoom of &+rRax&+Rtha&+rn&n~
+&+L   This is the grand &+rauction &+Lroom of &+rRax&+Rtha&+rn &+LThe &+rEnslaver&+L.  Many slaves are&N
+&+Lbought and sold within this dismal abode.  Rings for chains can be seen hanging&N
+&+Lfrom the ceiling, adorning the walls, and upon the ghastly ground.  The large&N
+&+Lgrand stand dominates the center of this rancid room.  Scents of cheap perfume&N
+&+Land wine drifts within the misty air here.  Symbols have been burned into odd&N
+&+Rs&+rpot&+Rs &+Lstrewn around the enclosure.  Etchings from those who are of the &+wunlight&+L.&N
+~
+429 1216385097 0
+D0
+&+L   The chamber narrows into a dismal dirty dreary dark demonical hall.&N
+~
+~
+0 0 42946
+D1
+&+L   The barter room of the diabolical daemonic &+renslaver&+L.&N
+~
+~
+0 0 42948
+S
+#42948
+&+LThe Barter room of &+rRax&+Rtha&+rn&n~
+&+L   This is the diabolical barter room, where slaves and fortunes of all kinds&N
+&+Lare bought and sold.  Many lives have been cast into eternal servitute within&N
+&+Lthese unholy horrid walls.  Symbols have been burned into the ghastly ground,&N
+&+Lmarks of those who are of the &+wunlight&+L.  Bringers of nocturnal fright, &+Wnordic&N
+&+Lknights, dwelling in n&+bo&+Lct&+ba&+Lmb&+bu&+Ll&+ba&+Lnt &+Lnight.  Serpents strike, crimson fangs, shark&N
+&+Lfeeding frenzy.  Scents of suffering invade the dark arid air, causing despair.&N
+~
+429 1216385097 0
+D1
+&+L   The &+rpleasure &+Lden of &+rRax&+Rtha&+rn&+L.&N
+~
+~
+0 0 42949
+D3
+&+L   Grand &+rauction &+Lroom of &+rRax&+Rtha&+rn&+L.&N
+~
+~
+0 0 42947
+E
+symbols nordic knights~
+&+B   Th&+be&+Bs&+be &+Bsymb&+bo&+Bls s&+bee&+Bm l&+bi&+Bk&+be &+Bth&+be&+By w&+be&+Br&+be &+Bdr&+ba&+Bwn fr&+bo&+Bm th&+be &+Bw&+bi&+Bnds &+bo&+Bf th&+be &+Wnordic &+bnight&+B.&N
+&+BIm&+ba&+Bg&+be&+Bs &+bo&+Bf d&+be&+Bm&+bo&+Bns &+ba&+Bnd d&+be&+Bv&+bi&+Bls l&+bo&+Bck&+bed &+bi&+Bn &+be&+Bt&+be&+Brn&+ba&+Bl &+Ldespair &+Bf&+ba&+Bd&+be i&+Bnt&+bo &+Bv&+bi&+Bs&+bio&+Bns &+bo&+Bf th&+be&N
+&+bnorthern &+Lhordes &+Br&+bi&+Bd&+bi&+Bng &+bi&+Bnt&+bo &+Bb&+ba&+Bttl&+be u&+Bnd&+be&+Br th&+be &+Bb&+ba&+Bnn&+be&+Br o&+Bf &+ba &+Bm&+bi&+Bghty k&+bi&+Bngd&+bo&+Bm.  Th&+be&N
+&+Bh&+bo&+Brs&+be&+Bs cr&+bea&+Bt&+be a &+Bb&+bea&+Bt &+bo&+Bf dr&+bu&+Bms th&+ba&+Bt r&+bo&+Blls &+bi&+Bnt&+bo &+Bth&+be &+Bm&+bi&+Bnd &+ba&+Bnd fl&+bo&+Bws d&+bo&+Bwn &+ba&+Bl&+bo&+Bng t&+bo&N
+&+Bth&+be &+Bb&+ba&+Bs&+be o&+Bf th&+be spine&+B, s&+bu&+Bdd&+be&+Bnly n&+bo&+Bt &+be&+Bv&+be&+Bryth&+bi&+Bng s&+bee&+Bms t&+bo &+Bb&+be &+Bf&+bi&+Bn&+be&+B.  &+BE&+By&+be&+Bs &+bo&+Bf th&+be&N
+&+Bm&+bo&+Brt&+ba&+Bls gaz&+be &+Bh&+bo&+Bp&+bi&+Bng t&+bo &+Bfind &+be&+Bv&+be&+Bn &+ba &+Bgl&+bi&+Bmm&+be&+Br &+bo&+Bf &+ba &+Bs&+bi&+Bgn.  C&+ba&+Blls &+bo&+Bf th&+be &+Bd&+ba&+Bmn&+be&+Bd &+ba&+Br&+be&N
+&+Bdr&+bo&+Bwn&+be&+Bd &+bou&+Bt by th&+be &+Bcr&+bie&+Bs &+bo&+Bf th&+bo&+Bs&+be &+Bwh&+bo &+Bm&+bu&+Bst s&+bu&+Bff&+be&+Br &+ba&+Bs th&+be &+Bw&+bea&+Bk.  D&+be&+Bc&+ba&+Bp&+ba&+Bt&+ba&+Bt&+be&+Bd&N
+&+Bh&+bea&+Bds pl&+ba&+Bc&+be&+Bd h&+bi&+Bgh &+bo&+Bn t&+bo&+Bp &+bo&+Bf &+Rbloody &+Bst&+ba&+Bk&+be&+Bs, w&+ba&+Brr&+bio&+Brs f&+ba&+Bll&+be&+Bn l&+bi&+Btt&+be&+Br th&+be &+Bgl&+boo&+Bmy&N
+&+Bgr&+bou&+Bnd.  W&+bea&+Bp&+bo&+Bns &+bo&+Bnc&+be u&+Bs&+be&+Bd t&+bo &+Bw&+ba&+Bg&+be &+Bw&+ba&+Br n&+bo&+Bw &+bu&+Bs&+be&+Bd t&+bo &+Bb&+bu&+Bry th&+bo&+Bs&+be &+Bwh&+bo &+Bd&+bie&+Bd by th&+be&N
+&+Lblood &+Bs&+boa&+Bk&+be&+Bd sw&+bo&+Brds &+bo&+Bf th&+bei&+Br f&+bo&+Brm&+be&+Br br&+bo&+Bth&+be&+Brs.  Sh&+bi&+Bv&+be&+Brs sl&+bo&+Bwly cr&+bee&+Bp d&+bo&+Bwn &+bi&+Bnt&+bo&N
+&+Bth&+be &+Bb&+bo&+Bdy &+bo&+Bf th&+be &+Bd&+biei&+Bng m&+bo&+Brt&+ba&+Bls, th&+be &+Bc&+bo&+Bld ch&+bi&+Bll &+bo&+Bf th&+be &+Ldead &+Bt&+bou&+Bch&+be&+Bs th&+be &+Bs&+Bo&+Bu&+Bl&+Bs&N
+&+bo&+Bf th&+bo&+Bs&+be &+Bwh&+bo a&+Br&+be &+Bf&+bo&+Br&+be&+Bv&+be&+Br t&+bo &+Bb&+be &+Bl&+bo&+Bst.  T&+bo&+Brm&+be&+Bnt &+ba&+Bnd t&+bo&+Brt&+bu&+Br&+be a&+Bll th&+ba&+Bt sh&+ba&+Bll b&+be&+B,&N
+&+Bn&+bo&+Bth&+bi&+Bng &+be&+Bls&+be &+Bsh&+ba&+Bll &+be&+Bv&+be&+Br f&+ba&+Bd&+be o&+Br fl&+bi&+Bck&+be&+Br &+bi&+Bnt&+bo &+Br&+bea&+Bl.  D&+bea&+Bls w&+bi&+Bth th&+be &+Bd&+bevil&+B, t&+bo&N
+&+Bl&+bie &+Bt&+bo &+By&+bou&+Brs&+be&+Blf &+ba&+Bnd try t&+bo &+Btr&+bi&+Bck th&+bo&+Bs&+be &+Bf&+boo&+Bl&+bi&+Bsh en&+bou&+Bgh t&+bo &+Bf&+bo&+Bll&+bo&+Bw y&+bou&+B.  Dr&+bea&+Bms&N
+&+Bdr&+bi&+Bft &+bi&+Bnt&+bo &+Bh&+be&+Bll&+bi&+Bsh &+Lnightmares&+B, p&+bai&+Bn st&+ba&+Brts t&+bo &+Br&+bai&+Bn &+bi&+Bnt&+bo &+By&+bou&+Br &+bi&+Bns&+ba&+Bn&+be &+Bfr&+bo&+Bz&+be&+Bn t&+bo&N
+&+Bd&+be&+Bs&+bo&+Bl&+ba&+Bt&+bio&+Bn br&+bai&+Bn.  Wh&+ba&+Bt sh&+ba&+Bll k&+bee&+Bp y&+bou &+Bfr&+bo&+Bm str&+ba&+By&+bi&+Bng fr&+bo&+Bm th&+be &+Bs&+ba&+Bn&+be&+B, why sh&+bou&+Bld&N
+&+By&+bou e&+Bv&+be&+Bn c&+ba&+Br&+be &+Bf&+bo&+Br &+ba&+Bny&+bo&+Bn&+be o&+Br &+ba &+Bd&+bo&+Bm&+bai&+Bn.  W&+ba&+Blk&+bi&+Bng y&+be&+Bt c&+ba&+Bst&+bi&+Bng n&+bo&+Bt &+ba &+Bsh&+ba&+Bd&+bo&+Bw, th&+ba&+Bt&N
+&+bi&+Bs th&+be &+Bc&+bu&+Brs&+be o&+Bf th&+be &+Bl&+bi&+Bv&+bi&+Bng, th&+bo&+Bs&+be &+Bwh&+bo a&+Br&+be &+Btr&+bu&+Bly n&+bo &+Bl&+bo&+Bng&+be&+Br, th&+be&+By try t&+bo &+Bd&+be&+Bc&+bei&+Bv&+be&N
+&+ba&+Bnd n&+be&+Bv&+be&+Br sh&+ba&+Bll th&+be&+By &+ba&+Bdm&+bi&+Bt t&+bo &+Br&+bea&+Bl&+bi&+Bty.  &+bI&+Bc&+be&+Bd w&+bi&+Bnds bl&+bo&+Bw, w&+ba&+Bsh&+bi&+Bng &+bo&+Bv&+be&+Br sh&+bo&+Br&+be&+Bs,&N
+&+Bw&+bi&+Bsd&+bo&+Bm &+bo&+Bf l&+bo&+Bst &+ba&+Bg&+be&+Bs f&+bi&+Bll&+bi&+Bng th&+be &+Bm&+bu&+Brky &+Lnight&+B.  Th&+bi&+Bngs &+ba&+Br&+be &+Bst&+ba&+Brt&+bi&+Bng t&+bo &+Bs&+bee&+Bm &+ba&+Bll&N
+&+Bt&+bo &+Br&+bi&+Bght, s&+bo&+Bm&+be&+Bth&+bi&+Bng h&+ba&+Bs t&+bo &+Bf&+bi&+Bll y&+bou &+Bw&+bi&+Bth fr&+bi&+Bght, s&+be&+Bc&+bo&+Bnd s&+bi&+Bght, c&+be&+Blt&+bi&+Bc fr&+bo&+Bst.&N
+~
+S
+#42949
+&+rPleasure &+LDen of &+rRax&+Rtha&+rn&n~
+&+L   Soft pillows and fine silk creates the ground of this demonical den of dread&N
+&+Ldelight.  Pleasure for those born of the &+wunlight&+L, wicked sins feeding eternal&N
+&+Lhunger.  Sadistic symbols of sexual positions have been painted upon the cold&N
+&+Lstone walls.  Images forged, &+bshadow &+Lspun cries that none ever heard.  This is&N
+&+Lwhere slaves get their special training from the master himself.  &+rRax&+Rtha&+rn &+Lthe&N
+&+Lenslaver of those who dare dwell in the false fleeting light.  No mercy given&N
+&+Lin this dojo of diabolical dismal despair.  Bodies beaten beyond any hope or&N
+&+Lrepair.  Broken &+Wbones&+L, dreams dashed before having a chance to know birth.&N
+~
+429 1216385097 0
+D3
+&+L   The barter room of the diabolical demonic n&+bo&+Lct&+ba&+Lmb&+bu&+Ll&+ba&+Lnt &+Lenslaver.&N
+~
+~
+0 0 42948
+S
+#42950
+&+LInside a &+wBone &+LFilled Cavern&n~
+&+L   This cavern is about thirty feet in total height.  &+wBones &+Land broken ruined&N
+&+Larmor are strewn upon the ghastly ground.  Stains of crimson dot the forlorn&N
+&+Ljagged floor.  The &+gstench &+Lof death and decay are almost unbearable within this&N
+&+Lroom.  Sounds seem to be coming from all around, the source of which is nearly&N
+&+Limpossible to assertain.  Liquid drips down from out of the darkness above.&N
+&+LThe walls of this place seem to be made from some sort of volcanic stone.&N
+~
+429 1216381001 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42951
+D2
+&+L   A &+wnarrow &+Lpassage inside a dark cave.&N
+~
+~
+0 0 42900
+S
+#42951
+&+LThree Path Convergence Inside a &+wBone &+LFilled Cavern&n~
+&+L   This cavern is about thirty feet in total height.  &+wBones &+Lfill this abysmal&N
+&+Lchamber with untold despair.  Drops of liquid drip down from the dismal dark&N
+&+Lthat dwells above.  Forming small shallow &+gmurky &+Lpuddles upon the &+rblood &+Lstained&N
+&+Lground.  Slivers of flesh and other debris float upon the surface of the taint&N
+&+Lladen &+bwaters&+L.  Sounds of movement can be heard in the distance. The west wall&N
+&+Lhas the words '&+rGo Back&+L' written in faded crimson.&N
+~
+429 1216381001 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42952
+D1
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42965
+D2
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42950
+S
+#42952
+&+LIntersection Inside a &+wBone &+LStrewn Cavern&n~
+&+L   Screams and howls of beasts not of this world can be heard from all around.&N
+&+LDrops of &+bliquid &+Lcascade down from out of the abysmal blackness that dwells in&N
+&+Lthe unknown of above.  Marks of crimson &+rstain &+Lthe once pure innocent ground.&N
+&+wBones &+Lof fallen fools lay scattered upon the stained jagged floor.  The smell&N
+&+Lof death and decay is strong within the arid air here.  This cavern appears to&N
+&+Lcontinue on to the north, east, south, and to the west.&N
+~
+429 1216381001 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42955
+D1
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42958
+D2
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42951
+D3
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42953
+S
+#42953
+&+LBend Inside a &+wBone &+LFilled Cavern&n~
+&+L   This cavern is around thirty feet in total height.  Drops of liquid cascade&N
+&+Ldown from the darkness above.  They form small shallow &+bpools &+Lupon the volcanic&N
+&+Lblack jagged floor.  &+wBones &+Lof fallen mortals and those who dared to venture to&N
+&+Lfar from home rest eternally upon the ground.  Marks of faded crimson can be&N
+&+Lseen upon the western wall.  The southern wall has the words &+L'&+rBeware &+RElytron&+L'&N
+&+Lchiseled into it.&N
+~
+429 1216381001 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42954
+D1
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42952
+S
+#42954
+&+LCurve Inside a &+wBone &+LFilled Cavern&n~
+&+L   This cavern is about thirty feet in total height.  Drops of &+bliquid &+Lcascade&N
+&+Ldown from out of the darkness above.  A symbol of &+RBozk &+Lcan be seen painted on&N
+&+Lthe northern wall.  &+wBones &+Land other debris lay scattered upon the rough jagged&N
+&+Lground.  The stench of death and decay is strong within the arid lifeless air.&N
+&+LThe western wall has the word '&+RN&+roc&+Rt&+ru&+Rl&+re&+L' etched into it.  A creepy chill fills&N
+&+Lthis room with empty despair.&N
+~
+429 1216381001 0
+D1
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42955
+D2
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42953
+E
+bozk symbol~
+&+R   Eyes &+Lof demonical fire burn within a &+cs&+Co&+cu&+Cl &+Lscourned image of dismal death.&N
+&+LThe cries of the lost fill your mortal mind as you gaze at this symbol of the&N
+&+Lone known as &+RBozk&+L.  Graves that are filled with bodies of those who dared to&N
+&+Ldefy the d&+barkne&+Lss burn in the &+ctwilight &+Lof &+wunlight&+L.  Suffering of the fallen&N
+&+Lfools who thought they could survive the fires of the black abyss.  Screams of&N
+&+Ltorment, torture of the meek, death to any who seek.  Focus wishes it was no&N
+&+Llonger as reality fades into a &+bnight&+Lmare.  Heads upon stakes, &+Rbl&+ro&+Ro&+rd &+Lapon thine&N
+&+Lground, eyes rolled by fatal fate.  Hate of the light, &+Bthunder &+Lcrackles within&N
+&+Lthe demonic air.  &+CSh&+Wi&+Cv&+We&+Crs &+Lslowly stream down your &+Wspine&+L, nothing at all seems&N
+&+Lto be even near fine.  Time drifts into limbo, what is real no longer can be&N
+&+Lrealized for sure.  Images from the past becomes the present, resent, descent,&N
+&+Lall flowing into &+Rpain&+L.  &+CRain &+Lof &+Ws&+Ce&+Wrp&+Ce&+Wnt&+Ci&+Wn&+Ce &+Lwinter falls from out the &+wclouded&N
+&+Lsky of the raven realms.  Flickering, fading, changing, pupils dilate, things&N
+&+Lalmost drift back into sane.  Insane voices echo inside your hollow head, yet&N
+&+Lyou can not make out what they are saying.  &+wWhispers &+Lfrom beyond eternal &+bnight&N
+&+Lfill the body with untold fright.  Might makes right, no matter the height, to&N
+&+Ldestroy those who dare to ever care.  Cast them not but a &+Bcold &+Llifeless stare,&N
+&+Lmurder them in cold &+rbl&+Ro&+ro&+Rd&+L.  You realize to dream that is your death once more.&N
+~
+S
+#42955
+&+LThree Path Intersection Inside a &+wBone &+LFilled Cavern&n~
+&+L   This cavern spans about thirty feet in total height.  Small drops fall down&N
+&+Lfrom out of the darkness that lurks above.  The water forms in shallow &+gmurky&N
+&+Lpools in various spots upon the ground.  &+wBones &+Lof those that have become the&N
+&+Lpast are strewn around this area.  The south wall has been stained in crimson&N
+&+Land has the word '&+rTorment&+L' etched into it.  A strong scent of decay fills this&N
+&+Lrancid room.  The smell is almost too much for feeble mortals to endure.&N
+~
+429 1216381001 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42956
+D1
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42957
+D3
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42954
+S
+#42956
+&+LDead End Inside a &+wBone &+LFilled Cavern&n~
+&+L   Stains and symbols of demonical creatures adorn the wicked stone walls of&N
+&+Lthis dismal dead end.  A twisted circle has been drawn upon the gloomy ghastly&N
+&+Lground.  The image depicts a &+wgoat &+Lthat has been enclosed within a pentagram of&N
+&+Lpurification.  The arcane markings most likely have been used to try to ward of&N
+&+Levil spirits.  Feelings of dread and despair shift and spiral within the arid&N
+&+Ldreary weary air.  Thy putrid path of salvation leads on to the &+gs&+Ge&+gr&+Gp&+ge&+Gn&+gt &+Lsouth.&N
+~
+429 1216381005 0
+D2
+&+L   &+gS&+Ge&+gr&+Gp&+ge&+Gn&+gt&+Gi&+gn&+Ge &+Lsalvation leads to the dreary weary sadistic south.&N
+~
+~
+0 0 42955
+E
+goat~
+&+w   Eyes of fire burn within the soul of this scapegoat.  Enclosed within a five&N
+&+wsided pentagram, the horns of the beast thrust upward in denial of the feeble&N
+&+wtrinity.  The ears to the points of the east and to the west, why the mouth&N
+&+wflows downward.  Your soul starts to feel the scourn of those that are not of&N
+&+wthe light.  A burning feeling that truly is colder then even the mighty nordic&N
+&+wwinter.  Images of the realms of despair start to fill your mortal eyes causing&N
+&+wthem to be in need of repair.  An unholy glare starts to stare into your mind&N
+&+wand you realize not everything is fine.  The calls of the damned start to fill&N
+&+wthe ears and cascades down within your body.  The winds of lost souls starts to&N
+&+wfill this room with the chill of dead.  The spirit forms and speaks these words&N
+&+L&+r'&+LOnly Death is Real&+r'&N
+~
+E
+serpent~
+&+g   Th&+Gi&+gs &+Gs&+ge&+Grp&+ge&+Gnt i&+gs &+Gwr&+ga&+Gpp&+ge&+Gd u&+gp&+Go&+gn a &+Lpitchfork &+gi&+Gn a&+gn u&+Gnh&+go&+Gly &+gl&+Goo&+gk&+Gi&+gng &+GS &+gsh&+Ga&+gp&+Ge&+g.  I&+Gt&N
+&+Ga&+glm&+Go&+gst &+Gs&+gee&+Gms a&+gs i&+Gf &+gth&+Gi&+gs i&+Gs a &+gcr&+Ge&+gst &+Go&+gf &+Gs&+go&+Gm&+ge &+Ldemonic &+gb&+Gei&+gng &+Gth&+ga&+Gt &+gl&+Gu&+grks &+Gi&+gn w&+Go&+grlds&N
+&+gth&+Ga&+gt a&+Gr&+ge b&+Ge&+gy&+Go&+gnd &+Gth&+ge &+Gu&+gnd&+Ge&+grst&+Ga&+gnd&+Gi&+gng o&+Gf &+gs&+Gi&+gmpl&+Ge&+gt&+Go&+gn &+Gm&+go&+Grt&+ga&+Gls&+g.  Th&+Ge e&+gy&+Ge&+gs o&+Gf &+gth&+Gi&+gs &+Lbeast
+&+Ggl&+go&+Gw &+gw&+Gi&+gth &+Gh&+ga&+Gtr&+ge&+Gd a&+gnd &+Gb&+goun&+Gdl&+ge&+Gss &+gdr&+Gea&+gd.  &+GTh&+ge sc&+Ga&+gl&+Ge&+gs o&+Gf &+gth&+Ge r&+ge&+Gpt&+gi&+Gl&+ge s&+Gee&+gm &+Gt&+go &+Gsw&+gi&+Gft&N
+&+ga&+Gnd sw&+ga&+Gy a&+gnd &+Gch&+ga&+Gng&+ge fr&+Go&+gm &+Gsh&+ga&+Gd&+ge t&+Go &+gsh&+Ga&+gd&+Ge&+g, &+Gfr&+go&+Gm &+gd&+Ga&+grk &+Ggr&+gee&+Gn &+gt&+Go &+ga &+Ggl&+go&+Gw&+gi&+Gng &+gf&+Go&+grm o&+Gf&N
+&+Gth&+ge s&+Ga&+gm&+Ge c&+go&+Gl&+go&+Gr&+g.&N
+~
+S
+#42957
+&+LDismal Intersection Inside a &+wBone &+LStrewn Cavern&n~
+&+L   This cavern spans about thirty feet in actual height.  Droplets of an acrid&N
+&+Lmoist substance drip down from out of the darkness above.  The jagged ground&N
+&+Lshows many signs of past travel.  Various different shaped &+wtracks &+Lappear to&N
+&+Llead off in all directions.  &+wBones &+Land other debris lay scattered within this&N
+&+Larea in a chaotic manner.  The stench of death and decay fills this room with&N
+&+Lfeelings of dread and untold despair.  The cavern seems to continue on to the&N
+&+Lnorth, east, south, and to the west.&N
+~
+429 1216381001 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42959
+D1
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42962
+D2
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42958
+D3
+~
+~
+0 0 42955
+S
+#42958
+&+LNarrow Bend Inside a &+wBone &+LStrewn Cavern&n~
+&+L   This cavern spans about thirty feet in total height.  Drops fall out of the&N
+&+Ldemonic darkness that dwells above.  Forming several &+gmurky &+Lpools in the cracks&N
+&+Land dips of the ground.  &+wBones &+Lof those who are now simply past are scattered&N
+&+Laround the chamber in a chaotic disarray.  The rancid smell of death and decay&N
+&+Lfills the stale air here, causing eyes of mortals to tear.  Walls of volcanic&N
+&+Lstone have been marked with symbols and images of vile beasts.  A cold empty&N
+&+Bchill &+Lfills this dreary place.&N
+~
+429 1216381001 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42957
+D1
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42966
+S
+#42959
+&+LDismal Curve Inside a &+wBone &+LFilled Cavern&n~
+&+L   This cavern is about thirty feet in total height.  &+wBones &+Lfill this abysmal&N
+&+Lchamber with untold despair.  Droplets of liquid drip down from the dreary dark&N
+&+Lthat dwells above.  Forming small shallow &+gmurky &+Lpuddles upon the &+rblood &+Lstained&N
+&+Lground.  Slivers of flesh and other debris float upon the surface of the taint&N
+&+Lladen &+bwaters&+L.  Sounds of movement can be heard in the distance. The west wall&N
+&+Lhas the words '&+wEmperor &+LVs. &+wThorns&+L' burned into it.&N
+~
+429 1216381001 0
+D1
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42960
+D2
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42957
+S
+#42960
+&+LThree Trail Convergence Inside a &+wBone &+LStrewn Cavern&n~
+&+L   This cavern spans around thirty feet in total height.  Tiny &+bDrops &+Lfall from&N
+&+Lout of the abysmal darkness that dwells above.  The south wall has the words&N
+&+L'&+wLive Only For Death&+L' burned into it.  &+wBones &+Land smashed powdered rusted armor&N
+&+Lare scattered about this place.  Marks of &+rcrimson &+Land signs of past travel are&N
+&+Levident upon the ghastly ground here.  The strong stench of suffering invades&N
+&+Lthe arid air, causing mortals to gasp and choke.&N
+~
+429 1216381001 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42971
+D1
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42961
+D3
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42959
+E
+marks crimson sons~
+&+r                     Somewhere in time we were born
+&+r               And brought blood, lust, hatred and scorn
+&+r                    You are sorry now you trusted me
+&+r            Now I command that you get down on your knees for...
+&+r
+&+r                          Hell the deciever&N
+&+r                            Satan's child&N
+&+r                          You're a believer&N
+&+r                       (And) We're going wild&N
+&+r                                                   &N
+&+r                        Put away your virtues&N
+&+r                       Stop climbing the walls&N
+&+r                 (Just) Sign your name on the paper&N
+&+r                     We'll have ourselves a ball&N
+&+r                                                 &N
+&+r                      Was it the battle of envy&N
+&+r                     You were so mighty and brave&N
+&+r                     But your foolish compulsions&N
+&+r                        Sent you to the grave&N
+&+r                                                   &N
+&+r                        Hell has decieved you&N
+&+r                          You were so blind&N
+&+r                        Just like all mortals&N
+&+r                        You'll loose your mind&N
+&+r
+&+L                                Mayhem&N
+~
+S
+#42961
+&+LAn &+cEerie &+LIntersection Inside a &+wBone &+LStrewn Cavern&n~
+&+L   Screams and howls of beasts not of this world can be heard from all around.&N
+&+LDrops of &+bliquid &+Lcascade down from out of the demonic darkness that dwells in&N
+&+Lthe unknown of above.  Marks of crimson &+rstain &+Lthe once pure volcanic ground.&N
+&+wBones &+Lof fallen fools lay scattered upon the stained jagged floor.  The smell&N
+&+Lof death and decay is strong within the arid air here.  The &+ceerie &+Lintersection&N
+&+Lappears to continue on to the north, east, south, and to the west.&N
+~
+429 1216381005 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42972
+D1
+&+L   The &+Wbone &+Lfilled cavern seems to continue.&N
+~
+~
+0 0 42968
+D2
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42962
+D3
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42960
+E
+eerie~
+&+c   Th&+Ce &+cl&+Ci&+cght &+Ci&+cn th&+Ci&+cs &+Cr&+coo&+Cm &+cs&+Cee&+cms t&+Co &+csh&+Ci&+cv&+Ce&+cr i&+Cnt&+co &+Csh&+ca&+Cd&+ce &+Ca&+cft&+Ce&+cr sh&+Ca&+cd&+Ce o&+cf cy&+Ca&+cn th&+Ca&+ct&N
+&+Cdr&+ci&+Cfts &+ci&+Cnt&+co d&+Ca&+crk&+Ce&+cr.  &+CI&+cmag&+Ce&+cs st&+Ca&+crt t&+Co &+cf&+Co&+crm w&+Ci&+cth&+Ci&+cn &+Cth&+ce &+Cai&+cr h&+Ce&+cr&+Ce&+c, y&+Cou&+cr p&+Ca&+cst f&+Co&+crms&N
+&+ci&+Cnt&+co &+Cy&+cou&+Cr &+cpr&+Ce&+cs&+Ce&+cnt.  &+CScr&+cea&+Cms &+cfr&+Co&+cm w&+Ci&+cth&+Ci&+cn y&+Cou&+cr &+Cs&+co&+Cu&+cl &+Ca&+ct s&+Ci&+cghts &+Cy&+cou w&+Ci&+csh&+Ce&+cd n&+Ceve&+cr,&N
+&+Cbr&+co&+Ck&+ce&+Cn th&+ce&+Cy &+cf&+Ca&+cd&+Ce j&+cu&+Cst a&+cs th&+Ce&+cy f&+Co&+crm&+Ce&+cd.  &+CS&+ci&+Cbl&+ci&+Cng&+cs &+Co&+cf y&+Cou&+Cr y&+cou&+Cth &+cy&+Cou &+cl&+Co&+cng w&+Ci&+csh&+Ce&+cd&N
+&+cd&+Cea&+cd f&+Ca&+cll &+Ci&+cn fr&+Co&+cnt &+Co&+cf y&+Cou &+ca&+Cnd &+ca&+Cr&+ce r&+Ci&+cpp&+Ce&+cd &+Ci&+cnt&+Co &+cshr&+Ce&+cds.  Th&+Ce&+cy b&+Ce&+cg f&+Co&+cr y&+Cou&+cr m&+Ce&+crcy&N
+&+Ca&+cnd &+Cy&+cou d&+Co &+cn&+Co&+ct kn&+Co&+cw wh&+Ca&+ct &+Ci&+ct d&+Co&+cth &+Cm&+cea&+Cn&+c.  &+CY&+cou gr&+Ci&+cn &+Ca&+cs &+Cy&+cou st&+Co&+cp th&+Cei&+cr l&+Ci&+cf&+Ce&+c, n&+Co&+cw&N
+&+cy&+Cou&+cr l&+Ci&+cf&+Ce &+cc&+Ca&+cn b&+Ce a&+cs &+Ci&+ct sh&+Cou&+cld b&+Ce&+c.  N&+Co &+cl&+Co&+cng&+Ce&+cr c&+Ca&+cn th&+Co&+cs&+Ce &+cth&+Ca&+ct st&+Ca&+cnd &+Ci&+cn y&+Cou&+cr w&+Ca&+cy&N
+&+Cst&+co&+Cp y&+cou&+C.  &+cD&+Co &+cn&+Co&+ct t&+Cu&+crn th&+Ce o&+cth&+Ce&+cr ch&+Cee&+ck s&+Ci&+cmply str&+Ci&+ck&+Ce i&+ct, d&+Co &+cn&+Co&+ct st&+Co&+cp, &+Ckill&+c.&N
+&+cR&+Cea&+cl&+Ci&+cty f&+Ci&+cghts t&+Co &+cb&+Ce&+cc&+Co&+cm&+Ce &+cr&+Cea&+cl &+Co&+cnc&+Ce &+cm&+Co&+cr&+Ce&+c, &+Cy&+cou&+Cr m&+ci&+Cnd st&+ca&+Crts t&+co &+Cs&+cee &+Ctr&+cai&+Cls th&+ca&+Ct&N
+&+Ca&+cr&+Ce &+cn&+Co&+ct th&+Ce&+cr&+Ce&+c.  &+CY&+cou&+Cr h&+ca&+Cnds p&+cass&+C, &+cy&+Ce&+ct th&+Ce&+cy d&+Co &+cn&+Co&+ct s&+Cee&+cm t&+Co &+cst&+Co&+cp, &+Cy&+cou st&+Ca&+cr&+Ce a&+cnd&N
+&+ci&+Cm&+ca&+Cg&+ce&+Cs &+cf&+Ca&+cd&+Ce o&+cnc&+Ce &+cm&+Co&+cr&+Ce&+c.  S&+Ca&+cn&+Ci&+cty &+Ci&+cs n&+Co&+ct s&+Cu&+cr&+Ce i&+cf i&+Ct &+ckn&+Co&+cws wh&+Co y&+cou a&+Cr&+ce&+C, &+cnor &+cdo &+Cyou&N
+&+Ckn&+co&+Cw &+co&+Cf &+ci&+Ct&+c.  L&+Co&+cst &+Ci&+cn &+Ca &+cw&+Co&+crld th&+Ca&+ct &+Ci&+cs w&+Ci&+cth&+Ci&+cn y&+Cou&+crs&+Celf&+c, n&+Ceve&+cr t&+Co &+cc&+Co&+cm&+Ce &+cb&+Ca&+cck d&+Co&+cwn.&N
+&+cY&+Cou&+cr s&+Cou&+cl l&+Cea&+cv&+Ce&+cs th&+Ce &+cb&+Co&+cdy t&+Co &+cpr&+Co&+cj&+Ce&+cct &+Ci&+ct&+Cself &+ci&+Cnt&+co th&+Ce &+cr&+Cea&+clm &+Co&+cf &+CB&+ca&+Crd &+cF&+Cau&+cst&+C.  &+cH&+Ce&N
+&+Cwh&+co &+Cm&+cu&+Cst s&+cu&+Cff&+ce&+Cr f&+co&+Cr th&+ce s&+Ci&+cns &+Co&+cf th&+Ce tr&+Cai&+ct&+Cor&+c, r&+Co&+cts &+Ci&+cn &+Ct&+co&+Crm&+ce&+Cnt &+cf&+Co&+cr n&+Co&+ct &+Cbe&+cing.&N
+&+LDead &+Ci&+cs th&+Ce o&+cnly th&+Ci&+cng th&+Ca&+ct &+Ci&+cs r&+Cea&+cl&+C, &+cth&+Ce o&+cnly th&+Ci&+cng th&+Ca&+ct &+Ci&+cs p&+Cu&+cr&+Ce&+c, t&+Co &+cb&+Ca&+cd h&+Ce i&+cs&N
+&+Cn&+co&+Cw &+cd&+Cea&+cd&+C.  Wh&+ce&+Cn &+ch&+Ce &+cl&+Ci&+cv&+Ce&+cd h&+Ce &+ch&+Ca&+cd tr&+Cue &+cl&+Ci&+cf&+Ce&+c, &+Ca &+csh&+Ca&+cm&+Ce &+ch&+Ce &+cn&+Ce&+cv&+Ce&+cr w&+Ca&+cnt&+Ce&+cd it, now h&+Ce.&N
+&+cV&+Ci&+cs&+Cio&+cn r&+Ce&+ct&+Cu&+crns &+Ci&+cnt&+Co &+cwh&+Ca&+ct s&+Cee&+cms t&+Co be n&+co&+Crmal&+c, c&+Co&+cl&+Co&+crs s&+Cee&+cm t&+Co &+cf&+Ca&+cd&+Ce i&+cnt&+Co &+creal&+City&+c.&N
+~
+S
+#42962
+&+LInside a &+wBone &+LStrewn Cavern&n~
+&+L   This cavern spans at least thirty feet in total height.  Droplets of water&N
+&+Lfall from out of the abysmal blackness above.  The west wall has many strange&N
+&+Wsymbols &+Lburned into it.  While the eastern wall has the words '&+rDeath To Peace&+L'&N
+&+Lwritten in dried crimson.  Marks upon the gloomy ground show that this place&N
+&+Lis rather well traveled.  &+wBones &+Land broken ruined armor lay scattered around&N
+&+Lthe chamber.  A strong stench of death and decay fills the arid air here.&N
+~
+429 1216381001 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42961
+D2
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42963
+E
+symbols~
+&+C   Th&+We&+Cs&+We &+Csymb&+Wo&+Cls s&+Wee&+Cm l&+Wi&+Ck&+We &+Cth&+We&+Cy w&+We&+Cr&+We &+Cdr&+Wa&+Cwn fr&+Wo&+Cm th&+We &+Cw&+Wi&+Cnds &+Wo&+Cf th&+We nordic &+Lnight&+C.&N
+&+CIm&+Wa&+Cg&+We&+Cs &+Wo&+Cf d&+We&+Cm&+Wo&+Cns &+Wa&+Cnd d&+We&+Cv&+Wi&+Cls l&+Wo&+Cck&+We&+Cd &+Wi&+Cn &+We&+Ct&+We&+Crn&+Wa&+Cl d&+We&+Csp&+Wai&+Cr f&+Wa&+Cd&+We i&+Cnt&+Wo &+Cv&+Wi&+Cs&+Wio&+Cns &+Wo&+Cf th&+We&N
+&+Wnorthern &+Lhordes &+Cr&+Wi&+Cd&+Wi&+Cng &+Wi&+Cnt&+Wo &+Cb&+Wa&+Cttl&+We u&+Cnd&+We&+Cr th&+We &+Cb&+Wa&+Cnn&+We&+Cr o&+Cf &+Wa &+Cm&+Wi&+Cghty k&+Wi&+Cngd&+Wo&+Cm.  Th&+We&N
+&+Ch&+Wo&+Crs&+We&+Cs cr&+Wea&+Ct&+We a &+Cb&+Wea&+Ct &+Wo&+Cf dr&+Wu&+Cms th&+Wa&+Ct r&+Wo&+Clls &+Wi&+Cnt&+Wo &+Cth&+We &+Cm&+Wi&+Cnd &+Wa&+Cnd fl&+Wo&+Cws d&+Wo&+Cwn &+Wa&+Cl&+Wo&+Cng t&+Wo&N
+&+Cth&+We &+Cb&+Wa&+Cs&+We o&+Cf th&+We spine&+C, s&+Wu&+Cdd&+We&+Cnly n&+Wo&+Ct &+We&+Cv&+We&+Cryth&+Wi&+Cng s&+Wee&+Cms t&+Wo &+Cb&+We &+Cf&+Wi&+Cn&+We&+C.  &+CE&+Cy&+We&+Cs &+Wo&+Cf th&+We&N
+&+Cm&+Wo&+Crt&+Wa&+Cls g&+Wa&+Cz&+We &+Ch&+Wo&+Cp&+Wi&+Cng t&+Wo &+Cf&+Wi&+Cnd &+We&+Cv&+We&+Cn &+Wa &+Cgl&+Wi&+Cmm&+We&+Cr &+Wo&+Cf &+Wa &+Cs&+Wi&+Cgn.  C&+Wa&+Clls &+Wo&+Cf th&+We &+Cd&+Wa&+Cmn&+We&+Cd &+Wa&+Cr&+We&N
+&+Cdr&+Wo&+Cwn&+We&+Cd &+Wou&+Ct by th&+We &+Ccr&+Wie&+Cs &+Wo&+Cf th&+Wo&+Cs&+We &+Cwh&+Wo &+Cm&+Wu&+Cst s&+Wu&+Cff&+We&+Cr &+Wa&+Cs th&+We &+Cw&+Wea&+Ck.  D&+We&+Cc&+Wa&+Cp&+Wa&+Ct&+Wa&+Ct&+We&+Cd&N
+&+Ch&+Wea&+Cds pl&+Wa&+Cc&+We&+Cd h&+Wi&+Cgh &+Wo&+Cn t&+Wo&+Cp &+Wo&+Cf &+Rbloody &+Cst&+Wa&+Ck&+We&+Cs, w&+Wa&+Crr&+Wio&+Crs f&+Wa&+Cll&+We&+Cn l&+Wi&+Ctt&+We&+Cr th&+We &+Cgl&+Woo&+Cmy&N
+&+Cgr&+Wou&+Cnd.  W&+Wea&+Cp&+Wo&+Cns &+Wo&+Cnc&+We u&+Cs&+We&+Cd t&+Wo &+Cw&+Wa&+Cg&+We &+Cw&+Wa&+Cr n&+Wo&+Cw &+Wu&+Cs&+We&+Cd t&+Wo &+Cb&+Wu&+Cry th&+Wo&+Cs&+We &+Cwh&+Wo &+Cd&+Wie&+Cd by th&+We&N
+&+Lblood &+Cs&+Woa&+Ck&+We&+Cd sw&+Wo&+Crds &+Wo&+Cf th&+Wei&+Cr f&+Wo&+Crm&+We&+Cr br&+Wo&+Cth&+We&+Crs.  Sh&+Wi&+Cv&+We&+Crs sl&+Wo&+Cwly cr&+Wee&+Cp d&+Wo&+Cwn &+Wi&+Cnt&+Wo&N
+&+Cth&+We &+Cb&+Wo&+Cdy &+Wo&+Cf th&+We &+Cd&+Wiei&+Cng m&+Wo&+Crt&+Wa&+Cls, th&+We &+Cc&+Wo&+Cld ch&+Wi&+Cll &+Wo&+Cf th&+We &+Ldead &+Ct&+Wou&+Cch&+We&+Cs th&+We &+Cs&+co&+Cu&+cl&+Cs&N
+&+Wo&+Cf th&+Wo&+Cs&+We &+Cwh&+Wo a&+Cr&+We &+Cf&+Wo&+Cr&+We&+Cv&+We&+Cr t&+Wo &+Cb&+We &+Cl&+Wo&+Cst.  T&+Wo&+Crm&+We&+Cnt &+Wa&+Cnd t&+Wo&+Crt&+Wu&+Cr&+We a&+Cll th&+Wa&+Ct sh&+Wa&+Cll b&+We&+C,&N
+&+Cn&+Wo&+Cth&+Wi&+Cng &+We&+Cls&+We &+Csh&+Wa&+Cll &+We&+Cv&+We&+Cr f&+Wa&+Cd&+We o&+Cr fl&+Wi&+Cck&+We&+Cr &+Wi&+Cnt&+Wo &+Cr&+Wea&+Cl.  D&+Wea&+Cls w&+Wi&+Cth th&+We &+Cd&+Wevil&+C, t&+Wo&N
+&+Cl&+Wie &+Ct&+Wo &+Cy&+Wou&+Crs&+We&+Clf &+Wa&+Cnd try t&+Wo &+Ctr&+Wi&+Cck th&+Wo&+Cs&+We &+Cf&+Woo&+Cl&+Wi&+Csh en&+Wou&+Cgh t&+Wo &+Cf&+Wo&+Cll&+Wo&+Cw y&+Wou&+C.  Dr&+Wea&+Cms&N
+&+Cdr&+Wi&+Cft &+Wi&+Cnt&+Wo &+Ch&+We&+Cll&+Wi&+Csh &+Lnightmares&+C, p&+Wai&+Cn st&+Wa&+Crts t&+Wo &+Cr&+Wai&+Cn &+Wi&+Cnt&+Wo &+Cy&+Wou&+Cr &+Wi&+Cns&+Wa&+Cn&+We &+Cfr&+Wo&+Cz&+We&+Cn t&+Wo&N
+&+Cd&+We&+Cs&+Wo&+Cl&+Wa&+Ct&+Wio&+Cn br&+Wai&+Cn.  Wh&+Wa&+Ct sh&+Wa&+Cll k&+Wee&+Cp y&+Wou &+Cfr&+Wo&+Cm str&+Wa&+Cy&+Wi&+Cng fr&+Wo&+Cm th&+We &+Cs&+Wa&+Cn&+We&+C, why sh&+Wou&+Cld&N
+&+Cy&+Wou e&+Cv&+We&+Cn c&+Wa&+Cr&+We &+Cf&+Wo&+Cr &+Wa&+Cny&+Wo&+Cn&+We o&+Cr &+Wa &+Cd&+Wo&+Cm&+Wai&+Cn.  W&+Wa&+Clk&+Wi&+Cng y&+We&+Ct c&+Wa&+Cst&+Wi&+Cng n&+Wo&+Ct &+Wa &+Csh&+Wa&+Cd&+Wo&+Cw, th&+Wa&+Ct&N
+&+Wi&+Cs th&+We &+Cc&+Wu&+Crs&+We o&+Cf th&+We &+Cl&+Wi&+Cv&+Wi&+Cng, th&+Wo&+Cs&+We &+Cwh&+Wo a&+Cr&+We &+Ctr&+Wu&+Cly n&+Wo &+Cl&+Wo&+Cng&+We&+Cr, th&+We&+Cy try t&+Wo &+Cd&+We&+Cc&+Wei&+Cv&+We&N
+&+Wa&+Cnd n&+We&+Cv&+We&+Cr sh&+Wa&+Cll th&+We&+Cy &+Wa&+Cdm&+Wi&+Ct t&+Wo &+Cr&+Wea&+Cl&+Wi&+Cty.  &+WI&+Cc&+We&+Cd w&+Wi&+Cnds bl&+Wo&+Cw, w&+Wa&+Csh&+Wi&+Cng &+Wo&+Cv&+We&+Cr sh&+Wo&+Cr&+We&+Cs,&N
+&+Cw&+Wi&+Csd&+Wo&+Cm &+Wo&+Cf l&+Wo&+Cst &+Wa&+Cg&+We&+Cs f&+Wi&+Cll&+Wi&+Cng th&+We &+Cm&+Wu&+Crky &+Lnight&+C.  Th&+Wi&+Cngs &+Wa&+Cr&+We &+Cst&+Wa&+Crt&+Wi&+Cng t&+Wo &+Cs&+Wee&+Cm &+Wa&+Cll&N
+&+Ct&+Wo &+Cr&+Wi&+Cght, s&+Wo&+Cm&+We&+Cth&+Wi&+Cng h&+Wa&+Cs t&+Wo &+Cf&+Wi&+Cll y&+Wou &+Cw&+Wi&+Cth fr&+Wi&+Cght, s&+We&+Cc&+Wo&+Cnd s&+Wi&+Cght, c&+We&+Clt&+Wi&+Cc fr&+Wo&+Cst.&N
+~
+S
+#42963
+&+LForeboding Intersection Inside a &+wBone &+LLaden Cavern&n~
+&+L   This cavern spans at least thirty feet in total height.  Drops of a putrid&N
+&+Lmoist substance drip down from out of the darkness above.  The gloomy ground&N
+&+Lshows many signs of past travel.  Several different twisted &+wtrails &+Lappear to&N
+&+Llead off in all directions.  &+wBones &+Land mortal &+rflesh &+Llay scattered within this&N
+&+Lroom in a chaotic manner.  The stagnant stench of death fills this area with&N
+&+Lfeelings of dread and untold despair.  The cavern seems to continue on to the&N
+&+Lnorth, east, south, and to the west.&N
+~
+429 1216381005 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42962
+D1
+&+L   The &+Wbone &+Lfilled cavern seems to continue on.&N
+~
+~
+0 0 42967
+D2
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42964
+D3
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42966
+S
+#42964
+&+LNarrow Turn Inside a &+wBone &+LLaden Cavern&n~
+&+L   This cavern is around thirty feet in total height.  Drops of liquid cascade&N
+&+Ldown from the darkness above.  They form &+gmurky &+Lshallow pools upon the volcanic&N
+&+Lblack jagged gloomy ground.  &+wBones &+Lof fallen mortals and feeble fools who dared&N
+&+Lto venture too far, rest eternally upon the floor.  Stains of dried crimson can&N
+&+Lbe seen upon the eastern wall.  The south wall has the words &+L'&+rBeware &+RElytron&+L'&N
+&+Letched into it.&N
+~
+429 1216381001 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42963
+D3
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42965
+S
+#42965
+&+LNarrow Turn Inside a &+wBone &+LFilled Cavern&n~
+&+w   Bones &+Land broken armor lay scattered upon the ghastly ground here.  &+bDrops&N
+&+Lof moisture fall from out of the darkness that dwells above.  The walls here&N
+&+Lare marked by dried &+rcrimson &+Land bear some strange markings.  Many signs upon&N
+&+Lthe ground show that this place is rather well traveled.  This cavern spans at&N
+&+Lleast thirty feet in total height.  A strong stench of decay fills the stale&N
+&+Lempty air here.&N
+~
+429 1216381001 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42966
+D1
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42964
+E
+crimson markings strange symbol~
+&+r   This is a &+Lsymbol&+r that has been soaked in &+Rblood&+r.  The image consists of a&N
+&+rcircle that has an inverted pentagram drawn within it.  A &+Lgoat &+rhas also been&N
+&+rincluded inside the pentagram itself.  The &+Whorns &+rof the &+Lgoat &+rare thrust upward&N
+&+rin denial of the &+Rtr&+ri&+Rn&+ri&+Rty&+r.  The mouth downward and the ears occupy the east and&N
+&+rwest points.  The eyes of this creature seem to glare with an unholy sort of&N
+&+raware.  You feel a shiver run down along your &+Wspine&+r, meanwhile your feeble mind&N
+&+ris telling you that everything is just fine.  Thoughts of the past start to&N
+&+Linvade &+rthe present, causing resent to resurface and regret to run rampant.&N
+~
+S
+#42966
+&+LOminous &+RB&+rl&+Ro&+ro&+Rd &+rS&+Ro&+ra&+Rk&+re&+Rd &+LDead End Inside a &+wBone &+LLaden Cavern&n~
+&+L   &+wBones &+Land &+rbl&+Ro&+ro&+Rd &+Lare on the ground, they rest near bodies devoid of any flesh&N
+&+Lor head.  Remnants from the past, stains left by those who have been cast into&N
+&+Lforgotten haze.  Serving as warnings to fools who may trek here, explorers who&N
+&+Lencounter more than fame.  Never to be the same, sure not glad they came.  A&N
+&+Lchill of &+wdead &+Lis strong within the eerie weary daemonical air.  Despair dwells&N
+&+Lwhere fate does not dare travel.  Images of life, soon to unravel form and fade&N
+&+Linto forlorn flashes.  Dismal dreams dashed, cruel intentions crashed.  Beware&N
+&+Lthe &+RBl&+ro&+Ro&+rd&+Lbeast has been etched into the true northern wall.&N
+~
+429 1216381005 0
+D1
+&+L   Lands of the demonical wasteland twist into form, why was I ever cast into&N
+&+Lwhat they call born.  Suffer for salvation, mercy shown never to me.  Wish for&N
+&+Lfree, to dance in wicked twisted glee.  My eyes cast not into see, drift upon&N
+&+Lempty deadly sea waters.  &+CS&+co&+Cu&+cl&+Cs &+Llong since lost, lives cast into pathetic past.&N
+&+LBasically, the &+wbone &+Lladen cavern continues on in this direction.&N
+~
+~
+0 0 42963
+E
+blood ground floor~
+&+L                                                                 &N
+&+L                                                                    &N
+&+L    &+rO  O  O   &+RO   O &+r  O  O  O    O   &+RO   O   O   &+rO    O  O  &+RO    O      &+rO    O&N
+&+L  &+rO        O    O   O   O &+RO   O    O   O  O   &+rO   O    &+RO   O   &+rO    O&N
+&+L&+rO    O  O    &+RO     O O  O  O  &+rOO O  O  O   O   O   &+RO O   O   &+rO   O    O    O&N
+&+L   &+rO     O O   &+RO O   O  &+r OO  O  O &+ROO O   &+rO OO   O O   &+RO    O   O    &+rO    O   O&N
+&+L&+rO   O  O      O   OO   O OO   &+ROO    O  &+rO   OO   &+RO   O   O        &+rO    O    O&N
+&+L   &+rO    &+R O  O   O    OO  OO  &+ROO    &+rO  &+ROO   O  &+rO    &+RO      O  O &+rO    O    O   O&N
+&+L&+rO     O O      O  O  &+rOOO   &+R OOO  OO  O  &+rO  O   O O   &+RO O  O      &+rO         O&N
+&+L  &+rO       O   O O O     &+ROOOO       O  &+rOO     &+RO   &+r  O    O   &+RO  O    &+rO  O     O&N
+&+L&+rO  O   O     &+RO   O  O&+rO   OO&+R OO &+rOO &+RO  O   O  &+rO   O  &+RO O    O      &+rO        O&N
+&+L&+r     O  &+R O O   &+rO O     O &+ROOO  O  &+rO    &+RO    &+rO O    &+RO    &+rO      &+RO     &+rO       O&N
+&+L  &+rO    O    O   O  &+ROO  &+rO  O O  &+RO O  &+rO O O   &+R O O    &+rO O &+RO O &+rO    O     O  O&N
+&+L&+rO    O   O    O O    &+ROO  &+rO      &+RO      O   O     &+rO     O   O   &+RO    &+rO        O&N
+&+L   &+RO    &+r    O     &+RO O   &+rO   O    O   &+RO   &+rO    &+RO  O  O    &+rO   &+RO    &+rO      O&N
+&+L&+rO  O   &+RO  &+rO  &+RO  O O   &+rO &+RO &+rO    &+RO &+rO O   &+RO &+rO &+RO    O&+r O    O   &+RO   O    &+rO  O   O&N
+                                                                    &N
+~
+E
+bones~
+&+w   Bones &+Lfrom those who have fallen into unlight, twilight of life lost within&N
+&+La dank cavern.  Brittle and broken into dust, stripped of all &+rflesh &+Land dotted&N
+&+Lwith only specs of forgotten crimson.  Warnings from the past into the present&N
+&+Lof what shall happen to fools who dared to travel where feeble mortals should&N
+&+Lnever wander.  Images from beyond swift and sway in the dank dreary air here,&N
+&+Lcausing you to wonder what is real.  Reality shivers into fade, flickers into&N
+&+Lforgotten shade, lost &+Cs&+co&+Cu&+cl&+Cs &+Lshall never be saved.&N
+~
+S
+#42967
+&+LForeboding Bend Within a &+WBone &+LFilled Cavern&n~
+&+L   This cavern spans at least thirty feet in total height.  Drops cascade down&N
+&+Lfrom out of the dismal darkness above.  Forming in several shallow &+bpools &+Lapon&N
+&+Lthe surface of the ghastly ground.  Strange &+wsymbols &+Land &+rstains &+Lof faded blood&N
+&+Ladorn the eastern wall.  A strong stench fills the murky air here, causing the&N
+&+Leyes of mortals to tear.  &+WBones &+Land other debris lay strewn around this place&N
+&+Lin a chaotic manner.&N
+~
+429 1216381001 0
+D0
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42969
+D3
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42963
+E
+strange symbols hordes nordic~
+&+L   These &+wsymbols &+Lshow the &+Wnorthern &+Lhordes crushing some unknown foe.  Hordes&N
+&+Lof the mighty north storm past lines of the feeble meek.  &+rBl&+Ro&+ro&+Rd &+Lof those who&N
+&+Ldare to defy the &+Wnordic &+Lmasters of death and delight flows upon the ground in&N
+&+Lrivers of &+rendless &+Rpain&+L.  Screams of victims echo inside your mind and &+Csh&+Wi&+Cv&+We&+Cr&N
+&+Ldown your mortal &+Wspine&+L.  Visions of battles fade in and out of view flickering&N
+&+Linto reality and thought to be real.  Shapes circle above the darkened &+wskies&N
+&+Land &+Brains &+Lof &+bacid &+Lfall on the warriors that lurk below.  Songs of war &+rburn &+Lin&N
+&+Lthe demonic air of dreary despair.  The images &+Csh&+Wi&+Cv&+We&+Cr &+Lout of sight, winds of&N
+&+Lthe dismal noctambulant &+bnight &+Lblow from out of the black abyss.  Thoughts that&N
+&+Lwere long since thought to be no longer, linger inside the &+Cs&+co&+Cu&+cl&+Cs &+Lof the utter&N
+&+Llost.  &+wCryptic &+Lcalls of beyond, &+wph&+Wa&+wnt&+Wo&+wm &+Lscenes shift, the signs of &+rsuffering&+L,&N
+&+Lreasons for regret.  Heads placed upon pikes as warnings to those that would&N
+&+Lever dare to stand in the way of the mighty &+Wnorse&+L.  Eyes of the fallen fiends&N
+&+Lpoked out and rolled as &+Wdi&+Lc&+We &+Lforming fatal furious fate.  &+RHate &+Lfor those who&N
+&+Ldoth follow the dismal lie laden light.  Might making them show that they are&N
+&+Lright, &+Rkill&+Ling all without hesitation or &+bfr&+Li&+bght&+L.  Remains of defeated enemies&N
+&+Lscattered upon the fields of &+bnight&+Lmares and forgotten &+wdead&+L.  Banners from the&N
+&+Lkingdom of &+LBl&+rash&+Lyrk&+rh &+Lraised in triumph and &+Rs&+roa&+Rk&+re&+Rd &+Lin &+rbl&+Ro&+ro&+Rd &+Lof the blasphemers.&N
+~
+S
+#42968
+&+LDismal Turn Within a &+WBone &+LScattered Cavern&n~
+&+L   This cavern spans at least thirty feet in total height.  Small &+bdrops &+Lfall&N
+&+Lfrom out of the abysmal darkness that lurks above.  They form in shallow tiny&N
+&+Lpools &+Lupon the surface of the dismal ground.  Stains of blood adorn the north&N
+&+Lwall here, the word '&+RMarduk&+L' seems to be written by the crimson.  The smell of&N
+&+Ldeath is very strong within the rancid air.  &+WBones &+Land other bits of debris are&N
+&+Lscattered about this room in a chaotic manner.&N
+~
+429 1216381001 0
+D2
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42969
+D3
+&+L   The &+wbone &+Lfilled cavern seems to continue on.&N
+~
+~
+0 0 42961
+S
+#42969
+&+LDismal Chamber Within a &+WBone &+LFilled Cavern&n~
+&+L   This chamber spans at least thirty feet in total height.  Drops fall from&N
+&+Lout of the darkness that lurks above.  The moisture forms in tiny &+bpools &+Lthat&N
+&+Lrest upon the surface of the ghastly ground.  &+WBones &+Land other debris are strewn&N
+&+Labout the cavern in a chaotic disarray.  A strong stench of death and decay is&N
+&+Lalmost too much for the lungs of mortals to handle.  The western wall has the&N
+&+Lwords '&+rThose that go down&+L, &+rshall never come back up&+L' written in &+Rblood&+L.&N
+~
+429 1216381001 8
+D0
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42968
+D5
+&+L   The darkness is too thick for mortal eyes to penetrate.&N
+~
+~
+0 0 42970
+F
+69
+S
+#42970
+&+LA &+WBone &+LFilled Chamber &+RAdorned &+LBy &+rShrunken &+LHeads&N~
+&+W   Bones &+Llay scattered upon the wicked demonical ghastly ground.  The heads of&N
+&+Lshrunken fools adorn the wicked worn walls.  Remnants from the past, serving as&N
+&+Lwarnings to those that may dare dwell out of the &+Ct&+cw&+Ci&+cl&+Ci&+cg&+Ch&+ct&+L.  Images flicker into&N
+&+Lforgotten fade, memories that still stab at the heart.  Some pain will last,&N
+&+Luntil the dusk of final release.  Death and decay dominate within this abode&N
+&+Lof abysmal final fate.  Symbols not of salvation adorn the east wall, etchings&N
+&+bb&+Lurned into sadistic ston&+be &+Lby cold c&+br&+Limson.  A chamb&+be&+Lr of chaos, where order is&N
+&+Ldea&+bt&+Lh.  Never s&+bh&+Lall &+wthe &+Lfeeble fallen be reb&+born&+L, forever &+wforlorn&+L.&N
+~
+429 1216380993 13
+D4
+&+L   It appears to be a &+Wbone &+Lfilled cavern.&N
+~
+~
+0 0 42969
+E
+symbols~
+&+L
+&+L
+&+L
+&+r  D&+Leath &+rM&+Leans &+rT&+Lruth is all thou needs to know invades the mind and fills the&N
+&+Lbody.  Eyes of mortals die, cry, and seek to learn more then they should ever&N
+&+Ldare.  Soon oh so very soon the gaze flickers into n&+bightshade&+Ld &+Leternal &+rdamned&N
+&+bvisions&+L.  Images become reality things that not many mortals quite ever seem to&N
+&+Lsee.  Dragons with scales of &+gs&+Ge&+grp&+Ge&+gnt&+Gi&+gn&+Ge&+L wonderment fly within the air, soaring&N
+&+Lon wings of reptilian fury.  &+RF&+Yi&+Wre &+Lfills the sky and &+wsmoke&+L fills the lungs of&N
+&+wthose &+Lwho are not &+wof the unlight&+L.  Shivers of fright fill the body and &+Bchills&N
+&+Lthe sight.  Something here just is not normal, nor tis it right.&N
+&+L
+&+L
+&+L
+~
+E
+forlorn~
+&+L                Through the portal of forever frozen tears&N
+&+L                 This eve Ill ride with the sunsets flame&N
+&+L                 And forever Ill fly with the autumn wind&N
+&+L                                                         &N
+&+L                  A raven &+wwhispered &+Lthese words in my ear&N
+&+L                '&+wBe one with the moonlight, the night and&N
+&+L               &+wthe storm.  Hunt with wolves through forests&N
+&+L                    &+wof shades and rule from the throne&N
+&+L                            &+wof spirits insane&+L'&N
+&+L                                              &N
+&+L                  As a dancing mist in the autumn night&N
+&+L                  Can you feel my &+Rhunger&+L, hear my cries?&N
+&+L                   This eve Ill ride the sunsets flame&N
+&+L                   Forever to fly with the autumn wind&N
+&+L                                                      &N
+&+L                      Ill ride this wind forever now&N
+&+L                          For this &+bnight &+Lwas...&N
+&+L                Like an angel crowned in thorns so beautiful&N
+&+L                          And it seemed eternal&N
+&+L                                               &N
+&+L                      A vision of sorrow riding forth&N
+&+L                          On the coldest of winds&N
+&+L                           Under the weeping sky&N
+&+L                          It all seemed so F&+ro&+Lrl&+ro&+Lrn&N
+~
+E
+heads shrunken trophies~
+&+L   The &+rshrunken &+Lheads consist of an orc, &+Ggith&+Wyanki&+L, &+Chuman&+L, &+rduergar &+Land a drow&N
+&+Lelf.  They have been preserved with almost no flaws that can be seen.  Perhaps&N
+&+Lthey were &+Rkilled &+Lin mortal kombat.  Now they serve as &+btrophies &+Lwarning those&N
+&+Lwho may dare to dwell here.  Wicked wards of fallen foes, minions of &+wunlight&+L.&N
+~
+E
+orc~
+&+L   This orc head has been shrunken to a rather small size.  The plaque at the&N
+&+Lbottom of this item reads '&+wBerethorn&+L'.  Could this be the orc that many legends&N
+&+Lhave spoke of.  The bringer of noctambulant thunder killer of those who worship&N
+&+Lthe feeble light.  Da&+ro&+Ll&+ro&+Lth of darkness who rides the planes of nightmares, a&N
+&+Lminion of Bl&+rash&+Lyrk&+rh&+L.  Dweller in the realms of ravens, he who follows the dark&N
+&+Lforces of fate.  Master of hate, dealer of dismal ever lasting death.  Laughs&N
+&+Las you take last fleeting breath.&N
+~
+E
+githyanki~
+&+L   This head has been shrunken to a very minute size.  The plaque at the bottom&N
+&+Lof this creature reads Tattun.  Perhaps this is the very head of the once great&N
+&+Ggith&+Wyanki &+Lwarrior.  Who walked the astral plane, he who would almost never die&N
+&+Lto feeble foes.  Wielder of many artifacts, killer of many goodies, now another&N
+&+Lvictim of death.  Simply another trophy upon a wall of wicked delight.  &+RKilled&N
+&+Lin the ultimate fight, against a dealer of fright.  Never again shall he see&N
+&+Lsight, an ornament of a past relic.&N
+~
+E
+human~
+&+L   This &+Chuman &+Lhead has been shrunken to a very small size.  The eyes still gaze&N
+&+Lwith a cold despair filled hatred.  Images of past victims flicker within your&N
+&+Lmind.  Screams from foes, cries of the innocent, pleas for mercy.  Cackling in&N
+&+Ldelight, laughing as he deals out fright.  One who is of the &+wunlight&+L, stalker&N
+&+Lin the nocturnal night.  Hunter of those who are weak enough to pray.  Master&N
+&+Lof lost &+Cs&+co&+Cu&+cl&+Cs&+L, only death is real.  Wicked word '&+WT&+we&+Wz&+wc&+Wa&+wt&+Wl&+wi&+Wp&+wo&+Wc&+wa&+L' etched into the&N
+&+Lpolished plaque.&N
+~
+E
+duergar~
+&+L   This ugly head has been shrunken to a rather minute size.  The eyes of this&N
+&+Lbeast still flow with unbound &+Rhat&+rr&+Re&+rd&+L.  At one time this creature was a bringer&N
+&+Lof death and dismay.  Now he is simply another trophy for the diabolical head&N
+&+Lhunter.  Nocturnal name '&+wHeineko&+L' etched into a tarnished demon spawned vile&N
+&+Lplaque.  An &+rassasin &+Lof legend, now simply a tained trophy of hellish delight.&N
+~
+E
+drow~
+&+L   This shrunken drow head has been shrunken to a rather small size.  Scars of&N
+&+Lbattles long since set into past adorn the vile face.  Eyes of hatred glare an&N
+&+Lunholy cold stare.  The name '&+wDrilixl&+L' has been etched into the &+wstoned &+Lplaque.&N
+&+LCould this be the killer that legends have spoke of, the slayer of the feeble&N
+&+Lmeek.  Death dealer, soul stealer, born of the &+wunlight&+L.  Singer of suffering&N
+&+Land &+bs&+Le&+br&+Lp&+be&+Ln&+bt&+Li&+bn&+Le strife.&N
+~
+S
+#42971
+&+LInside a &+wBone &+LScattered Cavern&n~
+&+L   This cavern spans about thirty feet in actual height.  Tiny drops fall down&N
+&+Lfrom out of the darkness that dwells above.  The water forms in shallow vile&N
+&+bpools &+Lin various spots upon the ground.  &+wBones &+Lof those that have become the&N
+&+Lpast are strewn around this area.  The west wall has been stained in crimson&N
+&+Land has the word '&+RBozk&+L' etched into it.  A strong scent of rot and death fills&N
+&+Lthis ghastly room.  The smell is almost too much for feeble mortals to endure.&N
+~
+429 1216381001 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42979
+D2
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42960
+S
+#42972
+&+LInside a &+wBone &+LFilled Cavern&n~
+&+L   This cavern is about thirty feet in total height.  Drops of &+bliquid &+Lcascade&N
+&+Ldown from out of the darkness above.  A symbol of a &+wgoat &+Lcan be seen burned in&N
+&+Lthe eastern wall.  &+wBones &+Land other debris lay scattered upon the rough jagged&N
+&+Lground.  The stench of suffering is very strong within the arid lifeless air.&N
+&+LThe western wall has the word '&+gM&+Go&+grkl&+Ga&+gr&+L' etched into it.  A death chill fills&N
+&+Lthis room with empty despair.&N
+~
+429 1216381001 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42973
+D2
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42961
+E
+goat symbol~
+&+w   Eyes of fire burn within the soul of this scapegoat.  Enclosed within a five&N
+&+wsided pentagram, the horns of the beast thrust upward in denial of the feeble&N
+&+wtrinity.  The ears to the points of the east and to the west, why the mouth&N
+&+wflows downward.  Your soul starts to feel the scourn of those that are not of&N
+&+wthe light.  A burning feeling that truly is colder then even the mighty nordic&N
+&+wwinter.  Images of the realms of despair start to fill your mortal eyes causing&N
+&+wthem to be in need of repair.  An unholy glare starts to stare into your mind&N
+&+wand you realize not everything is fine.  The calls of the damned start to fill&N
+&+wthe ears and cascades down within your body.  The winds of lost souls starts to&N
+&+wfill this room with the chill of dead.  The spirit forms and speaks these words&N
+&+L&+r'&+LOnly Death is Real&+r'&N
+~
+S
+#42973
+&+LTriad Convergence Inside a Dismal &+wBone &+LLaden Cavern&n~
+&+L   This cavern is about thirty feet in total height.  &+wBones &+Lfill this demonic&N
+&+Lchamber with unholy despair.  Drops of liquid drip down from the abysmal dark&N
+&+Lthat dwells above.  Forming small shallow putrid &+gpuddles &+Lupon the vile jagged&N
+&+Lground.  Slivers of flesh and other debris float upon the surface of the scum&N
+&+Lladen &+bwaters&+L.  Sounds of movement can be heard in the distance. The west wall&N
+&+Lhas the word '&+WThornium&+L' painted upon it.&N
+~
+429 1216381005 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42974
+D1
+&+L   The &+Wbone &+Lfilled cavern seems to continue on.&N
+~
+~
+0 0 42981
+D2
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42972
+S
+#42974
+&+LThree Path Convergence Inside a Dreary &+wBone &+LFilled Cavern&n~
+&+L   This cavern spans about thirty feet in total height.  Small drops fall down&N
+&+Lfrom out of the darkness that dwells above.  The water forms in shallow &+gmurky&N
+&+Lpools in various spots upon the ground.  &+wBones &+Lof those that have become the&N
+&+Lpast are strewn around this area.  The west wall has been stained in crimson&N
+&+Land has the word '&+wDead&+L' burned into it.  A strong smell of rot and death fills&N
+&+Lthis ghastly room.  The scent is almost too much for feeble mortals to endure.&N
+~
+429 1216381005 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42975
+D1
+&+LThe &+Wbone &+Lfilled cavern seems to continue on in this direction.&N
+~
+~
+0 0 42984
+D2
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42973
+S
+#42975
+&+LInside a &+wBone &+LFilled Cavern&n~
+&+L   This cavern is about thirty feet in total height.  &+wBones &+Lfill this demonic&N
+&+Lchamber with untold despair.  Drops of liquid drip down from the dreary dark&N
+&+Lthat dwells above.  Forming tiny shallow &+gmurky &+Lpuddles upon the &+rblood &+Lstained&N
+&+Lground.  Slivers of flesh and other debris float upon the surface of the taint&N
+&+Lladen &+bwaters&+L.  Sounds of movement can be heard in the distance. The east wall&N
+&+Lhas the words '&+RMortals Beware&+L' written in crimson.&N
+~
+429 1216381001 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42976
+D2
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42974
+S
+#42976
+&+LConvergence of Three Paths Inside a &+wBone &+LFilled Cavern&n~
+&+L   This cavern spans around thirty feet in actual height.  &+bDroplets &+Lfall from&N
+&+Lout of the demonic darkness that dwells above.  The north wall has the words&N
+&+L'&+ROnly Death Is Real&+L' etched into it.  &+wBones &+Land smashed powdered rusted armor&N
+&+Lare scattered about this place.  Marks of &+rcrimson &+Land signs of past travel are&N
+&+Levident upon the ghastly ground here.  The strong stench of suffering invades&N
+&+Lthe arid air, causing mortals to gasp and choke.&N
+~
+429 1216381005 0
+D1
+&+L   The &+Wbone &+Lfilled cavern seems to continue.&N
+~
+~
+0 0 42986
+D2
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42975
+D3
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42977
+E
+crimson baal symbols markings~
+&+R   Cr&+ri&+Rms&+ron i&+Rs th&+re c&+Ru&+rre &+Rfo&+rr th&+Re f&+ree&+Rbl&+re m&+Ree&+rk wh&+Ro wi&+rsh t&+Ro se&+rek&+R.  &+rBl&+Ro&+ro&+Rd &+ro&+Rf t&+rhe l&+Ro&+rst&N
+&+rha&+Rs be&+ren &+Ru&+rse&+Rd &+rt&+Ro cr&+rea&+Rt&+re th&+Ris &+rs&+Ry&+rmb&+Rol &+rof &+Revil&+r.  &+RD&+rr&+Read &+reye&+Rs o&+rf th&+Re &+rdark &+Ro&+rne &+Rst&+ra&+Rrt&N
+&+Rt&+ro st&+Ra&+rr&+Re i&+rnt&+Ro y&+rou&+Rr &+rf&+Ree&+rble &+Rs&+ri&+Rmpl&+re&+Rt&+ron &+Rs&+rou&+Rl&+r.  &+RF&+rea&+Rr o&+rf d&+Ree&+rds y&+Rou &+rl&+Re&+rft &+Ru&+rnd&+Rone &+rsh&+Ri&+rft&N
+&+ri&+Rnt&+ro th&+Re &+rno&+Rw &+ra&+Rnd r&+rui&+Rn &+rth&+Re fut&+rure&+R, &+rf&+Ror &+ry&+Rou ha&+rve no&+Rne&+r.  &+RY&+rou&+Rr d&+re&+Rst&+ri&+Rny i&+rs &+Rt&+ro d&+Ri&+re &+Rby&N
+&+Rth&+re h&+Ra&+rnd &+Rof &+revil&+R, &+ro&+Rr t&+ro s&+Ru&+rrr&+Re&+rnd&+Re&+rr y&+Rou&+rr &+Rs&+rou&+Rl an&+rd s&+Re&+rrv&+Re th&+re &+Rd&+rarkne&+Rss&+r.  &+RTh&+ri&+rn&+Re &+rd&+Ru&+rst&N
+&+ro&+Rf d&+ren&+Rial &+rb&+Rea&+rts w&+Ri&+rth&+Rin &+rth&+Re h&+re&+Ra&+rrt &+Ro&+rf u&+Rtt&+re&+Rr a&+rnd t&+Ro&+rt&+Ra&+rl d&+Re&+rsp&+Rai&+rr.  &+RCr&+rie&+Rs o&+rf ch&+Ri&+rldr&+Re&+rn&N
+&+Rf&+rill th&+Re m&+ru&+Rrky &+rai&+Rr, y&+ret n&+Rob&+rody &+Rev&+ren st&+Rop&+rs t&+Ro &+rst&+Rar&+re, &+Re&+rve&+Rn t&+ro c&+Ra&+rre&+R.  &+rD&+Ro no&+rt sh&+Ra&+rr&+Re&N
+&+rwh&+Rat y&+rou h&+Ra&+rv&+Re w&+rit&+Rh &+ro&+Rther&+rs, &+Rne&+rv&+Rer &+rlo&+Rw&+rer y&+Rou&+rr &+Rg&+rua&+Rrd&+r.  &+RWo&+rrld&+Rs o&+rf d&+Re&+rm&+Ro&+rns &+Ra&+rnd d&+Rea&+rth&N
+&+Rsh&+rif&+Rt &+ri&+Rnt&+ro y&+Rou&+rr m&+Ri&+rnd &+Ra&+rnd &+Rc&+rau&+Rs&+re y&+Rou t&+ro &+Rcr&+ra&+Rck &+ra &+Rs&+ro&+Rrt &+ro&+Rf &+revil &+Rsm&+ri&+Rl&+re.  &+RB&+rath&+Ro&+rry &+Rs&+ri&+Rts&N
+&+ra&+Rt&+rop h&+Re&+rr &+Rj&+ra&+Rd&+re thr&+Rown &+ras &+Rsh&+re l&+Rau&+rghs &+Ra&+rs th&+Ro&+rse &+Ro&+rf th&+Re l&+ri&+Rght &+ra&+Rr&+re t&+Ro&+rrt&+Ru&+rr&+Red &+rt&+Ri&+rll d&+Ri&+re&+R.&N
+~
+S
+#42977
+&+LIntersection Inside a Foreboding &+wBone &+LStrewn Cavern&n~
+&+L   This cavern spans around thirty feet in actual height.  Drops of an acrid&N
+&+Lmoist substance drips down from out of the darkness above.  The ground here&N
+&+Lshows many signs of past travel.  Various different shaped &+wfootprints &+Lseem to&N
+&+Llead off in all directions.  &+wBones &+Land other debris lay scattered within this&N
+&+Larea in a chaotic manner.  The stench of death and decay fills this room with&N
+&+Lfeelings of dread and untold despair.  The cavern seems to continue on to the&N
+&+Lnorth, east, south, and to the west.&N
+~
+429 1216381005 0
+D1
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42976
+D2
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42978
+D3
+&+L   The &+Wbone &+Lstrewn cavern appears to continue.&N
+~
+~
+0 0 42988
+D4
+~
+~
+0 0 42980
+S
+#42978
+&+LInside a &+wBone &+LFilled Cavern&n~
+&+L   This cavern spans about thirty feet in total height.  Drops fall out of the&N
+&+Labysmal darkness that dwells above.  Forming small &+gmurky &+Lpools in the cracks&N
+&+Land dips of the ground.  &+wBones &+Lof those who are now simply past are scattered&N
+&+Laround the chamber in a chaotic disarray.  The putrid smell of death and decay&N
+&+Lfills the arid air here, causing eyes of mortals to tear.  Walls of volcanic&N
+&+Lstone have been marked with symbols and images of vile beasts.  A cold eerie&N
+&+Bchill &+Lfills this dismal place.&N
+~
+429 1216381001 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42977
+D2
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42979
+S
+#42979
+&+LForeboding Bend Inside a Dismal &+wBone &+LFilled Cavern&n~
+&+L   This cavern is around thirty feet in total height.  Drops of liquid cascade&N
+&+Ldown from the darkness above.  They form small shallow &+bpools &+Lupon the volcanic&N
+&+Lblack jagged gloomy ground.  &+wBones &+Lof fallen mortals and feeble fools who dared&N
+&+Lto venture too far, rest eternally upon the floor.  Stains of dried crimson can&N
+&+Lbe seen upon the eastern wall.  The southern wall has the words &+L'&+RBeware &+rVolgk&+L'&N
+&+Letched into it.&N
+~
+429 1216381001 0
+D0
+&+L   The &+wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42978
+D3
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42995
+S
+#42980
+&+LPath Inside a Foreboding &+wBone &+LFilled Cavern&n~
+&+L   This cavern spans well over thirty feet in actual height.  The walls seem&N
+&+Lforged from a volcanic rock of some sort.  Drops fall from out of the dismal&N
+&+Ldarkness that dwells above.  Forming in small shallow &+bpools &+Lupon the ghastly&N
+&+Lground.  &+wBones &+Lare strewn around in a chaotic manner, bits of smashed armor&N
+&+Lalso lay scattered about.  A putrid scent fills the arid air here, causing&N
+&+Leyes of mortals to tear.  Faint &+clight &+Lcan be seen coming from the north, the&N
+&+Lillumination seems to fade to the south.&N
+~
+429 1249935436 0
+D1
+~
+~
+0 0 595852
+D2
+~
+~
+0 0 596251
+D5
+~
+~
+0 0 42977
+E
+light~
+&+c   Th&+Ce &+cl&+Ci&+cght &+Ci&+cn th&+Ci&+cs &+Cr&+coo&+Cm &+cs&+Cee&+cms t&+Co &+csh&+Ci&+cv&+Ce&+cr i&+Cnt&+co &+Csh&+ca&+Cd&+ce &+Ca&+cft&+Ce&+cr sh&+Ca&+cd&+Ce o&+cf cy&+Ca&+cn th&+Ca&+ct&N
+&+Cdr&+ci&+Cfts &+ci&+Cnt&+co d&+Ca&+crk&+Ce&+cr.  &+CI&+cmag&+Ce&+cs st&+Ca&+crt t&+Co &+cf&+Co&+crm w&+Ci&+cth&+Ci&+cn &+Cth&+ce &+Cai&+cr h&+Ce&+cr&+Ce&+c, y&+Cou&+cr p&+Ca&+cst f&+Co&+crms&N
+&+ci&+Cnt&+co &+Cy&+cou&+Cr &+cpr&+Ce&+cs&+Ce&+cnt.  &+CScr&+cea&+Cms &+cfr&+Co&+cm w&+Ci&+cth&+Ci&+cn y&+Cou&+cr &+Cs&+co&+Cu&+cl &+Ca&+ct s&+Ci&+cghts &+Cy&+cou w&+Ci&+csh&+Ce&+cd n&+Ceve&+cr,&N
+&+Cbr&+co&+Ck&+ce&+Cn th&+ce&+Cy &+cf&+Ca&+cd&+Ce j&+cu&+Cst a&+cs th&+Ce&+cy f&+Co&+crm&+Ce&+cd.  &+CS&+ci&+Cbl&+ci&+Cng&+cs &+Co&+cf y&+Cou&+Cr y&+cou&+Cth &+cy&+Cou &+cl&+Co&+cng w&+Ci&+csh&+Ce&+cd&N
+&+cd&+Cea&+cd f&+Ca&+cll &+Ci&+cn fr&+Co&+cnt &+Co&+cf y&+Cou &+ca&+Cnd &+ca&+Cr&+ce r&+Ci&+cpp&+Ce&+cd &+Ci&+cnt&+Co &+cshr&+Ce&+cds.  Th&+Ce&+cy b&+Ce&+cg f&+Co&+cr y&+Cou&+cr m&+Ce&+crcy&N
+&+Ca&+cnd &+Cy&+cou d&+Co &+cn&+Co&+ct kn&+Co&+cw wh&+Ca&+ct &+Ci&+ct d&+Co&+cth &+Cm&+cea&+Cn&+c.  &+CY&+cou gr&+Ci&+cn &+Ca&+cs &+Cy&+cou st&+Co&+cp th&+Cei&+cr l&+Ci&+cf&+Ce&+c, n&+Co&+cw&N
+&+cy&+Cou&+cr l&+Ci&+cf&+Ce &+cc&+Ca&+cn b&+Ce a&+cs &+Ci&+ct sh&+Cou&+cld b&+Ce&+c.  N&+Co &+cl&+Co&+cng&+Ce&+cr c&+Ca&+cn th&+Co&+cs&+Ce &+cth&+Ca&+ct st&+Ca&+cnd &+Ci&+cn y&+Cou&+cr w&+Ca&+cy&N
+&+Cst&+co&+Cp y&+cou&+C.  &+cD&+Co &+cn&+Co&+ct t&+Cu&+crn th&+Ce o&+cth&+Ce&+cr ch&+Cee&+ck s&+Ci&+cmply str&+Ci&+ck&+Ce i&+ct, d&+Co &+cn&+Co&+ct st&+Co&+cp, &+Ckill&+c.&N
+&+cR&+Cea&+cl&+Ci&+cty f&+Ci&+cghts t&+Co &+cb&+Ce&+cc&+Co&+cm&+Ce &+cr&+Cea&+cl &+Co&+cnc&+Ce &+cm&+Co&+cr&+Ce&+c, &+Cy&+cou&+Cr m&+ci&+Cnd st&+ca&+Crts t&+co &+Cs&+cee &+Ctr&+cai&+Cls th&+ca&+Ct&N
+&+Ca&+cr&+Ce &+cn&+Co&+ct th&+Ce&+cr&+Ce&+c.  &+CY&+cou&+Cr h&+ca&+Cnds p&+cass&+C, &+cy&+Ce&+ct th&+Ce&+cy d&+Co &+cn&+Co&+ct s&+Cee&+cm t&+Co &+cst&+Co&+cp, &+Cy&+cou st&+Ca&+cr&+Ce a&+cnd&N
+&+ci&+Cm&+ca&+Cg&+ce&+Cs &+cf&+Ca&+cd&+Ce o&+cnc&+Ce &+cm&+Co&+cr&+Ce&+c.  S&+Ca&+cn&+Ci&+cty &+Ci&+cs n&+Co&+ct s&+Cu&+cr&+Ce i&+cf i&+Ct &+ckn&+Co&+cws wh&+Co y&+cou a&+Cr&+ce&+C, &+cnor &+cdo &+Cyou&N
+&+Ckn&+co&+Cw &+co&+Cf &+ci&+Ct&+c.  L&+Co&+cst &+Ci&+cn &+Ca &+cw&+Co&+crld th&+Ca&+ct &+Ci&+cs w&+Ci&+cth&+Ci&+cn y&+Cou&+crs&+Celf&+c, n&+Ceve&+cr t&+Co &+cc&+Co&+cm&+Ce &+cb&+Ca&+cck d&+Co&+cwn.&N
+&+cY&+Cou&+cr s&+Cou&+cl l&+Cea&+cv&+Ce&+cs th&+Ce &+cb&+Co&+cdy t&+Co &+cpr&+Co&+cj&+Ce&+cct &+Ci&+ct&+Cself &+ci&+Cnt&+co th&+Ce &+cr&+Cea&+clm &+Co&+cf &+CB&+ca&+Crd &+cF&+Cau&+cst&+C.  &+cH&+Ce&N
+&+Cwh&+co &+Cm&+cu&+Cst s&+cu&+Cff&+ce&+Cr f&+co&+Cr th&+ce s&+Ci&+cns &+Co&+cf th&+Ce tr&+Cai&+ct&+Cor&+c, r&+Co&+cts &+Ci&+cn &+Ct&+co&+Crm&+ce&+Cnt &+cf&+Co&+cr n&+Co&+ct &+Cbe&+cing.&N
+&+LDead &+Ci&+cs th&+Ce o&+cnly th&+Ci&+cng th&+Ca&+ct &+Ci&+cs r&+Cea&+cl&+C, &+cth&+Ce o&+cnly th&+Ci&+cng th&+Ca&+ct &+Ci&+cs p&+Cu&+cr&+Ce&+c, t&+Co &+cb&+Ca&+cd h&+Ce i&+cs&N
+&+Cn&+co&+Cw &+cd&+Cea&+cd&+C.  Wh&+ce&+Cn &+ch&+Ce &+cl&+Ci&+cv&+Ce&+cd h&+Ce &+ch&+Ca&+cd tr&+Cue &+cl&+Ci&+cf&+Ce&+c, &+Ca &+csh&+Ca&+cm&+Ce &+ch&+Ce &+cn&+Ce&+cv&+Ce&+cr w&+Ca&+cnt&+Ce&+cd it, now h&+Ce.&N
+&+cV&+Ci&+cs&+Cio&+cn r&+Ce&+ct&+Cu&+crns &+Ci&+cnt&+Co &+cwh&+Ca&+ct s&+Cee&+cms t&+Co be n&+co&+Crmal&+c, c&+Co&+cl&+Co&+crs s&+Cee&+cm t&+Co &+cf&+Ca&+cd&+Ce i&+cnt&+Co &+creal&+City&+c.&N
+~
+S
+#42981
+&+LDismal Bend Within a Creepy &+WBone &+LFilled Cavern&n~
+&+L   This cavern spans at least thirty feet in total height.  &+bDrops &+Lfall from&N
+&+Lout of the raven darkness that lurks above.  The moisture forms in small tiny&N
+&+Lpools in various spots upon the gloomy ground.  &+WBones &+Land shades of &+rcrimson&N
+&+Lare strewn about this place in a chaotic manner.  The stench of rot is nearly&N
+&+Ltoo much for the feeble lungs of mortals to endure.  The eastern wall has the&N
+&+Lwords &+w'&+RBlood &+Lof The Ancient One&+w' &+Letched into it.&N
+~
+429 1216381001 0
+D2
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42982
+D3
+&+L   The &+wbone &+Lfilled cavern seems to continue on.&N
+~
+~
+0 0 42973
+S
+#42982
+&+LForeboding Chamber Within a Dismal &+WBone &+LFilled Cavern&n~
+&+L   This chamber spans at least thirty feet in total height.  Drops fall from&N
+&+Lout of the darkness that lurks above.  The moisture forms in small &+bpools &+Lthat&N
+&+Lrest upon the surface of the gloomy ground.  &+WBones &+Land other debris are strewn&N
+&+Labout the cavern in a chaotic disarray.  A strong stench of death and decay is&N
+&+Lalmost too much for the lungs of mortals to handle.  The western wall has the&N
+&+Lwords '&+wThose that wander too far&+L, &+wshall never see home again&+L' burned into it.&N
+~
+429 1216381001 0
+D0
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42981
+D5
+&+LAn underground &+gswamp&+L.&N
+~
+~
+0 0 42983
+F
+83
+S
+#42983
+&+LA &+gSwamp &+LBeneath The &+WBone &+LFilled Cavern&N~
+&+g   Scum and lichen floats upon the &+bwaters &+gof this dismal dreary abode.  Items&N
+&+gglissen and gleam from beneath the &+Gmurky &+gswamp.  Remnants from those that have&N
+&+gbeen cast into eternal past.  Stench of death and decay dominates within this&N
+&+gwicked vile place.  Suffering strikes, lethal lashes, mournful marks.  Dreams&N
+&+gended, reality questioned, the &+Lfuneral &+wfog &+gdrifts.  Drops cascade down from out&N
+&+gof the dismal &+Ldarkness&+g.  They strike the surface, causing tiny ripples to flow&N
+&+gfrom the center.  Some creature seems to of made this into their abysmal lair.&N
+~
+429 1216380997 13
+D4
+&+L   A chamber filled with &+Wbones &+Land debris.&N
+~
+~
+0 0 42982
+E
+funeral fog~
+&+w                          Funeral Fog            &N
+&+L                                            &N
+&+L                      Every time this year&N
+&+L                   This dark &+wfog &+Lshall appear&N
+&+L                   Up from the tombs it comes&N
+&+L                   To take one more life that&N
+&+L                          Can be near&N
+&+L                  In the middle of Transylvania&N
+&+L                 All natural life has for a long&N
+&+L                 Time ago gone, it's thin and so&N
+&+L                 Beautyful but also so dark and&N
+&+L                          Mysterous.&N
+&+L                Once again the preist is messing&N
+&+L                     May god bless us all.&N
+&+L                     The &+wfog &+Lis here again&N
+&+L                 That'll complete this &+wfuneral&+L.&N
+&+L                   From a place empty of life.&N
+&+L                Only dead trees are growing hear.&N
+&+L                     As it comes from a far&N
+&+L                Only dead trees are growing here&N
+&+L         ....&+wFuneral Fog&+L....&+wFuneral Fog&+L....&+wFuneral Fog&+L....&N
+&+L                                                        &N
+~
+S
+#42984
+&+LCurve Within a Demonic &+WBone &+LFilled Cavern&n~
+&+L   This cavern spans about thirty feet in total height.  Small drops fall down&N
+&+Lfrom out of the darkness that dwells above.  The water forms in shallow &+gmurky&N
+&+Lpools in various spots upon the floor.  &+WBones &+Lof mortals that have become the&N
+&+Lpast are strewn around this area.  The south wall has been stained in crimson&N
+&+Land has the words '&+wSlugs North&+L' burned into it.  A strong stench of death fills&N
+&+Lthis demonic curve.  The smell is just about too much for the living to endure.&N
+~
+429 1216381001 0
+D0
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42985
+D3
+&+L   The &+wbone &+Lfilled cavern seems to continue.&N
+~
+~
+0 0 42974
+S
+#42985
+&+LWithin a &+WBone &+LFilled Cavern&n~
+&+L   This cavern spans about thirty feet in actual height.  Tiny drops fall down&N
+&+Lfrom out of the darkness that dwells above.  The water forms in shallow vile&N
+&+bpools &+Lin various spots upon the ground.  &+WBones &+Lof those that have become the&N
+&+Lpast are strewn around this area.  The east wall has been stained in crimson&N
+&+Land has the word '&+RKali&+L' etched into it.  A very pungent scent of decay fills&N
+&+Lthis ghastly room.  The smell is almost too much for feeble mortals to endure.&N
+~
+429 1216389321 0
+D0
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42986
+D2
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42984
+S
+#42986
+&+RBlood &+LStained Room Within a &+WBone &+LFilled Cavern&n~
+&+L   This cavern spans about thirty feet in total height.  Drops of &+bliquid &+Lfall&N
+&+Lfrom out of the abysmal blackness that lurks above.  &+RBlood &+Lstains the walls&N
+&+Land the gloomy ground of this ghastly chamber.  The stench of death is almost&N
+&+Ltoo much for feeble mortals to endure.  &+WBones &+Land other debris lay scattered&N
+&+Lall about this rancid room.  Sounds seem to be coming from the filthy abode&N
+&+Lthat dwells below.  A strange &+Bchill &+Lfills the rancid air here causing despair.&N
+~
+429 1216381001 0
+D3
+&+L   The &+wbone &+Lfilled cavern seems to continue in this direction.&N
+~
+~
+0 0 42976
+D5
+&+L   A &+Rblood &+Lstained lair.&N
+~
+~
+0 0 42987
+F
+53
+S
+#42987
+&+LFilthy &+RBlood &+LStained &+rLair &+LInside a &+WBone &+LFilled Cavern&N~
+&+R   Blood &+Lstains the unholy horrid wicked walls here.  Remnants from those that&N
+&+Lhave long since been cast into eternal past.  Dreams no longer shall be known&N
+&+Lto them, victims slain by those who are of the &+wunlight&+L.  Dealers of frigid evil&N
+&+Lfright, hiding from the &+Wlight&+L.  Slime covers the ghastly gloomy ground.  &+BChills&N
+&+Lfrom beyond fill this abysmal abode.  Creatures have created a primative lair&N
+&+Lhere.  &+bAcid &+Lburns can be seen in various spots, corrosion of conformity bleeds.&N
+~
+429 1216380997 13
+D4
+&+W   Light &+Lbreaks through, breaks the darkness in two.&N
+~
+~
+0 0 42986
+E
+light~
+&+b   Th&+Be &+bl&+Bi&+bght &+Bi&+bn th&+Bi&+bs &+Br&+boo&+Bm &+bs&+Bee&+bms t&+Bo &+bsh&+Bi&+bv&+Be&+br i&+Bnt&+bo &+Bsh&+ba&+Bd&+be &+Ba&+bft&+Be&+br sh&+Ba&+bd&+Be o&+bf bl&+Bu&+be th&+Ba&+bt&N
+&+Bdr&+bi&+Bfts &+bi&+Bnt&+bo d&+Ba&+brk&+Be&+br.  &+BI&+bmag&+Be&+bs st&+Ba&+brt t&+Bo &+bf&+Bo&+brm w&+Bi&+bth&+Bi&+bn &+Bth&+be &+Bai&+br h&+Be&+br&+Be&+b, y&+Bou&+br p&+Ba&+bst f&+Bo&+brms&N
+&+bi&+Bnt&+bo &+By&+bou&+Br &+bpr&+Be&+bs&+Be&+bnt.  &+BScr&+bea&+Bms &+bfr&+Bo&+bm w&+Bi&+bth&+Bi&+bn y&+Bou&+br &+Bs&+bo&+Bu&+bl &+Ba&+bt s&+Bi&+bghts &+By&+bou w&+Bi&+bsh&+Be&+bd n&+Beve&+br,&N
+&+Bbr&+bo&+Bk&+be&+Bn th&+be&+By &+bf&+Ba&+bd&+Be j&+bu&+Bst a&+bs th&+Be&+by f&+Bo&+brm&+Be&+bd.  &+BS&+bi&+Bbl&+bi&+Bng&+bs &+Bo&+bf y&+Bou&+Br y&+bou&+Bth &+by&+Bou &+bl&+Bo&+bng w&+Bi&+bsh&+Be&+bd&N
+&+bd&+Bea&+bd f&+Ba&+bll &+Bi&+bn fr&+Bo&+bnt &+Bo&+bf y&+Bou &+ba&+Bnd &+ba&+Br&+be r&+Bi&+bpp&+Be&+bd &+Bi&+bnt&+Bo &+bshr&+Be&+bds.  Th&+Be&+by b&+Be&+bg f&+Bo&+br y&+Bou&+br m&+Be&+brcy&N
+&+Ba&+bnd &+By&+bou d&+Bo &+bn&+Bo&+bt kn&+Bo&+bw wh&+Ba&+bt &+Bi&+bt d&+Bo&+bth &+Bm&+bea&+Bn&+b.  &+BY&+bou gr&+Bi&+bn &+Ba&+bs &+By&+bou st&+Bo&+bp th&+Bei&+br l&+Bi&+bf&+Be&+b, n&+Bo&+bw&N
+&+by&+Bou&+br l&+Bi&+bf&+Be &+bc&+Ba&+bn b&+Be a&+bs &+Bi&+bt sh&+Bou&+bld b&+Be&+b.  N&+Bo &+bl&+Bo&+bng&+Be&+br c&+Ba&+bn th&+Bo&+bs&+Be &+bth&+Ba&+bt st&+Ba&+bnd &+Bi&+bn y&+Bou&+br w&+Ba&+by&N
+&+Bst&+bo&+Bp y&+bou&+B.  &+bD&+Bo &+bn&+Bo&+bt t&+Bu&+brn th&+Be o&+bth&+Be&+br ch&+Bee&+bk s&+Bi&+bmply str&+Bi&+bk&+Be i&+bt, d&+Bo &+bn&+Bo&+bt st&+Bo&+bp, &+Bkill&+b.&N
+&+bR&+Bea&+bl&+Bi&+bty f&+Bi&+bghts t&+Bo &+bb&+Be&+bc&+Bo&+bm&+Be &+br&+Bea&+bl &+Bo&+bnc&+Be &+bm&+Bo&+br&+Be&+b, &+By&+bou&+Br m&+bi&+Bnd st&+ba&+Brts t&+bo &+Bs&+bee &+Btr&+bai&+Bls th&+ba&+Bt&N
+&+Ba&+br&+Be &+bn&+Bo&+bt th&+Be&+br&+Be&+b.  &+BY&+bou&+Br h&+ba&+Bnds p&+bass&+B, &+by&+Be&+bt th&+Be&+by d&+Bo &+bn&+Bo&+bt s&+Bee&+bm t&+Bo &+bst&+Bo&+bp, &+By&+bou st&+Ba&+br&+Be a&+bnd&N
+&+bi&+Bm&+ba&+Bg&+be&+Bs &+bf&+Ba&+bd&+Be o&+bnc&+Be &+bm&+Bo&+br&+Be&+b.  S&+Ba&+bn&+Bi&+bty &+Bi&+bs n&+Bo&+bt s&+Bu&+br&+Be i&+bf i&+Bt &+bkn&+Bo&+bws wh&+Bo y&+bou a&+Br&+be&+B, &+bnor &+bdo &+Byou&N
+&+Bkn&+bo&+Bw &+bo&+Bf &+bi&+Bt&+b.  L&+Bo&+bst &+Bi&+bn &+Ba &+bw&+Bo&+brld th&+Ba&+bt &+Bi&+bs w&+Bi&+bth&+Bi&+bn y&+Bou&+brs&+Belf&+b, n&+Beve&+br t&+Bo &+bc&+Bo&+bm&+Be &+bb&+Ba&+bck d&+Bo&+bwn.&N
+&+bY&+Bou&+br s&+Bou&+bl l&+Bea&+bv&+Be&+bs th&+Be &+bb&+Bo&+bdy t&+Bo &+bpr&+Bo&+bj&+Be&+bct &+Bi&+bt&+Bself &+bi&+Bnt&+bo th&+Be &+br&+Bea&+blm &+Bo&+bf &+BB&+ba&+Brd &+bF&+Bau&+bst&+B.  &+bH&+Be&N
+&+Bwh&+bo &+Bm&+bu&+Bst s&+bu&+Bff&+be&+Br f&+bo&+Br th&+be s&+Bi&+bns &+Bo&+bf th&+Be tr&+Bai&+bt&+Bor&+b, r&+Bo&+bts &+Bi&+bn &+Bt&+bo&+Brm&+be&+Bnt &+bf&+Bo&+br n&+Bo&+bt &+Bbe&+bing.&N
+&+LDead &+Bi&+bs th&+Be o&+bnly th&+Bi&+bng th&+Ba&+bt &+Bi&+bs r&+Bea&+bl&+B, &+bth&+Be o&+bnly th&+Bi&+bng th&+Ba&+bt &+Bi&+bs p&+Bu&+br&+Be&+b, t&+Bo &+bb&+Ba&+bd h&+Be i&+bs&N
+&+Bn&+bo&+Bw &+bd&+Bea&+bd&+B.  Wh&+be&+Bn &+bh&+Be &+bl&+Bi&+bv&+Be&+bd h&+Be &+bh&+Ba&+bd tr&+Bue &+bl&+Bi&+bf&+Be&+b, &+Ba &+bsh&+Ba&+bm&+Be &+bh&+Be &+bn&+Be&+bv&+Be&+br w&+Ba&+bnt&+Be&+bd it, now h&+Be.&N
+&+bV&+Bi&+bs&+Bio&+bn r&+Be&+bt&+Bu&+brns &+Bi&+bnt&+Bo &+bwh&+Ba&+bt s&+Bee&+bms t&+Bo be n&+bo&+Brmal&+b, c&+Bo&+bl&+Bo&+brs s&+Bee&+bm t&+Bo &+bf&+Ba&+bd&+Be i&+bnt&+Bo &+breal&+Bity&+b.&N
+~
+S
+#42988
+&+LThree Trail Convergence Within an Abysmal &+WBone &+LFilled Cavern&n~
+&+L   This cavern spans at least thirty feet in total height.  Small &+bdrops &+Lfall&N
+&+Lfrom out of the abysmal darkness that lurks above.  They form in shallow tiny&N
+&+Lpools &+Lupon the surface of the ghastly ground.  Stains of blood adorn the north&N
+&+Lwall here, the word '&+RDoden&+L' seems to be written by the crimson.  The stench of&N
+&+Ldeath is strong within the arid air here.  &+WBones &+Land other debris are strewn&N
+&+Labout this room in a random manner.&N
+~
+429 1216381001 0
+D1
+&+L   The &+wbone &+Lfilled cavern appears to continue.&N
+~
+~
+0 0 42977
+D2
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42989
+D3
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42993
+S
+#42989
+&+LNarrow Bend Within a Foreboding &+WBone &+LFilled Cavern&n~
+&+L   This cavern spans about thirty feet in total height.  Small drops fall down&N
+&+Lfrom out of the darkness that dwells above.  The water forms in shallow vile&N
+&+bpools &+Lin various spots upon the floor.  &+WBones &+Lof mortals that have become the&N
+&+Lpast are strewn around this area.  The east wall has been &+rstained &+Lin crimson&N
+&+Land has the word '&+wDead&+L' burned into it.  A very strong stench of death fills&N
+&+Lthis foreboding bend.  The smell is almost too much for the living to endure.&N
+~
+429 1216381001 0
+D0
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42988
+D3
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42990
+S
+#42990
+&+LWithin a &+WBone &+LFilled Cavern&n~
+&+L   This cavern spans at least thirty feet in total height.  Droplets fall from&N
+&+Lout of the darkness that lurks above.  The moisture forms in small &+bpools &+Lthat&N
+&+Lrest upon the surface of the gloomy ground.  &+WBones &+Land other debris are strewn&N
+&+Labout the chamber in a chaotic disarray.  A strong stench of death and decay is&N
+&+Lalmost too much for the lungs of mortals to endure.  The northern wall has the&N
+&+Lwords '&+rLife soon shall be nothing&+L, &+rbut a forgotten memory&+L' written in &+Rblood&+L.&N
+~
+429 1216381001 0
+D1
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42989
+D3
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42991
+S
+#42991
+&+LNarrow Turn Within a Foreboding &+WBone &+LFilled Cavern&n~
+&+L   This cavern spans at least thirty feet in total height.  &+bDrops &+Lfall from&N
+&+Lout of the raven darkness that lurks above.  The moisture forms in small tiny&N
+&+Lpools in various spots upon the ghastly ground.  &+WBones &+Land &+rstains &+Lof crimson&N
+&+Lare strewn about this place in a chaotic manner.  The stench of rot is nearly&N
+&+Ltoo much for the feeble lungs of mortals to endure.  The western wall has the&N
+&+Lwords '&+wDeath shall rule those who fear it&+L' burned into it.&N
+~
+429 1216381001 0
+D0
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42992
+D1
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42990
+S
+#42992
+&+LTwisted Bend Within a Foreboding &+WBone &+LFilled Cavern&n~
+&+L   This cavern spans at least thirty feet in total height.  &+bDrops &+Lcascade down&N
+&+Lfrom out of the dismal darkness above.  Forming in several shallow pools upon&N
+&+Lthe surface of the gloomy ground.  Strange pictures and marks &+Lof fresh &+Rblood&N
+&+Ladorn the northern wall.  A strong stench fills the arid air here, causing the&N
+&+Leyes of mortals to tear.  &+WBones &+Land other debris lay strewn around this place&N
+&+Lin a chaotic manner.&N
+~
+429 1216381001 0
+D1
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42993
+D2
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42991
+S
+#42993
+&+LCollapsed Chamber Within a &+WBone &+LFilled Cavern&n~
+&+L   This cavern spans about thirty feet in total height.  Drops of &+bliquid &+Lfall&N
+&+Lfrom out of the raven blackness that lurks above.  The ground here is all but&N
+&+Lgone, with only specs of land at most.  &+WBones &+Land stains of &+Rblood &+Lare strewn&N
+&+Labout in a chaotic manner.  Sounds not of this world can be heard coming from&N
+&+Lthe chamber beneath this place.  The stench of death and decay are almost too&N
+&+Lmuch for feeble mortal lungs to endure.&N
+~
+429 1216381001 0
+D1
+&+L   The &+Wbone &+Lfilled cavern appears to continue on in this direction.&N
+~
+~
+0 0 42988
+D5
+&+L   The darkness is to thick to penetrate.&N
+~
+~
+0 0 42994
+F
+81
+S
+#42994
+&+LThe Blood &+rS&+Roa&+rke&+Rd &+LLair of &+rGraskal&N~
+&+R   Bl&+ro&+Ro&+rd &+Lstains the ancient walls of this evil dismal abysmal abode.  Marks of&N
+&+Lthose long since cast into eternal past.  Remnants serving as reminders to all&N
+&+Lwho may dare to dwell within this dreary hell.  Screams slash the &+Cs&+co&+Cu&+cl&+L, wounds&N
+&+Lthat shall never ever heal.  Pain that drives mortals insane, images none shall&N
+&+Lbe able to grasp.  &+WBones &+Lof the feeble fallen are strewn upon the ghastly vile&N
+&+Lvicious ground.  Symbols of salvation, of uncreation, crumbling into &+wdust&+L.&N
+~
+429 1216381001 15
+D4
+&+L   Out of the darkness...Into the light.&N
+~
+~
+0 0 42993
+E
+blood symbols words stains~
+&+L
+&+L
+&+L
+&+L                          The Vampire Lord Speaks&N
+&+L
+&+r                     I am the one who is of the night&N
+&+r                 I am the one whose breed is of the dragon&N
+&+r                  I am the one whose song is of the wolf&N
+&+r                  I am the one whose life is of your &+RBlood&N
+&+r            I am the one who is worships for thousands of years&N
+&+r                  I am the one you shall serve &+RFOREVER!&n
+&+L                                                              &N
+&+L                                                              &N
+&+L                                                              &N
+~
+S
+#42995
+&+LCollapsing Chamber Within a &+WBone &+LFilled Cavern&n~
+&+W   Bones &+Ladorn the ground of this collapsing charred chamber.  Specs of light&N
+&+Lcan be seen coming from below.  Perhaps there is some sort of secret passage&N
+&+Lthat leads this way.  The stench of death and decay dominates the dreary weary&N
+&+Labysmal air here.  &+rBl&+Ro&+ro&+Rd &+Lstains the wicked sadistic stone walls.  Remnants from&N
+&+Lthose who have long since been cast into forgotten past.  Memories none shall&N
+&+Lever know again.  Printed into reality, false notions, diabolical immortality.&N
+~
+429 1216381005 0
+D1
+&+L   The &+wbone &+Lfilled cavern seems to continue on in this direction.&N
+~
+~
+0 0 42979
+D5
+&+L   A &+rbloody &+Lshaft.&N
+~
+~
+4 0 42996
+F
+9
+S
+#42996
+&+LTop of A &+rBloody &+LShaft&N~
+&+R   Blood &+Lof fools who are now cast into lonely lost adorn the wicked walls of&N
+&+Lthis shaft.  Drops of a &+rcrimson &+Lliquid fall from out of the abysmal darkness.&N
+&+LThe putrid stench of death and decay is strong within the stagnant air here.&N
+&+LSounds of creatures seem to be coming from somewhere not far above.  An &+ceerie&N
+&+Lfeeling permeats, causing eyes of mortals to glance into glare.&N
+~
+429 1216389325 15
+D4
+&+L   The shaft opens up into a &+Wbone &+Lfilled cavern.&N
+~
+~
+0 0 42995
+D5
+&+L   The &+rbloody &+Lshaft seems to never end.&N
+~
+~
+0 0 42997
+F
+18
+S
+#42997
+&+LInside A &+rBloody &+LShaft&N~
+&+R   Blood &+Lof fools who are now cast into lonely lost adorn the wicked walls of&N
+&+Lthis shaft.  Drops of a &+rcrimson &+Lliquid fall from out of the abysmal darkness.&N
+&+LThe putrid stench of death and decay is strong within the stagnant air here.&N
+&+LSounds of creatures seem to be coming from somewhere not far above.  An &+ceerie&N
+&+Lfeeling permeats, causing eyes of mortals to glance into glare.&N
+~
+429 142639305 15
+D1
+&+L   The &+rbloody &+Lshaft seems to never end.&N
+~
+~
+0 0 42998
+D4
+&+L   The &+rbloody &+Lshaft seems to never end.&N
+~
+~
+0 0 42996
+D5
+&+L   The &+rbloody &+Lshaft seems to never end.&N
+~
+~
+0 0 42999
+F
+33
+S
+#42998
+&+LWithin A &+rBloody &+LShaft&N~
+&+L   The &+Rblood &+Lof fools now cast into lonely past adorn the demonic walls here.&N
+&+LStains from the past, serving as warnings to the future and forever present.&N
+&+LFeelings of dread fill the arid air, causing mortals untold empty despair.  A&N
+&+Lstrong stench of death and decay dominates this rancid room.  This shaft seems&N
+&+Lto lead on to the &+wwicked &+Lwest.&N
+~
+429 142639177 0
+D3
+&+L   The &+rbloody &+Lshaft seems to never end.&N
+~
+~
+0 0 42997
+S
+#42999
+&+LBottom of A &+rBloody &+LShaft&N~
+&+R   Blood &+Lof fools who are now cast into lonely lost adorn the wicked walls of&N
+&+Lthis shaft.  Drops of a &+rcrimson &+Lliquid fall from out of the abysmal darkness.&N
+&+LThe putrid stench of death and decay is strong within the stagnant air here.&N
+&+LSounds of creatures seem to be coming from somewhere not far above.  An &+ceerie&N
+&+Lfeeling permeats, causing eyes of mortals to glance into glare.&N
+~
+429 142639309 15
+D2
+~
+~
+0 0 749737
+D4
+&+L   The &+rbloody &+Lshaft seems to never end.&N
+~
+~
+0 0 42997
+S
+>>>>>>> master

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #22000
 white tiger whitetiger~
 &+La &+Wwhite&+Ltiger&n~
@@ -1201,3 +1202,1208 @@ RS 0 32 0 3
 31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
+=======
+#22000
+white tiger whitetiger~
+&+La &+Wwhite&+Ltiger&n~
+&+yAn elusive &+Wwhite&+Ltiger&+y runs through the &+YSavannah&+y here.&n
+~
+&+WThe white&+Ltiger&+W is one of the rarer animals that live within the
+&+YSavannah&+W.  The people of &+MMyrabolus&+W treasure these creatures very
+&+Wmuch and come here to capture them and transport them safely back
+&+Wto city where they can be bred.  They are trained as mounts there
+&+Wand kept safe, where here in the &+YSavannah&+W, the poaching of white
+&+Ltigers&+W has increased significantly over the past few years.&n
+~
+1140852744 0 0 0 0 0 0 0 0 S
+A 0 1 0 -1
+31 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22001
+gargoyle angry~
+&+Lan angry &+Cgar&+cgoy&+Lle&n~
+&+LAn angry &+Cgar&+cgoy&+Lle &+cleaps&+L to attack&+C!&n
+~
+&+LThis gargoyle has been angered by the presence of intruders, and
+&+Lthough it would attack just about anyone or anything, its ferocity
+&+Lis magnified by the intrusion on its den.&n
+~
+1140983818 1 0 0 128 0 0 0 -1000 S
+Y 0 512 0 2
+31 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22002
+gargoyle young~
+&+La young &+Cgar&+cgoy&+Lle&n~
+&+LA young &+Cgar&+cgoy&+Lle hisses and attacks&+C!&n
+~
+&+LThis &+Cgar&+cgoy&+Lle is smaller the most, it is most likely only a few
+&+Lmonths old. However, despite its young age, it is still quite &+rblood&n
+&+Lthirsty.&n
+~
+1073872906 1 0 0 128 0 0 0 -1000 S
+Y 0 1 0 2
+22 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22003
+giraffe tall~
+&+Ya &+ygrazing &+Ygir&+Laff&+Ye&n~
+&+YA &+ytall&+Y gir&+Laff&+Ye &+ystands here, chewing on palm leaves.&n
+~
+&+yThis giraffe stands lazily by a area of palms, casually pulling the
+&+yleaves from the trees with its long neck and chewing them slowly.&n
+~
+2056 0 0 0 0 0 0 0 0 S
+A 0 0 0 4
+33 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22004
+giraffe mature~
+&+Ya &+ymature &+Ygir&+Laff&+Ye&n~
+&+YA &+ymature&+Y gir&+Laff&+Ye &+ygrazes on the palm leaves.&n
+~
+&+yThis is an even larger giraffe than the usual ones within the &+YSavannah&+y.
+&+yIt is just about big enough to make a nice meal for an adult &+Wroc&+y.&n
+~
+2056 0 0 0 0 0 0 0 0 S
+A 0 0 0 5
+37 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22005
+gargoyle huge~
+&+La &+cvi&+Ccio&+cus&+L gargoyle&n~
+&+LA huge, &+chi&+Cdeo&+cus&+L, gargoyle perches on the &+crocks&+L here.&n
+~
+&+LThis &+Cgar&+cgoy&+Lle is much larger than the majority.  Though they rarely
+&+Lneed a reason to attack, it seems this one is trying to defend its
+&+Lyoung.&n
+~
+1073872906 1 0 0 0 0 0 0 -1000 S
+Y 0 1 0 4
+39 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22006
+mojo monkey~
+&+YMojo&+y, the monkey&n~
+&+yA little &+Ymonkey&+y hides here and plays with some coconut shells.&n
+~
+&+YMojo&+y is a very intelligent monkey. He can do many things. However
+&+yhe needs motivation to craft.
+&+YMojo&+y is so very hungry.&n
+~
+10 0 0 0 1048576 0 0 0 1000 S
+AA 0 1 0 -1
+20 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22007
+soldier fortune~
+&+La Soldier of &+YFortune&n~
+&+LA Soldier of &+YFortune&+L stands here, acting as a sentry for the &+Ycampers&+L.&n
+~
+&+yThis mercenary is part of the (in)famous mercenary group, the
+&+LSoldiers of &+YFortune&+y.  Most of the time they are together, fighting
+&+ylarge scale battles with their leader Cecil in distant lands,
+&+ybut it is not uncommon to see them about, wandering the lands in
+&+ysearch of wealth.&n
+~
+1140852746 0 0 0 0 0 0 0 0 S
+PH 0 16384 0 -1
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22008
+resting mercenary fortune~
+&+La Soldier of &+YFortune&n~
+&+yA mercenary rests here next to the &+rfire&+y.&n
+~
+&+yThis mercenary is from the famed &+LSoldiers of &+YFortune&+y company.  He
+&+ylooks exhausted after a long day of travelling and is looking forward
+&+yto spending some time relaxing by the fire.&n
+~
+1140852746 0 0 0 0 0 0 0 0 S
+PH 0 16384 0 -1
+31 0 0 1d1+1 1d1+1
+0.0.0.0 0
+5 5 1
+#22009
+soldier ranger~
+&+Ga &+MMyrabolan &+Granger&n~
+&+yA resting soldier sits and talks with his friends here.&n
+~
+&+yThis &+Granger&+y from &+MMyrabolus &+yis travelling with some companions,
+&+yincluding a couple of mercenaries from the &+LSoldiers of &+YFortune&+y. Not
+&+yonly is their group searching for treasure, but they also make special
+&+yeffort to capture some whitetigers to bring back to &+MMyrabolus&+y with them.&n
+~
+1140852746 0 0 0 0 0 0 0 0 S
+PH 0 2 0 -1
+29 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22010
+tree palm~
+&+ya palm &+Gtree&n~
+&+yA lush, tropical palm&+G tree&+y, grows here.&n
+~
+&+yThis type of palm tree is a regular sight out in the &+YSavannah&+y, it
+&+ystands roughly eight feet in height with its broad leaves providing
+&+Lshade&+y for the smaller animals.&n
+~
+2058 0 0 0 0 0 0 0 0 S
+VT 0 1 0 4
+26 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22011
+large zebra~
+&+Wa large &+Lz&+We&+Lb&+Wr&+La&n~
+&+Wa large &+Lz&+We&+Lb&+Wr&+La&+W stands with the rest of the herd here.&n
+~
+&+WThis &+Lz&+We&+Lb&+Wr&+La&+W seems quite content to stand and graze in one location,
+&+Wits offspring, however, are having much more fun galloping throughout
+&+Wthe &+YSavannah&+W, carefree and wild.&n
+~
+67110920 0 0 0 0 0 0 0 0 S
+A 0 1 0 -1
+33 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22012
+female zebra~
+&+Wa female &+Lz&+We&+Lb&+Wr&+La&n~
+&+WA female &+Lz&+We&+Lb&+Wr&+La&+W grazes here.&n
+~
+&+WThis z&+Le&+Wb&+Lr&+Wa stays close to its mate and grazes in some relative &+Lshade&+W.&n
+~
+2056 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+29 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#22013
+young zebra~
+&+Wa young &+Lz&+We&+Lb&+Wr&+La&n~
+&+WA young &+Lz&+We&+Lb&+Wr&+La&+W runs through the &+YSavannah&+W here.&n
+~
+&+WThis young z&+Le&+Wb&+Lr&+Wa gallops through the &+YSavannah&+W happily and carefree.
+&+WIt is striped white and &+Lblack&+W.&n
+~
+2056 0 0 0 0 0 0 0 0 S
+A 0 1 0 -1
+25 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22014
+large wild dog~
+&+ya &+Yw&+yil&+Yd&n &+yd&+Yo&+yg&n~
+&+yA large &+Yw&+yil&+Yd&n &+yd&+Yo&+yg protects his &+Lden&+y here.&n
+~
+&+yOne of the numerous wild dogs that flourish out on the Savannah,
+&+ythis strong male dog sits to protect his young during the day and
+&+ywill hunt during the night.&n
+~
+1073743882 0 0 0 0 0 0 0 -1000 S
+A 0 1 0 3
+24 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22015
+wild dog pup puppy~
+&+ya &+Yw&+yil&+Yd&+y d&+Yo&+yg pup&n~
+&+ya young &+Yw&+yil&+Yd &+yd&+Yo&+yg puppy hides next to the &+Lden&+y here.&n
+~
+&+yThis young pup eyes you curiously then begins to yap annoying at
+&+yyour feet.  A shame a swift kick in the snout might anger the parents.&n
+~
+138 0 0 0 1048576 0 0 0 -1000 S
+A 0 1 0 2
+18 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22016
+cactus~
+&+Ga cactus&n~
+&+yA &+Gcactus&+y grows in the soil here.&n
+~
+&+yThis small &+Gcactus&+y flourishes in the sun-baked soil.  The dry air
+&+yalso helps the &+Gcactus&+y to grow.  It is prickly to touch.&n
+~
+2058 0 0 0 0 0 0 0 0 S
+VT 0 1 0 2
+22 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22017
+myrabolan hunter~
+&+ga &+MMyrabolan &+ghunter&n~
+&+yA &+ghunter&+y from &+MMyrabolus&+y tracks down &+Wwhite&+Ltigers&+y here.&n
+~
+&+yThis hunter from &+MMyrabolus&+y searches for &+Wwhite&+Ltigers&+y on the
+&+YSavannah&+y. When he captures them he will transport them back to
+&+ythe city where they can live in comfort and safety.&n
+~
+1140852748 0 0 0 0 0 0 0 0 S
+PH 0 2 0 -1
+31 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22018
+wild dog~
+&+ya &+Yw&+yil&+Yd&n &+yd&+Yo&+yg&n~
+&+yA hungry &+Yw&+yil&+Yd&+y d&+Yo&+yg scavenges for food out on the &+YSavannah&+y.&n
+~
+&+yThis dog runs through the Savannah happily chasing the birds.
+&+yHe yips and yipes and when hes gets upset he fights.&n
+~
+1073743880 0 0 0 0 0 0 0 -1000 S
+A 0 1 0 3
+22 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#22019
+wemic nomad~
+&+Ya wemic nomad&n~
+&+ya &+Ywemic&+y nomad hunts for food here.&n
+~
+&+yThis large, half-man half-lion, creature travels with his tribe
+&+yaround the more arid regions of the world. The nomad &+Ywemics&+y are
+&+ya fairly common sight within the &+YSavannah&+y, as it offers them a
+&+ygood hunting ground for food they will use later when crossing
+&+ythe desert.&n
+~
+67110922 0 0 0 0 0 0 0 -1000 S
+H 0 16384 0 4
+30 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22020
+sealot chieftan~
+&+YSealot, the nomad chieftan&n~
+&+ySealot, the &+Ywemic&+y chieftan hunts for supplies for his tribe here.&n
+~
+&+yThis &+Ywemic&+y is nearly a head taller than the others.  He watches
+&+yhis fellow hunters closely, scolding them in an unknown language
+&+ywhenever they make a mistake and let their pray escape.  Around
+&+yhis shoulders is draped a long, sandy, cloak.&n
+~
+1140852746 0 0 0 0 0 0 0 -1000 S
+H 0 16384 0 4
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22021
+camel ugly~
+&+ya &+Ycamel&n~
+&+yAn ugly &+Ycamel&+y chews on the &+Gplants&+y here.&n
+~
+&+YCamels&+y are not the worlds most friendly creatures. Nor are they the
+&+yworlds smartest creatures, and they are most deffinately not the worlds
+&+yprettiest creatures.  This one ignores everything around it other
+&+ythan the vegetation it is currently chewing on.&n
+~
+16394 0 0 0 0 0 0 0 0 S
+A 0 1 0 4
+26 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22022
+camel ugly~
+&+ya &+Ycamel&n~
+&+yAn ugly &+Ycamel&+y chews on the &+Gplants&+y here.&n
+~
+&+YCamels&+y are not the worlds most friendly creatures. Nor are they the
+&+yworlds smartest creatures, and they are most deffinately not the worlds
+&+yprettiest creatures.  This one ignores everything around it other
+&+ythan the vegetation it is currently chewing on.&n
+~
+18440 0 0 0 0 0 0 0 0 S
+A 0 1 0 4
+26 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22023
+camel large~
+&+ya large &+Ycamel&n~
+&+yA large &+Ycamel&+y grazes here.&n
+~
+&+YCamels&+y are not the worlds most friendly creatures. Nor are they the
+&+yworlds smartest creatures, and they are most deffinately not the worlds
+&+yprettiest creatures.  This one ignores everything around it other
+&+ythan the vegetation it is currently chewing on.&n
+~
+16394 0 0 0 0 0 0 0 0 S
+A 0 1 0 4
+29 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22024
+huge rock worm rockworm~
+&+ya HUGE rockworm&n~
+&+yA HUGE rockworm swells with gobbled-up spoils here.&n
+~
+&+y   This rock worm is quite large, so swollen and bloated in fact
+&+yit can barely move from one corner of the room to the other.  With
+&+ya ugly squeal it tries its best to ramble into the safety of the
+&+yshadows.&n
+~
+8388620 0 0 0 8 2 0 0 0 S
+ph 0 1 0 5
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22025
+sleeping gargoyle~
+&+La &+Cgar&+cgoy&+Lle&n~
+&+LA &+Cgar&+cgoy&+Lle sleeps upside down from the ceiling here.&n
+~
+&+LThis gargoyle hangs from the ceiling asleep in a bat-like manner.
+&+LIt would probably be a good idea not to wake it from its slumber, as
+&+Lgargoyles aren't really known for their good bedside manner.&n
+~
+1073743880 1 0 0 1048712 0 0 0 -1000 S
+Y 0 1 0 3
+26 0 0 1d1+1 1d1+1
+0.0.0.0 0
+4 4 1
+#22026
+nomadic merchant~
+&+ya &+Ynomadic&+y merchant&n~
+&+yA &+Ynomadic&+y merchant wanders and peddles his goods here.&n
+~
+&+yThis merchant wanders the &+YSavannah&+y enjoying the sun and trying
+&+yto sell his wares. Though he won't haggle or barter, he does sell
+&+yhis stuff at a fairly low price, considering just how important
+&+yhis goods are, especially to &+Ymonkeys&+y.&n
+~
+1073743880 0 0 0 0 0 0 0 1000 S
+PH 0 64 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22027
+vampire overseer~
+&+La &+Rvam&+rpire &+Loverseer&n~
+&+LA &+Rvam&+rpire&+L overseer stands here, lashing out at the unruly &+Cgar&+cgoy&+Lles.&n
+~
+&+LThis &+rvampire&+L acts as an overseer for the gargoyles in the pit. Though
+&+Lthe gargoyles aren't as stupid as mules, they tend to let their instinct
+&+Loverrule their better judgment, thus the vampire remains here so he
+&+Lcan keep them in line and make sure they don't fight each other that
+&+Lmuch.&n
+~
+2058 1 0 0 8 0 0 0 -1000 S
+UV 0 16 0 -1
+36 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22028
+gargoyle feasting~
+&+La feasting &+Cgar&+cgoy&+Lle&n~
+&+LA feasting &+Cgar&+cgoy&+Lle is angered by a dinner interruption!&n
+~
+&+LThis gargoyle is angered by the interuption of its freshly killed
+&+Lmeal.  It attacks viciously.&n
+~
+1073872906 1 0 0 136 0 0 0 -1000 S
+Y 0 1 0 2
+31 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22029
+crafty imp~
+&+La crafty&+r imp&n~
+&+LA crafty &+rimp&+L stitches together sinew and skin.&n
+~
+&+LThis little &+rimp&+L isn't in the least bit violent or aggressive, in
+&+Lfact, it hard to determine whether he is actually frightened, or
+&+Ljust acting fear to achieve some unknown purpose. With a evilly
+&+Lgleeful chirp he works on weaving together some mystery items.&n
+~
+1073744010 0 0 0 524312 0 0 0 -1000 S
+Y 0 65536 0 1
+30 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22030
+gray lion~
+&+wa gray lion&n~
+&+yAn enormous &+wgray lion&+y sleeps in the &+Lshade&+y here.&n
+~
+&+wThe gray lions have late become rarer and rarer due to poaching.
+&+wAt one point, countless numbers of them used to live here on the
+&+YSavannah&+w, now, very few remain of this majestic creature.&n
+~
+1073743946 0 0 0 8 0 0 0 1000 S
+A 0 1 0 4
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+4 4 1
+#22031
+valquin~
+&+WValquin&n~
+&+yThe legendary mercenary, &+WValquin&+y, offers warnings to travellers.&n
+~
+&+WValquin &+whas been a close friend of the &+gHunters&+w for several years.
+&+wHe and his partner, &+cWicks&+w, spend most of their time travelling the
+&+wworld in a constant search for fame and fortune.  They are both
+&+wknown to travel together most of the time, however it is not
+&+wuncommon to see &+WValquin&+w or &+cWicks&+w alone in some dangerous area,
+&+wmost often sent there on a bet by the other one.&n
+~
+1073743946 0 0 0 0 0 0 0 0 S
+PH 0 16384 0 -1
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22032
+hatchling gargoyle~
+&+La &+Cgar&+cgoy&+Lle hatchling&n~
+&+LA hatchling &+Cgar&+cgoy&+Lle bares its fangs for fresh meat.&n
+~
+&+LThis &+Cgar&+Cgoy&+Lle is nearly a new-born. It looks like it has only been
+&+Lout of the &+Wegg&+L for a brief couple of days.  Despite its young age
+&+Lhowever, it is still quite dangerous.&n
+~
+136 1 0 0 128 0 0 0 -1000 S
+Y 0 1 0 1
+19 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22033
+gargoyle~
+&+La &+Cgar&+cgoy&+Lle&n~
+&+LA &+Cgar&+cgoy&+Lle screaches and swoops to attack.&n
+~
+&+LThis &+Cgar&+cgoy&+Lle, like all others, is quite an vicious monster. Its skin
+&+Lis scary and as hard as rock, and both its teeth and fangs are
+&+Lextremely sharp.&n
+~
+1073743880 1 0 0 128 0 0 0 -1000 S
+Y 0 1 0 3
+28 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22034
+prince seik~
+&+RSei&+Lk Ka&+R'zam&n~
+&+RSei&+Lk Ka&+R'zam&+L, prince of the &+Cgar&+cgoy&+Lles, scowls in contempt of the living.&n
+~
+&+RSeik&+L is the demon prince of the &+Cgar&+cgoy&+Lles.  Though it sounds like
+&+La fairly important title, he is just but one of the lesser demons
+&+Linside the Pits and doesn't have much power compared to the real
+&+Loverlords.  Despite the lack of evil prestige this prince of the
+&+Cgar&+cgoy&+Lles is quite dangerous.  He wears an odd type of black veil
+&+Lover his demonic eyes.&n
+~
+1073743882 1 0 0 8 0 0 0 -1000 S
+X 0 512 0 -1
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22035
+ugly goat~
+&+yan ugly &+Wgoat&n~
+&+yAn ugly &+Wgoat&+y stands on the hill here, chewing at the &+Ggrass&+y.&n
+~
+&+WGoats&+y are not known to be the prettiest of creature. This one is no
+&+yexception, in fact it is so ugly and ratty that one can't help but
+&+ypity it.&n
+~
+2184 0 0 0 0 0 0 0 0 S
+A 0 1 0 -1
+22 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22036
+small goat~
+&+ya small &+Wgoat&n~
+&+yA small &+Wgoat&+y wanders the hills.&n
+~
+&+yThis small &+Wgoat&+y wanders the hills in search of anything he can chew
+&+yon.  It never manages to wander too far away from the rest of the herd.&n
+~
+2184 0 0 0 0 0 0 0 0 S
+A 0 1 0 -1
+18 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22037
+billy goat~
+&+Wa billy &+Wgoat&n~
+&+yA mountain &+Wbilly&+y &+Wgoat&+G grazes&+y on the hills.&n
+~
+&+yThis g&+Woa&+yt wanders around slowly, pulling at anything that appears
+&+yedible from the rocky soil.  Your presence doesn't seem to alarm him
+&+yat all, if it notices in the first place.&n
+~
+2056 0 0 0 0 0 0 0 0 S
+A 0 1 0 -1
+26 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22038
+nansuo~
+&+bNansuo&n~
+&+LThe traitorous villian, &+bNansuo&+L, lurks in the shadows.&n
+~
+&+bNansuo&+L is the infamous outcast of &+MMyrabolus&+L.  For years he has
+&+Lplotted the downfall of the &+gHunters&+L and the destruction of the
+&+Lcity of balance.  He will side with whoever will give him the
+&+Lmost power at the time, and will change allies faster then a
+&+Lsoldier will change his boots.  If he was ever givin the chance
+&+Lhe would not hestitate to plunge a dagger into the back of either
+&+Lthe just &+mMav&+Ler&+miss&+L, or the bloodthirsty master of mayhem, &+bMav&+Ler&+bick.&n
+~
+1090521224 0 0 0 24 0 67108864 0 -1000 S
+PH 0 8192 0 -1
+49 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22039
+pit fiend~
+&+La pit &+rfiend&n~
+&+LA hideous pit &+rfiend&+L leaps to attack.&n
+~
+&+LThis &+rpit&+L fiend is a creature right out of nightmares. It has a huge,
+&+Lbulbous torso and shuffles along the ground without legs, just a long
+&+Lreptilian tail.  Though its hideous visage doesn't suggest it, this
+&+rpit&+L fiend is also quite cunning and intelligent.&n
+~
+2184 1 0 0 8 0 0 0 -1000 S
+R 0 1 0 4
+29 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22040
+overlord~
+&+Lan overlord&n~
+&+LA &+Rmon&+rsterous pit &+rove&+Rrlo&+Lrd paces the hallway.&n
+~
+&+LThis creature, called an overlord by the other denizens of the pits,
+&+Lmust be a distant cousin of the overfiend itself.  Its hideously ugly
+&+Land has an enormous bulk.  It moves slowly but attacks viciously.&n
+~
+2056 1 0 0 0 0 0 0 -1000 S
+PO 0 256 0 -1
+38 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22041
+gremlin~
+&+ga gremlin&n~
+&+LA fiendish &+ggremlin&+L cackles in demonic delight.&n
+~
+&+LThe &+ggremlin&+L is an ugly, greenish sneaky little monster related to
+&+Lthe orc and &+Ggoblin&+L.  Though they are considerably smaller than their
+&+Lother evil relatives the &+ggremlins&+L are still not recommended to be
+&+Ltrifled with.&n
+~
+2184 1 0 0 0 0 0 0 -1000 S
+HF 0 512 0 1
+30 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22042
+hellhound hound~
+&+La &+rhell&+Lhound&n~
+&+LA ferocious &+rhell&+Lhound wanders the hallway.&n
+~
+&+LThe &+rhell&+Lhounds are a fairly common sight within the pits.  They are
+&+Lare somewhat intelligent, fairly dangerous, and make a great pet for
+&+Lthe overlords and overseers of the Pits of &+rCerberus.&n
+~
+1073741864 1 0 0 8 0 0 0 -1000 S
+A 0 1 0 2
+25 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22043
+winged imp~
+&+La winged &+rimp&n~
+&+LA winged &+rimp&+L cackles and swoops down from the ceiling and attacks.&n
+~
+&+LThe winged &+rimps&+L are quite small in size, perhaps a head shorter
+&+Lthan their non-winged conterparts.  Unfortuately for adventurers inside
+&+Lthe pits, their smaller stature does not diminish their ferocity and
+&+Ldexterity.&n
+~
+136 1 0 0 0 0 0 0 -1000 S
+HF 0 4 0 1
+16 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22044
+overfiend~
+&+Lthe &+rove&+Lrfie&+rnd&n~
+&+LThe enormous &+rove&+Lrfie&+rnd&+L towers with a grimace of twisted glee.&n
+~
+&+LThe &+rove&+Lrfie&n&+rnd&+L is a hideous creature.  He-or it, it is hard to
+&+Ldetermine-is simply a huge mass of fat and muscle, so big he takes
+&+Lup the majority of his chamber.  Huge sores errupt from his fleshy
+&+Lbody, oozing with grosteque &+Ggreen&+L goo, wounds perhaps years old
+&+Lthat have yet to heal.  The pain from his sores reflects his
+&+Lnasty disposition and be it denizen of the Pits, or intruder, he
+&+Lwill not hesitate to use his hulking body to crush any minor
+&+Lannoyance.&n
+~
+2058 1 0 0 0 0 0 0 -1000 S
+PO 0 16 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22045
+drider~
+&+ma drider&n~
+&+LA tyranical &+mdrider&+L wanders the hallway.&n
+~
+&+mThe drider, a terrifying mutation between a &+Lspider&+m and drow elf,
+&+mis as vicious and deadly as they are intelligent and cunning.  The
+&+mdriders within the &+Lpits&+m, though rare, often are in charge of keeping
+&+mthe lesser demons in line.&n
+~
+1073743880 1 0 0 0 0 0 0 -1000 S
+AS 0 2 0 4
+31 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22046
+illithid overseer~
+&+wan &+Millithid&n~
+&+wAn &+Millithid&+w overseer hovers here.&n
+~
+&+wThis &+Millithid&+w has been recruited by the head overlords of the pits
+&+wto over see the lesser demons.  He is a brutal and cunning and acts
+&+wquite ruthless towards all the denizens.&n
+~
+1073874952 0 0 0 0 0 0 0 -1000 S
+MF 0 262144 0 -1
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22047
+satyr~
+&+La s&+Ra&+rty&+Lr&n~
+&+LA small s&+Ra&+rty&+Lr causes anarchy in the pit here.&n
+~
+&+LThe satyr is a cunning little creatures.  Half-man, half-goat, they
+&+Lare usually found working for demonic forces.  They are crafty, sneaky,
+&+Land can be quite dangerous.&n
+~
+140 1 0 0 268959752 0 0 0 -1000 S
+L 0 32768 0 2
+21 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22048
+granite golem~
+&+La granite golem&n~
+&+LA towering granite &+rgolem&+L stands here, staring blankly ahead.&n
+~
+&+LThis golem stands here, next to the portal, in complete silence. It
+&+Lis undeterminable to imagine what its purpose is, if any.  Its eyes
+&+Lremain fixed ahead, unblinking and inhuman.&n
+~
+2058 0 0 0 0 0 0 0 -1000 S
+OG 0 1 0 5
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22049
+gaia tree~
+&+Ga gaia tree&n~
+&+yA huge &+Ggaia tree&+y stretches its branches to the &+YSavannah&+y sky here.&n
+~
+&+GThis tree rises high above the &+YSavannah&+G with its branches creating
+&+Genough shade for an entire herd of animals.  The tree is probably
+&+Gextremely old.  It is hard to understand how such a majestic tree
+&+Gcould flourish so well in such an enviroment.&n
+~
+2058 0 0 0 0 0 0 0 1000 S
+VT 0 128 0 5
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22050
+hellhound hound~
+&+La &+rhell&+Lhound&n~
+&+LA vicious pet &+rhell&+Lhound sits at his master's feet.&n
+~
+&+LThis &+rhell&+Lhound belongs to the hideous overfiend.  It is extremely
+&+Lvicious and should be approached with caution.  For those that
+&+Lenjoy having sadistic animals for pets, however, the &+rhell&+Lhound is
+&+La good option.&n
+~
+1073741866 1 0 0 8 0 0 0 -1000 S
+A 0 1 0 2
+25 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22051
+mastiff minotaur~
+&+rMas&+Ltiff&n~
+&+LA large &+rmino&+Ltaur searches the cavern walls for hidden exits here.&n
+~
+&+rMas&+Ltiff is one of the friends of the &+gHunters&+L.  He once spent
+&+La long time working for &+bMa&+Lveri&+bck&+L until realizing just how deeply
+&+Lcorrupted the renegade &+gHunter&+L was.  Now, he travels usually by
+&+Lhimself or with &+wCe&+Wci&+wl's &+LSoldiers of &+YFortune&+L.  He is a good natured
+&+rmino&+Ltaur at heart, and a good and loyal friend.  At the moment
+&+Lhe is searching the Pits of &+rCerberus&+L for &+Ytreasure&+L he can astound
+&+Lhis friends with, and is most likely travelling with &+WValquin&+L. He
+&+Lis using a mystic &+Wrod&+L givin to him by Xavier for a lightsource.&n
+~
+1073743882 0 0 0 0 0 0 0 0 S
+MT 0 16384 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22052
+spitelan zealot~
+&+rSpite&+Llan, the &+rzealot&n~
+&+rSpite&+Llan, &+rzealot &+Lof &+rCerberus&+L, stands in his chamber.&n
+~
+&+rSpitelan&+L, the githyanki, is a dangerous and intelligent opponent.
+&+LHe controls much of the forces of the pits, and is usually one of
+&+Lthe first on the front lines when raids against the Home commence.
+&+LHe delights in torturing the pure hearted &+Cang&+Wels&+L, captured during
+&+Lthese raids.&n
+~
+18442 1 0 0 8 1 0 0 -1000 S
+GI 0 16 0 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22053
+angel captive~
+&+can &+Cang&+Wel pr&+cisoner&n~
+&+cA captive &+Cang&+Wel&+c, bruised and beaten, has been &+Lchained&+c to the wall.&n
+~
+&+CChained to the wall by the evil &+rSpite&+Llan&+C, this ang&+Wel&+C was once a
+&+Csoldier for the Home&+W of the &+CDivine.  He will most likely be tortured
+&+Cfor quite some time then killed, or if lucky, he will be used to
+&+Ctrade if his ransom is paid at the cost of one of the &+LPits&+C more
+&+Cimportant soldiers who the angels within the Home have themselves
+&+Ccaptured.&n
+~
+1073741834 0 0 0 0 0 0 0 1000 S
+AN 0 1 0 -1
+40 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22054
+gregory aid~
+&+wGregory&n~
+&+wGregory, aid to the &+rHigh Magistrate&+w, watches the &+Bskies&+w here.&n
+~
+&+wGregory is an elderly human who has served &+rMarkam&+w for most of his
+&+wlife.  He is sagely and wise and often scolds the &+rMagistrate&+w for
+&+wdoing things that one of his stature should not normally be doing.
+&+wGregory has chided &+rMarkam&+w on numerous occassions for hanging out
+&+wwith the &+gHunters&+w and travelling the world other than taking care
+&+wof his duties home in &+MMyrabolus&+w.  He stands here now, waiting for
+&+wsomething, possibly &+rMarkam&+w himself onboard the &+YSu&+Lnwea&+Yver&+w.&n
+~
+1073743946 0 0 0 0 0 0 0 1000 S
+PH 0 32 0 -1
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22055
+crewman man~
+&+ya &+Ycrew&+yman&n~
+&+yA &+Ycrew&+yman from the &+YSun&+Lwea&+Yver&+y stands here waiting for a ride.&n
+~
+&+yThis is one of the crewmen that serve aboard the &+YSu&+Lnwe&+Yaver&+y, the
+&+ylegendary airship of &+MMyrabolus&+y.  He stands here gazing up at the
+&+ysky, waiting for some unknown sign.&n
+~
+67111050 0 0 0 0 0 0 0 1000 S
+PH 0 1 0 -1
+37 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22056
+rock worm rockworm~
+&+ya rockworm&n~
+&+yA rockworm lies curled up in a ball in the corner of the room here.&n
+~
+&+yThis rockworm is not quite as large as some others, though is still
+&+yquite big.  It just lays curled up in the room, hardley moving at all.&n
+~
+2058 0 0 0 0 0 0 0 -1000 S
+SL 0 1 0 4
+25 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22057
+spider arachant~
+&+Lan arachant&n~
+&+LA large spider-like creature skirts across the rock cavern.&n
+~
+&+LThis spider-like creature is roughly six feet in size.  It moves
+&+Lsilently and completely black, making it blend in well to its
+&+Lsurroundings.&n
+~
+2184 1 0 0 8 0 0 0 -1000 S
+AS 0 4 0 3
+11 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22058
+spider arachant~
+&+Lan arachant&n~
+&+LA large spider-like creature skirts across the rock cavern.&n
+~
+&+LThis spider-like creature is roughly six feet in size.  It moves
+&+Lsilently and completely black, making it blend in well to its
+&+Lsurroundings.&n
+~
+2184 1 0 0 1048584 0 0 0 -1000 S
+AS 0 4 0 3
+11 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22059
+ants~
+&+La procession of ants&n~
+&+LA procession of ants marches across the desert here.&n
+~
+&+LThere are countless numbers of ants in this procession.  They march
+&+Lacross the &+YSavannah&+L in search of food they will bring back to the
+&+Lcolony.&n
+~
+2060 0 0 0 0 0 0 0 -1000 S
+I 0 1 0 1
+12 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22060
+gren djinn~
+&+CGren&+c, the &+Cdjinn&+c highlord&n~
+&+CGren&+c, the &+Cdjinn&+c highlord, conjurers up new demons here.&n
+~
+&+cGren is a powerful genie that has lived for thousands of years.
+&+cThough his arrogance is a constant problem within the ranks of the
+&+carmies of &+rCerberus&+c he is a vital asset to the cause.  Usually the
+&+cother highlords avoid him, and let him be on his own to cause
+&+ctrouble within the &+WHome&+C of the &+WDivine&+c.&n
+~
+2314 1 0 0 134217736 0 0 0 -1000 S
+EA 0 256 0 4
+54 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22061
+roc~
+&+ya enormous &+Wroc&n~
+&+yAn enormous &+Wroc&+y sits by her nest here.&n
+~
+&+yA fully mature &+Wroc&+y, like this one, is the size of a house.  It sits
+&+ynear its young here, feeding them pieces of the wild animals it has
+&+ycaught in the &+YSavannah&+y below and occasionally screeches, a noise
+&+yso loud it can be heard far across the land.&n
+~
+1140852746 0 0 0 8 0 0 0 1000 S
+B 0 1 0 6
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#22062
+imp soldier~
+&+Lan &+rimp&+L soldier&n~
+&+LAn &+rimp&+L soldier springs from the shadows to assist his master.&n
+~
+&+LThough many would think &+rimps&+L would not make good soldiers due to
+&+Ltheir size, they are actually quite efficient in battle, especially
+&+Lat slicing the knees and hamstrings of their opponents.&n
+~
+67110922 0 0 0 1048586 0 0 0 -1000 S
+Y 0 1 0 1
+22 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22063
+gorgor ettin dreaded~
+&+bGo&+Lrg&+bor, the dr&+Lead&+bed&n~
+&+bThe dr&+Lead&+bed ettin Go&+Lrg&+bor, towers in fe&+Larso&+bme glory.&n
+~
+&+bThe ettin is not usually known for their charm or wit, or even their
+&+bfriendly nature, and Gorgor is no exception.  This massive, two
+&+bheaded ogre looked meaner than and nastier than the other three
+&+boverlords combined.  He also looks just as dangerous.&n
+~
+1073743882 1 0 0 268435464 2048 0 0 -1000 S
+PO 0 1 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22064
+smoke dragon~
+&+wa yo&+Lun&+wg s&+Lmok&+we dr&+Lagon&n~
+&+wA p&+Let smo&+wke dra&+Lgon st&+ways c&+Llose to hi&+ws master h&+Lere.
+~
+&+wThis &+Lsmoke&+w dragon was most likely captured at a very young age
+&+won the &+WPlane of Mist&+w.  Though not naturally an evil creature, this
+&+wone has been taught to be vicious and ruthless.&n
+~
+1048586 1 0 0 8 0 0 0 -1000 S
+D 0 1 0 -1
+40 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22065
+scorn devil~
+&+rScorn&+L, the &+rdevil&+L battlemaster&n~
+&+rScorn&+L, the &+rdevil&+L battlemaster, stands here.&n
+~
+&+rScorn&+L is a vicious &+rdevil&+L that ultimately leads the majority of the
+&+Lforces of the pits.  He is a brilliant tactician and a deadly
+&+Lwarrior.  For every &+Cang&+Wel&+L he kills he cuts a notch on his red
+&+Lchest with a sharp finger nail, a self-inflicted scar that serves
+&+Las a twisted sort of score chart.&n
+~
+67110922 1 0 0 24 0 0 0 -1000 S
+Y 0 64 0 3
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22066
+devilish warlord~
+&+ra devilish &+Lwarlord&n~
+&+rA devilish &+Lwarlord&+r stands here, next to his captain.&n
+~
+&+LThis monster appears nearly humanoid, but with a single look into
+&+Lthe eyes it is obvious it is not.  It is an unfeeling, uncaring soldier
+&+Lof the Pits, whose only purpose is to obey the overlords.&n
+~
+2058 1 0 0 0 0 0 0 -1000 S
+X 0 1 0 3
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22067
+demonic warmage~
+&+ra demonic&+L warmage&n~
+&+rA demonic &+Lwarmage&+r stands next to his captain here.&n
+~
+&+LThis humanoid &+rdemon&+L serves as a deadly power for the forces of
+&+Lthe Pits.  His arcane, dark, magics support the soldiers of the army
+&+Lquite efficiently.&n
+~
+2058 1 0 0 0 0 0 0 -1000 S
+X 0 1024 0 4
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22068
+sultan snakes~
+&+ythe Sultan&n~
+&+LThe &+ySultan of Snakes&+L stands in his chamber with his &+yaides&+y.&n
+~
+&+yThe Sultan of Snakes is the hideous overseer of the &+LPit&+y of Worms.
+&+yIt is hard to determine exactly what race of creature he is, though
+&+yhe is definately not from the surface world.  His face, which is
+&+yoddly humanoid, is twisted in an expression of hate.  He holds a
+&+ylong staff-like scepter in his reptilian, clawed hands.&n
+~
+1140852746 1 0 0 8 0 0 0 -1000 S
+R 0 1 0 5
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22069
+young roc~
+&+ya young &+Wroc&n~
+&+yA young &+Wroc&+y stays close to the nest.&n
+~
+&+yThe &+Wroc&+y is one of the largest birds in the world, even in its younger
+&+yyears, this &+Wroc&+y could still easily have an elephant for lunch.&n
+~
+1140852746 0 0 0 0 0 0 0 1000 S
+B 0 1 0 4
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22070
+tiger worm~
+&+ya &+Yt&+Li&+Yg&+Le&+Yr&+y worm&n~
+&+yA large &+Yt&+Li&+Yg&+Le&+Yr&+y worm crawls through the &+Lpit&+y here.&n
+~
+&+yThis worm is considerably larger than a regular worm. It gets its
+&+yname from the &+Lblack&+y and &+Ybrown&+y stripes across its slimy body.&n
+~
+1140852744 0 0 0 0 0 0 0 -1000 S
+SL 0 1 0 3
+25 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22071
+pit wyrm~
+&+ya small &+Lpit&+y wyrm&n~
+&+yA small &+Lpit&+y wyrm travels through the tunnel here.&n
+~
+&+yThough fairly small in the size, the wyrm is not a creature to
+&+ybe taken lightly.  They have been know to attack and kill even the
+&+ymost experienced of soldiers if caught unaware.  It slithers across
+&+ythe soft soil of the tunnel hissing and spitting at just about
+&+yanything.&n
+~
+2184 1 0 0 0 0 0 0 -1000 S
+D 0 1 0 2
+28 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22072
+rock worm rockworm~
+&+ya rockworm&n~
+&+yA rockworm lies curled up in a ball in the corner of the room here.&n
+~
+&+yThis rockworm is not quite as large as some others, though is still
+&+yquite big.  It just lays curled up in the room, hardley moving at all.&n
+~
+2058 0 0 0 0 0 0 0 -1000 S
+SL 0 1 0 4
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22073
+rock worm rockworm~
+&+ya rockworm&n~
+&+yA rockworm lies curled up in a ball in the corner of the room here.&n
+~
+&+yThis rockworm is not quite as large as some others, though is still
+&+yquite big.  It just lays curled up in the room, hardley moving at all.&n
+~
+2058 1 0 0 0 0 0 0 -1000 S
+SL 0 1 0 4
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22074
+earth golem~
+&+yan earthen golem&n~
+&+yA &+Lgolem&+y made from soil of the earth stands here as a sentry.&n
+~
+&+yThis &+Lgolem&+y appears to have been create by magic from the soil
+&+ywithin the &+Lpit&+y.  Like most golems, it isn't extremely intelligent
+&+yand has no free mind of its own.&n
+~
+2058 0 0 0 0 0 0 0 -1000 S
+OG 0 1 0 5
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22075
+earth worm~
+&+yan earthworm&n~
+&+yAn earthworm squirms beneath the feet here.&n
+~
+&+yIts squirmy, its squishy, its small. Its a worm.&n
+~
+2058 0 0 0 0 0 0 0 -1000 S
+SL 0 1 0 0
+15 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22076
+sand viper~
+&+ya sand &+Lviper&n~
+&+yA sand &+Lviper&+y slithers through the &+Lpit&+y here.&n
+~
+&+yThe sand &+Lviper&+y usually lives underground in hot, arid, regions.
+&+yThey hunt whatever is available and can sometimes grow to quite
+&+ylarge sizes.  The sand &+Lviper&+y has a very aggressive nature.&n
+~
+67110920 1 0 0 0 0 0 0 -1000 S
+RS 0 128 0 1
+21 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22077
+earth worm~
+&+yan earthworm&n~
+&+yAn earthworm squirms beneath the feet here.&n
+~
+&+yIts slimy. It hard to imagine some people eat these things.&n
+~
+67110922 0 0 0 1048576 0 0 0 -1000 S
+SL 0 1 0 0
+22 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22078
+huge pit snake~
+&+yA HUGE &+Lpit&+y snake&n~
+&+yA HUGE &+Lpit&+y snake travels through the tunnels here.&n
+~
+&+yThis is one of the largest snakes inside the &+Lpit&+y.  Obviously it has
+&+ygrown so large due to its aggressive nature of attacking and eating
+&+yanything in its path.&n
+~
+2056 1 0 0 0 0 0 0 -1000 S
+RS 0 1 0 5
+40 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22079
+earth worm~
+&+yan earthworm&n~
+&+yAn earthworm squirms beneath the feet here.&n
+~
+&+yIts squirmy, its squishy, its small. Its a worm.&n
+~
+2056 0 0 0 1572864 0 0 0 -1000 S
+SL 0 1 0 0
+15 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22080
+sand viper large~
+&+ya large sand &+Lviper&n~
+&+yA large sand &+Lviper&+y makes its nest here.&n
+~
+&+yThe sand &+Lviper&+y usually lives underground in hot, arid, regions.
+&+yThey hunt whatever is available and can sometimes grow to quite
+&+ylarge sizes.  The sand &+Lviper&+y has a very aggressive nature.&n
+~
+67110922 1 0 0 8 0 0 0 -1000 S
+RS 0 128 0 4
+31 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22081
+sand viper~
+&+ya sand &+Lviper&n~
+&+yA sand &+Lviper&+y hisses at your presence.&n
+~
+&+yThe sand &+Lviper&+y usually lives underground in hot, arid, regions.
+&+yThey hunt whatever is available and can sometimes grow to quite
+&+ylarge sizes.  The sand &+Lviper&+y has a very aggressive nature.&n
+~
+67110922 0 0 0 1048584 0 0 0 -1000 S
+RS 0 128 0 1
+23 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#22082
+aid~
+&+ythe sultan's aid&n~
+&+LThe&+y sultan's aid&+L slithers about the room here.&n
+~
+&+yThe aids of the Sultan of Snakes are strange creatures.  Half-
+&+yhumanoid, half-reptile, they slither about the room and hiss with
+&+yscaly faces.&n
+~
+67110922 0 0 0 0 0 0 0 -1000 S
+RS 0 32 0 3
+31 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+>>>>>>> master

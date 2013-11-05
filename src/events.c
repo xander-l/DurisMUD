@@ -175,7 +175,8 @@ const char *event_names[] = {
   "Short affect",
   "Room affect",
   "Interaction",
-  "Interaction-peer"
+  "Interaction-peer",
+  "Barrage"
 };
 
 /*
@@ -427,7 +428,7 @@ void calculate_regen_values(int reg, int *per_pulse, int *delay)
 }
 
 #define MOB_MANA_REGEN_DELAY 5
-
+//codemod
 void event_mana_regen(P_char ch, P_char victim, P_obj obj, void *data)
 {
   float regen_value = *((float*)data);
@@ -439,18 +440,30 @@ void event_mana_regen(P_char ch, P_char victim, P_obj obj, void *data)
       if (GET_MANA(ch) > GET_MAX_MANA(ch))
         GET_MANA(ch) = GET_MAX_MANA(ch);
 
-      /*if (IS_PC(ch) && IS_AFFECTED(ch, AFF_MEDITATE) &&
+      if (IS_PC(ch) && IS_AFFECTED(ch, AFF_MEDITATE) &&
           (GET_MANA(ch) == GET_MAX_MANA(ch)) && GET_CLASS(ch, CLASS_PSIONICIST))
       {
         send_to_char("&+LYour mana reserves are now full.&n\r\n", ch);
         stop_meditation(ch);
-      }*/
+      }
+
 
       regen_value = regen_value - (float)regen_value_int;
   }
+int per_tick = 0;
+  //int per_tick = mana_regen(ch);
+  if (IS_AFFECTED(ch, AFF_MEDITATE))
+  {
+  per_tick = ((GET_C_POW(ch) + GET_C_INT(ch))/.2);
 
-  int per_tick = mana_regen(ch);
-  if ((per_tick == 0) ||
+  }
+  else
+  {
+  per_tick = ((GET_C_POW(ch) + GET_C_INT(ch))/2.5);
+  }
+ 
+
+ if ((per_tick == 0) ||
       (GET_MANA(ch) == GET_MAX_MANA(ch) && per_tick > 0) ||
       (GET_MANA(ch) < 0 && per_tick < 0))
   {
@@ -599,7 +612,9 @@ void StartRegen(P_char ch, int type)
   {
     func = event_mana_regen;
     if (get_scheduled(ch, func)) return;
+    //codemod remove multiplicate of mana_regen
     per_tick = mana_regen(ch);
+	
     delay = IS_PC(ch) ? 1 : MOB_MANA_REGEN_DELAY; 
   }
   else

@@ -1,6 +1,6 @@
 #170
 &+rKhildarak Stronghold&n~
-17746 2 4 25 30 1
+17750 2 4 25 30 1
 *
 * Zone edited with durisEdit v2.99de
 *
@@ -2181,6 +2181,7 @@ O 0 17012 1 17527 100 0 0 0        * a crate
 O 0 17003 1 17532 100 0 0 0        * a rock switch
 O 0 17013 1 17533 100 0 0 0        * a metal grate
 O 0 17022 1 17648 100 0 0 0        * a piece of kraken tentacle
+O 0 400216 1 17748 100 0 0 0       * (object type not in this .obj file)
 *
 M 0 17149 10 17000 100 0 0 0       * a sneaky duergar sentry
 M 0 17257 34 17003 100 0 0 0       * a clansdwarf
@@ -2244,6 +2245,7 @@ M 0 17257 34 17039 100 0 0 0       * a clansdwarf
 R 1 17258 11 17039 100 0 0 0       * a large cave bear (being ridden)
 M 0 17175 3 17040 100 0 0 0        * a pregnant duergar
 E 1 17043 999 3 100 0 0 0          *   a black and purple fungus spiked collar
+G 1 67268 1 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 17173 18 17040 100 0 0 0       * a clansdwarf
 M 0 17173 18 17041 100 0 0 0       * a clansdwarf
 M 0 17177 8 17041 100 0 0 0        * a clansdwarf
@@ -2853,6 +2855,8 @@ G 1 363 999 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 368 999 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 369 999 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 252 999 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 400223 999 0 100 0 0 0         *    (object type not in this .obj file)
+G 1 400224 999 0 100 0 0 0         *    (object type not in this .obj file)
 M 0 17042 68 17483 100 0 0 0       * a clansdwarf
 M 0 17042 68 17483 100 0 0 0       * a clansdwarf
 M 0 17042 68 17483 100 0 0 0       * a clansdwarf
@@ -3202,5 +3206,11 @@ M 0 17000 22 17745 100 0 0 0       * a duergar guard
 E 1 17048 5 16 100 0 0 0           *   a polished steel long sword
 E 1 17047 5 17 100 0 0 0           *   a polished steel short sword
 M 0 17000 22 17745 100 0 0 0       * a duergar guard
+M 0 17264 1 17747 100 0 0 0        * Gixnif
+G 1 400223 999 0 100 0 0 0         *    (object type not in this .obj file)
+G 1 400224 999 0 100 0 0 0         *    (object type not in this .obj file)
+M 0 400000 1 17748 100 0 0 0       * (mob type not in this .mob file)
+M 0 17265 1 17749 100 0 0 0        * Zurg
+M 0 400001 1 17750 100 0 0 0       * (mob type not in this .mob file)
 *
 S

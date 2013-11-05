@@ -31,7 +31,7 @@ si'ciltron~
 M
 akadi~
 &+C   Ahhh yes Akadi, now knows as the Elemental Queen of Air. She used to be one
-&+Cold Yan's bootlickers before she convinced the brothers four into helping her
+&+Cold Yan's bootlickers before she convinced the Dukes of Wind into helping her
 &+Coverthrow him during the chaos times. Now she sits in her palace of Tempests
 &+Cand watches everything. No one can get to her except the brothers, who each
 &+Care said to have a key to get into her Palace.
@@ -48,15 +48,14 @@ invasion that came in from the Negative Energy Plane. He didn't do it of
 course, but Akadi imprisioned him to the entrace of the quasi-plane of
 lightning where he sits to this day being shocked by lightning constantly.
 ~
-M
+MA
 yan yan-c-bin~
 &+W   Yes, the Old Master. Yes I remember him. He was powerful, I mighty air
 &+Welemental. He, only he was older then I. I remember when his daughter Akadi
-&+Wrose up with her four minions, Auriliam, Galzron, Si'Ciltron, and Echtius to
-&+Wput him down. She then stole his power and became the Queen of the Air Plane.
-&+WIt is said that some still sey him roaming the plane, his spirit living on
-&+Weternally in search for those that killed him in the past......I am glad that
-&+WI never attacked him.
+&+Wrose up with her Wind Dukes, to put him down. She then stole his power and
+&+Wbecame the Queen of the Air Plane. It is said that some still say him roaming
+&+Wthe plane, his spirit living on eternally in search for those that killed him
+&+Win the past......I am glad that I never attacked him.
 ~
 M
 ecthius galzron~
@@ -66,6 +65,63 @@ ecthius galzron~
 &+Whim chained to the entrance to the Quasi-Plane of Lighting. Even now I see
 &+WAurilius now, being struck by lighting as he lays there banished forever
 &+Wfor something he didn't do.
+~
+M
+cloud~
+&+WAh, yes, wearing a cloud! Whenever a mortal performed an heoric
+&+Wdeed for our realm, an elemental native to this plane can opt to
+&+Wbecome a cloud. Such a cloud is worn by the mortal and its said to
+&+Wgrant powerful abilities to the mortal. I am old and will never
+&+Wleave this place again, so I surely wouldn't mind becoming a cloud
+&+Wseeker!
+~
+M
+seeker~
+&+WA Cloud seeker? Oh, you would have to do something very heroic
+&+Wto get this. Recovering ancient relics of ours would sure make
+&+Wthis possible. Hmmm...lets see, you would need the following items:
+&+La wisp of wind
+&+La living breeze
+&+Lthe boots of the four winds
+&+Lan imperceptible cloak of the winds
+&+La shroud of ethereal winds
+&+La cloak of the north wind
+&+La katana called 'The North Wind'
+&+Lthe cloak of the ageless spirit of the wind
+
+&+WAnd yes, you would need all of them! They once belong to us and was
+&+Wtaken from us by plunders! Return those to me and I will become
+&+Wthe Cloudseeker you so desire! Also, you will need a fragment of
+&+Wthe Maelstrom! A powerful artifact only Chan knows how to create.
+&+WYou would need that primal power to make this magic possible!
+~
+Q
+&+W'Well done, well done lads. You have done as I
+&+Wasked and recovered our ancient relics.'
+
+&+LHe takes all the recovered relics and throws them
+&+Linto the tempest cyclones of the planes.
+
+&+W"Scatter them to the wind so that they may find their
+&+Wnew home or new master."
+
+&+LHe then takes the fragments of the Maelstrom and whispers a single word
+&+W"Cloudseeker!"
+~
+R I 131650
+G I 55553
+G I 8735
+G I 70976
+G I 88304
+G I 97066
+G I 131617
+G I 138268
+G I 138515
+G I 131647
+D
+&+CSuddenly, he pulses and fades and repears as a floating cloud!
+&+CIt hovers in midair and suddenly &+Cwith a mind of its own floats
+&+Ctowards you.
 ~
 S
 #131618
@@ -111,6 +167,40 @@ Q
 R I 131636
 G I 131615
 S
+#131630
+M
+solution hi~
+&+LShes becomes partially visable regarding you and says&n
+&+W"My brother cares for nothing but destruction, he cares nothing for our people nor our
+&+Whome. My Mistress has brought him low, air and wind can never be destroyed, unless
+&+Wdestroyed by secret maelstrom."
+~
+M
+maelstrom~
+&+W"The Maelstrom is pure elemental chaos, which create our people and our world.
+&+WThe Wind Dukes are the very essence of what the secret Maelstrom is. If they
+&+Wwere to surrender a portion of their &+Wessence I could capture a fragment of its
+&+Wpower, that power could be used to create powerful &+Wartifacts by many powerful
+&+Wbeings throughout this plane and next"
+~
+Q
+&+LChan becomes fully visable and smiles are you.
+&+W"Well done! I shall capture a fragment of the Maelstrom for you."
+&+WShe takes the essence of Wind Duke's and begins to merge the swirling essence.
+&+WEach fragment of the Maelstrom resist at first but than begins to fit together
+&+Wfalling into place like a puzzle that belong together. Finally merging into one
+&+Whuge sphere of elemental chaos known as the Maelstrom."
+
+&+W"I have merged the elemental chaos together for you, I give to you a fragment
+&+Wof its power to do as you see fit."
+~
+R I 131647
+G I 131642
+G I 131643
+G I 131644
+G I 131645
+G I 131646
+S
 #131635
 Q
 ~
@@ -124,4 +214,56 @@ D
 &+Wbut if not then it is yours to keep for rescueing me, ohhh thank you.
 &+W   With that she kisses everyone lightly on the cheek then leaves the area.
 ~
+S
+#131637
+M
+something hi~
+"I am tired of playing politics to this plane! I wish to return home and recieve
+my reward from Thrym himself! He promised me his blessings but High Priest at his
+side keeps me busy here! "
+~
+M
+blessing~
+&+W"His blessings upon me as his champion."&n
+
+&+W"Frostbite, Mistweave, a token of his eternal alligience and of course the&n
+&+Wessence of the Maelstrom."&n
+~
+M
+maelstrom~
+&+W"Maelstrom?
+&+WThe Duke's of Wind hold the keys to such a blessing and only the Dark Tempest
+&+Wcan combine such elements to make it a reality. Many upon this plane desire such
+&+Wan essence but only I am deserving of its power. I would give away me own hammer
+&+Wfor such a blessings and power."
+~
+Q
+~
+R I 131648
+G I 131647
+G I 96000
+G I 96012
+G I 96055
+S
+#131651
+M
+zieflia hi~
+   He suddenly looks hopefull and saysin a strong voice, 'Have you seen her!!
+Have you seen my sister, my father is truly worreid, if you have seen her
+please tell me!!'
+~
+M
+medallion~
+&+W   Ahhh yes my sisters medallion, it is an old artifact of the family. If you
+&+Whave it then you must have rescued her, she would only give it up to those
+&+Wshe trusts. If you will give it back to me I will reward you greatly.
+~
+Q
+&+C  I thank you gor returning my sisters medallion, it is of great family
+&+Cimportance, I hope that this repays its loss to you. Know that you are a
+&+Cfriend of the Calpih of All Djinni. And let it be known, that this eyepiece
+&+Ccan get more powerful, given the right type of gem stone.
+~
+R I 131628
+G I 131627
 S

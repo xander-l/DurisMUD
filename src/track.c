@@ -27,6 +27,7 @@ extern P_index mob_index;
 extern P_index obj_index;
 extern P_room world;
 extern const char *dirs[];
+extern const char *short_dirs[];
 extern const struct race_names race_names_table[];
 extern const int track_limit[];
 extern const int exp_table[][52];
@@ -119,7 +120,11 @@ void event_track_move(P_char ch, P_char vict, P_obj obj, void *data)
   }
 }
 
-void do_track(P_char ch, char *arg, int cmd)
+bool valid_track_edge(int from_room, int dir) {
+  return VALID_TRACK_EDGE(from_room, dir);
+}
+
+void do_track_not_in_use(P_char ch, char *arg, int cmd)
 {
   int skill, epic_skill, percent, found_track;
   P_obj obj;
@@ -134,6 +139,38 @@ void do_track(P_char ch, char *arg, int cmd)
 
   if (IS_NPC(ch))
   {
+    return;
+  }
+  
+  if( IS_TRUSTED(ch) )
+  {
+    int i = 0;
+  	vector<int> path;
+    
+    if(!is_number(arg) || ((i = real_room(atoi(arg))) < 0) || (i > top_of_world))
+    {
+      send_to_char("Room not in world.\n", ch);
+      return;
+    }
+    
+		bool found_path = dijkstra(ch->in_room, i, valid_track_edge, path );
+    
+    if( found_path )
+    {
+      sprintf(descbuf, "&+BFound path (%d steps):\r\n", path.size());
+      send_to_char(descbuf, ch);
+      for( vector<int>::iterator it = path.begin(); it != path.end(); it++ )
+      {
+        sprintf(descbuf, "%s ", short_dirs[*it]);
+        send_to_char(descbuf, ch);
+      }
+      send_to_char("\r\n", ch);
+    }
+    else
+    {
+      send_to_char("&+RCouldn't find a valid path.\r\n", ch);
+    }
+    
     return;
   }
 
@@ -227,7 +264,7 @@ void do_track(P_char ch, char *arg, int cmd)
   return;
 }
 
-void do_track_not_in_use(P_char ch, char *arg, int cmd)
+void do_track(P_char ch, char *arg, int cmd) //do_track_not_in_use
 {
   P_char   victim;
   int      skill_lvl;
@@ -296,11 +333,12 @@ void do_track_not_in_use(P_char ch, char *arg, int cmd)
   }
 */
 /* New IF */
-//  victim = get_char_vis(ch, name);
+ // victim = get_char_vis(ch, name);
 
   if(!name[0] &&
     (GET_SPEC(ch, CLASS_ROGUE, SPEC_ASSASSIN) ||
-    GET_CLASS(ch, CLASS_ASSASSIN)) &&
+    GET_CLASS(ch, CLASS_ASSASSIN)  ||
+    GET_SPEC(ch, CLASS_ROGUE, SPEC_THIEF)) &&
     ch->specials.was_fighting &&
     char_in_list(ch->specials.was_fighting))
   {
@@ -316,7 +354,7 @@ void do_track_not_in_use(P_char ch, char *arg, int cmd)
   if (victim && IS_DISGUISE(victim) && isname(name, GET_NAME(victim)))
     victim = NULL;
 
-  if (!victim)
+  if (!victim || IS_AFFECTED3(victim, AFF3_PASS_WITHOUT_TRACE))
   {
     send_to_char("You are unable to find any tracks.\n", ch);
     return;

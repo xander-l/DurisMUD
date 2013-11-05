@@ -855,7 +855,7 @@ int storage_locker_room_hook(int room, P_char ch, int cmd, char *arg)
     return (FALSE);
 
   // not a god and not in a town?  then there's no locker here
-  if (!CHAR_IN_TOWN(ch) && !IS_TRUSTED(ch))
+  if (!CHAR_IN_TOWN(ch) && (!IS_TRUSTED(ch) && (GET_RACE(ch) != RACE_PLICH)))
     return FALSE;
 
   if (IS_NPC(ch) || IS_MORPH(ch))
@@ -972,6 +972,8 @@ int storage_locker_room_hook(int room, P_char ch, int cmd, char *arg)
   act
     ("A member of the &+YStorage Locker Safety Commission&n escorts $n to a private room.",
      FALSE, ch, 0, ch, TO_ROOM);
+
+    send_to_char("&+RWARNING: &+WStorage Lockers are not meant to have multiple containers in them. There is a possibility you may &+RLOSE &+Wyour container and all items in it. Store them at your own risk! NO REIMBURSEMENTS!\r\n", ch);
 
   // PFileToLocker
 
@@ -2064,6 +2066,7 @@ static void check_for_artisInRoom(P_char ch, int rroom)
   for (tmp_object = world[rroom].contents; tmp_object; tmp_object = next_obj)
   {
     next_obj = tmp_object->next_content;
+    
     if (IS_SET(tmp_object->extra_flags, ITEM_ARTIFACT))
     {
       /* okay, they can't store that here... tell them so, and stick it back

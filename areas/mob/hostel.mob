@@ -1,0 +1,1001 @@
+#1
+man sorcerer~
+&+Ma terrified sorcerer&N~
+&+MA robed man crouches here in terror.&N
+~
+This man appears to be human and is clothed in deep magenta robes that are in
+poor repair.  His face is white with fear from the sight before him.  Despite
+his current situation the man is no novice when it comes to battle magic.
+~
+133322 1 0 0 402653320 1 0 0 750 S
+PH 0 512 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#2
+baatezu demon~
+&+ran enraged baatezu&N~
+&+rA towering demon charges in a fit of rage&N
+~
+This demon almost fills the entire room. Each of its hands end in a large
+crab claw like appendage capable of crushing rocks.  Its large frame is filled
+with tightly packed muscles all of which would be most happy rending every
+living being of the prime material plane limb from limb. His angry stare
+sends the chill of fear into you.
+~
+1141000232 1 0 0 671088792 1 0 0 -1000 S
+y 0 576 0 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#3
+demon knight figure~
+&+La demon knight&N~
+&+LA figure in dark armor charges to attack.&N
+~
+The demon knight glares through its visor with eyes glowing red with hatred.
+It is larger then a regular man and posses a reddish leathery skin of most
+demonic races. Its ability with its blade seems more then capable to end
+most life.
+~
+1140852776 1 0 0 671154328 262145 0 0 -1000 S
+X 0 1048600 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#4
+frail mage man~
+&+ra frail mage&N~
+&+rA frail looking robed man is here chanting.&N
+~
+This man is adorned in the red robes of a master of the summoner clan.  His
+power of magic is at extreme levels beyond what most mortals can attain. His
+thin face shows weakness and frailty while the magic aura about him is enough
+to make wish to flee to better places.  However he turns to regard his minions
+that you have dispatched and regards you with a glint of respect.
+
+He says in common 'Might you assist me with a task?'
+~
+1073875146 0 0 0 134217864 2049 0 0 -500 S
+el 0 512 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#5
+shadow fiend~
+&+La fiend of shadows&N~
+&+LA fiend of shadow is here guarding his master.&N
+~
+&+LThis fiend has been summoned from the plane of shadows. It regards all&N
+&+Llife with utter hatred and therefore must destroy all life.&N
+~
+1140852778 1 0 0 524426 0 0 0 -1000 S
+x 0 22 0 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#6
+warlock man~
+&+ma scarred warlock&N~
+&+mA scarred man with unholy robes scans the area.&N
+~
+This man appears to be a human that was horribly scarred by some magical
+mishap. His face has been melted and is showing patches of the bone from
+his skull. While his garments are different from those in this general
+area yet his intent on your death isn't.
+~
+67110954 1 0 0 136 0 0 0 -750 S
+el 0 1536 0 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#7
+golem shadow figure~
+&+La damaged shadow golem&N~
+&+LA large figure of shadow rushes to attack.&N
+~
+&+LThis golem is composed of almost all substantial shadow.  It was conjured&N
+&+Lto follow orders and apparently its orders are to eliminate you.&N
+~
+70256650 1 0 0 268435608 1 0 0 0 S
+OG 0 22 0 -1
+57 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#8
+astral spectre~
+&+Lan astral spectre&N~
+&+LA wavering form shimmers here hating all life.&N
+~
+&+LThis shimmering form has been summoned from the astral plane to do the&N
+&+Lbidding of the summoner. Apparently that involves in curing you of the&N
+&+Ldisease known to it as life.&N
+~
+67110954 1 0 0 134742168 264193 0 512 -1000 S
+U 0 22 0 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#9
+shadow mage~
+&+La shadow mage&N~
+&+LA being of shadows stands here chanting quietly.&N
+~
+This being is made completely of tangible shadow. It was summoned to this
+plane to do its summoners bidding. It regards all who are not of the
+summoners clan as a scourge to be purged.
+~
+67110954 1 0 0 136 0 0 0 0 S
+sw 0 512 3 -1
+57 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#10
+hydra~
+&+ga bloated hydra&N~
+&+gA large reptilian creature with many heads charges.&N
+~
+This reptilian creature has five heads each ending with a full set of nasty
+dagger-like teeth. Its scales are a greenish brown and seem quite thick
+with age. This hydra seems to hunger for flesh as it has not been fed for
+many days.
+~
+1426065450 1 0 0 152 0 18350080 4198400 -500 S
+d 0 512 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#11
+man summoner~
+&+Ba young summoner&N~
+&+BA younger robed man is here in the throws of a spell.&N
+~
+This young man appears to be no more then thirty winters old. He is dressed
+in the robes of a mature summoner of the clan so one must assume he earned
+them and should therefore be respected. He appears all to eager to test himself
+against anyone or anything.
+~
+1140852746 1 0 0 136 0 0 0 -300 S
+gh 0 2048 3 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#12
+enraged beholder~
+&+yan enraged beholder&N~
+&+yAn enraged beholder moves forward to attack.&N
+~
+This spherical creature floats a few feet above the ground and has several
+appendages ending with eyes on top.  There is a huge central eye in the middle
+of the body with a large maw filled with sharp teeth right underneath. This
+beholder has been charged with protecting this area from intruders, which
+means you.
+~
+133162 0 0 0 8 0 0 0 -1000 S
+BH 0 10 0 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#13
+duergar~
+&+ran irritated duergar&N~
+&+rA Duergar charges with an irritated look on his face.&N
+~
+This duergar has a very irritated look on his face as he is being bothered
+with people looking for his master. He has the markings of the underdark city
+of the duergar's elite guard. He appears to be a fine warrior of Everhate.
+~
+1143998602 1 0 0 8 0 0 0 -500 S
+PD 0 1 3 -1
+59 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#14
+distracted duergar~
+&+ra distracted duergar&N~
+&+rA Duergar in holy robes is here distracted by you.&N
+~
+This small duergar is dressed in holy robes marked with the sigils of the city
+of Everhate's main church.  He has been assigned up here to assist the clan
+of summoners for some reason, regardless his job is to defend this area from
+people like you.
+~
+1342179338 0 0 0 8 0 0 0 -500 S
+PD 0 288 0 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#15
+grey elf greyelf~
+&+La beaten &N&+cgrey elf&N~
+&+LA &N&+cgrey elf&N&+L is doubled over in pain on the floor.&N
+~
+This poor grey elven ranger has been tortured by the duergars for what seems
+like an endless amount of time. This poor girl is thin and gaunt and doesn't
+look like she could even stand if she tried.  When you look her in the eyes
+you notice a fierce glimmer of dark hatred as she looks upon her captors. As
+she turns away from them she returns to her inner reflection which seems to
+have her quite 'distraught'.
+~
+10 0 0 0 1048712 1 0 0 750 S
+PE 0 2 3 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#16
+black abishai demon~
+&+La black abishai&N~
+&+LA black skinned demon turns angrily.&N
+~
+This demon stands as tall as a troll but twice as thick with muscles. Its
+canine maw tops its monstrous frame while it keeps its wings close to its
+body so that it can manuever in this smaller structure. The fires of hell
+surround it like an aura of pure evil.
+~
+268437610 1 0 0 536871064 268437505 0 0 -1000 S
+X 0 1536 0 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#17
+agile imp~
+&+ran agile imp&N~
+&+rAn imp of the lower planes quickly charges.&N
+~
+This small imp of the lower planes has been summoned with its brethern to
+serve its master with its life. It eyes all beings of this plane as puny
+and insignificant.  To it, you only exist to be destroyed.
+~
+1142950027 0 0 0 1048728 1 0 0 -750 S
+X 0 2097152 2 -1
+54 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#18
+dark naga~
+&+man angry &N&+Mdark&N&+m naga&N~
+&+mA giant dark serpent with the head of a man charges.&N
+~
+This large monster is over twenty feet long from nose to tail and when reared
+up is quite a sight. Its body is covered in snakes scales that are larger
+then a mans head. Its head appears to be that of a human except for the red
+glow in its soulless eyes. It emits a rank odor of rotting flesh since that
+is what it feeds on.
+~
+3147786 1 0 0 152 1 67108864 58724864 -1000 S
+gh 0 512 1 1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#19
+robed man mage~
+&+Ra wounded mage&N~
+&+RA robed man stands here clutching his wounded arm.&N
+~
+This man is dressed in light red robes which tell of his talent in the art of
+summoning. He is clutching his left arm closely to his chest and trying to
+stem the flowing blood from the wound on his shoulder. He looks pale from
+blood loss and unsteady on his feet.
+~
+1342310410 1 0 0 128 0 0 0 -750 S
+el 0 512 2 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#20
+skeletal naga~
+&+Wa skeletal naga&N~
+&+WA serpentine skeleton with a humanoid head charges in.&N
+~
+This creature is an undead naga summoned to serve by its powerful master. It
+views all living things as weak and to be conquered but in this case its been
+ordered to defend its master and the area.
+~
+269486122 1 0 0 136 0 0 0 -1000 S
+ul 0 1024 3 1
+57 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#21
+grim man~
+&+ca grim man&N~
+&+cA man with a grim look tends to the mages wounds.&N
+~
+This man is adorned in the unholy robes of some greater being. He is completely
+immersed in his healing ceremonies for the wounds of the mage. There is little
+about him that you haven't seen before in this type of evil holyman.
+~
+268437514 1 0 0 136 0 0 0 -900 S
+el 0 32 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#22
+shadow dragon~
+&+La gigantic dragon of shadow&N~
+&+LA gigantic dragon of shadows is here ready to spring.&N
+~
+This ancient dragon is the most powerful of its kind.  Reared up on its hind
+legs it stands taller then most giants.  Deep black vapor rises from its
+nostrils as it stares at you with its hellish eyes. You feel the strength
+drain from your legs as you fully taken in the sheer power of the magnificent
+,yet pure evil, creature.
+~
+288360458 1 0 0 8 0 0 0 -1000 S
+D 0 512 2 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#23
+shadow dragon~
+&+La young shadow dragon&N~
+&+LA small dragon of shadow crouches here ready to attack.&N
+~
+This young dragon is no taller then a man. Its scales are midnight black and
+there doesn't appear to be the aura of power that you sense around most
+members of this species. Its hatred for you matches that of its older kind.
+~
+1048584 1 0 0 8 0 0 0 -750 S
+D 0 1048576 1 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#24
+shady drow~
+&+ma shady drow elf&N~
+&+mA drow elf stands here quietly in the shadows.&N
+~
+This drow is adorned with full surface gear and appears to be scouting the
+area to get an idea of the situation with the summoners clan. While trying
+to stay out of plain sight of the mages he hadn't counted on you. Noticing
+you take notice of him he turns to regard you slowly judging your next move.
+~
+1073744072 0 0 0 270008456 0 0 0 -750 S
+PL 0 2097152 3 -1
+57 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#25
+shadow fiend~
+&+La fiend of shadows&N~
+&+LA fiend of shadow is here guarding this door.&N
+~
+&+LThis fiend has been summoned from the plane of shadows. It regards all&N
+&+Llife with utter hatred and therefore must destroy all life.&N
+~
+335546378 1 0 0 524426 268435456 0 0 -1000 S
+x 0 256 1 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#26
+spriggan~
+&+gan &+youtcasted&+g spriggan&N~
+&+gA small forest gnomelike creature patrols here.&N
+~
+This small creature bears a close resemblance to a gnome other then its utter
+hatred for anything that is different then itself as well as its much larger
+size then your average gnome. It is dressed in fine gear for patrol and looks
+ready to tackle whatever enters its forest.
+~
+2058 1 0 0 136 0 0 0 -500 S
+gh 0 128 2 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#27
+spriggan mage~
+&+ga spriggan&+m mage&N~
+&+gA small forest gnomelike creature patrols here.&N
+~
+This small creature bears a close resemblance to a gnome other then its utter
+hatred for anything that is different then itself as well as its much larger
+nose then your average gnome. It is dressed in fine gear for patrol and looks
+ready to tackle whatever enters its forest.
+~
+2058 1 0 0 136 0 0 0 -500 S
+gh 0 512 2 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#28
+dark treant~
+&+ga &N&+Lshadow&N&+g treant&N~
+&+LA large sentient tree defends this area.&N
+~
+This huge sentient tree has been brought to life by the dark magic of some
+foul wizard and then turned out to this forest to be forgotten. Its tough
+bark easily defends its trunk from most bludgeon attacks. While returning
+bludgeoning attacks of its own with its huge branches.
+~
+1345325064 0 0 0 16777224 0 0 0 0 S
+VT 0 128 2 6
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#29
+emerald dragon~
+&+gan &N&+Gemerald&N&+g forest dragon&N~
+&+gAn emerald dragon is hunting the area for food.&N
+~
+This huge dragon has scales like sparkling emeralds. It blends in beautifully
+with the forestry to assist it in stalking of its pray. It has razor sharp
+talons on its claws that could rip a large man in half. It has saliva dripping
+from its maw as it hungrily stalks its pray.
+~
+1342703660 1 0 0 152 0 0 0 -1000 S
+D 0 512 2 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#30
+hydra cryohydra~
+&+Ba&N &+rbattle scarred&+B cryohydra&N~
+&+BA huge multiheaded reptile sits here eyeing the area.&N
+~
+This large reptile has 6 heads moving all of their own accord. Its scales hold
+a bluish tint as do the eyes of all of the heads.  Its main body has talons
+on all four legs that are longer then most daggers. There are small patches
+of ice in random places along the necks of the heads. The creature hisses
+agrily but stays cautious.
+~
+2058 1 0 0 136 64 2097152 8388608 0 S
+d 0 33554432 2 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#31
+form spirit~
+&+Ga fading druidic spirit&N~
+&+GA shimmering form wanders the area here.&N
+~
+&+GThis faint spirit was once a guardian druid of this most ancient of druidic&N
+&+Gsites. Its spirit was bound to this circle upon the druids demise and even&N
+&+Gnow it has only served a fraction of its eternal servitude.&N
+~
+268437514 1 0 0 138 0 0 0 0 S
+UG 0 128 2 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#32
+shambling mound~
+&+ga &+ywithered&+g shambling mound&N~
+&+gA large mound of wilted vegetation rises up and attacks.&N
+~
+This shambling mound appears to have suffered from some form of infection as
+most of its mass is made of withered and brittle vegetation. When standing at
+its full height it is taller then even the tallest troll or centaur. Its huge
+arm like appendages are still quite strong enough to topple mighty foes.
+~
+1073743880 0 0 0 16777368 0 0 0 0 S
+vt 0 1 1 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#33
+huge shambling mound~
+&+ga huge shambling mound&N~
+&+gA HUGE mound of vegetation rises to defend the circle.&N
+~
+This shambling mound stands nearly fifteen feet tall. Its massive girth is
+made up strong green vegetation from the forest and even some small trees.
+The mounds huge armlike appendages are larger then a small cow and can knock
+over trees without a second thought.
+~
+16795658 0 0 0 16777368 0 2097152 0 0 S
+vt 0 1 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#34
+earth golem~
+&+ya large earthen golem&N~
+&+yA large mass of earth moves your way.&N
+~
+&+yThis earthen golem faintly resembles a humanoid made of just soil and small&N
+&+yrocks.  Its eyes glow a fiery red as it carries out its task to destroy all&N
+&+yintruders not of the order.&N
+~
+16779306 1 0 0 136 0 0 0 0 S
+OG 0 2048 4 -1
+59 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#35
+zombie tarax drow~
+&+ma zombie of Tarax the &+rblood&N&+Rfiend&N~
+&+mThe zombie of a long dead drow elf rages here.&N
+~
+&+mThis drow has been dead for many years and his corpse has been re-animated&N
+&+mby some sinister dark magic to be used to do the casters bidding.  Judging&N
+&+mby the fine preservation of this corpse you can guess Tarax spent his time&N
+&+mwith the blade as though it were his kin.&N
+~
+1050632 1 0 0 136 0 0 0 -750 S
+U 0 2097152 2 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#36
+saris zombie centaur~
+&+ga zombie of Saris the &+Ldoombringer&N~
+&+gThe zombie of a rotting cen&N&+Ltaur&N&+g hungrily searches the area.&N
+~
+&+gThis zombie is of the cen&N&+Ltaur&N&+g warrior Saris the doombringer. He&N
+&+ghas been lost to the world for many centuries and apparently was found and&N
+&+gre-animated to further someones sinister purposes. He is looking over the&N
+&+garea intently with typical zombie hunger for flesh of any sort.&N
+~
+285214728 1 0 0 136 0 0 0 -750 S
+U 0 128 2 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#37
+zombie toran dwarf~
+&+Ya zombie of Toran the&+L orcbane&N~
+&+YThe zombie of an ancient dwarf shuffles around wandering aimlessly.&N
+~
+&+YThis zombie is of Toran the ancient dwarven hero named the orcbane. He was&N
+&+Ysupposed to be dead many centuries before but alas someone has found his&N
+&+Ycorpse and animated it for their own dark purposes. This zombie is less&N
+&+Yobsessed with foraging for food then its counterparts but it knows it must&N
+&+Yfeed, and feed on you it shall&N
+~
+11 1 0 0 0 0 0 0 -750 S
+U 0 32 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#38
+zombie eliria githyanki~
+&+Wa zombie of Eliria the&N &+bmind&N&+Bmaster&N~
+&+WThe zombie of a decomposing&+G gith&+Wyanki&+W stares intently your way.&N
+~
+&+GThis zombie is of the Githyanki Lady lord Eliria.  She was known and feared&N
+&+Gas the mindmaster by both friends and enemies. She was supposedly bested in&N
+&+Ga battle with the Githzerai but apparently her remains were found and brought&N
+&+Gback for some dark purpose though right now consuming your flesh suits her just&N
+&+Gfine&N
+~
+2056 1 0 0 0 0 0 0 -500 S
+U 0 4 1 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#39
+man necromancer~
+&+man&N&+M ancient&N&+m necromancer~
+&+mAn ancient man in black and purple robes turns around angrily.&N
+~
+&+mThis human seems older then any human should be. He is adorned with black and&N
+&+mpurple robes of the Necromancer school. His bald head is full of tatoos of old&N
+&+msigils used for powerful spells of summoning and necromancy. His robes are&N
+&+mdrenched in the &+rblood&+m of some unfortunate sacrifice. He turns to you&N
+&+min search for his next.&N
+~
+2058 1 0 0 136 0 0 0 -975 S
+ul 0 1024 3 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40
+dracolich dragon~
+&+Wan enormous dracolich&N~
+&+WAn enormous skeletal dragon attacks at its masters bidding.&N
+~
+&+WThis dracolich towers above even the tallest of the humanoids. Its boney&N
+&+Wform shows ages of strife and battle in the form of broken ribs, and scorched&N
+&+Wbone in several different sections of its flank.  Its enormous head seems&N
+&+Wdevoid of all life except for the fiery glow from the eye sockets that seems&N
+&+Wto come from hell itself.&N
+~
+1050666 0 0 0 0 0 0 0 -1000 S
+UD 0 1 0 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#41
+drow tarax~
+&+Wthe spirit of&N&+m Tarax&N~
+&+WA translucent form of an ancient&N &+mdrow elf&N&+W shimmers here.&N
+~
+&+WThe spirit before you resembles an ancient drow that you have just recently&N
+&+Wbattled. Even though you destroyed the prison of his body, his spirit is&N
+&+Wstill controlled by another force. He has no choice but to attack.&N
+~
+2090 1 0 0 152 0 0 0 -1000 S
+UG 0 2097152 2 -1
+57 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#42
+centaur saris~
+&+Wthe spirit of&N&+g Saris&N~
+&+WA translucent form of a powerful&N &+gcen&N&+Ltaur&N&+W shimmers here.&N
+~
+&+WThe spirit before you resembles a powerful centaur that you have just&N
+&+Wrecently battled. Even though you destroyed the prison of his body, his&N
+&+Wspirit is still controlled by another force. He has no choice but to&N
+&+Wattack.&N
+~
+2058 1 0 0 152 0 0 0 -1000 S
+UG 0 128 2 -1
+57 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#43
+dwarf toran~
+&+Wthe spirit of&+Y Toran&N~
+&+WA translucent form of a calm &+Ydwarf&+W shimmers here.&N
+~
+&+WThe spirit before you resembles a calm dwarf that you have just recently&N
+&+Wbattled. Even though you destroyed the prison of his body, his spirit is&N
+&+Wstill controlled by another force. He has no choice but to attack.&N
+~
+2058 1 0 0 152 0 0 0 -1000 S
+UG 0 32 1 -1
+57 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#44
+githyanki eliria~
+&+Wthe spirit of Eliria&N~
+&+WA translucent form of an intent &+Ggith&+Wyanki shimmers here.&N
+~
+&+WThe spirit before you resembles an intent githyanki that you have just&N
+&+Wrecently battled. Even though you destroyed the prison of her body, her&N
+&+Wspirit is still controlled by another force. She has no choice but to&N
+&+Wattack.&N
+~
+2058 1 0 0 152 0 0 0 -1000 S
+UG 0 4 1 -1
+57 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#45
+man avatar athos~
+&+Wthe avatar of &N&+gAthos&N~
+&+gA powerful man dressed in druids robes stands here in silent meditation.&N
+~
+&+gThis man is wearing the robes of a high ranked druid and emits a otherwordly&N
+&+gpower that you've never seen before. As he takes notice of your gaze he turns&N
+&+gto size you up and look you over. Seeing that you pose no serious threat to&N
+&+gto him he turns back to his previous&N&+G task&N&+g that he was immersed in before your&N
+&+garrival&N
+~
+8781832 0 0 0 421003402 34818 0 0 1000 S
+av 0 8 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#46
+robed man druid~
+&+ga robed man&+r covered in blood&N~
+&+gA small man lies here in&+r a pool of his own blood.&N
+~
+&+gThis small man was apparently at the mercy of the evil necromancer that&N
+&+gformally conspired against this shrine. His tunic is coated with his own&N
+&+rblood&+g.  With some of his remaining strength he pulls himself to his feet&N
+&+gand a look of eternal&+b sad&+gness  covers his placid and pale face.&N
+~
+2058 0 0 0 1048576 0 0 0 1000 S
+PH 0 8 1 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#47
+blood demon~
+&+ra &N&+Rblood thirsty&N&+r demon&N~
+&+rA huge demon charges you in a vicious bloodlust.&N
+~
+&+rThis huge creature stands taller then an ogre and twice as thick. Its red&N
+&+rleathery skin is covered with all manner of sores and scars. You can make&N
+&+rout this demons ribs as it has been trapped for many years without means to&N
+&+rto feed itself other then its innate magic. Now that it is free it will crush&N
+&+ranything that stands between it and the door.&N
+~
+1073743880 1 0 0 134217880 0 67108864 0 -1000 S
+X 0 512 0 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#48
+blood demon~
+&+La shaggy demon&N~
+&+LA shaggy demon hungrily charges you as the door opens.&N
+~
+&+LThis huge creature stands taller then an ogre and twice as thick. Its black&N
+&+Lshaggy fur is covered with several patches of dried blood and dirt. You can&N
+&+Lmake out this demons ribs as it has been trapped for many years without means&N
+&+Lto feed itself other then its innate magic. Now that it is free it will crush&N
+&+Lanything that stands between it and the door.&N
+~
+1073743912 0 0 0 134217880 0 67108864 0 -1000 S
+X 0 1048576 1 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#49
+minor shade~
+&+La minor shade&N~
+&+LA small demon made entirely of shadow stalks the forest.&N
+~
+&+LThis small shadow demon is the lesser of its kind but hates the living no&N
+&+Lless then its more powerful breathern.&N
+~
+1073743880 1 0 0 1048584 268435456 0 8388608 -750 S
+U 0 2 1 -1
+45 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#50
+greater shade~
+&+La greater shade&N~
+&+LA large creature made entirely of shadow stalks the forest.&N
+~
+&+LThis creature is made entirely of shadow and is one of the most powerful of&N
+&+Lits kind. It hunts on all fours like a great cat searching for the living so&N
+&+Lit might relieve them of the warm comfort of life.&N
+~
+1073743880 1 0 0 136 0 0 0 -1000 S
+tt 0 1049088 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#51
+bored guard~
+&+La bored guard&N~
+&+LA man dressed in casual armor relaxes here, bored to death.&N
+~
+This man appears to have been hired by someone in the vicinity to keep an eye
+on the path coming from the Drakkenwood forest. Due to the hostile nature of
+the forest not many people, if any, make it face to face with this man. Due
+to all the inactivity of this job, he has naturally become quite bored and
+lax in his duty.
+~
+1140852746 0 0 0 16 0 0 0 0 S
+PH 0 2 1 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#52
+burly leader~
+&+La burly leader&N~
+&+LA large burly man stands here yelling at his group.&N
+~
+This large man is nearly twice as tall and big around as the rest of his troop.
+His armor is a little more ornate then the rest but still lightweight to allow
+him complete freedom of movement should movement be required. He has taken to
+yelling at his boys to keep them on their toes, he is an intimidating man that
+demands respect.
+~
+1140852746 1 0 0 128 0 0 0 0 S
+tt 0 2 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#53
+pale guard~
+&+La pale guard&N~
+&+LA thin, pale man cowers here in fear as he is screamed at by the burly man.&N
+~
+This man has a much smaller, frailer build then the rest of the guards. He is
+not wearing any visible armor at all just regular clothes. He wouldn't even be
+taken as a guard if it weren't for the burly leader yelling at him for not
+performing his duties in an acceptable manner. While his build does not suggest
+he would be the most hearty of warriors his strength must lie elsewhere.
+~
+1140852746 1 0 0 8 0 0 0 0 S
+gh 0 1024 3 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#54
+ogre~
+an&+b ogre&+r juggernaught&N~
+&+bA large ogre stands watch here over the corridor.&N
+~
+&+bThis ogre is dressed in leather armor and seems well groomed for one of its&N
+&+bkind. His job is to watch the corridor for anyone who does not belong and if&N
+&+bhe comes across someone who fits that description he is to remove them via any&N
+&+bmeans necessary.&N
+~
+1090521098 1 0 0 136 0 0 0 -900 S
+PO 0 1048576 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#55
+young hellhound~
+&+ya young &+rhellhound&+y pup&N~
+&+yA young shaggy dog stands here here fur covered in &+rflames.&N
+~
+&+yThis small hellhound is no more then a few months old yet its coat is fully&N
+&+raflame.&+y Its evil eyes glow with an intense red aura that almost dwarfs&N
+&+ythe flare of its burning coat. It stands bigger then most canines on the&N
+&+yprime material plane. Its hot breath scalds the floor even more.&N
+~
+1073743912 1 0 0 536871040 1 0 0 -1000 S
+us 0 1 1 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#56
+large hellhound adult~
+&+ya large adult &+rhellhound&N~
+&+yA large dog crouches here bristling with his coat fully &+raflame.&N
+~
+&+yThis adult male hellhound is the leader of this pack and a powerful demonic&N
+&+ycanine. He stands as tall as a human and could look one right in the eye with&N
+&+yhis glowing red eyes that seem to pierce the deepest parts of your soul. His&N
+&+rflaming&+y breath has superheated the room so much that almost all metal on your&N
+&+yperson is almost too hot to touch. He charges at your intrusion into his lair.&N
+~
+1073743914 1 0 0 536871056 1 0 0 -1000 S
+x 0 1 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#57
+female hellhound~
+&+ya large female &+rhellhound&N~
+&+yA large female dog paces here bristling with her coat fully &+raflame.&N
+~
+&+yThis adult female hellhound is the only remaining female of this pack.&N
+&+yShe stands as tall as a human and could look one right in the eye with&N
+&+yher glowing red eyes that seem to pierce the deepest parts of your soul.&N
+&+yHer &+rflaming&+y breath has superheated the room so much that almost&N
+&+yall metal on your person is almost too hot to touch. She charges at&N
+&+yyour intrusion into her lair.&N
+~
+1073743914 1 0 0 536871056 1 0 0 -1000 S
+x 0 1 1 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#58
+imp~
+&+ra lesser imp&N~
+&+rAn imp of the abyss quietly floats through the air here.&N
+~
+&+rThis lesser imp is a dog faced demon that stands taller then the tallest ogre&N
+&+rits evil aura is not nearly as powerful as some of its more powerful breathern&N
+&+rbut the extent of its hatred for all things of your plane shows through as it&N
+&+rcharges to attack you.&N
+~
+1342177322 1 0 0 128 0 0 0 -1000 S
+X 0 512 2 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#59
+demon~
+&+La demonic &N&+bmind&N&+Bmage&N~
+&+LA man sized demon crouches here gnawing on a lesser being.&N
+~
+&+LThis demon is man sized but covered with thin black scales. Its evil eyes are&N
+&+Lnot as piercing as some of its kind but it has a superior intellect about it as&N
+&+Lit surveys the situation. Regardless of these differences its hatred of all&N
+&+Lthings of your plane shows through as it charges to attack you.&N
+~
+1082130440 1 0 0 128 0 0 0 -1000 S
+x 0 4 1 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#60
+demon baatezu~
+&+ra huge baatezu&N~
+&+rA huge winged demon stands here barking at the other denizens.&N
+~
+&+rThis huge baatezu has a wingspan double his giant height. His skin looks like&N
+&+rextremely hard crimson leather while his eyes show evil intent beyond that&N
+&+rwhich a mortal should never see. His huge claws could shred an ogre without&N
+&+rso much of a thought. His evil gaze levels on you followed by an evil grin and&N
+&+ra mad charge to remove you from its sight.&N
+~
+1073743912 1 0 0 536871040 1 0 0 -1000 S
+X 0 4 1 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#61
+feasting demon~
+&+ra feasting demon&N~
+&+rA lesser demon sits here feasting on something.&N
+~
+&+rThis demon has recently been feeding on some unfortunate local as his maw&N
+&+ris covered with a crimson stain. As the demon pulls itself to its full&N
+&+rheight it towers overhead. Its obsidian &N&+Lblack talons&N&+r glisten in the&N
+&+rflickering light as it charges to shred you limb from limb.&N
+~
+10 1 0 0 536870912 1 0 0 -1000 S
+X 0 1 1 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#62
+demon osyluth~
+&+ba gorging osyluth&N~
+&+bA large demon with a barbed tail crouches here gorging on something.&N
+~
+&+bThis demon is as large as most of the greater demons. Its pale skin resembles&N
+&+bthat which you would see on a maggot while it has a large scorpion like tail&N
+&+bbut with no sign of venom in the spine tip. Its huge hands sport razor like&N
+&+bclaws that make it easy to rip the flesh from a meal or the armor from your&N
+&+bbody. Its face is currently caked with blood as its finishing its most recent&N
+&+bmeal when you interrupted it.&N
+~
+2090 1 0 0 136 0 0 0 -1000 S
+X 0 2097156 0 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#63
+abishai demon~
+&+ga hungry abishai&N~
+&+gA green skinned abishai half heartedly toys with something here.&N
+~
+&+gThis demon stands as tall as a troll but twice as thick with muscles. Its&N
+&+gcanine maw tops its monstrous frame while it keeps its wings close to its&N
+&+gbody so that it can manuever in this smaller structure. The fires of hell&N
+&+gsurround it like an aura of pure evil.&N
+~
+2058 1 0 0 536871064 1 0 0 -1000 S
+X 0 4 0 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#64
+vesuvius tanar'ri lord~
+&+rVesuvius&N &+Lthe great &N&+rtanar'ri&N&+L lord&N~
+&+rA regal and powerful looking tanar'ri stands here scanning the abyss.&N
+~
+&+rVesuvius is one of the most powerful Tanar'ri lord in all of the realms of&N
+&+rHell and the Abyss. Like most True Tanar'ri he is a Balor of the highest rank&N
+&+rand is loathsome to behold. He is a towering humanoid with deep, dark red&N
+&+rskin. He has huge wings that propel him about with unnatural speed and agility.&N
+&+rHe also has long, wicked claws and grotesque fangs that slowly drip with venom&N
+&+rthat sizzles like acid on anything it comes in contact with. As with all of&N
+&+rhis kind his ultimate power is shown with the flaming inferno that surrounds&N
+&+rhis physical body which could consume even the scales of a red dragon. He&N
+&+rlevels his evil stare at you to see your first move.&N
+~
+1093666856 1 0 0 536871058 2049 0 0 -1000 S
+X 0 9 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#65
+illithid~
+An &+MIllithid&N~
+An &+MIllithid&N wanders through the demons unhindered while looking at the ground.&N
+~
+This &+MIllithid&N seems to be visiting the abyss in search for something or someone
+to use for whatever it has on its mind. Its bulbous head is vigorously scanning
+the ground as if looking for some manner of plant or stone that might help it
+for whatever it is trying to concoct.
+~
+1090521096 1 0 0 128 0 0 0 -1000 S
+MF 0 262144 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#66
+marilith demon~
+&+ma sadistic marilith&N~
+&+mA greater demon with four arms and the body of a snake scours the abyss.&N
+~
+&+mThis greater demon is known as a marilith. It has the upper body of a human&N
+&+mfemale with four arms and its lower body is that of a serpant. Its scales&N
+&+mare a pale red while the flesh of its human torso is quite pasty and pale.&N
+&+mShe is quite naturally prepared to do battle with blades or spells. As her&N
+&+mgaze falls upon you, she charges into to destroy.&N
+~
+1344276488 1 0 0 268435600 0 262144 0 -1000 S
+x 0 3146242 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2

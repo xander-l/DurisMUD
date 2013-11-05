@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #22000
 tree palm~
 &+ya palm &+Gtree&n~
@@ -1128,3 +1129,1135 @@ splintered angel wing~
 8 2 3 0 5 0 0 16385 0 0 0
 0 0 0 0 0 0 0 0
 0 1 100 100
+=======
+#22000
+tree palm~
+&+ya palm &+Gtree&n~
+&+yA lush, tropical palm &+Gtree&+y, grows here.&n~
+~
+15 5 3 0 7 0 0 0 0 0 0
+1000 5 0 1000 0 0 0 0
+0 0 100
+E
+tree palm~
+&+yThe type of palm tree is a regular sight out in the &+YSavannah&+y, it
+&+ystands roughly eight feet in height with its broad leaves providing
+&+Lshade&+y for the smaller animals.&n
+~
+#22001
+pool water~
+&+ba sparkling pool&n~
+&+bA &+Bsp&+War&+bkl&+Bing&+b pool of water flourishes here.&n~
+~
+17 40 3 0 7 0 0 0 0 0 0
+-1 -1 0 0 0 0 0 0
+0 0 100
+E
+pool water~
+&+BThis a fair sized pool, kept fresh from runoff from the mountains.
+&+BThough it rains very rarely in the Savannah, when it does the water
+&+Bstays around for quite some time due to the hardness of the soil.&n
+~
+#22002
+hole pit~
+&+La treacherous pit&n~
+&+LA treacherous hole in the &+yearth&+L leads down into the pits.&n~
+~
+25 15 3 0 7 0 0 0 0 0 0
+22022 7 -1 0 0 0 0 0
+0 0 100
+E
+hole pit~
+&+LThis small hole, just big enough to squeeze through, leads down
+&+Lto one of the Pits of &+rCerberus&+L.  There is odd screaching coming from
+&+Linside.&n
+~
+#22003
+hole pit~
+&+La treacherous pit&n~
+&+LA treacherous hole in the ceiling leads up into the &+YSavannah.&n~
+~
+25 15 3 0 7 0 0 0 0 0 0
+22013 7 -1 0 0 0 0 0
+0 0 100
+E
+hole pit~
+&+LThis is nothing more than a small hole leading up into the &+YSavannah.&n
+~
+#22004
+fire brazier~
+&+ra flaming brazier&n~
+&+LA mystic &+rfire&n &+Mglows&+L inside a &+Rbra&+rzi&+Rer&+L against the back wall.&n~
+~
+8 15 3 0 7 0 1 1 0 0 0
+0 0 0 0 0 0 0 0
+0 800 100
+E
+fire brazier~
+&+rThis tall &+Rbrazier&+r acts as a sort of communication device between
+&+rthe overlords of the &+LPits of &+rCerberus, however it is beyond mortal
+&+runderstanding.&n
+~
+#22005
+hole pit~
+&+La treacherous pit&n~
+&+LA treacherous hole in the &+yearth&+L leads down into the pits.&n~
+~
+25 15 3 0 7 0 0 0 0 0 0
+22045 7 -1 0 0 0 0 0
+0 0 100
+E
+hole pit~
+&+LPeering into this pit prooves useless as there is nothing visible
+&+Lthrough the tiny opening, only sounds of dripping water can be heard
+&+Lcoming from the inside.&n
+~
+#22006
+hole pit~
+&+La treacherous pit&n~
+&+LA treacherous hole in the &+yearth&+L leads down into the pits.&n~
+~
+25 15 3 0 7 0 0 0 0 0 0
+22043 7 -1 0 0 0 0 0
+0 0 100
+E
+hole pit~
+&+LThis hole leads back up to the mountain top.  Hardley even a sliver
+&+Lof sunlight leaks through the tiny opening.&n
+~
+#22007
+sign large~
+&+Wa sign&n~
+&+yA large &+Wsign&+y is hammered into the ground here.&n~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+sign large~
+
+&+W-----------------------------
+&+W|  Warning to travellers:   |
+&+W| Unless Experienced Remain |
+&+W|    On the Savannah.       |
+&+W|                           |
+&+W| The Pits are Extremely    |
+&+W|      Dangerous !!         |
+&+W-----------------------------
+~
+#22008
+camp fire campfire~
+&+ya small &+rcampfire&n~
+&+yA small &+rcampfire&+y crackles here.&n~
+~
+15 15 3 0 7 0 262144 0 0 0 0
+10000 5 0 10000 0 0 0 0
+0 0 100
+E
+camp fire campfire~
+&+yThis camp&+rfire&+y has been set by a group of adventurers.  They are
+&+ycooking some fresh food they caught today on it.&n
+~
+#22009
+prybar~
+&+La prybar&n~
+&+La solid metal prybar has been left here.&n~
+~
+18 15 3 0 7 0 8388608 24577 0 0 0
+0 0 0 0 0 0 0 0
+0 340 100
+E
+prybar~
+&+LThis prybar is made from solid iron, it looks like it could easily
+&+Lopen up crates, move rocks, or break heads.&n
+~
+#22010
+fiery portal~
+&+ra fiery portal&n~
+&+rA f&+Rier&+ry portal l&+Roca&+rted here, &+Rlead&+rs to a distant plane.&n~
+~
+25 15 3 0 7 0 1 0 0 0 0
+40787 7 -1 0 0 0 0 0
+0 0 100
+E
+fiery portal~
+&+rThose peering inside the portal can see a distant plane, far from
+&+rthe Savannah.  Vaguely, &+Wmisty&+r shapes can be seen moving about on
+&+rthe other side.&n
+~
+#22011
+huge ant hill anthill~
+&+ya huge &+Lanthill&n~
+&+yA huge &+Lanthill&+y grows up from the ground here.&n~
+~
+15 11 3 0 7 0 33554432 0 0 0 0
+10000 5 0 10000 0 0 0 0
+0 0 100
+E
+huge ant hill anthill~
+&+yThis &+Lanthill&+y is swarming with millions of &+Lants&+y, constantly moving
+&+yin bringing food and out in search of it.&n
+~
+#22012
+sign large~
+&+Wa sign&n~
+&+WA sign, scribbled in poor common, has been planted here.&n~
+~
+13 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+sign large~
+
+&+W-----------------------------
+&+W|  DAnGery!                 |
+&+W|    MeAN SnaKes WoRMS      |
+&+W|        IN hOLE!!          |
+&+W|                           |
+&+W-----------------------------
+~
+#22013
+large coconut~
+&+ya large &+yc&+Wo&+yc&+Wo&+ynut&n~
+&+yA c&+Wo&+yc&+Wo&+ynut has fallen here.&n~
+~
+8 4 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 230 100
+E
+large coconut~
+&+yThis coconut has fallen from a tree somewhere.  The outside of
+&+ythe coconut is quite strong, the inside is quite tasty.&n
+~
+#22014
+small coconut~
+&+ya small &+yc&+Wo&+yc&+Wo&+ynut&n~
+&+yA c&+Wo&+yc&+Wo&+ynut has fallen here.&n~
+~
+8 4 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 331 100
+E
+large coconut~
+&+yThis coconut has fallen from a tree somewhere.  It occurs to you as
+&+yyou examine it to put the lime in the coconut and drink it all up.&n
+~
+#22015
+broken coconut~
+&+ya broken &+yc&+Wo&+yc&+Wo&+ynut&n~
+&+yA c&+Wo&+yc&+Wo&+ynut has fallen here.&n~
+~
+8 4 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 120 100
+E
+large coconut~
+&+yThis coconut has fallen from a tree somewhere.  The outside of
+&+ythe coconut is quite strong, the inside is quite tasty.&n
+~
+#22016
+bushel bananas~
+&+Ya &+ybushel&+Y of bananas&n~
+&+YA &+ybushel&+Y of bananas have been left here.&n~
+~
+19 48 3 0 7 0 0 1 0 0 0
+2 0 0 0 0 0 0 0
+0 5000 100
+E
+bushel bananas~
+&+YThere appears to be several bananas on this bushel.  Would make a
+&+Yfine feast for those who really enjoy bananas.&n
+~
+#22017
+banana~
+&+Ya banana&n~
+&+YA banana has been left here.&n~
+~
+19 48 3 0 7 0 0 1 0 0 0
+1 0 0 0 0 0 0 0
+0 1000 100
+E
+banana~
+&+YBananas are fairly tasty, if you like that sort of thing.  Monkeys
+and babies quite like that sort of thing.&n
+~
+#22018
+cosmic glow rod~
+&+wa &+Wcos&+wmic g&+Wlow &+wrod&n~
+&+WA rod, forged by &+wco&+Wsmo&+wcy&+W, has been foolishly left here.&n~
+~
+15 7 3 0 13 0 1310720 8413185 64 0 0
+100 5 0 400 0 0 0 0
+0 38000 100
+E
+cosmic glow rod~
+&+wThis rod has obviously been enchanted by the art of &+Wcosmocy&+w.  Few
+&+wpeople on the planet have tamed the famed powers, and items with its
+&+wmystic enchantments are quite rare.  Though this has but an infintismal
+&+wammount of &+Wcosmocy&+w imbued in it, it is still quite a unique item.&n
+~
+#22019
+purple claymore~
+&+wa &+mpurp&+Mle-ti&+mnted&+w cla&+cymo&+wre&n~
+&+wA large cla&+cymo&+wre with a &+mpurple&+w blade has been dropped here.&n~
+~
+5 15 3 0 7 0 1024 8193 64 87572483 572652
+5 4 4 3 0 0 0 0
+0 3400 100
+E
+purple claymore~
+&+cThis weapon is about four feet in length.  Its a broadsword that
+&+cis quite heavy and probably not the best weapon for any other than
+&+cthe quite strong.  It bears the mark of &+mAndryn&+c, the &+MMyrabolan&+c black
+&+csmith upon it.&n
+~
+A
+18 3
+A
+19 1
+#22020
+cloak storm winds~
+&+ya &+ccloak&+y of &+Cstorm &+cwinds&n~
+&+yA cloak from the &+Ydesert&+y&+C storm&+y has been left here.&n~
+~
+9 15 3 0 7 0 0 1025 0 0 0
+11 0 0 2 0 0 0 0
+0 9565 100
+E
+cloak desert wind~
+&+yThis &+Ccloak&+y has &+Ywemic&+y tribal designs sewn onto it.  It is incredibly
+&+ylight, and feels quite comfortable on the shoulders.&n
+~
+A
+13 15
+A
+4 12
+#22021
+gauntlets overfiend~
+&+Lthe &+rgauntlets&+L of the &+rove&+Lrfie&+rnd&n~
+&+LA pair of fiendish &+rgauntlets&+L have been left here.&n~
+~
+9 15 3 0 3 0 1024 129 0 85487633 0
+4 0 0 3 0 0 0 0
+0 1 100 536870912 0 0 0
+E
+gauntlets overfiend~
+&+LThis gauntlets are quite large, as they once fit upon the hands of
+&+Lthe overfiend.  The monster who owned them was quite a respected and
+&+Lfeared denizen of the Pits, and it is unclear why he would have such
+&+La shabbily constructed set of gauntlets.&n
+~
+A
+19 2
+A
+18 2
+#22022
+cracked gargoyle egg shell~
+&+ca cracked &+Cgar&+cgoy&+Lle&+c eggshell&n~
+&+LA cracked &+Cgar&+cgoy&+Lle &+Wegg&+L sits within the rocks here.&n~
+~
+8 45 3 0 7 0 4096 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 5 100
+E
+cracked gargoyle egg shell~
+&+cThis was once a fair-sized gargoyle &+Wegg&+c.  Now it is broken and doesn't
+&+cseem to be of much use.  The edges on the &+Weggshell&+c are sharp and look
+&+ckind of like teeth.&n
+~
+#22023
+strands leather~
+&+ysome leather strands&n~
+&+ySome leather strands from an old slave whip lay here.&n~
+~
+8 13 3 0 7 0 4096 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1000 100
+E
+strands leather~
+&+yThese are some simple leather strands that could have possibly
+&+ycame from a torn whip.  They seem they would be able to tie things
+&+ytogether quite neatly.&n
+~
+#22024
+bone key~
+&+Wa poorly made bone key&n~
+&+WA poorly made key of bone lays here.&n~
+~
+18 10 3 0 7 0 0 16385 0 0 0
+0 20 0 0 0 0 0 0
+0 908 100
+E
+bone key~
+&+WThis key doesn't appear to be all that well made, as was probably
+&+Wconstructed quite quickly.  It must open something, however.&n
+~
+#22025
+femur bone~
+&+Wa femur bone&n~
+&+WA forgotten femur bone lies hidden in rocks here.&n~
+~
+8 10 3 0 7 0 4096 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 7881 100
+E
+femur bone~
+&+WThis appears to femur bone from what once might have been human, it
+&+Wappears the gargoyles have forgotton about it and left it still with
+&+Wbits of edible flesh.&n
+~
+#22026
+nest~
+&+ya &+Wroc&+y nest&n~
+&+yA huge nest for young &+Wrocs&+y sits atop the mountain here.&n~
+~
+15 15 3 0 7 0 0 0 0 0 0
+10000 5 0 10000 0 0 0 0
+0 0 100
+E
+nest~
+&+yThis nest is nearly the size of the entire room.  Several young
+&+Wrocs&+y spend most their time in it.&n
+~
+#22027
+scroll~
+&+ya tightly bound scroll&n~
+&+yA scroll has been left here.&n~
+~
+16 15 3 0 7 0 528384 1 0 0 0
+0 0 0 0 0 0 0 0
+0 6776 100
+E
+scroll~
+The scroll's seal has been broken.  It appears to have the crest of
+the Myrabolan Tri-Lords.  It reads :
+        Nansuo, you are a waste and a fool, though I have sworn my
+        word and shall keep my part of the bargain.  The Hunters
+        are in transit between the orcish caves and Myrabolus, the
+        city is not nearly as heavily guarded as usual as most of
+        those balance keeping idiots are being distracted once
+        again by Maverick.  If you wish to continue ahead with
+        your plan against the city of balance you will do so with
+        out my assistance, for I have learned, the treasure within
+        the city palace is not nearly as amazing as you have
+        dreamt it to me.  Too much trouble for too little.  I
+        have another plan though.  Why be content with Myrabolus
+        when we can have at the major cities on the surface,
+        the fortesses and castles all have one major weakness,
+        and it is a weakness exploited by the air.
+
+The note continues on page two...
+~
+E
+page2 2 two~
+        I shall remain in the Home of the Divine, waiting here for
+        the Empyrean Drifter, the airship rumored to dock at
+        the portal to this horribly angelic plane, perfect
+        my plan and hijack it.  The sky will be mine, and you
+        can have what you want with Myrabolus and our deal
+        will be completed.  If you wish to meet me here I have
+        found a portal from the Pits of Cerberus that come
+        to Home.  This is where I will be.  I imagine the guards
+        of the Home wouldn't appreciate your kind knocking
+        on the door any more than they would my own.
+                                        Without Respect,
+                                                     -Ajan-
+~
+#22028
+coconut shoulder guard~
+&+ya c&+Wo&+yc&+Wo&+ynut sh&+Wo&+yulder guard&n~
+&+yA sh&+Wo&+yulder guard made from c&+Wo&+yc&+Wo&+ynuts has been left here.&n~
+~
+9 4 3 0 7 0 0 1025 0 4165209604 0
+12 0 0 4 0 0 0 0
+0 10000 100
+E
+coconut shoulder guard~
+&+yThis is a shoulder protector that has been put together using
+&+yc&+Wo&+yc&+Wo&+ynuts.  The shell of the c&+Wo&+yc&+Wo&+ynut is quite strong and offers the
+&+ywearer good protection.&n
+~
+A
+19 1
+A
+18 1
+#22029
+medallion gaia~
+&+gthe &+Gmed&+ga&+Gll&+gio&+Gn &+gof &+Ggaia&n~
+&+gA medallion from an ancient gaia tree has been left here.&n~
+~
+9 30 3 0 7 0 5121 5 0 37882788 0
+6 0 0 3 0 0 0 0
+0 22301 100
+E
+medallion gaia~
+&+gThis medallion pulsates with energy infused by the gaia tree.  It
+&+gseems rich with natures power.&n
+~
+A
+13 18
+A
+4 5
+#22030
+extinction silver dirk~
+&+La &+Csilver&+L dirk dubbed '&+CEx&+Ltinc&+Ction&+L'&n~
+&+LA &+Csilver&+L dirk has been dropped here.&n~
+~
+5 22 3 0 11 0 1024 8193 65 49152 0
+2 2 8 11 0 0 0 0
+0 33882 100 16 8 0 0
+E
+extinction silver dirk~
+&+LThis twelve inch &+Cdirk&+L is basically just a sharp, pointed blade
+&+Lwith a short hilt.  On the &+Csilver&+L blade the letters '&+CEX&+L 'are etched.
+~
+A
+18 2
+#22031
+bronze ring~
+&+ya &+wtar&+ynis&+Lhed&+y bronze &+wring&n~
+&+yA tarnished bronze ring has been left here.&n~
+~
+9 20 3 0 7 0 16385 3 0 0 0
+6 0 0 3 0 0 0 0
+0 8887 100 0 0 0 16777216
+E
+bronze ring~
+&+wThis ring seems extremely old.  The &+ybronze&+w colour has all but
+&+wvanished from the surface, leaving just an ugly brown &+ytint&+w.  Though
+&+wits appearence does not seem appealing, it does seem to have some
+&+wmagical qualities.&n
+~
+A
+13 10
+A
+18 4
+#22032
+puredark pure dark mace~
+&+wthe &+rdemonic&+w warmace '&+LPure-Dark&+w'&n~
+&+wA &+rdemonic&+w warmace has been left on the ground here.&n~
+~
+5 15 3 0 7 0 17409 8193 64 35864995 0
+7 4 4 0 0 323461596 50 30
+0 33781 100 65536 0 0 262144
+E
+puredark pure dark mace~
+&+LPureDark&+w is the legendary weapon of &+rAbaddon&+w, &+rSatan's&+w infamous general.
+&+wJust by holding this warmace, the throbbing power inside it is apparent.&n
+~
+E
+_char_msg~
+&+LYour&N $q &+Lsends a black vapour trail to purge the energy of $N!
+~
+E
+_victim_msg~
+&+L$n's&N $q &+Lsends a black vapour trail to purge your life energy!
+~
+E
+_room_msg~
+&+L$n's&N $q &+Lsends a black vapour trail to purge the energy of $N!
+~
+A
+18 4
+A
+19 4
+#22033
+hole pit~
+&+La treacherous pit&n~
+&+LA treacherous hole in the &+yearth&+L leads down into the pits.&n~
+~
+25 15 3 0 7 0 0 0 0 0 0
+22089 7 -1 0 0 0 0 0
+0 0 100
+E
+hole pit~
+&+LThis small hole, just big enough to squeeze through, leads down
+&+Lto one of the Pits of &+rCerberus&+L.  Nothing can be heard from
+&+Linside.&n
+~
+#22034
+hole pit~
+&+La treacherous pit&n~
+&+LA treacherous hole in the &+yearth&+L leads down into the pits.&n~
+~
+25 15 3 0 7 0 0 0 0 0 0
+22066 7 -1 0 0 0 0 0
+0 0 100
+E
+hole pit~
+&+LThis small hole, just big enough to squeeze through, leads back
+&+Lup to the &+YSavannah&+L. A tiny sliver of light is coming through it.&n
+~
+#22035
+coins pile~
+&+Wa pile of coins&n~
+&+WA pile of coins lay here.&n~
+~
+20 25 3 0 7 0 0 1 0 0 0
+0 0 0 50 0 0 0 0
+0 50000 100
+E
+coins pile~
+&+WA pile of platnium coins.&n
+~
+#22036
+golden vest weave~
+&+Ya golden &+yw&+Ye&+ya&+Yv&+ye &+Yvest&n~
+&+YA vest of &+yw&+Yo&+yv&+Ye&+yn&+Y gold has been dropped here.&n~
+~
+9 15 3 0 7 0 16385 9 0 0 0
+19 0 0 4 0 0 0 0
+0 8989 100
+E
+golden vest weave~
+&+YThis vest seems to have been &+Yw&+yo&+Yv&+ye&+Yn from strands of gold.  Even
+&+Ywith the strength the material possess it also seems to have been
+&+Yimbued with some magical powers.&n
+~
+A
+24 -4
+A
+31 4
+#22037
+silver pair arm~
+&+wa &+Cpair&+w of &+csilver&+w arm &+Cprotectors&n~
+&+wA &+Cpair&+w of &+csilver arm &+Cprotectors&+w have been left here.&n~
+~
+9 15 3 0 7 0 17408 257 1 8515652 0
+11 0 0 3 0 0 0 0
+0 10777 100 0 2 0 0
+E
+silver pair arm~
+&+wThese arm protectors are simply a solid sheet of &+Csilver&+w molded to
+&+wfit over the arms.  They are reasonably light and offer decent
+&+wprotection.&n
+~
+A
+12 25
+#22038
+badge hate~
+&+Lthe badge of &+YHate&n~
+&+LA badge bearing the symbol of &+YHate&+L has been left here.&n~
+~
+11 1 3 0 7 0 8409088 2113537 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+badge hate~
+&+LThis badge bears the symbol of &+YHate&+L.&n
+~
+#22039
+badge pain~
+&+Lthe badge of &+WPain&n~
+&+LA badge bearing the symbol of &+WPain&+L has been left here.&n~
+~
+11 1 3 0 7 0 8409088 2113537 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+badge pain~
+&+LThis badge bears the symbol of &+WPain&+L.&n
+~
+#22040
+badge fear~
+&+Lthe badge of &+bFear&n~
+&+LA badge bearing the symbol of &+bFear&+L has been left here.&n~
+~
+11 1 3 0 7 0 8409088 2113537 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+badge fear~
+&+LThis badge bears the symbol of &+bFear&+L.&n
+~
+#22041
+badge rage~
+&+Lthe badge of &+rRage&n~
+&+LA badge bearing the symbol of &+rRage&+L has been left here.&n~
+~
+11 1 3 0 7 0 8409088 2113537 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+badge rage~
+&+LThis badge bears the symbol of &+rRage&+L.&n
+~
+#22042
+key vault~
+&+Lthe vault key&n~
+&+LA key to a vault has been dropped here.&n~
+~
+18 15 3 0 7 0 8404992 16385 0 0 0
+0 100 0 0 0 0 0 0
+0 1 100
+E
+key vault~
+&+LThis pitch black key is used for opening the &+Ytreasure&+L room inside
+&+Lthe Pits of &+rCerberus&+L.&n
+~
+#22043
+hole pit~
+&+La treacherous pit&n~
+&+LA treacherous hole in the &+yearth&+L leads down into the pits.&n~
+~
+25 15 3 0 7 0 0 0 0 0 0
+22120 7 -1 0 0 0 0 0
+0 0 100
+E
+hole pit~
+&+LThis small hole, just big enough to squeeze through, leads down
+&+Lto one of the Pits of &+rCerberus&+L.  Strange shuffling can be
+&+Lheard from inside.&n
+~
+#22044
+hole pit~
+&+La treacherous pit&n~
+&+LA treacherous hole in the &+yearth&+L leads down into the pits.&n~
+~
+25 15 3 0 7 0 0 0 0 0 0
+22019 7 -1 0 0 0 0 0
+0 0 100
+E
+hole pit~
+&+LThis small hole in the cavern wall leads back up to the &+YSavannah&n
+&+Labove.&n
+~
+#22045
+scepter snakes~
+&+Lthe &+yscepter&+L of &+ysnakes&n~
+&+LA revolting, serpentine &+yscepter&+L has been dropped here.&n~
+~
+5 2 3 0 7 0 0 8193 0 0 0
+12 2 8 7 0 0 0 0
+0 100 100
+E
+scepter snakes~
+&+yThis scepter is long and scaly and almost seems alive.  Despite
+&+yits usual appearence and curious nature it seems like both a useless
+&+yweapon and useless item.&n
+~
+A
+18 3
+A
+19 3
+#22046
+remains roc~
+&+ythe remains of an enormous &+Wroc&n~
+&+yThe remains of an enormous &+Wroc&+y have been left here.&n~
+~
+4 10 3 0 7 0 4096 16385 0 0 0
+1 1 1 1 0 0 0 0
+0 1 100
+E
+remains roc~
+&+yThese remains consist of a bunch of large feathers and a very long
+&+ywing &+Wbone&+y. There isn't much else left that would be of any use.&n
+~
+#22047
+strands leather~
+&+ysome more leather strands&n~
+&+ySome long leather strands from an old slave whip lay here.&n~
+~
+8 13 3 0 7 0 4096 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1000 100
+E
+strands leather~
+&+yThese are some simple leather strands that could have possibly
+&+ycame from a torn whip.  They appear sizably longer then most
+&+yother leather strands, and could be used to bind many things, in
+&+ythe least.&n
+~
+#22048
+longbow bow roc bone~
+&+ya &+Wroc &+wbone&+y longbow&n~
+&+yA longbow made from a long &+Wroc &+wbone&+y has been left here.&n~
+~
+6 15 3 0 10 0 0 8413185 0 0 0
+105 60 0 1 0 0 0 0
+0 21233 100
+E
+longbow bow roc bone~
+&+yThis longbow has been crafted from the &+Wwing bone&+y of a large &+Wroc&+y.
+&+yIt is nearly 4 feet in hieght and quite sturdy and appears to be of
+&+yfairly high quality.&n
+~
+A
+18 4
+A
+19 2
+#22049
+pitch black body cloak~
+&+La pitch black bodycloak&n~
+&+LA pitch black bodycloak has been left here.&n~
+~
+9 1 3 0 11 0 1025 9 64 46305188 0
+12 0 0 1 0 0 0 0
+0 40099 100
+E
+pitch black body cloak~
+&+LThis black cloak is extremely light, almost to the point of having
+&+Lno substance at all.  It is shimmering softly with arcane energy.&n
+~
+A
+24 -4
+A
+13 20
+#22050
+tower shield~
+&+Wa crystalline tower shield&n~
+&+WA pure white crystal tower shield has been dropped here.&n~
+~
+37 27 3 0 7 0 16385 513 64 0 0
+1 3 5 168 4 0 0 0
+20 29898 100
+E
+tower shield~
+&+WThis shield has been crafted from almost pure crystal.  It is quite
+&+Wheavy and extremely sturdy.  It glows with a mystical aura.&n
+~
+A
+24 -5
+A
+5 10
+#22051
+infinity collar~
+&+Lthe infinity collar&n~
+&+LThe collar of infinity has been left here.&n~
+~
+15 1 3 0 12 0 16384 5 64 4227728384 66066
+300 5 0 300 0 0 0 0
+0 9000 100
+E
+infinity collar~
+&+LThis collar is almost dripping with the powers of &+Wcosmocy&+L.  Very
+&+Lfew people, not even Xavier himself, could have imbued an item like
+&+Lthis with the ammount of galatic energy that it contains.  The &+Wcosmic&+L
+&+Lenergy inside the collar allow it to do next to impossible things.&n
+~
+A
+3 6
+A
+18 5
+#22052
+illithid skin stretched~
+&+Msome stretched illithid skin&n~
+&+MSome disgusting stretched illithid skin has been left here.&n~
+~
+9 15 3 0 2 0 4096 262145 64 0 0
+5 0 0 2 0 0 0 0
+0 2997 100
+E
+illithid skin stretched~
+&+MThis is the remains of a dead illithid. It is rather slimy, but if
+&+Mpulled probably can probably fit over ones face.  It would make a scary
+&+Mmask to scare your friends.&n
+~
+A
+27 12
+A
+13 5
+#22053
+imp skull cap~
+&+Lan &+rimp&+W-skull&+L cap&n~
+&+LA cap made from the &+Wskull&+L of an &+rimp&+L has been dropped here.&n~
+~
+9 10 3 0 7 0 33571840 17 0 12713748 82690
+10 0 0 3 0 0 0 0
+0 8998 100 65536 4232 0 0
+E
+imp skull cap~
+&+LThis cap has been fashioned from the &+Wskull&+L of an &+rimp&+L.  Unfortuately
+&+Lfor the larger people, the imp skull is not that large, so may have
+&+La hard time fitting on some.  It does appear to posses some mystic
+&+Lpowers.&n
+~
+A
+24 -4
+#22054
+satyr horns~
+&+Lthe &+rhorns&+L of the sa&+rty&+Lr&n~
+&+LA set of sa&+rty&+Lr &+rhorns&+L have been left here.&n~
+~
+9 10 3 0 7 0 16384 134217729 64 0 0
+7 0 0 2 0 0 0 0
+0 7287 100
+E
+satyr horns~
+&+LThese &+Whorns&+L once belonged to a satyr.  The creature, long dead,
+&+Lmust have had been through many battles as the &+Whorns&+L are extremely
+&+Lsharp and scarred with markings.  With some effort, they may fit
+&+Lupon another set of &+Whorns&+L.&n
+~
+A
+18 2
+A
+19 3
+#22055
+flute satyr instrument~
+&+Lthe flute of the sa&+ryt&+Lrs&n~
+&+LAn odd looking flute lies here.&n~
+~
+32 36 3 0 7 0 17408 16385 64 8499232 0
+184 48 0 20 0 0 0 0
+0 552 100
+E
+flute satyr~
+&+LThis is a fairly long flute, crafted with some odd designes etched
+&+Lalong the base.  The runed markings seemed to have been from a sa&+rtyr&+L.
+&+LIt seems to carry a tune quite nicely.&n
+~
+A
+3 10
+A
+18 2
+#22056
+angelic sandals~
+&+Wa pai&+cr of &+Cange&+Wlic sand&+cals&n~
+&+WA pa&+cir of &+Cange&+Wlic san&+cdals have been left here.&n~
+~
+9 1 3 0 7 0 16384 65 2 0 0
+6 0 0 3 0 0 0 0
+0 20889 100 134217728 0 0 0
+E
+angelic sandals~
+&+WThese sandals appear to be from the &+CHome&+W of the &+CDivine&+W.  They must
+&+Whave been spoils from a raid that the denizens of the &+LPits of &+rCerberus&n
+&+Wcaptured.&n
+~
+A
+2 6
+A
+26 6
+#22057
+dangling chain crucifix~
+&+wa &+Wdangling &+wchain&+W crucifix&n~
+&+wA chain &+Wcrucifix&+w for the ear has been left here.&n~
+~
+9 15 3 0 7 0 16385 524289 2 0 0
+4 0 0 3 0 0 0 0
+0 1223 100 8256 0 0 0
+E
+dangling chain crucifix~
+&+WThis is nothing more then a simple crucifix hanging from a &+wsteel chain&+W,
+&+Wwearable as an earring.  Just the symbol of the holy cross is enough
+&+Wto strike fear into the hearts of evil doers.&n
+~
+A
+13 15
+#22058
+elephant tusk~
+&+Wa &+wch&+Wis&+wel&+Wed &+welephant&+W tusk&n~
+&+WA long &+welephant&+W tusk has been dropped here.&n~
+~
+5 10 3 0 7 0 17408 8193 0 86359642 0
+13 3 4 11 0 0 0 0
+0 9890 100
+E
+elephant tusk~
+&+WThis is the long tusk from a long deceased &+welephant&+W.  It seems to
+&+Whave been chiseled with rune markings along the side and sharped to
+&+Wmake it a fairly efficient weapon.  It must be of some value or
+&+Wthe denizens of the &+LPits&+W would not have collected it.&n
+~
+A
+18 4
+A
+19 4
+#22059
+scaly potion~
+&+ya scaly potion&n~
+&+yA scaly &+Lpotion&+y has been left here.&n~
+~
+10 40 3 0 7 0 4096 8404993 0 0 0
+20 28 28 -1 0 0 0 0
+0 1 100
+E
+scaly potion~
+&+yThe liquid inside this scaly potion looks and smells awful.  It
+&+ymay be not such a great idea to try and drink it.&n
+~
+#22060
+drow longsword long sword~
+&+ma drow longsword&n~
+&+mA drow longsword has been left here.&n~
+~
+5 16 3 0 7 0 0 8193 0 0 0
+5 4 2 3 0 0 0 0
+0 8882 100
+E
+drow longsword long sword~
+&+mThis sword is the regular weapon of the drow soldiers within the
+&+munderdark.  It is well-crafted, but does not seem to have any extra
+&+mproperties. It still hurts though.&n
+~
+A
+18 2
+A
+19 2
+#22061
+coconut kilt~
+&+ya c&+Wo&+yc&+Wo&+ynut kilt&n~
+&+yA c&+Wo&+yc&+Wo&+ynut kilt has been dropped here.&n~
+~
+9 4 3 0 7 0 0 33 0 0 0
+9 0 0 4 0 0 0 0
+0 8989 100
+E
+coconut kilt~
+&+yThis kilt has been fashioned by the shells of several c&+Wo&+yc&+Wo&+ynuts.&n
+&+yThe shell of c&+Wo&+yc&+Wo&+ynut is quick strong, and offers nice protections.&n
+~
+A
+4 8
+A
+18 2
+#22062
+coconut belt~
+&+ya c&+Wo&+yc&+Wo&+ynut belt&n~
+&+yA c&+Wo&+yc&+Wo&+ynut belt has been left on the ground here.&n~
+~
+9 4 3 0 7 0 0 2049 0 0 0
+7 0 0 4 0 0 0 0
+0 7872 100
+E
+coconut belt~
+&+yThis belt has been constructed by a string of c&+Wo&+yc&+Wo&+ynut shells. Though
+&+yit is heavy, it seems to offer some good protection for the wearer.&n
+~
+A
+13 10
+#22063
+masters cloak~
+&+Wt&+Rh&+We &+Rm&+Wa&+Rs&+Wt&+Re&+Wr&+Rs &+Wc&+Rl&+Wo&+Ra&+Wk&n~
+&+WThe &+Rm&+Wa&+Rs&+Wt&+Re&+Wr&+Rs &+Wc&+Rl&+Wo&+Ra&+Wk has been dropped here.&n~
+~
+9 3 3 0 7 0 16385 1025 0 0 0
+12 0 0 3 0 0 0 0
+0 12888 100 33556480 0 0 0
+E
+masters cloak~
+&+WThis is the cloak of the fabled &+RMasters&+W, the legendary group who
+&+Wat one point started the organization of the &+gHunters&+W.  This type
+&+Wof gear is quite rare.&n
+~
+A
+18 2
+A
+19 2
+#22064
+earthen vial~
+&+yan earthen vial&n~
+&+yAn earthen vial has been dropped here.&n~
+~
+10 40 3 0 7 0 0 8404993 0 0 0
+20 36 36 36 0 0 0 0
+0 1 100
+E
+earthen vial~
+&+yThis vial is dark brown, the colour of soil.  It doesn't appear to
+&+ybe a very tasty potion, but may be handy.&n
+~
+#22065
+silvery potion~
+&+ca silvery potion&n~
+&+cA silvery potion has been dropped here.&n~
+~
+10 40 3 0 7 0 0 8404993 0 0 0
+20 28 0 0 0 0 0 0
+0 1 100
+E
+silvery potion~
+&+cThis potion is full of a silvery coloured liquid.  It has no smell.&n
+~
+#22066
+leg scale plates dragon~
+&+ga &+Lpair&+g of dragonscale &+Lleg&+g plates&n~
+&+gA &+Lpair&+g of dragonscale&+L leg&+g plates have been left here.&n~
+~
+9 35 3 0 7 0 0 33 64 0 0
+10 0 0 4 0 0 0 0
+0 7898 100
+E
+leg scale plates dragon~
+&+gThese &+Lleg&+g plates have been fashioned from the scales of a large
+&+ggreen dragon.  They seem quite durable.&n
+~
+A
+19 3
+A
+1 6
+#22067
+djinn totem~
+&+ca d&+Cjinn&+c to&+Ctem&n~
+&+cAn ancient d&+Cjinn &+cto&+Ctem&+c has been left here.&n~
+~
+34 22 3 0 7 0 16384 16385 0 0 0
+29 0 0 0 0 0 0 0
+0 8891 100
+E
+djinn totem~
+&+cThis totem once belonged to an ancient djinn. It is quite mystical
+&+cand probably extremely old.  It feels cool to the touch, like a soft
+&+cbreeze.&n
+~
+A
+26 9
+A
+13 10
+#22068
+ring overfiend~
+&+Lthe r&+ring &+Lof the &+roverf&+Lien&+rd&n~
+&+LThe r&+ring&+L of the &+rover&+Lfiend has been left here.&n~
+~
+9 2 3 0 7 0 16384 3 0 0 0
+3 0 0 3 0 0 0 0
+0 2988 100
+E
+ring overfiend~
+&+LThis ring is a twisted, hideous lump of blackened flesh that has
+&+Lbeen coiled up into a ring.  It seems large enough to have fit upon
+&+Lthe fingers of a giant, or at least a monsterously large beast.&n
+~
+A
+19 2
+A
+18 2
+#22069
+black veil~
+&+La black veil&n~
+&+LA black veil has been dropped here.&n~
+~
+9 3 3 0 7 0 0 131073 0 0 0
+7 0 0 1 0 0 0 0
+0 797 100
+E
+black veil~
+&+LThis is a simple black veil.  It covers the eyes neatly and helps
+&+Lreduce the glare of the sun.&n
+~
+A
+12 15
+#22070
+icecrown crown icy unique~
+&+cthe &+Wicecrown&+c of the &+Cfrost &+crevenants&n~
+&+cAn &+Wicy&+c and evil looking crown has been dropped here.&n~
+~
+9 27 3 0 15 0 268436481 17 64 87048219 0
+6 0 0 0 0 0 0 0
+0 32033 100
+E
+frozen crown ice~
+&+cThis crown pulsates with the evil magic of undeath.&n
+~
+A
+18 3
+#22071
+splintered angel wing~
+&+ca splintered &+Wangel&+c wing&n~
+&+cA splintered and broken &+Wangel&+c wing lies here.&n~
+~
+8 2 3 0 5 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+>>>>>>> master

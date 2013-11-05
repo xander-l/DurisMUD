@@ -603,3 +603,64 @@ bool dread_blade_proc(P_char ch, P_char victim)
   return !is_char_in_room(ch, room) || !is_char_in_room(victim, room);
   victim->specials.apply_saving_throw[SAVING_SPELL] = save;
 }
+
+bool holy_weapon_proc(P_char ch, P_char victim)
+{
+  int num, room = ch->in_room, save, pos;
+  P_obj wpn;
+  
+  typedef void (*spell_func_type) (int, P_char, char *, int, P_char, P_obj);
+  spell_func_type spells[5] = {
+    spell_cure_light,
+    spell_heal,
+    spell_cure_critic,
+    spell_cure_critic,
+    spell_cure_light
+  };
+  spell_func_type spell_func;
+  
+  if (!IS_FIGHTING(ch) ||
+      !(victim = ch->specials.fighting) ||
+      !IS_ALIVE(victim) ||
+      !(room) ||
+      number(0, 15)) // 3%
+    return false;
+    
+  P_char vict = victim;
+ 
+  for (wpn = NULL, pos = 0; pos < MAX_WEAR; pos++)
+  {
+    if((wpn = ch->equipment[pos]) &&
+        wpn->type == ITEM_WEAPON &&
+        wpn->type != ITEM_FIREWEAPON &&
+        CAN_SEE_OBJ(ch, wpn))
+      break;
+  }
+
+  if(wpn == NULL)
+    return false;
+/*
+  save = victim->specials.apply_saving_throw[SAVING_SPELL];
+  victim->specials.apply_saving_throw[SAVING_SPELL] += 15;
+*/
+  
+  act("&+WThe holy power of your&n $p &+Wreplenishes your &+ysoul&+W with holy &+Yenergy&+W!&n",
+    TRUE, ch, wpn, vict, TO_CHAR);
+  act("$n's $p &+Weminates a soft &+yg&+Yl&+Wow and $n &+Wlooks &+Yrefreshed&+W!",
+    TRUE, ch, wpn, vict, TO_NOTVICT);
+  
+  if(!(IS_MAGIC_LIGHT(room)))
+  {
+    spell_continual_light(GET_LEVEL(ch), ch, 0, 0, 0, 0);
+  }
+  
+  num = number(0, 4);
+  
+  spell_func = spells[num];
+  
+  spell_func(number(1, GET_LEVEL(ch)), ch, 0, 0, ch, 0);
+  /*
+  return !is_char_in_room(ch, room) || !is_char_in_room(victim, room);
+  victim->specials.apply_saving_throw[SAVING_SPELL] = save;
+  */
+}

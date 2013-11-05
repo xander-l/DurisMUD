@@ -39,7 +39,7 @@
 #define CLS(ch) (IS_ANSI_TERM(ch) ? "\033[H\033[J" : "")
 
 //#ifndef MEMCHK
-//
+//#
 //#define CREATE(result, type, number, tag)
 //  if (!((result) = (type *) calloc ((number), sizeof(type))))
 //    { perror("calloc failure"); raise(SIGSEGV); }
@@ -180,9 +180,13 @@
 
 #define SOUL_TAKING_STILETTO 88314
 
+<<<<<<< HEAD
 #define GET_CR_PNTS(d) ((d)->character->only.pc->creation_pnts)
 
 #define USES_MANA(ch) ((GET_CLASS(ch, CLASS_PSIONICIST) || GET_CLASS(ch, CLASS_MINDFLAYER))
+=======
+#define USES_FOCUS(ch)(GET_RACE(ch) == RACE_PSBEAST)
+>>>>>>> master
 
 #define GET_SONG(ch) ((ch)->specials.song)
 
@@ -299,10 +303,13 @@ int IS_TWILIGHT_ROOM(int r);
 #define TOGGLE_BIT(var, bit) ((var) = (var) ^ (bit))
 #define PLR_FLAGS(ch)          ((ch)->specials.act)
 #define PLR2_FLAGS(ch)          ((ch)->specials.act2)
+#define PLR3_FLAGS(ch)	    ((ch)->specials.act3)
 #define PLR_FLAGGED(ch, flag)  (IS_SET(PLR_FLAGS(ch), flag))
 #define PLR2_FLAGGED(ch, flag)  (IS_SET(PLR2_FLAGS(ch), flag))
+#define PLR3_FLAGGED(ch, flag)  (IS_SET(PLR3_FLAGS(ch), flag))
 #define PLR_TOG_CHK(ch, flag)  ((TOGGLE_BIT(PLR_FLAGS(ch), (flag))) & (flag))
 #define PLR2_TOG_CHK(ch, flag)  ((TOGGLE_BIT(PLR2_FLAGS(ch), (flag))) & (flag))
+#define PLR3_TOG_CHK(ch, flag)  ((TOGGLE_BIT(PLR3_FLAGS(ch), (flag))) & (flag))
 
 /* Can subject see character "obj"? */
 
@@ -558,7 +565,11 @@ int race_size(int race);
 
 #define CAN_CARRY_W(ch) (str_app[STAT_INDEX(GET_C_STR(ch))].carry_w + (IS_TRUSTED(ch) ? 20000 : 0) + (IS_NPC(ch) ? 10000 : 0))
 
+<<<<<<< HEAD
 #define CAN_CARRY_N(ch) (IS_TRUSTED(ch) ? 3000 : (STAT_INDEX(GET_C_DEX(ch)) / 3) + (IS_NPC(ch) ? 12 : 6))
+=======
+#define CAN_CARRY_N(ch) (IS_TRUSTED(ch)? 3000: (STAT_INDEX(GET_C_DEX(ch)) / 3) + (IS_NPC(ch)? 12: 6)) 
+>>>>>>> master
 
 #define IS_CARRYING_W(ch)  \
 ((ch)->specials.carry_weight + COIN_WEIGHT(GET_COPPER(ch), GET_SILVER(ch), GET_GOLD(ch), GET_PLATINUM(ch)))
@@ -790,6 +801,7 @@ for ((IN_ROOM) = world[(PLAYER)->in_room].people; (IN_ROOM) != NULL; (IN_ROOM) =
            ( GET_RACE(ch) == RACE_F_ELEMENTAL ) || \
            ( GET_RACE(ch) == RACE_E_ELEMENTAL ) || \
 	   ( GET_RACE(ch) == RACE_V_ELEMENTAL ) || \
+           (affected_by_spell(ch, TAG_CONJURED_PET)) || \
            ( GET_RACE(ch) == RACE_I_ELEMENTAL ) || \
            ( IS_THEURPET_RACE(ch) ) || \
            ( GET_RACE(ch) == RACE_EFREET ))
@@ -804,6 +816,7 @@ for ((IN_ROOM) = world[(PLAYER)->in_room].people; (IN_ROOM) != NULL; (IN_ROOM) =
            (GET_RACE(ch) == RACE_CARNIVORE) || \
            (GET_RACE(ch) == RACE_PARASITE) || \
            (GET_RACE(ch) == RACE_REPTILE) || \
+           (GET_RACE(ch) == RACE_DRAGONKIN) || \
            (GET_RACE(ch) == RACE_SNAKE) || \
            (GET_RACE(ch) == RACE_ARACHNID) || \
            (GET_RACE(ch) == RACE_INSECT))
@@ -837,6 +850,7 @@ for ((IN_ROOM) = world[(PLAYER)->in_room].people; (IN_ROOM) != NULL; (IN_ROOM) =
 #define IS_MULTICLASS_NPC(ch) (IS_NPC(ch) && IS_AFFECTED4(ch, AFF4_MULTI_CLASS))
 
 #define IS_HARDCORE(ch) (IS_PC(ch) && IS_SET(ch->specials.act2, PLR2_HARDCORE_CHAR))
+
 
 #define IS_MULTICLASS_PC(ch) (IS_PC(ch) && ((ch)->player.secondary_class > 0) && ((ch)->player.secondary_class != BIT_32))
 
@@ -916,20 +930,26 @@ for ((IN_ROOM) = world[(PLAYER)->in_room].people; (IN_ROOM) != NULL; (IN_ROOM) =
 #define GOOD_RACE(ch) RACE_GOOD(ch)
 #define PUNDEAD_RACE(ch) RACE_PUNDEAD(ch)
 
-#define USES_COMMUNE(ch) ( \
-    (IS_NPC(ch) || IS_SET((ch)->player.m_class, CLASS_DRUID)))
-#define USES_FOCUS(ch) ((GET_RACE(ch) == RACE_PILLITHID) || \
+#define USES_COMMUNE(ch) ((IS_NPC(ch) || GET_CLASS(ch, CLASS_DRUID) || GET_CLASS(ch, CLASS_RANGER)))
+
+#define USES_MANA(ch) ((GET_RACE(ch) == RACE_PILLITHID) || \
 						(GET_RACE(ch) == RACE_ILLITHID)  || \
 						(GET_CLASS(ch, CLASS_PSIONICIST)) || \
 						(GET_CLASS(ch, CLASS_MINDFLAYER)))
 										
+<<<<<<< HEAD
     //(IS_NPC(ch) || IS_SET((ch)->player.m_class, CLASS_PSIONICIST)) ||
     //IS_SET((ch)->player.m_class, CLASS_MINDFLAYER))
+=======
+//    (IS_NPC(ch) || IS_SET((ch)->player.m_class, CLASS_PSIONICIST)) || \
+//
+  //  (IS_SET((ch)->player.m_class, CLASS_MINDFLAYER))
+>>>>>>> master
 #define USES_SPELL_SLOTS(ch) ( \
         USES_COMMUNE(ch) || \
         IS_PUNDEAD(ch) || \
         IS_HARPY(ch) || \
-        GET_CLASS(ch, CLASS_ETHERMANCER) || \
+	 (GET_CLASS(ch, CLASS_ETHERMANCER)) || \
         USES_FOCUS(ch) || \
         IS_ANGEL(ch))
 
@@ -940,6 +960,7 @@ for ((IN_ROOM) = world[(PLAYER)->in_room].people; (IN_ROOM) != NULL; (IN_ROOM) =
 #define IS_EPIC_SKILL(n) (IS_SKILL(n) && IS_SET(skills[n].targets, TAR_EPIC))
 #define IS_INSTRUMENT_SKILL(n) (n>=FIRST_INSTRUMENT && n<=LAST_INSTRUMENT)
 #define IS_BARD_SONG(n) (n>=FIRST_SONG && n<=LAST_SONG)
+
 
 #define POW_DIFF(att, def) (STAT_INDEX(GET_C_POW(def)) - STAT_INDEX(GET_C_POW(att)))
 
@@ -997,7 +1018,7 @@ IS_GIANT(ch) || IS_PC_PET(ch) || IS_PC(ch) || IS_UNDEAD(ch) || IS_EFREET(ch)) &&
      (skl == SKILL_MAUL) || (skl == SKILL_SHIELD_PUNCH) || (skl == SONG_STORMS) || \
      (skl == SKILL_TACKLE) || (skl == SKILL_TRIP) || (skl == SKILL_WHIRLWIND) || \
      (skl == SKILL_GAZE) || (skl == SKILL_TRAMPLE) || (skl == SONG_DISCORD) || \
-     (skl == SONG_HARMONY))
+     (skl == SONG_HARMONY) || (skl == SKILL_RESTRAIN))
 
 #define IS_AGG_SPELL(spl) (IS_SET(skills[spl].targets, TAR_AGGRO))
 

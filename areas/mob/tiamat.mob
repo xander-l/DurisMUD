@@ -7,7 +7,11 @@ This huge golem was crafted of obsidian, and has a very reptilian
 appearance.  Lacking wings, but with talon adorned claws, and a
 distinctively snake-like mouth, this construct looks very fearsome.
 ~
+<<<<<<< HEAD
 1107298411 1 0 0 536870936 0 131072 0 -1000 S
+=======
+1107363947 1 0 0 536870936 0 131072 0 -1000 S
+>>>>>>> master
 OG 0 1 0 -1
 54 190 -100 1d20+25000 7d6+40
 0.0.0.0 40000000
@@ -21,7 +25,11 @@ This tall, reptilian creature is dressed in dark robes, embroidered
 with the designs of the chromatic dragons.  The five colored heads
 intertwine around the robe, forming a star pattern on the back.
 ~
+<<<<<<< HEAD
 33556554 1 0 0 536871064 2048 131072 0 -1000 S
+=======
+33622090 1 0 0 536871064 2048 131072 0 -1000 S
+>>>>>>> master
 G 0 1 0 -1
 52 200 -100 1d100+20000 7d6+60
 0.0.0.0 4000000
@@ -32,7 +40,11 @@ black dragon guard~
 &+LA huge dragon stands here ready to kill intruders.&N
 ~
 ~
+<<<<<<< HEAD
 1107298376 1 0 0 536871064 2048 131072 0 -1000 S
+=======
+1107363912 1 0 0 536871064 2048 131072 0 -1000 S
+>>>>>>> master
 D 0 1 0 -1
 56 200 -100 1d100+20000 7d6+60
 0.0.0.0 4000000
@@ -46,7 +58,11 @@ The ancient wyrm is very tall and thin, rising up some one-hundred
 feet into the air.  It's head is also long and thin, perched upon
 a long neck.
 ~
+<<<<<<< HEAD
 33556554 1 0 0 536871064 2048 131072 0 -1000 S
+=======
+33622090 1 0 0 536871064 2048 131072 0 -1000 S
+>>>>>>> master
 D 0 1 0 -1
 58 200 -100 1d100+30000 7d6+60
 0.0.0.0 4000000
@@ -61,7 +77,11 @@ into the air.  Its huge body and massive wings buffet the air around
 it.  Baleful eyes that have seen countless years, and countless
 armies destroyed, glare in anger at your approach.
 ~
+<<<<<<< HEAD
 33556554 1 0 0 536871064 2048 131072 0 -1000 S
+=======
+33622090 1 0 0 536871064 2048 131072 0 -1000 S
+>>>>>>> master
 D 0 1 0 -1
 54 200 -100 1d100+30000 7d6+60
 0.0.0.0 4000000
@@ -76,7 +96,11 @@ into the air.  Its huge body and massive wings buffet the air around
 it.  Baleful eyes that have seen countless years, and countless
 armies destroyed, glare in anger at your approach.
 ~
+<<<<<<< HEAD
 33556554 1 0 0 536871064 2048 131072 0 -1000 S
+=======
+33622090 1 0 0 536871064 2048 131072 0 -1000 S
+>>>>>>> master
 D 0 1 0 -1
 52 200 -100 1d100+30000 7d6+60
 0.0.0.0 4000000
@@ -91,7 +115,11 @@ into the air.  Its huge body and massive wings buffet the air around
 it.  Baleful eyes that have seen countless years, and countless
 armies destroyed, glare in anger at your approach.
 ~
+<<<<<<< HEAD
 1107298378 1 0 0 536871064 2048 131072 0 -1000 S
+=======
+1107363914 1 0 0 536871064 2048 131072 0 -1000 S
+>>>>>>> master
 D 0 256 0 -1
 56 200 -100 1d100+30000 7d6+60
 0.0.0.0 4000000
@@ -106,7 +134,11 @@ into the air.  Its huge body and massive wings buffet the air around
 it.  Baleful eyes that have seen countless years, and countless
 armies destroyed, glare in anger at your approach.
 ~
+<<<<<<< HEAD
 1107298378 1 0 0 536871064 2048 131072 0 -1000 S
+=======
+1107363914 1 0 0 536871064 2048 131072 0 -1000 S
+>>>>>>> master
 D 0 1 0 -1
 55 200 -100 1d100+30000 7d6+60
 0.0.0.0 4000000
@@ -121,7 +153,11 @@ into the air.  Its huge body and massive wings buffet the air around
 it.  Baleful eyes that have seen countless years, and countless
 armies destroyed, glare in anger at your approach.
 ~
+<<<<<<< HEAD
 33556554 1 0 0 536871064 2048 131072 0 -1000 S
+=======
+33622090 1 0 0 536871064 2048 131072 0 -1000 S
+>>>>>>> master
 D 0 16 0 -1
 55 200 -100 1d100+30000 7d6+60
 0.0.0.0 4000000
@@ -136,7 +172,11 @@ into the air.  Its huge body and massive wings buffet the air around
 it.  Baleful eyes that have seen countless years, and countless
 armies destroyed, glare in anger at your approach.
 ~
+<<<<<<< HEAD
 1107298378 1 0 0 536871064 2048 131072 0 -1000 S
+=======
+1107363914 1 0 0 536871064 2048 131072 0 -1000 S
+>>>>>>> master
 D 0 512 0 -1
 55 200 -100 1d100+30000 7d6+60
 0.0.0.0 4000000
@@ -151,7 +191,11 @@ into the air.  Its huge body and massive wings buffet the air around
 it.  Baleful eyes that have seen countless years, and countless
 armies destroyed, glare in anger at your approach.
 ~
+<<<<<<< HEAD
 33556554 1 0 0 536871064 2048 131072 0 -1000 S
+=======
+33622090 1 0 0 536871064 2048 131072 0 -1000 S
+>>>>>>> master
 D 0 1 0 -1
 57 200 -100 1d100+30000 7d6+60
 0.0.0.0 4000000
@@ -166,7 +210,11 @@ into the air.  Its huge body and massive wings buffet the air around
 it.  Baleful eyes that have seen countless years, and countless
 armies destroyed, glare in anger at your approach.
 ~
+<<<<<<< HEAD
 34605130 1 0 0 536871064 2048 131072 0 -1000 S
+=======
+34670666 1 0 0 536871064 2048 131072 0 -1000 S
+>>>>>>> master
 D 0 512 0 -1
 57 200 -100 1d100+30000 7d6+60
 0.0.0.0 10000000
@@ -181,7 +229,11 @@ into the air.  Its huge body and massive wings buffet the air around
 it.  Baleful eyes that have seen countless years, and countless
 armies destroyed, glare in anger at your approach.
 ~
+<<<<<<< HEAD
 35653706 1 0 0 536871064 2048 131072 0 -1000 S
+=======
+35719242 1 0 0 536871064 2048 131072 0 -1000 S
+>>>>>>> master
 D 0 256 0 -1
 59 200 -100 1d100+30000 7d6+60
 0.0.0.0 10000000
@@ -195,7 +247,11 @@ This tall, reptilian creature is dressed in dark robes, embroidered
 with the designs of the chromatic dragons.  The five colored heads
 intertwine around the robe, forming a star pattern on the back.
 ~
+<<<<<<< HEAD
 1107314766 1 0 0 538443928 2048 131072 0 -1000 S
+=======
+1107380302 1 0 0 538443928 2048 131072 0 -1000 S
+>>>>>>> master
 G 0 512 0 -1
 60 200 -100 1d100+20000 7d6+60
 0.0.0.0 2000000
@@ -210,7 +266,11 @@ into the air.  Its huge body and massive wings buffet the air around
 it.  Baleful eyes that have seen countless years, and countless
 armies destroyed, glare in anger at your approach.
 ~
+<<<<<<< HEAD
 1109395530 1 0 0 536870936 0 0 0 0 S
+=======
+1109461066 1 0 0 536870936 0 0 0 0 S
+>>>>>>> master
 D 0 256 0 -1
 50 200 -100 1d100+30000 7d6+60
 0.0.0.0 10000000
@@ -224,7 +284,11 @@ The ancient wyrm is very tall and thin, rising up some one-hundred
 feet into the air.  It's head is also long and thin, perched upon
 a long neck.
 ~
+<<<<<<< HEAD
 1174407242 1 0 0 536870936 0 0 0 -1000 S
+=======
+1174472778 1 0 0 536870936 0 0 0 -1000 S
+>>>>>>> master
 D 0 1 0 -1
 50 200 -100 1d100+30000 7d6+60
 0.0.0.0 4000000
@@ -263,7 +327,11 @@ into the air.  Its huge body and massive wings buffet the air around
 it.  Baleful eyes that have seen countless years, and countless
 armies destroyed, glare in anger at your approach.
 ~
+<<<<<<< HEAD
 1107298378 1 0 0 536871064 2048 131072 0 -1000 S
+=======
+1107363914 1 0 0 536871064 2048 131072 0 -1000 S
+>>>>>>> master
 D 0 1 0 -1
 51 200 -100 1d100+30000 7d6+60
 0.0.0.0 4000000
@@ -278,7 +346,11 @@ into the air.  Its huge body and massive wings buffet the air around
 it.  Baleful eyes that have seen countless years, and countless
 armies destroyed, glare in anger at your approach.
 ~
+<<<<<<< HEAD
 33556554 1 0 0 536871064 2048 131072 0 -1000 S
+=======
+33622090 1 0 0 536871064 2048 131072 0 -1000 S
+>>>>>>> master
 D 0 1 0 -1
 56 200 -100 1d100+30000 7d6+60
 0.0.0.0 4000000

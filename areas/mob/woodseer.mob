@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #16500
 halfling jailer~
 a halfling &+Rjailer&N~
@@ -3982,3 +3983,3989 @@ B 0 1 0 -1
 14 15 55 14d27+84 2d5+2
 0.0.0.0 6804
 8 8 0
+=======
+#16500
+halfling jailer~
+a halfling &+Rjailer&N~
+&+LThe halfling&N &+rjailer&N &+Lsmiles as he twirls the key to the jail&N
+~
+Despite his friendly grin, the jailer looks tough and immovable.  Like all the
+halfling guards he takes great pride in his work, and the fact that HE is the
+one trusted with the only key to the jail door.
+~
+100665422 672 0 0 536879144 12480 0 0 1000 S
+PF 0 1 0 -1
+35 6 -12 35d83+595 4d6+7
+9.9.1.2 45360
+8 8 1
+#16501
+halfling guard justice~
+&+Wa halfling guard&N~
+&+WA halfling guard patrols the streets keeping the peace.&N
+~
+This jovial halfling keeps a close watch on everything that goes on in his
+area.  Any disruptions to the peace, or violent acts will be met with
+swift action.  Like most of the halfling guards this one has the eye-within-a-
+sunburst tattoo that is rumored to give them the ability to see even invisible
+and sneaking thieves.  This guard may not be as burly as some of his friends
+but it is certain that one swift cry will bring many more.
+~
+1174407244 672 0 0 8232 0 0 0 1000 S
+PF 0 1 0 -1
+36 15 61 12d27+72 2d5+2
+6.4.2.0 5832
+8 8 1
+#16502
+halfling guard~
+&+Wa halfling guard&N~
+&+WA halfling guard patrols the streets keeping the peace.&N
+~
+This jovial halfling keeps a close watch on everything that goes on in his
+area.  Any disruptions to the peace, or violent acts will be met with
+swift action.  Like most of the halfling guards this one has the eye-within-a-
+sunburst tattoo that is rumored to give them the ability to see even invisible
+and sneaking thieves.  This guard may not be as burly as some of his friends
+but it is certain that one swift cry will bring many more.
+~
+1174407246 672 0 0 0 0 0 0 1000 S
+PF 0 1 0 -1
+12 15 61 12d27+72 2d5+2
+6.4.2.0 5832
+8 8 1
+#16503
+halfling guard elite justice~
+&+Can elite guard&N~
+&+COne of the elite halfling guards protects all that pass by.&N
+~
+Smiling calmly at all that pass by, this halfling guard has obviously seen a
+great deal of fighting.  Thin scars from sparring, or perhaps all out battle,
+mark the length of his forearms.  Nothing would phase this skilled warrior and
+the strange tattoo on his forehead is supposed to allow him to see both
+invisible and sneaking thieves as well as helping detect whether or not any
+particular individual has any evil intentions.
+~
+1140852812 672 0 0 8 0 0 0 1000 S
+PF 0 1 0 -1
+45 8 3 30d65+390 3d6+4
+0.5.7.1 26730
+8 8 1
+#16504
+halfling guard elite~
+&+Can elite guard&N~
+&+COne of the elite halfling guards protects all that pass by.&N
+~
+Smiling calmly at all that pass by, this halfling guard has obviously seen a
+great deal of fighting.  Thin scars from sparring, or perhaps all out battle,
+mark the length of his forearms.  Nothing would phase this skilled warrior and
+the strange tattoo on his forehead is supposed to allow him to see both
+invisible and sneaking thieves as well as helping detect whether or not any
+particular individual has any evil intentions.
+~
+1174407246 672 0 0 536879144 12480 0 0 1000 S
+PF 0 1 0 -1
+35 6 -12 35d83+595 4d6+7
+9.9.1.2 45360
+8 8 1
+#16505
+halfling guard lieutenant justice~
+&+ga lieutenant&N~
+&+gA lieutenant of the Woodseer guard patrols the area.&N
+~
+The lieutenant watches everything around him with a confident air.   His
+confidence is bourne of the many battles he has fought in the defense of
+Woodseer and his adventuring in the nearby jungle.  His alligatorskin armor is
+a sign of his status among the guards.  Such armor is expensive, the Woodseer
+Council must value his service a great deal.
+~
+1174407244 672 0 0 0 0 0 0 1000 S
+PF 0 1 0 -1
+40 -3 -95 50d119+2750 6d6+25
+0.3.1.5 121500
+8 8 1
+#16506
+halfling guard lieutenant _nosneak_~
+&+ga lieutenant&N~
+&+gA lieutenant of the Woodseer guard keeps a careful watch.&N
+~
+The lieutenant watches everything around him with a confident air.   His
+confidence is bourne of the many battles he has fought in the defense of
+Woodseer and his adventuring in the nearby jungle.  His alligatorskin armor is
+a sign of his status among the guards.  Such armor is expensive, the Woodseer
+Council must value his service a great deal.
+~
+1174407244 672 0 0 0 0 0 0 1000 S
+PF 0 1 0 -1
+46 -3 -95 50d119+2750 6d6+25
+0.3.1.5 121500
+8 8 1
+#16507
+jarus halfling guard~
+&+YJarus the fourth&N~
+&+YJarus the fourth, &+Wchampion of Woodseer&+Y, keeps a careful watch.&N
+~
+&+WA tattoo of a &+Ygolden leaf&N &+Wmarks each forearm of this stout halfling man.
+&+WDescended from one of the most famous halflings to ever live, this champion of
+&+WWoodseer continues to add more prestige to his family's storied past.  Like his
+&+Wfather and grandfather before him, he has taken up the post of chief guard of
+&+WWoodseer, and under his leadership, the people have found prosper in uncertain
+&+Wtimes.  He bears the scars of battle, and even though he is but a halfling, he
+&+Whas amassed an impressive collection of wins upon the battlefield.&N
+~
+1174407180 672 0 0 8 0 0 0 1000 S
+PF 0 1 0 -1
+58 -7 -114 56d143+5880 7d6+35
+1.3.8.6 226800
+8 8 1
+#16508
+clora halfling~
+&+mClora&N~
+&+mClora&N &+Wawaits visitors to her humble store.&N
+~
+&+MClora&N has always supplied the best of clothing to her customers and takes
+pride in her ability to tailor clothing to fit.  It is hard to believe that she
+could ever do anything other than smile.  Even on the most miserable rainy days
+she always has a smile for anyone that comes by.  Small wrinkles crinkle beside
+her eyes everytime she laughs or smiles making her somehow both beautiful and
+maternal at the same time.  Despite her gentle demeanor it would be unwise to
+insult her fine products.
+~
+33556554 0 0 0 0 0 0 0 200 S
+PF 0 0 0 -1
+45 -1 -69 45d90+1935 6d6+12
+5.9.8.4 109350
+8 8 2
+#16509
+sturdy halfling guard~
+&+La sturdy halfling guard&N~
+&+LA sturdy halfling guard stands here.&N
+~
+Smiling calmly at all that pass by, this halfling guard has obviously seen a
+great deal of fighting.  Thin scars from sparring, or perhaps all out battle,
+mark the length of his forearms.  Nothing would phase this skilled warrior
+and the strange tattoo on his forehead is supposed to allow him to see both
+invisible and sneaking thieves as well as helping detect whether or not any
+particular individual has any evil intentions.
+~
+33589322 0 0 0 0 0 0 0 0 S
+PF 0 4096 0 -1
+45 -1 -69 45d90+1935 6d6+12
+5.9.8.4 109350
+8 8 1
+#16510
+halfling banker~
+&+rthe halfling banker&N~
+&+rA smiling halfling banker stands here ready to take deposits.&N
+~
+Money makes halflings somewhat jovial, and this one seems permanently happy.
+The tip of his nose appears to have been cut off at some time in the past, but
+rather than detering from his appearance, it makes his smile seem larger and
+happier, and somehow more trustworthy.  Every customer is treated with respect
+and a smile making all who keep their money here satisfied that they are doing
+the best thing.
+~
+2122 0 0 0 0 0 0 0 500 S
+PF 0 1 0 -1
+45 -1 -69 45d107+2025 6d6+12
+5.9.8.4 109350
+8 8 1
+#16511
+halfling jailkeeper jailer~
+&+Lthe j&+ra&+Li&+rl&+Lk&+re&+Le&+rp&+Le&+rr&N~
+&+LA halfling&N &+rjailkeeper&N &+Lstands here guarding the jail.
+~
+Perhaps this jailkeeper seems happy simply because he has such an easy job.  It
+is hard to imagine anyone ever being able to escape from this well-made
+mountain prison.  Everything here is so well designed that any foolish attempt
+can be easily overcome.  His face shows his youth and a certain amount of
+innocence, but his arms show the strength that got him the job in the first
+place.
+~
+1140852810 672 0 0 8232 0 0 0 1000 S
+PF 0 1 0 -1
+15 15 51 15d27+90 2d5+2
+7.6.2.0 7290
+8 8 1
+#16512
+halfling judge~
+&+bthe judge&N~
+&+bA peace-loving judge sits here ready to pass judgment.
+~
+&+CCalm and peace seem to flow from this calm halfling woman into everything in&N
+&+Cthe room.  Her bright &+Bblue&+C eyes watch everything that goes on around
+&+Cher very closely.  Though still quite young, even by halfling standards, she&N
+&+Chas earned the respect and admiration of the Woodseer Council as well as all&N
+&+Cthe legal experts in Woodseer.  Though kindly looking, one can be assured that&N
+&+Cthe law, and punishments for breaking it, shall be followed to the letter.&N
+~
+100665422 640 0 0 8232 0 0 0 0 S
+PF 0 32 0 -1
+45 -1 -69 45d99+1980 6d6+12
+5.9.8.4 109350
+6 6 2
+#16513
+halfling guard~
+&+Wthe cathedral guard&N~
+&+WA stout halfling guards all who worship in the cathedral.&N
+~
+His handsome face is marked with a kind and peaceful smile.  Though he is meant
+to guard the cathedral and all who worship here, it is obvious that he is also
+here to pay tribute to his own god.  He wears a beautiful white tunic that
+glows with a holy magic, but still looks to flimsy to provide any real
+protection.
+~
+1174407242 672 0 0 8192 0 0 0 1000 S
+PF 7 1 0 -1
+15 15 51 15d27+90 2d5+2
+7.6.2.0 7290
+8 8 1
+#16514
+halfling guard~
+&+Wa cathedral guard&N~
+&+WA beautiful halfling woman stands here ready to protect the cathedral&N
+~
+Most halflings have a certain 'cuteness' about them but this halfling woman is
+beautiful by any standard.  Her small features and broad smile make her one of
+the friendliest halflings around.  In fact, her beauty is such that it is a
+surprise to see her wearing the white tunic of the cathedral guards.  Her wood
+cudgel looks to have seen a great deal of use at some time in the distant past
+but it is obvious that layers of polish now cover the old gouges and dents in
+the wood.
+~
+1140852810 0 0 0 8192 0 0 0 1000 S
+PF 7 1 0 -1
+18 13 42 18d35+126 3d4+2
+9.7.3.0 8748
+8 8 2
+#16515
+halfling priest~
+&+Ca halfing priest&N~
+&+CA halfling priest kneels here to worship his god.&N
+~
+Though he humbly kneels in one corner and prays by himself, it is easy to see
+the strength and conviction of his faith.  He wears the robes of his god and
+makes no secret of his faith and the strength it has brought him.  His soft
+features and clear eyes show that, though wrinkled, his faith has kept him
+young.
+~
+1073743946 0 0 0 8192 0 0 0 1000 S
+PF 7 32 0 -1
+21 11 32 21d44+189 3d5+3
+4.0.5.0 18711
+6 6 1
+#16516
+halfling priestess~
+&+Ba smiling priestess&N~
+&+BA petite priestess stands here, telling all about her god.&N
+~
+Though tiny, this young halfling woman carries a strength of presence that
+commands attention.  She proudly wears the robes of her goddess and is happy
+to step forward and discuss her views.  When she does begin to speak her
+features become animated and seem to light up the room.
+~
+1073743946 0 0 0 8192 0 0 0 1000 S
+PF 7 32 0 -1
+26 8 16 26d60+312 3d6+4
+7.2.6.1 23166
+8 8 2
+#16517
+halfling priest~
+&+Wa tired-looking priest&N~
+&+CA small junior priest sleeps here.&N
+~
+His calm face is lined with fatigue caused by many long hours praying and
+studying in the cathedral.  It is nothing a year or two of sleep wouldn't
+cure.
+~
+2120 0 0 0 0 0 0 0 1000 S
+PF 7 32 0 -1
+16 13 48 16d33+96 3d4+2
+8.6.2.0 7776
+4 8 1
+#16518
+halfling priestess~
+&+ba sleepy priestess&N~
+&+bA sleeping priestess quietly snores here.&N
+~
+Her heavy eyelids droop with fatigue as she does her best to sleep through all
+the noise in the cathedral.  Fatigue and calmness seem to seep from her body
+into the room.  She wears the rumpled robes of her god as if she has been in
+the same clothes for quite some time.
+~
+2120 0 0 0 0 0 0 0 1000 S
+PF 7 32 0 -1
+11 15 64 11d25+55 2d5+2
+5.4.1.0 5346
+4 8 2
+#16519
+elf elven merchant~
+&+gan elven merchant&N~
+&+gAn elven merchant wanders the cathedral with a sneer on his face&N
+~
+Though fairly short, this elven merchant still towers over the halflings that
+are praying here in the cathedral.  His sharp angular features would be quite
+handsome if it weren't for the ugly sneer on his face.  It would almost seem
+that the sneer is meant to cover up admiration for the beautiful cathedral the
+halflings have constructed here.  Elves love to see buildings constructed in
+harmony with nature, they just hate to see lesser races do such a good job of
+it.
+~
+2120 0 0 0 0 0 0 0 100 S
+PE 4 512 0 -1
+12 15 61 12d18+48 2d5+2
+6.4.2.0 5832
+8 8 1
+#16520
+halfling farmer~
+&+yan elderly farmer&N~
+&+yAn elderly farmer stands here, paying tribute.&N
+~
+Wrinkles line her tan face, surrounding bright &+bblue&N eyes and making her
+age more distinguishing than disfiguring.  Obviously a farmer based o her garb
+alone, she has a hearty, healthy air to her as she stands straight, daring the
+elements to try to pull her down.  Her hair and face show the wear and tear of
+many years outside in the wind and sun, none of which have been able to slow
+her down.  Despite the serene smile on her face, her eyes bear a haunting,
+lonely quality.
+~
+2120 0 0 0 0 0 0 0 500 S
+PF 7 0 0 -1
+8 18 74 8d18+28 2d3+1
+4.2.0.0 1036
+8 8 2
+#16521
+halfling logger~
+&+Ga halfling logger&N~
+&+GA pensive halfling logger stands here.&N
+~
+A bewildered expression marks otherwise stark and plain features.  It almost
+seems as if this simple logger went to the cathedral and then forgot why he
+wanted to come in the first place.  He stares at the beauty of the cathedral
+and then looks down at his own grubby work clothes, obviously feeling out-of-
+place here.  An ax is clung over his shoulder, seemingly forgotten as he looks
+at everything around him.
+~
+1073743944 0 0 0 8192 0 0 0 400 S
+PF 7 2 0 -1
+10 18 67 10d21+55 2d3+1
+5.3.0.0 1296
+8 8 1
+#16522
+halfling woman~
+&+Ya halfling woman&N~
+&+YA young halfling woman prays to the goddess of fertility.&N
+~
+Rather plain by halfling standards, the young woman seems embarassed to be seen
+here praying to the goddess.  Nobody seems to really notice her here though,
+everyone that visits here is intent on either praying to their god or looking
+all the different statues in the beautiful cathedral.  Straw colored hair
+frames her rather plain features.  Her silk dress does a good job of high-
+lighting her more beautiful qualities and downplaying her more plain features.
+~
+2122 0 0 0 0 0 0 0 1000 S
+PF 7 0 0 -1
+6 18 80 6d18+21 2d3+1
+3.2.0.0 777
+6 6 2
+#16523
+halfling woodcarver~
+&+ya halfling woodcarver&N~
+&+yOne of the halfling woodcarvers walks through the area.&N
+~
+Several carving tools bang together on his belt as he walks past with a look
+of concentration on his face.  He seems to study everything he sees, judging
+the wood and buildings he sees in a glance, and almost ignoring everything
+else.  His features seem soft and friendly but his hands are marked with
+callouses and scars from his work.  When he actually notices someone looking
+at him he smiles a greeting in their direction but is otherwise quite silent
+and introspective for a halfling.
+~
+1073743944 0 0 0 0 0 0 0 1000 S
+PF 7 1 0 -1
+8 18 74 8d21+44 2d3+1
+4.2.0.0 1036
+8 8 1
+#16524
+human warrior paladin~
+&+Wa human warrior&N~
+&+WA human warrior wanders among the halflings smiling.&N
+~
+&+WEverything about this tall human's figure and countenance speaks of an&N
+&+Wunspoken purpose and determination.  His highly polished armor and weapons&N
+&+Wshow that he takes excellent care of the tools of his trade, one which&N
+&+Wcertainly has involved many difficult battles which have left him with many&N
+&+Wscars.&N
+~
+1174407240 160 0 0 8192 0 0 0 1000 S
+PH 0 8 0 -1
+12 15 61 12d27+72 2d5+2
+6.4.2.0 5832
+8 8 1
+#16525
+halfling woodcarver~
+a blind woodcarver~
+&+yA blind woodcarver calmly carves small animals out of wood.&N
+~
+A long thin scar crosses through both eyes and the bridge of his nose.  This
+scar and several other scars that line his face and arms indicate that this
+small halfling saw a number of battles before losing his sight.  Despite the
+loss of his vision he is still able to carve beautiful animals by touch alone.
+Though he can no longer see, within his own home he moves gracefully and
+without any of the hesitations that one might expect.
+~
+2122 0 0 0 8208 0 0 0 400 S
+PF 7 1 0 -1
+7 18 77 7d21+38 2d3+1
+3.2.0.0 907
+8 8 1
+#16526
+halfling woman~
+a halfling woman~
+A wealthy halfling woman on a shopping trip walks down the road.
+~
+Expensive clothing of the latest fashions mark highlight her wealth and good
+taste.  She swings her purse calmly as she walks around looking at what every
+store has to offer.  Though she openly shows her wealth, she is quite safe here
+for nobody would be foolish enough to try to rob anyone with so many guards
+around.
+~
+2248 0 0 0 0 0 0 0 1000 S
+PF 7 0 0 -1
+6 18 80 6d18+21 2d3+1
+3.2.0.0 777
+8 8 2
+#16527
+halfling bartender~
+&+ba burly bartender&N~
+&+bA burly bartender stands here ready to serve his customers.&N
+~
+&+bMassive arms seem to erupt from his stocky form, which bulges with muscles&N
+&+bthat would make even the most skilled of guards proud.  By halfling standards,&N
+&+bthis gentleman certainly is at the top of the charts.  Bushy eyebrows frame&N
+&+bsoft &+mmagenta&N &+beyes which make him look far more gentle than his brusque&N
+&+bdemeanor would imply.  He treats all of his customers the same, showing no&N
+&+bfavoritism toward anyone, even the 'regulars', and goes about his business&N
+&+bwith speed and dedication.&N
+~
+2122 0 0 0 8192 0 0 0 0 S
+PF 7 1 0 -1
+45 -1 -69 45d107+2025 6d6+12
+5.9.8.4 109350
+8 8 1
+#16528
+halfling bard~
+&+ma cheery bard&N~
+&+mA smiling bard stands here selling instruments.&N
+~
+&+mLike many bards, this halfling wears a broad smile on his face at all times.&N
+&+mHe has been retained here by Lomar to sell or rent instruments to anyone that&N
+&+mwishes to try their hand at playing or singing.  At times, he wears an&N
+&+mexpression of agony as some drunkard makes a vain attempt at producing music&N
+&+mbut most times he just smiles pleasantly or even laughs as the instruments&N
+&+mare sold back to him.&N
+~
+34890 0 0 0 0 0 0 0 0 S
+PF 7 32768 0 -1
+45 -1 -69 45d99+1980 6d6+12
+5.9.8.4 109350
+8 8 1
+#16529
+lomar halfling bard~
+&+mLomar, &+Mthe great bard&N~
+&+mLomar, the great bard, stands here playing his flute.&N
+~
+&+MLomar is one of the calmest and most unflappable halflings around.  He is &N
+&+Malso one of the most beautiful.  All the features of his face are even and&N
+&+Mseem to fit together so perfectly that it is hard to believe he is real. His&N
+&+Mvoice is even more amazing, he spans several octaves as he sings and weaves &N
+&+Mtales, adopting all the character of those he sings about.  It is said that he&N
+&+Mhas witnessed many great battles and been on many adventures and that is why &N
+&+Mhe has been able to find so many different things to sing about.  Even if this&N
+&+Misn't true, his beautiful voice makes every song and tale come alive, so much&N
+&+Mso that it doesn't really matter if it is true or not.  Lomar's trips to the
+&+Mfaerie realms have altered his life force and unnaturally extended his life
+&+Mfar beyond normal.&N
+~
+1107331144 0 0 0 0 0 0 0 0 S
+PF 7 32768 0 -1
+50 -3 -95 50d110+2700 6d6+25
+0.3.1.5 121500
+8 8 1
+#16530
+half-elf bard elf~
+a half-elf bard~
+&+mA half-elf bard sings to the patrons about far away lands.&N
+~
+Halflings welcome anyone of good intentions into their beautiful town, and this
+handsome half-elf is certainly no exception.  Smiling and nodding at every
+customer that walks in he sings in a clear voice that can be heard through
+all of the talking at the bar.  There is a sadness in his eyes, and it is
+obvious that he is used to playing some sort of instrument as he sings
+because his hands strum at empty air.  Why he has decided not to play his
+instrument today is a mystery for he certainly seems to miss it.
+~
+2122 0 0 0 0 0 0 0 0 S
+P2 0 32768 0 -1
+10 18 67 10d19+45 2d3+1
+5.3.0.0 1296
+8 8 1
+#16531
+drunk woman halfling~
+&+Ca tipsy halfling woman&n~
+&+CA tipsy halfling woman sways to the music.&N
+~
+Proof that she has had enough to drink is completely unnecessary, she continues
+to sway even when the music has stopped and seems barely capable of standing
+on her own.  The young halfling woman is in good spirits, certainly here to
+celebrate something.
+~
+2250 0 0 0 0 0 0 0 350 S
+PF 7 0 0 -1
+6 18 80 6d18+21 2d3+1
+3.2.0.0 777
+8 8 2
+#16532
+drunk halfling~
+a drunken halfling~
+A drunken halfling leans heavily on the bar to keep standing.
+~
+Bleary eyes stare out from beneath bushy eyebrows as he leans heavily against
+the bar.  It is clear that this gentleman has had more than enough to drink,
+but he seems intent on drinking himself into oblivion.  Soon, one would guess,
+he will not be sober enough to protect himself or his money and will find his
+purse quite empty.
+~
+2138 0 0 0 0 0 0 0 0 S
+PF 7 16384 0 -1
+5 20 83 5d17+27 1d5+0
+3.1.0.0 648
+8 8 1
+#16533
+halfling guard drunk~
+&+Wa drunk guard&N~
+&+WA drunk off-duty guard stares solemnly into his ale.&N
+~
+Though normally quite attentive while on duty, this off-duty guard is wrapped
+up in his own private thoughts and completely ignores everything that is going
+on around him.  It is hard to imagine anything that would make a halfing so
+pensive and withdrawn, but it seems best to just leave him to his ale.
+~
+1107298378 0 0 0 0 0 0 0 350 S
+PF 7 1 0 -1
+10 18 67 10d21+55 2d3+1
+5.3.0.0 1296
+8 8 1
+#16534
+halfling sleeping drunk patron~
+a sleepy drunk~
+A bar patron snores off his drink beneath one of the tables.
+~
+It is sad to see that some people just don't know when to stop drinking.  This
+poor fellow has had far more to drink than he should have and has lost the
+battle against the sleep the alcohol has dragged him into.  What is even more
+surprising is that the bartender hasn't thrown him out.
+~
+2122 0 0 0 0 0 0 0 0 S
+PF 7 16384 0 -1
+4 20 87 4d17+22 1d5+0
+2.1.0.0 518
+4 4 1
+#16535
+halfling drunk~
+a foolish drunk~
+A foolish drunkard is trying to sing here causing many to laugh.
+~
+Clearly, this gentleman needs to sit down and start drinking water instead of
+ale.  Exactly what or who gave him the idea he should attempt to sing is
+criminal.  It is quite fortunate that people in the area are also drunk enough
+to think his vain attempts are funny, otherwise he may have been hurt by now.
+~
+2122 0 0 0 0 0 0 0 0 S
+PF 7 16384 0 -1
+7 18 77 7d21+38 2d3+1
+3.2.0.0 907
+8 8 1
+#16536
+half-elf bard maiden~
+&+Ga half-elf bard&N~
+&+GA beautiful half-elf maiden sings songs of sorrow and joy.&N
+~
+&+GClear green eyes survey the crowd as she sings her songs accompanied by nothing&N
+&+Gother than the clapping of her audience and the slap of her feet on the stage.&N
+&+GHer beauty is enhanced by the way she seems to put every ounce of strength and&N
+&+Genergy into her songs.  She tosses her head about sending her long hair into&N
+&+Gthe breeze and attracting the attention of everybody that passes by.&N
+~
+34890 0 0 0 0 0 0 0 0 S
+P2 7 32768 0 -1
+12 15 61 12d25+60 2d5+2
+6.4.2.0 5832
+8 8 2
+#16537
+halfling woman bard~
+&+ma halfling bard&N~
+&+mA sweet halfling bard waits for her turn on the stage.&N
+~
+&+mTight braids wind her long hair behind her ears and over her shoulders, framing&N
+&+mher beautiful face with the dark tresses.  She stands patiently, waiting for&N
+&+mher turn to impress the crowd in the square.  Tiny cymbals on her fingers show&N
+&+mthat she adds music and dance to her songs.  Her dark eyes watch the crowd&N
+&+mtrying to appraise what types of songs they might like the most.&N
+~
+2122 0 0 0 0 0 0 0 0 S
+PF 7 32768 0 -1
+7 18 77 7d19+31 2d3+1
+3.2.0.0 907
+8 8 2
+#16538
+halfling fish vendor~
+a fish vendor~
+&+WA stocky halfling stands here selling fish.&N
+~
+This small halfling has made his living selling the fish that are caught in
+the lake and the river.  It is hard to tell whether it is the fish that have
+created the strong aroma or if it is the vendor himself due to his constant
+exposure to them.  He smiles happily at everyone that comes by, and it is
+plain to see that he is quite well-liked, and that his fish sell quite well.
+~
+2122 0 0 0 0 0 0 0 1000 S
+PF 7 1 0 -1
+45 -1 -69 45d107+2025 6d6+12
+5.9.8.4 109350
+8 8 1
+#16539
+halfling woman fruit vendor~
+&+Wan ancient halfling woman&n~
+&+WAn ancient halfling woman stands here selling fruit.&N
+~
+Deep wrinkles line a weathered face, each line seeming to show her age. Despite
+her age see seems quite spry and happy, completely at peace with herself as
+she stands here selling the fresh fruit from the nearby farms.  It would appear
+that the children prefer the apples that she practically gives away to keep
+them from running too quickly through the market.
+~
+2122 0 0 0 0 0 0 0 1000 S
+PF 7 1 0 -1
+45 -1 -69 45d107+2025 6d6+12
+5.9.8.4 109350
+8 8 2
+#16540
+halfling leather vendor~
+a leather vendor~
+&+WA bored leather vendor stands here selling belts.&N
+~
+Though he has a number of items to sell he doesn't seem to make any real effort
+to attract customers to his stand.  Though he looks friendly enough, he appears
+to be completely bored with what he has to do for a living.  His lack of
+enthusiasm has carried over to his work as well, the belts and boots he is
+selling have no added touches to them, the minimum amunt of work to create
+functional items has gone into their creation and nothing more.
+~
+2122 0 0 0 0 0 0 0 1000 S
+PF 7 1 0 -1
+45 -1 -69 45d107+2025 6d6+12
+5.9.8.4 109350
+8 8 1
+#16541
+halfling elderly~
+an elderly halfling~
+&+WAn elderly halfling stands here serving food.&N
+~
+It is interesting to note that, despite his grouchiness, this food vendor does
+extremely good business.  He is happy to sell meals to anyone that wishes to
+purchase them, but makes it clear that they should be eaten elsewhere.  This
+might be due to his age, it is easy to understand that he might not want to
+have to clean up after people once they leave, but the food he sells could
+easily be served in a fine, expensive restaurant.
+~
+2122 0 0 0 0 0 0 0 1000 S
+PF 7 1 0 -1
+45 -1 -69 45d107+2025 6d6+12
+5.9.8.4 109350
+8 8 1
+#16542
+halfling woman old~
+a halfling woman~
+An old halfling woman sleeps in the corner.
+~
+The food vendor's wife is the one that prepares many of the meals that he sells
+here.  It is clear that her age and hard work have worn her out, forcing her
+to take a nap in the corner before the next rush of customers.  Her features
+are wrinkled, and her hair is gray, but the smile she wears as she sleeps is
+one of a playful child.
+~
+2122 0 0 0 0 0 0 0 350 S
+PF 7 0 0 -1
+5 20 83 5d15+17 1d5+0
+3.1.0.0 648
+4 4 2
+#16543
+halfling bounty-hunter~
+&+ba bounty-hunter&n~
+&+bA smiling bounty-hunter stands here tending the shop.&N
+~
+This stout halfling has obviously seen his share of fighting.  Thick scars
+line his face and arms, and a long thin scar runs from his neck up past
+where is left ear should be.  If not for the scars, he would be almost as
+handsome as some bards, mostly due to his large friendly smile.  He has
+retired from collecting rewards to work here at Karuna's supply shop making
+certain that anyone that goes out on a job is properly equiped.
+~
+2122 0 0 0 0 0 0 0 1000 S
+PF 7 16384 0 -1
+45 -1 -69 45d107+2025 6d6+12
+5.9.8.4 109350
+8 8 1
+#16544
+halfling mage~
+&+Ya small mage&N~
+&+YA small halfling mage stands here selling potions and scrolls.&N
+~
+&+YThis tiny halfling woman has the respect of all the other halfling mages in&N
+&+Ythe tower.  It is her job to help support the studies of the others by selling&N
+&+Yoff the extra potions and scrolls that have been created in their work.  It&N
+&+Yis also clear that much of the respect she has received is due to her prowess&N
+&+Yin creating and casting spells.&N
+~
+2122 0 0 0 0 0 0 0 500 S
+PF 7 512 0 -1
+46 -3 -72 46d80+2438 6d6+25
+6.0.9.4 111780
+8 8 2
+#16545
+buzzle halfling~
+&+RBuzzle&N~
+&+RBuzzle, the merchant, stands here selling goods.&N
+~
+&+RBuzzle, like many halfling merchants, wears a broad friendly smile on his face&N
+&+Ras he hawks his wares to all that pass by.  His smile, unlike many merchants,&N
+&+Rseems entirely genuine.  He stands confident and proud, knowing that he has &N
+&+Rthe best prices anywhere around.  Admittedly, his goods aren't all top quality,&N
+&+Rhe prefers to deal in large volumes of the ordinary supplies.  Standard &N
+&+Rsupplies are always in demand, and, if enough are sold, can be quite &N
+&+Rprofitable.  Though he claims to be an ordinary merchant, he wears at least as&N
+&+Rmany scars as some of the more experienced guards and warriors that can be &N
+&+Rseen wandering Woodseer.  It would be more than unwise to try to steal from&N
+&+Rhim, in fact, it would probably be deadly.&N
+~
+2122 0 0 0 0 0 0 0 1000 S
+PF 7 1 0 -1
+45 -1 -69 45d107+2025 6d6+12
+5.9.8.4 109350
+8 8 1
+#16546
+halfling warrior leelon~
+&+rLeelon the armorer&N~
+&+rLeelon stands here ready to fit warriors with new armor.&N
+~
+&+rLeelon cuts a fine figure of a halfling, standing almost a hand taller than&N
+&+rthe average and sporting a lean, wiry physique.  He has retired from&N
+&+radventuring to run this fine store.  Leelon sells some of the finest armor&N
+&+rthat can be found, as well as some less expensive pieces, and his prices make&N
+&+rone fairly certain that he has cornered the market.  His prices are so high&N
+&+rthat many feel it is more economical to make a trek to one of the human or&N
+&+rdwarven towns to try to purchase armor there.&N
+~
+2122 0 0 0 0 0 0 0 1000 S
+PF 7 1 0 -1
+45 -1 -69 45d107+2025 6d6+12
+5.9.8.4 109350
+8 8 1
+#16547
+halfling bait salesman~
+&+Gthe bait salesman&n~
+&+GA grumpy halfling stands here selling bait and fishing rods.&N
+~
+The bait salesman stands here with a sour look on his face.  Surrounded by
+pails full of worms and other types of bait, he does his best to try to sell
+fishing rods and fake lures so that someday he might be able to stop selling
+the ugly worms.  Dirt is ingrained underneath his fingernails from too
+many years of catching and selling worms.  His face is marked with wrinkles
+and eyebrows that stick out of a permanently furrowed brow.
+~
+2122 0 0 0 0 0 0 0 0 S
+PF 7 1 0 -1
+30 8 3 30d65+390 3d6+4
+0.5.7.1 26730
+8 8 1
+#16548
+halfling apprentice~
+&+ca halfling apprentice&n~
+&+cAn apprentice stands here selling jewelry.&N
+~
+His young face is marked with eagerness and curiosity as he does his best to
+please every customer that comes into the store.  The pieces he buys and sells
+are all quite well-made, though some are a bit gaudy.  Some of the pins and
+broaches command high prices, and are certainly worth it.  It is somewhat
+surprising that Syune would take such a young apprentice, specially considering
+the rumours that are told of his temper, but this young halfling seems
+extremely happy here.
+~
+2122 0 0 0 0 0 0 0 0 S
+PF 7 4096 0 -1
+45 -1 -69 45d90+1935 6d6+12
+5.9.8.4 109350
+8 8 1
+#16549
+jrev halfling~
+&+LJrev, the merchant&N~
+&+LJrev stands here selling weapons of death.&N
+~
+&+LJrev is a short burly halfling that has built his reputation on the ability
+&+Lto acquire almost any type of mundane weapon for his customers.  It is also
+&+Lrumored that he can acquire magical weapons, but nothing he displays would
+&+Lindicate that that rumor is true.  Thin white scars run across his face and
+&+Larms indicating that he has done his share of fighting and that he knows a
+&+Lgood weapon when he sees one.  Penetrating green eyes examine every customer
+&+Lthat comes in, instantly determining if they are ready to buy, or just
+&+Lexamining his goods.&n
+~
+2122 0 0 0 0 0 0 0 0 S
+PF 7 16384 0 -1
+45 -1 -69 45d107+2025 6d6+12
+5.9.8.4 109350
+8 8 1
+#16550
+halfling waiter~
+&+Lthe waiter&n~
+&+LA handsome halfling waiter in a tuxedo serves his customers.&N
+~
+His handsome face is unmarred by any scars or disfiguring marks, and is made
+even friendlier by his bright smile.  He wears a formal &+Lblack tuxedo&N as
+he moves through the tables, trying to keep a high-class air about him.
+Even though he is kind and friendly, it is obvious that he looks down on the
+poorer patrons that can only afford to come here infrequently and that he
+fawns on the wealthier regular customers.
+~
+2122 0 0 0 0 0 0 0 0 S
+PF 7 16384 0 -1
+25 11 19 25d47+250 3d5+3
+6.2.6.1 22275
+8 8 1
+#16551
+halfling bartender~
+&+Gthe bartender&N~
+&+GA grinning bartender serves drinks to all who can pay.&N
+~
+A broad grin seems plastered on his broad face, making his forehead appear
+higher and balder than it truely is.  It his job to keep patrons happy while
+they wait for their tables in the restaurant upstairs and he does a very good
+job of it.  He does make it obvious to anyone he serves that there is a tip jar
+at the end of the bar, and that he expects something to be put in it.
+~
+2122 0 0 0 0 0 0 0 1000 S
+PF 7 1 0 -1
+25 11 19 25d47+250 3d5+3
+6.2.6.1 22275
+8 8 1
+#16552
+halfling bartender~
+&+Ythe bartender&N~
+&+YA burly warrior serves drinks to the patrons.&N
+~
+This particular halfling is so stocky that he has been accused of being a
+beard-less dwarf, though not to his face.  He seems quite jovial as he serves
+up the ale, but it is clear that he keeps a watchful eye on everyone.  It is
+his job to make certain that any fights or arguments get moved elsewhere so
+none of the furniture gets damaged here.  An ugly burn scar marks his left
+arm and several other strange scars mark his right hand.  It is clear that
+any fights here will be met with the most aggressive force.
+~
+2122 0 0 0 0 0 0 0 1000 S
+PF 7 1 0 -1
+45 -1 -69 45d107+2025 6d6+12
+5.9.8.4 109350
+8 8 1
+#16553
+halfling bartender~
+&+Mthe bartender&N~
+&+MA bartender with a brutally scarred face serves drinks here.&N
+~
+This poor bartender's face has been twisted and disfigured by scars from more
+battles that anyone would like to think of.  He has given up bounty-hunting
+and retired here to act as Karuna's bartender and overseer.  Rumor has it
+that Karuna has authorized him to KILL anyone caught fighting in his bar,
+and, quite frankly nobody is known to have tested this yet.  Cold calculating
+eyes watch everyone in the bar, insuring all is peaceful and calm.
+~
+33556554 0 0 0 8 0 0 0 0 S
+PF 7 16384 0 -1
+45 -1 -69 45d107+2025 6d6+12
+5.9.8.4 109350
+8 8 1
+#16554
+halfling receptionist~
+&+gthe receptionist&N~
+&+gA beautiful receptionist stands here ready to rent out rooms.&N
+~
+Everything about this young halfling woman puts people at ease.  Her beauty
+is highlighted by her friendly demeanor and colorful chit-chat.  Bright
+white teeth are shown with every smile, highlighting her green eyes and dark
+hair.  Customers who stay at the inn expect and receive only the finest
+service, and this gorgeous halfling woman is the one that insures that nothing
+goes wrong.
+~
+2122 0 0 0 0 0 0 0 0 S
+PF 7 0 0 -1
+45 -1 -69 45d90+1935 6d6+12
+5.9.8.4 109350
+8 8 2
+#16555
+halfling syune~
+&+cSyune&N~
+&+cSyune stands here working on a new piece of jewelry.&N
+~
+Syune's small, fine features have gotten a bit wrinkled over time but they
+still command an instant recognition of his presence.  His fingers and hands
+are also quite fine, and they move quite rapidly as he works away on his
+jewelry.  His brow narrows in concentration when he does some of the fine
+etching that has become one of his trademarks, and he ignores almost everything
+that goes on around him.
+~
+1107298380 0 0 0 0 0 0 0 500 S
+PF 7 512 0 -1
+46 -3 -72 46d80+2438 6d6+25
+6.0.9.4 111780
+8 8 1
+#16556
+graeme halfling warrior~
+&+RGraeme&N~
+&+RGraeme stands here ready to spar with anyone foolish enough to try him.&N
+~
+&+RGraeme's face is a brutal visage of scars, marked by coal black eyes that hide
+&+Rbeneath bushy graying eyebrows.  What is most impressive about Graeme is not
+&+Rhis strength, and certainly not his size, it is his speed.  His sword almost
+&+Rhums through the air as he goes through his practice forms.  It is his duty
+&+Rto test and train the guardsmen, as well as any adventures with the money.
+&+RTraining with this halfling can be hazardous though, as he firmly believes that
+&+Rpractice makes perfect, he has no qualms about killing unskilled or lazy people.
+&+RIt is hard to imagine &+ranyone &+Rever beating Graeme in fair combat, it is
+&+Rclear he could hit most opponents three times before being hit even once
+&+Rhimself.&N
+~
+1073776712 672 0 0 16 0 0 0 0 S
+PF 7 1 0 -1
+56 -7 -114 56d143+5880 7d6+35
+1.3.8.6 226800
+8 8 1
+#16557
+eruffu halfling councilor~
+&+rCouncilor Eruffu&N~
+&+rCouncilor Eruffu stands here contemplating matters of state.&N
+~
+&+rThe office held by Eruffu amounts to little these days as the martial law
+&+rdeclared by &+yJarus the fourth &+rmakes much of the populace wary of
+&+rthe council.  His aging looks do nothing to deny him prestige among his
+&+rpeople, however.  Known as one of the most wise and learned halflings in
+&+rthe area, he is still sought out for advice.&n
+~
+1140852808 0 0 0 0 0 0 0 1000 S
+PF 7 512 0 -1
+40 2 -28 40d64+840 4d7+10
+3.3.3.3 51840
+8 8 1
+#16558
+ctenmir halfling thief~
+&+LCtenmir&N~
+&+LCtenmir stands here pondering his next heist.&N
+~
+&+LCtenmir has acquired a reputation for being able to dissappear into thin air.&N
+&+LExactly how he suddenly makes his small wirey frame seem to fade into the&N
+&+Lshadows isn't clear, but he does seem to have an ability to keep out of trouble&N
+&+Leven when trouble is trying to find him.  It isn't really known how many heists&N
+&+LCtenmir has pulled off, but his dark calculating eyes and swift hands make it&N
+&+Lquite likely that it is quite a few.  In fact, if he has really done even half&N
+&+Lthe robberies that are attributed to him then he is probably the most skilled&N
+&+Lthief of all time.  How he has lived this long is as mysterious as his activities
+&+Loutside the city.&N
+~
+1107331144 0 0 0 1572904 0 0 0 0 S
+PF 7 4096 0 -1
+50 -3 -95 50d100+2650 6d6+25
+0.3.1.5 121500
+8 8 1
+#16559
+mathorn bounty-hunter halfling~
+&+wMathorn&N~
+&+wMathorn stands here, staring at his rewards.&N
+~
+Mathorn is one of the best known bounty-hunters throughout the realms.  It is
+easy to see his tenacity through his cold blue eyes, and the scars that mark
+his body show that he has indeed seen his share of fighting.  It is rumored
+that he once collected a bounty on someone that was trying to hide out with
+the trolls, an unlikely story but quite impressive, if true.  Light brown hair
+highlights his tawny form, making him look more like a lion than a halfling.
+~
+1174407244 640 0 0 1048608 0 0 0 0 S
+PF 7 16384 0 -1
+56 -7 -114 56d143+5880 7d6+35
+1.3.8.6 226800
+8 8 1
+#16560
+halfling sorceress azoum~
+&+mAzoum&N~
+&+mAzoum stands here searching for something.&N
+~
+Though reportedly quite ancient, Azoum looks far younger than some of the
+junior mages that study in the tower.  Her bright violet eyes stand out more
+than her other delicate features, something about her eyes glows with power
+and any who look at her know she is to be respected.  She now teaches only the
+most experienced of mages, once they have proven their worth, leaving the
+instruction of the junior mages to the librarians and instructors downstairs.
+Rumors that she has taken to summoning demons in order to learn more about
+the inner workings of magical spells have frightened all but the heartiest of
+mages away from her private chambers.
+~
+1073743880 0 0 0 0 2048 0 0 0 S
+PF 7 512 0 -1
+56 -7 -114 56d96+5768 7d6+35
+1.3.8.6 226800
+8 8 2
+#16561
+demon sullen~
+&+La sullen demon&N~
+&+LA sullen demon sulks here trying break free of its bonds.&N
+~
+The demon tries its best to hide out of the way, hoping Azoum will forget
+about him and allow his bonds to weaken so that he may go free.  The look on
+his face is one of agony, here he is on the material plane, yet unable to
+create the havoc that he truely desires.  When Azoum asks him anything he
+responds promptly, hoping that quick answers will lead her to free him.  When
+he is noticed by anyone else in the tower he bares his fangs and flaps his
+small vestigal wings to frighten them away, there is no real fear from him
+though.  It is obviously just another tactic to get freed, he hopes that enough
+rumors and fear will force Azoum to send him back.  Until he is freed he has
+no choice but to serve his summoner, though nobody said he had to be happy about
+it.
+~
+67110988 0 0 0 1638400 2048 0 0 -1000 S
+X 0 32 0 -1
+54 -5 -122 54d121+4914 7d6+30
+9.1.0.9 328050
+8 8 1
+#16562
+halfling belarr cleric~
+&+BBelarr&N~
+&+BBelarr, high cleric of Woodseer, stands here praying.&N
+~
+&+bBelarr has been serving the gods for so long that he has a glow of holiness&N
+&+babout him that cannot be denied.  His handsome face, though aged, bears a&N
+&+bsmooth calmness about it, and his&N &+ggreen&N &+beyes convey peace and calm&N
+&+bto all those around.  It is clear that his long service to the gods has&N
+&+bgranted him a great deal of power and wisdom which he uses to help others&N
+&+bwhen they are in need of guidance.  As he prays the very room seems to fill&N
+&+bwith holiness and a quiet calm, disturbing his prayers would not only anger&N
+&+bhim but most likely the gods as well.&N
+~
+1174407246 0 0 0 8224 32768 0 0 1000 S
+PF 7 32 0 -1
+56 -7 -114 56d132+5824 7d6+35
+1.3.8.6 226800
+8 8 1
+#16563
+kitten cat~
+&+Ca playful kitten&N~
+&+CA kitten jumps here playing with leaves tossed by the wind.&N
+~
+Tawny fur stands on end as the kitten crouches for yet another leap the leaves
+and flower petals that are tossed about in the breeze.  Only a few months old,
+the cute kitten enjoys baring its teeth and claws at anything that is willing
+to play with it.
+~
+2248 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+1 20 96 1d15+4 1d5+0
+0.0.0.0 129
+8 8 0
+#16564
+duck duckling~
+&+Wa fuzzy duckling&N~
+&+WA fuzzy white duckling wanders here searching for food.&N
+~
+&+WDowny feathers keep this cute little duckling afloat and safe from the water&N
+&+Was he wanders about looking for food, and trying to keep up with his mother.&N
+~
+264392 0 0 0 0 0 0 0 0 S
+B 0 0 0 -1
+1 20 96 1d15+4 1d5+0
+0.0.0.0 129
+8 8 1
+#16565
+duck mother~
+a &+ysp&+Wec&+ykl&+Wed&N duck~
+&+WA&N &+ysp&+Wec&+ykl&+Wed mother duck protects her young.&N
+~
+Her feathers are speckled with brown and white spots to make her more difficult
+to see among the reeds.  Her poor young ducklings are such a bright fuzzy
+&+Wwhite&N that they are easy prey for the turtles and large fish that are
+waiting for her to stop paying attention to her young.
+~
+1074006088 0 0 0 0 0 0 0 0 S
+B 0 0 0 -1
+2 20 93 2d15+7 1d5+0
+0.0.0.0 259
+8 8 2
+#16566
+duck mother brown~
+a &+ybrown&N duck~
+A &+ybrown duck&N calmly protects her babies.
+~
+This calm &+ybrown mother duck&N serenely watches over her young, snapping
+her beak occasionally in the direction of the halfling youths that are teasing
+them with sticks.
+~
+264264 0 0 0 0 0 0 0 0 S
+B 0 0 0 -1
+3 20 90 3d15+11 1d5+0
+0.0.0.0 388
+8 8 2
+#16567
+duck young~
+a young duck~
+A young duck searches for food here.
+~
+Though no longer a duckling, this cute duck is still quite young and needs to
+be quite cautious to avoid becoming somebody's dinner.
+~
+264392 0 0 0 0 0 0 0 0 S
+B 0 0 0 -1
+2 20 93 2d15+7 1d5+0
+0.0.0.0 259
+8 8 1
+#16568
+duck young~
+a young duck~
+&+yA young duck searches for food here.&N
+~
+This duck is certainly no duckling, yet she is still not old enough to have
+had her own ducklings yet, but it is obvious that she is looking over the young
+male ducks trying to choose for when the time comes.
+~
+264392 0 0 0 0 0 0 0 0 S
+B 0 0 0 -1
+2 20 93 2d15+7 1d5+0
+0.0.0.0 259
+8 8 2
+#16569
+duck father~
+a father duck~
+&+yA father duck with a bright&N &+Ggreen&+y head watches the ducklings.
+~
+His bright &+Ggreen&N head defines him as one of the showy males of the species.
+It is clear that, though he watches the ducklings, he doesn't really do much
+to help them with anything.
+~
+1074006088 0 0 0 0 0 0 0 0 S
+B 0 0 0 -1
+3 20 90 3d15+11 1d5+0
+0.0.0.0 388
+8 8 1
+#16570
+turtle box~
+&+ga box turtle&N~
+&+gA small box turtle ambles by.&N
+~
+The small box turtle can't move quickly enough to catch any of the ducklings
+by the pool so he must remain satisfied with anything else he can catch.
+~
+1074006088 0 0 0 0 1024 0 0 0 S
+R 0 0 0 -1
+3 20 90 3d15+11 1d5+0
+0.0.0.0 388
+8 8 1
+#16571
+snapping turtle~
+&+ga snapping turtle&N~
+&+gA large, ugly snapping turtle is here.&N
+~
+&+gHard bony plates line his large jaws as he eyes everything around him.&N
+&+gThough he might not be large enough to eat all the creatures he sees, it&N
+&+gis clear that he has no qualms about attacking.  His hard shell protects&N
+&+gfrom most attacks, and his quick jaws allow him to deal enough damage that&N
+&+ghe is rarely bothered by anyone, not even the halfling children want to&N
+&+gchance his jaws.&N
+~
+264264 0 0 0 0 1024 0 0 0 S
+R 0 0 0 -1
+5 20 83 5d15+17 1d5+0
+0.0.0.0 648
+8 8 1
+#16572
+bird humming hummingbird~
+&+Wa tiny humming bird&N~
+&+WA tiny hummingbird zips by, sucking nectar from the flowers.&N
+~
+Bright colors mark the wings of this otherwise plain bird, but it beats its
+wings so quickly it is hard to tell what those colors are, or sometimes even
+where the bird is.  It is easiest to see when it hovers near a flower sucking
+up some nectar, otherwise it just moves too quickly.
+~
+2248 0 0 0 16 0 0 0 0 S
+B 0 0 0 -1
+2 20 93 2d15+7 1d5+0
+0.0.0.0 259
+8 8 0
+#16573
+wasp yellow giant~
+&+Ya giant wasp&N~
+&+YA giant yellow wasp buzzes angrily here.
+~
+It is amazing that the halflings would allow such a huge, dangerous, and
+generally unfriendly beast like this one to roam the park.  A single sting
+from this yellow monstrousity could make a small halfling sick for days,
+perhaps even killing them.
+~
+1073875018 0 0 0 0 0 0 0 0 S
+I 0 0 0 -1
+4 20 87 4d15+14 1d5+0
+0.0.0.0 518
+8 8 0
+#16574
+wasp giant yellow~
+&+Ya giant wasp&N~
+&+YA giant yellow wasp is here looking for prey.&N
+~
+The entire body of this tremendous flying creature is a bright &+Yyellow&N
+probably put there by the gods to warn other creatures of its awful sting.
+The stinger looks almost as long as most halfling's arms and has wicked barbs
+at its end.
+~
+1073875016 0 0 0 0 0 0 0 0 S
+I 0 0 0 -1
+4 20 87 4d15+14 1d5+0
+0.0.0.0 518
+8 8 0
+#16575
+red salamander~
+&+Ra salamander&N~
+&+gA small &+Rbright red salamander&N &+gdoes his best to hide in the flowers.&N
+~
+&+RBright red with &+ggreen&+R speckles, this small salamander has a hard
+&+Rtime hiding.  Only the brightly colored flowers give him any assistance.&N
+~
+264392 0 0 0 0 0 0 0 0 S
+R 0 0 0 -1
+2 20 93 2d15+7 1d5+0
+0.0.0.0 259
+8 8 0
+#16576
+blood hawk~
+a &+rblood&N &+yhawk&N~
+&+yA cruel-looking &+rblood&+y hawk is here.
+~
+Vicious razor-sharp talons and a huge powerful beak make this otherwise plain
+brown bird look like the predator it really is.  Blood hawks are tenacious
+fighters and will NEVER abandon a battle once it has begun.  Fortunately,
+this bird is intelligent enough to know that attacking any of the visitors to
+the park will get it hunted down and killed.
+~
+1073875016 0 0 0 134217744 0 0 0 0 S
+B 0 0 0 -1
+8 18 74 8d18+28 2d3+1
+0.0.0.0 1036
+8 8 0
+#16577
+frog ugly~
+&+gan ugly frog&N~
+&+gAn ugly frog is here eating insects.&N
+~
+Frogs aren't normally considered ugly, but this fellow is certainly not even
+close to 'pretty'.  Ugly bubbles in his skin look make him look like some sort
+of toad, and his eyes are a sickly yellow color that make one wonder how
+healthy he is.
+~
+264264 0 0 0 0 0 0 0 0 S
+R 0 0 0 -1
+1 20 96 1d15+4 1d5+0
+0.0.0.0 129
+8 8 1
+#16578
+halfling child~
+a halfling child~
+A young halfling child plays here.
+~
+This small child is so tiny that he or she is barely able to walk, yet they
+try to run.  The childs features are so delicate and fine that it is difficult
+to say whether it is a boy or a girl, but what is certain is that the child
+just loves to play, with anything or anyone.
+~
+2248 0 0 0 0 0 0 0 0 S
+PF 7 0 0 -1
+2 20 93 2d15+7 1d5+0
+1.0.0.0 259
+8 8 0
+#16579
+badger~
+a &+Lbadger&N~
+&NA dark angry-looking badger rests here.&N
+~
+This badger looks tough enough to bring down even a hearty barbarian, and even
+less likely to flee from one.  Sharp teeth fill an oversized mouth that looks
+designed to do quite a bit of rending.
+~
+2122 1 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+5 20 83 5d15+17 1d5+0
+0.0.0.0 648
+5 5 1
+#16580
+honey bee~
+&+Ya giant bee&N~
+&+YA tremendous honey bee hovers here collecting nectar.
+~
+This ungainly creature manuevers its bulky body adriotly through the bushes
+and flowers collecting nectar for the hive.  It is amazing that its small wings
+can move its huge body through the air.  This bee is just a worker bee and only
+has a very small stinger, and it looks like it would rather run than fight.
+~
+133320 0 0 0 134217728 0 0 0 0 S
+I 0 0 0 -1
+2 20 93 2d15+7 1d5+0
+0.0.0.0 259
+8 8 0
+#16581
+warrior bee~
+&+Ya warrior bee&N~
+&+YA large warrior bee protects the hive.
+~
+This giant bee has obviously been bread for only one purpose, to fight for and
+defend the hive.  It is clear that this bee will never surrender, nor will it
+die easily.
+~
+1073875018 0 0 0 134217728 0 0 0 0 S
+I 0 0 0 -1
+4 20 87 4d15+14 1d5+0
+0.0.0.0 518
+8 8 1
+#16582
+queen bee~
+&+Ythe queen bee&N~
+&+YThe queen bee stands here laying eggs.&N
+~
+Her huge bloated abdomen is certain to slow her down, but it is clear that she
+is quite ferocious and will defend her hive as well as she can.  She is in
+her home here and it is certain that she will defend it well.
+~
+1073743882 0 0 0 134217728 0 0 0 0 S
+I 0 0 0 -1
+7 18 77 7d18+24 2d3+1
+0.0.0.0 907
+8 8 2
+#16583
+larvae larval bee~
+&+Wa larval bee&N~
+&+YOne of the bee larvae crawls here eating honey.&N
+~
+The huge ugly maggots shall someday become giant bees which will hover through
+the park collecting nectar and helping fertilize the flowers.
+~
+2122 0 0 0 0 0 0 0 0 S
+I 0 0 0 -1
+1 20 96 1d15+4 1d5+0
+0.0.0.0 129
+8 8 0
+#16584
+centipede~
+&+ra huge centipede&N~
+&+rA huge red-hued centipede is searching for food here.&N
+~
+Ugly mandibles search for prey as this creature zips around on its many legs.
+The centipede exudes a faint carrion-like odor, making it as unpleasant to
+smell as to look at.
+~
+2122 0 0 0 0 0 0 0 -700 S
+I 0 0 0 -1
+5 20 83 5d15+17 1d5+0
+0.0.0.0 648
+8 8 0
+#16585
+millipede ugly~
+&+La smelly millipede&N~
+&+LAn awful stench rolls in from the ugly millipede standing here.&N
+~
+Its long thin body seems to sprout nothing but legs as it crawls through the
+rocks and rubble looking for something to eat.  It appears to be blinded by
+the light but can most certainly put up a good fight.  An awful rotting stench
+seems to seep out of it into the room, making the room almost unbearable.
+~
+2120 0 0 0 0 0 0 0 -700 S
+I 0 0 0 -1
+6 18 80 6d18+21 2d3+1
+0.0.0.0 777
+8 8 0
+#16586
+jumping spider~
+&+La jumping spider&N~
+&+LA huge jumping spider hides here waiting to spring its trap.&N
+~
+This giant spider cleverly hides itself among the ruined walls as it waits for
+foolish prey to walk underneath it.  Long fangs hang down from its mandibles
+indicating that once it captures something, its prey doesn't last long.
+~
+1073743944 0 0 0 1572864 0 0 0 -700 S
+AS 0 0 0 -1
+8 18 74 8d18+28 2d3+1
+0.0.0.0 1036
+8 8 0
+#16587
+green spider~
+&+ga green spider&N~
+&+gA tremendous green spider hides here, waiting for the unwary.&N
+~
+Huge fangs drip with poison as this monstrousity prepares to leap on its unwary
+prey.  The ancient magic of this tower must have infused this gigantic spider
+with some of its power and grace, it is impossible to believe that this
+tremendous creature could possible occur naturally.  The strange green of its
+abdomen and legs suggest that magic or some strange potion must have given it
+its color also.
+~
+2122 0 0 0 1572864 0 0 0 -900 S
+AS 0 0 0 -1
+12 15 61 12d23+48 2d5+2
+0.0.0.0 5832
+8 8 0
+#16588
+fruit bat~
+&+La fruit bat&N~
+&+LA giant fruit bat flies around stealing food.&N
+~
+Though much larger than some of its more blood-thirsty relatives, this bat
+is actually fairly docile, and would rather run than fight.  Its mouth is
+quite dangerous though, full of teeth sharp enough to cut apples and pears
+to pieces.
+~
+133192 0 0 0 134217728 0 0 0 0 S
+A 0 0 0 -1
+3 20 90 3d15+11 1d5+0
+0.0.0.0 388
+8 8 0
+#16589
+rabbit bunny~
+&+Wa fluffy bunny&N~
+&+WA fluffy bunny chews its way through the crops.
+~
+This small fluffy bunny is one of the banes of farming.  The fields provide
+a wonderful supply of food and are relatively free of predators, other than
+farmers that is.
+~
+200 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+1 20 96 1d15+4 1d5+0
+0.0.0.0 129
+8 8 0
+#16590
+rabbit jackrabbit~
+&+ya large jackrabbit&N~
+&+yA large jackrabbit is here eating crops.&N
+~
+This jackrabbit is a bit large due to all the easy food it has been eating in
+the fields, but it is also quite stupid.  Sometimes it is even lazy enough that
+it just stands still while farm children throw rocks at it.
+~
+72 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+3 20 90 3d15+11 1d5+0
+0.0.0.0 388
+8 8 0
+#16591
+raven crow bird~
+&+Lan ugly raven&N~
+&+LAn ugly raven does its best to steal as much food as it can.&N
+~
+&+LDark and ugly, this bird does its best to steal any food that it can.  Not&N
+&+Lonly does it steal directly from the fields but it is willing to try to &N
+&+Lsteal out of farmers homes and from the other thieving pests that run&N
+&+Lrampant in the fields.&N
+~
+133192 0 0 0 134217728 0 0 0 0 S
+B 0 0 0 -1
+3 20 90 3d15+11 1d5+0
+0.0.0.0 388
+8 8 0
+#16592
+cat fat~
+&+ya farm cat&N~
+&+yA fat farm cat does its best to keep the fields clear.&N
+~
+It appears that even the farm cats here are well-fed.  Despite only being
+allowed to eat what it catches, this cat has been able to catch enough to
+keep it very well-fed.  Even so, the fields still team with pests that steal
+as much of the crops as they can.
+~
+1073743944 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+5 20 83 5d15+17 1d5+0
+0.0.0.0 648
+8 8 0
+#16593
+halfling farmer farmwoman~
+a halfling farmwoman~
+A halfling farmwoman is here trying to keep her home clean.
+~
+This young woman looks a bit tired, but happy.  She seems to be in constant
+motion as she struggles to keep this large home clean.  The sheer number of
+halflings that lives here must make it extremely difficult but it is clear
+that she is up to it.
+~
+2250 0 0 0 0 0 0 0 400 S
+PF 7 0 0 -1
+6 18 80 6d18+21 2d3+1
+3.2.0.0 777
+8 8 2
+#16594
+halfling boy farmboy~
+a halfling farmboy~
+A small halfling farmboy is resting here.
+~
+Light brown hair sticks to his head sodden with moisture from playing a bit
+too hard outside.  He is taking a break from his wild antics in the fields,
+and the rabbits and birds are sure to be relieved.  Soon, he will regain his
+almost boundless energy and head back out to play.
+~
+67110986 0 0 0 0 0 0 0 400 S
+PF 7 0 0 -1
+4 20 87 4d15+14 1d5+0
+2.1.0.0 518
+5 5 1
+#16595
+halfling boy farmboy~
+&+ya halfling farmboy&N~
+&+yA halfling farmboy is here chasing rabbits.&N
+~
+This handsome young farmboy tirelessly chases rabbits around the fields
+doing his best to scare them away.  Despite all of his chasing the rabbits
+simply return to the field.  The broad smile on his face as he runs around
+makes it clear that it is a game for him as well.  He is playing so hard
+that his light colored hair is dark with sweat and clings to his head in a
+wet mess.
+~
+2120 0 0 0 0 0 0 0 400 S
+PF 7 1 0 -1
+4 20 87 4d17+22 1d5+0
+2.1.0.0 518
+8 8 1
+#16596
+halfling farmer~
+an elderly farmer~
+An elderly farmer stands here smiling at his &=ymgarish&N belongings.&N
+~
+Dressed in the most disgusting and garish clothing, this elderly farmer has
+obviously never had much taste.  It is clear from the oddly colored silk cap
+and disgusting boots that he is only interested in things that are obviously
+expensive.  His dark eyes study everything, seeing only what items cost, rather
+than whether or not they are beautiful, or whether they look good together.
+The kindest explanation is that he is colorblind, but even that can't explain
+it all.
+~
+2122 0 0 0 0 0 0 0 0 S
+PF 7 4096 0 -1
+8 18 74 8d18+28 2d3+1
+4.2.0.0 1036
+8 8 1
+#16597
+halfling farmgirl girl~
+&+Wa young farmgirl&N~
+&+WA young farmgirl sits here weaving a doll from corn husks.&N
+~
+Light blond hair frames a serious face as this young girl concentrates on
+making a small doll out of corn husks.  Her deft weaving shows how skilled at
+weaving she will be someday, but for now she is just making a small doll to
+play with.
+~
+2252 0 0 0 0 0 0 0 400 S
+PF 7 0 0 -1
+4 20 87 4d15+14 1d5+0
+2.1.0.0 518
+6 6 2
+#16598
+halfling old farmer~
+&+yan old farmer&N~
+&+yAn old farmer sleeps here dreaming of his younger days.&N
+~
+This old farmer has obviously worked on the fields for many years.  The sun
+and wind have etched their way into his skin leaving a permanent mark.  Several
+scars mark his arms and a single thin scar runs down his right cheek, how he
+got those scars is hard to determine, perhaps he wasn't always just a farmer.
+~
+1073743948 0 0 0 0 0 0 0 300 S
+PF 7 16384 0 -1
+7 18 77 7d21+38 2d3+1
+3.2.0.0 907
+4 4 1
+#16599
+halfling woman farmer~
+&+ya halfling woman&N~
+&+yA young halfling woman searches through her cupboards.&N
+~
+She bears a worried frown that looks terribly misplaced on her young tan
+face.  Her eyes scan her shelves searching for something, exactly what she is
+searching for is unclear, but she keeps looking at spice jars and into unmarked
+jars that have been sealed with wax.  It is clear that whatever she is
+searching for has something to do with the wilted recipe that she keeps
+glancing at as she looks through the cupboards.
+~
+2122 0 0 0 0 0 0 0 400 S
+PF 7 0 0 -1
+5 20 83 5d15+17 1d5+0
+3.1.0.0 648
+8 8 2
+#16600
+halfling farmer~
+&+ya tan farmer&N~
+&+yA young farmer with a deep tan works the fields here.&N
+~
+His bright green eyes stare out from under dark bushy eyebrows as he walks
+through the fields trying to scare off the birds and rabbits.  A deep tan
+from being outdoors all of the time colors him almost as dark as the soil
+he tills.
+~
+1140852812 0 0 0 0 0 0 0 1000 S
+PF 7 1 0 -1
+7 18 77 7d21+38 2d3+1
+3.2.0.0 907
+8 8 1
+#16601
+farmer halfling~
+a burly farmer~
+A well-muscled farmer looks over the fields and orchards.
+~
+Long years of hard work in the fields and orchards have given this stout
+farmer muscles that even the guardsmen would be proud of.  He watches the
+fields and orchards, knowing that some will be lost to the birds and rabbits
+but not enough to really affect the quality of the harvest.  A slight touch
+of gray is coming in on his sideburns, but it is clear that he has many years
+of farming left in him.
+~
+1140852812 0 0 0 0 0 0 0 1000 S
+PF 7 1 0 -1
+9 18 71 9d21+49 2d3+1
+4.3.0.0 1166
+8 8 1
+#16602
+fish perch yellow~
+&+Ya yellow perch&N~
+&+YA small yellow perch swims by.&N
+~
+Yellow lines along the sides of its sleek body give this small fish its name.
+Though not very large, yellow perch are very tasty and are fairly easy to
+catch.
+~
+264264 0 0 0 2048 0 0 0 0 S
+F 0 0 0 -1
+3 20 90 3d15+11 1d5+0
+0.0.0.0 388
+8 8 0
+#16603
+sturgeon fish~
+&+Wa massive sturgeon&N~
+&+WA tremendous sturgeon rests here under the surface of the water.
+~
+This massive fish is very long and thin.  Its bony head appears to be full of
+very sharp, nasty looking teeth.  This is the type of fish caught for sport,
+it looks far to bony to be worth the fight for the food.  It ponders
+everything that wanders into its part of the lake with intelligent and wary
+eyes.  This fish does NOT want to be caught.
+~
+1074006088 0 0 0 2048 0 0 0 0 S
+F 0 0 0 -1
+12 15 61 12d23+48 2d5+2
+0.0.0.0 5832
+8 8 0
+#16604
+muskie fish~
+a muskie~
+A large muskie swims slowly through the water.
+~
+This large toothy fish has enough succulent meat on it to make it a fine catch,
+if it can be caught that is.
+~
+1074006088 0 0 0 2048 0 0 0 0 S
+F 0 0 0 -1
+7 18 77 7d18+24 2d3+1
+0.0.0.0 907
+8 8 0
+#16605
+salmon fish~
+&+Wa freshwater-salmon&N~
+&+WA freshwater-salmon shoots through the water.&N
+~
+This fat and tasty-looking freshwater salmon is trapped in the lake along with
+many others of his kind.  Rumor has it that several of these tasty fish were
+planted into the lake many years ago so that there would always be a supply of
+large tasty fish.
+~
+264264 0 0 0 2048 0 0 0 0 S
+F 0 0 0 -1
+5 20 83 5d15+17 1d5+0
+0.0.0.0 648
+8 8 0
+#16606
+halfling fisherman~
+a fisherman~
+&+bA halfling fisherman tries to catch what he can.&N
+~
+Despite an apparent lazy attitude, this fisherman obviously has a great deal of
+success.  He stares calmly into the water dangling bait in front of the fish
+and patiently waiting for something to grab the bait and become his dinner.
+Odd markings along his forearm would seem to indicate some sort of affiliation
+with a guild of some sort.
+~
+1073743944 0 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+10 18 67 10d21+55 2d3+1
+5.3.0.0 1296
+8 8 1
+#16607
+halfling logger~
+a halfling logger~
+&+LA halfling logger is here harvesting&+r jodani wood.&N
+~
+Callouses line his hands where he holds onto his ax and grips the saws used to
+cut the wood from the trees.  His work is very important to him, he works
+cautiously and carefully with the other loggers that make up a small team that
+harvests wood from the beautiful jodani trees.  Sap from the fresh wood gives
+him a fresh woodsy smell on top of the sweat from the hard work he has been
+doing.
+~
+67110986 128 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+12 15 61 12d27+72 2d5+2
+6.4.2.0 5832
+8 8 1
+#16608
+elf half-elf druid~
+&+ga furtive half-elf&N~
+&+gA furtive half-elf is here caring for the trees.&N
+~
+&+gShe glances around furtively, avoiding the attention of people entering the&N
+&+ggrove.  Her beautiful green eyes and light hair make her stand out in the &N
+&+gdarkness of the forest.  The forest seems to bend itself around her as she&N
+&+gwalks by, pausing to put her hand against some of the trees and communicate&N
+&+gwith them.  Every movement she makes is graceful and lends to her beauty,&N
+&+ga beauty that seems as much a part of the forest as she is.&N
+~
+1073743944 128 0 0 8192 0 0 0 0 S
+P2 0 128 0 -1
+45 -1 -69 45d99+1980 6d6+12
+5.9.8.4 109350
+8 8 2
+#16609
+black squirrel~
+&+La black squirrel&N~
+&+LA large black squirrel makes his way through the forest&N
+~
+This squirrel makes his way through the jodani grove looking for something to
+eat.  It is clear that it is not used to intrusions, nor does it show much fear
+of anything it meets.  This inquisitive squirrel doesn't even fear the loggers
+that walk through the grove.
+~
+1073743944 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+4 20 87 4d15+14 1d5+0
+0.0.0.0 518
+8 8 0
+#16610
+halfling leatherworker elderly~
+an elderly leatherworker~
+An elderly leatherworker is here making armor.
+~
+His face is as wrinkled and rough as the alligator hide that he is working on.
+When he concentrates, he squeezes his eyes together highlighting the wrinkles
+that already line his face.  Despite his age his hands move swiftly as he cuts
+and stiches leather together.
+~
+2122 128 0 0 0 0 0 0 400 S
+PF 7 4096 0 -1
+8 18 74 8d18+28 2d3+1
+4.2.0.0 1036
+8 8 1
+#16611
+halfling leatherworker young~
+a young leatherworker~
+A young leatherworker is here making boots.
+~
+This young halfling is doing his best to follow in the family tradition by
+learning to work with leather.  Right now all he does is work on boots, caps
+and belts, but those he makes are of exceptional quality.  His bright blue
+eyes dart from what he is doing to watch the other more experienced leather-
+workers in the room, learning by watchin what they are doing.
+~
+2122 128 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+6 18 80 6d21+33 2d3+1
+3.2.0.0 777
+8 8 1
+#16612
+halfling leatherworker~
+a halfling leatherworker~
+A halfling leatherworker is here designing shoes.
+~
+This gentle halfling is absorbed in the work of designing new types of shoes.
+He is clearly in charge of the work that is going on here, but does little in
+the way of giving orders.  It is his responsibility to acquire all the
+materials and contracts, as well as selling everything that is made.
+~
+1107298378 128 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+50 -3 -95 50d119+2750 6d6+25
+0.3.1.5 121500
+8 8 1
+#16613
+halfling fisherman~
+a halfling fisherman~
+A halfling fisherman sleeps here.
+~
+This halfling lies on his bed with his hat drawn down over his eyes trying to
+get a bit of rest.  His shoes lie on the ground beside him as he hangs his bare
+feet over the edge of the bed.
+~
+2120 128 0 0 0 0 0 0 200 S
+PF 7 1 0 -1
+6 18 80 6d21+33 2d3+1
+3.2.0.0 777
+4 4 1
+#16614
+artist halfling~
+&+mthe raving artist&N~
+&+mAn artist stands here raving about pigments.&N
+~
+This small halfling has obvious talent at painting, but certainly needs some
+social skills.  His eyes are wide as he glares about raving about pigments.
+Unkempt hair and paint speckled all over his clothing create the image of
+a madman who is more than a little bit unstable.
+~
+33556554 0 0 0 0 0 0 0 0 S
+PF 7 512 0 -1
+5 20 83 5d12+17 1d5+0
+3.1.0.0 648
+8 8 1
+#16615
+dragonfly giant~
+&+La giant dragonfly&N~
+&+LA giant dragonfly zips around here.&N
+~
+This gigantic dragonfly has a faint green belly that seems to shimmer in the
+light.  It seems able to fly in any direction at will, making it very difficult
+to catch.
+~
+133192 0 0 0 134217744 0 0 0 0 S
+I 0 0 0 -1
+5 20 83 5d15+17 1d5+0
+0.0.0.0 648
+8 8 0
+#16616
+halfling merchant~
+&+Ra halfling merchant&N~
+&+RA halfling merchant in bright red robes stands here.&N
+~
+This wealthy merchant has obviously done quite well for himself.  His bright
+red robes go well with his dark eyes and hair, giving him a mysterious, yet
+somehow trustworthy air.  Several of his mannerisms indicate that he has
+traveled widely and wants people to know it.
+~
+1073743944 128 0 0 0 0 0 0 0 S
+PF 7 512 0 -1
+26 8 16 26d44+286 3d6+4
+7.2.6.1 23166
+8 8 1
+#16617
+halfling woodcarver~
+&+ya woodcarver&N~
+&+yA stern woodcarver focuses on his work.&N
+~
+This stern-looking halfling carries himself with authority and self-importance.
+It is easy to see that he considers himself to be one of the best woodcarvers
+ANYWHERE, and is happy to let people know it.  Though such arrogance is
+annoying, it is hard to argue with him, his work is some of the finest that
+can be found anywhere in the world.
+~
+1107298376 128 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+25 11 19 25d47+250 3d5+3
+6.2.6.1 22275
+8 8 1
+#16618
+halfling merchant~
+&+bthe retired merchant&N~
+&+bA retired merchant sits here, enjoying his view of the lake.&N
+~
+This halfling gentleman has certainly seen a lot in his time.  He is enjoying
+a well-deserved retirement relaxing here and enjoying his view of the lake
+and the mountains while his wife is away shopping in the market.  His dark hair
+is highlighted by silver streaks that seem to add a distinguished look to his
+already handsome features.
+~
+1107298378 128 0 0 0 0 0 0 300 S
+PF 7 4096 0 -1
+25 11 19 25d40+200 3d5+3
+6.2.6.1 22275
+6 6 1
+#16619
+human monk hermit~
+a human hermit~
+A tall human stands here, hiding away from civilization.
+~
+This human hermit seems to have found some sort of higher purpose.  He seems
+to spend most of his day sitting and meditating, and the rest of the day
+bouncing around in some sort of odd dance that sends his hands and feet flying
+through the air.
+~
+1073776712 160 0 0 16 0 0 0 0 S
+PH 0 64 0 -1
+20 13 35 20d35+140 3d4+2
+0.9.3.0 9720
+8 8 1
+#16620
+grivling young~
+&+La young grivling&N~
+&+LAn immature grivling hides here working the stone.&N
+~
+&+LThis stone creature looks at first like a faceless golem, but on second&N
+&+Lglance it must be a grivling.  Grivlings are rare stone creatures that&N
+&+Lspend their lives eating and working with stone.  This particular grivling&N
+&+Lmust be fairly young because it isn't even able to make its stony face&N
+&+Llook like anything but flat rock.&N
+~
+33556684 0 0 0 537919616 12480 0 0 0 S
+OG 0 1 0 -1
+17 13 45 17d35+119 3d4+2
+8.6.2.0 8262
+8 8 0
+#16621
+grivling~
+&+La grivling&N~
+&+LA grivling shyly hides within the stone.&N
+~
+&+LGrivlings are creatures of stone that seem to be able to pass through solid&N
+&+Lrock without any problem.  Their faces are nondescript, with the exception&N
+&+Lof those times that they meet other creatures.  Then they try to make a copy&N
+&+Lof that creature's face, though they aren't always able to get it right.&N
+&+LThese heavy stone creatures are easy to mistake for golems, but they are far&N
+&+Lto artistic and intelligent to be mere automatons.&N
+~
+33556558 0 0 0 537919616 12480 0 0 0 S
+OG 0 1 0 -1
+20 13 35 20d35+140 3d4+2
+0.9.3.0 9720
+8 8 0
+#16622
+grivling large~
+&+La large grivling&N~
+&+LA large grivling is here molding stone with his hands.&N
+~
+&+LLike many shy creatures, grivlings often hide when others come around, that&N
+&+Lis why they are largely unknown in most parts of the world.  This grivling&N
+&+Lobviously has a great deal of experience working with stone, it seems to&N
+&+Lflow through his hands like clay as he molds it into different shapes.  It&N
+&+Lis also one of the largest of the grivlings that live here, though quite&N
+&+Lquiet and shy, he would certainly be a ferocious opponent if angered.&N
+~
+33556558 0 0 0 537919616 12480 0 0 0 S
+OG 0 1 0 -1
+22 11 29 22d47+220 3d5+3
+4.0.5.0 19602
+8 8 0
+#16623
+animated statue~
+&+Ythe statue&N~
+&+YAn animated statue stands here.&N
+~
+A number of different stones have been blended together to create this somewhat
+odd looking statue.  So much work and magic have gone into it that it almost
+seems to be alive.
+~
+33556554 0 0 0 536871056 12480 0 0 0 S
+OG 0 0 0 -1
+15 15 51 15d23+60 2d5+2
+7.6.2.0 7290
+8 8 0
+#16624
+weth halfling~
+&+yWeth&N~
+&+yWeth, the halfling woodsman, stands here.&N
+~
+&+yWeth's skin is a dusty tan color which contrasts with his light hair and&N
+&+ypale blue eyes.  Weth has many scars, few of which could have been received&N
+&+yfrom logging accidents.  In fact, most of his scars look as though they come&N
+&+yfrom fights of some sort.  He walks softly, used to trekking through the&N
+&+yforest for many years, and this soft bouncey step looks more like the gait&N
+&+yof a cat than a halfling.&N
+~
+1174407244 672 0 0 16 0 0 0 800 S
+PF 7 1 0 -1
+40 2 -28 40d95+920 4d7+10
+3.3.3.3 51840
+8 8 1
+#16625
+halfling woodworker~
+&+ra woodworker&N~
+&+rA halfling woodworker is here creating a masterpiece.&N
+~
+His brow furrows in concentration as he runs his plane over a board trying to
+even it out.  The work that surrounds him shows his confidence in his own skill
+and demonstrates his abilities to all that see him.  As he works he continually
+mutters to himself, as he mumbles words such as "polish", "stain" and "grain"
+can be made out.
+~
+2126 128 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+8 18 74 8d21+44 2d3+1
+4.2.0.0 1036
+8 8 1
+#16626
+halfling mage librarian~
+&+gthe librarian&N~
+&+gA halfling librarian is here to help people find what they need.&N
+~
+&+gThis serene halfling woman is happy to help people find the spells that are&N
+&+gavailable in the library here.  Some of the spells are very easy to find&N
+&+gand master, others require more study and travel to find the proper&N
+&+gcomponents and triggers.  This silver-haired halfling is happy to lead &N
+&+gmages to the spells she can, and sometimes can send them to others that&N
+&+gcan help with the spells she has no knowledge of.&N
+~
+33589326 0 0 0 0 0 0 0 1000 S
+PF 7 512 0 -1
+14 15 55 14d18+56 2d5+2
+7.5.2.0 6804
+8 8 2
+#16627
+halfling mage senior~
+the senior mage~
+A senior mage is here studying on his own.
+~
+This is one of the senior mages of the tower.  He has been here studying for
+many years and has mastered enough magic that now he has to spend most of his
+time teaching.  This is one of the few times that he has time to study on his
+own.
+~
+1073743948 0 0 0 0 0 0 0 500 S
+PF 7 512 0 -1
+26 8 16 26d44+286 3d6+4
+7.2.6.1 23166
+8 8 1
+#16628
+teacher mage halfling~
+&+mthe teacher&N~
+&+mA teaching mage stands here watching her students.&N
+~
+This is one of the many instructors of the emerald tower.  Her job is to make
+certain that none of the new mages hurts themselves or others while they
+practice their spells and work on making potions and wands.  She does her job
+with a quiet smile but it is clear she would rather be doing some studying of
+her own.
+~
+1073743948 0 0 0 0 0 0 0 1000 S
+PF 7 512 0 -1
+26 8 16 26d44+286 3d6+4
+7.2.6.1 23166
+8 8 2
+#16629
+young halfling mage~
+the young mage~
+A young mage sits here studying very hard.
+~
+This halfling is one of the youngest in the tower.  He looks around with bright
+curious eyes and then returns to his studies whenever someone walks by.  Though
+he has a great deal of promise, it will take many years of study before this
+one will be able to go out on his own.
+~
+1073743948 0 0 0 0 0 0 0 800 S
+PF 7 512 0 -1
+6 18 80 6d14+21 2d3+1
+3.2.0.0 777
+6 6 1
+#16630
+halfling guard elite~
+&+Ya junior mage&N~
+&+YA junior mage is here practicing his fireballs.&N
+~
+His robes mark him as a junior mage, though still powerful enough to cast some
+very nasty looking fireballs and lightning bolts.  His face is a visage of grim
+determination, it is clear that he intends to master everything he can before
+he leaves the tower.
+~
+2126 0 0 0 0 0 0 0 600 S
+PF 7 512 0 -1
+16 13 48 16d24+80 3d4+2
+8.6.2.0 7776
+8 8 1
+#16631
+halfling mage junior~
+&+Ca junior mage&N~
+&+CA junior mage is here practicing her cold spells.&N
+~
+This young halfling woman wears the robes of a junior mage of the tower.  Her
+hair is pulled back in a tight bun to keep it away from the flames of the
+fireballs and the icy cold spells that are being cast here.  Her brow furrows in
+concentration each time she gets ready to cast a spell, and she is rarely seen
+to miss.  She is practicing her cold spells, throwing icy blasts at the wall
+which absorbs the impact with no visible effect.
+~
+2126 0 0 0 0 0 0 0 600 S
+PF 7 512 0 -1
+16 13 48 16d24+80 3d4+2
+8.6.2.0 7776
+8 8 2
+#16632
+mage frowning halfling~
+&+Wa frowning mage&N~
+&+WA young mage stands here frowning at some vials&N
+~
+This young mage is frowning at the flasks in front of him, it appears that he
+is missing one of the components to his potions and hasn't decided what to do
+about it.  His bright green eyes seem focused far away as he contemplates the
+next step.  He probably needs a break, his robes are stained and dirty and he
+smells as if he needs a bath.
+~
+2126 0 0 0 0 0 0 0 600 S
+PF 7 512 0 -1
+12 15 61 12d18+48 2d5+2
+6.4.2.0 5832
+8 8 1
+#16633
+halfling mage tiny~
+&+Ga tiny mage&N~
+&+GA tiny mage stands here working on a wand.&N
+~
+Her smile is sweet and genuine, though mostly kept to herself.  She is clear
+proof that, in magic, size means very little and knowledge counts for more
+than anything.  Softly uttered incantations seem to hover with her hands over
+a thin smooth wand of jodani wood.  Her tiny frame contains volumes of power
+that she has not even begun to tap, surely someday she will be one of the most
+powerful mages in the land.
+~
+2126 128 0 0 0 0 0 0 600 S
+PF 7 512 0 -1
+21 11 32 21d32+168 3d5+3
+4.0.5.0 18711
+8 8 2
+#16634
+mage young halfling~
+a young mage~
+A young mage sits here studying all she can.
+~
+Her eyes droop with the fatigue of long hours of study.  Though she does not
+realize it, it would probably be more efficient for her to go home and sleep
+and then return to study some more.  Like many mages, she exhibits a drive to
+learn, and to succeed, but her sun-bleached hair and tan skin show that she
+also prefers to be outside rather than studying indoors.
+~
+2120 0 0 0 0 0 0 0 600 S
+PF 7 512 0 -1
+8 18 74 8d14+28 2d3+1
+4.2.0.0 1036
+6 6 2
+#16635
+mage halfling tired~
+&+ga tired mage&N~
+&+gA tired mage rests here after spending all day casting spells.&N
+~
+Fatigue drips from his body, his eyelids droop and his arms hang lose at his
+sides.  Long hours of spell-casting have left this poor mage completely spent.
+He is taking some time here to rest and recuperate before going back to his
+studies.
+~
+2248 0 0 0 0 0 0 0 600 S
+PF 7 512 0 -1
+16 13 48 16d24+80 3d4+2
+8.6.2.0 7776
+5 5 1
+#16636
+guard mage halfling~
+&+Ga guardian mage&N~
+&+GA guardian mage patrols the tower keeping it safe.&N
+~
+This powerful mage has the duty of keeping the tower safe so that others may
+pursue their studies in peace.  He wears an emerald cloak with the emblem of
+the tower, marking him as a guard as well as a mage.  His stern eyes and grim
+face are a reminder that he has all the power and authority of one of the
+regular guards, and is more than capable of doing his job.
+~
+1174407244 672 0 0 0 0 0 0 1000 S
+PF 7 1 0 -1
+40 2 -28 40d95+920 4d7+10
+3.3.3.3 51840
+8 8 1
+#16637
+halfling mage wizard~
+&+yan unkempt wizard&N~
+&+yAn unkempt wizard is here searching through his books.&N
+~
+Dark robes with old food stains and small rips that have never been mended hang
+from his scrawny frame making him look like more of a scarecrow than a person.
+Every book he picks up he hangs from the binding and shakes, then he pages
+through it searching with dark brown eyes for something that must be missing.
+Ofcourse, as unkempt as he and his home are, it isn't surprising that he can't
+find what he is searching for.
+~
+2126 0 0 0 0 0 0 0 600 S
+PF 7 512 0 -1
+10 18 67 10d14+35 2d3+1
+5.3.0.0 1296
+8 8 1
+#16638
+halfling woman~
+a halfling woman~
+An elegant, but elderly halfling woman is mending some socks here.
+~
+This elegant woman is obviously fairly old, but still extremely beautiful.  She
+sits peacefully mending a few socks while humming softly to herself.  Her soft
+brown hair has long streaks of white that somehow seem to highlight her high
+cheekbones making her look elegant rather than old.  Still beautiful now, she
+was certainly quite a wonder in her younger days.
+~
+2124 0 0 0 0 0 0 0 100 S
+PF 7 32768 0 -1
+10 18 67 10d19+45 2d3+1
+5.3.0.0 1296
+6 6 2
+#16639
+chipmunk~
+&+ya small chipmunk&N~
+&+yA small chipmunk searches for nuts among the flowers.&N
+~
+This tiny chipmunk tends to run and hide whenever anybody is nearby.  It is
+digging through the flowers here searching for something to eat, and trying
+to avoid being seen by anything that might eat it.
+~
+2248 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+1 20 96 1d15+4 1d5+0
+0.0.0.0 129
+8 8 0
+#16640
+halfling mage traveling~
+a traveling mage~
+&+LA hooded mage is here traveling to the tower to study.&N
+~
+A dark hood covers this ones face and long robes conceal his body, but he walks
+with a purpose that cannot be denied.  His robes, though concealing, by their
+design and make are also revealing, they show that he can only be a mage.
+Mages like this are both feared and respected, and are often quite cautious
+when they travel.
+~
+1073743948 0 0 0 0 0 0 0 500 S
+PF 7 512 0 -1
+12 15 61 12d18+48 2d5+2
+6.4.2.0 5832
+8 8 1
+#16641
+halfling receptionist~
+&+mthe receptionist&N~
+&+mA young receptionist is here ready to accept contracts.&N
+~
+Young and very pretty, this halfling woman adds color to Karuna's office just
+by her presence.  Her high cheekbones and lavender eyes give her a commanding
+and exotic look.  She makes certain to demonstrate her in depth knowledge of
+the business, and who is best for which contract, so that customers realize
+that she is not just a pretty face.
+~
+33556558 0 0 0 0 0 0 0 300 S
+PF 7 16384 0 -1
+40 2 -28 40d95+920 4d7+10
+3.3.3.3 51840
+8 8 2
+#16642
+halfling bounty-hunter~
+a tired bounty-hunter~
+&+rA tired bounty-hunter rests here with a mug of ale.&N
+~
+Fatigue has drawn deep lines into his face, lines which are drawn even deeper
+as he stares morosely into his ale.  Bounty-hunting is both dangerous and
+thankless, nobody wants a bounty-hunter around unless they need to hire one
+to solve a problem, that is why so many quit after a few years.
+~
+2126 0 0 0 0 0 0 0 300 S
+PF 7 16384 0 -1
+7 18 77 7d21+38 2d3+1
+3.2.0.0 907
+5 5 1
+#16643
+drunk halfling bounty-hunter~
+a drunk bounty-hunter~
+&+bA drunk bounty-hunter tells improbable stories of his exploits here.&N
+~
+This braggert is so drunk that he is almost ready to trip over his own feet.
+His speach is slow and slurred as he weaves rediculous tales of hunting down
+criminals in impossible places.  His bloodshot eyes survey the room as he
+speaks, daring anyone to challenge or attack him.  Most of the patrons simply
+ignore him, which doesn't seem to bother him a bit.
+~
+1073743950 0 0 0 0 1024 0 0 300 S
+PF 7 16384 0 -1
+9 18 71 9d21+49 2d3+1
+4.3.0.0 1166
+8 8 1
+#16644
+young halfling bounty-hunter~
+a young bounty-hunter~
+A young bounty-hunter is here practicing.
+~
+Barely finished with his youth, this young halfling has the bright look of
+somebody very new to the work of bounty-hunting.  His bright blue eyes have
+a youthful innocence that will soon depart, if he survives long that is.  Hair
+the color of the wooden spear he holds has been tied back behind his head to
+keep it out of his way.
+~
+1073743948 640 0 0 0 0 0 0 300 S
+PF 7 16384 0 -1
+5 20 83 5d17+27 1d5+0
+3.1.0.0 648
+8 8 1
+#16645
+elderly halfling bounty-hunter~
+a elderly bounty-hunter~
+An elderly bounty-hunter is here to train the younger ones.
+~
+The lines on his face combined with the gray streaks in his hair and scars
+along his arms mark him as someone that has seen a great deal of fighting and
+still survived to an old age.  He laughs at the younger bounty-hunters, knowing
+that sometime soon they won't have such a bright outlook on life.  Something
+about having to hunt down and deal with criminals tends to make anybody a
+cynic.
+~
+1073743948 640 0 0 0 0 0 0 300 S
+PF 7 16384 0 -1
+10 18 67 10d21+55 2d3+1
+5.3.0.0 1296
+8 8 1
+#16646
+halfling woman bounty-hunter~
+&+Ma halfling woman&N~
+&+MA young halfling woman is here appraising the other bounty-hunters.&N
+~
+Dark black hair has been pulled back behind her ears in a long braid that runs
+down her back.  Her dark eyes survey everything around her, and her gait is
+the walk of one who is used to traveling silently.  She smiles to herself as
+she watches the others practice, it is clear that though one of only a few
+halfling woman to ever take up bounty-hunting, she is one of the finest bounty-
+hunters that money can buy.
+~
+1073743948 640 0 0 0 0 0 0 1000 S
+PF 7 1 0 -1
+15 15 51 15d27+90 2d5+2
+7.6.2.0 7290
+8 8 2
+#16647
+halfling adventurer retired~
+&+Wa retired adventurer&N~
+&+WAn old adventurer has retired from his travels to make this his home.&N
+~
+This elderly halfling gentleman has a quiet twinkle in his eye that speaks of
+far away places and great adventures.  A small tattoo of an orchid on his left
+wrist adds to the mystery that seems to surround him.  He is perfectly calm
+and pleased with himself, and all of the things that he has accomplished in
+his life.
+~
+2126 0 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+15 15 51 15d27+90 2d5+2
+7.6.2.0 7290
+8 8 1
+#16648
+halfling woman~
+a halfling woman~
+An old halfling woman stands here baking cookies for her husband.
+~
+Bent with age this elderly halfling woman whistles as she gets ready to bake
+some cookies for her husband.  The number of cookies she is baking suggests
+that she may be expecting more company, and the twinkle in her deep green eyes
+implies that she enjoys company, and baking.
+~
+2126 0 0 0 0 0 0 0 500 S
+PF 7 0 0 -1
+7 18 77 7d18+24 2d3+1
+3.2.0.0 907
+8 8 2
+#16649
+halfling merchant~
+a halfling merchant~
+A halfling merchant sleeps here after a long month of traveling.
+~
+Sandy brown hair seems to sprout from the top of his head in every direction.
+Specially in those spots that have been matted down by sleeping all day long.
+A dusty cloak lies on the floor beside him along with a pair of muddy boots
+showing that when he finally got home he just took off his clothes and
+collapsed.
+~
+2126 0 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+8 18 74 8d21+44 2d3+1
+4.2.0.0 1036
+4 4 1
+#16650
+dog small~
+&+ya small dog&N~
+&+yA small dog lopes along waiting for its master.&N
+~
+Tufts of hair around its ears quiver at the high pitched squeals of children
+that can be heard echoing off the mountains.  This small dog appears barely
+capable of restraining itself as it waits for its master to come take it for
+a walk.  Its training has prevailed though, so it does not run off.
+~
+2120 0 0 0 0 0 0 0 0 S
+A 0 1 0 -1
+2 20 93 2d17+11 1d5+0
+0.0.0.0 1036
+8 8 1
+#16651
+halfling woodworker~
+the woodworker~
+A halfling woodworker is here making furniture
+~
+Bright red hair drops over his brow as he stoops over his work.  His deep green
+eyes focus so intently on what he is doing that he doesn't even notice when
+people come and go.  His hands move over the wood with a smooth precision that
+can only be admired, and his work has a wonderful artistic quality to it.
+~
+1073743950 0 0 0 0 0 0 0 500 S
+PF 7 16384 0 -1
+10 18 67 10d21+55 2d3+1
+5.3.0.0 1296
+8 8 1
+#16652
+halfling boy~
+the halfling boy~
+A young halfling boy is running here, screaming at the top of his lungs.
+~
+Short dark hair clings to his head soaked with perspiration as he runs about
+screaming and laughing.  His parents can only be happy that he is doing it
+outside and that he may come home tired.  Dirt stains his clothing in various
+spots and there is a muddy smudge above his left eye, but nothing seems
+capable of slowing him down.
+~
+2120 0 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+4 20 87 4d17+22 1d5+0
+2.1.0.0 518
+8 8 1
+#16653
+halfling drunk~
+the smelly drunk~
+A stinking drunk sleeps here in his own vomit.
+~
+This halfling is disgusting to behold.  Something has driven him to drink to
+such excess that nothing but drinking must matter any longer.  His filthy
+clothing stinks of old liquor and vomit, and fresh vomit is pooled under his
+face.  It is no wonder that he is shunned by all who see him.
+~
+2252 0 0 0 0 0 0 0 0 S
+PF 7 0 0 -1
+4 20 87 4d15+14 1d5+0
+2.1.0.0 518
+4 4 1
+#16654
+halfling woman happy~
+the happy woman~
+A happy halfling woman stands here watching the animals.
+~
+A bright smile lights up her wide face, puffing her already rosy cheeks out
+even further and creating small laugh lines around her dark blue eyes.  She
+is obviously in an excellent mood and is very content to simply stand and
+observe all the creatures and flowers around her.
+~
+2252 0 0 0 0 0 0 0 500 S
+PF 7 0 0 -1
+5 20 83 5d15+17 1d5+0
+3.1.0.0 648
+8 8 2
+#16655
+halfling guard~
+&+Wthe off-duty guard&N~
+&+WAn off-duty guard is having a few beers and relaxing.&N
+~
+Though off-duty, it easy to tell that he is a guard, he has the characteristic
+tattoo that all guards have on his forehead.  Like many guards, he has a
+vigilant air to him, his blue eyes constantly scanning the other patrons in
+the bar.  There is no weapon visible on his person so he obviously doesn't
+anticipate any trouble.
+~
+67110990 672 0 0 8232 0 0 0 1000 S
+PF 7 1 0 -1
+20 13 35 20d35+140 3d4+2
+0.9.3.0 9720
+8 8 1
+#16656
+barbarian~
+&+bthe barbarian&N~
+&+bA massive barbarian from the distant north is visiting here.&N
+~
+Muscles seem to sprout from his huge form at odd angles, making him appear
+even larger and more dangerous than one might suspect him to truely be.  His
+skin, though darkened somewhat by the sun, is still paler than most of the
+halflings that surround him.  If he weren't sitting down it would be impossible
+to see his deeply set pale green eyes.  In fact, the color of his eyes alone
+detracts from the ferocious appearance that he wants to portray.
+~
+2142 128 0 0 0 0 0 0 300 S
+PB 0 1 0 -1
+17 13 45 17d35+119 3d4+2
+8.6.2.0 8262
+8 8 1
+#16657
+human adventurer~
+the human adventurer~
+&+YA human adventurer stands here telling tales.&N
+~
+This suave dark-haired woman has a quiet charm about her that makes her tales
+quite believable.  Her light brown eyes scan the room, looking for people that
+might supply her with information to send her off on another quest.
+~
+2126 128 0 0 0 0 0 0 500 S
+PH 0 1 0 -1
+16 13 48 16d35+112 3d4+2
+8.6.2.0 7776
+8 8 2
+#16658
+halfling warrior~
+the halfling warrior~
+A halfling warrior is training here.
+~
+This stout warrior is a bit clumsy and clearly needs to practice a bit more
+before trying to go out on his own.  His light brown eyes match his sweat-
+soaked hair and he has the muscles that go with long hours of practice.
+~
+2126 128 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+8 18 74 8d21+44 2d3+1
+4.2.0.0 1036
+8 8 1
+#16659
+halfling warrior~
+the halfling warrior~
+A halfling warrior is practicing with his shield.
+~
+This pale halfling warrior needs to spend a bit more time in the sun.  His
+pasty skin and pale green eyes contrast strongly with the callouses on his
+hands and the scars he has received in training.
+~
+2126 128 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+7 18 77 7d21+38 2d3+1
+3.2.0.0 907
+8 8 1
+#16660
+halfling warrior adventurer~
+the halfling adventurer~
+A halfling adventurer wanders here humming to himself.
+~
+Clearly a sturdy warrior, this halfling walks with the smug knowledge that he
+has already seen more of the world than most in this city will see during their
+entire lives.  His brown eyes have a slightly yellow tint and survey the
+surroundings with a vague hint of amusement.
+~
+2124 128 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+12 15 61 12d27+72 2d5+2
+6.4.2.0 5832
+8 8 1
+#16661
+halfling warrior~
+the halfling warrior~
+A halfling warrior wanders through the town seeking adventure.
+~
+Strong muscles ripple with every step he takes as he walks confidently through
+town.  Blue eyes with green flecks observe everything he passes by, it is clear
+from his attitude that he is in search of some hint of adventure, or a simple
+excuse to fight something.
+~
+1073743948 128 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+10 18 67 10d21+55 2d3+1
+5.3.0.0 1296
+8 8 1
+#16662
+halfling thief shady~
+&+Lthe halfling thief&N~
+&+LA shady-looking halfling stands here, keeping to the shadows.&N
+~
+His mood seems as dark as his clothing.  His hair has been dyed to match his
+dark clothing, but the dye hasn't taken well and his true pale hair color is
+begining to show through.
+~
+1073743948 0 0 0 0 0 0 0 0 S
+PF 7 4096 0 -1
+12 15 61 12d23+48 2d5+2
+6.4.2.0 5832
+8 8 1
+#16663
+gerrard human thief~
+&+rGerrard&N~
+&+rGerrard&N, &+Lthe human thief hides here under Ctenmir's protection.&N
+~
+&+rGerrard the Deplorable&N, is known throughout the land as one of the foulest
+and meanest thieves around.  It is even rumored that he has killed people for
+money.  Exactly why Ctenmir is willing to allow him to hide here is unclear,
+but if he is here under his protection, few will be foolish enough to try to
+collect the bounty on his head.  It is clear that he will have to leave here
+soon though, as more find out he is here, sooner or later someone will come
+hunting him.
+~
+2126 0 0 0 0 0 0 0 -800 S
+PH 0 4096 0 -1
+30 8 3 30d55+330 3d6+4
+0.5.7.1 26730
+8 8 1
+#16664
+halfling woman dyer~
+the halfling dyer~
+&+mA small halfling woman is here soaking tazten bark in dye.&N
+~
+A collection of different dyes have stained her hands until they are an ugly
+dark brown.  A small green smudge over her left eye shows which dye she has
+used most recently.  Though fairly old and quite tired-looking she still finds
+the energy to hum while she works.
+~
+2126 0 0 0 0 0 0 0 800 S
+PF 7 512 0 -1
+10 18 67 10d14+35 2d3+1
+5.3.0.0 1296
+8 8 2
+#16665
+halfling guard~
+a halfling guard~
+One of Woodseer's off-duty guards sleeps here.
+~
+Like many guards, he is honored to have the title bestowed upon him and works
+very hard to help keep Woodseer safe.  He is getting some well-deserved sleep
+now before his next shift.  It is odd to note that he has already bathed so
+that he can begin duty as soon as he wakes and puts on his clothes.
+~
+1140852812 672 0 0 8232 0 0 0 1000 S
+PF 7 1 0 -1
+12 15 61 12d27+72 2d5+2
+6.4.2.0 5832
+4 4 1
+#16666
+halfling guard lieutenant~
+&+Wthe lieutenant&N~
+&+WA lieutenant of the guard sleeps here.&N
+~
+Marked with the characteristic tattoo of the Woodseer guard, this lieutenant
+sleeps peacefully, certain of a calm day.  As he sleeps he mumbles quietly,
+something unintelligible though, probably associated with his dreams.  He has
+locked all of his weapons away, and sleeps naked certain nobody would be
+foolish enough to bother him.
+~
+1140852812 672 0 0 536879144 0 0 0 1000 S
+PF 7 1 0 -1
+45 -1 -69 45d107+2025 6d6+12
+5.9.8.4 109350
+4 4 1
+#16667
+halfling woman~
+the small woman~
+A small halfling woman wanders here, humming to herself.
+~
+Light blond hair frames an oval face that is highlighted by pale green eyes.
+She is out on the town shopping and sightseeing, and generally just walking
+around in a good mood.
+~
+2252 0 0 0 0 0 0 0 500 S
+PF 7 0 0 -1
+7 18 77 7d18+24 2d3+1
+3.2.0.0 907
+8 8 2
+#16668
+halfling farmer~
+the muscular farmer~
+A well-muscled farmer walks through the market to deliver goods.
+~
+Easily as strong as many of the halfling guards, this stout farmer carries
+his goods through the market to deliver them to the vendors.  He appears to
+enjoy being here, his nostrils flare as he takes deep breaths of the heavily
+scented air.
+~
+2124 128 0 0 0 0 0 0 500 S
+PF 7 0 0 -1
+8 18 74 8d18+28 2d3+1
+4.2.0.0 1036
+8 8 1
+#16669
+halfling councilor~
+&+Mthe Councilor&N~
+&+MA halfling Councilor rests here in his comfortable home.&N
+~
+Dressed with wealth and good taste this stately gentleman would be at home in
+the high society of any major city.  Soft features make him look friendly and
+approachable, which certainly improves his appeal.  Exactly what the source of
+his wealth is isn't really clear, he must make quite a bit of money somehow
+though.
+~
+67110990 128 0 0 0 0 0 0 800 S
+PF 7 512 0 -1
+36 2 -15 36d64+756 4d7+10
+0.1.2.2 46656
+8 8 1
+#16670
+halfling woman elegant~
+&+mthe elegant halfling woman&N~
+&+mAn elegant halfling woman lies here sleeping.&N
+~
+She still has the beauty of her youth, specially as she sleeps.  It is clear
+though, that she has seen quite a few years go by.  Her long hair is tinged
+with gray and wrinkles tug at the skin around her eyes.  She is obviously
+a wealthy and important woman, simply based upon her clothing alone.
+~
+2126 0 0 0 0 0 0 0 1000 S
+PF 7 32 0 -1
+16 13 48 16d33+96 3d4+2
+8.6.2.0 7776
+4 4 2
+#16671
+halfling councilor~
+&+Ythe halfling councilor&N~
+&+YA halfling councilor gives her opinions to the guards.&N
+~
+This young halfling woman seems scarcely old enough to be out on her own,
+let alone be one of the councilors of Woodseer.  It is clear from the way she
+holds herself that she is used to being respected, and her bright smile would
+suggest that she does not avoid the duties that her job entails.
+~
+2126 128 0 0 8320 0 0 0 1000 S
+PF 7 32 0 -1
+46 -3 -72 46d110+2484 6d6+25
+6.0.9.4 111780
+8 8 2
+#16672
+halfling guard elite~
+the elite guard~
+&+CAn elite guard is here guarding the council chambers.&N
+~
+This powerful looking guard has the duty of protecting the council and all its
+guests from harm.  He bears the complex tattoo of the guards of Woodseer which
+allows him to see magically hidden people and things so that he can better
+protect the people of Woodseer.  He carries a shield with the symbol of
+Woodseer as well as a sturdy short sword.  Despite his friendly smile, his coal
+black eyes are clear and hard and study everyone that enters the room.
+~
+100665422 672 0 0 8248 0 0 0 1000 S
+PF 7 1 0 -1
+40 2 -28 40d95+920 4d7+10
+3.3.3.3 51840
+8 8 1
+#16673
+halfling farmer poor~
+the poor farmer~
+A poor farmer is here to petition the council.
+~
+This poor farmer looks a bit nervous as he stands here waiting to speak to
+a councilor.  He is probably here to ask for help of some sort, and, though
+he is likely to receive it, he is embarrassed at his need.  His head hangs
+down and his eyes never seem to look up from the floor.
+~
+2126 0 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+9 18 71 9d21+49 2d3+1
+4.3.0.0 1166
+8 8 1
+#16674
+adventurer halfling woman~
+&+Wthe young adventurer&N~
+&+WA young halfling woman is here seeking adventure.&N
+~
+Like many young halflings, this woman is seeking adventure.  She carries a
+small backpack with her so that she is ready to head off whenever and whereever
+there might be something exciting to do.  Her bright green eyes have odd
+yellow flecks that make them seem to twinkle in the light, adding to her good
+humored pose.
+~
+1073743950 0 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+15 15 51 15d27+90 2d5+2
+7.6.2.0 7290
+8 8 2
+#16675
+halfling councilor member council~
+&+Gthe halfling councilor&N~
+&+GA member of the Woodseer high council stands here drinking tea.&N
+~
+Gray streaks run through this kind-looking halfling woman's hair and thin lines
+beside her eyes crinkle when she smiles.  She has been one of Woodseer's
+council members for quite some time and is quite happy she is going to retire
+soon, but until that time she intends to serve her people well.
+~
+33556558 128 0 0 0 0 0 0 1000 S
+PF 7 512 0 -1
+36 2 -15 36d64+756 4d7+10
+0.1.2.2 46656
+8 8 2
+#16676
+halfling councilor~
+the halfling councilor~
+A plainly dressed member of the Woodseer high council stares out his windows.
+~
+A smile seems permanently attached to his face, a face whose primary feature
+is a large nose that is twisted to one side.  Dark green eyes are framed by
+bushy black eyebrows and a black mane that stretches down past his shoulders.
+This halfling has clearly seen his share of battles and parties, and seems
+equally ready for either.
+~
+100665422 128 0 0 8192 0 0 0 1000 S
+PF 7 1 0 -1
+45 -1 -69 45d107+2025 6d6+12
+5.9.8.4 109350
+8 8 1
+#16677
+halfling fisherman~
+the fisherman~
+A tired fisherman rests here so he is ready to wake up early.
+~
+Pale blond hair frames an equally pale face.  It is surprising to see such a
+pale fisherman, long days in the sun should add some color to his skin.  It is
+possible that he is one of those that feels it is best to fish in the early
+morning hours just before the sun has risen, but even then he should still
+have to spend some time in the sun.
+~
+1073743948 0 0 0 0 0 0 0 500 S
+PF 7 0 0 -1
+7 18 77 7d18+24 2d3+1
+3.2.0.0 907
+5 5 1
+#16678
+human merchant~
+the wealthy merchant~
+A wealthy human merchant walks through town.
+~
+The sneer on his face shows that this human is obviously used to the larger
+stone buildings seen in the major human cities.  Oddly enough, halflings from
+Woodseer wear the same sneer when they see large stone buildings, they believe
+"real" buildings are built of wood.  He would be handsome, for a human, if
+he didn't have a sneer twisting the left side of his face into an almost
+brutal grimace.
+~
+2252 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
+8 18 74 8d21+44 2d3+1
+4.2.0.0 1036
+8 8 1
+#16679
+halfling drunk wealthy~
+&+Mthe rich drunk&N~
+&+MA wealthy drunk staggers here, spending money as if it were dirt.&N
+~
+This purpled robed wonder must have a bottomless gut, and a strong resistance
+to alcohol.  Most halflings would be dead by now with the quantity he has been
+drinking.  At this bar, you can drink as long as you want, if you have the
+money.  It is clear that this gentleman has plenty of money, he even has REAL
+gold painted on his fingernails.  Despite all he has been drinking he is thin
+and scrawny, and would have a difficult time beating up an alley cat.
+~
+2126 0 0 0 0 0 0 0 1000 S
+PF 7 1 0 -1
+4 20 87 4d17+22 1d5+0
+2.1.0.0 518
+8 8 1
+#16680
+halfling wife woman~
+the merchant's wife~
+The wife of a wealthy merchant calmly sips her wine.
+~
+Everything about this wealthy woman screams of elegance and wealth.  She is
+calm and satisfied looking though, and seems unconcerned that her hair has
+gotten a bit windblown on the way here.  Her beauty seems to have more to do
+with her posture and smile than her features which are really rather plain.
+Ofcourse, her rich silk clothing doesn't hurt either.
+~
+2126 0 0 0 0 0 0 0 500 S
+PF 7 512 0 -1
+8 18 74 8d14+28 2d3+1
+4.2.0.0 1036
+8 8 2
+#16681
+halfling patron~
+the impatient patron~
+An impatient patron waits for a table.
+~
+One of the many halflings that doesn't receive any special treatment at the
+Quivering Leaf, this poor woman has to wait in the bar with the "rabble".  Her
+dark eyes have a brooding quality that is misplaced in her young, round face.
+~
+2126 0 0 0 0 0 0 0 500 S
+PF 7 0 0 -1
+5 20 83 5d15+17 1d5+0
+3.1.0.0 648
+8 8 1
+#16682
+halfling farmer~
+the simple farmer~
+&+yA simple farmer is here for a special meal.&N
+~
+Though dressed in his finest clothes, it is still easy to see that this is
+just a simple farmer.  Like many people, he still goes out to fine restaurants
+just not as often as people with more money.  He saves these trips for special
+occasions.  Even though he has been here before his green eyes are wide open
+as he gawks at the finery of the restaurant, astonished at the money that must
+have gone into its creation.
+~
+2126 0 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+10 18 67 10d21+55 2d3+1
+5.3.0.0 1296
+8 8 1
+#16683
+halfling farmer wife~
+the farmer's wife~
+&+yThe wife of a simple farmer smiles with pleasure as she looks around.&N
+~
+Though she may be a simple farmer's wife, she is one of the most beautiful
+halfling women in all of Woodseer.  Her beauty glows from both outside and in
+and her twinkling green eyes seem to glow when she speaks.  When she speaks,
+everyone in the room pauses to listen because her voice, if anything, surpasses
+her physical beauty.  She smiles at her husband, and glows when he returns her
+smile.  Part of her beauty must come from the deep satisfaction she has with
+her life, which is made more clear with everything she says and does.
+~
+2126 0 0 0 0 0 0 0 200 S
+PF 7 32768 0 -1
+10 18 67 10d19+45 2d3+1
+5.3.0.0 1296
+8 8 2
+#16684
+halfling logger~
+the logger~
+A halfling logger is relaxing with a few drinks.
+~
+This simple woodcutter must be one of those that treks into the jungle to bring
+back the rare and valuable woods.  He looks extremely tough, yet has a patience
+about him that is difficult to fathom.  Clearly, whatever he does, he has
+enough money to drink at the most expensive bar in town.
+~
+2126 128 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+12 15 61 12d27+72 2d5+2
+6.4.2.0 5832
+8 8 1
+#16685
+halfling woodcarver~
+the wealthy woodcarver~
+A wealthy woodcarver is here for a fine meal.
+~
+Bearing the characteristic callouses that many woodcarvers have, he prepares to
+eat some of the fine food that is served here.  Not only must he have great
+skill to afford such fine clothing, but he also has excellent taste.  His
+blue silk shirt matches his eyes perfectly and plays a fine counterpart to his
+raven black hair.
+~
+2126 0 0 0 0 0 0 0 500 S
+PF 7 0 0 -1
+8 18 74 8d18+28 2d3+1
+4.2.0.0 1036
+8 8 1
+#16686
+elven elf woman~
+&+Gthe elven woman&N~
+&+GAn elven merchant has come here to try the food.&N
+~
+This stately elven woman is obviously a merchant that is used to traveling.
+Unlike many elves she shows no disdain for the other races around her, and she
+seems quite interested in tasting halfling high cuisine.  Her eyes are almost
+golden and her hair is thin and pale, and, though short, she is still taller
+than the halflings that surround her.
+~
+1073743950 0 0 0 0 0 0 0 800 S
+PE 0 2 0 -1
+16 13 48 16d35+112 3d4+2
+8.6.2.0 7776
+8 8 2
+#16687
+halfling merchant~
+&+Wthe wandering merchant&N~
+&+WA merchant wanders aimlessly.&N
+~
+This healthy merchant appears to be taking a day off.  She wanders aimlessly
+around, checking out the stores and the different roads through town.  It
+appears that she is deeply contemplating something, though what that might
+be is difficult to say.  Her rosy cheeks have been pleasantly colored by the
+sun and wind, and her light brown hair slowly curls its way past her shoulders,
+bouncing with every step she takes.
+~
+2252 0 0 0 0 0 0 0 500 S
+PF 7 0 0 -1
+8 18 74 8d18+28 2d3+1
+4.2.0.0 1036
+8 8 2
+#16688
+halfling maitre~
+&+Lthe maitre d'&N~
+&+LThe head maitre d' is here looking very worried.&N
+~
+The maitre d' is obviously extremely worried about something.  When he thinks
+nobody is looking he bites his nails and mutters to himself.  One of the most
+heavily ordered specials here is the turtle soup, a spicy flavorful concoction
+that is well loved throughout the city.  The soup tastes excellent, but the
+maitre d' winces everytime another bowl is ordered.  Thin worry lines are form
+on his brow with every order, whatever is worrying him has something to do with
+the turtle soup.
+~
+2126 0 0 0 0 0 0 0 500 S
+PF 7 1 0 -1
+30 8 3 30d65+390 3d6+4
+0.5.7.1 26730
+8 8 1
+#16689
+elemental water~
+&+Bthe huge water elemental&N~
+&+BA tremendous water elemental is here, at home in the falling water.&N
+~
+This tremendous elemental has been summoned and placed here to help guard
+Woodseer.  Though certainly angry when first summoned, this creature has
+adjusted to its new watery home and seems content with its guardianship.
+However, it is hard to believe that it is truely satisfied with its existance
+here so it would be unwise to disturb it.  The water that flows over it from
+above and in the pool here that surrounds it seem to feed it and give it
+strength.
+~
+33556558 160 0 0 537921536 0 0 0 0 S
+EW 0 1 0 -1
+55 -5 -121 55d131+4675 7d6+30
+0.0.0.0 222750
+8 8 0
+#16690
+halfling gate gateguard guard burly~
+&+Rthe burly guardian&N~
+&+RA burly halfling stands here guarding the gate from invasion.&N
+~
+This guard was clearly chosen for his size and ability to intimidate.  Burly
+arms seem to sprout from his body and dark curly hair falls to his shoulders.
+For some reason his curly hair makes him look larger, it seems to be a mark
+of the gate guards for all of them have long curly hair.  The classic tattoo
+of the Woodseer guards marks his forehead, showing that he too is able to find
+the criminals that try to use magic to sneak by.  His grim green eyes survey
+everything that goes by, it is hard to believe that such a vigilant guard
+would even need magical assistance to help keep watch.
+~
+100665418 160 0 0 8 0 0 0 1000 S
+PF 7 1 0 -1
+50 -7 -114 56d143+5880 7d6+35
+1.3.8.6 226800
+8 8 1
+#16691
+halfling shopkeeper handsome~
+the handsome shopkeeper~
+&+BA handsome halfling takes care of the shop.&N
+~
+This handsome halfling is one of several employed by Ctenmir to assist the
+customers.  He wears a smile that seems etched into his smooth face.  Despite
+his pleasant looks and large smile, there is something sinister about his
+dark eyes and the way he carefully examines every customer.  He is of an
+average build, but he has a smooth even gait that is closer to the stride of
+a cat than a halfling.
+~
+33556558 0 0 0 0 0 0 0 0 S
+PF 7 4096 0 -1
+45 -1 -69 45d90+1935 6d6+12
+5.9.8.4 109350
+8 8 1
+#16692
+halfling mage guard~
+&+mthe scarred mage&N~
+&+mOne of the few mages in the Woodseer guard helps keep watch here.&N
+~
+He is much smaller than most of the other halfling guards, for that matter,
+he is smaller than most halflings.  Several scars on his left cheek make his
+green eyes look dark and mysterious.  It is clear from his attire that he is
+not a warrior, magic is his weapon, and his strength.  He, like many of the
+halfling guards, has devoted his life to the protection of Woodseer, and will
+travel anywhere and fight any battles he feels are necessary to that end.  The
+tattoos that all of the guards possess are clearly shown on his forehead and,
+though they may be marred by a scar through them, they certainly retain their
+power.
+~
+1174407246 672 0 0 0 2048 0 0 1000 S
+PF 7 512 0 -1
+50 -3 -95 50d80+2650 6d6+25
+0.3.1.5 121500
+8 8 2
+#16693
+halfling guard cleric~
+&+Cthe smiling cleric&N~
+&+CA halfling cleric stands here smiling at everything around her.&N
+~
+All of the senior clerics in Woodseer must spend time assisting the guards of
+Woodseer.  This cleric is so consumed by the love for her god that she can't
+seem to stop smiling, which certainly doesn't detract from her beauty.  She
+appears to be one of those people that can travel anywhere, through any type
+of conditions, and still look beautiful.  Her golden hair has been pulled back
+into a tight pony tail to keep from blocking her view of the world.  Though
+she wears a constant smile, it is clear that she is more than capable of doing
+anything she is required to do.
+~
+1174407246 672 0 0 0 0 0 0 1000 S
+PF 7 32 0 -1
+50 -3 -95 50d110+2700 6d6+25
+0.3.1.5 121500
+8 8 2
+#16694
+doctor priest~
+&+Wthe kindly priest&N~
+&+WA kindly priest stands here curing wounds in exchange for donations.&N
+~
+This kind halfling priest acts more like a doctor or healer than a preacher.
+He stands here healing people in exchange for tithes to his god.  His kindness
+may be a bit of a show though, he refuses to heal anyone that doesn't pay the
+proper tithe.  Despite the huge amounts of money he takes in, he is dressed in
+the simplest of robes, looking poorer than many beggars.  Clear blue eyes
+survey visitors to the cathedral searching out those in need of his aid.
+~
+1073743946 0 0 0 184 34816 0 0 1000 S
+PF 7 32 0 -1
+56 -7 -114 56d132+5824 7d6+35
+1.3.8.6 226800
+8 8 1
+#16695
+mailman halfling~
+&+ythe halfling mailman&N~
+&+yA sturdy, scarred, halfling mailman takes messages here.&N
+~
+Bearing a scared visage, this stout halfling has clearly seen a great deal of
+fighting in his many travels.  Though he may not be as well-recognized and
+famous as Jarus or Gael, it is clear that he is easily as much a warrior as
+either of them.  Dust from his many deliveries seems to cling to him, acting
+as more a sign of his dedication than lack of cleanliness.  Constantly ready
+to take and deliver messages, he has saved many merchants from ruin with his
+quick deliveries.
+~
+2122 0 0 0 184 2048 0 0 1000 S
+PF 7 1 0 -1
+60 -10 -148 65d143+6825 7d6+35
+1.0.2.8 263250
+8 8 1
+#16696
+auctioneer elderly~
+&+Bthe elderly auctioneer&N~
+&+bAn elderly auctioneer is here taking bids.&N
+~
+Wrinkles line his hand and face showing that he has had years of experience
+judging the value of items and trying to sell them off at the highest price.
+He speaks quickly as he cajoles people into making higher bids, yet somehow
+is always understandable.  Despite his age, he has the air of someone that
+has seen a great deal of the world, it would be unwise to try to bother him.
+~
+1073743946 0 0 0 184 2048 0 0 1000 S
+PF 7 1 0 -1
+60 -10 -132 60d143+6300 7d6+35
+6.6.9.7 243000
+8 8 1
+#16697
+clerk justice~
+&+La just&nice clerk&n~
+&+LThe just&nice clerk&+L is here, scribing something in his book.&n
+~
+&+cThe justice clerk is a middle age looking man, with &+ybrown hair&n and &+Bblue
+&+Beyes&N.&+c He is dress in a robe with the insigna of the town on the front of it.
+&+cHe hold in one hand a large book bound with iron and in the other a beautiful
+&+ceagle quill. He is here to take care of all the justice paper work.
+~
+67110987 0 0 0 168 2077 0 0 0 S
+PH 1 32 0 -1
+50 -3 -95 50d110+2700 6d6+25
+0.3.1.5 121500
+8 8 1
+#16698
+lubirana halfling ranger~
+&+gLubirana&N~
+&+gLubirana is here tending to the animals.&N
+~
+Lubirana appears to be one of those rare individuals with a special
+affinity for animals.  Her beauty and charming smile work well on others
+as well.  She wears a simple green felt tunic and pants that somehow
+remain clean despite all her dirty work.  Flecks of yellow and brown are
+scattered through her pale green eyes, eyes which seem to absorb every
+detail around her.  She gives every customer a smile, but pays special
+attention to those that clearly care for their animals well.
+~
+100665422 128 0 0 553689276 12480 0 0 1000 S
+PF 7 1 0 -1
+56 -7 -114 56d143+5880 7d6+35
+1.3.8.6 226800
+8 8 2
+#16699
+leopard black~
+&+La sleek black leopard&N~
+&+LA tamed black leapard waits for its master.&N
+~
+This sleek creature must have been taken from the jungle when it was quite
+young.  Looking quite tame, this large cat is really only big enough to
+act as a mount for a small halfling or gnome. One must wonder what sort of
+pet a wild creature like this makes.  A small piece of leather has been
+laid over its back making it clear that someone uses this beast as a
+mount.
+~
+134219800 0 0 0 0 0 0 0 0 S
+A 0 1 0 -1
+15 15 51 15d27+90 2d5+2
+0.0.0.0 7290
+8 8 1
+#16700
+pony mountain~
+&+ya sturdy mountain pony&N~
+&+yA sturdy mountain pony rests here.&N
+~
+Shaggy hair covering this small pony makes it look larger than it really
+is.  The pony is clearly some sort of mountain breed, used by halflings
+for travels outside woodseer.  Though not well-suited for traveling into
+the jungle near where it has been bred, it is a sturdy beast and can
+travel long distances.
+~
+2072 0 0 0 0 0 0 0 0 S
+AE 0 0 0 -1
+3 20 90 3d15+11 1d5+0
+0.0.0.0 388
+8 8 0
+#16701
+postal clerk~
+a postal clerk~
+A postal clerk awaits the next shipment of mail.
+~
+The halfling mail clerk looks extremely bored as he awaits a new shipment of
+mail to the office.
+~
+2059 0 0 0 0 0 0 0 750 S
+PF 7 0 0 -1
+25 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#16702
+halfling guard elite justice~
+&+Can elite guard&N~
+&+COne of the elite halfling guards protects all that pass by.&N
+~
+Smiling calmly at all that pass by, this halfling guard has obviously seen a
+great deal of fighting.  Thin scars from sparring, or perhaps all out battle,
+mark the length of his forearms.  Nothing would phase this skilled warrior and
+the strange tattoo on his forehead is supposed to allow him to see both
+invisible and sneaking thieves as well as helping detect whether or not any
+particular individual has any evil intentions.
+~
+1174407244 672 0 0 536879144 12480 0 0 1000 S
+PF 0 1 0 -1
+30 8 3 30d65+390 3d6+4
+0.5.7.1 26730
+8 8 1
+#16703
+teacher illusionist halfling fiddilfad~
+&+mFiddilfad&N~
+&+mA old halfling, master illusionist stands here looking for students&N
+~
+This is one of the many instructors of the emerald tower.  Her job is to make
+certain that none of the new illusionists hurts themselves or others while they
+practice their spells and work on making potions and wands.  He does his job
+with a quiet smile but it is clear he would rather be doing some studying of
+his own.
+~
+1073776718 0 0 0 0 0 0 0 1000 S
+PF 7 4194304 0 -1
+56 8 16 26d44+286 3d6+4
+7.2.6.1 23166
+8 8 2
+#16704
+pwem halfling~
+&+mPwem&N~
+&+mPwem&N, the alchemist, stands here mixing a potion.
+~
+&+mPwem is a halfling alchemist who resides in this home in the jungle.  Many
+&+mvisitors from the nearby shipyard bring requests to have special potions
+&+mmixed.   She was trained by the great sisters of Sevenoaks.   She looks up
+&+mfrom her work and acknowledges your presence in the room with a smile.&n
+~
+2147518538 0 0 0 0 0 0 0 500 S
+PF 0 524288 0 -1
+46 -3 -72 46d80+2438 6d6+25
+6.0.9.4 111780
+8 8 2
+#16705
+halfling guard elite~
+&+Can elite &+yhalfling guard&N~
+The &+Celite&N &+yhalfling guard&N stands here eyeing you.
+~
+Smiling calmly at all that pass by, this halfling guard has obviously seen a
+great deal of fighting.  Thin scars from sparring, or perhaps all out battle,
+mark the length of his forearms.  Nothing would phase this skilled warrior and
+the strange tattoo on his forehead is supposed to allow him to see both
+invisible and sneaking thieves as well as helping detect whether or not any
+particular individual has any evil intentions.
+~
+1174407242 672 0 0 536879144 12480 0 0 1000 S
+PF 0 1 0 -1
+50 8 3 30d65+390 3d6+4
+0.5.7.1 26730
+8 8 1
+#16706
+halfling guard~
+&+Wa halfling guard&N~
+&+WA halfling guard patrols the streets keeping the peace.&N
+~
+This jovial halfling keeps a close watch on everything that goes on in his
+area.  Any disruptions to the peace, or violent acts will be met with
+swift action.  Like most of the halfling guards this one has the eye-within-a-
+sunburst tattoo that is rumored to give them the ability to see even invisible
+and sneaking thieves.  This guard may not be as burly as some of his friends
+but it is certain that one swift cry will bring many more.
+~
+1174407246 672 0 0 8232 0 0 0 1000 S
+PF 0 1 0 -1
+41 15 61 12d27+72 2d5+2
+6.4.2.0 5832
+8 8 1
+#16707
+halfling gate gateguard guard burly~
+&+Ra burly guardian&N~
+&+RA burly halfling stands here guarding the gate from invasion.&N
+~
+This guard was clearly chosen for his size and ability to intimidate.  Burly
+arms seem to sprout from his body and dark curly hair falls to his shoulders.
+For some reason his curly hair makes him look larger, it seems to be a mark
+of the gate guards for all of them have long curly hair.  The classic tattoo
+of the Woodseer guards marks his forehead, showing that he too is able to find
+the criminals that try to use magic to sneak by.  His grim green eyes survey
+everything that goes by, it is hard to believe that such a vigilant guard
+would even need magical assistance to help keep watch.
+~
+100665418 160 0 0 536879292 2048 0 0 1000 S
+PF 7 1 0 -1
+56 -7 -114 56d143+5880 7d6+35
+1.3.8.6 226800
+8 8 1
+#16708
+halfling guard lieutenant justice~
+&+ga lieutenant&N~
+&+gA lieutenant of the Woodseer guard patrols the area.&N
+~
+The lieutenant watches everything around him with a confident air.   His
+confidence is bourne of the many battles he has fought in the defense of
+Woodseer and his adventuring in the nearby jungle.  His alligatorskin armor is
+a sign of his status among the guards.  Such armor is expensive, the Woodseer
+Council must value his service a great deal.
+~
+1174407244 672 0 0 536879144 12480 0 0 1000 S
+PF 0 1 0 -1
+50 -3 -95 50d119+2750 6d6+25
+0.3.1.5 121500
+8 8 1
+#16709
+halfling guard elite justice~
+&+Ca elite guard&N~
+&+COne of the elite halfling guards protects all that pass by.&N
+~
+Smiling calmly at all that pass by, this halfling guard has obviously seen a
+great deal of fighting.  Thin scars from sparring, or perhaps all out battle,
+mark the length of his forearms.  Nothing would phase this skilled warrior and
+the strange tattoo on his forehead is supposed to allow him to see both
+invisible and sneaking thieves as well as helping detect whether or not any
+particular individual has any evil intentions.
+~
+1174407244 672 0 0 536879144 12480 0 0 1000 S
+PF 0 1 0 -1
+60 8 3 30d65+390 3d6+4
+0.5.7.1 26730
+8 8 1
+#16710
+halfling guard elite~
+&+Ca elite &+yhalfling guard&N~
+The &+Celite&N &+yhalfling guard&N stands here eyeing you.
+~
+Smiling calmly at all that pass by, this halfling guard has obviously seen a
+great deal of fighting.  Thin scars from sparring, or perhaps all out battle,
+mark the length of his forearms.  Nothing would phase this skilled warrior and
+the strange tattoo on his forehead is supposed to allow him to see both
+invisible and sneaking thieves as well as helping detect whether or not any
+particular individual has any evil intentions.
+~
+1174407242 672 0 0 536879144 12480 0 0 1000 S
+PF 0 1 0 -1
+40 8 3 30d65+390 3d6+4
+0.5.7.1 26730
+8 8 1
+#16711
+minotaur guard mercenary _spec1_~
+&+LA mino&+rtaur &+ymercenary guard&n~
+&+LA mino&+rtaur &+ymercenary stands guard over the halflings.&n
+~
+&+yThis mercenary for hire is part of the Nologak Brigade. This entire
+&+yunit was hired to bolster the defenses of the city of &+WWoodseer.&n
+&+yA most mercenaries groups, there are a wide variety of skills and
+&+Yexpertise.
+~
+1073969226 128 0 0 939524152 4 0 67121152 0 S
+mt 0 16384 0 -1
+51 0 -250 50d50+2000 10d10+60
+0.0.0.0 0
+8 8 1
+#16712
+minotaur guard wizard _spec1_ _nosneak_~
+&+LA mino&+rtaur &+ymercenary wizard&n~
+&+LA mino&+rtaur &+ymercenary stands guard over the halflings.&n
+~
+&+yThis mercenary for hire is part of the Nologak Brigade. This entire
+&+yunit was hired to bolster the defenses of the city of &+WWoodseer.&n
+&+yA most mercenaries groups, there are a wide variety of skills and
+&+Yexpertise.
+~
+1073969226 128 0 0 939524152 4 0 67121152 0 S
+mt 0 512 0 -1
+51 0 0 50d50+1000 8d8+20
+0.0.0.0 0
+8 8 1
+#16713
+dwarf mercenary guard _nosneak_~
+&+yA dwarf mercenary tracker and punisher&n~
+&+YA dwarf mercenary stands guard over the halflings&n
+~
+~
+1107785866 128 0 0 941096986 4 0 101724160 0 S
+pm 0 8192 0 -1
+46 0 0 50d50+1000 8d10+40
+0.0.0.0 0
+8 8 2
+#16900
+halfling scout~
+&+Wa halfling scout&N~
+&+WA halfling scout keeps the trade path clear.&N
+~
+This smiling halfling has the, usually peaceful and pleasant job of keeping
+the trade path to Woodseer clear of unwanted thieves and jungle pests.  He
+is also responsible for keeping the path along the cliffs clear of jungle
+growth.  The happy smile on his face shows that he is quite content with his
+job, and that he enjoys the outdoors.
+~
+1073743948 672 0 0 0 0 0 0 1000 S
+PF 0 1 0 -1
+12 15 61 12d27+72 2d5+2
+6.4.2.0 5832
+8 8 1
+#16901
+halfling sentinel~
+&+ga halfling sentinel&N~
+&+gA halfling sentinel keeps a close watch on the jungle.&N
+~
+Unlike many halflings, there is nothing calm or peaceful about this one's
+face.  He wears a grim smile as he looks out over the jungle, carefully
+watching every quivering leaf to make certain that none of the jungle
+denizens have again decided to attack Woodseer or any of the merchant
+caravans that come to visit it.  He seems to have the strange ability to
+blend in with his surroundings, probably by the way he stands so perfectly
+still as he keeps watch.
+~
+1140852812 672 0 0 0 0 0 0 1000 S
+PF 0 1 0 -1
+25 11 19 25d47+250 3d5+3
+6.2.6.1 22275
+8 8 1
+#16902
+fungus fungi violet~
+&+ma violet fungus&N~
+A huge &+mviolet&N fungus stands here.
+~
+This odd fungus has large sharp looking thorns all around its outer edge.  It
+has clearly developed these thorns and even the light coating of spores that
+coats them as some sort of protectant from other creatures in the jungle.
+~
+2122 0 0 0 0 0 0 0 -500 S
+A 0 0 0 -1
+3 20 90 3d15+11 1d5+0
+0.0.0.0 388
+8 8 0
+#16903
+vine purple flower~
+&+ma purple vampire vine&N~
+&+gA&N &+mpurple flower&N &+ghangs from a vine here.&N
+~
+This beautiful &+mpurple flower&N camouflages a wicked hollow thorn that the
+vine uses to impale its victims and suck their blood.  Clearly this strange
+vine is a horrible mutation of some sort, but it has certainly done a good
+job of surviving.
+~
+2122 0 0 0 0 262144 0 0 -800 S
+VT 0 0 0 -1
+3 20 90 3d15+41 1d5+0
+0.0.0.0 388
+8 8 0
+#16904
+vine yellow flower~
+&+Ya yellow vampire vine&N~
+&+gA&N &+Yyellow flower&N &+ghangs from a vine here.&N
+~
+This beautiful &+Yyellow flower&N camouflages a wicked hollow thorn that the
+vine uses to impale its victims and suck their blood.  Clearly this strange
+vine is a horrible mutation of some sort, but it has certainly done a good
+job of surviving.
+~
+2122 0 0 0 0 262144 0 0 -800 S
+VT 0 0 0 -1
+2 20 93 2d15+27 1d5+0
+0.0.0.0 259
+8 8 0
+#16905
+vine red flower~
+&+Ra red vampire vine&N~
+&+gA&N &+Rred flower&N &+ghangs from a vine here.&N
+~
+This beautiful &+Rred flower&N camouflages a wicked hollow thorn that the
+vine uses to impale its victims and suck their blood.  Clearly this strange
+vine is a horrible mutation of some sort, but it has certainly done a good
+job of surviving.
+~
+2122 0 0 0 0 262144 0 0 -800 S
+VT 0 0 0 -1
+3 20 90 3d15+41 1d5+0
+0.0.0.0 388
+8 8 0
+#16906
+yellow flower vine~
+&+Ya yellow flower&N~
+&+gA&N &+Yyellow flower&N &+ghangs from a vine here.&N
+~
+This yellow flower is carefully avoided by most of the animals that travel
+through the area.  Exactly why is unclear, unlike most things in the jungle
+this flower is completely harmless.
+~
+74 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+1 20 96 1d15+4 1d5+0
+0.0.0.0 129
+8 8 0
+#16907
+gold golden beetle~
+&+Ya golden beetle&N~
+&+YA golden beetle waits for someone to pick it up.&N
+~
+This tiny beetle is as devious as it is vicious.  It has evolved a fine
+&+Ygolden hue&N and a flat looking shell so that foolish treasure hunters can
+try to pick it up.  Then it uses its long mandibles to latch onto the victim
+and begin sucking their blood.
+~
+2122 0 0 0 0 0 0 0 -500 S
+I 0 0 0 -1
+1 20 96 1d15+4 1d5+0
+0.0.0.0 129
+8 8 0
+#16908
+bird parrot~
+a &+Yb&+Rr&+Gi&+Mg&+Yh&+Rt&+Gl&+My&N colored parrot~
+&+gA&N &+Ybrig&+Rhtly&N &+gcolored parrot flies through the branches.&N
+~
+Brilliant colors line all the feathers of this magificent creature.  It is no
+wonder that its feathers are so highly prized, and that it is heavily hunted.
+~
+133192 0 0 0 0 0 0 0 0 S
+B 0 0 0 -1
+7 18 77 7d18+24 2d3+1
+0.0.0.0 907
+8 8 0
+#16909
+green bird~
+&+Ga green bird&N~
+&+GA strange green bird streaks through the branches.&N
+~
+This odd green bird has a certain beauty and elegance.  The incredible speed
+the creature has, combined with its sharp talons and wicked beak make it a
+very tough customer indeed.  This bird is obviously more used to making other
+creatures its meal rather than the other way around.
+~
+1073875018 0 0 0 16 0 0 0 -400 S
+B 0 0 0 -1
+1 20 96 1d15+4 1d5+0
+0.0.0.0 129
+8 8 0
+#16910
+leopard spotted~
+&+ya spotted leopard&N~
+&+yA sp&+Lot&+yted leopard prowls the jungle looking for dinner.&N
+~
+This magificent creature moves with a grace and cunning that puts all other
+creatures to shame.  There are few creatures as beautiful and deadly as this
+calm predator, though in this jungle she is no where close to being queen.
+~
+1073743946 0 0 0 0 0 0 0 -350 S
+A 0 1 0 -1
+12 15 61 12d27+72 2d5+2
+0.0.0.0 5832
+8 8 0
+#16911
+leopard black~
+&+La black leopard&N~
+&+LA graceful black leopard prowls the jungle.&N
+~
+His sleek black hide is perfect for hiding in the deep shadows of the jungle
+and his strong body and sharp claws make him a formidable foe.  His pale
+&+Bblue&N eyes make him look less dangerous than he truely is, but few in the
+jungle would dare to come near him, if they seem him that is.
+~
+1073743944 0 0 0 524288 0 0 0 -400 S
+A 0 1 0 -1
+14 15 55 14d27+84 2d5+2
+0.0.0.0 6804
+8 8 0
+#16912
+snake giant~
+a giant snake~
+&+gA giant snake slithers here.&N
+~
+This giant snake has a mottled green skin.  Its coloration is perfect for
+blending in with the jungle plants and leaves that it hides among while it
+patiently waits for prey.
+~
+1073743946 0 0 0 0 0 0 0 -400 S
+RS 0 0 0 -1
+10 18 67 10d18+35 2d3+1
+0.0.0.0 1296
+8 8 0
+#16913
+snake red~
+a &+Rred snake&N~
+A bright &+Rred&N snake slithers here.
+~
+This small snake is so brightly colored that it is almost a beacon in the
+dark jungle, yet no creature has dared to try to kill and eat it.  It is
+likely that they recognize its bright color doesn't mean that it is
+dangerous, just highly poisonous to eat.
+~
+1073743880 0 0 0 0 0 0 0 -400 S
+RS 0 0 0 -1
+5 20 83 5d15+17 1d5+0
+0.0.0.0 648
+8 8 0
+#16914
+faerie dragon~
+&+ra young faerie dragon&N~
+&+rA young rust-colored faerie dragon is here exploring the jungle.&N
+~
+This cute creature is almost an exact replica of a dragon, but it is only a few
+feet long.  Its wings are almost translucent, but its body is a pleasant rust
+color that somehow finds a way to blend in with the forest.  The faerie dragon
+has a mischevious grin on its face as it watches everything going on around it
+with great interest.  Though still quite young, it would not be wise to
+underestimate this small creature's abilities.
+~
+1073875016 128 0 0 134217728 0 0 0 0 S
+DK 0 512 0 -1
+16 13 38 16d24+192 3d4+2
+8.6.4.0 7776
+8 8 0
+#16915
+jaculi snake~
+&+ga jaculi&N~
+&+gA jaculi hides here, ready to spring at its victims.&N
+~
+This small snake-like creature has specifically adopted ambush as its favored
+hunting tactic.  There is a dark and evil intelligence behind its evil eyes,
+and its heavily coiled body looks ready to spring into action at any time.
+~
+2122 0 0 0 1048576 0 0 0 -750 S
+RS 0 0 0 -1
+4 20 87 4d15+14 1d5+0
+0.0.0.0 518
+8 8 0
+#16916
+jaculi snake~
+&+ga fanged jaculi&N~
+&+gA fanged jaculi hides here, ready to spring at its victims.&N
+~
+This small snake-like creature has specifically adopted ambush as its favored
+hunting tactic.  Its particularily long fangs show that it has gotten very good
+at killing by surprise, perhaps by being smart enough to know when to hold back
+and leave a particularily dangerous target alone.
+~
+2122 0 0 0 1048576 0 0 0 -750 S
+RS 0 0 0 -1
+7 18 77 7d18+24 2d3+1
+0.0.0.0 907
+8 8 0
+#16917
+moss vampire~
+&+gsome&N &+rvampire&N &+gmoss&N~
+&+gSome moss lines the ground here.&N
+~
+Of all the creatures in the jungle this is one of the most devious, and
+dangerous.  On the surface it looks like a padding of moss, but closer
+inspection reveals hundreds of tiny hollow thorns designed to impale a victim
+and begin sucking its blood.  This creature is truely one of the most dangerous
+around.  Adventurers have been known to go to bed on what they thought was a
+soft bed of moss never to awake again.
+~
+33556554 0 0 0 0 262144 0 0 -900 S
+A 0 0 0 -1
+6 18 80 6d18+21 2d3+1
+0.0.0.0 777
+8 8 0
+#16918
+warthog boar~
+&+La large warthog&N~
+&+LA huge warthog wanders the forest looking for food.&N
+~
+This pig-like creature has a pair of nasty curved tusks on each side of its
+mouth that it uses to rip up the ground to search for roots and grubs.  There
+is a certain darkness about this creature that suggests that his tusks can be
+used for a lot more if needed.  Fortuneatly, this creature is quite near-
+sighted and the jungle stench and lack of a breeze conceal most movements from
+it.
+~
+1073743944 0 0 0 0 0 0 0 -400 S
+A 0 1 0 -1
+12 15 61 12d27+72 2d5+2
+0.0.0.0 5832
+8 8 0
+#16919
+beetle giant~
+a giant beetle~
+&+LA giant black beetle forages its way through the forest.&N
+~
+Though it doesn't normally try to attack and eat very large creatures, its
+sharp pincers could easily cut right through most types of armor and its hard
+chiton looks tougher than some types of plate mail.  It is very fortunate that
+this ill-tempered creature doesn't go out of its way to pick any fights.
+~
+1073743946 0 0 0 0 0 0 0 -400 S
+I 0 1 0 -1
+14 15 55 14d27+84 2d5+2
+0.0.0.0 6804
+8 8 0
+#16920
+raven bird~
+&+La dark raven&N~
+&+LA dark raven flies in circles here, carrying out some dark purpose.&N
+~
+This raven doesn't appear to be hunting, though it has a gaunt and hungry look
+in its eyes.  Instead it just circles, watching everything it can.  It appears
+to be under the control of some distant wizard.  Everything about the raven
+seems dark to its core.  The talons, beak, eyes, and feathers all have a
+darkness that seems light when compared to the darkness that seems to seep out
+of it from within.
+~
+133320 0 0 0 134217728 0 0 0 -750 S
+B 0 0 0 -1
+8 18 74 8d18+28 2d3+1
+0.0.0.0 1036
+8 8 0
+#16921
+monkey gray~
+a gray-haired monkey~
+&+LAn elderly gray haired monkey stands here.&N
+~
+Tufts of gray hair hang down from this monkey's ears, clearly he is quite a bit
+older than the other monkeys in this group.  To get this old he must be quite
+adept at both fighting and running away.  His dark eyes haven't lost any power
+though, they are like evil orbs constantly watching everything.
+~
+1073742030 0 0 0 0 0 0 0 -600 S
+A 0 1 0 -1
+10 18 67 10d21+55 2d3+1
+0.0.0.0 1296
+8 8 1
+#16922
+monkey mother~
+a mother monkey~
+&+LA mother monkey is here protecting her young.&N
+~
+This young monkey is quite fearsome when her young are threatened, but fairly
+calm and docile otherwise.  There is something dark and sinister about her
+though, it is as if some deep evil within the jungle has seeped into her, as
+well as into the other animals that can be seen throughout the area.
+~
+2126 0 0 0 0 0 0 0 -400 S
+A 0 0 0 -1
+7 18 77 7d18+24 2d3+1
+0.0.0.0 907
+8 8 2
+#16923
+monkey baby~
+a baby monkey~
+&+LA baby monkey clings to its mother.&N
+~
+Despite its small size, this dark haired little creature already has a deep
+darkness about it.  There is something evil about it, normally such small young
+creatures would be considered 'cute' but there is something about this one that
+makes it unapproachable.
+~
+74 0 0 0 0 0 0 0 -400 S
+A 0 0 0 -1
+3 20 90 3d15+11 1d5+0
+0.0.0.0 388
+8 8 0
+#16924
+monkey young~
+a young monkey~
+&+LA young monkey carefully examines his world with dark eyes.&N
+~
+There is something sinister and evil about the way this young monkey watches
+the world around him.  His dark hair and eyes have nothing to do with the evil
+aura that seems to surround him.  How and why this creature has obtained this
+dark taint to its soul is unclear, perhaps it has something to do with the
+jungle.
+~
+2126 0 0 0 0 0 0 0 -400 S
+A 0 0 0 -1
+5 20 83 5d15+17 1d5+0
+0.0.0.0 648
+8 8 0
+#16925
+monkey large~
+a large monkey~
+&+LA large monkey is here protecting its clan.&N
+~
+A vicious grin marks dark and brooding features.  Some strange evil has
+possessed this large monkey.  Only one thing is important to this monkey,
+protecting its group, everything else is secondary.  Something about the
+jungle, or perhaps just this part of it, has an evil about it that is so
+powerful it has been able to taint the soul of even this simple creature.
+~
+1073743950 0 0 0 0 0 0 0 -600 S
+A 0 1 0 -1
+9 18 71 9d21+49 2d3+1
+0.0.0.0 1166
+8 8 1
+#16926
+halfling logger~
+&+ya halfling logger&n~
+&+yA halfling logger wanders here looking for good trees.&N
+~
+&+bBlue&N eyes gleam brightly in the darkness of the jungle.  Despite the gloom
+and evil all about him, this logger is in good spirits and walks boldly through
+the jungle unafraid of anything that threatens him.  He must be one of those
+brave souls that treks into the jungle to find the rare tropical hardwood trees
+that provide such fine lumber to the craftsmen of Woodseer.  Confidently
+walking through the jungle with his hands on his axe, he has been left alone by
+creatures that would otherwise threaten most people foolish enough to be here.
+~
+2124 128 0 0 0 0 0 0 0 S
+PF 7 1 0 -1
+20 13 35 20d35+140 3d4+2
+0.9.3.0 9720
+8 8 1
+#16927
+halfling adventurer~
+&+Wa halfling adventurer&n~
+&+WA solitary halfling wanders here, searching for lost treasures.&N
+~
+Her &+Ggreen&N eyes shine with excitement as she carefully stalks through the
+jungle.  Beautiful features glow with anticipation as she observes everything
+around her.  Young adventurers such as this one often enter the jungle, drawn
+in by tales of lost  cities and hidden treasures.  One can only hope this
+beautiful halfling woman fares better than most of the others foolish enough to
+trek into the jungle.
+~
+1073743950 128 0 0 0 0 0 0 0 S
+PF 7 16384 0 -1
+18 13 42 18d35+126 3d4+2
+9.7.3.0 8748
+8 8 2
+#16928
+bullywug scout~
+&+ga bullywug scout&n~
+&+gA bullywug scout watches for invaders.&N
+~
+This odd frog-like creature's &+Lgray&n and &+ggreen&n mottled body blends in
+well with the surrounding jungle making it easy for it to hide.  This amphibian
+humanoid has huge bulbous eyes that enable it to see even in the smallest
+amount of light. Though as small as a halfling, it has a ferocious look about
+it that dares anything to be foolish enough to challenge it.
+~
+1073743946 0 0 0 33554432 0 0 0 -700 S
+H 0 1 0 -1
+12 15 61 12d27+72 2d5+2
+6.4.2.0 5832
+8 8 0
+#16929
+bullywug sentinel~
+&+ga &+ybullywug &+gsentinel&n~
+&+yAn ugly brown and &+ggreen&N &+ybullywug sentinel stands watch.&N
+~
+This bullywugs brown and green skin helps it hide amongst the jungle foliage
+but certainly adds nothing to its looks.  Perhaps he is handsome by the
+standards of his frog-like kind, but anyone else would fine his ugly skin and
+strange &+Yyellow&N bulbous eyes to be quite repulsive.  His skin glistens with
+the moisture of the jungle, which is good, for this amphibian needs to stay
+warm and wet.
+~
+1073743950 0 0 0 33554432 0 0 0 -700 S
+H 0 1 0 -1
+20 13 35 20d35+140 3d4+2
+0.9.3.0 9720
+8 8 0
+#16930
+black cat huge jakar~
+&+La jakar&N~
+&+LA huge black cat prowls here, defending its territory.&N
+~
+This cat is far larger than any cat ever seen.  In fact, it is so large that
+one would guess that there has had to be some sort of magic involved in its
+growth.  Its eyes are an odd &+gemerald green&n with thin &+Ygolden&N flecks
+that dot the area outside its dark pupils.  The way it slowly paces back and
+forth watching everything around it would almost seem to indicate that this
+creature is extremely intelligent.  There is a strange jewelled collar around
+its neck, but it is hard to imagine anyone actually being able to tame such a
+tremendous beast.  Perhaps there is something more to this creature than meets
+the eye.
+~
+1107298378 160 0 0 1573052 2048 0 0 1000 S
+AC 0 128 0 -1
+54 -5 -107 54d121+4536 7d6+30
+9.1.7.6 218700
+8 8 1
+#16931
+kenku adventurer~
+the kenku adventurer~
+&+yA kenku adventurer wanders the forest seeking fame and fortune.&N
+~
+This odd looking bird-man looks extremely well-prepared for any contingency.
+His oddly shaped armor has been designed to allow him the limited flight of his
+kind as well as protect him from harm.  His sharp beak and closely held dagger
+help threaten anything that might attempt to harm him.  The best protection
+though are his mottled brown feathers which help him fade into the shadows and
+hide in the event of real danger.
+~
+1073875018 0 0 0 0 0 0 0 -400 S
+H 0 4096 0 -1
+16 13 48 16d30+80 3d4+2
+8.6.2.0 7776
+8 8 1
+#16932
+halfling sentinel~
+&+La halfling sentinel&N~
+&+LA halfling sentinel keeps a close watch on the mountains&N
+~
+Dark grey clothing helps him blend into the shadows of the plain stone
+that surrounds him.  This halfling has a grim determination about him,
+showing that no matter how irrelevant this trail may be, he will defend
+it with his life, insuring that nobody prevents traders from making it
+to Woodseer.  He is marked with the tattos of the halfing guards,
+tattoos that enable him to find any sneaky criminals that try to stalk
+through the shadows unseen.
+~
+1174407246 672 0 0 8232 0 0 0 1000 S
+PF 0 1 0 -1
+25 11 19 25d47+250 3d5+3
+6.2.6.1 22275
+8 8 1
+#16933
+goat mountain~
+a small mountain goat~
+A small mountain goat wanders here searching for food.
+~
+Clearly not one of the largest of mountain goats, this small creature
+seems content to prance nimbly through the mountains looking for food.
+Despite its small size, mountain trails are often narrow enough that it
+can certainly be a nuisance.
+~
+2248 0 0 0 0 0 0 0 0 S
+A 0 1 0 -1
+7 18 77 7d21+38 2d3+1
+0.0.0.0 907
+8 8 0
+#16934
+eagle golden brown~
+&+yan eagle&N~
+&+yA golden-brown eagle soars through the mountains.
+~
+This tremendous creature has sharp talons and a nasty-looking beak, and
+looks more than capable of using them.  Exactly what it is hunting, or
+even if it is hunting is unclear.  What is obvious though, is that
+nobody in their right mind wants to attack or anger it.
+~
+1073875016 0 0 0 134217744 0 0 0 0 S
+B 0 1 0 -1
+14 15 55 14d27+84 2d5+2
+0.0.0.0 6804
+8 8 0
+>>>>>>> master

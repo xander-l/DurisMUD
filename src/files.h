@@ -27,7 +27,7 @@
 
 /* defines */
 
-#define SAV_STATVERS  46
+#define SAV_STATVERS  47
 #define SAV_SKILLVERS 2
 #define SAV_ITEMVERS  35
 #define SAV_AFFVERS   6

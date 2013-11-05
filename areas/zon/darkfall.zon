@@ -42,9 +42,14 @@ M 0 95300 14 95337 100 0 0 0       * a su-monster
 M 0 95300 14 95337 100 0 0 0       * a su-monster
 M 0 95301 1 95339 100 0 0 0        * the su-elder
 E 1 95300 1 9 100 0 0 0            *   some disease covered spiked talons
+<<<<<<< HEAD
 M 0 95300 14 95339 100 0 0 0       * a su-monster
 M 0 95306 8 95339 100 0 0 0        * a large su-monster
 M 0 95306 8 95339 100 0 0 0        * a large su-monster
+=======
+G 1 67259 1 0 100 0 0 0            *    (object type not in this .obj file)
+M 0 95300 25 95339 100 0 0 0       * a su-monster
+>>>>>>> master
 M 0 95303 1 95340 100 0 0 0        * Myle, the merchant
 E 1 95302 1 15 100 0 0 0           *   some iron-plated bracers
 M 0 95302 1 95341 100 0 0 0        * Graly, the traveling bard

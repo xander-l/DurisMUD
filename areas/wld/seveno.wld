@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #38600
 &+WAn Snowy Footpath&N~
    The tundra extends in all directions from this point.
@@ -1938,3 +1939,1945 @@ The lab is down below.
 F
 100
 S
+=======
+#38600
+&+WAn Snowy Footpath&N~
+   The tundra extends in all directions from this point.
+The area from all around is covered in snow.  The area in
+the nearby vicinity is quiet.   There are no signs of
+footprints in the snow except a small footpath which
+continues in one direction.
+~
+386 33554436 2
+D0
+~
+~
+0 0 38601
+D2
+~
+~
+0 0 516252
+S
+#38601
+&+WApproaching the &+bTown of Sevenoaks&N~
+   The tundra extends in all directions from this point.
+The town of Sevenoaks is just ahead.  The town is
+surrounded by a large granite stone wall.  The wall is
+over fifty feet tall.  The area in the nearby vicinity
+is quiet.   There are no signs of footprints in the snow
+except a small footpath which continues in two directions.
+~
+386 33554432 2
+D0
+~
+~
+0 0 38602
+D2
+~
+~
+0 0 38600
+S
+#38602
+&+WBefore the &+bTown of Sevenoaks&N~
+   A large town wall envelopes the town to the north.
+On a nearby plaque, it says "Town of Sevenoaks."  Eyes
+from above, mark your every move.  The tundra extends in
+all directions from this point.  The area in the nearby
+vicinity is quiet.   There are no signs of footprints in
+the snow except a small footpath which continues in
+two directions.  A large set of ice gates are situated
+just north from this point.
+~
+386 33554432 2
+D0
+A large set of ice gates sits to the north from here.
+~
+ice gates~
+3 38656 38603
+D2
+~
+~
+0 0 38601
+S
+#38603
+&+LThe Street of Gravel&N~
+   The Town of Sevenoaks is served by this main street.
+The road is almost twenty-two feet wide and is covered by
+gravel.  The gravel covering this street allows for a
+firm street covering.  The natural earth is many feet
+below the layer of gravel.  The street continues in
+two direction from this point.
+~
+386 33554432 1
+D0
+~
+~
+0 0 38604
+D2
+A large set of ice gates seal the exit to the south off.
+~
+ice gates~
+3 38656 38602
+S
+#38604
+&+LThe Street of Gravel&N~
+   The Town of Sevenoaks is served by this main street.
+The road is almost twenty-two feet wide and is covered by
+gravel.  The gravel covering this street allows for a
+firm street covering.  The natural earth is many feet
+below the layer of gravel.  The street continues in
+two direction from this point.
+~
+386 33554432 1
+D0
+~
+~
+0 0 38605
+D2
+~
+~
+0 0 38603
+S
+#38605
+&+LThe Street of Gravel&N~
+   The Town of Sevenoaks is served by this main street.
+The road is almost twenty-two feet wide and is covered by
+gravel.  The gravel covering this street allows for a
+firm street covering.  The natural earth is many feet
+below the layer of gravel.  The street continues in
+two direction from this point.
+~
+386 33554432 1
+D0
+~
+~
+0 0 38606
+D2
+~
+~
+0 0 38604
+S
+#38606
+&+bThe Center of Sevenoaks&N~
+   The center of Sevenoaks lies in this wide square.  In
+the center of town, there is a large fountain.  The streets
+all around are free of snow for some odd reason.  In seven
+directions leading away from this town center, there is a
+road leading to some large statue.  There are small shops
+and homes which line all the roads.
+~
+386 33554432 1
+D0
+~
+~
+0 0 38622
+D1
+~
+~
+0 0 38614
+D2
+~
+~
+0 0 38605
+D3
+~
+~
+0 0 38610
+D7
+~
+~
+0 0 38607
+D9
+~
+~
+0 0 38619
+S
+#38607
+&+rA Path of Warmed Stones&N~
+   The road here is quite odd.  The ground your feet is
+quite warm to the touch.  No signs of this wintery environment
+can be found here.  The stones which form the road here pulse
+in a magical red aura.  This road continues in two directions
+from this point.
+~
+386 33554432 1
+D7
+~
+~
+0 0 38608
+D8
+~
+~
+0 0 38606
+S
+#38608
+&+rA Path of Warmed Stones&N~
+   The road here is quite odd.  The ground your feet is
+quite warm to the touch.  No signs of this wintery environment
+can be found here.  The stones which form the road here pulse
+in a magical red aura.  This road continues in two directions
+from this point.
+~
+386 33554432 1
+D7
+~
+~
+0 0 38609
+D8
+~
+~
+0 0 38607
+S
+#38609
+&+rA Path of Warmed Stones&N~
+   The road here is quite odd.  The ground your feet is
+quite warm to the touch.  No signs of this wintery environment
+can be found here.  The stones which form the road here pulse
+in a magical red aura.  This road continues in two directions
+from this point.
+~
+386 33554432 1
+D8
+~
+~
+0 0 38608
+S
+#38610
+&+WA Windy Road&N~
+&+W  A strong of gust blows in from the west on this road.
+&+WThe wind blows at such a velocity which limits movement
+&+Win that direction.  The road here is also covered in
+&+Wgravel.  There are signs of ice all along the road here.
+&+Wthe frigid winds chill the surrounding area.  There are
+&+Wtwo exits leading away from this direction.
+~
+386 33554432 1
+D1
+~
+~
+0 0 38606
+D3
+~
+~
+0 0 38611
+C
+50 1
+S
+#38611
+&+WA Windy Road&N~
+&+W  A strong of gust blows in from the west on this road.
+&+WThe wind blows at such a velocity which limits movement
+&+Win that direction.  The road here is also covered in
+&+Wgravel.  There are signs of ice all along the road here.
+&+Wthe frigid winds chill the surrounding area.  There are
+&+Wtwo exits leading away from this direction.
+~
+386 33554432 1
+D1
+~
+~
+0 0 38610
+D3
+~
+~
+0 0 38612
+C
+30 1
+S
+#38612
+&+WA Windy Road&N~
+&+W  A strong of gust blows in from the west on this road.
+&+WThe wind blows at such a velocity which limits movement
+&+Win that direction.  The road here is also covered in
+&+Wgravel.  There are signs of ice all along the road here.
+&+Wthe frigid winds chill the surrounding area.  There are
+&+Wtwo exits leading away from this direction.
+~
+386 33554432 1
+D1
+~
+~
+0 0 38611
+S
+#38613
+&+WA Safe Room&N~
+   The room here seems to be free of all minions of Ayrina.
+There is an overall feeling of calm and serenity within these
+walls of white marble.  There is only one feature of this room
+which is a small white portal.  There is only obvious exit
+out of this room.
+~
+386 33554432 0
+D6
+~
+secret~
+7 38617 38663
+S
+#38614
+&+YA Street of Confusion&N~
+&+Y   This is one of the most confusing streets of the town.
+&+YThe road here is lined by mirrors of all shapes and sizes.
+&+YThey reflect all light and objects and bounce reflections
+&+Yfrom mirror to mirror.  Looking at one of these mirrors
+&+Ycan quickly bring nauseating feelings aroused.  There
+&+Yappears to be exits in leading away in all directions.
+~
+386 33554432 1
+D1
+~
+~
+0 0 38615
+D3
+~
+~
+0 0 38606
+S
+#38615
+&+YA Street of Confusion&N~
+&+Y   This is one of the most confusing streets of the town.
+&+YThe road here is lined by mirrors of all shapes and sizes.
+&+YThey reflect all light and objects and bounce reflections
+&+Yfrom mirror to mirror.  Looking at one of these mirrors
+&+Ycan quickly bring nauseating feelings aroused.  There
+&+Yappears to be exits in leading away in all directions.
+~
+386 33554432 1
+D1
+~
+~
+0 0 38616
+D3
+~
+~
+0 0 38614
+S
+#38616
+&+YA Street of Confusion&N~
+&+Y   This is one of the most confusing streets of the town.
+&+YThe road here is lined by mirrors of all shapes and sizes.
+&+YThey reflect all light and objects and bounce reflections
+&+Yfrom mirror to mirror.  Looking at one of these mirrors
+&+Ycan quickly bring nauseating feelings aroused.  There
+&+Yappears to be exits in leading away in all directions.
+~
+386 33554432 1
+D1
+~
+~
+0 0 38617
+D3
+~
+~
+0 0 38615
+S
+#38617
+&+YA Street of Confusion&N~
+&+Y   This is one of the most confusing streets of the town.
+&+YThe road here is lined by mirrors of all shapes and sizes.
+&+YThey reflect all light and objects and bounce reflections
+&+Yfrom mirror to mirror.  Looking at one of these mirrors
+&+Ycan quickly bring nauseating feelings aroused.  There
+&+Yappears to be exits in leading away in all directions.
+~
+386 33554432 1
+D1
+~
+~
+0 0 38615
+D3
+~
+~
+0 0 38616
+S
+#38618
+&+YHigher Above An Intersection In A Hall of Mirrors&N~
+   Down below, the hall of mirrors comes to an intersection.
+From that point, a hall of mirrors can be seen leading into
+three different parts of the tower.  This room of the hall
+like the others contains many mirrors of all shapes and sizes
+which adorn the stone walls.  They magically reflect light and
+beings within the room.  There is one visible exit leading
+away from this part of the hall.
+~
+386 33554432 0
+D5
+~
+secret trapdoor door~
+7 38627 38642
+F
+100
+S
+#38619
+&+mThe Street of Chaos&N~
+&+b   This street is similar to the Street of Gravel.  It also
+&+bis covered by a layer of gravel.  But unlike the Street of
+&+bGravel,  shards of glass and other sharp objects line the
+&+bground.  Every step in this direction brings a great
+&+bdiscomfort.  This street continues in two directions.
+~
+386 33554432 1
+D6
+~
+~
+0 0 38606
+D9
+~
+~
+0 0 38620
+S
+#38620
+&+mThe Street of Chaos&N~
+&+b   This street is similar to the Street of Gravel.  It also
+&+bis covered by a layer of gravel.  But unlike the Street of
+&+bGravel,  shards of glass and other sharp objects line the
+&+bground.  Every step in this direction brings a great
+&+bdiscomfort.  This street continues in two directions.
+~
+386 33587200 24
+D6
+~
+~
+0 0 38619
+D9
+~
+~
+0 0 38621
+S
+#38621
+&+mStreet of Chaos&N~
+&+b   This street is similar to the Street of Gravel.  It also
+&+bis covered by a layer of gravel.  But unlike the Street of
+&+bGravel,  shards of glass and other sharp objects line the
+&+bground.  There is also a great feeling of heat in this room.
+&+bEvery step in this direction brings a great discomfort.
+&+bThis street continues in two directions.
+~
+386 33554432 11
+D6
+~
+~
+0 0 38620
+S
+#38622
+&+WThe Street of Bravery&N~
+   The street here is twenty-five feet wide.  It is constructed
+of nicely aligned marble tablets.  The street here is clear of all
+sorts of debris.  Further to the north, there appears to be
+a large tower which towers over this small town.  There are
+exits leading in two directions from this point.
+~
+386 33554432 1
+D0
+~
+~
+0 0 38623
+D2
+~
+~
+0 0 38606
+S
+#38623
+&+WThe Street of Bravery&N~
+   The street here is twenty-five feet wide.  It is constructed
+of nicely aligned marble tablets.  Some of the tablets here
+have enscriptions of various sorts.  One quickly realizes that
+this street plays an important role in saving the names of
+those explorers who have died in their attempts at assisting
+the sisters of Sevenoaks.  The street here is clear of all
+sorts of debris.  Further to the north, there appears to be
+a large tower which towers over this small town.  There are
+exits leading in two directions from this point.
+~
+386 33554432 1
+D0
+~
+~
+0 0 38624
+D2
+~
+~
+0 0 38622
+S
+#38624
+&+LBefore the Great Tower of &+BSevenoaks&N~
+   The street here is twenty-five feet wide.  It is constructed
+of nicely aligned marble tablets.  Some of the tablets here
+have enscriptions of various sorts.  One quickly realizes that
+this street plays an important role in saving the names of
+those explorers who have died in their attempts at assisting
+the sisters of Sevenoaks.  The street here is clear of all
+sorts of debris.  There is a &+Wplaque&N on the wall. There are
+exits leading in two directions from this point.
+~
+386 33587200 1
+D0
+The tower door seals the exit north.
+~
+town door~
+7 38635 38625
+D2
+~
+~
+0 0 38623
+E
+plaque~
+&+W--------------------------&N
+&+W|  Access to this tower  |&N
+&+W|  will only be provided |&N
+&+W|  when all medallions   |&N
+&+W|  have been collected.. |&N
+&+W--------------------------&N
+~
+S
+#38625
+&+LThe Main Floor of the &+BTower of Sevenoaks&N~
+   This is the first room of the large stone tower of
+Sevenoaks.   It is large and circular in shape.  There
+is a large trapdoor in the center of the room.  The walls
+of this large circular chamber are finely constructed.
+There are no windows in the walls here.  There are
+two exits from this room.
+~
+386 33587200 0
+D2
+The tower door seals the exit to the south.
+~
+tower door~
+7 38635 38624
+D4
+The trapdoor leads to level two.
+~
+trapdoor~
+7 38620 38626
+S
+#38626
+&+LThe Level of Ayrina and Alyza&N~
+   Ayrina, the sister of air and flight, once used these
+chambers as a study of sorts.  The room now is old and
+musty.  Torn papers fill the room.  Ayrina had once used
+this chamber as a room for Alyza.  The room now is filled
+with minions of the town who have one goal of protecting
+the vault.  There are two possible exits out of this room.
+~
+386 33587200 0
+D4
+The trapdoor leads up to level three.
+~
+trapdoor~
+7 38615 38627
+D5
+The trapdoor leads down.
+~
+trapdoor~
+7 38620 38625
+S
+#38627
+&+LAn Old Circular Study&N~
+   This area served to be the study of all the sisters
+at one time or another.   One still can find shelves
+filled with old tomes and runes from all sisters.  The
+room is otherwise very unremarkable.  The walls here
+are bloodstained.  There are two exits leading out of
+this room.
+~
+386 33587200 0
+D4
+The trapdoor leads up to level four.
+~
+trapdoor~
+7 38630 38628
+D5
+The trapdoor leads down to level two.
+~
+trapdoor~
+7 38615 38626
+S
+#38628
+&+LThe Den of Olystra&N~
+   This room once served as the holding den for Olystra.
+The sisters of Sevenoaks have moved Olystra out and moved
+in another one of their minions to within these quarters.
+The room here is circular and is also constructed of
+dark granite stones.  A large collection of green slime
+sits in the center of this room.  There are two exits
+leading out.
+~
+386 33587200 0
+D4
+The trapdoor leads up to level five.
+~
+trapdoor~
+7 38642 38629
+D5
+The trapdoor leads down to level three.
+~
+trapdoor~
+7 38630 38627
+S
+#38629
+&+rThe Old Study of Myrina&N~
+   Myrina, one of the sisters of Sevenoaks, once used this
+room as a study and laboratory.   Upon moving into her new
+laboratory, she has placed minions of her desire to help
+protect the vault of the town from explorers.  The room
+has a large table along the west wall.  The table is
+covered in a heavy layer of dirt and cobwebs.  There
+are two exits out of this room.
+~
+386 33587200 0
+D4
+The trapdoor leads up to level six.
+~
+trapdoor~
+7 38653 38630
+D5
+The trapdoor leads down to level four.
+~
+trapdoor~
+7 38642 38628
+S
+#38630
+&+mThe Old Study of Fuerina&N~
+   Fuerina, one of the sisters of Sevenoaks, still uses
+this study from time to time.   She brings experimental
+tomes and other strange concoctions to be tested within
+these walls. While in her new laboratory, she has placed
+minions of her desire to help protect the vault of the
+town from explorers.  The room has a large table along
+the west wall.  The table is covered with a variety of
+books and old tomes.  There are two exits out
+of this room.
+~
+386 33587200 0
+D4
+There is a small secret door up.&N
+~
+door secret~
+7 38658 38631
+D5
+The trapdoor leads down.
+~
+trapdoor~
+7 38653 38629
+S
+#38631
+&+LBefore the Vault of &+BSevenoaks&N~
+   The top of the tower of Sevenoaks houses the vault
+of the town.  The sisters of Sevenoaks have put all their
+efforts to keep the unwanted away.  The room here is
+constructed of a different type of stone which pulses with
+a magical black aura.  Strange enough the ground below your
+feet seems almost transparent.  There are two exits leading
+out of this room.
+~
+386 33587200 0
+D0
+The large vault door seals the exit north.
+~
+vault door~
+7 38636 38632
+D5
+~
+~
+3 38658 38630
+S
+#38632
+&+BThe Vault of Sevenoaks&N~
+&+L   Spoils of all sorts fill the small room.  The walls are
+&+Lare of plain black marble.  There is little light within the
+&+Lroom.  Various sorts of equipment and monies have been
+&+Lscattered throughout the room here.  There doesn't appear
+&+Lto be an exit out.
+~
+386 41979972 0
+D2
+The vault door is very heavy and seals the way out.
+~
+vault door~
+15 38636 38631
+S
+#38633
+&+YA Hall of Mirrors&N~
+   This marks the start of what appears to be a hall of mirrors.
+Many mirrors of all shapes and sizes adorn the stone walls of this
+passageway.  They magically reflect light and beings within the
+room.  The sounds of of smashing glass can be heard echoing through
+this hall.   There are two visible exits leading away from this
+room.
+~
+386 33554432 0
+D0
+~
+~
+0 0 38634
+S
+#38634
+&+YA Hall of Mirrors&N~
+   The hall of mirrors continues in two directions from this
+point in the passage way.  Many mirrors of all shapes and sizes
+adorn the stone walls of this passageway.  They magically reflect
+light and beings within the room.  The images and light are bounced
+from mirror to mirror making this quite a nauseating experience.
+The sounds of of smashing glass can be heard echoing through
+this hall.   There are two visible exits leading away from this
+room.
+~
+386 33554432 0
+D0
+~
+~
+0 0 38635
+D2
+~
+~
+0 0 38633
+S
+#38635
+&+YA Hall of Mirrors&N~
+   The hall of mirrors continues in two directions from this
+point in the passage way.  Many mirrors of all shapes and sizes
+adorn the stone walls of this passageway.  They magically reflect
+light and beings within the room.  The images and light are bounced
+from mirror to mirror making this quite a nauseating experience.
+The sounds of of smashing glass can be heard echoing through
+this hall.   There are two visible exits leading away from this
+room.
+~
+386 33554432 0
+D0
+~
+~
+0 0 38636
+D2
+~
+~
+0 0 38634
+S
+#38636
+&+YAn Intersection in a Hall of Mirrors&N~
+   The hall of mirrors comes to an intersection here.  In all
+directions from this advantage point, a hall of mirrors can be
+seen leading into another part of the tower.  This rooms of the
+hall like the others contains many mirrors of all shapes and sizes
+which adorn the stone walls.  They magically reflect light and
+beings within the room.  There are two visible exits leading
+away from this part of the hall.
+~
+386 33554432 0
+D1
+~
+~
+0 0 38637
+D2
+~
+~
+0 0 38635
+D3
+~
+door~
+3 38626 38643
+D4
+~
+~
+0 0 38642
+S
+#38637
+&+YA Hall of Mirrors&N~
+   More mirrors can still be seen in many directions from
+this advantage point. Some of the mirrors here that adorn
+the stone walls of this passage are stained in some
+greenish-colored substance.  On the floor here, there are
+large cracks.  A substance of a similar green color seems to
+have collected within the cracks.  The sounds of of smashing
+glass can be heard echoing through this hall.   There are two
+visible exits leading away from this part of the hall.
+~
+386 33554432 0
+D1
+~
+~
+0 0 38638
+D3
+~
+~
+0 0 38636
+S
+#38638
+&+YA Bend In A Hall of Mirrors&N~
+   The hall of mirrors comes to a bend here.  The hall of
+mirrors continues in two directions from advantage point.
+Many mirrors of all shapes and sizes adorn the stone walls of
+this passage.  They magically reflect light and beings within
+the room.  The sounds of of smashing glass can be heard echoing
+through this hall.   There are two visible exits leading
+away from this part of the hall.
+~
+386 0 0
+D0
+~
+~
+0 0 38639
+D3
+~
+~
+0 0 38637
+S
+#38639
+&+YA Hall of Mirrors&N~
+   More mirrors fill this room in the hall of mirrors.  This
+hall continues further here.  Many mirrors of all shapes and
+sizes adorn the stone walls of this passage.  They magically
+reflect light and beings within the room.  The sounds of
+smashing glass can be heard echoing through this hall.  There
+are two visible exits leading away from this room.
+~
+386 33554432 0
+D0
+~
+~
+0 0 38640
+D2
+~
+~
+0 0 38638
+S
+#38640
+&+YBefore A Large Mirror&N~
+   The hall of mirrors seems to end here.  Just to the north,
+there is a large mirror.  The mirror has a different look than
+the other mirrors which adorn the walls.  The mirror to the
+north is thicker and pulses with a magical energy of sorts.
+The room here is dim. There is only one visible exit leading
+away.
+~
+386 33554432 0
+D0
+A large mirror seals the exit to the north.
+~
+mirror~
+1 0 38641
+S
+#38641
+&+LA Dark Cellar&N~
+   The room here is dark and musty.  The walls to the north are
+adorned by shelves.  On these shelves, there are stacks of old
+runes and old texts.  There is a heavy presence of dust and
+cobwebs on those items.  The room is relatively bland except
+for a small crack in the ground.  There is only one exit from
+this room.
+~
+386 33554432 0
+D2
+A large mirror seals off the exit south.
+~
+mirror~
+1 0 38640
+S
+#38642
+&+YAbove An Intersection In A Hall of Mirrors&N~
+   Down below, the hall of mirrors comes to an intersection.
+From that point, a hall of mirrors can be seen leading into
+three different parts of the tower.  This room of the hall
+like the others contains many mirrors of all shapes and sizes
+which adorn the stone walls.  They magically reflect light and
+beings within the room.  There is one visible exit leading
+away from this part of the hall.
+~
+386 33554432 0
+D4
+There is another room blocked by a secret trapdoor just above here.
+~
+door trapdoor secret~
+7 38627 38618
+D5
+~
+~
+0 0 38636
+F
+100
+S
+#38643
+&+YA Hall of Mirrors&N~
+   More mirrors can still be seen in many directions from
+this advantage point. Some of the mirrors here that adorn
+the stone walls of this passage are stained in some
+greenish-colored substance.  On the floor here, there are
+large cracks.  A substance of a similar green color seems to
+have collected within the cracks.  The sounds of of smashing
+glass can be heard echoing through this hall.   There are two
+visible exits leading away from this part of the hall.
+~
+386 33554432 0
+D1
+~
+door~
+3 38626 38636
+D7
+~
+~
+0 0 38644
+S
+#38644
+&+YBefore A Large Mirror&N~
+   The hall of mirrors seems to end here.  Just to the north,
+there is a large mirror.  The mirror has a different look than
+the other mirrors which adorn the walls.  The mirror to the
+north is thicker and pulses with a magical energy of sorts.
+The room here is dim. There is only one visible exit leading
+away.
+~
+386 33554432 0
+D0
+~
+mirror~
+1 0 38645
+S
+#38645
+&+LA Dark Cellar&N~
+   The room here is dark and musty.  This dark cellar has
+all its walls covered by shelves.  Some of these shelves
+are empty and others are cluttered with many items.  On
+these shelves, there are stacks of old runes and old texts.
+There is a heavy presence of dust and cobwebs on those items.
+The room has one notable feature within its walls. There is
+an peculiar orb on the stand. There is only one exit from
+this room.
+~
+386 0 0
+D2
+~
+mirror~
+1 0 38644
+S
+#38646
+&+bThe Study of &+rMyrina&N~
+   This circular room is the study of Myrina.  The room is
+is constructed of polished granite slabs of rock. On the
+shelves lining this circular room, there are books and runes
+arranged in an orderly fashion.  There is one window within
+the study that overlooks the surrounding forest.
+~
+386 33554432 0
+D0
+~
+~
+0 0 38647
+S
+#38647
+&+LA Dark Hallway&N~
+   The hallway here is dark.  There are no distinguising
+features of this hallway.  Constructed of polished granite
+stone, the hallway serves as a connection between two
+important rooms of Myrina.  There is a small rectangular
+rug which runs into the next room of the hallway.  There
+are two exits leading deeper into other parts of the tower.
+~
+386 33554432 0
+D0
+~
+~
+0 0 38648
+D2
+The study is south.
+~
+~
+0 0 38646
+S
+#38648
+&+LA Dark Hallway&N~
+   The hallway here is dark.  There are no distinguising
+features of this hallway.  Constructed of polished granite
+stone, the hallway serves as a connection between two
+important rooms of Myrina.  There is a small rectangular
+rug which runs into the next room of the hallway.  There
+are two exits leading deeper into other parts of the tower.
+~
+386 33554432 0
+D0
+The door to the laboratory lies in that direction.
+~
+door laboratory~
+1 0 38649
+D2
+~
+~
+0 0 38647
+S
+#38649
+&+mThe Laboratory of &+rMyrina&N~
+   This circular room of the tower houses the laboratory of
+Myrina.   Myrina, one of the seven sisters of the tower, can
+always be found here within her quarters.  Along the northern
+part of the room, there is a large desk.  On this desk, there
+is a large book opened and marked with a silken mark. There
+is a large woven run in the center of the room.  There is only
+one visible exit from this room.
+~
+386 33587200 1
+D2
+~
+laboratory door~
+1 0 38648
+D4
+~
+~
+0 0 38650
+S
+#38650
+&+mAbove The Laboratory of &+rMyrina&N~
+   Above the ground here, a view of the circular room below
+can be seen.   Located below is the laboratory of Myrina.
+The room below is filled with many mage related items related
+to spell casting.  There is a large woven rug found in the
+center of the room.  There are two sky lights built into
+the ceiling here.  There is only one visible exit out of this
+part of the laboratory.
+~
+386 0 0
+D5
+~
+~
+0 0 38649
+F
+100
+S
+#38651
+&+rA Room of Fire&N~
+   This area of the town is quite different than any
+other parts.  Fire and heat consume the entire area.
+A plane of fire extends in all directions from this
+advantage point.  Fire creatures of many different
+species have been created to live in these quarters.
+There are exits all around leading into another part
+of the plane of fire.
+~
+386 33554432 11
+D0
+Fire consumes that direction.
+~
+~
+0 0 38653
+D1
+Fire consumes that direction.
+~
+~
+0 0 38652
+D2
+Fire consumes that direction.
+~
+~
+0 0 38653
+D3
+Fire consumes that direction.
+~
+~
+0 0 38652
+D4
+Fire consumes that direction.
+~
+~
+0 0 38655
+D5
+Fire consumes that direction.
+~
+~
+0 0 38655
+D9
+Fire consumes that direction.
+~
+~
+0 0 38654
+S
+#38652
+&+rA Room of Fire&N~
+   This area of the town is quite different than any
+other parts.  Fire and heat consume the entire area.
+A plane of fire extends in all directions from this
+advantage point.  Fire creatures of many different
+species have been created to live in these quarters.
+There are exits all around leading into another part
+of the plane of fire.
+~
+386 33554432 11
+D0
+Fire consumes that direction.
+~
+~
+0 0 38654
+D1
+Fire consumes that direction.
+~
+~
+0 0 38651
+D2
+Fire consumes that direction.
+~
+~
+0 0 38654
+D3
+Fire consumes that direction.
+~
+~
+0 0 38651
+D4
+Fire consumes that direction.
+~
+~
+0 0 38656
+D5
+Fire consumes that direction.
+~
+~
+0 0 38656
+D7
+Fire consumes that direction.
+~
+~
+0 0 38653
+S
+#38653
+&+rA Room of Fire&N~
+   This area of the town is quite different than any
+other parts.  Fire and heat consume the entire area.
+A plane of fire extends in all directions from this
+advantage point.  Fire creatures of many different
+species have been created to live in these quarters.
+There are exits all around leading into another part
+of the plane of fire.
+~
+386 33554432 11
+D0
+Fire consumes that direction.
+~
+~
+0 0 38651
+D1
+Fire consumes that direction.
+~
+~
+0 0 38654
+D2
+Fire consumes that direction.
+~
+~
+0 0 38651
+D3
+Fire consumes that direction.
+~
+~
+0 0 38654
+D4
+Fire consumes that direction.
+~
+~
+0 0 38657
+D5
+Fire consumes that direction.
+~
+~
+0 0 38657
+D8
+Fire consumes that direction.
+~
+~
+0 0 38652
+S
+#38654
+&+rA Room of Fire&N~
+   This area of the town is quite different than any
+other parts.  Fire and heat consume the entire area.
+A plane of fire extends in all directions from this
+advantage point.  Fire creatures of many different
+species have been created to live in these quarters.
+There are exits all around leading into another part
+of the plane of fire.
+~
+386 33554432 11
+D0
+Fire consumes that direction.
+~
+~
+0 0 38652
+D1
+Fire consumes that direction.
+~
+~
+0 0 38653
+D2
+Fire consumes that direction.
+~
+~
+0 0 38652
+D3
+Fire consumes that direction.
+~
+~
+0 0 38653
+D4
+Fire consumes that direction.
+~
+~
+0 0 38658
+D5
+Fire consumes that direction.
+~
+~
+0 0 38658
+D6
+Fire consumes that direction.
+~
+~
+0 0 38651
+S
+#38655
+&+rA Room of Fire&N~
+   This area of the town is quite different than any
+other parts.  Fire and heat consume the entire area.
+A plane of fire extends in all directions from this
+advantage point.  Fire creatures of many different
+species have been created to live in these quarters.
+There are exits all around leading into another part
+of the plane of fire.
+~
+386 33554432 11
+D0
+Fire consumes that direction.
+~
+~
+0 0 38657
+D1
+Fire consumes that direction.
+~
+~
+0 0 38656
+D2
+Fire consumes that direction.
+~
+~
+0 0 38657
+D3
+Fire consumes that direction.
+~
+~
+0 0 38656
+D4
+Fire consumes that direction.
+~
+~
+0 0 38651
+D5
+Fire consumes that direction.
+~
+~
+0 0 38651
+D9
+Fire consumes that direction.
+~
+~
+0 0 38658
+S
+#38656
+&+rA Room of Fire&N~
+   This area of the town is quite different than any
+other parts.  Fire and heat consume the entire area.
+A plane of fire extends in all directions from this
+advantage point.  Fire creatures of many different
+species have been created to live in these quarters.
+There are exits all around leading into another part
+of the plane of fire.
+~
+386 33554432 11
+D0
+Fire consumes that direction.
+~
+~
+0 0 38658
+D1
+Fire consumes that direction.
+~
+~
+0 0 38655
+D2
+Fire consumes that direction.
+~
+~
+0 0 38658
+D3
+Fire consumes that direction.
+~
+~
+0 0 38655
+D4
+Fire consumes that direction.
+~
+~
+0 0 38652
+D5
+Fire consumes that direction.
+~
+~
+0 0 38652
+D7
+Fire consumes that direction.
+~
+~
+0 0 38657
+S
+#38657
+&+rA Room of Fire&N~
+   This area of the town is quite different than any
+other parts.  Fire and heat consume the entire area.
+A plane of fire extends in all directions from this
+advantage point.  Fire creatures of many different
+species have been created to live in these quarters.
+There are exits all around leading into another part
+of the plane of fire.
+~
+386 33554432 11
+D0
+Fire consumes that direction.
+~
+~
+0 0 38655
+D1
+Fire consumes that direction.
+~
+~
+0 0 38658
+D2
+Fire consumes that direction.
+~
+~
+0 0 38655
+D3
+Fire consumes that direction.
+~
+~
+0 0 38658
+D4
+Fire consumes that direction.
+~
+~
+0 0 38653
+D5
+Fire consumes that direction.
+~
+~
+0 0 38653
+D8
+Fire consumes that direction.
+~
+~
+0 0 38656
+S
+#38658
+&+rA Room of Fire&N~
+   This area of the town is quite different than any
+other parts.  Fire and heat consume the entire area.
+A plane of fire extends in all directions from this
+advantage point.  Fire creatures of many different
+species have been created to live in these quarters.
+There are exits all around leading into another part
+of the plane of fire.
+~
+386 33554432 11
+D0
+Fire consumes that direction.
+~
+~
+0 0 38656
+D1
+FIre consumes that direction.
+~
+~
+0 0 38657
+D2
+Fire consumes that direction.
+~
+~
+0 0 38656
+D3
+Fire consumes that direction.
+~
+~
+0 0 38657
+D4
+Fire consumes that direction.
+~
+~
+0 0 38654
+D6
+Fire consumes that direction.
+~
+~
+0 0 38655
+S
+#38659
+&+WA Gust of Wind&N~
+   This area of the town is much different than in other
+parts of the tower.  Created by the magic of Ayrina, the
+sister of air and flight, this small world houses many
+minions of her creation.  There are exits in all
+directions leading into different areas of this plane
+of air.
+~
+386 33554432 19
+D0
+There is an exit in that direction.
+~
+~
+0 0 38661
+D1
+There is an exit in that direction.
+~
+~
+0 0 38660
+D2
+There is an exit in that direction.
+~
+~
+0 0 38661
+D3
+There is an exit in that direction.
+~
+~
+0 0 38660
+D4
+There is an exit in that direction.
+~
+~
+0 0 38663
+D5
+There is an exit in that direction.
+~
+~
+0 0 38663
+D9
+There is an exit in that direction.
+~
+~
+0 0 38662
+S
+#38660
+&+WA Gust of Wind&N~
+   This area of the town is much different than in other
+parts of the tower.  Created by the magic of Ayrina, the
+sister of air and flight, this small world houses many
+minions of her creation.  There are exits in all
+directions leading into different areas of this plane
+of air.
+~
+386 33554432 19
+D0
+There is an exit in that direction.
+~
+~
+0 0 38662
+D1
+There is an exit in that direction.
+~
+~
+0 0 38659
+D2
+There is an exit in that direction.
+~
+~
+0 0 38662
+D3
+There is an exit in that direction.
+~
+~
+0 0 38659
+D4
+There is an exit in that direction.
+~
+~
+0 0 38664
+D5
+There is an exit in that direction.
+~
+~
+0 0 38664
+D7
+There is an exit in that direction.
+~
+~
+0 0 38661
+S
+#38661
+&+WA Gust of Wind&N~
+   This area of the town is much different than in other
+parts of the tower.  Created by the magic of Ayrina, the
+sister of air and flight, this small world houses many
+minions of her creation.  There are exits in all
+directions leading into different areas of this plane
+of air.
+~
+386 33554432 19
+D0
+There is an exit in that direction.
+~
+~
+0 0 38659
+D1
+There is an exit in that direction.
+~
+~
+0 0 38662
+D2
+There is an exit in that direction.
+~
+~
+0 0 38659
+D3
+There is an exit in that direction.
+~
+~
+0 0 38662
+D4
+There is an exit in that direction.
+~
+~
+0 0 38665
+D5
+There is an exit in that direction.
+~
+~
+0 0 38665
+D8
+There is an exit in that direction.
+~
+~
+0 0 38660
+S
+#38662
+&+WA Gust of Wind&N~
+   This area of the town is much different than in other
+parts of the tower.  Created by the magic of Ayrina, the
+sister of air and flight, this small world houses many
+minions of her creation.  There are exits in all
+directions leading into different areas of this plane
+of air.
+~
+386 33554432 19
+D0
+There is an exit in that direction.
+~
+~
+0 0 38660
+D1
+There is an exit in that direction.
+~
+~
+0 0 38661
+D2
+There is an exit in that direction.
+~
+~
+0 0 38660
+D3
+There is an exit in that direction.
+~
+~
+0 0 38661
+D4
+There is an exit in that direction.
+~
+~
+0 0 38666
+D5
+There is an exit in that direction.
+~
+~
+0 0 38666
+D6
+There is an exit in that direction.
+~
+~
+0 0 38659
+S
+#38663
+&+WA Gust of Wind&N~
+   This area of the town is much different than in other
+parts of the tower.  Created by the magic of Ayrina, the
+sister of air and flight, this small world houses many
+minions of her creation.  There are exits in all
+directions leading into different areas of this plane
+of air.
+~
+386 33587200 19
+D0
+There is an exit in that direction.
+~
+~
+0 0 38665
+D1
+There is an exit in that direction.
+~
+~
+0 0 38664
+D2
+There is an exit in that direction.
+~
+~
+0 0 38665
+D3
+There is an exit in that direction.
+~
+~
+0 0 38664
+D4
+There is an exit in that direction.
+~
+~
+0 0 38659
+D5
+There is an exit in that direction.
+~
+~
+0 0 38659
+D9
+That exit has no special description.
+~
+secret~
+7 38617 38613
+S
+#38664
+&+WA Gust of Wind&N~
+   This area of the town is much different than in other
+parts of the tower.  Created by the magic of Ayrina, the
+sister of air and flight, this small world houses many
+minions of her creation.  There are exits in all
+directions leading into different areas of this plane
+of air.
+~
+386 33554432 19
+D0
+There is an exit in that direction.
+~
+~
+0 0 38666
+D1
+There is an exit in that direction.
+~
+~
+0 0 38663
+D2
+There is an exit in that direction.
+~
+~
+0 0 38666
+D3
+There is an exit in that direction.
+~
+~
+0 0 38663
+D4
+There is an exit in that direction.
+~
+~
+0 0 38660
+D5
+There is an exit in that direction.
+~
+~
+0 0 38660
+D7
+There is an exit in that direction.
+~
+~
+0 0 38665
+S
+#38665
+&+WA Gust of Wind&N~
+   This area of the town is much different than in other
+parts of the tower.  Created by the magic of Ayrina, the
+sister of air and flight, this small world houses many
+minions of her creation.  There are exits in all
+directions leading into different areas of this plane
+of air.
+~
+386 33554432 19
+D0
+There is an exit in that direction.
+~
+~
+0 0 38663
+D1
+There is an exit in that direction.
+~
+~
+0 0 38666
+D2
+There is an exit in that direction.
+~
+~
+0 0 38663
+D3
+There is an exit in that direction.
+~
+~
+0 0 38666
+D4
+There is an exit in that direction.
+~
+~
+0 0 38661
+D5
+There is an exit in that direction.
+~
+~
+0 0 38661
+D8
+There is an exit in that direction.
+~
+~
+0 0 38664
+S
+#38666
+&+WA Gust of Wind&N~
+   This area of the town is much different than in other
+parts of the tower.  Created by the magic of Ayrina, the
+sister of air and flight, this small world houses many
+minions of her creation.  There are exits in all
+directions leading into different areas of this plane
+of air.
+~
+386 33554432 19
+D0
+There is an exit in that direction.
+~
+~
+0 0 38664
+D1
+There is an exit in that direction.
+~
+~
+0 0 38665
+D2
+There is an exit in that direction.
+~
+~
+0 0 38664
+D3
+There is an exit in that direction.
+~
+~
+0 0 38665
+D4
+There is an exit in that direction.
+~
+~
+0 0 38662
+D5
+There is an exit in that direction.
+~
+~
+0 0 38662
+D6
+There is an exit in that direction.
+~
+~
+0 0 38663
+S
+#38667
+&+bThe Study of &+rFuerina&N~
+   This large circular room is the study of Fuerina.
+Fuerina, the sister of fire, uses this room to research
+the historical runes which call upon the use of fire.
+The room here is constructed of polished red marble. On the
+shelves lining this circular room, there are books and runes
+arranged in an orderly fashion.  There is one window within
+the study that overlooks the surrounding forest.
+~
+386 33554432 0
+D0
+A hallway leads away to the north.
+~
+~
+0 0 38668
+S
+#38668
+&+LA Dark Hallway&N~
+   The hallway here is dark.  There are no distinguising
+features of this hallway.  Constructed of polished granite
+stone, the hallway serves as a connection between two
+important rooms of Fuerina.  There is a small rectangular
+rug which runs into the next room of the hallway.  There
+are two exits leading deeper into other parts of the tower.
+~
+386 33554432 0
+D0
+The hallway continues north.
+~
+~
+0 0 38669
+D2
+The study is south.
+~
+~
+0 0 38667
+S
+#38669
+&+LA Dark Hallway&N~
+   The hallway here is dark.  There are no distinguising
+features of this hallway.  Constructed of polished granite
+stone, the hallway serves as a connection between two
+important rooms of Fuerina.  There is a small rectangular
+rug which runs into the next room of the hallway.  There
+are two exits leading deeper into other parts of the tower.
+~
+386 33554432 0
+D0
+The door to the laboratory lies in that direction.
+~
+door laboratory~
+2 38654 38670
+D2
+~
+~
+0 0 38668
+S
+#38670
+&+mThe Laboratory of &+RFuerina&N~
+   This circular room of the tower houses the laboratory of
+Fuerina.  Fuerina, the sister of fire, can always be found
+here within her quarters. The room houses stored projects
+which have the one common theme of fire.  Along the northern
+part of the room, there is a large table.  It is on this
+table where Fuerina stores some of magical flames she has
+collected.  There is only one visible exit from this room.
+~
+386 33587200 0
+D2
+There is a hall beyond the laboratory door.
+~
+lab door laboratory~
+2 38654 38669
+D4
+There is a room above the laboratory.
+~
+~
+0 0 38671
+S
+#38671
+&+mAbove The Laboratory of &+RFuerina&N~
+   Down below the laboratory of Fuerina can be seen.
+Fuerina, the sister of fire, can always be found there
+within her quarters. The room houses stored projects
+which have the one common theme of fire.  Along the northern
+part of the room, there is a large table.  Up above the
+laboratory here, many strange fumes have collected.  Some
+of the fumes escape from the skylight.  There is one visible
+exit from this part of the room.
+~
+386 33554432 0
+D5
+The lab is down below.
+~
+~
+0 0 38670
+F
+100
+S
+#38672
+&+bThe Study of &+BAyrina&N~
+   This large circular room is the study of Ayrina.
+Ayrina, the sister of air and flight, uses this room
+to research the historical runes which call upon the
+use of air and flight.  The room here is constructed
+of polished red marble. On the shelves lining this
+circular room, there are books and runes arranged in
+an orderly fashion.  There is one window within the
+study that overlooks the surrounding forest.
+~
+386 33554432 0
+D0
+A hallway leads away to the north.
+~
+~
+0 0 38673
+S
+#38673
+&+LA Dark Hallway&N~
+   The hallway here is dark.  There are no distinguising
+features of this hallway.  Constructed of polished granite
+stone, the hallway serves as a connection between two
+important rooms of Ayrina.  There is a small rectangular
+rug which runs into the next room of the hallway.  There
+are two exits leading deeper into other parts of the tower.
+~
+386 33554432 0
+D0
+The hallway continues north.
+~
+~
+0 0 38674
+D2
+The study is south.
+~
+~
+0 0 38672
+S
+#38674
+&+LA Dark Hallway&N~
+   The hallway here is dark.  There are no distinguising
+features of this hallway.  Constructed of polished granite
+stone, the hallway serves as a connection between two
+important rooms of Ayrina.  There is a small rectangular
+rug which runs into the next room of the hallway.  There
+are two exits leading deeper into other parts of the tower.
+~
+386 33554432 0
+D0
+The door to the laboratory lies in that direction.
+~
+door laboratory~
+3 38619 38675
+D2
+~
+~
+0 0 38673
+S
+#38675
+&+mThe Laboratory of &+BAyrina&N~
+   This circular room of the tower houses the laboratory of
+Ayrina.  Ayrina, the sister of air and flight, can always
+be found here within her quarters.  The room houses stored
+projects which have the one common theme of air and magic.
+Along the northern part of the room, there is a large table.
+There is only one visible exit from this room.
+~
+386 32768 0
+D2
+There is a hall beyond the laboratory door.
+~
+lab door laboratory~
+3 38619 38674
+D4
+There is a room above the laboratory.
+~
+~
+0 0 38676
+S
+#38676
+&+mAbove The Laboratory of &+BAyrina&N~
+   Down below the laboratory of Ayrina can be seen.
+Ayrina, the sister of air and flight, can always be found
+there within her quarters.  The room houses stored projects
+which have the one common theme of air and magic.  Along the
+northern part of the room, there is a large table.  Up above
+the laboratory here, many strange fumes have collected.  Some
+of the fumes escape from the skylight.  There is one visible
+exit from this part of the room.
+~
+386 33554432 0
+D5
+The lab is down below.
+~
+~
+0 0 38675
+F
+100
+S
+>>>>>>> master

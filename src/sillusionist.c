@@ -37,6 +37,7 @@
 #   include "sql.h"
 #   include "ctf.h"
 
+
 /*
  * external variables
  */
@@ -370,6 +371,12 @@ void spell_shadow_travel(int level, P_char ch, char *arg, int type, P_char victi
     send_to_char("&+yYou failed.\r\n", ch);
     return;
   }
+  P_char rider = get_linking_char(victim, LNK_RIDING);
+  if(IS_NPC(victim) && rider)
+  {
+    send_to_char("&+CYou failed.\n", ch);
+    return;
+  }
   
   distance = (int)(level * 1.35);
 
@@ -479,7 +486,9 @@ void spell_stunning_visions(int level, P_char ch, char *arg, int type, P_char vi
   
   percent += (level - GET_LEVEL(victim));
 
-  percent += (GET_C_POW(ch) - GET_C_POW(victim)) / 3;
+  //percent += (GET_C_POW(ch) - GET_C_POW(victim)) / 3;
+
+  percent += (int)((GET_C_POW(ch) - GET_C_POW(victim)) *.8);
 
   act("&+cYou send a wave of incredible visions toward&n $N.",
     FALSE, ch, 0, victim, TO_CHAR);
@@ -538,7 +547,11 @@ void spell_stunning_visions(int level, P_char ch, char *arg, int type, P_char vi
     Stun(victim, ch, PULSE_VIOLENCE * number(1, 2), FALSE);
     return;
   }
+<<<<<<< HEAD
   else if(percent >= 20)
+=======
+  else if (percent >= 25)
+>>>>>>> master
   {
     act("&+cYour wave of visions seems to slightly mesmerize&n $N!", FALSE, ch, 0, victim, TO_CHAR);
     act("$n's &+cstunning visions seem to slightly mesmerize&n $N!", FALSE, ch, 0, victim, TO_NOTVICT);
@@ -730,6 +743,9 @@ void spell_mask(int level, P_char ch, char *arg, int type, P_char victim, P_obj 
   struct affected_type *af, *next_af;
   P_char   t_ch, target = NULL;
   char     tbuf[MAX_STRING_LENGTH];
+
+  if(IS_NPC(ch))
+  return;
 
   target = (struct char_data *) mm_get(dead_mob_pool);
   target->only.pc = (struct pc_only_data *) mm_get(dead_pconly_pool);
@@ -1293,7 +1309,14 @@ void spell_clone_form(int level, P_char ch, char *arg, int type,
     raise(SIGSEGV);
   }
 
+<<<<<<< HEAD
   if(!IS_ALIVE(ch))
+=======
+  if(IS_NPC(ch))
+  return;
+
+  if (!IS_ALIVE(ch))
+>>>>>>> master
     return;
   
   if(!IS_TRUSTED(ch) && GET_LEVEL(victim) > 56)

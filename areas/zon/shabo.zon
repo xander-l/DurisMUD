@@ -1,6 +1,6 @@
 #328
 &+BThe Great Shaboath&N~
-32919 0 8 40 50 4
+32919 0 8 40 50 2
 *
 * Zone edited with durisEdit v2.99de
 *
@@ -271,6 +271,7 @@ O 0 32870 1 32883 100 0 0 0        * a heavy chest
 P 1 51005 3 32870 100 0 0 0        *   (object type not in this .obj file)
 O 0 32820 1 32883 100 0 0 0        * a heavy chest
 P 1 425 1 32820 100 0 0 0          *   (object type not in this .obj file)
+P 1 32822 1 32820 100 0 0 0        *   Chaos, The Unholy Avenger
 O 0 32826 1 32891 100 0 0 0        * a glyph of warding
 O 0 32828 1 32895 100 0 0 0        * a dark obelisk
 O 0 32831 1 32896 100 0 0 0        * a heavy chest
@@ -370,7 +371,6 @@ E 1 32868 1 6 100 0 0 0            *   a black devil-hide headband
 E 1 32829 1 16 100 0 0 0           *   a blood-red dagger
 G 1 96077 1 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 96078 1 0 100 0 0 0            *    (object type not in this .obj file)
-G 1 67281 1 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 32831 1 32867 100 0 0 0        * Redpal
 E 1 32824 1 18 70 0 0 0            *   a mummified deva's head
 E 1 32819 5 24 100 0 0 0           *   the badge of the Raveners
@@ -433,6 +433,7 @@ G 1 32804 4 0 80 0 0 0             *    an aboleth potion
 G 1 32804 4 0 80 0 0 0             *    an aboleth potion
 M 0 32855 1 32895 100 0 0 0        * an aboleth
 G 1 32866 1 0 100 0 0 0            *    a sapphire encrusted eye
+G 1 32841 1 0 100 0 0 0            *    a net of endless currents
 F 1 32860 2 32895 100 0 0 0        * an iron golem (following)
 F 1 32860 2 32895 100 0 0 0        * an iron golem (following)
 M 0 32882 5 32897 100 0 0 0        * an ixichitl
@@ -485,7 +486,6 @@ M 0 32875 8 32914 100 0 0 0        * a ju-ju zombie
 M 0 32875 8 32914 100 0 0 0        * a ju-ju zombie
 M 0 32878 1 32914 100 0 0 0        * a lost spirit
 M 0 32879 1 32915 100 0 0 0        * Darkaland, the derro savant
-G 1 32841 1 0 100 0 0 0            *    a net of endless currents
 F 1 32880 1 32915 100 0 0 0        * Shaharazar, the efreeti (following)
 M 0 32881 1 32916 100 0 0 0        * the Grand Savant
 E 1 32861 1 2 100 0 0 0            *   a ring of invisibility

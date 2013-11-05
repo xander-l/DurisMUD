@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #25400
 flaming potion~
 &+ra flaming potion&n~
@@ -80,3 +81,95 @@ A
 13 18
 A
 35 4
+=======
+#25400
+flaming potion~
+&+ra flaming potion&n~
+A flaming potion has been left here~
+~
+10 7 2 4 7 0 0 1 64 0 0
+50 75 1 3 0 0 0 0
+1 50000 100
+E
+potion flaming~
+The potion in this vial seems to be composed of a bright
+flaming liquid!
+~
+#25401
+grey potion of stone skin~
+&+La grey stone skin potion~
+A potion of stone skin is here~
+~
+10 7 2 4 7 0 0 1 64 0 0
+50 36 -1 -1 0 0 0 0
+1 30000 100
+E
+potion grey~
+This potion bubbles with a grey liquid.
+~
+#25402
+flaming earring~
+&+ra flaming earring&n~
+A &+rflaming earring&N has been left here~
+~
+9 16 1 1 10 0 0 524289 0 0 0
+6 14 0 3 0 0 0 0
+5 50000 100 4 8 0 0
+E
+flaming earrring~
+This small glowing earring gives off an aura of great power.
+~
+A
+23 -5
+A
+19 2
+#25403
+cloak of flames~
+&+Ma cloak of eternal fire&n~
+Some total idiot has left imix cloak of fire here!!!!~
+~
+9 1 3 8 7 0 12448 1025 2 0 0
+15 9 1 3 0 0 0 0
+10 10000 100 805306368 3 0 0
+E
+imix cloak fire~
+This hige bodycloak seems to be composed of living fire, that swirls all
+around the fabric of the cloak.
+~
+A
+23 -4
+A
+20 -4
+#25404
+color pool grey~
+&+La dark grey color pool is here&n~
+&+LA dark grey color pool floats here in all this fire!&n~
+~
+12 1 5 50 7 0 8192 0 64 0 0
+12459 200 0 0 0 0 0 0
+1 1 100
+E
+pool dark grey~
+This pool seems to lead to some timeless void of grey swirling mist.
+~
+#25405
+white hot mask living flame~
+&+ra&+W white hot&+r mask of living&+R fl&+Yam&+Re&n~
+&+rA mask lies here, bathed in flames.&n~
+~
+9 7 3 0 11 0 4097 262145 0 0 0
+8 0 0 1 0 0 0 0
+2 45622 100
+A
+13 18
+A
+35 4
+#25406
+portal~
+&+LA swi&+wrling p&+Lortal of s&+wmoke a&+wn&+Ld &+wa&+Lsh&n~
+&+LA port&+wal spi&+Lns viole&+wntl&+Ly with s&+wmok&+Le an&+wd a&+Lsh&n~
+~
+25 1 3 0 7 0 0 0 64 0 0
+139894 7 -1 0 0 0 0 0
+0 0 100
+>>>>>>> master

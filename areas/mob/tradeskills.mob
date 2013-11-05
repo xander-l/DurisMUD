@@ -1,0 +1,46 @@
+#400000
+kannard traveller~
+&+WKannard&+L, the &+ctra&+Cvell&+cer&n~
+&+WKannard&+L, the &+ctra&+Cvell&+cer &+Lof &+rRealms&+L hovers here.
+~
+~
+37648170 0 0 0 3087532188 0 0 0 0 S
+D 0 116 0 7
+61 0 0 8d8+8 1d1+1
+0.0.0.0 0
+8 8 1
+#400001
+harvester~
+&+LThe Harvester&n~
+&+LThe Harvester, collector of &+Wsouls&+L hovers about the room.&n
+~
+~
+28682 0 0 0 0 0 0 0 0 S
+UL 0 20 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#400002
+death hunter~
+&+LA Death Hunter&n~
+&+LA Death Hunter stalks the lands for blood.&n
+~
+~
+1073743880 128 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+1 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#400003
+lesser conjured being~
+&+ga &+Glesser&+g conjured being&n~
+&+ga &+Gbeing &+gformed from cr&+Gys&+gta&+Gli&+gze&+Gd &+mmagic&+g awaits orders from their &+Ymaster&n.
+~
+Composed of loosly, magically strung shards of pure magic,
+this being appears unhappy to be here.
+~
+10 0 0 0 0 0 0 0 0 S
+CN 0 1 0 7
+30 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0

@@ -1,0 +1,462 @@
+#142215
+M
+turopolis sewers~
+&+CWar&+cthe&+Lhr &+CNg&+cola&+Lhn&N says
+
+&+c Ahh yes Turopolis, the city lies to the east.  However it is closer
+&+c than the Twin Towers Forest.&N
+~
+QA
+&+CWar&+cthe&+Lhr &+CNg&+cola&+Lhn&N says 'Please sit down and listen..'
+
+&+c   Many years ago I spent my life hunting dragons.  I killed a great
+&+c amount of the evil dragons in this world.  I thought I had been done
+&+c with them all!  Upon success my great sword was shattered into eight
+&+c fragments then spread across the world, for its power was too strong.
+&+c
+&+c   I have recently learned that one of greatest dragons, Aghalhassax,
+&+c had a daughter which I was not aware of.  500 years later, now, she
+&+c has come out of hibernation and is preparing an assault.
+&+c
+&+c   I need you and your companions to find and retrieve the many
+&+c fragments such that my mighty sword may be reconstructed once more.
+&+c
+&+c   If you are prepared for such a journey, the first fragment is close,
+&+c in the prisons of Caer Tannad.  There was once a thief who stole a
+&+c fragment, knowing of its value.  Find this thief and retrieve the
+&+c stolen fragment.  Upon retrieval, bring it here.
+&N
+~
+G I 142225
+QA
+&+CWar&+cthe&+Lhr &+CNg&+cola&+Lhn&N says
+
+&+c   Incredible, I never thought I would see even the fragments of my
+&+c sword!  Continue with your journey to the eastern side of this continent
+&+c to the Twin Towers forest.  Within the forest there is a farmer who
+&+c was left with one of the fragments.  If I remember anything about this
+&+c farmer, one of his sons will most likely have the piece.
+&N
+~
+R I 142204
+G I 142204
+QA
+&+CWar&+cthe&+Lhr &+CNg&+cola&+Lhn&N says
+
+&+c  Astounding!
+
+&+c    I have recently learned that a fragment was lost by a foolhardy
+&+c guardian in the sewers of Turopolis.  Please seek this piece out.
+~
+R I 142205
+G I 142205
+QA
+&+CWar&+cthe&+Lhr &+CNg&+cola&+Lhn&N says
+
+&+c   My faith has proven correct in you so far.  The next fragment
+&+c is located deep within the Pharr Valley.  It was last seen in the
+&+c hands of a  hideous creature called a Gartham.  They most likely
+&+c will not hand the fragment over easily, kill if you must, but
+&+c retrieve the fragment!
+&+c
+&+c   The Pharr Valley is on the road to the southeast.
+&N
+~
+R I 142206
+G I 142206
+QA
+&+CWar&+cthe&+Lhr &+CNg&+cola&+Lhn&N says
+
+&+c    We have reached the turning point of your quest, for your journey
+&+c  will now lead you across the globe to the elven island of Evermeet.
+&+c  Deep in a forest on Evermeet is an old Druid named Milerg.  Find him
+&+c  and ask him about the fragment, he should prove cooperative.
+&+c
+&+c    Because I have as much interest as you do in this journey I shall
+&+c  provide you with half the funds of a basic ship.
+&N
+~
+R I 142226
+R C 100000
+G I 142207
+QA
+&+CWar&+cthe&+Lhr &+CNg&+cola&+Lhn&N says
+
+&+c     Welcome back my friends!  You must now find the circuis of Jindonium
+&+c  on the continent of Khomani Kahn, it is almost directly south as the
+&+c  crow flies.  In this circus, search for a creature part ogre part gnome,
+&+c  surely it is one of a kind.  It has possession of a fragment.
+&+c
+&N
+~
+R I 142208
+G I 142208
+QA
+&+CWar&+cthe&+Lhr &+CNg&+cola&+Lhn&N says 'Get going! Find Milerg and retrieve that fragment!'
+~
+R I 142226
+G I 142226
+QA
+&+CWar&+cthe&+Lhr &+CNg&+cola&+Lhn&N says
+
+&+c   You actually got it from that creature? Amazing! Your journey
+&+c now leads you far southwest to the frozen continent of the Tundra.
+&+c Here you will search for the city of Verspin located on the southern
+&+c half of the continent.  Within the city, search for the King's master
+&+c Hunter, &+mDeri&+Mmous&+c.  He is in possession of the next fragment.
+&+c
+&N
+~
+R I 142209
+G I 142209
+Q
+&+CWar&+cthe&+Lhr &+CNg&+cola&+Lhn&N says
+
+&+c    Your quest is nearing an end, for there are but one fragment left
+&+c  to retrieve.  How absent minded I was however, for the next fragment
+&+c  is located on the small Moonshaes island southwest of this continent,
+&+c  directly west of the Fafhrd reefs.  Take this letter to the Ffolk city
+&+c  there, within the forest find Robyn's assistant Lyle.  I warn you
+&+c  ahead of time however that Lyle and her friend Abal are quite
+&+c  deceptive.
+&+c
+&N
+~
+R I 142227
+R I 142213
+G I 142210
+QA
+&+CWar&+cthe&+Lhr &+CNg&+cola&+Lhn&N says
+
+&+c This close to the end and you are wasting your time?
+&+c Head to the ffolk village on the island west of the Fafhrd reefs and search for Lyle
+~
+R I 142227
+G I 142227
+QA
+&+CWar&+cthe&+Lhr &+CNg&+cola&+Lhn&N says
+
+&+c     There is now but one piece remaining.  Seek out &+WJyarl Truesteel&+c,
+&+c brother of &+WWyiarn Truesteel&+c in the small town of Newhaven to the
+&+c northeast of here.  The town lies almost directly west of the halfling
+&+c town of Woodseer.  Give him this note, for he has the most important
+&+c piece of all, the hilt!
+&+c
+&N
+~
+R I 142228
+R I 142212
+G I 142211
+QA
+&+CWar&+cthe&+Lhr &+CNg&+cola&+Lhn&N says
+
+&+c    Absolutely astounding!  I get goosebumps at times like this!
+&+c  Take all eight fragments and the hilt to the dwarven city of
+&+c  Kimodril.  Give the pieces to the dwarven steelsmith Telrar,
+&+c  who should be in Tuktukr's weaponsmith shop.  He is the only
+&+c  creature still living capable of recreating this weapon.
+&+c
+&+c    When it is complete bring it back so that I can see it one more time.
+&N
+~
+R I 142224
+G I 142224
+QA
+&+CWar&+cthe&+Lhr &+CNg&+cola&+Lhn&N says
+
+&+c    Oh yes revenge shall be mine!  Hunt and kill the daughter
+&+c  of Aghalhassax.  She is in hibernation aboard a ghost ship.
+&+c
+&+c    On the far east of this continent, past the twin towers forest
+&+c  is a small mountainous inlet.  At the north point of this inlet is
+&+c  a path.  Follow this path down to the west until you find the ship.
+&+c  Upon this ship is the dragon.  Slay the beast and bring me her skin!
+&+c
+&N
+~
+R I 142249
+G I 142249
+QA
+&+CWar&+cthe&+Lhr &+CNg&+cola&+Lhn&N says
+
+&+c    I can finally rest once again!  Take these gemstones, there should
+&+c  be enough for each member of your party to have one large and one small.
+&+c  If there is not enough gemstones to go around, petition for a god, they
+&+c  will assist you.
+&+c
+&+c    You may give a gemstone to one of my dragon hunters and they will
+&+c  give you a reward suitable to your class.  Each of my dragon hunters
+&+c  is of a different class so give your gemstone to the suitable class.
+&+c
+&+c    For example if you give a gemstone to my barbarian hunter here, you
+&+c  will recieve a reward suitable to the warrior type characters.  If you
+&+c  were to give a gemstone to my gnome hunter, you will get something suitable
+&+c  for a conjurer or sorcerer.
+&+c
+&+c                            Thank you once again for your assistance.
+&+c                                   Have Fun!
+~
+R I 142229
+R I 142230
+R I 142229
+R I 142230
+R I 142229
+R I 142230
+R I 142229
+R I 142230
+R I 142229
+R I 142230
+R I 142229
+R I 142230
+G I 142218
+S
+#142216
+QA
+~
+R I 142249
+G I 142204
+G I 142205
+G I 142206
+G I 142226
+G I 142208
+G I 142209
+G I 142227
+G I 142228
+G I 142224
+D
+&+YTelrar&N looks at the pieces carefully then in a soft voice says
+  &+c"Ahhh, I see how these fit, this should make a marevelous weapon!"&N
+
+The dwarven swordsmith begins reconstructing the sword at an amazing pace...
+
+&+YTelrar&N says 'I think this will do nicely, thank you for the opportunity to work on such an incredible piece'&N
+~
+S
+#142218
+M
+gadget~
+&+LAn &+wauction &+Whouse &+wpatron says 'Why yes I do have a gadget that may interest you'
+&+LAn &+wauction &+Whouse &+wpatron says 'If you would like it, You can buy it for 5 platinum'
+~
+QA
+&+LAn &+wauction &+Whouse &+wpatron&N says 'Here you go'
+~
+R I 142215
+G C 5000
+S
+#142219
+M
+warthehr sword shard piece swordpiece fragment~
+&+YA young man&N says 'Ahh you must be here for the piece of metal Warthehr asked me to guard'
+&+YA young man&N says 'If you want it you must obtain a gadget for me'
+&+YA young man&N says 'Last I heard there was one up for auction in Tharnadia'
+&+YA young man&N says 'If you retrieve this gadget for me, I shall give you the piece of metal'
+~
+QA
+~
+R I 142205
+G I 142215
+D
+&+YA young man&N says 'Thank you very much'
+~
+S
+#142222
+M
+warthehr quest sword fragment shard piece~
+&+gMilerg&N says 'Why yes I do happen to have Werthehr's sword fragment'
+&+gMilerg&N says 'However, I do not know that you are worthy of such an item'
+&+gMilerg&N says 'If you could slay the hideous wolf that's been killing the
+                  Urd's, I would be more than happy to supply you with this
+                  fragment'
+~
+M
+urd urds wolf hideous~
+&+gMilerg&N says 'The urds are on the northern tip of this continent, please help them'
+~
+QA
+~
+R I 142208
+G I 142216
+D
+&+gMilerg&N says 'Thank you very much, I should have never doubted your abilities'
+&+gMilerg&N says 'Here is the sword fragment, may the spirit of the earth be with you on your journies'
+~
+S
+#142224
+M
+warthehr sword fragment piece shard quest~
+&+LAn &+bOgre&+Y-&+RGnome&N says 'NO! You can't have it! Not until I get my yo-yo back'
+~
+M
+yoyo yo-yo~
+&+LAn &+bOgre&+Y-&+RGnome&N says 'One of those ugly lepers stole it!'
+~
+M
+leper lepers~
+&+LAn &+bOgre&+Y-&+RGnome&N says 'Yes! A leper! They come from that dirty highway southeast from here!'
+~
+QA
+~
+R I 142209
+G I 142217
+D
+&+LAn &+bOgre&+Y-&+RGnome&N says 'Thank you! My yo-yo!'
+
+
+&+LAn &+bOgre&+Y-&+RGnome&N does around the world and walk the dog with his yoyo.
+~
+S
+#142226
+M
+warthehr quest piece shard fragment sword~
+&+mDeri&+Mmous&N says 'What do you want?'
+&+mDeri&+Mmous&N says 'Who are you?'
+&+mDeri&+Mmous&N says 'Oh! You are interested in this piece of metal are you?'
+&+mDeri&+Mmous&N says 'Good for me.  You see the King has been giving me crap
+                       ever since I failed to hunt and kill a giant four-horned
+                       antelope.  Perhaps you can provide this service for me,
+                       in return I shall provide you with what you seek.'
+~
+M
+antelope giant horned horn four-horned~
+&+mDeri&+Mmous&N says 'The antelope can be found in the Icy Tundra on the road north from here.'
+~
+M
+seek~
+&+mDeri&+Mmous&N says 'Why I seek the horns of the giant four-horned antelope of course'
+~
+QA
+~
+R I 142210
+G I 142220
+G I 142221
+G I 142222
+G I 142223
+D
+&+mDeri&+Mmous&N whispers to you 'Thank you ever so much'
+
+&+mDeri&+Mmous&N gives &+wa &+rs&+Rev&+rere&+Rd &+yan&+Yte&+ylope &+yh&+Lo&+yr&+Ln&N to &+rRamous&N.
+&+mDeri&+Mmous&N gives &+wa &+rs&+Rev&+rere&+Rd &+yan&+Yte&+ylope &+yh&+Lo&+yr&+Ln&N to &+rRamous&N.
+&+mDeri&+Mmous&N gives &+wa &+rs&+Rev&+rere&+Rd &+yan&+Yte&+ylope &+yh&+Lo&+yr&+Ln&N to &+rRamous&N.
+&+mDeri&+Mmous&N gives &+wa &+rs&+Rev&+rere&+Rd &+yan&+Yte&+ylope &+yh&+Lo&+yr&+Ln&N to &+rRamous&N.
+
+&+rRamous&N looks at &+mDeri&+Mmous&N.
+
+&+rRamous&N says 'Very well, you may lead the royal hunt once more.'
+~
+S
+#142228
+M
+abal message~
+&+gLyle&N says 'I told you, bring that message to Abal in the high tower of Corwell'
+~
+M
+king revenge~
+&+gLyle&N says 'Shh, we're plotting revenge'
+~
+QA
+&+gLyle&N says 'Hmm, very interesting, I must consult with my colleague Abal'
+&+gLyle&N says 'Please carry this message to Abal in the High Tower of Corwell'
+~
+R I 142214
+G I 142213
+QA
+~
+R I 142211
+G I 142219
+D
+&+gLyle&N says 'HAHAHHAHAHAAHAHAHHAHAHAHAHAHA!'
+~
+S
+#142229
+M
+lyle king revenge~
+&+YAbal&N says 'Shh, we're plotting revenge'&N
+~
+QA
+&+YAbal&N whispers to you 'Ahh, If you wish assistance from us, you must
+                   assist us!  We wish to have the King's scepter
+                   If you retrieve this for us, we will gladly assist
+                   you.  Here are his keys, his scepter is hidden in a
+                   chest somewhere in his room.'
+~
+R I 142234
+R I 26201
+G I 142214
+QA
+~
+R I 142219
+G I 142235
+D
+&+YAbal&N says 'HAHAHAHA'
+&+YAbal&N holds &+Ya &+Rr&+Mo&+Ry&+Ma&+Rl &+Ysc&+Wept&+Yer&N above his head.
+&+YAbal&N says 'By the power of Corwell.....'
+
+
+
+
+&+YAbal&N says 'I.....'
+
+
+
+
+&+YAbal&N says 'Have.....'
+
+
+
+
+&+YAbal&N says 'The Power....'
+
+
+&=LBZAP!&N a huge lightning bolt slams into &+YAbal&N
+~
+S
+#142230
+QA
+~
+R I 142224
+G I 142212
+D
+&+WJyarl&N says 'Very well, I wish you the best of luck, for I fear your
+                 adventure is nearing an end.'
+~
+S
+#142232
+Q
+~
+R I 142236
+R I 142242
+R E 1000
+G I 142229
+Q
+~
+R I 142237
+R E 500
+G I 142230
+S
+#142233
+Q
+~
+R I 142238
+R I 142243
+R E 1000
+G I 142229
+Q
+~
+R I 142239
+R E 500
+G I 142230
+S
+#142234
+Q
+~
+R I 142238
+R I 142244
+R E 1000
+G I 142229
+Q
+~
+R I 142241
+R E 500
+G I 142230
+S

@@ -1,6 +1,6 @@
 #588
 &+LThe Realm of Barovia Continued&N~
-58996 0 0 40 50 3
+58996 0 0 40 50 5
 *
 * Zone edited with durisEdit v2.99de
 *
@@ -52,6 +52,14 @@ D 0 58954 1 5 100 0 0 0
 D 0 58960 3 1 100 0 0 0
 *     west exit from "A Repulsive Lair of Corpses" to
 *     "A Whirlpool Waterfall Base" - closed
+*
+D 0 58959 4 1 100 0 0 0
+*     up exit from "A Clogged Refuse Drain" to
+*     "A Repulsive Lair of Corpses" - closed
+*
+D 0 58960 5 1 100 0 0 0
+*     down exit from "A Repulsive Lair of Corpses" to
+*     "A Clogged Refuse Drain" - closed
 *
 D 0 58975 1 9 100 0 0 0
 *     east exit from "The Blackrock Gates of Kashtrakis" to
@@ -387,6 +395,7 @@ G 1 360 3 0 100 0 0 0              *    (object type not in this .obj file)
 G 1 16242 1 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 360 3 0 100 0 0 0              *    (object type not in this .obj file)
 G 1 360 3 0 100 0 0 0              *    (object type not in this .obj file)
+G 1 67215 1 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 58838 6 58985 100 0 0 0        * a tortured soul
 M 0 58838 6 58985 100 0 0 0        * a tortured soul
 M 0 58838 6 58986 100 0 0 0        * a tortured soul

@@ -1142,6 +1142,7 @@ M 0 21646 1 21857 100 0 0 0        * Berbrathus the lich
 E 1 21614 1 19 100 0 0 0           *   the eyes of undead fire
 G 1 21654 10 0 100 0 0 0           *    the heart of Berbrathus
 G 1 21615 1 0 100 0 0 0            *    the bone wand of Berbrathus
+G 1 67242 1 0 100 0 0 0            *    (object type not in this .obj file)
 F 1 21644 13 21857 100 0 0 0       * a mindless zombie (following)
 F 1 21644 13 21857 100 0 0 0       * a mindless zombie (following)
 M 0 21647 6 21859 100 0 0 0        * a sun lightseeker

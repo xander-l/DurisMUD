@@ -493,6 +493,7 @@ void bard_drifting(int l, P_char ch, P_char victim, int song)
     spell_group_teleport(l, ch, 0, 0, victim, 0);
 }
 
+/*
 void bard_healing(int l, P_char ch, P_char victim, int song)
 {
   struct affected_type af;
@@ -562,6 +563,80 @@ void bard_healing(int l, P_char ch, P_char victim, int song)
     linked_affect_to_char(ch, &af, ch, LNK_SONG);
   }
 }
+*/
+
+void bard_healing(int l, P_char ch, P_char victim, int song)
+{
+  struct affected_type af;
+ if(!affected_by_spell(victim, SONG_HEALING) ||
+     (affected_by_spell(victim, SONG_HEALING) &&  (get_linked_char(victim, LNK_SNG_HEALING) == ch)))
+  {
+  int healed, old_hits = GET_HIT(ch);
+  //healed = l * 3 * number(40, 80) / 100;
+  //spell_heal(l, ch, 0, 0, victim, NULL);
+  healed = GET_C_CHA(ch) / 3;
+  healed = healed + GET_LEVEL(ch);
+  
+   act("&+WYour body feels restored by the power of $n's soothing song!", FALSE, ch, 0, victim, TO_VICT);
+  if(ch == victim)
+  {
+    act("&+WYour body feels restored by the power of your soothing song!", FALSE, ch, 0, victim, TO_CHAR);
+    heal(victim, ch, healed , GET_MAX_HIT(victim) - number(1, 4));
+  }
+  else
+  {
+   healed = (healed * .65);
+   heal(victim, ch, healed , GET_MAX_HIT(victim) - number(1, 4));
+  }
+
+
+  update_pos(victim);
+  
+
+   if(GET_SPEC(ch, CLASS_BARD, SPEC_MINSTREL))
+  {
+    if(IS_AFFECTED(victim, AFF_BLIND) &&
+        GET_CHAR_SKILL(ch, SONG_HEALING) >= 90)
+    {
+      spell_cure_blind(GET_LEVEL(ch), ch, NULL, SPELL_TYPE_SPELL, victim, NULL);
+    }
+    if(IS_AFFECTED2(victim, AFF2_POISONED) &&
+        GET_CHAR_SKILL(ch, SONG_HEALING) >= 50)
+    {
+      spell_remove_poison(GET_LEVEL(ch), ch, NULL, SPELL_TYPE_SPELL, victim, NULL);
+    }
+    if(GET_CHAR_SKILL(ch, SONG_HEALING) >= 70 &&
+      (affected_by_spell(victim, SPELL_DISEASE) ||
+      affected_by_spell(victim, SPELL_PLAGUE)))
+    {
+      spell_cure_disease(GET_LEVEL(ch), ch, NULL, SPELL_TYPE_SPELL, victim, NULL);
+    }
+  }
+  else if(GET_SPEC(ch, CLASS_BARD, SPEC_DISHARMONIST))
+  {
+    if(IS_AFFECTED2(ch, AFF2_SILENCED) &&
+        GET_CHAR_SKILL(ch, SONG_HEALING) >= 90)
+    {
+      affect_from_char(ch, SPELL_SILENCE);
+    }
+  }
+
+     memset(&af, 0, sizeof(af));
+    af.type = SONG_HEALING;
+    af.duration = PULSE_VIOLENCE * 3;
+    af.flags = AFFTYPE_SHORT | AFFTYPE_NODISPEL;
+
+
+    linked_affect_to_char(victim, &af, ch, LNK_SNG_HEALING);
+
+  }
+  else
+  {
+   send_to_char("Your song has no power, as they are already affected by a healing song!\r\n", ch);
+   return;
+  }
+
+}
 
 void bard_charm(int l, P_char ch, P_char victim, int song)
 {
@@ -571,26 +646,50 @@ void bard_charm(int l, P_char ch, P_char victim, int song)
   int      i;
   struct follow_type *k;
 
-  /* re-enable charm, 15 lvls below though */
+  /* re-enable charm */
   /* return; *//* charm shouldn't be working .. */
 
   if(GET_MASTER(victim))
     return;
-  if(GET_LEVEL(victim) > (GET_LEVEL(ch) - 15) && IS_PC(ch))
+
+
+  if(IS_PC(victim))
+  return;
+ /*
+    if(GET_LEVEL(victim) > (GET_LEVEL(ch) - 5) && IS_PC(ch))
     return;
-  if(GET_LEVEL(ch) < (GET_LEVEL(victim) - 5) && IS_PC(ch))
+
+  if(GET_LEVEL(ch) < (GET_LEVEL(victim)) && IS_PC(ch)) 
     return;
+ */
+    if(GET_LEVEL(victim) > 50 && IS_PC(ch))
+	return;
+
+    if(GET_LEVEL(victim) > GET_LEVEL(ch) && IS_PC(ch))
+	return;
+    
   if(victim == ch)
     return;
   if(circle_follow(victim, ch))
     return;
+  /*
   if(victim->player.m_class &
       (CLASS_SORCERER | CLASS_PSIONICIST | CLASS_CLERIC |
        CLASS_CONJURER | CLASS_WARLOCK | CLASS_ILLUSIONIST) && IS_PC(ch))
     return;
+  */
+  if(victim->player.m_class &
+	(CLASS_WARLOCK | CLASS_ILLUSIONIST) && IS_PC(ch))
+	return;
 
-  if(bard_saves(ch, victim, song) && !IS_NPC(ch))
+   if(bard_saves(ch, victim, song) && !IS_NPC(ch))
     return;
+
+  if(mob_index[GET_RNUM(victim)].func.mob == shop_keeper || (mob_index[GET_RNUM(victim)].qst_func == shop_keeper))
+    {
+       return;
+    }
+
 
   for (tmp_obj = victim->carrying; tmp_obj; tmp_obj = tmp_obj->next_content)
     if(IS_SET(tmp_obj->extra_flags, ITEM_NOCHARM))
@@ -599,6 +698,8 @@ void bard_charm(int l, P_char ch, P_char victim, int song)
     if(victim->equipment[i] &&
         IS_SET(victim->equipment[i]->extra_flags, ITEM_NOCHARM))
       return;
+
+
 
   if(count_pets(ch) >= 3)
     return;
@@ -666,6 +767,16 @@ void bard_sleep(int l, P_char ch, P_char victim, int song)
   {
     bard_aggro(victim, ch);
     return;
+  }
+
+  if(GET_LEVEL(victim) > 45)
+  {
+   if(number(1, 280) > GET_C_CHA(ch))
+    {
+    bard_aggro(victim, ch);
+    act("&+B$n stifles a yawn, but manages stay awake!", TRUE, victim, 0, 0, TO_ROOM);
+    return;
+    }
   }
 
   if(bard_saves(ch, victim, song))
@@ -1829,4 +1940,159 @@ void do_play(P_char ch, char *arg, int cmd)
     add_event(event_bardsong, get_bard_pulse(ch), ch, 0, 0, 0, &s, sizeof(s));
   }
 }
+
+void do_riff(P_char ch, char *arg, int cmd)
+{
+
+  int s, level, i, l, room;
+  struct affected_type *af, *af2;
+  struct char_link_data *cld, *next_cld;
+  struct echo_details echoDetails;
+  struct song_description *sd;
+  P_char tch, next;
+
+  
+  if(!(ch) ||
+    !IS_ALIVE(ch))
+  {
+    return;
+  }
+ 
+    if(affected_by_spell(ch, SKILL_RIFF))
+  {
+    send_to_char
+      ("You havent recovered yet from that last wild &+Criff&n!\n", ch);
+    return;
+  }
+
+ if(affected_by_spell(ch, FIRST_INSTRUMENT))
+  {
+    send_to_char("&+yYou haven't regained your composure.\r\n", ch);
+    return;
+  }
+  
+    if(!CAN_SING(ch))
+  {
+    send_to_char("&+WYou are unable to sing while in this state.\r\n", ch);
+    return;
+
+  }
+
+    if(!IS_AFFECTED3(ch, AFF3_SINGING))
+  {
+    send_to_char("&+mYou must actively be &+Mplaying &+ma song in order to &+Criff&+m!&n\n", ch);
+    return;
+  }
+  
+  arg = skip_spaces(arg);
+  if(!arg || !*arg)
+  {
+    send_to_char("&+YWhat &+Wsong &+Ywould you like to sing a quick verse from?\r\n", ch);
+    return;
+  }
+     
+  if(number(1, 100) < GET_CHAR_SKILL(ch, SKILL_RIFF))
+      {
+      notch_skill(ch, SKILL_RIFF, get_property("skill.notch.offensive", 15)); 
+      }
+
+  if(number(1, 90) > GET_CHAR_SKILL(ch, SKILL_RIFF))
+      {
+        act("$n &+ctries to sing a quick &+Cverse&+c, but they cannot seem to recall the lines.&n", FALSE, ch, 0, 0, TO_ROOM);
+        act("&+cYou &+ctry to sing a quick &+Cverse&+c, but cannot seem to recall the lines.&n", FALSE, ch, 0, 0, TO_CHAR);
+        set_short_affected_by(ch, SKILL_RIFF, (int) (2 * PULSE_VIOLENCE));
+        do_action(ch, 0, CMD_COUGH);
+        return;
+      }
+ 
+  s = -1;
+  for (i = 0; songs[i].name && s == -1; i++)
+    if(is_abbrev(arg, songs[i].name))
+    {
+      s = songs[i].song;
+    }
+  if(s == -1 || GET_CHAR_SKILL(ch, s) == 0)
+  {
+    send_to_char("You don't know that song.\r\n", ch);
+    return;
+  }
+  
+
+    if(ch &&
+    IS_ALIVE(ch))
+  {
+    for (i = 0; songwords[i].num; i++)
+    {
+      if(songwords[i].num == s)
+      {
+        act("$n &+Csuddenly breaks out a &+Wquick verse&+C from their &+Crepitiore &+Cof songs...&n", FALSE, ch, 0, 0, TO_ROOM);
+        act("&+CYou suddenly break out a &+Wquick verse&+C from your &+Crepitiore &+Cof songs...&n", FALSE, ch, 0, 0, TO_CHAR);
+
+	 act(songwords[i].tochar, FALSE, ch, 0, 0, TO_CHAR);
+        act(songwords[i].toroom, FALSE, ch, 0, 0, TO_ROOM);
+        if(number(1, 10) > 5)
+        {
+         do_action(ch, 0, CMD_DANCE);
+        }
+        else
+        {
+         do_action(ch, 0, CMD_TWIRL);
+        }
+        break;
+      }
+    }
+  }
+  l = bard_song_level(ch, s) + number(-2, 2);
+
+  if(l <= 0)
+  {
+    l = 1;
+  }
+  for (i = 0; songs[i].name; i++)
+  {
+    if(songs[i].song == s)
+    {
+      sd = &songs[i];
+      break;
+    }
+  }
+  room = ch->in_room;
+
+  for (tch = world[room].people; tch; tch = next)
+  {
+    next = tch->next_in_room;
+
+    if(IS_TRUSTED(tch))
+    {
+      continue;
+    }
+    
+    if((ch == tch &&
+      !(sd->flags & SONG_AGGRESSIVE)) ||
+      (grouped(ch, tch) && !(sd->flags & SONG_AGGRESSIVE)) ||
+      (ch != tch &&
+      !grouped(ch, tch) &&
+      !(sd->flags & SONG_ALLIES)))
+    {
+      if((sd->flags & SONG_AGGRESSIVE) &&
+        bard_saves(ch, tch, s))
+      {
+        if(!IS_FIGHTING(tch))
+        {
+          bard_aggro(tch, ch);
+        }
+      }
+      if(is_char_in_room(tch, room))
+      {
+        (sd->funct) (l, ch, tch, s);
+      }
+    }
+  }
+
+  set_short_affected_by(ch, SKILL_RIFF, (int) (4 * PULSE_VIOLENCE));
+  CharWait(ch, (int)(PULSE_VIOLENCE));
+}
+
+
+
 

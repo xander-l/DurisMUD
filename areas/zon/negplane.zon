@@ -437,6 +437,7 @@ E 1 26631 1 8 100 0 0 0            *   a pair of boots of stealth
 E 1 26620 1 16 100 0 0 0           *   a sleek adamantium dagger named 'Blight'
 E 1 26621 1 17 100 0 0 0           *   a wicked black dagger named 'Sanguine Blessing'
 G 1 26632 1 0 100 0 0 0            *    a shadowy key
+G 1 67281 1 0 100 0 0 0            *    (object type not in this .obj file)
 F 1 26623 1 26791 100 0 0 0        * an enormous greater marilith demon (following)
 G 1 26635 1 0 100 0 0 0            *    a pair of odd gold plated marilith horn bands
 M 0 26620 24 26791 100 0 0 0       * a dire stalker

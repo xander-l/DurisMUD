@@ -1,0 +1,509 @@
+#142400
+seal golden fates~
+&+Wa &+Ygolden se&+ya&+Yl &+Wof the &+rfates&n~
+&+WA massive &+Ygol&+yde&+Yn se&+ya&+Yl &+Wlies on the ground here.~
+~
+18 52 2 0 15 0 109322249 1 66 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142401
+coffin stone~
+&+LA large st&+won&+Le coffin&n~
+&+LA large stone coffin is in the center of the room here.~
+~
+15 11 3 0 7 0 0 0 1088 0 0
+1200 29 142402 0 0 0 0 0
+10000 0 100
+T
+512 0 0 60
+#142402
+key stone~
+&+Lthe royal key of &+bCrav&n~
+&+LA stone key bearing the symbol of the &+bCrav&+L family, lies here in the dirt.~
+~
+18 11 3 0 7 0 4097 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142403
+belt burdens ghostly~
+&+Lthe &+bbelt &+Lof &+Wli&+wf&+Lte&+Wd &+Lburdens&n~
+&+LA belt of &+Wgh&+wo&+Lst&+wly &+Lmaterial lies here.&n~
+~
+9 1 10 0 15 0 3153960 18433 64 268435391 0
+-50 0 0 0 0 0 0 0
+0 0 100
+A
+58 -1
+A
+10 -50
+#142404
+key fragment~
+&+La &+bkey &+Lfragment&n~
+&+wA small key fragment lies here.~
+~
+18 15 1 0 7 0 4096 1 64 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142405
+key fragment~
+&+La &+ckey &+Lfragment&n~
+&+LA tiny fragment of what was a key lies here.~
+~
+18 15 1 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142406
+key fragment~
+&+La &+gkey &+Lfragment&n~
+&+LA fragment of what appears to have been a key lies here.~
+~
+18 15 1 0 14 0 8192 1 64 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142407
+key fragment~
+&+La &+mkey&+L fragment&n~
+&+LA fragment of an ornamental key lies on the ground here.~
+~
+18 15 1 0 14 0 67117057 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142408
+key fragment~
+&+La &+Rkey&+L fragment&n~
+&+LA fragment of an ornate key lies here.~
+~
+18 15 1 0 14 0 67117057 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142409
+key fragment~
+&+La &+Wkey &+Lfragment&n~
+&+LAn ornate key fragment lies on the ground here.~
+~
+18 15 1 0 14 0 67117057 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142410
+object unnamed~
+&+ga &+GL&+gA&+GR&+gG&+GE em&+ger&+Gal&+gd&n~
+A huge &+Gem&+ger&+Gal&+gd&n lies here shimmering.~
+~
+8 32 3 0 11 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+2 800000 100
+#142411
+beads prayer taoism~
+&+Wthe pr&+way&+Wer b&+we&+Wads &+wof &+Ltaoism&n~
+&+wA string of &+Wwhite &+wand &+Lblack&+w beads lies here, attached to a &+LYin &+WYang &+wpendant.~
+~
+9 34 2 0 14 0 70258689 20481 64 234880575 0
+-50 0 0 0 0 0 0 0
+0 0 100
+E
+beads prayer taoism~
+~
+A
+13 25
+A
+19 5
+#142412
+box golden gold~
+&+Ya small gol&+yde&+Yn b&+yo&+Yx&n~
+&+YA small golden box lies here, forgotten by time.~
+~
+15 24 2 0 13 0 4096 1 0 0 0
+100 29 142413 0 0 0 0 0
+5 80000 100
+#142413
+golden key~
+&+Ya tiny golden key&n~
+&+YA tiny golden key on the ground almost escapes notice.~
+~
+18 24 1 0 11 0 4096 1 64 0 0
+0 0 0 0 0 0 0 0
+0 100000 100
+#142414
+platinum figurine~
+&+Wa platinum figurine of &+cBran Boru&n~
+&+WA small platinum figurine lies here on the ground.~
+~
+8 25 2 0 14 0 0 1 64 0 0
+0 0 0 0 0 0 0 0
+2 250000 100
+#142415
+pedestal coffin large~
+&+La pedestal coffin&n~
+&+LA large carved stone coffin rests atop a pedestal here.~
+~
+15 11 4 0 11 0 0 0 1024 0 0
+0 29 142418 1000 0 0 0 0
+0 0 100
+T
+512 8 1 60
+#142416
+shield defense blessed~
+&+Wthe holy shield of blessed &+wdefense&n~
+&+WA mighty kite shield lies here, exuding a holy aura.~
+~
+9 23 3 0 14 0 33820673 513 64 234880582 0
+-150 0 0 0 0 0 0 0
+2 100000 100
+A
+13 40
+A
+24 -5
+#142417
+bone femur~
+&+Wa massive femur bone&n~
+&+wThere is a large femur bone lying on the ground here.~
+~
+5 10 3 0 7 0 64 8193 2048 0 0
+11 5 5 0 0 0 0 0
+0 0 100
+#142418
+key royal boru~
+&+Lthe royal key of &+cBoru&n~
+&+LAn ornate key bearing the crest of the &+cBoru&+L family lies here discarded.~
+~
+18 15 3 0 7 0 100667392 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142419
+cutlass sanguine song _id_~
+&+Cthe legendary cutlass '&+RSa&+rn&+Rgu&+rin&+Re S&+ro&+Rng&+C'&n~
+&+cAn impressive cutlass is glimmering on the ground here, it seems to be singing!~
+~
+5 23 3 0 15 0 100671745 8193 64 266309628 0
+5 6 4 0 0 487 50 30
+2 200000 100
+A
+18 5
+A
+19 5
+#142420
+golden coffin ornate~
+&+YA massive golden coffin&n~
+&+YA massive ornate golden coffin rests in the center of the room.~
+~
+15 24 4 0 13 0 1 0 1024 0 0
+1000 29 142421 1000 0 0 0 0
+1000 0 100
+T
+516 0 1 60
+#142421
+royal key llywelyn~
+&+Lthe royal key of &+gLlywelyn&n~
+&+LA beautifully made key with elven design lies here.~
+~
+18 24 2 0 12 0 67121153 1 0 0 0
+0 0 0 0 0 0 0 0
+0 100000 100
+#142422
+crown elven royalty ancient~
+&+Yan ancient crown of &+Ge&+glv&+Gen &+Yroyalty&n~
+&+YA beautiful glittering crown has been foolishly discarded here.~
+~
+9 24 2 0 14 0 100663297 17 66 96433247 0
+-30 0 0 0 0 0 0 0
+1 100000 100
+A
+13 20
+A
+35 5
+#142423
+astral kris~
+&+Can a&+cst&+Cra&+cl fo&+Crg&+ced &+Ckr&+ci&+Cs&n~
+&+CA kris lies here on the ground reflecting all light.~
+~
+5 1 3 0 15 0 100663297 8193 66 0 0
+2 5 4 0 0 0 0 0
+0 50000 100
+A
+18 5
+A
+19 5
+#142424
+unholy blade sword~
+&+La massive unholy blade&n~
+&+LA massive pitch black two handed sword lies here, reeking of evil.~
+~
+5 16 3 0 14 0 272 8193 2112 67141834 0
+13 3 6 0 0 0 0 0
+10 50000 100
+A
+18 4
+A
+19 4
+#142425
+elven flying scimitar~
+&+La flying &+celven &+Cscimitar&n~
+&+LPOOF!~
+~
+5 16 3 0 14 0 2 8193 3136 0 0
+5 6 6 0 0 0 0 0
+2 0 100
+#142426
+jewels box gems~
+&+Ya box of fine &+Rj&+Be&+Yw&+Me&+Gl&+rs&n~
+&+YSomeone has stashed a box of beautiful &+Rgems&+Y here.~
+~
+8 26 2 0 14 0 67121153 16385 0 0 0
+0 0 0 0 0 0 0 0
+2 450000 100
+#142427
+coffin obsidian~
+&+Lan obsidian coffin&n~
+&+LAn obsidian coffin emblazoned with a &+wsilver skull&+L rests here.~
+~
+15 36 4 0 14 0 8193 0 1024 0 0
+1000 29 142428 1000 0 0 0 0
+1000 0 100
+#142428
+royal key sarum~
+&+Lthe royal key of &+mSarum&n~
+&+LA key with the crest of the &+mSarum&+L family lies here.~
+~
+18 15 2 0 14 0 67117057 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142429
+black diamond huge~
+&+La HUGE black d&+wi&+La&+wm&+Lo&+wn&+Ld&n~
+&+LSomeone has stashed a massive black diamond here.~
+~
+8 27 3 0 14 0 12289 1 0 0 0
+0 0 0 0 0 0 0 0
+1 900000 100
+#142430
+staff hellish destruction~
+&+rthe staff of &+Rhe&+Yl&+rl&+Ri&+rs&+Yh &+rdestruction&n~
+&+RA red staff with a skull for a head lies here &+bb&+Yur&+Rn&+rin&+Yg&+r.&n~
+~
+5 15 3 0 7 0 36700161 8193 124 129888767 0
+12 8 7 0 0 0 0 0
+0 0 100
+A
+18 8
+A
+19 5
+#142431
+wand dead forgotten~
+&+Lthe &+wwand &+Lof the forgotten &+Wd&+Le&+wa&+Wd&n~
+&+wAn oddly carved bone wand lies in the dust here.~
+~
+3 10 2 0 14 0 100671489 16385 64 130019839 0
+60 4 4 271 0 0 0 0
+1 1250000 100
+A
+13 25
+A
+33 4
+#142432
+stone sarcophagus~
+&+yA large stone sarcophagus&n~
+&+yA large stone sarcophagus lies in the center of the room here.~
+~
+15 11 3 0 14 0 0 0 1024 0 0
+1000 29 142433 1000 0 0 0 0
+1000 0 100
+T
+512 7 1 60
+#142433
+royal key tavinshir~
+&+Lthe royal key of &+RTavinshir&n~
+&+LA well made key lies on the ground here.~
+~
+18 15 3 0 14 0 8192 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142434
+platinum sacrificial dagger~
+&+wa plat&+win&+Lu&+Wm sacrificial d&+Lag&+wg&+Wer&n~
+&+WAn orn&+Lat&+We platinum dagger has been discarded here.~
+~
+5 25 3 0 15 0 12288 8193 64 0 0
+2 4 4 0 0 0 0 0
+1 1500000 100
+A
+18 4
+A
+19 5
+#142435
+robes vitality~
+&+bthe &+Bfl&+bow&+Bin&+bg r&+Bob&+bes of &+Bvit&+bali&+Bty&n~
+&+BSome flowing silken robes have been discarded on the floor here.~
+~
+9 33 3 0 14 0 3284993 9 66 96333947 0
+-50 0 0 0 0 0 0 0
+2 0 100
+A
+13 30
+A
+37 5
+#142436
+bangle immunity~
+&+Ythe bangle of &+Wimmunity&n~
+&+YA highly polished bangle lies here on the ground.~
+~
+9 24 2 0 14 0 3284993 4097 66 129888763 0
+0 0 0 0 0 0 0 0
+2 0 100
+A
+20 -5
+A
+24 -5
+#142437
+ruby greaves~
+&+Ysome &+rr&+Rub&+ry &+Ystudded greaves&n~
+&+YA beautifully crafted pair of ruby studded greaves lies here.~
+~
+9 24 3 0 14 0 8193 33 64 100662215 0
+-40 0 0 0 0 0 0 0
+3 75000 100
+A
+14 40
+A
+55 15
+#142438
+marble urn large~
+&+wA la&+Lrg&+We ma&+wr&+Lbl&+We u&+wr&+Ln&n~
+&+wA large &+wmar&+Lbl&+We u&+Lr&+wn has been placed in the center of the room here.~
+~
+15 38 4 0 14 0 8192 0 1024 0 0
+1000 0 142439 1000 0 0 0 0
+1000 0 100
+T
+512 9 1 60
+#142439
+key platyr~
+&+LThe royal key of &+WPlatyr&n~
+&+LA well made key lies on the ground here.~
+~
+18 15 1 0 14 0 8192 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142440
+gauntlets torms justice~
+&+wthe gauntlets of &+WTorm's Justice&n~
+&+LA pair of polished holy gauntlets glow on the ground here.~
+~
+9 22 3 0 15 0 37101569 129 75 67108823 0
+-50 0 0 0 0 0 0 0
+2 250000 100
+A
+19 5
+A
+32 5
+#142441
+ghostly armor suit~
+&+wa &+Wgh&+Los&+wtl&+Wy &+wsuit of &+War&+Lmo&+wr&n~
+&+LA nearly transparent suit of&+W armor&+L rests on the ground here.~
+~
+9 1 3 0 14 0 70918241 9 0 184532934 0
+-100 0 0 0 0 0 0 0
+0 0 100
+A
+58 -1
+A
+19 4
+#142442
+gold necklace~
+&+Ya large gold necklace&n~
+&+YA valuable looking necklace lies on the ground here.~
+~
+8 24 2 0 14 0 12288 5 0 0 0
+0 0 0 0 0 0 0 0
+0 350000 100
+#142443
+key drakenstone~
+&+LThe Drak&+wenst&+Lone key~
+&+LA huge key with a sinister looking crest lies here.~
+~
+18 15 3 0 14 0 33562624 1 64 0 0
+0 0 0 0 0 0 0 0
+2 0 100
+#142444
+coins platinum pile~
+&+WA massive pile of platinum coins&n~
+&+WA very large pile of platinum coins has been spilled on the floor.&n~
+~
+20 25 4 0 14 0 4096 1 0 0 0
+0 0 0 10000 0 0 0 0
+10 0 100
+#142445
+sepsis dagger green~
+&+La &+ggreen &+Lbladed dagger named &+g'&+GS&+ge&+Gp&+gs&+Gi&+gs'&n~
+&+GAn elegant, slender dagger lies here dripping poison.&n~
+~
+5 32 2 1 15 0 33562896 8193 96 119407100 0
+2 5 5 0 0 197222 50 35
+0 0 100
+A
+18 5
+A
+19 5
+#142446
+iron dagger~
+&+Lan &+ciron &+Ldagger&n~
+&+LAn unremarkable dagger lies on the ground here.~
+~
+5 15 3 0 7 0 0 8193 0 0 0
+2 4 4 0 0 0 0 0
+0 0 100
+#142447
+mithril breastplate~
+&+ma mithril breastplate with a &+Ygo&+yld&+Yen c&+yro&+Yss&n~
+&+mAn ornate breastplate of mithril rests against the wall here.&n~
+~
+9 18 3 0 14 0 3284993 1025 66 0 0
+-100 0 0 0 0 0 0 0
+5 150000 100
+A
+19 6
+A
+31 5
+#142448
+necklace icecrag royalty~
+&+Lthe necklace of the &+Cicecrag &+Yroy&+yal&+Yty&n~
+&+YA golden necklace bearing the symbol of icecrag, lies on the ground here.~
+~
+9 24 2 0 14 0 3289088 5 64 0 0
+-30 0 0 0 0 0 0 0
+1 0 100
+A
+35 4
+A
+54 25
+#142449
+frozen star hammer astral~
+&+can astral metal hammer named &+B'F&+br&+Bo&+bz&+Be&+bn &+CStar&+B'&n~
+&+cA hammer forged from the metal of a faraway star, lies here.&n~
+~
+5 19 3 0 15 0 33562625 8193 67 96976708 0
+4 5 5 0 0 111111472 50 38
+7 0 100
+A
+18 5
+A
+19 6
+#142450
+strand golden time~
+&+Ya golden strand of &+mtime&n~
+&+YA golden strand lies on the ground here, illuminating the room.~
+~
+12 1 2 0 15 0 270337 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142451
+cloak woven time~
+&+Ythe c&+yl&+Yo&+ya&+Yk of &+Wwo&+wv&+Le&+Wn &+mtime&n~
+&+YA cloak of magnificent power has been foolishly left here.&n~
+~
+9 1 3 0 15 0 3284993 1033 64 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+A
+57 -1
+A
+55 25

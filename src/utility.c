@@ -2172,6 +2172,7 @@ bool aggressive_to(P_char ch, P_char target)
 
     if ((GET_LEVEL(ch) <= (GET_LEVEL(target) - 10)) && \
         has_innate(target, INNATE_UNDEAD_FEALTY) && \
+	IS_UNDEADRACE(ch) && \
 	!affected_by_spell(ch, TAG_CTF) && \
         !CheckFor_remember(ch, target))
       return FALSE;  // Liches are revered/feared by lower level undead - Jexni 8/18/08
@@ -3975,11 +3976,23 @@ int flag2idx(int flag)
 /*
 int GET_LEVEL(P_char ch)
 {
+<<<<<<< HEAD
   if(!(ch)  || !IS_ALIVE(ch))
   {
     logit(LOG_DEBUG, "No/dead character passed to GET_LEVEL in utility.c...  whaaaaa?");
     raise(SIGSEGV);
   }
+=======
+  if(!ch)
+  return NULL;
+
+  return ch->player.level;
+}
+
+/*
+ * GET_CLASS
+ */
+>>>>>>> master
 
   return (int) (ch)->player.level;
 }
@@ -4126,6 +4139,12 @@ int GET_CHAR_SKILL_P(P_char ch, int skl)
     return 0;
   }
   
+  //Centaurs get innate 2h slashing
+  if((GET_RACE(ch) == RACE_CENTAUR) && (skl == SKILL_2H_SLASHING))
+  {
+  return 100;
+  }
+
   if(skl <= 0)
   {
     return 0;
@@ -4182,7 +4201,6 @@ int GET_CHAR_SKILL_P(P_char ch, int skl)
      af = af->next;
        } */
 
-  
 #ifdef STANCES_ALLOWED
   if(skllvl > 0 && IS_PC(ch) && (ch->only.pc->frags > 0))
    mod = (int) (ch->only.pc->frags / 500);

@@ -29,6 +29,7 @@ using namespace std;
 #include "trophy.h"
 #include "epic_bonus.h"
 
+extern long boot_time;
 extern P_room world;
 extern P_index obj_index;
 extern P_index mob_index;
@@ -190,7 +191,7 @@ struct epic_teacher_skill {
   int deny_skill;
   int pre_req_lvl;
 } epic_teachers[] = {
-  {67103, SKILL_ADVANCED_MEDITATION, 0, 100, 0, 0, 0},
+ /* {67103, SKILL_ADVANCED_MEDITATION, 0, 100, 0, 0, 0},
   {96013, SKILL_SUMMON_BLIZZARD, 0, 100, 0, 0, 0},
   {19141, SKILL_ANATOMY, 0, 100, 0, 0, 0},
   {75500, SKILL_CHANT_MASTERY, 0, 100, 0, 0, 0},
@@ -236,7 +237,7 @@ struct epic_teacher_skill {
   {66671, SKILL_EPIC_CONSTITUTION, 0, 100, 0, 0, 0}, //Thurdorf in Torrhan
   {82408, SKILL_EPIC_CHARISMA, 0, 100, 0, 0, 0}, //Frolikk in Temple of Sun
   {21535, SKILL_EPIC_LUCK, 0, 100, 0, 0, 0}, //Babedo in Aravne
-//  {2733, SKILL_SHIP_DAMAGE_CONTROL, 0, 100, 0, 0, 0}, // Commodore in Headless
+  {2733, SKILL_SHIP_DAMAGE_CONTROL, 0, 100, 0, 0, 0}, // Commodore in Headless */
   {0}
 };
 
@@ -360,24 +361,34 @@ void epic_choose_new_epic_task(P_char ch)
   af.flags = AFFTYPE_STORE | AFFTYPE_PERM;
   af.duration = -1;
 
-  if(number(0, 5))
+  if(number(0, 10))
   {
     zone_number = epic_random_task_zone(ch);
   }
 
+<<<<<<< HEAD
   if(zone_number < 0)
   {
     nexus = get_random_enemy_nexus(ch);
+=======
+//Getting rid of nexus . 7/13 Drannak
+
+  //zone_number = epic_random_task_zone(ch);
+
+  if(zone_number < 0)
+  {
+   /* nexus = get_random_enemy_nexus(ch);
+>>>>>>> master
     if((number(0, 100) < 50) && (GET_LEVEL(ch) >= 51) && nexus)
     {
       act("The Gods of &+rDuris&n demand that you seek out $p and convert it!", FALSE, ch, nexus, 0, TO_CHAR);
       af.modifier = -STONE_ID(nexus);
     }
     else
-    {
+    {*/
       send_to_char("The Gods of &+rDuris&n demand that you &+rspill the &+Rblood&n of the &+Lenemies&n of your race!\n", ch);
       af.modifier = SPILL_BLOOD;
-    }
+    //}
   }
   else
   {
@@ -533,6 +544,10 @@ void gain_epic(P_char ch, int type, int data, int amount)
     return;
   }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
   if(IS_AFFECTED4(ch, AFF4_EPIC_INCREASE))
   {
     send_to_char("You feel the &+cblessing&n of the &+WGods&n wash over you.\n", ch);
@@ -554,6 +569,9 @@ void gain_epic(P_char ch, int type, int data, int amount)
     amount = amount * (float)get_property("epic.gain.modifier.good", 1.000);
   if(GET_RACEWAR(ch) == RACEWAR_EVIL)
     amount = amount * (float)get_property("epic.gain.modifier.evil", 1.000);
+
+  //wipe2013 - Drannak
+  amount = (int) (amount / 3);
   
   // add guild prestige
   check_assoc_prestige_epics(ch, amount, type);
@@ -608,8 +626,13 @@ void gain_epic(P_char ch, int type, int data, int amount)
   if(GET_LEVEL(ch) >= get_property("exp.maxExpLevel", 46) &&
       GET_LEVEL(ch) < get_property("epic.maxFreeLevel", 50))
   {
+<<<<<<< HEAD
      //epic_free_level(ch);
      advance_level(ch, FALSE); // handles leveling for wipe2011
+=======
+     epic_free_level(ch);
+     //advance_level(ch);//, FALSE); handles leveling for wipe2011
+>>>>>>> master
   }
 
   // feed artifacts
@@ -718,6 +741,12 @@ void epic_feed_artifacts(P_char ch, int epics, int epic_type)
 
   if(num_artis > 0)
     feed_seconds = (int) (feed_seconds / num_artis);
+<<<<<<< HEAD
+=======
+
+  if(affected_by_spell(ch, TAG_PLR_RECENT_FRAG))
+    feed_seconds *= 3;
+>>>>>>> master
 
   for (int i = 0; i < MAX_WEAR; i++)
   {
@@ -774,6 +803,7 @@ int epic_stone_payout(P_obj obj, P_char ch)
   {
     for(struct group_list *gl = ch->group; gl; gl = gl->next)
     {
+<<<<<<< HEAD
       if(gl->ch == ch)
       {
         continue;
@@ -784,6 +814,9 @@ int epic_stone_payout(P_obj obj, P_char ch)
         continue;
       }
       if(gl->ch->in_room == ch->in_room)
+=======
+      if(gl->ch != ch && IS_PC(gl->ch) && !IS_TRUSTED(gl->ch) && gl->ch->in_room == ch->in_room)
+>>>>>>> master
       {
         num_players++;
       }
@@ -864,10 +897,16 @@ void epic_free_level(P_char ch)
          ch->only.pc->epics >= epics_for_level)
      {
          GET_EXP(ch) -= new_exp_table[GET_LEVEL(ch) + 1];
+<<<<<<< HEAD
          advance_level(ch, FALSE);
+=======
+	ch->only.pc->epics -= epics_for_level;
+         advance_level(ch);//, FALSE); wipe2011
+>>>>>>> master
 		 wizlog(56, "%s has attained epic level &+W%d&n!",
                 GET_NAME(ch),
                 GET_LEVEL(ch));
+	
      }
 
 }
@@ -882,7 +921,11 @@ void epic_stone_level_char(P_obj obj, P_char ch)
   sprintf(buf, "epic.forLevel.%d", GET_LEVEL(ch)+1);
 
   int epics_for_level = get_property(buf, 1 << (obj->value[3] - 43));
+<<<<<<< HEAD
 
+=======
+  int nostone_epics_for_level;
+>>>>>>> master
   if(IS_MULTICLASS_PC(ch) && GET_LEVEL(ch) >= 51)
   {
     epics_for_level *= (int) get_property("exp.multiEpicMultiplier", 3);
@@ -890,24 +933,44 @@ void epic_stone_level_char(P_obj obj, P_char ch)
 
 #if defined(CTF_MUD) && (CTF_MUD == 1)
   epics_for_level = (int)(epics_for_level/3);
+ 
 #endif
+<<<<<<< HEAD
 
   if(GET_EXP(ch) >= new_exp_table[GET_LEVEL(ch)+1] &&
       ch->only.pc->epics >= epics_for_level)
   {
     GET_EXP(ch) -= new_exp_table[GET_LEVEL(ch) + 1];
     advance_level(ch, TRUE);
+=======
+  //nostone_epics_for_level = epics_for_level * 2; //Multiclass now use same epics
+  nostone_epics_for_level = epics_for_level;
+  if((GET_EXP(ch) >= new_exp_table[GET_LEVEL(ch)+1] &&
+      ch->only.pc->epics >= epics_for_level) || (GET_EXP(ch) >= new_exp_table[GET_LEVEL(ch)+1] && ch->only.pc->epics >= nostone_epics_for_level))
+  {
+    GET_EXP(ch) -= new_exp_table[GET_LEVEL(ch) + 1];
+    ch->only.pc->epics -= epics_for_level;
+    advance_level(ch);//, TRUE); wipe2011
+>>>>>>> master
 	wizlog(56, "%s has attained epic level &+W%d&n!",
            GET_NAME(ch),
            GET_LEVEL(ch));
+
+
+    
   }
+  
 }
 
 void epic_stone_one_touch(P_obj obj, P_char ch, int epic_value)
 {
   if(!obj || !ch || !epic_value)
     return;
+<<<<<<< HEAD
 
+=======
+  int curr_epics = ch->only.pc->epics;
+>>>>>>> master
   /*if(get_zone_exp(ch, world[ch->in_room].zone) < calc_min_zone_exp(ch))	
   {
     act("The burst of &+Bblue energy&n from $p flows around $n, leaving them unaffected!",
@@ -943,7 +1006,17 @@ void epic_stone_one_touch(P_obj obj, P_char ch, int epic_value)
     gain_epic(ch, EPIC_ZONE, obj->value[2], epic_value);
   }
 
+<<<<<<< HEAD
   if(GET_LEVEL(ch) == (obj->value[3] - 1))
+=======
+  //Characters can now level up to 55 by epics and exp alone - 11/13/12 Drannak
+  if((GET_LEVEL(ch) == (obj->value[3] - 1)) ||
+    (curr_epics > 3000 && GET_LEVEL(ch) == 50) ||
+    (curr_epics > 4500 && GET_LEVEL(ch) == 51) ||
+    (curr_epics > 5000 && GET_LEVEL(ch) == 52) ||
+    (curr_epics > 7500 && GET_LEVEL(ch) == 53) ||
+    (curr_epics > 8000 && GET_LEVEL(ch) == 54))
+>>>>>>> master
   {
     epic_stone_level_char(obj, ch);
   }
@@ -1068,14 +1141,24 @@ int epic_stone(P_obj obj, P_char ch, int cmd, char *arg)
     epic_stone_one_touch(obj, ch, epic_value);
 
     /* go through all members of group */
+<<<<<<< HEAD
+=======
+    int group_size = 1;
+
+>>>>>>> master
     if(ch->group)
     {
       for(struct group_list *gl = ch->group; gl; gl = gl->next)
       {
+<<<<<<< HEAD
         if(gl->ch == ch) continue;
         if(!IS_PC(gl->ch) || IS_TRUSTED(gl->ch)) continue;
         if(gl->ch->in_room == ch->in_room)
+=======
+        if(gl->ch != ch && IS_PC(gl->ch) && !IS_TRUSTED(gl->ch) && gl->ch->in_room == ch->in_room )
+>>>>>>> master
         {
+          group_size++;
           epic_stone_one_touch(obj, gl->ch, epic_value);
         }
       }
@@ -1089,6 +1172,10 @@ int epic_stone(P_obj obj, P_char ch, int cmd, char *arg)
       // set completed flag
       epic_zone_completions.push_back(epic_zone_completion(zone_number, time(NULL), delta));
       db_query("UPDATE zones SET last_touch = '%d' WHERE number = '%d'", time(NULL), zone_number);
+<<<<<<< HEAD
+=======
+      db_query("INSERT INTO zone_touches (boot_time, touched_at, zone_number, toucher_pid, group_size, epic_value, alignment_delta) VALUES (%d, %d, %d, %d, %d, %d, %d);", boot_time, time(NULL), zone_number, GET_PID(ch), group_size, epic_value, delta);
+>>>>>>> master
 
       //  Allow !reset zones to possibly reset somewhere down the line...  - Jexni 11/7/11
       if(!zone_table[zone_number].reset_mode)
@@ -1117,7 +1204,10 @@ void epic_zone_balance()
   
   for (i = 0; i <= epic_zones.size(); i++)
   {
+<<<<<<< HEAD
     // No need to balance at 0, and code automatically fixes it to 1 or -1
+=======
+>>>>>>> master
     if(!qry("SELECT alignment, last_touch FROM zones WHERE number = %d", epic_zones[i].number))
       return;
 
@@ -1142,7 +1232,11 @@ void epic_zone_balance()
     if(lt == 0)
       db_query("UPDATE zones SET last_touch='%d' WHERE number='%d'", time(NULL), epic_zones[i].number);
 
+<<<<<<< HEAD
     if((alignment == 0) || (alignment == 1) || (alignment == -1))
+=======
+    if((alignment == 0))
+>>>>>>> master
       continue;
     
     //debug("zone %d alignment %d", epic_zones[i].number, alignment);
@@ -2045,7 +2139,11 @@ vector<string> get_epic_players(int racewar)
   debug("get_epic_players(): __NO_MYSQL__, returning 0");
   return names;
 #else
+<<<<<<< HEAD
   if(!qry("SELECT name from players_core WHERE epics > 0 and racewar = '%d' and level < 57 order by epics desc limit %d", racewar, (int) get_property("epic.list.limit", 10)))
+=======
+  if(!qry("SELECT name from players_core WHERE active=1 AND epics > 0 AND racewar = '%d' AND level < 57 ORDER BY epics DESC LIMIT %d", racewar, (int) get_property("epic.list.limit", 10)))
+>>>>>>> master
     return names;
 
   MYSQL_RES *res = mysql_store_result(DB);
@@ -2077,7 +2175,11 @@ void do_epic(P_char ch, char *arg, int cmd)
     return;
 
   argument_interpreter(arg, buff2, buff3);
+<<<<<<< HEAD
 
+=======
+/*
+>>>>>>> master
   if(!str_cmp("reset", buff2))
   {
     do_epic_reset(ch, arg, cmd);
@@ -2089,7 +2191,11 @@ void do_epic(P_char ch, char *arg, int cmd)
     do_epic_skills(ch, arg, cmd);
     return;
   }
+<<<<<<< HEAD
 
+=======
+*/
+>>>>>>> master
   if(!str_cmp("trophy", buff2))
   {
     do_epic_trophy(ch, arg, cmd);
@@ -2257,7 +2363,7 @@ int epic_zone_data::displayed_alignment() const
 //
 //}
 
-void do_epic_reset(P_char ch, char *arg, int cmd)
+/*void do_epic_reset(P_char ch, char *arg, int cmd)
 {
   char buff2[MAX_STRING_LENGTH];
   char buff3[MAX_STRING_LENGTH];
@@ -2268,6 +2374,11 @@ void do_epic_reset(P_char ch, char *arg, int cmd)
     return;
   
   P_char t_ch = ch;
+
+// Disabling for equipment wipe - re-enable at a later time - Drannak 8/9/2012
+//  send_to_char("&+YEpic point resetting has been temporarily &+Rdisabled &+Ywhile we equipment wipe.&n\r\n", ch);
+//  return;
+// end disable
   
   if(IS_TRUSTED(ch) && strlen(buff3))
   {
@@ -2293,7 +2404,8 @@ void do_epic_reset(P_char ch, char *arg, int cmd)
   {
     int learned = t_ch->only.pc->skills[skill_id].learned;
     
-    if(IS_EPIC_SKILL(skill_id) && learned)
+    if((IS_EPIC_SKILL(skill_id) && learned) && (strcmp(skills[skill_id].name, "forge")) && (strcmp(skills[skill_id].name, "mine")) && (strcmp(skills[skill_id].name, "craft")))
+     //  (skills[skill_id].name != ("forge" || "mine" || "craft")))
     {
       // find in epic_rewards
       int s;
@@ -2356,7 +2468,7 @@ void do_epic_reset(P_char ch, char *arg, int cmd)
     send_to_pid_offline(buff2, GET_PID(t_ch));
   
   do_save_silent(t_ch, 1);  
-}
+}*/
 
 void do_epic_zones(P_char ch, char *arg, int cmd)
 {
@@ -2759,12 +2871,16 @@ void do_epic_skills(P_char ch, char *arg, int cmd)
       {
         sprintf(buff, "&+W%-25s &n(&+W%-5d&n) %s\n", skills[skill].name, epic_teachers[t].vnum, teacher->player.short_descr);
         extract_char(teacher);
-      } else {
+      } else 
+	{
         logit(LOG_DEBUG, "do_epic_skills(): epic_teachers[%d].vnum does not exist for epic skill %s", t, skills[skill].name);
         sprintf(buff, "&+W%-25s &n(&+W%-5d&n) Teacher does not exist.\n", skills[skill].name, epic_teachers[t].vnum);
       }
-    } else {
-      sprintf(buff, "&+W%s\n", skills[skill].name);
+    } else 
+	if(teacher = read_mobile(epic_teachers[t].vnum, VIRTUAL))
+	{
+      sprintf(buff, "&+W%-25s &n&+yTeacher&+Y: &n %s\n", skills[skill].name,teacher->player.short_descr, teacher->player.short_descr);
+	extract_char(teacher);
     }
     send_to_char(buff, ch);
   }
@@ -2815,6 +2931,15 @@ void do_infuse(P_char ch, char *arg, int cmd)
     return;
   }
 
+<<<<<<< HEAD
+=======
+  if(isname("wicked", device->name))
+  {
+    send_to_char("You do not possess the extreme power to infuse this particular item.\r\n", ch);
+    return;
+  }
+
+>>>>>>> master
   if(device->value[7] >= 2)
   {
     send_to_char("This device is too worn out to be infused.\r\n", ch);
@@ -2894,3 +3019,217 @@ void do_infuse(P_char ch, char *arg, int cmd)
 
   CharWait(ch, (PULSE_VIOLENCE * 5));
 }
+
+//referenced in actwiz.c for existing chars - Drannak
+void do_epic_reset_norefund(P_char ch, char *arg, int cmd)
+{
+  char buff2[MAX_STRING_LENGTH];
+  char buff3[MAX_STRING_LENGTH];
+  
+  argument_interpreter(arg, buff2, buff3);
+  
+  if(!ch || !IS_PC(ch))
+    return;
+  
+  P_char t_ch = ch;
+
+// Disabling for equipment wipe - re-enable at a later time - Drannak 8/9/2012
+//  send_to_char("&+YEpic point resetting has been temporarily &+Rdisabled &+Ywhile we equipment wipe.&n\r\n", ch);
+//  return;
+// end disable
+  
+  if(IS_TRUSTED(ch) && strlen(buff3))
+  {
+    if(!(t_ch = get_char_vis(ch, buff3)) || !IS_PC(t_ch))
+    {
+      send_to_char("They don't appear to be in the game.\n", ch);
+      return;
+    }
+  }
+  
+  // run through skills
+  // for each skill that is epic:
+  //    for each skill point:
+  //      calculate epic pointcost / plat cost
+  //      reimburse points / plat
+  
+ /* send_to_char("&+WResetting epic skills:\n", ch); */
+  
+  int point_refund = 0;
+  int coins_refund = 0;
+  
+  for (int skill_id = 0; skill_id <= MAX_AFFECT_TYPES; skill_id++)
+  {
+    int learned = t_ch->only.pc->skills[skill_id].learned;
+    
+    if((IS_EPIC_SKILL(skill_id) && learned) && (strcmp(skills[skill_id].name, "forge")) && (strcmp(skills[skill_id].name, "mine")) && (strcmp(skills[skill_id].name, "craft")))
+     //  (skills[skill_id].name != ("forge" || "mine" || "craft")))
+    {
+      // find in epic_rewards
+      int s;
+      
+      bool found = false;
+      for(s = 0; epic_rewards[s].type; s++)
+      {
+        if(epic_rewards[s].value == skill_id)
+        {
+          found = true;
+          break;
+        }
+      }
+      
+      if(!found)
+      {
+        continue;
+      }
+      
+      int points = 0;
+      int coins = 0;
+      
+      for(int skill_level = 0; skill_level < learned; skill_level += (int) get_property("epic.skillGain", 10))
+      {
+        float cost_f = 1 + skill_level / get_property("epic.progressFactor", 30);
+        int points_cost = (int) (cost_f * epic_rewards[s].points_cost);
+        int coins_cost = (int) (cost_f * epic_rewards[s].coins);
+        
+        if(IS_MULTICLASS_PC(t_ch) &&
+           !IS_SET(epic_rewards[s].classes, t_ch->player.m_class) &&
+           IS_SET(epic_rewards[s].classes, t_ch->player.secondary_class))
+        {
+          points_cost *= (int) (get_property("epic.multiclass.EpicSkillCost", 2));
+          coins_cost *= (int) (get_property("epic.multiclass.EpicPlatCost", 3));
+        }
+        
+        points += points_cost;
+        coins += coins_cost;
+      }      
+      
+    
+      point_refund += points;
+      coins_refund += coins;
+      
+      t_ch->only.pc->skills[skill_id].learned = t_ch->only.pc->skills[skill_id].taught = 0;
+    }
+  }
+/*  
+  sprintf(buff2, "Total: &+W%d&n esp, %s&n refunded\r\n", point_refund, coin_stringv(coins_refund));
+  send_to_char(buff2, ch);
+  
+  insert_money_pickup(GET_PID(t_ch), coins_refund);
+  t_ch->only.pc->epic_skill_points += point_refund;
+
+  sprintf(buff2, "\r\n&+GYour epic skills have been reset: your skill points have been refunded, \r\n&+Gand %s&+G has been reimbursed and is waiting for you at the nearest auction house.\r\n\r\n", coin_stringv(coins_refund));
+*/
+  if(!send_to_pid(buff2, GET_PID(t_ch)))
+    send_to_pid_offline(buff2, GET_PID(t_ch));
+  
+  do_save_silent(t_ch, 1);  
+}
+
+void do_epic_reset(P_char ch, char *arg, int cmd)
+{
+  char buff2[MAX_STRING_LENGTH];
+  char buff3[MAX_STRING_LENGTH];
+  
+  argument_interpreter(arg, buff2, buff3);
+  
+  if(!ch || !IS_PC(ch))
+    return;
+  
+  P_char t_ch = ch;
+
+// Disabling for equipment wipe - re-enable at a later time - Drannak 8/9/2012
+//  send_to_char("&+YEpic point resetting has been temporarily &+Rdisabled &+Ywhile we equipment wipe.&n\r\n", ch);
+//  return;
+// end disable
+  
+  if(IS_TRUSTED(ch) && strlen(buff3))
+  {
+    if(!(t_ch = get_char_vis(ch, buff3)) || !IS_PC(t_ch))
+    {
+      send_to_char("They don't appear to be in the game.\n", ch);
+      return;
+    }
+  }
+  
+  // run through skills
+  // for each skill that is epic:
+  //    for each skill point:
+  //      calculate epic pointcost / plat cost
+  //      reimburse points / plat
+  
+ /* send_to_char("&+WResetting epic skills:\n", ch); */
+  
+  int point_refund = 0;
+  int coins_refund = 0;
+  
+  for (int skill_id = 0; skill_id <= MAX_AFFECT_TYPES; skill_id++)
+  {
+    int learned = t_ch->only.pc->skills[skill_id].learned;
+    
+    if((IS_EPIC_SKILL(skill_id) && learned) && (strcmp(skills[skill_id].name, "forge")) && (strcmp(skills[skill_id].name, "mine")) && (strcmp(skills[skill_id].name, "craft")))
+     //  (skills[skill_id].name != ("forge" || "mine" || "craft")))
+    {
+      // find in epic_rewards
+      int s;
+      
+      bool found = false;
+      for(s = 0; epic_rewards[s].type; s++)
+      {
+        if(epic_rewards[s].value == skill_id)
+        {
+          found = true;
+          break;
+        }
+      }
+      
+      if(!found)
+      {
+        continue;
+      }
+      
+      int points = 0;
+      int coins = 0;
+      
+      for(int skill_level = 0; skill_level < learned; skill_level += (int) get_property("epic.skillGain", 10))
+      {
+        float cost_f = 1 + skill_level / get_property("epic.progressFactor", 30);
+        int points_cost = (int) (cost_f * epic_rewards[s].points_cost);
+        int coins_cost = (int) (cost_f * epic_rewards[s].coins);
+        
+        if(IS_MULTICLASS_PC(t_ch) &&
+           !IS_SET(epic_rewards[s].classes, t_ch->player.m_class) &&
+           IS_SET(epic_rewards[s].classes, t_ch->player.secondary_class))
+        {
+          points_cost *= (int) (get_property("epic.multiclass.EpicSkillCost", 2));
+          coins_cost *= (int) (get_property("epic.multiclass.EpicPlatCost", 3));
+        }
+        
+        points += points_cost;
+        coins += coins_cost;
+      }      
+      
+    
+      point_refund += points;
+      coins_refund += coins;
+      
+      t_ch->only.pc->skills[skill_id].learned = t_ch->only.pc->skills[skill_id].taught = 0;
+    }
+  }
+/*  
+  sprintf(buff2, "Total: &+W%d&n esp, %s&n refunded\r\n", point_refund, coin_stringv(coins_refund));
+  send_to_char(buff2, ch);
+  
+  insert_money_pickup(GET_PID(t_ch), coins_refund);
+  t_ch->only.pc->epic_skill_points += point_refund;
+
+  sprintf(buff2, "\r\n&+GYour epic skills have been reset: your skill points have been refunded, \r\n&+Gand %s&+G has been reimbursed and is waiting for you at the nearest auction house.\r\n\r\n", coin_stringv(coins_refund));
+*/
+  if(!send_to_pid(buff2, GET_PID(t_ch)))
+    send_to_pid_offline(buff2, GET_PID(t_ch));
+  
+  do_save_silent(t_ch, 1);  
+}
+
+
+

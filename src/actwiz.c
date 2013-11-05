@@ -89,6 +89,7 @@ extern const char *missileweapons[];
 extern const char *shot_types[];
 extern const char *player_bits[];
 extern const char *player2_bits[];
+extern const char *player3_bits[];
 extern const char *player_prompt[];
 extern const char *position_types[];
 extern struct race_names race_names_table[];
@@ -145,6 +146,7 @@ extern const char *spldam_types[];
 extern const char *craftsmanship_names[];
 extern int number_of_quests;
 extern struct quest_data quest_index[];
+extern const struct hold_data hold_index[];
 
 void apply_zone_modifier(P_char ch);
 static P_char load_locker_char(P_char ch, char *locker_name, int bValidateAccess);
@@ -1945,6 +1947,10 @@ void do_stat(P_char ch, char *argument, int cmd)
   else if((*arg1 == 'o') || (*arg1 == 'O') || (*arg1 == 'i') ||
            (*arg1 == 'I'))
   {
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
     if(!*arg2)
     {
       send_to_char(STAT_SYNTAX, ch);
@@ -1965,8 +1971,13 @@ void do_stat(P_char ch, char *argument, int cmd)
         logit(LOG_DEBUG, "do_stat(): obj %d [%d] not loadable", i,
               obj_index[i].virtual_number);
         return;
+<<<<<<< HEAD
       }
 
+=======
+      }                         /*else
+                                   obj_to_room(t_obj, 0); */
+>>>>>>> master
       if(t_obj->name)
         strcpy(arg2, t_obj->name);
     }
@@ -2095,9 +2106,15 @@ void do_stat(P_char ch, char *argument, int cmd)
     }
 
     sprintf(o_buf + strlen(o_buf),
+<<<<<<< HEAD
             "&+YWeight: &N%d&+Y lbs   Value: &N%s   &+YCondition: &N%d/%d(%d%%)\n",
             j->weight, comma_string((long) (j->cost)), j->condition, j->max_condition,
             (int) (((float) j->condition / j->max_condition) * 100));
+=======
+            "&+YWeight: &N%d&+Y lbs   Value: &N%s   &+YCondition: &N%d\n",//%d(%d%%)\n",
+            j->weight, comma_string((long) (j->cost)), j->condition);
+//, j->max_condition, (int) (((float) j->condition / j->max_condition) * 100)); wipe2011
+>>>>>>> master
 
     sprintf(o_buf + strlen(o_buf),
             "&+YT0: &n%d&+Y  T1: &n%d&+Y  T2: &n%d&+Y  T3: &n%d&+Y  T4: &n%d&+Y  T5: &n%d\n",
@@ -2534,7 +2551,11 @@ void do_stat(P_char ch, char *argument, int cmd)
             race_names_table[k->player.race].ansi);
     get_class_string(k, buf2);
     strcat(buf, buf2);
+<<<<<<< HEAD
     sprintf(buf + strlen(buf), "&+YRacewar: ");
+=======
+    sprintf(buf + strlen(buf), " &+YRacewar: ");
+>>>>>>> master
     if(IS_NPC(k))
       sprintf(buf + strlen(buf), "&+wNPC&n");
     else if(GET_RACEWAR(k) == RACEWAR_GOOD)
@@ -2714,12 +2735,20 @@ void do_stat(P_char ch, char *argument, int cmd)
       strcat(buf, "\n");
     strcat(o_buf, buf);
 
+<<<<<<< HEAD
     i = calculate_ac(k, FALSE);
 
     sprintf(buf, "&+cAgility Armor Class: &+Y%d&n  ", i);
     strcat(o_buf, buf);
 
     i = calculate_ac(k, TRUE);
+=======
+//    i = calculate_ac(k, FALSE);
+//    sprintf(buf, "&+cAgility Armor Class: &+Y%d&n  ", i);
+//    strcat(o_buf, buf);
+
+    i = calculate_ac(k);//, TRUE);  wipe 2011
+>>>>>>> master
 
     if(i > 0)
         sprintf(buf, "&+cTotal Armor Class: &+Y%d&n,  Increases melee damage by &+W%+.2f&n percent.\n", i, (double)(i * 0.10));
@@ -2752,7 +2781,11 @@ void do_stat(P_char ch, char *argument, int cmd)
 
     strcat(o_buf, "&+YSaves:    Para  Wands  Fear  Bre   Spell\n");
     sprintf(buf,
+<<<<<<< HEAD
             "&+Y(actual)  [&N%2d&+Y]  [&N%2d&+Y]   [&N%2d&+Y]  [&N%2d&+Y]  [&N%2d&+Y]\n",
+=======
+            "&+Y (actual) [&N%3d&+Y]  [&N%3d&+Y]  [&N%3d&+Y]  [&N%3d&+Y]  [&N%3d&+Y]\n",
+>>>>>>> master
             BOUNDED(1, (find_save(k, SAVING_PARA ) + k->specials.apply_saving_throw[0] * 5), 100),
             BOUNDED(1, (find_save(k, SAVING_ROD  ) + k->specials.apply_saving_throw[1] * 5), 100),
             BOUNDED(1, (find_save(k, SAVING_FEAR ) + k->specials.apply_saving_throw[2] * 5), 100),
@@ -2768,6 +2801,11 @@ void do_stat(P_char ch, char *argument, int cmd)
             k->specials.apply_saving_throw[4]);
     strcat(o_buf, buf);
 
+<<<<<<< HEAD
+=======
+    strcat(o_buf, "\n");
+
+>>>>>>> master
     if(IS_PC(k))
     {
       if(k->desc)
@@ -2775,9 +2813,15 @@ void do_stat(P_char ch, char *argument, int cmd)
       else
         strcpy(buf2, "");
       sprintf(buf,
+<<<<<<< HEAD
               "&+YHunger: &N%2d  &+YThirst: &N%2d  &+YDrunk: &N%2d  &+YJustice Level: &N%d &+Y%s%s\n",
               k->specials.conditions[FULL], k->specials.conditions[THIRST],
               k->specials.conditions[DRUNK], k->only.pc->justice_level, 
+=======
+              "&+YHunger: &N%2d  &+YThirst: &N%2d  &+YDrunk: &N%2d &+Y%s%s\n",
+              k->specials.conditions[FULL], k->specials.conditions[THIRST],
+              k->specials.conditions[DRUNK],// k->only.pc->justice_level, /* &+YJustice Level: &N%d */  wipe2011
+>>>>>>> master
               (k->desc) ? "Connected: " : "Linkdead", buf2);
       strcat(o_buf, buf);
     }
@@ -2807,9 +2851,15 @@ void do_stat(P_char ch, char *argument, int cmd)
     }
     else
       sprintf(buf, "&+YPosition: &N%s", buf1);
+<<<<<<< HEAD
     sprintf(buf1, "%s &+YFighting:&n %s\n", buf,
             ((k->specials.fighting) ? GET_NAME(k->specials.
                                                fighting) : "---\n"));
+=======
+    sprintf(buf1, "%s  &+YFighting:&n %s", buf,
+            ((k->specials.fighting) ? GET_NAME(k->specials.
+                                               fighting) : "---"));
+>>>>>>> master
     if(IS_NPC(k))
     {
       strcat(buf1, "\n");
@@ -2843,6 +2893,7 @@ void do_stat(P_char ch, char *argument, int cmd)
       sprintbit(k->specials.act, player_bits, buf2);
       sprintf(buf, "&+YFlags (Specials Act): &N%s ", buf2);
       sprintbit(k->specials.act2, player2_bits, buf2);
+      sprintbit(k->specials.act3, player3_bits, buf2);
       strcat(buf, buf2);
       strcat(buf, "\n");
       strcat(o_buf, buf);
@@ -3622,7 +3673,7 @@ void do_nchat(P_char ch, char *argument, int cmd)
   {
     return;
   }
-
+/*
   if((GET_LEVEL(ch) > 31) &&
      (GET_LEVEL(ch) < 57) &&
      !IS_SET(PLR2_FLAGS(ch), PLR2_NEWBIE_GUIDE))
@@ -3630,7 +3681,11 @@ void do_nchat(P_char ch, char *argument, int cmd)
    send_to_char("Your level no longer qualifies you for newbie-chat, sorry.\r\n", ch);
    return;
   }
+<<<<<<< HEAD
 
+=======
+*/
+>>>>>>> master
   if(IS_DISGUISE_PC(ch) ||
       IS_DISGUISE_ILLUSION(ch) ||
       IS_DISGUISE_SHAPE(ch))
@@ -3692,13 +3747,13 @@ void do_nchat(P_char ch, char *argument, int cmd)
         sprintf(Gbuf2, "undefined ");
 
 
-      sprintf(Gbuf1, "&+gYou newbie chat to %s'&+g%s&n&+g'\n", Gbuf2,
+      sprintf(Gbuf1, "&+mYou racewar chat to %s'&+w%s&n&+w'\n", Gbuf2,
               argument);
       send_to_char(Gbuf1, ch, LOG_PRIVATE);
     }
     else if(IS_SET(ch->specials.act, PLR_ECHO) || IS_NPC(ch))
     {
-      sprintf(Gbuf1, "&+gYou newbie-chat '&+G%s&n&+g'\n", argument);
+      sprintf(Gbuf1, "&+mYou tell your racewar '&+W%s&n&+w'\n", argument);
       send_to_char(Gbuf1, ch);
     }
     else
@@ -3731,14 +3786,14 @@ void do_nchat(P_char ch, char *argument, int cmd)
     if(!IS_SET(i->character->specials.act2, PLR2_NCHAT))
       continue;
 
-    if(IS_DISGUISE_PC(i->character) ||
+    if(IS_DISGUISE(i->character) ||
        IS_DISGUISE_ILLUSION(i->character) ||
        IS_DISGUISE_SHAPE(i->character))
       continue;
       
     if(IS_TRUSTED(i->character))
     {
-      sprintf(Gbuf1, "&+G%s&n&+g newbie-chats (%s&+g): '&+Y%s&n&+g'\n",
+      sprintf(Gbuf1, "&+W%s&n&+m racewar-chats &+w(%s&+w): '&+Y%s&n&+w'\n",
               PERS(ch, i->character, FALSE), Gbuf2, language_CRYPT(ch,
                                                                    i->
                                                                    character,
@@ -3746,7 +3801,7 @@ void do_nchat(P_char ch, char *argument, int cmd)
     }
     else
     {
-      sprintf(Gbuf1, "&+G%s&n&+g newbie-chats: '&+g%s&n&+g'\n",
+      sprintf(Gbuf1, "&+W%s&n&+m tells your racewar: &+w'&+Y%s&n&+w'\n",
               PERS(ch, i->character, FALSE), language_CRYPT(ch, i->character,
                                                             argument));
     }
@@ -3847,6 +3902,7 @@ struct TimedShutdownData
     OK,
     REBOOT,
     COPYOVER,
+    AUTOREBOOT,
   }
   eShutdownType;
   char IssuedBy[50];
@@ -3895,6 +3951,14 @@ void timedShutdown(P_char ch, P_char, P_obj, void *data)
         shutdownflag = copyover = 1;
         break;
 
+      case TimedShutdownData::AUTOREBOOT:
+        sprintf(buf, "\r\nDuris fades into nothing, as the world begins its reconstruction...\r\n", shutdownData.IssuedBy);
+        send_to_all(buf);
+        logit(LOG_STATUS, buf);
+        sql_log(ch, WIZLOG, buf);
+        shutdownflag = _reboot = 1;
+        break;
+
       default:
         wizlog(60, "WARNING:  Unknown shutdown type ABORTED!!");
         return;
@@ -3914,7 +3978,11 @@ void timedShutdown(P_char ch, P_char, P_obj, void *data)
         break;
       }
     }
+<<<<<<< HEAD
     if(!ch)
+=======
+ /*   if(!ch)
+>>>>>>> master
     {
       // CANCEL the reboot.
       shutdownData.eShutdownType = TimedShutdownData::NONE;
@@ -3923,11 +3991,15 @@ void timedShutdown(P_char ch, P_char, P_obj, void *data)
       wizlog(60, buf);
       return;
     }
-
+*/
     // how much longer until a reboot?
     time_t secs = shutdownData.reboot_time - time(0);
     // special case:  going to reboot in less then ~1 second - force a restore all.
+<<<<<<< HEAD
     if(secs <= 1)
+=======
+    if((secs <= 1) && (ch != NULL))
+>>>>>>> master
     {
       // do restoreall here...
       int old_level = GET_LEVEL(ch);
@@ -3939,6 +4011,19 @@ void timedShutdown(P_char ch, P_char, P_obj, void *data)
       shutdownData.reboot_time = 0;
       secs *= WAIT_SEC;
       if(!secs) secs = 1;
+<<<<<<< HEAD
+=======
+      add_event(timedShutdown, secs, NULL, NULL, NULL, 0, NULL, 0);
+      return;
+    }
+    else if(secs <= 1)
+    {
+      // no restore since no ch.
+      // setting the reboot_time to 0 forces the reboot to occur next event
+      shutdownData.reboot_time = 0;
+      secs *= WAIT_SEC;
+      if(!secs) secs = 1;
+>>>>>>> master
       add_event(timedShutdown, secs, NULL, NULL, NULL, 0, NULL, 0);
       return;
     }
@@ -3954,9 +4039,14 @@ void timedShutdown(P_char ch, P_char, P_obj, void *data)
         type = "SHUTDOWN";
 
       if(secs > 60)
+<<<<<<< HEAD
         sprintf(buf, "&+R*** Scheduled %s in %d minutes by %s ***&n\n", type, secs/60, shutdownData.IssuedBy);
+=======
+//        sprintf(buf, "&+R*** Scheduled %s in %d minutes ***&n\n", type, secs/60, shutdownData.IssuedBy);
+        sprintf(buf, "&+R*** Scheduled %s in %d minutes ***&n\n", type, secs/60);
+>>>>>>> master
       else
-        sprintf(buf, "&+R*** Scheduled &-L%s&n&+R in %d seconds by %s ***&n\n", type, secs, shutdownData.IssuedBy);
+        sprintf(buf, "&+R*** Scheduled &-L%s&n&+R in %d seconds ***&n\n", type, secs);
       send_to_all(buf);
       // and set when the next warning should occur..
 
@@ -3998,9 +4088,13 @@ void displayShutdownMsg(P_char ch)
     type = "SHUTDOWN";
 
   if(secs > 60)
+<<<<<<< HEAD
     sprintf(buf, "&+R*** Scheduled %s in %d minute%sby %s ***&n\n", type, secs/60, (secs >= 120) ? "s " : " ", shutdownData.IssuedBy);
+=======
+    sprintf(buf, "&+R*** Scheduled %s in %d minute%s***&n\n", type, secs/60, (secs >= 120) ? "s " : " ");
+>>>>>>> master
   else
-    sprintf(buf, "&+R*** Scheduled &-L%s&n&+R in %d seconds by %s ***&n\n", type, secs, shutdownData.IssuedBy);
+    sprintf(buf, "&+R*** Scheduled &-L%s&n&+R in %d seconds ***&n\n", type, secs);
   send_to_char(buf, ch);
 }
 
@@ -4024,9 +4118,16 @@ void do_shutdown(P_char ch, char *argument, int cmd)
     }
   }
 
+  if((shutdownData.eShutdownType == TimedShutdownData::AUTOREBOOT))
+  return; //AutoREboots cannot be cycled.
+
   // if there is a pending shutdown, cancel it now...
 
+<<<<<<< HEAD
   if(shutdownData.eShutdownType != TimedShutdownData::NONE)
+=======
+  if((shutdownData.eShutdownType != TimedShutdownData::NONE))
+>>>>>>> master
   {
     shutdownData.eShutdownType = TimedShutdownData::NONE;
     send_to_all("&+R*** Scheduled Reboot Cancelled ***&n\n");
@@ -4042,6 +4143,12 @@ void do_shutdown(P_char ch, char *argument, int cmd)
     return;
   }
 
+<<<<<<< HEAD
+=======
+  if((shutdownData.eShutdownType == TimedShutdownData::AUTOREBOOT))
+  return; //AutoREboots cannot be cycled.
+
+>>>>>>> master
   if(!str_cmp(arg, "ok"))
   {
     shutdownData.eShutdownType = TimedShutdownData::OK;
@@ -4050,6 +4157,13 @@ void do_shutdown(P_char ch, char *argument, int cmd)
   {
     shutdownData.eShutdownType = TimedShutdownData::REBOOT;
   }
+<<<<<<< HEAD
+=======
+  else if(!str_cmp(arg, "autoreboot"))
+  {
+    shutdownData.eShutdownType = TimedShutdownData::AUTOREBOOT;
+  }
+>>>>>>> master
   else if(!str_cmp(arg, "copyover"))
   {
     shutdownData.eShutdownType = TimedShutdownData::COPYOVER;
@@ -4749,7 +4863,11 @@ void roll_basic_abilities(P_char ch, int flag)
   ch->base_stats.Cha = ch->curr_stats.Cha = rolls[7];
   ch->base_stats.Karma = ch->curr_stats.Karma = number(1, 100);
   ch->base_stats.Luck = ch->curr_stats.Luck = number(1, 100);
+<<<<<<< HEAD
 #endif
+=======
+
+>>>>>>> master
   if(IS_NPC(ch))
   {
     if(GET_LEVEL(ch) > 40)
@@ -4777,6 +4895,7 @@ void roll_basic_abilities(P_char ch, int flag)
   }
   else if(flag == 0)
   {
+<<<<<<< HEAD
     ch->base_stats.Str = ch->curr_stats.Str = stat_base + number(stat_base, GET_LEVEL(ch) * 1.50);
     ch->base_stats.Dex = ch->curr_stats.Dex = stat_base + number(stat_base, GET_LEVEL(ch) * 1.50);
     ch->base_stats.Agi = ch->curr_stats.Agi = stat_base + number(stat_base, GET_LEVEL(ch) * 1.50);
@@ -4785,11 +4904,22 @@ void roll_basic_abilities(P_char ch, int flag)
     ch->base_stats.Int = ch->curr_stats.Int = stat_base + number(stat_base, GET_LEVEL(ch) * 1.50);
     ch->base_stats.Wis = ch->curr_stats.Wis = stat_base + number(stat_base, GET_LEVEL(ch) * 1.50);
     ch->base_stats.Cha = ch->curr_stats.Cha = stat_base + number(stat_base, GET_LEVEL(ch) * 1.50);
+=======
+    ch->base_stats.Str = ch->curr_stats.Str = stat_base + number(1, GET_LEVEL(ch));
+    ch->base_stats.Dex = ch->curr_stats.Dex = stat_base + number(1, GET_LEVEL(ch));
+    ch->base_stats.Agi = ch->curr_stats.Agi = stat_base + number(1, GET_LEVEL(ch));
+    ch->base_stats.Con = ch->curr_stats.Con = stat_base + number(1, GET_LEVEL(ch));
+    ch->base_stats.Pow = ch->curr_stats.Pow = stat_base + number(1, GET_LEVEL(ch));
+    ch->base_stats.Int = ch->curr_stats.Int = stat_base + number(1, GET_LEVEL(ch));
+    ch->base_stats.Wis = ch->curr_stats.Wis = stat_base + number(1, GET_LEVEL(ch));
+    ch->base_stats.Cha = ch->curr_stats.Cha = stat_base + number(1, GET_LEVEL(ch));
+>>>>>>> master
     ch->base_stats.Karma = ch->curr_stats.Karma = number(50, 100);
     ch->base_stats.Luck = ch->curr_stats.Luck = number(60, 120);
   }
   else if(flag == 1)
   {
+<<<<<<< HEAD
     ch->base_stats.Str = ch->curr_stats.Str = stat_base + number(stat_base, GET_LEVEL(ch) / 1.5);
     ch->base_stats.Dex = ch->curr_stats.Dex = stat_base + number(stat_base, GET_LEVEL(ch) / 1.5);
     ch->base_stats.Agi = ch->curr_stats.Agi = stat_base + number(stat_base, GET_LEVEL(ch) / 1.5);
@@ -4798,11 +4928,22 @@ void roll_basic_abilities(P_char ch, int flag)
     ch->base_stats.Int = ch->curr_stats.Int = stat_base + number(stat_base, GET_LEVEL(ch) / 1.5);
     ch->base_stats.Wis = ch->curr_stats.Wis = stat_base + number(stat_base, GET_LEVEL(ch) / 1.5);
     ch->base_stats.Cha = ch->curr_stats.Cha = stat_base + number(stat_base, GET_LEVEL(ch) / 1.5);
+=======
+    ch->base_stats.Str = ch->curr_stats.Str = stat_base + number(20, GET_LEVEL(ch) + 10);
+    ch->base_stats.Dex = ch->curr_stats.Dex = stat_base + number(20, GET_LEVEL(ch) + 10);
+    ch->base_stats.Agi = ch->curr_stats.Agi = stat_base + number(20, GET_LEVEL(ch) + 10);
+    ch->base_stats.Con = ch->curr_stats.Con = stat_base + number(20, GET_LEVEL(ch) + 10);
+    ch->base_stats.Pow = ch->curr_stats.Pow = stat_base + number(20, GET_LEVEL(ch) + 10);
+    ch->base_stats.Int = ch->curr_stats.Int = stat_base + number(20, GET_LEVEL(ch) + 10);
+    ch->base_stats.Wis = ch->curr_stats.Wis = stat_base + number(20, GET_LEVEL(ch) + 10);
+    ch->base_stats.Cha = ch->curr_stats.Cha = stat_base + number(20, GET_LEVEL(ch) + 10);
+>>>>>>> master
     ch->base_stats.Karma = ch->curr_stats.Karma = number(50, 100);
     ch->base_stats.Luck = ch->curr_stats.Luck = number(90, 110);
   }
   else if(flag == 2)
   {
+<<<<<<< HEAD
     ch->base_stats.Str = ch->curr_stats.Str = stat_base + number(20, 40);
     ch->base_stats.Dex = ch->curr_stats.Dex = stat_base + number(20, 40);
     ch->base_stats.Agi = ch->curr_stats.Agi = stat_base + number(20, 40);
@@ -4811,12 +4952,27 @@ void roll_basic_abilities(P_char ch, int flag)
     ch->base_stats.Int = ch->curr_stats.Int = stat_base + number(20, 40);
     ch->base_stats.Wis = ch->curr_stats.Wis = stat_base + number(20, 40);
     ch->base_stats.Cha = ch->curr_stats.Cha = stat_base + number(20, 40);
+=======
+    ch->base_stats.Str = ch->curr_stats.Str = stat_base + number(-10, GET_LEVEL(ch));
+    ch->base_stats.Dex = ch->curr_stats.Dex = stat_base + number(-10, GET_LEVEL(ch));
+    ch->base_stats.Agi = ch->curr_stats.Agi = stat_base + number(-10, GET_LEVEL(ch));
+    ch->base_stats.Con = ch->curr_stats.Con = stat_base + number(-10, GET_LEVEL(ch));
+    ch->base_stats.Pow = ch->curr_stats.Pow = stat_base + number(-10, GET_LEVEL(ch));
+    ch->base_stats.Int = ch->curr_stats.Int = stat_base + number(-10, GET_LEVEL(ch));
+    ch->base_stats.Wis = ch->curr_stats.Wis = stat_base + number(-10, GET_LEVEL(ch));
+    ch->base_stats.Cha = ch->curr_stats.Cha = stat_base + number(-10, GET_LEVEL(ch));
+>>>>>>> master
     ch->base_stats.Karma = ch->curr_stats.Karma = number(50, 70);
     ch->base_stats.Luck = ch->curr_stats.Luck = number(30, 70);
   }
  
+<<<<<<< HEAD
 /*}
 
+=======
+}
+#endif
+>>>>>>> master
 int rolls[8];
   int total, i;
 
@@ -4826,7 +4982,7 @@ int rolls[8];
       total += rolls[i];
     }
   } while (total != 8*75);
-
+/*
   ch->base_stats.Str = ch->curr_stats.Str = rolls[0];
   ch->base_stats.Dex = ch->curr_stats.Dex = rolls[1];
   ch->base_stats.Agi = ch->curr_stats.Agi = rolls[2];
@@ -4836,6 +4992,19 @@ int rolls[8];
   ch->base_stats.Wis = ch->curr_stats.Wis = rolls[6];
   ch->base_stats.Cha = ch->curr_stats.Cha = rolls[7];
 */
+<<<<<<< HEAD
+=======
+  ch->base_stats.Str = ch->curr_stats.Str = 80;
+  ch->base_stats.Dex = ch->curr_stats.Dex = 80;
+  ch->base_stats.Agi = ch->curr_stats.Agi = 80;
+  ch->base_stats.Con = ch->curr_stats.Con = 80;
+  ch->base_stats.Pow = ch->curr_stats.Pow = 80;
+  ch->base_stats.Int = ch->curr_stats.Int = 80;
+  ch->base_stats.Wis = ch->curr_stats.Wis = 80;
+  ch->base_stats.Cha = ch->curr_stats.Cha = 80;
+
+  //drannak working
+>>>>>>> master
   ch->base_stats.Karma = ch->curr_stats.Karma = number(50, 110); //  These two rolls are invisible
   ch->base_stats.Luck = ch->curr_stats.Luck = number(50, 110);   //  to players during creation on purpose - Jexni
 
@@ -4848,11 +5017,22 @@ void NewbySkillSet(P_char ch)
   for (i = FIRST_SKILL; i <= LAST_SKILL; i++)
   {
 
+<<<<<<< HEAD
+=======
+#ifdef SKILLPOINTS
+    if(SKILL_DATA_ALL(ch, i).rlevel[0] &&
+        SKILL_DATA_ALL(ch, i).rlevel[0] <= GET_LEVEL(ch) )
+    {
+      ch->only.pc->skills[i].learned = 10;
+      ch->only.pc->skills[i].taught = 10;
+#else
+>>>>>>> master
     if(SKILL_DATA_ALL(ch, i).rlevel[0] &&
         SKILL_DATA_ALL(ch, i).rlevel[0] <= GET_LEVEL(ch) && !IS_SPELL(i))
     {
       ch->only.pc->skills[i].learned = number(5, 20);
       ch->only.pc->skills[i].taught = SKILL_DATA_ALL(ch, i).maxlearn[0] - 10;
+#endif
     }
     else if(SKILL_DATA_ALL(ch, i).rlevel[0] && IS_SPELL(i) &&
              SKILL_DATA_ALL(ch, i).rlevel[0] <= GET_LEVEL(ch) && praying_class(ch))
@@ -4945,6 +5125,10 @@ void do_start(P_char ch, int nomsg)
 
   /* preserve hardcore and newbie bits */
   ch->specials.act2 &= (PLR2_HARDCORE_CHAR | PLR2_NEWBIE);
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 
   SET_BIT(ch->specials.act2, PLR2_NCHAT);
   SET_BIT(ch->specials.act2, PLR2_QUICKCHANT);
@@ -4973,6 +5157,9 @@ void do_start(P_char ch, int nomsg)
 
   ch->player.time.played = 0;
   ch->player.time.logon = time(0);
+
+  //Drannak - preserve already set racial skills
+  assign_racial_skills_norefund(ch);
 }
 
 void do_advance(P_char ch, char *argument, int cmd)
@@ -5067,7 +5254,11 @@ void do_advance(P_char ch, char *argument, int cmd)
   }
 
   for (i = oldlevel; i < newlevel; i++)
+<<<<<<< HEAD
     advance_level(victim, TRUE);
+=======
+    advance_level(victim);//, TRUE); wipe2011
+>>>>>>> master
 
   GET_EXP(victim) = 1;
 
@@ -5259,9 +5450,15 @@ void do_restore(P_char ch, char *argument, int cmd)
           continue;
         for (i = 0; i < MAX_WEAR; i++)
           if(victim->equipment[i])
+<<<<<<< HEAD
             victim->equipment[i]->condition = victim->equipment[i]->max_condition;
         for (obj = victim->carrying; obj; obj = obj->next_content)
           obj->condition = obj->max_condition;
+=======
+            victim->equipment[i]->condition = 100;//victim->equipment[i]->max_condition; wipe2011
+        for (obj = victim->carrying; obj; obj = obj->next_content)
+          obj->condition = 100;//obj->max_condition; wipe2011
+>>>>>>> master
         send_to_char
           ("&+gFrom out of nowhere, little gremlin-like creatures about 6 inches tall pop up.&LThey grab all of your equipment, and fiddle with it before returning to you.&LThey then vanish as quickly as they came.\n",
            victim);
@@ -7598,7 +7795,11 @@ struct obj_data *clone_obj(P_obj obj)
   ocopy->trap_charge = obj->trap_charge;
   ocopy->trap_level = obj->trap_level;
   ocopy->condition = obj->condition;
+<<<<<<< HEAD
   ocopy->max_condition = obj->max_condition;
+=======
+  //ocopy->max_condition = obj->max_condition; wipe2011
+>>>>>>> master
   ocopy->material = obj->material;
   ocopy->craftsmanship = obj->craftsmanship;
   ocopy->bitvector = obj->bitvector;
@@ -8065,10 +8266,17 @@ void do_which(P_char ch, char *args, int cmd)
   one_argument(args, arg4);
   sc_min = atoi(arg3);
   sc_max = atoi(arg4);
+<<<<<<< HEAD
 
   if(sc_min)
     stat_check = TRUE;
 
+=======
+
+  if(sc_min)
+    stat_check = TRUE;
+
+>>>>>>> master
   if(!*arg1 || !*arg2)
   {
     send_to_char(WHICH_SYNTAX, ch);

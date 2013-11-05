@@ -405,11 +405,12 @@ int found_asc(P_char god, P_char leader, char *bits, char *asc_name)
   struct stat statbuf;
 
   /* this is a god command only! */
-  if (!IS_TRUSTED(god))
+  //5/6/13 - Drannak - modifying to allow mob proc to call this for automated guild creation.
+ /* if (!IS_TRUSTED(god))
   {
     send_to_char("Arrrgghh! Out, out,...\r\n", god);
     return (0);
-  }
+  }*/
   /* is this guy involved somewhere else? */
   if ((bits[0] != 'k') &&
       (GET_A_NUM(leader) || !IS_NO_THANKS(GET_A_BITS(leader))))
@@ -2928,6 +2929,7 @@ void member_list(P_char member)
   char     Gbuf2[MAX_STR_NORMAL];
   char     Gbuf3[MAX_STR_NORMAL];
   char     Gbuf4[MAX_STR_NORMAL];
+  char	   cash[MAX_STR_NORMAL];
   char     ostra[MAX_STR_NORMAL];
   char     buf[MAX_STRING_LENGTH];
   char     rank_names[8][MAX_STR_RANK];
@@ -3044,10 +3046,9 @@ void member_list(P_char member)
   fscanf(f, "%i %i %i %i\n", &dummy2, &dummy3, &dummy4, &dummy5);
   if (GT_NORMAL(temp))
   {
-    sprintf(Gbuf2,
+    sprintf(cash,
             "Cash: &+W%i platinum&n, &+Y%i gold&n, %i silver, &+y%i copper&n\r\n\r\n",
             dummy2, dummy3, dummy4, dummy5);
-    strcat(buf, Gbuf2);
   }
     
   i = os = 0;
@@ -3100,6 +3101,11 @@ void member_list(P_char member)
     }
   }
   fclose(f);
+  
+  sprintf(Gbuf2, "Current members: %d\r\n", i);
+  strcat(buf, Gbuf2);
+  strcat(buf, cash);
+  
   /* now add the info string sorted by rank to buf */
   for (k = 7; k >= 0; k--)
     for (j = 0; j < i; j++)
@@ -3480,7 +3486,8 @@ void retitle_member(P_char member, P_char titlee, char *title)
     return;
   }
   /* only seniors or higher can set new titles */
-  if (!IS_GOD(dummy1) && !IS_LEADER(dummy1))    /* &&
+  if (!IS_GOD(dummy1) && (IS_DEPUTY(dummy1) || IS_OFFICER(dummy1)))
+/*!IS_LEADER(dummy1) &&
                                                    (!((titlee == member) && (IS_DEPUTY(dummy1) || IS_OFFICER(dummy1))))) */
   {
     send_to_char("Maybe one day you will be trusted enough to do that.\r\n",
@@ -4627,3 +4634,4 @@ void display_guild_frags(P_char god)
 
   return;
 }// display_guild_frags
+

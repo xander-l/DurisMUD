@@ -60,7 +60,8 @@
 #define SH_FRIGATE             9
 #define SH_CRUISER            10
 #define SH_DREADNOUGHT        11
-#define MAXSHIPCLASS          12
+#define SH_ZONE_SHIP          12
+#define MAXSHIPCLASS          13
 
 #define SHK_MERCHANT          1
 #define SHK_WARSHIP           2
@@ -114,11 +115,13 @@
 #define MINDBLAST        BIT_6
 #define RANGEDAM         BIT_7
 #define BALLISTIC        BIT_8
+#define DIPLOMAT	    BIT_9
 
 // Equipment
 #define E_RAM            0
 #define E_LEVISTONE      1
-#define MAXEQUIPMENT     2
+#define E_DIPLOMAT	    2
+#define MAXEQUIPMENT     3
 
 #define LEVISTONE_TIME     60
 #define LEVISTONE_RECHARGE 600
@@ -538,7 +541,7 @@ struct VolleyData
 
 extern struct ShipMap tactical_map[101][101];
 extern struct ContactData contacts[MAXSHIPS];
-extern struct ShipFragData shipfrags[10];
+extern struct ShipFragData shipfrags[20];
 extern const char *ship_symbol[NUM_SECT_TYPES];
 
 /* ship variable access macros */
@@ -776,6 +779,10 @@ int eq_ram_cost(const ShipData* ship);
 bool has_eq_levistone(const ShipData* ship);
 int eq_levistone_slot(const ShipData* ship);
 int eq_levistone_weight(const ShipData* ship);
+
+bool has_eq_diplomat(const ShipData* ship);
+int eq_diplomat_slot(const ShipData* ship);
+int eq_diplomat_weight(const ShipData* ship);
 
 bool ocean_pvp_state();
 

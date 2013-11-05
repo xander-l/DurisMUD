@@ -250,7 +250,7 @@ M 0 130022 8 130062 100 0 0 0      * a flame spirit
 M 0 130022 8 130062 100 0 0 0      * a flame spirit
 M 0 130025 1 130065 100 0 0 0      * Tobosh
 E 1 130014 1 5 100 0 0 0           *   the armor of purity
-G 1 22070 1 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 130027 1 0 100 0 0 0           *    the oaken staff of the woodlands
 M 0 130023 1 130067 100 0 0 0      * the lich of Kairvo
 E 1 130038 40 13 100 0 0 0         *   Vecna zone proc item
 M 0 130024 1 130068 100 0 0 0      * Kaervek
@@ -263,7 +263,8 @@ M 0 130035 1 130071 100 0 0 0      * the arch-lich Vecna
 E 1 130019 1 3 100 0 0 0           *   the necklace of wisdom
 E 1 130018 1 20 100 0 0 0          *   the mask of death
 G 1 360 1 0 100 0 0 0              *    (object type not in this .obj file)
-G 1 25103 1 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 26666 1 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 130028 1 0 100 0 0 0           *    Krindors Incredible Device
 M 0 130030 1 130072 100 0 0 0      * a twisted statue
 M 0 130031 1 130072 100 0 0 0      * a twisted statue
 M 0 130032 1 130073 100 0 0 0      * a twisted statue

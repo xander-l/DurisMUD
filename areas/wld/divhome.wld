@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #40700
 &+cA &+WGlowing Portal&+c on the Plane of &+WMist&n~
 &+L   The plane of &+Wmists&+L begins with an entrance &+Wportal&+L here.  The
@@ -2390,3 +2391,2397 @@ D3
 ~
 0 0 40721
 S
+=======
+#40700
+&+cA &+WGlowing Portal&+c on the Plane of &+WMist&n~
+&+L   The plane of &+Wmists&+L begins with an entrance &+Wportal&+L here.  The
+&+wethereal&+L fog that suddenly surrounds all is strangely familiar for
+&+Ltravellers from either the true &nethereal&+L plane or &nastral&+L.  It
+&+Lappears endless, &+Wlighted&+L by an unknown source that seems to niether
+&+Lcast shadows or strain the eyes.  Try as one might, despite the
+&+Lrepetitive &+yterrain&+L in all directions, the only moveable direction
+&+Lis north.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40701
+S
+#40701
+&+cAdrift in a Plane of &+WMist&n~
+&+L   Navigation in this place seems almost impossible, especially
+&+Lthe deeper in one travels.  The &+cfog&+L continues everywhere, up, down,
+&+Lnorth, west, the only difference between the rooms appears to be
+&+Lthe &+mpurple creatures&+L that wander about.  There seems to be noise
+&+Lcoming from the distance in the east.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40703
+D1
+~
+~
+0 0 40702
+D2
+~
+~
+0 0 40700
+S
+#40702
+&+cAdrift in a Plane of &+WMist&n~
+&+L   The irratation of the place is intense, nearly like the ethereal
+&+Lvoid itself, but there still seems to be some landmarks of the senses
+&+Lavailable for those to navigate by.  A &+rheat&+L somewhere to the north,
+&+Lsome noises from the west, small things yet enough to keep one from
+&+Lbecoming compeletely lost.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40709
+D1
+~
+~
+0 0 40711
+D2
+~
+~
+0 0 40712
+D3
+~
+~
+0 0 40701
+S
+#40703
+&+cAdrift in a Plane of &+WMist&n~
+&+L   The &+Wmist&+L continues to flow about the area, appearing as an &+Lethereal&n
+&+Lfog, just forming a solid enough space to hold one up instead of
+&+Lsending one falling for an eternity in some strange &+cplane&+L of existence.
+&+LThe odd &+mpurple&+L creatures of the &+Wmist&+L continue to thrive throughout
+&+Lthe plane, surviving by attacking and consuming anything smaller
+&+Lthen themselves.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40704
+D1
+~
+~
+0 0 40709
+D2
+~
+~
+0 0 40701
+S
+#40704
+&+cAdrift in a Plane of &+WMist&n~
+&+L   The irratation of the place is intense, nearly like the ethereal
+&+Lvoid itself, but there still seems to be some landmarks of the senses
+&+Lavailable for those to navigate by.  A &+rheat&+L somewhere to the north,
+&+Lsome noises from the west, small things yet enough to keep one from
+&+Lbecoming compeletely lost.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40705
+D1
+~
+~
+0 0 40708
+D2
+~
+~
+0 0 40703
+S
+#40705
+&+cA &+rHotspot&+c within the Plane of &+WMist&n~
+&+L   The &+Wmist&+L seems to rise in temperature here and thin quite abit,
+&+Las if something &+rwarm&n &+Lwas nearby, something &+rwarm&+L enough to be heating
+&+Lthe area nearby. Even the &+Lplanar &+mcreatures&+L seem to avoid this room,
+&+Lmost likely finding the unusual &+rwarmth&+L uncomfortable.  Straight to
+&+Lthe south the large &+Wportal&+L can still be seen, &+Mglowing&+L with a strong
+&+Wwhite light.&n
+~
+407 33554432 23
+D0
+~
+mist~
+5 0 40706
+D1
+~
+~
+0 0 40707
+D2
+~
+~
+0 0 40704
+S
+#40706
+&+LWithin A Planar &+rHotspot&n~
+&+r   Unlike the area just south of here the &+Wmist&+r suddenly heats
+&+rup considerably, enough to even change the hue in the &+Wmist&+r, from
+&+rshifting &+Lblack&+r and &+Wwhite&+r to drifting red with the heat.  The &+Wmist&n
+&+rcreatures who populate the entire plane seem more aggressive here,
+&+rmost likely agitated by the increase in tempature.&n
+~
+407 33554432 23
+D1
+~
+~
+0 0 40783
+D2
+~
+mist~
+5 0 40705
+S
+#40707
+&+cAdrift in a Plane of &+WMist&n~
+&+L   Despite some invisible barrier to the north, the &+cfog&+L continues
+&+Lin all directions, becoming incredibly difficult to navigate. There
+&+Lseems to be a slight increase in &+rheat&+L towards the west, but other
+&+Lthan that small difference this room is like most all the others
+&+Lin this &+chazy&+L plane.
+~
+407 33554432 23
+D1
+~
+~
+0 0 40721
+D2
+~
+~
+0 0 40708
+D3
+~
+~
+0 0 40705
+S
+#40708
+&+cAdrift in a Plane of &+WMist&n~
+&+L   The &+Wmists&+L continue as always here, drifting endlessly across an
+&+Lalmost infinite seeming area of space.  Strangely, even though the
+&+yterrain&+L never really changes, the sudden thoughts of falling enter
+&+Lones mind, falling forever, beyond &+Wclouds&+L, beyond everything.  The
+&+Laction of looking downward, however, displays nothing but &+Wmist&n
+&+Lbetween ones feet, &+chazy&+L, yet substantial.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40707
+D1
+~
+~
+0 0 40720
+D2
+~
+~
+0 0 40709
+D3
+~
+~
+0 0 40704
+S
+#40709
+&+cAdrift in a Plane of &+WMist&n~
+&+L   Here, just as in the rest of this strange plane, the odd &+mcreatures&n
+&+Lcontinue to scamper below ones feet, irritating, but hardley threatening.
+&+LThe &+Wmists&+L continue to drift, almost like the waves on an &+bocean&+L, sending
+&+Lwaves of &+ynausea&+L through most people's bodies, thusly annoying the common
+&+yadventurer&+L even worse.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40708
+D1
+~
+~
+0 0 40717
+D2
+~
+~
+0 0 40702
+D3
+~
+~
+0 0 40703
+S
+#40710
+&+CThe Di&+Wvine &+BNex&+bus&n~
+&+c   The &+CDi&+Wvine&+B Nex&+bus&+c is a fabled area supposedly just on the outskirts
+&+cof the &+WHome &+Cof the &+WDivine&+c.  Once inside everywhere appears identical,
+&+cdistracting and disorientating all those who wander within its
+&+cboundaries.  The &+Bnex&+bus&+c acts as a defensive measure against those
+&+cwho would come to cause harm to the &+WHome&+c, forcing many to give up
+&+cor even driving some mad that come searching for the legendary
+&+ccel&+Wes&+ctial village.  Some sort of proof would obviously be important
+&+cfor those that actually do make it through this maze.&n
+~
+407 176160832 23
+D0
+~
+~
+0 0 40716
+D2
+~
+~
+0 0 40716
+D3
+~
+~
+0 0 40725
+S
+#40711
+&+cAdrift in a Plane of &+WMist&n~
+&+L   A barrier of &+Wfog&+L blocks access any further to the east, but
+&+Lthe &+Wmisty&+L walkways continue it all other directions, yet seems to
+&+Ldissipate slightly to the north, indicating something of interest
+&+Lcloseby.  The strange &+mpurple creatures&+L that inhabit the &+cplane&n
+&+Lcontinue to scamper about- playfully irritating.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40717
+D1
+~
+~
+0 0 40817
+D2
+~
+~
+0 0 40718
+D3
+~
+~
+0 0 40702
+S
+#40712
+&+cAdrift in a Plane of &+WMist&n~
+&+L   The &+Wmists&+L continue as always here, drifting endlessly across an
+&+Lalmost infinite seeming area of space.  Strangely, even though the
+&+yterrain&+L never really changes, the sudden thoughts of falling enter
+&+Lones mind, falling forever, beyond &+Wclouds&+L, beyond everything.  The
+&+Laction of looking downward, however, displays nothing but &+Wmist&n
+&+Lbetween ones feet, &+chazy&+L, yet substantial.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40702
+D1
+~
+~
+0 0 40718
+D2
+~
+~
+0 0 40713
+S
+#40713
+&+cAdrift in a Plane of &+WMist&n~
+&+L   The &+Wmist&+L continues to flow about the area, appearing as an &+Lethereal&n
+&+Lfog, just forming a solid enough space to hold one up instead of
+&+Lsending one falling for an eternity in some strange &+cplane&+L of existence.
+&+LThe odd &+mpurple&+L creatures of the &+Wmist&+L continue to thrive throughout
+&+Lthe plane, surviving by attacking and consuming anything smaller
+&+Lthen themselves.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40712
+D1
+~
+~
+0 0 40715
+S
+#40714
+&+cOutside the &+WPalace&n~
+&+c   The &+Wcloudscape&+c begins to rise slightly here, north of the &+WPalace&n
+&+cgates.  The area is as mystical as almost everywhere else within the
+&+WHome&+c with the &+Wangels&+c and angelkin wandering freely from one set of
+&+cdrifting &+Wclouds&+c to another.  The path here continues towards the
+&+cmajestic pasture of the &+Ctitans&+c, where they care and nurish the mounts
+&+cof the royal &+Wangels.&n
+~
+407 33554432 23
+D2
+~
+~
+0 0 40748
+D4
+~
+~
+0 0 40760
+S
+#40715
+&+cAdrift in a Plane of&+W Mist&n~
+&+L   The &+Wmists&+L continue as always here, drifting endlessly across an
+&+Lalmost infinite seeming area of space.  Strangely, even though the
+&+yterrain&+L never really changes, the sudden thoughts of falling enter
+&+Lones mind, falling forever, beyond &+Wclouds&+L, beyond everything.  The
+&+Laction of looking downward, however, displays nothing but &+Wmist&n
+&+Lbetween ones feet, &+chazy&+L, yet substantial.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40718
+D1
+~
+~
+0 0 40819
+D2
+~
+~
+0 0 40716
+D3
+~
+~
+0 0 40713
+S
+#40716
+&+CThe Di&+Wvine &+BNex&+bus&n~
+&+c   The &+CDi&+Wvine&+B Nex&+bus&+c is a fabled area supposedly just on the outskirts
+&+cof the &+WHome &+Cof the &+WDivine&+c.  Once inside everywhere appears identical,
+&+cdistracting and disorientating all those who wander within its
+&+cboundaries.  The &+Bnex&+bus&+c acts as a defensive measure against those
+&+cwho would come to cause harm to the &+WHome&+c, forcing many to give up
+&+cor even driving some mad that come searching for the legendary
+&+ccel&+Wes&+ctial village.  Some sort of proof would obviously be important
+&+cfor those that actually do make it through this maze.&n
+~
+407 176160836 23
+D0
+~
+~
+0 0 40715
+D2
+~
+~
+0 0 40710
+D3
+~
+~
+0 0 40716
+S
+#40717
+&+cA Break in the &+WMists&n~
+&+L   The hazy &+Wmist&+L of this strange &+cplane&+L seems to break away, almost
+&+Lflow from the center of the area, as if being pushed back by some
+&+Lunseen force.  The roaming &+mcreatures&+L and &+mentities&+L of the &+cplane&+L also
+&+Lavoid this portion of the &+Lethereal&+L landmass, providing a small haven
+&+Lfor wanderers needing a suitable resting spot.&n
+~
+407 33685508 23
+D0
+~
+~
+0 0 40720
+D1
+~
+~
+0 0 40816
+D2
+~
+~
+0 0 40711
+D3
+~
+~
+0 0 40709
+S
+#40718
+&+cAdrift in a Plane of &+WMist&n~
+&+L   Navigation in this place seems almost impossible, especially
+&+Lthe deeper in one travels.  The &+cfog&+L continues everywhere, up, down,
+&+Lnorth, west, the only difference between the rooms appears to be
+&+Lthe &+mpurple creatures&+L that wander about.  There seems to be noise
+&+Lcoming from the distance in the east.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40711
+D1
+~
+~
+0 0 40818
+D2
+~
+~
+0 0 40715
+D3
+~
+~
+0 0 40712
+S
+#40719
+&+CThe Div&+Wine &+BNex&+bus&n~
+&+c   The &+CDi&+Wvine&+B Nex&+bus&+c is a fabled area supposedly just on the outskirts
+&+cof the &+WHome &+Cof the &+WDivine&+c.  Once inside everywhere appears identical,
+&+cdistracting and disorientating all those who wander within its
+&+cboundaries.  The &+Bnex&+bus&+c acts as a defensive measure against those
+&+cwho would come to cause harm to the &+WHome&+c, forcing many to give up
+&+cor even driving some mad that come searching for the legendary
+&+ccel&+Wes&+ctial village.  Some sort of proof would obviously be important
+&+cfor those that actually do make it through this maze.&n
+~
+407 176160832 23
+D1
+~
+~
+0 0 40716
+S
+#40720
+&+cAdrift in a Plane of &+WMist&n~
+&+L   Here, just as in the rest of this strange plane, the odd &+mcreatures&n
+&+Lcontinue to scamper below ones feet, irritating, but hardley threatening.
+&+LThe &+Wmists&+L continue to drift, almost like the waves on an &+bocean&+L, sending
+&+Lwaves of &+ynausea&+L through most people's bodies, thusly annoying the common
+&+yadventurer&+L even worse.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40721
+D1
+~
+~
+0 0 40820
+D2
+~
+~
+0 0 40717
+D3
+~
+~
+0 0 40708
+S
+#40721
+&+cAdrift in a Plane of &+WMist&n~
+&+L   The &+Wmists&+L continue as always here, drifting endlessly across an
+&+Lalmost infinite seeming area of space.  Strangely, even though the
+&+yterrain&+L never really changes, the sudden thoughts of falling enter
+&+Lones mind, falling forever, beyond &+Wclouds&+L, beyond everything.  The
+&+Laction of looking downward, however, displays nothing but &+Wmist&n
+&+Lbetween ones feet, &+chazy&+L, yet substantial.&n
+~
+407 33554432 23
+D1
+~
+~
+0 0 40821
+D2
+~
+~
+0 0 40720
+D3
+~
+~
+0 0 40707
+S
+#40722
+&+CThe Di&+Wvine&+B Nex&+bus&n~
+&+c   The &+CDi&+Wvine&+B Nex&+bus&+c is a fabled area supposedly just on the outskirts
+&+cof the &+WHome &+Cof the &+WDivine&+c.  Once inside everywhere appears identical,
+&+cdistracting and disorientating all those who wander within its
+&+cboundaries.  The &+Bnex&+bus&+c acts as a defensive measure against those
+&+cwho would come to cause harm to the &+WHome&+c, forcing many to give up
+&+cor even driving some mad that come searching for the legendary
+&+ccel&+Wes&+ctial village.  Some sort of proof would obviously be important
+&+cfor those that actually do make it through this maze.&n
+~
+407 176160832 23
+D0
+~
+~
+0 0 40710
+D3
+~
+~
+0 0 40723
+S
+#40723
+&+CThe Di&+Wvine&+B Nex&+bus&n~
+&+c   The &+CDi&+Wvine&+B Nex&+bus&+c is a fabled area supposedly just on the outskirts
+&+cof the &+WHome &+Cof the &+WDivine&+c.  Once inside everywhere appears identical,
+&+cdistracting and disorientating all those who wander within its
+&+cboundaries.  The &+Bnex&+bus&+c acts as a defensive measure against those
+&+cwho would come to cause harm to the &+WHome&+c, forcing many to give up
+&+cor even driving some mad that come searching for the legendary
+&+ccel&+Wes&+ctial village.  Some sort of proof would obviously be important
+&+cfor those that actually do make it through this maze.&n
+~
+407 176160832 23
+D0
+~
+~
+0 0 40727
+D1
+~
+~
+0 0 40716
+D3
+~
+~
+0 0 40724
+S
+#40724
+&+CThe Di&+Wvine &+BNex&+bus&n~
+&+c   The &+CDi&+Wvine&+B Nex&+bus&+c is a fabled area supposedly just on the outskirts
+&+cof the &+WHome &+Cof the &+WDivine&+c.  Once inside everywhere appears identical,
+&+cdistracting and disorientating all those who wander within its
+&+cboundaries.  The &+Bnex&+bus&+c acts as a defensive measure against those
+&+cwho would come to cause harm to the &+WHome&+c, forcing many to give up
+&+cor even driving some mad that come searching for the legendary
+&+ccel&+Wes&+ctial village.  Some sort of proof would obviously be important
+&+cfor those that actually do make it through this maze.&n
+~
+407 176160832 23
+D0
+~
+~
+0 0 40725
+D1
+~
+~
+0 0 40723
+S
+#40725
+&+CThe Di&+Wvine&+B Nex&+bus&n~
+&+c   The &+CDi&+Wvine&+B Nex&+bus&+c is a fabled area supposedly just on the outskirts
+&+cof the &+WHome &+Cof the &+WDivine&+c.  Once inside everywhere appears identical,
+&+cdistracting and disorientating all those who wander within its
+&+cboundaries.  The &+Bnex&+bus&+c acts as a defensive measure against those
+&+cwho would come to cause harm to the &+WHome&+c, forcing many to give up
+&+cor even driving some mad that come searching for the legendary
+&+ccel&+Wes&+ctial village.  Some sort of proof would obviously be important
+&+cfor those that actually do make it through this maze.&n
+~
+407 176160832 23
+D0
+~
+~
+0 0 40716
+D2
+~
+~
+0 0 40724
+S
+#40726
+&+CThe Di&+Wvine&+B Nex&+bus&n~
+&+c   The &+CDi&+Wvine&+B Nex&+bus&+c is a fabled area supposedly just on the outskirts
+&+cof the &+WHome &+Cof the &+WDivine&+c.  Once inside everywhere appears identical,
+&+cdistracting and disorientating all those who wander within its
+&+cboundaries.  The &+Bnex&+bus&+c acts as a defensive measure against those
+&+cwho would come to cause harm to the &+WHome&+c, forcing many to give up
+&+cor even driving some mad that come searching for the legendary
+&+ccel&+Wes&+ctial village.  Some sort of proof would obviously be important
+&+cfor those that actually do make it through this maze.&n
+~
+407 176160832 23
+D1
+~
+~
+0 0 40727
+D2
+~
+~
+0 0 40725
+S
+#40727
+&+CThe Di&+Wvine &+BNex&+bus&n~
+&+c   The &+CDi&+Wvine&+B Nex&+bus&+c is a fabled area supposedly just on the outskirts
+&+cof the &+WHome &+Cof the &+WDivine&+c.  Once inside everywhere appears identical,
+&+cdistracting and disorientating all those who wander within its
+&+cboundaries.  The &+Bnex&+bus&+c acts as a defensive measure against those
+&+cwho would come to cause harm to the &+WHome&+c, forcing many to give up
+&+cor even driving some mad that come searching for the legendary
+&+ccel&+Wes&+ctial village.  Some sort of proof would obviously be important
+&+cfor those that actually do make it through this maze.&n
+~
+407 176160832 23
+D1
+~
+~
+0 0 40716
+D2
+~
+~
+0 0 40728
+D3
+~
+~
+0 0 40716
+S
+#40728
+&+cCent&+Wer of &+Cthe Di&+Wvine &+BNex&+bus&n~
+&+c   At last the maze of the &+Bnex&+bus&+c ends with a &+Wmisty&+c path through the&n
+&+Wcloudscape&+c leading up.  Now out of the disorientating trail the
+&+csounds of the &+WHome&+C of the &+WDivine&+c can be heard through the &+Wclouds.&n
+&+cA &+Lpounding&+c in steady rhythm, the mystical songs of the legendary&n
+&+Ysirens&+c, and the chatter of the &+Wangel&+c commoners all mingle
+&+ctogether in a soothing, almost dreamlike, gift to the ears.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40727
+D4
+~
+~
+0 0 40729
+S
+#40729
+&+WTh&+ce Ga&+Ctes of &+WPurity&n~
+&+c   Although the entire area stretching from the astral gate to
+&+LThe Pits of &+rCerebrus&+c is considered the &+WHome &+Cof The &+WDivine&+c, the true
+&+WHome&+c begins here, before a pair of giant &+Wivory&+c gates.  The twisting
+&+cmist of the nexus lies just below, but the mist here takes on
+&+ca &+Wwhiter&+c, holier, form as the &+WIvory&+c Gat&+Ces of &+WPurity&+c lie just
+&+cto the east.  Several guard&+Cian &+Wangels&+c stand watch over the gates
+&+cfor signs of evil here, although even those with a &+Lblack&+c heart
+&+cwho outmatch them would have a consideribly harder time within
+&+cthe true &+WHome&+C of the &+WDivine.&n
+~
+407 33554436 23
+D0
+~
+clouds~
+5 0 40810
+D1
+~
+gates ivory~
+1 0 40730
+D5
+~
+~
+0 0 40728
+S
+#40730
+&+cThe Pathway of &+WPurity&n~
+&+c   The main path within the &+WClouds&+c of the &+WDivine&+c begins here, just
+&+ceast of the &+Wivory&+c gates.  &+WAngels&+c of all sorts travel along this
+&+cpathway, needing not to exhaust their energies from flying from
+&+cone misty landmass to another.  It is said that even the lords
+&+cof the elemental planes walk along this path from time to time
+&+cas well, coming to pay homage to the titans of justice, albiet just
+&+cbefore they drift to the opposite side of the &+WHome&+C of the &+WDivine&n
+&+cto pay to tribute to the more darker, more evil, powers who reside
+&+cin this realm as well.&n
+~
+407 33554432 23
+D1
+~
+~
+0 0 40731
+D3
+~
+gates ivory~
+1 0 40729
+S
+#40731
+&+cThe Pathway of &+WPurity&n~
+&+c   The Pathway of &+WPurity&+c continues on here, turning to the north, while
+&+cthe &+CPlateau &+cof &+WPurity&+c begins to the south with the sounds of sylphs
+&+cand &+Ysirens&+c singing.  The &+Wclouds&+c beneath continue their neverending
+&+cshift of movement, making all who are unaccustom to it almost dizzy.
+&+cThe &+Wivory&+c gates appear to be nothing more than a dense fog to
+&+cthe west here and the glare from looking at them seems to be as
+&+cstrong as staring at a &+Wsnowfield&+c on a &+Ysunny&+c day.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40732
+D2
+~
+~
+0 0 40733
+D3
+~
+~
+0 0 40730
+S
+#40732
+&+cThe Pathway of &+WPurity&n~
+&+c   A large stretch of &+Wcloud&+c mist heading east begins here, patrolled
+&+cby an ancient elven arch-&+Wangel&+c, desperately searching for a way into
+&+cthe &+WDivine&+c Kingdom.  The pathway west and north ends dangerously with
+&+clack of any sort of substance and even those with the ability to
+&+cfly would still fall dramatically.  &+WAngels, &+cArch-&+Wangels&+c, and spirits
+&+call travel along this path to either head out towards to the Home's
+&+cgreat warground or the &+WPalace &+Cof &+WJustice.&n
+~
+407 33554432 23
+D1
+~
+~
+0 0 40740
+D2
+~
+~
+0 0 40731
+S
+#40733
+&+cThe &+CPlateau&+c of &+WPurity&n~
+&+c   On the northwestern edge of the &+CPlateau&+c of &+WPurity&+c a feeling of
+&+cserenity overwhelms the senses.  Beneath the feet appears to be
+&+cnothing but mist, much like the &+WHome&+C of the &+WDivine's&+c unending
+&+cbattleground, but here the mist seems more holy, more pure.  &+WAngels&n
+&+cand Arch-&+WAngels&+c gather in this area, casually most of the time, but
+&+csometimes to prepare a defense against an invasion.  The Pathway
+&+cof &+WPurity&+c lies north of here.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40731
+D1
+~
+~
+0 0 40734
+D2
+~
+~
+0 0 40737
+S
+#40734
+&+cThe &+CPlateau&+c of &+WPurity&n~
+&+c   The mist is solid here, forcing most mortals to ask themselves
+&+c'how could this be?'  The &+Wangels&+c themselves tend not to fly either
+&+cand simply walk about on what seems to be nothing more than large
+&+Wcloud&+c formations, always drifting and moving in a mersmerizing
+&+cfashion.  Upwards and to the north a huge white stone structure
+&+ccan be seen, possibly the legendary &+WPalace &+Cof &+WJustice&+c, where the
+&+ctitans of &+Wholiness&+c offer their support to the &+Wangels&+c against hate
+&+cand evil.&n
+~
+407 33554432 23
+D1
+~
+~
+0 0 40735
+D2
+~
+~
+0 0 40736
+D3
+~
+~
+0 0 40733
+S
+#40735
+&+cThe &+CPlateau &+cof &+WPurity&n~
+&n   &+cThe &+CPlateau&+c ends to the west of here abruptly.  For those without
+&+cthe comfort of wings a wrong step could prove much more than fatal,
+&+cfor if the legends are true, just below the &+WHome&+c here, lies the
+&+cgates of &+rhell&+c, where one would not simply die but be forced to spend
+&+can eternity in &+rdemonic slavery&+c.  Even knowing this does not lessen
+&+cthe sense of overwhelming peace here however, as everything from
+&+cthe mist beneath the feet, the gentle song of the &+Ysirens&+c, and
+&+ccompany of &+Wangels&+c is a beacon of &+Wholiness.&n
+~
+407 33554432 23
+D2
+~
+~
+0 0 40738
+D3
+~
+~
+0 0 40734
+S
+#40736
+&+CCenter&+c of the &+CPlateau&+c of &+WPurity&n~
+&+c   The &+CPlateau&+c of &+WPurity&+c reaches its full height of holiness here with
+&+cthe position of rich, flowing, spring.   The citizens of this righteous
+&+carea gather here often, either to drink liquefied &+Wpurity&+c, gossip
+&+centhusiastically with one another or head south to gaze over the
+&+cedge of the &+CPlateau.  &+YSirens&+c flock to this pool almost daily, naked
+&+cand serene they sing songs of peace to produce an inner calm within
+&+call that listen.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40734
+D1
+~
+~
+0 0 40738
+D2
+~
+~
+0 0 40739
+D3
+~
+~
+0 0 40737
+S
+#40737
+&+cThe &+CPlateau &+cof &+WPurity&n~
+&+c   The mist is solid here, forcing most mortals to ask themselves
+&+c'how could this be?'  The &+Wangels&+c themselves tend not to fly either
+&+cand simply walk about on what seems to be nothing more than large
+&+Wcloud&+c formations, always drifting and moving in a mersmerizing
+&+cfashion.  Upwards and to the north a huge white stone structure
+&+ccan be seen, possibly the legendary &+WPalace &+Cof &+WJustice&+c, where the
+&+ctitans of &+Wholiness&+c offer their support to the &+Wangels&+c against hate
+&+cand evil.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40733
+D1
+~
+~
+0 0 40736
+S
+#40738
+&+cThe &+CPlateau&+c of &+WPurity&n~
+&n   &+cThe southeast corner of the &+CPlateau&+c is littered with &+Wivory statues,
+&+cobviously much more righteous than a tombstone in symbolizing those
+&+clost in the battle against the denizens of &+rhell&+c.  Here in the &+WHome
+&+Cof the &+WDivine&+c it is said that those &+Wangels&+c who fought with courage
+&+cand without temptation in battle against &+revil&+c will ascend to Heaven
+&+cwith their death and the statues here seem to be for only those
+&+cwho have been assured their place in the Holy Kingdom.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40735
+D3
+~
+~
+0 0 40736
+S
+#40739
+&+cThe &+CEdge&+c of the &+CPlateau&n~
+&+c   The &+CPlateau&+c ends here with a steep overhang.  Not far below
+&+cstretches the great expanse of the &+WHome &+Cof the &+WDivine&+c, a plane
+&+cfar beyond any of the elements.  Hazy mist seems to cover the
+&+cthe jagged, non-corpeal surfaces, giving the sense that a fall
+&+cfrom this edge would send one plumetting directly into hell
+&+citself.  The songs of the &+Ysirens&+c and slyphs fade slowly here,
+&+clost in the verge of a climatical end of &+Wpurity.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40736
+S
+#40740
+&+cThe Pathway of &+WPurity&n~
+&+c   The &+Wclouds&+c billow to an inspiring size here, stretching out both
+&+cnorth and south and although there are no doors or gates or any sort
+&+cit is obvious that some sort of room lies in both directions.  &+WAngels&n
+&+cstill are a common sight along the pathway, leading towards the palace,
+&+cproving that even within the &+WHome&+C of the &+WDivine&+c order is still
+&+cforemost.  Every step feels like being brushed by &+Wangels&+c wings.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40742
+D1
+~
+~
+0 0 40741
+D2
+~
+~
+0 0 40743
+D3
+~
+~
+0 0 40732
+S
+#40741
+&+cThe Pathway of &+WPurity&n~
+&+c   A bright illumination seems to be concentrated from another
+&+Wcloudscape&+c raising above the Pathway of &+WPurity&+c to the east of here.
+&+cThe &+Ysiren&+c songs continue to sooth the senses, the mystical voice
+&+cdrifting as calmly as the billowing &+Wclouds&+c that surround the
+&+cpathway in every direction.  Looking down, the floor seems
+&+calmost transparent, but still remains solid beneath the feet.&n
+~
+407 33554432 23
+D1
+~
+~
+0 0 40744
+D3
+~
+~
+0 0 40740
+S
+#40742
+&+cThe Chamber of Air&n~
+&+c   Probably one of the more important emissaries to the entire &+WHome&n
+&+cis the emissary of Air.  The spiritual advisor to all of the air
+&+celementalists as well as second of command of the elemental plane
+&+cof air resides here most of the time.  Himself and the grand titans
+&+ccontrol all of the &+Wcloudscapes&+c that make up the mist beneath one's
+&+cfeet.  If the air master himself should perish it would be solely up
+&+cto the titans to carry the burden of keeping their holy kingdom afloat.&n
+~
+407 33554436 23
+D2
+~
+~
+0 0 40740
+S
+#40743
+&+rThe Chamber of Fire&n~
+&+r   Despite the entire area's sense of calm warmth this room, unblocked
+&+rby any sort of door or gate, is quite hot.  The heat does not seem to
+&+rcome from anything within the room yet by the individual himself who
+&+rgives off more of steam-type heat.  The immense corners of the room
+&+rare glowing with a red-hue, reflecting off the Chancellor or Flames.
+~
+407 33554436 11
+D0
+~
+~
+0 0 40740
+S
+#40744
+&+cThe Pathway of &+WPurity&n~
+&+c   The &+Wclouds&+c billow to an inspiring size here, stretching out both
+&+cnorth and south and although there are no doors or gates or any sort
+&+cit is obvious that some sort of room lies in both directions.  &+WAngels&n
+&+cstill are a common sight along the pathway, leading towards the palace,
+&+cproving that even within the &+WHome&+C of the &+WDivine&+c order is still
+&+cforemost.  Every step feels like being brushed by &+Wangels&+c wings.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40745
+D1
+~
+~
+0 0 40747
+D2
+~
+~
+0 0 40746
+D3
+~
+~
+0 0 40741
+S
+#40745
+&+yThe Chamber of Earth&n~
+&+c   Of the entire &+Wcloudscape&+c, this room seems the most out of place.
+&+cReplacing the &+Wmist&+c that makes up most of the &+WHome&+c, seems to be
+&+cpure, earthly, &+ysoil&+c. The walls and the roof that make up this
+&+croom still remain cloud, but the floor is probably the first and
+&+conly substantial form seen within the barriers of this cosmic,
+&+cplanar, area.&n
+~
+407 33554436 21
+D2
+~
+~
+0 0 40744
+S
+#40746
+&+LThe Chamber of Water&n~
+&+c   The &+Wcloudscape&+c swirls a misty &+bblue&+c here.  Tendrils of mist,
+&+cflow like &+bwater&+c in and around the entire room, stopping just short
+&+cof the archway that makes up the entrance.  &+bBlue mist&+c drips from
+&+cthe high ceiling, like some sort of ethereal condensation.  A
+&+cfigure sits in the center of the room, almost absorbing all the
+&+bmoisture&+c in the room, and in some way, also providing it.&n
+~
+407 33554436 20
+D0
+~
+~
+0 0 40744
+S
+#40747
+&+cA Layered &+WCloudscape&n~
+&+c   The &+Wclouds&+c thicken here, but unlike the western end of the Pathway,
+&+cthey seem to form steps almost.  But not quite.  As the mist drifts
+&+cby, several layers of the &+Wcloudscape&+c remain in true form, one set
+&+cleading up and east and the other leading down and south.  For
+&+can &+Wangel&+c a flap of his or her wing's would take them in either
+&+cdirection, however for mortals it will take a careful jump.&n
+~
+407 33554432 23
+D3
+~
+~
+0 0 40744
+D4
+~
+~
+0 0 40748
+D5
+~
+~
+0 0 40749
+F
+30
+S
+#40748
+&+cBefore the &+WPalace&+C of &+WJustice&n~
+&+c   The &+Wclouds&+c become monumental here, stretching out in huge billowing
+&+cpeak to the east, rising high above the entire area that is made up
+&+cof the &+WHome&+C of the &+WDivine&+c.  &+WAngelic&+c soldiers wander about freely,
+&+cpassing through the mist that makes up the gates without hestitation.
+&+cOver head, slyphs and spirits float along the warm air currents
+&+cwithin the boundaries of this holy palace, at peace now, but knowing
+&+cat anytime another assault from the &+LPits&+c below could begin.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40714
+D1
+~
+clouds~
+3 40740 40751
+D5
+~
+~
+0 0 40747
+S
+#40749
+&+cA Layered &+WCloudscape&n~
+&+c   The &+Wclouds&+c lessen up considerably here, becoming just a mist
+&+cboth beneath the feet and on all sides.  Careful steps would lead
+&+cto the another area south, an area giving off a bright light.  On
+&+cboth the eastern and western sides of this small &+Wcloudscape&+c lies
+&+ca descent into a great below, most likely leading towards the
+&+LPits of &+rCerebrus&+c.  Whatever notions of gloom that thought may
+&+cproduce are quickly dissolved with a quick look upwards and to
+&+cthe north, to the &+WPalace&+C of &+WJustice.&n
+~
+407 33554432 23
+D0
+~
+clouds~
+5 0 40771
+D2
+~
+~
+0 0 40750
+D4
+~
+~
+0 0 40747
+S
+#40750
+&+cA Chamber of &+WLight&n~
+&+c   The &+Wclouds&+c beneath the feet sparkle with light here, perhaps
+&+cbouncing off the sheer brillance of the &+WPalace&+C of &+WJustice&+c almost
+&+cdirectly upwards.  Even without walls this area seems much more
+&+cbrighter than the rest, mysictically and cosmically so in nature.
+&+cEven the floor seems to be more light than the uncanny substantial
+&+Wcloudscape&+c a mortal would be used to from travelling within
+&+cthe the &+WHome&+C of the &+WDivine&+c.  South and several layers down the
+&+CPlateau&+c of &+WPurity&+c can be seen, and east and west of here lies
+&+cthe nothingness of the great below leading into the &+LPits of&n
+&+rCerebrus.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40749
+S
+#40751
+&+cWithin the &+WPalace&+C of &+WJustice&n~
+&+c   The hallway of the &+WPalace&+c runs east to west, towards the &+Wthrone&n
+&+croom. Unlike outside, there actually is substance to the walls, floor,
+&+cand ceiling here.  It is all built from a solid &+Wwhite&+c stone, unknown
+&+cin type.  &+CTitans&+c walk throughout the &+WPalace&+c hallway, tall and proud,
+&+cfew in number but impressive in size.&n
+~
+407 167804992 0
+D1
+~
+~
+0 0 40752
+D3
+~
+clouds~
+3 40740 40748
+S
+#40752
+&+cWithin the &+WPalace &+Cof &+WJustice&n~
+&+c   Although much of the &+WPalace&+c is blocked off to most all the
+&+craces known throughout the planes, a couple of the more uninhibited
+&+coccupants can still be seen in rooms off of the main hallway.  The
+&+WQueen &+cof &+WIce&+c, herself, can be met in a room north of here.  The hallway
+&+ccontinues to run east towards the throne room, where the &+Ctitan&n &+Wprince&n
+&+cresides.&n
+~
+407 176193600 0
+D0
+~
+~
+0 0 40758
+D1
+~
+~
+0 0 40753
+D3
+~
+~
+0 0 40751
+S
+#40753
+&+cWithin the &+WPalace &+Cof &+WJustice&n~
+&+c   The hallway of the &+WPalace&+c runs east to west, towards the &+Wthrone&n
+&+croom. Unlike outside, there actually is substance to the walls, floor,
+&+cand ceiling here.  It is all built from a solid &+Wwhite&+c stone, unknown
+&+cin type.  &+CTitans&+c walk throughout the &+WPalace&+c hallway, tall and proud,
+&+cfew in number but impressive in size.  The southern wall here seems
+&+cto glow with a quiet &+Willumination.&n
+~
+407 176193600 0
+D1
+~
+~
+0 0 40754
+D2
+~
+clouds~
+5 0 40757
+D3
+~
+~
+0 0 40752
+S
+#40754
+&+cBefore the Hall of &+WJudgement&n~
+&+c   The hallway ends west of here with the &+Wthrones&+c of both the &+Wprince
+&+cand &+Wprincess&+c of the &+Ctitans&+c.  A pair of guardian &+Wangels&+c stand here, as
+&+ca last form of protection for the pair of titan royalty.  North of
+&+chere is the room of the mythical weaver of &+Wmists&+c, &+WAmp&+Chel&+ces&+c.  The
+&+cremainder of the &+WPalace&+c is off bounds for everyone other than the
+&+cmost important guests or most regal &+Wangels&+c or angelkin.
+~
+407 176193600 0
+D0
+~
+~
+0 0 40756
+D1
+~
+~
+0 0 40755
+D3
+~
+~
+0 0 40753
+S
+#40755
+&+cThe Hall of &+WJudgement&n~
+&+c   This room acts as a &+Wthrone&+c room for both the prince and princess
+&+cof the titans, who act as both judges and protectors over the &+WHome&+C of
+&+Cthe &+WDivine&+c.  Although there are white stone doors leading in several
+&+cdirections off of this room, there is none but the exit back into
+&+cthe hallway that the &+Ctitan&+c prince or &+Wangel&+c guardians would allow
+&+cone to enter.  The &+Wthrone&+c upon both prince and princess sit up is
+&+cconstructed from the same &+Wwhite&+c stone that makes up the &+Wpalace&+c itself.&n
+~
+407 176193604 0
+D3
+~
+~
+0 0 40754
+S
+#40756
+&+cHall of &+WAmp&+Chel&+ces&n~
+&+c   The legendary home of &+WAmp&+Chel&+ces&+c, weaver of &+Wmists&+c, is unlike
+&+cany other room within the &+WPalace&+C of &+WJustice&+c, as well as the &+WHome.&n
+&+cThe walls, while just outside are made of the strong, &+Wwhite&+c, stone,
+&+care hazy and &+Lethereal&+c, like the &+Wmists&+c outside, only &+Ymul&+mtic&+golo&+rured,
+&+calways shifting and changing in appearence.  &+WAmp&+Chel&+ces stands in
+&+cthe center of the room, tending to her &+Lethereal&+c loom.&n
+~
+407 176193600 0
+D2
+~
+~
+0 0 40754
+S
+#40757
+&+cThe &+WTitan's &+cForge&n~
+&+c   The sounds of &+CEm&+citi&+Con&+c pounding away on his anvil is a common
+&+cnoise throughout the &+WHome&+c and in this room it reaches the point of
+&+calmost shattering ones eardrums.  &+CEm&+cit&+Cion&+c, with the stamia of the
+&+cgods, continiously pounds his hammer with the echoes of a &+Ythunder&+c
+&+cclap while forging new weapons and armor for the &+Wangel&+c warriors.
+~
+407 176193600 0
+D0
+~
+clouds~
+5 0 40753
+D1
+~
+cloud~
+5 0 40809
+S
+#40758
+&+LThe Den of &+BShiva&n~
+&+c   Inside the Palace deep within the &+WHome&+c, &+BShiva&+c, the &+WGoddess
+&+cof &+WIce&+c, quietly watches over her frozen empire.  The &+Wtitans&+c walking
+&+coutside the room all take great effort to pass quietly in reverence
+&+cto the &+WQueen&+c of &+WIce&+c.  The room itself appears to be nothing more
+&+cthen frozen mist, much like the &+bChancellors of Water's&+c, only much,
+&+cmuch colder.  There is a large &+bwater&+c basin in the center of the
+&+croom that &+BShiva&+c spends her time peering into.&n
+~
+407 176193600 0
+D2
+~
+~
+0 0 40752
+S
+#40759
+&+cA &+WCloudy &+cPasture&n~
+&+c   The pasture above the palace serves as a field for the &+Wuni&+Ccorns
+&+cand &+Wpe&+Cga&+Wsi&+c of the &+WHome &+Cof the &+WDivine&+c.  These majestic beasts have
+&+calways been loyal familiars to the righteous and pure of heart.
+&+cSeveral &+Wtitans&+c care for the animals here and can be seen wandering
+&+cabout the pasture, which spreads out in most directions, however
+&+cfairly limited by the drifting &+Wclouds.&n
+~
+407 33554432 23
+D1
+~
+~
+0 0 40761
+D2
+~
+~
+0 0 40760
+S
+#40760
+&+cAn Accent in the &+WCloudscape&n~
+&+c   North and above the &+WPalace&+c an accessable area of the layered
+&+Wcloudscape&+c spreads out like a &+Wwhite&+c blanket.  Before the eye's the
+&+cfield of clouds offers the &+Wuni&+Ccorns&+c and &+Wpe&+Cga&+Wsi&+c of the Home a place
+&+cto frollick playfully.  The entrance to the pasture is protected
+&+cby a majestic cel&+Wes&+ctial dragon, who curls up within the &+Wclouds,
+&+chalf asleep.&n
+~
+407 33554436 23
+D0
+~
+~
+0 0 40759
+D5
+~
+~
+0 0 40714
+F
+30
+S
+#40761
+&+cA &+WCloudy&n &+cPasture&n~
+&+c   The pasture above the palace serves as a field for the &+Wuni&+Ccorns
+&+cand &+Wpe&+Cga&+Wsi&+c of the &+WHome &+Cof the &+WDivine&+c.  These majestic beasts have
+&+calways been loyal familiars to the righteous and pure of heart.
+&+cSeveral &+Wtitans&+c care for the animals here and can be seen wandering
+&+cabout the pasture, which spreads out in most directions, however
+&+cfairly limited by the drifting &+Wclouds.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40762
+D1
+~
+~
+0 0 40763
+D3
+~
+~
+0 0 40759
+S
+#40762
+&+cA &+WCloudy&+c Pasture~
+&+c   The pasture above the palace serves as a field for the &+Wuni&+Ccorns
+&+cand &+Wpe&+Cga&+Wsi&+c of the &+WHome &+Cof the &+WDivine&+c.  These majestic beasts have
+&+calways been loyal familiars to the righteous and pure of heart.
+&+cSeveral &+Wtitans&+c care for the animals here and can be seen wandering
+&+cabout the pasture, which spreads out in most directions, however
+&+cfairly limited by the drifting &+Wclouds.&n
+~
+407 33554432 23
+D1
+~
+~
+0 0 40764
+D2
+~
+~
+0 0 40761
+D3
+~
+~
+0 0 40767
+S
+#40763
+&+cA &+WCloudy &+cPasture~
+&+c   The pasture above the palace serves as a field for the &+Wuni&+Ccorns
+&+cand &+Wpe&+Cga&+Wsi&+c of the &+WHome &+Cof the &+WDivine&+c.  These majestic beasts have
+&+calways been loyal familiars to the righteous and pure of heart.
+&+cSeveral &+Wtitans&+c care for the animals here and can be seen wandering
+&+cabout the pasture, which spreads out in most directions, however
+&+cfairly limited by the drifting &+Wclouds.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40764
+D1
+~
+~
+0 0 40766
+D3
+~
+~
+0 0 40761
+S
+#40764
+&+cA &+WCloudy &+cPasture~
+&+c   The pasture above the palace serves as a field for the &+Wuni&+Ccorns
+&+cand &+Wpe&+Cga&+Wsi&+c of the &+WHome &+Cof the &+WDivine&+c.  These majestic beasts have
+&+calways been loyal familiars to the righteous and pure of heart.
+&+cSeveral &+Wtitans&+c care for the animals here and can be seen wandering
+&+cabout the pasture, which spreads out in most directions, however
+&+cfairly limited by the drifting &+Wclouds.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40765
+D2
+~
+~
+0 0 40763
+D3
+~
+~
+0 0 40762
+S
+#40765
+&+cA &+WCloudy &+cPasture~
+&+c   The pasture above the palace serves as a field for the &+Wuni&+Ccorns
+&+cand &+Wpe&+Cga&+Wsi&+c of the &+WHome &+Cof the &+WDivine&+c.  These majestic beasts have
+&+calways been loyal familiars to the righteous and pure of heart.
+&+cSeveral &+Wtitans&+c care for the animals here and can be seen wandering
+&+cabout the pasture, which spreads out in most directions, however
+&+cfairly limited by the drifting &+Wclouds.&n
+~
+407 33554432 23
+D2
+~
+~
+0 0 40764
+S
+#40766
+&+cA &+WCloudy &+cPasture~
+&+c   The pasture above the palace serves as a field for the &+Wuni&+Ccorns
+&+cand &+Wpe&+Cga&+Wsi&+c of the &+WHome &+Cof the &+WDivine&+c.  These majestic beasts have
+&+calways been loyal familiars to the righteous and pure of heart.
+&+cSeveral &+Wtitans&+c care for the animals here and can be seen wandering
+&+cabout the pasture, which spreads out in most directions, however
+&+cfairly limited by the drifting &+Wclouds.&n
+~
+407 33554432 23
+D3
+~
+~
+0 0 40763
+S
+#40767
+&+cA &+WCloudy&+c Pasture~
+&+c   The pasture above the palace serves as a field for the &+Wuni&+Ccorns
+&+cand &+Wpe&+Cga&+Wsi&+c of the &+WHome &+Cof the &+WDivine&+c.  These majestic beasts have
+&+calways been loyal familiars to the righteous and pure of heart.
+&+cSeveral &+Wtitans&+c care for the animals here and can be seen wandering
+&+cabout the pasture, which spreads out in most directions, however
+&+cfairly limited by the drifting &+Wclouds.&n
+~
+407 33554432 23
+D1
+~
+~
+0 0 40762
+D4
+~
+clouds~
+5 0 40768
+S
+#40768
+&+cA Split in the &+WCloudscape&n~
+&+c   The &+Wcloudscape&+c, which had been slightly obscured by the mists,
+&+csplits into two distinct paths here.  Although no sounds can be
+&+cheard from either direction, moreso with the loud noises from the
+&+cpasture below, the northern path predictably ends shortly with
+&+ca visible accent.  Nothing can be seen from the east, as the
+&+cbillowing &+Wcloud&+c becomes extrememly dense.&n
+~
+407 33554436 23
+D0
+~
+~
+0 0 40770
+D1
+~
+~
+0 0 40769
+D5
+~
+clouds~
+5 0 40767
+F
+40
+S
+#40769
+&+cA Seldom Used &+WCloud&+c Path&n~
+&+c   The density of the &+Wclouds&+c becomes intense in most directions
+&+chere, other than a distinct pathway leading south, and of course,
+&+cback west to where the the path split.  Although somewhat muffled
+&+csounds of loud, booming, voices and bellowing laughter can be heard
+&+cfrom further down the &+Wcloudscape&+c trail, indicating someone or
+&+csomething has made themselves a camp nearby.&n
+~
+407 33554432 23
+D2
+~
+~
+0 0 40789
+D3
+~
+~
+0 0 40768
+S
+#40770
+&+cAbove the Pasture&n~
+&+c   The &+Wcloudscape&+c pathway ends just above here with the highest
+&+cwalkable position in the &+WHome&+C of the &+WDivine's&+c entirety.  Niether
+&+cthe &+Wangels&+c or the &+Ctitans&+c come up here much at all and even the
+&+csound of &+CEm&+citi&+Con's&+c pounding from inside the &+WPalace &+Cof&+W Justice&+c has
+&+cbecome faint and distant.&n
+~
+407 33554432 23
+D2
+~
+~
+0 0 40768
+D4
+~
+~
+0 0 40788
+S
+#40771
+&+cA Passage Within the &+WClouds&n~
+&+c   The &+Wclouds&+c thicken amazingly here, making most all directions
+&+cnearly inaccessable.  The &+WPalace&+c can still vaguely be seen up several
+&+clayers, but other then a occasional blur of motion nothing else
+&+cis visible.  Hushed voices can be heard north of here, over the
+&+cmore common sounds of the &+WHome&+c, which still resonate in the ears.&n
+~
+407 33554436 23
+D0
+~
+~
+0 0 40772
+D2
+~
+clouds~
+5 0 40749
+S
+#40772
+&+cA Hidden &+YHigh Elf &+cCamp&n~
+&+c   Within the layers of &+Wcloudscape&+c and obscured by the sheer density
+&+cof the &+Wclouds&+c a small band of &+YHigh Elves&+c have made a small camp while
+&+ctravelling through the planes.  They all appear to be veterns of
+&+cplanar exploring but for some reason they maintain a low profile and
+&+cspeak quietly as not to be overheard by the occupants of the &+WHome.&n
+&+cThe obvious leader of the &+YElves&+c keeps watch over the others and
+&+cjumps at just about any noise.&n
+~
+407 33554432 23
+D1
+~
+~
+0 0 40775
+D2
+~
+~
+0 0 40771
+D8
+~
+~
+0 0 40774
+S
+#40773
+&+cAn &+WIcy&+c Nexus&n~
+&+c   With the reflecting &+bpool&+c acting as some sort of transporter
+&+cone suddenly finds themselves floating in a dense &+Wcloudscape,&n
+&+csurrounded by dozens of tiny, chirping, &+Wcloud&+c critters.  With
+&+cthe sheer noise created by the numerous creatures that seem to
+&+calmost meld with the &+Wclouds&+c themselves it becomes quite difficult
+&+cto communicate.&n
+~
+407 176193616 19
+D0
+~
+~
+0 0 40776
+D1
+~
+~
+0 0 40777
+D2
+~
+~
+0 0 40778
+D3
+~
+~
+0 0 40779
+S
+#40774
+&+cA Hidden &+YHigh Elf&+c Camp&n~
+&+c   It obvious by the &+YElves&+c nature that they are either up to
+&+csomething unlawful or something is hunting them.  Either way this
+&+carea deep within the cloudscape acts as perfect cover for them.
+&+cAlthough none of the &+Wangels&+c or angelkin of the &+WHome&+c can be seen
+&+cfrom here, voices, &+Ysiren&+c songs, and the pounding of &+CEm&+citi&+Con's&+L anvil&n
+&+cprove that vast activity is not far off.&n
+~
+407 33554432 23
+D2
+~
+~
+0 0 40775
+D7
+~
+~
+0 0 40772
+S
+#40775
+&+cA Hidden &+YHigh Elf&+c Camp&n~
+&+c   The &+YHigh Elves&+c continue to pace the area very quietly, always
+&+cglancing around themselves every so often.  Without words they keep
+&+clooking towards to the tall shifty-eyed &+Yelf&+c, ask if seeking some sort
+&+cof wisdom he might provide.  Unfortuately, he shakes his head, then
+&+ccontinues to watch over cloudscape passage, making sure no one or
+&+cnothing unwelcome enters.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40774
+D3
+~
+~
+0 0 40772
+S
+#40776
+&+cA Freezing &+WCloudscape&n~
+&+W   Clouds&+c encircle everything from here, dense, deep, billowing
+&+Wclouds&+c that absorb all the light and sound from elsewhere in the
+&+WHome&+c.  The tiny &+Wcloud&+c critters that scamper underneath, viciously
+&+cattacking anything that moves, chirp so loudly that it becomes
+&+cdeafening.  There are zero signs of familiarity in this place other
+&+cthan the &+bpool&+c that remains directly in the center.&n
+~
+407 176193744 19
+D2
+~
+~
+0 0 40773
+S
+#40777
+&+cA Freezing&n &+WCloudscape&n~
+&+W   Clouds&+c encircle everything from here, dense, deep, billowing
+&+Wclouds&+c that absorb all the light and sound from elsewhere in the
+&+WHome&+c.  The tiny &+Wcloud&+c critters that scamper underneath, viciously
+&+cattacking anything that moves, chirp so loudly that it becomes
+&+cdeafening.  There are zero signs of familiarity in this place other
+&+cthan the &+bpool&+c that remains directly in the center.&n
+~
+407 176193744 19
+D3
+~
+~
+0 0 40773
+S
+#40778
+&+cA Freezing&n &+WCloudscape&n~
+&+W   Clouds&+c encircle everything from here, dense, deep, billowing
+&+Wclouds&+c that absorb all the light and sound from elsewhere in the
+&+WHome&+c.  The tiny &+Wcloud&+c critters that scamper underneath, viciously
+&+cattacking anything that moves, chirp so loudly that it becomes
+&+cdeafening.  There are zero signs of familiarity in this place other
+&+cthan the &+bpool&+c that remains directly in the center.&n
+~
+407 176193744 19
+D0
+~
+~
+0 0 40773
+S
+#40779
+&+cA Freezing &+WCloudscape&n~
+&+W   Clouds&+c encircle everything from here, dense, deep, billowing
+&+Wclouds&+c that absorb all the light and sound from elsewhere in the
+&+WHome&+c.  The tiny &+Wcloud&+c critters that scamper underneath, viciously
+&+cattacking anything that moves, chirp so loudly that it becomes
+&+cdeafening.  There are zero signs of familiarity in this place other
+&+cthan the &+bpool&+c that remains directly in the center.&n
+~
+407 176193744 19
+D1
+~
+~
+0 0 40773
+S
+#40780
+&+yA &+WPortal&+y High in the Mountains&n~
+&+y   Deep within the mountain range, high above many of the
+&+ycivilized cities lies a &+Wglowing portal&+y.  The mountain range forms
+&+ya cup here, offering enough space for the fair-sized &+Wportal&+y to be
+&+yformed as well as being kept out of sight from most unless those
+&+yknowing it was here.  The pride of the &+LSoldiers of &+YFortune&+y, the
+&+YEm&+Wpy&+wrean &+cDri&+Cft&+cer&+y docks here fairly often, as many members of the
+&+ymercenary company enjoy hunting for &+Ytreasure&+y beyond the &+Wportal.&n
+~
+407 34603008 5
+D4
+~
+~
+0 0 615667
+S
+#40781
+&+cA Prison of &+bIll&+Bus&+Wions&n~
+&+c   Hidden within &+WAmp&+Chel&+ces mystical loom lies the prison of the
+&+WPalace&+C of &+WJustice&+c.  Locked by the power of &+bill&+Bus&+Wion&+c the cells
+&+care nearly impossible to escape from, nearly impossible to open
+&+cunless one holds the prison key, which is guarded by &+CLenia&+c, the
+&+Ctitan&+W princess&+c.  Other than two separate cells both east and
+&+cwest the loom acts as the solitary way both in and out.&n
+~
+407 176193600 0
+D1
+~
+prison~
+3 40745 40782
+D3
+~
+prison~
+3 40745 40812
+S
+#40782
+&+cA Prison &+LCell&n~
+&+c   The walls of this prison &+Lcell&+c seem to move with shifting colours
+&+cand dazzling lights, making it difficult to concentrate.  This
+&+cprison, contructed by the &+bill&+Bus&+Wionary&+c powers of &+WAmp&+Chel&+ces is usually
+&+cfull after a raid into the &+LPits of &+rCerebrus&+c, but over time, the
+&+ccaptives are either shown the &+Wlight&+c of goodness or are traded for
+&+cother prisoners.  Currently, the prison is nearly empty.&n
+~
+407 176193728 0
+D3
+~
+prison~
+3 40745 40781
+S
+#40783
+&+LA &+rWarm&+W Mist&+L Trail&n~
+&+r   The heat continues to rise the deeper within this layered &+Wcloud&n
+&+Wscape&+r path one travels.  The feeling of anger and hate also seems
+&+rto increase slightly, offering an explanation of the strange
+&+rbehavior of the &+Wmist&+r creatures here.  Evil can almost seem to be
+&+rfelt physically, growing stronger with every step.  The trail
+&+rcontinues downwards.&n
+~
+407 33554432 23
+D3
+~
+~
+0 0 40706
+D5
+~
+~
+0 0 40784
+S
+#40784
+&+LA &+rWarm&+W Mist&+L Trail&n~
+&+r   The decent in the &+Wmist&+r continues with an east/west split here.
+&+rAlthough the heat has increased substantially since passing through
+&+rthe mist wall above, the source still has yet to be discovered.
+&+rThe warm, darker, planar &+Wmist&+r solifieds to the east, becoming a
+&+rlarge&+L lair &+rfor some fearsome &+Wmist&+r plane creature.  The trail
+&+rcontinues to west.&n
+~
+407 33554432 23
+D1
+~
+~
+0 0 40807
+D3
+~
+~
+0 0 40785
+D4
+~
+~
+0 0 40783
+S
+#40785
+&+LA &+rWarm&+W Mist&+L Trail&n~
+&+r   The path inside this hot, red-hued &+Wmist&+r ends here, with most
+&+rother directions being obscured by the haze.  The heat seems
+&+rthe most intense so far here, indicating whatever it is that is
+&+rcausing must be close by.  The &+wsmoke dragon&+r lair can be seen
+&+rnot far off to the east.  The creatures continue to be an
+&+rannoyance, scampering beneath the feet.&n
+~
+407 33554432 23
+D1
+~
+~
+0 0 40784
+D5
+~
+smoke~
+5 0 40786
+S
+#40786
+&+LA Super-&+rHeated&+W Mist&+L Trail&n~
+&+r   The heat has nearly reached a climax here, almost burning the
+&+rflesh from the &+Wbones&+r.  Just north of here the &+mportal&+r to the &+LPits&n
+&+Lof&+r Cerebrus burns with an unnatural heat, the &+LPits&+r being a demi-
+&+rplane of Hell itself.  The red-hued mist thickens on all sides
+&+rhere causing one and all intense claustrophobia.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40787
+D4
+~
+smoke~
+5 0 40785
+S
+#40787
+&+LThe &+mRift&+L of the Pits of &+rCerebrus&n~
+&+r   The &+rheat&+r which was felt far above within the &+Wmists&+r obviously
+&+rhas been coming from this room, moreso the large &+Mglowing &+mportal&n
+&+rthat takes up most of northern area of this blackened &+Wcloudscape.&n
+&+rAs predicted, this &+mportal&+r leads into the &+LPits&+r of &+rCerebrus&+r them-
+&+rselves, as is protected by a large, imposing, &+chuman&+r, dressed fully
+&+rin &+Lblack armor.&n
+~
+407 33554436 23
+D2
+~
+~
+0 0 40786
+S
+#40788
+&+cHigh Above the Pasture&n~
+&+c   This is most likely as high as one could possibly be within
+&+cthe &+WHome&+C of the &+WDivine&+c.  To the south and below the &+Wcloudy&+c pasture
+&+cand the &+WPalace&+C of &+WJustice&+c itself can be seen, its towers still not
+&+creaching the height of this portion of cloudscape.  West of here
+&+cthe &+Wmist&+c plane is nothing but a haze of semi-&+Ldarkness&+c, as far as
+&+cthe eye can see.  A strong &+Wangel&+c warrior is stationed here as a
+&+clookout for defence of the &+WHome.&n
+~
+407 33554432 23
+D5
+~
+~
+0 0 40770
+F
+50
+S
+#40789
+&+cA Seldom Used &+WCloud&+c Path&n~
+&+c   The pathway through the &+Wclouds&+c continues south here, seldom
+&+cused by the &+Wangels&+c but self-proclaimed owned by a group of &+Wcloud&n
+&+Lgiants&+c that have lived up here for several ages.  Though the
+&+Wcloud &+Lgiants&+c are loud, drunken, obnoxious, the protectors of the
+&+WHome&+c allow them to remain. &+CLenia&+c, the &+Ctitan&+c royalty believes the
+&+Lgiants&+c to be some wayward children of the divine, strayed from
+&+cthe &+Wlight&+c but still holding righteousness in the hearts.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40769
+D2
+~
+~
+0 0 40790
+S
+#40790
+&+cA Seldom Used &+WCloud&+c Path&n~
+&+c   The pathway through the &+Wclouds&+c continues east here, seldom
+&+cused by the &+Wangels&+c but self-proclaimed owned by a group of &+Wcloud&n
+&+Lgiants&+c that have lived up here for several ages.  Though the
+&+Wcloud &+Lgiants&+c are loud, drunken, obnoxious, the protectors of the
+&+WHome&+c allow them to remain. &+CLenia&+c, the &+Ctitan&+c royalty believes the
+&+Lgiants&+c to be some wayward children of the divine, strayed from
+&+cthe &+Wlight&+c but still holding righteousness in the hearts.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40789
+D1
+~
+~
+0 0 40791
+S
+#40791
+&+cOn the Verge of a &+WCloud&+c &+LGiant&+c Camp&n~
+&+c   The &+Wclouds&+c continue to form a trail here offering the &+Wcloud&+c &+Lgiants&n
+&+cthat inhabit this area a small secluded and protected area away
+&+cfrom the the rest of the &+WHome&+C of the &+WDivine&+c.  The &+Wcloud &+Lgiants&+c that
+&+cexist here attack in self-defense, believing that all intruders
+&+ccome to evict them from the area.&n
+~
+407 33554432 23
+D1
+~
+~
+0 0 40792
+D3
+~
+~
+0 0 40790
+S
+#40792
+&+cWithin a &+WCloud &+LGiant&+c Camp&n~
+&+c   This obviously is the heart of the &+Wcloud&+L giant&+c camp.  Guards
+&+cwatch over the young &+Lgiants&+c intently, who wander about aimlessly.
+&+cMakeshift tents have been set up, and the more drunken &+Lgiants&n
+&+claugh and stumble about. The camp spread open here both in both
+&+csouth and east direction, while west leads back to the trail that
+&+cends up in the pasture.&n
+~
+407 33554432 23
+D1
+~
+~
+0 0 40793
+D2
+~
+~
+0 0 40794
+D3
+~
+~
+0 0 40791
+S
+#40793
+&+cWithin a &+WCloud&+L Giant&+c Camp&n~
+&+c   This obviously is the heart of the &+Wcloud&+L giant&+c camp.  Guards
+&+cwatch over the young &+Lgiants&+c intently, who wander about aimlessly.
+&+cMakeshift tents have been set up, and the more drunken &+Lgiants&n
+&+claugh and stumble about.  The northern and eastern edge of the camp
+&+cends abrubtly with dispersement of the solid &+Wcloudscape&+c, offering
+&+cthe unwary a very, very long fall down.&n
+~
+407 33554432 23
+D2
+~
+~
+0 0 40795
+D3
+~
+~
+0 0 40792
+S
+#40794
+&+cWithin a &+WCloud &+LGiant&+c Camp&n~
+&+c   This obviously is the heart of the &+Wcloud&+L giant&+c camp.  Guards
+&+cwatch over the young &+Lgiants&+c intently, who wander about aimlessly.
+&+cMakeshift tents have been set up, and the more drunken &+Lgiants&n
+&+claugh and stumble about.  The camp ends with a southeastern corner
+&+cdrop off here,  probably a step in the wrong direction that at least
+&+cone &+Wcloud&+L giant&+c found fatal.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40792
+D1
+~
+~
+0 0 40795
+S
+#40795
+&+cWithin a &+WCloud &+LGiant &+cCamp&n~
+&+c   This obviously is the heart of the &+Wcloud&+L giant&+c camp.  Guards
+&+cwatch over the young &+Lgiants&+c intently, who wander about aimlessly.
+&+cMakeshift tents have been set up, and the more drunken &+Lgiants&n
+&+claugh and stumble about.  Where ever they have managed to obtain
+&+ctheir liquor must be warehouse in size as the sheer ammount of
+&+cspirits to intoxicate a &+Lgiant&+c is incredible.  The camp continues
+&+cnorth and west and yet another pathway begins to the south.&n
+~
+407 33554432 23
+D0
+~
+~
+0 0 40793
+D2
+~
+~
+0 0 40796
+D3
+~
+~
+0 0 40794
+S
+#40796
+&+cWithin a &+WCloud &+LGiant &+cCamp&n~
+&+c   The trail of &+Wclouds&+c continues through the cloud giant camp here,
+&+cleading to the east.  The &+Wcloud&+L giants&+c walk back and forth through
+&+cout their own personal area, confidently believing all noise they
+&+cmake is muted by the thickness of the &+Wclouds&+c.  The &+Wangels&+c and
+&+Ctitans&+c, however, know all too well of the &+Wcloud &+Lgiant&+c presence
+&+cinside the &+WHome&+c and keep a watchful eye over them.
+~
+407 33554432 23
+D0
+~
+~
+0 0 40795
+D1
+~
+~
+0 0 40797
+S
+#40797
+&+cNear the Edge of a &+WCloudy&+c Path&n~
+&+c   The leader of &+Wcloud &+Lgiant&+c camp has set up his own tent here,
+&+ckeeping close to a guard for his own well being.  Despite the
+&+cvery fact there is actually a guard on duty all the &+Wcloud &+Lgiants,&n
+&+cincluding the leader, seem overly relaxed until something disturbs
+&+cthem.  With courage born from the vast ammounts of liquor consumed
+&+cthey attack with the threat intrusion behind them.&n
+~
+407 33554432 23
+D1
+~
+~
+0 0 40798
+D3
+~
+~
+0 0 40796
+S
+#40798
+&+cEnd of a &+WCloudy&+c Path&n~
+&+c   The path leading through the &+Wcloud &+Lgiant&+c camp ends rather
+&+cabrubtly here with the vanishment of all substantial, all solid
+&+Wcloudscape&+c.  If one was to take a step in the wrong direction,
+&+ca fall of great magnitude would quickly follow.  The view up here
+&+cis amazing however, and is worth a time-out to gaze over the
+&+WHome &+cstretched out in all its glory below.&n
+~
+407 33554432 23
+D3
+~
+~
+0 0 40797
+S
+#40799
+Rare Load One~
+....
+....
+~
+407 176193600 0
+D0
+~
+~
+0 0 40800
+D1
+~
+~
+0 0 40801
+D2
+~
+~
+0 0 40802
+D5
+~
+~
+0 0 40708
+S
+#40800
+Unnamed~
+....
+~
+407 176193600 0
+S
+#40801
+Unnamed~
+.....
+~
+407 176193600 0
+S
+#40802
+Unnamed~
+.....
+~
+407 176193600 0
+D0
+~
+~
+0 0 40799
+S
+#40803
+Rare Load Two~
+.....
+.....
+~
+407 176193600 0
+D0
+~
+~
+0 0 40805
+D1
+~
+~
+0 0 40804
+D2
+~
+~
+0 0 40806
+D3
+~
+~
+0 0 40808
+D5
+~
+~
+0 0 40713
+S
+#40804
+Unnamed~
+.....
+~
+407 176193600 0
+S
+#40805
+Unnamed~
+.....
+~
+407 176193600 0
+S
+#40806
+Unnamed~
+.....
+~
+407 176193600 0
+S
+#40807
+&+LLair of a &+wSmoke Dragon&n~
+&+r   The &+Wmist&+r becomes dense on all sides other than the west here,
+&+roffering the massive &+wsmoke dragon&+r who has made his home here a
+&+rsemi-secluded lair.  Although obviously incredibly powerful the
+&+wdragon&+r pays little attention to anything other than his nap time.
+&+rWhen hungry, the tiny &+Wmist &+rcreatures&+r that continously drift through
+&+rthe area offer enough sustenance for the fearsome beast, and provide
+&+rhim with food with the minimal ammount of effort.&n
+~
+407 33554432 23
+D3
+~
+~
+0 0 40784
+S
+#40808
+Unnamed~
+.....
+~
+407 33554432 0
+S
+#40809
+&+CEm&+citi&+Con's&+c Back Room&n~
+&+c   The assistant of &+CEm&+citi&+Con&+c is a recluse in nature and thus
+&+cremains in a room hidden behind the &+CEm&+citi&+Con's&+c main work room,
+&+caway from the forge, &+Lanvil&+c, and most importantly, the people
+&+cof the &+WPalace&+c.  This room, surrounded by the typical stone,
+&+cis barred by an almost invisible white door, blended perfectly
+&+cinto the western wall.
+~
+407 176160832 0
+D3
+~
+cloud~
+5 0 40757
+S
+#40810
+&+cOutside the Gat&+Ces of &+WPurity&n~
+&+c   This is a quiet area hidden just outside the Gat&+Ces of &+WPurity.&n
+&+cWith the &+Wclouds&+c contiously in motion within the &+WHome&+c it is easy
+&+cto miss a pathway or a trail that is visible one moment then
+&+cobscured the next.  The &+Wcloudscape&+c raises with a slight accent
+&+chere, however, watching ones feet would be a wise idea as a fall
+&+cfrom this height could quickly end one's life.&n
+~
+407 33554432 23
+D2
+~
+clouds~
+5 0 40729
+D4
+~
+~
+0 0 40811
+S
+#40811
+&+cA Secluded &+WGrif&+Yfon&+c Nest&n~
+&+c   Nestled within a secluded &+Wcloudscape&+c just outside the &+WHome&+C of&n
+&+Cthe &+WDivine's&+c front gates sits this &+Wgrif&+Yfon&+y nest&+c.  The &+Wgrif&+Yfons,&n
+&+cmuch like the &+Cpe&+Wga&+Csi&+c, have been used as mounts by the &+Wangels&+c for
+&+ccountless years, however over time the &+Wgrif&+Yfon's&+c numbers have
+&+cdimished greatly.  The &+Wcloud&+c becomes too thin in all other
+&+cdirections here, thin enough to no longer support any wieght,
+&+cthus not accessable.&n
+~
+407 33554432 23
+D5
+~
+~
+0 0 40810
+F
+25
+S
+#40812
+&+cA Prison &+LCell&n~
+&+c   The walls of this prison &+Lcell&+c seem to move with shifting colours
+&+cand dazzling lights, making it difficult to concentrate.  This
+&+cprison, contructed by the &+bill&+Bus&+Wionary&+c powers of &+WAmp&+Chel&+ces is usually
+&+cfull after a raid into the &+LPits of &+rCerebrus&+c, but over time, the
+&+ccaptives are either shown the &+Wlight&+c of goodness or are traded for
+&+cother prisoners.  Currently, the prison is nearly empty.&n
+~
+407 176193728 0
+D1
+~
+prison~
+3 40745 40781
+S
+#40813
+Rare Load Three~
+......
+......
+~
+407 142639168 0
+D0
+~
+~
+0 0 40814
+D2
+~
+~
+0 0 40815
+D5
+~
+~
+0 0 40803
+S
+#40814
+Unnamed~
+.....
+~
+407 142639168 0
+S
+#40815
+Unnamed~
+....
+~
+407 142639168 0
+S
+#40816
+&+cAdrift in a Plane of &+WMist&n~
+&+L   The &+Wmists&+L continue as always here, drifting endlessly across an
+&+Lalmost infinite seeming area of space.  Strangely, even though the
+&+yterrain&+L never really changes, the sudden thoughts of falling enter
+&+Lones mind, falling forever, beyond &+Wclouds&+L, beyond everything.  The
+&+Laction of looking downward, however, displays nothing but &+Wmist&n
+&+Lbetween ones feet, &+chazy&+L, yet substantial.&n
+~
+407 0 23
+D0
+~
+~
+0 0 40820
+D2
+~
+~
+0 0 40817
+D3
+~
+~
+0 0 40717
+S
+#40817
+&+cAdrift in a Plane of &+WMist&n~
+&+L   A barrier of &+Wfog&+L blocks access any further to the east, but
+&+Lthe &+Wmisty&+L walkways continue it all other directions, yet seems to
+&+Ldissipate slightly to the north, indicating something of interest
+&+Lcloseby.  The strange &+mpurple creatures&+L that inhabit the &+cplane&n
+&+Lcontinue to scamper about- playfully irritating.&n
+~
+407 0 23
+D0
+~
+~
+0 0 40816
+D2
+~
+~
+0 0 40818
+D3
+~
+~
+0 0 40711
+S
+#40818
+&+cAdrift in a Plane of &+WMist&n~
+&+L   The &+Wmists&+L continue as always here, drifting endlessly across an
+&+Lalmost infinite seeming area of space.  Strangely, even though the
+&+yterrain&+L never really changes, the sudden thoughts of falling enter
+&+Lones mind, falling forever, beyond &+Wclouds&+L, beyond everything.  The
+&+Laction of looking downward, however, displays nothing but &+Wmist&n
+&+Lbetween ones feet, &+chazy&+L, yet substantial.&n
+~
+407 0 23
+D0
+~
+~
+0 0 40817
+D2
+~
+~
+0 0 40819
+D3
+~
+~
+0 0 40718
+S
+#40819
+&+cAdrift in a Plane of &+WMist&n~
+&+L   The &+Wmists&+L continue as always here, drifting endlessly across an
+&+Lalmost infinite seeming area of space.  Strangely, even though the
+&+yterrain&+L never really changes, the sudden thoughts of falling enter
+&+Lones mind, falling forever, beyond &+Wclouds&+L, beyond everything.  The
+&+Laction of looking downward, however, displays nothing but &+Wmist&n
+&+Lbetween ones feet, &+chazy&+L, yet substantial.&n
+~
+407 0 23
+D0
+~
+~
+0 0 40818
+D3
+~
+~
+0 0 40715
+S
+#40820
+&+cAdrift in a Plane of &+WMist&n~
+&+L   The &+Wmists&+L continue as always here, drifting endlessly across an
+&+Lalmost infinite seeming area of space.  Strangely, even though the
+&+yterrain&+L never really changes, the sudden thoughts of falling enter
+&+Lones mind, falling forever, beyond &+Wclouds&+L, beyond everything.  The
+&+Laction of looking downward, however, displays nothing but &+Wmist&n
+&+Lbetween ones feet, &+chazy&+L, yet substantial.&n
+~
+407 0 23
+D0
+~
+~
+0 0 40821
+D2
+~
+~
+0 0 40816
+D3
+~
+~
+0 0 40720
+S
+#40821
+&+cAdrift in a Plane of &+WMist&n~
+&+L   The &+Wmists&+L continue as always here, drifting endlessly across an
+&+Lalmost infinite seeming area of space.  Strangely, even though the
+&+yterrain&+L never really changes, the sudden thoughts of falling enter
+&+Lones mind, falling forever, beyond &+Wclouds&+L, beyond everything.  The
+&+Laction of looking downward, however, displays nothing but &+Wmist&n
+&+Lbetween ones feet, &+chazy&+L, yet substantial.&n
+~
+407 0 23
+D2
+~
+~
+0 0 40820
+D3
+~
+~
+0 0 40721
+S
+>>>>>>> master

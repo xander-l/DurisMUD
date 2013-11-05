@@ -205,13 +205,20 @@ int guildhall_window(P_obj obj, P_char ch, int cmd, char *arg)
   //
   // if a player does "look in <objectname>", we want to show them outside the guildhall
   //
-  if( ch && cmd == CMD_LOOK )
+  if( ch && cmd == CMD_LOOK &&
+	  isname(arg, "in glass"))
   {
+<<<<<<< HEAD
     char buff[MAX_STRING_LENGTH];
     if( *arg )
       half_chop(arg, buff, arg2);
     else
       buff[0] = '\0';
+=======
+    /*
+	char buff[MAX_STRING_LENGTH];
+    half_chop(arg, buff, arg);
+>>>>>>> master
 
     if( *buff && is_abbrev(buff, "in") )
     {
@@ -221,14 +228,14 @@ int guildhall_window(P_obj obj, P_char ch, int cmd, char *arg)
       {
         if( !real_room0(obj->value[0]) )
           return FALSE;
-
-        sprintf(buff, "You peer into %s&n and see...\r\n\r\n", obj->short_description);
-        send_to_char(buff, ch);
+	*/
+        //sprintf(buff, "You peer into %s&n and see...\r\n\r\n", obj->short_description);
+		send_to_char("You look out the window...\r\n", ch);
+        //send_to_char(buff, ch);
         new_look(ch, 0, -5, real_room0(obj->value[0]));    
         return TRUE;
-      }
-    }
-    else if( *buff && is_abbrev(buff, "out") )
+    /*
+	else if( *buff && is_abbrev(buff, "out") )
     {
       if( !real_room0(obj->value[0]) )
         return FALSE;
@@ -238,8 +245,8 @@ int guildhall_window(P_obj obj, P_char ch, int cmd, char *arg)
       new_look(ch, 0, -5, real_room0(obj->value[0]));    
       return TRUE;
     }
+	*/
   }
-  
   return FALSE;
 }
 

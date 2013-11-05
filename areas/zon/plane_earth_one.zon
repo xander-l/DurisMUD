@@ -59,10 +59,10 @@ M 0 23804 9 23849 100 0 0 0        * a dao noble
 M 0 23806 1 23850 100 0 0 0        * Ogremoch Prince of the Elemental Plane of Earth
 E 1 23807 1 8 100 0 0 0            *   a pair of dusty boots
 E 1 23806 1 9 100 0 0 0            *   a pair of gauntlets formed of dust
-E 1 23805 1 16 100 0 0 0           *   the mace of the earth
 G 1 55198 1 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 359 1 0 100 0 0 0              *    (object type not in this .obj file)
 G 1 14123 1 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 69 1 0 100 0 0 0               *    (object type not in this .obj file)
 M 0 23802 20 23851 100 0 0 0       * an earth elemental
 M 0 23807 10 23855 100 0 0 0       * an earth treant
 M 0 23802 20 23861 100 0 0 0       * an earth elemental

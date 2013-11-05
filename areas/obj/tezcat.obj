@@ -20,8 +20,13 @@ blood dagger tezcatlipoca tezcat~
 &+LA &+rbl&+Ro&+ro&+Rd &+Lstained dagger lays on the ground here.&n~
 ~
 5 18 3 0 15 80 20063504 8396801 67 2224131 0
+<<<<<<< HEAD
 2 3 4 11 0 71103 56 35
 6 88000 100 100 65576 0 0 0
+=======
+2 4 6 11 0 71103 56 35
+6 88000 100 65576 0 0 0
+>>>>>>> master
 E
 blood dagger tezcatlipoca tezcat~
 &+r   Blood &+Lengulfs the blade and some &+rstains&+L have dripped down to the hilt.  So&n

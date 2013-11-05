@@ -5000,7 +5000,11 @@ shield dwarf doctor alatorin~
 &+yassistants beside this woman, who is dressed in dwarf-sized cloth linens.
 ~
 2250 0 0 0 24 14552 0 0 1000 S
+<<<<<<< HEAD
 pm 0 32 0 -1
+=======
+pm 0 32 2 -1
+>>>>>>> master
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #40700
 spring purity~
 &+cthe spring of &+Wpurity&n~
@@ -1326,3 +1327,1353 @@ A
 18 3
 A
 19 3
+=======
+#40700
+spring purity~
+&+cthe spring of &+Wpurity&n~
+&+cThe spring of &+Wpurity&+b flows&+c as an abundant source of holy &+bwater &+chere.&n~
+~
+17 40 3 0 7 0 0 0 0 0 0
+-1 -1 17 0 0 0 0 0
+0 0 100
+E
+spring purity~
+&+cThis spring constantly remains fresh and pure despite the fact
+&+cthere is no other &+bwater&+c source within the &+WHome&+c.  The &+bwater&+c it
+&+cprovides is cool and refreshing.&n
+~
+#40701
+warrior statue~
+&+Wan angelic statue&n~
+&+WAn ivory statue of a warrior angel is here.~
+~
+15 15 3 0 7 0 0 0 0 0 0
+5000 5 0 5000 0 0 0 0
+0 0 100
+E
+warrior statue~
+&+WThis statue is of a strong. imposing angel warrior.  He is captured
+&+Win a pose with a long sword held high and his face has been carved
+&+Win a state of determination.  This statue appears to be carved of
+&+Wivory.&n
+~
+#40702
+solemn statue~
+&+Wan angelic statue&n~
+&+WAn angelic statue of a solemn angel is here.&n~
+~
+15 15 3 0 7 0 0 0 0 0 0
+5000 5 0 5000 0 0 0 0
+0 0 100
+E
+solemn statue~
+&+WThis statue appears to be of a angel priest.  He is captured
+&+Win a pose of looking up into the clouds while holding a staff
+&+Wwith both hands over his head.&n
+~
+#40703
+angel magnificent great statue~
+&+Wan angelic statue&n~
+&+WA magnificent statue of great angel is here.&n~
+~
+15 15 3 0 7 0 0 0 0 0 0
+5000 5 0 5000 0 0 0 0
+0 0 100
+E
+angel magnificent great statue~
+&+WThis statue was obviously carved by a master artisan of an
+&+Wangelic hero.  Despite the amazing craftsmanship it has began
+&+Wto wear over the years.&n
+~
+#40704
+angelic blade~
+&+Wan ang&+celi&+Cc bl&+cade&n~
+&+WAn ang&+Celic bl&+cade sits in&+W a swirl of mi&+cst here.&n~
+~
+5 34 3 0 13 0 4457472 8193 64 67108888 0
+13 4 4 3 0 0 0 0
+0 1 100 8192 208 0 0
+E
+angelic blade~
+&+cThis blade, once held by a bounty hunter sent from the &+Whea&+Cvens,&n
+&+cis a deadly weapon in any hands.  Sharp, strong, and sturdy, it
+&+cmakes a perfect weapon for any specializing in two handed weaponry.&n
+~
+A
+18 3
+A
+19 3
+#40705
+angelic suit full plate armor~
+&+can &+Wangelic&+c suit of full plate armor&n~
+&+cAn &+Wangelic&+c suit of full plate armor has been left here.&n~
+~
+9 15 3 0 13 0 263168 9 2 85458969 0
+36 0 0 4 0 0 0 0
+0 200000 100 67108864 0 0 0
+E
+angelic suit full plate armor~
+&+cThis suit of armor was designed to cover the arms, legs, as well
+&+cas the torso of the wearer.  It was forged by &+CEm&+citi&+Con&+c inside the
+&+WHome&+C of the &+WDivine&+c and seems to provide decent protection from
+&+cphysical attacks.&n
+~
+A
+18 2
+#40706
+blade kings~
+&+ca &+Cblade&+c of &+Ckings&n~
+&+cA sharp &+Cblade&+c bearing the mark of ancient &+Ckings&+c has been left here.&n~
+~
+5 19 3 0 13 0 1024 8193 0 87572483 0
+5 3 3 3 0 0 0 0
+0 200000 100
+E
+blade kings~
+&+cThis &+Clongsword&+c was forged by &+CEm&+citi&+Con&+c within the &+WHome&+C of the &+WDivine.&n
+&+cIt is high quality craftsmanship and light enough to be quite useful
+&+cfor those with the will to wield two weapons.&n
+~
+A
+18 2
+A
+19 2
+#40707
+heavens shield~
+&+ca shield of the &+Whea&+Cve&+cns&n~
+&+cA &+Whea&+Cve&+cnly shield has been left here.&n~
+~
+37 23 3 0 13 0 1024 8389121 0 119144481 0
+1 3 4 100 0 0 0 0
+16 150000 100
+E
+heavens shield~
+&+cThis shield was crafted by &+CEm&+citi&+Con&+c within the &+WDivine Home&+c. It
+&+cis amazingly sturdy and seems to be of the highest quality.&n
+~
+A
+1 5
+A
+26 5
+#40708
+boots ages~
+&+ca pair of &+Cboots&+c of the &+Cages&n~
+&+cA pair of &+Cboots&+c of the &+Cages&+c have been left here.&n~
+~
+9 15 3 0 13 0 1024 65 0 14715394 0
+7 0 0 3 0 0 0 0
+0 100000 100
+E
+boots ages~
+&+cThese boots have been forged by &+CEm&+citi&+Con&+c. They are sturdy yet
+&+clight and provide the wearer with increased swiftness.&n
+~
+A
+14 15
+A
+5 5
+#40709
+earring angels~
+&+can earring of &+Wangels&n~
+&+cAn earring of &+Wangels&+c has been left here.&n~
+~
+9 34 3 0 13 0 0 524289 0 0 0
+2 0 0 1 0 0 0 0
+0 100000 100 8192 4 0 0
+E
+earring angels~
+&+cThis tiny earring was crafted from a small piece of &+Wivory&+c and
+&+ccarved into a shape of a &+Wdove.&n
+~
+A
+4 3
+A
+3 3
+#40710
+mask heavens~
+&+ca mask of &+Whea&+Cve&+cns&n~
+&+cA mask of &+Whea&+Cve&+cns has been dropped here.&n~
+~
+9 25 3 0 13 0 1024 262145 0 33685920 0
+4 0 0 2 0 0 0 0
+0 11000 100
+E
+mask heavens~
+&+cThis mask, forged in &+CEm&+citi&+Con's&+L foundry&+c, was created by an almost
+&+cpriceless &+Wmetal&+c.  It offers decent protection for the wearers
+&+cface.&n
+~
+A
+18 2
+A
+20 -2
+#40711
+celestial leg plates~
+&+ca pair of &+Wce&+Clest&+Wial&+c leg plates&n~
+&+cA pair of &+Wce&+Clest&+Wial&+c leg plates have been left here.&n~
+~
+9 1 3 0 13 0 0 33 0 0 0
+9 0 0 2 0 0 0 0
+0 100000 100
+E
+celestial leg plates~
+&+cThese leg plates, forged by &+CEm&+citi&+Con&+c, offer sturdy protection on
+&+cthe thighs and shins.&n
+~
+A
+19 2
+A
+18 1
+#40712
+celestial ribbon~
+&+ca &+Cce&+Wle&+Csti&+Wal&+c ribbon&n~
+&+cA &+Cce&+Wle&+Csti&+Wal&+c ribbon has been left here.&n~
+~
+9 3 3 0 7 0 267264 178257921 64 95994243 40960
+8 0 0 3 0 0 0 0
+0 20000 100 0 4224 0 0
+E
+celestial ribbon~
+&+cThis tail ribbon glows with &+Wwhite&+c, cel&+Wes&+ctial, powers.  It seems
+&+cto provide the wearer with some &+bmagical&+c protection.&n
+~
+A
+24 -3
+A
+18 2
+#40713
+heavenly saddle~
+&+ca &+Chea&+Wven&+Cly &+csaddle&n~
+&+cA &+Chea&+Wven&+Cly&+c saddle has been left here.&n~
+~
+9 14 3 0 11 0 266240 16777217 0 0 0
+5 0 0 3 0 0 0 0
+0 3000 100
+E
+heavenly saddle~
+&+cThis saddle, once worn by a &+Wmaj&+Cest&+cic &+Wpe&+Cga&+Wsus&+c, seems to have the
+&+cability to raise the vigor of the wearer.  It is made by strong,
+&+ccured &+yleather&+c, and infused with cel&+Wes&+ctial powers.&n
+~
+A
+14 25
+A
+19 2
+#40714
+anvil~
+&+La &+Wtitanic&+L anvil&n~
+&+LA &+Wtitanic&+L anvil sits in the center of the room.&n~
+~
+15 15 3 0 7 0 0 0 0 0 0
+5000 5 0 5000 0 0 0 0
+0 30000 100
+E
+anvil~
+&+LThis anvil is used by &+CEm&+citi&+Con&+L to pound out his &+ccel&+Wes&+ctial&n
+&+Lweaponery.  It is covered with all sorts of metal chips.&n
+~
+#40715
+hammer titans~
+&+cthe &+Lhammer&+c of the &+Ctitans&n~
+&+cThe &+Lhammer&+c of the &+Ctitans&+c has been left here.&n~
+~
+5 15 3 0 7 0 0 8396801 0 0 0
+4 2 8 7 0 0 0 0
+0 30000 100
+E
+hammer titans~
+&+cThis &+Lhammer&+c is somewhat smaller than one would expect to see
+&+cwielded by a &+Ctitan&+c. It appears to be of high craftsmanship but
+&+ccould use a serious upgrade before becoming truely useful.&n
+~
+A
+18 2
+A
+19 3
+#40716
+shard mist solidified~
+&+La shard of solidified &+Wmist&n~
+&+LA shard of solidified &+Wmist&+L has been left here.&n~
+~
+11 1 3 0 7 0 4096 2097153 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+shard mist solidified~
+&+LThis shard seems to have once been the drifting &+Wmist&+L that
+&+Lis common up near the Home of the Divine.  Through obvious magical
+&+Lmeans, most likely a side effect of some spell, the &+Wmist&+L has
+&+Lsolified to form an almost crystal-like substance.&n
+~
+#40717
+titanic ethereal battle hammer~
+&+ca &+Ltitanic &+Ceth&+cere&+Wal&+L ba&+Wtt&+Lleha&+Wmm&+Ler&n~
+&+cA &+Ltitanic&+C eth&+cere&+Wal&n &+Lba&+Wttl&+Leha&+Wmm&+Ler&+c is left &+Mglowing&+c on the ground here.&n~
+~
+5 1 3 0 15 0 1025 8193 2 33685920 0
+4 2 8 6 0 0 0 0
+0 90000 100 4 0 0 0
+E
+titanic ethereal battle hammer~
+&+cThis huge warhammer was forged by &+CEm&+citi&+Con&+c and infused with the
+&+cpowers of the &+Wmists&+c.  It is expertly made and could proove very
+&+cuseful for the priests it was designed for.&n
+~
+A
+18 4
+A
+19 4
+#40718
+token titans~
+&+ca token of the &+Ctitans&n~
+&+cA token of the &+Ctitans&+c has been left here.&n~
+~
+8 15 3 0 7 0 8392704 2097153 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+token titans~
+&+cThis token seems to be have taken from &+Ctitan&+c nobility.  The
+&+Ctitan &+Wprince&+c and &+Wprincess&+c must be anxious to get it back, however
+&+cit also could very useful and very valuable for an enemy of
+&+Ctitans&+c as well.&n
+~
+#40719
+piece ivory~
+&+Wa piece of ivory&n~
+&+WA piece of ivory has been left here.&n~
+~
+8 34 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+piece ivory~
+&+WThis small piece of chipped ivory must be worth some sort of
+&+Wmonetary ammount.  It is shaped like a small pyramid.&n
+~
+#40720
+pool~
+&+ba reflectling pool&n~
+&+cA reflecting &+bpool&+c of &+Wicy&+b water&+c is here.&n~
+~
+25 15 3 0 7 0 0 0 0 0 0
+40773 7 -1 0 0 0 0 0
+0 0 100
+E
+pool~
+&+bShiva's&+c personal &+bpool&+c of water seems to more than just reflect
+&+cimages and light. By staring into it long enough it seems to
+&+cactually create images.  Perhaps of somewhere or someone
+&+celsewhere in the world.&n
+~
+#40721
+pool~
+&+ba reflectling pool&n~
+&+cA reflecting &+bpool&+c of &+Wicy&+b water&+c is here.&n~
+~
+25 15 3 0 7 0 0 0 0 0 0
+40758 7 -1 0 0 0 0 0
+0 0 100
+E
+pool~
+&+bShiva's&+c personal &+bpool&+c of water seems to more than just reflect
+&+cimages and light. By staring into it long enough it seems to
+&+cactually create images.  Perhaps of somewhere or someone
+&+celsewhere in the world.&n
+~
+#40722
+shield titan prince~
+&+cthe &+Wshield&+c of the &+Ctitan&+W prince&n~
+&+cSomeone has left the &+Wshield&+c of the &+Ctitan &+Wprince&+c here.&n~
+~
+37 19 3 0 14 0 1024 513 66 119160865 0
+1 3 4 182 0 0 0 0
+10 100000 100
+E
+shield titan prince~
+&+cThis &+Wshield&+c bears the crest of the &+Ctitan&+c royalty.  It has been
+&+ccrafted by sturdy &+Madamantium&+c and while fastened to the arm can
+&+ctransfer that &+Ctitan&+c strength to the wearer through magical means.
+~
+A
+31 2
+A
+19 2
+#40723
+ethereal loom~
+&+can &+Lethereal&+c loom&n~
+&+cAn &+Lethereal&+c loom of &+Wmists&+c sits in the room here.&n~
+~
+25 15 3 0 7 0 1 0 0 0 0
+40781 320 -1 0 0 0 0 0
+0 0 100
+E
+ethereal loom~
+&+cThis loom, created by &+WAmp&+Chel&+ces, is used to design all the
+&+Wclouds&+c within the &+WHome&+c.  It &+bshimmers&+c with illusionary powers.&n
+~
+#40724
+ethereal loom~
+&+can &+Lethereal&+c loom&n~
+&+cAn &+Lethereal&+c loom of &+Wmists&+c sits in the room here.&n~
+~
+25 15 3 0 7 0 1 0 0 0 0
+40756 320 -1 0 0 0 0 0
+0 0 100
+E
+ethereal loom~
+&+cThis loom, created by &+WAmp&+Chel&+ces, is used to design all the
+&+Wclouds&+c within the &+WHome&+c.  It &+bshimmers&+c with illusionary powers.&n
+~
+#40725
+blood red eyepiece~
+&+La &+rblood-red&+R &+Leyepiece&n~
+&+LA &+rblood-red&+L eyepiece has been left here.&n~
+~
+9 2 3 0 7 0 0 131073 64 0 0
+-9 0 0 3 0 0 0 0
+0 40000 100
+E
+blood red eyepiece~
+&+LNot only is this eyepiece as dark &+rred&+L as &+rblood&+L but it actually
+&+Lappears to be made of the &+rflesh&+L of a once living being.  To put it
+&+Lnear one's face is a digusting thought.&n
+~
+A
+13 15
+A
+5 6
+#40726
+heart raith~
+&+rthe dark heart of Raith&n~
+&+rA heart filled with evil has been left here.&n~
+~
+8 15 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+heart raith~
+&+rThis is a carved heart from a being a pure evil.  It once pumped&n
+&+Lblack&+r tainted blood through the veins of the evil Raith.&n
+~
+#40727
+riser iron mace~
+&+Wan&+c iron mace&+W dubbed&+c '&+YRiser&+c'&n~
+&+WAn &+ciron mace&+W has been dropped here.&n~
+~
+5 15 3 0 7 0 1024 8193 0 95993859 0
+6 2 4 3 0 0 0 0
+0 2000 100
+E
+riser iron mace~
+&+cThis mace is nothing more than a hammered out piece of iron
+&+cwith sharpened edges.  It could seriously use an upgrade.&n
+~
+A
+18 1
+A
+19 1
+#40728
+rising frost icy mace~
+&+can &+bicy&+c mace dubbed &+c'&+bRis&+Bing&+b Frost&+c'&n~
+&+cAn &+bicy&+c mace has been left here.&n~
+~
+5 23 3 0 11 0 1024 8193 64 95993859 0
+6 3 4 3 0 472325 25 30
+0 200000 100 0 64 0 0
+E
+rising frost icy mace~
+&+cThis mace, infused with the powers of &+Bice&+c by &+BShiva&+c, seems to have
+&+conce been a lesser quality weapon.  Now it glows with an &+Bicy&+c, magical
+&+cshine.&n
+~
+E
+_char_msg~
+&+cYour $q &+ccalls upon the &+Bchill&+c of&+L night&+c.
+~
+E
+_victim_msg~
+&n$n's $q &+ccalls upon the &+Bchill&+c of&+L night&+c.
+~
+E
+_room_msg~
+&n$n's $q &+ccalls upon the &+Bchill&+c of&+L night&+c.
+~
+A
+18 4
+A
+19 4
+#40729
+blazing mace rising sun~
+&+ca &+rbla&+Yzi&+rng&+c mace dubbed '&+YRis&+ring &+YSun&+c'&n~
+&+cA &+rbla&+Yzi&+rng&+c mace has been left here.&n~
+~
+5 15 3 0 7 0 0 8193 64 0 0
+6 3 4 3 0 233021 50 30
+0 0 100
+E
+blazing mace rising sun~
+&+cThis mace has been infused with the powers of &+rfire&+c.  It is
+&+cwarm to the touch and when waved through the air &+Ysparks&+c appear.&n
+~
+E
+_char_msg~
+&+cYour $q &+rcalls upon the power of the sun!
+~
+E
+_victim_msg~
+&n$n's $q &+rcalls upon the power of the sun!
+~
+E
+_room_msg~
+&n$n's $q &+rcalls upon the power of the sun!
+~
+A
+19 3
+A
+18 3
+#40730
+mist viper venom sac~
+&+La &+Wmist&+L &+wvi&+Lpe&+wr&+L venom sac&n~
+&+LA &+Wmist&+L viper venom sac has been left here.&n~
+~
+10 7 3 0 7 0 0 8388609 0 0 0
+30 79 79 79 0 0 0 0
+0 0 100
+E
+mist viper venom sac~
+&+LFrom the jowels of a &+Wmist&+w vi&+Lpe&+wr,&+L this venom sac contains powerful
+&+Lrevitalizing powers. &n
+~
+#40731
+falcon skull ethereal~
+&+Lan ethereal &+yfalcon&+L skull&n~
+&+LAn ethereal &+yfalcon&+L skull has been left here.&n~
+~
+10 15 3 0 7 0 0 8388609 0 0 0
+30 141 141 141 0 0 0 0
+0 0 100
+E
+falcon skull ethereal~
+&+LThe &+Wskull&+L of an ethereal &+yfalcon&+L is said to have powers over nature.&n
+~
+#40732
+flame phoenix~
+&+ra flam&+Ye of a &+rphoe&+Ynix&n~
+&+rA sma&+Yll phoe&+rnix fla&+Yme&+r has been left here.&n~
+~
+10 15 3 0 7 0 4096 8388609 0 0 0
+30 108 108 108 0 0 0 0
+0 0 100
+E
+flame phoenix~
+&+rWith the powers of phoe&+Ynix&+r this tiny flame burns continously.
+&+rAlthough the phoe&+Ynix&+r this flame is from was you&+Yng&+r, it still
+&+rcontains power over fire.&n
+~
+#40733
+shade tiger claw~
+&+ba &+Lshade&+b tiger claw&n~
+&+bA &+Lshade&+b tiger claw has been left here.&n~
+~
+4 15 3 0 7 0 4096 8388609 0 0 0
+30 5 5 41 0 0 0 0
+0 0 100
+E
+shade tiger claw~
+&+bThis claw is from a legendary &+Lshade&+b tiger from somewhere in an
+&+bethereal plane.  When ingested it is told to contain the powers
+&+bof pure quick&+wsilver.&n
+~
+#40734
+golden horse shoe~
+&+Ya golden horse shoe&n~
+&+YA golden horse shoe, left by a &+Wuni&+Ccorn&+Y, has fallen here.&n~
+~
+8 15 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+golden horse shoe~
+&+YThis horse shoe, left by either a &+Wuni&+Ccorn&+Y or &+Cpega&+Wsus&+Y within&n
+&+Ythe &+WHome&+C of the &+WDivine&+Y seems to be worth a fair ammount of money.
+&+YIt is a valuable piece of treasure.&n
+~
+#40735
+large scale smoke dragon~
+&+wa large smoke dragon scale&n~
+&+wA large smoke dragon scale has fallen here.&n~
+~
+8 35 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+large scale smoke dragon~
+&+wThis large scale was from a powerful &+Lsmoke&+w dragon. It is nearly
+&+wtwo meters long and incredibly resiliant.&n
+~
+#40736
+large celestial dragon scale~
+&+ca large cel&+Wes&+ctial dragon scale&n~
+&+cA large cel&+Wes&+ctial dragon has fallen here.&n~
+~
+8 35 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+large celestial dragon scale~
+&+cThis scale, nearly three meters in length, was from a rare
+&+ccel&+Wes&+ctial dragon. If done correctly it could probably be used
+&+cto make some very strong armor.&n
+~
+#40737
+smoke dragon scalemail suit armor~
+&+La &+wsmoke&n &+Ldragon &+wsca&+Llem&+wail &+Lsuit&n~
+&+LA &+wsuit&+L of dragon &+wscale&+L &+warmor&+L has been left here.&n~
+~
+9 35 3 0 14 0 1 9 0 4165287428 0
+45 0 0 5 0 0 0 0
+0 50000 100 0 16 0 0
+E
+smoke dragon scalemail suit~
+&+wThis dragonscale armor was crafted by the plates of a incredibly
+&+wrare &+Lsmoke&+w dragon.  The scales are quite thick and offer great
+&+wprotection as well as invigorizing the wearer.&n
+~
+A
+18 4
+A
+35 3
+#40738
+suit celestial dragon scale dragonscale armor~
+&+ca suit of &+ccel&+Wes&+ctial &+Wdra&+cgons&+Wcale&n~
+&+cA suit of cel&+Wes&+ctial &+Wdra&+cgons&+Wcale&+c has been left here.&n~
+~
+9 35 3 0 14 0 1 9 0 4165287428 0
+45 0 0 5 0 0 0 0
+0 50000 100 32 0 0 0
+E
+suit celestial dragon scale dragonscale armor~
+&+cThis suit of armor was crafted from the scales of a majestic
+&+ccel&+Wes&+ctial dragon.  When worn senses seem heightened, and even for
+&+ca full body suit its protection seems uncanny.&n
+~
+A
+18 3
+A
+19 2
+#40739
+piece nexus cloud~
+&+Wa piece of &+Cnex&+cus&+W cloud&n~
+&+WA small piece of cloud from the &+Cnex&+cus&+W is here.&n~
+~
+8 1 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+piece nexus cloud~
+&+cThis is a small piece of &+Wcloud&+c often found within the &+WDivine&n
+&+BNex&+bus.&n
+~
+#40740
+wispy key mist~
+&+ca &+Wwispy&n &+Ckey&+c of &+Wmist&n~
+&+cA &+Wwispy&n &+Ckey&+c of &+Wmist&+c has been left here.&n~
+~
+18 1 3 0 7 0 8388608 16385 0 0 0
+0 100 0 0 0 0 0 0
+0 0 100
+E
+wispy key mist~
+&+cThis key is used to open the &+Wgates&+c to the &+WPalace&+C of &+WJustice.&n
+~
+#40741
+crested golden dagger~
+&+La &+Ycrested golden &+Ldagger&n~
+&+LA &+Ycrested, golden &+Ldagger, has been left here.&n~
+~
+5 24 3 0 7 0 1280 8193 64 8515584 0
+2 2 4 11 0 0 0 0
+0 4500 100
+E
+crested golden dagger~
+&+yThis &+Ldagger&+y is &+Ycrested&+y with the royal mark of the &+YHigh Elves&n
+&+yof &+YDashenwood&+y.  It is plated with &+Ygold&+y and although only of
+&+yaverage quality it must have once belonged to someone of some
+&+yimportance.&n
+~
+A
+18 2
+A
+19 2
+#40742
+polearm falchion barbed~
+&+ya long &+Lbarbed&+y falchion&n~
+&+yA &+Lbarbed&+y-tipped polearm has been left here.&n~
+~
+5 6 3 0 7 0 4194304 8193 66 0 0
+8 2 7 11 0 0 0 0
+0 4500 100
+E
+polearm falchion barbed~
+&+yThe polearm is the weapon of choice for most &+YHigh Elf&+y warriors.
+&+yIt acts as both a piercer and a slasher and is easily crafted
+&+yfrom even within the &+YElves&+y secret home.
+~
+A
+18 2
+A
+19 3
+#40743
+nest~
+&+ya &+Wgrif&+Yfon's&+y nest&n~
+&+yA &+Wgrif&+Yfon's&+y nest sits within the &+Wcloudscape&+y here.&n~
+~
+15 15 3 0 7 0 0 0 0 0 0
+50000 5 0 50000 0 0 0 0
+0 0 100
+E
+nest~
+&+yThis nest is nestled within the &+Wclouds&+y and offers protection for
+&+ythree young &+Wgrif&+Yfons&+y.  Unfortunately it doesn't blend in with the
+&+Wcloudscape&+y very well and is rather obvious.&n
+~
+#40744
+badge cloud giants~
+&+ca badge of the &+Wcloud &+Lgiants&n~
+&+cA badge of the &+Wcloud&+L giants&+c has been left here.&n~
+~
+9 3 3 0 7 0 0 2097153 0 0 0
+-5 0 0 1 0 0 0 0
+0 0 100
+E
+badge cloud giants~
+&+cThis is the badge from the &+Wcloud&+L giant&+c camp within the &+WHome&+C of the&n
+&+WDivine&+c.  The design is two &+Ylightning&+c bolts forming an X with a war
+&+Whammer&+c in the center.&n
+~
+#40745
+prison key~
+&+ca &+Bprison&+c key&n~
+&+cA &+Bprison&+c key from the cel&+Wes&+ctial &+Wpalace&+c has been dropped here.&n~
+~
+18 15 3 0 7 0 8388609 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+prison key~
+&+cThis key is used to open the &+bill&+Busio&+Wnary&+c walls of &+WAmp&+Chel&+ces &+Bprison.&n
+~
+#40746
+griffon feather~
+&+ya rare &+Wgrif&+Yfon&+y feather&n~
+&+yA valuable &+Wgrif&+Yfon&+y feather has been left here.&n~
+~
+8 50 3 0 7 0 8392704 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+griffon feather~
+&+yThis is a large, soft, feather, from a powerful &+Ygrif&+Wfon&+y.  It
+&+yis both &+Ygolden&+y and &+Wwhite&+y, with a &+Lblack&+y streak running down the
+&+ycenter. It is a rare item and probably valuable.&n
+~
+#40747
+griffon feather cloak~
+&+ya &+Wgrif&+Yfon&+y feather cloak&n~
+&+yA &+Wgrif&+Yfon&+y feather cloak has been left here.&n~
+~
+9 50 3 0 12 0 266240 1025 0 0 0
+11 0 0 3 0 0 0 0
+0 0 100 134217728 0 0 0
+E
+griffon feather cloak~
+&+yThe feathers of a &+Wgrif&+Yfon&+y are rumored to possess magical qualities.
+&+yThe hide of a &+Wgrif&+Yfon&+y makes an excellent cloak but whether it
+&+yis magical is up to the wearer to find out.&n
+~
+A
+23 -5
+A
+22 -5
+#40748
+smoke dragon egg~
+&+wa smoke dragon &+Wegg&n~
+&+wA smoke dragon &+Wegg&+w hides in the &+Wmist&+w here.&n~
+~
+8 45 3 0 7 0 8392704 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+smoke dragon egg~
+&+wIndeed an actual &+Lsmoke&+w dragon egg must be worth something.  It is
+&+wrare enough to cause a stir among most &+Ytreasure&+w hunter societies.&n
+~
+#40749
+frosty icicle~
+&+ba &+Wfrosty&+b icicle&n~
+&+bA &+Wfrosty&+b icicle has formed from the freezing &+Wclouds&+b here.&n~
+~
+8 7 3 0 7 0 4096 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+frosty icicle~
+&+bThis icicle is extremely long and sharp and remains freezing
+&+bcold even when close to a &+rheat&+b source.  It could possibly be used
+&+bto upgrade a shoddy weapon if given to the right person.&n
+~
+#40750
+bone statue carved~
+&+Wa tiny carved bone statue&n~
+&+WA small statue, carved by bone, &+Lhides&+W in the shifting &+Lhaze&+W here.&n~
+~
+8 10 3 0 7 0 8392704 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+bone statue carved~
+&+WThis statue was probably carved by a captive inside the prison
+&+Wdue to boredom. It is unclear what type of bone it is but the
+&+Wsmall statue appears to be unique and could be worth some value.&n
+~
+#40751
+disc molded adamantium~
+&+Ma disc of molded adamantium&n~
+&+MA disc of molded adamantium has been left here.&n~
+~
+8 19 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+disc molded adamantium~
+&+MThis is but a shaving off a larger, most likely molded, piece
+&+Mof adamantium, but with the unique shape, an almost perfect disc,
+&+Mit could be worth some extra money.&n
+~
+#40752
+blue moon charm~
+&+ba &+Bblue&+b &+Wmoon&+b charm&n~
+&+bA &+Bblue&+W moon&+b charm has been left here.&n~
+~
+9 16 3 0 7 0 131073 8388613 0 0 0
+7 0 0 3 0 0 0 0
+0 0 100 67108864 0 0 0
+E
+blue moon charm~
+&+cThis charm is shaped in the form of a small &+Wmoon&+c then dyed &+bblue.&n
+&+cThe symbol is supposed to bring much luck to the wearer.&n
+~
+A
+30 10
+A
+40 3
+#40753
+flaming portal~
+&+ra hu&+Rge fla&+rming portal&n~
+&+rA hu&+Rge fla&+rming port&+Ral cove&+rrs up the northern &+Wmist&+r here.&n~
+~
+25 15 3 0 7 0 1 0 0 0 0
+22053 7 -1 0 0 0 0 0
+0 0 100
+#40754
+misty glowing portal~
+&+Wa &+cmisty&+W, glowing portal&n~
+&+WA &+cmisty&+W, glowing portal acts as a gate to the material plane.&n~
+~
+25 15 3 0 7 0 0 0 0 0 0
+40780 7 -1 0 0 0 0 0
+0 0 100
+E
+misty glowing portal~
+&+cThis misty &+Wportal&+c, set within a corner of the &+Wmist&+c plane, acts
+&+cas a transportation between here and the prime material plane.
+&+cIt seems to hypnotize those who stare into it for too long.&n
+~
+#40755
+misty glowing portal~
+&+Wa &+cmisty&+W, glowing portal&n~
+&+WA &+cmisty&+W, glowing portal acts as a gate to the material plane.&n~
+~
+25 15 3 0 7 0 1 0 0 0 0
+40700 7 -1 0 0 0 0 0
+0 0 100
+E
+misty glowing portal~
+&+wOn the side of a large &+ymountain&+w, almost near the top, a &+Wswirling,&n
+&+Wmisty &+Wportal&+w provides travel for those wishing an other world journey.
+&+wWhether it was created by some natural phenomenon of mages of ages
+&+wpast is undeterminable.&n
+~
+#40756
+heart vain~
+&+rthe dark heart of Vain&n~
+&+rA heart filled with evil has been left here.&n~
+~
+8 15 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+heart raith~
+&+rThis is a carved heart from a being a pure evil.  It once pumped&n
+&+Lblack&+r tainted blood through the veins of the evil Vain.&n
+~
+#40757
+heart gravet~
+&+rthe dark heart of Gravet&n~
+&+rA heart filled with evil has been left here.&n~
+~
+8 15 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+heart raith~
+&+rThis is a carved heart from a being a pure evil.  It once pumped&n
+&+Lblack&+r tainted blood through the veins of the evil Gravet.&n
+~
+#40758
+heart ajandaner~
+&+rthe dark heart of Ajandaner&n~
+&+rA heart filled with evil has been left here.&n~
+~
+8 15 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+heart raith~
+&+rThis is a carved heart from a being a pure evil.  It once pumped&n
+&+Lblack&+r tainted blood through the veins of the evil Ajandaner.&n
+~
+#40759
+skull crested knife~
+&+La &+Wskull&+L crested bane &+wknife&n~
+&+LA large &+wknife&+L with a &+Wskull&+L crest lies here.&n~
+~
+5 16 3 0 7 0 0 8193 0 4198895584 0
+2 2 5 0 0 0 0 0
+0 0 100
+E
+skull crested knife~
+&+LThis long &+wknife&+L has the &+Wskull&+L of some tiny animal fastened to the
+&+Lhilt.  The &+Wblade&+L is thick, well crafted &+Csteel&+L, and seems to be
+&+Lquite a sturdy piercer.&n
+~
+A
+18 2
+A
+19 3
+#40760
+flaming demon claw~
+&+ra &+Yfl&+rami&+Yng&+r demon &+Lclaw&n~
+&+rA demon &+Lclaw&+r, burning with an eternal &+Yfl&+ra&Yme&+r of evil, lies here.&n~
+~
+8 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+flaming demon claw~
+&+rThis &+Lclaw&+r is long and very sharp.  From the hands of a fearsome
+&+rdemon it also burns with an eternal heat born from evil from the
+&+LPits of &+rCerebrus.&n
+~
+T
+2 2 1 20
+#40761
+gorgon eye~
+&+wa gor&+Lgon&+w eye&n~
+&+wA gor&+Lgon&+w eye lies on the ground here.&n~
+~
+10 15 3 0 7 0 4096 1 0 0 0
+30 36 36 33 0 0 0 0
+0 0 100
+E
+gorgon eye~
+&+wThe eyes of a gor&+Lgon&+w are said to have the powers of &+Lpetrification.&n
+&+wIngesting an eye, however, is a rather foul idea.&n
+~
+#40762
+token earth~
+&+ya token of earth&n~
+&+yA token of earth has been left here.&n~
+~
+9 15 3 0 7 0 0 8388613 0 0 0
+-5 0 0 2 0 0 0 0
+0 0 100
+E
+token earth~
+&+yThis token contains the element of earth.  It fastens around
+&+ythe neck like a collar.&n
+~
+A
+1 5
+A
+19 2
+#40763
+token water~
+&+ba token of water&n~
+&+bA token of water has been left here.&n~
+~
+9 15 3 0 7 0 8192 8388613 0 0 0
+-3 0 0 2 0 0 0 0
+0 0 100
+E
+token water~
+&+bThis token contains the element of water.  It fastens around
+&+bthe neck like a collar.&n
+~
+A
+2 5
+A
+14 15
+#40764
+token air~
+&+ca token of air&n~
+&+cA token of air has been left here.&n~
+~
+9 15 3 0 7 0 0 8388613 0 0 0
+-3 0 0 2 0 0 0 0
+0 0 100
+E
+token water~
+&+cThis token contains the element of air.  It fastens around
+&+cthe neck like a collar.&n
+~
+A
+3 5
+A
+13 15
+#40765
+token fire~
+&+ra token of fire&n~
+&+rA token of fire has been left here.&n~
+~
+9 15 3 0 7 0 0 8388613 0 0 0
+-3 0 0 2 0 0 0 0
+0 0 100
+E
+token fire~
+&+rThis token contains the element of fire.  It fastens around
+&+rthe neck like a collar.&n
+~
+A
+4 5
+A
+13 15
+#40766
+silky dress black sirens~
+&+La silky black dress of the &+Ysirens&n~
+&+LA black dress of the &+Ysirens&+L has been left here.&n~
+~
+9 3 3 0 12 0 0 9 66 4227727360 0
+28 0 0 1 0 0 0 0
+0 0 100
+E
+silky dress black sirens~
+&+LThis long black dress was once worn by a noble and beautiful &+Ysiren.
+&+LIt is quite thin, offering little protection, but seems to be infused
+&+Lwith some invigorizing magics.&n
+~
+A
+13 25
+A
+33 2
+#40767
+harp sirens instrument~
+&+La harp of the &+Ysirens&n~
+&+LA harp of the &+Ysirens&+L has been left here.&n~
+~
+32 6 3 0 10 0 1 8404993 64 0 0
+187 15 0 25 0 0 0 0
+0 0 100 0 28 0 0
+E
+harp sirens~
+&+LThis black and &+Ygold&+L harp was once used by a legendary &+Ysiren&+L. It
+&+Lwould make a fine instrument for any bard.&n
+~
+A
+24 -3
+A
+22 -3
+#40768
+ring celestial wonders~
+&+cthe &+Cring&+c of cel&+Wes&+ctial &+Cwonders&n~
+&+cA &+Cwonderful&+c, cel&+Wes&+ctial &+Cring&+c has been left here.&n~
+~
+9 1 3 0 11 0 1025 3 0 172396036 0
+4 0 0 3 0 0 0 0
+0 0 100 0 12416 0 0
+E
+ring celestial wonders~
+&+cThis ring, once treasured by &+Wangel&+c nobility, provides the wearer
+&+cwith the defenses of nature. It is a very holy ring and glows with an
+&+cinner illumination.&n
+~
+A
+13 25
+A
+33 2
+#40769
+headdress celestial outlaws~
+&+cthe &+Chea&+cdd&+Cress&+c of the cel&+Wes&+ctial &+Wou&+Ctla&+cws&n~
+&+cA cel&+Wes&+ctial &+Chea&+cdd&+Cress&+c has been left here.&n~
+~
+9 50 3 0 12 0 1024 17 64 8515584 0
+14 0 0 2 0 0 0 0
+0 0 100
+E
+headdress celestial outlaws~
+&+cThis &+Cheaddress&+c covers the entire head.  Its powers to enhance
+&+cthe abilities of a common vagabond are most impressive.  It seems
+&+cto have fallen from the &+WHea&+Cvens&+c themselves.&n
+~
+A
+19 4
+A
+13 25
+#40770
+globe majesty~
+&+ca &+rruby&+c globe of &+Wmaj&+Ces&+cty&n~
+&+cSomeone has left a &+rruby&+c globe here.&n~
+~
+15 31 3 0 10 0 0 8404993 64 0 0
+50 5 0 50 0 0 0 0
+0 0 100 536870912 0 0 0
+E
+globe majesty~
+&+cThis an almost perfect &+rruby&+c sphere. It is warm to the touch
+&+cindicating some mystical powers. It appears to be able to hold
+&+citems inside as well.&n
+~
+A
+13 10
+#40771
+polished pewter greaves~
+&+La pair of polished&N &+wpewter&N &+Lgreaves&N~
+&+LA pair of polished greaves has been left here.&N~
+~
+9 36 3 0 11 0 263168 33 0 87650331 0
+5 0 0 3 0 0 0 0
+0 0 100
+E
+polished pewter greeves~
+&+LThese greeves fasten around the legs tightly.  Being made of
+&+wpewter&+L they are quite heavy and offer sturdy protection from
+&+Lphysical attacks.&n
+~
+A
+2 10
+A
+19 3
+#40772
+heart snent~
+&+rthe dark heart of Snent&n~
+&+rA heart filled with evil has been left here.&n~
+~
+8 15 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+heart snent~
+&+rThis is a carved heart from a being a pure evil.  It once pumped&n
+&+Lblack&+r tainted blood through the veins of the evil Snent.&n
+~
+#40773
+hammer battle forgers~
+&+cthe hamm&+Cer of th&+ce batt&+Cle-forg&+cers&n~
+&+cthe hamm&+Cer of th&+ce batt&+Cle-forg&+cers&n~
+~
+5 15 3 0 11 0 16 8193 0 39357956 0
+4 3 4 0 0 0 0 0
+0 8221 100
+A
+18 3
+A
+30 8
+#40774
+heart sealot~
+&+rthe dark heart of Sealot&n~
+&+rA heart filled with evil has been left here.&n~
+~
+8 15 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+heart snent~
+&+rThis is a carved heart from a being a pure evil.  It once pumped&n
+&+Lblack&+r tainted blood through the veins of the evil Sealot.&n
+~
+#40775
+warhammer hammer purelight~
+&+wthe &+Ctitan&+w war&+Whammer&+w, &+W'Pureli&+wght'&n~
+&+WA hammer glowing with holiness lies here.&n~
+~
+5 15 3 0 11 0 1025 8193 64 37339555 0
+4 3 4 0 0 243619058 50 30
+0 250000 100 8192 0 0 0
+E
+warhammer hammer purelight~
+~
+E
+_char_msg~
+&+WYour $q &+Wglows brilliantly and unleashes a beam of light towards $N.&n
+~
+E
+_room_msg~
+&+W$n&+W's $q &+Wexplodes in white light as it slams into $N.&n
+~
+E
+_vict_msg~
+&+WAs $n &+Wswings $s $q &+Wat you $e mutters a silent prayer to $s gods.&n
+~
+A
+18 4
+A
+19 3
+#40776
+heart relazier~
+&+rthe dark heart of Relazier&n~
+&+rA heart filled with evil has been left here.&n~
+~
+8 15 3 0 7 0 8392704 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+heart relazier~
+&+rThis is a carved heart from a being a pure evil.  It once pumped&n
+&+Lblack&+r tainted blood through the veins of the evil Relazier.&n
+~
+#40777
+suit warsuit jade wyrmscale~
+&+ga &+Lwar&+gsuit of &+Gjade&+g wy&+Lrmsca&+gle&n~
+&+gAn impressive suit of &+Gjade&+g wy&+Lrmsca&+gle has been dropped here.&n~
+~
+9 35 3 0 15 0 1 9 0 0 0
+40 0 0 5 0 0 0 0
+0 78001 100 622592 0 0 0
+#40778
+angelic electrum flute~
+&+can &+Wangelic&+C electrum&+c flute&n~
+&+cA small &+Celectrum&+c flute has been dropped here.&n~
+~
+32 23 3 0 5 0 0 8404993 0 0 0
+184 0 0 0 0 0 0 0
+0 1 100
+E
+angelic electrum flute~
+&+cThis flute has been crafted from electrum, a very rare type of metal. It has the forge
+&+cmarkings of the titans.
+~
+A
+28 6
+A
+38 2
+#40779
+angelic electrum flute~
+&+can &+Wangelic&+C electrum&+c flute&n~
+&+cA small &+Celectrum&+c flute has been dropped here.&n~
+~
+32 23 3 0 5 0 0 8404993 0 0 0
+184 35 0 0 0 0 0 0
+0 1 100
+E
+angelic electrum flute~
+&+cThis flute has been crafted from electrum, a very rare type of metal. It has the forge
+&+cmarkings of the titans.
+~
+A
+30 10
+A
+13 15
+#40780
+blazing sword longsword rising sun~
+&+ca &+rbla&+Yzi&+rng&+c longsword dubbed '&+YRis&+ring &+YSun&+c'&n~
+&+cA &+rbla&+Yzi&+rng&+c longsword has been left here.&n~
+~
+5 15 3 0 7 0 0 8193 64 0 0
+5 3 4 3 0 233021 25 30
+0 0 100
+E
+blazing sword longsword rising sun~
+&+cThis longsword has been infused with the powers of &+rfire&+c.  It is
+&+cwarm to the touch and when waved through the air &+Ysparks&+c appear.&n
+&+cIt seems it was reforged from a lesser weapon, although the process
+&+cleft no trace in its magical properties.
+~
+E
+_char_msg~
+&+cYour $q &+rcalls upon the power of the sun!
+~
+E
+_victim_msg~
+&n$n's $q &+rcalls upon the power of the sun!
+~
+E
+_room_msg~
+&n$n's $q &+rcalls upon the power of the sun!
+~
+A
+19 3
+A
+18 3
+#40781
+longsword sword massive dusk dawn~
+&+La massive &+clongsword&+L dubbed '&+rDusk &+Land &+bDawn&+L'~
+&+LA massive &n&+clongsword&+L, its blade covered with &+rred&+L and &+bblue&+L veins, has been left here.~
+~
+5 23 3 25 11 0 0 8193 64 0 0
+5 5 5 3 0 21117325 25 30
+25 40000 100
+E
+longsword massive sword dusk dawn~
+&+LA full length of this massive &+clongsword&+L is covered with &+rred&+L and &+bblue&+L veins.
+&+LThe whole sword delicately pulsates with &+mstrong &+Menchantment &+mmagic.
+&+LIt is believed that in combat it can call upon the powers of night and the sun,
+&+Lalthough how much if it is a leged, and how much is truth, is not sure.
+~
+E
+_char_msg~
+&+cYour $q &+ccalls upon the &+Bchill&+c of the&+L night&+c and &+Rheat&n&+c of the &+Ysun&n&+c.
+~
+E
+_victim_msg~
+&n$n's $q &+ccalls upon the &+Bchill&+c of&+L night&+c and &+Rheat&n&+c of the &+Ysun&n&+c.
+~
+E
+_room_msg~
+&n$n's $q &+ccalls upon the &+Bchill&+c of&+L night&+c and &+Rheat&n&+c of the &+Ysun&n&+c.
+~
+A
+18 3
+A
+19 3
+#40782
+rising frost icy sword longsword~
+&+can &+bicy&+c longsword dubbed &+c'&+bRis&+Bing&+b Frost&+c'&n~
+&+cAn &+bicy&+c longsword has been left here.&n~
+~
+5 23 3 0 11 0 1024 8193 64 95993859 0
+5 3 4 3 0 325472 25 30
+0 2000 100
+E
+rising frost icy sword longsword~
+&+cThis longsword, infused with the powers of &+Bice&+c by &+BShiva&+c, seems to
+&+chave once been a lesser quality weapon.  Now it glows with an &+Bicy&+c,
+&+cmagical shine.&n
+~
+E
+_char_msg~
+&+cYour $q &+ccalls upon the &+Bchill&+c of&+L night&+c.
+~
+E
+_victim_msg~
+&n$n's $q &+ccalls upon the &+Bchill&+c of&+L night&+c.
+~
+E
+_room_msg~
+&n$n's $q &+ccalls upon the &+Bchill&+c of&+L night&+c.
+~
+A
+18 3
+A
+19 3
+>>>>>>> master

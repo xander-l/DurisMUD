@@ -23,6 +23,7 @@ void event_righteous_aura_check(P_char ch, P_char victim, P_obj obj, void *data)
 void event_bleak_foeman_check(P_char ch, P_char victim, P_obj obj, void *data);
 void spell_dread_blade(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj);
 bool dread_blade_proc(P_char ch, P_char victim);
+bool holy_weapon_proc(P_char ch, P_char victim);
 
 #endif // __PALADINS_H__
 

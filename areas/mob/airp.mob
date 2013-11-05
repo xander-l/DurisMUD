@@ -8,6 +8,7 @@ invisible stalker being outline air elemental~
 &+Cbe seen at all is the thin outline of a being that resembles a man but is
 &+Clarger.
 ~
+<<<<<<< HEAD
 1073879208 0 0 0 135790618 0 0 0 -410 S
 EA 0 15 0 -1
 43 0 0 1d1+1 1d1+1
@@ -27,6 +28,27 @@ david golden monadoc deva being~
 268568616 0 0 0 134226074 35012 0 0 1000 S
 X 0 4 0 -1
 51 0 0 1d1+1 1d1+1
+=======
+1073895560 1 0 0 404226074 128 0 0 -410 S
+EA 0 4096 1 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#131601
+ellacarzel angel clouds movanic deva~
+&+CEl&+Wlacar&+Czel&+w, &+wA&+Wngel &+wo&+Wf &+wt&+Whe &+CC&+Wloud&+Cs&n~
+&+WA &+Ccelestial &+Ca&+Wnge&+Cl&+W with milky white skin and &+Ygold&+W tinted wings hovers here.
+~
+&+C   A female movanic deva, she has milky white skin, clear blue eyes, and
+&+Cwhite feathery wings with hints of gold. Her body looks more like a perfect
+&+Cstatue then anything else, and a small nimbus of divine power ripple about her
+&+Chead. She has servere here in the Elemental Plane of Air her entire life as
+&+Ccelestial serving as Akadi personal servant.
+~
+268568648 0 0 0 134226074 35012 18350080 12582912 1000 S
+dv 0 256 1 -1
+56 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131602
@@ -40,9 +62,15 @@ blue smoke humanoid aerial servant air large~
 &+Cmouth is a simple slit. Finally its hands are long and four fingered. It looks
 &+Cvery imposing actually and definitely not to be triffaled with.
 ~
+<<<<<<< HEAD
 1140987944 0 0 0 134217754 12352 0 0 0 S
 EA 0 1 0 -1
 46 0 0 1d1+1 1d1+1
+=======
+1073879048 1 0 0 0 0 0 0 0 S
+EA 0 1 1 -1
+51 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 0
 #131603
@@ -56,9 +84,15 @@ woman beautiful slyph air~
 &+Cconceals her body from any prying eyes. Her eyes also seem to have to
 &+Cprismatic color to them.
 ~
+<<<<<<< HEAD
 1073874984 0 0 0 134217882 0 0 0 0 S
 EA 0 12 0 -1
 45 0 0 1d1+1 1d1+1
+=======
+1342310408 1 0 0 134217882 0 0 0 0 S
+EA 0 33554432 2 -1
+52 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 2
 #131604
@@ -72,13 +106,19 @@ a &+Rsl&+Yy&+bph~
 &+Cvisible. Her clothes are almost transparent, but just cover enough that they
 &+Chide her body from any prying eyes.
 ~
+<<<<<<< HEAD
 1073874984 0 0 0 134217754 192 0 0 0 S
 EA 0 10 0 -1
 46 0 0 1d1+1 1d1+1
+=======
+1073874952 1 0 0 134217754 0 0 0 0 S
+EA 0 2048 1 -1
+53 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 2
 #131605
-tempest whirlwind living storm~
+tempest whirlwind living storm living storms~
 &+Ca living tempest~
 &+CA living storms is in the middle of the room, creating a whirlwind.
 ~
@@ -86,9 +126,15 @@ tempest whirlwind living storm~
 &+Ctornado. It seems to be stationed here to feed any air elementals and aerial
 &+Cservants that come in here.
 ~
+<<<<<<< HEAD
 1275074570 0 0 0 402653208 12480 0 0 0 S
 EA 0 2 0 -1
 41 0 0 1d1+1 1d1+1
+=======
+1275074826 1 0 0 402653208 12480 67108864 0 0 S
+EA 0 128 2 -1
+54 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 0
 #131606
@@ -102,8 +148,13 @@ air elemental living tornado large~
 &+Cin the air. Finally it seems to be slightly dark and might be ready for a
 &+Cstorm.
 ~
+<<<<<<< HEAD
 1140983848 0 0 0 58 12480 0 0 0 S
 EA 0 1 0 -1
+=======
+1140983816 1 0 0 134217786 268447936 0 1024 0 S
+EA 0 1 1 -1
+>>>>>>> master
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -117,9 +168,15 @@ being veri'throck ultraloth demon shadows~
 &+Labout him that sucks up all light and denies to any that might be searching
 &+Lfor him.
 ~
+<<<<<<< HEAD
 1073744040 0 0 0 941162682 47297 0 0 -1000 S
 X 0 5 0 -1
 51 0 0 1d1+1 1d1+1
+=======
+1093798024 1 0 0 941162682 47297 0 12582912 -1000 S
+X 0 20 0 -1
+58 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131608
@@ -132,14 +189,20 @@ huge air elemental~
 &+Cand lightning seem to cascade through it at any moment. All about it lighting
 &+Cseems to jump out to strike anything or anyone that closes in with it.
 ~
+<<<<<<< HEAD
 1140852777 0 0 0 134217786 12480 0 0 0 S
 EA 0 1 0 -1
 46 0 0 1d1+1 1d1+1
+=======
+1140852745 1 0 0 134217786 12480 0 0 0 S
+EA 0 1 1 -1
+51 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 0
 #131609
 djinni warrior~
-&+Ca &+Bd&+Cjinn&+Bi &+Cwarrior~
+&+Ca &+Bd&+Cjinn&+Bi &+Cwarrior&n~
 &+CA large &+Bd&+Cjinn&+Bi&+C warrior wanders along here, headed for another estate.
 ~
 &+C   This large man is over ten feet tall and is extremely muscular. He stands
@@ -148,9 +211,15 @@ djinni warrior~
 &+Cblue silk belt. His top is totally uncovered so as to show off his ripiling
 &+Cmuscles.
 ~
+<<<<<<< HEAD
 1677855272 0 0 0 134225946 14336 0 0 400 S
 G 0 1 0 -1
 47 0 0 1d1+1 1d1+1
+=======
+1140984584 1 1 0 402661402 268449984 85196992 1024 400 S
+ig 0 1 1 -1
+56 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131610
@@ -163,9 +232,15 @@ mist dragon vaprothax friend~
 &+Cwhite mustache made of heavy mist and air on its nose. However even though
 &+Cit doesn't look exceptionally mean, he really doesn't look happy to see you.
 ~
+<<<<<<< HEAD
 1140996138 0 0 0 940572682 2176 0 0 -351 S
 D 0 9 0 -1
 51 0 0 1d1+1 1d1+1
+=======
+1409432330 1 0 0 940572682 2176 0 0 -351 S
+D 0 512 2 -1
+56 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131611
@@ -178,9 +253,15 @@ elemental air noble si'ciltron _nofear_~
 &+Cand fading winds and fog. Even as mist is musculature is well defined and
 &+Cmagic seems to play about his body, this is one that is best left alone.
 ~
+<<<<<<< HEAD
 1073879080 0 0 0 134217918 2240 0 0 -849 S
 UG 0 9 0 -1
 51 0 0 1d1+1 1d1+1
+=======
+1342315272 1 0 0 134217918 8390848 0 0 -849 S
+av 0 2048 1 -1
+56 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131612
@@ -194,9 +275,15 @@ energy elemental negitave large evil power~
 &+Las they stand here. Even spells to some degree lose there power when used
 &+Lon these creatures and only the most powerful of spells even bother them.
 ~
+<<<<<<< HEAD
 1073879082 0 0 0 671088648 309440 0 0 -1000 S
 EA 0 1 0 -1
 46 0 0 1d1+1 1d1+1
+=======
+1077024778 1 0 0 671088664 2406592 0 0 -1000 S
+ve 0 1 1 -1
+51 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 0
 #131613
@@ -209,9 +296,15 @@ verthor representitive elemental~
 &+Lthe flowers in the room, but that really doesn't seem to bother him, he tends
 &+Lto like dead things a lot.
 ~
+<<<<<<< HEAD
 1073879210 0 0 0 134283288 262208 0 0 -1000 S
 UV 0 10 0 -1
 48 0 0 1d1+1 1d1+1
+=======
+1073879178 1 0 0 134283288 262208 0 0 -1000 S
+UV 0 2097152 1 -1
+51 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131614
@@ -225,9 +318,15 @@ djinni mage~
 &+Cear. He seems happy though and regardless of the situation has a wide smile on
 &+Chis face.
 ~
+<<<<<<< HEAD
 1677855304 0 0 0 671088698 0 0 0 500 S
 G 0 10 0 -1
 48 0 0 1d1+1 1d1+1
+=======
+1409419848 1 0 0 671088698 0 0 0 500 S
+ig 0 512 2 -1
+51 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131615
@@ -244,9 +343,15 @@ al'hajib son caliph djinni~
 &+Wand Ruler of the Fortress of Steel and Ice sends me to look for her, have you
 &+Wnews??
 ~
+<<<<<<< HEAD
 1140983820 0 0 0 134225978 14528 0 0 800 S
 X 0 2 0 -1
 51 0 0 1d1+1 1d1+1
+=======
+1073874956 0 0 0 134225978 14528 0 0 800 S
+ig 0 512 1 -1
+55 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131616
@@ -261,11 +366,18 @@ north wind man old~
 &+W    'Soon now I will be just another air elemental, I will lose all my
 &+Wmemories and my power. I remember the days of the old one Yan, before the new
 &+Wlady came with her four nobles. I remember when not even &+BSi&+C'Ciltron existed!
+&+WI even remember when heroic deeds by mortals was granted a &+Cc&+Wloud&+W!'
 &+C    At this point he sighs and hangs his ethreal head low.
 ~
+<<<<<<< HEAD
 1073885320 0 0 0 134217754 12480 0 0 0 S
 EA 0 10 0 -1
 36 0 0 1d1+1 1d1+1
+=======
+143496 0 0 0 134217754 12480 0 0 0 S
+EA 0 8 1 -1
+51 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131617
@@ -279,9 +391,15 @@ dragon maelthron cloud~
 &+CHe has long scales are pale in color and have the color of morning dew on
 &+Cthem. He himself has long sharp claws and seems very imposing.
 ~
+<<<<<<< HEAD
 1140987948 0 0 0 134217786 14528 0 0 -450 S
 D 0 12 0 -1
 51 0 0 1d1+1 1d1+1
+=======
+1140988680 1 0 0 134217786 14528 0 0 -450 S
+D 0 128 2 -1
+58 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131618
@@ -295,9 +413,15 @@ aurilium lord lightning _nofear_~
 &+Clightning and barely able to move as he is pummaled with the power of an
 &+Centire plane.
 ~
+<<<<<<< HEAD
 137226 0 0 0 134217882 14528 0 0 500 S
 UG 0 10 0 -1
 51 0 0 1d1+1 1d1+1
+=======
+135178 0 0 0 134217882 14528 0 0 500 S
+ea 0 512 2 -1
+55 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131619
@@ -310,9 +434,15 @@ ixteal illithid mindflayer~
 &+Mprodtruding tenticles and a moth that is sunk back into its head. Its hands
 &+Mare small little tenticles as well, but seem adept at manual dexterity.
 ~
+<<<<<<< HEAD
 1107429544 0 0 0 2281701416 14530 0 0 -1000 S
 MF 0 3 0 -1
 43 0 0 1d1+1 1d1+1
+=======
+1124223112 1 0 0 2281701416 14530 0 0 -1000 S
+MF 0 4 1 -1
+60 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 0
 #131620
@@ -325,8 +455,13 @@ something yan yan-c-bin spirit~
 &+Ca melebolent evil and a mindless need for bloodlust since it cannot seem to
 &+Cfind those who were responsible for its true death.
 ~
+<<<<<<< HEAD
 1073887272 0 0 0 939598014 309440 0 0 -1000 S
 UG 0 9 0 -1
+=======
+1342323464 1 0 0 939598014 8698048 0 0 -1000 S
+UG 0 512 2 -1
+>>>>>>> master
 57 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -340,8 +475,13 @@ githyanki darthikya hunter~
 &+Ccinch belt and a short robe over his upper body. He seems to be intently
 &+Clooking for something and almost looks right through you.
 ~
+<<<<<<< HEAD
 1677854760 0 0 0 2281701386 0 0 0 -693 S
 GI 0 3 0 -1
+=======
+1073874952 0 0 0 2281701386 0 0 0 -693 S
+GI 0 2 1 -1
+>>>>>>> master
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -355,51 +495,70 @@ air mephit puff wind~
 &+Care not quite in the right place. It seems fairly small, and annoying but
 &+Ccould still possibly be a threat.
 ~
+<<<<<<< HEAD
 1073879228 0 0 0 135790618 12480 0 0 -390 S
 EA 0 13 0 -1
 35 0 0 1d1+1 1d1+1
+=======
+1073879196 1 0 0 135790618 12480 0 0 -390 S
+EA 0 4 1 -1
+46 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 0
 #131623
-lithinion human~
-&+CLithinion~
-A &+Chuman &nnamed &+CLith&+wini&+Con&n stands here hunting his old slave master &n&+MIxteal.
+amophar wind duke four winds~
+&+CA&+Wmophar, the &+CW&+Wind &+LD&+wu&+Wke&n~
+&+CA&+Wmophar, the &+CW&+Wind &+LD&+wu&+Wke of the &+CFo&+cur &+CStor&+cms&+W is here, awaiting the pleasures of his &+CMistress&+W.&n
 ~
-   This human stands about five and a half feet tall and has blond hair and
-a long scar down his face. His eyes are a piercing blue and he seems to have
-a purpose about the way he moves. He has appearantly come here to kill his
-old master Ixteal, who he has heard is having dealings with Si'Caltrin.
+&+C   The fabled Wind Duke's of the Courts of Tempest's are the commanders of the
+&+Carmies of Elemental Plane of Air. When and if the efreeti of Brass were to
+&+Cinvade these fable commanders would muster up their forces to fight and repeal
+&+Can invasion. Only Akadi holds the power to summon and command them.
 ~
+<<<<<<< HEAD
 335677480 0 0 0 134217728 0 0 0 892 S
 PH 0 10 0 -1
 46 0 0 1d1+1 1d1+1
+=======
+1459751688 1 0 0 134217882 0 192 33554432 892 S
+tt 0 64 1 -1
+58 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131624
-barbarian edrick~
-&+BEdrick~
-&+CA massive &+Bbarbarian &+Cnamed &+LEdrick&+C is here helping his old friend.
+zosiel wind duke great maelstrom~
+&+CZ&+Wosiel, the &+CW&+Wind &+LD&+wu&+Wke&n~
+&+CZ&+Wosiel, the &+CW&+Wind &+LD&+wu&+Wke of the &+cG&+Cre&+Wa&+ct &+CMa&+Wel&+ws&+ctr&+Com&+W is here, awaiting the pleasures of his &+CMistress&+W.&n
 ~
-&+B   This massive barbarian is really large. he seems to be about seven feet
-&+Btall and has muscles where most humans have brains. His skin is pale from
-&+Bto much time in the snow. He wears varius pelts and furs about his body and
-&+Bhas a massive sort strapped to his back.
+&+C   The fabled Wind Duke's of the Courts of Tempest's are the commanders of the
+&+Carmies of Elemental Plane of Air. When and if the efreeti of Brass were to
+&+Cinvade these fable commanders would muster up their forces to fight and repeal
+&+Can invasion. Only Akadi holds the power to summon and command them.
 ~
+<<<<<<< HEAD
 1342310440 0 0 0 8 64 0 0 893 S
 PB 0 1 0 -1
 43 0 0 1d1+1 1d1+1
+=======
+1459751688 1 0 0 402653338 268435520 0 0 893 S
+tt 0 128 2 -1
+60 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131625
-grandor dwarf~
-&+YGrandor~
-&+LGrandor &+Cthe &n&+Ydwarf &+Clevitates here, looking for some evil to smite.
+icosiol wind duke fate~
+&+CI&+Wcosiol, the &+CW&+Wind &+LD&+wu&+Wke&n~
+&+CI&+Wcosiol, the &+CW&+Wind &+LD&+wu&+Wke of the &+CW&+Wind&+Cs&+W of &+cF&+Ca&+Wt&+Ce&+W is here, awaiting the pleasures of his &+CMistress&+W.&n
 ~
-&+Y   Grandor stands about three feet two and is wearing a suit of very nice
-&+Ymithril chainmail from his hometown. His hair is black and his beard is
-&+Ybraided and has symbols of death in them. His eys are blue and he seems to
-&+Ylook at everyone with a mingled look of hope and distrust.
+&+C   The fabled Wind Duke's of the Courts of Tempest's are the commanders of the
+&+Carmies of Elemental Plane of Air. When and if the efreeti of Brass were to
+&+Cinvade these fable commanders would muster up their forces to fight and repeal
+&+Can invasion. Only Akadi holds the power to summon and command them.
 ~
+<<<<<<< HEAD
 1409419304 0 0 0 671096872 45276 0 0 1000 S
 PM 0 6 0 -1
 45 0 0 1d1+1 1d1+1
@@ -420,22 +579,47 @@ druid half-elf aurilyia~
 1409419304 0 0 0 687865864 12480 0 0 250 S
 P2 0 8 0 -1
 46 0 0 1d1+1 1d1+1
+=======
+1459751688 1 0 0 671096888 45276 0 0 1000 S
+tt 0 33554432 2 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#131626
+uriel wind duke unseen breeze~
+&+CU&+Wriel, the &+CW&+Wind &+LD&+wu&+Wke&n~
+&+CU&+Wriel, the &+CW&+Wind &+LD&+wu&+Wke of the &+CUn&+Wseen &+CBr&+Weeze&+W is here, awaiting the pleasures of his &+CMistress&+W.&n
+~
+&+C   The fabled Wind Duke's of the Courts of Tempest's are the commanders of the
+&+Carmies of Elemental Plane of Air. When and if the efreeti of Brass were to
+&+Cinvade these fable commanders would muster up their forces to fight and repeal
+&+Can invasion. Only Akadi holds the power to summon and command them.
+~
+1459751688 1 0 0 687865882 12480 0 0 250 S
+tt 0 256 1 -1
+57 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 2
 #131627
-amrothlin elf elven ranger~
-&+WAmrothlin~
-&+WAmrothlin&+C, the elven &n&+granger&+C is here searching for tracks on &n&+MIxteal.
+emoniel wind duke boundless blue~
+&+CE&+Wmoniel, the &+CW&+Wind &+LD&+wu&+Wke&n~
+&+CE&+Wmoniel, the &+CW&+Wind &+LD&+wu&+Wke of the &+bB&+Bo&+Cundless Bl&+Bu&+be&+W is here, awaiting the pleasures of his &+CMistress&+W.&n
 ~
-   This elf is about five and a half feet tall and he seems to be intently
-looking around for something or something. His eyes are a green color that
-looks like the same color as spring and where he walks the air smells faintly
-of vanilla. He is wearing some studden armor and he has the elven sword
-'Kel-Lithion' in his hand.
+&+C   The fabled Wind Duke's of the Courts of Tempest's are the commanders of the
+&+Carmies of Elemental Plane of Air. When and if the efreeti of Brass were to
+&+Cinvade these fable commanders would muster up their forces to fight and repeal
+&+Can invasion. Only Akadi holds the power to summon and command them.
 ~
+<<<<<<< HEAD
 1409419304 0 0 0 404234426 2076 0 0 895 S
 PE 0 2 0 -1
 48 0 0 1d1+1 1d1+1
+=======
+1459751688 1 0 0 402661562 28 0 0 895 S
+tt 0 1048576 1 -1
+58 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131628
@@ -448,9 +632,15 @@ troll gorthos mercenary~
 &+gichor as he moves along here. However on his left arm is the admantium
 &+gshield of Dargos.
 ~
+<<<<<<< HEAD
 1677854760 0 0 0 134283288 0 0 0 -958 S
 PT 0 1 0 -1
 45 0 0 1d1+1 1d1+1
+=======
+1073874952 1 0 0 134283288 268435456 67108864 0 -958 S
+PT 0 16384 1 -1
+56 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131629
@@ -463,25 +653,35 @@ drow everhate~
 &+mon the other side a mask made of admantium hides whatever may have happened
 &+mto it.
 ~
+<<<<<<< HEAD
 1677854760 0 0 0 134217756 17 0 0 -893 S
 PL 0 10 0 -1
+=======
+1342310408 1 0 0 134217756 17 0 0 -893 S
+PL 0 512 2 -1
+>>>>>>> master
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
 #131630
-drow myria~
-&+mMyria&+L, Priestess of &n&+mLolth~
-&+mMyria &+Lis here bringing her faith to anyone she can get her hands on.
+chan dark tempest~
+&+LC&+wha&+Ln, the &+LD&+war&+Lk &+bT&+ce&+Cm&+Wp&+Ce&+cs&+bt&n~
+&+lChan, the Dark Tempest and sister of Yan-C-Bin is here, barely visable to the human eye.&n
 ~
-&+m   Myria is wearing a skin tight suit that hugs her beautiful figure very
-&+mnicely. Her shapely figure cuts a fine line, however he nature means that
-&+mshe is a real man eater. She has to this date killed ten of her previous
-&+mlovers. She wields the five headed whip of Lolth in her hand with evident
-&+mease and experience.
+&+CChan, is naturally invisible, creating just a slight disturbance in the air
+&+Cas she flies which is VERY hard to detect. She is the sister of Yan-C-Bin but
+&+Cthere is no love between them. Serving Akadi, she searches the Plane of Air
+&+Clooking for a solution to be rid of Yan-C-Bin once and for all.
 ~
+<<<<<<< HEAD
 1677854760 0 0 0 671154208 45276 0 0 -1000 S
 PL 0 6 0 -1
 47 0 0 1d1+1 1d1+1
+=======
+16908296 0 0 0 671154208 45276 0 0 -1000 S
+ea 0 64 1 -1
+60 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 2
 #131631
@@ -494,9 +694,15 @@ lord galzron _nofear_~
 &+Lstill well defined and his gaze seems to penitrate everything. He is dressed
 &+Lin battle armor that that is glossless and seems to radiate power.
 ~
+<<<<<<< HEAD
 1073887274 0 0 0 939598012 14365 0 0 -953 S
 UG 0 10 0 -1
 52 0 0 1d1+1 1d1+1
+=======
+1359100682 1 0 0 939598012 8402973 262144 12582912 -953 S
+ig 0 16 1 -1
+60 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131632
@@ -510,8 +716,13 @@ lilia efreeti whore mistress~
 &n&+rit seems to take on the glint of a live fire itself sometimes as it nestles
 &n&+rgently around her neck.
 ~
+<<<<<<< HEAD
 1073874986 0 0 0 671154232 14337 0 0 -592 S
 EF 0 10 0 -1
+=======
+1073874954 0 0 0 134217752 2048 0 0 -592 S
+EF 0 512 2 -1
+>>>>>>> master
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -525,14 +736,20 @@ fire giant maugly~
 &+Lnothing he would like to do more then to just go to sleep. His muscles are
 &+Ltaught against his chest and he looks like he has just run a marathon.
 ~
+<<<<<<< HEAD
 1073743914 0 0 0 536871064 0 0 0 -845 S
 G 0 1 0 -1
 50 0 0 1d1+1 1d1+1
+=======
+1342179370 1 0 0 536871064 0 0 0 -845 S
+fg 0 16 1 -1
+56 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131634
-halla'al' ziiflan ambassador sultarn brass~
-&+LHalla&n&+r'Al~
+halla'al' ziiflan ambassador sultarn brass halla'al~
+&+LHalla&n&+r'Al'~
 &+LHalla&n&+r'Al &+LZii&n&+rflan, &+LAmbassador from the &n&+rSultan &n&+Rof &n&+rBrass s&n&+Ltands here.
 ~
 &n&+r   This very tall being is colored gold, and its skin seems to have light
@@ -540,9 +757,15 @@ halla'al' ziiflan ambassador sultarn brass~
 &n&+rburn with an unholy fervor as he paces around the room. He seems to be
 &n&+rfidgeting a lot and looks ver yowrried over something.
 ~
+<<<<<<< HEAD
 1073748008 0 0 0 402653192 14337 0 0 -928 S
 EF 0 10 0 -1
 46 0 0 1d1+1 1d1+1
+=======
+1392515112 1 0 0 402653192 14337 0 4194304 -928 S
+e 0 384 3 -1
+60 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131635
@@ -558,9 +781,15 @@ zieflia daughter caliph~
 &+Bas she sees you looking at them she says, &+W'Please find the key, I will reward
 &+Wyou if you will, please I beg you!!'
 ~
+<<<<<<< HEAD
 1073875082 0 0 0 402661434 14528 0 0 839 S
 G 0 9 0 -1
 42 0 0 1d1+1 1d1+1
+=======
+1073874954 0 0 0 402661434 14528 0 0 839 S
+ea 0 32 1 -1
+51 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 2
 #131636
@@ -574,25 +803,39 @@ ecthius lord master _nofear_~
 &+Wthat seems to extend to anything that he can see. He radiates an aura of evil
 &+Wseems to wilt all life.
 ~
+<<<<<<< HEAD
 1082267688 0 0 0 402718910 47296 0 0 -988 S
 UG 0 10 0 -1
 51 0 0 1d1+1 1d1+1
+=======
+1350703880 1 0 0 402718910 8435904 0 0 -988 S
+ig 0 128 2 -1
+60 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131637
-fearfrost giant champion~
+fearfrost giant champion titan~
 &+LFear&n&+Wfrost~
-&+LFear&+Wfrost&+C, the giant champion of &+LHel &+Cand &+WThrym &+Cstands here in line.
+&+LFear&+Wfrost&+C, the titan champion of &+WThrym &+Cstands here in line.
 ~
-&+C   This giant is really a giant. He is massive with a long thick white beard
-&+Cthat comes down to his waist. He seems to be at home in this chilly climate
-&+Cas he stands here waiting for something. He looks to be a very mean customer,
-&+Cjust becuse at his side he has the skulls of many a creture that he has killed
-&+Cin the survice of his two masters.
+&+C   This titan is really a titan of titans. He is a massive warrior with a
+&+Clong thick white beard that comes down to his waist. He seems to be at home
+&+Cin this chilly climate of the Elemental Plane of Air, but he stands here as
+&+Cif he's waiting for something. He looks to be a very mean customer, not just
+&+Cbecause of the many skulls of slain creatures and mortals he wears like a
+&+Cnecklace around his neck. A frost-covered hammer emitting frost at his side
+&+Cmakes him a fearsome giant.
 ~
+<<<<<<< HEAD
 1073743914 0 0 0 402718744 192 0 0 -1000 S
 G 0 5 0 -1
 51 0 0 1d1+1 1d1+1
+=======
+16777994 0 0 0 402718744 192 0 0 -1000 S
+ig 0 1048576 1 -1
+60 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131638
@@ -606,9 +849,15 @@ marid giant kalzock~
 &+bis a slight blue color and he is dressed in shimmering clothes that leave his
 &+bchest uncovered sothat everyone can see his rippling muscles.
 ~
+<<<<<<< HEAD
 1074006058 0 0 0 402655272 2240 0 0 -1000 S
 EW 0 5 0 -1
 48 0 0 1d1+1 1d1+1
+=======
+1342441738 0 0 0 402655272 2240 0 0 -1000 S
+ew 0 2048 2 -1
+56 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131639
@@ -624,9 +873,15 @@ eblon caption frost~
 &+BQuasi-Eemental Plane of Ice. How ice can be burned is a mystery but it has
 &+Bhappened to him.
 ~
+<<<<<<< HEAD
 1140987944 0 0 0 268435512 14528 0 0 -300 S
 EA 0 15 0 -1
 50 0 0 1d1+1 1d1+1
+=======
+1409423880 1 0 0 268435512 14528 0 0 -300 S
+EA 0 33554432 2 -1
+56 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131640
@@ -639,9 +894,15 @@ air elemental snobby~
 &+Cthere, one hand at a sort of cock, and his head tilted gazing out, waiting
 &+Cfor the elite of this Plane toenter, he seems to take his job much to seriously
 ~
+<<<<<<< HEAD
 1140865066 0 0 0 134217786 12480 0 0 -249 S
 EA 0 1 0 -1
 45 0 0 1d1+1 1d1+1
+=======
+1140865034 1 0 0 134217786 12480 0 0 -249 S
+EA 0 1 1 -1
+50 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131641
@@ -654,9 +915,15 @@ air elemental gigantic~
 &+Wdestroy. It seems to be guarding this area somehow and an intelligence glints
 &+Win its glowing eyes from the middle of the tornado.
 ~
+<<<<<<< HEAD
 1140996136 0 0 0 939524286 14556 0 0 -100 S
 OG 0 1 0 -1
 51 0 0 1d1+1 1d1+1
+=======
+1140996872 1 0 0 939524286 8403164 262336 4194304 -100 S
+OG 0 1 1 7
+60 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131642
@@ -670,9 +937,15 @@ lilianti sylph duchess~
 &+Wseems to move with an effortless grace throughout the area. Her face seems
 &+Wto shine with light as smiles on all the guests and her mouth runs incessantly.
 ~
+<<<<<<< HEAD
 1073879080 0 0 0 402661434 14528 0 0 450 S
 HF 0 8 0 -1
 50 0 0 1d1+1 1d1+1
+=======
+1342315272 1 0 0 402661434 8403136 0 0 450 S
+ea 0 512 2 -1
+57 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 2
 #131643
@@ -686,15 +959,21 @@ sylph handmaiden lady~
 &+Cair born. She is absolutly breath taking with blonde hair that goes down to
 &+Cher waist and a set of flowers that are entwined in her clothes.
 ~
+<<<<<<< HEAD
 1140987944 0 0 0 134742074 14528 0 0 500 S
 HF 0 10 0 -1
 35 0 0 1d1+1 1d1+1
+=======
+1409423368 1 0 0 134742074 8403136 0 0 500 S
+HF 0 512 2 -1
+41 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 2
 #131644
-gogal knight banoret mephit gogol~
-&+CGogol~
-&+CGogal, &+MKnight &+CBanoret &+Cof Mephits levitates here eating storms.
+gogal legendary mephit trickster~
+&+CGogal~
+&+CCogal, the &+Wleg&+wend&+Lary &+bT&+Br&+ci&+Ccks&+ct&+Be&+br I&+Bl&+cl&+Cu&+Wsio&+Cn&+ci&+Bs&+bt&+C is here levitating while practicing his craft.&n
 ~
 &+C   Gogal is a small overweight elemental. He stands about four feet tall and
 &+Cseems to be a hungry little thing. He has a long nose that seems to extend
@@ -702,9 +981,15 @@ gogal knight banoret mephit gogol~
 &+Con his ugly little face. He seems to be fiddling with his robes of office a
 &+Clot becuse they are to big for him.
 ~
+<<<<<<< HEAD
 1073879224 0 0 0 672661566 14556 0 0 -450 S
 EA 0 13 0 -1
 50 0 0 1d1+1 1d1+1
+=======
+1124227224 1 0 0 941097022 8403164 85197248 30411776 -450 S
+x 0 73728 0 3
+60 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131645
@@ -716,9 +1001,15 @@ calthon baron stalker invisible minister internal~
 &+Cslide off him for some reason. At most there is only a barely visible outline
 &+Cthat can be seen at all.
 ~
+<<<<<<< HEAD
 1140988072 0 0 0 135790654 12508 0 0 -560 S
 EA 0 15 0 -1
 51 0 0 1d1+1 1d1+1
+=======
+1073879176 1 0 0 135790654 12508 0 0 -560 S
+EA 0 4096 1 -1
+56 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131646
@@ -731,9 +1022,15 @@ aerial servant verves duke~
 &+Wthe backbone of the army for Queen Akadi. He himself is dressed in phantom
 &+Wmilitary dress and wears a his blade at his side, always ready for battle.
 ~
+<<<<<<< HEAD
 1140987944 0 0 0 134217758 12480 0 0 -150 S
 EA 0 1 0 -1
 51 0 0 1d1+1 1d1+1
+=======
+1073879176 1 0 0 134217758 12480 0 0 -150 S
+EA 0 32768 2 -1
+54 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131647
@@ -752,8 +1049,13 @@ emmissary da'jilia calpih djinni~
 &+Wher...'
 ~
 1073874952 0 0 0 134217784 12492 0 0 859 S
+<<<<<<< HEAD
 G 0 10 0 -1
 48 0 0 1d1+1 1d1+1
+=======
+ea 0 8 1 -1
+52 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #131648
@@ -767,8 +1069,64 @@ akadi queen air~
 &+Cher being totally changeable at any second. She can disappear into her
 &+Celement completely any time she wishes and vanish completely.
 ~
+<<<<<<< HEAD
 1073879210 0 0 0 941170878 14556 0 0 -875 S
 EA 0 16777477 0 -1
+=======
+1090673546 1 0 0 941170878 276838620 85196992 67108864 -875 S
+av 0 130 0 -1
+>>>>>>> master
 62 180 -100 1d100+30000 7d8+70
 0.0.0.0 1000000
 8 8 2
+#131649
+djinni warrior~
+&+Ca &+Bd&+Cjinn&+Bi &+Cwarrior&n~
+&+CA large &+Bd&+Cjinn&+Bi&+C warrior wanders along here, headed for another estate.&n
+~
+&+C   This large man is over ten feet tall and is extremely muscular. He stands
+&+Chere exuding an aura of confidence as to his own fighting ability and smiles
+&+Cdown up any he passes. He wears a nice pair of silk pants and a gorgeous
+&+Cblue silk belt. His top is totally uncovered so as to show off his ripiling
+&+Cmuscles.
+~
+1073875720 1 0 0 402661402 268449984 0 0 0 S
+ea 0 1 1 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#131650
+djinni mage~
+&+Ca &+Bd&+Cjinn&+Bi&n&+C mage&n~
+&+CA massive &+Bd&+Cjinn&+Bi&+C mage is here, journeying home to his estate.&n
+~
+&+C   This large human stands just over ten feet tall and seems to be a mage of
+&+Csome sort, based off his robes and spell components he has dangiling at his
+&+Cside. He is shaved bald on his head and has a small likke earring in his left
+&+Cear. He seems happy though and regardless of the situation has a wide smile on
+&+Chis face.
+~
+1342310984 1 0 0 671088698 0 0 0 0 S
+ea 0 512 2 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#131651
+al'hajib son caliph djinni~
+&+CAl&+B'&+CHajib&n~
+&+CAl&+B'&+CHajib, son of of the &+WCaliph of all &+BD&+Cjinn is here looking for his sister.&n
+~
+&+C   Al'Hajib is the son of the Calph of the Fortress of Ice & Steel. He stands
+&+Cabout fifteen feet tall and has a long tanned body. His hair is shaved off
+&+Chis head and he wears no shirt. His body is thick with muscles and he has
+&+Ca grin that just will not come off his face. As he notices you his booming
+&+Cvoice says '&+WYou there... Mortal, have you seen my sister? My Father the
+&+WCalif of All Djinni, Master of Storms, Son of Breezes, Lord of the Four Winds
+&+Wand Ruler of the Fortress of Steel and Ice sends me to look for her, have you
+&+Wnews??
+~
+1073744392 0 0 0 134217736 0 0 0 0 S
+ie 0 33554432 2 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0

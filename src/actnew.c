@@ -75,9 +75,12 @@ extern const flagDef affected3_bits[];
 extern const flagDef affected4_bits[];
 extern const flagDef affected5_bits[];
 extern int top_of_zone_table;
+extern int itemvalue(P_char ch, P_obj obj);
 
 void yank_make_item(P_char, P_obj);
 void lore_item( P_char ch, P_obj obj );
+void     set_keywords(P_obj t_obj, const char *newKeys);
+void     set_short_description(P_obj t_obj, const char *newShort);
 
 // This sets players to forego all their attacks. It is useful for 
 // caster type classes which do not want their opponent to riposte or
@@ -1359,6 +1362,12 @@ void do_disarm(P_char ch, char *arg, int cmd)
   P_obj    obj, trap;
   P_char   victim;
 
+  if ((GET_CHAR_SKILL(ch, SKILL_DISARM) == 0) && !IS_TRUSTED(ch))
+  {
+    send_to_char("Heh, you might end up losing a finger.\n", ch);
+    return;
+  }
+
   arg = one_argument(arg, vict_name);
   if (*vict_name == '\0')
   {
@@ -1507,11 +1516,13 @@ void event_meditation(P_char ch, P_char victim, P_obj obj, void *data)
   if (GET_CHAR_SKILL(ch, SKILL_ADVANCED_MEDITATION)/2 > number(0,100)) {
     if (IS_AFFECTED(ch, AFF_BLIND)) {
       spell_cure_blind(50, ch, 0, 0, ch, 0);
+             notch_skill(ch, SKILL_ADVANCED_MEDITATION, 50);
       return;
     }
     if (GET_CHAR_SKILL(ch, SKILL_ADVANCED_MEDITATION) > 50 && !number(0,2) &&
         IS_AFFECTED2(ch, AFF2_POISONED)) {
       poison_common_remove(ch);
+             notch_skill(ch, SKILL_ADVANCED_MEDITATION, 50);
       send_to_char("You were able to fight the poison in your body!\n", ch);
       return;
     }
@@ -1519,6 +1530,7 @@ void event_meditation(P_char ch, P_char victim, P_obj obj, void *data)
       (affected_by_spell(ch, SPELL_DISEASE) || affected_by_spell(ch, SPELL_PLAGUE)))
      {
      spell_cure_disease (GET_LEVEL(ch), ch, NULL, SPELL_TYPE_SPELL, ch, NULL); 
+             notch_skill(ch, SKILL_ADVANCED_MEDITATION, 50);
      return;
      }  
   }
@@ -2336,9 +2348,14 @@ void do_shapechange(P_char ch, char *arg, int cmd)
       "about to forget", "vaguely", "average", "good", "mastered"};
     send_to_char("You have studied the following creatures:\n", ch);
     for (af = ch->affected, count = 1; af; af = af->next)
-      if (af->type == TAG_KNOWN_SHAPE) {
-        sprintf(buf, "[%d] %s &n(&+W%s&n)\n", count++, mob_index[real_mobile(af->modifier)].desc2,
-          how_learned[BOUNDED(0, (5 * af->duration - 1)/get_property("innate.shapechange.memory.time", 500), 4)]);
+      if (af->type == TAG_KNOWN_SHAPE)
+      {
+        if( real_mobile(af->modifier) < 0 )
+          sprintf(buf, "[%d] %s &n(&+W%s&n)\n", count++, "Unknown",
+            how_learned[BOUNDED(0, (5 * af->duration - 1)/get_property("innate.shapechange.memory.time", 500), 4)]);
+        else
+          sprintf(buf, "[%d] %s &n(&+W%s&n)\n", count++, mob_index[real_mobile(af->modifier)].desc2,
+            how_learned[BOUNDED(0, (5 * af->duration - 1)/get_property("innate.shapechange.memory.time", 500), 4)]);
         send_to_char(buf, ch);
       }
     return;
@@ -2452,7 +2469,7 @@ void do_dirttoss(P_char ch, char *arg, int cmd)
     }
   }
 
-  skl_lvl = (int) (0.9*GET_CHAR_SKILL(ch, SKILL_DIRTTOSS));
+  skl_lvl = (int) (GET_CHAR_SKILL(ch, SKILL_DIRTTOSS));
   
   if (skl_lvl <= 0)
     return;
@@ -2491,7 +2508,7 @@ void do_dirttoss(P_char ch, char *arg, int cmd)
 
   justice_witness(ch, vict, CRIME_ATT_MURDER);
 
-  i = skl_lvl - (GET_C_AGI(vict) / 5);
+  i = skl_lvl - (GET_C_AGI(vict) / 6);
 
   act
     ("You reach for the ground, quickly tossing a clump of dirt at $N's face!",
@@ -3268,7 +3285,7 @@ void do_hamstring(P_char ch, char *arg, int cmd)
   appear(ch);
 
   if (IS_AFFECTED(vict, AFF_AWARE) && AWAKE(vict))
-    skl_lvl -= 40;
+    skl_lvl -= 10;
   else if (AWAKE(vict) && IS_AFFECTED(vict, AFF_SKILL_AWARE))
   {
     for (af = vict->affected; af; af = af->next)
@@ -3328,7 +3345,7 @@ void do_hamstring(P_char ch, char *arg, int cmd)
     return;
   }
 
-  if (IS_DEMON(vict) || IS_DRAGON(vict) || IS_GIANT(vict) ||
+  if (IS_DEMON(vict) || IS_DRAGON(vict) || 
       (GET_RACE(vict) == RACE_PLANT))
   {
     act("Such a maneuver appears to be useless against $N!", FALSE, ch, 0,
@@ -3348,6 +3365,8 @@ void do_hamstring(P_char ch, char *arg, int cmd)
     send_to_char("Does that thing even HAVE a hamstring?!\r\n", ch);
     return;
   }
+
+/*
   if (GET_ALT_SIZE(vict) > GET_ALT_SIZE(ch) + 2)
   {
     act
@@ -3365,6 +3384,7 @@ void do_hamstring(P_char ch, char *arg, int cmd)
     send_to_char("How can you hamstring something so small?\r\n", ch);
     return;
   }
+*/
   justice_witness(ch, vict, CRIME_ATT_MURDER);
 
   i = (skl_lvl) - (GET_C_AGI(vict) / 10);
@@ -3389,7 +3409,7 @@ void do_hamstring(P_char ch, char *arg, int cmd)
     af->location = APPLY_MOVE;
 */
 
-    i = number(50, 80);
+    i = number(40, 70);
     if ((GET_VITALITY(vict) - i) < 20)
       i = GET_VITALITY(vict) - 20;
 
@@ -3609,7 +3629,7 @@ void do_vote(P_char ch, char *argument, int cmd)
 
 void do_craft(P_char ch, char *argument, int cmd)
 {
-
+/*
   P_obj    craft_obj1, craft_obj2, craft_obj3, obj;
   P_obj    t_obj, nextobj;
   int      i, bits, j, in_room, material_type, item_type, howmany,
@@ -3622,15 +3642,356 @@ void do_craft(P_char ch, char *argument, int cmd)
 
   equipped = FALSE;
   obj = 0;
-
+*/
   if (!GET_CHAR_SKILL(ch, SKILL_CRAFT))
   {
-    act("You need to find someone more skilled to do this.",
+    act("You do not know how to &+rcraft&n items.",
         FALSE, ch, 0, 0, TO_CHAR);
     return;
   }
 
+   char     buf1[MAX_STRING_LENGTH];
+  char     first[MAX_INPUT_LENGTH];
+  char     second[MAX_INPUT_LENGTH];
+  char     rest[MAX_INPUT_LENGTH];
+  int i = 0;  
+  int choice = 0;  
+  P_obj hammer, foundry;
 
+/***DISPLAYRECIPES STUFF***/
+ 
+  char     buf[256], *buff, buf2[256], rbuf[MAX_STRING_LENGTH];
+  char     Gbuf1[MAX_STRING_LENGTH], selectedrecipe[MAX_STRING_LENGTH];
+  char tempdesc [MAX_INPUT_LENGTH];
+  char short_desc[MAX_STRING_LENGTH];
+  char keywords[MAX_INPUT_LENGTH];
+  char buffer[256];
+  FILE    *f;
+  FILE    *recipelist;
+  int line, recfind;
+  unsigned long	linenum = 0;
+  long recnum, choice2;
+  long selected = 0;
+  P_obj tobj;
+ 
+	
+  //Create buffers for name
+  strcpy(buf, GET_NAME(ch));
+  buff = buf;
+  for (; *buff; buff++)
+  *buff = LOWER(*buff);
+  //buf[0] snags first character of name
+  sprintf(Gbuf1, "Players/Tradeskills/%c/%s.crafting", buf[0], buf);
+  recipelist = fopen(Gbuf1, "r");
+    if (!recipelist)
+  {
+    send_to_char("You dont know any recipes yet.\r\n", ch);
+    return;
+  }
+       half_chop(argument, first, rest);
+       half_chop(rest, second, rest);
+       choice2 = atoi(second);
+
+ 
+ if (!*argument)
+  {
+  send_to_char("&+wcraft Syntax:\n&n", ch);
+  send_to_char("&+w(craft info <number> - list required materials to craft the item.)\n&n", ch);
+  send_to_char("&+w(craft stat <number> - display properties of the item.)\n&n", ch);
+  send_to_char("&+w(craft make <number> - create the item.)\n&n", ch);
+  send_to_char("&+yYou know the following recipes:\n&n", ch);
+  send_to_char("----------------------------------------------------------------------------\n", ch);
+  send_to_char("&+BRecipe Number		              &+MItem&n\n\r", ch);
+      while((fscanf(recipelist, "%i", &recnum)) != EOF )
+	{  
+       /* debug
+       char bufbug[MAX_STRING_LENGTH];
+       */
+       if(recnum == choice2)
+       selected = choice2;
+       /* debug
+       sprintf(bufbug, "choice is: %d\r\n", selected);
+       send_to_char(bufbug, ch);
+       if(recnum == choice2)
+	send_to_char("The one below here is selected.\r\n", ch);
+	*/
+	tobj = read_object(recnum, VIRTUAL);
+ 	sprintf(rbuf, "%d\n", recnum);
+    sprintf(buffer, "   &+W%-22d&n%s&n\n", recnum, tobj->short_description);
+	//stores the actual vnum written in file into rbuf 
+	page_string(ch->desc, buffer, 1);
+    send_to_char("----------------------------------------------------------------------------\n", ch);
+      extract_obj(tobj, FALSE);
+   	}
+     fclose(recipelist);
+  /***ENDDISPLAYRECIPES***/
+
+  return;
+  }
+
+  while((fscanf(recipelist, "%i", &recnum)) != EOF )
+	{  
+       /* debug
+       char bufbug[MAX_STRING_LENGTH];
+       */
+       if(recnum == choice2)
+       selected = choice2;
+       /* debug
+       sprintf(bufbug, "choice is: %d\r\n", selected);
+       send_to_char(bufbug, ch);
+       if(recnum == choice2)
+	send_to_char("The one below here is selected.\r\n", ch);
+	*/
+	//tobj = read_object(recnum, VIRTUAL);
+ 	sprintf(rbuf, "%d\n", recnum);
+	}
+  fclose(recipelist);
+ 
+
+  if (is_abbrev(first, "stat"))
+  {
+    if(choice2 == 0)
+     {
+      send_to_char("What &+Wrecipe&n would you like &+ystatistics&n about?\n", ch);
+      return;
+     }
+    if(selected == 0)
+     {
+      send_to_char("You dont appear to have that &+Wrecipe&n in your list.&n\n", ch);
+      return;
+     }
+    tobj = read_object(selected, VIRTUAL);
+    send_to_char("&+yYou open your &+Ltome &+yof &+Ycra&+yftsm&+Lanship &+yand examine the &+Litem&n.\n", ch);
+    spell_identify(GET_LEVEL(ch), ch, 0, 0, 0, tobj);
+     extract_obj(tobj, FALSE);
+    return;
+  }
+  else if(is_abbrev(first, "info"))
+  {
+    if(choice2 == 0)
+     {
+      send_to_char("What &+Wrecipe&n would you like &+yinformation&n about?\n", ch);
+      return;
+     }
+    if(selected == 0)
+     {
+      send_to_char("You dont appear to have that &+Wrecipe&n in your list.&n\n", ch);
+      return;
+     }
+   tobj = read_object(selected, VIRTUAL);
+
+   float tobjvalue = itemvalue(ch, tobj);
+
+   tobjvalue += 4; //minimum craft start value.
+
+   int startmat = get_matstart(tobj);
+
+   tobjvalue = (float)tobjvalue / (float)5;
+
+   int fullcount = tobjvalue;
+
+    float difference = tobjvalue - fullcount;
+    difference = (int)(((float)difference * (float)10.0) / 2);
+
+    P_obj material;
+    P_obj material2;
+    material = read_object(startmat + 4, VIRTUAL);
+    material2 = read_object(startmat + ((int)difference - 1), VIRTUAL);
+    char matbuf[MAX_STRING_LENGTH];
+   //display startmat + difference;
+   if(fullcount != 0)
+   {
+if(difference == 0)
+    {
+    send_to_char("&+yYou open your &+Ltome &+yof &+Ycra&+yftsm&+Lanship &+yand examine the &+Litem&n.\n", ch);
+     sprintf(matbuf, "To craft this item, you will need %d of %s.\r\n&n", fullcount, material->short_description);
+	page_string(ch->desc, matbuf, 1);
+    }
+    else
+    {
+    send_to_char("&+yYou open your &+Ltome &+yof &+Ycra&+yftsm&+Lanship &+yand examine the &+Litem&n.\n", ch);
+    sprintf(matbuf, "To craft this item, you will need %d of %s and %d of %s.\r\n&n", fullcount, material->short_description, (int)difference, material2->short_description);
+    page_string(ch->desc, matbuf, 1);
+    }
+
+   }
+   else
+    {
+    send_to_char("&+yYou open your &+Ltome &+yof &+Ycra&+yftsm&+Lanship &+yand examine the &+Litem&n.\n", ch);
+    sprintf(matbuf, "To craft this item, you will need %d of %s.\r\n&n", (int)difference, material2->short_description);
+    page_string(ch->desc, matbuf, 1);
+     }
+
+    if(has_affect(tobj))
+    send_to_char("...as well as &+W1 &nof &+ma &+Mm&+Ya&+Mg&+Yi&+Mc&+Ya&+Ml &+messence&n due to the &+mmagical &nproperties this item possesses.\r\n", ch);
+    extract_obj(tobj, FALSE);
+    extract_obj(material2, FALSE);
+    extract_obj(material, FALSE);
+   return;
+  }
+  else if (is_abbrev(first, "make"))
+  {
+    if(choice2 == 0)
+     {
+      send_to_char("What &+Witem &nare you attempting to craft?\n", ch);
+      return;
+     }
+    if(selected == 0)
+     {
+      send_to_char("You dont appear to have that &+Wrecipe&n in your list.&n\n", ch);
+      return;
+     }
+
+
+   tobj = read_object(selected, VIRTUAL);
+
+   float tobjvalue = itemvalue(ch, tobj);
+
+   tobjvalue += 4;
+
+   int startmat = get_matstart(tobj);
+
+   tobjvalue = (float)tobjvalue / (float)5;
+
+   int fullcount = tobjvalue;
+
+    float difference = tobjvalue - fullcount;
+    difference = (int)(((float)difference * (float)10.0) / 2);
+
+    P_obj material;
+    P_obj material2;
+    material = read_object(startmat + 4, VIRTUAL);
+    material2 = read_object(startmat + ((int)difference - 1), VIRTUAL);
+    char matbuf[MAX_STRING_LENGTH];
+
+  int affcount = has_affect(tobj);
+
+
+  P_obj t_obj, nextobj;
+  int i = 0; //highest mat value
+  int o = 0; //lowest mat value
+  int x = 0; //magical essence
+  int y = 0; //crafting tools
+  for (t_obj = ch->carrying; t_obj; t_obj = nextobj)
+  {
+    nextobj = t_obj->next_content;
+
+    if(GET_OBJ_VNUM(t_obj) == GET_OBJ_VNUM(material))
+      i++;
+
+    if(GET_OBJ_VNUM(t_obj) == GET_OBJ_VNUM(material2))
+     o++;
+
+    if(GET_OBJ_VNUM(t_obj) == 400224)
+    y++;
+
+    if(GET_OBJ_VNUM(t_obj) == 400211)
+    x++;
+  }
+   int z = 0;
+   if(has_affect(tobj))
+    z = 1;
+  debug(" difference: %d\r\n", (int)difference);
+  if((i < fullcount) || (o < (int)difference) || ((z == 1) && (x < 1)))
+  {
+    send_to_char("You do not have the required &+ysalvaged &+Ymaterials &nin your inventory.\r\n", ch);
+    extract_obj(tobj, FALSE);
+    extract_obj(material2, FALSE);
+    extract_obj(material, FALSE);
+    return;
+  }
+  if(y < 1)
+  {
+    send_to_char("You must have &+ma &+ybox &+mof &+Rgnomish &+rcrafting &+mtools&n to create your item.\r\n", ch);
+    extract_obj(tobj, FALSE);
+    extract_obj(material2, FALSE);
+    extract_obj(material, FALSE);
+    return;
+  }
+  if(has_affect(tobj) && x < 1)
+  {
+   send_to_char("You must have &+W1 &nof &+ma &+Mm&+Ya&+Mg&+Yi&+Mc&+Ya&+Ml &+messence&n due to the &+mmagical &nproperties this item possesses.\r\n", ch);
+   return;
+  }
+
+  int expgain = itemvalue(ch, tobj);
+ //drannak - make the item
+   int obj1 = startmat + 4;
+   int obj2 = (startmat + ((int)difference -1));
+   y = 0;
+   i = 0;
+   z = 0;
+   y = 0;
+   o = 0;
+
+   for (t_obj = ch->carrying; t_obj; t_obj = nextobj)
+     {
+    nextobj = t_obj->next_content;
+
+	if((GET_OBJ_VNUM(t_obj) == obj1) && (i < fullcount) )
+         {
+	   obj_from_char(t_obj, TRUE);
+	   extract_obj(t_obj, TRUE);
+          i++;
+         }
+       if((GET_OBJ_VNUM(t_obj) == obj2) && (o < difference))
+         {
+	   obj_from_char(t_obj, TRUE);
+	   extract_obj(t_obj, TRUE);
+          o++;
+         }
+       if((GET_OBJ_VNUM(t_obj) == 400211) && (z < affcount))
+         {
+	   obj_from_char(t_obj, TRUE);
+	   extract_obj(t_obj, TRUE);
+          z++;
+         }
+       if((GET_OBJ_VNUM(t_obj) == 400224) && (y < 1))
+         {
+	   obj_from_char(t_obj, TRUE);
+	   extract_obj(t_obj, TRUE);
+          y++;
+         }
+      }
+
+ //reward here
+      wizlog(56, "%s crafted %s" , GET_NAME(ch), tobj->short_description);
+      notch_skill(ch, SKILL_CRAFT, 1);
+  P_obj reward = read_object(selected, VIRTUAL);
+  SET_BIT(reward->extra2_flags, ITEM2_CRAFTED);
+  SET_BIT(reward->extra_flags, ITEM_NOREPAIR);
+  randomizeitem(ch, reward);
+  sprintf(keywords, "%s %s tradeskill", reward->name, GET_NAME(ch));
+
+  sprintf(tempdesc, "%s", reward->short_description);
+  sprintf(short_desc, "%s &+ymade by&n &+r%s&n", tempdesc, GET_NAME(ch));
+  set_keywords(reward, keywords);
+  set_short_description(reward, short_desc);
+
+
+  obj_to_char(reward, ch);
+  act
+    ("&+W$n &+Ldelicately opens their &+ybox &+mof &+Rgnomish &+rcrafting &+mtools&+L and starts their work...\r\n"
+     "&+W$n &+Lremoves the &+Wim&+wpur&+Lities &+Lfrom their &+ymaterials &+Land gently assembles a masterpiece...\r\n"
+     "&+L...hands shaking, &+W$n &+Lraises their head and &+Ysmiles&+L, admiring their new $p.&N",
+     TRUE, ch, tobj, 0, TO_ROOM);
+  act
+    ("You &+Ldelicately open your &+ybox &+mof &+Rgnomish &+rcrafting &+mtools&+L and get to work...\r\n"
+     "you &+Lremove the &+Wim&+wpur&+Lities &+Lfrom your &+ymaterials &+Land gently assemble a masterpiece...\r\n"
+     "&+L...hands shaking, &+Wyou &+Lraise your head and &+Ysmile&+L, admiring your new $p.&N",
+     FALSE, ch, tobj, 0, TO_CHAR);
+    gain_exp(ch, NULL, (itemvalue(ch, tobj) * 1000), EXP_BOON);
+    extract_obj(tobj, FALSE);
+    extract_obj(material2, FALSE);
+    extract_obj(material, FALSE);
+    gain_exp(ch, NULL, (expgain * 10000), EXP_QUEST);
+  }
+
+
+
+
+
+  /*
   argument = one_argument(argument, Gbuf1);
   howmany = 0;
   i = 0;
@@ -3737,9 +4098,9 @@ void do_craft(P_char ch, char *argument, int cmd)
   }
 
 
-/*
-        wizlog(56, "%s crafted.", GET_NAME(ch));
 */
+/*        wizlog(56, "%s crafted.", GET_NAME(ch));
+
   if (howmany > 0)
     extract_obj(craft_obj1, TRUE);
   if (howmany > 1)
@@ -3759,7 +4120,7 @@ void do_craft(P_char ch, char *argument, int cmd)
   act("&+WYou crafted a $q&N", TRUE, ch, obj, 0, TO_CHAR);
 
   return;
-
+*/
 }
 
 
@@ -3783,9 +4144,17 @@ int chance_throw_potion(P_char ch, P_char victim)
     chance = GET_LEVEL(ch) * 2 - number(0, 30);
     chance = BOUNDED(10, chance, 100);
   }
+<<<<<<< HEAD
   dex_chance = STAT_INDEX((stat_factor[GET_RACE(ch)].Dex * GET_C_DEX(ch) / 100));
   agi_chance = STAT_INDEX((stat_factor[GET_RACE(victim)].Agi * GET_C_AGI(victim) / 100));
   chance += dex_chance - agi_chance;
+=======
+  
+  if(number(1, 140) > GET_C_AGI(ch))
+  chance = 1;
+  
+  return (int) chance;
+>>>>>>> master
 
   return (int) chance;
 }
@@ -3807,6 +4176,15 @@ bool throw_potion(P_char ch, P_obj scroll, P_char victim, P_obj obj)
     act("Well, trying might not hurt.", FALSE, ch, 0, 0, TO_CHAR);
     return FALSE;
   }
+  
+
+  
+
+    if(!isname(GET_NAME(ch), scroll->short_description) && !IS_TRUSTED(ch))
+    {
+     send_to_char("&nThrowing potions of unknown origin might be hazardous to your health... better not!&n\r\n", ch);
+     return FALSE;
+    }
 
   if(scroll == ch->equipment[HOLD])
     equipped = TRUE;
@@ -3825,11 +4203,31 @@ bool throw_potion(P_char ch, P_obj scroll, P_char victim, P_obj obj)
   CharWait(ch, (int) (get_property("alchemist.throwp.lag.rounds", 1.00) * PULSE_VIOLENCE) );
   set_short_affected_by(ch, SKILL_THROW_POTIONS, (int) (lag * PULSE_VIOLENCE));
 
-  notch_skill(ch, SKILL_THROW_POTIONS, 100);
+  notch_skill(ch, SKILL_THROW_POTIONS, 15);
 
   if(victim)
   {
+<<<<<<< HEAD
     if(number(0, chance))
+=======
+
+     if(chance == 1)
+      {
+      send_to_char("As you slip......\r\n", ch);
+        if (equipped)
+          unequip_char(ch, HOLD);
+        obj_from_char(scroll, TRUE);
+        send_to_char
+          ("&+YYou aim your throw a little too high, sending your potion flying across the room!\r\n&n",
+           ch);
+        act
+          ("$n slips as $e throws a $p, sending it bouncing along the ground!",
+           TRUE, ch, scroll, 0, TO_ROOM);
+        return FALSE;
+      }
+
+    if (number(0, chance))
+>>>>>>> master
     {
       victim = victim;
     }

@@ -347,6 +347,9 @@ void raise_undead(int level, P_char ch, P_char victim, P_obj obj, int which_type
     return;
   }
 
+  if(IS_NPC(ch) && IS_PC_PET(ch))
+   return;
+
   if ((IS_AFFECTED4(ch, AFF4_VAMPIRE_FORM) &&
       !is_wearing_necroplasm(ch) &&
       !IS_NPC(ch)) ||
@@ -474,6 +477,11 @@ void raise_undead(int level, P_char ch, P_char victim, P_obj obj, int which_type
   remove_plushit_bits(undead);
 
   GET_RACE(undead) = undead_data[typ].race;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> master
   GET_SEX(undead) = SEX_NEUTRAL;
   
   if ((typ >= NECROPET_START) && (typ <= NECROPET_END))
@@ -489,6 +497,8 @@ void raise_undead(int level, P_char ch, P_char victim, P_obj obj, int which_type
     cap = undead_data[typ].max_level;
 
   undead->player.level = BOUNDED(1, clevel, cap); // was BOUNDED(1, num, cap);  (wipe2011)
+
+
 
   for (j = 1; j <= MAX_CIRCLE; j++)
     undead->specials.undead_spell_slots[j] =
@@ -534,6 +544,12 @@ void raise_undead(int level, P_char ch, P_char victim, P_obj obj, int which_type
   balance_affects(undead);
   undead->only.npc->str_mask = (STRUNG_KEYS | STRUNG_DESC1 | STRUNG_DESC2);
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> master
   if ((typ >= THEURPET_START) && (typ <= THEURPET_END))
   {
     sprintf(Gbuf2, "%s", undead_data[typ].name);
@@ -622,6 +638,12 @@ void raise_undead(int level, P_char ch, P_char victim, P_obj obj, int which_type
     duration += number(1,10);
     add_event(event_pet_death, (duration+1) * 60 * 4, undead, NULL, NULL, 0, NULL, 0);
   }
+  if(GET_RACE(undead) == RACE_PLICH)
+  {
+  undead->player.m_class += CLASS_CONJURER;
+  //send_to_char("is lich\r\n", ch);
+  }
+
 }
 
 #undef UNDEAD_TYPES
@@ -1150,6 +1172,9 @@ void spell_create_dracolich(int level, P_char ch, char *arg, int type, P_char vi
     send_to_char("But you can barely move!\r\n", ch);
     return;
   }
+
+  if(IS_NPC(ch) && affected_by_spell(ch, TAG_CONJURED_PET))
+  return;
   
   if (CHAR_IN_SAFE_ZONE(ch))
   {
@@ -1240,7 +1265,12 @@ void spell_create_dracolich(int level, P_char ch, char *arg, int type, P_char vi
   
   GET_SIZE(mob) = SIZE_GIANT;
   GET_RACE(mob) = RACE_DRACOLICH;
+<<<<<<< HEAD
   GET_HIT(mob) = GET_MAX_HIT(mob) = mob->points.base_hit = dice(level, 15) + (life * 3);
+=======
+  SET_BIT(mob->specials.act, ACT_MOUNT);
+  GET_HIT(mob) = GET_MAX_HIT(mob) = mob->points.base_hit = dice(125, 15) + (life * 5);
+>>>>>>> master
   mob->specials.act |= ACT_SPEC_DIE;
   SET_BIT(mob->only.npc->aggro_flags, AGGR_ALL);
   
@@ -1262,6 +1292,14 @@ void spell_create_dracolich(int level, P_char ch, char *arg, int type, P_char vi
     {
       REMOVE_BIT(mob->specials.act, ACT_GUILD_GOLEM);
     }
+<<<<<<< HEAD
+=======
+    if(GET_LEVEL(ch) >= 50)
+    {
+      mob->points.damnodice = 15;
+      mob->points.base_hitroll = mob->points.hitroll = (GET_LEVEL(ch));
+    }
+>>>>>>> master
   }
   char_to_room(mob, ch->in_room, 0);
 
@@ -1318,6 +1356,7 @@ void spell_create_dracolich(int level, P_char ch, char *arg, int type, P_char vi
   act("&+W$N roars to the sky 'I LIVE!!!'", TRUE, ch, 0, mob, TO_ROOM);
   act("&+W$N roars to the sky 'I LIVE!!!'", TRUE, ch, 0, mob, TO_CHAR);
 
+<<<<<<< HEAD
   // Why remove the random chance of a pet going rogue?  Because this is an animation, not a summoning of
   // a creature already with its own lifeforce.  This creature is being given life by the necromancer. -Jexni
 
@@ -1326,6 +1365,12 @@ void spell_create_dracolich(int level, P_char ch, char *arg, int type, P_char vi
 
   int duration = setup_pet(mob, ch, timeToDecay / 2 + (6000 / STAT_INDEX(GET_C_INT(mob))), PET_NOCASH);
   add_follower(mob, ch);    
+=======
+    GET_AC(mob) -= (GET_LEVEL(ch) * 5);
+    int duration = setup_pet(mob, ch, timeToDecay/2 + (6000 / STAT_INDEX(GET_C_INT(mob))), PET_NOCASH);
+    add_follower(mob, ch);
+    
+>>>>>>> master
     
   /* if the undead will stop being charmed after a bit, also make it suicide 1-10 minutes later */
   if(duration >= 0)
@@ -1788,6 +1833,10 @@ void spell_create_greater_dracolich(int level, P_char ch, char *arg, int type, P
     send_to_char("But you can barely move!\r\n", ch);
     return;
   }
+
+  if(IS_NPC(ch) && affected_by_spell(ch, TAG_CONJURED_PET))
+  return;
+
   if(CHAR_IN_SAFE_ZONE(ch))
   {
     send_to_char("A mysterious force blocks your spell!\r\n", ch);

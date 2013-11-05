@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #82400
 blanket~
 &+ga finely woven &+Gcent&+Laur &+gblanket&N~
@@ -445,3 +446,452 @@ belt tool~
 ~
 A
 2 9
+=======
+#82400
+blanket~
+&+ga finely woven &+Gcent&+Laur &+gblanket&N~
+&+gA riding blanket lies here collecting dust.&N~
+~
+9 15 3 0 7 0 0 16778241 0 0 0
+10 0 0 3 0 0 0 0
+2 10000 100
+E
+blanket~
+&+gThis fine blanket was a gift to &+GTrent&+Lloss &+gfrom the &+Gdruids &+gof the temple&N
+&+gfor his service in guarding over their sanctuary.  The blanket has been&N
+&+genchanted so that he may sense dangers as they approach and disbatch with&N
+&+gthem if needed.&N
+~
+A
+13 5
+A
+24 -1
+#82401
+ring vines knot~
+&+ga &+Cshimmering &+gring of &+Gvines&N~
+&+gA knot of vines lies here on the ground.&N~
+~
+9 15 3 0 7 0 0 34078723 0 0 0
+1 0 0 3 0 0 0 0
+0 500 100
+E
+ring vines knot~
+&+gThis ring is composed of single length of vine that has been woven into a&N
+&+gtight band.  Powerful enchantments have been placed upon this vine to protect&N
+&+gthe wearer from becoming slowed when travelling through thick brush.  A&N
+&+greflective coating has also been added over the vine for even more spell&N
+&+gprotection.&N
+~
+A
+20 -2
+A
+22 -2
+#82402
+heart lump wood~
+&+wthe &+Ltwisted &+rheart &+wof a pine&N~
+&+LA hardened lump of wood lies here on the ground.&N~
+~
+13 15 3 0 7 0 8388616 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+heart pine~
+&+LThis knot of wood it blacked and charred and seems to have been warped&N
+&+Lby the chill touch of some malevolent spirit that has sapped the strength&N
+&+Lfrom the heart of the tree.&N
+~
+#82403
+blob mind~
+&+Lthe demented &+Mmind &+Lof a bear&N~
+&+LA black and &+Mpurple &+Lblob lies here on the ground.&N~
+~
+13 15 3 0 7 0 8388608 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+blob mind~
+&+LThis blob of grey matter has taken on more of a purplish tinge as some&N
+&+Lpowerful parasite has taken over most of the functions of this poor animal.&N
+&+LLooking at what is left of this poor bear you feel a sense of relief that&N
+&+Lyou were able to put it out of its misery.&N
+~
+#82404
+tome book~
+&+gan &+Gen&+Ych&+Wan&+Yte&+Gd &+gtome&N~
+&+yA discarded tome lies here.&N~
+~
+33 15 3 0 7 0 262144 8388609 0 0 0
+0 0 150 0 0 0 0 0
+0 10000 100
+E
+tome book~
+&+gThis book was en&+Gch&+Yan&+Gte&+gd by the druids of the &+WTemple of the &+YSun&+g.  The mage&N
+&+gthat uses this book will have not only an ample supply of pages to scribe&N
+&+gspells but will have a pleasant light to read by in the late night hours.&N
+~
+#82405
+ring~
+&+Lan &+ben&+Bchant&+bed &+Lring of stone&N~
+&+LA ring lies here looking like a small pebble.&N~
+~
+9 15 3 0 7 0 0 33554435 64 0 0
+5 0 0 5 0 0 0 0
+3 1212 100 73728 0 0 0
+E
+ring stone~
+&+LThis ring has been hardened to an rigid stone that has taken the&N
+&+Lessence of a magical stone.  Its rock hard surface seem to hum softly and&N
+&+Lradiates an aura of protection around the wearer.&N
+~
+A
+13 20
+A
+22 -4
+#82406
+rock~
+&+La m&+Bys&+Lti&+Bca&+Ll &+Mgl&+mow&+Min&+mg &+Lrock&N~
+&+LA rock lies here &+Mhu&+mmm&+Min&+mg &+Lquietly.&N~
+~
+13 15 3 0 7 0 0 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+rock~
+&+LThis rock has some magical properties that make it almost hum as you are&N
+&+Mholding it.  It appears to have been altered through a powerful magical&N
+&+Lspell and seems to be quite maleable.&N
+~
+#82407
+lyre instrument~
+&+Yan ancient golden lyre&N~
+&+YAn instrument lies here collecting dust.&N~
+~
+32 15 3 0 7 0 0 16385 0 0 0
+185 50 0 1 0 0 0 0
+0 10000 100
+E
+lyre instrument~
+&+YThis well crafted instrument has been endowed with magical spells that allow&N
+&+Ya bard to sing beautiful songs for a enhanced period of time.&N
+~
+A
+13 5
+A
+14 10
+#82408
+sunbeam beam~
+&+Wa &+Ybeam &+Wof &+Ysun&+Wlight&N~
+&+YA sunbeam has struck the ground here.&N~
+~
+13 15 3 0 7 0 8650760 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+sunbeam beam~
+&+YA glowing beam of light has been captured and bound into a glowing shard.&N
+&+WThis beam was once in place upon the altar in the center of the temple of the&N
+&+Ysun but was taken when the temple was ransacked.  The power of the temple&N
+&+Wcan only be restored when this beam has been replaced and the proper&N
+&+Yrituals have been performed.&N
+~
+#82409
+ring sun~
+&+Wa ring of the &+Ymo&+rrni&+Yng &+Wsun&N~
+&+YA ring that &+rburns &+Ywith an inner fire lies here.&N~
+~
+9 15 3 0 7 0 173056 3 0 33685920 0
+2 0 0 3 0 0 0 0
+5 1212 100 536870912 0 0 0
+E
+mace~
+&+YThis mace glows with a &+Rbur&+rni&+Rng f&+rur&+Ry &+Ythat can only be contained when the sun&N
+&+Ysets.  During &+Wdaylight &+Yhours the wrath of the &+Wtemple of the &+Ysun cannot be&N
+&+Ythwarted by mortal man and woe be the enemy of the bearer of this mighty mace.&N
+~
+A
+13 7
+A
+5 5
+#82410
+necklace~
+&+Ca necklace of &+gtroll fingers&N~
+&+gA necklace lies here collecting dust.&N~
+~
+9 15 3 0 7 0 0 5 0 0 0
+5 0 0 3 0 0 0 0
+0 1000 100
+E
+necklace~
+&+gThis necklace is a collection of the evil trolls that have been slain by a&N
+&+gmighty gnome.  Each finger brings back a special memory of the deathcry of&N
+&+ga smelly troll.&N
+~
+A
+5 5
+A
+13 15
+#82411
+belt~
+&+ga belt of &+Gelven &+gstamina&n~
+&+gA &+Gpretty &+ggreen &+Gbelt &+glies here blending in with the ground.&N~
+~
+9 15 3 0 7 0 0 2049 64 0 0
+10 0 0 3 0 0 0 0
+0 10000 100
+E
+belt~
+&+gThis belt is the color of the elven forest and seems to blend in and provide&N
+&+gcover for the wearer when travelling the realm.&N
+~
+A
+26 5
+A
+5 5
+#82412
+hide belt~
+&+ya tanned &+gcen&+Ltaur &+yhide belt&N~
+&+yA tanned piece of centaur hide lies here.&N~
+~
+9 15 3 0 7 0 0 2049 0 0 0
+10 0 0 3 0 0 0 0
+0 10000 100
+E
+hide belt~
+&+yThe hide of a slain &+Lcent&+gaur &+yhas been tanned and hardened into a fine belt&N
+&+ythat any &+gtroll &+ywarrior would be proud to wear.  This belt has been enhanced&N
+&+yto add to the fighting abilities and stamina of the wearer.&N
+~
+A
+19 1
+A
+14 10
+#82413
+pants~
+&+ra pair of &+cin&+Csu&+cla&+Cte&+cd &+rpants&N~
+&+rA thick pair of &+cpants &+rlies here in a heap.&N~
+~
+9 15 3 0 7 0 0 33 0 0 0
+6 0 0 3 0 0 0 0
+0 1000 100
+E
+pants~
+&+rThese pants have been well paded and enchanted with special protections for&N
+&+bthe daily kitchen duties.  Whether you are cooking over an open flame or&N
+&+rrunning into a chilly ice box for another slab of meat you will be protected.&N
+
+                        &+GGOBLIN WEAR &+W(TM)&N
+~
+A
+5 5
+A
+13 10
+#82414
+blanket~
+&+ya &+Wwinged &+yriding blanket&N~
+&+yA strange looking blanket lies here.&N~
+~
+9 15 3 0 7 0 0 16778241 0 0 0
+10 0 0 3 0 0 0 0
+0 10000 100
+E
+blanket~
+&+wFine feathers cover this blanket and make it seem to hover slightly above the&N
+&+wground.  Powerful enchantments have been bound to the feathers to allow the&N
+&+wwearer to soar like an angel above the cares of the world.&N
+~
+A
+18 1
+A
+19 1
+#82415
+mask ritual shaman~
+&+ba &+cshaman &+britual mask&N~
+&+bA blue dyed mask lies here.&N~
+~
+9 15 3 0 7 0 0 262145 0 0 0
+10 0 0 3 0 0 0 0
+0 10000 100
+E
+mask ritual shaman~
+&+bA horrid scowl covers this mask which appears to be used in important shaman&N
+&+brituals.  This mask is used by the unwilling victim who must wait in the&N
+&+bdarkness of the UD and prepare to fight off a savage beast in order to&N
+&+badvance to the next level of the unholy order.&N
+~
+A
+20 -2
+A
+13 7
+#82416
+ring brass~
+&+ra fire hardened ring of &+ybrass&N~
+&+rA glowing hot ring lies here steaming.&N~
+~
+9 15 3 0 7 0 1 3 0 0 0
+2 0 0 3 0 0 0 0
+0 10000 100
+E
+ring brass~
+&+rA glowing &+ybrass &+rring has been tempered in a searing fire and was given as&N
+&+ra gift from the duergars in exchange for a premium vintage of wine.  This&N
+&+rring is not only eyecatching but has special enhancements.&N
+~
+A
+18 1
+A
+19 2
+#82417
+bag~
+&+Ya large instrument bag&N~
+&+YA large bag lies here.&N~
+~
+15 15 3 0 7 0 0 8388609 0 0 0
+100 0 0 100 0 0 0 0
+0 10000 100
+E
+bag~
+&+YThis carrying bag is a useful tool for the travelling singer due to its&N
+&+Ylarge size and carrying capacity.&N
+~
+#82418
+tunic~
+&+ba tunic &+rs&+Ro&+ra&+Rk&+re&+Rd &+bin animal &+Rblood&N~
+&+bA tunic lies here in a &+rpool &+Rof &+rblood.&N~
+~
+9 15 3 0 7 0 0 9 0 0 0
+20 0 0 3 0 0 0 0
+0 10000 100
+E
+tunic~
+&+rA large stain has soaked into this &+bdark &+Bblue &+btunic &+rmaking it appear to be&N
+&+rdirty at all times.  This stain appears to be from the food that has been&N
+&+rdevoured by a hungry &+bogre&+r.  Instead of weakening the fabric of the tunic,&N
+&+rthe &+Rblood &+rhas bonded to material and strengthened it.&N
+~
+A
+13 10
+A
+19 1
+#82419
+boots stained purple~
+&+ba pair of &+mpurple st&+Main&+med boots&N~
+&+bA pair of &+mpurplish-&+bblue boots lie here.&N~
+~
+9 15 3 0 7 0 0 65 0 0 0
+10 0 0 3 0 0 0 0
+0 10000 100
+E
+boots stained purple~
+&+bThese boots are used by workers when they are crushing grapes.  They have&N
+&+bbeen well used and have even taken on the purple tint of the grapes.  Even&N
+&+bwith the additional co&+mlori&+bng and wear the boots look sturdy and well made.&N
+~
+A
+13 10
+A
+26 5
+#82420
+key~
+&+ga &+Gv&+Win&+Ge &+gcovered key&N~
+&+gA viney key lies here collecting dust.&N~
+~
+18 15 3 0 7 0 8388608 1 0 0 0
+0 100 0 0 0 0 0 0
+0 1 100
+E
+key~
+&+gVines cover the handle of the key and hang to the ground.&N
+~
+#82421
+sword slaying~
+&+Wa enchanted sword of &+Lslaying&N~
+&+WA sword lies here &+Lhumming softly.&N~
+~
+5 15 3 0 7 0 4194304 8193 0 0 0
+13 3 5 3 1 0 0 0
+10 10000 100
+E
+sword slaying~
+&+wA faint humming can be heard from this sword. It seems to have been possessed&N
+&+wby the spirit of a &+Wpaladin &+wwhich seeks vengeance again all evil.  The&N
+&+wpossessor of this blade can turn the spirit lose on unwitting foes.&N
+~
+A
+18 4
+A
+19 4
+#82422
+earring gold~
+&+Yan earring of pure gold&N~
+&+YA shiny golden earring lies here.&N~
+~
+9 15 3 0 7 0 0 524289 64 0 0
+5 0 0 3 0 0 0 0
+1 1121 100
+E
+earring gold~
+&+YPure gold has been formed into a beautiful earring which provides the wearer&N
+&+Ywith a glowing warmth and protection from adverse spells.&N
+~
+A
+13 10
+A
+22 -2
+#82423
+key~
+&+Ya shiny key&N~
+&+YA key lies here shimmering.&N~
+~
+18 15 3 0 7 0 8388608 1 0 0 0
+0 100 0 0 0 0 0 0
+0 1 100
+E
+key~
+&+WThis key has the symbol of the temple of the &+Ysun &+Wemblazoned on the handle.&N
+~
+#82424
+key~
+&+Wa bright key&N~
+&+WA bright key pulses with a contained light.&N~
+~
+18 15 3 0 7 0 8388608 1 0 0 0
+0 100 0 0 0 0 0 0
+0 1 100
+E
+key~
+&+YThis is the final key that unlocks the power source room in the temple.&N
+~
+#82425
+circlet golden~
+&+Ya golden circlet&N~
+&+YA shiny circlet of gold lies here.&N~
+~
+9 15 3 0 7 0 0 17 64 0 0
+10 0 0 3 0 0 0 0
+0 10000 100
+E
+circlet golden~
+&+YThis circlet emits a heavenly light and has been blessed from above with&N
+&+Yresources for the wearer to call upon in need.&N
+~
+A
+13 7
+A
+14 10
+#82426
+belt tool~
+&+ca &+Cf&+Wa&+Bn&+Wc&+Cy &+ctool belt&N~
+&+cA flashy belt lies here in a lump.&N~
+~
+9 15 3 0 7 0 0 2049 0 0 0
+5 0 0 3 0 0 0 0
+0 1 100
+E
+belt tool~
+&+c   This tool belt has been modified by the halflings working on this farm.&N
+&+cSturdy straps had been accented with flakes of silver and gold and small&N
+&+bblue &+cgemstone has been fastened into the buckle.&N
+~
+A
+2 9
+>>>>>>> master

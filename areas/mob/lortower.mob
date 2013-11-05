@@ -49,7 +49,11 @@ orc knight~
 &+Lhis resurrection. He seems like a warrior possessed with a cause and that
 &+Lis a fearsome individual indeed.                  &n
 ~
+<<<<<<< HEAD
 2122 0 0 0 65560 294912 0 0 -999 S
+=======
+2122 1 0 0 65560 294912 0 0 -999 S
+>>>>>>> master
 HO 0 17 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -80,7 +84,11 @@ apprentice mage conjurer~
 &+Land his apprentices have talents along various fields. This one seems to be
 &+Lstudied in conjuration magic.&n
 ~
+<<<<<<< HEAD
 2250 0 0 0 134217880 2049 0 0 -603 S
+=======
+2250 1 0 0 134217880 2049 0 0 -603 S
+>>>>>>> master
 PH 0 2048 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -177,7 +185,11 @@ orc acolyte~
 &+Ldoing penance for his god. Even though he has little standing with his
 &+Lfellow clerics, he is still above every rank guard.&n
 ~
+<<<<<<< HEAD
 1073743978 0 0 0 65576 32832 0 0 -956 S
+=======
+1073743978 1 0 0 65576 32832 0 0 -956 S
+>>>>>>> master
 HO 0 32 0 -1
 49 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -222,7 +234,11 @@ A strong &n&+ytroll &n&+ywarrior&n stands here off duty.&n
 &+gthat are abnormally strong and brutal. This one, like its fellows passed his
 &+gtests, the others became ash.&n
 ~
+<<<<<<< HEAD
 74 0 0 0 1048600 0 0 0 -999 S
+=======
+74 1 0 0 1048600 0 0 0 -999 S
+>>>>>>> master
 PT 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -243,7 +259,7 @@ G 0 1 0 -1
 0.0.0.0 0
 8 8 1
 #134016
-drake fire~
+drake fire _no_move_~
 &n&+ra f&+Ri&n&+Yr&+Re &n&+rd&n&+Rr&+Ya&n&+Rk&n&+re&n~
 &n&+rA f&+Ri&n&+Yr&+Re &n&+rd&+Rr&+Ya&+Rk&n&+re mount lays here at a giant's side.&n
 ~
@@ -252,7 +268,11 @@ drake fire~
 &n&+rdrake. The drake itself seems to be a miniature dragon of some type, with a
 &n&+rlong snake like neck and serrated teeth that make it look quite menacing.&n
 ~
+<<<<<<< HEAD
 134350922 0 0 0 671088664 1 0 0 -396 S
+=======
+133226 1 0 0 671088664 1 0 0 -396 S
+>>>>>>> master
 DK 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -268,8 +288,13 @@ apprentice urian~
 &n&+rand how it works with the fire giant for days now.&n
 ~
 2122 0 0 0 536870920 65 0 0 -859 S
+<<<<<<< HEAD
 PH 0 10 0 -1
 40 0 0 1d1+1 1d1+1
+=======
+PH 0 2560 0 -1
+50 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #134018
@@ -417,7 +442,11 @@ hill giant guard~
 &+yhim. He wears a rough tunic of the Black Tower around his waist as a loin
 &+ycloth and wields a huge club of his tribe.&n
 ~
+<<<<<<< HEAD
 1140852940 0 0 0 8 0 0 0 -591 S
+=======
+1140852940 1 0 0 8 0 0 0 -591 S
+>>>>>>> master
 G 0 1 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -449,7 +478,11 @@ always work for he highest bidder.
 ~
 1073744074 0 0 0 144 192 0 0 -1 S
 G 0 1 0 -1
+<<<<<<< HEAD
 50 0 0 1d1+1 1d1+1
+=======
+56 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #134030
@@ -462,8 +495,13 @@ war wizard~
 &n&+rGuard to advise his war council. He wears a set of red robes and seems to
 &n&+rhold himself with aloof reflection.&n
 ~
+<<<<<<< HEAD
 2122 0 0 0 268435608 1 0 0 -692 S
 PH 0 10 0 -1
+=======
+2122 1 0 0 268435608 1 0 0 -692 S
+PH 0 513 0 -1
+>>>>>>> master
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -507,7 +545,11 @@ orc field marshal~
 &+Lseems to have his attention fully intent on the map that he is focusing on
 &+Lso intently.&n
 ~
+<<<<<<< HEAD
 1073743946 0 0 0 65560 0 0 0 -592 S
+=======
+1073743946 1 0 0 65560 0 0 0 -592 S
+>>>>>>> master
 HO 0 1 0 -1
 47 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -523,8 +565,13 @@ duergar chaplain~
 &+rhe is doing, and is really getting in the other advisors' way.&n
 ~
 2122 0 0 0 536936488 45248 0 0 -793 S
+<<<<<<< HEAD
 PD 0 6 0 -1
 47 0 0 1d1+1 1d1+1
+=======
+PD 0 32 1 -1
+50 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #134035
@@ -642,7 +689,11 @@ dana blond girl cute young~
 &+Cbe sad indeed. However there does seem to be a chill about her.&n
 ~
 6154 0 0 0 152 12480 0 0 -968 S
+<<<<<<< HEAD
 PG 0 10 0 -1
+=======
+ph 0 1048576 0 -1
+>>>>>>> master
 44 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -672,7 +723,11 @@ greater shadow br_s~
 ~
 67110922 0 0 0 538443962 262209 0 0 -999 S
 UV 0 1 0 -1
+<<<<<<< HEAD
 48 0 0 1d1+1 1d1+1
+=======
+53 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #134045
@@ -2503,7 +2558,11 @@ elite fire giant~
 &n&+rlong black beard and thick shoulders. He seems to be enjoying his job very
 &n&+rmuch, it's the best he has had since getting thrown out of Musplehime.&n
 ~
+<<<<<<< HEAD
 1073743944 0 0 0 24 0 0 0 -1000 S
+=======
+1073743944 1 0 0 24 0 0 0 -1000 S
+>>>>>>> master
 G 0 1 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0

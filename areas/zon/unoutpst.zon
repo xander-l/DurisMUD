@@ -1,6 +1,6 @@
 #987
 &+LThe Undead &+yOutpost&n~
-98819 2 0 40 50 1
+98820 2 0 40 50 1
 *
 * Zone edited with durisEdit v2.99de
 *
@@ -51,6 +51,7 @@ O 0 98706 1 98735 100 0 0 0        * a deep well
 O 0 98704 1 98750 100 0 0 0        * a dusty chest
 P 1 98707 1 98704 100 0 0 0        *   a pile of coins
 O 0 98703 1 98816 100 0 0 0        * a pile of crap
+O 0 132581 1 98820 100 0 0 0       * (object type not in this .obj file)
 *
 M 0 98711 1 98709 100 0 0 0        * a vampiric lookout
 M 0 98707 19 98710 100 0 0 0       * a hideous ghoul
@@ -210,5 +211,6 @@ M 0 98706 6 98817 100 0 0 0        * a vicious rat
 M 0 98706 6 98817 100 0 0 0        * a vicious rat
 M 0 98713 1 98819 100 0 0 0        * A giant stone golem
 E 1 98708 1 2 100 0 0 0            *   a charred ring
+M 0 98718 1 98820 100 0 0 0        * Tarn
 *
 S

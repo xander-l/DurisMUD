@@ -945,6 +945,10 @@ D2
 ~
 ~
 0 0 98735
+D3
+~
+~
+0 0 98820
 S
 #98745
 &+yCentral Passage of the Outpost~
@@ -2457,4 +2461,18 @@ D4
 ~
 ~
 0 0 98818
+S
+#98820
+&+yThe Bank&n~
+Long devoid of use, cobwebs span the room corner to corner.
+A thick layer of dust covers an old hickory banking counter
+where various ancient coins lie covered in filth. Dried spots
+of blood add the only glimpse of color in a black and white
+nightmare.
+~
+987 134217800 0
+D1
+~
+~
+0 0 98744
 S

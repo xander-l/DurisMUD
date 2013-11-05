@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #429
 &N&+rDrustl&+L's Yerdonia &+REn&N&+rslave&+Rd&N~
 42999 2 0 9 13 1
@@ -325,3 +326,332 @@ M 0 42942 1 42997 100 0 0 0        * a giant fanged zvorgast
 G 1 42949 1 0 100 0 0 0            *    a giant zvorgast fang
 *
 S
+=======
+#429
+&N&+rDrustl&+L's Yerdonia &+REn&N&+rslave&+Rd&N~
+42999 1 0 30 45 2
+*
+* Zone edited with durisEdit v2.99de
+*
+*
+D 0 42940 2 1 100 0 0 0
+*     south exit from "Inside a Dismal Dark Cave" to
+*     "Dark Hall Within The Lair of Raxthan" - closed
+*
+D 0 42945 0 1 100 0 0 0
+*     north exit from "Dark Hall Within The Lair of Raxthan" to
+*     "Inside a Dismal Dark Cave" - closed
+*
+D 0 42943 0 8 100 0 0 0
+*     north exit from "Inside a Rock Filled Room Within a Dark Cave" to
+*     "Marble Chamber Within a Dismal Cave" - open/blocked
+*
+D 0 42944 2 1 100 0 0 0
+*     south exit from "Marble Chamber Within a Dismal Cave" to
+*     "Inside a Rock Filled Room Within a Dark Cave" - closed
+*
+*
+O 0 42927 7 42901 100 0 0 0        * a cave shroom
+O 0 42927 7 42907 100 0 0 0        * a cave shroom
+O 0 42927 7 42916 100 0 0 0        * a cave shroom
+O 0 42927 7 42929 100 0 0 0        * a cave shroom
+O 0 42927 7 42932 100 0 0 0        * a cave shroom
+O 0 42927 7 42942 100 0 0 0        * a cave shroom
+O 0 42954 1 42943 100 0 0 0        * the symbol of Baphomet
+O 0 42927 7 42943 100 0 0 0        * a cave shroom
+O 0 42958 1 42944 100 0 0 0        * the symbol of Baphomet
+*
+M 0 42930 1 42900 100 0 0 0        * a demonic looking orc guardian
+E 1 42933 1 8 100 0 0 0            *   a pair of bloody adamantium boots
+M 0 42928 8 42901 100 0 0 0        * some strange ooze
+M 0 42919 4 42901 100 0 0 0        * a scrawny looking raxian
+M 0 42918 6 42902 100 0 0 0        * a raxian pit fighter
+M 0 42955 9 42902 100 0 0 0        * a gabber shrum
+M 0 42911 7 42903 100 0 0 0        * a short and stocky raxian
+M 0 42926 6 42903 100 0 0 0        * a rabid cave bat
+M 0 42922 5 42904 100 0 0 0        * a pudgy raxian
+M 0 42910 7 42904 100 0 0 0        * a raxian warrior
+E 1 42909 999 16 100 0 0 0         *   a crude rock club
+M 0 42958 9 42904 100 0 0 0        * a ravenous rankar
+M 0 42915 1 42905 100 0 0 0        * Volgk, The infamous slave trader
+E 1 42919 1 11 100 0 0 0           *   a shield bearing the crest of Volgk
+E 1 42918 1 16 100 0 0 0           *   a Katzbalger
+M 0 42901 4 42905 100 0 0 0        * a crazed raxian
+M 0 42911 7 42905 100 0 0 0        * a short and stocky raxian
+M 0 42924 7 42905 100 0 0 0        * a large mobat
+M 0 42925 7 42905 100 0 0 0        * a beaten and bruised raxian slave
+M 0 42908 8 42906 100 0 0 0        * a raxian champion
+E 1 42904 14 16 100 0 0 0          *   a primative rock club
+E 1 42909 999 17 100 0 0 0         *   a crude rock club
+M 0 42909 6 42906 100 0 0 0        * a raxian guard
+E 1 42904 14 16 100 0 0 0          *   a primative rock club
+M 0 42919 4 42907 100 0 0 0        * a scrawny looking raxian
+M 0 42920 4 42907 100 0 0 0        * a smelly raxian
+M 0 42955 9 42907 100 0 0 0        * a gabber shrum
+M 0 42918 6 42908 100 0 0 0        * a raxian pit fighter
+E 1 42912 1 9 100 0 0 0            *   some spiked raxian pit gauntlets
+M 0 42921 3 42908 100 0 0 0        * a disfigured raxian
+M 0 42955 9 42908 100 0 0 0        * a gabber shrum
+M 0 42910 7 42909 100 0 0 0        * a raxian warrior
+E 1 42909 999 16 100 0 0 0         *   a crude rock club
+M 0 42919 4 42909 100 0 0 0        * a scrawny looking raxian
+M 0 42922 5 42909 100 0 0 0        * a pudgy raxian
+M 0 42901 4 42910 100 0 0 0        * a crazed raxian
+M 0 42908 8 42910 100 0 0 0        * a raxian champion
+E 1 42904 14 16 100 0 0 0          *   a primative rock club
+E 1 42909 999 17 100 0 0 0         *   a crude rock club
+M 0 42927 4 42910 100 0 0 0        * a baby raxian
+M 0 42928 8 42910 100 0 0 0        * some strange ooze
+M 0 42928 8 42911 100 0 0 0        * some strange ooze
+M 0 42918 6 42911 100 0 0 0        * a raxian pit fighter
+M 0 42926 6 42911 100 0 0 0        * a rabid cave bat
+M 0 42910 7 42911 100 0 0 0        * a raxian warrior
+E 1 42909 999 16 100 0 0 0         *   a crude rock club
+M 0 42963 1 42912 100 0 0 0        * Yngve Aarseth
+G 1 42909 999 0 100 0 0 0          *    a crude rock club
+G 1 42906 999 0 100 0 0 0          *    a huge rock club
+G 1 9332 999 0 100 0 0 0           *    (object type not in this .obj file)
+G 1 6122 999 0 100 0 0 0           *    (object type not in this .obj file)
+G 1 20213 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 20217 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 20203 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 20224 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 20225 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 20246 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 20221 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 20222 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 20227 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 20240 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 20243 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 53101 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 53105 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 53111 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 99412 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 99410 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 99413 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 99416 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 99425 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 99431 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 99436 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 99437 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 99438 999 0 100 0 0 0          *    (object type not in this .obj file)
+G 1 42953 999 0 100 0 0 0          *    an azure potion
+G 1 99435 1 0 100 0 0 0            *    (object type not in this .obj file)
+M 0 42918 6 42912 100 0 0 0        * a raxian pit fighter
+M 0 42927 4 42912 100 0 0 0        * a baby raxian
+M 0 42922 5 42912 100 0 0 0        * a pudgy raxian
+M 0 42917 5 42913 100 0 0 0        * a rather massive looking raxian
+M 0 42954 3 42913 100 0 0 0        * a gibber shrim
+M 0 42922 5 42914 100 0 0 0        * a pudgy raxian
+M 0 42924 7 42914 100 0 0 0        * a large mobat
+M 0 42911 7 42915 100 0 0 0        * a short and stocky raxian
+M 0 42919 4 42915 100 0 0 0        * a scrawny looking raxian
+M 0 42926 6 42915 100 0 0 0        * a rabid cave bat
+M 0 42923 4 42915 100 0 0 0        * a skinny raxian
+M 0 42954 3 42915 100 0 0 0        * a gibber shrim
+M 0 42923 4 42916 100 0 0 0        * a skinny raxian
+M 0 42924 7 42916 100 0 0 0        * a large mobat
+M 0 42954 3 42916 100 0 0 0        * a gibber shrim
+M 0 42901 4 42917 100 0 0 0        * a crazed raxian
+M 0 42911 7 42917 100 0 0 0        * a short and stocky raxian
+M 0 42918 6 42918 100 0 0 0        * a raxian pit fighter
+M 0 42925 7 42918 100 0 0 0        * a beaten and bruised raxian slave
+M 0 42910 7 42918 100 0 0 0        * a raxian warrior
+E 1 42903 1 2 100 0 0 0            *   a spiked electrum ring
+E 1 42909 999 16 100 0 0 0         *   a crude rock club
+M 0 42922 5 42918 100 0 0 0        * a pudgy raxian
+M 0 42916 6 42919 100 0 0 0        * a shady looking raxian
+M 0 42948 1 42919 100 0 0 0        * a raxian pit fighter
+M 0 42923 4 42920 100 0 0 0        * a skinny raxian
+M 0 42917 5 42920 100 0 0 0        * a rather massive looking raxian
+M 0 42908 8 42921 100 0 0 0        * a raxian champion
+E 1 42904 14 16 100 0 0 0          *   a primative rock club
+E 1 42909 999 17 100 0 0 0         *   a crude rock club
+M 0 42909 6 42921 100 0 0 0        * a raxian guard
+E 1 42904 14 16 100 0 0 0          *   a primative rock club
+M 0 42912 1 42922 100 0 0 0        * Drustl, The Great Raxian Hunter
+E 1 42913 1 16 100 0 0 0           *   a curved silver longsword
+E 1 42914 1 17 100 0 0 0           *   a gleaming obsidian longsword
+M 0 42911 7 42923 100 0 0 0        * a short and stocky raxian
+M 0 42916 6 42923 100 0 0 0        * a shady looking raxian
+M 0 42923 4 42923 100 0 0 0        * a skinny raxian
+M 0 42913 1 42924 100 0 0 0        * an orcish slave merchant
+E 1 42915 1 18 100 0 0 0           *   a shrunken raxian skull
+E 1 42925 1 27 100 0 0 0           *   a gnomeskin backpack
+P 1 42926 9 42925 100 0 0 0        *   some strange mushrooms
+P 1 42926 9 42925 100 0 0 0        *   some strange mushrooms
+P 1 42926 9 42925 100 0 0 0        *   some strange mushrooms
+P 1 42926 9 42925 100 0 0 0        *   some strange mushrooms
+P 1 42926 9 42925 100 0 0 0        *   some strange mushrooms
+P 1 42926 9 42925 100 0 0 0        *   some strange mushrooms
+P 1 42926 9 42925 100 0 0 0        *   some strange mushrooms
+P 1 42926 9 42925 100 0 0 0        *   some strange mushrooms
+P 1 42926 9 42925 100 0 0 0        *   some strange mushrooms
+P 1 42928 1 42925 100 0 0 0        *   an obsidian drinking horn
+M 0 42928 8 42924 100 0 0 0        * some strange ooze
+M 0 42920 4 42924 100 0 0 0        * a smelly raxian
+M 0 42924 7 42924 100 0 0 0        * a large mobat
+M 0 42908 8 42924 100 0 0 0        * a raxian champion
+E 1 42904 14 16 100 0 0 0          *   a primative rock club
+E 1 42909 999 17 100 0 0 0         *   a crude rock club
+M 0 42955 9 42924 100 0 0 0        * a gabber shrum
+M 0 42926 6 42924 100 0 0 0        * a rabid cave bat
+M 0 42916 6 42925 100 0 0 0        * a shady looking raxian
+M 0 42918 6 42925 100 0 0 0        * a raxian pit fighter
+M 0 42921 3 42925 100 0 0 0        * a disfigured raxian
+M 0 42926 6 42925 100 0 0 0        * a rabid cave bat
+M 0 42928 8 42925 100 0 0 0        * some strange ooze
+M 0 42910 7 42926 100 0 0 0        * a raxian warrior
+E 1 42909 999 16 100 0 0 0         *   a crude rock club
+M 0 42920 4 42926 100 0 0 0        * a smelly raxian
+M 0 42909 6 42927 100 0 0 0        * a raxian guard
+E 1 42904 14 16 100 0 0 0          *   a primative rock club
+M 0 42921 3 42927 100 0 0 0        * a disfigured raxian
+M 0 42926 6 42927 100 0 0 0        * a rabid cave bat
+M 0 42955 9 42927 100 0 0 0        * a gabber shrum
+M 0 42916 6 42928 100 0 0 0        * a shady looking raxian
+M 0 42909 6 42928 100 0 0 0        * a raxian guard
+E 1 42904 14 16 100 0 0 0          *   a primative rock club
+M 0 42955 9 42928 100 0 0 0        * a gabber shrum
+M 0 42903 1 42929 100 0 0 0        * Trosat, The Witch Doctor
+E 1 42904 14 16 100 0 0 0          *   a primative rock club
+E 1 42923 1 18 100 0 0 0           *   a soulstone totem
+M 0 42910 7 42930 100 0 0 0        * a raxian warrior
+E 1 42909 999 16 100 0 0 0         *   a crude rock club
+M 0 42911 7 42930 100 0 0 0        * a short and stocky raxian
+M 0 42928 8 42931 100 0 0 0        * some strange ooze
+M 0 42909 6 42931 100 0 0 0        * a raxian guard
+E 1 42904 14 16 100 0 0 0          *   a primative rock club
+M 0 42955 9 42931 100 0 0 0        * a gabber shrum
+M 0 42901 4 42932 100 0 0 0        * a crazed raxian
+M 0 42908 8 42932 100 0 0 0        * a raxian champion
+E 1 42904 14 16 100 0 0 0          *   a primative rock club
+E 1 42909 999 17 100 0 0 0         *   a crude rock club
+M 0 42938 1 42933 100 0 0 0        * Dravkult, The Ancient One
+E 1 42943 1 3 100 0 0 0            *   a twisted wolf pendant
+M 0 42939 1 42934 100 0 0 0        * Rethorn, The Raxian Craftsman
+E 1 42951 1 13 100 0 0 0           *   a belt bearing the seal of Baal
+M 0 42916 6 42934 100 0 0 0        * a shady looking raxian
+M 0 42917 5 42934 100 0 0 0        * a rather massive looking raxian
+M 0 42916 6 42935 100 0 0 0        * a shady looking raxian
+M 0 42909 6 42936 100 0 0 0        * a raxian guard
+E 1 42904 14 16 100 0 0 0          *   a primative rock club
+M 0 42910 7 42936 100 0 0 0        * a raxian warrior
+E 1 42909 999 16 100 0 0 0         *   a crude rock club
+M 0 42924 7 42936 100 0 0 0        * a large mobat
+M 0 42928 8 42936 100 0 0 0        * some strange ooze
+M 0 42955 9 42936 100 0 0 0        * a gabber shrum
+M 0 42920 4 42937 100 0 0 0        * a smelly raxian
+M 0 42928 8 42937 100 0 0 0        * some strange ooze
+M 0 42908 8 42937 100 0 0 0        * a raxian champion
+E 1 42904 14 16 100 0 0 0          *   a primative rock club
+E 1 42909 999 17 100 0 0 0         *   a crude rock club
+M 0 42924 7 42938 100 0 0 0        * a large mobat
+M 0 42908 8 42938 100 0 0 0        * a raxian champion
+G 1 42911 1 0 100 0 0 0            *    a blood stained claymore
+M 0 42955 9 42938 100 0 0 0        * a gabber shrum
+M 0 42911 7 42939 100 0 0 0        * a short and stocky raxian
+M 0 42917 5 42940 100 0 0 0        * a rather massive looking raxian
+M 0 42908 8 42941 100 0 0 0        * a raxian champion
+E 1 42904 14 16 100 0 0 0          *   a primative rock club
+E 1 42909 999 17 100 0 0 0         *   a crude rock club
+M 0 42917 5 42942 100 0 0 0        * a rather massive looking raxian
+M 0 42924 7 42944 100 0 0 0        * a large mobat
+M 0 42925 7 42944 100 0 0 0        * a beaten and bruised raxian slave
+M 0 42905 1 42945 100 0 0 0        * Drakst, The Slave Master
+E 1 42921 1 16 100 0 0 0           *   a spiked obsidian mace
+E 1 42922 1 17 100 0 0 0           *   a serpentine whip
+F 1 42907 1 42945 100 0 0 0        * a Huge Raxian Guard (following)
+E 1 42932 1 6 100 0 0 0            *   a charred barbute
+E 1 42906 999 16 100 0 0 0         *   a huge rock club
+M 0 42925 7 42945 100 0 0 0        * a beaten and bruised raxian slave
+M 0 42904 1 42947 100 0 0 0        * Norvort, The Spine Breaker
+E 1 42910 1 11 100 0 0 0           *   a spiked raxian shield
+E 1 42908 1 16 100 0 0 0           *   a pronged serpentine dagger
+F 1 42906 1 42947 100 0 0 0        * a Very Huge Raxian Guard (following)
+E 1 42907 1 16 100 0 0 0           *   a huge nasty looking war axe
+M 0 42925 7 42947 100 0 0 0        * a beaten and bruised raxian slave
+M 0 42929 2 42947 100 0 0 0        * a bound and gagged raxian slave
+M 0 42925 7 42948 100 0 0 0        * a beaten and bruised raxian slave
+M 0 42900 1 42949 100 0 0 0        * Raxthan, The Enslaver
+E 1 42924 1 5 100 0 0 0            *   a suit of soulstone plate
+G 1 42931 1 0 100 0 0 0            *    the head of Raxthan
+G 1 358 1 0 100 0 0 0              *    (object type not in this .obj file)
+F 1 42934 1 42949 100 0 0 0        * Noctule, Lesser Demon of Baal (following)
+E 1 42901 1 3 100 0 0 0            *   an unholy necklace of Baal
+G 1 42940 1 0 100 0 0 0            *    the black heart of Noctule
+M 0 42925 7 42949 100 0 0 0        * a beaten and bruised raxian slave
+M 0 42929 2 42949 100 0 0 0        * a bound and gagged raxian slave
+M 0 42927 4 42949 100 0 0 0        * a baby raxian
+M 0 42927 4 42949 100 0 0 0        * a baby raxian
+M 0 42944 1 42950 100 0 0 0        * T'rin, Priestess of Bozk
+E 1 42950 1 8 100 0 0 0            *   a fine pair of dragonscale sabatons
+M 0 42958 9 42951 100 0 0 0        * a ravenous rankar
+M 0 42958 9 42952 100 0 0 0        * a ravenous rankar
+M 0 42958 9 42953 100 0 0 0        * a ravenous rankar
+M 0 42953 8 42954 100 0 0 0        * a snarklarv
+M 0 42962 8 42955 100 0 0 0        * a large ravenous rankar
+M 0 42941 1 42956 100 0 0 0        * Epolon, Prince of Thrask
+E 1 42946 1 3 100 0 0 0            *   a polished amethyst amulet
+G 1 42945 1 0 100 0 0 0            *    a mystical serpent runed grimoire
+M 0 42953 8 42957 100 0 0 0        * a snarklarv
+M 0 42947 1 42958 100 0 0 0        * a hook horror
+M 0 42958 9 42959 100 0 0 0        * a ravenous rankar
+M 0 42962 8 42960 100 0 0 0        * a large ravenous rankar
+M 0 42962 8 42961 100 0 0 0        * a large ravenous rankar
+M 0 42953 8 42962 100 0 0 0        * a snarklarv
+M 0 42962 8 42962 100 0 0 0        * a large ravenous rankar
+M 0 42956 1 42964 100 0 0 0        * a hook horror
+M 0 42962 8 42964 100 0 0 0        * a large ravenous rankar
+M 0 42953 8 42965 100 0 0 0        * a snarklarv
+M 0 42958 9 42965 100 0 0 0        * a ravenous rankar
+M 0 42943 1 42966 100 0 0 0        * a Malstrog Bloodbeast
+G 1 42948 1 0 100 0 0 0            *    the black heart of a Bloodbeast
+M 0 42957 1 42967 100 0 0 0        * a hook horror
+M 0 42960 1 42968 100 0 0 0        * a snardval
+M 0 42935 1 42970 100 0 0 0        * Elytron, The Head Hunter
+E 1 42902 1 13 100 0 0 0           *   a belt adorned by shrunken heads
+G 1 42942 1 0 100 0 0 0            *    the head of Elytron
+M 0 42945 1 42971 100 0 0 0        * Drasklor, Minion of Bozk
+M 0 42953 8 42971 100 0 0 0        * a snarklarv
+M 0 42958 9 42971 100 0 0 0        * a ravenous rankar
+M 0 42953 8 42972 100 0 0 0        * a snarklarv
+M 0 42958 9 42972 100 0 0 0        * a ravenous rankar
+M 0 42962 8 42973 100 0 0 0        * a large ravenous rankar
+M 0 42931 2 42974 100 0 0 0        * a hook horror
+M 0 42962 8 42974 100 0 0 0        * a large ravenous rankar
+M 0 42953 8 42975 100 0 0 0        * a snarklarv
+M 0 42962 8 42976 100 0 0 0        * a large ravenous rankar
+M 0 42953 8 42978 100 0 0 0        * a snarklarv
+M 0 42931 2 42979 100 0 0 0        * a hook horror
+M 0 42958 9 42979 100 0 0 0        * a ravenous rankar
+M 0 42914 1 42980 100 0 0 0        * a dangerous looking orcish assassin
+E 1 42916 1 16 100 0 0 0           *   a splintbone dagger
+E 1 42917 1 17 100 0 0 0           *   a blood soaked dagger
+M 0 42946 1 42981 100 0 0 0        * Grobklarn, Mystic of Mayhem
+M 0 42959 1 42982 100 0 0 0        * a snardval
+M 0 42940 1 42983 100 0 0 0        * Morklar, The Serpentine Dragon
+G 1 42937 1 0 100 0 0 0            *    some large serpent scales
+G 1 42944 1 0 100 0 0 0            *    the black heart of Morklar
+M 0 42949 1 42984 100 0 0 0        * Darthus, The Wretched One
+E 1 42956 1 16 100 0 0 0           *   the spine of Darthus
+M 0 42961 1 42986 100 0 0 0        * a snardval
+M 0 42932 1 42987 100 0 0 0        * a giant slug
+G 1 42929 1 0 100 0 0 0            *    a blood stained visor
+F 1 42933 1 42987 100 0 0 0        * a slime speckled slug (following)
+G 1 42934 1 0 100 0 0 0            *    a slime covered arrow head
+M 0 42951 1 42989 100 0 0 0        * a massive zvorgast
+M 0 42952 1 42990 100 0 0 0        * a zvorgast
+M 0 42936 1 42991 100 0 0 0        * a zvorgast
+M 0 42937 1 42992 100 0 0 0        * a large zvorgast
+M 0 42950 1 42992 100 0 0 0        * Agama
+E 1 42905 1 21 100 0 0 0           *   a glowing crystalline earring
+G 1 42957 1 0 100 0 0 0            *    the tongue of Agama
+M 0 42902 1 42994 100 0 0 0        * Graskal, The Devil Spawn
+E 1 42920 1 5 100 0 0 0            *   the unholy robes of Graskal
+G 1 42939 1 0 100 0 0 0            *    the head of Graskal
+M 0 42942 1 42997 100 0 0 0        * a giant fanged zvorgast
+G 1 42949 1 0 100 0 0 0            *    a giant zvorgast fang
+*
+S
+>>>>>>> master

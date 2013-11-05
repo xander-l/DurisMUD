@@ -18,26 +18,27 @@
 #include "spells.h"
 #include "structs.h"
 #include "utils.h"
+#include "utility.h"
 #include "profile.h"
 #include "guildhall.h"
 
 #define IS_PURE_CASTER_CLASS(cls) ( (cls) &\
   (CLASS_SORCERER | CLASS_CONJURER | CLASS_ILLUSIONIST |\
-  CLASS_NECROMANCER | CLASS_CLERIC | CLASS_SHAMAN |\
+  CLASS_NECROMANCER | CLASS_CLERIC | CLASS_SHAMAN | CLASS_BARD |\
   CLASS_DRUID | CLASS_ETHERMANCER | CLASS_THEURGIST | CLASS_CABALIST))
 #define IS_PARTIAL_CASTER_CLASS(cls) ( (cls) &\
-  (CLASS_BARD ))
+   (CLASS_AVENGER))
 #define IS_SEMI_CASTER_CLASS(cls) ( (cls) &\
   (CLASS_ANTIPALADIN | CLASS_PALADIN | CLASS_RANGER |\
-   CLASS_BARD | CLASS_REAVER | CLASS_AVENGER))
+   CLASS_REAVER | CLASS_AVENGER))
 #define IS_CASTER_CLASS(cls) (\
   IS_PURE_CASTER_CLASS(cls) || IS_SEMI_CASTER_CLASS(cls) )
 #define IS_BOOK_CLASS(cls) ( (cls) &\
   (CLASS_SORCERER | CLASS_CONJURER | CLASS_NECROMANCER |\
    CLASS_ILLUSIONIST | CLASS_BARD |\
-   CLASS_RANGER | CLASS_REAVER | CLASS_THEURGIST))
+   CLASS_REAVER | CLASS_THEURGIST | CLASS_CABALIST))
 #define IS_PRAYING_CLASS(cls) ( (cls) &\
-  (CLASS_CLERIC | CLASS_PALADIN | CLASS_ANTIPALADIN | CLASS_AVENGER | CLASS_CABALIST))
+  (CLASS_CLERIC | CLASS_PALADIN | CLASS_ANTIPALADIN | CLASS_AVENGER))
 #define IS_MEMING_CLASS(cls) (IS_BOOK_CLASS(cls) || ((cls) & CLASS_SHAMAN))
 
 
@@ -60,6 +61,11 @@ extern int is_wearing_necroplasm(P_char);
 void     event_memorize(P_char, P_char, P_obj, void *);
 void     event_scribe(P_char, P_char, P_obj, void *);
 void     affect_to_end(P_char ch, struct affected_type *af);
+<<<<<<< HEAD
+=======
+void     prac_all_spells(P_char ch);
+
+>>>>>>> master
 char     Gbuf1[MAX_STRING_LENGTH], Gbuf2[MAX_STRING_LENGTH],
   Gbuf3[MAX_STRING_LENGTH];
 void     prac_all_spells(P_char ch);
@@ -807,6 +813,7 @@ int get_circle_memtime(P_char ch, int circle, bool bStatOnly)
   }
   else
   {
+    //drannak - figuring this out
     time_mult = 1.25;
   }
 
@@ -819,7 +826,8 @@ int get_circle_memtime(P_char ch, int circle, bool bStatOnly)
       tick_factor += GET_C_INT(ch) - (stat_factor[(int) GET_RACE(ch)].Int);
     }
   }
-  else if(ch->player.m_class & CLASS_PSIONICIST)
+ /* //reverting psionicist to use mana
+ else if(ch->player.m_class & CLASS_PSIONICIST)
   {
    tick_factor = MAX(1, STAT_INDEX(GET_C_POW(ch)));
 
@@ -828,6 +836,7 @@ int get_circle_memtime(P_char ch, int circle, bool bStatOnly)
       tick_factor += GET_C_POW(ch) - (stat_factor[(int) GET_RACE(ch)].Pow);
     }
   }
+  */
   else
   {
     tick_factor = MAX(1, STAT_INDEX(GET_C_WIS(ch)));
@@ -858,8 +867,9 @@ int get_circle_memtime(P_char ch, int circle, bool bStatOnly)
   {
     time = time * get_property("memorize.factor.npc", 1.0);
   }
-  else if(ch->player.m_class & CLASS_DRUID)
+  else if(ch->player.m_class && (GET_CLASS(ch, CLASS_DRUID) || GET_CLASS(ch,  CLASS_RANGER)))
   {
+  // send_to_char("you're a druid or ranger\r\n", ch);
     // modify for terrain
     float modifier = druid_memtime_terrain_mod[world[ch->in_room].sector_type];
 
@@ -913,6 +923,7 @@ int get_circle_memtime(P_char ch, int circle, bool bStatOnly)
                                  // instantly after a fight or spell is cast
     }
   }
+  /*  //reverting back to use mana
   else if(ch->player.m_class & CLASS_PSIONICIST)
   {
     time = time * get_property("memorize.factor.focus", 1.0);
@@ -939,7 +950,12 @@ int get_circle_memtime(P_char ch, int circle, bool bStatOnly)
     {
       time += ne_event_time(e);  // adding the time ensures that the event will not complete instantly after a fight or spell is cast
     }
+<<<<<<< HEAD
   }
+=======
+}
+*/
+>>>>>>> master
   return (int)time;
 }
 
@@ -963,7 +979,12 @@ void balance_align(P_char ch)
 
   c_al = GET_ALIGNMENT(ch);
 
+<<<<<<< HEAD
   if(c_al >= -10 && c_al <=10) {
+=======
+  if ((c_al >= -10 && c_al <=10) || (GET_RACEWAR(ch) == RACEWAR_EVIL))
+	 {
+>>>>>>> master
       GET_ALIGNMENT(ch) = 0;
       return;
   }
@@ -1028,18 +1049,19 @@ void handle_undead_mem(P_char ch)
       sprintf(gbuf, "&+LYou feel infused by %d%s circle DARK powers!\n",
               i, i == 1 ? "st" : (i == 2 ? "nd" : (i == 3 ? "rd" : "th")));
     }
-    else if(IS_HARPY(ch) ||
-           GET_CLASS(ch, CLASS_ETHERMANCER))
+    else if(IS_HARPY(ch) || GET_CLASS(ch, CLASS_ETHERMANCER))
     {
       sprintf(gbuf, "&+WEthereal e&+Cssences flo&+cw into you, " 
 		      "res&+Ctoring your %d%s&+c &+Wcircle powers!\n",
               i, i == 1 ? "st" : (i == 2 ? "nd" : (i == 3 ? "rd" : "th")));
     }
-    else if(GET_CLASS(ch, CLASS_PSIONICIST) || GET_CLASS(ch, CLASS_MINDFLAYER) || GET_RACE(ch) == RACE_PILLITHID)
+    /* reverting to use mana
+	else if(GET_CLASS(ch, CLASS_PSIONICIST) || GET_CLASS(ch, CLASS_MINDFLAYER) || GET_RACE(ch) == RACE_PILLITHID)
     {
       sprintf(gbuf, "&+mYou feel a rush of energy as a&+L %d%s circle &+mspell coalesces in your mind...\n",
               i, i== 1 ? "st" : (i == 2 ? "nd" : (i == 3 ? "rd" : "th")));
     }
+	*/
     else if(IS_ANGEL(ch))
     {
       sprintf(gbuf, "&+WYou feel illuminated with a %d%s circle spell.\n",
@@ -1052,7 +1074,16 @@ void handle_undead_mem(P_char ch)
 
     send_to_char(gbuf, ch);
 
+<<<<<<< HEAD
     if(ch->specials.undead_spell_slots[i] < max_spells_in_circle(ch, i))
+=======
+		/* Druids memming in forets will ever so slowly regain balance 
+		 * with nature.
+		 */
+    balance_align(ch);//drannak
+		
+    if (ch->specials.undead_spell_slots[i] < max_spells_in_circle(ch, i))
+>>>>>>> master
     {
       highest_empty = i;
       break;
@@ -1095,10 +1126,16 @@ void handle_undead_mem(P_char ch)
     REMOVE_BIT(ch->specials.affected_by2, AFF2_MEMORIZING);
     stop_meditation(ch);
   }
+<<<<<<< HEAD
   else if(GET_CLASS(ch, CLASS_PSIONICIST) || GET_CLASS(ch, CLASS_MINDFLAYER) || (GET_RACE(ch) == RACE_PILLITHID))
+=======
+  /* //reverting to use mana
+  else if (GET_CLASS(ch, CLASS_PSIONICIST) || GET_CLASS(ch, CLASS_MINDFLAYER) || (GET_RACE(ch) == RACE_PILLITHID))
+>>>>>>> master
   {
     send_to_char("&+mThe energies in your mind converge into full cohesion...\n", ch);
   }
+  */
   else
     send_to_char("&+GYour communion with nature is now complete...\n", ch);
 }
@@ -1149,7 +1186,13 @@ void handle_memorize(P_char ch)
 #if !defined(CHAOS_MUD) || (CHAOS_MUD != 1)
         if(book_class(ch) &&
           !(SpellInSpellBook(ch, af->modifier, SBOOK_MODE_IN_INV +
+<<<<<<< HEAD
             SBOOK_MODE_AT_HAND + SBOOK_MODE_ON_BELT + SBOOK_MODE_ON_GROUND)))
+=======
+                                               SBOOK_MODE_AT_HAND + 
+                                               SBOOK_MODE_ON_BELT + 
+                                               SBOOK_MODE_ON_GROUND)))
+>>>>>>> master
         {
           send_to_char("You have managed to misplace your spellbook!\n", ch);
           show_stop_memorizing(ch);
@@ -1271,7 +1314,11 @@ void do_assimilate(P_char ch, char *argument, int cmd)
     send_to_char("&+GThe forces of nature ignore you...\n", ch);
     return;
   }
+<<<<<<< HEAD
   else if(cmd == CMD_TUPOR && !(IS_HARPY(ch) || GET_CLASS(ch, CLASS_ETHERMANCER)))
+=======
+  else if (cmd == CMD_TUPOR && !IS_HARPY(ch) && !GET_CLASS(ch, CLASS_ETHERMANCER))
+>>>>>>> master
   {
     send_to_char("You have no idea how to even begin.\n", ch);
     return;
@@ -1457,7 +1504,7 @@ void do_memorize(P_char ch, char *argument, int cmd)
   else if(cmd == CMD_MEMORIZE &&
          (IS_PUNDEAD(ch) ||
           IS_HARPY(ch) ||
-          GET_CLASS(ch, CLASS_ETHERMANCER)||
+          GET_CLASS(ch, CLASS_ETHERMANCER) ||
           !meming_class(ch) ||
           IS_UNDEADRACE(ch) ||
           is_wearing_necroplasm(ch)) ||
@@ -1563,7 +1610,12 @@ void do_memorize(P_char ch, char *argument, int cmd)
                   (circle == 2) ? "nd" : (circle == 3) ? "rd" :
                   "th", skills[af->modifier].name, 
                   book_class(ch) ? (SpellInSpellBook(ch, af->modifier,
+<<<<<<< HEAD
                   (SBOOK_MODE_IN_INV+SBOOK_MODE_AT_HAND+SBOOK_MODE_ON_BELT)) ? "" : "") : "");//  [not in spell book]") : "");
+=======
+                  (SBOOK_MODE_IN_INV+SBOOK_MODE_AT_HAND+SBOOK_MODE_ON_BELT
+                   +SBOOK_MODE_ON_GROUND)) ? "" : "  [not in spell book]") : "");
+>>>>>>> master
         }
       }
     }
@@ -1614,7 +1666,7 @@ void do_memorize(P_char ch, char *argument, int cmd)
       {
         sbook = SpellInSpellBook(ch, first_to_mem,
                                  SBOOK_MODE_IN_INV + SBOOK_MODE_AT_HAND +
-                                 SBOOK_MODE_ON_BELT);
+                                 SBOOK_MODE_ON_BELT + SBOOK_MODE_ON_GROUND);
         send_to_char("You continue your study.\n", ch);
 //        strcpy(Gbuf1, "$n opens $p and begins studying it intently.");
         strcpy(Gbuf1, "$n opens a spellbook, and begins studying it intently.");
@@ -1655,16 +1707,27 @@ void do_memorize(P_char ch, char *argument, int cmd)
 
   if(book_class(ch))
   {
+<<<<<<< HEAD
     sbook = SpellInSpellBook(ch, spl, SBOOK_MODE_IN_INV + 
       SBOOK_MODE_AT_HAND + SBOOK_MODE_ON_BELT + SBOOK_MODE_ON_GROUND );
+=======
+    sbook = SpellInSpellBook(ch, spl, SBOOK_MODE_IN_INV + SBOOK_MODE_AT_HAND
+      + SBOOK_MODE_ON_BELT + SBOOK_MODE_ON_GROUND);
+>>>>>>> master
   }
 
   circle = get_spell_circle(ch, spl);
 
 #if !defined(CHAOS_MUD) || (CHAOS_MUD != 1)
+<<<<<<< HEAD
   if(circle > get_max_circle(ch))
   {
     if(!book_class(ch) || sbook)
+=======
+  if (circle > get_max_circle(ch) && !quested_spell(ch, spl))
+  {
+    if ((!book_class(ch) || sbook) && !quested_spell(ch, spl))
+>>>>>>> master
     {
       send_to_char
         ("That is too powerful an enchantment for you to master.. yet, anyway.\n",
@@ -1686,9 +1749,9 @@ void do_memorize(P_char ch, char *argument, int cmd)
        ch);
     return;
   }
-  else if( !SKILL_DATA_ALL(ch, spl).maxlearn[0] && !SKILL_DATA_ALL(ch, spl).maxlearn[ch->player.spec] )
+  else if( !SKILL_DATA_ALL(ch, spl).maxlearn[0] && !SKILL_DATA_ALL(ch, spl).maxlearn[ch->player.spec] && !quested_spell(ch, spl))
 #else
-  if( !SKILL_DATA_ALL(ch, spl).maxlearn[0] && !SKILL_DATA_ALL(ch, spl).maxlearn[ch->player.spec] )
+  if( !SKILL_DATA_ALL(ch, spl).maxlearn[0] && !SKILL_DATA_ALL(ch, spl).maxlearn[ch->player.spec] && !quested_spell(ch, spl))
 #endif
   {
     send_to_char("That spell is beyond your comprehension.\n", ch);
@@ -1879,6 +1942,7 @@ void use_spell(P_char ch, int spell)
 {
   struct affected_type *af;
   char buf[128];
+  int spatial = GET_CHAR_SKILL(ch, SKILL_SPATIAL_FOCUS);
 
   if(!(ch) ||
      !IS_ALIVE(ch))
@@ -1886,6 +1950,7 @@ void use_spell(P_char ch, int spell)
 
   if(IS_TRUSTED(ch))
   { }
+<<<<<<< HEAD
   /*
   else if(USES_MANA(ch))
   {
@@ -1898,12 +1963,25 @@ void use_spell(P_char ch, int spell)
        StartRegen(ch, EVENT_MANA_REGEN);
     }
     else
+=======
+
+
+else if(USES_MANA(ch))
+>>>>>>> master
     {
-      GET_MANA(ch) -= get_spell_circle(ch, spell) * MANA_PER_CIRCLE;
-      StartRegen(ch, EVENT_MANA_REGEN);
+      if((int) (spatial / 2) > number(1, 100))
+      {
+         send_to_char("&+MFocusing your mind, you bend reality a bit more easily...&n\n", ch);
+         GET_MANA(ch) -= (int) (get_spell_circle(ch, spell) * 35 / 10);
+         StartRegen(ch, EVENT_MANA_REGEN);
+      }
+      else
+      {
+        GET_MANA(ch) -= get_spell_circle(ch, spell) * MANA_PER_CIRCLE;
+        StartRegen(ch, EVENT_MANA_REGEN);
+      }
     }
-  }
-  */
+ 
   else if(USES_SPELL_SLOTS(ch))
   {       
     if(GET_CHAR_SKILL(ch, SKILL_DEVOTION))
@@ -2005,8 +2083,12 @@ P_obj FindSpellBookWithSpell(P_char ch, int spl, int mode)
 {
   P_obj    foo, foo2;
 
+<<<<<<< HEAD
   if( ( foo = find_gh_library_book_obj(ch) ) != NULL
     && IS_SET(mode, SBOOK_MODE_ON_GROUND) )
+=======
+  if( (foo = find_gh_library_book_obj(ch)) && IS_SET(mode, SBOOK_MODE_ON_GROUND))
+>>>>>>> master
   {
     return foo;
   }
@@ -2175,6 +2257,7 @@ void add_scribing(P_char ch, int spl, P_obj book, int flag, P_obj obj,
   {
     act("You start to teach $N..", TRUE, teacher, 0, ch, TO_CHAR);
     sprintf(Gbuf1, "$n starts to teach you %s..", skills[spl].name);
+    act(Gbuf1, TRUE, teacher, 0, ch, TO_VICT );
   }
   add_scribe_data(spl, ch, book, flag, obj, teacher);
 
@@ -2397,6 +2480,7 @@ void do_scribe(P_char ch, char *arg, int cmd)
   int      spl = 0;
   P_obj    o1, o2, o3;
   struct scribing_data_type *tmp_s;
+  P_char   teacher;
 
   if(IS_NPC(ch))               /*
                                    no scribing services, at least of now. we'll
@@ -2459,16 +2543,26 @@ void do_scribe(P_char ch, char *arg, int cmd)
        FindSpellBookWithSpell(ch, spl,
          SBOOK_MODE_IN_INV + SBOOK_MODE_ON_BELT + SBOOK_MODE_ON_GROUND )))
   {
-    send_to_char
-      ("You don't have that spell in any of your books or scrolls in learnable form!\n",
-       ch);
-    return;
+    // Only fail if there's no teacher to teach it.
+    teacher = FindTeacher(ch);
+    if( !teacher
+      || GET_LVL_FOR_SKILL(ch, spl) > GET_LEVEL(ch)
+      || GET_LVL_FOR_SKILL(teacher, spl) > GET_LEVEL(teacher) )
+    {
+      send_to_char("You don't have that spell in any of your books or scrolls in learnable form!\n", ch);
+      return;
+    }
+    else
+    {
+      add_scribing(ch, spl, o1, FALSE, NULL, teacher );
+      return;
+    }
   }
   /*
      urp.. all taken care of (I fervently hope, anyway)
    */
 
-  add_scribing(ch, spl, o1, 1, o3, NULL);
+  add_scribing(ch, spl, o1, TRUE, o3, NULL);
 }
 
 void event_scribe(P_char ch, P_char victim, P_obj obj, void *data)
@@ -2582,7 +2676,7 @@ void event_scribe(P_char ch, P_char victim, P_obj obj, void *data)
      */
     add_event(event_scribe, MAX(1, (int) 4 - (GET_CHAR_SKILL(ch, SKILL_SCRIBE) / 33) - (GET_CHAR_SKILL(ch, SKILL_SCRIBE_MASTERY) / 20)), ch, 0,
               0, 0, s_data, sizeof(*s_data));
-    return;
+             return;
   }
   if(s_data->done_func) s_data->done_func(ch);
 }

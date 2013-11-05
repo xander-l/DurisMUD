@@ -17,6 +17,7 @@ void init_auction_houses();
 void shutdown_auction_houses();
 void auction_houses_activity();
 int auction_house_room_proc(int room_num, P_char ch, int cmd, char *arg);
+void new_ah_call(P_char ch, char *arg, int cmd);
 
 string format_time(long);
 bool finalize_auction(int auction_id, P_char to_ch);

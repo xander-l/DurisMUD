@@ -1477,6 +1477,21 @@ int eq_levistone_weight(const ShipData *ship)
     return (SHIP_HULL_WEIGHT(ship) + 50) / 40;
 }
 
+bool has_eq_diplomat(const ShipData* ship)
+{
+	return eq_diplomat_slot(ship) != -1;
+}
+int eq_diplomat_slot(const ShipData* ship)
+{
+    for (int slot = 0; slot < MAXSLOTS; slot++)
+	if (ship->slot[slot].type == SLOT_EQUIPMENT && ship->slot[slot].index == E_DIPLOMAT)
+	    return slot;
+	return -1;
+}
+int eq_diplomat_weight(const ShipData *ship)
+{
+	return (SHIP_HULL_WEIGHT(ship) + 1) / 24;
+}
 
 
 bool ocean_pvp_state()

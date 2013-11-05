@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #22000
 &+yWithin the &+YSavannah &+yof &+YSorrow&n~
 &+y   The &+YSavannah&+y stretches out in all directions here, the soil beneath
@@ -3037,3 +3038,3044 @@ D1
 ~
 0 0 22088
 S
+=======
+#22000
+&+yWithin the &+YSavannah &+yof &+YSorrow&n~
+&+y   The &+YSavannah&+y stretches out in all directions here, the soil beneath
+&+ythe feet hard as stone from years of being baked by the sun.  &+LZ&+We&+Lb&+Wr&+Las&+y,
+&+Ycamels&+y, and &+Yw&+yil&+Yd &+yd&+Yo&+ygs run through the plains, chasing after the hundreds
+&+yof birds that flock to the &+Goa&+Bsis&+y in the west for drinking water.  The
+&+yvegetation here is somewhat sparse, the only greenery being from the
+&+ytall palms or short cacti that are able to grow in this very dry
+&+yatmosphere.  The entrance to the &+YSavannah&+y, noticeable by the sign stuck
+&+yin the ground, is close to the south.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22003
+D1
+~
+~
+0 0 22001
+D2
+~
+~
+0 0 22005
+D3
+~
+~
+0 0 22002
+S
+#22001
+&+yWithin the &+YSavannah &+yof &+YSorrow&n~
+&+y   Around this area grow a fair ammount more trees then elsewhere within
+&+ythe &+YSavannah&+y.  Runoff from the hills to the east keep the soil fertile
+&+yand enable the accelerated growth of the vegetation&+y which is normally
+&+yquite sparse out in the desert.  Several &+Ygir&+Laf&+Yfe&+Ys&+y spend their days here
+&+ychewing on leaves&+y of the palms, their tall necks rising high &+yabove
+&+ythe landscape.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22007
+D1
+~
+~
+0 0 22004
+D3
+~
+~
+0 0 22000
+S
+#22002
+&+yWithin the &+YSavannah&+y of &+YSorrow&n~
+&+y   The &+YSavannah&+y stretches out north and west here, the soil beneath
+&+ythe feet hard as stone from years of being baked by the sun.  &+LZ&+We&+Lb&+Wr&+Las&+y,
+&+Ycamels&+y, and &+Yw&+yil&+Yd &+yd&+Yo&+ygs run through the plains, chasing after the hundreds
+&+yof birds that flock to the &+Goa&+Bsis&+y in the west for drinking water.  The
+&+yvegetation here is somewhat sparse, the only greenery being from the
+&+ytall palms or short cacti that are able to grow in this very dry
+&+yatmosphere.  To the south and west of here, the &+YSavannah&+y becomes
+&+yto dangerous to venture into, sharp jagged rocks, stick up from
+&+ythe soil, detering any travel in those directions.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22006
+D1
+~
+~
+0 0 22000
+S
+#22003
+&+yWithin the &+YSavannah&+y of &+YSorrow&n~
+&+y   The &+YSavannah&+y is host to numerous spieces of wildlife, all who
+&+ywander about in a constant search for food.  To the east here
+&+ya group of &+Ygir&+Laf&+Yfes&+y, with their tall necks reaching up into the
+&+ysparse palm &+Gtrees&+y, can be seen. D&+Yo&+ygs, who have lived all their
+&+ylife here, out in the desert plains, run about, barking at
+&+ythe birds.  The air is hot and dry, though quite comfortable,
+&+yand all the animals have learned to adapt quite well to the
+&+yclimate.&n
+~
+220 0 24
+D1
+~
+~
+0 0 22007
+D2
+~
+~
+0 0 22000
+D3
+~
+~
+0 0 22006
+S
+#22004
+&+yA Rocky Enclosure on the &+YSavannah&n~
+&+y   The &+Lfoothills&+y encompasing the &+YSavannah&+y impose dangerously to the
+&+yeast here, providing no access any further.  Huge jagged rocks rise
+&+yup from the earth here, blocking both sight and travel, but within
+&+ythe rocky outcroppings several spieces have made their homes. Many
+&+ynests can be seen here, as well as a small burrow that has become
+&+ya &+Lden&+y for the &+Yw&+yil&+Yd&+y d&+Yo&+ygs in this area.&n
+~
+220 0 24
+D3
+~
+~
+0 0 22001
+S
+#22005
+&+yEntrance to the &+YSavannah&+y of &+YSorrow&n~
+&+y   The &+YSavannah&+y of &+YSorrow&+y begins here, a landscape within the desert
+&+yunlike any other.  The &+YSavannah&+y stretches out around several
+&+ymountains, rocky cliffs and overhangs offer perches for the mystical
+&+ywildlife that inhabit the area.  From all over the world people
+&+ycome to this location in search of riches and adventures and risk
+&+ylife and limb at a chance to descend below the plains and into
+&+ythe infamous &+LPits of &+rCerberus&+y.  A large &+Wsign&+y is planted in the
+&+ydirt here.&n
+~
+220 4 24
+D0
+~
+~
+0 0 22000
+D1
+~
+~
+0 0 561729
+D2
+~
+~
+0 0 562128
+S
+#22006
+&+yWithin the &+YSavannah&+y of &+YSorrow&n~
+&+y   The &+YSavannah&+y stretches out in all directions here, the soil beneath
+&+ythe feet hard as stone from years of being baked by the sun.  &+LZ&+We&+Lb&+Wr&+Las&+y,
+&+Ycamels&+y, and &+Yw&+yil&+Yd &+yd&+Yo&+ygs run through the plains, chasing after the hundreds
+&+yof birds that flock to the &+Goa&+Bsis&+y in the west for drinking water. Close
+&+yto the north a noticeable &+Lpathway&+y begins that circles around one of
+&+ythe larger mountains in the area.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22012
+D1
+~
+~
+0 0 22003
+D2
+~
+~
+0 0 22002
+D3
+~
+~
+0 0 22015
+S
+#22007
+&+yA Herd of &+YGir&+Laff&+Yes&n~
+&+y   Around this area grow a fair ammount more trees then elsewhere within
+&+ythe &+YSavannah&+y.  Runoff from the hills to the east keep the soil fertile
+&+yand enable the accelerated growth of the vegetation&+y which is normally
+&+yquite sparse out in the desert.  Several &+Ygir&+Laf&+Yfe&+Ys&+y spend their days here
+&+ychewing on leaves&+y of the palms, their tall necks rising high &+yabove
+&+ythe landscape.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22008
+D2
+~
+~
+0 0 22001
+D3
+~
+~
+0 0 22003
+S
+#22008
+&+yA &+LPath&+y Around the &+LFoothills&n~
+&+y   Over many years of adventurers travelling to this region a &+Lpathway&n
+&+yhas formed that encircles the central mountain.  Travellers have
+&+ylonged hoped for a easier route up the mountain, or perhaps to
+&+yfind new tunnels leading into the &+Ytreasure&+y rooms of the &+LPits of&n
+&+rCerberus&+y with no luck and the route up the mountain remains to be
+&+yfull of dangers for the unskilled.  The &+YSavannah&+y spreads out to
+&+ythe east and south, where a large herd of &+Ygir&+Laff&+Yes&+y graze.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22010
+D1
+~
+~
+0 0 22009
+D2
+~
+~
+0 0 22007
+S
+#22009
+&+yWithin the &+YSavannah&+y of &+YSorrow&n~
+&+y   The &+YSavannah&+y stretches out in all directions here, the soil beneath
+&+ythe feet hard as stone from years of being baked by the sun.  &+LZ&+We&+Lb&+Wr&+Las&+y,
+&+Ycamels&+y, and &+Yw&+yil&+Yd &+yd&+Yo&+ygs run through the plains, chasing after the hundreds
+&+yof birds that flock to the &+Goa&+Bsis&+y on the western side of the mountain
+&+yfor drinking water.  The vegetation here is sparse, like most of the
+&+YSavannah&+y, and never becomes a vibrant, healthy green, though just to
+&+ythe north here a huge &+Gtree&+y can be seen rising up from the soil, acting
+&+yas a noticeable landmark in the arid terrain.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22011
+D3
+~
+~
+0 0 22008
+S
+#22010
+&+yA &+LPath&+y Around the &+LFoothills&n~
+&+y   Over many years of adventurers travelling to this region a &+Lpathway&n
+&+yhas formed that encircles the central mountain.  Travellers have
+&+ylonged hoped for a easier route up the mountain, or perhaps to
+&+yfind new tunnels leading into the &+Ytreasure&+y rooms of the &+LPits of&n
+&+rCerberus&+y with no luck and the route up the mountain remains to be
+&+yfull of dangers for the unskilled.  One of the infamous &+LPits&+y is
+&+yjust to the north of here, the &+YSavannah&+y continues to spread out
+&+ysouth and east.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22066
+D1
+~
+~
+0 0 22011
+D2
+~
+~
+0 0 22008
+S
+#22011
+&+yAt a &+GGaia Tree&n~
+&+y   Here, a huge &+Gtree&+y, most positively the largest within the &+YSavannah&n
+&+yspreads its branches upwards, higher than even the tallest &+Ygir&+Laff&+Ye&+y.
+&+yThe &+Gtree's&+y roots spread out all over the &+YSavannah&+y, just below the
+&+ysurface, most likely even weaving throughout the &+LPits&+y below. It offers
+&+ythe wildlife an excellent source of &+Lshade&+y, and usually &+yseveral rarer
+&+yanimals spend their days lounging beneath it.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22065
+D2
+~
+~
+0 0 22009
+D3
+~
+~
+0 0 22010
+S
+#22012
+&+yA &+LPath&+y Around the&+L Foothills&n~
+&+y   Over many years of adventurers travelling to this region a &+Lpathway&n
+&+yhas formed that encircles the central mountain.  Travellers have
+&+ylonged hoped for a easier route up the mountain, or perhaps to
+&+yfind new tunnels leading into the &+Ytreasure&+y rooms of the &+LPits of&n
+&+rCerberus&+y with no luck and the route up the mountain remains to be
+&+yfull of dangers for the unskilled.  From here, another &+Lpath&+y leads
+&+yeast and up the mountain itself, whereas the usual &+Lpath&+y continues
+&+ynorth.  To the west is located an entrance to one of the feared &+LPits.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22014
+D1
+~
+~
+0 0 22035
+D2
+~
+~
+0 0 22006
+D3
+~
+~
+0 0 22013
+S
+#22013
+&+yAmong a &+LPit&n~
+&+y   The &+YSavannah&+y ends to the west here with a steep incline in the
+&+Lfoothills&+y.  The &+Gvegetation&+y ceases to grow here as well, as if the
+&+ysoil is too parched to grow even the tiniest weed.  Just before
+&+ythe western mountains begin there is a large, visible hole in the
+&+yrocks that leads down into one of the infamous &+LPits of &+rCerberus&+y.
+&+yTravellers are warned that the &+LPits&+y can be quite dangerous for the
+&+yunexperienced and should proceed below with great caution.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22016
+D1
+~
+~
+0 0 22012
+S
+#22014
+&+yA &+LPath&+y Around the &+LFoothills&n~
+&+y   Over many years of adventurers travelling to this region a &+Lpathway&n
+&+yhas formed that encircles the central mountain.  Travellers have
+&+ylonged hoped for a easier route up the mountain, or perhaps to
+&+yfind new tunnels leading into the &+Ytreasure&+y rooms of the &+LPits of&n
+&+rCerberus&+y with no luck and the route up the mountain remains to be
+&+yfull of dangers for the unskilled.  The &+Lpath&+y continues north to
+&+ythe west a herd of &+Ycamels&+y can be seen grazing.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22017
+D2
+~
+~
+0 0 22012
+D3
+~
+~
+0 0 22016
+S
+#22015
+&+yA Secluded&+g &+GO&+Ga&+Bsis&n~
+&+y   The &+YSavannah&+y is broken on three sides here by unpassable, jagged,
+&+yfoothills, forming larger mountains throughout the desert not
+&+ythat far off into the distance.  The center of this area is filled
+&+ywith &+Wcrisp&n &+bspring&+y &+Bwater&+y that flows from the mountains underground
+&+yto this &+Goa&+Bsis&+y. Albeit small, still offering refreshment for
+&+yadventurers, nourishment &+yfor the sparse &+Gvegetation&+y, and&+L shade&n
+&+yfor the wildlife.&n
+~
+220 0 3
+D1
+~
+~
+0 0 22006
+S
+#22016
+&+yA Herd of &+YCamels&n~
+&+y   Here lies another grazing ground for the animals of the region.
+&+yCurrently a small group of &+Ycamels&+y have taken over the area by
+&+ysnorting and stomping their feet at the other wildlife to scare
+&+ythem away.  The &+Ycamels&+y now stand chewing on the weeds and small
+&+yplants that grow in the soil here, content to the most that a
+&+Ycamel&+y can be.  The &+Lpath&+y around the mountain is just to the east
+&+yof here and there is an entrance to a &+Lpit&+y to the south.&n
+~
+220 0 24
+D1
+~
+~
+0 0 22014
+D2
+~
+~
+0 0 22013
+S
+#22017
+&+yA &+LPath&+y Around the &+LFoothills&n~
+&+y   Over many years of adventurers travelling to this region a &+Lpathway&n
+&+yhas formed that encircles the central mountain.  Travellers have
+&+ylonged hoped for a easier route up the mountain, or perhaps to
+&+yfind new tunnels leading into the &+Ytreasure&+y rooms of the &+LPits of&n
+&+rCerberus&+y with no luck and the route up the mountain remains to be
+&+yfull of dangers for the unskilled. To the north the &+Lpath&+y opens up
+&+yagain into the &+YSavannah&+y then continues not far off to the east.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22018
+D2
+~
+~
+0 0 22014
+S
+#22018
+&+yWithin the &+YSavannah &+yof &+YSorrow&n~
+&+y   Near the north eastern side of passable &+YSavannah&+y the wildlife
+&+ydecreases largely due to the lack of vegetation.  On the hills and
+&+yrocky outcroppings leading west several goats can be seen and the
+&+yodd bird flying overhead but not much else as it becomes far too
+&+ydangerous to walk on foot for most men and beasts.  Just to the
+&+ynorth lies another &+Lpit&+y and to the east a small group of nomadic
+&+Ywemics&+y have set up a hunting party.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22019
+D1
+~
+~
+0 0 22021
+D2
+~
+~
+0 0 22017
+S
+#22019
+&+yAmong a &+LPit&n~
+&+y   As with the other areas in the &+YSavannah&+y, where there is an entrance
+&+yto a &+LPit&+y the &+Gvegetation&+y does not seem to grow. Even the wildlife of
+&+ythe region seem to avoid this area when possible. It is a sure sign
+&+yof the danger that lurks just below the surface of the &+YSavannah&+y.
+&+yThe plains stretch out to the east and south, the other directions
+&+ybeing unpassable.  Someone has posted a &+Wsign&+y near the entrance of
+&+ythe &+LPit&+y.&n
+~
+220 0 24
+D1
+~
+~
+0 0 22020
+D2
+~
+~
+0 0 22018
+S
+#22020
+&+yWithin the &+YSavannah &+yof &+YSorrow&n~
+&+y   Along the northern edge of the &+YSavannah&+y the sounds of both the
+&+ywildlife and the adventurers around this area reach an almost
+&+ydeafening cresendo.  Squawks from all sorts of birds, the chatter
+&+yof the smaller animals, the yaps from the dogs all mingle together
+&+yalmost musically.  North is impassable, east continues the &+Lpath&n
+&+yway around the central &+wmountain&+y, to the south a group of &+Ywemics&n
+&+yare hunting, and just to the west lies an infamous &+LPit&+y.&n
+~
+220 0 24
+D1
+~
+~
+0 0 22058
+D2
+~
+~
+0 0 22021
+D3
+~
+~
+0 0 22019
+S
+#22021
+&+yA &+YHunting&+y Ground Within the &+YSavannah &+yof &+YSorrow&n~
+&+y   This area of the &+YSavannah&+y is currently being used by a small
+&+ygroup of nomadic &+Ywemics&+y for hunting.  As the &+YSavannah&+y is host to
+&+ymany different types of wildlife, it is also used by many races
+&+yand cultures of the more intelligent speices in the world for
+&+ysources of food, clothing, and tools, all of which either come
+&+yfrom the wildlife or around the area.  The &+Ywemics&+y here will
+&+ymost likely hunt for several days then move on to another
+&+ylocation with their supplies replenished.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22020
+D3
+~
+~
+0 0 22018
+S
+#22022
+&+cWithin a &+LRock &+cCavern&n~
+&+L   It is hard to imagine that serenity of the &+YSavannah&+L is just so close
+&+Lonce one enters through the hole above. The change is overwhelming,
+&+Lfrom the constant warmth of the desert and docile animals to this-
+&+La nightmarish tunnel, barely large enough for &+cBarbarian&+L to walk
+&+Lthrough without hitting his head on the cavern ceiling.  A glimpse
+&+Lof &+Wlight&+L peaking through the hole above is the only reminder of
+&+Lthe outside once in one of the Pits of &+rCerberus.&n
+~
+220 9 15
+D0
+~
+~
+0 0 22023
+S
+#22023
+&+cFollowing a &+LRock&+c Cavern&n~
+&+L   This pit is absolutely swarming with &+Cgar&+cgoy&+Lles.  After the first
+&+Ldescent through the hole from the &+YSavannah&+L the cavern opens up a
+&+Lfar bit, giving those who wander below enough room to walk and
+&+Lthe &+Cgar&+cgoy&+Lles enough room to fly.  The ceiling of the cavern
+&+Lis covered by hundreds of &+Cgar&+cgoy&+Lles, hanging upside down from
+&+Ltheir feet, and sleeping.  Others fly past in large groups,
+&+Lranging from all sizes and speices, usually ignoring intruders.&n
+~
+220 9 15
+D0
+~
+~
+0 0 22024
+D2
+~
+~
+0 0 22022
+S
+#22024
+&+cFollowing a &+LRock&+c Cavern&n~
+&+L   This pit is absolutely swarming with &+Cgar&+cgoy&+Lles.  After the first
+&+Ldescent through the hole from the &+YSavannah&+L the cavern opens up a
+&+Lfar bit, giving those who wander below enough room to walk and
+&+Lthe &+Cgar&+cgoy&+Lles enough room to fly.  The ceiling of the cavern
+&+Lis covered by hundreds of &+Cgar&+cgoy&+Lles, hanging upside down from
+&+Ltheir feet, and sleeping.  Others fly past in large groups,
+&+Lranging from all sizes and speices, usually ignoring intruders.&n
+~
+220 1 15
+D0
+~
+~
+0 0 22031
+D2
+~
+~
+0 0 22023
+D5
+~
+~
+0 0 22025
+S
+#22025
+&+cDeeper into the &+LPit&n~
+&+L   The passage through the pit begins to sink further down beneath
+&+Lthe surface here, offering a large hole with footholds strong
+&+Lenough to step down on another several yards of descent.  The
+&+Cgar&+cgoy&+Lles continue to swarm around one's heads, yet the majority
+&+Lof them remain still, hanging from the rocky walls by their sharp
+&+Ltalons deep in a nocturnal sleep. The footholds continue downwards
+&+Land another passageway can be seen through the darkness to the south.
+~
+220 9 15
+D2
+~
+~
+0 0 22026
+D4
+~
+~
+0 0 22024
+D5
+~
+~
+0 0 22033
+F
+20
+S
+#22026
+&+cA Turn in the &+LPit&n~
+&+L   The tunnel curves to the east and narrows quite a bit here,
+&+Lwith the jagged black rock sticking out from the walls, making
+&+Lprogress through the area increasingly more uncomfortable.  The
+&+Cgar&+cgoy&+Lles even find this area a too tight a quarters for them
+&+Land avoid sleeping here.&n
+~
+220 8201 15
+D0
+~
+~
+0 0 22025
+D1
+~
+~
+0 0 22027
+S
+#22027
+&+cA Twisted Junction inside the &+LPit&n~
+&+L   The tunnel branches off into larger caverns to the north and
+&+Lsouth &+Lhere.  Like throughout this pit, opening in the cave walls
+&+Lare &+Lfairly common, and are used for nests by the &+Cgar&+cgoy&+Lles, however
+&+Lhere the two directions are large enough for several men to walk
+&+Lthrough shoulder by shoulder.  Oddly, there seems to be a large
+&+Lfissure in &+Lthe rock wall to the east as well.&n
+~
+220 9 15
+D0
+~
+~
+0 0 22028
+D1
+~
+slab~
+7 22024 22030
+D2
+~
+~
+0 0 22029
+D3
+~
+~
+0 0 22026
+S
+#22028
+&+cA &+LGargoyle &+cNest&n~
+&+L   This is nothing more then a large hole ripped from the primary
+&+Ltunnel, &+Lits edges are &+Cs&+charp&+L with uneven stones, and there isn't much
+&+Lspace to &+Lmanuever. However it suits the purpose of its inhabitants
+&+Lnicely, &+Loffering protection and privacy for the mature &+Cgar&+cgoy&+Lles
+&+Land their &+rbloodthirsty&+L offspring.  The only exit is to the south.&n
+~
+220 9 15
+D2
+~
+~
+0 0 22027
+S
+#22029
+&+LQuarters of the &+rImp&+L Crafter&n~
+&+L   Like all the other rooms spreading off from the main tunnel, this
+&+Lis nothing more than a hole cut into the rock wall.  The &+Cgar&+cgoy&+Lles
+&+Lflourish in this enviroment, as do several other spieces of lesser
+&+Llawful intelligent beings, the &+rimp&+L being one of them. An &+rimp&+L has
+&+Lmade his home here, within and around the &+Cgar&+cgoy&+Lle nests &+Lso reasons
+&+Lunknown.  Despite their chaotic nature the &+Cgar&+cgoy&+Lles&n &+Ltolerate the
+&+rimp&+L, letting him create his dark crafts, forging &+Ltogether whatever
+&+Lhe can find to suit his mysterious deeds.&n
+~
+220 9 15
+D0
+~
+~
+0 0 22027
+S
+#22030
+&+LVault of the &+RDe&+rmo&+Rn &+rPr&+Rin&+rce&n~
+&+L   The &+RDemon &+rPr&+Rin&+rce&+L, &+RSei&+Lk Ka&+R'zam&+L controls the minions of this pit from
+&+Lthis room, barking out orders to all around him.  The room is &+Wunlit&n
+&+Lother than for a &+rflaming br&+Raz&+ri&+Rer&+L burning against the furthest wall.
+&+LIt is not for &+Willumination&+L but rather for mystic incantations, and
+&+Lacts as communications from the &+rPr&+Rin&+rce&+L to the other rules of the
+&+LPits including &+RAbaddon&+L himself.  A pile of &+Cgar&+cgoy&+Lle &+Wbones&+L collects
+&+Lunder &+RSei&+Lk Ka&+R'zam's&+L clawed feet, a gruesome example of the
+&+Lcannabilistic nature of these &+rdemons.&n
+~
+220 9 15
+D3
+~
+slab~
+7 22024 22027
+S
+#22031
+&+cA Deadend in the&+L Pit&n~
+&+L   The tunnel comes to a deadend here, with the black rock wall
+&+Lof the pit cutting any further movement ahead abrubtly.  Several
+&+Cgar&+cgoy&+Lles have made perches along the walls and now sleep soundly.
+&+LNests, full of their eggs can be seen high up, out of reach,
+&+Land tucked neatly away inside the recesses of the cavern.  The
+&+Lonly visible exit is back to the south.&n
+~
+220 9 15
+D1
+~
+hidden~
+5 0 22032
+D2
+~
+~
+0 0 22024
+S
+#22032
+&+LA &+CGar&+cgoy&+Lle&n &+LNest&n~
+&+L   This is nothing more then a large hole ripped from the primary
+&+Ltunnel, &+Lits edges are &+Cs&+charp&+L with uneven stones, and there isn't
+&+Lmuch space to &+Lmanuever. However it suits the purpose of its
+&+Linhabitants nicely, &+Loffering protection and privacy for the mature
+&+Cgar&+cgoy&+Lles and their &+rbloodthirsty&+L offspring.  An opening in the
+&+Lrock to the west leads &+Lback to the main tunnel.&n
+~
+220 9 15
+D3
+~
+hidden~
+5 0 22031
+S
+#22033
+&+cBottom of the &+LPit&n~
+&+L   Here is the bottom of the pit, the &+Cgar&+cgoy&+Lle can be heard
+&+Lthrashing and screeching horrendously just to the north, and
+&+Ldifferent noises can be heard from here as well, as if echoing
+&+Lthrough the rock from elsewhere in the cavern or even another
+&+Lpit altogether.  The ground here is softer than in the other
+&+Ltunnels and the stink of gauno is quite nauseating.&n
+~
+220 9 15
+D0
+~
+~
+0 0 22034
+D4
+~
+~
+0 0 22025
+S
+#22034
+&+LA &+CFea&+cstin&+Lg Grounds&n~
+&+L   This room is layered by countless &+Wbones&+L from countless bodies from
+&+Lalmost every imaginable race, be it intelligent or animal, none have
+&+Lbeen spared.  The &+Cgar&+cgoy&+Lles return to this place before the dawn
+&+Lcarrying with them the night's victims, and feast upon the corpses,
+&+Lmost usually quite fresh, with their kin.  They feed their young
+&+Lthis way and weed out the lesser &+Cgar&+cgoyl&+Les that return with nothing
+&+Lby in turn, eating them also.  A &+Rvam&+rpiri&+Lc figure watches over the
+&+Cgar&+cgoy&+Lles here, an overseer within the pit that maintains the order
+&+Lof balance between the minions, in turn taking his payment of the
+&+Lfreshest meat.&n
+~
+220 9 15
+D2
+~
+~
+0 0 22033
+S
+#22035
+&+yClimbing the &+LFoothills&n~
+&+y   The &+Lpath&+y up the &+Lfoothills&+y continues up here at a fairly steady
+&+yincline.  As it follows upwards the rest of the &+wmountain&+y can clearly
+&+ybe seen.  The vegetation becomes much more sparse the further up
+&+yone climbs, and the rocky earth inhabits only the most durable
+&+Gplants&+y that are capable of living in the hard soil and scorching
+&+ysun.  The mountain &+Wgoats&+y that wander the hills make these little
+&+Gplants&+y the main source of their diet.  The pathway along the
+&+YSavannah&+y is just to the west of here.&n
+~
+220 4 4
+D0
+~
+~
+0 0 22036
+D3
+~
+~
+0 0 22012
+S
+#22036
+&+yClimbing the &+LFoothills&n~
+&+y   The &+Lpath&+y up the &+Lfoothills&+y continues up here at a fairly steady
+&+yincline.  As it follows upwards the rest of the &+wmountain&+y can clearly
+&+ybe seen.  The vegetation becomes much more sparse the further up
+&+yone climbs, and the rocky earth inhabits only the most durable
+&+Gplants&+y that are capable of living in the hard soil and scorching
+&+ysun.  The mountain &+Wgoats&+y that wander the hills make these little
+&+Gplants&+y the main source of their diet.&n
+~
+220 0 4
+D1
+~
+~
+0 0 22037
+D2
+~
+~
+0 0 22035
+S
+#22037
+&+yClimbing the &+LFoothills&n~
+&+y   The &+Lpath&+y up the &+Lfoothills&+y continues up here at a fairly steady
+&+yincline.  As it follows upwards the rest of the &+wmountain&+y can clearly
+&+ybe seen.  The vegetation becomes much more sparse the further up
+&+yone climbs, and the rocky earth inhabits only the most durable
+&+Gplants&+y that are capable of living in the hard soil and scorching
+&+ysun.  The &+Wgoats&+y seem to gather around this area more than the other
+&+yparts of the &+Lfoothills&+y, seemingly due to the increase of vegetation
+&+yas the &+Lpath&+y opens up to a small plataeu just above.&n
+~
+220 0 4
+D3
+~
+~
+0 0 22036
+D4
+~
+~
+0 0 22038
+S
+#22038
+&+yA Herd of &+WGoats&+y Atop the &+LFoothills&n~
+&+y   The &+Lpath&+y up the mountain breaks here into a sizable plataeu,
+&+ylarge enough to allow a small family of &+Lgoats&+y enough room to enjoy
+&+ythemselves in the sun and chew on whatever is readily available.
+&+yFlocks of birds screech overhead, indicating proximity to nests.
+&+yThe &+Wgoats&+y wail in their usual goat-type manner as anyone approches.
+~
+220 0 4
+D1
+~
+~
+0 0 22039
+D5
+~
+~
+0 0 22037
+S
+#22039
+&+yHigher Atop the &+wMountain&n~
+&+y   This is a faint trail leading up the central mountain on the
+&+YSavannah&+y.  There isn't much vegetation up here, just a few sparse
+&+yshrubs trying desperately to grow in the rocky, heat-scorched
+&+yenviorment.  Birds of all kinds can be seen flying about the area,
+&+ymost likely the majority of them having nests here.  The higher
+&+yup one climbs the more of the &+YSavannah&+y can be seen scretching
+&+yout below.  Near the top the view becomes so amazing, one needs
+&+yto almost stop and take a look around in quiet awe.&n
+~
+220 0 5
+D0
+~
+~
+0 0 22040
+D3
+~
+~
+0 0 22038
+S
+#22040
+&+yHigher Atop the &+wMountain&n~
+&+y   This is a faint trail leading up the central mountain on the
+&+YSavannah&+y.  There isn't much vegetation up here, just a few sparse
+&+yshrubs trying desperately to grow in the rocky, heat-scorched
+&+yenviorment.  Birds of all kinds can be seen flying about the area,
+&+ymost likely the majority of them having nests here.  The higher
+&+yup one climbs the more of the &+YSavannah&+y can be seen scretching
+&+yout below.  Near the top the view becomes so amazing, one needs
+&+yto almost stop and take a look around in quiet awe.&n
+~
+220 0 5
+D2
+~
+~
+0 0 22039
+D4
+~
+~
+0 0 22041
+S
+#22041
+&+yAtop a &+wMountain &+WPeak&n~
+&+y   This is close to the highest point attainable by foot travellers
+&+ywithin the central &+wmountain&+y in the &+YSavannah&+y.  Along the sides of
+&+ythe pathway leading up hundreds of birds nest can be seen below, all
+&+yscreeching loudly for one reason or another.  A walkable ledge
+&+yheads east from here and to the south an enormous &+Wroc&+y nest is
+&+yvisible against a large array of stone boulders.  A wirey young
+&+yman with the insignia of the mercenaries guild on his jacket stands
+&+yhere, smiling at travellers.&n
+~
+220 4 5
+D1
+~
+~
+0 0 22044
+D2
+~
+~
+0 0 22042
+D5
+~
+~
+0 0 22040
+S
+#22042
+&+yA Giant &+WRoc&+y Nest&n~
+&+y   This is the highest point on the desolate mountain that is located
+&+yin the center of the &+YSavannah&+y.  Though not especially high in regards
+&+yto most other mountains, it is unique in sparsity of vegetation. It
+&+yis completely devoid of any true green plant life at all, the pathway
+&+yup being all rock and the sun-baked soil that makes up the &+YSavannah&+y.
+&+yA family of &+Wrocs&+y have made their nest up here, in the seclusion of
+&+ythe peak, with large boulders protecting them from the south and a
+&+ysteep cliff on both the eastern and western edges.&n
+~
+220 0 5
+D0
+~
+~
+0 0 22041
+D2
+~
+boulders~
+7 22009 22043
+S
+#22043
+&+yAmong a &+LPit&n~
+&+y   This is nothing more than a tight squeeze behind several large
+&+yboulders to the north.  It is quite a chore to get into this area, and
+&+yseems to be even more difficult to climb through the small hole in the
+&+yground that leads to yet another &+Lpit&+y.  Other than down through the
+&+yhole, the only other exit is north, back to the &+Wroc&+y nest.&n
+~
+220 0 5
+D0
+~
+boulders~
+7 22009 22042
+S
+#22044
+&+yA &+wMountain&+y Plateau&n~
+&+y   High atop the &+wmountain&+y this ledge looks out nearly the entire
+&+yexpanse of the &+YSavannah&+y of &+YSorrow&+y.  From this vantage point the
+&+yherds of animals seem tiny though not all that distant in reality.
+&+yThe hike up the mountain takes but a short time, but obviously takes
+&+yone up to quite a height.  It is a worthwhile climb, especially
+&+yafter spending some time gazing out over the plains in a quiet serenity.
+&+yThe barren mountainside stands out in start contrast against the
+&+YSavannah&+y below, though itself not rich in greenery and vegetation,
+&+yfrom here appears lush and vibrant and absolutely crawling with life.
+&+ySeveral stones and rocks have been piled in an odd manner here.&n
+~
+220 0 5
+D3
+~
+~
+0 0 22041
+S
+#22045
+&+LDescending into the Pit&n~
+&+L   The pit walls here are covered in slick moisture.  The rocks that
+&+Lmake up the walls are sharp and rigid to touch, suggesting that one
+&+Ltakes careful steps in continuing on further.  Fissures that run
+&+Lalong the rock walls seem to be nests for spider-like creatures that
+&+Lcan be barely seen flirting across the surface like shadows.  The pit
+&+Lleading back up to the mountain top is here.&n
+~
+220 9 15
+D1
+~
+~
+0 0 22046
+S
+#22046
+&+LDescending into the Pit&n~
+&+L  The descent in the pit continues here without any noticeable signs
+&+Lof change to anyone other than the cleverest of trackers.  All the
+&+Lway down the same gleaming, moisture covered rock walls appear
+&+Lnearly identical, with small cracks jutting through the surface
+&+Llooking like a weave of spiderwebs across the black stone.  An
+&+Lopening in the rock leads down, though tight, is still passable.&n
+~
+220 9 15
+D3
+~
+~
+0 0 22045
+D5
+~
+~
+0 0 22047
+F
+50
+S
+#22047
+&+LDescending into the Pit&n~
+&+L   The cavern becomes increasingly more dangerous the further in one
+&+Ltravels, and without some sort of levitation enchantment it would be
+&+Lquite possible to slip and fall on the sharp, slippery, rocks and
+&+Lseriously injure oneself.  The critters that run about, scurring from
+&+Lthe fissures in the caverns walls also do not make the descent any
+&+Lmore enjoyable.  The only possible route further in is west.&n
+~
+220 9 15
+D3
+~
+~
+0 0 22048
+D4
+~
+~
+0 0 22046
+S
+#22048
+&+LDescending into the Pit&n~
+&+L  The descent in the pit continues here without any noticeable signs
+&+Lof change to anyone other than the cleverest of trackers.  All the
+&+Lway down the same gleaming, moisture covered rock walls appear
+&+Lnearly identical, with small cracks jutting through the surface
+&+Llooking like a weave of spiderwebs across the black stone.  The
+&+Llarge arachnids that seem to inhabit this area move silently across
+&+Lthe stone, attacking without warning.  The pit continues down.&n
+~
+220 9 15
+D1
+~
+~
+0 0 22047
+D5
+~
+~
+0 0 22049
+F
+55
+S
+#22049
+&+LDescending into the Pit&n~
+&+L  The descent in the pit continues here without any noticeable signs
+&+Lof change to anyone other than the cleverest of trackers.  All the
+&+Lway down the same gleaming, moisture covered rock walls appear
+&+Lnearly identical, with small cracks jutting through the surface
+&+Llooking like a weave of spiderwebs across the black stone.  With
+&+Lsome effort to squeeze through, the pit continues to the east.
+&+LThe large spider-like creatures here are becoming a more of a
+&+Lannoyance than a threat.&n
+~
+220 9 15
+D1
+~
+~
+0 0 22050
+D4
+~
+~
+0 0 22048
+S
+#22050
+&+LDescending into the Pit&n~
+&+L  The descent in the pit continues here without any noticeable signs
+&+Lof change to anyone other than the cleverest of trackers.  All the
+&+Lway down the same gleaming, moisture covered rock walls appear
+&+Lnearly identical, with small cracks jutting through the surface
+&+Llooking like a weave of spiderwebs across the black stone.  An
+&+Lopening in the rock leads down, though tight, is still passable.&n
+~
+220 9 15
+D3
+~
+~
+0 0 22049
+D5
+~
+~
+0 0 22051
+F
+65
+S
+#22051
+&+LA Turn in the Descent&n~
+&+L   The twisting spiral downward turns sharply to the west here,
+&+Lwith another small opening in the rock wall.  Large fissures run
+&+Lalong the wall, almost wide enough for one to put his hand through.
+&+LThe humidity has reached a climax here as well, and the rock has
+&+Lbecome dangerously slipperly to step upon or even use as handholds
+&+Lfor climbing back up.  No sound and no light escapes from this
+&+Larea of the pit.&n
+~
+220 9 15
+D3
+~
+~
+0 0 22052
+D4
+~
+~
+0 0 22050
+D5
+~
+granite~
+5 0 22053
+S
+#22052
+&+LDeadend in a Perilious Descent&n~
+&+L   The descending cavern ends here abrubtly.  The fissures in the
+&+Lrocky cavern walls become too small and too narrow to even stick a
+&+Lgnome's finger into.  A powerfully built &+rmino&+Ltaur stands close to
+&+Lthe furthest wall, inspecting it closely.  The moisture in the chamber
+&+Lglistens from the &+Willumination&+L the &+rmino&+Ltaur's magical torch is
+&+Lproviding as he peers intently at wall, searching for an alternate
+&+Lroute out.  The frustration on his face is obvious and it appears
+&+Lthe only exit is back to the east.&n
+~
+220 9 15
+D1
+~
+~
+0 0 22051
+S
+#22053
+&+LThe Great Below&n~
+&+LThis room is unlike any of the other pits. The cave walls here are smooth
+&+Lgranite, almost polished to a black-mirror finish.  Four large &+Ycandles&+L,
+&+Lset upon spiney, black metal holders are located before four large
+&+rdoors&+L.  The &+Ycandles&+L glow just bright enough to cast flickering
+&+Lshadows on each of the doors, with each shadow a different image
+&+Lfor each direction.&n
+                     &+WNorth &+rSouth &+YEast &+bWest&n
+&+LA large, &+rfi&+Rer&+ry &+Lportal is located within the center of the room, next
+&+Lto a massive granite &+rgolem&+L, who stares straight ahead with cold, black,
+&+Lunblinking eyes.&n
+~
+220 32841 15
+D0
+~
+~
+0 0 22054
+D1
+~
+~
+0 0 22055
+D2
+~
+~
+0 0 22056
+D3
+~
+~
+0 0 22057
+D4
+~
+granite~
+5 0 22051
+D5
+~
+vault~
+7 22042 22071
+E
+north~
+&+WThe flickering shadow on the north wall displays the ancient symbol
+&+Wof Pain.&n
+~
+E
+south~
+&+rThe flickering shadow on the south wall displays the ancient symbol
+&+rof Rage.&n
+~
+E
+east~
+&+YThe flickering shadow on the east wall displays the ancient symbol
+&+Yof Hate.&n
+~
+E
+west~
+&+bThe flickering shadow on the west wall displays the ancient symbol
+&+bof Fear.&n
+~
+S
+#22054
+&+LThe Gate of &+WPain&n~
+&+L   The walkways in the four directions from the &+rnexus&+L are exactly
+&+Lidentical.  Pure black stone on the walls, ceiling, and floors, with
+&+La massive double door blocking entry further on.  The atmosphere is
+&+Ldank, almost tangible, as if the fear the denizens of this pit
+&+Lcreate has become something of substance.  The flicker from the
+&+Ycandles&+L from the &+rnexus&+L and the soft &+Rglow&+L of the &+rportal&+L behind one
+&+Lare the only forms of illumination.  Without doubt, something
+&+Lterrible makes its lair in the rooms behind the giant stone doors.&n
+~
+220 134250569 15
+D0
+~
+pain~
+1 0 22112
+D2
+~
+~
+0 0 22053
+S
+#22055
+&+LThe Gate of &+YHate&n~
+&+L   The walkways in the four directions from the &+rnexus&+L are exactly
+&+Lidentical.  Pure black stone on the walls, ceiling, and floors, with
+&+La massive double door blocking entry further on.  The atmosphere is
+&+Ldank, almost tangible, as if the fear the denizens of this pit
+&+Lcreate has become something of substance.  The flicker from the
+&+Ycandles&+L from the &+rnexus&+L and the soft &+Rglow&+L of the &+rportal&+L behind one
+&+Lare the only forms of illumination.  Without doubt, something
+&+Lterrible makes its lair in the rooms behind the giant stone doors.&n
+~
+220 142639177 15
+D1
+~
+hate~
+1 0 22110
+D3
+~
+hate~
+0 0 22053
+S
+#22056
+&+LThe Gate of &+rRage&n~
+&+L   Though nearly identical to the other three rooms leading away
+&+Lfrom the nexus this one has one minor difference.  Looking up
+&+Lreveals a transparent ceiling where a small army of &+rdevil&+L and
+&+rdevilkin&+L monsters stand on alert status, most likely to be used
+&+Lin the next raid on the &+CHome &+Wof the &+CDivine&+L.  There appears to
+&+Lbe no way to get up there however.  The flickers from the &+Ycandles&n
+&+Lbehind cast flirting shadows on the wall.  A large door, like
+&+Lwith the other rooms, lies in front.&n
+~
+220 134250569 15
+D0
+~
+~
+0 0 22053
+D2
+~
+rage~
+1 0 22111
+S
+#22057
+&+LThe Gate of &+bFear&n~
+&+L   The walkways in the four directions from the &+rnexus&+L are exactly
+&+Lidentical.  Pure black stone on the walls, ceiling, and floors, with
+&+La massive double door blocking entry further on.  The atmosphere is
+&+Ldank, almost tangible, as if the fear the denizens of this pit
+&+Lcreate has become something of substance.  The flicker from the
+&+Ycandles&+L from the &+rnexus&+L and the soft &+Rglow&+L of the &+rportal&+L behind one
+&+Lare the only forms of illumination.  Without doubt, something
+&+Lterrible makes its lair in the rooms behind the giant stone doors.&n
+~
+220 134250569 15
+D1
+~
+~
+0 0 22053
+D3
+~
+fear~
+1 0 22109
+S
+#22058
+&+yA &+LPath&+y Around the &+LFoothills&n~
+&+y   Over many years of adventurers travelling to this region a &+Lpathway&n
+&+yhas formed that encircles the central mountain.  Travellers have
+&+ylonged hoped for a easier route up the mountain, or perhaps to
+&+yfind new tunnels leading into the &+Ytreasure&+y rooms of the &+LPits of&n
+&+rCerberus&+y with no luck and the route up the mountain remains to be
+&+yfull of dangers for the unskilled.  North and south of here are
+&+yunpassable mountains, the &+Lpath&+y continues east and west.&n
+~
+220 0 24
+D1
+~
+~
+0 0 22059
+D3
+~
+~
+0 0 22020
+S
+#22059
+&+yWithin the &+YSavannah &+yof &+YSorrow&n~
+&+y   The &+YSavannah&+y spreads out in four directions here, west and south
+&+ycontinuing the &+Lpathway&+y that leads around the central mountain,
+&+ywhile north and east both lead to the edge of the plains, as the
+&+YSavannah&+y becomes impossible to hike or climb.  A tall, rugged,
+&+ymercenary from the legendary &+LSoldiers of &+YFortune&+y stands here,
+&+ygazing up at the mountain to the southwest with a dreamy look
+&+yin his eyes.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22060
+D1
+~
+~
+0 0 22062
+D2
+~
+~
+0 0 22061
+D3
+~
+~
+0 0 22058
+S
+#22060
+&+yNear a Large &+YCampsite&n~
+&+y   The &+YSavannah&+y ends to the north and west here with the regular
+&+yrocky terrain serves as a sort of cage for both wildlife and travellers.
+&+yProceeding further in either direction could be quite hazardous and
+&+ynot even the &+YSavannah&+y animals--save for a few mountain g&+Woa&+yts, wander
+&+yout across the outcroppings.  Sounds from a campsite can be heard to
+&+ythe east of here, where several mercenaries have made preparations
+&+yfor the evening. &n
+~
+220 0 24
+D1
+~
+~
+0 0 22063
+D2
+~
+~
+0 0 22059
+S
+#22061
+&+yA &+LPath&+y Around the &+LFoothills&n~
+&+y   Over many years of adventurers travelling to this region a &+Lpathway&n
+&+yhas formed that encircles the central mountain.  Travellers have
+&+ylonged hoped for a easier route up the mountain, or perhaps to
+&+yfind new tunnels leading into the &+Ytreasure&+y rooms of the &+LPits of&n
+&+rCerberus&+y with no luck and the route up the mountain remains to be
+&+yfull of dangers for the unskilled.  North of here the sounds of
+&+ycampers can be heard and south the &+YSavannah&+y continues.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22059
+D1
+~
+~
+0 0 22064
+D2
+~
+~
+0 0 22065
+S
+#22062
+&+yWithin the &+YSavannah&+y of &+YSorrow&n~
+&+y   The &+YSavannah&+y continues here with the rocky soil that is so
+&+ycommon in this region.  The animals frolick and graze through
+&+ythe plains, all but carefree other than the knowledge that just
+&+ybelow the surface lie the &+LPits of &+rCerberus&+y.  Rumors of clawed
+&+yhands reaching out from the &+LPits&+y at night and grabbing whatever
+&+yis walking by at the moment are not uncommon, and &+Ycamels&+y would
+&+ymake an easy target for just about anything--being as they aren't
+&+ythe brightest animal in the world.  To the north some travellers
+&+yhave set up a campsite.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22063
+D2
+~
+~
+0 0 22064
+D3
+~
+~
+0 0 22059
+S
+#22063
+&+yAt a Large &+YCampsite&n~
+&+y   The northeastern edge of the &+YSavannah&+y makes a good spot for a &+Ycamping&n
+&+yground.  The wind that can blow an uncomfortable chill into living tissue
+&+yat night is reduced due to the mountainous cliffs on north and east sides.
+&+yA group of &+Ytreasure&+y seekers sit here resting, regailing each other with
+&+ystories of the past and rumours of the treasure that is hidden deep
+&+yinside the &+LPits&+y.  They have a small fire burning here for warmth and
+&+Wlight&+y.&n
+~
+220 131072 24
+D2
+~
+~
+0 0 22062
+D3
+~
+~
+0 0 22060
+S
+#22064
+&+yAt an Enormous &+LAnthill&n~
+&+y   An enormous &+Lanthill&+y is the center of attention in this part of the
+&+YSavannah&+y. It rises up out of the ground nearly eight feet and it
+&+yhome to millions of &+Lants&+y.  The &+Lants&+y are contantly scurring in and
+&+yout of the &+Lanthill&+y, making it look alive with movement.  The
+&+YSavannah&+y continues to the south and west, the other directions
+&+yblocked by unpassable rocky outcroppings.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22062
+D2
+~
+~
+0 0 22067
+D3
+~
+~
+0 0 22061
+S
+#22065
+&+yWithin the &+YSavannah&+y of&n &+YSorrow&n~
+&+y   The &+YSavannah&+y is host to numerous spieces of wildlife, all who &+ywander
+&+yabout in a constant search for food. &+ySparse palm &+Gtrees&+y, can be seen.
+&+y&+yD&+Yo&+ygs, who have lived all their &+ylife here, out in the desert plains,
+&+yrun about, barking at &+ythe birds.  The air is hot and dry, though
+&+yquite comfortable, &+yand all the animals have learned to adapt quite well
+&+yto the climate.  Just to the west an opening to one of the &+LPits of
+&+rCerberus&+y can been seen, just barely visible against the rising rock
+&+ywall of the central &+wmountain&+y.  The &+Lpath&+y around the &+wmountain&+y is north.
+~
+220 0 24
+D0
+~
+~
+0 0 22061
+D1
+~
+~
+0 0 22067
+D2
+~
+~
+0 0 22011
+D3
+~
+~
+0 0 22066
+S
+#22066
+&+yAmong a &+LPit&n~
+&+y   Here lies yet another entrance to the fabled &+LPits of &+rCerberus&+y.  The
+&+yentrance itself is nothing more than a hole in the ground, just
+&+ylarge enough for someone to squeeze through with a fair ammount of
+&+yeffort.  Against the western edge, the mountain rises up from the
+&+yearth though unclimbable from this side.  The &+Lpath&+y that circles
+&+ythe mountain continues to the south.&n
+~
+220 0 24
+D1
+~
+~
+0 0 22065
+D2
+~
+~
+0 0 22010
+S
+#22067
+&+yWithin the &+YSavannah &+yof &+YSorrow&n~
+&+y   The &+YSavannah&+y spreads out in four directions here, north leading
+&+ytowards the pathway the encircles the central &+wmountain&+y while the other
+&+ydirections continue the expanse of the plains.  The wind blows lazily
+&+yat the tall palms, just enough to create a cool breeze that is quite
+&+yrefreshing compared to the intense sunlight.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22064
+D1
+~
+~
+0 0 22070
+D2
+~
+~
+0 0 22068
+D3
+~
+~
+0 0 22065
+S
+#22068
+&+yWithin the &+YSavannah &+yof &+YSorrow&n~
+&+y   The &+YSavannah&+y is host to numerous spieces of wildlife, all who &+ywander
+&+yabout in a constant search for food. &+ySparse palm &+Gtrees&+y, can be seen.
+&+Wz&+Le&+Wb&+Lr&+Wa&+Ls&+y, who have lived all their &+ylife here, out in the desert plains,
+&+yrun about, chasing after &+ythe birds.  The air is hot and dry, though
+&+yquite comfortable, &+yand all the animals have learned to adapt quite well
+&+yto the climate.  A herd of &+Wz&+Le&+Wb&+Lr&+Wa&+Ls&+y graze just to the east of here while
+&+ythe &+YSavannah&+y continues to the north, the other directions are impassable.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22067
+D1
+~
+~
+0 0 22069
+S
+#22069
+&+yA Herd of &+LZ&+We&+Lb&+Wr&+La&+Ws&n~
+&+y   Another &+Lgrazing&+y ground is located here, and unlike the majority
+&+yof the &+YSavannah&+y the &+Gvegetation&+y is somewhat abundant. Wildlife from
+&+yall around come to this area to graze on the tree &+Gleaves&+y or clumps
+&+yof &+Ggrass&+y that grow here.  A herd of &+Lz&+We&+Lb&+Wr&+La&+Ws&+y enjoy the shade of the
+&+ypalms and relax in comfort while their offspring gallop throughout
+&+ythe fields.&n
+~
+220 0 24
+D0
+~
+~
+0 0 22070
+D3
+~
+~
+0 0 22068
+S
+#22070
+&+yWithin the &+YSavannah &+yof &+YSorrow&n~
+&+y   The arid landscape begins to change just of to the east here, where
+&+ya small &+Lpath&+y begins that works its way through the rocky outcroppings
+&+ythat surround the &+YSavannah&+y.  Not far off to the south a herd of zebras
+&+ycan be seen grazing and to the west the large central &+wmountain&+y rises
+&+yup from the desert.&n
+~
+220 0 24
+D1
+~
+~
+0 0 22113
+D2
+~
+~
+0 0 22069
+D3
+~
+~
+0 0 22067
+S
+#22071
+&+LA &+YTreasure&+L Room&n~
+&+L   This is the &+Ytreasure&+L room of the primary pit and the minions of
+&+rCerberus&+L have a rather unsual way of collecting their prized
+&+Lpossesions.  &+yRock worms&+L are trained to work their way through
+&+Lthe network of tunnels that make up the numerous pits and
+&+Leat anything in their path, then to return to the &+Ytreasure&+L
+&+Lrooms of each pit where they are quickly killed and split open,
+&+Loffering the spoils of their travels to the overlords.&n
+~
+220 134250505 1
+D4
+~
+vault~
+7 22042 22053
+S
+#22072
+Start of Rock Worm Load Network~
+rockworm begins here.
+goes through network of tunnels, scavenging 4 pieces of eq.
+all considered random load.
+~
+220 142639232 0
+D8
+~
+~
+0 0 22073
+D9
+~
+~
+0 0 22074
+S
+#22073
+Gem Ring~
+Ring Room
+~
+220 142639168 0
+D0
+~
+~
+0 0 22079
+D1
+~
+~
+0 0 22075
+S
+#22074
+Armor~
+&+YGolden armor.
+Yada yada yada
+~
+220 134774848 0
+D1
+~
+~
+0 0 22075
+D2
+~
+~
+0 0 22076
+S
+#22075
+Robe~
+Robe
+~
+220 142639168 0
+D0
+~
+~
+0 0 22080
+D2
+~
+~
+0 0 22081
+S
+#22076
+Cap~
+Hat,
+designed for mages.
+~
+220 142639168 0
+D1
+~
+~
+0 0 22077
+S
+#22077
+Shield~
+Shield...etc etc
+~
+220 142639168 0
+D1
+~
+~
+0 0 22082
+D9
+~
+~
+0 0 22083
+S
+#22078
+Boots~
+fly sandals.
+~
+220 142639168 0
+D1
+~
+~
+0 0 22088
+D8
+~
+~
+0 0 22087
+S
+#22079
+Coins~
+200 p
+~
+220 142639168 0
+D0
+~
+~
+0 0 22155
+D1
+~
+~
+0 0 22078
+S
+#22080
+Bracers~
+Sleeves, armwear, etc etc.
+~
+220 142639168 0
+D1
+~
+~
+0 0 22085
+D8
+~
+~
+0 0 22086
+S
+#22081
+Cloak~
+Cloak.
+Masters Gear.
+Within 3 zones this would make the third piece of the gear.
+I will do something with it at another time.
+Think I have the quiver, bow, arrows, and now cloak finished.
+Yay me.
+~
+220 142639168 0
+D1
+~
+~
+0 0 22082
+D8
+~
+~
+0 0 22084
+S
+#22082
+Horns~
+Horns.
+They do something.
+~
+220 142639168 0
+D1
+~
+~
+0 0 22071
+S
+#22083
+Ring~
+Earring is here.
+~
+220 142639168 0
+D1
+~
+~
+0 0 22071
+S
+#22084
+Leg Plates~
+Leg plates. yay.
+~
+220 142639168 0
+D1
+~
+~
+0 0 22071
+S
+#22085
+2 Hander~
+2 handed tusk.
+~
+220 142639168 0
+D1
+~
+~
+0 0 22071
+S
+#22086
+Infinity Collar~
+Infinity collar,
+perhaps second best piece of eq in load matrix.
+Maybe best.
+~
+220 142639168 0
+D1
+~
+~
+0 0 22071
+S
+#22087
+PureDark~
+Mace puredark.
+Special proc want to be added to this object.
+Maybe a room blind affect, or at minimum a globe of darkness/
+darkness proc.
+Enjoy.
+~
+220 142639168 0
+D1
+~
+~
+0 0 22071
+S
+#22088
+Load room~
+2 SS potions.
+2 heal potion.
+Little Money.
+~
+220 142639168 0
+D1
+~
+~
+0 0 22071
+S
+#22089
+&+LInside a Pit&n~
+&+L   This pit seems oddly quiet.  With a quick look around the small
+&+Lrock chamber there doesn't seem to be anything out of the ordinary here.
+&+LThe walls of the cavern are the same black stone as they are in the
+&+Lother pits.  A sizable exit leads to another chamber to the east.
+&+LThe way out of the pit, back to the &+YSavannah&+L, is here as well.
+~
+220 9 15
+D1
+~
+~
+0 0 22090
+S
+#22090
+&+LInside a Pit&n~
+&+L   This pit seems oddly quiet.  With a quick look around the small
+&+Lrock chamber there doesn't seem to be anything out of the ordinary here.
+&+LThe walls of the cavern are the same black stone as they are in the
+&+Lother pits.  A break in the rock seems to lead downwards into the
+&+Ldarkness, the exit is just to the west.&n
+~
+220 9 15
+D3
+~
+~
+0 0 22089
+D5
+~
+~
+0 0 22091
+S
+#22091
+&+LAt a Spiked Slab Closure&n~
+&+L   The short decent through the rocky cave ends here with a large slab
+&+Lof spiked stone below ones feet.  The spikes on the slab are quite
+&+Lpainful to stand upon and due to the closure of the room it would
+&+Lbe next to impossible to fit any more than a couple persons anywhere
+&+Lelse than upon it.  Beyond the spiked slab is unknown, climbing up
+&+Lleads back to the &+YSavannah&+L.&n
+~
+220 9 15
+D4
+~
+~
+0 0 22090
+D5
+~
+spikes~
+1 0 22092
+S
+#22092
+&+LEntrance to the Hallway of &+rHorror&n~
+&+L   This is the first chamber within an odder type of Pit.  Unlike
+&+Lthe other Pits below the &+YSavannah&+L this one has had much effort put
+&+Linto it by the more intelligent denizens that make their homes here.
+&+LThe floor is finished and smooth to the touch, as is the ceiling
+&+Lother than the small hole that leads back up the &+YSavannah&+L.  The
+&+Lonly exit is north, where the howls of the fiends of the Hallway
+&+Lof &+rHorror&+L echo throughout the entirity of the chamber.&n
+~
+220 1073774665 15
+D0
+~
+~
+0 0 22093
+D4
+~
+spikes~
+1 0 22091
+S
+#22093
+&+LThe Hallway of &+rHorror&n~
+&+L   This long hallway has been cut into the rocky earth by unknown
+&+Lforces, the walls of the hallways are rough and jagged, with countless
+&+Lholes throughout it where the denizens of the pit flow from.  The
+&+Lceiling and floor, however, are polished, smooth black rock. The
+&+Lnoise is deafening as the howls of the unholy echo in the eardrums,
+&+Levery step north more the fiendish creatures leap from the walls,
+&+Lunexpected and deadly.  The hallway lacks any sort of illunimation,
+&+Land the only directions walkable by a mortal are south to escape,
+&+Land north to the unknown.&n
+~
+220 1073774665 15
+D0
+~
+~
+0 0 22094
+D2
+~
+~
+0 0 22092
+S
+#22094
+&+LThe Hallway of &+rHorror&n~
+&+L   This long hallway has been cut into the rocky earth by unknown
+&+Lforces, the walls of the hallways are rough and jagged, with countless
+&+Lholes throughout it where the denizens of the pit flow from.  The
+&+Lceiling and floor, however, are polished, smooth black rock. The
+&+Lnoise is deafening as the howls of the unholy echo in the eardrums,
+&+Levery step north more the fiendish creatures leap from the walls,
+&+Lunexpected and deadly.  The hallway lacks any sort of illunimation,
+&+Land the only directions walkable by a mortal are south to escape,
+&+Land north to the unknown.&n
+~
+220 1073774665 15
+D0
+~
+~
+0 0 22095
+D2
+~
+~
+0 0 22093
+S
+#22095
+&+LThe Hallway of &+rHorror&n~
+&+L   This long hallway has been cut into the rocky earth by unknown
+&+Lforces, the walls of the hallways are rough and jagged, with countless
+&+Lholes throughout it where the denizens of the pit flow from.  The
+&+Lceiling and floor, however, are polished, smooth black rock. The
+&+Lnoise is deafening as the howls of the unholy echo in the eardrums,
+&+Levery step north more the fiendish creatures leap from the walls,
+&+Lunexpected and deadly.  The hallway lacks any sort of illunimation,
+&+Land the only directions walkable by a mortal are south to escape,
+&+Land north to the unknown.&n
+~
+220 1073774665 15
+D0
+~
+~
+0 0 22096
+D2
+~
+~
+0 0 22094
+S
+#22096
+&+LThe Hallway of &+rHorror&n~
+&+L   This long hallway has been cut into the rocky earth by unknown
+&+Lforces, the walls of the hallways are rough and jagged, with countless
+&+Lholes throughout it where the denizens of the pit flow from.  The
+&+Lceiling and floor, however, are polished, smooth black rock. The
+&+Lnoise is deafening as the howls of the unholy echo in the eardrums,
+&+Levery step north more the fiendish creatures leap from the walls,
+&+Lunexpected and deadly.  The hallway lacks any sort of illunimation,
+&+Land the only directions walkable by a mortal are south to escape,
+&+Land north to the unknown.&n
+~
+220 1073774665 15
+D0
+~
+~
+0 0 22097
+D2
+~
+~
+0 0 22095
+S
+#22097
+&+LThe Hallway of &+rHorror&n~
+&+L   This long hallway has been cut into the rocky earth by unknown
+&+Lforces, the walls of the hallways are rough and jagged, with countless
+&+Lholes throughout it where the denizens of the pit flow from.  The
+&+Lceiling and floor, however, are polished, smooth black rock. The
+&+Lnoise is deafening as the howls of the unholy echo in the eardrums,
+&+Levery step north more the fiendish creatures leap from the walls,
+&+Lunexpected and deadly.  The hallway lacks any sort of illunimation,
+&+Land the only directions walkable by a mortal are south to escape,
+&+Land north to the unknown.&n
+~
+220 1073774665 15
+D0
+~
+double~
+1 0 22098
+D2
+~
+~
+0 0 22096
+S
+#22098
+&+LChamber of the &+rOve&+Lrfie&+rnd&n~
+&+L   The chamber of the &+rove&+Lrfie&+rnd&+L has been built with the same smooth
+&+Lblack rock that makes up the floors of the Hallway of &+rHorror&+L.  The
+&+Lair is thick with a black mist and a strong odour, most likely
+&+Lemanating from the &+rove&+Lrfie&+rnd&+L himself.  The huge monster takes up
+&+Lmuch of the space in the chamber, and it is unknown how he manages
+&+Lto fit through the doors to leave, if he ever does.  &+WBones&+L pile
+&+Lup at his feet, and several long dead &+Wskeletons&+L hang from the
+&+Lceiling as a gruesome reminder to the other denizens of the &+rove&+Lr-
+&+Lfie&+rnd's&+L cruelty and awesome strength.&n
+~
+220 134250569 15
+D2
+~
+double~
+1 0 22097
+S
+#22099
+Hallway load chamber.~
+hallway load chamber.
+room finished.
+no player area.
+~
+220 142639168 15
+D2
+~
+~
+0 0 22100
+D3
+~
+~
+0 0 22097
+S
+#22100
+Load chamber~
+hallway load chamber.
+room finished.
+no player area.
+~
+220 142639168 0
+D0
+~
+~
+0 0 22099
+D2
+~
+~
+0 0 22101
+D3
+~
+~
+0 0 22096
+S
+#22101
+hallway load~
+hallway load chamber.
+room finished.
+no player area.
+~
+220 142639168 0
+D0
+~
+~
+0 0 22100
+D2
+~
+~
+0 0 22102
+D3
+~
+~
+0 0 22095
+S
+#22102
+hallway load~
+hallway load chamber.
+room finished.
+no player area.
+~
+220 142639168 0
+D0
+~
+~
+0 0 22101
+D1
+~
+~
+0 0 22103
+D2
+~
+~
+0 0 22106
+D3
+~
+~
+0 0 22094
+S
+#22103
+hallway load~
+hallway load chamber.
+room finished.
+no player area.
+~
+220 142639168 0
+D1
+~
+~
+0 0 22104
+D3
+~
+~
+0 0 22102
+S
+#22104
+hallway load~
+hallway load chamber.
+room finished.
+no player area.
+~
+220 142639168 0
+D1
+~
+~
+0 0 22105
+D3
+~
+~
+0 0 22103
+S
+#22105
+hallway load~
+hallway load chamber.
+room finished.
+no player area.
+~
+220 142639168 0
+D3
+~
+~
+0 0 22104
+S
+#22106
+Hallway load~
+hallway load chamber.
+room finished.
+no player area.
+~
+220 142639168 0
+D0
+~
+~
+0 0 22102
+D3
+~
+~
+0 0 22093
+S
+#22107
+Nansuo Load~
+hallway load chamber.
+room finished.
+no player area.
+~
+220 142639168 0
+D0
+~
+~
+0 0 22119
+D1
+~
+~
+0 0 22119
+D2
+~
+~
+0 0 22105
+D3
+~
+~
+0 0 22119
+D6
+~
+~
+0 0 22119
+D7
+~
+~
+0 0 22119
+D8
+~
+~
+0 0 22119
+D9
+~
+~
+0 0 22119
+S
+#22108
+Unnamed~
+hallway load chamber.
+room finished.
+no player area.
+~
+220 142639168 0
+S
+#22109
+&+bThe &+LWar &+bRoom &+Lof &+bGo&+Lrg&+bor&n~
+&+L   This is the chamber of the dreaded and fearsome ettin, &+bGo&+Lrg&+bor&+L.
+&+LHere, this two headed monster communicates with the other overlords
+&+Lof the Pits by using a mystic brazier.  Though he is not in charge
+&+Lof large groups of soldiers, he is still vital to the Pits assaults
+&+Lagainst the &+CHome&+W of the&+C Divine&+L.  His visage strikes fear into the
+&+Lhearts of the &+Can&+Wgels&+L, as he flies down to attack from his pet smoke
+&+Ldragon he keeps tied to the back of the room during its training.
+&+LThe dragon wails at the imprisonment from time to time, but mostly
+&+Lkeeps quiet to avoid the wrath of its master, &+bGo&+Lrg&+bor&+L.&n
+~
+220 134250569 15
+D1
+~
+fear~
+1 0 22057
+S
+#22110
+&+rSpite&+Llan's War Room&n~
+&+L   This is the captains room of &+rSpite&+Llan, &+rCerberus'&+L zealot of &+YHate&+L.
+&+LThe githyanki captain is a master of stragetic tactics and is usually
+&+Lthe primary general in leading the assaults against the &+CHome&+W of the&n
+&+CDivine&+L.  The room here is a circular black tile, with a large table
+&+Land chair located in the center, where &+rSpite&+Llan spends his time
+&+Lpeering over battle plans.  At the far end of the room a couple
+&+Cang&+Wels&+L, captured during a raid to the &+CHome&+L, are chained and secured
+&+Ltightly.&n
+~
+220 134250569 15
+D3
+~
+hate~
+1 0 22055
+S
+#22111
+&+LThe War Room of &+rScorn&n~
+&+L   Here sits the war room of &+rScorn&+L, the highlord of the armies of
+&+rCerberus&+L.  Unlike &+rSpite&+Llan, who is high ranking in the armies, Scorn
+&+Lactually controls the majority of the forces that invade the &+CHome&+W of&n
+&+Wthe &+CDivine&+L on a continual basis.  Though he gets input from the other
+&+Loverlords of the Pits, it is &+rScorn&+L himself who carries out all the
+&+Lplans.  Usually their are a few number of soldiers with him at all
+&+Ltimes, and more often than not he is discussing plans for the next
+&+Linvasion with them.  The room is devoid of any furnishing, other
+&+Lthan a large map on the far wall of the &+CHome&+W of the &+CDivine's&n
+&+Lethereal layout.&n
+~
+220 134250569 15
+D0
+~
+rage~
+1 0 22056
+S
+#22112
+&+CGre&+cn's Cha&+Cmber o&+cf Conjura&+Ctions&n~
+&+L   This is the chamber of &+CGren&+L, the evil &+Cdji&+cnn&+L captain of &+rCerberus&+L.
+&+LHe is perhaps the oldest of the four generals, as his kind know not
+&+Lthe meaning of age.  The room is swirling with a dark mist, most
+&+Llikely cast upon by &+CGren&+L himself, or leftover from the vapor trail
+&+Lthat seeps out from the &+Rfie&+rry &+Rpor&+rtal&+L just south of this room.
+&+LThe room is empty other than &+CGren&+L and his pets, as he stands in
+&+Lthe center, flowing like the wind, arms raised in a attempt to
+&+Lsummon more fearful beasts with the power of his dark arts.&n
+~
+220 134250569 15
+D2
+~
+pain~
+1 0 22054
+S
+#22113
+&+yA &+LPath&+y Leading Away From the &+YSavannah&n~
+&+y   This &+Lpath&+y leads away from the &+YSavannah&+y through a small break in
+&+ythe usually unpassable rock that surrounds the majority of the plains.
+&+yThough the terrain is still the same of that within the &+YSavannah&+y it
+&+yappears that not far off the path becomes a well-used road. Though
+&+ythe odd animal can still be seen scurrying about, the regular
+&+YSavannah&+y wildlife doesn't seem to wander any further than this
+&+ypoint.&n
+~
+220 4 2
+D1
+~
+~
+0 0 22114
+D3
+~
+~
+0 0 22070
+S
+#22114
+&+yA &+LPath&+y Leading Away From the &+YSavannah&n~
+&+y   This &+Lpath&+y leads away from the &+YSavannah&+y through a small break in
+&+ythe usually unpassable rock that surrounds the majority of the plains.
+&+yThough the terrain is still the same of that within the &+YSavannah&+y it
+&+yappears that not far off the path becomes a well-used road. Though
+&+ythe odd animal can still be seen scurrying about, the regular
+&+YSavannah&+y wildlife doesn't seem to wander any further than this
+&+ypoint.&n
+~
+220 0 2
+D2
+~
+~
+0 0 22115
+D3
+~
+~
+0 0 22113
+S
+#22115
+&+yA Change in Terrain&n~
+&+y   The &+Lpath&+y changes here from the hard, &+Ysun&+y-baked &+YSavannah&+y soil to a
+&+ywell-used gravel &+wroad&+y.  The &+wroad&+y runs the length from the &+YSavannah&n
+&+yto the small village of &+cDesolate&+y and is quite popular with wagon
+&+ytrains and caravans as well as just the usual band of travellers.
+&+yThough the journey is quite long, it is relatively safe, and many
+&+yadventurers perfer travelling along this route other than through
+&+ythe wilderness, especially after dark, as the closer one gets to
+&+cDesolate&+y, the number of patrols keeping an eye out for the forces
+&+yof evil greatly increase.&n
+~
+220 0 2
+D0
+~
+~
+0 0 22114
+D1
+~
+~
+0 0 22116
+S
+#22116
+&+yThe &+LRoad&+y to &+cDesolate&n~
+&+y   The terrain changes again here, becoming a much more defined
+&+wgravel&+y road.  Though the birds above still caw noisily and float
+&+ylazily on the warm air currents, the remainder of the &+YSavannah&n
+&+ywildlife has all but dissappeared.  Up ahead on the winding road
+&+yactual &+Gtrees&+y can be seen growing from the quickly becoming soft
+&+ysoil, and not just the &+Gpalms&+y and &+Gcacti&+y so common within the
+&+YSavannah&+y.&n
+~
+220 0 2
+D1
+~
+~
+0 0 22117
+D3
+~
+~
+0 0 22115
+S
+#22117
+&+yThe &+LRoad&+y to &+cDesolate&n~
+&+y   The road to &+cDesolate&+y continues here, though is just the begining
+&+ycompared to the length of the journey.  The road increases in quality
+&+ythe further one gets away from the &+YSavannah&+y, most likely due to the
+&+ylack of animals around that can trample a pathway.  There is a small
+&+ygroup of humans standing here, watching the &+Bskies&+y intently, as if
+&+ywaiting for something to come down and pick them up.  Looking up,
+&+ynothing can be seen other than the odd flock of birds and the still
+&+yserenity of the &+YSavannah&+y sky.&n
+~
+220 0 2
+D0
+~
+~
+0 0 22118
+D3
+~
+~
+0 0 22116
+S
+#22118
+&+yThe &+LRoad&+y to &+cDesolate&n~
+&+y   The road to &+cDesolate&+y continues here, though is just the begining
+&+ycompared to the length of the journey.  The road increases in quality
+&+ythe further one gets away from the &+YSavannah&+y, most likely due to the
+&+ylack of animals around that can trample a pathway.  South from here
+&+ythe path back to the &+YSavannah&+y continues, where a group of travellers
+&+yof some sort are standing in wait for something.&n
+~
+220 0 2
+D0
+~
+~
+0 0 560129
+D2
+~
+~
+0 0 22117
+S
+#22119
+load chamber~
+rareload chamber. bleh.
+~
+220 142639168 0
+S
+#22120
+&+yEntrance of the &+LPit&+y of Worms&n~
+&+y   The &+LPit&+y of Worms begins here, more or less, due to the hole in
+&+ythe earth leading back up to the &+YSavannah&+y.  This &+Lpit&+y is one of the
+&+ymore legendary &+Lpits&+y within the network of &+rCerberus&+y as it houses
+&+ysome of the more feared, and certainly more creepy creatures just
+&+yabout anywhere around.&n
+~
+220 1073741825 15
+D0
+~
+~
+0 0 22121
+D2
+~
+~
+0 0 22143
+S
+#22121
+&+yInside the &+LPit&+y of Worms&n~
+&+y   Again, unlike the previous &+Lpits&+y, the walls here are made from a
+&+yrocky soil, akin to the surface of the &+YSavannah&+y.  It is rather moist
+&+yand crumbly, not at all like hard rock.  Perhaps this gives the worms
+&+yand snakes the ability to travel through the network of the &+Lpit&+y
+&+yfreely, as they just wind their way through, nearly completely
+&+yunhindered.&n
+~
+220 1073741825 15
+D0
+~
+~
+0 0 22122
+D1
+~
+~
+0 0 22123
+D2
+~
+~
+0 0 22120
+S
+#22122
+&+yDeadend in the &+LPit&+y of Worms&n~
+&+y   This &+Lpit&+y can be quite hard to navigate for adventurers without
+&+ythe proper guide.  The larger worms that live here are usually the
+&+yones that are responible for the network of tunnels, they dig through
+&+ythe soil, connecting the maze like &+Lpit&+y with a blind, unintelligent,
+&+ypurpose.  Deadends in the network, like this one, are fairly common,
+&+ythough is has been known that with a little work, exits hidden by
+&+ythe movement of the soil can be found.&n
+~
+220 1073741825 15
+D2
+~
+~
+0 0 22121
+S
+#22123
+&+yInside the &+LPit &+yof Worms&n~
+&+y   This &+Lpit&+y can be quite hard to navigate for adventurers without
+&+ythe proper guide.  The larger worms that live here are usually the
+&+yones that are responible for the network of tunnels, they dig through
+&+ythe soil, connecting the maze like &+Lpit&+y with a blind, unintelligent,
+&+ypurpose.  Further in, the floor of the &+Lpit&+y becomes a much softer soil,
+&+yalmost like sand, where thousands of tiny snakes and worms live,
+&+ysquirming beneath ones feet.  Luckily, most are so small that they
+&+yare no concern for adventurers.&n
+~
+220 1073741825 15
+D2
+~
+~
+0 0 22124
+D3
+~
+~
+0 0 22121
+S
+#22124
+&+yInside the &+LPit&+y of Worms&n~
+&+y   The network continues to become more and more disorienting for
+&+ythose not experienced with travel in the &+Lpit&+y.  Though intially many
+&+ywould think that it would be the vipers and worms that would cause
+&+ythe problems inside, after wandering just a short while in here,
+&+yit is apparent that becoming lost is much more of a threat.  The
+&+ysoil beneath the feet here seems quite unstable.&n
+~
+220 1 15
+D0
+~
+~
+0 0 22123
+D1
+~
+~
+0 0 22126
+D5
+~
+soil~
+5 0 22125
+S
+#22125
+&+yA Rock Worm Liar&n~
+&+y   The rock worms inside the &+Lpit&+y don't usually stay in one place for
+&+ylong but occasionally they will take up a tempory residence in a
+&+ycomfortable location.  Here, within a shelter of earth, a rock worm
+&+ylays curled up in a large ball, resting just long enough until
+&+yit has enough strength to go back to digging through the &+Lpit&+y.&n
+~
+220 1 15
+D4
+~
+soil~
+5 0 22124
+S
+#22126
+&+yInside the &+LPit&+y of Worms&n~
+&+y   Again, unlike the previous &+Lpits&+y, the walls here are made from a
+&+yrocky soil, akin to the surface of the &+YSavannah&+y.  It is rather moist
+&+yand crumbly, not at all like hard rock.  Perhaps this gives the worms
+&+yand snakes the ability to travel through the network of the &+Lpit&+y
+&+yfreely, as they just wind their way through, nearly completely
+&+yunhindered.&n
+~
+220 1073741825 15
+D0
+~
+~
+0 0 22127
+D2
+~
+~
+0 0 22148
+D3
+~
+~
+0 0 22124
+S
+#22127
+&+yInside the &+LPit&+y of Worms&n~
+&+y   This &+Lpit&+y can be quite hard to navigate for adventurers without
+&+ythe proper guide.  The larger worms that live here are usually the
+&+yones that are responible for the network of tunnels, they dig through
+&+ythe soil, connecting the maze like &+Lpit&+y with a blind, unintelligent,
+&+ypurpose.&n
+~
+220 1073741825 15
+D1
+~
+~
+0 0 22128
+D2
+~
+~
+0 0 22126
+S
+#22128
+&+yDeadend in the &+LPit&+y of Worms&n~
+&+y   This &+Lpit&+y can be quite hard to navigate for adventurers without
+&+ythe proper guide.  The larger worms that live here are usually the
+&+yones that are responible for the network of tunnels, they dig through
+&+ythe soil, connecting the maze like &+Lpit&+y with a blind, unintelligent,
+&+ypurpose.  Deadends in the network, like this one, are fairly common,
+&+ythough is has been known that with a little work, exits hidden by
+&+ythe movement of the soil can be found.&n
+~
+220 1073741825 15
+D3
+~
+~
+0 0 22127
+D5
+~
+dirt~
+5 0 22129
+S
+#22129
+&+yWithin the &+LPit&+y of Worms&n~
+&+y   The tunnel continues to wind through soft soil. It is apparent
+&+ythat the earth of this &+Lpit&+y is the way it is due to the mass of worms
+&+yand snakes that are constantly travelling through it.  The soil above
+&+yis soft enough to open without much effort and climb back up, while
+&+ylarger, walkable tunnels lead off to the east and west.  The slithering
+&+ysounds of the creatures within the &+Lpit&+y is becoming nearly defeaning.&n
+~
+220 1073741825 15
+D1
+~
+~
+0 0 22147
+D3
+~
+~
+0 0 22130
+D4
+~
+dirt~
+5 0 22128
+S
+#22130
+&+yInside the &+LPit&+y of Worms&n~
+&+y   Again, unlike the previous &+Lpits&+y, the walls here are made from a
+&+yrocky soil, akin to the surface of the &+YSavannah&+y.  It is rather moist
+&+yand crumbly, not at all like hard rock.  Perhaps this gives the worms
+&+yand snakes the ability to travel through the network of the &+Lpit&+y
+&+yfreely, as they just wind their way through, nearly completely
+&+yunhindered.&n
+~
+220 1073741825 15
+D0
+~
+~
+0 0 22131
+D1
+~
+~
+0 0 22129
+D2
+~
+~
+0 0 22132
+S
+#22131
+&+yInside the &+LPit&+y of Worms&n~
+&+y   This &+Lpit&+y can be quite hard to navigate for adventurers without
+&+ythe proper guide.  The larger worms that live here are usually the
+&+yones that are responible for the network of tunnels, they dig through
+&+ythe soil, connecting the maze like &+Lpit&+y with a blind, unintelligent,
+&+ypurpose.&n
+~
+220 1073741825 15
+D1
+~
+~
+0 0 22133
+D2
+~
+~
+0 0 22130
+S
+#22132
+&+yInside the &+LPit&+y of Worms&n~
+&+y   This &+Lpit&+y can be quite hard to navigate for adventurers without
+&+ythe proper guide.  The larger worms that live here are usually the
+&+yones that are responible for the network of tunnels, they dig through
+&+ythe soil, connecting the maze like &+Lpit&+y with a blind, unintelligent,
+&+ypurpose.  Deadends in the network, like this one, are fairly common,
+&+ythough is has been known that with a little work, exits hidden by
+&+ythe movement of the soil can be found.&n
+~
+220 1073741825 15
+D0
+~
+~
+0 0 22130
+D1
+~
+dirt~
+5 0 22146
+D2
+~
+~
+0 0 22150
+S
+#22133
+&+yInside the &+LPit&+y of Worms&n~
+&+y   This &+Lpit&+y can be quite hard to navigate for adventurers without
+&+ythe proper guide.  The larger worms that live here are usually the
+&+yones that are responible for the network of tunnels, they dig through
+&+ythe soil, connecting the maze like &+Lpit&+y with a blind, unintelligent,
+&+ypurpose.  The sounds the worms and the snakes make is quite loud,
+&+yeven from just the multitude of slithering, to the violent hissing
+&+yof the more aggressive crawling creatures.&n
+~
+220 1073741825 15
+D0
+~
+~
+0 0 22149
+D3
+~
+~
+0 0 22131
+D5
+~
+dirt~
+5 0 22134
+S
+#22134
+&+yA Worm's Nest&n~
+&+y   A nest of thousands of blind earth worms is located here, a
+&+ycreepy mound of squirming mass by appearence.  There seems to be
+&+yso many of the things that the walls of the room appear to be moving,
+&+yas if the soil itself is alive.  Just by walking a few feet to
+&+ythe west, where the tunnel continues, the feeling of squishing
+&+ythe worms beneath ones boots causes a shudder of disgust.&n
+~
+220 1073741825 15
+D0
+~
+soil~
+5 0 22135
+D3
+~
+~
+0 0 22136
+D4
+~
+dirt~
+5 0 22133
+S
+#22135
+&+yInside the &+LPit&+y of Worms&n~
+&+y   Again, unlike the previous &+Lpits&+y, the walls here are made from a
+&+yrocky soil, akin to the surface of the &+YSavannah&+y.  It is rather moist
+&+yand crumbly, not at all like hard rock.  Perhaps this gives the worms
+&+yand snakes the ability to travel through the network of the &+Lpit&+y
+&+yfreely, as they just wind their way through, nearly completely
+&+yunhindered.&n
+~
+220 1073741825 15
+D1
+~
+~
+0 0 22145
+D2
+~
+soil~
+5 0 22134
+S
+#22136
+&+yInside the &+LPit&+y of Worms&n~
+&+y   The tunnel continues to wind through soft soil. It is apparent
+&+ythat the earth of this &+Lpit&+y is the way it is due to the mass of worms
+&+yand snakes that are constantly travelling through it.  Though most
+&+ythe squirmy creatures that live here are too small to make anything
+&+yas large as a walkable tunnel, their must be something inside here
+&+ythat is sizable enough to do it.&n
+~
+220 1073741825 15
+D1
+~
+~
+0 0 22134
+D2
+~
+~
+0 0 22137
+S
+#22137
+&+yInside the &+LPit&+y of Worms&n~
+&+y   This &+Lpit&+y can be quite hard to navigate for adventurers without
+&+ythe proper guide.  The larger worms that live here are usually the
+&+yones that are responible for the network of tunnels, they dig through
+&+ythe soil, connecting the maze like &+Lpit&+y with a blind, unintelligent,
+&+ypurpose.&n
+~
+220 1073741825 15
+D0
+~
+~
+0 0 22136
+D3
+~
+~
+0 0 22138
+S
+#22138
+&+yInside the &+LPit&+y of Worms&n~
+&+y   The ceiling here appears fairly unstable, almost as it is about
+&+yto give way at any moment and collapse.  The exits lead in three
+&+ydirections here, and the tunnels seem quite larger then earlier
+&+yinside the &+Lpit&+y.  A lazy rockworm lays curled up in the center of
+&+ythe room, ignoring the other snakes and creatures that scurry
+&+yand squirm around it.&n
+~
+220 1073741825 15
+D0
+~
+~
+0 0 22139
+D1
+~
+~
+0 0 22137
+D2
+~
+~
+0 0 22140
+S
+#22139
+&+yInside the &+LPit&+y of Worms&n~
+&+y   Again, unlike the previous &+Lpits&+y, the walls here are made from a
+&+yrocky soil, akin to the surface of the &+YSavannah&+y.  It is rather moist
+&+yand crumbly, not at all like hard rock.  Perhaps this gives the worms
+&+yand snakes the ability to travel through the network of the &+Lpit&+y
+&+yfreely, as they just wind their way through, nearly completely
+&+yunhindered.&n
+~
+220 1073741825 15
+D1
+~
+~
+0 0 22153
+D2
+~
+~
+0 0 22138
+S
+#22140
+&+yAt a Large Slab of Earth&n~
+&+y   The tunnel ends with a large slab of movable earth beneath one's
+&+yfeet here.  The snakes and worms inside the &+Lpit&+y seem more aggresive
+&+yhere, further in the pit, and it would be wise to be cautious.  A
+&+ylarge &+Lgolem&+y, seemingly made from the soil of the &+Lpit&+y itself, stands
+&+yon the slab of earth, making it impossible to move down unless
+&+ythe &+Lgolem&+y is destroyed first.&n
+~
+220 1073750277 15
+D0
+~
+~
+0 0 22138
+D5
+~
+slab~
+1 0 22141
+S
+#22141
+&+yDeadend in the &+LPit&+y of Worms&n~
+&+y   This appears to be yet another deadend inside the network of
+&+ytunnels.  Sand and soil fall on ones head from the room above, now
+&+ythat the slab has been opened.  The snakes above hiss and spit
+&+yviolently but oddly enough won't risk coming down.&n
+~
+220 1073741825 15
+D2
+~
+dirt~
+5 0 22142
+D4
+~
+slab~
+1 0 22140
+S
+#22142
+&+LThe &+ySultan's&+L Chamber&n~
+&+y   This is the throne room--if you can call it that, of the Sultan
+&+yof Snakes, the overseer of this &+Lpit&+y.  The room is nearly identical to
+&+yall the others within the network of tunnels, lacking any furnishings
+&+yor objects to set it apart, though the Sultan seems to find this
+&+yroom appealing enough to make it his lair for himself and his slimy
+&+Laids&+y who coil up around him acting as a type of bodyguard.&n
+~
+220 1207992321 15
+D0
+~
+dirt~
+5 0 22141
+S
+#22143
+&+yInside the &+LPit&+y of Worms&n~
+&+y   This &+Lpit&+y can be quite hard to navigate for adventurers without
+&+ythe proper guide.  The larger worms that live here are usually the
+&+yones that are responible for the network of tunnels, they dig through
+&+ythe soil, connecting the maze like &+Lpit&+y with a blind, unintelligent,
+&+ypurpose.&n
+~
+220 1073741825 15
+D0
+~
+~
+0 0 22120
+D1
+~
+~
+0 0 22144
+S
+#22144
+&+yDeadend in the &+LPit&+y of Worms&n~
+&+y   This &+Lpit&+y can be quite hard to navigate for adventurers without
+&+ythe proper guide.  The larger worms that live here are usually the
+&+yones that are responible for the network of tunnels, they dig through
+&+ythe soil, connecting the maze like &+Lpit&+y with a blind, unintelligent,
+&+ypurpose.  Deadends in the network, like this one, are fairly common,
+&+ythough is has been known that with a little work, exits hidden by
+&+ythe movement of the soil can be found.&n
+~
+220 1073741825 15
+D3
+~
+~
+0 0 22143
+S
+#22145
+&+yDeadend in the &+LPit&+y of Worms&n~
+&+y   This &+Lpit&+y can be quite hard to navigate for adventurers without
+&+ythe proper guide.  The larger worms that live here are usually the
+&+yones that are responible for the network of tunnels, they dig through
+&+ythe soil, connecting the maze like &+Lpit&+y with a blind, unintelligent,
+&+ypurpose.  Deadends in the network, like this one, are fairly common,
+&+ythough is has been known that with a little work, exits hidden by
+&+ythe movement of the soil can be found.&n
+~
+220 1073741825 15
+D3
+~
+~
+0 0 22135
+S
+#22146
+&+yA Rock Worm Lair&n~
+&+y   The rock worms inside the &+Lpit&+y don't usually stay in one place for
+&+ylong but occasionally they will take up a tempory residence in a
+&+ycomfortable location.  Within the shelter of the soil, several rock
+&+yworms have coiled up here for a peaceful sleep, resting just long enough
+&+yuntil they have enough strength to go back to digging through the &+Lpit&+y.&n
+~
+220 1073741825 15
+D3
+~
+dirt~
+5 0 22132
+S
+#22147
+&+yDeadend in the &+LPit&+y of Worms&n~
+&+y   Deadends within this &+Lpit&+y are quite common, like here.  Since
+&+yno intelligent force was used for making these tunnels there is
+&+ynever any need for any sort of efficiency that a regular, smarter
+&+yperson of the world would be accustomed too.  The worms just
+&+ydig and eat, then stop and head in another direction.&n
+~
+220 1073741825 15
+D3
+~
+~
+0 0 22129
+S
+#22148
+&+yInside the &+LPit&+y of Worms&n~
+&+y   The tunnel continues to wind through soft soil. It is apparent
+&+ythat the earth of this &+Lpit&+y is the way it is due to the mass of worms
+&+yand snakes that are constantly travelling through it.  Though most
+&+ythe squirmy creatures that live here are too small to make anything
+&+yas large as a walkable tunnel, their must be something inside here
+&+ythat is sizable enough to do it.&n
+~
+220 1073741825 15
+D0
+~
+~
+0 0 22126
+D1
+~
+~
+0 0 22152
+S
+#22149
+&+yDeadend in the &+LPit&+y of Worms&n~
+&+y   Deadends within this &+Lpit&+y are quite common, like here.  Since
+&+yno intelligent force was used for making these tunnels there is
+&+ynever any need for any sort of efficiency that a regular, smarter
+&+yperson of the world would be accustomed too.  The worms just
+&+ydig and eat, then stop and head in another direction.&n
+~
+220 1073741825 15
+D2
+~
+~
+0 0 22133
+S
+#22150
+&+yInside the &+LPit&+y of Worms&n~
+&+y   This &+Lpit&+y can be quite hard to navigate for adventurers without
+&+ythe proper guide.  The larger worms that live here are usually the
+&+yones that are responible for the network of tunnels, they dig through
+&+ythe soil, connecting the maze like &+Lpit&+y with a blind, unintelligent,
+&+ypurpose.  The sounds the worms and the snakes make is quite loud,
+&+yeven from just the multitude of slithering, to the violent hissing
+&+yof the more aggressive crawling creatures.&n
+~
+220 1073741825 15
+D0
+~
+~
+0 0 22132
+D1
+~
+~
+0 0 22151
+D5
+~
+~
+0 0 22154
+F
+50
+S
+#22151
+&+yDeadend in the &+LPit&+y of Worms&n~
+&+y   Deadends within this &+Lpit&+y are quite common, like here.  Since
+&+yno intelligent force was used for making these tunnels there is
+&+ynever any need for any sort of efficiency that a regular, smarter
+&+yperson of the world would be accustomed too.  The worms just
+&+ydig and eat, then stop and head in another direction.&n
+~
+220 1073741825 15
+D3
+~
+~
+0 0 22150
+S
+#22152
+&+yDeadend in the &+LPit&+y of Worms&n~
+&+y   Deadends within this &+Lpit&+y are quite common, like here.  Since
+&+yno intelligent force was used for making these tunnels there is
+&+ynever any need for any sort of efficiency that a regular, smarter
+&+yperson of the world would be accustomed too.  The worms just
+&+ydig and eat, then stop and head in another direction.&n
+~
+220 1073741825 15
+D3
+~
+~
+0 0 22148
+S
+#22153
+&+yDeadend in the &+LPit&+y of Worms&n~
+&+y   Deadends within this &+Lpit&+y are quite common, like here.  Since
+&+yno intelligent force was used for making these tunnels there is
+&+ynever any need for any sort of efficiency that a regular, smarter
+&+yperson of the world would be accustomed too.  The worms just
+&+ydig and eat, then stop and head in another direction.&n
+~
+220 1073741825 15
+D3
+~
+~
+0 0 22139
+S
+#22154
+&+yA &+LViper&+y Nest&n~
+&+y   Here lies a nest of sand &+Lvipers&+y, several of which have grown quite
+&+ylarge over the years.  These snakes are some of the more aggressive
+&+ycreatures within the &+Lpit&+y, and should be dealt with accordingly.  The
+&+ysoil in this room is extremely soft and crumbling under one's feet,
+&+yand could prove difficult to climb back up.&n
+~
+220 1073741825 15
+D4
+~
+~
+0 0 22150
+S
+#22155
+unique crown~
+~
+220 134250560 0
+D1
+~
+~
+0 0 22088
+S
+>>>>>>> master

@@ -871,8 +871,13 @@ int map_view_distance(P_char ch, int room)
       n += 1;
   }
   
+<<<<<<< HEAD
   if(IS_FOREST_ROOM(room) &&
       !has_innate(ch, INNATE_FOREST_SIGHT) &&
+=======
+  if (IS_FOREST_ROOM(room) &&
+      !has_innate(ch, INNATE_FOREST_SIGHT)  &&
+>>>>>>> master
       n > 3) 
   {
     n = 3;
@@ -882,6 +887,9 @@ int map_view_distance(P_char ch, int room)
   {
     n = 4;
   }
+
+  if (IS_FOREST_ROOM(room) && IS_AFFECTED5(ch, AFF5_FOREST_SIGHT))
+  n = 7;
 
   n = BOUNDED(0, n, 10);
   

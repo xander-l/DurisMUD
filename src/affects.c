@@ -228,7 +228,14 @@ int apply_ac(P_char ch, int eq_pos)
 
       if(GET_CHAR_SKILL(ch, SKILL_SHIELD_COMBAT))
       {
+<<<<<<< HEAD
         value += (int) (GET_CHAR_SKILL(ch, SKILL_SHIELD_COMBAT) * (float) get_property("skill.shieldCombat.ACBonusMultiplier", 1.00));
+=======
+        value += (int) ( GET_CHAR_SKILL(ch, SKILL_SHIELD_COMBAT) * (float) get_property("skill.shieldCombat.ACBonusMultiplier", 1.00) );
+        if (GET_CLASS(ch, CLASS_WARRIOR | CLASS_PALADIN | CLASS_ANTIPALADIN | CLASS_MERCENARY))
+	  value *= 2;
+                    notch_skill(ch, SKILL_SHIELD_COMBAT, 50);
+>>>>>>> master
       }
       break;
     case WEAR_BODY:
@@ -294,7 +301,7 @@ int calculate_mana(P_char ch)
   int mana;
 
   mana = (int) (((float) GET_LEVEL(ch)) / 50 *
-                GET_C_POW(ch) * GET_C_POW(ch) *
+                GET_C_POW(ch) * GET_C_INT(ch) *
                 get_property("mana.powMultiplier", 0.025));
 
   if (IS_PC(ch) && (GET_AGE(ch) <= racial_data[GET_RACE(ch)].max_age))
@@ -337,6 +344,16 @@ int calculate_hitpoints(P_char ch)
    * reason in the future this skill ceases to exist.
    * -Zion 10/31/07 (happy halloween!)
    */
+/*
+  if(IS_AFFECTED3(ch, AFF3_PALADIN_AURA) && (GET_RACEWAR(ch) == 1))
+   {
+    if(ch->group)
+	{
+    	 if(ch->in_room == ch->group->ch->in_room)
+    	 hps = (hps + BOUNDED(1, (GET_LEVEL(ch) * 2), 110));
+	}
+   }
+*/
 
   if (IS_ILLITHID(ch) && IS_PC(ch))
   {
@@ -539,6 +556,8 @@ void apply_affs(P_char ch, int mode)
     SET_BIT(ch->specials.affected_by, AFF_INFRAVISION);
   if (has_innate(ch, INNATE_FLY))
     SET_BIT(ch->specials.affected_by, AFF_FLY);
+  if (has_innate(ch, INNATE_NATURAL_MOVEMENT))
+    SET_BIT(ch->specials.affected_by3, AFF3_PASS_WITHOUT_TRACE);
   if (has_innate(ch, INNATE_HASTE))
     SET_BIT(ch->specials.affected_by, AFF_HASTE);
   if (has_innate(ch, INNATE_REGENERATION))
@@ -1402,7 +1421,8 @@ void all_affects(P_char ch, int mode)
     {
       continue;
     }
-    if( (i == WEAR_ATTACH_BELT_1 || i == WEAR_ATTACH_BELT_2 ||
+    //allowing first normal beltable item to grant stats. 10/8/12 Drannak
+    if( (i == WEAR_ATTACH_BELT_2 ||
       i == WEAR_ATTACH_BELT_3 || i == WEAR_BACK) &&
       !IS_ARTIFACT(ch->equipment[i]) )
     {
@@ -1540,8 +1560,32 @@ char affect_total(P_char ch, int kill_ch)
     return TRUE;
   }
 
-  ch->specials.base_combat_round = (int) (combat_by_race[GET_RACE(ch)][0]);
-  ch->specials.base_combat_round += (int)(get_property("damage.pulse.class.all", 2));
+  ch->specials.base_combat_round = (int) (combat_by_race[GET_RACE(ch)][0]); //original
+  ch->specials.base_combat_round += (int)(get_property("damage.pulse.class.all", 2)); //original
+  
+/*
+* This is the new style combat calculation - Drannak
+  ch->specials.base_combat_round = (200 - ch->base_stats.Agi);
+  ch->specials.base_combat_round *= .13;
+  if(GET_C_AGI(ch) > 100) //diminishing returns
+   {
+     int cmod = (GET_C_AGI(ch) - 100);
+     if (cmod > 0 && cmod < 5)
+	ch->specials.base_combat_round -= 1;
+     else if(cmod >=5 && cmod < 15)
+	ch->specials.base_combat_round -= 2;
+     else if(cmod >=15 && cmod < 30)
+       ch->specials.base_combat_round -= 3;
+     else if(cmod >=30)
+	ch->specials.base_combat_round -= 4;
+   }
+  else
+   {
+    int cmod = (100 - GET_C_AGI(ch));
+	cmod *= .1;
+	ch->specials.base_combat_round += (int)cmod;
+    }
+*/
   ch->specials.damage_mod = combat_by_race[GET_RACE(ch)][1];
 
   if(IS_PC(ch))
@@ -1590,7 +1634,11 @@ char affect_total(P_char ch, int kill_ch)
 
   ch->specials.base_combat_round = MAX(3, ch->specials.base_combat_round);
 
+<<<<<<< HEAD
   if(IS_PC(ch) && GET_CHAR_SKILL(ch, SKILL_FORGE) >= 70)
+=======
+  if (IS_PC(ch) && GET_CHAR_SKILL(ch, SKILL_MINE) >= 30)
+>>>>>>> master
 	  ch->specials.affected_by5 |= AFF5_MINE; /* high enough skill in forge grants miner's sight */
 
   /* only if actually in game. JAB */
@@ -1880,6 +1928,18 @@ bool affected_by_spell(P_char ch, int skill)
       return (TRUE);
 
   return (FALSE);
+}
+
+int affected_by_spell_count(P_char ch, int skill)
+{
+  int count = 0;
+  struct affected_type *hjp;
+
+  for (hjp = ch->affected; hjp; hjp = hjp->next)
+    if (hjp->type == skill)
+      count++;
+
+  return count;
 }
 
 bool affected_by_skill(P_char ch, int skill)
@@ -2435,6 +2495,7 @@ void initialize_links()
   define_link(LNK_GRAPPLED, "GRAPPLED", NULL, LNKFLG_ROOM);
   define_link(LNK_CIRCLING, "CIRCLING", NULL, LNKFLG_ROOM | LNKFLG_EXCLUSIVE);
   define_link(LNK_TETHER, "TETHERING", tether_broken, LNKFLG_ROOM);
+  define_link(LNK_SNG_HEALING, "SONG_HEALING", song_broken, LNKFLG_AFFECT | LNKFLG_ROOM);
 }
 
 //---------------------------------------------------------------------------------

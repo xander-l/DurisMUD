@@ -94,9 +94,9 @@ M 0 19760 5 19940 100 0 0 0        * (mob type not in this .mob file)
 M 0 19901 1 19940 100 0 0 0        * a HUGE slaad
 G 1 19872 1 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 19760 5 19943 100 0 0 0        * (mob type not in this .mob file)
-M 0 19705 2 19946 100 0 0 0        * (mob type not in this .mob file)
+M 0 19908 2 19946 100 0 0 0        * A guardian dragon highlord
 G 1 19908 1 0 100 0 0 0            *    a rusty key
-M 0 19705 2 19946 100 0 0 0        * (mob type not in this .mob file)
+M 0 19908 2 19946 100 0 0 0        * A guardian dragon highlord
 M 0 19921 1 19947 100 0 0 0        * (mob type not in this .mob file)
 G 1 55203 1 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 19905 4 19950 100 0 0 0        * an assassin wyrm

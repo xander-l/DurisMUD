@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #700000
 half ancient amulet first~
 &+Lthe first half of an &+Mancient &+Lamulet&n~
@@ -90,3 +91,97 @@ A
 18 2
 A
 19 2
+=======
+#700000
+half ancient amulet first~
+&+Lthe first half of an &+Mancient &+Lamulet&n~
+&+Lone half of an &+mancient &+Lamulet lies here.&n~
+~
+9 19 3 0 7 0 0 5 64 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+A
+13 15
+A
+24 -2
+#700001
+half ancient amulet second~
+&+Lthe second half of an &+Mancient &+Lamulet&n~
+&+Lone half of an &+mancient &+Lamulet lies here.&n~
+~
+9 19 3 0 7 0 0 5 64 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+A
+13 15
+A
+24 -2
+#700002
+bronze-plated traveling boots~
+&+La pair of &+ybronze-plated &+Ltraveling boots&n~
+&+LA pair of &+ybronze-plated &+Ltraveling boots lies here.&n~
+~
+9 20 3 0 7 0 67108864 65 64 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+A
+26 10
+A
+14 40
+#700003
+fine drow elven scepter~
+&+La fine &+mdrow-elven &+Lscepter&n~
+&+LA fine &+mdrow-elven &+Lscepter has been left here.&n~
+~
+5 19 3 0 7 0 67118080 24577 64 37752736 0
+12 3 3 0 0 0 0 0
+6 0 100 2052 28 0 0
+A
+33 4
+A
+34 4
+#700004
+flail shafted~
+&+Lan &+madamantium&+L-shafted flail&n~
+&+LAn &+madamantium&+L-shafted flail has been left here.&n~
+~
+5 19 3 0 7 0 67117056 8193 64 0 0
+3 3 4 0 0 0 0 0
+10 0 100 0 0 0 16777216
+A
+18 3
+A
+19 2
+#700005
+bronze zarbonesti seal kryz'kyssik~
+&+Lthe &+ybronze Zarbonesti seal &+Lof &+mKryz'Kyssik&n~
+&+LThe &+ybronze Zarbonesti seal &+Lof &+mKryz'Kyssik &+Lhas been left here.&n~
+~
+9 20 3 0 11 0 67117056 2113537 64 0 0
+0 0 0 0 0 0 0 0
+0 0 100 2052 28 0 0
+A
+13 25
+A
+14 25
+#700006
+fine drow elven scepter~
+&+La &+mdrow-made &+Lshephard's hook&n~
+&+LA &+mdrow-made &+Lshephard's hook lies here.&n~
+~
+5 19 3 0 10 0 0 8193 64 0 0
+8 3 3 0 0 0 0 0
+7 25000 100 2052 28 0 0
+#700008
+bloody skin roper~
+&+gthe &+rbloody &+gskin of a &+GRoper&n~
+&+gThe &+rbloody &+gskin of a &+GRoper &+glies here.&n~
+~
+9 15 3 0 7 0 0 20481 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100 0 16 0 0
+A
+18 2
+A
+19 2
+>>>>>>> master

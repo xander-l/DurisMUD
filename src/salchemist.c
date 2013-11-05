@@ -419,7 +419,7 @@ int got_all_ingredients(P_char ch, int required[])
     }
   }
 
-  notch_skill(ch, SKILL_MIX, 100);
+  notch_skill(ch, SKILL_MIX, 15);
 
   return 1;
 }
@@ -520,11 +520,24 @@ void do_mix(P_char ch, char *argument, int cmd)
       while (TRUE)
       {
         P_obj    potion;
+        char gbuf2[MAX_STRING_LENGTH], buffer[MAX_STRING_LENGTH];
 
+
+	if(number(1, 160) < ((GET_C_WIS(ch) + GET_C_DEX(ch)) / 2))
+	{
         potion = read_object(potion_data[i].vnum, VIRTUAL);
         potion->value[0] = GET_LEVEL(ch);
         act("You've &+Wcreated&n $p.", FALSE, ch, potion, 0, TO_CHAR);
+        sprintf(gbuf2, "%s %s", GET_NAME(ch), potion->name);
+        potion->name = str_dup(gbuf2);
+	 sprintf(buffer, "%s mixed by %s", potion->short_description, GET_NAME(ch));
+	 set_short_description(potion, buffer);
         obj_to_char(potion, ch);
+       }
+        else
+       {
+        act("&+RYou clumsily spill your ingredients everywhere, ruining your creation!", FALSE, ch, 0, 0, TO_CHAR);
+       }
         extract_obj(bottle, TRUE);
 
         if(number(0, 5))
@@ -552,7 +565,7 @@ void do_mix(P_char ch, char *argument, int cmd)
           break;
         }
       }
-      notch_skill(ch, SKILL_MIX, 100);
+      notch_skill(ch, SKILL_MIX, 15);
       CharWait(ch, PULSE_VIOLENCE * 2);
 
       return;
@@ -598,7 +611,7 @@ void do_spellbind (P_char ch, char *argument, int cmd)
 
   if(!GET_CHAR_SKILL(ch, SKILL_SPELLBIND))
   {
-    act("Leave this to a real artisan.", FALSE, ch, 0, 0, TO_CHAR);
+    act("You do not have the epic skill to spellbind.", FALSE, ch, 0, 0, TO_CHAR);
     return;
   }
 
@@ -1033,8 +1046,36 @@ void do_fix(P_char ch, char *argument, int cmd)
         ch, 0, 0, TO_CHAR);
     return;
   }
+
+  //fix now requires a salvaged material piece from same material to fix
+  P_obj t_obj, nextobj;
+  char gbuf1[MAX_STRING_LENGTH];
+  int i = 0;
+  int imat = get_matstart(item);
+  for (t_obj = ch->carrying; t_obj; t_obj = nextobj)
+  {
+    nextobj = t_obj->next_content;
+
+    if(GET_OBJ_VNUM(t_obj) == imat)
+    {
+      i++;
+    }
+
+  }
+  P_obj needed = read_object(imat, VIRTUAL);
+  if (i < 1)
+   {
+    sprintf(gbuf1, "You must have %s in your inventory to repair that item.\r\n", needed->short_description);
+    send_to_char(gbuf1, ch);
+    extract_obj(needed, TRUE);
+    return;
+   }
+    extract_obj(needed, TRUE);
+  //endmaterial check
+
   if(skill > number(0, 105))
   {
+
     act("$N fiddles with $p, fixing it quickly!", TRUE, ch, item, ch,
         TO_ROOM);
     act("You fiddle with $p, fixing it quickly!", TRUE, ch, item, 0, TO_CHAR);
@@ -1047,7 +1088,6 @@ void do_fix(P_char ch, char *argument, int cmd)
     {
       act("$N fiddles with $p, but fails, destroying it!", TRUE, ch, item, ch, TO_ROOM);
       act("You fiddle with $p, but you fail, destroying it!", TRUE, ch, item, 0, TO_CHAR);
-      extract_obj(item, TRUE);
       item = NULL;
     }
     else
@@ -1057,8 +1097,26 @@ void do_fix(P_char ch, char *argument, int cmd)
       act("You fiddle with $p, but you fail, breaking it even more!", TRUE, ch,
           item, 0, TO_CHAR);
     }
+<<<<<<< HEAD
     notch_skill(ch, SKILL_FIX, 40);
+=======
+>>>>>>> master
   }
+    int done;
+ while(done < 1)
+    {
+     for (t_obj = ch->carrying; t_obj; t_obj = nextobj)
+     {
+      nextobj = t_obj->next_content;
+  
+       if(GET_OBJ_VNUM(t_obj) == imat)
+       {
+         obj_from_char(t_obj, TRUE);
+         done++;
+       }
+
+      }
+    }
 }
 
 P_obj check_furnace(P_char ch)

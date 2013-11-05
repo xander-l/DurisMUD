@@ -235,6 +235,7 @@ M 0 16239 1 16249 100 0 0 0        * a guardian mist
 M 0 16205 1 16253 100 0 0 0        * Aceralde
 E 1 16235 1 20 100 0 0 0           *   the mask of hatred
 G 1 16246 1 0 100 0 0 0            *    a strange marble key
+G 1 906 1 0 100 0 0 0              *    (object type not in this .obj file)
 F 1 16232 1 16253 100 0 0 0        * a skeletal lich (following)
 E 1 16247 1 15 100 0 0 0           *   a bracelet of finger bones
 F 1 16231 1 16253 100 0 0 0        * an ugly vampire (following)

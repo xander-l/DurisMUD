@@ -207,6 +207,7 @@ G 1 360 1 0 100 0 0 0              *    (object type not in this .obj file)
 F 1 87727 1 87793 100 0 0 0        * a snow ogre worshipper of Kostchtchie (following)
 E 1 87707 1 13 100 0 0 0           *   an array of flesh hooks and chains
 G 1 87708 1 0 100 0 0 0            *    a gleaming skull of a Minotaur
+G 1 1230 1 0 100 0 0 0             *    (object type not in this .obj file)
 F 1 87708 7 87793 100 0 0 0        * a snow ogre elite guardian (following)
 F 1 87708 7 87793 100 0 0 0        * a snow ogre elite guardian (following)
 F 1 87728 1 87793 100 0 0 0        * a snow ogre worshipper of Vaprak (following)

@@ -60,8 +60,13 @@ barb wyrm ancient green~
 &+gA nasty looking &+Lbarb &+grests here.&N~
 ~
 5 35 3 0 15 0 13569 8193 64 2224131 0
+<<<<<<< HEAD
 2 4 3 11 1 1033186365 60 75
 20 0 100 100 524288 0 0 0
+=======
+2 5 5 11 1 1033186365 60 75
+20 0 100 524288 0 0 0
+>>>>>>> master
 E
 _victim_msg~
 &+gThe &+Lbarb &+gof an &+Lancient &+ggreen &+Lwyrm digs deep into your &+rf&+Rl&+re&+Rs&+rh&+L.&n
@@ -78,9 +83,9 @@ _room_msg~
 &n$N &+RS&+rC&+RR&+rE&+RA&+rM&+RS &+Lin &+ra&+Rg&+ro&+Rn&+ry &+Las the &+gp&+Goi&+gs&+Go&+gn &+Ltakes effect.&n
 ~
 A
-18 4
+18 6
 A
-19 4
+2 15
 #19608
 fragment ruby encrusted key~
 &+Ra fragment of a ruby encrusted key&n~

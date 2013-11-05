@@ -500,7 +500,7 @@ M 0 43577 8 43681 100 0 0 0        * an earthen warrior
 M 0 43576 1 43682 100 0 0 0        * Eligoth, lord of the abyss
 E 1 43571 1 5 100 0 0 0            *   a shimmering suit of golden platemail
 G 1 360 1 0 100 0 0 0              *    (object type not in this .obj file)
-G 1 25105 1 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 23805 1 0 100 0 0 0            *    (object type not in this .obj file)
 F 1 43575 2 43682 100 0 0 0        * a golden golem (following)
 F 1 43575 2 43682 100 0 0 0        * a golden golem (following)
 M 0 43587 1 43683 100 0 0 0        * Gorich, the centaur warrior

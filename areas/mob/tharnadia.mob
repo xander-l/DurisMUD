@@ -700,8 +700,13 @@ has taken residency here to rest his weary bones.  He looks at you, smiles,
 and turns back to his copy of 'Modern Guardsman'.
 ~
 1174538312 128 0 0 33554604 30 0 0 1000 S
+<<<<<<< HEAD
 PH 1 2 0 -1
 50 -3 -95 50d119+2750 6d6+25
+=======
+PB 1 2 2 -1
+60 -3 -95 50d119+2750 6d6+25
+>>>>>>> master
 0.3.1.5 121500
 8 8 1
 #132547
@@ -929,9 +934,15 @@ the &+mreceptionist&n~
 ~
    You notice a tired look in her face. She beams a pretty smile at you!
 ~
+<<<<<<< HEAD
 2058 0 0 0 0 0 0 0 900 S
 PH 1 32 0 -1
 11 15 64 11d25+55 2d5+2
+=======
+1073772554 384 0 0 939524272 0 0 0 900 S
+PH 1 96 0 -1
+61 15 64 30d20+55 10d10+8
+>>>>>>> master
 5.4.1.0 5346
 8 8 2
 #132564
@@ -1980,7 +1991,11 @@ a &+ymesa &+Lscorpion&n~
 &+ythe soft abdomen of its owner's prey.  Its &+Lebon-polished&+y shell smells faintly
 &+yof &+Rblood&+y, the acrid odor of decay long ground into its fibers.&n
 ~
+<<<<<<< HEAD
 9 0 0 0 33554432 0 0 0 0 S
+=======
+9 128 0 0 33554432 0 0 0 0 S
+>>>>>>> master
 AS 0 0 0 -1
 2 20 93 2d15+7 1d5+0
 0.0.0.0 259
@@ -2230,8 +2245,13 @@ melmba redeemed theurgist _teacher_~
 &+LIn a recent revelation, &+BMelmba &+Lhas been redeemed by the celestial powers and
 &+Lbrought into the revered force of theurgists by &+WS&+Cen&+Wi&+L, the planeswalking &+cE&+Cl&+Wadr&+Ci&+cn&+L.&n
 ~
+<<<<<<< HEAD
 100554 0 0 0 268509244 276672 0 0 1000 S
 PH 1 134217728 0 -1
+=======
+2147584202 0 0 0 268509244 276672 0 0 1000 S
+PH 1 1024 2 -1
+>>>>>>> master
 52 -5 -101 52d88+4316 7d6+30
 7.9.5.6 1
 8 8 2
@@ -2646,3 +2666,28 @@ PE 0 2 0 -1
 18 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
+#132674
+jodnan blacksmith~
+&+cJodnan&n~
+&+cJodnan&n, the &+Lblacksmith&n stands here working his &+Lm&+re&+Rt&+Ya&+Rl&+rs&n.
+~
+Standing a good 6'5 with an extremely muscular build, Jodnan the blacksmith
+is one of the more experienced craftsmen of the world. As look at him he
+turns to examine you, wondering if you might be here looking to &+Rpractice&n a tradeskill.
+~
+2122 0 0 0 3087565244 0 0 0 0 S
+PH 0 11 0 5
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#132675
+kotil guildmaster~
+&+cKotil&n~
+&+cKotil&+L, the &+gguildmaster&+L smiles as you enter.&n
+~
+~
+424010 0 0 0 40 0 0 0 0 S
+PH 0 1 2 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0

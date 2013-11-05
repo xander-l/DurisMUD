@@ -1,0 +1,155 @@
+#4
+M
+task~
+The mage speaks in a low voice.
+
+&+L      I have been researching lore from the lower planes and have found a&N
+&+L   scroll depicting some item of ancient times that was used by only the&N
+&+L   strongest of the demon lords. This item existed amongst them for many&N
+&+L   years until an unfortunate mage of our clan summoned a demon lord&N
+&+L   with this item and was immediately slain despite his precautions.&N
+&+L   Our elders at the time attempted to dispel the demon lord back to the&N
+&+L   lower planes and succeeded after a long drawn out battle. Not only did&N
+&+L   they destroy the demon lord, they also dispelled this item.  The scrolls&N
+&+L   speak no more of this item nor do they say what the item is or does, but&N
+&+L   they do mention the means in which the item was created. Should I get&N
+&+L   these ingredients I may be able to recreate this mighty item. Might you&N
+&+L   fetch me the ingredients?&N
+~
+M
+ingredients~
+The mage speaks in a low voice.
+
+&+L Ahh, the ingredients.  From what I understand of the writings the&N
+&+Lfollowing are the physical components of the spell.&N
+
+&+L   The internal stem of one of our brethern.&N
+
+&+L   The maw of a reptilian spawn&N
+
+&+L   The talon of of a shadowed dragon&N
+
+&+L   The flesh of a smoldering canine&N
+
+&+L   The eyes of an evil denizen of the underdark&N
+
+&+L   The heart of a dark guardian.&N
+
+&+L I have a few of my underlings making attempts to track down these ingrediants&N
+&+Lbut I imagine these tasks will be far more then they can handle. If you can&N
+&+Lbring me these ingrediants we will see what this item is.&N
+~
+Q
+As you hand the mage the last item he begins to laugh maniacally. He turns
+to his brazier and begins to chant.
+
+The brazier errupts into flame as he tosses the items in and the fire slowly
+rises into the air above the brazier. The fire errupts into a blinding light
+the magics in the air are all sucked into the flames.  When your vision
+returns before you stands the largest demon you have ever seen. He charges
+to attack but finds himself repulsed by the power of the frail mage before
+you.  The mage continues his chanting in front of the brazier and the demon
+begins to slowly fade and compact in form. The demon explodes into a blinding
+light and as the light fades and your sight returns.  All that remains is the
+mage with a demon blade in his hands.
+~
+R I 8
+G I 4
+G I 10
+G I 21
+G I 24
+G I 27
+G I 28
+D
+After handing over the sword, the robed mage grabs a few choice objects mutters
+a quick incantation and disappears in flash of light.
+~
+S
+#15
+M
+distraught~
+She slowly pulls herself up to speak:
+
+&+L    I am one of the elite rangers of Shadowvale, home of the Grey Elves. I&N
+&+L    came here as the escort of one of the high councilors of our fair town.&N
+&+L    Unfortunately during our evening reverie one night we were attacked by&N
+&+L    shadow demons which whisked off the councilor before I could do a thing.&N
+&+L    I gave chase using all my tracking ability but was immediately captured&N
+&+L    by these horrible humans as soon as I discovered this wood.  I fear the&N
+&+L    worst for the councilor but I cannot return home until I know of his fate.&N
+&+L    If you by chance come across him in your scouting please let me know.&N
+
+After speaking her waning energy is spent and she returns to the ground to try
+and regain her strength while awaiting your return.
+~
+Q
+She sadly brushes the pendant with her hand as if saying farewell to her fallen
+comrade. She quietly places the pendant into her pouch and turns back to you and
+speaks:
+
+&+L   Thank you for your assistance in putting this matter to rest. This&N
+&+L   failure falls on my shoulders as it was my job to protect him. You&N
+&+L   are more deserving of this then I am.  Wear it well.&N
+~
+R I 55
+G I 54
+D
+After handing you the buckle she painfully brings herself to stand on her own
+quietly moves to the door and is gone without making any noise.
+~
+S
+#45
+M
+task~
+&+Wthe avatar of &N&+gAthos&N imparts his words into your mind:
+
+   My task, little one? My Task is an important one to those in the pantheon
+   who take an interest in the balance of these worlds. A malicious weapon
+   made from the chaotic denizens of the realms below has surfaced again in
+   this realm and threatened it once more. Upon hearing of its return I sent
+   down one of my faithful to retrieve this weapon from where ever it may be
+   at any cost. To anyone who would give him this weapon he would offer a
+   token of my favor and send them to me so that I would know who to justly
+   reward for their moment of sacrifice. so if you find such a weapon, please
+   seek out my faithful and give it to him so that he may use his god given
+   powers to destroy the horrible thing.
+
+
+&+Wthe avatar of &N&+gAthos&N sighs deeply and returns to his waiting.
+~
+Q
+&+wThe Avatar of &N&+g Athos&N smiles grandly as he looks at his favored token&N
+He looks up to regard those who have done him this great service with a sincere
+smile.  He then abruptly begins speaking quietly to himself as if chanting.
+~
+R I 47
+G I 45
+D
+As the avatar finishes its spell the area fills with a brilliant light which
+quickly fades and leaves you and your companions alone once again&N
+~
+S
+#46
+M
+sad~
+&+gA robed man&+r covered in blood&N sighs deeply and summons his remaining
+strength in an attempt to speak.  He coughs violently and has to lie down
+until it subsides. He then makes another attempt to speak, with all his
+remaining strength he manages one decipherable word.
+
+
+                          "Athos"
+~
+Q
+&+gA robed man&+r covered in blood&N looks upon you and smiles happily knowing&N
+you have chosen the correct path to return balance to this realm.
+~
+R I 45
+G I 8
+D
+As you turn back to your affairs you here a silent sigh behind you as the last
+bit of life leaves the mans body. As you slowly turn to regard the corpse a
+bright light springs to life around him and the body slowly melts into dust
+and blows away.
+~
+S

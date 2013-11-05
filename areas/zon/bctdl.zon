@@ -280,10 +280,10 @@ E 1 32474 138 16 100 0 0 0         *   a devilish warsword
 E 1 32474 138 17 100 0 0 0         *   a devilish warsword
 M 0 32420 1 32469 100 0 0 0        * Bel, the lord of the First
 E 1 32435 1 2 100 0 0 0            *   a titanium ring
+E 1 32486 1 16 100 0 0 0           *   a huge flaming greatsword
 G 1 32490 1 0 100 0 0 0            *    the still-beating heart of Bel
 G 1 32471 1 0 50 0 0 0             *    a shaft of swirling mists
 G 1 360 1 0 100 0 0 0              *    (object type not in this .obj file)
-G 1 32486 1 0 100 0 0 0            *    a huge flaming greatsword
 G 1 19730 1 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 55282 1 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 32453 1 32469 100 0 0 0        * Yeddikadir, servant of Bel

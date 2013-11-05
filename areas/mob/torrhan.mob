@@ -1807,7 +1807,11 @@ shahala ranger master~
 &+gthe ways of a ranger.  She still shows great dexterity as
 &+gshe moves around quickly.&n
 ~
+<<<<<<< HEAD
 1073776714 0 0 0 8 0 0 0 1000 S
+=======
+3221260362 0 0 0 8 0 0 0 1000 S
+>>>>>>> master
 PE 0 2 0 -1
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -1823,7 +1827,11 @@ plaron paladin mighty~
 &+wthose who come to visit.  He stands steadily, teaching all he
 &+wcan.&n
 ~
+<<<<<<< HEAD
 34890 0 0 0 24 0 0 0 1000 S
+=======
+2147518538 0 0 0 24 0 0 0 1000 S
+>>>>>>> master
 PH 0 8 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -1838,7 +1846,11 @@ draloth barbarian warrior~
 &+wfor all to see, and slams himself into a wall in his attempts to impress
 &+wsomeone.  He beats his chest and yells like an animal.&n
 ~
+<<<<<<< HEAD
 34890 0 0 0 24 0 0 0 0 S
+=======
+2147518538 0 0 0 24 0 0 0 0 S
+>>>>>>> master
 PB 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -1884,7 +1896,11 @@ rhogrim hiding shadows rogue dwarf mountain~
 &+Lof not being seen.  Although age is evident upon his face, he
 &+Lstill moves about silently, making no sound.&n
 ~
+<<<<<<< HEAD
 1073774666 0 0 0 268435464 0 0 0 -100 S
+=======
+3221258314 0 0 0 268435464 0 0 0 -100 S
+>>>>>>> master
 PM 0 4096 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -1899,7 +1915,11 @@ bard master centaur slilatel~
 &+Lwith a gracefulness which matches her song.  She smiles
 &+Lsoftly at the students, giving them pointers now and then.&n
 ~
+<<<<<<< HEAD
 1073776714 0 0 0 56 0 0 0 -10 S
+=======
+3221260362 0 0 0 56 0 0 0 -10 S
+>>>>>>> master
 CT 0 32768 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -1914,7 +1934,11 @@ durgen druid half-elf elf famous~
 &+gsome age since then, and now teaches others the secret ways
 &+gof the druids, and how to best use such power. &n
 ~
+<<<<<<< HEAD
 1073776650 0 0 0 8 0 0 0 1000 S
+=======
+3221260298 0 0 0 8 0 0 0 1000 S
+>>>>>>> master
 P2 0 128 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -1944,7 +1968,11 @@ twyglyroo gnome psi psionicist master~
 &+Leyes focused and alert.  Pacing the room back and forth, he
 &+Lunleashes his teachings to only those who are worthy.&n
 ~
+<<<<<<< HEAD
 1073776714 0 0 0 8 0 0 0 0 S
+=======
+3221260362 0 0 0 8 0 0 0 0 S
+>>>>>>> master
 PG 0 4 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -1960,7 +1988,11 @@ llyren grey elf conjurer~
 &+yseems to enjoy showing off more than anything, and smiles broadly
 &+yat those who enter.&n
 ~
+<<<<<<< HEAD
 1073776650 0 0 0 8 0 0 0 0 S
+=======
+3221260298 0 0 0 8 0 0 0 0 S
+>>>>>>> master
 PE 0 2048 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -1976,7 +2008,11 @@ tibbe halfling cleric great~
 &+cdanger, the way of goodies!  Noticing you he smiles, and
 &+cshows you how to armor a person with expertise.&n
 ~
+<<<<<<< HEAD
 34826 0 0 0 8 0 0 0 1000 S
+=======
+2147518474 0 0 0 8 0 0 0 1000 S
+>>>>>>> master
 PF 0 32 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -1991,7 +2027,11 @@ nirrel halfling sorcerer~
 &+mstudents, looking for greatness, and teaches them the arts
 &+mof a true sorcerer.  He now uses a staff in his old age.&n
 ~
+<<<<<<< HEAD
 1073776714 0 0 0 24 0 0 0 -10 S
+=======
+3221260362 0 0 0 24 0 0 0 -10 S
+>>>>>>> master
 PF 0 512 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0

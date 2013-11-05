@@ -55,8 +55,9 @@ extern struct zone_data *zone_table;
 int drowcrusher(P_obj obj, P_char ch, int cmd, char *arg)
 {
   P_char   ch2, victim, next;
+  struct group_list *gl = 0;
   P_obj    obj2;
-  int      i;
+  int      i, from_room;
 
   /* check for periodic calls */
   if (cmd == CMD_SET_PERIODIC)
@@ -119,7 +120,7 @@ int drowcrusher(P_obj obj, P_char ch, int cmd, char *arg)
   send_to_room("dank smell overpowers your senses.\r\n", ch->in_room);
 
   /* bring all users in room 80500-80545 to room 80546 */
-  for (i = 80500; i < 80546; i++)
+  /*  for (i = 80500; i < 80546; i++)
   {
     for (victim = world[real_room(i)].people; victim; victim = next)
     {
@@ -130,7 +131,46 @@ int drowcrusher(P_obj obj, P_char ch, int cmd, char *arg)
         char_to_room(victim, real_room(80546), -1);
       }
     }
+  }*/
+ from_room = ch->in_room;
+ if(ch->group)
+  {
+
+    // get the character's group list
+    gl = ch->group;
+
+    // teleport the group members in the character's room
+    for (gl; gl; gl = gl->next)
+    {
+      if(gl->ch->in_room == from_room)
+      {
+
+        // if they're fighting, break it up
+        if(IS_FIGHTING(gl->ch))
+          stop_fighting(gl->ch);
+
+        // move the char
+        char_from_room(gl->ch);
+        char_to_room(gl->ch, real_room(80546), -1);
+
+      }
+    }
   }
+  else
+  {
+
+    // if they're fighting, break it up
+    if(IS_FIGHTING(ch))
+      stop_fighting(ch);
+
+    // move the char
+    char_from_room(ch);
+    char_to_room(ch, real_room(80546), -1);
+
+  }
+
+
+
   return TRUE;
 }
 

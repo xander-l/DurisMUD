@@ -337,13 +337,26 @@ tharnadia                 *1325
 lortower                  *1340
 brad                      *1350
 firesworn_altar           *1351
-tiamats_lair              *1352
+*tiamats_lair             *1352
+azhural			  *1352
 eternal                   *1354
 PortSkythic               *1380
+<<<<<<< HEAD
 plane_fire_two            *1390
 surface2011		     *2000
+=======
+mitashi			  *1382
+savannah		  *1385
+lornecro  		  *1389
+New_Brass_2012 		  *1390
+smoke			  *1398  	
+magma                     *1420
+blackpearl		  *1422
+Voluntown                 *1424
+>>>>>>> master
 *surf                     *2000
 *underdark                *2100
+tradeskills		  *4000
 surface                   *5000
 underdark		  *7000
 *    end zone adds top_of_world marker

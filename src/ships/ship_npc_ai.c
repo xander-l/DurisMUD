@@ -155,7 +155,7 @@ void NPCShipAI::activity()
 
     if (!check_for_captain_on_bridge())
     {
-        send_message_to_debug_char("No captain of the bridge!\r\n");
+        //send_message_to_debug_char("No captain of the bridge!\r\n");
         return;
     }
 
@@ -273,7 +273,7 @@ void NPCShipAI::activity()
 
 void NPCShipAI::cruise()
 {
-    send_message_to_debug_char("Cruising: \r\n");
+    //send_message_to_debug_char("Cruising: \r\n");
     reload_and_repair();
 
     if (calc_land_dist(ship->x, ship->y, ship->heading, 5.0) < 5.0) 
@@ -342,7 +342,7 @@ void NPCShipAI::escort_attacked_by(P_ship attacker)
     {
         ship->target = attacker;
         mode = NPC_AI_ENGAGING;
-        send_message_to_debug_char("Escortee attacked by %s, engaging!\r\n", attacker->id);
+        //send_message_to_debug_char("Escortee attacked by %s, engaging!\r\n", attacker->id);
     }
 }
 
@@ -360,7 +360,7 @@ bool NPCShipAI::try_unload()
             ship->timer[T_MAINTENANCE] += 10;
             return FALSE;
         }
-        send_message_to_debug_char("Unloading!\r\n");
+        //send_message_to_debug_char("Unloading!\r\n");
         return try_unload_npc_ship(ship);
     }
     return FALSE;
@@ -403,7 +403,7 @@ bool NPCShipAI::do_escort()
         if (ship->timer[T_MAINTENANCE] == 0)
         {
             ship->timer[T_MAINTENANCE] = 300;
-            send_message_to_debug_char("Lost escortee!\r\n");
+            //send_message_to_debug_char("Lost escortee!\r\n");
         }
         return false;
     }
@@ -423,13 +423,13 @@ bool NPCShipAI::do_escort()
         new_heading = calc_intercept_heading (e_bearing, escort->heading);
         if (check_dir_for_land_from(ship->x, ship->y, new_heading, 5))
             new_heading = e_bearing;
-        send_message_to_debug_char("Chasing escortee: ");
+        //send_message_to_debug_char("Chasing escortee: ");
     }
     else
     {
         speed_restriction = escort->speed;
         new_heading = escort->heading;
-        send_message_to_debug_char("Following escortee: ");
+        //send_message_to_debug_char("Following escortee: ");
     }
     set_new_dir();
     return true;
@@ -452,7 +452,7 @@ bool NPCShipAI::find_current_target()
         }
     }
     ship->timer[T_MAINTENANCE] = 300;
-    send_message_to_debug_char("Could not find the current target\r\n");
+    //send_message_to_debug("Could not find the current target\r\n");
     return false;
 }
 
@@ -461,7 +461,9 @@ bool NPCShipAI::find_new_target()
     int i = 0;
     if (ship == cyrics_revenge)
     {
-        for (i = 0; i < contacts_count; i++) 
+       return false; //disabling aggro
+/* 
+	for (i = 0; i < contacts_count; i++) 
         {
             if (!IS_NPC_SHIP(contacts[i].ship))
                 continue;
@@ -496,13 +498,13 @@ bool NPCShipAI::find_new_target()
             }
             if (is_valid_target(contacts[i].ship))
                 goto found;
-        }
+        } */
     }
     else
     {
         for (i = 0; i < contacts_count; i++) 
         {
-            if (is_valid_target(contacts[i].ship))
+            if (is_valid_target(contacts[i].ship) && !has_eq_diplomat(contacts[i].ship))
                 goto found;
         }
     }
@@ -512,7 +514,7 @@ bool NPCShipAI::find_new_target()
     ship->target = contacts[i].ship;
     update_target(i);
     ship->timer[T_MAINTENANCE] = 0;
-    send_message_to_debug_char("Found new target: %s\r\n", contacts[i].ship->id);
+    //send_message_to_debug("Found new target: %s\r\n", contacts[i].ship->id);
     return true;
 }
 void NPCShipAI::update_target(int i) // index in contacts
@@ -538,8 +540,10 @@ bool NPCShipAI::is_valid_target(P_ship tar)
     if (tar == ship->target)
         return true;
 
-    if (ship == cyrics_revenge) // Revenge attacks everything
-        return true;
+    //if (ship == zone_ship) // Zone ship attacks everything
+    //    return true;
+   // if (ship == cyrics_revenge) // Revenge attacks everything
+    //    return true;
     return (tar->race == GOODIESHIP || tar->race == EVILSHIP);
 }
 
@@ -588,7 +592,7 @@ bool NPCShipAI::check_boarding_conditions()
 
 void NPCShipAI::board_target()
 {
-    send_message_to_debug_char("=============BOARDING TARGET=============\r\n");
+    //send_message_to_debug("=============BOARDING TARGET=============\r\n");
     did_board = ship->target;
 
     if (!crew_data)
@@ -694,7 +698,7 @@ bool NPCShipAI::charge_target(bool for_boarding)
         if (t_range < 1.0)
             speed_restriction = BOARDING_SPEED;
     }
-    send_message_to_debug_char("Charging target: ");
+    //send_message_to_debug("Charging target: ");
     set_new_dir();
     return true;
 }
@@ -706,7 +710,7 @@ bool NPCShipAI::chase()
     if (check_dir_for_land_from(ship->x, ship->y, new_heading, 5))
         new_heading = t_bearing;
     since_last_fired_right = 0;
-    send_message_to_debug_char("Intercepting: ");
+    //send_message_to_debug("Intercepting: ");
     return true;
 }
 
@@ -717,13 +721,13 @@ bool NPCShipAI::go_around_land(P_ship dest)
     vector<int> route;
     if (!dijkstra(ship->location, dest->location, valid_ship_edge, route))
     {
-        send_message_to_debug_char("Going around land failed!\r\n");
+        //send_message_to_debug("Going around land failed!\r\n");
         return false;
     }
     if (route.size() == 0)
     {
-        send_message_to_debug_char("\r\nempty route found!");
-        send_message_to_debug_char("Going around land failed!\r\n");
+        //send_message_to_debug("\r\nempty route found!");
+        //send_message_to_debug("Going around land failed!\r\n");
         return false;
     }
     switch (route[0])
@@ -734,11 +738,11 @@ bool NPCShipAI::go_around_land(P_ship dest)
     case 3: new_heading = 270; break;
     default: 
         {
-        send_message_to_debug_char("Going around land failed!\r\n");
+        //send_message_to_debug("Going around land failed!\r\n");
         return false;
         }
     };
-    send_message_to_debug_char("Going around land: ");
+    //send_message_to_debug("Going around land: ");
     set_new_dir();
     return true;
 }
@@ -768,7 +772,7 @@ void NPCShipAI::run_away()
         if (!found && !check_dir_for_land_from(ship->x, ship->y, t_bearing, 10))
             new_heading = t_bearing;
     }
-    send_message_to_debug_char("Running away: ");
+    //send_message_to_debug("Running away: ");
     set_new_dir();
 }
 
@@ -841,7 +845,7 @@ bool NPCShipAI::check_ram()
 
 void NPCShipAI::ram_target()
 {
-    send_message_to_debug_char("\r\nRamming!\r\n");
+    //send_message_to_debug("\r\nRamming!\r\n");
     if (SHIP_FLYING(ship))
         land_ship(ship);
     if (try_ram_ship(ship, ship->target, t_bearing))
@@ -1018,19 +1022,19 @@ bool NPCShipAI::b_circle_around_arc(int arc)
     normalize_direction(dst_dir);
     int dst_loc = get_room_in_direction_from(t_x, t_y, dst_dir, max_dist);
 
-    send_message_to_debug_char("Circling around (%6.2f, %d, %d): ", dst_dir, max_dist, dst_loc);
+    //send_message_to_debug("Circling around (%6.2f, %d, %d): ", dst_dir, max_dist, dst_loc);
 
     // TODO: check if there is land between you and dst_loc, and try to go straight there
 
     vector<int> route;
     if (!dijkstra(ship->location, dst_loc, valid_ship_edge, route))
     {
-        send_message_to_debug_char("\r\nfailed dijkstra! ");
+        //send_message_to_debug("\r\nfailed dijkstra! ");
         return false;
     }
     if (route.size() == 0)
     {
-        send_message_to_debug_char("\r\nempty route found!");
+        //send_message_to_debug("\r\nempty route found!");
         return false;
     }
     switch (route[0])
@@ -1061,7 +1065,7 @@ bool NPCShipAI::b_turn_active_weapon()
             if (is_heavy_ship && arc_priority[i] == SLOT_REAR &&  ((n_h - ship->heading) > 60 || (n_h - ship->heading) < -60))
                 continue; // not turning heavy ship's rear (TODO: check if rear is the only remaining side)
             new_heading = n_h;
-            send_message_to_debug_char("Turning active weapon arc %s: ", get_arc_name(arc_priority[i]));
+            //send_message_to_debug("Turning active weapon arc %s: ", get_arc_name(arc_priority[i]));
             return true;
         }
     }
@@ -1085,7 +1089,7 @@ bool NPCShipAI::b_turn_reloading_weapon()
     if (best_arc != -1)
     {
         new_heading = t_bearing - get_arc_central_bearing(best_arc);
-        send_message_to_debug_char("Turning reloading weapon arc %s: ", get_arc_name(best_arc));
+        //send_message_to_debug("Turning reloading weapon arc %s: ", get_arc_name(best_arc));
         return true;
     }
     return false;
@@ -1097,7 +1101,7 @@ bool NPCShipAI::b_make_distance(float distance)
     if (SHIP_IMMOBILE(ship)) return false;
     if (t_range > distance) return true;
 
-    send_message_to_debug_char("Breaking distance: ");
+    //send_message_to_debug("Breaking distance: ");
     
     float rad = (float) ((float) ((t_bearing - 180) - ship->target->heading) * M_PI / 180.000);
 
@@ -1165,7 +1169,7 @@ bool NPCShipAI::b_make_distance(float distance)
         }
     }
 
-    send_message_to_debug_char(" failed\r\n");
+    //send_message_to_debug(" failed\r\n");
     return false;
 }
 
@@ -1208,7 +1212,7 @@ void NPCShipAI::set_new_dir()
     if (speed_restriction != -1)
         ship->setspeed = MIN(ship->setspeed, speed_restriction);
 
-    send_message_to_debug_char("heading=%d, speed=%d\r\n", (int)ship->setheading, ship->setspeed);
+    //send_message_to_debug("heading=%d, speed=%d\r\n", (int)ship->setheading, ship->setspeed);
 }
 
 
@@ -1287,13 +1291,13 @@ void NPCShipAI::immobile_maneuver()
     b_attack();
     b_check_weapons();
 
-    send_message_to_debug_char("(Immobile) ");
+    //send_message_to_debug("(Immobile) ");
     if (!b_turn_active_weapon()) // trying to turn a weapon that is ready/almost ready to fire and within good range already
     {
         if (!b_turn_reloading_weapon())
         {
             // TODO: anchor maybe?
-            send_message_to_debug_char("Nothing to do\n");
+            //send_message_to_debug("Nothing to do\n");
             return;
         }
     }
@@ -1327,11 +1331,11 @@ void NPCShipAI::advanced_combat_maneuver()
         a_predict_target(3);
         a_update_target_side_props();
         a_choose_target_side();
-        send_message_to_debug_char("t_r=(%5.2f-%5.2f),t_ld={%5.2f,%5.2f,%5.2f,%5.2f},c_a={%5.2f,%5.2f,%5.2f,%5.2f},p_a={%5.2f,%5.2f,%5.2f,%5.2f},c_p={%5.2f,%5.2f},p_p={%5.2f,%5.2f},p_r=%5.2f,p_sb=%d,p_tb=%d,hdc=%5.2f\r\n", t_min_range, t_max_range, tside_props[0].land_dist, tside_props[1].land_dist, tside_props[2].land_dist, tside_props[3].land_dist, curr_angle[0], curr_angle[1], curr_angle[2], curr_angle[3], proj_angle[0], proj_angle[1], proj_angle[2], proj_angle[3], curr_x, curr_y, proj_x, proj_y, proj_range, proj_sb, proj_tb, hd_change);
+        //send_message_to_debug("t_r=(%5.2f-%5.2f),t_ld={%5.2f,%5.2f,%5.2f,%5.2f},c_a={%5.2f,%5.2f,%5.2f,%5.2f},p_a={%5.2f,%5.2f,%5.2f,%5.2f},c_p={%5.2f,%5.2f},p_p={%5.2f,%5.2f},p_r=%5.2f,p_sb=%d,p_tb=%d,hdc=%5.2f\r\n", t_min_range, t_max_range, tside_props[0].land_dist, tside_props[1].land_dist, tside_props[2].land_dist, tside_props[3].land_dist, curr_angle[0], curr_angle[1], curr_angle[2], curr_angle[3], proj_angle[0], proj_angle[1], proj_angle[2], proj_angle[3], curr_x, curr_y, proj_x, proj_y, proj_range, proj_sb, proj_tb, hd_change);
 
         a_calc_rotations();
         a_choose_rotation();
-        send_message_to_debug_char("Circling: t_side=%s(%c), w_side=%s, rot=%s,", get_arc_name(target_side), within_target_side ? 'y' : 'n', get_arc_name(chosen_side), (chosen_rot == 1) ? "direct" : ((chosen_rot == -1) ? "counter" : "unknown") );
+        //send_message_to_debug("Circling: t_side=%s(%c), w_side=%s, rot=%s,", get_arc_name(target_side), within_target_side ? 'y' : 'n', get_arc_name(chosen_side), (chosen_rot == 1) ? "direct" : ((chosen_rot == -1) ? "counter" : "unknown") );
         if (!a_immediate_turn())
             a_choose_dest_point();
     }
@@ -1342,7 +1346,7 @@ void NPCShipAI::advanced_combat_maneuver()
 void NPCShipAI::a_attack()
 {
     char to_fire[MAXSLOTS], can_fire_but_not_right = 0;
-    send_message_to_debug_char("Weapons:");
+    //send_message_to_debug("Weapons:");
     for (int w_num = 0; w_num < MAXSLOTS; w_num++) 
     {
         to_fire[w_num] = 0;
@@ -1390,7 +1394,7 @@ void NPCShipAI::a_attack()
                         if (cw_diff < 0) cw_diff += 360;
                         intersect = MAX(hit_arc / 2 - ccw_diff, 0) + MAX(hit_arc / 2 - cw_diff, 0);
                     }
-                    send_message_to_debug_char("  %d:%d", w_num, intersect);
+                    //send_message_to_debug("  %d:%d", w_num, intersect);
                 }
 
                 if (intersect >= min_intersect)
@@ -1398,7 +1402,7 @@ void NPCShipAI::a_attack()
                     to_fire[w_num] = 1;
                     since_last_fired_right = 0;
                     can_fire_but_not_right = 0;
-                    send_message_to_debug_char("!");
+                    //send_message_to_debug("!");
                 }
 
                 if (intersect== 0 && (is_heavy_ship || since_last_fired_right > number(30, 180))) // if intersect not zero, we should try a bit more
@@ -1406,17 +1410,17 @@ void NPCShipAI::a_attack()
                     if ((ship->target->armor[s_arc] + ship->target->internal[s_arc]) > 0 || weapon_data[w_index].hit_arc > 180)
                     {
                         to_fire[w_num] = 1;
-                        send_message_to_debug_char("!");
+                        //send_message_to_debug("!");
                     }
                 }
             }
             else
             {
-                send_message_to_debug_char("  %d:X", w_num);
+                //send_message_to_debug("  %d:X", w_num);
             }
         }
     }
-    send_message_to_debug_char("  sfr:%d\r\n", since_last_fired_right);
+    //send_message_to_debug("  sfr:%d\r\n", since_last_fired_right);
     for (int w_num = 0; w_num < MAXSLOTS; w_num++) 
     {
         if (to_fire[w_num])
@@ -1682,7 +1686,7 @@ void NPCShipAI::a_calc_rotations()
     if (ccw_cw < 0) ccw_cw += 360;
     ccw_ccw = proj_sb - ccw;
     if (ccw_ccw < 0) ccw_ccw += 360;
-    send_message_to_debug_char("cw_cw=%d, cw_ccw=%d, ccw_cw=%d, ccw_ccw=%d\r\n", cw_cw, cw_ccw, ccw_cw, ccw_ccw);
+    //send_message_to_debug("cw_cw=%d, cw_ccw=%d, ccw_cw=%d, ccw_ccw=%d\r\n", cw_cw, cw_ccw, ccw_cw, ccw_ccw);
 }
 
 void NPCShipAI::a_choose_rotation()
@@ -1758,21 +1762,21 @@ void NPCShipAI::a_choose_rotation()
         side_ok[i] = (side_props[i].ready_timer == 0) && (side_props[i].min_range < tside_props[target_side].land_dist);
     }
 
-    send_message_to_debug_char("pc=%d, pd=%d, sc=%d, sd=%d, cd=%d, sides=%c%c%c%c ", port_count, port_dir, star_count, star_dir, cnt_dir, side_ok[0]?'1':'0', side_ok[1]?'1':'0', side_ok[2]?'1':'0', side_ok[3]?'1':'0');
+    //send_message_to_debug("pc=%d, pd=%d, sc=%d, sd=%d, cd=%d, sides=%c%c%c%c ", port_count, port_dir, star_count, star_dir, cnt_dir, side_ok[0]?'1':'0', side_ok[1]?'1':'0', side_ok[2]?'1':'0', side_ok[3]?'1':'0');
 
     // TODO: take side's weapon power into account
     if (side_ok[SLOT_PORT] && (port_count >  star_count || !side_ok[SLOT_STAR]))
     {
         chosen_side = SLOT_PORT;
         chosen_rot = port_dir;
-        send_message_to_debug_char("choice 1\r\n");
+        //send_message_to_debug("choice 1\r\n");
         return;
     }
     if (side_ok[SLOT_STAR] && (star_count >= port_count || !side_ok[SLOT_PORT]))
     {
         chosen_side = SLOT_STAR;
         chosen_rot = star_dir;
-        send_message_to_debug_char("choice 2\r\n");
+        //send_message_to_debug("choice 2\r\n");
         return;
     }
 
@@ -1785,7 +1789,7 @@ void NPCShipAI::a_choose_rotation()
             chosen_side = SLOT_REAR;
         else if (side_ok[SLOT_FORE])
             chosen_side = SLOT_FORE; 
-        send_message_to_debug_char("choice 3\r\n");
+        //send_message_to_debug("choice 3\r\n");
         return;
     }
 
@@ -1801,7 +1805,7 @@ void NPCShipAI::a_choose_rotation()
             chosen_side = SLOT_PORT;
             chosen_rot = star_dir;
         }
-        send_message_to_debug_char("choice 4\r\n");
+        //send_message_to_debug("choice 4\r\n");
         return;
     }
 
@@ -1812,11 +1816,11 @@ void NPCShipAI::a_choose_rotation()
             chosen_side = SLOT_REAR;
         else
             chosen_side = SLOT_FORE;
-        send_message_to_debug_char("choice 5\r\n");
+        //send_message_to_debug("choice 5\r\n");
         return;
     }
 
-        send_message_to_debug_char("no choice!\r\n");
+        //send_message_to_debug("no choice!\r\n");
     // TODO: no weapons?
 }
 
@@ -1839,26 +1843,26 @@ bool NPCShipAI::a_immediate_turn()
             if (t_range >= side_props[SLOT_FORE].min_range + 2) // have a little distance reserve to turn
             {
                 new_heading = t_bearing; // turning toward target to fire fore
-                send_message_to_debug_char(" immediate turn to fire fore!\r\n");
+                //send_message_to_debug(" immediate turn to fire fore!\r\n");
                 return true;
             }
         }
         if (chosen_side == SLOT_REAR && side_props[SLOT_REAR].ready_timer == 0 && side_props[SLOT_REAR].max_range > proj_range)
         {
            new_heading = s_bearing; // turning from target to fire rear
-           send_message_to_debug_char(" immediate turn to fire rear!\r\n");
+           //send_message_to_debug(" immediate turn to fire rear!\r\n");
            return true;
         }
         if (chosen_side == SLOT_PORT && side_props[SLOT_PORT].ready_timer == 0 && side_props[SLOT_PORT].max_range > proj_range)
         {
            new_heading = t_bearing + 90;
-           send_message_to_debug_char(" immediate turn to fire port!\r\n");
+           //send_message_to_debug(" immediate turn to fire port!\r\n");
            return true;
         }
         if (chosen_side == SLOT_STAR && side_props[SLOT_STAR].ready_timer == 0 && side_props[SLOT_STAR].max_range > proj_range)
         {
            new_heading = t_bearing - 90;
-           send_message_to_debug_char(" immediate turn to fire starboard!\r\n");
+           //send_message_to_debug(" immediate turn to fire starboard!\r\n");
            return true;
         }
     }
@@ -1918,7 +1922,7 @@ void NPCShipAI::a_choose_dest_point()
             new_heading += 180;
     }
     normalize_direction(new_heading);
-    send_message_to_debug_char(" rng=%5.2f\r\n", chosen_range);
+    //send_message_to_debug(" rng=%5.2f\r\n", chosen_range);
 }
 
 
@@ -1944,8 +1948,8 @@ float NPCShipAI::calc_land_dist(float x, float y, float dir, float max_range)
     float next_x, next_y;
 
 
-    //send_message_to_debug_char("Calculating land dist from (%5.2f, %5.2f) toward %4.0f within %5.2f:", x, y, dir, max_range);
-    //send_message_to_debug_char("\r\ndsin=%5.2f,dcos=%5.2f", dir_sin, dir_cos);
+    ////send_message_to_debug("Calculating land dist from (%5.2f, %5.2f) toward %4.0f within %5.2f:", x, y, dir, max_range);
+    ////send_message_to_debug("\r\ndsin=%5.2f,dcos=%5.2f", dir_sin, dir_cos);
     while (range < max_range)
     {
         if (x < 1 || y < 1 || x >= 100 || y >= 100)
@@ -1982,8 +1986,8 @@ float NPCShipAI::calc_land_dist(float x, float y, float dir, float max_range)
                 x_to_check--;;
             }
         }
-        //send_message_to_debug_char("\r\nnx=%5.2f,ny=%5.2f,", next_x, next_y);
-        //send_message_to_debug_char("cx=%d,cy=%d,", x_to_check, y_to_check);
+        ////send_message_to_debug("\r\nnx=%5.2f,ny=%5.2f,", next_x, next_y);
+        ////send_message_to_debug("cx=%d,cy=%d,", x_to_check, y_to_check);
 
         if (!is_valid_sailing_location(ship, tactical_map[x_to_check][100 - y_to_check].rroom)) 
         { // next room is a land

@@ -5884,7 +5884,79 @@ int stone_crumble(P_char ch, P_char pl, int cmd, char *arg)
   }
 }
 
+#define GUARDIAN_HELPER_LIMIT    30
+
+int goodie_guardian(P_char ch, P_char pl, int cmd, char *arg)
+{
+  register P_char i;
+  int num, count = 0;
+  P_char   guardian;
+  P_obj t_obj, next;
+
+  if (cmd == CMD_SET_PERIODIC)
+  {
+    return TRUE;
+  }
+  if (!ch)
+  {
+    return FALSE;
+  }
+  
+  if(cmd == CMD_DEATH)
+  {
+    debug("&+WGuardian death called.&n");
+    act("&nThe guard moves to attack one final time, but instead chokes on his own &+rblood&n and falls to the ground, lifeless.\n&n", FALSE, ch, 0, 0, TO_ROOM);
+
+    return true;
+  }
+  
+  if (cmd != 0)
+  {
+    return FALSE;
+  }
+  
+  if (IS_FIGHTING(ch))
+  {
+    /*
+     * attempt to "summon" an elite tharn soldier...only possible if less than GUARDIAN_HELPER_LIMIT
+     * * in world
+     */
+    for (i = character_list; i; i = i->next)
+    {
+      if ((IS_NPC(i)) && (GET_VNUM(i) == 446))
+      {
+        count++;
+      }
+    }
+    if (count < GUARDIAN_HELPER_LIMIT)
+    {
+      if (number(1, 100) < 35)
+      {
+        guardian = read_mobile(446, VIRTUAL);
+        if (!guardian)
+        {
+          logit(LOG_EXIT, "assert: error in highwayman() proc");
+          raise(SIGSEGV);
+        }
+        act
+          ("$n &nyells 'To arms brothers! Help me destroy this threat to our &+glands&n!&n\r\n"
+           "&+WAn elite guard &ncharges into the fray, assisting his comrade...&n\r\n",
+           FALSE, ch, 0, guardian, TO_ROOM);
+        char_to_room(guardian, ch->in_room, 0);
+        return TRUE;
+      }
+    }
+  }
+
+  return FALSE;
+
+}
+
+#undef GUARDIAN_HELPER_LIMIT
+
+
 #define BAHAMUT_HELPER_LIMIT    3
+
 
 int bahamut(P_char ch, P_char pl, int cmd, char *arg)
 {
@@ -9867,8 +9939,8 @@ int rentacleric(P_char ch, P_char vict, int cmd, char *argument)
     SPELL_CURE_BLIND, "&+WCure of &+Lblindness&n        ", "cure of blindness", 500},
     {
     SPELL_ACCEL_HEALING, "&+YAccelerated &+Whealing&n      ", "accelerated healing", 2500},
-    {
-    SPELL_RESURRECT, "&+WResurrection&n             ", "resurrection", 3000},
+   /* {
+    SPELL_RESURRECT, "&+WResurrection&n             ", "resurrection", 3000},*/
     {
      -1, "\r\n", -1},
   };
@@ -11419,6 +11491,12 @@ int world_quest(P_char ch, P_char pl, int cmd, char *arg)
       
       //debug("timediff: %f, hrsdiff: %f, costmod: %f, temp: %d, cost: %s", timediff, timediff / 60 / 60, costmod, temp, coin_stringv(temp));
 
+      if (pl->only.pc->quest_type == FIND_AND_KILL && pl->only.pc->quest_kill_how_many > 0)
+      {
+        send_to_char("You cannot buy off a kill task after starting it...\r\n", pl);
+        return (TRUE);
+      }
+
       sprintf(money_string, "OH NO, you've cost me alot of time and money, but toss me %s and I'll take care of your task!", coin_stringv(temp) );
 
       mobsay(ch, money_string);
@@ -11427,6 +11505,8 @@ int world_quest(P_char ch, P_char pl, int cmd, char *arg)
         send_to_char("You dont have that much money...\r\n", pl);
         return (TRUE);
       }
+
+
 
       SUB_MONEY(pl, temp, 0);
       send_to_char("You hand over the money.\r\n", pl);
@@ -13845,8 +13925,8 @@ int conj_specpet_slyph(P_char ch, P_char pl, int cmd, char *arg)
         return false;
     act("$n&+C gains a burst of &+Wenergy&+C!", FALSE, ch, 0, vict, TO_ROOM);
     spell_cyclone(45, ch, NULL, SPELL_TYPE_SPELL, vict, 0);
-    if (is_char_in_room(ch, room) && is_char_in_room(vict, room))
-      spell_cyclone(45, ch, NULL, SPELL_TYPE_SPELL, vict, 0);
+   // if (is_char_in_room(ch, room) && is_char_in_room(vict, room))
+      //spell_cyclone(45, ch, NULL, SPELL_TYPE_SPELL, vict, 0);
   }
   return FALSE;
 }
@@ -16161,6 +16241,8 @@ int clear_epic_task_spec(P_char npc, P_char ch, int cmd, char *arg)
       if (!nexus)
       {
         debug("clear_epic_task_spec(): error, can't find nexus");
+	send_to_char("Can't clear a bugged task, please ask an imm.\r\n", ch);
+	return TRUE;
       }
       if ( (RACE_GOOD(ch) && STONE_ALIGN(nexus) < STONE_ALIGN_GOOD) ||
            (RACE_EVIL(ch) && STONE_ALIGN(nexus) > STONE_ALIGN_EVIL) )

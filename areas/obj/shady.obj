@@ -362,8 +362,13 @@ an aqua-blue potion~
 An unwanted potion is sitting here.~
 ~
 10 7 2 4 7 0 4128 1 64 0 0
+<<<<<<< HEAD
 50 1 123 3 0 0 0 0
 2 629 100 100
+=======
+50 1 0 3 0 0 0 0
+2 629 100
+>>>>>>> master
 #97537
 necklace small crystal spheres~
 a necklace of &+Ysmall crystal spheres&N~

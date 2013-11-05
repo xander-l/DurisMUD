@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #82400
 centaur trentloss~
 &+GTrentloss&N~
@@ -483,3 +484,490 @@ PE 0 1 0 -1
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
+=======
+#82400
+centaur trentloss~
+&+GTrentloss&N~
+&+gA majestic cent&+Laur &+gstands here guarding the entrance.&N
+~
+&+g   This majestic &+Gcen&+Ltaur &+ghas the duty of protecting the temple from unwanted&N
+&+gintruders.  His efforts have been thwarted lately by some strange malevolent&N
+&+gforce which has invaded the glade and has corrupted the beauty of the temple.&N
+&+gHe has been at his post for a long time without hearing from anyone within&N
+&+gthe temple but he is not able to leave and determine what has happened.&N
+~
+2058 0 0 0 16777384 2048 0 0 0 S
+CT 0 128 0 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82401
+spirit~
+&+Wa spirit&N~
+The spirit of the oak wails in agony.&N
+~
+&+w   This being represents the &+Wgood spirits &+wof &+gna&+Gtu&+gre &+wand has been rather&N
+&+wtroubled of late.  The overall goodness of the woods has been &+rco&+Lrr&+Rup&+Lte&+rd &+wby&N
+&+wsome &+Levil &+wpresence.  The &+Wwarming &+Yglow &+wof the sun temple usually has the power&N
+&+wto control the spread of evil in the forest but has been warped to some evil&N
+&+wpurpose.  If the &+Yessence of the sun &+wcould be found and restored to its&N
+&+wproper place the temple and the &+gforest &+wmight be cure of this plague.&N
+~
+2058 0 0 0 128 34816 0 0 1000 S
+ug 0 32 0 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#82402
+spirit pine~
+&+La spirit&N~
+&+wThe twisted &+Lspirit &+wof the pine snarls at you.&N
+~
+&+L   This &+revil &+Lincarnation has inhabited this &+wpine &+Land twisted it to a dark&N
+&+Land sinister purpose.  Hate fills the inside of this poor tree as this&N
+&+Lpar&+Gas&+Lite lives off the wholesome spirit of this pine.  Some dark force&N
+&+Lreplaced the normal spirit of this pine with this evil being in order to&N
+&+Lweaken the spirit of the woods.&N
+~
+2058 1 0 0 136 34816 0 0 -1000 S
+ug 0 16 0 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82403
+bear~
+&+La deranged bear&N~
+&+LA deranged bear growls loudly at you.&N
+~
+&+L   This half starved bear has been clawing at the walls of this cave till&N
+&+Lher claws are barely stubs.  Tufts of fur have fallen off as the animal has&N
+&+Ltried to rub away at the rock closing off the entrance.&N
+~
+2120 1 0 0 8 262144 0 0 -750 S
+A 0 1 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#82404
+gnome pelakra~
+&+RPelakra&N~
+&+wA &+Rgnome mage &+wstands here looking over some &+yancient tomes.&N
+~
+&+R   Pelakra &+whas been studying the &+ybooks in the &+clibrary &+wto determine the cause&N
+&+wof the &+Levil &+win the forest.  Something has taken over the bottom levels of the&N
+&+wtemple and has cut off access to the dome at the top of the temple.  Various&N
+&+gdruidic &+writuals have failed to dispel this evil so help has been called in&N
+&+wfrom all around the realm.&N
+~
+2058 0 0 0 268435594 2048 0 0 750 S
+PG 0 512 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#82405
+assistant~
+&+gAn &+rassistant&N~
+&+wA &+cres&+rea&+crch &+rassistant &+wstands here seeking some information.&N
+~
+&+w   This apprentice has been assigned to the library to assists Pelakra in her&N
+&+wsearch to determine the cause of the problems in the forest.  Each assistant&N
+&+whas been given a tome to locate and scan for an ancient incantation.&N
+~
+1140852744 0 0 0 0 0 0 0 750 S
+PE 0 1 0 -1
+40 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82406
+demon enraged~
+&+Lan &+Ren&+rra&+Rged &+Ldemon&N~
+&+LA &+Ren&+rra&+Rged &+Ldemon stands here blocking the power of the temple.&N
+~
+&+rThis demon has been called from the plane of hell by the powerful shaman&N
+&+LRantah to guard the power source of the temple and prevent the druids from&N
+&+rretaking the central piece of their power.  He is barely under controll and&N
+&+Lwill lash out at anyone who disturbs him.  The last fool who disturbed him&N
+&+rwas quickly devoured.&N
+~
+1073772616 1 0 0 154 2048 0 0 -1000 S
+X 0 256 0 7
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82407
+grentkas centaur~
+&+GGrent&+Lkas&N~
+&+gA &+Gcen&+Ltaur &+gcraftsman stands here studying a scroll.&N
+~
+&+gWearing the barding of nobility this centaur has also studied the arts of&N
+&+gmagic and has the ability to enchant items with powerful magics.  If he is&N
+&+gprovided with the proper materials he can produce for you exquisite items.&N
+~
+8 0 0 0 0 0 0 0 759 S
+CT 0 1 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82408
+bard human frolikk~
+&+GFrolikk&N~
+&+gA happy &+Cbard &+gstands here humming a tune.&N
+~
+&+gThis happy bard has taken a room in the temple to rest his voice before his&N
+&+gnext performance.  He made the mistake of venturing into the vast&N
+&+gwastes of the underdark and after playing to a group of tone deaf ogres&N
+&+gdecided that he needed a vacation.&N
+~
+2122 0 0 0 0 0 0 0 750 S
+PH 0 32768 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82409
+goblin gruntto~
+&+GGruntto&N~
+&+gA goblin stands here stirring the stew.&N
+~
+&+gThis smelly goblin has taken over the job of feeding the trolls and disposing&N
+&+gof the mess of the invasion battle.  Being the pragmatic type of goblin, he&N
+&+ghas combined both jobs into a macabre stew which he gladly passes out on a&N
+&+gdaily basis.  He is starting to run out of meat though as the amount of cold&N
+&+gstorage is small and much of the remaining meat has spoiled.&N
+~
+2058 1 0 0 24 0 0 0 -750 S
+HG 0 256 0 2
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82410
+root~
+&+gan animated root&N~
+&+gA thorny root twists around on the floor.&N
+~
+&+gThe root of a tree has been enchanted and animated to guard the entry to the&N
+&+gcellar where grapes are converted into wines.  The spell allows for control&N
+&+gof the vines so that friendly workers may pass while invaders will be&N
+&+gattacked on sight.&N
+~
+1140852810 1 0 0 0 0 0 0 -1000 S
+VT 0 1 0 4
+40 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#82411
+guard~
+&+gan &+Bex&+bpe&+Bri&+ben&+Bce&+bd &+gguard&N~
+&+GAn &+Bex&+bpe&+Bri&+ben&+Bce&+bd &+Gguard stands here blocking the entrance.&N
+~
+&+gScars line the jaw of this experienced guard who has seen many battles.  His&N
+&+gstomach is sagging some and he has a bleary look in his eye which seems to&N
+&+greflect his distaste with is recent assignment.  Since his decomission into&N
+&+gthe reserves he has been on many menial missions and longs for the thrill of&N
+&+gbattle once again.&N
+~
+1073743946 1 0 0 0 0 0 0 -750 S
+PT 0 256 0 5
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82412
+druid llentor~
+&+GLlentor&N~
+&+gA dishonorable druid stands here counting his bribe.&N
+~
+&+gThis druid has sold out to the trolls for a hefty bribe. He had just entered&N
+&+gthe order when he was confronted by the band of evils that are now running&N
+&+gthe temple.  Knowing of his weakness for gold and enchanted items he was&N
+&+geasily turned to their cause.&N
+~
+2122 1 0 0 285212808 2048 0 0 -100 S
+PE 0 128 0 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82413
+apprentice troll~
+&+man apprentice&N~
+&+gA young &+Gapprentice &+gstands here with &+mpurple feet.&N
+~
+&+gSelected for their youth and agility, these trolls have the skills to crush&N
+&+mthe grapes to a fine texture of mash which is then processed to make wines.&N
+&+gPurple splotches mottle their greenish skin and occasionally juice splatters&N
+&+minto their eyes and mouth.&N
+~
+1073743882 1 0 0 8 2048 0 0 -750 S
+PT 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#82414
+apprentice troll~
+&+gan apprentice&N~
+&+gAn &+Gapprentice &+gstands here filling &+Gbottles.&N
+~
+&+gThese trolls pour the fermenting grape juice into rows of bottles which&N
+&+gare then corked and sent to the wine cellar to age.  This process requires&N
+&+ga gentle touch to prevent the bottles from shattering while they are corked.&N
+~
+1073743882 1 0 0 136 2048 0 0 -759 S
+PT 0 256 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82415
+troll drunk~
+&+Ga &+rdrunken &+gtroll&N~
+&+gA &+rdrunken &+gtroll snoozes here.&N
+~
+&+gA troll has consumed a bit too much &+mwine &+gand is peacefully sleeping it off.&N
+&+gOcassionly his foot will twitch in the middoe of a dream about chasing&N
+&+yhalflings &+gand popping them on the head.&N
+~
+2056 0 0 0 0 0 0 0 -750 S
+PT 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+4 4 1
+#82416
+alchemist troll~
+&+Man alchemist&N~
+&+mAn &+Malchemist &+mwanders around supervising the distillery.&N
+~
+&+mThis shaman is in charge of insuring the quality of the wine. He closely&N
+&+mmonitors the temperature and presure of the vats and makes sure the grapes&N
+&+mare processed in a consistant manner.  His temper is well known and the&N
+&+mapprentices are alert when he is suppervising them.&N
+~
+1073743880 1 0 0 136 2049 0 0 -750 S
+PT 0 524288 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82417
+ogre fat~
+&+ba hungry ogre&N~
+&+gA hungry &+bogre &+gstands here chewing on a bone.&N
+~
+&+bAn ogre has gorged himself on the bones and remains of the former inhabitants&N
+&+bof the temple.  He is in a semi conscious state because of the amount of&N
+&+bfatty meat he has eaten over the last few days.&N
+~
+1073743946 1 0 0 152 2 0 0 -750 S
+PO 0 256 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82418
+centaur platakas~
+&+WPlatakas&N~
+&+WA majestic &+Lcent&+Gaur &+Wstands here preening his coat.&N
+~
+&+WLong flowing white hair cascades down his human torso onto his horse body&N
+&+Wwhere it blends in with the pure white feathers of his riding blanket.  A&N
+&+Wnoble brow and two sparkling eyes peirce your soul as he looks straight at&N
+&+Wyou and nods.  He is a mighty warrior who has come to the temple for a small&N
+&+Wrest before heading further into the underdark to slay the enemies of light.&N
+&+WLittle does he know that the enemy is already close by.&N
+~
+2122 128 0 0 134226072 2050 0 0 1000 S
+CT 0 8 0 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82419
+troll lumpy~
+&+ga &+Llumpy &+gtroll&N~
+&+gA &+Llumpy &+gtroll patrols the halls.&N
+~
+&+gA hard rocky material covers most of this troll and it is amazing that he can&N
+&+Leven move.  Standing still he looks like a statue and can blend in easily&N
+&+gwith the furniture if he holds a pose for a second or two.  His job however&N
+&+Lis to patrol the hallways and keep the guests inside their rooms.  He is&N
+&+gvigilant in his task.&N
+~
+1073743944 1 0 0 152 2 0 0 -750 S
+PT 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82420
+troll hungry~
+&+ga &+rhungry &+gtroll&N~
+&+gA &+rhungry &+gtroll searches the corridors for food.&N
+~
+&+gThis troll is searching far and wide for any scraps of food that might&N
+&+gsustain her through the night.  She is too busy looking for a small morsel of&N
+&+gfood to notice you but if you disturb her she might decide you would make&N
+&+ga nice lunch.&N
+~
+1073743948 0 0 0 0 0 0 0 -750 S
+PT 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#82421
+ogre young~
+&+ba &+yyoung &+bogre&N~
+&+yA young &+bogre &+yguards the hallways.&N
+~
+&+bThis young ogre is eager to impress his supperiors by performing his job well.&N
+&+bHe has been assigned to guard the main entrance to the temple and let no one&N
+&+bpass who is not authorize.  His yellowish eyes are gleaming with glee and he&N
+&+bhopes he will live long and be able to slay many inferior foes.&N
+~
+1073743944 1 0 0 8 2 0 0 -750 S
+PO 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82422
+ogre fat~
+&+ba &+Yfat &+bogre&N~
+&+bA &+Yfat &+bogre stand here stuffing himself on &+Lst&+gew.&N
+~
+&+bThis ogre has been raiding the supplies left by the former occupants of the&N
+&+btemple.  He has stuffed himself on halfing pastries and other delights to the&N
+&+bpoint of gluttony.  Saliva dribbles down his chin as he turns towards you and&N
+&+broars.&N
+~
+2120 1 0 0 152 2 0 0 -750 S
+PO 0 1 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82423
+shaman rantah~
+&+rRantah&N~
+&+MA regal &+rshaman &+Msits here counting his income.&N
+~
+&+rA malevolent gleam reflects from the two beady eyes penetrating your skull.&N
+&+rThis shaman is the leader of the forces that invaded the temple and is not&N
+&+ramuzed by any disturbance.  He quickly puts the gold he was counting in his&N
+&+rpockets and turns his full attention towards you.&N
+~
+2058 1 0 0 152 2050 0 0 -750 S
+PO 0 256 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82424
+golden statue~
+&+Ya golden statue&N~
+&+YA golden statue guards the entrance to the dome.&N
+~
+&+YThis golden being was a gift from the sun god to the leaders of the temple.&N
+&+YHer sacred duty is to guard the passage way to the golden dome.  Odd scrape&N
+&+Ymarks appear around her base and appear be from the shifting of the statue.&N
+&+YOne wonders if some strange magic was used to bypass this guardian and then&N
+&+Yreplace her without her knowledge.&N
+~
+2122 0 0 0 152 2 0 0 1000 S
+OG 0 512 0 7
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#82425
+troll lanky~
+&+ga &+clanky &+gtroll&N~
+&+gA &+clanky &+gtroll stands here doing inventory.&N
+~
+&+gThis lanky troll has the perfect physique to inventory the overwhelming amount&N
+&+gof wine that is stored in the cellar.  The racks reach up to the ceiling and&N
+&+gspan the entire length of the floor.  Due to the height of this troll no&N
+&+gladders are needed for the upper shelves.  He does have problems however with&N
+&+gthe lower shelves.&N
+~
+2120 1 0 0 0 0 0 0 -750 S
+PT 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82426
+bear baby~
+&+La baby bear&N~
+&+LA baby bear cries softly and searches for his mother.&N
+~
+&+LThis baby has been abandoned and will soon die if it doesn't find any food.&N
+&+LHis ribs are showing and his fur has lost its luster.  His mother has been&N
+&+Lgone for quite some time.&N
+~
+72 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82427
+buck deer~
+&+ya buck&N~
+&+yA large buck stands here listening for trouble.&N
+~
+&+yThis large male deer stands poised to detect any danger to his family. Unlike&N
+&+ymost deer he will fight it threatened instead of just running for the trees.&N
+&+yHe had a few scars on his flank to show he has been in a few battles before.&N
+~
+1140852808 0 0 0 8 0 0 0 0 S
+A 0 1 0 -1
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82428
+doe deer~
+&+ya doe&N~
+&+yA lanky doe stands here grazing contently.&N
+~
+&+ySoft eyes show the docile nature of this female deer.  She is confident that&N
+&+yshe is safe from harm and peacefully grazes on any grass or flowers she might&N
+&+yfind.  Occasionally she will suppliment her diet with some produce from the&N
+&+ygardens when she can slip past the farmers.&N
+~
+1073743944 0 0 0 0 0 0 0 0 S
+A 0 1 0 -1
+30 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#82429
+halfling farmer~
+&+ya farmer&N~
+&+gA &+yHalfling &+gfarmer tends the garden.&N
+~
+&+y   A well tanned halfling farmer tends the garden to insure the produce is&N
+&+ywell watered and free of any parasites.  He carries with him a fancy tool&N
+&+ybelt and a small water bucket with fertilizers.  A smile twinkles in his eye&N
+&+yand he hums silently to himself as he walks down the rows of plants.&N
+~
+1073743944 0 0 0 8 2 0 0 750 S
+PF 0 1 0 -1
+27 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82430
+farmer centaur~
+&+ga cent&+Laur &+gfarmer&N~
+&+gA &+gCen&+Ltaur &+gstands here tilling the soil.&N
+~
+&+gThis centaur has the advantage over most farmers due to his horse body. He&N
+&+gcan not only carry a larger load of produce but can equip himself with a&N
+&+gplow harness and till the soil very affectively.  Occasionally he also gets&N
+&+gto fertilize the soil.&N
+~
+1073743944 0 0 0 8 0 0 0 750 S
+CT 0 1 0 -1
+25 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#82431
+elf snooty grey~
+&+ca snooty elf&N~
+&+gA &+cGrey Elf &+gstands here inspecting the vines.&N
+~
+&+c   This snooty looking elf is quite serious in his inspection of the grape&N
+&+cvines.  The quality of the harvested grapes depends upon his close inspection&N
+&+cto insure the grapes are properly watered and fertilized during the short&N
+&+cgrowing season.&N
+~
+1073743880 0 0 0 8 0 0 0 759 S
+PE 0 1 0 -1
+29 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+>>>>>>> master

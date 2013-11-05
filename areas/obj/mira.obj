@@ -682,8 +682,13 @@ staff drider bones~
 &+LA long staff made from &+Mdrider &+Wbones&+L has been dropped here.&n~
 ~
 4 10 3 0 7 0 0 16385 0 0 0
+<<<<<<< HEAD
 35 1 1 2 0 0 0 0
 1 33333 100 0
+=======
+35 1 1 25 0 0 0 0
+1 33333 100
+>>>>>>> master
 #82548
 chrome polished sun glasses~
 &+wsome &+cpoli&+Wshed &+wchrome-&+ccoloured &+Ysun&+wglasses&n~

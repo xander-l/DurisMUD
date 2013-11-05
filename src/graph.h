@@ -135,6 +135,17 @@ extern int bfs_cur_marker;
                                (!TO_OCEAN(x, y)) && \
                                (!IS_MARKED(TOROOM(x, y))))
 
+#define VALID_TRACK_EDGE(x, y) (world[(x)].dir_option[(y)] && \
+                               (TOROOM(x, y) != NOWHERE) &&	\
+                               (!IS_SECRET(x, y)) &&         \
+                               (!IS_LOCKED(x, y)) &&         \
+                               (!IS_BLOCKED(x, y)) &&        \
+                               (!TO_OCEAN(x, y)) &&          \
+                               (!TO_MOUNTAIN(x, y)) &&          \
+                               (!IS_MARKED(TOROOM(x, y))))
+
+bool valid_track_edge(int from_room, int dir);
+
 #define HITCHABLE(o) (IS_OBJ_STAT2((o),ITEM2_LINKABLE))
 
 #include <vector>

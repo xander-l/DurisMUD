@@ -829,10 +829,33 @@ extern unsigned int game_locked;
 #define CMD_FOCUS       802
 #define CMD_BOON        803
 #define CMD_CTF		804
+<<<<<<< HEAD
 #define CMD_GARROTE     805
 #define CMD_TETHER	806
 #define CMD_QUESTWHERE  807
 #define CMD_NEWBSA      808
+=======
+#define CMD_TETHER	805
+#define CMD_QUESTWHERE  806
+#define CMD_NEWBSA      807
+#define CMD_SALVAGE     808
+#define CMD_RESTRAIN    809
+#define CMD_BARRAGE     810
+#define CMD_BLADE       811
+#define CMD_CONSUME     812
+#define CMD_RIFF        813
+#define CMD_LEADERBOARD 814
+#define CMD_SOULBIND    815
+#define CMD_ACHIEVEMENTS 816
+#define CMD_SALVATION   817
+#define CMD_REFINE	   818
+#define CMD_DREADNAUGHT 819
+#define CMD_DICE	   820
+#define CMD_SHADOWSTEP  821
+#define CMD_GARROTE	   822
+#define CMD_CONJURE	   823
+#define CMD_DISMISS	   824
+>>>>>>> master
 
 /* cmds below are not real commands, they are
                 used in item special procedures to identify
@@ -848,6 +871,7 @@ extern unsigned int game_locked;
 #define CMD_DECAY       -200
 #define CMD_FOUND       -201
 #define CMD_DISPEL      -202
+
 
 #define CMD_MOB_COMBAT  0
 #define CMD_MOB_MUNDANE 0

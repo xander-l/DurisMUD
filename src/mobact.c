@@ -582,6 +582,9 @@ bool MobCastSpell(P_char ch, P_char victim, P_obj object, int spl, int lvl)
   int      circle = 0, duration = 0;
   char     buf[MAX_STRING_LENGTH];
 
+// PREVENTING MOBS FROM CASTING UNTIL AFTER SPELLS REIMPLEMENTED - Lohrr
+//return FALSE; Dear god man! As this got pushed live and everyone's killing !casting mobs! - Drannak
+
   if(!(ch && (victim || object)))
   {
     logit(LOG_EXIT, "MobCastSpell() bogus parms");
@@ -5057,7 +5060,8 @@ void BreathWeapon(P_char ch, int dir)
     if(IS_FIGHTING(ch))
         victim = ch->specials.fighting;
         
-    cast_as_damage_area(ch, funct, GET_LEVEL(ch), victim,
+   /* cast_as_damage_area(ch, funct, GET_LEVEL(ch), victim,*/
+	cast_as_damage_area(ch, funct, BOUNDED(1, GET_LEVEL(ch), 20), victim,
         get_property("dragon.Breath.area.minChance", 60),
         get_property("dragon.Breath.area.chanceStep", 20));
     
@@ -6520,7 +6524,7 @@ void MobCombat(P_char ch)
   /*
    * Examine call for special procedure
    */
-  if(!no_specials && IS_SET(ch->specials.act, ACT_SPEC))
+  if(!no_specials && IS_SET(ch->specials.act, ACT_SPEC) && !affected_by_spell(ch, TAG_CONJURED_PET))
   {
     if(!mob_index[GET_RNUM(ch)].func.mob)
     {
@@ -7805,7 +7809,7 @@ PROFILE_END(mundane_autostand);
 
   /* Examine call for special procedure */
 PROFILE_START(mundane_specproc);
-  if(IS_SET(ch->specials.act, ACT_SPEC) && !no_specials)
+  if(IS_SET(ch->specials.act, ACT_SPEC) && !no_specials && !affected_by_spell(ch, TAG_CONJURED_PET))
   { // 8%
     if(!mob_index[ch->only.npc->R_num].func.mob)
     { // 0%
@@ -9606,17 +9610,17 @@ void mob_hunt_event(P_char ch, P_char victim, P_obj obj, void *d)
       justice_hunt_cancel(ch);
       return;
     }
-    if(CAN_SEE(ch, vict))
+    if(CAN_SEE(ch, vict) && !IS_AFFECTED(vict, AFF_HIDE))
     {
       MobStartFight(ch, vict);
       if(!char_in_list(ch))
         return;
     }
-    else if(number(0, 3) &&
+  /*  else if(number(0, 3) && // Mobs can no longer see hidden chars - Drannak 10/2012
            IS_AFFECTED(vict, AFF_HIDE))
     {
       do_search(ch, NULL, 0);  
-    }
+    }*/
     else
       switch (number(0, CAN_SPEAK(ch) ? 114 : 110))
       {
@@ -10200,8 +10204,15 @@ void forget(P_char ch, P_char victim)
   if(!IS_NPC(ch))
     return;
 
+  if(IS_NPC(victim))
+   return; //cannot call get_pid on npc
+
+
   if(!(curr = ch->only.npc->memory))
     return;
+
+  if(ch == victim)
+  return;
 
   while (curr && (curr->pcID != GET_PID(victim)))
   {

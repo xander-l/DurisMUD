@@ -127,6 +127,12 @@ void spell_eshabalas_vitality(int level, P_char ch, char *arg, int type,
     return;
   }
 
+  if(affected_by_spell(ch, SPELL_VITALITY))
+  {
+    send_to_char("&+rThe vitality spell is negated by Eshabala!\r\n", victim);
+    return;
+  }
+
   if (affected_by_spell(ch, SPELL_ESHABALAS_VITALITY))
   {
     struct affected_type *af1;

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #40700
 guardian angel~
 &+Wa maj&+Cesti&+cc guard&+Cian &+Wangel&n~
@@ -943,3 +944,950 @@ UL 0 131072 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
+=======
+#40700
+guardian angel~
+&+Wa maj&+Cesti&+cc guard&+Cian &+Wangel&n~
+&+WA &+Wmaj&+Cest&+cic guard&+Cian &+Wangel&+c watches the entrance for evil.&n
+~
+&+cThe guardian &+Wangels&+c in the &+WHome&+C of the &+WDivine&+c act as the first line of
+&+cprotectors against the impure.  Probably not the most powerful &+Wangels&n
+&+cwithin the &+WHome&+c, they are still deadly opponents for those with a
+&+cblack heart.&n
+~
+133130 0 0 0 134217736 0 0 0 1000 S
+an 0 1 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40701
+siren~
+&+ca beautiful &+Ysiren&n~
+&+cA beautiful &+Ysiren&+c sits at the edge of the spring here, singing.&n
+~
+&+cThe &+Ysirens&+c have grown over many generations to make their home
+&+cof the &+WHome&+C of the &+WDivine&+c and although their numbers are slim they still
+&+cprovide a powerful symbol agaisnt the forces of the &+LPits&+c.  Their songs
+&+ccan be heard from almost everywhere within the &+WHome&+C of the &+WDivine,&n
+&+cinsuring calm and peace for those that listen.&n
+~
+1342339082 0 0 0 0 0 0 0 1000 S
+HF 0 16 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#40702
+young angel~
+&+Wa &+cyoung &+Wangel&n~
+&+WA &+cyoung &+Wangel&+c wanders about here, &+Wwings&+c outstretched&n.
+~
+&+cThe younger &+Wangels&+c have yet to take their place within the heavens,
+&+cthus basically being stuck in limbo between the &+WHome&+c and their enternal
+&+cpositions.  They spend what little time they have in this area
+&+cenjoying it, as it is a small part of mortality they may never have
+&+cagain.&n
+~
+1073743884 0 0 0 134217736 0 0 0 1000 S
+an 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40703
+arch arch-angel angel~
+&+ca &+Wmagnificent&+c arch-&+Wangel&n~
+&+cA &+Wmagificent&+c arch-&+Wangel &+cstands here, scanning for impurity.&n
+~
+&+cArch-&+WAngels&+c are a common sight within the &+WHome&+c, they are the elite
+&+cof the &+Wangel&+c race, swift and deadly yet also righteous and pure, they
+&+care also known as regular &+Wangels&+c on the prime material plane, where
+&+cthey spend time guiding the mortals of light or battling the forces
+&+cof evil.&n
+~
+67110920 0 0 0 268435464 0 0 0 1000 S
+an 0 1 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40704
+chancellor air~
+&+cthe chancellor of air&n~
+&+cThe Chancellor of Air rests here.&n
+~
+&+cThe chancellor of air is a imposing &+Wangel&+c, bestowed his title
+&+cby the prince of titans for an extremely impressive show of tatics
+&+cin an ancient battle against the minions of &+LCerebrus&+c. To this day
+&+che remains furious at almost all others other then angelkin, and
+&+cseeks to destroy all he deems unpure.&n
+~
+161802 0 0 0 24 0 0 0 1000 S
+el 0 2048 1 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40705
+chancellof flames~
+&+rthe chancellor of flames&n~
+&+rThe Chancellor of Flames sits here.&n
+~
+&+rThe Chancellor of Flames doesn't command as much power as he
+&+rwould like, however he still acts as an ambassador of Kossuth.
+&+rThough very little is under his control within the &+WHome&+r, he still
+&+rhas knowledge of most the demi-plane and watches the &+mrift&+r to the
+&+LPits of &+rCerebrus intently for any activity. &n
+~
+1073743882 0 0 0 8 0 0 0 0 S
+EF 0 2048 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40706
+bounty hunter heaven~
+&+ca &+Wheavenly&+c bounty hunter&n~
+&+cA bounty hunter sent from &+Wheaven&+c stands here.&n
+~
+&+cIt is said that there is yet a more holy place than the Home,
+&+csomewhere that all angels aspire to.  Whereas the gods themselves
+&+creign in a celestial paradise.  This &+Wangel&+c has been sent from that
+&+cplace, seeking out the destruction of the &+bhighlords&+c of the &+LPits
+&+cof &+LCerebrus&+c. She is ruthless when it comes to her mission, yet
+&+cstill remains righteous and humble.&n
+~
+67115022 0 0 0 8200 0 0 0 1000 S
+AN 0 2 0 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#40707
+air sylph~
+&+can &+Wair &+csylph&n~
+&+cAn &+Wair&+c sylph wanders through the &+Wclouds&+c, singing softly.&n
+~
+&+cThis &+Wair&+c sylph drifts through the &+WHome&+c lazily, wings fluttering
+&+cslowly as the warm air currents carry her across most the area
+&+cwithout difficulity.&n
+~
+18444 0 0 0 134217728 0 0 0 1000 S
+HF 0 512 2 -1
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#40708
+majestic phoenix~
+&+ra &+Yma&+rje&+Yst&+ric &+rphoe&+Ynix&n~
+&+rA &+Yma&+rje&+Yst&+ric&+c, &+rblazing&+c, &+rphoe&+Ynix&+c, sits upon the edge of the &+Wcloudscape.&n
+~
+&+rBorn from the ashes of a great mystical bird this phoenix watches
+&+rover the the southern half of the &+WHome&+r proudly.  With a flap of its
+&+rwings &+Ysparks&+r and flames rush out in a heat wave.&n
+~
+537004042 0 0 0 0 0 0 0 1000 S
+DK 0 512 1 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40709
+chancellor earth~
+&+ythe chancellor of earth&n~
+&+yThe Chancellor of Earth rests here.&n
+~
+&+yThe Chancellor of Earth is a massive mage-&+Lgiant&+y from the elemental
+&+yplane of earth.  As per request by Grumbar the Chancellor remains
+&+yas the eyes and ears of his king within the &+WHome&+y.  Though each of
+&+ythe leaders of each of the planes remains on good terms with each
+&+yother, should a war ever break out, it would be the Chancellors
+&+yand ambassadors who would probably die first, and quickly.&n
+~
+2058 0 0 0 8 0 0 0 1000 S
+el 0 2048 4 -1
+49 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40710
+chancellor water~
+&+bthe chancellor of water&n~
+&+bThe Chancellor of Water sits here.&n
+~
+&+bThe Chancellor of Water controls the condensation within the
+&+WHome&+b.  Where he wanders, moisture builds up quickly, dripping
+&+bdown his body of constantly flowing liquid and forming puddles
+&+bwithin the &+Wcloudscape&+b.  Tracking this fellow through the &+WHome&+C of&n
+&+Cthe &+WDivine&+b would definately not take an expert ranger.&n
+~
+2058 0 0 0 8 0 0 0 1000 S
+el 0 2048 2 -1
+53 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40711
+angelic soldier~
+&+can &+Wangelic &+Csol&+cdier&n~
+&+cAn &+Wangelic &+Csol&+cdier wanders the &+WHome&+c here.&n
+~
+&+cThe &+Wangelic &+Csoldiers&+c are the more offensive unit of the &+WHome's&n
+&+carmy.  In a perfect world all inhabitants of the &+WHome&+c would not
+&+chave any use for military, but unfortuately, due to the ravagers
+&+cof the &+LPits of &+rCerebrus&+c, conflicts are common.  In attempts to
+&+crescue hostage &+Wangels&+c or strike at the enemy swiftly, the &+Wangel&n
+&+Csoldiers&+c have been trained.&n
+~
+67241992 0 0 0 0 0 0 0 1000 S
+an 0 2 1 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40712
+emition titan blacksmith~
+&+CEm&+citi&+Con&n~
+&+CEm&+citi&+Con&+c, the &+Wtitan&+c blacksmith, stands here working on new material.&n
+~
+&+CEm&+citi&+Con&+c is the resident &+Ctitan&+c blacksmith of the &+WHome &+Cof the&n &+WDivine.&n
+&+cHe contiously works on his &+Lanvil&+c, hammering out armor and weapons
+&+cto equip the angelic soldiers so they can be prepared for the battles
+&+cagainst the minions from the &+LPits of &+rCerebrus&+c.  If it were not for
+&+CEm&+citi&+Con &+cthe &+WHome&+c would be in rough shape.&n
+~
+2058 0 0 0 0 0 0 0 1000 S
+tt 0 1 1 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40713
+young soldier fortune~
+&+La young soldier of &+Yfortune&n~
+&+LA young soldier of &+Yfortune&+L looks about warily.&n
+~
+&+LThe Soldiers of &+YFortune&+L are &nCe&+Lci&nl's&+L elite band of &+ymercenaries
+&+Lthat travel throughout the world.  They all have several unique
+&+Lqualities in which draws them to &nCe&+Lci&nl&+L or vice versa. They are loyal,
+&+Lcourageous, and honest.  Currently this one is has been sent to
+&+Lhelp &+cWicks&+L with a &+Ytreasure&+L hunt.&n
+~
+1140852746 0 0 0 0 0 0 0 0 S
+PH 0 1 1 -1
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40714
+hunter guard adventurer~
+&+ca &+Ghunter &+Mguard &+Wadventurer&n~
+&+cA &+MMyrabolan&+G hunter&+M guard&+c rests with his fellow companions here.&n
+~
+&+c   As one of the more common sites in &+MMyrabolus&+c the &+GHunter&+M Guards
+&+crarely get the chance to travel.  When Wicks, a good friend of the
+&+gHunters&+c, asked this one to come along on a small &+Ytreasure&+c hunt, he
+&+cgladly took two weeks vacation to take this journey.&n
+~
+1140852746 0 0 0 8 0 0 0 250 S
+PH 0 2 1 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40715
+shiva queen~
+&+BShiva&n~
+&+BShiva&+c, the &+WQueen&+c of &+WIce&+c, stares into a basin of &+Wicy&n &+bwater.&n
+~
+&+BShiva&+c is as old as the &+WHome&+c itself.  She lives within the &+WPalace&n
+&+cand works with the &+Ctitans&+c with respect but in no way does she serve
+&+canyone.  Her power over the freezing winds and &+Bice&+c is felt all the
+&+cway to the prime material plane and her pool acts as a window to
+&+canywhere she wishes.&n
+~
+30730 0 0 0 0 0 0 0 0 S
+EA 0 512 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#40716
+wicks~
+&+cWicks&n~
+&+cWicks&n, the infamous &+ymercenary&n, leads a group of &+Wadventurers&n here.&n
+~
+&+cWicks, best friend of &+WValquin&+c, has decided to seek what little
+&+cadventurer he could find up beyond the Plane of &+WMists&+c.  So far
+&+cunlucky in finding anything interesting he vows he will return
+&+cwith something from both the legendary &+LPits of &+rCerebrus&+c and &+WHome
+&+Cof the &+WDivine&+c -- Hopefully lotsa money.&n
+~
+67110926 0 0 0 8 0 0 0 0 S
+PH 0 16384 0 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40717
+leolan titan prince~
+&+CLeolan, &+Wthe &+Ctitan&+W prince&n~
+&+CLeolan&+W, prince of &+Ctitans&+W and protector of The Home, sits here.&n
+~
+&+CLeolan&+c commands respect throughout the &+WHome&+c by &+Ctitans, &+Lgiants,&n
+&+cand &+Wangels&+c alike.  He is a humble &+Ctitan&+c, blessed with patience and
+&+cgood will towards all.  With his sister always by his side he has
+&+cwatched over the &+WHome &+Cof the&+W Divine&+c for more then three hundred
+&+cyears now.&n
+~
+1140852746 0 0 0 268443656 32768 0 0 1000 S
+tt 0 1 1 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40718
+lenia sister~
+&+CLenia&+W, sister of the prince~
+&+CLenia&+W, sister to the prince, glows with majesty.&n
+~
+&+cAs her brother protects and watches over most of the &+WHome&+c, &+CLenia&n
+&+cherself commands most throughout the &+WPalace&+c.  From the &+Lforge&+c to
+&+cthe &+Cprison&+c she oversees much of the &+WPalace&+c activity.  She also
+&+cis the one who communicates with the Chancellors outside the
+&+WPalace&+c walls, &+BShiva&+c, and &+WAmp&+Chel&+ces.&n
+~
+67110922 0 0 0 8 0 0 0 1000 S
+tt 0 256 1 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#40719
+tiny mist creature~
+&+ma tiny &+Wmist&+m creature&n~
+&+mA tiny &+Wmist&+m creature scampers beneath the feet here.&n
+~
+&+mThese tiny creatures--about the size of a human's fist, are a
+&+mcommon sight within the &+Wmists&+m.  Obviously, it is quite harmless, however
+&+mlarger, more aggressive creatures are known to lurk through the &+Wmists&n
+&+mas well.&n
+~
+67111052 0 0 0 8 0 0 0 0 S
+HF 0 1 0 -1
+31 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#40720
+large mist creature~
+&+ma large &+Wmist&+m creature&n~
+&+mA large &+Wmist&+m creature floats through the fog here.&n
+~
+&+mThe larger &+Wmist&+m creatures still seem fairly harmless, however
+&+munlike their smaller cousins these larger &+Wmists&+m could quite
+&+mpossibly provide a threat for even a seasoned adventurer if
+&+mthey were to be provoked.&n
+~
+67111048 0 0 0 8 0 0 0 0 S
+HF 0 1 0 -1
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#40721
+huge mist creature~
+&+ma HUGE &+Wmist&+m creature&n~
+&+mA HUGE, angry &+Wmist&+m creature rampages here.&n
+~
+&+mProbably the largest &+Wmist&+m creature seen to date, this huge
+&+mdrifting mass of &+Wcloud&+m rolls across the plane, crushing all
+&+mwithin its way.&n
+~
+2056 0 0 0 0 0 0 0 0 S
+HF 0 1 1 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#40722
+celestial dragon~
+&+ca huge cel&+Wes&+ctial dragon&n~
+&+cA huge cel&+Wes&+ctial dragon rests here, nearly asleep.&n
+~
+&+cAs a native to the ethereal, astral, and mist planes, cel&+Wes&+ctial
+&+cdragons are &+Wmaj&+Cest&+cic to behold.  They are nearly twice as long
+&+cas a regular, more common dragon, but not nearly as heavy. This
+&+cone is curled around the &+Wcloudscape&+c, half asleep, but probably
+&+cstill aware enough to spot trouble.&n
+~
+2058 0 0 0 8 0 0 0 1000 S
+D 0 2 1 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40723
+young pegasus~
+&+ca young &+Wpe&+Cga&+Wsus&n~
+&+cA young &+Wpe&+Cga&+Wsus&+c wanders the pasture here.&n
+~
+&+cThis young &+Wpe&+Cgas&+Wus&+c is being raised as a mount for the &+Wangels.&n
+&+cWhen mature it will be used both for battle and transportation
+&+cin long journeys.&n
+~
+133128 0 0 0 0 0 0 0 750 S
+AE 0 1 0 -1
+43 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40724
+adult unicorn large~
+&+can adult &+Wuni&+Ccorn&n~
+&+cA large, adult, &+Wuni&+Ccorn&+c, walks by here.&n
+~
+&+cThe &+Wuni&+Ccorn&+c is a powerful, noble, creature. Usually only used
+&+cby those &+Wpure&+c of heart, they are wise enough to tell the difference
+&+cbetween good and evil.  In some cases rumors have told of &+Wuni&+Ccorns&n
+&+cwith the ability to speak common tongue.&n
+~
+67110920 0 0 0 0 0 0 0 500 S
+AE 0 1 2 -1
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40725
+mature pegasus~
+&+ca mature &+Wpe&+Cga&+Wsus&n~
+&+cA mature &+Wpe&+Cga&+Wsus&+c stands here, head held high.&n
+~
+&+cThis &+Wpe&+Cga&+Wsus&+c is in the prime of his life.  He flaps his wings
+&+Wmaj&+Cesti&+ccally every so often, to stretch, or maybe intimidate the
+&+cother animals within the pasture. He appears he would make an
+&+cexcellent mount for any noble race.&n
+~
+1275201544 0 0 0 134217736 0 0 0 1000 S
+AE 0 32 1 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40726
+elderly unicorn~
+&+can elderly &+Wuni&+Ccorn&n~
+&+cAn elderly &+Wuni&+Ccorn&+c stands here, gazing into the &+Wclouds.&n
+~
+&+cThis &+Wuni&+Ccorn&+c has grown to old to be much use to the &+Wangels&+c yet
+&+cthey care for him as always.  Once he was most likely a strong,
+&+cwise, &+Wuni&+Ccorn&+c, but today he spends his time slowly moving about
+&+cthe pasture and sleeping.&n
+~
+67241992 0 0 0 8 0 0 0 1000 S
+AE 0 8 1 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40727
+titan caretaker young~
+&+ca &+Wtitan&+c caretaker&n~
+&+cA young &+Wtitan&+c cares for the animals here.&n
+~
+&+cThe &+Ctitans&+c have always been a proud race, believing their sheer
+&+csize makes them worthy of the semi-godhood they have demanded. It
+&+cis uncommon to see such a &+Ctitan&+c tending the animals of another race
+&+cbut within the &+WHome&+c the &+Wangels&+c and &+Ctitans&+c respect each other
+&+centirely and have little use for prideful issues.&n
+~
+1073743880 0 0 0 0 0 0 0 500 S
+tt 0 1 2 -1
+44 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40728
+imposing guardian angel~
+&+can &+Cimp&+cosing guard&+Cian &+Wangel&n~
+&+cAn &+Cimp&+cosing guard&+Cian &+Wangel&+c protects the &+Ctitan&+c royalty.&n
+~
+&+cMuch the like the other guard&+Cian &+Wangels&+c with the &+WHome&+c, these
+&+chave a special responibility to defend this holy area.  In this
+&+ccase these are stronger, more elite, &+Wangel&+c that have been chosen
+&+cto act as protectors for the prince and princess.&n
+~
+67241994 0 0 0 0 0 0 0 1000 S
+an 0 1 2 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40729
+shifty eyed high elf~
+&+Ya shifty-eyed high elf&n~
+&+YA shifty-eyed High Elf stands nervously here with &+yweapon&+Y in hand.&n
+~
+&+YThis High Elf nervously watches the entrance to his hidden
+&+Ymakeshift camp.  Whether he is hiding out from the &+Wangels&+Y or
+&+Ysome &+Ybeing from down below the &+WHome&+Y itself it is unclear.&n
+~
+67110986 0 0 0 8 0 0 0 500 S
+P2 0 1 0 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40730
+travel weary high elf~
+&+Ya travel weary high elf&n~
+&+YA travel weary High Elf sits here.&n
+~
+&+YIt is quite strange to see a group of High Elves so far from their
+&+Yforest homes as they are quite the race of recluses.  This one appears
+&+Yabsolutely exhausted and can barely seem to stand without support.&n
+~
+67110984 0 0 0 8 0 0 0 500 S
+P2 0 512 0 -1
+37 0 0 1d1+1 1d1+1
+0.0.0.0 0
+5 5 1
+#40731
+nervous high elf~
+&+Ya nervous high elf&n~
+&+YA nervous High Elf paces here.&n
+~
+&+YThis elf stays near his leader while he paces nevously.  Every
+&+Ytime &+CEm&+citi&+Con's&+Y hammer rings out on his &+Lanvil&+Y from within the Palace
+&+Yhe literally jumps.  When he speaks to his companions it is very
+&+Yquietly.&n
+~
+67111048 0 0 0 8 0 0 0 500 S
+P2 0 1 0 -1
+32 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40732
+sly high elf~
+&+Ya sly high elf&n~
+&+YA sly High Elf paces around his companions.&n
+~
+&+YOf the group of High Elves gathered in this tiny &+Wcloudspace&+Y this
+&+Yone appears to be the most under control.  While his partners
+&+Yappear nervous and completely paranoid, he remains calm and
+&+Ycollected.&n
+~
+1140852760 0 0 0 8 0 0 0 0 S
+P2 0 8192 0 -1
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40733
+tiny cloud critter~
+&+ca tiny &+Wcloud&+c critter&n~
+&+cA tiny &+Wcloud&+c critter rampages through the nexus.&n
+~
+&+cOther than two beady constantly staring ahead hungrily it would
+&+cbe difficult to tell the difference between this critter or a piece
+&+cof &+Wcloud&+c.  It makes a slight chirping sound and with its partners
+&+cthe noise overtakes the area.&n
+~
+12 1 0 0 134217736 0 0 0 0 S
+HF 0 4 0 -1
+11 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#40734
+ampheles weaver~
+&+WAmp&+Chel&+ces&n~
+&+WAmp&+Chel&+ces, weaver of &+Wmists&+c, stands here.&n
+~
+&+cMuch like &+BShiva&+W, Amp&+Chel&+ces is more of a guest of in the &+WPalace&+C o&nf
+&+WJustice&+c than a every day resident.  Although &+Ctitan&+c, her work is far
+&+ctoo important for her to owe alliegence to anyone.  From her
+&+cworkstation she weaves the &+Wclouds&+c and &+Wmists&+c that make up most of
+&+cthe Home and the plane below with her loom.&n
+~
+1073743882 0 0 0 8 0 0 0 1000 S
+tt 0 2048 4 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#40735
+raith~
+&+rRaith&n~
+&+rRaith&+L, guardian of the &+mrift&+L to the &+LPits of &+rCerebrus&+L is here.&n
+~
+&+rRaith&+L protects the &+mportal&+L from the unwelcome. Namely the
+&+Wangels&+L and &+Wangelkin&+L.  He is a strong, evil, &+chuman&+L, able to
+&+Ldefend the &+mportal&+L from most anything.  Unknownst to him a
+&+Lbounty hunter has been sent for the sole purpose of cleansing
+&+Lhim as well the other dark of heart creatures within the
+&+Wmist&+L plane, close to the &+WHome&+C of the &+WDivine.&n
+~
+1073743882 0 0 0 65544 0 0 0 -1000 S
+PH 0 16 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40736
+cloud giant leader~
+&+cthe &+Wcloud&+L giant&+c camp leader&n~
+&+cThe &+Wcloud&+L giant&+c camp leader is angered by the invasion.&n
+~
+&+cThe leader of the &+Wcloud&+L giant&+c camp within the &+WHome&+c is not
+&+caltogether a bright fellow.  He has brought a number of his
+&+cbrethen to this location believing himself sneaky to camp under
+&+cthe noses of the &+Wangelkin&+c.  The &+Wangels&+c however, know exactly
+&+cof the camps location and leave him and his &+Lgiant&+c kind alone
+&+cfor reasons of tolerance and indifference.  The leader wields
+&+ca dull iron longsword proudly, as if it was one of a kind.&n
+~
+1140852746 1 0 0 8 0 0 0 -999 S
+G 0 1 2 -1
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40737
+cloud giant guard~
+&+ca &+Wcloud&+L giant&+c guard&n~
+&+cA &+Wcloud&+L giant&+c guard protects the camp here.&n
+~
+&+cThe guards of this &+Wcloud &+Lgiant&+c camp seem to be less than then
+&+csober.  They wobble about in their assigned location, eyeing each
+&+cother menacing then letting out a thunderous belch.&n
+~
+2058 1 0 0 8 0 0 0 -999 S
+G 0 1 2 -1
+38 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40738
+young cloud giant~
+&+ca young &+Wcloud&+L giant&n~
+&+cA young &+Wcloud&+L giant&+c wanders here, intolerant of other races.&n
+~
+&+cThis young &+Wcloud &+Lgiant&+c wanders through the camp, viciously attacking
+&+canyone who enters.  He is quite small by &+Lgiant&+c standards and probably
+&+cnot that much of a threat.&n
+~
+1073743944 1 0 0 0 0 0 0 -999 S
+G 0 1 0 -1
+36 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40739
+mist viper~
+&+La &+Wmist&+L &+wvi&+Lper&n~
+&+LA &+Wmist&+L &+wvi&+Lper curls through the &+whaze&+L here.&n
+~
+&+LAs a native to the ethereal plane, &+Wmist&+L vipers tend to thrive
+&+Lwithin the haze that makes up the majority of this place.  They
+&+Lare not an uncommon sight.&n
+~
+1073875080 1 0 0 1048576 0 0 0 -1000 S
+RS 0 1 0 -1
+26 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#40740
+ethereal falcon~
+&+Lan et&+wher&+Lea&+wl &+yfalcon&n~
+&+LAn et&+wher&+Lea&+wl &+yfalcon&+L screeches loudly here.&n
+~
+&+LAs a native creature to several of the non-prime material planes,
+&+Lthe ethereal &+yfalcon&+L thrives and lives within the &+Wmists&+L.  They are
+&+Lniether &+ybird &+Lnor&+W mist&+L, but something inbetween, and can quite often
+&+Lbe seen floating within the haze of the &+Wmists.&n
+~
+1073875080 0 0 0 134217728 0 0 0 0 S
+B 0 1 0 -1
+30 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40741
+young phoenix~
+&+ra yo&+Yung&+r phoe&+Ynix&n~
+&+rA yo&+Yung &+rphoe&+Ynix&+r drifts through the &+Wmists.&n
+~
+&+rThis you&+Yng&+r pho&+Yen&+rix has become lost in the &+Wmist&+r plane and is
+&+rdesperately seeking a way back into the &+WHome&+C of the &+WDivine&+r.  It
+&+ris a powerful creature, but very young and probably not able to
+&+rdefend itself all too well.&n
+~
+1073743880 0 0 0 136 0 0 0 1000 S
+DK 0 1 0 -1
+31 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40742
+shade tiger~
+&+ba &+Lshade&+b tiger&n~
+&+bA &+Lshade&+b tiger&+L moves with a &+bblur&+L through the &+Wmists.&n
+~
+&+bThe &+Lshade&+b tiger is a rare sight even within the other worldly
+&+bplanes.  Legend has told that these uncommon animals have the
+&+bability to move at the speed of &+Wlight&+b when threatened.&n
+~
+1073874952 0 0 0 16 0 67108864 0 0 S
+A 0 1 1 -1
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40743
+watchful angel soldier~
+&+ca watchful &+Wangel&+C sol&+cdier&n~
+&+cA watchful &+Wangel&n &+Csol&+cdier stands here, looking out over the &+WHome.&n
+~
+&+cThis &+Wangel&+c watches over the entire &+WHome&+c from his location, the
+&+cpinnacle mortal men can reach.  From here he can even see the &+Wmist&+c
+&+cplane far to the west, and thus can see an emminent attack coming
+&+clong before anyone else.  He is equipped with full &+Wangelic&+c armor.&n
+~
+1073743882 0 0 0 0 0 0 0 1000 S
+an 0 1 1 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40744
+tiny mist creature~
+&+ra tiny &+Wmist&+r creature&n~
+&+rA tiny &+Wmist&+r creature scampers beneath the feet here.&n
+~
+&+rThese tiny creatures--about the size of a human's fist, are a
+&+rcommon sight within the &+Wmists&+r.  Unlike their harmless cousins
+&+rthese ones seem to be enraged by the warmth of the area
+&+rand attack mindlessly.&n
+~
+67111052 1 0 0 8 0 0 0 -999 S
+HF 0 1 0 -1
+26 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#40745
+large mist creature~
+&+ra large &+Wmist&+r creature&n~
+&+rA large &+Wmist&+r creature floats through the fog here.&n
+~
+&+rThe larger, angrier, &+Wmist&+r creatures deep within the warmer
+&+rarea of the &+Wmist&+r plane pose a threat to the unwary. With
+&+rpowers over the &+Wmist&+r they seem to much more dangerous than
+&+rtheir &+rsmaller counterparts.&n
+~
+67111048 1 0 0 8 0 0 0 -1000 S
+HF 0 16 1 -1
+39 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#40746
+large smoke dragon~
+&+wa large smoke dragon&n~
+&+wA large smoke dragon, curls up here, enjoying the &+rwarmth.&n
+~
+&+wSmoke dragons are one of the rarer types of dragons and are
+&+walmost unseen within the prime material plane.  They are cousins
+&+wof the &+ccel&+Wes&+ctial&+w and &+Lshadow&+w dragons and usually quite docile,
+&+whaving little use for combat unless hunting for food or forced
+&+winto conflict.  This dragon seems quite content curled up
+&+wenjoying the &+rheat&+w this area of the plane seems to offer.&n
+~
+2058 0 0 0 268435592 0 0 0 0 S
+D 0 16 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40747
+vain drow conjurer~
+&+mVain, the &+Mdrow&+m conjurer&n~
+&+mVain, the infamous &+Mdrow&+m conjurer, wanders here.&n
+~
+&+mVain is an old &+Mdrow&+m conjurer who travels the planes searching
+&+mfor the lost arts of &+Wcosmocy&+m.  He dreams of world domination when
+&+mhe finally gains the knowledge of this legendary power.&n
+~
+1073743880 0 0 0 0 0 0 0 -1000 S
+PL 0 2048 3 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40748
+reln assistant titan~
+&+CRe&+cln&n~
+&+CEm&+citi&+Con's&+c assistant, &+CRe&+cln, works here.&n
+~
+&+CRe&+cln&+c is a quiet &+Ctitan&+c and spends most of her time hiding out in
+&+cthe back room of &+CEm&+citi&+Con's&+L forge&+c.  When most of the daily work
+&+cis complete her mentor will tutor her long into the night. &+CRe&+cln&n
+&+chas an innate ability at crafting armor that impresses even &+CEm&+citi&+Con.&n
+~
+1073743882 0 0 0 0 0 0 0 600 S
+tt 0 8 1 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#40749
+guardian angel strong~
+&+Wa maj&+Cesti&+cc guard&+Cian &+Wangel&n~
+&+WA &+cstrong&+c guar&+Cdian&+W angel&+c watches the gates of the palace.&n
+~
+&+cThe guardian &+Wangels&+c in the &+WHome&+C of the &+WDivine&+c act as the first line of
+&+cprotectors against the impure.  Probably not the most powerful &+Wangels&n
+&+cwithin the &+WHome&+c, they are still deadly opponents for those with a
+&+cblack heart.&n
+~
+133130 0 0 0 134217736 0 0 0 1000 S
+an 0 1 2 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40750
+drunk giant cloud drunken~
+&+ca drunken &+Wcloud&+L giant&n~
+&+cA drunken &+Wcloud&+L giant&+c wobbles about here.&n
+~
+&+cThis &+Wcloud&+L giant&+c has obviously had too much to drink. He stumbles
+&+cabout the camp, bumping into his fellow &+Lgiants&+c and loses his
+&+cbalance every couple steps.&n
+~
+2060 0 0 0 0 0 0 0 -999 S
+G 0 1 1 -1
+36 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40751
+titan commoner~
+&+Wa &+Ctitan&+W commoner&n~
+&+WA &+Ctitan&+W commoner wanders the palace here.&n
+~
+&+WAs a resident of the palace, this &+Ctitan&+W spends most his of his
+&+Wtime wandering within the hallways or outside in the Home.  This
+&+Wrace of &+ccel&+Wes&+ctial&+C titans&+W are quite docile and rarely forced into
+&+Wa conflict.&n
+~
+67110920 0 0 0 268435464 0 0 0 1000 S
+tt 0 1 1 -1
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40752
+majestic griffon~
+&+ya &+Wmaj&+Cest&+cic &+Wgrif&+Yfon&n~
+&+yA &+Wmaj&+Cest&+cic &+Wgrif&+Yfon&+y cares for her young here.&n
+~
+&+yThis large, female &+Wgrif&+Yfon&+y, watches her children warily.  While
+&+ybeing hunted for so long most all the remaining &+Wgrif&+Yfons&+y learned
+&+yto be quite suspicious of almost everything.  As a mother &+Wgrif&+Yfon&n
+&+yin the wild, the &+Wangels&+y within the &+WHome&+y most likely watch out
+&+yfor her well being as well.&n
+~
+67110922 0 0 0 134217856 0 0 0 1000 S
+DK 0 2 1 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#40753
+young griffon~
+&+ya young &+Wgrif&+Yfon&n~
+&+yA young &+Wgrif&+Yfon&+y stays close by its mother here.&n
+~
+&+yThis young &+Wgrif&+Yfon&+y stays as close to his mother as he possibly
+&+ycan.  Though a very intelligent spieces, at this age, wandering
+&+ythrough the &+Wclouds&+y with the threat of the minions of the &+LPits of&n
+&+rCerebrus&+y could cut his life short.&n
+~
+67110922 0 0 0 268435456 0 0 0 1000 S
+A 0 1 0 -1
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40754
+cloud giant prisoner~
+&+ca &+Wcloud&+L giant&+c prisoner&n~
+&+cA &+Wcloud&+L giant&+c prisoner sulks in the corner here.&n
+~
+&+cThis &+Lgiant&+c is kept in the prison till his drunken stupor wears
+&+coff.  He is not so much being held captive as he is inside here
+&+cfor his own protection.  At the moment he is even too drunk to
+&+cmake any aggressive moves.&n
+~
+1073743880 0 0 0 0 0 0 0 -999 S
+G 0 1 1 -1
+46 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40755
+gravet githyanki~
+&+LGravet&n~
+&+LGravet, the &+Ggith&+Wyanki&+L warlord, hunts stray &+Wangels&+L here.&n
+~
+&+LThe &+Ggith&+Wyanki&+L have always posed a problem for the &+Wangels&+L both
+&+Linside and outside the &+WHome&+L.  Over time the &+Wangels&+L have gained
+&+Lthe powers to defend themselves quite well, however a stray &+Wangel&n
+&+Lwandering through the &+Wmist&+L plane is still not uncommon.  Gravet
+&+Lhunts just those for sport, relishing in every victory.&n
+~
+1073743880 0 0 0 128 0 0 0 -1000 S
+GI 0 16 1 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40756
+ajandaner assassin dwarf~
+&+wAjandaner&n~
+&+wAjandaner&+L, the renegade &+ydwarven&+w assassin&+L, prowls here.&n
+~
+&+wAjandaner is a deadly &+rrogue&+w. He prowls through the planes hunting
+&+wwhatever he can find for equipment and money.  He cares little whether
+&+whis prey is good or evil, only how much loot he can plunder from the
+&+wcorpses of his kills.&n
+~
+1073743880 0 0 0 268959752 1 0 0 -1000 S
+PM 0 73728 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40757
+raging demon~
+&+ra &+Lra&+rgi&+Lng&+r demon&n~
+&+rA captive demon &+Lhowls&+r in &+Lrage&+r here.&n
+~
+&+rThis &+Ldemon&+r was captured when the minions of the &+LPits of &+rCerebrus
+&+rlast attacked.  Unlike the &+Wangels&+r, the devils and demons care little
+&+rfor their wounded and will leave them out on the battlefield. Only
+&+rthe high ranking devils are worth trade when captured, and this evil
+&+rfellow does not seem to be worth much to his peers and will probably
+&+rremain a &+Lprisoner&+r for quite some time.&n
+~
+1073743880 1 0 0 0 0 0 0 -1000 S
+X 0 1 1 -1
+44 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40758
+large gorgon~
+&+wa &+Llarge&n &+wgor&+Lgon&n~
+&+wA &+Llarge&+w gor&+Lgon wanders &+wthrough the &+Wmist&+w here.&n
+~
+&+wThis gorgon wanders through the &+Wmists&+w, hooves hovering inches
+&+wabove the obvious &+Lethereal&+w ground.  Legend tells that a gorgon's
+&+wgaze can petrify all but the most stout.&n
+~
+1073743880 0 0 0 0 0 0 0 -750 S
+R 0 1 0 -1
+43 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40759
+titan noble~
+&+Wa &+Ctitan&+c noble&n~
+&+WA &+Ctitan&+c noble&+W stands here, head held high.&n
+~
+&+cThis &+Ctitan&+c wanders the hallways of the &+WPalace&+c, bestowed nobility
+&+cby the &+Wprince&+c or &+Wprincess&+c for a show of intelligence or bravery.
+&+cAll the titans within the &+WPalace&+c walls are noble, however, only a
+&+cfew have the special praise by the royalty.&n
+~
+67110920 0 0 0 0 0 0 0 1000 S
+tt 0 1 1 -1
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40760
+snent alchemist~
+&+GSnent&n~
+&+GSnent&+L, the vagabond &+Calc&+chem&+Cist&+L, prowls for &+Wangelic&+L treasure.&n
+~
+~
+1073743880 0 0 0 24 0 0 0 -1000 S
+HG 0 524288 1 -1
+54 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#40761
+relazier warlock~
+&+LRelazier&n~
+&+LRelazier, the vengeful &+Bwar&+Llock prowls through the plane.&n
+~
+&+LThis fearsome warlock gazes at you, as if looking for something, then snarls.
+	&+W'The angels sicken me, but I cannot leave until I grasp puredark
+	&+Wonce again, only with the mace forged by the demonic warlocks
+	&+Wcan I escape this wretched plane.&n
+~
+1073743880 0 0 0 0 0 0 0 -1000 S
+UL 0 131584 0 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+>>>>>>> master

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #16500
 twisted key~
 &+La s&+Wt&+Lr&+Wa&+Ln&+Wg&+Le key&N~
@@ -3457,3 +3458,3464 @@ The sign has a simple statement upon it;
 
                           &+y  -The Woodseer High Council&N
 ~
+=======
+#16500
+twisted key~
+&+La s&+Wt&+Lr&+Wa&+Ln&+Wg&+Le key&N~
+&+LA strange-looking t&+Ww&+Li&+Ws&+Lt&+We&+Ld key lies here.&N~
+~
+18 16 2 0 7 0 8454144 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+twisted key~
+Strange grooves line the twisted key.  Obviously the key was designed for an
+extremely complex lock.  Some of the strange twisting symbols on the haft of
+the key appear to be magical in nature.
+~
+#16501
+armor alligatorskin leather~
+&+ga suit of alligatorskin armor&N~
+A supple suit of &+Galligatorskin armor&N lies here.~
+~
+9 13 2 0 7 0 671096832 9 64 4198895524 0
+30 3 1 3 0 0 0 0
+3 80000 100
+E
+armor alligatorskin~
+Beautiful craftsmanship has gone into the creation of this fine suit of armor.
+The alligatorskin leather has been magically treated so that it is soft and
+supple for its wearer with tough protective ridges on the outside.
+~
+A
+26 5
+A
+18 1
+#16502
+sword short shortsword~
+a &+rred-hued&N &+Wshort sword&N~
+A short sword made of &+rreddish&N metal lies here.~
+~
+5 16 2 0 10 0 0 8193 66 4198895524 0
+9 1 4 3 0 0 0 0
+1 7500 100
+E
+sword short shortsword~
+An extremely light metal with an odd &+rred tint&N to it has been used to make
+this incredibly thin and sharp weapon.  Any normal weapon with an edge this
+thin would certainly be nicked beyond belief, yet somehow the edges of this
+fine sword remain unmarred by any nicks or scratches.
+~
+A
+18 3
+A
+19 1
+#16503
+sword short shortsword~
+&+Wa short sword&N~
+A very sharp, well-polished &+Wshort sword&N lies here.~
+~
+5 16 2 0 7 0 0 8193 64 4198895524 0
+9 1 6 3 0 0 0 0
+2 2000 100
+E
+sword short shortsword~
+Years of polishing and sharpening have honed this fine weapon to a razor edge
+sharpness, ready and willing to cut into anything it is swung at.  The fine
+balance of the blade make it an excellent weapon for everyday use, though a bit
+plain for celebrations and parades.
+~
+A
+18 1
+#16504
+leather armor~
+&+ya suit of halfling leather armor&N~
+&+yA small suit of well-made leather armor lies here.&N~
+~
+9 13 2 0 7 0 536879104 9 0 4165209604 0
+20 3 1 3 0 0 0 0
+1 4000 100
+E
+leather armor~
+&+yFine soft leather has been carefully stitched together and then hardened&N
+&+yto help it withstand blows.  The leather remains supple so it doesn't &N
+&+yhinder movement much, yet strong enough to provide real protection.&N
+~
+#16505
+looking glass~
+&+ya looking glass&N~
+A &+ybrass&N tube full of glass &+Mpr&+Yis&+Rms&N lies here.~
+~
+12 7 2 0 7 0 262144 16385 0 0 0
+0 0 0 0 0 0 0 0
+2 5000 100
+E
+looking glass~
+This long &+ybrass tube&N has been filled with carefully ordered magical glass
+prisms designed to aid one in seeing great distances.
+~
+A
+25 0
+#16506
+leather tunic~
+&+ya leather tunic&N~
+&+yA small tunic of hard leather lies here.~
+~
+9 13 2 0 7 0 8192 9 0 4165209604 0
+7 3 1 3 0 0 0 0
+1 300 100
+E
+leather tunic~
+&+yInexpensive common leather has been stitched together to create a small&N
+&+ytunic.  The workmanship and quality of the leather make it better armor&N
+&+ythan bare skin, but not much.&N
+~
+#16507
+pike~
+&+La pike with a jagged tip&N~
+A small halfling sized pike with a jagged tip lies here.~
+~
+5 16 3 0 7 0 4194304 8193 0 4198895524 0
+8 2 6 11 0 0 0 0
+5 2000 100
+E
+pike~
+The long thin tip of the pike has a particularily jagged edge to help it pass
+through heavy armor more easily.  Gouges in the haft of the pike show that this
+is NOT a simple ceremonial weapon.
+~
+#16508
+robe robes cloth~
+&+Lthe robes of judgment&N~
+&+LA dark pile of cloth lies here.&N~
+~
+11 3 2 0 7 0 1024 9 66 37883812 0
+0 0 0 0 0 0 0 0
+6 20000 100
+E
+robe robes cloth~
+&+LThese dark magical robes where designed to both protect the judge wearing&N
+&+Lthem and to help them properly assess everything presented to them.  Fine&N
+&+Lgray threads interweave with black threads, all of which seem to flex with&N
+&+Lmagical might.&N
+~
+A
+4 9
+A
+17 -14
+#16509
+tunic white~
+&+Wa white tunic&N~
+A cathedral guard's soft white tunic lies here.~
+~
+9 3 2 0 7 0 8192 9 2 4173708804 0
+6 3 1 3 0 0 0 0
+0 500 100
+E
+tunic white~
+Brilliant &+Wwhite&N threads have been used to create a very fine linen tunic
+for some of the Woodseer cathedral guards.  Several layers of padding have been
+put into the tunic to try to make it somewhat protective, but all in all, it is
+just cloth.
+~
+#16510
+cudgel jodani club~
+&+ya &+rjodani&N &+ywood cudgel&N~
+A short club of hardened &+rjodani wood&N lies here.~
+~
+5 6 3 0 7 0 8192 8193 66 4165209604 0
+10 1 6 6 0 0 0 0
+1 1000 100
+E
+cudgel jodani club~
+The &+rjodani wood&N stick has been specially hardened to make it a powerful
+club.  Despite its special treatment, several gouges and nicks can be seen
+beneath its heavy layer of polish.
+~
+A
+18 1
+#16511
+mace~
+a &+Lbald mace&N~
+A mace with a small polished bald ball at the end lies here.~
+~
+5 16 2 0 7 0 0 8193 66 4165209604 0
+6 1 6 7 0 0 0 0
+5 1500 100
+E
+mace~
+Unlike many of the wicked looking spiked maces that many warriors and clerics
+favor, this mace is completely bald of spikes or markings.  The head of the
+mace is quite heavy and is certain to carry a big punch.
+~
+#16512
+robe robes~
+&+gthe robes of the forest goddess&N~
+&+gDark green cloth lies in a pile on the ground.&N~
+~
+11 3 2 0 7 0 8192 9 2 0 0
+0 0 0 0 0 0 0 0
+2 2500 100
+E
+robe robes~
+Several different beautiful &+ggreen&N threads have been used in the weaving of
+this fine garment.  The different colors are used to create the design of a
+tree along the front of the robe and of a large leaf on its back.
+~
+A
+17 -12
+A
+4 4
+#16513
+cloth robe robes~
+&+Wa whisper thin robe&N~
+&+WSome light, almost transparent, cloth lies here.~
+~
+11 3 2 0 7 0 0 9 66 0 0
+0 0 0 0 0 0 0 0
+0 5000 100
+E
+cloth robe robes~
+&+WThe cloth is so thin that it is almost transparent.  There is no way this&N
+&+Wrobe can provide anything in the way of protection, but it might be useful&N
+&+Wfor an exhibitionist.  The only marking on the robe is the symbol of the &N
+&+Wgoddess of love and fertility, embroidered on the center of the front of the&N
+&+Wrobe.&N
+~
+A
+28 13
+A
+17 -12
+#16514
+cloak red~
+&+ra blood-red cloak&N~
+&+rCloth the color of blood lies in a pile on the ground.&N~
+~
+11 3 2 0 7 0 2170880 1025 0 0 0
+0 0 0 0 0 0 0 0
+1 2000 100
+E
+cloak red~
+&+RBright blood-red cloth has been used to create a fine cloak with the symbol&N
+&+Rof the halfling god of war and justice.  It almost seems as if worshippers &N
+&+Rof the god of war must always be willing to fight and die for a cause.&N
+~
+A
+18 1
+A
+17 -8
+#16515
+blue robe~
+&+ba blue silk robe&N~
+&+bA blue silk robe with the&N &+Wwhite&+b symbol of the god of water lies here.~
+~
+11 3 2 0 7 0 537927680 9 66 0 0
+0 0 0 0 0 0 0 0
+1 2500 100
+E
+blue robe~
+&+BBlue silk has been embroidered with a &+Wwhite waterfall&+Bto indicate the&N
+&+Bgod of wind and water.  The fine fabric glows with a magical light and seems&N
+&+Bbillow in an unseen breeze.&N
+~
+A
+17 -20
+A
+3 4
+#16516
+cloak elegant~
+&+man elegant cloak&N~
+&+mAn embroidered cloak lies in a pile on the ground.&N~
+~
+11 3 3 0 7 0 1056768 1025 64 0 0
+0 0 0 0 0 0 0 0
+1 5000 100
+E
+cloak elegant~
+Soft silken fabric has been carefully embroidered with beautiful patterns of
+leaves and trees all interwoven together.  The beautiful purple fabric
+bears a soft shimmer that makes it look more ornamental than protective.
+~
+A
+3 4
+A
+17 -6
+#16517
+muddy boots~
+&+ysome muddy boots&N~
+&+yA pair of muddy boots lies here.&N~
+~
+9 13 2 0 7 0 0 65 0 0 0
+4 6 1 3 0 0 0 0
+4 3000 100
+E
+muddy boots~
+Layers of mud cover these plain boots, boots that have obviously seen a great
+deal of hard use.
+~
+A
+1 4
+A
+26 -4
+#16518
+axe ax~
+&+Wa bright axe&N~
+A loggers axe lies here waiting to be used.~
+~
+5 16 2 0 7 0 4194304 8193 0 0 0
+1 1 3 3 0 0 0 0
+5 3000 100
+E
+axe ax~
+The heavy head of the axe has been designed to cut wood and not for use as a
+weapon.  A sturdy logger might be able to swing this at a tree all day long
+but a warrior would require a great deal of strength and dexterity to use it
+as a weapon.
+~
+A
+18 1
+A
+19 1
+#16519
+silk dress~
+&+Wa silk dress&N~
+An embroidered silk dress lies here.~
+~
+11 3 2 0 7 0 8192 9 0 0 0
+0 0 0 0 0 0 0 0
+0 4000 100
+E
+silk embroidered~
+Fine silk has been used to create this wonderful dress and the artful
+embroidery has added a great deal to its value.  This is obviously a formal
+garment that is worn on only the most important occasions.
+~
+A
+17 -5
+#16520
+belt tool~
+&+ca tool belt&N~
+&+CA thin leather belt lined with small loops lies here.&N~
+~
+11 13 2 0 7 0 8192 2049 64 0 0
+0 0 0 0 0 0 0 0
+1 1000 100
+E
+belt tool~
+Small loops line the thin leather belt, designed to hold a variety of tools
+for woodcarving.  The belt is worn and tired-looking, but still very
+functional.
+~
+A
+2 4
+A
+17 -3
+#16521
+breastplate white plate~
+&+Wa white breastplate&N~
+&+WA polished white breast plate lies here.&N~
+~
+9 16 3 0 7 0 0 9 2 4173708804 0
+12 3 6 3 0 0 0 0
+5 5000 100
+E
+plate white~
+&+WThis fine white breast plate has been highly polished so that it shines in &N
+&+Wthe sunlight.  The armor shows scars of past dents that have been pounded out&N
+&+Wand polished over, but none of these past markings in any way weakens the&N
+&+Warmor.&N
+~
+#16522
+jodani wood chip~
+&+ra tiny jodani wood chip&N~
+&+rAn oblong jodani wood chip lies here.&N~
+~
+11 6 2 0 7 0 69632 524289 2 0 0
+0 0 0 0 0 0 0 0
+0 1000 100
+E
+jodani wood chip~
+&+yThis small &+rjodani&N &+ywood chip has a small tip hanging out of it that&N
+&+ymakes it look wearable.&N
+~
+A
+17 -2
+#16523
+stag~
+&+ra jodani wood stag&N~
+&+rAn intricately carved jodani wood stag stands here.&N~
+~
+34 6 2 0 7 0 12288 16385 0 0 0
+1 0 0 0 0 0 0 0
+0 1000 100
+E
+stag~
+&+rGorgeous red jodani wood has been carved into the figure of a rearing stag&N
+&+rthat reaches toward the sky.  The exquisite craftsmanship has brought the&N
+&+rcreature to life so that it seems to move as it is stared at.&N
+~
+A
+4 4
+#16524
+platinum coins~
+&+Wsome platinum&N~
+&+WA pile of platinum coins lies here.&N~
+~
+20 25 3 0 7 0 0 1 0 0 0
+0 0 0 3 0 0 0 0
+0 1 100
+E
+platinum coins~
+A few ordinary platinum coins lie here, discarded by someone with more money
+than they need.
+~
+#16525
+flute instrument~
+&+ca mithril flute&N~
+&+cAn exquisitely made mithral flute lies here.&N~
+~
+32 18 2 0 7 0 134480896 16385 64 8487456 0
+184 20 0 1 0 0 0 0
+1 20000 100
+E
+flute~
+&+cA careful dwarven script along the side of the flute says 'For Lomar, Friend&N
+&+cof the Clan.'  A fortune in mithral was used in the construction of this fine&N
+&+cinstrument and the beautiful sounds it creates prove that the craftsmanship &N
+&+cthat went into its creation make it even more valuable.&N
+~
+A
+17 -5
+#16526
+mandolin instrument~
+&+ya broken mandolin&N~
+&+yA mandolin lies here with its strings broken.&N~
+~
+13 6 3 0 7 0 8400896 1 0 0 0
+0 0 0 0 0 0 0 0
+2 1 25
+E
+mandolin~
+The poor instrument looks forlorn as it has been treated terribly by whatever
+left it here.  The strings are broken and there is a hole in the body of the
+mandolin itself.  A great deal of love and effort would be required to get this
+poor thing to play again.
+~
+#16527
+tuxedo black~
+&+La black tuxedo&N~
+&+LA black tuxedo has been carefully hung here.&N~
+~
+11 3 2 0 7 0 536870912 9 0 0 0
+0 0 0 0 0 0 0 0
+1 3000 100
+E
+tuxedo black~
+Made of the finest black cloth, this tuxedo is an excellent addition to ones
+formal wardrobe.
+~
+A
+17 -10
+#16528
+silver engraved earring~
+&+can engraved silver earring&N~
+&+WA tiny engraved silver earring lies here.&N~
+~
+9 22 2 0 13 20 4096 524289 65 0 0
+5 14 0 3 0 0 0 0
+0 20000 100
+E
+silver engraved earring~
+&+cAn intricate tree has been engraved into the flat sides of the tear-drop&N
+&+cshaped earring.&N
+~
+A
+24 -2
+A
+13 10
+#16529
+tool~
+&+Wa jeweler's tool&N~
+&+WA long thin jeweler's engraving tool lies here.&N~
+~
+5 16 2 0 7 0 0 8193 64 4194697632 0
+2 1 3 11 0 0 0 0
+0 5000 100
+E
+tool~
+The long thin tool ends in an extremely sharp point that is specifically
+designed to cut into metal to create engravings.
+~
+A
+18 2
+A
+19 2
+#16530
+ring dragonbone~
+&+Wa dragonbone ring&N~
+&+WA small ring of bone lies here.&N~
+~
+9 10 2 0 14 30 136388608 3 0 0 0
+6 1 0 3 0 0 0 0
+0 20000 100
+E
+ring dragonbone~
+One of the finger bones from a dragon's claw has been carved into a small ring
+that has been engraved with the letter "G".
+~
+A
+24 -2
+A
+19 2
+#16531
+short sword bone~
+a &+Wbone handled&N short sword~
+A well-made short sword with a bone handle lies here.~
+~
+5 10 2 0 7 0 134250496 8193 64 0 0
+9 1 4 3 0 0 0 0
+3 20000 100
+E
+short sword bone~
+A carved bone grip melds with the sword to create an artistic, and well-
+balanced weapon.  The steel of the blade has a sharpness to it that could only
+been created magically.
+~
+A
+18 3
+A
+19 3
+#16532
+ebonwood staff _id_~
+an elegant &+Lebonwood&N staff~
+An elegantly carved &+Lebonwood&N staff lies here.~
+~
+4 6 2 0 7 0 4194304 16385 64 0 0
+35 1 1 7 0 0 0 0
+3 200 100
+E
+ebonwood staff~
+Fashioned of hard ebonwood this fine walking stick has received some ornate
+carvings and odd inscriptions of some sort that would seem to indicate that
+it might have some other uses as well.
+~
+E
+_id_name_~
+staff ebonwood charming
+~
+E
+_id_short_~
+an elegant &+Lebonwood&n staff of charming
+~
+#16533
+silk cloak~
+&+ma silk cloak&N~
+&+mA violet silk cloak lies here.&N~
+~
+11 3 2 0 7 0 8192 1025 64 0 0
+0 0 0 0 0 0 0 0
+1 4000 100
+E
+silk cloak~
+Made of the finest silk and embroidered with the symbol of a small thin tower,
+this cloak is obviously more for show than true protection from the elements.
+One very nice thing about this cloak though, it does have a tight enough weave
+that short exposure to water shouldn't stain it.
+~
+A
+17 -4
+A
+13 10
+#16534
+bracelet glass~
+&+La smokey glass bracelet&N~
+&+LA circle of smokey glass lies here.&N~
+~
+9 19 2 0 13 0 134288384 4097 64 8515584 0
+5 11 1 3 0 0 0 0
+0 20000 100
+E
+bracelet glass~
+The glass was blown in long thin hollow strands that were then woven together
+and melted to form a whole.  The smokey quality seems to be due to smoke that
+was caught in the hollow tubes as they were being created.
+~
+A
+18 1
+A
+19 2
+#16535
+black stiletto~
+&+La thin black stiletto&N~
+&+LA slender, dangerous-looking black stiletto lies here.&N~
+~
+5 16 2 0 7 0 150996224 8193 64 77824 0
+2 1 3 11 0 0 0 0
+1 20000 100
+E
+black stiletto~
+Thin black steel with a razor's edge forms the blade, and dark black leather
+wraps the hilt.  A single letter has been inscribed into the blade, the letter
+"C", obviously the intial of its owner, or at least its first owner...
+~
+A
+18 4
+A
+19 3
+#16536
+ivory spear~
+&+Wan ivory spear&N~
+&+WA spear made entirely of ivory lies here.&N~
+~
+5 34 3 0 7 0 20971536 8193 64 4198895524 0
+8 1 7 11 0 0 0 0
+4 20000 100
+E
+ivory spear~
+&+WBeautiful ivory was used to make both the shaft and the blade of this&N
+&+Wfragile-looking spear.  Though it looks fragile, the spear appears to be&N
+&+Wquite old and must be very sturdy to have survived so long.&N
+~
+A
+18 3
+A
+19 3
+#16537
+cloak troll~
+a &+gtroll-hide cloak&N~
+&+gA cloak made of a strange rough leather lies here.&N~
+~
+9 14 2 0 7 0 134283264 1025 64 4198895524 0
+10 9 1 5 0 0 0 0
+1 20000 100
+E
+cloak troll~
+Rough tanned leather has been made from the hide of a troll and used to make
+this somewhat heavy leather cloak.  The leather looks quite tough and sturdy,
+but it is still hard to imagine skinning a troll before it comes back to life.
+In fact, thinking about how the hide was obtained could give one nightmares.
+~
+A
+18 1
+#16538
+yellow hat~
+a &+Yyellow&N hat~
+A dusty &+yyellow&N linen hat lies here.~
+~
+11 3 2 0 7 0 110624 17 64 0 0
+0 0 0 0 0 0 0 0
+1 15000 100
+E
+yellow hat~
+Soft &+Yyellow&N linen was used to make this somewhat beat-up looking hat.
+Nothing really seems very special about it, yet something about it makes
+one want to pick it up and keep it forever.
+~
+A
+17 -4
+A
+13 10
+#16539
+ball sphere quartz~
+&Na qua&+cr&nt&+Wz s&Nphere&N~
+A perfectly smooth ball of quartz lies here.~
+~
+11 8 2 0 7 0 134545408 16385 64 0 0
+0 0 0 0 0 0 0 0
+3 20000 100
+E
+ball sphere quartz~
+This perfect sphere of quartz has obviously been treated with powerful magic.
+That is the only explanation for the perfection of its smoothe surface.
+Exactly what it was made for and what its powers truely are is impossible to
+determine, but it is certainly of great value.
+~
+A
+13 15
+#16540
+wreath crown~
+&+gthe wreath of ages&N~
+&+gA green wreath made of many different leaves lies here.&N~
+~
+11 5 2 0 7 0 2163713 17 0 33685920 0
+0 0 0 0 0 0 0 0
+1 10000 100
+E
+wreath crown~
+&+gThis wreath of leaves is small enough to be worn as a crown and has clearly&N
+&+gbeen used as headwear in the past.  Strong magic has kept the leaves green&N
+&+genough that they could have been taken off the tree just this morning.  Why&N
+&+gso many different types of leaves were used to make this small crown is&N
+&+gunclear, but the variety adds an interesting texture and appearance to it.&N
+~
+A
+13 10
+A
+4 9
+#16541
+mace ceremonial wood~
+&+ya ceremonial mace&N~
+&+yAn intricately carved wooden mace lies here.&N~
+~
+5 6 2 0 7 0 134292480 8193 64 33685920 0
+6 1 6 6 0 0 0 0
+2 12000 100
+E
+mace ceremonial wood~
+&+yMade of a light tan wood, this mace is far to light to be very useful in&N
+&+ybattle.  In fact, it is so light it is difficult to wield at all.  However,&N
+&+yintricate carvings along the shaft and head of the mace make it one of the&N
+&+ymore beautiful ceremonial weapons around.  It is clear that use of this&N
+&+ybeautiful weapon in battle would simply destroy its beauty and magic.&N
+~
+A
+13 15
+A
+18 -3
+#16542
+pond~
+a pond~
+&+bA small, shallow pond is here.&N~
+~
+17 40 3 0 7 0 0 0 0 0 0
+-1 -1 0 0 0 0 0 0
+0 0 100
+E
+pond~
+&+bClear blue water fills a shallow depression here creating a small pond&N
+&+bthat gives ducks, frogs, and turtles a place to live.&N
+~
+#16543
+meat turtle raw~
+some raw turtle meat~
+Raw turtle meat lies here waiting to be cooked.~
+~
+19 2 3 0 7 0 8388608 16385 0 0 0
+4 0 0 0 0 0 0 0
+0 1 100
+E
+meat turtle raw~
+This raw meat wouldn't really be very tasty until put into a nice soup, or
+maybe even some stew.
+~
+#16544
+feather~
+a hummingbird feather~
+A small thin tailfeather lies here.~
+~
+13 10 3 0 7 0 8462336 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+feather~
+Beautiful and delicate, this thin feather from the tail of a small hummingbird
+would seem to have little use other than decoration.
+~
+#16545
+honey~
+&+Ysome honey&N~
+&+YSome sticky honey lies here&N~
+~
+19 40 3 0 7 0 0 16385 0 0 0
+2 0 0 0 0 0 0 0
+0 1 100
+E
+honey~
+The thick brown honey would be perfect to use in a glaze, or even to spread
+over some fresh bread.
+~
+#16546
+wax beeswax~
+&+Ysome beeswax&N~
+&+YSome bees wax lies here.&N~
+~
+13 5 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+wax~
+This small chunk of bees wax can be used in the creation of some wood polishes
+as well as in candles.  It is often used to help finish certain types of wood
+to give them a nice shine.
+~
+#16547
+egg bee~
+&+Wan oblong egg&N~
+&+WAn oblong egg lies here.&N~
+~
+13 2 3 0 7 0 8458240 16385 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+egg bee~
+This oblong egg is somewhat translucent.  Through the thin shell a small larvae
+can be seen developing, probably only days away from hatching.
+~
+#16548
+green gem~
+&+ga green gem&N~
+&+gA small green gem lies here hidden in the rubble.&N~
+~
+8 26 3 0 7 0 266240 16385 64 0 0
+0 0 0 0 0 0 0 0
+1 1000 100
+E
+green gem~
+This small green gem glows with a flickering, almost intelligent evil.  Once
+quite powerful the magic of the gem has faded to only a shadow of what it
+once was.
+~
+#16549
+hat yellow~
+&+Ya bright yellow hat&N~
+&+YA bright yellow hat with &+mviolet&+Y spots lies here.&N~
+~
+11 3 2 0 7 0 8192 17 0 0 0
+0 0 0 0 0 0 0 0
+0 500 100
+E
+hat yellow~
+   &+YThis bright yellow hat has some ugly &+mviolet&+Yspots on it that&N
+&+Ymake it one of the most hideous things one could ever see.  Though it is&N
+&+Ymade of fine silk and has a bit of a magic glow to it, only someone tinged&N
+&+Ywith madness would wear it in public.&N
+~
+A
+17 -4
+#16550
+purple boots~
+&+Ma pair of purple suede boots&N~
+&+MSome ugly purple suede boots lie here.&N~
+~
+11 3 2 0 7 0 8192 65 64 0 0
+0 0 0 0 0 0 0 0
+1 2000 100
+E
+purple boots~
+   Though light and sturdy enough for heavy traveling, these boots are ugly
+enough that few would want to spend much money on them.  Stained with an awful
+purple dye, there are few that would wear them.
+~
+A
+14 20
+A
+17 -6
+#16551
+blanket tazten~
+&+ya tightly woven tazten blanket&N~
+&+ySoft tazten bark has been tightly woven together to make a small blanket.&N~
+~
+11 42 2 0 7 0 12288 1025 64 0 0
+0 0 0 0 0 0 0 0
+0 1000 100
+E
+blanket tazten~
+   The light thin bark of the tazten tree has been woven into a small well-made
+blanket that appears to be very good at withstanding the elements.  A cord
+on one side of the blanket suggests that it could double as a protective cloak
+in colder and harsher climes.
+~
+A
+17 -6
+A
+18 1
+#16552
+hoe garden~
+a garden hoe~
+An ordinary garden hoe lies here.~
+~
+5 16 2 0 7 0 4194304 8193 0 0 0
+8 1 4 6 0 0 0 0
+3 500 100
+E
+hoe garden~
+This ordinary hoe can double as a clumsy weapon for trying to chase pests out
+of the fields.
+~
+#16553
+hook lure~
+&+Wan old fish hook&N~
+An old fishing lure lies here.~
+~
+11 16 2 0 7 0 69632 524289 64 0 0
+0 0 0 0 0 0 0 0
+0 2000 100
+E
+hook lure~
+This small fishing lure has lost all of the color it once had.  Shaped like a
+small silver fish it clearly had more color once, color that has been stripped
+away by time.
+~
+A
+17 -1
+A
+18 1
+#16554
+canoe~
+a light canoe~
+&+yA canoe made of bark lies here.&N~
+~
+22 6 2 0 7 0 8192 16385 0 0 0
+0 0 0 0 0 0 0 0
+40 23552 100
+E
+canoe~
+This light canoe was made entirely of a thin bark that was specially treated
+to make it waterproof.  Thin wooden spars and struts provide support to the
+bark without adding much weight.  Small canoes such as this are favored by the
+halfling fishermen because they are so easy to carry around and control.
+~
+#16555
+leaves robe~
+&+Ga robe of leaves&N~
+&+GLeaves lie here intertwined with each other.~
+~
+11 3 3 0 7 0 73728 9 64 0 0
+0 0 0 0 0 0 0 0
+0 15000 100
+E
+leaves robe~
+&+GLeaves have been intertwined together to create a long flowing robe.&N
+&+GExactly how the robe was created is uncertain, but it has a magical aura&N
+&+Gthat can be felt even from a distance.  Something about the robe indicates&N
+&+Gremoving far from the forest in which it was created may reduce its power&N
+&+Gsomewhat, but even so its magic is quite strong.&N
+~
+A
+17 -15
+A
+28 9
+#16556
+silver owl~
+&+ca silver owl broach&N~
+&+cA silver owl with &+gemerald&+c eyes lies here.&N~
+~
+8 22 2 0 7 0 4096 2097153 0 0 0
+0 0 0 0 0 0 0 0
+0 1000 100
+E
+silver owl~
+This well-crafted silver owl is a bit tarnished but is clearly worth a fair
+amount despite its tiny size.  Tiny emeralds have been used as eyes on the
+small pin, which is more of a decoration than anything else.
+~
+#16557
+moccasins alligatorskin~
+&+gsome alligatorskin moccasins&N~
+&+gSome alligatorskin moccasins rest here.&N~
+~
+9 12 2 0 7 0 8192 65 64 4198895524 0
+5 6 1 3 0 0 0 0
+0 1000 100
+E
+moccasins alligatorskin~
+An incredible amount of work must have gone into the curing of the alligator-
+skin that went into these moccasins.  The leather is soft and flexible, and
+incredibly comfortable to wear.
+~
+A
+26 4
+A
+2 4
+#16558
+boots tan~
+&+ya pair of tan leather boots&N~
+&+ySome tan leather boots lie here.&N~
+~
+9 13 2 0 7 0 8192 65 64 4165209604 0
+6 6 1 3 0 0 0 0
+1 1000 100
+E
+boots tan~
+These fine boots have been made by the softest and sturdiest of leather.  The
+supple hide makes hiking easy on the feet and allows one to travel greater
+distances through the mountains and jungles.
+~
+A
+14 15
+A
+1 4
+#16559
+green belt ornate~
+&+gan ornate green belt&N~
+&+gAn ornate leather belt that has been dyed green lies here.&N~
+~
+9 3 2 0 7 0 73728 2049 0 4198895524 0
+5 10 0 3 0 0 0 0
+1 10000 100
+E
+green belt ornate~
+Ornate designs have been burned into the leather to create an extremely
+attractive belt.  Some sort of green dye has been used to stain the leather
+an attractive green hue that seems to add to the intricate design.
+~
+A
+30 9
+A
+18 1
+#16560
+hat fishing~
+&+ca fishing hat&N~
+&+cA brightly colored fishing hat lies here.&N~
+~
+11 3 2 0 7 0 8192 17 0 0 0
+0 0 0 0 0 0 0 0
+0 500 100
+E
+hat fishing~
+Made of a light cloth, this hat provides comfortable protection from the sun
+as well as wind and rain.  The wide rim of the hat provides an excellent place
+to place fishing hooks to keep them within easy reach.
+~
+A
+17 -4
+#16561
+green pigment~
+&+Ga tube of green pigment&N~
+&+GSome green liquid from the belly of a dragonfly is here.&N~
+~
+13 15 3 0 7 0 8392704 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+green pigment~
+This disgusting green liquid is often used as a pigment for paints and dyes.
+~
+#16562
+chest ivory~
+&+Wan ivory chest&N~
+&+WAn ivory chest with &+Ygold&N &+Wtrim rests here.~
+~
+15 34 3 0 7 0 0 0 64 0 0
+40 29 16563 250 0 0 0 0
+5000 0 100
+E
+chest ivory~
+&+WHuge amounts of ivory and &+Ygold&+W went into the creation of this huge&N
+&+Wgaudy chest.  The lock looks quite sturdy, as does the rest of the heavy&N
+&+Wchest.  Something this expensive and gaudy must have something valuable&N
+&+Winside.&N
+~
+#16563
+ivory key~
+&+Wan ivory key&N~
+&+WAn ornate ivory key lies here.&N~
+~
+18 34 2 0 7 0 8392704 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100
+E
+ivory key~
+&+WThis ornate ivory key must be for some sort of intricate lock.&N
+~
+#16564
+gold bar~
+&+Ya bar of gold&N~
+&+YA bar of gold lies here.&N~
+~
+8 24 3 0 7 0 0 1 0 0 0
+0 0 0 0 0 0 0 0
+10 3000 100
+E
+gold bar~
+&+YThis gold bar is heavy enough that it must be worth at least a few platinum.&N
+~
+#16565
+bracelet silver~
+&+can elegant bracelet&N~
+&+cAn elegant silver bracelet lies here.&N~
+~
+9 22 2 0 7 0 262144 4097 65 0 0
+5 11 24 2 0 0 0 0
+0 4000 100
+E
+bracelet silver~
+Thin bands of silver weave together to create an elegant loop that is just
+the right size for a halfling wrist.  This light bracelet is obviously very
+magical for it glows with a bright light.
+~
+A
+13 5
+#16566
+ebonwood bracelet~
+&+Lan ebonwood bracelet&N~
+&+LAn intricately carved ebonwood bracelet lies here.&N~
+~
+9 6 2 0 7 0 77824 4097 64 0 0
+5 11 24 4 0 0 0 0
+0 2500 100
+E
+ebonwood bracelet~
+This thin bracelet is really a thin wooden serpent that winds around itself
+three times.  The eyes of the serpent are of a different lighter colored wood
+that has been inlayed into the &+Lebonwood&N.  The effect is quite beautiful.
+The bracelet is light but extremely sturdy, possibly hardened through the use
+of magical enchantment.
+~
+A
+24 -1
+#16567
+stiletto silver~
+&+ca silver stiletto&N~
+&+cA thin silver stiletto lies here.&N~
+~
+5 22 2 0 7 0 16909312 8193 1 8515584 0
+2 1 3 11 0 0 0 0
+1 5000 100
+E
+stiletto silver~
+Ornate designs line the thin silver blade of this very costly stiletto.  It is
+more of a decorative piece than something that would be in heavy use, but it
+looks quite deadly all the same.
+~
+A
+18 1
+A
+19 2
+#16568
+robe torn tattered~
+a tattered robe~
+A torn and rotting robe lies here rotting.~
+~
+11 3 3 0 7 0 0 9 0 0 0
+0 0 0 0 0 0 0 0
+0 4000 100
+E
+robe torn tattered~
+Huge tears in the robe make it virtually worthless.  The only thing that could
+possibly be keeping it together is magic.
+~
+A
+18 2
+A
+17 -6
+#16569
+silver earring stud~
+&+ca silver ear stud&N~
+&+cA small silver earring lies here.&N~
+~
+11 22 3 0 7 0 69632 524289 64 0 0
+0 0 0 0 0 0 0 0
+0 2000 100
+E
+silver earring stud~
+This small silver stud is rather unimpressive, and certain to be easily lost.
+~
+A
+17 -3
+A
+24 -1
+#16570
+greem marble bracelet~
+&+ga green marble bracelet&N~
+&+gA circle of green marble lies here.&N~
+~
+9 38 8 0 10 0 4096 4097 64 0 0
+5 11 1 3 0 0 0 0
+2 1000 100
+E
+greem marble bracelet~
+This heavy bracelet is of good, though perhaps not exceptional work.  It would
+be a much nicer piece if it weren't so thick and heavy, but it could certainly
+provide a bit of protection.
+~
+A
+18 1
+#16571
+pink stone earring~
+&+Ran oblong pink stone&N~
+&+RAn oblong pink stone lies here.&N~
+~
+11 11 3 0 7 0 65536 524289 64 0 0
+0 0 0 0 0 0 0 0
+1 2000 100
+E
+pink stone earring~
+This pink stone has a small stone hook at one end that would allow one to wear
+it as an earring.  It has a faint magical aura that makes its perfectly smooth
+surface appear all that much more flawless.
+~
+A
+17 -3
+#16572
+black leg plate plates~
+&+La pair of black marble leg plates&N~
+&+LSome black marble leg plates lie here.&N~
+~
+9 16 3 0 7 0 0 33 0 4198895524 0
+7 5 1 3 0 0 0 0
+3 3000 100
+E
+black leg plate plates~
+&+LSmooth black marble has been used to create these thin, but still heavy&N
+&+Lleg plates.  Their magic aura hints that they may be more than just&N
+&+Ldecorative.&N
+~
+A
+1 4
+A
+19 1
+#16573
+bracers blue stone~
+&+ba pair of blue stone bracers&N~
+&+bSome full length blue stone bracers lie here.&N~
+~
+9 11 3 0 7 0 0 257 64 4198895524 0
+7 8 1 3 0 0 0 0
+2 2500 100
+E
+bracers blue stone~
+&+bThin smooth blue stone has been used to create these fine arm protectors.&N
+&+bThe only bad thing that can be said about them is that they are a bit heavy&N
+&+band difficult to move in, otherwise they are finely crafted.&N
+~
+A
+14 5
+A
+13 5
+#16574
+blue stone chip~
+&+ba blue stone chip&N~
+&+bA chip of blue stone lies here.&N~
+~
+11 11 3 0 7 0 331776 131073 64 0 0
+0 0 0 0 0 0 0 0
+0 2000 100
+E
+blue stone chip~
+&+bThe edges of this blue chip of stone have been smoothed, to keep them from&N
+&+bbecoming sharp enough to cut, but nothing else has been done with it.  It&N
+&+bappears to be a discard.
+~
+A
+13 7
+A
+24 -1
+#16575
+belt green~
+&+ga green linen belt&N~
+&+gA thin strip of soft green cloth lies here.&N~
+~
+9 3 2 0 7 0 73728 2049 64 0 0
+5 10 0 3 0 0 0 0
+0 5000 100
+E
+belt green~
+&+gThis thin strip of green linen looks soft yet appears to be quite sturdy.&N
+&+gA gold thread is interwoven along the length of the cloth but it is only&N
+&+gvisible upon close inspection, otherwise it is relatively plain.&N
+~
+A
+26 7
+A
+18 2
+#16576
+ring wood wooden~
+&+ya wooden ring&N~
+&+yA small wooden ring lies here.&N~
+~
+11 6 2 0 7 0 8192 3 64 0 0
+0 0 0 0 0 0 0 0
+0 500 100
+E
+ring wood wooden~
+This small wooden ring is of exceptional craftsmanship, a sign of what a
+truely skilled woodworker can do on a small scale.
+~
+A
+17 -3
+A
+14 10
+#16577
+silver dress~
+&+ca silver dress&N~
+&+cA small silver dress lies here.&N~
+~
+11 22 2 0 7 0 8192 9 0 0 0
+0 0 0 0 0 0 0 0
+0 2000 100
+E
+silver dress~
+This small silver dress is perfect for everyday wear.  It is simple and elegant
+but not quite formal enough for special occasions.
+~
+A
+5 4
+A
+17 -7
+#16578
+slippers emerald~
+&+ga pair of emerald slippers&N~
+&+gSome emerald slippers made of soft silk lie here.&N~
+~
+11 32 2 0 7 0 9216 65 64 4197892 0
+0 0 0 0 0 0 0 0
+1 3000 100
+E
+slippers emerald~
+&+gThese emerald slippers are made of the finest silk which has been magically&N
+&+gtreated so that the color never fades.  They are normally given to the mages&N
+&+gthat serve the emerald tower of Woodseer in return for acting as instructors&N
+&+gin the practice rooms and libraries.&N
+~
+A
+26 4
+A
+5 4
+#16579
+flask potion~
+a plain flask~
+A plain flask rests here.~
+~
+10 7 3 0 7 0 0 16385 0 0 0
+15 1 3 -1 0 0 0 0
+1 750 100
+E
+flask potion~
+This plain flask contains a thick looking liquid which may or may not be safe
+to drink.
+~
+#16580
+emerald cloak~
+&+gan emerald-green cloak&N~
+&+gAn emerald-green cloak with the emblem of a tower lies here.&N~
+~
+11 32 2 0 7 0 8192 1025 64 0 0
+0 0 0 0 0 0 0 0
+0 4000 100
+E
+emerald cloak~
+&+gA deep emerald-green dye has been used to dye soft tazten bark a deep green.&N
+&+gThis cloak is soft and sturdy, and the emblem of an emerald tower in its&N
+&+gcenter marks it has belonging to one of the guardian mages of the emerald&N
+&+gtower in Woodseer.&N
+~
+A
+17 -4
+A
+5 4
+#16581
+dark hood~
+&+La dark hood&N~
+&+LA long dark piece of cloth lies here.&N~
+~
+11 3 2 0 7 0 1073750016 17 0 0 0
+0 0 0 0 0 0 0 0
+0 2000 100
+E
+dark hood~
+This dark hood helps provide some small amount of protection against the
+elements as well as covering the features of its wearer.
+~
+A
+3 4
+A
+17 -5
+#16582
+wood spear~
+&+ya wood spear&N~
+&+yA sturdy wood spear lies here.~
+~
+5 6 3 0 7 0 20979712 8193 0 0 0
+8 1 5 11 0 0 0 0
+2 1000 100
+E
+wood spear~
+This wood spear is both sturdy and easy to construct.  It can be used in both
+hand-to-hand fighting as well as a missile weapon making it one of the most
+useful all-purpose weapons around.
+~
+#16583
+spear obsidian~
+a spear with an &+Lobsidian&N tip~
+A short spear with an &+Lobsidian&N tip lies here.~
+~
+5 36 3 0 7 0 20979712 8193 0 0 0
+8 1 5 11 0 0 0 0
+4 5000 100
+E
+spear obsidian~
+This short wooden spear has an extremely sharp &+Lobsidian&N tip specially
+designed for piercing armor.  It is a fine example of an all-purpose weapon
+that can be used in many different ways.
+~
+A
+18 1
+A
+19 1
+#16584
+pin stag badge~
+&+Ca pin of a silver stag&N~
+&+CA small silver stag that has been fashioned into a cloak pin lies here.&N~
+~
+8 22 2 0 7 0 0 2097153 0 0 0
+0 0 0 0 0 0 0 0
+0 1000 100
+E
+pin stag badge~
+This finely crafted silver stag makes a beautiful and stylish pin that will
+highlight any fine cloak it is placed on.
+~
+#16585
+linen apron~
+&+Wa white linen apron&N~
+&+WAn apron of white linen lies here.&N~
+~
+15 3 2 0 7 0 65536 1025 0 0 0
+15 0 0 100 0 0 0 0
+-10 1300 100
+E
+linen apron~
+This cute white apron is well-designed for cooks of all types.  It contains
+a number of loops that can hold a variety of utensils for cooking, as well as
+a pocket to hold recipes.
+~
+#16586
+collar hunting~
+a hunting collar~
+A small dog collar lies here.~
+~
+11 13 2 0 7 0 0 5 0 0 0
+0 0 0 0 0 0 0 0
+0 500 100
+E
+collar hunting~
+This small collar has been designed to help restrain hunting dogs to keep them
+from attacking the birds that they are trained to point out to their masters.
+It is made from a wide band of very thick leather and has a small buckle that
+closes it around the animals neck.
+~
+A
+17 -3
+#16587
+bracer wood~
+&+ya &+rjodani&+y wood bracer&N~
+&+yA bracer made of sturdy &+rjodani&+y wood lies here.&N~
+~
+9 6 2 0 7 0 73728 4097 0 0 0
+3 11 1 2 0 0 0 0
+0 2000 100
+E
+bracer wood~
+This wide bracer has been made of the incredibly sturdy jodani wood that is
+used so often in Woodseer.  The wood itself has been carefully carved, and,
+one would guess, magically bent for the grain follows along the outside
+of the wood quite unlike what it would do if it was carved from a block of
+wood.
+~
+A
+30 5
+#16588
+red cloak~
+&+Ra bright red cloak&N~
+&+RSomebody has left behind a bright red cloak.&N~
+~
+11 3 2 0 7 0 8192 1025 2 0 0
+0 0 0 0 0 0 0 0
+1 200 100
+E
+red cloak~
+&+RThis bright red cloak is short and obviously meant more for protection from&N
+&+Rstrong breezes than from strong storms.  It isn't even long enough to &N
+&+Rprotect an entire halfling's body.&N
+~
+A
+17 -5
+#16589
+ring wood ebonwood~
+&+Lan ebonwood ring&N~
+&+yAn &+Lebonwood&+y ring lies here waiting for its owner.&N~
+~
+11 6 2 0 7 0 8192 3 64 0 0
+0 0 0 0 0 0 0 0
+0 3000 100
+E
+ring wood ebonwood~
+This finely made ring bears the etchings of magical enchantments.  The highly
+polished wood has a sheen that isn't entirely mundane.  Despite its ordinary
+material, it would probably command a good price, if someone were willing
+to sell it.
+~
+A
+17 -5
+A
+24 -1
+#16590
+warhammer huge~
+&+Ca huge warhammer&N~
+&+CA tremendous warhammer has been left here.&N~
+~
+5 16 3 0 7 0 4195328 8193 0 87572571 0
+4 1 3 6 0 0 0 0
+20 3000 100
+E
+warhammer huge~
+This massive hammer has a haft taller than a halfling, and wider than many
+people's arms.  Only the strongest of warriors would be able to wield such
+a weapon.
+~
+A
+18 2
+A
+19 1
+#16591
+silk scarf~
+&+Ca silk scarf&N~
+&+CA long strip of silk has been discarded here.&N~
+~
+11 3 3 0 7 0 73728 5 0 0 0
+0 0 0 0 0 0 0 0
+0 1500 100
+E
+silk scarf~
+This thin strip of silk is strong enough to have many uses, but far to
+beautiful to use as anything other than a decorative scarf.
+~
+A
+13 7
+A
+24 -1
+#16592
+sword training~
+a training sword~
+A dull training sword has been tossed here.~
+~
+5 16 2 0 7 0 0 8193 0 4198895524 0
+9 1 5 3 0 0 0 0
+2 200 100
+E
+sword training~
+Though it could still be deadly, this sword has dull edges that keep it from
+causing as much damage as an ordinary sword.  It can certainly still leave
+a good bruise though.
+~
+A
+19 -3
+#16593
+shield large~
+a heavy shield~
+A large heavy shield lies here.~
+~
+37 16 2 0 7 0 0 513 0 4173708804 0
+2 1 4 85 3 0 0 0
+10 500 100
+E
+shield large~
+Though quite heavy, this shield provides fine protection during battle.  It is
+clearly not a prize piece for it bears no decorations or crests, but is a
+sturdy addition to any warriors collection of armor.
+~
+#16594
+cloak dusty~
+&+ya dusty traveling cloak&N~
+&+yA dusty cloak has been discarded here.&N~
+~
+11 3 2 0 7 0 8192 1025 0 0 0
+0 0 0 0 0 0 0 0
+1 1500 100
+E
+cloak dusty~
+This well-made cloak is long and sturdy enough to wrap around ones entire body
+to provide protection from the wind and rain.  It is clearly made for traveling
+and the dust that is worn into its fibers show that is has been used for a
+long time.
+~
+A
+14 7
+A
+17 -6
+#16595
+steel cap~
+a small steel cap~
+A small steel cap has been tossed here, abandoned due to the heat.~
+~
+9 16 2 0 7 0 0 17 2 4173708804 0
+5 4 16 3 0 0 0 0
+3 300 100
+E
+steel cap~
+Made of hardened steel, this small cap provides decent protection in battle
+without being as hot and heavy as a full helm.
+~
+#16596
+helm leather~
+&+ya leather helm&N~
+&+yA soft leather helm has been dropped here.&N~
+~
+9 13 2 0 7 0 1073750016 17 0 0 0
+6 4 1 3 0 0 0 0
+2 150 100
+E
+helm leather~
+This full leather helm has been designed to give protection to the entire head.
+Small slits in the sides allow air to travel in and out making the helm more
+comfortable.
+~
+#16597
+fountain~
+an ornate fountain~
+&+GAn ornate fountain stands here shooting water into the air.&N~
+~
+17 11 3 0 7 0 0 0 0 0 0
+-1 -1 0 0 0 0 0 0
+3000 0 100
+E
+fountain~
+&+gGreen marble has been carefully sculpted into the form of three large fish&N
+&+gthat seem to leap into the air.  A single spout in the center of the &N
+&+gfountain shoots water high into the air so that it comes back down in a&N
+&+gfine mist.&N
+~
+#16598
+gloves leather~
+&+ysome thin leather gloves&N~
+&+yA pair of thin leather gloves has been discarded here.&N~
+~
+11 13 2 0 7 0 8192 129 0 0 0
+0 0 0 0 0 0 0 0
+0 200 100
+E
+gloves leather~
+Thin soft leather has been carefully stitched togther to give extra protection
+to the hands without making it difficult to manipulate things.
+~
+A
+2 4
+A
+17 -3
+#16599
+dagger blackened~
+&+La blackened dagger&N~
+&+LA small blackened dagger has been dropped here.&N~
+~
+5 16 2 0 7 0 16 8193 0 0 0
+2 1 3 11 0 0 0 0
+1 500 100
+E
+dagger blackened~
+This small dagger has been carefully blackened to prevent it from reflecting
+light in the darkness.  Clearly a weapon designed for those that keep to the
+night.
+~
+A
+18 1
+#16600
+boots magic~
+&+Ma pair of magic boots&N~
+&+MSome magic boots sit here glowing with an evil light.&N~
+~
+9 13 3 0 7 0 303104 65 64 0 0
+7 6 1 3 0 0 0 0
+1 5000 100
+E
+boots magic~
+It is clear from the careful stitching along the sides of these powerful boots
+that they belong to the great mage DeLoran.  Any attempt to sell these boots
+would get one marked as a thief, and make one the subject of DeLoran's rage.
+In fact, it would be safest to either drop them here or return them to DeLoran.
+Who knows?  There might even be a reward.
+~
+A
+14 7
+A
+18 2
+#16601
+necklace beads wood~
+&+ya necklace of wooden beads&N~
+&+yA necklace of polished osage wood beads lies here.&N~
+~
+11 6 2 0 7 0 134230016 5 64 0 0
+0 0 0 0 0 0 0 0
+0 3000 100
+E
+necklace beads wood~
+Deep magical enchantments run through all of the tightly strung wooden beads.
+Rare osage, a wood with an orange tint to it, has been used to create each
+of the small beads in the necklace.  The combination of craftsmanship and
+magic that has gone into this piece make if valuable indeed.
+~
+A
+13 15
+A
+17 -5
+#16602
+staff jodani twisted _id_~
+&+ra staff of twisted jodani wood&N~
+&+rA twisted staff of highly polished jodani wood lies here.~
+~
+4 6 2 0 7 0 263168 16385 64 37883812 0
+31 1 1 4 0 0 0 0
+0 12000 100
+E
+staff jodani twisted~
+Polished to help show the woods bright red sheen, this twisted staff has
+obviously been used a great deal over the years.  No markings on the staff
+indicate whether it is to be used as a weapon or as a mages staff, but one
+would guess it may function as both.
+~
+E
+_id_short_~
+&+ra twisted jodani wood staff of blinding&n
+~
+E
+_id_name_~
+staff jodani blinding
+~
+#16603
+gown silk~
+&+Ca silk gown&N~
+&+CAn ornate brocade silk gown has been abandoned here.&N~
+~
+11 3 2 0 7 0 536879104 9 0 0 0
+0 0 0 0 0 0 0 0
+1 5000 100
+E
+gown silk~
+The finest of silk has gone into the creation of this incredible gown.
+Different color threads have been used to stitch what appear to be magic runes
+along the sleeves and sides of the gown, giving it a more ornate and impressive
+appearance.
+~
+A
+17 -20
+A
+14 20
+#16604
+mace wind~
+&+Bthe mace of wind and water&N~
+&+BA glowing, magical mace made of blue metal lies here.&N~
+~
+5 16 3 0 7 0 1410176 8193 64 33685920 0
+6 2 6 6 0 0 0 0
+3 5000 100
+E
+mace wind~
+Heavily inlayed with magical runes this blue steel mace is obviously something
+quite special.  A dwarven inscription along the shaft dedicates it to the
+gods of wind and water and says that it is a gift to the council of Woodseer.
+~
+A
+18 3
+A
+19 3
+#16605
+shield embossed~
+&+ran embossed shield&N~
+&+rA shield of jodani wood with the emblem of Woodseer rests here.&N~
+~
+37 16 2 0 7 0 270336 513 64 4173708804 0
+2 1 3 125 3 0 0 0
+5 5000 100
+E
+shield embossed~
+This shield is one of the finest creations of some of the greatest woodworkers
+in Woodseer.  The jodani wood, tough to begin with, has been specially treated
+to make the shield as hard as steel, yet it remains light and easy to hold.
+The emblem of Woodseer has been carefully inlayed into the wood and the shield
+has been embossed in gold to make it look even more impressive.
+~
+A
+1 9
+A
+20 -2
+#16606
+leather backpack bp~
+&+ya small leather backpack~
+&+yA small leather backpack lies here.&N~
+~
+15 13 2 0 7 0 65536 1025 0 0 0
+100 5 0 150 0 0 0 0
+0 4000 100
+E
+leather backpack bp~
+This quaint leather backpack is a travler's best friend.  Though small, it has
+a number of pockets to keep things organized so that they are easy to find.
+The straps are well-designed, so that the weight is evenly distributed thus
+allowing one to carry a bit more weight.
+~
+#16607
+axe battle blue~
+&+Ba blue steel axe&N~
+&+BA battle axe made of blue steel lies here.&N~
+~
+5 16 3 0 7 0 16778624 8193 64 87572571 0
+1 4 3 3 0 0 0 0
+5 7500 100
+E
+axe battle blue~
+Made of a strang blue steel, this axe is clearly of dwarven craftsmanship.
+Dwarven runes have been inscribed on the heavy blade of the axe and a small
+inscription along the haft reads, "For the Dwarf-friends, may this cleave
+all our enemies."
+~
+A
+18 3
+A
+19 3
+#16608
+shoes~
+&+ysome traveling shoes&N~
+&+ySome sturdy leather shoes lie here.&N~
+~
+11 3 3 0 7 0 0 65 0 0 0
+0 0 0 0 0 0 0 0
+1 700 100
+E
+shoes~
+These fine leather shoes have a thick sole and soft inner padding so that they
+can not only withstand long treks, but also remain comfortable during them.
+~
+A
+14 10
+A
+17 -3
+#16609
+fountain pink~
+&+Ra pink marble fountain&N~
+&+RA small, pink marble fountain gurgles quietly.&N~
+~
+17 38 3 0 7 0 0 0 0 0 0
+-1 -1 0 0 0 0 0 0
+3000 0 100
+E
+fountain pink~
+Thin strips of marble wind together in an elegant pattern.  More than twenty
+strips of marble rise in an angle from the sides of the fountain to its center,
+twisting as they do so.  The water runs out the top of the fountain to flow
+along each of the marble strips, dropping droplets of water along their length.
+Though the fountain is quite small, its beauty and quiet gurgle add elegance
+to an otherwise simple intersection.
+~
+#16610
+turtle soup~
+&+ga bowl of turtle soup&N~
+&+gA bowl of turtle soup is here, cooling slowly.&N~
+~
+19 2 3 0 7 0 0 16385 0 0 0
+6 0 0 0 0 0 0 0
+0 35 100
+E
+turtle soup~
+This spicy concoction of turtle meat and vegetables is not only healthy, but it
+also has a zesty taste that keeps one wanting more.
+~
+#16611
+coins~
+some coins~
+A pile of coins lies here.~
+~
+20 16 3 0 7 0 0 1 0 0 0
+0 15 15 0 0 0 0 0
+0 1 100
+E
+platinum coins~
+Some platinum coins lie here abandoned be someone too wealthy to care.
+~
+#16612
+platinum coins~
+some platinum~
+Some platinum coins have been dropped here.~
+~
+20 25 3 0 7 0 0 1 0 0 0
+0 0 0 3 0 0 0 0
+0 1 100
+E
+platinum coins~
+Some very new looking platinum coins lie here in a pile.
+~
+#16613
+fountain~
+a marble fountain~
+&+gA green marble fountain quietly splashes here.&N~
+~
+17 38 3 0 7 0 0 0 0 0 0
+-1 -1 17 0 0 0 0 0
+0 0 100
+E
+fountain~
+A green marble tree is at the center of the fountain.  Carefully carved leaves
+stand out along fragile looking branches and a pool of water surrounds the
+trunk of the tree, which, though thick, also seems a bit fragile.  Water flows
+out of the top of the tree and along the tree limbs and leaves to drip down
+into the pool below.  The sound of the softly splashing water seems to
+highlight the peaceful nature of this holy place.
+~
+#16614
+gray potion _id_~
+a gray metallic potion~
+A clear vial with a gray metallic potion lies here.~
+~
+10 7 3 0 7 0 0 16385 64 0 0
+10 1 -1 -1 0 0 0 0
+1 639 100
+E
+gray potion~
+The strange potion inside this clear glass vial swirls with metallic silver
+and gray colors that seem unable to mix completely.
+~
+E
+_id_short_~
+a potion of armor
+~
+E
+_id_name_~
+potion armor
+~
+#16615
+wand _id_~
+&+ya smooth wooden wand&N~
+&+yA smooth wooden wand has been discarded here.&N~
+~
+3 6 3 0 7 0 0 16385 0 0 0
+10 4 4 1 0 0 0 0
+2 3500 100
+E
+wand~
+This thin smooth wand looks like the standard practice material used by
+junior mages to practice making wands.  There is nothing on the wand to
+indicate what spells may or may not be in it, and nothing to show how well
+the wand was made.
+~
+E
+_id_short_~
+&+ya smooth wooden wand of armor&n
+~
+E
+_id_name_~
+wand wooden armor
+~
+#16616
+dark ale mug dwarven~
+a sturdy dwarven mug~
+A glass of dwarven ale has been dropped here.~
+~
+17 9 3 0 7 0 0 1 0 0 0
+1 1 4 0 0 0 0 0
+0 20 100
+E
+glass ale~
+Dwarven ale is one of the most popular imports into Woodseer.  Most of the
+major drinking establishments have gone out of their way to stock it.
+~
+#16617
+wine glass~
+&+ga fragile glass&N~
+&+gA wine glass has been abandoned here.&N~
+~
+17 7 3 0 7 0 0 1 0 0 0
+1 1 2 0 0 0 0 0
+0 28 100
+E
+wine glass~
+This elegant, but fragile, glass has been specifically designed for the
+drinking of elven wines.  It has a wide open mouth so that the wine can be
+easily sniffed while drinking.
+~
+#16618
+armor leather black~
+&+La suit of black leather armor&N~
+&+LA full suit of black leather armor rests here.&N~
+~
+9 13 2 0 7 0 536870912 9 0 4165209604 0
+20 3 1 3 0 0 0 0
+1 4000 100
+E
+armor leather black~
+This leather armor has been dyed a deep, dark black.  It is clearly made for
+those that wish to keep unseen in the darkness.
+~
+#16619
+pick picks lockpicks~
+some thin lockpicks~
+Some thin lockpicks lie here.~
+~
+31 16 2 0 7 0 0 16385 0 0 0
+0 15 0 0 0 0 0 0
+0 10 100
+E
+pick picks lockpicks~
+These long thing wires have been bent into various shapes so that they can
+be fit into different types of locks to trigger the tumblers and open them
+without having to use a key.
+~
+#16620
+black backpack bp~
+&+La small black backpack&N~
+&+LA small black backpack has been abandoned here.&N~
+~
+15 13 2 0 7 0 134291456 1025 64 0 0
+100 5 0 150 0 0 0 0
+0 100000 100
+E
+bp black backpack~
+This small black backpack is the perfect size for a tiny halfling.  Oddly
+enough, it appears to be capable of holding much more than its small size
+would indicate.
+~
+#16621
+shield wood~
+&+ya light &+rjodani&N &+ywood shield&N~
+&NA light shield made of &+Rjodani&N &+ywood lies here&N~
+~
+37 6 2 0 7 0 8192 513 64 4165209604 0
+2 1 2 95 4 0 0 0
+2 350 100
+E
+shield wood~
+This light shield has been made entirely of sturdy jodani wood.  Jodani wood
+is sturdy enough to withstand most blows, and quite resistant to the elements.
+It is also far less expensive than its metal counterparts, and safer to carry
+in watery areas.
+~
+#16622
+sleeves leather~
+&+ysome light leather sleeves&N~
+&+ySome light leather sleeves have been abandoned here.&N~
+~
+9 13 2 0 7 0 8192 257 0 4165209604 0
+5 8 1 3 0 0 0 0
+1 200 100
+E
+sleeves leather~
+The leather used in the creation of these sleeves is light, but quite sturdy.
+The outside of the sleeves has been studded with hard wood knobs to aid in
+deflecting blows.
+~
+#16623
+leggings leather~
+&+ysome light leather leggings&N~
+&+ySome light leather leggings have been abandoned here.&N~
+~
+9 13 2 0 7 0 8192 33 0 4165209604 0
+5 5 1 3 0 0 0 0
+1 200 100
+E
+leggings leather~
+These thin leather leggings have wood studs on the outside to help deflect
+blows.  The leather itself, though thin, doesn't look like it would breathe
+well, making it uncomfortable to wear in the jungle, or other warm areas.
+~
+#16624
+boots~
+&+ysome soft-soled boots&N~
+&+yA comfortable looking pair of boots lies here.&N~
+~
+11 13 2 0 7 0 8192 65 0 0 0
+0 0 0 0 0 0 0 0
+1 200 100
+E
+boots~
+Though these boots may not provide quite the protection of heavier boots, they
+are far more comfortable for traveling in.  Made of plain leather with a simple
+design, they are inexpensive as well.
+~
+A
+17 -3
+#16625
+gloves glove~
+&+ysome ugly leather gloves&N~
+&+yA pair of ugly leather gloves has been tossed here.&N~
+~
+11 13 2 0 7 0 8192 129 0 0 0
+0 0 0 0 0 0 0 0
+0 100 100
+E
+gloves glove~
+It is clear that whoever made these gloves was either not at their best or
+simply not skilled enough to bother.  The stitching between the fingers is
+poorly done, making the gloves so worthless that it would almost be better to
+wear nothing at all.
+~
+A
+17 -2
+#16626
+gauntlets~
+&+Csome halfling-sized gauntlets&N~
+&+CA pair of well-made halfing-sized gauntlets lies here.&N~
+~
+9 16 2 0 7 0 66560 129 64 87572571 0
+8 7 1 3 0 0 0 0
+1 50000 100
+E
+gauntlets~
+These gauntlets are made of a fine chain mesh that has been lined on the
+inside with soft linen, and lined on the outside with sharp polished spikes.
+This pair of gauntlets is clearly of the finest quality and workmanship, and
+must be worth a great deal of money.
+~
+A
+1 5
+A
+18 1
+#16627
+ale mug~
+&+ya heavy mug&N~
+&+yA cheap ale mug has been discarded here.&N~
+~
+17 9 3 0 7 0 0 1 0 0 0
+1 1 3 0 0 0 0 0
+2 8 100
+E
+ale mug~
+This cheap ale mug was designed to hold the equally inexpensive amber ale that
+is favored by many of the halflings that aren't wealthy enough to afford more
+expensive drinks.
+~
+#16628
+rations ration travel~
+&+Wsome travel rations&N~
+&+WA tightly bound package of travel rations has been discarded here.&N~
+~
+19 2 3 0 7 0 0 1 0 0 0
+20 0 0 0 0 0 0 0
+0 1 100
+E
+rations ration travel~
+These rations have been well-salted and packaged so that they are perfect for
+long journeys.  They may not be the best tasting food in the world, but
+travelers can be assured that they will not get stale.
+~
+#16629
+water skin waterskin~
+&+ma bright waterskin&N~
+&+mA brightly colored waterskin has been dropped here.&N~
+~
+17 12 3 0 7 0 0 16385 0 0 0
+20 20 0 0 0 0 0 0
+1 20 100
+E
+skin waterskin~
+The bright coloration of this waterskin makes it easy to locate in a crowded
+backpack or sack.  It has a halfling flourish to its bright design, leave it
+to a halfling to make a simple item colorful and decorative.
+~
+#16630
+meat lizard~
+&+gsome dried lizard meat&N~
+&+gSome dried lizard meat has been tossed here.&N~
+~
+19 2 3 0 7 0 0 1 0 0 0
+24 0 0 0 0 0 0 0
+0 2 100
+E
+meat lizard~
+Though not very appealing in color, this dried lizard meat will last virtually
+forever on the road, and tastes far better than ordinary travel rations.
+~
+#16631
+sword short~
+a finely made short sword~
+A well-made short sword has been left behind here.~
+~
+5 16 2 0 7 0 0 8193 0 4198895524 0
+9 1 6 3 0 0 0 0
+1 2000 100
+E
+sword short~
+This well-made blade has been sharpened to a razor's edge, and is certainly
+sturdy enough for heavy use.  Blades like this are a true staple of
+adventurers everywhere.
+~
+A
+18 1
+#16632
+dirk~
+a narrow dirk~
+A thin, sharp dirk lies here.~
+~
+5 16 2 0 7 0 0 8193 0 4198895524 0
+2 1 4 11 0 0 0 0
+0 2000 100
+E
+dirk~
+This narro dirk is a great back-up weapon.  It is easy to conceal, and light
+enough that several can be carried around at once.
+~
+A
+18 1
+#16633
+fish perch fried~
+&+Ysome fried perch&N~
+&+YSome fried perch has been thrown away here.&N~
+~
+19 2 3 0 7 0 0 1 0 0 0
+16 1 1 0 0 0 0 0
+0 10 100
+E
+fish perch fried~
+Yellow perch are abundant in Woodseer, and one of the easiest ways to prepare
+it is to dip it in batter and fry it.  It has a light crispy taste, but isn't
+as filling as many other foods.
+~
+#16634
+muskie fish~
+a slab of broiled muskie~
+A long slab of broiled muskie has been dropped here.~
+~
+19 2 3 0 7 0 0 1 0 0 0
+24 1 1 0 0 0 0 0
+1 18 100
+E
+muskie fish~
+Salt, lemon and several other spices have been pressed into the fish before
+it was broiled over an open fire.  The fish is light and flaky, but there is
+enough of it to make quite a meal.
+~
+#16635
+steak salmon~
+&+Wa salmon steak&N~
+&+WA salmon steak has been carelessly left behind.&N~
+~
+19 2 3 0 7 0 0 1 0 0 0
+20 2 2 0 0 0 0 0
+1 120 100
+E
+steak salmon~
+The large freshwater salmon that can be caught in the small lake near Woodseer
+make very fine steaks that can be grilled over an open fire.  The salmon
+itself need very little in the way of spices to add to its already fine taste.
+~
+#16636
+bp backpack~
+&+ya backpack of tazten bark&N~
+&+yA small backpack made of tightly woven tazten bark rests here.&N~
+~
+15 4 2 0 7 0 65536 1025 0 0 0
+50 5 0 100 0 0 0 0
+1 400 100
+E
+bp backpack~
+Tighly woven tazten bark has been used to create this small but sturdy
+backpack.  The backpack itself is quite a bit lighter than its leather
+counterparts, but can't hold anywhere near as much.
+~
+#16637
+sack bark~
+&+ya sack of tazten bark&N~
+&+yA large sack of tazten bark has been dropped here.~
+~
+15 4 2 0 7 0 0 1 0 0 0
+75 1 0 100 0 0 0 0
+1 50 100
+E
+sack bark~
+The thin inner bark of the tazten tree, when woven together properly, is as
+light and strong as the heaviest cloths.  This sack is an excellent example.
+It is capable of holding a great deal without surrendering anything in the
+way of strength or shape.
+~
+#16638
+apple red~
+&+ra sweet red apple&N~
+&+rA sweet red apple has been carelessly dropped here.&N~
+~
+19 2 3 0 7 0 0 1 0 0 0
+6 0 0 0 0 0 0 0
+0 1 100
+E
+apple red~
+This is one of the sweet red apples that comes from the halfling orchards.
+Some farmer took the time to make certain to pick the apple when it was at
+its ripest and sweetest for quick sale at the market.
+~
+#16639
+apple green~
+&+Ga tart green apple&N~
+&+gA large, tart green apple has been dropped here.&N~
+~
+19 2 3 0 7 0 0 1 0 0 0
+6 0 0 0 0 0 0 0
+0 2 100
+E
+apple green~
+One of the better selling fruits among the halflings in Woodseer, this tart
+apple is perfect for pies and other apple pastries.
+~
+#16640
+peach yellow~
+&+Ya yellow peach&N~
+&+YA yellow peach has been left behind here.&N~
+~
+19 2 3 0 7 0 0 1 0 0 0
+4 0 0 0 0 0 0 0
+0 1 100
+E
+peach yellow~
+This soft peach has a fuzzy yellow skin that protects its sweet innards,
+keeping the fruit moist and tasty.
+~
+#16641
+pear~
+&+Ga ripe pear&N~
+A ripe pear has been dropped here.~
+~
+19 2 3 0 7 0 0 1 0 0 0
+4 0 0 0 0 0 0 0
+0 1 100
+E
+pear~
+This ripe pear is crisp to the core, providing a welcome snack to anyone
+fortunate enough to have come across it.
+~
+#16642
+stew rabbit~
+&+ya bowl of rabbit stew&n~
+A bowl of rabbit stew has been tossed here.~
+~
+19 2 3 0 7 0 0 1 0 0 0
+24 0 0 0 0 0 0 0
+1 3 100
+E
+stew rabbit~
+This stew has a healthy dose of vegetables as well as tender rabbit meat
+making it both healthy and tasty.
+~
+#16643
+salmon steak blackened~
+&+Lsome blackened salmon&N~
+&+LA blackened salmon steak lies here.&N~
+~
+19 2 3 0 7 0 0 1 0 0 0
+24 0 0 0 0 0 0 0
+0 6 100
+E
+salmon steak blackened~
+Though blackened, this salmon steak isn't really burned.  Spices have been
+glazed on its side and then blackened on an open fire to seal in the flavor
+and juices.
+~
+#16644
+duck roast~
+&+ya roasted duck&N~
+&+A roasted duck has been dropped here.&N~
+~
+19 2 3 0 7 0 0 1 0 0 0
+30 0 0 0 0 0 0 0
+1 10 100
+E
+duck roast~
+One of the many ducks that frequents the lakes and ponds of Woodseer has had
+the unfortunate duty of becoming someone's tasty meal.  Like most duck this
+one tastes a bit gamey, but there is enough here to feed several people.
+~
+#16645
+belt leather~
+&+ya plain leather belt&N~
+&+yA plain leather belt has been tossed here.&N~
+~
+11 13 2 0 7 0 0 2049 0 0 0
+0 0 0 0 0 0 0 0
+1 150 100
+E
+belt leather~
+This boring leather belt has been made of thick and sturdy leather.  It isn't
+a very well-made belt though, it is clear the stitching along its sides were
+half-hearted.  It is functional, but nothing more.
+~
+A
+17 -3
+#16646
+boots leather~
+&+ysome plain leather boots&N~
+&+ySome plain leather boots have been discarded here.&N~
+~
+11 13 2 0 7 0 0 65 0 0 0
+0 0 0 0 0 0 0 0
+1 150 100
+E
+boots leather~
+The leather used in these boots is thick and a bit stiff.  A few months of
+wear would certainly soften them enough to be quite comfortable, but no
+effort has been made to make them comfortable for that first day of wear.
+~
+A
+17 -4
+#16647
+flute steel instrument~
+&+Wa bright steel flute&N~
+&+WA well-polished steel flute has been set here.&N~
+~
+32 16 2 0 7 0 1024 16385 0 8487456 0
+184 5 0 1 0 0 0 0
+1 3000 100
+E
+flute steel~
+A great deal of careful craftsmanship has gone into the creation of this fine
+instrument, and a great deal of skill is required to play it.  Flutes are
+the staple of bards that travel together in groups, if one bard can play
+the flute while another sings, they are usually able to make for more money
+than if they played alone.
+~
+#16648
+lyre instrument~
+&+ya wooden lyre&N~
+A lyre of some plain non-descript wood lies here.~
+~
+32 6 2 0 7 0 9216 16385 0 8421376 0
+185 5 2 1 0 0 0 0
+1 800 100
+E
+lyre~
+Though made of a plain unadorned wood, this lyre is easy to tune and travels
+quite well.  It is the staple instrument of the traveling bard.
+~
+#16649
+mandolin instrument~
+&+ya plain mandolin&N~
+A plain mandolin has been dropped here.~
+~
+32 6 2 0 7 0 9216 16385 0 8421376 0
+186 5 2 1 0 0 0 0
+1 300 100
+E
+mandolin~
+This mandolin is obviously made only for bards that are just starting out in
+the trade.  It is easy to tune but rather plain and boring in appearance,
+unlike the more decorated mandolins carried by many of the more famous
+traveling bards.
+~
+#16650
+armor leather~
+&+ya suit of &+mpurple and &+ybrown leather armor&N~
+&+yA suit of &+mpurple&N &+y and brown leather armor lies here.&N~
+~
+9 13 2 0 7 0 8192 9 0 4165209604 0
+10 3 1 3 0 0 0 0
+1 750 100
+E
+armor leather~
+This purple gilded leather armor is a fine example of a piece that is both
+decorative and useful.  It is supple enough to be worn in everyday work and
+has enough design to it that it can be worn out without raising any eyebrows.
+~
+#16651
+leggings silk~
+&+msome purple silk leggings&N~
+&+mA pair of purple silk leggings has been dropped here.&N~
+~
+11 3 2 0 7 0 8192 33 0 0 0
+0 0 0 0 0 0 0 0
+1 1000 100
+E
+leggings silk~
+These fine silk leggings are brightly colored so that they stand out in a
+crowd.  They make a statement about the wearers fashion sence as well as
+making an attractive addition to anybody's wardrobe.
+~
+A
+28 5
+A
+17 -3
+#16652
+sleeves silk~
+&+ra pair of red silk sleeves&N~
+&+rA set of red silk sleeves has been dropped here.&N~
+~
+11 3 2 0 7 0 8192 257 0 0 0
+0 0 0 0 0 0 0 0
+1 1000 100
+E
+sleeves silk~
+This fine soft silk adds a great deal to anyone's appearance.  Not many can
+afford such fine clothing however, making anyone that wears them attractive
+to thieves.
+~
+A
+17 -3
+A
+4 5
+#16653
+gloves silk~
+&+Wsome sheer silk gloves&N~
+&+WA pair of thin silk gloves lies here.&N~
+~
+11 3 2 0 7 0 73728 129 0 4165209604 0
+0 0 0 0 0 0 0 0
+0 1500 100
+E
+gloves silk~
+These sheer silk gloves do little to protect against the elements, but they
+breathe well and don't restrict movement at all.
+~
+A
+17 -5
+A
+26 4
+#16654
+cloak bark~
+&+ya cloak of tazten bark&N~
+A cloak of tazten bark has been dropped here.~
+~
+11 4 2 0 7 0 0 1025 0 0 0
+0 0 0 0 0 0 0 0
+1 200 100
+E
+cloak bark~
+This light cloak looks like many of the others that can be seen in Woodseer.
+The tightly woven tazten bark provides excellent protection from the elements
+without being very heavy.  Most cloaks of this type are decorated or dyed,
+this one has been left plain so that its owner may personalize it.
+~
+A
+17 -4
+A
+18 1
+#16655
+boots~
+&+ya pair of &+Wsilk-lined &+yleather boots&N~
+&+yA pair of leather boots with a &+Wsilk lining&+y lies here.&N~
+~
+11 13 2 0 7 0 0 65 0 0 0
+0 0 0 0 0 0 0 0
+1 1000 100
+E
+boots~
+This well-made pair of boots has been lined with a soft silk lining to make
+them even more comfortable for long journey's.  Few boots are constructed with
+such care and attention to detail.
+~
+A
+14 10
+A
+17 -4
+#16656
+cap leather~
+&+ya leather cap with a &+Wsilk liner&N~
+&+yA leather cap with a&+W silk liner&+y lies here.&N~
+~
+11 13 2 0 7 0 8192 17 0 0 0
+0 0 0 0 0 0 0 0
+1 750 100
+E
+cap leather~
+Careful stitching marks this leather cap as something not quite ordinary.
+The embroidered silk liner adds to the affect, deliberately extended around
+the lip of the cap so that everyone knows that expensive silk lines its
+interior.
+~
+A
+1 4
+A
+17 -3
+#16657
+sash silk red~
+&+ra red silk sash&N~
+&+rA long strip of red silk has been dropped here.&N~
+~
+11 3 2 0 7 0 73728 2049 0 0 0
+0 0 0 0 0 0 0 0
+1 1500 100
+E
+sash silk red~
+This exquisite silk sash provides a classy touch to any outfit.  Only the
+finest pre-dyed silk was used in its weaving, and the quality of the work
+is easy to see.
+~
+A
+2 4
+A
+17 -3
+#16658
+robe silk~
+&+ban embroidered silk robe&N~
+&+bAn embroidered silk robe has been discarded here.&N~
+~
+11 3 2 0 7 0 8192 1025 0 0 0
+0 0 0 0 0 0 0 0
+1 2000 100
+E
+robe silk~
+This fine silk robe puts all others to shame.  It has been specially designed
+and decorated for evening entertaining, and clearly is worth every copper
+spent on it.
+~
+A
+17 -5
+#16659
+caviar tin~
+&+La tin of caviar&N~
+&+LA small tin of caviar has been dropped here.&N~
+~
+19 2 3 0 7 0 0 1 0 0 0
+3 0 0 0 0 0 0 0
+0 70 100
+E
+caviar tin~
+Though salty for many people's tastes, this caviar is often presented at
+parties as a testament to the hosts wealth and generousity.  This small tin
+doesn't really contain much, but what it does contain is the finest of caviar
+that can be found anywhere.
+~
+#16660
+bottle champagne~
+&+Ga fine bottle&N~
+&+GA fine, fragile-looking bottle lies here.&N~
+~
+17 7 3 0 7 0 0 1 0 0 0
+3 3 23 0 0 0 0 0
+1 200 100
+E
+bottle champagne~
+This bottle comes directly from the vinters that create fine wines and
+champagnes.  It has the seal of the vinter on the side of the bottle, marking
+it with a year and lot number, showing that this bottle was for one of the
+finer vintages ever made.
+~
+#16661
+broach gold~
+&+Ya golden broach&N~
+&+YAn ornamental broach of gold has fallen here.&N~
+~
+8 24 2 0 7 0 0 2097153 0 0 0
+0 0 0 0 0 0 0 0
+0 1000 100
+E
+broach gold~
+Circles intertwined with circles create a delicate design in gold.  This fine
+pin is a beautiful ornament for those with the money to afford frivolous
+things.
+~
+#16662
+silver collar~
+&+Ca heavy silver collar&N~
+&+CA heavy silver collar has been tossed on the ground.&N~
+~
+11 22 2 0 7 0 0 5 0 0 0
+0 0 0 0 0 0 0 0
+2 2000 100
+E
+silver collar~
+This plain silver collar is most useful atop a plain, but elegant garment such
+as a tuxedo or dress.
+~
+A
+17 -4
+#16663
+eagle pin broach~
+&+Ca silver eagle with &+gemerald eyes&N~
+&+CA silver pin shaped like an eagle lies here.&N~
+~
+11 22 2 0 7 0 0 2097153 0 0 0
+0 0 0 0 0 0 0 0
+0 1500 100
+E
+eagle pin broach~
+This finely made silver eagle has small emerald chips for its eyes and a thin
+coat of ruby dust along its body.  It just might be one of the prettiest pins
+around.  Unfortunately, this pin is so well-liked that quite a number have
+been made, making it almost common among the rich.
+~
+#16664
+steak alligator~
+&+gan alligator steak&N~
+&+gAn alligator steak has been dropped here.&N~
+~
+19 2 3 0 7 0 0 1 0 0 0
+30 0 0 0 0 0 0 0
+1 50 100
+E
+steak alligator~
+This alligator steak has been tenderized and then cooked with a great deal of
+pepper and some other spices to give it a tangy flavor.
+~
+#16665
+duck~
+&+Wsome sliced duck in white wine sauce&N~
+A plate of sliced duck in white wine sauce has been dropped here.~
+~
+19 2 3 0 7 0 0 1 0 0 0
+30 0 0 0 0 0 0 0
+1 100 100
+E
+duck~
+This slow roasted duck has been sliced and served with a thick white wine
+sauce that highlights its airy flavor.
+~
+#16666
+scroll parchment white _id_~
+&+Wa bone-white parchment scroll&n~
+A scroll has been dropped here.~
+~
+2 29 3 0 7 0 0 16385 0 0 0
+20 45 -1 -1 0 0 0 0
+1 2000 100
+E
+identify scroll~
+This heavy vellum has been carefully inscribed with a magical spell marked
+only as 'identify'.  Exactly what the spell is or does is unclear.
+~
+E
+_id_name_~
+scroll identify
+~
+E
+_id_short_~
+&+Wa scroll of identify&n
+~
+#16667
+armor jodani wood~
+&+ra suit of jodani wood scale armor&N~
+&+rA beautifully crafted full suit of jodani wood scale armor lies here.&N~
+~
+9 6 2 0 14 20 137568256 9 64 4173708804 0
+30 3 1 5 0 0 0 0
+1 20000 100
+E
+armor jodani wood~
+The polished wooden scales gleam as they reflect light with a faint reddish
+hue.  This armor is clearly quite magical, and valuable.  It must have taken
+several craftsmen a great deal of time to complete this fine piece.  Small
+scales of jodani wood have been carefully placed together to create a piece
+of armor that has no gaps and is extremely protective, yet is also quite
+supple and easy to move around in.  Only the most powerful warriors could hope
+to keep such an item for long.
+~
+A
+26 5
+A
+24 -2
+#16668
+scimitar green~
+&+ga green scimitar&N~
+&+gA strange green scimitar has been dropped here.&N~
+~
+5 16 3 0 7 0 134676480 8193 64 4173708804 0
+9 1 5 3 0 0 0 0
+3 20000 100
+E
+scimitar green~
+Made of a strange green metal this scimitar is truely quite unique.  The
+green metal is light in weight and carries an extremely sharp edge.  Along
+the haft are some elven runes marking it as an elven creation, though how
+it got here is quite an interesting question.
+~
+A
+18 2
+A
+19 2
+#16669
+cloak purple mages~
+&+ma mage's traveling cloak&N~
+&+mA bright purple cloak lies here.&N~
+~
+11 3 2 0 7 0 204800 1025 64 0 0
+0 0 0 0 0 0 0 0
+2 20000 100
+E
+cloak purple mages~
+This odd purple cloak is made of several layers of light cloth.  The numerous
+layers add a bit of weight to it, making it better able to stand up to the
+elements without losing color.  A small emblem on the neck-clasp of the cloak
+indicates that it is from the halfling city of Woodseer.
+~
+A
+17 -5
+A
+13 10
+#16670
+plate jodani wood~
+&+ra jodani wood breastplate&N~
+&+yA &+rjodani&+y wood breastplate has been left here.&N~
+~
+9 6 2 0 13 10 134414336 9 66 4173708804 0
+18 3 1 3 0 0 0 0
+5 15000 100
+E
+plate jodani wood breast~
+This think heavy plate of jodani wood has been made to withstand a great deal
+of damage.  Unfortunately its weight and solid one piece design makes it a
+bit cumbersome to move around in.  Several nasty looking dents in the wood
+have been polished over, but it is clear that this armor has seen a great deal
+of use.
+~
+A
+13 10
+A
+2 5
+#16671
+lake water~
+the lake~
+The lake is here.~
+~
+17 40 3 0 7 0 8194 0 0 0 0
+-1 -1 0 0 0 0 0 0
+0 0 100
+#16672
+water waterfall~
+the waterfall~
+The waterfall is here.~
+~
+17 40 3 0 7 0 8194 0 0 0 0
+-1 -1 0 0 0 0 0 0
+0 0 100
+#16673
+river water~
+the river~
+The river flows here.~
+~
+17 40 3 0 7 0 8194 0 0 0 0
+-1 -1 0 0 0 0 0 0
+0 0 100
+#16674
+pool water~
+the pool~
+The small pool is here.~
+~
+17 40 3 0 7 0 8194 0 0 0 0
+-1 -1 0 0 0 0 0 0
+0 0 100
+#16675
+pail bucket~
+a pail~
+A pail has been dropped here.~
+~
+15 16 3 0 7 0 2 0 0 0 0
+5 0 0 100 0 0 0 0
+0 0 100
+#16676
+mask~
+&+ya mask of acorn shells&N~
+&+yA mask of acorn shells has been left here.&N~
+~
+11 5 2 0 7 0 69632 262145 64 0 0
+0 0 0 0 0 0 0 0
+1 350 100
+E
+mask~
+Exactly who made this strange mask, or why, is unclear.  The tops of
+acorns have been carefully strung together to create a simple but ugly
+mask.  The sharp lips of the acorns all point outward, giving the mask
+a jagged and horrific appearance.
+~
+A
+17 -3
+A
+28 -10
+#16677
+bracer~
+&+Lan ebonwood bracer&N~
+&+LA wide ebonwood bracer has been left here.&N~
+~
+9 6 2 0 7 0 4096 4097 0 4165209604 0
+5 11 1 3 0 0 0 0
+0 1500 100
+E
+bracer~
+Made of the finest ebonwood by a careful craftsman, this fine bracer
+has a dark shine to it that shows it is well cared for as well as
+valuable.  An dragon emblem has been carved into its surface to create
+a more elegant piece.
+~
+A
+18 1
+A
+19 1
+#16678
+ring~
+&+ya &+rjodani&+y wood ring&N~
+&+yA &+rjodani&+y wood ring has been cast aside.&N~
+~
+11 16 2 0 7 0 208896 3 0 0 0
+0 0 0 0 0 0 0 0
+0 1500 100
+E
+ring~
+Jodani wood has been carved into the intricate design of a small lizard
+biting its tail.  Sharp horns point outward from the head of the lizard
+to try to give it a more realistic appearance.  A distinctly magical
+aura encompasses the ring, though its purpose is unclear.
+~
+A
+17 -3
+A
+18 1
+#16679
+sign wooden~
+&+ya sturdy wood sign&N~
+&+yA large wooden sign stands here.&N~
+~
+13 6 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+sign wooden~
+                    &+yPainted in red dye are the words:&N
+
+                         &+RYou are now entering the&N
+                            &+RWoodseer Trade Path andiN
+                       &+Rcity limits.  You are subject to
+                       &+R the laws of Woodseer. A landslide
+                       &+Rhas occurred and the city enterance
+                            &+Rhas changed. &N
+~
+#16680
+small sign~
+&+wa small sign&n~
+A small sign reads (N connected to 16065) sits here.~
+~
+13 15 3 0 7 0 2 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#16681
+red worm boots pair~
+&+ra pair of red-worm boots&N~
+&+rSome ugly boots sit here.&N~
+~
+9 3 2 0 7 0 8192 65 64 0 0
+10 0 0 0 0 0 0 0
+1 2000 100
+E
+purple boots~
+   Though light and sturdy enough for heavy traveling, these boots are ugly
+enough that few would want to spend much money on them.  Stained with an awful
+purple dye, there are few that would wear them.
+~
+A
+13 12
+A
+2 3
+#16682
+slender dagger~
+&+LA long slender dagger&n~
+&+LA long slender dagger with a black hilt lies here.&n~
+~
+5 15 3 0 7 0 0 8193 0 0 0
+2 1 6 0 0 0 0 0
+0 0 100
+A
+18 2
+#16900
+sword short shortsword~
+&+Wa short sword&N~
+A very sharp, well-polished &+Wshort sword&N lies here.~
+~
+5 16 2 0 7 0 0 8193 64 4198895524 0
+9 1 6 3 0 0 0 0
+2 5000 100
+E
+sword short shortsword~
+Years of polishing and sharpening have honed this fine weapon to a razor edge
+sharpness, ready and willing to cut into anything it is swung at.  The fine
+balance of the blade make it an excellent weapon for everyday use, though a bit
+plain for celebrations and parades.
+~
+A
+18 1
+#16901
+leather armor~
+&+ya suit of halfling leather armor&N~
+&+yA small suit of well-made leather armor lies here.&N~
+~
+9 13 2 0 7 0 536879104 9 0 0 0
+20 3 1 3 0 0 0 0
+1 4000 100
+E
+leather armor~
+&+yFine soft leather has been carefully stitched together and then hardened&N
+&+yto help it withstand blows.  The leather remains supple so it doesn't &N
+&+yhinder movement much, yet strong enough to provide real protection.&N
+~
+#16902
+sword short~
+a finely made short sword~
+A well-made short sword has been left behind here.~
+~
+5 16 2 0 7 0 0 8193 0 4198895524 0
+9 1 6 3 0 0 0 0
+1 2000 100
+E
+sword short~
+This well-made blade has been sharpened to a razor's edge, and is certainly
+sturdy enough for heavy use.  Blades like this are a true staple of
+adventurers everywhere.
+~
+A
+18 1
+#16903
+ax axe~
+&+Wan ancient axe&N~
+&+WAn old battle-axe lies here as if it belongs.&N~
+~
+5 16 3 0 7 0 4096 8193 0 0 0
+1 1 4 3 0 0 0 0
+4 2000 100
+E
+ax axe battle-axe~
+This bright axe has obviously been left on the ground for a very long time.
+Even so, it retains its bright color and sharp edge which is amazing
+considering what it must have gone through.
+~
+A
+18 1
+A
+19 1
+#16904
+corpse warrior~
+&+Wa bleached corpse&N~
+&+WThe bleached corpse of a warrior lies here.&N~
+~
+15 2 3 0 7 0 0 0 0 0 0
+8 0 0 100 0 0 0 0
+0 0 100
+E
+corpse~
+Some poor adventurer made his way in here and was unable to leave.  It isn't
+clear exactly what killed him, but it looks like hundreds of small holes have
+been punched through his skin.  The corpse is completely desiccated, as if all
+of its fluids have been drained out.
+~
+#16905
+diamond small~
+&+Wa small diamond&N~
+&+WA small diamond has been hidden here.&N~
+~
+8 8 2 0 7 0 4096 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 1000 100
+E
+diamond small~
+Unfortunately, this small circular cut diamond has a small crack in it.  It
+would be worth far more if it hadn't been treated so poorly.
+~
+#16906
+skin spotted leopard~
+&+ya sp&+Lott&+yed leopard skin&N~
+&+yThe skin of a sp&+Lott&+yed leopard lies here.&N~
+~
+9 12 2 0 7 0 73728 5 0 0 0
+5 2 1 3 0 0 0 0
+1 1500 100
+E
+skin spotted leopard~
+This fine soft hide is very useful as a protective cloak.  Water beads off of
+it and runs down without ever penetrating the hair that coats the outside of
+the hide.
+~
+A
+24 -1
+A
+30 4
+#16907
+skin black leopard~
+&+La black leopard skin&N~
+&+LThe skin of a black leopard has foolishly been dropped here.&N~
+~
+11 12 2 0 7 0 77824 1025 0 0 0
+0 0 0 0 0 0 0 0
+2 2200 100
+E
+skin black leopard~
+The leopard that this skin came from must have been huge.  It can be used as
+a nice protective cloak that covers the entire body from the rain and insects
+of the jungle.  It is easy to see why leopards are so difficult to kill when
+they have tough hides like this.
+~
+A
+5 5
+A
+17 -5
+#16908
+skin snake~
+&+gthe skin of a giant snake&N~
+&+gThe skin of a giant snake has been left here.&N~
+~
+11 12 2 0 7 0 8192 2049 0 0 0
+0 0 0 0 0 0 0 0
+1 2000 100
+E
+skin snake~
+The long thin skin from a giant snake has a mottled coloration to it that is
+actually quite attractive.  Folded over several times it could easily be
+wrapped about one's waist and worn as a decorative belt.
+~
+A
+28 5
+A
+17 -4
+#16909
+chain gold golden~
+&+Ya golden chain&N~
+&+YA small gold chain has been dropped here.&N~
+~
+11 24 2 0 7 0 4096 4097 0 0 0
+0 0 0 0 0 0 0 0
+0 2500 100
+E
+chain gold golden~
+This tiny gold chain looks as if it were designed to be a necklace of some
+sort, but it is hard to believe that anything would be small enough to wear
+it as one.  In fact, it looks like it would only fit worn as a bracelet.
+~
+A
+17 -4
+A
+13 5
+#16910
+crate old broken~
+&+yan old broken crate&N~
+&+yAn old broken crate is slowly rotting here.&N~
+~
+15 16 3 0 7 0 0 16385 0 0 0
+100 0 0 100 0 0 0 0
+25 1 100
+E
+crate old broken~
+This old crate was once a sturdy device for storing and transporting goods.
+Now however, it is in ruins, barely able to hold together.  It is slowly
+rotting away, and the decay has progressed so far that it is impossible to
+stop it.
+~
+#16911
+ring metallic small~
+&+Ca small metallic ring&N~
+&+CA small metallic ring has been discarded here.&N~
+~
+11 16 2 0 7 0 4096 3 64 0 0
+0 0 0 0 0 0 0 0
+0 1000 100
+E
+ring metallic small~
+This small metallic ring makes an odd hollow twang when it is dropped on a
+hard surface.  The metal used to create it is hard to identify, but it appears
+to have a magical sheen to it that might explain the strange alloy.
+~
+A
+17 -3
+A
+3 4
+#16912
+ring gold bent~
+&+Ya bent gold ring&N~
+&+YA bent and twisted gold ring has been dropped here.&N~
+~
+11 24 2 0 7 0 4096 3 64 0 0
+0 0 0 0 0 0 0 0
+0 500 100
+E
+ring gold bent~
+Its strange bent shape makes it difficult to wear, but it is still an
+attractive piece of jewelry.  Despite its bent and twisted shape, it probably
+would still draw a fairly good price if put on the market.
+~
+A
+17 -4
+#16913
+garbage rubbish~
+some rubbish~
+Some rubbish lies here.~
+~
+15 5 3 0 7 0 2 0 0 0 0
+2 0 0 100 0 0 0 0
+0 0 100
+E
+garbage rubbish~
+This pile of rubbish stinks of rot and decay.
+~
+#16914
+dagger tiny~
+&+Wa tiny dagger&N~
+&+WA very tiny dagger has been dropped here.&N~
+~
+5 16 2 0 7 0 4096 8193 0 4194697632 0
+2 1 3 11 0 0 0 0
+0 2000 100
+E
+dagger tiny~
+This tiny dagger isn't long enough to do heavy damage but it is certainly
+sharp enough to cut through most light armors.
+~
+A
+18 2
+#16915
+javelin ebonwood~
+&+Lan ebonwood javelin&N~
+&+LA light but sturdy ebonwood javelin has been dropped here.&N~
+~
+5 6 3 0 7 0 4194320 8193 0 4198895524 0
+8 1 5 11 0 0 0 0
+2 2200 100
+E
+javelin ebonwood~
+This light javelin has an extremely sharp point, and is well-balanced for
+either throwing or close combat.  The smooth sheen of the wood shows that
+this weapon has been very well cared for.
+~
+A
+18 1
+A
+19 1
+#16916
+blood pool~
+&+ra pool of blood&N~
+&+rA pool of fresh blood slowly dries here.&N~
+~
+17 2 3 0 7 0 0 0 0 0 0
+-1 -1 13 1 0 0 0 0
+0 0 100
+E
+blood pool~
+It is unclear what died here, for the corpse was dragged away.  All that
+remains is this pool of fresh blood which dries slowly in the humid jungle
+air.  The blood looks thick and disgusting, and smells even more foul.
+Whatever creature it came from must have been truely disgusting.
+~
+#16917
+shirt linen~
+a light linen shirt~
+A light linen shirt has been dropped here.~
+~
+11 3 2 0 7 0 8192 9 0 0 0
+0 0 0 0 0 0 0 0
+1 75 100
+E
+shirt linen~
+This light linen shirt is just thick enough to keep some of the sharper jungle
+leaves and thorns from poking through it.  There is nothing else protective
+about it though.
+~
+A
+17 -3
+#16918
+pants canvas~
+&+ythick canvas pants&N~
+&+ySome thick canvas pants have been left here.&N~
+~
+11 12 2 0 7 0 8192 33 0 0 0
+0 0 0 0 0 0 0 0
+1 75 100
+E
+pants canvas~
+These thick canvas pants have leather guards near the shins to help prevent
+any jagged thorns or roots from thrusting through the cloth.
+~
+A
+17 -3
+#16919
+boots spiked~
+&+ysome spiked boots&N~
+&+yA pair of spiked boots has been left here.&N~
+~
+9 16 2 0 7 0 0 65 0 0 0
+6 6 1 3 0 0 0 0
+3 2000 100
+E
+boots spiked~
+These spiked boots are designed to help loggers climb up large trees and tree
+roots and to help them work without slipping in the soft humus of the jungle
+floor.  Spikes line the soles of the boots, as well as sticking out from the
+toe.
+~
+A
+18 1
+A
+1 4
+#16920
+chain chainmail armor~
+&+Wsome light chainmail&N~
+&+WA suit of light chainmail rests here.&N~
+~
+9 16 2 0 7 0 0 9 64 4173708804 0
+6 3 1 3 0 0 0 0
+5 2000 100
+E
+chain chainmail armor~
+Several layers of light chain overlap with each other to create a strong
+piece of armor that is much lighter than equivalent pieces that most
+adventurers wear.  The chainmail has been well-cared for and looks as if it
+will last for many more years.
+~
+A
+17 -5
+A
+1 4
+#16921
+tunic ape ape-skin skin~
+&+Lan ape-skin tunic&N~
+&+LA tunic made from the skin of an ape has been left here.&N~
+~
+9 12 3 0 7 0 0 9 0 4173708804 0
+10 3 1 3 0 0 0 0
+15 750 100
+E
+tunic ape ape-skin skin~
+This horribly heavy tunic has been made from the uncured hide of a large ape.
+Though in decent shape now the skin will undoubtedly begin to rot and stink
+in time because it hasn't been properly cured.  The hair has been left on the
+skin, making it hot as well as heavy, a perfectly silly thing to wear in a
+jungle.
+~
+#16922
+armor skin~
+&+Lsome gorilla-skin armor&N~
+&+LSome gorilla-skin armor lies here.&n~
+~
+9 12 3 0 7 0 0 9 0 4173708804 0
+10 3 1 3 0 0 0 0
+10 1000 100
+E
+armor skin gorilla gorilla-skin~
+This heavy gorilla skin has been carefully cured and stiched together to
+create a very effective piece of armor.  Whatever process was used to cure
+the skin has left it with an acrid odor that is hard to identify.
+~
+A
+5 4
+#16923
+club wood~
+&+ya heavy wood club&N~
+&+yA heavy wood club has been dropped here.&N~
+~
+5 6 3 0 7 0 8192 8193 0 0 0
+10 1 6 6 0 0 0 0
+8 750 100
+E
+club wood~
+This heavy wood club would certainly damage anything hit with it, if someone
+were strong enough to wield it properly.
+~
+A
+18 1
+A
+19 1
+#16924
+club bone~
+&+Wa tiger thigh bone&N~
+&+WThe long thigh bone of a tiger has been dropped here.&N~
+~
+5 10 2 0 7 0 8192 8193 0 4173708804 0
+10 1 4 6 0 0 0 0
+2 2500 100
+E
+bone tiger thigh~
+The knobby end of this huge thigh bone has several sharpened ridges to make it
+a more powerful weapon.  Despite its size, it is relatively light and easy to
+wield.  Layers of some sort of polish add to its white sheen, making it stand
+out in the darkness of the jungle.
+~
+A
+18 1
+A
+19 1
+#16925
+feather~
+&+Wa glowing feather&N~
+&+WA strange glowing feather has been left here.&N~
+~
+11 5 3 0 7 0 266240 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 300 100
+E
+feather~
+Every single vein of this strange feather glows with a bright light.  It is as
+though some strange chemical reaction was started when the feather was taken
+from its original owner.  How long it may last is hard to say, but the feather
+certainly seems to be glowing brightly for now.
+~
+#16926
+axe ax~
+&+Wa bright axe&N~
+A loggers axe lies here waiting to be used.~
+~
+5 16 3 0 7 0 4194304 8193 0 0 0
+1 3 6 3 0 0 0 0
+5 3000 100
+E
+axe ax~
+The heavy head of the axe has been designed to cut wood and not for use as a
+weapon.  A sturdy logger might be able to swing this at a tree all day long
+but a warrior would require a great deal of strength and dexterity to use it
+as a weapon.
+~
+A
+18 1
+A
+19 1
+#16927
+collar jewel jeweled~
+&+Ca jeweled collar&N~
+&+CA heavy jeweled collar has been left here.&N~
+~
+9 16 2 0 7 0 3212288 5 64 33685920 0
+8 2 1 3 0 0 0 0
+3 8000 100
+E
+collar jewel jeweled~
+This collar is studded with &+rrubys&N and &+gemeralds&N and has a deeply
+magical aura to it.  Exactly what spells have been put into the collar and
+what its purpose is, is impossible to determine.  At least the gems and the
+silver of the collar itself are worth a good deal of money.
+~
+A
+4 9
+A
+13 15
+#16928
+black beetle carapace~
+&+La black beetle carapace&N~
+&+LThe carapace of a huge black beetle has been abandoned here.&N~
+~
+9 10 2 0 7 0 12288 9 0 4173708804 0
+12 3 1 3 0 0 0 0
+3 2000 100
+E
+black beetle carapace~
+Light and extremely hard, this beetle carapace makes a perfect breastplate.
+It is frightening to think of the size of the creature that it must have come
+from, and the unlucky individual that had to fight it.
+~
+A
+1 4
+#16929
+gray plate~
+&+Lsome heavy gray platemail&N~
+&+LA suit of heavy gray platemail lies here.&N~
+~
+9 16 2 0 7 0 0 9 0 0 0
+15 3 1 3 0 0 0 0
+15 8000 100
+E
+gray plate~
+Bearing the emblem of Woodseer, this platemail was specifically
+designed for those guards that patrol the higher mountains where it is
+cool enough to wear heavier armor.  The strange gray coloration helps
+the guards hide in the shadows of the mountains and the heavy metal
+provides excellent protection in battle.
+~
+#16930
+scimitar~
+&+La gray scimitar&N~
+&+LA gray scimitar has been dropped here.~
+~
+5 16 3 0 7 0 128 8193 0 0 0
+9 1 5 3 0 0 0 0
+3 3000 100
+E
+scimitar~
+The gray blade and dark gray leather wound around the hilt give this
+weapon an almost sinister air.  Although it doesn't gleam like many
+highly polished weapons, the edge is clearly more than sharp enough for
+most purposes.
+~
+A
+18 1
+A
+19 2
+#16931
+sign~
+a sign~
+&+yA wooden sign has been nailed to one of the trees here.&N~
+~
+13 6 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+sign~
+The sign has a simple statement upon it;
+                      &+y  Woodseer Justice Patrols End Here!&N
+
+                    &+y  Anyone entering the jungle to the east&N
+                       &+y       does so at their own risk.&N
+
+                          &+y  -The Woodseer High Council&N
+~
+>>>>>>> master

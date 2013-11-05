@@ -64,6 +64,7 @@ M 0 81418 1 81417 100 0 0 0        * a duergar mercenary
 M 0 81456 1 81417 100 0 0 0        * a dejected, rejected bard named "Jerome"
 E 1 81424 1 5 50 0 0 0             *   a white suit
 E 1 81425 1 6 100 0 0 0            *   a feathered headdress
+G 1 1220 1 0 100 0 0 0             *    (object type not in this .obj file)
 M 0 81443 10 81418 100 0 0 0       * an orc raider
 M 0 81440 4 81419 100 0 0 0        * a frost giant shaman
 M 0 81406 5 81420 100 0 0 0        * a troll mercenary
@@ -310,5 +311,6 @@ M 0 81454 1 81676 100 0 0 0        * The Chronomancer
 G 1 81423 1 0 100 0 0 0            *    a thread of time
 G 1 55238 1 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 16262 1 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 900 1 0 100 0 0 0              *    (object type not in this .obj file)
 *
 S

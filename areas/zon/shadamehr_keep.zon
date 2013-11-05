@@ -35,6 +35,7 @@ O 0 41002 1 41223 100 0 0 0        * (object type not in this .obj file)
 O 0 41208 1 41223 100 0 0 0        * a mithril dagger
 O 0 41209 1 41223 100 0 0 0        * a pair of black boots
 O 0 359 1 41223 100 0 0 0          * (object type not in this .obj file)
+O 0 67219 1 41223 100 0 0 0        * (object type not in this .obj file)
 *
 M 0 41203 1 41209 100 0 0 0        * the undead beholder
 E 1 41206 1 2 100 0 0 0            *   a ring of the beholder
@@ -48,7 +49,6 @@ E 1 41202 1 18 100 0 0 0           *   an ornate platinum key
 M 0 41201 1 41222 100 0 0 0        * Merkus the death knight
 E 1 41205 1 5 100 0 0 0            *   the burnt full plate of a death knight
 E 1 41210 1 16 100 0 0 0           *   a spectral sword
-E 1 41203 1 17 100 0 0 0           *   the unholy avenger named 'Bloodlust'
 G 1 41003 1 0 100 0 0 0            *    (object type not in this .obj file)
 F 1 41204 2 41222 100 0 0 0        * a banshee (following)
 F 1 41204 2 41222 100 0 0 0        * a banshee (following)

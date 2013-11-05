@@ -459,7 +459,6 @@ G 1 25120 4 0 100 0 0 0            *    (object type not in this .obj file)
 F 1 25070 12 25086 100 0 0 0       * an elite palace guard (following)
 G 1 25120 4 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 25001 1 25087 100 0 0 0        * the treasure room guard
-G 1 360 1 0 100 0 0 0              *    (object type not in this .obj file)
 M 0 25190 30 25088 100 0 0 0       * (mob type not in this .mob file)
 M 0 25015 48 25089 100 0 0 0       * an efreeti palace guard
 M 0 25015 48 25089 100 0 0 0       * an efreeti palace guard

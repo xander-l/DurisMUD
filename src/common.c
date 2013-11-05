@@ -22,14 +22,14 @@ const char *specdata[][MAX_SPEC] = {
   {"&+cBlademaster", "&+gHuntsman", "&+gMa&+yrsha&+gll&n", ""},    //Ranger
   {"&+rPyr&+Rokine&+rtic", "&+MEn&+mslav&+Mer", "&+bPsyche&+Lporter", ""},         //Psionicist
   {"&+wCrusa&+Wder", "&+WCavalier", "", ""},    //Paladin
-  {"&+LDark Knight", "&+LDem&+ronic Ri&+Lder", "", ""},  //Anti-Paladin
+  {"&+LDark Knight", "&+LDem&+ronic Ri&+Lder", "&+LVi&+ro&+Llat&+ror&n", ""},  //Anti-Paladin
   {"&+YZealot&n", "&+WHealer&n", "&+cHoly&+Wman&n", ""},      //Cleric
   {"&+rRe&+Rd Dra&+rgon", "&+gElap&+Ghi&+gdist", "", ""},   //Monk
   {"&+gFo&+Gre&+gst Druid", "&+cStorm &+CDruid", "", ""},       //Druid
   {"&+rEl&+Rem&+Lenta&+Rli&n&+rst", "&+WSpir&+Citua&+Wlist", "&+yAni&+Ymal&n&+yist", ""},         /* CLASS_SHAMAN */
   {"&+MWild&+mmage", "&+LWizard", "&+LShadow&+wmage", ""},                                        /* CLASS_SORCERER */
   {"&+mDia&+rbolis", "&+mNe&+Lcro&+mlyte", "&+LReap&+wer", ""},                                   /* CLASS_NECROMANCER */
-  {"&+CAir Magus", "&+BWater Magus", "&+rFire Magus", "&+yEarth Magus"},                          /* CLASS_CONJURER */
+  {"&+cCon&+Ctrol&+Wler&n", "&+rS&+Ru&+Ym&+Wmo&+Yn&+Re&+rr", "&-L&+rFire Magus&n", "&+gNat&+Gural&+yist&n"},                          /* CLASS_CONJURER */
   {"&+rAssassin&n", "&+LThief&n","Not Used" , "&+LSh&+wa&+Ldow &+BArc&+bher&n"},                  /* CLASS_ROGUE */
   {"", "", "", ""},                                                                               /* CLASS_ASSASSIN was replaced by CLASS_ROGUE, SPEC_ASSASSIN */
   {"&+yBr&+Lig&+yand", "&+yBounty &+LHunter", "", ""},  //Mercenary
@@ -41,7 +41,7 @@ const char *specdata[][MAX_SPEC] = {
   {"&+rMa&+RUle&+rR", "&+RRa&+rGe&+Rlo&+rRd", "", ""},  //Berserker
   {"&+CI&+Wc&+Ce &+LR&+Le&+wa&+wv&+Le&+Lr", "&+rF&+Rl&+Ya&+Rm&+re &+LR&+Le&+wa&+wv&+Le&+Lr", "&+bSh&+Bo&+Wck &+LR&+Le&+wa&+wv&+Le&+Lr", "&+LEa&+yrt&+Lh R&+yea&+Lve&+yr"},      //Reaver
   {"&+BM&+Yag&+Bic&+Yia&+Bn&n", "&+LDark &+mDreamer&n", "", ""},         // Illusionist
-  {"&+LDrag&+Ro&+Lnb&+Ro&+Lurne", "&+bAb&+Lyss&+bal&n", "&+LD&+war&+Lk &+bT&+ce&+Cm&+Wp&+Ce&+cs&+bt&n", ""},  /* Cabalist */
+  {"&-L&+MC&+YL&+GO&+RW&+CN&+BS&+MO&+YC&+GK&n", "&+yFat &+YSwine&n", "&+LD&+war&+Lk &+bT&+ce&+Cm&+Wp&+Ce&+cs&+bt&n", ""},  /* Cabalist */
   {"&+LDeath&+rlord", "&+LShadow&+rlord", "", ""},      // Dreadlord
   {"&+cWindtalker", "&+WFro&+cst &+CMagus", "&+WCo&+Ysm&+Wom&+Yanc&+Wer", ""},     // Ethermancer
   {"&+YLight&+Wbringer", "&+WInq&+wuisi&+Wtor", "", ""},       //Avenger
@@ -180,16 +180,16 @@ int race_size(int race)
     case RACE_REPTILE:
     case RACE_SNAKE:
     case RACE_FAERIE:
+    case RACE_GNOME:
+    case RACE_KOBOLD:
       return SIZE_TINY;
       break;
       
     case RACE_HALFLING:
-    case RACE_GNOME:
     case RACE_PRIMATE:
     case RACE_GOBLIN:
     case RACE_ANIMAL:
     case RACE_SHADE:
-    case RACE_KOBOLD:
       return SIZE_SMALL;
       break;
       
@@ -406,7 +406,7 @@ const char *where[] = {
   "<third weapon>       ",
   "<fourth weapon>      ",
   "<worn on back>       ",
-  "<attached to belt>   ",
+  "<worn on belt buckle>",
   "<attached to belt>   ",
   "<attached to belt>   ",
   "<worn on lower arms> ",
@@ -635,7 +635,7 @@ flagDef  extra_bits[] = {
   {"WHOLEBODY", "Whole body", 1, 0},
   {"WHOLEHEAD", "Whole head", 1, 0},
   {"ENCRUSTED", "Was encrusted", 0, 0},
-  {0}
+   {0}
 };
 
 flagDef  extra2_bits[] = {
@@ -651,6 +651,9 @@ flagDef  extra2_bits[] = {
   {"NOTIMER", "Ignore timer proc", 0, 0},
   {"NOLOOT", "Not lootable", 1, 0},
   {"CRUMBLELOOT", "Crumble when looted", 1, 0},
+  {"STOREITEM", "Bought from shop", 0, 0},
+  {"SOULBIND", "Soul bound item", 0, 0},
+  {"CRAFTED", "Crafted Item", 0, 0},
   {0}
 };
 
@@ -963,7 +966,6 @@ flagDef  affected5_bits[] = {
   {"DHARMA", "Unused", 1, 0},
   {"ENH_HIDE", "Enhanced hide", 0, 0},
   {"LISTEN", "Listen", 0, 0},
-//  {"DAKTAS_FURY", "Daktas furry", 1, 0},
   {"PROT_UNDEAD", "Prot undead", 1, 0},
   {"IMPRISON", "Imprisoned", 1, 0},
   {"TITAN FORM", "Titan form", 1, 0},
@@ -977,6 +979,9 @@ flagDef  affected5_bits[] = {
   {"STANCE DEFENSIVE", "Stance defensive", 0, 0},
   {"OBSCURING MIST", "Obscuring mist", 1, 0},
   {"NOT OFFENSIVE", "Non-offensive", 0, 0},
+  {"DECAYING_FLESH", "Decaying Flesh", 1, 0},
+  {"DREADNAUGHT", "Dreadnaught", 1, 0},
+  {"FOREST_SIGHT", "Forest Sight", 1, 0},
   {0}
 };
 

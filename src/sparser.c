@@ -291,6 +291,95 @@ bool is_ally(P_char ch, P_char other)
   return FALSE;
 }
 
+int get_weight_allies_in_room(P_char ch, int room_index)
+{
+  P_char   t_char = world[room_index].people;
+  char buf[250];
+  int      allies = 0;
+  int	   weights = 0;
+  byte chrace;
+  
+  int chweight = 0;
+
+  if (IS_MORPH(ch))
+    ch = MORPH_ORIG(ch);
+  while (t_char)
+  {
+    if (is_ally(ch, t_char))
+    {
+     chrace = NULL;
+     chrace  = GET_RACE(t_char);
+	  switch (chrace)
+	  {
+	  case RACE_OGRE:
+	  chweight += 9;
+	  break;
+         case RACE_FIRBOLG:
+	  chweight += 9;
+	  break;
+	  case RACE_MINOTAUR:
+	  chweight += 8;
+	  break;
+	  case RACE_TROLL:
+	  chweight += 7;
+	  break;
+	  case RACE_CENTAUR:
+	  chweight += 8;
+	  break;
+	  case RACE_BARBARIAN:
+	  chweight += 7;
+	  break;
+	  case RACE_ORC:
+	  chweight += 6;
+	  break;
+	  case RACE_HUMAN:
+	  chweight += 5;
+	  break;
+	  case RACE_GITHYANKI:
+	  chweight += 5;
+	  break;
+	  case RACE_GITHZERAI:
+	  chweight += 5;
+	  break;
+	  case RACE_MOUNTAIN:
+	  chweight += 4;
+	  break;
+	  case RACE_DUERGAR:
+	  chweight += 4;
+	  break;
+         case RACE_THRIKREEN:
+         chweight += 4;
+         break;
+	  case RACE_GREY:
+	  chweight += 3;
+	  break;
+	  case RACE_DROW:
+	  chweight += 3;
+	  break;
+	  case RACE_HALFLING:
+	  chweight += 2;
+	  break;
+	  case RACE_GOBLIN:
+	  chweight += 2;
+	  break;
+	  case RACE_KOBOLD:
+	  chweight += 1;
+	  break;
+	  case RACE_GNOME:
+	  chweight += 1;
+         break;
+         default:
+         act("could not find race.\n", FALSE, ch, 0, 0, TO_CHAR);
+         //debug("&+gRace:&n (%s) weight (%d) at (%s).", GET_RACE(t_char), chweight, GET_NAME(ch));
+	  break; 
+	  }
+    }
+    t_char = t_char->next_in_room;
+  }
+  return chweight;
+}
+
+
 int get_number_allies_in_room(P_char ch, int room_index)
 {
   P_char   t_char = world[room_index].people;
@@ -406,7 +495,7 @@ P_char misfire_check(P_char ch, P_char victim, int flag)
 
     if(chance > number(0,100))
     { // Misfire!
-      new_target = get_random_char_in_room(ch->in_room, ch, DISALLOW_SELF);
+      new_target = get_random_char_in_room(ch->in_room, ch, DISALLOW_SELF); 
     }
   }
 // And a message.
@@ -1063,9 +1152,18 @@ bool ground_casting_check(P_char ch, int spl)
   /* check for if they were casting but just bashed, then check their groundcast skill */
   if( IS_SET(ch->specials.affected_by2, AFF2_CASTING) &&
       !IS_SET(skills[spl].targets, TAR_NOCOMBAT) &&
+<<<<<<< HEAD
       (number(0,100) < (int) ( GET_CHAR_SKILL(ch, SKILL_GROUND_CASTING) / 2) ||
         notch_skill(ch, SKILL_GROUND_CASTING, get_property("skill.notch.groundCasting", 40)))          
       )
+=======
+
+      (number(0,100) < (int) (GET_CHAR_SKILL(ch, SKILL_GROUND_CASTING) / 2 )) ||
+     //  notch_skill(ch, SKILL_GROUND_CASTING, get_property("skill.notch.groundCasting", 50) ) )
+      ( number(0,120) < (int) ( GET_CHAR_SKILL(ch, SKILL_CONCENTRATION / 2))))
+         
+      
+>>>>>>> master
   {
     act("$n continues preparing $s spell from the ground...", FALSE, ch, 0, 0, TO_ROOM);
     act("You continue preparing your spell from the ground...", FALSE, ch, 0, 0, TO_CHAR);
@@ -1126,13 +1224,19 @@ bool cast_common_generic(P_char ch, int spl)
       send_to_char("Standing would be a good first step.\n", ch);
       break;
     case POS_KNEELING:
-      if( ground_casting_check(ch, spl) )
+      if( ground_casting_check(ch, spl))
+        {
+         //send_to_char("&+Wgroundcast success&n\n", ch);
         return TRUE;
+        }
       send_to_char("Get off your knees!\n", ch);
       break;
     case POS_SITTING:
-      if( ground_casting_check(ch, spl) )
+      if( ground_casting_check(ch, spl))
+        {
+         //send_to_char("&+Wgroundcast success&n\n", ch);
         return TRUE;
+        }
       send_to_char("You can't do this sitting!\n", ch);
       break;
     }
@@ -1513,7 +1617,7 @@ bool parse_spell(P_char ch, char *argument, struct spell_target_data* target_dat
     return FALSE;
   }
 
-  if (!(circle = knows_spell(ch, spl)))
+  if (!(circle = knows_spell(ch, spl)) && !quested_spell(ch, spl))
   {
     send_to_char("You don't know that spell!\n", ch);
     return FALSE;
@@ -1525,8 +1629,9 @@ bool parse_spell(P_char ch, char *argument, struct spell_target_data* target_dat
   if (IS_TRUSTED(ch))
   {
   }
-  /*
-  else if (USES_MANA(ch))
+  
+  //else if (USES_MANA(ch))
+else if (GET_CLASS(ch, CLASS_PSIONICIST) || GET_CLASS(ch, CLASS_MINDFLAYER))
   {
     if (GET_MANA(ch) < 1 && circle != -1)
     {
@@ -1534,17 +1639,25 @@ bool parse_spell(P_char ch, char *argument, struct spell_target_data* target_dat
       return FALSE;
     }
   }
-  */
+  
   else if (USES_SPELL_SLOTS(ch))
   {
     if (circle != -1 && !ch->specials.undead_spell_slots[circle])
     {
+<<<<<<< HEAD
       if (GET_CLASS(ch, CLASS_DRUID))
         send_to_char("&+gYou must commune with nature more before invoking its power.\r\n", ch);
+=======
+      if (GET_CLASS(ch, CLASS_DRUID) || GET_CLASS(ch, CLASS_RANGER))
+        send_to_char("&+gYou must commune with nature more before "
+                     "invoking its power.\n", ch);
+/*
+>>>>>>> master
       else if (GET_CLASS(ch, CLASS_PSIONICIST) || GET_CLASS(ch, CLASS_MINDFLAYER))
       {
         send_to_char("&+mYour thoughts have not collected enough to cast THAT spell.\r\n", ch);
       }
+*/
       else if (IS_ANGEL(ch))
       {
 	send_to_char("&+WYour illumination is not sufficient enough to cast that spell.\r\n", ch);
@@ -2014,21 +2127,22 @@ void do_cast(P_char ch, char *argument, int cmd)
     return;
   }
 
-  if (GET_CLASS(ch, CLASS_RANGER) && !IS_GOOD(ch) && !IS_MULTICLASS_PC(ch))
+/*  if (GET_CLASS(ch, CLASS_RANGER) && !IS_GOOD(ch) && !IS_MULTICLASS_PC(ch))
   {
     send_to_char("Alas, your spellcasting abilities are no good unless YOU are good.\n", ch);
     return;
-  }
+  }*/
 
-  if (get_linking_char(ch, LNK_RIDING) != NULL)
+ /* if (get_linking_char(ch, LNK_RIDING) != NULL)
   {
     send_to_char("Sorry, you can't cast with someone on your back!\n", ch);
     return;
-  }
+  }*/
 
   if (P_char mount = get_linked_char(ch, LNK_RIDING))
   {
-    if (!GET_CHAR_SKILL(ch, SKILL_MOUNTED_COMBAT) && !is_natural_mount(ch, mount))
+    if (!GET_CHAR_SKILL(ch, SKILL_MOUNTED_COMBAT) && !is_natural_mount(ch, mount))/* ||
+	(GET_RACE(ch) == RACE_GOBLIN)) Goblins once again get innate mount casting - drannak 1/8/2013 */
     {
       send_to_char("You're too busy concentrating on staying on your mount to cast!\n", ch);
       return;
@@ -2349,7 +2463,13 @@ void event_spellcast(P_char ch, P_char victim, P_obj obj, void *data)
       else
         skl = SKILL_SPELL_KNOWLEDGE_MAGICAL;
      
+<<<<<<< HEAD
       if(number(1, 100) <= GET_CHAR_SKILL(ch, skl))
+=======
+      //if (GET_CLASS(ch, CLASS_PSIONICIST | CLASS_DRUID | CLASS_ETHERMANCER) ||
+      if (GET_CLASS(ch, CLASS_PSIONICIST | CLASS_DRUID) ||
+	    number(1, 100) <= GET_CHAR_SKILL(ch, skl))
+>>>>>>> master
       {
         sprintf(buf, "Casting: %s ", skills[arg->spell].name);
         for (i = 0; i < (arg->timeleft / 4); i++)
@@ -2496,7 +2616,7 @@ void event_spellcast(P_char ch, P_char victim, P_obj obj, void *data)
   if(tar_char && (tar_char != ch) &&
     IS_AGG_SPELL(arg->spell))
   {
-    appear(ch);
+   appear(ch);
     tar_char = guard_check(ch, tar_char);
   }
   

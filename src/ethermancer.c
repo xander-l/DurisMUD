@@ -467,6 +467,12 @@ void spell_windwalk(int level, P_char ch, char *arg, int type, P_char victim, P_
     send_to_char("&+yYou failed.\r\n", ch);
     return;
   }
+  P_char rider = get_linking_char(victim, LNK_RIDING);
+  if(IS_NPC(victim) && rider)
+  {
+    send_to_char("&+CYou failed.\n", ch);
+    return;
+  }
 
   location = victim->in_room;
 
@@ -809,7 +815,16 @@ void spell_conjure_air(int level, P_char ch, char *arg, int type, P_char victim,
 
   if (GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_WINDTALKER))
   {
+<<<<<<< HEAD
         GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit =  dice(mlvl / 2, 15) + charisma;
+=======
+     GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit = 
+     ch->points.base_hit + (GET_LEVEL(ch) * 2) + charisma;
+    /*   
+     GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit =
+    dice(GET_LEVEL(mob) / 2, 45) + GET_LEVEL(mob) + charisma;
+    */
+>>>>>>> master
   }
   else
   {
@@ -864,6 +879,11 @@ void spell_greater_ethereal_recharge(int level, P_char ch, char *arg, int type, 
 {
   int      healpoints;
 
+  if (!IS_PC_PET(victim))
+  {
+    send_to_char("The power of this spell can only be used on beings of the ethereal plane.\r\n", ch);
+    return;
+  }
   if (IS_PC_PET(victim) && GET_RACE(victim) != RACE_A_ELEMENTAL)
   {
     send_to_char("They are not composed of ethereal matter...\r\n", ch);
@@ -1959,13 +1979,13 @@ void spell_ethereal_travel(int level, P_char ch, char *arg, int type,
     send_to_char("The magic in this room prevents you from leaving.\n", ch);
     return;
   }
-  /* To enhance ship combat - Lucrot
+ 
   if (world[ch->in_room].sector_type == SECT_OCEAN)
   {
     send_to_char("Yeah, break out the bathing suit and...idiot.\n", ch);
     return;
   }
-  */
+  
   if (IS_NPC(victim) || (victim == ch))
   {
     send_to_char("Can only travel to another player.\n", ch);
@@ -2020,7 +2040,10 @@ void spell_ethereal_travel(int level, P_char ch, char *arg, int type,
 
         // show the new room they've arrived
         act("&+WA HUGE ethereal portal opens up, and&n $n&+W emerges from the mists!&n", FALSE, gl->ch, 0, 0, TO_ROOM);
+	CharWait(gl->ch, 2 * PULSE_VIOLENCE); 
+	
       }
+    CharWait(ch, 2.5 * PULSE_VIOLENCE);
     }
   }
   else

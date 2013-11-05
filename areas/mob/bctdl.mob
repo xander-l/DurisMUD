@@ -17,7 +17,11 @@ bel pit fiend _ignore_ _no_move_~
 &+rHell, Bel is often called the pretender. It is thought Asmodeus allowed his
 &+rcoup only because it meant one less archduke scheming against his power.
 ~
+<<<<<<< HEAD
 51411018 1 0 0 2952896696 309442 72614048 101725184 -1000 S
+=======
+51476558 1 0 0 2952896696 309442 72614048 101725184 -1000 S
+>>>>>>> master
 Y 0 16777476 0 7
 62 1 -400 5000d4+24000 12d9+70
 0.0.0.0 0

@@ -453,6 +453,7 @@ void do_acc(P_char ch, char *argument, int cmd)
         
     for (i = descriptor_list; i; i = i->next)
     {
+
       if ((i->character != ch) && 
           (i->connected == CON_PLYNG ) &&
           !is_silent(i->character, FALSE) &&
@@ -461,7 +462,7 @@ void do_acc(P_char ch, char *argument, int cmd)
           ( GET_A_NUM(i->character) == alliance->forging_assoc_id ||
             GET_A_NUM(i->character) == alliance->joining_assoc_id ) &&
           (!(IS_AFFECTED4(i->character, AFF4_DEAF))) &&
-          (GT_PAROLE(GET_A_BITS(i->character))))
+          (GT_PAROLE(GET_A_BITS(i->character))) || (IS_TRUSTED(i->character) && IS_SET(i->character->specials.act, PLR2_ACC)))
       {
         sprintf(Gbuf1, "&+y%s&+y tells your alliance '&+Y%s&+y'\r\n",
                 PERS(ch, i->character, FALSE),

@@ -3,7 +3,7 @@ mask bahamut vigor unique~
 &+WBahamut's &+Ymask of &+Bv&+bi&+Bg&+bo&+Br&N~
 &+Wa mask lays here beckoning you.&N~
 ~
-8 25 10 0 15 0 335651849 278529 65 67108888 0
+8 25 10 0 15 0 335651849 278529 65 68284504 0
 0 0 0 0 0 0 0 0
 0 0 100 100
 E
@@ -134,7 +134,7 @@ staff air swirling magic unique~
 &+ca &+Ws&+Cw&+Bi&+brling&n &+cstaff of &+Cair&n &+cconjuration&n~
 &+cA staff made of nothing but &+Cair&n &+cand &+Wmagic&n &+clies here.&n~
 ~
-4 1 10 0 15 0 286401793 16385 64 2048 0
+4 1 10 0 15 0 286401793 16385 64 4196352 0
 12 1 6 6 0 0 0 0
 5 0 100 100 524288 0 0 0
 E
@@ -514,7 +514,11 @@ robe lost souls unique~
 ~
 9 3 10 0 15 0 268444672 17417 64 12619268 0
 15 0 0 1 0 0 0 0
+<<<<<<< HEAD
 4 0 100 100 524288 0 0 0
+=======
+4 0 100
+>>>>>>> master
 E
 robe lost souls unique~
 &+L  Throughout the ages, &+WEuronymous&+L, &+RDevil &+rPrince&+L of Anti-paladins has
@@ -556,11 +560,11 @@ sleeves platinum life unique~
 &+Csome platinum linked sleeves of &+Ylife&N~
 &+Csome fool has left the sleeves of &+Ylife&n &+Chere!&n~
 ~
-9 25 10 0 15 0 268444672 16641 64 95993947 0
+9 25 10 0 15 0 268443648 16641 64 0 0
 10 0 0 5 0 0 0 0
 0 0 100 100
 A
-13 50
+35 8
 A
 20 -2
 #67239
@@ -568,9 +572,13 @@ door large gold rimmed gold-rimmed church unique~
 &+ya &+Yla&+yrge &+Ygold&+w-&+Wrimmed &+Rc&+Gh&+Mu&+Br&+Cc&+Wh&+y do&+Yor&N~
 &+ya &+Yla&+yrge golden door is laying here on the grou&+Ynd&+y.&N~
 ~
-37 6 10 0 15 0 268445184 16897 64 16385 50397958
+37 6 10 0 15 0 268443648 16897 64 0 0
 1 3 5 250 5 0 0 0
+<<<<<<< HEAD
 30 0 100 100 16 0 0 0
+=======
+30 0 100 16 2048 0 0
+>>>>>>> master
 E
 door large gold rimmed gold-rimmed church unique~
 &+Y        Ripped off         &N
@@ -626,19 +634,19 @@ ball ice crystal unique~
 &+LUtgard-Loki's &+Wc&+wr&+Wy&+ws&+Wt&+wa&+Wl &+Cball&n~
 &+cA ball of &+Cice &+crests here refusing to melt.~
 ~
-11 8 10 1 15 0 268477440 16385 64 37883808 0
+11 8 10 1 15 0 268477440 16385 64 37916576 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 1 98696 100 100 524292 0 0 0
+=======
+1 98696 100 524288 0 0 0
+>>>>>>> master
 E
 ice crystal ball~
    &+gSaid to be formed from the &+Ldying &+Cbreath &+gof an &+Wancient white wyrm, &+gthis &+Cice
 &+Csphere &+gwas given to &+LUtgard-Loki &+gby the &+Cfrost giant god &+cThrym.  &+gIt's said that
 &+LUtgard-Loki &+guses it to watch for any foolish enough to intrude upon his domain.&n
 ~
-A
-13 25
-A
-26 20
 #67242
 spine twisted staff lich lord unique~
 &+Lthe t&+ww&+Li&+ws&+Lt&+we&+Ld &+ws&+Lp&+wi&+Ln&+we &+Land &+wskull &+Lof the Li&+mc&+Lh L&+mo&+Lrd&N~
@@ -666,7 +674,7 @@ necroplasm plasm blob~
 &+Lthe Living Necroplasm&N~
 &+LA dark blob oozes and squishes here.&N~
 ~
-9 1 10 0 15 0 268444704 1 64 37752708 256
+9 1 10 0 15 0 268444704 1 64 37785476 256
 10 0 0 1 0 0 0 0
 0 0 100 100
 E
@@ -1204,7 +1212,7 @@ sword whirl whirlwinds winds unique~
 a &+Wsword&n of the &+Cw&+ch&+Ci&+cr&+Cl&+cw&+Ci&+cn&+Cd&+cs&N~
 a slender &+Wsword&n seems to &+Cw&+ch&+Ci&+cr&+Cl&n as it rests on the ground.&N~
 ~
-5 1 3 4 15 0 285213953 8193 64 87572483 0
+5 1 3 4 15 0 285213953 8193 64 87650307 0
 5 5 5 3 0 0 0 0
 10 826238 100 100 33554448 0 0 0
 A
@@ -1231,7 +1239,7 @@ soulsword soul sword unique~
 &+Wthe &+YSoul&+Wsword&n~
 &+WPulsating here, the &+YSoul&+Wsword, has fallen.~
 ~
-5 16 3 4 15 0 33563648 8193 66 87572483 0
+5 16 3 4 15 0 33563648 8193 66 87674883 0
 5 3 6 3 0 219 41 40
 7 1 100 100
 E
@@ -1295,7 +1303,11 @@ cloak stalker unique~
 ~
 11 3 3 0 7 100 268443680 1025 64 0 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 1 1 100 100 1572868 0 0 0
+=======
+1 1 100 1048576 0 0 0
+>>>>>>> master
 E
 cloak stalker unique~
 &+L   This cloak is made of magically imbued cloth which enables its wearer to
@@ -1318,3 +1330,11 @@ A
 34 4
 A
 31 5
+#67283
+obe force field portable~
+&+WObe's &+Bportable &+bforce &+Bf&+bi&+Be&+bl&+Bd&n~
+&+ba portable force field sits here humming!&n~
+~
+8 19 3 0 15 0 301998088 8388609 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100 0 0 524288 0

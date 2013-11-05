@@ -45,10 +45,11 @@
 #include "events.h"
 #include "ships/ships.h"
 
+
 extern P_desc descriptor_list;
 extern const struct race_names race_names_table[];
 extern P_room world;
-
+extern void purge_linked_auras(P_char ch);
 
 
 struct mm_ds *dead_group_pool = NULL;
@@ -279,6 +280,7 @@ void do_group(P_char ch, char *argument, int cmd)
     send_to_char("You feel like being alone right now.\n", ch);
     return;
   }
+
   if (!*name)
   {
     if (!ch->group)
@@ -562,8 +564,9 @@ void do_group(P_char ch, char *argument, int cmd)
         }
       }
       group_remove_member(ch);
-
-
+      purge_linked_auras(ch);
+      REMOVE_BIT(ch->specials.affected_by3, AFF3_PALADIN_AURA);
+      clear_links(ch, LNK_PALADIN_AURA);
     }
     //Client
     for (gl = ch->group; gl; gl = gl->next)
@@ -649,6 +652,48 @@ void do_group(P_char ch, char *argument, int cmd)
     act("$N doesn't want to be in your group.", TRUE, ch, 0, victim, TO_CHAR);
     return;
   } */
+/*
+//Paladins and AP cannot group together - Drannak
+if(GET_CLASS(victim, CLASS_PALADIN))
+{
+for (gl = ch->group; gl; gl = gl->next)
+ {
+  if (GET_CLASS(gl->ch, CLASS_ANTIPALADIN))
+   {
+    send_to_char("&+WYou do not wish to group with such unholy scum!&n\n", victim);
+    send_to_char("&+LAhh, but grouping with someone so &+Wholy &+Lwould disturb the unholy energies of your group.&n\n", ch);
+	return;
+   }
+  
+  }
+ }
+
+if(GET_CLASS(victim, CLASS_ANTIPALADIN))
+{
+for (gl = ch->group; gl; gl = gl->next)
+ {
+  if (GET_CLASS(gl->ch, CLASS_PALADIN))
+   {
+    send_to_char("&+WYou do not wish to group with such holy scum!&n\n", victim);
+    send_to_char("&+WAhh, but grouping with someone so &+Lunholy &+Wwould disturb the holy energies of your group.&n\n", ch);
+	return;
+   }
+  
+  }
+ }
+if(GET_CLASS(victim, CLASS_ANTIPALADIN) && GET_CLASS(ch, CLASS_PALADIN))
+{
+    send_to_char("&+WYou do not wish to group with such unholy scum!&n\n", ch);
+    send_to_char("&+LAhh, but grouping with someone so &+Wholy &+Lwould disturb the unholy energies of your group.&n\n", victim);
+	return;
+   }
+if(GET_CLASS(victim, CLASS_PALADIN) && GET_CLASS(ch, CLASS_ANTIPALADIN))
+  {
+    send_to_char("&+WYou do not wish to group with such holy scum!&n\n", ch);
+    send_to_char("&+WAhh, but grouping with someone so &+Lunholy &+Wwould disturb the holy energies of your group.&n\n", victim);
+	return;
+   }
+*/
 
   if (IS_NPC(victim) && (victim->following != ch) &&
       !is_linked_to(ch, victim, LNK_CONSENT))
@@ -785,6 +830,8 @@ bool group_remove_member(P_char ch)
        (who is the second person in the group list */
     for (elem = gl->next; elem; elem = elem->next)
     {
+      if (IS_AFFECTED3(elem->ch, AFF3_PALADIN_AURA))
+      purge_linked_auras(elem->ch);
       if (in_command_aura(elem->ch))
         remove_aura_message(elem->ch, ch);
       elem->ch->group = gl->next;

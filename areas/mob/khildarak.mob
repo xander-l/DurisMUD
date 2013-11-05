@@ -3533,3 +3533,28 @@ PD 6 1 0 -1
 55 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 1
+#17264
+gixnif goblin miner~
+&+GGixnif&n~
+&+GGixnif&n, the &+Ggoblin&n miner stands here sneering at you.
+~
+This rather fat goblin is a filthy one. He is covered from head to toe in dirt, likely
+a result of practicing his craft &+Lmining&n. He stares at you with a toothy grin, wondering
+if you might be here to &+Rpractice&n a tradeskill.
+~
+2122 0 0 0 3087565244 0 0 0 0 S
+HG 0 84 0 1
+61 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#17265
+zurg guildmaster~
+&+LZ&+gu&+Grg&n~
+&+LZ&+gu&+Grg&+L, the &+gguildmaster&n stands here eating some &+rbbq &+CHuman&+L.
+~
+~
+424010 0 0 0 40 0 0 0 0 S
+pt 0 1 2 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0

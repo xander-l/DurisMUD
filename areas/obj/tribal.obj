@@ -826,7 +826,11 @@ A long mindwhip lies here, moving slightly with its own life.~
 ~
 5 2 3 1 7 0 8193 8396801 0 4161011800 0
 14 1 20 2 0 0 0 0
+<<<<<<< HEAD
 5 1234 100 100 32 0 16777216 0
+=======
+5 1234 100 32 0 0 0
+>>>>>>> master
 E
 whip mindwhip mind~
 &+m   This seven feet long whip is extremely hard to control.

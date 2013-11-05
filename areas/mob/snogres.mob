@@ -44,7 +44,11 @@ ogre snow tribal shaman _spec1_~
 &+Cmeander about the creature's neck and face.  The hair of the beast is tied back
 &+Cwith several thin leather thongs.&N
 ~
+<<<<<<< HEAD
 1342572552 1 0 0 285247916 32862 160 22024192 -1000 S
+=======
+1342572552 1 0 0 285247932 32862 160 22024192 -1000 S
+>>>>>>> master
 SO 0 256 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -61,7 +65,11 @@ ogre snow ogress tribeswoman~
 &+mis massive and doesn't appear to be extremely light on her feet.  Her swagger is
 &+mone of careless freedom as she lumbers about the cavern.&N
 ~
+<<<<<<< HEAD
 1073743880 1 0 0 268435500 94 32768 4096 -1000 S
+=======
+1073743880 1 0 0 268435516 94 32768 4096 -1000 S
+>>>>>>> master
 SO 0 1 0 5
 57 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -111,7 +119,11 @@ ogre snow shamaness _spec1_~
 &+Ccadenced precisely and even though it has a gutteral tone to it, it is strangely
 &+Cmelodic.&N
 ~
+<<<<<<< HEAD
 2056 1 0 0 268509484 32798 32896 4096 -1000 S
+=======
+2056 1 0 0 268509500 32798 32896 4096 -1000 S
+>>>>>>> master
 SO 0 256 0 5
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -717,7 +729,11 @@ ogre snow searching _spec1_~
 &+Wnasty conditions of the swamp.&N
 ~
 1140852744 1 0 0 268435772 66 0 4096 -1000 S
+<<<<<<< HEAD
 SO 0 896 0 5
+=======
+SO 0 512 0 5
+>>>>>>> master
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2

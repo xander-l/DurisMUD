@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #34400
 giant hideous deformed male fomorian~
 &+La male fomorian&N~
@@ -1233,3 +1234,1240 @@ PE 0 0 0 -1
 12 3 59 12d25+30 2d6+1
 118.53.1.0 3600
 8 8 2
+=======
+#34400
+giant hideous deformed male fomorian~
+&+La male fomorian&N~
+&+LA hideous and deformed giant is sleeping here.
+~
+&+LDeformed facial features define a handicapped frame of muscle
+&+Land bone.  &+GGreen&+L eyes slowly peer side to side as a stream of
+&+Yyellowish&+L-brown drool drips from his extended lower lip.
+&+LThree arms flail back in forth in eager excitement as he
+&+Lwatches you intently
+~
+2058 0 0 0 33554432 1024 0 0 -700 S
+G 0 0 0 -1
+30 3 55 15d25+112 2d6+1
+88.73.1.0 4500
+8 8 1
+#34401
+fomorian giant female three~
+&+ma female fomorian~
+&+mA hideous three legged &+bfomorian&+m is sleeping here.
+~
+&+mLong stringy hair hangs loosely about her massive frame as two
+&+moffset eyes peer about her surroundings.  One arm has grown
+&+malmost the entire length of her body, which attempts to make up
+&+mfor her one leg.  Deformed breasts bounce up and down has she
+&+mgrins at you stupidly with excitement.  &+YYellowish&+y-brown&+m drool
+&+mbegins to froth about her fat lips.
+~
+2124 0 0 0 0 1024 0 0 -700 S
+G 0 0 0 -1
+15 3 55 15d25+112 2d6+1
+74.60.2.0 4500
+8 8 2
+#34402
+guard fomorian elite~
+&+Ra fomorian&+L guard&N~
+&+LA fomorian guard blocks the way here.
+~
+&+wMilky &+Yyellow&+L eyes slowly gaze over the cavern wall in amazement.
+&+LHis two legs have been well developed despite only having one
+&+Larm.  Thick hair has covered the majority of his body as a small
+&+Lstream of &+wdrool&+L trickles down his chin and splatters upon the
+&+Lrocky earth below him.
+~
+67110922 0 0 0 33554432 0 0 0 -1000 S
+G 0 1 0 -1
+38 14 16 28d55+420 3d6+4
+96.72.12.1 18200
+8 8 1
+#34403
+chieftain giant fomorian~
+&+Lthe chieftain&N~
+&+bThe Fomorian &+LChieftain&+b stand here proudly.
+~
+&+bThick muscles pulsate with power as this nearly formed formorian
+&+blooks over his people.  Two perfectly formed sets of arms and
+&+blegs gives this creature and extreme advantage over others like
+&+bhis kind.  His two eyes have been well developed, while his
+&+bdeformed ears hang loosely down to the edge of his shoulders.
+~
+2058 0 0 0 8 32768 0 0 -1000 S
+G 0 1 0 -1
+38 15 7 31d70+620 4d6+7
+79.69.23.2 27900
+8 8 1
+#34404
+scout fomorian giant~
+&+La scout&N~
+&+yA fomorian &+Lscout&+y tries to hide here.
+~
+&+yPatches of thin hair adorn this creature's deformed skull.
+&+yHis &+ggreenish&+L-black&+y eyes peer carefully about his surroundings
+&+yas he attempts to blend into his environment.  Thick muscular
+&+yarms ripple as he supports himself on his three legs.  A slight
+&+ygelatinous matter trickles from his mouth and drips down his chin.
+~
+65546 1 0 0 33554436 0 0 0 -700 S
+G 0 16384 0 -1
+20 5 40 20d30+200 2d6+2
+72.62.5.0 6000
+8 8 0
+#34405
+guard fomorian deformed giant~
+&+Lthe fomorian guard&N~
+&+LA deformed &+bgiant&+L stands guard here.
+~
+&+LEyes of &+wmilky&+G-green&+L gaze over the cavernous area.  His arms have
+&+Lbeen well developed despite only having one leg shorter than the
+&+Lother has.  Light thin hair has grown in patches about the
+&+Lmajority of his body as a small stream of &+wdrool&+L trickles down
+&+Lhis chin and splatters upon the rocky earth below him.
+~
+67110986 0 0 0 33554432 0 0 0 -700 S
+G 0 1 0 6
+21 10 37 21d40+262 3d6+3
+61.74.10.0 13650
+8 8 0
+#34406
+guard giant fomorian malformed~
+&+mthe fomorian guard~
+&+mA malformed &+yguard slumbers here.
+~
+&+mAn eye of &+wmilky &+bblue-&+Wwhite&+m scans about the cavernous area in
+&+msearch of intruders.  His legs and arms have been well
+&+mdeveloped.  No hair has managed to grow anywhere on his body
+&+mexcept for on his ears and between his fingers and toes.  A
+&+msmall stream of &+wdrool&+m trickles down his chin and splatters
+&+mupon the rocky earth below him.
+~
+67110922 0 0 0 33554432 0 0 0 -700 S
+G 0 1 0 6
+27 8 49 17d30+170 2d6+2
+100.63.3.0 5100
+8 8 0
+#34407
+woman enchantress~
+&+Wthe enchantress&N~
+&+WA woman&+y paces the floor here.
+~
+&+WIvory skin glistens from the magical spheres of light that
+&+Wslowly float about her slim fit body.  &+LRaven black hair&+W has
+&+Wbeen carefully pulled to the back of her head and twisted
+&+Winto a tight bun.  Her thin &+rlips&+W purse with intensity, as
+&+Wher &+Gemerald green&+W eyes seem to be glazed over with a rippling
+&+Wtranslucent substance, as if she was watching something
+&+Wintently.  A small tattoo depicting the symbol of The
+&+rBloodstone &+LBarony&+W can be seen on her left arm.
+~
+2122 0 0 0 0 0 0 0 -1000 S
+PL 0 512 0 -1
+37 6 19 27d55+270 3d6+4
+63.100.9.1 17550
+8 8 2
+#34408
+advisor barony royal~
+&+Bthe advisor&N~
+&+BA royal advisor of the &+rbarony is here.
+~
+&+BRough facial features show the signs of this man age.  His
+&+Beyes have sunken deep back into his head as a long &+Wwhite
+&+Wgoatee &+Lpe&+wpper&+Led&+B with &+Lblack&+B adorns his chiseled chin.  His
+&+Bbody almost seems skeletal in nature as his flesh stretches
+&+Bacross his thin frame of bone and muscle.  He proudly wears
+&+Ba skull-cup emblazoned with the symbol of the &+rbarony&+B on his head.
+~
+67110990 0 0 0 524288 0 0 0 -1000 S
+PH 0 8192 0 -1
+33 13 19 27d55+270 3d6+4
+77.71.11.1 17550
+8 8 1
+#34409
+knight barony bloodied~
+&+Ra Bloodied&+L Knight~
+&+LA knight clad in &+rbloodied mail&+L stands here.
+~
+&+LLarge round &+Ggreen&+L eyes peer around the area searching for his
+&+Lnext victim.  His hair has been cut very short and spiky.  A
+&+Llittle patch of &+ybrownish&+r-red&+L hair has grown beneath his lip
+&+Ldespite his otherwise flawlessly shaven face.  Powerful muscles
+&+Lripple with each of his movements.
+~
+1073743946 0 0 0 65536 32776 0 0 -1000 S
+PH 0 16 0 -1
+41 14 13 29d55+290 3d6+4
+61.56.14.1 18850
+8 8 1
+#34410
+giant deformed elder fomorian old~
+&+wa fomorian elder~
+&+wAn old &+Ldeformed&+w giant sits here.
+~
+&+YYello&+wwish skin covers a deformed frame of muscle and bone.
+&+wHis skin has been severely scarred by what may have been
+&+weither a wild animal or beast from the surrounding land.
+&+wA stream of thick clear fluids froths about his &+lthick lips
+&+was he sits within a pool of drool.
+~
+10 0 0 0 0 0 0 0 -1000 S
+G 0 0 0 -1
+29 7 13 29d55+435 3d6+4
+47.99.11.1 18850
+8 8 1
+#34411
+malformed giant tanner~
+&+Lthe fomorian&+Y tanner&N~
+&+bA malformed&+L giant&N &+bsits here &+ytanning a hide.
+~
+&+bWell-developed hands and arms carefully cut away the flesh
+&+bof some unfortunate soul as he harvests the &+wflesh&+b for the
+&+bwinter months.  His beady &+mpinkish&+b eyes eagerly glance over
+&+bthe exposed muscle tissues of one of the corpses while he
+&+breaches down and tears off a small child's arm and begins
+&+bto chew on it.  It seems he has not even noticed your presence.
+~
+2058 0 0 0 0 0 0 0 -1000 S
+G 0 1 0 -1
+31 10 37 21d40+262 3d6+3
+61.74.10.0 13650
+8 8 1
+#34412
+fomorian giant child boy~
+&+ya fomorian child~
+&+yA fomorian child hobbles about playfully here.
+~
+&+YThis small giant hobbles about playfully kicking what appears
+&+Yto be the head of a human man.  He only has one arm but was
+&+Ylucky enough to get two sturdy legs.  The child slowly munches
+&+Yon one of the hands of the recently slain victim, as a stream
+&+Yof &+rblood&+Y-filled saliva drips down his chin and splatters on
+&+Ythe ground.
+~
+136 0 0 0 0 0 0 0 -1000 S
+G 0 0 0 -1
+17 2 67 11d25+82 2d6+1
+78.50.1.0 3300
+8 8 1
+#34413
+fomorian child giant girl~
+&+ya fomorian child~
+&+yA fomorian child limps along here.
+~
+&+yThis small giant hops about on one foot swinging around with
+&+ywhat appears to be the mangled corpse of a small human child.
+&+yShe slowly brings the corpse to her chest and cradles the
+&+ydead child like a doll.  Suddenly she rears her head back
+&+yand bites deeply into the shoulder of the corpse causing a
+&+ystream of &+Rblood&+y-filled saliva to drip down her chin and
+&+ysplatters on the ground.
+~
+136 0 0 0 0 0 0 0 -1000 S
+G 0 0 0 -1
+12 3 64 12d25+90 2d6+1
+76.42.2.0 3600
+8 8 2
+#34414
+fomorian giant shaman tribal~
+&+cthe tribal &+Lshaman&N~
+&+cA fomorian sulks in the corner here.
+~
+&+cPatches of short hair have managed to grow upon this deformed
+&+ccreature's gray flesh.  Spittle and drool slowly oozes from
+&+cbetween the giant's lips as he supports himself firmly on
+&+cthree legs.  His massive arms ripple with muscle as he
+&+cgently massages his brow as he stares at some sort of rough
+&+csketch on the cavern wall.
+~
+2058 0 0 0 10 0 128 0 -1000 S
+G 0 256 0 -1
+30 5 40 20d30+200 2d6+2
+86.75.4.0 6000
+8 8 1
+#34415
+giant hideous fomorian~
+&+La fomorian&N~
+&+gA hideous giant sits here eat something equally grotesque.
+~
+&+gEyes of &+wmilky &+Yyellow&+g slowly gaze over the cavern wall in
+&+gamazement.  His legs have been deformed with ghastly effects.
+&+gHe has two well-formed arms as another arm protrudes from
+&+ghis back.  Splotches of hair have covered the majority of
+&+ghis body as a small stream of &+wdrool&+g trickles down his chin
+&+gand splatters upon the rocky earth below him.
+~
+2058 0 0 0 0 0 0 0 -1000 S
+G 0 0 0 6
+31 5 37 21d40+262 3d6+3
+75.87.9.0 13650
+8 8 1
+#34416
+rolane priest high~
+&+BRolane&N~
+&+BRolane, &+LHigh Priest of Selune meditates here.
+~
+&+BShort spiked &+Yblonde&+B hair streaked with &+wwhite&+B rustles as
+&+Bwind writhes about his body suspending him in mid air.
+&+BHis skin glistens with a soft &+Csilvery&+B hue as his eyes
+&+Bburn with a bright blue intensity.  His body is perfectly
+&+Bdefined by both muscle definition and skin tone.
+~
+2058 0 0 0 67117064 0 0 0 500 S
+PH 0 32 0 -1
+38 7 10 30d55+300 3d6+4
+52.87.13.1 19500
+8 8 1
+#34417
+solar selune~
+&+WThe Solar&+L of Selune~
+&+WThe Solar &+Lof Selune floats here.
+~
+&+YGolden skin glistens with &+Cshi&+Wmmer&+Cing&+W light&+Y as the angelic
+&+Yform flutters its &+Csilvery&+Y wings back in forth suspending
+&+Yhim in the air.  His body is perfect in every detail,
+&+Ylarge muscles ripple with intensity as his eyes of
+&+Bbrillant blue&+Y settles upon you.  He has sharp facial features
+&+Yand thin lips.
+~
+1174435850 0 0 0 973086744 47296 1140850816 0 1000 S
+Y 0 8 0 -1
+59 14 -127 59d120+7080 7d6+35
+6.4.22.21 147500
+8 8 1
+#34418
+priestess~
+&+Wa priestess&N~
+&+WA priestess of &+LSelune paces the floor here.
+~
+&+LLong black hair has been tied back with a small leather
+&+Lstrap.  Her hands have been stained with &+Rblood&+L and &+rgore
+&+Lwhile her dark brown eyes show the signs of her sorrow
+&+Land worry for her people.  A light &+wscar&+L is barely visible
+&+Lalong her left cheek.
+~
+2058 0 0 0 8200 4 0 0 750 S
+PH 0 32 0 -1
+26 4 46 18d30+90 2d6+2
+102.55.4.0 5400
+8 8 2
+#34419
+acolyte~
+&+Wan acolyte&N~
+&+WAn acolyte is here tending the wounded.
+~
+&+WCovered almost completely in &+Rblood&+W and &+rgore&+W the acolyte's
+&+Warms tense up with extreme exhaustion.  His &+Ggreen&+W eyes
+&+Wshow both the signs of sorrow and fear as he tends to the
+&+Wmany wounds of the townspeople.  His short &+rred&+W hair and
+&+Wfair skin accentuates his sharp facial features.
+~
+2058 0 0 0 8192 0 0 0 1000 S
+PH 0 32 0 -1
+19 3 61 13d25+32 2d6+1
+88.61.1.0 3900
+8 8 1
+#34420
+templar guard~
+&+Wa templar&N~
+&+WA Templar &+Lstands guard here.
+~
+&+wClad in &+Csilvery&+W-white&+w chainmail, huge hands grip firmly
+&+waround the hilt of his longsword.  A shield bearing the
+&+Lsymbol of &+bSelune&+w has been strapped to his arm while his
+&+wstern eyes peer from under a medium sized helmet of steel.
+&+YYellow&+w locks of his blonde hair have managed to poke out
+&+wfrom beneath his helmet, while he prepares himself for
+&+wthe onslaught of the town's enemies.
+~
+67110922 0 0 0 8192 0 0 0 1000 S
+PH 0 8 0 -1
+25 9 43 19d30+95 2d6+2
+84.69.4.0 5700
+8 8 1
+#34421
+templar guard~
+&+Wa templar&N~
+&+WA Templar &+Lguards the gates here.
+~
+&+wClad in &+Csilvery&+W-white&+w chainmail, huge hands grip firmly
+&+waround the hilt of her longsword.  A shield bearing the
+&+Lsymbol of&+b Selune has been strapped to her arm while her
+&+wstern eyes peer from under a medium sized helmet of steel.
+&+rAuburn&+w locks of hair have managed to poke out from beneath her
+&+whelmet, while she prepares herself for the onslaught of the
+&+wtown's enemies.
+~
+67110922 0 0 0 8192 0 0 0 1000 S
+PH 0 8 0 -1
+26 10 37 21d40+157 3d6+3
+117.98.8.0 13650
+8 8 2
+#34422
+man young~
+&+wa young man&N~
+&+wA young man huddles here with his family.
+~
+&+wStrong muscles ripple as the young boy brings water to the
+&+wtownspeople within the temple.  His &+ggreen&+w eyes show both
+&+wthe signs of maturity and dedication.  His brown hair has
+&+wbeen wetted with sweat, which sticks to his neck and face
+&+wlike a veil.
+~
+2062 0 0 0 0 0 0 0 500 S
+PH 0 0 0 -1
+19 3 64 12d25+30 2d6+1
+62.57.1.0 3600
+8 8 1
+#34423
+woman young~
+&+wa young woman~
+&+wA young woman sits here staring blankly.
+~
+&+wLong locks of brown hair have been pulled to the back of
+&+wher head as she paces back in forth.  Her dark eyes show
+&+wsigns of fear as he lips purse with anticipation of the
+&+won coming army.  A strange birthmark can been seen on her
+&+wleft shoulder.
+~
+138 0 0 0 0 0 0 0 375 S
+PH 0 0 0 -1
+10 2 70 10d20+10 1d6+0
+98.31.0.0 1000
+8 8 2
+#34424
+small child~
+&+wa small child~
+&+wA small child sits here playing with a small doll.
+~
+&+wTears stream down this young child's chubby face.  His
+&+wcheeks and nose are &+rred&+w from the intense trauma he has
+&+wrecently experienced.  His eyes are &+rred&+w from crying as
+&+wstreams of mucus flows from his nose.
+~
+138 0 0 0 0 0 0 0 1000 S
+PH 0 0 0 -1
+8 2 76 8d20+8 1d6+0
+98.23.0.0 800
+8 8 2
+#34425
+wounded templar guard~
+&+ra wounded &+Wtemplar&N~
+&+WA &+rwounded&+W Templar&+L lies here unconscious.
+~
+&+wClad in shredded &+Csilvery&+W-white&+w chainmail the templar tries
+&+whis best to reach for his longsword.  His shield has been
+&+wbattered with dented.  A helmet, filled with &+rblood&+w, rests
+&+wnext to him, as his &+bblue&+w eyes roll back into his head as
+&+whe experiences the pain and suffering of his deep wounds.
+~
+90 0 0 0 16384 0 0 0 1000 S
+PH 0 8 0 -1
+28 9 46 18d30+90 2d6+2
+116.82.2.0 5400
+4 4 1
+#34426
+nightmare horse mare~
+&+La night&+rmare&N~
+&+LA night&+rmare&+L is tethered here.
+~
+&+RRed eyes blaze&+L with anger as it rears up on its powerful
+&+Lhind legs.  Its midnight black coat of hair glistens as
+&+Lthe flames of the burning town reflect its visage of
+&+Ldestruction like a mirror.  &+wPuffs&+L of &+wsmoke&+L shoot out of
+&+Lthe beast's nose with each snort as te&+Rndr&+Lils of &+Rflame
+&+Lwrithe about the creature's hooves.
+~
+134219786 0 0 0 65544 8 0 0 -1000 S
+AE 0 1 0 -1
+28 9 43 19d30+95 2d6+2
+0.0.0.0 5700
+8 8 1
+#34427
+zombie blacksmith undead~
+&+Lthe zombie&N~
+&+LThe zombie&+r of the parish blacksmith stands here.
+~
+&+WFlesh still fresh masks a recently slain body of &+wflesh&+W and
+&+Wbone.  Massive muscle tissue has been ripped and torn by
+&+Wsome sort of beast, which still oozes a thick stream of
+&+Rblood&+W and &+wooze&+W.  Its eyes have been cakes over with a
+&+Wtranslucent white fluid.
+~
+67110922 0 0 0 8 0 0 0 -1000 S
+U 0 1 0 -1
+34 7 58 14d25+35 2d6+1
+0.0.0.0 4200
+8 8 0
+#34428
+mage necromancer man~
+&+La necromancer&N~
+&+MA wretched man is here casting a spell upon the corpses.
+~
+&+LLong black hair flows around a frame of &+wpale firm flesh
+&+Land &+wbone&+L.  His dark brown eyes are highly accented by his
+&+Lsharp pointy eyebrows.  His fingers are very long and thing,
+&+Lalmost skeleton like in nature.  His thin lips adds an to
+&+Lhis eerie expressionless face.
+~
+67110922 0 0 0 0 0 0 0 -1000 S
+PH 0 1024 0 -1
+25 3 55 15d25+37 2d6+1
+88.73.1.0 4500
+8 8 1
+#34429
+horse skeletal skeleton undead~
+&+Wa skeletal horse&N~
+&+WA skeletal horse &+Lthrashes about wildly here.&N
+~
+&+LBurned skin barely covers the skeleton form of this horse.
+&+LIts eyes have been completely out leaving only empty sockets
+&+Lin place.  The horse's mane has been shriveled and burned
+&+Lwith from the intense heat from the fire.
+~
+1207959562 0 0 0 33554440 64 0 0 -1000 S
+U 0 1 0 -1
+28 6 64 12d25+30 2d6+1
+0.0.0.0 3600
+8 8 0
+#34430
+raider fomorian giant~
+&+Ra fomorian&+L raider&N~
+&+LA fomorian raider searches the area.
+~
+&+LEyes of &+wmilky &+Yyellow&+L slowly gaze over the burning town in
+&+Lsearch of more victims.  His arms and legs have been well
+&+Ldeveloped, making him one of the top breeds of his clan.
+&+LHis hands have been caked with a thick layer of &+Rblood&+L.
+&+LPieces of muscle and &+wflesh&+L hang from his mouth as small
+&+Lstream of &+Rblood&+L filled drool trickles down his chin and
+&+Lsplatters upon the ground.  Light thin hair has grown in
+&+Lpatches about the majority of his body.
+~
+2060 0 0 0 524288 0 0 0 -1000 S
+G 0 1 0 -1
+31 5 40 20d30+200 2d6+2
+86.89.3.0 6000
+8 8 1
+#34431
+scout fomorian giant~
+&+La scout&N~
+&+yA fomorian &+Lscout&+y rummages through the corpses here.
+~
+&+YLarge yellow eyes&+L quickly search over the corpses of the
+&+Ltown in search of treasure.  His arms and legs have been
+&+Lwell developed, making him one of the top breeds of his
+&+Lclan.  His hands have been caked with a thick layer of
+&+Rblood&+L as he continues to rummage through the corpses.
+&+LPieces of muscle and &+wflesh&+L hang from his mouth as small
+&+Lstream of &+Rblood&+L filled drool trickles down his chin and
+&+Lsplatters upon the ground.
+~
+2058 1 0 0 33554436 0 0 0 -700 S
+G 0 16384 0 -1
+23 4 49 17d30+170 2d6+2
+72.79.2.0 5100
+8 8 1
+#34432
+raider deformed fomorian giant guard~
+&+Lthe fomorian&+b raider&N~
+&+LA deformed &+bgiant&+L covered in &+rblood and gore stands here.
+~
+&+LMassive &+ggreen eyes&+L search the streets for more victims.
+&+LHis arms and legs have been well developed, making him one
+&+Lof the top breeds of his clan.  His body has been caked with
+&+La thick layer of &+Rblood&+L from his recent slain victims.
+&+LPieces of muscle and &+wflesh&+L hang from his mouth as small stream
+&+Lof &+Rblood&+L filled drool trickles down his chin. He casually chews
+&+Lon a leg bone as he gazes at you.
+~
+67110986 0 0 0 33554432 0 0 0 -700 S
+G 0 1 0 -1
+31 7 55 15d25+112 2d6+1
+88.45.3.0 4500
+8 8 1
+#34433
+flame fire grue~
+&+Ra fire grue&N~
+&+RA fire grue&N &+Ldances among the &+rflames&+L here.
+~
+&+RThis small fire elemental sizzles and burns with excitement
+&+Ras it consumes the area about it.  The flames are very
+&+Rbeautiful being composed of &+Ggreen&+R, &+Yyellow&+R, and red
+&+Rtendrils of flame.
+~
+2122 0 0 0 536870928 129 0 0 -400 S
+EF 0 1 0 -1
+15 3 45 15d12+18 2d6+1
+0.0.0.0 4500
+8 8 0
+#34434
+woman wife~
+&+Wthe mayor's wife&N~
+&+WA woman lies here &+Ybound to the table.
+~
+&+WWhite flesh glistens from the torches illuminating the room as she
+&+Wstruggles against the chains binding her to the table.  The tattered
+&+Wremains of a long, flowing gown are spotted with &+Rblood&+W.  Her
+&+Wbeautiful face has been scratched and bitten.  &+RBlood &+Wmixed
+&+Wtears run down her cheeks as her oval eyes tell the tale of
+&+Wher horror.
+~
+10 0 0 0 16384 0 0 0 600 S
+PH 0 0 0 -1
+12 3 64 12d25+30 2d6+1
+90.55.1.0 3600
+8 8 2
+#34435
+worg giant~
+&+Ya giant worg&N~
+&+YA giant worg stands here.
+~
+&+Ythis beast is about seven feet long.  Powerful muscles ripple
+&+Ywith each movement as it prowls down the street looking to
+&+Yconsume more prey.  Its mouth houses many sharp teeth with
+&+Yextremely pointy canines.  Bits of &+wflesh&+Y and &+rmeat&+Y hang from
+&+Yits lower jaw.
+~
+1207959562 0 0 0 32 0 0 0 -700 S
+AC 0 1 0 -1
+22 6 64 12d25+30 2d6+1
+0.0.0.0 3600
+8 8 2
+#34436
+orc raider~
+&+yan orc&+L raider&N~
+&+yAn orc&+L raider&N searches the area here.
+~
+&+gGreen flesh stretches across a well-built frame of muscle
+&+gand bone.  His large nose twitches as he takes in the scent
+&+gfrom the surrounding area.  His armor has been splattered
+&+gwith fresh &+Rblood&+g that continuously tickles down to the ground
+&+gbelow.  His massive arms ripple with strength as his &+Lblackish
+&+geyes watch the area intently looking for his next victim.
+~
+2060 0 0 0 268959744 0 0 1048576 -700 S
+HO 0 16384 0 -1
+27 8 52 16d30+80 2d6+2
+126.55.3.0 4800
+8 8 1
+#34437
+orc~
+&+yan orc&N~
+&+yAn orc warrior&+L stands here looking for someone.
+~
+&+yThe orc's large nose twitches as he sniffs the air for his
+&+ynext victim.  Armor, splattered with &+Rblood&+y, protects his
+&+yrough &+ggreen hide&+y.  His massive arms ripple with strength
+&+yas his &+Lblackish&+y eyes watch the area intently.
+~
+2120 0 0 0 524288 0 0 1048576 -600 S
+HO 0 1 0 -1
+22 7 58 14d25+35 2d6+1
+62.55.2.0 4200
+8 8 1
+#34438
+harv man scared~
+&+CHarv&N~
+&+cA scared little man is here packing his bags.
+~
+&+wEyes of pure &+Gemerald green&+w stare at you as his thick &+rred
+&+weyebrows furrow at your presence.  His skin of &+Wivory-white
+&+wstretched across an enormous frame of bone and muscle.
+&+wHis high cheekbones and semi-pointy ears heavily define
+&+whis almost cat-like facial features.
+~
+10 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
+35 8 -5 35d70+525 4d6+7
+5.82.23.3 31500
+8 8 1
+#34439
+priest dark~
+&+La dark&+M priest&N~
+&+LA dark &+Mpriest&+L stands here chanting.
+~
+&+LBlack rough flesh glistens with sweat as two eyes of blackish
+&+Lcoal glare about him.  His head has been clean shaven with
+&+Lonly a small &+Yblonde&+L ponytail reaming in the center of the top
+&+Lof his head.  His hands are quite large for his size.  A tattoo
+&+Lof a blazing &+Wwhite skull&+L adorns the back of his head as two
+&+Rflame&+L designs wrap around and flare right beneath his eyes.
+~
+2058 0 0 0 24 0 0 0 -1000 S
+PH 0 32 0 -1
+27 4 49 17d30+85 2d6+2
+86.78.2.0 5100
+8 8 1
+#34440
+squire~
+&+Wa squire&N~
+&+WA squire stands here&+L tending his masters mount.
+~
+&+wA &+Lblack goatee&+w adorns a face of pale white flesh.  His
+&+wsharp facial features heavily accentuate his oval gray
+&+weyes.  Several scars run up and down both his arms and
+&+wone of his legs.  The &+rbloodstone&+L Barony Symbol&+w has been
+&+wbranded into his left hand.
+~
+67110926 0 0 0 65536 0 0 0 -1000 S
+PH 0 16 0 -1
+24 7 58 14d25+35 2d6+1
+90.53.2.0 4200
+8 8 1
+#34441
+woodsman~
+&+ga woodsman&N~
+&+gA woodsman sits by the &+rfire&+g here.
+~
+&+gEyes of &+wcrystal &+Bblue&+g peer about his surroundings looking
+&+gfor any signs of trouble.  His face is rough and chapped
+&+gshowing signs of age and weather.  His brown hair has been
+&+gpulled to the back of his head and tied off with a thin
+&+gleather strap.
+~
+1073743882 0 0 0 1572864 0 0 0 0 S
+PH 0 2 0 -1
+31 10 37 21d40+157 3d6+3
+89.100.8.0 13650
+8 8 1
+#34442
+cook~
+&+wthe cook&N~
+&+wA cook stands here &+Ltending a boiling pot over the &+rfire.
+~
+&+wA huge fold of fat giggles as this massive man moves about
+&+wthe camp.  His soft &+ybrown&+w eyes glisten with kindness and
+&+wunderstanding as he licks his fingers trying to get the
+&+wfew bits of sauce left on them from his meal.  His hair
+&+whas been cut very short, almost to the point of baldness.
+~
+2058 0 0 0 0 1024 0 0 390 S
+PH 0 1 0 -1
+32 12 28 24d40+180 3d6+3
+106.55.9.1 15600
+8 8 1
+#34443
+man trapper~
+&+ythe trapper&N~
+&+yA man sits here oiling a &+rrusty&+L trap.
+~
+&+yEyes of dark brown carefully examine a piece of recently
+&+yskinned fur for its quality.  His hair is very thick and
+&+yhe sports a full bead.  His skin is rough and has worn
+&+yfrom the effects of weather and time.
+~
+2062 0 0 0 32 0 0 0 600 S
+PH 0 2 0 -1
+35 4 49 17d30+85 2d6+2
+0.0.0.0 5100
+8 8 1
+#34444
+man trader~
+&+Gthe trader&N~
+&+GA man is inspecting a &+Yvariety of furs here.
+~
+&+yBrown flesh stretches across a massive frame of muscle and
+&+ybone.  His head is rather large and supports an unusual
+&+yjaw-bone structure.  His nose is quite large while his
+&+yeyes are small and beady.
+~
+2058 0 0 0 0 0 0 0 -300 S
+PH 0 0 0 -1
+28 11 34 22d40+165 3d6+3
+100.72.2.0 14300
+8 8 1
+#34445
+mayor man~
+&+Wthe mayor&N~
+&+WThe deposed mayor of &+BLonghollow&+W lies here exhausted.
+~
+&+WTears fill this man's &+bblue&+W eyes as he struggles to get on
+&+Whis feet.  His skin has been torn and ripped, which bleeds
+&+Wprofusely.  His &+Lblack&+W hair as been matted with &+Rblood&+W and
+&+rgore&+W while droplets of his life fluid flows down his chin
+&+Wand drips upon the ground.
+~
+1073743946 0 0 0 268443768 34820 1140850688 0 1000 S
+PH 0 72 0 -1
+60 13 22 26d55+260 3d6+4
+100.67.10.1 16900
+8 8 1
+#34446
+witch woman~
+&+Gthe&+L witch&N~
+&+LA &+Gwoman&+L stands here tending the cauldron.
+~
+&+LThick layers of &+Rfiery red hair&+L have been pulled back and
+&+Ltightly braided into a single strand.  Eyes of &+Gemerald
+&+Ggreen&+L rest below two crescent moon shaped eyebrows while
+&+Walabaster flesh&+L stretches across a frame of defined muscle.
+&+LA small diamond shaped tattoo can be seen on her left breast.
+~
+67119114 0 0 0 536944664 14529 128 0 0 S
+PH 0 256 0 -1
+59 29 -112 59d120+9000 7d6+35
+6.4.22.21 147500
+8 8 2
+#34447
+cat familiar~
+&+Lthe familiar&N~
+&+La black cat slinks about here.
+~
+&+LMirrored &+Ggreen-&+Csilverish&+L eyes peer at you.  His fur is deep
+&+Lblack in color, which seems to shimmer with a dark intensity
+&+Lon its own.  His ears are very pointy and he has unusually
+&+Llong whiskers.
+~
+1140877322 0 0 0 268959800 128 0 1048576 0 S
+AC 0 1 0 -1
+48 20 -20 40d80+2800 4d6+10
+0.0.0.0 36000
+8 8 2
+#34448
+bird red redbird~
+&+Ra redbird&N~
+&+RA large red bird flutters about here.
+~
+&+RRed feathers ruffle as this majestic bird flutters and flirts
+&+Rabout the land.  Its eyes sparkle like a multifaceted jewel
+&+Rbasking in the sun.  Its beak and legs are rather short for
+&+Rits size.  A crimson shimmering radiance seems to ebb from its
+&+Roddly colored beak of deep &+Mmauve&+R.
+~
+8 0 0 0 134217728 0 0 1048576 0 S
+B 0 0 0 -1
+10 2 70 10d20+10 1d6+0
+0.0.0.0 1000
+8 8 0
+#34449
+blackbird black bird~
+&+La blackbird&N~
+&+LA large black bird is here.
+~
+&+LMidnight black feathers ruffle as this majestic bird flutters
+&+Land flirts about the land.  Its eyes sparkle like a multifaceted
+&+Ljewel basking in the sun.  Its beak and legs are rather short
+&+Lfor its size.  An orange shimmering radiance seems to ebb from
+&+Lits oddly colored beak of deep &+Yyellow&+L.
+~
+8 0 0 0 134217744 0 0 0 0 S
+B 0 0 0 -1
+5 2 70 10d20+10 1d6+0
+0.0.0.0 1000
+8 8 0
+#34450
+yellowbird bird yellow~
+&+Ya yellowbird&N~
+&+LA large &+Yyellow bird&+L pecks the ground here.
+~
+&+YYellowish feathers ruffle as this majestic bird flutters and
+&+Yflirts about the land.  Its eyes sparkle like a multifaceted
+&+Yjewel basking in the sun.  Its beak and legs are rather short
+&+Yfor its size.  A &+Bblue&+Y shimmering radiance seems to ebb from
+&+Yits oddly colored beak of turquoise.
+~
+8 0 0 0 134217728 0 0 0 0 S
+B 0 0 0 -1
+5 2 70 10d20+10 1d6+0
+0.0.0.0 1000
+8 8 0
+#34451
+snake red black~
+&+Ra red and &+Lblack snake&N~
+A &+Rred&N and &+Lblack&N snake is sunning itself here.
+~
+&+rRed&+W and &+Lblack&+w markings run up and down this serpents scaled
+&+wbody.  Its eyes are very large for its size and seem to glow
+&+wwith a soft &+Yyellow&+w light.  It long tongue flickers in and out
+&+wof its mouth feeling the surrounding for its prey.  It is
+&+wvery beautiful.
+~
+10 0 0 0 34078752 12 0 0 0 S
+RS 0 0 0 -1
+5 2 73 9d20+9 1d6+0
+0.0.0.0 900
+8 8 0
+#34452
+viper snake diamond~
+&+Ma viper&N~
+&+LA diamond headed &+Msnake&+L is coiled upon a rock here.
+~
+&+LIts massive triangular head flares wildly at your presence.
+&+LIt slowly coils up like a rope and watches you intently.
+&+LIt scales are a rough gray.  Pieces of skin hang loosely
+&+Lalong its body from the recent shedding of its skin.
+~
+10 0 0 0 524288 0 0 0 0 S
+RS 0 0 0 -1
+5 2 70 10d20+10 1d6+0
+0.0.0.0 1000
+8 8 0
+#34453
+fish striped red~
+&+ra striped fish&N~
+A large &+rred striped&N fish swims here.
+~
+This oval elongated fish swims about the brook quickly.
+It has four vertical stripes along its body.  Oddly, the
+stripes seem to alternate between, &+Ggreen&N, &+Bblue&N, &+Yyellow&N, &+Rred&N,
+and purple as it swims.  Its large &+Lblack&N eyes twitch and
+rotate sporadically as it takes in its surroundings.
+~
+8 0 0 0 0 0 0 0 0 S
+F 0 0 0 -1
+10 3 64 12d25+30 2d6+1
+0.0.0.0 3600
+8 8 0
+#34454
+turtle alligator~
+&+Gan alligator &+Lturtle&N~
+&+GA huge turtle sits here jaws gaping.
+~
+&+GA massive hardened shell encases a powerful muscular body
+&+Gof flesh and bone.  Its giant head swings back in forth in
+&+Gsearch of prey.  Hundreds of sharp pointy teeth protrude
+&+Gfrom its maw as its powerful legs entrench themselves into
+&+Gthe brook.  Its deep &+Lblack eyes&+G are very stunning when
+&+Gcontrasted with its brownish green color.
+~
+2122 0 0 0 33554432 12 0 0 0 S
+R 0 0 0 -1
+17 7 55 15d25+37 2d6+1
+0.0.0.0 4500
+8 8 0
+#34455
+fish blue~
+&+ba bluegill~
+A small &+Bblue gilled&N fish darts about here.
+~
+&+bThis small fish eyes glow with an inner blue light.
+&+cSilverish&+b-blue scales glitter like encrusted jewels
+&+balong its body as it swims through the brook.  It has
+&+bvery small fins and its small mouth houses an array of
+&+bvery sharp teeth.
+~
+10 0 0 0 2064 0 0 0 0 S
+F 0 0 0 -1
+10 2 76 8d20+8 1d6+0
+0.0.0.0 800
+8 8 0
+#34456
+bird flightless~
+&+ya bird&N~
+&+yA large flightless bird roams about here.
+~
+&+yBrown feathers cover its small body.  Its &+Yyellow&+y beak and
+&+yfeet are rather large for its size.  The bird flutters its
+&+ywings furiously as it plays around in its surroundings.
+&+yIts eyes seem to glow with a light amber hue.
+~
+134219976 0 0 0 16 0 0 0 0 S
+A 0 0 0 -1
+18 3 61 13d25+32 2d6+1
+0.0.0.0 3900
+8 8 0
+#34457
+hare large~
+&+ya hare&N~
+&+yA large hare sits here ever alert.
+~
+&+ySoft fluffy fur coats this small rabbit.  Its eyes of
+&+ycrystal &+bblue&+y scan the area for danger as its hops along
+&+ythe area.  Two large &+Wwhite teeth&+y protrude beneath its
+&+ysmall mouth.
+~
+136 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+4 2 76 8d20+8 1d6+0
+0.0.0.0 800
+8 8 0
+#34458
+coyote~
+&+ya coyote&N~
+&+LA coyote prowls through the grass here.
+~
+&+yLong canines protrude form a medium sized mouth as its
+&+ywild &+Lblack&+y eyes scans the area looking for fresh prey.
+&+yIts thick brown coat of fur has been mangled and matted
+&+ywith &+Rblood&+y.  Two small patches of &+wwhite&+y adorn the fur,
+&+yyet still stained heavily with &+Rblood&+y.
+~
+1073744008 0 0 0 524320 0 0 0 0 S
+AC 0 0 0 -1
+18 6 61 13d25+32 2d6+1
+0.0.0.0 3900
+8 8 2
+#34459
+panther black~
+&+La black panther&N~
+&+LA black panther pads along here silently.
+~
+&+LSmooth silky fur covers this majestic beast, shimmering
+&+Lwith a dark blue color.  Her pale &+ggreen&+L eyes glow with
+&+Lan inner light as its peer about its surroundings.  Her
+&+Ltail flicks from side to side as she rolls her large
+&+Ltongue across her fur in an attempt to clean herself.
+~
+1073743880 0 0 0 35127312 0 0 0 -400 S
+AC 0 1 0 -1
+21 9 46 18d30+90 2d6+2
+0.0.0.0 5400
+8 8 2
+#34460
+sabertooth tiger~
+&+La saber&+ytooth&+L tiger&N~
+&+LA saber&+ytooth&+L tiger slinks along here.
+~
+&+yMassive paws have entrenched themselves deep into the earth.
+&+yIts &+Lblack&+y claws rake the surfaces of the land as it rears it
+&+yhead back and bears its fangs.  Its &+Yyellow&+yish brown coat has
+&+ybeen matted from the dry weather.  The beast scans the area
+&+ylooking for something to eat.
+~
+1073743880 0 0 0 524304 0 0 0 -450 S
+AC 0 1 0 -1
+27 10 40 20d30+100 2d6+2
+0.0.0.0 6000
+8 8 1
+#34461
+stallion horse wild~
+&+wa wild stallion~
+&+WA wild &+mstallion&+w is grazing here.
+~
+&+wPowerful leg muscles tense and flex has he trots through the
+&+wland.  His odd colored coat of &+mpink&+w and &+Wwhites&+w are contrasted
+&+wwith his sparkling crystal &+Bblue&+w eyes.  Its &+Mindigo&+w mane and
+&+wtail flare from side sparkling like glitter.
+~
+134217864 0 0 0 0 0 0 0 0 S
+AE 0 1 0 -1
+24 8 49 17d30+85 2d6+2
+0.0.0.0 5100
+8 8 1
+#34462
+horse mare~
+&+Ya&+G mare&N~
+&+YA mare&+G is prancing about here.
+~
+&+yPowerful leg muscles tense and flex has she trots through
+&+ythe land.  Her odd coat of &+Ggreen&+y and &+Yyellows&+y are contrasted
+&+ywith her sparkling &+Mviolet&+y eyes.  Her mane and tail
+&+yflare from side to side, sparkling like glitter.
+~
+134217866 0 0 0 0 0 0 0 0 S
+AE 0 1 0 -1
+19 3 58 14d25+35 2d6+1
+0.0.0.0 4200
+8 8 0
+#34463
+bullfrog frog bull~
+&+ga bu&+Rllfr&+gog~
+&+gA large bu&+Rllfr&+gog sits here croaking.
+~
+&+gBumpy green flesh covers this small toad's body.  Its huge
+&+greptilian eyes twitch and wiggle responding to every sound
+&+gemitting from its surroundings.  &+RBright red&+g streaks run up
+&+gand down its tiny body, oozing a faint glowing liquid.
+~
+8 0 0 0 0 0 0 0 0 S
+R 0 0 0 -1
+8 3 64 12d25+30 2d6+1
+0.0.0.0 3600
+8 8 0
+#34464
+frog tree treefrog~
+&+GA tree&+M frog&N~
+&+GA tree &+Yfrog&+G sits here upon the &+wwillow &+Ltree.
+~
+&+ySmooth incandescent orange flesh covers this amphibian's
+&+ybody.  Its huge suction cup type feet are exceptionally
+&+ylarge for its size.  &+YGlowing yellow&+y dust sizzles and
+&+ycrackles as the frog's skin emits small puffs of spores.
+~
+10 0 0 0 0 0 0 0 0 S
+R 0 0 0 -1
+5 2 76 8d20+8 1d6+0
+0.0.0.0 800
+8 8 0
+#34465
+raccoon~
+&+La rac&+wcoon~
+&+LA rac&+wcoon&+L sits here cleaning its paws.
+~
+&+wGray fur stripped with &+Ldark lines&+w cover his large cat
+&+wlike body.  His small eyes peer at you, as a &+Lmask&+w of
+&+Lblack&+w fur covers his entire eye section.  Small spots
+&+wof &+Wwhite&+w adorn his fur, especially his underbelly.
+~
+8 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+10 2 70 10d20+10 1d6+0
+0.0.0.0 1000
+8 8 0
+#34466
+fox red~
+&+ra red fox&N~
+&+YA &+rred fox&+Y hides in the grass here.
+~
+&+rThis small creature seems almost like nothing but a ball
+&+rof red fur.  Its puffy &+Wwhite&+r tail wags back in forth as it
+&+reyes the surrounding area for some food.
+~
+1073741898 0 0 0 1572864 0 0 0 0 S
+AC 0 0 0 2
+14 6 61 13d25+32 2d6+1
+0.0.0.0 3900
+8 8 1
+#34467
+swarm bee~
+&+Ya swarm&+L of bees&N~
+&+LA swarm of angry&+Y bees buzz about here.
+~
+&+LThousands of bees swarm here in anger.  Their abdomens
+&+Lare &+Ybright yellow&+L with reddish markings.  Their
+&+Ltranslucent wings buzz loudly, sending a sound of terror
+*+Lthroughout the land.
+~
+1073741832 1 0 0 16 0 0 0 0 S
+I 0 0 0 -1
+8 2 76 8d20+8 1d6+0
+0.0.0.0 800
+8 8 0
+#34468
+owl giant~
+&+LA giant owl&N~
+&+LA giant &+Wowl&+L flies about looking for food.
+~
+&+LHuge wings span about seven feet wide as this huge bird
+&+Lflies above the land in search of food.  Its razor sharp
+&+Lclaws tense up and relax in anticipation.  Large oval
+&+Yyellow&+L eyes carefully scan the area.
+~
+8 0 0 0 0 0 0 0 0 S
+B 0 0 0 -1
+15 3 55 15d25+50 2d6+1
+0.0.0.0 4500
+8 8 0
+#34469
+bat giant~
+&+La giant bat&N~
+&+LA giant bat flies about the night sky.
+~
+&+LHuge leathery wings stretch about 10 feet wide as this
+&+Lfurry rodent flies overhead.  It eyes &+Rglow&+L with an inner
+&+Lbright &+Rcrimson&+L light.  Two huge &+wfangs&+L protrude from its
+&+Lpetite maw.  It screeches loudly hovering over your head.
+~
+131080 0 0 0 0 0 0 0 0 S
+B 0 0 0 -1
+13 3 61 13d25+50 2d6+1
+0.0.0.0 3900
+8 8 0
+#34470
+cricket~
+&+ga cricket&N~
+&+gA small cricket&+y sits here chirpping a song.
+~
+&+gThis tiny insect almost lays hidden within the grassy land.
+&+gIt legs seem to shimmer with an odd greenish glow as it rubs
+&+gthem back in forth making an eerie musical sound.
+~
+136 0 0 0 35127296 0 0 0 0 S
+I 0 0 0 -1
+2 2 76 1d20+8 1d6+0
+0.0.0.0 800
+8 8 0
+#34471
+beetle fire giant~
+&+ra fire&+L beetle&N~
+&+rA giant fire &+Lbeetle rummages in the dirt here.
+~
+&+LThis giant insect has a very strong shell coating.  The shell
+&+Lhas covered in &+rbright red mucus&+L that glitters constantly.
+&+LIt mandibles look quite deadly as it scuttles across the
+&+Lland.
+~
+2056 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+18 3 58 14d25+35 2d6+1
+0.0.0.0 4200
+8 8 0
+#34472
+boobrie bird gigantic~
+&+Ma boobrie&N~
+&+MA gigantic bird&+B stand on one leg in the brook here.
+~
+&+MThis odd looking bird stands roughly 12 feet tall.  Its
+&+Msnake like neck twists and bobs ups and down in excitement.
+&+MIts beak is rather larger for even its huge size.  Its
+&+Mfeathers are bright pink in color and its legs are &+Yyellow&+M.
+~
+2056 0 0 0 0 0 0 0 0 S
+B 0 0 0 -1
+19 4 43 19d30+95 2d6+2
+0.0.0.0 5700
+8 8 2
+#34473
+vulture giant~
+&+La vulture&N~
+&+LA giant vulture is here feasting on a small corpse.
+~
+&+LTufts of feathers protrude from what appears to be a mostly
+&+Lbaldhead.  Its beak has been stained with &+Rblood&+L and &+rgore&+L as
+&+Lits lazy &+wgray eyes&+L scan the surface of the area for remains
+&+Lof prey to scavenge from.
+~
+2056 0 0 0 0 0 0 0 0 S
+B 0 0 0 -1
+22 4 52 16d30+80 2d6+2
+0.0.0.0 4800
+8 8 0
+#34474
+otter~
+&+Lan otter&N~
+&+LA otter playfully splashes in the water here.
+~
+&+LLooking somewhat like a beaver, this creature's black fur
+&+Lseems to be water-resistant.  It swims on its back, ruffling
+&+Lits tiny hand like paws across its stomach.  It eyes keep constant
+&+Lwatch of his surroundings.
+~
+10 0 0 0 0 0 0 0 0 S
+A 0 0 0 -1
+8 2 76 8d20+8 1d6+0
+0.0.0.0 800
+8 8 0
+#34475
+dragazhar bat large~
+&+La dragazhar&N~
+&+LA large night hunter bat flies through the air here.
+~
+&+LGargantuan in size, this huge bat like creature spans
+&+Lroughly 30 feet wide from wing tip to wing tip.  Its black
+&+Lleather skin has been scared and torn.  Its eyes sparkle
+&+Lwith a &+Ybright yellow&+L intensity as it scans the land for
+&+Lfruit and prey.
+~
+2056 0 0 0 167772164 0 0 0 0 S
+B 0 0 0 -1
+19 9 43 19d30+95 2d6+2
+0.0.0.0 5700
+8 8 0
+#34476
+elven girl~
+&+Can elven girl&N~
+&+CAn elven girl frolicks here.
+~
+&+cSlender arms flail about in a joyous dance. The petite girl
+&+cis wearing a sheer white dress that whirls with her motion.
+&+cCrystal &+Ggreen&+c eyes flash with a inner light. She is obviously
+&+cat home here in the open air of the night.
+~
+136 0 0 0 524288 0 0 0 1000 S
+PE 0 0 0 -1
+12 3 59 12d25+30 2d6+1
+118.53.1.0 3600
+8 8 2
+>>>>>>> master

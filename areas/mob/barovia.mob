@@ -526,7 +526,11 @@ doru infectious blaspheme~
 &+Lof this beast, frozen like black ice while giving off a venomous
 &+Lblack steam ready to gnash into the &+rflesh&+L of the living.
 ~
+<<<<<<< HEAD
 1091586122 1 0 0 603979920 47296 0 12583936 -1000 S
+=======
+1091586126 1 0 0 603979920 47296 0 12583936 -1000 S
+>>>>>>> master
 X 0 1025 0 5
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0

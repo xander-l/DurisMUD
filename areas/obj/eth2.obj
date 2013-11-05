@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #32600
 axe vortex~
 &+Ran axe of the&n &+rvortex demon&n~
@@ -523,3 +524,530 @@ basalt twisted key~
 18 11 1 1 7 8421376 0 16385 0 1 0
 0 100 0 0 0 0 0 0
 0 9 100 100
+=======
+#32600
+axe vortex~
+&+Ran axe of the&n &+rvortex demon&n~
+&+rA strange axe, shrouded in a multi-colored fog, has been forgotten here.&n~
+~
+5 1 3 5 12 57536 1025 8193 64 3686403 0
+1 3 4 3 0 0 0 0
+5 21703 100 2 0 0 0
+E
+axe vortex~
+Warm to the touch and vibrating with an unnatural energy, this heavy
+battleaxe is surrounded by a cloud of swirling, multi-colored mists,
+rotating around the blade like a miniature tornado.
+~
+A
+19 4
+A
+18 4
+#32601
+distortion void fold portal section~
+&+ma strange distortion&n~
+&+mA small section of the void appears to shift and fold in on itself.&n~
+~
+25 1 5 0 7 8634432 0 0 0 0 0
+32657 7 -1 0 0 0 0 0
+0 12 100
+#32602
+helmet corruption~
+&+Wthe helmet of &+Lcorruption&n~
+A brilliant helm, glowing &+Bblue&n with power, gleams on the ground.~
+~
+9 1 3 10 7 3399745 1 17 0 0 0
+10 4 1 4 0 0 0 0
+3 2993 100 17301508 0 0 0
+E
+helmet corruption~
+This helm is made from a single piece of demon flesh, wrapped in bands of
+solidified ethereal fog, and inscribed with the runes of time.  A power
+beyond mortal comprehension went into making this armor, a testament to
+the power of the ethereal lord.
+~
+#32603
+silver longsword sword~
+&+Wa silvery &+Ggith&+Wyanki longsword&n~
+Strong as the hardest of steels, a &+Wsilver &+Ggith&+Wyanki&n longsword rests here.~
+~
+5 22 3 10 7 32832 65 8193 64 122880 0
+13 6 6 3 0 0 0 0
+8 17654 100
+A
+18 5
+A
+13 40
+#32604
+small brass key~
+&+ya small brass key&n~
+&+yA key, made of polished brass, has been left here.&n~
+~
+18 17 1 1 7 8421376 0 16385 0 1 0
+0 100 0 0 0 0 0 0
+0 9 100
+E
+small brass key~
+A tiny thing made of brass, this key seems to flicker every once in a
+while, fading in and out of existance.  Each time when it reappears, the
+shape of the key has changed slightly.
+~
+#32605
+flail~
+&+ra bloody&n &+Lflail&n &+rof demons&n~
+A giant, two-handed &+Lflail&n lies in a pool of &+rblood&n.~
+~
+5 19 4 10 7 5488704 37749760 8193 64 84951065 0
+3 3 5 6 0 0 0 0
+20 30525 100 536870928 0 0 0
+E
+flail~
+Covered in fresh blood that cannot be wiped clean, this giant flail burns
+with an evil life of its own.  When used in combat, the weapon seems to
+shriek in joy, eager for the thrill of combat.
+~
+A
+19 5
+A
+18 5
+#32606
+pendant~
+&+La small glowing pendant&n~
+&+LA glowing pendant, made of glass, is laying on the ground.~
+~
+9 7 2 1 7 8425481 1 5 0 0 0
+1 2 1 3 0 0 0 0
+1 147 100
+E
+pendant~
+This glass pendant, hanging from a long silver chain, is a complicated mix
+of inscriptions, carvings, and magic.  Long and thin, if you look at it
+close enough, it almost appears to be a key of some type.
+~
+#32607
+halberd destruction~
+&+mthe halberd of destruction&n~
+&+mA halberd of malevolent power has been dropped here.&n~
+~
+5 18 4 8 11 4317248 4195328 8193 64 83902489 0
+8 3 7 3 0 0 0 0
+15 36974 100 67108900 0 0 0
+A
+19 5
+A
+18 5
+#32608
+shield nightmares~
+&+Lthe shield of&n &+mN&+Li&+mg&+Lh&+mt&+Lm&+ma&+Lr&+me&+Ls&n~
+&+LA glossy black shield, with &+mpurple&n &+Lengravings, lies here.&n~
+~
+37 1 3 15 14 1097824 9216 513 64 540707 0
+2 1 3 15 4 0 0 0
+11 4686 100 32 128 0 0
+A
+31 5
+A
+13 10
+#32609
+dagger repulsive~
+&+La repu&+glsiv&+Le dag&+gge&+Lr&n~
+&+LA sli&+gme cov&+Lered da&+ggger&n lies here.~
+~
+5 20 2 2 7 98368 1024 8193 64 53248 0
+2 2 4 11 0 0 0 0
+2 9707 100
+A
+19 3
+A
+18 3
+#32610
+key bone~
+&+Wa key carved from bone&n~
+&+WA key, carved from the legbone of some animal, sits here.&n~
+~
+18 10 1 0 7 8425480 0 16385 16385 0 0
+0 100 0 0 0 0 0 0
+0 3 100
+#32611
+staff slaadi~
+&+Ythe staff of the slaadi&n~
+&+YThe great staff of the slaadi has been tossed aside.&n~
+~
+4 25 3 2 7 41024 1024 16385 0 4197888 0
+51 1 1 363 0 0 0 0
+4 35113 100 2048 0 0 0
+A
+3 5
+A
+33 4
+#32612
+wall light~
+&+Wa wall of light&n~
+&+WA wall of blinding light blocks the hallway.&n~
+~
+25 1 4 0 15 114753 0 0 0 1 0
+32683 320 -1 0 0 0 0 0
+0 23 100
+#32613
+key wooden~
+&+ya long, wooden key&n~
+&+yA key shaped from jodani wood lies here.&n~
+~
+18 6 1 0 7 11767816 0 16385 0 1 0
+0 100 0 0 0 0 0 0
+0 14 100
+#32614
+tree jodani large~
+&+ya large jodani tree&n~
+&+yA large jodani tree rustles as you approach.&n~
+~
+13 6 5 100 15 229376 0 0 0 0 0
+0 0 0 0 0 0 0 0
+200 1 100
+E
+tree jodani large~
+Large and foreboding, this ancient jodani tree looms out over the trail,
+its branches softly moving despite the lack of breeze or wind.  Its leave
+seem to rustle in warning, as if asking you not to proceed further down this
+path.
+~
+#32615
+ancient white oak tree~
+an ancient white oak~
+An ancient white oak seems to gaze down on the trail.~
+~
+13 6 5 100 15 229376 0 0 0 0 0
+0 0 0 0 0 0 0 0
+200 1 100
+E
+ancient white oak tree~
+Large and foreboding, this ancient oak tree looms out over the trail,
+its branches softly moving despite the lack of breeze or wind.  Its leave
+seem to rustle in warning, as if asking you not to proceed further down this
+path.
+~
+#32616
+staff lolth~
+&+ma staff of &+MLolth&n~
+&+mA long staff&n &+Mglows&n &+mwith an unholy power.&n~
+~
+5 15 3 0 7 4292608 4195329 24577 64 105385892 0
+12 3 3 6 0 0 0 0
+5 11000 100 32 12 0 0
+A
+5 10
+A
+35 5
+#32617
+symbol token holy~
+&+Ga goblin&n &+gholy&n &+Gsymbol&n~
+&+gA goblin's religious token was dropped on the ground.&n~
+~
+9 15 3 0 7 33024 1025 5 0 34079136 0
+5 0 0 2 0 0 0 0
+0 5644 100 4 0 0 0
+A
+14 10
+A
+13 35
+#32618
+book dwarven religion~
+&+ya&n &+Ybook&n &+yof&n &+Ydwarven religion&n~
+&+YA book on the religion of mountain dwarves collects durst here.&n~
+~
+23 28 3 0 15 0 1153 16385 64 32 0
+10 1 1 7 0 0 0 0
+1 3423 100 0 32768 128 0
+A
+34 5
+A
+4 10
+#32619
+mace godsfury unique~
+&+Wthe&n &+wstone mace&n &+L'Godsfury'&n~
+&+wA finely crafted mace of stone&n &+Wglows&n &+wwith a religious fire.&n~
+~
+5 15 3 0 15 33595720 268444672 8193 64 33554592 0
+6 3 8 7 0 0 0 0
+10 205905 100 73744 32768 0 0
+E
+mace godsfury~
+Forged long ago by the ancient dwarven gods, this mace has a history that
+has been told to generations of mountain dwarves, passed on from father to
+son in an endless chain.  This mace was lost long ago by the dwarven king
+Khal-alhak, ambushed in the mountain passes near Kimordril by hobgoblins
+of the Bloodfang Clan.  A long war erupted between the dwarves and the
+hobgolins, with untold atrocities being committed by both sides.
+Centuries later, it was recovered by Khal-alhak's grandson when the
+dwarves leveled the last fortress of the Bloodfang Clan.  Thirty years
+ago, the mace and its guardian, the priest Tholgrom, disappeared without a
+trace.
+~
+A
+19 5
+A
+18 5
+#32620
+key rainbow~
+&+ra r&+Ra&+Gi&+Yn&+Cb&+Bo&+Mw&n &+rkey&n~
+&+rA key of&n &+Rm&+Ya&+Gn&+By &+Cc&+Wo&+Ml&+Ro&+Gr&+Ys&n &+rhas been dropped.  Un-freaking-believable.&n~
+~
+18 15 3 0 7 8638536 0 16385 0 1 0
+0 100 0 0 0 0 0 0
+0 12 100
+#32621
+crown aramus unique~
+&+Ythe &+Wcrown &+Yof &+RA&+Yr&+Ga&+Bm&+Cu&+Ws&n~
+&+WThe crown of &+RA&+Yr&+Ga&+Bm&+Cu&+Ms&n &+Wlies here, foolishly forgotten.&n~
+~
+9 15 3 0 7 34783336 301990913 17 64 4230656 0
+10 0 0 3 0 0 0 0
+2 118440 100
+A
+13 40
+A
+24 -5
+#32622
+portal~
+&+Ra glowing portal&n~
+&+RA portal glows here.&n~
+~
+25 15 3 0 7 32768 0 0 0 1 0
+32600 7 -1 0 0 0 0 0
+100 9 100
+#32623
+gloves rage~
+&+Lsome gloves of&n &+rr&+Ra&+rg&+Re&n~
+&+RA set of gloves has been dropped on the ground, where they&n &+Rglow&n &+Rmaliciously.&n~
+~
+9 15 3 0 7 32768 1024 129 64 84987993 0
+10 0 0 3 0 0 0 0
+0 5731 100 16 0 0 0
+A
+18 4
+#32624
+boots dreamer~
+&+gthe boots &+Gof the&n &+gdreamer&n~
+&+GA gaudy pair of green boots lies on the ground.&n~
+~
+9 15 3 0 7 8256 1024 65 64 38309796 0
+10 0 0 1 0 0 0 0
+0 11484 100 335544320 0 0 0
+A
+36 7
+A
+13 20
+#32625
+girl lost~
+&+Ca little lost girl&n~
+&+CA young girl sits crying here, lost and alone.&n~
+~
+5 15 3 0 7 4440064 0 0 0 1 0
+3 40 4 2 0 0 0 0
+0 16692 100
+#32626
+horn plenty~
+the &+yhorn&+L of&n &+mpl&+Me&+mn&+Mty&n~
+&+LA small &+yhorn&+L of &+mpl&+Me&+mn&+Mty&+L overflows with &+rfru&+Ri&+rt&+L.&n~
+~
+17 15 3 0 7 33677384 0 8388609 0 0 0
+80 80 0 0 0 0 0 0
+3 161 100
+#32627
+flower ethereal rose~
+&+ga strange&n &+Reth&+rer&+Real&n &+Rr&+ros&+Re&n~
+&+gA small&n &+Reth&+rer&+Real&n &+Rr&+ros&+Re&n &+glies here.&n~
+~
+12 15 3 0 7 32768 1 2097153 8388609 0 0
+0 0 0 0 0 0 0 0
+0 100 100
+E
+flower ethereal rose~
+&+gThis&n &+rflower&n &+gis a delicate object of infinite beauty, a magical creation
+&+gthat rivals and perhaps surpasses any&n &+rrose&n &+gof natural origins. Crafted
+&+gfrom the &+cc&+Ch&+ca&+bo&+Cs&n &+gof the &+CDre&+cam Wo&+Crld&n &+gby an insane&n &+mdrow&n &+garchmage, the spell
+&+grequired to fashion the&n &+rrose&n &+gkilled the crazed &+mdrow&+g. The powers of the
+&+gobject are unknown, but when held by any person, a clear voice can be
+&+gheard in their head, repeating the same message endlessly, a message from
+&+gthe mage to a&n &+mdrow muse&+g:&n
+
+&+mMy dearest muse,
+
+&+mI've told you before what you mean to me.  You've become a dear, dear
+&+mfriend to me in a short period of time.  I care for you a great deal, and
+&+mhope you feel the same.  Life in Aracdrathos and the Underdark can be
+&+mharsh, and it amazes me that a creature of your beauty could have been
+&+mspawned in such an environment.  My life, dedicated to the magical arts,
+&+mhas offered me little time for companionship.  You have intrigued and
+&+mcharmed me, beguiling me with your warmth and spirit, amazing me with your
+&+mstrength of character and range of talents.  You have enriched an old
+&+mmage's life, and could give me no greater gift than your friendship.
+
+&+mYou may call on me at any time and know that I will be there for you,
+&+moffering any and all assistance I can.  Know that you are in my thoughts
+&+mand heart always.
+
+&+gNeither the name of the mage or the drow woman that fascinated him is ever
+&+gstated, and they have been forgotten over time.  All that remains of the
+&+gfeelings the mage had for the muse is this timeless flower, an oddly
+&+gromantic gesture from a race known mostly for cruelty and hate.
+~
+A
+13 1
+#32628
+necklace slaadi~
+&+ra slaadi&n &+Rnecklace&n &+rof&n &+YC&+Wh&+Ya&+Wo&+Ys&n~
+&+rA necklace of &+YSl&+Wa&+Yad&+Wi&n &+rrunes has been tossed aside.&n~
+~
+9 15 3 0 7 32768 1025 5 0 87609467 0
+5 0 0 3 0 0 0 0
+2 4392 100 0 0 0 1024
+#32629
+gem reflection~
+&+Ga gem of &+Creflection&n~
+&+GA brilliant &+Cgem &+Gshines from its spot on the ground.&n~
+~
+11 15 3 0 7 49216 263168 16385 64 38309796 0
+0 0 0 0 0 0 0 0
+1 4359 100 2 0 0 0
+A
+24 -4
+A
+13 30
+#32630
+gloves glove adept~
+&+Bthe gloves of&n &+cthe adept&n~
+&+BSome magical gloves of&n &+cthe adept&n &+Bwere dropped here.&n~
+~
+9 15 3 0 7 32832 1024 129 64 4230656 0
+3 0 0 3 0 0 0 0
+1 2489 100 268435456 0 0 0
+A
+33 3
+A
+13 20
+#32631
+lance short iron~
+&+ra short lance of&n &+Rdemonic iron&n~
+&+rA short footman's lance made of polished&n &+Runholy metal&n &+rrests here.&n~
+~
+5 15 3 0 7 4231296 1025 8193 64 402653208 0
+16 3 9 11 0 0 0 0
+15 27230 100 536870912 0 0 0
+A
+19 4
+A
+18 5
+#32632
+potion enlightenment 51~
+&+Ya potion of enlightenment&n~
+&+YA potion of enlightenment rests here.&n~
+~
+10 15 3 0 7 32832 0 0 0 130046 0
+50 56 279 279 279 0 0 0
+2 6802 100
+A
+8 51
+#32633
+rose drow muses~
+&+ga&n &+rrose&n &+gof the&n &+MDr&+mow Mus&+Mes&n~
+&+gA&n &+Gbeautiful&n &+rrose&n &+gof&n &+rr&+Re&+rd&n &+gand&n &+mvi&+Mol&+met&n &+glies here.&n~
+~
+12 15 3 0 7 32768 0 0 0 1 0
+0 0 0 0 0 0 0 0
+0 100 100
+A
+13 1
+#32634
+staff dreamwalker~
+&+La blackened &+Wdre&+wam&+Lwal&+wke&+Wr's&n &+Lstaff&n~
+&+LA charred and blackened staff of a&n &+Wdr&+wea&+Lmwa&+wlk&+Wer&n &+Lhas fallen to the ground.&n~
+~
+5 15 3 0 7 20544 1024 24577 64 384 0
+12 3 3 7 0 0 0 0
+6 4445 100 8 0 0 0
+E
+staff dreamwalker~
+Used by shamans and other dreamwalkers as an aid to touching the Dream
+World, this staff has been blackened and charred by some force.  Most
+likely, some dreamwalker was caught by Aramus or one of his minions and
+this staff is a token of the poor man's demise.  Aramus is a cruel master
+and does not take intrusion into his realm kindly.
+~
+A
+35 5
+A
+55 7
+#32635
+necklace power~
+&+wa&n &+Wglowing&n &+wnecklace of&n &+Wpower&n~
+&+wA metal necklace&n &+Wglows&n &+wwith some strange &+Wpower.&n~
+~
+9 15 3 0 7 1 1025 5 0 87085179 0
+10 0 0 3 0 0 0 0
+0 5805 100 536870912 0 0 0
+A
+19 5
+#32636
+chunk beholder flesh~
+&+wa decaying chunk of&n &+Lbeholder flesh&n~
+&+wA small piece of&n &+Lbeholder flesh&n &+wdecays and rots.&n~
+~
+11 15 3 0 7 3166272 1024 16385 64 38277028 0
+0 0 0 0 0 0 0 0
+1 6708 100 536870912 12480 0 0
+E
+chunk beholder flesh~
+A decaying piece of beholder flesh lies here, showing rapid signs of rot.
+Disgusting to the touch, it feels odd... as if some part of the power of
+the beholder stil remains.
+~
+A
+24 -5
+A
+13 25
+#32637
+tooth bladeling~
+&+La bladeling's tooth&n~
+&+LA sharp tooth of some strange creature has fallen here.&n~
+~
+5 15 3 0 7 4160 1025 8193 64 2097152 0
+5 3 5 0 0 0 0 0
+4 582 100
+A
+18 3
+A
+19 3
+#32638
+key~
+&+ga mold-encrusted key&n~
+&+gAn old brass key, covered in mold, hides here.&n~
+~
+18 15 3 0 7 8392712 0 16385 0 1 0
+0 100 0 0 0 0 0 0
+1 10 100
+#32639
+portal~
+&+Wa nearly invisible portal&n~
+&+gThe faint outlines of a &+Wportal&+g can be seen.&n~
+~
+25 15 3 0 7 98313 0 0 0 1 0
+32632 7 -1 0 0 0 0 0
+0 10 100
+#32640
+portal~
+&+Wa nearly invisible portal&n~
+&+gThe faint outlines of a &+Wportal&+g can be seen.&n~
+~
+25 15 3 0 7 98313 1 0 0 0 0
+12494 7 -1 0 0 0 0 0
+0 10 100
+#32641
+basalt twisted key~
+&+La twisted basalt key~
+&+LA key twisted key made of basalt lies here.&n~
+~
+18 11 1 1 7 8421376 0 16385 0 1 0
+0 100 0 0 0 0 0 0
+0 9 100
+>>>>>>> master

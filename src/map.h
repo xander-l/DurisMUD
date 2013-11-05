@@ -41,6 +41,7 @@
 #define CONT_TEZCAT 13
 #define CONT_MOONSHAE 14
 
+
 #define CONTINENT(r) ( world[r].continent )
 #define IS_CONTINENT(r, cont) ( CONTINENT(r) == cont )
 

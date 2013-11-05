@@ -811,7 +811,11 @@ lands in an attempt to control the surface.
 ~
 1140852808 128 0 0 67108888 0 0 0 600 S
 pg 0 1 0 -1
+<<<<<<< HEAD
 41 0 0 1d1+1 1d1+1
+=======
+60 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #500055
@@ -871,7 +875,11 @@ lands in an attempt to control the surface.
 ~
 603981896 128 0 0 67108888 0 0 0 600 S
 ph 0 1 0 -1
+<<<<<<< HEAD
 51 0 0 1d1+1 1d1+1
+=======
+61 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #500059
@@ -885,8 +893,13 @@ evil forces who have an immensely-long running history of attacks on these
 lands in an attempt to control the surface.
 ~
 603981896 128 0 0 67108888 0 0 0 600 S
+<<<<<<< HEAD
 ph 0 1 0 -1
 44 0 0 1d1+1 1d1+1
+=======
+ph 0 16384 0 -1
+57 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #500060
@@ -901,7 +914,11 @@ lands in an attempt to control the surface.
 ~
 67110984 128 0 0 67108888 0 0 0 600 S
 ph 0 1 0 -1
+<<<<<<< HEAD
 51 0 0 1d1+1 1d1+1
+=======
+60 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #500061
@@ -1596,7 +1613,11 @@ elite human soldier~
 ~
 1074137096 128 0 0 8 0 0 0 0 S
 ph 0 1 0 -1
+<<<<<<< HEAD
 51 0 0 1d1+1 1d1+1
+=======
+59 0 0 1d1+1 1d1+1
+>>>>>>> master
 0.0.0.0 0
 8 8 1
 #500108
@@ -1886,6 +1907,147 @@ EL 0 134217728 0 -1
 59 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
+#500129
+general sickly emaciated decorated~
+&+La &+gsi&+Gck&+gly&+L, emaciated &+gex-general&n~
+&+LAn emaciated and sickly &+ghu&+Gm&+gan &+Ldecorated with &+ymany &+Ymedals &+Llurks here.&n
+~
+~
+8417290 0 0 0 0 0 0 4096 -1000 S
+PH 0 16777216 1 3
+62 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#500130
+krunx barbarian ragelord~
+&+rK&+Rr&+ru&+Rn&+rx&+L, the &+Bbarbarian &+rR&+Ra&+rge&+Rlo&+rr&+Rd&n~
+&+rK&+Rr&+ru&+Rn&+rx&+L, the &+Bbarbarian &+rR&+Ra&+rge&+Rlo&+rr&+Rd&+L is here walking the land looking for battles lost in &+RBloodlust.&n
+~
+&+rKrunx, is the most massive and feared ragelord walking the lands.
+&+rHe travels the world searching for new students gifted in the ways
+&+rof blood rage.
+~
+3288377352 384 0 0 134226048 0 0 0 0 S
+pb 0 1048576 2 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#500131
+sir dravor human lightbringer teacher _spec1_~
+&+WSir Dravor&n, the &+Yholy&n &+Lavenger&n~
+&+WSir Dravor&n the &+Yholy&n &+Lavenger protects the countryside from &+Levil&n.
+~
+&+cSir Dravor has an elevated status as an &+WAvenger&n &+cdue to his &n
+&+cextreme dedication to fighting against the evil rulers of the land. He
+&+ctravels near and far to ensure the safety of his people.&n
+~
+3288377352 384 0 0 134226048 0 0 0 0 S
+PH 0 67108864 0 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#500132
+braxxus dwarvern mauler~
+&+cBr&+Caxx&+cus&+L, the &+ydw&+Yarve&+yrn &+rMa&+RUle&+rR&n~
+&+cBr&+Caxx&+cus&+L, the &+ydw&+Yarve&+yrn &+rMa&+RUle&+rR &+Lof &+YKimordril&+L is here, wondering the lands.&n
+~
+&+cSir Dravor has an elevated status as an &+WAvenger&n &+cdue to his &n
+&+cextreme dedication to fighting against the evil rulers of the land. He
+&+ctravels near and far to ensure the safety of his people.&n
+~
+3288377352 384 0 0 134226048 0 0 0 0 S
+pm 0 1048576 1 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#500133
+cian elaphidist monk~
+&+gC&+Gian&+L the &+yElap&+Yhi&+ydist&+L of the &+gJ&+Gad&+ge &+LEm&+wpi&+Wre&n~
+&+gC&+Gian&+L the &+yElap&+Yhi&+ydist&+L of the &+gJ&+Gad&+ge &+LEm&+wpi&+Wre&+L is here, searching for students.&n
+~
+~
+3221260296 64 0 0 8 0 0 0 0 S
+ho 0 64 2 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#500134
+dantag red dragon monk~
+&+LDa&+wnt&+Wag&+L the &+rRe&+Rd Dra&+rgon&+L of the &+gJ&+Gad&+ge &+LEm&+wpi&+Wre&n~
+&+LDa&+wnt&+Wag&+L the &+rRe&+Rd Dra&+rgon&+L of the &+gJ&+Gad&+ge &+LEm&+wpi&+Wre&+L is here, searching for students.&n
+~
+~
+3221260296 64 0 0 8 0 0 0 0 S
+ho 0 64 1 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#500135
+ach'ali psycheporter limbo githzerai~
+&+gAch&+W'&+Gali&+L, the preeminant &+bPsyche&+Lporter of &+CL&+cimbo&n~
+&+gAch&+W'&+Gali&+L, the preeminant &+bPsyche&+Lporter of &+CL&+cimbo&n&+L, phasing in and out of reality.&n
+~
+~
+2147516424 128 0 0 8 0 0 0 0 S
+gz 0 4 3 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#500136
+ra'as master enslaver zerthimonian githzerai~
+&+gRa&+W'&+Gas&+L, master &+MEn&+mslav&+Mer&+L of &+mZ&+Me&+Lrthimoni&+Ma&+mn&n~
+&+gRa&+W'&+Gas&+L, master &+MEn&+mslav&+Mer&+L of &+mZ&+Me&+Lrthimoni&+Ma&+mn&+L, looking to teach enslavement&n
+~
+~
+2147516424 128 0 0 8 0 0 0 0 S
+gz 0 4 2 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#500137
+amon'kon pyrokinetic rrakkma githzerai~
+&+gAmon&+W'&+Gkon&+L, grand &+rPyr&+Rokine&+rtic&+L of the &+mRra&+rk&+mk&+rma&n~
+&+gAmon&+W'&+Gkon&+L, grand &+rPyr&+Rokine&+rtic&+L of the &+mRra&+rk&+mk&+rma&+L is here, searching for students.&n
+~
+~
+2147516424 128 0 0 8 0 0 0 0 S
+gz 0 4 1 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#500138
+guard town protector guardian~
+&+WA Town &+yGuardian&n~
+&+WA &+bDec&+Bora&+Lted &+WTown &+yGuardian &+Wstands watch over the &+Lcity&+W gates.&n
+~
+~
+1141256202 128 0 0 939524152 220 0 0 0 S
+PH 0 33 2 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 50
+8 8 0
+#500139
+marianne human reaver~
+&+LMarianne&n~
+&+LMarianne&+W, the &+Chuman &+Lre&+Wav&+Ler&+W stalks the land for prey.&n
+~
+~
+3255237128 128 0 0 402653240 0 0 0 -1000 S
+PH 0 2097152 3 3
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#500140
+regnar ranger drow elf~
+&+mRegnar&n~
+&+mRegnar&+L, the &+mdrow elf &+Granger&+L sneaks among the bushes here&n.
+~
+~
+3221682184 64 0 0 403177532 0 0 0 -1000 S
+pl 0 2 2 3
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
 #500150
 reaver snudk goblin shock_reaver teacher _spec3_~
 &+gSnudk&+L, the &+Ggoblin &+Yshock &+Lreaver&N~

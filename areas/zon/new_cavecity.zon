@@ -169,6 +169,7 @@ E 1 15140 1 20 100 0 0 0           *   a pitch-black leather mask
 E 1 15116 1 16 100 0 0 0           *   the sword of tormenting
 G 1 359 1 0 100 0 0 0              *    (object type not in this .obj file)
 G 1 55182 1 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 67272 1 0 100 0 0 0            *    (object type not in this .obj file)
 F 1 15127 9 15143 100 0 0 0        * a shadow lord (following)
 F 1 15127 9 15143 100 0 0 0        * a shadow lord (following)
 F 1 15127 9 15143 100 0 0 0        * a shadow lord (following)

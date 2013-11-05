@@ -12,8 +12,8 @@ her tail seems to shift in hue as it twitches from emerald green to midnight
 black to sapphire blue.  Tiamat's legs are thick as great trees, and her
 wings-black on the exterior and red as blood on the underside-are huge.
 ~
-126289931 1 0 706291838 47325 1048704 0 -1000 S
-D 0 512 -1
+126289931 1 0 0 706291838 47325 1048704 0 -1000 S
+D 0 512 0 -1
 61 0 -350 10d10+22000 20d5+75
 0.0.1000.5000 2000000
 8 8 2
@@ -25,8 +25,8 @@ shadow daemon~
 The creature is barely visible, as it is completely black in color.
 Its outline suggests that it looks like a man-sized winged deamon.
 ~
-1140983884 1 0 67108874 0 0 0 -1000 S
-X 0 1 -1
+1140983884 1 0 0 67108874 0 0 0 -1000 S
+X 0 1 0 -1
 51 -3 -90 47d100+2820 6d6+25
 7.0.7.6 171315
 8 8 0
@@ -42,8 +42,8 @@ the area and his gaze pierces through earth and flesh. It was sent here
 by the elder brain to lead an invasion to once again gain dominance over
 the githyanki race who once dared to break free of slavery.
 ~
-302217224 1 0 134742202 128 0 0 -1000 S
-MF 0 262144 -1
+302217224 1 0 0 134742202 128 0 0 -1000 S
+MF 0 262144 0 -1
 60 0 0 30d10+6000 10d10+50
 0.0.0.0 0
 8 8 0
@@ -56,8 +56,8 @@ illithid mindflayer~
 stands here ever alert to any threats ready to quickly neutralize
 them.
 ~
-100667402 1 0 671088666 0 0 0 -1000 S
-MF 0 262144 -1
+100667402 1 0 0 671088666 0 0 0 -1000 S
+MF 0 262144 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -74,9 +74,9 @@ are like snakes, and his tail is forked. Rather than having arms, he has
 great tentacles. His appearance testifies to his command of cold-blooded
 things such as serpents, reptiles, and octapi.
 ~
-1124296908 1 0 436207802 2049 0 0 -1000 S
-x 0 257 -1
-60 -10 -500 5d10+20000 7d6+45
+1124296904 1 0 0 167772344 1 0 0 -1000 S
+x 0 257 0 -1
+57 -10 -500 5d10+20000 7d6+45
 6.6.9.22 486000
 8 8 1
 #19705
@@ -87,8 +87,8 @@ guardian dragon highlord~
 It looks similar to a dragonnia, only larger, with a vaguely humanoid body
 topped by a dragons head.  Its stands nearly nine feet tall and look deadly.
 ~
-1073809422 1 0 33554616 1 0 0 -1000 S
-D 0 1 -1
+1073809422 1 0 0 33554616 1 0 0 -1000 S
+D 0 1 0 -1
 60 -7 -148 10d10+25000 7d6+35
 4.5.9.19 440000
 8 8 0
@@ -103,8 +103,8 @@ rows of razor sharp teeth protruding from beneath its maw.  The dragon
 only stands about twenty feet tall, but has a very thick trunk and short
 stocky legs.
 ~
-1174865930 1 0 773327102 440541 0 0 -1000 S
-D 0 512 -1
+1174865930 1 0 0 773327102 440541 0 0 -1000 S
+D 0 512 0 -1
 60 -10 -152 10d10+29850 7d6+35
 6.6.9.22 100000000
 8 8 1
@@ -119,8 +119,8 @@ The scales of the dragon are so black in color that they glimmer in the light,
 and are each about a foot in size.  His body is only about fifty feet in length,
 but sports a forty foot tail studded with sharp spike-like scales.
 ~
-1174865934 1 0 773392574 440541 0 0 -1000 S
-D 0 512 -1
+1174865934 1 0 0 773392574 440541 0 0 -1000 S
+D 0 512 0 -1
 60 -10 -152 10d10+29850 7d6+35
 6.6.9.22 100000000
 8 8 1
@@ -134,8 +134,8 @@ moves.  He stands a good sixty feet tall, with a large round head atop his
 short-stocky neck.  His body is about thirty feet around, propped up by large
 twenty foot legs, ending in a short stocky tail.
 ~
-1174865934 1 0 773400830 440541 0 0 -1000 S
-D 0 512 -1
+1174865934 1 0 0 773400830 440541 0 0 -1000 S
+D 0 512 0 -1
 60 -10 -152 10d10+29850 7d6+35
 6.6.9.22 100000000
 8 8 1
@@ -149,8 +149,8 @@ has a long, thick neck that supports his very large head.  The dragon's eyes
 are pitch-black, and his scales are dark blue.  This wyrm has the largest legs
 of all the chromatic dragons, some twenty feet in height.
 ~
-1174865934 1 0 773327102 440541 0 0 -1000 S
-D 0 512 -1
+1174865934 1 0 0 773327102 440541 0 0 -1000 S
+D 0 512 0 -1
 60 -10 -152 10d10+29850 7d6+35
 6.6.9.22 100000000
 8 8 1
@@ -165,8 +165,8 @@ in a thousand different directions.  The massive head of this wyrm is perched
 atop his sixty foot stocky neck.  His body and tail reach a total of about one-
 hundred and thirty feet total length.
 ~
-1174865934 1 0 790178046 440541 0 0 -1000 S
-D 0 512 -1
+1174865934 1 0 0 790178046 440541 0 0 -1000 S
+D 0 512 0 -1
 60 -10 -152 10d10+29700 7d6+35
 6.6.9.22 100000000
 8 8 1
@@ -179,8 +179,8 @@ An Astral Servant is flying here, wondering what your intentions are.
 It has empty eye sockets, a thin slash for a mouth, and two long arms with
 large hands and four thick fingers.
 ~
-1073875144 0 0 33554474 0 0 0 0 S
-H 0 16384 -1
+1073875144 0 0 0 33554474 0 0 0 0 S
+H 0 16384 0 -1
 50 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 0
@@ -194,8 +194,8 @@ dark shaggy hair, and pale white skin.  You notice that where its nose once
 was, is now replaced with an empty socket.  It wears banded mail of sorts,
 wrapped in brown cloth, resembling a mummy in some respects.
 ~
-1073743944 1 0 33554472 0 0 0 -1000 S
-GI 0 1 -1
+1073743944 1 0 0 33554472 0 0 0 -1000 S
+GI 0 1 0 -1
 56 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 0
@@ -210,8 +210,8 @@ that stare menacingly back at you.  the figure beneath the robe is
 obviously thin, and it waves its arms about in preparation of casting
 a spell.
 ~
-1073743944 1 0 33554602 0 0 0 -1000 S
-GI 0 512 -1
+1073743944 1 0 0 33554602 0 0 0 -1000 S
+GI 0 512 0 -1
 55 -3 -95 50d80+2650 6d6+25
 0.3.1.5 121500
 8 8 0
@@ -224,8 +224,8 @@ This powerful looking figure stands nine feet tall, and is dressed in golden
 banded mail armor.  A large helmet covers its facial features, and it
 brandishes a mean-looking silver two-handed sword.
 ~
-1275201551 152 0 33554600 0 0 0 -1000 S
-GI 0 16 -1
+1275201551 152 0 0 33554600 0 0 0 -1000 S
+GI 0 16 0 -1
 55 -5 -111 55d121+4620 7d6+30
 0.2.7.6 222750
 8 8 0
@@ -238,8 +238,8 @@ This figure is clothed in red-robes, and has pitch-white skin. Brightly glowing
 red-eyes bore into you, as you notice that this monster looks much like a lich
 king!  Your soul is about to become its property.
 ~
-1140946958 1 0 34603178 0 0 0 -1000 S
-GI 0 512 -1
+1140946958 1 0 0 34603178 0 0 0 -1000 S
+GI 0 512 0 -1
 60 -10 -132 60d96+20180 7d6+35
 6.6.9.7 243000
 8 8 0
@@ -254,8 +254,8 @@ inquisitively at you, giving a hint of the bird high intelligence.  Razor-sharp
 talons and a sharp-pointed beak say loudly that this bird can well defend
 itself.
 ~
-131148 1 0 167772328 1 0 0 1000 S
-B 0 16384 -1
+131148 1 0 0 167772328 1 0 0 1000 S
+B 0 16384 0 -1
 57 -5 -111 55d110+4565 7d6+30
 0.0.0.0 222750
 8 8 0
@@ -268,8 +268,8 @@ This phoenix is twice as large as the other phoenix, with a menacing
 screech and ferociously glowing eyes.  She raises a talon in preparation
 of removing your head with it.
 ~
-1073874990 1 0 167780522 1 0 0 1000 S
-D 0 0 -1
+1073874990 1 0 0 167780522 1 0 0 1000 S
+D 0 0 0 -1
 60 -10 -132 60d120+6180 7d6+35
 6.6.9.7 243000
 8 8 0
@@ -281,8 +281,8 @@ shadow daemon~
 The creature is barely visible, as it is completely black in color.
 Its outline suggests that it looks like a man-sized winged deamon.
 ~
-1073875020 1 0 67108874 0 0 0 -1000 S
-X 0 4096 -1
+1073875020 1 0 0 67108874 0 0 0 -1000 S
+X 0 4096 0 -1
 47 -3 -90 47d100+2820 6d6+25
 7.0.7.6 171315
 8 8 0
@@ -296,8 +296,8 @@ cloud of very-dense smoke that vaguely resembles a humanoid form.  The
 smoke swirls and shifts inside the creature, and it prepares to strike at you
 with two large appendages.
 ~
-1073743944 1 0 134217768 0 0 0 0 S
-EE 0 1 -1
+1073743944 1 0 0 134217768 0 0 0 0 S
+EE 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.5.7.1 26730
 8 8 0
@@ -309,8 +309,8 @@ marilith deamon~
 The deamon is twelve feet tall with a massive head, and long-spiked arms.
 Its skin is a dull-gray color, and a long-black hair rolls down its back.
 ~
-1073875020 1 0 167772330 0 0 0 -1000 S
-X 0 512 -1
+1073875020 1 0 0 167772330 0 0 0 -1000 S
+X 0 512 0 -1
 55 -5 -126 55d88+4950 7d6+30
 0.2.0.9 334125
 8 8 0
@@ -323,8 +323,8 @@ gray slaad~
 in color.  It has a huge mouth with many rows of very sharp looking teeth, and
 webbed hands.
 ~
-1073743948 1 0 100663336 0 0 0 -700 S
-H 0 1 -1
+1073743948 1 0 0 100663336 0 0 0 -700 S
+H 0 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
 8 8 0
@@ -337,8 +337,8 @@ This beautiful looking humanoid female is completely naked, and has a pair
 of thin black wings.  She smiles at you, revealing her tiny sharp fangs and
 says, 'I have been waiting for you...'
 ~
-1073875150 1 0 167772218 0 0 0 -1000 S
-X 0 4096 -1
+1073875150 1 0 0 167772218 0 0 0 -1000 S
+X 0 4096 0 -1
 56 -1 -84 45d90+2250 6d6+12
 5.9.4.6 164025
 8 8 0
@@ -350,8 +350,8 @@ gith githyanki chief knight~
 The looks very muscular compared to most other githyanki.  Many scars mar
 his form, indicating he has seen and survived many a battle.
 ~
-1073743886 1 0 168 0 0 0 -1000 S
-GI 0 16384 -1
+1073743886 1 0 0 168 0 0 0 -1000 S
+GI 0 16384 0 -1
 60 -10 -132 60d143+6300 7d6+35
 6.6.9.7 243000
 8 8 1

@@ -1,6 +1,6 @@
 #455
 &+WCel&+Ces&+ctia&+Cl Pl&+Wane&n~
-45729 0 0 40 50 3
+45729 0 0 40 50 8
 *
 * Zone edited with durisEdit v2.99de
 *
@@ -161,6 +161,8 @@ O 0 45521 1 45717 100 0 0 0        * an angelic statue
 O 0 45538 1 45718 100 0 0 0        * a glowing portal
 O 0 63 1 45718 100 0 0 0           * (object type not in this .obj file)
 O 0 360 1 45718 100 0 0 0          * (object type not in this .obj file)
+O 0 921 1 45718 100 0 0 0          * (object type not in this .obj file)
+O 0 25103 1 45718 100 0 0 0        * (object type not in this .obj file)
 O 0 45534 999 45722 100 0 0 0      * a glowing potion
 O 0 25759 999 45723 100 0 0 0      * (object type not in this .obj file)
 O 0 26661 999 45724 100 0 0 0      * (object type not in this .obj file)

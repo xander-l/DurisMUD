@@ -628,6 +628,8 @@ N
 363
 368
 369
+400223
+400224
 0
 0.30
 1.50
@@ -736,6 +738,42 @@ N
 N
 Busy, busy, busy.~
 And the butterfly screams on....~
+0
+0
+N
+1
+I do not sell to your people!~
+X
+#132674~
+N
+400223
+400224
+132507
+0
+0.75
+1.00
+0
+I'm not selling that, %s!~
+You don't seem to have that item, %s.~
+I won't buy that, %s.~
+Sorry there %s, but I don't have the money.~
+You don't have the money, %s!~
+Thank you, %s, that will be %s.~
+%s, I will give you %s for that.~
+0
+0
+132674
+0
+133071
+0
+28
+0
+28
+N
+N
+N
+I am now open!~
+My shop is now closed.~
 0
 0
 N

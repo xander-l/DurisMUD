@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #66400
 A Winding &+yDusty Road~
    This is a long narrow winding road running through a vast grassland with no
@@ -3640,3 +3641,3643 @@ D3
 ~
 0 0 66562
 S
+=======
+#66400
+A Winding &+yDusty Road~
+   This is a long narrow winding road running through a vast grassland with no
+end. The road is lightly compacted cobblestone with weeds and ferns on either
+side. Dirt is sent in the air when the wind picks up and its best to have
+facial cover. Some strange force seems to curl up and devour positive thinking
+while walking on this road, which is probably why it's been avoided by all
+those who do not belong. Animals seem to avoid this region also. There are
+smoke clouds coming from the north. This road must lead to some sort of
+encampment. Swords clashing is bearly audible. It is said that the minotaurs
+of nearbye lands have come together with an evil band at work in these parts
+and that they work together to conquer something awesome. Evil is at work here.
+~
+664 0 2
+D0
+~
+~
+0 0 66401
+D2
+~
+~
+0 0 624087
+S
+#66401
+Before a &+yWooden Gate~
+   A gate forbids entry to the encampment ahead to the unwelcomed. A large
+wooden fence runs eastward or westward surrounding the camp. Spears are
+visible from above the gate and as they move back and forth. The guards on
+the opposite side of the gate are sentries and undoubtly minotaur. The
+guards do not, however, have to do much work because the gate they protect
+looks to have been construed using magic. The seal that locks the two gates
+into one hums with certainty, waiting. Whatever is on the other side of this
+gate must be of some importance to have all of this security, if only there
+was some way to unlock this door, a key perhaps, maybe a magical spell.
+Perhaps only the &+Wch&nos&+Wen&n have permission to enter. One thing is for certain,
+the encampment is huge. The wind sends dirt flying into the air.
+~
+664 0 2
+D0
+&+LA large gate.
+~
+gate wooden~
+3 66408 66403
+D2
+~
+~
+0 0 66400
+S
+#66402
+&+LA Guard Station~
+   These guards are prepared to meet any intruder. Not only do they have a
+large array of weapons, but their army seems second to none. This station
+was constructed using ordinary wood, but it would seem that magic played a
+large part as well.  A small roof on top of this station is covered with
+leaves and grass to keep out the elements. A rack of tools, weapons, and
+armor covers the west wall, an unseemingly large amount of weight for that
+wall to uphold. It is sentries of the gate that call upon these guards incase
+of an attack. They are ready in a moments notice to cut down any intruder.
+They are a warrior brigade band that have been through many campaigns. The
+battlescars on their body are testimony to their victories. A small trickle
+of water drips into a pan, making an annoying noise.
+~
+664 0 2
+D3
+~
+door doors~
+1 0 66403
+S
+#66403
+A &+yDusty Road~
+   The road is really dusty and runs through the plains to the north east to
+a bit. When the wind picks up it is very difficult to see with any type of
+certainty simply because sand and other loose plant life find their way into
+one's eyes. The large wooden tower to the north is a scout tower undoubtably,
+and it's possible to see even the remotest traveler from that vantage point.
+Weeds on either side of the road have lived a long life of constantly being
+trampled upon. The sounds of war can be heard as steel rings against steel.
+There must be a large amount of troops stationed here. A large domed building
+must be the central part of the encampment of evil. It must shelter the troops
+of this evil campaign. It is rumored among the nomads of the land that there
+is a war being fought here and that it has awakened a great evil.
+~
+664 0 2
+D0
+~
+~
+0 0 66404
+D1
+~
+door doors~
+1 0 66402
+D2
+~
+gate wooden~
+3 0 66401
+S
+#66404
+A &+yDusty Road~
+   The road is really dusty and runs through the plains to the north east to
+a bit. When the wind picks up it is very difficult to see with any type of
+certainty simply because sand and other loose plant life find their way into
+one's eyes. The large wooden tower to the north is a scout tower undoubtably,
+and it's possible to see even the remotest traveler from that vantage point.
+Weeds on either side of the road have lived a long life of constantly being
+trampled upon. The sounds of war can be heard as steel rings against steel.
+There must be a large amount of troops stationed here. A large domed building
+must be the central part of the encampment of evil. It must shelter the troops
+of this evil campaign. It is rumored among the nomads of the land that there
+is a war being fought here and that it has awakened a great evil.
+~
+664 0 2
+D0
+~
+~
+0 0 66409
+D2
+~
+~
+0 0 66403
+S
+#66405
+&+LA T&nempl&+Le Entrance~
+   It has been years since anyone has entered through these vine covered doors.
+Years have gone by without any end. This temple is abandoned, however, the forest
+life knows nothing time and continues to grow. The temple looks to have been
+built using stone, henceforth it would take many centuries for it to succumb to
+the withering of time. A large wooden door is the only visible entrance to the
+temple. There is a small stone statue sitting at the entrance to the temple. It
+is covered in many vines and debris. It is statue of the great forger of the
+known world. His name was lost to most people, but some remember him as Dulg.
+Perhaps this is a temple dedicated this this lost forger, perhaps inspecting
+the temple further will reveal many things kept hidden to the outside world.
+~
+664 1 3
+D1
+~
+~
+0 0 66529
+D3
+~
+doors door wooden~
+1 0 66406
+S
+#66406
+&+LA Tem&npl&+Le Lobby~
+   At one time this room must have accosted many a guest, but now it lays
+dormant for it has been abandoned. Alot of moss and some various other
+plant life seem to have taken this lobby in a hostile take over. There
+are no decorative items in this lobby, maybe there was once, but bandits and
+travelers can't be kept out of a place with no one guarding it. The lobby
+expands to the south and north. This lobby must have greeted a great many
+guests because it is extremely large and there are many stone benches and
+fallen wooden tables. There are snakeskins here and there, large ones.
+Anacondas are said to grow large enough to swallow a cow hole, maybe there
+is one here. Spiders lurk in forgotten places like this, large ones.
+~
+664 12 0
+D0
+~
+~
+0 0 66407
+D1
+~
+doors door wooden~
+1 0 66405
+D2
+~
+~
+0 0 66408
+D5
+~
+~
+0 0 66421
+S
+#66407
+&+LAn &nOld &+LLair~
+   This former section of the lobby is now overtaken with vines and moss. Its
+purpose in its former years was to house the guests until they can be properly
+accosted and allowed to worship. It has been many years since a guest was
+greeted within these halls and the snakes of the forest seemed to have
+noticed. Nothing resembling anything pleasent resides in this room, only
+various nests and old snake skins that have peeled off their hosts. There must
+have been a great place of worship here. Fallen statues and broken ornaments
+once paid tribute to their gods. Rugs are covered in all sort of debris and
+candles holders lay scattered everywhere. Perhaps this was some sort of
+dedication room. An eerie feeling fills the air.
+~
+664 8 0
+D2
+~
+~
+0 0 66406
+S
+#66408
+&+LAn &nOld&+L Lair~
+   This former section of the lobby is now overtaken with vines and moss. Its
+purpose in its former years was to house the guests until they can be properly
+accosted and allowed to worship. It has been many years since a guest was
+greeted within these halls and the snakes of the forest seemed to have
+noticed. Nothing resembling anything pleasent resides in this room, only
+various nests and old snake skins that have peeled off their hosts. There must
+have been a great place of worship here. Fallen statues and broken ornaments
+once paid tribute to their gods. Rugs are covered in all sort of debris and
+candles holders lay scattered everywhere. Perhaps this was some sort of
+dedication room. An eerie feeling fills the air.
+~
+664 8 0
+D0
+~
+~
+0 0 66406
+S
+#66409
+Before a &+yTower~
+   The dirt is tightly packed. Numerous amounts of soldiers having walked
+upon it seems to have given it a hard as rock feel. An encampment is visible
+to the northeast, with several large tents. There are no fortifications
+aside from the large scout tower to the west. It appears whomever built this
+encampment felt safe from the outside world or any possible threat it could
+present. It is rumored among the nomads of the plains to the south that a
+great evil has been living here for sometime. The nomads of the plains feel
+as if that evil has been awakened now. An evil so terrible that it had been
+locked away by the gods for many centuries. The tribal chief of one of the
+clans has such a great fear of this evil that he now is calling upon a
+unified nomad nation for fear of survival against the uncoming onslaught of
+the evil demon horde that he fears must have been awakened. The tower rises
+a hundred feet into the air with a sentry on top.
+~
+664 0 2
+D1
+~
+~
+0 0 66415
+D2
+~
+~
+0 0 66404
+D3
+~
+door~
+1 0 66410
+S
+#66410
+&+LThe Conveyor Room~
+   This is where, by magical means, the scout tower guards coordinate with
+southern gate and beyond. There is no doubt by the number of devises here,
+that the encampment would be ready for any unexpected encounter with a foe.
+A table centered around the room has charts and graphs sprawled about it
+loosely. An armory is to the north it seems, for a sign reads &n'&+Lfo&+rr&+Wg&+re&n'. The
+smithies here could craft anything they want thanks to the orcish wizards.
+A brilliant longsword made of adamantium isn't an uncommon in this army.
+Indestructable breastplates are standard equipment for the minotaur warlords
+and orcish highlords as well. The master forgers have endowed the power of
+the most talented wizards ever into their work. Such things have never been
+done in with an army. This army could be described as the ultimate.
+~
+664 9 0
+D0
+~
+~
+0 0 66412
+D1
+~
+door~
+1 0 66409
+D3
+~
+~
+0 0 66411
+S
+#66411
+&+LBefore a Sp&+ci&+Cr&+ca&+Ll &+LSt&+ya&+Yirc&+ya&+Lse~
+   This is the base of the scout tower. A spiraling staircase runs upwards to
+where the actual sentries of the tower are located. There are two watches,
+morning and night. During the switching of the shifts there is a small
+window of negligence in duties, to prevent a slip up, these guys are placed in
+special boots, magical boots the prevent them from moving from their location
+up in the tower until their replacement arrives. If a sighting were to occur,
+they would use a magical device to coordinate that position to the central
+cooridination center to the east. The orcs have designated only the most alert
+of their kin to this duty because it is the most important. Failing to site
+an approaching army and alerting the camp could result be a disaster.
+~
+664 9 0
+D1
+~
+~
+0 0 66410
+D4
+~
+~
+0 0 66413
+S
+#66412
+&+LA &+LFo&+rr&+Wg&+re~
+   Shelves and shelves of armor and weapons are shelved here. Nothing but the
+finest of the finest of armor and weaponry have been crafted. There are a few
+dents visible in some armor and chips in some of the swords. Most of the
+swords look to have been used extensively. The forge is a closed in shop
+with only on visible exit to the south. If ever an enemy would appear on
+the horizon, this would be the first spot the soldiers in the region would
+fall upon. It isn't tactically sound to have a forge so close to the gates, but
+the minotaur warlords are confident in the abilities of their troop to defend
+themselves as well as the camp. Only the strongest of the orcish horde and
+minotaur are here. It is has been described as an indestructible army.
+~
+664 9 0
+D2
+~
+~
+0 0 66410
+S
+#66413
+&+LA Sp&+ci&+Cr&+ca&+Lling St&+ya&+Yirc&+ya&+Lse~
+   This staircase runs upwards toward the top of the tower, and down toward
+the base of the tower. Since there is but one sentry at a time in the watch
+tower, the staircase is very narrow.  This staircase spirals upwards for some
+ways until it reaches the top. A drop from the top of the staircase is fatal.
+A small pocket of air pushes up, since it is less warmer in the tower top up
+there. Soldiers' stories often echo through this staircase, giving the scout a
+top something to keep his mind occupied to fight his boredom. These scouts
+are given food three times during their shift, which fights off the weariness
+and sleepiness. The orcs take great pride in their alertness and ability to
+coordinate with eachother, unlike the minotaurs who are unruly.
+~
+664 8201 0
+D4
+~
+~
+0 0 66414
+D5
+~
+~
+0 0 66411
+S
+#66414
+&+LAtop a S&+gc&+Go&+gu&+Lt T&+yo&+Yw&+ye&+Lr~
+   Railings prevent unwanted accidents like falling from the top of the tower
+to the ground below. Such an occurrence had happened earliar, which created
+the necessity of sentries up on this tower to wear special boots that do not
+allow them to move. The tower allows one to easily see the country side in
+all directions, however, a thick forest to the east doesn't give the slightest
+clue what it beholds. To the north, a large tower is visible, which is not
+apart of the camp. The minotaur warlords have sent scouts that have never
+returned from the tower. It is said that this tower has wards that protect
+it at all times. It must be a magical tower lost to the magi of the world.
+~
+664 8 0
+D5
+~
+~
+0 0 66413
+S
+#66415
+A &+yDusty Road~
+   The road is really dusty and runs through the plains to the north east to
+a bit. When the wind picks up, it is very difficult to see with any type of
+certainty simply because sand and other loose plant life find their way into
+one's eyes. The large wooden tower to the north is a scout tower undoubtably,
+and it's possible to see even the remotest traveler from that vantage point.
+Weeds on either side of the road have lived a long life of constantly being
+trampled upon. The sounds of war can be heard as steel rings against steel.
+There must be a large amount of troops stationed here. A large domed building
+must be the central part of the encampment of evil. It must shelter the troops
+of this evil campaign. It is rumored among the nomads of the land that there
+is a war being fought here and that it has awakened a great evil.
+~
+664 0 2
+D0
+~
+~
+0 0 66418
+D3
+~
+~
+0 0 66409
+S
+#66416
+&+gThe &+gGra&+Gssla&+gnds~
+&+g   The grass rises nearl&+Gy three feet high. It is obvious tha&+gt there has
+&+gbeen a lot of activity in this&+G grassland, for in many spots t&+ghe grass has been
+&+gtrampled upon or run across, whic&+Gh bends the grass in an &+godd way, reflecting
+&+glight differently, therefore it stic&+Gks out. The gras&+gsland has a slight slope
+&+gto it, forming hills in many differe&+Gnt locatio&+gns.  From this vantage point,
+&+gone can &+Lv&+Wie&+Lw&+g much of the land to the nor&+Gth as&+g it stands. The forces of good
+&+gand forces of evil have been battling it out for sometime now. There have been
+&+gcountless battles for months now. It seems as if its come to a stand still now
+&+gafter both sides have one and lost and equal number of fights. The grasslands
+&+ghere are about the only landscape not touched by the many battles.
+~
+664 0 2
+D0
+~
+~
+0 0 66417
+D7
+~
+~
+0 0 66537
+E
+view~
+&+LIt looks to have been some sort of battlefield.  Many corpses and burning
+&+Lmachines of war burn steadily.
+~
+S
+#66417
+A &+LGr&nave&+Ll &+WTrail~
+   This is a small gravel trail. There isn't much to see here except the
+surrounding landscape. Hills and grasslands can be seen as far as the eye
+can see. There is some smoke rising to the south and to the east. These are
+probably battlefield sites. The halflings and barbarians have been fighting
+against the orcish horde and minotaur warlords. They have been battleling for
+some time now with not much progress made on either side. They both have lost
+equal numbers but the orcish horde outnumber the halflings almost two to one,
+this combined with the added strength of the minotaur almost makes the
+prospects of victory for the goodie races nill. If it weren't for barbarians
+who've joined forces with the halflings there would be no chance. The smell
+of burning flesh is in the air. More battlefields are sure to come.
+~
+664 0 2
+D0
+~
+~
+0 0 66468
+D2
+~
+~
+0 0 66416
+S
+#66418
+A &+ySidepath~
+   The road has been compacted into a surface as tough as steel. This region
+was once a hilly grassland, but now its remnants have been turned into a
+station from which to conduct a war from. Poles on either side of the path
+have lanterns placed upon them to provide light during the night. During the
+night, the evil creatures are on the prawl, and it's best to keep guard, which
+warrants sentries pacing to and fro. A tent is to the east.  The road runs
+to the south and east. The camp is mostly composed of the evil orcish horde
+and the minotaur warriors. It is a fierce army controlled by the one of the
+greatest warlords to grace the evil underworld. His name is not spoken aloud
+and there isn't much known about him. It is said that he unified these two
+races with but one intent, to destroy the good in all this land.
+~
+664 0 2
+D1
+~
+~
+0 0 66419
+D2
+~
+~
+0 0 66415
+S
+#66419
+&+LBefore a Tent Entrance~
+   This is where the trail, which is tightly packed, forms a solid means of
+travel. The trail runs west and east and a tent flap allows to the south is the
+entrance to the Captain's quarters. The tent is a rather large one compared
+to the ones situated near it. When the sun beats down from above and when it
+feels as though it should be extremely hot, for some reason it's not. Perhaps
+this land and the land around it has had a curse or perhap enchantment placed
+upon it. The night sky brings the cold, which is quite a contrast to the hot
+daytime temperatures. It is rumored that the captain of the minotaur warriors
+is the most fiercest warrior in all the land. That his unmerciful ways has
+gotten him a following of only the strongest minotaur warriors. He leads his
+band with ease in battle and destroyes ememies viciously. The orcish warlords
+live in fear of him also. The wind picks up sending dirt into the air.
+~
+664 0 2
+D1
+~
+~
+0 0 66420
+D2
+~
+flap~
+1 0 66422
+D3
+~
+~
+0 0 66418
+S
+#66420
+A &+ySidepath~
+   The road has been compacted into a surface as tough as steel. This region
+was once a hilly grassland, but now its remnants have been turned into a
+station from which to conduct a war from. Poles on either side of the path
+have lanterns placed upon them to provide light during the night. During the
+night, the evil creatures are on the prawl, and it's best to keep guard, which
+warrants sentries pacing to and fro. A tent is to the south.  The road runs
+to the south and east. The camp is mostly composed of the evil orcish horde
+and the minotaur warriors. It is a fierce army controlled by the one of the
+greatest warlords to grace the evil underworld. His name is not spoken aloud
+and there isn't much known about him. It is said that he unified these two
+races with but one intent, to destroy the good in all this land.
+~
+664 0 2
+D0
+~
+~
+0 0 66423
+D3
+~
+~
+0 0 66419
+S
+#66421
+&+LA large Tunnel~
+&+L   It is here where the monks that built the temple created the other portion
+&+Lof their temple in hopes of preventing valuables from being stolen, by hiding
+&+Lthem. This tunnel is well defined, huge beams uphold the ceiling above. Roots
+&+Lare visible from the trees above. These roots are very thick and wet. They are
+&+Lvisible through the dirt, at one time they must have covered the entire area
+&+Lthat is the tunnel, however, a short stroke of a sword can put an end to any
+&+Lunwanted tree root. The tunnel is very dark and wet. It is also very cramped.
+~
+664 8 0
+D3
+~
+~
+0 0 66451
+D4
+~
+~
+0 0 66406
+S
+#66422
+&+LWithin the Captain's Qu&+ca&+Cr&+ct&+Lers~
+   These quarters are fit for a king, a poor king. Military style has always
+been a strong ideal for this captain. Following the rules and upholding the
+utmost discipline is parimount to success. 'Kill kill kill', reads the plaque
+sitting upon the desk in the southern section of this tent. Next to it, in
+small print, another plaque reads 'Captain Saryarz'. There is a huge pole in
+the center of the room that upholds the center portion of the tent. Rope runs
+along the perimeter of the tent also, joining the existing poles and such to
+keep the tent up. The poles are nailed to the ground and run toward the huge
+center pole, providing space. A flap to the north is the only exit out of the
+tent. Captain Saryarz is the most feared minotaur captain ever. He has taken
+out any number of foes with his great axe and eaten their livers. His horns
+have impaled enemies without mercy. His one great strength is his vitality.
+~
+664 8 0
+D0
+~
+flap~
+1 0 66419
+S
+#66423
+A &+ySidepath~
+   The road has been compacted into a surface as tough as steel. This region
+was once a hilly grassland, but now its remnants have been turned into a
+station from which to conduct a war from. Poles on either side of the path
+have lanterns placed upon them to provide light during the night. During the
+night, the evil creatures are on the prawl, and it's best to keep guard, which
+warrants sentries pacing to and fro. A tent is to the south. The road runs
+to the south and east. The camp is mostly composed of the evil orcish horde
+and the minotaur warriors. It is a fierce army controlled by the one of the
+greatest warlords to grace the evil underworld. His name is not spoken aloud
+and there isn't much known about him. It is said that he unified these two
+races with but one intent, to destroy the good in all this land.
+~
+664 0 2
+D0
+~
+~
+0 0 66424
+D2
+~
+~
+0 0 66420
+S
+#66424
+&+LBefore a Tent &+LEn&+mtr&+Ma&+mnc&+Le~
+   This is where the trail, which is tightly packed forming a solid means of
+travel, branches northward and southward. A lose tent flap is the entrance
+to the tent to the west.  The tent is a rather large one compared to the ones
+situated near it. When the sun beats down from above and when it feels as
+though it should be extremely hot, for some reason it's not. Perhaps this
+land and the land around it has had a curse or perhaps enchantment placed upon
+it. There are two posts written in two languages before the tent. One is
+written in orc and the other in minotaur. It is clear that this tent is of
+some importance to someone. There are guards posted outside this tent as
+well. Perhaps this is the command center for the evil forces. Raised voices
+can be heard from within arguing and carrying on.
+~
+664 0 2
+D0
+~
+~
+0 0 66426
+D2
+~
+~
+0 0 66423
+D3
+~
+flap~
+1 0 66425
+S
+#66425
+The &+rWar&+LRoom~
+   This large tent can hold a large number of people for strategic meetings. A
+circular table in the center of the room has many geographical maps and
+various logistic papers that hint at the purpose of this room, to wage war.
+What good are troops if their leaders cannot coordinate an effective battle
+plan. The tent is upheld from the outside by poles and an array of rope,
+some of which is visible from within. There are a number of cabinets here
+for storage. They must hold all the logistical information required for moving
+an army and maintaining one. Feeding, supplying, and paying an army isn't the
+easiest thing to do. It usually takes a well qualified accountant just do
+manage the numbers and another just file them and locate them. The leaders of
+this dark army take no chances with numbers and have hired any number of
+persons to do their logistics. Drows are the smartest of the evil races. The
+pair of drow that run a long opening and closing these cabinents are the
+ones that are being paid to manage all logistics and report all feedback to
+their commander. It is very dark here because sunlight hurts some of them.
+~
+664 8 0
+D1
+~
+flap~
+1 0 66424
+S
+#66426
+A &+ySidepath~
+   The road has been compacted into a surface as tough as steel. This region
+was once a hilly grassland, but now its remnants have been turned into a
+station from which to conduct a war from. Poles on either side of the path
+have lanterns placed upon them to provide light during the night. During the
+night, the evil creatures are on the prawl, and it's best to keep guard, which
+warrants sentries pacing to and fro. A tent is to the south. The road runs
+to the south and east. The camp is mostly composed of the evil orcish horde
+and the minotaur warriors. It is a fierce army controlled by the one of the
+greatest warlords to grace the evil underworld. His name is not spoken aloud
+and there isn't much known about him. It is said that he unified these two
+races with but one intent, to destroy the good in all this land.
+~
+664 0 2
+D0
+~
+~
+0 0 66427
+D2
+~
+~
+0 0 66424
+S
+#66427
+A &+ySidepath~
+   The road has been compacted into a surface as tough as steel. This region
+was once a hilly grassland, but now its remnants have been turned into a
+station from which to conduct a war from. Poles on either side of the path
+have lanterns placed upon them to provide light during the night. During the
+night, the evil creatures are on the prawl, and it's best to keep guard, which
+warrants sentries pacing to and fro. A tent is to the south. The road runs
+to the south and east. The camp is mostly composed of the evil orcish horde
+and the minotaur warriors. It is a fierce army controlled by the one of the
+greatest warlords to grace the evil underworld. His name is not spoken aloud
+and there isn't much known about him. It is said that he unified these two
+races with but one intent, to destroy the good in all this land.
+~
+664 0 2
+D1
+~
+~
+0 0 66428
+D2
+~
+~
+0 0 66426
+S
+#66428
+A &+ySidepath~
+   The road has been compacted into a surface as tough as steel. This region
+was once a hilly grassland, but now its remnants have been turned into a
+station from which to conduct a war from. Poles on either side of the path
+have lanterns placed upon them to provide light during the night. During the
+night, the evil creatures are on the prawl, and it's best to keep guard, which
+warrants sentries pacing to and fro. A tent is to the south. The road runs
+to the south and east. The camp is mostly composed of the evil orcish horde
+and the minotaur warriors. It is a fierce army controlled by the one of the
+greatest warlords to grace the evil underworld. His name is not spoken aloud
+and there isn't much known about him. It is said that he unified these two
+races with but one intent, to destroy the good in all this land.
+~
+664 0 2
+D1
+~
+~
+0 0 66429
+D3
+~
+~
+0 0 66427
+S
+#66429
+A &+ySidepath~
+   The road has been compacted into a surface as tough as steel. This region
+was once a hilly grassland, but now its remnants have been turned into a
+station from which to conduct a war from. Poles on either side of the path
+have lanterns placed upon them to provide light during the night. During the
+night, the evil creatures are on the prawl, and it's best to keep guard, which
+warrants sentries pacing to and fro. A tent is to the south. The road runs
+to the south and east. The camp is mostly composed of the evil orcish horde
+and the minotaur warriors. It is a fierce army controlled by the one of the
+greatest warlords to grace the evil underworld. His name is not spoken aloud
+and there isn't much known about him. It is said that he unified these two
+races with but one intent, to destroy the good in all this land.
+~
+664 0 2
+D1
+~
+~
+0 0 66430
+D3
+~
+~
+0 0 66428
+S
+#66430
+A &+ySidepath~
+   The road has been compacted into a surface as tough as steel. This region
+was once a hilly grassland, but now its remnants have been turned into a
+station from which to conduct a war from. Poles on either side of the path
+have lanterns placed upon them to provide light during the night. During the
+night, the evil creatures are on the prawl, and it's best to keep guard, which
+warrants sentries pacing to and fro. A tent is to the south. The road runs
+to the south and east. The camp is mostly composed of the evil orcish horde
+and the minotaur warriors. It is a fierce army controlled by the one of the
+greatest warlords to grace the evil underworld. His name is not spoken aloud
+and there isn't much known about him. It is said that he unified these two
+races with but one intent, to destroy the good in all this land.
+~
+664 0 2
+D0
+~
+~
+0 0 66452
+D1
+~
+~
+0 0 66431
+D3
+~
+~
+0 0 66429
+S
+#66431
+A &+ySidepath~
+   The road has been compacted into a surface as tough as steel. This region
+was once a hilly grassland, but now its remnants have been turned into a
+station from which to conduct a war from. Poles on either side of the path
+have lanterns placed upon them to provide light during the night. During the
+night, the evil creatures are on the prawl, and it's best to keep guard, which
+warrants sentries pacing to and fro. A tent is to the south. The road runs
+to the south and east. The camp is mostly composed of the evil orcish horde
+and the minotaur warriors. It is a fierce army controlled by the one of the
+greatest warlords to grace the evil underworld. His name is not spoken aloud
+and there isn't much known about him. It is said that he unified these two
+races with but one intent, to destroy the good in all this land.
+~
+664 0 2
+D1
+~
+~
+0 0 66432
+D3
+~
+~
+0 0 66430
+S
+#66432
+A &+ySidepath~
+   The road has been compacted into a surface as tough as steel. This region
+was once a hilly grassland, but now its remnants have been turned into a
+station from which to conduct a war from. Poles on either side of the path
+have lanterns placed upon them to provide light during the night. During the
+night, the evil creatures are on the prawl, and it's best to keep guard, which
+warrants sentries pacing to and fro. A tent is to the south. The road runs
+to the south and east. The camp is mostly composed of the evil orcish horde
+and the minotaur warriors. It is a fierce army controlled by the one of the
+greatest warlords to grace the evil underworld. His name is not spoken aloud
+and there isn't much known about him. It is said that he unified these two
+races with but one intent, to destroy the good in all this land.
+~
+664 0 2
+D1
+~
+~
+0 0 66433
+D3
+~
+~
+0 0 66431
+S
+#66433
+A &+ySidepath~
+   The road has been compacted into a surface as tough as steel. This region
+was once a hilly grassland, but now its remnants have been turned into a
+station from which to conduct a war from. Poles on either side of the path
+have lanterns placed upon them to provide light during the night. During the
+night, the evil creatures are on the prawl, and it's best to keep guard, which
+warrants sentries pacing to and fro. A tent is to the south. The road runs
+to the south and east. The camp is mostly composed of the evil orcish horde
+and the minotaur warriors. It is a fierce army controlled by the one of the
+greatest warlords to grace the evil underworld. His name is not spoken aloud
+and there isn't much known about him. It is said that he unified these two
+races with but one intent, to destroy the good in all this land.
+~
+664 0 2
+D1
+~
+gate gates~
+1 0 66454
+D2
+~
+~
+0 0 66434
+D3
+~
+~
+0 0 66432
+S
+#66434
+A &+ySidepath~
+   The road has been compacted into a surface as tough as steel. This region
+was once a hilly grassland, but now its remnants have been turned into a
+station from which to conduct a war from. Poles on either side of the path
+have lanterns placed upon them to provide light during the night. During the
+night, the evil creatures are on the prawl, and it's best to keep guard, which
+warrants sentries pacing to and fro. A tent is to the south. The road runs
+to the south and east. The camp is mostly composed of the evil orcish horde
+and the minotaur warriors. It is a fierce army controlled by the one of the
+greatest warlords to grace the evil underworld. His name is not spoken aloud
+and there isn't much known about him. It is said that he unified these two
+races with but one intent, to destroy the good in all this land.
+~
+664 0 2
+D0
+~
+~
+0 0 66433
+D2
+~
+~
+0 0 66435
+S
+#66435
+A &+ySidepath~
+   The road has been compacted into a surface as tough as steel. This region
+was once a hilly grassland, but now its remnants have been turned into a
+station from which to conduct a war from. Poles on either side of the path
+have lanterns placed upon them to provide light during the night. During the
+night, the evil creatures are on the prawl, and it's best to keep guard, which
+warrants sentries pacing to and fro. A tent is to the south. The road runs
+to the south and east. The camp is mostly composed of the evil orcish horde
+and the minotaur warriors. It is a fierce army controlled by the one of the
+greatest warlords to grace the evil underworld. His name is not spoken aloud
+and there isn't much known about him. It is said that he unified these two
+races with but one intent, to destroy the good in all this land.
+~
+664 0 2
+D0
+~
+~
+0 0 66434
+D2
+~
+~
+0 0 66436
+S
+#66436
+&+LBefore a Tent En&+btr&+Ba&+bnc&+Le~
+   The road has been compacted into a surface as tough as steel. This region
+was once a hilly grassland, but now it's remnants have been turned into a
+station from which to conduct a war from. Poles on either side of the path
+have lanterns placed upon them to provide light during the night. During the
+night, the evil creatures are on the prowl, and it's best to keep guard, which
+warrants sentries pacing to and fro. The barrack's only entrance is westward.
+It houses the foot soldiers of the army and the new recruits. There is a stinch
+coming from the east. There is a large building to the east with many soldiers
+entering and exiting from it. It seems as if the smell is coming from that
+building. It is a relief when the breeze picks up because it clears the smell.
+~
+664 0 2
+D0
+~
+~
+0 0 66435
+D1
+~
+~
+0 0 66449
+D3
+~
+flap~
+1 0 66437
+S
+#66437
+&+LWithin the So&+cl&+Cd&+ci&+Ler's Barracks~
+&+L   These barracks house the dawgs of war, the soldiers that are needed to wage
+&+Lany war. Without these soldiers the officers would have to fight their own wars
+&+Land would ultimately lose. Bunks as far as the eye can see run this way and
+&+Lthat with no apparent organization. Whomever said that life was fair, simply
+&+Lwasn't telling to the truth or was on some sort of drug. The soldiers that
+&+Lbunk in these barracks realize that they have little choice whether or not they
+&+Llive so they simply follow orders or else. The minotaurs here have seen many
+&+Lbattles in the past and would no doubt come to eachothers aid if they were
+&+Lattacked. There are very few windows here and this place stinks.
+~
+664 8 0
+D0
+~
+~
+0 0 66439
+D1
+~
+flap~
+1 0 66436
+D3
+~
+~
+0 0 66438
+S
+#66438
+&+LWithin the So&+cl&+Cd&+ci&+Ler's Barracks~
+&+L   These barracks house the dawgs of war, the soldiers that are needed to wage
+&+Lany war. Without these soldiers the officers would have to fight their own wars
+&+Land would ultimately lose. Bunks as far as the eye can see run this way and
+&+Lthat with no apparent organization. Whomever said that life was fair, simply
+&+Lwasn't telling to the truth or was on some sort of drug. The soldiers that
+&+Lbunk in these barracks realize that they have little choice whether or not they
+&+Llive so they simply follow orders or else. The minotaurs here have seen many
+&+Lbattles in the past and would no doubt come to eachothers aid if they were
+&+Lattacked. There are very few windows here and this place stinks.
+~
+664 8 0
+D0
+~
+~
+0 0 66440
+D1
+~
+~
+0 0 66437
+D3
+~
+~
+0 0 66441
+S
+#66439
+&+LWithin the So&+cl&+Cd&+ci&+Ler's Barracks~
+&+L   These barracks house the dawgs of war, the soldiers that are needed to wage
+&+Lany war. Without these soldiers the officers would have to fight their own wars
+&+Land would ultimately lose. Bunks as far as the eye can see run this way and
+&+Lthat with no apparent organization. Whomever said that life was fair, simply
+&+Lwasn't telling to the truth or was on some sort of drug. The soldiers that
+&+Lbunk in these barracks realize that they have little choice whether or not they
+&+Llive so they simply follow orders or else. The minotaurs here have seen many
+&+Lbattles in the past and would no doubt come to eachothers aid if they were
+&+Lattacked. There are very few windows here and this place stinks.
+~
+664 8 0
+D2
+~
+~
+0 0 66437
+D3
+~
+~
+0 0 66440
+S
+#66440
+&+LWithin the So&+cl&+Cd&+ci&+Ler's Barracks~
+&+L   These barracks house the dawgs of war, the soldiers that are needed to wage
+&+Lany war. Without these soldiers the officers would have to fight their own wars
+&+Land would ultimately lose. Bunks as far as the eye can see run this way and
+&+Lthat with no apparent organization. Whomever said that life was fair, simply
+&+Lwasn't telling to the truth or was on some sort of drug. The soldiers that
+&+Lbunk in these barracks realize that they have little choice whether or not they
+&+Llive so they simply follow orders or else. The minotaurs here have seen many
+&+Lbattles in the past and would no doubt come to eachothers aid if they were
+&+Lattacked. There are very few windows here and this place stinks.
+~
+664 8 0
+D1
+~
+~
+0 0 66439
+D2
+~
+~
+0 0 66438
+S
+#66441
+&+LWithin the So&+cl&+Cd&+ci&+Ler's Barracks~
+&+L   These barracks house the dawgs of war, the soldiers that are needed to wage
+&+Lany war. Without these soldiers the officers would have to fight their own wars
+&+Land would ultimately lose. Bunks as far as the eye can see run this way and
+&+Lthat with no apparent organization. Whomever said that life was fair, simply
+&+Lwasn't telling to the truth or was on some sort of drug. The soldiers that
+&+Lbunk in these barracks realize that they have little choice whether or not they
+&+Llive so they simply follow orders or else. The minotaurs here have seen many
+&+Lbattles in the past and would no doubt come to eachothers aid if they were
+&+Lattacked. There are very few windows here and this place stinks.
+~
+664 8 0
+D1
+~
+~
+0 0 66438
+D3
+~
+~
+0 0 66442
+S
+#66442
+&+LWithin the So&+cl&+Cd&+ci&+Ler's Barracks~
+&+L   These barracks house the dawgs of war, the soldiers that are needed to wage
+&+Lany war. Without these soldiers the officers would have to fight their own wars
+&+Land would ultimately lose. Bunks as far as the eye can see run this way and
+&+Lthat with no apparent organization. Whomever said that life was fair, simply
+&+Lwasn't telling to the truth or was on some sort of drug. The soldiers that
+&+Lbunk in these barracks realize that they have little choice whether or not they
+&+Llive so they simply follow orders or else. The minotaurs here have seen many
+&+Lbattles in the past and would no doubt come to eachothers aid if they were
+&+Lattacked. There are very few windows here and this place stinks.
+~
+664 8 0
+D0
+~
+~
+0 0 66445
+D1
+~
+~
+0 0 66441
+D3
+~
+~
+0 0 66443
+S
+#66443
+&+LWithin the So&+cl&+Cd&+ci&+Ler's Barracks~
+&+L   These barracks house the dawgs of war, the soldiers that are needed to wage
+&+Lany war. Without these soldiers the officers would have to fight their own wars
+&+Land would ultimately lose. Bunks as far as the eye can see run this way and
+&+Lthat with no apparent organization. Whomever said that life was fair, simply
+&+Lwasn't telling to the truth or was on some sort of drug. The soldiers that
+&+Lbunk in these barracks realize that they have little choice whether or not they
+&+Llive so they simply follow orders or else. The minotaurs here have seen many
+&+Lbattles in the past and would no doubt come to eachothers aid if they were
+&+Lattacked. There are very few windows here and this place stinks.
+~
+664 8 0
+D0
+~
+~
+0 0 66444
+D1
+~
+~
+0 0 66442
+S
+#66444
+&+LWithin the So&+cl&+Cd&+ci&+Ler's Barracks~
+&+L   These barracks house the dawgs of war, the soldiers that are needed to wage
+&+Lany war. Without these soldiers the officers would have to fight their own wars
+&+Land would ultimately lose. Bunks as far as the eye can see run this way and
+&+Lthat with no apparent organization. Whomever said that life was fair, simply
+&+Lwasn't telling to the truth or was on some sort of drug. The soldiers that
+&+Lbunk in these barracks realize that they have little choice whether or not they
+&+Llive so they simply follow orders or else. The minotaurs here have seen many
+&+Lbattles in the past and would no doubt come to eachothers aid if they were
+&+Lattacked. There are very few windows here and this place stinks.
+~
+664 8 0
+D1
+~
+~
+0 0 66445
+D2
+~
+~
+0 0 66443
+S
+#66445
+&+LWithin the So&+cl&+Cd&+ci&+Ler's Barracks~
+&+L   These barracks house the dawgs of war, the soldiers that are needed to wage
+&+Lany war. Without these soldiers the officers would have to fight their own wars
+&+Land would ultimately lose. Bunks as far as the eye can see run this way and
+&+Lthat with no apparent organization. Whomever said that life was fair, simply
+&+Lwasn't telling to the truth or was on some sort of drug. The soldiers that
+&+Lbunk in these barracks realize that they have little choice whether or not they
+&+Llive so they simply follow orders or else. The minotaurs here have seen many
+&+Lbattles in the past and would no doubt come to eachothers aid if they were
+&+Lattacked. There are very few windows here and this place stinks.
+~
+664 8 0
+D2
+~
+~
+0 0 66442
+D3
+~
+~
+0 0 66444
+S
+#66446
+The &+yHalfling &+mCaptain Quarters~
+&+m   The halfling that resides here controls the halfling regiment of the good
+&+marmy. He stands just above four feet tall, a moderate size for this guy. His
+&+mbig hairy feet do not cause him any grief when it comes time to kick some ass.
+&+mHe is reknowned in his camp for leading raids and overall kicking some evil
+&+mbooty. A few desks outline the office. Windows allow sunlight in during the
+&+mday and it seems as though this office was built to last, as opposed to a
+&+mtemporary residence. Part of the army is designated under his command. The
+&+mother part of the army is under the control of two other warlords. The
+&+mhumans are under the sovereign the the great warlord Dooku. He was former
+&+mpaladin who fell because of the vileness of his deeds, however, he is still
+&+ma tenacious fighter who hates all underworld dwellers. The barbarians are
+&+mlead by the great barbarian warlord Armes, who is strong in brawn as he is
+&+min spirit. He is a shaman juggles the skulls of the evil under world
+&+mdwellers in his hands. Together these warlords put together this expedition
+&+mto stop the evil empire of orcs and minotaurs from spreading any further
+&+minto innocent lands.
+~
+664 8 0
+D2
+~
+~
+0 0 66471
+S
+#66447
+&+WThe Observatory~
+&+W   Total blackness surrounds a silver sphere in the center of the room.
+&+WFlowing in too many directions to count and in so few to notice, the sphere
+&+Wseems to beckoning for an audible command. It has a mysterious glow about it
+&+Wand it levitates in mid air. Whomever built this place must have intended to
+&+Wreturn, for whom would leave such magical devices unprotected? Or perhaps
+&+Wthis is, in fact, the protection. Only those who know the secret of the
+&+Wsphere can journey onward, for there are no visible exists from this room.
+~
+664 8 0
+S
+#66448
+&+WA Recession Room~
+&+W   It is here that visitors are accosted and treated as guests.  For there is
+&+Wno doubt that those who enter this tower are watched with more than just eyes.
+&+WJustification of this sort of treatment is simple, if they don't touch it or
+&+Wsee it, than they won't even begin to think about fooling with it, and end up
+&+Wblowing up the entire tower.  However, despite being trapped in this room until
+&+Wit is befitting magi to entertain a visitor, the room has many decorative and
+&+Wintricate items to gaze upon, none of which having the least magic power.  A
+&+Wfire in the far corner of the room blazes steadily, fueled by something that
+&+Wit could never possibly consume.
+~
+664 8 0
+D0
+~
+~
+0 0 66557
+S
+#66449
+Nearing the&+L Outhouse~
+   A horrific stinch fills the air. A scathouse to the east seems to be the
+source of the foul odor. Soldiers need three things to function in this
+army; food, water, and a place to scat. The officers of this camp have taken
+care of all three. The truth be known about this camp is that the soldiers
+here are unruly. If they're under control they're not killing eachother. The
+orcs have no order but the minotaur do. The two races are completely different
+yet drawn together for the same cause. Minotaurs are a proud race of evils
+while the orcs are a despotic race known to turn against eachother in a
+momements notice. The captains of this campaign must keep them focused on the
+enemy at all times so they don't turn on one another.
+~
+664 0 2
+D1
+~
+~
+0 0 66450
+D3
+~
+~
+0 0 66436
+S
+#66450
+&+LWithin the Outhouse~
+   The walls are covered in feces and urine. The stools look like they've been
+dragged in the mud and hammered by rapiers. An open window does little to
+relieve the stench of the scathouse and orcs come from all over the encampment
+to their business. There are very few walls in this complex, the stools sit
+next to each other, and there is no means to wipe one's ass. It looks as if
+the evils in here have taken to playing with their own bodily waste as it is
+threwn against the walls. It is an ungodly site. The few goblins that have
+taken up this crusade have been given the responsibility of cleaning up this
+scathouse, a responsibility they don't take seriously.
+~
+664 9 0
+D3
+~
+~
+0 0 66449
+S
+#66451
+&+LA large Tunnel~
+&+L   It is here where the monks that built the temple created the other portion
+&+Lof their temple in hopes of preventing valuables from being stolen, by hiding
+&+Lthem. This tunnel is well defined, huge beams uphold the ceiling above. Roots
+&+Lare visible from the trees above. These roots are very thick and wet. They are
+&+Lvisible through the dirt, at one time they must have covered the entire area
+&+Lthat is the tunnel, however, a short stroke of a sword can put an end to any
+&+Lunwanted tree root. The tunnel is very dark and wet. It is also very cramped.
+~
+664 8 0
+D1
+~
+~
+0 0 66421
+D4
+~
+~
+0 0 66455
+S
+#66452
+Before a Large &+gMes&+Gsh&+gall~
+   A large superstructure to the west has a feint smell emitting from it, the
+smell of grub. It is obvious from the amount of trash littering the entrance
+of this building and from the types of trash that it is a messhall. Messhalls
+are well reknowned for their grub and serve as a refuge for those who've
+experienced the battlefield horrors and have survived. A few spots of vomit
+here and there are very contrasting with the smell of grub. The soldiers of
+this army need someplace to sleep as well. There are some barracks to the
+south. These barracks are open to anyone of the army but only the lowly
+soldier sleeps there. The upper command of the army have their own stations.
+~
+664 0 2
+D2
+~
+~
+0 0 66430
+D3
+~
+flap~
+1 0 66453
+S
+#66453
+Within a Large &+gMes&+Gsh&+gall~
+   From the time a soldier steps into this place, he is doused with food from
+all angles. New soldiers often fall victim to this sort of treatment, whether
+they be minotaur or orc is of no consequence. The messhall has a number of
+tables from which to sit upon. The only non-accessible region of the messhall
+would be the kitchen. Aside from that the soldiers are allowed to wander about.
+Food is often taken for granted by the evil forces here. They don't only munch
+on grub, but they munch on each other as well. Orcs are reknown for eatting
+man flesh. Minotaurs are said to eat a raw rabbit as well. These evil beings
+feast on things that any ordinary surface dweller wouldn't even consider.
+~
+664 8 0
+D1
+~
+flap~
+1 0 66452
+S
+#66454
+&+LA F&nort&+Lified G&+ca&+Ct&+ce~
+&+L   This parapet protects the encampment from foreign troops with foreign
+&+Lallegiances. At any given point there are at least a platoon of soldiers
+&+Lwithin these walls all ready and alert while they're on duty. If they were
+&+Lcaught napping they would be stoned to death. The walls are constructed
+&+Lwith brick and mortar with an occasional stone. There are no windows within
+&+Lthis structure, there are however guards posted outside to the north who
+&+Lwould notify those inside incase enemy troops are spotted in their proximity.
+&+LThe halfling contigement is the most deadly ever faced by the forces of
+&+Ldarkness. They have managed to hold up the combined forces of the orcish
+&+Lhorde and the minotaur warriors. This brings poor prospectives for the future
+&+Lof this campaign for the evil under dwellers. The orcs are stationed here
+&+Lto fend off the halflings and barbarians.
+~
+664 0 2
+D0
+~
+gates gate~
+1 0 66459
+D3
+~
+gates gate~
+1 0 66433
+S
+#66455
+A &nWhi&+Ltewas&nhed Hallway~
+   Monks from a century ago once lived here. It is here that the secret
+path they dug through the dirt opens up onto the surface. This path was meant
+to be a great secret only known to them. It was supposed to be a means of
+concealing what the monks consider most important to them, ancient books
+of knowledge. These texts are were collected from all around the world. There
+were many different magical books containing many spells and enchantments lost
+to the world of the magi. They summoned conjureres and master wizards to
+this place in order to identify some of these books, however, these arrogant
+magi-users refused the summons. Their arrogance must have lead to something
+catastrophic. Perhaps the monks delved too deep into these mysterious books
+and stumbled onto something most terrible.
+~
+664 8 0
+D3
+~
+~
+0 0 66456
+D5
+~
+~
+0 0 66451
+S
+#66456
+A Whi&+Ltewas&nhed Hallway~
+   Monks from a century ago once lived here. It is here that the secret
+path they dug through the dirt opens up onto the surface. This path was meant
+to be a great secret only known to them. It was supposed to be a means of
+concealing what the monks consider most important to them, ancient books
+of knowledge. These texts are were collected from all around the world. There
+were many different magical books containing many spells and enchantments lost
+to the world of the magi. They summoned conjureres and master wizards to
+this place in order to identify some of these books, however, these arrogant
+magi-users refused the summons. Their arrogance must have lead to something
+catastrophic. Perhaps the monks delved too deep into these mysterious books
+and stumbled onto something most terrible.
+~
+664 8 0
+D0
+~
+~
+0 0 66457
+D1
+~
+~
+0 0 66455
+D3
+~
+~
+0 0 66458
+S
+#66457
+&+LAbandoned Sle&nepi&+Lng &nChambers~
+&+L   This stone room was onced used by the monks as a sleeping room. There isn't
+&+Lmuch to see here except the cold vine covered stone of the floors and walls.
+&+LThere are a few snakeskins here and there. Spiderwebs with broken shells
+&+Lcover the corners of the room. There is a slight stinch to the air. All
+&+Lmonks need to sleep, so in a great show of sagacity the monks decided
+&+Lto build a sleeping chamber within the new walls of their temple. This
+&+Lchamber could house a great number of people if ever called upon to do so.
+&+LThere are no beds, but there are blankets sprawled across the room in a chaotic
+&+Lorder. Further, most of the blankets look as tho they've not been used in
+&+Lcenturies, for they look ready to tear upon touch and are very wet.
+~
+664 8 0
+D2
+~
+~
+0 0 66456
+S
+#66458
+Ove&+Lrloo&nking a Large &+LCa&+yve&+Lrn~
+   It is from this vantage point that one can see what the monks who lived in
+these runes had next on their agenda. To the north and some distance down a
+large cavern is visible. This cavern was newly dug at some point in tim but
+do to the sudden departure of the those who were building it was never
+completed. This cavern looks to be a cliff in the forest in which this temple
+resides. Above on the cliff, many trees are visible, shading out any sunlight
+that might penetrate or touch upon any one of the workers that were working
+upon the tunnel that was being dug. A ladder runs down a cliff, allowing easy
+access to this work site or one could run north and fall flat on his ass.
+~
+664 5 3
+D0
+~
+~
+0 0 66482
+D1
+~
+~
+0 0 66456
+D5
+~
+~
+0 0 66483
+S
+#66459
+Along a the&+L E&+yd&+gg&+Le of a &+bRiver~
+   The river runs through the hills and plains. Is brings fresh water from
+the mountains above. The mountain caps rise thousands feet into the air and
+clouds form donut rings around them. There is a gate to the south and it looks
+heavily fortified. The evil forces at work in the encampment to the south
+have tried repeatedly to force the good forces to the north to retreat. They've
+fought so many battles that both sides have lost considerable numbers. The
+river seems inviting. Not only does it offer an escape from the dangerous
+humidity in the air, but it gives that at which is not readily available
+in the region, fresh drinking water. Weeds and algae along the shore come to
+an abrupt end as a trail leads into the river, clearly the river is shallow
+within this section, for booted feet are visible in the mud below the water.
+~
+664 0 2
+D2
+~
+gates gate~
+1 0 66454
+D8
+~
+~
+0 0 66460
+S
+#66460
+&+bA River Crossing~
+&+B   This section of the river looks to be well traveled. On either side of the
+&+Bof of it, paths created by caravans, booted feet, and war-horses. Algae
+&+Band other plant life cover the river's edge. The upper portion of the river
+&+Bis rather still, however, downstream is nothing but rapids. Smoke is visible
+&+Bovertop the horizon.
+~
+664 0 6
+D1
+~
+~
+0 0 66462
+D7
+~
+~
+0 0 66459
+D8
+~
+~
+0 0 66461
+S
+#66461
+&nAlong a the &+LE&+yd&+gg&+Le of a &+bRiver~
+   The river runs through the hills and plains. Is brings fresh water from
+the mountains above. The mountain caps rise thousands feet into the air and
+clouds form donut rings around them. There is a gate to the south and it looks
+heavily fortified. The evil forces at work in the encampment to the south
+have tried repeatedly to force the good forces to the north to retreat. They've
+fought so many battles that both sides have lost considerable numbers. The
+river seems inviting. Not only does it offer an escape from the dangerous
+humidity in the air, but it gives that at which is not readily available
+in the region, fresh drinking water. Weeds and algae along the shore come to
+an abrupt end as a trail leads into the river, clearly the river is shallow
+within this section, for booted feet are visible in the mud below the water.
+~
+664 0 2
+D0
+~
+~
+0 0 66533
+D7
+~
+~
+0 0 66460
+S
+#66462
+&+bOn &+bRapid River~
+&+B   Perhaps many of the travelers that happened to attempt a navigation of this
+&+Briver found out the hard way that this river isn't to be taken lightly. It's
+&+Bjagged rocks combined with it's rapid velocity creates a very dangerous river.
+&+BSmoke rises to the north, above the landscape, which includes trees and
+&+Bseveral large hills. The sounds of this river fills the air.
+~
+664 0 6
+D1
+~
+~
+0 0 66463
+D3
+~
+~
+0 0 66460
+S
+#66463
+&+bBefore a Waterfall~
+&+B   Perhaps many of the travelers that happened to attempt a navigation of this
+&+Briver found out the hard way that this river isn't to be taken lightly. It's
+&+Bjagged rocks combined with it's rapid velocity creates a very dangerous river.
+&+BSmoke rises to the north, above the landscape, which includes trees and
+&+Bseveral large hills. The sounds of this river fills the air. A waterfall is
+&+Bvisible to the east.
+~
+664 0 6
+D1
+~
+~
+0 0 66479
+D3
+~
+~
+0 0 66462
+S
+#66464
+Before a &+LStone Gate~
+   This seems to have been a battlefield at one point in time because many
+corpses cover this hill. The hilly grassland that once was this region is
+no more. Burning brush and weapons of war create a thick smoke that clouds
+the area. The only thing that defines this hill is the parapet to the south.
+To the north the battlefield continues with ten times the destruction. Halfling
+and human corpses are testiment to failed attempts to take the gate. The
+orcish warriors have taken the lives of innumerable amount of valiant halfling
+and humans. The paladins can be seen searching for survivers. Clerics are in
+short demand. The halfling wizards probe the gate for any signs of weakness
+while the most clever of the halflings attempt to scale the wall. The stinch
+of death is appaling. The stone gate looks to have taken a beating. Magical
+fireballs conjured by halfling sorcery have struck at the tower time and
+again causing serious damage to the occupants within. Ballista missiles sent
+by the halfling engineers have nearly caused the collossal gate to fall.
+It is only a matter of time before the forces of good conquer the evil within.
+~
+664 0 2
+D0
+~
+~
+0 0 66466
+D2
+~
+gates gate~
+1 0 66469
+S
+#66465
+&+RP&+rl&+Ba&+bn&+Me&+mr &+WN&+we&+Cx&+cu&+Ls~
+&+W   Perhaps, amongst the h&+weaven&+Lly bodies, m&+wagnan&+Wimous beings reign supreme,
+&+CCould this be such a place?  E&+cach&+L race worsh&+cips th&+Ceir own gods, but where, if
+&+Wanywhere could these beings r&+weside.&+L  Could &+wthis &+Wbe such a domain of the gods?
+&+CNo. This is a gateway to other w&+corlds&+L, other&+c dime&+Cnsions where demi-gods reign
+&+Wover all. A cloud of vapor be&+wlow ke&+Leps unwar&+wy be&+Wings from falling though the
+&+Ccosmos for all eternity.  Cluste&+crs o&+Lf light &+corbit &+Cthis vapor with unimaginable
+&+Wspeed. It's inapprehensible for &+wme&+Lre mortals&+w. &+WTime itself is a play thing
+&+Cfor those who's power construe&+cd this &+Lplace, t&+chis &+Cnexus. In contrast to the
+&+Wlight is the internally darkn&+wess o&+Lf black. &+w The &+Wdarkness embodies all that
+&+Cis and all there ever will be. Beyo&+cnd t&+Lhis sanct&+cit&+Cude, this cloud of vapor,
+&+Wanything could be waiting.
+~
+664 142639168 2
+D0
+~
+~
+0 0 66467
+D2
+~
+~
+0 0 66470
+S
+#66466
+A &+rBu&+Rrn&+Wi&+Yn&+Wg &+LBat&+gt&+Ll&+Le&+gfi&+Leld~
+&+r   What remains of this battlefield is horrific. Just remaining in the
+&+Lvicinity is a sheer test of willpower. The monstrousities visible within this
+&+gplain could cause anyone, even the strongest of the strongest, to faint. Many
+&+Lbodies have been burnt to to a crisp. The weapons of war that are burning
+&+rcreate a thick black smoke cloud that envelopes everything. The ballistas,
+&+gcatapults, and caravans all belonging to the halfling and orcish armies are
+&+Lall charred and no longer functional. Spears with impaled soldiers mark the
+&+Yspot where any survivors were mangled and killed. Some sections of the plain
+&+Lburn steadily. Many of the dead have arrows and swords stuck into their
+&+Wbellies. A few have been burned beyond recognition by magical means. This was
+&+Rone of the original battlegrounds when the fight was joined by the halflings.
+&+WThey managed to cut down the enemy forces with their machines and vicious
+&+Ywarrior ways. The wizards brought down the forces of destruction to destroy
+&+gthe evil orcish hordes and mighty minotaur might. The barbarians avoid this
+&+Wplace as it is a testiment to their failure to win a battle yet against the
+&+Yvicious evil army. The evils learned that the halflings should not be taken
+&+glightly.
+~
+664 0 2
+D2
+~
+~
+0 0 66464
+D3
+~
+~
+0 0 66472
+S
+#66467
+&+WSome Heavenly Gates~
+&+W   The air swells with the smell of roses, a pleasant feeling fills the air.
+&+WThe white washed walls protecting the city seem to stretch for an eternity in
+&+Weither direction. They rise an enormous ninety feet high, however, it is
+&+Wimpossible to discern the purpose of these walls. They may be a mere symbolic
+&+Wgesture for what else could they be. What battles could take place in this
+&+Wplace of harmony. The sky swirls with orbs of light, moving at speeds that no
+&+Wone could ever ascertain orbitting the citadel. A white mist swirls below where
+&+W&+Wthe ground ought to be. There are no guards protecting the gigantic double
+&+Wdoors to the north. What reason would they need sentries? There's some music
+&+Wemanating from behind the walls is so peaceful and it could make one fall fast
+&+Wasleep.
+&+C  Z&+czz
+        &+C Z&+czzz
+                    &+C    Z&+czzzz
+~
+664 33554432 14
+D0
+~
+~
+0 0 66499
+S
+#66468
+&nApproaching a &+LSentry Outpost&n~
+   A moutain range is visible to the far north east, and the sounds of battle
+echo in the air. Shouts from the distance are audible but not understandable.
+Smoke to the north hint a battle of some sort or maybe an encampment. This
+gravel trail is about ten feet in width and stretches through the hilly plains.
+The halflings make up the bulk of the goodie army. They have joined forces with
+a few noble paladins and some tribal barbarians. Together they fight against
+the evil warlords of the minotaurs and orcish horde. The halflings aren't the
+fiercest fighters but they're the most clever. Their magic users can cause
+great devastation to an enemy force. A tiny influx of magic can cause a battle
+to go this way or that. The orcs and minotaurs aren't that strong in magic,
+however, they more than make up for that in brute strength.
+~
+664 0 2
+D0
+~
+gates gate~
+1 0 66469
+D2
+~
+~
+0 0 66417
+S
+#66469
+&+LA F&nort&+Lified G&+ca&+Ct&+ce~
+&+L   This parapet protects the encampment from foreign troops with foreign
+&+Lallegiances. At any given point there are at least a platoon of soldiers
+&+Lwithin these walls all ready and alert while they're on duty. If they were
+&+Lcaught napping they would be stoned to death. The walls are constructed
+&+Lwith brick and mortar with an occasional stone. There are no windows within
+&+Lthis structure, there are however guards posted outside to the north who
+&+Lwould notify those inside incase enemy troops are spotted in their proximity.
+&+LThe halfling contigement is the most deadly ever faced by the forces of
+&+Ldarkness. They have managed to hold up the combined forces of the orcish
+&+Lhorde and the minotaur warriors. This brings poor prospectives for the future
+&+Lof this campaign for the evil under dwellers. The orcs are stationed here
+&+Lto fend off the halflings and barbarians.
+~
+664 0 2
+D0
+~
+gate gates~
+1 0 66464
+D2
+~
+gates gate~
+1 0 66468
+S
+#66470
+&+RGates of the Demonic Demi-Gods~
+&+R   Only from the depths of hell could such a place have been spawned.  Most of
+&+Rthe terrors of hell would drive one insane but the evil forces at work here
+&+Rhave taken it one step further. Evil spirits forever imprisoned within this
+&+Rdomain hover above a heavily fortified gate. They scream the sounds of death,
+&+Rthe scretching sounds of horror. The devilish gate is fortified by devils
+&+Rof unspeakable power, beings that could topple kingdoms with an utter breath.
+&+RThe walls are littered with souls of many unfortunate dead, the ones who were
+&+Rcaught unawares whilst the evil took their lives. The infernal sky has an
+&+Reerie glow to it. It is the aclove for lost souls. An ablazed stone has
+&+Rsome legible carvings edged into it and sits several feet before the gate.
+~
+664 33554432 14
+D2
+~
+~
+0 0 66473
+E
+sign~
+~
+S
+#66471
+&+yAn Encampment&n~
+   A camp fire burns steadily in the center of this camp. There are tents set
+up in a circle formation. Logs for soldiers to sit upon are sprawled around
+a fire. Soldiers tell tales about the fire at night and also setwatch for the
+night. From the looks of things these soldiers have been encamped for a long
+time. This is the halfling encampment and its mostly full of halflings. There
+are no other goodie encampments except the barbarian one. The barbarians
+are encampment near here to the northeast. They are fierce fighters who have
+contributed a great deal. This campaign is also joined by a few noble human
+paladins. These paladins have enormous power. They heal the injured as well as
+they destroy the evil. This battle has been joined by both sides for weeks now
+and the effects of the conflict is effident in the faces of these halflings.
+A great many of them have died in this conflict with no end in sight.
+~
+664 0 2
+D0
+~
+~
+0 0 66446
+D2
+~
+~
+0 0 66472
+S
+#66472
+Top of a &+yHill~
+   This seems to have been a battlefield at one point in time, for many
+corpses litter this hill. The hilly grassland that once was this region is
+no more. Burning brush and smoke clouds the area. There is a parapet to the
+south that is manned by the orcish horde. They continue fighting the halflings
+and do so fiercely. To the south the battlefield continues with ten times the
+destruction. From this vantage point the massive destruction can be taken in.
+It is difficult not to flench from the brutallity of it all. There are so many
+mutilated corpses of halflings and charred remains of orcs and minotaurs. These
+two forces have been at it for some time. Halfling wizards have been inflicted
+a great blow to the orcish and minotaur armies and they likewise have brutally
+killed a great many halflings and barbarians. Clouds of smoke rise.
+~
+664 0 2
+D0
+~
+~
+0 0 66471
+D1
+~
+~
+0 0 66466
+D4
+~
+~
+0 0 66475
+S
+#66473
+&+RA Burning Courtyard~
+&+R   Minions float above this gigantic courtyard, for it is their domain.  Souls
+&+Rdamned for all eternity nest within the sky above, accosting intruders with
+&+Rshreaks and howls that shatters nerves. A red mist swirls within this court,
+&+Rmaking it difficult to see far distances. An evil presence lingers in the air
+&+Rhere, as if it manifests itself even stronger, with one thinking about it.
+&+RA large tower to the south is the only visible spectacle. The base of the
+&+Rtower is outlined with a horde of skulls, marking it for what it is, the tower
+&+Rthe demonic demi-gods.
+~
+664 176193600 14
+D1
+~
+~
+0 0 66481
+D2
+~
+~
+0 0 66478
+D3
+~
+~
+0 0 66490
+S
+#66474
+&+RThe Pit of Eternal Suffering~
+&+R   Souls scream with despair, for their existence is none less than tormenting.
+&+RAnything that passes through these walls goes through an unnerving affect, for
+&+Rthe cries of souls long passed on unnerves the nerves.  Nothing can be done
+&+Rto save these wretched beings, except maybe destroying their captor, the demi-
+&+Rgod that holds them. The entire chamber is ablaze with fire, and it appears
+&+Rto seek out and consume anything in its path.
+~
+664 1249935424 14
+D0
+~
+gate~
+1 0 66503
+D1
+~
+~
+0 0 66490
+S
+#66475
+&+LA Mou&+ytain&+Lside Cliff~
+&+L   The cliff is very steep, very treacherous.  The jagged edges make scaling
+&+Lit incredibly difficult, hazardous at best.  Most of the birds that nest
+&+Lon this cliff stir restlessly at any intrusion on their domain, and they seem
+&+Lready to defend themselves if necessary.  From this vantage point it is
+&+Limpossible to see ten feet up the cliff, however, it's possible to scope out
+&+Lthe horizon to the west.  Most of it is forest land and plains.
+~
+664 4 2
+D4
+~
+~
+0 0 66476
+D5
+~
+~
+0 0 66472
+S
+#66476
+&+LA Mou&+ytain&+Lside Cliff~
+&+L   The cliff has many jagged rocks lingering in it's presence, making a climb
+&+Ldown very dangerous.  Many different bones are visible to the east, bones
+&+Lbelonging to the evil races of this world.  From this vantage point, it's
+&+Lpossible to view the forest, the plains, and what resides in them.  A cave
+&+Lopens up to the east, it is infact, a dark abode for some creature.
+~
+664 0 2
+D1
+~
+~
+0 0 66477
+D5
+~
+~
+0 0 66475
+S
+#66477
+&+LA Dark Ca&nv&+Le~
+&+L&+L   This cave seems to have an enchantment placed upon it, for there is a
+&+Lstrange aura emanating from its walls.  The height of this cave is adequate
+&+Lfor the dragon that resides in it, for it is over fifty feet.  The cave seems
+&+Lto stretch endlessly into the darkness to the east.  Some moisture upon the
+&+Lrocks make walking within this cave rather dangerous.
+~
+664 137 0
+D3
+~
+~
+0 0 66476
+S
+#66478
+&+RTower of the Demi-God Yar'Kalisteritax~
+&+R   The dread demon lord himself resides within these walls. This dragon is the
+&+Reldest of the three demi-gods, therefore, he is the most powerful. The better
+&+Rpart of this hallway is covered with flames. The flames are magic and nature
+&+Rand burn steadily as it tries in vain to consume everything within it's grasp.
+&+RThunder booms through the area, however, its origin is a mystery. There is
+&+Rno storm outside, or could this thunder be the demi-god's laughter. Without
+&+Ra doubt everything that transpires within this plane is noticed by
+&+RYar'Kalisteritax.
+~
+664 1249935424 14
+D0
+~
+~
+0 0 66473
+D2
+~
+~
+0 0 66497
+S
+#66479
+&+bAt the Base of a &+bW&+wat&+Wer&+wfa&+bll~
+&+b   The land above comes to an abrupt end and the water above falls steadily
+&+bto the ground. When &+Ysun&+Wlight&+b touches the outer rims of the falls, a small,
+&+bbut &+bbeautiful &+mr&+ra&+yi&+Yn&+yb&+ro&+mw&+b appears. At the base of the falls huge algae covered
+&+bboulders &+blay dormant. On all sides of the small lake &+bweeds &+bcreate &+ba great
+&+bresting place for snakes and other reptiles alike. The animals like to come
+&+bhere for fresh water and can be seen here often. Hunters used to come here
+&+bas well, perhaps they still do for fresh meat. The lake is quite large and
+&+bthere must be a lot of fish. The air smells fresh. A thick forest is north.
+~
+664 0 2
+D0
+~
+~
+0 0 66480
+D4
+~
+~
+0 0 66463
+S
+#66480
+&nBefore a &+bW&+wat&+Wer&+wfa&+bll&n~
+   There is a roaring waterfall to the south. The water runs off a small cliff
+and lands into a lake. The animals like to go there for fresh water and hunters
+often go there for meat. A forest thickens to the north.  The&+g t&+yree&+gs &nare full of
+life, their leaves are green and chipmunks and &+ysqu&+Yirr&+yels&n race along their
+branches. The ground is moist and soft. Weeds seem to be growing and thickening
+near the &+bwater&+Wfall&n. The roaring of the &+bwater&+Wfall&n declares its existence,
+even if one cannot see it. There are fresh booted footprints that run all
+over the place. These boots can only come from one source, the orcish and
+minotaur warriors. These warriors must be scouting the forest to the north.
+~
+664 0 3
+D0
+~
+~
+0 0 66489
+D2
+~
+~
+0 0 66479
+S
+#66481
+&+RTower of the Demi-God Nar'Minanupoli~
+&+R   The demon that resides in this tower has more strength than an army of
+&+Rundead, &+Ra fleet of dragons, or any standing army. His power is only surpassed
+&+Rby that &+Rof Yar'Kelisteritax, the head demi-god himself. Nar'Minanupoli has
+&+Rtaken many &+Ra soul and with each soul he grows that much stronger. During his
+&+Rprime &+Rhis terror inflicted even the most mind numb person with insanity.
+&+RHowever, &+Rhe was taught moderation and patience by the his peers. And like the
+&+Rothers, &+Rhe began biding his time, collecting that at which mere mortals take
+&+Rfor &+Rgranted every day of their existence, their souls.
+~
+664 176193600 14
+D1
+~
+~
+0 0 66491
+D3
+~
+~
+0 0 66473
+S
+#66482
+&+LIn Mid-Air~
+   Whee!  There is no ground here!  Happy flying! Hoot Hoot!!!
+
+                            &+y  ______
+                       &+y  _ &+y  /      \   _
+                       &+y / \ / __  __ \ / \
+                      &+y |   |   &+W*&+y\/&+W*&n &+y  |   |
+                     &+y /\       &+m \/&+y        /\
+                    &+y |  \       --       /  |
+                    &+y \        /    \        /
+                    &+y | \      |    |      / |
+                     &+y \       \    /       /
+                      &+y \                  /
+                      &+y | \   /&+w/     \&+y\  / |
+                      &+y \_ //&+w/ &+Y  /  \&+w  \&+y\\ _/
+                         &+y -----&+Y/|\/|\&+y-    _ __
+                                    &+y  \__/_/
+~
+664 8 8
+D2
+~
+~
+0 0 66458
+D5
+~
+~
+0 0 66484
+F
+100
+S
+#66483
+An&+L Abandoned Worksite~
+   Many tools that were carelessly left out in the open have been overtaken
+by the forest. The owners of the tools must have left in haste because they
+they are laid sprawled upon the ground as if dropped or thrown. A few
+benches are visible, however, they are no longer functional it seems. Some
+are missing legs and others are totally covered with vines and various plant
+life. To the north, a large cavern opens up. It looks as if this was a place
+people came and went to on a regular basis. Whatever it took to get them to
+abandon their place of worship and work must have been extraordinary.
+~
+664 1 3
+D0
+~
+~
+0 0 66484
+D4
+~
+~
+0 0 66458
+S
+#66484
+A Large &+LCavern Opening~
+   Sounds echo within these chambers easily. It is here where the cavern is
+not quite a cavern and not quite a forest. This is where the forest and the
+cavern meet, so in reality, this is on the fringe of both worlds. The
+cavern is rather dark and continues somewhat in a downward slope and the
+passageway to the outside world, the forest, is to the south. There are many
+eggshells here and snakeskins as well. This forest is has many predators.
+These snakes that live here are said to swallow small children whole. The
+spiders are said to be venomous and humongous. Arachnids are scary and most
+people try to avoid them and snakes that swallow children whole are avoided
+as well.
+~
+664 8 0
+D2
+~
+~
+0 0 66483
+D5
+~
+~
+0 0 66485
+S
+#66485
+A &+LNarrow Landing~
+&+L   Rising over forty feet in height, the obsidian pillars are completely awe
+&+Linspiring. Poles give support to the domed shaped ceiling. Puddles of blood
+&+Lseep into the crevices on the floor, and cracks on the walls. Bones and
+&+Ldifferent types of refuse cover the area, while piles of rubble inhibit the
+&+Lpath of travel. Above, the ceiling gives way to what looks like an opening.
+&+LThis chamber looks centuries old. It must have been forged by some ancient
+&+Lcivilization. The monks that lived here must have stumbled upon this chamber
+&+Lby accident. Perhaps they stumbled upon some sort of dark power. Maybe this
+&+Lplace has a curse laid down upon it. There is a slight stinch in the air.
+~
+664 140 0
+D1
+~
+~
+0 0 66486
+D4
+~
+~
+0 0 66484
+S
+#66486
+A &+LTurning~
+&+L   The corridor splits into two paths of travel, southward and northward.
+&+LWalls rise over thirty feet high, while supporting the domed shape ceiling.
+&+LStrange runes are barely visible among the rising walls and along the floor.
+&+LThe runes hum softly, which is faintly audible. Pools of blood mark the area
+&+Las a battle field. The battle that took place here must have been magical
+&+Lin origin, for there are many scorched sections wall here and there. There
+&+Lis almost nothing to be seen here except broken eggshells of some sort of
+&+Lcreature. Sounds echo easily within these walls. Whoever built this place
+&+Lmust have long sinced abandoned it centuries ago.
+~
+664 136 0
+D0
+~
+~
+0 0 66532
+D2
+~
+~
+0 0 66513
+D3
+~
+~
+0 0 66485
+S
+#66487
+Before a Small &+yHut~
+   This is where the small trail in the forest splits into two paths of travel;
+to the west a small hut is visible, while to the east nothing but forest. A
+slight breeze in the air stirs the moisture that makes it difficult to breath.
+The plant life is very thick and impregnable anywhere off the trail. This
+forest seems to house some of the most active animals in the world for they
+hustle this way and that. This forest is very old. The trees seem to whisper.
+The night can be lonely in this here. With nothing to keep the cold night air
+off your backs and can be even lonelier still.
+~
+664 1 3
+D1
+~
+~
+0 0 66489
+D3
+~
+door~
+1 0 66488
+S
+#66488
+&+LA Small &+yHut~
+&+L   This small &+yhut&n &+Llooks to be abandoned. Dust covers all of the item
+&+Lon the tables, the couch near the window, and the pictures along the walls.
+&+LThis hut was constructed of &+ywood&n &+Land &+yba&+gmb&+yoo&+L and is of great craftsmanship.
+&+LA rug on the floor with the picture of a hobbit battling an &+bogre&n &+Lis quite
+&+Lamusing. A few windows have been covered with wood and nailed shut from the
+&+Loutside, to keep uninvited guests from entering. Some candles look to have
+&+Lburnt for hours and hours for&+w wax&n &+Lcovers the better part of the counter
+&+Lthey stood on. It is for sure that this hut is very old.
+~
+664 8 0
+D1
+~
+door~
+1 0 66487
+S
+#66489
+A &+LDense &+gForest~
+   The trees prevent any sunlight to shine here. Tall evergreens have grown
+hundreds of feet into the air. They are hundreds of years old. There are
+vines that dangle from the branches. Squirrels run along the tree branches.
+The ground is covered in leaves and brush. The forest is thick with all sorts
+of plants and animals. Monkies swing from branches and snakes rustle in the
+brush. A thick underbrush just to the east makes travelling difficult at best,
+however, to the north it is considerably lighter. There's an eerie sensation
+here, as if something is not quite right. It seems as if something is waiting.
+~
+664 1 3
+D1
+~
+~
+0 0 66493
+D2
+~
+~
+0 0 66480
+D3
+~
+~
+0 0 66487
+S
+#66490
+&+RTower of the Demi-God Bor'Vongonkiliu~
+&+R   Pure evil permeates from the tower. These demi-gods have nothing within them
+&+Rbut a lust for vegeance upon the outside world, for merely existing. One
+&+Rwould think that this hell hole for a tower was spawned from hell itself,
+&+Rhowever, it is has not. The evil that resides within this tower manifests
+&+Ritself and hell not needith to intervene. The walls are covered in flames
+&+Rand reach out and try to devour anything within their grasp. Anyone
+&+Rspending too much time in here would become a permenant resident, not to
+&+Rmention a large charcoled mass.
+~
+664 176201792 14
+D1
+~
+~
+0 0 66473
+D3
+~
+~
+0 0 66474
+S
+#66491
+&+RDomain of Lost Souls~
+&+R   The sentries of the tower are kept here. These keepers are servants of the
+&+Rlord that resides within this tower and obey only his bidding. Some beasts
+&+Rwhere summoned from other dimensions, some conjured through magic. In either
+&+Rcase, they're here to do one thing and to destroy any infidel who hasthenerve
+&+Rto desanctify his domain. Pit fiends snarl viciously, hydras shreak with
+&+Rrage, and shadows engulf the room.  Indeed, it would take the hand of god to
+&+Rmatch what this domain beholds.
+~
+664 1249935424 14
+D0
+~
+~
+0 0 66492
+D3
+~
+~
+0 0 66481
+S
+#66492
+&+RAn Observatory~
+&+R   The walls are ablaze and the heat of which could melt rock. These flames
+&+Rspew sporadically through the room, scorching all within proximity. In
+&+Rthe center of this fiery hell there is a circular orb, the size of which
+&+Rcan not possibly be measured. It appears to have an indefinite nature
+&+Rabout it and seems to perceive one's thoughts and reflect different visions
+&+Rto one's mind in correspondence. Within the center of this black orb, an
+&+Rarray of lights is visible. It is impossible to discern what the light is,
+&+Rwhich leaves it up to speculation. Could it be the cosmos? Or could it
+&+Rbe trapped souls.
+~
+664 176193600 14
+D2
+~
+~
+0 0 66491
+D4
+~
+~
+0 0 66498
+S
+#66493
+An &+yAbandoned Sentry &+LPost~
+   A long time ago this was once some sort of post. There are two small
+bamboo towers on either side of the forest path. It must have been some sort
+of look out tower or something. They don't rise very high and aren't very
+stable. There is a large box at the foot of each tower. The lock has been
+rusted shut but the continents must be centuries old. It is doubtful that
+anything of value can be found within these boxes. The forest isn't as thick
+as it normally is which means this was once a constantly occupied post.
+Perhaps there were sentries here at one time. Or perhaps this was a ranger
+station. Squirrels race in the tree branches above.
+~
+664 1 3
+D1
+~
+~
+0 0 66494
+D3
+~
+~
+0 0 66489
+S
+#66494
+Approaching an&+L Village Gate~
+   The trail is headed to a small gate of some sort. The gate is totally
+covered with vines and moss, henceforth, it blends in perfectly with the
+forest in which is resides. The gate looks like its not been opened in
+some time and no trails lead to or from it. The forest's plant life and
+growth seems very dense, making most of the forest impregnable. Water drips
+from vines above, the air is filled with humidity, and the ground feels slimy.
+During the night the sky forest is very dark. No moonlight even reaches the
+forest floor. Leaves and strong brush make traveling difficult. Squirrels
+rustle in the trees above. A gentle breeze stirs the branches.
+~
+664 1 3
+D1
+~
+~
+0 0 66495
+D3
+~
+~
+0 0 66493
+S
+#66495
+Gates of a &+LLost Village~
+   The gates were constructed using bamboo and some type of tough bark. The
+gates stand a little over six feet up in the air with vines covering them
+every square inch of the way. It seems as though the doors might have
+prevented animals and beings alike from entering, however, now it doesn't
+look as though it could keep a small rodent from entering. This village has
+long since been abandoned. It was some sort of logging village. It must have
+had many shops and houses. Perhaps there are valuables here still that were
+left. Nothing is known about this village but something is sure to be known
+about it soon. The night is lonely here.
+~
+664 1 3
+D3
+~
+~
+0 0 66494
+D8
+~
+gates gate~
+1 0 66496
+S
+#66496
+&+LBefore a Vi&+yl&+gl&+ya&+Lge &+yGa&+Lt&+ye~
+&+L   The village's gates remain dormant to the southwest. The bark that covers
+&+Lthe bamboo frame is totally molded and covered with vines. The moisture seems
+&+Lto have accrued for many years. What looks like a trail opens up towards the
+&+Least and to the north. Both paths of travel seem identical; vines dangle from
+&+Lthe trees above, dripping water and further dampening the ground, which
+&+Llooks to be incredibly soggy and plagueed with much plant life.
+~
+664 1 3
+D0
+~
+~
+0 0 66502
+D1
+~
+~
+0 0 66501
+D7
+~
+gates gate~
+1 0 66495
+S
+#66497
+&+RThrown Room of the Demi-God Yar'Kalisteritax~
+&+R   Why why why would someone enter his domain uninvited. Even if you were a
+&+Rsmall cricket in the jungle in some distant land, he would find you and evoke
+&+Rhis revenge for even daring to set foot upon his threshold. There is no
+&+Rescaping him, for this being is all powerful. &+RThunder cackles through the air,
+&+Rconstant exposure would lead to the &+Rdestruction of one's earlobs, meaning
+&+Rdeafness. Fire spews from the ground, &+Rincenerating all that it touches.  This
+&+Rentire chamber is an inferno. A &+Rthrown the size of a small mountain awaits
+&+Rits master.
+~
+664 1249935424 11
+D0
+~
+~
+0 0 66478
+S
+#66498
+&+RChamber of the Demi-God Minanupoli~
+&+R   Flames shoot up through the floor, lightning cackles though the air, and
+&+Rthe thrown of the Demi-Lord glows brilliantly. Indeed, mortal men have never
+&+Rset foot upon this threshold. Therefore, those mortal men shall suffer as no
+&+Rother mortal has. An eternity of damnation and suffering awaits those usurpers
+&+Rof this demi-god. Perhaps an ever lasting indentured servitude in the firery
+&+Rpits of hell would teach all those who would challenge, a lesson. The demon
+&+Rhas total power here. His touch alone could kill. His powerful magic can
+&+Rrip souls from their bodies. It is a scary place.
+~
+664 1249935424 11
+D5
+~
+~
+0 0 66492
+S
+#66499
+&+WAn Open Courtyard~
+&+W   Spirits from another time, another place hover around. The sky is filled
+&+Wwith an unending number of them, they appear to be such at ease with existence.
+&+WThe courtyard also, like them, appears to never end. Such a serene filling
+&+Wfills the air, &+Wa feeling nothing else can replace. A huge cathedral to the
+&+Wnorth marks a &+Wplace of rest. The cathedral covers the the horizon, for it is
+&+Wtruly grand. &+WA mist covers the entire ground, it's almost as if it were
+&+Wactually a cloud. &+WSome music fills the air, almost like angels plucking their
+&+Wharps...
+~
+664 176193600 14
+D0
+~
+~
+0 0 66500
+S
+#66500
+&+WA Holy Cathedral~
+&+W   A form of light pertrudes through the glass stained windows, if this wasn't
+&+Wthe spirit world, it could the sun. Perhaps it is, infact, a star.  The
+&+Wheavens are located amongst the cosmos, are they not? A serene feeling fills
+&+Wthis place of worship, as if some higher being wisked away all doubts and
+&+Wfears that fill one's head. An endless number of book shelves rising an
+&+Windefinite height centers around the room. Truly, the treasure of all time,
+&+Wthe knowledge the universe. Beings from other ages collect their thoughts
+&+Wwhile they glance over the books.
+~
+664 1249935552 14
+D2
+~
+~
+0 0 66499
+S
+#66501
+&+LNearing a Small &+bSt&+Brea&+bm~
+&+L   The trail runs downhill a little bit, creating hazardous footing conditions.
+&+LA stream flows freely into what it looks like a windmill to the east. The
+&+Lhumidity in the air is caused by the streams proximity to the village. This
+&+Ltrail clears to the east and splits into two directions. A huge hut is visible
+&+Lthrough the vines and tree branches just to the northeast.
+~
+664 1 3
+D1
+~
+~
+0 0 66512
+D3
+~
+~
+0 0 66496
+S
+#66502
+&+LAn Inter&+ws&ne&+Wc&+Ltion of&+y Pa&+Lt&+yhs~
+&+L   Two paths converge to form an intersection of sorts. One path stretches to
+&+Lthe west, while the one other runs south. There seems to be very little
+&+Ldistinction between the paths for they both are in fact, identical. The
+&+Lrustling of the underbrush indicates animal activity and the occasional snake
+&+Lhole indicates reptile activity. The moisture in the air makes it very
+&+Ldifficult to breath.
+~
+664 1 3
+D0
+~
+~
+0 0 66528
+D2
+~
+~
+0 0 66496
+D3
+~
+~
+0 0 66526
+S
+#66503
+&+RThe Beholder's Chamber~
+&+R   Beholders usually behold something, just what they guard and keep from the
+&+Routside world varies. If a magi was powerful enough, he could summon and
+&+Rcharm one himself, and entrust into the care his most prized posession to it
+&+Rand rest assured that it shall not be disturbed for all time. Such power do
+&+Rthe beholders have. These beings are magical in nature, but have the tendancy
+&+Rto rip an intruder to shreds.
+~
+664 176193600 14
+D2
+~
+gate~
+1 0 66474
+D4
+~
+~
+0 0 66504
+S
+#66504
+&+RChamber of the Demi-God Bor'Vongonkiliu~
+&+R   His chamber comes alive. It is a living inferno. It is a prevailent
+&+Rfeeling to any unwelcomed visitor to feel intimidated. It is here that
+&+Rthe tower's master resides, it is here were the evil manifests. Flames
+&+Rspew out in search of something to consume. A large thrown in the far corner
+&+Rof the chamber has a gigantic crystal amulet. This amulet is a white prism,
+&+Rand from it, the chamber is lit with all the colors of the rainbow, for their
+&+Rbeems create an array of colors.
+~
+664 1249935424 11
+D5
+~
+~
+0 0 66503
+S
+#66505
+&+LA Vi&+yl&+gl&+ya&+Lge &+yTr&+Lai&+yl Curve~
+&+y   This trail seems not to have been traveled upon in many years. Many
+&+ybranches and moss cover the trail. The thickness of the trees prevent
+&+yany sunlight to enter the village which in explains why the air is
+&+yso moist. Different animals ranging from squirrels, rats, chipmunks,
+&+yand birds playfully take residence in the village among the trees. Snakes
+&+yare also present, for there are a few snake holes visible. The trail turns
+&+ysouthward toward another pathway of some sort, resembling this one in every
+&+yrespect.
+~
+664 1 3
+D0
+~
+~
+0 0 66506
+D1
+~
+~
+0 0 66510
+D2
+~
+~
+0 0 66528
+S
+#66506
+&+LA Small Sidepath~
+&+L   This path is very narrow and traveling. The forest is all but an
+&+Limpregnable fortress in some places. Moss, undergrowth, and various other
+&+Lplant life covers the ground. Tredding here is very hazardous. The sun
+&+Llooks to not have shone here quite some time. With so much moisture in
+&+Lthe air it makes breathing an effort. The trail forms turns to the west some
+&+Lof the ways to the north. The plants here are very thick and tear at
+&+Lclothing. The night sky brings a terrible cold that penetrates deep. Its best
+&+Lto find shelter and a warm fire when night comes. During the day the sun
+&+Lnever seems to shine here. Thick branches and healthy leaves complete block
+&+Lout the sun and it is very dark, even for the day.
+~
+664 1 3
+D0
+~
+~
+0 0 66507
+D2
+~
+~
+0 0 66505
+S
+#66507
+&+LA Small Sidepath~
+&+L   This path is very narrow and traveling. The forest is all but an
+&+Limpregnable fortress in some places. Moss, undergrowth, and various other
+&+Lplant life covers the ground. Tredding here is very hazardous. The sun
+&+Llooks to not have shone here quite some time. With so much moisture in
+&+Lthe air it makes breathing an effort. The trail forms turns to the west some
+&+Lof the ways to the north. The plants here are very thick and tear at
+&+Lclothing. The night sky brings a terrible cold that penetrates deep. Its best
+&+Lto find shelter and a warm fire when night comes. During the day the sun
+&+Lnever seems to shine here. Thick branches and healthy leaves complete block
+&+Lout the sun and it is very dark, even for the day.
+~
+664 1 3
+D2
+~
+~
+0 0 66506
+D3
+~
+~
+0 0 66508
+S
+#66508
+Near a large &+yCottage~
+&+L   The forest seems to be thickening at an ever increasing rate. Its almost
+&+Limpossible now to work a way throught the thickening brush. One cannot stray
+&+Loff the path here simply because the north or south is impassible. A small
+&+Lcabin is visible to the west. To the east the trail takes a turn southward.
+&+LLeaves cover the ground. When animals move they rustle the brush and make a lot
+&+Lof noise. The forest looks to have been around a long time. There trees here
+&+Lhave grown in full form and looks centuries old. The base of some fo these
+&+Ltrees is over ten feet in diameter. It could take an ogre a year or two of
+&+Lstraight sawing to cut just one of these trees down. They all rise hundreds of
+&+Lfeet into the air and block out the sun. A bird chirps.
+~
+664 1 3
+D1
+~
+~
+0 0 66507
+D3
+~
+door~
+1 0 66509
+S
+#66509
+&+LWithin a Cottage~
+&+L   This cottage looks to have been abandoned for many years.  Most everything
+&+Lattests to this; the &+rfire&+Lplace&+L has not been used in some time, dust covers most
+&+Leverything, the taste of &+bmoi&+cstu&+bre&+L in the air, and the &+gvine&+L growth that flows
+&+Lfreely within the living chambers.  Some things appear to have been knocked
+&+Lover, a &+Wcandle&+L here, and a &+ychair&+L there.  The sounds of animal life runs rampart
+&+Loutside, and is barely audible from within this cottage.  Whomever lived here,
+&+Lmust not have planned on returning for some time.
+~
+664 9 0
+D1
+~
+door~
+1 0 66508
+S
+#66510
+&+LA Small Vi&+yl&+gl&+ya&+Lge &+yTr&+Lai&+yl~
+&+L   This trail seems not to have been traveled upon in many years. Many
+&+Lbranches and moss cover the trail. The thickness of the trees prevent
+&+Lany sunlight to enter the village, which in turn explains why the air is
+&+Lso moist. Different animals ranging from squirrels, rats, chipmunks,
+&+Land birds playfully take residence in the village among the trees. Reptiles
+&+Lare also present. There are a few snake holes visible. Southward and
+&+Lnorthward huts are visible.
+~
+664 1 3
+D0
+~
+door~
+1 0 66511
+D1
+~
+~
+0 0 66516
+D3
+~
+~
+0 0 66505
+S
+#66511
+&+LA Crudely Built &+yHut&n~
+&+L   This hut seems to have decayed over the years and due to the builders poor
+&+Lcraftsmanship the process was only hastened. There aren't many &+mde&+ccorati&+mve&n
+&+Litems that most cottages would have and most everything that is here looks to
+&+Lbe second rate. This hut clearly was built in haste to house its inhabitants
+&+Land shelter them from the elements. Moisture lingers in the air.
+~
+664 9 0
+D2
+~
+door~
+1 0 66510
+S
+#66512
+&+LAlong a Small &+bSt&+Brea&+bm &+Lnext to a Wind&+ymill~
+&+L   The humidity in the air is horrifying, making it difficult to breath. Some
+&+Lanimals stir in the underbruss. The animals are well hidden and it's difficult
+&+Lto determine what they are. The stream that passes by this small village is
+&+Lthe source of much drinking water and power. A windmill is clearly visible
+&+Lto the east and a large hut can be seen to the north.
+~
+664 1 3
+D0
+~
+door~
+1 0 66514
+D1
+~
+~
+0 0 66515
+D3
+~
+~
+0 0 66501
+S
+#66513
+A &+LDead End~
+&+L   There are rumors in the outside world of a long forgotten portal to another
+&+Ldimension. This dimension is said to be that of the gods. It was said that
+&+Lit was stumbled upon by some fools digging for silver in a mine and that the
+&+Lminers were so afraid for their lives they abandoned the mines after striking
+&+Lsilver in the heart of it. It is said that they purposely collasped the mine
+&+Lin order to seal away what they had discovered. Centuries passed since this
+&+Lhas happened. None know the whereabouts of this mine or even if it existed.
+&+LOne thing is for certain, the obsidian walls are no longer falling apart.
+&+LAlongside the walls, on either side, the huge cylinder pillars holding the
+&+Lceiling in balance reflect your image and your thoughts. Bones lay about the
+&+Lfloor. Many various types of beasts have had their last breath here. Refuse
+&+Land rubble no longer cover the floor.
+~
+664 136 0
+D0
+~
+~
+0 0 66486
+S
+#66514
+&+yHut&+L of the &+bBo&+Bttl&+bers~
+&+L   This is where the village got its&+W fresh&n &+Lsupply of&+b water&+L. A few of the
+&+Linhabitants were charged with collecting fresh water each day and processing it
+&+Lto get a lot of the &+Limpurities&+L out. The finished product would be bottled, and
+&+Lstored until further need. The machines that are used to process the water
+&+Lare rather unique and seem to function well. There isn't much to see here.
+&+LIt is very dark and the place is cramped. This is shelter from the nightsky
+&+Lbut it is inhabited by rodents mostly. They scurry along the floor. There are
+&+Lcobwebs in some of the corners of the room.
+~
+664 9 0
+D2
+~
+door~
+1 0 66512
+S
+#66515
+&+LWithin a Wind&+ymill~
+&+L   This is how the village got its supply of &+bwater&+L. The &+Lwind&+ymill&+L also is used
+&+Lto power the machines to process the water to get the impurities out. The
+&+Lwindmill is still functional and it must have kept all of the village up when
+&+Lit was in use, for it is very loud. The wood is beginning to rot however, and
+&+Lthe walls seem to &+Lsag&+L. Years of abandonment has turned this once well
+&+Loiled machine into nothing but water logged lumber. Apes and chimps come here
+&+La lot. There are traces of fur and waste. Snakes are curled up in nests in
+&+Lsomeplaces as well. This place is very damp and dangerous.
+~
+664 9 0
+D3
+~
+~
+0 0 66512
+S
+#66516
+&+LThe Vi&+yl&+gl&+ya&+Lge Center~
+&+L   This is where the village trail takes to a fork. Towards the north a few
+&+Llarge huts are visible through the vines and tree branches. Towards the east
+&+Land west nothing but forest life is visible. It seems that this center was
+&+Lvastly traveled, however, now with all of the moss and dead branches covering
+&+Lit, it's plausible that no one has set foot here in a while.
+~
+664 1 3
+D0
+~
+~
+0 0 66517
+D1
+~
+~
+0 0 66519
+D3
+~
+~
+0 0 66510
+S
+#66517
+&+LThe Northern &+yTr&+Lai&+yl~
+&+L   This trail leads into graveyard section of the village. Graves of all
+&+Lshapes and sizes have been constructed to house the greater majority of the
+&+Lpopulation that lived here. On either side of the trail they stand, dormant.
+&+LThe air is filled with moisture and the sun when shining has nearly no chance
+&+Lof striking down upon this village because the tree's are in full growth with
+&+Lmany leaves and branches to attest to it.
+~
+664 1 3
+D0
+~
+iron gate~
+1 0 66518
+D2
+~
+~
+0 0 66516
+S
+#66518
+&+LA Graveyard~
+&+L   The sun doesn't seem to find its way into this graveyard even during the
+&+Lday. Maybe this place has a curse placed upon it, for what else could explain
+&+Lthis paradox. There are no animals visible, nor the sounds accompanying them.
+&+LFor all intensive purposes this place if for the dead, literally. Dug graves
+&+Lwith head tombs are lined up in order, perpendicular to each other in every
+&+Lrespect. It's nearly impossible to read out the names that are enscribed into
+&+Lthem simply because the vegetation in this region has grown out of control.
+~
+664 1 3
+D0
+~
+~
+0 0 66524
+D2
+~
+iron gate~
+1 0 66517
+S
+#66519
+&+LSplit in the Eastern &+yTr&+Lai&+yl~
+&+L   The trail comes to a split. A large cabin of some sort is built to the
+&+Lnorth with a wooden gate surrounding it. The cabin was built using bamboo
+&+Land the lumber from the trees its centered around. The trail leads southward
+&+Lalso and it's possible to get a glimpse of another building of some sort, a
+&+Lrather large one. The sounds of the animal life of the forest reigns supreme,
+&+Lsimply because there hasn't been enough activity within this village to stir
+&+La restless kender from a good nap.
+~
+664 1 3
+D0
+~
+doors door~
+1 0 66520
+D2
+~
+~
+0 0 66521
+D3
+~
+~
+0 0 66516
+S
+#66520
+&+LWithin a Large &+YCa&+ybi&+Yn~
+&+L   This &+Yca&+ybi&+Yn&n &+Llooks have to housed a great number of people. There are a great
+&+Lmany bunks and beds in the far side of the room, where there are no windows.
+&+LThe windows in the front of the cabin are however, boarded shut.&+L Dust&n covers
+&+Lmuch of everything in the cabin, and stirring it only causes it to mingle with
+&+Lthe &+bmoi&+cst&+bure&n &+Lin the air.
+~
+664 9 0
+D2
+~
+doors door~
+1 0 66519
+S
+#66521
+&+LThe Eastern &+yTr&+Lai&+yl~
+&+L   The plant life takes hold of the forest. Vines dangle down from fully grown
+&+Ltrees with leaves as thick as rocks on their branches. Bark harder than the
+&+Laverage plate armor covers the basin of the trees. Chipmunks and squirrels
+&+Lrace along the branches edges. A whirl from the wind could create an odd
+&+Lsound through the forest if only wind ever blew within these parts. Sunlight
+&+Lcould rid this forest of the moisture that makes it difficult to breath, if
+&+Lonly sunlight could enter.
+~
+664 1 3
+D0
+~
+~
+0 0 66519
+D1
+~
+~
+0 0 66522
+S
+#66522
+&+LNearing a Large &+gWooden&+L Building~
+&+g   The building to the east seem &+Lto&+g have been some sort of storage facility.
+&+gSmall pods and large barrels cent&+Lere&+gd around a doubled door cellar door seems
+&+gto enforce this fact. The bui&+Llding was b&+guilt but lumber and it seems
+&+grather massive, even compar&+Led to the trees. I&+gt's constructors obviously meant
+&+gthis building to do some&+Lthing of some importance. &+gHowever, now, like most of
+&+geverything in this vi&+Lllage, it lays dormant.
+~
+664 1 3
+D1
+~
+door~
+1 0 66523
+D3
+~
+~
+0 0 66521
+S
+#66523
+&+LThe &nHu&+rnte&+Lrs Forum~
+&+L   This building was used for the village's hunters to store their &ntools&+L, their
+&+rwe&+Lapo&+rns&+L, and their kills. Pods full of packed, rotten meat lay on counters
+&+Lready to be stored. &+yCau&+Lcas&+yes &+Lstinch the place really badly. Stuffed animals
+&+Lare the only lively thing within this building, even they too, are dead. Dust
+&+Lcovers everything within this building and seems to have accrued for years.
+~
+664 9 0
+D3
+~
+door~
+1 0 66522
+S
+#66524
+&+LA Large Open Vi&+cewi&+Lng Sq&+bua&+Lre~
+&+L   This is the part of the village where viewings are held. A large circle of
+&+Lstones creates the area where the speakers will be heard by the masses. In the
+&+Lcenter of the circle is a larger finely chizzled &+ystone&+L  where the speaker
+&+Lwould stand to be heard. The flat surface of the stone makes it ideal. Most
+&+Lof the stones, however, are covered with &+gm&+Gos&+gs&+L and &+gv&+Gine&+gs&+L. There seems to have
+&+Lbeen very little activity here for some time, except for the occasional snake
+&+Lor &+ychip&+Ymunk&n &+Lvisiting. An odd &+Wabomination&n &+Lin the far side of this forum sticks
+&+Lout like a sore thumb. It looks to be a large stone of some sort with finely
+&+Lchizzeled edges with something resting upon it.
+~
+664 1 3
+D2
+~
+~
+0 0 66518
+S
+#66525
+A &+ySli&+gmy Pathway~
+&+L   The path slopes downhill to the west, and remains at an incline to the east.
+&+LThe brush is thick, the air is damp, and the moss and slime covered ground
+&+Lmakes travel difficult.  Roots from the large trees are visible, and they are
+&+Lmassive.  If sunlight were to ever reach this deep into the forest, it would
+&+Lcause many of the village's inhabitants to relocate, for most must have become
+&+Laccustomed to the damp and cold nature of this deserted place.
+~
+664 1 3
+D1
+~
+~
+0 0 66502
+D3
+~
+~
+0 0 66526
+S
+#66526
+A &+gSlimy Pathway~
+   The trees prevent any sunlight to shine here. Tall evergreens rise
+hundreds of feet into the air. They are hundreds of years old. There are
+vines that dangle from the branches. Squirrels run along the tree branches.
+The ground is covered in leaves and brush. The forest is thick with all sorts
+of plants and animals. Monkies swing from branches and snakes rustle in the
+brush. A thick underbrush just to the east makes travelling difficult at best,
+however, to the north it is considerably lighter. There's an eerie sensation
+here, as if something is not quite right. It seems as if something is waiting.
+~
+664 5 3
+D1
+~
+~
+0 0 66502
+D3
+~
+~
+0 0 66529
+S
+#66527
+Inside &+GHerbal &+yLure~
+&+L   During the course of this tiny village's history, they must have deemed it
+&+Lwise to build shops out of sheer necessity. Without some sort of enterprise
+&+Lwithin the community the village would wither and die. So, several shops were
+&+Lconstructed to stimulate the economy and to give people incentives for working.
+&+LThere's however, not anything to buy in this shop, for there is no merchandise
+&+Lon the counters or the display tables. The villagers must have taken their
+&+Litems of this store with them when they abandoned the village. There hasn't
+&+Lbeen anyone in this village for some time. Centuries seem to have passed sinced
+&+Lit has been abandoned. There are many vines and other forest plants running
+&+Linto the shop from broken windows and from the roof above.
+~
+664 9 0
+D3
+~
+~
+0 0 66530
+S
+#66528
+&+LA Small Sidepath~
+&+L   This path is very narrow and traveling. The forest is all but an
+&+Limpregnable fortress in some places. Moss, undergrowth, and various other
+&+Lplant life covers the ground. Tredding here is very hazardous. The sun
+&+Llooks to not have shone here quite some time. With so much moisture in
+&+Lthe air it makes breathing an effort. The trail forms turns to the west some
+&+Lof the ways to the north. The plants here are very thick and tear at
+&+Lclothing. The night sky brings a terrible cold that penetrates deep. Its best
+&+Lto find shelter and a warm fire when night comes. During the day the sun
+&+Lnever seems to shine here. Thick branches and healthy leaves complete block
+&+Lout the sun and it is very dark, even for the day.
+~
+664 1 3
+D0
+~
+~
+0 0 66505
+D1
+~
+~
+0 0 66530
+D2
+~
+~
+0 0 66502
+S
+#66529
+A &+LThick Forest~
+   The trees prevent any sunlight to shine here. Tall evergreens rise
+hundreds of feet into the air. They are hundreds of years old. There are
+vines that dangle from the branches. Squirrels run along the tree branches.
+The ground is covered in leaves and brush. The forest is thick with all sorts
+of plants and animals. Monkies swing from branches and snakes rustle in the
+brush. A thick underbrush just to the east makes travelling difficult at best,
+however, to the north it is considerably lighter. There's an eerie sensation
+here, as if something is not quite right. It seems as if something is waiting.
+~
+664 1 3
+D1
+~
+~
+0 0 66526
+D3
+~
+~
+0 0 66405
+S
+#66530
+&+LAn &+yOld&+L Pathway~
+&+L   At one time long ago this pathway may have been an easily accessed, however,
+&+L&+Lsince the underbrush and tree's alike have gone unchecked for quite some time
+&+Lthey've grown out of control. The vines that dangle from the trees above drip
+&+Lwater and the branches lowest to the ground are numerous and covered are moss.
+&+LThe Moss and water create a hazardous conditions. A sign sags to the ground,
+&+Loverburdened with the amount of weight upon it, the weight of a dozen vines.
+&+LA building to the north is a large structure. From the outside it is covered
+&+Ltotally with vines, the roof seems to sag also. A sign is bearly visible and it
+&+Lreads, &n'&+GHerbal &+yLure&n'&+y.
+~
+664 1 2
+D1
+~
+~
+0 0 66527
+D2
+~
+~
+0 0 66531
+D3
+~
+~
+0 0 66528
+S
+#66531
+&+LAn Old &+yTown&+yhall~
+&+L   This old building once served to inform the vllage residents of up
+&+Lcoming events and relevant news. But its vital roll was as a town hall, the
+&+Lmeeting chamber where all official decisions were hel, decisions that the
+&+Ltown elders would make. Overturned chairs and tables are totally covered with
+&+Lplants and the windows in this building are broken, remnants of any glass
+&+Lis not visible. There is no lobby in this building and its one room is in
+&+Lthe shape of an oval with the exit to the south. In the center of the room,
+&+La bulletin board still stands, with posts still visible, however so slightly.
+&+LMost of the post are still legible, however, they state the news of some years
+&+Learlier and only serve as  clue to this village's past. The roof of this
+&+Lbuilding doesn't appear all too stable. Years of moisture soaking into the
+&+Lwood has caused it to sloop a bit, for it is loosing it's elasticity.
+~
+664 9 0
+D0
+~
+~
+0 0 66530
+S
+#66532
+A &+rBloodstained &+LCorridor~
+&+L   Huge walls on either side of the path of travel give only two visible
+&+Lexits. To the east the corridor opens up to form a huge chamber of sorts with
+&+Lmany columns supporting it. There are many piles of bones and debris to the
+&+Least. There are some bloodstains here and there. They looked to have dried up
+&+Lsometime ago. There is a slight stinch to the air. Travel within the corridor
+&+Lis difficult because of all the debris that cover the corridor. It seems as
+&+La dark force is at work within these walls and it welcomes flesh blood.
+&+LSpider webs cover the area. Perhaps these wicked little critters have made
+&+Lthese corridors their refuge. These nasty little things can be venomous.
+~
+664 136 0
+D1
+~
+~
+0 0 66534
+D2
+~
+~
+0 0 66486
+S
+#66533
+&+gThe &+gGra&+Gssla&+gnds~
+&+g   The grass rises nearl&+Gy three feet high  It is obvious tha&+gt there has
+&+gbeen a lot of activity in this&+G grassland, for in many spots t&+ghe grass has been
+&+gtrampled upon or run across, whic&+Gh bends the grass in an &+godd way, reflecting
+&+glight differently, therefore it stic&+Gks out. The gras&+gsland has a slight slope
+&+gto it, forming hills in many differe&+Gnt locatio&+gns.  From this vantage point,
+&+gone can &+Lv&+Wie&+Lw&+g much of the land to the nor&+Gth as&+g it stands. The forces of good
+&+gand forces of evil have been battling it out for sometime now. There have been
+&+gcountless battles for months now. It seems as if its come to a stand still now
+&+gafter both sides have one and lost and equal number of fights. The grasslands
+&+ghere are about the only landscape not touched by the many battles.
+~
+664 0 2
+D0
+~
+~
+0 0 66537
+D2
+~
+~
+0 0 66461
+E
+view~
+&+LIt looks as the plains to the north have been used as a battlefield. Smoke
+&+Lrises here and there, while fire rages in other places. All around, bodies
+&+Llitter the place.
+~
+S
+#66534
+&+LA Huge &+rCham&+Lber~
+&+L   Huge pillars made of granite rise well over forty feet meeting the ceiling
+&+Land giving support. These pillars number well over twenty, while the room
+&+Litself looks to have an awesome amount of space, enough to fit large amount
+&+Lof people. The ceiling is arched, probably because an architect decided it
+&+Lwould hold a vastly larger amount of weight. There isn't any unordinary about
+&+Lthis chamber except for the intricately carved figures in the walls. These
+&+Lfigures depict an ancient culture. There are figures of hunters, magi, kings,
+&+Lqueens, animals, and everything else that can be thought of. Perhaps this is
+&+Lsome sort of recording chamber, a record of a passed civilization. Perhaps the
+&+Lonly means of recording their history is by drawings. There is a darkness that
+&+Lsweeps this chamber.
+~
+664 8 0
+D3
+~
+~
+0 0 66532
+S
+#66535
+&+MA Majestic Corridor~
+&+m   Many types of crystals are encrusted in the walls, not to mention the
+&+mmultitude of diamonds also. Reflections from light send an array of colors
+&+mflying about the area, all the colors of the spectrum can be seen. The
+&+massortment of jewels among the walls are robbing proof. Magic of some sort
+&+mprotects them. The runes are visible about the place and most of them are runes
+&+mof warding, however, runes of preservation can be seen on the ceiling, walls,
+&+mand the floor. These precious jewels cover both walls entirely, but not the
+&+mceiling nor the floor. The walls rise well above ten feet, while the corridor
+&+mhas a width of about nine feet, traveling here is majestically easy.
+~
+664 8 0
+D0
+~
+~
+0 0 66536
+S
+#66536
+&+MA Majestic Corridor~
+&+m   Glowing prisms light the path of corridor. Crystals embedded into the
+&+mwalls are the source. These crystals are mixed with various other types of
+&+mjewels and valuables, diamonds among them. These precious objects totally
+&+mcover either wall of the path of travel. The ceiling nor floor possess
+&+mthem, however, these jewels are protected from would be robbers by runes of
+&+mwarding, while the entire corridor itself is covered in runes of preservation.
+&+mA faint humming sound is faintly audible, and is coming from the north.
+~
+664 142606408 0
+D0
+~
+~
+0 0 66538
+D2
+~
+~
+0 0 66535
+S
+#66537
+The &+gBat&+Gtlefi&+geld &nof &+LDeath &nand &+rCa&+Rrna&+rge~
+&+L   An odd stinch fills the ai&+Wr. Vultures circl&+Le above this arena of death,
+&+Lwatching, waiting for thei&+Wr time to devour what is&+L left of the contestants.
+&+LThis place at one time&+W must have been a long and en&+Lsuing grassland, however,
+&+Lit no longer resembles a&+Wnything &+rin th&+Wat&n &+rm&+rann&+We&+Wr.&+W It now &+Lresembles something out
+&+Lof hell that has latch&+Wed itself &+ronto&+W ou&+rr pla&+Win of exis&+Ltence. Corpses are
+&+Lrotting away and some ar&+We burning sti&+rll&+W fr&+rom&+W whatever conc&+Loction ignited them in
+&+Lthe first place. Mo&+Wst have been burned and are comp&+Lletely unidentifiable.
+&+LOthers, the more sev&+Were, are very mangled and pulverized&+L, revealing the crushed
+&+Lbone underneath. Mo&+Wst corpses have spears within them, i&+Lmpaling them into the
+&+Lground. Banners and&+W flags from both contestants litter t&+Lhe battlefield.
+&+LUseless scrape plate&+Ws of mail had been tossed from their&+L owners in pitiful
+&+Lattempts to get the&+W acid that ate away at it off their bo&+Ldies as quickly as
+&+Lpossible. The grass&+W is not only littered with blood, bu&+Lt in most places fire
+&+Lrages unchecked and&+W the cause must have been magical. L&+Large longbows tossed to
+&+Lthe ground, impaled a&+Wrrows in&+L sh&+rie&+Lld&+rs,&n &+ran&+Ld bu&+Wrning ball&+Listas and broken wagons
+&+Lcover the this plane. &+W It seems &+Lth&+rat&+L t&+rh&+Li&+rs&+L b&+rlo&+Lod&+Wy cont&+Lest must have been nothing
+&+Lmore than a melee on bot&+Wh sides, an &+Wattempt t&+Wo get so&+Lme idea as to what each
+&+Lside is up against. The id&+Wea that soldiers are used &+Lis fodder is quietly kept
+&+Lunder the carpet because if&+W it was unleashed, it's &+Lpossible that both sides
+&+Lmight have quite a lot of pr&+Woblems conti&+Wnuin&+L&+Wg th&+Lis war, for most of the troops
+&+Lwould be busy suppressing the&+W mutiny&+L that&+W would&+L ensue.
+~
+664 4 2
+D0
+~
+~
+0 0 66539
+D2
+~
+~
+0 0 66533
+D8
+~
+~
+0 0 66416
+S
+#66538
+&+MA Majestic Corridor~
+&+m   The walls on either side of the path rise well over tent feet and have
+&+mmany jewels embedded into them. White crystals reflect all of the colors of
+&+mthe spectrum about the area, which could create nausea and fatigue. Huge
+&+mdiamonds are embedded along the walls and shine with the strength of ten
+&+mstars. Runes of warding to protect them from would be looters. Runes of
+&+manother sort are here too. Runes of preservation protect the corridor from
+&+mever crumbling. This corridor has magic flooding through it. Its very nature
+&+mhints at somesort of grand design by a higher power. There is a soft hum.
+~
+664 142606408 0
+D1
+~
+~
+0 0 66554
+D2
+~
+~
+0 0 66536
+D3
+~
+~
+0 0 66561
+S
+#66539
+Along the &+YS&+bho&+Yre&n~
+&+Y   The shore has many t&+bypes of plant life among it&+Y. Weeds outline the water's
+&+Yedge and snakesholes are a&+bbundant. The tower t&+Yhat lays on the otherside of the
+&+Ymoat to the north is protect&+bed by a portcu&+Yllis. The water is calm, except the
+&+Yoccasionally ripple which is&+b caused &+Yby a falling leaf or the wandering water
+&+Ymoccasin. A strange aura surrounds&+b t&+Yhe tower and when contrasting it against
+&+Ythe horizon it seems out of place. It is said that the evil forces have tried
+&+Yentering the tower to the north and haven't succeeded in discovering its
+&+Ysecrets. It is said that even a few of their most powerful magi have entered
+&+Yand not come out. This magical tower must have wards of some type and many
+&+Ymysterious riddles to be solved inside.
+~
+664 0 2
+D0
+~
+~
+0 0 66540
+D2
+~
+~
+0 0 66537
+S
+#66540
+On a Small &+bMoat~
+&+b   This moat is only eight feet deep, yet it prevents heavy machinery from
+&+bentering the tower's defense. It's strong walls have been magically enhanced
+&+bto prevent even the slightest arrow from flying ten feet near it. The only
+&+bmeans of entering the castle would be through the front gate, through a ground
+&+bassault. The magi who created this tower had other means of entering it,
+&+bhowever. Rumor has it that they had at one time had a special word only known
+&+bto them, that once spoken, magically unlocked the door for anyone to enter.
+&+bThe minotaur sorcerers and drow magi have tried to reveal the secrets locked
+&+baway in this tower with no avail.
+~
+664 0 1
+D0
+~
+~
+0 0 66541
+D2
+~
+~
+0 0 66539
+S
+#66541
+&+LThe Tower Entrance~
+&+r   This is where the portcullis lifts and allows entry way into the keep.
+&+rwhat is on the otherside is left to the imagination. The portcullis has many
+&+rrunes embedded upon it. The magic inscribed upon it was written in a language
+&+ronly native to magic users. One could drown him or herself with words trying
+&+rto decipher just what they mean. To the south, the huge drawbridge allows an
+&+ra narrow passage to and from this place. There is no roof, only two walls
+&+ron either side and the portcullis to the north.
+~
+664 8 0
+D0
+~
+~
+0 0 66542
+D2
+~
+~
+0 0 66540
+S
+#66542
+&+CS&+Lwir&+Cl &+Wo&nf &nC&+Ro&+bl&+bo&+rr&ns~
+&+M   The haze that is &+Wthis t&nower&+W is no&+Wt only dazz&+Mling, but daunting. &+MThere is no
+&+Wapparent way to exi&+Mt the mis&+mt, on&+Me would w&+Wander for hours to &+Wno avail. Moving
+&+Mto and fro, without or&+Wder of moti&non, th&+We mist re&+Mpresents the chaotic world.
+&+WThe mages who built t&+Mhis keep c&+mould e&+Masily nav&+Wigate through its deceptions.
+&+MIt's existence is sole&+Wly do to ke&nep all o&+Wf those &+Mwho are not their brethren, at
+&+Wbay for the magi to de&+Mal with t&+mhem at&+M their &+Wleisure.  To successfully walk
+&+Mthis haze would unwrav&+Wel their m&nany mys&+Wteries. This haze has taken many
+&+Madventurers that have been caught unaware. There seems to be no end to this
+&+Whaze and one would die of thirst before reaching its end. This is a potent
+&+Mmagic summoned by some sort of sorcerer to keep out the unwelcome.
+~
+664 8 0
+D0
+~
+~
+0 0 66544
+D1
+~
+~
+0 0 66545
+D3
+~
+~
+0 0 66546
+S
+#66543
+&+CS&+Lwir&+Cl &+Wo&nf &nC&+Ro&+bl&+bo&+rr&ns~
+&+M   The haze that is &+Wthis t&nower&+W is no&+Wt only dazz&+Mling, but daunting. &+MThere is no
+&+Wapparent way to exi&+Mt the mis&+mt, on&+Me would w&+Wander for hours to &+Wno avail. Moving
+&+Mto and fro, without or&+Wder of moti&non, th&+We mist re&+Mpresents the chaotic world.
+&+WThe mages who built t&+Mhis keep c&+mould e&+Masily nav&+Wigate through its deceptions.
+&+MIt's existence is sole&+Wly do to ke&nep all o&+Wf those &+Mwho are not their brethren, at
+&+Wbay for the magi to de&+Mal with t&+mhem at&+M their &+Wleisure.  To successfully walk
+&+Mthis haze would unwrav&+Wel their m&nany mys&+Wteries. This haze has taken many
+&+Madventurers that have been caught unaware. There seems to be no end to this
+&+Whaze and one would die of thirst before reaching its end. This is a potent
+&+Mmagic summoned by some sort of sorcerer to keep out the unwelcome.
+~
+664 8 0
+D0
+~
+~
+0 0 66548
+D3
+~
+~
+0 0 66547
+S
+#66544
+&+CS&+Lwir&+Cl &+Wo&nf &nC&+Ro&+bl&+bo&+rr&ns~
+&+M   The haze that is &+Wthis t&nower&+W is no&+Wt only dazz&+Mling, but daunting. &+MThere is no
+&+Wapparent way to exi&+Mt the mis&+mt, on&+Me would w&+Wander for hours to &+Wno avail. Moving
+&+Mto and fro, without or&+Wder of moti&non, th&+We mist re&+Mpresents the chaotic world.
+&+WThe mages who built t&+Mhis keep c&+mould e&+Masily nav&+Wigate through its deceptions.
+&+MIt's existence is sole&+Wly do to ke&nep all o&+Wf those &+Mwho are not their brethren, at
+&+Wbay for the magi to de&+Mal with t&+mhem at&+M their &+Wleisure.  To successfully walk
+&+Mthis haze would unwrav&+Wel their m&nany mys&+Wteries. This haze has taken many
+&+Madventurers that have been caught unaware. There seems to be no end to this
+&+Whaze and one would die of thirst before reaching its end. This is a potent
+&+Mmagic summoned by some sort of sorcerer to keep out the unwelcome.
+~
+664 8 0
+D1
+~
+~
+0 0 66542
+D3
+~
+~
+0 0 66551
+S
+#66545
+&+CS&+Lwir&+Cl &+Wo&nf &nC&+Ro&+bl&+bo&+rr&ns~
+&+M   The haze that is &+Wthis t&nower&+W is no&+Wt only dazz&+Mling, but daunting. &+MThere is no
+&+Wapparent way to exi&+Mt the mis&+mt, on&+Me would w&+Wander for hours to &+Wno avail. Moving
+&+Mto and fro, without or&+Wder of moti&non, th&+We mist re&+Mpresents the chaotic world.
+&+WThe mages who built t&+Mhis keep c&+mould e&+Masily nav&+Wigate through its deceptions.
+&+MIt's existence is sole&+Wly do to ke&nep all o&+Wf those &+Mwho are not their brethren, at
+&+Wbay for the magi to de&+Mal with t&+mhem at&+M their &+Wleisure.  To successfully walk
+&+Mthis haze would unwrav&+Wel their m&nany mys&+Wteries. This haze has taken many
+&+Madventurers that have been caught unaware. There seems to be no end to this
+&+Whaze and one would die of thirst before reaching its end. This is a potent
+&+Mmagic summoned by some sort of sorcerer to keep out the unwelcome.
+~
+664 8 0
+D0
+~
+~
+0 0 66552
+D2
+~
+~
+0 0 66542
+S
+#66546
+&+CS&+Lwir&+Cl &+Wo&nf &nC&+Ro&+bl&+bo&+rr&ns~
+&+M   The haze that is &+Wthis t&nower&+W is no&+Wt only dazz&+Mling, but daunting. &+MThere is no
+&+Wapparent way to exi&+Mt the mis&+mt, on&+Me would w&+Wander for hours to &+Wno avail. Moving
+&+Mto and fro, without or&+Wder of moti&non, th&+We mist re&+Mpresents the chaotic world.
+&+WThe mages who built t&+Mhis keep c&+mould e&+Masily nav&+Wigate through its deceptions.
+&+MIt's existence is sole&+Wly do to ke&nep all o&+Wf those &+Mwho are not their brethren, at
+&+Wbay for the magi to de&+Mal with t&+mhem at&+M their &+Wleisure.  To successfully walk
+&+Mthis haze would unwrav&+Wel their m&nany mys&+Wteries. This haze has taken many
+&+Madventurers that have been caught unaware. There seems to be no end to this
+&+Whaze and one would die of thirst before reaching its end. This is a potent
+&+Mmagic summoned by some sort of sorcerer to keep out the unwelcome.
+~
+664 8 0
+D0
+~
+~
+0 0 66542
+D2
+~
+~
+0 0 66553
+S
+#66547
+&+CS&+Lwir&+Cl &+Wo&nf &nC&+Ro&+bl&+bo&+rr&ns~
+&+M   The haze that is &+Wthis t&nower&+W is no&+Wt only dazz&+Mling, but daunting. &+MThere is no
+&+Wapparent way to exi&+Mt the mis&+mt, on&+Me would w&+Wander for hours to &+Wno avail. Moving
+&+Mto and fro, without or&+Wder of moti&non, th&+We mist re&+Mpresents the chaotic world.
+&+WThe mages who built t&+Mhis keep c&+mould e&+Masily nav&+Wigate through its deceptions.
+&+MIt's existence is sole&+Wly do to ke&nep all o&+Wf those &+Mwho are not their brethren, at
+&+Wbay for the magi to de&+Mal with t&+mhem at&+M their &+Wleisure.  To successfully walk
+&+Mthis haze would unwrav&+Wel their m&nany mys&+Wteries. This haze has taken many
+&+Madventurers that have been caught unaware. There seems to be no end to this
+&+Whaze and one would die of thirst before reaching its end. This is a potent
+&+Mmagic summoned by some sort of sorcerer to keep out the unwelcome.
+~
+664 8 0
+D0
+~
+~
+0 0 66543
+D2
+~
+~
+0 0 66549
+S
+#66548
+&+CS&+Lwir&+Cl &+Wo&nf &nC&+Ro&+bl&+bo&+rr&ns~
+&+M   The haze that is &+Wthis t&nower&+W is no&+Wt only dazz&+Mling, but daunting. &+MThere is no
+&+Wapparent way to exi&+Mt the mis&+mt, on&+Me would w&+Wander for hours to &+Wno avail. Moving
+&+Mto and fro, without or&+Wder of moti&non, th&+We mist re&+Mpresents the chaotic world.
+&+WThe mages who built t&+Mhis keep c&+mould e&+Masily nav&+Wigate through its deceptions.
+&+MIt's existence is sole&+Wly do to ke&nep all o&+Wf those &+Mwho are not their brethren, at
+&+Wbay for the magi to de&+Mal with t&+mhem at&+M their &+Wleisure.  To successfully walk
+&+Mthis haze would unwrav&+Wel their m&nany mys&+Wteries. This haze has taken many
+&+Madventurers that have been caught unaware. There seems to be no end to this
+&+Whaze and one would die of thirst before reaching its end. This is a potent
+&+Mmagic summoned by some sort of sorcerer to keep out the unwelcome.
+~
+664 8 0
+D1
+~
+~
+0 0 66543
+D3
+~
+~
+0 0 66550
+S
+#66549
+&+CS&+Lwir&+Cl &+Wo&nf &nC&+Ro&+bl&+bo&+rr&ns~
+&+M   The haze that is &+Wthis t&nower&+W is no&+Wt only dazz&+Mling, but daunting. &+MThere is no
+&+Wapparent way to exi&+Mt the mis&+mt, on&+Me would w&+Wander for hours to &+Wno avail. Moving
+&+Mto and fro, without or&+Wder of moti&non, th&+We mist re&+Mpresents the chaotic world.
+&+WThe mages who built t&+Mhis keep c&+mould e&+Masily nav&+Wigate through its deceptions.
+&+MIt's existence is sole&+Wly do to ke&nep all o&+Wf those &+Mwho are not their brethren, at
+&+Wbay for the magi to de&+Mal with t&+mhem at&+M their &+Wleisure.  To successfully walk
+&+Mthis haze would unwrav&+Wel their m&nany mys&+Wteries. This haze has taken many
+&+Madventurers that have been caught unaware. There seems to be no end to this
+&+Whaze and one would die of thirst before reaching its end. This is a potent
+&+Mmagic summoned by some sort of sorcerer to keep out the unwelcome.
+~
+664 8 0
+D0
+~
+~
+0 0 66547
+D1
+~
+~
+0 0 66556
+D3
+~
+~
+0 0 66542
+S
+#66550
+&+CS&+Lwir&+Cl &+Wo&nf &nC&+Ro&+bl&+bo&+rr&ns~
+&+M   The haze that is &+Wthis t&nower&+W is no&+Wt only dazz&+Mling, but daunting.  &+MThere is no
+&+Wapparent way to exi&+Mt the mis&+mt, on&+Me would w&+Wander for hours to &+Wno avail.  Moving
+&+Mto and fro, without or&+Wder of moti&non, th&+We mist re&+Mpresents the chaotic world.
+&+WThe mages who built t&+Mhis keep c&+mould e&+Masily nav&+Wigate through its deceptions.
+&+MIt's existence is sole&+Wly to ke&nep all o&+Wf those &+Mwho are not their brethren at
+&+Wbay for the magi to de&+Mal with t&+mhem at&+M their &+Wleisure.  To successfully navigate
+&+Mthis haze would unwrav&+Wel their m&nany mys&+Wteries.
+~
+664 8 0
+D1
+~
+~
+0 0 66548
+S
+#66551
+&+CS&+Lwir&+Cl &+Wo&nf &nC&+Ro&+bl&+bo&+rr&ns~
+&+M   The haze that is &+Wthis t&nower&+W is no&+Wt only dazz&+Mling, but daunting. &+MThere is no
+&+Wapparent way to exi&+Mt the mis&+mt, on&+Me would w&+Wander for hours to &+Wno avail. Moving
+&+Mto and fro, without or&+Wder of moti&non, th&+We mist re&+Mpresents the chaotic world.
+&+WThe mages who built t&+Mhis keep c&+mould e&+Masily nav&+Wigate through its deceptions.
+&+MIt's existence is sole&+Wly do to ke&nep all o&+Wf those &+Mwho are not their brethren, at
+&+Wbay for the magi to de&+Mal with t&+mhem at&+M their &+Wleisure.  To successfully walk
+&+Mthis haze would unwrav&+Wel their m&nany mys&+Wteries. This haze has taken many
+&+Madventurers that have been caught unaware. There seems to be no end to this
+&+Whaze and one would die of thirst before reaching its end. This is a potent
+&+Mmagic summoned by some sort of sorcerer to keep out the unwelcome.
+~
+664 8 0
+D1
+~
+~
+0 0 66544
+S
+#66552
+&+CS&+Lwir&+Cl &+Wo&nf &nC&+Ro&+bl&+bo&+rr&ns~
+&+M   The haze that is &+Wthis t&nower&+W is no&+Wt only dazz&+Mling, but daunting. &+MThere is no
+&+Wapparent way to exi&+Mt the mis&+mt, on&+Me would w&+Wander for hours to &+Wno avail. Moving
+&+Mto and fro, without or&+Wder of moti&non, th&+We mist re&+Mpresents the chaotic world.
+&+WThe mages who built t&+Mhis keep c&+mould e&+Masily nav&+Wigate through its deceptions.
+&+MIt's existence is sole&+Wly do to ke&nep all o&+Wf those &+Mwho are not their brethren, at
+&+Wbay for the magi to de&+Mal with t&+mhem at&+M their &+Wleisure.  To successfully walk
+&+Mthis haze would unwrav&+Wel their m&nany mys&+Wteries. This haze has taken many
+&+Madventurers that have been caught unaware. There seems to be no end to this
+&+Whaze and one would die of thirst before reaching its end. This is a potent
+&+Mmagic summoned by some sort of sorcerer to keep out the unwelcome.
+~
+664 8 0
+D2
+~
+~
+0 0 66545
+S
+#66553
+&+CS&+Lwir&+Cl &+Wo&nf &nC&+Ro&+bl&+bo&+rr&ns~
+&+M   The haze that is &+Wthis t&nower&+W is no&+Wt only dazz&+Mling, but daunting. &+MThere is no
+&+Wapparent way to exi&+Mt the mis&+mt, on&+Me would w&+Wander for hours to &+Wno avail. Moving
+&+Mto and fro, without or&+Wder of moti&non, th&+We mist re&+Mpresents the chaotic world.
+&+WThe mages who built t&+Mhis keep c&+mould e&+Masily nav&+Wigate through its deceptions.
+&+MIt's existence is sole&+Wly do to ke&nep all o&+Wf those &+Mwho are not their brethren, at
+&+Wbay for the magi to de&+Mal with t&+mhem at&+M their &+Wleisure.  To successfully walk
+&+Mthis haze would unwrav&+Wel their m&nany mys&+Wteries. This haze has taken many
+&+Madventurers that have been caught unaware. There seems to be no end to this
+&+Whaze and one would die of thirst before reaching its end. This is a potent
+&+Mmagic summoned by some sort of sorcerer to keep out the unwelcome.
+~
+664 8 0
+D0
+~
+~
+0 0 66546
+D1
+~
+~
+0 0 66542
+D3
+~
+~
+0 0 66553
+D4
+~
+~
+0 0 66543
+S
+#66554
+&+MA Majestic Corridor~
+&+m   The walls on either side of the path rise well over tent feet and have
+&+mmany jewels embedded into them. White crystals reflect all of the colors of
+&+mthe spectrum about the area, which could create nausea and fatigue. Huge
+&+mdiamonds are embedded along the walls and shine with the strength of ten
+&+mstars. Runes of warding to protect them from would be looters. Runes of
+&+manother sort are here too. Runes of preservation protect the corridor from
+&+mever crumbling. This corridor has magic flooding through it. Its very nature
+&+mhints at somesort of grand design by a higher power. There is a soft hum.
+~
+664 142606408 0
+D1
+~
+~
+0 0 66555
+D3
+~
+~
+0 0 66538
+S
+#66555
+&+MA Majestic Corridor~
+&+m   The walls on either side of the path rise well over tent feet and have
+&+mmany jewels embedded into them. White crystals reflect all of the colors of
+&+mthe spectrum about the area, which could create nausea and fatigue. Huge
+&+mdiamonds are embedded along the walls and shine with the strength of ten
+&+mstars. Runes of warding to protect them from would be looters. Runes of
+&+manother sort are here too. Runes of preservation protect the corridor from
+&+mever crumbling. This corridor has magic flooding through it. Its very nature
+&+mhints at somesort of grand design by a higher power. There is a soft hum.
+~
+664 142606408 0
+D1
+~
+~
+0 0 66560
+D3
+~
+~
+0 0 66554
+S
+#66556
+A &+CS&+Lwir&+Cl&n of C&+Ro&+bl&+Bo&+Rr&+rs~
+&+M   The haze that is &+Wthis t&nower&+W is no&+Wt only dazz&+Mling, but daunting. &+MThere is no
+&+Wapparent way to exi&+Mt the mis&+mt, on&+Me would w&+Wander for hours to &+Wno avail. Moving
+&+Mto and fro, without or&+Wder of moti&non, th&+We mist re&+Mpresents the chaotic world.
+&+WThe mages who built t&+Mhis keep c&+mould e&+Masily nav&+Wigate through its deceptions.
+&+MIt's existence is sole&+Wly do to ke&nep all o&+Wf those &+Mwho are not their brethren, at
+&+Wbay for the magi to de&+Mal with t&+mhem at&+M their &+Wleisure.  To successfully walk
+&+Mthis haze would unwrav&+Wel their m&nany mys&+Wteries. This haze has taken many
+&+Madventurers that have been caught unaware. There seems to be no end to this
+&+Whaze and one would die of thirst before reaching its end. This is a potent
+&+Mmagic summoned by some sort of sorcerer to keep out the unwelcome.
+~
+664 8 0
+D3
+~
+~
+0 0 66549
+S
+#66557
+A &+WStudy~
+   There are no chairs and no tables in this library. There are, however,
+books. Rows and rows of books lined up into columns in the northern corner
+of the chamber. The books seem to never end, an infinite number of books to
+select to read is a greater treasure than a pile of&+Y gold&n that could
+stretch across the world ten feet high ten times over. Choosing a book is
+not as difficult as it might seem, however, for all one has todo is summon
+the name of the book into mind, and it appears as if beckoned. Studying is
+a arduous task, that is why it takes a silent place to do it in. Noise is
+not permitted within these chambers for just that reason. Studying is even
+harder without chairs and tables to do it with, however, the magi are magi
+after all. One doesn't need a chair when he can hover, and one doesn't need
+a table, when the books float on a cushion of&+c air&n. The wealth of the
+magi is unparalleled, any student of the art would give anything just to have
+the chance to study here.
+~
+664 8 0
+D0
+~
+~
+0 0 66558
+D1
+~
+~
+0 0 66559
+D2
+~
+~
+0 0 66448
+D3
+~
+~
+0 0 66447
+S
+#66558
+A &+WChamber~
+   It is here that the master of this tower slept. It is unclear whether
+this master studied the dark arts or just dabbled into everything he could.
+It is said that renegade magis don't consider themselves evil even though
+they wield the dark art as well as any evil mage. These renegade mages are
+said to experiment in potion making as well and live relatively quiet lives.
+A small bed remains dormant in the west side of the room. No one has
+slept there in a long while. The room seems alive and there is no trace
+of the dust within these chambers that usually accompanies abandonment.
+A small candle burns on a desk in the far corner of the room, alongside
+a large compartment where spell components are kept. The large rug
+in the center of the room has an a marvelous design upon it. The design of a
+magi with an odd looking design upon it. The design looks life like, and
+appears that at any given moment.
+~
+664 8 0
+D2
+~
+~
+0 0 66557
+S
+#66559
+A &+WLaboratory~
+   This is the concoction chamber. Anything and everything can be created
+within these walls. Racks and racks of potions are lined up according to
+what they do. Only those who conjured these potions know just what they do
+and what they can do is a mystery. There are many tables and counters within
+this lab and they are spotless. It seems as if time hasn't effected this
+place even though it has been existence for many decades. Perhaps some of
+these potions can give eternal youth. Some of these potions swirl and some
+even glow. There are big ones little ones. It is a mystery.
+~
+664 8 0
+D3
+~
+~
+0 0 66557
+S
+#66560
+&+MA Majestic Corridor~
+&+m   The walls on either side of the path rise well over tent feet and have
+&+mmany jewels embedded into them. White crystals reflect all of the colors of
+&+mthe spectrum about the area, which could create nausea and fatigue. Huge
+&+mdiamonds are embedded along the walls and shine with the strength of ten
+&+mstars. Runes of warding to protect them from would be looters. Runes of
+&+manother sort are here too. Runes of preservation protect the corridor from
+&+mever crumbling. This corridor has magic flooding through it. Its very nature
+&+mhints at somesort of grand design by a higher power. There is a soft hum.
+~
+664 142606408 0
+D1
+~
+~
+0 0 66562
+D3
+~
+~
+0 0 66555
+S
+#66561
+&+MA Majestic Corridor~
+&+m   The walls on either side of the path rise well over tent feet and have
+&+mmany jewels embedded into them. White crystals reflect all of the colors of
+&+mthe spectrum about the area, which could create nausea and fatigue. Huge
+&+mdiamonds are embedded along the walls and shine with the strength of ten
+&+mstars. Runes of warding to protect them from would be looters. Runes of
+&+manother sort are here too. Runes of preservation protect the corridor from
+&+mever crumbling. This corridor has magic flooding through it. Its very nature
+&+mhints at somesort of grand design by a higher power. There is a soft hum.
+~
+664 1216348232 0
+D1
+~
+~
+0 0 66538
+S
+#66562
+The &+WAltar &nof &+CLife&n and &+LDeath~
+&+W   Two cylinder columns outline the area, with a large altar in the center.
+&+WThis altar is made of granite and has a width of about five feet and a total
+&+Wlength of seven feet. It rises into the air with a height of four feet. Power
+&+Wiminates from its base and radiates all around the area. Giving life would
+&+Wbe an easy task for this altar, taking it away would would be even easier.
+&+WThe room itself is about twenty feet high and fifteen feet by fifteen feet.
+&+WRunes of preservation cover the walls, ceiling, floor, and even the altar.
+&+WLegend has it that an altar such as this could give birth to a new world or
+&+Wtake one away. It glows softly.
+~
+664 8 0
+D3
+~
+~
+0 0 66560
+S
+>>>>>>> master

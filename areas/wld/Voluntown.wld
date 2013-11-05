@@ -1,0 +1,2634 @@
+#142400
+&+yA &+WSn&+wow&+Wy &+yMountain Trail~
+&+yThis trail is carved out through the foothills and is covered in a
+&+ylight dusting of &+Wsnow &+yand &+Wf&+Cro&+Wst&+y. A rickety &+Ysi&+yg&+Yn &+yis sticking out of
+&+ythe ground which says in bold letters, "&+rVoluntown&+y". The trail continues
+&+yto the east and a small shack can seen on a hill farther down.
+~
+1 33554432 4 0
+D2
+~
+~
+0 0 97132
+D3
+~
+~
+3 97018 142401
+S
+#142401
+&+yA Mountain Trail~
+&+yThe mountain trail continues, it seems to be getting steadily &+Ldarker &+yas you
+&+ycontinue down the trail.
+~
+1 32769 4 0
+D1
+~
+~
+3 97018 142400
+D3
+~
+~
+0 97018 142402
+S
+#142402
+&+yBefore a Run Down &+YS&+yhack~
+&+yThe mountain trail continues west, a small run down &+Yshack&+y lies to the
+&+ynorth with a sign that says, "&+GCaretaker&+y".
+~
+1 142639105 4 0
+D0
+The door to the shack.
+~
+door~
+1 0 142403
+D1
+~
+~
+0 0 142401
+D3
+~
+~
+0 0 142404
+S
+#142403
+&+yThe &+GC&+garetaker's &+YS&+yhack&n~
+The shack is cozy and warm despite it's outside decrepid outward appearance.
+There is a small &+Rf&+Yi&+rr&+Ye&n burning in the hearth and multiple &+ybooks&n on the shelves
+as well as a few &+Wscrolls&n. A small elderly man sits here in a chair looking
+quite sad and worried.
+~
+1 214073480 0 0
+D2
+A door to a small shack.
+~
+door~
+1 0 142402
+S
+#142404
+&+yThe Descent~
+&+yThe path continues along through the mountain trail and abruptly
+&+ydrops off here. The only direction you can go is back the way
+&+yyou came or down.
+~
+1 176193536 4 0
+D1
+~
+~
+0 0 142402
+D5
+~
+~
+0 0 142405
+S
+#142405
+&+yA Fork in the Trail~
+&+yThe path splits here to the south and to the west. It seems
+&+ythat there is a &+Wshrine &+yon a cliff to the south. To the
+&+ywest the path leads on to &+rVoluntown&+y, which is famous for
+&+ybeing the burial site for &+CIcecrag&+y's family dynasties.
+~
+1 142639105 4 0
+D2
+~
+~
+0 0 142448
+D3
+~
+~
+0 0 142406
+D4
+~
+~
+0 0 142404
+S
+#142406
+&+LThe &+yTrail &+LDarkens&n~
+&+yThe rocky trail continues to descent into the valley where the necropolis
+&+ylies. The sky above &+Lblackens&+y unnaturally as the descent continues. The
+&+wgloomy&+b necropolis &+Lcr&+wyp&+Lts&+y can be seen in the distance over the wall
+&+yto the north.
+~
+1 142639105 4 0
+D1
+~
+~
+0 0 142405
+D5
+~
+~
+0 0 142407
+S
+#142407
+&+LA Dark Trail&n~
+&+wA hazy mist floats about and obscures visibility. A dark forboding wall can
+&+wjust barely be seen to the north as well as a large &+rrusted gate&+w. In the
+&+wdistance sounds of &+Lmoaning&+w can be heard which is likely the unhappy residents
+&+wof the massive cemetary. The sky is cloudy and &+Ldark&+w.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142408
+D4
+~
+~
+0 0 142406
+S
+#142408
+&+LA Massive &+rRusted &+LGate&n~
+&+wA massive rusted gate blocks entry to the &+bnecropolis&n to the north. The trail
+&+wback in the other direction is getting more and more tempting by the moment as
+&+wthe sounds of the &+Lrestless&+w dead can be heard beyond the gates.
+~
+1 142639105 4 0
+D0
+&+rA rusty iron gate blocks passage to the north.
+~
+rusty iron gate~
+1 0 142409
+D2
+~
+~
+0 0 142407
+S
+#142409
+&+LBefore the Crypt of the &+bC&+Brav &+LFamily&n~
+&+wA massive crypt from the &+bCrav &+wdynasty looms here to the north. The front
+&+wis carved by artwork depicting humans in various stances of martial arts. This
+&+wfamily was thought to be the premiere group who brought hand to hand combat to
+&+CIcecrag&+w from the isle of &+GJa&+gd&+Ge &+wthousands of years ago.
+~
+1 142639105 1 0
+D0
+~
+crypt door~
+1 0 142470
+D1
+~
+~
+0 0 142418
+D2
+&+rA rusty iron gate blocks passage to the south.
+~
+rusty iron gate~
+1 0 142408
+D3
+~
+~
+0 0 142410
+S
+#142410
+&+wA Path between the &+LCr&+wyp&+Lts &+wAlong the Southern Wall~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D0
+~
+~
+0 0 142417
+D1
+~
+~
+0 0 142409
+D3
+~
+~
+0 0 142411
+S
+#142411
+&+LBefore the &+cB&+Coru &+Lfamily Crypt&n~
+&+wThe large crypt of the &+cBoru &+wfamily looms here, which Casts an even darker
+&+wshadow over the area. The front of the crypt is decorated with what seems to
+&+wbe religious symbols and carvings of warrior clerics locked in the heat of a
+&+wmajor battle calling on their gods for aid. The &+cBoru&+w family was the first
+&+wdynasty of &+CIcecrag &+wbefore being overthrown by the &+bCrav &+wfamily in a major coup
+&+wwhich lasted several years. Eventually, &+Gdragons &+wjoined the cause of the &+bCrav&+w's
+&+wand the &+cBoru&+w's were vanquished.
+~
+1 142639105 1 0
+D0
+~
+crypt door~
+1 0 142453
+D1
+~
+~
+0 0 142410
+D3
+~
+~
+0 0 142412
+S
+#142412
+&+LThe Southwest Corner of the &+LNe&+wcr&+Wop&+wol&+Lis&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D0
+~
+~
+0 0 142413
+D1
+~
+~
+0 0 142411
+S
+#142413
+&+wAlong the Western Wall~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D0
+~
+~
+0 0 142414
+D2
+~
+~
+0 0 142412
+S
+#142414
+&+wAlong the Western Wall&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D0
+~
+~
+0 0 142427
+D1
+~
+~
+0 0 142415
+D2
+~
+~
+0 0 142413
+S
+#142415
+&+LBefore the Crypt of the &+WP&+wlatyr &+LFamily&n~
+&+wThe &+WPlatyrs &+wrose to power because the &+Wth&+Ceur&+Wgist &+wpriests felt that to
+&+wrule would corrupt the purity of the soul. So after a long dynasty
+&+wwhich lasted many hundred years and several generations, they bequethed
+&+wthe ruling of the kingdom to the &+WPlatyr&+w family who only married the
+&+Wpurest &+wmaidens and raised only clerics of Torm and holy paladins. The
+&+wcrypt is carved of the finest polished &+Wwhite&+w marble and has massive
+&+wstatues of holy paladins of Torm the True. The marble has lost much
+&+wof its original luster and is &+Lblackened &+wby &+Ctime &+wand neglect.
+~
+1 142639105 1 0
+D0
+~
+crypt door~
+1 0 142521
+D1
+~
+~
+0 0 142416
+D3
+~
+~
+0 0 142414
+S
+#142416
+&+wAn Intersection Among the Crypts&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D0
+~
+~
+0 0 142436
+D1
+~
+~
+0 0 142426
+D2
+~
+~
+0 0 142417
+D3
+~
+~
+0 0 142415
+S
+#142417
+&+wA Path Between the &+LCr&+wyp&+Lts~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D0
+~
+~
+0 0 142416
+D2
+~
+~
+0 0 142410
+S
+#142418
+&+wA Path Between the &+LCr&+wyp&+Lts &+wAlong the Southern Wall&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D0
+~
+~
+0 0 142419
+D1
+~
+~
+0 0 142420
+D3
+~
+~
+0 0 142409
+S
+#142419
+&+wA Path Between the &+LCr&+wyp&+Lts&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D0
+~
+~
+0 0 142425
+D2
+~
+~
+0 0 142418
+S
+#142420
+&+LBefore the Crypt of the &+gL&+Glywelyn &+LFamily&n~
+&+LThis crypt appears to be ornately decorated in &+gelven&+L runes. There are a
+&+Lseries of artfully done carvings depicting &+gelven &+Bwarriors&+L and &+War&+Rch&+Wers
+&+Ldoing battle with a &+Gdragon &+Land &+Chumans&+L in various martial arts poses. The
+&+Lhistory tells of how the elves rebelled against the &+bCrav&+L family after their
+&+Lreckless leader &+WThadeus &+Lgave the order for his dragons to burn down the
+&+Lforests to punish the elves after their king denied him his daughters hand
+&+Lin marriage. King Rydian &+gLlywelyn&+L killed off the Crav family and his dragons
+&+Land interred them in the necropolis. The elves ruled Icecrag peacefully for
+&+Lhundreds of years until the insidious betrayal that the &+mSarum&+L family
+&+Lmasterminded to bring the peace to an end.
+~
+1 142639105 1 0
+D0
+~
+crypt door~
+1 0 142482
+D1
+~
+~
+0 0 142421
+D3
+~
+~
+0 0 142418
+S
+#142421
+&+wThe Southeast Corner of the &+LNe&+wcr&+Wop&+wol&+Lis&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D0
+~
+~
+0 0 142422
+D3
+~
+~
+0 0 142420
+S
+#142422
+&+wAlong the Eastern Wall&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D0
+~
+~
+0 0 142423
+D2
+~
+~
+0 0 142421
+S
+#142423
+&+wAlong the Eastern Wall&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D0
+~
+~
+0 0 142435
+D2
+~
+~
+0 0 142422
+D3
+~
+~
+0 0 142424
+S
+#142424
+&+LBefore the Crypt of the &+mS&+Marum&+L Family&n~
+&+LThere is a massive crypt here which is decorated differently
+&+Lthan the other crypts. Instead of lively depictions of battle
+&+Lor of deeds accomplished like the other crypts, this one has
+&+Ldepictions of skulls, skeletons, dracoliches in front of some
+&+Lshrouded figures pointing them towards carvings of beings who
+&+Llook terrified. The seal on the front of the crypt belongs to
+&+Lthe &+mSarum&+L family. &+gR&+Gyd&+gian&+L, king of the elves had a trusted and
+&+Lrenowned &+Msorcerer &+Ladvisor named Marr Sarum. What the king did
+&+Lnot know was that his advisor also dabbled in &+mnecromancy &+Lwhich
+&+Lis forbidden in elven society. When the king discovered this
+&+Lhorrible truth about his advisor he banished him from Icecrag
+&+Lforever. It is said in legend that Sarum desecrated the graves
+&+Lof thousands of dead warriors to raise an undead army and with
+&+Lhis undead horde stormed &+CIcecrag &+Land slaughtered the elves. A
+&+Lhorrible era of fear and darkness fell upon the continent and
+&+Lonly until the arrival of the Tavinshirs.
+~
+1 142639105 1 0
+D0
+~
+crypt door~
+1 0 142493
+D1
+~
+~
+0 0 142423
+D3
+~
+~
+0 0 142425
+S
+#142425
+&+wAn Intersection Among the Crypts&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D0
+~
+~
+0 0 142437
+D1
+~
+~
+0 0 142424
+D2
+~
+~
+0 0 142419
+D3
+~
+~
+0 0 142426
+S
+#142426
+&+YBefore the Crypt of the &+RT&+ravinshir&+Y Family&n~
+&+YA massive pyramid crypt has been erected here which belonged to the
+&+RTavinshir &+Yfamily. They were a group of rebels who studied a form of
+&+Ymagic which could counter necromancy by returning lost souls to the
+&+Ybodies of the fallen. They overcame the&+m Sarum&+Y family and ruled for
+&+Ya long period of Icecrags history. They perfected mummification by
+&+Cfreezing &+Ycorpses so that if they were ever needed to be called upon
+&+Yagain they would rise a holy army of summoned souls to smite evil.
+&+YThis crypt has depictions of theurgists performing ritual. It seems
+&+Yto show other robed figures raising corpses of the fallen and they
+&+Yturn into holy entities instead of horrific undead. Angelic flights
+&+Yof sword wielding &+Ra&+Yrc&+Rhons, &+Wse&+Cra&+wph&+Wim &+Yand mighty &+Wt&+Cit&+Wans &+Yseem to rout
+&+Ythrough the vast armies of undead creatures bringing about the end
+&+Yof a long and terrifying reign of &+mnecromantic&+L rulers.
+~
+1 142639105 1 0
+D0
+~
+crypt door~
+1 0 142509
+D1
+~
+~
+0 0 142425
+D3
+~
+~
+0 0 142416
+S
+#142427
+&+wAlong the Western Wall&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D0
+~
+~
+0 0 142428
+D2
+~
+~
+0 0 142414
+S
+#142428
+&+wThe North Eest Corner of the &+LNe&+wcr&+Wop&+wol&+Lis&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D1
+~
+~
+0 0 142429
+D2
+~
+~
+0 0 142427
+S
+#142429
+&+wA Path Along the Northern Wall&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D1
+~
+~
+0 0 142430
+D3
+~
+~
+0 0 142428
+S
+#142430
+&+wA Path Along the Northern Wall&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D1
+~
+~
+0 0 142431
+D2
+~
+~
+0 0 142436
+D3
+~
+~
+0 0 142429
+S
+#142431
+&+LIn Front of the Massive Drak&+wen&+Lst&+won&+Le Crypt&n~
+&+LOne of the most sinister structures ever built, the Drak&+wens&+Ltone crypt
+&+Lis a harrowing sight. The stone carvings show the cruelest and darkest
+&+Lacts that sentient beings can inflict upon each other. The attempted
+&+Lgenocide of the &+Rgnomes&+L by the kobolds, rise of the army of &+mdeep night&+L,
+&+Lthe invasion of &+Cicecrag &+Lby the &+mSarum &+Lnecromancers and the massacre and
+&+Lsubsequent extinction of the &+yharpy &+Lrace is shown in great detail. It is
+&+Lalmost as if the Drak&+wens&+Ltones enjoyed the darker side of things. It is
+&+La small wonder that Auril favored them and exploited them at the same
+&+Ltime. There are double doors of solid &+yoak &+Land banded &+ciron &+Lwhich prevent
+&+Lentry with a heavy padlock which was designed to looters out. Whoever
+&+Lcould have guessed that enchanted padlock would have to keep something
+&+Lin.
+~
+1 142639105 1 0
+D0
+~
+iron doors~
+3 142443 142438
+D1
+~
+~
+0 0 142432
+D3
+~
+~
+0 0 142430
+S
+#142432
+&+wAlong the Northern Wall&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D1
+~
+~
+0 0 142433
+D2
+~
+~
+0 0 142437
+D3
+~
+~
+0 0 142431
+S
+#142433
+&+wAlong the Northern Wall&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D1
+~
+~
+0 0 142434
+D3
+~
+~
+0 0 142432
+S
+#142434
+&+wThe Northeast Corner of the &+LNe&+wcr&+Wop&+wol&+Lis&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D2
+~
+~
+0 0 142435
+D3
+~
+~
+0 0 142433
+S
+#142435
+&+wAlong the Eastern Wall&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D0
+~
+~
+0 0 142434
+D2
+~
+~
+0 0 142423
+S
+#142436
+&+LA Path Between the Cr&+wyp&+Lts&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D0
+~
+~
+0 0 142430
+D2
+~
+~
+0 0 142416
+S
+#142437
+&+wA Path Between the Crypts&n~
+&+LThe sky above is dark and large black clouds aggragate over head which makes
+&+Lthe &+bnecropolis&+L in a state of perpetual night. The &+Wm&+wo&+Lo&+Wn &+Lpeaks through its veil
+&+Lonly in small periods before it is swallowed whole again by the cursed sky.
+&+wThe grey and white stones of the crypts give off an eerie glow and serves as
+&+wa backdrop to this macabre scene. Scurrying sounds and low moaning sounds can
+&+wbe heard off in the distance. The state of disrepair and &+Ldecay&+w is evident by
+&+wthe cracks in the stonework and most of the paths have the look that they have
+&+wnot been walked upon by living feet in many years.
+~
+1 142639105 1 0
+D0
+~
+~
+0 0 142432
+D2
+~
+~
+0 0 142425
+S
+#142438
+&+LWithin the &+WD&+Lrakenstone Crypt&n~
+&+LThis corridor leads into the heart of the Drakenstone crypt. The
+&+LDrakenstones were renowned for their cruelty and brutal murder of
+&+Lthe &+WPlatyrs&+L. They desired to rule Icecrag forever and they do but
+&+Lare imprisoned here in their own crypt as an ironic twist in the
+&+Ldeal with &+BAuril&+L. The walls are made of a dark grey stone and the
+&+Lfloor is packed earth. A heavy pair of &+yoak&+L doors leads outside.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142439
+D2
+~
+~
+3 142443 142431
+S
+#142439
+&+LWithin the &+WD&+Lrakenstone Family Crypt&n~
+&+LThis corridor leads into the heart of the Drakenstone crypt. The
+&+LDrakenstones were renowned for their cruelty and brutal murder of
+&+Lthe &+WPlatyrs&+L. They desired to rule Icecrag forever and they do but
+&+Lare imprisoned here in their own crypt as an ironic twist in the
+&+Ldeal with &+BAuril&+L. The walls are made of a dark grey stone and the
+&+Lfloor is packed earth. To the north there appears to be a massive
+&+Lroom with some shuffling shapes moving around.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142440
+D2
+~
+massive gate~
+0 0 142438
+S
+#142440
+&+LThe Heart of the Crypt&n~
+&+LThe walls of this crypt are made of a black stone that appears to be
+&+Lonyx. The air in this crypt is still and stagnant. &+wCo&+Wbw&+Le&+wbs &+Lhang along
+&+Lthe ceiling, long since abandoned. Bones of various humanoids litter
+&+Lthe ground in piles intermittently on the floor.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142443
+D1
+~
+~
+0 0 142442
+D2
+~
+~
+0 0 142439
+D3
+~
+~
+0 0 142441
+S
+#142441
+&+LThe Heart of the Crypt&n~
+&+LThe walls of this crypt are made of a black stone that appears to be
+&+Lonyx. The air in this crypt is still and stagnant. &+wCo&+Wbw&+Le&+wbs &+Lhang along
+&+Lthe ceiling, long since abandoned. Bones of various humanoids litter
+&+Lthe ground in piles intermittently on the floor.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142444
+D1
+~
+~
+0 0 142440
+S
+#142442
+&+LThe Heart of the Crypt&n~
+&+LThe walls of this crypt are made of a black stone that appears to be
+&+Lonyx. The air in this crypt is still and stagnant. &+wCo&+Wbw&+Le&+wbs &+Lhang along
+&+Lthe ceiling, long since abandoned. Bones of various humanoids litter
+&+Lthe ground in piles intermittently on the floor.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142445
+D3
+~
+~
+0 0 142440
+S
+#142443
+&+LThe Heart of the Crypt&n~
+&+LThe walls of this crypt are made of a black stone that appears to be
+&+Lonyx. The air in this crypt is still and stagnant. &+wCo&+Wbw&+Le&+wbs &+Lhang along
+&+Lthe ceiling, long since abandoned. Bones of various humanoids litter
+&+Lthe ground in piles intermittently on the floor.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142446
+D1
+~
+~
+0 0 142445
+D2
+~
+~
+0 0 142440
+D3
+~
+~
+0 0 142444
+S
+#142444
+&+LThe Heart of the Crypt&n~
+&+LThe walls of this crypt are made of a black stone that appears to be
+&+Lonyx. The air in this crypt is still and stagnant. &+wCo&+Wbw&+Le&+wbs &+Lhang along
+&+Lthe ceiling, long since abandoned. Bones of various humanoids litter
+&+Lthe ground in piles intermittently on the floor.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142443
+D2
+~
+~
+0 0 142441
+S
+#142445
+&+LThe Heart of the Crypt&n~
+&+LThe walls of this crypt are made of a black stone that appears to be
+&+Lonyx. The air in this crypt is still and stagnant. &+wCo&+Wbw&+Le&+wbs &+Lhang along
+&+Lthe ceiling, long since abandoned. Bones of various humanoids litter
+&+Lthe ground in piles intermittently on the floor.
+~
+1 142639105 0 0
+D2
+~
+~
+0 0 142442
+D3
+~
+~
+0 0 142443
+S
+#142446
+&+LThe &+WD&+Lrakenstone Royal Burial Chamber&n~
+&+LThe air in the room itself seems to be filled with dread and fear.
+&+LThe royal burial chamber of &+CIcecrags&+L last dynasty is a macabre and
+&+Lfearsome sight. &+WSk&+wel&+Let&+Won&+ws &+Lin various poses have been propped up in
+&+Lghastly fashion, still wearing &+Mga&+mri&+Msh&+L garments. There is a &+Ythrone
+&+Lin the middle of the room near a large black stone coffin. &+YTre&+yas&+Yure
+&+Lis piled up all around the room, hoarded by the Drakenstones while
+&+Lthey were living. A horrific statue of &+BAuril &+bthe &+WI&+Cc&+Be &+CMa&+Bid&+Wen &+Lstands
+&+Lin a relief in the wall eminating a strange power.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142447
+D2
+~
+~
+0 0 142443
+S
+#142447
+&+LA Small Recess Behind the Burial Chamber&n~
+&+LThis small recess behind the burial chamber has &+yracks &+Lof &+War&+wm&+Wor &+Land
+&+wwe&+Lap&+wons&+L. Also in the center of the room is a small pedestal which
+&+Lhas a &+whammer&+L that is giving off a soft &+Bblue light&+L even though the
+&+Lroom is completely dark.
+~
+1 142639105 0 0
+D2
+~
+~
+0 0 142446
+S
+#142448
+&+yA &+LRocky &+yIncline&n~
+&+yThe path north leads back the way you came and a shrine seems to
+&+ybe on the cliff overlook above you. It is going to require a bit
+&+yof a climb.
+~
+1 142639105 4 0
+D0
+~
+~
+0 0 142405
+D4
+~
+~
+0 0 142449
+S
+#142449
+&+yA Steep Cliff Face&n~
+&+yThis climb is somewhat difficult but doable even with a full pack on.
+&+yThe rock outcroppings make fine hand and footholds for those who wish
+&+yto ascend or descend.
+~
+1 142639105 8 0
+D4
+~
+~
+0 0 142450
+D5
+~
+~
+0 0 142448
+F
+50
+S
+#142450
+&+wBefore a Beautiful &+WWhite Shrine&n~
+&+WLarge pillars of white marble gleam with a polish that is not of this
+&+Wworld. A small set of steps leads to the interior of a shrine where a
+&+Wbrilliant &+Ygolden &+Wlight baths the area. You feel at peace here and
+&+Wyet you also feel somewhat &+bsad&+W. There are sounds of some kind of
+&+Wactivity within the shrine.
+~
+1 142639104 4 0
+D2
+~
+~
+0 0 142451
+D5
+~
+~
+0 0 142449
+S
+#142451
+&+WWithin the Shrine of Mary&n~
+&+WThis shrine emanates a feeling of peace. One can see reflections of
+&+Wthemselves in white marble floors. There is a small altar at the rear
+&+Wand upon it sits a &+Cwoman &+Wwith &+rauburn &+Whair and dressed all in
+&+Wwhite. She appears to be working with a great &+Ygol&+yde&+Yn loom&+w.
+~
+1 146964488 0 0
+D0
+~
+~
+0 0 142450
+D2
+&+WA large ivory reliquary blocks the way to the south.
+~
+reliquary~
+3 142400 142452
+S
+#142452
+&+LBefore the &+WM&+Lonolith of &+mT&+Mime&n~
+&+LThis room is massive and radiates with &+mpower&+L. &+gRunes &+Lcover the walls
+&+Land in the center of the room is a massive monolith bearing the
+&+Lsymbol of &+mtime&+L. The monolith hums quietly.
+~
+1 1073741837 0 0
+D0
+&+WA large reliquary blocks passage to the north here.
+~
+reliquary~
+3 142400 142451
+S
+#142453
+&+LA Stairway Leading Down into the Cr&+wyp&+Lt&n~
+&+LA stairwell leads down into the catacombs area of the crypt. One would do well
+&+Lto be careful venturing down as the sounds of shuffling and &+wun&+Lde&+wad &+Lcan be heard
+&+Lbelow.
+~
+1 142639109 0 0
+D2
+~
+crypt door~
+1 0 142411
+D5
+~
+~
+0 0 142454
+S
+#142454
+&+LWithin the &+cB&+Coru&+L Family Crypt&n~
+&+LBecause it was built during the first dynasty the crypt is built in a most
+&+Lrudamentary fashion. There was little thought for decor as it was built to
+&+Lbe more practical than anything else. There are a series of recesses built
+&+Linto the walls where the &+wbones &+Lof family members are placed. The &+Wsk&+wel&+Let&+won&+Ws
+&+Lhave mostly &+yrotted &+Laway in the older sections. Deep within a faint moaning
+&+Lcan be heard as well as the shuffling and rattling of boney feet.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142456
+D2
+~
+~
+0 0 142455
+D4
+~
+~
+0 0 142453
+S
+#142455
+&+LWithin the &+cB&+Coru &+LFamily Crypt&n~
+&+LBecause it was built during the first dynasty the crypt is built in a most
+&+Lrudamentary fashion. There was little thought for decor as it was built to
+&+Lbe more practical than anything else. There are a series of recesses built
+&+Linto the walls where the &+wbones &+Lof family members are placed. The &+Wsk&+wel&+Let&+won&+Ws
+&+Lhave mostly &+yrotted &+Laway in the older sections. Deep within a faint moaning
+&+Lcan be heard as well as the shuffling and rattling of boney feet.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142454
+D2
+~
+~
+0 0 142468
+S
+#142456
+&+LWithin the &+cB&+Coru &+LFamily Crypt&n~
+&+LBecause it was built during the first dynasty the crypt is built in a most
+&+Lrudamentary fashion. There was little thought for decor as it was built to
+&+Lbe more practical than anything else. There are a series of recesses built
+&+Linto the walls where the &+wbones &+Lof family members are placed. The &+Wsk&+wel&+Let&+won&+Ws
+&+Lhave mostly &+yrotted &+Laway in the older sections. Deep within a faint moaning
+&+Lcan be heard as well as the shuffling and rattling of boney feet.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142457
+D3
+~
+~
+0 0 142454
+S
+#142457
+&+LWithin the &+cB&+Coru &+LFamily Crypt&n~
+&+LBecause it was built during the first dynasty the crypt is built in a most
+&+Lrudamentary fashion. There was little thought for decor as it was built to
+&+Lbe more practical than anything else. There are a series of recesses built
+&+Linto the walls where the &+wbones &+Lof family members are placed. The &+Wsk&+wel&+Let&+won&+Ws
+&+Lhave mostly &+yrotted &+Laway in the older sections. Deep within a faint moaning
+&+Lcan be heard as well as the shuffling and rattling of boney feet.
+~
+1 142639105 0 0
+D3
+~
+~
+0 0 142456
+D9
+~
+~
+0 0 142458
+S
+#142458
+&+LWithin the &+cB&+Coru &+LFamily Crypt&n~
+&+LBecause it was built during the first dynasty the crypt is built in a most
+&+Lrudamentary fashion. There was little thought for decor as it was built to
+&+Lbe more practical than anything else. There are a series of recesses built
+&+Linto the walls where the &+wbones &+Lof family members are placed. The &+Wsk&+wel&+Let&+won&+Ws
+&+Lhave mostly &+yrotted &+Laway in the older sections. Deep within a faint moaning
+&+Lcan be heard as well as the shuffling and rattling of boney feet.
+~
+1 142639105 0 0
+D2
+~
+~
+0 0 142459
+D6
+~
+~
+0 0 142457
+S
+#142459
+&+LWithin the &+cB&+Coru &+LFamily Crypt&n~
+&+LBecause it was built during the first dynasty the crypt is built in a most
+&+Lrudamentary fashion. There was little thought for decor as it was built to
+&+Lbe more practical than anything else. There are a series of recesses built
+&+Linto the walls where the &+wbones &+Lof family members are placed. The &+Wsk&+wel&+Let&+won&+Ws
+&+Lhave mostly &+yrotted &+Laway in the older sections. Deep within a faint moaning
+&+Lcan be heard as well as the shuffling and rattling of boney feet.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142458
+D7
+~
+~
+0 0 142460
+S
+#142460
+&+LWithin the &+cB&+Coru &+LFamily Crypt&n~
+&+LBecause it was built during the first dynasty the crypt is built in a most
+&+Lrudamentary fashion. There was little thought for decor as it was built to
+&+Lbe more practical than anything else. There are a series of recesses built
+&+Linto the walls where the &+wbones &+Lof family members are placed. The &+Wsk&+wel&+Let&+won&+Ws
+&+Lhave mostly &+yrotted &+Laway in the older sections. Deep within a faint moaning
+&+Lcan be heard as well as the shuffling and rattling of boney feet.
+~
+1 142639105 0 0
+D3
+~
+~
+0 0 142467
+D8
+~
+~
+0 0 142459
+D9
+~
+~
+0 0 142461
+S
+#142461
+&+LWithin the &+cB&+Coru &+LFamily Crypt&n~
+&+LBecause it was built during the first dynasty the crypt is built in a most
+&+Lrudamentary fashion. There was little thought for decor as it was built to
+&+Lbe more practical than anything else. There are a series of recesses built
+&+Linto the walls where the &+wbones &+Lof family members are placed. The &+Wsk&+wel&+Let&+won&+Ws
+&+Lhave mostly &+yrotted &+Laway in the older sections. Deep within a faint moaning
+&+Lcan be heard as well as the shuffling and rattling of boney feet.
+~
+1 142639105 0 0
+D2
+~
+~
+0 0 142462
+D6
+~
+~
+0 0 142460
+S
+#142462
+&+LWithin the &+cB&+Coru &+LFamily Crypt&n~
+&+LBecause it was built during the first dynasty the crypt is built in a most
+&+Lrudamentary fashion. There was little thought for decor as it was built to
+&+Lbe more practical than anything else. There are a series of recesses built
+&+Linto the walls where the &+wbones &+Lof family members are placed. The &+Wsk&+wel&+Let&+won&+Ws
+&+Lhave mostly &+yrotted &+Laway in the older sections. Deep within a faint moaning
+&+Lcan be heard as well as the shuffling and rattling of boney feet.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142461
+D2
+~
+~
+0 0 142463
+S
+#142463
+&+LA Dark Room Above the Main &+yburial &+LChamber&n~
+&+LThis is the ante-chamber to the main burial room for the royal family. The
+&+Lfinal preparations to the body were generally made here before being placed
+&+Lbelow. A stone preparation table sits in the corner and the room is mostly
+&+Lsparse of any other furnishing or decor other than the large crest of the
+&+cBoru &+Lfamily which is carved into the far wall.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142462
+D3
+~
+~
+0 0 142464
+D5
+~
+~
+0 0 142469
+S
+#142464
+&+LWithin the &+cB&+Coru &+LFamily Crypt&n~
+&+LBecause it was built during the first dynasty the crypt is built in a most
+&+Lrudamentary fashion. There was little thought for decor as it was built to
+&+Lbe more practical than anything else. There are a series of recesses built
+&+Linto the walls where the &+wbones &+Lof family members are placed. The &+Wsk&+wel&+Let&+won&+Ws
+&+Lhave mostly &+yrotted &+Laway in the older sections. Deep within a faint moaning
+&+Lcan be heard as well as the shuffling and rattling of boney feet.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142463
+D3
+~
+~
+0 0 142465
+S
+#142465
+&+LWithin the &+cB&+Coru &+LFamily Crypt&n~
+&+LBecause it was built during the first dynasty the crypt is built in a most
+&+Lrudamentary fashion. There was little thought for decor as it was built to
+&+Lbe more practical than anything else. There are a series of recesses built
+&+Linto the walls where the &+wbones &+Lof family members are placed. The &+Wsk&+wel&+Let&+won&+Ws
+&+Lhave mostly &+yrotted &+Laway in the older sections. Deep within a faint moaning
+&+Lcan be heard as well as the shuffling and rattling of boney feet.
+~
+1 0 0 0
+D0
+~
+~
+0 0 142466
+D1
+~
+~
+0 0 142464
+S
+#142466
+&+LWithin the &+cB&+Coru &+LFamily Crypt&n~
+&+LBecause it was built during the first dynasty the crypt is built in a most
+&+Lrudamentary fashion. There was little thought for decor as it was built to
+&+Lbe more practical than anything else. There are a series of recesses built
+&+Linto the walls where the &+wbones &+Lof family members are placed. The &+Wsk&+wel&+Let&+won&+Ws
+&+Lhave mostly &+yrotted &+Laway in the older sections. Deep within a faint moaning
+&+Lcan be heard as well as the shuffling and rattling of boney feet.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142467
+D2
+~
+~
+0 0 142465
+S
+#142467
+&+LWithin the &+cB&+Coru &+LFamily Crypt&n~
+&+LBecause it was built during the first dynasty the crypt is built in a most
+&+Lrudamentary fashion. There was little thought for decor as it was built to
+&+Lbe more practical than anything else. There are a series of recesses built
+&+Linto the walls where the &+wbones &+Lof family members are placed. The &+Wsk&+wel&+Let&+won&+Ws
+&+Lhave mostly &+yrotted &+Laway in the older sections. Deep within a faint moaning
+&+Lcan be heard as well as the shuffling and rattling of boney feet.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142468
+D1
+~
+~
+0 0 142460
+D2
+~
+~
+0 0 142466
+S
+#142468
+&+LWithin the &+cB&+Coru &+LFamily Crypt&n~
+&+LBecause it was built during the first dynasty the crypt is built in a most
+&+Lrudamentary fashion. There was little thought for decor as it was built to
+&+Lbe more practical than anything else. There are a series of recesses built
+&+Linto the walls where the &+wbones &+Lof family members are placed. The &+Wsk&+wel&+Let&+won&+Ws
+&+Lhave mostly &+yrotted &+Laway in the older sections. Deep within a faint moaning
+&+Lcan be heard as well as the shuffling and rattling of boney feet.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142455
+D2
+~
+~
+0 0 142467
+S
+#142469
+&+LThe &+cRoyal &+yBurial &+LChamber&n~
+&+LLarge recesses line the walls where the &+wbones &+Lof the &+cBoru &+Lfamily have been
+&+Llain to rest for eternity. A few of them appear to be empty and the former
+&+Linhabitants appear to have wandered out or been carried off by &+ygraverobbers&+L.
+&+LThere is a large stone pedestal with a heavy stone slab over the top of it
+&+Lwhich indicates it likely belongs to &+cBran Boru&+L, the first king of &+CIcecrag&+L.
+~
+1 142639105 0 0
+D4
+~
+~
+0 0 142463
+S
+#142470
+&+LA Stairwell Descending into the &+wCr&+Lyp&+wt&n~
+&+LA stairwell leads down into the catacombs area of the crypt. One would do well
+&+Lto be careful venturing down as the sounds of shuffling and &+wun&+Lde&+wad &+Lcan be heard
+&+Lbelow.
+~
+1 142639109 0 0
+D2
+~
+crypt door~
+1 0 142409
+D5
+~
+~
+0 0 142471
+S
+#142471
+&+LThe &+bC&+Brav &+LFamily Cr&+wyp&+Lt&n~
+&+wBones&+L of various people are stacked in holes carved into the walls and a
+&+wdusty&+L smell of decayed flesh long since rotted pervades the air. There are
+&+Lsounds of moaning and wailing echoing through the tunnels. There is also a loud
+&+Lrumbling accompanied by what sounds like large bones clacking together.
+~
+1 142639113 0 0
+D4
+~
+~
+0 0 142470
+D6
+~
+~
+0 0 142473
+S
+#142472
+Unnamed~
+~
+1 0 0 0
+D7
+~
+~
+0 0 142471
+S
+#142473
+&+LThe &+bC&+Brav &+LFamily Crypt&n~
+&+wBones&+L of various people are stacked in holes carved into the walls and a
+&+wdusty&+L smell of decayed flesh long since rotted pervades the air. There are
+&+Lsounds of moaning and wailing echoing through the tunnels. There is also a loud
+&+Lrumbling accompanied by what sounds like large bones clacking together.
+~
+1 142639105 0 0
+D3
+~
+~
+0 0 142474
+D9
+~
+~
+0 0 142471
+S
+#142474
+&+LThe &+bC&+Brav &+LFamily Crypt&n~
+&+wBones&+L of various people are stacked in holes carved into the walls and a
+&+wdusty&+L smell of decayed flesh long since rotted pervades the air. There are
+&+Lsounds of moaning and wailing echoing through the tunnels. There is also a loud
+&+Lrumbling accompanied by what sounds like large bones clacking together.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142473
+D7
+~
+~
+0 0 142475
+S
+#142475
+&+LThe &+bC&+Brav &+LFamily Crypt&n~
+&+wBones&+L of various people are stacked in holes carved into the walls and a
+&+wdusty&+L smell of decayed flesh long since rotted pervades the air. There are
+&+Lsounds of moaning and wailing echoing through the tunnels. There is also a loud
+&+Lrumbling accompanied by what sounds like large bones clacking together.
+~
+1 142639105 0 0
+D2
+~
+~
+0 0 142476
+D8
+~
+~
+0 0 142474
+S
+#142476
+&+LThe &+bC&+Brav &+LFamily Crypt&n~
+&+wBones&+L of various people are stacked in holes carved into the walls and a
+&+wdusty&+L smell of decayed flesh long since rotted pervades the air. There are
+&+Lsounds of moaning and wailing echoing through the tunnels. There is also a loud
+&+Lrumbling accompanied by what sounds like large bones clacking together.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142475
+D2
+~
+~
+0 0 142477
+S
+#142477
+&+LThe &+bC&+Brav &+LFamily Crypt&n~
+&+wBones&+L of various people are stacked in holes carved into the walls and a
+&+wdusty&+L smell of decayed flesh long since rotted pervades the air. There are
+&+Lsounds of moaning and wailing echoing through the tunnels. There is also a loud
+&+Lrumbling accompanied by what sounds like large bones clacking together.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142476
+D9
+~
+~
+0 0 142478
+S
+#142478
+&+LThe &+bC&+Brav &+LFamily Crypt&n~
+&+wBones&+L of various people are stacked in holes carved into the walls and a
+&+wdusty&+L smell of decayed flesh long since rotted pervades the air. There are
+&+Lsounds of moaning and wailing echoing through the tunnels. There is also a loud
+&+Lrumbling accompanied by what sounds like large bones clacking together.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142479
+D6
+~
+~
+0 0 142477
+S
+#142479
+&+LThe &+bC&+Brav &+LFamily Crypt~
+&+wBones&+L of various people are stacked in holes carved into the walls and a
+&+wdusty&+L smell of decayed flesh long since rotted pervades the air. There are
+&+Lsounds of moaning and wailing echoing through the tunnels. There is also a loud
+&+Lrumbling accompanied by what sounds like large bones clacking together.
+~
+1 142639105 0 0
+D3
+~
+~
+0 0 142478
+D8
+~
+~
+0 0 142480
+S
+#142480
+&+LAbove the Main&+y Burial&+L Chamber~
+&+wBones&+L of various people are stacked in holes carved into the walls and a
+&+wdusty&+L smell of decayed flesh long since rotted pervades the air. There are
+&+Lsounds of moaning and wailing echoing through the tunnels. There is also a loud
+&+Lrumbling accompanied by what sounds like large bones clacking together.
+~
+1 142639105 0 0
+D5
+~
+~
+0 0 142481
+D7
+~
+~
+0 0 142479
+S
+#142481
+&+LThe &+bC&+Brav&+L Family &+yBurial &+LChamber&n~
+&+LVarious &+wst&+Lon&+we coffins &+Lline the walls of the inner chamber which includes
+&+La central coffin that appears to belong to the founding father of the dynasty.
+&+LA pile of &+Wsk&+wu&+Ll&+wl&+Ws &+Lis sitting in the corner and a few of them look to be fresh.
+~
+1 0 0 0
+D4
+~
+~
+0 0 142480
+S
+#142482
+&+LThe Entrance to an &+YO&+yrnate &+LCr&+wyp&+Lt&n~
+&+wThe entry to this crypt is ornate and gilded with &+Ygold&+w. It looks more
+&+wlike a foyer to a castle than the entrance to a &+yburial &+wchamber. A
+&+ygolden &+wstaircase descends down into the darkness… The sounds of
+&+Wwa&+Lil&+win&+Wg &+wcan be heard below and one is forced to wonder if banshees
+&+ware &+Llurking &+win the gloom.
+~
+1 142639113 0 0
+D2
+~
+crypt door~
+1 0 142420
+D5
+~
+~
+0 0 142483
+S
+#142483
+&+LWithin the &+gL&+Glywelyn&+L Family Crypt&n~
+&+wThe walls are fashioned with smooth cut stone and it is evident
+&+wthat master masonry was utilized in the construction of the crypt.
+&+cTattered &+mtapestries &+wdepicting various &+gelven &+wheroes are hung along
+&+wthe catacomb walls. Reliefs in the walls hold the &+Wbo&+Lne&+Ws &+wof many
+&+welves long since dead. &+LHaunting &+Wmoans &+wcan be heard down the
+&+wcorridor.
+~
+1 142639105 0 0
+D2
+~
+~
+0 0 142484
+D4
+~
+~
+0 0 142482
+S
+#142484
+&+LWithin the &+gL&+Glywelyn&+L Family Crypt&n~
+&+wThe walls are fashioned with smooth cut stone and it is evident
+&+wthat master masonry was utilized in the construction of the crypt.
+&+cTattered &+mtapestries &+wdepicting various &+gelven &+wheroes are hung along
+&+wthe catacomb walls. Reliefs in the walls hold the &+Wbo&+Lne&+Ws &+wof many
+&+welves long since dead. &+LHaunting &+Wmoans &+wcan be heard down the
+&+wcorridor.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142483
+D2
+~
+~
+0 0 142485
+S
+#142485
+&+LWithin the &+gL&+Glywelyn&+L Family Crypt&n~
+&+wThe walls are fashioned with smooth cut stone and it is evident
+&+wthat master masonry was utilized in the construction of the crypt.
+&+cTattered &+mtapestries &+wdepicting various &+gelven &+wheroes are hung along
+&+wthe catacomb walls. Reliefs in the walls hold the &+Wbo&+Lne&+Ws &+wof many
+&+welves long since dead. &+LHaunting &+Wmoans &+wcan be heard down the
+&+wcorridor.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142484
+D2
+~
+~
+0 0 142486
+S
+#142486
+&+LWithin the &+gL&+Glywelyn &+LFamily Crypt&n~
+&+wThe walls are fashioned with smooth cut stone and it is evident
+&+wthat master masonry was utilized in the construction of the crypt.
+&+cTattered &+mtapestries &+wdepicting various &+gelven &+wheroes are hung along
+&+wthe catacomb walls. Reliefs in the walls hold the &+Wbo&+Lne&+Ws &+wof many
+&+welves long since dead. &+LHaunting &+Wmoans &+wcan be heard down the
+&+wcorridor.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142485
+D2
+~
+~
+0 0 142487
+S
+#142487
+&+LWithin the &+gL&+Glywelyn &+LFamily Crypt&n~
+&+wThe walls are fashioned with smooth cut stone and it is evident
+&+wthat master masonry was utilized in the construction of the crypt.
+&+cTattered &+mtapestries &+wdepicting various &+gelven &+wheroes are hung along
+&+wthe catacomb walls. Reliefs in the walls hold the &+Wbo&+Lne&+Ws &+wof many
+&+welves long since dead. &+LHaunting &+Wmoans &+wcan be heard down the
+&+wcorridor.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142486
+D2
+~
+~
+0 0 142488
+S
+#142488
+&+LWithin the &+gL&+Glywelyn &+LFamily Crypt&n~
+&+wThe walls are fashioned with smooth cut stone and it is evident
+&+wthat master masonry was utilized in the construction of the crypt.
+&+cTattered &+mtapestries &+wdepicting various &+gelven &+wheroes are hung along
+&+wthe catacomb walls. Reliefs in the walls hold the &+Wbo&+Lne&+Ws &+wof many
+&+welves long since dead. &+LHaunting &+Wmoans &+wcan be heard down the
+&+wcorridor.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142487
+D1
+~
+~
+0 0 142489
+S
+#142489
+&+LWithin the &+gL&+Glywelyn &+LFamily Crypt&n~
+&+wThe walls are fashioned with smooth cut stone and it is evident
+&+wthat master masonry was utilized in the construction of the crypt.
+&+cTattered &+mtapestries &+wdepicting various &+gelven &+wheroes are hung along
+&+wthe catacomb walls. Reliefs in the walls hold the &+Wbo&+Lne&+Ws &+wof many
+&+welves long since dead. &+LHaunting &+Wmoans &+wcan be heard down the
+&+wcorridor.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142490
+D3
+~
+~
+0 0 142488
+S
+#142490
+&+LWithin the &+gL&+Glywelyn&+L Family Crypt&n~
+&+wThe walls are fashioned with smooth cut stone and it is evident
+&+wthat master masonry was utilized in the construction of the crypt.
+&+cTattered &+mtapestries &+wdepicting various &+gelven &+wheroes are hung along
+&+wthe catacomb walls. Reliefs in the walls hold the &+Wbo&+Lne&+Ws &+wof many
+&+welves long since dead. &+LHaunting &+Wmoans &+wcan be heard down the
+&+wcorridor.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142491
+D3
+~
+~
+0 0 142489
+S
+#142491
+&+wA Round Room Above a &+WCircular Staircase&n~
+&+wThe corridor terminates here in this round room. A circular staircase
+&+wleads down into more &+Lblackness &+wbut there is a barely discernable &+Wglow
+&+wcoming from beneath. The &+Ygolden &+wrailing of the staircase &+Wglints &+wfrom
+&+wthe &+Gsc&+gin&+Gti&+gll&+Gat&+gin&+Gg &+ggreen &+Wglow&+w.
+~
+1 142639105 0 0
+D3
+~
+~
+0 0 142490
+D5
+~
+~
+0 0 142492
+S
+#142492
+&+LThe &+GR&+go&+Gy&+ga&+Gl &+yBurial &+LChamber&n~
+&+GThis room appears to be made completely of green marble
+&+Gand the floor tiles are made of rough emerald. There are
+&+Gpillars along the entirety of the perimeter and the tops
+&+Gof them are ornate and made of gold. In the center of the
+&+Groom there appears to be a solid &+Ygold casket&+G. Statues of
+&+ybronze &+Gadorn the room of elves in various poses.
+~
+1 142639105 0 0
+D4
+~
+~
+0 0 142491
+S
+#142493
+&+WA Room Made Entirely of B&+wo&+Ln&+We&n&n~
+&+wThis room is made entirely of the bones of various humanoids and other
+&+wcreatures. Even the &+Wbones &+wof &+Gdragons&+w have been molded and used to make
+&+wthis horrible room. There is a staircase headed down into what appears
+&+wto be the heart of &+Ldarkness &+witself.
+~
+1 142639105 0 0
+D2
+~
+door crypt~
+1 0 142424
+D5
+~
+~
+0 0 142494
+S
+#142494
+&+wWithin the &+mS&+Marum&+w Family Crypt&n~
+&+LTwisting passages made with the bones of all that died during the
+&+Lgreat battle of &+CIcecrag&+L when the army of the undead stormed it to
+&+Ldefeat King Rydian and the elves are mortared with some sort of
+&+Lcement. Empty eye sockets of skulls stare out and all manner of
+&+Llong bones jut out of the walls as this tunnel twists around in a
+&+Lodd shape. The blackness is absolute and some shuffling sounds in
+&+Lthe distance can be heard. There is a staircase here leading back
+&+Lupwards.
+~
+1 142639105 0 0
+D4
+~
+~
+0 0 142493
+D6
+~
+~
+0 0 142495
+S
+#142495
+&+wWithin the &+mS&+Marum &+wFamily Crypt&n~
+&+LTwisting passages made with the bones of all that died during the
+&+Lgreat battle of &+CIcecrag&+L when the army of the undead stormed it to
+&+Ldefeat King Rydian and the elves are mortared with some sort of
+&+Lcement. Empty eye sockets of skulls stare out and all manner of
+&+Llong bones jut out of the walls as this tunnel twists around in a
+&+Lodd shape. The blackness is absolute and some shuffling sounds in
+&+Lthe distance can be heard.
+~
+1 142639105 0 0
+D3
+~
+~
+0 0 142496
+D9
+~
+~
+0 0 142494
+S
+#142496
+&+wWithin the &+mS&+Marum&+w Family Crypt&n~
+&+LTwisting passages made with the bones of all that died during the
+&+Lgreat battle of &+CIcecrag&+L when the army of the undead stormed it to
+&+Ldefeat King Rydian and the elves are mortared with some sort of
+&+Lcement. Empty eye sockets of skulls stare out and all manner of
+&+Llong bones jut out of the walls as this tunnel twists around in a
+&+Lodd shape. The blackness is absolute and some shuffling sounds in
+&+Lthe distance can be heard.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142495
+D3
+~
+~
+0 0 142497
+S
+#142497
+&+wWithin the &+mS&+Marum&+w Family Crypt&n~
+&+LTwisting passages made with the bones of all that died during the
+&+Lgreat battle of &+CIcecrag&+L when the army of the undead stormed it to
+&+Ldefeat King Rydian and the elves are mortared with some sort of
+&+Lcement. Empty eye sockets of skulls stare out and all manner of
+&+Llong bones jut out of the walls as this tunnel twists around in a
+&+Lodd shape. The blackness is absolute and some shuffling sounds in
+&+Lthe distance can be heard.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142496
+D7
+~
+~
+0 0 142498
+S
+#142498
+&+wWithin the &+mS&+Marum&+w Family Crypt&n~
+&+LTwisting passages made with the bones of all that died during the
+&+Lgreat battle of &+CIcecrag&+L when the army of the undead stormed it to
+&+Ldefeat King Rydian and the elves are mortared with some sort of
+&+Lcement. Empty eye sockets of skulls stare out and all manner of
+&+Llong bones jut out of the walls as this tunnel twists around in a
+&+Lodd shape. The blackness is absolute and some shuffling sounds in
+&+Lthe distance can be heard.
+~
+1 142639105 0 0
+D2
+~
+~
+0 0 142499
+D8
+~
+~
+0 0 142497
+S
+#142499
+&+wWithin the &+mS&+Marum&+w Family Crypt&n~
+&+LTwisting passages made with the bones of all that died during the
+&+Lgreat battle of &+CIcecrag&+L when the army of the undead stormed it to
+&+Ldefeat King Rydian and the elves are mortared with some sort of
+&+Lcement. Empty eye sockets of skulls stare out and all manner of
+&+Llong bones jut out of the walls as this tunnel twists around in a
+&+Lodd shape. The blackness is absolute and some shuffling sounds in
+&+Lthe distance can be heard.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142498
+D9
+~
+~
+0 0 142500
+S
+#142500
+&+wWithin the &+mS&+Marum&+w Family Crypt~
+&+LTwisting passages made with the bones of all that died during the
+&+Lgreat battle of &+CIcecrag&+L when the army of the undead stormed it to
+&+Ldefeat King Rydian and the elves are mortared with some sort of
+&+Lcement. Empty eye sockets of skulls stare out and all manner of
+&+Llong bones jut out of the walls as this tunnel twists around in a
+&+Lodd shape. The blackness is absolute and some shuffling sounds in
+&+Lthe distance can be heard.
+~
+1 142639105 0 0
+D6
+~
+~
+0 0 142499
+D9
+~
+~
+0 0 142501
+S
+#142501
+&+wWithin the &+mS&+Marum&+w Family Crypt&n~
+&+LTwisting passages made with the bones of all that died during the
+&+Lgreat battle of &+CIcecrag&+L when the army of the undead stormed it to
+&+Ldefeat King Rydian and the elves are mortared with some sort of
+&+Lcement. Empty eye sockets of skulls stare out and all manner of
+&+Llong bones jut out of the walls as this tunnel twists around in a
+&+Lodd shape. The blackness is absolute and some shuffling sounds in
+&+Lthe distance can be heard.
+~
+1 142639105 0 0
+D2
+~
+~
+0 0 142502
+D6
+~
+~
+0 0 142500
+S
+#142502
+&+wWithin the &+mS&+Marum &+wFamily Crypt~
+&+LTwisting passages made with the bones of all that died during the
+&+Lgreat battle of &+CIcecrag&+L when the army of the undead stormed it to
+&+Ldefeat King Rydian and the elves are mortared with some sort of
+&+Lcement. Empty eye sockets of skulls stare out and all manner of
+&+Llong bones jut out of the walls as this tunnel twists around in a
+&+Lodd shape. The blackness is absolute and some shuffling sounds in
+&+Lthe distance can be heard.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142501
+D2
+~
+~
+0 0 142503
+S
+#142503
+&+wWithin the &+mS&+Marum &+wFamily Crypt~
+&+LTwisting passages made with the bones of all that died during the
+&+Lgreat battle of &+CIcecrag&+L when the army of the undead stormed it to
+&+Ldefeat King Rydian and the elves are mortared with some sort of
+&+Lcement. Empty eye sockets of skulls stare out and all manner of
+&+Llong bones jut out of the walls as this tunnel twists around in a
+&+Lodd shape. The blackness is absolute and some shuffling sounds in
+&+Lthe distance can be heard.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142502
+D7
+~
+~
+0 0 142504
+S
+#142504
+&+wWithin the &+mS&+Marum &+wFamily Crypt&n~
+&+LTwisting passages made with the bones of all that died during the
+&+Lgreat battle of &+CIcecrag&+L when the army of the undead stormed it to
+&+Ldefeat King Rydian and the elves are mortared with some sort of
+&+Lcement. Empty eye sockets of skulls stare out and all manner of
+&+Llong bones jut out of the walls as this tunnel twists around in a
+&+Lodd shape. The blackness is absolute and some shuffling sounds in
+&+Lthe distance can be heard.
+~
+1 142639105 0 0
+D3
+~
+~
+0 0 142505
+D8
+~
+~
+0 0 142503
+S
+#142505
+&+wWithin the &+mS&+Marum &+wFamily Crypt&n~
+&+LTwisting passages made with the bones of all that died during the
+&+Lgreat battle of &+CIcecrag&+L when the army of the undead stormed it to
+&+Ldefeat King Rydian and the elves are mortared with some sort of
+&+Lcement. Empty eye sockets of skulls stare out and all manner of
+&+Llong bones jut out of the walls as this tunnel twists around in a
+&+Lodd shape. The blackness is absolute and some shuffling sounds in
+&+Lthe distance can be heard.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142504
+D3
+~
+~
+0 0 142506
+S
+#142506
+&+wWithin the &+mS&+Marum &+wFamily Crypt&n~
+&+LTwisting passages made with the bones of all that died during the
+&+Lgreat battle of &+CIcecrag&+L when the army of the undead stormed it to
+&+Ldefeat King Rydian and the elves are mortared with some sort of
+&+Lcement. Empty eye sockets of skulls stare out and all manner of
+&+Llong bones jut out of the walls as this tunnel twists around in a
+&+Lodd shape. The blackness is absolute and some shuffling sounds in
+&+Lthe distance can be heard.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142505
+D6
+~
+~
+0 0 142507
+S
+#142507
+&+LAbove a Room Carved of Pu&+wre Ob&+Lsid&+wian&n~
+&+LThis room is large and circular and carved of stone. There are no
+&+Lbones in this room, perhaps because they ran out of bones or the
+&+Larchitect of the Sarum family wanted the stone here to be in stark
+&+Lcontrast with the floor of obsidian. The obsidian floor glinting
+&+Lsoftly from the &+Yl&+Wi&+Rg&+rh&+Yt&+Ws&+L carried, like a massive black mirror. There
+&+Lis a large staircase, also obsidian, leading down to what likely
+&+Lis the main burial chamber for the royal family.
+~
+1 142639105 0 0
+D5
+~
+~
+0 0 142508
+D9
+~
+~
+0 0 142506
+S
+#142508
+&+LAn &+wOb&+Lsid&+wian&+L Burial Chamber&n~
+&+LThis burial chamber is circular and cut out of obsidian. The walls
+&+Lare smooth and have reliefs filled with the corpses of &+mSarum &+Ldead.
+&+LThe floor is also polished obsidian and mirrored. There is a huge
+&+Lobsidian coffin with a &+wsilver skull&+L centered on the top of the lid
+&+Lin the center of the room.
+~
+1 142639105 0 0
+D4
+~
+~
+0 0 142507
+S
+#142509
+&+yWithin the &+LPyramid Cr&+wyp&+Lt&n~
+&+yThis room is decorated with odd runes and has inscriptions in a long
+&+ydead language. The walls show signs of wear but the structure is well
+&+ymade and will last for millenia. A staircase leads down into the dark
+&+yover in the corner of the room. The crypt is eerily silent and death
+&+ycan be smelled in the &+Wfro&+Cst&+Wy &+yair.
+~
+1 142639105 0 0
+D2
+~
+crypt door~
+1 0 142426
+D5
+~
+~
+0 0 142510
+S
+#142510
+&+yWithin the &+RT&+ravinshir &+yCrypt&n~
+&+yThis crypt seems to have square cut passages cut out of sandstone
+&+yand the floors are brown tile. Along the walls there are paintings
+&+Wthe&+Curg&+Wist &+ymonarchs who ruled justly but brutally. Several ancient
+&+yexecutions are depicted with the corpse being mummified and having
+&+ya ritual performed which summoned a &+Wholy&+y spirit into the cadaver
+&+yof the criminal and being raised into an &+Ra&+Yrc&+Rhon&+y. Sarcophagus line
+&+ythe walls as well with their faces painted in the likeness of the
+&+yindividual while they were alive. A staircase here leads up.
+~
+1 142639105 0 0
+D3
+~
+~
+0 0 142511
+D4
+~
+~
+0 0 142509
+S
+#142511
+&+yWithin the &+RT&+ravinshir &+yCrypt&n~
+&+yThis crypt seems to have square cut passages cut out of sandstone
+&+yand the floors are brown tile. Along the walls there are paintings
+&+Wthe&+Curg&+Wist &+ymonarchs who ruled justly but brutally. Several ancient
+&+yexecutions are depicted with the corpse being mummified and having
+&+ya ritual performed which summoned a &+Wholy&+y spirit into the cadaver
+&+yof the criminal and being raised into an &+Ra&+Yrc&+Rhon&+y. Sarcophagus line
+&+ythe walls as well with their faces painted in the likeness of the
+&+yindividual while they were alive.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142510
+D3
+~
+~
+0 0 142512
+S
+#142512
+&+yWithin the &+RT&+ravinshir &+yCrypt&n~
+&+yThis crypt seems to have square cut passages cut out of sandstone
+&+yand the floors are brown tile. Along the walls there are paintings
+&+Wthe&+Curg&+Wist &+ymonarchs who ruled justly but brutally. Several ancient
+&+yexecutions are depicted with the corpse being mummified and having
+&+ya ritual performed which summoned a &+Wholy&+y spirit into the cadaver
+&+yof the criminal and being raised into an &+Ra&+Yrc&+Rhon&+y. Sarcophagus line
+&+ythe walls as well with their faces painted in the likeness of the
+&+yindividual while they were alive.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142511
+D2
+~
+~
+0 0 142515
+D3
+~
+~
+0 0 142513
+S
+#142513
+&+yWithin the &+RT&+ravinshir &+yCrypt&n~
+&+yThis crypt seems to have square cut passages cut out of sandstone
+&+yand the floors are brown tile. Along the walls there are paintings
+&+Wthe&+Curg&+Wist &+ymonarchs who ruled justly but brutally. Several ancient
+&+yexecutions are depicted with the corpse being mummified and having
+&+ya ritual performed which summoned a &+Wholy&+y spirit into the cadaver
+&+yof the criminal and being raised into an &+Ra&+Yrc&+Rhon&+y. Sarcophagus line
+&+ythe walls as well with their faces painted in the likeness of the
+&+yindividual while they were alive.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142512
+D3
+~
+~
+0 0 142514
+S
+#142514
+&+yWithin the &+RT&+ravinshir &+yCrypt&n~
+&+yThis crypt seems to have square cut passages cut out of sandstone
+&+yand the floors are brown tile. Along the walls there are paintings
+&+Wthe&+Curg&+Wist &+ymonarchs who ruled justly but brutally. Several ancient
+&+yexecutions are depicted with the corpse being mummified and having
+&+ya ritual performed which summoned a &+Wholy&+y spirit into the cadaver
+&+yof the criminal and being raised into an &+Ra&+Yrc&+Rhon&+y. Sarcophagus line
+&+ythe walls as well with their faces painted in the likeness of the
+&+yindividual while they were alive.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142513
+S
+#142515
+&+yWithin the &+RT&+ravinshir &+yCrypt&n~
+&+yThis crypt seems to have square cut passages cut out of sandstone
+&+yand the floors are brown tile. Along the walls there are paintings
+&+Wthe&+Curg&+Wist &+ymonarchs who ruled justly but brutally. Several ancient
+&+yexecutions are depicted with the corpse being mummified and having
+&+ya ritual performed which summoned a &+Wholy&+y spirit into the cadaver
+&+yof the criminal and being raised into an &+Ra&+Yrc&+Rhon&+y. Sarcophagus line
+&+ythe walls as well with their faces painted in the likeness of the
+&+yindividual while they were alive.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142512
+D2
+~
+~
+0 0 142516
+S
+#142516
+&+yWithin the &+RT&+ravinshir &+yCrypt&n~
+&+yThis crypt seems to have square cut passages cut out of sandstone
+&+yand the floors are brown tile. Along the walls there are paintings
+&+Wthe&+Curg&+Wist &+ymonarchs who ruled justly but brutally. Several ancient
+&+yexecutions are depicted with the corpse being mummified and having
+&+ya ritual performed which summoned a &+Wholy&+y spirit into the cadaver
+&+yof the criminal and being raised into an &+Ra&+Yrc&+Rhon&+y. Sarcophagus line
+&+ythe walls as well with their faces painted in the likeness of the
+&+yindividual while they were alive.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142515
+D2
+~
+~
+0 0 142517
+S
+#142517
+&+yWithin the &+RT&+ravinshir &+yCrypt&n~
+&+yThis crypt seems to have square cut passages cut out of sandstone
+&+yand the floors are brown tile. Along the walls there are paintings
+&+Wthe&+Curg&+Wist &+ymonarchs who ruled justly but brutally. Several ancient
+&+yexecutions are depicted with the corpse being mummified and having
+&+ya ritual performed which summoned a &+Wholy&+y spirit into the cadaver
+&+yof the criminal and being raised into an &+Ra&+Yrc&+Rhon&+y. Sarcophagus line
+&+ythe walls as well with their faces painted in the likeness of the
+&+yindividual while they were alive.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142516
+D2
+~
+~
+0 0 142518
+S
+#142518
+&+yWithin the &+RT&+ravinshir &+yCrypt&n~
+&+yThis crypt seems to have square cut passages cut out of sandstone
+&+yand the floors are brown tile. Along the walls there are paintings
+&+Wthe&+Curg&+Wist &+ymonarchs who ruled justly but brutally. Several ancient
+&+yexecutions are depicted with the corpse being mummified and having
+&+ya ritual performed which summoned a &+Wholy&+y spirit into the cadaver
+&+yof the criminal and being raised into an &+Ra&+Yrc&+Rhon&+y. Sarcophagus line
+&+ythe walls as well with their faces painted in the likeness of the
+&+yindividual while they were alive.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142517
+D2
+~
+~
+0 0 142519
+S
+#142519
+&+yAbove the &+BRo&+bya&+Bl &+WMu&+wm&+Lmi&+Wfi&+wca&+Lti&+Won &+yRoom&n~
+&+yThere is a staircase here leading down into what appears to be a
+&+ypreparation room used to preserve the dead to become mummies. A
+&+yfew shadowy figures seem to be skulking about below. The massive
+&+Bro&+bya&+Bl &+ysigil of the &+RTavinshir &+yis emblazoned on the wall above the
+&+ystaircase.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142518
+D5
+~
+~
+0 0 142520
+S
+#142520
+&+yThe &+BRo&+bya&+Bl &+WMu&+wmm&+Lif&+Wic&+wat&+Lio&+Wn &+yRoom~
+&+yThere are several stone tables thoughout the room and ancient stone
+&+yracks with various &+Csharp &+yimplements used in the rites of mummification
+&+yrituals line the walls here. A large stone sarcophagus lies in the
+&+ycenter of the room with the &+Bro&+bya&+Bl &+ycrest of the &+RTavinshir&+y.
+~
+1 142639105 0 0
+D4
+~
+~
+0 0 142519
+S
+#142521
+&+WA Ma&+Lrb&+Wle Foyer&n~
+&+WThis room is all marble with white pillars surrounding it perimeter.
+&+WA ma&+Lrb&+Wle staircase with a &+Ygolden rail &+Wleads downwards into the crypt
+&+Witself. The Platyrs were also very good with money and it is evident
+&+Win the artful design of the crypt. Statues of various famous Platyr
+&+Wmonarchs can be found on pedestals throughout the foyer. It appears
+&+Was though no one has been here in some time.
+~
+1 142639105 0 0
+D2
+~
+crypt door~
+1 0 142415
+D5
+~
+~
+0 0 142522
+S
+#142522
+&+wWithin the &+WP&+wlatyr &+wFamily Crypt&n~
+&+wThe corridors in this crypt are covered in marble and white tile. The
+&+wcrypt has an eerie contrast with how white and pure it was supposed to
+&+wappear and how neglected and abandoned it is now. Reliefs in the walls
+&+whold urns because the Platyrs believed in cremating their dead in huge
+&+wfuneral &+rp&+Ry&+Yre&+rs&+w. The air down here is heavy and filled with a forboding
+&+wpresence. &+LShadows &+wdance in peripheral vision and faint whispers can be
+&+wheard in the darkness. In one of the reliefs a staircase leads up.
+~
+1 142639105 0 0
+D3
+~
+~
+0 0 142523
+D4
+~
+~
+0 0 142521
+D9
+~
+~
+0 0 142532
+S
+#142523
+&+wWithin the &+WP&+wlatyr &+wFamily Crypt&n~
+&+wThe corridors in this crypt are covered in marble and white tile. The
+&+wcrypt has an eerie contrast with how white and pure it was supposed to
+&+wappear and how neglected and abandoned it is now. Reliefs in the walls
+&+whold urns because the Platyrs believed in cremating their dead in huge
+&+wfuneral &+rp&+Ry&+Yre&+rs&+w. The air down here is heavy and filled with a forboding
+&+wpresence. &+LShadows &+wdance in peripheral vision and faint whispers can be
+&+wheard in the darkness.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142522
+D3
+~
+~
+0 0 142524
+S
+#142524
+&+wWithin the &+WP&+wlatyr &+wFamily Crypt&n~
+&+wThe corridors in this crypt are covered in marble and white tile. The
+&+wcrypt has an eerie contrast with how white and pure it was supposed to
+&+wappear and how neglected and abandoned it is now. Reliefs in the walls
+&+whold urns because the Platyrs believed in cremating their dead in huge
+&+wfuneral &+rp&+Ry&+Yre&+rs&+w. The air down here is heavy and filled with a forboding
+&+wpresence. &+LShadows &+wdance in peripheral vision and faint whispers can be
+&+wheard in the darkness.
+~
+1 142639105 0 0
+D1
+~
+~
+0 0 142523
+D2
+~
+~
+0 0 142525
+S
+#142525
+&+wWithin the &+WP&+wlatyr &+wFamily Crypt&n~
+&+wThe corridors in this crypt are covered in marble and white tile. The
+&+wcrypt has an eerie contrast with how white and pure it was supposed to
+&+wappear and how neglected and abandoned it is now. Reliefs in the walls
+&+whold urns because the Platyrs believed in cremating their dead in huge
+&+wfuneral &+rp&+Ry&+Yre&+rs&+w. The air down here is heavy and filled with a forboding
+&+wpresence. &+LShadows &+wdance in peripheral vision and faint whispers can be
+&+wheard in the darkness.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142524
+D2
+~
+~
+0 0 142526
+S
+#142526
+&+wWithin the &+WP&+wlatyr &+wFamily Crypt&n~
+&+wThe corridors in this crypt are covered in marble and white tile. The
+&+wcrypt has an eerie contrast with how white and pure it was supposed to
+&+wappear and how neglected and abandoned it is now. Reliefs in the walls
+&+whold urns because the Platyrs believed in cremating their dead in huge
+&+wfuneral &+rp&+Ry&+Yre&+rs&+w. The air down here is heavy and filled with a forboding
+&+wpresence. &+LShadows &+wdance in peripheral vision and faint whispers can be
+&+wheard in the darkness.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142525
+D1
+~
+~
+0 0 142531
+D2
+~
+~
+0 0 142527
+S
+#142527
+&+wWithin the &+WP&+wlatyr &+wFamily Crypt&n~
+&+wThe corridors in this crypt are covered in marble and white tile. The
+&+wcrypt has an eerie contrast with how white and pure it was supposed to
+&+wappear and how neglected and abandoned it is now. Reliefs in the walls
+&+whold urns because the Platyrs believed in cremating their dead in huge
+&+wfuneral &+rp&+Ry&+Yre&+rs&+w. The air down here is heavy and filled with a forboding
+&+wpresence. &+LShadows &+wdance in peripheral vision and faint whispers can be
+&+wheard in the darkness.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142526
+D2
+~
+~
+0 0 142528
+S
+#142528
+&+wWithin the &+WP&+wlatyr &+wFamily Crypt&n~
+&+wThe corridors in this crypt are covered in marble and white tile. The
+&+wcrypt has an eerie contrast with how white and pure it was supposed to
+&+wappear and how neglected and abandoned it is now. Reliefs in the walls
+&+whold urns because the Platyrs believed in cremating their dead in huge
+&+wfuneral &+rp&+Ry&+Yre&+rs&+w. The air down here is heavy and filled with a forboding
+&+wpresence. &+LShadows &+wdance in peripheral vision and faint whispers can be
+&+wheard in the darkness.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142527
+D2
+~
+~
+0 0 142529
+S
+#142529
+&+wAbove a Large Mau&+Lso&+wleum&n~
+&+wA staircase leads down to a mausoleum room below. The sigil of the
+&+WPlatyr &+wfamily is carved into a relief in the wall above the steps.
+&+wBlack &+Lshadows &+wflit about below and it cannot be told if its just
+&+wthe eyes playing tricks or if there is something below.
+~
+1 142639105 0 0
+D0
+~
+~
+0 0 142528
+D5
+~
+~
+0 0 142530
+S
+#142530
+&+wThe &+WP&+wlatyr &+wMau&+Lsol&+weum&n~
+&+wThis room is circular with several large reliefs where marble statues
+&+wstand on small pedestals, in front of each of the statues is a large
+&+wurn. Pillars also line the walls and the floor is polished marble. In
+&+wthe center of the room there is a large urn bearing the seal of the
+&+WPlatyr &+wfamily. Cobwebs and dust are noted on everything within sight.
+~
+1 142639105 0 0
+D4
+~
+~
+0 0 142529
+S
+#142531
+&+wWithin the &+WP&+wlatyr &+wFamily Crypt&n~
+&+wThe corridors in this crypt are covered in marble and white tile. The
+&+wcrypt has an eerie contrast with how white and pure it was supposed to
+&+wappear and how neglected and abandoned it is now. Reliefs in the walls
+&+whold urns because the Platyrs believed in cremating their dead in huge
+&+wfuneral &+rp&+Ry&+Yre&+rs&+w. The air down here is heavy and filled with a forboding
+&+wpresence. &+LShadows &+wdance in peripheral vision and faint whispers can be
+&+wheard in the darkness.
+~
+1 142639105 0 0
+D3
+~
+~
+0 0 142526
+D8
+~
+~
+0 0 142532
+S
+#142532
+&+wWithin the &+WP&+wlatyr &+wFamily Crypt&n~
+&+wThe corridors in this crypt are covered in marble and white tile. The
+&+wcrypt has an eerie contrast with how white and pure it was supposed to
+&+wappear and how neglected and abandoned it is now. Reliefs in the walls
+&+whold urns because the Platyrs believed in cremating their dead in huge
+&+wfuneral &+rp&+Ry&+Yre&+rs&+w. The air down here is heavy and filled with a forboding
+&+wpresence. &+LShadows &+wdance in peripheral vision and faint whispers can be
+&+wheard in the darkness.
+~
+1 142639105 0 0
+D6
+~
+~
+0 0 142522
+D7
+~
+~
+0 0 142531
+S

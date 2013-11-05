@@ -279,7 +279,8 @@ struct edit_data {
 #define LNK_GRAPPLED        18
 #define LNK_CIRCLING        19
 #define LNK_TETHER	    20
-#define LNK_MAX             20
+#define LNK_SNG_HEALING	21
+#define LNK_MAX             21
 
 #define LNKFLG_ROOM            BIT_1
 #define LNKFLG_AFFECT          BIT_2
@@ -447,8 +448,20 @@ struct edit_data {
 #define INNATE_LONGSWORD_MASTER  155
 #define INNATE_MELEE_MASTER      156
 #define INNATE_GUARDIANS_BULWARK 157
+<<<<<<< HEAD
 #define INNATE_ELEMENTAL_POWER   158
 #define LAST_INNATE              158   // LAST means last, not last + 1 or whatever
+=======
+#define INNATE_WALL_CLIMBING     158
+#define INNATE_WOODLAND_RENEWAL  159
+#define INNATE_NATURAL_MOVEMENT  160
+#define MAGIC_VULNERABILITY 161
+#define TWO_HANDED_SWORD_MASTERY 162
+#define HOLY_COMBAT		     163
+#define INNATE_GIANT_AVOIDANCE	     164
+#define INNATE_SEADOG	     165
+#define LAST_INNATE              165   // LAST means last, not last + 1 or whatever
+>>>>>>> master
 
 struct extra_descr_data {
   char *keyword;                /* Keyword in look/examine          */
@@ -882,6 +895,24 @@ struct room_data {
 #define PLR2_NEWBIE_GUIDE  BIT_31
 #define PLR2_ACC           BIT_32
 
+/* For players : specials.act3 */
+#define PLR3_FRAGLEAD      BIT_1  /* FragList Leader */
+#define PLR3_FRAGLOW       BIT_2  /* Lowest Fragger */
+#define PLR3_RACIAL_SKILLS BIT_3
+#define PLR3_NOSUR         BIT_4  /* Titles that will show on who list before names - This is default, none */
+#define PLR3_SURSERF	      BIT_5
+#define PLR3_SURCOMMONER   BIT_6
+#define PLR3_SURKNIGHT     BIT_7
+#define PLR3_SURNOBLE      BIT_8
+#define PLR3_SURLORD       BIT_9
+#define PLR3_SURKING	      BIT_10
+#define PLR3_SURLIGHT      BIT_11
+#define PLR3_SURDRAGON     BIT_12
+#define PLR3_SURHEALS      BIT_13
+#define PLR3_SURSERIAL     BIT_14
+#define PLR3_SURREAPER     BIT_15
+#define PLR3_SURDECEPTICON BIT_16
+
 /* For players : Prompt flags (16 bits max) */
 #define PROMPT_NONE        BIT_1
 #define PROMPT_HIT         BIT_2
@@ -1198,6 +1229,8 @@ struct pc_only_data {           /* values only used by PCs        */
   int quest_map_bought;
 
   long unsigned int last_ip;
+  int skillpoints;
+
 };
 
 struct npc_only_data {          /* values only used by NPCs  */
@@ -1240,6 +1273,7 @@ struct char_special_data {
   ubyte position;               /* posture and status                      */
   unsigned int act;             /* flags for NPC behavior                  */
   unsigned int act2;            /* extra toggles - Zod                     */
+  unsigned int act3;            /* achievement flags - Drannak             */
 
   int           base_combat_round;
   int           combat_tics;
@@ -1670,6 +1704,15 @@ struct s_skill {
   /* func pointer, 0 for skills */
   void (*spell_pointer) (int, P_char, char *, int, P_char, P_obj);
   struct ClassSkillInfo m_class[CLASS_COUNT];      /* info for each class */
+#ifdef SKILLPOINTS
+  int maxtrainwarr;
+  int maxtrainsorc;
+  int maxtrainprst;
+  int maxtrainrogu;
+  int dependency[7];
+  int mintotrain[7];
+  bool specskill;
+#endif
 };
 
 #ifndef _PFILE_
@@ -1979,7 +2022,8 @@ struct mcname {
 /*AntiPaladin Specs */
 #define SPEC_KNIGHT 1
 #define SPEC_DEMONIC 2
-#define SPEC_SPAWN 3
+#define SPEC_VIOLATOR 3
+#define SPEC_SPAWN 4
 
 /* CLASS_PALADIN Specs */
 #define SPEC_CRUSADER 1

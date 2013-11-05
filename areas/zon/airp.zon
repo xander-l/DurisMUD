@@ -1,6 +1,6 @@
 #1316
 &+CThe &+WTem&+Cpes&+Wt &+CCourt&n~
-131799 1 0 40 50 1
+131799 0 0 40 50 3
 *
 * Zone edited with durisEdit v2.99de
 *
@@ -145,8 +145,9 @@ O 0 131607 1 131751 100 0 0 0      * a gate of ice
 O 0 131614 1 131768 100 0 0 0      * a gate of tempests
 *
 M 0 131603 17 131601 100 0 0 0     * a slyph
-M 0 131609 6 131602 100 0 0 0      * a djinni warrior
+M 0 131649 6 131602 100 0 0 0      * a djinni warrior
 R 1 131605 7 131602 100 0 0 0      * a living tempest (being ridden)
+E 1 131658 15 16 100 0 0 0         *   a sword of air and lightning
 M 0 131604 11 131603 100 0 0 0     * a slyph
 M 0 131600 8 131604 100 0 0 0      * an invisible stalker
 M 0 131602 47 131608 100 0 0 0     * an aerial servant
@@ -160,6 +161,9 @@ M 0 131602 47 131612 100 0 0 0     * an aerial servant
 M 0 131602 47 131612 100 0 0 0     * an aerial servant
 M 0 131604 11 131612 100 0 0 0     * a slyph
 M 0 131605 7 131613 100 0 0 0      * a living tempest
+E 1 131658 15 16 100 0 0 0         *   a sword of air and lightning
+M 0 131619 1 131613 50 0 0 0       * Ixteal
+G 1 131615 1 0 100 0 0 0           *    the heart of ixteal
 M 0 131602 47 131614 100 0 0 0     * an aerial servant
 M 0 131602 47 131614 100 0 0 0     * an aerial servant
 M 0 131604 11 131614 100 0 0 0     * a slyph
@@ -171,8 +175,11 @@ M 0 131608 27 131619 100 0 0 0     * a HUGE air elemental
 M 0 131603 17 131621 100 0 0 0     * a slyph
 M 0 131606 22 131622 100 0 0 0     * a large air elemental
 M 0 131602 47 131623 100 0 0 0     * an aerial servant
-M 0 131609 6 131624 100 0 0 0      * a djinni warrior
+M 0 131617 1 131623 100 0 0 0      * Maelthron
+G 1 131624 1 0 100 0 0 0           *    the fabled ruby of the Dragons
+M 0 131649 6 131624 100 0 0 0      * a djinni warrior
 R 1 131605 7 131624 100 0 0 0      * a living tempest (being ridden)
+E 1 131658 15 16 100 0 0 0         *   a sword of air and lightning
 M 0 131606 22 131625 100 0 0 0     * a large air elemental
 M 0 131606 22 131625 100 0 0 0     * a large air elemental
 M 0 131608 27 131626 100 0 0 0     * a HUGE air elemental
@@ -186,23 +193,42 @@ M 0 131612 3 131631 100 0 0 0      * a negitave energy elemental
 M 0 131612 3 131631 100 0 0 0      * a negitave energy elemental
 M 0 131613 1 131632 100 0 0 0      * Verthor
 E 1 131630 1 21 100 0 0 0          *   an earring of negative energy
+M 0 131623 1 131633 50 0 0 0       * Amophar, the Wind Duke
+E 1 131658 15 16 100 0 0 0         *   a sword of air and lightning
+E 1 131642 1 18 100 0 0 0          *   the swirling essence of the Four Storms
+M 0 131625 1 131633 50 0 0 0       * Icosiol, the Wind Duke
+E 1 131638 1 3 100 0 0 0           *   a breeze of floating clouds and drifting motes
+E 1 131658 15 16 100 0 0 0         *   a sword of air and lightning
+E 1 131643 1 18 100 0 0 0          *   the swirling essence of the Winds of Fate
+M 0 131624 1 131633 50 0 0 0       * Zosiel, the Wind Duke
+E 1 131637 1 10 100 0 0 0          *   some vambraces depicting a stylized hurricane
+E 1 131658 15 16 100 0 0 0         *   a sword of air and lightning
+E 1 131644 1 18 100 0 0 0          *   the swirling essence of the Great Maelstrom
+M 0 131627 1 131633 50 0 0 0       * Emoniel, the Wind Duke
+G 1 131645 1 0 100 0 0 0           *    the swirling essence of the Boundless Blue
+G 1 131658 15 0 100 0 0 0          *    a sword of air and lightning
+M 0 131626 1 131633 50 0 0 0       * Uriel, the Wind Duke
+E 1 131658 15 16 100 0 0 0         *   a sword of air and lightning
+E 1 131646 1 18 100 0 0 0          *   the swirling essence of the Unseen Breeze
 M 0 131606 22 131634 100 0 0 0     * a large air elemental
 M 0 131602 47 131634 100 0 0 0     * an aerial servant
+M 0 131621 1 131634 75 0 0 0       * Darthikya, the Githyanki Hunter
 M 0 131608 27 131636 100 0 0 0     * a HUGE air elemental
 M 0 131600 8 131639 100 0 0 0      * an invisible stalker
 M 0 131604 11 131640 100 0 0 0     * a slyph
-M 0 131609 6 131641 100 0 0 0      * a djinni warrior
+M 0 131649 6 131641 100 0 0 0      * a djinni warrior
 R 1 131605 7 131641 100 0 0 0      * a living tempest (being ridden)
+E 1 131658 15 16 100 0 0 0         *   a sword of air and lightning
 M 0 131616 1 131643 100 0 0 0      * the north wind
 M 0 131606 22 131644 100 0 0 0     * a large air elemental
 M 0 131606 22 131646 100 0 0 0     * a large air elemental
-M 0 131614 5 131647 100 0 0 0      * a djinni mage
+M 0 131650 5 131647 100 0 0 0      * a djinni mage
 M 0 131600 8 131648 100 0 0 0      * an invisible stalker
 M 0 131603 17 131649 100 0 0 0     * a slyph
 M 0 131602 47 131651 100 0 0 0     * an aerial servant
 M 0 131608 27 131653 100 0 0 0     * a HUGE air elemental
-M 0 131615 1 131654 10 0 0 0       * Al'Hajib
-M 0 131614 5 131655 100 0 0 0      * a djinni mage
+M 0 131651 1 131654 100 0 0 0      * Al'Hajib
+M 0 131650 5 131655 100 0 0 0      * a djinni mage
 M 0 131600 8 131656 100 0 0 0      * an invisible stalker
 M 0 131606 22 131657 100 0 0 0     * a large air elemental
 M 0 131606 22 131658 100 0 0 0     * a large air elemental
@@ -212,33 +238,35 @@ M 0 131608 27 131663 100 0 0 0     * a HUGE air elemental
 M 0 131603 17 131664 100 0 0 0     * a slyph
 M 0 131602 47 131665 100 0 0 0     * an aerial servant
 M 0 131602 47 131667 100 0 0 0     * an aerial servant
-M 0 131609 6 131669 100 0 0 0      * a djinni warrior
+M 0 131649 6 131669 100 0 0 0      * a djinni warrior
 R 1 131605 7 131669 100 0 0 0      * a living tempest (being ridden)
+E 1 131658 15 16 100 0 0 0         *   a sword of air and lightning
 M 0 131603 17 131670 100 0 0 0     * a slyph
 M 0 131600 8 131672 100 0 0 0      * an invisible stalker
 M 0 131608 27 131674 100 0 0 0     * a HUGE air elemental
-M 0 131614 5 131675 100 0 0 0      * a djinni mage
+M 0 131650 5 131675 100 0 0 0      * a djinni mage
 M 0 131608 27 131676 100 0 0 0     * a HUGE air elemental
 M 0 131606 22 131678 100 0 0 0     * a large air elemental
 M 0 131618 1 131679 100 0 0 0      * Aurilium
-M 0 131609 6 131680 100 0 0 0      * a djinni warrior
+M 0 131649 6 131680 100 0 0 0      * a djinni warrior
 R 1 131605 7 131680 100 0 0 0      * a living tempest (being ridden)
+E 1 131658 15 16 100 0 0 0         *   a sword of air and lightning
 M 0 131606 22 131682 100 0 0 0     * a large air elemental
 M 0 131602 47 131682 100 0 0 0     * an aerial servant
-M 0 131622 8 131683 100 0 0 0      * an air mephit
+M 0 131622 7 131683 100 0 0 0      * an air mephit
 M 0 131603 17 131684 100 0 0 0     * a slyph
 M 0 131602 47 131684 100 0 0 0     * an aerial servant
-M 0 131622 8 131686 100 0 0 0      * an air mephit
+M 0 131622 7 131686 100 0 0 0      * an air mephit
 M 0 131608 27 131688 100 0 0 0     * a HUGE air elemental
 M 0 131603 17 131689 100 0 0 0     * a slyph
-M 0 131614 5 131691 100 0 0 0      * a djinni mage
+M 0 131650 5 131691 100 0 0 0      * a djinni mage
 M 0 131608 27 131693 100 0 0 0     * a HUGE air elemental
 M 0 131602 47 131695 100 0 0 0     * an aerial servant
 M 0 131606 22 131697 100 0 0 0     * a large air elemental
 M 0 131602 47 131698 100 0 0 0     * an aerial servant
 M 0 131606 22 131699 100 0 0 0     * a large air elemental
 M 0 131608 27 131701 100 0 0 0     * a HUGE air elemental
-M 0 131622 8 131702 100 0 0 0      * an air mephit
+M 0 131622 7 131702 100 0 0 0      * an air mephit
 M 0 131600 8 131705 100 0 0 0      * an invisible stalker
 M 0 131602 47 131706 100 0 0 0     * an aerial servant
 M 0 131600 8 131707 100 0 0 0      * an invisible stalker
@@ -251,14 +279,14 @@ M 0 131602 47 131717 100 0 0 0     * an aerial servant
 M 0 131602 47 131718 100 0 0 0     * an aerial servant
 M 0 131606 22 131719 100 0 0 0     * a large air elemental
 M 0 131606 22 131720 100 0 0 0     * a large air elemental
-M 0 131622 8 131722 100 0 0 0      * an air mephit
-M 0 131622 8 131722 100 0 0 0      * an air mephit
-M 0 131609 6 131723 100 0 0 0      * a djinni warrior
+M 0 131622 7 131722 100 0 0 0      * an air mephit
+M 0 131622 7 131722 100 0 0 0      * an air mephit
+M 0 131649 6 131723 100 0 0 0      * a djinni warrior
 R 1 131605 7 131723 100 0 0 0      * a living tempest (being ridden)
+E 1 131658 15 16 100 0 0 0         *   a sword of air and lightning
 M 0 131608 27 131726 100 0 0 0     * a HUGE air elemental
 M 0 131600 8 131727 100 0 0 0      * an invisible stalker
-M 0 131614 5 131729 100 0 0 0      * a djinni mage
-M 0 131622 8 131730 100 0 0 0      * an air mephit
+M 0 131650 5 131729 100 0 0 0      * a djinni mage
 M 0 131602 47 131731 100 0 0 0     * an aerial servant
 M 0 131603 17 131733 100 0 0 0     * a slyph
 M 0 131602 47 131734 100 0 0 0     * an aerial servant
@@ -283,12 +311,10 @@ G 1 131605 1 0 100 0 0 0           *    a key of pure smoke
 G 1 131610 1 0 100 0 0 0           *    the essense of smoke
 M 0 131602 47 131748 100 0 0 0     * an aerial servant
 M 0 131602 47 131748 100 0 0 0     * an aerial servant
-M 0 131634 1 131749 100 0 0 0      * Halla'Al
-E 1 131635 2 1 100 0 0 0           *   a fiery ring
-M 0 131633 1 131750 100 0 0 0      * Maugly, the fire giant
-E 1 131635 2 1 100 0 0 0           *   a fiery ring
+M 0 131634 1 131749 10 0 0 0       * Halla'Al'
+E 1 131635 1 21 100 0 0 0          *   an efreeti earring of tenflames
 M 0 131606 22 131751 100 0 0 0     * a large air elemental
-M 0 131622 8 131751 100 0 0 0      * an air mephit
+M 0 131622 7 131751 100 0 0 0      * an air mephit
 M 0 131604 11 131752 100 0 0 0     * a slyph
 M 0 131606 22 131752 100 0 0 0     * a large air elemental
 M 0 131608 27 131753 100 0 0 0     * a HUGE air elemental
@@ -297,7 +323,7 @@ M 0 131608 27 131754 100 0 0 0     * a HUGE air elemental
 M 0 131606 22 131755 100 0 0 0     * a large air elemental
 M 0 131603 17 131756 100 0 0 0     * a slyph
 M 0 131602 47 131756 100 0 0 0     * an aerial servant
-M 0 131622 8 131756 100 0 0 0      * an air mephit
+M 0 131622 7 131756 100 0 0 0      * an air mephit
 M 0 131604 11 131757 100 0 0 0     * a slyph
 M 0 131602 47 131758 100 0 0 0     * an aerial servant
 M 0 131603 17 131758 100 0 0 0     * a slyph
@@ -320,7 +346,6 @@ G 1 131634 1 0 100 0 0 0           *    a staff of the marids
 M 0 131603 17 131763 100 0 0 0     * a slyph
 M 0 131608 27 131764 100 0 0 0     * a HUGE air elemental
 M 0 131602 47 131765 100 0 0 0     * an aerial servant
-M 0 131637 1 131766 100 0 0 0      * Fearfrost
 M 0 131602 47 131766 100 0 0 0     * an aerial servant
 M 0 131636 1 131767 100 0 0 0      * Ecthius
 G 1 131609 1 0 100 0 0 0           *    the essence of frost
@@ -332,8 +357,13 @@ E 1 131620 1 14 100 0 0 0          *   a bracelet of rainbows
 F 1 131643 2 131770 100 0 0 0      * a sylph handmaiden (following)
 F 1 131643 2 131770 100 0 0 0      * a sylph handmaiden (following)
 M 0 131641 8 131771 100 0 0 0      * a GIGANTIC air elemental
-M 0 131644 1 131772 100 0 0 0      * Gogol
-E 1 131619 1 16 100 0 0 0          *   a tricksters dagger
+M 0 131644 1 131772 50 0 0 0       * Gogal
+E 1 131619 1 16 100 0 0 0          *   a tricksters dagger of deception and illusions
+E 1 131657 3 17 100 0 0 0          *   a dagger of illusions
+E 1 131657 3 25 100 0 0 0          *   a dagger of illusions
+E 1 131657 3 26 100 0 0 0          *   a dagger of illusions
+M 0 131637 1 131772 50 0 0 0       * Fearfrost
+M 0 131630 1 131772 100 0 0 0      * Chan, the Dark Tempest
 M 0 131608 27 131773 100 0 0 0     * a HUGE air elemental
 M 0 131645 1 131774 100 0 0 0      * Calthon
 E 1 131623 1 16 100 0 0 0          *   a crystal dagger
@@ -341,6 +371,7 @@ M 0 131608 27 131775 100 0 0 0     * a HUGE air elemental
 M 0 131608 27 131776 100 0 0 0     * a HUGE air elemental
 M 0 131646 1 131777 100 0 0 0      * Verves
 E 1 131621 1 16 100 0 0 0          *   a crystal spear
+G 1 131639 1 0 45 0 0 0            *    the saddle of the four winds
 F 1 131602 47 131777 100 0 0 0     * an aerial servant (following)
 F 1 131602 47 131777 100 0 0 0     * an aerial servant (following)
 M 0 131641 8 131778 100 0 0 0      * a GIGANTIC air elemental
@@ -354,32 +385,24 @@ M 0 131608 27 131785 100 0 0 0     * a HUGE air elemental
 M 0 131608 27 131788 100 0 0 0     * a HUGE air elemental
 M 0 131608 27 131792 100 0 0 0     * a HUGE air elemental
 M 0 131648 1 131792 100 0 0 0      * Akadi
-E 1 131617 1 12 100 0 0 0          *   a cloak of the north wind
-E 1 131616 1 16 100 0 0 0          *   the dagger of Wind
-E 1 131618 1 21 100 0 0 0          *   a crystal earring
+E 1 131617 1 12 100 0 0 0          *   the frost-covered cloak of the north wind
+E 1 131653 1 16 100 0 0 0          *   Akadi Air Attack
+E 1 131658 15 17 100 0 0 0         *   a sword of air and lightning
+E 1 131618 1 21 100 0 0 0          *   an earring of rainbows
+E 1 131658 15 25 100 0 0 0         *   a sword of air and lightning
+E 1 131658 15 26 100 0 0 0         *   a sword of air and lightning
+G 1 359 1 0 100 0 0 0              *    (object type not in this .obj file)
+G 1 131616 1 0 100 0 0 0           *    the dagger of Wind
 M 0 131641 8 131796 100 0 0 0      * a GIGANTIC air elemental
-M 0 131619 1 131797 10 0 0 0       * Ixteal
-G 1 131615 1 0 100 0 0 0           *    the heart of ixteal
-M 0 131623 1 131797 100 0 0 0      * Lithinion
-F 1 131624 1 131797 100 0 0 0      * Edrick (following)
-E 1 131637 1 10 100 0 0 0          *   some mithral vambraces
-F 1 131625 1 131797 100 0 0 0      * Grandor (following)
-E 1 131638 1 3 100 0 0 0           *   a dwarven-made holy symbol
-F 1 131626 1 131797 100 0 0 0      * Aurilyia (following)
-F 1 131627 1 131797 100 0 0 0      * Amrothlin (following)
-M 0 131621 1 131797 100 0 0 0      * Darthikya, the Githyanki Hunter
-F 1 131628 1 131797 100 0 0 0      * Gorthos (following)
-E 1 131639 1 14 100 0 0 0          *   a wrought-iron bracer
-F 1 131629 1 131797 100 0 0 0      * Everhate (following)
-E 1 131640 1 13 100 0 0 0          *   a dragonscale belt
-F 1 131630 1 131797 100 0 0 0      * Myria, Priestess of Lolth (following)
-M 0 131617 1 131797 100 0 0 0      * Maelthron
-G 1 131624 1 0 100 0 0 0           *    the fabled ruby of the Dragons
 M 0 131607 1 131797 100 0 0 0      * Veri'throck, the Ultraloth
 E 1 131626 1 16 100 0 0 0          *   a black barbed whip
+M 0 131629 1 131797 100 0 0 0      * Everhate
+E 1 131640 1 13 100 0 0 0          *   a dragonscale belt
+M 0 131633 1 131797 100 0 0 0      * Maugly, the fire giant
+M 0 131628 1 131797 100 0 0 0      * Gorthos
 M 0 131620 1 131799 100 0 0 0      * Yan-C-Bin
 G 1 131625 1 0 100 0 0 0           *    a dark mass
-M 0 131601 1 131799 100 0 0 0      * David, the Monadoc Deva
-E 1 131629 1 5 100 0 0 0           *   a holy deva robe
+M 0 131601 1 131799 100 0 0 0      * Ellacarzel, Angel of the Clouds
+E 1 131629 1 5 100 0 0 0           *   the holy robes of the angel of clouds
 *
 S

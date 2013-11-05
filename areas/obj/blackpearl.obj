@@ -1,0 +1,1021 @@
+#142200
+key brass brittle~
+&+ya br&+wit&+ytle &+Ybrass &+ykey&N~
+&+ya large &+Ybrass&+y key has been tossed aside here&N~
+~
+18 17 3 0 7 0 4096 8404993 0 0 0
+0 100 0 0 0 0 0 0
+0 0 100
+#142201
+key brass brittle~
+&+ya br&+wit&+ytle &+Ybrass &+ykey&N~
+&+ya large &+Ybrass&+y key has been tossed aside here&N~
+~
+18 17 3 0 7 0 4096 8404993 0 0 0
+0 100 0 0 0 0 0 0
+0 0 100
+#142202
+chest dusty iron~
+&+ya &+Ldusty &+wi&+Lr&+won-bou&+Ln&+wd &+ychest&N~
+&+yA &+Ldusty &+ychest stands here bolted securely to the ground.&N~
+~
+15 15 3 0 7 0 8 0 0 0 0
+500 17 142200 500 0 0 0 0
+0 0 100
+#142203
+chest dusty iron~
+&+ya &+Ldusty &+wi&+Lr&+won-bou&+Ln&+wd &+ychest&N~
+&+yA &+Ldusty &+ychest stands here bolted securely to the ground.&N~
+~
+15 15 3 0 7 0 8 0 0 0 0
+5000 17 142201 5000 0 0 0 0
+0 0 100
+#142204
+fragment sword godquest~
+&+Wa sword fragment&N~
+&+WA sword fragment lays on the ground here.&N~
+~
+5 19 3 0 14 0 8397064 8413185 64 0 0
+2 2 2 11 0 0 0 0
+0 0 100
+#142205
+fragment sword godquest~
+&+Wa sword fragment&N~
+&+wA sword fragment lays on the ground here.&N~
+~
+9 19 3 0 7 0 8396808 8404993 64 0 0
+0 0 0 1 0 0 0 0
+0 0 100
+#142206
+fragment sword godquest~
+&+Wa sword fragment&N~
+&+wA sword fragment lays on the ground here.&N~
+~
+9 19 3 0 7 0 8462344 8404993 64 0 0
+0 0 0 1 0 0 0 0
+0 0 100
+#142207
+fragment sword godquest~
+&+Wa sword fragment&N~
+&+wA sword fragment lays here.&N~
+~
+9 19 3 0 7 0 8400904 8404993 64 0 0
+0 0 0 1 0 0 0 0
+0 0 100
+#142208
+fragment sword godquest~
+&+Wa sword fragment&N~
+&+wA sword fragment lays here.&N~
+~
+9 19 3 0 7 0 8396808 8404993 64 0 0
+0 0 0 1 0 0 0 0
+0 0 100
+#142209
+fragment sword godquest~
+&+Wa sword fragment&N~
+&+wA sword fragment lays here.&N~
+~
+9 19 3 0 7 0 8396808 8404993 64 0 0
+0 0 0 1 0 0 0 0
+0 0 100
+#142210
+fragment sword godquest~
+&+Wa sword fragment&N~
+&+wA sword fragment lays here.&N~
+~
+9 19 3 0 7 0 8396808 8404993 64 0 0
+0 0 0 1 0 0 0 0
+0 0 100
+#142211
+fragment sword godquest~
+&+Wa sword fragment&N~
+&+wA sword fragment lays here.&N~
+~
+9 19 3 0 7 0 8396808 8404993 64 0 0
+0 0 0 1 0 0 0 0
+0 0 100
+#142212
+letter godquest~
+&+Wa letter to Jyarl&N~
+&+WA letter has been dropped here.&N~
+~
+12 28 3 0 7 0 8462344 8404993 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+letter godquest~
+&+WOld Friend Jyarl,
+&+W
+&+W    It has been many ages since we last spoke. The time
+&+W  has come to finally be rid of Aghalhassax's decendants.
+&+W  The pieces of my sword have been gathered, with the exception
+&+W  of the one you are in possession of.  Please give it to these
+&+W  trusty adventurers for without them, we would be lost.
+&+W
+&+W                         Thank you,
+&+W                            Warthehr Ngolahn
+&N
+~
+#142213
+letter godquest~
+&+Ga letter to Lyle&N~
+&+GA letter lays on the ground here.&N~
+~
+12 28 3 0 7 0 8462344 8404993 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+letter godquest~
+&+G Honorable Lyle,
+&+G
+&+G     Once long ago you were left in possession of a fragment from
+&+G  my sword.  The time has come to reconstruct my sword.  Please
+&+G  assist my loyal companions in their journey.  They will help
+&+G  you if needed and they are very resourceful.
+&+G
+&+G
+&+G                         Warthehr Ngolahn
+&N
+~
+#142214
+letter godquest~
+&+Ya letter to Abal&N~
+&+YA letter lays on the ground here.&N~
+~
+12 28 3 0 7 0 8527880 8404993 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+letter godquest~
+  You are unable to make out most of the words for very few of them are
+written in any distinguishable language.
+&+Y  Jwjerkljw.zlkjqposiuwoeir.koiupz.pp&+yrevenge&+Yoiuqwer.:poaiwuqu
+&+Yqiwuopmmnv.ziupowiue.&+yking&+Y.pupoijalkjghnb.jyyinqkxxxlkwje.
+&+Y
+&+Y                          Lyle
+&N
+~
+#142215
+gadget strange odd godquest~
+&+wa st&+cran&+Cge&+w looking &+rga&+Rdg&+ret&N~
+&+wAn odd looking gadget lays on the ground here.&N~
+~
+9 1 3 0 7 0 8200 16389 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+A
+13 5
+#142216
+head wolf white bloody godquest~
+&+wthe &+Lb&+rl&+Roo&+rd&+Ry h&+Le&+ra&+Rd&+w of the great&+W white &+wwolf&N~
+&+wA &+rbl&+Roo&+rd&+Ly&+w wolf head lays here.~
+~
+17 2 3 0 7 0 77832 8404993 0 0 0
+5 5 13 0 0 0 0 0
+0 0 100
+#142217
+yoyo yo-yo godquest~
+&+Wa &+Gyo&+C-&+Gyo&N~
+&+WA &+Gyo&+C-&+Gyo&+W lays here on the ground.&N~
+~
+5 49 3 0 7 0 16851208 24577 0 0 0
+6 1 1 6 0 0 0 0
+0 0 100
+A
+18 1
+#142218
+skin dragonskin dragon godquest~
+&+gthe s&+Gki&+gn of a b&+Ga&+Mb&+Gy d&+gr&+ra&+gg&+Go&+gn&N~
+&+gA large piece of dragon skin lays on the ground here.&N~
+~
+12 35 3 0 7 0 77832 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142219
+letter godquest~
+&+Ma letter to Lyle&N~
+&+MA letter has been dropped here.&N~
+~
+12 28 3 0 7 0 8462344 8404993 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+letter godquest~
+&+M   Lyle, we have the scepter, give them the worthless sword fragment.
+&+M Power beyond imagination is at our fingertips.  We shall rule this
+&+M kingdom by moon's end!
+&N
+~
+#142220
+horn godquest~
+&+wa &+rs&+Rev&+rere&+Rd &+yan&+Yte&+ylope &+yh&+Lo&+yr&+Ln&N~
+&+wAn &+yantelope&+w's horn lays on the ground here.&N~
+~
+5 10 3 0 7 0 73992 8413185 0 0 0
+2 2 4 11 0 0 0 0
+0 0 100
+#142221
+horn godquest~
+&+wa &+rs&+Rev&+rere&+Rd &+yan&+Yte&+ylope &+yh&+Lo&+yr&+Ln&N~
+&+wAn &+yantelope&+w's horn lays here.&N~
+~
+5 10 3 0 7 0 73992 8413185 0 0 0
+2 2 4 11 0 0 0 0
+0 0 100
+#142222
+horn godquest~
+&+wa &+rs&+Rev&+rere&+Rd &+yan&+Yte&+ylope &+yh&+Lo&+yr&+Ln&N~
+&+wAn &+yantelope&+w's horn lays here.~
+~
+5 10 3 0 7 0 73992 8413185 0 0 0
+2 2 4 11 0 0 0 0
+0 0 100
+#142223
+horn godquest~
+&+wa &+rs&+Rev&+rere&+Rd &+yan&+Yte&+ylope &+yh&+Lo&+yr&+Ln&N~
+&+wAn &+yantelope&+w's horn lays here.&N~
+~
+5 10 3 0 7 0 73992 8413185 0 0 0
+2 2 4 11 0 0 0 0
+0 0 100
+#142224
+hilt sword humming godquest~
+&+La h&+wu&+Wmmi&+wn&+Lg sword hilt&N~
+&+LA humming sword hilt lays tossed aside here.&N~
+~
+12 19 3 0 7 0 42016776 8404993 64 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142225
+note scrawled godquest~
+&+ca scrawled note&N~
+&+CA scrawled note has been dropped here.&N~
+~
+12 29 3 0 7 0 8462344 8404993 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+E
+note scrawled godquest~
+&+RTo whomever finds this note...
+
+&+G    If you are prepared to go on an adventure and are below
+&+G the &+G level of 35, please come hand this note to me in
+&+G &+LThe Tower of the &+CCleric&+G in the town of Tharnadia.
+&+G
+&+G
+&+G                              &+CWar&+cthe&+Lhr &+CNg&+cola&+Lhn&N
+&N
+~
+#142226
+fragment sword godquest~
+&+Wa sword fragment&N~
+&+wA sword fragment lays here.&N~
+~
+9 19 3 0 7 0 8396808 8404993 64 0 0
+0 0 0 1 0 0 0 0
+0 0 100
+#142227
+fragment sword godquest~
+&+Wa sword fragment&N~
+fragment sword godquest~
+~
+9 19 3 0 7 0 8396808 8404993 64 0 0
+0 0 0 1 0 0 0 0
+0 0 100
+#142228
+fragment sword godquest~
+&+Wa sword fragment&N~
+&+wA sword fragment lays here.&N~
+~
+9 19 3 0 7 0 8396808 8404993 64 0 0
+0 0 0 1 0 0 0 0
+0 0 100
+#142229
+large gemstone godquest~
+&+Ra &+Gl&+Ba&+Cr&+Yg&+Me &+Wg&+Re&+Gm&+Bs&+Ct&+Yo&+Mn&+We&N~
+&+WA large gemstone has been left here.&N~
+~
+8 26 3 0 7 0 73736 8404993 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142230
+small gemstone godquest~
+&+Ga &+Rs&+Bm&+Wa&+Cl&+Yl &+Mg&+Ge&+Rm&+Bs&+Wt&+Co&+Yn&+Me&N~
+&+WA small gemstone has been left here.&N~
+~
+8 26 3 0 7 0 73736 8404993 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142231
+chest~
+&+ya dirt covered chest&N~
+&+yA filthy dirt covered chest is here covered in spider webs.&N~
+~
+15 15 3 0 7 0 8495112 0 0 0 0
+1000 17 142232 1000 0 0 0 0
+0 0 100
+#142232
+key dirty brittle~
+&+ya dirty key&N~
+&+yA dirty brittle key lays here.&N~
+~
+18 15 3 0 7 0 8466440 16385 0 0 0
+0 100 0 0 0 0 0 0
+0 0 100
+#142233
+chest iron heavy~
+&+La h&+we&+Lavy ir&+wo&+Ln che&+ws&+Lt&N~
+&+LA h&+we&+Lavy ir&+wo&+Ln che&+ws&+Lt is bolted to the ground here.~
+~
+15 15 3 0 7 0 8454152 0 0 0 0
+1000 17 142234 1000 0 0 0 0
+0 0 100
+T
+512 9 1 15
+#142234
+key heavy iron~
+&+La h&+we&+Lavy ir&+wo&+Ln key&N~
+&+LA heavy iron key lays on the ground here.&N~
+~
+18 15 3 0 7 0 8462344 16385 0 0 0
+0 100 0 0 0 0 0 0
+0 0 100
+#142235
+scepter royal godquest~
+&+Ya &+Rr&+Mo&+Ry&+Ma&+Rl &+Ysc&+Wept&+Yer&N~
+&+RA royal-looking scepter has been tossed aside here.&N~
+~
+5 24 3 0 13 0 12552 8413185 64 0 0
+6 5 2 6 0 0 0 0
+0 0 100
+A
+18 1
+A
+19 1
+#142236
+ring dragonbone bone godquest thick~
+&+La &+wthick &+gdr&+Gag&+gon&+Wb&+Lo&+Wne &+Lring&N~
+&+LA thick ring of &+wbone&+L has been dropped here.&N~
+~
+9 15 3 0 7 0 8192 16387 64 4198895524 0
+-7 0 0 5 1 0 0 0
+0 0 100
+A
+18 2
+A
+19 2
+#142237
+boots dragonskin skin godquest~
+&+La pair of &+gdr&+Gag&+gon&+Ls&+gk&+Gi&+gn &+Lboots&N~
+An unnamed object lies here, looking lonely and forelorn.~
+~
+9 35 3 0 7 0 8192 16449 64 4198895524 0
+-9 0 0 5 1 0 0 0
+0 0 100 536870912 0 0 0
+A
+18 3
+A
+14 15
+#142238
+heart dragon godquest~
+&+La &+gdr&+Gag&+gon&+L's &+rhe&+Rart&N~
+&+LA &+gdragon's &+rheart&+L lays here.&N~
+~
+17 2 3 0 7 0 9216 16385 64 37883812 0
+30 30 0 0 0 0 0 0
+0 0 100 536870912 0 0 0
+A
+13 20
+A
+24 -2
+#142239
+book spellbook dragonscale scale godquest~
+&+La &+gdr&+Gag&+gon&+Gsc&+La&+gle &+Lspellbook&N~
+&+LA spellbook made from &+gdragonscale&+L lays here.&N~
+~
+33 35 3 0 7 0 9216 8404993 64 4197888 0
+0 0 150 0 0 0 0 0
+0 0 100
+A
+3 6
+A
+4 6
+#142240
+key rusty iron~
+&+ya rusty iron key&N~
+&+yA rusty iron key has been left here.&N~
+~
+18 15 3 0 7 0 12296 8404993 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142241
+mask dragonscale scale godquest~
+&+La &+gdr&+Gag&+gon&+Gs&+gc&+La&+gle &+Lmask&N~
+&+LA &+gdragonscale &+Lmask has been dropped here.&N~
+~
+9 35 3 0 7 0 9216 278529 64 37949348 0
+-7 0 0 5 1 0 0 0
+0 0 100
+A
+13 13
+A
+4 5
+#142242
+fang bloody godquest~
+&+La &+rb&+Rlo&+ro&+Rd&+ry &+gdr&+Gag&+gon&+L's &+wfa&+Wng&N~
+&+LA &+rbloody &+gdragon's&+w fang&+L has been left here.~
+~
+5 10 3 0 7 0 16916736 8413185 64 4198895524 0
+2 4 5 11 0 0 0 0
+0 0 100
+A
+19 2
+A
+18 3
+#142243
+bracelet dragonbone dragon bone godquest~
+&+La &+gdr&+Gag&+gon&+wbo&+Wne &+Lbracelet&N~
+&+LA bracelet made from &+gdragon&+wbone&+L lays here.&N~
+~
+9 10 3 0 7 0 9216 20481 64 37883812 0
+-6 0 0 5 1 0 0 0
+0 0 100
+A
+13 15
+A
+14 15
+#142244
+ring dragonbone bone godquest thin~
+&+La &+wthin &+gdr&+Gag&+gon&+Wbo&+wne &+Lring&N~
+&+LA ring made from &+gdragonbone&+L has been left here.&N~
+~
+9 10 3 0 7 0 9216 16387 64 37883812 0
+-4 0 0 5 1 0 0 0
+0 0 100
+A
+13 15
+A
+24 -2
+#142245
+key heavy wooden~
+&+ya heavy wooden key&N~
+&+yA heavy wooden key has been left here.&N~
+~
+18 6 3 0 7 0 12296 8404993 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142246
+key bent mangled~
+&+La bent and mangled key&N~
+&+LA bent and mangled key has been left here.&N~
+~
+18 17 3 0 7 0 12296 8404993 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142247
+key small steel~
+&+wa small steel key&N~
+&+wA small steel key has been left here.&N~
+~
+18 17 3 0 7 0 12296 8404993 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142248
+circlet light glowing diety kfun story quest~
+&+Wa c&+Yir&+Rc&+Yle&+Wt of pure li&+Cgh&+Wt&n~
+&+WA soft c&+Yi&+Rrc&+Yl&+We of li&+Cgh&+Wt lies here ill&+Yumina&+Wting the room.&n~
+~
+11 1 2 0 15 0 335873 28689 2 0 0
+0 0 0 0 0 0 0 0
+0 0 100 2550669564 32768 67633280 4194304
+E
+circlet light glowing diety kfun story quest _id_~
+&+WThis circlet appears to be magically formed by some power beyond&n
+&+Wmortal means. The gr&+Cace&+Wful arc glows with gentle w&+Yar&+Wm pure light,&n
+&+Willu&+Yminat&+Wing the room and somehow bringing a feeling of peace and&n
+&+Wpurity to your soul. It's raidience is uplifting.&n
+~
+A
+38 20
+A
+40 20
+#142249
+sword broadsword dragonslayer godquest unique~
+&+La thick broadsword named &+w'&+Gdr&+gag&+Gon&+rsl&+Ra&+ry&+Re&+rr&+w'&N~
+&+LA thick broadsword has been dropped here.&N~
+~
+5 19 3 0 15 0 323100928 24577 66 0 0
+13 6 4 3 0 0 0 0
+0 0 100
+A
+18 4
+A
+19 4
+#142250
+key small brass~
+&+ya small &+Ybrass &+ykey&N~
+&+yA small key has been dropped here.&N~
+~
+18 17 3 0 7 0 8 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142251
+pile bones~
+&+wa &+Whuge&+w pile of b&+Wo&+wn&+We&+ws&N~
+&+wA &+Whuge &+wpile of b&+Wo&+wn&+We&+ws covers the ground.&N~
+~
+15 10 3 0 7 0 8495112 0 0 0 0
+10000 0 0 10000 0 0 0 0
+0 0 100
+T
+1536 12 -1 60
+#142252
+key bone small~
+&+wa small bone key&N~
+&+wA small bone has been left here.&N~
+~
+13 15 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142253
+scimitar~
+&+WLo&+wng &+LJo&+whn &+WSilver's Sc&+wim&+Litar&N~
+&+LA long scimitar has been left here.&N~
+~
+5 15 3 0 7 0 16949528 24577 66 0 0
+5 3 8 3 0 0 0 0
+0 0 100
+A
+18 5
+A
+19 5
+#142254
+compass broken~
+&+La small &+ybr&+wok&+yen &+Lcompass on a chain&N~
+&+LA small compass has been left here.&N~
+~
+12 17 3 0 7 0 33559560 8404997 0 12619268 0
+0 0 0 0 0 0 0 0
+0 0 100
+A
+24 -5
+A
+20 -5
+#142255
+rapier thin long~
+&+La long thin rapier&N~
+&+LA long thin rapier has been left here.&N~
+~
+5 16 3 0 7 0 16777472 24577 0 0 0
+5 1 8 3 0 0 0 0
+0 0 100
+A
+18 1
+A
+19 1
+#142256
+falchion heavy~
+&+La &+wheavy&+L pirate's &+wfal&+Wchion&N~
+&+LA &+wheavy &+Lpirate's &+wfal&+Wchion &+Lhas been left here.&N~
+~
+5 16 3 0 7 0 16785664 8413185 66 0 0
+5 3 6 3 0 0 0 0
+0 0 100
+A
+18 4
+A
+19 3
+#142257
+scimitar large~
+&+La &+wlarge &+Lscimitar&N~
+&+LA &+wlarge &+Lscimitar has been dropped here.&N~
+~
+5 19 3 0 7 0 8201 24577 64 0 0
+5 5 5 3 0 0 0 0
+0 0 100
+A
+18 5
+A
+19 5
+#142258
+handle rudder broken~
+&+ya b&+Lr&+yok&+Le&+yn rudder handle&N~
+&+yA broken rudder handle has been left here.~
+~
+12 6 3 0 7 0 9225 8404993 64 33685920 0
+0 0 0 0 0 0 0 0
+0 0 100
+A
+24 -2
+A
+13 15
+#142259
+orb crystal~
+&+can orb of di&+Cvi&+Wna&+Cti&+con&n~
+&+cA shining &+Ccr&+Wyst&+Cal &+worb &+crests in the dust here.&n~
+~
+3 15 3 0 7 0 16789761 16385 0 0 0
+50 10 10 19 0 0 0 0
+0 0 100 32 0 0 0
+A
+13 20
+A
+3 5
+#142260
+crate broken~
+&+La broken crate&N~
+&+LA crumbling and broken crate lies in pieces here.&N~
+~
+15 15 3 0 7 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#142261
+spiked ring~
+&+La darkly gleaming spiked ring&n~
+&+LA dark gleam shines from a black ring on the ground here.&n~
+~
+9 15 3 0 7 0 129 100663299 0 0 0
+8 0 0 4 1 0 0 0
+0 0 100 0 192 0 0
+A
+19 3
+#142262
+black iron shackles~
+&+Lsome heavy black iron shackles&n~
+&+LSome heavy iron shackle chains lie here.&n~
+~
+11 15 3 0 7 0 4224 28673 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100 4 0 0 0
+A
+18 -10
+A
+13 15
+#142263
+large storage chest~
+&+Ba large storage chest&n~
+&+wA large well used &+BAlchemist's chest &+wsits here.&n~
+~
+15 15 3 0 7 0 0 0 0 0 0
+0 1 0 0 0 0 0 0
+0 0 100
+#142264
+pouch ingredients small~
+&+La &+wsmall &+yi&+rn&+bg&+gr&+we&+md&+ci&+ye&+rn&+bt&+gs &+Lpouch&N~
+&+LA small pouch is on the floor here.&N~
+~
+15 3 3 0 7 0 12288 8404993 64 0 0
+800 1 0 800 0 0 0 0
+-350 0 100
+A
+13 27
+A
+40 3
+#142265
+alchy assoc badge membership~
+&+Wan &+cAl&+Cch&+cy A&+Csso&+cc. &+Wmembership badge&n~
+&+WA small &+cb&+Clu&+ce and white &+cbadge &+Whas been lost here.&n~
+~
+11 22 1 0 11 0 8192 2113537 0 0 0
+0 0 0 0 0 0 0 0
+1 0 100
+A
+13 5
+A
+30 5
+#142266
+potion small glowing~
+&+La small &+Mglowing &+Lpotion&N~
+&+LA small potion lies here&N~
+~
+10 8 3 0 7 0 12289 16385 0 0 0
+30 107 364 0 0 0 0 0
+0 0 100
+#142267
+rod summoning~
+&+La &+wrod&+L of &+rsu&+Lmm&+ron&+win&+rg&N~
+&+LA long thin rod has been left here.&N~
+~
+5 1 3 0 7 0 16785672 8413185 64 0 0
+6 4 5 6 0 0 0 0
+0 0 100
+A
+18 3
+A
+19 3
+#142268
+dagger rusty short~
+&+La short &+yrusty &+Ldagger&N~
+&+LA short rusty dagger has been left here.&N~
+~
+5 16 3 0 7 0 16785664 8413185 64 0 0
+2 2 7 11 0 0 0 0
+0 0 100
+A
+18 3
+A
+19 3
+#142269
+wood jagged small piece~
+&+ya small jagged piece of wood&N~
+&+yA small piece of wood has been left here.&N~
+~
+5 6 3 0 7 0 0 24577 0 0 0
+2 4 2 0 0 0 0 0
+0 0 100
+A
+18 1
+A
+19 1
+#142270
+ribcage rib cage~
+&+wthe &+Wr&+Li&+wb&+Lc&+Wa&+Lg&+we of &+WLo&+wng &+LJo&+whn &+WSilver&N~
+&+wA ribcage has been left here.. eww!&N~
+~
+9 15 3 0 7 0 8192 16393 0 0 0
+-45 0 0 5 1 0 0 0
+0 0 100 536870912 0 0 0
+A
+13 20
+A
+22 -5
+#142271
+skull large dragons dragon~
+&+La &+Wlarge &+Ld&+rr&+Lag&+ro&+Ln's &+wsk&+Wu&+wll&N~
+&+wA dragon's skull has been left here.&N~
+~
+9 10 3 0 7 0 2142241 16401 64 0 0
+30 0 0 5 0 0 0 0
+0 0 100 536870912 0 0 0
+A
+18 2
+#142272
+coins plat pile~
+&+wa small pile of gl&+Yea&+wming &+Wplatinum&+w c&+Woin&+ws&n~
+&+wA pile of gl&+Yeam&+wing &+Wplatinum &+wcoins sits here.&n~
+~
+20 15 3 0 7 0 4096 16385 0 0 0
+0 0 0 100 0 0 0 0
+0 0 100
+#142273
+aged parchment scroll~
+&+yan aged par&+Lchm&+yent&n~
+&+yAn aged par&+Lchme&+ynt lies here disintegrating slowly with time.&n~
+~
+2 15 3 0 7 0 4104 16385 0 0 0
+50 2 0 0 0 0 0 0
+0 0 100
+#142274
+leather rucksack bp~
+&+ra br&+Right&+rly p&+Ra&+Mi&+Wn&+Mt&+Re&+rd leather rucksack&n~
+&+rA br&+Right&+rly p&+Ra&+Mi&+Wn&+Mt&+Re&+rd leather rucksack has been dropped here.&n~
+~
+15 13 4 0 11 0 12288 29376513 0 0 0
+100 1 0 100 0 0 0 0
+2 0 100
+A
+28 5
+#142275
+black leather buccaneer boots~
+&+Lsome black leather thigh high buc&+rcan&+Leer boots&n~
+&+LSome long black buc&+rcan&+Leer boots lie in a pile here.&n~
+~
+9 13 3 0 9 0 4096 65 0 0 0
+15 0 0 4 0 0 0 0
+0 0 100
+A
+19 2
+A
+26 5
+#142276
+scarlet silk sash~
+&+ra &+Rscarlet &+rsilk waist sash&n~
+&+rA pile of &+Rscarlet &+rred silk lies in a crumpled heap here.&n~
+~
+11 3 2 0 10 0 4096 2049 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+A
+13 10
+A
+24 -3
+#142277
+coins copper pile~
+&+wa pile of &+ycopper &+wcoins&n~
+&+wA large pile of copper &+ycoins &+whas been stacked here.&n~
+~
+20 21 3 0 7 0 4096 1 0 0 0
+5000 0 0 0 0 0 0 0
+0 0 100
+#142278
+smuggled goods~
+&+ysome smuggled goods&n~
+&+yA pile of smuggled goods lie here.&n~
+~
+8 20 4 0 11 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 850000 100
+#142279
+skull crossbones brooch~
+&+La s&+Wkul&+Ll and cr&+Wos&+Lsb&+Won&+Les brooch&n~
+&+LA small s&+Wkul&+Ll and cr&+Wos&+Lsb&+Won&+Les brooch has been left here.&n~
+~
+11 10 1 0 11 0 4096 2097153 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+A
+19 2
+A
+14 20
+#142280
+black leather eyepatch~
+&+La black leather eyepatch studded with s&+Wilve&+Lr&n~
+&+LA black leather eyepatch studded with s&+Wilve&+Lr has been discarded here.&n~
+~
+11 15 3 0 7 0 0 147457 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100 32 0 0 0
+A
+18 1
+A
+19 1
+#142281
+crumpled note scroll~
+&+wa crumpled note&n~
+&+wA crumpled note is tossed about by the breeze here.&n~
+~
+2 28 2 0 11 0 4104 16385 0 0 0
+50 1 3 192 0 0 0 0
+0 0 100
+#142282
+bottle rum~
+&+wan aged bottle of s&+cailor&+ws &+yrum&n~
+&+wA very aged bottle of &+yRum &+whas been left here.&n~
+~
+17 15 3 0 7 0 4096 16385 0 0 0
+10 10 8 0 0 0 0 0
+0 0 100
+#142283
+rat droppings~
+&+Lsome rat droppings&n~
+&+LA small pile of dried rat droppings is scattered here.&n~
+~
+7 48 1 0 7 0 4096 16385 0 0 0
+4 2 5 5 0 0 0 0
+0 0 100
+#142284
+gold mound coins~
+&+Ya huge mound of gold coins&n~
+&+yA huge mound of gold coins has been piled up in the corner here.&n~
+~
+20 24 5 0 7 0 4096 1 0 0 0
+0 0 5000 0 0 0 0 0
+0 0 100
+#142285
+flaxen sack~
+&+ya threadbare f&+gl&+ya&+gx&+yen sack&n~
+&+yA large threadbare f&+gl&+ya&+gx&+yen &+Lcrate &+ysack lies in a pile here.&n~
+~
+9 42 3 0 9 0 4096 17 0 0 0
+20 0 0 2 0 0 0 0
+0 0 100
+A
+28 -10
+A
+20 -5
+#142286
+leg wooden~
+&+rre&+Rdbea&+rrd&+y's w&+Lo&+yod&+Le&+yn leg&N~
+&+yA wooden leg has been left here!&N~
+~
+34 6 3 0 7 0 9224 16385 0 33685920 0
+42 0 0 0 0 0 0 0
+0 0 100 36 0 0 0
+A
+34 4
+A
+35 4
+#142287
+hook large~
+&+La &+wlarge &+Lhook&N~
+&+LA large hook has been left here.&N~
+~
+5 19 3 0 7 0 16785664 8413185 0 0 0
+2 3 7 11 0 0 0 0
+0 0 100
+A
+18 5
+A
+19 3
+#142288
+telescope~
+&+ya rusty telescope&N~
+a rusty telescope~
+~
+11 15 3 0 7 0 33555464 16385 0 12619268 0
+0 0 0 0 0 0 0 0
+0 0 100 44 28 0 0
+A
+33 4
+A
+35 4
+#142289
+ancient harp instrument~
+&+ya finely made an&+ccie&+ynt h&+Yar&+yp&n~
+&+yA finely crafted an&+ccie&+ynt h&+Yar&+yp rests here.&n~
+~
+32 15 3 0 7 0 9216 12607489 2 8421376 0
+187 50 0 0 0 0 0 0
+0 0 100
+A
+32 2
+A
+13 20
+#142290
+tiara pearls rose~
+&+ma t&+Miar&+ma made from r&+ros&+me p&+Me&+War&+Ml&+ms&n~
+&+rA s&+Mof&+mt pink t&+Miar&+ma formed of p&+Me&+War&+Ml&+ms lies in the dust here.&n~
+~
+11 15 3 0 7 0 12288 17 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100 536870912 0 0 0
+A
+34 3
+A
+14 10
+#142291
+parrot feather earring~
+&+ga p&+Wa&+Rr&+Yr&+Wo&+gt feather earring&n~
+&+gA long green feather with c&+Wo&+Rl&+Yo&+Wr&+ged bands lies here.&n~
+~
+11 15 3 0 7 0 8192 524289 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100 67108896 0 0 0
+A
+20 -4
+A
+13 20
+#142292
+ruffled white pirate shirt~
+&+wa ru&+Wffl&+wed &+Wwhite &+wpi&+Lra&+wte shirt&n~
+&+wA ru&+Wffl&+wed &+Wwhite &+wpi&+Lra&+wte shirt lies here.&n~
+~
+9 15 3 0 7 0 4096 9 0 0 0
+10 0 0 2 0 0 0 0
+0 0 100 0 12288 0 0
+A
+33 3
+A
+13 20
+#142293
+golden gold hoop earring~
+&+ca large &+ygo&+Yld&+yen &+choop earring&n~
+&+cA large hoop of &+yg&+Yol&+yd &+clies in the dust here.&n~
+~
+11 15 3 0 7 0 4096 67633153 64 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+A
+31 2
+A
+19 2
+#142294
+blue silk striped bandana~
+&+Ba blue s&+Ct&+Br&+Ci&+Bp&+Ce&+Bd silk bandana&n~
+&+BA pile of s&+Ct&+Br&+Ci&+Bp&+Ce&+By blue silk lies here.&n~
+~
+11 15 3 0 7 0 8192 20501 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100 8 0 0 0
+A
+20 -5
+A
+24 -5
+#142295
+gauntlets~
+&+La &+wpair &+Lof sw&+was&+Lhb&+wuc&+Lk&+wle&+Lrs gauntlets&n~
+&+LA pair of swashbucklers gauntlets lie here.&n~
+~
+11 15 3 0 7 0 270336 16513 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+A
+19 3
+A
+31 3
+#142296
+penguin pissed psychic bp backpack~
+&+La pissed off &+wpsyc&+Whic peng&+wuin&N~
+&+LA pissed off &+wpsyc&+Whic peng&+wuin&+L waddles around here.&N~
+~
+15 2 10 0 14 0 8200 4210689 0 0 0
+5000 1 0 5000 0 0 0 0
+0 0 100
+#142297
+penguin sedated psychic bp backpack~
+&+La sedated &+wpsyc&+Whic peng&+wuin&N~
+&+La sedated &+wpsyc&+Whic peng&+wuin&+L stands here drooling on himself.&N~
+~
+15 2 10 0 7 0 8200 4210689 0 0 0
+160 5 0 160 0 0 0 0
+0 0 100

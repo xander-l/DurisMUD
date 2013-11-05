@@ -5,7 +5,11 @@ mace silver huge~
 ~
 5 15 5 0 14 0 13108224 8193 1 33685536 0
 6 3 7 6 0 0 0 0
+<<<<<<< HEAD
 20 1 100 100
+=======
+20 1 100
+>>>>>>> master
 E
 mace silver huge~
 This huge mace hums loudly, but in time, the noise seems to be fading.
@@ -21,7 +25,11 @@ staff silver huge~
 ~
 5 15 5 0 14 0 13108224 8193 1 12619268 0
 6 4 4 7 0 0 0 0
+<<<<<<< HEAD
 20 1 100 100
+=======
+20 1 100
+>>>>>>> master
 E
 staff silver huge~
 This enormous staff hums as it's held, but the sound seems to be growing slowly
@@ -38,7 +46,11 @@ large silver key~
 ~
 18 22 3 0 14 0 8388608 8388609 1 0 0
 0 100 0 0 0 0 0 0
+<<<<<<< HEAD
 1 1 100 100
+=======
+1 1 100
+>>>>>>> master
 E
 large silver key~
 This strange silver key shimmers in the light.
@@ -50,7 +62,11 @@ shimmering portal~
 ~
 25 1 4 0 15 0 1 0 0 0 0
 34517 7 -1 0 0 0 0 0
+<<<<<<< HEAD
 1 1 100 100
+=======
+1 1 100
+>>>>>>> master
 E
 shimmering portal~
 &+BThis portal shimmers in the light casting shadows against the walls of the
@@ -63,7 +79,11 @@ The rocks~
 ~
 15 15 5 0 14 0 8389634 0 0 0 0
 50 0 0 50 0 0 0 0
+<<<<<<< HEAD
 20 1 100 100
+=======
+20 1 100
+>>>>>>> master
 E
 rocks~
 There is no telling what could be in this rubble.
@@ -75,7 +95,11 @@ diamond bracelet~
 ~
 9 27 2 0 14 0 4096 4097 0 0 0
 6 0 0 2 0 0 0 0
+<<<<<<< HEAD
 1 61500 100 100
+=======
+1 61500 100
+>>>>>>> master
 E
 diamond bracelet~
 &+WThis old bracelet sparkles with a beauty that can only be captured by
@@ -92,7 +116,11 @@ The shelf~
 ~
 15 6 3 0 14 0 8389634 0 0 0 0
 50 0 0 50 0 0 0 0
+<<<<<<< HEAD
 20 1 100 100
+=======
+20 1 100
+>>>>>>> master
 E
 shelf~
 The shelves are covered in broken glass, but a few usable bottles may be
@@ -105,7 +133,11 @@ bottle blue~
 ~
 10 7 2 0 9 0 4096 1 64 0 0
 50 35 28 43 0 0 0 0
+<<<<<<< HEAD
 1 1 100 100
+=======
+1 1 100
+>>>>>>> master
 E
 bottle blue~
 &+bThere is no telling what could happen when these bottles are consumed.  They
@@ -118,7 +150,11 @@ signpost sign~
 ~
 13 15 5 0 14 0 8389632 0 0 0 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 200 1 100 100
+=======
+200 1 100
+>>>>>>> master
 E
 signpost sign~
 &+y                       /\&+gMaplethorpe&n
@@ -142,7 +178,11 @@ signpost sign~
 ~
 13 15 5 0 14 0 8389632 0 0 0 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 200 1 100 100
+=======
+200 1 100
+>>>>>>> master
 E
 signpost sign~
 &+y                       /\&+gMaplethorpe&n
@@ -166,7 +206,11 @@ a rusted longsword rests here.~
 ~
 5 16 3 0 14 0 1024 8193 0 87572635 0
 5 2 4 3 0 0 0 0
+<<<<<<< HEAD
 5 3500 100 100
+=======
+5 3500 100
+>>>>>>> master
 A
 18 2
 A
@@ -178,7 +222,11 @@ a rusted mace has been left behind.~
 ~
 5 16 3 0 14 0 0 8193 0 4173708868 0
 6 2 4 6 0 0 0 0
+<<<<<<< HEAD
 5 3500 100 100
+=======
+5 3500 100
+>>>>>>> master
 A
 18 2
 A
@@ -190,7 +238,11 @@ a rusted battleaxe gathers dust.~
 ~
 5 16 3 0 14 0 4195328 8193 0 87572507 0
 1 5 5 3 0 0 0 0
+<<<<<<< HEAD
 5 3500 100 100
+=======
+5 3500 100
+>>>>>>> master
 A
 18 3
 A
@@ -202,7 +254,11 @@ polished dragonscale scale dragon helmet helm~
 ~
 9 35 3 0 14 0 1024 17 64 87572571 0
 15 0 0 4 0 0 0 0
+<<<<<<< HEAD
 5 44530 100 100 0 12288 0 0
+=======
+5 44530 100 0 12288 0 0
+>>>>>>> master
 E
 polished dragonscale scale dragon helmet helm~
 &+CThis silver helmet was resurfaced with the cured hides of a &+Lblack dragon&+C.
@@ -220,7 +276,11 @@ a strange &+mtotem&n has been left here.~
 ~
 34 10 2 0 12 0 5120 16385 64 256 0
 60 0 0 0 0 0 0 0
+<<<<<<< HEAD
 2 15450 100 100 65540 0 0 0
+=======
+2 15450 100 65540 0 0 0
+>>>>>>> master
 E
 totem alchemist alchemists~
 &+mA hideous bone totem covered in chemicals.  Only alchemists would use such a
@@ -237,7 +297,11 @@ a pair of &+Wbone sleeves&n rest here.~
 ~
 9 10 3 0 14 0 0 257 64 0 0
 12 0 0 4 0 0 0 0
+<<<<<<< HEAD
 5 25000 100 100 65536 8 0 0
+=======
+5 25000 100 65536 8 0 0
+>>>>>>> master
 E
 bone sleeves~
 &+WThese sleeves have been made by hollowing out the forearm of an &+bogre&+w.
@@ -254,7 +318,11 @@ ankheg scale leggings reptilian~
 ~
 9 47 3 0 14 0 128 33 64 0 0
 12 0 0 4 0 0 0 0
+<<<<<<< HEAD
 5 25000 100 100 0 12288 0 0
+=======
+5 25000 100 0 12288 0 0
+>>>>>>> master
 E
 ankheg scale leggings reptilian~
 &+gThese strange insectoid leggings are so comfortable and pliable that it almost
@@ -271,7 +339,11 @@ a rusted dagger sits here rotting away.~
 ~
 5 16 3 0 14 0 1024 8193 0 96071707 0
 2 2 4 11 0 0 0 0
+<<<<<<< HEAD
 5 3500 100 100
+=======
+5 3500 100
+>>>>>>> master
 A
 18 2
 A
@@ -283,7 +355,11 @@ emerald carving knife~
 ~
 5 22 3 0 14 0 1296 8193 65 96071683 0
 2 3 6 11 0 0 0 0
+<<<<<<< HEAD
 3 50000 100 100
+=======
+3 50000 100
+>>>>>>> master
 E
 emerald carving knife~
 &+gThe hilt of this well maintained carving knife has been decorated with perfect
@@ -302,7 +378,11 @@ apron butcher butchers~
 ~
 9 3 3 0 14 0 3149952 2049 64 0 0
 4 0 0 3 0 0 0 0
+<<<<<<< HEAD
 2 35000 100 100 536870912 0 0 0
+=======
+2 35000 100 536870912 0 0 0
+>>>>>>> master
 E
 apron butcher butchers~
 This apron has been heavily stained with the &+rblood&n of animals and who knows
@@ -320,7 +400,11 @@ a rusted longsword rests here.~
 ~
 5 16 3 0 14 0 1024 8193 0 87572507 0
 5 2 4 3 0 0 0 0
+<<<<<<< HEAD
 5 1 100 100
+=======
+5 1 100
+>>>>>>> master
 A
 18 2
 A
@@ -332,7 +416,11 @@ bubbling fountain~
 ~
 25 9 4 0 15 0 1 0 0 0 0
 34503 181 -1 0 0 0 0 0
+<<<<<<< HEAD
 1 1 100 100
+=======
+1 1 100
+>>>>>>> master
 E
 bubbling fountain~
 This fountain has been magically enchanted and offers the garden around it
@@ -347,7 +435,11 @@ scimitar spectral blade sword~
 ~
 5 1 3 0 14 0 1056 8193 64 96059547 0
 5 3 5 3 0 0 0 0
+<<<<<<< HEAD
 1 1 100 100
+=======
+1 1 100
+>>>>>>> master
 E
 scimitar spectral blade sword~
 &+LThis scimitar which seems to be torn half-way between this plane and the
@@ -365,7 +457,11 @@ mask deception deceptions~
 ~
 9 2 2 0 15 0 33624064 262145 64 0 0
 5 0 0 3 0 0 0 0
+<<<<<<< HEAD
 1 115000 100 100
+=======
+1 115000 100
+>>>>>>> master
 E
 mask deception deceptions~
 &+WAeons ago,&n the great &+Lsorcerer, Tyloxiz, soug&nht to create a&+Wn item of immense
@@ -386,7 +482,11 @@ gauntlets spectral~
 ~
 9 1 3 0 14 0 32 129 64 0 0
 10 0 0 1 0 0 0 0
+<<<<<<< HEAD
 1 1 100 100 16 0 0 0
+=======
+1 1 100 16 0 0 0
+>>>>>>> master
 E
 spectral gauntlets~
 &+CThe gloves are so light they seem to improve the speed of the wearers hands
@@ -401,7 +501,11 @@ earring pagans~
 ~
 9 36 2 0 14 0 4224 524289 64 0 0
 6 0 0 4 0 0 0 0
+<<<<<<< HEAD
 1 34530 100 100
+=======
+1 34530 100
+>>>>>>> master
 E
 ring pagans~
 &+LThis small black ring has a &+rreddish stone&+L in the center.  The ring is covered
@@ -418,7 +522,11 @@ claymore hell~
 ~
 5 10 3 0 15 0 54535552 8193 64 87572507 0
 13 4 6 3 0 0 0 0
+<<<<<<< HEAD
 16 125000 100 100 536870912 1 0 0
+=======
+16 125000 100 536870912 1 0 0
+>>>>>>> master
 E
 claymore hell~
   &+LThis enormous two-handed sword has been made from the charred &+Wbone&+L of a
@@ -442,7 +550,11 @@ amulet silver scratched~
 ~
 9 22 3 0 14 0 0 5 65 0 0
 7 0 0 1 0 0 0 0
+<<<<<<< HEAD
 1 28500 100 100 8 0 0 0
+=======
+1 28500 100 8 0 0 0
+>>>>>>> master
 E
 amulet silver scratched~
 &+CThis amulet has been scratched over the years.  It appears to be very old
@@ -459,7 +571,11 @@ burlap slippers~
 ~
 9 14 3 0 14 0 5248 65 64 87572507 0
 6 0 0 3 0 0 0 0
+<<<<<<< HEAD
 2 44530 100 100
+=======
+2 44530 100
+>>>>>>> master
 E
 burlap slippers~
 &+yThese slippers are made of a simple burlap material.  There are bits of
@@ -476,7 +592,11 @@ a retched patch of &+Gzom&+ybie &nskin has been left here.~
 ~
 9 2 2 0 14 0 5120 2097153 64 1024 0
 2 0 0 1 0 0 0 0
+<<<<<<< HEAD
 1 44530 100 100
+=======
+1 44530 100
+>>>>>>> master
 E
 zombie skin patch~
 &+GThis strange patch of zombie skin can be worn like a badge, but the hideous
@@ -493,7 +613,11 @@ The decomposing &+gcorpse&n of an adventurer lies here.~
 ~
 15 2 3 0 0 0 8389632 0 0 0 0
 50 0 0 50 0 0 0 0
+<<<<<<< HEAD
 100 1 100 100
+=======
+100 1 100
+>>>>>>> master
 E
 carcass corpse rotting adventurer~
 This corpse has likely been here for centuries.  The dryness of the land has
@@ -506,7 +630,11 @@ a tattered scroll rests here.~
 ~
 13 29 3 0 2 0 8392704 1 0 0 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 1 1 100 100
+=======
+1 1 100
+>>>>>>> master
 E
 tattered scroll~
 This scroll appears to have been written centuries ago.  On it, some of the
@@ -522,7 +650,11 @@ A massive &+Wmarble &+Lshield&n rests here.~
 ~
 37 38 3 0 14 0 1152 513 0 87650331 0
 1 5 4 195 3 0 0 0
+<<<<<<< HEAD
 28 35740 100 100
+=======
+28 35740 100
+>>>>>>> master
 E
 shield skeleton hoarde~
 A massive marble slab has been heated and reshaped into a large shield.  The
@@ -540,7 +672,11 @@ crown leaves~
 ~
 9 30 2 0 14 0 1024 17 64 46305188 0
 6 0 0 2 0 0 0 0
+<<<<<<< HEAD
 1 12250 100 100 0 128 0 0
+=======
+1 12250 100 0 128 0 0
+>>>>>>> master
 E
 crown leaves~
 &+gThis well trimmed crown looks otherwise unimportant, but a surge of life
@@ -558,7 +694,11 @@ blackrock black dagger~
 ~
 5 11 3 0 14 0 1024 8193 0 96071707 0
 2 3 3 11 0 0 0 0
+<<<<<<< HEAD
 5 1 100 100
+=======
+5 1 100
+>>>>>>> master
 E
 blackrock black dagger~
 &+LThis dark rock has been shaped like a dagger.
@@ -574,7 +714,11 @@ key portcullis~
 ~
 18 22 3 0 14 0 8388608 8404993 1 0 0
 0 100 0 0 0 0 0 0
+<<<<<<< HEAD
 1 1 100 100
+=======
+1 1 100
+>>>>>>> master
 E
 key portcullis~
 &+LThis is a dark black key.
@@ -586,7 +730,11 @@ a &+Lcastle gate &nkey has been left behind.~
 ~
 18 22 3 0 14 0 8388608 8388609 1 0 0
 0 100 0 0 0 0 0 0
+<<<<<<< HEAD
 1 1 100 100
+=======
+1 1 100
+>>>>>>> master
 E
 castle gate key~
 This scratched key appears to fit a large gate.
@@ -598,7 +746,11 @@ axe~
 ~
 5 1 3 0 14 0 13108320 8193 1 67108888 12181504
 1 4 5 3 0 0 0 0
+<<<<<<< HEAD
 14 1 100 100
+=======
+14 1 100
+>>>>>>> master
 A
 18 5
 A
@@ -610,7 +762,11 @@ sword~
 ~
 5 1 3 0 14 0 13108320 8193 1 67108888 12181504
 13 4 6 3 0 0 0 0
+<<<<<<< HEAD
 14 1 100 100
+=======
+14 1 100
+>>>>>>> master
 A
 18 5
 A
@@ -622,7 +778,11 @@ club~
 ~
 5 1 3 0 14 0 8914016 8193 1 67108888 12181504
 10 4 4 7 0 0 0 0
+<<<<<<< HEAD
 1 1 100 100
+=======
+1 1 100
+>>>>>>> master
 A
 18 4
 A
@@ -634,7 +794,11 @@ lance~
 ~
 5 1 3 0 14 0 4719712 8193 1 67108888 0
 16 3 8 11 0 0 0 0
+<<<<<<< HEAD
 20 1 100 100
+=======
+20 1 100
+>>>>>>> master
 A
 18 5
 A
@@ -646,7 +810,11 @@ platemail maelstrom mail plate~
 ~
 9 25 4 0 15 0 33554432 9 64 0 0
 35 0 0 3 0 0 0 0
+<<<<<<< HEAD
 10 85000 100 100
+=======
+10 85000 100
+>>>>>>> master
 E
 platemail maelstrom~
 &+CLegends have been told about a suit of armor that was created of platinum
@@ -666,7 +834,11 @@ castle gate key~
 ~
 18 22 3 0 14 0 8388608 8388609 0 0 0
 0 100 0 0 0 0 0 0
+<<<<<<< HEAD
 1 1 100 100
+=======
+1 1 100
+>>>>>>> master
 E
 castle gate key~
 This key is made of oak and is very strong.
@@ -678,7 +850,11 @@ tome prophecy ancient book~
 ~
 33 35 3 0 13 0 78848 8404993 64 14716418 0
 0 0 350 0 0 0 0 0
+<<<<<<< HEAD
 1 1000 100 100
+=======
+1 1000 100
+>>>>>>> master
 E
 tome prophecy ancient book~
 &+bThis tome is quite large.  On the cover of the book - a mural depicting
@@ -701,7 +877,11 @@ chainmail chain illithids~
 ~
 9 19 4 0 15 0 33554432 9 64 0 0
 60 0 0 3 0 0 0 0
+<<<<<<< HEAD
 10 125000 100 100 0 2048 0 0
+=======
+10 125000 100 0 2048 0 0
+>>>>>>> master
 E
 chainmail chain illithids~
 &+mThis strange suit of chainmail armor covers the entire body comfortably.  There
@@ -719,7 +899,11 @@ diamondine short spear mankiller~
 ~
 5 27 3 0 14 0 16782608 8193 65 8515584 0
 2 3 3 11 0 0 0 0
+<<<<<<< HEAD
 6 37500 100 100 268435456 0 0 0
+=======
+6 37500 100 268435456 0 0 0
+>>>>>>> master
 E
 diamondine short spear mankiller~
 &+LThis small spear has been constructed of nothing but &+Wdiamonds&+L.  Even the
@@ -739,7 +923,11 @@ key groundskeeper~
 ~
 18 22 3 0 14 0 8388608 8388609 0 0 0
 0 100 0 0 0 0 0 0
+<<<<<<< HEAD
 1 1 100 100
+=======
+1 1 100
+>>>>>>> master
 E
 castle gate key~
 This key is made of oak and is very strong.
@@ -751,7 +939,11 @@ wyrmskin scale wyrm~
 ~
 9 35 2 0 14 0 0 524289 64 0 0
 6 0 0 3 0 0 0 0
+<<<<<<< HEAD
 1 12250 100 100 536870912 12480 0 0
+=======
+1 12250 100 536870912 12480 0 0
+>>>>>>> master
 E
 wyrmskin scale wyrm~
 &+rThis small wyrmscale has been attached to a metal wire so it can be worn
@@ -769,7 +961,11 @@ skull war~
 ~
 13 10 3 0 14 0 41947136 1 64 0 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 8 1 100 100
+=======
+8 1 100
+>>>>>>> master
 E
 skull war~
 The skull of war.
@@ -781,7 +977,11 @@ skull death~
 ~
 13 10 3 0 14 0 41947136 1 64 0 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 8 1 100 100
+=======
+8 1 100
+>>>>>>> master
 E
 skull death~
 The skull of death.
@@ -793,7 +993,11 @@ skull famine~
 ~
 13 10 3 0 14 0 41947136 1 64 0 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 8 1 100 100
+=======
+8 1 100
+>>>>>>> master
 E
 skull famine~
 The skull of famine.
@@ -805,7 +1009,11 @@ skull pestilence~
 ~
 13 10 3 0 14 0 41947136 1 64 0 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 8 1 100 100
+=======
+8 1 100
+>>>>>>> master
 E
 skull pestilence~
 The skull of pestilence.
@@ -817,7 +1025,11 @@ golden vault key~
 ~
 18 22 3 0 14 0 8388608 8388609 0 0 0
 0 100 0 0 0 0 0 0
+<<<<<<< HEAD
 1 1 100 100
+=======
+1 1 100
+>>>>>>> master
 E
 golden vault key~
 This key leads to the treasure of the keepers.
@@ -829,7 +1041,11 @@ beholder stalk~
 ~
 9 2 2 0 3 0 4224 16385 64 0 0
 6 0 0 3 0 0 0 0
+<<<<<<< HEAD
 1 12250 100 100 33554432 0 0 0
+=======
+1 12250 100 33554432 0 0 0
+>>>>>>> master
 E
 wyrmskin scale wyrm~
 &+rThis small wyrmscale has been attached to a metal wire so it can be worn
@@ -847,7 +1063,11 @@ daganar cloak stealth~
 ~
 9 35 2 0 14 0 1 1025 64 0 0
 6 0 0 3 0 0 0 0
+<<<<<<< HEAD
 1 82250 100 100 524288 0 0 0
+=======
+1 82250 100 524288 0 0 0
+>>>>>>> master
 E
 daganar cloak stealth~
 The story of Daganar is an old, often told tale.  Daganar was a petty thief
@@ -870,7 +1090,11 @@ belt sapphires~
 ~
 9 33 2 0 14 0 1 2049 64 0 0
 12 0 0 4 0 0 0 0
+<<<<<<< HEAD
 1 47350 100 100 0 16 0 0
+=======
+1 47350 100 0 16 0 0
+>>>>>>> master
 E
 belt sapphires~
 &+bThis fascinating belt has been made from small copper plates adhered to
@@ -888,7 +1112,11 @@ ring souls~
 ~
 9 36 2 0 14 0 5248 3 64 42201504 0
 6 0 0 4 0 0 0 0
+<<<<<<< HEAD
 1 17540 100 100 0 32768 0 0
+=======
+1 17540 100 0 32768 0 0
+>>>>>>> master
 E
 ring souls~
 &+LThe tortured souls of many victims remain trapped in this ghastly ring.
@@ -905,7 +1133,11 @@ bracelet water living~
 ~
 9 40 2 0 14 0 4128 4097 64 0 0
 10 0 0 2 0 0 0 0
+<<<<<<< HEAD
 1 1 100 100 2052 0 0 0
+=======
+1 1 100 2052 0 0 0
+>>>>>>> master
 E
 bracelet water living~
 &+BThis bracelet defies logic.  It seems to be made of a living liquid.. the
@@ -923,7 +1155,11 @@ mask plague~
 ~
 9 36 2 0 14 0 4224 262145 0 87650395 0
 8 0 0 1 0 0 0 0
+<<<<<<< HEAD
 1 34530 100 100
+=======
+1 34530 100
+>>>>>>> master
 E
 mask plague~
 &+gThis powerful mask is quite useful if the wearer can stand the incessant
@@ -940,7 +1176,11 @@ cold steel axe brain ripper brainripper~
 ~
 5 16 3 0 15 0 16790929 8396801 64 87572507 0
 1 3 4 3 0 0 0 0
+<<<<<<< HEAD
 10 125000 100 100 0 64 0 0
+=======
+10 125000 100 0 64 0 0
+>>>>>>> master
 E
 cold steel axe brain ripper brainripper~
 &+cThis axe is incredibly well crafted and there isn't a single dent or scratch
@@ -960,7 +1200,11 @@ ball ice~
 ~
 11 40 3 0 12 0 9216 16385 64 46567332 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 2 57500 100 100 0 64 0 0
+=======
+2 57500 100 0 64 0 0
+>>>>>>> master
 E
 ball ice~
 &+CThis strange hovering ball of &+Wice&+C bounces around staying just
@@ -978,7 +1222,11 @@ gloves warding~
 ~
 9 22 3 0 15 0 128 129 65 0 0
 9 0 0 1 0 0 0 0
+<<<<<<< HEAD
 1 95656 100 100
+=======
+1 95656 100
+>>>>>>> master
 E
 gloves speed alacrity~
 &+CThese very light gloves seem to be made of a fabric very similar to silver.
@@ -994,7 +1242,11 @@ a &+Lpair&n of &+Yt&+Li&+Yg&+Le&+Yr&+Ls&+Yk&+Li&+Yn &nboots~
 ~
 9 12 3 0 13 0 4096 65 64 0 0
 12 0 0 3 0 0 0 0
+<<<<<<< HEAD
 2 25650 100 100
+=======
+2 25650 100
+>>>>>>> master
 E
 tigerskin boots~
 &+LThese soft, comfortable boots are also very light and allow freedom of
@@ -1011,7 +1263,11 @@ a &+Wbone necklace&n of the &+rrak&+Yshasa &+Lclan~
 ~
 9 10 2 0 11 0 4096 5 0 0 0
 6 0 0 3 0 0 0 0
+<<<<<<< HEAD
 2 5760 100 100 0 16 0 0
+=======
+2 5760 100 0 16 0 0
+>>>>>>> master
 E
 necklace rakshasa bone~
 &nThis necklace has been crafted from the &+Wbones&n of humanoids.  A tuft of
@@ -1028,7 +1284,11 @@ darkmail breastplate platemail~
 ~
 9 11 4 0 15 0 1024 9 64 96071707 0
 45 0 0 2 0 0 0 0
+<<<<<<< HEAD
 10 85000 100 100 33554432 0 0 0
+=======
+10 85000 100 33554432 0 0 0
+>>>>>>> master
 E
 darkmail breastplate platemail~
 &+LThis dark suit of armor is made entirely from a material alien to the known
@@ -1050,7 +1310,11 @@ gauntlets darkmail rock~
 ~
 9 11 3 0 14 0 0 129 64 0 0
 14 0 0 3 0 0 0 0
+<<<<<<< HEAD
 1 15650 100 100
+=======
+1 15650 100
+>>>>>>> master
 E
 gauntlets darkmail rock~
 &+LDarkmail is a strange material that is believed to be alien in nature.  The
@@ -1069,7 +1333,11 @@ heart platinum dragon~
 ~
 11 2 3 0 12 0 13312 16385 64 46567332 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 4 90000 100 100
+=======
+4 90000 100
+>>>>>>> master
 E
 ball ice~
 &+CThis strange hovering ball of &+Wice&+C bounces around staying just
@@ -1087,7 +1355,11 @@ electrum belt sturdy~
 ~
 9 23 3 0 12 0 0 2049 64 0 0
 15 0 0 4 0 0 0 0
+<<<<<<< HEAD
 2 34525 100 100
+=======
+2 34525 100
+>>>>>>> master
 E
 electrum belt sturdy~
 &+CThis electrum belt seems to be quite sturdy and able to withstand quite
@@ -1104,7 +1376,11 @@ ruby enormous~
 ~
 8 31 3 0 12 0 4096 16385 0 0 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 2 1000000 100 100
+=======
+2 1000000 100
+>>>>>>> master
 E
 ruby enormous~
 &+rThis ruby is enormous.  It would fetch an incredible price at market.
@@ -1116,7 +1392,11 @@ blue slab~
 ~
 25 15 3 0 7 0 4096 0 0 0 0
 34573 270 -1 0 0 0 0 0
+<<<<<<< HEAD
 0 0 100 100
+=======
+0 0 100
+>>>>>>> master
 #34570
 rubble~
 rubble~
@@ -1124,7 +1404,11 @@ rubble~
 ~
 29 15 3 0 7 0 2 0 0 0 0
 274 34568 0 0 0 0 0 0
+<<<<<<< HEAD
 0 0 100 100
+=======
+0 0 100
+>>>>>>> master
 #34571
 key tiny well~
 &+Lthe &+bwell &+Lkey&n~
@@ -1132,4 +1416,8 @@ key tiny well~
 ~
 18 15 3 0 7 0 0 1 0 0 0
 0 100 0 0 0 0 0 0
+<<<<<<< HEAD
 0 0 100 100
+=======
+0 0 100
+>>>>>>> master

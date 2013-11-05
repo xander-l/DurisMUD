@@ -1093,7 +1093,11 @@ horn curved finely~
 ~
 32 17 3 0 13 0 1025 16385 0 8421376 0
 189 56 0 1 0 0 0 0
+<<<<<<< HEAD
 0 0 100 100 524288 0 0 0
+=======
+0 0 100 268435456 0 0 0
+>>>>>>> master
 E
 horn curved finely~
 &nThis &+Yhorn&n is the instrument of a master musician.&n

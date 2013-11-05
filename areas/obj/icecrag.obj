@@ -267,7 +267,19 @@ bloody heart strife~
 ~
 13 2 3 0 7 0 4096 1 0 0 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 0 0 100 100
+=======
+0 0 100
+#97018
+key mausoleum~
+&+Lthe &+ykey &+Lto the &+cMausoleum&n~
+&+LThe key to Ice Crag Mausoleum lies here.&n~
+~
+18 15 3 0 7 0 0 1 0 0 0
+0 100 0 0 0 0 0 0
+0 0 100
+>>>>>>> master
 #97020
 cloak rhemoraz scales~
 &+ya cloak of &+rrhemoraz &+yscales&N~

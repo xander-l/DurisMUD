@@ -297,6 +297,7 @@ M 0 77524 5 77575 100 0 0 0        * a naga myrmidon
 M 0 77525 1 77576 100 0 0 0        * the naga pool queen
 E 1 77527 1 18 100 0 0 0           *   the totem of the naga queen
 G 1 77564 1 0 100 0 0 0            *    a rough naga bone
+G 1 67208 1 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 77524 5 77576 100 0 0 0        * a naga myrmidon
 M 0 77524 5 77576 100 0 0 0        * a naga myrmidon
 M 0 77524 5 77577 100 0 0 0        * a naga myrmidon

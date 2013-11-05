@@ -164,11 +164,15 @@ the &+Larmor of &+Wpurity&N~
 ~
 9 44 3 0 14 0 131136 16393 0 67141642 0
 22 3 1 5 0 0 0 0
+<<<<<<< HEAD
 0 0 100 100 134217744 0 0 0
+=======
+0 0 100 16 0 0 0
+>>>>>>> master
 A
 35 4
 A
-57 -1
+24 -1
 #130015
 helm dark power~
 &+Lthe helm of dark power&N~
@@ -210,7 +214,11 @@ mask death~
 ~
 11 15 3 0 7 0 0 262145 0 0 0
 0 0 0 0 0 0 0 0
+<<<<<<< HEAD
 0 0 100 100 20 64 0 0
+=======
+0 0 100 16 64 0 0
+>>>>>>> master
 A
 13 26
 A
@@ -376,9 +384,13 @@ breastplate preservation~
 &+Lthe &+bbreastplate &+Lof &+wpreservation&n~
 A discarded breastplate lies here.~
 ~
-9 23 3 0 7 0 1024 9 0 84934683 0
+9 23 3 0 7 0 1024 9 0 85459003 0
 45 0 0 5 0 0 0 0
+<<<<<<< HEAD
 5 0 100 100 268468224 0 0 8192
+=======
+5 0 100 32768 0 0 8192
+>>>>>>> master
 A
 13 20
 A
