@@ -1305,7 +1305,7 @@ int avernus(P_obj obj, P_char ch, int cmd, char *arg)
     act("&+LYou feel your life flowing away and $n &+Wlooks revitalized.",
         FALSE, ch, obj, vict, TO_VICT);
 
-    vamp(ch, dam / 2, (int) (GET_MAX_HIT(ch) * 1.6));
+    vamp(ch, dam / 2, (int) (GET_MAX_HIT(ch) * 1.8));
 
     spell_damage(ch, vict, (BOUNDED(0, (GET_HIT(vict) + 9), 150) * 4),
            SPLDAM_NEGATIVE, SPLDAM_NODEFLECT | SPLDAM_NOSHRUG, 0);

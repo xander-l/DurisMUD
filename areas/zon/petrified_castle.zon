@@ -1,0 +1,419 @@
+#938
+Tower of Testing~
+93886 2 0 40 50 1
+*
+* Zone edited with durisEdit v2.99de
+*
+*
+D 0 93700 0 1 100 0 0 0
+*     north exit from "Courtyard before a once proud Keep." to
+*     "Great hall." - closed
+*
+D 0 93703 2 1 100 0 0 0
+*     south exit from "Great hall." to
+*     "Courtyard before a once proud Keep." - closed
+*
+D 0 93700 6 1 100 0 0 0
+*     northwest exit from "Courtyard before a once proud Keep." to
+*     "Collapsed section of the great hall." - closed
+*
+D 0 93702 9 1 100 0 0 0
+*     southeast exit from "Collapsed section of the great hall." to
+*     "Courtyard before a once proud Keep." - closed
+*
+D 0 93700 8 1 100 0 0 0
+*     northeast exit from "Courtyard before a once proud Keep." to
+*     "Along the east wall of the courtyard" - closed
+*
+D 0 93701 7 1 100 0 0 0
+*     southwest exit from "Along the east wall of the courtyard" to
+*     "Courtyard before a once proud Keep." - closed
+*
+D 0 93701 5 5 100 0 0 0
+*     down exit from "Along the east wall of the courtyard" to
+*     "Crawl space under the foyer" - closed/secret
+*
+D 0 93708 4 1 100 0 0 0
+*     up exit from "Crawl space under the foyer" to
+*     "Along the east wall of the courtyard" - closed
+*
+D 0 93704 3 1 100 0 0 0
+*     west exit from "Crawl space under the courtyard." to
+*     "Small storage closet" - closed
+*
+D 0 93709 1 1 100 0 0 0
+*     east exit from "Small storage closet" to
+*     "Crawl space under the courtyard." - closed
+*
+D 0 93713 3 5 100 0 0 0
+*     west exit from "Odd nook along the hall." to
+*     "Gatehouse supply" - closed/secret
+*
+D 0 93714 1 5 100 0 0 0
+*     east exit from "Gatehouse supply" to
+*     "Odd nook along the hall." - closed/secret
+*
+D 0 93715 1 5 100 0 0 0
+*     east exit from "Castle gatehouse" to
+*     "Gatehouse landing" - closed/secret
+*
+D 0 93726 3 1 100 0 0 0
+*     west exit from "Gatehouse landing" to
+*     "Castle gatehouse" - closed
+*
+D 0 93715 2 6 100 0 0 0
+*     south exit from "Castle gatehouse" to
+*     "Castle Main Gate" - closed/locked/secret
+*
+D 0 93716 0 6 100 0 0 0
+*     north exit from "Castle Main Gate" to
+*     "Castle gatehouse" - closed/locked/secret
+*
+D 0 93715 3 5 100 0 0 0
+*     west exit from "Castle gatehouse" to
+*     "Gatehouse landing" - closed/secret
+*
+D 0 93725 1 1 100 0 0 0
+*     east exit from "Gatehouse landing" to
+*     "Castle gatehouse" - closed
+*
+D 0 93718 4 1 100 0 0 0
+*     up exit from "Gatehouse Paddock" to
+*     "Guards lounge" - closed
+*
+D 0 93722 5 1 100 0 0 0
+*     down exit from "Guards lounge" to
+*     "Gatehouse Paddock" - closed
+*
+D 0 93719 4 1 100 0 0 0
+*     up exit from "Gated paddock" to
+*     "Guards Lounge" - closed
+*
+D 0 93720 5 1 100 0 0 0
+*     down exit from "Guards Lounge" to
+*     "Gated paddock" - closed
+*
+D 0 93788 0 1 100 0 0 0
+*     north exit from "Top of the cellar stairs" to
+*     "Kitchen" - closed
+*
+D 0 93878 2 1 100 0 0 0
+*     south exit from "Kitchen" to
+*     "Top of the cellar stairs" - closed
+*
+D 0 93788 5 1 100 0 0 0
+*     down exit from "Top of the cellar stairs" to
+*     "Stairs leading into the cellar" - closed
+*
+D 0 93789 4 1 100 0 0 0
+*     up exit from "Stairs leading into the cellar" to
+*     "Top of the cellar stairs" - closed
+*
+D 0 93795 0 2 100 0 0 0
+*     north exit from "Landing overlooking the Banquet hall." to
+*     "Castle vault" - closed/locked
+*
+D 0 93864 2 2 100 0 0 0
+*     south exit from "Castle vault" to
+*     "Landing overlooking the Banquet hall." - closed/locked
+*
+D 0 93828 0 2 100 0 0 0
+*     north exit from "West guests hall" to
+*     "Well furnished guest room" - closed/locked
+*
+D 0 93883 2 2 100 0 0 0
+*     south exit from "Well furnished guest room" to
+*     "West guests hall" - closed/locked
+*
+D 0 93830 0 2 100 0 0 0
+*     north exit from "West guests hall" to
+*     "Well furnished guest room" - closed/locked
+*
+D 0 93884 2 2 100 0 0 0
+*     south exit from "Well furnished guest room" to
+*     "West guests hall" - closed/locked
+*
+D 0 93833 1 2 100 0 0 0
+*     east exit from "West wing of the guest hall" to
+*     "Well furnished guest room" - closed/locked
+*
+D 0 93885 3 2 100 0 0 0
+*     west exit from "Well furnished guest room" to
+*     "West wing of the guest hall" - closed/locked
+*
+D 0 93835 1 2 100 0 0 0
+*     east exit from "End of the west hall" to
+*     "Well furnished guest room" - closed/locked
+*
+D 0 93886 3 2 100 0 0 0
+*     west exit from "Well furnished guest room" to
+*     "End of the west hall" - closed/locked
+*
+D 0 93852 0 1 100 0 0 0
+*     north exit from "Hall of magic" to
+*     "Sorcerers sleeping quarters" - closed
+*
+D 0 93874 2 1 100 0 0 0
+*     south exit from "Sorcerers sleeping quarters" to
+*     "Hall of magic" - closed
+*
+D 0 93860 0 1 100 0 0 0
+*     north exit from "Lavish sitting room" to
+*     "Regal bedchambers" - closed
+*
+D 0 93861 2 1 100 0 0 0
+*     south exit from "Regal bedchambers" to
+*     "Lavish sitting room" - closed
+*
+*
+O 0 93712 1 93702 100 0 0 0        * trap floor
+O 0 93709 1 93707 100 0 0 0        * Decomposed corpse
+P 1 93729 1 93709 100 0 0 0        *   Plain key
+O 0 93713 1 93709 100 0 0 0        * Storage chest
+P 1 93718 2 93713 100 0 0 0        *   Battered silver helm
+P 1 93716 5 93713 100 0 0 0        *   Stone longsword
+P 1 93721 2 93713 100 0 0 0        *   Rusty iron kite shield
+O 0 93714 1 93711 100 0 0 0        * spider trap
+O 0 93744 2 93725 100 0 0 0        * gatehouse landing trap
+O 0 93744 2 93726 100 0 0 0        * gatehouse landing trap
+O 0 93715 1 93859 100 0 0 0        * mirror
+O 0 93743 1 93879 100 0 0 0        * Large polished oak desk
+P 1 93740 1 93743 100 0 0 0        *   Guest key
+P 1 93739 1 93743 100 0 0 0        *   Guest key
+P 1 93741 1 93743 100 0 0 0        *   Guest key
+P 1 93742 1 93743 100 0 0 0        *   Guest key
+O 0 93738 1 93882 100 0 0 0        * Tarnished gauntlets
+O 0 93737 1 93882 100 0 0 0        * Leather pouch
+P 1 93747 1 93737 100 0 0 0        *   Handfull of old coins
+*
+M 0 93722 15 93701 100 0 0 0       * Castle Patrol
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93732 999 11 100 0 0 0         *   Standard kite shield
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+M 0 93703 2 93703 100 0 0 0        * Statue of an Ancient Warrior
+E 1 93719 3 16 100 0 0 0           *   Stone Broadsword
+F 1 93700 2 93703 100 0 0 0        * Statue of an Ancient Warrior (following)
+E 1 93718 2 6 100 0 0 0            *   Battered silver helm
+E 1 93716 5 16 100 0 0 0           *   Stone longsword
+E 1 93720 3 17 100 0 0 0           *   Stone Dirk
+M 0 93703 2 93703 100 0 0 0        * Statue of an Ancient Warrior
+E 1 93719 3 16 100 0 0 0           *   Stone Broadsword
+F 1 93700 2 93703 100 0 0 0        * Statue of an Ancient Warrior (following)
+E 1 93716 5 16 100 0 0 0           *   Stone longsword
+E 1 93720 3 17 100 0 0 0           *   Stone Dirk
+M 0 93721 3 93705 100 0 0 0        * Castle servant
+G 1 93734 2 0 100 0 0 0            *    Simple belt with black tips.
+M 0 93722 15 93706 100 0 0 0       * Castle Patrol
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93732 999 11 100 0 0 0         *   Standard kite shield
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+M 0 93701 3 93707 100 0 0 0        * Giant spider
+G 1 93717 2 0 100 0 0 0            *    A spider silk sack
+M 0 93701 3 93707 100 0 0 0        * Giant spider
+G 1 93717 2 0 100 0 0 0            *    A spider silk sack
+M 0 93702 4 93709 100 0 0 0        * large rat
+M 0 93702 4 93709 100 0 0 0        * large rat
+M 0 93702 4 93709 100 0 0 0        * large rat
+M 0 93702 4 93709 100 0 0 0        * large rat
+M 0 93701 3 93711 100 0 0 0        * Giant spider
+M 0 93723 11 93713 100 0 0 0       * Castle Guard
+E 1 93724 999 5 100 0 0 0          *   Fine suit of scalemail
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+E 1 93725 25 17 100 0 0 0          *   Steel longsword
+F 1 93722 15 93713 100 0 0 0       * Castle Patrol (following)
+E 1 93721 2 11 100 0 0 0           *   Rusty iron kite shield
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+M 0 93704 1 93714 100 0 0 0        * shop keep
+G 1 93700 999 0 100 0 0 0          *    Small glass flask of floating spheres.
+G 1 93701 999 0 100 0 0 0          *    Etched silver greaves
+G 1 93706 999 0 100 0 0 0          *    Ivory inlaid steel hoplite
+G 1 93708 999 0 100 0 0 0          *    Vial of trapped holy power
+G 1 93711 999 0 100 0 0 0          *    Broadtip arrow
+G 1 93732 999 0 100 0 0 0          *    Standard kite shield
+G 1 93724 999 0 100 0 0 0          *    Fine suit of scalemail
+M 0 93720 2 93716 100 0 0 0        * A statue of a storm giant warrior.
+E 1 93722 5 16 100 0 0 0           *   Huge stone claymore
+G 1 93728 1 0 100 0 0 0            *    An ancient rusted cast iron key
+M 0 93720 2 93716 100 0 0 0        * A statue of a storm giant warrior.
+E 1 93722 5 16 100 0 0 0           *   Huge stone claymore
+M 0 93719 4 93717 100 0 0 0        * Castle servant
+E 1 93735 2 13 100 0 0 0           *   Simple belt with white tips.
+M 0 93723 11 93718 100 0 0 0       * Castle Guard
+E 1 93724 999 5 100 0 0 0          *   Fine suit of scalemail
+E 1 93745 1 7 100 0 0 0            *   Fine scalemail greaves
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+F 1 93721 3 93718 100 0 0 0        * Castle servant (following)
+E 1 93734 2 13 100 0 0 0           *   Simple belt with black tips.
+M 0 93722 15 93719 100 0 0 0       * Castle Patrol
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93732 999 11 100 0 0 0         *   Standard kite shield
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+F 1 93719 4 93719 100 0 0 0        * Castle servant (following)
+E 1 93735 2 13 100 0 0 0           *   Simple belt with white tips.
+M 0 93722 15 93720 100 0 0 0       * Castle Patrol
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+M 0 93722 15 93720 100 0 0 0       * Castle Patrol
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+M 0 93722 15 93720 100 0 0 0       * Castle Patrol
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+M 0 93723 11 93722 100 0 0 0       * Castle Guard
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+M 0 93723 11 93722 100 0 0 0       * Castle Guard
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+M 0 93723 11 93722 100 0 0 0       * Castle Guard
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+M 0 93723 11 93725 100 0 0 0       * Castle Guard
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+F 1 93722 15 93725 100 0 0 0       * Castle Patrol (following)
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93732 999 11 100 0 0 0         *   Standard kite shield
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+M 0 93723 11 93726 100 0 0 0       * Castle Guard
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+F 1 93722 15 93726 100 0 0 0       * Castle Patrol (following)
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93732 999 11 100 0 0 0         *   Standard kite shield
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+M 0 93717 2 93727 100 0 0 0        * Castle bowman
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93716 5 17 100 0 0 0           *   Stone longsword
+G 1 93710 2 0 100 0 0 0            *    Standard issue longbow
+G 1 93711 999 0 100 0 0 0          *    Broadtip arrow
+G 1 93711 999 0 100 0 0 0          *    Broadtip arrow
+G 1 93711 999 0 100 0 0 0          *    Broadtip arrow
+G 1 93711 999 0 100 0 0 0          *    Broadtip arrow
+M 0 93723 11 93728 100 0 0 0       * Castle Guard
+E 1 93724 999 5 100 0 0 0          *   Fine suit of scalemail
+F 1 93722 15 93728 100 0 0 0       * Castle Patrol (following)
+M 0 93717 2 93729 100 0 0 0        * Castle bowman
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93716 5 17 100 0 0 0           *   Stone longsword
+G 1 93710 2 0 100 0 0 0            *    Standard issue longbow
+G 1 93711 999 0 100 0 0 0          *    Broadtip arrow
+G 1 93711 999 0 100 0 0 0          *    Broadtip arrow
+G 1 93711 999 0 100 0 0 0          *    Broadtip arrow
+G 1 93711 999 0 100 0 0 0          *    Broadtip arrow
+M 0 93725 2 93755 100 0 0 0        * Wall Captain
+E 1 93723 2 6 100 0 0 0            *   Massive plate helm
+E 1 93722 5 16 100 0 0 0           *   Huge stone claymore
+M 0 93724 2 93756 100 0 0 0        * Tower guardian
+E 1 93726 2 18 100 0 0 0           *   Short marble rod
+M 0 93724 2 93758 100 0 0 0        * Tower guardian
+E 1 93726 2 18 100 0 0 0           *   Short marble rod
+M 0 93725 2 93760 100 0 0 0        * Wall Captain
+E 1 93723 2 6 100 0 0 0            *   Massive plate helm
+E 1 93722 5 16 100 0 0 0           *   Huge stone claymore
+M 0 93705 1 93795 100 0 0 0        * Sculpture of a regal man.
+M 0 93741 5 93831 100 0 0 0        * Acolyte of the keep
+M 0 93741 5 93835 100 0 0 0        * Acolyte of the keep
+M 0 93741 5 93839 100 0 0 0        * Acolyte of the keep
+M 0 93719 4 93845 100 0 0 0        * Castle servant
+M 0 93741 5 93845 100 0 0 0        * Acolyte of the keep
+M 0 93723 11 93847 100 0 0 0       * Castle Guard
+E 1 93724 999 5 100 0 0 0          *   Fine suit of scalemail
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+F 1 93722 15 93847 100 0 0 0       * Castle Patrol (following)
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+M 0 93722 15 93849 100 0 0 0       * Castle Patrol
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+M 0 93741 5 93852 100 0 0 0        * Acolyte of the keep
+M 0 93721 3 93853 100 0 0 0        * Castle servant
+M 0 93723 11 93854 100 0 0 0       * Castle Guard
+E 1 93724 999 5 100 0 0 0          *   Fine suit of scalemail
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+F 1 93707 2 93854 100 0 0 0        * Castle magician (following)
+M 0 93722 15 93855 100 0 0 0       * Castle Patrol
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+M 0 93707 2 93856 100 0 0 0        * Castle magician
+M 0 93726 1 93860 100 0 0 0        * Chambers guard
+E 1 93727 2 5 100 0 0 0            *   Massive full plate armor
+E 1 93722 5 16 100 0 0 0           *   Huge stone claymore
+F 1 93723 11 93860 100 0 0 0       * Castle Guard (following)
+E 1 93724 999 5 100 0 0 0          *   Fine suit of scalemail
+E 1 93701 999 7 100 0 0 0          *   Etched silver greaves
+E 1 93732 999 11 100 0 0 0         *   Standard kite shield
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+F 1 93722 15 93860 100 0 0 0       * Castle Patrol (following)
+E 1 93724 999 5 100 0 0 0          *   Fine suit of scalemail
+E 1 93732 999 11 100 0 0 0         *   Standard kite shield
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+M 0 93727 1 93861 100 0 0 0        * Medusa
+E 1 93701 999 7 100 0 0 0          *   Etched silver greaves
+G 1 93731 1 0 100 0 0 0            *    Bloody medusa head
+G 1 93700 999 0 100 0 0 0          *    Small glass flask of floating spheres.
+G 1 93700 999 0 100 0 0 0          *    Small glass flask of floating spheres.
+M 0 93713 1 93864 100 0 0 0        * Vault guardian
+E 1 93706 999 11 100 0 0 0         *   Ivory inlaid steel hoplite
+E 1 93719 3 16 100 0 0 0           *   Stone Broadsword
+E 1 93702 2 20 100 0 0 0           *   Obsidian mask
+E 1 93727 2 5 100 0 0 0            *   Massive full plate armor
+M 0 93714 4 93865 100 0 0 0        * Quiet monk
+F 1 93715 4 93865 100 0 0 0        * Cheerfull priest (following)
+M 0 93714 4 93865 100 0 0 0        * Quiet monk
+F 1 93715 4 93865 100 0 0 0        * Cheerfull priest (following)
+M 0 93716 1 93866 100 0 0 0        * Cheerfull cleric
+M 0 93714 4 93867 100 0 0 0        * Quiet monk
+M 0 93714 4 93867 100 0 0 0        * Quiet monk
+M 0 93715 4 93867 100 0 0 0        * Cheerfull priest
+M 0 93715 4 93867 100 0 0 0        * Cheerfull priest
+M 0 93719 4 93868 100 0 0 0        * Castle servant
+M 0 93709 1 93869 100 0 0 0        * Bishop Talbert
+E 1 93706 999 11 100 0 0 0         *   Ivory inlaid steel hoplite
+E 1 93707 1 12 100 0 0 0           *   Motheaten robes
+E 1 93705 1 16 100 0 0 0           *   Flail of souls
+G 1 93708 999 0 100 0 0 0          *    Vial of trapped holy power
+G 1 93708 999 0 100 0 0 0          *    Vial of trapped holy power
+M 0 93706 1 93870 100 0 0 0        * Dorbus the archmagi
+E 1 93703 1 12 100 0 0 0           *   Flowing robes of ether
+E 1 93702 2 20 100 0 0 0           *   Obsidian mask
+M 0 93722 15 93871 100 0 0 0       * Castle Patrol
+E 1 93704 19 5 100 0 0 0           *   Plain chainmail armor
+E 1 93725 25 16 100 0 0 0          *   Steel longsword
+M 0 93708 2 93872 100 0 0 0        * Castle magician
+M 0 93708 2 93872 100 0 0 0        * Castle magician
+M 0 93710 4 93874 100 0 0 0        * Resting sorcerer
+M 0 93710 4 93874 100 0 0 0        * Resting sorcerer
+M 0 93710 4 93874 100 0 0 0        * Resting sorcerer
+M 0 93710 4 93874 100 0 0 0        * Resting sorcerer
+M 0 93711 4 93875 100 0 0 0        * Sleeping sorcerer
+M 0 93711 4 93875 100 0 0 0        * Sleeping sorcerer
+M 0 93711 4 93875 100 0 0 0        * Sleeping sorcerer
+M 0 93711 4 93875 100 0 0 0        * Sleeping sorcerer
+M 0 93712 2 93876 100 0 0 0        * Relaxing conjurer
+F 1 93712 2 93876 100 0 0 0        * Relaxing conjurer (following)
+M 0 93731 1 93878 100 0 0 0        * Angry spirit
+E 1 93746 1 16 100 0 0 0           *   Ethereal splinter
+E 1 93720 3 17 100 0 0 0           *   Stone Dirk
+M 0 93728 1 93879 100 0 0 0        * Chamberlain of the keep
+E 1 93736 1 24 100 0 0 0           *   Badge of service
+M 0 93729 4 93880 100 0 0 0        * Castle servant
+M 0 93729 4 93880 100 0 0 0        * Castle servant
+M 0 93730 4 93880 100 0 0 0        * Castle servant
+M 0 93730 4 93880 100 0 0 0        * Castle servant
+M 0 93730 4 93881 100 0 0 0        * Castle servant
+M 0 93729 4 93881 100 0 0 0        * Castle servant
+M 0 93730 4 93881 100 0 0 0        * Castle servant
+M 0 93729 4 93881 100 0 0 0        * Castle servant
+M 0 93733 1 93883 100 0 0 0        * Relaxing guest
+F 1 93732 1 93883 100 0 0 0        * Castle servant (following)
+M 0 93735 1 93884 100 0 0 0        * Relaxing guest
+F 1 93734 1 93884 100 0 0 0        * Castle servant (following)
+M 0 93736 1 93885 100 0 0 0        * Castle guest
+M 0 93737 1 93885 100 0 0 0        * Castle servant
+M 0 93739 1 93886 100 0 0 0        * Diplomat to the castle
+F 1 93738 1 93886 100 0 0 0        * Castle servant (following)
+F 1 93740 1 93886 100 0 0 0        * Diplomats wife (following)
+E 1 93748 1 16 100 0 0 0           *   Mace of elements
+*
+S

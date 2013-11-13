@@ -1852,3 +1852,17 @@ int calculate_shipfrags(P_char ch)
             shipfrags[i].ship->frags);*/
   }
 }
+
+ bool calmcheck(P_char ch)
+	  {
+	   int rollmod = 7;
+      if (GET_C_CHA(ch) < 80)
+      rollmod = 9;
+      else if (GET_C_CHA(ch) > 160)
+      rollmod = 4;
+      int calmroll = (int) (GET_C_CHA(ch) / rollmod);
+      if(calmroll > number(1, 100)) 
+      return TRUE;
+  
+      return FALSE;
+	  }

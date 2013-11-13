@@ -1,0 +1,558 @@
+#93700
+flask glass spheres~
+&+MSmall &+Wglass flask &+wof &+Mfloa&+bting &+Rsp&+Bhe&+Yr&+Mes.~
+A small colorful flask lies here vibrating slightly.~
+~
+10 7 3 0 7 0 1 8388609 64 0 0
+51 286 117 0 25 0 0 0
+0 500000 100 100
+E
+flask, glass, spheres~
+This small flask is made of a thick darkened glass. There are small spheres drifting around inside along with a slight magenta haze. The entire contents are always at motion and the flask itself has a constant vibration to it.
+~
+#93701
+greaves silver~
+Etched &+Csilver &+Cgr&+We&+wa&+Cv&+ce&+Cs~
+An intricatly crafted set of greaves has been left here.~
+~
+9 22 3 0 13 0 0 33 1 0 0
+15 0 0 3 0 0 0 0
+5 2500 100 100
+A
+24 3
+A
+5 5
+#93702
+mask obsidian~
+&+LObsidian mask~
+A smooth black piece of &+Lobsidian &+whas been placed here.~
+~
+11 36 3 0 14 0 17440 262145 96 167808512 0
+0 0 0 0 0 0 0 0
+1 428031 100 100
+A
+13 25
+A
+24 5
+#93703
+robes ethereal~
+&+LFl&+wow&+Ling &+Wrobes &+wof &+Lether~
+Shifting translucent pile of ethereal matter shifts about the floor here.~
+~
+11 1 3 0 13 0 1066016 1025 0 167775744 0
+0 0 0 0 0 0 0 0
+-20 728401 100 100
+A
+3 10
+A
+33 4
+#93704
+chainmail armor~
+Plain &+cchainmail &+warmor~
+someone has left a set of chainmail armor lying here on the floor.~
+~
+9 15 3 0 7 0 8 9 0 0 0
+15 0 0 3 0 0 0 0
+25 3168 100 100
+E
+chainmail armor~
+This plain set of chainmail is just that. It is slightly worn and starting to show bits of rust. The straps and buckles of the fastenings are dull and cracked with age. As armor goes this is better than nothing but nothing to be desired.
+~
+A
+17 10
+A
+18 3
+#93705
+flail~
+&+LFlail &+wof &+Ws&+wo&+Cu&+Wl&+ws~
+A wicked looking flail has been left here.~
+~
+5 19 3 0 11 0 1066112 8396801 96 288 0
+3 3 4 0 2 0 0 0
+10 492210 100 100
+A
+5 10
+A
+18 3
+#93706
+shield hoplite ivory~
+&+WIvory &+cin&+Wla&+cid steel &+whoplite~
+An ivory and steel hoplite rests on the ground here.~
+~
+37 16 3 0 13 0 148480 513 64 289 0
+1 1 4 10 3 0 0 0
+10 159330 100 100
+A
+13 20
+A
+24 3
+#93707
+robes cloth~
+&+LMo&+bthe&+La&+bten &+br&+Lo&+bbe&+Ls~
+An unrecognizable pile of cloth lies here looking like a rodent nest~
+~
+11 3 3 0 7 0 17480 1025 64 33554848 0
+0 0 0 0 0 0 0 0
+2 38021 100 100
+E
+robes cloth~
+This once beautiful set of robes has almost fallen apart completly. There are visible holes from moths and other vermin. The collar is half gone with one side still able to be pulled up to near the ears while the other side leaves the whole neck bare.
+~
+A
+34 4
+A
+35 4
+#93708
+vial~
+&+WVial of trapped holy power~
+A glowing vial of power has ben left unattended.~
+~
+10 7 3 0 7 0 278536 1 0 0 0
+55 236 291 123 50 0 0 0
+0 45902 100 100
+E
+vial~
+There is a feeling of holiness coming from this vial. It glows with a soft white light and is slightly warm to the touch.
+~
+#93709
+skeleton corpse~
+Decomposed corpse~
+A skeleton lies here with bits of flesh and some tattered clothing clinging to it.~
+~
+15 10 3 0 7 0 0 0 0 0 0
+50 0 0 50 0 0 0 0
+0 0 100 100
+E
+skeleton corpse~
+This poor soul looks to have been partially eaten. Hopefully after it was dead and not before. Very little flesh remains along with a few tatters of clothing. There is a small glimmer from what would be a belt.
+~
+#93710
+bow longbow~
+Standard issue longbow~
+A plain longbow leans against the wall.~
+~
+6 6 3 0 7 0 0 8193 0 0 0
+2 4 0 1 0 0 0 0
+1 5678 100 100
+A
+5 5
+A
+2 8
+#93711
+arrow~
+Broadtip arrow~
+A sharp broadtip arrow lies here.~
+~
+7 15 3 0 7 0 8 0 0 0 0
+2 2 4 1 0 0 0 0
+0 0 100 100
+#93712
+trap~
+trap floor~
+trap floor~
+~
+12 15 3 0 7 0 67108866 0 1024 0 0
+0 0 0 0 0 0 0 0
+0 0 100 100
+T
+2305 16 -1 46
+#93713
+chest~
+Storage chest~
+An old &+ciron &+ybo&+cu&+yn&+cd &+ywooden &+wchest sits here forgotten by time.~
+~
+15 6 4 0 14 0 0 0 1024 0 0
+800 13 93729 1000 0 0 0 0
+0 10 100 100
+E
+chest~
+chest
+~
+T
+1536 13 -1 45
+#93714
+web trap~
+spider trap~
+spider web trap~
+~
+12 15 3 0 7 0 2 0 1024 0 0
+0 0 0 0 0 0 0 0
+0 0 100 100
+T
+5 15 0 31
+#93715
+mirror~
+mirror~
+A large glass and silver mirror stands here against the north wall.~
+~
+25 7 3 0 14 0 0 0 1024 0 0
+93860 139 -1 0 0 0 0 0
+0 0 100 100
+E
+mirror~
+In what appears to be a doorway there is a large shimmering glass and silver mirror. The reflection you get while looking is disorienting. It gives a partial reflection of the room you are in, and an image of what looks to be a a large living area. Trying to focus on one or the other seems to make things more clear.
+~
+T
+2053 15 -1 46
+#93716
+sword~
+&+LStone &+wlongsword~
+An unremarkable sword lies here long forgotten.~
+~
+5 1 3 0 15 0 0 8396801 2050 0 0
+5 3 5 0 0 0 0 0
+5 32678 100 100
+A
+18 3
+A
+19 3
+#93717
+sack silk~
+A &+Cs&+cpid&+Wer &+ws&+Wi&+Clk &+wsack~
+A pile of spun spider web lies here.~
+~
+15 1 3 0 9 0 24640 8388609 64 0 0
+250 1 0 500 0 0 0 0
+-100 20000 100 100
+#93718
+helm~
+&+rBa&+yt&+ctered &+Csilver &+che&+ylm~
+An old well used silver helm sits here.~
+~
+9 15 3 0 7 0 16384 17 3 0 0
+10 0 0 3 0 0 0 0
+2 23672 100 100
+A
+1 10
+A
+20 3
+#93719
+broadsword~
+&+LStone &+wBroadsword~
+A beautiful stone replica broadsword.~
+~
+5 11 3 0 14 0 4210752 8193 66 181387236 0
+13 4 6 0 0 0 0 0
+14 35000 100 100
+A
+18 5
+A
+19 5
+#93720
+dirk~
+&+LStone &+wDirk~
+A stone dirk lies here untouched by time.~
+~
+5 11 2 0 15 0 17480 8396801 64 268308478 0
+9 3 6 0 0 0 0 0
+3 35600 100 100
+A
+18 3
+A
+19 3
+#93721
+shield iron~
+&+rRusty &+ciron &+wkite shield~
+A poorly maintained kite shield lies here.~
+~
+37 15 9 0 10 0 0 513 64 181317444 0
+1 7 4 10 3 0 0 0
+25 24000 100 100
+A
+23 4
+A
+13 15
+#93722
+sword claymore~
+&+WHuge &+Lstone &+Wclaymore~
+An enormous sword has been left here.~
+~
+5 11 4 0 14 0 4210688 8192 2144 0 0
+13 5 6 0 0 0 0 0
+10 1 100 100
+A
+18 5
+A
+19 5
+#93723
+helm~
+&+LMassive &+Wplate &+Lhelm~
+A very large plate helm has been discarded here.~
+~
+9 16 3 0 13 0 1073759240 393233 64 83886105 0
+20 0 0 4 0 0 0 0
+15 350000 100 100
+A
+1 15
+A
+5 15
+#93724
+scalemail~
+Fine suit of &+Csc&+ca&+Wl&+Cem&+Wa&+ci&+Cl~
+A pile of &+Cme&+Wt&+cal &+csc&+Ca&Wl&+ce&+Cs &+wlies here reflecting bits of light.~
+~
+9 16 3 0 14 0 16384 9 1 0 0
+25 0 0 3 0 0 0 0
+25 290000 100 100
+E
+scalemail~
+This suit of intricatly layered metal scales is beautifully crafted. Each scale is supported by multiple scales around it providing near platemail protection while allowing easier movement and better range of motion.
+~
+A
+2 8
+A
+13 25
+#93725
+sword longsword~
+Steel longsword~
+A longsword has been left lying on the floor here.~
+~
+5 16 3 0 8 0 0 8193 0 0 0
+5 3 5 0 0 0 0 0
+5 17500 100 100
+A
+18 3
+A
+19 4
+#93726
+marble~
+&+WShort m&+wa&+Lr&+Wb&+Ll&+we &+Wrod~
+A small piece of carved marble has been dropped here.~
+~
+34 38 3 0 15 0 1197072 8404993 64 256 0
+34 0 0 0 0 0 0 0
+1 234000 100 100
+A
+34 2
+A
+5 6
+T
+2 9 -1 51
+#93727
+armor plate~
+&+WMassive full plate armor~
+A large set of full plate armor lies here collecting dust.~
+~
+9 16 3 0 14 0 538051584 1337 64 83886105 0
+60 0 0 5 0 0 0 0
+50 568900 100 100
+E
+armor plate~
+This full body suit of plate is impressive in its design. Each plate has an overlap area with plates around it yet it allows good movement at all critical joints. There are no easily visible areas that would allow a blow to land with full impact, making all but the hardest and most accurate hits glance off with minimal impact.
+~
+A
+1 20
+A
+5 15
+#93728
+key~
+An ancient &+rrusted &+Lcast iron &+wkey~
+A &+rkey &+whas been dropped here &+bweathered &+wby age and appears ready to &+Lcrumble &+wat any touch~
+~
+18 15 2 0 7 0 8388616 1 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100 100
+#93729
+key~
+Plain key~
+A worn out key sits here.~
+~
+18 15 3 0 7 0 4096 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100 100
+#93730
+keys~
+&+YGlowing set of keys.~
+Someone has dropped a set of beautiful keys here.~
+~
+18 7 3 0 14 0 1 1 0 0 0
+0 0 0 0 0 0 0 0
+0 1 100 100
+#93731
+medusa head~
+&+rBl&+Roo&+rdy &+Lmedusa &+whead~
+A &+bbloody &+Lhead &+wlies here with its hair of serpents still writhing about.~
+~
+3 2 3 0 7 0 8409088 16385 0 0 0
+46 8 8 451 0 0 0 0
+0 1 100 100
+T
+2 15 1 51
+#93732
+shield kite~
+&+WStandard kite shield~
+A plain kite shield is proped against the wall.~
+~
+37 15 3 0 7 0 0 512 1024 0 0
+1 7 4 10 3 0 0 0
+0 0 100 100
+#93733
+chest~
+&+YGold chest~
+A large &+Ygold and &+Wivory &+wchest sits here.~
+~
+15 24 6 0 15 0 4097 0 0 0 0
+800 28 93733 300 0 0 0 0
+500 1 100 100
+T
+1540 5 -1 51
+#93734
+belt~
+&+RSi&+rm&+Rp&+rl&+Re &+ybelt with &+Lblack &+ytips.~
+A plain &+ybelt with &+Rin&+rt&+Rr&+ric&+Rat&+re &+wpatterns and &+Lblack &+wtips lies here~
+~
+9 14 3 0 13 0 3145728 2049 0 0 0
+15 0 0 2 0 0 0 0
+1 59332 100 100
+A
+1 8
+A
+26 10
+#93735
+belt~
+&+BSi&+bm&+Bp&+bl&+Be &+cbelt with &+Wwhite &+ctips.~
+A plain &+ybelt with &+Rin&+rt&+Rr&+ric&+Rat&+re &+wpatterns and &+Lblack &+wtips lies here~
+~
+11 14 3 0 13 0 0 2049 0 0 0
+0 0 0 2 0 0 0 0
+1 59332 100 100
+A
+2 10
+A
+26 10
+#93736
+badge~
+&+BBa&+bdg&+Be &+Lof &+Wse&+wr&+Lv&+wice~
+A badge bearing the seal of the chamberlain lies here.~
+~
+11 17 3 0 11 0 64 2097153 0 0 0
+0 0 0 0 0 0 0 0
+0 72282 100 100
+A
+25 0
+A
+55 2
+#93737
+pouch leather~
+&+yLeather pouch~
+An unwanted &+yleather pouch &+whas been abandoned here.~
+~
+15 14 3 0 7 0 4096 8388609 0 0 0
+50 1 0 40 0 0 0 0
+1 435 100 100
+#93738
+tarnished gauntlets~
+&+rTa&+yr&+Ynis&+rhe&+yd &+rg&+ya&+Yu&+yn&+rt&+yl&+Yets~
+A pair of gauntlets has been lost in the clutter.~
+~
+9 15 3 0 11 0 4096 129 2 0 0
+15 0 0 3 0 0 0 0
+2 49801 100 100
+A
+1 8
+A
+31 3
+#93739
+key~
+&+GGue&+cst &+Gkey~
+A &+Gk&+ce&+Gy &+wto a castle room has been left here.~
+~
+18 15 3 0 7 0 4096 1 0 0 0
+0 10 0 0 0 0 0 0
+0 1 100 100
+#93740
+key~
+&+bGue&+Lst &+bkey~
+A &+bk&+Le&+by &+wto a castle room has been left here.~
+~
+18 15 3 0 7 0 4096 1 0 0 0
+0 10 0 0 0 0 0 0
+0 1 100 100
+#93741
+key~
+&+rGue&+bst &+rkey~
+A &+rk&+be&+ry &+wto a castle room has been left here~
+~
+18 15 3 0 7 0 4096 1 0 0 0
+0 10 0 0 0 0 0 0
+0 1 100 100
+#93742
+key~
+&+RGue&+mst &+Rkey~
+A &+Rk&+me&+Ry &+wto a castle room has been left here.~
+~
+18 15 3 0 7 0 4096 1 0 0 0
+0 10 0 0 0 0 0 0
+0 1 100 100
+#93743
+desk oak~
+Large &+Wpolished &+yoak desk~
+A large oak desk sits in the corner here.~
+~
+15 6 4 0 13 0 0 0 0 0 0
+45 5 0 50 0 0 0 0
+150 5 100 100
+E
+desk oak~
+There are 4 &+rdr&+ba&+Lwe&+mr&+cs &+wdown one side of the desk and 4 small shelves going up the wall that are color coded with the drawers. There are papers on each shelf that seem to be notes on room usage and work orders. the rest of the desk is empty of anything other than a selection of seals and stamps and an ink pad.
+~
+#93744
+trap~
+gatehouse landing trap~
+gatehouse landing trap~
+~
+12 15 3 0 7 0 2 0 1024 0 0
+0 0 0 0 0 0 0 0
+0 1 100 100
+T
+3077 9 -1 51
+#93745
+greaves scalemail~
+&+WFine &+Csc&+ca&+Wle&+Cmai&+cl &+Wgreaves~
+A set of finely crafted greaves has been left here.~
+~
+9 16 3 0 12 0 0 33 2 0 0
+15 0 0 3 0 0 0 0
+3 34872 100 100
+A
+14 25
+A
+26 8
+#93746
+splinter sliver~
+&+LE&+wt&+Lh&+Wer&+Le&+wa&+Wl &+Wsplinter~
+A sliver of ethereal matter drifts around here~
+~
+5 1 2 0 15 0 545896 8193 96 110592 0
+2 2 7 0 1 0 0 0
+1 40231 100 100
+A
+18 4
+A
+19 4
+T
+2 3 -1 51
+#93747
+coins~
+Handfull of old coins~
+Some old coins have been left here~
+~
+20 15 3 0 7 0 16384 1 0 0 0
+25 12 32 100 0 0 0 0
+0 0 100 100
+#93748
+mace elements~
+&+BMa&+bc&+Be &+Lof &+re&+Rle&+ym&+Yen&+Gts~
+A expertly crafted mace is proped against the wall raidiating power.~
+~
+5 19 3 0 14 0 17441 8527873 64 33554848 0
+6 3 5 0 0 0 0 0
+4 489310 100 100
+E
+mace elements~
+This adamantium mace has been expertly crafted and raidiates power.You can feel heat, cold, and electricity in waves running through it as you touch its surface.It has a fairly slender haft running up to an odd three headed design. Each head of the mace is about 3 inches in diameter. One is smooth and cool to the touch, one has small ripples rising off its surface and has an electrical tingle to it, the third has a rough surface and is warm to the touch.
+~
+A
+18 4
+A
+24 3

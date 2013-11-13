@@ -1,0 +1,16 @@
+
+(s) Strength
+(d) Dexterity
+(a) Agility
+(c) Constitution
+(p) Power
+(i) Intelligence
+(w) Wisdom
+(h) Charisma
+
+(x) Done
+(z) Re-display stats
+(?) This list
+
+Please choose a statistic to change, and an amount to change it by:
+Ex: a -5, s 7, etc.  (z) to refresh, and (?) to display this menu again.

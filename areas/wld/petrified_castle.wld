@@ -1,0 +1,2669 @@
+#93700
+&+yCourtyard before a once proud Keep.~
+The entryway to what was once a proud keep. It seems to have been abandoned and has started to fall into disrepair. Plant life has begun its work on climbing the walls and covering windows and doorways, and the elements have begun to wear down the stone and mortar construction. There is evidence of things being moved time to time but nothing that would indicate that there is a living humanoid occupant. The three large doors opening into the keep have seemed to withstand the passage of time fairly well at least.
+~
+938 1241546752 1
+D0
+Massive set of &+cironbound &+ywooden &+wdoors is nearly sealed shut with vines and other plantlife.
+~
+double door~
+1 0 93703
+D1
+~
+archway~
+0 0 93718
+D2
+~
+~
+0 0 93715
+D3
+~
+archway~
+0 0 93719
+D6
+~
+~
+1 0 93702
+D8
+~
+~
+1 0 93701
+S
+#93701
+&+yAlong the east wall of the courtyard~
+The floor here is still stable enough to walk on. A faint sound of wind can be heard from the corner of the room. There are still tables and chairs set up here as if for a banquet was about to take place and never did.
+~
+938 8 0
+D0
+~
+~
+0 0 93705
+D3
+~
+~
+0 0 93703
+D5
+A &+cgrate &+Lopens into a crawl space.
+~
+grate~
+5 0 93708
+D7
+~
+~
+1 0 93700
+S
+#93702
+&+LCol&+lla&+Lpsed &+ysection of the great hall.~
+This section of the great hall is in bad shape. The floor here has given way to age and lack of maintenance. Any movement into this room risks falling through to whatever is below. The damp smell of rotted wood fills the air and the occasional sound of something falling can be heard from the holes in the floor.
+~
+938 12 8
+D0
+~
+~
+0 0 93717
+D1
+~
+~
+0 0 93703
+D5
+~
+~
+0 0 93704
+D9
+~
+~
+1 0 93700
+E
+room~
+The floor here has given way to age and lack of maintenance. Any movement into this room risks falling through to whatever is below. The damp smell of rotted wood fills the air and the occasional sound of something falling can be heard from the holes in the floor.
+~
+F
+60
+S
+#93703
+&+YGreat hall.~
+The foyer opens up into a big banquet room that extends to the north, south, east and west. This once grand room has fallen into disrepair. The air is not as stale as one might expect with small hints of a breeze now and again. Tables and chairs are still lined up with place settings as if awaiting guests for a banquet. There are large windows of thick stained glass that still allow a useable amount of light to filter in.
+~
+938 138444808 0
+D0
+~
+~
+0 0 93706
+D1
+~
+~
+0 0 93701
+D2
+Massive set of double doors leads out of the keep. This side of the doors looks almost new even though it has obviously been years since a living soul has lived here.
+~
+double door~
+1 0 93700
+D3
+~
+~
+0 0 93702
+S
+#93704
+&+LCrawl space under the courtyard.~
+The crawl space is filled with small animal carcases and spider webs. The crawl space &+Lnarrows &+wconsiderably going east. The smell of decay and rot is almost unbearable.
+~
+938 1073742089 0
+D0
+~
+~
+0 0 93710
+D1
+~
+~
+0 0 93707
+D3
+This old wooden doors has been mostly chewed through by rats.
+~
+door~
+1 0 93709
+D5
+~
+~
+0 0 93711
+S
+#93705
+&+yNortheast corner of the hall.~
+The room here is fairly dark and cluttered with chairs and tables that have been tossed aside. The floor is slightly uneven but otherwise seems stable to walk on. The windows along the east wall have been blocked by cob webs on the inside and vines and other plant growth on the outside.
+~
+938 8 0
+D2
+~
+~
+0 0 93701
+D3
+~
+~
+0 0 93706
+S
+#93706
+&+YBack of the great hall.~
+The great hall ends here. There is a hallway leading to the main stairs going north. The great hall extends to the east west and south. There is a small bit of light coming down from the windows and skylights but otherwise it is dark.
+~
+938 134250504 0
+D0
+~
+~
+0 0 93712
+D1
+~
+~
+0 0 93705
+D2
+~
+~
+0 0 93703
+D3
+~
+~
+0 0 93717
+S
+#93707
+&+LCrawl space under the foyer~
+&+LThe area continues to be filled with small carcases and spider webs. There is a small smmount of &+wlight &+Lcoming from the east.
+~
+938 1107337536 0
+D1
+~
+~
+0 0 93708
+D3
+~
+~
+0 0 93704
+S
+#93708
+&+LCrawl space under the foyer~
+A rickety &+ywooden ladder &+Lleads up to an &+ciron grate &+Lwith a small amount of &+Wlight &+wcoming through.
+~
+938 1241547080 0
+D3
+~
+~
+0 0 93707
+D4
+~
+grate~
+1 0 93701
+S
+#93709
+&+LSmall storage closet~
+Small nook filled with odds and ends that have been left here over the years. There is a chest against one wall that has survived the colony of rats that has moved into the room.
+~
+938 9 34
+D1
+This old wooden door has been mostly chewed through by rats.
+~
+door~
+1 0 93704
+S
+#93710
+&+LDank corner of the crawl space.~
+The floor is littered with small animal carcases. The air here is stale and smells of dead and rotting things. Making the need to breath regretable.
+~
+938 1073742089 0
+D2
+~
+~
+0 0 93704
+S
+#93711
+&+mSp&+Li&+mde&+Lrs &+Lden~
+This dark dank hole is covered with thick sticky webs. Throughout the web are the carcasses of small animals that wander to close and get stuck in the web. The web is so thick that it is difficult to move without getting some part of clothing or equipment stuck.
+~
+938 1073742081 13
+D4
+~
+~
+0 0 93704
+S
+#93712
+&+rBo&+Ltt&+Wom &+Lof &+Wa g&+Lra&+rnd st&+La&+Wirc&+La&+rse~
+The grand staircase comes down on the east and west of you. The dark carpeting comes togeter on each side of a polished marble slab set into the floor. To the south you enter the great hall and to the north you see stairs going down and you can feel a bit of cool air coming from that direction.
+~
+938 134250496 0
+D0
+~
+~
+0 0 93788
+D1
+~
+~
+0 0 93785
+D2
+~
+~
+0 0 93706
+D3
+~
+~
+0 0 93784
+S
+#93713
+&+LOdd &+Wnook &+walong the hall.~
+This room seems odd at first, as it makes no sense to have a walkway in this direction. As you look around you can see that there was once a small stone and wooden walkway going to the north to the middle level on the keep. The walkway to the north has long since collapsed and ther eis no visible doorway on the outside of the keep where the walkway would have been.
+~
+938 8 34
+D2
+~
+~
+0 0 93721
+D3
+A heavy stone door goes to the west here.
+~
+door~
+5 0 93714
+E
+room~
+As you look around the room the floor along the western wall is slightly more worn that everywhere else.
+~
+S
+#93714
+Gatehouse supply~
+This large soom is stocked with all sorts of items that one might need. This was likely put here to help keep gatehouse defenders stocked with items they needed in the event of a seige.
+~
+938 8 34
+D1
+A heavy stone door goes to the east here.
+~
+door~
+5 0 93713
+S
+#93715
+&+WCastle gatehouse~
+The main gatehouse has mostly become unusable. With the plantlife taking over the main gate south and the inner gate to the north has fallen down completly and been grown over by weeds and vines. To the east and west are stairs leading up into the gatehouse. The east and west walls have &+cco&+rl&+bor&+Led &+wtile pictures showing &+rgua&+brds &+Wdefending &+wthe walls
+~
+938 138444808 34
+D0
+This entryway has a large &+ciron &+wgate that is normally closed with a small mansized opening in it. There is also a large set of &+ciron &+wbound &+ywooden &+wdoors that can be closed in front of the gate.
+~
+gate~
+0 0 93700
+D1
+The tile door opens into a very narrow landing leading to a stairwell that goes up to the walls.
+~
+tile~
+5 0 93726
+D2
+~
+gate~
+7 93728 93716
+D3
+The tile door opens into a very narrow landing at the bottom of stairs goign up towards the walls.
+~
+tile~
+5 0 93725
+S
+#93716
+&+WCastle Main Gate~
+Approaching the main gateway of the castle there are lifelike stone statues that seem to be guarding the entrance. The plant life has begun to take over the road leading to the gate.There was once a most around the walls but it has long since dried up and been filled in with bits of stone fallen from the walls and plant growth. Ivy vines have turned the portcullis into a green wall of leaves that various small birds have taken to nesting in.
+~
+938 1073741824 37
+D0
+The portcullis at the man gateway of the castle is long since disabled by age and lack of maintenance, and the heavy wooden door behind the portcullis has fallen from its hinges and lies flat on the floor of the gatehouse. There is a smaller gate set into one side of the main gate. Allowing small carts and mounted persons passage through without opening the portcullis.
+~
+gate~
+7 93728 93715
+D2
+~
+~
+0 0 93724
+S
+#93717
+&+yNorthwest corner of the hall.~
+The room here is fairly dark and cluttered with chairs and tables that have been tossed aside. The floor is slightly uneven but otherwise seems stable to walk on. The windows along the west wall ar eall broken out and have been shuttered from the outside. Birds have taken to nesting in the opening where the windows were and use the openings between the shutters to fly in and out.
+~
+938 8 0
+D1
+~
+~
+0 0 93706
+D2
+~
+~
+0 0 93702
+S
+#93718
+&+CGatehouse Paddock~
+This padock is set up for incoming merchant traffic to unload supplies to the castle keep. There is a water trough near the center with hitching posts on either end. There is a bail of hay in the corner and a few hooks for hanging harness and tack along with a few brushes on the north wall.
+~
+938 4194304 2
+D1
+~
+~
+0 0 93796
+D3
+~
+archway~
+0 0 93700
+D4
+A stone fronted iron banded wooden door is concealed here to allow guards quick surprise access to the paddock area.
+~
+hatch~
+5 0 93722
+S
+#93719
+&+LGated &+Ypaddock~
+The area is gated off into single horse stalls. Bails of hay and buckets for feed and water are hanging on the front of each stall. Tack and harness for 1 horse hangs inside each stall. There is a small well in the center of the area with a trough under the pump for quick watering of horses. There is a road leading to the west along the inside of the wall.
+~
+938 4194304 2
+D1
+~
+archway~
+0 0 93700
+D3
+~
+~
+0 0 93797
+D4
+A stone fronted iron banded wooden door is concealed here to allow guards quick surprise access to the paddock area.
+~
+hatch~
+5 0 93720
+S
+#93720
+&+BGu&+ba&+Brds Lo&+bun&+Bge~
+There are tables and chairs scattered around randomly. Along with bits of what appears to be broken ceramic plates and mugs. There is a weapons rack along the north wall and a dart board along the south wall. This room allows guards to rest yet still be able to espond quickly to any need from the gate or walls.
+~
+938 4227080 34
+D1
+~
+~
+0 0 93721
+D5
+This door is a heavy iron banded wooden door that opens outwards. There is a portcullis retracted into the ceiling that can be lowered down to prevent intruders gaining access from outside if the door is breached.
+~
+door~
+1 0 93719
+S
+#93721
+Guards Walkway~
+Walkway allowing guards access to other parts of the castle without being seem by those inside the castle. The floor here is worn smooth to a point of having a shine to it.
+~
+938 1077936136 34
+D0
+~
+~
+0 0 93713
+D1
+The walkway continues to the east and west here.
+~
+~
+0 0 93722
+D3
+The walkway continues to the east and west here.
+~
+~
+0 0 93720
+S
+#93722
+&+RGu&+ra&+Rrds &+Rlo&+run&+Rge~
+There are tables and chairs scattered around randomly. Along with bits of what appears to be broken ceramic plates and mugs. There is a weapons rack along the north wall and a dart board along the south wall. This room allows guards to rest yet still be able to espond quickly to any need from the gate or walls.
+~
+938 1078067208 34
+D3
+~
+~
+0 0 93721
+D5
+This door is a heavy iron banded wooden door that opens outwards. There is a portcullis retracted into the ceiling that can be lowered down to prevent intruders gaining access from outside if the door is breached.
+~
+door~
+1 0 93718
+S
+#93723
+&+LGuards &+wlounge~
+There are tables and chairs scattered around randomly. Along with bits of what appears to be broken ceramic plates and mugs. There is a weapons rack along the north wall and a dart board along the south wall.
+~
+938 1077936136 0
+S
+#93724
+Approaching a long &+Lf&+worg&+Lott&+wen castle~
+The castle is built against the mountains with the back of the castle actually being built into a sheer cliff that reaches over a thousand feet up. This allows for only 3 main walls to be built. There seems to be tunnels carved back into the cliff as well allowing for much more storage and livable space without having to expand the walls. The tops of the walls and other structures that can be seen have started to crumble making some of the area impassable and dangerous.
+~
+938 1073741824 3
+D0
+~
+~
+0 0 93716
+D2
+~
+~
+0 0 -1
+S
+#93725
+&+WGatehouse landing~
+The landing here is narrow allowing 1 person to defend against many for a long time. It is very quiet and the air feels very still and has an almost electrical feel as you enter. On the door to the east you can see little bits of light coming in through what look like peep holes for observing the main gatehouse room. The stairwell goes up towards the top of the gatehouse.
+~
+938 134258904 34
+D1
+~
+~
+1 0 93715
+D4
+~
+~
+0 0 93727
+S
+#93726
+&+WGatehouse landing~
+The landing here is narrow allowing 1 person to defend against many for a long time. It is very quiet and the air feels very still and has an almost electrical feel as you enter. On the door to the west you can see little bits of light coming in through what look like peep holes for observing the main gatehouse room. The stairwell goes up towards the top of the gatehouse.
+~
+938 134258904 34
+D3
+The door is a heavy steel door with a fe wsmall openings to allow guards to look out into the main gatehouse.
+~
+door~
+1 0 93715
+D4
+~
+~
+0 0 93729
+S
+#93727
+Inner gatehouse walkway~
+The floor here is a solid granite that has ben polished not by tools but by constant passage of guards boots.To the north you can see a set of stairs going up to the northwest tower. The stairs going up lead to one of the 4 towers of the main gate complex.
+~
+938 8 34
+D0
+~
+~
+0 0 93757
+D1
+~
+~
+0 0 93728
+D4
+~
+~
+0 0 93758
+D5
+~
+~
+0 0 93725
+S
+#93728
+Inner gatehouse walkway~
+The floor here is a solid granite that has ben polished not by tools but by constant passage of guards boots. The walkway goes east and west here leading to the towers of the man gate. Castle defenders can also shoot out through openings overloking the road up to the gate.
+~
+938 8 34
+D1
+~
+~
+0 0 93729
+D3
+~
+~
+0 0 93727
+S
+#93729
+Inner gatehouse walkway~
+The floor here is a solid granite that has ben polished not by tools but by constant passage of guards boots. The main walkway continues west and north. The west leads towards the west gate towers and to the north you can see a set of stairs goign up and a light coming in from a doorway. The stairs going up lead to one of the 4 towers of the main gate complex.
+~
+938 8 34
+D0
+~
+~
+0 0 93730
+D3
+~
+~
+0 0 93728
+D4
+~
+~
+0 0 93756
+D5
+~
+~
+0 0 93726
+S
+#93730
+Inner gatehouse walkway~
+The floor here is a solid granite that has ben polished not by tools but by constant passage of guards boots. The doorway to the east leads to the castle and on towards the tower off to the east. The stairs going up lead to one of the 4 towers of the main gate complex.
+~
+938 0 34
+D1
+~
+~
+0 0 93731
+D2
+~
+~
+0 0 93729
+D4
+~
+~
+0 0 93754
+S
+#93731
+&+LCr&+Wum&+lb&+Wlin&+wg section of wall~
+The wall here has fallen prey to age and the elements. The crenelation along the top have fallen into teh walkway and down to the road below. Sections of the walkway along the wall itself have started to shift and fall down to the road below as well.
+~
+938 0 32
+D3
+~
+~
+0 0 93730
+S
+#93732
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93733
+D3
+~
+~
+0 0 93731
+S
+#93733
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93734
+D3
+~
+~
+0 0 93732
+S
+#93734
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93735
+D3
+~
+~
+0 0 93733
+S
+#93735
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93740
+D3
+~
+~
+0 0 93734
+D4
+~
+~
+0 0 93738
+D5
+~
+~
+0 0 93736
+S
+#93736
+Unnamed~
+~
+938 0 0
+D4
+~
+~
+0 0 93735
+D6
+~
+~
+0 0 93810
+S
+#93737
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93811
+D2
+~
+~
+0 0 93810
+S
+#93738
+Unnamed~
+~
+938 0 0
+D4
+~
+~
+0 0 93739
+D5
+~
+~
+0 0 93735
+S
+#93739
+Unnamed~
+~
+938 0 0
+D5
+~
+~
+0 0 93738
+S
+#93740
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93741
+D2
+~
+~
+0 0 93735
+S
+#93741
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93742
+D2
+~
+~
+0 0 93740
+S
+#93742
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93743
+D2
+~
+~
+0 0 93741
+S
+#93743
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93744
+D2
+~
+~
+0 0 93742
+S
+#93744
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93745
+D2
+~
+~
+0 0 93743
+S
+#93745
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93746
+D2
+~
+~
+0 0 93744
+S
+#93746
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93747
+D2
+~
+~
+0 0 93745
+S
+#93747
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93748
+D2
+~
+~
+0 0 93746
+S
+#93748
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93749
+D2
+~
+~
+0 0 93747
+S
+#93749
+Unnamed~
+~
+938 0 0
+D2
+~
+~
+0 0 93748
+D4
+~
+~
+0 0 93752
+D5
+~
+~
+0 0 93750
+S
+#93750
+Unnamed~
+~
+938 0 0
+D4
+~
+~
+0 0 93749
+D7
+~
+~
+0 0 93818
+S
+#93751
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93819
+D3
+~
+~
+0 0 93808
+S
+#93752
+Unnamed~
+~
+938 0 0
+D4
+~
+~
+0 0 93753
+D5
+~
+~
+0 0 93749
+S
+#93753
+Top of the northeast tower~
+~
+938 0 0
+D5
+~
+~
+0 0 93752
+S
+#93754
+Climbing the tower stairs~
+Stairs lead up to the top of the tower or down towards the gatehouse. The stairwell is in good shape and there are still a few torches along the walls that can be lit when needed.
+~
+938 8 34
+D4
+~
+~
+0 0 93755
+D5
+~
+~
+0 0 93730
+S
+#93755
+Northeast tower of the gatehouse~
+The top of this tower has a view of the whole south wall to the east of the gates. It can be used to direct castle defenses against attack. Looking out you can see that the walls are still standing though he crenelations along the top have tumbles down into the walkway making it mostly impassable. To the east there is a tower in the southeast corner and one to the northeast against the cliff.
+~
+938 8 34
+D5
+~
+~
+0 0 93754
+S
+#93756
+East hoarding of the gate.~
+The top of this tower was used to control the latching for the main gate and portcullis. The mechanisim has long since become unusable due to age and lack of maintenance. There are also nice openings for defenders to shoot arrows or even drop stones or other objects down on anyone attacking the gate itself. To that end there are small piles of human head size rocks placed around the room.
+~
+938 8 34
+D5
+~
+~
+0 0 93729
+S
+#93757
+Inner gatehouse walkway~
+The floor here is a solid granite that has ben polished not by tools but by constant passage of guards boots. There was once an exit to the west but the archway and some of the wall has fallin into the doorway making it impassable. Looking through the opening you can see a tower to the west and just barely make out a tower to the northwest. The stairs going up lead to one of the 4 towers of the main gate complex.
+~
+938 8 34
+D2
+~
+~
+0 0 93727
+D4
+~
+~
+0 0 93759
+S
+#93758
+West hoarding of the gate.~
+The top of this tower was used to control the latching for the main gate and portcullis. The mechanisim has long since become unusable due to age and lack of maintenance. There are also nice openings for defenders to shoot arrows or even drop stones or other objects down on anyone attacking the gate itself. To that end there are small piles of human head size rocks placed around the room.
+~
+938 8 34
+D5
+~
+~
+0 0 93727
+S
+#93759
+Climbing the tower stairs~
+Stairs lead up to the top of the tower or down towards the gatehouse. The stairwell is in good shape and there are still a few torches along the walls that can be lit when needed.
+~
+938 8 34
+D4
+~
+~
+0 0 93760
+D5
+~
+~
+0 0 93757
+S
+#93760
+Northwest tower of the gatehouse~
+The top of this tower has a view of the whole south wall to the west of the gates. It can be used to direct castle defenses against attack. Looking out you cna see that the walls are still standing though he crenelations along the top have tumbled down into the walkway making it mostly impassable. To the west there is a tower in the southwest corner and one to the northwest against the cliff.
+~
+938 8 34
+D5
+~
+~
+0 0 93759
+S
+#93761
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93757
+D3
+~
+~
+0 0 93762
+S
+#93762
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93761
+D3
+~
+~
+0 0 93763
+S
+#93763
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93762
+D3
+~
+~
+0 0 93764
+S
+#93764
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93763
+D3
+~
+~
+0 0 93765
+S
+#93765
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93770
+D1
+~
+~
+0 0 93764
+D4
+~
+~
+0 0 93768
+D5
+~
+~
+0 0 93766
+S
+#93766
+Unnamed~
+~
+938 0 0
+D4
+~
+~
+0 0 93765
+D8
+~
+~
+0 0 93800
+S
+#93767
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93801
+D2
+~
+~
+0 0 93800
+S
+#93768
+Unnamed~
+~
+938 0 0
+D4
+~
+~
+0 0 93769
+D5
+~
+~
+0 0 93765
+S
+#93769
+Top of the southwest tower~
+~
+938 0 0
+D5
+~
+~
+0 0 93768
+S
+#93770
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93771
+D2
+~
+~
+0 0 93765
+S
+#93771
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93772
+D2
+~
+~
+0 0 93770
+S
+#93772
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93773
+D2
+~
+~
+0 0 93771
+S
+#93773
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93774
+D2
+~
+~
+0 0 93772
+S
+#93774
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93775
+D2
+~
+~
+0 0 93773
+S
+#93775
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93776
+D2
+~
+~
+0 0 93774
+S
+#93776
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93777
+D2
+~
+~
+0 0 93775
+S
+#93777
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93778
+D2
+~
+~
+0 0 93776
+S
+#93778
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93779
+D2
+~
+~
+0 0 93777
+S
+#93779
+Unnamed~
+~
+938 0 0
+D2
+~
+~
+0 0 93778
+D4
+~
+~
+0 0 93780
+D5
+~
+~
+0 0 93782
+S
+#93780
+Unnamed~
+~
+938 0 0
+D4
+~
+~
+0 0 93781
+D5
+~
+~
+0 0 93779
+S
+#93781
+Top of northwest tower~
+~
+938 0 0
+D5
+~
+~
+0 0 93780
+S
+#93782
+Unnamed~
+~
+938 0 0
+D4
+~
+~
+0 0 93779
+D9
+~
+~
+0 0 93808
+S
+#93783
+&+LCo&+wb&+Wbl&+Le&+wst&+Won&+Le &+wro&+La&+wd~
+ The road has seen much use and worn away to almost gravel at some points. The road continues to the east but it is impassabe from here due to stone blocks that have fallen from walls and the keep itself.
+~
+938 0 1
+D3
+~
+~
+0 0 93796
+S
+#93784
+&+WOn &+Lth&+re g&+Lra&+Wnd &+Wsta&+Li&+rr&+Lc&+Wase~
+The staircase is truely a sight to see. Even though age and lack of cleaning and maintenance has dulled its finish one can imagine what it looked like long ago. The stairs themselves are made of a finely cut &+Wma&+Lr&+Wble &+wblocks set in a &+ctw&+Li&+cst&+Le&+cd &+wwrought &+ciron &+wframe. A &+rdark velvet carpet &+wonce ran the length of the stairs but has been reduced to shreds from age. The handrails are made of a &+Ybr&+Ca&+Yi&+Cde&+Yd &+Ygold &+wand &+Csilver &+wbar that still has a bit of shine to it under the dust.
+~
+938 12 0
+D1
+~
+~
+0 0 93712
+D4
+~
+~
+0 0 93787
+S
+#93785
+&+WOn &+Lth&+re g&+Lra&+Wnd &+Wsta&+Li&+rr&+Lc&+Wase~
+The staircase is truely a sight to see. Even though age and lack of cleaning and maintenance has dulled its finish one can imagine what it looked like long ago. The stairs themselves are made of a finely cut &+Wma&+Lr&+Wble &+wblocks set in a &+ctw&+Li&+cst&+Le&+cd &+wwrought &+ciron &+wframe. A &+rdark velvet carpet &+wonce ran the length of the stairs but has been reduced to shreds from age. The handrails are made of a &+Ybr&+Ca&+Yi&+Cde&+Yd &+Ygold &+wand &+Csilver &+wbar that still has a bit of shine to it under the dust.
+~
+938 12 0
+D3
+~
+~
+0 0 93712
+D4
+~
+~
+0 0 93786
+S
+#93786
+&+LTo&+Wp o&+Lf th&+We &+Lg&+Wran&+Ld &+Wsta&+Lir~
+At the top of the staircase is a walkway that goes east and west. The floor is solid marble that is polished smooth to a mirror finish. The north wall is a fine tapestry as you crest the stairs. There are oil lamps the top of the handrail posts on each side of the staircase. To the west is a large landing overlooking the stairs and great hall. To the east is the chamberlain's office and servant quarters.
+~
+938 142639112 34
+D1
+~
+~
+0 0 93836
+D3
+~
+~
+0 0 93795
+D5
+~
+~
+0 0 93785
+S
+#93787
+&+WTo&+Lp &+Wof &+Wt&+Lhe g&+Wran&+Ld &+Wsta&+Li&+Wrs~
+At the top of the staircase is a walkway that goes east and west. The floor is solid marble that is polished smooth to a mirror finish. The north wall is a fine tapestry as you crest the stairs. There are oil lamps the top of the handrail posts on each side of the staircase. To the east is a large landing overlooking the stairs and great hall. To the west is the guest quarters.
+~
+938 142639112 34
+D1
+~
+~
+0 0 93795
+D3
+~
+~
+0 0 93828
+D5
+~
+~
+0 0 93784
+S
+#93788
+&+LTop of the cellar stairs~
+There is a door going down to a cold storage cellar. To the north is a kitchen and the great hall is off to the south. There is little light here making it a little hard to see. Light from the great hall to the south lets you see the door down and doorway north.
+~
+938 134250505 0
+D0
+~
+~
+1 0 93878
+D2
+~
+~
+0 0 93712
+D5
+~
+door~
+1 0 93789
+S
+#93789
+Stairs leading into the cellar~
+~
+938 134250505 0
+D4
+~
+~
+1 0 93788
+D5
+~
+~
+0 0 93790
+S
+#93790
+&+bCool storage cellar~
+~
+938 9 0
+D0
+~
+~
+0 0 93791
+D1
+~
+~
+0 0 93793
+D2
+~
+~
+0 0 93794
+D3
+~
+~
+0 0 93792
+D4
+~
+~
+0 0 93789
+S
+#93791
+&+bCool storage cellar~
+~
+938 1 0
+D2
+~
+~
+0 0 93790
+S
+#93792
+&+bCool storage cellar~
+~
+938 1 0
+D1
+~
+~
+0 0 93790
+S
+#93793
+&+bCool storage cellar~
+~
+938 1 0
+D3
+~
+~
+0 0 93790
+S
+#93794
+&+bCool storage cellar~
+~
+938 1 0
+D0
+~
+~
+0 0 93790
+S
+#93795
+&+BLanding overlooking the &+YBanquet hall.~
+The landing here is designed to allow one to look out over the entire hall. It would allow you to address an audience in the hall with ease while making everyone look up to you. The main stairs go down to the east and west to the great hall. This floor is set aside for castle guests and the stairs up lead to permanent living area.
+~
+938 8 34
+D0
+~
+vault~
+3 93730 93864
+D1
+~
+~
+0 0 93786
+D3
+~
+~
+0 0 93787
+D4
+~
+~
+0 0 93827
+S
+#93796
+&+WC&+Lob&+Wb&+wle&+Wst&+Lon&+we road~
+ The road has seen much use and worn away to almost gravel at some points. The road continues to the east and is almost impassabe from here due to stone blocks that have fallen from walls and the keep itself.
+~
+938 0 1
+D1
+~
+~
+0 0 93783
+D3
+~
+~
+0 0 93718
+S
+#93797
+&+WC&+Lob&+Wb&+wle&+Lst&+Won&+we &+Lr&+woad~
+ The road has seen much use and worn away to almost gravel at some points. The road continues to the west but it is impassabe from here due to stone blocks that have fallen from walls and the keep itself.
+~
+938 0 1
+D1
+~
+~
+0 0 93719
+S
+#93798
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93797
+D3
+~
+~
+0 0 93799
+S
+#93799
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93798
+D3
+~
+~
+0 0 93800
+S
+#93800
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93767
+D1
+~
+~
+0 0 93799
+D7
+~
+~
+0 0 93766
+S
+#93801
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93802
+D2
+~
+~
+0 0 93767
+S
+#93802
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93803
+D2
+~
+~
+0 0 93801
+S
+#93803
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93804
+D2
+~
+~
+0 0 93802
+S
+#93804
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93805
+D2
+~
+~
+0 0 93803
+S
+#93805
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93806
+D2
+~
+~
+0 0 93804
+S
+#93806
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93807
+D2
+~
+~
+0 0 93805
+S
+#93807
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93808
+D2
+~
+~
+0 0 93806
+S
+#93808
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93751
+D2
+~
+~
+0 0 93807
+D6
+~
+~
+0 0 93782
+S
+#93809
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93810
+D3
+~
+~
+0 0 93783
+S
+#93810
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93737
+D3
+~
+~
+0 0 93809
+D9
+~
+~
+0 0 93736
+S
+#93811
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93812
+D2
+~
+~
+0 0 93737
+S
+#93812
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93813
+D2
+~
+~
+0 0 93811
+S
+#93813
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93814
+D2
+~
+~
+0 0 93812
+S
+#93814
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93815
+D2
+~
+~
+0 0 93813
+S
+#93815
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93816
+D2
+~
+~
+0 0 93814
+S
+#93816
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93817
+D2
+~
+~
+0 0 93815
+S
+#93817
+Unnamed~
+~
+938 0 0
+D0
+~
+~
+0 0 93818
+D2
+~
+~
+0 0 93816
+S
+#93818
+Unnamed~
+~
+938 0 0
+D2
+~
+~
+0 0 93817
+D3
+~
+~
+0 0 93826
+D8
+~
+~
+0 0 93750
+S
+#93819
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93820
+D3
+~
+~
+0 0 93751
+S
+#93820
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93821
+D3
+~
+~
+0 0 93819
+S
+#93821
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93822
+D3
+~
+~
+0 0 93820
+S
+#93822
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93823
+D3
+~
+~
+0 0 93821
+S
+#93823
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93824
+D3
+~
+~
+0 0 93822
+S
+#93824
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93825
+D3
+~
+~
+0 0 93823
+S
+#93825
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93826
+D3
+~
+~
+0 0 93824
+S
+#93826
+Unnamed~
+~
+938 0 0
+D1
+~
+~
+0 0 93818
+D3
+~
+~
+0 0 93825
+S
+#93827
+&+WIntersection of hallways~
+The top of the main staircase in the keep. There are 3 main halls one each going north, east, and west. They lead to the lords keep to the north, the priest living area and chapel to the east, and the magicians living area and study.
+~
+938 12 34
+D0
+~
+~
+0 0 93858
+D1
+The hallway leading to the east goes into the priests wing of the keep.
+~
+~
+0 0 93844
+D3
+The hallway leading to the west goes into the magicians wing of the keep.
+~
+~
+0 0 93851
+D5
+~
+~
+0 0 93795
+S
+#93828
+&+LWe&+Wst g&+Lu&+Wes&+Lt&+Ws &+Lh&+Wall~
+The hallway goes east and west. It is designed to impress visitors that walk through. the floor is set with colored tiles of marble, obsidian, and granite. there are colored glass windows high up along the south wall and oil lamps along the north wall.
+~
+938 142639112 34
+D0
+The door is a solid piece of &+Rco&+mlor&+Red &+mqu&+Rar&+mt&+Rz &+wthat has been smoothed and polished to a perfect shine. The only thing marking the surface is a small keyhole.
+~
+door~
+2 93742 93883
+D1
+~
+~
+0 0 93787
+D3
+~
+~
+0 0 93829
+S
+#93829
+&+WWe&+Ls&+Wt gu&+Le&+Wst&+Ls &+Wha&+Ll&+Wl~
+The hallway goes east and west. It is designed to impress visitors that walk through. the floor is set with colored tiles of marble, obsidian, and granite. there are colored glass windows high up along the south wall and oil lamps along the north wall.
+~
+938 142639112 34
+D1
+~
+~
+0 0 93828
+D3
+~
+~
+0 0 93830
+S
+#93830
+&+WW&+Les&+Wt g&+Lu&+Wes&+Lt&+Ws &+Lhal&+Wl~
+The hallway goes east and west. It is designed to impress visitors that walk through. the floor is set with colored tiles of marble, obsidian, and granite. there are colored glass windows high up along the south wall and oil lamps along the north wall.
+~
+938 142639112 34
+D0
+The door is a solid piece of &+rco&+blor&+red &+bqu&+rar&+bt&+rz &+wthat has been smoothed and polished to a perfect shine. The only thing marking the surface is a small keyhole.
+~
+door~
+2 93741 93884
+D1
+~
+~
+0 0 93829
+D3
+~
+~
+0 0 93831
+S
+#93831
+&+LCorner of the guest hall~
+The hallway here goes north and east. The floor is a solid granite block that has been polished to a near mirror finish. there are colored glass windows high up on the west and south walls and oil lamps at head height along the west and south walls when more light is needed.
+~
+938 142639112 34
+D0
+~
+~
+0 0 93832
+D1
+~
+~
+0 0 93830
+S
+#93832
+&+WWe&+Ls&+Wt &+Lw&+Win&+Lg &+Wof &+Lt&+Wh&+Le &+Wgu&+Le&+Wst &+Lh&+Wal&+Ll~
+The hallway here goes north and south. It is designed to impress visitors that walk through. the floor is set with colored tiles of marble, obsidian, and granite. there are colored glass windows high up along the west wall and oil lamps along the east wall.
+~
+938 142639112 34
+D0
+~
+~
+0 0 93833
+D2
+~
+~
+0 0 93831
+S
+#93833
+&+WWe&+Lst &+Ww&+Lin&+Wg &+Lof &+Wth&+Le g&+Wue&+Ls&+Wt h&+La&+Wll~
+The hallway here goes north and south. It is designed to impress visitors that walk through. the floor is set with colored tiles of marble, obsidian, and granite. there are colored glass windows high up along the west wall and oil lamps along the east wall.
+~
+938 142639112 34
+D0
+~
+~
+0 0 93834
+D1
+The door is a solid piece of &+Gco&+clor&+Ged &+cqu&+Gar&+ct&+Gz &+wthat has been smoothed and polished to a perfect shine. The only thing marking the surface is a small keyhole.
+~
+door~
+2 93739 93885
+D2
+~
+~
+0 0 93832
+S
+#93834
+&+WWe&+Ls&+Wt &+Lw&+Win&+Lg &+Wof &+Lt&+Wh&+Le &+Wgu&+Les&+Wt &+Lha&+Wl&+Ll~
+The hallway here goes north and south. It is designed to impress visitors that walk through. the floor is set with colored tiles of marble, obsidian, and granite. there are colored glass windows high up along the west wall and oil lamps along the east wall.
+~
+938 142639112 34
+D0
+~
+~
+0 0 93835
+D2
+~
+~
+0 0 93833
+S
+#93835
+&+LEnd of the west hall~
+The west hall ends here. There is a large colored glass window on the west wall giving the room a rainbow coloring when the sun hits the window just right. There are still oil lamps along the wall for light at night. The floor here is all one large granite block that has been polished to a near mirror finish.
+~
+938 142639176 34
+D1
+The door is a solid piece of &+bco&+Llor&+bed &+Lqu&+bar&+bt&+Lz &+wthat has been smoothed and polished to a perfect shine. The only thing marking the surface is a small keyhole.
+~
+door~
+3 93740 93886
+D2
+~
+~
+0 0 93834
+S
+#93836
+&+WChamb&+Ler&+Wlai&+Ln's &+Wha&+Lll&+Wway~
+The hallway here goes east and west and a door opens to the chamberlains office to the north. The west leads towards the main staircase. The east leads towards the chamberlain office and servant quarters. The floor is mostly polished granite with a marble strip going north to south every few feet. Oil lamps are placed along the north wall with plain glass windows higher up along the south wall. The floor has been worn down by the large volume of foot travel as the servants come and go along the hall carrying out their duties.
+~
+938 142639112 34
+D0
+~
+~
+0 0 93879
+D1
+~
+~
+0 0 93837
+D3
+~
+~
+0 0 93786
+S
+#93837
+&+WCh&+Lam&+Wber&+Ll&+Wain's &+Lhall~
+The hallway here goes east and west. The west leads towards the main staircase. The east leads towards the chamberlain office and servant quarters. The floor is mostly polished granite with a marble strip going north to south every few feet. Oil lamps are placed along the north wall with plain glass windows higher up along the south wall. The floor has been worn down by the large volume of foot travel as the servants come and go along the hall carrying out their duties.
+~
+938 142639112 34
+D1
+~
+~
+0 0 93838
+D3
+~
+~
+0 0 93836
+S
+#93838
+&+WC&+Lha&+Wmb&+Lerla&+Win'&+Ls h&+La&+Wll~
+The hallway here goes east and west with a door to a servants quarters to the north. The west leads towards the main staircase. The east leads towards the chamberlain office and servant quarters. The floor is mostly polished granite with a marble strip going north to south every few feet. Oil lamps are placed along the north wall with plain glass windows higher up along the south wall. The floor has been worn down by the large volume of foot travel as the servants come and go along the hall carrying out their duties.
+~
+938 142639112 34
+D0
+~
+~
+0 0 93880
+D1
+~
+~
+0 0 93839
+D3
+~
+~
+0 0 93837
+S
+#93839
+&+LCorner of the chamberlain's hall~
+The hallway here goes north and west. The floor is a solid granite block that has been polished to a near mirror finish. there are colored glass windows high up on the east and south walls and oil lamps at head height along the east and south walls when more light is needed.
+~
+938 142639112 34
+D0
+~
+~
+0 0 93840
+D3
+~
+~
+0 0 93838
+S
+#93840
+&+LEas&+Wt w&+Ling &+Wof &+Lthe ch&+Wam&+Lberl&+Wai&+Ln's hall~
+The hallway here goes north and south. The south leads towards the main staircase. The north leads towards the servant quarters. The floor is mostly polished granite with a marble strip going east and west every few feet. Oil lamps are placed along the west wall with plain glass windows higher up along the east wall. The floor has been worn down by the large volume of foot travel as the servants come and go along the hall carrying out their duties.
+~
+938 142639112 34
+D0
+~
+~
+0 0 93841
+D2
+~
+~
+0 0 93839
+S
+#93841
+&+WEa&+Lst win&+Wg o&+Lf t&+Wh&+Le cha&+Wmb&+Lerla&+Wi&+Ln's h&+Wa&+Lll~
+The hallway here goes north and south. The south leads towards the main staircase. The door to the west leads into a servants quarters. The floor is mostly polished granite with a marble strip going east and west every few feet. Oil lamps are placed along the west wall with plain glass windows higher up along the east wall. The floor has been worn down by the large volume of foot travel as the servants come and go along the hall carrying out their duties.
+~
+938 142639112 34
+D0
+~
+~
+0 0 93842
+D2
+~
+~
+0 0 93840
+D3
+~
+~
+0 0 93881
+S
+#93842
+&+WEa&+Lst w&+Win&+Lg o&+Wf &+Lthe &+Wch&+Lambe&+Wrl&+Lain&+W's &+Lha&+Wl&+Ll~
+The hallway here goes north and south. The south leads towards the main staircase. The north leads towards the servant quarters. The floor is mostly polished granite with a marble strip going east and west every few feet. Oil lamps are placed along the west wall with plain glass windows higher up along the east wall. The floor has been worn down by the large volume of foot travel as the servants come and go along the hall carrying out their duties.
+~
+938 142639112 34
+D0
+~
+~
+0 0 93843
+D2
+~
+~
+0 0 93841
+S
+#93843
+&+LEnd of the chamberlain's hall~
+The east hall ends here. There is a large plain glass window on the east wall giving the room plenty of light when the sun hits the window. There are still oil lamps along the wall for light at night. The floor here is all one large granite block that has been polished but worn by years of servants footsteps.
+~
+938 142639112 34
+D2
+~
+~
+0 0 93842
+D3
+~
+~
+0 0 93882
+S
+#93844
+&+WPriestly path~
+The hallway has religious inscriptions along the floor as you walk that seem to almost glow. Some sort of magic has kept the inscriptions from wearing away as the stone gets worn away be constant use and they provide a soft light along the walk as you travel.
+~
+938 4194312 34
+D1
+~
+~
+0 0 93845
+D3
+~
+~
+0 0 93827
+S
+#93845
+&+WPriests hall~
+The hallway here is much like the rest of the hallway. Only exception is the inscriptions have moved from the floor to the walls. there is still a soft glow providing enough light to easily see by.
+~
+938 4194312 34
+D0
+~
+~
+0 0 93865
+D1
+~
+~
+0 0 93846
+D3
+~
+~
+0 0 93844
+S
+#93846
+&+WPious walkway~
+The walls are lined with candles and the floors are tiled with colored stones to form crosses and each cross has scripture written on it. There are colored glass windows along the top of the south wall. The area radiates a peacfull warm glow from the soft white from the candles and the colorfull light descending from the windows.
+~
+938 4194312 34
+D1
+~
+~
+0 0 93847
+D3
+~
+~
+0 0 93845
+S
+#93847
+&+WPious walkway~
+The walls are lined with candles and the floors are tiled with colored stones to form crosses and each cross has scripture written on it. There are colored glass windows along the top of the south wall. The area radiates a peacfull warm glow from the soft white from the candles and the colorfull light descending from the windows.
+~
+938 4194312 34
+D0
+~
+~
+0 0 93848
+D3
+~
+~
+0 0 93846
+S
+#93848
+&+WPious walkway~
+The walls are lined with candles and the floors are tiled with colored stones to form crosses and each cross has scripture written on it. There are colored glass windows along the top of the south wall. The area radiates a peacfull warm glow from the soft white from the candles and the colorfull light descending from the windows.
+~
+938 4194312 34
+D0
+~
+~
+0 0 93849
+D2
+~
+~
+0 0 93847
+S
+#93849
+&+WPious walkway~
+The walls are lined with candles and the floors are tiled with colored stones to form crosses and each cross has scripture written on it. There are colored glass windows along the top of the south wall. The area radiates a peacfull warm glow from the soft white from the candles and the colorfull light descending from the windows.
+~
+938 4194312 34
+D0
+~
+~
+0 0 93850
+D2
+~
+~
+0 0 93848
+S
+#93850
+&+WChapel stairs~
+There are small alcoves along the wall that alternate with candels and religious symbols as you approach the stairs. There is alot less light coming down from the chapel than would be expected from the well lit walk leading to it.
+~
+938 8 34
+D2
+~
+~
+0 0 93849
+D4
+~
+~
+0 0 93869
+S
+#93851
+&+BHall of magic~
+The very air along this hallway seems alive with magic. There is a shimmering effect in the air that prevents seeing farther than the room you are in. Magical runes line the walls and the floor is a smooth black obsidian.
+~
+938 1077936136 34
+D1
+~
+~
+0 0 93827
+D3
+~
+~
+0 0 93852
+S
+#93852
+&+RHall of magic~
+The very air along this hallway seems alive with magic. There is a shimmering effect in the air that prevents seeing farther than the room you are in. Magical runes line the walls and the floor is a smooth black obsidian.
+~
+938 8 34
+D0
+Plain heavy wooden door opens to the north. It has some magical runes and inscriptions on it but is otherwise unremarkable.
+~
+door~
+1 0 93874
+D1
+~
+~
+0 0 93851
+D3
+~
+~
+0 0 93853
+S
+#93853
+&+BHall of magic~
+The very air along this hallway seems alive with magic. There is a shimmering effect in the air that prevents seeing farther than the room you are in. Magical runes line the walls and the floor is a smooth black obsidian.
+~
+938 8 34
+D1
+~
+~
+0 0 93852
+D3
+~
+~
+0 0 93854
+S
+#93854
+&+RHall of magic~
+The very air along this hallway seems alive with magic. There is a shimmering effect in the air that prevents seeing farther than the room you are in. Magical runes line the walls and the floor is a smooth black obsidian.
+~
+938 8 34
+D0
+~
+~
+0 0 93855
+D1
+~
+~
+0 0 93853
+S
+#93855
+&+BHall of magic~
+The very air along this hallway seems alive with magic. There is a shimmering effect in the air that prevents seeing farther than the room you are in. Magical runes line the walls and the floor is a smooth black obsidian.
+~
+938 8 34
+D0
+~
+~
+0 0 93856
+D2
+~
+~
+0 0 93854
+S
+#93856
+&+RHall of magic~
+The very air along this hallway seems alive with magic. There is a shimmering effect in the air that prevents seeing farther than the room you are in. Magical runes line the walls and the floor is a smooth black obsidian.
+~
+938 8 34
+D0
+~
+~
+0 0 93857
+D1
+~
+~
+0 0 93871
+D2
+~
+~
+0 0 93855
+S
+#93857
+&+RSta&+Birs &+Rto &+Rth&+Be s&+Rtu&+Bdy~
+The stairs here are slightly translucent giving anyone a moments pause thinking weather or not the stairs are actually there. There is an electrical charge that can be felt in the air nearing the stairs and growing stronger as you near the top.
+~
+938 1207992328 34
+D2
+~
+~
+0 0 93856
+D4
+~
+~
+0 0 93870
+S
+#93858
+&+MHall of royals~
+The floor is covered in a plush carpet. The walls have pedestals with busts of previous royal family. Colored glass skylights let in a rainbow of sunlight. The hall continues to the north towards a very large mirror and to the south towards a grand staircase.
+~
+938 8 34
+D0
+~
+~
+0 0 93859
+D2
+~
+~
+0 0 93827
+S
+#93859
+&+MBef&+more &+wa &+mla&+Mrg&+me &+Cmi&+Wr&+Cr&+Wor~
+A large silver and glass mirror dominates this room. It is placed against the north wall and is the size of a large doorway. The floor ie worn smooth with a slight depression down the center, worn down from years of traffic. There is no door yet the signs would lead one to think the hallway should continue on to the north.
+~
+938 142639240 34
+D2
+~
+~
+0 0 93858
+S
+#93860
+&+MLa&+mvis&+Mh sit&+mti&+Mng &+Mro&+mom~
+Lavish lounge chairs and sofas are placed around the room. There is a large irregular shaped table near the center with a few high backed chairs tucked up against it. There is a thick lush carpet and heavy tapestries on the wall to keep the room warm and quiet. A curtained doorway leads farther into the living area.
+~
+938 8 34
+D0
+A heavy curtain blocks sight in to the room to the north. It is a dense heavy fabric that runs ceiling to floor with its runners recessed into the ceiling. It has hooks along each side to that it can be secured to the walls on each side to deter unwanted entrance to the room beyond.
+~
+curtain~
+1 0 93861
+D2
+~
+~
+0 0 93859
+S
+#93861
+&+BRe&+bg&+Ba&+bl &+Wbed&+wch&+La&+Wmb&+wers~
+Great tapestries hang along the walls. A massive 4 posted bed with curtains that allow all light to be shut out stands in the center of the room. a few chairs and a small dresser sit along one wall. This room looks to have once been the bedchamber of the castle lord or lady. It extends to the east and west in what look like closets and changing areas.
+~
+938 8 34
+D1
+~
+~
+0 0 93862
+D2
+A heavy curtain blocks sight in to the room to the north. It is a dense heavy fabric that runs ceiling to floor with its runners recessed into the ceiling. It has hooks along each side to that it can be secured to the walls on each side to deter unwanted entrance to the room beyond.
+~
+curtain~
+1 0 93860
+D3
+~
+~
+0 0 93863
+S
+#93862
+&+mRo&+Ly&+mal&+Ls &+Lcloset~
+There are clothes scattered about the floor and tossed over the hanger bar as if a person had gone through and tried on clothes and just discarded anything they didnt like.
+~
+938 8 34
+D3
+~
+~
+0 0 93861
+S
+#93863
+&+Ldark &+wneat closet~
+The room is nearly completly dark and seemingly untouched. The clothes in here are all mens clothes and have a fine layer of dust on them but otherwise seem as if they were left long ago.
+~
+938 9 34
+D1
+~
+~
+0 0 93861
+S
+#93864
+&+YCa&+ys&+Ytl&+ye &+Yv&+yau&+Ylt~
+The torches along the wall spring to life as the doors enter. The floor is polished to a point you can see your reflection as you walk. Three big steel chests line the back wall.
+~
+938 1287815368 0
+D2
+~
+vault~
+3 0 93795
+S
+#93865
+&+yHu&+Wm&+yble &+Wsl&+yeep&+yin&+Wg &+yqu&+War&+yters~
+These sleeping quarters are sparse to say the least. There are several rows of bunks that are little more than thick flat boards with a thin mattress to lie on and a thin blanket for a cover.
+~
+938 8 0
+D0
+~
+~
+0 0 93867
+D2
+~
+~
+0 0 93845
+D3
+~
+~
+0 0 93866
+S
+#93866
+&+yHumble &+Wpr&+yie&+Wsts &+yquarters~
+There are 4 small tables with 4 chairs at each near the center of the room. A small fireplace on the west wall with a grate for placing pots and an iron plate that can be used as a hotplate. A large stack of firewood is neatly piled against the south wall.
+~
+938 8 0
+D0
+~
+~
+0 0 93868
+D1
+~
+~
+0 0 93865
+S
+#93867
+&+yHu&+Wm&+yble &+Wsl&+yeepin&+Wg &+yqu&+War&+yters~
+These sleeping quarters are sparse to say the least. There are several rows of bunks that are little more than thick flat boards with a thin mattress to lie on and a thin blanket for a cover.
+~
+938 8 0
+D2
+~
+~
+0 0 93865
+D3
+~
+~
+0 0 93868
+S
+#93868
+&+yO&+Wpe&+yn &+Wcl&+yose&+Wt~
+This area is a large open closet with rows of plain &+Wwhite &+wand &+ybrown &+wrobes. There are small open footlockers lined up along the north wall. Each one has 2 pair of soft soled moccasins and what appears to be a nameplate. The names have long since faded to be unreadable.
+~
+938 8 0
+D1
+~
+~
+0 0 93867
+D2
+~
+~
+0 0 93866
+S
+#93869
+&+LBi&+ws&+Wh&+Lops t&+Wow&+w&+Ler~
+This room has been nearly destroyed. It was once a small chapel from the looks of it. There are all sorts of religious relics and symbols scattered around the room all seemingly thrown from various alcoves around the room. The large windows are all shuttered to allow minimal light in though there is a hint if colored stained glass in what light does filter through.
+~
+938 8 34
+D5
+~
+~
+0 0 93850
+S
+#93870
+&+RTo&+Bwe&+Rr &+Bof &+Bma&+Rg&+Bic~
+There are shelves and shelves of magical texts lining the walls. Workbenches with various distilation aparatuses and racks of potion bottles take up most of the room. With a small row of high backed cushioned chairs lining the south wall. Each chair has a small mage light hovering just above it to provide plenty of reading light for anyone needing it.
+~
+938 138412040 34
+D5
+~
+~
+0 0 93857
+S
+#93871
+&+CMain Library~
+Row after row of bookshelves fill the room here all the way to the far back wall. Filled with all manner of books on many many different subjects. There is a steady glowing light coming down from the ceiling and there is a very slight breeze that has kept the air fresh and dry.
+~
+938 205553736 0
+D1
+~
+~
+0 0 93873
+D2
+~
+~
+0 0 93872
+D3
+~
+~
+0 0 93856
+S
+#93872
+&+cReading area~
+Long tables are lined up in the center of the room with chairs tucked neatly underneath every couple of feet. The walls are lined with lounge chairs and the odd sofa here and there. It is again strangly quiet in this area to prevent anyone from disturbing those that might be deep in thought.
+~
+938 205553752 0
+D0
+~
+~
+0 0 93871
+S
+#93873
+&+CMain Library~
+Row after row of bookshelves fill the room here all the way to the far back wall. Filled with all manner of books on many many different subjects. There is a steady glowing light coming down from the ceiling and there is a very slight breeze that has kept the air fresh and dry.
+~
+938 205553736 0
+D3
+~
+~
+0 0 93871
+S
+#93874
+&+mSo&+Mrc&+mer&+Mers &+Lsleeping quarters~
+Neat rows of bunks are lined up in a grid. Four rows of double bunks along the east wall. At the foot of each bunk is a pair of footlockers facing away from eachother. The top bunks have small shelves set to be easily reached from the bunk. The bottom bunks have a small shelf at the head of each bed. The floors and walls are worn and scared from years of housing training sorcerers.
+~
+938 4194312 0
+D0
+~
+~
+0 0 93875
+D2
+This side of the door is a smooth piece of steel. It is designed to help block out any outside noise. There is no keyhole only a normal door latch so security was not an issue when this door was put in.
+~
+door~
+1 0 93852
+D3
+~
+~
+0 0 93877
+S
+#93875
+&+MSo&+mrc&+Me&+mrers &+Lsleeping quarters~
+Neat rows of bunks are lined up in a grid. Four rows of double bunks along the east wall. At the foot of each bunk is a pair of footlockers facing away from eachother. The top bunks have small shelves set to be easily reached from the bunk. The bottom bunks have a small shelf at the head of each bed. The floors and walls are worn and scared from years of housing training sorcerers.
+~
+938 9 0
+D2
+~
+~
+0 0 93874
+D3
+~
+~
+0 0 93876
+S
+#93876
+&+cQuiet study area~
+There is an almost tangible silence to this area. Thick carpet and heavy tapestries lie the floor and walls. A slight shimmer in the air as to step into the quiet area can only be a magical enchantment on the area to reduce or even eliminate sound from outside. There are a few bookshelves along the north wall and a dozen or more chairs of various comfort levels placed randomly about the room.
+~
+938 205553672 0
+D1
+~
+~
+0 0 93875
+D2
+~
+~
+0 0 93877
+S
+#93877
+&+cSmall cooking area~
+There is a small wood burning stove near the center of the room. A rack along the wall holds assorted pots and pans and a couple of flat hotplates. Various cooking utinsels are hanging form the side of the rack and a cabinet of dishes and silverware sits next to the cookware. ac few small round tables have been pushed against the walls and plain wooden chairs are stacked in the corner.
+~
+938 205553736 0
+D0
+~
+~
+0 0 93876
+D1
+~
+~
+0 0 93874
+S
+#93878
+&+cKitchen~
+A large kitchen area long unused. There are preparation tables lined up through the center with hanging racks of pots and pans ove reach table. Under each table is a cabinet that has various bowls, plates, cuttingboards, and all sorts of utinsels.
+~
+938 134250633 0
+D2
+~
+double~
+1 0 93788
+S
+#93879
+&+WChamberlain's quarters~
+The chamberlains quarters also serve as the chamberlain's office. There is a small living and sleeping area in the back corner. There is a large desk near the doorway with papers neatly stacked on one side and a selection of seals and stamps in the center.
+~
+938 142639240 34
+D2
+~
+~
+0 0 93836
+S
+#93880
+Servants quarters~
+Rows of bunks line the east and west walls. There is a pair of lockers standing back to back at the end of each bunk. Along the north wall is a lounge area with a couple couches and lounge chairs, a few tables with plain chairs at each table. In the center is a wood stove with a stack of wood on once side and a small cabinet of cookware and dishes on the other.
+~
+938 142639112 34
+D2
+~
+~
+0 0 93838
+S
+#93881
+&+LServants quarters~
+Rows of bunks line the east and west walls. There is a pair of lockers standing back to back at the end of each bunk. Along the north wall is a lounge area with a couple couches and lounge chairs, a few tables with plain chairs at each table. In the center is a wood stove with a stack of wood on once side and a small cabinet of cookware and dishes on the other.
+~
+938 142639112 34
+D1
+~
+~
+0 0 93841
+S
+#93882
+&+LStorage closet~
+There is all sorts of stuff stored in this closet. From brooms dusters of various sizes. To random articles of clothing, and even bits of horse tack and a few pieces of old worn out armor. Organization does not seem important as things seem to have been tossed in and left however they landed.
+~
+938 142901257 0
+D1
+~
+~
+0 0 93843
+E
+room~
+As disorganized as the room is there is a chance that something of value has been lost in the mess. Most of it seems to be trash and unwanted items but one never knows. One mans trash is another mans treasure afterall.
+~
+S
+#93883
+&+WWell &+Rfur&+mnis&+Rhed &+Lguest room~
+&+RThis lavish guest &+msuite is one &+Rlarge room that has been &+mparti&+rtioned &+moff &+Rinto seperate areas for a small amount &+mof privacy &+Rin each area. The &+msleeping area &+Rhas a la&+mrge four post &+Rbed with &+mcurtains that &+Rcan be closed around it to keep out prying eyes and any bugs that &+mmight make it &+Rinto the room. There is a lounge area with a &+mplush sofa &+Rand a pair of chairs around a small table. A changing area &+mwith a dresser and &+Rcoat rack in the corner.
+~
+938 134381576 0
+D2
+This side of the door is a heavy carpet allowing it to absorbe most sound from either side. The door opens into the room and there is a small keyhole with a small handle above it.
+~
+door~
+2 93742 93828
+S
+#93884
+&+WWell &+rfur&+bnis&+rhed &+Lguest room~
+&+rThis lavish guest &+bsuite is one &+rlarge room that has been &+bparti&+rtioned &+boff &+rinto seperate areas for a small amount &+bof privacy &+rin each area. The &+bsleeping area &+rhas a la&+brge four post &+rbed with &+bcurtains that &+rcan be closed around it to keep out prying eyes and any bugs that &+bmight make it &+rinto the room. There is a lounge area with a &+bplush sofa &+rand a pair of chairs around a small table. A changing area &+bwith a dresser and &+rcoat rack in the corner.
+~
+938 134381576 0
+D2
+This side of the door is a heavy carpet allowing it to absorbe most sound from either side. The door opens into the room and there is a small keyhole with a small handle above it.
+~
+door~
+2 93741 93830
+S
+#93885
+&+WWell &+Gfur&+cnis&+Ghed &+Lguest room~
+&+GThis lavish guest &+csuite is one &+Glarge room that has been &+cparti&+Gtioned &+coff &+Ginto seperate areas for a small amount &+cof privacy &+Gin each area. The &+csleeping area &+Ghas a la&+crge four post &+Gbed with &+ccurtains that &+Gcan be closed around it to keep out prying eyes and any bugs that &+cmight make it &+Ginto the room. There is a lounge area with a &+cplush sofa &+Gand a pair of chairs around a small table. A changing area &+cwith a dresser and &+Gcoat rack in the corner.
+~
+938 134381576 0
+D3
+This side of the door is a heavy carpet allowing it to absorbe most sound from either side. The door opens into the room and there is a small keyhole with a small handle above it.
+~
+door~
+2 93739 93833
+S
+#93886
+&+WWell &+bfu&+Lrnis&+bhed &+wguest room~
+&+bThis lavish guest &+Lsuite is one &+blarge room that has been &+Lparti&+btioned &+Loff &+binto seperate areas for a small amount &+Lof privacy &+bin each area. The &+Lsleeping area &+bhas a la&+Lrge four post &+bbed with &+Lcurtains that &+bcan be closed around it to keep out prying eyes and any bugs that &+Lmight make it &+binto the room. There is a lounge area with a &+Lplush sofa &+band a pair of chairs around a small table. A changing area &+Lwith a dresser and &+bcoat rack in the corner.
+~
+938 134381640 0
+D3
+This side of the door is a heavy carpet allowing it to absorbe most sound from either side. The door opens into the room and there is a small keyhole with a small handle above it.
+~
+door~
+3 93740 93835
+S

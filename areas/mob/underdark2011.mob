@@ -1,0 +1,1033 @@
+#200000
+baby purple worm~
+&+La &+Mbaby &+mpurple worm&n~
+&+LA &+Mbaby &+mpurple worm &+Lscavenges the cavern for food.&n
+~
+&+L   This small worm is only about two feet in length and has a ways to
+&+Lgo before it becomes a fully grown adult. Even so, this little critter
+&+Lis already quite dangerous.&n
+~
+2124 1 0 0 67108896 0 0 0 0 S
+PW 0 1 0 6
+20 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200001
+adolescent purple worm~
+&+Lan &+Madolescent &+mpurple worm&n~
+&+LAn &+Madolescent &+mpurple worm &+Lis searching for an easy meal.&n
+~
+&+L   This small worm is only about four feet in length and it still has a
+&+Lways to go before it becomes a fully grown adult. Even so, this little
+&+Lbeast is already very dangerous.&n
+~
+2124 1 0 0 67108896 0 0 0 0 S
+PW 0 1 0 6
+28 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200002
+small purple worm~
+&+La &+Msmall &+mpurple worm&n~
+&+LA &+Msmall &+mpurple worm &+Lhunts for its next meal.&n
+~
+&+L   This small worm is about six feet in length and has become
+&+La formitable beast. The scales on its body have become hard
+&+Land are able to deflect quite a bit of damage.&n
+~
+2124 1 0 0 67108904 0 0 0 0 S
+PW 0 1 0 6
+40 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200003
+large purple worm~
+&+La &+Mlarge &+mpurple worm&n~
+&+LA &+Mlarge &+mpurple worm &+Llooks really hungry.&n
+~
+&+L   This large worm is about ten feet in length and is one
+&+Lof the most feared creatures of the &+mUnderdark&+L. It has no
+&+Lnatural preditors at this size and is at the top of the
+&+Lfood chain, even above you.&n
+~
+2124 1 0 0 67108904 0 0 0 0 S
+PW 0 1 0 6
+50 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200004
+giant purple worm _nosneak_ _noblind_ _ignore_~
+&+La GIANT &+mpurple worm&n~
+&+LA GIANT &+mpurple worm &+Llooks for its next victim.&n
+~
+&+L   Few things in the &+mUnderdark &+Lare as feared as the GIANT &+mpurple
+&+mworm&+L. This wicked creature is over twenty feet in length and is
+&+Lwide enough to consume prey of nearly any size. The most deadly
+&+Lweapon this worm has is its enormous mouth, which is large enough
+&+Lto swallow the most gargantuan of meals in one single gulp.&n
+~
+1082394700 1 0 0 335544632 0 0 4096 0 S
+PW 0 1 0 6
+60 0 0 5d5+6000 9d9+50
+0.0.0.0 0
+8 8 0
+#200005
+wicked drider~
+&+La &+rwicked &+mdri&+Lder&n~
+&+LA &+rwicked &+mdri&+Lder wanders the room looking for a place to hide.&n
+~
+&+L   This creature is a half-breed abomination between a &+mDrow Elf
+&+Land a spider. Eight thin legs support an oddly shaped humanoid
+&+Lbody. The head is ill-shapen and a large set of fangs pretrude
+&+Lfrom the upper jaw.&n
+~
+1073743948 1 0 0 67108896 0 0 0 0 S
+dr 0 16777216 0 3
+25 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200006
+vicious drider~
+&+La &+rvicious &+mdri&+Lder&n~
+&+LA &+rvicious &+mdri&+Lder looks for a victim to torment.&n
+~
+&+L   This creature is a half-breed abomination between a &+mDrow Elf
+&+Land a spider. Eight thin legs support an oddly shaped humanoid
+&+Lbody. The head is ill-shapen and a large set of fangs pretrude
+&+Lfrom the upper jaw.&n
+~
+1073743948 1 0 0 67108896 0 0 0 0 S
+dr 0 16777216 0 3
+30 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200007
+shadow drider~
+&+La shadow &+mdri&+Lder&n~
+&+LA shadow &+mdri&+Lder is busy stalking its prey.&n
+~
+&+L   This creature is a half-breed abomination between a &+mDrow Elf
+&+Land a spider. Eight thin legs support an oddly shaped humanoid
+&+Lbody. The head is ill-shapen and a large set of fangs pretrude
+&+Lfrom the upper jaw.&n
+~
+1073743948 1 0 0 67108904 0 0 0 0 S
+dr 0 16777216 0 3
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200008
+deadly drider~
+&+La &+Rdeadly &+mdri&+Lder&n~
+&+LA &+Rdeadly &+mdri&+Lder wanders silently throughout the room.&n
+~
+&+L   This creature is a half-breed abomination between a &+mDrow Elf
+&+Land a spider. Eight thin legs support an oddly shaped humanoid
+&+Lbody. The head is ill-shapen and a large set of fangs pretrude
+&+Lfrom the upper jaw.&n
+~
+1073743948 1 0 0 1007157304 0 262400 0 0 S
+dr 0 16777216 0 3
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200009
+baby roper~
+&+La &+Gbaby &+groper&n~
+&+LA &+Gbaby &+groper &+Lexplores this place for scraps of food.&n
+~
+&+L   This creature is an identical copy of its mature self, only much much
+&+Lsmaller. It has a very large mouth centered at the middle of its tree-like
+&+Lbody and has dozens of tentacles that flap and flail around, attempting to
+&+Lsnatch and grab at anything nearby.&n
+~
+1073743948 1 0 0 67108896 0 0 0 0 S
+ac 0 0 0 2
+20 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200010
+young roper~
+&+La &+Gyoung &+groper&n~
+&+LA &+Gyoung &+groper &+Lstumbles around with its &+Ytentacles &+Lflailing.&n
+~
+&+L   This creature is an identical copy of its mature self, only much much
+&+Lyounger. It has a very large mouth centered at the middle of its tree-like
+&+Lbody and has dozens of tentacles that flap and flail around, attempting to
+&+Lsnatch and grab at anything nearby.&n
+~
+1073743948 1 0 0 67108896 0 0 0 0 S
+ac 0 1 0 4
+30 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200011
+mature roper~
+&+La &+Gmature &+groper&n~
+&+LA &+Gmature &+groper &+Lstands here with &+ydozens &+Lof &+Ytentacles &+Lflailing about!
+~
+&+L   This creature has a very large mouth centered at the middle of its
+&+Ltree-like body and has dozens of tentacles that flap and flail about.
+&+LTwo large eyes are fixed about the mouth, giving this beast a very
+&+Lgood view of its next meal.&n
+~
+1073743948 1 0 0 67108896 0 0 0 0 S
+ac 0 1 0 5
+40 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200012
+ancient roper _noblind_ _nosneak_ _ignore_~
+&+Lan &+Gancient &+groper&n~
+&+LAn &+Gancient &+groper &+Lseeks to destroy anything that moves.&n
+~
+&+L   This creature has a very large mouth centered at the middle of its
+&+Ltree-like body and has dozens of tentacles that flap and flail about.
+&+LTwo large eyes are fixed about the mouth, giving this beast a very
+&+Lgood view of its next meal.&n
+~
+1073772620 1 0 0 67108904 0 0 1052672 0 S
+ac 0 1 0 6
+60 0 0 5d5+4000 10d10+60
+0.0.0.0 0
+8 8 0
+#200013
+lizardman child~
+&+La &+glizardman &+Lchild&n~
+&+LA &+glizardman &+Lchild wanders around with a spear.&n
+~
+&+L   Scales cover this creature from head to toe. This individual also
+&+Lhas a large tail that almost doubles the length of its body. Two blood
+&+Lred eyes seem to cast a dull and lifeless gaze across the room. This
+&+Lchild has a tongue that flickers about wildly.&n
+~
+1073743948 1 0 0 67108896 0 0 0 0 S
+r 0 1 0 3
+20 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200014
+lizardman female~
+&+La &+glizardman &+Lfemale&n~
+&+LA &+glizardman &+Lfemale prowls the area in search of prey.&n
+~
+&+L   Scales cover this creature from head to toe. This individual also
+&+Lhas a large tail that almost doubles the length of its body. Two blood
+&+Lred eyes seem to cast a dull and lifeless gaze across the room. This
+&+Lfemale looks to be quite focused on finding a place that will produce
+&+La large meal.&n
+~
+1073743948 1 0 0 67108904 0 0 0 0 S
+r 0 1 0 3
+25 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#200015
+lizardman male~
+&+La &+glizardman &+Lmale&n~
+&+LA &+glizardman &+Lmale stands ready to defend his territory.&n
+~
+&+L   Scales cover this creature from head to toe. This individual also
+&+Lhas a large tail that almost doubles the length of its body. Two blood
+&+Lred eyes seem to cast a dull and lifeless gaze across the room. This
+&+Lmale has a very aggressive look in his eyes and doesn't very interested
+&+Lin sharing any space with the likes of you.&n
+~
+1073743948 1 0 0 67108904 0 0 0 0 S
+r 0 1 0 3
+27 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200016
+lizardman witchdoctor doctor witch~
+&+La &+glizardman &+Lwitchdoctor&n~
+&+LA &+glizardman &+Lwitchdoctor stumbles around in a trance.&n
+~
+&+L   Scales cover this creature from head to toe. This individual also
+&+Lhas a large tail that almost doubles the length of its body. Two blood
+&+Lred eyes seem to cast a dull and lifeless gaze across the room. This
+&+Lwitchdoctor is quite old and is carrying a large totem. It walks around
+&+Lin a strange trance and seems to evaluate and study everything that is
+&+Lgoing on around it.&n
+~
+1073743948 1 0 0 67108896 0 0 0 0 S
+r 0 256 0 3
+31 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200017
+lizardman hunter~
+&+La &+glizardman &+Lhunter&n~
+&+LA &+glizardman &+Lhunter is busy searching for rothe tracks.&n
+~
+&+L   Scales cover this creature from head to toe. This individual also
+&+Lhas a large tail that almost doubles the length of its body. Two blood
+&+Lred eyes seem to cast a dull and lifeless gaze across the room. This
+&+Lhunter has spent days tracking a herd of rothes.&n
+~
+1073743948 1 0 0 67108904 0 0 0 0 S
+r 0 1 0 3
+34 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200018
+lizardman worker~
+&+La &+glizardman &+Lworker&n~
+&+LA &+glizardman &+Lworker is diligently tending to his duties.&n
+~
+&+L   Scales cover this creature from head to toe. This individual also
+&+Lhas a large tail that almost doubles the length of its body. Two blood
+&+Lred eyes seem to cast a dull and lifeless gaze across the room. This
+&+Lworker is obviously very low on the social food chain and has been
+&+Lgiven the task of manual labor.&n
+~
+1073743948 1 0 0 67108896 0 0 0 0 S
+r 0 1 0 3
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200019
+lizardman chieftain~
+&+La &+glizardman &+Lchieftain&n~
+&+LA &+glizardman &+Lchieftain wanders around ensuring everyone is performing their duties.&n
+~
+&+L   Scales cover this creature from head to toe. This individual also
+&+Lhas a large tail that almost doubles the length of its body. Two blood
+&+Lred eyes seem to cast a dull and lifeless gaze across the room. As the
+&+Lchieftain of this particular tribe of lizardman hunter-gatherers, this
+&+Lindividual rules without mercy and is very effective at mobilizing his
+&+Lwarriors in the event of a raid.&n
+~
+1073743948 1 0 0 67108904 0 0 0 0 S
+r 0 16 0 3
+38 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200020
+lizardman princess~
+&+La &+glizardman &+Lprincess&n~
+&+LA &+glizardman &+Lprincess stands here in formal attire.&n
+~
+&+L   Scales cover this creature from head to toe. This individual also
+&+Lhas a large tail that almost doubles the length of its body. Two blood
+&+Lred eyes seem to cast a dull and lifeless gaze across the room. This
+&+Lprincess looks to be quite aggressive. She angrily barks commands at
+&+Lthe nearby workers, relishing in the satisfaction of making others
+&+Lobey her commands.&n
+~
+1073743948 1 0 0 67108904 0 0 0 0 S
+r 0 32 0 3
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#200021
+lizardman guard~
+&+La &+glizardman &+Lguard&n~
+&+LA &+glizardman &+Lguard angrily patrols the surrounding areas.&n
+~
+&+L   Scales cover this creature from head to toe. This individual also
+&+Lhas a large tail that almost doubles the length of its body. Two blood
+&+Lred eyes seem to cast a dull and lifeless gaze across the room. This
+&+Lguard wanders around the surrounding areas in a desperate search for
+&+Lsomething to kill.&n
+~
+1073743948 1 0 0 67108904 0 0 0 0 S
+r 0 1 0 3
+30 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200022
+drow hunter~
+&+La &+mdrow &+Lhunter&n~
+&+LA &+mdrow &+Lhunter is exploring the &+mUnderdark &+Lfor victims.&n
+~
+&+L   This skilled hunter wanders the depths of the Underdark for
+&+Lvarious victims. A slender rapier and buckler is all this drow
+&+Lcarries with him.&n
+~
+1073743948 24 0 0 67108896 0 0 0 0 S
+pl 0 1 0 3
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200023
+drow warmage~
+&+La &+mdrow &+Lwarmage&n~
+&+LA &+mdrow &+Lwarmage is busy searching for something to destroy.&n
+~
+&+L   This skilled hunter wanders the depths of the Underdark for
+&+Lvarious victims. A small tome and a thin wand is all that this
+&+Lmighty warmage is carrying with her.&n
+~
+1073743948 24 0 0 67108896 0 0 0 0 S
+pl 0 512 0 3
+36 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#200024
+duergar raider~
+&+La &+rduergar &+Lraider&n~
+&+LA &+rduergar &+Lraider looks for a victim to ambush.&n'
+~
+&+L   This duergar is a master of the dark crevices and tunnels that
+&+Lmake up the Underdark. His amazing stealth and improved vision
+&+Lgives him a distinct advantage when ambushing unsuspecting victims.&n
+~
+1073743948 24 0 0 67108896 0 0 0 0 S
+pd 0 1 0 3
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200025
+duergar warpriest~
+&+La &+rduergar &+Lwarpriest&n~
+&+LA &+rduergar &+Lwarpriest seeks to smite those who invade the &+mUnderdark&+L.&n
+~
+&+L   This duergar is a master of the dark crevices and tunnels that
+&+Lmake up the Underdark. Her amazing stealth and improved vision
+&+Lgives her a distinct advantage when ambushing unsuspecting victims.&n
+~
+1073743948 24 0 0 67108896 0 0 0 0 S
+pd 0 33 0 3
+36 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#200026
+raiding illithid~
+&+La &+mraiding &+MIllithid&n~
+&+LThis &+MIllithid &+Lwanders around this plane looking for victims to torture.&n
+~
+&+L   This Illithid is a native to the city of Ixarkon and appears
+&+Lto have left the protection of the brain golems to seek out more
+&+Ladventurous surroundings.&n
+~
+1073743948 1 0 0 67108896 0 0 0 0 S
+mf 0 262144 0 3
+48 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200027
+mind demon lesser~
+&+La lesser &+mmind &+Ldemon&n~
+&+LA lesser &+mmind &+Ldemon wanders this realm.&n
+~
+&+L   Once enslaved by the illithids, this mind demon has escaped
+&+Lcaptivity and now seeks to destroy reality and bring death and
+&+Ldestruction to the illithids and all those who occupy the same
+&+Ldimension.&n
+~
+1073743948 1 0 0 67108896 0 0 0 0 S
+x 0 1310720 0 4
+45 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200028
+mind demon greater~
+&+La greater &+mmind &+Ldemon&n~
+&+LA greater &+mmind &+Ldemon wanders this realm.&n
+~
+&+L   Once enslaved by the illithids, this mind demon has escaped
+&+Lcaptivity and now seeks to destroy reality and bring death and
+&+Ldestruction to the illithids and all those who occupy the same
+&+Ldimension.&n
+~
+1073743948 1 0 0 67108896 0 0 0 0 S
+x 0 1310720 0 4
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200029
+ixichitl~
+&+ban &+gixi&+bchitl&n~
+&+bAn &+gixi&+bchitl floats around the room.&n
+~
+&+L   An ixichitl is an intelligent being that lives in an aquatic
+&+Lenvironment. They resemble rays, but are actually composed more
+&+Lof water than flesh. These creatures are quite adaptable and have
+&+Lbecome fearsome spellcasters, able to deal an amazing amount of
+&+Ldamage by their will.&n
+~
+1073743948 1 0 0 134742074 0 0 0 0 S
+ew 0 132 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200030
+ixichitl~
+&+ban &+gixi&+bchitl&n~
+&+bAn &+gixi&+bchitl floats around the room.&n
+~
+&+L   An ixichitl is an intelligent being that lives in an aquatic
+&+Lenvironment. They resemble rays, but are actually composed more
+&+Lof water than flesh. These creatures are quite adaptable and have
+&+Lbecome fearsome spellcasters, able to deal an amazing amount of
+&+Ldamage by their will.&n
+~
+1073743948 1 0 0 134742074 0 0 0 0 S
+ew 0 260 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200031
+illithid~
+&+man illithid&n~
+&+mAn illithid stumbles around, bending the world to its will.&n
+~
+&+m   This illithid is one of the many that have claimed this place
+&+mto be its home. It wanders around aimlessly, torturing whatever
+&+mcreatures it comes across, for no reason other than for a quick
+&+mmoment of entertainment.&n
+~
+1073743948 1 0 0 134742074 0 0 0 0 S
+mf 0 262144 0 -1
+52 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200032
+kuo toa kuo-toa guard~
+&+ga Kuo-Toa guard&n~
+&+gA Kuo-Toa guard watches for signs of intruders.&n
+~
+&+g   This guard stands approximately eight feet tall, and
+&+ghas that wild-eyed look that is the signature of his race.
+&+gHe looks particularly grumpy. It's probably a good idea
+&+gto avoid him if possible.&n
+~
+1073743948 1 0 0 134742074 0 0 0 0 S
+r 0 1 0 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200033
+aboleth guard~
+&+ban aboleth &+Bguard&n~
+&+bThis aboleth is busy keeping a watchful eye on the surroundings.&n
+~
+&+b   This aboleth has been given the job of ensuring that
+&+bindividuals like you stay out of the city of Shaboath.
+&+bIt has a pair of long tentacles that it uses to weave
+&+bnasty spells in defense against invaders.&n
+~
+1073743948 1 0 0 135790650 0 0 0 0 S
+mf 0 262656 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200034
+haz'on'wyz drow fire magus _spec3_~
+&+mHaz'on'wyz&+L, the &+mdrow &+rfire magus&n~
+&+mHaz'on'wyz&+L, the &+mdrow &+rfire magus &+Lperforms an &+rarcane &+Lincantation.&n
+~
+&+m   Haz'on'wyz &+Lis quite tall for a &+mdrow &+Land is also
+&+Lquite young in his years. He stands here, casting
+&+Lpowerful magic in the &+mUnderdark&+L. This young apprentice
+&+Lof &+mDraknah &+Lhas become quite a master with the element
+&+Lof &+rfire&+L.
+~
+1074137164 0 0 0 134217786 0 0 0 0 S
+pl 0 2048 0 -1
+57 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200035
+ozman'dyzus drow traveler~
+&+mOzman'dyzus&+L, the &+mdrow &+Ltraveler&n~
+&+LA distinguished &+mdrow &+Lnamed &+mOzman'dyzus &+Ltravels the underworld realms.&n
+~
+&+m   Ozman'dyzus &+Lscouts through the underdark searching for places
+&+Lto extend his house by means of an outpost. Many bone-&+Wwhite &+Lscrolls
+&+Lare seen in his silken backpack. Black traveling boots and similar
+&+Lblack garments are seen on his body. A stern and proud look is on
+&+Lthis drow traveler's face as he travels the underdark searching out
+&+Lthe most opportune expansion of his &+yhouse&+L.&n
+~
+1074137164 0 0 0 134217786 0 0 0 0 S
+pl 0 1 0 -1
+57 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200036
+kryz'kyssik prophesied hunter~
+&+mKryz'Kyssik&+L, the prophesied &+ghunter&n~
+&+mKryz'Kyssik&+L, the prophesied &+ghunter &+Lstalks the underdark in search of someone.&n
+~
+&+L   This &+mdrow &+Lwalks through the shadows almost magically, completely
+&+Lundetectable. A long black cloak covers his body, with a hood that
+&+Lconceals his face. Small &+cblades &+Lcan be seen readily available in
+&+Lvarious &+ystraps &+Laround his waist and chest, as this &+mdrow &+Lis both a
+&+Lmaster of stealth and assassination. A perplexingly-strong &+mmagical
+&+Laura also resonates from his body, as if a part of him was bonded
+&+Lto an ancient &+bmagical &+Lenergy. He looks at the ground and snarls
+&+Lat the tracks of a &+glarge &+Groper&+L.&n
+~
+1074137164 0 0 0 134217786 0 0 0 0 S
+pl 0 33 0 -1
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200037
+orog raider~
+&+Lan or&+yo&+Lg &+rr&+Rai&+rd&+Re&+rr&n~
+&+LAn or&+yo&+Lg &+rr&+Rai&+rd&+Re&+rr &+Lexplores the &+MUnderdark &+Lfor victims.&n
+~
+&+L   This or&+yo&+Lg stands very tall, topping nearly twelve feet. He
+&+Llooks extremely strong and the way he looks at you suggests
+&+Lthat his intentions are not at all friendly. He flexes his
+&+Lmuscles and snickers as you flinch.&n
+~
+1074137164 24 0 0 8 0 0 0 0 S
+or 0 1 0 -1
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200038
+orog hunter~
+&+Lan or&+yo&+Lg &+rh&+Ru&+rnt&+Re&+rr&n~
+&+LAn or&+yo&+Lg &+rh&+Ru&+rnt&+Re&+rr &+Lexamines the ground for signs of prey.&n
+~
+&+L   This or&+yo&+Lg stands very tall, topping nearly twelve feet. He
+&+Llooks extremely strong and the way he looks at you suggests
+&+Lthat his intentions are not at all friendly. He flexes his
+&+Lmuscles and snickers as you flinch.&n
+~
+1074137164 24 0 0 8 0 0 0 0 S
+or 0 1 0 -1
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200039
+large myconid~
+&+ma &+Llarge &+mmyconid&n~
+&+mA &+Llarge &+mmyconid wanders around in the &+Ldarkness&+m.&n
+~
+&+m   Myconids are strange creatures that are slightly humanoid
+&+min appearance, but have characteristics of fungi. They spend
+&+mtheir time in dark areas of the Underdark, absorbing nutrients
+&+mfrom the ground.&n
+~
+1073743948 0 0 0 8 0 0 0 0 S
+ah 0 0 0 -1
+13 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200040
+large myconid~
+&+La &+mlarge &+Lmyconid&n~
+&+LA &+mlarge &+Lmyconid wanders around the &+mUnderdark &+Lin search of food.&n
+~
+&+m   Myconids are strange creatures that are slightly humanoid
+&+min appearance, but have characteristics of fungi. They spend
+&+mtheir time in dark areas of the Underdark, absorbing nutrients
+&+mfrom the ground.&n
+~
+1073743948 0 0 0 8 0 0 0 0 S
+ah 0 0 0 -1
+15 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200041
+goblin scout~
+&+La &+ggoblin &+Lscout&n~
+&+LA &+ggoblin &+Lscout explores the darkness.&n
+~
+&+L   This small &+ggoblin &+Lwanders around the &+munderdark &+Lin
+&+Lan endless search for valuable resources.&n
+~
+1073743948 64 0 0 8 0 0 0 0 S
+hg 0 1 0 -1
+19 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200042
+rock daemon~
+&+ca &+Lrock &+cdaemon&n~
+&+cA vicious &+Lrock &+cdaemon &+Ldisplaces the earth as it walks.&n
+~
+&+c   This rock daemon stands more than twenty feet tall
+&+cand seems to shift in and out of existence. Its body
+&+cis actually part of the earth, and its movements seem
+&+cmore like an elemental than that of a daemon.&n
+~
+1073743948 1 0 0 8 0 0 0 0 S
+x 0 512 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200043
+rock daemon~
+&+La &+crock &+Ldaemon&n~
+&+LA vicious &+crock &+Ldaemon &+cdisplaces the earth as it walks.&n
+~
+&+c   This rock daemon stands more than twenty feet tall
+&+cand seems to shift in and out of existence. Its body
+&+cis actually part of the earth, and its movements seem
+&+cmore like an elemental than that of a daemon.&n
+~
+1073743948 1 0 0 8 0 0 0 0 S
+x 0 512 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200044
+deep gnome~
+&+La deep &+rgnome&n~
+&+LA brutal looking &+rgnome &+Llooks for something to torture.&n
+~
+&+L   This dark little gnome stands close to two feet tall. His
+&+Lsmall eyes glow red and his skin seems to illuminate slightly.
+&+LA small grin passes over this little creature's face as he
+&+Lsees you, an expression that resembles a predator smiling at
+&+Lan easy kill.&n
+~
+1073743948 1 0 0 524296 0 0 0 0 S
+pg 0 1 0 -1
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200045
+deep gnome~
+&+La deep &+Rgnome&n~
+&+LA brutal looking &+Rgnome &+Lis busy tracking unwanted intruders.&n
+~
+&+L   This dark little gnome stands close to two feet tall. His
+&+Lsmall eyes glow red and his skin seems to illuminate slightly.
+&+LA small grin passes over this little creature's face as he
+&+Lsees you, an expression that resembles a predator smiling at
+&+Lan easy kill.&n
+~
+1073743948 1 0 0 524296 0 0 0 0 S
+pg 0 512 0 -1
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200046
+huge earth elemental~
+&+ya HUGE earth elemental&n~
+&+yA HUGE earth elemental is viciously lurking around here.&n
+~
+&+y   This elemental is large, standing fifteen feet tall and at least
+&+yfive feet in width. It has a humanoid shape, but is composed entirely
+&+yof rock and gravel. It looks extremely dangerous, so perhaps you should
+&+yfind something else to bother.&n
+~
+1073743948 1 0 0 8 0 0 0 0 S
+ee 0 1 0 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200047
+huge lava elemental~
+&+ra HUGE lava elemental&n~
+&+rA HUGE lava elemental wanders around in the darkness, setting fire to everything in sight.&n
+~
+&+y   This elemental is large, standing fifteen feet tall and at least
+&+yfive feet in width. It has a humanoid shape, but is composed entirely
+&+yof fire and flames. It looks extremely dangerous, so perhaps you should
+&+yfind something else to bother.&n
+~
+1073743948 1 0 0 8 0 0 0 0 S
+ef 0 1 0 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200048
+large rothe~
+&+ya &+Ylarge &+Wrothe&n~
+&+yA &+Ylarge &+Wrothe &+ygrazes quietly in the &+Ldarkness&+y.&n
+~
+&+y   The rothe is a gentle creature that resembles a large ox. In
+&+ythe underdark, this creature is a staple food source for almost
+&+yall the various inhabitants of this dark realm. It's a terrible
+&+ylife for these easy-going and gentle animals, but they're destined
+&+yfor the dinner plate.&n
+~
+72 0 0 0 0 0 0 0 0 S
+a 0 1 0 -1
+38 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200049
+gentle rothe~
+&+ya &+Ygentle &+Wrothe&n~
+&+yA &+Ygentle &+Wrothe &+ygrazes on &+mmushrooms &+yhere.&n
+~
+&+y   The rothe is a gentle creature that resembles a large ox. In
+&+ythe underdark, this creature is a staple food source for almost
+&+yall the various inhabitants of this dark realm. It's a terrible
+&+ylife for these easy-going and gentle animals, but they're destined
+&+yfor the dinner plate.&n
+~
+72 0 0 0 0 0 0 0 0 S
+a 0 1 0 -1
+34 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200050
+elder rothe~
+&+yan &+Yelder &+Wrothe&n~
+&+yAn &+Yelder &+Wrothe &+yslowly moves around the room.&n
+~
+&+y   The rothe is a gentle creature that resembles a large ox. In
+&+ythe underdark, this creature is a staple food source for almost
+&+yall the various inhabitants of this dark realm. It's a terrible
+&+ylife for these easy-going and gentle animals, but they're destined
+&+yfor the dinner plate.&n
+~
+72 0 0 0 0 0 0 0 0 S
+a 0 1 0 -1
+40 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200051
+mammoth rothe~
+&+ya &+Ymammoth &+Wrothe&n~
+&+yA &+Ymammoth &+Wrothe &+ytowers above the grazing fields.&n
+~
+&+y   The rothe is a gentle creature that resembles a large ox. In
+&+ythe underdark, this creature is a staple food source for almost
+&+yall the various inhabitants of this dark realm. It's a terrible
+&+ylife for these easy-going and gentle animals, but they're destined
+&+yfor the dinner plate.&n
+~
+1073743944 0 0 0 8 0 0 0 0 S
+a 0 1 0 -1
+45 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200052
+drow rothe herder~
+&+ma drow &+Wrothe &+Lherder&n~
+&+mA thin-looking drow is busy &+Lherding &+mhis &+Wrothes &+mto new grazing fields.&n
+~
+&+m   This lonely drow spends most of his time encouraging
+&+mhis many herds of rothe to move to more fertile grazing
+&+mareas. He also doesn't seem to enjoy having unwelcomed
+&+mvisitors in the rothe fields.&n
+~
+1073743944 1 0 0 8 0 0 0 0 S
+pl 0 1 0 -1
+25 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200053
+ghastly shrieker~
+&+ma &+Mghastly &+mshrieker&n~
+&+mA &+Mghastly &+mshrieker runs around the Underdark.&n
+~
+&+m   This magenta colored parasitic plant-like creature
+&+mcrawls around the floor, looking for a warm-blooded host
+&+mto latch on to and slowly drain blood from the many roots
+&+mthat it uses like arms. This creature is actually a fungi
+&+mand can only survive by feeding off the energy of others.&n
+~
+1073741900 1 0 0 0 0 0 0 0 S
+ap 0 2 0 -1
+15 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200054
+gnome scout~
+&+La &+rgnome &+Lscout&n~
+&+LThis curious &+rgnome &+Lsurveys the surroundings for signs of danger.&n
+~
+&+L   This small &+rgnome &+Lwanders around the &+mUnderdark &+Llooking
+&+Lfor signs of danger.&n
+~
+1073743948 128 0 0 8 0 0 0 0 S
+pg 0 1 0 -1
+25 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200055
+small shambling mound~
+&+ga small sh&+mam&+gbl&+min&+gg m&+mou&+gnd&n~
+&+gA small sh&+mam&+gbl&+min&+gg m&+mou&+gnd wanders around in the &+Ldarkness&+g.&n
+~
+&+g    This pile of vegetation seems to just amble around
+&+gusing a form of locomotion that resembles a pile of
+&+ggarbage rolling down a sloped hill.&n
+~
+1073743948 1 0 0 8 0 0 0 0 S
+ah 0 1 0 6
+25 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200056
+immature kuo toa~
+&+gan &+Gimmature &+gKuo Toa&n~
+&+gAn &+Gimmature &+gKuo Toa stumbles around in an endless search of &+rfood&+g.&n
+~
+&+g   This lizardine creature looks to be very young
+&+gand obviously hasn't developed into any animal that
+&+gcould inflict too much damage to a novice adventurer.&n
+~
+1073743948 1 0 0 0 0 0 0 0 S
+r 0 1 0 -1
+23 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200057
+cave scorpion~
+&+La &+ycave &+Lscorpion&n~
+&+LA large &+ycave &+Lscorpion scurries around on the &+yrocky &+Lground.&n
+~
+&+L   This eight legged insect is only about ten inches
+&+Lin length, but its pincers and venomous tail look to
+&+Lbe quite dangerous.&n
+~
+1073743948 1 0 0 0 0 0 0 0 S
+i 0 2 0 2
+11 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200058
+gnomish guard sentry gnome~
+&+La &+Rgnomish &+Lsentry&n~
+&+LA short but vicious &+Rgnome &+Lstands guard here.&n
+~
+&+L   This short but vicious gnome stands guard over the nearby
+&+Lcaverns, ensuring that no unwanted guards come wandering too
+&+Lclosely to the great city of Ashrumite.&n
+~
+1073743950 128 0 0 268435608 0 0 0 0 S
+pg 0 1 0 -1
+47 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#200059
+skeletal roper~
+&+wa &+Wskeletal &+groper&n~
+&+wA large &+Wskeletal &+groper &+wstands here, making a mess.&n
+~
+&+w   This large roper seems to have been dead for quite some
+&+wtime. Its large tentacles look decayed and dried, and it
+&+wlooks like its tree-like frame has long since been reduced
+&+wto a bone-white exoskeleton. Nevertheless, this creature
+&+wdoesn't look very friendly.&n
+~
+1073743948 1 0 0 8 0 0 0 0 S
+sk 0 1 0 4
+33 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200060
+mummified behemoth~
+&+La &+gmumm&+Gified &+Lbehemoth&n~
+&+LA decrepit looking &+gmumm&+Gified &+Lbehemoth stumbles around in the shadows.&n
+~
+&+L   The behemoth is an ugly looking creature that resembles a
+&+Lhorse, however it has six legs. It has deep eye sockets that
+&+Lare completely hollow. This monstrosity wanders around the
+&+Ldarkness, seeking out rotting and decaying flesh for a quick
+&+Land effortless source of energy.&n
+~
+1073743948 1 0 0 8 0 0 0 0 S
+zo 0 1 0 -1
+48 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200061
+fierce wraith~
+&+La fie&+wrce &+Lwr&+wai&+Lth&n~
+&+LA fie&+wrce &+Lwr&+wai&+Lth &+wtri&+Les to &+wambu&+Lsh &+wvic&+Ltims fr&+wom th&+Le shado&+wws&+L.&n
+~
+&+L   This decaying corpse spends all its time wandering
+&+Lin the shadows in search for easy meals. This creature
+&+Lhas a strange darkness that seems to follow it, and
+&+Las it approaches you, the world seems to become silent
+&+Land time seems to slow down.&n
+~
+1073743948 1 0 0 8 0 0 0 0 S
+wr 0 1 0 -1
+40 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200062
+shadow darkness~
+&+La shadow&n~
+&+LA strange looking cloud of darkness clings to the ground.&n
+~
+&+L   This creature is composed entirely of darkness. Light
+&+Lseems to simply drain from the room whenever this monster
+&+Lapproaches.&n
+~
+1073743948 1 0 0 8 0 0 0 0 S
+sw 0 4 0 -1
+37 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200063
+ravenous fire daemon~
+&+ra &+Rravenous &+rfire &+Ldaemon&n~
+&+rA &+Rravenous &+rfire &+Ldaemon &+rstands here, absorbing the heat.&n
+~
+&+r   This deadly looking creature is composed entirely of
+&+rfire and seems to take devilish delight in torturing and
+&+rmaiming its victims.&n
+~
+1073743948 1 0 0 8 0 0 0 0 S
+x 0 16 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200064
+fire mephit~
+&+Ra &+rfire &+Lmephit&n~
+&+RA small &+rfire &+Lmephit &+Rsprints around the room looking for trouble.&n
+~
+&+r   This deadly looking creature is composed entirely of
+&+rfire and seems to take devilish delight in torturing and
+&+rmaiming its victims.&n
+~
+1073743948 1 0 0 8 0 0 0 0 S
+y 0 512 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200065
+lava golem~
+&+Ra l&+rav&+Ra g&+rol&+Rem&n~
+&+RA l&+rar&+Rge &+rla&+Rva &+rgo&+Rle&+rm s&+Rta&+rnd&+Rs h&+rer&+Re r&+rad&+Ria&+rti&+Rng &+rhe&+Rat&+r.&n
+~
+&+r   This deadly looking creature is composed entirely of
+&+rfire and seems to take devilish delight in torturing and
+&+rmaiming its victims.&n
+~
+1073743948 1 0 0 8 0 0 0 0 S
+ef 0 1048576 0 -1
+51 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200066
+centipede~
+&+La &+rcenti&+Lpede&n~
+&+LA tiny &+rcenti&+Lpede crawls along the floor looking for a bite to &+reat&+L.&n
+~
+&+r   This little critter is composed of nearly ten
+&+rsmall segments. Each segment has close to five pairs
+&+rof tiny legs. At the head of this creature is a mouth
+&+rwith a pair of long serrated fangs, perfectly designed
+&+rfor taking a quick bite out of an unsuspecting victim.&n
+~
+2060 1 0 0 0 0 0 0 0 S
+i 0 1 0 1
+2 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#200067
+crimson death mist~
+&+ra crimson death mist&n~
+&+rA strange looking mist floats in the air, looking rather dangerous.&n
+~
+&+r   This odd creature looks like a cloud of vapor
+&+rthat seems to travel in the direction of fresh meat.
+&+rIn fact, the cloud you see is actually a collection
+&+rof hundreds of thousands of almost invisible single
+&+rcelled parasites that join together to increase the
+&+rchance of overpowering bigger prey.&n
+~
+1073743884 1 0 0 0 0 0 0 0 S
+i 0 1 0 1
+5 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0

@@ -4126,6 +4126,73 @@ void do_attributes(P_char ch, char *argument, int cmd)
       else
       sprintf(buf, "&+cArmor Points: &+Y%d&+c  Reduces melee damage taken by &+Y%.1f&n&+y%%&n \n", t_val, (double)(t_val * -0.10) );
 
+/*  statupdate2013 stats - drannak */
+
+     if(IS_PC(ch))
+	{
+
+	// Crit Chance:
+  	int rollmod = 5;
+  	if (GET_C_INT(ch) < 80)
+ 	rollmod = 7;
+ 	else if (GET_C_INT(ch) > 130)
+  	rollmod = 4;
+  	int critroll = (int) (GET_C_INT(ch) / rollmod);
+
+	// Calm Chance:
+  	int rolmod = 7;
+  	if (GET_C_INT(ch) < 80)
+ 	rolmod = 9;
+ 	else if (GET_C_INT(ch) > 160)
+  	rolmod = 4;
+  	int calmroll = (int) (GET_C_INT(ch) / rollmod);
+	
+	// Magic Res:
+      int resmod = GET_C_WIS(ch);
+      double modifier = resmod - 120;
+      if (modifier > 75)
+      modifier = 75;
+      if (modifier < 0)
+      modifier = 0;
+
+	//vamp percentage:
+       double vamppct = GET_C_POW(ch) / 90;
+       if (vamppct < 1.10)
+       vamppct = 1.10;
+       else if (vamppct > 2.20)
+       vamppct = 2.20;
+       vamppct *= 100;
+
+      // Magic Dam:
+      int dammod = GET_C_STR(ch);
+      double modifierx = dammod - 120;
+      double remod = 100;
+      if(modifierx >=1)
+      {
+
+      if (modifier <= 20)
+      remod += 10;
+      else if (modifier <= 60)
+      remod += 20;
+      else
+      remod += 30;
+      }
+
+
+        sprintf(buf, "&+cMelee Critical Percentage(int): &+Y%d%   &n&+cMax Spell Damage Reduction Percent(wis): &+Y%d%\r\n",
+            critroll,
+            (int)modifier);
+  send_to_char(buf, ch);
+
+        sprintf(buf, "&+cCalming Chance(cha): &+Y%d% \r\n",
+            calmroll);
+  send_to_char(buf, ch);
+
+        sprintf(buf, "&+cHP Vamp Cap Percentage(pow): &+Y%d%     &n&+cSpell Damage Modifier(str): &+Y%d%\r\n",
+            (int)vamppct,
+            (int)remod);
+	}
+
 
 //    sprintf(buf, "&+cArmor Class: &+Y%s\n", ac_to_string(t_val));
 

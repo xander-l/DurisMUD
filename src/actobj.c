@@ -4152,6 +4152,18 @@ int wear(P_char ch, P_obj obj_object, int keyword, int showit)
         }
       }
 
+	//statupdate2013 - Drannak
+      if ((wield_to_where == PRIMARY_WEAPON) &&
+          (IS_REACH_WEAPON(obj_object) ||
+           (!GET_CLASS(ch, CLASS_RANGER) &&
+            (GET_OBJ_WEIGHT(obj_object) * ((IS_OGRE(ch) || IS_SNOWOGRE(ch)) ? 2 : 3) >
+             (str_app[STAT_INDEX(GET_C_STR(ch))].wield_w)))))
+      {
+        if (showit)
+          send_to_char("This weapon is too heavy for you to wield.\r\n", ch);
+        break;
+      }
+
       if ((wield_to_where == SECONDARY_WEAPON) &&
           (IS_REACH_WEAPON(obj_object) ||
            (!GET_CLASS(ch, CLASS_RANGER) &&

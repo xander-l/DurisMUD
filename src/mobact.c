@@ -6936,6 +6936,10 @@ P_char PickTarget(P_char ch)
     
     if(has_innate(t_ch, INNATE_CALMING) && (number(0, 101) <= (get_property("innate.calming.notarget.perc", 75))))
       continue;
+
+    //statupdate2013 - Drannak
+    if(calmcheck(t_ch))
+      continue;
     
     if(a < MAX_TARGETS)
     {
@@ -8128,6 +8132,21 @@ PROFILE_START(mundane_picktarget);
 	 (((GET_LEVEL(ch) - GET_LEVEL(tmp_ch)) <= 5) || !number(0, 3)) &&
 	 has_innate(tmp_ch, INNATE_CALMING))
         calming = (int)get_property("innate.calming.delay", 10);
+
+    //statupdate2013 - Drannak
+      if(calmcheck(ch))
+      {
+      int rollmod = 7;
+      if (GET_C_CHA(ch) < 80)
+      rollmod = 9;
+      else if (GET_C_CHA(ch) > 160)
+      rollmod = 4;
+      int calmroll = (int) (GET_C_CHA(ch) / rollmod);
+      calmroll /= 2;
+      calmroll = BOUNDED(1, calmroll, 20);
+      calming = calmroll;
+      }
+
 
     add_event(event_agg_attack, 1 + calming,
 	  ch, tmp_ch, 0, 0, 0, 0);

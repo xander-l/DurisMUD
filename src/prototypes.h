@@ -807,6 +807,7 @@ void do_dismiss(P_char ch, char *argument, int cmd);
 bool valid_conjure(P_char, P_char);
 int calculate_shipfrags(P_char);
 void randomizeitem(P_char, P_obj);
+bool calmcheck(P_char ch);
 
 
 /* editor.c */
