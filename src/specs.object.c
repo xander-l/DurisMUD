@@ -2962,7 +2962,7 @@ int living_necroplasm(P_obj obj, P_char ch, int cmd, char *arg)
     // if not worn, but carried, equip self
     if (OBJ_CARRIED_BY(obj, ch))
     {
-     // if (can_prime_class_use_item(ch, obj)) // only folks who are primary allowed class can use this item
+      if (can_prime_class_use_item(ch, obj)) // only folks who are primary allowed class can use this item
       if(ch)
       {
         // verify that they have no other arti's before equip'ing
