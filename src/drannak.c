@@ -1882,17 +1882,17 @@ void enhance(P_char ch, P_obj source, P_obj material)
 	 validobj = 0;
 	 int val = itemvalue(ch, material);
 
-	if(sval >= 60 && val < 30)
+	if(sval >= 60 && val < 55)
        {
-      	act("&+RYour &n$p&+R requires an item with at least a &+Wvalue &+Rof &+W30&+R to enhance any further!\r\n", FALSE, ch, source, 0, TO_CHAR);
+      	act("&+RYour &n$p&+R requires an item with at least a &+Wvalue &+Rof &+W55&+R to enhance any further!\r\n", FALSE, ch, source, 0, TO_CHAR);
        return;
        }
-	else if(sval >= 50 && val < 20)
+	else if(sval >= 50 && val < 45)
        {
-      	act("&+RYour &n$p&+R requires an item with at least a &+Wvalue &+Rof &+W20&+R to enhance any further!\r\n", FALSE, ch, source, 0, TO_CHAR);
+      	act("&+RYour &n$p&+R requires an item with at least a &+Wvalue &+Rof &+W45&+R to enhance any further!\r\n", FALSE, ch, source, 0, TO_CHAR);
        return;
        }
-	else if(sval >= 45 && val < 10)
+	else if(sval >= 45 && val < 40)
        {
       	act("&+RYour &n$p&+R requires an item with at least a &+Wvalue &+Rof &+W10&+R to enhance any further!\r\n", FALSE, ch, source, 0, TO_CHAR);
        return;
