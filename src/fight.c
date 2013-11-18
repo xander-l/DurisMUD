@@ -4327,7 +4327,7 @@ int spell_damage(P_char ch, P_char victim, double dam, int type, uint flags,
 
       //statupdate2013 - drannak - imp spell damage
       int rsmod = GET_C_STR(ch);
-      double mdifier = resmod - 120;
+      double mdifier = rsmod - 120;
       if(mdifier >=1)
       {
       float rdmod = 100;
