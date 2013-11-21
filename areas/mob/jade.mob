@@ -10,8 +10,8 @@ chang bloodfist~
 &+wcan be tasted. So far, however, his deployment here, in &+GJade&+w, has been
 &+wextremely uneventful and mundane.
 ~
-1073743882 0 0 8 0 0 0 -1000 S
-HO 0 64 -1
+1073743882 0 0 0 8 0 0 0 -1000 S
+HO 0 64 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -25,8 +25,8 @@ yoriki samurai~
 &+Lattain higher rankings by working as a patrolman for several years and
 &+Leven then, changing ranks is extremely hard and grueling work.
 ~
-1140852808 0 0 8 0 0 0 0 S
-PH 0 2097152 -1
+1140852808 0 0 0 8 0 0 0 0 S
+PH 0 2097152 0 -1
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -42,8 +42,8 @@ fisherman man~
 &+W     for sure I will need fish to take home for
 &+W     dinner soon."
 ~
-2058 0 0 8 0 0 0 0 S
-PH 0 32 -1
+2058 0 0 0 8 0 0 0 0 S
+PH 0 32 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 6 1
@@ -56,8 +56,8 @@ water ox~
 &+ythe marshy rice paddies. Usually workers will walk behind the ox,
 &+yurging it forward while it tows a large, sharp, metal plow.
 ~
-2058 0 0 0 0 0 0 0 S
-A 0 1 -1
+2058 0 0 0 0 0 0 0 0 S
+A 0 1 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -70,8 +70,8 @@ water ox~
 &+ythe marshy rice paddies. Usually workers will walk behind the ox,
 &+yurging it forward while it tows a large, sharp, metal plow.
 ~
-2056 0 0 0 0 0 0 0 S
-A 0 1 -1
+2056 0 0 0 0 0 0 0 0 S
+A 0 1 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -85,8 +85,8 @@ hunter~
 &+yor takes home to his family. Since he works into the late hours of the
 &+ynight, he often sleeps here, in this small and forlorn hut.&n
 ~
-1073743882 0 0 0 0 0 0 0 S
-PH 0 2 -1
+1073743882 0 0 0 0 0 0 0 0 S
+PH 0 2 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -102,8 +102,8 @@ tribesman ebriham~
 &+Wopposed to sailing, or any travel that doesn't include their trusted
 &+Wmounts.&n
 ~
-1073743884 32 0 8 0 0 0 1000 S
-PB 0 2 -1
+1073743884 32 0 0 8 0 0 0 1000 S
+PB 0 2 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -117,8 +117,8 @@ fanatic zealot~
 &+gforiegners in their lands and consider it blasphemy and believe it is
 &+gtheir solemn duty to drive the westerners from their lands.
 ~
-8 1 0 0 0 0 0 0 S
-PH 0 64 -1
+8 1 0 0 0 0 0 0 0 S
+PH 0 64 0 -1
 21 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -133,8 +133,8 @@ missionary~
 &+W        are laughing at us."
 &+wHe frowns.
 ~
-67110922 0 0 0 0 0 0 500 S
-PH 0 1 -1
+67110922 0 0 0 0 0 0 0 500 S
+PH 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -148,8 +148,8 @@ young monk~
 &+wthe local Saint know that he signed up for mission work here not to try
 &+wand convert heathens, but in attempt to master his martial arts.
 ~
-67110922 0 0 0 0 0 0 0 S
-PH 0 64 -1
+67110922 0 0 0 0 0 0 0 0 S
+PH 0 64 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -162,8 +162,8 @@ wild boar~
 &+yas it tends to become extremely vicious and violent when backed into a
 &+ycorner.&n
 ~
-1073743880 0 0 0 0 0 0 0 S
-A 0 1 2
+1073743880 0 0 0 0 0 0 0 0 S
+A 0 1 0 2
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -177,8 +177,8 @@ marsh viper~
 &+gready to deliver a nasty bite to anyone or anything that wanders too
 &+gclose.&n
 ~
-8 1 0 1572864 0 0 0 -1000 S
-RS 0 1 2
+8 1 0 0 1572864 0 0 0 -1000 S
+RS 0 1 0 2
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -190,8 +190,8 @@ young woman~
 &+mThis woman is one of the residents of &+GJade&+m. She is dressed in an long
 &+melaborately-designed kimono and carrys herself with an air of dignity.
 ~
-1073743880 0 0 0 0 0 0 0 S
-PH 0 512 -1
+1073743880 0 0 0 0 0 0 0 0 S
+PH 0 512 0 -1
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -205,8 +205,8 @@ rice farmer~
 &+yhave deep brown skin compared to that of the other locals, most due
 &+yto the long hours spent outside working.
 ~
-1073743884 0 0 0 0 0 0 500 S
-PH 0 1 -1
+1073743884 0 0 0 0 0 0 0 500 S
+PH 0 1 0 -1
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -219,8 +219,8 @@ worker little man~
 &+yrickshaw around behind him. Most of his customers are
 &+ytourists to the city or the very wealthy.&n
 ~
-2056 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2056 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -233,8 +233,8 @@ rickshaw~
 &+ychair with a couple long poles that the driver uses
 &+yto pull the rickshaw about town.&n
 ~
-10 0 0 0 0 0 0 0 S
-VT 0 0 -1
+10 0 0 0 0 0 0 0 0 S
+VT 0 0 0 -1
 15 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -247,8 +247,8 @@ swamp spawn~
 &+git oozes green goo as it slithers through the &+mswampy&+g terrain, digesting
 &+ganything in its path indescrimately.&n
 ~
-8 1 0 0 0 0 0 -1000 S
-SL 0 1 3
+8 1 0 0 0 0 0 0 -1000 S
+SL 0 1 0 3
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -263,8 +263,8 @@ elegant geisha~
 &+massistant to one of the very important and very rich noblemen of the
 &+mcity.
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 512 -1
+8 0 0 0 0 0 0 0 0 S
+PH 0 512 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -277,8 +277,8 @@ orc bladedancer dancer~
 &+Lthe orcs refuse to refer to themselves as samurai, the have picked up
 &+Lenough knowledge to fight nearly equally well with thin, curved blades.
 ~
-1140852746 0 0 0 0 0 0 0 S
-HO 0 2097152 -1
+1140852746 0 0 0 0 0 0 0 0 S
+HO 0 2097152 0 -1
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -291,8 +291,8 @@ orc bladedancer dancer~
 &+Lgrand swordsmen of Shady and Storm Port. The key, he believes, is his
 &+Ltraining here, in the far east, under the tutelage of Vile.&n
 ~
-1140852746 0 0 0 0 0 0 0 S
-HO 0 2097152 -1
+1140852746 0 0 0 0 0 0 0 0 S
+HO 0 2097152 0 -1
 44 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -307,8 +307,8 @@ orc lieutanant~
 &+Lover outposts and strongholds, locations of vital importance to the on-
 &+Lgoing epic orcish agenda.&n
 ~
-1140852746 0 0 0 0 0 0 -1000 S
-HO 0 1 -1
+1140852746 0 0 0 0 0 0 0 -1000 S
+HO 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -323,8 +323,8 @@ troll berserker~
 &+gjust a wild group of trolls, but almost an actually combat team. Strange,
 &+gindeed.
 ~
-1073741832 1 0 152 0 0 0 0 S
-PT 0 1048576 -1
+1073741832 1 0 0 152 0 0 0 0 S
+PT 0 1048576 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -338,8 +338,8 @@ resident kiter~
 &+W     Origami, you know, I can make almost anything with rice
 &+W     paper."
 ~
-2058 0 0 8 0 0 0 0 S
-PH 0 1 -1
+2058 0 0 0 8 0 0 0 0 S
+PH 0 1 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -354,8 +354,8 @@ jade lancer stern~
 &+gbecome guards for some of the Empire's most important and fundamental
 &+glocations, such as the palace itself.&n
 ~
-1140852746 0 0 8 0 0 0 0 S
-PH 0 1 -1
+1140852746 0 0 0 8 0 0 0 0 S
+PH 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -368,8 +368,8 @@ vendor merchant~
 &+W        "What can I get for you this fine day?
 &+W        I sell many trinkets unique to Jade."
 ~
-1073743882 0 0 8 0 0 0 1000 S
-PH 0 512 -1
+1073743882 0 0 0 8 0 0 0 1000 S
+PH 0 512 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -382,8 +382,8 @@ warrior pygmie~
 &+ghe makes up in ferocity. His face is covered in warpaint and he has a
 &+gperpetual scowl on his face as he stalks through the wilds.&n
 ~
-67110920 0 0 0 0 0 0 0 S
-H 0 1 -1
+67110920 0 0 0 0 0 0 0 0 S
+H 0 1 0 -1
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -397,8 +397,8 @@ su monster~
 &+gvery vicious when hungry, so it is a good thing for the local adventurer
 &+gthat the wilds are so full of smaller prey.&n
 ~
-1073743948 0 0 0 0 0 0 -600 S
-H 0 1 -1
+1073743948 0 0 0 0 0 0 0 -600 S
+H 0 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -414,8 +414,8 @@ young child~
 &+wbasic forms or martial arts, which is another integral part of society
 &+where.
 ~
-2056 0 0 0 0 0 0 0 S
-PH 0 64 2
+2056 0 0 0 0 0 0 0 0 S
+PH 0 64 0 2
 24 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -430,8 +430,8 @@ master chef~
 &+W        at the moment so I can't offer you the house specialities.
 &+W        Sorry."
 ~
-1073743882 0 0 8 0 0 0 0 S
-PH 0 1 -1
+1073743882 0 0 0 8 0 0 0 0 S
+PH 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -444,8 +444,8 @@ crop runner~
 &+ymake out what he says, but barely.&n
 &+W     "You want to help? Five bushels will fill a bag."&n
 ~
-2058 0 0 8 0 0 0 0 S
-PH 0 1 -1
+2058 0 0 0 8 0 0 0 0 S
+PH 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -462,8 +462,8 @@ scralack general~
 &+Linvasion, hideouts where a base of operations can be constructed, perhaps
 &+Leven intiating a lightning fast strike on their target.
 ~
-1073741834 1 0 8 0 0 0 0 S
-HO 0 2097152 -1
+1073741834 1 0 0 8 0 0 0 0 S
+HO 0 2097152 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -478,8 +478,8 @@ troll gladiator~
 &+gbands that live beneath the wilds, one would have quite a ferocious and
 &+gbrutal army on one's hand.
 ~
-1073743880 1 0 24 0 0 0 -1000 S
-PT 0 1 -1
+1073743880 1 0 0 24 0 0 0 -1000 S
+PT 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -494,8 +494,8 @@ high elf high-elf~
 &+W        But it is nothing like Dawndale, no human could compete
 &+W        with elven culture. Surely you must realize this."&n
 ~
-67110922 0 0 0 0 0 0 1000 S
-PE 0 128 -1
+67110922 0 0 0 0 0 0 0 1000 S
+PE 0 128 0 -1
 42 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -510,8 +510,8 @@ grey elf~
 &+ca more often than any elf should, wish silently he was in the
 &+ccompany of humans.&n
 ~
-67110922 0 0 0 0 0 0 0 S
-PE 0 1 -1
+67110922 0 0 0 0 0 0 0 0 S
+PE 0 1 0 -1
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -526,8 +526,8 @@ zhang liu hammer~
 &+gcomes out to the plaza, to teach his group of loyal students
 &+wwhat he has learned over the decades.&n
 ~
-1140869130 0 0 805380248 276480 67502080 4206592 0 S
-PH 0 64 -1
+1140869130 0 0 0 805380248 276480 67502080 4206592 0 S
+PH 0 64 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -539,8 +539,8 @@ stirge swarm stirges~
 &+LWith bodies much like large mosquitoes, &+rstirges&+L can deliver quite
 &+Lpainful bites, and when they flock together, they can be deadly.
 ~
-131080 1 0 134217744 262144 0 0 -1000 S
-B 0 1 2
+131080 1 0 0 134217744 262144 0 0 -1000 S
+B 0 1 0 2
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -553,8 +553,8 @@ yoko receptionist~
 &+mshe is a pretty young girl, and though her mastery of the common
 &+mtongue is far away, she still is able to make one feel welcome.
 ~
-2058 0 0 8 0 0 0 0 S
-PH 0 1 -1
+2058 0 0 0 8 0 0 0 0 S
+PH 0 1 0 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -570,8 +570,8 @@ hive mother spawn queen~
 &+gfeed until they point they are large enough to travel out into the maze
 &+gof tunnels or are eaten by one of their overzealous brothers or mother.
 ~
-1074266122 1 0 152 0 0 536879104 -1000 S
-SL 0 5 7
+1074266122 1 0 0 152 0 0 536879104 -1000 S
+SL 0 5 0 7
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -586,8 +586,8 @@ warlord orc~
 &+Lwarfare, overpowering their enemies into submission with the fist and
 &+Lthe sword.
 ~
-1073741832 1 0 16 0 0 0 -1000 S
-HO 0 1 -1
+1073741832 1 0 0 16 0 0 0 -1000 S
+HO 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -602,8 +602,8 @@ swamp hydra~
 &+gout separately. Hydras in general also have an affinity to swamp and
 &+gmarshlands, as well as water.&n
 ~
-526346 1 0 0 0 0 0 -1000 S
-D 0 1048576 -1
+526346 1 0 0 0 0 0 0 -1000 S
+D 0 1048576 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -616,8 +616,8 @@ champion~
 &+Lforest. He seems quite taken aback by the general culture and style that
 &+Lis Jade.&n
 ~
-1073743880 0 0 0 0 0 0 0 S
-PH 0 1 -1
+1073743880 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 44 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -633,8 +633,8 @@ vile~
 &+wteacher he is ruthless and mean, yet every orc monk strives to
 &+wbe one of his pupils.&n
 ~
-3221260298 0 0 268435480 0 0 0 -1000 S
-HO 0 64 -1
+3221260298 0 0 0 268435480 0 0 0 -1000 S
+HO 0 64 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -648,8 +648,8 @@ panda bear~
 &+Lfor its sharp claws which can be dangerous, even if its just playing
 &+waround.
 ~
-2058 0 0 0 0 0 0 0 S
-A 0 1 -1
+2058 0 0 0 0 0 0 0 0 S
+A 0 1 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 4 4 2
@@ -662,8 +662,8 @@ swamp spawn hatchling~
 &+ga fearsome parasite, capable of much damage in its never-ending quest to
 &+gfeed.&n
 ~
-10 1 0 24 0 0 0 -1000 S
-SL 0 1 2
+10 1 0 0 24 0 0 0 -1000 S
+SL 0 1 0 2
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -678,8 +678,8 @@ orc archer~
 &+Lorcs of the great city, and without a strong defensive line like that of
 &+Lthe watchtower and&+b archer&+L, they could accomplish niether.
 ~
-1140852746 0 0 0 0 0 0 -500 S
-HO 0 1 -1
+1140852746 0 0 0 0 0 0 0 -500 S
+HO 0 1 0 -1
 42 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -692,8 +692,8 @@ poor urchin~
 &+wtime. It is sad to see such a young person in such a state, penniless,
 &+wdirty, and bundled up in rags from the chill ocean breeze.&n
 ~
-2060 0 0 524288 0 0 0 0 S
-PH 0 65536 -1
+2060 0 0 0 524288 0 0 0 0 S
+PH 0 65536 0 -1
 26 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -706,8 +706,8 @@ worshipper~
 &+Lrealm to be the four celestial guardians. He spends much of his time
 &+Lin prayer in an attempt to ensure his place in the afterlife.&n
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 1 -1
+8 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -720,8 +720,8 @@ orc shaman~
 &+LThis shaman is here to backup the naval crewmen with everything from
 &+Lmedical assistance to melee practice.&n
 ~
-1140852744 0 0 8 0 0 0 -333 S
-HO 0 256 -1
+1140852744 0 0 0 8 0 0 0 -333 S
+HO 0 256 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -736,8 +736,8 @@ native thri-kreen thri~
 &+gcold as it is here, and must take a special breed of Thri to live
 &+garound these parts, with a reduction in the sensetivity to cold.
 ~
-1073743882 0 0 8 0 0 0 0 S
-TK 0 1 -1
+1073743882 0 0 0 8 0 0 0 0 S
+TK 0 1 0 -1
 49 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -751,8 +751,8 @@ bog beast~
 &+Ldamp tunnels. It seems to attack and devour almost anything in its
 &+Lway quite viciously, in an attempt to sate its infinite hunger.
 ~
-8 1 0 0 0 0 0 -1000 S
-AP 0 1 -1
+8 1 0 0 0 0 0 0 -1000 S
+AP 0 1 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -765,8 +765,8 @@ performer entertainer~
 &+Wto perform fairly basic feats of magic and talent for the local
 &+Wcitizens of Jade, in hopes he can make some money.&n
 ~
-1073743880 0 0 24 0 0 0 0 S
-PH 0 65536 -1
+1073743880 0 0 0 24 0 0 0 0 S
+PH 0 65536 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -781,8 +781,8 @@ major orc~
 &+Lconsulted by their commanders on the issues of war, even if the oppinions
 &+Land ideas they have are completely ignored.
 ~
-1073741834 1 0 8 0 0 0 -1000 S
-HO 0 1 -1
+1073741834 1 0 0 8 0 0 0 -1000 S
+HO 0 1 0 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -797,8 +797,8 @@ priest~
 &+Lpower that is as much destined to destroy as it is to heal their injured
 &+Lcomrades.
 ~
-1073743880 1 0 0 0 0 0 -1000 S
-HO 0 33 -1
+1073743880 1 0 0 0 0 0 0 -1000 S
+HO 0 33 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -813,8 +813,8 @@ jade mystic~
 &+Cas a show of good karma, but they tend to generally expect money from
 &+Cforiegners in exchange for their magic.
 ~
-2058 0 0 0 0 0 0 0 S
-PH 0 256 -1
+2058 0 0 0 0 0 0 0 0 S
+PH 0 256 0 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -830,8 +830,8 @@ student~
 &+Lart of becoming a living, breathing weapon. Much practice and training
 &+Lis done within the &+WGrand&+g Plaza&+L.&n
 ~
-67110922 0 0 0 0 0 0 0 S
-PH 0 64 -1
+67110922 0 0 0 0 0 0 0 0 S
+PH 0 64 0 -1
 39 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -847,8 +847,8 @@ elderly gardener~
 &+W        However, it must be a perfect combination, I won't be
 &+W        impressed unless its -just- right."
 ~
-2056 0 0 8 0 0 0 0 S
-PH 0 32768 -1
+2056 0 0 0 8 0 0 0 0 S
+PH 0 32768 0 -1
 48 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -862,8 +862,8 @@ grinder wheel~
 &+gEmpire&+y. Harvested &+Wrice&+y is dumped in, then as the water wheel turns, it
 &+yspins the stone wheel here, slowly, yet extremely heavy and powerfully.&n
 ~
-16394 0 0 8 0 0 0 0 S
-OG 0 0 -1
+16394 0 0 0 8 0 0 0 0 S
+OG 0 0 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -875,8 +875,8 @@ seaturtle turtle~
 &+gThis poor turtle seems to have got itself tangled up quite thoroughly
 &+gin a fishing net and is unable to move freely.&n
 ~
-2058 0 0 1048584 0 0 0 0 S
-A 0 1 3
+2058 0 0 0 1048584 0 0 0 0 S
+A 0 1 0 3
 22 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -891,8 +891,8 @@ barman~
 &+W        mixing drinks. Missing some ingredients
 &+W        at the moment though..."
 ~
-2058 0 0 8 0 0 0 0 S
-PH 0 1 -1
+2058 0 0 0 8 0 0 0 0 S
+PH 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -908,8 +908,8 @@ soldier fortune mercenary~
 &+W        here with all these peace loving easterners."
 &+LHe turns back to his&+y ale&+L with a frown.
 ~
-2147485706 0 0 0 0 0 0 0 S
-PH 0 16384 -1
+2147485706 0 0 0 0 0 0 0 0 S
+PH 0 16384 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -924,8 +924,8 @@ crewman crew member orc~
 &+Lbeen stationed at fairly aimlessly, most of the time getting himself in
 &+Lto trouble.
 ~
-1140852744 0 0 0 0 0 0 -444 S
-HO 0 16384 -1
+1140852744 0 0 0 0 0 0 0 -444 S
+HO 0 16384 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -940,8 +940,8 @@ warg~
 &+yall appear to be similiar traits between wargs, and their masters, the
 &+yorc.
 ~
-2056 0 0 0 0 0 0 -333 S
-AC 0 1 -1
+2056 0 0 0 0 0 0 0 -333 S
+AC 0 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -955,8 +955,8 @@ worker exhausted orc~
 &+Lthe lower end of the naval hierarchy, a simple labourer, though much of
 &+WStorm &+CPo&+crt&+L's expansion could not be possible without him and his brethen.
 ~
-1073743882 0 0 0 0 0 0 -333 S
-HO 0 1 -1
+1073743882 0 0 0 0 0 0 0 -333 S
+HO 0 1 0 -1
 48 0 0 1d1+1 1d1+1
 0.0.0.0 0
 5 5 1
@@ -972,8 +972,8 @@ shifty orc~
 &+Lthing no good, something that even the Storm Port authority would dis-
 &+Lapprove of, and thats saying alot.&n
 ~
-1073743882 0 0 0 0 0 0 -666 S
-HO 0 16384 -1
+1073743882 0 0 0 0 0 0 0 -666 S
+HO 0 16384 0 -1
 43 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -987,8 +987,8 @@ tharnadian thief hunter~
 &+W        back payment to the Tharnadian justice. If you find him
 &+W        I will split the profits with you."
 ~
-1073743880 0 0 0 0 0 0 1000 S
-PH 0 8 -1
+1073743880 0 0 0 0 0 0 0 1000 S
+PH 0 8 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -998,8 +998,8 @@ phantom mindbreaker~
 &+LA &+WPha&+Lntom &+wmindbreaker&+L sneaks through the tunnels quietly.&n
 ~
 ~
-1073743880 0 0 1572872 0 0 0 -1000 S
-UP 0 4 -1
+1073743880 0 0 0 1572872 0 0 0 -1000 S
+UP 0 4 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1012,8 +1012,8 @@ painted elephant~
 &+wto take no notice of the fact that colourful eastern pictures have been
 &+wpainted all over its massive hide.
 ~
-2058 0 0 0 0 0 0 0 S
-A 0 1 5
+2058 0 0 0 0 0 0 0 0 S
+A 0 1 0 5
 47 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1030,8 +1030,8 @@ beast tamer~
 &+W        if you get something nice for me I'll make sure
 &+W        you get your money's worth."
 ~
-2058 0 0 8 0 0 0 0 S
-PH 0 128 -1
+2058 0 0 0 8 0 0 0 0 S
+PH 0 128 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1046,8 +1046,8 @@ city daimyo~
 &+W        wilds that has been terrorizing the rice farmers and
 &+W        show me proof, then I will help you."
 ~
-1073743882 0 0 8 0 0 0 0 S
-PH 0 1 -1
+1073743882 0 0 0 8 0 0 0 0 S
+PH 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1061,8 +1061,8 @@ ronin~
 &+Ldoesn't fit into the bad crowd around him, yet until he has found new
 &+Lwork he hasn't much another place to go.&n
 ~
-2058 0 0 8 0 0 0 500 S
-PH 0 2 -1
+2058 0 0 0 8 0 0 0 500 S
+PH 0 2 0 -1
 44 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1076,8 +1076,8 @@ keisatsu samurai~
 &+Lguard duty is a low level job, those who guard the city feel great
 &+L honor in doing so.
 ~
-100665354 0 0 16 0 0 0 0 S
-PH 0 2 -1
+100665354 0 0 0 16 0 0 0 0 S
+PH 0 2 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1089,8 +1089,8 @@ jade lancer~
 &+gThis lancer peers back at you through a visor of an ornate bamboo helm,
 &+gattempting to judge your intentions in his grand city.
 ~
-67110922 0 0 8 0 0 0 0 S
-PH 0 1 -1
+67110922 0 0 0 8 0 0 0 0 S
+PH 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1103,8 +1103,8 @@ traveller tired~
 &+GJade&+L before venturing out again the next morning. He seems to have had
 &+La rough day and can barely keep his eyes open.&n
 ~
-2058 0 0 0 0 0 0 0 S
-PH 0 1 -1
+2058 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1118,8 +1118,8 @@ male alpha razorback~
 &+ybeast even if it is incredibly bloodthirsty. Too bad there isn't a way
 &+yto capture it safely.&n
 ~
-10 1 0 8 0 0 0 -1000 S
-AC 0 1048576 4
+10 1 0 0 8 0 0 0 -1000 S
+AC 0 1048576 0 4
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1133,8 +1133,8 @@ razorback vicious~
 &+yare also brutal carnivores and one of the &+gjungle's&+y most terrifying
 &+ypredators.
 ~
-1073741832 1 0 24 0 0 0 -1000 S
-AC 0 1 -1
+1073741832 1 0 0 24 0 0 0 -1000 S
+AC 0 1 0 -1
 44 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1151,8 +1151,8 @@ mental projection agaures~
 &+Lof them were to fall, he might be left with a mild headache for a brief
 &+Lmoment, and that would be it.
 ~
-1073743880 1 0 8 0 0 0 -1000 S
-UG 0 1 -1
+1073743880 1 0 0 8 0 0 0 -1000 S
+UG 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1164,8 +1164,8 @@ dock worker sleeping~
 &+yThis man works loading and unloading cargo all day long, it is a rough
 &+yjob, and he earns his rest well.&n
 ~
-1073743882 0 0 0 0 0 0 0 S
-PH 0 1 -1
+1073743882 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 4 4 1
@@ -1177,8 +1177,8 @@ tired ship builder shipbuilder~
 &+yThis fellow works daily on constructing and repairing ocean going vessels
 &+yin the local harbour. It is strenous work, its no wonder he is so tired.&n
 ~
-1073743882 0 0 0 0 0 0 0 S
-PH 0 1 -1
+1073743882 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1195,8 +1195,8 @@ high priest~
 &+W	Find the vilainous Sixth Legion, for I believe
 &+W	it to be them behind this horrible plot."
 ~
-67110922 0 0 0 0 0 0 1000 S
-PH 0 40 -1
+67110922 0 0 0 0 0 0 0 1000 S
+PH 0 40 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1212,8 +1212,8 @@ attendant~
 &+W        could actually be used to harm the Celestial
 &+W        Kings. We must find them!"
 ~
-1073743882 0 0 0 0 0 0 0 S
-PH 0 33554432 -1
+1073743882 0 0 0 0 0 0 0 0 S
+PH 0 33554432 0 -1
 48 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1226,8 +1226,8 @@ pirate~
 &+LThey are a loathsome bunch, and don't appreciate visitors who aren't
 &+Lin their line of work.&n
 ~
-67110922 8 0 0 0 0 0 -777 S
-H2 0 1 -1
+67110922 8 0 0 0 0 0 0 -777 S
+H2 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1244,8 +1244,8 @@ stowaway minotaur~
 &+W        coins, who would I pay to take me home? I need to get
 &+W        back fast too, my wife is about to have a calf."
 ~
-10 0 0 1048584 0 0 0 0 S
-MT 0 16384 -1
+10 0 0 0 1048584 0 0 0 0 S
+MT 0 16384 0 -1
 47 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1261,8 +1261,8 @@ kobe chi headmaster master~
 &+La handful of individuals to achieve a score of over a hundred fatalities,
 &+Lan elite group of assassins with the like of Nansuo and Kyan Utsu.&n
 ~
-1073743882 1 0 152 0 0 0 -1000 S
-PH 0 24576 -1
+1073743882 1 0 0 152 0 0 0 -1000 S
+PH 0 24576 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1277,8 +1277,8 @@ sobbing woman crying~
 &+W        Oh I know something must have got to him by
 &+W        now.. but.." &+mShe hesitates. &+W"I need closure."
 ~
-2056 0 0 0 0 0 0 0 S
-PH 0 32768 -1
+2056 0 0 0 0 0 0 0 0 S
+PH 0 32768 0 -1
 44 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1293,8 +1293,8 @@ celestial jade wyrm~
 &+gas a god. She is quite a docile creature, content to sleep deep below
 &+gthe palace and raise her young in peace.
 ~
-1142949898 0 0 8 0 0 0 1000 S
-D 0 130 -1
+1142949898 0 0 0 8 0 0 0 1000 S
+D 0 130 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1307,8 +1307,8 @@ lounging blacksmith smith~
 &+Land then forging into usable bars, which then are crafted into any number
 &+Lof things by the melders and craftsmen.&n
 ~
-1073743882 0 0 0 0 0 0 0 S
-PH 0 1 -1
+1073743882 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 47 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1321,8 +1321,8 @@ steel melder~
 &+Lmelding it in the eastern fashion that produces the worlds strongest
 &+Lsteel. At the moment though, he is off-duty, and relaxing.
 ~
-1073743882 0 0 0 0 0 0 0 S
-PH 0 1 -1
+1073743882 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 6 1
@@ -1341,8 +1341,8 @@ saint macavor~
 &+W	Now, our brother back at the cloister cannot rest easy again
 &+W	until Mande is punished for his treachery.&n
 ~
-67110922 0 0 8 0 0 0 1000 S
-PH 0 8 -1
+67110922 0 0 0 8 0 0 0 1000 S
+PH 0 8 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1354,8 +1354,8 @@ commoner resident local~
 &+WOne of the locals of &+GJade&+W, this bronze-skinned man wanders the streets,
 &+Won his way to residential district before heading back to work.
 ~
-1073743880 0 0 0 0 0 0 0 S
-PH 0 1 -1
+1073743880 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 33 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1370,8 +1370,8 @@ elder metalworker~
 &+W        and is quite strong. Very valuable in raw
 &+W        bars as well."
 ~
-1140852746 0 0 0 0 0 0 0 S
-PH 0 1 -1
+1140852746 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1385,8 +1385,8 @@ smith metalsmith~
 &+ceven in their crafts and weaponworks. He flashes a toothless
 &+cgrin when he sees you eyeing his work.
 ~
-1073760266 0 0 8 0 0 0 0 S
-PH 0 1 -1
+1073760266 0 0 0 8 0 0 0 0 S
+PH 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1399,8 +1399,8 @@ dock worker~
 &+ysmoothly. He spends his shifts loading and unloading cargo and helping
 &+yto moor vessels coming into port.&n
 ~
-2056 0 0 8 0 0 0 0 S
-PH 0 1 -1
+2056 0 0 0 8 0 0 0 0 S
+PH 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1419,8 +1419,8 @@ chamberlain~
 &+W        to me. Now please excuse us, we have more important
 &+W        affairs to attend to.&n
 ~
-67110922 0 0 8 0 0 0 500 S
-PH 0 33 -1
+67110922 0 0 0 8 0 0 0 500 S
+PH 0 33 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1433,8 +1433,8 @@ member legionaire~
 &+Lfor his ship to come in. He looks somewhat frustrated, and probably has
 &+Lbeen waiting for quite some time.&n
 ~
-1140852746 0 0 8 0 0 0 0 S
-H2 0 1 -1
+1140852746 0 0 0 8 0 0 0 0 S
+H2 0 1 0 -1
 43 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1450,8 +1450,8 @@ feng cho pirate king~
 &+Lgambling and drinking, boasting of his dreadful deeds to all who would
 &+Llisten.&n
 ~
-67110922 0 0 24 0 0 0 -1000 S
-H2 0 16384 -1
+67110922 0 0 0 24 0 0 0 -1000 S
+H2 0 16384 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1465,8 +1465,8 @@ outcast~
 &+Lhe should pay for, by being wrangled up and sent back home. He seems
 &+Lquite at home with the other villains and scoundrels here.&n
 ~
-2058 0 0 0 0 0 0 -1000 S
-PH 0 65536 -1
+2058 0 0 0 0 0 0 0 -1000 S
+PH 0 65536 0 -1
 47 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1479,8 +1479,8 @@ elite bushi warrior~
 &+W        "You cannot see the Emperor without
 &+W        a royal letter of invitation."
 ~
-18442 0 0 0 0 0 0 0 S
-PH 0 2097153 -1
+18442 0 0 0 0 0 0 0 0 S
+PH 0 2097153 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1496,8 +1496,8 @@ legion captain~
 &+W        eh? Some of my men are out looking around while we wait for the
 &+W        next transport. They a friendly sort they are, no worries there."
 ~
-1140852746 0 0 8 0 0 0 0 S
-H2 0 8 -1
+1140852746 0 0 0 8 0 0 0 0 S
+H2 0 8 0 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1511,8 +1511,8 @@ member legionaire~
 &+W        somewhere. I thought Jade was pretty, this sure isn't
 &+W        pretty... And it smells too!
 ~
-1073743882 0 0 8 0 0 0 0 S
-H2 0 1 -1
+1073743882 0 0 0 8 0 0 0 0 S
+H2 0 1 0 -1
 43 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1528,8 +1528,8 @@ student~
 &+W        second strongest...Hmm. Facinating."
 &+LShe murmers as much to herself as to anyone in the room.&n
 ~
-1140852746 0 0 0 0 0 0 0 S
-PH 0 1 -1
+1140852746 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1542,8 +1542,8 @@ red robe assassin~
 &+ra part of the red robe sect and would like nothing more than to practice
 &+rhis arts of death-dealing on an outsider.&n
 ~
-1073743880 1 0 24 0 0 0 -1000 S
-PH 0 64 -1
+1073743880 1 0 0 24 0 0 0 -1000 S
+PH 0 64 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1556,8 +1556,8 @@ black robe assassin~
 &+LThey practice and train constantly, and cannot wait to put what they
 &+Lhave learned to the test, most likely right into someone's spine.&n
 ~
-1073743880 1 0 524296 0 0 0 -1000 S
-PL 0 8192 -1
+1073743880 1 0 0 524296 0 0 0 -1000 S
+PL 0 8192 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1569,8 +1569,8 @@ yellow robe assassin~
 &+yThis is one of the more brutish assassins inside the violent guildhall.
 &+yHe is as eager to stick a blade in your back as to crush your windpipe.&n
 ~
-1073743880 1 0 524296 0 0 0 -1000 S
-PH 0 24576 -1
+1073743880 1 0 0 524296 0 0 0 -1000 S
+PH 0 24576 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1584,8 +1584,8 @@ blue robe assassin~
 &+bstunned. Usually the blue robes train more in foot and leg work than just
 &+bpure hand-to-hand combat.&n
 ~
-1073743880 1 0 524296 0 0 0 -1000 S
-PL 0 65536 -1
+1073743880 1 0 0 524296 0 0 0 -1000 S
+PL 0 65536 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1600,8 +1600,8 @@ princess jade~
 &+mthough, only the younger ones remain within the palace, living a life of utter
 &+mluxury, until they to, will marry.
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 4194304 -1
+8 0 0 0 0 0 0 0 0 S
+PH 0 4194304 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -1616,8 +1616,8 @@ giant boar~
 &+yen it, and continue to feed and grow till it became what it is currently,
 &+ya monostrosity of a pig. (Jewish and Muslims beware!)
 ~
-1073743880 1 0 0 0 0 0 0 S
-A 0 1 5
+1073743880 1 0 0 0 0 0 0 0 S
+A 0 1 0 5
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1630,8 +1630,8 @@ watchcat cat panther~
 &+Land raise them, like one would a dog, and can even teach them how to
 &+Lguard as well as a number of other, less practical tricks.&n
 ~
-1073741832 1 0 524288 0 0 0 -333 S
-A 0 1 -1
+1073741832 1 0 0 524288 0 0 0 -333 S
+A 0 1 0 -1
 34 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1645,8 +1645,8 @@ ambassador torrhan~
 &+La hurry though, and appears quite relaxed and comfortable sitting where
 &+Lhe is.&n
 ~
-1073743882 0 0 8 0 0 0 0 S
-PG 0 544 -1
+1073743882 0 0 0 8 0 0 0 0 S
+PG 0 544 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1662,8 +1662,8 @@ member legionaire~
 &+W        green dragon in the basement. If I was staying
 &+W        longer I would probably go check it out."
 ~
-1073743882 0 0 8 0 0 0 0 S
-H2 0 1 -1
+1073743882 0 0 0 8 0 0 0 0 S
+H2 0 1 0 -1
 43 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1677,8 +1677,8 @@ palatial samurai guard~
 &+gseems to be aware of all activity in the palace, carefully monitoring
 &+geverything and everyone.&n
 ~
-1140852744 0 0 8 0 0 0 0 S
-PH 0 2097154 -1
+1140852744 0 0 0 8 0 0 0 0 S
+PH 0 2097154 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1694,8 +1694,8 @@ emperor~
 &+Lregal man just looks down ward, repeating the same word over
 &+Land over....&+W "Miolan...Miolan.."
 ~
-1140869130 0 0 805306520 14528 67239936 4206592 0 S
-PH 0 33554944 -1
+1140869130 0 0 0 805306520 14528 67239936 4206592 0 S
+PH 0 33554944 0 -1
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1712,8 +1712,8 @@ kyan itsu~
 &+Lcity from time to time, boasting his accomplishments to the local head-
 &+Lmaster, Kobe Chi.
 ~
-1073743884 1 0 524300 0 0 0 0 S
-PH 0 8192 -1
+1073743884 1 0 0 524300 0 0 0 0 S
+PH 0 8192 0 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1723,8 +1723,8 @@ member trade guild~
 &+LA member of the &+ytrade&+c guild&+L talks about taxes, imports, and exports, here.&n
 ~
 ~
-1073743882 0 0 0 0 0 0 0 S
-PH 0 1 -1
+1073743882 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 42 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1734,8 +1734,8 @@ emissary du'maathe~
 &+LAn emissary from &+rDu'maathe&+L castle is anxious to speak about policy.&n
 ~
 ~
-1073743882 0 0 0 0 0 0 0 S
-PH 0 1 -1
+1073743882 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1752,8 +1752,8 @@ delegate bloodstone~
 &+W	but somewhere while I was in the city it was stolen
 &+W	from me."
 ~
-1073743882 0 0 0 0 0 0 -555 S
-PH 0 16384 -1
+1073743882 0 0 0 0 0 0 0 -555 S
+PH 0 16384 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1763,8 +1763,8 @@ tradesman desolate man~
 &+LA &+ytradesman&+L from &+cDesolate&+L has come here to discuss future plans.&n
 ~
 ~
-1073743882 0 0 0 0 0 0 0 S
-PH 0 1 -1
+1073743882 0 0 0 0 0 0 0 0 S
+PH 0 1 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1774,8 +1774,8 @@ physical projection agaures~
 &+LThe metaphysical projection of &+rAg&+La&+wur&+Le&+rs&+L schemes.&n
 ~
 ~
-1090535436 1 0 8 0 0 0 -1000 S
-X 0 513 -1
+1090535436 1 0 0 8 0 0 0 -1000 S
+X 0 513 0 -1
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1790,8 +1790,8 @@ ambassador nax minotaur~
 &+Lfor the betterment of his city, he works for the betterment of all his
 &+Lkind, and would do whatever he could to help a kinsman in trouble.&n
 ~
-1073743882 0 0 0 0 0 0 0 S
-MT 0 16384 -1
+1073743882 0 0 0 0 0 0 0 0 S
+MT 0 16384 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1805,8 +1805,8 @@ flock pigeons pigeon~
 &+wand making quick meals out of just about any scrap left along
 &+wside the roads.&n
 ~
-2056 0 0 0 0 0 0 0 S
-B 0 1 -1
+2056 0 0 0 0 0 0 0 0 S
+B 0 1 0 -1
 27 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1816,8 +1816,8 @@ brother mande~
 &+LA bitter and angry &+cBrother&+L Mande hides in the tunnels here.&n
 ~
 ~
-1073743884 0 0 1572872 0 0 0 -750 S
-PH 0 32 -1
+1073743884 0 0 0 1572872 0 0 0 -750 S
+PH 0 32 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1831,8 +1831,8 @@ samurai training~
 &+yswordsmanship, as it combines the moves and techiques of
 &+yseveral other classes as well its own, difficult style.
 ~
-1073743882 0 0 0 0 0 0 0 S
-PH 0 2097154 -1
+1073743882 0 0 0 0 0 0 0 0 S
+PH 0 2097154 0 -1
 47 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1847,8 +1847,8 @@ jade mystic~
 &+W	"Please leave me be, I must not get distracted
 &+W	while working."
 ~
-2058 0 0 0 0 0 0 0 S
-PH 0 256 -1
+2058 0 0 0 0 0 0 0 0 S
+PH 0 256 0 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1861,8 +1861,8 @@ seagull gull~
 &+Wappears to fixed on the harbour pier's pillars, or whats behind
 &+Wthem.&n
 ~
-2058 0 0 0 0 0 0 0 S
-B 0 1 -1
+2058 0 0 0 0 0 0 0 0 S
+B 0 1 0 -1
 18 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1875,8 +1875,8 @@ seagull gull~
 &+Wand beaches where dinner often washes up. They are quite noisey
 &+Wbirds, cawing loud enough to be heard quite a distance away.
 ~
-2058 0 0 0 0 0 0 0 S
-B 0 1 -1
+2058 0 0 0 0 0 0 0 0 S
+B 0 1 0 -1
 18 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -1889,8 +1889,8 @@ marn pirate one eye~
 &+Lleaders around the Jade Empire to organize and execute ruthless and evil
 &+Lplans, usually always involving some sort of pillage, and/or plunder.&n
 ~
-2058 1 0 24 0 0 0 -1000 S
-PH 0 16384 -1
+2058 1 0 0 24 0 0 0 -1000 S
+PH 0 16384 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1904,8 +1904,8 @@ brigand sentry~
 &+Llike he smells something nasty, and his eyes are always
 &+Ltwitching as he watches the den for intruders and spys.
 ~
-10 1 0 24 0 0 0 -1000 S
-PH 0 16384 -1
+10 1 0 0 24 0 0 0 -1000 S
+PH 0 16384 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1915,8 +1915,8 @@ exile exiled ronin~
 &+LA &+cronin&+L exiled by the city, tries to work a deal here.&n
 ~
 ~
-1140852746 0 0 8 0 0 0 0 S
-PH 0 2097154 -1
+1140852746 0 0 0 8 0 0 0 0 S
+PH 0 2097154 0 -1
 48 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1926,8 +1926,8 @@ ruffian~
 &+LA nasty &+yruffian&+L prowls through the den's corridors.&n
 ~
 ~
-1073743880 1 0 8 0 0 0 -1000 S
-PH 0 1 -1
+1073743880 1 0 0 8 0 0 0 -1000 S
+PH 0 1 0 -1
 47 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1941,8 +1941,8 @@ samurai~
 &+yswordsmanship, as it combines the moves and techiques of
 &+yseveral other classes as well its own, difficult style.
 ~
-67110922 0 0 0 0 0 0 0 S
-PH 0 2097154 -1
+67110922 0 0 0 0 0 0 0 0 S
+PH 0 2097154 0 -1
 47 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1955,8 +1955,8 @@ local sensei~
 &+ylocal sensei is in charge of helping to tutor the younger members of
 &+ythe class. He is elderly, but extremely well trained and powerful.
 ~
-2214627338 0 0 8 0 0 0 0 S
-PH 0 2097154 -1
+2214627338 0 0 0 8 0 0 0 0 S
+PH 0 2097154 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1966,8 +1966,8 @@ outcast~
 &+LAn &+routcast&+L from a distant village seeks new employment here.&n
 ~
 ~
-1140852746 0 0 0 0 0 0 -1000 S
-PH 0 1 -1
+1140852746 0 0 0 0 0 0 0 -1000 S
+PH 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1981,8 +1981,8 @@ brigand sentry~
 &+Llike he smells something nasty, and his eyes are always
 &+Ltwitching as he watches the den for intruders and spys.
 ~
-2058 1 0 24 0 0 0 -1000 S
-PH 0 16384 -1
+2058 1 0 0 24 0 0 0 -1000 S
+PH 0 16384 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1992,8 +1992,8 @@ magumi harbourmaster master~
 &+yThe local harbourmaster, Magumi, stands here, overseeing construction.&n
 ~
 ~
-67127306 0 0 24 0 0 0 0 S
-PH 0 1 -1
+67127306 0 0 0 24 0 0 0 0 S
+PH 0 1 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -2003,8 +2003,8 @@ youngling wyrm~
 &+gA youngling wyrm stays close to its mother.&n
 ~
 ~
-67110922 0 0 0 0 0 0 0 S
-D 0 4194304 -1
+67110922 0 0 0 0 0 0 0 0 S
+D 0 4194304 0 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1

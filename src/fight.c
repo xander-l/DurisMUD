@@ -4304,7 +4304,7 @@ int spell_damage(P_char ch, P_char victim, double dam, int type, uint flags,
       if(affected_by_spell(ch, ACH_DRAGONSLAYER) && (GET_RACE(victim) == RACE_DRAGON))
         dam *=1.10;  
 
-    if(affected_by_spell(victim, SPELL_SOULSHIELD) && GET_CLASS(victim, CLASS_PALADIN))
+    if(affected_by_spell(victim, SPELL_SOULSHIELD) && GET_CLASS(victim, CLASS_PALADIN) || GET_CLASS(victim, CLASS_ANTIPALADIN))
         dam *= .85;
 
       //statupdate2013 - drannak
