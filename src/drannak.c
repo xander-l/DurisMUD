@@ -2090,6 +2090,12 @@ void do_enhance(P_char ch, char *argument, int cmd)
    send_to_char("&+yYou cannot enhance an item with itself!\r\n", ch);
    return;
                }
+   if( (IS_SET(source->wear_flags, ITEM_WIELD) && !IS_SET(material->wear_flags, ITEM_WIELD)) ||
+        (IS_SET(material->wear_flags, ITEM_WIELD) && !IS_SET(source->wear_flags, ITEM_WIELD)))
+        {
+          send_to_char("&+YWeapons&+y can only enhance other &+Yweapons&n!\r\n", ch);
+          return;
+        }
 
  enhance(ch, source, material);
 }

@@ -560,7 +560,7 @@ void gain_epic(P_char ch, int type, int data, int amount)
     amount = amount * (float)get_property("epic.gain.modifier.evil", 1.000);
 
   //wipe2013 - Drannak
-  amount = (int) (amount * 1.5);
+  //amount = (int) (amount * 1.5);
   
   // add guild prestige
   check_assoc_prestige_epics(ch, amount, type);
