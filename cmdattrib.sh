@@ -237,8 +237,6 @@ parsefile
 
 exit
 
-actoth.c:void do_anonymous(P_char ch, char *argument, int cmd)
-actoth.c:void do_compact(P_char ch, char *argument, int cmd)
 actoth.c:void do_quaff(P_char ch, char *argument, int cmd)
 actoth.c:void do_recite(P_char ch, char *argument, int cmd)
 actoth.c:void do_use(P_char ch, char *argument, int cmd)

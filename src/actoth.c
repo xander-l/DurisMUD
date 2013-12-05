@@ -3307,40 +3307,6 @@ void do_area(P_char ch, char *argument, int cmd)
   
 }
 
-void do_anonymous(P_char ch, char *argument, int cmd)
-{
-  if (IS_NPC(ch))
-    return;
-
-  if (IS_SET(ch->specials.act, PLR_ANONYMOUS))
-  {
-    send_to_char("You will no longer be anonymous to other players.\r\n", ch);
-    REMOVE_BIT(ch->specials.act, PLR_ANONYMOUS);
-  }
-  else
-  {
-    send_to_char("You will now be anonymous to other players.\r\n", ch);
-    SET_BIT(ch->specials.act, PLR_ANONYMOUS);
-  }
-}
-
-void do_compact(P_char ch, char *argument, int cmd)
-{
-  if (IS_NPC(ch))
-    return;
-
-  if (IS_SET(ch->specials.act, PLR_COMPACT))
-  {
-    send_to_char("You are now in the uncompacted mode.\r\n", ch);
-    REMOVE_BIT(ch->specials.act, PLR_COMPACT);
-  }
-  else
-  {
-    send_to_char("You are now in compact mode.\r\n", ch);
-    SET_BIT(ch->specials.act, PLR_COMPACT);
-  }
-}
-
 void do_quaff(P_char ch, char *argument, int cmd)
 {
   P_obj    temp;
