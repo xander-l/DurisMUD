@@ -1142,6 +1142,7 @@ int warmaster( P_char ch, P_char pl, int cmd, char *arg )
   char arg2[MAX_STRING_LENGTH];
   char *rest;
   P_obj donation, siege;
+  int ztop, count, i, j, numgate;
 
   if( cmd == CMD_SET_PERIODIC )
     return FALSE;
@@ -1406,18 +1407,78 @@ int warmaster( P_char ch, P_char pl, int cmd, char *arg )
         return TRUE;
       }
     }
-// need to add buying town gates
     if( is_abbrev( arg1, "town" ) 
      || is_abbrev( arg1, "gates" ) )
     {
+      town = gettown( ch );
+      if( !town )
+      {
+        logit(LOG_DEBUG, "warmaster: 'buy gates' called outside of town.");
+        return FALSE;
+      }
+
+      ztop = town->zone->real_top;
+      count = 0;
       if( *arg2 == '\0' )
       {
         send_to_char( "You can buy: \n", ch );
-        send_to_char( "No gates atm.\n", ch );
-
+        for( i = town->zone->real_bottom; i <= ztop; i++ )
+        {
+          for( j = 0; j < NUM_EXITS; j++ )
+          {
+            // Skip non-existant exits and exits to nowhere.
+            if( !world[i].dir_option[j] || world[i].dir_option[j]->to_room == NOWHERE )
+              continue;
+            if( world[world[i].dir_option[j]->to_room].zone != world[i].zone )
+            {
+              sprintf( buf, "%2d) %-5s %s\n", ++count, dirs[j],
+                world[world[i].dir_option[j]->to_room].name );
+              send_to_char( buf, pl );
+            }
+          }
+        }
+        if( count == 0 )
+          send_to_char( "No exits from town found!\n", pl );
+        return TRUE;
       }
-      send_to_char( "Town gates not buyable yet..\n", pl );
-      return TRUE;
+      else
+      {
+        if( (numgate = atoi( arg2 )) < 1 )
+        {
+          send_to_char( "Invalid gate number (too small).\n", pl );
+          return TRUE;
+        }
+        for( i = town->zone->real_bottom; i <= ztop; i++ )
+        {
+          for( j = 0; j < NUM_EXITS; j++ )
+          {
+            // Skip non-existant exits and exits to nowhere.
+            if( !world[i].dir_option[j] || world[i].dir_option[j]->to_room == NOWHERE )
+              continue;
+            if( world[world[i].dir_option[j]->to_room].zone != world[i].zone )
+            {
+              if( ++count == numgate )
+              {
+                // Put a gate there.
+                siege = read_object(real_object(464), REAL);
+                if( !siege )
+                {
+                  logit(LOG_DEBUG, "warmaster: couldn't load town gates.");
+                  return FALSE;
+                }
+                // Block the correct direction.
+                siege->value[0] = rev_dir[j];
+                obj_to_room( siege, i );//world[i].dir_option[j]->to_room );
+                act( "You buy $p.", FALSE, pl, siege, NULL, TO_CHAR );
+                act( "$n buys $p.", FALSE, pl, siege, NULL, TO_ROOM );
+                return TRUE;
+              }
+            }
+          }
+        }
+        send_to_char( "Invalid gate number (too big).\n", pl );
+        return TRUE;
+      }
     }
   }
 
