@@ -29,7 +29,7 @@
 #include "profile.h"
 #include "vnum.obj.h"
 
-#define MAX_FUNCTIONS 5000
+#define MAX_FUNCTIONS 6000
 #define FUNCTION_NAMES_FILE "lib/misc/event_names"
 
 extern Skill skills[];
@@ -637,6 +637,7 @@ void init_func_call_info()
     funcCallInfo[0].addr = 0;
     funcCallInfo[0].name = "Zero or unknown";
     int i;
+
     for (i = 1; function_names[i - 1].func; i++)
     {
         funcCallInfo[i].name = function_names[i - 1].func_name;

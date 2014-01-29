@@ -294,10 +294,10 @@ void update_racial_dam_factors()
     for (int type = 1; type <= LAST_SPLDAM_TYPE; type++)
     {
       sprintf(buf, "damage.spellTypeMod.offensive.racial.%s.%s", race_names_table[race].no_spaces, spldam_types[type]);
-      racial_spldam_offensive_factor[race][type] = (float) get_property(buf, 1.00);
+      racial_spldam_offensive_factor[race][type] = get_property(buf, 1.00);
 
       sprintf(buf, "damage.spellTypeMod.defensive.racial.%s.%s", race_names_table[race].no_spaces, spldam_types[type]);
-      racial_spldam_defensive_factor[race][type] = (float) get_property(buf, 1.00);
+      racial_spldam_defensive_factor[race][type] =  get_property(buf, 1.00);
     }
   }
 }
