@@ -620,7 +620,7 @@ void gain_epic(P_char ch, int type, int data, int amount)
   }
 
   // feed artifacts
-  epic_feed_artifacts(ch, amount, type);
+  epic_feed_artifacts(ch, amount, type); 
 
   int skill_notches = MAX(0, (int) ((old+amount)/notch) - (old/notch));
   
@@ -675,6 +675,8 @@ void epic_feed_artifacts(P_char ch, int epics, int epic_type)
 {
   if(IS_TRUSTED(ch) || !IS_PC(ch))
     return;
+
+  return; //disabling feeding for now.
 
   int num_artis = 0;
   for (int i = 0; i < MAX_WEAR; i++)
