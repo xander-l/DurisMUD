@@ -118,3 +118,4 @@ rm -f Tradeskills/z/*
 rm -f ../Ships/*
 rm -f Artifacts/*
 rm -f Artifacts/Mortal/*
+mv ../towns.orig ../towns

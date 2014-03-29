@@ -39,3 +39,4 @@ rm -f /duris/mainmud/lib/boards/*
 rm -f *list
 rm -f mail
 rm -f fraglist
+mv ../towns.orig ../towns
