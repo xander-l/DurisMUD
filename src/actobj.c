@@ -5090,6 +5090,11 @@ if(obj_index[temp->R_num].virtual_number == 1252)
     return FALSE;
   }
 
+     if(GET_OBJ_VNUM(temp) == 98)
+  {
+    return FALSE;
+  }
+
 
   if (temp->type == ITEM_FOOD)
    {
