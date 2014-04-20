@@ -31,6 +31,7 @@
 #include "guard.h"
 #include "specs.winterhaven.h"
 #include "guildhall.h"
+#include "achievements.h"
 
 /*
  * external variables

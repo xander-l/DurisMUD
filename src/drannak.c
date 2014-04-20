@@ -35,6 +35,7 @@
 #include "map.h"
 #include "specs.prototypes.h"
 #include "ships.h"
+#include "achievements.h"
 
 /*
  * external variables

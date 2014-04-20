@@ -42,6 +42,7 @@
 #include "graph.h"
 #include "outposts.h"
 #include "ctf.h"
+#include "achievements.h"
 
 /*
  * external variables

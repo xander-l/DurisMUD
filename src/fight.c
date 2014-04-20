@@ -46,6 +46,7 @@
 #include "boon.h"
 #include "ctf.h"
 #include "tether.h"
+#include "achievements.h"
 
 /*
  * external variables //
@@ -2850,41 +2851,7 @@ void kill_gain(P_char ch, P_char victim)
     update_achievements(ch, victim, 0, 2);
 
     // Addicted to blood stuff:
-    if( !IS_PC(victim) && GET_LEVEL(victim) > GET_LEVEL(ch) - 5 )
-    {
-      // Add addicted to blood if it isn't already there
-      if( !affected_by_spell(ch, TAG_ADDICTED_BLOOD) )
-      {
-        struct affected_type aaf;
-        memset(&aaf, 0, sizeof(struct affected_type));
-        aaf.type = TAG_ADDICTED_BLOOD;
-        aaf.modifier = 0;
-        aaf.duration = 60;
-        aaf.location = 0;
-        aaf.flags = AFFTYPE_NOSHOW | AFFTYPE_PERM | AFFTYPE_NODISPEL;
-        affect_to_char(ch, &aaf);
-      }
-      // Now increment the af and check if 30 kills.
-      struct affected_type *af = ch->affected;
-      while( af && !(af->type == TAG_ADDICTED_BLOOD) )
-        af = af->next;
-      // This should always be true, but just in case...
-      if( af )
-      {
-        //check to see if we've hit 30 kills
-        if( af->modifier >= 30)
-        {
-          affect_remove( ch, af );
-          send_to_char("&+rCon&+Rgra&+Wtula&+Rtio&+rns! You have completed &+rAddicted to Blood&+r!&n\r\n", ch);
-          send_to_char("&+yEnjoy an &+Yexp bonus&+y and &+W5 platinum coins&+y!&n\r\n", ch);
-          gain_exp(ch, NULL, GET_EXP(victim) * 10, EXP_BOON);
-          ADD_MONEY(ch, 5000);
-        }
-        // Otherwise, add a kill.
-        else
-          af->modifier += 1;
-      }
-    }
+    update_addicted_to_blood(ch, victim);
 
     if((GET_LEVEL(victim) > 30) && !IS_PC(victim) && !affected_by_spell(victim, TAG_CONJURED_PET))
     {
@@ -2986,6 +2953,7 @@ void kill_gain(P_char ch, P_char victim)
           if(IS_PC(gl->ch))
           add_bloodlust(gl->ch, victim);
     update_achievements(gl->ch, victim, 0, 2);//this is for all kinds of kill-type quests
+
     if((GET_LEVEL(victim) > 30) && !IS_PC(victim) && !affected_by_spell(victim, TAG_CONJURED_PET))
 	{
 	  if((number(1, 5000) < GET_C_LUK(gl->ch)) || (GET_RACE(victim) == RACE_DRAGON && (GET_VNUM(victim) != 1108) && (GET_VNUM(victim) > 10) && (GET_LEVEL(victim) > 49)))

@@ -3,6 +3,7 @@
 #include "db.h"
 #include "prototypes.h"
 #include "structs.h"
+#include "achievements.h"
 #include "utils.h"
 #include "spells.h"
 
@@ -143,18 +144,6 @@ void do_achievements(P_char ch, char *arg, int cmd)
 
 
 }
-
-// Addicted to Blood - Display
-void do_addicted_blood(P_char ch, char *arg, int cmd)
-{
-  char buf[MAX_STRING_LENGTH];
-
-  sprintf(buf, "&+L%-28s&+L%-51s&+L%s &+W%d%%&n\r\n",
-      "&+rAddicted to Blood&n", "&+wKill &+W30 &+wmobs within 30 minutes", "&+wEXP and Plat Bonus&n", get_progress(ch, TAG_ADDICTED_BLOOD, 30));
-  send_to_char( buf, ch );
-
-}
-
 //
 void update_achievements(P_char ch, P_char victim, int cmd, int ach)
 {
@@ -197,13 +186,9 @@ void update_achievements(P_char ch, P_char victim, int cmd, int ach)
     }
   }
 
-
-
-
   //PvP Achievements
   int frags;
   frags = get_frags(ch);
-
 
   /* LETS GET DIRTY */
   if((frags >= 100) && !affected_by_spell(ch, ACH_LETSGETDIRTY)) 
@@ -351,4 +336,53 @@ void apply_achievement(P_char ch, int ach)
 
 }
 
+// Addicted to Blood - Display
+void do_addicted_blood(P_char ch, char *arg, int cmd)
+{
+  char buf[MAX_STRING_LENGTH];
+
+  sprintf(buf, "&+L%-28s&+L%-51s&+L%s &+W%d%%&n\r\n",
+      "&+rAddicted to Blood&n", "&+wKill &+W30 &+wmobs within 30 minutes", "&+wEXP and Plat Bonus&n", get_progress(ch, TAG_ADDICTED_BLOOD, 30));
+  send_to_char( buf, ch );
+
+}
+
+void update_addicted_to_blood(P_char ch, P_char victim)
+{
+  if( !IS_PC(victim) && GET_LEVEL(victim) > GET_LEVEL(ch) - 5 )
+  {
+    // Add addicted to blood if it isn't already there
+    if( !affected_by_spell(ch, TAG_ADDICTED_BLOOD) )
+    {
+      struct affected_type aaf;
+      memset(&aaf, 0, sizeof(struct affected_type));
+      aaf.type = TAG_ADDICTED_BLOOD;
+      aaf.modifier = 0;
+      aaf.duration = 60;
+      aaf.location = 0;
+      aaf.flags = AFFTYPE_NOSHOW | AFFTYPE_PERM | AFFTYPE_NODISPEL;
+      affect_to_char(ch, &aaf);
+    }
+    // Now increment the af and check if 30 kills.
+    struct affected_type *af = ch->affected;
+    while( af && !(af->type == TAG_ADDICTED_BLOOD) )
+      af = af->next;
+    // This should always be true, but just in case...
+    if( af )
+    {
+      //check to see if we've hit 30 kills
+      if( af->modifier >= 30)
+      {
+        affect_remove( ch, af );
+        send_to_char("&+rCon&+Rgra&+Wtula&+Rtio&+rns! You have completed &+rAddicted to Blood&+r!&n\r\n", ch);
+        send_to_char("&+yEnjoy an &+Yexp bonus&+y and &+W5 platinum coins&+y!&n\r\n", ch);
+        gain_exp(ch, NULL, GET_EXP(victim) * 10, EXP_BOON);
+        ADD_MONEY(ch, 5000);
+      }
+      // Otherwise, add a kill.
+      else
+        af->modifier += 1;
+    }
+  }
+}
 

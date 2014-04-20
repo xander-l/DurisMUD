@@ -28,6 +28,7 @@ using namespace std;
 #include "boon.h"
 #include "trophy.h"
 #include "epic_bonus.h"
+#include "achievements.h"
 
 extern long boot_time;
 extern P_room world;

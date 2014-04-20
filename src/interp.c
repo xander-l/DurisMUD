@@ -51,6 +51,7 @@
 #include "ctf.h"
 #include "tether.h"
 #include "auction_houses.h"
+#include "achievements.h"
 
 /*
  * external variables

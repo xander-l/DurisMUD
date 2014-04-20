@@ -16,6 +16,7 @@
 #include "guard.h"
 #include "disguise.h"
 #include "mm.h"
+#include "achievements.h"
 
 /*
  * external variables

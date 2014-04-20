@@ -329,13 +329,6 @@ void do_apply_poison(P_char, char *, int);
 void do_dropalldot(P_char, char *, int);
 bool is_stat_max(sbyte);
 
-/* achievements.c */
-int get_frags(P_char);
-void do_achievements(P_char ch, char *arg, int cmd);
-void update_achievements(P_char ch, P_char victim, int cmd, int ach);
-void apply_achievement(P_char ch, int ach);
-void do_addicted_blood(P_char ch, char *arg, int cmd);
-
 /* tradeskill.c */
 void do_salvation(P_char ch, char *arg, int cmd);
 void do_drandebug(P_char ch, char *arg, int cmd);
