@@ -84,6 +84,11 @@ void set_surname(P_char ch, int num)
      4 - Decepticon
      */
 
+  if( !IS_ALIVE(ch) )
+  {
+    return;
+  }
+
   if((num == 0 && !IS_SET(ch->specials.act3, PLR3_NOSUR)) || num == 1 )
   {
     int points = getLeaderBoardPts(ch);
