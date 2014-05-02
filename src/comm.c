@@ -2102,8 +2102,10 @@ void write_to_pc_log(P_char ch, const char *message, int log)
 
   ch = GET_PLYR(ch);
 
-  if( !ch || !IS_PC(ch) )
+  if( !ch || !IS_PC(ch) || !IS_ALIVE(ch) )
+  {
     return;
+  }
   
   if( !GET_PLAYER_LOG(ch) )
   {
