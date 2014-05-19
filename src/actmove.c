@@ -212,11 +212,12 @@ void SwapCharsInList(P_char ch1, P_char ch2)
 
 int leave_by_exit(P_char ch, int exitnumb)
 {
-  P_char   k, block1 = 0, block2, t_ch = 0;
+  P_char   k = NULL, block1 = NULL, block2 = NULL, t_ch = NULL;
   char     j, exit1 = -1, exit2 = -1, exit3 = -1;
   int      room_to;
   P_char   target_head = NULL;
   int      num_in_room = 0, room_limit = 0;
+  P_char   rider = NULL;
 
   /*
    * to avoid problems and conflicts, NEVER return TRUE from any check
@@ -439,13 +440,19 @@ int leave_by_exit(P_char ch, int exitnumb)
    * most degenerate case (ch is alone in room)
    */
 
-  if (IS_RIDING(ch) &&
-      (world[room_to].room_flags & SINGLE_FILE))
+  if (IS_RIDING(ch) && (world[room_to].room_flags & SINGLE_FILE))
   {
     send_to_char("You can't fit into this narrow passage while mounted...\n", ch);
     return FALSE;
   }
 
+  if( (( rider = get_linking_char(ch, LNK_RIDING) ) != NULL)
+    && (world[room_to].room_flags & SINGLE_FILE) )
+  {
+    send_to_char("You are almost knocked off your mount trying to head into such a cramped space.\n", rider );
+    send_to_char("You almost knock off your rider trying to head into such a cramped space.\n", ch );
+    return FALSE;
+  }
 
   if ((world[ch->in_room].room_flags & SINGLE_FILE) && !IS_TRUSTED(ch) &&
       !IS_AFFECTED(ch, AFF_WRAITHFORM) && ((world[ch->in_room].people != ch)
