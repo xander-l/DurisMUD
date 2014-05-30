@@ -4,7 +4,7 @@
  *  Usage: Commands that mainly manipulate objects.
  *  Copyright  1990, 1991 - see 'license.doc' for complete information.
  *  Copyright 1994 - 2008 - Duris Systems Ltd.
- * 
+ *
  * ***************************************************************************
  */
 
@@ -510,10 +510,10 @@ void do_get(P_char ch, char *argument, int cmd)
               get(ch, o_obj, 0, TRUE);
               if( IS_ARTIFACT( o_obj ) )
               {
-                wizlog( 56, "%s getting artifact %s from room %d.",
-                  J_NAME(ch), o_obj->short_description, world[ch->in_room].number );
-                logit(LOG_OBJ, "%s getting artifact %s from room %d.",
-                  J_NAME(ch), o_obj->short_description, world[ch->in_room].number );
+                wizlog( 56, "%s getting artifact %s (%d) from room %d.",
+                  J_NAME(ch), o_obj->short_description, obj_index[o_obj->R_num].virtual_number, world[ch->in_room].number );
+                logit(LOG_OBJ, "%s getting artifact %s (%d) from room %d.",
+                  J_NAME(ch), o_obj->short_description, obj_index[o_obj->R_num].virtual_number, world[ch->in_room].number );
               }
               total++;
             }
@@ -604,10 +604,10 @@ void do_get(P_char ch, char *argument, int cmd)
             get(ch, o_obj, s_obj, TRUE);
             if( IS_ARTIFACT( o_obj ) )
             {
-              wizlog( 56, "%s getting artifact %s from room %d.",
-                J_NAME(ch), o_obj->short_description, world[ch->in_room].number );
-              logit(LOG_OBJ, "%s getting artifact %s from room %d.",
-                J_NAME(ch), o_obj->short_description, world[ch->in_room].number );
+              wizlog( 56, "%s getting artifact %s (%d) from room %d.",
+                J_NAME(ch), o_obj->short_description, obj_index[o_obj->R_num].virtual_number, world[ch->in_room].number );
+              logit(LOG_OBJ, "%s getting artifact %s (%d) from room %d.",
+                J_NAME(ch), o_obj->short_description, obj_index[o_obj->R_num].virtual_number, world[ch->in_room].number );
             }
 
           }
@@ -805,10 +805,10 @@ void do_get(P_char ch, char *argument, int cmd)
                   total++;
                   if( IS_ARTIFACT( s_obj ) )
                   {
-                    wizlog( 56, "%s getting artifact %s from room %d.",
-                      J_NAME(ch), s_obj->short_description, world[ch->in_room].number );
-                    logit(LOG_OBJ, "%s getting artifact %s from room %d.",
-                      J_NAME(ch), s_obj->short_description, world[ch->in_room].number );
+                    wizlog( 56, "%s getting artifact %s (%d) from room %d.",
+                      J_NAME(ch), s_obj->short_description, obj_index[s_obj->R_num].virtual_number, world[ch->in_room].number );
+                    logit(LOG_OBJ, "%s getting artifact %s (%d) from room %d.",
+                      J_NAME(ch), s_obj->short_description, obj_index[s_obj->R_num].virtual_number, world[ch->in_room].number );
                   }
                   if (GET_ITEM_TYPE(s_obj) == ITEM_QUIVER)
                     if (s_obj->value[3] > 0)
@@ -1380,10 +1380,10 @@ void do_dropalldot(P_char ch, char *name, int cmd)
         }
         else if( IS_ARTIFACT( tmp_object ) )
         {
-          wizlog( 56, "%s dropping artifact %s in room %d.",
-            J_NAME(ch), tmp_object->short_description, world[ch->in_room].number );
-          logit(LOG_OBJ, "%s dropping artifact %s in room %d.",
-            J_NAME(ch), tmp_object->short_description, world[ch->in_room].number );
+          wizlog( 56, "%s dropping artifact %s (%d) in room %d.",
+            J_NAME(ch), tmp_object->short_description, obj_index[tmp_object->R_num].virtual_number, world[ch->in_room].number );
+          logit(LOG_OBJ, "%s dropping artifact %s (%d) in room %d.",
+            J_NAME(ch), tmp_object->short_description, obj_index[tmp_object->R_num].virtual_number, world[ch->in_room].number );
         }
       }
   }
@@ -1615,10 +1615,10 @@ void do_drop(P_char ch, char *argument, int cmd)
           }
           else if( IS_ARTIFACT( tmp_object ) )
           {
-            wizlog( 56, "%s dropping artifact %s in room %d.",
-              J_NAME(ch), tmp_object->short_description, world[ch->in_room].number );
-            logit(LOG_OBJ, "%s dropping artifact %s in room %d.",
-              J_NAME(ch), tmp_object->short_description, world[ch->in_room].number );
+            wizlog( 56, "%s dropping artifact %s (%d) in room %d.",
+              J_NAME(ch), tmp_object->short_description, obj_index[tmp_object->R_num].virtual_number, world[ch->in_room].number );
+            logit(LOG_OBJ, "%s dropping artifact %s (%d) in room %d.",
+              J_NAME(ch), tmp_object->short_description, obj_index[tmp_object->R_num].virtual_number, world[ch->in_room].number );
           }
           obj_to_room(tmp_object, ch->in_room);
 
@@ -1673,10 +1673,10 @@ void do_drop(P_char ch, char *argument, int cmd)
           }
           else if( IS_ARTIFACT( tmp_object ) )
           {
-            wizlog( 56, "%s dropping artifact %s in room %d.",
-              J_NAME(ch), tmp_object->short_description, world[ch->in_room].number );
-            logit(LOG_OBJ, "%s dropping artifact %s in room %d.",
-              J_NAME(ch), tmp_object->short_description, world[ch->in_room].number );
+            wizlog( 56, "%s dropping artifact %s (%d) in room %d.",
+              J_NAME(ch), tmp_object->short_description, obj_index[tmp_object->R_num].virtual_number, world[ch->in_room].number );
+            logit(LOG_OBJ, "%s dropping artifact %s (%d) in room %d.",
+              J_NAME(ch), tmp_object->short_description, obj_index[tmp_object->R_num].virtual_number, world[ch->in_room].number );
           }
           obj_to_room(tmp_object, ch->in_room);
 
@@ -2356,6 +2356,9 @@ void do_give(P_char ch, char *argument, int cmd)
   obj_to_char(obj, vict);
   if (IS_TRUSTED(ch))
   {
+    if (IS_ARTIFACT(obj) )
+      logit(LOG_OBJ, "%s gives artifact %s (%d) to %s.",
+        J_NAME(ch), obj->short_description, obj_index[obj->R_num].virtual_number, J_NAME(vict) );
     wizlog(GET_LEVEL(ch), "%s gives %s to %s.",
            J_NAME(ch), obj->short_description, J_NAME(vict));
     logit(LOG_WIZ, "%s gives %s to %s.",
