@@ -2108,14 +2108,14 @@ void do_enhance(P_char ch, char *argument, int cmd)
   }
   if (!is_salvageable(source))
   {
-    // act("&+yThe item which you wish to &+Menhance&+y cannot be altered this way... try somethign else&n.", FALSE, ch, 0, 0, TO_CHAR);
-    act("&+yYour $p&+y cannot be used in this way... try somethign else&n.", FALSE, ch, source, 0, TO_CHAR);
+    // act("&+yThe item which you wish to &+Menhance&+y cannot be altered this way... try something else&n.", FALSE, ch, 0, 0, TO_CHAR);
+    act("&+yYour $p&+y cannot be used in this way... try something else&n.", FALSE, ch, source, 0, TO_CHAR);
     return;
   }
   if (!is_salvageable(material))
   {
-    //act("&+yYour &+Menhancement&+y item cannot be used in this way... try somethign else&n.", FALSE, ch, 0, 0, TO_CHAR);
-    act("&+yYour $p&+y cannot be used in this way... try somethign else&n.", FALSE, ch, material, 0, TO_CHAR);
+    //act("&+yYour &+Menhancement&+y item cannot be used in this way... try something else&n.", FALSE, ch, 0, 0, TO_CHAR);
+    act("&+yYour $p&+y cannot be used in this way... try something else&n.", FALSE, ch, material, 0, TO_CHAR);
     return;
   }
   else if(GET_OBJ_VNUM(material) == GET_OBJ_VNUM(source))
