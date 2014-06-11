@@ -232,6 +232,15 @@ void give_reward(struct quest_complete_data *qcp, P_char mob, P_char pl)
     {
     case QUEST_GOAL_ITEM:
       obj = read_object(gp->number, VIRTUAL);
+
+      // No duplicating artifacts.
+      if( IS_ARTIFACT(obj) && get_current_artifact_info(obj->R_num, 0, NULL, NULL, NULL, NULL, FALSE, NULL) )
+      {
+        // It's imperative that we extract.. FALSE because otherwise extract_obj kills artifact info.
+        extract_obj(obj, FALSE);
+        break;
+      }
+
       if (!obj)
       {
         logit(LOG_DEBUG, "give_reward(): obj %d not loadable", gp->number);
