@@ -2590,6 +2590,9 @@ void add_bloodlust(P_char ch, P_char victim)
   if (GET_LEVEL(victim) < (GET_LEVEL(ch) - 5))
     return;
 
+  if( affected_by_spell(victim, TAG_CONJURED_PET) )
+    return;
+
   if (GET_RACE(ch) == RACE_OGRE)
     dur = 10;
   else

@@ -2437,7 +2437,8 @@ void die(P_char ch, P_char killer)
 
   //possibility to find a recipe for the items in the zone.
   // Only find recipes from mobs inside their own zone.
-  if( IS_PC(killer) && !IS_PC_PET(ch) && in_their_zone(ch) )
+  if( IS_PC(killer) && !IS_PC_PET(ch) && in_their_zone(ch)
+    && !affected_by_spell(ch, TAG_CONJURED_PET) )
     random_recipe(killer, ch);
 
   // object code - Normal kills.  Kvark
