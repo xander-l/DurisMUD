@@ -3101,7 +3101,7 @@ void do_examine(P_char ch, char *argument, int cmd)
 
   // check legend lore
   if (tmp_object && (GET_CHAR_SKILL(ch, SKILL_LEGEND_LORE) > number(0, 110)) &&
-		  (GET_ITEM_TYPE(tmp_object) != ITEM_CONTAINER))
+		  (GET_ITEM_TYPE(tmp_object) != ITEM_CONTAINER && GET_ITEM_TYPE(tmp_object) != ITEM_CORPSE))
   {
     notch_skill(ch, SKILL_LEGEND_LORE, 20);
     spell_identify(GET_LEVEL(ch), ch, 0, 0, 0, tmp_object);
