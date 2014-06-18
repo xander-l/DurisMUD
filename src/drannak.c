@@ -1928,6 +1928,12 @@ void enhance(P_char ch, P_obj source, P_obj material)
   int val = itemvalue(ch, material);
   int minval = itemvalue(ch, source) - 5;
 
+  if( itemvalue( ch, source ) > 100 )
+  {
+    send_to_char( "This item is too powerful to be enhanced further.\n", ch );
+    return;
+  }
+
   if(IS_SET(source->wear_flags, ITEM_GUILD_INSIGNIA))
     minval +=10;
 
@@ -1997,17 +2003,17 @@ void enhance(P_char ch, P_obj source, P_obj material)
       extract_obj(robj, FALSE);
     }
     else if(itemvalue(ch, robj) != mod)
-    {  
+    {
       validobj = 0;
       extract_obj(robj, FALSE);
     }
     else if(GET_OBJ_VNUM(robj) == GET_OBJ_VNUM(source))
-    {  
+    {
       validobj = 0;
       extract_obj(robj, FALSE);
     }
     else if(IS_SET(source->wear_flags, ITEM_WIELD) && !IS_SET(robj->wear_flags, ITEM_WIELD))
-    {  
+    {
       validobj = 0;
       extract_obj(robj, FALSE);
     }
@@ -2033,11 +2039,11 @@ void enhance(P_char ch, P_obj source, P_obj material)
         (IS_SET(source->wear_flags, ITEM_WEAR_HANDS) && IS_SET(robj->wear_flags, ITEM_WEAR_HANDS)) ||
         (IS_SET(source->wear_flags, ITEM_WEAR_BACK) && IS_SET(robj->wear_flags, ITEM_WEAR_BACK))
         )
-        {  
+        {
           validobj = 1;
         }
     else
-    {  
+    {
       validobj = 0;
       extract_obj(robj, FALSE);
     }

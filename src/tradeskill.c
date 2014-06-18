@@ -2469,19 +2469,18 @@ int learn_tradeskill(P_char ch, P_char pl, int cmd, char *arg)
 
 int itemvalue(P_char ch, P_obj obj)
 {
- long workingvalue = 0;
- double multiplier = 1;
+  long workingvalue = 0;
+  double multiplier = 1;
 
- if (!obj)
- return 0;
+  if (!obj)
+  {
+    return 0;
+  }
 
-
-
-
-   if(IS_SET(obj->wear_flags, ITEM_WEAR_EYES))
+  if(IS_SET(obj->wear_flags, ITEM_WEAR_EYES))
     multiplier = 2.0;
 
-   if(IS_SET(obj->wear_flags, ITEM_WEAR_EARRING))
+  if(IS_SET(obj->wear_flags, ITEM_WEAR_EARRING))
     multiplier = 2.5;
 
   if (IS_SET(obj->wear_flags, ITEM_WEAR_FACE))
@@ -2505,342 +2504,323 @@ int itemvalue(P_char ch, P_obj obj)
   if (IS_SET(obj->wear_flags, ITEM_WEAR_WRIST))
     multiplier = 1.5;
 
- if (IS_SET(obj->bitvector, AFF_STONE_SKIN))
-	 workingvalue += 60;
+  if (IS_SET(obj->bitvector, AFF_STONE_SKIN))
+	  workingvalue += 60;
 
- if (IS_SET(obj->bitvector, AFF_BIOFEEDBACK))
-	 workingvalue += 60;
+  if (IS_SET(obj->bitvector, AFF_BIOFEEDBACK))
+	  workingvalue += 90;
 
- if (IS_SET(obj->bitvector, AFF_FARSEE))
-	 workingvalue += 8;
+  if (IS_SET(obj->bitvector, AFF_FARSEE))
+	  workingvalue += 28;
 
- if (IS_SET(obj->bitvector, AFF_DETECT_INVISIBLE))
-	 workingvalue += 15;
+  if (IS_SET(obj->bitvector, AFF_DETECT_INVISIBLE))
+	  workingvalue += 45;
 
- if (IS_SET(obj->bitvector, AFF_HASTE))
-	 workingvalue += 25;
+  if (IS_SET(obj->bitvector, AFF_HASTE))
+	  workingvalue += 55;
 
- if (IS_SET(obj->bitvector, AFF_INVISIBLE))
-	 workingvalue += 30;
+  if (IS_SET(obj->bitvector, AFF_INVISIBLE))
+	  workingvalue += 30;
 
- if (IS_SET(obj->bitvector, AFF_SENSE_LIFE))
-	 workingvalue += 10;
+  if (IS_SET(obj->bitvector, AFF_SENSE_LIFE))
+	  workingvalue += 20;
 
- if (IS_SET(obj->bitvector, AFF_MINOR_GLOBE))
-	 workingvalue += 8;
+  if (IS_SET(obj->bitvector, AFF_MINOR_GLOBE))
+	  workingvalue += 18;
 
- if (IS_SET(obj->bitvector, AFF_UD_VISION))
-	 workingvalue += 10;
+  if (IS_SET(obj->bitvector, AFF_UD_VISION))
+	  workingvalue += 40;
 
- if (IS_SET(obj->bitvector, AFF_WATERBREATH))
-	 workingvalue += 5;
+  if (IS_SET(obj->bitvector, AFF_WATERBREATH))
+	  workingvalue += 25;
 
- if (IS_SET(obj->bitvector, AFF_PROTECT_EVIL))
-	 workingvalue += 8;
+  if (IS_SET(obj->bitvector, AFF_PROTECT_EVIL))
+	  workingvalue += 8;
 
- if (IS_SET(obj->bitvector, AFF_SLOW_POISON))
-	 workingvalue += 2;
+  if (IS_SET(obj->bitvector, AFF_SLOW_POISON))
+	  workingvalue += 10;
 
- if (IS_SET(obj->bitvector, AFF_SNEAK))
-	 workingvalue += 50;
+  if (IS_SET(obj->bitvector, AFF_SNEAK))
+	  workingvalue += 50;
 
- if (IS_SET(obj->bitvector, AFF_BARKSKIN))
-	 workingvalue += 8;
+  if (IS_SET(obj->bitvector, AFF_BARKSKIN))
+	  workingvalue += 18;
 
- if (IS_SET(obj->bitvector, AFF_INFRAVISION))
-	 workingvalue += 2;
+  if (IS_SET(obj->bitvector, AFF_INFRAVISION))
+	  workingvalue += 2;
 
- if (IS_SET(obj->bitvector, AFF_LEVITATE))
-	 workingvalue += 3;
+  if (IS_SET(obj->bitvector, AFF_LEVITATE))
+	  workingvalue += 13;
 
- if (IS_SET(obj->bitvector, AFF_HIDE))
-	 workingvalue += 50;
+  if (IS_SET(obj->bitvector, AFF_HIDE))
+	  workingvalue += 60;
 
- if (IS_SET(obj->bitvector, AFF_FLY))
-	 workingvalue += 15;
+  if (IS_SET(obj->bitvector, AFF_FLY))
+	  workingvalue += 55;
 
- if (IS_SET(obj->bitvector, AFF_AWARE))
-	 workingvalue += 20;
+  if (IS_SET(obj->bitvector, AFF_AWARE))
+	  workingvalue += 60;
 
- if (IS_SET(obj->bitvector, AFF_PROT_FIRE))
-	 workingvalue += 5;
+  if (IS_SET(obj->bitvector, AFF_PROT_FIRE))
+	  workingvalue += 15;
 
- if (IS_SET(obj->bitvector2, AFF2_FIRESHIELD))
-	 workingvalue += 4;
+  if (IS_SET(obj->bitvector2, AFF2_FIRESHIELD))
+	  workingvalue += 24;
 
- if (IS_SET(obj->bitvector2, AFF2_ULTRAVISION))
-	 workingvalue += 10;
+  if (IS_SET(obj->bitvector2, AFF2_ULTRAVISION))
+	  workingvalue += 40;
 
- if (IS_SET(obj->bitvector2, AFF2_DETECT_EVIL))
-	 workingvalue += 2;
+  if (IS_SET(obj->bitvector2, AFF2_DETECT_EVIL))
+	  workingvalue += 7;
 
- if (IS_SET(obj->bitvector2, AFF2_DETECT_GOOD))
-	 workingvalue += 2;
+  if (IS_SET(obj->bitvector2, AFF2_DETECT_GOOD))
+	  workingvalue += 7;
 
- if (IS_SET(obj->bitvector2, AFF2_DETECT_MAGIC))
-	 workingvalue += 2;
+  if (IS_SET(obj->bitvector2, AFF2_DETECT_MAGIC))
+	  workingvalue += 8;
 
- if (IS_SET(obj->bitvector2, AFF2_PROT_COLD))
-	 workingvalue += 5;
+  if (IS_SET(obj->bitvector2, AFF2_PROT_COLD))
+	  workingvalue += 15;
 
- if (IS_SET(obj->bitvector2, AFF2_PROT_LIGHTNING))
-	 workingvalue += 5;
+  if (IS_SET(obj->bitvector2, AFF2_PROT_LIGHTNING))
+    workingvalue += 15;
 
- if (IS_SET(obj->bitvector2, AFF2_GLOBE))
-	 workingvalue += 20;
+  if (IS_SET(obj->bitvector2, AFF2_GLOBE))
+	  workingvalue += 50;
 
- if (IS_SET(obj->bitvector2, AFF2_PROT_GAS))
-	 workingvalue += 5;
+  if (IS_SET(obj->bitvector2, AFF2_PROT_GAS))
+    workingvalue += 15;
 
- if (IS_SET(obj->bitvector2, AFF2_PROT_ACID))
-	 workingvalue += 5;
+  if (IS_SET(obj->bitvector2, AFF2_PROT_ACID))
+    workingvalue += 15;
 
- if (IS_SET(obj->bitvector2, AFF2_SOULSHIELD))
-    	 workingvalue += 15;
+  if (IS_SET(obj->bitvector2, AFF2_SOULSHIELD))
+    workingvalue += 35;
 
- if (IS_SET(obj->bitvector2, AFF2_MINOR_INVIS))
-	 workingvalue += 5;
+  if (IS_SET(obj->bitvector2, AFF2_MINOR_INVIS))
+	  workingvalue += 5;
 
- if (IS_SET(obj->bitvector2, AFF2_VAMPIRIC_TOUCH))
-	 workingvalue += 20;
+  if (IS_SET(obj->bitvector2, AFF2_VAMPIRIC_TOUCH))
+	  workingvalue += 40;
 
- if (IS_SET(obj->bitvector2, AFF2_EARTH_AURA))
-	 workingvalue += 50;
+  if (IS_SET(obj->bitvector2, AFF2_EARTH_AURA))
+	  workingvalue += 70;
 
- if (IS_SET(obj->bitvector2, AFF2_WATER_AURA))
-	 workingvalue += 50;
+  if (IS_SET(obj->bitvector2, AFF2_WATER_AURA))
+	  workingvalue += 70;
 
- if (IS_SET(obj->bitvector2, AFF2_FIRE_AURA))
-	 workingvalue += 50;
+  if (IS_SET(obj->bitvector2, AFF2_FIRE_AURA))
+	  workingvalue += 70;
 
- if (IS_SET(obj->bitvector2, AFF2_AIR_AURA))
-	 workingvalue += 50;
+  if (IS_SET(obj->bitvector2, AFF2_AIR_AURA))
+	  workingvalue += 70;
 
- if (IS_SET(obj->bitvector2, AFF2_PASSDOOR))
-	 workingvalue += 40;
+  if (IS_SET(obj->bitvector2, AFF2_PASSDOOR))
+	  workingvalue += 40;
 
- if (IS_SET(obj->bitvector2, AFF2_FLURRY))
-	 workingvalue += 75;
+  if (IS_SET(obj->bitvector2, AFF2_FLURRY))
+	  workingvalue += 75;
 
- if (IS_SET(obj->bitvector3, AFF3_PROT_ANIMAL))
-	 workingvalue += 4;
+  if (IS_SET(obj->bitvector3, AFF3_PROT_ANIMAL))
+	  workingvalue += 14;
 
- if (IS_SET(obj->bitvector3, AFF3_SPIRIT_WARD))
-	 workingvalue += 4;
+  if (IS_SET(obj->bitvector3, AFF3_SPIRIT_WARD))
+	  workingvalue += 14;
 
- if (IS_SET(obj->bitvector3, AFF3_GR_SPIRIT_WARD))
-	 workingvalue += 20;
+  if (IS_SET(obj->bitvector3, AFF3_GR_SPIRIT_WARD))
+	  workingvalue += 28;
 
- if (IS_SET(obj->bitvector3, AFF3_ENLARGE))
-	 workingvalue += 45;
+  if (IS_SET(obj->bitvector3, AFF3_ENLARGE))
+	  workingvalue += 65;
 
- if (IS_SET(obj->bitvector3, AFF3_REDUCE))
-	 workingvalue += 45;
+  if (IS_SET(obj->bitvector3, AFF3_REDUCE))
+	  workingvalue += 65;
 
- if (IS_SET(obj->bitvector3, AFF3_INERTIAL_BARRIER))
-	 workingvalue += 45;
+  if (IS_SET(obj->bitvector3, AFF3_INERTIAL_BARRIER))
+	  workingvalue += 65;
 
- if (IS_SET(obj->bitvector3, AFF3_COLDSHIELD))
-	 workingvalue += 8;
+  if (IS_SET(obj->bitvector3, AFF3_COLDSHIELD))
+	  workingvalue += 28;
 
- if (IS_SET(obj->bitvector3, AFF3_TOWER_IRON_WILL))
-	 workingvalue += 25;
+  if (IS_SET(obj->bitvector3, AFF3_TOWER_IRON_WILL))
+	  workingvalue += 35;
 
- if (IS_SET(obj->bitvector3, AFF3_BLUR))
-	 workingvalue += 40;
+  if (IS_SET(obj->bitvector3, AFF3_BLUR))
+	  workingvalue += 45;
 
- if (IS_SET(obj->bitvector3, AFF3_PASS_WITHOUT_TRACE))
-	 workingvalue += 30;
+  if (IS_SET(obj->bitvector3, AFF3_PASS_WITHOUT_TRACE))
+	  workingvalue += 30;
 
- if (IS_SET(obj->bitvector4, AFF4_VAMPIRE_FORM))
-	 workingvalue += 90;
+  if (IS_SET(obj->bitvector4, AFF4_VAMPIRE_FORM))
+	  workingvalue += 90;
 
- if (IS_SET(obj->bitvector4, AFF4_HOLY_SACRIFICE))
-	 workingvalue += 50;
+  if (IS_SET(obj->bitvector4, AFF4_HOLY_SACRIFICE))
+	  workingvalue += 65;
 
- if (IS_SET(obj->bitvector4, AFF4_BATTLE_ECSTASY))
-	 workingvalue += 80;
+  if (IS_SET(obj->bitvector4, AFF4_BATTLE_ECSTASY))
+	  workingvalue += 80;
 
- if (IS_SET(obj->bitvector4, AFF4_DAZZLER))
-	 workingvalue += 30;
+  if (IS_SET(obj->bitvector4, AFF4_DAZZLER))
+	  workingvalue += 35;
 
- if (IS_SET(obj->bitvector4, AFF4_PHANTASMAL_FORM))
-	 workingvalue += 30;
+  if (IS_SET(obj->bitvector4, AFF4_PHANTASMAL_FORM))
+	  workingvalue += 60;
 
- if (IS_SET(obj->bitvector4, AFF4_NOFEAR))
-	 workingvalue += 30;
+  if (IS_SET(obj->bitvector4, AFF4_NOFEAR))
+	  workingvalue += 40;
 
- if (IS_SET(obj->bitvector4, AFF4_REGENERATION))
-	 workingvalue += 20;
+  if (IS_SET(obj->bitvector4, AFF4_REGENERATION))
+	  workingvalue += 30;
 
- if (IS_SET(obj->bitvector4, AFF4_GLOBE_OF_DARKNESS))
-	 workingvalue += 15;
+  if (IS_SET(obj->bitvector4, AFF4_GLOBE_OF_DARKNESS))
+	  workingvalue += 15;
 
- if (IS_SET(obj->bitvector4, AFF4_HAWKVISION))
-	 workingvalue += 16;
+  if (IS_SET(obj->bitvector4, AFF4_HAWKVISION))
+	  workingvalue += 20;
 
- if (IS_SET(obj->bitvector4, AFF4_SANCTUARY))
-	 workingvalue += 60;
+  if (IS_SET(obj->bitvector4, AFF4_SANCTUARY))
+	  workingvalue += 75;
 
- if (IS_SET(obj->bitvector4, AFF4_HELLFIRE))
-	 workingvalue += 80;
+  if (IS_SET(obj->bitvector4, AFF4_HELLFIRE))
+	  workingvalue += 80;
 
- if (IS_SET(obj->bitvector4, AFF4_SENSE_HOLINESS))
-	 workingvalue += 5;
+  if (IS_SET(obj->bitvector4, AFF4_SENSE_HOLINESS))
+	  workingvalue += 5;
 
- if (IS_SET(obj->bitvector4, AFF4_PROT_LIVING))
-	 workingvalue += 10;
+  if (IS_SET(obj->bitvector4, AFF4_PROT_LIVING))
+	  workingvalue += 30;
 
- if (IS_SET(obj->bitvector3, AFF3_ENLARGE))
-        workingvalue +=400;
+  if (IS_SET(obj->bitvector3, AFF3_ENLARGE))
+    workingvalue += 400;
 
- if (IS_SET(obj->bitvector4, AFF4_DETECT_ILLUSION))
-	 workingvalue += 30;
+  if (IS_SET(obj->bitvector4, AFF4_DETECT_ILLUSION))
+	  workingvalue += 30;
 
- if (IS_SET(obj->bitvector4, AFF4_ICE_AURA))
-	 workingvalue += 60;
+  if (IS_SET(obj->bitvector4, AFF4_ICE_AURA))
+	  workingvalue += 70;
 
- if (IS_SET(obj->bitvector4, AFF4_NEG_SHIELD))
-	 workingvalue += 20;
+  if (IS_SET(obj->bitvector4, AFF4_NEG_SHIELD))
+	  workingvalue += 30;
 
- if (IS_SET(obj->bitvector4, AFF4_WILDMAGIC))
-	 workingvalue += 50;
+  if (IS_SET(obj->bitvector4, AFF4_WILDMAGIC))
+	  workingvalue += 80;
 
- if(IS_SET(obj->wear_flags, ITEM_WIELD) && (obj->value[5] > 1)) //has a ghetto proc
+  if(IS_SET(obj->wear_flags, ITEM_WIELD) && (obj->value[5] > 1)) //has a ghetto proc
   {
-   workingvalue +=50;
-   //send_to_char("ghetto proc\r\n", ch);
+    workingvalue +=50;
+    //send_to_char("ghetto proc\r\n", ch);
   }
 
   //------- A0/A1/A2 -------------  
- int i = 0; 
- while(i < 3)
- {
-  //dam/hitroll are normal values
-   if (
-	(obj->affected[i].location == APPLY_DAMROLL) ||
-	 (obj->affected[i].location == APPLY_HITROLL) 
-	)
-   {
-    workingvalue += obj->affected[i].modifier;
-   }
-
-  //regular stats can be high numbers - half them
-   if (
-	(obj->affected[i].location == APPLY_STR) ||
-	(obj->affected[i].location == APPLY_DEX) ||
-	(obj->affected[i].location == APPLY_INT) ||
-	(obj->affected[i].location == APPLY_WIS) ||
-	(obj->affected[i].location == APPLY_CON) ||
-	(obj->affected[i].location == APPLY_AGI) ||
-	(obj->affected[i].location == APPLY_POW) ||
-	(obj->affected[i].location == APPLY_LUCK)
-	)
-   {
-    workingvalue += (int)(obj->affected[i].modifier *.8);
-   }
-
-  //hit, move, mana, are generally large #'s - 1/10
-   if (
-	(obj->affected[i].location == APPLY_HIT) ||
-	(obj->affected[i].location == APPLY_MOVE) ||
-	(obj->affected[i].location == APPLY_MANA) 
-	) 
-   {
-    workingvalue += (int)(obj->affected[i].modifier *.5);
-   }
-
-  //hit, move, mana, regen are generally large #'s - 1/10
-   if (
-	(obj->affected[i].location == APPLY_HIT_REG) ||
-	(obj->affected[i].location == APPLY_MOVE_REG) ||
-	(obj->affected[i].location == APPLY_MANA_REG) 
-	) 
-   {
-    workingvalue += (int)(obj->affected[i].modifier *.3);
-   }
-
-  //racial attributes #'s - 1/10
-   if (
-	(obj->affected[i].location == APPLY_AGI_RACE) ||
-	(obj->affected[i].location == APPLY_STR_RACE) ||
-	(obj->affected[i].location == APPLY_CON_RACE) ||
-	(obj->affected[i].location == APPLY_INT_RACE) ||
-	(obj->affected[i].location == APPLY_WIS_RACE) ||
-	(obj->affected[i].location == APPLY_CHA_RACE) ||
-	(obj->affected[i].location == APPLY_DEX_RACE)
-	)
-   {
-    workingvalue += 60;
-   }
-
-  //obj procs
-   if(obj_index[obj->R_num].func.obj && i < 1)
-   {
-    workingvalue += 50;
-   }
-
-  
-
-  //AC negative is good
-   if (
-	(obj->affected[i].location == APPLY_AC)
-	) 
-   {
-    workingvalue -= (int)(obj->affected[i].modifier*.1);
-   }
-
-  //saving throw values (good) are negative
-   if (
-	(obj->affected[i].location == APPLY_SAVING_PARA) ||
-	(obj->affected[i].location == APPLY_SAVING_ROD) ||
-	(obj->affected[i].location == APPLY_SAVING_FEAR) ||
-	(obj->affected[i].location == APPLY_SAVING_BREATH) ||
-	(obj->affected[i].location == APPLY_SAVING_SPELL)
-	)
-   {
-    workingvalue -= obj->affected[i].modifier * 2;
-   }
-
-  //pulse is quite valuable and negative is good
-   if (
-	(obj->affected[i].location == APPLY_COMBAT_PULSE) ||
-	(obj->affected[i].location == APPLY_SPELL_PULSE)
-
-	)
-   {
-    workingvalue += (int)(obj->affected[i].modifier * -50);
-   }
-
-
-   //max_stats double points
-   if (
-	(obj->affected[i].location == APPLY_STR_MAX) ||
-	(obj->affected[i].location == APPLY_DEX_MAX) ||
-	(obj->affected[i].location == APPLY_INT_MAX) ||
-	(obj->affected[i].location == APPLY_WIS_MAX) ||
-	(obj->affected[i].location == APPLY_CON_MAX) ||
-	(obj->affected[i].location == APPLY_CHA_MAX) ||
-	(obj->affected[i].location == APPLY_AGI_MAX) ||
-	(obj->affected[i].location == APPLY_POW_MAX) ||
-	(obj->affected[i].location == APPLY_LUCK_MAX)
-	)
-   {
-    workingvalue += (obj->affected[i].modifier * 2.5);
-   }
-    i++;
-  }
-   if(obj->type == ITEM_WEAPON)
+  int i = 0;
+  while(i < 3)
+  {
+    //dam/hitroll are normal values
+    if( (obj->affected[i].location == APPLY_DAMROLL)
+	    || (obj->affected[i].location == APPLY_HITROLL) )
     {
-     workingvalue += (obj->value[1] *2);
+      workingvalue += obj->affected[i].modifier;
     }
 
-   if(workingvalue < 1)
-   workingvalue = 1;
+    //regular stats can be high numbers - half them
+    if( (obj->affected[i].location == APPLY_STR)
+	    || (obj->affected[i].location == APPLY_DEX)
+	    || (obj->affected[i].location == APPLY_INT)
+	    || (obj->affected[i].location == APPLY_WIS)
+	    || (obj->affected[i].location == APPLY_CON)
+	    || (obj->affected[i].location == APPLY_AGI)
+	    || (obj->affected[i].location == APPLY_POW)
+	    || (obj->affected[i].location == APPLY_LUCK) )
+    {
+      workingvalue += (int)(obj->affected[i].modifier *.8);
+    }
 
-   workingvalue *= multiplier;
-   //debug("&+YItem value is: &n%d", workingvalue); 
-   return workingvalue;
+    //hit, move, mana, are generally large #'s - 1/10
+    if( (obj->affected[i].location == APPLY_HIT)
+	    || (obj->affected[i].location == APPLY_MOVE)
+	    || (obj->affected[i].location == APPLY_MANA) )
+    {
+      workingvalue += (int)(obj->affected[i].modifier *.5);
+    }
+
+    //hit, move, mana, regen are generally large #'s - 1/10
+    if( (obj->affected[i].location == APPLY_HIT_REG)
+	    || (obj->affected[i].location == APPLY_MOVE_REG)
+	    || (obj->affected[i].location == APPLY_MANA_REG) )
+    {
+      workingvalue += (int)(obj->affected[i].modifier *.3);
+    }
+
+    //racial attributes #'s - 1/10
+    if( (obj->affected[i].location == APPLY_AGI_RACE)
+	    || (obj->affected[i].location == APPLY_STR_RACE)
+	    || (obj->affected[i].location == APPLY_CON_RACE)
+	    || (obj->affected[i].location == APPLY_INT_RACE)
+	    || (obj->affected[i].location == APPLY_WIS_RACE)
+	    || (obj->affected[i].location == APPLY_CHA_RACE)
+	    || (obj->affected[i].location == APPLY_DEX_RACE) )
+    {
+      workingvalue += 60;
+    }
+
+    //obj procs
+    if(obj_index[obj->R_num].func.obj && i < 1)
+    {
+      workingvalue += 50;
+    }
+
+    //AC negative is good
+    if( (obj->affected[i].location == APPLY_AC) )
+    {
+      workingvalue -= (int)(obj->affected[i].modifier*.1);
+    }
+
+    //saving throw values (good) are negative
+    if( (obj->affected[i].location == APPLY_SAVING_PARA)
+	    || (obj->affected[i].location == APPLY_SAVING_ROD)
+	    || (obj->affected[i].location == APPLY_SAVING_FEAR)
+	    || (obj->affected[i].location == APPLY_SAVING_BREATH)
+	    || (obj->affected[i].location == APPLY_SAVING_SPELL) )
+    {
+      workingvalue -= obj->affected[i].modifier * 2;
+    }
+
+    //pulse is quite valuable and negative is good
+    if( (obj->affected[i].location == APPLY_COMBAT_PULSE)
+      || (obj->affected[i].location == APPLY_SPELL_PULSE) )
+    {
+      workingvalue += (int)(obj->affected[i].modifier * -100);
+    }
+
+    //max_stats double points
+    if( (obj->affected[i].location == APPLY_STR_MAX)
+      || (obj->affected[i].location == APPLY_DEX_MAX)
+      || (obj->affected[i].location == APPLY_INT_MAX)
+      || (obj->affected[i].location == APPLY_WIS_MAX)
+      || (obj->affected[i].location == APPLY_CON_MAX)
+      || (obj->affected[i].location == APPLY_CHA_MAX)
+      || (obj->affected[i].location == APPLY_AGI_MAX)
+      || (obj->affected[i].location == APPLY_POW_MAX)
+      || (obj->affected[i].location == APPLY_LUCK_MAX) )
+    {
+      workingvalue += (obj->affected[i].modifier * 2.5);
+    }
+    i++;
+  }
+
+  if(obj->type == ITEM_WEAPON)
+  {
+    workingvalue += (obj->value[1] *2);
+  }
+
+  if(workingvalue < 1)
+  {
+    workingvalue = 1;
+  }
+
+  workingvalue *= multiplier;
+  //debug("&+YItem value is: &n%d", workingvalue); 
+  return workingvalue;
 }
 
 void do_salvation(P_char ch, char *arg, int cmd)
