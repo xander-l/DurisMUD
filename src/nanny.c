@@ -83,6 +83,7 @@ extern P_index mob_index;
 extern int exp_table[];
 extern int new_exp_table[];
 extern void assign_racial_skills(P_char ch);
+extern void reset_racial_skills(P_char ch);
 
 #define TOGGLE_BIT(var, bit) ((var) = (var) ^ (bit))
 #define PLR_FLAGS(ch)          ((ch)->specials.act)
@@ -3048,6 +3049,7 @@ void enter_game(P_desc d)
     set_char_size(ch);
 
     update_skills(ch);
+    reset_racial_skills( ch );
 
     set_surname(ch, 0);
 

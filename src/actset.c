@@ -66,6 +66,7 @@ extern int top_of_world;
 extern const int rev_dir[];
 extern int top_of_zone_table;
 extern struct zone_data *zone_table;
+extern reset_racial_skills(P_char ch);
 
 /* Macros */
 #define SETBIT_ROOM             0
@@ -216,7 +217,7 @@ void do_setbit(P_char ch, char *arg, int cmd)
           return;
         }
         affect_from_char(target, TAG_RACIAL_SKILLS);
-        assign_racial_skills_norefund(target); //We now need to set specific racial skills whenever we change race - Drannak
+        reset_racial_skills(target); //We now need to set specific racial skills whenever we change race - Drannak
       }
       break;
 
