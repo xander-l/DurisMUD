@@ -2777,7 +2777,9 @@ void update_damage_data()
     sprintf(buf, "damage.totalOutput.racial.%s",
             race_names_table[i].no_spaces);
     multiplier =
-      get_property(buf, 1.0) * melee_factor * pulse / PULSE_VIOLENCE;
+      get_property(buf, 1.0);
+      // Cancelling the rest of this crap. It doesn't work right anyway. - Lohrr
+      // get_property(buf, 1.0) * melee_factor * pulse / PULSE_VIOLENCE;
     combat_by_race[i][1] = multiplier;
   }
 
