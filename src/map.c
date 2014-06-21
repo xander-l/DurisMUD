@@ -488,13 +488,13 @@ int whats_in_maproom(P_char ch, int room, int distance, int show_regardless)
         break;
       }
 
-      if(IS_DISGUISE_PC(who) || IS_DISGUISE_NPC(who))
+      if( IS_DISGUISE_NPC(who))
       {
         val = CONTAINS_MOB;
         break;        
       }
 
-      if(IS_PC(who) && !IS_DISGUISE_PC(who) && !IS_DISGUISE_NPC(who))
+      if(IS_PC(who) && !IS_DISGUISE_NPC(who))
       {
         if(distance < 8 && grouped(ch, who))
         {
