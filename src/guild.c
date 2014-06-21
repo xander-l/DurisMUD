@@ -54,8 +54,8 @@ bool     avail_prac[MAX_SKILLS];
 
 void update_skills(P_char ch)
 {
-  if( !IS_PC(ch) )
-    return;  
+  if( !ch || !IS_PC(ch) )
+    return;
 
 #ifdef SKILLPOINTS
   return;

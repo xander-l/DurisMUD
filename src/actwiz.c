@@ -148,6 +148,7 @@ extern const char *craftsmanship_names[];
 extern int number_of_quests;
 extern struct quest_data quest_index[];
 extern const struct hold_data hold_index[];
+extern float spell_pulse_data[LAST_RACE + 1];
 
 void apply_zone_modifier(P_char ch);
 static P_char load_locker_char(P_char ch, char *locker_name, int bValidateAccess);
@@ -2576,8 +2577,8 @@ void do_stat(P_char ch, char *argument, int cmd)
       sprintf(buf + strlen(buf), "&+RINVALID&n");
 
     sprintf(buf2,
-            "\n&+YHometown: &N%d  &+YBirthplace: &N%d  &+YOrig BP: &n%d\n",
-            GET_HOME(k), GET_BIRTHPLACE(k), GET_ORIG_BIRTHPLACE(k));
+            "\n&+YHometown: &N%d  &+YBirthplace: &N%d  &+YOrig BP: &n%d &+YSpell Pulse: &n%+.2f\n",
+            GET_HOME(k), GET_BIRTHPLACE(k), GET_ORIG_BIRTHPLACE(k), (spell_pulse_data[GET_RACE(k)] * ((12.0 + k->points.spell_pulse)/12)) );
     strcat(buf, buf2);
     strcat(o_buf, buf);
     if(IS_PC(k))
