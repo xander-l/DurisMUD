@@ -209,7 +209,6 @@ void do_setbit(P_char ch, char *arg, int cmd)
       setbit_char(ch, name, flag, value, on_off);
       if(!strcmp(flag, "race"))
       {
-        P_char   target;
         target = get_char_vis(ch, name);
         if (target == NULL)
         {
@@ -221,6 +220,12 @@ void do_setbit(P_char ch, char *arg, int cmd)
       }
       if(!strcmp(flag, "spec"))
       {
+        target = get_char_vis(ch, name);
+        if (target == NULL)
+        {
+          send_to_char("No one by that name here.\r\n", ch);
+          return;
+        }
         update_skills(target);
       }
       break;
