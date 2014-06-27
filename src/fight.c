@@ -6220,6 +6220,7 @@ int calculate_thac_zero(P_char ch, int skill)
 
   else if(GET_CLASS(ch, CLASS_CLERIC) ||
       GET_CLASS(ch, CLASS_DRUID) ||
+      GET_CLASS(ch, CLASS_BLIGHTER) ||
       GET_CLASS(ch, CLASS_SHAMAN) ||
       GET_CLASS(ch, CLASS_WARLOCK) ||
       GET_CLASS(ch, CLASS_ETHERMANCER) ||
