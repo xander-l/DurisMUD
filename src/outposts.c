@@ -547,7 +547,7 @@ void do_outpost(P_char ch, char *arg, int cmd)
     }
      
     // Find the rubble object in room
-    for (rubble = world[ch->in_room].contents; rubble; rubble = rubble->next)
+    for (rubble = world[ch->in_room].contents; rubble; rubble = rubble->next_content)
     {
       if (GET_OBJ_VNUM(rubble) == BUILDING_RUBBLE)
         break;
