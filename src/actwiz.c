@@ -3684,7 +3684,7 @@ void do_nchat(P_char ch, char *argument, int cmd)
     return;
   }
 
-  if(IS_ILLITHID(ch))
+  if(IS_ILLITHID(ch) && !IS_TRUSTED(ch))
   {
     send_to_char("If you need this channel, you shouldn't be playing this character.\n", ch);
     return;
