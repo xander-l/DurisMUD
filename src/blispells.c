@@ -617,7 +617,7 @@ void spell_sandstorm(int level, P_char ch, char *arg, int type, P_char victim, P
   {
     dam /= 2;
   }
-  spell_damage(ch, victim, dam, SPLDAM_GENERIC, SPLDAM_GLOBE | SPLDAM_GRSPIRIT, &messages);
+  spell_damage(ch, victim, dam, SPLDAM_GAS, SPLDAM_GLOBE | SPLDAM_GRSPIRIT, &messages);
 
 }
 // Target Damage.
@@ -638,22 +638,14 @@ void spell_firelance(int level, P_char ch, char *arg, int type, P_char victim, P
   {
     return;
   }
+  dam = dice( 4 * MIN(17, level / 2 + 1), 7 );
 
-  if(level > 50)
-  {
-    dam = dice(5 * MIN(20, (level / 2 + 1)), 7);
-  }
-  else
-  {
-    dam = dice(4 * MIN(20, (level / 2 + 1)), 7);
-  }
-
-  if(!NewSaves(victim, SAVING_SPELL, 1.5))
+  if(NewSaves(victim, SAVING_SPELL, 1.5))
   {
     dam /= 1.5;
   }
 
-  spell_damage(ch, victim, dam, SPLDAM_GENERIC, SPLDAM_GLOBE | SPLDAM_GRSPIRIT, &messages);
+  spell_damage(ch, victim, dam, SPLDAM_FIRE, SPLDAM_GLOBE | SPLDAM_GRSPIRIT, &messages);
 
 }
 
@@ -772,4 +764,41 @@ void spell_create_pond(int level, P_char ch, char *arg, int type, P_char victim,
   send_to_room("&+bA pool grows out of nowhere!\n", ch->in_room);
   set_obj_affected(pond, 60 * 10, TAG_OBJ_DECAY, 0);
   obj_to_room(pond, ch->in_room);
+}
+
+// Target Damage.
+void spell_swamp_gas(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
+{
+  int dam;
+  struct damage_messages messages = {
+    "As you complete your spell, you launch a &+Ggreen cloud&n at $N!",
+    "As $n completes $s spell, $e launches a &+Ggreen cloud&n at you, scorching your lungs!",
+    "As $n completes $s spell, $e launches a &+Ggreen cloud&n at $N!",
+    "$N succumbs to your &+Mswamp &+Ggas&n.",
+    "You succumb to $n's &+Mswamp &+Ggas&n.",
+    "$N succumbs to $n's &+Mswamp &+Ggas&n.",
+      0
+  };
+
+  if( !ch || !victim || !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+  {
+    return;
+  }
+
+  if(level > 50)
+  {
+    dam = dice( 4 * MIN(20, (level / 2 + 1)), 8 );
+  }
+  else
+  {
+    dam = dice( 4 * MIN(20, (level / 2 + 1)), 7 );
+  }
+
+  if(!NewSaves(victim, SAVING_SPELL, 1.5))
+  {
+    dam /= 1.5;
+  }
+
+  spell_damage(ch, victim, dam, SPLDAM_GAS, 0, &messages);
+
 }
