@@ -11,6 +11,8 @@ extern struct zone_data *zone_table;
 extern struct room_data *world;
 extern const char *sector_symbol[];
 extern mapSymbolInfo color_symbol[];
+extern P_index mob_index;
+extern int count_classes( P_char mob );
 
 void display_map(P_char ch, int n, int show_map_regardless);
 
@@ -252,6 +254,27 @@ void do_test(P_char ch, char *arg, int cmd)
   else if ( isname("loadallchars", buff) )
   {
     test_load_all_chars(ch);
+    return;
+  }
+  else if ( isname("count", buff) )
+  {
+    char   buf[MAX_STRING_LENGTH];
+    int    classes;
+    P_char mob;
+    P_obj  obj;
+
+    generic_find( arg, FIND_CHAR_WORLD, ch, &mob, &obj );
+    if( mob )
+    {
+      classes = count_classes( mob );
+      sprintf( buf, "%s (%d) has %d classes.\n", J_NAME(mob), IS_PC(mob) ? -1 : GET_VNUM(mob), classes );
+      send_to_char( buf, ch );
+    }
+    else
+    {
+      sprintf( buf, "Char '%s' not found.\n", skip_spaces(arg) );
+      send_to_char( buf, ch );
+    }
     return;
   }
   else

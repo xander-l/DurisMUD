@@ -1571,16 +1571,44 @@ void create_spellbook_file(P_char ch)
   fclose(f);
 }
 
+int count_classes( P_char mob )
+{
+  int count = 0;
+
+  // PCs and !multi mobs have 1 class
+  if( !IS_NPC(mob) )
+  {
+    return IS_MULTICLASS_PC(mob) ? 2 : 1;
+  }
+
+  if( !IS_MULTICLASS_NPC(mob) )
+  {
+    return 1;
+  }
+
+  for( int i = 0;i < CLASS_COUNT;i++ )
+  {
+    if( mob->player.m_class & (1 << i) )
+    {
+      count++;
+    }
+  }
+
+  return count;
+}
+
 bool valid_conjure(P_char ch, P_char victim)
 {
   if( !victim || !ch )
     return FALSE;
 
-  if( IS_PC(victim) || IS_MULTICLASS_NPC(victim) )
+  if( IS_PC(victim) )
     return FALSE;
 
-  if( GET_LEVEL(victim) > GET_LEVEL(ch) )
+/* Commented out new changes for now.
+  if( GET_LEVEL(victim) > GET_LEVEL(ch) || IS_MULTICLASS_NPC(victim) )
     return FALSE;
+*/
 
   if(GET_VNUM(victim) != 400003)
   {
@@ -1599,9 +1627,19 @@ bool valid_conjure(P_char ch, P_char victim)
       return FALSE;
     }
 
+    // If less than 51, conj's can summon up to 5 lvls difference
     if((GET_LEVEL(victim) - (GET_LEVEL(ch)) > 4) && (GET_LEVEL(ch) < 51))
       return FALSE;
 
+    // New change: All conj's pets must be within 5 lvls.
+    if( GET_LEVEL(victim) - GET_LEVEL(ch) > 4 )
+      return FALSE;
+
+    // New change: Pets can have at most 3 classes.
+    if( count_classes(victim) > 3 )
+    {
+      return FALSE;
+    }
   }
 
   return TRUE;
