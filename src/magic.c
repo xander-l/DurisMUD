@@ -18035,29 +18035,31 @@ void event_cdoom(P_char ch, P_char victim, P_obj obj, void *data)
 
   if (!cDoomData->area)
   {
-     if(!IS_ALIVE(victim) ||
-	 victim->in_room <= 0)
-         cDoomData->waves = 0;
-  }
-  else
-  {
-    //ch = victim;
+    if( !IS_ALIVE(victim) || victim->in_room <= 0 )
+    {
+      cDoomData->waves = 0;
+    }
   }
 
   if(cDoomData->waves == 0)
   {
     act("&+LThe sea of &+minsects &+Land &+marachnids &+Lfades away...",
-        FALSE, ch, 0, victim, TO_CHAR);
+      FALSE, ch, 0, victim, TO_CHAR);
     if (!cDoomData->area)
+    {
       act("&+LThe sea of &+minsects &+Land &+marachnids &+Lfades away...",
-	  FALSE, ch, 0, victim, TO_VICT);
+	      FALSE, ch, 0, victim, TO_VICT);
+    }
     else
+    {
       act("&+LThe sea of &+minsects &+Land &+marachnids &+Lfades away...",
-	  FALSE, ch, 0, victim, TO_ROOM);
+    	  FALSE, ch, 0, victim, TO_ROOM);
+    }
     return;
   }
   else
     cDoomData->waves--;
+
   if (cDoomData->area)
   {
     act("&+LA wave of &+minsects &+Land &+marachnids &+Lcrawls about the area...", FALSE, ch, 0, victim, TO_CHAR);
@@ -18073,15 +18075,17 @@ void event_cdoom(P_char ch, P_char victim, P_obj obj, void *data)
   if (cDoomData->area)
   {
     cast_as_damage_area(ch, spell_single_cdoom_wave, cDoomData->level, victim,
-                      get_property("spell.area.minChance.creepingDoom", 50),
-                      get_property("spell.area.chanceStep.creepingDoom", 20));
+      get_property("spell.area.minChance.creepingDoom", 50),
+      get_property("spell.area.chanceStep.creepingDoom", 20));
     add_event(event_cdoom, PULSE_VIOLENCE, ch, 0, NULL, 0, cDoomData, sizeof(CDoomData));
   }
   else
   {
     spell_single_cdoom_wave(cDoomData->level, ch, 0, 0, victim, obj);
     if (IS_ALIVE(victim))
+    {
       add_event(event_cdoom, PULSE_VIOLENCE, ch, victim, NULL, 0, cDoomData, sizeof(CDoomData));
+    }
   }
 
 }
@@ -18089,8 +18093,17 @@ void event_cdoom(P_char ch, P_char victim, P_obj obj, void *data)
 void spell_cdoom(int level, P_char ch, char *arg, int type, P_char victim,
                  P_obj obj)
 {
-  if(!IS_ALIVE(ch))
+  if( !IS_ALIVE(ch) )
+  {
     return;
+  }
+
+  // If ch already has a doom going.. fail.
+  if( get_scheduled(ch, event_cdoom) )
+  {
+    send_to_char( "You are already controlling the bugs in the area!\n", ch );
+    return;
+  }
 
   if (victim)
   {
@@ -18119,25 +18132,25 @@ void spell_cdoom(int level, P_char ch, char *arg, int type, P_char victim,
 
   act("&+LA &+gpl&+Lag&+gue &+Lof &+minsects and arachnids&+L flow like an ocean.", TRUE, ch, 0, victim, TO_ROOM);
   act("&+LYou send out a &+mwave of &+Linsects &+mand &+Larachnids&+m!", TRUE, ch, 0, victim, TO_CHAR);
-  
+
   //engage(ch, victim);
   if (victim)
     add_event(event_cdoom, 0, ch, victim, NULL, 0, &cDoomData, sizeof(CDoomData));
   else
+/* Moving doom back to a wave spell. - Lohrr
     {
         cast_as_damage_area(ch, spell_single_doom_aoe, level, victim,
                       get_property("spell.area.minChance.creepingDoom", 50),
                       get_property("spell.area.chanceStep.creepingDoom", 20));
 
     }
-  /*else This is now target only. DRANNAK
+*/
 	{
-    	add_event(event_cdoom, 0, ch, 0, NULL, 0, &cDoomData, sizeof(CDoomData));
-	
-  zone_spellmessage(ch->in_room,
-    "&+LThe &+minsects &+Lof the &+yarea&+L seem to be called away...&n\r\n",
-    "&+LThe &+minsects &+Lof the &+yarea&+L seem to be called away to the %s...&n\r\n");
-	}*/
+    add_event(event_cdoom, 0, ch, 0, NULL, 0, &cDoomData, sizeof(CDoomData));
+    zone_spellmessage(ch->in_room,
+      "&+LThe &+minsects &+Lof the &+yarea&+L seem to be called away...&n\r\n",
+      "&+LThe &+minsects &+Lof the &+yarea&+L seem to be called away to the %s...&n\r\n");
+	}
 }
 
 void spell_single_doom_aoe(int level, P_char ch, char *args, int type,

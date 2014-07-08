@@ -446,7 +446,7 @@ void event_acid_rain(P_char ch, P_char victim, P_obj obj, void *data)
   }
 
 //  dam = 110 + GET_LEVEL(ch) * 3 + number(1, 10);
-  dam = 60 + GET_LEVEL(ch) * 2 + number(0, 40);
+  dam = 30 + GET_LEVEL(ch) + number(0, 20);
 
   if( GET_SPEC(ch, CLASS_BLIGHTER, SPEC_STORMBRINGER) )
   {
@@ -480,6 +480,13 @@ void spell_acid_rain(int level, P_char ch, char *arg, int type, P_char victim, P
 
   if( !ch || !IS_ALIVE(ch) )
   {
+    return;
+  }
+
+  // If ch already has a doom going.. fail.
+  if( get_scheduled(ch, event_acid_rain) )
+  {
+    send_to_char( "You've already called some &+grain&n.\n", ch );
     return;
   }
 
