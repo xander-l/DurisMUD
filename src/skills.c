@@ -2163,6 +2163,10 @@ SPELL_CREATE("vigorize light", SPELL_VIGORIZE_LIGHT, PULSE_SPELLCAST * 2,
   SPELL_ADD(CLASS_DRUID, 10);
 // SPEC_SPELL_ADD(CLASS_DRUID, 10, SPEC_WOODLAND);
 
+  SPELL_CREATE("acid rain", SPELL_ACID_RAIN, PULSE_SPELLCAST * 3,
+                TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AREA | TAR_AGGRO, spell_acid_rain);
+  SPELL_ADD(CLASS_BLIGHTER, 10);
+
   SPELL_CREATE("prismatic cube", SPELL_PRISMATIC_CUBE, PULSE_SPELLCAST * 4,
                 TAR_IGNORE | TAR_NOCOMBAT, cast_prismatic_cube);
 SPELL_ADD(CLASS_CONJURER, 11);
@@ -2477,11 +2481,6 @@ SPELL_ADD(CLASS_NONE, 1);
                 TAR_AREA | TAR_OFFAREA | TAR_AGGRO,
                 spell_incendiary_cloud);
   SPELL_ADD(CLASS_SORCERER, 9);
-
-  SPELL_CREATE("acid rain", SPELL_ACID_RAIN, (int) (PULSE_SPELLCAST * 3),
-                TAR_AREA | TAR_OFFAREA | TAR_AGGRO,
-                spell_acid_rain);
-  SPELL_ADD(CLASS_BLIGHTER, 10);
 
   SPELL_CREATE("ice storm", SPELL_ICE_STORM, PULSE_SPELLCAST * 2,
                 TAR_AREA | TAR_OFFAREA /*| TAR_CHAR_RANGE */  | TAR_AGGRO, spell_ice_storm);

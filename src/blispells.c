@@ -428,7 +428,7 @@ void spell_waves_fatigue(int level, P_char ch, char *arg, int type, P_char victi
 
 void event_acid_rain(P_char ch, P_char victim, P_obj obj, void *data)
 {
-  int    room = *((int *)data);
+  int    room = ch->in_room;
   int    dam;
   P_char next;
   struct damage_messages messages = {
@@ -441,7 +441,7 @@ void event_acid_rain(P_char ch, P_char victim, P_obj obj, void *data)
       0
   };
 
-  if( !ch || !IS_ALIVE(ch) )
+  if( !IS_ALIVE(ch) )
   {
     return;
   }
@@ -449,12 +449,22 @@ void event_acid_rain(P_char ch, P_char victim, P_obj obj, void *data)
 //  dam = 110 + GET_LEVEL(ch) * 3 + number(1, 10);
   dam = 30 + GET_LEVEL(ch) + number(0, 20);
 
+  // Targetted acid rain.
+  if( victim )
+  {
+    if( IS_ALIVE(victim) )
+    {
+      spell_damage(ch, victim, dam, SPLDAM_ACID, SPLDAM_NODEFLECT, &messages);
+    }
+    return;
+  }
+
   if( GET_SPEC(ch, CLASS_BLIGHTER, SPEC_STORMBRINGER) )
   {
     dam += 20;
   }
 
-  if( world[room].people)
+  if( world[room].people )
   {
     act("An awful &+Gburning rain&n continues to fall from the sky.",0, world[room].people, 0, 0, TO_ROOM);
     act("An awful &+Gburning rain&n continues to fall from the sky.",0, world[room].people, 0, 0, TO_CHAR);
@@ -470,7 +480,21 @@ void event_acid_rain(P_char ch, P_char victim, P_obj obj, void *data)
       spell_damage(ch, victim, dam, SPLDAM_ACID, SPLDAM_NODEFLECT, &messages);
     }
   }
+}
 
+bool has_scheduled_area_acid_rain( P_char ch )
+{
+  P_nevent e;
+
+  for( e = ch->nevents; e; e = e->next )
+  {
+    if( e->func == event_acid_rain && !(e->victim) )
+    {
+      return TRUE;
+    }
+  }
+
+  return FALSE;
 }
 
 // Area spell.
@@ -485,7 +509,7 @@ void spell_acid_rain(int level, P_char ch, char *arg, int type, P_char victim, P
   }
 
   // If ch already has a doom going.. fail.
-  if( get_scheduled(ch, event_acid_rain) )
+  if( has_scheduled_area_acid_rain( ch ) && !victim )
   {
     send_to_char( "You've already called some &+grain&n.\n", ch );
     return;
@@ -502,11 +526,11 @@ void spell_acid_rain(int level, P_char ch, char *arg, int type, P_char victim, P
 
   for( int i = 1; i <= waves; i++ )
   {
-    add_event(event_acid_rain, (i * PULSE_VIOLENCE)/2, ch, victim, 0, 0, &(ch->in_room), sizeof(ch->in_room));
+    add_event(event_acid_rain, (i * PULSE_VIOLENCE)/2, ch, victim, 0, 0, NULL, 0 );
   }
 }
 
-// Area spell.
+// Sunray equivalent.
 // 1d6 damage (1d8 to water mentals/plants) per lvl.
 void spell_horrid_wilting(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {

@@ -18093,18 +18093,33 @@ void event_cdoom(P_char ch, P_char victim, P_obj obj, void *data)
 
 }
 
-void spell_cdoom(int level, P_char ch, char *arg, int type, P_char victim,
-                 P_obj obj)
+bool has_scheduled_area_doom( P_char ch )
 {
+  P_nevent e;
+
+  for( e = ch->nevents; e; e = e->next )
+  {
+    if( e->func == event_cdoom && ((CDoomData*)(e->data))->area )
+    {
+      return TRUE;
+    }
+  }
+
+  return FALSE;
+}
+
+void spell_cdoom(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
+{
+
   if( !IS_ALIVE(ch) )
   {
     return;
   }
 
-  // If ch already has a doom going.. fail.
-  if( get_scheduled(ch, event_cdoom) )
+  // If ch already has an AREA doom going.. fail.
+  if( has_scheduled_area_doom(ch) && !victim )
   {
-    send_to_char( "You are already controlling the bugs in the area!\n", ch );
+    send_to_char( "You are already controlling all the bugs in the area!\n", ch );
     return;
   }
 
@@ -18121,7 +18136,6 @@ void spell_cdoom(int level, P_char ch, char *arg, int type, P_char victim,
       return;
     }
   }
-
 
   CDoomData cDoomData;
   cDoomData.waves = number(4, 5);
