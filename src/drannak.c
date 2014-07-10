@@ -1436,7 +1436,6 @@ void do_conjure(P_char ch, char *argument, int cmd)
       return;
     }
 
-
     if(affected_by_spell(ch, SPELL_CONJURE_ELEMENTAL) && !IS_TRUSTED(ch))
     {
       send_to_char("You must wait a short time before calling another &+Yminion&n into existence.\r\n", ch);
@@ -1444,10 +1443,10 @@ void do_conjure(P_char ch, char *argument, int cmd)
       return;
     }
 
-    if(number(1, GET_C_CHA(ch)) < number(1, 30))
+    if(GET_C_CHA(ch) < number(1, 130))
     {
       if(!IS_TRUSTED(ch))
-      { 
+      {
         memset(&af, 0, sizeof(af));
         af.type = SPELL_CONJURE_ELEMENTAL;
         af.duration = 2;
@@ -1677,13 +1676,11 @@ bool new_summon_check(P_char ch, P_char selected)
     return FALSE;
   }
 
-
   if((greater == 1) && (desired >= 50))
   {
     send_to_char("You may not summon an additional being of such great power.\r\n", ch);
     return FALSE;
   }
-
 
   if(i > 120)
   {
@@ -1691,9 +1688,7 @@ bool new_summon_check(P_char ch, P_char selected)
     return FALSE;
   }
 
-
   return TRUE;
-
 }
 
 void learn_conjure_recipe(P_char ch, P_char victim)
