@@ -602,6 +602,12 @@ void spell_shambler(int level, P_char ch, char *arg, int type, P_char victim, P_
       return;
     }
   }
+  // Don't need an undead army + shambler army.
+  if( count_pets( ch ) > 1 )
+  {
+    send_to_char( "You already have enough pets.", ch );
+    return;
+  }
 
   // Load count shambling mounds 11hd
   while( count-- )

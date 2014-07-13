@@ -247,13 +247,13 @@ int count_undead(P_char ch)
   P_char follower;
   float sum;
   int i;
-  
+
   sum = 0;
 
   for (cld = ch->linked; cld; cld = cld->next_linked)
   {
     follower = cld->linking;
-    
+
     if(cld->type != LNK_PET)
     {
       continue;
@@ -280,7 +280,7 @@ int count_undead(P_char ch)
         }
       }
     }
-    
+
     for(i = 0; i <= NECROGOLEM_LAST; i++)
     {
       if (strstr(follower->player.name, golem_data[i].name))
@@ -493,6 +493,11 @@ void raise_undead(int level, P_char ch, P_char victim, P_obj obj,
     || GET_SPEC(ch, CLASS_THEURGIST, SPEC_TEMPLAR) )
   {
     necro_power += 10;
+  }
+  // Lvl 15 : 1 pet, Lvl 30 : 2 pets, Lvl 45 : 3 pets, lvl 56 : 3 pets.
+  if( IS_PC(ch) && GET_CLASS(ch, CLASS_BLIGHTER) )
+  {
+    necro_power = (necro_power) / 3;
   }
 
   if( (sum + undead_data[typ].cost > necro_power )
