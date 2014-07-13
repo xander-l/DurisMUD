@@ -2422,7 +2422,7 @@ void assign_command_pointers(void)
   CMD_N(CMD_LOTUS, STAT_RESTING + POS_SITTING, do_lotus, 0);
   CMD_N(CMD_MEDITATE, STAT_RESTING + POS_KNEELING, do_meditate, 0);
   CMD_N(CMD_MORE, STAT_DEAD + POS_PRONE, do_more, 0);
-  CMD_N(CMD_RECALL, STAT_DEAD + POS_PRONE, do_recall, 0);
+  CMD_Y(CMD_RECALL, STAT_DEAD + POS_PRONE, do_recall, 0);
   CMD_N(CMD_MOTD, STAT_SLEEPING + POS_PRONE, do_motd, 0);
   CMD_N(CMD_GMOTD, STAT_SLEEPING + POS_PRONE, do_gmotd, 0);
   CMD_Y(CMD_MOUNT, STAT_NORMAL + POS_STANDING, do_mount, 0);
