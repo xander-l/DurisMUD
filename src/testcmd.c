@@ -277,6 +277,14 @@ void do_test(P_char ch, char *arg, int cmd)
     }
     return;
   }
+  else if ( isname("sql_log", buff) )
+  {
+    P_char mob;
+    // Shadow
+    mob = read_mobile(92076, VIRTUAL);
+    sql_log( mob, WIZLOG, "SQL: '%s'" , arg );
+    extract_char( mob );
+  }
   else
   {
     send_to_char("Invalid keyword.\r\n", ch);

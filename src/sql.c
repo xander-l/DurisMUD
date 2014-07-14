@@ -1183,7 +1183,8 @@ void sql_log(P_char ch, char * kind, char * format, ...)
 
   if(!IS_PC(ch))
   {
-    debug("sql_log called in sql.c for mobile ch - %s - Vnum %d", GET_NAME(ch), GET_VNUM(ch));    
+    debug("sql_log called in sql.c for mobile ch - %s - Vnum %d", GET_NAME(ch), GET_VNUM(ch));
+    debug("sql_log kind '%s', format '%s'", kind, format );
     return;
   }
 
