@@ -2320,10 +2320,7 @@ void die(P_char ch, P_char killer)
     }
   }
   /* victim is pc */
-  if(killer &&
-      IS_PC(ch) &&
-      !IS_TRUSTED(ch) &&
-      !IS_TRUSTED(killer))
+  if( killer && IS_PC(ch) && !IS_TRUSTED(ch) && !IS_TRUSTED(killer) )
   {
     logit(LOG_DEATH, "%s killed by %s at %s", GET_NAME(ch),
         (IS_NPC(killer) ? killer->player.short_descr : GET_NAME(killer)),
@@ -2333,14 +2330,27 @@ void die(P_char ch, P_char killer)
          short_descr : GET_NAME(killer)), world[ch->in_room].number,
         world[ch->in_room].name);
 
-    if((IS_PC(killer) ||
-          IS_PC_PET(killer)) &&
-        (killer != ch))
+    // If killer is a PC, or a pet with master group and in room..
+    if( (IS_PC(killer) || ( IS_PC_PET(killer)
+      && (GET_MASTER(killer)->in_room == killer->in_room)
+      && killer->group && killer->group == GET_MASTER(killer)->group ))
+      && (killer != ch) )
     {
       setHeavenTime(ch);
-      if(opposite_racewar(ch, killer))
+      if( IS_PC_PET( killer ) )
       {
-        sql_save_pkill(killer, ch);
+        if( opposite_racewar( ch, GET_MASTER(killer) ) )
+        {
+          debug( "die: ch: %s, killer %s, MASTER %s.", J_NAME(ch), J_NAME(killer), J_NAME(GET_MASTER(killer)));
+          sql_save_pkill(GET_MASTER(killer), ch);
+        }
+      }
+      else
+      {
+        if(opposite_racewar(ch, killer))
+        {
+          sql_save_pkill(killer, ch);
+        }
       }
     }
     if(CHAR_IN_ARENA(ch))
