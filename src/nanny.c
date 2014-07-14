@@ -2653,7 +2653,7 @@ void load_obj_to_newbies(P_char ch)
                                      -1}));
 
 /*END Wood Elf Classes*/
-  
+
   if (ch->carrying && IS_PC(ch))        /* we are _NOT_ here to give people free eq many times */
     return;
 
@@ -2673,10 +2673,17 @@ void load_obj_to_newbies(P_char ch)
       LoadNewbyShit(ch, minotaur_evil_eq);
 
   if (newbie_kits[GET_RACE(ch)][flag2idx(ch->player.m_class)])
-    LoadNewbyShit(ch,
-                  newbie_kits[GET_RACE(ch)][flag2idx(ch->player.m_class)]);
+  {
+    LoadNewbyShit(ch, newbie_kits[GET_RACE(ch)][flag2idx(ch->player.m_class)]);
+  }
+  else if( GET_CLASS( ch, CLASS_BLIGHTER ) )
+  {
+                      // shield, weapons*5, armor*8.
+    LoadNewbyShit(ch, (int[]){1109, 1108, 1113, 1112, 1140, 677, 239, 618, 679, 680, 729, 729, 452, 437, -1});
+  }
 
-  if (world[ch->in_room].number == 29201) {
+  if (world[ch->in_room].number == 29201)
+  {
     P_obj note = read_object(29319, VIRTUAL);
 
     obj_to_char(note, ch);
@@ -2693,10 +2700,10 @@ void load_obj_to_newbies(P_char ch)
 
  bandage = read_object(393, VIRTUAL);
   obj_to_char(bandage, ch);
-  
+
  bandage = read_object(393, VIRTUAL);
   obj_to_char(bandage, ch);
-  
+
 }
 
 #undef CREATE_KIT

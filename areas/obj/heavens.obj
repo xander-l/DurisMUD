@@ -4616,8 +4616,8 @@ shoes shoe leather pair~
 &+ya pair of common leather shoes&N~
 &+yA pair of leather shoes have been tossed here.&N~
 ~
-11 13 3 6 7 0 0 65 0 0 0
-0 0 0 5 0 0 0 0
+9 13 3 6 7 0 0 65 0 0 0
+5 0 0 5 0 0 0 0
 1 20 100
 #438
 boots leather travelling~
@@ -7843,7 +7843,7 @@ thin steel dagger~
 &+wa thin steel dagger&N~
 &+wA steel dagger has been tossed aside here.&N~
 ~
-5 16 3 1 7 0 8200 24577 0 4060479992 0
+5 16 3 1 7 0 8200 24577 0 4068868600 0
 2 2 3 11 0 0 0 0
 1 1 100
 #1113
@@ -7851,7 +7851,7 @@ thick short sword~
 &+wa thick short sword&N~
 &+wA thick sword has been tossed aside here.&N~
 ~
-5 16 3 2 7 0 9224 24577 0 87650307 0
+5 16 3 2 7 0 9224 24577 0 96038915 0
 9 1 7 3 0 0 0 0
 1 1 100
 #1114
@@ -8067,7 +8067,7 @@ hardwood wood cudgel~
 &+ya hardwood cudgel&N~
 &+yA cudgel has been dropped here.&N~
 ~
-5 6 3 4 7 0 1032 24577 0 128 0
+5 6 3 4 7 0 1032 24577 0 8388736 0
 10 1 8 7 0 0 0 0
 4 1 100
 #1141
