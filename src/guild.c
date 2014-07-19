@@ -239,16 +239,17 @@ int notch_skill(P_char ch, int skill, float chance)
     return 0;
   }
 
+  // These will fail if ch is already affected by TAG_..._SKILL_NOTCH.
   if(IS_SET(skills[skill].targets, TAR_PHYS))
   {
     if(!affect_timer(ch, get_property("timer.mins.physicalNotch", 5) * WAIT_MIN, TAG_PHYS_SKILL_NOTCH))
     {
-      debug( "notch_skill: failed affect_timer on '%s' TAG_PHYS_SKILL_NOTCH", J_NAME(ch) );
+//      debug( "notch_skill: failed affect_timer on '%s' TAG_PHYS_SKILL_NOTCH", J_NAME(ch) );
     }
   }
   else if(!affect_timer(ch, get_property("timer.mins.mentalNotch", 10) * WAIT_MIN, TAG_MENTAL_SKILL_NOTCH))
   {
-    debug( "notch_skill: failed affect_timer on '%s' TAG_MENTAL_SKILL_NOTCH", J_NAME(ch) );
+//    debug( "notch_skill: failed affect_timer on '%s' TAG_MENTAL_SKILL_NOTCH", J_NAME(ch) );
   }
 #endif
 

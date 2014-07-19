@@ -9745,7 +9745,7 @@ void restrain(P_char ch, P_char victim)
     GET_NAME(ch), percent_chance, J_NAME(victim), standing, battling);
 // ---------------------------------------
   
-  if(notch_skill(ch, SKILL_RESTRAIN, get_property("skill.notch.offensive", 7))
+  if(notch_skill(ch, SKILL_RESTRAIN, get_property("skill.notch.offensive", 15))
     || percent_chance > number(0, 100))
   {
     anatomy_skill = GET_CHAR_SKILL(ch, SKILL_ANATOMY) - 25; // returns -25 to 70 int

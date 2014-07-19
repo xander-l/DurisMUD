@@ -1128,14 +1128,10 @@ void StopCasting(P_char ch)
 bool ground_casting_check(P_char ch, int spl)
 {
   /* check for if they were casting but just bashed, then check their groundcast skill */
-  if( IS_SET(ch->specials.affected_by2, AFF2_CASTING) &&
-      !IS_SET(skills[spl].targets, TAR_NOCOMBAT) &&
-
-      (number(0,100) < (int) (GET_CHAR_SKILL(ch, SKILL_GROUND_CASTING) / 2 )) ||
      //  notch_skill(ch, SKILL_GROUND_CASTING, get_property("skill.notch.groundCasting", 60) ) )
-      ( number(0,120) < (int) ( GET_CHAR_SKILL(ch, SKILL_CONCENTRATION / 2))))
-         
-      
+  if( IS_SET(ch->specials.affected_by2, AFF2_CASTING) && !IS_SET(skills[spl].targets, TAR_NOCOMBAT)
+    && (( number(0,100) < (int) (GET_CHAR_SKILL(ch, SKILL_GROUND_CASTING) / 2) ) ||
+      ( number(0,120) < (int) (GET_CHAR_SKILL(ch, SKILL_CONCENTRATION) / 2) )) )
   {
     act("$n continues preparing $s spell from the ground...", FALSE, ch, 0, 0, TO_ROOM);
     act("You continue preparing your spell from the ground...", FALSE, ch, 0, 0, TO_CHAR);

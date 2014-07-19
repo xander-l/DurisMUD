@@ -5222,7 +5222,7 @@ void do_salvage(P_char ch, char *argument, int cmd)
     act("&+LYou attempt to break down your $p&+L, but end up &+Rbreaking &+Lit in the process.", FALSE, ch, temp, 0, TO_CHAR);
     act("$n attempts to salvage their $p, but clumsily destroys it.", TRUE, ch, temp, 0, TO_ROOM);
     extract_obj(temp, !IS_TRUSTED(ch));
-    notch_skill(ch, SKILL_SALVAGE, 5);
+    notch_skill(ch, SKILL_SALVAGE, 10);
     return;
   }
   else
