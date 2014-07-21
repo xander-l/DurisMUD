@@ -1506,9 +1506,9 @@ void outposts_upkeep()
     owners[j] = 0;
   }
 
-  for (i = 0; i <= buildings.size(); i++)
+  for( i = 1; i <= buildings.size(); i++ )
   {
-    building = get_building_from_id(i+1);
+    building = get_building_from_id(i);
     if (!building)
     {
       continue;
@@ -1518,14 +1518,14 @@ void outposts_upkeep()
 
   for (j = 1; j < MAX_ASC; j++)
   {
-    if (owners[j])
+    if( owners[j] )
     {
       deduct = cost;
-      if (owners[j] > 1)
+      if( owners[j] > 1 )
       {
-        for (k = 1; k < owners[j]; k++)
+        for( k = 1; k < owners[j]; k++ )
         {
-          deduct *= get_property("outpost.cost.upkeep.multi.modifier", 5);
+          deduct = deduct * get_property("outpost.cost.upkeep.multi.modifier", 2.0);
         }
       }
       deduct /= 24; // per hour cost
@@ -1542,9 +1542,9 @@ void outposts_upkeep()
       {
 	      send_to_guild(j, "The Guild Banker", "There are not enough funds for the outpost upkeep.");
         // drop outposts.
-        for (i = 0; i <= buildings.size(); i++)
+        for( i = 1; i <= buildings.size(); i++ )
 	      {
-      	  building = get_building_from_id(i+1);
+      	  building = get_building_from_id(i);
       	  if (!building)
           {
       	    continue;
@@ -1552,7 +1552,8 @@ void outposts_upkeep()
 	        if (building->guild_id == j)
 	        {
             // give them an hour after boot to get things in order before dropping
-	          if( real_time_passed(time(0), boot_time).minute < 60 )
+	          if( real_time_passed(time(0), boot_time).hour < 1
+              && real_time_passed(time(0), boot_time).day < 1 )
             {
 	            continue;
             }
