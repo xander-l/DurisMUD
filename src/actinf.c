@@ -6724,9 +6724,10 @@ void do_inventory(P_char ch, char *argument, int cmd)
   char     buf[MAX_STRING_LENGTH];
   int      i;
 
-  if IS_AFFECTED
-    (ch, AFF_WRAITHFORM)
-      send_to_char("You have no place to keep anything!\n", ch);
+  if( IS_AFFECTED(ch, AFF_WRAITHFORM) )
+  {
+    send_to_char("You have no place to keep anything!\n", ch);
+  }
   else
   {
     sprintf(buf, "You are carrying: (%d/%d)\n", IS_CARRYING_N(ch), CAN_CARRY_N(ch));
