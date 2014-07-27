@@ -929,7 +929,7 @@ void spell_faluzures_vitality(int level, P_char ch, char *arg, int type, P_char 
 {
   struct affected_type af;
   bool message = FALSE;
-  int healpoints = (2 * level) + number(40, 90);
+  int healpoints = 3 * level + level / 2;
 
   if(!ch)
   {
@@ -979,7 +979,7 @@ void spell_faluzures_vitality(int level, P_char ch, char *arg, int type, P_char 
   af.location = APPLY_HIT;
   affect_to_char(victim, &af);
 
-  af.modifier = number(20, 45);
+  af.modifier = level;
   af.location = APPLY_MOVE;
   affect_to_char(victim, &af);
 

@@ -21545,7 +21545,7 @@ void spell_mielikki_vitality(int level, P_char ch, char *arg, int type, P_char v
 {
   struct affected_type af;
   bool message = false;
-  int healpoints = (2 * level) + number(40, 90);
+  int healpoints = 3 * level + level / 2;
 
   if(affected_by_spell(ch, SPELL_ESHABALAS_VITALITY))
   {
@@ -21585,7 +21585,7 @@ void spell_mielikki_vitality(int level, P_char ch, char *arg, int type, P_char v
 
   if(GET_CLASS(ch, CLASS_DRUID))
   {
-    af.modifier = number(20, 45);
+    af.modifier = level;
     af.location = APPLY_MOVE;
     affect_to_char(victim, &af);
   }
