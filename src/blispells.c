@@ -386,14 +386,13 @@ void spell_forbiddance(int level, P_char ch, char *arg, int type, P_char victim,
 
 void event_waves_fatigue(P_char ch, P_char victim, P_obj obj, void *data)
 {
-  int moves;
+  int moves = *(int *)data;
 
-  if( !ch || !victim || !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
   {
     return;
   }
 
-  moves = dice( GET_LEVEL(ch)/2, 4 )/4;
   if( GET_VITALITY(victim) < moves )
   {
     send_to_char( "&+YYou feel really tired!&n\n", victim );
@@ -410,20 +409,21 @@ void event_waves_fatigue(P_char ch, P_char victim, P_obj obj, void *data)
 // Create 3 waves (2 events) that sap moves.
 void spell_waves_fatigue(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
-  if( !ch || !victim || !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
   {
     return;
   }
 
-  if(NewSaves(victim, SAVING_PARA, GET_LEVEL(ch)/10))
+  int moves = dice( GET_LEVEL(ch)/2, 4 )/4;
+  if(NewSaves(victim, SAVING_PARA, (level / 5) - 1))
   {
-    return;
+    moves /= 2;
   }
 
   act("$n looks really tired.",0, victim, 0, 0, TO_ROOM);
-  event_waves_fatigue( ch, victim, NULL, NULL);
-  add_event(event_waves_fatigue, PULSE_VIOLENCE/2, ch, victim, 0, 0, 0, 0);
-  add_event(event_waves_fatigue, PULSE_VIOLENCE, ch, victim, 0, 0, 0, 0);
+  event_waves_fatigue( ch, victim, NULL, &moves);
+  add_event(event_waves_fatigue, PULSE_VIOLENCE/2, ch, victim, 0, 0, &moves, sizeof(moves));
+  add_event(event_waves_fatigue, PULSE_VIOLENCE, ch, victim, 0, 0, &moves, sizeof(moves));
 }
 
 void event_acid_rain(P_char ch, P_char victim, P_obj obj, void *data)
