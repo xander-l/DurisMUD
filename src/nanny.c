@@ -4139,9 +4139,8 @@ void select_pwd(P_desc d, char *arg)
         STATE(d) = CON_NME;
         return;
       }
-      
-      if ((IS_SET(game_locked, LOCK_CONNECTIONS)) &&
-          (GET_LEVEL(d->character) <= MAXLVLMORTAL))
+
+      if( IS_SET(game_locked, LOCK_CONNECTIONS) && !IS_TRUSTED(d->character) )
       {
         SEND_TO_Q("\r\nGame is temporarily closed to additional players.\r\n",
                   d);
@@ -4149,10 +4148,9 @@ void select_pwd(P_desc d, char *arg)
         STATE(d) = CON_FLUSH;
         return;
       }
-      
-      if ((IS_SET(game_locked, LOCK_MAX_PLAYERS)) &&
-          (GET_LEVEL(d->character) <= MAXLVLMORTAL) &&
-          (number_of_players() >= MAX_PLAYERS_BEFORE_LOCK))
+
+      if( (IS_SET(game_locked, LOCK_MAX_PLAYERS)) && !IS_TRUSTED(d->character)
+        && (number_of_players() >= MAX_PLAYERS_BEFORE_LOCK) )
       {
         SEND_TO_Q("\r\nGame is currently full.  Please try again later.\r\n",
                   d);
@@ -4173,15 +4171,13 @@ void select_pwd(P_desc d, char *arg)
             d->login, d->host);
       sql_log(d->character, CONNECTLOG, "Connected");
 
-      if (GET_LEVEL(d->character) > MAXLVLMORTAL)
+      if( IS_TRUSTED(d->character) )
       {
-        if (!wizconnectsite(d->host, GET_NAME(d->character), 0))
+        if( !wizconnectsite(d->host, GET_NAME(d->character), 0) )
         {
           wizlog(AVATAR, "WARNING: %s connected from an invalid site: %s",
                  GET_NAME(d->character), d->host);
-          SEND_TO_Q
-            ("Sorry, that host is not allowed to connect to this character.\r\n",
-             d);
+          SEND_TO_Q("Sorry, that host is not allowed to connect to this character.\r\n", d);
           STATE(d) = CON_FLUSH;
           return;
         }

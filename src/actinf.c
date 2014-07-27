@@ -5009,7 +5009,7 @@ void do_score(P_char ch, char *argument, int cmd)
   }
   buf[0] = 0;
 
-  if (IS_AFFECTED2(ch, AFF2_DETECT_MAGIC) || (GET_LEVEL(ch) > MAXLVLMORTAL))
+  if (IS_AFFECTED2(ch, AFF2_DETECT_MAGIC) || IS_TRUSTED(ch) )
   {
     if (IS_AFFECTED(ch, AFF_PROTECT_EVIL))
       strcat(buf, " &+RE&+rv&+Ri&+rl&n");
@@ -5822,7 +5822,7 @@ void do_wizhelp(P_char ch, char *argument, int cmd)
   for (no = 0, i = 1; *command[i - 1] != '\n'; i++)
   {
     found = 0;
-    if (cmd_info[i].minimum_level > MAXLVLMORTAL)
+    if( cmd_info[i].minimum_level > MAXLVLMORTAL )
     {
       if (can_exec_cmd(ch, i))
       {
@@ -7628,12 +7628,15 @@ void do_levels(P_char ch, char *argument, int cmd)
 
   *buf = '\0';
 
-  for (i = 1; i < MAXLVLMORTAL; i++)
+  for( i = 1; i < MAXLVLMORTAL; i++ )
+  {
     sprintf(buf + strlen(buf), "[%2d %2s] %9d-%-9d\n",
-            i, class_names_table[flag2idx(which)].ansi,
-            exp_table[i], exp_table[i + 1] - 1);
+      i, class_names_table[flag2idx(which)].ansi,
+      exp_table[i], exp_table[i + 1] - 1);
+  }
+  // i == MAXLVLMORTAL.  Imms don't use exp.
   sprintf(buf + strlen(buf), "[%2d %2s] %9d+\n",
-          i, class_names_table[flag2idx(which)].ansi, exp_table[60]);
+    i, class_names_table[flag2idx(which)].ansi, exp_table[i]);
 
   page_string(ch->desc, buf, 1);
 }
@@ -7961,7 +7964,7 @@ void do_display(P_char ch, char *argument, int cmd)
     /*
      * SAM 7-94 visibility prompt
      */
-    else if ((!str_cmp("vis", buf)) && (GET_LEVEL(ch) > MAXLVLMORTAL))
+    else if( (!str_cmp("vis", buf)) && IS_TRUSTED(ch) )
     {
       if (IS_SET(ch->only.pc->prompt, PROMPT_VIS))
       {
@@ -7982,7 +7985,7 @@ void do_display(P_char ch, char *argument, int cmd)
          PROMPT_ENEMY_COND | PROMPT_TWOLINE | PROMPT_STATUS);
       if (GET_CLASS(ch, CLASS_PSIONICIST) || GET_CLASS(ch, CLASS_MINDFLAYER))
         ch->only.pc->prompt |= (PROMPT_MANA | PROMPT_MAX_MANA);
-      if (GET_LEVEL(ch) > MAXLVLMORTAL)
+      if( IS_TRUSTED(ch) )
         ch->only.pc->prompt |= PROMPT_VIS;
     }
     else if (!str_cmp("off", buf))

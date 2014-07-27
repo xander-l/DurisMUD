@@ -9354,8 +9354,8 @@ int jotun_utgard_loki(P_char ch, P_char pl, int cmd, char *arg)
             act("&+LThe fear of it all overwhelms you!", 0, vict, 0, 0,
                 TO_VICT);
           }
-        if (GET_LEVEL(vict) < MAXLVLMORTAL)     /*
-                                                 * 31-49, good chance of staying
+        if (GET_LEVEL(vict) <= MAXLVLMORTAL)     /*
+                                                 * 31-56, good chance of staying
                                                  */
           if (!NewSaves(vict, SAVING_FEAR, 0) && !fear_check(vict))
           {

@@ -318,7 +318,7 @@ void npc_steal(P_char ch, P_char vict)
       percent += 20;            /* nice bonus if target is stunned */
     else if (GET_STAT(vict) == STAT_SLEEPING)
       percent += 40;            /* hefty bonus if just normal sleeping */
-    if (GET_LEVEL(vict) > MAXLVLMORTAL) /* NO NO With Shopkeepers, etc  */
+    if( IS_TRUSTED(vict) )      /* NO NO to gods  */
       percent = 0;              /* Failure */
 
     roll = number(1, 100);

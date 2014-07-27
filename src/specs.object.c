@@ -5904,7 +5904,7 @@ int banana(P_obj obj, P_char ch, int cmd, char *arg)
   if (obj->R_num == real_object(1235))
     return (FALSE);
 
-  if (GET_LEVEL(ch) > MAXLVLMORTAL)
+  if( IS_TRUSTED(ch) )
     return (FALSE);
 
   if (IS_RIDING(ch))            /*
@@ -6347,8 +6347,8 @@ int cursed_mirror(P_obj obj, P_char ch, int cmd, char *arg)
   }
   else
   {
-    if ((!is_worn && !is_carried) || (number(1, 101) > 15) ||
-        IS_DARK(ch->in_room) || GET_LEVEL(ch) > MAXLVLMORTAL)
+    if( (!is_worn && !is_carried) || (number(1, 101) > 15)
+      || IS_DARK(ch->in_room) || IS_TRUSTED(ch) )
     {
       return FALSE;
     }
@@ -6472,8 +6472,8 @@ int cursed_mirror(P_obj obj, P_char ch, int cmd, char *arg)
   }
   else
   {
-    if ((!is_worn && !is_carried) || (number(1, 101) > 15) ||
-        IS_DARK(ch->in_room) || GET_LEVEL(ch) > MAXLVLMORTAL)
+    if( (!is_worn && !is_carried) || (number(1, 101) > 15)
+      || IS_DARK(ch->in_room) || IS_TRUSTED(ch) )
     {
       return FALSE;
     }

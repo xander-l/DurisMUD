@@ -1157,22 +1157,27 @@ int ac_can_see(P_char sub, P_char obj, bool check_z)
     }
   }
 
-  if (!AWAKE(sub))
+  if( !AWAKE(sub) )
     return 0;
 
-  if (WIZ_INVIS(sub, obj))
+  if( WIZ_INVIS(sub, obj) )
     return 0;
 
-  if (GET_LEVEL(sub) > MAXLVLMORTAL)
-    return 1;
-
+  if( GET_LEVEL(sub) > MAXLVLMORTAL )
+  {
+    // Had to add these checks for toggle fog?  Also, NPCs 57+ see all?
+    // This shouldn't make too much of a difference since not many lvl 57+ mobs/chars.
+    if( IS_PC(sub) && !IS_SET(sub->specials.act, PLR_MORTAL) )
+      return 1;
+  }
   /* Flyers */
-  if( 0 &&
-    check_z)
+/* Just commented this out.  Should be at least as fast if not faster than if( 0 ||...
+  if( check_z )
   {
     if (sub->specials.z_cord != obj->specials.z_cord)
       return 0;
   }
+*/
 
   /* Object is invisible and subject does not have detect invis */
   if((IS_AFFECTED(obj, AFF_INVISIBLE) ||

@@ -344,27 +344,25 @@ void gain_epic(P_char ch, int type, int data, int amount)
   int notch = get_property("epic.skillPointStep", 100);
   int errand_notch = get_property("epic.errandStep", 200);
   int old;
-  
-  if(!(ch) ||
-     !IS_ALIVE(ch))
+
+  if( !IS_ALIVE(ch) )
   {
     return;
   }
 
-  if(amount < 1 ||
-    IS_NPC(ch))
+  if( amount < 1 || IS_NPC(ch))
   {
     return;
   }
 
 
-  if(IS_AFFECTED4(ch, AFF4_EPIC_INCREASE))
+  if( IS_AFFECTED4(ch, AFF4_EPIC_INCREASE) )
   {
     send_to_char("You feel the &+cblessing&n of the &+WGods&n wash over you.\n", ch);
-	amount = (int) (amount * get_property("epic.witch.multiplier", 1.5));
+    amount = (int) (amount * get_property("epic.witch.multiplier", 1.5));
   }
 
-  if(type != EPIC_PVP && type != EPIC_SHIP_PVP && has_epic_task(ch))
+  if( type != EPIC_PVP && type != EPIC_SHIP_PVP && has_epic_task(ch) )
   {
     send_to_char("You have not completed the task given to you by the Gods, \n" \
                  "so you are not able to progress at usual pace.\n", ch);
@@ -382,7 +380,7 @@ void gain_epic(P_char ch, int type, int data, int amount)
 
   //wipe2013 - Drannak
   //amount = (int) (amount * 1.5);
-  
+
   // add guild prestige
   check_assoc_prestige_epics(ch, amount, type);
 
@@ -393,7 +391,7 @@ void gain_epic(P_char ch, int type, int data, int amount)
   log_epic_gain(GET_PID(ch), type, data, amount);
 
   char type_str[10];
- 
+
   switch(type)
   {
     case EPIC_ZONE:
@@ -421,7 +419,7 @@ void gain_epic(P_char ch, int type, int data, int amount)
       strcpy(type_str, "BOON");
       break;
     default:
-      strcpy(type_str, "");
+      strcpy(type_str, "UNKNOWN");
       break;
   }
 
@@ -430,7 +428,7 @@ void gain_epic(P_char ch, int type, int data, int amount)
   /*
     exp.maxExpLevel means the highest level you can reach with just experience (i.e., without epics)
     epic.maxFreeLevel means the highest level you can reach by touching any stone. higher levels you have
-    to touch specific stones to level, except in wipe2011
+    to touch specific stones to level.
   */
 
   if(GET_LEVEL(ch) >= get_property("exp.maxExpLevel", 46) &&
@@ -441,10 +439,10 @@ void gain_epic(P_char ch, int type, int data, int amount)
   }
 
   // feed artifacts
-  epic_feed_artifacts(ch, amount, type); 
+  epic_feed_artifacts(ch, amount, type);
 
   int skill_notches = MAX(0, (int) ((old+amount)/notch) - (old/notch));
-  
+
   //if(skill_notches)
   /* Lets do away with skill points---we don't need them at all with the new system.
   if (add_epiccount(ch, amount))
@@ -693,47 +691,72 @@ void epic_free_level(P_char ch)
 
 void epic_stone_level_char(P_obj obj, P_char ch)
 {
-  if(IS_MULTICLASS_PC(ch) &&
-      GET_LEVEL(ch) >= get_property("exp.maxMultiLevel", 56))
-    return;
-
   char buf[256];
-  sprintf(buf, "epic.forLevel.%d", GET_LEVEL(ch)+1);
+  int  epics_for_level, anystone_epics_for_level;
 
-  int epics_for_level = get_property(buf, 1 << (obj->value[3] - 43));
-  int nostone_epics_for_level;
- /* if(IS_MULTICLASS_PC(ch) && GET_LEVEL(ch) >= 51)
+  if( !IS_ALIVE(ch) || IS_NPC(ch) || !obj )
   {
-    epics_for_level *= (int) get_property("exp.multiEpicMultiplier", 3);
-  } -multis no longer need this - Drannak */
+    debug( "epic_stone_level_char: Bad argument(s)." );
+    logit(LOG_DEBUG, "epic_stone_level_char: Bad argument(s)." );
+    logit(LOG_EPIC, "epic_stone_level_char: Bad argument(s)." );
+    return;
+  }
+
+  if( IS_MULTICLASS_PC(ch) && GET_LEVEL(ch) >= get_property("exp.maxMultiLevel", MAXLVLMORTAL) )
+  {
+    return;
+  }
+
+  sprintf(buf, "epic.forLevel.%d", GET_LEVEL(ch)+1);
+  // If the property can not be found, set epics_for_level to -1.
+  epics_for_level = get_property(buf, -1);
+
+  // This is a serious error.. results in nobody reaching lvl GET_LEVEL(ch)+1.
+  if( epics_for_level == -1 )
+  {
+    send_to_char( "&+RError in epic leveling please tell a God immediately.&n\n", ch );
+    debug( "epic_stone_level_char: Couldn't find property '%s' which is vital for leveling.", buf );
+    logit(LOG_DEBUG, "epic_stone_level_char: Couldn't find property '%s' which is vital for leveling.", buf );
+    logit(LOG_EPIC, "epic_stone_level_char: Couldn't find property '%s' which is vital for leveling.", buf );
+    return;
+  }
+
+  // Multiclass now use same amount of epics for leveling.
+  // Currently set to 1. - Lohrr 7/26/2014
+  if(IS_MULTICLASS_PC(ch) && GET_LEVEL(ch) >= 51)
+  {
+    epics_for_level *= (int) get_property("exp.multiEpicMultiplier", 2);
+  }
 
 #if defined(CTF_MUD) && (CTF_MUD == 1)
   epics_for_level = (int)(epics_for_level/3);
- 
 #endif
-  //nostone_epics_for_level = epics_for_level * 2; //Multiclass now use same epics
-  nostone_epics_for_level = epics_for_level;
-  if((GET_EXP(ch) >= new_exp_table[GET_LEVEL(ch)+1] &&
-      ch->only.pc->epics >= epics_for_level) || (GET_EXP(ch) >= new_exp_table[GET_LEVEL(ch)+1] && ch->only.pc->epics >= nostone_epics_for_level))
+
+  // Amount of epics to level at any stone.
+  anystone_epics_for_level = epics_for_level * 2;
+
+  // If they have the exp, and epics and touch right stone, or double epics..
+  if( GET_EXP(ch) >= new_exp_table[GET_LEVEL(ch)+1]
+    && ((ch->only.pc->epics >= epics_for_level && GET_LEVEL(ch) == obj->value[3] - 1)
+    || ch->only.pc->epics >= anystone_epics_for_level) )
   {
     GET_EXP(ch) -= new_exp_table[GET_LEVEL(ch) + 1];
     ch->only.pc->epics -= epics_for_level;
-    advance_level(ch);//, TRUE); wipe2011
-	wizlog(56, "%s has attained epic level &+W%d&n!",
-           GET_NAME(ch),
-           GET_LEVEL(ch));
-
-
-    
+    advance_level(ch);
+	  wizlog(56, "%s has attained epic level &+W%d&n!", GET_NAME(ch), GET_LEVEL(ch));
   }
-  
 }
 
 void epic_stone_one_touch(P_obj obj, P_char ch, int epic_value)
 {
-  if(!obj || !ch || !epic_value)
+  int  curr_epics;
+  char buf[256];
+
+  if( !obj || !ch || !epic_value || IS_NPC(ch) )
     return;
-  int curr_epics = ch->only.pc->epics;
+
+  curr_epics = ch->only.pc->epics;
+
   /*if(get_zone_exp(ch, world[ch->in_room].zone) < calc_min_zone_exp(ch))	
   {
     act("The burst of &+Bblue energy&n from $p flows around $n, leaving them unaffected!",
@@ -769,13 +792,12 @@ void epic_stone_one_touch(P_obj obj, P_char ch, int epic_value)
     gain_epic(ch, EPIC_ZONE, obj->value[2], epic_value);
   }
 
-  //Characters can now level up to 55 by epics and exp alone - 11/13/12 Drannak
-  if((GET_LEVEL(ch) == (obj->value[3] - 1)) ||
-    (curr_epics > 4000 && GET_LEVEL(ch) == 50) ||
-    (curr_epics > 7000 && GET_LEVEL(ch) == 51) ||
-    (curr_epics > 8000 && GET_LEVEL(ch) == 52) ||
-    (curr_epics > 13000 && GET_LEVEL(ch) == 53) ||
-    (curr_epics > 14000 && GET_LEVEL(ch) == 54))
+
+  sprintf( buf, "epic.forLevel.%d", GET_LEVEL(ch) + 1 );
+  // Characters can now level up to 55 by epics and exp alone - 11/13/12 Drannak
+  // Characters can now level up to 56 with double epics/exp. If they get BIT_32*2 epics they can be a imm... not.
+  if((GET_LEVEL(ch) == (obj->value[3] - 1))
+    || curr_epics / 2 > get_property( buf, (int)BIT_32 ) )
   {
     epic_stone_level_char(obj, ch);
   }

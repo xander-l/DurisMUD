@@ -5436,7 +5436,9 @@ void do_zreset(P_char ch, char *argument, int cmd)
     return;
   }
   if(IS_NPC(ch))
+  {
     return;
+  }
 
   zone_number = world[ch->in_room].zone;
   zone_struct = &zone_table[zone_number];
@@ -5452,13 +5454,10 @@ void do_zreset(P_char ch, char *argument, int cmd)
     sprintf(buf, "Zone: %s has been reset.\n", zone_struct->name);
     send_to_char(buf, ch);
     reset_zone(zone_number, 0);
-    if(GET_LEVEL(ch) > MAXLVLMORTAL)
-    {
-      wizlog(GET_LEVEL(ch), "%s just reset the zone %s.",
-             GET_NAME(ch), zone_struct->name);
-      logit(LOG_WIZ, "%s just reset the zone %s.",
-            GET_NAME(ch), zone_struct->name);
-    }
+    // If char resetting zone is a mortal.. hrm..
+    wizlog((GET_LEVEL(ch) > MAXLVLMORTAL) ? GET_LEVEL(ch) : MINLVLIMMORTAL,
+      "%s just reset the zone %s.", GET_NAME(ch), zone_struct->name);
+    logit(LOG_WIZ, "%s just reset the zone %s.", GET_NAME(ch), zone_struct->name);
     return;
   }
   else if(!str_cmp(arg, "full"))
@@ -5467,19 +5466,14 @@ void do_zreset(P_char ch, char *argument, int cmd)
     send_to_char(buf, ch);
     zone_purge(zone_number);
     reset_zone(zone_number, 1);
-    if(GET_LEVEL(ch) > MAXLVLMORTAL)
-    {
-      wizlog(GET_LEVEL(ch), "%s just reset the zone %s.",
-             GET_NAME(ch), zone_struct->name);
-      logit(LOG_WIZ, "%s just reset the zone %s.",
-            GET_NAME(ch), zone_struct->name);
-    }
+    wizlog((GET_LEVEL(ch) > MAXLVLMORTAL) ? GET_LEVEL(ch) : MINLVLIMMORTAL,
+      "%s just reset the zone %s.", GET_NAME(ch), zone_struct->name);
+    logit(LOG_WIZ, "%s just reset the zone %s.", GET_NAME(ch), zone_struct->name);
     return;
   }
-  logit(LOG_DEBUG, "Screw-up in do_zreset() called by %s.", GET_NAME(ch));
-  return;                       /*
-                                 * Should not ever get here, but . . . .
-                                 */
+  // We get here if someone enters a bad command.
+  send_to_char("Syntax: zreset ok or full(purge and reset)\n", ch);
+  return;
 }
 
 void do_reinitphys(P_char ch, char *arg, int cmd)
@@ -5521,7 +5515,7 @@ void do_reinitphys(P_char ch, char *arg, int cmd)
   return;
 /****/
 
-  if(GET_LEVEL(ch) <= MAXLVLMORTAL)
+  if( GET_LEVEL(ch) <= MAXLVLMORTAL )
   {                             /*
                                  * mortals can only set
                                  * their own attr
@@ -7790,7 +7784,7 @@ void do_clone(P_char ch, char *argument, int cmd)
       act("$n has just made a clone of $N!", FALSE, ch, 0, mob, TO_ROOM);
       act("You make a clone of $N.", FALSE, ch, 0, mob, TO_CHAR);
     }
-    if(GET_LEVEL(ch) > MAXLVLMORTAL && GET_LEVEL(ch) < OVERLORD)
+    if( IS_TRUSTED(ch) && GET_LEVEL(ch) < OVERLORD)
     {
       wizlog(GET_LEVEL(ch), "%s just cloned %s %d times [&+C%d&N]",
              GET_NAME(ch), mob->player.short_descr, count,
@@ -7832,7 +7826,7 @@ void do_clone(P_char ch, char *argument, int cmd)
       else
         obj_to_room(ocopy, ch->in_room);
     }
-    if(GET_LEVEL(ch) > MAXLVLMORTAL && GET_LEVEL(ch) < OVERLORD)
+    if( IS_TRUSTED(ch) && GET_LEVEL(ch) < OVERLORD)
     {
       wizlog(GET_LEVEL(ch), "%s just cloned %s %d times [&+C%d&N]",
              GET_NAME(ch), obj->short_description, count,

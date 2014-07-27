@@ -4756,11 +4756,11 @@ void spell_wizard_eye(int level, P_char ch, char *arg, int type,
   
   distance = MAX(level*2, (int) get_property("spell.wizardEye.maxDistance", 100));
 
-  if((GET_LEVEL(victim) > MAXLVLMORTAL) || racewar(ch, victim) ||
-      !(world[ch->in_room].zone == world[victim->in_room].zone) ||
-      IS_NPC(victim) || 
-      (IS_MAP_ROOM(ch->in_room) && IS_MAP_ROOM(victim->in_room) &&
-       (calculate_map_distance(ch->in_room, victim->in_room) > (distance*distance))))
+  if( IS_TRUSTED(victim) || racewar(ch, victim)
+    || !(world[ch->in_room].zone == world[victim->in_room].zone)
+    || IS_NPC(victim)
+    || (IS_MAP_ROOM(ch->in_room) && IS_MAP_ROOM(victim->in_room) &&
+       (calculate_map_distance(ch->in_room, victim->in_room) > (distance*distance))) )
   {
     send_to_char("&+CYou failed.\n", ch);
     return;
@@ -4820,7 +4820,7 @@ void spell_clairvoyance(int level, P_char ch, char *arg, int type,
     send_to_char("&+CYou failed.\n", ch);
     return;
   }
-  if((GET_LEVEL(victim) > MAXLVLMORTAL) || (IS_NPC(victim)))
+  if( IS_TRUSTED(victim) || (IS_NPC(victim)))
   {
     send_to_char("&+CYou failed.\n", ch);
     return;
@@ -12534,9 +12534,10 @@ void spell_wraithform(int level, P_char ch, P_char victim, char *arg)
    * surprise surprise.
    */
   struct affected_type af;
-  int      i, dr;
+  int    i;
+  bool   dr;
 
-  dr = 0;
+  dr = FALSE;
   /*
    * ok, now we _can_ use this beauty.. muhahahahahaa!
    */
@@ -12549,20 +12550,20 @@ void spell_wraithform(int level, P_char ch, P_char victim, char *arg)
     return;
   }
 #if 0
-  if(level <= MAXLVLMORTAL)
+  if( !IS_TRUSTED(ch) )
   {
     for (i = 0; i < CUR_MAX_WEAR; i++)
       if(ch->equipment[i])
       {
         obj_to_room(unequip_char(ch, i), ch->in_room);
-        dr = 1;
+        dr = TRUE;
       }
     for (o1 = ch->carrying; o1; o1 = o2)
     {
       o2 = o1->next_content;
       obj_from_char(o1, TRUE);
       obj_to_room(o1, ch->in_room);
-      dr = 1;
+      dr = TRUE;
     }
     if(dr)
       send_to_char("Some of your equipment falls to the ground!\n", ch);

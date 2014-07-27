@@ -343,8 +343,11 @@ void sql_save_progress(int pid, int delta, const char *type)
 /* Save frags delta */
 void sql_modify_frags(P_char ch, int gain)
 {
-  if (GET_LEVEL(ch) > MAXLVLMORTAL)
+  // We don't want IS_TRUSTED(ch) because that can be turned off with toggle fog.
+  if( GET_LEVEL(ch) > MAXLVLMORTAL )
+  {
     return;
+  }
   if (IS_MORPH(ch))
     ch = MORPH_ORIG(ch);
   sql_save_progress(GET_PID(ch), gain, "FRAGS");

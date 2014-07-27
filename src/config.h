@@ -109,7 +109,7 @@
 #define AVATAR                57
 #define MAXLVL                62    /* highest level do_advance can handle */
 #define TOTALLVLS             63    /* range of levels (0-62) */
-#define MAXLVLMORTAL          57    /* highest a mortal can go */
+#define MAXLVLMORTAL          56    /* highest a mortal can go */
 #define MINLVLIMMORTAL        57    /* bottom of immortal levels */
 #define MAX_CIRCLE            12    /* Alter at your own peril! */
 #define MAX_CMD_LIST        1000    /* maximum number of total commands */

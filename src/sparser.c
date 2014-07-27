@@ -2509,7 +2509,7 @@ void event_spellcast(P_char ch, P_char victim, P_obj obj, void *data)
    * mob may still cast in that circle.  Player spell tracking already existed
    * and handled by the time the mob "mem" case added. - SKB 24 Mar 1995
    */
-
+  // We don't want IS_TRUSTED(ch) because that can be turned off with toggle fog.
   if (GET_LEVEL(ch) > MAXLVLMORTAL && IS_PC(ch))
   {
     sprintf(buf, "%s cast '%s' at %s in room %d", GET_NAME(ch),

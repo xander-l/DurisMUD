@@ -1319,7 +1319,7 @@ void do_quit(P_char ch, char *argument, int cmd)
       return;
     }
     /* seems reasonable enuf, so ask them to confirm it */
-    else if (ch->desc && GET_LEVEL(ch) < AVATAR)
+    else if( ch->desc && !IS_TRUSTED(ch) )
     {
       send_to_char("Don't be such a wimp!\r\n", ch);
       return;
@@ -1328,7 +1328,7 @@ void do_quit(P_char ch, char *argument, int cmd)
     else if (ch->desc)
       ch->desc->confirm_state = CONFIRM_NONE;
 
-    if (!IS_TRUSTED(ch))
+    if( !IS_TRUSTED(ch) )
       return;                   /* don't let em quit, dammit */
   }
   /* confirmed quit! */
@@ -1353,7 +1353,7 @@ void do_quit(P_char ch, char *argument, int cmd)
    * Imps: write char, extract
    */
 
-  if (GET_LEVEL(ch) <= MAXLVLMORTAL)
+  if( GET_LEVEL(ch) < MINLVLIMMORTAL )
   {
     for (l = 0; l < MAX_WEAR; l++)
       if (ch->equipment[l])
@@ -2510,8 +2510,7 @@ void do_steal(P_char ch, char *argument, int cmd)
   }
 
   // certain people just can't be stolen from.  Ever.
-  if (!IS_TRUSTED(ch) &&
-     (GET_LEVEL(victim) > MAXLVLMORTAL || IS_SHOPKEEPER(victim)))
+  if( !IS_TRUSTED(ch) && (IS_TRUSTED(victim) || IS_SHOPKEEPER(victim)) )
     percent = 0;                /* Failure */
 
   roll = number(0, 100);
@@ -3056,7 +3055,7 @@ void do_explist(P_char ch, char *argument, int cmd)
    * THINK about including them, meaningless anyway -JAB
    */
 
-  if (GET_LEVEL(ch) > MAXLVLMORTAL)
+  if( IS_TRUSTED(ch) )
   {
     send_to_char("Thats a moot point. Don't worry about it!\r\n", ch);
     return;
@@ -3623,13 +3622,12 @@ void do_use(P_char ch, char *argument, int cmd)
     act("You tap $p three times on the ground.", FALSE, ch, stick, 0,
         TO_CHAR);
 
-    if (GET_LEVEL(ch) > MAXLVLMORTAL)
+    if( IS_TRUSTED(ch) )
     {
       wizlog(GET_LEVEL(ch), "%s uses %s [%d]",
-             GET_NAME(ch), stick->short_description,
-             world[ch->in_room].number);
+        GET_NAME(ch), stick->short_description, world[ch->in_room].number);
       logit(LOG_WIZ, "%s uses %s [%d]", GET_NAME(ch),
-            stick->short_description, world[ch->in_room].number);
+        stick->short_description, world[ch->in_room].number);
       sql_log(ch, WIZLOG, "Used %s [%d]", stick->short_description, obj_index[stick->R_num].virtual_number);
     }
     if ((stick->value[2] > 0) &&
@@ -3661,13 +3659,12 @@ void do_use(P_char ch, char *argument, int cmd)
   else if (stick->type == ITEM_WAND)
   {
 
-    if (GET_LEVEL(ch) > MAXLVLMORTAL)
+    if( IS_TRUSTED(ch) )
     {
       wizlog(GET_LEVEL(ch), "%s uses %s [%d]",
-             GET_NAME(ch), stick->short_description,
-             world[ch->in_room].number);
+        GET_NAME(ch), stick->short_description, world[ch->in_room].number);
       logit(LOG_WIZ, "%s uses %s [%d]", GET_NAME(ch),
-            stick->short_description, world[ch->in_room].number);
+        stick->short_description, world[ch->in_room].number);
       sql_log(ch, WIZLOG, "Used %s [%d]", stick->short_description, obj_index[stick->R_num].virtual_number);
     }
     if ((stick->value[2] > 0) &&
@@ -4476,7 +4473,7 @@ void do_toggle(P_char ch, char *arg, int cmd)
   case 23:
     if (IS_MORPH(send_ch))
       return;
-    if (GET_LEVEL(ch) > MAXLVLMORTAL)
+    if( IS_TRUSTED(ch) )
       result = PLR_TOG_CHK(ch, PLR_MORTAL);
     else
     {
@@ -4490,7 +4487,7 @@ void do_toggle(P_char ch, char *arg, int cmd)
   case 25:
     if (IS_MORPH(send_ch))
       return;
-    if (GET_LEVEL(ch) > MAXLVLMORTAL)
+    if( IS_TRUSTED(ch) )
       result = PLR_TOG_CHK(ch, PLR_DEBUG);
     else
     {
