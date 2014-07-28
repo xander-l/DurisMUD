@@ -628,7 +628,7 @@ void concat_which_flagsde(const char *flagType, const flagDef flagNames[], char 
 
 void UpdateArtiBlood(P_char, P_obj, int);
 void setupMortArtiList(void);
-int add_owned_artifact(P_obj, P_char, long unsigned);
+bool add_owned_artifact(P_obj, P_char, long unsigned);
 int remove_owned_artifact(P_obj, P_char, int);
 int get_current_artifact_info(int, int, char *, int *, time_t *, int *, int, time_t *);
 void do_artifact(P_char, char *, int);

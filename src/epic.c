@@ -508,7 +508,7 @@ void epic_feed_artifacts(P_char ch, int epics, int epic_type)
     }
   }
 
-  int feed_seconds = (int) (epics * get_property("artifact.feeding.epic.point.seconds", 3600));
+  int feed_seconds = (epics * get_property("artifact.feeding.epic.point.seconds", 3600));
 
   switch(epic_type)
   {
@@ -537,11 +537,11 @@ void epic_feed_artifacts(P_char ch, int epics, int epic_type)
       break;
   }
 
-  if(num_artis > 0)
+  if( num_artis > 0 )
     feed_seconds = (int) (feed_seconds / num_artis);
 
-  if(affected_by_spell(ch, TAG_PLR_RECENT_FRAG))
-    feed_seconds *= 3;
+  if( affected_by_spell(ch, TAG_PLR_RECENT_FRAG) )
+    feed_seconds = (feed_seconds * 3 ) / 2;
 
   for (int i = 0; i < MAX_WEAR; i++)
   {
@@ -699,6 +699,11 @@ void epic_stone_level_char(P_obj obj, P_char ch)
     debug( "epic_stone_level_char: Bad argument(s)." );
     logit(LOG_DEBUG, "epic_stone_level_char: Bad argument(s)." );
     logit(LOG_EPIC, "epic_stone_level_char: Bad argument(s)." );
+    return;
+  }
+  // Already attained max level.
+  if( GET_LEVEL(ch) >= MAXLVLMORTAL )
+  {
     return;
   }
 

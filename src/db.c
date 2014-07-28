@@ -2984,7 +2984,10 @@ P_obj read_object(int nr, int type)
   if (IS_ARTIFACT(obj))
   {
     add_event(event_artifact_poof, 2 * WAIT_SEC, 0, 0, obj, 0, 0, 0);
-    obj->timer[5] = time(NULL);
+    // Set current timer?  Not necessary as event_artifact_poof will fix it?
+    //   Not really sure atm.. will test this and see what happens...
+    // This should poof all artis at boot heheh.  And it did... now it should be full fed?
+    obj->timer[3] = time(NULL);
   }
 
   /* init justice flag */
@@ -3121,8 +3124,7 @@ void reset_zone(int zone, int force_item_repop)
         if ((ZCMD.arg3 >= 0) && (obj_index[temp].number < ZCMD.arg2))
         {
 
-          if (get_current_artifact_info
-              (temp, 0, NULL, NULL, NULL, NULL, FALSE, NULL))
+          if( get_current_artifact_info(temp, 0, NULL, NULL, NULL, NULL, FALSE, NULL) )
           {
             //statuslog(56, "didn't load arti obj #%d because already tracked",
             //          obj_index[temp].virtual_number);
@@ -3145,8 +3147,9 @@ void reset_zone(int zone, int force_item_repop)
           if (!obj_to)
             break;
           obj_to_obj(obj, obj_to);
-          // Artifact poof timer to 2 weeks
-          obj->timer[3] = time(NULL) + ARTIFACT_TIMER_SEC;
+          // Artifact poof timer to BLOOD_DAYS * secs in a day.
+//PENIS
+          obj->timer[3] = time(NULL);
  	        last_cmd = 1;
           break;
         }
@@ -3173,8 +3176,7 @@ void reset_zone(int zone, int force_item_repop)
           break;
         }
 
-        if (get_current_artifact_info
-            (temp, 0, NULL, NULL, NULL, NULL, FALSE, NULL))
+        if( get_current_artifact_info(temp, 0, NULL, NULL, NULL, NULL, FALSE, NULL) )
         {
           //statuslog(56, "didn't load arti obj #%d because already tracked",
           //          obj_index[temp].virtual_number);
@@ -3192,8 +3194,9 @@ void reset_zone(int zone, int force_item_repop)
           break;
         }
         obj_to_room(obj, ZCMD.arg3);
-        // Artifact poof timer to 2 weeks
-        obj->timer[3] = time(NULL) + ARTIFACT_TIMER_SEC;
+        // Artifact poof timer to BLOOD_DAYS * secs in a day.
+//PENIS
+        obj->timer[3] = time(NULL);
         last_cmd = 1;
 
         break;
@@ -3211,8 +3214,7 @@ void reset_zone(int zone, int force_item_repop)
 
         if (obj_index[ZCMD.arg1].number < ZCMD.arg2)
         {
-          if (get_current_artifact_info
-              (temp, 0, NULL, NULL, NULL, NULL, FALSE, NULL))
+          if( get_current_artifact_info(temp, 0, NULL, NULL, NULL, NULL, FALSE, NULL) )
           {
             //statuslog(56, "didn't load arti obj #%d because already tracked",
             //          obj_index[temp].virtual_number);
@@ -3232,8 +3234,9 @@ void reset_zone(int zone, int force_item_repop)
           if (mob)              /* last mob */
           {
             obj_to_char(obj, mob);
-            // Artifact poof timer to 2 weeks
-            obj->timer[3] = time(NULL) + ARTIFACT_TIMER_SEC;
+            // Artifact poof timer to BLOOD_DAYS * secs in a day.
+//PENIS
+            obj->timer[3] = time(NULL);
             last_cmd = 1;
             break;
           }
@@ -3294,8 +3297,7 @@ void reset_zone(int zone, int force_item_repop)
             obj = 0;
             if (ZCMD.arg4 > number(0, 99))
             {
-              if (get_current_artifact_info
-                  (ZCMD.arg1, 0, NULL, NULL, NULL, NULL, FALSE, NULL))
+              if( get_current_artifact_info(ZCMD.arg1, 0, NULL, NULL, NULL, NULL, FALSE, NULL) )
               {
                 last_cmd = 0;
               //  statuslog(56,
@@ -3321,8 +3323,9 @@ void reset_zone(int zone, int force_item_repop)
                   break;
                 }
                 obj_to_room(obj, ZCMD.arg3);
-                // Artifact poof timer to 2 weeks
-                obj->timer[3] = time(NULL) + ARTIFACT_TIMER_SEC;
+                // Artifact poof timer to BLOOD_DAYS * secs in a day.
+//PENIS
+                obj->timer[3] = time(NULL);
                 last_cmd = 1;
                 break;
               }
@@ -3353,8 +3356,7 @@ void reset_zone(int zone, int force_item_repop)
 
           if (ZCMD.arg4 > number(0, 99))
           {
-            if (get_current_artifact_info
-                (ZCMD.arg1, 0, NULL, NULL, NULL, NULL, FALSE, NULL))
+            if( get_current_artifact_info(ZCMD.arg1, 0, NULL, NULL, NULL, NULL, FALSE, NULL) )
             {
              // statuslog(56,
              //           "didn't load arti obj #%d because already tracked",
@@ -3382,8 +3384,9 @@ void reset_zone(int zone, int force_item_repop)
                   break;
                 }
             		obj_to_obj(obj, obj_to);
-                // Artifact poof timer to 2 weeks
-                obj->timer[3] = time(NULL) + ARTIFACT_TIMER_SEC;
+                // Artifact poof timer to BLOOD_DAYS * secs in a day.
+//PENIS
+                obj->timer[3] = time(NULL);
                 last_cmd = 1;
                 break;
               }
@@ -3411,8 +3414,7 @@ void reset_zone(int zone, int force_item_repop)
 
           if (ZCMD.arg4 > number(0, 99))
           {
-            if (get_current_artifact_info
-                (ZCMD.arg1, 0, NULL, NULL, NULL, NULL, FALSE, NULL))
+            if( get_current_artifact_info(ZCMD.arg1, 0, NULL, NULL, NULL, NULL, FALSE, NULL) )
             {
               //statuslog(56,
               //          "didn't load arti obj #%d because already tracked",
@@ -3442,10 +3444,11 @@ void reset_zone(int zone, int force_item_repop)
                 //Drannak trying out item stat randomization 3/28/14
                 randomizeitem(mob, obj);
                 obj_to_char(obj, mob);
-                // Artifact poof timer to 2 weeks
-                obj->timer[3] = time(NULL) + ARTIFACT_TIMER_SEC;
+                // Artifact poof timer to BLOOD_DAYS * secs in a day.
+//PENIS
+                obj->timer[3] = time(NULL);
                 last_cmd = 1;
-		break;
+            		break;
               }
               else
               {
@@ -3485,8 +3488,7 @@ void reset_zone(int zone, int force_item_repop)
 
           if (ZCMD.arg4 > number(0, 99))
           {
-            if (get_current_artifact_info
-                (ZCMD.arg1, 0, NULL, NULL, NULL, NULL, FALSE, NULL))
+            if( get_current_artifact_info(ZCMD.arg1, 0, NULL, NULL, NULL, NULL, FALSE, NULL) )
             {
               //statuslog(56,
               //          "didn't load arti obj #%d because already tracked",
@@ -3510,8 +3512,9 @@ void reset_zone(int zone, int force_item_repop)
                 extract_obj(obj, TRUE);
                 break;
               }
-              // Artifact poof timer to 2 weeks
-              obj->timer[3] = time(NULL) + ARTIFACT_TIMER_SEC;
+              // Artifact poof timer to BLOOD_DAYS * secs in a day.
+//PENIS
+              obj->timer[3] = time(NULL);
               if (mob && (ZCMD.arg3 > 0) && (ZCMD.arg3 <= CUR_MAX_WEAR))
               {
                 if(!IS_ARTIFACT(obj))

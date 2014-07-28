@@ -743,9 +743,9 @@ void do_get(P_char ch, char *argument, int cmd)
                               (hood == ch) ? "" : GET_NAME(hood), o_obj->name,
                               obj_index[o_obj->R_num].virtual_number,
                               s_obj->action_description);
-                        
+
                         act("$n gets $P from $p.", 0, ch, s_obj, o_obj, TO_ROOM);
-                          
+
                         //if((GET_LEVEL(ch) > 44) && (s_obj->value[2] > 44)) {
                         if ((s_obj->value[5] != 0) &&
                             ((RACE_GOOD(ch) && (s_obj->value[5] != 1)) ||
@@ -756,7 +756,7 @@ void do_get(P_char ch, char *argument, int cmd)
                           int owner_pid = -1;
                           int timer = time(NULL);
                           sql_update_bind_data(vnum, &owner_pid, &timer);
-                          feed_artifact(ch, o_obj, (int) get_property("artifact.feeding.initial.secs", ( 3600 * 100 ) ), FALSE );
+                          feed_artifact(ch, o_obj, SECS_PER_REAL_DAY * ARTIFACT_BLOOD_DAYS, FALSE );
                         }
                       }
                       else
@@ -990,7 +990,7 @@ void do_get(P_char ch, char *argument, int cmd)
                         int owner_pid = -1;
                         int timer = time(NULL);
                         sql_update_bind_data(vnum, &owner_pid, &timer);
-                        feed_artifact(ch, o_obj, (int) get_property("artifact.feeding.initial.secs", 360000 ), FALSE );
+                        feed_artifact(ch, o_obj, SECS_PER_REAL_DAY * ARTIFACT_BLOOD_DAYS, FALSE );
                       }
                     }
                     else

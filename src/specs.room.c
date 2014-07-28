@@ -1031,7 +1031,7 @@ int pet_shops(int room, P_char ch, int cmd, char *arg)
     }
 #if 0
     /* This is cost per real life day */
-    val = ((ticket->value[3] - time(NULL) / 86400) * ticket->value[0]);
+    val = ((ticket->value[3] - time(NULL) / SECS_PER_REAL_DAY) * ticket->value[0]);
 #else
     /* and this is the flat rate price */
     val = ticket->value[0];

@@ -4187,7 +4187,7 @@ void do_toggle(P_char ch, char *arg, int cmd)
            !strn_cmp(toggles_list[i], "logmsg", 6) ||
            !strn_cmp(toggles_list[i], "heal", 6) ||
            !strn_cmp(toggles_list[i], "damage", 6) ||
-           !strn_cmp(toggles_list[i], "experience", 10)) && !IS_TRUSTED(ch))
+           !strn_cmp(toggles_list[i], "experience", 10)) && GET_LEVEL(ch) < MINLVLIMMORTAL)
         continue;
       else
       {
@@ -4472,7 +4472,7 @@ void do_toggle(P_char ch, char *arg, int cmd)
   case 23:
     if (IS_MORPH(send_ch))
       return;
-    if( IS_TRUSTED(ch) )
+    if( GET_LEVEL(ch) >= MINLVLIMMORTAL )
       result = PLR_TOG_CHK(ch, PLR_MORTAL);
     else
     {

@@ -175,8 +175,9 @@ extern const char* BACKGR_STORY;
 #define ZONE_MAP       BIT_5
 #define ZONE_CLOSED    BIT_6
 
-// 1290600 = 14 days
-#define ARTIFACT_TIMER_SEC 1290600
+// 1209600 = 14 days
+//#define ARTIFACT_TIMER_SEC 1209600
+#define ARTIFACT_BLOOD_DAYS 10
 
 void free_world();
 

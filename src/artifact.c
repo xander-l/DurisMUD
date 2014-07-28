@@ -12,21 +12,20 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "db.h"
-#include "prototypes.h"
-#include "structs.h"
-#include "utils.h"
-#include "utility.h"
 #include "comm.h"
+#include "db.h"
+#include "files.h"
 #include "mm.h"
+#include "prototypes.h"
 #include "spells.h"
 #include "sql.h"
-#include "files.h"
+#include "structs.h"
+#include "utility.h"
+#include "utils.h"
 
 #define ARTIFACT_DIR "Players/Artifacts/"
 #define ARTIFACT_MORT_DIR "Players/Artifacts/Mortal/"
 #define ARTI_BIND_DIR "Players/Artifacts/Bind/"
-#define ARTIFACT_BLOOD_DAYS 5
 #define ARTIFACT_MAIN   0
 #define ARTIFACT_UNIQUE 1
 #define ARTIFACT_IOUN   2
@@ -106,8 +105,8 @@ void writeIounList(const char *messg)
   artilist_mortal_ioun = buf;
 
 }
-// a hack... if mod is a negative number (other than -1), it will
-// force the arti timer to feed mod seconds (converted to a positive))
+// A hack... If mod is a negative number (other than -1), it will
+//   force the arti timer to feed mod seconds (converted to a positive).
 void UpdateArtiBlood(P_char ch, P_obj obj, int mod)
 {
 //  P_obj a;
@@ -133,14 +132,13 @@ void UpdateArtiBlood(P_char ch, P_obj obj, int mod)
     }
   }
 
-//Spam the gods if more then 5 days passed since feed.
-  if (mod == -1 && obj)
+  if( mod == -1 && obj )
     return;
 /*
   {
 
 
-    blood = (int) ((time(NULL) - obj->timer[3]) / 86400);
+    blood = (int) ((time(NULL) - obj->timer[3]) / SECS_PER_REAL_DAY);
     if (blood > 5 && (!isname("dragonslayer", obj->name)))
     {
       wizlog(56, "%s's %s was  removed from game. last feed: %d",
@@ -181,7 +179,7 @@ void UpdateArtiBlood(P_char ch, P_obj obj, int mod)
     return;
   }*/
 
-  if (obj)
+  if( obj )
   {
     oldtime = obj->timer[3];
     diff = time(NULL) - oldtime;
@@ -190,31 +188,34 @@ void UpdateArtiBlood(P_char ch, P_obj obj, int mod)
     bool bIsUnique = (isname("unique", obj->name) && !isname("powerunique", obj->name));
     bool bIsTrueArti = (!bIsIoun && !bIsUnique);
 
-    if (diff > (86400 * ARTIFACT_BLOOD_DAYS))
+    // If arti timer is longer than maximum number of days.
+    if( diff > (SECS_PER_REAL_DAY * ARTIFACT_BLOOD_DAYS) )
     {
-      diff = (86400 * ARTIFACT_BLOOD_DAYS);
+      diff = SECS_PER_REAL_DAY * ARTIFACT_BLOOD_DAYS;
       oldtime = time(NULL) - diff;
     }
 
-    if (bIsTrueArti && (mod > -1))
+    if( bIsTrueArti && (mod > -1) )
     {
       struct obj_affect *af;
       int afMod = 0;
       int afLength = get_property("artifact.feeding.accum.timer", (int)60);
 
-      af = get_obj_affect(obj, TAG_OBJ_RECENT_FRAG);
-      if (af)
+      if( (af = get_obj_affect(obj, TAG_OBJ_RECENT_FRAG)) != NULL )
+      {
         afMod = af->data;
+      }
       affect_from_obj(obj, TAG_OBJ_RECENT_FRAG);
 
       // conditions for feed:
-      //  prevMod is -1, or
-      //  mod > 20, or
+      //  mod > artifact.feeding.single.min, or
       //  mod+prevMod > 30
-      if (mod <= get_property("artifact.feeding.single.min", (int)20))  // if not an insta-feed...
+
+      // if not an insta-feed (less than 1 min)...
+      if( mod <= get_property("artifact.feeding.single.min", 20) )
       {
         // if not qualified to feed from accumulated feeds...
-        if ((-1 != afMod) && ((afMod + mod) <= get_property("artifact.feeding.accum.min", (int)30)))
+        if( (-1 != afMod) && ((afMod + mod) <= get_property("artifact.feeding.accum.min", 30)) )
         {
     	    send_to_char("&+RYou feel a brief sense of satisfaction before it fades into nothing.\r\n",
     		               ch);
@@ -241,7 +242,7 @@ void UpdateArtiBlood(P_char ch, P_obj obj, int mod)
       statuslog(56, "ArtiBlood: %s #%d fed %.02f frags", 
                 bIsIoun ? "ioun" : bIsUnique ? "unique" : "artifact",
                 obj_index[obj->R_num].virtual_number, mod/100.0f);
-      diff = (86400 * ARTIFACT_BLOOD_DAYS * mod) / 100;
+      diff = (SECS_PER_REAL_DAY * ARTIFACT_BLOOD_DAYS * mod) / 100;
       obj->timer[3] = oldtime + diff;
       if ((oldtime + diff) > time(NULL))
         obj->timer[3] = time(NULL);
@@ -256,15 +257,11 @@ void UpdateArtiBlood(P_char ch, P_obj obj, int mod)
 
     if (mod >= 100)
     {
-      send_to_char
-        ("&+RYou feel a deep sense of satisfaction from somewhere...\r\n",
-         ch);
+      send_to_char("&+RYou feel a deep sense of satisfaction from somewhere...\r\n", ch);
     }
     else
     {
-      send_to_char
-        ("&+RYou feel a light sense of satisfaction from somewhere...\r\n",
-         ch);
+      send_to_char("&+RYou feel a light sense of satisfaction from somewhere...\r\n", ch);
     }
 
 
@@ -276,7 +273,7 @@ void UpdateArtiBlood(P_char ch, P_obj obj, int mod)
     // wizlog(56, "Artifact looted: %s now owns %s (#%d).", GET_NAME(ch), obj->short_description, vnum);
     // wizlog(56, "Artifact timer reset: %s now owns %s (#%d).", GET_NAME(ch), obj->short_description, vnum);
 
-    if (f)
+    if( f )
     {
       fscanf(f, "%s %d %lu %d %lu", name, &id, &last_time, &uo, &blood);
 
@@ -297,41 +294,46 @@ void UpdateArtiBlood(P_char ch, P_obj obj, int mod)
 
 void feed_artifact(P_char ch, P_obj obj, int feed_seconds, int bypass)
 {
+  FILE *f;
+  char  fname[256], name[256];
+  int   id, uo;
+  long unsigned last_time, blood;
+  int   owner_pid, timer, vnum;
+  int   time_now = time(NULL);
+
   if( !ch || !obj )
   {
-    statuslog(56, "feed_artifact(): called with null ch or obj");
+    statuslog(56, "feed_artifact: called with null ch or obj");
+    debug( "feed_artifact: called with ch (%s) and obj (%s) %d.", ch ? J_NAME(ch) : "NULL",
+      obj ? obj->short_description : "NULL", obj ? GET_OBJ_VNUM(obj) : -1 );
     return;
   }
 
   // Stop artis from feeding at all.  Still want to save arti data though.
-  feed_seconds = 0;
-
-  int owner_pid, timer, vnum;
+  //feed_seconds = 0;
 
   vnum = GET_OBJ_VNUM(obj);
   sql_get_bind_data(vnum, &owner_pid, &timer);
 
-  // anti artifact sharing for feeding check
-  if ( !bypass && IS_PC(ch) && (owner_pid != -1) && (owner_pid != GET_PID(ch)) )
+  // Anti artifact sharing for feeding check
+  if( !bypass && IS_PC(ch) && (owner_pid != -1) && (owner_pid != GET_PID(ch)) )
   {
     act("&+L$p &+Lhas yet to accept you as its owner.", FALSE, ch, obj, 0, TO_CHAR);
     return;
   }
 
-  int time_now = time(NULL);
-
-// This code jumps the timer to maximum always?!?
-//  if( obj->timer[3] < ( time_now - (ARTIFACT_BLOOD_DAYS * 86400) ) )
-//    obj->timer[3] = ( time_now - (ARTIFACT_BLOOD_DAYS * 86400) );
-
-  obj->timer[3] += feed_seconds;
-  // Not allowing people to feed over limit
-  if( obj->timer[3] > (time_now + (ARTIFACT_BLOOD_DAYS * 86400)) )
+  // Not allowing people to have artis with timer over limit
+  if( obj->timer[3] + feed_seconds > time_now )
   {
     // Keep track of how much arti actually fed.
-    feed_seconds -= obj->timer[3] - (time_now + ARTIFACT_BLOOD_DAYS * 86400);
-    obj->timer[3] = ( time_now + (ARTIFACT_BLOOD_DAYS * 86400) );
+    feed_seconds = time_now - obj->timer[3];
+    obj->timer[3] = time_now;
   }
+  else
+  {
+    obj->timer[3] += feed_seconds;
+  }
+
   statuslog(56, "Artifact: %s [%d] on %s fed [&+G%ld&+Lh &+G%ld&+Lm &+G%ld&+Ls&n]", 
             obj->short_description, GET_OBJ_VNUM(obj), GET_NAME(ch),
             feed_seconds / 3600, (feed_seconds / 60) % 60, feed_seconds % 60 );
@@ -345,40 +347,38 @@ void feed_artifact(P_char ch, P_obj obj, int feed_seconds, int bypass)
     send_to_char("&+RYou feel a light sense of satisfaction from somewhere...\r\n", ch);
   }
 
-  /*
-   save to artifact files:
-   try to load the artifact file; if it already exists, then it's already being tracked on another player.
-   otherwise, update the time remaining timer
+  /* Save to artifact files:
+   * Try to load the artifact file; if it already exists, then check if it's already being tracked on another player.
+   * Otherwise, update the time remaining timer.
    */
 
-  FILE     *f;
-  char     fname[256], name[256];
-  char     Gbuf1[MAX_STRING_LENGTH];
-  int      id, uo, oldtime, diff, newtime;
-  long unsigned last_time, blood;
-
   vnum = GET_OBJ_VNUM(obj);
-  sprintf(fname, ARTIFACT_DIR "%d", vnum);
-  f = fopen(fname, "rt");
   blood = obj->timer[3];
 
-  if (f)
+  sprintf(fname, ARTIFACT_DIR "%d", vnum);
+  f = fopen(fname, "rt");
+  if( f )
   {
     fscanf(f, "%s %d %lu %d %lu", name, &id, &last_time, &uo, &blood);
 
+    // If PIDs don't match && not on corpse..
     if ((id != GET_PID(ch)) && !uo)
     {
       statuslog(56, "feed_artifact: tried to track arti vnum #%d on %s when already tracked on %s.",
         vnum, GET_NAME(ch), name);
     }
-
+    // Arti was on corpse or PIDs match, so write new data and close file.
+    else
+    {
+      fprintf(f, "%s %d %lu 0 %lu", GET_NAME(ch), GET_PID(ch), time(NULL), blood);
+    }
     fclose(f);
   }
+  // No artifact file, so create one.
   else
   {
     save_artifact_data( ch, obj );
   }
-
 }
 
 
@@ -389,16 +389,25 @@ void feed_artifact(P_char ch, P_obj obj, int feed_seconds, int bypass)
 //  arti : arti obj
 //    ch : char who now 'owns' arti
 //
-int add_owned_artifact(P_obj arti, P_char ch, long unsigned blood)
+bool add_owned_artifact(P_obj arti, P_char ch, long unsigned blood)
 {
-  FILE    *f;
-  char     fname[256], name[256];
-  int      exist = 0, vnum, id, uo;
+  FILE *f;
+  char  fname[256], name[256];
+  int   vnum, id, uo;
   long unsigned last_time, t_blood;
 
 
-  if (!IS_ARTIFACT(arti) || !ch || IS_TRUSTED(ch) || IS_NPC(ch))
+  if( !arti || !IS_ARTIFACT(arti) || !ch )
+  {
+    debug( "add_owned_artifact: called with ch (%s) and obj (%s) %d.", ch ? J_NAME(ch) : "NULL",
+      arti ? arti->short_description : "NULL", arti ? GET_OBJ_VNUM(arti) : -1 );
     return FALSE;
+  }
+  // This is ok.. no need to report it.
+  if( IS_TRUSTED(ch) || IS_NPC(ch) )
+  {
+    return FALSE;
+  }
 
   vnum = obj_index[arti->R_num].virtual_number;
 
@@ -406,34 +415,27 @@ int add_owned_artifact(P_obj arti, P_char ch, long unsigned blood)
 
   f = fopen(fname, "rt");
 
-  // any pre-existing arti getting reflagged should belong to same player -
-  // if not, spam status log on mud
-
-  if (f)
+  // Any pre-existing arti getting reflagged should belong to same player -
+  //   If not, spam status log on mud.
+  if( f )
   {
-    exist = 1;
     fscanf(f, "%s %d %lu %d %lu", name, &id, &last_time, &uo, &t_blood);
+    fclose(f);
 
+    // If tracked on another player (not a corpse)...
     if ((id != GET_PID(ch)) && !uo)
     {
       statuslog(56, "add_owned_artifact: tried to track arti vnum #%d on %s when already tracked on %s.",
         vnum, GET_NAME(ch), name);
 
-      fclose(f);
-
       return FALSE;
     }
-
-    // same player, fall through to rewrite
-
-    fclose(f);
   }
 
   // didn't exist or falling through with same player owned, updating time
-
   f = fopen(fname, "wt");
   // if(exist)
-  if (f)
+  if( f )
   {
     fprintf(f, "%s %d %lu 0 %lu", GET_NAME(ch), GET_PID(ch), time(NULL), blood);
     /*
@@ -442,19 +444,21 @@ int add_owned_artifact(P_obj arti, P_char ch, long unsigned blood)
      */
 
     fclose(f);
+    return TRUE;
   }
 
-  return TRUE;
+  statuslog(56, "add_owned_artifact: Arti vnum #%d on %s, couldn't open file '%s'.",
+    vnum, GET_NAME(ch), fname);
+  return FALSE;
 }
 
 
+// remove_owned_artifact : returns FALSE on error
+//   does what you might expect otherwise
 //
-// remove_owned_artifact : returns FALSE on error - does what you might expect
-//                         otherwise
-//
-//  arti : arti obj
-//    ch : char who currently 'owns' arti
-//
+//  arti        : arti obj
+//    ch        : char who currently 'owns' arti
+//  full_remove : Is arti removed or just gone to corpse?
 int remove_owned_artifact(P_obj arti, P_char ch, int full_remove)
 {
   char     fname[256], name[256];
@@ -462,9 +466,18 @@ int remove_owned_artifact(P_obj arti, P_char ch, int full_remove)
   long unsigned last_time, t_blood;
   FILE    *f;
 
-
-  if (!IS_ARTIFACT(arti) || (ch && (IS_TRUSTED(ch) || IS_NPC(ch))))
+  // Bad arguments...
+  if( !arti || !IS_ARTIFACT(arti) )
+  {
+    debug( "remove_owned_artifact: called with obj (%s) %d.",
+      arti ? arti->short_description : "NULL", arti ? GET_OBJ_VNUM(arti) : -1 );
     return FALSE;
+  }
+  // This is ok.. no need to report it.
+  if( ch && (IS_TRUSTED(ch) || IS_NPC(ch)) )
+  {
+    return FALSE;
+  }
 
   vnum = obj_index[arti->R_num].virtual_number;
 
@@ -477,25 +490,33 @@ int remove_owned_artifact(P_obj arti, P_char ch, int full_remove)
   else
   {
     f = fopen(fname, "rt");
-    if (!f)
+    if( !f )
+    {
+      statuslog(56, "remove_owned_artifact: Arti vnum #%d on %s, couldn't open file '%s'.",
+        vnum, ch ? J_NAME(ch) : "Unknown", fname);
       return FALSE;
+    }
 
     fscanf(f, "%s %d %lu %d %lu", name, &id, &last_time, &true_u, &t_blood);
 
-    if (true_u)
+    if( true_u )
     {
-      wizlog(56,
-             "error: attempt to flag arti #%d as 'actually unowned' when already set",
-             vnum);
+      wizlog( 56, "error: attempt to flag arti #%d as 'actually unowned' when already set.",
+        vnum );
       return FALSE;
     }
 
     fclose(f);
 
     f = fopen(fname, "wt");
+    if( !f )
+    {
+      statuslog(56, "remove_owned_artifact: Arti vnum #%d on %s, couldn't open file '%s'.",
+        vnum, ch ? J_NAME(ch) : "Unknown", fname);
+      return FALSE;
+    }
 
     fprintf(f, "%s %d %lu 1 %lu", name, id, last_time, t_blood);
-
     fclose(f);
   }
 
@@ -504,12 +525,12 @@ int remove_owned_artifact(P_obj arti, P_char ch, int full_remove)
 
 
 //
-// returns FALSE if not found or if error - pname/id/last_time only changed
-// if function returns TRUE
+// Returns owner's racewar side if owner is found.  Otherwise returns 0.
+// pname/id/last_time/truly_unowned/blood changed if artifact file was
+//   successfully read.
 //
 // can specify obj by vnum or rnum - if rnum < 0, vnum is used
 //
-
 int get_current_artifact_info(int rnum, int vnum, char *pname, int *id,
                               time_t * last_time, int *truly_unowned,
                               int get_mort, time_t * blood)
@@ -519,55 +540,94 @@ int get_current_artifact_info(int rnum, int vnum, char *pname, int *id,
   long unsigned t_last_time, t_blood;
   FILE    *f;
   P_char   owner;
-  int      owner_race = 4;
+  int      owner_race;
 
 
   if (rnum >= 0)
+  {
     vnum = obj_index[rnum].virtual_number;
+  }
 
-  if (get_mort)
+  if( get_mort )
+  {
     sprintf(name, ARTIFACT_MORT_DIR "%d", vnum);
+  }
   else
+  {
     sprintf(name, ARTIFACT_DIR "%d", vnum);
+  }
 
   f = fopen(name, "rt");
 
-  if (!f)
-    return FALSE;
+  if( !f )
+  {
+//  This is unnecessary and spammy since db.c calls without checking to see if vnum is an arti first.
+//    statuslog(56, "get_current_artifact_info: Arti vnum #%d, couldn't open file '%s'.", vnum, name);
+    return 0;
+  }
 
   fscanf(f, "%s %d %lu %d %lu", name, &t_id, &t_last_time, &t_tu, &t_blood);
 
   fclose(f);
 
+//  If on corpse return FALSE ?? why?
 //  if (t_tu) return FALSE;
 
-  if (pname)
+  // If we want the player's name..
+  if( pname )
   {
+    // Copy name into pname
+    strcpy( pname, name );
+
     owner = (struct char_data *) mm_get(dead_mob_pool);
     owner->only.pc = (struct pc_only_data *) mm_get(dead_pconly_pool);
 
-    if (restoreCharOnly(owner, skip_spaces(name)) >= 0)
+    if( restoreCharOnly(owner, skip_spaces(name)) >= 0 )
     {
-      if (RACE_GOOD(owner))
+      if( RACE_GOOD(owner) )
+      {
         owner_race = 1;
-      else if (RACE_EVIL(owner))
+      }
+      else if( RACE_EVIL(owner) )
+      {
         owner_race = 2;
-      else if (RACE_PUNDEAD(owner))
+      }
+      else if( RACE_PUNDEAD(owner) )
+      {
         owner_race = 3;
+      }
       else
+      {
         owner_race = 4;
+      }
       free_char(owner);
     }
-    strcpy(pname, name);
+    else
+    {
+      owner_race = 0;
+    }
   }
-  if (id)
+  else
+  {
+    owner_race = 0;
+  }
+
+  if( id )
+  {
     *id = t_id;
-  if (last_time)
+  }
+  if( last_time )
+  {
     *last_time = t_last_time;
-  if (truly_unowned)
+  }
+  if( truly_unowned )
+  {
     *truly_unowned = t_tu;
-  if (blood)
+  }
+  if( blood )
+  {
     *blood = t_blood;
+  }
 
   return owner_race;
 }
@@ -662,8 +722,7 @@ void list_artifacts(P_char ch, char *arg, int type)
     if (!vnum)
       continue;
 
-    owning_side =
-      get_current_artifact_info(-1, vnum, pname, &id, &last_time, &t_uo,
+    owning_side = get_current_artifact_info(-1, vnum, pname, &id, &last_time, &t_uo,
                                 !IS_TRUSTED(ch), &blood);
 
     if (!owning_side)
@@ -708,8 +767,8 @@ void list_artifacts(P_char ch, char *arg, int type)
     {
       strcpy(strn2, ctime(&last_time));
       strn2[strlen(strn2) - 1] = '\0';
-//      blood_time = (float) (ARTIFACT_BLOOD_DAYS - ((time(NULL) - blood) / 86400));
-      blood_time = ARTIFACT_BLOOD_DAYS * 86400 -(time(NULL) - blood);
+//      blood_time = (float) (ARTIFACT_BLOOD_DAYS - ((time(NULL) - blood) / SECS_PER_REAL_DAY));
+      blood_time = ARTIFACT_BLOOD_DAYS * SECS_PER_REAL_DAY -(time(NULL) - blood);
       days = 0;
       minutes = 0;
       hours = 0;
@@ -717,7 +776,7 @@ void list_artifacts(P_char ch, char *arg, int type)
       while (blood_time > 86399)
       {
         days++;
-        blood_time -= 86400;
+        blood_time -= SECS_PER_REAL_DAY;
       }
       while (blood_time > 3599)
       {
@@ -865,18 +924,41 @@ void do_artifact(P_char ch, char *arg, int cmd)
 
 void event_artifact_poof(P_char ch, P_char victim, P_obj obj, void *data)
 {
-  if (obj->timer[3] == 0)
+  if( !obj )
+  {
+    statuslog(56, "event_artifact_poof: called with null obj");
+    debug( "event_artifact_poof: called with null obj." );
+    return;
+  }
+
+/* If the arti hasn't had it's timer set yet.. hrm. poof it!
+  if( obj->timer[3] == 0 )
     obj->timer[3] = time(NULL);
+*/
 
-  if (OBJ_WORN(obj))
+  if( OBJ_WORN(obj) )
     ch = obj->loc.wearing;
-  else if (OBJ_CARRIED(obj))
+  else if( OBJ_CARRIED(obj) )
     ch = obj->loc.carrying;
+  // If it's on ground..
   else
-    goto reschedule;
-
+  {
+    if( obj->timer[3] + ARTIFACT_BLOOD_DAYS * SECS_PER_REAL_DAY <= time(NULL) )
+    {
+      act("$p suddenly vanishes in a bright flash of light!", FALSE,
+        NULL, obj, 0, TO_ROOM);
+      act("$p suddenly vanishes in a bright flash of light!", FALSE,
+        ch, obj, 0, TO_CHAR);
+      extract_obj( obj, TRUE );
+      return;
+    }
+    else
+    {
+      goto reschedule;
+    }
+  }
   // Important that this is <= and not just <.
-  if (!IS_TRUSTED(ch) && obj->timer[3] + (5 * 24 * 60 * 60) <= time(NULL))
+  if( !IS_TRUSTED(ch) && obj->timer[3] + ARTIFACT_BLOOD_DAYS * SECS_PER_REAL_DAY <= time(NULL) )
   {
     act("Your $p vanishes with a bright flash of light!", FALSE, ch,
         obj, 0, TO_CHAR);
@@ -996,7 +1078,7 @@ void poof_arti( P_char ch, char *arg )
     if( OBJ_WORN(obj) || OBJ_CARRIED(obj) )
     {
       // Set timer to poof and update.
-      obj->timer[3] = time(NULL) - ARTIFACT_BLOOD_DAYS * 86400;
+      obj->timer[3] = time(NULL) - ARTIFACT_BLOOD_DAYS * SECS_PER_REAL_DAY;
       // Yes, artifact_poof only cares about obj.
       event_artifact_poof(NULL, NULL, obj, NULL);
     }
@@ -1093,7 +1175,7 @@ void poof_arti( P_char ch, char *arg )
     }
     else
     {
-      obj->timer[3] = time(NULL) - ARTIFACT_BLOOD_DAYS * 86400;
+      obj->timer[3] = time(NULL) - ARTIFACT_BLOOD_DAYS * SECS_PER_REAL_DAY;
       event_artifact_poof(NULL, NULL, obj, NULL);
       writeCharacter( owner, RENT_POOFARTI, owner->in_room );
     }
@@ -1491,8 +1573,8 @@ void set_timer_arti( P_char ch, char *arg )
 
   if( obj )
   {
-    // Set timer to last timer minutes: current - 5 days + minutes,
-    obj->timer[3] = time(NULL) - ARTIFACT_BLOOD_DAYS * 86400 + 60 * timer;
+    // Set timer to last timer minutes: current - ARTIFACT_BLOOD_DAY days + minutes,
+    obj->timer[3] = time(NULL) - ARTIFACT_BLOOD_DAYS * SECS_PER_REAL_DAY + 60 * timer;
     return;
   }
 
@@ -1577,7 +1659,7 @@ void set_timer_arti( P_char ch, char *arg )
     }
     else
     {
-      obj->timer[3] = time(NULL) - ARTIFACT_BLOOD_DAYS * 86400 + 60 * timer;
+      obj->timer[3] = time(NULL) - ARTIFACT_BLOOD_DAYS * SECS_PER_REAL_DAY + 60 * timer;
       // Update the artifact file.
       save_artifact_data( owner, obj );
       writeCharacter( owner, RENT_INN, owner->in_room );
@@ -1639,7 +1721,7 @@ void event_check_arti_poof( P_char ch, P_char vict, P_obj obj, void * arg )
     fclose(f);
 
     // If arti is overdue to poof..
-    if( (ARTIFACT_BLOOD_DAYS * 86400 + t_blood) < time(NULL) )
+    if( (ARTIFACT_BLOOD_DAYS * SECS_PER_REAL_DAY + t_blood) < time(NULL) )
     {
       statuslog( 56, "Poofing arti vnum %d", vnum );
       wizlog( 56, "Poofing arti vnum %d", vnum );

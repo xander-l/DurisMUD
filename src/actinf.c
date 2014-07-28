@@ -7047,7 +7047,7 @@ bool get_equipment_list(P_char ch, char *buf, int list_only)
         if (IS_ARTIFACT(t_obj))
         {
           blood =
-            (int) ((5 * 86400) - (float) ((time(NULL) - t_obj->timer[3])));
+            (int) ((ARTIFACT_BLOOD_DAYS * SECS_PER_REAL_DAY) - (float) ((time(NULL) - t_obj->timer[3])));
 
           if ((blood / 3600) <= 15)
           {
