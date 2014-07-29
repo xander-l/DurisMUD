@@ -694,7 +694,6 @@ void add_follower(P_char ch, P_char leader)
 
 /* shamans used to be considered type cleric, they aren't anymore, so or
    it with 4 ...  may cause other bugs outside this file */
-
 int spell_class(int spl)
 {
   int      i, j = 0;
@@ -716,6 +715,7 @@ int spell_class(int spl)
         break;
       case CLASS_CLERIC:
       case CLASS_DRUID:
+      case CLASS_BLIGHTER:
       case CLASS_PALADIN:
       case CLASS_ETHERMANCER:
       case CLASS_ANTIPALADIN:
@@ -833,7 +833,7 @@ void say_spell(P_char ch, int si)
 
   sprintf(Gbuf2, "$n utters the word%s '%s'", space ? "s" : "", Gbuf1);
   sprintf(Gbuf1, "$n utters the word%s '%s'", space ? "s" : "", skills[si].name);
-  
+
 // This for allows players who hear a spell being casted the opportunity to notch.
   for (tch = world[ch->in_room].people; tch; tch = tch->next_in_room)
   {
@@ -841,56 +841,50 @@ void say_spell(P_char ch, int si)
     {
       continue;
     }
-    
+
     if(IS_NPC(tch)) // Shouldn't get this far.
     {
       continue;
     }
-    
+
     if(IS_IMMOBILE(tch))
     {
       continue;
     }
-    
+
     if(GET_STAT(tch) != STAT_NORMAL)
     {
       continue;
     }
-    
-    if((tch != ch) &&
-        IS_PC(tch))
+
+    if( tch != ch && IS_PC(tch) )
     {
       int rand = number(1, 101);
-      
+
       if((IS_MAGESPELL(si) &&
          rand >= GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_MAGICAL) &&
-         GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_MAGICAL) > 1) || 
+         GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_MAGICAL) > 1) ||
         (IS_CLERICSPELL(si) &&
          rand >= GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_CLERICAL) &&
-         GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_CLERICAL) > 1) || 
+         GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_CLERICAL) > 1) ||
         (IS_SHAMANSPELL(si) &&
          rand >= GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_SHAMAN) &&
          GET_CHAR_SKILL(tch, SKILL_SPELL_KNOWLEDGE_SHAMAN) > 1))
       {
         act(Gbuf1, FALSE, ch, 0, tch, TO_VICT | ACT_SILENCEABLE);
-        
-        if(IS_MAGESPELL(si) &&
-           IS_MAGE(tch))
+
+        if( IS_MAGESPELL(si) && IS_MAGE(tch) )
         {
           notch_skill(tch, SKILL_SPELL_KNOWLEDGE_MAGICAL, 1);
         }
-        else if(IS_CLERICSPELL(si) &&
-                (IS_CLERIC(tch) ||
-                 IS_HOLY(tch)))
+        else if( IS_CLERICSPELL(si) && (IS_CLERIC(tch) || IS_HOLY(tch)) )
         {
           notch_skill(tch, SKILL_SPELL_KNOWLEDGE_CLERICAL, 1);
         }
-        else if(IS_SHAMANSPELL(si) &&
-                GET_CLASS(tch, CLASS_SHAMAN))
+        else if( IS_SHAMANSPELL(si) && GET_CLASS(tch, CLASS_SHAMAN) )
         {
           notch_skill(tch, SKILL_SPELL_KNOWLEDGE_SHAMAN, 1);
         }
-
       }
       else
       {
@@ -917,7 +911,7 @@ int SpellCastTime(P_char ch, int spl)
   {
     dura = (dura * .8);
   }
-  
+
   return MAX(1, dura);
 }
 
@@ -926,22 +920,23 @@ void SpellCastShow(P_char ch, int spl)
   P_char   tch;
   int      idok, detharm;
   char     Gbuf1[MAX_STRING_LENGTH];
-  
+
   if(!(ch))
   {
     return;
   }
 
-  if(GET_CLASS(ch, CLASS_MINDFLAYER) ||
-    GET_CLASS(ch, CLASS_PSIONICIST))
+  if( GET_CLASS(ch, CLASS_MINDFLAYER) || GET_CLASS(ch, CLASS_PSIONICIST) )
   {
     return;
   }
-  
-  for (tch = world[ch->in_room].people; tch; tch = tch->next_in_room)
+
+  for( tch = world[ch->in_room].people; tch; tch = tch->next_in_room )
   {
-    if (tch == ch)
+    if( tch == ch )
+    {
       continue;
+    }
     idok = 0;
     detharm = 0;
     int rand = number(1, 101);
@@ -989,8 +984,9 @@ void SpellCastShow(P_char ch, int spl)
 void update_saving_throws()
 {
   char buf[256];
-  
-  for (int i = SAVING_PARA; i <= SAVING_SPELL; i++) {
+
+  for (int i = SAVING_PARA; i <= SAVING_SPELL; i++)
+  {
     sprintf(buf, "saves.%s.starting", saves_data[i].name);
     saves_data[i].starting = get_property(buf, 70);
     sprintf(buf, "saves.%s.top", saves_data[i].name);
@@ -2068,7 +2064,8 @@ void do_cast(P_char ch, char *argument, int cmd)
     return;
   }
 
-  if (GET_CLASS(ch, CLASS_DRUID) && IS_DISGUISE_SHAPE(ch)) {
+  if (GET_CLASS(ch, CLASS_DRUID) && IS_DISGUISE_SHAPE(ch))
+  {
     send_to_char("You grunt and chirp a little, then realize you're an animal.\n", ch);
     return;
   }
@@ -2226,7 +2223,9 @@ void do_cast(P_char ch, char *argument, int cmd)
     CharWait(ch, dura);
   }
   else if (GET_CLASS(ch, CLASS_DRUID) && !IS_MULTICLASS_PC(ch))
+  {
     CharWait(ch, (dura >> 1) + 6);
+  }
   else if (affected_by_spell(ch, SKILL_BERSERK))
   {
     dura = (int) (dura * get_property("spell.berserk.casting.starMod", 1.500));
@@ -2260,11 +2259,11 @@ void do_cast(P_char ch, char *argument, int cmd)
   //  secondary trigger on the code in do_cast instead of do_will.
   if( IS_TRUSTED(ch) || IS_SET(skills[spl].targets, TAR_INSTACAST))
     dura = 1;
-  else if ((GET_CLASS(ch, CLASS_DRUID) && !IS_MULTICLASS_PC(ch)) ||
-           ((!is_tank || number(0, 1)) &&
-            (IS_NPC(ch) || IS_SET(ch->specials.act2, PLR2_QUICKCHANT)) &&
-            (notch_skill(ch, SKILL_QUICK_CHANT, get_property("skill.notch.quickChant", 2.5)) ||
-             (GET_CHAR_SKILL(ch, SKILL_QUICK_CHANT) > number(1, 100)))))
+  else if( (GET_CLASS(ch, CLASS_DRUID) && !IS_MULTICLASS_PC(ch))
+    || (GET_CLASS(ch, CLASS_BLIGHTER) && !IS_MULTICLASS_PC(ch))
+    || ((!is_tank || number(0, 1)) && (IS_NPC(ch) || IS_SET(ch->specials.act2, PLR2_QUICKCHANT))
+    && (notch_skill(ch, SKILL_QUICK_CHANT, get_property("skill.notch.quickChant", 2.5))
+    || (GET_CHAR_SKILL(ch, SKILL_QUICK_CHANT) > number(1, 100)))) )
   {
     dura >>= 1;
   }
@@ -2422,7 +2421,7 @@ void event_spellcast(P_char ch, P_char victim, P_obj obj, void *data)
         skl = SKILL_SPELL_KNOWLEDGE_MAGICAL;
      
       //if (GET_CLASS(ch, CLASS_PSIONICIST | CLASS_DRUID | CLASS_ETHERMANCER) ||
-      if( GET_CLASS(ch, CLASS_PSIONICIST | CLASS_DRUID) ||
+      if( GET_CLASS(ch, CLASS_PSIONICIST | CLASS_DRUID | CLASS_BLIGHTER) ||
 	      number(1, 100) <= GET_CHAR_SKILL(ch, skl) )
       {
         sprintf(buf, "Casting: %s ", skills[arg->spell].name);
