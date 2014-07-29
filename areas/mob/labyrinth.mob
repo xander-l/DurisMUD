@@ -8,8 +8,8 @@ minotaur gargantuan~
 &+Linflicted by previous opponents. The fact that this &+Lmino&+rtaur &+Lis still around&N
 &+Lsuggests that they lost, which is not good news for you.&N
 ~
-1107322890 1 0 120 262144 0 0 -1000 S
-MT 0 1 7
+1107322890 1 0 0 120 262144 0 0 -1000 S
+MT 0 1 0 7
 60 -3 -85 50d100+2900 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -22,8 +22,8 @@ bat flying~
 &+Lbreeze as it flies overhead. Unfortunately, it thinks you would make a great&N
 &+Lsnack and dives to attack!&N
 ~
-141448 1 0 60 0 0 0 -1000 S
-B 0 0 -1
+141448 1 0 0 60 0 0 0 -1000 S
+B 0 0 0 -1
 30 2 -28 40d95+920 4d7+10
 0.0.0.0 51840
 8 8 0
@@ -35,8 +35,8 @@ bat giant flying~
 &+L   This giant bat has a wingspan of nearly six feet, and seems to have a set of&N
 &+Lvicious &+Wfangs &+Land large sensitive ears. Luckily, it is sleeping . . . for now.&N
 ~
-141320 1 0 60 0 0 0 -800 S
-B 0 0 -1
+141320 1 0 0 60 0 0 0 -800 S
+B 0 0 0 -1
 32 2 -28 40d95+920 4d7+10
 0.0.0.0 51840
 4 4 0
@@ -49,8 +49,8 @@ sasquatch bigfoot hairy~
 &+yintrusion into his domain. His bulky arms look very powerful, but the light&N
 &+ybehind his eyes is very dim, suggesting only a rudimentary intelligence.&N
 ~
-1073750156 1 0 16 0 0 0 -350 S
-H 0 1 -1
+1073750156 1 0 0 16 0 0 0 -350 S
+H 0 1 0 -1
 45 -1 -69 45d90+1935 6d6+12
 5.9.8.4 109350
 8 8 1
@@ -65,8 +65,8 @@ giant beetle~
 &+Lwall. Its &+Reyes &+Lglow mysteriously, leading ne to believe that this creature has&N
 &+Lspent too long a time in the &+wlabyrinth&+L.&N
 ~
-1207969800 56 0 160 1024 0 0 -1000 S
-I 0 1 -1
+1207969800 56 0 0 160 1024 0 0 -1000 S
+I 0 1 0 -1
 39 2 -28 40d80+840 4d7+10
 0.0.0.0 51840
 8 8 0
@@ -79,8 +79,8 @@ fish blind~
 &+wlong time ago. Instead, sensitive feelers protrude from the tips of its mouth,&N
 &+wsearching for small prey.&N
 ~
-270346 0 0 33080 0 0 0 0 S
-A 0 0 -1
+270346 0 0 0 33080 0 0 0 0 S
+A 0 0 0 -1
 10 2 -28 40d80+840 4d7+10
 0.0.0.0 51840
 8 8 0
@@ -95,8 +95,8 @@ colorless salamander lonely~
 &+wHowever, its giant size has made this particular lizard exceptionally&N
 &+waggressive.&N
 ~
-26634 1 0 56 0 0 0 -1000 S
-D 0 4 -1
+26634 1 0 0 56 0 0 0 -1000 S
+D 0 4 0 -1
 60 -3 -95 50d100+2650 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -110,8 +110,8 @@ spider giant hairy~
 &+Lof the way of this arachnid, for its vicious pincers are coated with &+Gpoison &+Land&N
 &+Lcan crush a granite boulder easily.&N
 ~
-1073752072 1 0 35127416 0 0 0 -1000 S
-AS 0 1 -1
+1073752072 1 0 0 35127416 0 0 0 -1000 S
+AS 0 1 0 -1
 38 -3 -95 50d119+2750 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -123,8 +123,8 @@ red moss~
 &+r   This peculiar moss looks as though it is aware of your presence, and is&N
 &+rrather nonplussed at your intrusion.&N
 ~
-10250 1 0 536870912 2048 0 0 -1000 S
-AP 0 0 -1
+10250 1 0 0 536870912 2048 0 0 -1000 S
+AP 0 0 0 -1
 40 -3 -95 50d110+2700 6d6+25
 0.3.1.5 121500
 8 8 0
@@ -136,8 +136,8 @@ blue moss~
 &+B   This peculiar moss looks as though it is aware of your presence, and is&N
 &+Brather nonplussed at your intrusion.&N
 ~
-10250 1 0 536944680 274624 0 0 -1000 S
-AP 0 0 -1
+10250 1 0 0 536944680 274624 0 0 -1000 S
+AP 0 0 0 -1
 42 -3 -95 50d80+2650 6d6+25
 0.3.1.5 121500
 8 8 0
@@ -149,8 +149,8 @@ green moss~
 &+g   This peculiar moss looks as though it is aware of your presence, and is&N
 &+grather nonplussed at your intrusion.&N
 ~
-534538 1 0 40 128 0 0 -1000 S
-AP 0 0 -1
+534538 1 0 0 40 128 0 0 -1000 S
+AP 0 0 0 -1
 45 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 0
@@ -162,8 +162,8 @@ black moss~
 &+L   This peculiar moss looks as though it is aware of your presence, and is&N
 &+Lrather nonplussed at your intrusion.&N
 ~
-10250 1 0 168 0 0 0 -1000 S
-AP 0 0 -1
+10250 1 0 0 168 0 0 0 -1000 S
+AP 0 0 0 -1
 47 -3 -95 50d100+2650 6d6+25
 0.3.1.5 121500
 8 8 0
@@ -176,8 +176,8 @@ millipede giant pede~
 &+Llimned in &+Yyellow &+Lstripes.  Although it is very long, it is rather agile, and&N
 &+Lmoves rather quickly.&N
 ~
-10248 1 0 80 0 0 0 -1000 S
-I 0 0 -1
+10248 1 0 0 80 0 0 0 -1000 S
+I 0 0 0 -1
 30 -1 -69 45d90+1935 6d6+12
 0.0.0.0 109350
 8 8 0
@@ -190,8 +190,8 @@ centipede giant centi cent~
 &+Lmuch better and moves with an uncanny speed. It seems to think you'd make a&N
 &+Lgood snack, and charges to attack!&N
 ~
-10248 1 0 1048624 0 0 0 -1000 S
-I 0 0 -1
+10248 1 0 0 1048624 0 0 0 -1000 S
+I 0 0 0 -1
 45 -1 -69 45d90+1935 6d6+12
 0.0.0.0 109350
 8 8 0
@@ -203,8 +203,8 @@ glow worm~
 &+g   This &+Gglow &+gworm &+Gshines &+gwith a pale light, filling the cavern with a strange&N
 &+girridescence.&N
 ~
-8202 0 0 32 0 0 0 -1000 S
-I 0 0 -1
+8202 0 0 0 32 0 0 0 -1000 S
+I 0 0 0 -1
 5 -3 -95 50d100+2650 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -217,8 +217,8 @@ tube worm~
 &+crow of jagged &+Wteeth&+c, perfect for attaching to a victim and sucking the juices&N
 &+cout. The worm is protected by its thick &+Cs&+cc&+Ca&+cl&+Ces&+c.&N
 ~
-10250 1 0 32888 0 0 0 -1000 S
-A 0 1 -1
+10250 1 0 0 32888 0 0 0 -1000 S
+A 0 1 0 -1
 30 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 0
@@ -231,8 +231,8 @@ rock worm~
 &+ysunder apart anything from solid &+Lrock &+yto platemail. It looks very fearsome, and&N
 &+ywise adventurers would do well not to underestimate its ferocity.&N
 ~
-33564810 1 0 570532012 0 0 0 -500 S
-AC 0 1 -1
+33564810 1 0 0 570532012 0 0 0 -500 S
+AC 0 1 0 -1
 46 -5 -94 53d121+4717 7d6+30
 8.0.6.6 214650
 8 8 0
@@ -244,8 +244,8 @@ stone golem~
 &+L   This &+wstone &+Lgolem towers above you, and although it is slow, it is&N
 &+Lundoubtedly very strong.&N
 ~
-10248 1 0 40 14336 0 0 -1000 S
-OG 0 16 -1
+10248 1 0 0 40 14336 0 0 -1000 S
+OG 0 16 0 -1
 53 -5 -94 53d131+4770 7d6+30
 8.0.6.6 214650
 8 8 0
@@ -258,8 +258,8 @@ earth elemental~
 &+yyour intrusion. The ends of its arms slowly coalesce into the shape of lucern&N
 &+yhammers, which it now swings at you!&N
 ~
-1073752074 1 0 570425592 0 0 0 -500 S
-EE 0 1 -1
+1073752074 1 0 0 570425592 0 0 0 -500 S
+EE 0 1 0 -1
 50 -5 -94 53d88+4664 7d6+30
 8.0.6.6 214650
 8 8 0
@@ -271,8 +271,8 @@ spelunking explorer~
 &+c   This spelunking &+rexplorer &+clooks very rough and rugged, and seems to know his&N
 &+cway around these caverns.&N
 ~
-10250 32 0 8424 0 0 0 1000 S
-H 0 1 -1
+10250 32 0 0 8424 0 0 0 1000 S
+H 0 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
 8 8 1
@@ -284,8 +284,8 @@ diamondine diamond golem massive _ignore_~
 &+L   This &+Wdiamond&+Line golem looks very fearsome, for not only is it entirely&N
 &+Lcomposed of &+Wdiamond&+L, but it looks very strong as well.&N
 ~
-33564682 1 0 33628350 14528 0 1060864 0 S
-OG 0 2097152 -1
+33564682 1 0 0 33628350 14528 0 1060864 0 S
+OG 0 2097152 0 -1
 57 -7 -107 57d132+6213 7d6+35
 2.4.8.6 230850
 8 8 0
@@ -297,8 +297,8 @@ rothe gentle~
 &+y   This rothe is a cattle-like animal, prodding its way down through the&N
 &+ycaverns peacefully.&N
 ~
-10376 0 0 0 0 0 0 500 S
-A 0 0 -1
+10376 0 0 0 0 0 0 0 500 S
+A 0 0 0 -1
 25 2 -28 40d80+840 4d7+10
 0.0.0.0 51840
 8 8 0
@@ -310,8 +310,8 @@ rothe young~
 &+y   This &+Lrothe &+yis a cattle-like animal, prodding its way down through the&N
 &+ycaverns peacefully.&N
 ~
-10376 0 0 0 0 0 0 500 S
-A 0 0 -1
+10376 0 0 0 0 0 0 0 500 S
+A 0 0 0 -1
 20 2 -28 40d80+840 4d7+10
 0.0.0.0 51840
 8 8 0
@@ -325,8 +325,8 @@ xloranarx queen spider giant~
 &+Laggressive during this stage of their lives. Fortunately for her, she now has&N
 &+Lsomeone to feed to her little ones!&N
 ~
-1174415434 1 0 35225660 0 0 0 -1000 S
-X 0 1 -1
+1174415434 1 0 0 35225660 0 0 0 -1000 S
+X 0 1 0 -1
 55 -5 -107 54d88+4482 7d6+30
 0.0.0.0 218700
 8 8 2
@@ -338,8 +338,8 @@ lost adventurer mackin~
 &+L   This lost &+radventurer &+Llooks terrified, for he has obviously been in these&N
 &+wlabyrinths &+Lfor a long while and has yet to find his way out.&N
 ~
-33564808 0 0 46 0 0 0 0 S
-H 0 1 -1
+33564808 0 0 0 46 0 0 0 0 S
+H 0 1 0 -1
 40 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -352,8 +352,8 @@ dolomite warrior~
 &+Lrubbing sound.  Somehow, the &+revil &+Lin these caverns has brought to life this&N
 &+Lmanifestation of minerality.&N
 ~
-1073752072 24 0 32936 0 0 0 -1000 S
-EE 0 1 -1
+1073752072 24 0 0 32936 0 0 0 -1000 S
+EE 0 1 0 -1
 45 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
 8 8 0
@@ -366,8 +366,8 @@ dolomite warrior~
 &+Lrubbing sound.  Somehow, the &+revil &+Lin these caverns has brought to life this&N
 &+Lmanifestation of minerality.&N
 ~
-10312 8 0 168 0 0 0 -1000 S
-EE 0 1 -1
+10312 8 0 0 168 0 0 0 -1000 S
+EE 0 1 0 -1
 49 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
 8 8 0
@@ -380,8 +380,8 @@ guardian dolomite~
 &+Lrubbing sound. Somehow, the &+revil &+Lin these caverns has brought to life this&N
 &+Lmanifestation of minerality.&N
 ~
-1073752138 56 0 33554616 0 0 0 -1000 S
-OG 0 1 -1
+1073752138 56 0 0 33554616 0 0 0 -1000 S
+OG 0 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
 8 8 0
@@ -395,8 +395,8 @@ knight golden flame dzonovrakdl~
 &+Lgood, and has come to the &+wLabyrinth &+Lof &+rNo Return &+Lto battle the awesome &+revil&N
 &+Lwithin it.&N
 ~
-1174419464 0 0 8316 32960 0 0 1000 S
-PH 0 8 -1
+1174419464 0 0 0 8316 32960 0 0 1000 S
+PH 0 8 0 -1
 50 -5 -111 55d121+4620 7d6+30
 0.2.7.10 222750
 8 8 1
@@ -409,8 +409,8 @@ earth elemental~
 &+yyour intrusion. The ends of its arms slowly coalesce into the shape of lucern&N
 &+yhammers, which it now swings at you!&N
 ~
-10250 1 0 570532072 192 0 0 -1000 S
-G 0 1 -1
+10250 1 0 0 570532072 192 0 0 -1000 S
+G 0 1 0 -1
 49 -5 -94 53d131+4770 7d6+30
 8.0.6.6 214650
 8 8 0
@@ -422,8 +422,8 @@ bat giant flying~
 &+L   This giant bat has a wingspan of nearly six feet, and seems to have a set of&N
 &+Lvicious &+Wfangs &+Land large sensitive ears. Luckily, it is sleeping . . . for now.&N
 ~
-141320 1 0 60 0 0 0 -800 S
-B 0 0 -1
+141320 1 0 0 60 0 0 0 -800 S
+B 0 0 0 -1
 32 2 -28 40d95+920 4d7+10
 0.0.0.0 51840
 4 4 0
@@ -436,8 +436,8 @@ bat flying~
 &+Lbreeze as it flies overhead. Unfortunately, it thinks you would make a great&N
 &+Lsnack and dives to attack!&N
 ~
-141448 1 0 60 0 0 0 -1000 S
-B 0 0 -1
+141448 1 0 0 60 0 0 0 -1000 S
+B 0 0 0 -1
 30 2 -28 40d95+920 4d7+10
 0.0.0.0 51840
 8 8 0
@@ -452,8 +452,8 @@ giant beetle~
 &+Lwall. Its &+Reyes &+Lglow mysteriously, leading ne to believe that this creature has&N
 &+Lspent too long a time in the &+wlabyrinth&+L.&N
 ~
-1207969800 56 0 160 1024 0 0 -1000 S
-I 0 1 -1
+1207969800 56 0 0 160 1024 0 0 -1000 S
+I 0 1 0 -1
 39 2 -28 40d80+840 4d7+10
 0.0.0.0 51840
 8 8 0
@@ -466,8 +466,8 @@ blind fish~
 &+wlong time ago. Instead, sensitive feelers protrude from the tips of its mouth,&N
 &+wsearching for small prey.&N
 ~
-270346 0 0 33080 0 0 0 0 S
-A 0 0 -1
+270346 0 0 0 33080 0 0 0 0 S
+A 0 0 0 -1
 10 2 -28 40d80+840 4d7+10
 0.0.0.0 51840
 8 8 0
@@ -481,8 +481,8 @@ spider giant hairy~
 &+Lof the way of this arachnid, for its vicious pincers are coated with &+Gpoison &+Land&N
 &+Lcan crush a granite boulder easily.&N
 ~
-1073752072 1 0 35127416 0 0 0 -1000 S
-AS 0 1 -1
+1073752072 1 0 0 35127416 0 0 0 -1000 S
+AS 0 1 0 -1
 38 -3 -95 50d119+2750 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -496,8 +496,8 @@ spider giant hairy~
 &+Lof the way of this arachnid, for its vicious pincers are coated with &+Gpoison &+Land&N
 &+Lcan crush a granite boulder easily.&N
 ~
-1073752072 1 0 35127416 0 0 0 -1000 S
-AS 0 1 -1
+1073752072 1 0 0 35127416 0 0 0 -1000 S
+AS 0 1 0 -1
 38 -3 -95 50d119+2750 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -510,8 +510,8 @@ dolomite warrior~
 &+Lrubbing sound.  Somehow, the &+revil &+Lin these caverns has brought to life this&N
 &+Lmanifestation of minerality.&N
 ~
-1073752072 24 0 32936 0 0 0 -1000 S
-EE 0 1 -1
+1073752072 24 0 0 32936 0 0 0 -1000 S
+EE 0 1 0 -1
 45 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
 8 8 0
@@ -524,8 +524,8 @@ guardian dolomite~
 &+Lrubbing sound. Somehow, the &+revil &+Lin these caverns has brought to life this&N
 &+Lmanifestation of minerality.&N
 ~
-1073752138 56 0 33554616 0 0 0 -1000 S
-OG 0 1 -1
+1073752138 56 0 0 33554616 0 0 0 -1000 S
+OG 0 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
 8 8 0
@@ -538,8 +538,8 @@ dolomite warrior~
 &+Lrubbing sound.  Somehow, the &+revil &+Lin these caverns has brought to life this&N
 &+Lmanifestation of minerality.&N
 ~
-1073752072 24 0 32936 0 0 0 -1000 S
-EE 0 1 -1
+1073752072 24 0 0 32936 0 0 0 -1000 S
+EE 0 1 0 -1
 45 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
 8 8 0
@@ -552,8 +552,8 @@ guardian dolomite~
 &+Lrubbing sound. Somehow, the &+revil &+Lin these caverns has brought to life this&N
 &+Lmanifestation of minerality.&N
 ~
-1073752138 56 0 33554616 0 0 0 -1000 S
-OG 0 1 -1
+1073752138 56 0 0 33554616 0 0 0 -1000 S
+OG 0 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
 8 8 0
@@ -566,8 +566,8 @@ guardian dolomite~
 &+Lrubbing sound. Somehow, the &+revil &+Lin these caverns has brought to life this&N
 &+Lmanifestation of minerality.&N
 ~
-1073752138 56 0 33554616 0 0 0 -1000 S
-OG 0 1 -1
+1073752138 56 0 0 33554616 0 0 0 -1000 S
+OG 0 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
 8 8 0
@@ -580,8 +580,8 @@ tube worm~
 &+crow of jagged &+Wteeth&+c, perfect for attaching to a victim and sucking the juices&N
 &+cout. The worm is protected by its thick &+Cs&+cc&+Ca&+cl&+Ces&+c.&N
 ~
-10250 1 0 32888 0 0 0 -1000 S
-A 0 1 -1
+10250 1 0 0 32888 0 0 0 -1000 S
+A 0 1 0 -1
 30 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 0
@@ -594,8 +594,8 @@ tube worm~
 &+crow of jagged &+Wteeth&+c, perfect for attaching to a victim and sucking the juices&N
 &+cout. The worm is protected by its thick &+Cs&+cc&+Ca&+cl&+Ces&+c.&N
 ~
-10250 1 0 32888 0 0 0 -1000 S
-A 0 1 -1
+10250 1 0 0 32888 0 0 0 -1000 S
+A 0 1 0 -1
 30 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 0
@@ -608,8 +608,8 @@ tube worm~
 &+crow of jagged &+Wteeth&+c, perfect for attaching to a victim and sucking the juices&N
 &+cout. The worm is protected by its thick &+Cs&+cc&+Ca&+cl&+Ces&+c.&N
 ~
-10250 1 0 32888 0 0 0 -1000 S
-A 0 1 -1
+10250 1 0 0 32888 0 0 0 -1000 S
+A 0 1 0 -1
 30 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
 8 8 0
@@ -622,8 +622,8 @@ earth elemental~
 &+yyour intrusion. The ends of its arms slowly coalesce into the shape of lucern&N
 &+yhammers, which it now swings at you!&N
 ~
-1073752074 1 0 570425592 0 0 0 -500 S
-EE 0 1 -1
+1073752074 1 0 0 570425592 0 0 0 -500 S
+EE 0 1 0 -1
 50 -5 -94 53d88+4664 7d6+30
 8.0.6.6 214650
 8 8 0
@@ -636,8 +636,8 @@ earth elemental~
 &+yyour intrusion. The ends of its arms slowly coalesce into the shape of lucern&N
 &+yhammers, which it now swings at you!&N
 ~
-10250 1 0 570532072 192 0 0 -1000 S
-G 0 1 -1
+10250 1 0 0 570532072 192 0 0 -1000 S
+G 0 1 0 -1
 49 -5 -94 53d131+4770 7d6+30
 8.0.6.6 214650
 8 8 0
@@ -652,8 +652,8 @@ colorless salamander lonely~
 &+wHowever, its giant size has made this particular lizard exceptionally&N
 &+waggressive.&N
 ~
-26634 1 0 56 0 0 0 -1000 S
-D 0 4 -1
+26634 1 0 0 56 0 0 0 -1000 S
+D 0 4 0 -1
 60 -3 -95 50d100+2650 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -667,8 +667,8 @@ scarred battle minotaur~
 &+Linflicted by previous opponents. The fact that this &+Lmino&+rtaur &+Lis still around&N
 &+Lsuggests that they lost, which is not good news for you.&N
 ~
-1107322890 1 0 120 262144 0 0 -1000 S
-MT 0 1 7
+1107322890 1 0 0 120 262144 0 0 -1000 S
+MT 0 1 0 7
 60 -3 -85 50d100+2900 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -682,8 +682,8 @@ muscular minotaur~
 &+Linflicted by previous opponents. The fact that this &+Lmino&+rtaur &+Lis still around&N
 &+Lsuggests that they lost, which is not good news for you.&N
 ~
-1107322890 1 0 120 262144 0 0 -1000 S
-MT 0 1 7
+1107322890 1 0 0 120 262144 0 0 -1000 S
+MT 0 1 0 7
 60 -3 -85 50d100+2900 6d6+25
 0.3.1.5 121500
 8 8 1
@@ -695,8 +695,8 @@ stone golem~
 &+L   This &+wstone &+Lgolem towers above you, and although it is slow, it is&N
 &+Lundoubtedly very strong.&N
 ~
-10248 1 0 40 14336 0 0 -1000 S
-OG 0 16 -1
+10248 1 0 0 40 14336 0 0 -1000 S
+OG 0 16 0 -1
 53 -5 -94 53d131+4770 7d6+30
 8.0.6.6 214650
 8 8 0
@@ -708,8 +708,8 @@ stone golem~
 &+L   This &+wstone &+Lgolem towers above you, and although it is slow, it is&N
 &+Lundoubtedly very strong.&N
 ~
-10248 1 0 40 14336 0 0 -1000 S
-OG 0 16 -1
+10248 1 0 0 40 14336 0 0 -1000 S
+OG 0 16 0 -1
 53 -5 -94 53d131+4770 7d6+30
 8.0.6.6 214650
 8 8 0
@@ -722,8 +722,8 @@ millipede giant pede~
 &+Llimned in &+Yyellow &+Lstripes.  Although it is very long, it is rather agile, and&N
 &+Lmoves rather quickly.&N
 ~
-10248 1 0 80 0 0 0 -1000 S
-I 0 0 -1
+10248 1 0 0 80 0 0 0 -1000 S
+I 0 0 0 -1
 30 -1 -69 45d90+1935 6d6+12
 0.0.0.0 109350
 8 8 0
@@ -736,8 +736,8 @@ millipede giant pede~
 &+Llimned in &+Yyellow &+Lstripes.  Although it is very long, it is rather agile, and&N
 &+Lmoves rather quickly.&N
 ~
-10248 1 0 80 0 0 0 -1000 S
-I 0 0 -1
+10248 1 0 0 80 0 0 0 -1000 S
+I 0 0 0 -1
 30 -1 -69 45d90+1935 6d6+12
 0.0.0.0 109350
 8 8 0
@@ -750,8 +750,8 @@ millipede giant pede~
 &+Llimned in &+Yyellow &+Lstripes.  Although it is very long, it is rather agile, and&N
 &+Lmoves rather quickly.&N
 ~
-10248 1 0 80 0 0 0 -1000 S
-I 0 0 -1
+10248 1 0 0 80 0 0 0 -1000 S
+I 0 0 0 -1
 30 -1 -69 45d90+1935 6d6+12
 0.0.0.0 109350
 8 8 0
@@ -764,8 +764,8 @@ millipede giant pede~
 &+Llimned in &+Yyellow &+Lstripes.  Although it is very long, it is rather agile, and&N
 &+Lmoves rather quickly.&N
 ~
-10248 1 0 80 0 0 0 -1000 S
-I 0 0 -1
+10248 1 0 0 80 0 0 0 -1000 S
+I 0 0 0 -1
 30 -1 -69 45d90+1935 6d6+12
 0.0.0.0 109350
 8 8 0
@@ -782,8 +782,8 @@ vadatorn torn wizard devil~
 &+La &+bmagical &+Lward and not a natural thing.  Perhaps there is some sort of &+bcurse&N
 &+Lthat has been placed upon this demonic minion.&N
 ~
-1108752458 0 0 536971708 34882 0 0 -1000 S
-Y 0 512 7
+1108752458 0 0 0 536971708 34882 0 0 -1000 S
+Y 0 512 0 7
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -797,8 +797,8 @@ spider giant hairy~
 &+Lof the way of this arachnid, for its vicious pincers are coated with &+Gpoison &+Land&N
 &+Lcan crush a granite boulder easily.&N
 ~
-1073752072 1 0 35127416 0 0 0 -1000 S
-AS 0 1 -1
+1073752072 1 0 0 35127416 0 0 0 -1000 S
+AS 0 1 0 -1
 38 -3 -95 50d119+2750 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -812,8 +812,8 @@ spider giant hairy~
 &+Lof the way of this arachnid, for its vicious pincers are coated with &+Gpoison &+Land&N
 &+Lcan crush a granite boulder easily.&N
 ~
-1073752072 1 0 35127416 0 0 0 -1000 S
-AS 0 1 -1
+1073752072 1 0 0 35127416 0 0 0 -1000 S
+AS 0 1 0 -1
 38 -3 -95 50d119+2750 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -827,8 +827,8 @@ spider giant hairy~
 &+Lof the way of this arachnid, for its vicious pincers are coated with &+Gpoison &+Land&N
 &+Lcan crush a granite boulder easily.&N
 ~
-1073752072 1 0 35127416 0 0 0 -1000 S
-AS 0 1 -1
+1073752072 1 0 0 35127416 0 0 0 -1000 S
+AS 0 1 0 -1
 38 -3 -95 50d119+2750 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -842,8 +842,8 @@ spider giant hairy~
 &+Lof the way of this arachnid, for its vicious pincers are coated with &+Gpoison &+Land&N
 &+Lcan crush a granite boulder easily.&N
 ~
-1073752072 1 0 35127416 0 0 0 -1000 S
-AS 0 1 -1
+1073752072 1 0 0 35127416 0 0 0 -1000 S
+AS 0 1 0 -1
 38 -3 -95 50d119+2750 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -857,8 +857,8 @@ spider giant hairy~
 &+Lof the way of this arachnid, for its vicious pincers are coated with &+Gpoison &+Land&N
 &+Lcan crush a granite boulder easily.&N
 ~
-1073752072 1 0 35127416 0 0 0 -1000 S
-AS 0 1 -1
+1073752072 1 0 0 35127416 0 0 0 -1000 S
+AS 0 1 0 -1
 38 -3 -95 50d119+2750 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -872,8 +872,8 @@ spider giant hairy~
 &+Lof the way of this arachnid, for its vicious pincers are coated with &+Gpoison &+Land&N
 &+Lcan crush a granite boulder easily.&N
 ~
-1073752072 1 0 35127416 0 0 0 -1000 S
-AS 0 1 -1
+1073752072 1 0 0 35127416 0 0 0 -1000 S
+AS 0 1 0 -1
 38 -3 -95 50d119+2750 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -887,8 +887,8 @@ spider giant hairy~
 &+Lof the way of this arachnid, for its vicious pincers are coated with &+Gpoison &+Land&N
 &+Lcan crush a granite boulder easily.&N
 ~
-1073752072 1 0 35127416 0 0 0 -1000 S
-AS 0 1 -1
+1073752072 1 0 0 35127416 0 0 0 -1000 S
+AS 0 1 0 -1
 38 -3 -95 50d119+2750 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -902,8 +902,8 @@ spider giant hairy~
 &+Lof the way of this arachnid, for its vicious pincers are coated with &+Gpoison &+Land&N
 &+Lcan crush a granite boulder easily.&N
 ~
-1073752072 1 0 35127416 0 0 0 -1000 S
-AS 0 1 -1
+1073752072 1 0 0 35127416 0 0 0 -1000 S
+AS 0 1 0 -1
 38 -3 -95 50d119+2750 6d6+25
 0.0.0.0 121500
 8 8 0
@@ -916,8 +916,8 @@ centipede giant centi cent~
 &+Lmuch better and moves with an uncanny speed. It seems to think you'd make a&N
 &+Lgood snack, and charges to attack!&N
 ~
-10248 1 0 1048624 0 0 0 -1000 S
-I 0 0 -1
+10248 1 0 0 1048624 0 0 0 -1000 S
+I 0 0 0 -1
 45 -1 -69 45d90+1935 6d6+12
 0.0.0.0 109350
 8 8 0
@@ -930,8 +930,8 @@ centipede giant centi cent~
 &+Lmuch better and moves with an uncanny speed. It seems to think you'd make a&N
 &+Lgood snack, and charges to attack!&N
 ~
-10248 1 0 1048624 0 0 0 -1000 S
-I 0 0 -1
+10248 1 0 0 1048624 0 0 0 -1000 S
+I 0 0 0 -1
 45 -1 -69 45d90+1935 6d6+12
 0.0.0.0 109350
 8 8 0
@@ -944,8 +944,8 @@ centipede giant centi cent~
 &+Lmuch better and moves with an uncanny speed. It seems to think you'd make a&N
 &+Lgood snack, and charges to attack!&N
 ~
-10248 1 0 1048624 0 0 0 -1000 S
-I 0 0 -1
+10248 1 0 0 1048624 0 0 0 -1000 S
+I 0 0 0 -1
 45 -1 -69 45d90+1935 6d6+12
 0.0.0.0 109350
 8 8 0
@@ -958,8 +958,8 @@ centipede giant centi cent~
 &+Lmuch better and moves with an uncanny speed. It seems to think you'd make a&N
 &+Lgood snack, and charges to attack!&N
 ~
-10248 1 0 1048624 0 0 0 -1000 S
-I 0 0 -1
+10248 1 0 0 1048624 0 0 0 -1000 S
+I 0 0 0 -1
 45 -1 -69 45d90+1935 6d6+12
 0.0.0.0 109350
 8 8 0
@@ -971,8 +971,8 @@ pudgy rothe~
 &+y   This rothe is a cattle-like animal, prodding its way down through the&N
 &+ycaverns peacefully.&N
 ~
-10376 0 0 0 0 0 0 500 S
-A 0 0 -1
+10376 0 0 0 0 0 0 0 500 S
+A 0 0 0 -1
 28 2 -28 40d80+840 4d7+10
 0.0.0.0 51840
 8 8 0
@@ -984,8 +984,8 @@ dismal rothe~
 &+y   This &+Lrothe &+yis a cattle-like animal, prodding its way down through the&N
 &+ycaverns peacefully.&N
 ~
-10376 0 0 0 0 0 0 500 S
-A 0 0 -1
+10376 0 0 0 0 0 0 0 500 S
+A 0 0 0 -1
 26 2 -28 40d80+840 4d7+10
 0.0.0.0 51840
 8 8 0
