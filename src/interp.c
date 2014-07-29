@@ -1077,6 +1077,7 @@ const char *command[] = {
   "deploy",
   "blood",
   "deforest",
+  "beep",
   "\n"                          /* MAX_CMD_LIST is now 1000 */
 };
 
@@ -2329,6 +2330,7 @@ void assign_command_pointers(void)
   CMD_Y(CMD_SKILLS, STAT_RESTING + POS_PRONE, do_skills, 1);
   CMD_Y(CMD_SPELLS, STAT_SLEEPING + POS_PRONE, do_spells, 1);
   CMD_Y(CMD_TELL, STAT_RESTING + POS_PRONE, do_tell, 1);
+  CMD_Y(CMD_BEEP, STAT_RESTING + POS_PRONE, do_beep, 1);
   CMD_Y(CMD_RWC, STAT_SLEEPING + POS_PRONE, do_rwc, 65);
   CMD_Y(CMD_REPLY, STAT_RESTING + POS_PRONE, do_reply, 1);
   CMD_N(CMD_LICK, STAT_NORMAL + POS_STANDING, do_lick, 1);
@@ -2623,8 +2625,7 @@ void assign_command_pointers(void)
   CMD_Y(CMD_STAND, STAT_RESTING + POS_PRONE, do_stand, 0);
   CMD_Y(CMD_STAT, STAT_DEAD + POS_PRONE, do_stat, 0);
   CMD_Y(CMD_SUBTERFUGE, STAT_NORMAL + POS_STANDING, do_subterfuge, 0);
-  CMD_Y(CMD_SWEEPING_THRUST, STAT_NORMAL + POS_STANDING, do_sweeping_thrust,
-        0);
+  CMD_Y(CMD_SWEEPING_THRUST, STAT_NORMAL + POS_STANDING, do_sweeping_thrust, 0);
   CMD_Y(CMD_TAKE, STAT_RESTING + POS_SITTING, do_get, 0);
   CMD_Y(CMD_THROAT_CRUSH, STAT_NORMAL + POS_STANDING, do_throat_crush, 0);
   CMD_Y(CMD_TIME, STAT_DEAD + POS_PRONE, do_time, 0);

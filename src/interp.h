@@ -854,6 +854,7 @@ extern unsigned int game_locked;
 #define CMD_DEPLOY         827
 #define CMD_ADDICTED_BLOOD 828
 #define CMD_DEFOREST       829
+#define CMD_BEEP           830
 
 /* cmds below are not real commands, they are
                 used in item special procedures to identify

@@ -3832,8 +3832,9 @@ void show_toggles(P_char ch)
 	  "&+r   Web Info    :&+g %-3s    &+y|&N"
 	  "&+r     Show Quests :&+g %-3s    &+y|&N"
           "&+rBoon Notification:&+g %-3s    &+y|&N\r\n"
-	  "&+r   Newbie EQ   :&+g %-3s    &+y|&N\r\n"
-	  "&+r   Surname   :&+g %-3s    &+y|&N\r\n"
+	  "&+r   Newbie EQ   :&+g %-3s    &+y|&N"
+	  "&+r     No Beep     :&+g %-3s    &+y|&n\r\n"
+	  "&+r   Surname     :&+g %-3s    &+y|&N\r\n"
           "&+y-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
           "-=-=-=-=-=-=-=-=-=-=-=-=-=-&N\r\n",
           ONOFF(!PLR_FLAGGED(ch, PLR_NOTELL)),
@@ -3862,15 +3863,16 @@ void show_toggles(P_char ch)
           ONOFF(PLR2_FLAGGED(ch, PLR2_TERSE)),
           ONOFF(PLR2_FLAGGED(ch, PLR2_QUICKCHANT)),
           ONOFF(PLR2_FLAGGED(ch, PLR2_PROJECT)),
-          ONOFF(IS_SET(ch->specials.act, PLR_AFK)),
+          ONOFF(PLR_FLAGGED(ch, PLR_AFK)),
           ONOFF(PLR2_FLAGGED(ch, PLR2_NCHAT)),
           ONOFF(PLR2_FLAGGED(ch, PLR2_HINT_CHANNEL)),
           ONOFF(PLR2_FLAGGED(ch, PLR2_LGROUP)),
           ONOFF(PLR2_FLAGGED(ch, PLR2_SPEC)),
           ONOFF(PLR2_FLAGGED(ch, PLR2_WEBINFO)),
 	  ONOFF(PLR2_FLAGGED(ch, PLR2_SHOW_QUEST)),
-	  ONOFF(PLR2_FLAGGED(ch, PLR2_NEWBIEEQ)),
 	  ONOFF(PLR2_FLAGGED(ch, PLR2_BOON)),
+	  ONOFF(PLR2_FLAGGED(ch, PLR2_NEWBIEEQ)),
+	  ONOFF(PLR3_FLAGGED(ch, PLR3_NOBEEP)),
 	  ONOFF(PLR3_FLAGGED(ch, PLR3_NOSUR)));
   send_to_char(Gbuf1, send_ch);
 
@@ -3886,7 +3888,10 @@ void show_toggles(P_char ch)
             "&+rVnum:&+g %-3s "
             "&+rBan:&+g %-3s\r\n"
             "&+rDamage:&+g %-3s "
-            "&+rExp:&+g %-3s\r\n",
+            "&+rExp:&+g %-3s "
+            "&+rDebug:&+g %-3s "
+            "&+rFog:&+g %-3s "
+            "&+rHeal:&+g %-3s\n\r",
             ONOFF(!PLR_FLAGGED(ch, PLR_WIZMUFFED)),
             ONOFF(PLR_FLAGGED(ch, PLR_WIZLOG)),
             ONOFF(PLR_FLAGGED(ch, PLR_PLRLOG)),
@@ -3896,7 +3901,10 @@ void show_toggles(P_char ch)
             ONOFF(PLR_FLAGGED(ch, PLR_VNUM)),
             ONOFF(PLR_FLAGGED(ch, PLR_BAN)),
             ONOFF(PLR2_FLAGGED(ch, PLR2_DAMAGE)),
-            ONOFF(PLR2_FLAGGED(ch, PLR2_EXP)));
+            ONOFF(PLR2_FLAGGED(ch, PLR2_EXP)),
+            ONOFF(PLR_FLAGGED(ch, PLR_DEBUG)),
+            ONOFF(PLR_FLAGGED(ch, PLR_MORTAL)),
+            ONOFF(PLR2_FLAGGED(ch, PLR2_HEAL)));
     send_to_char(Gbuf1, send_ch);
     send_to_char
       ("&+y-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-&N\r\n",
@@ -4011,6 +4019,7 @@ static const char *toggles_list[] = {
   "quest",
   "boon",
   "newbie",
+  "beep",
   "surname",
   "\n"
 };
@@ -4122,7 +4131,9 @@ static const char *tog_messages[][2] = {
   {"You will no longer see boon notifications.\r\n",
     "You will now see boon notifications.\r\n"},
   {"You will not load with newbie EQ when you die.\r\n",
-   "You will now load with newbie EQ when you die.\r\n"}
+   "You will now load with newbie EQ when you die.\r\n"},
+  {"You can be beeped.\r\n",
+   "You can not be beeped.\r\n"}
 };
 
 void do_more(P_char ch, char *arg, int cmd)
@@ -4153,10 +4164,8 @@ void do_toggle(P_char ch, char *arg, int cmd)
 
   if (!*Gbuf1)
   {
-    show_toggles(send_ch);      /*
-                                 * show toggles can deal with morphs on
-                                 * its own!
-                                 */
+    // Doesn't care about morphs: just sending a message to send_ch.
+    show_toggles(send_ch);
     return;
   }
   tog_nr = (old_search_block(Gbuf1, 0, strlen(Gbuf1), toggles_list, 0) - 1);
@@ -4179,7 +4188,6 @@ void do_toggle(P_char ch, char *arg, int cmd)
            !strn_cmp(toggles_list[i], "aggimmunity", 11) ||
            !strn_cmp(toggles_list[i], "vnum", 4) ||
            !strn_cmp(toggles_list[i], "status", 6) ||
-           !strn_cmp(toggles_list[i], "gshout", 6) ||
            !strn_cmp(toggles_list[i], "names", 5) ||
            !strn_cmp(toggles_list[i], "debug", 5) ||
            !strn_cmp(toggles_list[i], "ban", 3) ||
@@ -4612,7 +4620,10 @@ void do_toggle(P_char ch, char *arg, int cmd)
   case 57:
     result = PLR2_TOG_CHK(ch, PLR2_NEWBIEEQ);
     break;
-  case 58: //surname
+  case 58:
+    result = PLR3_TOG_CHK(ch, PLR3_NOBEEP);
+    break;
+  case 59: //surname
     arg = one_argument(arg, Gbuf1);
 
    /* if (is_number(Gbuf1) && (wimp_lev = atoi(Gbuf1)))

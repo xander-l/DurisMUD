@@ -122,7 +122,7 @@ bool is_overload(P_char ch)
 }
 #endif
 
-bool is_silent(P_char ch, int showit)
+bool is_silent(P_char ch, bool showit)
 {
   if(ch->in_room != NOWHERE &&
     ((IS_SET(zone_table[world[ch->in_room].zone].flags, ZONE_SILENT) ||
@@ -131,9 +131,10 @@ bool is_silent(P_char ch, int showit)
     affected_by_spell_flagged(ch, SKILL_THROAT_CRUSH, AFFTYPE_CUSTOM1)) &&
     !IS_TRUSTED(ch)))
   {
-    if (showit)
-      send_to_char("The world is deathly silent, and no noise forms...\r\n",
-                   ch);
+    if( showit )
+    {
+      send_to_char("The world is deathly silent, and no noise forms...\r\n", ch);
+    }
     return (TRUE);
   }
   return (FALSE);
@@ -1977,3 +1978,146 @@ void do_yell(P_char ch, char *argument, int cmd)
   if (ch->desc)
     ch->desc->last_input[0] = '\0';
 }
+
+void do_beep(P_char ch, char *argument, int cmd)
+{
+  P_char   vict;
+  P_desc   d;
+  char     name[MAX_INPUT_LENGTH];
+  char     Gbuf1[MAX_STRING_LENGTH];
+
+  one_argument(argument, name);
+
+  if( IS_NPC(ch) && (IS_AFFECTED(ch, AFF_CHARM) || IS_MORPH(ch)) )
+  {
+    send_to_char("If only you could beep, you would..\r\n", ch);
+    return;
+  }
+
+  if( PLR3_FLAGGED(ch, PLR3_NOBEEP) && (!IS_TRUSTED(ch)) )
+  {
+    send_to_char("You can't beep to someone if you have beep toggled off!\r\n", ch);
+    return;
+  }
+  if (IS_AFFECTED(ch, AFF_WRAITHFORM))
+  {
+    send_to_char("You cannot beep in that form!\r\n", ch);
+    return;
+  }
+  if( !*name )
+  {
+    send_to_char("Who do you wish to beep?\r\n", ch);
+    return;
+  }
+  if( (IS_SET(world[ch->in_room].room_flags, UNDERWATER)
+    || ch->specials.z_cord < 0) && !IS_TRUSTED(ch))
+  {
+    send_to_char("Your species doesn't know how to beep underwater...", ch);
+    return;
+  }
+  if( is_silent(ch, TRUE) )
+  {
+    send_to_char("You can't seem to beep much of anything right now.\r\n", ch);
+    return;
+  }
+
+  vict = NULL;
+  // Using descriptor list as in do_tell.
+  for (d = descriptor_list; d; d = d->next)
+  {
+    if( !d->character || d->connected || !d->character->player.name
+      || !isname(d->character->player.name, name)
+      || !CAN_SEE_Z_CORD(ch, d->character) )
+    {
+      continue;
+    }
+    vict = d->character;
+    break;
+  }
+
+  // No beeping across racewar sides, nor NPCs (stops crashbug).
+  if( vict && ((!IS_TRUSTED(ch) && !IS_TRUSTED(vict)
+    && GET_RACEWAR(ch) != GET_RACEWAR(vict)) || IS_NPC(vict)) )
+  {
+      vict = NULL;
+  }
+  if( isname("me", name)
+    || isname("self", name) )
+  {
+    vict = ch;
+  }
+  if( !vict )
+  {
+    send_to_char( "No-one by that name here...\r\n", ch );
+  }
+  else if (ch == vict)
+  {
+    send_to_char("You sneak off to the corner and beep yourself.\a\r\n", ch);
+  }
+  else if( !vict->desc || (IS_AFFECTED4(vict, AFF4_DEAF)) )
+  {
+    act("$E can't hear you.", FALSE, ch, 0, vict, TO_CHAR);
+  }
+  else if( (IS_SET(world[vict->in_room].room_flags, UNDERWATER)
+    || vict->specials.z_cord < 0) && !IS_TRUSTED(vict) )
+  {
+    act("$E can't hear you.", FALSE, ch, 0, vict, TO_CHAR);
+    return;
+  }
+  else if( !IS_TRUSTED(ch)
+    && ((IS_SET(zone_table[world[ch->in_room].zone].flags, ZONE_SILENT)
+    || IS_SET(world[ch->in_room].room_flags, ROOM_SILENT))
+    || GET_STAT(vict) < STAT_RESTING || (PLR3_FLAGGED(ch, PLR3_NOBEEP)
+    && !is_linked_from(vict, ch, LNK_CONSENT))))
+  {
+    act("No-one by that name here...", FALSE, ch, 0, vict, TO_CHAR);
+    if (IS_NPC(ch) && IS_SET(vict->specials.act, PLR_NOTELL))
+    {
+      act("$n attempted to beep you!", FALSE, ch, 0, vict, TO_VICT);
+    }
+    return;
+  }
+  else if( !IS_TRUSTED(ch) && (GET_STAT(ch) < STAT_RESTING) )
+  {
+    send_to_char("You can't do that right now...\r\n", ch);
+  }
+  else if( vict->only.pc->ignored == ch && !IS_TRUSTED(ch) )
+  {
+    act("$N is ignoring you at the moment.  No dice.", FALSE, ch, 0, vict, TO_CHAR);
+  }
+  else
+  {
+    if( ch->desc )
+    {
+      if( IS_SET(ch->specials.act, PLR_ECHO) || IS_NPC(ch) )
+      {
+        sprintf( Gbuf1, "&+WYou beep %s!\r\n", J_NAME(vict) );
+        send_to_char( Gbuf1, ch, LOG_PRIVATE );
+      }
+      else
+      {
+        send_to_char("Ok.\r\n", ch);
+      }
+      if( IS_SET(vict->specials.act, PLR_AFK) )
+      {
+        act("$E is away from $S keyboard right now..", FALSE, ch, 0, vict, TO_CHAR);
+      }
+      if( !CAN_SEE(vict, ch) )
+      {
+      	act("&+L$E cannot see you..&n", FALSE, ch, 0, vict, TO_CHAR);
+      }
+      if( get_property("logs.chat.status", 0.000) && IS_PC(ch) && IS_PC(vict) )
+      {
+        logit( LOG_CHAT, "%s beeps %s.", J_NAME(ch), J_NAME(vict) );
+      }
+    }
+
+    sprintf(Gbuf1, "&+W%s&+W beeps you.\a\r\n", CAN_SEE(vict, ch) ? J_NAME(ch) : "Someone" );
+    send_to_char(Gbuf1, vict, LOG_PRIVATE);
+    if (IS_SET(vict->specials.act, PLR_AFK))
+    {
+      act("$n beeped you, and your &+RAFK&N is toggled on!", FALSE, ch, 0, vict, TO_VICT);
+    }
+  }
+}
+

@@ -922,18 +922,19 @@ struct room_data {
 #define PLR3_FRAGLOW       BIT_2  /* Lowest Fragger */
 //#define PLR3_RACIAL_SKILLS BIT_3
 #define PLR3_NOSUR         BIT_4  /* Titles that will show on who list before names - This is default, none */
-#define PLR3_SURSERF	      BIT_5
+#define PLR3_SURSERF	     BIT_5
 #define PLR3_SURCOMMONER   BIT_6
 #define PLR3_SURKNIGHT     BIT_7
 #define PLR3_SURNOBLE      BIT_8
 #define PLR3_SURLORD       BIT_9
-#define PLR3_SURKING	      BIT_10
+#define PLR3_SURKING	     BIT_10
 #define PLR3_SURLIGHT      BIT_11
 #define PLR3_SURDRAGON     BIT_12
 #define PLR3_SURHEALS      BIT_13
 #define PLR3_SURSERIAL     BIT_14
 #define PLR3_SURREAPER     BIT_15
 #define PLR3_SURDECEPTICON BIT_16
+#define PLR3_NOBEEP        BIT_17
 
 /* For players : Prompt flags (16 bits max) */
 #define PROMPT_NONE        BIT_1
