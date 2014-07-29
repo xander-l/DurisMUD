@@ -21555,7 +21555,8 @@ void spell_mielikki_vitality(int level, P_char ch, char *arg, int type, P_char v
   bool message = false;
   int healpoints = 3 * level + level / 2;
 
-  if(affected_by_spell(ch, SPELL_ESHABALAS_VITALITY))
+  if( affected_by_spell(ch, SPELL_ESHABALAS_VITALITY)
+    || affected_by_spell(ch, SPELL_FALUZURES_VITALITY) )
   {
     send_to_char("&+GThe blessings of the Goddess Mielikki are denied!\r\n", victim);
     return;
