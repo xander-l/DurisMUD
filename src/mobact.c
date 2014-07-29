@@ -6964,14 +6964,21 @@ P_char PickTarget(P_char ch)
     {
       continue;
     }
-    
-    if(has_innate(t_ch, INNATE_CALMING) && (number(0, 101) <= (get_property("innate.calming.notarget.perc", 75))))
+
+    // Reflection Kobolds don't get innate calming anymore.
+    if( has_innate(t_ch, INNATE_CALMING)
+      && number(0, 101) <= get_property("innate.calming.notarget.perc", 75)
+      && !(IS_NPC(t_ch) && GET_VNUM(t_ch) == 250) )
+    {
       continue;
+    }
 
     //statupdate2013 - Drannak
-    if(calmcheck(t_ch))
+    if( calmcheck(t_ch) )
+    {
       continue;
-    
+    }
+
     if(a < MAX_TARGETS)
     {
       target_table[a] = CountToughness(ch, t_ch);
@@ -8159,10 +8166,15 @@ PROFILE_START(mundane_picktarget);
           (RACE_GOOD(tmp_ch) && IS_SET(hometowns[VNUM2TOWN(world[tmp_ch->in_room].number)-1].flags, JUSTICE_EVILHOME)))
       nocalming = 1;
 
-      if(!IS_ELITE(ch) && !nocalming &&
-	 (((GET_LEVEL(ch) - GET_LEVEL(tmp_ch)) <= 5) || !number(0, 3)) &&
-	 has_innate(tmp_ch, INNATE_CALMING))
+      // Alright, if !elite ch and !nocalming.. check for calming:
+      //   if ch's level <= target's level - 5 or 25% hit,
+      //   and target has innate calming and isn't a reflection/image.
+      if( !IS_ELITE(ch) && !nocalming
+        && ( (GET_LEVEL(ch) - GET_LEVEL(tmp_ch) <= 5) || !number(0, 3) )
+        && (has_innate(tmp_ch, INNATE_CALMING) && !(IS_NPC(tmp_ch) && GET_VNUM(tmp_ch) == 250)) )
+      {
         calming = (int)get_property("innate.calming.delay", 10);
+      }
 
     //statupdate2013 - Drannak
       if(calmcheck(ch))

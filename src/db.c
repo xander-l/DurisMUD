@@ -3148,7 +3148,6 @@ void reset_zone(int zone, int force_item_repop)
             break;
           obj_to_obj(obj, obj_to);
           // Artifact poof timer to BLOOD_DAYS * secs in a day.
-//PENIS
           obj->timer[3] = time(NULL);
  	        last_cmd = 1;
           break;
@@ -3195,7 +3194,6 @@ void reset_zone(int zone, int force_item_repop)
         }
         obj_to_room(obj, ZCMD.arg3);
         // Artifact poof timer to BLOOD_DAYS * secs in a day.
-//PENIS
         obj->timer[3] = time(NULL);
         last_cmd = 1;
 
@@ -3235,7 +3233,6 @@ void reset_zone(int zone, int force_item_repop)
           {
             obj_to_char(obj, mob);
             // Artifact poof timer to BLOOD_DAYS * secs in a day.
-//PENIS
             obj->timer[3] = time(NULL);
             last_cmd = 1;
             break;
@@ -3324,7 +3321,6 @@ void reset_zone(int zone, int force_item_repop)
                 }
                 obj_to_room(obj, ZCMD.arg3);
                 // Artifact poof timer to BLOOD_DAYS * secs in a day.
-//PENIS
                 obj->timer[3] = time(NULL);
                 last_cmd = 1;
                 break;
@@ -3385,7 +3381,6 @@ void reset_zone(int zone, int force_item_repop)
                 }
             		obj_to_obj(obj, obj_to);
                 // Artifact poof timer to BLOOD_DAYS * secs in a day.
-//PENIS
                 obj->timer[3] = time(NULL);
                 last_cmd = 1;
                 break;
@@ -3445,7 +3440,6 @@ void reset_zone(int zone, int force_item_repop)
                 randomizeitem(mob, obj);
                 obj_to_char(obj, mob);
                 // Artifact poof timer to BLOOD_DAYS * secs in a day.
-//PENIS
                 obj->timer[3] = time(NULL);
                 last_cmd = 1;
             		break;
@@ -3513,7 +3507,6 @@ void reset_zone(int zone, int force_item_repop)
                 break;
               }
               // Artifact poof timer to BLOOD_DAYS * secs in a day.
-//PENIS
               obj->timer[3] = time(NULL);
               if (mob && (ZCMD.arg3 > 0) && (ZCMD.arg3 <= CUR_MAX_WEAR))
               {

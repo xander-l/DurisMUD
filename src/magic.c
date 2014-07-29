@@ -1591,12 +1591,13 @@ void spell_mirror_image(int level, P_char ch, char *arg, int type,
     }
   }
 
-  numb = MIN(4, level / 6);
-  if(!numb) numb = 1;
+  numb = BOUNDED( 1, level / 6, 4 );
 
-  for (i = 0; i < numb; i++) {
-          if(!(image = make_mirror(ch))) {
-      send_to_char("your mirror ain't imaging tonight bubba.  let a god know.\n", ch);
+  for (i = 0; i < numb; i++)
+  {
+    if(!(image = make_mirror(ch)))
+    {
+      send_to_char("Your mirror ain't imaging tonight bubba.  let a god know.\n", ch);
       return;
     }
     // reset our variables
@@ -1604,19 +1605,19 @@ void spell_mirror_image(int level, P_char ch, char *arg, int type,
     c2 = 0;
     placement = 0;
     // count people in room for random placement
-    for (j = world[ch->in_room].people; j; j = j->next_in_room)
+    for( j = world[ch->in_room].people; j; j = j->next_in_room )
     {
       c++;
     }
     placement = number(0, c);
 
     // If we are placing it after the first person
-    if(placement > 0)
+    if( placement > 0 )
     {
-      for (j = world[ch->in_room].people; j; j = j->next_in_room)
+      for( j = world[ch->in_room].people; j; j = j->next_in_room )
       {
         c2++;
-        if(c2 == placement)
+        if( c2 == placement )
         {
           image->next_in_room = j->next_in_room;
           j->next_in_room = image;
@@ -1638,13 +1639,14 @@ void spell_mirror_image(int level, P_char ch, char *arg, int type,
 }
 
 // Utility function...  This is not a spell.  -- Dalreth
-P_char make_mirror (P_char ch) {
-
+P_char make_mirror( P_char ch )
+{
   char     Gbuf1[512];
   P_char image = NULL;
 
   image = read_mobile(real_mobile(250), REAL);
-  if(!image) {
+  if(!image)
+  {
     return image;
   }
 
@@ -1652,7 +1654,8 @@ P_char make_mirror (P_char ch) {
 
   int duration = setup_pet(image, ch, 30, PET_NOCASH);
   /* if the pet will stop being charmed after a bit, also make it suicide 1-10 minutes later */
-  if(duration >= 0) {
+  if(duration >= 0)
+  {
     duration += number(1,10);
     add_event(event_pet_death, (duration+1) * 60 * 4, image, NULL, NULL, 0, NULL, 0);
   }
@@ -1666,15 +1669,20 @@ P_char make_mirror (P_char ch) {
   sprintf(Gbuf1, "%s stands here.\n", ch->player.name);
   image->player.long_descr = str_dup(Gbuf1);
 
-  if(GET_TITLE(ch)) image->player.title = str_dup(GET_TITLE(ch));
+  if( GET_TITLE(ch) )
+  {
+    image->player.title = str_dup(GET_TITLE(ch));
+  }
 
   GET_RACE(image) = GET_RACE(ch);
   GET_RACEWAR(image) = GET_RACEWAR(ch);
   GET_SEX(image) = GET_SEX(ch);
   GET_ALIGNMENT(image) = GET_ALIGNMENT(ch);
   GET_SIZE(image) = GET_SIZE(ch);
+  // Make them ugly!
+  GET_C_CHA(image) = 1;
 
-        return image;
+  return image;
 }
 
 bool can_conjure_lesser_elem(P_char ch, int level)

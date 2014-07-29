@@ -6788,12 +6788,10 @@ int required_weapon_skill(P_obj wpn)
  * the hit cannot be dodged/parried/blocked since those are tested in
  * pv_common.
  *
- * TO DO: add return value similar to proposed for damage
- *   remove type from arguments list, it's not used anymore
- *   make hit take slot with weapon as an argument or weapon itself
- *   to avoid silly swapping.
- *   consider getting rid of mod argument, it's a bit artificial
- *   and shouldn't be needed anymore
+ * TO DO: (These might be done already)
+ *   1) Add return value similar to proposed for damage
+ *   2) Make hit take slot with weapon as an argument or weapon itself
+ *        to avoid silly swapping.
  */
 bool hit(P_char ch, P_char victim, P_obj weapon)
 {
@@ -7131,6 +7129,13 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
     af.duration = PULSE_VIOLENCE * 3;
     af.flags = AFFTYPE_SHORT;
     affect_to_char_with_messages(ch, &af, "You no longer see spots.", NULL);
+  }
+
+  // Reflections/images never actually hit (even on a crit):
+  if( IS_NPC(ch) && GET_VNUM(ch) == 250 )
+  {
+    to_hit = 0;
+    sic = 0;
   }
 
   if( diceroll >= to_hit && sic != -1 )

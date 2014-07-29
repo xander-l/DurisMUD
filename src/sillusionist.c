@@ -593,28 +593,23 @@ void spell_reflection(int level, P_char ch, char *arg, int type,
   int numb, i, spot, room, targ;
   struct follow_type *k, *p, *l, *q;
 
-  if(!(ch) ||
-     !IS_ALIVE(ch))
+  if( !IS_ALIVE(ch) )
   {
     return;
   }
-  
-  if(IS_NPC(victim) &&
-    (IS_PC(ch) ||
-     IS_PC_PET(ch)))
+
+  if( IS_NPC(victim) && (IS_PC(ch) || IS_PC_PET(ch)) )
   {
     send_to_char("You cannot cast this spell on NPCs.\r\n", ch);
     return;
   }
 
-  for(k = ch->followers; k; k = p)
+  for( k = ch->followers; k; k = p )
   {
     tch = k->follower;
     p = k->next;
-    
-    if(tch &&
-       IS_NPC(tch) &&
-       GET_VNUM(tch) == 250 )
+
+    if( tch && IS_NPC(tch) && GET_VNUM(tch) == 250 )
     {
       stop_fighting(tch);
       if( IS_DESTROYING(tch) )
@@ -624,16 +619,14 @@ void spell_reflection(int level, P_char ch, char *arg, int type,
     }
   }
 
-  if(ch != victim)
+  if( ch != victim )
   {
-    for(l = victim->followers; l; l = q)
+    for( l = victim->followers; l; l = q )
     {
       tch2 = l->follower;
       q = l->next;
-  
-      if(tch2 &&
-         IS_NPC(tch2) &&
-         GET_VNUM(tch2) == 250)
+
+      if( tch2 && IS_NPC(tch2) && GET_VNUM(tch2) == 250 )
       {
         stop_fighting(tch2);
         if( IS_DESTROYING(tch2) )
@@ -649,33 +642,31 @@ void spell_reflection(int level, P_char ch, char *arg, int type,
 
   spot = number(0, numb);
   targ = number(0, numb);
-  
+
   act("&+L$n &+Cs&+Bs&+bs&+Cp&+Bp&+b&+Cl&+Bl&+bl&+Ci&+Bi&+bi&+Ct&+Bt&+bt&+Cs&+Bs&+bs&+L into many images!&N",
      FALSE, victim, 0, 0, TO_ROOM);
   send_to_char
     ("&+LYou &+Cs&+Bs&+bs&+Cp&+Bp&+b&+Cl&+Bl&+bl&+Ci&+Bi&+bi&+Ct&+Bt&+bt&+Cs&+Bs&+bs&+L into many images!&N\r\n",
      victim);
-  
+
   for(i = 0; i < numb; i++)
   {
     image = read_mobile(real_mobile(250), REAL);
-    
+
     if(!image)
     {
-      send_to_char
-        ("your mirror ain't imaging tonight bubba.  Let a god know.\r\n",
-         victim);
+      send_to_char("Your mirror ain't imaging tonight bubba.  Let a god know.\r\n", victim);
       return;
     }
-    if (!image->only.npc)
+    if( !image->only.npc )
     {
       logit(LOG_DEBUG, "Error reading image for %s.", GET_NAME(ch));
       send_to_char("Error reading image mob, let a god know.\r\n", ch);
       extract_char(image);
       return;
     }
-    
-    if(spot == i)
+
+    if( spot == i )
     {
       room = victim->in_room;
       char_from_room(victim);
@@ -684,32 +675,32 @@ void spell_reflection(int level, P_char ch, char *arg, int type,
 
     char_to_room(image, victim->in_room, 0);
 
-    if(!IS_ALIVE(image))
+    if( !IS_ALIVE(image) )
     {
       continue;
     }
-    
+
     image->only.npc->str_mask = (STRUNG_KEYS | STRUNG_DESC1 | STRUNG_DESC2);
-    
+
     image->points.base_hit = GET_MAX_HIT(image) = GET_HIT(image) =
       level * 4 + number(0, 50);
 
-    while(image->affected)
+    while( image->affected )
     {
       affect_remove(image, image->affected);
     }
-    
-    if(!IS_SET(image->specials.act, ACT_MEMORY))
+
+    if( !IS_SET(image->specials.act, ACT_MEMORY) )
     {
       clearMemory(image);
     }
-    
+
     SET_BIT(image->specials.affected_by, AFF_DETECT_INVISIBLE);
 
     balance_affects(image);
 
     setup_pet(image, ch, 3, PET_NOCASH);
-    
+
     add_follower(image, ch);
 
     /* string it */
@@ -718,40 +709,42 @@ void spell_reflection(int level, P_char ch, char *arg, int type,
 
     sprintf(Gbuf1, "image %s %s", GET_NAME(victim),
             race_names_table[GET_RACE(victim)].normal);
-    
+
     image->player.name = str_dup(Gbuf1);
     image->player.short_descr = str_dup(victim->player.name);
 
     sprintf(Gbuf1, "%s stands here.\r\n", victim->player.name);
-    
+
     image->player.long_descr = str_dup(Gbuf1);
 
-    if(GET_TITLE(victim))
+    if( GET_TITLE(victim) )
     {
       image->player.title = str_dup(GET_TITLE(victim));
     }
-    
+
     GET_RACE(image) = GET_RACE(victim);
     GET_RACEWAR(image) = GET_RACEWAR(victim);
     GET_SEX(image) = GET_SEX(victim);
     GET_ALIGNMENT(image) = GET_ALIGNMENT(victim);
     GET_SIZE(image) = GET_SIZE(victim);
+    // Make them ugly so they work for blocking.
+    GET_C_CHA(image) = 1;
 
     remove_plushit_bits(image);
-    
-    if(targ == i && targ != spot)
+
+    if( targ == i && targ != spot )
     {
-      for(tch = world[victim->in_room].people; tch; tch = tch->next_in_room)
+      for( tch = world[victim->in_room].people; tch; tch = tch->next_in_room )
       {
-        if(IS_FIGHTING(tch))
+        if( IS_FIGHTING(tch) )
         {
-          if(tch->specials.fighting == victim)
+          if( tch->specials.fighting == victim )
           {
             stop_fighting(tch);
             stop_fighting(victim);
             set_fighting(tch, image);
-            
-            if(!IS_FIGHTING(image))
+
+            if( !IS_FIGHTING(image) )
             {
               set_fighting(image, tch);
             }
