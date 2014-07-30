@@ -733,7 +733,7 @@ string wiki_spells( string title )
     }
   }
 
-  return_str += "==Spells==\n";
+  return_str += "==Spells==";
 
   if( !found )
   {
@@ -784,7 +784,7 @@ string wiki_skills( string title )
     }
   }
 
-  return_str += "==Skills==\n";
+  return_str += "==Skills==";
 
   if( !found )
   {
