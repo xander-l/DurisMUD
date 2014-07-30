@@ -365,8 +365,10 @@ void npc_steal(P_char ch, P_char vict)
         if (loc)
         {
           obj = unequip_char(vict, loc);
-          remove_owned_artifact(obj, vict, TRUE);
-
+          if( IS_ARTIFACT( obj ) )
+          {
+            remove_owned_artifact(obj, vict, TRUE);
+          }
           obj_to_char(obj, ch);
         }
         else
