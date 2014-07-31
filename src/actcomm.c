@@ -2098,6 +2098,7 @@ void do_beep(P_char ch, char *argument, int cmd)
       {
         send_to_char("Ok.\r\n", ch);
       }
+      CharWait(ch, PULSE_VIOLENCE);
       if( IS_SET(vict->specials.act, PLR_AFK) )
       {
         act("$E is away from $S keyboard right now..", FALSE, ch, 0, vict, TO_CHAR);
