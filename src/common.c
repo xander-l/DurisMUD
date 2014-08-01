@@ -46,7 +46,7 @@ const char *specdata[][MAX_SPEC] = {
   {"&+cWindtalker", "&+WFro&+cst &+CMagus", "&+WCo&+Ysm&+Wom&+Yanc&+Wer", ""},                    // Ethermancer
   {"&+YLight&+Wbringer", "&+WInq&+wuisi&+Wtor", "", ""},                                          // Avenger
   {"&+wMedium&n", "&+YT&+Re&+rmpl&+Ra&+Yr&n", "&+C&+WT&+ch&+Ca&+Wu&+Cm&+ca&+Ct&+Wu&+Cr&+cg&+Ce&n", ""}, // Theurgist
-  {"&+cCon&+Ctrol&+Wler&n", "&+rS&+Ru&+Ym&+Wmo&+Yn&+Re&+rr", "&+gNat&+Gural&+yist&n", ""}         /* Summoner */
+  {"&+cCon&+Ctrol&+Wler&n", "&+rM&+Re&+Yn&+Wtal&+Yi&+Rs&+rt&n", "&+gNat&+Gural&+yist&n", ""}       // Summoner
 };
 /*
  * mob race lookup table, used to assign a race to a mob when reading them

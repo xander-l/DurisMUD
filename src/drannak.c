@@ -1302,7 +1302,7 @@ void do_conjure(P_char ch, char *argument, int cmd)
     return;
 
   // If not spec'd.
-  if (!GET_SPEC(ch, CLASS_SUMMONER, SPEC_CONTROLLER) && !GET_SPEC(ch, CLASS_SUMMONER, SPEC_SUMMONER) && !GET_SPEC(ch, CLASS_SUMMONER, SPEC_NATURALIST))
+  if (!GET_SPEC(ch, CLASS_SUMMONER, SPEC_CONTROLLER) && !GET_SPEC(ch, CLASS_SUMMONER, SPEC_MENTALIST) && !GET_SPEC(ch, CLASS_SUMMONER, SPEC_NATURALIST))
   {
     act("&+YConjuring advanced beings &nis a &+Mmagic &nbeyond your abilities&n.",
         FALSE, ch, 0, 0, TO_CHAR);
@@ -1637,7 +1637,7 @@ bool valid_conjure(P_char ch, P_char victim)
       return FALSE;
     }
 
-    if(GET_SPEC(ch, CLASS_SUMMONER, SPEC_SUMMONER) && !IS_ELEMENTAL(victim))
+    if(GET_SPEC(ch, CLASS_SUMMONER, SPEC_MENTALIST) && !IS_ELEMENTAL(victim))
     {
       return FALSE;
     }
@@ -1739,7 +1739,7 @@ void learn_conjure_recipe(P_char ch, P_char victim)
     return;
   }
 
-  if(GET_SPEC(ch, CLASS_SUMMONER, SPEC_SUMMONER) && !IS_ELEMENTAL(victim))
+  if(GET_SPEC(ch, CLASS_SUMMONER, SPEC_MENTALIST) && !IS_ELEMENTAL(victim))
   {
     send_to_char("You cannot learn to summon a being outside of your area of expertise.\r\n", ch);
     extract_char(victim);

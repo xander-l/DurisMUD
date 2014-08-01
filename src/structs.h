@@ -2121,7 +2121,7 @@ struct mcname {
 
 //Summoner Specs
 #define SPEC_CONTROLLER 1
-#define SPEC_SUMMONER 2
+#define SPEC_MENTALIST  2
 #define SPEC_NATURALIST 3
 
 #define MAX_SPEC 4
