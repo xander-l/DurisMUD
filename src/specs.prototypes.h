@@ -688,7 +688,6 @@ int thought_beacon(P_obj, P_char, int, char *);
 int torms_chessboard(P_obj, P_char, int, char *);
 int trustee_artifact(P_obj, P_char, int, char *);
 int tyr_sword(P_obj, P_char, int, char *);
-int unholy_weapon(P_obj, P_char, int, char *);
 int woundhealer(P_obj, P_char, int, char *);
 int wall_generic(P_obj, P_char, int, char *);
 int wall_generic1(P_obj, P_char, int, char *);
