@@ -1496,13 +1496,6 @@ P_obj unequip_char(P_char ch, int pos)
 
   balance_affects(ch);
 
-  // Remove holy sword spell effects if sword is removed.
-  if( pos == WIELD && affected_by_spell(ch, SPELL_HOLY_SWORD) )
-  {
-    affect_from_char( ch, SPELL_HOLY_SWORD );
-    send_to_char( "&+wYour weapon ceases to glow with holy power.\n&n", ch );
-  }
-
   if (IS_SET(obj->extra_flags, ITEM_LIT) ||
       ((obj->type == ITEM_LIGHT) && obj->value[2]))
   {

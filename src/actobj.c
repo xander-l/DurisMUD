@@ -4886,11 +4886,17 @@ int remove_item(P_char ch, P_obj obj_object, int position)
           obj_to_char(unequip_char(ch, WEAR_ATTACH_BELT_1), ch);
         if (ch->equipment[WEAR_ATTACH_BELT_2])
           obj_to_char(unequip_char(ch, WEAR_ATTACH_BELT_2), ch);
-	if (ch->equipment[WEAR_ATTACH_BELT_3])
+        if (ch->equipment[WEAR_ATTACH_BELT_3])
           obj_to_char(unequip_char(ch, WEAR_ATTACH_BELT_3), ch);
       }
+      // Remove holy sword spell effects if sword is removed.
+      if (ch->equipment[WIELD] && ch->equipment[WIELD] == obj_object)
+      {
+        strip_holy_sword( ch );
+      }
+
       obj_to_char(unequip_char(ch, position), ch);
-      
+
       // Remove Affects
       if (IS_SET(obj_object->bitvector, AFF_INVISIBLE) && affected_by_spell(ch, SKILL_PERMINVIS) && !wearing_invis(ch))
         affect_from_char(ch, SKILL_PERMINVIS);

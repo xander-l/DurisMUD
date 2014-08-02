@@ -1444,6 +1444,7 @@ void do_disarm(P_char ch, char *arg, int cmd)
         FALSE, ch, 0, victim, TO_CHAR);
     notch_skill(ch, SKILL_DISARM, 10);
     obj_to_char(unequip_char(victim, pos), victim);
+    strip_holy_sword( victim );
     set_short_affected_by(victim, SKILL_DISARM, 3 * PULSE_VIOLENCE);
   }
   else if (rnd_num >= 90)
@@ -1456,6 +1457,7 @@ void do_disarm(P_char ch, char *arg, int cmd)
     act("You fail miserably in your attempt to disarm $N.", FALSE, ch, 0,
         victim, TO_CHAR);
     obj_to_char(unequip_char(ch, WIELD), ch);
+    strip_holy_sword( ch );
     set_short_affected_by(ch, SKILL_DISARM, 3 * PULSE_VIOLENCE);
   }
   else if (rnd_num >= 60)

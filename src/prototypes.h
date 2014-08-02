@@ -44,6 +44,7 @@ struct obj_affect *get_spell_from_obj(P_obj, int);
 void make_dry(P_char);
 bool make_wet(P_char, int);
 bool affect_timer(P_char, int, int);
+void strip_holy_sword( P_char );
 
 // account.c
 //

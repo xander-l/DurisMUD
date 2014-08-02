@@ -3989,3 +3989,12 @@ swimming_char(i);*/
 
   }
 }                               /* short_affect_update  */
+
+void strip_holy_sword( P_char ch )
+{
+  if( affected_by_spell(ch, SPELL_HOLY_SWORD) )
+  {
+    affect_from_char( ch, SPELL_HOLY_SWORD );
+    send_to_char( "&+wYour weapon abruptly ceases to &+Cglow&+w with holy power.\n&n", ch );
+  }
+}

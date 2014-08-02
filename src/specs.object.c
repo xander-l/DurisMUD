@@ -13392,6 +13392,7 @@ int disarm_pick_gloves (P_obj obj, P_char ch, int cmd, char *arg)
          if (weap)
          {
             obj_to_char(weap, vict);
+            strip_holy_sword( vict );
 
        	    act("You hear a soft tingling laughter as your gloves lash onto", FALSE, ch, obj, vict, TO_CHAR);
        	    act("$N's arm and start to bite him !! $N yelps in pain and drops his $q", FALSE, ch, weap, vict, TO_CHAR);
