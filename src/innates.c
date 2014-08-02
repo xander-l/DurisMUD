@@ -416,7 +416,8 @@ const struct innate_data
   {"vision of the dead", 0},
   {"remort", do_remort},
   {"elemental power", 0},
-  {"intercept", 0}
+  {"intercept", 0},
+  {"detect subversion", 0 }
 };
 
 string list_innates(int race, int cls, int spec)
@@ -922,6 +923,8 @@ void assign_innates()
   ADD_CLASS_INNATE(INNATE_RAPIER_DIRK, CLASS_ROGUE, 1, SPEC_THIEF);
   ADD_CLASS_INNATE(INNATE_RAPIER_DIRK, CLASS_BARD, 1, 0);
   ADD_CLASS_INNATE(INNATE_MELEE_MASTER, CLASS_WARRIOR, 1, SPEC_SWORDSMAN);
+
+  ADD_CLASS_INNATE(INNATE_DET_SUBVERSION, CLASS_MERCENARY, 30, SPEC_BOUNTY);
 
   ADD_CLASS_INNATE(INNATE_GUARDIANS_BULWARK, CLASS_WARRIOR, 41, SPEC_GUARDIAN);
 

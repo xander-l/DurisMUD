@@ -777,7 +777,7 @@ char    *show_obj_to_char(P_obj object, P_char ch, int mode, int print)
       strcat(buf, " (&+Lsecret&n)");
       found = TRUE;
     }
-    if (IS_AFFECTED4(ch, AFF4_DETECT_ILLUSION) && is_illusion_obj(object))
+    if( (IS_AFFECTED4(ch, AFF4_DETECT_ILLUSION) || has_innate( ch, INNATE_DET_SUBVERSION)) && is_illusion_obj(object))
     {
       strcat(buf, " (&+MIllusion&n)");
       found = TRUE;
@@ -1026,6 +1026,9 @@ void show_visual_status(P_char ch, P_char tar_char)
       SVS("&+B$E is in the back rank.");
   }
 
+  if( (IS_AFFECTED4(ch, AFF4_DETECT_ILLUSION) || has_innate( ch, INNATE_DET_SUBVERSION)) && is_illusion_char(tar_char))
+    SVS("&+m$E seems to waver slightly.");
+
   if (IS_AFFECTED(tar_char, AFF_BARKSKIN))
     SVS("&+y$S skin has a barklike texture..");
   if (IS_AFFECTED5(tar_char, AFF5_THORNSKIN))
@@ -1186,7 +1189,7 @@ void create_in_room_status(P_char ch, P_char i, char buffer[])
   if (IS_AFFECTED4(ch, AFF4_SENSE_HOLINESS) && IS_HOLY(i))
     strcat(buffer, "(&+Wholy&n)");
 
-  if (IS_AFFECTED4(ch, AFF4_DETECT_ILLUSION) && is_illusion_char(i))
+  if( (IS_AFFECTED4(ch, AFF4_DETECT_ILLUSION) || has_innate( ch, INNATE_DET_SUBVERSION)) && is_illusion_char(i))
     strcat(buffer, "(&+mIllusion&n)");
 
   if (IS_AFFECTED5(ch, AFF5_BLOOD_SCENT) && GET_HIT(i) < 0.4 * GET_MAX_HIT(i))
@@ -1457,10 +1460,10 @@ void show_char_to_char(P_char i, P_char ch, int mode)
           else
             strcat(buffer, "(&+mdisguised&n)");
         }
-
-        if (IS_AFFECTED4(ch, AFF4_DETECT_ILLUSION) && is_illusion_char(i))
+/* Commented this out as it was showing (Illusion) 2x when you typed look.
+        if( (IS_AFFECTED4(ch, AFF4_DETECT_ILLUSION) || has_innate( ch, INNATE_DET_SUBVERSION)) && is_illusion_char(i))
           strcat(buffer, "(&+mIllusion&n)");
-
+*/
         if (!i->desc && IS_TRUSTED(ch))
           strcat(buffer, " %%");
       }
