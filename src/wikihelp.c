@@ -14,6 +14,8 @@ extern struct class_names class_names_table[];
 extern int class_table[LAST_RACE + 1][CLASS_COUNT + 1];
 extern char *specdata[][MAX_SPEC];
 extern const char *stat_to_string3(int);
+extern int allowed_secondary_classes[][5];
+extern const mcname multiclass_names[];
 
 void debug( const char *format, ... );
 
@@ -257,7 +259,7 @@ string wiki_classes(string title)
   for (i = 0; i <= RACE_PLAYER_MAX; i++)
   {
     if (!strcmp(tolower(race_names_table[i].normal).c_str(), tolower(title).c_str()))
-    { 
+    {
       break;
     }
   }
@@ -315,8 +317,7 @@ string wiki_specs(string title)
 
   for (j = 0; j < MAX_SPEC; j++)
   {
-    if (!strcmp(specdata[i][j], "") ||
-	!strcmp(specdata[i][j], "Not Used"))
+    if (!strcmp(specdata[i][j], "") || !strcmp(specdata[i][j], "Not Used"))
       continue;
     found = 1;
     return_str += string(specdata[i][j]);
@@ -511,6 +512,12 @@ string wiki_help_single(string str)
     return_str += wiki_skills(title);
     return_str += "\n";
     return_str += wiki_spells(title);
+  }
+
+  // Yeah, yeah.. I know this is a hack..
+  if( !strcmp(row[0], "Multiclass") )
+  {
+    return_str += wiki_multiclass(row[0]);
   }
 
   mysql_free_result(res);
@@ -812,6 +819,83 @@ string wiki_skills( string title )
 
   // List spells( class, spec )
   return_str += list_skills( i, j );
+
+  return return_str;
+}
+
+string wiki_multiclass( string title )
+{
+  string return_str;
+  int i, j, k;
+  bool found, allowed;
+
+  return_str = "\n\r\n\rHere are the options available to each class:";
+  for( i = 1; i <= CLASS_COUNT; i++ )
+  {
+    found = FALSE;
+    for( j = 0; j < 5; j++ )
+    {
+      // allowed_secondary_classes ends with a -1.
+      if( allowed_secondary_classes[i][j] == -1 )
+        break;
+      if( !found )
+      {
+        return_str += "\n\r* ";
+        return_str += pad_ansi(class_names_table[i].ansi, 12);
+        return_str += "&n: ";
+      }
+      else
+      {
+        return_str += ", ";
+      }
+      return_str += class_names_table[flag2idx(allowed_secondary_classes[i][j])].ansi;
+      return_str += "&n";
+      found = TRUE;
+    }
+  }
+
+  // This works, but we're missing a lotta multiclass names?
+  return_str += "\n\r\n\r==Multi-Class Names==";
+
+  // For each class (skipping CLASS_NONE)..
+  for( i = 1; i <= CLASS_COUNT; i++ )
+  {
+    // For each allowed secondary class
+    for( j = 0; j < 5; j++ )
+    {
+      // allowed_secondary_classes ends with a -1.
+      if( allowed_secondary_classes[i][j] == -1 )
+      {
+        break;
+      }
+// i : 1 (warrior), j : 0, allowed_secondary_classes[i][j] : CLASS_MERCENARY
+      // Find the corresponding multi-class name..
+      for( k = 0; multiclass_names[k].cls1 != -1; k++ )
+      {
+        // If cls1 and cls2 match..
+        if( ((multiclass_names[k].cls1 == (1 << (i-1)))
+          && (multiclass_names[k].cls2 == allowed_secondary_classes[i][j]))
+          || ((multiclass_names[k].cls2 == (1 << (i-1))
+          && (multiclass_names[k].cls1 == allowed_secondary_classes[i][j]))) )
+        {
+          return_str += "\n\r* ";
+          return_str += multiclass_names[k].mc_name;
+          return_str += "&n: ";
+          return_str += class_names_table[ i ].ansi;
+          return_str += "&n / ";
+          return_str += class_names_table[ flag2idx(allowed_secondary_classes[i][j]) ].ansi;
+          return_str += "&n";
+          break;
+        }
+      }
+      if( multiclass_names[k].cls1 == -1 )
+      {
+        return_str += "\n\r&+RMulticlass: &n";
+        return_str += "&n not found!";
+      }
+    }
+  }
+  return_str += "\n\r";
 
   return return_str;
 }
