@@ -68,6 +68,7 @@ extern const int rev_dir[];
 extern int top_of_world;
 extern int top_of_zone_table;
 
+// These are set in weather.c
 /*extern int map_g_modifier;
 extern int map_e_modifier;*/
 extern struct zone_data *zone;
@@ -805,87 +806,101 @@ int map_view_distance(P_char ch, int room)
 {
   int n;
 
-  if(!(ch) ||
-    !IS_ALIVE(ch))
+  if( !IS_ALIVE(ch) )
   {
     return 0;
   }
-  
-  if(has_innate(ch, INNATE_EYELESS))
+
+  // eyeless - this means that ANY other factors mean nothing.
+  if( has_innate(ch, INNATE_EYELESS) )
   {
-    // eyeless - this means that ANY other factors mean nothing.
-    n = 8;
+    return 8;
   }
   // if on the surface
-  else if (IS_SURFACE_MAP(room))
+  else if( IS_SURFACE_MAP(room) )
   {
-    if(has_innate(ch, INNATE_DAYBLIND))
+    if( has_innate(ch, INNATE_DAYBLIND) )
     {
-      if (IS_AFFECTED2(ch, AFF2_ULTRAVISION)) //drannak
-      n = BOUNDED(0, (map_e_modifier + 2), 8);
+      if( IS_AFFECTED2(ch, AFF2_ULTRAVISION) )
+      {
+        n = BOUNDED(0, (map_e_modifier + 2), 8);
+      }
       else
-      n = BOUNDED(0, (map_e_modifier), 8);
+      {
+        n = BOUNDED(0, (map_e_modifier), 8);
+      }
     }
     else
     {
       n = BOUNDED(0, map_g_modifier, 8);
     }
-    
+
     if( IS_AFFECTED(ch, AFF_FLY) )
     {
       n++;
     }
-    
   }
   else if (IS_UD_MAP(room))
   {
-    if(RACE_GOOD(ch))
+    if( RACE_GOOD(ch) )
     {
       n = 5;
 
       if( IS_LIGHT(room) )
+      {
         n += 1;
-      
-      if (IS_AFFECTED2(ch, AFF2_ULTRAVISION))
+      }
+      if( IS_AFFECTED2(ch, AFF2_ULTRAVISION) )
+      {
         n += 1;
-
-      if (IS_AFFECTED(ch, AFF_UD_VISION))
+      }
+      if( IS_AFFECTED(ch, AFF_UD_VISION) )
+      {
         n += 2;
+      }
     }
     else
     {
       n = 5;
-    
+
       if (has_innate(ch, INNATE_DAYBLIND))
-        n += 1; 
-      
+      {
+        n += 1;
+      }
       if (IS_AFFECTED2(ch, AFF2_ULTRAVISION))
+      {
         n += 2;
+      }
     }
   }
+  // In a zone.. ?!
   else
   {
     n = 5;
-    
-    if(has_innate(ch, INNATE_PERCEPTION))
-      n += 2;
-    
+
     if(IS_AFFECTED4(ch, AFF4_HAWKVISION))
+    {
       n += 1;
+    }
   }
-  
-  if (IS_FOREST_ROOM(room) &&
-      !has_innate(ch, INNATE_FOREST_SIGHT)  &&
-      n > 3) 
+
+  if( IS_FOREST_ROOM(room) && !has_innate(ch, INNATE_FOREST_SIGHT) && n > 3 )
   {
     n = 3;
   }
 
-  if (IS_FOREST_ROOM(room) && IS_AFFECTED5(ch, AFF5_FOREST_SIGHT))
-  n = 7;
+  if( IS_FOREST_ROOM(room) && IS_AFFECTED5(ch, AFF5_FOREST_SIGHT) )
+  {
+    n = 7;
+  }
+
+  if( has_innate(ch, INNATE_PERCEPTION) )
+  {
+    n += 1;
+  }
 
   n = BOUNDED(0, n, 10);
-  
+
   if( IS_OCEAN_ROOM(room) )
   {
     n = 10;
@@ -898,7 +913,7 @@ int map_view_distance(P_char ch, int room)
   {
     n += ch->specials.z_cord;
   }
-  
+
   return n;
 }
 
@@ -906,8 +921,7 @@ void map_look_room(P_char ch, int room, int show_map_regardless)
 {
   char     tot_buf[MAX_STRING_LENGTH];
 
-  if(!(ch) ||
-    !IS_ALIVE(ch))
+  if( !IS_ALIVE(ch) )
   {
     return;
   }
