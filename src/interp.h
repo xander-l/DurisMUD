@@ -339,8 +339,8 @@ extern unsigned int game_locked;
 #define CMD_NOG            312
 #define CMD_TWIBBLE        313
 #define CMD_THROW          314
-#define CMD_LIGHTNING      315
-#define CMD_SWEEP          316
+#define CMD_LIGHTNING      315 // Unused command.
+#define CMD_SWEEP          316 // Tailsweep
 #define CMD_APOLOGIZE      317
 #define CMD_AFK            318
 #define CMD_LAG            319
@@ -434,7 +434,7 @@ extern unsigned int game_locked;
 #define CMD_BODYSLAM       407
 #define CMD_SACRIFICE      408
 #define CMD_TERMINATE      409
-#define CMD_CD             410
+#define CMD_CD             410 // For labelas proc
 #define CMD_MEMORIZE       411
 #define CMD_FORGET         412
 #define CMD_HEADBUTT       413
@@ -501,7 +501,7 @@ extern unsigned int game_locked;
 #define CMD_SUMMON         474
 #define CMD_CLONE          475
 #define CMD_TROPHY         476
-#define CMD_ZAP            477
+#define CMD_ZAP            477 // Special triger?
 #define CMD_ALERT          478
 #define CMD_RECLINE        479
 #define CMD_KNOCK          480
@@ -515,8 +515,8 @@ extern unsigned int game_locked;
 #define CMD_PROCLIB        488
 #define CMD_SETHOME        489
 #define CMD_SCAN           490
-#define CMD_APPLY          491
-#define CMD_HITCH          492
+#define CMD_APPLY          491 // Poison
+#define CMD_HITCH          492 // Cart 'n Horse
 #define CMD_UNHITCH        493
 #define CMD_MAP            494
 #define CMD_OGRE_ROAR      495
@@ -539,7 +539,7 @@ extern unsigned int game_locked;
 #define CMD_PROJECT        512
 #define CMD_ABSORBE        513
 #define CMD_FLY            514
-#define CMD_TEDIT          515
+#define CMD_TEDIT          515 // Unused command.
 #define CMD_FRAGLIST       516
 #define CMD_LWITNESS       517
 #define CMD_PAY            518
@@ -559,7 +559,7 @@ extern unsigned int game_locked;
 #define CMD_SUBTERFUGE     532
 #define CMD_DIRTTOSS       533
 #define CMD_DISGUISE       534
-#define CMD_CLAIM          535
+#define CMD_CLAIM          535 // For justice clerk holding items
 #define CMD_CHARGE         536
 #define CMD_LORE           537
 #define CMD_POOFINSND      538
@@ -587,23 +587,23 @@ extern unsigned int game_locked;
 #define CMD_SUICIDE        560
 #define CMD_ECHOG          561
 #define CMD_ECHOE          562
-#define CMD_ASCLIST        563
-#define CMD_UNUSED         564
-#define CMD_FREE           565
+#define CMD_ASCLIST        563 // Association list
+#define CMD_UNUSED         564 // Unused command.
+#define CMD_FREE           565 // Keyword?
 #define CMD_ECHOT          566
 #define CMD_ROUNDKICK      567
-#define CMD_PLEASANT       568
+#define CMD_PLEASANT       568 // Inflict pleasantry
 #define CMD_HAMSTRING      569
-#define CMD_DECREE         570
+#define CMD_DECREE         570 // Unused command.
 #define CMD_ARENA          571
 #define CMD_ARTIFACTS      572
 #define CMD_INVITE         573
 #define CMD_UNINVITE       574
-#define CMD_COMBINATION    575
+#define CMD_COMBINATION    575 // Combo attack, monk
 #define CMD_WIZCONNECT     576
 #define CMD_REPLY          577
 #define CMD_DEATHOBJ       578
-#define CMD_RWC            579
+#define CMD_RWC            579 // Racewar chat (disabled)
 #define CMD_AFFECT_PURGE   580
 #define CMD_TUPOR          581
 #define CMD_ECHOU          582
@@ -666,7 +666,7 @@ extern unsigned int game_locked;
 #define CMD_PING           639
 #define CMD_PLOP           640
 #define CMD_POTATO         641
-#define CMD_EPARDON        642  // not imped
+#define CMD_EPARDON        642  // social, now 'epardon' in list of commands.  Pardon is for justice code.
 #define CMD_REASSURE       643
 #define CMD_OHHAPPY        644
 #define CMD_GLUM           645
@@ -677,7 +677,7 @@ extern unsigned int game_locked;
 #define CMD_STRIP          650
 #define CMD_SUFFER         651
 #define CMD_STOKE          652
-#define CMD_ESWEEP         653  // not imped
+#define CMD_ESWEEP         653  // social, now 'esweep' in list of commands. (sweep is for dragon pets/dracos).
 #define CMD_SWOON          654
 #define CMD_TENDER         655
 #define CMD_THROTTLE       656
@@ -726,7 +726,7 @@ extern unsigned int game_locked;
 #define CMD_RELOADHELP     699
 #define CMD_TESTCOLOR      700
 #define CMD_MULTICLASS     701
-#define CMD_RESETARTI      702
+#define CMD_RESETARTI      702 // Resets timer on an arti.
 #define CMD_SPECIALIZE     703
 #define CMD_RESETSPEC      704
 #define CMD_NCHAT          705
@@ -735,13 +735,13 @@ extern unsigned int game_locked;
 #define CMD_DISAPPEAR      708
 #define CMD_HARDCORE       709
 #define CMD_CHEAT          710
-#define CMD_CHEATER        711
+#define CMD_CHEATER        711 // Lists punished ppl
 #define CMD_PUNISH         712
 #define CMD_CRAFT          713
 #define CMD_MIX            714
 #define CMD_FORGE          715
 #define CMD_THROWPOTION    716
-#define CMD_PROJECTS       717
+#define CMD_PROJECTS       717 // Lists current projects defined in PROJECTS_FILE
 #define CMD_RAGE           718
 #define CMD_MAUL           719
 #define CMD_RAMPAGE        720
@@ -755,7 +755,7 @@ extern unsigned int game_locked;
 #define CMD_GMOTD          728
 #define CMD_FIX            729
 #define CMD_TRAMPLE        730
-#define CMD_WAIL           731
+#define CMD_WAIL           731 // Same as play (for Bards).
 #define CMD_STATISTIC      732
 #define CMD_HOME           733
 #define CMD_WHIRLWIND      734
@@ -768,20 +768,20 @@ extern unsigned int game_locked;
 #define CMD_FLANK          741
 #define CMD_GAZE           742
 #define CMD_QUEST          743
-#define CMD_RELIC          744
-#define CMD_SCENT          745
-#define CMD_CALL           746
-#define CMD_OK             747
+#define CMD_RELIC          744 // Displays current Relic points for each racewar side.
+#define CMD_SCENT          745 // Blood scent
+#define CMD_CALL           746 // Call of the grave.
+#define CMD_OK             747 // Puts online player <arg1> into ok file with message <arg rest>
 #define CMD_SNEAKY_STRIKE  748
 #define CMD_MUG            749
-#define CMD_DEFEND         750
+#define CMD_DEFEND         750 // Unused command.
 #define CMD_EXHUME         751
 #define CMD_MORE           752
 #define CMD_FADE           753
 #define CMD_SHRIEK         754
 #define CMD_REMORT         755
 #define CMD_RECALL         756
-#define CMD_RAID           757
+#define CMD_RAID           757 // Is raidable check
 #define CMD_MINE           758
 #define CMD_FISH           759
 #define CMD_SPELLBIND      760
@@ -799,62 +799,62 @@ extern unsigned int game_locked;
 #define CMD_NEXUS          772
 #define CMD_TEST           773
 #define CMD_TRANQUILIZE    774
-#define CMD_TRAIN          775
-#define CMD_SLIP           776
+#define CMD_TRAIN          775 // Used with nexus stones.
+#define CMD_SLIP           776 // Rogue skill
 #define CMD_HEADLOCK       777
 #define CMD_LEGLOCK        778
 #define CMD_GROUNDSLAM     779
-#define CMD_INFUSE         780
-#define CMD_BUILD          781
+#define CMD_INFUSE         780 // Recharges Staff/Wand
+#define CMD_BUILD          781 // Builds an outpost mob? Arg: level
 #define CMD_PRESTIGE       782
 #define CMD_ALLIANCE       783
 #define CMD_ACCUSE         784
-#define CMD_DESTROY        785
-#define CMD_SMITE          786
-#define CMD_STORAGE        787
-#define CMD_GATHER         788
-#define CMD_NAFK           789
+#define CMD_DESTROY        785 // 'destroy' -> do_hit
+#define CMD_SMITE          786 // Holy smite for Avengers.
+#define CMD_STORAGE        787 // Create a storage container (persists through reboots/crashes/etc).
+#define CMD_GATHER         788 // Gather arrows.
+#define CMD_NAFK           789 // Unused command.
 #define CMD_GRIMACE        790
-#define CMD_NEWBSU         791
+#define CMD_NEWBSU         791 // Newbie buff <arg>
 #define CMD_GIVEPET        792
 #define CMD_OUTPOST        793
-#define CMD_OFFENSIVE      794
-#define CMD_PERUSE         795
-#define CMD_HARVEST        796
-#define CMD_BATTLERAGER    797
+#define CMD_OFFENSIVE      794 // Offensive toggle
+#define CMD_PERUSE         795 // Get stats on item in shop
+#define CMD_HARVEST        796 // Harvest a tree for resources.
+#define CMD_BATTLERAGER    797 // 'battlerager confirm' for a Dwarf to become a Berserker.
 #define CMD_PETITION_BLOCK 798
 #define CMD_AREA           799
 #define CMD_WHITELIST      800
 #define CMD_EPICRESET      801
-#define CMD_FOCUS          802
+#define CMD_FOCUS          802 // Assimilate for ShadowBeast
 #define CMD_BOON           803
-#define CMD_CTF	           804
-#define CMD_TETHER         805
-#define CMD_QUESTWHERE     806
-#define CMD_NEWBSA         807
+#define CMD_CTF	           804 // Capture the flag
+#define CMD_TETHER         805 // Tether, for Cabalists (abandoned)
+#define CMD_QUESTWHERE     806 // Searches for items received from quests
+#define CMD_NEWBSA         807 // Newbie buff all.
 #define CMD_SALVAGE        808
-#define CMD_RESTRAIN       809
-#define CMD_BARRAGE        810
-#define CMD_BLADE          811
-#define CMD_CONSUME        812
-#define CMD_RIFF           813
+#define CMD_RESTRAIN       809 // Avenger & AP skill
+#define CMD_BARRAGE        810 // Ranger Blade Barrage skill
+#define CMD_BLADE          811 // Same as CMD_BARRAGE
+#define CMD_CONSUME        812 // AP/Violator command to consume flesh.
+#define CMD_RIFF           813 // Bard command
 #define CMD_LEADERBOARD    814
 #define CMD_SOULBIND       815
 #define CMD_ACHIEVEMENTS   816
-#define CMD_SALVATION      817
-#define CMD_REFINE         818
-#define CMD_DREADNAUGHT    819
+#define CMD_SALVATION      817 // Command gained from May I Heals You? Achievement
+#define CMD_REFINE         818 // Refine salvaged materials
+#define CMD_DREADNAUGHT    819 // Warrior/Guardian skill
 #define CMD_DICE           820
-#define CMD_SHADOWSTEP     821
-#define CMD_GARROTE        822
-#define CMD_CONJURE        823
-#define CMD_DISMISS        824
-#define CMD_ENHANCE        825
-#define CMD_ADD            826
-#define CMD_DEPLOY         827
-#define CMD_ADDICTED_BLOOD 828
-#define CMD_DEFOREST       829
-#define CMD_BEEP           830
+#define CMD_SHADOWSTEP     821 // Rogue/Thief skill
+#define CMD_GARROTE        822 // Rogue/Assassin skill
+#define CMD_CONJURE        823 // Summoner command
+#define CMD_DISMISS        824 // Dismisses pets.
+#define CMD_ENHANCE        825 // Take two items, some plat, and make a new one.
+#define CMD_ADD            826 // Add command to add resrouces to a town.
+#define CMD_DEPLOY         827 // Deploy command to deploy troops in a town.
+#define CMD_ADDICTED_BLOOD 828 // 'blood' command: shows Addicted to Blood/Bloodlust info
+#define CMD_DEFOREST       829 // Blighter command
+#define CMD_BEEP           830 // Make <arg>'s computer beep
 
 /* cmds below are not real commands, they are
                 used in item special procedures to identify

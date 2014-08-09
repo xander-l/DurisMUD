@@ -1224,7 +1224,11 @@ void do_affectpurge(P_char ch, char *argument, int cmd)
   }
 }
 
-/*
+// No args: Lists the deathobjects vnum along with short desc.
+// With arg add: Adds to list of deathobjects and sets object's proc to kill any mortal.
+// With arg remove: Removes argument from list of deathobjects and sets proc to NULL.
+// Question: Are these procs read/set at boot and after regular procs set?
+//   Otherwise, they won't persist through boots and would make this lame.
 void do_deathobj(P_char ch, char *argument, int cmd)
 {
   char     vnum[15], out[MAX_STRING_LENGTH], Gbuf[MAX_STRING_LENGTH];
@@ -1232,6 +1236,10 @@ void do_deathobj(P_char ch, char *argument, int cmd)
   FILE    *f;
   int      count = 0, inserted = FALSE, removed = FALSE, newvnum, rn;
   P_obj    obj;
+
+  // Disabled for unknown reasons. - Lohrr 8/8/14
+  send_to_char( "do_deathobj: Command disabled.\n\r", ch );
+  return;
 
   *out = '\0';
   *arg1 = '\0';
@@ -1311,11 +1319,11 @@ void do_deathobj(P_char ch, char *argument, int cmd)
         sprintf(Gbuf, "%d\n", newvnum);
         strcat(out, Gbuf);
       }
-      obj_index[rn].god_func = death_proc;
+      obj_index[rn].func.obj = death_proc;
       fclose(f);
       if((f = fopen("Players/deathobjs", "w")))
       {
-        fprintf(f, out);
+        fprintf(f, "%s", out);
         fclose(f);
       }
       send_to_char("New vnum inserted.\n", ch);
@@ -1341,9 +1349,9 @@ void do_deathobj(P_char ch, char *argument, int cmd)
       {
         if((f = fopen("Players/deathobjs", "w")))
         {
-          fprintf(f, out);
+          fprintf(f, "%s", out);
           fclose(f);
-          obj_index[real_object0(newvnum)].god_func = NULL;
+          obj_index[real_object0(newvnum)].func.obj = NULL;
           send_to_char("Object removed from list.\n", ch);
           return;
         }
@@ -1364,7 +1372,6 @@ void do_deathobj(P_char ch, char *argument, int cmd)
     }
   }
 }
-*/
 
 void stat_dam(P_char ch, char *arg)
 {
@@ -7571,7 +7578,13 @@ void do_uninvite(P_char ch, char *arg, int cmd)
 
   sprintf(path, "Players/Invited/%c/%s", f_a[0], f_a);
 
-  unlink(path);
+  // -1 is failure, 0 is success.
+  if( unlink(path) == -1)
+  {
+    send_to_char("Failed.\n\r", ch);
+    debug( "Couldn't delete file '%s'.", path );
+    return;
+  }
 
   send_to_char("Uninvited.\n", ch);
 
@@ -9910,15 +9923,14 @@ void do_storage(P_char ch, char *arg, int cmd)
   arg = one_argument(arg, subcmd);
   arg = one_argument(arg, objarg);
 
-  if(!strcmp(subcmd, "new"))
+  if( !strcmp(subcmd, "new") )
   {
     if(!(s_obj = read_object(atoi(objarg), VIRTUAL)))
     {
       send_to_char("&+RError&n: Please choose a valid object vnum.\n", ch);
       return;
     }
-    if((s_obj->type != ITEM_STORAGE) &&
-         (s_obj->type != ITEM_CONTAINER))
+    if( (s_obj->type != ITEM_STORAGE) && (s_obj->type != ITEM_CONTAINER) )
     {
       send_to_char("&+RError&n: The item on file must be of type STORAGE or CONTAINER\n", ch);
       extract_obj(s_obj, TRUE);
@@ -9938,35 +9950,43 @@ void do_storage(P_char ch, char *arg, int cmd)
       writeSavedItem(s_obj);
       send_to_char("This object now loads here without being in a .zon file.  Please remove it from the .zon file if necessessary to prevent double loading and confusion.\n", ch);
       wizlog(GET_LEVEL(ch), "%s loads %s as a storage unit in room %d.",
-             J_NAME(ch), s_obj->short_description, world[ch->in_room].number);
+        J_NAME(ch), s_obj->short_description, world[ch->in_room].number);
       logit(LOG_WIZ, "%s loads %s as a storage unit in room %d.",
-            J_NAME(ch), s_obj->short_description, world[ch->in_room].number);
+        J_NAME(ch), s_obj->short_description, world[ch->in_room].number);
       return;
-    } else {
+    }
+    else
+    {
       extract_obj(s_obj, TRUE);
     }
     send_to_char("Syntax: storage new <item vnum> - load a new object for storage\n" \
                  "        storage delete <item name> - delete a storage item and all contents within\n" \
                  "        storage remove <item name> - delete a storage item and drop contents to room\n", ch);
     return;
-  } else if(!strcmp(subcmd, "delete")) {
-    if((s_obj = get_obj_in_list(objarg, world[ch->in_room].contents)) &&
-         (s_obj->type == ITEM_STORAGE))
+  }
+  else if( !strcmp(subcmd, "delete") )
+  {
+    if( (s_obj = get_obj_in_list(objarg, world[ch->in_room].contents))
+      && (s_obj->type == ITEM_STORAGE) )
     {
       extract_obj(s_obj, TRUE);
       PurgeSavedItemFile(s_obj);
-      wizlog(GET_LEVEL(ch), "%s deletes storage item %s from room %d.",
-             J_NAME(ch), s_obj->short_description, world[ch->in_room].number);
+      wizlog( GET_LEVEL(ch), "%s deletes storage item %s from room %d.",
+        J_NAME(ch), s_obj->short_description, world[ch->in_room].number);
       logit(LOG_WIZ, "%s deletes storage item %s from room %d.",
-            J_NAME(ch), s_obj->short_description, world[ch->in_room].number);
+        J_NAME(ch), s_obj->short_description, world[ch->in_room].number);
       return;
-    } else {
+    }
+    else
+    {
       send_to_char("&+RError&n: You don't see a storage item with that name in this room.\n", ch);
       return;
     }
-  } else if(!strcmp(subcmd, "remove")) {
-    if((s_obj = get_obj_in_list(objarg, world[ch->in_room].contents)) &&
-         (s_obj->type == ITEM_STORAGE))
+  }
+  else if( !strcmp(subcmd, "remove") )
+  {
+    if( (s_obj = get_obj_in_list(objarg, world[ch->in_room].contents))
+      && (s_obj->type == ITEM_STORAGE) )
     {
       for (tmpobj = s_obj->contains; tmpobj; tmpobj = next_obj)
       {
@@ -9977,15 +9997,19 @@ void do_storage(P_char ch, char *arg, int cmd)
       extract_obj(s_obj, TRUE);
       PurgeSavedItemFile(s_obj);
       wizlog(GET_LEVEL(ch), "%s removes storage item %s from room %d.",
-             J_NAME(ch), s_obj->short_description, world[ch->in_room].number);
+        J_NAME(ch), s_obj->short_description, world[ch->in_room].number);
       logit(LOG_WIZ, "%s remove storage item %s from room %d.",
-            J_NAME(ch), s_obj->short_description, world[ch->in_room].number);
+        J_NAME(ch), s_obj->short_description, world[ch->in_room].number);
       return;
-    } else {
+    }
+    else
+    {
       send_to_char("&+RError&n: You don't see a storage item with that name in this room.\n", ch);
       return;
     }
-  } else {
+  }
+  else
+  {
     send_to_char("Syntax: storage new <item vnum> - load a new object for storage\n" \
                  "        storage delete <item name> - delete a storage item and all contents within\n" \
                  "        storage remove <item name> - delete a storage item and drop contents to room\n", ch);
@@ -9997,14 +10021,13 @@ void do_newb_spellup_all(P_char ch, char *arg, int cmd)
 {
   P_desc d;
 
-  for (d = descriptor_list; d; d = d->next)
+  for( d = descriptor_list; d; d = d->next )
   {
-    if (d->connected == CON_PLYNG && 
-	ch != d->character)
+    if( d->connected == CON_PLYNG && ch != d->character )
     {
       if (GET_LEVEL(d->character) <= 36)
       {
-	do_newb_spellup(ch, GET_NAME(d->character), CMD_NEWBSU);
+        do_newb_spellup(ch, GET_NAME(d->character), CMD_NEWBSU);
       }
     }
   }
@@ -10013,31 +10036,32 @@ void do_newb_spellup_all(P_char ch, char *arg, int cmd)
 void do_newb_spellup(P_char ch, char *arg, int cmd)
 {
   char buf[MAX_STRING_LENGTH];
+  P_char victim;
 
   one_argument(arg, buf);
 
   if(*arg)
   {
-    P_char victim = get_char_vis(ch, buf);
-
-    if(!victim)
+    if( !(victim = get_char_vis(ch, buf)) )
     {
       send_to_char("Nobody with that name.\n", ch);
       return;
     }
-    
+
     if(IS_NPC(victim))
     {
-      send_to_char("Only works on players.", ch);
+      send_to_char("Only works on players.\n\r", ch);
       return;
     }
-    
+
     wizlog(58, "(%s) newb buffed: (%s).", GET_NAME(ch), GET_NAME(victim));
     logit(LOG_WIZ, "(%s) newb buffed: (%s).", GET_NAME(ch), GET_NAME(victim));
 
     //Insert cool ascii shit here
     if(isname("Jexni", ch->player.name))
-     send_to_char(file_to_string("lib/creation/hypnotoad"), victim);
+    {
+      send_to_char(file_to_string("lib/creation/hypnotoad"), victim);
+    }
 
     //And lets spellup the noob!  A little good will goes a long way.
     spell_armor(61, ch, 0, SPELL_TYPE_SPELL, victim, 0);

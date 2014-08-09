@@ -197,9 +197,9 @@ void do_build(P_char ch, char *argument, int cmd)
   if( !IS_TRUSTED(ch) )
   {
     send_to_char("Sorry?\r\n", ch);
-    return;    
+    return;
   }
-  
+
   // TODO: implement buildings
   char arg[MAX_STRING_LENGTH], buf[MAX_STRING_LENGTH];
   int level;
@@ -212,7 +212,7 @@ void do_build(P_char ch, char *argument, int cmd)
   }
   else
     level = 1;
-  
+
   Building* building = new Building(0, 1, ROOM_VNUM(ch->in_room), level);
 
   if( building->loaded )

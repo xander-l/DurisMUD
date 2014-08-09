@@ -121,43 +121,39 @@ void do_holy_smite(P_char ch, char *argument, int cmd)
       0
   };
 
-  if ((skl_lvl = GET_CHAR_SKILL(ch, SKILL_HOLY_SMITE)) == 0)
+  if( (skl_lvl = GET_CHAR_SKILL(ch, SKILL_HOLY_SMITE)) == 0 )
   {
     send_to_char("You don't know how.\r\n", ch);
     return;
   }
 
-  if (!*argument)
+  if( !*argument )
   {
     if (!(vict = ch->specials.fighting))
     {
-      send_to_char
-        ("Smite whom?\r\n",
-         ch);
+      send_to_char("Smite whom?\r\n", ch);
       return;
     }
   }
-  if (!vict)
+  if( !vict )
   {
     one_argument(argument, name);
 
-    if (!(vict = get_char_room_vis(ch, name)))
+    if( !(vict = get_char_room_vis(ch, name)) )
     {
-      send_to_char
-        ("Smite whom?\r\n",
-         ch);
+      send_to_char("Smite whom?\r\n", ch);
       return;
     }
   }
   if (!CanDoFightMove(ch, vict))
-    return;
-
-  if (GET_ALIGNMENT(vict) > -1)
   {
-   send_to_char
-	 ("Your conscience prevents you from executing such a maneuver on this being.\r\n",
-	  ch);
-   return;
+    return;
+  }
+
+  if( GET_ALIGNMENT(vict) > -1 )
+  {
+    send_to_char("Your conscience prevents you from executing such a maneuver on this being.\r\n", ch);
+    return;
   }
   if (!notch_skill(ch, SKILL_HOLY_SMITE, get_property("skill.notch.offensive", 7))
     && number(1, 101) > skl_lvl)
@@ -167,22 +163,22 @@ void do_holy_smite(P_char ch, char *argument, int cmd)
         0, vict, TO_VICT);
     act("$N laughs derisively at $n, as $e attempts to purify $S soul.", FALSE, ch, 0, vict,
         TO_NOTVICT);
-	engage(ch, vict);
-	CharWait(ch, PULSE_VIOLENCE);
-	return;
+    engage(ch, vict);
+    CharWait(ch, PULSE_VIOLENCE);
+    return;
   }
   else
   {
     melee_damage(ch, vict, (dice((GET_LEVEL(ch) / 2), (skl_lvl / 10)) / 2), PHSDAM_NOSHIELDS | PHSDAM_NOREDUCE | PHSDAM_NOPOSITION, &messages);
-    if ((GET_LEVEL(ch) / 2) > number(1, 150) && IS_ALIVE(vict))
-	{
-	  act("&+L$N&+L is blinded by the &+Wholy&+L energy!&n", FALSE, ch, 0, vict, TO_CHAR);
+    if( (GET_LEVEL(ch) / 2) > number(1, 150) && IS_ALIVE(vict) )
+    {
+      act("&+L$N&+L is blinded by the &+Wholy&+L energy!&n", FALSE, ch, 0, vict, TO_CHAR);
       act("&+LYou are blinded by the &+Wholy&+L energy!&n", FALSE, ch,
         0, vict, TO_VICT);
       act("&+L$N &+Lis blinded by the &+Wholy&+L energy!&n", FALSE, ch, 0, vict,
         TO_NOTVICT);
-	  blind(ch, vict, 25 * WAIT_SEC);
-	}
+      blind(ch, vict, 25 * WAIT_SEC);
+    }
   }
   CharWait(ch, 2 * PULSE_VIOLENCE);
 }

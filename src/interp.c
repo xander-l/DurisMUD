@@ -889,7 +889,7 @@ const char *command[] = {
   "ping",
   "plop",                       /* 640 */
   "potato",
-  "pardon",
+  "epardon",
   "reassure",
   "ohhappy",
   "glum",
@@ -900,7 +900,7 @@ const char *command[] = {
   "strip",                      /* 650 */
   "suffer",
   "stoke",
-  "sweep",
+  "esweep",
   "swoon",
   "tender",
   "throttle",
@@ -2282,7 +2282,7 @@ void assign_command_pointers(void)
   CMD_Y(CMD_QUEST, STAT_DEAD + POS_PRONE, do_quest, 1);
   CMD_GRT(CMD_PROCLIB, STAT_DEAD + POS_PRONE, do_proclib, FORGER);
   CMD_GRT(CMD_SUPERVISE, STAT_DEAD + POS_PRONE, do_supervise, FORGER);
-  CMD_GRT(CMD_DEATHOBJ, STAT_DEAD + POS_PRONE, do_look, FORGER);
+  CMD_GRT(CMD_DEATHOBJ, STAT_DEAD + POS_PRONE, do_deathobj, FORGER);
   CMD_GRT(CMD_AFFECT_PURGE, STAT_DEAD + POS_PRONE, do_affectpurge, LESSER_G);
   CMD_GRT(CMD_DEPISS, STAT_DEAD + POS_PRONE, do_depiss, FORGER);
   CMD_GRT(CMD_REPISS, STAT_DEAD + POS_PRONE, do_repiss, FORGER);
@@ -2331,7 +2331,7 @@ void assign_command_pointers(void)
   CMD_Y(CMD_SPELLS, STAT_SLEEPING + POS_PRONE, do_spells, 1);
   CMD_Y(CMD_TELL, STAT_RESTING + POS_PRONE, do_tell, 1);
   CMD_Y(CMD_BEEP, STAT_RESTING + POS_PRONE, do_beep, 1);
-  CMD_Y(CMD_RWC, STAT_SLEEPING + POS_PRONE, do_rwc, 65);
+  CMD_Y(CMD_RWC, STAT_SLEEPING + POS_PRONE, do_rwc, 62);
   CMD_Y(CMD_REPLY, STAT_RESTING + POS_PRONE, do_reply, 1);
   CMD_N(CMD_LICK, STAT_NORMAL + POS_STANDING, do_lick, 1);
 
@@ -2407,8 +2407,8 @@ void assign_command_pointers(void)
   CMD_N(CMD_LEADERBOARD, STAT_DEAD + POS_PRONE, displayLeader, 0);
   CMD_N(CMD_SOULBIND, STAT_DEAD + POS_PRONE, do_soulbind, 0);
   CMD_N(CMD_REFINE, STAT_DEAD + POS_PRONE, do_refine, 0);
-//  CMD_N(CMD_RELIC, STAT_DEAD + POS_PRONE, displayRelic, 0);
- CMD_N(CMD_EPIC, STAT_DEAD + POS_PRONE, do_epic, 0);
+  CMD_N(CMD_RELIC, STAT_DEAD + POS_PRONE, displayRelic, 0);
+  CMD_N(CMD_EPIC, STAT_DEAD + POS_PRONE, do_epic, 0);
   CMD_N(CMD_NEXUS, STAT_DEAD + POS_PRONE, do_nexus, 0);
   CMD_N(CMD_TEST, STAT_DEAD + POS_PRONE, do_test, FORGER);
   CMD_Y(CMD_TRANQUILIZE, STAT_DEAD, do_tranquilize, 59);

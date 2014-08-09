@@ -516,8 +516,8 @@ int curr_time = time(NULL);
   {
     if(ch->only.pc->vote == 1)
     {
-	send_to_char("No sorry no more gifts for you...\r\n", ch);
-        return;
+      send_to_char("No sorry no more gifts for you...\r\n", ch);
+      return;
     }
     send_to_char("Oh yes, i see there is a present for you here!\r\n", ch);
     new_obj = read_object(666, VIRTUAL); //Alloy
@@ -527,9 +527,10 @@ int curr_time = time(NULL);
     CharWait(ch, (int) (PULSE_VIOLENCE * 5));
     send_to_char("You feel so lucky, so stunned, did Santa give you a cap?!\r\n", ch);
     ch->only.pc->vote = 1;
-    	    
+
    return;
   }
+
  /* Not anymore I'm afraid! Zion 9/07
   send_to_char("Mail disabled temporarily.\r\n", ch);
   return;
@@ -538,12 +539,18 @@ int curr_time = time(NULL);
   if (!*arg)
   {                             /* checking/receiving mail */
     if (postmaster_check_mail(ch, mailman))
+    {
       postmaster_receive_mail(ch, mailman);
+    }
     else
+    {
       return;
+    }
   }
   else                          /* must be sending then */
+  {
     postmaster_send_mail(ch, mailman, arg);
+  }
   *GET_NAME(ch) = UPPER(*GET_NAME(ch));
   return;
 }

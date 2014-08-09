@@ -339,6 +339,7 @@ void do_hitch_vehicle(P_char ch, char *arg, int cmd)
   P_obj    obj;
   P_char   pl;
 
+  send_to_char( "Under construction.\n\r", ch );
 	return;
 
   argument_interpreter(arg, cart, horse);
@@ -377,9 +378,7 @@ void do_hitch_vehicle(P_char ch, char *arg, int cmd)
 
   if (pl->lobj && pl->lobj->Visible_Type())
   {
-    send_to_char
-      ("Unhitch from the current burden first.  You can't push or pull more than one thing.\r\n",
-       ch);
+    send_to_char("Unhitch from the current burden first.  You can't push or pull more than one thing.\r\n", ch);
     return;
   }
   if (obj->hitched_to)

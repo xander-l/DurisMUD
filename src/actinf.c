@@ -7183,6 +7183,7 @@ void do_news(P_char ch, char *argument, int cmd)
 
 void do_projects(P_char ch, char *argument, int cmd)
 {
+  send_to_char( "Current list of projects:\n\r", ch );
   page_string(ch->desc, projects, 0);
 }
 
@@ -8030,15 +8031,13 @@ void do_ok(P_char ch, char *arg, int cmd)
   P_char   t_ch = NULL;
   FILE    *fl;
 
-  if (IS_TRUSTED(ch))
+  arg = one_argument(arg, name);
+
+  if (!*name || !(t_ch = get_char_vis(ch, name)))
   {
-    arg = one_argument(arg, name);
-    if (!*name || !(t_ch = get_char_vis(ch, name)))
-    {
-      send_to_char
-        ("&+WWho do you want to threat like a not potenial cheater?\n", ch);
-      return;
-    }
+    send_to_char("&+WOK command: Puts someone in the OK file.\n\rUsage: 'ok <char online> <message about char>'\n\r", ch );
+    send_to_char("&+WWho do you want to treat like a non-potential cheater?\n", ch);
+    return;
   }
 
   if (IS_NPC(t_ch))
@@ -8049,23 +8048,23 @@ void do_ok(P_char ch, char *arg, int cmd)
 
   if ((GET_LEVEL(t_ch) > GET_LEVEL(ch)) && (t_ch != ch))
   {
-    send_to_char("Sorry, you can't punish superiors!\n", ch);
+    send_to_char("Sorry, you can't punish or ok superiors!\n", ch);
     return;
   }
+
   /*
    * eat leading spaces
    */
-  while (*arg == ' ')
+  while( isspace(*arg) )
     arg++;
 
   t = time(0);
 
-  sprintf(Gbuf1, "&+W%s accepted -  %s\n", GET_NAME(t_ch), ctime(&t));
-  for (; isspace(*arg); arg++) ;
+  sprintf(Gbuf1, "%s accepted - %s : %s", GET_NAME(t_ch), arg, ctime(&t));
 
   if (!(fl = fopen(OK_FILE, "a")))
   {
-    perror("do_punish");
+    perror("do_ok");
     send_to_char("Could not open the ok-file.\n", ch);
     return;
   }
@@ -8074,13 +8073,11 @@ void do_ok(P_char ch, char *arg, int cmd)
   fclose(fl);
   send_to_char("&+WAdded to file..\n", ch);
 
-
-  if (t_ch->only.pc->poofIn != NULL)
+  if( t_ch->only.pc->poofIn != NULL )
     str_free(t_ch->only.pc->poofIn);
   t_ch->only.pc->poofIn = str_dup("Accepted");
-
-
 }
+
 void do_punish(P_char ch, char *arg, int cmd)
 {
   char     name[MAX_INPUT_LENGTH];

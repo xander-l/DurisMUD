@@ -777,7 +777,7 @@ void do_encrust(P_char ch, char *argument, int cmd)
   P_obj    item;
   P_obj    jewel;
 
-  if(!GET_CHAR_SKILL(ch, SKILL_ENCRUST))
+  if( !GET_CHAR_SKILL(ch, SKILL_ENCRUST) )
   {
     act("Leave this to a real artisan.", FALSE, ch, 0, 0, TO_CHAR);
     return;
@@ -809,7 +809,7 @@ void do_encrust(P_char ch, char *argument, int cmd)
     act("You are unable to encrust an artifact.", FALSE, ch, 0, 0, TO_CHAR);
     return;
   }
-  
+
   if(isname("encrust", item->name))
   {
     act("You may not further encrust this item.",
@@ -837,7 +837,7 @@ void do_encrust(P_char ch, char *argument, int cmd)
     act("Is THAT a jewel?!?!?", FALSE, ch, 0, 0, TO_CHAR);
     return;
   }
-  
+
   if (jewel == item)
   {
   	act("Try finding a suitable item to encrust with, bub.", FALSE, ch, 0, 0, TO_CHAR);
@@ -900,7 +900,7 @@ void do_encrust(P_char ch, char *argument, int cmd)
   new_item->anti2_flags |= item->anti2_flags;
   SET_BIT(new_item->extra_flags, item->extra_flags);
   SET_BIT(new_item->extra2_flags, item->extra2_flags);
-  
+
   new_item->craftsmanship = MIN(craftsmanship+1, OBJCRAFT_HIGHEST);
 
   int i = 0;

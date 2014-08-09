@@ -9160,8 +9160,7 @@ void battle_orders(P_char ch, P_char victim)
 
   if(affected_by_spell(ch, SKILL_BATTLE_ORDERS))
   {
-    send_to_char("You need to rest a while before attempting this again.\n",
-                 ch);
+    send_to_char("You need to rest a while before attempting this again.\n", ch);
     return;
   }
 
@@ -10096,13 +10095,13 @@ void do_shadowstep(P_char ch, char *, int)
 
   struct affected_type af;
 
-  if(GET_CHAR_SKILL(ch, SKILL_SHADOWSTEP) < 1)
+  if( GET_CHAR_SKILL(ch, SKILL_SHADOWSTEP) < 1 )
   {
     send_to_char("&+LYou are not sneaky enough to attempt shadow stepping.\r\n", ch);
     return;
   }
-  
-  if(affected_by_spell(ch, SKILL_SHADOWSTEP))
+
+  if( affected_by_spell(ch, SKILL_SHADOWSTEP) )
   {
     send_to_char("&+LYou must wait for the &+wshadows&+L to coalesce before attempting to shadow step once again.\r\n", ch);
     return;
@@ -10120,15 +10119,15 @@ void do_shadowstep(P_char ch, char *, int)
 
     act("&+LPooF! You perform an evasive maneouver, quickling darting into the sha&+wdo&+Wws&+L!&n", FALSE, ch, 0, 0, TO_CHAR);
     act("&+LPooF! &n$n &+ysuddenly performs an evasive maneouver, quickling darting into the sha&+wdo&+Wws&+L!&n", FALSE, ch, 0, 0, TO_ROOM);
-  
+
     memset(&af, 0, sizeof(af));
-	
+
     af.type = SKILL_SHADOWSTEP;
-    af.flags = AFFTYPE_SHORT | AFFTYPE_NODISPEL ;
+    af.flags = AFFTYPE_SHORT | AFFTYPE_NODISPEL;
     af.duration = dur;
     affect_to_char_with_messages(ch, &af,
-                                 "&+LYou grin as the sha&+wdo&+Wws &+Lslowly coalesce around you.&n",
-                                 "$n &+Lflashes a &+rwicked&+L grin as the sha&+wdo&+Wws &+Lslowly coalesce around them.&n");
+      "&+LYou grin as the sha&+wdo&+Wws &+Lslowly coalesce around you.&n",
+      "$n &+Lflashes a &+rwicked&+L grin as the sha&+wdo&+Wws &+Lslowly coalesce around them.&n");
 
     memset(&af, 0, sizeof(af));
     af.type = SKILL_SHADOWSTEP;
@@ -10150,8 +10149,10 @@ void do_shadowstep(P_char ch, char *, int)
         {
           continue;
         }
-       if(GET_OPPONENT(victim) == ch)
-         stop_fighting(victim);
+        if(GET_OPPONENT(victim) == ch)
+        {
+          stop_fighting(victim);
+        }
       }
     }
     stop_fighting(ch);

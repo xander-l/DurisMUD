@@ -3709,8 +3709,14 @@ void create_denied_file(const char *dir, char *name)
   for (; *buff; buff++)
     *buff = LOWER(*buff);
   sprintf(Gbuf1, "%s/%c/%s", dir, buf[0], buf);
-  f = fopen(Gbuf1, "w");
-  fclose(f);
+  if( f = fopen(Gbuf1, "w") )
+  {
+    fclose(f);
+  }
+  else
+  {
+    debug("create_denied_file: Couldn't open file '%s' for writing.", Gbuf1 );
+  }
 }
 
 void accept_name(char *name)

@@ -1859,10 +1859,11 @@ void assign_objects(void)
   
   /* Sylvandawn */
   obj_index[real_object0(425)].func.obj = holy_weapon;
+/* These objects don't exist??
   obj_index[real_object0(8110)].func.obj = labelas;
   obj_index[real_object0(8112)].func.obj = elfgate;
   obj_index[real_object0(8113)].func.obj = elfgate;
-
+*/
   /* Dragonnia */
 
   obj_index[real_object0(6826)].func.obj = dragonkind;

@@ -983,22 +983,24 @@ int nexus_sage_ask(P_char ch, P_char pl, char *arg)
 {
   char buff[MAX_STRING_LENGTH];
   arg = one_argument(arg, buff);
-  
+
   if( !isname(buff, ch->player.name) )
-    return FALSE;  
-  
-  int stone_id = guardian_stone_id(ch);
-  NexusStoneInfo info;
-  
-  if( !nexus_stone_info(stone_id, &info) )
   {
-    debug("nexus_sage(CMD_TRAIN): couldn't find stone info (%d)!", stone_id);
-    logit(LOG_DEBUG, "nexus_sage(CMD_TRAIN): couldn't find stone info (%d)!", stone_id);
     return FALSE;
   }
-  
+
+  int stone_id = guardian_stone_id(ch);
+  NexusStoneInfo info;
+
+  if( !nexus_stone_info(stone_id, &info) )
+  {
+    debug("nexus_sage(CMD_ASK): couldn't find stone info (%d)!", stone_id);
+    logit(LOG_DEBUG, "nexus_sage(CMD_ASK): couldn't find stone info (%d)!", stone_id);
+    return FALSE;
+  }
+
   sh_int current_stat = *char_stat(pl, info.stat_affect);
-  
+
   if( current_stat >= 100 )
   {
     act("$n says, 'You have already surpassed my ability to train you!'", FALSE, ch, 0, pl, TO_VICT);
@@ -1008,26 +1010,26 @@ int nexus_sage_ask(P_char ch, P_char pl, char *arg)
     sprintf(buff, "$n says, 'If you have acquired truly epic experiences, type \"train\" to learn from my considerable %s.'", apply_names[info.stat_affect]);
     act(buff, FALSE, ch, 0, pl, TO_VICT);
   }
-  
+
   return TRUE;
 }
 
 int nexus_sage_train(P_char ch, P_char pl, char *arg)
 {
   char buff[MAX_STRING_LENGTH];
-  
+
   int stone_id = guardian_stone_id(ch);
   NexusStoneInfo info;
-  
+
   if( !nexus_stone_info(stone_id, &info) )
   {
     debug("nexus_sage(CMD_TRAIN): couldn't find stone info (%d)!", stone_id);
     logit(LOG_DEBUG, "nexus_sage(CMD_TRAIN): couldn't find stone info (%d)!", stone_id);
     return FALSE;
   }
-  
+
   int current_stat = (int) (*char_stat(pl, info.stat_affect));
-  
+
   if( current_stat >= 100 )
   {
     act("$n says, 'You have already surpassed my ability to teach you!'", FALSE, ch, 0, pl, TO_VICT);
@@ -1035,52 +1037,53 @@ int nexus_sage_train(P_char ch, P_char pl, char *arg)
   }
 
   int cost = (int) get_property("nexusStones.sage.statAddCost", 1);
-  int stat_add = (int) get_property("nexusStones.sage.statAdd", 3);    
-  
+  int stat_add = (int) get_property("nexusStones.sage.statAdd", 3);
+
   if( GET_EPIC_POINTS(pl) < cost )
   {
     act("$n says, 'You have not learned enough. Come back later when you are ready!'", FALSE, ch, 0, pl, TO_VICT);
     return TRUE;
   }
-  
+
   ch->only.pc->epics -= cost;
   (*char_stat(pl, info.stat_affect)) = BOUNDED(1, (current_stat + stat_add), 100);
 
   act("You sit at the feet of $n&n and learn, gaining something of $s ability.", FALSE, ch, 0, pl, TO_VICT);
-  
+
   sprintf(buff, "&+WYou feel your %s increasing!\r\n", apply_names[info.stat_affect]);
   send_to_char(buff, pl);
-  
-  do_save_silent(pl, 1);       
-  
+
+  do_save_silent(pl, 1);
+
   act("\nAfter imparting you with $s knowledge, $n&n utters a word and disappears completely.", FALSE, ch, 0, pl, TO_VICT);  
-  
+
   extract_char(ch);
 
   P_obj ns = get_nexus_stone(stone_id);
-  
+
   if( ns )
     STONE_SAGE_TIMER(ns) = time(NULL);
-  
-  return TRUE;  
+
+  return TRUE;
 }
 
 
 // nexus sage mob spec. only set if nexus stones initialized
 int nexus_sage(P_char ch, P_char pl, int cmd, char *arg)
-{     
+{
   if( pl )
   {
-    if( (IS_GOOD(ch) && !GOOD_RACE(pl)) ||
-        (IS_EVIL(ch) && !EVIL_RACE(pl)) )
-      return FALSE;    
-    
+    if( (IS_GOOD(ch) && !GOOD_RACE(pl))
+      || (IS_EVIL(ch) && !EVIL_RACE(pl)) )
+    {
+      return FALSE;
+    }
+
     switch( cmd )
     {
       case CMD_ASK:
         return nexus_sage_ask(ch, pl, arg);
         break;
-        
       case CMD_TRAIN:
         return nexus_sage_train(ch, pl, arg);
         break;
@@ -1088,7 +1091,7 @@ int nexus_sage(P_char ch, P_char pl, int cmd, char *arg)
   }
 
   if( cmd == CMD_DEATH )
-  {    
+  {
     int stone_id = guardian_stone_id(ch);
 
     if( stone_id == -1 )
@@ -1099,34 +1102,36 @@ int nexus_sage(P_char ch, P_char pl, int cmd, char *arg)
     }
 
     P_obj ns = get_nexus_stone(stone_id);
-    
+
     if( !ns )
     {
       debug("nexus_sage(CMD_DEATH): couldn't find stone (%d)!", stone_id);
       logit(LOG_DEBUG, "nexus_sage(CMD_DEATH): couldn't find stone (%d)!", stone_id);
       return TRUE;
     }
-    
+
     STONE_SAGE_TIMER(ns) = time(NULL);
 
     if( ch->specials.alignment > 0 )
     {
-      act(ns_messages[_GOOD_SAGE_DIE], FALSE, ch, 0, 0, TO_ROOM);      
-    } else {
-      act(ns_messages[_EVIL_SAGE_DIE], FALSE, ch, 0, 0, TO_ROOM);            
+      act(ns_messages[_GOOD_SAGE_DIE], FALSE, ch, 0, 0, TO_ROOM);
+    }
+    else
+    {
+      act(ns_messages[_EVIL_SAGE_DIE], FALSE, ch, 0, 0, TO_ROOM);
     }
 
     P_char guardian = get_nexus_guardian(stone_id);
-    
+
     if( guardian && IS_ALIVE(guardian) )
     {
       GET_HIT(guardian) = (int)( GET_HIT(guardian) * get_property("nexusStones.sage.death.guardian.hit.modifier", 0.500));
       act("$n&n's presence trembles slightly, as $s energy is siphoned away.", FALSE, guardian, 0, 0, TO_ROOM);
     }
-    
+
     return TRUE;
   }
-  
+
   return FALSE;
 }
 

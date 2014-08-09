@@ -59,7 +59,7 @@ struct social_messg
    */
   char    *char_auto;
   char    *others_auto;
-}       *soc_mess_list = 0;
+}       *soc_mess_list = NULL;
 
 struct pose_type
 {
@@ -582,6 +582,7 @@ void do_rwc(P_char ch, char *argument, int cmd)
 
   if (!ch)
     return;
+
   send_to_char("This channel has been removed.\r\n", ch);
   return;
 
@@ -1379,7 +1380,7 @@ void boot_social_messages(void)
     /*
      * alloc a new cell
      */
-    if (!soc_mess_list)
+    if( !soc_mess_list )
     {
       CREATE(soc_mess_list, social_messg, 1, MEM_TAG_SOCMSG);
       list_top = 0;
@@ -1418,29 +1419,37 @@ void boot_social_messages(void)
   fclose(fl);
 }
 
-int find_action(int cmd)
+// Standard log n hunt for cmd.
+int find_action( int cmd )
 {
   int      bot, top, mid;
 
   bot = 0;
   top = list_top;
 
-  if (top < 0)
-    return (-1);
+  if( top < 0 )
+    return -1;
 
   for (;;)
   {
     mid = (bot + top) >> 1;
 
-    if (soc_mess_list[mid].act_nr == cmd)
-      return (mid);
-    if (bot >= top)
-      return (-1);
-
-    if (soc_mess_list[mid].act_nr > cmd)
+    if( soc_mess_list[mid].act_nr == cmd )
+    {
+      return mid;
+    }
+    if( bot >= top )
+    {
+      return -1;
+    }
+    if( soc_mess_list[mid].act_nr > cmd )
+    {
       top = --mid;
+    }
     else
+    {
       bot = ++mid;
+    }
   }
 }
 
@@ -1461,42 +1470,52 @@ void do_action(P_char ch, char *argument, int cmd)
   P_char   vict;
 
   /*** First section will intercept commands, and reroute them if needed ***/
-  if(cmd == CMD_ROAR){
-	if(do_roar_of_heroes(ch)) 
-	return;
+  if(cmd == CMD_ROAR)
+  {
+	  if(do_roar_of_heroes(ch))
+    {
+	    return;
+    }
   }
   if (cmd == CMD_ROAR && IS_DRAGON(ch))
   {
-    
     DragonCombat(ch, TRUE);     /* calls roar section only */
-    if (IS_PC_PET(ch))
+    if( IS_PC_PET(ch) )
+    {
       CharWait(ch, PULSE_VIOLENCE);
+    }
     return;
   }
-  if (cmd == CMD_ROAR && (IS_AVATAR(ch) || IS_TITAN(ch)))
+  if( cmd == CMD_ROAR && (IS_AVATAR(ch) || IS_TITAN(ch)) )
   {
     DragonCombat(ch, TRUE);
     if (IS_PC_PET(ch))
+    {
       CharWait(ch, PULSE_VIOLENCE);
+    }
     return;
   }
-  if (cmd == CMD_TRIP)
+  if( cmd == CMD_TRIP )
   {
     do_trip(ch, argument, cmd);
     return;
   }
   /*** true social action follows ***/
-  if ((act_nr = find_action(cmd)) < 0)
+  if( (act_nr = find_action(cmd)) < 0 )
   {
     send_to_char("That action is not supported.\r\n", ch);
     return;
   }
   act_mesg = &soc_mess_list[act_nr];
 
-  if (argument && act_mesg->char_found)
+  if( argument && act_mesg->char_found )
+  {
     one_argument(argument, buf);
+  }
   else
+  {
     *buf = '\0';
+  }
 
   if (!*buf)
   {

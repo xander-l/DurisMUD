@@ -58,23 +58,19 @@ void mobPatrol_SetupNew(P_char ch);
 
 int berserker_proc_room(int room, P_char ch, int cmd, char *arg)
 {
-  if((cmd == CMD_SET_PERIODIC) ||
-    !(ch) ||
-    IS_NPC(ch) ||
-    IS_MORPH(ch) ||
-    !((cmd == CMD_BATTLERAGER)))
-        return FALSE;
-        
-  if(IS_FIGHTING(ch) ||
-     IS_IMMOBILE(ch) ||
-     !AWAKE(ch))
+  if( (cmd == CMD_SET_PERIODIC) || !(ch) || IS_NPC(ch)
+    || IS_MORPH(ch) || !((cmd == CMD_BATTLERAGER)) )
   {
-    send_to_char("&+yYou are unable to use this command at this time...\r\n", ch);
-    return true;
+    return FALSE;
   }
 
-  if(GET_RACE(ch) != RACE_MOUNTAIN &&
-     GET_RACE(ch) != RACE_DUERGAR)
+  if( IS_FIGHTING(ch) || IS_IMMOBILE(ch) || !AWAKE(ch) )
+  {
+    send_to_char("&+yYou are unable to use this command at this time...\r\n", ch);
+    return TRUE;
+  }
+
+  if( GET_RACE(ch) != RACE_MOUNTAIN && GET_RACE(ch) != RACE_DUERGAR )
   {
     send_to_char("&+rYour race receives no benefit from this altar...\r\n", ch);
     return TRUE;
@@ -85,21 +81,19 @@ int berserker_proc_room(int room, P_char ch, int cmd, char *arg)
     send_to_char("&+RYour blood boils and your eyes &+Yflame &+Ras you recant the legends of old.\r\n", ch);
     return TRUE;
   }
-  
-  if(!arg ||
-     !(*arg) ||
-     !isname(arg, "confirm"))
+
+  if( !arg || !(*arg) || !isname(arg, "confirm") )
   {
     send_to_char("You must type 'battlerager confirm' for the transformation.\r\nIt's a permanent transformation.\r\n&+RYOU WILL LOSE ALL YOUR EPIC SKILLS!&n\r\n&+RYOU WILL LOSE ALL YOUR EPIC SKILLS!\r\n", ch);
     return TRUE;
-  }  
-  
+  }
+
   if(GET_LEVEL(ch) < (get_property("berserker.quest.level.req.min", 41)))
   {
     send_to_char("You need more &+ylevels&n to undergo the &+Rbattlerager&n transformation.\r\n", ch);
     return TRUE;
-  }  
-  
+  }
+
   if(ch->only.pc->epics < 3)
   {
     send_to_char("You need more &+yepic&n experience to undergo the &+Rbattlerager&n transformation.\r\n", ch);
@@ -114,12 +108,13 @@ int berserker_proc_room(int room, P_char ch, int cmd, char *arg)
 
   act("$n's eyes turn &+Lblack&n then &+rblood red&n as some &+Wunseen force&n dominates $s existence.",
     FALSE, ch, 0, 0, TO_ROOM);
-  
-   act("\r\nYou fall into a deep trance, and the legends of the &+Rbattleragers&n flood your thoughts.\r\n"
-       "The ancient ways from so long ago &+Wcascade&n into everything that you are...&n\r\n"
-       "\r\n&+cA mystical force flows into and through your body.&n\r\n\r\n"
-       "&+CCold anger envelops your soul!&n\r\n",
-          FALSE, ch, 0, 0, TO_CHAR);
+
+  act("\r\nYou fall into a deep trance, and the legends of the &+Rbattleragers&n flood your thoughts.\r\n"
+    "The ancient ways from so long ago &+Wcascade&n into everything that you are...&n\r\n"
+    "\r\n&+cA mystical force flows into and through your body.&n\r\n\r\n"
+    "&+CCold anger envelops your soul!&n\r\n",
+    FALSE, ch, 0, 0, TO_CHAR);
+
   ch->player.m_class = CLASS_BERSERKER;
   ch->player.spec = 0;
   forget_spells(ch, -1);

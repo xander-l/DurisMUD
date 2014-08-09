@@ -3542,25 +3542,23 @@ void do_sweep(P_char ch, char *arg, int cmd)
   /*
    * This could very well be expanded to include a char skill
    */
-  if (IS_PC(ch))
+  if( IS_PC(ch) )
   {
-    send_to_char
-      ("You attempt a nifty martial-art move, and fall on your face.\n",
-       ch);
+    send_to_char("You attempt a nifty martial-art move, and fall on your face.\n", ch);
     return;
   }
-  else if (IS_DRAGON(ch))
+  else if( IS_DRAGON(ch) )
   {
     SweepAttack(ch);
-    if (IS_PC_PET(ch))
+    if( IS_PC_PET(ch) )
+    {
       CharWait(ch, PULSE_VIOLENCE);
+    }
     return;
   }
   else
   {
-    send_to_char
-      ("If I knew the length of your tail, perhaps I would allow this...\n",
-       ch);
+    send_to_char("If I knew the length of your tail, perhaps I would allow this...\n", ch);
     return;
   }
 }

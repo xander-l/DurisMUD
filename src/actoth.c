@@ -162,14 +162,15 @@ void do_target(P_char ch, char *arg, int cmd)
   int      loc;
   char     buf[256];
 
-  if (GET_CHAR_SKILL(ch, SKILL_BATTLE_ORDERS))
+  if( GET_CHAR_SKILL(ch, SKILL_BATTLE_ORDERS) )
   {
     do_battle_orders(ch, arg, cmd);
     return;
   }
   else
   {
-    send_to_char("Sorry, but that command has yet to be implemented...", ch);
+    send_to_char("You do not have the battle orders skill.\n\r", ch );
+    send_to_char("We are not using body-part targetting battles atm...\n\r", ch);
     return;
   }
 
@@ -3259,9 +3260,9 @@ void do_cheat(P_char ch, char *argument, int cmd)
    */
   for (; isspace(*argument); argument++) ;
 
-  if (!*argument)
+  if( !*argument )
   {
-    send_to_char("Pardon?\r\n", ch);
+    send_to_char("The cheat command is used to describe a way to cheat.  It doesn't work without a description.\r\n", ch);
     return;
   }
   if (!(fl = fopen(BUG_CHEAT, "a")))
