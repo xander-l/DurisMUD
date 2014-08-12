@@ -131,77 +131,70 @@ int faith(P_obj obj, P_char ch, int cmd, char *arg)
   /*
      check for periodic event calls
    */
-  if (cmd == CMD_SET_PERIODIC)
-    return FALSE;
-
-  if (!dam)                     /*
-                                   if dam is not 0, we have been called when
-                                   weapon hits someone
-                                 */
-    return (FALSE);
-
-  if (!ch)
-    return (FALSE);
-
-  if (!OBJ_WORN_POS(obj, WIELD))
-    return (FALSE);
-/*
-
-  vict = (P_char) arg;
-*/
-  if (!IS_FIGHTING(ch))
-    return FALSE;
-  vict = ch->specials.fighting;
-
-  if (!vict)
-    return (FALSE);
-
-  if (obj->loc.wearing == ch)
+  if( cmd == CMD_SET_PERIODIC )
   {
-    if (!number(0, 23))
+    return FALSE;
+  }
+
+  // If dam is not 0, we have been called when weapon hits someone
+  if( !dam || !IS_ALIVE(ch) )
+  {
+    return FALSE;
+  }
+
+  if( !OBJ_WORN_POS(obj, WIELD) )
+  {
+    return FALSE;
+  }
+
+  if( !IS_FIGHTING(ch) || !(vict = ch->specials.fighting) )
+  {
+    return FALSE;
+  }
+
+  if( obj->loc.wearing == ch )
+  {
+    // 1/20 chance.
+    if( !number(0, 19) )
     {
-      act
-        ("Your $q glows brightly as a &+Yholy wave of energy&n strikes out of it.",
+      act("Your $q glows brightly as a &+Yholy wave of energy&n strikes out of it.",
          FALSE, obj->loc.wearing, obj, 0, TO_CHAR);
-      act
-        ("$n's $q glows brightly as a &+Yholy wave of energy&n strikes out of it!",
+      act("$n's $q glows brightly as a &+Yholy wave of energy&n strikes out of it!",
          FALSE, obj->loc.wearing, obj, 0, TO_ROOM);
-      if (GET_ALIGNMENT(ch) > 0)
+      if( GET_ALIGNMENT(ch) > 0 )
         spell_holy_word(35, ch, 0, SPELL_TYPE_SPELL, vict, 0);
       else
         spell_unholy_word(35, ch, 0, SPELL_TYPE_SPELL, vict, 0);
-      if (!char_in_list(ch))
-        return TRUE;            /* holy word can kill */
-      for (t_vict = world[ch->in_room].people; t_vict; t_vict = temp)
+      // (un)holy word can kill.
+      if( !char_in_list(ch) )
+        return TRUE;
+      for( t_vict = world[ch->in_room].people; t_vict; t_vict = temp )
       {
         temp = t_vict->next_in_room;
-	if ((t_vict != ch) && !grouped(t_vict, ch) &&
-            (CAN_SEE(ch, t_vict) && !number(0, 3) && !IS_TRUSTED(vict)))
+        if( (t_vict != ch) && !grouped(t_vict, ch) && (CAN_SEE(ch, t_vict)
+          && !number(0, 3) && !IS_TRUSTED(vict)) )
         {
-          if (GET_ALIGNMENT(ch) > 0)
+          if( GET_ALIGNMENT(ch) > 0 )
+          {
             spell_dispel_evil(51, ch, 0, SPELL_TYPE_SPELL, t_vict, 0);
+          }
           else
+          {
             spell_dispel_good(51, ch, 0, SPELL_TYPE_SPELL, t_vict, 0);
+          }
         }
 
-        if (!char_in_list(ch))
-          return TRUE;          /* ya never know */
-        if (!char_in_list(temp))
-          return TRUE;          /* died */
+        // ya never know
+        if( !char_in_list(ch) )
+          return TRUE;
       }
     }
-    else
-    {
-      if (!ch->specials.fighting)
-        set_fighting(ch, vict);
-    }
   }
-  if (ch->specials.fighting)
-    return (FALSE);             /*
-                                   do the normal hit damage as well
-                                 */
+  // Do the normal hit damage as well
+  if( ch->specials.fighting )
+    return FALSE;
   else
-    return (TRUE);
+    return TRUE;
 }
 
 int mistweave(P_obj obj, P_char ch, int cmd, char *arg)
@@ -218,82 +211,91 @@ int mistweave(P_obj obj, P_char ch, int cmd, char *arg)
   if (cmd == CMD_SET_PERIODIC)
     return FALSE;
 
-  if (!dam)                     /*
-                                   if dam is not 0, we have been called when
-                                   weapon hits someone
-                                 */
-    return (FALSE);
-
-  if (!ch)
-    return (FALSE);
-
-  if (!OBJ_WORN_POS(obj, WIELD))
-    return (FALSE);
-
-  vict = (P_char) arg;
-
-  if (!vict)
-    return (FALSE);
-
-  if (obj->loc.wearing == ch)
+  // If dam is not 0, we have been called when weapon hits someone
+  if( !dam || !IS_ALIVE(ch) || !OBJ_WORN_POS(obj, WIELD) )
   {
-    if (!number(0, 30))
+    return FALSE;
+  }
+
+  if( !(vict = (P_char) arg) )
+  {
+    return FALSE;
+  }
+
+  if( obj->loc.wearing == ch )
+  {
+    // 1/30 chance
+    if (!number(0, 29))
     {
       dodamage = mistdamage;
-      act
-        ("&+mYour $q &+mproduces an odd sound as &+Lblack smoke&+m pours from the tip!&N",
-         FALSE, obj->loc.wearing, obj, 0, TO_CHAR);
-      act
-        ("$n's $q &+mproduces an odd sound as &+Lblack smoke&+m pours from it!",
-         FALSE, obj->loc.wearing, obj, 0, TO_ROOM);
-      if (saves_spell(vict, SAVING_SPELL))
-        dodamage = (mistdamage / 2);
-      if ((GET_HIT(vict) - dodamage) <= 0)
+      act("&+mYour $q &+mproduces an odd sound as &+Lblack smoke&+m pours from the tip!&N",
+        FALSE, obj->loc.wearing, obj, 0, TO_CHAR);
+      act("$n's $q &+mproduces an odd sound as &+Lblack smoke&+m pours from it!",
+        FALSE, obj->loc.wearing, obj, 0, TO_ROOM);
+      if( saves_spell(vict, SAVING_SPELL) )
+      {
+        dodamage /= 2;
+      }
+      if( (GET_HIT(vict) - dodamage) <= 0 )
+      {
         dodamage = (GET_HIT(vict) - dice(1, 4));
+      }
       GET_HIT(vict) -= dodamage;
       healCondition(vict, dodamage);
       update_pos(vict);
       act("&+mThe &+Lblack smoke &+mengulfs $N&+m!",
-          FALSE, ch, 0, vict, TO_NOTVICT);
+        FALSE, ch, 0, vict, TO_NOTVICT);
       act("&+mThe &+Lblack smoke &+mengulfs you&+m!",
-          FALSE, ch, 0, vict, TO_VICT);
+        FALSE, ch, 0, vict, TO_VICT);
       act("&+mThe &+Lblack smoke &+mengulfs $N&+m!",
-          FALSE, ch, 0, vict, TO_CHAR);
+        FALSE, ch, 0, vict, TO_CHAR);
 
       mistdamage /= 4;
-      for (tch = world[ch->in_room].people; tch; tch = tch->next_in_room)
+      for( tch = world[ch->in_room].people; tch; tch = tch->next_in_room )
       {
-        if (should_area_hit(ch, tch) && !number(0, 4))
+        if( should_area_hit(ch, tch) && !number(0, 4) )
         {
           act("&+mThe &+Lblack smoke &+mengulfs $N&+m!",
-              FALSE, ch, 0, tch, TO_NOTVICT);
+            FALSE, ch, 0, tch, TO_NOTVICT);
           act("&+mThe &+Lblack smoke &+mengulfs you&+m!",
-              FALSE, ch, 0, tch, TO_VICT);
+            FALSE, ch, 0, tch, TO_VICT);
           act("&+mThe &+Lblack smoke &+mengulfs $N&+m!",
-              FALSE, ch, 0, tch, TO_CHAR);
-          if (saves_spell(tch, SAVING_SPELL))
+            FALSE, ch, 0, tch, TO_CHAR);
+          if( saves_spell(tch, SAVING_SPELL) )
+          {
             dodamage = (mistdamage / 2);
+          }
+          else
+          {
+            dodamage = mistdamage;
+          }
           if ((GET_HIT(tch) - dodamage) <= 0)
+          {
             dodamage = (GET_HIT(tch) - dice(1, 4));
+          }
           GET_HIT(tch) -= dodamage;
           healCondition(tch, dodamage);
           update_pos(tch);
         }
       }
     }
-//      cast_scathing_wind(55, ch, 0, SPELL_TYPE_SPELL, vict, 0);
     else
     {
-      if (!ch->specials.fighting)
+      if( !ch->specials.fighting )
+      {
         set_fighting(ch, vict);
+      }
     }
   }
-  if (ch->specials.fighting)
-    return (FALSE);             /*
-                                   do the normal hit damage as well
-                                 */
+  // Do the normal hit damage as well
+  if( ch->specials.fighting )
+  {
+    return FALSE;
+  }
   else
-    return (TRUE);
+  {
+    return TRUE;
+  }
 }
 
 int leather_vest(P_obj obj, P_char ch, int cmd, char *arg)
@@ -301,24 +303,27 @@ int leather_vest(P_obj obj, P_char ch, int cmd, char *arg)
   struct proc_data *data;
   P_char   vict;
 
-  if (cmd == CMD_SET_PERIODIC)
+  if( cmd == CMD_SET_PERIODIC )
+  {
     return FALSE;
+  }
 
-  if (cmd != CMD_GOTHIT || number(0, 50))
+  // Only on getting hit, chance 1/50
+  if( cmd != CMD_GOTHIT || number(0, 49) )
+  {
     return FALSE;
+  }
 
-  // important! can do this cast (next line) ONLY if cmd was CMD_GOTHIT or CMD_GOTNUKED           
+  // IMPORTANT: Can do this type cast (next line) ONLY if cmd was CMD_GOTHIT!
   data = (struct proc_data *) arg;
   vict = data->victim;
-  act
-    ("&+LHuge &+wsp&+Wi&+wkes &+Ljet out from your $q &+Lstopping $N's &+Llunge at you.",
-     FALSE, ch, obj, vict, TO_CHAR | ACT_NOTTERSE);
-  act
-    ("&+LHuge &+wsp&+Wi&+wkes &+Ljet out from $n&+L's $q &+Lstopping your futile lunge at $m.",
-     FALSE, ch, obj, vict, TO_VICT | ACT_NOTTERSE);
-  act
-    ("&+LHuge &+wsp&+Wi&+wkes &+Ljet out from $n&+L's $q &+Lstopping $N&+L's lunge.",
-     FALSE, ch, obj, vict, TO_NOTVICT | ACT_NOTTERSE);
+  act("&+LHuge &+wsp&+Wi&+wkes &+Ljet out from your $q &+Lstopping $N's &+Llunge at you.",
+    FALSE, ch, obj, vict, TO_CHAR | ACT_NOTTERSE);
+  act("&+LHuge &+wsp&+Wi&+wkes &+Ljet out from $n&+L's $q &+Lstopping your futile lunge at $m.",
+    FALSE, ch, obj, vict, TO_VICT | ACT_NOTTERSE);
+  act("&+LHuge &+wsp&+Wi&+wkes &+Ljet out from $n&+L's $q &+Lstopping $N&+L's lunge.",
+    FALSE, ch, obj, vict, TO_NOTVICT | ACT_NOTTERSE);
+
   return TRUE;
 }
 
@@ -328,49 +333,48 @@ int deva_cloak(P_obj obj, P_char ch, int cmd, char *arg)
   int      curr_time;
   P_char   tch;
 
-  if (cmd == CMD_SET_PERIODIC)
+  if( cmd == CMD_SET_PERIODIC )
+  {
     return TRUE;
-  if (cmd != 0)
-    return FALSE;
+  }
 
-  if (!obj)
+  if( cmd != 0 || !obj || !OBJ_WORN(obj) || !(ch = obj->loc.wearing) )
+  {
     return FALSE;
+  }
 
-  if (!OBJ_WORN(obj))
+  if( !IS_ALIVE(ch) || !ch->in_room )
+  {
     return FALSE;
-
-  ch = obj->loc.wearing;
-
-  if (!ch)
-    return FALSE;
+  }
 
   curr_time = time(NULL);
-  if (!IS_SET(world[ch->in_room].room_flags, NO_MAGIC))
+  if( !IS_SET(world[ch->in_room].room_flags, NO_MAGIC) )
   {
     if ((obj->timer[0] + 360) <= curr_time)
     {
       obj->timer[0] = curr_time;
       act("$n's $q&+w sends forth a whirlwind of &+Wfeathers&+w!",
-          FALSE, ch, obj, 0, TO_NOTVICT);
+        FALSE, ch, obj, 0, TO_NOTVICT);
       act("Your $q&+w sends forth a whirlwind of &+Wfeathers&+w!",
-          FALSE, ch, obj, 0, TO_CHAR);
+        FALSE, ch, obj, 0, TO_CHAR);
 
       for (tch = world[ch->in_room].people; tch; tch = tch->next_in_room)
       {
         if ((ch->group && ch->group == tch->group))
         {
-          if (!IS_AFFECTED(tch, AFF_FLY) || !IS_AFFECTED(tch, AFF_LEVITATE))
+          if( !IS_AFFECTED(tch, AFF_FLY) || !IS_AFFECTED(tch, AFF_LEVITATE) )
           {
             act("&+wThe &+Wfeathers &+wswirl around you!",
-                FALSE, tch, obj, 0, TO_CHAR);
+              FALSE, tch, obj, 0, TO_CHAR);
             act("&+wThe &+Wfeathers &+wswirl around $n!",
-                FALSE, tch, obj, 0, TO_ROOM);
+              FALSE, tch, obj, 0, TO_ROOM);
             spell_levitate(51, ch, 0, SPELL_TYPE_SPELL, tch, 0);
             spell_fly(51, ch, 0, SPELL_TYPE_SPELL, tch, 0);
           }
         }
       }
-      return (FALSE);
+      return FALSE;
     }
   }
   return FALSE;
@@ -385,50 +389,49 @@ int ogrebane(P_obj obj, P_char ch, int cmd, char *arg)
      check for periodic event calls
    */
   if (cmd == CMD_SET_PERIODIC)
-    return FALSE;
-
-  if (!dam)                     /*
-                                   if dam is not 0, we have been called when
-                                   weapon hits someone
-                                 */
-    return (FALSE);
-
-  if (!ch)
-    return (FALSE);
-
-  if (!OBJ_WORN_POS(obj, WIELD))
-    return (FALSE);
-
-  vict = (P_char) arg;
-
-  if (!vict)
-    return (FALSE);
-
-  if (GET_RACE(vict) != RACE_OGRE)
-    return (FALSE);
-
-  if (obj->loc.wearing == ch)
   {
-    if (!number(0, 30))
+    return FALSE;
+  }
+
+  // If dam is not 0, we have been called when weapon hits someone
+  if( !dam || !IS_ALIVE(ch) || !OBJ_WORN_POS(obj, WIELD) || !(vict = (P_char) arg) )
+  {
+    return FALSE;
+  }
+
+  if( GET_RACE(vict) != RACE_OGRE )
+  {
+    return FALSE;
+  }
+
+  if( obj->loc.wearing == ch )
+  {
+    // 1/15 chance (It's ogre only)
+    if( !number(0, 14) )
     {
       act("Your $q &+Wglows brightly at the sight of the foul &N&+bOGRE!&N",
-          FALSE, obj->loc.wearing, obj, 0, TO_CHAR);
+        FALSE, obj->loc.wearing, obj, 0, TO_CHAR);
       act("$n's $q &+Wglows brightly a the sight of the foul&N&+b OGRE!&N",
-          FALSE, obj->loc.wearing, obj, 0, TO_ROOM);
+        FALSE, obj->loc.wearing, obj, 0, TO_ROOM);
       spell_bigbys_clenched_fist(61, ch, 0, SPELL_TYPE_SPELL, vict, 0);
     }
     else
     {
       if (!ch->specials.fighting)
+      {
         set_fighting(ch, vict);
+      }
     }
   }
+  // Do the normal hit damage as well
   if (ch->specials.fighting)
-    return (FALSE);             /*
-                                   do the normal hit damage as well
-                                 */
+  {
+    return FALSE;
+  }
   else
-    return (TRUE);
+  {
+    return TRUE;
+  }
 }
 
 
@@ -437,107 +440,103 @@ int giantbane(P_obj obj, P_char ch, int cmd, char *arg)
   int      dam = cmd / 1000;
   P_char   vict;
 
-  /*
-     check for periodic event calls
-   */
+  // Check for periodic event calls
   if (cmd == CMD_SET_PERIODIC)
-    return FALSE;
-
-  if (!dam)                     /*
-                                   if dam is not 0, we have been called when
-                                   weapon hits someone
-                                 */
-    return (FALSE);
-
-  if (!ch)
-    return (FALSE);
-
-  if (!OBJ_WORN_POS(obj, WIELD))
-    return (FALSE);
-
-  vict = (P_char) arg;
-
-  if (!vict)
-    return (FALSE);
-
-  if ((GET_SIZE(vict) != SIZE_GIANT) || (IS_DRAGON(vict)))
-    return (FALSE);
-
-  if (obj->loc.wearing == ch)
   {
-    if (!number(0, 30))
+    return FALSE;
+  }
+
+  // If dam is not 0, we have been called when weapon hits someone
+  if( !dam || !IS_ALIVE(ch) || !OBJ_WORN_POS(obj, WIELD) || !(vict = (P_char) arg) )
+  {
+    return FALSE;
+  }
+
+  if( (GET_SIZE(vict) != SIZE_GIANT) || (IS_DRAGON(vict)) )
+  {
+    return FALSE;
+  }
+
+  if( obj->loc.wearing == ch )
+  {
+    // 1/20 chance (It's giant size only and !dragon)
+    if( !number(0, 19) )
     {
       act("Your $q &+Wglows brightly at the sight of the foul GIANT!", FALSE,
-          obj->loc.wearing, obj, 0, TO_CHAR);
+        obj->loc.wearing, obj, 0, TO_CHAR);
       act("$n's $q &+Wglows brightly a the sight of the foul GIANT!", FALSE,
-          obj->loc.wearing, obj, 0, TO_ROOM);
+        obj->loc.wearing, obj, 0, TO_ROOM);
       spell_bigbys_clenched_fist(51, ch, 0, SPELL_TYPE_SPELL, vict, 0);
     }
     else
     {
       if (!ch->specials.fighting)
+      {
         set_fighting(ch, vict);
+      }
     }
   }
-  if (ch->specials.fighting)
-    return (FALSE);             /*
-                                   do the normal hit damage as well
-                                 */
+  // Do the normal hit damage as well
+  if( ch->specials.fighting )
+  {
+    return FALSE;
+  }
   else
-    return (TRUE);
+  {
+    return TRUE;
+  }
 }
 
 int dwarfslayer(P_obj obj, P_char ch, int cmd, char *arg)
 {
   P_char   vict;
 
-  /*
-     check for periodic event calls
-   */
+  // Check for periodic event calls
   if (cmd == CMD_SET_PERIODIC)
+  {
     return FALSE;
+  }
 
-  if (cmd != CMD_MELEE_HIT)
-    return (FALSE);
+  if( cmd != CMD_MELEE_HIT || !IS_ALIVE(ch) || !OBJ_WORN_POS(obj, WIELD) || !(vict = (P_char) arg) )
+  {
+    return FALSE;
+  }
 
-  if (!ch)
-    return (FALSE);
-
-  if (!OBJ_WORN_POS(obj, WIELD))
-    return (FALSE);
-
-  vict = (P_char) arg;
-
-  if (!vict)
-    return (FALSE);
-
-  if (GET_RACE(vict) != RACE_MOUNTAIN && GET_RACE(vict) != RACE_DUERGAR)
-    return (FALSE);
+  if( GET_RACE(vict) != RACE_MOUNTAIN && GET_RACE(vict) != RACE_DUERGAR )
+  {
+    return FALSE;
+  }
 
   if (obj->loc.wearing == ch)
   {
-    if (!number(0, 30))
+    // 1/25 chance for 2 races.
+    if (!number(0, 24))
     {
       act("Your $q &+mHums loudly at the sight of the Dwarf!", FALSE,
           obj->loc.wearing, obj, 0, TO_CHAR);
       act("$n's $q &+Whums loudly a the sight of the Dwarf!", FALSE,
           obj->loc.wearing, obj, 0, TO_ROOM);
-      
+
       spell_wither(50, ch, 0, SPELL_TYPE_SPELL, vict, 0);
       spell_lightning_bolt(60, ch, 0, SPELL_TYPE_SPELL, vict, 0);
     }
     else
     {
-      if (!ch->specials.fighting)
+      if( !ch->specials.fighting )
+      {
         set_fighting(ch, vict);
+      }
     }
   }
-  if (ch->specials.fighting)
-    return (FALSE);             /*
-                                   do the normal hit damage as well
-                                 */
+  // Do the normal hit damage as well
+  if( ch->specials.fighting )
+  {
+    return FALSE;
+  }
   else
-    return (TRUE);
+  {
+    return TRUE;
+  }
 }
 
 int mindbreaker(P_obj obj, P_char ch, int cmd, char *arg)
@@ -546,56 +545,50 @@ int mindbreaker(P_obj obj, P_char ch, int cmd, char *arg)
   P_char   vict;
   int      save;
 
-  /*
-     check for periodic event calls
-   */
-  if (cmd == CMD_SET_PERIODIC)
-    return FALSE;
-
-  if (!dam)                     /*
-                                   if dam is not 0, we have been called when
-                                   weapon hits someone
-                                 */
-    return (FALSE);
-
-  if (!ch)
-    return (FALSE);
-
-  if (!OBJ_WORN_POS(obj, WIELD))
-    return (FALSE);
-
-  vict = (P_char) arg;
-
-  if (!vict)
-    return (FALSE);
-
-  if (obj->loc.wearing == ch)
+  // Check for periodic event calls
+  if( cmd == CMD_SET_PERIODIC )
   {
-    if (!number(0, 30))
+    return FALSE;
+  }
+
+  // If dam is not 0, we have been called when weapon hits someone
+  if( !dam || !IS_ALIVE(ch) || !OBJ_WORN_POS(obj, WIELD) || !(vict = (P_char) arg) )
+  {
+    return FALSE;
+  }
+
+  if( obj->loc.wearing == ch )
+  {
+    // 1/30 chance of uber feeblmind.
+    if( !number(0, 29) )
     {
-      act
-        ("Your $q suddenly makes a &+WVERY LOUD CRACKING SOUND&N and a wave of energy flows out!&N",
+      act("Your $q suddenly makes a &+WVERY LOUD CRACKING SOUND&N and a wave of energy flows out!&N",
          FALSE, obj->loc.wearing, obj, 0, TO_CHAR);
-      act
-        ("$n's $q suddenly makes a &+WVERY LOUD CRACKING SOUND&N as a wave of energy flows out!",
+      act("$n's $q suddenly makes a &+WVERY LOUD CRACKING SOUND&N as a wave of energy flows out!",
          FALSE, obj->loc.wearing, obj, 0, TO_ROOM);
       save = vict->specials.apply_saving_throw[SAVING_SPELL];
+      // HACK! Rofl!
       vict->specials.apply_saving_throw[SAVING_SPELL] += 15;
-         spell_feeblemind(60, ch, 0, SPELL_TYPE_SPELL, vict, 0);
+      spell_feeblemind(60, ch, 0, SPELL_TYPE_SPELL, vict, 0);
       vict->specials.apply_saving_throw[SAVING_SPELL] = save;
     }
     else
     {
       if (!ch->specials.fighting)
+      {
         set_fighting(ch, vict);
+      }
     }
   }
-  if (ch->specials.fighting)
-    return (FALSE);             /*
-                                   do the normal hit damage as well
-                                 */
+  // Do the normal hit damage as well
+  if( ch->specials.fighting )
+  {
+    return FALSE;
+  }
   else
-    return (TRUE);
+  {
+    return TRUE;
+  }
 }
 
 int reliance_pegasus(P_obj obj, P_char ch, int cmd, char *arg)

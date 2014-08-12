@@ -54,6 +54,9 @@ int staff_shadow_summoning(P_obj obj, P_char ch, int cmd, char *arg);
 int rod_of_magic(P_obj obj, P_char ch, int cmd, char *arg);
 int nightcrawler_dagger(P_obj obj, P_char ch, int cmd, char *arg);
 int lyrical_instrument_of_time(P_obj obj, P_char ch, int cmd, char *argument);
+int khaziddea_blade(P_obj obj, P_char ch, int cmd, char *arg);
+int mentality_mace(P_obj obj, P_char ch, int cmd, char *arg);
+int resurrect_totem(P_obj obj, P_char ch, int cmd, char *arg);
 
 /* Ailvio procs */
 int burbul_map_obj(P_obj obj, P_char ch, int cmd, char *arg);
@@ -713,7 +716,7 @@ int mace_dragondeath(P_obj, P_char, int, char *);
 int lucky_weapon(P_obj, P_char, int, char *);
 int glades_dagger(P_obj, P_char, int, char *);
 int doom_blade_Proc(P_obj, P_char, int, char *);
-int rightous_blade(P_obj, P_char, int, char *);
+int righteous_blade(P_obj, P_char, int, char *);
 int flame_blade(P_obj, P_char, int, char *);
 
 int refreshing_fountain(P_obj, P_char, int, char *);

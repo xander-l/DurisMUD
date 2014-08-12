@@ -946,10 +946,10 @@ for ((IN_ROOM) = world[(PLAYER)->in_room].people; (IN_ROOM) != NULL; (IN_ROOM) =
   //  (IS_SET((ch)->player.m_class, CLASS_MINDFLAYER))
 #define USES_SPELL_SLOTS(ch) ( \
         USES_COMMUNE(ch) || \
+        USES_DEFOREST(ch) || \
         IS_PUNDEAD(ch) || \
         IS_HARPY(ch) || \
 	 (GET_CLASS(ch, CLASS_ETHERMANCER)) || \
-	 (GET_CLASS(ch, CLASS_BLIGHTER)) || \
         USES_FOCUS(ch) || \
         IS_ANGEL(ch))
 

@@ -32,54 +32,56 @@ extern struct zone_data *zone_table;
 
 int roulette_pistol(P_obj obj, P_char ch, int cmd, char *arg)
 {
-  int position; //The local of the live round in the pistol, 0 if none exist (fired)
+  // The local of the live round in the pistol, 0 if none exist (fired)
+  int position;
   int dieval = 0;
-  
+
   if (cmd == CMD_SET_PERIODIC)
-    return FALSE;
-
-  if (!obj || !ch)
-    return FALSE;
-
-  if (arg && ((cmd == CMD_RELOAD) || (cmd == CMD_FIRE)) && isname(arg, obj->name))
   {
-    if (ch->equipment[HOLD] != obj)
+    return FALSE;
+  }
+
+  if( !obj || !IS_ALIVE(ch) )
+  {
+    return FALSE;
+  }
+
+  if( arg && ((cmd == CMD_RELOAD) || (cmd == CMD_FIRE)) && isname(arg, obj->name) )
+  {
+    if( ch->equipment[HOLD] != obj )
     {
       act("You must be holding the pistol to use it.", FALSE, ch, obj, 0, TO_CHAR);
       return TRUE;
     }
-  } 
+  }
 
   if (arg && (cmd == CMD_RELOAD) )
   {
     if (isname(arg, obj->name))
     {
-    
       // Does the pistol still have a live round?
-      if (obj->value[0])
+      if( obj->value[0] )
       {
         act("&+yA live round is still loaded.  You spin the chamber and lock it.&n", FALSE, ch, obj, 0, TO_CHAR);
-        //  Uhh how do I make $e show as uppercase?
         act("&+y$n opens the chamber and notices a live round already chambered.&L$e spins the chamber and locks it back.&n", FALSE, ch, obj, 0, TO_ROOM);
       }
 
       // If no live round is found in the pistol...
-      if (!obj->value[0])
+      if( !obj->value[0] )
       {
         act("&+y$n quickly reloads $p &+ywith a live round.", FALSE, ch, obj, 0, TO_ROOM);
         act("&+yYou quickly reload $p &+ywith a live round.", FALSE, ch, obj, 0, TO_CHAR);
       }
-      
-      // Randomize the live round...  
+
+      // Randomize the live round...
       obj->value[0] = number(1,6);
-  
       return TRUE;
     }
   }
-  
-  if (arg && (cmd == CMD_FIRE) )
+
+  if( arg && (cmd == CMD_FIRE) )
   {
-    if (isname(arg, obj->name))
+    if( isname(arg, obj->name) )
     {
       if (!obj->value[0])
       {
@@ -90,12 +92,15 @@ int roulette_pistol(P_obj obj, P_char ch, int cmd, char *arg)
       }
       else
       {
-        if ((obj->value[0] > 6) || (obj->value[0] < 0))
+        if( (obj->value[0] > 6) || (obj->value[0] < 0) )
         {
-          //debug issue with code. Value out of acceptable parameters.
+          // Debug issue with code. Value out of acceptable parameters.
+          act("&-RBANG!&n &+WThe gun backfires and you're dead!&n", FALSE, ch, obj, 0, TO_CHAR);
+          act("&-RBANG!&n &+W$n&+W's gun bacfired!&n", FALSE, ch, obj, 0, TO_ROOM);
+          GET_HIT(ch) = (-100);
           return TRUE;
         }
-        if (obj->value[0] != 1)
+        if( obj->value[0]-- != 1 )
         {
           // CLICK, nothing happened, wew!
           act("&+WClick! &+yNothing happened... &+Lweeew!&n", FALSE, ch, obj, 0, TO_CHAR);
@@ -106,9 +111,8 @@ int roulette_pistol(P_obj obj, P_char ch, int cmd, char *arg)
           // BANG, your dead!
           act("&-RBANG!&n &+WYou're dead!&n", FALSE, ch, obj, 0, TO_CHAR);
           act("&-RBANG!&n &+W$n&+W shot himself... What a loser!", FALSE, ch, obj, 0, TO_ROOM);
-          if (!IS_TRUSTED(ch))
+          if( !IS_TRUSTED(ch) )
           {
-            
             //obj_from_char(unequip_char(ch, HOLD), TRUE);
             //obj_to_room(obj, ch->in_room);
             //act("$p&+y drops to the floor.", FALSE, ch, obj, 0, TO_ROOM);
@@ -120,8 +124,6 @@ int roulette_pistol(P_obj obj, P_char ch, int cmd, char *arg)
             send_to_char("You can't die!\n", ch);
           }
         }
-        obj->value[0]--;
-
         return TRUE;
       }
     }
@@ -134,19 +136,23 @@ int orb_of_deception(P_obj obj, P_char ch, int cmd, char *arg)
 {
   int curr_time = time(NULL);
 
-  if (cmd == CMD_SET_PERIODIC)
-    return FALSE;
-
-  if (!obj || !ch)
-    return FALSE;
-
-  if (arg && (cmd == CMD_SAY))
+  if( cmd == CMD_SET_PERIODIC )
   {
-    if (isname(arg, "mirage"))
+    return FALSE;
+  }
+
+  if( !IS_ALIVE(ch) || !OBJ_WORN_BY(obj, ch) )
+  {
+    return FALSE;
+  }
+
+  if( arg && (cmd == CMD_SAY) )
+  {
+    if( isname(arg, "mirage") )
     {
-      if (((ch->equipment[WEAR_EARRING_L] == obj) ||
-           (ch->equipment[WEAR_EARRING_R] == obj)) &&
-          ((obj->timer[0] + 180) <= curr_time))
+      // Every 3 min.
+      if( ((ch->equipment[WEAR_EARRING_L] == obj) || (ch->equipment[WEAR_EARRING_R] == obj))
+        && obj->timer[0] + 180 <= curr_time )
       {
         act("&+L$n&+L's $p &+Lbegins to vibrate.", FALSE, ch, obj, 0, TO_ROOM);
         act("&+LYour $p &+Lbegins to vibrate.", FALSE, ch, obj, 0, TO_CHAR);
@@ -555,13 +561,15 @@ int zombies_game(P_obj obj, P_char ch, int cmd, char *arg)
   int num = 0;
   int palive = 0;
   int max_level = (int)get_property("zombies.game.maxlevel", 99);
-  
-  if (!obj)
-    return FALSE;
+  int zombies;
 
-  int zombies = zg_count_zombies(obj);
-	
-  if (cmd == CMD_SET_PERIODIC)
+  if( !obj )
+  {
+    return FALSE;
+  }
+  zombies = zg_count_zombies(obj);
+
+  if( cmd == CMD_SET_PERIODIC )
   {
     //load object with game status set to off
     obj->value[ZOMBIES_STATUS] = FALSE;
@@ -574,8 +582,8 @@ int zombies_game(P_obj obj, P_char ch, int cmd, char *arg)
   }
 
   ZombieGame* zgame = get_zgame_from_obj(obj);
-  
-  if (OBJ_ROOM(obj))
+
+  if( OBJ_ROOM(obj) )
   {
     zone = world[obj->loc.room].zone;
   }
@@ -586,18 +594,21 @@ int zombies_game(P_obj obj, P_char ch, int cmd, char *arg)
   }
 
   // how many players left in the zone.
-  for (i = descriptor_list; i; i = i->next)
+  for( i = descriptor_list; i; i = i->next )
   {
-    if (!i->connected && !IS_TRUSTED(i->character) &&
-        (GET_ZONE(i->character) == zone))
+    if( !i->connected && !IS_TRUSTED(i->character) && (GET_ZONE(i->character) == zone) )
+    {
       palive++;
+    }
   }
-  
+
   if (cmd == CMD_PERIODIC)
   {
     //if game is off, don't load zombies
-    if (obj->value[ZOMBIES_STATUS] == 0)
+    if( obj->value[ZOMBIES_STATUS] == 0 )
+    {
       return TRUE;
+    }
 
     //zombie count returns -1, somethings wrong, remove the object
     if (zombies < 0)
@@ -607,123 +618,121 @@ int zombies_game(P_obj obj, P_char ch, int cmd, char *arg)
       extract_obj(obj, TRUE);
       return TRUE;
     }
-    
+
     // If game is active
     if (obj->value[ZOMBIES_STATUS] == 1)
     {
       //zombies are all dead, set to standby, and prepare for next round
-      if (zombies == 0 &&
-	  zgame->zombies_to_load <= 0)
+      if( zombies == 0 && zgame->zombies_to_load <= 0 )
       {
-        if (obj->value[ZOMBIES_LEVEL] >= max_level)
+        if( obj->value[ZOMBIES_LEVEL] >= max_level )
         {
-	  //reached end of max level end the game
-	  obj->value[ZOMBIES_LEVEL] = 0;
-	  obj->value[ZOMBIES_STATUS] = 0;
-	  send_to_zone(zone, "&+WYou've completed the last level, you're game is complete.  Congrats!&n\r\n");
-	  return TRUE;
+          //reached end of max level end the game
+          obj->value[ZOMBIES_LEVEL] = 0;
+          obj->value[ZOMBIES_STATUS] = 0;
+          send_to_zone(zone, "&+WYou've completed the last level, you're game is complete.  Congrats!&n\r\n");
+          return TRUE;
         }
         else
-	{
-	  //set game to standby mode to setup the next round
+        {
+          //set game to standby mode to setup the next round
           obj->value[ZOMBIES_STATUS] = 2;
           obj->timer[ZTIMER_STANDBY] = time(NULL);
-	  sprintf(buff, "&+WYou've completed round &+c%d&+W.  Prepare for the next round.&n\r\n", obj->value[ZOMBIES_LEVEL]);
+          sprintf(buff, "&+WYou've completed round &+c%d&+W.  Prepare for the next round.&n\r\n", obj->value[ZOMBIES_LEVEL]);
           send_to_zone(zone, buff);
-	  return TRUE;
-	}
+          return TRUE;
+        }
       }
-      else if (!palive)
+      else if( !palive )
       {
-	sprintf(buff, "&+WAll players are dead, the game has ended on level &+c%d&+W.&n\r\n", obj->value[ZOMBIES_LEVEL]);
+        sprintf(buff, "&+WAll players are dead, the game has ended on level &+c%d&+W.&n\r\n", obj->value[ZOMBIES_LEVEL]);
         send_to_zone(zone, buff);
-	obj->value[ZOMBIES_STATUS] = 0;
-	obj->timer[ZTIMER_STANDBY] = 0;
+        obj->value[ZOMBIES_STATUS] = 0;
+        obj->timer[ZTIMER_STANDBY] = 0;
         obj->timer[ZTIMER_WAVE] = 0;
-	zgame_clear_zombies(obj);
-	return TRUE;
+        zgame_clear_zombies(obj);
+        return TRUE;
       }
       else
       {
-	// Load zombies!!!
-	if ( (((obj->timer[ZTIMER_WAVE] +
-	  (int)get_property("zombies.game.spawn.delay", 30)) <= time(NULL)) || 
-	    (!zombies && !number(0, 2))) )
-	{
-	  obj->value[ZOMBIES_WAVE]++;
-	  
-	  // Waves handling
-	  int max = 0;
-	  int waves = 0;
-	  int load = 0;
-	  char loadstr[MAX_STRING_LENGTH];
-	  sprintf(loadstr, "%d", (int)get_property("zombies.game.load", 3445));
-	  char single[MAX_STRING_LENGTH];
-          while(loadstr[waves])
-	  {
-	    sprintf(single, "%c", loadstr[waves]);
-	    load = atoi(single);
-	    waves++;
-	    max += load;
-	  }
-	  sprintf(single, "%c", loadstr[obj->value[ZOMBIES_WAVE]-1]);
-	  load = atoi(single);
-	  debug("loadstr: %s, load: %d, max: %d, waves: %d", loadstr, load, max, waves);
+        // Load zombies!!!
+        if( (obj->timer[ZTIMER_WAVE] + (int)get_property("zombies.game.spawn.delay", 30) <= time(NULL) )
+          || (!zombies && !number(0, 2)) )
+        {
+          obj->value[ZOMBIES_WAVE]++;
+          // Waves handling
+          int max = 0;
+          int waves = 0;
+          int load = 0;
+          char loadstr[MAX_STRING_LENGTH];
+          sprintf(loadstr, "%d", (int)get_property("zombies.game.load", 3445));
+          char single[MAX_STRING_LENGTH];
+          while( loadstr[waves] )
+          {
+            sprintf(single, "%c", loadstr[waves]);
+            load = atoi(single);
+            waves++;
+            max += load;
+          }
+          sprintf(single, "%c", loadstr[obj->value[ZOMBIES_WAVE]-1]);
+          load = atoi(single);
+          debug("loadstr: %s, load: %d, max: %d, waves: %d", loadstr, load, max, waves);
 
-	  // eventually change this to leave the remaining
-	  // to redistribute through waves as harder mobs/bosses
-	  if (obj->value[ZOMBIES_WAVE] >= waves)
-	    num = zgame->zombies_to_load;
-	  else
-	    num = MAX(1, (int)(zgame->zombies_to_load * load / max));
-
-	  num = BOUNDED(1, num, zgame->zombies_to_load);
-	  if (num)
-	    obj->timer[ZTIMER_WAVE] = time(NULL);
-	
-	  debug("loading %d zombies", num);
-	  for (int i = 0; i < num; i++)
-	  {
-            if (zgame_load_zombie(obj))
-	      zgame->zombies_to_load--;
-	  }
-	  return TRUE;
+          // Eventually change this to leave the remaining
+          //   to redistribute through waves as harder mobs/bosses
+          if (obj->value[ZOMBIES_WAVE] >= waves)
+          {
+            num = zgame->zombies_to_load;
+          }
+          else
+          {
+            num = MAX(1, (int)(zgame->zombies_to_load * load / max));
+          }
+          num = BOUNDED(1, num, zgame->zombies_to_load);
+          if( num )
+          {
+            obj->timer[ZTIMER_WAVE] = time(NULL);
+          }
+          debug("loading %d zombies", num);
+          for( int i = 0; i < num; i++ )
+          {
+            if( zgame_load_zombie(obj) )
+            {
+              zgame->zombies_to_load--;
+            }
+          }
+          return TRUE;
         }
         return TRUE;
       }
     }
-    int delay = BOUNDED(10, 
-     (int)get_property("zombies.game.standby.delay", 15) * (obj->value[ZOMBIES_LEVEL]/10), 
-       120);
-    // if 2 minutes have passed and we are in standby mode begin next round
-    if (obj->value[ZOMBIES_STATUS] == 2 &&
-	(obj->timer[ZTIMER_STANDBY] + delay) <= time(NULL))
+    int delay = BOUNDED(10, (int)get_property("zombies.game.standby.delay", 15) * (obj->value[ZOMBIES_LEVEL]/10), 120);
+    // If 2 minutes have passed and we are in standby mode begin next round
+    if( obj->value[ZOMBIES_STATUS] == 2 && (obj->timer[ZTIMER_STANDBY] + delay) <= time(NULL) )
     {
       obj->timer[ZTIMER_STANDBY] = 0;
       obj->timer[ZTIMER_WAVE] = 0;
       obj->value[ZOMBIES_STATUS] = 1;
       obj->value[ZOMBIES_LEVEL]++;
       obj->value[ZOMBIES_WAVE] = 0;
-      // need to scale the amount of mobs per level here
+      // Need to scale the amount of mobs per level here
       zgame->zombies_to_load = MAX(obj->value[ZOMBIES_LEVEL], ((obj->value[ZOMBIES_LEVEL] + (palive*2))*palive/2));
       sprintf(buff, "&+WRound &+c%d &+Wis beginning.  Good Luck!&n\r\n", obj->value[ZOMBIES_LEVEL]);
       send_to_zone(zone, buff);
       return TRUE;
     }
-
     return TRUE;
   }
-  
-  if (!ch)
-    return FALSE;
 
-  if (!IS_PC(ch))
+  if( !IS_ALIVE(ch) || IS_NPC(ch) )
+  {
     return FALSE;
+  }
 
-  if (cmd == CMD_HELP && arg && strstr(arg, "zombies") && IS_TRUSTED(ch))
+  if( cmd == CMD_HELP && arg && strstr(arg, "zombies") && IS_TRUSTED(ch) )
   {
     half_chop(arg, arg1, arg2);
-    if (arg2 && isname(arg2, "begin"))
+    if( arg2 && isname(arg2, "begin") )
     {
       //set game to standby mode to setup the next round
       obj->value[ZOMBIES_STATUS] = 2;
@@ -731,7 +740,7 @@ int zombies_game(P_obj obj, P_char ch, int cmd, char *arg)
       send_to_zone(zone, "&+WThe game has started.&n\r\n");
       return TRUE;
     }
-    else if (arg2 && isname(arg2, "end"))
+    else if( arg2 && isname(arg2, "end") )
     {
       obj->value[ZOMBIES_STATUS] = 0;
       obj->timer[ZTIMER_STANDBY] = 0;
@@ -740,7 +749,7 @@ int zombies_game(P_obj obj, P_char ch, int cmd, char *arg)
       zgame_clear_zombies(obj);
       return TRUE;
     }
-    else if (arg2 && isname(arg2, "status"))
+    else if( arg2 && isname(arg2, "status") )
     {
       sprintf(buff, "&+WZombies Game Status&n\r\n");
       sprintf(buff2, "&+L           Status&+W: &+c%s&n\r\n", (obj->value[ZOMBIES_STATUS] == 1 ? "On" : obj->value[ZOMBIES_STATUS] == 0 ? "Off" : "Standby"));
@@ -756,20 +765,22 @@ int zombies_game(P_obj obj, P_char ch, int cmd, char *arg)
       send_to_char(buff, ch);
       return TRUE;
     }
-    else if (arg2 && strstr(arg2, "level"))
+    else if( arg2 && strstr(arg2, "level") )
     {
       argument_interpreter(arg2, arg3, arg4);
       if (isdigit(*arg4))
-	level = atoi(arg4);
+      {
+        level = atoi(arg4);
+      }
       else
       {
-	send_to_char("Please specify a number for the level.\r\n", ch);
-	return TRUE;
+        send_to_char("Please specify a number for the level.\r\n", ch);
+        return TRUE;
       }
-      if (level < 0 || level > max_level)
+      if( level < 0 || level > max_level )
       {
-	send_to_char("Sorry that level is too high.\r\n", ch);
-	return TRUE;
+        send_to_char("Sorry that level is too high or low.\r\n", ch);
+        return TRUE;
       }
       obj->value[ZOMBIES_LEVEL] = level;
       sprintf(buff, "&+WZombies Game level set to: &+c%d&n.\r\n", level);

@@ -78,51 +78,63 @@ int ravenloft_bell(P_obj bell, P_char ch, int cmd, char *arg)
    char buf[MAX_STRING_LENGTH];
    int roomIndex = -1;
 
-   if(!bell || !ch || !arg)
-     return FALSE;
-   
-   if(!(weapon = ch->equipment[WIELD]) || GET_OBJ_VNUM(weapon) != MALLET_VNUM || !OBJ_WORN_POS(weapon, WIELD))
-      return FALSE;
-   
-   P_obj obj = ch->equipment[WIELD];
+  if( cmd == CMD_SET_PERIODIC )
+  {
+    return FALSE;
+  }
 
-   if (cmd == CMD_HIT)
-   {
-      if(isname(arg, "bell"))
-      {  
-         roomIndex = real_room(CASE_ROOM_VNUM);
-      
-        for(swordcase = world[roomIndex].contents; swordcase; swordcase = swordcase->next_content)
+  if( !bell || !IS_ALIVE(ch) || !arg )
+  {
+    return FALSE;
+  }
+
+  if( !(weapon = ch->equipment[WIELD]) || GET_OBJ_VNUM(weapon) != MALLET_VNUM || !OBJ_WORN_POS(weapon, WIELD) )
+  {
+    return FALSE;
+  }
+
+  P_obj obj = ch->equipment[WIELD];
+
+  if( cmd == CMD_HIT )
+  {
+    if( isname(arg, "bell") )
+    {
+      roomIndex = real_room(CASE_ROOM_VNUM);
+      for( swordcase = world[roomIndex].contents; swordcase; swordcase = swordcase->next_content )
+      {
+        if( GET_OBJ_VNUM(swordcase) == LOCKED_SWORDCASE )
         {
-          if(GET_OBJ_VNUM(swordcase) == LOCKED_SWORDCASE)
           break;
         }
-        if(!swordcase)
-          return FALSE;
-        act("&+wYou raise $p &+wand bring it down upon the surface of the &+Cbell&+w.\n\n"
-            "&+wThe &+rmallet &+Rshatters &+wupon impact as it moves the heavy &+ycopper &+Cbell&+w.\n"
-            "&+wThe &+Cbell &+wsways and the clapper strikes the lip with a beautiful &+Wlucid note&+w.\n"
-            "&+wSomewhere in the distance, an answering note rings out in the castle, as if\n"
-            "&+wthe note awakened a long lost secret hidden deep below.\n\n"
-            "&+wIn the distance, a &+Ygreat beam of light &+wsurges downwards and &+Willuminates\n"
-            "&+wthe &+WHall of &+YHeroes&+w.\n", FALSE, ch, obj, 0, TO_CHAR);
-        act("$n &+wraises $p &+wand brings it down upon the surface of the &+Cbell&+w.\n"
-            "&+wThe &+rmallet &+Rshatters &+wupon impact as it moves the heavy &+ycopper &+Cbell&+w.\n"
-            "&+wThe &+Cbell &+wsways and the clapper strikes the lip with a beautiful &+Wlucid note&+w.\n"
-            "&+wSomewhere in the distance, an answering note rings out in the castle, as if\n"
-            "&+wthe note awakened a long lost secret hidden deep below.\n\n"
-            "&+wIn the distance, a &+Ygreat beam of light &+wsurges downwards and &+Willuminates\n"
-            "&+wthe &+WHall of &+YHeroes&+w.\n", FALSE, ch, obj, 0, TO_ROOM);
-        extract_obj(obj, TRUE);
-        REMOVE_BIT(swordcase->value[1], CONT_LOCKED);
-        sprintf(buf, "&+WA brilliant &+Ybeam &+Wof light shines upon an &+Lancient &+wsword case &+Where.&n");
-        set_long_description(swordcase, buf);
-        sprintf(buf, "&+Wan &+Lancient &+wswordcase &+Wbathed in &+Ylight&n");
-        set_short_description(swordcase, buf);
-        return TRUE;
       }
-   }
-   return FALSE;
+      if( !swordcase )
+      {
+        return FALSE;
+      }
+      act("&+wYou raise $p &+wand bring it down upon the surface of the &+Cbell&+w.\n\n"
+        "&+wThe &+rmallet &+Rshatters &+wupon impact as it moves the heavy &+ycopper &+Cbell&+w.\n"
+        "&+wThe &+Cbell &+wsways and the clapper strikes the lip with a beautiful &+Wlucid note&+w.\n"
+        "&+wSomewhere in the distance, an answering note rings out in the castle, as if\n"
+        "&+wthe note awakened a long lost secret hidden deep below.\n\n"
+        "&+wIn the distance, a &+Ygreat beam of light &+wsurges downwards and &+Willuminates\n"
+        "&+wthe &+WHall of &+YHeroes&+w.\n", FALSE, ch, obj, 0, TO_CHAR);
+      act("$n &+wraises $p &+wand brings it down upon the surface of the &+Cbell&+w.\n"
+        "&+wThe &+rmallet &+Rshatters &+wupon impact as it moves the heavy &+ycopper &+Cbell&+w.\n"
+        "&+wThe &+Cbell &+wsways and the clapper strikes the lip with a beautiful &+Wlucid note&+w.\n"
+        "&+wSomewhere in the distance, an answering note rings out in the castle, as if\n"
+        "&+wthe note awakened a long lost secret hidden deep below.\n\n"
+        "&+wIn the distance, a &+Ygreat beam of light &+wsurges downwards and &+Willuminates\n"
+        "&+wthe &+WHall of &+YHeroes&+w.\n", FALSE, ch, obj, 0, TO_ROOM);
+      extract_obj(obj, TRUE);
+      REMOVE_BIT(swordcase->value[1], CONT_LOCKED);
+      sprintf(buf, "&+WA brilliant &+Ybeam &+Wof light shines upon an &+Lancient &+wsword case &+Where.&n");
+      set_long_description(swordcase, buf);
+      sprintf(buf, "&+Wan &+Lancient &+wswordcase &+Wbathed in &+Ylight&n");
+      set_short_description(swordcase, buf);
+      return TRUE;
+    }
+  }
+  return FALSE;
 }
 /*
 int strahd_charm(P_char strahd, P_char charmie, int cmd, char *arg)
@@ -297,68 +309,74 @@ int shimmer_shortsword(P_obj obj, P_char ch, int cmd, char *arg)
   struct affected_type af;
   int curr_time;
 
-  if (cmd == CMD_SET_PERIODIC)
+  if( cmd == CMD_SET_PERIODIC )
+  {
     return TRUE;
+  }
 
-  if ( !ch )
+  if( !IS_ALIVE(ch) )
+  {
     return FALSE;
+  }
 
-  if((cmd == CMD_REMOVE) && arg )
+  if( (cmd == CMD_REMOVE) && arg )
   {
     if( isname(arg, obj->name) || isname(arg, "all") )
     {
       if (affected_by_spell(ch, SPELL_BLUR))
+      {
         affect_from_char(ch, SPELL_BLUR);
-	  if (affected_by_spell(ch, SPELL_CURSE))
-	    affect_from_char(ch, SPELL_CURSE);
+      }
+      if (affected_by_spell(ch, SPELL_CURSE))
+      {
+        affect_from_char(ch, SPELL_CURSE);
+      }
     }
-
-   return FALSE;
+    return FALSE;
   }
 
-  if (!OBJ_WORN_BY(obj, ch))
-    return (FALSE);
-  
+  if( !OBJ_WORN_BY(obj, ch) )
+  {
+    return FALSE;
+  }
+
   curr_time = time(NULL);
 
-  if (!IS_SET(world[ch->in_room].room_flags, NO_MAGIC))
+  if( !IS_SET(world[ch->in_room].room_flags, NO_MAGIC) )
   {
-    if (obj->timer[0] + 10 <= curr_time)
+    // Every 10 sec?!
+    if( obj->timer[0] + 10 <= curr_time )
     {
       obj->timer[0] = curr_time;
-  
-       if (!affected_by_spell(ch, SPELL_CURSE))
-        {
-	      act("&n$n's $q &+Rflares &+Bwith energy for a moment.&n",
-          TRUE, ch, obj, vict, TO_ROOM);
-          act("&nYour $q &+Rflares &+Bwith energy for a moment.&n",
-          TRUE, ch, obj, vict, TO_CHAR);
+
+      if (!affected_by_spell(ch, SPELL_CURSE))
+      {
+        act("&n$n's $q &+Rflares &+Bwith energy for a moment.&n", TRUE, ch, obj, vict, TO_ROOM);
+        act("&nYour $q &+Rflares &+Bwith energy for a moment.&n", TRUE, ch, obj, vict, TO_CHAR);
 
 	      bzero(&af, sizeof(af));
 
-          af.type = SPELL_CURSE;
-          af.duration =  100;
-          af.modifier = -1;
-          af.location = APPLY_HITROLL;
-          affect_to_char(ch, &af);
-          af.modifier = 10;
-          af.location = APPLY_CURSE;
-          affect_to_char(ch, &af);
+        af.type = SPELL_CURSE;
+        af.duration =  100;
+        af.modifier = -1;
+        af.location = APPLY_HITROLL;
+        affect_to_char(ch, &af);
+        af.modifier = 10;
+        af.location = APPLY_CURSE;
+        affect_to_char(ch, &af);
 
-          act("&+r$n briefly reveals a red aura!", FALSE, ch, 0, 0, TO_ROOM);
-          act("&+rYou feel very uncomfortable.", FALSE, ch, 0, 0, TO_CHAR);
+        act("&+r$n briefly reveals a red aura!", FALSE, ch, 0, 0, TO_ROOM);
+        act("&+rYou feel very uncomfortable.", FALSE, ch, 0, 0, TO_CHAR);
 	      return FALSE;
-        }
-      if (!IS_AFFECTED3(ch, AFF3_BLUR))
-        {
-	      act("&n$n's $q &+Ysparkles &+Bwith energy for a moment.&n",
-          TRUE, ch, obj, vict, TO_ROOM);
-          act("&nYour $q &+Ysparkles &+Bwith energy for a moment.&n",
-          TRUE, ch, obj, vict, TO_CHAR);
+      }
+      if( !IS_AFFECTED3(ch, AFF3_BLUR) )
+      {
+        act("&n$n's $q &+Ysparkles &+Bwith energy for a moment.&n", TRUE, ch, obj, vict, TO_ROOM);
+        act("&nYour $q &+Ysparkles &+Bwith energy for a moment.&n", TRUE, ch, obj, vict, TO_CHAR);
 	      spell_blur(70, ch, 0, SPELL_TYPE_SPELL, ch, 0);
 	      return FALSE;
-        }
-	}
+      }
+    }
   }
   return FALSE;
 }

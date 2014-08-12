@@ -132,51 +132,37 @@ int flayed_mind_mask(P_obj obj, P_char ch, int cmd, char *argument)
   int      curr_time;
 
 
-  if (cmd == CMD_SET_PERIODIC)               /*
-                                   Events have priority 
-                                 */
+  if( cmd == CMD_SET_PERIODIC )
+  {
+    return FALSE;
+  }
+
+  if( !IS_ALIVE(ch) || !OBJ_WORN(obj) )
     return FALSE;
 
-  if (!ch || !obj)              /*
-                                   If the player ain't here, why are we? 
-                                 */
-    return FALSE;
-
-  if (!OBJ_WORN(obj))           /*
-                                   Most things don't work in a sack... 
-                                 */
-    return FALSE;
-
-/*
-   Any powers activated by keywords? Right here, bud. 
- */
-
-  if (argument && (cmd == CMD_SAY))
+  if( argument && (cmd == CMD_SAY) )
   {
     arg = argument;
 
     while (*arg == ' ')
       arg++;
 
-    if (!strcmp(arg, "vision"))
+    if( !strcmp(arg, "vision") )
     {
       if (!say(ch, arg))
+      {
         return TRUE;
+      }
 
       curr_time = time(NULL);
-
+      // 30 min timer.
       if (obj->timer[0] + 1800 <= curr_time)
       {
-        act
-          ("&+LYour senses sharpen as $q &+Lbegins to &+Wglow&+w and you can see once again!",
-           FALSE, ch, obj, obj, TO_CHAR);
-        act
-          ("$n's $q &+Wglows&+w vibrantly for a moment before the aura &+Lsubsides...&N",
-           TRUE, ch, obj, NULL, TO_ROOM);
+        act("&+LYour senses sharpen as $q &+Lbegins to &+Wglow&+w and you can see once again!", FALSE, ch, obj, obj, TO_CHAR);
+        act("$n's $q &+Wglows&+w vibrantly for a moment before the aura &+Lsubsides...&N", TRUE, ch, obj, NULL, TO_ROOM);
         spell_cure_blind(35, ch, NULL, SPELL_TYPE_SPELL, ch, 0);
         obj->timer[0] = curr_time;
       }
-
       return TRUE;
     }
   }
@@ -186,72 +172,68 @@ int flayed_mind_mask(P_obj obj, P_char ch, int cmd, char *argument)
 
 int stalker_cloak(P_obj obj, P_char ch, int cmd, char *argument)
 {
-  char    *arg;
-  int      curr_time;
+  char *arg;
+  int   curr_time;
 
 
-  if (cmd == CMD_SET_PERIODIC)
+  if( cmd == CMD_SET_PERIODIC )
+  {
     return FALSE;
-  if (!ch || !obj)
-    return FALSE;
-  if (!OBJ_WORN(obj))
-    return FALSE;
+  }
 
-  if (argument && (cmd == CMD_SAY))
+  if( !IS_ALIVE(ch) || !OBJ_WORN(obj) )
+  {
+    return FALSE;
+  }
+
+  if( argument && (cmd == CMD_SAY) )
   {
     arg = argument;
     while (*arg == ' ')
       arg++;
-    if (!strcmp(arg, "reduce"))
+    if( !strcmp(arg, "reduce") )
     {
-      if (!say(ch, arg))
-        return TRUE;
-      curr_time = time(NULL);
-      if (obj->timer[0] + 180 <= curr_time)
+      if( !say(ch, arg) )
       {
-        act("You whisper 'reduce' to your $q...", FALSE, ch, obj, obj,
-            TO_CHAR);
+        return TRUE;
+      }
+      curr_time = time(NULL);
+      // 3 min timer.
+      if( obj->timer[0] + 180 <= curr_time )
+      {
+        act("You whisper 'reduce' to your $q...", FALSE, ch, obj, obj, TO_CHAR);
         act("$n whispers 'reduce' to $q...&N", TRUE, ch, obj, NULL, TO_ROOM);
         spell_reduce(35, ch, 0, SPELL_TYPE_SPELL, ch, 0);
         obj->timer[0] = curr_time;
       }
       return TRUE;
     }
-  }
-
-  if (argument && (cmd == CMD_SAY))
-  {
-    arg = argument;
-    while (*arg == ' ')
-      arg++;
-    if (!strcmp(arg, "enlarge"))
+    else if( !strcmp(arg, "enlarge") )
     {
-      if (!say(ch, arg))
-        return TRUE;
-      curr_time = time(NULL);
-      if (obj->timer[0] + 180 <= curr_time)
+      if( !say(ch, arg) )
       {
-        act("You whisper 'enlarge' to your $q...", FALSE, ch, obj, obj,
-            TO_CHAR);
+        return TRUE;
+      }
+      curr_time = time(NULL);
+      // 3 min timer.
+      if( obj->timer[0] + 180 <= curr_time )
+      {
+        act("You whisper 'enlarge' to your $q...", FALSE, ch, obj, obj, TO_CHAR);
         act("$n whispers 'enlarge' to $q...&N", TRUE, ch, obj, NULL, TO_ROOM);
         spell_enlarge(35, ch, 0, SPELL_TYPE_SPELL, ch, 0);
         obj->timer[0] = curr_time;
       }
       return TRUE;
     }
-  }
-
-  if (argument && (cmd == CMD_SAY))
-  {
-    arg = argument;
-    while (*arg == ' ')
-      arg++;
-    if (!strcmp(arg, "hide"))
+    else if (!strcmp(arg, "hide"))
     {
       if (!say(ch, arg))
+      {
         return TRUE;
+      }
       curr_time = time(NULL);
-      if (obj->timer[0] + 60 <= curr_time)
+      // 1 min timer.
+      if( obj->timer[0] + 60 <= curr_time )
       {
         act("Your $q hums briefly.", FALSE, ch, obj, obj, TO_CHAR);
         act("$n's $q hums briefly.", TRUE, ch, obj, NULL, TO_ROOM);
@@ -266,49 +248,41 @@ int stalker_cloak(P_obj obj, P_char ch, int cmd, char *argument)
 
 int finslayer_air(P_obj obj, P_char ch, int cmd, char *argument)
 {
-  char    *arg;
-  int      curr_time;
+  char *arg;
+  int   curr_time;
 
-
-  if (cmd == CMD_SET_PERIODIC)               /*
-                                   Events have priority 
-                                 */
+  if( cmd == CMD_SET_PERIODIC )
+  {
     return FALSE;
+  }
 
-  if (!ch || !obj)              /*
-                                   If the player ain't here, why are we? 
-                                 */
+  if(!IS_ALIVE(ch) || !OBJ_WORN(obj))
+  {
     return FALSE;
+  }
 
-  if (!OBJ_WORN(obj))           /*
-                                   Most things don't work in a sack... 
-                                 */
-    return FALSE;
-
-/*
-   Any powers activated by keywords? Right here, bud. 
- */
-
-  if (argument && (cmd == CMD_SAY))
+  if( argument && (cmd == CMD_SAY) )
   {
     arg = argument;
 
-    while (*arg == ' ')
-      arg++;
-
-    if (!strcmp(arg, "air"))
+    while( *arg == ' ' )
     {
-      if (!say(ch, arg))
+      arg++;
+    }
+
+    if( !strcmp(arg, "air") )
+    {
+      if( !say(ch, arg) )
+      {
         return TRUE;
+      }
 
       curr_time = time(NULL);
-
-      if (obj->timer[0] + 60 <= curr_time)
+      // 1 min timer.
+      if( obj->timer[0] + 60 <= curr_time )
       {
-        act("Your $q begins to spew forth breathable air...", FALSE, ch, obj,
-            obj, TO_CHAR);
-        act("$n's $q begins to spew forth breathable air...&N", TRUE, ch, obj,
-            NULL, TO_ROOM);
+        act("Your $q begins to spew forth breathable air...", FALSE, ch, obj, obj, TO_CHAR);
+        act("$n's $q begins to spew forth breathable air...&N", TRUE, ch, obj, NULL, TO_ROOM);
         spell_airy_water(35, ch, NULL, SPELL_TYPE_SPELL, ch, 0);
         obj->timer[0] = curr_time;
       }
@@ -321,48 +295,37 @@ int finslayer_air(P_obj obj, P_char ch, int cmd, char *argument)
 int aboleth_pendant(P_obj obj, P_char ch, int cmd, char *argument)
 {
   int      curr_time;
-  P_char   temp_ch;
 
-  /* check for periodic event calls */
-
-  if (cmd == CMD_SET_PERIODIC)
-    return TRUE;
-  if (cmd != 0)
-    return FALSE;
-
-  temp_ch = ch;
-
-  if (OBJ_WORN(obj))
-    ch = obj->loc.wearing;
-  else if (OBJ_CARRIED(obj))
-    ch = obj->loc.carrying;
-  else
-    return FALSE;
-
-
-  if (!ch)
+  if( cmd == CMD_SET_PERIODIC )
   {
-    if (OBJ_WORN(obj) && obj->loc.wearing)
-      temp_ch = obj->loc.wearing;
-    else
-      return FALSE;
+    return TRUE;
   }
 
+  if( cmd != CMD_PERIODIC || !obj )
+  {
+    return FALSE;
+  }
 
-  if (!OBJ_WORN_POS(obj, WEAR_NECK_1) && !OBJ_WORN_POS(obj, WEAR_NECK_2))
-    return (FALSE);
+  if( !OBJ_WORN_POS(obj, WEAR_NECK_1) && !OBJ_WORN_POS(obj, WEAR_NECK_2) )
+  {
+    return FALSE;
+  }
+
+  ch = obj->loc.wearing;
+  if( !IS_ALIVE(ch) )
+  {
+    return FALSE;
+  }
 
   curr_time = time(NULL);
-//     if (!IS_AFFECTED(ch, AFF_HIDE))
-//     {
-  if (obj->timer[0] + 900 <= curr_time) // 900 for 15 mins
+  // 900 for 15 mins
+  if( obj->timer[0] + 900 <= curr_time )
   {
     act("Your $q hums briefly.", FALSE, ch, obj, NULL, TO_CHAR);
     act("$n's $q hums briefly.", FALSE, ch, obj, NULL, TO_ROOM);
     SET_BIT(ch->specials.affected_by, AFF_HIDE);
     obj->timer[0] = curr_time;
   }
-//     }
   return FALSE;
 }
 
@@ -760,108 +723,90 @@ int mox_totem(P_obj obj, P_char ch, int cmd, char *argument)
   P_char   kala;
   char     e_pos;
 
-  if (cmd == CMD_SET_PERIODIC)
+  if( cmd == CMD_SET_PERIODIC )
+  {
     return TRUE;
-  if (cmd != 0)
+  }
+  if( cmd != CMD_PERIODIC || !(OBJ_WORN(obj) || OBJ_CARRIED(obj)) )
+  {
     return FALSE;
-
-  if (!obj)
-    return FALSE;
+  }
 
   temp_ch = ch;
-
-  if (!OBJ_WORN(obj))
-    return FALSE;
-
-  if (OBJ_WORN(obj))
+  if( OBJ_WORN(obj) )
     ch = obj->loc.wearing;
-  else if (OBJ_CARRIED(obj))
-    ch = obj->loc.carrying;
   else
-    return FALSE;
+    ch = obj->loc.carrying;
 
-
-  if (!ch)
+  if( !IS_ALIVE(ch) )
   {
-    if (OBJ_WORN(obj) && obj->loc.wearing)
-      temp_ch = obj->loc.wearing;
-    else
-      return FALSE;
+    return FALSE;
   }
 
   e_pos = ((obj->loc.wearing->equipment[HOLD] == obj) ? WIELD :
            (obj->loc.wearing->equipment[SECONDARY_WEAPON] == obj) ?
            SECONDARY_WEAPON : 0);
 
-  if (!e_pos)
+  if( !e_pos )
+  {
     return FALSE;
+  }
 
   curr_time = time(NULL);
 
-  if (!IS_SET(world[ch->in_room].room_flags, NO_MAGIC))
+  if( !IS_SET(world[ch->in_room].room_flags, NO_MAGIC) )
   {
     if (obj->timer[0] + 30 <= curr_time)
     {
       obj->timer[0] = curr_time;
       if (GET_HIT(ch) < GET_MAX_HIT(ch))
       {
-        act("&+w$n&+w's $q &+wglows and $n &+wis bathed in a healing aura.&N",
-            FALSE, ch, obj, 0, TO_ROOM);
-        act("&+wYour $q &+wglows and bathes you in a healing aura.&N", FALSE,
-            ch, obj, 0, TO_CHAR);
+        act("&+w$n&+w's $q &+wglows and $n &+wis bathed in a healing aura.&N", FALSE, ch, obj, 0, TO_ROOM);
+        act("&+wYour $q &+wglows and bathes you in a healing aura.&N", FALSE, ch, obj, 0, TO_CHAR);
         spell_mending(60, ch, NULL, SPELL_TYPE_SPELL, ch, 0);
-        return (FALSE);
+        return FALSE;
       }
     }
-
   }
+
   if (IS_FIGHTING(ch) && !number(0, 2))
   {
     kala = ch->specials.fighting;
-    // rand = number(0, 4); /* io: call of the wild seems to be pretty much disabled - so don't try to proc on it
     rand = number(0,3);
     switch (rand)
     {
-    case 0:
-      act("&+LYou point your $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala,
-          TO_CHAR);
-      act("&+L$n points $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala,
-          TO_NOTVICT);
-      act("&+L$n points $p &+Lat &+Wyou&+L!&N", TRUE, ch, obj, kala, TO_VICT);
-      spell_snailspeed(60, ch, NULL, SPELL_TYPE_SPELL, kala, 0);
-      break;
-    case 1:
-      act("&+LYou point your $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala,
-          TO_CHAR);
-      act("&+L$n points $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala,
-          TO_NOTVICT);
-      act("&+L$n points $p &+Lat &+Wyou&+L!&N", TRUE, ch, obj, kala, TO_VICT);
-      spell_molevision(60, ch, NULL, SPELL_TYPE_SPELL, kala, 0);
-      break;
-    case 2:
-      act("&+LYou point your $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala,
-          TO_CHAR);
-      act("&+L$n points $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala,
-          TO_NOTVICT);
-      act("&+L$n points $p &+Lat &+Wyou&+L!&N", TRUE, ch, obj, kala, TO_VICT);
-      spell_malison(60, ch, NULL, SPELL_TYPE_SPELL, kala, 0);
-      break;
+      case 0:
+        act("&+LYou point your $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala, TO_CHAR);
+        act("&+L$n points $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala, TO_NOTVICT);
+        act("&+L$n points $p &+Lat &+Wyou&+L!&N", TRUE, ch, obj, kala, TO_VICT);
+        spell_snailspeed(60, ch, NULL, SPELL_TYPE_SPELL, kala, 0);
+        break;
+      case 1:
+        act("&+LYou point your $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala, TO_CHAR);
+        act("&+L$n points $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala, TO_NOTVICT);
+        act("&+L$n points $p &+Lat &+Wyou&+L!&N", TRUE, ch, obj, kala, TO_VICT);
+        spell_molevision(60, ch, NULL, SPELL_TYPE_SPELL, kala, 0);
+        break;
+      case 2:
+        act("&+LYou point your $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala, TO_CHAR);
+        act("&+L$n points $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala, TO_NOTVICT);
+        act("&+L$n points $p &+Lat &+Wyou&+L!&N", TRUE, ch, obj, kala, TO_VICT);
+        spell_malison(60, ch, NULL, SPELL_TYPE_SPELL, kala, 0);
+        break;
     case 3:
-      act("&+LYou point your $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala,
-          TO_CHAR);
-      act("&+L$n points $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala,
-          TO_NOTVICT);
+        act("&+LYou point your $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala, TO_CHAR);
+      act("&+L$n points $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala, TO_NOTVICT);
       act("&+L$n points $p &+Lat &+Wyou&+L!&N", TRUE, ch, obj, kala, TO_VICT);
       spell_soul_disturbance(60, ch, NULL, SPELL_TYPE_SPELL, kala, 0);
       break;
+/* Call of the wild isn't in game right now..
     case 4:
-      act("&+LYou point your $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala,
-          TO_CHAR);
-      act("&+L$n points $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala,
-          TO_NOTVICT);
+      act("&+LYou point your $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala, TO_CHAR);
+      act("&+L$n points $p &+Lat &+W$N&+L.&N", TRUE, ch, obj, kala, TO_NOTVICT);
       act("&+L$n points $p &+Lat &+Wyou&+L!&N", TRUE, ch, obj, kala, TO_VICT);
       spell_call_of_the_wild(60, ch, NULL, SPELL_TYPE_SPELL, kala, 0);
       break;
+*/
     }
     return FALSE;
   }

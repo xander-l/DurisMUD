@@ -930,77 +930,58 @@ void do_encrust(P_char ch, char *argument, int cmd)
 int encrusted_eq_proc(P_obj obj, P_char ch, int cmd, char *arg)
 {
   P_char   kala;
-  int      j = 0;
+  int      j, dam;
 
-  /*
-     check for periodic event calls
-   */
   if(cmd == CMD_SET_PERIODIC)
   {
     return TRUE;
   }
-  
-  if(cmd != CMD_MELEE_HIT)
+
+  if( cmd != CMD_MELEE_HIT )
   {
-    return (FALSE);
+    return FALSE;
   }
-  
-  if(!ch ||
-     !IS_ALIVE(ch) ||
-     IS_IMMOBILE(ch))
+
+  if( !IS_ALIVE(ch) || IS_IMMOBILE(ch) || !OBJ_WORN_BY(obj, ch) )
   {
-    return (FALSE);
+    return FALSE;
   }
-  
-  if(!OBJ_WORN(obj) ||
-    (obj->loc.wearing != ch))
-  {
-    return (FALSE);
-  }
-  
+
   kala = (P_char) arg;
-  
-  if(!kala)
+  if( !IS_ALIVE(kala) )
   {
-    return (FALSE);
+    return FALSE;
   }
-  
+
   j = obj->value[5];
 
-  if(!number(0, 30))
+  // 1/30 chance.
+  if( !number(0, 29) )
   {
-    if(j != SPELL_ENERGY_DRAIN &&
-       j != 0)
+    if( j != SPELL_ENERGY_DRAIN && j != 0 )
     {
      // validation
-      if( j >= MAX_AFFECT_TYPES )
-        return (FALSE);
-     
-      if(*skills[j].spell_pointer == 0)
-        return (FALSE);
+      if( j >= MAX_AFFECT_TYPES || *skills[j].spell_pointer == 0 )
+      {
+        return FALSE;
+      }
 
       act("$n's&N $q &n&+Lmurmurs some strange incantations...&N", TRUE, ch, obj, kala, TO_NOTVICT);
       act("Your&N $q &n&+Lmurmurs some strange incantations...&N", TRUE, ch, obj, kala, TO_CHAR);
       act("$n's&N $q &n&+Lmurmurs some strange incantations...&N", TRUE, ch, obj, kala, TO_VICT);
       ((*skills[j].spell_pointer) ((int) obj->value[6], ch, 0, SPELL_TYPE_SPELL, kala, obj));
     }
-    else if(j == SPELL_ENERGY_DRAIN &&
-            GET_HIT(ch) < GET_MAX_HIT(ch) &&
-            !IS_UNDEADRACE(kala) &&
-            !IS_AFFECTED4(kala, AFF4_NEG_SHIELD) &&
-            !resists_spell(ch, kala))
+    else if(j == SPELL_ENERGY_DRAIN && GET_HIT(ch) < GET_MAX_HIT(ch)
+      && !IS_UNDEADRACE(kala) && !IS_AFFECTED4(kala, AFF4_NEG_SHIELD) && !resists_spell(ch, kala) )
     {
       act("&+LYour encrusted &+rbloodstone &+Rglows brightly&+L, and your vision is &+rbathed in &+Rred&+L.&n", FALSE, ch, 0, 0, TO_CHAR);
       act("$n&+L's encrusted &+rbloodstone &+Rglows&+L, and $s &+reyes &+Lare &+rbathed in &+Rred&+L.&n", FALSE, ch, 0, 0, TO_ROOM);
-      if(IS_ALIVE(kala))
-      {
-        int dam = number(10, 30);
-        vamp(ch, dam, GET_MAX_HIT(ch));
-        melee_damage(ch, kala, dam, 0, 0);
-      }
+      dam = number(10, 30);
+      vamp(ch, dam, GET_MAX_HIT(ch));
+      melee_damage(ch, kala, dam, 0, 0);
     }
   }
-  return (TRUE);
+  return TRUE;
 }
 
 void do_fix(P_char ch, char *argument, int cmd)
@@ -1351,7 +1332,7 @@ bool randomize_potion_non_damage(P_obj potion, int slot)
 
 }
 
-
+// Random eq enchant proc (cure crit).
 int thrusted_eq_proc(P_obj obj, P_char ch, int cmd, char *arg)
 {
   int      rand;
@@ -1360,106 +1341,86 @@ int thrusted_eq_proc(P_obj obj, P_char ch, int cmd, char *arg)
   P_obj    ingred;
   P_char   i;
   int      j = 0;
-  int      found = 0;
+  bool     found;
 
-  /* check for periodic event calls */
-
-
-  //DIsabled for now
-  return 0;
   if(cmd == CMD_SET_PERIODIC)
-    return TRUE;
-
-  if(cmd != CMD_PERIODIC)
-    return FALSE;
-
-  wizlog(56, "hi");
-
-  if(OBJ_ROOM(obj))
   {
+    return TRUE;
+  }
+
+  if( cmd != CMD_PERIODIC )
+  {
+    return FALSE;
+  }
+
+  if( OBJ_ROOM(obj) )
+  {
+    found = FALSE;
     for (i = world[obj->loc.room].people; i; i = i->next_in_room)
     {
-      if(IS_PC(i))
-        if(GET_PID(i) == obj->value[5])
-          found = 1;
-    }
-
-    if(!found)
-    {
-      act("$p &+Gmagical &+Yaura&+G slowly dissipates away", FALSE, 0, obj, 0,
-          TO_ROOM);
-      extract_obj(obj, TRUE);
-      return 0;
-    }
-    act("$p &+Wwhispers softly...", FALSE, 0, obj, 0, TO_CHAR);
-
-    for (i = world[obj->loc.room].people; i; i = i->next_in_room)
-    {
-
-      switch (obj->value[6])
+      if( IS_PC(i) && GET_PID(i) == obj->value[5] )
       {
-      case 0:                  // HEAL
-        act("$p &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj,
-            0, TO_CHAR);
-        GET_HIT(i) =
-          BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
+        found = TRUE;
         break;
-      case 1:                  // HEAL
-        act("$p's &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i,
-            obj, 0, TO_CHAR);
-        GET_HIT(i) =
-          BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
+      }
+    }
+
+    if( !found )
+    {
+      act("$p &+Gmagical &+Yaura&+G slowly dissipates away", FALSE, 0, obj, 0, TO_ROOM);
+      extract_obj(obj, TRUE);
+      return FALSE;
+    }
+    act("$p &+Wwhispers softly...", FALSE, i, obj, 0, TO_CHAR);
+
+    for( i = world[obj->loc.room].people; i; i = i->next_in_room )
+    {
+      switch( obj->value[6] )
+      {
+      case 0:
+        act("$p's &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj, 0, TO_CHAR);
+        GET_HIT(i) = BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
         break;
-      case 2:                  // HEAL
-        act("$p &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj,
-            0, TO_CHAR);
-        GET_HIT(i) =
-          BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
+      case 1:
+        act("$p's &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj, 0, TO_CHAR);
+        GET_HIT(i) = BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
         break;
-      case 3:                  // HEAL
-        act("$p &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj,
-            0, TO_CHAR);
-        GET_HIT(i) =
-          BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
+      case 2:
+        act("$p's &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj, 0, TO_CHAR);
+        GET_HIT(i) = BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
         break;
-      case 4:                  // HEAL
-        act("$p &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj,
-            0, TO_CHAR);
-        GET_HIT(i) =
-          BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
+      case 3:
+        act("$p's &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj, 0, TO_CHAR);
+        GET_HIT(i) = BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
         break;
-      case 5:                  // HEAL
-        act("$p &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj,
-            0, TO_CHAR);
-        GET_HIT(i) =
-          BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
+      case 4:
+        act("$p's &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj, 0, TO_CHAR);
+        GET_HIT(i) = BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
         break;
-      case 6:                  // HEAL
-        act("$p &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj,
-            0, TO_CHAR);
-        GET_HIT(i) =
-          BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
+      case 5:
+        act("$p's &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj, 0, TO_CHAR);
+        GET_HIT(i) = BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
         break;
-      case 7:                  // HEAL
-        act("$p &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj,
-            0, TO_CHAR);
-        GET_HIT(i) =
-          BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
+      case 6:
+        act("$p's &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj, 0, TO_CHAR);
+        GET_HIT(i) = BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
         break;
-      case 8:                  // HEAL
-        act("$p &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj,
-            0, TO_CHAR);
-        GET_HIT(i) =
-          BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
+      case 7:
+        act("$p's &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj, 0, TO_CHAR);
+        GET_HIT(i) = BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
+        break;
+      case 8:
+        act("$p's &+Wsoft &+Gmagical &+Yaura&+G surrounds you!", FALSE, i, obj, 0, TO_CHAR);
+        GET_HIT(i) = BOUNDED(0, (GET_HIT(i) + number(20, 35)), GET_MAX_HIT(i));
+        break;
+      default:
         break;
       }
     }
   }
-
-  wizlog(56, "NOW!");
   return FALSE;
-
 }
+
 struct spell_target_data common_target_data;
 
 #define spl common_target_data.ttype

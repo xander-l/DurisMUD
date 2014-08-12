@@ -37,17 +37,22 @@ extern struct zone_data *zone_table;
 
 int ioun_sustenance(P_obj obj, P_char ch, int cmd, char *argument)
 {
-  if (!ch || !obj || !IS_PC(ch))
-    return FALSE;
 
-  if (!OBJ_WORN(obj))
+  if( cmd == CMD_SET_PERIODIC )
+  {
     return FALSE;
+  }
 
-  if (argument && (cmd == CMD_SAY))
+  if( !IS_ALIVE(ch) || IS_NPC(ch) || !obj || !OBJ_WORN(obj) )
+  {
+    return FALSE;
+  }
+
+  if( argument && (cmd == CMD_SAY) )
   {
     if (isname(argument, "feedme"))
     {
-      int      curr_time = time(NULL);
+      int curr_time = time(NULL);
 
       if (curr_time >= obj->timer[0] + 60)
       {
@@ -61,20 +66,14 @@ int ioun_sustenance(P_obj obj, P_char ch, int cmd, char *argument)
               TO_ROOM);
           act("&+WYour $p &+Wglows with a bright light!&n", FALSE, ch, obj, 0,
               TO_CHAR);
-          spell_greater_sustenance(50, ch, NULL, SPELL_TYPE_SPELL, NULL,
-                                   NULL);
-
+          spell_greater_sustenance(50, ch, NULL, SPELL_TYPE_SPELL, NULL, NULL);
           obj->timer[0] = curr_time;
         }
         return TRUE;
       }
     }
-
-
   }
-
   return FALSE;
-
 }
 
 int ioun_testicle(P_obj obj, P_char ch, int cmd, char *argument)
@@ -82,24 +81,18 @@ int ioun_testicle(P_obj obj, P_char ch, int cmd, char *argument)
   int      current_time = time(NULL);
   P_char   next, target, vict;
   P_obj    pobj, x;
-  int      i = 0;
+  int      i;
 
-  return FALSE;
-
-  if (!ch || !obj || !IS_PC(ch))
+  if( !ch || !obj || !IS_PC(ch) || !OBJ_WORN(obj) || cmd != CMD_RUB || !ch->in_room )
+  {
     return FALSE;
-
-  if (!OBJ_WORN(obj))
-    return FALSE;
-
-  if (cmd != CMD_RUB)
-    return FALSE;
+  }
 
   act("&+W$n's $p &+Wmoans with pleasure!&n", FALSE, ch, obj, 0, TO_ROOM);
   act("&+WYour $p &+Wmoans with pleasure!&n", FALSE, ch, obj, 0, TO_CHAR);
 
-  if ((cmd == CMD_RUB) && OBJ_WORN(obj) &&
-      ((obj->timer[0] + 604800) <= current_time))
+  // Once per week..
+  if( (obj->timer[0] + 604800) <= current_time )
   {
     if (GET_LEVEL(ch) == 50)
     {
@@ -108,7 +101,7 @@ int ioun_testicle(P_obj obj, P_char ch, int cmd, char *argument)
       obj->value[0]++;
       advance_level(ch);
       obj->timer[0] = current_time;
-      if (obj->value[0] > 1)
+      if( obj->value[0] > 1 )
       {
         act("&+WOh NO!!  Something's wrong!&n", FALSE, ch, obj, 0, TO_ROOM);
         act("&+W$p &+Wbegins to pulsate!&n", FALSE, ch, obj, 0, TO_ROOM);
@@ -124,45 +117,48 @@ int ioun_testicle(P_obj obj, P_char ch, int cmd, char *argument)
         act("&+WYou try to avoid the stream, but fail miserably!&n", FALSE,
             ch, obj, 0, TO_CHAR);
 
-        for (vict = world[ch->in_room].people; vict; vict = next)
+        for( vict = world[ch->in_room].people; vict; vict = next )
         {
           next = vict->next_in_room;
-          if (IS_TRUSTED(vict) || IS_NPC(vict))
+          i = 0;
+          if( IS_TRUSTED(vict) || IS_NPC(vict) )
+          {
             continue;
-
+          }
           do
           {
-            if (vict->equipment[i])
+            if( vict->equipment[i] )
             {
               pobj = vict->equipment[i];
               i++;
-              if (IS_ARTIFACT(pobj))
+              if( IS_ARTIFACT(pobj) || IS_IOUN(pobj) )
+              {
                 continue;
-              if (IS_IOUN(pobj))
-                continue;
-              if (OBJ_CARRIED(pobj))
-              {                 /* remove the obj */
+              }
+              if( OBJ_CARRIED(pobj) )
+              {
+                // Remove the obj
                 obj_from_char(pobj, TRUE);
               }
-              else if (OBJ_WORN(pobj))
+              else if( OBJ_WORN(pobj) )
               {
                 unequip_char_dale(pobj);
               }
-              else if (OBJ_INSIDE(pobj))
+              else if( OBJ_INSIDE(pobj) )
               {
                 obj_from_obj(pobj);
                 obj_to_room(pobj, ch->in_room);
               }
-              if (pobj->contains)
+              if( pobj->contains )
               {
-                while (pobj->contains)
+                while( pobj->contains )
                 {
                   x = pobj->contains;
                   obj_from_obj(x);
                   obj_to_room(x, ch->in_room);
                 }
               }
-              if (pobj)
+              if( pobj )
               {
                 extract_obj(pobj, TRUE);
                 pobj = NULL;
@@ -177,13 +173,10 @@ int ioun_testicle(P_obj obj, P_char ch, int cmd, char *argument)
         }
         extract_obj(obj, TRUE);
       }
-
       return TRUE;
     }
   }
-
   return FALSE;
-
 }
 
 int ioun_warp(P_obj obj, P_char ch, int cmd, char *argument)
@@ -195,33 +188,28 @@ int ioun_warp(P_obj obj, P_char ch, int cmd, char *argument)
 
   int      curr_time = time(NULL);;
 
-  if (cmd == CMD_SET_PERIODIC)
+  if( cmd == CMD_SET_PERIODIC )
+  {
     return FALSE;
+  }
 
-  if (!IS_PC(ch))
+  if( !IS_ALIVE(ch) || !IS_PC(ch) || !obj || !OBJ_WORN(obj) || obj->timer[0] + 60 > curr_time )
+  {
     return FALSE;
-
-  if (!ch || !obj)
-    return FALSE;
-
-  if (!OBJ_WORN(obj))
-    return FALSE;
-
-  if (obj->timer[0] + 60 > curr_time)
-    return FALSE;
+  }
 
   half_chop(argument, Gbuf, Gbuf2);
-
-
-  if(!IS_FIGHTING(ch) &&  (ch->equipment[HOLD] != obj))
+  if( !IS_FIGHTING(ch) && (ch->equipment[HOLD] != obj) )
   {
-  if (*Gbuf && (cmd == CMD_SAY))
-  {
-    if (!strcmp(Gbuf, "join") && *Gbuf2)
+    if( Gbuf && *Gbuf && (cmd == CMD_SAY) )
     {
-      obj->value[5]++;
-      if (obj->value[5] > 10)
-        obj->value[5] == 10;
+      if (!strcmp(Gbuf, "join") && *Gbuf2)
+      {
+        obj->value[5]++;
+        if (obj->value[5] > 10)
+        {
+          obj->value[5] == 10;
+        }
     /* 
      if (obj->value[5] == 5)
       {
@@ -258,32 +246,25 @@ int ioun_warp(P_obj obj, P_char ch, int cmd, char *argument)
         return FALSE;
       }
     */
-      target = get_char_vis(ch, Gbuf2);
-      if (target && target != ch && IS_PC(target) && !IS_TRUSTED(target))
-      {
-        act
-          ("&+G$n's $p &+Gbegins swirling in circles very fast, engulfing $s whole body in a blurry haze!&n\r\n"
-           "&+wThe haze slowly subsides, and $n is gone!&n", FALSE, ch, obj,
-           0, TO_ROOM);
-        act("&+GYour $p &+Gbegins whirling around your body very fast!!&n",
-            FALSE, ch, obj, 0, TO_CHAR);
-        //char_from_room(ch);
-        //char_to_room(ch, target->in_room, -1);
-        spell_relocate(56, ch, 0, 0, target, NULL);
-       /* act
-          ("&+wAs the haze slowly subsides, you realize you are somewhere else!&n",
-           FALSE, ch, obj, 0, TO_CHAR);
-	
-        act
-          ("&+wA soft, &+bblurry &+mhaze &+wfloats in from above and begins whirling about a central area...\r\n"
-           "&+wAs the haze subides, $n is standing there with a grin on $s face.&n",
-           FALSE, ch, obj, 0, TO_ROOM);
-	*/
-        obj->timer[0] = curr_time;
-        return TRUE;
+        target = get_char_vis(ch, Gbuf2);
+        if (target && target != ch && IS_PC(target) && !IS_TRUSTED(target))
+        {
+          act("&+G$n's $p &+Gbegins swirling in circles very fast, engulfing $s whole body in a blurry haze!&n\r\n"
+            "&+wThe haze slowly subsides, and $n is gone!&n", FALSE, ch, obj, 0, TO_ROOM);
+          act("&+GYour $p &+Gbegins whirling around your body very fast!!&n", FALSE, ch, obj, 0, TO_CHAR);
+          spell_relocate(56, ch, 0, 0, target, NULL);
+       /* This was changed to relocate spell (for to use !port flags and such).
+          char_from_room(ch);
+          char_to_room(ch, target->in_room, -1);
+          act("&+wAs the haze slowly subsides, you realize you are somewhere else!&n", FALSE, ch, obj, 0, TO_CHAR);
+          act("&+wA soft, &+bblurry &+mhaze &+wfloats in from above and begins whirling about a central area...\r\n"
+            "&+wAs the haze subides, $n is standing there with a grin on $s face.&n", FALSE, ch, obj, 0, TO_ROOM);
+        */
+          obj->timer[0] = curr_time;
+          return TRUE;
+        }
       }
     }
-  }
   }
   return FALSE;
 }

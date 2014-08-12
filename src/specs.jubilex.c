@@ -120,11 +120,10 @@ int jubilex_one(P_char ch, P_char pl, int cmd, char *arg)
 int mask_of_wildmagic(P_obj obj, P_char ch, int cmd, char *arg)
 {
   if( cmd == CMD_SET_PERIODIC )
+  {
     return TRUE;
- 
-  if( !obj )
-    return FALSE;
-  
+  }
+
   if( cmd == CMD_PERIODIC )
   {
     if( !OBJ_WORN(obj) )
@@ -132,42 +131,32 @@ int mask_of_wildmagic(P_obj obj, P_char ch, int cmd, char *arg)
 
     ch = obj->loc.wearing;
     if( !ch )
+    {
       return FALSE;
-    
+    }
+
     if( !number(0,5) )
     {
       int msg = number(0,2);
       switch( msg )
       {
-        case 0:
-          act("&+LYou are momentarily blinded as powerful &+Bsparks &+Lof &+bma&+Wgi&+bc &+Lleap forth from your mask.&n",
-              FALSE, ch, obj, 0, TO_CHAR);
-          act("&+LPowerful &+Bsparks &+Lof &+bma&+Wgi&+bc &+Lseem to flow out from $n's mask.&n",
-              FALSE, ch, obj, 0, TO_ROOM);
-          break;
-          
-        case 1:
-          act("&+LYou suddenly feel a rush of &+wsup&+Wern&+watural &+rheat &+Lsurround your body.&n",
-              FALSE, ch, obj, 0, TO_CHAR);
-          act("&+L$n &+Lis suddenly surrounded by a &+rred &+Geldritch &+Laura, which quickly dissipates.&n",
-              FALSE, ch, obj, 0, TO_ROOM);
-          break;
-          
-        case 2:
-          act("&+LYour eyes seem to be playing tricks on you as you see strange &+Mripples &+Lin &+Wreality&+L.&n",
-              FALSE, ch, obj, 0, TO_CHAR);
-          act("&+L$n's &+Mmask &+Wsparkles &+Lfor a moment, and reality seems to twist and bend.&n",
-              FALSE, ch, obj, 0, TO_ROOM);
-          break;
+      case 0:
+        act("&+LYou are momentarily blinded as powerful &+Bsparks &+Lof &+bma&+Wgi&+bc &+Lleap forth from your mask.&n", FALSE, ch, obj, 0, TO_CHAR);
+        act("&+LPowerful &+Bsparks &+Lof &+bma&+Wgi&+bc &+Lseem to flow out from $n's mask.&n", FALSE, ch, obj, 0, TO_ROOM);
+        break;
+      case 1:
+        act("&+LYou suddenly feel a rush of &+wsup&+Wern&+watural &+rheat &+Lsurround your body.&n", FALSE, ch, obj, 0, TO_CHAR);
+        act("&+L$n &+Lis suddenly surrounded by a &+rred &+Geldritch &+Laura, which quickly dissipates.&n", FALSE, ch, obj, 0, TO_ROOM);
+        break;
+      case 2:
+        act("&+LYour eyes seem to be playing tricks on you as you see strange &+Mripples &+Lin &+Wreality&+L.&n", FALSE, ch, obj, 0, TO_CHAR);
+        act("&+L$n's &+Mmask &+Wsparkles &+Lfor a moment, and reality seems to twist and bend.&n", FALSE, ch, obj, 0, TO_ROOM);
+        break;
       }
-      
     }
-   
     return TRUE;
   }
-  
-  
-  return FALSE;  
+  return FALSE;
 }
 
 int ebb_vambraces(P_obj obj, P_char ch, int cmd, char *arg)
@@ -227,17 +216,16 @@ int ebb_vambraces(P_obj obj, P_char ch, int cmd, char *arg)
 
 void event_flow_amulet_vibrate(P_char ch, P_char victim, P_obj obj, void *data)
 {
-  if (OBJ_WORN(obj) && obj->loc.wearing)
+  if( OBJ_WORN(obj) && obj->loc.wearing )
   {
     act("$p &+rvibrates&+b quietly.&n", FALSE, obj->loc.wearing, obj, 0, TO_CHAR);
-	SET_BIT(obj->extra_flags, ITEM_HUM);
+    SET_BIT(obj->extra_flags, ITEM_HUM);
   }
   else
   {
     act("&+bThe $q &+rvibrates &+bquietly.&n", FALSE, 0, obj, 0, TO_NOTVICT);
-	SET_BIT(obj->extra_flags, ITEM_HUM);
+    SET_BIT(obj->extra_flags, ITEM_HUM);
   }
-
 }
 
 int flow_amulet(P_obj obj, P_char ch, int cmd, char *arg)
@@ -245,69 +233,70 @@ int flow_amulet(P_obj obj, P_char ch, int cmd, char *arg)
   int circle;
   char buf[256];
   int curr_time;
-  
-  if (cmd == CMD_SET_PERIODIC)
-    return FALSE;
-  
-  if (!ch || !obj)
-    return FALSE;
-  
-  if (!OBJ_WORN_BY(obj, ch))
-    return FALSE;
 
-  if (arg && (cmd == CMD_SAY))
+  if (cmd == CMD_SET_PERIODIC)
   {
-    if (isname(arg, "flow"))
+    return FALSE;
+  }
+
+  if( IS_ALIVE(ch) || !OBJ_WORN_BY(obj, ch) )
+  {
+    return FALSE;
+  }
+
+  if( arg && (cmd == CMD_SAY) )
+  {
+    if( isname(arg, "flow") )
     {
       curr_time = time(NULL);
-      
-      if (obj->timer[0] + 350 <= curr_time)
+      // 5 min 50 sec timer ?!?
+      if( obj->timer[0] + 350 <= curr_time )
       {
         act("You say 'flow'", FALSE, ch, 0, 0, TO_CHAR);
-		act("$p&+B hums loudly!&n", FALSE, ch, obj, 0, TO_CHAR);
+        act("$p&+B hums loudly!&n", FALSE, ch, obj, 0, TO_CHAR);
 
-		act("$n says 'flow'", TRUE, ch, obj, NULL, TO_ROOM);
+        act("$n says 'flow'", TRUE, ch, obj, NULL, TO_ROOM);
         act("&+B$n&+B's $p &+Bhums loudly!&n", FALSE, ch, obj, 0, TO_ROOM);
 
-         if (IS_PUNDEAD(ch) || GET_CLASS(ch, CLASS_ETHERMANCER))
-           {
-             for (circle = get_max_circle(ch); circle >= 1; circle--)
-             {
-               if (ch->specials.undead_spell_slots[circle] <
-                   max_spells_in_circle(ch, circle))
-               {
-                  //debug("circle slot: %d", circle); some zion debug nonsense, can re-enable it if you wish.
-                  sprintf(buf, "&+LPowerful magic flows into your %d%s circle of knowledge.\n",
-                  circle, circle == 1 ? "st" : (circle == 2 ? "nd" : (circle == 3 ? "rd" : "th")));
-                  send_to_char(buf, ch);
-                  ch->specials.undead_spell_slots[circle]++;
-				  break;
-               }
-             }
-           }
-           else
-           {
-  
-            int spell = memorize_last_spell(ch);
-  
-            if( spell )
-              {
-                sprintf( buf, "&+BPowerful magic flows forth from the amulet, and your power of %s &+Breturns to you!&n\n",
-                skills[spell].name );
-                send_to_char(buf, ch);
-              } 
-           }
-		obj->timer[0] = curr_time;
-		REMOVE_BIT(obj->extra_flags, ITEM_HUM);
-		disarm_obj_events(obj, event_flow_amulet_vibrate);
+        if( USES_SPELL_SLOTS(ch) )
+        {
+          for( circle = get_max_circle(ch); circle >= 1; circle-- )
+          {
+            if( ch->specials.undead_spell_slots[circle] < max_spells_in_circle(ch, circle) )
+            {
+              //debug("circle slot: %d", circle); some zion debug nonsense, can re-enable it if you wish.
+              sprintf(buf, "&+LPowerful magic flows into your %d%s circle of knowledge.\n",
+                circle, circle == 1 ? "st" : (circle == 2 ? "nd" : (circle == 3 ? "rd" : "th")));
+              send_to_char(buf, ch);
+              ch->specials.undead_spell_slots[circle]++;
+              break;
+            }
+          }
+        }
+        else
+        {
+          int spell = memorize_last_spell(ch);
+
+          if( spell )
+          {
+            sprintf( buf, "&+BPowerful magic flows forth from the amulet, and your power of %s &+Breturns to you!&n\n",
+            skills[spell].name );
+            send_to_char(buf, ch);
+          }
+        }
+        obj->timer[0] = curr_time;
+        REMOVE_BIT(obj->extra_flags, ITEM_HUM);
+        disarm_obj_events(obj, event_flow_amulet_vibrate);
         add_event(event_flow_amulet_vibrate, 350 * WAIT_SEC, 0, 0, obj, 0, 0, 0);
         return TRUE;
-	  }
-	  else
-	  return FALSE;
-	}
+      }
+      else
+      {
+       return FALSE;
+      }
+    }
   }
- return FALSE;
+  return FALSE;
 }
 
 int jubilex_grid_mob_generator(P_obj obj, P_char ch, int cmd, char *arg)

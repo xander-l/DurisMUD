@@ -542,39 +542,32 @@ int kearonor_hide(P_obj obj, P_char ch, int cmd, char *arg)
 {
   int      mob_num = 0;
 
-  if (1 == 1)
-    return FALSE;
-
-  if (cmd == CMD_SET_PERIODIC)
-    return FALSE;
-
-  if (!ch || !obj)
-    return FALSE;
-
-  if (cmd == CMD_PERIODIC)
-    return FALSE;
-
-  if (cmd && cmd == CMD_SHAPECHANGE)
+  if( cmd == CMD_SET_PERIODIC )
   {
-    act("Ye cannot remove the $q! It must be CURSED!", FALSE, ch, obj, 0,
-        TO_CHAR);
+    return FALSE;
+  }
+
+  if( !IS_ALIVE(ch) || !obj )
+    return FALSE;
+
+  if( cmd && cmd == CMD_SHAPECHANGE )
+  {
+    act("Ye cannot remove the $q! It must be CURSED!", FALSE, ch, obj, 0, TO_CHAR);
     return TRUE;
   }
-  if (!IS_MORPH(ch) && OBJ_WORN(obj) && IS_PC(ch))
+  if( !IS_MORPH(ch) && OBJ_WORN(obj) && IS_PC(ch) )
   {
-    if ((mob_num = real_mobile0(41302)) == 0)
+    if( (mob_num = real_mobile0(41302)) == 0 )
     {
       logit(LOG_DEBUG, "Beast vnum non-existant for kearonor_hide proc.\r\n");
       return FALSE;
     }
-    send_to_char
-      ("You feel pain wrack your body, as a strange metamorphasis engulfs you.\r\n",
-       ch);
+    send_to_char("You feel pain wrack your body, as a strange metamorphasis engulfs you.\r\n", ch);
 
-    if (morph(ch, mob_num, REAL))
-      act("$N screams in pain as $S body begins to re-form into $n.", FALSE,
-          ch->only.pc->switched, 0, ch, TO_ROOM);
-
+    if( morph(ch, mob_num, REAL) )
+    {
+      act("$N screams in pain as $S body begins to re-form into $n.", FALSE, ch->only.pc->switched, 0, ch, TO_ROOM);
+    }
     return TRUE;
   }
   return FALSE;
@@ -634,10 +627,14 @@ int mir_fire(P_obj obj, P_char ch, int cmd, char *arg)
   P_char   tch = NULL, next = NULL;
 
   if (cmd == CMD_SET_PERIODIC)
-    return FALSE;
+  {
+    return TRUE;
+  }
 
-  if (!obj)
+  if( !obj || cmd != CMD_PERIODIC )
+  {
     return FALSE;
+  }
 
   factor = dice(3, 6);
   /* burn anyone in the room */
@@ -646,34 +643,37 @@ int mir_fire(P_obj obj, P_char ch, int cmd, char *arg)
     for (tch = world[obj->loc.room].people; tch; tch = next)
     {
       next = tch->next_in_room;
-      if (NewSaves(tch, SAVING_SPELL,
-                   IS_AFFECTED2(tch, AFF2_FIRESHIELD) ? -2 : 0))
+      if( NewSaves(tch, SAVING_SPELL, IS_AFFECTED2(tch, AFF2_FIRESHIELD) ? -2 : 0) )
         factor >>= 1;
-      if (IS_AFFECTED2(tch, AFF2_FIRESHIELD))
+      if( IS_AFFECTED2(tch, AFF2_FIRESHIELD) )
         factor <<= 1;
-      if (IS_AFFECTED3(tch, AFF3_COLDSHIELD))
+      if( IS_AFFECTED3(tch, AFF3_COLDSHIELD) )
         factor >>= 1;
-      if (IS_AFFECTED(tch, AFF_PROT_FIRE))
+      if( IS_AFFECTED(tch, AFF_PROT_FIRE) )
         factor >>= 1;
-      GET_HIT(tch) -= MAX(GET_HIT(tch) - 5, factor);
+      if( !IS_TRUSTED(tch) )
+      {
+        GET_HIT(tch) -= MAX(1, MIN(GET_HIT(tch) - 5, factor));
+      }
       send_to_char("The &+Yraging fire&n burns intensely!\r\n", tch);
     }
     return TRUE;
   }
   /* spread like wildfire */
-  for (i = 0; i < NUM_EXITS; i++)
-    if (VIRTUAL_CAN_GO(obj->loc.room, i))
+  for( i = 0; i < NUM_EXITS; i++ )
+  {
+    if( VIRTUAL_CAN_GO(obj->loc.room, i) )
     {
       room = VIRTUAL_EXIT(obj->loc.room, i)->to_room;
-      for (room_junk = world[room].contents; room_junk;
-           room_junk = room_junk_temp)
+      for( room_junk = world[room].contents; room_junk; room_junk = room_junk_temp )
       {
         room_junk_temp = room_junk->next_content;
-        if ((obj_index[room_junk->R_num].virtual_number == 41900) ||
-            (obj_index[room_junk->R_num].virtual_number == 41901))
+
+        if( (obj_index[room_junk->R_num].virtual_number == 41900) ||
+          (obj_index[room_junk->R_num].virtual_number == 41901) )
         {
           smoke = read_object(41908, VIRTUAL);
-          if (!smoke)
+          if( !smoke )
           {
             logit(LOG_EXIT, "assert: mir_fire() failed to load object 41908");
             raise(SIGSEGV);
@@ -685,6 +685,7 @@ int mir_fire(P_obj obj, P_char ch, int cmd, char *arg)
         }
       }
     }
+  }
   return FALSE;
 }
 

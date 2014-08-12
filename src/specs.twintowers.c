@@ -76,54 +76,50 @@ int forest_animals(P_char ch, P_char pl, int cmd, char *arg)
 int forest_corpse(P_obj obj, P_char ch, int cmd, char *args)
 {
   if (cmd == CMD_SET_PERIODIC)
-    return TRUE;
-
-  if (ch || cmd)                /*
-                                   reject non-periodic events 
-                                 */
-    return FALSE;
-
-  if (!obj->value[0]--)
   {
-    /*
-       make it into a real corpse 
-     */
+    return TRUE;
+  }
+
+  if( ch || cmd != CMD_PERIODIC )
+  {
+    return FALSE;
+  }
+
+  if( !obj->value[0]-- )
+  {
+    // Make it into a real corpse
     P_obj    corpse;
 
     corpse = read_object(13520, VIRTUAL);
-    if (!corpse)
+    if( !corpse )
     {
       logit(LOG_EXIT, "forest_corpse: unable to load obj #13520");
       raise(SIGSEGV);
     }
     corpse->weight = obj->weight;
-    set_obj_affected(corpse, get_property("timer.decay.corpse.npc", 120),
-                     TAG_OBJ_DECAY, 0);
+    set_obj_affected(corpse, get_property("timer.decay.corpse.npc", 120), TAG_OBJ_DECAY, 0);
 
-    if (OBJ_CARRIED(obj))
+    if( OBJ_CARRIED(obj) )
     {
       P_char   carrier;
 
       carrier = obj->loc.carrying;
       send_to_char("Something smells real bad...\r\n", carrier);
       obj_to_char(corpse, carrier);
-
     }
-    else if (OBJ_ROOM(obj))
+    else if( OBJ_ROOM(obj) )
     {
       send_to_room("Something smells real bad...\r\n", obj->loc.room);
       obj_to_room(corpse, obj->loc.room);
 
     }
-    else if (OBJ_INSIDE(obj))
+    else if( OBJ_INSIDE(obj) )
     {
       obj_to_obj(corpse, obj->loc.inside);
     }
     else
     {
-      /*
-         just destroy both the obj and the corpse 
-       */
+      // Just destroy both the obj and the corpse
       extract_obj(corpse, TRUE);
     }
     extract_obj(obj, TRUE);

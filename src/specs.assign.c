@@ -38,9 +38,6 @@ extern P_obj object_list;
 extern P_room world;
 
 int unmulti_altar(P_obj obj, P_char ch, int cmd, char *arg);
-int mentality_mace(P_obj obj, P_char ch, int cmd, char *arg);
-int khaziddea_blade(P_obj obj, P_char ch, int cmd, char *arg);
-int resurrect_totem(P_obj obj, P_char ch, int cmd, char *arg);
 int harpy_gate(P_obj obj, P_char ch, int cmd, char *arg);
 int block_dir(P_char ch, P_char pl, int cmd, char *arg);
 
@@ -1522,7 +1519,7 @@ void assign_objects(void)
   obj_index[real_object0(70571)].func.obj = ljs_armor;
   obj_index[real_object0(70572)].func.obj = dragon_skull_helm;
   obj_index[real_object0(99447)].func.obj = nightcrawler_dagger;
-  obj_index[real_object0(66419)].func.obj = rightous_blade;
+  obj_index[real_object0(66419)].func.obj = righteous_blade;
 
 
   /* mobs */

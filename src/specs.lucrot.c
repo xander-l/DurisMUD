@@ -35,66 +35,58 @@ int lucrot_mindstone(P_obj obj, P_char ch, int cmd, char *arg)
 {
   int curr_time;
 
-  if(cmd == CMD_SET_PERIODIC ||
-    !(obj) ||
-    !(ch) ||
-    !OBJ_WORN_BY(obj, ch))
+  if( cmd == CMD_SET_PERIODIC || !IS_ALIVE(ch) || !OBJ_WORN_BY(obj, ch))
   {
     return FALSE;
   }
-  
-  if((cmd == CMD_SAY) &&
-      arg)
+
+  if( (cmd == CMD_SAY) && arg )
   {
-    if(isname(arg, "journey"))
+    if( isname(arg, "journey") )
     {
       curr_time = time(NULL);
-      
-      if(affected_by_spell(ch, TAG_PVPDELAY) ||
-         IS_FIGHTING(ch) ||
-         IS_IMMOBILE(ch))
+
+      if( affected_by_spell(ch, TAG_PVPDELAY) || IS_FIGHTING(ch) || IS_IMMOBILE(ch) )
       {
         send_to_char("&+WYour thoughts are too incohesive and disorganized.&n\r\n", ch);
         CharWait(ch, PULSE_VIOLENCE * 1);
 
-        return false;
+        return TRUE;
       }
-      
-      if(obj->timer[0] + 1800 <= curr_time)
+      // 30 min timer.
+      if( obj->timer[0] + 1800 <= curr_time )
       {
         int to_room = real_room0(GET_HOME(ch));
-	if (to_room <= 0)
-	  to_room = real_room0(19721);
 
-        act("You say 'Journey'",FALSE, ch, 0, 0, TO_CHAR);
-        act("\n&+cYour&n $q &+cpulses!&n\n",
-          FALSE, ch, obj, obj, TO_CHAR);
+        if( to_room <= 0 )
+        {
+          to_room = real_room0(19721);
+        }
+
+        act("You say 'Journey'", FALSE, ch, 0, 0, TO_CHAR);
+        act("\n&+cYour&n $q &+cpulses!&n\n", FALSE, ch, obj, obj, TO_CHAR);
 
         act("$n says 'Journey'", TRUE, ch, obj, NULL, TO_ROOM);
-        act("\n$n's &n$q &+cpulses!&n\n",
-          TRUE, ch, obj, NULL, TO_ROOM);
-      
+        act("\n$n's &n$q &+cpulses!&n\n", TRUE, ch, obj, NULL, TO_ROOM);
+
         if(IS_SET(world[ch->in_room].room_flags, NO_RECALL))
         {
           send_to_char("&+WThere is something about this area that prevents your journey home.&n\r\n", ch);
           CharWait(ch, PULSE_VIOLENCE * 1);
 
-          return false;
+          return TRUE;
         }
-          
+
         char_from_room(ch);
         char_to_room(ch, to_room, 0);
 
         act("$n materializes suddenly...", 0, ch, 0, 0, TO_ROOM);
         CharWait(ch, PULSE_VIOLENCE * 4);
-          
+
         obj->timer[0] = curr_time;
-        return true;
+        return TRUE;
       }
     }
   }
-  
-  return false;
+  return FALSE;
 }
-
-        

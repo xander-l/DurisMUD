@@ -1113,12 +1113,10 @@ void affect_modify(int loc, int mod, unsigned int *bitv, int from_eq)
   case APPLY_AGI_RACE:
     if ((mod <= RACE_NONE) || (mod > LAST_RACE))
     {
-      logit(LOG_DEBUG,
-            "affect_modify(): unknown race (%d) for APPLY_AGI_RACE.", loc);
+      logit(LOG_DEBUG, "affect_modify(): unknown race (%d) for APPLY_AGI_RACE.", loc);
       break;
     }
-    if (!TmpAffs.r_Agi ||
-        (stat_factor[mod].Agi > stat_factor[TmpAffs.r_Agi].Agi))
+    if( !TmpAffs.r_Agi || (stat_factor[mod].Agi > stat_factor[TmpAffs.r_Agi].Agi) )
       TmpAffs.r_Agi = mod;
     break;
   case APPLY_CON_RACE:

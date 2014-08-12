@@ -147,15 +147,20 @@ int eth2_aramus(P_char ch, P_char pl, int cmd, char *arg)
 {
   int helpers[] = {32638, 32639, 32640, 32641, -1};
   int helpers_size = 4;
-  
+
   if( cmd == CMD_SET_PERIODIC )
+  {
     return TRUE;
-  
-  if( !ch )
+  }
+
+  if( !IS_ALIVE(ch) )
+  {
     return FALSE;
-  
+  }
+
   if( cmd == CMD_PERIODIC )
   {
+    // 1/5 chance.
     if( !number(0,4) && IS_FIGHTING(ch) )
     {
       /* check to see how many of his helpers are currently here. if less than threshold,
@@ -164,40 +169,36 @@ int eth2_aramus(P_char ch, P_char pl, int cmd, char *arg)
       for( struct follow_type *followers = ch->followers; followers; followers = followers->next )
       {
         if( IS_NPC(followers->follower) && in_array( GET_VNUM(followers->follower), helpers ) )
-          num_followers++;        
+        {
+          num_followers++;
+        }
       }
-      
+
       if( num_followers < 3 )
       {
         // load a helper
         int vnum = helpers[number(0, helpers_size-1)];
-        
-        if( !vnum )
-          return FALSE;
-        
+
         P_char mob = read_mobile(vnum, VIRTUAL);
-        
+
         if( !mob )
         {
-          logit(LOG_DEBUG, "eth2_aramus(): could not find mob vnum [%d]!", vnum );
-          debug("eth2_aramus(): could not find mob vnum [%d]!", vnum );
+          logit(LOG_DEBUG, "eth2_aramus(): could not load mob vnum [%d]!", vnum );
+          debug("eth2_aramus(): could not load mob vnum [%d]!", vnum );
           return FALSE;
         }
-       
+
         char_to_room(mob, ch->in_room, 0);
-        
         act("$n arrives to assist $s master!", FALSE, mob, 0, 0, TO_ROOM);
 
         add_follower(mob, ch);
-        group_add_member(ch, mob);        
+        group_add_member(ch, mob);
         do_assist_core(mob, ch);
         return TRUE;
       }
     }
   }
-      
-  
-  return FALSE;  
+  return FALSE;
 }
 
 int eth2_tree_obj(P_obj obj, P_char ch, int cmd, char *arg)
@@ -205,20 +206,23 @@ int eth2_tree_obj(P_obj obj, P_char ch, int cmd, char *arg)
   /* first value is the object, second is the mob to replace it with */
   int replace_objs[][2] = { {32615, 32628}, {32614, 32629}, {-1, -1} };
 
-  if( cmd == CMD_SET_PERIODIC || cmd == CMD_PERIODIC)
+  if( cmd == CMD_SET_PERIODIC )
+  {
     return FALSE;
-  
-  if( !obj )
+  }
+
+  if( !obj || !IS_ALIVE(ch) )
+  {
     return FALSE;
-  
-  if( !ch )
-    return FALSE;
-  
+  }
+
   if( cmd == CMD_NORTH )
-  {        
+  {
     if( IS_NPC(ch) )
+    {
       return TRUE;
-    
+    }
+
     if( IS_TRUSTED(ch) )
     {
       act("Above in you in the &+Ldarkness&n, leaves and branches start to creak and groan\n" \
@@ -226,12 +230,12 @@ int eth2_tree_obj(P_obj obj, P_char ch, int cmd, char *arg)
       return FALSE;
     }
 
-    act("Above in you in the &+Ldarkness&n, leaves and branches start to creak and groan\n" \
-        "as the &+gforest &+Gceiling&n comes alive!\n", FALSE, ch, 0, 0, TO_ROOM);
-    
-    act("Above in you in the &+Ldarkness&n, leaves and branches start to creak and groan\n" \
-        "as the &+gforest &+Gceiling&n comes alive!\n", FALSE, ch, 0, 0, TO_CHAR);
-    
+    act("Above in you in the &+Ldarkness&n, leaves and branches start to creak and groan\n"
+      "as the &+gforest &+Gceiling&n comes alive!\n", FALSE, ch, 0, 0, TO_ROOM);
+
+    act("Above in you in the &+Ldarkness&n, leaves and branches start to creak and groan\n"
+      "as the &+gforest &+Gceiling&n comes alive!\n", FALSE, ch, 0, 0, TO_CHAR);
+
     /* replace tree objects with the tree mobs */
     P_obj o, next_obj;
     for( o = world[ch->in_room].contents; o; o = next_obj )
@@ -249,106 +253,103 @@ int eth2_tree_obj(P_obj obj, P_char ch, int cmd, char *arg)
             debug("eth2_tree_obj(): could not find mob vnum [%d]!", replace_objs[i][1] );
             return FALSE;
           }
-          
-          char_to_room(mob, ch->in_room, -1);          
-          
+
+          char_to_room(mob, ch->in_room, -1);
           act("$n stirs $mself out of $s slumber and roars at you in fury!", FALSE, mob, 0, ch, TO_VICT);
           act("$n stirs $mself out of $s slumber and roars at $N in fury!", FALSE, mob, 0, ch, TO_NOTVICT);
-          
+
           branch(mob, ch);
           MobStartFight(mob, ch);
 
           obj_from_room(o);
         }
-       
       }
-      
     }
-    
-    return TRUE;    
-  }  
-  
-  return FALSE;  
+    return TRUE;
+  }
+  return FALSE;
 }
 
 int eth2_godsfury(P_obj obj, P_char ch, int cmd, char *arg)
 {
   if( cmd == CMD_SET_PERIODIC )
+  {
     return TRUE;
-  
-  if( !obj )
-    return FALSE;
-  
+  }
+
   if( cmd == CMD_PERIODIC )
   {
-    hummer(obj);    
+    if( OBJ_WORN(obj) || OBJ_ROOM(obj) )
+      hummer(obj);
 
-    if (OBJ_WORN(obj))
+    if( OBJ_WORN(obj) )
+    {
       ch = obj->loc.wearing;
+    }
     else
+    {
       return FALSE;
-    
+    }
+
     int curr_time = time(NULL);
 
-    if (!CHAR_IN_NO_MAGIC_ROOM(ch))
+    if( !CHAR_IN_NO_MAGIC_ROOM(ch) )
     {
       if (obj->timer[0] + 20 <= curr_time)
       {
         obj->timer[0] = curr_time;
-        
+
         if (GET_HIT(ch) < GET_MAX_HIT(ch))
         {
           act("&+L$n&+L gasps slightly as $q &+Linfuses $m with energy.", FALSE, ch, obj, 0, TO_ROOM);
-          act("&+LYou gasp as $q &+Linfuses you with energy.", FALSE, ch, obj, 0, TO_CHAR);          
+          act("&+LYou gasp as $q &+Linfuses you with energy.", FALSE, ch, obj, 0, TO_CHAR);
           spell_heal(60, ch, 0, 0, ch, 0);
           return TRUE;
         }
       }
-      
     }
-    
     return TRUE;
   }
-  
-  if(cmd == CMD_MELEE_HIT &&
-    !number(0,20) &&
-    CheckMultiProcTiming(ch))
+
+  // 1/20 chance.
+  if( cmd == CMD_MELEE_HIT && !number(0,19) && CheckMultiProcTiming(ch))
   {
     P_char vict = (P_char) arg;
-
     if( !vict )
+    {
       return FALSE;
-    
+    }
+
     act("Your $q calls down the &+rfury&n of the Gods on $N!", FALSE, ch, obj, vict, TO_CHAR);
     act("$n's $q calls down the &+rfury&n of the Gods on you!", FALSE, ch, obj, vict, TO_VICT);
     act("$n's $q calls down the &+rfury&n of the Gods on $N!", FALSE, ch, obj, vict, TO_NOTVICT);
-        
+
     int save = vict->specials.apply_saving_throw[SAVING_SPELL];
     vict->specials.apply_saving_throw[SAVING_SPELL] += 15;
 
-    switch(number(0,3))
+    switch( number(0,3) )
     {
       case 0:
         spell_blindness(60, ch, 0, SPELL_TYPE_SPELL, vict, 0);
+        vict->specials.apply_saving_throw[SAVING_SPELL] = save;
         break;
-        
       case 1:
         spell_disease(60, ch, 0, SPELL_TYPE_SPELL, vict, 0);
+        vict->specials.apply_saving_throw[SAVING_SPELL] = save;
         break;
-
       case 2:
+        // Curse changes apply...[SAVING_SPELL] if succesful.
+        vict->specials.apply_saving_throw[SAVING_SPELL] = save;
         spell_curse(60, ch, 0, SPELL_TYPE_SPELL, vict, 0);
         break;
-        
       case 3:
+        // Dispel magic may change apply...[SAVING_SPELL] if succesful.
+        vict->specials.apply_saving_throw[SAVING_SPELL] = save;
         spell_dispel_magic(60, ch, 0, SPELL_TYPE_SPELL, vict, 0);
         break;
     }
-        
-    vict->specials.apply_saving_throw[SAVING_SPELL] = save;
     return TRUE;
   }
-  
   return FALSE;
 }
 

@@ -141,19 +141,25 @@ int zion_shield_absorb_proc(P_obj obj, P_char ch, int cmd, char *arg)
   int percent = number(1, 10);
 
   if(cmd == CMD_SET_PERIODIC)
+  {
     return FALSE;
+  }
 
-  if(!obj || !ch )
+  if( !IS_ALIVE(ch) || !OBJ_WORN_BY(obj, ch) )
+  {
     return FALSE;
+  }
 
-  if((cmd == CMD_GOTNUKED) &&
-     percent > number(1,100))
+  // 1/10-1/100 chance?
+  if( (cmd == CMD_GOTNUKED) && percent > number(1,100) )
   {
 
-    data = (struct proc_data *) arg;
+    if( !(data = (struct proc_data *) arg) )
+    {
+      return FALSE;
+    }
     vict = data->victim;
-
-    if(!vict || !IS_ALIVE(vict))
+    if( !IS_ALIVE(vict) )
     {
       return FALSE;
     }
@@ -165,15 +171,15 @@ int zion_shield_absorb_proc(P_obj obj, P_char ch, int cmd, char *arg)
     return TRUE;
   }
 
-  if((cmd == CMD_GOTNUKED) &&
-     !number(0, 20) &&
-     !affected_by_spell(ch, SPELL_BLINDNESS))
+  // 1/20 chance.
+  if( (cmd == CMD_GOTNUKED) && !number(0, 19) && !affected_by_spell(ch, SPELL_BLINDNESS) )
   {
-
-    data = (struct proc_data *) arg;
+    if( !(data = (struct proc_data *) arg) )
+    {
+      return FALSE;
+    }
     vict = data->victim;
-
-    if(!vict || !IS_ALIVE(vict))
+    if( !IS_ALIVE(vict) )
     {
       return FALSE;
     }
@@ -183,20 +189,15 @@ int zion_shield_absorb_proc(P_obj obj, P_char ch, int cmd, char *arg)
     act("&+L$N&+L's $q &+Lbegins to crackle around the edges, as it siphons the magic of your&+L spell!", FALSE, vict, obj, ch, TO_CHAR);
 
 
-    act("&+L$n's $q &+Llashes out with the stored magical energies, blasting $N &+Lwith pure eldritch power!&n", FALSE, ch, obj,
-      vict, TO_NOTVICT);
-    act("&+LYour $q &+Llashes out with the stored magical energies, blasting $N &+Lwith pure eldritch power!&n", FALSE, ch, obj,
-      vict, TO_CHAR);
-    act("&+L$n's $q &+Llashes out with the stored magical energies, blasting you &+Lwith pure eldritch power!&n", FALSE, ch, obj,
-      vict, TO_VICT);
+    act("&+L$n's $q &+Llashes out with the stored magical energies, blasting $N &+Lwith pure eldritch power!&n", FALSE, ch, obj, vict, TO_NOTVICT);
+    act("&+LYour $q &+Llashes out with the stored magical energies, blasting $N &+Lwith pure eldritch power!&n", FALSE, ch, obj, vict, TO_CHAR);
+    act("&+L$n's $q &+Llashes out with the stored magical energies, blasting you &+Lwith pure eldritch power!&n", FALSE, ch, obj, vict, TO_VICT);
 
     blind(vict, ch, 3 * PULSE_VIOLENCE);
     damage(ch, vict, (80 + number(0, 40)), TYPE_UNDEFINED);
 
-    act("&+rThe swift drain of magical energies from $q &+Lcauses $n &+Lto look queasy!&n", FALSE, ch,
-        obj, 0, TO_ROOM);
-    act("&+LUgh, maybe that wasn't so great after all...&n", FALSE, ch,
-        obj, 0, TO_CHAR);
+    act("&+rThe swift drain of magical energies from $q &+Lcauses $n &+Lto look queasy!&n", FALSE, ch, obj, 0, TO_ROOM);
+    act("&+LUgh, maybe that wasn't so great after all...&n", FALSE, ch, obj, 0, TO_CHAR);
 
     return TRUE;
   }
@@ -208,29 +209,32 @@ int generic_shield_block_proc(P_obj obj, P_char ch, int cmd, char *arg)
   struct proc_data *data;
   P_char   vict;
 
-  if (!obj)
-    return FALSE;
-
-  if (cmd == CMD_SET_PERIODIC)
-    return FALSE;
-
-  if (cmd != CMD_GOTHIT || number(0, 4))
-    return FALSE;
-
-  if( (cmd == CMD_GOTHIT) && !number(0, 4))
+  if( cmd == CMD_SET_PERIODIC )
   {
-    data = (struct proc_data *) arg;
-    vict = data->victim;
+    return FALSE;
+  }
 
-    if( !vict )
+  if( !IS_ALIVE(ch) || !OBJ_WORN_BY(obj, ch) || cmd != CMD_GOTHIT )
+  {
+    return FALSE;
+  }
+
+  // 1/5 chance.
+  if( !number(0, 4) )
+  {
+    if( !(data = (struct proc_data *) arg) )
+    {
       return FALSE;
+    }
+    vict = data->victim;
+    if( !IS_ALIVE(vict) )
+    {
+      return FALSE;
+    }
 
-    act("Your $q blocks $N's vicious attack.", FALSE, ch, obj, vict,
-        TO_CHAR | ACT_NOTTERSE);
-    act("$n's $q blocks your futile attack.", FALSE, ch, obj, vict,
-        TO_VICT | ACT_NOTTERSE);
-    act("$n's $q blocks $N's attack.", FALSE, ch, obj, vict,
-        TO_NOTVICT | ACT_NOTTERSE);
+    act("Your $q blocks $N's vicious attack.", FALSE, ch, obj, vict, TO_CHAR | ACT_NOTTERSE);
+    act("$n's $q blocks your futile attack.", FALSE, ch, obj, vict, TO_VICT | ACT_NOTTERSE);
+    act("$n's $q blocks $N's attack.", FALSE, ch, obj, vict, TO_NOTVICT | ACT_NOTTERSE);
 
     return TRUE;
   }
@@ -244,36 +248,45 @@ int zion_fnf(P_obj obj, P_char ch, int cmd, char *arg)
   int room;
   int curr_time;
 
-  if (cmd == CMD_SET_PERIODIC)
+  if( cmd == CMD_SET_PERIODIC )
+  {
     return TRUE;
+  }
 
-  if (cmd == CMD_PERIODIC)
+  if( cmd == CMD_PERIODIC && (OBJ_WORN(obj) || OBJ_ROOM(obj)) )
+  {
     hummer(obj);
+  }
 
-  if ( !ch )
+  if ( !IS_ALIVE(ch) )
+  {
     return FALSE;
+  }
 
-  if((cmd == CMD_REMOVE) && arg )
+  if( (cmd == CMD_REMOVE) && arg )
   {
     if( isname(arg, obj->name) || isname(arg, "all") )
     {
-      if (affected_by_spell(ch, SPELL_FIRE_AURA))
+      if( affected_by_spell(ch, SPELL_FIRE_AURA) )
+      {
         affect_from_char(ch, SPELL_FIRE_AURA);
+      }
     }
-
    return FALSE;
   }
 
-  if (!OBJ_WORN_BY(obj, ch))
-    return (FALSE);
-
-  if ((cmd == CMD_SAY) && arg)
+  if( !OBJ_WORN_BY(obj, ch) )
   {
-    if (isname(arg, "fire"))
+    return FALSE;
+  }
+
+  if( cmd == CMD_SAY && arg )
+  {
+    if( isname(arg, "fire") )
     {
       curr_time = time(NULL);
-
-      if (obj->timer[0] + 60 <= curr_time)
+      // 1 min timer.
+      if( obj->timer[0] + 60 <= curr_time )
       {
         act("You say 'fire'", FALSE, ch, 0, 0, TO_CHAR);
         act("&+rYour $q &+rengulfs the room in &+Wwhite-&+Rhot &+Yfl&+ram&+res!", FALSE, ch, obj, obj, TO_CHAR);
@@ -283,14 +296,14 @@ int zion_fnf(P_obj obj, P_char ch, int cmd, char *arg)
         cast_transmute_rock_lava(55, ch, 0, SPELL_TYPE_SPELL, ch, 0);
 
         obj->timer[0] = curr_time;
-
         return TRUE;
       }
     }
-    else if (isname(arg, "flame"))
+    else if( isname(arg, "flame") )
     {
       curr_time = time(NULL);
-      if (obj->timer[1] + 200 <= curr_time)
+      // 3 min 20 sec timer.
+      if( obj->timer[1] + 200 <= curr_time )
       {
         act("You say 'flame'", FALSE, ch, 0, 0, TO_CHAR);
         act("&+rYour $q &+rinfuses you with the power of &+RFIRE&+r!&n", FALSE, ch, obj, obj, TO_CHAR);
@@ -305,78 +318,71 @@ int zion_fnf(P_obj obj, P_char ch, int cmd, char *arg)
       }
     }
   }
-
-  if((cmd == CMD_MELEE_HIT) &&
-     !number(0, 24) &&
-     CheckMultiProcTiming(ch))
+  // 1/25 chance.
+  if( (cmd == CMD_MELEE_HIT) && !number(0, 24) && CheckMultiProcTiming(ch) )
   {
     vict = (P_char) arg;
-
-    if( !vict || !IS_ALIVE(vict) )
-      return FALSE;
-
-    act("Your $q &+rsummons the power of fire and flames at at $N.", FALSE,
-        ch, obj, vict, TO_CHAR);
-    act("$n's $q &+rsummons the power of fire and flames at you.", FALSE,
-        ch, obj, vict, TO_VICT);
-    act("$n's $q &+rsummons the power of fire and flames at $N.", FALSE,
-        ch, obj, vict, TO_NOTVICT);
-
-    switch (number(0, 2))
-    {
-      case 0:
-        spell_incendiary_cloud(50, ch, 0, 0, vict, 0);
-        break;
-      case 1:
-        spell_firestorm(50, ch, 0, 0, vict, 0);
-        break;
-      case 2:
-        spell_scathing_wind(50, ch, 0, 0, vict, 0);
-        break;
-      default:
-        break;
-    }
-
     if( !IS_ALIVE(vict) )
-      return FALSE;
-
-    act("&+RYour $q &+Rcalls upon the pure power of the plane of fire, directing it at $N!&n", FALSE,
-        ch, obj, vict, TO_CHAR);
-    act("$n's $q &+Rcalls upon the pure power of the plane of fire, directing it at you!&n", FALSE,
-        ch, obj, vict, TO_VICT);
-    act("$n's $q &+Rcalls upon the pure power of the plane of fire, directing it at $N!&n", FALSE,
-        ch, obj, vict, TO_NOTVICT);
-
-    switch (number(0, 6))
     {
-      case 0:
-        spell_burning_hands(50, ch, 0, 0, vict, 0);
-        break;
-      case 1:
-        spell_fireball(50, ch, 0, 0, vict, 0);
-        break;
-      case 2:
-        spell_magma_burst(50, ch, 0, 0, vict, 0);
-        break;
-      case 3:
-        spell_solar_flare(50, ch, 0, 0, vict, 0);
-        break;
-      case 4:
-        spell_immolate(50, ch, 0, 0, vict, 0);
-        break;
-      case 5:
-        spell_flamestrike(50, ch, 0, 0, vict, 0);
-        break;
-      case 6:
-        spell_flameburst(50, ch, 0, 0, vict, 0);
-        break;
-      default:
-        break;
+      return FALSE;
     }
 
+    act("Your $q &+rsummons the power of fire and flames at at $N.", FALSE, ch, obj, vict, TO_CHAR);
+    act("$n's $q &+rsummons the power of fire and flames at you.", FALSE, ch, obj, vict, TO_VICT);
+    act("$n's $q &+rsummons the power of fire and flames at $N.", FALSE, ch, obj, vict, TO_NOTVICT);
+
+    switch( number(0, 2) )
+    {
+    case 0:
+      spell_incendiary_cloud(50, ch, 0, 0, vict, 0);
+      break;
+    case 1:
+      spell_firestorm(50, ch, 0, 0, vict, 0);
+      break;
+    case 2:
+      spell_scathing_wind(50, ch, 0, 0, vict, 0);
+      break;
+    default:
+      break;
+    }
+
+    if( !IS_ALIVE(vict) || !IS_ALIVE(ch) )
+    {
+      return FALSE;
+    }
+
+    act("&+RYour $q &+Rcalls upon the pure power of the plane of fire, directing it at $N!&n", FALSE, ch, obj, vict, TO_CHAR);
+    act("$n's $q &+Rcalls upon the pure power of the plane of fire, directing it at you!&n", FALSE, ch, obj, vict, TO_VICT);
+    act("$n's $q &+Rcalls upon the pure power of the plane of fire, directing it at $N!&n", FALSE, ch, obj, vict, TO_NOTVICT);
+
+    switch( number(0, 6) )
+    {
+    case 0:
+      spell_burning_hands(50, ch, 0, 0, vict, 0);
+      break;
+    case 1:
+      spell_fireball(50, ch, 0, 0, vict, 0);
+      break;
+    case 2:
+      spell_magma_burst(50, ch, 0, 0, vict, 0);
+      break;
+    case 3:
+      spell_solar_flare(50, ch, 0, 0, vict, 0);
+      break;
+    case 4:
+      spell_immolate(50, ch, 0, 0, vict, 0);
+      break;
+    case 5:
+      spell_flamestrike(50, ch, 0, 0, vict, 0);
+      break;
+    case 6:
+      spell_flameburst(50, ch, 0, 0, vict, 0);
+      break;
+    default:
+      break;
+    }
     return TRUE;
   }
-
   return FALSE;
 }
 
@@ -395,27 +401,25 @@ int zion_light_dark(P_obj obj, P_char ch, int cmd, char *arg)
       0
   };
 
-  /*
-     check for periodic event calls
-   */
   if (cmd == CMD_SET_PERIODIC)
+  {
     return TRUE;
+  }
 
-  if (cmd == CMD_PERIODIC)
+  if( cmd == CMD_PERIODIC && (OBJ_WORN(obj) || OBJ_ROOM(obj)) )
   {
     hummer(obj);
     return TRUE;
   }
 
-  if (!ch)
-    return FALSE;
-
-  if (!OBJ_WORN_BY(obj, ch))
-    return (FALSE);
-
-  if ((cmd == CMD_SAY) && arg)
+  if( !IS_ALIVE(ch) || !OBJ_WORN_BY(obj, ch) )
   {
-    if (isname(arg, "light") && GET_RACEWAR(ch) != RACEWAR_EVIL)
+    return FALSE;
+  }
+
+  if( (cmd == CMD_SAY) && arg )
+  {
+    if( isname(arg, "light") && GET_RACEWAR(ch) != RACEWAR_EVIL )
     {
       curr_time = time(NULL);
 
@@ -434,11 +438,10 @@ int zion_light_dark(P_obj obj, P_char ch, int cmd, char *arg)
         spell_continual_light(40, ch, 0, SPELL_TYPE_SPELL,ch, 0);
 
         obj->timer[0] = curr_time;
-
         return TRUE;
       }
     }
-    else if (isname(arg, "darkness") && GET_RACEWAR(ch) != RACEWAR_GOOD)
+    else if( isname(arg, "darkness") && GET_RACEWAR(ch) != RACEWAR_GOOD )
     {
       curr_time = time(NULL);
 
@@ -462,44 +465,36 @@ int zion_light_dark(P_obj obj, P_char ch, int cmd, char *arg)
     }
   }
 
-  if((cmd == CMD_MELEE_HIT) &&
-     !number(0,24) &&
-     CheckMultiProcTiming(ch))
+  // 1/25 chance.
+  if( (cmd == CMD_MELEE_HIT) && !number(0,24) && CheckMultiProcTiming(ch) )
   {
-    if (obj->loc.wearing->equipment[WIELD] != obj)
-      return (FALSE);
-
-    if (!dam)
-      return FALSE;
-
-    vict = (P_char) arg;
-
-    if (!vict || !IS_ALIVE(vict))
-      return (FALSE);
-
-    if (GET_RACEWAR(ch) == RACEWAR_GOOD)
+    if( ch->equipment[WIELD] != obj || !dam )
     {
-      act("$n's $q &+Wflares with pure light, unleashing the virtue of the gods at $N!&n",
-       TRUE, ch, obj, vict, TO_NOTVICT);
-      act("Your $q &+Wflares with pure light, unleashing the virtue of the gods at $N!&n",
-       TRUE, ch, obj, vict, TO_CHAR);
-      act("$n's $q &+Wflares with pure light, unleashing the virtue of the gods at _YOU_!&n",
-       TRUE, ch, obj, vict, TO_VICT);
+      return FALSE;
+    }
+    vict = (P_char) arg;
+    if( !IS_ALIVE(vict) )
+    {
+      return FALSE;
+    }
+
+    if( GET_RACEWAR(ch) == RACEWAR_GOOD )
+    {
+      act("$n's $q &+Wflares with pure light, unleashing the virtue of the gods at $N!&n", TRUE, ch, obj, vict, TO_NOTVICT);
+      act("Your $q &+Wflares with pure light, unleashing the virtue of the gods at $N!&n", TRUE, ch, obj, vict, TO_CHAR);
+      act("$n's $q &+Wflares with pure light, unleashing the virtue of the gods at _YOU_!&n", TRUE, ch, obj, vict, TO_VICT);
       spell_damage(ch, vict, 480, SPLDAM_HOLY, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &messages);
-      if(GET_C_LUK(ch) > number(0, 500))
+      if( GET_C_LUK(ch) > number(0, 500) )
       {
        spell_mending(40, ch, 0, 0, ch, 0);
       }
     }
-    else if (GET_RACEWAR(ch) == RACEWAR_EVIL)
+    else if( GET_RACEWAR(ch) == RACEWAR_EVIL )
     {
-        act("$n's $q &+Lflares with darkness, unleashing the wrath of the underworld upon $N!&n",
-         TRUE, ch, obj, vict, TO_NOTVICT);
-        act("Your $q &+Lflares with darkness, unleashing the wrath of the underworld upon $N!&n",
-         TRUE, ch, obj, vict, TO_CHAR);
-        act("$n's $q &+Lflares with darkness, unleashing the wrath of the underworld upon _YOU_!&n",
-         TRUE, ch, obj, vict, TO_VICT);
-        spell_damage(ch, vict, 480, SPLDAM_COLD, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &messages);
+      act("$n's $q &+Lflares with darkness, unleashing the wrath of the underworld upon $N!&n", TRUE, ch, obj, vict, TO_NOTVICT);
+      act("Your $q &+Lflares with darkness, unleashing the wrath of the underworld upon $N!&n", TRUE, ch, obj, vict, TO_CHAR);
+      act("$n's $q &+Lflares with darkness, unleashing the wrath of the underworld upon _YOU_!&n", TRUE, ch, obj, vict, TO_VICT);
+      spell_damage(ch, vict, 480, SPLDAM_COLD, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &messages);
       if(GET_C_LUK(ch) > number(0, 500))
       {
         spell_mending(40, ch, 0, 0, ch, 0);
@@ -507,25 +502,18 @@ int zion_light_dark(P_obj obj, P_char ch, int cmd, char *arg)
     }
     else
     {
-      act
-        ("$n's $q &+Wglows white&n, unleashing a massive ball of ice towards $N!",
-         TRUE, ch, obj, vict, TO_NOTVICT);
-      act
-        ("Your $q &+Wglows white&n, unleashing a massive ball of ice towards $N!",
-         TRUE, ch, obj, vict, TO_CHAR);
-      act
-        ("$n's $q &+Wglows white&n, unleashing a massive ball of ice towards _YOU_!",
-         TRUE, ch, obj, vict, TO_VICT);
+      act("$n's $q &+Wglows white&n, unleashing a massive ball of ice towards $N!", TRUE, ch, obj, vict, TO_NOTVICT);
+      act("Your $q &+Wglows white&n, unleashing a massive ball of ice towards $N!", TRUE, ch, obj, vict, TO_CHAR);
+      act("$n's $q &+Wglows white&n, unleashing a massive ball of ice towards _YOU_!", TRUE, ch, obj, vict, TO_VICT);
       spell_harm(50, ch, NULL, 0, vict, obj);
-
-      if( !IS_ALIVE(vict) )
+      if( !IS_ALIVE(vict) || !IS_ALIVE(ch) )
+      {
         return FALSE;
-
+      }
       spell_arieks_shattering_iceball(30, ch, NULL, SPELL_TYPE_SPELL, vict, obj);
     }
-    return (TRUE);
+    return TRUE;
   }
-
   return FALSE;
 }
 
@@ -753,36 +741,38 @@ int zion_dispator(P_obj obj, P_char ch, int cmd, char *arg)
 }
 
 
-void event_zion_netheril(P_char ch, P_char victim, P_obj obj, void *data); // event for spell regeneration
+// event for spell regeneration
+void event_zion_netheril(P_char ch, P_char victim, P_obj obj, void *data);
 
 int zion_netheril(P_obj obj, P_char ch, int cmd, char *arg)
 {
   int curr_time;
-  bool staff = false;
 
-  if (cmd == CMD_SET_PERIODIC)
+  if( cmd == CMD_SET_PERIODIC )
+  {
     return TRUE;
+  }
 
-  if (cmd == CMD_PERIODIC)
+  if( cmd == CMD_PERIODIC && (OBJ_WORN(obj) || OBJ_ROOM(obj)) )
   {
     /* can either remove the next line or set the second number higher if it hums too often */
-    if( !number(0,2) )
+    if( !number(0, 2) )
+    {
       hummer(obj);
+    }
     return TRUE;
   }
 
-  if(!arg)
-    return false;
-
-  if((ch->equipment[PRIMARY_WEAPON] &&
-     (ch->equipment[PRIMARY_WEAPON] == obj)) ||
-     (ch->equipment[HOLD] &&
-     (ch->equipment[HOLD]) == obj))
+  if( !IS_ALIVE(ch) || !arg )
   {
-    staff = true;
-  }
-  else
     return FALSE;
+  }
+
+  if( !(ch->equipment[PRIMARY_WEAPON] && (ch->equipment[PRIMARY_WEAPON] == obj))
+    && !(ch->equipment[HOLD] && (ch->equipment[HOLD]) == obj) )
+  {
+    return FALSE;
+  }
 
   if( !get_scheduled(ch, event_zion_netheril) )
   {
@@ -790,13 +780,13 @@ int zion_netheril(P_obj obj, P_char ch, int cmd, char *arg)
     add_event(event_zion_netheril, PULSE_VIOLENCE, ch, 0, 0, 0, 0, 0);
   }
 
-  if (arg && (cmd == CMD_SAY) && staff)
+  if( arg && (cmd == CMD_SAY) )
   {
-    if (isname(arg, "blink"))
+    if( isname(arg, "blink") )
     {
       curr_time = time(NULL);
-
-      if (obj->timer[1] + number(15, 20) <= curr_time)
+      // 15-20 sec timer ?
+      if( obj->timer[1] + number(15, 20) <= curr_time )
       {
         act("You say 'blink'", FALSE, ch, 0, 0, TO_CHAR);
         act("Your $q hums briefly, and you feel your body begin to vibrate.", FALSE, ch, obj, obj, TO_CHAR);
@@ -807,25 +797,28 @@ int zion_netheril(P_obj obj, P_char ch, int cmd, char *arg)
         return TRUE;
       }
     }
-    else if (isname(arg, "deflect"))
+    else if( isname(arg, "deflect") )
     {
       curr_time = time(NULL);
+      // 500 sec timer == 8 min 20 sec.
       if (obj->timer[2] + 500 <= curr_time)
       {
-      act("You say 'deflect'", FALSE, ch, 0, 0, TO_CHAR);
-      act("Your $q begins to send out ripples of pure magical energy!", FALSE, ch, obj, obj, TO_CHAR);
-      act("$n says 'deflect'", FALSE, ch, obj, obj, TO_ROOM);
-      act("$n's $q begins to send out ripples of pure magical energy!", TRUE, ch, obj, 0, TO_ROOM);
-      if (ch->group)
-        cast_as_area(ch, SPELL_DEFLECT, 50, 0);
-      else
-        spell_deflect(60, ch, 0, SPELL_TYPE_SPELL, ch, 0);
-      obj->timer[2] = curr_time;
-      return TRUE;
+        act("You say 'deflect'", FALSE, ch, 0, 0, TO_CHAR);
+        act("Your $q begins to send out ripples of pure magical energy!", FALSE, ch, obj, obj, TO_CHAR);
+        act("$n says 'deflect'", FALSE, ch, obj, obj, TO_ROOM);
+        act("$n's $q begins to send out ripples of pure magical energy!", TRUE, ch, obj, 0, TO_ROOM);
+        if( ch->group )
+        {
+          cast_as_area(ch, SPELL_DEFLECT, 50, 0);
+        }
+        else
+        {
+          spell_deflect(60, ch, 0, SPELL_TYPE_SPELL, ch, 0);
+        }
+        obj->timer[2] = curr_time;
+        return TRUE;
       }
     }
-    else
-      return FALSE;
   }
 
   return FALSE;
@@ -901,30 +894,32 @@ int zion_mace_of_earth(P_obj obj, P_char ch, int cmd, char *arg)
     0, obj
   };
 
-  /*
-     check for periodic event calls
-   */
   if (cmd == CMD_SET_PERIODIC)
+  {
     return TRUE;
-  
-  if (!ch && cmd == CMD_PERIODIC)
+  }
+
+  if( !ch && cmd == CMD_PERIODIC )
   {
     hummer(obj);
     return TRUE;
   }
 
-  if (!ch)
-    return (FALSE);
 /*
   if (!OBJ_WORN_POS(obj, WIELD) || !OBJ_WORN_POS(obj, WIELD2))
     return (FALSE);
 */
+  if( !IS_ALIVE(ch) || !OBJ_WORN(obj) )
+  {
+    return FALSE;
+  }
+
   if (arg && (cmd == CMD_SAY))
   {
     if (isname(arg, "earth"))
     {
       curr_time = time(NULL);
-
+      // 1 min timer.
       if (curr_time >= obj->timer[0] + 60)
       {
         act("You say 'earth'", FALSE, ch, 0, 0, TO_CHAR);
@@ -940,52 +935,54 @@ int zion_mace_of_earth(P_obj obj, P_char ch, int cmd, char *arg)
     }
   }
 
+  if( !(data = (struct proc_data *) arg) )
+  {
+    return FALSE;
+  }
+  vict = data->victim;
+
   if( (cmd == CMD_GOTHIT) && !number(0, 50) && !has_skin_spell(ch) && IS_ALIVE(ch))
+  {
+
+    if( !IS_ALIVE(vict) )
     {
-      data = (struct proc_data *) arg;
-      vict = data->victim;
-
-      if( !vict )
-        return FALSE;
-
-      act("$q &+Lreacts to the attack, and encases you in a shell of stone.&n", FALSE, ch, obj, vict,
-          TO_CHAR | ACT_NOTTERSE);
-      act("&+L$n's $q &+Lreacts to the attack, and encases $m in a shell of stone.&n", FALSE, ch, obj, vict,
-          TO_VICT | ACT_NOTTERSE);
-      act("&+L$n's $q &+Lreacts to $N&+L's vicious attack, and encases $m in a shell of stone.&n", FALSE, ch, obj, vict,
-          TO_NOTVICT | ACT_NOTTERSE);
-      spell_stone_skin(30, ch, 0, 0, ch, NULL);
-
       return FALSE;
+    }
+
+    act("$q &+Lreacts to the attack, and encases you in a shell of stone.&n", FALSE, ch, obj, vict, TO_CHAR | ACT_NOTTERSE);
+    act("&+L$n's $q &+Lreacts to the attack, and encases $m in a shell of stone.&n", FALSE, ch, obj, vict, TO_VICT | ACT_NOTTERSE);
+    act("&+L$n's $q &+Lreacts to $N&+L's vicious attack, and encases $m in a shell of stone.&n", FALSE, ch, obj, vict, TO_NOTVICT | ACT_NOTTERSE);
+    spell_stone_skin(30, ch, 0, 0, ch, NULL);
+
+    return FALSE;
   }
 
-  if (cmd != CMD_MELEE_HIT)
-    return FALSE;
-
-  vict = (P_char) arg;
-  dam = number(50, 200) * 4;
-
-  if (OBJ_WORN_BY(obj, ch) &&
-      vict &&
-      CheckMultiProcTiming(ch) &&
-      !number(0, 25))
+  if( cmd != CMD_MELEE_HIT || !IS_ALIVE(vict) )
   {
-    act("Your $q &+ysummons the power of the earth and rock at $N.", FALSE,
-        obj->loc.wearing, obj, vict, TO_CHAR);
-    act("$n's $q &+ysummons the power of the earth and rock at you.", FALSE,
-        obj->loc.wearing, obj, vict, TO_VICT);
-    act("$n's $q &+ysummons the power of the earth and rock at $N.", FALSE,
-        obj->loc.wearing, obj, vict, TO_NOTVICT);
-    if (char_in_list(vict))
-      spell_earthquake(60, ch, 0, SPELL_TYPE_SPELL, vict, 0);
-    if (is_char_in_room(vict, ch->in_room))
-    {
-      /*spell_damage(ch, vict, dam, SPLDAM_GENERIC,
-                   SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &messages);*/
-        spell_earthen_rain(60, ch, 0, SPELL_TYPE_SPELL, vict, 0);
+    return FALSE;
+  }
 
+  dam = number(50, 200) * 4;
+  // 1/25 chance.
+  if( OBJ_WORN_BY(obj, ch) && CheckMultiProcTiming(ch) && !number(0, 24) )
+  {
+    act("Your $q &+ysummons the power of the earth and rock at $N.", FALSE, obj->loc.wearing, obj, vict, TO_CHAR);
+    act("$n's $q &+ysummons the power of the earth and rock at you.", FALSE, obj->loc.wearing, obj, vict, TO_VICT);
+    act("$n's $q &+ysummons the power of the earth and rock at $N.", FALSE, obj->loc.wearing, obj, vict, TO_NOTVICT);
+    if( char_in_list(vict) )
+    {
+      spell_earthquake(60, ch, 0, SPELL_TYPE_SPELL, vict, 0);
+    }
+    if( IS_ALIVE(ch) && is_char_in_room(vict, ch->in_room) )
+    {
+      /*spell_damage(ch, vict, dam, SPLDAM_GENERIC, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &messages);*/
+      spell_earthen_rain(60, ch, 0, SPELL_TYPE_SPELL, vict, 0);
+    }
+    if( !IS_ALIVE(ch) || !IS_ALIVE(vict) )
+    {
+      return TRUE;
     }
   }
-  return (FALSE);
+  return FALSE;
 }
 

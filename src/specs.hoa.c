@@ -153,36 +153,41 @@ int illesarus(P_obj obj, P_char ch, int cmd, char *arg)
 
 
   if (cmd == CMD_SET_PERIODIC)
+  {
     return TRUE;
-  
-  if (!ch && obj && cmd == CMD_PERIODIC && !number(0, 3))
+  }
+
+  if( !ch && obj && cmd == CMD_PERIODIC && !number(0, 3) )
   {
     hummer(obj);
     return TRUE;
   }
-  
-  if (!ch || !obj)
+
+  if( !IS_ALIVE(ch) || !obj )
+  {
     return FALSE;
+  }
 
   curr_time = time(NULL);
 
-  if (!has_skin_spell(ch) &&
-      obj->timer[0] + (int) get_property("timer.stoneskin.generic", 60) <= curr_time)
+  if( !has_skin_spell(ch) &&
+    obj->timer[0] + (int) get_property("timer.stoneskin.generic", 60) <= curr_time )
   {
     spell_stone_skin(30, ch, 0, SPELL_TYPE_POTION, ch, 0);
     obj->timer[0] = curr_time;
     return FALSE;
   }
 
-  if (cmd != CMD_MELEE_HIT || !ch)
-    return FALSE;
-
   vict = (P_char) arg;
+  if( cmd != CMD_MELEE_HIT || !IS_ALIVE(vict) )
+  {
+    return FALSE;
+  }
+
   dam = BOUNDED(0, (GET_HIT(vict) + 9), 200);
 
-  if(vict &&
-    !number(0, 24) &&
-    CheckMultiProcTiming(ch))
+  // 1/25 chance.
+  if( !number(0, 24) && CheckMultiProcTiming(ch) )
   {
     // The damage
     act("&+LYou swing&n $q &+Lwith a broad two-handed arch at&n $N.&n", FALSE, ch, obj, vict, TO_CHAR);
@@ -194,7 +199,7 @@ int illesarus(P_obj obj, P_char ch, int cmd, char *arg)
     // and does exactly what I'm looking for.
     limb = number(0, LAST_LIMB);
     memset(&af, 0, sizeof(af));
-    if (limb)
+    if( limb )
     {
       switch (limb)
       {
@@ -310,13 +315,17 @@ int human_girl(P_char ch, P_char vict, int cmd, char *arg)
 
 int hoa_plat(P_obj obj, P_char ch, int cmd, char *arg)
 {
-  if (cmd == CMD_SET_PERIODIC || cmd == CMD_PERIODIC)
+  if( cmd == CMD_SET_PERIODIC )
+  {
     return FALSE;
+  }
 
-  if (!ch)
+  if( !IS_ALIVE(ch) )
+  {
     return FALSE;
+  }
 
-  if (cmd == CMD_GET || cmd == CMD_TAKE)
+  if( cmd == CMD_GET || cmd == CMD_TAKE )
   {
     act("&+LA large rumble of stones moving can be heard from the other room.&n", FALSE, ch, 0, 0, TO_ROOM);
     act("&+LA large rumble of stones moving can be heard from the other room.&n", FALSE, ch, 0, 0, TO_CHAR);

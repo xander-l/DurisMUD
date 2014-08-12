@@ -49,9 +49,8 @@ extern struct zone_data *zone_table;
 /*
    this routine is attached to the WD clock tower, if you wish to use this
    elsewhere: ct1, ct2, clock_zones need to change, and the event (db.c) needs
-   to be added in a special manner.  -JAB 
+   to be added in a special manner.  -JAB
  */
-
 int clock_tower(P_obj obj, P_char ch, int cmd, char *arg)
 {
   int      temp, zon;
@@ -59,59 +58,58 @@ int clock_tower(P_obj obj, P_char ch, int cmd, char *arg)
   char     Gbuf1[MAX_STRING_LENGTH], Gbuf2[MAX_STRING_LENGTH];
   const int clock_zones[] = { 2700, 3001, 3200, 5500, 3500, 5300 };
 
-  /*
-     check for periodic event calls 
-   */
-  if (cmd == CMD_SET_PERIODIC)
+  if( cmd == CMD_SET_PERIODIC )
+  {
     return FALSE;
+  }
 
-  if (cmd)
+  if( cmd != CMD_PERIODIC )
+  {
     return FALSE;
+  }
 
-  if (!current_event || (current_event->type != EVENT_OBJ_SPECIAL))
+  if( !current_event || (current_event->type != EVENT_OBJ_SPECIAL) )
   {
     logit(LOG_EXIT, "Call to clock_tower with messed current_event");
     raise(SIGSEGV);
   }
-  if (time_info.hour % 3)
+  // Clock is off (event is rather), so reschedule for +1 hour
+  if( time_info.hour % 3 )
   {
-    /* clock is off (event is rather), so reschedule for +1 hour */
     current_event->timer = 1;
     return TRUE;
   }
-  sprintf(Gbuf1, "%d%s.\r\n",
-          (time_info.hour % 12) ? (time_info.hour % 12) : 12,
-          (time_info.hour == 12) ? " noon" :
-          (time_info.hour == 0) ? " midnight" :
-          (time_info.hour > 11) ? "pm" : "am");
+  sprintf(Gbuf1, "%d%s.\r\n", (time_info.hour % 12) ? (time_info.hour % 12) : 12,
+    (time_info.hour == 12) ? " noon" : (time_info.hour == 0) ? " midnight" :
+    (time_info.hour > 11) ? "pm" : "am" );
 
-  for (temp = 0; temp < ct1; temp++)
+  for( temp = 0; temp < ct1; temp++ )
   {
     zon = real_room(clock_zones[temp]);
-    if (zon == NOWHERE)
+    if( zon == NOWHERE )
+    {
       continue;
+    }
     zon = world[zon].zone;
 
     sprintf(Gbuf2, "The clock tower chimes the hour of %s", Gbuf1);
     send_to_zone_outdoor(zon, Gbuf2);
-    sprintf(Gbuf2,
-            "From outside, the faint chimes of the clock tower sound %s",
-            Gbuf1);
+    sprintf(Gbuf2, "From outside, the faint chimes of the clock tower sound %s", Gbuf1);
     send_to_zone_indoor(zon, Gbuf2);
   }
 
   for (temp = ct1; temp < ct2; temp++)
   {
     zon = real_room(clock_zones[temp]);
-    if (zon == NOWHERE)
+    if( zon == NOWHERE )
+    {
       continue;
+    }
     zon = world[zon].zone;
 
     sprintf(Gbuf2, "From the city, the clock tower chimes %s", Gbuf1);
     send_to_zone_outdoor(zon, Gbuf2);
-    sprintf(Gbuf2,
-            "From outside in the direction of the city, the clock tower chimes %s",
-            Gbuf1);
+    sprintf(Gbuf2, "From outside in the direction of the city, the clock tower chimes %s", Gbuf1);
     send_to_zone_indoor(zon, Gbuf2);
   }
 
@@ -120,7 +118,6 @@ int clock_tower(P_obj obj, P_char ch, int cmd, char *arg)
 }
 
 /* Proc for Lord Piergeiron, wandering the town and locking gates, etc. */
-
 int piergeiron(P_char ch, P_char pl, int cmd, char *arg)
 {
   static char piergeiron_open_path[] =
@@ -4517,107 +4514,80 @@ int varon(P_obj obj, P_char ch, int cmd, char *arg)
   P_char   victim;
   char     Gbuf1[MAX_STRING_LENGTH];
 
-  /*
-     check for periodic event calls 
-   */
   if (cmd == CMD_SET_PERIODIC)
+  {
     return FALSE;
+  }
 
-  if (!ch || !arg || (cmd != CMD_MURDER))
-    return (FALSE);
+  if( !ch || !arg || (cmd != CMD_MURDER) )
+  {
+    return FALSE;
+  }
 
   one_argument(arg, Gbuf1);
   if (!*Gbuf1)
   {
     send_to_char("Kill who?\r\n", ch);
-    return (FALSE);
+    return TRUE;
   }
-  if (!ch || !OBJ_WORN_BY(obj, ch) || !OBJ_WORN_POS(obj, WIELD))
-    return (FALSE);
+  if( !IS_ALIVE(ch) || !OBJ_WORN_BY(obj, ch) || !OBJ_WORN_POS(obj, WIELD) )
+  {
+    return FALSE;
+  }
 
-  if (!(victim = get_char_room_vis(ch, Gbuf1)))
+  if( !(victim = get_char_room_vis(ch, Gbuf1)) )
   {
     send_to_char("Kill who?\r\n", ch);
-    return (FALSE);
+    return TRUE;
   }
-  if (GET_LEVEL(ch) != 60)
+  if( GET_LEVEL(ch) < 60 )
   {
-    act("The disruptor hums, then blows up in your face!", FALSE, ch, 0,
-        victim, TO_CHAR);
-    act("$n attempts to fire the disruptor at $N!", TRUE, ch, 0, victim,
-        TO_NOTVICT);
-    act("The disruptor hums and blows up in $n's face!", TRUE, ch, 0, victim,
-        TO_NOTVICT);
-    act("$n attempts to fire the disruptor at you!", FALSE, ch, 0, victim,
-        TO_VICT);
-    act("The disruptor hums and blows up in $n's face!", FALSE, ch, 0, victim,
-        TO_VICT);
+    act("The disruptor hums, then blows up in your face!", FALSE, ch, 0, victim, TO_CHAR);
+    act("$n attempts to fire the disruptor at $N!", TRUE, ch, 0, victim, TO_NOTVICT);
+    act("The disruptor hums and blows up in $n's face!", TRUE, ch, 0, victim, TO_NOTVICT);
+    act("$n attempts to fire the disruptor at you!", FALSE, ch, 0, victim, TO_VICT);
+    act("The disruptor hums and blows up in $n's face!", FALSE, ch, 0, victim, TO_VICT);
     die(ch, ch);
     return TRUE;
   }
-  if (ch == victim)
+  if( ch == victim )
   {
     send_to_char("Your mother would be so sad.. :(\r\n", ch);
-    return (FALSE);
+    return TRUE;
   }
   else
   {
+    act("The mighty weapon hums softly for an instant, then glows brightly!", FALSE, ch, 0, victim, TO_CHAR);
+    act("A multi-colored beam of radiant energy bursts forth from its tip, ", FALSE, ch, 0, victim, TO_CHAR);
+    act("striking $N dead in the chest!  They scream in agony as the energy", FALSE, ch, 0, victim, TO_CHAR);
+    act("dissolves their body, ripping their life force away.", FALSE, ch, 0, victim, TO_CHAR);
+    act("In seconds, there is nothing left but a memory...", FALSE, ch, 0, victim, TO_CHAR);
 
-    act("The mighty weapon hums softly for an instant, then glows brightly!",
-        FALSE, ch, 0, victim, TO_CHAR);
-    act("A multi-colored beam of radiant energy bursts forth from its tip, ",
-        FALSE, ch, 0, victim, TO_CHAR);
-    act("striking $N dead in the chest!  They scream in agony as the energy",
-        FALSE, ch, 0, victim, TO_CHAR);
-    act("dissolves their body, ripping their life force away.", FALSE, ch, 0,
-        victim, TO_CHAR);
-    act("In seconds, there is nothing left but a memory...", FALSE, ch, 0,
-        victim, TO_CHAR);
+    act("$n points $s disruptor at you, and pulls the trigger with a grin.", FALSE, ch, 0, victim, TO_VICT);
+    act("The weapon glows, firing a bright beam of radiant energy directly ", FALSE, ch, 0, victim, TO_VICT);
+    act("at you! You try to dodge, but too late. The beam strikes you dead", FALSE, ch, 0, victim, TO_VICT);
+    act("in the chest! AAAAAAAAAAHHHHHHHHH!! Pain rips through your body ", FALSE, ch, 0, victim, TO_VICT);
+    act("in waves, more intense than you've ever felt. As you look down, ", FALSE, ch, 0, victim, TO_VICT);
+    act("the most horrible realization possible overcomes you as your", FALSE, ch, 0, victim, TO_VICT);
+    act("entire body dissolves away, slowly enough for you to experience every", FALSE, ch, 0, victim, TO_VICT);
+    act("ounce of pure agony. Darkness washes over you, and with your last", FALSE, ch, 0, victim, TO_VICT);
+    act("glimpse of thought, you realize that death has won this day... ", FALSE, ch, 0, victim, TO_VICT);
 
-    act("$n points $s disruptor at you, and pulls the trigger with a grin.",
-        FALSE, ch, 0, victim, TO_VICT);
-    act("The weapon glows, firing a bright beam of radiant energy directly ",
-        FALSE, ch, 0, victim, TO_VICT);
-    act("at you! You try to dodge, but too late. The beam strikes you dead",
-        FALSE, ch, 0, victim, TO_VICT);
-    act("in the chest! AAAAAAAAAAHHHHHHHHH!! Pain rips through your body ",
-        FALSE, ch, 0, victim, TO_VICT);
-    act("in waves, more intense than you've ever felt. As you look down, ",
-        FALSE, ch, 0, victim, TO_VICT);
-    act("the most horrible realization possible overcomes you as your", FALSE,
-        ch, 0, victim, TO_VICT);
-    act
-      ("entire body dissolves away, slowly enough for you to experience every",
-       FALSE, ch, 0, victim, TO_VICT);
-    act("ounce of pure agony. Darkness washes over you, and with your last",
-        FALSE, ch, 0, victim, TO_VICT);
-    act("glimpse of thought, you realize that death has won this day... ",
-        FALSE, ch, 0, victim, TO_VICT);
-
-    act("$n points his disruptor at $N, and pulls the trigger with a grin.",
-        TRUE, ch, 0, victim, TO_NOTVICT);
-    act
-      ("The disruptor glows and blasts forth a bright beam of radiant energy.",
-       TRUE, ch, 0, victim, TO_NOTVICT);
-    act("The beam strikes $N in the chest, who screams in unbelievable ",
-        TRUE, ch, 0, victim, TO_NOTVICT);
-    act("agony.  Their body begins to dissolve from the inside out, causing",
-        TRUE, ch, 0, victim, TO_NOTVICT);
-    act("the most exquisite pain imaginable. Within a few short seconds, ",
-        TRUE, ch, 0, victim, TO_NOTVICT);
-    act("$N's body is gone, leaving only a horrible memory behind..", TRUE,
-        ch, 0, victim, TO_NOTVICT);
+    act("$n points his disruptor at $N, and pulls the trigger with a grin.", TRUE, ch, 0, victim, TO_NOTVICT);
+    act("The disruptor glows and blasts forth a bright beam of radiant energy.", TRUE, ch, 0, victim, TO_NOTVICT);
+    act("The beam strikes $N in the chest, who screams in unbelievable ", TRUE, ch, 0, victim, TO_NOTVICT);
+    act("agony.  Their body begins to dissolve from the inside out, causing", TRUE, ch, 0, victim, TO_NOTVICT);
+    act("the most exquisite pain imaginable. Within a few short seconds, ", TRUE, ch, 0, victim, TO_NOTVICT);
+    act("$N's body is gone, leaving only a horrible memory behind..", TRUE, ch, 0, victim, TO_NOTVICT);
 
     die(victim, ch);
-    if (GET_LEVEL(ch) > 50)
+    if( GET_LEVEL(ch) > 50 )
     {
-      statuslog(ch->player.level,
-                "%s got wasted by Miax's cool disruptor just now, aawww.",
-                GET_NAME(victim));
+      statuslog( ch->player.level, "%s got wasted by Miax's cool disruptor just now, aawww.", GET_NAME(victim) );
     }
     return TRUE;
   }
-  return (FALSE);
+  return FALSE;
 }
 
 /*
@@ -4625,53 +4595,44 @@ int varon(P_obj obj, P_char ch, int cmd, char *arg)
  */
 int gesen(P_obj obj, P_char ch, int cmd, char *arg)
 {
-  int      dam = cmd / 1000;
   P_char   vict;
 
-  /*
-     check for periodic event calls 
-   */
-  if (cmd == CMD_SET_PERIODIC)
+  if( cmd == CMD_SET_PERIODIC )
+  {
     return FALSE;
-
-  /*
-     if dam is not 0, we have been called when weapon hits someone 
-   */
-  if (!dam)
-    return (FALSE);
-
-  if (!ch || !OBJ_WORN_BY(obj, ch) || !OBJ_WORN_POS(obj, WIELD))
-    return (FALSE);
+  }
 
   vict = (P_char) arg;
-
-  if (obj->loc.wearing == ch)
+  if( cmd == CMD_MELEE_HIT || !IS_ALIVE(ch) || !OBJ_WORN_POS(obj, WIELD) || obj->loc.wearing != ch || !IS_ALIVE(vict) )
   {
-    if (!number(0, 10))
-    {
-      act
-        ("&+YThe hammer glows and flies from your hand, striking &n$N&+Y with a crash!\r\n"
-         "&+yTwirling wildly, it arcs back around and returns to your hand..",
-         FALSE, ch, obj, vict, TO_CHAR);
-      act
-        ("&+Y$n's hammer glows and flies through the air, striking &n$N&+Y with a crash!\r\n"
-         "&+yTwirling around in the air, it arcs and returns to $n's grasp.",
-         FALSE, ch, obj, vict, TO_ROOM);
-      spell_harm(51, ch, 0, SPELL_TYPE_SPELL, vict, 0);
+    return FALSE;
+  }
 
-    }
-    else
+  // 1/10 chance.
+  if( !number(0, 9) )
+  {
+    act("&+YThe hammer glows and flies from your hand, striking &n$N&+Y with a crash!\r\n"
+      "&+yTwirling wildly, it arcs back around and returns to your hand..", FALSE, ch, obj, vict, TO_CHAR);
+    act("&+Y$n's hammer glows and flies through the air, striking &n$N&+Y with a crash!\r\n"
+      "&+yTwirling around in the air, it arcs and returns to $n's grasp.", FALSE, ch, obj, vict, TO_ROOM);
+    spell_harm(51, ch, 0, SPELL_TYPE_SPELL, vict, 0);
+  }
+  else
+  {
+    if( !ch->specials.fighting )
     {
-      if (!ch->specials.fighting)
-        set_fighting(ch, vict);
+      set_fighting(ch, vict);
     }
   }
+  // Do the normal hit damage as well.
   if (ch->specials.fighting)
-    return (FALSE);             /*
-                                   do the normal hit damage as well 
-                                 */
+  {
+    return FALSE;
+  }
   else
-    return (TRUE);
+  {
+    return TRUE;
+  }
 }
 
 int secret_door(P_obj obj, P_char ch, int cmd, char *arg)

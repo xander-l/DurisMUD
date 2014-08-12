@@ -82,92 +82,100 @@ int master_set(P_obj obj, P_char ch, int cmd, char *arg)
   int i = 0;
   int j = 0;
   int k = 0;
-  P_obj t_obj;  
-  int      wear_order[] = { 
+  P_obj t_obj;
+  int      wear_order[] = {
     41, 24, 40, 6, 19, 21, 22, 20, 39, 3, 4, 5, 35, 37, 12, 23, 13,
     10, 31, 11, 14, 15, 33, 34, 9, 32, 1, 2, 16, 17, 25, 26, 7, 36, 8,
     38, -1};
 
-  if( !obj || !ch )
+  if( cmd == CMD_SET_PERIODIC )
+  {
+    return TRUE;
+  }
+
+  if( !obj || !OBJ_WORN(obj) || !(ch = obj->loc.wearing) || cmd != CMD_PERIODIC )
+  {
     return FALSE;
+  }
+  if( !IS_ALIVE(ch) || IS_NPC(ch) )
+  {
+    return FALSE;
+  }
 
-    if(cmd == CMD_SET_PERIODIC)
-      return TRUE;
-    else if (cmd != 0)
-      return FALSE;
-
-    if (!OBJ_WORN(obj))
-      return FALSE;
-
-    ch = obj->loc.wearing;
-
-    for (j = 0; wear_order[j] != -1; j++)
+  // For each slot,
+  for( j = 0; wear_order[j] != -1; j++ )
+  {
+    // If there's eq there..
+    if( ch->equipment[wear_order[j]] )
     {
-      if (ch->equipment[wear_order[j]])
+      t_obj = ch->equipment[wear_order[j]];
+      k = 0;
+      // for each vnum in masters set..
+      while( set_master_vnum[k] > 0 )
       {
-        t_obj = ch->equipment[wear_order[j]];
-        k = 0;
-        while(set_master_vnum[k] > 0){
-          if(obj_index[t_obj->R_num].virtual_number == set_master_vnum[k])
-            numb_items++;
-          k++;
+        // If the vnum matches, increase number of master items.
+        if( obj_index[t_obj->R_num].virtual_number == set_master_vnum[k] )
+        {
+          numb_items++;
+          break;
         }
+        k++;
       }
     }
+  }
 
-    affect_from_char(ch,TAG_SET_MASTER);
-    bzero(&af, sizeof(af));
+  // Remove all the old affects.
+  affect_from_char(ch,TAG_SET_MASTER);
+  bzero(&af, sizeof(af));
+  af.type = TAG_SET_MASTER;
 
-    if(numb_items > 6)
-      numb_items = 6;
-    if( numb_items > 1){
-
-      af.type = TAG_SET_MASTER;
-      af.modifier = -20;
-      af.location = APPLY_AC;
-      affect_to_char(ch, &af);
-    }
-
-    if( numb_items > 2){
+  if(numb_items > 6)
+    numb_items = 6;
+  if( numb_items > 1 )
+  {
+    af.modifier = -20;
+    af.location = APPLY_AC;
+    affect_to_char(ch, &af);
+  }
+  if( numb_items > 2 )
+  {
       af.location = APPLY_SAVING_SPELL;
-      af.modifier = -3;    
+      af.modifier = -3;
       affect_to_char(ch, &af);
-    }
+  }
+  if( numb_items > 3 )
+  {
+    af.modifier = 5;
+    af.location = APPLY_HITROLL;
+    affect_to_char(ch, &af);
+  }
+  if( numb_items > 4 )
+  {
+    af.modifier = 0;
+    af.location = 0;
+    af.bitvector = AFF_DETECT_INVISIBLE;
+    affect_to_char(ch, &af);
+  }
+  if( numb_items > 5 )
+  {
+    af.bitvector = AFF_HASTE;
+    affect_to_char(ch, &af);
+  }
 
-    if( numb_items > 3){
-      af.modifier = 5;
-      af.location = APPLY_HITROLL;  
-      affect_to_char(ch, &af);
-    }
+  if( numb_items < ch->only.pc->master_set )
+  {
+    act("Your $q glow of power decrese.", FALSE, ch, obj, obj, TO_CHAR);
+    act("$n's $q glow of power decrese.", TRUE, ch, obj, NULL, TO_ROOM);
+  }
 
-    if( numb_items > 4){
-      af.modifier = 0;
-      af.location = 0;  
-      af.bitvector = AFF_DETECT_INVISIBLE;
-      affect_to_char(ch, &af);
-    }
+  if( numb_items > ch->only.pc->master_set && numb_items > 1 )
+  {
+    act("Your $q glow of power increase.", FALSE, ch, obj, obj, TO_CHAR);
+    act("$n's $q glow of power increase.", TRUE, ch, obj, NULL, TO_ROOM);
+  }
 
-    if( numb_items > 5){
-      af.modifier = 0;
-      af.location = 0;  
-      af.bitvector = AFF_HASTE;
-      affect_to_char(ch, &af);
-    }
-
-    if(numb_items < ch->only.pc->master_set)
-    {
-      act("Your $q glow of power decrese.", FALSE, ch, obj, obj, TO_CHAR);
-      act("$n's $q glow of power decrese.", TRUE, ch, obj, NULL, TO_ROOM);
-    }
-
-    if(numb_items > ch->only.pc->master_set && numb_items > 1)
-    {
-      act("Your $q glow of power increase.", FALSE, ch, obj, obj, TO_CHAR);
-      act("$n's $q glow of power increase.", TRUE, ch, obj, NULL, TO_ROOM);
-    }
-
-    ch->only.pc->master_set  = numb_items;
-    return FALSE;
+  ch->only.pc->master_set = numb_items;
+  return FALSE;
 }
 
 

@@ -941,43 +941,41 @@ int relic_proc(P_obj obj, P_char ch, int cmd, char *arg)
   P_desc   d;
   P_obj    potion;
 
-  if (cmd == CMD_MELEE_HIT || cmd == CMD_GOTHIT || cmd == CMD_GOTNUKED || cmd == 0)
-  {;
-  }
-  else if ((cmd < 1000) && (cmd > 0))
+  if( !IS_ALIVE(ch) )
   {
+    return FALSE;
+  }
 
-    if (!OBJ_CARRIED(obj))
+  if( cmd == CMD_MELEE_HIT || cmd == CMD_GOTHIT || cmd == CMD_GOTNUKED || cmd == CMD_PERIODIC )
+  {
+    ;
+  }
+  else if( (cmd < 1000) && (cmd > 0) )
+  {
+    if( !OBJ_CARRIED_BY(obj, ch) || IS_TRUSTED(ch) )
+    {
       return FALSE;
+    }
 
-    if (ch != obj->loc.carrying)
-      return FALSE;
-
-    if (IS_TRUSTED(ch))
-      return FALSE;
-
-//Put time to 30 hours. 
-    if (obj->value[6] == 0 && IS_PC(ch) && !IS_TRUSTED(ch))
+    // Put time to 30 hours.
+    if( obj->value[6] == 0 && IS_PC(ch) )
     {
       obj->value[6] = 1;
       obj->timer[3] = time(NULL) - (90 * 60 * 60);
       update_relic(ch, obj);
 
-      for (d = descriptor_list; d; d = d->next)
+      for( d = descriptor_list; d; d = d->next )
       {
-        if (d->connected == CON_PLYNG)
+        if( d->connected == CON_PLYNG )
         {
-          send_to_char("&+LA scream&+L of &+WFREEDOM&+L echos in your ear!&n",
-                       d->character);
-          send_to_char("\r\n", d->character);
+          send_to_char("&+LA scream&+L of &+WFREEDOM&+L echos in your ear!&n\r\n", d->character);
         }
       }
       update_relic(ch, obj);
 
-
-      if (number(0, 1))
+      if( number(0, 1) )
       {
-        wizlog(56, "Loaded a potion in from relic");
+        wizlog(56, "relic_proc: Loaded a LEVEL potion.");
         switch (number(0, 10))
         {
         case 0:
@@ -1003,56 +1001,40 @@ int relic_proc(P_obj obj, P_char ch, int cmd, char *arg)
         case 10:
           potion = read_object(45534, VIRTUAL);
           break;
-
         }
-
         obj_to_char(potion, ch);
-
-        act("Your $q &+Mhums&+W briefly.", FALSE, ch, potion, potion,
-            TO_CHAR);
+        act("Your $q &+Mhums&+W briefly.", FALSE, ch, potion, potion, TO_CHAR);
         act("$n's $q &+Mhums&+W briefly.", TRUE, ch, potion, NULL, TO_ROOM);
-
       }
-
-
-
-
-
-
-
-
-
-
     }
 
     one_argument(arg, Gbuf2);
 
-    if (cmd == CMD_RENT || cmd == CMD_CAMP || cmd == CMD_QUIT)
+    if( cmd == CMD_RENT || cmd == CMD_CAMP || cmd == CMD_QUIT )
     {
       act("$p shakes it's head?!?!&N", FALSE, ch, obj, 0, TO_CHAR);
       act("$p shakes it's head?!?!&N", FALSE, ch, obj, 0, TO_ROOM);
       return TRUE;
     }
 
-    if (cmd == CMD_WIELD && *arg)
+    if( cmd == CMD_WIELD && *arg )
     {
-      if (OBJ_WORN(obj))
+      if( OBJ_WORN(obj) )
+      {
         return FALSE;
+      }
 
-
-      if (isname(Gbuf2, "relic") || isname(Gbuf2, "true") ||
-          isname(Gbuf2, "holy") || isname(Gbuf2, "divine") ||
-          isname(Gbuf2, "undead") || isname(Gbuf2, "kings") ||
-          isname(Gbuf2, "blood") || isname(Gbuf2, "evil") ||
-          isname(Gbuf2, "ancient") || isname(Gbuf2, "spider") ||
-          isname(Gbuf2, "lloth"))
+      if( isname(Gbuf2, "relic") || isname(Gbuf2, "true") || isname(Gbuf2, "holy")
+        || isname(Gbuf2, "divine") || isname(Gbuf2, "undead") || isname(Gbuf2, "kings")
+        || isname(Gbuf2, "blood") || isname(Gbuf2, "evil") || isname(Gbuf2, "ancient")
+        || isname(Gbuf2, "spider") || isname(Gbuf2, "lloth") )
       {
         act("$p &+rfl&+Rares&+L up...&N", FALSE, ch, obj, 0, TO_CHAR);
         act("$p &+rfl&+Rares&+L up...&N", FALSE, ch, obj, 0, TO_ROOM);
 
-        if (GET_RACE(ch) == RACE_OGRE || GET_RACE(ch) == RACE_MINOTAUR ||
+        if( GET_RACE(ch) == RACE_OGRE || GET_RACE(ch) == RACE_MINOTAUR ||
             GET_RACE(ch) == RACE_WIGHT || GET_RACE(ch) == RACE_SGIANT ||
-            GET_CLASS(ch, CLASS_PALADIN) || GET_CLASS(ch, CLASS_ANTIPALADIN))
+            GET_CLASS(ch, CLASS_PALADIN) || GET_CLASS(ch, CLASS_ANTIPALADIN) )
         {
           SET_BIT(obj->extra_flags, ITEM_TWOHANDS);
           dicea = 10;
@@ -1063,17 +1045,20 @@ int relic_proc(P_obj obj, P_char ch, int cmd, char *arg)
           REMOVE_BIT(obj->extra_flags, ITEM_TWOHANDS);
           dicea = 8;
           diceb = 3;
-
         }
 
         obj->value[1] = dicea;
         obj->value[2] = diceb;
 
-        if (GET_CLASS(ch, CLASS_THIEF) || GET_CLASS(ch, CLASS_ASSASSIN) ||
-            GET_CLASS(ch, CLASS_MERCENARY))
+        if( GET_CLASS(ch, CLASS_THIEF) || GET_CLASS(ch, CLASS_ASSASSIN)
+          || GET_CLASS(ch, CLASS_MERCENARY) || GET_CLASS(ch, CLASS_ROGUE) )
+        {
           obj->value[0] = WEAPON_DAGGER;
+        }
         else
+        {
           obj->value[0] = WEAPON_LONGSWORD;
+        }
         obj->value[3] = 3;
         obj->type = ITEM_WEAPON;
         obj->affected[1].location = APPLY_DAMROLL;
@@ -1081,23 +1066,20 @@ int relic_proc(P_obj obj, P_char ch, int cmd, char *arg)
         obj->affected[2].location = APPLY_HITROLL;
         obj->affected[2].modifier = 5;
       }
-
       return FALSE;
     }
 
     if (cmd == CMD_WEAR && *Gbuf2)
     {
-      if (OBJ_WORN(obj))
+      if( OBJ_WORN(obj) )
+      {
         return FALSE;
+      }
 
-
-
-      if (isname(Gbuf2, "relic") || isname(Gbuf2, "true") ||
-          isname(Gbuf2, "holy") || isname(Gbuf2, "divine") ||
-          isname(Gbuf2, "undead") || isname(Gbuf2, "kings") ||
-          isname(Gbuf2, "blood") || isname(Gbuf2, "evil") ||
-          isname(Gbuf2, "ancient") || isname(Gbuf2, "spider") ||
-          isname(Gbuf2, "lloth"))
+      if( isname(Gbuf2, "relic") || isname(Gbuf2, "true") || isname(Gbuf2, "holy")
+        || isname(Gbuf2, "divine") || isname(Gbuf2, "undead") || isname(Gbuf2, "kings")
+        || isname(Gbuf2, "blood") || isname(Gbuf2, "evil") || isname(Gbuf2, "ancient")
+        || isname(Gbuf2, "spider") || isname(Gbuf2, "lloth") )
       {
         act("$p &+rfl&+Rares&+L up...&N", FALSE, ch, obj, 0, TO_CHAR);
         act("$p &+rfl&+Rares&+L up...&N", FALSE, ch, obj, 0, TO_ROOM);
@@ -1111,51 +1093,38 @@ int relic_proc(P_obj obj, P_char ch, int cmd, char *arg)
         obj->affected[1].modifier = 15;
         obj->affected[2].location = APPLY_INT_MAX;
         obj->affected[2].modifier = 15;
-
       }
-
       return FALSE;
     }
-
-
     return FALSE;
   }
 
-  if (obj->loc.wearing != ch)
-    return (FALSE);
-
-  if (IS_NPC(ch))
+  if( !OBJ_WORN_BY(obj, ch) || IS_NPC(ch) || GET_LEVEL(ch) < 40 )
+  {
     return FALSE;
+  }
 
-  if (GET_LEVEL(ch) < 40)
+  // 1/20 chance.
+  if( IS_FIGHTING(ch) && number(0, 19) )
+  {
     return FALSE;
-
-
-
-  if (IS_FIGHTING(ch) && number(0, 20))
-    return FALSE;
-
-
-
+  }
   kala = ch->specials.fighting;
 
-  while (!(IS_SET(skills[j].targets, TAR_FIGHT_VICT)) || (!IS_AGG_SPELL(j)))
-    j = number(FIRST_SPELL, LAST_SPELL);
-
-  if (kala)
+  // Find an offensive spell.
+  while( !(IS_SET(skills[j].targets, TAR_FIGHT_VICT)) || (!IS_AGG_SPELL(j)) )
   {
-    act("$p&+L carried by $n sends a ray of &+Wlight&+L towards $N!&N", TRUE,
-        ch, obj, kala, TO_NOTVICT);
-    act("$p&+L carried by you sends a ray of &+Wlight&+L towards $N!&N", TRUE,
-        ch, obj, kala, TO_CHAR);
-    act("$p&+L carried by $n sends a ray of &+Wlight&+L towards you!&N", TRUE,
-        ch, obj, kala, TO_VICT);
-    ((*skills[j].spell_pointer) ((int) GET_LEVEL(ch), ch, 0, SPELL_TYPE_SPELL,
-                                 kala, NULL));
+    j = number(FIRST_SPELL, LAST_SPELL);
   }
-
-  return 0;
-
+  // And hit kala with it.
+  if( IS_ALIVE(kala) )
+  {
+    act("$p&+L carried by $n sends a ray of &+Wlight&+L towards $N!&N", TRUE, ch, obj, kala, TO_NOTVICT);
+    act("$p&+L carried by you sends a ray of &+Wlight&+L towards $N!&N", TRUE, ch, obj, kala, TO_CHAR);
+    act("$p&+L carried by $n sends a ray of &+Wlight&+L towards you!&N", TRUE, ch, obj, kala, TO_VICT);
+    ((*skills[j].spell_pointer) ((int) GET_LEVEL(ch), ch, 0, SPELL_TYPE_SPELL, kala, NULL));
+  }
+  return FALSE;
 }
 
 int random_mob_proc(P_char ch, P_char pl, int cmd, char *arg)

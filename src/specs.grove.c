@@ -1232,38 +1232,33 @@ int shimmering_longsword(P_obj obj, P_char ch, int cmd, char *arg)
   P_char   vict;
 
 
-  if (cmd == CMD_SET_PERIODIC)
-    return FALSE;
-
-
-  if (!dam)
-    return (FALSE);
-
-
-  if (!ch)
-    return (FALSE);
-
-
-  if (!OBJ_WORN_POS(obj, WIELD) && !OBJ_WORN_POS(obj, SECONDARY_WEAPON))
-    return (FALSE);
-
-  vict = (P_char) arg;
-
-  if (OBJ_WORN_BY(obj, ch) && vict)
+  if( cmd == CMD_SET_PERIODIC )
   {
-    if (!number(0, 30))
+    return FALSE;
+  }
+
+  if( !dam || !IS_ALIVE(ch) || !(!OBJ_WORN_POS(obj, WIELD) && !OBJ_WORN_POS(obj, SECONDARY_WEAPON)) )
+  {
+    return FALSE;
+  }
+  vict = (P_char) arg;
+  if( !IS_ALIVE(vict) )
+  {
+    return FALSE;
+  }
+
+  if( OBJ_WORN_BY(obj, ch) )
+  {
+    if( !number(0, 29) )
     {
       act("As $p slashes $N's armor, a &+Bbright blue force of "
-          "mystic power streaks out the blade&n, bombarding $N body!",
-          FALSE, obj->loc.wearing, obj, vict, TO_CHAR);
+        "mystic power streaks out the blade&n, bombarding $N body!", FALSE, obj->loc.wearing, obj, vict, TO_CHAR);
       act("As $n's $q slashes your armor, a &+Bbright blue force "
-          "of mystic power streaks out the blade&n, bombarding your body!",
-          FALSE, obj->loc.wearing, obj, vict, TO_VICT);
+        "of mystic power streaks out the blade&n, bombarding your body!", FALSE, obj->loc.wearing, obj, vict, TO_VICT);
       act("As $n's $q slashes $N's armor, a &+Bbright blue force "
-          "of mystic power streaks out the blade&n, bombarding "
-          "$N's body!", FALSE, obj->loc.wearing, obj, vict, TO_ROOM);
+        "of mystic power streaks out the blade&n, bombarding $N's body!", FALSE, obj->loc.wearing, obj, vict, TO_ROOM);
       spell_lightning_bolt(30, ch, 0, SPELL_TYPE_SPELL, vict, 0);
     }
   }
-  return (FALSE);
+  return FALSE;
 }

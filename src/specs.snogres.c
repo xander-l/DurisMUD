@@ -210,28 +210,25 @@ int hellfire_axe(P_obj obj, P_char ch, int cmd, char *arg)
   {
     return FALSE;
   }
-  if ( !obj || !ch )
+  if ( !obj || !IS_ALIVE(ch) )
   {
     return FALSE;
   }
 
-  if( (cmd == CMD_MELEE_HIT) && !number(0, 50))
+  // 1/50 chance.
+  if( cmd == CMD_MELEE_HIT && !number(0, 49) )
   {
     vict = (P_char) arg;
 
-    if (obj->loc.wearing->equipment[WIELD] != obj)
+    if( obj->loc.wearing->equipment[WIELD] != obj || !dam || !IS_ALIVE(vict) || !IS_HUMANOID(vict) )
+    {
       return FALSE;
+    }
 
-    if(!dam)
-      return FALSE;
-
-    if(!vict || !IS_HUMANOID(vict) || !IS_ALIVE(vict))
-      return FALSE;
-    
-    melee_damage(ch, vict, (GET_LEVEL(ch) * number(3,5)), 0, &messages); //this will nerf it for pleveling - Jexni
+    // This will nerf it for pleveling - Jexni
+    melee_damage(ch, vict, (GET_LEVEL(ch) * number(3,5)), 0, &messages);
     int numb = number(2, 6);
     add_event(event_hellfire, PULSE_VIOLENCE, vict, 0, 0, 0, &numb, sizeof(numb));
-
     return TRUE;
   }
   return FALSE;
@@ -374,35 +371,31 @@ int illithid_whip(P_obj obj, P_char ch, int cmd, char *arg)
   P_char   vict = NULL;
   struct proc_data *data = NULL;
   int      dam = cmd / 1000;
- 
-  if ( cmd == CMD_SET_PERIODIC )
-  {
-    return FALSE;
-  }
-  if ( !obj || !ch )
-  {
-    return FALSE;
-  }
 
-  if( (cmd == CMD_MELEE_HIT) && !number(0, 30))
+  if( cmd == CMD_SET_PERIODIC )
+  {
+    return FALSE;
+  }
+  if ( !OBJ_WORN(obj) || !IS_ALIVE(ch) )
+  {
+    return FALSE;
+  }
+  // 1/30 chance.
+  if( (cmd == CMD_MELEE_HIT) && !number(0, 29) )
   {
     vict = (P_char) arg;
 
-    if (obj->loc.wearing->equipment[WIELD] != obj)
+    if( obj->loc.wearing->equipment[WIELD] != obj || !dam || !IS_ALIVE(vict) || !IS_HUMANOID(vict) || GET_POS(vict) < POS_STANDING )
+    {
       return FALSE;
+    }
 
-    if(!dam)
-      return FALSE;
-
-    if(!vict || !IS_HUMANOID(vict) || !IS_ALIVE(vict) || GET_POS(vict) < POS_STANDING)
-      return FALSE;
-
-      act("&+mYour $p &+mwraps about $N&+m's legs, tripping $M up!\n&N", FALSE, ch, obj, vict, TO_CHAR);
-      act("&+m$n&+m's $p &+mwraps about $N&+m's legs, tripping $M up!\n&N", FALSE, ch, obj, vict, TO_ROOM);
-      act("&+m$n&+m's $p wraps about your legs, tripping you up!\n&N", FALSE, ch, obj, vict, TO_VICT);
-      Stun(vict, ch, PULSE_VIOLENCE * 1, TRUE);
-      CharWait(vict, PULSE_VIOLENCE * 1);
-      SET_POS(vict, POS_PRONE + GET_STAT(vict));
+    act("&+mYour $p &+mwraps about $N&+m's legs, tripping $M up!\n&N", FALSE, ch, obj, vict, TO_CHAR);
+    act("&+m$n&+m's $p &+mwraps about $N&+m's legs, tripping $M up!\n&N", FALSE, ch, obj, vict, TO_ROOM);
+    act("&+m$n&+m's $p wraps about your legs, tripping you up!\n&N", FALSE, ch, obj, vict, TO_VICT);
+    Stun(vict, ch, PULSE_VIOLENCE * 1, TRUE);
+    CharWait(vict, PULSE_VIOLENCE * 1);
+    SET_POS(vict, POS_PRONE + GET_STAT(vict));
   }
   return FALSE;
 }
@@ -410,38 +403,41 @@ int illithid_whip(P_obj obj, P_char ch, int cmd, char *arg)
 int skull_leggings(P_obj leggings, P_char ch, int cmd, char *arg)
 {
 
-   if (cmd == CMD_SET_PERIODIC)
-     return TRUE;
+  if( cmd == CMD_SET_PERIODIC )
+  {
+    return TRUE;
+  }
 
-   if(cmd == CMD_PERIODIC)
-   {
-     if (OBJ_CARRIED(leggings))
-     {
-        ch = leggings->loc.carrying;
-     }
-     if (OBJ_CARRIED_BY(leggings, ch))
-     {
-       if (GET_RACE(ch) == RACE_SNOW_OGRE || GET_RACE(ch) == RACE_OGRE  || \
-           GET_RACE(ch) == RACE_MINOTAUR || GET_RACE(ch) == RACE_FIRBOLG)
-       {
-          int slot = WEAR_LEGS;
-          if (ch->equipment[slot])
-	  {
-            if (obj_index[ch->equipment[slot]->R_num].func.obj != NULL)
-              (*obj_index[ch->equipment[slot]->R_num].func.obj) (ch->equipment[slot], ch, CMD_REMOVE, (char *) "all");
-            obj_to_char(unequip_char(ch, slot), ch);
-	  }
-          obj_from_char(leggings, TRUE);
-          equip_char(ch, leggings, slot, FALSE);
-          act("&+LA longing for &+rblood &+Lbegins to &+Rburn &+Lin your &+rheart&+L, and you feel a strange\n"
-              "&+Lforce overcome you, compelling you to don the &+Wskull leggings&+L.  They quickly\n"
-              "&+Lform to your shins, almost as if they were made for &+Ryou&+L.&n\n", FALSE, ch, 0, 0, TO_CHAR);
-          act("$n &+Lstraps the &+Wskull leggings &+Lto $s legs and &+Rroars &+Lwith renewed &+rvigor&+L.&n\n", FALSE, ch, 0, 0, TO_ROOM);
-
-          return TRUE;
+  if( cmd == CMD_PERIODIC )
+  {
+    if( OBJ_CARRIED(leggings) )
+    {
+      ch = leggings->loc.carrying;
+    }
+    if( OBJ_CARRIED_BY(leggings, ch) )
+    {
+      if (GET_RACE(ch) == RACE_SNOW_OGRE || GET_RACE(ch) == RACE_OGRE
+        || GET_RACE(ch) == RACE_MINOTAUR || GET_RACE(ch) == RACE_FIRBOLG )
+      {
+        int slot = WEAR_LEGS;
+        if( ch->equipment[slot] )
+        {
+          if( obj_index[ch->equipment[slot]->R_num].func.obj != NULL )
+          {
+            (*obj_index[ch->equipment[slot]->R_num].func.obj) (ch->equipment[slot], ch, CMD_REMOVE, (char *) "all");
+          }
+          obj_to_char(unequip_char(ch, slot), ch);
         }
+        obj_from_char(leggings, TRUE);
+        equip_char(ch, leggings, slot, FALSE);
+        act("&+LA longing for &+rblood &+Lbegins to &+Rburn &+Lin your &+rheart&+L, and you feel a strange\n"
+          "&+Lforce overcome you, compelling you to don the &+Wskull leggings&+L.  They quickly\n"
+          "&+Lform to your shins, almost as if they were made for &+Ryou&+L.&n\n", FALSE, ch, 0, 0, TO_CHAR);
+        act("$n &+Lstraps the &+Wskull leggings &+Lto $s legs and &+Rroars &+Lwith renewed &+rvigor&+L.&n\n", FALSE, ch, 0, 0, TO_ROOM);
+        return TRUE;
       }
-    } 
+    }
+  }
   return FALSE;
 }
 
@@ -449,31 +445,34 @@ int flesh_golem_repop(P_obj obj, P_char ch, int cmd, char *arg)
 {
   int mob_vnum = 87734;
 
-  if (cmd == CMD_SET_PERIODIC)
+  if( cmd == CMD_SET_PERIODIC )
+  {
     return TRUE;
+  }
 
-  if( !obj || !OBJ_ROOM(obj) )
+  if( !OBJ_ROOM(obj) )
+  {
     return FALSE;
+  }
 
-  if (cmd == CMD_PERIODIC)
+  if( cmd == CMD_PERIODIC )
   {
     int curr_time = time(NULL);
 
     if( curr_time < obj->timer[0] + 1 )
+    {
       return FALSE;
+    }
 
     int rnum = real_mobile(mob_vnum);
-    
     if(mob_index[rnum].number < mob_index[rnum].limit)
     {
       P_char mob = read_mobile(rnum, REAL);
       char_to_room(mob, obj->loc.room, -1);
       obj->timer[0] = curr_time;
     }
-
     return FALSE;
   }
-
   return FALSE;
 }
 
