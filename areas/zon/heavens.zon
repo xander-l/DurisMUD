@@ -117,6 +117,14 @@ D 0 35 0 1 100 0 0 0
 *     north exit from "Behind Inn of the Twisted Spine (Goblin HT)" to
 *     "Bright White Corridor" - closed
 *
+D 0 1200 0 10 100 0 0 0
+*     north exit from "The Room With the Zany Bright White Title" to
+*     "Corpse Storage" - closed/locked/blocked
+*
+D 0 40 2 0 100 0 0 0
+*     south exit from "Corpse Storage" to
+*     "The Room With the Zany Bright White Title" - open
+*
 *
 O 0 1278 999 3 100 0 0 0           * the book of files
 O 0 29 1 3 100 0 0 0               * Code Planning bulletin board
