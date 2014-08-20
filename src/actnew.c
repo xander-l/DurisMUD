@@ -1538,11 +1538,14 @@ void do_meditate(P_char ch, char *arg, int cmd)
     return;
   }
   if (IS_AFFECTED(ch, AFF_MEDITATE))
+  {
     return;
+  }
 
   notch_skill(ch, SKILL_MEDITATE, (int) get_property("skill.notch.meditate", 1));
 
-  if (GET_CHAR_SKILL(ch, SKILL_ADVANCED_MEDITATION)) {
+  if (GET_CHAR_SKILL(ch, SKILL_ADVANCED_MEDITATION))
+  {
     memset(&af, 0, sizeof(af));
     af.type = SKILL_MEDITATE;
     af.flags = AFFTYPE_NOSHOW | AFFTYPE_NODISPEL;
@@ -1551,21 +1554,25 @@ void do_meditate(P_char ch, char *arg, int cmd)
     af.modifier = 25 + GET_CHAR_SKILL(ch, SKILL_ADVANCED_MEDITATION)/2;
     af.duration = -1;
     affect_to_char(ch, &af);
-    if (GET_CHAR_SKILL(ch, SKILL_ADVANCED_MEDITATION) > 50) {
+    if (GET_CHAR_SKILL(ch, SKILL_ADVANCED_MEDITATION) > 50)
+    {
       af.location = APPLY_MOVE_REG;
       af.modifier = (GET_CHAR_SKILL(ch, SKILL_ADVANCED_MEDITATION) - 50) / 10;
       affect_to_char(ch, &af);
       send_to_char("You feel completely aligned with your spirit as you sink in meditation...\n", ch);
       CharWait(ch, PULSE_VIOLENCE/2);
       StartRegen(ch, EVENT_MOVE_REGEN);
-    } else {
+    }
+    else
+    {
       send_to_char("You sink in meditation...\n", ch);
       CharWait(ch, PULSE_VIOLENCE);
     }
     StartRegen(ch, EVENT_HIT_REGEN);
-    add_event(event_meditation, get_property("timer.sec.advancedMeditation", 3) * WAIT_SEC,
-        ch, 0, 0, 0, 0, 0);
-  } else {
+    add_event(event_meditation, get_property("timer.sec.advancedMeditation", 3) * WAIT_SEC, ch, 0, 0, 0, 0, 0);
+  }
+  else
+  {
     send_to_char("You start meditating...\n", ch);
     CharWait(ch, PULSE_VIOLENCE);
   }
