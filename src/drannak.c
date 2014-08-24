@@ -2660,31 +2660,36 @@ void christmas_proc(P_char ch)
 
 void add_bloodlust(P_char ch, P_char victim)
 {
-  if( !IS_ALIVE(ch) )
-    return;
-
   int dur;
 
-  if (!victim)
+  if( !IS_ALIVE(ch) || !victim )
+  {
     return;
+  }
 
-  if (IS_PC_PET(victim))
+  if( IS_PC_PET(victim) || affected_by_spell(victim, TAG_CONJURED_PET) )
+  {
     return;
+  }
 
-  if (GET_LEVEL(victim) < (GET_LEVEL(ch) - 5))
+  if( GET_LEVEL(victim) < (GET_LEVEL(ch) - 5) || GET_LEVEL(ch) > 49 )
+  {
     return;
+  }
 
-  if( affected_by_spell(victim, TAG_CONJURED_PET) )
-    return;
-
-  if (GET_RACE(ch) == RACE_OGRE)
+  // We're nice to ogres.. dunno why.
+  if( GET_RACE(ch) == RACE_OGRE )
+  {
     dur = 10;
+  }
   else
+  {
     dur = 5;
+  }
 
   send_to_char("&+rThe smell of fresh &+Rblood &+renters your body, &+Rinfusing&+r you with &+Rpower&+r!\r\n", ch);
   struct affected_type af;
-  if(!affected_by_spell(ch, TAG_BLOODLUST))
+  if( !affected_by_spell(ch, TAG_BLOODLUST) )
   {
     memset(&af, 0, sizeof(struct affected_type));
     af.type = TAG_BLOODLUST;
@@ -2700,22 +2705,19 @@ void add_bloodlust(P_char ch, P_char victim)
     for(findaf = ch->affected; findaf; findaf = next_af)
     {
       next_af = findaf->next;
-      // Everyone gets 100% bloodlust
-      if((findaf && findaf->type == TAG_BLOODLUST) && findaf->modifier < 10)
+      // Lvls 1-40 get 200% bloodlust
+      if((findaf && findaf->type == TAG_BLOODLUST)
+        && findaf->modifier < 20 && GET_LEVEL(ch) <= 40)
       {
         findaf->modifier += 1;
         findaf->duration = dur;
       }
-      // Lvls 1-41 get 200% bloodlust
-      else if((findaf && findaf->type == TAG_BLOODLUST)
-        && findaf->modifier < 20 && GET_LEVEL(ch) < 42)
-      {
-        findaf->modifier += 1;
-        findaf->duration = dur;
-      }
+      // We are guarenteed here that level is between 41 and 49.
       else if(findaf && findaf->type == TAG_BLOODLUST)
       {
-        findaf->modifier = (GET_LEVEL(ch)<42) ? 20 : 10;
+        // Lose 20% for ever level over 40.
+        // 20 == max_modifier @ 40, 18 = max_modifier @ 41, ... 2 = max_modifier @ 49.
+        findaf->modifier = (findaf->modifier < (100 - 2*GET_LEVEL(ch))) ? findaf->modifier+1 : (100 - 2*GET_LEVEL(ch));
         findaf->duration = dur;
       }
     }
