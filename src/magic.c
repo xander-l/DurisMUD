@@ -5883,10 +5883,19 @@ void spell_wandering_woods(int level, P_char ch, char *arg, int type,
 void spell_consecrate_land(int level, P_char ch, char *arg, int type,
                            P_char victim, P_obj obj)
 {
+  struct room_affect *raf;
   struct room_affect af;
 
   if(!ch || get_spell_from_room(&world[ch->in_room], SPELL_CONSECRATE_LAND))
     return;
+
+  if( (raf = get_spell_from_room(&world[ch->in_room], SPELL_DESECRATE_LAND)) )
+  {
+    affect_room_remove(ch->in_room, raf);
+    send_to_char("&+YYou destroy the &+Crunes&+Y laying about the area.&n\r\n", ch);
+    act("&+Y$n&+Y's prayer shatters the &+Crunes&+Y laying around the area.&n",0, ch, 0, 0, TO_ROOM);
+    return;
+  }
 
   switch (world[ch->in_room].sector_type)
   {

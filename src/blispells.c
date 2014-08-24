@@ -134,11 +134,11 @@ void spell_desecrate_land(int level, P_char ch, char *arg, int type, P_char vict
   struct room_affect *raf;
   struct room_affect  af;
 
-  if( !ch )
+  if( !ch || get_spell_from_room(&world[ch->in_room], SPELL_DESECRATE_LAND) )
   {
     return;
   }
-
+// PENIS: Make not stackable.
   if( (raf = get_spell_from_room(&world[ch->in_room], SPELL_CONSECRATE_LAND)) )
   {
     affect_room_remove(ch->in_room, raf);
