@@ -13707,53 +13707,43 @@ void spell_faerie_fog(int level, P_char ch, char *arg, int type,
 void spell_blackmantle(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
-  
-  if(!ch)
+
+  if( !ch )
   {
     logit(LOG_EXIT, "spell_blackmantle called in magic.c with no ch");
     raise(SIGSEGV);
   }
 
-  if(!IS_ALIVE(ch) ||
-     !IS_ALIVE(victim))
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
   {
     return;
   }
-  
-  if(ch == victim)
+
+  if( ch == victim )
   {
     send_to_char("Stop wasting time and go kill someone!\r\n", ch);
     return;
   }
-  
-  if(affected_by_spell(victim, SPELL_BMANTLE))
+
+  if( affected_by_spell(victim, SPELL_BMANTLE) )
   {
     send_to_char("They are already afflicted by blackmantle!!\n", ch);
     return;
   }
-  
-  if(IS_NPC(ch) && !NewSaves(victim, SAVING_SPELL, 12))
-  {  
+
+  // Made the save level based for PC casters.. maxxes at 14 (lvl 56) instead of hard 3.
+  if( !NewSaves(victim, SAVING_SPELL, IS_NPC(ch) ? 16 : level / 4) )
+  {
     act("&+LA blanketing shroud of &+bnegative energy &+Lcoalesces around $N&+L...", FALSE, ch, 0, victim, TO_CHAR);
     act("&+LA blanketing shroud of &+bnegative energy &+Lcoalesces around $N&+L...", FALSE, ch, 0, victim, TO_NOTVICT);
     act("&+LA cloud of &+bnegative energy &+Ldroplets cloak you, slowly draining the &+wlife &+Lfrom your body...", FALSE, ch, 0, victim, TO_VICT);
 
     bzero(&af, sizeof(af));
     af.type = SPELL_BMANTLE;
-    af.duration = PULSE_VIOLENCE / 4;
-    af.modifier = 4000;
-    affect_to_char(victim, &af);
-  }
-  else if(IS_PC(ch) && !NewSaves(victim, SAVING_SPELL, 3))
-  {  
-    act("&+LA blanketing shroud of &+bnegative energy &+Lcoalesces around $N&+L...", FALSE, ch, 0, victim, TO_CHAR);
-    act("&+LA blanketing shroud of &+bnegative energy &+Lcoalesces around $N&+L...", FALSE, ch, 0, victim, TO_NOTVICT);
-    act("&+LA cloud of &+bnegative energy &+Ldroplets cloak you, slowly draining the &+wlife &+Lfrom your body...", FALSE, ch, 0, victim, TO_VICT);
-
-    bzero(&af, sizeof(af));
-    af.type = SPELL_BMANTLE;
-    af.duration = PULSE_VIOLENCE / 4; //level * PULSE_VIOLENCE
-    af.modifier = 300;
+    // Maxxes at 8 ticks at lvl 56.
+    af.duration = level / 7;
+    // Modifier is how many hps the blackmantle can absorb.
+    af.modifier = IS_NPC(ch) ? 4000 : 60*level;
     affect_to_char(victim, &af);
   }
   else
