@@ -1501,13 +1501,17 @@ void do_memorize(P_char ch, char *argument, int cmd)
 
   spl = search_block(argument, (const char **) spells, FALSE);
 
-  if( spl != -1 )
+  if( spl <= -1 || !skills[spl].spell_pointer )
   {
-    if( !((spl > -1) && skills[spl].spell_pointer) )
+    if( book_class(ch) )
     {
       send_to_char("Um.. what spell are you trying to memorize?\n", ch);
-      return;
     }
+    else
+    {
+      send_to_char("Um.. what spell are you trying to pray for?\n", ch);
+    }
+    return;
   }
 
   if( book_class(ch) )
