@@ -96,12 +96,12 @@ F 1 98928 1 98904 100 0 0 0        * a Tezcazul (following)
 F 1 98926 1 98904 100 0 0 0        * a Blodzul (following)
 F 1 98927 2 98904 100 0 0 0        * a Blodzul (following)
 M 0 98933 3 98905 100 0 0 0        * a zombie cultist
-M 0 98944 2 98906 100 0 0 0        * a vampire worshipper
+M 0 98944 2 98906 100 0 0 0        * a vampire worshiper
 M 0 98920 5 98907 100 0 0 0        * a Tezcazul
 M 0 98919 5 98907 100 0 0 0        * a Tezcazul
 M 0 98936 3 98908 100 0 0 0        * a zombie cultist
 E 1 98902 5 5 100 0 0 0            *   a frayed black robe
-M 0 98944 2 98908 100 0 0 0        * a vampire worshipper
+M 0 98944 2 98908 100 0 0 0        * a vampire worshiper
 M 0 98956 1 98908 100 0 0 0        * a death fiend
 E 1 98949 2 3 100 0 0 0            *   a necklace of halfling ears
 M 0 98933 3 98909 100 0 0 0        * a zombie cultist
@@ -115,17 +115,17 @@ M 0 98920 5 98911 100 0 0 0        * a Tezcazul
 M 0 98919 5 98911 100 0 0 0        * a Tezcazul
 M 0 98950 2 98912 100 0 0 0        * a death fiend
 M 0 98909 3 98913 100 0 0 0        * a Blodzul
-M 0 98917 3 98914 100 0 0 0        * a zombie worshipper
-M 0 98943 3 98914 100 0 0 0        * a zombie worshipper
+M 0 98917 3 98914 100 0 0 0        * a zombie worshiper
+M 0 98943 3 98914 100 0 0 0        * a zombie worshiper
 M 0 98910 2 98915 100 0 0 0        * a Blodzul
-M 0 98917 3 98915 100 0 0 0        * a zombie worshipper
-M 0 98918 4 98915 100 0 0 0        * a zombie worshipper
+M 0 98917 3 98915 100 0 0 0        * a zombie worshiper
+M 0 98918 4 98915 100 0 0 0        * a zombie worshiper
 M 0 98909 3 98916 100 0 0 0        * a Blodzul
 M 0 98933 3 98917 100 0 0 0        * a zombie cultist
-M 0 98918 4 98918 100 0 0 0        * a zombie worshipper
-M 0 98943 3 98918 100 0 0 0        * a zombie worshipper
+M 0 98918 4 98918 100 0 0 0        * a zombie worshiper
+M 0 98943 3 98918 100 0 0 0        * a zombie worshiper
 M 0 98951 2 98919 100 0 0 0        * a death fiend
-M 0 98943 3 98921 100 0 0 0        * a zombie worshipper
+M 0 98943 3 98921 100 0 0 0        * a zombie worshiper
 M 0 98913 1 98922 100 0 0 0        * a zombie priest
 E 1 98902 5 5 100 0 0 0            *   a frayed black robe
 G 1 98915 1 0 100 0 0 0            *    a bloody key
@@ -133,12 +133,12 @@ F 1 98919 5 98922 100 0 0 0        * a Tezcazul (following)
 F 1 98920 5 98922 100 0 0 0        * a Tezcazul (following)
 E 1 98927 1 27 100 0 0 0           *   a cobra scale shield
 G 1 98928 1 0 100 0 0 0            *    a bloody sacrificial dagger
-F 1 98917 3 98922 100 0 0 0        * a zombie worshipper (following)
-F 1 98918 4 98922 100 0 0 0        * a zombie worshipper (following)
+F 1 98917 3 98922 100 0 0 0        * a zombie worshiper (following)
+F 1 98918 4 98922 100 0 0 0        * a zombie worshiper (following)
 M 0 98921 4 98923 100 0 0 0        * a blood rat
 M 0 98936 3 98923 100 0 0 0        * a zombie cultist
 E 1 98902 5 5 100 0 0 0            *   a frayed black robe
-M 0 98918 4 98924 100 0 0 0        * a zombie worshipper
+M 0 98918 4 98924 100 0 0 0        * a zombie worshiper
 M 0 98912 2 98925 100 0 0 0        * a Blodzul
 M 0 98957 2 98925 100 0 0 0        * a death fiend
 M 0 98952 2 98927 100 0 0 0        * a death fiend
@@ -224,7 +224,7 @@ M 0 98954 2 98962 100 0 0 0        * a vampire cultist
 M 0 98974 3 98962 100 0 0 0        * a Tezcazul
 M 0 98975 4 98962 100 0 0 0        * a Tezcazul
 M 0 98969 4 98963 100 0 0 0        * a vampire cultist
-M 0 98946 2 98963 100 0 0 0        * a vampire worshipper
+M 0 98946 2 98963 100 0 0 0        * a vampire worshiper
 E 1 98936 1 19 100 0 0 0           *   a soulstone visor
 M 0 98955 3 98964 100 0 0 0        * a vampire cultist
 M 0 98976 4 98964 100 0 0 0        * a Tezcazul
@@ -276,7 +276,7 @@ M 0 98976 4 98983 100 0 0 0        * a Tezcazul
 M 0 98977 4 98983 100 0 0 0        * a Tezcazul
 M 0 98978 5 98983 100 0 0 0        * a tortured soul
 M 0 98962 2 98984 100 0 0 0        * a vampire priest
-M 0 98946 2 98984 100 0 0 0        * a vampire worshipper
+M 0 98946 2 98984 100 0 0 0        * a vampire worshiper
 M 0 98922 1 98985 100 0 0 0        * Raism Blood Devil of Arkturas
 E 1 98910 1 5 100 0 0 0            *   a spiked suit of fluted dragonscale
 E 1 98963 1 10 100 0 0 0           *   a pair of faded skullstone sleeves

@@ -707,12 +707,12 @@ PE 0 1 0 -1
 0.0.0.0 0
 8 8 1
 #53651
-worshipper~
-&+Ya Larethian worshipper&N~
-&+YA strong and devoted worshipper of Lareth&N walks through the shrine in praise.
+worshiper~
+&+Ya Larethian worshiper&N~
+&+YA strong and devoted worshiper of Lareth&N walks through the shrine in praise.
 ~
    &+YDressed in golden robes with white cloth garments beneath
-&+Ythem, this worshipper bows his head and recites a verse of
+&+Ythem, this worshiper bows his head and recites a verse of
 &+YJustice and Truth to himself, in honor of the great King
 &+YLareth.
 ~
@@ -722,12 +722,12 @@ PH 0 1 0 -1
 0.0.0.0 0
 8 8 1
 #53652
-robed worshipper~
-&+Ya &+Wrobed &+YLarethian worshipper&N~
-&+YA &+Wrobed &+Yworshipper of Lareth&N walks through the shrine.
+robed worshiper~
+&+Ya &+Wrobed &+YLarethian worshiper&N~
+&+YA &+Wrobed &+Yworshiper of Lareth&N walks through the shrine.
 ~
    &+YDressed in golden robes with white cloth garments beneath
-&+Ythem, this worshipper bows his head and recites a verse of
+&+Ythem, this worshiper bows his head and recites a verse of
 &+YJustice and Truth to himself, in honor of the great King
 &+YLareth.
 ~
@@ -737,12 +737,12 @@ PH 0 1 0 -1
 0.0.0.0 0
 8 8 1
 #53653
-young worshipper~
-&+Ya young Larethian worshipper&N~
-&+YA young Larethian worshipper bows his head and prays.
+young worshiper~
+&+Ya young Larethian worshiper&N~
+&+YA young Larethian worshiper bows his head and prays.
 ~
    &+YDressed in golden robes with white cloth garments beneath
-&+Ythem, this worshipper bows his head and recites a verse of
+&+Ythem, this worshiper bows his head and recites a verse of
 &+YJustice and Truth to himself, in honor of the great King
 &+YLareth.
 ~

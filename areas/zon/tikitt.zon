@@ -312,7 +312,7 @@ M 0 44100 1 44205 100 0 0 0        * a large golem
 G 1 44103 1 0 100 0 0 0            *    a flaming key
 M 0 44142 1 44206 100 0 0 0        * a huge lizard
 E 1 44180 1 19 100 0 0 0           *   a lizards eye
-M 0 44143 1 44207 100 0 0 0        * a Sun Worshipper
+M 0 44143 1 44207 100 0 0 0        * a Sun worshiper
 E 1 44144 21 16 100 0 0 0          *   a standard issue sword
 E 1 44144 21 17 100 0 0 0          *   a standard issue sword
 E 1 44144 21 25 100 0 0 0          *   a standard issue sword

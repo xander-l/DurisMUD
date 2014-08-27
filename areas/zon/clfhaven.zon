@@ -883,21 +883,21 @@ E 1 21551 5 16 100 0 0 0           *   a longsword of the Aravne guards
 F 1 21557 6 21721 100 0 0 0        * an Aravne commons guard (following)
 E 1 21551 5 16 100 0 0 0           *   a longsword of the Aravne guards
 M 0 21594 6 21727 100 0 0 0        * a stargazer Acolyte
-M 0 21592 9 21728 100 0 0 0        * a stargazer worshipper
-M 0 21592 9 21728 100 0 0 0        * a stargazer worshipper
-M 0 21592 9 21729 100 0 0 0        * a stargazer worshipper
-M 0 21592 9 21729 100 0 0 0        * a stargazer worshipper
+M 0 21592 9 21728 100 0 0 0        * a stargazer worshiper
+M 0 21592 9 21728 100 0 0 0        * a stargazer worshiper
+M 0 21592 9 21729 100 0 0 0        * a stargazer worshiper
+M 0 21592 9 21729 100 0 0 0        * a stargazer worshiper
 M 0 21594 6 21730 100 0 0 0        * a stargazer Acolyte
 M 0 21594 6 21731 100 0 0 0        * a stargazer Acolyte
 M 0 21594 6 21732 100 0 0 0        * a stargazer Acolyte
 M 0 21594 6 21737 100 0 0 0        * a stargazer Acolyte
 M 0 21594 6 21738 100 0 0 0        * a stargazer Acolyte
-M 0 21592 9 21739 100 0 0 0        * a stargazer worshipper
-M 0 21592 9 21739 100 0 0 0        * a stargazer worshipper
-M 0 21592 9 21740 100 0 0 0        * a stargazer worshipper
-M 0 21592 9 21740 100 0 0 0        * a stargazer worshipper
+M 0 21592 9 21739 100 0 0 0        * a stargazer worshiper
+M 0 21592 9 21739 100 0 0 0        * a stargazer worshiper
+M 0 21592 9 21740 100 0 0 0        * a stargazer worshiper
+M 0 21592 9 21740 100 0 0 0        * a stargazer worshiper
 M 0 21593 3 21741 100 0 0 0        * a stargazer disciple
-M 0 21592 9 21741 100 0 0 0        * a stargazer worshipper
+M 0 21592 9 21741 100 0 0 0        * a stargazer worshiper
 M 0 21593 3 21742 100 0 0 0        * a stargazer disciple
 M 0 21593 3 21742 100 0 0 0        * a stargazer disciple
 M 0 21595 4 21743 100 0 0 0        * a stargazer lord

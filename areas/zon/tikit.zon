@@ -157,10 +157,10 @@ M 0 43714 6 43709 100 0 0 0        * a drunken apewoman
 M 0 43714 6 43709 100 0 0 0        * a drunken apewoman
 M 0 43730 8 43711 100 0 0 0        * an apeman merchant
 E 1 43708 2 16 100 0 0 0           *   a small mithril shortsword
-M 0 43710 8 43712 100 0 0 0        * an apeman worshipper
+M 0 43710 8 43712 100 0 0 0        * an apeman worshiper
 E 1 43703 1 3 100 0 0 0            *   a sapphire necklace
-M 0 43710 8 43712 100 0 0 0        * an apeman worshipper
-M 0 43766 1 43712 100 0 0 0        * an apeman worshipper
+M 0 43710 8 43712 100 0 0 0        * an apeman worshiper
+M 0 43766 1 43712 100 0 0 0        * an apeman worshiper
 M 0 43762 3 43713 100 0 0 0        * a small spider
 M 0 43762 3 43713 100 0 0 0        * a small spider
 M 0 43762 3 43713 100 0 0 0        * a small spider
@@ -237,10 +237,10 @@ G 1 43747 6 0 100 0 0 0            *    a blueberry pie
 G 1 43747 6 0 100 0 0 0            *    a blueberry pie
 G 1 43747 6 0 100 0 0 0            *    a blueberry pie
 G 1 43747 6 0 100 0 0 0            *    a blueberry pie
-M 0 43710 8 43798 100 0 0 0        * an apeman worshipper
-M 0 43710 8 43798 100 0 0 0        * an apeman worshipper
+M 0 43710 8 43798 100 0 0 0        * an apeman worshiper
+M 0 43710 8 43798 100 0 0 0        * an apeman worshiper
 E 1 43753 1 3 100 0 0 0            *   a sapphire necklace
-M 0 43764 1 43798 100 0 0 0        * an apeman worshipper
+M 0 43764 1 43798 100 0 0 0        * an apeman worshiper
 M 0 43729 20 43804 100 0 0 0       * a Tikitzopl guardsman
 M 0 43702 25 43805 100 0 0 0       * a large apeman
 M 0 43702 25 43806 100 0 0 0       * a large apeman
@@ -285,10 +285,10 @@ F 1 43749 4 43835 100 0 0 0        * a Tikitzopl guardsman (following)
 E 1 43725 1 5 100 0 0 0            *   a bright red robe
 E 1 43709 3 11 100 0 0 0           *   a shield of the guards
 G 1 43701 10 0 100 0 0 0           *    a sword of the guards
-M 0 43710 8 43836 100 0 0 0        * an apeman worshipper
-M 0 43710 8 43836 100 0 0 0        * an apeman worshipper
+M 0 43710 8 43836 100 0 0 0        * an apeman worshiper
+M 0 43710 8 43836 100 0 0 0        * an apeman worshiper
 E 1 43752 1 3 100 0 0 0            *   a sapphire necklace
-M 0 43765 1 43836 100 0 0 0        * an apeman worshipper
+M 0 43765 1 43836 100 0 0 0        * an apeman worshiper
 M 0 43729 20 43838 100 0 0 0       * a Tikitzopl guardsman
 M 0 43740 2 43839 100 0 0 0        * a guardian of the High Council
 M 0 43740 2 43839 100 0 0 0        * a guardian of the High Council
@@ -335,9 +335,9 @@ M 0 43761 4 43870 100 0 0 0        * a large apeman
 M 0 43729 20 43871 100 0 0 0       * a Tikitzopl guardsman
 G 1 43701 10 0 100 0 0 0           *    a sword of the guards
 M 0 43729 20 43872 100 0 0 0       * a Tikitzopl guardsman
-M 0 43710 8 43874 100 0 0 0        * an apeman worshipper
-M 0 43710 8 43874 100 0 0 0        * an apeman worshipper
-M 0 43767 1 43874 100 0 0 0        * an apeman worshipper
+M 0 43710 8 43874 100 0 0 0        * an apeman worshiper
+M 0 43710 8 43874 100 0 0 0        * an apeman worshiper
+M 0 43767 1 43874 100 0 0 0        * an apeman worshiper
 M 0 43716 8 43875 100 0 0 0        * an apeman father
 F 1 43717 8 43875 100 0 0 0        * a mother apewoman (following)
 F 1 43718 10 43875 100 0 0 0       * an apeman child (following)

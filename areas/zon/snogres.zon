@@ -204,13 +204,13 @@ E 1 87702 1 10 100 0 0 0           *   a pair of frost-rimed cold iron vambraces
 E 1 87712 1 16 100 0 0 0           *   a wicked waraxe covered in runes
 G 1 87706 1 0 100 0 0 0            *    an intricate hourglass running in reverse
 G 1 360 1 0 100 0 0 0              *    (object type not in this .obj file)
-F 1 87727 1 87793 100 0 0 0        * a snow ogre worshipper of Kostchtchie (following)
+F 1 87727 1 87793 100 0 0 0        * a snow ogre worshiper of Kostchtchie (following)
 E 1 87707 1 13 100 0 0 0           *   an array of flesh hooks and chains
 G 1 87708 1 0 100 0 0 0            *    a gleaming skull of a Minotaur
 G 1 1230 1 0 100 0 0 0             *    (object type not in this .obj file)
 F 1 87708 7 87793 100 0 0 0        * a snow ogre elite guardian (following)
 F 1 87708 7 87793 100 0 0 0        * a snow ogre elite guardian (following)
-F 1 87728 1 87793 100 0 0 0        * a snow ogre worshipper of Vaprak (following)
+F 1 87728 1 87793 100 0 0 0        * a snow ogre worshiper of Vaprak (following)
 E 1 87709 1 13 100 0 0 0           *   the woven entrails of an unfortunate soul
 F 1 87730 1 87793 100 0 0 0        * an enraged wardog (following)
 F 1 87726 1 87793 100 0 0 0        * a snow ogre war chief (following)

@@ -545,10 +545,10 @@ M 0 76627 4 76716 100 0 0 0        * a su-monster
 M 0 76627 4 76716 100 0 0 0        * a su-monster
 M 0 76679 1 76721 100 0 0 0        * the high priest
 M 0 76680 1 76721 100 0 0 0        * an attendant
-M 0 76647 4 76723 100 0 0 0        * a worshipper
-M 0 76647 4 76723 100 0 0 0        * a worshipper
-M 0 76647 4 76723 100 0 0 0        * a worshipper
-M 0 76647 4 76723 100 0 0 0        * a worshipper
+M 0 76647 4 76723 100 0 0 0        * a worshiper
+M 0 76647 4 76723 100 0 0 0        * a worshiper
+M 0 76647 4 76723 100 0 0 0        * a worshiper
+M 0 76647 4 76723 100 0 0 0        * a worshiper
 M 0 76658 1 76727 100 0 0 0        * an entangled seaturtle
 M 0 76724 3 76727 100 0 0 0        * a seagull
 M 0 76612 6 76734 100 0 0 0        * a marsh viper

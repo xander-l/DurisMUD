@@ -256,14 +256,14 @@ zo 0 32 0 -1
 0.0.0.0 0
 8 8 2
 #98917
-worshipper zombie~
-&na &+Lzombie &+Wworshipper&n~
+worshiper zombie~
+&na &+Lzombie &+Wworshiper&n~
 &+LA &+Lzombie &+Lwalks here praying to some unknown lord.&N
 ~
 &+g   Moldy &+Land rotted flesh drips from this monstrosity's chipped &+Wbones&+L.  &+WMaggots&n
 &+Lcrawl upon the black decayed flesh, consuiming this once life now and forever.&n
 &+LTormented in death for failing to please the &+rancient &+LGod.  This foolish&n
-&+Wworshipper&+L must suffer for &+reternity&+L.  Its actions no longer its own simply a&n
+&+Wworshiper&+L must suffer for &+reternity&+L.  Its actions no longer its own simply a&n
 &+rpawn&+L controlled by the &+rancient &+Lone.  All this lost &+Cso&+cul&+L can do now is simply&n
 &+Lfeel pain.&n
 ~
@@ -273,14 +273,14 @@ zo 0 0 0 -1
 0.0.0.0 0
 8 8 0
 #98918
-worshipper zombie~
-&na &+Lzombie &+cworshipper&n~
-&+LA zombie &+cworshipper &+Lwalks in this ruined &+ychapel&+L.&N
+worshiper zombie~
+&na &+Lzombie &+cworshiper&n~
+&+LA zombie &+cworshiper &+Lwalks in this ruined &+ychapel&+L.&N
 ~
 &+g   Moldy &+Land rotted flesh drips form this monstrosity's chipped &+wbones&+L.  &+WMaggots&n
 &+Lcrawl upon the black decayed flesh, consuiming this once life now and forever.&n
 &+LTormented in death for failing to please the &+rancient &+LGod.  This foolish&n
-&+cworshipper&+L must suffer for &+reternity&+L.  Its actions no longer its own simply a&n
+&+cworshiper&+L must suffer for &+reternity&+L.  Its actions no longer its own simply a&n
 &+rpawn&+L controlled by the &+rancient &+Lone.  All this lost &+Cso&+cul&+L can do now is simply&n
 &+Lfeel pain.&n
 ~
@@ -657,14 +657,14 @@ PL 0 256 0 -1
 0.0.0.0 0
 8 8 1
 #98943
-worshipper zombie~
-&na &+Lzombie &+gworshipper&n~
-&+LA &+Lzombie &+gworshipper &+Lwanders here praying to its master.&N
+worshiper zombie~
+&na &+Lzombie &+gworshiper&n~
+&+LA &+Lzombie &+gworshiper &+Lwanders here praying to its master.&N
 ~
 &+g   Moldy &+Land rotted flesh drips from this abomination's decayed &+Wbones&+L.  &+WMaggots&n
 &+Lcrawl upon the black decayed flesh, consuiming this once life now and forever.&n
 &+LTormented in death for failing to please the &+rancient &+LGod.  This foolish&n
-&+gworshipper&+L must suffer for &+reternity&+L.  Its actions no longer its own simply a&n
+&+gworshiper&+L must suffer for &+reternity&+L.  Its actions no longer its own simply a&n
 &+rpawn&+L controlled by the &+rancient &+LGod.  All this lost &+Cso&+cul&+L can do now is simply&n
 &+Lfeel pain.&n
 ~
@@ -674,9 +674,9 @@ zo 0 0 0 -1
 0.0.0.0 0
 8 8 0
 #98944
-worshipper vampire~
-&na&+r vampire &+Lworshipper&n~
-&+LA &+rvampire &+Lworshipper stares at you with an &+revil &+Lexpression.&N
+worshiper vampire~
+&na&+r vampire &+Lworshiper&n~
+&+LA &+rvampire &+Lworshiper stares at you with an &+revil &+Lexpression.&N
 ~
 &+L   Flesh burned from its rotted&+W bones&+L.  Dull red &+reyes&+L glare at you devoid of a&N
 &+Cso&+cul&+L.  Sounds from the grave emanate from this unholy creature.  Ribs exposed &n
@@ -704,13 +704,13 @@ zo 0 1 0 -1
 0.0.0.0 0
 8 8 0
 #98946
-worshipper vampire fangs ghastly~
-&Na &+rvampire &+Rworshipper&N~
-&+LA &+rvampire &+Rworshipper &+Lwith &+Wfangs &+Ldripping &+rblood &+Llooms here.&N
+worshiper vampire fangs ghastly~
+&Na &+rvampire &+Rworshiper&N~
+&+LA &+rvampire &+Rworshiper &+Lwith &+Wfangs &+Ldripping &+rblood &+Llooms here.&N
 ~
 &+W   Fangs &+Lof infernal rage are covered in a cloak of &+rcrimson &+Lbeige.  Eyes of&n
 &+rfire &+Lglare at you filled with contempt and hate.  An image of a warrior long&n
-&+Lsince dead fills your mortal &+Cso&+cul &+Lwith dread.  This ghastly looking &+Rworshipper&n
+&+Lsince dead fills your mortal &+Cso&+cul &+Lwith dread.  This ghastly looking &+Rworshiper&n
 &+Llunges at you wildly.&N
 ~
 1174550600 1 0 0 838959516 309442 0 0 -1000 S

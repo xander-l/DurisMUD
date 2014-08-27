@@ -633,19 +633,19 @@ M 0 53665 1 54085 100 0 0 0        * Glacienus, the captain of the guard
 E 1 53638 1 8 100 0 0 0            *   a pair of crystal spurred boots
 E 1 53639 1 12 100 0 0 0           *   an elven cloak of fine silk
 E 1 53602 2 16 100 0 0 0           *   a silver longsword
-M 0 53651 4 54087 100 0 0 0        * a Larethian worshipper
-M 0 53652 4 54087 100 0 0 0        * a robed Larethian worshipper
-M 0 53653 4 54087 100 0 0 0        * a young Larethian worshipper
+M 0 53651 4 54087 100 0 0 0        * a Larethian worshiper
+M 0 53652 4 54087 100 0 0 0        * a robed Larethian worshiper
+M 0 53653 4 54087 100 0 0 0        * a young Larethian worshiper
 M 0 53655 5 54087 100 0 0 0        * a shrine guardsman
-M 0 53651 4 54090 100 0 0 0        * a Larethian worshipper
-M 0 53652 4 54090 100 0 0 0        * a robed Larethian worshipper
-M 0 53653 4 54090 100 0 0 0        * a young Larethian worshipper
-M 0 53651 4 54095 100 0 0 0        * a Larethian worshipper
-M 0 53652 4 54095 100 0 0 0        * a robed Larethian worshipper
-M 0 53653 4 54095 100 0 0 0        * a young Larethian worshipper
-M 0 53651 4 54098 100 0 0 0        * a Larethian worshipper
-M 0 53652 4 54098 100 0 0 0        * a robed Larethian worshipper
-M 0 53653 4 54098 100 0 0 0        * a young Larethian worshipper
+M 0 53651 4 54090 100 0 0 0        * a Larethian worshiper
+M 0 53652 4 54090 100 0 0 0        * a robed Larethian worshiper
+M 0 53653 4 54090 100 0 0 0        * a young Larethian worshiper
+M 0 53651 4 54095 100 0 0 0        * a Larethian worshiper
+M 0 53652 4 54095 100 0 0 0        * a robed Larethian worshiper
+M 0 53653 4 54095 100 0 0 0        * a young Larethian worshiper
+M 0 53651 4 54098 100 0 0 0        * a Larethian worshiper
+M 0 53652 4 54098 100 0 0 0        * a robed Larethian worshiper
+M 0 53653 4 54098 100 0 0 0        * a young Larethian worshiper
 M 0 53655 5 54098 100 0 0 0        * a shrine guardsman
 M 0 53655 5 54099 100 0 0 0        * a shrine guardsman
 M 0 53655 5 54104 100 0 0 0        * a shrine guardsman

@@ -249,9 +249,9 @@ H 0 1 0 -1
 0.0.0.0 0
 8 8 2
 #6017
-lizardman lizard man worshipper~
-&+La &+Glizardman &+Lworshipper&N~
-&+LA &+Glizardman worshipper bows before the pull, taking in its &+mhaze.&N
+lizardman lizard man worshiper~
+&+La &+Glizardman &+Lworshiper&N~
+&+LA &+Glizardman worshiper bows before the pull, taking in its &+mhaze.&N
 ~
 &+L   A &+wcommoner&+L strolls about the area, wielding a flimsy &+ctrident&+L and holding a
 &+Lwooden &+yshield&+L.  A loincloth of  &+yfur&+L drapes around its waist, and a &+ynecklace&+L of
@@ -264,7 +264,7 @@ H 0 1 0 -1
 0.0.0.0 0
 8 8 1
 #6018
-lizardman lizard man worshipper~
+lizardman lizard man worshiper~
 &+La hooded lizardman&N~
 &+LA dark, hooded &+glizardman&+L kneels here, bowed before the pool.
 ~
@@ -311,9 +311,9 @@ h 0 1 0 4
 0.0.0.0 0
 8 8 1
 #6021
-lizardman worshipper~
-&+La &+Gliz&+Lard&+Gman &+gworshipper&N~
-&+LA &+Gliz&+Lard&+Gman &+gworshipper &+Lprowls here, basking in the presence of the witchdoctor.
+lizardman worshiper~
+&+La &+Gliz&+Lard&+Gman &+gworshiper&N~
+&+LA &+Gliz&+Lard&+Gman &+gworshiper &+Lprowls here, basking in the presence of the witchdoctor.
 ~
    &+GThis lizardman is dressed in only the frailest hide loincloths, hides
 &+Gand bone necklaces.  He has a keen eye and a forked tongue that darts in
