@@ -4948,10 +4948,11 @@ int melee_damage(P_char ch, P_char victim, double dam, int flags,
     struct damage_messages *messages)
 {
   struct damage_messages dummy_messages;
-  int      vamp_dam, i, result, shld_result;
   unsigned int skin;
+  int      vamp_dam, i, result, shld_result;
   float    reduction;
   char     buffer[MAX_STRING_LENGTH];
+  bool     dragonfist;
 
   // float    f_cur_hit, f_max_hit, f_skill = 0;  <-- ill use those for max_str later
 
@@ -4972,6 +4973,7 @@ int melee_damage(P_char ch, P_char victim, double dam, int flags,
     set_fighting(ch, victim);
   }
 
+  dragonfist = FALSE;
   if (!(flags & PHSDAM_NOREDUCE))
   {
     /*dam -= BOUNDED(0,
@@ -4980,9 +4982,11 @@ int melee_damage(P_char ch, P_char victim, double dam, int flags,
       BOUNDED(-100, BOUNDED(-100, GET_AC(victim), 100),
       100))) / 800), (int) ((dam - 1)));
       */
-    if( get_spell_from_char(ch, SKILL_FIST_OF_DRAGON) )
+    // If they have fist up, the have a 20% chance of hitting through ac.
+    if( get_spell_from_char(ch, SKILL_FIST_OF_DRAGON) && !number(0,4) )
     {
-      dam = dam  + (dam * (0.10 * MAX( 0, calculate_ac(victim)) / 100.00)); //-drannak
+      dragonfist = TRUE;
+      dam = dam  + (dam * (0.10 * MAX( 0, calculate_ac(victim)) / 100.00));
     }
     else
     {
@@ -4993,7 +4997,7 @@ int melee_damage(P_char ch, P_char victim, double dam, int flags,
     {
       dam *= dam_factor[DF_TROLLSKIN];
     }
-    /*  
+    /*
         if(affected_by_spell(ch, TAG_NOMISFIRE)) //new misfire code - drannak 8-12-2012
         {
         dam = dam;
@@ -5173,7 +5177,7 @@ int melee_damage(P_char ch, P_char victim, double dam, int flags,
      */
   //-------------------------------
 
-  if( skin && !get_spell_from_char(ch, SKILL_FIST_OF_DRAGON) )
+  if( skin && !dragonfist )
   {
     dam -= get_property("damage.reduction.skinSpell.deduct", 46);
 
@@ -6147,12 +6151,15 @@ int calculate_ac(P_char ch)
 {
   int victim_ac = BOUNDED(-750, GET_AC(ch), 100);
 
-  if(GET_AC(ch) < 1 &&
-      load_modifier(ch) > 50)
+  if( GET_AC(ch) < 1 && load_modifier(ch) > 50 )
+  {
     victim_ac += load_modifier(ch) / 2;
+  }
 
   if(GET_CLASS(ch, CLASS_MONK))
+  {
     victim_ac += MonkAcBonus(ch);
+  }
 
   victim_ac += io_agi_defense(ch);
 
@@ -6930,8 +6937,7 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
   wpn_skill = BOUNDED(GET_LEVEL(ch) / 2, wpn_skill, 95);
 
   // Crit to miss if they fail a weaponskill + luck check
-  if( sic == -1 && number(30, 101) > wpn_skill + (GET_C_LUK(ch) / 4) &&
-    !GET_CLASS(ch, CLASS_MONK) )
+  if( sic == -1 && number(30, 101) > wpn_skill + (GET_C_LUK(ch) / 4) )
   {
     sic = 0;
   }
@@ -7271,6 +7277,7 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
     dam = (int) (dam * 2.0);
   }
 
+  // What's this diceroll < level-40 ?  Monks get additional crits?
   if( GET_CLASS(ch, CLASS_MONK) && GET_LEVEL(ch) > 30
     && (sic == -1 || diceroll < GET_LEVEL(ch) - 40) )
   {
@@ -7278,9 +7285,8 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
     {
       dam *= 1.5;
     }
-
     // Monk special critical hits don't work against a variety of victims.
-    if( IS_HUMANOID(victim) && !IS_UNDEADRACE(victim)
+    else if( IS_HUMANOID(victim) && !IS_UNDEADRACE(victim)
       && !IS_ANGEL(victim) && !IS_GREATER_RACE(victim) && !IS_ELITE(victim)
       && monk_critic(ch, victim) )
     {
