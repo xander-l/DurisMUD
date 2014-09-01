@@ -3880,12 +3880,24 @@ bool resists_spell(P_char caster, P_char victim)
 {
   int skill;
 
-  if( !IS_ALIVE(caster) || !IS_ALIVE(victim) )
+  // Caster missing? Really bad.  Dead?  Hrmm.. that could be bad!  But it could be a death proc.
+  if( !caster )
   {
-    logit(LOG_EXIT, "resists_spell()bogus parms missing or dead ch %s'%s' or victim %s'%s'.",
-      IS_ALIVE(caster) ? "" : "Dead ", caster ? J_NAME(caster) : "Null",
+    logit(LOG_DEBUG, "resists_spell()bogus parms missing ch!! (victim %s'%s').",
       IS_ALIVE(victim) ? "" : "Dead ", victim ? J_NAME(victim) : "Null" );
     raise(SIGSEGV);
+  }
+
+  // Dead/missing victims don't shrug, although we log a message just in case.
+  if( !IS_ALIVE(victim) )
+  {
+    logit(LOG_DEBUG, "resists_spell()bogus parms ch %s'%s', victim %s'%s'.",
+      IS_ALIVE(caster) ? "" : "Dead ", J_NAME(caster),
+      IS_ALIVE(victim) ? "" : "Dead ", victim ? J_NAME(victim) : "Null" );
+    debug("resists_spell()bogus parms ch %s'%s', victim %s'%s'.",
+      IS_ALIVE(caster) ? "" : "Dead ", J_NAME(caster),
+      IS_ALIVE(victim) ? "" : "Dead ", victim ? J_NAME(victim) : "Null" );
+    return FALSE;
   }
 
   if( caster == victim )
