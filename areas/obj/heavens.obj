@@ -4611,6 +4611,14 @@ bloodstone stone blood~
 13 15 3 0 7 0 8388609 0 64 0 0
 0 0 0 0 0 0 0 0
 0 0 100
+#434
+earth glimmers broken mine _mine_~
+&+ysome &+Bb&+Rr&+Yo&+bk&+We&+Yn &+yearth&n~
+&+LA few small &+Rg&+Wl&+Bi&+ym&+Yme&+Br&+bs&+L sparkle in the &+yearth &+Lhere.&n~
+~
+12 9 3 0 5 0 0 0 0 0 0
+10 0 0 0 0 0 0 0
+0 0 100
 #436
 sandals leather pair~
 &+ya pair of leather sandals&N~
@@ -4824,15 +4832,7 @@ gates town~
 These massive gates are apparently fashioned from a single piece of grey
 stone.
 ~
-#500
-disguise kit _disguise_kit_~
-&+La disguise kit&N~
-&+LA disguise kit is resting on the floor&N~
-~
-12 13 2 5 7 0 134217728 8404993 0 0 0
-0 0 0 0 0 0 0 0
-5 25000 100 1 2 3 4
-#501
+#499
 lohrr pain equipment~
 &+gLohrr's item of pain&N~
 &+gLohrr's item of pain lies here.&N~
@@ -4848,6 +4848,358 @@ A
 19 5
 A
 33 5
+#500
+disguise kit _disguise_kit_~
+&+La disguise kit&N~
+&+LA disguise kit is resting on the floor&N~
+~
+12 13 2 5 7 0 134217728 8404993 0 0 0
+0 0 0 0 0 0 0 0
+5 25000 100 1 2 3 4
+#501
+small ore adamantium _ore_~
+&+La small piece of &+Madamantium &+Lore~
+&+LA piece of &+More &+Llies on the ground here.~
+~
+8 19 2 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#502
+ore medium adamantium _ore_~
+&+La medium piece of &+Madamantium &+Lore~
+&+LA piece of &+More &+Llies on the ground here.~
+~
+8 19 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#503
+large ore adamantium _ore_~
+&+La large piece of &+Madamantium &+Lore~
+&+LA piece of &+More &+Llies on the ground here.~
+~
+8 19 4 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#504
+tiny imperfect topaz _ore_~
+&+ya &+Yt&+yin&+Yy &+yimp&+Yerf&+yect &+Yto&+ypa&+Yz~
+&+YA topaz lies here on the ground.~
+~
+8 26 1 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#505
+topaz imperfect _ore_~
+&+yan &+Yimp&+yerf&+Yect &+yto&+Ypa&+yz~
+&+YA topaz lies on the ground here.~
+~
+8 26 1 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#506
+large imperfect topaz _ore_~
+&+ya &+Yla&+yrg&+Ye &+yimp&+Yerf&+yect &+Yto&+ypa&+Yz~
+&+YA topaz lies on the ground here.~
+~
+8 26 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#507
+tiny topaz _ore_~
+&+ya &+Yt&+yin&+Yy &+yto&+Ypa&+yz~
+&+YA topaz lies on the ground here.~
+~
+8 26 1 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#508
+topaz _ore_~
+&+ya &+Yto&+ypa&+Yz~
+&+YA topaz lies on the ground here.~
+~
+8 26 2 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#509
+large topaz _ore_~
+&+ya &+Yla&+yrg&+Ye &+yto&+Ypa&+yz~
+&+YA topaz lies on the ground here.~
+~
+8 26 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#510
+flawless topaz _ore_~
+&+ya &+Yflawless &+yto&+Ypa&+yz~
+&+YA topaz lies on the ground here.~
+~
+8 26 2 0 11 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#511
+large flawless topaz _ore_~
+&+ya &+Yla&+yrg&+Ye flawless &+yto&+Ypa&+yz~
+&+YA topaz lies on the ground here.~
+~
+8 26 3 0 11 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#512
+tiny imperfect sapphire _ore_~
+&+ba &+Bt&+bin&+By &+bimp&+Berf&+bect &+bsap&+Bphi&+bre~
+&+bA sapphire lies on the ground here.~
+~
+8 33 1 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#513
+imperfect sapphire _ore_~
+&+ban &+Bimp&+berf&+Bect &+bsap&+Bphi&+bre~
+&+bA sapphire lies on the ground here.~
+~
+8 33 2 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#514
+large imperfect sapphire _ore_~
+&+ba &+Bla&+brg&+Be &+bimp&+Berf&+bect &+Bsap&+bphi&+Bre~
+&+bA sapphire lies on the ground here.~
+~
+8 33 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#515
+tiny sapphire _ore_~
+&+ba &+Bt&+bin&+By &+bsap&+Bphi&+bre~
+&+bA sapphire lies on the ground here.~
+~
+8 33 1 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#516
+sapphire _ore_~
+&+ba &+Bsap&+bphi&+Bre~
+&+bA sapphire lies on the ground here.~
+~
+8 33 1 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#517
+large sapphire _ore_~
+&+ba &+Bla&+brg&+Be &+bsap&+Bphi&+bre~
+&+bA sapphire lies on the ground here.~
+~
+8 33 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#518
+flawless sapphire _ore_~
+&+ba &+Bflawless &+bsap&+Bphi&+bre~
+&+bA sapphire lies on the ground here.~
+~
+8 33 2 0 11 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#519
+large flawless sapphire _ore_~
+&+ba &+Bla&+brg&+Be flawless &+bsap&+Bphi&+bre~
+&+bA sapphire lies on the ground here.~
+~
+8 33 3 0 11 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#520
+tiny imperfect emerald _ore_~
+&+ga &+Gt&+gin&+Gy &+gimp&+Gerf&+gect &+Gem&+gera&+Gld~
+&+GAn emerald lies on the ground here.~
+~
+8 32 1 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#521
+imperfect emerald _ore_~
+&+gan &+Gimp&+gerf&+Gect &+gem&+Gera&+gld~
+&+GAn emerald lies on the ground here.~
+~
+8 32 2 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#522
+large imperfect emerald _ore_~
+&+ga &+Gla&+grg&+Ge &+gimp&+Gerf&+gect &+Gem&+gera&+Gld~
+&+GAn emerald lies on the ground here.~
+~
+8 32 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#523
+tiny emerald _ore_~
+&+ga &+Gt&+gin&+Gy &+gem&+Gera&+gld~
+&+GAn emerald lies on the ground here.~
+~
+8 32 1 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#524
+emerald _ore_~
+&+gan &+gem&+Gera&+gld~
+&+GAn emerald lies on the ground here.~
+~
+8 32 2 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#525
+large emerald _ore_~
+&+ga &+Gla&+grg&+Ge &+gem&+Gera&+gld~
+&+GAn emerald lies on the ground here.~
+~
+8 32 2 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#526
+flawless emerald _ore_~
+&+ga &+Gflawless &+gem&+Gera&+gld~
+&+GAn emerald lies on the ground here.~
+~
+8 32 2 0 11 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#527
+large flawless emerald _ore_~
+&+ga &+Gla&+grg&+Ge flawless &+gem&+Gera&+gld~
+&+GAn emerald lies on the ground here.~
+~
+8 32 3 0 11 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#528
+tiny imperfect diamond _ore_~
+&+wa &+Wt&+win&+Wy &+wimp&+Werf&+wect &+Wdia&+wmo&+Wnd~
+&+WA diamond lies on the ground here.~
+~
+8 27 1 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#529
+imperfect diamond _ore_~
+&+wan &+Wimp&+werf&+Wect &+wdia&+Wmo&+wnd~
+&+WA diamond lies on the ground here.~
+~
+8 27 1 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#530
+large imperfect diamond _ore_~
+&+wa &+Wla&+wrg&+We &+wimp&+Werf&+wect &+Wdi&+wamo&+Wnd~
+&+WA diamond lies on the ground here.~
+~
+8 27 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#531
+tiny diamond _ore_~
+&+wa &+Wt&+win&+Wy &+wdi&+Wamo&+wnd~
+&+WA diamond lies on the ground here.~
+~
+8 27 1 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#532
+diamond _ore_~
+&+wa &+wdi&+Wamo&+wnd~
+&+WA diamond lies on the ground here.~
+~
+8 27 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#533
+large diamond _ore_~
+&+wa &+Wla&+wrg&+We &+wdi&+Wamo&+wnd~
+&+WA diamond lies on the ground here.~
+~
+8 27 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#534
+flawless diamond _ore_~
+&+wa &+Wflawless &+wdi&+Wamo&+wnd~
+&+WA diamond lies on the ground here.~
+~
+8 27 2 0 11 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#535
+large flawless diamond _ore_~
+&+wa &+Wla&+wrg&+We flawless &+wdi&+Wamo&+wnd~
+&+WA diamond lies on the ground here.~
+~
+8 27 3 0 11 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#536
+ruby tiny imperfect _ore_~
+&+ra &+Rti&+rn&+Ry &+rimp&+Rerf&+rect &+Rr&+rub&+Ry~
+&+rA ruby lies on the ground here.~
+~
+8 31 1 0 6 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#537
+imperfect ruby _ore_~
+&+ran &+Rimp&+rerf&+Rect &+rr&+Rub&+ry~
+&+rA ruby lies on the ground here.~
+~
+8 31 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#538
+large ruby imperfect _ore_~
+&+ra &+Rla&+rrg&+Re imp&+rerf&+Rect r&+rub&+Ry~
+&+rA ruby lies on the ground here.~
+~
+8 31 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#539
+tiny ruby _ore_~
+&+ra &+rt&+Rin&+ry &+Rr&+rub&+Ry~
+&+rA ruby lies on the ground here.~
+~
+8 31 1 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#540
+ruby _ore_~
+&+ra &+Rr&+rub&+Ry~
+&+rA ruby lies on the ground here.~
+~
+8 31 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#541
+ruby large _ore_~
+&+ra &+Rla&+rrg&+Re &+rr&+Rub&+ry~
+&+rA ruby lies on the ground here.~
+~
+8 31 3 0 7 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#542
+flawless ruby _ore_~
+&+ra &+Rflawless &+rr&+Rub&+ry~
+&+rA ruby lies on the ground here.~
+~
+8 31 3 0 11 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
+#543
+large flawless ruby _ore_~
+&+ra &+Rla&+rrg&+Re flawless &+rr&+Rub&+ry~
+&+rA ruby lies here on the ground.~
+~
+8 31 3 0 11 0 0 16385 0 0 0
+0 0 0 0 0 0 0 0
+0 0 100
 #560
 hide deerskin glyph piece~
 &+ya glyph covered deerskin hide&N~

@@ -1,11 +1,13 @@
 #ifndef _TRADESKILL_H_
 
 #define MINE_VNUM 193
+#define GEMMINE_VNUM 434
 #define HAMMER_VNUM 252
 #define PICK_VNUM 253
 #define POLE_VNUM 336
-#define PARCHMENT_VNUM 251 
+#define PARCHMENT_VNUM 251
 #define MAX_NEEDED_ORE 5
+
 #define SMALL_IRON_ORE 194
 #define MEDIUM_IRON_ORE 196
 #define LARGE_IRON_ORE 197
@@ -34,7 +36,65 @@
 #define MEDIUM_MITHRIL_ORE 232
 #define LARGE_MITHRIL_ORE 233
 
-#define MAX_ORE 21
+#define SMALL_ADAMANTIUM_ORE 501
+#define MEDIUM_ADAMANTIUM_ORE 502
+#define LARGE_ADAMANTIUM_ORE 503
+
+// Gemstones!
+#define TINY_IMP_TOPAZ        504
+#define REG_IMP_TOPAZ         505
+#define LG_IMP_TOPAZ          506
+
+#define TINY_REG_TOPAZ        507
+#define REG_REG_TOPAZ         508
+#define LG_REG_TOPAZ          509
+
+#define FLAWLESS_TOPAZ        510
+#define LG_FLAWLESS_TOPAZ     511
+
+#define TINY_IMP_SAPPHIRE     512
+#define REG_IMP_SAPPHIRE      513
+#define LG_IMP_SAPPHIRE       514
+
+#define TINY_REG_SAPPHIRE     515
+#define REG_REG_SAPPHIRE      516
+#define LG_REG_SAPPHIRE       517
+
+#define FLAWLESS_SAPPHIRE     518
+#define LG_FLAWLESS_SAPPHIRE  519
+
+#define TINY_IMP_EMERALD      520
+#define REG_IMP_EMERALD       521
+#define LG_IMP_EMERALD        522
+
+#define TINY_REG_EMERALD      523
+#define REG_REG_EMERALD       524
+#define LG_REG_EMERALD        525
+
+#define FLAWLESS_EMERALD      526
+#define LG_FLAWLESS_EMERALD   527
+
+#define TINY_IMP_DIAMOND      528
+#define REG_IMP_DIAMOND       529
+#define LG_IMP_DIAMOND        530
+
+#define TINY_REG_DIAMOND      531
+#define REG_REG_DIAMOND       532
+#define LG_REG_DIAMOND        533
+
+#define FLAWLESS_DIAMOND      534
+#define LG_FLAWLESS_DIAMOND   535
+
+#define TINY_IMP_RUBY         528
+#define REG_IMP_RUBY          529
+#define LG_IMP_RUBY           530
+
+#define TINY_REG_RUBY         531
+#define REG_REG_RUBY          532
+#define LG_REG_RUBY           533
+
+#define FLAWLESS_RUBY         534
+#define LG_FLAWLESS_RUBY      535
 
 #define ALLOW 1
 #define ANTI 0
@@ -42,6 +102,8 @@
 #define MINES_MAP_SURFACE   0
 #define MINES_MAP_UD        1
 #define MINES_MAP_THARNRIFT 2
+#define MINES_GEM_SURFACE   3
+#define MINES_GEM_UD        4
 
 struct forge_item {
 
@@ -77,6 +139,7 @@ struct mining_data {
   int room;
   int counter;
   int mine_quality;
+  int mine_type;
 };
 
 struct fishing_data {

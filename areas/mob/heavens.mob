@@ -1082,6 +1082,142 @@ PH 0 0 0 -1
 1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
+#89
+corpse gatherer~
+&+La corpse &+Gga&+gth&+Ger&+ger~
+&+LOne of the most frightening &+Gcr&+gea&+Gtu&+gres &+Lyou have ever seen rushes at you!
+~
+&+LThis monstrosity is essentially a &+Wcon&+wstr&+Wuct &+Lwhich created itself.
+&+LCorpse &+Gga&+gth&+Ger&+gers &+Lare mobile &+wcemetaries &+Lwhich came to
+&+Llife because of all the &+revil &+Lpeople who were buried there. They then go and
+&+Land seek to grow by consuming any living creature in their path. This creature is made
+&+Lup of &+yearth&L, &+whe&+Wad&+Lsto&+wne&+Ws &+Land &+Gco&+grps&+Ges&+L.
+~
+1075972104 1 0 0 402759704 4108 17039360 67112960 -1000 S
+CN 0 16777216 0 5
+35 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#90
+giant purple worm~
+&+La GIANT &+mpurple worm~
+&+LA giant &+mpurple worm &+Lis here, looking to swallow you whole.
+~
+&+LOne of the most feared creatures in all of Faerun is here searching
+&+Lfor an easy meal.
+~
+1073875976 1 0 0 134217736 0 0 67108864 -1000 S
+PW 0 1 0 7
+45 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#91
+mohrg zombie~
+A &+Lmohrg~
+A hideous &+Gzom&+gbi&+Ge&n, known as a mohrg, rushes at you &+Cswiftly&n!
+~
+One of the most feared undead is the mohrg, they are faster than normal zombies
+and have necromancer capabilities to raise those they kill into undead followers.
+The mohrg is the corpse of a mass murderer who was killed by execution but is
+reluctant to let go of the mortal realm and the joy of murder. They are generally
+buried in unmarked graves outside of any hallowed ground. This mohrg grins his
+eternal smile twisted by death as it attacks you with uncanny speed!
+~
+1073879048 1 0 0 402661400 268701772 67108864 67112960 -1000 S
+ZO 0 16778240 0 3
+41 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#92
+hideous zombie~
+A &+Rhi&+rde&+Rou&+rs &+Gzom&+gbi&+Ge~
+A &+Rhi&+rde&+Rou&+rs &+Gzom&+gbi&+Ge&n is here, rather annoyed you have disturbed its rest.
+~
+You appear to have disturbed the rest of this poor soul! This zombie
+is in an advanced stage of &+Ldecomposition&n and possesses a truly
+frightening appearance.
+~
+1073743880 1 0 0 8 0 0 67108864 -1000 S
+ZO 0 1 0 3
+18 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#93
+warrior skeleton~
+A &+Wsk&+wel&+Let&+Wal &+Bwarrior~
+A &+Wsk&+wel&+Let&+Won&n wearing the garb of a &+Bwarrior&n is here.
+~
+~
+1073743880 1 0 0 8 0 0 67108864 -1000 S
+SK 0 1 0 3
+21 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#94
+antlion ant lion~
+An &+Lant&+yl&+Yio&+yn~
+An &+LAnt&+yl&+Yio&+yn&n has burrowed up through the earth here, looking hungry.
+~
+This large insect-like creature has burrowed up through the earth in search
+of food. It appears to have selected you as it's next meal.
+~
+1075845128 1 0 0 8 0 0 67108864 -1000 S
+i 0 0 0 4
+19 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#95
+purple worm~
+A &+mpurple worm~
+A &+mpurple worm&n has burrowed up out of the ground here.
+~
+This purple worm has wandered too close to the surface and
+you seem to have accidentally hit it with your miner's pick!
+~
+1073743880 1 0 0 8 0 0 67108864 -1000 S
+pw 0 1 0 5
+27 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#96
+sleeping earth elemental~
+&+ya &+Lsleeping &+yearth elemental~
+&+yThis earth elemental seems to have had it's beauty sleep disturbed!
+~
+&+yThis earth elemental looks REALLY mad at someone. At the moment
+&+ythat someone is YOU!
+~
+1073747976 1 0 0 136 0 0 67108864 0 S
+ee 0 1 0 4
+45 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#97
+swarm earth beetles~
+&+La swarm of &+yearth &+Lbeetles~
+&+LThe air is thick with &+wbuzzing &+rangry &+yearth &+Lbeetles here.
+~
+&+LSomeone has disturbed this subterranean swarm and now they are on
+&+Lthe surface attacking everything that moves.
+~
+1073874952 1 0 0 8 0 0 67108864 -1000 S
+i 0 1 0 2
+15 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#98
+burrow wraith~
+&+La &+yburrow &+wwr&+Lai&+Wth~
+&+LA &+wwr&+Lai&+Wth &+Lhangs in the air here, sending dread to all in the area.
+~
+&+LThis wraith hovers in mid-air, sucking the very lifeforce out of
+&+Lthe surrounding area.
+~
+1073903624 1 0 0 402661530 262144 16777216 67112960 -1000 S
+wr 0 513 0 3
+37 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
 #99
 (null)~
 something~

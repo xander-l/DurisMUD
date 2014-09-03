@@ -91,12 +91,18 @@ struct mine_range_data {
   char *abbrev;
   int start;
   int end;
-  int reload;
+  int type;
+  bool reload;
 } mine_data[] = {
-  //Zone display name, command argument matching, start range, end range, reloading mines?
-  {"Surface Map", "map", 500000, 659999, TRUE},
-  {"Underdark", "ud", 700000, 859999, TRUE},
-//  {"Tharnadia Rift", "tharnrift", 110000, 119999, FALSE},
+  // Note: Don't comment these out, just set max number to 0 in duris.properties.
+  //  Also, to add a type, you need to add to #defines MINES_... in tradeskill.h and
+  //    catch the type in mines_properties() in this file, and add to duris.properties.
+  // Zone display name, command argument matching, start range, end range, mine type, reloading mines?
+  {"Surface Map", "map", 500000, 659999, MINE_VNUM, TRUE},
+  {"Underdark", "ud", 700000, 859999, MINE_VNUM, TRUE},
+  {"Tharnadia Rift", "tharnrift", 110000, 119999, MINE_VNUM, FALSE},
+  {"Surface Map - G", "mapg", 500000, 659999, GEMMINE_VNUM, TRUE},
+  {"Underdark - G", "udg", 700000, 859999, GEMMINE_VNUM, TRUE},
   {0}
 };
 
@@ -142,6 +148,12 @@ int mines_properties(int map)
     break;
   case MINES_MAP_THARNRIFT:
     return (int)get_property("mines.maxTharnRift", 50);
+    break;
+  case MINES_GEM_SURFACE:
+    return (int)get_property("mines.maxGemSurface", 2);
+    break;
+  case MINES_GEM_UD:
+    return (int)get_property("mines.maxGemUD", 6);
     break;
   default:
     logit(LOG_DEBUG, "mines_properties(): passing invalid map to function, using default 50 mines");
@@ -885,11 +897,18 @@ int remove_mine_content(P_obj mine)
 
 int random_ore(int mine_quality)
 {
-  int x = number(1, 99 + mine_quality * 9);
+  int x = number(1 + mine_quality, 99 + mine_quality * 10);
 
-  if(x >= 98 + mine_quality * 8)
+  if(x >= 99 + mine_quality * 9)
+    return LARGE_ADAMANTIUM_ORE;
+  if(x >= 98 + mine_quality * 9)
+    return MEDIUM_ADAMANTIUM_ORE;
+  if(x >= 97 + mine_quality * 9)
+    return SMALL_ADAMANTIUM_ORE;
+
+  if(x >= 96 + mine_quality * 8)
     return LARGE_MITHRIL_ORE;
-  if(x >= 96 + mine_quality * 7)
+  if(x >= 95 + mine_quality * 7)
     return MEDIUM_MITHRIL_ORE;
   if(x >= 94 + mine_quality * 6)
     return SMALL_MITHRIL_ORE;
@@ -935,12 +954,284 @@ P_obj get_ore_from_mine(P_char ch, int mine_quality)
   P_obj ore;
   int ore_type = random_ore(mine_quality);
   ore = read_object(ore_type, VIRTUAL);
-  if(!ore)
+  if( !ore )
   {
     return NULL;
   }
   ore->value[4] = time(NULL);
   return ore;
+}
+
+P_obj get_gem_from_mine(P_char ch, int mine_quality)
+{
+  P_obj gem;
+  int gem_type;
+
+  // 1-50 taken by just each item (+ a few). 51-170 are repeats heavier for cheaper.
+  switch( number( 1, 170 ) )
+  {
+    case 1:
+    case 9:
+    case 165:
+    case 166:
+    case 167:
+    case 168:
+    case 169:
+    case 170:
+      gem_type = TINY_IMP_TOPAZ;
+      break;
+    case 2:
+    case 10:
+    case 159:
+    case 160:
+    case 161:
+    case 162:
+    case 163:
+    case 164:
+      gem_type = REG_IMP_TOPAZ;
+      break;
+    case 3:
+    case 154:
+    case 155:
+    case 156:
+    case 157:
+    case 158:
+      gem_type = LG_IMP_TOPAZ;
+      break;
+    case 4:
+    case 149:
+    case 150:
+    case 151:
+    case 152:
+    case 153:
+      gem_type = TINY_REG_TOPAZ;
+      break;
+    case 5:
+    case 144:
+    case 145:
+    case 146:
+    case 147:
+    case 148:
+      gem_type = REG_REG_TOPAZ;
+      break;
+    case 6:
+    case 139:
+    case 140:
+    case 141:
+    case 142:
+    case 143:
+      gem_type = LG_REG_TOPAZ;
+      break;
+    case 7:
+    case 134:
+    case 135:
+    case 136:
+    case 137:
+    case 138:
+      gem_type = FLAWLESS_TOPAZ;
+      break;
+    case 8:
+    case 129:
+    case 130:
+    case 131:
+    case 132:
+    case 133:
+      gem_type = LG_FLAWLESS_TOPAZ;
+      break;
+    case 11:
+    case 19:
+    case 125:
+    case 126:
+    case 127:
+    case 128:
+      gem_type = TINY_IMP_SAPPHIRE;
+      break;
+    case 12:
+    case 20:
+    case 121:
+    case 122:
+    case 123:
+    case 124:
+      gem_type = REG_IMP_SAPPHIRE;
+      break;
+    case 13:
+    case 117:
+    case 118:
+    case 119:
+    case 120:
+      gem_type = LG_IMP_SAPPHIRE;
+      break;
+    case 14:
+    case 113:
+    case 114:
+    case 115:
+    case 116:
+      gem_type = TINY_REG_SAPPHIRE;
+      break;
+    case 15:
+    case 109:
+    case 110:
+    case 111:
+    case 112:
+      gem_type = REG_REG_SAPPHIRE;
+      break;
+    case 16:
+    case 105:
+    case 106:
+    case 107:
+    case 108:
+      gem_type = LG_REG_SAPPHIRE;
+      break;
+    case 17:
+    case 101:
+    case 102:
+    case 103:
+    case 104:
+      gem_type = FLAWLESS_SAPPHIRE;
+      break;
+    case 18:
+    case 97:
+    case 98:
+    case 99:
+    case 100:
+      gem_type = LG_FLAWLESS_SAPPHIRE;
+      break;
+    case 21:
+    case 29:
+    case 94:
+    case 95:
+    case 96:
+      gem_type = TINY_IMP_EMERALD;
+      break;
+    case 22:
+    case 30:
+    case 91:
+    case 92:
+    case 93:
+      gem_type = REG_IMP_EMERALD;
+      break;
+    case 23:
+    case 88:
+    case 89:
+    case 90:
+      gem_type = LG_IMP_EMERALD;
+      break;
+    case 24:
+    case 85:
+    case 86:
+    case 87:
+      gem_type = TINY_REG_EMERALD;
+      break;
+    case 25:
+    case 82:
+    case 83:
+    case 84:
+      gem_type = REG_REG_EMERALD;
+      break;
+    case 26:
+    case 79:
+    case 80:
+    case 81:
+      gem_type = LG_REG_EMERALD;
+      break;
+    case 27:
+    case 76:
+    case 77:
+    case 78:
+      gem_type = FLAWLESS_EMERALD;
+      break;
+    case 28:
+    case 73:
+    case 74:
+    case 75:
+      gem_type = LG_FLAWLESS_EMERALD;
+      break;
+    case 31:
+    case 39:
+    case 71:
+    case 72:
+      gem_type = TINY_IMP_DIAMOND;
+      break;
+    case 32:
+    case 40:
+    case 69:
+    case 70:
+      gem_type = REG_IMP_DIAMOND;
+      break;
+    case 33:
+    case 67:
+    case 68:
+      gem_type = LG_IMP_DIAMOND;
+      break;
+    case 34:
+    case 65:
+    case 66:
+      gem_type = TINY_REG_DIAMOND;
+      break;
+    case 35:
+    case 63:
+    case 64:
+      gem_type = REG_REG_DIAMOND;
+      break;
+    case 36:
+    case 61:
+    case 62:
+      gem_type = LG_REG_DIAMOND;
+      break;
+    case 37:
+    case 59:
+    case 60:
+      gem_type = FLAWLESS_DIAMOND;
+      break;
+    case 38:
+    case 57:
+    case 58:
+      gem_type = LG_FLAWLESS_DIAMOND;
+      break;
+    case 41:
+    case 49:
+    case 56:
+      gem_type = TINY_IMP_RUBY;
+      break;
+    case 42:
+    case 50:
+    case 55:
+      gem_type = REG_IMP_RUBY;
+      break;
+    case 43:
+    case 54:
+      gem_type = LG_IMP_RUBY;
+      break;
+    case 44:
+    case 53:
+      gem_type = TINY_REG_RUBY;
+      break;
+    case 45:
+    case 52:
+      gem_type = REG_REG_RUBY;
+      break;
+    case 46:
+    case 51:
+      gem_type = LG_REG_RUBY;
+      break;
+    case 47:
+      gem_type = FLAWLESS_RUBY;
+      break;
+    case 48:
+      gem_type = LG_FLAWLESS_RUBY;
+      break;
+    default:
+      gem_type = TINY_IMP_TOPAZ;
+      break;
+  }
+
+  gem = read_object(gem_type, VIRTUAL);
+  if( !gem )
+  {
+    return NULL;
+  }
+  gem->value[4] = time(NULL);
+  return gem;
 }
 
 P_obj get_pole(P_char ch)
@@ -1203,8 +1494,9 @@ int mine(P_obj obj, P_char ch, int cmd, char *arg)
 
     struct mining_data data;
     data.room = ch->in_room;
-    data.counter = (140 - GET_CHAR_SKILL(ch, SKILL_MINE)) /3;
+    data.counter = IS_TRUSTED(ch) ? 3 : (140 - GET_CHAR_SKILL(ch, SKILL_MINE)) / 3;
     data.mine_quality = obj->value[1];
+    data.mine_type = obj_index[obj->R_num].virtual_number;
 
     remove_mine_content(obj);
 
@@ -1226,12 +1518,15 @@ void event_mine_check( P_char ch, P_char victim, P_obj, void *data )
   struct mining_data *mdata = (struct mining_data*)data;
   P_obj ore, pick;
   char  buf[MAX_STRING_LENGTH], dbug[MAX_STRING_LENGTH];
+  float newcost;
+  bool randommob;
+  P_char mob;
 
   pick = get_pick(ch);
 
-  if( !ch || !IS_ALIVE(ch) )
+  if( !IS_ALIVE(ch) )
   {
-    logit( LOG_DEBUG, "event_mine_check: bad ch (%d)", ch );
+    logit( LOG_DEBUG, "event_mine_check: bad ch (%s)", ch ? J_NAME(ch) : "NULL" );
     return;
   }
 
@@ -1257,32 +1552,165 @@ void event_mine_check( P_char ch, P_char victim, P_obj, void *data )
     return;
   }
 
-  if (mdata->counter == 0 )
+  if( mdata->counter == 0 )
   {
-    ore = get_ore_from_mine(ch, mdata->mine_quality);
-
-    if( !ore )
+    if( mdata->mine_type == MINE_VNUM )
     {
-      wizlog(56, "Problem with ore item");
+      ore = get_ore_from_mine(ch, mdata->mine_quality);
+      if( !ore )
+      {
+        wizlog(56, "event_mine_check: couldn't load ore, quality %d.", mdata->mine_quality );
+        logit( LOG_DEBUG, "event_mine_check: couldn't load ore, quality %d.", mdata->mine_quality );
+        send_to_char( "Your efforts were thwarted by an unseen force.  Tell a God.\n\r", ch );
+        return;
+      }
+      //Dynamic pricing - Drannak 3/21/2013
+      // 100 p starting point
+      newcost = 100000;
+      newcost *= (float)GET_LEVEL(ch) / 56.0;
+      newcost *= (GET_CHAR_SKILL(ch, SKILL_MINE)) / 100.0;
+
+      // Anything less than gold gets a little bit of a reduction in price.
+      if(GET_OBJ_VNUM(ore) < SMALL_GOLD_ORE)
+      {
+        newcost *= .6;
+      }
+
+      // The greatest rarity gets a 233/230 modifier (And adamantium 501-3/230)..
+      // The lowest gets a 194/230 modifier.
+      newcost *= (float)GET_OBJ_VNUM(ore) / 230.0;
+    }
+    else if( mdata->mine_type == GEMMINE_VNUM )
+    {
+      randommob = FALSE;
+      if( !number(0,20) )
+      {
+        randommob = TRUE;
+        send_to_char( "You dug up something .. that moves!\n\r", ch );
+      }
+      ore = get_gem_from_mine(ch, mdata->mine_quality);
+      if( !ore )
+      {
+        wizlog(56, "event_mine_check: couldn't load gem, quality %d.", mdata->mine_quality );
+        logit( LOG_DEBUG, "event_mine_check: couldn't load ge,, quality %d.", mdata->mine_quality );
+        send_to_char( "Your efforts were thwarted by a mysterious force.  Tell a God.\n\r", ch );
+        return;
+      }
+      int type = GET_OBJ_VNUM(ore) - 504;
+      // Base price based on gem type.
+      switch( type / 8 )
+      {
+        // Topaz
+        case 0:
+          newcost = 200000;
+          if( randommob )
+          {
+            // A hideous zombie (#92)
+            // a corpse gatherer (#89)
+            mob = read_mobile(number(0, 1) ? 89 : 92, VIRTUAL);
+            // Enters from below.
+            char_to_room( mob, mdata->room, 4 );
+          }
+          break;
+        // Sapphire
+        case 1:
+          newcost = 250000;
+          if( randommob )
+          {
+            // An antlion (#94)
+            // A purple worm (#95)
+            mob = read_mobile(number(94, 95), VIRTUAL);
+            // Enters from below.
+            char_to_room( mob, mdata->room, 4 );
+          }
+          break;
+        // Emerald
+        case 2:
+          newcost = 300000;
+          if( randommob )
+          {
+            // a swarm of earth beetles (#97)
+            // A skeletal warrior (#93)
+            mob = read_mobile(number(0, 1) ? 93 : 97, VIRTUAL);
+            // Enters from below.
+            char_to_room( mob, mdata->room, 4 );
+          }
+          break;
+        // Diamond
+        case 3:
+          newcost = 250000;
+          if( randommob )
+          {
+            // A mohrg (#91)
+            // a sleeping earth elemental (#96)
+            mob = read_mobile(number(0, 1) ? 91 : 96, VIRTUAL);
+            // Enters from below.
+            char_to_room( mob, mdata->room, 4 );
+          }
+          break;
+        // Ruby
+        case 4:
+          newcost = 300000;
+          if( randommob )
+          {
+            // a GIANT purple worm (#90)
+            // a burrow wraith (#98)
+            mob = read_mobile( number(0, 1) ? 90 : 98, VIRTUAL);
+            // Enters from below.
+            char_to_room( mob, mdata->room, 4 );
+          }
+          break;
+        // Buggy gemstones are 1 plat base.
+        default:
+          newcost = 1000;
+          break;
+      }
+      newcost *= (float)GET_LEVEL(ch) / 56.0;
+      newcost *= (GET_CHAR_SKILL(ch, SKILL_MINE)) / 100.0;
+      switch( type % 8 )
+      {
+        // Tiny imperfect.
+        case 0:
+          break;
+        // Reg Imperfect.
+        case 1:
+          newcost *= 1.05;
+          break;
+        // Large Imperfect.
+        case 2:
+          newcost *= 1.15;
+          break;
+        // Tiny Reg.
+        case 3:
+          newcost *= 1.20;
+          break;
+        // Reg Reg.
+        case 4:
+          newcost *= 1.25;
+          break;
+        // Large Reg.
+        case 5:
+          newcost *= 1.35;
+          break;
+        // Reg Flawless.
+        case 6:
+          newcost *= 1.65;
+          break;
+        // Large Flawless.
+        case 7:
+          newcost *= 1.85;
+          break;
+        default:
+          break;
+      }
+    }
+    else
+    {
+      wizlog(56, "event_mine_check: unknown mine type %d.", mdata->mine_type );
+      logit( LOG_DEBUG, "event_mine_check: unknown mine type %d.", mdata->mine_type );
+      send_to_char( "Your mine doesn't seem to be a mine anymore.  Tell a God.\n\r", ch );
       return;
     }
-
-    //Dynamic pricing - Drannak 3/21/2013
-    // 100 p starting point
-    float newcost = 100000;
-    float charskil = (GET_CHAR_SKILL(ch, SKILL_MINE));
-    newcost *= (float)GET_LEVEL(ch) / 56.0;
-    newcost *= charskil / 100.0;
-
-    // Anything less than gold gets a little bit of a reduction in price.
-    if(GET_OBJ_VNUM(ore) < SMALL_GOLD_ORE)
-    {
-      newcost *= .6;
-    }
-
-    // The greatest rarity gets a 233/230 modifier.
-    // The lowest gets a 194/230 modifier.
-    newcost *= (float)GET_OBJ_VNUM(ore) / 230.0;
 
     if(number(80, 140) < GET_C_LUK(ch))
     {
@@ -1480,6 +1908,7 @@ void initialize_tradeskills()
   int i;
 
   obj_index[real_object0(MINE_VNUM)].func.obj = mine;
+  obj_index[real_object0(GEMMINE_VNUM)].func.obj = mine;
 
   for (i = 0; mine_data[i].name; i++)
   {
@@ -1525,44 +1954,49 @@ bool invalid_mine_room(int rroom_id)
 
 bool load_one_mine(int map)
 {
-  P_obj mine = read_object(MINE_VNUM, VIRTUAL);
-  
+  P_obj mine = read_object(mine_data[map].type, VIRTUAL);
+
   if( !mine )
   {
     wizlog(56, "Error loading mine obj [%d]", MINE_VNUM);
     return FALSE;
   }
-  
+
   int start = real_room(mine_data[map].start);
   int end = real_room(mine_data[map].end);
 
   int tries = 0;
   int to_room = -1;
-  
+
   do {
     to_room = number(start, end);
-    
+
     /* if it's valid and a mine friendly location, or just lucky, put a mine there */
-    if( !invalid_mine_room(to_room) && 
-        ( mine_friendly(to_room) || number(0,100) < 15 ) )
+    if( !invalid_mine_room(to_room) && (mine_friendly(to_room) || number(0,100) < 15) )
       break;
-    
+
     tries++;
   } while ( tries < 10000 );
-  
+
   if( tries >= 10000 || invalid_mine_room(to_room) )
   {
     return FALSE;
   }
-  
+
   int random = number(0,99);
-  
-  if( random < 3 )
+
+  if( mine_data[map].type == GEMMINE_VNUM )
+  {
+    mine->value[0] = number(10, 25);
+    mine->value[1] = 100 + number(0, 3);
+    // Description already set in heavens.obj file.
+  }
+  else if( random < 3 )
   {
     mine->value[0] = number(20, 30);
     mine->value[1] = 3;
     mine->description = str_dup("&+LThe &+yearth &+Lhere is &+cbr&+Lim&+Cm&+Ling with &+Yore&+L - it's the &+GMother &+LLode!&n");
-  }  
+  }
   else if( random < 20 )
   {
     mine->value[0] = number(10, 15);
@@ -1581,21 +2015,22 @@ bool load_one_mine(int map)
     mine->value[1] = 0;
     mine->description = str_dup("&+LA few glimmers &+Ws&+wpa&+Wrk&+wle&+L in the &+yearth &+Lhere.&n");
   }
-  
+
   obj_to_room(mine, to_room);
   wizlog(56, "Mine (%d) loaded in %s [%d]", mine->value[1], world[to_room].name, ROOM_VNUM(to_room) );
-  
+
   return TRUE;
 }
 
 void load_mines(bool set_event, bool load_all, int map)
 {
-  int max_mines, num_mines = 0;
+  int max_mines, num_mines = 0, mine_type;
   struct mines_event_data mdata;
 
+  mine_type = mine_data[map].type;
   for( P_obj tobj = object_list; tobj; tobj = tobj->next )
   {
-    if( (GET_OBJ_VNUM(tobj) == MINE_VNUM) && (tobj->loc.room > 0) &&
+    if( (GET_OBJ_VNUM(tobj) == mine_type) && (tobj->loc.room > 0) &&
         (world[tobj->loc.room].number >= mine_data[map].start) &&
         (world[tobj->loc.room].number <= mine_data[map].end) )
     {
@@ -1620,11 +2055,13 @@ void load_mines(bool set_event, bool load_all, int map)
       load_one_mine(map);
     }
   }
-  
+
   mdata.map = map;
 
   if( set_event )
+  {
     add_event(event_load_mines, ( WAIT_SEC * 60 ) * ((int) get_property("mines.reloadMins", 10)), NULL, NULL, 0, 0, &mdata, sizeof(mdata));
+  }
 }
 
 void event_load_mines(P_char ch, P_char victim, P_obj, void *data)
@@ -1746,28 +2183,28 @@ void event_bandage_check(P_char ch, P_char victim, P_obj, void *data)
     return; 
   }
 
-  GET_VITALITY(ch) -= 
-    (number(0,100) > GET_CHAR_SKILL(ch, SKILL_BANDAGE)) ? 3 : 2;
-  add_event(event_bandage_check, PULSE_VIOLENCE, ch, victim
-      , 0, 0, mdata, sizeof(struct bandage_data));
+  GET_VITALITY(ch) -= (number(0,100) > GET_CHAR_SKILL(ch, SKILL_BANDAGE)) ? 3 : 2;
+  add_event(event_bandage_check, PULSE_VIOLENCE, ch, victim, 0, 0, mdata, sizeof(struct bandage_data));
 }
 
+// This is just for God mine commands (and a stub).
+//  For actual mining stuff see event_mine_check and 'int mine(..)' in this file.
 void do_mine(P_char ch, char *arg, int cmd)
 {
 
   if( !ch || IS_NPC(ch) )
     return;
- 
+
   // Anyone wana take a crack at this below to make it work correctly?
   // If you don't get the idea, give me a hollar.
   // From hearing Torgal's responses to it as well as knowing nobody ever uses
   // this command, i'm going to go ahead and get the engine in game. -Venthix
-  if (GET_CHAR_SKILL(ch, SKILL_MINE) <= 1){
+  if( GET_CHAR_SKILL(ch, SKILL_MINE) <= 1 )
+  {
     send_to_char("&+LYou dont know how to mine.\r\n", ch);
     return;
   }
 
- 
   int i;
   char buff[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH];
   char arg1[MAX_STRING_LENGTH], arg2[MAX_STRING_LENGTH];
@@ -1825,7 +2262,7 @@ void do_mine(P_char ch, char *arg, int cmd)
     strcat(buf2, "\n");
     */
     send_to_char(buf2, ch);
-  }  
+  }
   else if( !strcmp(buff, "purge") && IS_TRUSTED(ch) )
   {
     P_obj tobj = object_list;
@@ -1841,13 +2278,13 @@ void do_mine(P_char ch, char *arg, int cmd)
     {
       next = tobj->next;
 
-      if( (GET_OBJ_VNUM(tobj) == MINE_VNUM) &&
-          (!strcmp(arg, mine_data[i].abbrev)) &&
-	  (world[tobj->loc.room].number >= mine_data[i].start) &&
-          (world[tobj->loc.room].number <= mine_data[i].end) )
+      if( (GET_OBJ_VNUM(tobj) == MINE_VNUM)
+        && (!strcmp(arg, mine_data[i].abbrev))
+        && (world[tobj->loc.room].number >= mine_data[i].start)
+        && (world[tobj->loc.room].number <= mine_data[i].end) )
       {
         extract_obj(tobj, TRUE);
-      } 
+      }
       // The all factor
       else if ( GET_OBJ_VNUM(tobj) == MINE_VNUM &&
           (!strcmp(arg, "all")) )
@@ -1855,7 +2292,7 @@ void do_mine(P_char ch, char *arg, int cmd)
         extract_obj(tobj, TRUE);
       }
     }
-    
+
     if (!strcmp(arg, "all"))
     {
       wizlog(56, "%s purged all mines.", GET_NAME(ch));
@@ -1883,7 +2320,6 @@ void do_mine(P_char ch, char *arg, int cmd)
       send_to_char(buf2, ch);
     }
   }
-  
   send_to_char("You can't mine here!\n", ch);
 }
 
