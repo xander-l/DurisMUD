@@ -1047,62 +1047,64 @@ int look_weapon (P_char ch, P_ship ship, char* arg)
 
 int look_tactical_map(P_char ch, P_ship ship, char* arg1, char* arg2)
 {
-    int      x, y;
-    float    shiprange;
+  int      x, y;
+  float    shiprange;
 
-    if(SHIP_DOCKED(ship)) 
-    { 
-        send_to_char("You must be undocked to look tactical.\r\n", ch); 
-        return TRUE; 
-    } 
-    
-    if (!*arg1) 
+  if( SHIP_DOCKED(ship))
+  {
+      send_to_char("You must be undocked to look tactical.\r\n", ch);
+      return TRUE;
+  }
+
+  if( !*arg1 )
+  {
+      x = (int) ship->x;
+      y = (int) ship->y;
+  }
+  else
+  {
+    if( !*arg2 )
     {
-        x = (int) ship->x;
-        y = (int) ship->y;
-    } 
-    else 
-    {
-        if (!*arg2) 
-        {
-            send_to_char("&+WValid syntax: look <tactical/t> [<x> <y>]&N\r\n", ch);
-            return TRUE;
-        }
-        if (is_number(arg1) && is_number(arg2)) 
-        {
-            shiprange = range(ship->x, ship->y, 0, atoi(arg1), atoi(arg2), 0);
-            if ((int) (shiprange + .5) <= 35) 
-            {
-                x = atoi(arg1);
-                y = atoi(arg2);
-            } 
-            else 
-            {
-                send_to_char_f(ch, "This coord is out of range.\r\nMust be within 35 units.\r\nCurrent range: %3.1f\r\n", shiprange);
-                return TRUE;
-            }
-        } 
-        else 
-        {
-            send_to_char("&+WValid syntax: look <tactical/t> [<x> <y>]&N\r\n", ch);
-            return TRUE;
-        }
+      send_to_char("&+WValid syntax: look <tactical/t> [<x> <y>]&N\r\n", ch);
+      return TRUE;
     }
-
-    if (!getmap(ship))
+    if( is_number(arg1) && is_number(arg2) )
     {
-        send_to_char("You have no maps for this region.\r\n", ch);
+      shiprange = range(ship->x, ship->y, 0, atoi(arg1), atoi(arg2), 0);
+      if ((int) (shiprange + .5) <= 35) 
+      {
+        x = atoi(arg1);
+        y = atoi(arg2);
+      }
+      else
+      {
+        send_to_char_f(ch, "This coord is out of range.\r\nMust be within 35 units.\r\nCurrent range: %3.1f\r\n", shiprange);
         return TRUE;
+      }
     }
+    else
+    {
+      send_to_char("&+WValid syntax: look <tactical/t> [<x> <y>]&N\r\n", ch);
+      return TRUE;
+    }
+  }
 
-    send_to_char_f(ch,
-            "&+W     %-3d   %-3d   %-3d   %-3d   %-3d   %-3d   %-3d   %-3d   %-3d   %-3d   %-3d   %-3d&N\r\n",
-            x - 11, x - 9, x - 7, x - 5, x - 3, x - 1, x + 1, x + 3, x + 5,
-            x + 7, x + 9, x + 11);
-    send_to_char_f(ch,
-            "     __ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__&N\r\n",
-            x - 10, x - 8, x - 6, x - 4, x - 2, x, x + 2, x + 4, x + 6,
-            x + 8, x + 10);
+  if( !getmap(ship) )
+  {
+    send_to_char("You have no maps for this region.\r\n", ch);
+    return TRUE;
+  }
+
+  send_to_char_f(ch,
+    "&+WTactical Map                                                H: %3d S: %3d&n\r\n", (int)ship->heading, ship->speed );
+
+  send_to_char_f(ch,
+    "&+W     %-3d   %-3d   %-3d   %-3d   %-3d   %-3d   %-3d   %-3d   %-3d   %-3d   %-3d   %-3d&N\r\n",
+    x - 11, x - 9, x - 7, x - 5, x - 3, x - 1, x + 1, x + 3, x + 5, x + 7, x + 9, x + 11);
+  send_to_char_f(ch,
+    "     __ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__ &+W%-3d&N__&N\r\n",
+    x - 10, x - 8, x - 6, x - 4, x - 2, x, x + 2, x + 4, x + 6, x + 8, x + 10);
+
     y = 100 - y;
     for (int i = y - 7; i < y + 8; i++) 
     {
