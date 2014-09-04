@@ -4881,7 +4881,7 @@ large ore adamantium _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #504
-tiny imperfect topaz _ore_~
+tiny imperfect topaz gem _ore_ _gem_~
 &+ya &+Yt&+yin&+Yy &+yimp&+Yerf&+yect &+Yto&+ypa&+Yz~
 &+YA topaz lies here on the ground.~
 ~
@@ -4889,7 +4889,7 @@ tiny imperfect topaz _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #505
-topaz imperfect _ore_~
+topaz imperfect gem _ore_ _gem_~
 &+yan &+Yimp&+yerf&+Yect &+yto&+Ypa&+yz~
 &+YA topaz lies on the ground here.~
 ~
@@ -4897,7 +4897,7 @@ topaz imperfect _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #506
-large imperfect topaz _ore_~
+large imperfect topaz gem _ore_ _gem_~
 &+ya &+Yla&+yrg&+Ye &+yimp&+Yerf&+yect &+Yto&+ypa&+Yz~
 &+YA topaz lies on the ground here.~
 ~
@@ -4905,7 +4905,7 @@ large imperfect topaz _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #507
-tiny topaz _ore_~
+tiny topaz gem _ore_ _gem_~
 &+ya &+Yt&+yin&+Yy &+yto&+Ypa&+yz~
 &+YA topaz lies on the ground here.~
 ~
@@ -4913,7 +4913,7 @@ tiny topaz _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #508
-topaz _ore_~
+topaz gem _ore_ _gem_~
 &+ya &+Yto&+ypa&+Yz~
 &+YA topaz lies on the ground here.~
 ~
@@ -4921,7 +4921,7 @@ topaz _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #509
-large topaz _ore_~
+large topaz gem _ore_ _gem_~
 &+ya &+Yla&+yrg&+Ye &+yto&+Ypa&+yz~
 &+YA topaz lies on the ground here.~
 ~
@@ -4929,7 +4929,7 @@ large topaz _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #510
-flawless topaz _ore_~
+flawless topaz gem _ore_ _gem_~
 &+ya &+Yflawless &+yto&+Ypa&+yz~
 &+YA topaz lies on the ground here.~
 ~
@@ -4937,7 +4937,7 @@ flawless topaz _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #511
-large flawless topaz _ore_~
+large flawless topaz gem _ore_ _gem_~
 &+ya &+Yla&+yrg&+Ye flawless &+yto&+Ypa&+yz~
 &+YA topaz lies on the ground here.~
 ~
@@ -4945,7 +4945,7 @@ large flawless topaz _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #512
-tiny imperfect sapphire _ore_~
+tiny imperfect sapphire gem _ore_ _gem_~
 &+ba &+Bt&+bin&+By &+bimp&+Berf&+bect &+bsap&+Bphi&+bre~
 &+bA sapphire lies on the ground here.~
 ~
@@ -4953,7 +4953,7 @@ tiny imperfect sapphire _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #513
-imperfect sapphire _ore_~
+imperfect sapphire gem _ore_ _gem_~
 &+ban &+Bimp&+berf&+Bect &+bsap&+Bphi&+bre~
 &+bA sapphire lies on the ground here.~
 ~
@@ -4961,7 +4961,7 @@ imperfect sapphire _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #514
-large imperfect sapphire _ore_~
+large imperfect sapphire gem _ore_ _gem_~
 &+ba &+Bla&+brg&+Be &+bimp&+Berf&+bect &+Bsap&+bphi&+Bre~
 &+bA sapphire lies on the ground here.~
 ~
@@ -4969,7 +4969,7 @@ large imperfect sapphire _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #515
-tiny sapphire _ore_~
+tiny sapphire gem _ore_ _gem_~
 &+ba &+Bt&+bin&+By &+bsap&+Bphi&+bre~
 &+bA sapphire lies on the ground here.~
 ~
@@ -4977,7 +4977,7 @@ tiny sapphire _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #516
-sapphire _ore_~
+sapphire gem _ore_ _gem_~
 &+ba &+Bsap&+bphi&+Bre~
 &+bA sapphire lies on the ground here.~
 ~
@@ -4985,7 +4985,7 @@ sapphire _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #517
-large sapphire _ore_~
+large sapphire gem _ore_ _gem_~
 &+ba &+Bla&+brg&+Be &+bsap&+Bphi&+bre~
 &+bA sapphire lies on the ground here.~
 ~
@@ -4993,7 +4993,7 @@ large sapphire _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #518
-flawless sapphire _ore_~
+flawless sapphire gem _ore_ _gem_~
 &+ba &+Bflawless &+bsap&+Bphi&+bre~
 &+bA sapphire lies on the ground here.~
 ~
@@ -5001,7 +5001,7 @@ flawless sapphire _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #519
-large flawless sapphire _ore_~
+large flawless sapphire gem _ore_ _gem_~
 &+ba &+Bla&+brg&+Be flawless &+bsap&+Bphi&+bre~
 &+bA sapphire lies on the ground here.~
 ~
@@ -5009,7 +5009,7 @@ large flawless sapphire _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #520
-tiny imperfect emerald _ore_~
+tiny imperfect emerald gem _ore_ _gem_~
 &+ga &+Gt&+gin&+Gy &+gimp&+Gerf&+gect &+Gem&+gera&+Gld~
 &+GAn emerald lies on the ground here.~
 ~
@@ -5017,7 +5017,7 @@ tiny imperfect emerald _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #521
-imperfect emerald _ore_~
+imperfect emerald gem _ore_ _gem_~
 &+gan &+Gimp&+gerf&+Gect &+gem&+Gera&+gld~
 &+GAn emerald lies on the ground here.~
 ~
@@ -5025,7 +5025,7 @@ imperfect emerald _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #522
-large imperfect emerald _ore_~
+large imperfect emerald gem _ore_ _gem_~
 &+ga &+Gla&+grg&+Ge &+gimp&+Gerf&+gect &+Gem&+gera&+Gld~
 &+GAn emerald lies on the ground here.~
 ~
@@ -5033,7 +5033,7 @@ large imperfect emerald _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #523
-tiny emerald _ore_~
+tiny emerald gem _ore_ _gem_~
 &+ga &+Gt&+gin&+Gy &+gem&+Gera&+gld~
 &+GAn emerald lies on the ground here.~
 ~
@@ -5041,7 +5041,7 @@ tiny emerald _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #524
-emerald _ore_~
+emerald gem _ore_ _gem_~
 &+gan &+gem&+Gera&+gld~
 &+GAn emerald lies on the ground here.~
 ~
@@ -5049,7 +5049,7 @@ emerald _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #525
-large emerald _ore_~
+large emerald gem _ore_ _gem_~
 &+ga &+Gla&+grg&+Ge &+gem&+Gera&+gld~
 &+GAn emerald lies on the ground here.~
 ~
@@ -5057,7 +5057,7 @@ large emerald _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #526
-flawless emerald _ore_~
+flawless emerald gem _ore_ _gem_~
 &+ga &+Gflawless &+gem&+Gera&+gld~
 &+GAn emerald lies on the ground here.~
 ~
@@ -5065,7 +5065,7 @@ flawless emerald _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #527
-large flawless emerald _ore_~
+large flawless emerald gem _ore_ _gem_~
 &+ga &+Gla&+grg&+Ge flawless &+gem&+Gera&+gld~
 &+GAn emerald lies on the ground here.~
 ~
@@ -5073,7 +5073,7 @@ large flawless emerald _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #528
-tiny imperfect diamond _ore_~
+tiny imperfect diamond gem _ore_ _gem_~
 &+wa &+Wt&+win&+Wy &+wimp&+Werf&+wect &+Wdia&+wmo&+Wnd~
 &+WA diamond lies on the ground here.~
 ~
@@ -5081,7 +5081,7 @@ tiny imperfect diamond _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #529
-imperfect diamond _ore_~
+imperfect diamond gem _ore_ _gem_~
 &+wan &+Wimp&+werf&+Wect &+wdia&+Wmo&+wnd~
 &+WA diamond lies on the ground here.~
 ~
@@ -5089,7 +5089,7 @@ imperfect diamond _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #530
-large imperfect diamond _ore_~
+large imperfect diamond gem _ore_ _gem_~
 &+wa &+Wla&+wrg&+We &+wimp&+Werf&+wect &+Wdi&+wamo&+Wnd~
 &+WA diamond lies on the ground here.~
 ~
@@ -5097,7 +5097,7 @@ large imperfect diamond _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #531
-tiny diamond _ore_~
+tiny diamond gem _ore_ _gem_~
 &+wa &+Wt&+win&+Wy &+wdi&+Wamo&+wnd~
 &+WA diamond lies on the ground here.~
 ~
@@ -5105,7 +5105,7 @@ tiny diamond _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #532
-diamond _ore_~
+diamond gem _ore_ _gem_~
 &+wa &+wdi&+Wamo&+wnd~
 &+WA diamond lies on the ground here.~
 ~
@@ -5113,7 +5113,7 @@ diamond _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #533
-large diamond _ore_~
+large diamond gem _ore_ _gem_~
 &+wa &+Wla&+wrg&+We &+wdi&+Wamo&+wnd~
 &+WA diamond lies on the ground here.~
 ~
@@ -5121,7 +5121,7 @@ large diamond _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #534
-flawless diamond _ore_~
+flawless diamond gem _ore_ _gem_~
 &+wa &+Wflawless &+wdi&+Wamo&+wnd~
 &+WA diamond lies on the ground here.~
 ~
@@ -5129,7 +5129,7 @@ flawless diamond _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #535
-large flawless diamond _ore_~
+large flawless diamond gem _ore_ _gem_~
 &+wa &+Wla&+wrg&+We flawless &+wdi&+Wamo&+wnd~
 &+WA diamond lies on the ground here.~
 ~
@@ -5137,7 +5137,7 @@ large flawless diamond _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #536
-ruby tiny imperfect _ore_~
+ruby tiny imperfect gem _ore_ _gem_~
 &+ra &+Rti&+rn&+Ry &+rimp&+Rerf&+rect &+Rr&+rub&+Ry~
 &+rA ruby lies on the ground here.~
 ~
@@ -5145,7 +5145,7 @@ ruby tiny imperfect _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #537
-imperfect ruby _ore_~
+imperfect ruby gem _ore_ _gem_~
 &+ran &+Rimp&+rerf&+Rect &+rr&+Rub&+ry~
 &+rA ruby lies on the ground here.~
 ~
@@ -5153,7 +5153,7 @@ imperfect ruby _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #538
-large ruby imperfect _ore_~
+large ruby imperfect gem _ore_ _gem_~
 &+ra &+Rla&+rrg&+Re imp&+rerf&+Rect r&+rub&+Ry~
 &+rA ruby lies on the ground here.~
 ~
@@ -5161,7 +5161,7 @@ large ruby imperfect _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #539
-tiny ruby _ore_~
+tiny ruby gem _ore_ _gem_~
 &+ra &+rt&+Rin&+ry &+Rr&+rub&+Ry~
 &+rA ruby lies on the ground here.~
 ~
@@ -5169,7 +5169,7 @@ tiny ruby _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #540
-ruby _ore_~
+ruby gem _ore_ _gem_~
 &+ra &+Rr&+rub&+Ry~
 &+rA ruby lies on the ground here.~
 ~
@@ -5177,7 +5177,7 @@ ruby _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #541
-ruby large _ore_~
+ruby large gem _ore_ _gem_~
 &+ra &+Rla&+rrg&+Re &+rr&+Rub&+ry~
 &+rA ruby lies on the ground here.~
 ~
@@ -5185,7 +5185,7 @@ ruby large _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #542
-flawless ruby _ore_~
+flawless ruby gem _ore_ _gem_~
 &+ra &+Rflawless &+rr&+Rub&+ry~
 &+rA ruby lies on the ground here.~
 ~
@@ -5193,7 +5193,7 @@ flawless ruby _ore_~
 0 0 0 0 0 0 0 0
 0 0 100
 #543
-large flawless ruby _ore_~
+large flawless ruby gem _ore_ _gem_~
 &+ra &+Rla&+rrg&+Re flawless &+rr&+Rub&+ry~
 &+rA ruby lies here on the ground.~
 ~
