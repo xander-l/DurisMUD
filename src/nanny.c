@@ -3074,6 +3074,11 @@ void enter_game(P_desc d)
       send_to_char("\r\nThe gods have taken your artifact...\r\n", ch);
       cost = restoreItemsOnly(ch, 100);
     }
+    else if(d->rtype == RENT_FIGHTARTI)
+    {
+      send_to_char("\r\nYour artifacts argued all night...\r\n", ch);
+      cost = restoreItemsOnly(ch, 100);
+    }
     else if(d->rtype == RENT_SWAPARTI)
     {
       send_to_char("\r\nThe gods have taken your artifact... and replaced it with another!\r\n", ch);

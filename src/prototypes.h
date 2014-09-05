@@ -639,6 +639,7 @@ void artifact_feed_to_min( P_obj arti, int min_minutes );
 void feed_artifact(P_char ch, P_obj obj, int feed_seconds, int bypass);
 void artifact_switch_check(P_char ch, P_obj obj);
 void event_check_arti_poof( P_char ch, P_char vict, P_obj obj, void * arg );
+void event_artifact_wars(P_char, P_char, P_obj, void*);
 void dropped_arti_hunt();
 
 // automatic_rules.c

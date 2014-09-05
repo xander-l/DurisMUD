@@ -439,6 +439,9 @@ void ne_init_events(void)
   // Checks for artis rented with negative timers..
   add_event( event_check_arti_poof, 30 * WAIT_SEC, NULL, NULL, NULL, 0, NULL, 0 );
 
+  // Makes artifacts fight and lose time on timers.
+  add_event( event_artifact_wars, 20 * WAIT_SEC, NULL, NULL, NULL, 0, NULL, 0 );
+
   logit(LOG_STATUS, "Done scheduling events.\n");
 }
 

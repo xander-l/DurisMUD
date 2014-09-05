@@ -93,7 +93,7 @@
 #define RENT_CRASH2             7
 #define RENT_POOFARTI           8
 #define RENT_SWAPARTI           9
-
+#define RENT_FIGHTARTI         10
 /*
  * these macros are a very good idea, I salute whoever thought of it.
  * -JAB

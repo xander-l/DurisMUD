@@ -49,12 +49,11 @@ int is_tracked( P_obj artifact );
 void hunt_for_artis( P_char ch, char *arg );
 void arti_clear( P_char ch, char *arg );
 void nuke_eq( P_char );
-//
+void artifact_fight( P_char, P_obj );
+
 // setupMortArtiList : copies everything over from 'real' arti list, to
 //                     be called once at boot, or whenever you want list
 //                     mortals see to be updated
-//
-
 void setupMortArtiList(void)
 {
   system("rm -f " ARTIFACT_MORT_DIR "*");
@@ -2206,5 +2205,195 @@ void dropped_arti_hunt()
         fclose(f);
       }
     }
+  }
+}
+
+// This function runs through the owned artifact list and hunts for people
+//   with two or more artifacts.  Then it makes the artifacts fight some and
+//   reduces the timers on both.
+// This must include artifacts on pfiles not in game.
+void event_artifact_wars( P_char ch, P_char vict, P_obj obj, void * arg )
+{
+  DIR           *dir;
+  FILE          *f;
+  struct dirent *dire;
+  int            vnum, i;
+  char           name[256];
+  int            t_id, t_tu;
+  long unsigned  t_last_time, t_blood;
+  P_char         owner;
+  P_obj          item;
+
+  debug( "event_artifact_wars: beginning..." );
+
+  // Open the arti directory!
+  dir = opendir(ARTIFACT_DIR);
+  if (!dir)
+  {
+    statuslog( 56, "event_artifact_wars: could not open arti dir (%s)\r\n", ARTIFACT_DIR );
+    wizlog( 56, "event_artifact_wars: could not open arti dir (%s)\r\n", ARTIFACT_DIR );
+    return;
+  }
+  // Loop through arti files..
+  while( dire = readdir(dir) )
+  {
+    vnum = atoi(dire->d_name);
+    if( !vnum )
+    {
+      continue;
+    }
+    debug( "event_artifact_wars: Checking '%s'", dire->d_name );
+
+    sprintf(name, ARTIFACT_DIR "%d", vnum);
+    f = fopen(name, "rt");
+
+    if( !f )
+    {
+      statuslog( 56, "event_artifact_wars: could not open arti file (%s)\r\n", name );
+      wizlog( 56, "event_artifact_wars: could not open arti file (%s)\r\n", name );
+      continue;
+    }
+
+    // Read arti file (skip artis on ground).
+    if( fscanf(f, "%s %d %lu %d %lu\n", name, &t_id, &t_last_time, &t_tu, &t_blood) < 5 )
+    {
+      fclose(f);
+      continue;
+    }
+    fclose(f);
+
+    // If owner isn't in game.
+    if( !(owner = get_char( name )) )
+    {
+      // Load pfile
+      owner = (P_char) mm_get(dead_mob_pool);
+      clear_char(owner);
+      owner->only.pc = (struct pc_only_data *) mm_get(dead_pconly_pool);
+      owner->desc = NULL;
+      if( restoreCharOnly( owner, name ) < 0 )
+      {
+        statuslog( 56, "event_artifact_wars: could not restoreCharOnly '%s'", name );
+        wizlog( 56, "event_artifact_wars: could not restoreCharOnly '%s'", name );
+        extract_char( owner );
+        continue;
+      }
+      restoreItemsOnly( owner, 100 );
+      owner->next = character_list;
+      character_list = owner;
+      setCharPhysTypeInfo( owner );
+
+      // Find arti
+      for( i = 0; i < MAX_WEAR; i++ )
+      {
+        if( !owner->equipment[i] )
+          continue;
+        if( obj_index[owner->equipment[i]->R_num].virtual_number == vnum )
+          break;
+      }
+      // If not wearing it..
+      if( i == MAX_WEAR )
+      {
+        obj = owner->carrying;
+        while( obj )
+        {
+          if( obj_index[obj->R_num].virtual_number == vnum )
+            break;
+          obj = obj->next_content;
+        }
+      }
+      else
+        obj = owner->equipment[i];
+      // obj == artifact at this point or person doesn't have it?!
+      if( !obj )
+      {
+        statuslog( 56, "event_artifact_wars: arti %d is not on %s's pfile.", vnum, name );
+        wizlog( 56, "event_artifact_wars: arti %d is not on %s's pfile.", vnum, name );
+        sprintf(name, ARTIFACT_DIR "%d", vnum);
+        unlink(name);
+        // Remove eq from char and extract.
+        nuke_eq( owner );
+        extract_char( owner );
+      }
+      else
+      {
+        artifact_fight( owner, obj );
+        writeCharacter( owner, RENT_FIGHTARTI, owner->in_room );
+        // Free memory
+        extract_char( owner );
+      }
+    }
+    else
+    {
+      // Find arti on PC in game..
+      for( i = 0; i < MAX_WEAR; i++ )
+      {
+        if( !owner->equipment[i] )
+          continue;
+        if( obj_index[owner->equipment[i]->R_num].virtual_number == vnum )
+          break;
+      }
+      if( i == MAX_WEAR )
+      {
+        obj = owner->carrying;
+        while( obj )
+        {
+          if( obj_index[obj->R_num].virtual_number == vnum )
+            break;
+          obj = obj->next_content;
+        }
+      }
+      else
+        obj = owner->equipment[i];
+      // obj == artifact at this point or person doesn't have it?!
+      if( !obj )
+      {
+        statuslog( 56, "event_artifact_wars: arti %d is not on %s!", vnum, name );
+        wizlog( 56, "event_artifact_wars: arti %d is not on %s!", vnum, name );
+        sprintf(name, ARTIFACT_DIR "%d", vnum);
+        unlink(name);
+      }
+      else
+      {
+        artifact_fight( owner, obj );
+        writeCharacter( owner, 1, owner->in_room );
+      }
+    }
+  }
+  closedir(dir);
+
+  debug( "event_artifact_wars: ended." );
+  // 1800 = 60sec * 30min => Repeat every half hour...
+  add_event( event_artifact_wars, 1800 * WAIT_SEC, ch, vict, obj, 0, arg, 0 );
+}
+
+void artifact_fight( P_char owner, P_obj arti )
+{
+  int numartis, i;
+  P_obj obj;
+
+  for( i = numartis = 0;i < MAX_WEAR;i++ )
+  {
+    if( owner->equipment[i] && (IS_ARTIFACT(owner->equipment[i]) || isname("powerunique", owner->equipment[i]->name)) )
+    {
+      numartis++;
+    }
+  }
+  // Yes, we count objects in inventory too!
+  obj = owner->carrying;
+  while( obj )
+  {
+    if( owner->equipment[i] && (IS_ARTIFACT(owner->equipment[i]) || isname("powerunique", owner->equipment[i]->name)) )
+    {
+      numartis++;
+    }
+    obj = obj->next_content;
+  }
+  if( numartis > 1 )
+  {
+    // 8 min for 2 artis, 27 min for 3 artis, 64 min for 4 artis, 125 min for 5 artis, 216 min for 6 artis,
+    //   343 min = 5 hrs 43 min for 7 artis, 512 min = 8 hrs 32 min for 8 artis,
+    //   729 min = 12 hrs 9 min for 9 artis, 1000 min = 16 hrs 40 min for 10 artis. 
+    arti->timer[3] -= 60 * numartis * numartis * numartis;
+    act("&+L$p &+Lseems very upset with you.&n", FALSE, owner, arti, 0, TO_CHAR);
   }
 }

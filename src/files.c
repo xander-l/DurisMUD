@@ -1707,13 +1707,11 @@ int writeCharacter(P_char ch, int type, int room)
    * if they are staying in game, re-equip them
    */
   if( (type != RENT_INN) && (type != RENT_LINKDEAD) && (type != RENT_CAMPED) && (type != RENT_DEATH)
-    && (type != RENT_POOFARTI) && (type != RENT_SWAPARTI) )
+    && (type != RENT_POOFARTI) && (type != RENT_SWAPARTI) && (type != RENT_FIGHTARTI) )
   {
     for (i = 0; i < MAX_WEAR; i++)
       if (save_equip[i])
         equip_char(ch, save_equip[i], i, 9);
-  
-  
   }
   else
   {
@@ -1724,7 +1722,6 @@ int writeCharacter(P_char ch, int type, int room)
        ch->player.race = af->modifier;
        affect_remove(ch, af);
     }
-      
     /*
      * if not, nuke the equip and inven (it has already been saved)
      */
