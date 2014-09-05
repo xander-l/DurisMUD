@@ -3038,6 +3038,7 @@ void enter_game(P_desc d)
   long     time_gone = 0, hit_g, move_g, heal_time;
   int      mana_g;
   char     Gbuf1[MAX_STRING_LENGTH];
+  bool     nobonus = FALSE;
   P_char   ch = d->character;
   P_desc   i;
 
@@ -3076,6 +3077,7 @@ void enter_game(P_desc d)
     }
     else if(d->rtype == RENT_FIGHTARTI)
     {
+      nobonus = TRUE;
       send_to_char("\r\nYour artifacts argued all night...\r\n", ch);
       cost = restoreItemsOnly(ch, 100);
     }
@@ -3384,7 +3386,10 @@ void enter_game(P_desc d)
 
   // Add well-rested or rested bonus, if applicable.
   // 24 hrs -> 2h well-rested bonus.
-  if( time_gone >= 24 * 60 )
+  if( nobonus )
+  {
+  }
+  else if( time_gone >= 24 * 60 )
   {
     affect_from_char(ch, TAG_WELLRESTED);
     affect_from_char(ch, TAG_RESTED);
