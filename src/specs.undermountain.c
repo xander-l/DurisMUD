@@ -1295,7 +1295,7 @@ int martelo_mstar(P_obj obj, P_char ch, int cmd, char *arg)
     return FALSE;
   }
 
-  if( !IS_ALIVE(ch) || !obj)
+  if( !IS_ALIVE(ch) || !obj )
   {
     return FALSE;
   }
@@ -1310,7 +1310,9 @@ int martelo_mstar(P_obj obj, P_char ch, int cmd, char *arg)
     bad_owner = TRUE;
   }
   else
+  {
     bad_owner = FALSE;
+  }
 
   /* Clerics get the bonus, no one else does */
   if( !bad_owner )
@@ -1343,9 +1345,8 @@ int martelo_mstar(P_obj obj, P_char ch, int cmd, char *arg)
     }
   }
 
-  e_pos = ((obj->loc.wearing->equipment[WIELD] == obj) ? WIELD :
-           (obj->loc.wearing->equipment[SECONDARY_WEAPON] == obj) ?
-           SECONDARY_WEAPON : 0);
+  e_pos = OBJ_WORN_POS( obj, WIELD ) ? WIELD : OBJ_WORN_POS( obj, SECONDARY_WEAPON ) ? SECONDARY_WEAPON : 0;
+
   if( cmd < 1000 || !OBJ_WORN(obj) || !e_pos )
   {
     return FALSE;
