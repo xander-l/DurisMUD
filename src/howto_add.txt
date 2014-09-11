@@ -1,0 +1,19 @@
+This is a help file for coders.  It's designed to help you learn how to
+  add stuff to the mud without breaking anything.  Please note that a
+  good rule to follow is that nothing is up to date, but is can be a good
+  starting place.
+
+Howto Add a Spell:
+  First, add the SPELL_<SPELLNAME> <number> to the list in spells.h (search for LAST_SPELL).
+    <number> should be 1 greater than the last spell listed.
+    Increment LAST_SPELL to be the same as SPELL_<SPELLNAME>
+  Second, write the spell stub definition in the appropriate file (smagic for shaman, blispells for blighter, etc).
+    Write the spell stub in the appropriate .h file (blispells.h or prototypes.h etc.)
+  Third, write a link in skills.c: CREATE_SPELL( .. ) or CREATE_SPELL_MSG( .. ).
+    Just copy/double paste a similar spell and make proper changes to the second paste.
+  Fourth, add the spell to the proper classes/specs via SPELL_ADD( .. ) or SPEC_SPELL_ADD( .. ).
+    Note: the second number is the circle for the spell (ie. 2 => They get it at 6th level in 2nd circle).
+  Fourth, write the spell definition after verifying that everything compiles right.
+  Fifth, test the spell!
+  Sixth, commit/push your new spell.
+

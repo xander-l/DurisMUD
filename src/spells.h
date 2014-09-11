@@ -692,7 +692,8 @@
 #define SPELL_SAP_NATURE             642
 #define SPELL_BLOODSTONE             643
 #define SPELL_RETURN_SOUL            644
-#define LAST_SPELL  SPELL_RETURN_SOUL
+#define SPELL_AMATTER_COLLISION      645
+#define LAST_SPELL  SPELL_AMATTER_COLLISION
 
 #define FIRST_SKILL                  1000  /* should be a decent split point */
 #define SKILL_SNEAK                  1000

@@ -2729,6 +2729,7 @@ void spell_windwalk(int, P_char, char *, int, P_char, P_obj);
 void spell_frost_beacon(int, P_char, char *, int, P_char, P_obj);
 void spell_vapor_strike(int, P_char, char *, int, P_char, P_obj);
 void spell_frost_bolt(int, P_char, char *, int, P_char, P_obj);
+void spell_antimatter_collision(int, P_char, char *, int, P_char, P_obj);
 void spell_ethereal_form(int, P_char, char *, int, P_char, P_obj);
 void spell_conjure_air(int, P_char, char *, int, P_char, P_obj);
 void spell_storm_empathy(int, P_char, char *, int, P_char, P_obj);

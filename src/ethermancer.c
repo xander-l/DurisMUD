@@ -697,8 +697,7 @@ void event_frost_bolt(P_char ch, P_char victim, P_obj obj, void *data)
 
   if (spell_damage(ch, victim, dam, SPLDAM_COLD, SPLDAM_ALLGLOBES, &messages)
       == DAM_NONEDEAD)
-    add_event(event_frost_bolt, PULSE_VIOLENCE, ch, victim, NULL, 0, fdata,
-              sizeof(struct frost_data));
+    add_event(event_frost_bolt, PULSE_VIOLENCE, ch, victim, NULL, 0, fdata, sizeof(struct frost_data));
 }
 
 
@@ -1517,16 +1516,20 @@ void spell_comet(int level, P_char ch, char *arg, int type,
       0
   };
 
-  if(!GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_COSMOMANCER))
+  if( !GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_STARMAGUS) )
   {
     temp = MIN(50, (level + 1));
-    dam = dice(2 * temp, 6);
+    dam = dice(((int)(level/3) + 5), 6) * 3; // A little less than fireball.
   }
   else
-    dam = dice((int)(level * 2.5), 5); // Approximately sunray damage.
+  {
+    dam = dice(((int)(level/3) + 5), 6) * 4; // Fireball damage.
+  }
 
-  if (!StatSave(victim, APPLY_POW, 0))
+  if( !StatSave(victim, APPLY_POW, 0) )
+  {
     dam = (int)(dam *  1.2);
+  }
 
   spell_damage(ch, victim, (int) dam, SPLDAM_GENERIC, 0, &messages);
 }
@@ -2307,8 +2310,7 @@ void spell_static_discharge(int level, P_char ch, char *arg, int type, P_char vi
     act("&+WA web of &+Ycr&+yac&+Lki&+cng &+clig&+Chtn&+cing &+Wappears around you!", TRUE, victim, 0, 0, TO_CHAR);
   }
 
-  add_event(event_static_discharge, delay, victim, ch, NULL, 0,
-    &sdata, sizeof(sdata));
+  add_event(event_static_discharge, delay, victim, ch, NULL, 0, &sdata, sizeof(sdata));
 
 }
 
@@ -2405,7 +2407,7 @@ void spell_conjure_void_elemental(int level, P_char ch, char *arg, int type,
     return;
   }
 
-  if (number(0, 100) < 15 || GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_COSMOMANCER))
+  if (number(0, 100) < 15 || GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_STARMAGUS))
     sum = 1;
   else
     sum = 0;
@@ -2428,12 +2430,12 @@ void spell_conjure_void_elemental(int level, P_char ch, char *arg, int type,
   mlvl = (level / 5) * 2;
   lvl = number(mlvl, mlvl * 3);
 
-  if (GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_COSMOMANCER))
+  if (GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_STARMAGUS))
           mob->player.level = BOUNDED(10, level, 51);
   else
       mob->player.level = BOUNDED(10, lvl, 45);
 
-  if (GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_COSMOMANCER))
+  if (GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_STARMAGUS))
   {
         GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit =
     dice(GET_LEVEL(mob) / 2, 40) + GET_LEVEL(mob) + charisma;
@@ -2510,7 +2512,7 @@ void spell_conjure_ice_elemental(int level, P_char ch, char *arg, int type,
     return;
   }
 
-  if (number(0, 100) < 15 || GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_FROST_MAGUS))
+  if (number(0, 100) < 15 || GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_FROSTMAGUS))
     sum = 1;
   else
     sum = 0;
@@ -2533,12 +2535,12 @@ void spell_conjure_ice_elemental(int level, P_char ch, char *arg, int type,
   mlvl = (level / 5) * 2;
   lvl = number(mlvl, mlvl * 3);
 
-  if (GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_FROST_MAGUS))
+  if (GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_FROSTMAGUS))
           mob->player.level = BOUNDED(10, level, 51);
   else
       mob->player.level = BOUNDED(10, lvl, 45);
 
-  if (GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_FROST_MAGUS))
+  if (GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_FROSTMAGUS))
   {
         GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit =
     dice(GET_LEVEL(mob) / 2, 50) + GET_LEVEL(mob) + charisma;
@@ -2757,3 +2759,80 @@ void spell_etheric_gust(int level, P_char ch, char *arg, int type, P_char victim
     
   CharWait(victim, (3 * WAIT_SEC));
 }
+
+// Event for spec nuke
+// victim and ch have to be backwards for the event search to work right.. *sigh*
+void event_antimatter_collision(P_char victim, P_char ch, P_obj obj, void *data)
+{
+  int temp, dam, duration;
+
+  struct damage_messages messages = {
+    "",
+    "&+LTiny orbs of anti-matter &=LYCO&+WL&+YLI&+WD&+YE&n &+Linto you absorbing your very flesh!",
+    "",
+    "&+LYou &+Ws&+wh&+Wi&+wv&+We&+wr &+Las you watch the tiny black orbs absorb the majority of $N who drops dead and lifeless.",
+    "&+LThe black orbs crash into you and invade your very center causing your &+Mbr&+mai&+Mn &+Land internal &+Ror&+rga&+Rns &+Lto shut down.&n",
+    "&+LYou &+Ws&+wh&+Wi&+wv&+We&+wr &+Las you watch the tiny black orbs absorb the majority of $N who drops dead and lifeless.",
+      0
+  };
+
+  duration = *((int *) data);
+  // 40-60 damage.
+  dam = 200 + number( -40, 40);
+
+  if( !NewSaves(victim, SAVING_SPELL, 3) )
+  {
+    dam = (int)(dam *  1.2);
+  }
+
+  if( spell_damage(ch, victim, (int) dam, SPLDAM_NEGATIVE, 0, &messages) == DAM_NONEDEAD
+    && --duration > 0 )
+  {
+    // This has to be backwards for the event search to work right.. *sigh*
+    add_event(event_antimatter_collision, (PULSE_SPELLCAST * 3) / 2, victim, ch, NULL, 0, &duration, sizeof(int));
+  }
+}
+
+// Spec nuke.
+void spell_antimatter_collision(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
+{
+  int duration = 3;
+  P_nevent e1 = NULL;
+  bool found = FALSE;
+
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+  {
+    return;
+  }
+
+  // Look for an event already going on.
+  for( e1 = victim->nevents; e1; e1 = e1->next )
+  {
+    if( e1->func == event_antimatter_collision )
+    {
+      found = TRUE;
+      break;
+    }
+  }
+
+  // If there's an event already going on, suck it's data and kill it!
+  if( found )
+  {
+    duration += *((int *) e1->data);
+    disarm_char_events(victim, event_antimatter_collision);
+
+    act("&+LMore small black orbs rush out of the rift crashing into $N!", TRUE, ch, 0, victim, TO_CHAR);
+    act("&+LMore small black orbs come rushing out of the rift swarming you!", TRUE, ch, 0, victim, TO_VICT);
+    act("&+LMore small black orbs rush out of the rift crashing into $N!", TRUE, ch, 0, victim, TO_NOTVICT);
+  }
+  else
+  {
+    act("&+wYou open up a &+Ymighty &+WCo&+Ysm&+Wi&+Yc &+Lrift &+win &+Lspace &+wand tiny &+Lblack dots &+wcome pouring out &+Yco&+Ll&+Yl&+Lid&+Ying &+wwith $N&+L!", TRUE, ch, 0, victim, TO_CHAR);
+    act("&+LA black rift opens in which you see &+Ws&+Yta&+Wr&+Ys &+Land &+Yco&+yme&+Yts&+L when suddenly small black orbs come pouring out crashing into you!", TRUE, ch, 0, victim, TO_VICT);
+    act("&+LA HUGE &+YCo&+Wsm&+Yic &+LRift opens and tiny black orbs come flying out and slam into $N&n!", TRUE, ch, 0, victim, TO_NOTVICT);
+  }
+
+  // This has to be backwards for the event search to work right.. *sigh*
+  add_event(event_antimatter_collision, PULSE_SPELLCAST*2, victim, ch, NULL, 0, &duration, sizeof(int));
+}
+
