@@ -2386,7 +2386,7 @@ void die(P_char ch, P_char killer)
     advance_level(ch);
   }
 */
-  if(IS_PC(ch) && (GET_RACE(ch) == RACE_PLICH) && !isname( GET_NAME(ch), "Ak") )
+  if(IS_PC(ch) && (GET_RACE(ch) == RACE_PLICH) && !isname( GET_NAME(ch), "Aktosh") )
   {
     if((oldlev <= GET_LEVEL(ch)) && (GET_RACE(ch) == RACE_PLICH))
     {
