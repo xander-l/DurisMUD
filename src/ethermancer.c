@@ -2767,9 +2767,9 @@ void event_antimatter_collision(P_char victim, P_char ch, P_obj obj, void *data)
   int temp, dam, duration;
 
   struct damage_messages messages = {
-    "",
+    "&+LThe black dots swarm and COLLIDE with $N&+L absorbing his &+Mfl&+mes&+Mh&+L!&n",
     "&+LTiny orbs of anti-matter &=LYCO&+WL&+YLI&+WD&+YE&n &+Linto you absorbing your very flesh!",
-    "",
+    "&+LThe black dots swarm and COLLIDE with $N&+L absorbing his &+Mfl&+mes&+Mh&+L!&n",
     "&+LYou &+Ws&+wh&+Wi&+wv&+We&+wr &+Las you watch the tiny black orbs absorb the majority of $N who drops dead and lifeless.",
     "&+LThe black orbs crash into you and invade your very center causing your &+Mbr&+mai&+Mn &+Land internal &+Ror&+rga&+Rns &+Lto shut down.&n",
     "&+LYou &+Ws&+wh&+Wi&+wv&+We&+wr &+Las you watch the tiny black orbs absorb the majority of $N who drops dead and lifeless.",
@@ -2818,7 +2818,7 @@ void spell_antimatter_collision(int level, P_char ch, char *arg, int type, P_cha
   // If there's an event already going on, suck it's data and kill it!
   if( found )
   {
-    duration += *((int *) e1->data);
+    duration = *((int *) e1->data) + 2;
     disarm_char_events(victim, event_antimatter_collision);
 
     act("&+LMore small black orbs rush out of the rift crashing into $N!", TRUE, ch, 0, victim, TO_CHAR);
