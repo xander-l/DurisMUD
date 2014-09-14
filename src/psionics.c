@@ -1227,10 +1227,14 @@ void spell_detonate(int level, P_char ch, char *arg, int type, P_char victim, P_
 
   dam = dice(MIN(level, 40) * 2, 8);
   dam += 2 * GET_DAMROLL(ch);
+
+// +2 damage per level?  Hell no! Not for a Lich. That's +102 damage at 56!!!
+//   Howabout, +.25 damage per level -> +14 damage at 56.
   if( GET_CLASS(ch, CLASS_MINDFLAYER) )
   {
-    dam += level * 8;
+    dam += level;
   }
+
   // spell_damage already doubles against pets - Jexni 6/21/08
   if( GET_RACE(victim) == RACE_GOLEM || GET_RACE(victim) == RACE_PLANT )
   {
@@ -1249,14 +1253,13 @@ void spell_detonate(int level, P_char ch, char *arg, int type, P_char victim, P_
     }
   }
 
-  if( !StatSave(victim, APPLY_POW, (GET_LEVEL(victim) - GET_LEVEL(ch)) / 5)
-    && !IS_ELITE(victim) )
+  if( !StatSave(victim, APPLY_POW, (GET_LEVEL(victim) - GET_LEVEL(ch)) / 5) && !IS_ELITE(victim) )
   {
     spell_damage(ch, victim, dam, SPLDAM_PSI, SPLDAM_NOSHRUG, &messages);
   }
   else
   {
-   spell_damage(ch, victim, dam >> 1, SPLDAM_PSI, SPLDAM_NOSHRUG, &messages);
+   spell_damage(ch, victim, dam / 2, SPLDAM_PSI, SPLDAM_NOSHRUG, &messages);
   }
 
   CharWait(ch, (int) (PULSE_SPELLCAST * 1));
