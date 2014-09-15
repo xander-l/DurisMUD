@@ -716,8 +716,7 @@ int check_random_drop(P_char ch, P_char mob, int piece)
   return 0;
 }
 
-P_obj create_random_eq_new(P_char killer, P_char mob, int object_type,
-                           int material_type)
+P_obj create_random_eq_new(P_char killer, P_char mob, int object_type, int material_type)
 {
   P_obj    obj;
   int      ansi_n = 0;
@@ -731,15 +730,17 @@ P_obj create_random_eq_new(P_char killer, P_char mob, int object_type,
   char     buf_temp[MAX_STRING_LENGTH];
 
   /*         Load the random item blank    */
-
-  if (object_type == -1)
+  if( object_type == -1 )
   {
-// This is hack to make equipment load more often than weapons. Aug09 -Lucrot
-    
-    if(number(0, 2))
+    // This is hack to make equipment load more often than weapons. Aug09 -Lucrot
+    if( number(0, 2) )
+    {
       slot = number(0, 70); // Worn eq
+    }
     else
+    {
       slot = number(0, MAX_SLOT - 1); // Anything
+    }
   }
   else
   {
@@ -747,12 +748,19 @@ P_obj create_random_eq_new(P_char killer, P_char mob, int object_type,
   }
 
   if (slot_data[slot].wear_bit == ITEM_WIELD)
+  {
     obj = read_object(RANDOM_EQ_VNUM + 2, VIRTUAL);
+  }
   else
+  {
     obj = read_object(RANDOM_EQ_VNUM, VIRTUAL);
+  }
 
-  if (!obj)
+  if( !obj )
+  {
+    send_to_char( "Failed to load a new item.\n\r", killer );
     return NULL;
+  }
 
   prefix = number(0, MAXPREFIX);
 
@@ -765,10 +773,14 @@ P_obj create_random_eq_new(P_char killer, P_char mob, int object_type,
       // howgood = howgood + (killer->only.pc->frags / 200);  // the rewards for pvp increase...
   // }
 
-  if (material_type == -1)
+  if( material_type == -1 )
+  {
     material = BOUNDED(1, number(MIN(GET_LEVEL(killer) / 3, howgood), howgood), MAXMATERIAL);
+  }
   else
+  {
     material = BOUNDED(1, material_type, MAXMATERIAL);
+  }
 
   zone = &zone_table[world[killer->in_room].zone];
 
@@ -777,38 +789,42 @@ P_obj create_random_eq_new(P_char killer, P_char mob, int object_type,
   ansi_n = strcmp(buf_temp, zone->name);
 
 
-  if (IS_PC(killer))
-    sprintf(buf_temp, "%s", GET_NAME(killer));
-  else
-    sprintf(buf_temp, "%s", mob->player.short_descr);
-
-    /*      Set the items name!   */
-  if (!number(0, (int) (400 / (GET_LEVEL(killer) + GET_C_LUK(killer) + GET_LEVEL(mob)))) && \
-       material_type == -1 && ansi_n && (IS_PC(killer) || mob_index[GET_RNUM(killer)].func.mob != shop_keeper))
+  if( IS_PC(killer) )
   {
+    sprintf(buf_temp, "%s", GET_NAME(killer));
+  }
+  else
+  {
+    sprintf(buf_temp, "%s", mob->player.short_descr);
+  }
+
+  /*      Set the items name!   */
+  if( !number(0, (int) (400 / (GET_LEVEL(killer) + GET_C_LUK(killer) + GET_LEVEL(mob)))) && \
+       material_type == -1 && ansi_n && (IS_PC(killer) || mob_index[GET_RNUM(killer)].func.mob != shop_keeper) )
+  {
+    if( IS_NEWBIE(killer) )
+    {
+      send_to_char( "You got a named random item!  Use 'help named equipment' for a list of what named eq can do for you!\n\r", killer );
+    }
     sprintf(buf1, "random _noquest_ %s %s %s %s", strip_ansi(prefix_data[prefix].m_name).c_str(),
-            strip_ansi(material_data[material].m_name).c_str(),
-            strip_ansi(slot_data[slot].m_name).c_str(), strip_ansi(zone->name).c_str());
-    if (slot_data[slot].m_name[strlen(slot_data[slot].m_name) - 3] == 's')
+      strip_ansi(material_data[material].m_name).c_str(),
+      strip_ansi(slot_data[slot].m_name).c_str(), strip_ansi(zone->name).c_str());
+    if( slot_data[slot].m_name[strlen(slot_data[slot].m_name) - 3] == 's' )
     {
       sprintf(buf2, "some %s %s %s &+rfrom %s&n", prefix_data[prefix].m_name,
-              material_data[material].m_name, slot_data[slot].m_name,
-              zone->name);
+        material_data[material].m_name, slot_data[slot].m_name, zone->name);
       sprintf(buf3, "Some %s %s %s &+rfrom %s&n lie here on the ground.",
-              prefix_data[prefix].m_name, material_data[material].m_name,
-              slot_data[slot].m_name, zone->name);
+        prefix_data[prefix].m_name, material_data[material].m_name,
+        slot_data[slot].m_name, zone->name);
     }
     else
     {
-      sprintf(buf2, "%s %s %s %s &+rfrom %s&n",
-              VOWEL(prefix_data[prefix].m_name[3]) ? "an" : "a",
-	      prefix_data[prefix].m_name,
-              material_data[material].m_name, slot_data[slot].m_name,
-              zone->name);
+      sprintf(buf2, "%s %s %s %s &+rfrom %s&n", VOWEL(prefix_data[prefix].m_name[3]) ? "an" : "a",
+	      prefix_data[prefix].m_name, material_data[material].m_name, slot_data[slot].m_name, zone->name);
       sprintf(buf3, "%s %s %s %s &+rfrom %s&n lies here on the ground.",
-              VOWEL(prefix_data[prefix].m_name[3]) ? "An" : "a",
-              prefix_data[prefix].m_name, material_data[material].m_name,
-              slot_data[slot].m_name, zone->name);
+        VOWEL(prefix_data[prefix].m_name[3]) ? "An" : "a",
+        prefix_data[prefix].m_name, material_data[material].m_name,
+        slot_data[slot].m_name, zone->name);
     }
     /*  Zone named items get a higher chance to get multiple affects set */
     obj = setsuffix_obj_new(obj);

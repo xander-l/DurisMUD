@@ -685,46 +685,54 @@ void do_newbie(P_char ch, char *argument, int cmd)
   P_char victim;
   char buf[MAX_INPUT_LENGTH];
 
-  if(IS_NPC(ch))
+  if( IS_NPC(ch) )
+  {
     return;
+  }
 
   one_argument(argument, buf);
 
-  if(!*buf) {
+  if( !*buf )
+  {
     send_to_char("Who's newbie status do you wish to toggle?\n", ch);
     return;
   }
 
-  if(!(victim = get_char_vis(ch, buf))) {
+  if( !(victim = get_char_vis(ch, buf)) )
+  {
     send_to_char("No-one by that name around.\n", ch);
     return;
   }
 
-  if(IS_TRUSTED(victim)) {
+  // Can set self for testing.
+  if( IS_TRUSTED(victim) && victim != ch)
+  {
     send_to_char("Haha. Very funny.\n", ch);
     return;
   }
 
-  if(GET_LEVEL(victim) > 49) {
+  if( GET_LEVEL(victim) > 49 && victim != ch )
+  {
     send_to_char("Aren't they a little high level to be considered a newbie?\n", ch);
     return;
   }
 
   PLR2_TOG_CHK(victim, PLR2_NEWBIE);
 
-  if(IS_SET(PLR2_FLAGS(victim), PLR2_NEWBIE)) {
+  if( IS_SET(PLR2_FLAGS(victim), PLR2_NEWBIE) )
+  {
     send_to_char("You turned on their newbie status.\n", ch);
-      SET_BIT(victim->specials.act2, PLR2_NCHAT);
-
-  } else {
+    SET_BIT(victim->specials.act2, PLR2_NCHAT);
+  }
+  else
+  {
     send_to_char("You turned off their newbie status.\n", ch);
-      REMOVE_BIT(victim->specials.act2, PLR2_NCHAT);
+    REMOVE_BIT(victim->specials.act2, PLR2_NCHAT);
   }
 
   do_save_silent(victim, 1);
 
   logit(LOG_WIZ, "%s toggled %s's newbie status.", ch->player.name, victim->player.name);
-
 }
 
 // This function toggles a player's newbie helper status
