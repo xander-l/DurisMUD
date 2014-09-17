@@ -897,55 +897,56 @@ void do_rage(P_char ch, char *argument, int cmd)
   struct affected_type af;
   int dura;
 
-  if(!ch ||
-    !CAN_ACT(ch) ||
-    IS_IMMOBILE(ch))
-        return;
+  if( !IS_ALIVE(ch) || !CAN_ACT(ch) || IS_IMMOBILE(ch) )
+  {
+    return;
+  }
 
-  if (!affected_by_spell(ch, SKILL_BERSERK))
+  if( !affected_by_spell(ch, SKILL_BERSERK) )
   {
     send_to_char("You are not quite angry enough..\r\n", ch);
     return;
   }
-        
-  if (!GET_CHAR_SKILL(ch, SKILL_RAGE))
+
+  if( !GET_CHAR_SKILL(ch, SKILL_RAGE) )
   {
     send_to_char("You are already crazy, go away.\r\n", ch);
     return;
   }
 
-  if (affected_by_spell(ch, SKILL_RAGE))
+  if( affected_by_spell(ch, SKILL_RAGE) )
   {
     send_to_char("You are too deep in battle madness!\r\n", ch);
     return;
   }
 
-  if (affected_by_spell(ch, SKILL_RAGE_REORIENT))
+  if( affected_by_spell(ch, SKILL_RAGE_REORIENT) )
   {
     send_to_char("You have not yet recovered from your last fit of &+rBloodLust&n!\r\n", ch);
-	return;
+    return;
   }
 
-  
-  if(number(1, 105) > GET_CHAR_SKILL(ch, SKILL_RAGE))
+  if( number(1, 105) > GET_CHAR_SKILL(ch, SKILL_RAGE) )
   {
     send_to_char("&+RYou are unable to call forth the rage within you...\r\n", ch);
     CharWait(ch, 2 * PULSE_VIOLENCE);
     return;
   }
-  
-  notch_skill(ch, SKILL_RAGE, (int) get_property("skill.notch.offensive", 7));
-        
-  if(!(GET_SPEC(ch, CLASS_BERSERKER, SPEC_RAGELORD)))
-    CharWait(ch, 1.5 * PULSE_VIOLENCE);
-  else
-    CharWait(ch, (int)(0.5 * PULSE_VIOLENCE));
 
-  act("&+rYou feel a rage start to come from within...\n",
-    FALSE, ch, 0, 0, TO_CHAR);
+  notch_skill(ch, SKILL_RAGE, (int) get_property("skill.notch.offensive", 7));
+
+  if(!(GET_SPEC(ch, CLASS_BERSERKER, SPEC_RAGELORD)))
+  {
+    CharWait(ch, 1.5 * PULSE_VIOLENCE);
+  }
+  else
+  {
+    CharWait(ch, (int)(0.5 * PULSE_VIOLENCE));
+  }
+
+  act("&+rYou feel a rage start to come from within...\n", FALSE, ch, 0, 0, TO_CHAR);
   send_to_char("&+rYou are filled with a HUGE rush of BLOODLUST!\r\n", ch);
-  act("$n fills with a &+RSURGE&n of &+rBLoOdLuST! ROARRRRRRRR!!!\r\n",
-    FALSE, ch, 0, 0, TO_ROOM);
+  act("$n fills with a &+RSURGE&n of &+rBLoOdLuST! ROARRRRRRRR!!!\r\n", FALSE, ch, 0, 0, TO_ROOM);
 
   dura = (4 * PULSE_VIOLENCE * GET_CHAR_SKILL(ch, SKILL_RAGE)) / 100;
 
@@ -957,7 +958,7 @@ void do_rage(P_char ch, char *argument, int cmd)
   af.duration = dura;
   affect_to_char(ch, &af);
 
-  set_short_affected_by(ch, SKILL_RAGE_REORIENT, (dura * 2));
+  set_short_affected_by(ch, SKILL_RAGE_REORIENT, (dura * 3 ) / 2);
 }
 
 /*
