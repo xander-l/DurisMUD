@@ -1310,64 +1310,90 @@ int rename_ship(P_char ch, P_ship ship, char* new_name)
 int buy_cargo(P_char ch, P_ship ship, char* arg)
 {
     int rroom = 0;
-        
-    while (rroom < NUM_PORTS) 
+
+    while( rroom < NUM_PORTS )
     {
-        if (ports[rroom].loc_room == world[ch->in_room].number)
-            break;
+        if( ports[rroom].loc_room == world[ch->in_room].number )
+        {
+          break;
+        }
         rroom++;
     }
-    if (rroom >= NUM_PORTS) 
+    if( rroom >= NUM_PORTS )
     {
         send_to_char("What cargo? We don't sell any cargo here!\r\n", ch);
         return TRUE;
     }
-    if (SHIP_MAX_CARGO(ship) == 0)
+    if( SHIP_MAX_CARGO(ship) == 0 && !(IS_WARSHIP(ship) && isname( GET_NAME(ch), "Soldon")) )
     {
         send_to_char("You ship has no space for cargo.\r\n", ch);
-        return TRUE;    
+        return TRUE;
     }
-    if (!is_number(arg)) 
+    if( !is_number(arg) )
     {
         send_to_char("Valid syntax is 'buy cargo <number of crates>'\r\n", ch);
         return TRUE;
     }
     int asked_for = atoi(arg);
-    if (asked_for < 1) 
+    if( asked_for < 1 )
     {
         send_to_char("Please enter a valid number of crates to buy.\r\n", ch);
         return TRUE;
     }
 
-    if (SHIP_AVAIL_CARGO_LOAD(ship) <= 0)
+    if( SHIP_AVAIL_CARGO_LOAD(ship) <= 0 && !(IS_WARSHIP(ship) && isname( GET_NAME(ch), "Soldon")) )
     {
         send_to_char("You don't have any space left on your ship!\r\n", ch);
         return TRUE;
     }
-    else if (asked_for > SHIP_AVAIL_CARGO_LOAD(ship))
+    if( asked_for > SHIP_AVAIL_CARGO_LOAD(ship) && !(IS_WARSHIP(ship) && isname( GET_NAME(ch), "Soldon")) )
     {
         send_to_char_f(ch, "You only have space for %d more crates!\r\n", SHIP_AVAIL_CARGO_LOAD(ship));
         return TRUE;
     }
 
     int slot;
-    for (slot = 0 ; slot < MAXSLOTS; ++slot) 
+    if( IS_WARSHIP(ship) && isname( GET_NAME(ch), "Soldon") )
     {
-        if (ship->slot[slot].type == SLOT_CARGO && ship->slot[slot].index == rroom)
-            break;
+      struct ShipSlot *lastSlot = &(ship->slot[MAXSLOTS-1]);
+      int max_avail = 10 - ((lastSlot->type == SLOT_EMPTY) ? 0 :
+        (lastSlot->type == SLOT_CARGO && lastSlot->index == rroom) ? lastSlot->val0 : 10);
+      // Allowing Soldon to have last slot as cargo/contra.
+      slot = MAXSLOTS-1;
+      if( ship->slot[slot].type == SLOT_EMPTY || max_avail >= asked_for )
+      {
+        send_to_char( "&+YYou open up your secret cargo hold.&n\n\r", ch );
+      }
+      else
+      {
+        // Set slot to MAX_SLOTS and be done with it.
+        slot++;
+      }
     }
-    if (slot == MAXSLOTS)
+    else
     {
-        for (slot = 0 ; slot < MAXSLOTS; ++slot) 
+    for( slot = 0 ; slot < MAXSLOTS; ++slot )
+    {
+      if (ship->slot[slot].type == SLOT_CARGO && ship->slot[slot].index == rroom)
+      {
+        break;
+      }
+    }
+    if( slot == MAXSLOTS )
+    {
+      for (slot = 0 ; slot < MAXSLOTS; ++slot)
+      {
+        if (ship->slot[slot].type == SLOT_EMPTY)
         {
-            if (ship->slot[slot].type == SLOT_EMPTY) 
-                break;
+          break;
         }
+      }
     }
-    if (slot == MAXSLOTS) 
+    }
+    if( slot == MAXSLOTS )
     {
-        send_to_char("You do not have a free slot to fit this cargo into!\r\n", ch);
-        return TRUE;
+      send_to_char("You do not have a free slot to fit this cargo into!\r\n", ch);
+      return TRUE;
     }
 
     int unit_cost = cargo_sell_price(rroom);
@@ -1379,16 +1405,16 @@ int buy_cargo(P_char ch, P_ship ship, char* arg)
     //if (GET_LEVEL(ch) < 50)
     //    cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);
 
-    if (GET_MONEY(ch) < cost) 
+    if( GET_MONEY(ch) < cost )
     {
         send_to_char_f(ch, "This cargo load costs %s&n!\r\n", coin_stringv(cost));
         return TRUE;
     }
 
     int placed = asked_for;
-    if (ship->slot[slot].type == SLOT_CARGO)
+    if( ship->slot[slot].type == SLOT_CARGO )
     {
-        ship->slot[slot].val0 += placed; 
+        ship->slot[slot].val0 += placed;
         ship->slot[slot].val1 += cost;
     }
     else
@@ -1402,8 +1428,8 @@ int buy_cargo(P_char ch, P_ship ship, char* arg)
 
     sprintf(buf, "CARGO: %s bought &+W%d&n %s&n at %s&n [%d] for %s", GET_NAME(ch), placed, cargo_type_name(rroom), ports[rroom].loc_name, ports[rroom].loc_room, coin_stringv(cost));
     statuslog(56, buf);
-    logit(LOG_SHIP, strip_ansi(buf).c_str());  
-  
+    logit(LOG_SHIP, strip_ansi(buf).c_str());
+
     send_to_char_f(ch, "You buy &+W%d&n crates of %s&n for %s.\r\n", placed, cargo_type_name(rroom), coin_stringv(cost) );
 
     SUB_MONEY(ch, cost, 0);
@@ -1420,130 +1446,154 @@ int buy_cargo(P_char ch, P_ship ship, char* arg)
 
 int buy_contra(P_char ch, P_ship ship, char* arg)
 {
-    int rroom = 0;
-    while (rroom < NUM_PORTS) 
-    {
-        if (ports[rroom].loc_room == world[ch->in_room].number) 
-            break;
-        rroom++;
-    }
-    if (rroom >= NUM_PORTS) 
-    {
-        send_to_char("What contraband?  We don't sell any contraband!\r\n", ch);
-        return TRUE;
-    }
-    if (!IS_TRUSTED(ch) && GET_ALIGNMENT(ch) > MINCONTRAALIGN) 
-    {
-        send_to_char ("Goodie goodie two shoes like you shouldn't think of contraband.\r\n", ch);
-        return TRUE;
-    }
-    if (!IS_TRUSTED(ch) && !can_buy_contraband(ship, rroom)) 
-    {
-        send_to_char ("Contraband?! *gasp* how could you even think that I would sell such things!\r\n", ch);
-        return TRUE;
-    }
-    if (SHIP_MAX_CONTRA(ship) == 0)
-    {
-        send_to_char("You ship has no places to hide contraband.\r\n", ch);
-        return TRUE;
-    }
-    if (!is_number(arg)) 
-    {
-        send_to_char("Invalid number of crates!  Syntax is 'buy contraband <number of crates>'\r\n", ch);
-        return TRUE;
-    }
+  int rroom = 0;
 
-    int asked_for = atoi(arg);
-    if (asked_for < 1) 
+  while( rroom < NUM_PORTS )
+  {
+    if (ports[rroom].loc_room == world[ch->in_room].number)
     {
-        send_to_char("Please enter a valid number of crates to buy.\r\n", ch);
-        return TRUE;
+      break;
     }
-
-    if (SHIP_AVAIL_CARGO_LOAD(ship) <= 0)
-    {
-        send_to_char("You don't have any space left on your ship!\r\n", ch);
-        return TRUE;
-    }
-    // max contraband amount reduced proportionally to total available cargo load
-    int contra_max = int ((float)SHIP_MAX_CONTRA(ship) * ((float)SHIP_MAX_CARGO_LOAD(ship) / (float)SHIP_MAX_CARGO(ship)));
-    int contra_avail = contra_max - SHIP_CONTRA(ship);
-    if (contra_avail <= 0)
-    {
-        send_to_char("You don't have any space left on your ship to hide contraband!\r\n", ch);
-        return TRUE;
-    }
-    int max_avail = MIN(SHIP_AVAIL_CARGO_LOAD(ship), contra_avail);
-    if (asked_for > max_avail)
-    {
-        send_to_char_f(ch, "You only have space for %d more crates of contraband to hide!\r\n", max_avail);
-        return TRUE;
-    }
-    
-    int slot;
-    for (slot = 0 ; slot < MAXSLOTS; ++slot) 
-    {
-        if (ship->slot[slot].type == SLOT_CONTRABAND && ship->slot[slot].index == rroom)
-            break;
-    }
-    if (slot == MAXSLOTS)
-    {
-        for (slot = 0 ; slot < MAXSLOTS; ++slot) 
-        {
-            if (ship->slot[slot].type == SLOT_EMPTY) 
-                break;
-        }
-    }
-    if (slot == MAXSLOTS) 
-    {
-        send_to_char("You do not have a free slot to fit this contraband into!\r\n", ch);
-        return TRUE;
-    }
-  
-    int unit_cost = contra_sell_price(rroom);
-
-    int cost = asked_for * unit_cost;
-
-    //if (GET_LEVEL(ch) < 50) 
-    //    cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);
-
-    if (GET_MONEY(ch) < cost) 
-    {
-        send_to_char_f(ch, "This contraband costs %s!\r\n", coin_stringv(cost));
-        return TRUE;
-    }
-
-    int placed = asked_for;
-    if (ship->slot[slot].type == SLOT_CONTRABAND)
-    {
-        ship->slot[slot].val0 += placed; 
-        ship->slot[slot].val1 += cost;
-    }
-    else
-    {
-        ship->slot[slot].type = SLOT_CONTRABAND;
-        ship->slot[slot].index = rroom;
-        ship->slot[slot].position = SLOT_HOLD;
-        ship->slot[slot].val0 = placed;
-        ship->slot[slot].val1 = cost;
-    }
-
-    sprintf(buf, "CONTRABAND: %s bought &+W%d&n %s&n at %s&n [%d] for %s", GET_NAME(ch), placed, contra_type_name(rroom), ports[rroom].loc_name, ports[rroom].loc_room, coin_stringv(cost));
-    statuslog(56, buf);
-    logit(LOG_SHIP, strip_ansi(buf).c_str());  
-  
-    send_to_char_f(ch, "You buy &+W%d&n crates of %s&n for %s.\r\n", placed, contra_type_name(rroom), coin_stringv(cost) );
-
-    SUB_MONEY(ch, cost, 0);
-
-    // economy affect
-    adjust_ship_market(BOUGHT_CONTRA, rroom, rroom, placed);
-
-    send_to_char ("Thank you for your 'purchase' *snicker*, your 'cargo' is loaded and set to go!\r\n", ch);
-
-    update_ship_status(ship);
-    write_ship(ship);
+    rroom++;
+  }
+  if( rroom >= NUM_PORTS )
+  {
+    send_to_char("What contraband?  We don't sell any contraband!\r\n", ch);
     return TRUE;
+  }
+  if( !IS_TRUSTED(ch) && GET_ALIGNMENT(ch) > MINCONTRAALIGN )
+  {
+    send_to_char ("Goodie goodie two shoes like you shouldn't think of contraband.\r\n", ch);
+    return TRUE;
+  }
+  if( !IS_TRUSTED(ch) && !can_buy_contraband(ship, rroom) )
+  {
+    send_to_char ("Contraband?! *gasp* how could you even think that I would sell such things!\r\n", ch);
+    return TRUE;
+  }
+  if( SHIP_MAX_CONTRA(ship) == 0 && !(IS_WARSHIP(ship) && isname( GET_NAME(ch), "Soldon")) )
+  {
+    send_to_char("You ship has no places to hide contraband.\r\n", ch);
+    return TRUE;
+  }
+  if( !is_number(arg) )
+  {
+    send_to_char("Invalid number of crates!  Syntax is 'buy contraband <number of crates>'\r\n", ch);
+    return TRUE;
+  }
+
+  int asked_for = atoi(arg);
+  if( asked_for < 1 )
+  {
+    send_to_char("Please enter a valid number of crates to buy.\r\n", ch);
+    return TRUE;
+  }
+  if( SHIP_AVAIL_CARGO_LOAD(ship) <= 0 && !(IS_WARSHIP(ship) && isname( GET_NAME(ch), "Soldon")) )
+  {
+    send_to_char("You don't have any space left on your ship!\r\n", ch);
+    return TRUE;
+  }
+  // max contraband amount reduced proportionally to total available cargo load
+  int contra_max = int ((float)SHIP_MAX_CONTRA(ship) * ((float)SHIP_MAX_CARGO_LOAD(ship) / (float)SHIP_MAX_CARGO(ship)));
+  int contra_avail = contra_max - SHIP_CONTRA(ship);
+  if( IS_WARSHIP(ship) && isname( GET_NAME(ch), "Soldon") )
+  {
+    contra_avail = 10;
+  }
+  if( contra_avail <= 0 )
+  {
+    send_to_char("You don't have any space left on your ship to hide contraband!\r\n", ch);
+    return TRUE;
+  }
+  int max_avail = MIN(SHIP_AVAIL_CARGO_LOAD(ship), contra_avail);
+  if( IS_WARSHIP(ship) && isname( GET_NAME(ch), "Soldon") )
+  {
+    struct ShipSlot *lastSlot = &(ship->slot[MAXSLOTS-1]);
+
+    max_avail = 10 - ((lastSlot->type == SLOT_EMPTY) ? 0 :
+      (lastSlot->type == SLOT_CONTRABAND && lastSlot->index == rroom) ? lastSlot->val0 : 10);
+  }
+  if( asked_for > max_avail )
+  {
+    send_to_char_f(ch, "You only have space for %d more crates of contraband to hide!\r\n", max_avail);
+    return TRUE;
+  }
+
+  int slot;
+  if( !(IS_WARSHIP(ship) && isname( GET_NAME(ch), "Soldon" )) )
+  {
+  for (slot = 0 ; slot < MAXSLOTS; ++slot)
+  {
+    if( ship->slot[slot].type == SLOT_CONTRABAND && ship->slot[slot].index == rroom )
+    {
+      break;
+    }
+  }
+  }
+  else
+  {
+    slot = MAXSLOTS-1;
+  }
+
+  if (slot == MAXSLOTS)
+  {
+    for( slot = 0 ; slot < MAXSLOTS; ++slot )
+    {
+      if( ship->slot[slot].type == SLOT_EMPTY )
+      {
+        break;
+      }
+    }
+  }
+  if( slot == MAXSLOTS )
+  {
+    send_to_char("You do not have a free slot to fit this contraband into!\r\n", ch);
+    return TRUE;
+  }
+
+  int unit_cost = contra_sell_price(rroom);
+  int cost = asked_for * unit_cost;
+
+  //if (GET_LEVEL(ch) < 50)
+  //    cost = (int) (cost * (float) GET_LEVEL(ch) / 50.0);
+
+  if( GET_MONEY(ch) < cost )
+  {
+    send_to_char_f(ch, "This contraband costs %s!\r\n", coin_stringv(cost));
+    return TRUE;
+  }
+
+  int placed = asked_for;
+  if (ship->slot[slot].type == SLOT_CONTRABAND)
+  {
+    ship->slot[slot].val0 += placed;
+    ship->slot[slot].val1 += cost;
+  }
+  else
+  {
+    ship->slot[slot].type = SLOT_CONTRABAND;
+    ship->slot[slot].index = rroom;
+    ship->slot[slot].position = SLOT_HOLD;
+    ship->slot[slot].val0 = placed;
+    ship->slot[slot].val1 = cost;
+  }
+
+  sprintf(buf, "CONTRABAND: %s bought &+W%d&n %s&n at %s&n [%d] for %s", GET_NAME(ch), placed, contra_type_name(rroom), ports[rroom].loc_name, ports[rroom].loc_room, coin_stringv(cost));
+  statuslog(56, buf);
+  logit(LOG_SHIP, strip_ansi(buf).c_str());
+
+  send_to_char_f(ch, "You buy &+W%d&n crates of %s&n for %s.\r\n", placed, contra_type_name(rroom), coin_stringv(cost) );
+
+  SUB_MONEY(ch, cost, 0);
+
+  // economy affect
+  adjust_ship_market(BOUGHT_CONTRA, rroom, rroom, placed);
+
+  send_to_char ("Thank you for your 'purchase' *snicker*, your 'cargo' is loaded and set to go!\r\n", ch);
+
+  update_ship_status(ship);
+  write_ship(ship);
+  return TRUE;
 }
 
 int buy_weapon(P_char ch, P_ship ship, char* arg1, char* arg2)
