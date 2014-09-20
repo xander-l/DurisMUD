@@ -457,54 +457,53 @@ void spell_shadow_travel(int level, P_char ch, char *arg, int type,
 }
 
 
-void spell_stunning_visions(int level, P_char ch, char *arg, int type,
-                            P_char victim, P_obj obj)
+void spell_stunning_visions(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
-
   int percent = level + number(-10, 10);
 
-  if(!(ch) ||
-    !(victim) ||
-    !IS_ALIVE(victim) ||
-    GET_HIT(victim) < 1 ||
-    !IS_ALIVE(ch) ||
-    IS_TRUSTED(victim) ||
-    IS_ZOMBIE(victim) ||
-    GET_RACE(victim) == RACE_GOLEM ||
-    GET_RACE(victim) == RACE_PLANT ||
-    IS_GREATER_RACE(victim))
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) || GET_HIT(victim) < 1
+    || IS_TRUSTED(victim) || IS_ZOMBIE(victim) || GET_RACE(victim) == RACE_GOLEM
+    || GET_RACE(victim) == RACE_PLANT || IS_GREATER_RACE(victim) )
   {
     send_to_char("&+rYour target is immune!\r\n", ch);
     return;
   }
-  
+
   if(resists_spell(ch, victim))
   {
     return;
   }
-  
-  if(IS_STUNNED(victim))
+
+  if( IS_STUNNED(victim) )
   {
     send_to_char("Your target is already stunned!\r\n", ch);
     return;
   }
- 
-  if(NewSaves(ch, SAVING_SPELL, 0))
-    percent /= 2;
 
-  if(IS_PC_PET(victim))
+  if( GET_POS(victim) != POS_STANDING || IS_ACT2(victim, PLR2_WAIT) )
+  {
+    send_to_char("&+YYour target seems to be dazed already..\r\n", ch);
+    return;
+  }
+
+  if( NewSaves(ch, SAVING_SPELL, 0) )
+  {
+    percent /= 2;
+  }
+
+  if( IS_PC_PET(victim) )
+  {
     percent *= 2;
-  
+  }
+
   percent += (level - GET_LEVEL(victim));
 
   //percent += (GET_C_POW(ch) - GET_C_POW(victim)) / 3;
-
   percent += (int)((GET_C_POW(ch) - GET_C_POW(victim)) *.8);
 
-  act("&+cYou send a wave of incredible visions toward&n $N.",
-    FALSE, ch, 0, victim, TO_CHAR);
-  
-  if(percent < 11)
+  act("&+cYou send a wave of incredible visions toward&n $N.", FALSE, ch, 0, victim, TO_CHAR);
+
+  if( percent < 11 )
   {
     act("$n &+ctries to mesmerize you with some stunning visions, but fails miserably!\r\n",
       FALSE, ch, 0, victim, TO_VICT);
@@ -514,74 +513,82 @@ void spell_stunning_visions(int level, P_char ch, char *arg, int type,
 
   if (percent > 90)
   {
-    act("&+cYour wave of visions seems to completely entrance&n $N!", 
-      FALSE, ch, 0, victim, TO_CHAR);
-    act("$n's &+cstunning visions seem to completely entrance&n $N!", 
-      FALSE, ch, 0, victim, TO_NOTVICT);
+    act("&+cYour wave of visions seems to completely entrance&n $N!", FALSE, ch, 0, victim, TO_CHAR);
+    act("$n's &+cstunning visions seem to completely entrance&n $N!", FALSE, ch, 0, victim, TO_NOTVICT);
     act("$n &+ccauses visions to dance before your eyes, causing you to fall in a deep trance!&n.",
       FALSE, ch, 0, victim, TO_VICT);
 
-    if (IS_FIGHTING(victim))
+    if( IS_FIGHTING(victim) )
+    {
       stop_fighting(victim);
-    if(IS_DESTROYING(victim))
+    }
+    if( IS_DESTROYING(victim) )
+    {
       stop_destroying(victim);
-    
-    stop_fighting(ch);
-    Stun(victim, ch, PULSE_VIOLENCE * 3, FALSE);
-    return;
-  }
-  else if (percent > 60)
-  {
-    act("&+cYour wave of visions seems to entrance&n $N!", 
-      FALSE, ch, 0, victim, TO_CHAR);
-    act("$n's &+Cstunning visions seem to entrance&n $N!",
-      FALSE, ch, 0, victim, TO_NOTVICT);
-    act("$n &+ccauses visions to dance before your eyes, causing you to fall into a trance!&n.",
-      FALSE, ch, 0, victim, TO_VICT);
+    }
 
-    if (IS_FIGHTING(victim))
-      stop_fighting(victim);
-    if(IS_DESTROYING(victim))
-      stop_destroying(victim);
-    
     stop_fighting(ch);
     Stun(victim, ch, PULSE_VIOLENCE * 2, FALSE);
     return;
   }
+  else if (percent > 60)
+  {
+    act("&+cYour wave of visions seems to entrance&n $N!", FALSE, ch, 0, victim, TO_CHAR);
+    act("$n's &+Cstunning visions seem to entrance&n $N!", FALSE, ch, 0, victim, TO_NOTVICT);
+    act("$n &+ccauses visions to dance before your eyes, causing you to fall into a trance!&n.",
+      FALSE, ch, 0, victim, TO_VICT);
+
+    if( IS_FIGHTING(victim) )
+    {
+      stop_fighting(victim);
+    }
+    if( IS_DESTROYING(victim) )
+    {
+      stop_destroying(victim);
+    }
+
+    stop_fighting(ch);
+    Stun(victim, ch, PULSE_VIOLENCE, FALSE);
+    return;
+  }
   else if (percent > 40)
   {
-    act("&+cYour wave of visions seems to mesmerize&n $N!", 
-      FALSE, ch, 0, victim, TO_CHAR);
-    act("$n's &+cstunning visions seem to mesmerize&n $N!", 
-      FALSE, ch, 0, victim, TO_NOTVICT);
+    act("&+cYour wave of visions seems to mesmerize&n $N!", FALSE, ch, 0, victim, TO_CHAR);
+    act("$n's &+cstunning visions seem to mesmerize&n $N!", FALSE, ch, 0, victim, TO_NOTVICT);
     act("$n &+ccauses visions to dance before your eyes mesmerizing you!&n.",
       FALSE, ch, 0, victim, TO_VICT);
 
-    if (IS_FIGHTING(victim))
+    if( IS_FIGHTING(victim) )
+    {
       stop_fighting(victim);
-    if(IS_DESTROYING(victim))
+    }
+    if( IS_DESTROYING(victim) )
+    {
       stop_destroying(victim);
+    }
 
     stop_fighting(ch);
-    Stun(victim, ch, PULSE_VIOLENCE * number(1, 2), FALSE);
+    Stun(victim, ch, PULSE_VIOLENCE / 2, FALSE);
     return;
   }
   else if (percent >= 25)
   {
-    act("&+cYour wave of visions seems to slightly mesmerize&n $N!",
-      FALSE, ch, 0, victim, TO_CHAR);
-    act("$n's &+cstunning visions seem to slightly mesmerize&n $N!",
-      FALSE, ch, 0, victim, TO_NOTVICT);
+    act("&+cYour wave of visions seems to slightly mesmerize&n $N!", FALSE, ch, 0, victim, TO_CHAR);
+    act("$n's &+cstunning visions seem to slightly mesmerize&n $N!", FALSE, ch, 0, victim, TO_NOTVICT);
     act("$n &+ccauses visions to dance before your eyes, bewildering you!&n.",
       FALSE, ch, 0, victim, TO_VICT);
 
-    if (IS_FIGHTING(victim))
+    if( IS_FIGHTING(victim) )
+    {
       stop_fighting(victim);
-    if(IS_DESTROYING(victim))
+    }
+    if( IS_DESTROYING(victim) )
+    {
       stop_destroying(victim);
+    }
 
     stop_fighting(ch);
-    Stun(victim, ch, PULSE_VIOLENCE, FALSE);
+    Stun(victim, ch, PULSE_VIOLENCE/4, FALSE);
     return;
   }
 }
