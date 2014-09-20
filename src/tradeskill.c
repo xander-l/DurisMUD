@@ -2037,8 +2037,8 @@ void load_mines(bool set_event, bool load_all, int map)
       num_mines++;
     }
   }
-
-  max_mines = mines_properties(map) + number(-5,5);
+  max_mines = mines_properties(map);
+  max_mines += number(-max_mines/6,max_mines/6);
   //debug("mines currently loaded: %d / %d", num_mines, max_mines );
 
   if( num_mines < max_mines )
