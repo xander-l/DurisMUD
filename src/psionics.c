@@ -1381,7 +1381,7 @@ void spell_mental_anguish(int level, P_char ch, char *arg, int type, P_char vict
   struct affected_type af;
 
   appear(ch);
-  if (CheckMindflayerPresence(ch))
+  if( CheckMindflayerPresence(ch) )
   {
     send_to_char("You sense an ethereal disturbance and abort your spell!\r\n", ch);
     return;
@@ -1391,7 +1391,6 @@ void spell_mental_anguish(int level, P_char ch, char *arg, int type, P_char vict
     act("You cannot cause anymore anguish to $m!", TRUE, ch, 0, victim, TO_CHAR);
     return;
   }
-
 
   if( StatSave(victim, APPLY_POW, MIN(0, POW_DIFF(ch, victim))) )
   {
@@ -2505,8 +2504,7 @@ void event_psionic_wave_blast(P_char ch, P_char victim, P_obj obj, void *data)
     REMOVE_BIT((ch)->specials.affected_by2, AFF2_CASTING);
 }
 
-void spell_enrage(int level, P_char ch, char *arg, int type, P_char victim,
-                  P_obj obj)
+void spell_enrage(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
 
   if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
@@ -2517,15 +2515,17 @@ void spell_enrage(int level, P_char ch, char *arg, int type, P_char victim,
   appear(ch);
 
   int attdiff = ((GET_C_POW(ch) - GET_C_POW(victim)) / 2);
-  attdiff = BOUNDED(2, attdiff, WAIT_SEC*10);
+  attdiff += 2 * (level - GET_LEVEL(victim));
+  attdiff = BOUNDED(WAIT_SEC, attdiff, WAIT_SEC*10);
 
   if( (ch != victim) && NewSaves(victim, SAVING_SPELL, attdiff/5) )
-  {                             /* made save */
-    send_to_char("You feel a brief bit of anger, but it passes.\r\n", victim);
+  {
+    send_to_char("You feel a brief bit of &+ranger&n, but it passes.\r\n", victim);
     return;
   }
 
-  berserk(victim, WAIT_SEC * number(attdiff/2, attdiff));  /* flag to start regardless of skill */
+  // Min 1/2 sec - 1 1/2 sec, Max 5 sec - 15 sec.
+  berserk(victim, number(attdiff/2, (3*attdiff)/2));
   return;
 }
 
