@@ -5267,8 +5267,7 @@ do
   }
 }
 
-void spell_teleport(int level, P_char ch, char *arg, int type, P_char victim,
-                    P_obj obj)
+void spell_teleport(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   int from_room, dir, to_room;
   P_char   vict, t_ch;
@@ -5280,13 +5279,16 @@ void spell_teleport(int level, P_char ch, char *arg, int type, P_char victim,
     send_to_char("The magic in this room prevents you from leaving.\n", ch);
     return;
   }
-  if(!victim)
+
+  if( !victim )
+  {
     vict = ch;
+  }
   else
+  {
     vict = victim;
-    
-  if((ch && !is_Raidable(ch, 0, 0)) ||
-     (victim && !is_Raidable(victim, 0, 0)))
+  }
+  if( (ch && !is_Raidable(ch, 0, 0)) || (victim && !is_Raidable(victim, 0, 0)) )
   {
     send_to_char("&+WYou or your target is not raidable. The spell fails!\r\n", ch);
     return;
@@ -5294,15 +5296,17 @@ void spell_teleport(int level, P_char ch, char *arg, int type, P_char victim,
 
   int range = get_property("spell.teleport.range", 30);
   to_room = vict->in_room;
-  if(IS_MAP_ROOM(vict->in_room))
+  if( IS_MAP_ROOM(vict->in_room) )
   {
     for( int i = 0; i < range; i++ )
     {
       int tries = 0;
+      dir = number(0,3);
       do
       {
-        dir = number(0,3);
-      } while( tries++ < 10 && !VALID_TELEPORT_EDGE(to_room, dir, vict->in_room) );
+        // Give a 67% chance to continue on the direction chosen
+        dir = number(0,2) ? dir : number(0,3);
+      } while( tries++ < 15 && !VALID_TELEPORT_EDGE(to_room, dir, vict->in_room) );
 
       if( tries < 10 )
         to_room = TOROOM(to_room, dir);
@@ -5329,10 +5333,10 @@ void spell_teleport(int level, P_char ch, char *arg, int type, P_char victim,
 
   if(LIMITED_TELEPORT_ZONE(vict->in_room))
   {
-    if(how_close(vict->in_room, to_room, 5))
-      send_to_char
-        ("The magic gathers, but somehow fades away before taking effect.\n",
-         vict);
+    if( how_close(vict->in_room, to_room, 5) )
+    {
+      send_to_char("The magic gathers, but somehow fades away before taking effect.\n", vict);
+    }
     return;
   }
   act("$n slowly fades out of existence.", FALSE, vict, 0, 0, TO_ROOM);
