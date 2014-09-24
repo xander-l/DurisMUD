@@ -255,7 +255,7 @@ SECS_PER_MUD_DAY)
     && world[r].sector_type != SECT_ASTRAL \
     && world[r].sector_type != SECT_NEG_PLANE)
 
-#define IS_LIGHT(r) ( (world[r].light > 0 ) || \
+#define IS_LIGHT(r) ( (world[r].light > 0 && !IS_MAGIC_DARK(r) ) || \
                       IS_SUNLIT(r) || \
                       IS_TWILIGHT_ROOM(r) )
 

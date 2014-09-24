@@ -1903,46 +1903,61 @@ void show_char_to_char(P_char i, P_char ch, int mode)
 
 void list_char_to_char(P_char list, P_char ch, int mode)
 {
-  P_char   i, j;
-  char     buf[MAX_STRING_LENGTH];
-  int      higher, lower, globe = 0;
+  P_char i, j;
+  char   buf[MAX_STRING_LENGTH];
+  int    higher, lower;
+  bool   globe, flame;
 
-  for (j = world[ch->in_room].people; j; j = j->next_in_room)
+  globe = flame = FALSE;
+  for( j = world[ch->in_room].people; j; j = j->next_in_room )
   {
-    if (IS_AFFECTED4(j, AFF4_GLOBE_OF_DARKNESS))
+    if( IS_AFFECTED4(j, AFF4_MAGE_FLAME) )
     {
-      globe = 1;
-      break;
+      flame = TRUE;
+      if( globe )
+      {
+        break;
+      }
+    }
+    if( IS_AFFECTED4(j, AFF4_GLOBE_OF_DARKNESS) )
+    {
+      globe = TRUE;
+      if( flame )
+      {
+        break;
+      }
     }
   }
 
-  for (i = list; i; i = i->next_in_room)
+  for( i = list; i; i = i->next_in_room )
   {
-    if ((i == ch) || WIZ_INVIS(ch, i))
+    if( (i == ch) || WIZ_INVIS(ch, i) )
+    {
       continue;
+    }
 
     higher = (i->specials.z_cord > ch->specials.z_cord);
     lower = (i->specials.z_cord < ch->specials.z_cord);
 
 //    if (i->specials.z_cord == ch->specials.z_cord) {
-    if (!CAN_SEE_Z_CORD(ch, i))
+    if( !CAN_SEE_Z_CORD(ch, i) )
     {
-
-      if (IS_AFFECTED(ch, AFF_SENSE_LIFE) && !IS_UNDEAD(i) &&
-          !IS_ANGEL(i) && !IS_AFFECTED3(i, AFF3_NON_DETECTION))
+      if( IS_AFFECTED(ch, AFF_SENSE_LIFE) && !IS_UNDEAD(i) &&
+          !IS_ANGEL(i) && !IS_AFFECTED3(i, AFF3_NON_DETECTION) )
       {
-        if (higher)
+        if( higher )
           send_to_char("&+LYou sense a lifeform above you.\n", ch);
         else if (lower)
           send_to_char("&+LYou sense a lifeform below you.\n", ch);
         else
           send_to_char("&+LYou sense a lifeform nearby.\n", ch);
       }
-      else if (IS_AFFECTED(ch, AFF_SENSE_LIFE) &&
-               (IS_AFFECTED3(i, AFF3_NON_DETECTION) || IS_UNDEAD(i) ||
-		IS_ANGEL(i)) &&
-               !number(0, 4))
+      else if( IS_AFFECTED(ch, AFF_SENSE_LIFE)
+        && (IS_AFFECTED3(i, AFF3_NON_DETECTION) || IS_UNDEAD(i) || IS_ANGEL(i))
+        && !number(0, 3) )
+      {
         send_to_char("&+rYou barely sense a lifeform nearby.\n", ch);
+      }
       continue;
     }
     /* ok, they can see SOMETHING at this point */
@@ -1952,9 +1967,21 @@ void list_char_to_char(P_char list, P_char ch, int mode)
      * the vantage point of i... not of ch... as ch might not be in
      * the same room...
      */
-     if (CAN_SEE(ch, i))
-     {
-      show_char_to_char(i, ch, 0);
+    // CAN_SEE returns TRUE for infravision sight.
+    if( CAN_SEE(ch, i) )
+    {
+      // Infravision: DARK -> not Twilight.
+      if( IS_AFFECTED(ch, AFF_INFRAVISION) && (IS_MAGIC_DARK(i->in_room)
+        || IS_DARK(i->in_room)) )
+      {
+        sprintf(buf, "&+rYou see the red shape of a %s living being %shere.\n",
+          size_types[GET_ALT_SIZE(i)], higher ? "above you " : lower ? "below you " : "");
+        send_to_char(buf, ch);
+      }
+      else
+      {
+        show_char_to_char(i, ch, 0);
+      }
       continue;
      }
     /*if (IS_AFFECTED2(ch, AFF2_ULTRAVISION) ||
@@ -1965,15 +1992,6 @@ void list_char_to_char(P_char list, P_char ch, int mode)
       show_char_to_char(i, ch, 0);
       continue;
     }*/
-
-    /* then infravision */
-    if (!IS_AFFECTED(ch, AFF_INFRAVISION))
-      continue;
-
-    sprintf(buf, "&+rYou see the red shape of a %s living being %shere.\n",
-            size_types[GET_ALT_SIZE(i)],
-            higher ? "above you " : lower ? "below you " : "");
-    send_to_char(buf, ch);
 //    }
   }
 }
@@ -2235,18 +2253,15 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
     return;
   }
 
-  /*
-  if (IS_DAYBLIND(ch) && !IS_OCEAN_ROOM(ch->in_room) )
-  {
-    send_to_char("&+WArgh!!! The sun is too bright.\n", ch);
-    return;
-  }
-  */
-
   vis_mode = get_vis_mode(ch, room_no);
-  if( vis_mode == 0 )
+  if( vis_mode == 5 )
   {
     send_to_char("&+LIt is pitch black...\n", ch);
+    return;
+  }
+  if( vis_mode == 6 )
+  {
+    send_to_char("&+WArgh!!! It's too bright!\n", ch);
     return;
   }
 
@@ -2333,22 +2348,19 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
       send_to_char("You see nothing special...\n", ch);
       return;
     }
-    /* vis_mode < 3 or vis_mode 3 and not a closed door */
+
+    /* vis_mode = 1, 2 or 4, or vis_mode = 3 and not a closed door */
+    // WTF does faerie sight got to do with anything??
     if (IS_SET(EXIT(ch, keyword_no)->exit_info, EX_ISDOOR) &&
         !affected_by_spell(ch, SPELL_FAERIE_SIGHT))
     {
       if (vis_mode == 1)
       {
-        sprintf(buffer, "The %s is %s%s%s%s.\n",
-                FirstWord(EXIT(ch, keyword_no)->keyword),
-                IS_SET(EXIT(ch, keyword_no)->exit_info, EX_CLOSED) ?
-                "closed" : "open",
-                IS_SET(EXIT(ch, keyword_no)->exit_info, EX_LOCKED) ?
-                " (locked)" : "",
-                IS_SET(EXIT(ch, keyword_no)->exit_info, EX_SECRET) ?
-                " (hidden)" : "",
-                IS_SET(EXIT(ch, keyword_no)->exit_info, EX_BLOCKED) ?
-                " (blocked)" : "");
+        sprintf(buffer, "The %s is %s%s%s%s.\n", FirstWord(EXIT(ch, keyword_no)->keyword),
+          IS_SET(EXIT(ch, keyword_no)->exit_info, EX_CLOSED) ? "closed" : "open",
+          IS_SET(EXIT(ch, keyword_no)->exit_info, EX_LOCKED) ? " (locked)" : "",
+          IS_SET(EXIT(ch, keyword_no)->exit_info, EX_SECRET) ? " (hidden)" : "",
+          IS_SET(EXIT(ch, keyword_no)->exit_info, EX_BLOCKED) ? " (blocked)" : "");
         send_to_char(buffer, ch);
       }
       else
@@ -2360,29 +2372,34 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
           send_to_char("You see nothing special...\n", ch);
           return;
         }
-        if (vis_mode == 4)
+        if( vis_mode == 4 )
         {
-          if (IS_SET(EXIT(ch, keyword_no)->exit_info, EX_PICKPROOF) ||
-              (EXIT(ch, keyword_no)->key == -2))
+          if( IS_SET(EXIT(ch, keyword_no)->exit_info, EX_PICKPROOF) || (EXIT(ch, keyword_no)->key == -2) )
+          {
             send_to_char("You see nothing special...\n", ch);
-          else if (IS_SET(EXIT(ch, keyword_no)->exit_info, EX_ISDOOR) &&
-                   IS_SET(EXIT(ch, keyword_no)->exit_info, EX_CLOSED))
+            return;
+          }
+          else if( IS_SET(EXIT(ch, keyword_no)->exit_info, EX_ISDOOR)
+            && IS_SET(EXIT(ch, keyword_no)->exit_info, EX_CLOSED) )
+          {
             send_to_char("You see a tenuous barrier.\n", ch);
+            return;
+          }
           else
+          {
             send_to_char("You see an opening.\n", ch);
-          return;
+          }
         }
-        if (vis_mode == 2)
+        else if( vis_mode == 2 )
         {
-          sprintf(buffer, "The %s is %s.\n",
-                  FirstWord(EXIT(ch, keyword_no)->keyword),
-                  IS_SET(EXIT(ch, keyword_no)->exit_info, EX_CLOSED) ?
-                  "closed" : "open");
+          sprintf(buffer, "The %s is %s.\n", FirstWord(EXIT(ch, keyword_no)->keyword),
+            IS_SET(EXIT(ch, keyword_no)->exit_info, EX_CLOSED) ? "closed" : "open");
           send_to_char(buffer, ch);
-          if ((EXIT(ch, keyword_no)->general_description)
-  //           && !IS_SET(EXIT(ch, keyword_no)->exit_info, EX_CLOSED)
-							)
+          if( (EXIT(ch, keyword_no)->general_description) )
+//            && !IS_SET(EXIT(ch, keyword_no)->exit_info, EX_CLOSED) )
+          {
             send_to_char(EXIT(ch, keyword_no)->general_description, ch);
+          }
         }
       }
 
@@ -2427,11 +2444,10 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
      * farsee. vis_mode 1: god sight (without farsee) 2: gods with
      * farsee or mortals with vis_mode 2 3: farsee (infravision)
      */
-
     /* real room we are peering into */
     temp = world[room_no].dir_option[keyword_no]->to_room;
 
-    if (IS_AFFECTED(ch, AFF_FARSEE))
+    if( IS_AFFECTED(ch, AFF_FARSEE) )
     {
       sprintf(buffer, "You extend your sights %sward.\n", dirs[keyword_no]);
       send_to_char(buffer, ch);
@@ -2440,13 +2456,13 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
     {
       if( IS_AFFECTED5(tmp_char, AFF5_OBSCURING_MIST) && !IS_TRUSTED(ch) )
       {
-         send_to_char("&+cA very thick &+Wcloud of mist&+c blocks your vision.&n\n", ch);
-         return;
+        send_to_char("&+cA very thick &+Wcloud of mist&+c blocks your vision.&n\n", ch);
+        return;
       }
     }
-    if (temp == NOWHERE)
+    if( temp == NOWHERE )
     {
-      if (IS_TRUSTED(ch))
+      if( IS_TRUSTED(ch) )
         send_to_char("You look into nothingness (NOWHERE).\n", ch);
       else
         send_to_char("Swirling mists block your sight.\n", ch);
@@ -2464,7 +2480,7 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
      */
     if( (!world[temp].dir_option[rev_dir[keyword_no]]
       || (world[temp].dir_option[rev_dir[keyword_no]]->to_room != room_no))
-      && (vis_mode > 1) && !IS_TRUSTED(ch) && !IS_SET(world[ch->in_room].room_flags, GUILD_ROOM) )
+      && !IS_TRUSTED(ch) && !IS_SET(world[ch->in_room].room_flags, GUILD_ROOM) )
     {
       /* sight blocked */
       send_to_char("Something seems to be blocking your line of sight.\n", ch);
@@ -2520,6 +2536,11 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
     if( vis_mode == 3 )
     {
       send_to_char("You can't make out much detail in the dark with just infravision..\n", ch);
+      break;
+    }
+    if( vis_mode == 4 )
+    {
+      send_to_char("You can't seem to spot any objects in this form.\n\r", ch );
       break;
     }
     if( *arg2 )
@@ -2582,32 +2603,37 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
 
   case 7:
     /* look 'at' */
-    if (vis_mode == 3)
+    if( vis_mode == 3 )
     {
-      send_to_char
-        ("You can't make out much detail in the dark with just infravision..\n",
-         ch);
+      send_to_char("You can't make out much detail in the dark with just infravision..\n", ch);
       break;
     }
-    if (*arg2)
+    if( *arg2 )
     {
       bits = generic_find(arg2, FIND_OBJ_INV | FIND_OBJ_ROOM | FIND_OBJ_EQUIP | FIND_CHAR_ROOM, ch, &tmp_char, &found_object);
-      if (tmp_char)
+      if( tmp_char )
       {
         show_char_to_char(tmp_char, ch, 1);
-        /* Wizard can also see person's inventory */
-        if (IS_TRUSTED(ch))
+        /* Immortals can also see person's inventory */
+        if( IS_TRUSTED(ch) )
+        {
           show_char_to_char(tmp_char, ch, 2);
-        if (ch != tmp_char)
+        }
+        if( ch != tmp_char )
         {
           act("$n looks at you.", TRUE, ch, 0, tmp_char, TO_VICT);
           act("$n looks at $N.", TRUE, ch, 0, tmp_char, TO_NOTVICT);
         }
         return;
       }
+      if( vis_mode == 4 )
+      {
+        found = FALSE;
+        found_object = NULL;
+      }
       /* Search for Extra Descriptions in room and items */
       /* Extra description in room?? */
-      if (!found)
+      if( !found )
       {
         tmp_desc = find_ex_description(arg2, world[room_no].ex_description);
         if (tmp_desc)
@@ -2616,19 +2642,18 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
           return;               /* RETURN SINCE IT WAS A ROOM DESCRIPTION */
         }
       }
-      /* Search for extra descriptions in items */
+      /* Search for extra descriptions in items, if not wraithform*/
       /* Equipment Used */
-      if (!found)
+      if( !found && vis_mode != 4 )
       {
-        for (j = 0; j < MAX_WEAR && !found; j++)
+        for( j = 0; j < MAX_WEAR && !found; j++ )
         {
-          if (ch->equipment[j])
+          if( ch->equipment[j] )
           {
-            if (CAN_SEE_OBJ(ch, ch->equipment[j]))
+            if( CAN_SEE_OBJ(ch, ch->equipment[j]) )
             {
-              tmp_desc =
-                find_ex_description(arg2, ch->equipment[j]->ex_description);
-              if (tmp_desc)
+              tmp_desc = find_ex_description(arg2, ch->equipment[j]->ex_description);
+              if( tmp_desc )
               {
                 page_string(ch->desc, tmp_desc, 1);
                 found = TRUE;
@@ -2640,17 +2665,14 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
       if (vis_mode != 4)
       {
         /* In inventory */
-        if (!found)
+        if( !found)
         {
-          for (tmp_object = ch->carrying;
-               tmp_object && !found; tmp_object = tmp_object->next_content)
+          for( tmp_object = ch->carrying; tmp_object && !found; tmp_object = tmp_object->next_content )
           {
-            if CAN_SEE_OBJ
-              (ch, tmp_object)
+            if( CAN_SEE_OBJ(ch, tmp_object) )
             {
-              tmp_desc =
-                find_ex_description(arg2, tmp_object->ex_description);
-              if (tmp_desc)
+              tmp_desc = find_ex_description(arg2, tmp_object->ex_description);
+              if( tmp_desc )
               {
                 page_string(ch->desc, tmp_desc, 1);
                 found = TRUE;
@@ -2659,18 +2681,17 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
           }
         }
         /* Object In room */
-        if (!found)
+        if( !found )
         {
-          for (tmp_object = world[room_no].contents;
-               tmp_object && !found; tmp_object = tmp_object->next_content)
+          for( tmp_object = world[room_no].contents; tmp_object && !found; tmp_object = tmp_object->next_content )
           {
-            if (CAN_SEE_OBJ(ch, tmp_object) ||
-                IS_OBJ_STAT(tmp_object, ITEM_NOSHOW))
+            if( CAN_SEE_OBJ(ch, tmp_object) || IS_OBJ_STAT(tmp_object, ITEM_NOSHOW) )
             {
-						  if (tmp_object->R_num != real_object(1276)) { /* can't look at tracks */
-              	tmp_desc =
-                	find_ex_description(arg2, tmp_object->ex_description);
-              	if (tmp_desc)
+              /* can't look at tracks */
+						  if( tmp_object->R_num != real_object(1276) )
+              {
+              	tmp_desc = find_ex_description(arg2, tmp_object->ex_description);
+              	if( tmp_desc )
               	{
                 	page_string(ch->desc, tmp_desc, 1);
                 	found = TRUE;
@@ -2681,14 +2702,18 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
         }
       }
       /* wrong argument */
-      if (bits && (vis_mode != 4))
+      if( bits && (vis_mode != 4) )
       {                         /* If an object was found */
-        if (!found)
+        if( !found )
+        {
           show_obj_to_char(found_object, ch, 5, 1);     /* Show no-description */
+        }
         else
+        {
           show_obj_to_char(found_object, ch, 6, 1);     /* Find hum, glow etc */
+        }
       }
-      else if (!found)
+      else if( !found )
       {
         send_to_char("You do not see that here.\n", ch);
       }
@@ -2709,33 +2734,40 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
     switch (keyword_no)
     {
       case 8:                    /* look COMMAND, with NULL args, brief is forced */
-        if (IS_MAP_ROOM(ch->in_room) || ch->specials.z_cord < 0 ||
-            (IS_MAP_ROOM(room_no) && cmd == -5))
+        if( IS_MAP_ROOM(ch->in_room) || ch->specials.z_cord < 0 || (IS_MAP_ROOM(room_no) && cmd == -5) )
           map_look_room(ch, room_no, FALSE);
         brief_mode = TRUE;
         break;
       case 9:                    /* look 'room', brief is overridden */
-        if (IS_MAP_ROOM(ch->in_room) || ch->specials.z_cord < 0)
+        if( IS_MAP_ROOM(ch->in_room) || ch->specials.z_cord < 0 )
           map_look(ch, TRUE);
         brief_mode = FALSE;
         break;
       case 20:
-        if (IS_MAP_ROOM(room_no) && cmd == -5)
+        if( IS_MAP_ROOM(room_no) && cmd == -5 )
+        {
           map_look_room(ch, room_no, FALSE);
+        }
         else if (IS_MAP_ROOM(ch->in_room))
+        {
           map_look_room(ch, ch->in_room, FALSE);
+        }
         break;
       default:
         break;
     }
 
-    if (vis_mode == 4)
+    if( vis_mode == 4 )
     {
       /* cackle! JAB */
-      if (IS_SET(world[room_no].room_flags, INDOORS))
+      if( IS_SET(world[room_no].room_flags, INDOORS) )
+      {
         send_to_char("An Enclosed Space\n", ch);
+      }
       else
+      {
         send_to_char("An Open Space\n", ch);
+      }
     }
     else if (world[room_no].sector_type == SECT_CASTLE_GATE)
     {
@@ -2750,15 +2782,14 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
       else if (ch->specials.z_cord < 0)
         send_to_char("Swimming below ", ch);
       send_to_char(world[room_no].name, ch);
-      if (IS_SET(ch->specials.act, PLR_VNUM) && IS_TRUSTED(ch))
+      if( IS_SET(ch->specials.act, PLR_VNUM) && IS_TRUSTED(ch) )
       {
-        sprintf(buffer, " [&+R%d&N:&+C%d&N]", zone_table[world[room_no].zone].number,
-                world[room_no].number);
+        sprintf(buffer, " [&+R%d&N:&+C%d&N]", zone_table[world[room_no].zone].number, world[room_no].number);
         send_to_char(buffer, ch);
       }
       send_to_char("\n", ch);
 
-      if (!(brief_mode || (keyword_no == 8) || (vis_mode == 3)))
+      if( !(brief_mode || (keyword_no == 8) || (vis_mode == 3)) )
       {
         if (world[room_no].description)
           send_to_char(world[room_no].description, ch);
@@ -2803,7 +2834,7 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
       send_to_char(Gbuf5, ch);
     }  */
 
-    if (vis_mode < 3)
+    if( vis_mode == 2 || vis_mode == 1 )
     {
       list_obj_to_char(world[room_no].contents, ch, 0, FALSE);
     }
@@ -2861,28 +2892,29 @@ void show_exits_to_char(P_char ch, int room_no, int mode)
 
   globe = 0;
   flame = 0;
-  for (tmp_char = world[ch->in_room].people; tmp_char;
-       tmp_char = tmp_char->next_in_room)
+  for( tmp_char = world[ch->in_room].people; tmp_char; tmp_char = tmp_char->next_in_room )
   {
-    if (IS_AFFECTED4(tmp_char, AFF4_MAGE_FLAME))
+    if( IS_AFFECTED4(tmp_char, AFF4_MAGE_FLAME) )
     {
       flame = 1;
+      if( globe )
+      {
+        break;
+      }
     }
-    if (IS_AFFECTED4(tmp_char, AFF4_GLOBE_OF_DARKNESS))
+    if( IS_AFFECTED4(tmp_char, AFF4_GLOBE_OF_DARKNESS) )
     {
       globe = 1;
+      if( flame )
+      {
+        break;
+      }
     }
   }
 
-  /*
-   * vis_mode: 1 - god sight, sees everything 2 - normal in light, ultra
-   * in dark, sees most things 3 - infra in the dark, quite limited 4 -
-   * wraithsight, sees all beings, no objects
-   */
-
   vis_mode = get_vis_mode(ch, room_no);
 
-  if (vis_mode == 0)
+  if( vis_mode == 5 || vis_mode == 6 )
     return;
 
   brief_mode = IS_SET(ch->specials.act, PLR_BRIEF);
@@ -8405,55 +8437,53 @@ void do_scan(P_char ch, char *argument, int cmd)
   int      obscurmist = 0;
   char     buf3[20];
 
-  if(!(ch) ||
-     !IS_ALIVE(ch))
+  if( !IS_ALIVE(ch) )
   {
     return;
   }
-  
-  if (IS_AFFECTED(ch, AFF_BLIND))
+
+  if( IS_AFFECTED(ch, AFF_BLIND) )
   {
     send_to_char("You can't see a damned thing, you're blind!\n", ch);
     return;
   }
 
-  if (IS_DAYBLIND(ch))
+  if( IS_DAYBLIND(ch) )
   {
     send_to_char("&+WArgh!!! The sun is too bright.\n", ch);
     return;
   }
 
-  if (ch->specials.z_cord < 0)
+  if( ch->specials.z_cord < 0 )
   {
     send_to_char("The salts prevent a clear view that far away.\n", ch);
     return;
   }
-  
-  if ((IS_SET(world[ch->in_room].room_flags, BLOCKS_SIGHT)))
+
+  if( IS_SET(world[ch->in_room].room_flags, BLOCKS_SIGHT) )
   {
-    send_to_char("There's too much stuff blocking your sight here to scan.\n",
-                 ch);
+    send_to_char("There's too much stuff blocking your sight here to scan.\n", ch);
     return;
   }
 
-  if (argument && !str_cmp(argument, "here"))
+  if( argument && !str_cmp(argument, "here") )
   {
     bool found = FALSE;
     send_to_char("You quickly scan the closest area.\n", ch);
     for (vict = world[ch->in_room].people; vict != NULL; vict = vict_next)
-        {
-          vict_next = vict->next_in_room;
-          if (CAN_SEE_Z_CORD(ch, vict) &&  ch != vict)
-          {
-             sprintf(buf, "$N is %s here.", GET_POS(vict) == POS_PRONE ? "reclining" : GET_POS(vict) == POS_KNEELING ? "kneeling" : GET_POS(vict) == POS_SITTING ? "sitting" : "standing");
-             act(buf , FALSE, ch, 0, vict, TO_CHAR);
-             
-             found = TRUE;
-          } //drannak
-        }
-    if (!found)
+    {
+      vict_next = vict->next_in_room;
+      if( CAN_SEE_Z_CORD(ch, vict) &&  ch != vict )
+      {
+        sprintf(buf, "$N is %s here.", GET_POS(vict) == POS_PRONE ? "reclining" : GET_POS(vict) == POS_KNEELING ? "kneeling" : GET_POS(vict) == POS_SITTING ? "sitting" : "standing");
+        act(buf , FALSE, ch, 0, vict, TO_CHAR);
+        found = TRUE;
+      }
+    }
+    if( !found )
+    {
       send_to_char("Noone here that you can see.\r\n", ch);
-      
+    }
     return;
   }
 
@@ -8466,13 +8496,11 @@ void do_scan(P_char ch, char *argument, int cmd)
   switch (world[ch->in_room].sector_type)
   {
     case SECT_FOREST:
-      if(GET_RACE(ch) != RACE_GREY &&
-         GET_RACE(ch) != RACE_HALFLING &&
-         !GET_CLASS(ch, CLASS_RANGER))
+      if( GET_RACE(ch) != RACE_GREY && GET_RACE(ch) != RACE_HALFLING && !GET_CLASS(ch, CLASS_RANGER) )
             basemod += 25;
       break;                  /* Trees and such will */
     case SECT_HILLS:
-      if(GET_RACE(ch) != RACE_MOUNTAIN)
+      if( GET_RACE(ch) != RACE_MOUNTAIN )
         basemod += 50;
       break;                  /* block ones view     */
     case SECT_MOUNTAIN:
@@ -8490,16 +8518,16 @@ void do_scan(P_char ch, char *argument, int cmd)
 
   basemod -= (int)((GET_C_WIS(ch) - 80) / 2);
 
-  for (dir = 0; dir < NUM_EXITS; dir++)
+  for( dir = 0; dir < NUM_EXITS; dir++ )
   {
     visibility = 2;
     dirmod = 0;
 
-    if (IS_SURFACE_MAP(ch->in_room))
+    if( IS_SURFACE_MAP(ch->in_room) )
     {
       visibility += GOOD_RACE(ch) ? map_g_modifier : map_e_modifier;
     }
-    else if (IS_UD_MAP(ch->in_room))
+    else if( IS_UD_MAP(ch->in_room) )
     {
       visibility += IS_AFFECTED2(ch, AFF2_ULTRAVISION) ? 4 : 3;
     }
@@ -8509,13 +8537,13 @@ void do_scan(P_char ch, char *argument, int cmd)
       visibility += 3;
     }
 
-    for (distance = 1; distance <= visibility; distance++)
+    for( distance = 1; distance <= visibility; distance++ )
     {
       /* fake the next room stuff on z_cord. Only need up/down, as cardinal */
       /* points at the same z_cord should show fine */
       obscurmist = FALSE;
-      if ((dir == 4 && ch->specials.z_cord > -1) ||
-          (dir == 5 && ch->specials.z_cord - distance > -1))
+      if( (dir == 4 && ch->specials.z_cord > -1) ||
+          (dir == 5 && ch->specials.z_cord - distance > -1) )
       {
         for (vict = world[was_in_room].people; vict != NULL; vict = vict_next)
         {
@@ -8525,37 +8553,34 @@ void do_scan(P_char ch, char *argument, int cmd)
 
           percent = number(1, 100) - basemod - dirmod;
 
-          if (IS_TRUSTED(ch))
+          if( IS_TRUSTED(ch) )
             percent = 100;
 
-          if (CAN_SEE_Z_CORD(ch, vict) && (percent > 5) &&
-              ((dir == 4 &&
-                vict->specials.z_cord == (ch->specials.z_cord + distance)) ||
-               (dir == 5 &&
-                vict->specials.z_cord == (ch->specials.z_cord - distance))))
+          if( CAN_SEE_Z_CORD(ch, vict) && (percent > 5)
+            && ((dir == 4 && vict->specials.z_cord == (ch->specials.z_cord + distance))
+            || (dir == 5 && vict->specials.z_cord == (ch->specials.z_cord - distance))) )
           {
-            if(!((vict->specials.z_cord == 0 &&
-              IS_AFFECTED3(vict, AFF3_COVER)) &&
-              (ch->specials.z_cord > 0)))
+            if( !((vict->specials.z_cord == 0 && IS_AFFECTED3(vict, AFF3_COVER)) && (ch->specials.z_cord > 0)) )
             {
               found = TRUE;
-              sprintf(buf, "$N who is %s %s.", dist_name[((distance > 6) ? 6 : distance)], dir_desc[dir]);      /* TASFALEN checking for limits */
+              /* TASFALEN checking for limits */
+              sprintf(buf, "$N who is %s %s.", dist_name[((distance > 6) ? 6 : distance)], dir_desc[dir]);
               act(buf, FALSE, ch, 0, vict, TO_CHAR);
             }
           }
         }
       }
-      if (EXIT(ch, dir) && (EXIT(ch, dir)->to_room != NOWHERE) &&
+      if( EXIT(ch, dir) && (EXIT(ch, dir)->to_room != NOWHERE) &&
           !IS_SET(EXIT(ch, dir)->exit_info, EX_SECRET) &&
-          !IS_SET(EXIT(ch, dir)->exit_info, EX_BLOCKED))
+          !IS_SET(EXIT(ch, dir)->exit_info, EX_BLOCKED) )
       {
-        if (!CAN_GO(ch, dir))
+        if( !CAN_GO(ch, dir) )
           continue;
-        if (IS_SET(world[EXIT(ch, dir)->to_room].room_flags, BLOCKS_SIGHT))
+        if( IS_SET(world[EXIT(ch, dir)->to_room].room_flags, BLOCKS_SIGHT) )
           continue;
-        if (IS_DARK(ch->in_room))
+        if( IS_DARK(ch->in_room) )
         {
-          visibility--;
+          visibility -= IS_AFFECTED2(ch, AFF2_ULTRAVISION) ? 0 : 1;
         }
 
         for (vict = world[EXIT(ch, dir)->to_room].people; vict != NULL; vict = vict_next)
@@ -8577,30 +8602,32 @@ void do_scan(P_char ch, char *argument, int cmd)
 
           vict_next = vict->next_in_room;
 
-          if (dirmod > 5)
+          if( dirmod > 5 )
             dirmod += 2;         /* gets harder, the more people around */
-          else if (dirmod > 10)
+          else if( dirmod > 10 )
             dirmod += 3;
-          else if (dirmod > 15)
+          else if( dirmod > 15 )
             dirmod += 20;        /* big jump to cut down spam */
           else
             dirmod++;
 
           percent = number(1, 100) - basemod - dirmod;
 
-          if(IS_TRUSTED(ch))
-            percent = 100;
-
-          if((!IS_AFFECTED2(ch, AFF2_ULTRAVISION) && IS_MAGIC_DARK(vict->in_room) ) ||
-            (IS_AFFECTED2(ch, AFF2_ULTRAVISION) && IS_MAGIC_LIGHT(vict->in_room) ) )
-            percent = 0;
-
-          if(CAN_SEE(ch, vict) &&
-            (percent > 5) &&
-            ch->specials.z_cord == vict->specials.z_cord)
+          // No ULTRA/INFRA + DARK = NOT ok, DAYBLIND + LIGHT = NOT ok.
+          if( (!(IS_AFFECTED2(ch, AFF2_ULTRAVISION) || IS_AFFECTED(ch, AFF_INFRAVISION))
+            && IS_MAGIC_DARK(vict->in_room)) || (IS_DAYBLIND(ch) && IS_MAGIC_LIGHT(vict->in_room)) )
           {
-            if(IS_AFFECTED4(ch, AFF4_DETECT_ILLUSION) &&
-               is_illusion_char(vict))
+            percent = 0;
+          }
+
+          if( IS_TRUSTED(ch) )
+          {
+            percent = 100;
+          }
+
+          if( CAN_SEE(ch, vict) && (percent > 5) && ch->specials.z_cord == vict->specials.z_cord )
+          {
+            if( IS_AFFECTED4(ch, AFF4_DETECT_ILLUSION) && is_illusion_char(vict) )
             {
               sprintf(buf, "&+m(Illusion)&n $N who is %s %s.", dist_name[((distance > 6) ? 6 : distance)], dir_desc[dir]);
             }

@@ -953,7 +953,7 @@ int map_view_distance(P_char ch, int room)
 
 void map_look_room(P_char ch, int room, int show_map_regardless)
 {
-  char     tot_buf[MAX_STRING_LENGTH];
+  char tot_buf[MAX_STRING_LENGTH];
 
   if( !IS_ALIVE(ch) )
   {
@@ -961,20 +961,17 @@ void map_look_room(P_char ch, int room, int show_map_regardless)
   }
 
   /* quickly repair them, before they see the wrong thing */
-  if(ch->specials.z_cord < 0 &&
-    !IS_WATER_ROOM(room))
+  if( ch->specials.z_cord < 0 && !IS_WATER_ROOM(room) )
   {
     ch->specials.z_cord = 0;
   }
-  if(!(IS_MORPH(ch) &&
-    IS_SET((MORPH_ORIG(ch))->specials.act, PLR_MAP))
-    && IS_NPC(ch) )
+
+  if( !(IS_MORPH(ch) && IS_SET((MORPH_ORIG(ch))->specials.act, PLR_MAP)) && IS_NPC(ch) )
   {
     return;
   }
-  if(!IS_MORPH(ch) &&
-    !IS_SET(ch->specials.act, PLR_MAP) &&
-    !show_map_regardless)
+
+  if( !IS_MORPH(ch) && !IS_SET(ch->specials.act, PLR_MAP) && !show_map_regardless )
   {
     return;
   }

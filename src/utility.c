@@ -83,45 +83,73 @@ char     GS_buf1[MAX_STRING_LENGTH];
 int      is_ice(P_char ch, int room);
 int      CheckFor_remember(P_char ch, P_char victim);
 
-/*
-* vis_mode: 1 - god sight, sees everything 2 - normal in light, ultra
-* in dark, sees most things 3 - infra in the dark, quite limited 4 -
-* wraithsight, sees all beings, no objects
-*/
+/* vis_mode:
+ * 1 - God sight: sees everything
+ * 2 - Normal in light, ultra in dark: sees most things
+ * 3 - Infra in the dark: quite limited
+ * 4 - Wraithsight: sees all beings, no objects
+ * 5 - Too dark: sees nothing.
+ * 6 - Too bright: sees nothing.
+ */
 int get_vis_mode(P_char ch, int room)
 {
-  P_char   tch;
-  int      flame;
+  P_char tch;
+  bool   flame, globe;
 
+  if( IS_TRUSTED(ch) )
+  {
+    return 1;
+  }
+  if( IS_AFFECTED(ch, AFF_WRAITHFORM) )
+  {
+    return 4;
+  }
+
+  flame = globe = FALSE;
   for (tch = world[room].people; tch; tch = tch->next_in_room)
   {
-    if (IS_AFFECTED4(tch, AFF4_MAGE_FLAME))
+    if( IS_AFFECTED4(tch, AFF4_MAGE_FLAME) )
     {
-      flame = 1;
+      flame = TRUE;
+    }
+    if( IS_AFFECTED4(tch, AFF4_GLOBE_OF_DARKNESS) )
+    {
+      globe = TRUE;
     }
   }
 
-  if (IS_TRUSTED(ch))
-    return 1;
-  else if (IS_AFFECTED(ch, AFF_WRAITHFORM))
-    return 4;
-  else if (IS_LIGHT(room) || flame)
+  // Twilight rooms: everyone can see.
+  if( IS_TWILIGHT_ROOM(room) )
+  {
     return 2;
-  else if (!RACE_GOOD(ch))
+  }
+  // Normal dayvision.
+  if( !has_innate(ch, INNATE_DAYBLIND) && (IS_LIGHT(room) || flame || IS_MAGIC_LIGHT(room)) )
+  {
     return 2;
-  else if (IS_UNDERWORLD(room) && IS_AFFECTED(ch, AFF_UD_VISION))
+  }
+  // Normal nightvision
+  if( IS_AFFECTED2(ch, AFF2_ULTRAVISION) && (IS_DARK(room) || globe || IS_MAGIC_DARK(room)) )
+  {
     return 2;
-  else if (IS_TWILIGHT_ROOM(room))
-    return 2;
-  else if (IS_AFFECTED2(ch, AFF2_ULTRAVISION))
-    return 2;
-  else if (IS_AFFECTED(ch, AFF_INFRAVISION))
-// TODO: want to rework farsee scan, till then 
- // everyone treated like twilight to support
-// raiding
-    return 2;
+  }
+
+  // Ok, they don't have ultra .. if it's dark and they have infra.
+  if( IS_AFFECTED(ch, AFF_INFRAVISION) && (IS_DARK(room) || IS_MAGIC_DARK(room)) )
+  {
+    return 3;
+  }
+
+  // Ok, they can't see in dark (no infra/ultra)
+  if( IS_DARK(room) || IS_MAGIC_DARK(room) )
+  {
+    return 5;
+  }
+  // Not dark, then they're dayblind via sun or magic light.
   else
-    return 2;
+  {
+    return 6;
+  }
 }
 
 int god_check(char *name)
@@ -1133,51 +1161,40 @@ int exist_in_equipment(P_char ch, int bitflag)
  * this function is called about a billion times a minute (ok, so I exaggerated a little), don't even
  * THINK about doing anything to it that would make it slower, even a LITTLE bit.  JAB
  */
-
 int ac_can_see(P_char sub, P_char obj, bool check_z)
 {
-  /* minor detail, sleeping chars can't see squat! */
-  int      globe, flame;
-  P_char   tmp_char;
+  bool   globe, flame;
+  P_char tmp_char;
 
-  globe = 0;
-  flame = 0;
+  globe = FALSE;
+  flame = FALSE;
 
-  if(!(sub))
+  if( !sub )
   {
     logit(LOG_EXIT, "No P_char sub found during ac_can_see() call");
     raise(SIGSEGV);
   }
 
   // No idea what happened, but let's hack this until we figure it out.
-  if (sub->in_room == -1)
+  if( sub->in_room == -1 )
     return 0;
 
-  for (tmp_char = world[sub->in_room].people; tmp_char; tmp_char = tmp_char->next_in_room)
-  {
-    if (IS_AFFECTED4(tmp_char, AFF4_MAGE_FLAME))
-    {
-      flame = 1;
-    }
-    if (IS_AFFECTED4(tmp_char, AFF4_GLOBE_OF_DARKNESS))
-    {
-      globe = 1;
-    }
-  }
-
+  /* minor detail, sleeping chars can't see squat! */
   if( !AWAKE(sub) )
     return 0;
 
+  // Determine visibility by "vis" command
   if( WIZ_INVIS(sub, obj) )
     return 0;
 
-  if( GET_LEVEL(sub) > MAXLVLMORTAL )
+  // This shouldn't make too much of a difference since not many lvl 57+ mobs/chars.
+  // Had to add these checks for toggle fog?  Also, NPCs 57+ see all?
+  // Most common fail: NPC, second: mortal, third: fog set.
+  if( IS_PC(sub) && GET_LEVEL(sub) > MAXLVLMORTAL && !IS_SET(sub->specials.act, PLR_MORTAL) )
   {
-    // Had to add these checks for toggle fog?  Also, NPCs 57+ see all?
-    // This shouldn't make too much of a difference since not many lvl 57+ mobs/chars.
-    if( IS_PC(sub) && !IS_SET(sub->specials.act, PLR_MORTAL) )
       return 1;
   }
+
   /* Flyers */
 /* Just commented this out.  Should be at least as fast if not faster than if( 0 ||...
   if( check_z )
@@ -1188,23 +1205,27 @@ int ac_can_see(P_char sub, P_char obj, bool check_z)
 */
 
   /* Object is invisible and subject does not have detect invis */
-  if((IS_AFFECTED(obj, AFF_INVISIBLE) ||
-    IS_AFFECTED2(obj, AFF2_MINOR_INVIS) ||
-    IS_AFFECTED3(obj, AFF3_ECTOPLASMIC_FORM)) &&
-    !affected_by_spell(obj, TAG_CTF))
+  // Only check for CTF tag if CTF is active.
+  if( (IS_AFFECTED(obj, AFF_INVISIBLE) || IS_AFFECTED2(obj, AFF2_MINOR_INVIS)
+    || IS_AFFECTED3(obj, AFF3_ECTOPLASMIC_FORM))
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+ && !affected_by_spell(obj, TAG_CTF)
+#endif
+     )
   {
     /* if the fellow is non-detectable you ain't gonna see jack */
-
     if(IS_AFFECTED3(obj, AFF3_NON_DETECTION))
+    {
       return 0;
+    }
 
-    if(!IS_AFFECTED(sub, AFF_DETECT_INVISIBLE) &&
-      !(IS_NPC(obj) && (obj->following == sub) &&
-      IS_AFFECTED4(sub, AFF4_SENSE_FOLLOWER)))
-        return 0;
+    if( !IS_AFFECTED(sub, AFF_DETECT_INVISIBLE)
+      && !(IS_NPC(obj) && (obj->following == sub) && IS_AFFECTED4(sub, AFF4_SENSE_FOLLOWER)) )
+    {
+      return 0;
+    }
 
 /* NPCs can't be non-detected?  why? */
-
 /*
     if ((!IS_AFFECTED(sub, AFF_DETECT_INVISIBLE)) ||
         (!IS_NPC(sub) &&
@@ -1215,85 +1236,110 @@ int ac_can_see(P_char sub, P_char obj, bool check_z)
   }                             /* end sub invis */
 
   /* Subject is blinded */
-  if(IS_BLIND(sub))
+  if( IS_BLIND(sub) )
+  {
     return 0;
-  
-  if(IS_AFFECTED(obj, AFF_HIDE) && !affected_by_spell(obj, TAG_CTF))// && (obj != sub))
-    return 0;
+  }
 
-  /*
-   * Room is magically dark
-   */
-  if(IS_SET(world[obj->in_room].room_flags, MAGIC_DARK) &&
-    IS_PC(sub) &&
-    !IS_AFFECTED2(sub, AFF2_ULTRAVISION) &&
-    !IS_TWILIGHT_ROOM(obj->in_room) &&
-    !flame)
+#if defined(CTF_MUD) && (CTF_MUD == 1)
+  if( IS_AFFECTED(obj, AFF_HIDE) && !affected_by_spell(obj, TAG_CTF) )
+#else
+  if( IS_AFFECTED(obj, AFF_HIDE) )
+#endif
+  {
+    return 0;
+  }
+
+  // As wraithform is kind of kludge, semi-godsight.
+  if( IS_AFFECTED(sub, AFF_WRAITHFORM) || IS_AFFECTED4(sub, AFF4_VAMPIRE_FORM) )
+  {
       return 1;
+  }
 
-  /*
-   * Determine visibility by "vis" command
-   */
-
-  /* uhh, this is already done above */
-
-/*
-  if (WIZ_INVIS (sub, obj))
+  // As wraithform is kind of kludge, it is shown nowhere.
+  if( IS_AFFECTED(obj, AFF_WRAITHFORM) )
+  {
     return 0;
-*/
+  }
 
-  /*
-   * as wraithform is kind of kludge, semi-godsight.
-   */
-  if(IS_AFFECTED(sub, AFF_WRAITHFORM) ||
-    IS_AFFECTED4(sub, AFF4_VAMPIRE_FORM))
-      return 1;
+  if( IS_TWILIGHT_ROOM(obj->in_room) )
+  {
+    return 1;
+  }
 
-  /*
-   * as wraithform is kind of kludge, it is shown nowhere.
-   */
-  if(IS_AFFECTED(obj, AFF_WRAITHFORM))
+  // No need to search for these until they're used.
+  for( tmp_char = world[sub->in_room].people; tmp_char; tmp_char = tmp_char->next_in_room )
+  {
+    if (IS_AFFECTED4(tmp_char, AFF4_MAGE_FLAME))
+    {
+      flame = TRUE;
+    }
+    if (IS_AFFECTED4(tmp_char, AFF4_GLOBE_OF_DARKNESS))
+    {
+      globe = TRUE;
+    }
+  }
+
+  // Room is magically dark & viewer has no ultra & no mage flames.
+  if( IS_SET(world[obj->in_room].room_flags, MAGIC_DARK) && IS_PC(sub)
+    && !IS_AFFECTED(sub, AFF_INFRAVISION)
+    && !IS_AFFECTED2(sub, AFF2_ULTRAVISION) && !flame )
+  {
     return 0;
+  }
 
-  /*if (RACE_EVIL(sub))
-    return 1;*/
+//int r = obj->in_room;
+//if( IS_PC(sub) ) debug( "IS_LIT: %s, IS_DAYBLIND: %s, globe: %s.", IS_SET(world[r].room_flags, MAGIC_LIGHT) ? "YES" : "NO", has_innate(sub, INNATE_DAYBLIND) ? "YES" : "NO", globe ? "YES" : "NO" );
+  // Room is magically lit & viewer is blind to light and no globe.
+  if( IS_SET(world[obj->in_room].room_flags, MAGIC_LIGHT) && IS_PC(sub)
+    && has_innate(sub, INNATE_DAYBLIND) && !globe )
+  {
+    return 0;
+  }
 
-  /*if ((GET_RACE(sub) == RACE_ORC) || IS_THRIKREEN(sub) ||
+  /* Dunno why these aren't just removed.  We don't have any super-eyed races.
+  if (RACE_EVIL(sub))
+    return 1;
+
+  if ((GET_RACE(sub) == RACE_ORC) || IS_THRIKREEN(sub) ||
       IS_MINOTAUR(sub) || IS_UNDEAD(sub) || (GET_RACE(sub) == RACE_ILLITHID))
-    return 1;*/
+    return 1;
+  */
 
-  if(IS_SURFACE_MAP(obj->in_room) ||
-    IS_UD_MAP(obj->in_room))
-      return 1;
+  if( IS_SURFACE_MAP(obj->in_room) || IS_UD_MAP(obj->in_room) )
+  {
+    return 1;
+  }
 
   // if (IS_UNDERWORLD(obj->in_room) && IS_AFFECTED(sub, AFF_UD_VISION))
-  if(IS_UNDERWORLD(obj->in_room))
-      return 1;
-
-  if(IS_TWILIGHT_ROOM(obj->in_room))
-      return 1;
-
-  /*
-   * barring all the above checks, allow pets to see their owners
-   */
-  if(GET_MASTER(sub) == obj)
-      return 1;
-
-  if(IS_AFFECTED2(sub, AFF2_ULTRAVISION) &&
-    IS_PC(sub))
+  if( IS_UNDERWORLD(obj->in_room) )
   {
-    if((IS_SUNLIT(obj->in_room) ||
-      (IS_SET(world[obj->in_room].room_flags, MAGIC_LIGHT) &&
-      !IS_TWILIGHT_ROOM(obj->in_room))) &&
-      !globe)
-        return 1;
-    else
+    return 1;
+  }
+
+  // Barring all the above checks, allow pets to see their owners
+  if( GET_MASTER(sub) == obj )
+  {
+    return 1;
+  }
+
+  if( IS_PC(sub) && IS_AFFECTED2(sub, AFF2_ULTRAVISION) )
+  {
+    if( (IS_SUNLIT(obj->in_room) || (IS_SET(world[obj->in_room].room_flags, MAGIC_LIGHT)
+      && !IS_TWILIGHT_ROOM(obj->in_room))) && !globe)
+    {
       return 1;
+    }
+    else
+    {
+      return 1;
+    }
   }
   else if(IS_LIGHT(obj->in_room))
   {
     return 1;
   }
+
   /*
    * room is dark - do infra checks
    */
@@ -1332,16 +1378,18 @@ int ac_can_see_obj(P_char sub, P_obj obj)
   int      vis_mode;
 
   /* wraiths can't see any objects */
-  if (IS_AFFECTED(sub, AFF_WRAITHFORM))
+  if( IS_AFFECTED(sub, AFF_WRAITHFORM) )
     return 0;
 
   /* sub is flying, obj isn't */
-  if (OBJ_ROOM(obj) && sub->specials.z_cord != obj->z_cord)
+  if( OBJ_ROOM(obj) && sub->specials.z_cord != obj->z_cord )
   {
-    if (obj_index[obj->R_num].func.obj != ship_obj_proc) // ships show above/below
+    if( obj_index[obj->R_num].func.obj != ship_obj_proc ) // ships show above/below
+    {
       return 0;
+    }
   }
-  
+
 /*
   if (OBJ_NOWHERE(obj)) {
     debug("OBJ_NOWHERE\r\n");
@@ -1349,29 +1397,31 @@ int ac_can_see_obj(P_char sub, P_obj obj)
   }
 */
   /* Immortal can see anything */
-  if (IS_TRUSTED(sub) && GET_LEVEL(sub) >= IMMORTAL)      // level 58 and higher
+  // level 58 and higher (no avatars).
+  if( IS_TRUSTED(sub) && GET_LEVEL(sub) >= IMMORTAL )
+  {
     return 1;
+  }
 
   /* minor detail, sleeping chars can't see squat! */
-  if (!AWAKE(sub))
+  if( !AWAKE(sub) )
     return 0;
 
-  if (IS_NOSHOW(obj))
+  if( IS_NOSHOW(obj) )
     return 0;
 
   /* Check to see if object is invis */
-  if (IS_SET(obj->extra_flags, ITEM_INVISIBLE) &&
-      !IS_AFFECTED(sub, AFF_DETECT_INVISIBLE))
+  if( IS_SET(obj->extra_flags, ITEM_INVISIBLE) && !IS_AFFECTED(sub, AFF_DETECT_INVISIBLE) )
     return 0;
 
   /* Check if subject is blind */
-  if (IS_BLIND(sub))
+  if( IS_BLIND(sub) )
     return 0;
 
-  if (IS_SET((obj)->extra_flags, ITEM_SECRET))
+  if( IS_SET((obj)->extra_flags, ITEM_SECRET) )
     return 0;
 
-  if (IS_SET((obj)->extra_flags, ITEM_BURIED))
+  if( IS_SET((obj)->extra_flags, ITEM_BURIED) )
     return 0;
 
   /* Room is magically dark
@@ -1382,25 +1432,48 @@ int ac_can_see_obj(P_char sub, P_obj obj)
      return 0;
    */
 
-  while (OBJ_INSIDE(obj))
+  while( OBJ_INSIDE(obj) )
     obj = obj->loc.inside;
 
-  if (OBJ_ROOM(obj))
+  if( OBJ_ROOM(obj) )
+  {
     rroom = obj->loc.room;
-  else if (OBJ_WORN(obj))
+  }
+  else if( OBJ_WORN(obj) )
+  {
     rroom = obj->loc.wearing->in_room;
-  else if (OBJ_CARRIED(obj))
+    // You know the eq your wearing regardless.
+    if( OBJ_WORN_BY(obj, sub) )
+    {
+      return 1;
+    }
+  }
+  else if( OBJ_CARRIED(obj) )
+  {
     rroom = obj->loc.carrying->in_room;
-  else if (OBJ_NOWHERE(obj))
+    // You know what you have in inventory regardless.
+    if( OBJ_CARRIED_BY(obj, sub) )
+    {
+      return 1;
+    }
+  }
+  // Anti-crash hack?
+  else if( OBJ_NOWHERE(obj) )
+  {
     rroom = sub->in_room;
+  }
   else
+  {
     return IS_TRUSTED(sub) ? 1 : 0;
+  }
 
-  if (IS_NPC(sub))
+  if( IS_NPC(sub) )
     return 1;
 
   vis_mode = get_vis_mode(sub, rroom);
-  return (vis_mode == 1 || vis_mode == 2);
+  // vis 1 == god, 2 == normal, 3 == infra, 4 == wraith, 5 == too dark, 6 == too bright.
+  // Allowing infravision to see items in room.  They can already see inventory/equipped.
+  return (vis_mode == 1 || vis_mode == 2 || vis_mode == 3);
 }
 
 #endif
@@ -2535,12 +2608,12 @@ void CAP(char *str)
     *(str + pos) = UPPER(*(str + pos));
 }
 
-char    *PERS(P_char ch, P_char vict, int short_d)
+char *PERS(P_char ch, P_char vict, int short_d)
 {
   return PERS(ch, vict, short_d, false);
 }
 
-char    *PERS(P_char ch, P_char vict, int short_d, bool noansi)
+char *PERS(P_char ch, P_char vict, int short_d, bool noansi)
 {
   if (!CAN_SEE_Z_CORD(vict, ch) ||
       ((abs(ch->specials.z_cord - vict->specials.z_cord) > 2) &&
@@ -2560,37 +2633,38 @@ char    *PERS(P_char ch, P_char vict, int short_d, bool noansi)
 #endif
     if (IS_DISGUISE_PC(ch))
     {
-      sprintf(GS_buf1, noansi ? "%s" : "%s %s", 
-          noansi ? race_names_table[GET_DISGUISE_RACE(ch)].normal : 
-          ((GET_DISGUISE_RACE(ch) == RACE_ILLITHID) ||
-           (GET_DISGUISE_RACE(ch) == RACE_PILLITHID) ||
-	   (GET_DISGUISE_RACE(ch) == RACE_ORC) ||
-           (GET_DISGUISE_RACE(ch) == RACE_OGRE) ||
-           (GET_DISGUISE_RACE(ch) == RACE_AGATHINON) ||
-           (GET_DISGUISE_RACE(ch) == RACE_ELADRIN)) ? "An" : "A",
-          race_names_table[GET_DISGUISE_RACE(ch)].ansi);
+      sprintf(GS_buf1, noansi ? "%s" : "%s %s",
+        noansi ? race_names_table[GET_DISGUISE_RACE(ch)].normal :
+        ((GET_DISGUISE_RACE(ch) == RACE_ILLITHID) ||
+        (GET_DISGUISE_RACE(ch) == RACE_PILLITHID) ||
+        (GET_DISGUISE_RACE(ch) == RACE_ORC) ||
+        (GET_DISGUISE_RACE(ch) == RACE_OGRE) ||
+        (GET_DISGUISE_RACE(ch) == RACE_AGATHINON) ||
+        (GET_DISGUISE_RACE(ch) == RACE_ELADRIN)) ? "An" : "A",
+        race_names_table[GET_DISGUISE_RACE(ch)].ansi);
     }
     else if (IS_DISGUISE_NPC(ch))
     {
-      sprintf(GS_buf1, "%s", (noansi ? strip_ansi(ch->disguise.name).c_str()
-    	  	                         : (ch->disguise.name)) );
+      sprintf(GS_buf1, "%s", (noansi ? strip_ansi(ch->disguise.name).c_str() : (ch->disguise.name)) );
     }
     else
     {
-      sprintf(GS_buf1, noansi ? "%s" : "%s %s", 
-          noansi ?  race_names_table[GET_RACE(ch)].normal :
-          ((GET_RACE(ch) == RACE_ILLITHID) ||
-	   (GET_RACE(ch) == RACE_PILLITHID) ||
-           (GET_RACE(ch) == RACE_ORC) ||
-           (GET_RACE(ch) == RACE_OROG) ||
-           (GET_RACE(ch) == RACE_OGRE) ||
-           (GET_RACE(ch) == RACE_AGATHINON) ||
-           (GET_RACE(ch) == RACE_ELADRIN)) ? "An" : "A",
-          race_names_table[GET_RACE(ch)].ansi);
+      sprintf(GS_buf1, noansi ? "%s" : "%s %s",
+        noansi ?  race_names_table[GET_RACE(ch)].normal :
+        ((GET_RACE(ch) == RACE_ILLITHID) ||
+        (GET_RACE(ch) == RACE_PILLITHID) ||
+        (GET_RACE(ch) == RACE_ORC) ||
+        (GET_RACE(ch) == RACE_OROG) ||
+        (GET_RACE(ch) == RACE_OGRE) ||
+        (GET_RACE(ch) == RACE_AGATHINON) ||
+        (GET_RACE(ch) == RACE_ELADRIN)) ? "An" : "A",
+      race_names_table[GET_RACE(ch)].ansi);
     }
     return GS_buf1;
   }
-  if (IS_DARK(ch->in_room) && !IS_TWILIGHT_ROOM(ch->in_room))
+
+//if( IS_PC(vict) ) debug( "IS_DARK: %s, IS_TWILIGHT: %s.", IS_DARK(ch->in_room) ? "YES" : "NO", IS_TWILIGHT_ROOM(ch->in_room) ? "YES" : "NO" );
+  if( IS_DARK(ch->in_room) && !IS_TWILIGHT_ROOM(ch->in_room) )
   {
     if (IS_TRUSTED(vict) || IS_AFFECTED2(vict, AFF2_ULTRAVISION) ||
         IS_AFFECTED(vict, AFF_WRAITHFORM))
@@ -4721,26 +4795,29 @@ bool is_hot_in_room(int room)
 
 int IS_TWILIGHT_ROOM(int r)
 {
-  if( !IS_SET(world[r].room_flags, MAGIC_DARK) && IS_SET(world[r].room_flags, TWILIGHT) ) 
-    return TRUE;
- 
-  if( IS_UD_MAP(r) )
-    return TRUE;
- 
-  if( !IS_SUNLIT(r) && 
-      !IS_SET(world[r].room_flags, INDOORS | MAGIC_LIGHT | MAGIC_DARK | DARK) && 
-      !IS_UNDERWORLD(r) && 
-      (world[r].sector_type != SECT_INSIDE) )
-    return TRUE;
-    
-  if( IS_SET(world[r].room_flags, MAGIC_LIGHT) && IS_SET(world[r].room_flags, MAGIC_DARK | DARK) )
-    return TRUE;
-  
-  if( !IS_SET(world[r].room_flags, MAGIC_LIGHT) && 
-      ( IS_SWAMP_ROOM(r) || IS_FOREST_ROOM(r) ) )
+  // Twilight rooms are twilight unless magically darked.  Why not lit?
+  if( !IS_SET(world[r].room_flags, MAGIC_DARK) && IS_SET(world[r].room_flags, TWILIGHT) )
     return TRUE;
 
-  if(world[r].sector_type == SECT_ASTRAL || world[r].sector_type == SECT_ETHEREAL)
+  // All UD rooms are Twilight?  What about magically darked/lit?
+  if( IS_UD_MAP(r) )
+    return TRUE;
+
+  // No sunlight + not underworld/inside + no light/dark/inside flag -> Twilight.
+  if( !IS_SUNLIT(r) && !IS_UNDERWORLD(r) && (world[r].sector_type != SECT_INSIDE)
+    && !IS_SET(world[r].room_flags, INDOORS | MAGIC_LIGHT | MAGIC_DARK | DARK) )
+    return TRUE;
+
+  // If it's lit and darked, it's Twilight.
+  if( IS_SET(world[r].room_flags, MAGIC_LIGHT) && IS_SET(world[r].room_flags, MAGIC_DARK | DARK) )
+    return TRUE;
+
+  // If it's not lit and it's Swamp/Forest, it's Twilight.  What about darked?
+  if( !IS_SET(world[r].room_flags, MAGIC_LIGHT) && ( IS_SWAMP_ROOM(r) || IS_FOREST_ROOM(r) ) )
+    return TRUE;
+
+  // Astral/Eth is all Twilight.
+  if( world[r].sector_type == SECT_ASTRAL || world[r].sector_type == SECT_ETHEREAL )
     return TRUE;
 
   return FALSE;
