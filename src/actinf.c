@@ -8143,55 +8143,58 @@ void do_punish(P_char ch, char *arg, int cmd)
   char     Gbuf1[MAX_STRING_LENGTH];
   long     t;
   int      i = 0;
-
   P_char   t_ch = NULL;
   FILE    *fl;
 
-  if (IS_TRUSTED(ch))
+  arg = one_argument(arg, name);
+  if( !*name )
   {
-    arg = one_argument(arg, name);
-    if (!*name || !(t_ch = get_char_vis(ch, name)))
-    {
-      send_to_char("&+WPunish who?\n", ch);
-      return;
-    }
+    send_to_char("&+WFormat: punish <char name> <number of levels to drop> <reason for punishment>.\n", ch);
+    return;
+  }
+  if( !(t_ch = get_char_vis(ch, name)) )
+  {
+    send_to_char("&+WPunish who?\n", ch);
+    return;
   }
 
-  if (IS_NPC(t_ch))
+  arg = one_argument(arg, name);
+  if( !*name || (i = atoi(name)) < 1 )
+  {
+    send_to_char("&+WPunish how many levels?\n", ch);
+    return;
+  }
+
+  if( IS_NPC(t_ch) )
   {
     send_to_char("Sorry, mobs don't deserve that.\n", ch);
     return;
   }
 
-  if ((GET_LEVEL(t_ch) > GET_LEVEL(ch)) && (t_ch != ch))
+  if( (GET_LEVEL(t_ch) > GET_LEVEL(ch)) && (t_ch != ch) )
   {
     send_to_char("Sorry, you can't punish superiors!\n", ch);
     return;
   }
-  /*
-   * eat leading spaces
-   */
-  while (*arg == ' ')
-    arg++;
 
-  if (!*arg)
+  // Eat leading spaces
+  while (*arg == ' ')
   {
-    sprintf(Gbuf1, "Suply a damn reason!\n", GET_NAME(t_ch));
+    arg++;
+  }
+
+  if( !*arg )
+  {
+    sprintf(Gbuf1, "Supply a damn reason!\n", GET_NAME(t_ch));
     send_to_char(Gbuf1, ch);
     set_title(t_ch);
     return;
   }
   t = time(0);
-  sprintf(Gbuf1, "&+W%s &+Lpunished&+W for: %s -  %s &n", GET_NAME(t_ch), arg,
-          ctime(&t));
-  for (; isspace(*arg); arg++) ;
+  // Note: ctime contains a carriage return, so nothing after it.
+  sprintf(Gbuf1, "&+W%s &+Lpunished&+W %d levels for: %s -  %s", GET_NAME(t_ch), i, arg, ctime(&t));
 
-  if (!*arg)
-  {
-    send_to_char("Pardon?\n", ch);
-    return;
-  }
-  if (!(fl = fopen(CHEATERS_FILE, "a")))
+  if( !(fl = fopen(CHEATERS_FILE, "a")) )
   {
     perror("do_punish");
     send_to_char("Could not open the cheaters-file.\n", ch);
@@ -8202,15 +8205,13 @@ void do_punish(P_char ch, char *arg, int cmd)
   send_to_char("&+WAdded to file..\n", ch);
   send_to_char(Gbuf1, t_ch);
 
-  i = (GET_LEVEL(t_ch) / 2);
-
-  for (i = 0; i < 5; i++)
+  while( i-- > 0 )
+  {
     lose_level(t_ch);
+  }
 
   GET_EXP(t_ch) = 1;
-
   send_to_char("&+WPunished...\n", ch);
-
 }
 
 void do_title(P_char ch, char *arg, int cmd)
