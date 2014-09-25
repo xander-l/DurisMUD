@@ -1247,8 +1247,7 @@ void spell_vanish(int level, P_char ch, char *arg, int type, P_char victim,
 }
 
 
-void spell_hammer(int level, P_char ch, char *arg, int type, P_char victim,
-                  P_obj obj)
+void spell_hammer(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct damage_messages messages = {
     "Your massive &+Bhammer&N causes $N to double over in pain!",
@@ -1261,28 +1260,35 @@ void spell_hammer(int level, P_char ch, char *arg, int type, P_char victim,
   int dam, temp, result;
   bool stunself = false;
 
-  if(!IS_ALIVE(ch) ||
-    !IS_ALIVE(victim))
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
   {
     return;
   }
 
-  if(resists_spell(ch, victim))
+  if( resists_spell(ch, victim) )
   {
     return;
   }
 
-  if(affected_by_spell(victim, SPELL_DEFLECT) ||
-    IS_AFFECTED4(victim, AFF4_DEFLECT))
+  if( affected_by_spell(victim, SPELL_DEFLECT) ||
+    IS_AFFECTED4(victim, AFF4_DEFLECT) )
   {
     stunself = 1;
   }
 
   dam = 9 * level + number(-25, 25);
 
-  if(spell_damage(ch, victim, dam, SPLDAM_GENERIC, SPLDAM_NOSHRUG, &messages)  
-    != DAM_NONEDEAD)
-        return;
+  // Adding a save for this since 115 damage for 7th circle is absurd.
+  //  This brings 115 down to 76, which is normal non-sorc 7th circle damage.
+  if( NewSaves(victim, SAVING_SPELL, 0) )
+  {
+    dam = (dam * 2) / 3;
+  }
+
+  if( spell_damage(ch, victim, dam, SPLDAM_GENERIC, SPLDAM_NOSHRUG, &messages) != DAM_NONEDEAD )
+  {
+    return;
+  }
 
  if(GET_SPEC(ch, CLASS_ILLUSIONIST, SPEC_DECEIVER))
  {
