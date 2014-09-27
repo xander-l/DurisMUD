@@ -23,6 +23,7 @@ using namespace std;
 #include "comm.h"
 #include "db.h"
 #include "events.h"
+#include "graph.h"
 #include "interp.h"
 #include "justice.h"
 #include "new_combat.h"
@@ -130,6 +131,11 @@ int get_vis_mode(P_char ch, int room)
   }
   // Normal nightvision
   if( IS_AFFECTED2(ch, AFF2_ULTRAVISION) && (IS_DARK(room) || globe || IS_MAGIC_DARK(room)) )
+  {
+    return 2;
+  }
+  // Normal inside rooms are twilight, unless magic lit/darked.
+  if( (IS_SET(world[room].room_flags, LOCKER) || IS_INSIDE(room)) && !IS_MAGIC_LIGHT(room) && !IS_MAGIC_DARK(room) )
   {
     return 2;
   }
