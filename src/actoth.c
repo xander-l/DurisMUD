@@ -3383,17 +3383,9 @@ void do_quaff(P_char ch, char *argument, int cmd)
     }
   }
 
-  struct affected_type af, *afp;
-  memset(&af, 0, sizeof(af));
-  af.type = TAG_POTION_TIMER;
-  af.duration = 6;
-  af.flags = AFFTYPE_NODISPEL;
-  affect_to_char(ch, &af);
-
-
   act("$n &+yquaffs&n $p.", TRUE, ch, temp, 0, TO_ROOM);
   act("As you quaff $p, the vial disappears in a bright &+Wflash of light!&n",
-      FALSE, ch, temp, 0, TO_CHAR);
+    FALSE, ch, temp, 0, TO_CHAR);
 
   CharWait(ch, PULSE_VIOLENCE);
 
@@ -3404,7 +3396,15 @@ void do_quaff(P_char ch, char *argument, int cmd)
   {
     gain_epic(ch, EPIC_BOTTLE, 0, 75);
     send_to_char("&+CYou suddenly feel.. epic!\r\n", ch);
+    return;
   }
+
+  struct affected_type af, *afp;
+  memset(&af, 0, sizeof(af));
+  af.type = TAG_POTION_TIMER;
+  af.duration = 3;
+  af.flags = AFFTYPE_NODISPEL;
+  affect_to_char(ch, &af);
 
     /* value[5] specifies special functions for epic potions */
 /*
