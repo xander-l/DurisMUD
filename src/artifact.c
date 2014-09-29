@@ -1822,6 +1822,37 @@ void event_check_arti_poof( P_char ch, P_char vict, P_obj obj, void * arg )
   add_event( event_check_arti_poof, 3600 * WAIT_SEC, ch, vict, obj, 0, arg, 0 );
 }
 
+// Saves artifact data for all artifacts on owner.
+void save_artifact_data( P_char owner )
+{
+  int   wearloc;
+  P_obj arti;
+
+  // Save all artis in inventory.
+  arti = owner->carrying;
+  while( arti )
+  {
+    if( IS_ARTIFACT(arti) )
+    {
+      save_artifact_data( owner, arti );
+    }
+    arti = arti->next_content;
+  }
+  // After inventory, check equipment
+  for( wearloc = 0; wearloc < MAX_WEAR; wearloc++ )
+  {
+    // Skip empty slots
+    if( !(arti = owner->equipment[wearloc]) )
+    {
+      continue;
+    }
+    if( IS_ARTIFACT(arti) )
+    {
+      save_artifact_data( owner, arti );
+    }
+  }
+}
+
 // Saves artifact data for one artifact.
 void save_artifact_data( P_char owner, P_obj artifact )
 {

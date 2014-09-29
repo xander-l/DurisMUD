@@ -1479,71 +1479,70 @@ void do_rename(P_char ch, char *arg, int cmd)
 
 int mob_do_rename_hook(P_char npc, P_char ch, int cmd, char *arg)
 {
-   char old_name[MAX_STRING_LENGTH];
-   char new_name[MAX_STRING_LENGTH];
-   char askFor[MAX_STRING_LENGTH];
-   char buffer[MAX_STRING_LENGTH];
+  char old_name[MAX_STRING_LENGTH];
+  char new_name[MAX_STRING_LENGTH];
+  char askWho[MAX_STRING_LENGTH];
+  char askFor[MAX_STRING_LENGTH];
+  char buffer[MAX_STRING_LENGTH];
 
-   if (cmd == CMD_SET_PERIODIC)
-      return TRUE;
-   if (!ch || !cmd || !arg || !npc)
-      return FALSE;
+  if( cmd == CMD_SET_PERIODIC || cmd != CMD_ASK || !IS_ALIVE(npc) || !IS_ALIVE(ch) || !arg )
+  {
+    return FALSE;
+  }
 
-   arg = one_argument(arg, askFor);
-   arg = one_argument(arg, askFor);
-   if (cmd == CMD_ASK && str_cmp(askFor,"rename") == 0 )
-   {
-          arg = one_argument(arg, new_name);
-          if (!*new_name || !new_name)
-          {
-                 sprintf(buffer, "Syntax: ask %s rename <newname>\r\n", npc->player.short_descr);
-             send_to_char(buffer, ch);
-             return TRUE;
-          }
-      if (!CAN_SPEAK(npc))
-      {
-        return TRUE;
-      }
-
-      if (!CAN_SEE(npc, ch))
-      {
-        mobsay(npc, "How may I be of help if I cannot see you?");
-        return TRUE;
-      }
-
-      /* count money */
-      int renamePrice = get_property("mobspecs.rename.price", 5000000);
-
-      if (GET_MONEY(ch) < renamePrice)
-      {
-          sprintf(buffer, "You need %s&n more!", coin_stringv(renamePrice - GET_MONEY(ch)));
-        mobsay(npc, buffer);
-        return TRUE;
-      }
-      /* count money end */
-
-      strcpy(old_name, GET_NAME(ch)); 
-      if( !rename_character(ch, old_name, new_name) == TRUE)
-      {
-           return TRUE;
-      }
-      SUB_MONEY(ch, renamePrice, 0);
-
-      sprintf(buffer, "&+WCongratulations! From now on you will be known as %s!\r\n", GET_NAME(ch));
+  arg = one_argument(arg, askWho);
+  // If they're asking someone else..
+  if( !strstr(npc->player.name, askWho) )
+  {
+    return FALSE;
+  }
+  arg = one_argument(arg, askFor);
+  if( !str_cmp(askFor, "rename") )
+  {
+    arg = one_argument(arg, new_name);
+    if( !*new_name || !new_name )
+    {
+      sprintf(buffer, "Syntax: ask %s rename <newname>\r\n", npc->player.short_descr);
       send_to_char(buffer, ch);
-      
-      wizlog(AVATAR, "%s renamed %sself to %s\r\n", old_name,
-                   GET_SEX(ch) == SEX_MALE ? "him" : "her",
-                           new_name);
-      logit(LOG_PLAYER, "%s renamed %sself to %s\r\n", old_name,
-            GET_SEX(ch) == SEX_MALE ? "him" : "her",
-                   new_name);
-      sql_log(ch, PLAYERLOG, "Renamed self from %s to %s\r\n", old_name, new_name);
-      
       return TRUE;
-   }
+    }
+    if( !CAN_SPEAK(npc) )
+    {
+      return TRUE;
+    }
+    if( !CAN_SEE(npc, ch) )
+    {
+      mobsay(npc, "How may I be of help if I cannot see you?");
+      return TRUE;
+    }
 
-   return FALSE;
+    /* count money */
+    int renamePrice = get_property("mobspecs.rename.price", 5000000);
+    if( GET_MONEY(ch) < renamePrice )
+    {
+      sprintf(buffer, "You need %s&n more!", coin_stringv(renamePrice - GET_MONEY(ch)));
+      mobsay(npc, buffer);
+      return TRUE;
+    }
+
+    // Bad names handled in rename_character function.
+    strcpy(old_name, GET_NAME(ch)); 
+    if( !rename_character(ch, old_name, new_name) )
+    {
+      return TRUE;
+    }
+    SUB_MONEY(ch, renamePrice, 0);
+
+    sprintf(buffer, "&+WCongratulations! From now on you will be known as %s!\r\n", GET_NAME(ch));
+    send_to_char(buffer, ch);
+
+    wizlog(AVATAR, "%s renamed %sself to %s\r\n", old_name, GET_SEX(ch) == SEX_MALE ? "him" : "her", new_name);
+    logit(LOG_PLAYER, "%s renamed %sself to %s\r\n", old_name, GET_SEX(ch) == SEX_MALE ? "him" : "her", new_name);
+    sql_log(ch, PLAYERLOG, "Renamed self from %s to %s\r\n", old_name, new_name);
+    return TRUE;
+  }
+
+  return FALSE;
 }
 
 bool rename_spellbook( char *old_name, char *new_name )
@@ -1616,18 +1615,18 @@ bool rename_character(P_char ch, char *old_name, char *new_name)
   P_char   doofus, finger_foo = NULL;
 
   // validate new name
-  if (_parse_name(new_name, new_name))
+  if( _parse_name(new_name, new_name) )
   {
     send_to_char("Illegal name, please try again.\r\n", ch);
     return FALSE;
   }
 
-  if (!(doofus = get_char_vis(ch, old_name)))
+  if( !(doofus = get_char_vis(ch, old_name)) )
   {
     send_to_char("I don't know anyone by that name...\r\n", ch);
-   return FALSE;
+    return FALSE;
   }
-  if (IS_NPC(doofus))
+  if( IS_NPC(doofus) )
   {
     send_to_char("can't rename an NPC.\r\n", ch);
     return FALSE;
@@ -1637,37 +1636,41 @@ bool rename_character(P_char ch, char *old_name, char *new_name)
   finger_foo->only.pc = (struct pc_only_data *) mm_get(dead_pconly_pool);
 
   /* check existance of oldname */
-  if (restoreCharOnly(finger_foo, skip_spaces(old_name)) >= 0 && finger_foo)
+  if( restoreCharOnly(finger_foo, skip_spaces(old_name)) >= 0 && finger_foo )
   {
-    if (GET_LEVEL(finger_foo) > GET_LEVEL(ch))
+    if( GET_LEVEL(finger_foo) > GET_LEVEL(ch) )
     {
       send_to_char("We call that cheating bud.\r\n", ch);
-      wizlog(AVATAR,
-             "%s attempted to rename (%s) to another gods name (%s) !",
-             GET_NAME(ch), old_name, new_name);
-      if (finger_foo)
-        free_char(finger_foo);
+      wizlog(AVATAR, "%s attempted to rename (%s) to another gods name (%s) !", GET_NAME(ch), old_name, new_name);
+      free_char(finger_foo);
       return FALSE;
     }
+    free_char(finger_foo);
   }
 
   /* New name must not be a valid player */
-  if (restoreCharOnly(finger_foo, skip_spaces(new_name)) < 0 || !finger_foo)
+  if( restoreCharOnly(finger_foo, skip_spaces(new_name)) < 0 || !finger_foo )
   {
     /* be sure new name isn't in declined list */
     if( pfile_exists("Players/Declined", new_name) )
     {
       /* if GOD changing someones name */
-      if(GET_LEVEL(ch) > GET_LEVEL(finger_foo))
+      if( IS_TRUSTED(ch) && GET_LEVEL(ch) > GET_LEVEL(finger_foo) )
       {
-         send_to_char("Name was in the declined list, but has been removed.\r\n", ch);
+        send_to_char("Name was in the declined list, but has been removed. :)\r\n", ch);
+        if( finger_foo )
+        {
+          free_char(finger_foo);
+        }
       }
       else
       {
-          send_to_char("That name has been declined before, and would be now too!\r\n", ch);
-          if (finger_foo)
-                    free_char(finger_foo);
-          return FALSE;
+        send_to_char("That name has been declined before, and would be now too!\r\n", ch);
+        if( finger_foo )
+        {
+          free_char(finger_foo);
+        }
+        return FALSE;
       }
     }
 
@@ -1675,44 +1678,30 @@ bool rename_character(P_char ch, char *old_name, char *new_name)
     if( !rename_spellbook( old_name, new_name ) )
     {
       send_to_char("Failed to move spellbook?!?\r\n", ch);
-      if( finger_foo )
-      {
-        free_char(finger_foo);
-      }
-       return FALSE;
+      return FALSE;
     }
 
     /* If failed rename craft/forge list, then don't rename */
     if( !rename_craftlist( old_name, new_name ) )
     {
       send_to_char("Failed to move craft list?!?\r\n", ch);
-      if( finger_foo )
-      {
-        free_char(finger_foo);
-      }
-       return FALSE;
+      return FALSE;
     }
 
     /* if failed rename locker - is in use or something wierd, then dont rename */
-    if( !rename_locker(ch,old_name,new_name) )
+    if( !rename_locker(ch, old_name, new_name) )
     {
-        if (finger_foo)
-            free_char(finger_foo);
-        return FALSE;
+      return FALSE;
     }
 
     /* if failed rename ship owner - then dont rename */
-    if( !rename_ship_owner(old_name,new_name) )
+    if( !rename_ship_owner(old_name, new_name) )
     {
-      if (finger_foo)
-      {
-        free_char(finger_foo);
-      }
-       return FALSE;
+      return FALSE;
     }
 
     /* if GOD changing someones name, put old one to deny list */
-    if(GET_LEVEL(ch) > GET_LEVEL(doofus))
+    if( IS_TRUSTED(ch) && GET_LEVEL(ch) > GET_LEVEL(doofus) )
     {
        deny_name(GET_NAME(doofus));
     }
@@ -1722,30 +1711,25 @@ bool rename_character(P_char ch, char *old_name, char *new_name)
     /* put new name and save char file */
     CAP(new_name);
     GET_NAME(doofus) = str_dup(new_name);
+    // Imperative that arti list is updated here (Otherwise, crasssh).
     writeCharacter(doofus, 1, doofus->in_room);
+    save_artifact_data(doofus);
 
 #ifdef USE_ACCOUNT
-    c =
-      find_char_in_list(doofus->desc->account->acct_character_list, new_name);
-    if (c)
+    c = find_char_in_list(doofus->desc->account->acct_character_list, new_name);
+    if( c )
     {
       FREE(c->charname);
       c->charname = str_dup(new_name);
       write_account(doofus->desc->account);
     }
 #endif
-
   }
   else
   {
     send_to_char("Can't use that name, as it belongs to another.\r\n", ch);
-    if (finger_foo)
-        free_char(finger_foo);
     return FALSE;
   }
-
-  if (finger_foo)
-    free_char(finger_foo);
 
   return TRUE;
 }
