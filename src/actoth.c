@@ -3396,6 +3396,7 @@ void do_quaff(P_char ch, char *argument, int cmd)
   {
     gain_epic(ch, EPIC_BOTTLE, 0, 75);
     send_to_char("&+CYou suddenly feel.. epic!\r\n", ch);
+    extract_obj(temp, TRUE);
     return;
   }
 
