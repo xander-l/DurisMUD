@@ -10,8 +10,8 @@ bear warrior stinky angry~
 &+WThis bear has paws that are the size of a human head and long black claws
 &+Wof great damaging ability.&N
 ~
-33581068 0 0 8 0 0 2 0 S
-AC 0 1 5
+33581068 0 0 0 8 0 0 2 0 S
+AC 0 1 0 5
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -28,8 +28,8 @@ husky dog~
 &+Ctendancies of this beautiful animal are not those of its choice but
 &+Cthose of survival.&N
 ~
-2060 0 0 524296 0 0 2 0 S
-AC 0 1 3
+2060 0 0 0 524296 0 0 2 0 S
+AC 0 1 0 3
 28 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -42,8 +42,8 @@ baby pup~
 &+clittle face and down-like coat add to the innocent appeal of the dog,
 &+cyet its eyes silently warn others to tread very carefully.&N
 ~
-1073744076 2147483648 0 8 0 0 2 0 S
-AC 0 1 2
+1073744076 2147483648 0 0 8 0 0 2 0 S
+AC 0 1 0 2
 19 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -59,8 +59,8 @@ female wolf~
 &+CPerhaps she is stablishing a false sense of subserviance in order to
 &+Cestablish her goals quickly.&N
 ~
-10442 0 0 0 0 0 2 0 S
-AC 0 1 4
+10442 0 0 0 0 0 0 2 0 S
+AC 0 1 0 4
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
@@ -77,8 +77,8 @@ king huge bear~
 &+Wof three human heads and long black claws that will certainly rip one
 &+Wto shreds.&N
 ~
-8 0 0 0 0 0 0 0 S
-PH 0 0 -1
+8 0 0 0 0 0 0 0 0 S
+PH 0 0 0 -1
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -95,8 +95,8 @@ falina princess~
 &+bThere should be nothing in the this world that this woman needs, yet
 &+bthere's something...&N
 ~
-10314 128 0 8200 0 0 71311360 1000 S
-PE 16 32 3
+10314 128 0 0 8200 0 0 71311360 1000 S
+PE 16 32 0 3
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 6 2
@@ -110,8 +110,8 @@ deviant cuffsman~
 &+LSome of the stone along the forearms looks to be cracked and slightly
 &+Lslightly separated.&N
 ~
-14346 0 0 136 0 0 0 0 S
-UK 0 16 6
+14346 0 0 0 136 0 0 0 0 S
+UK 0 16 0 6
 29 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -125,8 +125,8 @@ pudgy warrior~
 &+Wfluffy and without a care in the world. Within a short matter of time
 &+Wthis young warrior will soon be a force to reckon with.&N
 ~
-76 0 0 0 0 0 8194 0 S
-AC 0 1 3
+76 0 0 0 0 0 0 8194 0 S
+AC 0 1 0 3
 19 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -141,8 +141,8 @@ female fluffy~
 &+Wfluffy and without a care in the world. Within a short matter of time
 &+Wthis young cub will become quite dangerous.&N                                            &N
 ~
-140 0 0 0 0 0 8194 0 S
-AC 0 1 3
+140 0 0 0 0 0 0 8194 0 S
+AC 0 1 0 3
 21 0 0 2d2+1 1d1+2
 0.0.0.0 0
 8 8 2
@@ -157,8 +157,8 @@ bitch~
 &+rThere are two small points resting on her bottom lip. Clearly her fangs
 &+rwould be her most dangerous weapon of choice.&N
 ~
-2252 0 0 67108994 0 0 8192 -1000 S
-UM 17 131072 3
+2252 0 0 0 67108994 0 0 8192 -1000 S
+UM 17 131072 0 3
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
