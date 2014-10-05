@@ -1521,11 +1521,11 @@ void spell_comet(int level, P_char ch, char *arg, int type, P_char victim, P_obj
   }
   else
   {
-    // A little more than fireball damage.
-    dam = dice(((int)(level/3) + 5), 8) * 4 + 20;
+    // A little more than fireball damage (d8 instead of d6 and + 10 dam).
+    dam = dice(((int)(level/3) + 5), 8) * 4 + 40;
   }
 
-  if( !StatSave(victim, APPLY_POW, 0) )
+  if( !NewSaves(victim, SAVING_SPELL, level/7) )
   {
     dam = (int)(dam *  1.2);
   }
