@@ -442,7 +442,8 @@ void do_addicted_blood(P_char ch, char *arg, int cmd)
 
 void update_addicted_to_blood(P_char ch, P_char victim)
 {
-  if( !IS_PC(victim) && GET_LEVEL(victim) >= GET_LEVEL(ch) - 5 )
+  if( IS_NPC(victim) && GET_LEVEL(victim) >= GET_LEVEL(ch) - 5
+    && !IS_PC_PET(victim) && !affected_by_spell(victim, TAG_CONJURED_PET) )
   {
     // Add addicted to blood if it isn't already there
     if( !affected_by_spell(ch, TAG_ADDICTED_BLOOD) )

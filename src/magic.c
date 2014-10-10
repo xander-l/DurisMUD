@@ -21772,7 +21772,6 @@ void do_soulbind(P_char ch, char *argument, int cmd)
     victim = ch;
   }
 
-// PENIS: Need to test soulbind.. might be buggy.
   if( has_soulbind(victim) != 0 )
   {
     remove_soulbind(victim);
@@ -21789,7 +21788,6 @@ void do_soulbind(P_char ch, char *argument, int cmd)
     return;
   }
 
-// WAS HERE PENIS
   if( IS_TRUSTED(ch) ? *gbuf2 : *gbuf1 )
   {
     // We look for the item in the God/high fragger's inventory (not necessarily the victim).

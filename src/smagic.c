@@ -18,21 +18,22 @@
 #   include <string.h>
 #   include <time.h>
 
-#   include "comm.h"
-#   include "db.h"
-#   include "events.h"
-#   include "interp.h"
-#   include "structs.h"
-#   include "prototypes.h"
-#   include "specs.prototypes.h"
-#   include "spells.h"
-#   include "utils.h"
-#   include "weather.h"
-#   include "justice.h"
-#   include "damage.h"
-#   include "disguise.h"
-#   include "graph.h"
-#   include "ctf.h"
+#include "comm.h"
+#include "db.h"
+#include "events.h"
+#include "interp.h"
+#include "structs.h"
+#include "prototypes.h"
+#include "specs.prototypes.h"
+#include "spells.h"
+#include "utils.h"
+#include "weather.h"
+#include "justice.h"
+#include "damage.h"
+#include "disguise.h"
+#include "graph.h"
+#include "ctf.h"
+#include "achievements.h"
 
 /*
  * external variables
@@ -3401,14 +3402,14 @@ P_char summon_beast_common(int mobnumb, P_char ch, int max_summon,
   act(appears, FALSE, ch, 0, ch, TO_ROOM);
   act(appearsC, FALSE, ch, 0, 0, TO_CHAR);
 
+  apply_achievement(mob, TAG_CONJURED_PET);
   setup_pet(mob, ch, dur, PET_NOCASH);
   add_follower(mob, ch);
 
   return mob;
 }
 
-void spell_summon_beast(int level, P_char ch, char *arg, int type,
-                        P_char victim, P_obj obj)
+void spell_summon_beast(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   int rand = number(1, 3), maxsumm = (level / 15) + 1, dur = 20 + (level / 5);
 
@@ -3574,8 +3575,7 @@ void spell_summon_beast(int level, P_char ch, char *arg, int type,
   }
 }
 
-void spell_greater_summon_beast(int level, P_char ch, char *arg, int type,
-                                P_char victim, P_obj obj)
+void spell_greater_summon_beast(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   int rand = number(1, 3), maxsumm = (level / 15) + 1, dur = level + 10;
 
