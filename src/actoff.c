@@ -4338,44 +4338,47 @@ void do_headbutt(P_char ch, char *argument, int cmd)
   }
 }
 
+// One round of bleeding from garrote (throat cut).
+// Input: ch is cutter, victim is bleeding, obj should be NULL,
+//   and data = int* to the number of rounds left to bleed.
+// Output: victim bled one round (doesn't go below 0 hps),
+//   *data decremented 1 and another round event created if *data > 0.
 void event_garroteproc(P_char ch, P_char victim, P_obj obj, void *data)
 {
   int dam;
   int count = *((int*)data);
   int rand1 = number(1, 100);
 
-  dam = dice(3, 6);
+  dam = dice(3, 4);
 
-  if ((GET_HIT(ch) - dam) > 0)
+  if( GET_HIT(ch) - dam > 0 )
   {
     GET_HIT(ch) -= dam;
     if(rand1 > 50)
     {
-    send_to_char("&+rYour bl&+Rood spl&+ratte&+Rrs as it hits the ground.&N\n", ch);
-    act("$n&+r's blo&+Rod spla&+rtter&+Rs as it hits the ground.&N", TRUE, ch, NULL, NULL,
-        TO_NOTVICT);
-    make_bloodstain(ch);
-    if(!number(0, 9) &&
-       !IS_GREATER_RACE(ch) &&
-       !IS_ELITE(ch))
-          StopCasting(ch);
+      send_to_char("&+rYour bl&+Rood spl&+ratte&+Rrs as it hits the ground.&N\n", ch);
+      act("$n&+r's blo&+Rod spla&+rtter&+Rs as it hits the ground.&N", TRUE, ch, NULL, NULL, TO_NOTVICT);
+      make_bloodstain(ch);
+      if( !number(0, 9) && !IS_GREATER_RACE(ch) && !IS_ELITE(ch) )
+      {
+        StopCasting(ch);
+      }
     }
     else
     {
-    send_to_char("&+rYour wound gushes &+Rblood &+rall over the surrounding area.&N\n", ch);
-    act("$n&+r's wound gushes &+Rblood &+rall over the surrounding area.", TRUE, ch, NULL, NULL,
-        TO_NOTVICT);
-    make_bloodstain(ch);
-    if(!number(0, 9) &&
-       !IS_GREATER_RACE(ch) &&
-       !IS_ELITE(ch))
-          StopCasting(ch);
+      send_to_char("&+rYour wound gushes &+Rblood &+rall over the surrounding area.&N\n", ch);
+      act("$n&+r's wound gushes &+Rblood &+rall over the surrounding area.", TRUE, ch, NULL, NULL, TO_NOTVICT);
+      make_bloodstain(ch);
+      if( !number(0, 9) && !IS_GREATER_RACE(ch) && !IS_ELITE(ch) )
+      {
+        StopCasting(ch);
+      }
     }
   }
 
-  if (count >= 0)
+  // Round already happened, so we subtract then check.
+  if( --count > 0 )
   {
-    count--;
     add_event(event_garroteproc, PULSE_VIOLENCE, ch, 0, 0, 0, &count, sizeof(count));
   }
   else
@@ -10184,11 +10187,11 @@ void do_garrote(P_char ch, char *argument, int cmd)
   if( number(1, 105) > success )
   {
     act("&+LYou try to slip behind &n$N&+L, but they notice the attempt and block your advance!",
-    FALSE, ch, 0, victim, TO_CHAR);
+      FALSE, ch, 0, victim, TO_CHAR);
     act("&+LYou notice &n$n &+Lattempting to sneak behind you, but quickly block their advance!",
-    FALSE, ch, 0, victim, TO_VICT);
+      FALSE, ch, 0, victim, TO_VICT);
     act("$N &+Ladeptly notices &n$n's attempt to &+rgarrote&+L them and blocks the attempt!",
-    FALSE, ch, 0, victim, TO_NOTVICT);
+      FALSE, ch, 0, victim, TO_NOTVICT);
     set_short_affected_by(ch, SKILL_GARROTE, PULSE_VIOLENCE);
     CharWait(ch, (3*WAIT_SEC) / 2);
     return;
@@ -10206,7 +10209,7 @@ void do_garrote(P_char ch, char *argument, int cmd)
   }
   set_short_affected_by(ch, SKILL_GARROTE, PULSE_VIOLENCE);
 	int	numb = number(5, 8);
-  CharWait(ch, WAIT_SEC / 2);
+  CharWait(ch, (WAIT_SEC * 3) / 2);
   if( !IS_FIGHTING(ch) )
   {
     set_fighting(ch, victim);
