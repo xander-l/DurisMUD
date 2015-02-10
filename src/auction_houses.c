@@ -1147,7 +1147,7 @@ string format_time(long seconds) {
 }
 
 EqSort::EqSort() {
-	flags.push_back(new EqSlotFlag("horns", "worn on body", ITEM_WEAR_HORN));
+	flags.push_back(new EqSlotFlag("horns", "worn on horns", ITEM_WEAR_HORN));
 	flags.push_back(new EqSlotFlag("nose", "worn on nose", ITEM_WEAR_NOSE));
 	flags.push_back(new EqSlotFlag("tail", "worn on tail", ITEM_WEAR_TAIL));
 	flags.push_back(new EqSlotFlag("horse", "worn on a horses body", ITEM_HORSE_BODY));
