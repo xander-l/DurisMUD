@@ -743,7 +743,7 @@ void list_artifacts(P_char ch, char *arg, int type)
     vnum = atoi(dire->d_name);
     if (!vnum)
       continue;
-
+logit(LOG_DEBUG, "Loading artifact file: %s%s", ARTIFACT_DIR, dire->d_name);
     owning_side = get_current_artifact_info(-1, vnum, pname, &id, &last_time, &t_uo,
                                 !IS_TRUSTED(ch), &blood);
 
