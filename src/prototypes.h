@@ -2960,6 +2960,7 @@ void sprinttype(int, const char **, char *);
 void loginlog(int, const char*,...);
 void statuslog(int, const char *,...);
 void banlog(int, const char *,...);
+void epiclog(int, const char *,...);
 void strToLower(char *);
 void wizlog(int level, const char *,...);
 void debug(const char *,...);

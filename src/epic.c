@@ -437,8 +437,7 @@ void gain_epic(P_char ch, int type, int data, int amount)
       break;
   }
 
-  statuslog(GREATER_G, "%s received %d epic points (%s)", ch->player.name, amount, type_str);
-  logit(LOG_EPIC, "%s received %d epic points (%s)", ch->player.name, amount, type_str);
+  epiclog( 56, "%s received %d epic points (%s)", ch->player.name, amount, type_str);
 
   /*
     exp.maxExpLevel means the highest level you can reach with just experience (i.e., without epics)
@@ -482,7 +481,7 @@ void gain_epic(P_char ch, int type, int data, int amount)
   if( (afp->modifier - amount) / errand_notch < afp->modifier / errand_notch && !has_epic_task(ch))
   {
     debug( "%s got new task: old epics: %d, new epics: %d.", J_NAME(ch), afp->modifier - amount, afp->modifier );
-    logit(LOG_EPIC, "%s got new task: old epics: %d, new epics: %d.", J_NAME(ch), afp->modifier - amount, afp->modifier );
+    epiclog( 56, "%s got new task: old epics: %d, new epics: %d.", J_NAME(ch), afp->modifier - amount, afp->modifier );
     epic_choose_new_epic_task(ch);
   }
 
@@ -739,8 +738,12 @@ void epic_stone_level_char(P_obj obj, P_char ch)
   if( !IS_ALIVE(ch) || IS_NPC(ch) || !obj )
   {
     debug( "epic_stone_level_char: Bad argument(s)." );
-    logit(LOG_DEBUG, "epic_stone_level_char: Bad argument(s)." );
-    logit(LOG_EPIC, "epic_stone_level_char: Bad argument(s)." );
+    logit( LOG_DEBUG, "epic_stone_level_char: Bad argument(s): Char '%s' : %s, obj: %s (%d).",
+      (ch == NULL) ? "NULL" : J_NAME(ch), IS_ALIVE(ch) ? "ALIVE" : "NOT ALIVE",
+      (obj == NULL) ? "NULL" : obj->short_description, (obj == NULL) ? -1 : GET_OBJ_VNUM(obj) );
+    epiclog( 56, "epic_stone_level_char: Bad argument(s): Char '%s' : %s, obj: %s (%d).",
+      (ch == NULL) ? "NULL" : J_NAME(ch), IS_ALIVE(ch) ? "ALIVE" : "NOT ALIVE",
+      (obj == NULL) ? "NULL" : obj->short_description, (obj == NULL) ? -1 : GET_OBJ_VNUM(obj) );
     return;
   }
 
@@ -765,7 +768,7 @@ void epic_stone_level_char(P_obj obj, P_char ch)
     send_to_char( "&+RError in epic leveling please tell a God immediately.&n\n", ch );
     debug( "epic_stone_level_char: Couldn't find property '%s' which is vital for leveling.", buf );
     logit(LOG_DEBUG, "epic_stone_level_char: Couldn't find property '%s' which is vital for leveling.", buf );
-    logit(LOG_EPIC, "epic_stone_level_char: Couldn't find property '%s' which is vital for leveling.", buf );
+    epiclog(56, "epic_stone_level_char: Couldn't find property '%s' which is vital for leveling.", buf );
     return;
   }
 
@@ -965,7 +968,7 @@ int epic_stone(P_obj obj, P_char ch, int cmd, char *arg)
     if(zone_number)
     {
       statuslog(GREATER_G, "%s touched the epic stone in %s", ch->player.name, zone_table[real_zone0(zone_number)].name);
-      logit(LOG_EPIC, "%s touched the epic stone in %s", ch->player.name, strip_ansi(zone_table[real_zone0(zone_number)].name).c_str());
+      epiclog( 56, "%s touched the epic stone in %s.", J_NAME(ch), strip_ansi(zone_table[real_zone0(zone_number)].name).c_str());
         if (get_property("thanksgiving", 0.000))
     thanksgiving_proc(ch);
     }

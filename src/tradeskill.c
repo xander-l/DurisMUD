@@ -2578,233 +2578,247 @@ int learn_recipe(P_obj obj, P_char ch, int cmd, char *arg)
   return TRUE;
 }
 
+/* This function handles buying epic items and attaches to
+ *   the mob (shopkeeper) in specs_assign.c.
+ * Recommended change: Variables for item vnum and epics needed
+ *   and then just set them in the CMD_BUY case.  At the end,
+ *   if( pl->..epics < epics needed ) {fail message and return}
+ *   load item via var, message char "You bought $p", subtract epics,
+ *   send item to char, and save char.
+ */
+#define COST_EPIC_MUSHROOM           125
+#define COST_EPIC_FIX_SCROLL          85
+#define COST_EPIC_FAERIE_BAG          50
+#define COST_EPIC_BATTLEROBE        5000
+#define COST_EPIC_TOCORPSE_POTION    500
+#define COST_EPIC_LANTAN_TOOLS       150
+#define COST_EPIC_FOREST_EYES       2500
+#define COST_EPIC_BOTTLE_EPICS       100
+
+#define VNUM_EPIC_MUSHROOM        400213
+#define VNUM_EPIC_FIX_SCROLL       14126
+#define VNUM_EPIC_FAERIE_BAG      400217
+#define VNUM_EPIC_BATTLEROBE      400218
+#define VNUM_EPIC_TOCORPSE_POTION 400221
+#define VNUM_EPIC_LANTAN_TOOLS    400227
+#define VNUM_EPIC_FOREST_EYES     400228
+#define VNUM_EPIC_BOTTLE_EPICS    400234
+
 int epic_store(P_char ch, P_char pl, int cmd, char *arg)
 {
-  char buffer[MAX_STRING_LENGTH];
+  char     buffer[MAX_STRING_LENGTH];
   char     buf[256], *buff;
   char     Gbuf1[MAX_STRING_LENGTH], *c;
+  P_obj    obj;
 
-  if(cmd == CMD_LIST)
-  {//iflist
-      if(!arg || !*arg)
-   {//ifnoarg
-      // practice called with no arguments
-      sprintf(buffer,
-              "&+WKannard&+L slowly lifts his hood and smiles.'\n"
-	       "&+WKannard&+L &+wsays 'Welcome adventurer. I offer exotic items from the far reaches beyond our own realm in exchange for &+cepic points&n.'\n"
-	       "&+WKannard&+L &+wsays 'Please &+Yrefer to my &-L&+ysign&n&-l for an explanation of each of these items and their affects.'\n"
-              "&+y=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n"
-		"&+y|		&+cItem Name					           Epic Cost            &+y|\n"																
-              "&+y|&+W 1) &+ga M&+Ga&+Wg&+Gi&+gc&+Ga&+Wl &+GGreen &+gMu&+Gshro&+gom from the &+GSylvan &+yWoods&n&+C%30d&n		&+y|\n"
-              "&+y|&+W 2) &+ya tightly wrapped vellum scroll named '&+LFix&+y'&n   &+C%30d&n		&+y|\n"
-              "&+y|&+W 3) &+Wa &+mm&+My&+Ys&+Bt&+Gc&+Ra&+Gl &+MFaerie &+Wbag of &+Lstolen loot&n           &+C%30d&n               &+y|\n"
-              "&+y|&+W 4) &+Ya r&+ro&+Yb&+re &+Yof a &+mN&+We&+Mt&+Wh&+me&+Wr&+Mi&+Wl &+rBa&+Ytt&+rle&+Y M&+rag&+Ye&n              &+C%30d&n               &+y|\n"
-              "&+y|&+W 5) &+La &+Gbottle &+Lof &+GT&+go&+GR&+gM&+Ge&+gN&+GT&+ge&+GD &+gS&+Goul&+gs     &n              &+C%30d&n               &+y|\n"
-              "&+y|&+W 6) &+ca &+Cbr&+Will&+Bia&+Wnt &+cset of &+rLantan &+CScientific&+L Tools&n    &n&+C%30d&n               &+y|\n"
-              "&+y|&+W 7) &+Lthe &+ge&+Gy&+ge&+Gs &+Lof the &+gHi&+Ggh For&+gest&n     &n              &+C%30d&n&+y               |\n"
-              "&+y|&+W 8) &+Ca &+Wbottle &+Cof &+GPa&+gs&+Lt Exp&+gerien&+Gces&n     &n             &+C%30d&n&+y               |\n"
-              "&+y=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n"
-		"\n", 125, 85, 50, 5000, 500, 150, 2500, 100);
-      send_to_char(buffer, pl);
-      return TRUE;
-    }//endifnoarg
-  }//endiflist
-  else if(cmd == CMD_BUY)
+  if( cmd == CMD_LIST )
   {
-	if(!arg || !*arg)
-   {//ifnoarg
-      // practice called with no arguments
+    if( !arg || !*arg )
+    {
+      // list called with no arguments
       sprintf(buffer,
-              "&+WKannard&+L &+wsays 'What item would you like to buy?'\n");
-		
+        "&+WKannard&+L slowly lifts his hood and smiles.'\n"
+	      "&+WKannard&+L &+wsays 'Welcome adventurer. I offer exotic items from the far reaches beyond our own realm in exchange for &+cepic points&n.'\n"
+	      "&+WKannard&+L &+wsays 'Please &+Yrefer to my &-L&+ysign&n&-l for an explanation of each of these items and their affects.'\n"
+        "&+y=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n"
+        "&+y|		&+cItem Name					           Epic Cost            &+y|\n"
+        "&+y|&+W 1) &+ga M&+Ga&+Wg&+Gi&+gc&+Ga&+Wl &+GGreen &+gMu&+Gshro&+gom from the &+GSylvan &+yWoods&n&+C%30d&n		&+y|\n"
+        "&+y|&+W 2) &+ya tightly wrapped vellum scroll named '&+LFix&+y'&n   &+C%30d&n		&+y|\n"
+        "&+y|&+W 3) &+Wa &+mm&+My&+Ys&+Bt&+Gc&+Ra&+Gl &+MFaerie &+Wbag of &+Lstolen loot&n           &+C%30d&n               &+y|\n"
+        "&+y|&+W 4) &+Ya r&+ro&+Yb&+re &+Yof a &+mN&+We&+Mt&+Wh&+me&+Wr&+Mi&+Wl &+rBa&+Ytt&+rle&+Y M&+rag&+Ye&n              &+C%30d&n               &+y|\n"
+        "&+y|&+W 5) &+La &+Gbottle &+Lof &+GT&+go&+GR&+gM&+Ge&+gN&+GT&+ge&+GD &+gS&+Goul&+gs     &n              &+C%30d&n               &+y|\n"
+        "&+y|&+W 6) &+ca &+Cbr&+Will&+Bia&+Wnt &+cset of &+rLantan &+CScientific&+L Tools&n    &n&+C%30d&n               &+y|\n"
+        "&+y|&+W 7) &+Lthe &+ge&+Gy&+ge&+Gs &+Lof the &+gHi&+Ggh For&+gest&n     &n              &+C%30d&n&+y               |\n"
+        "&+y|&+W 8) &+Ca &+Wbottle &+Cof &+GPa&+gs&+Lt Exp&+gerien&+Gces&n     &n             &+C%30d&n&+y               |\n"
+        "&+y|&+R Notice: You can not buy multiple items at once here!                                          &+y|&n\n"
+        "&+y=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n"
+        "\n", COST_EPIC_MUSHROOM, COST_EPIC_FIX_SCROLL, COST_EPIC_FAERIE_BAG, COST_EPIC_BATTLEROBE,
+        COST_EPIC_TOCORPSE_POTION, COST_EPIC_LANTAN_TOOLS, COST_EPIC_FOREST_EYES, COST_EPIC_BOTTLE_EPICS );
+
       send_to_char(buffer, pl);
       return TRUE;
-    }//endifnoarg
-
-	else if(strstr(arg, "1"))
-    {//buy1
-	//check for 200 epics required to reset
-	int availepics = pl->only.pc->epics;
-	if (availepics < 125)
-	{
-	  send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
-	  return TRUE;
-        }
-	//subtract 125 epics
-       P_obj obj;
-	obj = read_object(400213, VIRTUAL);
-	pl->only.pc->epics -= 125;
-       send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
-	send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
-       act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
-       extract_obj(obj, FALSE);
-	obj_to_char(read_object(400213, VIRTUAL), pl);
-       return TRUE;
-    }//endbuy1
-
-    //14126 - fix scroll
-	else if(strstr(arg, "2"))
-    {//buy2
-	//check for 85 epics required to reset
-	int availepics = pl->only.pc->epics;
-	if (availepics < 85)
-	{
-	  send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
-	  return TRUE;
-        }
-	//subtract 85 epics
-       P_obj obj;
-	obj = read_object(14126, VIRTUAL);
-	pl->only.pc->epics -= 85;
-       send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
-	send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
-       act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
-       extract_obj(obj, FALSE);
-	obj_to_char(read_object(14126, VIRTUAL), pl);
-       return TRUE;
-    }//endbuy2
-
-    //400217 - faerie bag
-	else if(strstr(arg, "3"))
-    {//buy3
-	//check for 50 epics required to reset
-	int availepics = pl->only.pc->epics;
-	if (availepics < 50)
-	{
-	  send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
-	  return TRUE;
-        }
-	//subtract 50 epics
-       P_obj obj;
-	obj = read_object(400217, VIRTUAL);
-	pl->only.pc->epics -= 50;
-       send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
-	send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
-       act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
-       extract_obj(obj, FALSE);
-	obj_to_char(read_object(400217, VIRTUAL), pl);
-       return TRUE;
-    }//endbuy3
-
-  //400218 - netheril robe
-	else if(strstr(arg, "4"))
-    {//buy4
-	//check for 5000 epics required to reset
-	int availepics = pl->only.pc->epics;
-	if (availepics < 5000)
-	{
-	  send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
-	  return TRUE;
-        }
-	//subtract 5000 epics
-       P_obj obj;
-	obj = read_object(400218, VIRTUAL);
-	pl->only.pc->epics -= 5000;
-       send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
-	send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
-       act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
-       extract_obj(obj, FALSE);
-	obj_to_char(read_object(400218, VIRTUAL), pl);
-       return TRUE;
-    }//endbuy4
-
-  //400221 - corpse portal potion
-	else if(strstr(arg, "5"))
-    {//buy5
-	//check for 500 epics required to reset
-	int availepics = pl->only.pc->epics;
-	if (availepics < 500)
-	{
-	  send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
-	  return TRUE;
-        }
-	//subtract 500 epics
-       P_obj obj;
-	obj = read_object(400221, VIRTUAL);
-	pl->only.pc->epics -= 500;
-       send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
-	send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
-       act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
-       extract_obj(obj, FALSE);
-	obj_to_char(read_object(400221, VIRTUAL), pl);
-       return TRUE;
-    }//endbuy5
-
-//400227 - lantan tools
-	else if(strstr(arg, "6"))
-{//buy6 comments by Gellz 08/02/2015 - Removed to comment out Lantan for now.
-	int availepics = pl->only.pc->epics;
-	//Just performing check anyway
-	send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but due to such a high demand, those items seem to be temporarily out of stock.\r\n&n", pl);
-	return TRUE;
-	} //endbuy6
-	
-//    {//buy6
-//	//check for 150 epics required to reset
-//	int availepics = pl->only.pc->epics;
-//	if (availepics < 150)
-//	{
-//	  send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
-//	  return TRUE;
-//        }
-//	//subtract 150 epics
-//       P_obj obj;
-//	obj = read_object(400227, VIRTUAL);
-//	pl->only.pc->epics -= 150;
-//       send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
-//	send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
-//       act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
-//       extract_obj(obj, FALSE);
-//	obj_to_char(read_object(400227, VIRTUAL), pl);
-//       return TRUE;
-//    }//endbuy6
-// End Comments by Gellz - 08/02/2015
-
-//400228 - forest sight
-	else if(strstr(arg, "7"))
-    {//buy7
-	//check for 2500 epics
-	int availepics = pl->only.pc->epics;
-	if (availepics < 2500)
-	{
-	  send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
-	  return TRUE;
-        }
-	//subtract 2500 epics
-       P_obj obj;
-	obj = read_object(400228, VIRTUAL);
-	pl->only.pc->epics -= 2500;
-       send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
-	send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
-       act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
-       SET_BIT(obj->bitvector5, AFF5_FOREST_SIGHT);
-	obj_to_char(obj, pl);
-       return TRUE;
-    }//endbuy7
+    }
+  }
+  else if( cmd == CMD_BUY )
+  {
+    if( !arg || !*arg )
+    {
+      sprintf(buffer, "&+WKannard&+L &+wsays 'What item would you like to buy?'\n");
+      send_to_char(buffer, pl);
+      return TRUE;
+    }
+    // 1 - lvl mushroom
+    else if( strstr(arg, "1") )
+    {
+      // Check for the epics required to purchase mushroom..
+      if( pl->only.pc->epics < COST_EPIC_MUSHROOM )
+      {
+        send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
+        return TRUE;
+      }
+      pl->only.pc->epics -= COST_EPIC_MUSHROOM;
+      obj = read_object(VNUM_EPIC_MUSHROOM, VIRTUAL);
+      send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
+      send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
+      act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
+      obj_to_char(obj, pl);
+      do_save_silent(pl, 1);
+      // Log the transaction in epic log file.
+      epiclog( 56, "%s bought '%s' (%d) at the epic store for %d epics.", J_NAME(pl), obj->short_description,
+        VNUM_EPIC_MUSHROOM, COST_EPIC_MUSHROOM );
+      return TRUE;
+    }
+    // 2 - fix scroll
+    else if(strstr(arg, "2"))
+    {
+      // Check for the epics required for scroll..
+      if( pl->only.pc->epics < COST_EPIC_FIX_SCROLL )
+      {
+        send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
+        return TRUE;
+      }
+      pl->only.pc->epics -= COST_EPIC_FIX_SCROLL;
+      obj = read_object(VNUM_EPIC_FIX_SCROLL, VIRTUAL);
+      send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
+      send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
+      act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
+      obj_to_char( obj, pl );
+      do_save_silent(pl, 1);
+      // Log the transaction in epic log file.
+      epiclog( 56, "%s bought '%s' (%d) at the epic store for %d epics.", J_NAME(pl), obj->short_description,
+        VNUM_EPIC_FIX_SCROLL, COST_EPIC_FIX_SCROLL );
+      return TRUE;
+    }
+    // 3 - faerie bag
+    else if(strstr(arg, "3"))
+    {
+      // Check for the epics required for bag..
+      if( pl->only.pc->epics < COST_EPIC_FAERIE_BAG )
+      {
+        send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
+        return TRUE;
+      }
+      pl->only.pc->epics -= COST_EPIC_FAERIE_BAG;
+      obj = read_object(VNUM_EPIC_FAERIE_BAG, VIRTUAL);
+      send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
+      send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
+      act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
+      obj_to_char(obj, pl);
+      do_save_silent(pl, 1);
+      // Log the transaction in epic log file.
+      epiclog( 56, "%s bought '%s' (%d) at the epic store for %d epics.", J_NAME(pl), obj->short_description,
+        VNUM_EPIC_FAERIE_BAG, COST_EPIC_FAERIE_BAG );
+      return TRUE;
+    }
+    // 4 - netheril robe
+    else if(strstr(arg, "4"))
+    {
+      // Check for the epics required for robe..
+      if( pl->only.pc->epics < COST_EPIC_BATTLEROBE )
+      {
+        send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
+        return TRUE;
+      }
+      pl->only.pc->epics -= COST_EPIC_BATTLEROBE;
+      obj = read_object( VNUM_EPIC_BATTLEROBE, VIRTUAL);
+      send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
+      send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
+      act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
+      obj_to_char( obj, pl );
+      do_save_silent(pl, 1);
+      // Log the transaction in epic log file.
+      epiclog( 56, "%s bought '%s' (%d) at the epic store for %d epics.", J_NAME(pl), obj->short_description,
+        VNUM_EPIC_BATTLEROBE, COST_EPIC_BATTLEROBE );
+      return TRUE;
+    }
+    // 5 - corpse portal potion
+    else if(strstr(arg, "5"))
+    {
+      // Check for the epics required for potion..
+      if( pl->only.pc->epics < COST_EPIC_TOCORPSE_POTION )
+      {
+        send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
+        return TRUE;
+      }
+      obj = read_object( VNUM_EPIC_TOCORPSE_POTION, VIRTUAL );
+      pl->only.pc->epics -= COST_EPIC_TOCORPSE_POTION;
+      send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
+      send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
+      act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
+      obj_to_char( obj, pl );
+      do_save_silent(pl, 1);
+      // Log the transaction in epic log file.
+      epiclog( 56, "%s bought '%s' (%d) at the epic store for %d epics.", J_NAME(pl), obj->short_description,
+        VNUM_EPIC_TOCORPSE_POTION, COST_EPIC_TOCORPSE_POTION );
+      return TRUE;
+    }
+    // 6 - lantan tools
+    else if(strstr(arg, "6"))
+    {
+      // Gellz 08/02/2015 - Removed Lantan for now.
+      send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but due to such a high demand, those items seem to be temporarily out of stock.\r\n&n", pl);
+      return TRUE;
+      // Check for the epics required for lantans..
+      if( pl->only.pc->epics < COST_EPIC_LANTAN_TOOLS )
+      {
+        send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
+        return TRUE;
+      }
+      obj = read_object( VNUM_EPIC_LANTAN_TOOLS, VIRTUAL );
+      pl->only.pc->epics -= COST_EPIC_LANTAN_TOOLS;
+      send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
+      send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
+      act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
+      obj_to_char( obj, pl );
+      do_save_silent(pl, 1);
+      // Log the transaction in epic log file.
+      epiclog( 56, "%s bought '%s' (%d) at the epic store for %d epics.", J_NAME(pl), obj->short_description,
+        VNUM_EPIC_LANTAN_TOOLS, COST_EPIC_LANTAN_TOOLS);
+      return TRUE;
+    }
+    // 7 - forest sight
+    else if(strstr(arg, "7"))
+    {
+      // Check for the epics required for forest goggles..
+      if( pl->only.pc->epics < COST_EPIC_FOREST_EYES )
+      {
+        send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
+        return TRUE;
+      }
+      obj = read_object( VNUM_EPIC_FOREST_EYES, VIRTUAL );
+      pl->only.pc->epics -= COST_EPIC_FOREST_EYES;
+      send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
+      send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
+      act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
+      // Why isn't this set in the zone files?  How peculiar.
+      SET_BIT(obj->bitvector5, AFF5_FOREST_SIGHT);
+      obj_to_char( obj, pl );
+      do_save_silent(pl, 1);
+      // Log the transaction in epic log file.
+      epiclog( 56, "%s bought '%s' (%d) at the epic store for %d epics.", J_NAME(pl), obj->short_description,
+        VNUM_EPIC_FOREST_EYES, COST_EPIC_FOREST_EYES );
+      return TRUE;
+    }
 	else if(strstr(arg, "8"))
-    {//buy8
-	//check for 100 epics required to buy
-	int availepics = pl->only.pc->epics;
-	if (availepics < 100)
-	{
-	  send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+W100 epics&n available for that item.\r\n&n", pl);
-	  return TRUE;
-        }
-	//subtract 100 epics
-       P_obj obj;
-	obj = read_object(400234, VIRTUAL);
-	pl->only.pc->epics -= 100;
-       send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
-	send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
-       act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
-       extract_obj(obj, FALSE);
-	obj_to_char(read_object(400234, VIRTUAL), pl);
-       return TRUE;
-    }//endbuy8
-
-
-
-
+    {
+      // Check for the epics required for forest goggles..
+      if( pl->only.pc->epics < COST_EPIC_BOTTLE_EPICS )
+      {
+        send_to_char("&+WKannard&+L &+wsays '&nI'm sorry, but you do not seem to have the &+Wepics&n available for that item.\r\n&n", pl);
+        return TRUE;
+      }
+      obj = read_object( VNUM_EPIC_BOTTLE_EPICS, VIRTUAL );
+      pl->only.pc->epics -= COST_EPIC_BOTTLE_EPICS;
+      send_to_char("&+WKannard&+L &+wsays '&nAh, good choice! Quite a rare item!'\n", pl);
+      send_to_char("&+WKannard &+Lthe &+ctra&+Cvell&+cer &nmakes a strange gesture about your body, and hands you your item.\r\n&n", pl);
+      act("You now have $p!\r\n", FALSE, pl, obj, 0, TO_CHAR);
+      obj_to_char( obj, pl );
+      do_save_silent(pl, 1);
+      // Log the transaction in epic log file.
+      epiclog( 56, "%s bought '%s' (%d) at the epic store for %d epics.", J_NAME(pl), obj->short_description,
+        VNUM_EPIC_BOTTLE_EPICS, COST_EPIC_BOTTLE_EPICS );
+      return TRUE;
+    }
   }
   return FALSE;
 }

@@ -906,7 +906,7 @@ struct room_data {
 #define PLR2_NCHAT         BIT_13
 #define PLR2_HARDCORE_CHAR BIT_14
 #define PLR2_DAMAGE        BIT_15
-#define PLR2_B_PETITION      BIT_16 // Block petition channel
+#define PLR2_B_PETITION    BIT_16 // Block petition channel
 #define PLR2_BOON          BIT_17
 #define PLR2_NEWBIEEQ      BIT_18
 #define PLR2_SHOW_QUEST    BIT_19
@@ -944,6 +944,7 @@ struct room_data {
 #define PLR3_NOBEEP        BIT_17
 #define PLR3_UNDERLINE     BIT_18
 #define PLR3_NOLEVEL       BIT_19
+#define PLR3_EPICWATCH     BIT_20 /* For Immortals: displays calls to epiclog */
 
 /* For players : Prompt flags (16 bits max) */
 #define PROMPT_NONE        BIT_1

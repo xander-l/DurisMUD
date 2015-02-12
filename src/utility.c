@@ -895,6 +895,34 @@ void statuslog(int level, const char *format, ...)
   logit(LOG_STATUS, stripansi(lbuf));
 }
 
+void epiclog(int level, const char *format, ...)
+{
+  va_list  args;
+  char     lbuf[MAX_STRING_LENGTH];
+  char     sbuf[MAX_STRING_LENGTH];
+  P_desc   d;
+
+  strcpy(lbuf, "&+c*** EPIC:&n ");
+  va_start(args, format);
+  vsprintf(lbuf + strlen(lbuf), format, args);
+  strcat(lbuf, "\r\n");
+  lbuf[sizeof(lbuf)] = 0;
+
+  for( d = descriptor_list; d; d = d->next )
+  {
+    if( d->connected == CON_PLYNG && IS_TRUSTED(d->character)
+      && GET_LEVEL(d->character) >= level && IS_SET(d->character->specials.act3, PLR3_EPICWATCH) )
+    {
+      send_to_char(lbuf, d->character);
+    }
+  }
+  va_end(args);
+
+  // Remove the newline/carriage return and send it to the log file.
+  lbuf[strlen(lbuf)-2] = '\0';
+  logit(LOG_EPIC, stripansi(lbuf));
+}
+
 void banlog(int level, const char *format, ...)
 {
   va_list  args;

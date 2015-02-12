@@ -3908,7 +3908,8 @@ void show_toggles(P_char ch)
             "&+rExp:&+g %-3s "
             "&+rDebug:&+g %-3s "
             "&+rFog:&+g %-3s "
-            "&+rHeal:&+g %-3s\n\r",
+            "&+rHeal:&+g %-3s "
+            "&+rEpic:&+g %-3s\n\r",
             ONOFF(!PLR_FLAGGED(ch, PLR_WIZMUFFED)),
             ONOFF(PLR_FLAGGED(ch, PLR_WIZLOG)),
             ONOFF(PLR_FLAGGED(ch, PLR_PLRLOG)),
@@ -3920,7 +3921,8 @@ void show_toggles(P_char ch)
             ONOFF(PLR2_FLAGGED(ch, PLR2_EXP)),
             ONOFF(PLR_FLAGGED(ch, PLR_DEBUG)),
             ONOFF(PLR_FLAGGED(ch, PLR_MORTAL)),
-            ONOFF(PLR2_FLAGGED(ch, PLR2_HEAL)));
+            ONOFF(PLR2_FLAGGED(ch, PLR2_HEAL)),
+            ONOFF(PLR3_FLAGGED(ch, PLR3_EPICWATCH)));
     send_to_char(Gbuf1, send_ch);
     send_to_char
       ("&+y-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-&N\r\n",
@@ -4039,6 +4041,7 @@ static const char *toggles_list[] = {
   "underline",
   "surname",                    /* 60 */
   "nolevel",
+  "epic",
   "\n"
 };
 
@@ -4156,7 +4159,9 @@ static const char *tog_messages[][2] = {
    "You will receive underlined instead of blinking text.\r\n"},
   {NULL, NULL }, // Surname does its own messaging.
   {"You will level at an epic stone.\r\n",
-   "You will not level at an epic stone.\r\n"}
+   "You will not level at an epic stone.\r\n"},
+  {"You turn off the &+WEpic&N messages.\r\n",
+   "You tune into the &+WEpic&N messages.\r\n"}
 };
 
 void do_more(P_char ch, char *arg, int cmd)
@@ -4223,6 +4228,7 @@ void do_toggle(P_char ch, char *arg, int cmd)
            !strn_cmp(toggles_list[i], "heal", 4) ||
 // Damage is now a mortal command.
 //           !strn_cmp(toggles_list[i], "damage", 6) ||
+           !strn_cmp(toggles_list[i], "epic", 4) ||
            !strn_cmp(toggles_list[i], "experience", 10)) && GET_LEVEL(ch) < MINLVLIMMORTAL)
       {
         continue;
@@ -4691,6 +4697,17 @@ void do_toggle(P_char ch, char *arg, int cmd)
     break;
   case 61:
     result = PLR3_TOG_CHK(ch, PLR3_NOLEVEL);
+    break;
+  case 62:
+    if( IS_TRUSTED(ch) )
+    {
+      result = PLR3_TOG_CHK(ch, PLR3_EPICWATCH);
+    }
+    else
+    {
+      send_to_char("Humf?!\r\n", send_ch);
+      return;
+    }
     break;
   default:
     break;
