@@ -344,17 +344,20 @@ void gain_epic(P_char ch, int type, int data, int amount)
   int notch = get_property("epic.skillPointStep", 100);
   int errand_notch = get_property("epic.errandStep", 200);
 
-  if( !IS_ALIVE(ch) )
+  // If invalid ch or bad load of errand_notch (don't care about notch as we don't use skillpoints anymore).
+  if( !IS_ALIVE(ch) || errand_notch < 1 )
   {
+    debug( "gain_epic: Bad ch '%s' %d, or bad errand_notch %d.", (ch==NULL) ? "NULL" : J_NAME(ch), errand_notch );
     return;
   }
 
+  // If we're not gaining epics, then perhaps we should be using a different function?  NPCs don't gain epics.
   if( amount < 1 || IS_NPC(ch))
   {
     return;
   }
 
-
+  // Epic bonus from witch potion.
   if( IS_AFFECTED4(ch, AFF4_EPIC_INCREASE) && type != EPIC_BOTTLE )
   {
     send_to_char("You feel the &+cblessing&n of the &+WGods&n wash over you.\n", ch);
@@ -362,7 +365,7 @@ void gain_epic(P_char ch, int type, int data, int amount)
   }
 
   // These don't get hacked by being tasked: randommob (only 1 epic to start with), strahdme (super acheivement),
-  //   bottle (epic bottles), PvP, or ship PvP.
+  //   bottle (epic bottles), PvP, ship PvP, or boons.
   if( type != EPIC_RANDOMMOB && type != EPIC_STRAHDME && type != EPIC_BOTTLE && type != EPIC_PVP && type != EPIC_SHIP_PVP
     && type != EPIC_BOON && has_epic_task(ch) )
   {
@@ -371,6 +374,7 @@ void gain_epic(P_char ch, int type, int data, int amount)
     amount = MAX(1, (int) (amount * get_property("epic.errand.penaltyMod", 0.25)));
   }
 
+  // Epic bottles don't get modifiers from nexus.
   if( type != EPIC_BOTTLE )
   {
     // For marduk nexus stone... to change rate use property nexusStones.bonus.epics
@@ -445,28 +449,33 @@ void gain_epic(P_char ch, int type, int data, int amount)
     to touch specific stones to level.
   */
 
-  if(GET_LEVEL(ch) >= get_property("exp.maxExpLevel", 46) &&
-      GET_LEVEL(ch) < get_property("epic.maxFreeLevel", 50))
+  if( GET_LEVEL(ch) >= get_property("exp.maxExpLevel", 46)
+    && GET_LEVEL(ch) < get_property("epic.maxFreeLevel", 50) )
   {
      epic_free_level(ch);
      //advance_level(ch);//, FALSE); handles leveling for wipe2011
   }
 
-  // feed artifacts
+  // Feed artifacts, and add to sum of epics gained (epic bottles don't count towards total epics).
   if( type != EPIC_BOTTLE )
   {
     epic_feed_artifacts(ch, amount, type);
-  }
 
-  // Handle the total number of epics ch has gained.
-  if( afp = get_spell_from_char(ch, TAG_EPICS_GAINED) )
-  {
-    afp->modifier += amount;
+    // Handle the total number of epics ch has gained.
+    if( afp = get_spell_from_char(ch, TAG_EPICS_GAINED) )
+    {
+      afp->modifier += amount;
+    }
+    else
+    {
+      afp = apply_achievement(ch, TAG_EPICS_GAINED);
+      afp->modifier = amount;
+    }
   }
+  // Epic bottles no longer task you.
   else
   {
-    afp = apply_achievement(ch, TAG_EPICS_GAINED);
-    afp->modifier = amount;
+    return;
   }
 
 /* Lets do away with skill points---we don't need them at all with the new system.
@@ -526,6 +535,8 @@ void epic_frag(P_char ch, int victim_pid, int amount)
 
 void epic_feed_artifacts(P_char ch, int epics, int epic_type)
 {
+  P_obj obj;
+
   if( IS_TRUSTED(ch) || !IS_PC(ch) )
   {
     return;
@@ -567,7 +578,15 @@ void epic_feed_artifacts(P_char ch, int epics, int epic_type)
     case EPIC_NEXUS_STONE:
       feed_seconds = (int) (feed_seconds * get_property("artifact.feeding.epic.typeMod.nexusStone", 1.0));
       break;
+    // This can add up quickly for repeatable boons, so we use a value less than 1.
+    case EPIC_BOON:
+      feed_seconds = (int) (feed_seconds * get_property("artifact.feeding.epic.typeMod.boon", 0.25));
+      break;
+    case EPIC_STRAHDME:
+    case EPIC_RANDOMMOB:
+      break;
     default:
+      feed_seconds = 0;
       break;
   }
 
@@ -586,7 +605,7 @@ void epic_feed_artifacts(P_char ch, int epics, int epic_type)
 
   for( int i = 0; i < MAX_WEAR; i++ )
   {
-    P_obj obj = ch->equipment[i];
+    obj = ch->equipment[i];
     if( obj && IS_ARTIFACT(obj) )
     {
       feed_artifact(ch, ch->equipment[i], feed_seconds, ((epic_type == EPIC_PVP || epic_type == EPIC_SHIP_PVP) ? TRUE : FALSE));
