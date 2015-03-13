@@ -397,7 +397,7 @@ void maul(P_char, P_char);
 void restrain(P_char, P_char);
 void rescue(P_char, P_char, bool);
 void do_trample(P_char, char *, int);
-int takedown_check(P_char, P_char, int, int, ulong);
+float takedown_check(P_char, P_char, float, int, ulong);
 void do_rearkick(P_char, char *, int);
 void do_whirlwind(P_char, char *, int);
 void kick(P_char, P_char);

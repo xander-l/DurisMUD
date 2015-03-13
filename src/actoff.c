@@ -374,8 +374,8 @@ void show_failed_takedown_messages(P_char ch, P_char victim, int skill,
 }
 
 // TAKEDOWN_CANCELLED means the victim was able to prevent the full action.
-
-int takedown_check(P_char ch, P_char victim, int chance, int skill, ulong applicable)
+// TAKEDOWN_PENALTY means ch failed the action for some reason.
+float takedown_check(P_char ch, P_char victim, float chance, int skill, ulong applicable)
 {
   int cagi, vagi;
 
@@ -384,11 +384,10 @@ int takedown_check(P_char ch, P_char victim, int chance, int skill, ulong applic
     return TAKEDOWN_CANCELLED;
   }
 
-  cagi = GET_C_AGI(ch);
-  vagi = GET_C_AGI(victim);
-
-  if( (ch->in_room != victim->in_room)
-    && !affected_by_spell(ch, SKILL_LANCE_CHARGE) )
+  // Only multiple-room takedown is lance charge?  What about Red Dragon springleap?
+  //   Right now, only lance charge calls this fn. before moving the char into the same room.
+  //   Red Dragon super springleap moves into the same room first.
+  if( (ch->in_room != victim->in_room) && !affected_by_spell(ch, SKILL_LANCE_CHARGE) )
   {
     return TAKEDOWN_CANCELLED;
   }
@@ -421,12 +420,10 @@ int takedown_check(P_char ch, P_char victim, int chance, int skill, ulong applic
     return TAKEDOWN_CANCELLED;
   }
 
-  /*
-   *  EVADE
-   */
-  if(GET_CHAR_SKILL(victim, SKILL_EVADE) && !get_spell_from_char(victim, SKILL_EVADE)
+  // Evade - Dodges takedowns, max 33% chance.
+  if( GET_CHAR_SKILL(victim, SKILL_EVADE) && !get_spell_from_char(victim, SKILL_EVADE)
     && (notch_skill(victim, SKILL_EVADE, get_property("skill.notch.offensive", 7))
-    || GET_CHAR_SKILL(victim, SKILL_EVADE) / 3 > number(0, 100)))
+    || GET_CHAR_SKILL(victim, SKILL_EVADE) / 3 >= number(1, 100)) )
   {
     show_failed_takedown_messages(ch, victim, skill, EVADE);
     set_short_affected_by(victim, SKILL_EVADE, PULSE_VIOLENCE/2);
@@ -434,24 +431,25 @@ int takedown_check(P_char ch, P_char victim, int chance, int skill, ulong applic
     return TAKEDOWN_CANCELLED;
   }
 
-  if( (IS_PC(ch) || IS_PC_PET(ch)) && (applicable & VICTIM_BACK_RANK)
-    && !on_front_line(victim) )
+  // Back ranked check
+  if( (IS_PC(ch) || IS_PC_PET(ch)) && (applicable & VICTIM_BACK_RANK) && !on_front_line(victim) )
   {
     send_to_char("You can't quite seem to reach them...\n", ch);
     return TAKEDOWN_CANCELLED;
   }
 
-  if(GET_CHAR_SKILL(victim, SKILL_GRAPPLE))
+  // Grapple - dodges takedowns too, max 16%.
+  if( GET_CHAR_SKILL(victim, SKILL_GRAPPLE) )
   {
     if(notch_skill(victim, SKILL_GRAPPLE, get_property("skill.notch.offensive", 7))
-      || GET_CHAR_SKILL(victim, SKILL_GRAPPLE)/6 > number(0, 100))
+      || GET_CHAR_SKILL(victim, SKILL_GRAPPLE)/6 >= number(1, 100))
     {
       show_failed_takedown_messages(ch, victim, skill, GRAPPLE);
       return TAKEDOWN_PENALTY;
     }
   }
 
-  if(IS_GRAPPLED(ch))
+  if( IS_GRAPPLED(ch) )
   {
     send_to_char("You can't do that while in a hold!\n", ch);
     return TAKEDOWN_CANCELLED;
@@ -459,9 +457,10 @@ int takedown_check(P_char ch, P_char victim, int chance, int skill, ulong applic
 
   if( (applicable & FOOTING) && !HAS_FOOTING(ch) )
   {
-    if(GET_RACE(ch) == RACE_W_ELEMENTAL && IS_PC_PET(ch) && IS_AFFECTED(ch, AFF_WATERBREATH) && GET_MASTER(ch)->player.spec == SPEC_WATER)
+    // Water elemental pets of Water Maguses don't need footing.
+    if( GET_RACE(ch) == RACE_W_ELEMENTAL && IS_PC_PET(ch) && GET_SPEC(GET_MASTER(ch), CLASS_CONJURER, SPEC_WATER) )
 	  {
-    	send_to_char("&+WYou are a water ele!\n", ch);
+    	send_to_char("&+WYou are a &+BWater Elemental&+W!\n", ch);
   	}
     else
 	  {
@@ -478,6 +477,7 @@ int takedown_check(P_char ch, P_char victim, int chance, int skill, ulong applic
       return TAKEDOWN_PENALTY;
     }
 
+    // Immaterial PCs get a 10% chance to dodge takedowns.
     if( IS_PC(victim) && !number(0, 9) )
     {
       show_failed_takedown_messages(ch, victim, skill, GHOST);
@@ -485,38 +485,41 @@ int takedown_check(P_char ch, P_char victim, int chance, int skill, ulong applic
     }
   }
 
-  if( affected_by_spell(victim, SPELL_DISPLACEMENT)
-    && (5 + GET_LEVEL(ch) / 10) > number(0, 100) )
+  // Displacement - Dodges takedowns, max 10% chance @ lvl 50.
+  if( affected_by_spell(victim, SPELL_DISPLACEMENT) && (5 + GET_LEVEL(ch) / 10) >= number(1, 100) )
   {
-    show_failed_takedown_messages(ch, victim, skill, GHOST); 
-    return TAKEDOWN_PENALTY; 
+    show_failed_takedown_messages(ch, victim, skill, GHOST);
+    return TAKEDOWN_PENALTY;
   }
 
-  if( (applicable & HARPY) && IS_HARPY(victim) && (number(0, 100) < 5) )
+  // Harpies - 5% chance to dodge takedowns.
+  if( (applicable & HARPY) && IS_HARPY(victim) && (number(1, 100) <= 5) )
   {
     show_failed_takedown_messages(ch, victim, skill, HARPY);
     return TAKEDOWN_PENALTY;
   }
 
+  // Earth Elemental race is !bash.
   if( (applicable & EARTH_ELEMENTAL) && GET_RACE(victim) == RACE_E_ELEMENTAL )
   {
     show_failed_takedown_messages(ch, victim, skill, EARTH_ELEMENTAL);
     return TAKEDOWN_PENALTY;
   }
-
+  // Water Elemental race is !bash.
   if( (applicable & WATER_ELEMENTAL) && GET_RACE(victim) == RACE_W_ELEMENTAL )
   {
     show_failed_takedown_messages(ch, victim, skill, WATER_ELEMENTAL);
     return TAKEDOWN_PENALTY;
   }
 
-  if( (applicable & NO_BASH) && IS_NPC(victim)
-    && IS_SET(victim->specials.act, ACT_NO_BASH) )
+  // !bash flag.
+  if( (applicable & NO_BASH) && IS_NPC(victim) && IS_SET(victim->specials.act, ACT_NO_BASH) )
   {
     show_failed_takedown_messages(ch, victim, skill, DEFAULT);
     return TAKEDOWN_PENALTY;
   }
 
+  // All dragons are 100% !bash.
   if( (applicable & DRAGON) && IS_DRAGON(victim) && IS_NPC(victim) )
   {
     show_failed_takedown_messages(ch, victim, skill, DEFAULT);
@@ -525,8 +528,8 @@ int takedown_check(P_char ch, P_char victim, int chance, int skill, ulong applic
 
   if( (applicable & AIR_AURA) && IS_AFFECTED2(victim, AFF2_AIR_AURA) )
   {
-    // 6 out of 19 chance? ~31.6% wth?
-    if(number(1, 20) < 7)
+    // 6 out of 20 chance - 30%
+    if( number(1, 20) <= 6 )
     {
       show_failed_takedown_messages(ch, victim, skill, GHOST);
       return TAKEDOWN_PENALTY;
@@ -536,38 +539,60 @@ int takedown_check(P_char ch, P_char victim, int chance, int skill, ulong applic
   // Agi versus agi Nov08 -Lucrot
   if( applicable & AGI_CHECK )
   {
-    chance = (int) (chance * ((double) BOUNDED(70, (100 + cagi - vagi), 125) / 100));
+    cagi = GET_C_AGI(ch);
+    vagi = GET_C_AGI(victim);
+    // Thris don't get a stat bonus for takedowns.
+    if( IS_THRIKREEN(ch) && cagi > 100 )
+    {
+      cagi = 100;
+    }
+    // chance 70% skill and 30% attributes
+    // For attributes, contribute 2 points off the 30% for each - point of difference in agi, or add 1/2 point
+    //   for each + point of difference in agi, with a limit of contributing no % for really bad agi on ch,
+    //   and a limit of contributing 37.5 points (7.5 over limit of 30%) for really good agi on ch.
+    // So, someone with no skill but awesome agi vs bad agi (50 points difference) has a 7.5% chance to be
+    //   successful, and someone with perfect skill and bad agi vs awesome agi (-50 points difference), has
+    //   a 70% chance to be successful.
+    chance = .70 * chance + .30 * BOUNDED(0.0, 100.0 + (cagi - vagi) * ((cagi-vagi<=0) ? 2.0 : .5), 125.0);
   }
 
   // NPC bonus to bash Nov08 - Lucrot
-  if(IS_NPC(ch) && !IS_PC_PET(ch))
+  if( IS_NPC(ch) && !IS_PC_PET(ch) )
   {
-    chance = (int) (chance * get_property("skill.bash.NPC_Modifier", 1.2));
+    chance *= get_property("skill.bash.NPC_Modifier", 1.2);
   }
 
-  if( GET_C_LUK(ch) / 10 > number(0, 100) )
+  // Lucky bashers get a 10% @100 luck chance for a 10% bonus.
+  if( GET_C_LUK(ch) / 10 >= number(1, 100) )
   {
-    chance = (int) (chance * 1.1);
+    chance *= 1.1;
   }
 
-  if( GET_C_LUK(victim) / 10 > number(0, 100) )
+  // Lucky victims get a 10% @100 luck chance for a 10% bonus to dodge.
+  if( GET_C_LUK(victim) / 10 >= number(1, 100) )
   {
-    chance = (int) (chance * 0.9);
+    chance *= .9;
   }
 
-  if(affected_by_spell(victim, SPELL_GUARDIAN_SPIRITS))
+  // Guardian spirits protects vs takedowns - chance dictated by the property.
+  if( affected_by_spell(victim, SPELL_GUARDIAN_SPIRITS) )
   {
     guardian_spirits_messages(ch, victim);
 
-    if( IS_PC(victim) && IS_PC(ch) )
+    if( TRUE || IS_PC(victim) && IS_PC(ch) )
     {
-      debug("Takedown_check: attacker (%s) reduced by Guardian Spirit from (%d) to (%d).", GET_NAME(ch), chance, (int) (chance * get_property("spell.GuardianSpirit", 0.750)));
+      debug("Takedown_check: attacker (%s) reduced by Guardian Spirit from (%.2f) to (%.2f).", GET_NAME(ch), chance,
+        chance * get_property("spell.GuardianSpirit", 0.750));
     }
 
-    chance = BOUNDED(0, (int) (chance * get_property("spell.GuardianSpirit", 0.750)), 75);
+    // No need to put bounds on chance here; a multiplier won't go into negative,
+    //   nor do we need to worry about an upper bounds and definitely don't need to upper at 75%!
+    // chance = BOUNDED(0, (int) (chance * get_property("spell.GuardianSpirit", 0.750)), 75);
+    chance *= get_property("spell.GuardianSpirit", 0.750);
   }
 
-  return MAX(1, chance);
+  // No need to bind chance here either.
+  return chance;
 }
 
 P_char ParseTarget(P_char ch, char *argument)
@@ -921,8 +946,7 @@ void lance_charge(P_char ch, char *argument)
   if(dir != -1)
     dam = (int) (dam * get_property("skill.lance.charge.RangeDamMod", 2.000));    // ranged charge
 
-  knockdown_chance =
-    takedown_check(ch, victim, knockdown_chance, SKILL_LANCE_CHARGE, APPLY_ALL ^ FOOTING);
+  knockdown_chance = takedown_check(ch, victim, knockdown_chance, SKILL_LANCE_CHARGE, APPLY_ALL ^ FOOTING);
 
   if(knockdown_chance == TAKEDOWN_CANCELLED)
     return;
@@ -3506,8 +3530,7 @@ void kick(P_char ch, P_char victim)
     }
 
 
-    takedown_chance = takedown_check(ch, victim, takedown_chance, SKILL_KICK,
-                                     APPLY_ALL ^ AGI_CHECK ^ FOOTING);
+    takedown_chance = takedown_check(ch, victim, takedown_chance, SKILL_KICK, APPLY_ALL ^ AGI_CHECK ^ FOOTING);
 
     if(takedown_chance == TAKEDOWN_CANCELLED ||
       takedown_chance == TAKEDOWN_PENALTY)
@@ -3751,8 +3774,7 @@ int chance_roundkick(P_char ch, P_char victim)
     percent_chance = (int) (percent_chance * 0.95);
   }
   
-  percent_chance =
-    takedown_check(ch, victim, percent_chance, SKILL_ROUNDKICK, APPLY_ALL);
+  percent_chance = takedown_check(ch, victim, percent_chance, SKILL_ROUNDKICK, APPLY_ALL);
 
   return (int) percent_chance;
 
@@ -5452,10 +5474,10 @@ int good_for_skewering(P_obj obj)
 
 void bash(P_char ch, P_char victim)
 {
-  int percent_chance, learned, dmg, ch_size, vict_size, skl, rolled;
+  float percent_chance, modifier;
+  int learned, dmg, ch_size, vict_size, skl, rolled;
   int skewer = GET_CHAR_SKILL(ch, SKILL_SKEWER);
-  double modifier;
-  bool shieldless = false;
+  bool shieldless = FALSE;
   char buf[512];
   P_obj weap = ch->equipment[WIELD];
 
@@ -5577,7 +5599,7 @@ if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
 
   if( !on_front_line(victim) )
   {
-    percent_chance = (int) (percent_chance * 0.5);
+    percent_chance /= 2.0;
   }
 
   if( IS_HUMANOID(ch) )
@@ -5589,13 +5611,13 @@ if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
       {
         if( IS_ARTIFACT(weap) )
         {
-          percent_chance += 7;
+          percent_chance += 7.0;
            // Artifacts are often low weight to allow all
            // to use -  Jexni 6/7/08
         }
         else
         {
-          percent_chance += weap->weight / 2;
+          percent_chance += weap->weight / 2.0;
         }
       }
     }
@@ -5603,14 +5625,20 @@ if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
     {
       if(ch->equipment[WEAR_SHIELD])
       {
+        // Heaviest shield in game atm is church door at 30 lbs -> 16.67 % increase.
         percent_chance += (ch->equipment[WEAR_SHIELD]->weight / 1.8);
       }
       else
       {
         shieldless = TRUE;
         notch_skill(ch, SKILL_SHIELDLESS_BASH, get_property("skill.notch.offensive", 7));
-        percent_chance = (int) (percent_chance *
-          ((float) MAX(20, GET_CHAR_SKILL(ch, SKILL_SHIELDLESS_BASH))) / 100);
+        // Minimum of 4/5 reduction.  Max no reduction.
+        modifier = GET_CHAR_SKILL(ch, SKILL_SHIELDLESS_BASH);
+        if( modifier < 20.0 )
+        {
+          modifier = 20.0;
+        }
+        percent_chance *= modifier / 100.0;
 
         if( GET_CHAR_SKILL(ch, SKILL_SHIELDLESS_BASH) < 1 )
         {
@@ -5649,13 +5677,20 @@ if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
     return;
   }
 
-  percent_chance = (int) (percent_chance * ((GET_POS(victim) == POS_PRONE) ? 0.00 :
-    (GET_POS(victim) != POS_STANDING) ? 0.00 : 1));
-
   if( !IS_PC_PET(ch) )
   {
+    /* Old code uses a modifier for attributes; we're going to use a 30% * 100 base.
     modifier = 1 + ((GET_C_STR(ch) + GET_C_DEX(ch))/2 - GET_C_AGI(victim)) / 50.0;
     percent_chance *= modifier;
+    */
+    // 70% comes from skill, 30% from stats.
+    // On avg, (str 100, dex 100 and agi 100) this will contribute 50% or .15 towards the total bash %.
+    // Thris don't get a bonus for their dex.
+    modifier = 100 + GET_C_STR(ch) / 2.0 + ((IS_THRIKREEN(ch) && GET_C_DEX(ch) > 100 ) ? 100 : GET_C_DEX(ch))
+      - GET_C_AGI(victim);
+    // Bind the modifier between subtracting 10% (-3% of total chance) to adding 10% (+33% of total chance).
+    modifier = (modifier < -10.0) ? -10.0 : (modifier < 110.0) ? modifier : 110.0;
+    percent_chance = .70 * percent_chance + .30 * modifier;
 //    debug("bash: (%s) bashing (%s) str/agi percentage (%d) mod (%f).", GET_NAME(ch), GET_NAME(victim), percent_chance, modifier);
   }
   else
@@ -5663,23 +5698,17 @@ if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
     percent_chance -= 10;
   }
 
-  /*
-   * if they are fighting something and try to bash something else
-   */
+  // If they are fighting something and try to bash something else
   if( IS_FIGHTING(ch) && victim->specials.fighting != ch && ch->specials.fighting != victim )
   {
     send_to_char("You are fighting something else! Nevertheless, you attempt the bash...\n", ch);
     percent_chance = (int) (percent_chance * 0.7);
   }
 
-  modifier = BOUNDED( 8, 10.0 + (GET_LEVEL(ch) - GET_LEVEL(victim)) / 10, 11 ) / 10.0;
+  modifier = 1.0 + (GET_LEVEL(ch) - GET_LEVEL(victim)) / 100.0;
+  modifier = (modifier < .80) ? .80 : (modifier < 1.1) ? modifier : 1.1;
   percent_chance *= modifier;
 //  debug("bash: (%s) bashing (%s) lvl percentage (%d) mod (%f).", GET_NAME(ch), GET_NAME(victim), percent_chance, modifier);
-
-  if( IS_THRIKREEN(ch) )
-  {
-    percent_chance = (int) (percent_chance * 0.70);
-  }
 
   bool bigger_victim = FALSE;
   if( vict_size > ch_size || ((has_innate(victim, INNATE_HORSE_BODY) || has_innate(victim, INNATE_SPIDER_BODY)
@@ -5690,14 +5719,20 @@ if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
 
   if( bigger_victim )
   {
-    percent_chance = (int) (percent_chance * 0.70);
+    percent_chance = percent_chance * 0.70;
   }
 
   if( IS_AFFECTED(victim, AFF_AWARE) )
   {
-    percent_chance = (int) (percent_chance * 0.93);
+    percent_chance = percent_chance * 0.93;
   }
 //  debug("bash: (%s) bashing (%s) aware/size percentage (%d).", GET_NAME(ch), GET_NAME(victim), percent_chance);
+
+  // Yes, Thri-Kreen get a penalty % to bash 'cause they're different species and light and all.
+  if( IS_THRIKREEN(ch) )
+  {
+    percent_chance *= get_property("skill.bash.ThriKreen_Modifier", .70);
+  }
 
   percent_chance = takedown_check(ch, victim, percent_chance, SKILL_BASH, APPLY_ALL ^ AGI_CHECK ^ VICTIM_BACK_RANK);
 
@@ -5719,11 +5754,7 @@ if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
   {
     int NumFol = CountNumGreaterElementalFollowersInSameRoom(get_linked_char(ch, LNK_PET));
 
-    if( GET_POS(victim) != POS_STANDING )
-    {
-      percent_chance = 0;
-    }
-    else if( NumFol > 1 )
+    if( NumFol > 1 )
     {
       percent_chance /= NumFol;
     }
@@ -5735,7 +5766,9 @@ if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
   /*
    * final check to smarten mobs up a little, if odds are too low don't
    * try very often.  JAB
+   * This comment is bizarre as below is just a standing check and % -> 0 .. nothing about AI here?
    */
+  // This needs to be after the BOUNDED( 1 .. 99 ) so we always fail on !standing.
   if( GET_POS(victim) != POS_STANDING )
   {
     percent_chance = 0;
@@ -5743,7 +5776,7 @@ if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
 
 
   rolled = number(1, 100);
-  debug("bash: (%s) bashing (%s) final percentage (%d).", GET_NAME(ch), GET_NAME(victim), percent_chance);
+  debug("bash: (%s) bashing (%s) final percentage (%2.0f).", GET_NAME(ch), GET_NAME(victim), percent_chance);
 
   if( !notch_skill(ch, SKILL_BASH, get_property("skill.notch.offensive", 7))
     && percent_chance < rolled )
@@ -6845,8 +6878,7 @@ void maul(P_char ch, P_char victim)
   act("You fill with &+rBLoodLuST&n and make a ferocious attack against $N!",
       FALSE, ch, 0, victim, TO_CHAR);
       
-  percent_chance = takedown_check(ch, victim, percent_chance, SKILL_MAUL,
-    APPLY_ALL);
+  percent_chance = takedown_check(ch, victim, percent_chance, SKILL_MAUL, APPLY_ALL);
     
   if(percent_chance == TAKEDOWN_CANCELLED)
     return;
@@ -7289,8 +7321,7 @@ void do_sweeping_thrust(P_char ch, char *argument, int cmd)
     return;
   }
   
-  takedown_chance = takedown_check(ch, victim, takedown_chance, SKILL_SWEEPING_THRUST,
-                                   APPLY_ALL ^ AGI_CHECK ^ FOOTING);
+  takedown_chance = takedown_check(ch, victim, takedown_chance, SKILL_SWEEPING_THRUST, APPLY_ALL ^ AGI_CHECK ^ FOOTING);
 
   if(takedown_chance == TAKEDOWN_CANCELLED)
   {
@@ -7996,8 +8027,7 @@ void do_trample(P_char ch, char *argument, int cmd)
 
   CharWait(ch, PULSE_VIOLENCE * 2);
   
-  knockdown_chance =
-    takedown_check(ch, victim, knockdown_chance, SKILL_KICK, APPLY_ALL);
+  knockdown_chance = takedown_check(ch, victim, knockdown_chance, SKILL_KICK, APPLY_ALL);
 
   if(knockdown_chance == TAKEDOWN_CANCELLED)
   {
@@ -8154,8 +8184,7 @@ void bodyslam(P_char ch, P_char victim)
     percent_chance *= .80;
   }
 
-  percent_chance =
-    takedown_check(ch, victim, percent_chance, SKILL_BODYSLAM, ~AGI_CHECK);
+  percent_chance = takedown_check(ch, victim, percent_chance, SKILL_BODYSLAM, ~AGI_CHECK);
 
   if (GET_VITALITY(ch) < 30)
   {
@@ -8402,10 +8431,8 @@ void do_springleap(P_char ch, char *argument, int cmd)
     return;
   }
 
-  percent_chance = (int) (percent_chance *
-    ((double) BOUNDED(80, 100 + GET_LEVEL(ch) - GET_LEVEL(vict), 125)) / 100);
-  percent_chance =
-    takedown_check(ch, vict, percent_chance, SKILL_SPRINGLEAP, APPLY_ALL);
+  percent_chance = (int) (percent_chance * ((double) BOUNDED(80, 100 + GET_LEVEL(ch) - GET_LEVEL(vict), 125)) / 100);
+  percent_chance = takedown_check(ch, vict, percent_chance, SKILL_SPRINGLEAP, APPLY_ALL);
 
   if(percent_chance == TAKEDOWN_CANCELLED)
   {
@@ -8720,8 +8747,7 @@ void do_trip(P_char ch, char *argument, int cmd)
 
   percent_chance =
     (int) (percent_chance * ((double) BOUNDED(72, GET_C_AGI(ch), 160)) / 100);
-  percent_chance =
-    takedown_check(ch, vict, percent_chance, SKILL_TRIP, APPLY_ALL);
+  percent_chance = takedown_check(ch, vict, percent_chance, SKILL_TRIP, APPLY_ALL);
 
   if(percent_chance == TAKEDOWN_CANCELLED)
   {
