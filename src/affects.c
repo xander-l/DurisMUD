@@ -3966,41 +3966,41 @@ void short_affect_update(void)
   P_char   i, i_next, killer;
   struct affected_type *af, *next_af_dude;
 
-  for (i = character_list; i; i = i_next)
+  for( i = character_list; i; i = i_next )
   {
     i_next = i->next;
-    /*
-     gonna clear up an ancient carryover, due to items and bugs, it's
-     possible for a player/mob to get to STAT_DEAD without dying.  This way
-     they have 20 seconds (maybe) grace and then we kill em off.  JAB
+    /* Gonna clear up an ancient carryover, due to items and bugs, it's
+     *   possible for a player/mob to get to STAT_DEAD without dying.  This way
+     *   they have 20 seconds (maybe) grace and then we kill em off.  JAB
      */
-
-    if ((GET_HIT(i) < -10) || (GET_MAX_HIT(i) < -10))
+    if( (GET_HIT(i) < -10) || (GET_MAX_HIT(i) < -10) )
     {
-      if (IS_PC(i))
+      // Log deaths of PCs.
+      if( IS_PC(i) )
       {
-        statuslog(i->player.level, "%s killed in %d (< -10 hits)",
-                  GET_NAME(i),
-                  ((i->in_room == NOWHERE) ? -1 : world[i->in_room].number));
+        statuslog(i->player.level, "%s killed in %d (< -10 hits)", GET_NAME(i),
+          ((i->in_room == NOWHERE) ? -1 : world[i->in_room].number));
         logit(LOG_DEATH, "%s killed in %d (< -10 hits)", GET_NAME(i),
-              (i->in_room == NOWHERE) ? -1 : world[i->in_room].number);
+          (i->in_room == NOWHERE) ? -1 : world[i->in_room].number);
       }
 
       // No more vit death or zerk death to avoid frags
-      for (killer = world[i->in_room].people; killer; killer = killer->next_in_room)
+      for( killer = world[i->in_room].people; killer; killer = killer->next_in_room )
       {
-        if (killer && 
-	    killer->specials.fighting &&
-	    killer->specials.fighting == i &&
-	    killer->in_room == i->in_room &&
-	    GET_RACEWAR(killer) != GET_RACEWAR(i))
+        if( killer->specials.fighting && killer->specials.fighting == i &&
+	        killer->in_room == i->in_room && GET_RACEWAR(killer) != GET_RACEWAR(i) )
         {
           die(i, killer);
-  	  break;
+          i = NULL;
+          break;
         }
       }
-    
-      die(i, i);
+
+      // We don't die a second time if there's a killer.  This prevents crashes.
+      if( i )
+      {
+        die(i, i);
+      }
       i = NULL;
       continue;
     }
