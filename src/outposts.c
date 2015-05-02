@@ -1281,7 +1281,7 @@ int outpost_gateguard_proc(P_char ch, P_char pl, int cmd, char *arg)
   
   if( blocked_dir < NORTH || blocked_dir >= NUM_EXITS )
   {
-    logit(LOG_GUILDHALLS, "guildhall_golem() assigned to %s in %d has an invalid blocking direction (%d)!", GET_NAME(ch), world[ch->in_room].number, blocked_dir);
+    logit(LOG_GUILDHALLS, "outpost_gateguard_proc() assigned to %s in %d has an invalid blocking direction (%d)!", GET_NAME(ch), world[ch->in_room].number, blocked_dir);
     REMOVE_BIT(ch->specials.act, ACT_SPEC);
     return FALSE;
   }

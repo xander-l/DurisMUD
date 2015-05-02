@@ -22,9 +22,10 @@
 extern P_room world;
 extern P_desc descriptor_list;
 
-//************************ Added by Gellz 02052015
+// Added by Gellz 02052015
+// Proc for GH golems to ONLY allow guild members to flee in their room
 int golem_noflee(P_char ch, P_char pl, int cmd, char *arg)
-{       // Proc for GH golems to ONLY allow guild members to flee in their room
+{
   if (cmd == CMD_SET_PERIODIC)    //events have priority (dont they alwys
      return FALSE;                //IF its an event, just go back
   if (cmd != CMD_FLEE)
@@ -48,7 +49,6 @@ int golem_noflee(P_char ch, P_char pl, int cmd, char *arg)
            }                            //END ELSE in GH and user FLED
         }                               //END CMD = FLEE
 }                                       // END GELLZ GH Golem noflee Proc.
-//************************
 
 
 int guildhall_door(P_obj obj, P_char ch, int cmd, char *arg)
@@ -86,6 +86,47 @@ int guildhall_golem(P_char ch, P_char pl, int cmd, char *arg)
     char_from_room(ch);
     char_to_room(ch, real_room(ch->player.birthplace), -1);
     act("$n pops into existence.&n", FALSE, ch, 0, 0, TO_ROOM);
+  }
+
+PENIS:
+  // If there's someone fleeing and it's not the golem.
+  if( cmd == CMD_FLEE && pl && pl != ch )
+  {
+    GuildhallRoom *room = Guildhall::find_room_by_vnum(world[ch->in_room].number);
+
+    // We allow people to scramble to their feet etc.
+    if( !MIN_POS(pl, POS_STANDING + STAT_RESTING) )
+    {
+      return FALSE;
+    }
+    // NON GH Room, why golem here?
+    if( !room )
+    {
+      debug( "We have a real problem: Golem isn't in a guildhall room and is at its birthplace!" );
+    }
+    else
+    // IS GH room - player FLED.
+    {
+      Guildhall *gh = room->guildhall;
+      if( !gh )
+      {
+        debug( "We have a real problem: Guildhall room vnum %d doesn't have a guildhall!", room->vnum );
+      }
+      // Is person fleeing in Guild?
+      else if( GET_A_NUM(pl) != gh->assoc_id )
+      {
+        act("$N&+y takes advantage of the &+Rpanicked&+y look on your face to &+Wquickly&+y move and block the exit. You are unable to &+Rflee!&n\n", FALSE, pl, 0, ch, TO_CHAR);
+        act("$N&+y senses the &+Rpanic&+y on $n's face and &+Wquickly&+y intercepts their attempt at escape. The &+Yfight&+y is still on!&n\n", FALSE, pl, 0, ch, TO_ROOM);
+        return TRUE;
+      }
+      // User in Guild - ALLOW Flee
+      else
+      {
+        act("$N&+y nods, winks and moves to the side, to allow you to escape the fray!.\n", FALSE, pl, 0, ch, TO_CHAR);
+        act("$N&+y merely smirks and doesnt try to stop them as $n attempts to &+rflee&+y from all the &+rh&+Ror&+rr&+Ro&+rrs&+y in this room!&n\n", FALSE, pl, 0, ch, TO_ROOM);
+        return FALSE;
+      }
+    }
   }
 
   // why can't gh golems have some AI?
