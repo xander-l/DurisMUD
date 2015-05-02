@@ -33,7 +33,12 @@ void Guildhall::initialize()
   mob_index[real_mobile0(GH_GOLEM_WARRIOR)].func.mob = guildhall_golem;
   mob_index[real_mobile0(GH_GOLEM_CLERIC)].func.mob = guildhall_golem;
   mob_index[real_mobile0(GH_GOLEM_SORCERER)].func.mob = guildhall_golem;
-  
+ 
+  // added 020515 Gellz for golem gh blocks
+  mob_index[real_mobile0(48000)].func.mob = golem_noflee;
+  mob_index[real_mobile0(48001)].func.mob = golem_noflee;
+  mob_index[real_mobile0(48002)].func.mob = golem_noflee;
+ 
   // load guildhalls from DB
   load_guildhalls(guildhalls);
   

@@ -21,6 +21,7 @@ int dildo_test(P_obj obj, P_char ch, int cmd, char *arg);
 int newbie_portal(P_obj obj, P_char ch, int cmd, char *arg);
 
 int block_up(P_char ch, P_char pl, int cmd, char *arg);
+int golem_noflee(P_char ch, P_char pl, int cmd, char *arg);
 
 /* these are all stuff added/modified by raxxel or dakta enjoy */
 /* if something crashes due to these, its umm Jera's fault I swear */

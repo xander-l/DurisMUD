@@ -22,6 +22,35 @@
 extern P_room world;
 extern P_desc descriptor_list;
 
+//************************ Added by Gellz 02052015
+int golem_noflee(P_char ch, P_char pl, int cmd, char *arg)
+{       // Proc for GH golems to ONLY allow guild members to flee in their room
+  if (cmd == CMD_SET_PERIODIC)    //events have priority (dont they alwys
+     return FALSE;                //IF its an event, just go back
+  if (cmd != CMD_FLEE)
+     return FALSE;
+  if (cmd == CMD_FLEE)
+        {
+        GuildhallRoom *room = Guildhall::find_room_by_vnum(world[ch->in_room].number);
+          if (!room)
+          { }                           //NON GH Room, why golem here?
+          else
+          {                             //IS GH room - player FLED.
+            Guildhall *gh = room->guildhall;
+            if (GET_A_NUM(pl) != gh->assoc_id)  // Is user in Guild?
+             {act("$N&+y takes advantage of the &+Rpanicked&+y look on your face to &+Wquickly&+y move and block the exit. You are unable to &+Rflee!&n\n", FALSE, pl, 0, ch, TO_CHAR);
+            act("$N&+y senses the &+Rpanic&+y on $n's face and &+Wquickly&+y intercepts their attempt at escape. The &+Yfight&+y is still on!&n\n", FALSE, pl, 0, ch, TO_ROOM);
+          return TRUE;
+             } else                     // User in Guild - ALLOW Flee
+             {act("$N&+y nods, winks and moves to the side, to allow you to escape the fray!.\n", FALSE, pl, 0, ch, TO_CHAR);
+             act("$N&+y merely smirks and doesnt try to stop them as $n attempts to &+rflee&+y from all the &+rh&+Ror&+rr&+Ro&+rrs&+y in this room!&n\n", FALSE, pl, 0, ch, TO_ROOM);
+              return FALSE;}
+           }                            //END ELSE in GH and user FLED
+        }                               //END CMD = FLEE
+}                                       // END GELLZ GH Golem noflee Proc.
+//************************
+
+
 int guildhall_door(P_obj obj, P_char ch, int cmd, char *arg)
 {
   if ( !obj )
