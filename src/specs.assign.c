@@ -2603,8 +2603,8 @@ void assign_rooms(void)
   obj_index[real_object0(36894)].func.obj = critical_attack_proc;
 
   /* Lost Temple of Tikitzopl */
-  //obj_index[real_object0(44165)].func.obj = unmulti_altar; 
-  
+  obj_index[real_object0(44165)].func.obj = unmulti_altar;
+
   /* Trakkia */
   world[real_room0(57068)].funct = pet_shops;
   
