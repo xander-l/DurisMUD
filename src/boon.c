@@ -2625,6 +2625,7 @@ int boon_get_random_zone(int std)
 // This function doesn't update the boon itself to inactive incase others
 // in the group have completed the boon as well.  That will be handled at the
 // bottom of boon_maintenance().
+// Note: BOPT_RACE and BOPT_MOB both are called after victim is set to STAT_DEAD.
 void check_boon_completion(P_char ch, P_char victim, double data, int option)
 {
   BoonData bdata;
@@ -2677,7 +2678,16 @@ void check_boon_completion(P_char ch, P_char victim, double data, int option)
   }
   else if( option == BOPT_RACE )
   {
-    if( IS_NPC(victim) && !IS_PC_PET(victim) || racewar(ch, victim) )
+    // Kill 1 dragon -> What if ch is goodie and victim = evil's illus dragon
+    // racewar( ch, victim ) will always be FALSE since victim is dead.
+    // So, TRUE && !TRUE || FALSE = FALSE .. ?
+    // However, for a NPC pet.. TRUE && !FALSE || FALSE = TRUE .. ?
+//    if( IS_NPC(victim) && !IS_PC_PET(victim) || racewar(ch, victim) )
+    // What we really want is NPC that isn't a pet at all, or a PC on a different racewar side.
+    //   We don't want a current pet, or a NPC with the conjured pet flag that's no longer charmed.
+    //   We don't want to give a good a bonus for killing another good (or evil for evil).
+    if( (IS_NPC(victim) && !get_linked_char(victim, LNK_PET) && !affected_by_spell(victim, TAG_CONJURED_PET))
+      || (IS_PC(victim) && GET_RACEWAR(ch) != GET_RACEWAR(victim)) )
     {
       sprintf(buff, " AND (criteria2 = '%d')", GET_RACE(victim));
     }
