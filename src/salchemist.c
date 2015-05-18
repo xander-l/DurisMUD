@@ -885,6 +885,7 @@ void do_encrust(P_char ch, char *argument, int cmd)
 
   new_item->material = item->material;
   new_item->type = item->type;
+  new_item->weight = item->weight+1;
   new_item->affected[0].location = item->affected[0].location;
   new_item->affected[0].modifier = item->affected[0].modifier;
   new_item->affected[1].location = item->affected[1].location;
