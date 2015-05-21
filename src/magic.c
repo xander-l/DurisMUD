@@ -10640,8 +10640,15 @@ void spell_fire_breath(int level, P_char ch, char *arg, int type, P_char victim,
     return;
   }
 
-  if( IS_AFFECTED(victim, AFF_PROT_FIRE) && number(0, 4) )
+  if( (IS_AFFECTED(victim, AFF_PROT_FIRE) && number(0, 4)) || IS_NPC(victim) )
   {
+    return;
+  }
+
+  // This prevents items from being dropped into water and disappearing.
+  if( IS_WATER_ROOM(ch->in_room) )
+  {
+    act("&+rThe fire is &+Rhot&+r, but the water in the room keeps your inventory cool.&n", FALSE, victim, NULL, 0, TO_CHAR);
     return;
   }
 
@@ -10654,14 +10661,14 @@ void spell_fire_breath(int level, P_char ch, char *arg, int type, P_char victim,
     //   this is much easier to manage and understand.
     for( burn = victim->carrying; burn; burn = burn->next_content )
     {
-      // Skip artifacts and containers.
-      if( IS_ARTIFACT(burn) || burn->contains || burn->type == ITEM_CONTAINER )
+      type = burn->type;
+      // Skip artifacts and transient items.
+      if( IS_ARTIFACT(burn) || IS_SET(burn->extra_flags, ITEM_TRANSIENT) )
       {
         continue;
       }
       // look for a destroyable type.
       // Dereference once (Stealing space, and decreasing run time).
-      type = burn->type;
       if( type == ITEM_SCROLL || type == ITEM_WAND
         || type == ITEM_STAFF || type == ITEM_NOTE )
       {
@@ -10675,10 +10682,10 @@ void spell_fire_breath(int level, P_char ch, char *arg, int type, P_char victim,
     }
     if( burn )
     {
-      act("&+r$p&+r is turned into ash!", FALSE, victim, burn, 0, TO_CHAR);
-      act("&+r$p&+r is turned into ash!", FALSE, victim, burn, 0, TO_ROOM);
-      extract_obj(burn, TRUE);
-      burn = NULL;
+      act("&+r$p&+r heats up and you drop it!&n", FALSE, victim, burn, 0, TO_CHAR);
+      act("&+r$p&+r catches fire and $n&+r drops it!&n", FALSE, victim, burn, 0, TO_ROOM);
+      obj_from_char(burn, FALSE);
+      obj_to_room(burn, ch->in_room);
     }
   }
 }
@@ -10720,8 +10727,15 @@ void spell_frost_breath(int level, P_char ch, char *arg, int type, P_char victim
     return;
   }
 
-  if( IS_AFFECTED2(victim, AFF2_PROT_COLD) && number(0, 4) )
+  if( (IS_AFFECTED2(victim, AFF2_PROT_COLD) && number(0, 4)) || IS_NPC(victim) )
   {
+    return;
+  }
+
+  // This prevents items from being dropped into water and disappearing.
+  if( IS_WATER_ROOM(ch->in_room) )
+  {
+    act("&+cThe water is really &+Bcold&+c, but your fingers aren't quite numb.&n", FALSE, victim, NULL, 0, TO_CHAR);
     return;
   }
 
@@ -10734,8 +10748,8 @@ void spell_frost_breath(int level, P_char ch, char *arg, int type, P_char victim
     //   this is much easier to manage and understand.
     for( frozen = victim->carrying; frozen; frozen = frozen->next_content )
     {
-      // Skip artifacts and containers.
-      if( IS_ARTIFACT(frozen) || frozen->contains || frozen->type == ITEM_CONTAINER )
+      // Skip artifacts and transient items.
+      if( IS_ARTIFACT(frozen) || IS_SET(frozen->extra_flags, ITEM_TRANSIENT) )
       {
         continue;
       }
@@ -10754,10 +10768,10 @@ void spell_frost_breath(int level, P_char ch, char *arg, int type, P_char victim
     }
     if( frozen )
     {
-      act("&+W$p&+W shatters into &+Cfrozen &+Wscraps.", FALSE, victim, frozen, 0, TO_CHAR );
-      act("&+W$p&+W shatters into &+Cfrozen &+Wscraps.", FALSE, victim, frozen, 0, TO_ROOM );
-      extract_obj(frozen, TRUE);
-      frozen = NULL;
+      act("&+C$p&+c gets really cold.  You drop it!&n", FALSE, victim, frozen, 0, TO_CHAR);
+      act("&+C$p&+c frosts over and $n&+c drops it!&n", FALSE, victim, frozen, 0, TO_ROOM);
+      obj_from_char(frozen, FALSE);
+      obj_to_room(frozen, ch->in_room);
     }
   }
 }
@@ -11093,6 +11107,13 @@ void spell_crimson_light(int level, P_char ch, char *arg, int type, P_char victi
     number(0, 4))
       return;
 
+  // This prevents items from being dropped into water and disappearing.
+  if( IS_WATER_ROOM(ch->in_room) )
+  {
+    act("&+rThe fire is &+Rhot&+r, but the water in the room keeps your inventory cool.&n", FALSE, victim, burn, 0, TO_CHAR);
+    return;
+  }
+
   // And now for the damage on inventory (Why just one item?)
   // High level breathers get a greater chance, victim can save, and !arena damage.
   if( number(0, TOTALLVLS) < GET_LEVEL(ch) && !NewSaves(victim, SAVING_BREATH, save)
@@ -11102,8 +11123,8 @@ void spell_crimson_light(int level, P_char ch, char *arg, int type, P_char victi
     //   this is much easier to manage and understand.
     for( burn = victim->carrying; burn; burn = burn->next_content )
     {
-      // Skip artifacts and containers.
-      if( IS_ARTIFACT(burn) || burn->contains || burn->type == ITEM_CONTAINER )
+      // Skip artifacts and transient items.
+      if( IS_ARTIFACT(burn) || IS_SET(burn->extra_flags, ITEM_TRANSIENT) )
       {
         continue;
       }
@@ -11123,10 +11144,10 @@ void spell_crimson_light(int level, P_char ch, char *arg, int type, P_char victi
     }
     if( burn )
     {
-      act("&+r$p&+r is turned into ash!", FALSE, victim, burn, 0, TO_CHAR);
-      act("&+r$p&+r is turned into ash!", FALSE, victim, burn, 0, TO_ROOM);
-      extract_obj(burn, TRUE);
-      burn = NULL;
+      act("&+r$p&+r heats up and you drop it!&n", FALSE, victim, burn, 0, TO_CHAR);
+      act("&+r$p&+r catches fire and $n&+r drops it!&n", FALSE, victim, burn, 0, TO_ROOM);
+      obj_from_char(burn, FALSE);
+      obj_to_room(burn, ch->in_room);
     }
   }
 }
