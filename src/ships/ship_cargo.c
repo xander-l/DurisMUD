@@ -690,6 +690,8 @@ void show_contra_prices(P_char ch)
 
 int ship_cargo_info_stick(P_obj obj, P_char ch, int cmd, char *arg)
 {
+  ShipVisitor svs;
+
   /*
    check for periodic event calls
    */
@@ -701,12 +703,43 @@ int ship_cargo_info_stick(P_obj obj, P_char ch, int cmd, char *arg)
   
   if (!OBJ_WORN_POS(obj, HOLD))
     return (FALSE);
-  
+ 
+  if (!(IS_TRUSTED(ch)))
+    return (FALSE);
+ 
   if (arg && (cmd == CMD_LOOK))
   {
     if (isname(arg, "cargo"))
     {
       show_cargo_prices(ch);
+      return TRUE;
+    }
+    if (isname(arg, "ships"))
+    {
+      act( "&+yListing &+YALL ships &+yin game:&n", FALSE, ch, obj, obj, TO_CHAR );
+      // LOOP through all ships
+      for( bool fn = shipObjHash.get_first(svs); fn; fn = shipObjHash.get_next(svs) )
+      {
+        send_to_char_f(ch, "&+yShip:&+C %s&+y Owner: &+C%s ", SHIP_NAME(svs), SHIP_OWNER(svs));
+        send_to_char_f(ch, "&+yRoom: %s ", world[svs->location].name);
+        if( SHIP_DOCKED(svs) )
+        {
+          send_to_char_f(ch, "&+y | &+LDOCKED&+y");
+        }
+        if( SHIP_ANCHORED(svs) )
+        {
+          send_to_char_f(ch, "&+y | &+YANCHORED&+y");
+        }
+        if( SHIP_IMMOBILE(svs) )
+        {
+          send_to_char_f(ch, "&+y | &+rIMMOBILE&+y");
+        }
+        if( SHIP_SINKING(svs) )
+        {
+          send_to_char_f(ch, "&+y | &+RSINKING&+y");
+        }
+        send_to_char_f(ch, "\n");
+      }
       return TRUE;
     }
   }

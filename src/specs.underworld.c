@@ -711,14 +711,54 @@ int mace(P_obj obj, P_char ch, int cmd, char *arg)
 
 int flamberge(P_obj obj, P_char ch, int cmd, char *arg)
 {
-  P_char vict;
-  int room;
+  P_char   vict;
+  int      room;
   P_char   temp_ch;
-
+  int      curr_time;
+  char	   *argument;
   if( cmd == CMD_SET_PERIODIC )
   {
     return TRUE;
   }
+// Modified and added keywords for invoke due to removed perm sanct. - gellz
+// Keyword will give sanct for evils/hellfire for good/and random effect chance
+  if((cmd == CMD_SAY) && (!(IS_FIGHTING(ch))))
+  {
+    argument = arg;
+    while (*argument == ' ')
+      argument++;
+ 	//DEBUG
+    if (!strcmp(argument, "timeit"))
+{	send_to_char_f(ch, "timer0 is: %d.\n", obj->timer[0]);
+	return FALSE;}
+	//DEBUG
+    if (!strcmp(argument, "efreeti"))
+    {
+    curr_time = time(NULL);//get time
+      if (obj->timer[0] + 300 <= curr_time) //IF timer has passed..
+      {
+        if (GET_RACEWAR(ch) == RACEWAR_GOOD)
+        {
+          send_to_room("&+wSm&+Lok&+we r&+Lis&+Wes&n from &+rthe holy flamberge&+w and slowly forms into the &+wim&+Wa&+Lge&n of an &+ref&+Rre&+ret&+Ri&n &+LUnq&+wu&+Lenchable&n who brings forth the &+rf&+Rir&+Re&+rs of &+Rhe&+rl&+Rl&n!.&n\n", ch->in_room);
+          spell_hellfire(60, ch, 0, 0, vict, 0);
+        }
+        if (GET_RACEWAR(ch) == RACEWAR_EVIL)
+        {
+          send_to_room("A &+wh&+Lea&+wt h&+La&+Wze&n from &+rthe holy flamberge&+w materializes into the &+wim&+Wa&+Lge&n of an &+LOrd&+we&+Lr of &+RFi&+re&+Rry He&+ra&+Rrt&n who calls on the &+wforces of &+wl&+Wi&+Yg&+Wh&+wt for &+wpr&+Wot&+Yec&+Wti&+won&n!.&n\n", ch->in_room);
+          spell_sanctuary(60, ch, 0, 0, vict, 0);
+        }
+        obj->timer[0] = curr_time;
+      } else //END if TImer has passed.
+      {
+        send_to_room("&+MAn &+ref&+Rre&+ret&+Ri &+Macolyte&+w snaps into your vision momentarilty then quickly &+Ldisappears&+w again, leaving only a faint trace of &+rheat&n.&n\n", ch->in_room);
+        spell_fireshield(60, ch, NULL, 0, ch, obj);
+        obj->timer[0] = curr_time;
+      }
+      return TRUE;
+    } //End efreeti Keywordi
+    return FALSE; //GO BACK because didnt say keyword
+  } //End cmd say and argument.
+//End Modifications for Keyword
 
   if( cmd == CMD_PERIODIC && (OBJ_WORN(obj) || OBJ_ROOM(obj)) )
   {
@@ -731,7 +771,6 @@ int flamberge(P_obj obj, P_char ch, int cmd, char *arg)
   {
     return FALSE;
   }
-
 
   act("Your $q &+rsummons the power of fire and flames at $N.", FALSE, ch, obj, vict, TO_CHAR);
   act("$n's $q &+rsummons the power of fire and flames at you.", FALSE, ch, obj, vict, TO_VICT);

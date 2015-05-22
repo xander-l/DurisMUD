@@ -64,8 +64,8 @@ int gellz_test_obj_procs(P_obj obj, P_char ch, int cmd, char *argument)
       // LOOP through all ships
       for( bool fn = shipObjHash.get_first(svs); fn; fn = shipObjHash.get_next(svs) )
 	    {
-        send_to_char_f(ch, "&+yShip named:&+C %s&+y is Owned by: &+C%s ", SHIP_NAME(svs), SHIP_OWNER(svs));
-        send_to_char_f(ch, "&+yin Room: %s ", world[svs->location].name);
+        send_to_char_f(ch, "&+yShip:&+C %s&+y Owner: &+C%s ", SHIP_NAME(svs), SHIP_OWNER(svs));
+        send_to_char_f(ch, "&+yRoom: %s ", world[svs->location].name);
         if( SHIP_DOCKED(svs) )
         {
           send_to_char_f(ch, "&+y | &+LDOCKED&+y");

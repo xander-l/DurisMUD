@@ -4578,7 +4578,7 @@ holy flamberge efreeti sword~
 ~
 5 18 5 0 15 0 272900361 8193 64 0 0
 13 8 4 0 0 0 0 0
-5 0 100 805306384 0 0 4194304
+15 0 100 805306384 0 0 0
 A
 18 8
 A
@@ -8935,9 +8935,9 @@ gellz test item~
 0 0 0 0 0 0 0 0
 0 0 100
 #1204
-gellz board list notebook scratchpad~
-&+LG&+well&+Lz&+w Sc&+yra&+Lt&+ychp&+wad &+wand &+LNotebook&n~
-&+LG&+well&+Lz&+w Sc&+yra&+Lt&+ychp&+wad &+wand &+LNotebook&+w hangs around in the sky here, &+Wgl&+Yo&+Ww&+Yi&+Wng&+w faintly.&n~
+gellz board notebook scratchpad~
+&+LG&+well&+Lz&+w Sc&+yra&+Lt&+ychp&+wad &+wand &+Lnotebook&n~
+&+LG&+well&+Lz&+w Sc&+yra&+Lt&+ychp&+wad &+wand &+Lnotebook&+w hangs around in the sky here, &+Wgl&+Yo&+Ww&+Yi&+Wng&+w faintly.&n~
 ~
 12 1 4 50 15 0 0 0 0 0 0
 0 0 0 0 0 0 0 0
@@ -9088,18 +9088,18 @@ shiploader wand~
 &+WMake sure you are holding &+LA small wand called 'shiploader'&+W in your
 primary hand.&N
 
-
 &+wExtra Commands:
 
-   - &+WRemove Ship (look remove)
-   - &+WList Ships (look ships)
-   - &+WList Economy (look economy)
-   - &+WTap Crew (look crew)
-   - &+WTap Frag (look frag)
+   - &+WLook Ships (look ship)
+   - &+WLook Cargo (look economy)
+   - &+WRename Ship <char> <newname> (look rename)
+   - &+WTap Crew (look crew)      &+R- DISABLED
+   - &+WTap Frag (look frag)      &+R- DISABLED
+   - &+WRemove Ship (look remove) &+R- DISABLED
 ~
 E
 economy~
-                &+RTharn  &NOasis  Mendon EM     &+RBS  &NSarmiz     Buy
+ SAMPLE         &+RTharn  &NOasis  Mendon EM     &+RBS  &NSarmiz     Buy
      Tharn      N/A     86     42     103    119    60     145
      Oasis      71     N/A    170      60     60    70     130
      Mendon     98     107    N/A     124    146    146    132
@@ -9143,9 +9143,11 @@ remove~
 &+L----------------------------------------------------
 ~
 E
-ships~
+ship~
 &+WList Ships&N
 
+&+W  LOOK SHIPS
+----------------------
 &+w      Lists all ships in the mud&N
 
 &+w        Example
@@ -9164,6 +9166,16 @@ ships~
 &+w                           ship)
 &+l
 &+L----------------------------------------------------
+~
+E
+rename~
+&+WLook Rename
+
+&+W Syntax:&+y rename ship &+C<charname> &+M<newshipname>&n
+
+&+W      e.g.  &+y rename ship gellz &+YChicken Ship&n
+
+&+y Will rename Gellz ship from whatever its current name is, to &+YChicken Ship&n
 ~
 #1227
 orcus wand black~

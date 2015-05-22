@@ -183,7 +183,6 @@ O 0 89 9999 1202 100 0 0 0         * a holy bulletin board
 O 0 89 9999 1203 100 0 0 0         * a holy bulletin board
 O 0 1278 999 1203 100 0 0 0        * the book of files
 O 0 1278 999 1204 100 0 0 0        * the book of files
-O 0 89 9999 1204 100 0 0 0         * a holy bulletin board
 O 0 40 2 1204 100 0 0 0            * a bookcase
 P 1 10 1 40 100 0 0 0              *   a book title Quest Immortal Guide
 P 1 1211 99 40 100 0 0 0           *   a book of Duris ANSI codes
@@ -198,6 +197,7 @@ P 1 77551 1 40 100 0 0 0           *   (object type not in this .obj file)
 P 1 44 1 40 100 0 0 0              *   A restring coupon
 P 1 1114 1 40 100 0 0 0            *   a quill
 O 0 1721 3 1204 100 0 0 0          * (object type not in this .obj file)
+O 0 1204 1 1204 100 0 0 0          * Gellz Scratchpad and notebook
 O 0 89 9999 1206 100 0 0 0         * a holy bulletin board
 O 0 75 999 1207 100 0 0 0          * a Zone Planning board
 O 0 89 9999 1212 100 0 0 0         * a holy bulletin board
@@ -240,7 +240,7 @@ O 0 1721 3 1221 100 0 0 0          * (object type not in this .obj file)
 O 0 1721 3 1221 100 0 0 0          * (object type not in this .obj file)
 O 0 58328 1 1221 100 0 0 0         * (object type not in this .obj file)
 O 0 45 100 1221 100 0 0 0          * a slot machine
-O 0 1204 1 1221 100 0 0 0          * Gellz Scratchpad and Notebook
+O 0 89 9999 1221 100 0 0 0         * a holy bulletin board
 O 0 89 9999 1227 100 0 0 0         * a holy bulletin board
 O 0 89 9999 1228 100 0 0 0         * a holy bulletin board
 O 0 89 9999 1234 100 0 0 0         * a holy bulletin board
