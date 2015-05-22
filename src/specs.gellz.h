@@ -4,11 +4,14 @@
 #ifndef _SPECS_GELLZ_H_
 #define _SPECS_GELLZ_H_
 
+#define STR_CARDS_ARG_FAIL "&+yYou must offer a positive amount of a valid coin type (ie 1 p, or 2 gold)."
 #define STR_CARDS_TYPE_FAIL "&+ySorry, we only accept &+Yvalid cash&+y amounts here. Please ensure you offer a valid amount and selection of coins!!&n"
 #define STR_CARDS_CASH_FAIL "&+yYou &+Ydont have enough &+ycoins of that type available!&n"
 #define STR_CARDS_CASH_OK "&+ySeeing that you &+Yhave enough &+ycoins available to cover your &+Wbet&+y it looks like its time to &+Wdeal&+y!!&n"
-#define STR_CARDS_FAILED "Failed - inform an immortal."
-#define STR_CARDS_GAME_ON "&+yWe thought you were already playing... We cannot restart a new game until that one is finshed. Please &+Wfold&+y that game first.."
+#define STR_CARDS_FAILED "&+yYou mouth the word and are &+Mmagically&+y understood."
+#define STR_CARDS_BID_FAIL "&+yYou must make a bid first, using the offer command."
+#define STR_CARDS_GAME_ON "&+yThere is already a game in progress.  You can say 'showgame' to see the current status."
+// We thought you were already playing... We cannot restart a new game until that one is finshed. Please &+Wfold&+y that game first.."
 #define STR_CARDS_SHUFFLE "&+yThe cards are quickly &+Rs&+Ch&+Bu&+Gf&+Yf&+Ml&+Ce&+Rd&+y and stacked, ready for a new &+Wgame!!&n\n"
 #define STR_CARDS_DEAL "&+yA brief sizzle of &+bm&+Ba&+Cg&+Wi&+Cc&+Ba&+bl &+bf&+Bl&+Cam&+Be&+bs&+y flickers over the deck, and some of the cards begin to &+Rr&+Ca&+Bn&+Gd&+Yo&+Mm&+Cl&+Ry&+y separate into two piles. One pile is before you, and the other is in front of the &+wdeck&+y itself. The cards reveal themselves to you quickly.&n\n"
 #define STR_CARDS_CHOOSE "&+yThe &+bm&+Ba&+Cg&+Wi&+Cc&+Ba&+bl &+bf&+Bl&+Cam&+Be&+bs&+y flicker over the &+wdeck&+y once more, and you realise that you can choose to either &+Whit&+y, &+Wstay&+y or &+Wfold&+y simply by telling the cards what you wish to do.&n\n"
@@ -38,6 +41,12 @@
 #define STR_SILV   "&+wSilver&n"
 #define STR_COPP   "&+yCopper&n"
 
+#define BJ_PREBID       0
+#define BJ_POSTBID      1
+#define BJ_POSTDEAL     2
+#define BJ_POSTHIT      3
+#define BJ_DEALERSTURN  4
+
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -56,10 +65,6 @@ struct cards
 cards player_hand[5];
 cards dealer_hand[5];
 
-int     playertotal;
-int     dealertotal;
-int     game_on;
-int     bet_on;
 int	player_total;
 int	dealer_total;
 int	betamt;
@@ -72,7 +77,7 @@ const char*	strbettype;
 int gellz_test_obj_procs(P_obj obj, P_char ch, int cmd, char *argument);
 
 int magic_deck(P_obj obj, P_char ch, int cmd, char *argument);
-int clear_hands(char whoshand);
+void clear_hands(char whoshand);
 int needcard(char whoscard, P_char ch);
 int do_win(P_char ch, int bettype, int betamt, int winloose);
 int get_card(char whoscard, int whatcard);

@@ -1074,7 +1074,6 @@ send_to_char_f(ch, "&+WUnknown error with boon item bonus '%d'.&n\r\n", retval);
   }
 
   bdata->option = i;
-PENIS:
 
     if( (retval = validate_boon_data(bdata, BARG_OPTION)) )
     {

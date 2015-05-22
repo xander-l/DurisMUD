@@ -48,6 +48,8 @@ int block_dir(P_char ch, P_char pl, int cmd, char *arg);
 int ship_shop_proc(int room, P_char ch, int cmd, char *arg);
 void assign_ship_crew_funcs();
 
+int cards_object(P_obj obj, P_char ch, int cmd, char *argument);
+
 #ifdef SHLIB
 
 /*
@@ -1168,6 +1170,7 @@ void assign_mobiles(void)
   /* Heaven */
   
   obj_index[real_object0(1270)].func.obj = treasure_chest;
+  obj_index[real_object0(453)].func.obj = cards_object;
 
   /*
      torg
