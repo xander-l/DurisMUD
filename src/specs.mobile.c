@@ -12203,46 +12203,52 @@ int shadow_monster(P_char ch, P_char pl, int cmd, char *arg)
 
 int insects(P_char ch, P_char pl, int cmd, char *arg)
 {
-  int      type;
 
-  /*
-   * check for periodic event calls
-   */
-
-  if (cmd == CMD_SET_PERIODIC && ch->specials.fighting)
-    return FALSE;
-
-  if (!ch)
-    return FALSE;
-  //let's junk it on anything if not fighitng!
-  if (cmd && ch->specials.fighting)
-    return FALSE;
-
-  if (ch->specials.fighting &&
-      (ch->specials.fighting->in_room == ch->in_room) &&
-      !number(0, (61 - GET_LEVEL(ch))))
+  if( cmd == CMD_SET_PERIODIC )
   {
+    return TRUE;
+  }
 
+  if( !IS_ALIVE(ch) )
+  {
+    return FALSE;
+  }
+
+  if( cmd == CMD_DEATH || (cmd == CMD_PERIODIC && (!number(0, GET_LEVEL(ch) / 3) || !ch->specials.fighting)) )
+  {
+    act("$n &+Lquickly fades into the thin air!", TRUE, ch, 0, 0, TO_ROOM);
+    act("$n &+rdisappears as &+Lquickly&+r as it came!", TRUE, ch, 0, 0, TO_ROOM);
+    if( cmd != CMD_DEATH )
+    {
+      extract_char(ch);
+    }
+    return TRUE;
+  }
+
+  // Let's junk it on anything if not fighting!
+  if( !ch->specials.fighting )
+  {
+    return FALSE;
+  }
+
+  if( (ch->specials.fighting->in_room == ch->in_room) && !number(0, (MAXLVL - GET_LEVEL(ch))) )
+  {
+    /* This isn't used anywhere?
+    int type;
     if (GET_LEVEL(ch) < 25)
       type = 1;
     else if (GET_LEVEL(ch) < 50)
       type = 3;
     else
       type = 10;
+    */
+
     act("$n bites $N!", 1, ch, 0, ch->specials.fighting, TO_NOTVICT);
     act("$n bites you!", 1, ch, 0, ch->specials.fighting, TO_VICT);
     poison_neurotoxin(10, ch, 0, 0, ch->specials.fighting, 0);
     return TRUE;
   }
 
-
-  if (!number(0, GET_LEVEL(ch) / 3) || !ch->specials.fighting)
-  {
-    act("$n &+Lquickly fades into the thin air!", TRUE, ch, 0, 0, TO_ROOM);
-    act("$n &+rdisappears as &+Lquickly&+r as it came!", TRUE, ch, 0, 0,
-        TO_ROOM);
-    extract_char(ch);
-  }
   return FALSE;
 }
 

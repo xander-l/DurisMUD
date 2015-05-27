@@ -197,18 +197,18 @@ void spell_shadow_monster(int level, P_char ch, char *arg, int type,
 }
 
 
-void spell_insects(int level, P_char ch, char *arg, int type, P_char victim,
-                   P_obj obj)
+void spell_insects(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   P_char   mob;
   int      summoned, i;
   struct char_link_data *cld;
 
-  if(!ch ||
-    !victim)
-      return;
+  if( !ch || !victim )
+  {
+    return;
+  }
 
-  if(CHAR_IN_SAFE_ZONE(ch))
+  if( CHAR_IN_SAFE_ZONE(ch) )
   {
     send_to_char("A mysterious force blocks your conjuring!\r\n", ch);
     return;
@@ -244,6 +244,7 @@ void spell_insects(int level, P_char ch, char *arg, int type, P_char victim,
     mob->player.level = MIN(30, MAX(1, number(level - 7, level - 2)));
 
     SET_BIT(mob->specials.affected_by, AFF_HASTE);
+    SET_BIT(mob->specials.act, ACT_SPEC_DIE);
 
     if (GET_LEVEL(ch) > 31)
     {
@@ -259,7 +260,7 @@ void spell_insects(int level, P_char ch, char *arg, int type, P_char victim,
     GET_MAX_HIT(mob) = GET_HIT(mob) = mob->points.base_hit =
       dice(GET_LEVEL(mob), 3) + (GET_LEVEL(ch));
 
-    GET_EXP(mob) = 0;      
+    GET_EXP(mob) = 0;
     mob->points.base_hitroll = mob->points.hitroll = GET_LEVEL(ch);
     mob->points.base_damroll = mob->points.damroll = (int)(GET_LEVEL(ch) / 3);
     mob->points.damnodice = (int)(GET_LEVEL(ch) / 8);
@@ -268,8 +269,8 @@ void spell_insects(int level, P_char ch, char *arg, int type, P_char victim,
     setup_pet(mob, ch, 1, PET_NOORDER | PET_NOCASH);
     MobStartFight(mob, victim);
     group_add_member(ch, mob);
-    
-    if(!GET_CLASS(ch, CLASS_ILLUSIONIST))
+
+    if( !GET_CLASS(ch, CLASS_ILLUSIONIST) )
       return;
   }
 }
