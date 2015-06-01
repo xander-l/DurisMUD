@@ -453,7 +453,8 @@ bool get_boon_shop_data(int pid, BoonShop *bshop)
 int validate_boon_data(BoonData *bdata, int flag)
 {
   char buff[MAX_STRING_LENGTH];
-  int i, j, z, criteria, retval = 0;
+  int i, j, z, retval = 0, iCriteria;
+  double dCriteria;
   Guildhall *gh;
   NexusStoneInfo nexus;
 
@@ -488,14 +489,15 @@ int validate_boon_data(BoonData *bdata, int flag)
       }
       break;
     case BARG_CRITERIA:
-      criteria = (int)bdata->criteria;
+      dCriteria = bdata->criteria;
+      iCriteria = (int) dCriteria;
       switch( bdata->option )
       {
         case BOPT_NONE:
         case BOPT_ZONE:
           for(i = 0;i <= top_of_zone_table;i++ )
           {
-            if( zone_table[i].number == criteria )
+            if( zone_table[i].number == iCriteria )
             {
               break;
             }
@@ -515,11 +517,11 @@ int validate_boon_data(BoonData *bdata, int flag)
             }
             // Is it even an epic zone?
             j = 0;
-            while( j <= epic_zones.size() && epic_zones[j].number != criteria )
+            while( j <= epic_zones.size() && epic_zones[j].number != iCriteria )
               j++;
             for( j = 0; j <= epic_zones.size(); j++ )
             {
-              if( epic_zones[j].number == criteria )
+              if( epic_zones[j].number == iCriteria )
               {
                 break;
               }
@@ -559,14 +561,14 @@ int validate_boon_data(BoonData *bdata, int flag)
           {
             bdata->criteria = 1;
             // If it wasn't set to 1 already, return 3.
-            if( criteria != bdata->criteria )
+            if( iCriteria != bdata->criteria )
             {
               return 3;
             }
           }
 
           // criteria is the number you must kill in order to get the boon.
-          if( criteria < 1 )
+          if( iCriteria < 1 )
           {
             return 4;
           }
@@ -574,7 +576,7 @@ int validate_boon_data(BoonData *bdata, int flag)
 
         case BOPT_RACE:
           // Number of chars that have to be killed to complete the boon.
-          if( criteria < 1 )
+          if( iCriteria < 1 )
           {
             return 1;
           }
@@ -589,7 +591,7 @@ int validate_boon_data(BoonData *bdata, int flag)
           {
             bdata->criteria = 1;
             // If it wasn't set to 1 already, return 3.
-            if( criteria != bdata->criteria )
+            if( iCriteria != bdata->criteria )
             {
               return 3;
             }
@@ -597,7 +599,7 @@ int validate_boon_data(BoonData *bdata, int flag)
 	        break;
 
         case BOPT_GH:
-          gh = Guildhall::find_by_id(criteria);
+          gh = Guildhall::find_by_id(iCriteria);
           if( !gh )
           {
             return 1;
@@ -610,7 +612,7 @@ int validate_boon_data(BoonData *bdata, int flag)
 
         case BOPT_NEXUS:
           // If we can't find the nexus stone
-          if( !nexus_stone_info(criteria, &nexus) )
+          if( !nexus_stone_info(iCriteria, &nexus) )
           {
             return 1;
           }
@@ -623,7 +625,7 @@ int validate_boon_data(BoonData *bdata, int flag)
 
         case BOPT_OP:
           // If we can't find the building.
-          if( get_building_from_id(criteria) == NULL )
+          if( get_building_from_id(iCriteria) == NULL )
           {
             return 1;
           }
@@ -632,7 +634,7 @@ int validate_boon_data(BoonData *bdata, int flag)
         case BOPT_LEVEL:
           // criteria is the level gained.  You start at lvl 1 so min level gained is 2.
           //   And the max level for mortals is 56.
-  	      if( criteria < 2 || bdata->criteria > 56 )
+  	      if( iCriteria < 2 || iCriteria > 56 )
           {
             return 1;
           }
@@ -641,7 +643,7 @@ int validate_boon_data(BoonData *bdata, int flag)
         case BOPT_FRAG:
           // Criteria is the amount of frags gained at one time.  Can't gain 0 or less.
           //   And you can't gain more than the multiplier for killing above your level.
-          if( criteria <= 0 || bdata->criteria > get_property("frag.leveldiff.modifier.high", 1.200) )
+          if( dCriteria <= 0 || dCriteria > get_property("frag.leveldiff.modifier.high", 1.200) )
           {
             return 1;
           }
@@ -650,20 +652,20 @@ int validate_boon_data(BoonData *bdata, int flag)
         case BOPT_FRAGS:
           // criteria is the cumulative number of frags gained within the time limit.
           //   Makes no sense for this to be <= 0, but can be as high as you want.
-          if( criteria <= 0 )
+          if( dCriteria <= 0 )
           {
             return 1;
           }
           break;
 
         case BOPT_CTF:
-          if( criteria <= 0 )
+          if( iCriteria <= 0 )
           {
             return 1;
           }
           for( z = 1; ctfdata[z].id; z++ )
           {
-            if( ctfdata[z].id == criteria )
+            if( ctfdata[z].id == iCriteria )
             {
               break;
             }
