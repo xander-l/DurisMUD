@@ -1129,8 +1129,11 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
       pvp = TRUE;
     }
   }
-
-  if( affected_by_spell(ch, TAG_WELLRESTED) )
+  if( type == EXP_RESURRECT )
+  {
+    ;
+  }
+  else if( affected_by_spell(ch, TAG_WELLRESTED) )
   {
     XP *= 2;
   }
@@ -1410,9 +1413,13 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
 
   int XP_final = (int)XP;
 // debug("check 3 xp (%d)", XP_final);
-  int range = new_exp_table[GET_LEVEL(ch) + 1] / 3;
+  // Resses from Gods may restore more than 1/3 level (ie for liches).
+  if( type != EXP_RESURRECT )
+  {
+    int range = new_exp_table[GET_LEVEL(ch) + 1] / 3;
 // debug("check 4 xp (%d)", XP_final);
-  XP_final = BOUNDED(-range, XP_final, range);
+    XP_final = BOUNDED(-range, XP_final, range);
+  }
 
   // if(XP_final > 0 &&
      // GET_EXP(ch) > (new_exp_table[GET_LEVEL(ch) + 1]));

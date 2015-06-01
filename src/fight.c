@@ -2428,7 +2428,22 @@ void die(P_char ch, P_char killer)
   if( IS_PC(ch) && !CHAR_IN_ARENA(ch) && (GET_LEVEL(ch) > 1) && !IS_TRUSTED(ch) )
     // && (GET_RACEWAR(ch) != 1)) Goods lose exp again.
   {
-    loss = gain_exp(ch, NULL, 0, EXP_DEATH);
+    if( IS_PC(ch) && (GET_RACE(ch) == RACE_PLICH) )
+    {
+      long tmp = loss = GET_EXP(ch);
+      float percentage = new_exp_table[GET_LEVEL(ch)] / new_exp_table[GET_LEVEL(ch)+1];
+      lose_level(ch);
+      // This is complicated because 10M exp at 51 is not the same as 10M exp at 50/52/etc.
+      tmp = tmp * percentage;
+      GET_EXP(ch) = MAX( 1, tmp );
+      // Amount of exp lost is all exp to lose level + the portion lost into the level below.
+      loss += new_exp_table[GET_LEVEL(ch)] - GET_EXP(ch);
+      loss *= -1;
+    }
+    else
+    {
+      loss = gain_exp(ch, NULL, 0, EXP_DEATH);
+    }
     debug( "&+RDeath&n: %s lost %d experience from death.", J_NAME(ch), loss );
   }
 
@@ -2439,17 +2454,6 @@ void die(P_char ch, P_char killer)
     advance_level(ch);
   }
 */
-  if( IS_PC(ch) && (GET_RACE(ch) == RACE_PLICH) )
-  {
-    if((oldlev <= GET_LEVEL(ch)) && (GET_RACE(ch) == RACE_PLICH))
-    {
-      int tmp = GET_EXP(ch);
-      lose_level(ch);
-      // This is complicated because 10M exp at 51 is not the same as 10M exp at 50/52/etc.
-      tmp = (tmp * new_exp_table[GET_LEVEL(ch)]) / new_exp_table[GET_LEVEL(ch)+1];
-      GET_EXP(ch) = MAX( 1, tmp );
-    }
-  }
 
   if(IS_PC(killer))
   {
