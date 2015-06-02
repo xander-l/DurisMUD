@@ -14496,39 +14496,42 @@ void spell_sunray(int level, P_char ch, char *arg, int type, P_char victim,
 
 
 
-void spell_silence(int level, P_char ch, char *arg, int type, P_char victim,
-                   P_obj obj)
+void spell_silence(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
-  if(!IS_ALIVE(ch) || 
-    !IS_ALIVE(victim) )
-      return;
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+  {
+    return;
+  }
 
   int save;
 
-  if(GET_LEVEL(victim) > 57)
+  if( GET_LEVEL(victim) > 57 )
   {
-    save = -15;
+    if( ch != victim )
+    {
+      save = -15;
+    }
+    // For Imms testing..
+    else
+    {
+      save += 15;
+    }
   }
   else
   {
     save = victim->specials.apply_saving_throw[SAVING_SPELL];
   }
 
-  int percent = BOUNDED( 0, 
-    (int) ((GET_C_WIS(ch) / 2) +
-    (save * 2) +
-    (GET_LEVEL(ch) - GET_LEVEL(victim)) -
-    GET_C_WIS(victim) / 4),
-    100);
+  int percent = BOUNDED( 0, (int) ((GET_C_WIS(ch) / 2) + (save * 2) + (GET_LEVEL(ch) - GET_LEVEL(victim))
+    - GET_C_WIS(victim) / 4), 100);
 
 //  debug("Silence percent is: %d", percent);
 
-  if((IS_TRUSTED(victim)) ||
-    (IS_GREATER_RACE(victim)) ||
-    (IS_ELITE(victim)) ||
-    (percent < 10))
-      return;
-  
+  if( (IS_TRUSTED(victim) && victim != ch) || (IS_GREATER_RACE(victim)) || (IS_ELITE(victim)) || (percent < 10) )
+  {
+    return;
+  }
+
   if(IS_AFFECTED2(victim, AFF2_SILENCED))
   {
     send_to_char("They are already quiet!\n", ch);

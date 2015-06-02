@@ -1800,7 +1800,15 @@ void event_bardsong(P_char ch, P_char victim, P_obj obj, void *data)
   }
   if( !CAN_SING(ch) )
   {
-    stop_singing(ch);
+    // TRUE -> gives its own message.
+    if( is_silent(ch, TRUE) )
+    {
+      ;
+    }
+    else
+    {
+      stop_singing(ch);
+    }
     return;
   }
   if( number(1, 90) >= bard_calc_chance(ch, song) )
@@ -1955,9 +1963,17 @@ void do_play(P_char ch, char *arg, int cmd)
     raise(SIGSEGV);
   }
 
-  if(!CAN_SING(ch))
+  if( !CAN_SING(ch) )
   {
-    send_to_char("&+WYou are unable to sing while in this state.\r\n", ch);
+    // TRUE -> gives its own message.
+    if( is_silent(ch, TRUE) )
+    {
+      ;
+    }
+    else
+    {
+      send_to_char("&+WYou are unable to sing while in this state.\r\n", ch);
+    }
     return;
 
   }
@@ -2126,7 +2142,15 @@ void do_riff(P_char ch, char *arg, int cmd)
 
   if( !CAN_SING(ch) )
   {
-    send_to_char("&+WYou are unable to sing while in this state.\r\n", ch);
+    // TRUE -> gives its own message.
+    if( is_silent(ch, TRUE) )
+    {
+      ;
+    }
+    else
+    {
+      send_to_char("&+WYou are unable to sing while in this state.\r\n", ch);
+    }
     return;
 
   }

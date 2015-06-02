@@ -1226,10 +1226,8 @@ IS_GIANT(ch) || IS_PC_PET(ch) || IS_PC(ch) || IS_UNDEAD(ch) || IS_EFREET(ch)) &&
 #define PT_SIZE_TOLERANT 256
 #define PT_NUKETARGET 512
 
-#define CAN_SING(ch) (!IS_IMMOBILE(ch) && \
-        !IS_AFFECTED2(ch, AFF2_SILENCED) && \
-        !IS_STUNNED(ch) && \
-        GET_STAT(ch) >= STAT_RESTING)
+#define CAN_SING(ch) (!IS_IMMOBILE(ch) && !is_silent(ch, FALSE) && \
+        !IS_STUNNED(ch) && GET_STAT(ch) >= STAT_RESTING)
 
 #define IS_IMMOBILE(ch) (IS_AFFECTED2(ch, AFF2_MAJOR_PARALYSIS) || \
        IS_AFFECTED2(ch, AFF2_MINOR_PARALYSIS) || \
