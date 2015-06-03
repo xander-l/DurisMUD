@@ -123,7 +123,7 @@ void resetQuest(P_char ch)
   ch->only.pc->quest_zone_number = -1;
   ch->only.pc->quest_giver = 0;
   ch->only.pc->quest_level = 0;
-  ch->only.pc->quest_reciver = 0;
+  ch->only.pc->quest_receiver = 0;
   ch->only.pc->quest_shares_left = 0;
   ch->only.pc->quest_kill_how_many = 0;
   ch->only.pc->quest_kill_original = 0;
@@ -403,19 +403,20 @@ void do_quest(P_char ch, char *args, int cmd)
   char     name[MAX_INPUT_LENGTH], who[MAX_STRING_LENGTH];
   char     Gbuf1[MAX_STRING_LENGTH];
 
-  if(IS_NPC(ch))
+  if( IS_NPC(ch) )
   {
     return;
   }
-  
-  if (IS_ILLITHID(ch))
+
+  if( IS_ILLITHID(ch) )
   {
     send_to_char("No quests for you!", ch);
     return;
   }
 
   half_chop(args, name, who);
-  if(*name)
+  if( *name )
+  {
     if (isname(name, "reset") && IS_TRUSTED(ch))
     {
       if(!*who)
@@ -436,7 +437,44 @@ void do_quest(P_char ch, char *args, int cmd)
       send_to_char("You've cleared his quest.\r\n", ch);
       return;
     }
+    else if( isname(name, "stat") && IS_TRUSTED(ch) )
+    {
+      pc_only_data *pcdata;
 
+      if( !*who )
+      {
+        send_to_char("Whos quest do you want to examine?\r\n", ch);
+        return;
+      }
+      if( !(victim = ParseTarget(ch, who)) )
+      {
+        send_to_char("Hmm, nobody around here by that name.\r\n", ch);
+        return;
+      }
+      if( IS_NPC(victim) )
+      {
+        send_to_char( "Hmm, mobs don't have quests.  Try again.\n\r", ch );
+        return;
+      }
+      pcdata = victim->only.pc;
+      // One big string.. rawr.
+      sprintf( buf, "Quest for %s (PID %d): \n\rActive: %s, Level: %d, Type: %s, Started: %s, Accomplished: %s\n\r"
+        "Bartender Vnum: %d, Shares left: %d, Original Questor PID: %d, Can share: %s\n\r"
+        "Target Mob Vnum: %d, Number Killed: %d out of %d needed.\n\r"
+        "Zone: %s (%d), Map room: %s (%d), Map purchased: %s.\n\r", J_NAME(victim), GET_PID(victim),
+        pcdata->quest_active ? "YES" : "NO", pcdata->quest_level, (pcdata->quest_type == FIND_AND_ASK) ? "ASK"
+        : (pcdata->quest_type == FIND_AND_KILL) ? "KILL" : (pcdata->quest_type == FIND_AND_SOMETHING)
+        ? "SOMETHING" : "UNKNOWN", pcdata->quest_started ? "YES" : "NO", pcdata->quest_accomplished ? "YES" : "NO",
+        pcdata->quest_giver, pcdata->quest_shares_left, pcdata->quest_receiver,
+        (GET_PID(victim) == pcdata->quest_receiver) ? "YES" : "NO", pcdata->quest_mob_vnum,
+        pcdata->quest_kill_how_many, pcdata->quest_kill_original, zone_table[real_zone0(pcdata->quest_zone_number)].name,
+        pcdata->quest_zone_number, world[real_room0(pcdata->quest_map_room)].name,
+        pcdata->quest_map_room, pcdata->quest_map_bought ? "YES" : "NO" );
+      send_to_char( buf, ch );
+
+      return;
+    }
+  }
 
   if(ch->only.pc->quest_active == 0){
     send_to_char("You don't have a quest!\r\n", ch);
@@ -448,9 +486,9 @@ void do_quest(P_char ch, char *args, int cmd)
     if (isname(name, "share"))
     {
 
-      if(ch->only.pc->quest_reciver != GET_PID(ch))
+      if(ch->only.pc->quest_receiver != GET_PID(ch))
       {
-        send_to_char("Only the quest reciver can share the quest.\r\n", ch);
+        send_to_char("Only the quest receiver can share the quest.\r\n", ch);
         return;
       }
 
@@ -536,11 +574,11 @@ void do_quest(P_char ch, char *args, int cmd)
       victim->only.pc->quest_mob_vnum  = ch->only.pc->quest_mob_vnum;
       victim->only.pc->quest_type = ch->only.pc->quest_type;
       victim->only.pc->quest_accomplished  = ch->only.pc->quest_accomplished;
-      victim->only.pc->quest_started = ch->only.pc->quest_started; 
+      victim->only.pc->quest_started = ch->only.pc->quest_started;
       victim->only.pc->quest_zone_number = ch->only.pc->quest_zone_number;
       victim->only.pc->quest_giver = ch->only.pc->quest_giver;
       victim->only.pc->quest_level =  ch->only.pc->quest_level;
-      victim->only.pc->quest_reciver = ch->only.pc->quest_reciver;
+      victim->only.pc->quest_receiver = ch->only.pc->quest_receiver;
       victim->only.pc->quest_kill_how_many = ch->only.pc->quest_kill_how_many;
       victim->only.pc->quest_kill_original =  ch->only.pc->quest_kill_original;
       do_quest(victim, "", 0);
@@ -616,7 +654,7 @@ void do_quest(P_char ch, char *args, int cmd)
     send_to_char("This quest is already finished, go talk to the quest master!\r\n", ch);
   }
 
-  if(ch->only.pc->quest_reciver != GET_PID(ch)){
+  if(ch->only.pc->quest_receiver != GET_PID(ch)){
     send_to_char("&+RThis quest was shared with you&n.\r\n", ch);
 
   }
@@ -717,7 +755,7 @@ bool createQuest(P_char ch, P_char giver)
   ch->only.pc->quest_zone_number = zone_table[quest_zone].number;
   ch->only.pc->quest_giver = GET_VNUM(giver);
   ch->only.pc->quest_level = GET_LEVEL(ch);
-  ch->only.pc->quest_reciver = GET_PID(ch);
+  ch->only.pc->quest_receiver = GET_PID(ch);
 
   int rnum = real_mobile(quest_mob);
 
