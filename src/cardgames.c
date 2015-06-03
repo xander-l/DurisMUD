@@ -385,18 +385,23 @@ int blackjack_table(P_obj obj, P_char ch, int cmd, char *argument)
           send_to_char(buf, ch);
           // Return the bid + winnings.
           ch->points.cash[obj->value[2]] += 2*obj->value[1];
+          logit(LOG_CARDGAMES, "%s won %d %s at blackjack v2.0.", J_NAME(ch), obj->value[1], (obj->value[2]==0)?"copper":
+            (obj->value[2]==1)?"silver":(obj->value[2]==2)?"gold":(obj->value[2]==3)?"platinum":"unknown");
         }
         else if( playerHand->BlackjackValue() == dealerHand->BlackjackValue() )
         {
           act("&+yA &+YPUSH!&+y No winner no loser! You pull your &+Wbet&+y from the table.", FALSE, ch, obj, ch, TO_CHAR);
           // Return the bid.
           ch->points.cash[obj->value[2]] += obj->value[1];
+          logit(LOG_CARDGAMES, "%s had a push in blackjack v2.0.", J_NAME(ch) );
         }
         // Can assume player total < dealer total.
         else
         {
           sprintf(buf, "&+RYou LOSE!!&+C Dealers &+Y%d &+rbeats your &+Y%d&+r.\n",
             dealerHand->BlackjackValue(), playerHand->BlackjackValue() );
+          logit(LOG_CARDGAMES, "%s lost %d %s at blackjack v2.0.", J_NAME(ch), obj->value[1], (obj->value[2]==0)?"copper":
+            (obj->value[2]==1)?"silver":(obj->value[2]==2)?"gold":(obj->value[2]==3)?"platinum":"unknown");
           send_to_char(buf, ch);
         }
       }
@@ -404,6 +409,8 @@ int blackjack_table(P_obj obj, P_char ch, int cmd, char *argument)
       {
         send_to_char("&+CDealer&+R BUST&+y, so &+RY&+CO&+BU &+GW&+YI&+MN&+C!&+R!&+y&n\n", ch);
         // Return the bid + winnings.
+        logit(LOG_CARDGAMES, "%s won %d %s at blackjack v2.0.", J_NAME(ch), obj->value[1], (obj->value[2]==0)?"copper":
+          (obj->value[2]==1)?"silver":(obj->value[2]==2)?"gold":(obj->value[2]==3)?"platinum":"unknown");
         ch->points.cash[obj->value[2]] += 2*obj->value[1];
       }
       // Reset the table:
@@ -698,6 +705,8 @@ int blackjack_table(P_obj obj, P_char ch, int cmd, char *argument)
         sprintf(buf, "&+yYou &+RBUSTED&+y with a total of %d. Sorry, maybe try again later?.\n", playerHand->BlackjackValue() );
         send_to_char(buf, ch);
         act( STR_CARDS_BUST, FALSE, ch, obj, ch, TO_CHAR);
+        logit(LOG_CARDGAMES, "%s lost %d %s at blackjack v2.0.", J_NAME(ch), obj->value[1], (obj->value[2]==0)?"copper":
+          (obj->value[2]==1)?"silver":(obj->value[2]==2)?"gold":(obj->value[2]==3)?"platinum":"unknown");
 
         // Reset the table:
         goto reset_table;
