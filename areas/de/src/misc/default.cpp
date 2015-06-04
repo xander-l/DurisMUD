@@ -64,7 +64,7 @@ extern bool g_madeChanges;
 void readDefaultsFromFiles(const char *filePrefix)
 {
   FILE *defaultFile;
-  char strn[1024] = "", fileName[512];
+  char strn[1024] = "", fileName[512], *retVal;
      // dummy strn for reading obj
 
 
@@ -145,7 +145,7 @@ void readDefaultsFromFiles(const char *filePrefix)
     _outtext(fileName);
     _outtext("...\n");
 
-    fgets(strn, 256, defaultFile);
+    retVal = fgets(strn, 256, defaultFile);
     nolf(strn);
     g_defaultExit = readRoomExitFromFile(defaultFile, NULL, strn, false);
 

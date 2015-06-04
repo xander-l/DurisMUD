@@ -45,7 +45,7 @@ extern bool g_madeChanges;
 extern room *g_currentRoom;
 
 
-char *g_exitnames[NUMB_EXITS] =
+const char *g_exitnames[NUMB_EXITS] =
 {
   "north",
   "east",
@@ -59,7 +59,7 @@ char *g_exitnames[NUMB_EXITS] =
   "southeast"
 };
 
-char *g_exitnames_short[NUMB_EXITS] =
+const char *g_exitnames_short[NUMB_EXITS] =
 {
   "N",
   "E",
@@ -73,7 +73,7 @@ char *g_exitnames_short[NUMB_EXITS] =
   "SE"
 };
 
-char *g_exitkeys[NUMB_EXITS] =
+const char *g_exitkeys[NUMB_EXITS] =
 {
   "N",
   "E",

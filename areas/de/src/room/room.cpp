@@ -881,7 +881,7 @@ bool checkMapTruenessRedund(const room *roomPtr, const uint exitNumb, const int 
 
   if (roomPtr->exits[exitNumb] && (roomPtr->exits[exitNumb]->destRoom != dest))
   {
-    sprintf(strn, "  &+croom #%&+g%u&n's %s exit leads to &+R%d&n &+ginstead of &+R%d&n\n",
+    sprintf(strn, "  &+croom #%%&+g%u&n's %s exit leads to &+R%d&n &+ginstead of &+R%d&n\n",
             roomPtr->roomNumber, g_exitnames[exitNumb], roomPtr->exits[exitNumb]->destRoom, dest);
 
     *gotOne = true;

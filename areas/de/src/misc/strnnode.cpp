@@ -421,11 +421,11 @@ bool compareStringNodesIgnoreCase(const stringNode *list1, const stringNode *lis
 
 stringNode *editStringNodes(stringNode *strnNode, const bool remStartLines)
 {
-  char path[1024], fullpath[2048], ultrapath[4096];
+  char path[1024], fullpath[2048], ultrapath[4096], *retVal;
   FILE *tmpFile;
 
 
-  getcwd(path, 1024);
+  retVal = getcwd(path, 1024);
 
  // open the tmp file
 

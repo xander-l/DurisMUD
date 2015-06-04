@@ -1285,21 +1285,21 @@ typedef unsigned int uint;
 #define HUNT_JUSTICE_HELP       130 /* call for help from that room */
 
 struct race_names {
-  char *normal;
-  char *no_spaces;
-  char *ansi;
-  char *code;
+  const char *normal;
+  const char *no_spaces;
+  const char *ansi;
+  const char *code;
 };
 
 struct class_names {
-  char *normal;
-  char *ansi;
-  char *code;
-  char letter;
+  const char *normal;
+  const char *ansi;
+  const char *code;
+  const char letter;
 };
 
 struct material_data {
-  char *name;
+  const char *name;
 };
 
 #endif /* _DURIS_DEFINES_H_ */

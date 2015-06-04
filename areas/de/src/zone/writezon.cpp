@@ -382,18 +382,20 @@ void writeAllExitsPaired(FILE *zoneFile)
   exitWritten *exitWHead = NULL;
   room *room;
   int i;
-  uint numb, high = getHighestRoomNumber();
+  uint numb, high;
 
 
-  for (numb = getLowestRoomNumber(); numb <= high; numb++)
+  for( numb = getLowestRoomNumber(), high = getHighestRoomNumber(); numb <= high; numb++)
   {
-    if (!(room = findRoom(numb))) 
+    if( !(room = findRoom(numb)) )
+    {
       continue;
+    }
 
-    for (i = 0; i < NUMB_EXITS; i++)
+    for( i = 0; i < NUMB_EXITS; i++ )
     {
       writeAllExitsPairedRedundant(zoneFile, room, &exitWHead, room->exits[i],
-                                   g_exitnames[i], toupper(g_exitnames[i][0]), i);
+        g_exitnames[i], toupper(g_exitnames[i][0]), i);
     }
   }
 

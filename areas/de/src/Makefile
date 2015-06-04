@@ -1,5 +1,6 @@
-# Makefile for the DE for players.  This doesn't include the "God" commands/info
-#  including itemvalues and hunting for OP equipment for zone.
+# Makefile for the DE for Imms.  This includes the 'God' info incluing
+#  item values and hunting for OP equipment.  Also, it compiles with
+#  gdb enabled so crashes can be explored.
 
 MALLOC_DEBUG = n
 SHELL = /bin/sh
@@ -11,8 +12,8 @@ ifdef USE_SHARED
 LDFLAGS += -rdynamic
 endif
 OPTS    = -O2
-CCFLAGS = -D__UNIX__ -Wno-deprecated -D_DE_
-CFLAGS = -D__UNIX__ -D_DE_
+CCFLAGS = -D__UNIX__ -Wno-deprecated -D_DE_ -DGODMODE=1
+CFLAGS = -D__UNIX__ -D_DE_ -DGODMODE=1
 INCLUDES = -I./
 LIBS    = -lncurses -lstdc++
 
@@ -212,38 +213,38 @@ SRCS	= $(OBJS:.o=.cpp) $(OPT_OBJS:.o=.cpp) $(SH_LIBS:.o=.cpp) $(MALLOC_OBJS:.o=.
 all: $(PROGS)
 
 de : $(DMS_OBJS) $(OPT_OBJS) $(MALLOC_OBJS) $(C_OBJS)
-	$(CC) $(LDFLAGS) -o de $(DMS_OBJS) $(OPT_OBJS) $(C_OBJS) $(MALLOC_OBJS) $(LIBS)
+	$(CC) $(LDFLAGS) -o de $(DMS_OBJS) $(OPT_OBJS) $(C_OBJS) $(MALLOC_OBJS) $(LIBS) $(DEBUG)
 
 $(DMS_OBJS): %.o: %.cpp
-	$(CC) $(CCFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CCFLAGS) $(DEBUG) $(INCLUDES) -c $< -o $@
 
 $(OPT_OBJS): %.o: %.cpp
-	$(CC) $(CCFLAGS) $(INCLUDES) $(OPTS) -c $< -o $@
+	$(CC) $(CCFLAGS) $(DEBUG) $(INCLUDES) $(OPTS) -c $< -o $@
 
 $(C_OBJS): %.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) $(OPTS) -c $< -o $@
+	$(CC) $(CFLAGS) $(DEBUG) $(INCLUDES) $(OPTS) -c $< -o $@
 
 ifeq ($(MALLOC_DEBUG),y)
 
 $(MALLOC_OBJS): %.o: %.cpp
-	$(CC) $(CFLAGS) $(INCLUDES) -DDEBUG -c $< -o $@
+	$(CC) $(CFLAGS) $(DEBUG) $(INCLUDES) -DDEBUG -c $< -o $@
 else
 
 $(MALLOC_OBJS): %.o: %.cpp
-	$(CC) $(CFLAGS) $(OPTS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(DEBUG) $(OPTS) $(INCLUDES) -c $< -o $@
 endif
 
 
 
 $(SH_LIBS:.o=.so): %.so: %.cpp
-	$(CC) $(CFLAGS) -fpic -c $< -o $*.o
+	$(CC) $(CFLAGS) $(DEBUG) -fpic -c $< -o $*.o
 	ld -shared -o $@ /usr/lib/crtbeginS.o $*.o /usr/lib/crtendS.o
 
 #depend:
 #	makedepend -m -w110 -- $(CFLAGS) -- $(SRCS)
 
 depend .depend:
-	$(CC) $(CFLAGS) $(INCLUDES) -MM $(SRCS) > .depend
+	$(CC) $(CFLAGS) $(DEBUG) $(INCLUDES) -MM $(SRCS) > .depend
 
 clean:
 	rm $(OBJS) $(OPT_OBJS) $(C_OBJS) de .depend

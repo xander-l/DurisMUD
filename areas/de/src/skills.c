@@ -31,7 +31,7 @@ int currentSkill = 0;
 #if defined(_DE_) || defined(_PFILE_)
 struct skill_data
 {
-  char    *name;
+  const char *name;
   // 0-56 for a skill, and 0-12 for a spell.
   int minLevel[CLASS_COUNT+1];
 #if defined (_PFILE_)
@@ -214,6 +214,7 @@ void SPELL_ADD(int Class, int Level)
 void create_poisons();
 void create_tags();
 
+extern void initialize_skills();
 void initialize_skills()
 {
   int i;

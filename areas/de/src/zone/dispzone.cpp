@@ -170,27 +170,27 @@ void displayZoneInfo(void)
 
 
   sprintf(strn,
-"\n"
-"&+YZone number:&n %u  &+YZone name:&n %s&n\n"
-"\n"
-"&+YTop room number:&n %u        &+YZone lifespan  :&n %u-%u\n"
-"&+YZone reset mode:&n %u (%s)\n"
-"&+YDifficulty: &n%u\n"
-"&+YFlags:&n %u (%s)\n"
-"\n"
-"&+YNumber of rooms/exits     :&n %u/%u\n"
-"&+YNumber of obj types/loaded:&n %u/%u\n"
-"&+YNumber of mob types/loaded:&n %u/%u\n"
-"\n",
+    "\n"
+    "&+YZone number:&n %u  &+YZone name:&n %s&n\n"
+    "\n"
+    "&+YTop room number:&n %u        &+YZone lifespan  :&n %u-%u\n"
+    "&+YZone reset mode:&n %u (%s)\n"
+    "&+YDifficulty: &n%u\n"
+    "&+YFlags:&n %u (%s)\n"
+    "\n"
+    "&+YNumber of rooms/exits     :&n %u/%u\n"
+    "&+YNumber of obj types/loaded:&n %u/%u\n"
+    "&+YNumber of mob types/loaded:&n %u/%u\n"
+    "\n",
 
-g_zoneRec.zoneNumber, g_zoneRec.zoneName,
-
-getHighestRoomNumber(),
-g_zoneRec.lifeLow, g_zoneRec.lifeHigh,
-g_zoneRec.resetMode, getZoneResetStrn(g_zoneRec.resetMode), g_zoneRec.zoneDiff,
-g_zoneRec.miscBits, getFlagStrn(g_zoneRec.miscBits.longIntFlags, g_zoneMiscFlagDef, fstrn, 1023),
-
-g_numbRooms, g_numbExits, g_numbObjTypes, g_numbObjs, g_numbMobTypes, g_numbMobs);
+    g_zoneRec.zoneNumber, g_zoneRec.zoneName,
+    getHighestRoomNumber(), g_zoneRec.lifeLow, g_zoneRec.lifeHigh,
+    g_zoneRec.resetMode, getZoneResetStrn(g_zoneRec.resetMode),
+    g_zoneRec.zoneDiff,
+    g_zoneRec.miscBits.longIntFlags, getFlagStrn(g_zoneRec.miscBits.longIntFlags, g_zoneMiscFlagDef, fstrn, 1023),
+    g_numbRooms, g_numbExits,
+    g_numbObjTypes, g_numbObjs,
+    g_numbMobTypes, g_numbMobs );
 
 
   displayColorString(strn);

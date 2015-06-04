@@ -1,6 +1,6 @@
 //
-//  File: init.cpp       originally part of durisEdit 
-//                                                                          
+//  File: init.cpp       originally part of durisEdit
+//
 //  Usage: various functions used when initializing at startup
 //
 
@@ -57,6 +57,7 @@ extern char *g_exitnames[];
 
 extern "C" struct class_names class_names_table[];
 extern "C" struct race_names race_names_table[];
+extern void initialize_skills(void);
 
 //
 // startInit : Initializes after reading the data files

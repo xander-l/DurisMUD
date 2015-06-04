@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo Pulling files from main code...
+
+cp -v -f ../../../src/spells.h .
+cp -v -f ../../../src/defines.h .
+cp -v -f ../../../src/utils.h .
+cp -v -f ../../../src/skillrec.h .
+cp -v -f ../../../src/types.h .
+cp -v -f ../../../src/objmisc.h .
+cp -v -f ../../../src/skills.c .
+cp -v -f ../../../src/common.c .

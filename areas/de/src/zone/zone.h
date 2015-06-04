@@ -143,7 +143,7 @@ typedef struct _zone
 
   uint resetMode;
   zoneMiscFlagRec miscBits;
-  
+
   uint mapWidth;
   uint mapHeight;
 

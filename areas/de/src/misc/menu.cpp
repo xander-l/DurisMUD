@@ -121,6 +121,7 @@ int getMenuDataTypeStrn(char *valstrn, const menuChoiceDataType dataType, const 
   char tempstrn[1024];
   extraDesc *edesc;  // used by obj ID edescs
   int val = 0;
+  long lval = 0;
 
   switch (dataType)
   {
@@ -131,15 +132,15 @@ int getMenuDataTypeStrn(char *valstrn, const menuChoiceDataType dataType, const 
       break;
 
     case mctByte :
-      val = *((char *)entityPtr + offset);
+      lval = *((char *)entityPtr + offset);
 
-      sprintf(valstrn, "%ld", val);
+      sprintf(valstrn, "%ld", lval);
       break;
 
     case mctUByte :
-      val = *((char *)entityPtr + offset);
+      lval = *((char *)entityPtr + offset);
 
-      sprintf(valstrn, "%lu", val);
+      sprintf(valstrn, "%lu", lval);
       break;
 
     case mctShort :
@@ -155,9 +156,9 @@ int getMenuDataTypeStrn(char *valstrn, const menuChoiceDataType dataType, const 
       break;
 
     case mctInt :
-      val = *(int *)((char *)entityPtr + offset);
+      lval = *(int *)((char *)entityPtr + offset);
 
-      sprintf(valstrn, "%ld", val); 
+      sprintf(valstrn, "%ld", lval);
       break;
 
     case mctUInt :
@@ -188,9 +189,9 @@ int getMenuDataTypeStrn(char *valstrn, const menuChoiceDataType dataType, const 
     case mctZoneFlag :
     case mctLowLifespan :
     case mctHighLifespan :
-      val = *(uint *)((char *)entityPtr + offset);
+      lval = *(uint *)((char *)entityPtr + offset);
 
-      sprintf(valstrn, "%lu", val); 
+      sprintf(valstrn, "%lu", lval);
       break;
 
     case mctFloat :
@@ -227,9 +228,9 @@ int getMenuDataTypeStrn(char *valstrn, const menuChoiceDataType dataType, const 
 
     case mctRoomEdescs :
     case mctObjEdescs :
-      val = getNumbExtraDescs((*(extraDesc **)((char *)entityPtr + offset)));
+      lval = getNumbExtraDescs((*(extraDesc **)((char *)entityPtr + offset)));
 
-      sprintf(valstrn, "%lu", val);
+      sprintf(valstrn, "%lu", lval);
       break;
 
     case mctExits :

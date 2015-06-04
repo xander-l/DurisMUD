@@ -162,7 +162,7 @@ const struct race_names race_names_table[LAST_RACE + 2] = {
   {"Fire Giant", "FireGiant", "&+rFi&+Rre Gia&+rnt&n", "FG"},
   {"Frost Giant", "FrostGiant", "&+cFr&+Cos&+Wt G&+Cia&+cnt&n", "IG"},
   {"Deva", "Deva", "&+wD&+Wev&+wa&n", "DV"},
-{0}
+  {NULL}
 };
 
 flagDef  wear_bits[] = {
@@ -523,6 +523,7 @@ const char *apply_types[] = {
   "\n"
 };
 
+extern const struct class_names class_names_table[];
 const struct class_names class_names_table[] = {
   {"None", "Unknown Class", "---", '-'},
   {"Warrior", "&+BWarrior&n", "War", 'w'},
@@ -554,7 +555,7 @@ const struct class_names class_names_table[] = {
   {"Avenger", "&+WAvenger&n", "Ave", '2'},
   {"Theurgist", "&+cTh&+Ceur&+Wgist&n", "The", '1'},
   {"Summoner", "&+RSummoner&n", "Sum", '3'},
-  {0}
+  {NULL, NULL, NULL, '\0'}
 };
 
 flagDef  action_bits[] = {
