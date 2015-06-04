@@ -1095,8 +1095,9 @@ int char_to_room(P_char ch, int room, int dir)
         (GET_STAT(ch) == STAT_DEAD))
       return TRUE;
   }
-  if ((world[room].sector_type == SECT_FIREPLANE) ||
-      (world[room].sector_type == SECT_UNDRWLD_LIQMITH))
+  if( (world[room].sector_type == SECT_FIREPLANE)
+    || (world[room].sector_type == SECT_LAVA)
+    || (world[room].sector_type == SECT_UNDRWLD_LIQMITH) )
   {
     firesector(ch);
   }

@@ -36,35 +36,34 @@ void random_jewelry(P_obj obj, int base_value);
 /* Called whenever, occasionally loads encounters based on ch passed */
 void random_encounters(P_char ch)
 {
-  int      mobs_vnum = 0, num_to_load = 0, num_loaded = 0, done = 0, total =
-  0;
+  int      mobs_vnum = 0, num_to_load = 0, num_loaded = 0, done = 0, total = 0;
   int      chance = 0;
   P_char   mob, tch;
   struct group_list *gl;
-  
+
   /* only activates in map world */
-  if (!IS_MAP_ROOM(ch->in_room))
+  if( !IS_MAP_ROOM(ch->in_room) )
     return;
-  
+
   /* nothing in water rooms yet */
-  if (IS_WATER_ROOM(ch->in_room))
+  if( IS_WATER_ROOM(ch->in_room) )
     return;
-  
+
   /* nor fire, lava, mithril */
-  if (world[ch->in_room].sector_type == SECT_FIREPLANE ||
+  if( world[ch->in_room].sector_type == SECT_FIREPLANE ||
+      world[ch->in_room].sector_type == SECT_LAVA ||
       world[ch->in_room].sector_type == SECT_UNDRWLD_LIQMITH ||
       world[ch->in_room].sector_type == SECT_UNDRWLD_SLIME)
     return;
-  
+
   /* Don't overload the room */
-  for (tch = world[ch->in_room].people; tch; tch = tch->next_in_room)
-    total++;
-  if (total >= 30)
+  for( tch = world[ch->in_room].people; tch; tch = tch->next_in_room )
+    if( ++total >= 30 )
+      return;
+
+  if( number(0, 8) )
     return;
-  
-  if (number(0, 8))
-    return;
-  
+
   /* if its a group, only load for the leader.
     * this way, we dont load kobolds and orcs in the same room
     */

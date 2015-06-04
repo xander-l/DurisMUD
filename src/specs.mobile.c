@@ -13973,10 +13973,8 @@ int conj_specpet_triton(P_char ch, P_char pl, int cmd, char *arg)
   if (cmd == CMD_SET_PERIODIC)
     return TRUE;
 
-  if(IS_FIGHTING(ch) &&
-    (cmd == 0) &&
-    (number(1, 15) == 1) &&
-    world[ch->in_room].sector_type != SECT_FIREPLANE)
+  if( IS_FIGHTING(ch) && (cmd == 0) && (number(1, 15) == 1)
+    && world[ch->in_room].sector_type != SECT_FIREPLANE && world[ch->in_room].sector_type != SECT_LAVA )
   {
     if (GET_HIT(ch) < GET_MAX_HIT(ch))
     {
@@ -13987,8 +13985,7 @@ int conj_specpet_triton(P_char ch, P_char pl, int cmd, char *arg)
       update_pos(ch);
       act("$n&+B stretches &+bout and lets loose a &+Btriumphant &+Whowl&+b!",
           FALSE, ch, 0, vict, TO_ROOM);
-      act
-        ("&+bAbsorbing &+Bmoisture &+bfrom its surroundings $n &+brebuilds its &+Bbody.&+b!",
+      act("&+bAbsorbing &+Bmoisture &+bfrom its surroundings $n &+brebuilds its &+Bbody.&+b!",
          FALSE, ch, 0, vict, TO_ROOM);
     }
   }

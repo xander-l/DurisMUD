@@ -2020,7 +2020,6 @@ P_obj get_wall_dir(P_char ch, int dir)
 }
 
 /* to take cover when someone fire from above */
-
 void do_cover(P_char ch, char *argument, int cmd)
 {
 
@@ -2077,6 +2076,7 @@ void do_cover(P_char ch, char *argument, int cmd)
  case SECT_ETHEREAL:
  case SECT_ASTRAL:
  case SECT_FIREPLANE:
+ case SECT_LAVA:
    chance = 50;
    break;
  case SECT_FIELD:

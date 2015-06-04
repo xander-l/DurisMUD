@@ -470,6 +470,7 @@ void add_track(P_char ch, int dir)
   case SECT_UNDERWATER_GR:
   case SECT_CITY:
   case SECT_ROAD:
+  case SECT_LAVA:
     dura -= 600;
     break;
   case SECT_DESERT:

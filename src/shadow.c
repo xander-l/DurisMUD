@@ -355,9 +355,10 @@ void MoveShadower(P_char ch, int to_room)
 
           case SECT_OCEAN:
           case SECT_FIREPLANE:
+          case SECT_LAVA:
           case SECT_UNDRWLD_MUSHROOM:
           case SECT_UNDRWLD_LIQMITH:
-            act("You're suddenly stricken with the eerie chill of being followed.",
+            act("You're suddenly stricken with the &+Ceerie &+Bchill&n of being followed.",
                 FALSE, ch, 0, 0, TO_CHAR);
             break;
 

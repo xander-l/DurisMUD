@@ -2390,9 +2390,10 @@ int conjure_terrain_check(P_char ch, P_char mob)
 	break;
 
 	case 2: /* WATER conjurer*/
-
-    if (IS_FIRE(room) || world[room].sector_type == SECT_FIREPLANE)
-	{
+    if( IS_FIRE(room) || world[room].sector_type == SECT_FIREPLANE
+      || world[room].sector_type == SECT_UNDRWLD_LIQMITH
+      || world[room].sector_type == SECT_LAVA )
+    {
 	  act("$N &+rfeebly tries to draw &+Bwater &+Lbut there is so little...",
           TRUE, ch, 0, mob, TO_ROOM);
     act("$N &+rfeebly tries to draw &+Bwater &+Lbut there is so little...",
@@ -2414,7 +2415,9 @@ int conjure_terrain_check(P_char ch, P_char mob)
 
 	case 3: /* FIRE conjurer*/
 
-	if (IS_FIRE(room) || world[room].sector_type == SECT_FIREPLANE)
+	  if (IS_FIRE(room) || world[room].sector_type == SECT_FIREPLANE
+      || world[room].sector_type == SECT_UNDRWLD_LIQMITH
+      || world[room].sector_type == SECT_LAVA )
 	{
 	  act("$N &+Labsorbs vast quantities of &+Rfire &+Lfrom the surrounding area!",
           TRUE, ch, 0, mob, TO_ROOM);
@@ -2903,10 +2906,8 @@ void spell_summon_greater_demon(int level, P_char ch, P_char victim,
   }
 }
 
-void spell_earthen_maul(int level, P_char ch, char *arg, int type,
-                        P_char victim, P_obj obj)
+void spell_earthen_maul(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
-
   int      dam, temp, dam_flag;
   struct damage_messages messages = {
     0,
@@ -2982,10 +2983,11 @@ void spell_earthen_maul(int level, P_char ch, char *arg, int type,
     break;
   case SECT_INSIDE:
   case SECT_UNDRWLD_INSIDE:
-    dam_flag = 3;               /*
-                                 * dangerous, and added damage from
-                                 * falling debris
+    dam_flag = 3;
+    break;                      /* dangerous, and added damage from falling debris
                                  */
+  case SECT_LAVA:
+    dam_flag = 4;               // Molten lava -> fire damage and more hurt.
     break;
   }
 
@@ -3022,10 +3024,18 @@ void spell_earthen_maul(int level, P_char ch, char *arg, int type,
     messages.victim = messages.room =
       "$n causes the &=LyEARTH&n to rise up in the shape of a fist!";
     break;
+  case 4:
+    messages.attacker =
+      "&+yYou cause the &+rmolten EARTH&+y to reach up and maul your opponent!";
+    messages.victim = messages.room =
+      "&+y$n&+y causes the &+rmolten &=RyEARTH&n&+y to rise up in the shape of a fist!&n";
+    messages.death_attacker = "&+yYour &+rmolten fist&+y leaves only a battered corpse of $N&+y behind!&n";
+    messages.death_victim = "&+yThe &+rmolten fist&+y drives the last remnants of life from you!&n";
+    messages.death_room = "&+y$n&+y's &+rmolten fist&+y leaves only a battered corpse of $N&+y behind!&n";
+    break;
   default:
-    send_to_char
-      ("As you are about to utter the last syllable, you choke it off,\nrealizing you could well bury yourself alive!\n",
-       ch);
+    send_to_char("As you are about to utter the last syllable, you choke it off,\n"
+      "realizing you could well bury yourself alive!\n", ch);
     return;
     break;
   }
@@ -3033,8 +3043,8 @@ void spell_earthen_maul(int level, P_char ch, char *arg, int type,
   dam = (int) (dam + 0.1*dam*dam_flag);
 
  // play_sound(SOUND_EARTHQUAKE1, NULL, ch->in_room, TO_ROOM);
-  if(spell_damage(ch, victim, dam, SPLDAM_GENERIC, 0, &messages) != DAM_NONEDEAD)
-  return;
+  if(spell_damage(ch, victim, dam, (dam_flag==4) ? SPLDAM_FIRE : SPLDAM_GENERIC, 0, &messages) != DAM_NONEDEAD)
+    return;
 
   /*
      if(number(0, 3) || (GET_CHAR_SKILL(victim, SKILL_SAFE_FALL) >= number(1, 101))) {
@@ -3594,6 +3604,7 @@ void spell_earthquake(int level, P_char ch, char *arg, int type, P_char victim, 
       case SECT_NO_GROUND:
       case SECT_UNDERWATER:
       case SECT_FIREPLANE:
+      case SECT_LAVA:
       case SECT_OCEAN:
         dam_flag = 0;
         break;                      /*
@@ -4300,42 +4311,38 @@ void event_nova(P_char ch, P_char victim, P_obj obj, void *data)
       get_property("spell.area.chanceStep.nova", 10));
 }
 
-void spell_nova(int level, P_char ch, char *arg, int type, P_char victim,
-                P_obj obj)
+void spell_nova(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   int room = ch->in_room;
-  
-  send_to_room
-    ("&+YA point of light appears in the middle of the room, slowly growing larger!\n",
-     ch->in_room);
+
+  send_to_room("&+YA point of light appears in the middle of the room, slowly growing larger!\n", ch->in_room);
 
   add_event(event_nova, PULSE_VIOLENCE * 2, ch, 0, 0, 0, &room, sizeof(room));
 }
 
-void spell_harmonic_resonance(int level, P_char ch, char *arg, int type,
-                              P_char victim, P_obj obj)
+void spell_harmonic_resonance(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   if(!ch)
     return;
 
-  send_to_room
-    ("&+cA &+Cchorus &+cof &+Cresonant &+Wsound &+Cinteracts &+cwith your &+Csurroundings!\n",
-     ch->in_room);
+  send_to_room("&+cA &+Cchorus &+cof &+Cresonant &+Wsound &+Cinteracts &+cwith your &+Csurroundings!\n", ch->in_room);
   switch (world[ch->in_room].sector_type)
   {
   case SECT_FOREST:
-     LOOP_THRU_PEOPLE(victim, ch)
+    LOOP_THRU_PEOPLE(victim, ch)
     {
-      if(should_area_hit(ch, victim))
+      if( should_area_hit(ch, victim) )
+      {
         spell_cdoom(level, ch, 0, SPELL_TYPE_SPELL, victim, NULL);
+      }
     }
-        break;
+    break;
   case SECT_FIELD:
     cast_call_lightning(level, ch, 0, SPELL_TYPE_SPELL, 0, NULL);
     break;
   case SECT_HILLS:
-        spell_earthquake(level, ch, 0, SPELL_TYPE_SPELL, 0, NULL);
-        break;
+    spell_earthquake(level, ch, 0, SPELL_TYPE_SPELL, 0, NULL);
+    break;
   case SECT_MOUNTAIN:
   case SECT_EARTH_PLANE:
     spell_earthen_rain(level, ch, 0, SPELL_TYPE_SPELL, 0, NULL);
@@ -4369,6 +4376,9 @@ void spell_harmonic_resonance(int level, P_char ch, char *arg, int type,
     break;
   case SECT_FIREPLANE:
     spell_nova(level, ch, 0, SPELL_TYPE_SPELL, 0, NULL);
+    break;
+  case SECT_LAVA:
+    spell_firestorm(level, ch, 0, SPELL_TYPE_SPELL, 0, NULL);
     break;
   }
 }
@@ -4422,8 +4432,7 @@ void spell_siren_song(int level, P_char ch, char *arg, int type,
   }
 }
 
-void spell_elemental_aura(int level, P_char ch, char *arg, int type,
-                          P_char victim, P_obj obj)
+void spell_elemental_aura(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
 
@@ -4453,8 +4462,7 @@ void spell_elemental_aura(int level, P_char ch, char *arg, int type,
   {
   case SECT_FIREPLANE:
     act("&+rYour body glows with an aura of fire!", FALSE, ch, 0, 0, TO_CHAR);
-    act("&+r$n's&+r body glows with an aura of fire!", FALSE, ch, 0, 0,
-        TO_ROOM);
+    act("&+r$n's&+r body glows with an aura of fire!", FALSE, ch, 0, 0, TO_ROOM);
     af.location = APPLY_STR_MAX;
     af.modifier = 50;
     affect_to_char(victim, &af);
@@ -11794,8 +11802,7 @@ void spell_barkskin(int level, P_char ch, char *arg, int type, P_char victim,
 
 // end of spell_barkskin
 
-void spell_grow_spike(int level, P_char ch, char *arg, int type, P_char victim,
-                    P_obj obj)
+void spell_grow_spike(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   int      dam, temp, dam_flag;
   struct damage_messages messages = {
@@ -11847,7 +11854,6 @@ void spell_grow_spike(int level, P_char ch, char *arg, int type, P_char victim,
   case SECT_UNDRWLD_MOUNTAIN:
   case SECT_UNDRWLD_SLIME:
   case SECT_UNDRWLD_LOWCEIL:
-  case SECT_UNDRWLD_LIQMITH:
   case SECT_UNDRWLD_MUSHROOM:
     dam_flag = 2;               /*
                                  * dangerous, and slightly higher dam from
@@ -11860,6 +11866,10 @@ void spell_grow_spike(int level, P_char ch, char *arg, int type, P_char victim,
                                  * dangerous, and added damage from
                                  * falling debris
                                  */
+    break;
+  case SECT_UNDRWLD_LIQMITH:
+  case SECT_LAVA:
+    dam_flag = 4;
     break;
   }
 
@@ -11883,21 +11893,21 @@ void spell_grow_spike(int level, P_char ch, char *arg, int type, P_char victim,
       "$n causes the earth to form into a &+yspike&n and rise up!!";
     break;
   case 2:
-    messages.attacker =
-      "&+yYou cause &+ya HUGE SPIKE&n to burst out of the ground at your opponent!\n";
-    messages.victim = messages.room =
-      "$n causes the earth to form into a &+yspike&n and rise up!";
-    break;
   case 3:
     messages.attacker =
-      "&+yYou cause &+ya HUGE SPIKE&n to burst out of the ground at your opponent!\n";
+      "&+yYou cause &+Ya HUGE SPIKE&+y to burst out of the ground at your opponent!&n";
     messages.victim = messages.room =
-      "$n causes the earth to form into a &+yspike&n and rise up!";
+      "&+y$n&+y causes the earth to form into a &+Yspike&+y and rise up!&n";
+    break;
+  case 4:
+    messages.attacker =
+      "&+yYou cause &+ra MOLTEN SPIKE&+y to burst out of the ground at your opponent!&n";
+    messages.victim = messages.room =
+      "&+y$n&+y causes the earth to form into a &+rspike&+y and rise up!&n";
     break;
   default:
-    send_to_char
-      ("As you are about to utter the last syllable, you choke it off,\nrealizing you could well bury yourself alive!\n",
-       ch);
+    send_to_char("As you are about to utter the last syllable, you choke it off,\n"
+      "realizing you could well bury yourself alive!\n", ch);
     return;
     break;
   }
@@ -11905,7 +11915,7 @@ void spell_grow_spike(int level, P_char ch, char *arg, int type, P_char victim,
   dam = (int) (dam + 0.1*dam*dam_flag);
 
 //  play_sound(SOUND_EARTHQUAKE1, NULL, ch->in_room, TO_ROOM);
-  if(spell_damage(ch, victim, dam, SPLDAM_GENERIC, dam_flag > 1 ? 0 : SPLDAM_GLOBE, &messages))
+  if(spell_damage(ch, victim, dam, (dam_flag==4) ? SPLDAM_FIRE : SPLDAM_GENERIC, dam_flag > 1 ? 0 : SPLDAM_GLOBE, &messages))
     return;
 
   /*
@@ -18083,8 +18093,7 @@ void spell_magma_burst(int level, P_char ch, char *arg, int type, P_char victim,
   }
 }
 
-void spell_single_cdoom_wave(int level, P_char ch, char *arg, int type,
-                              P_char victim, P_obj obj)
+void spell_single_cdoom_wave(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct damage_messages messages = {
     "&+LYou send &+ma wave of &+Linsects &+mand &+Larachnids &+magainst $N!",
@@ -20041,8 +20050,8 @@ bool can_banish(P_char ch, P_char victim)
       return FALSE;
     }
 
-    if(GET_RACE(victim) == RACE_F_ELEMENTAL | RACE_EFREET &&
-       world[victim->in_room].sector_type == SECT_FIREPLANE)
+    if( (GET_RACE(victim) == RACE_F_ELEMENTAL || GET_RACE(victim) == RACE_EFREET)
+      && world[victim->in_room].sector_type == SECT_FIREPLANE )
     {
       send_to_char("This is the fire plane. Your banish spell fails!", ch);
       return FALSE;
@@ -21266,6 +21275,7 @@ void spell_spore_cloud(int level, P_char ch, char *arg, int type, P_char victim,
     case SECT_WATER_PLANE:
     case SECT_UNDRWLD_INSIDE:
     case SECT_INSIDE:
+    case SECT_LAVA:
       dam = (int) (dam * 0.7);
       break;
     case SECT_CITY:

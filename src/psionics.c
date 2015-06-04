@@ -822,8 +822,7 @@ spell_combat_mind(int level, P_char ch, char *arg, int type, P_char victim,
   return;
 }
 
-void spell_fire_aura(int level, P_char ch, char *arg, int type,
-                          P_char victim, P_obj obj)
+void spell_fire_aura(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
 
@@ -836,7 +835,8 @@ void spell_fire_aura(int level, P_char ch, char *arg, int type,
     return;
   }
 
-  if (world[ch->in_room].sector_type == SECT_FIREPLANE) {
+  if( world[ch->in_room].sector_type == SECT_FIREPLANE || world[ch->in_room].sector_type == SECT_LAVA )
+  {
     act("&+rYour body glows with an aura of fire!", FALSE, ch, 0, 0, TO_CHAR);
     act("&+r$n's&+r body glows with an aura of fire!", FALSE, ch, 0, 0,
         TO_ROOM);
@@ -877,7 +877,8 @@ void spell_fire_aura(int level, P_char ch, char *arg, int type,
       af.bitvector2 = AFF2_FIRESHIELD;
       affect_to_char(victim, &af);
     }
-  } else 
+  }
+  else
   {
   	act("&+LYou need to stand on &+Rfire&+L in order to gain some of its properties.", FALSE, ch, 0, 0, TO_CHAR);
   }

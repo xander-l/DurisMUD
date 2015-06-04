@@ -5056,23 +5056,22 @@ void try_to_bury(P_char ch, P_obj obj_object)
        ch);
     return;
   }
-  if (world[ch->in_room].sector_type == SECT_WATER_SWIM ||
-      world[ch->in_room].sector_type == SECT_WATER_NOSWIM ||
-      world[ch->in_room].sector_type == SECT_NO_GROUND ||
-      world[ch->in_room].sector_type == SECT_FIREPLANE ||
-      world[ch->in_room].sector_type == SECT_OCEAN ||
-      world[ch->in_room].sector_type == SECT_UNDERWATER ||
-      world[ch->in_room].sector_type == SECT_UNDERWATER_GR ||
-      world[ch->in_room].sector_type >= SECT_UNDRWLD_WATER)
+  if( world[ch->in_room].sector_type == SECT_WATER_SWIM
+    || world[ch->in_room].sector_type == SECT_WATER_NOSWIM
+    || world[ch->in_room].sector_type == SECT_NO_GROUND
+    || world[ch->in_room].sector_type == SECT_FIREPLANE
+    || world[ch->in_room].sector_type == SECT_OCEAN
+    || world[ch->in_room].sector_type == SECT_UNDERWATER
+    || world[ch->in_room].sector_type == SECT_UNDERWATER_GR
+    || world[ch->in_room].sector_type >= SECT_UNDRWLD_WATER
+    || world[ch->in_room].sector_type >= SECT_LAVA )
   {
-    send_to_char("This appears to not be the best place fer digging.\r\n",
-                 ch);
+    send_to_char("This appears to not be the best place fer digging.\r\n", ch);
     return;
   }
   if (ch->specials.z_cord < 0 || ch->specials.z_cord > 0)
   {
-    send_to_char("This appears to not be the best place fer digging.\r\n",
-                 ch);
+    send_to_char("This appears to not be the best place fer digging.\r\n", ch);
     return;
   }
   act("You bury $p.", FALSE, ch, obj_object, 0, TO_CHAR);
@@ -5109,17 +5108,17 @@ void do_dig(P_char ch, char *argument, int cmd)
     CharWait(ch, 20);
     return;
   }
-  else if (world[ch->in_room].sector_type == SECT_WATER_SWIM ||
-           world[ch->in_room].sector_type == SECT_WATER_NOSWIM ||
-           world[ch->in_room].sector_type == SECT_NO_GROUND ||
-           world[ch->in_room].sector_type == SECT_FIREPLANE ||
-           world[ch->in_room].sector_type == SECT_OCEAN ||
-           world[ch->in_room].sector_type == SECT_UNDERWATER ||
-           world[ch->in_room].sector_type == SECT_UNDERWATER_GR ||
-           world[ch->in_room].sector_type >= SECT_UNDRWLD_WATER)
+  else if( world[ch->in_room].sector_type == SECT_WATER_SWIM
+    || world[ch->in_room].sector_type == SECT_WATER_NOSWIM
+    || world[ch->in_room].sector_type == SECT_NO_GROUND
+    || world[ch->in_room].sector_type == SECT_FIREPLANE
+    || world[ch->in_room].sector_type == SECT_OCEAN
+    || world[ch->in_room].sector_type == SECT_UNDERWATER
+    || world[ch->in_room].sector_type == SECT_UNDERWATER_GR
+    || world[ch->in_room].sector_type >= SECT_UNDRWLD_WATER
+    || world[ch->in_room].sector_type >= SECT_LAVA )
   {
-    send_to_char("This appears to not be the best place fer digging.\r\n",
-                 ch);
+    send_to_char("This appears to not be the best place fer digging.\r\n", ch);
     return;
   }
   if (ch->specials.z_cord < 0 || ch->specials.z_cord > 0)
@@ -5451,8 +5450,7 @@ void do_fly(P_char ch, char *argument, int cmd)
       (sect == SECT_FIREPLANE) ||
       ((sect >= SECT_AIR_PLANE) && (sect <= SECT_ASTRAL)))
   {
-    send_to_char
-      ("Heh, explain how exactly that works and we'll let ya do it.\r\n", ch);
+    send_to_char("Heh, explain how exactly that works and we'll let ya do it.\r\n", ch);
     return;
   }
 

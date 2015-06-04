@@ -47,6 +47,7 @@ void event_firesector(P_char ch, P_char victim, P_obj obj, void *data)
   if (IS_TRUSTED(ch) || GET_RACE(ch) == RACE_F_ELEMENTAL ||
       ch->in_room == NOWHERE ||
       ((world[ch->in_room].sector_type != SECT_FIREPLANE) &&
+       (world[ch->in_room].sector_type != SECT_LAVA) &&
        (world[ch->in_room].sector_type != SECT_UNDRWLD_LIQMITH)))
     return;
 
@@ -57,22 +58,18 @@ void event_firesector(P_char ch, P_char victim, P_obj obj, void *data)
       next = af->next;
       if (af->type == SPELL_PROTECT_FROM_FIRE || af->type == SPELL_FIRE_WARD)
       {
-        send_to_char("Your feeble spell is no match for elemental fire!\r\n",
-                     ch);
+        send_to_char("Your feeble spell is no match for elemental fire!\r\n", ch);
         affect_remove(ch, af);
       }
     }
     return;
   }
 
-  if (GET_HIT(ch) < 0)
+  if( GET_HIT(ch) < -7 )
   {
-    send_to_char
-      ("Failing to bear the &+Reternal heat&n of this place, your body is devoured by &+Yflames&n..\r\n",
-       ch);
-    act
-      ("Failing to bear the &+Reternal heat&n of this place, $n's body is devoured by &+Yflames&n..",
-       FALSE, ch, 0, 0, TO_ROOM);
+    send_to_char("Failing to bear the &+Reternal heat&n of this place, your body is devoured by &+Yflames&n..\r\n", ch);
+    act("Failing to bear the &+Reternal heat&n of this place, $n's body is devoured by &+Yflames&n..",
+      FALSE, ch, 0, 0, TO_ROOM);
     die(ch, ch);
     return;
   }
@@ -93,6 +90,7 @@ void firesector(P_char ch)
   if (IS_TRUSTED(ch) || GET_RACE(ch) == RACE_F_ELEMENTAL ||
       ch->in_room == NOWHERE || (IS_NPC(ch) && !IS_PC_PET(ch)) ||
       ((world[ch->in_room].sector_type != SECT_FIREPLANE) &&
+       (world[ch->in_room].sector_type != SECT_LAVA) &&
        (world[ch->in_room].sector_type != SECT_UNDRWLD_LIQMITH)))
     return;
 

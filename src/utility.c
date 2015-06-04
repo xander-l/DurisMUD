@@ -5094,10 +5094,10 @@ bool is_hot_in_room(int room)
       return true;
   }
 
-  if(world[room].sector_type == SECT_FIREPLANE)
-    return true;
+  if( world[room].sector_type == SECT_FIREPLANE || world[room].sector_type == SECT_LAVA )
+    return TRUE;
 
-  return false;
+  return FALSE;
 }
 
 // This function determines whether room real number r is currently twilight.

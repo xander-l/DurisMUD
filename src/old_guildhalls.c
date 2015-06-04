@@ -790,6 +790,7 @@ bool valid_build_location(int room, P_char ch, int type)
         world[room].sector_type == SECT_UNDERWATER ||
         world[room].sector_type == SECT_UNDERWATER_GR ||
         world[room].sector_type == SECT_FIREPLANE ||
+        world[room].sector_type == SECT_LAVA ||
         world[room].sector_type == SECT_OCEAN ||
         world[room].sector_type == SECT_UNDRWLD_INSIDE ||
         world[room].sector_type == SECT_UNDRWLD_WATER ||
@@ -804,16 +805,12 @@ bool valid_build_location(int room, P_char ch, int type)
         world[room].sector_type == SECT_CASTLE_WALL ||
         world[room].sector_type == SECT_CASTLE_GATE)
     {
-      send_to_char
-        ("Gee bucko, can't you think of a better place to build this?\r\n",
-         ch);
+      send_to_char("Gee bucko, can't you think of a better place to build this?\r\n", ch);
       return FALSE;
     }
     if ((world[ch->in_room].room_flags & INDOORS) && !IS_UNDERWORLD(ch->in_room))
     {
-      send_to_char
-        ("Umm, this area is already indoors. We don't build things like that around these parts.\r\n",
-         ch);
+      send_to_char("Umm, this area is already indoors. We don't build things like that around these parts.\r\n", ch);
       return FALSE;
     }
     if (IS_SET(world[ch->in_room].room_flags, GUILD_ROOM))
@@ -830,9 +827,7 @@ bool valid_build_location(int room, P_char ch, int type)
         (IS_EVIL_MAP(room) && !EVIL_RACE(ch)) ||
         (IS_UD_MAP(room) && !EVIL_RACE(ch)))
     {
-      send_to_char
-        ("You can't acquire outposts so deep in the land of your enemies.\r\n",
-         ch);
+      send_to_char("You can't acquire outposts so deep in the land of your enemies.\r\n", ch);
       return FALSE;
     }
 

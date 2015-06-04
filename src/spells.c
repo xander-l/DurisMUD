@@ -416,8 +416,7 @@ const char *planes_name[] = {
     "negative", 
     "\n" };
 
-void cast_gate(int level, P_char ch, char *arg, int type, P_char tar_ch,
-               P_obj tar_obj)
+void cast_gate(int level, P_char ch, char *arg, int type, P_char tar_ch, P_obj tar_obj)
 {
   struct portal_settings set = {
       752, /* portal type  */
@@ -1991,8 +1990,7 @@ void event_trans_rock_lava(P_char ch, P_char victim, P_obj obj, void *data)
   REMOVE_BIT(world[g_data->room].room_flags, INDOORS);
 }
 
-void cast_transmute_rock_lava(int level, P_char ch, char *arg, int type, P_char tar_ch,
-               P_obj tar_obj)
+void cast_transmute_rock_lava(int level, P_char ch, char *arg, int type, P_char tar_ch, P_obj tar_obj)
 {
   int      terrain_type, seconds;
   struct room_affect af;
@@ -2073,6 +2071,7 @@ void cast_transmute_lava_rock(int level, P_char ch, char *arg, int type, P_char 
 	switch (terrain_type)
 	{
 		case SECT_FIREPLANE:
+		case SECT_LAVA:
 		   break;
 		default:
 			 send_to_char("How about trying this with more lava?\r\n", ch);

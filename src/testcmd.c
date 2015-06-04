@@ -12,6 +12,9 @@ using namespace std;
 
 extern struct zone_data *zone_table;
 extern struct room_data *world;
+extern int top_of_world;
+extern const flagDef room_bits[];
+extern const char *sector_types[];
 extern const char *sector_symbol[];
 extern mapSymbolInfo color_symbol[];
 extern P_index mob_index;
@@ -69,6 +72,39 @@ void display_exp_table(P_char ch, char *arg, int cmd)
     sprintf(buff, "%d: %ld\n", i, new_exp_table[i]);
     send_to_char(buff, ch);
   }
+}
+
+// Checks for all lava rooms in world.
+#define START_ROOM 0
+void do_test_lava(P_char ch, char *arg, int cmd)
+{
+  int    realRoomNum = START_ROOM, count = 0;
+  char   buf[MAX_STRING_LENGTH];
+  char   buf2[MAX_STRING_LENGTH];
+  P_room rm;
+
+  while( realRoomNum < top_of_world )
+  {
+    if( world[realRoomNum].sector_type == SECT_LAVA )
+    {
+      count++;
+      rm = &world[realRoomNum];
+
+      sprintbitde(rm->room_flags, room_bits, buf2);
+
+      sprintf( buf, "&+YRoom: [&N%d&+Y](&N%d&+Y)  Zone: &N%d&+Y  Sector type: &N%s\n"
+        "&+YName: &N%s\n&+YRoom flags:&N %s\n\n",
+        rm->number, realRoomNum, zone_table[rm->zone].number, sector_types[rm->sector_type],
+        rm->name, buf2 );
+
+      send_to_char( buf, ch );
+    }
+    realRoomNum++;
+  }
+  --realRoomNum;
+  sprintf( buf, "From room %d (%d) to %d (%d), found %d Lava rooms.\n\r", START_ROOM, world[START_ROOM].number,
+    realRoomNum, world[realRoomNum].number, count );
+  send_to_char( buf, ch );
 }
 
 void do_test_room(P_char ch, char *arg, int cmd)
@@ -217,6 +253,11 @@ void do_test(P_char ch, char *arg, int cmd)
   if( isname("room", buff) )
   {
     do_test_room(ch, arg, cmd);
+    return;
+  }
+  if( isname("lava", buff) )
+  {
+    do_test_lava(ch, arg, cmd);
     return;
   }
   else if( isname("exp", buff) )
