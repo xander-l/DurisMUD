@@ -5172,12 +5172,12 @@ bool IS_TWILIGHT_ROOM(int r)
     case SECT_CASTLE:
     case SECT_NEG_PLANE:
     case SECT_PLANE_OF_AVERNUS:
+    case SECT_CITY:
       return TRUE;
       break;
     // These sectors are also in order.  These are the ones exposed to the sunlight.
     // These are only twilight during sunrise/sunset (dawn/dusk).
     case SECT_INSIDE:
-    case SECT_CITY:
     case SECT_FIELD:
     case SECT_HILLS:
     case SECT_MOUNTAIN:
