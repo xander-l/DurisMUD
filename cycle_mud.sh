@@ -69,3 +69,10 @@ if [ $RESULT == 55 ]; then
   fi
   echo "Wiped!"
 fi
+
+if [ -f /usr/bin/sendemail ]; then
+	/usr/bin/sendEmail -t alert@durismud.com \
+		-f mud@durismud.com -u "Duris Shutdown..." \
+		-m "Mud shutdown at ${DATESTR}, shutdown reason: ${STOP_REASON} [${RESULT}]."
+fi
+
