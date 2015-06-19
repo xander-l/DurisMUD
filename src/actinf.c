@@ -6135,16 +6135,17 @@ void do_who(P_char ch, char *argument, int cmd)
 {
   P_char   who_list[MAX_WHO_PLAYERS], who_gods[MAX_WHO_PLAYERS];
   struct time_info_data playing_time;
-  P_char   tch;
+  P_char   tch, tchReal;
   P_desc   d;
   char     who_output[MAX_STRING_LENGTH];
   char     buf[MAX_STRING_LENGTH], buf3[MAX_STRING_LENGTH];
   char     buf4[MAX_STRING_LENGTH], buf5[MAX_STRING_LENGTH];
   char     pattern[256], arg[256];
-  int      i, j, k, nr_args_now = 0, who_list_size = 0, who_gods_size = 0;
+  int      i, j, k, nr_args_now = 0, who_list_size = 0, who_gods_size = 0, total_ingame_connections = 0;
   long     timer = 0;
   snoop_by_data *snoop_by_ptr;
-  int      align = RACEWAR_NONE, min_level = 70, max_level = -1, sort = FALSE, zone = FALSE, lfg = FALSE;
+  int      align = RACEWAR_NONE, min_level = MAXLVL + 1, max_level = -1;
+  bool     sort = FALSE, zone = FALSE, lfg = FALSE, mortalsonly = FALSE;
   struct affected_type *pafepics;
 
   if( !IS_ALIVE(ch) || IS_NPC(ch) )
@@ -6178,20 +6179,21 @@ void do_who(P_char ch, char *argument, int cmd)
       align = -1;
     else if( is_abbrev(arg, "sort") )
       sort = TRUE;
+    else if( !strcmp(arg, "short") || is_abbrev(arg, "mortals") )
+      mortalsonly = TRUE;
     else if( is_abbrev(arg, "lfg") )
       lfg = TRUE;
     else if( !strcmp(arg, "?") )
     {
       send_to_char("Usage:\n", ch);
-      send_to_char("&+Wwho [<level> | <minlevel> <maxlevel>] "
-                   "[<pattern>] [s]&n\n", ch);
-      send_to_char("where pattern is matched against class, race,"
-                   " name of visible players.\n", ch);
+      send_to_char("&+Ywho &+W[<level> | <minlevel> <maxlevel>] [<pattern>] [s]&n\n\r", ch);
+      send_to_char("where pattern is matched against class, race, name, of visible players.\n\r", ch );
+      send_to_char("Other options include hardcore, spec, multi, newbie, guide, and god.\n\r", ch );
       return;
     }
     else
     {
-      if (atoi(arg) > 0)
+      if( atoi(arg) > 0 )
       {
         min_level = MIN(atoi(arg), min_level);
         max_level = MAX(atoi(arg), max_level);
@@ -6201,30 +6203,70 @@ void do_who(P_char ch, char *argument, int cmd)
         strcpy(pattern, arg);
     }
   }
-  if (min_level == 70)
+  if( min_level == MAXLVL + 1 )
+  {
     min_level = 0;
-  if (max_level == -1)
-    max_level = 70;
+  }
+  if( max_level == -1 )
+  {
+    max_level = MAXLVL;
+  }
 
-  for (d = descriptor_list; d; d = d->next)
+  if (GET_RACE(ch) == RACE_ILLITHID )
+  {
+    if( GET_LEVEL(ch) < 20 )
+    {
+      send_to_char("You haven't mastered your mind control enough yet!\n", ch);
+      return;
+    }
+    if( !IS_TRUSTED(ch) )
+    {
+      i = MAX(1, GET_MAX_MANA(ch) - GET_LEVEL(ch));
+
+      if( (GET_MANA(ch) - i) < 0 )
+      {
+        send_to_char("You do not have enough mana.\n", ch);
+        return;
+      }
+      GET_MANA(ch) -= i;
+      if (GET_MANA(ch) < GET_MAX_MANA(ch))
+        StartRegen(ch, EVENT_MANA_REGEN);
+    }
+  }
+
+  for( d = descriptor_list; d; d = d->next )
   {
     tch = d->character;
-    //Anyone can now see invis on who list - Drannak
-	if (d->connected || racewar(ch, tch) || IS_NPC(tch) || (!CAN_SEE(ch, tch) && IS_TRUSTED(tch)))
-    //if (d->connected || racewar(ch, tch) || !CAN_SEE(ch, tch) || IS_NPC(tch))
+
+    if( d->connected != CON_PLYNG )
       continue;
 
-    if (!IS_TRUSTED(ch))
-      if (IS_DISGUISE(tch) || IS_SET(tch->specials.act, PLR_NOWHO) ||
-          (sort && IS_SET(tch->specials.act, PLR_ANONYMOUS)))
+    total_ingame_connections++;
+
+    // Anyone can now see invis people other than gods on who list - Drannak
+    if( racewar(ch, tch) || IS_NPC(tch) || (!CAN_SEE(ch, tch) && IS_TRUSTED(tch)) )
+      continue;
+
+    // Gods can see all!
+    if( !IS_TRUSTED(ch) )
+    {
+      if( IS_DISGUISE(tch) || IS_SET(tch->specials.act, PLR_NOWHO) )
+// Anon removed atm.
+//        || (sort && IS_SET(tch->specials.act, PLR_ANONYMOUS)) )
+      {
         continue;
+      }
+    }
 
-    if (GET_LEVEL(tch) < min_level || GET_LEVEL(tch) > max_level)
+    if( GET_LEVEL(tch) < min_level || GET_LEVEL(tch) > max_level )
+    {
       continue;
+    }
 
     if( align != RACEWAR_NONE )
     {
-      if( (IS_TRUSTED(tch) && align == -1) || GET_RACEWAR(ch) == align )
+      // If you remove the align == -1 from below, gods will show to gods on all who lists (except mortals-only lists).
+      if( (IS_TRUSTED(tch) && align == -1) || GET_RACEWAR(tch) == align )
       {
         if (IS_TRUSTED(tch))
           who_gods[who_gods_size++] = tch;
@@ -6234,84 +6276,64 @@ void do_who(P_char ch, char *argument, int cmd)
       continue;
     }
 
-    if (zone && world[ch->in_room].zone != world[tch->in_room].zone)
-      continue;
-
-    if (lfg && !IS_SET(tch->specials.act2, PLR2_LGROUP))
-      continue;
-
-    if (!*pattern || is_abbrev(pattern, tch->player.name) ||
-        is_abbrev(pattern, race_names_table[GET_RACE(tch)].normal) ||
-        (is_abbrev(pattern, "hardcore") && IS_HARDCORE(tch)) ||
-        (is_abbrev(pattern, "spec") && IS_SPECIALIZED(tch)) ||
-        (is_abbrev(pattern, "multi") && IS_MULTICLASS_PC(tch)) ||
-	(is_abbrev(pattern, "newbie") && (IS_TRUSTED(ch) || IS_NEWBIE_GUIDE(ch)) && IS_NEWBIE(tch)) ||
-	(is_abbrev(pattern, "guide") && IS_NEWBIE_GUIDE(tch)) ||
-        ((IS_TRUSTED(ch) || !IS_SET(tch->specials.act, PLR_ANONYMOUS)) &&
-         is_abbrev(pattern,
-                   class_names_table[flag2idx(tch->player.m_class)].normal)))
+    if( zone && world[ch->in_room].zone != world[tch->in_room].zone )
     {
-      if (IS_TRUSTED(tch))
+      continue;
+    }
+
+    if( lfg && !IS_SET(tch->specials.act2, PLR2_LGROUP) )
+    {
+      continue;
+    }
+
+    if( !*pattern || is_abbrev(pattern, tch->player.name)
+      || is_abbrev(pattern, race_names_table[GET_RACE(tch)].normal)
+      || (is_abbrev(pattern, "hardcore") && IS_HARDCORE(tch))
+      || (is_abbrev(pattern, "spec") && IS_SPECIALIZED(tch))
+      || (is_abbrev(pattern, "multi") && IS_MULTICLASS_PC(tch))
+      || (is_abbrev(pattern, "newbie") && (IS_TRUSTED(ch) || IS_NEWBIE_GUIDE(ch)) && IS_NEWBIE(tch))
+      || (is_abbrev(pattern, "guide") && IS_NEWBIE_GUIDE(tch))
+      || ( (IS_TRUSTED(ch) || !IS_SET(tch->specials.act, PLR_ANONYMOUS))
+      && is_abbrev(pattern, class_names_table[flag2idx(tch->player.m_class)].normal) ) )
+    {
+      if( IS_TRUSTED(tch) )
         who_gods[who_gods_size++] = tch;
       else
         who_list[who_list_size++] = tch;
     }
   }
 
-#if 1
-  if (GET_RACE(ch) == RACE_ILLITHID && (GET_LEVEL(ch) < 20))
-  {
-    send_to_char("You haven't mastered your mind control enough yet!\n", ch);
-    return;
-  }
-  if (GET_RACE(ch) == RACE_ILLITHID && !IS_TRUSTED(ch))
-  {
-    i = MAX(1, GET_MAX_MANA(ch) - GET_LEVEL(ch));
-
-    if ((GET_MANA(ch) - i) < 0)
-    {
-      send_to_char("You do not have enough mana.\n", ch);
-      return;
-    }
-    GET_MANA(ch) -= i;
-    if (GET_MANA(ch) < GET_MAX_MANA(ch))
-      StartRegen(ch, EVENT_MANA_REGEN);
-  }
-#endif
-
-  if (sort)
+  if( sort )
   {
     qsort(who_gods, who_gods_size, sizeof(P_char), compare_char_data);
     qsort(who_list, who_list_size, sizeof(P_char), compare_char_data);
   }
 
   *buf = '\0';
-  if (!strcmp(argument, "short"))
+  if( mortalsonly )
   {
     k = 1;
-    strcat(who_output, "\n"
-           " Short Listing for Mortals\n" "-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-    for (j = 0; j < who_list_size; j++)
-    {
-      sprintf(who_output + strlen(who_output), "[&+w%2d&N%-3s&N]",
-              GET_LEVEL(who_list[j]),
-              class_names_table[flag2idx(who_list[j]->player.m_class)].code);
-      sprintf(who_output + strlen(who_output), " %-15s%s",
-              GET_NAME(who_list[j]), (!(k++ % 3) ? "\n" : ""));
-    }
-
-    strcat(who_output, "\n");
-    if (who_list_size == 0)
+    strcat(who_output, "\n Short Listing for Mortals\n-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    if( who_list_size == 0 )
       strcat(who_output, "<None>\n");
+    else
+    {
+      for( j = 0; j < who_list_size; j++ )
+      {
+        sprintf(who_output + strlen(who_output), "[&+w%2d&N%-3s&N]", GET_LEVEL(who_list[j]),
+          class_names_table[flag2idx(who_list[j]->player.m_class)].code);
+        sprintf(who_output + strlen(who_output), " %-15s%s", GET_NAME(who_list[j]), (!(k++ % 3) ? "\n" : ""));
+      }
+    }
+    strcat(who_output, "\n");
     send_to_char(who_output, ch, LOG_NONE);
-
   }
   else
   {
     strcpy(who_output, " Listing of the Gods\n" "-=-=-=-=-=-=-=-=-=-=-\n");
-    for (j = 0; j < who_gods_size; j++)
+    for( j = 0; j < who_gods_size; j++ )
     {
-      if (GET_LEVEL(who_gods[j]) == OVERLORD)
+      if( GET_LEVEL(who_gods[j]) == OVERLORD )
         strcat(who_output, "[  &+rOverlord&n   ] ");
       else if (GET_LEVEL(who_gods[j]) == FORGER)
         strcat(who_output, "[   &+LForger&n    ] ");
@@ -6323,235 +6345,199 @@ void do_who(P_char ch, char *argument, int cmd)
         strcat(who_output, "[ &+MGreater God&n ] ");
       else if (GET_LEVEL(who_gods[j]) == AVATAR)
         strcat(who_output, "[   &+RAvatar&n    ] ");
+      else
+        strcat(who_output, "[   &=LCCheater&n   ] ");
 
       strcat(who_output, GET_NAME(who_gods[j]));
       strcat(who_output, " ");
-      if (GET_TITLE(who_gods[j]))
+      if( GET_TITLE(who_gods[j]) )
         strcat(who_output, GET_TITLE(who_gods[j]));
-      if (who_gods[j]->desc && who_gods[j]->desc->olc)
+      if( who_gods[j]->desc && who_gods[j]->desc->olc )
         strcat(who_output, " (&+MOLC&N)");
-      if (IS_SET((who_gods[j])->specials.act, PLR_AFK))
+      if( IS_SET((who_gods[j])->specials.act, PLR_AFK) )
         strcat(who_output, " (&+RAFK&N)");
 
 
-      if (IS_TRUSTED(ch))
+      if( IS_TRUSTED(ch) )
       {
         sprintf(who_output + strlen(who_output), " (%d)",
                 who_gods[j]->only.pc->wiz_invis);
-        if (IS_AFFECTED(who_gods[j], AFF_INVISIBLE) ||
-            IS_AFFECTED2(who_gods[j], AFF2_MINOR_INVIS) ||
-            IS_AFFECTED3(who_gods[j], AFF3_ECTOPLASMIC_FORM))
+        if( IS_AFFECTED(who_gods[j], AFF_INVISIBLE) || IS_AFFECTED2(who_gods[j], AFF2_MINOR_INVIS)
+          || IS_AFFECTED3(who_gods[j], AFF3_ECTOPLASMIC_FORM) )
+        {
           strcat(who_output, " (inv)");
+        }
       }
       strcat(who_output, "\n");
     }
-    if (who_gods_size == 0)
-      strcat(who_output, "<None>\n");
-    sprintf(who_output + strlen(who_output),
-            "\nThere are %d visible &+rgod(s)&n on.\n", who_gods_size);
-    strcpy(buf, "");
-    if (who_list_size > 0)
+    if( who_gods_size == 0 )
     {
-      strcat(who_output, "\n"
-             " Listing of the Mortals!\n" "-=-=-=-=-=-=-=-=-=-=-=-=-\n");
-      for (j = 0; j < who_list_size; j++)
+      strcat(who_output, "<None>\n");
+    }
+    sprintf(who_output + strlen(who_output), "\nThere are %d visible &+rgod(s)&n on.\n", who_gods_size);
+    strcpy(buf, "");
+    if( who_list_size > 0 )
+    {
+      strcat(who_output, "\n Listing of the Mortals!\n" "-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+      for( j = 0; j < who_list_size; j++ )
       {
-        sprintf(buf, "&N&n[&+w%%2d&N&+g%%s%%-%ds&N&n]%%s",
-                strlen(get_class_name(who_list[j], ch)) -
-                ansi_strlen(get_class_name(who_list[j], ch)) + 16);
-        if (!IS_SET((who_list[j])->specials.act, PLR_ANONYMOUS) ||
-            IS_TRUSTED(ch))
-          sprintf(who_output + strlen(who_output), buf,
-                  GET_LEVEL(who_list[j]), (IS_TRUSTED(ch) &&
-                                           (IS_SET
-                                            (who_list[j]->specials.act,
-                                             PLR_ANONYMOUS)) ? "*" : " "),
-                  get_class_name(who_list[j], ch), (IS_TRUSTED(ch) &&
-                                                    (IS_SET
-                                                     (who_list[j]->specials.
-                                                      act,
-                                                      PLR_NOWHO)) ? "&+r%&n" :
-                                                    " "));
+        if( !IS_SET((who_list[j])->specials.act, PLR_ANONYMOUS) || IS_TRUSTED(ch) )
+        {
+          sprintf(who_output + strlen(who_output), "&n[&+w%2d&n%s%s&n]%s", GET_LEVEL(who_list[j]),
+            (IS_TRUSTED(ch) && (IS_SET(who_list[j]->specials.act, PLR_ANONYMOUS)) ? "*" : " "),
+            pad_ansi( get_class_name(who_list[j], ch), 16, TRUE).c_str(),
+            (IS_TRUSTED(ch) &&(IS_SET(who_list[j]->specials.act, PLR_NOWHO)) ? "&+r%&n" : " "));
+        }
         else
         {
           strcat(who_output, "[&+L - Anonymous -  &N] ");
         }
-	
+
         strcat(who_output, GET_NAME(who_list[j]));
-        strcat(who_output, " ");
-        if (GET_TITLE(who_list[j]))
+
+        if( GET_TITLE(who_list[j]) )
+        {
+          strcat(who_output, " ");
           strcat(who_output, GET_TITLE(who_list[j]));
-        if (IS_AFFECTED(who_list[j], AFF_INVISIBLE) ||
-            IS_AFFECTED2(who_list[j], AFF2_MINOR_INVIS) ||
-            IS_AFFECTED3(who_list[j], AFF3_ECTOPLASMIC_FORM))
+        }
+
+        if( IS_AFFECTED(who_list[j], AFF_INVISIBLE) || IS_AFFECTED2(who_list[j], AFF2_MINOR_INVIS)
+          || IS_AFFECTED3(who_list[j], AFF3_ECTOPLASMIC_FORM) )
+        {
           strcat(who_output, " (inv)");
+        }
+
         strcat(who_output, " &N(");
-        strcat(who_output,
-               race_names_table[(int) GET_RACE(who_list[j])].ansi);
+        strcat(who_output, race_names_table[(int) GET_RACE(who_list[j])].ansi);
         strcat(who_output, "&N)");
-        if (who_list[j]->desc && who_list[j]->desc->olc)
+
+        if( who_list[j]->desc && who_list[j]->desc->olc )
           strcat(who_output, " (&+MOLC&N)");
-        if (IS_HARDCORE(who_list[j]))
+        if( IS_HARDCORE(who_list[j]) )
           strcat(who_output, "&+L (&+rHard&+RCore&+L)&n");
-        if (IS_SET((who_list[j])->specials.act, PLR_AFK))
+        if( IS_SET((who_list[j])->specials.act, PLR_AFK) )
           strcat(who_output, " (&+RAFK&N)");
-        if (IS_SET((who_list[j])->specials.act2, PLR2_LGROUP))
+        if( IS_SET((who_list[j])->specials.act2, PLR2_LGROUP) )
           strcat(who_output, " (&+WGroup Needed&N)");
+        if( IS_SET((who_list[j])->specials.act2, PLR2_NEWBIE_GUIDE) )
+          strcat(who_output, " (&+GGuide&N)");
+        if( IS_SET((who_list[j])->specials.act3, PLR3_FRAGLEAD) )
+          strcat(who_output, " (&+rF&+Rr&+ra&+Rg &+rL&+Ro&+rr&+Rd&n&N)");
 
-		if (IS_SET((who_list[j])->specials.act2, PLR2_NEWBIE_GUIDE))
-		  strcat(who_output, " (&+GGuide&N)");
-
-                if (IS_SET((who_list[j])->specials.act3, PLR3_FRAGLEAD))
-		  strcat(who_output, " (&+rF&+Rr&+ra&+Rg &+rL&+Ro&+rr&+Rd&n&N)");
-
-//Surtitles - Drannak
+        // Surtitles - Drannak ... You did this so wrong.. should've used a mask and numbers... not on/off bits.
         if(IS_SET((who_list[j])->specials.act3, PLR3_SURSERF))
-        strcat(who_output, "&n[&+ySerf&n]");
+          strcat(who_output, "&n[&+ySerf&n]");
         if(IS_SET((who_list[j])->specials.act3, PLR3_SURCOMMONER))
-        strcat(who_output, "&n[&+YCommoner&n]");
+          strcat(who_output, "&n[&+YCommoner&n]");
         if(IS_SET((who_list[j])->specials.act3, PLR3_SURKNIGHT))
-        strcat(who_output, "&n[&+LK&+wn&+Wig&+wh&+Lt&n]");
+          strcat(who_output, "&n[&+LK&+wn&+Wig&+wh&+Lt&n]");
         if(IS_SET((who_list[j])->specials.act3, PLR3_SURNOBLE))
-        strcat(who_output, "&n[&+mN&+Mobl&+me&n]");
+          strcat(who_output, "&n[&+mN&+Mobl&+me&n]");
         if(IS_SET((who_list[j])->specials.act3, PLR3_SURLORD))
-        strcat(who_output, "&n[&+rL&+Ror&+rd&n]");
+          strcat(who_output, "&n[&+rL&+Ror&+rd&n]");
         if(IS_SET((who_list[j])->specials.act3, PLR3_SURKING))
-        strcat(who_output, "&n[&+yK&+Yin&+yg&n]");
+          strcat(who_output, "&n[&+yK&+Yin&+yg&n]");
         if(IS_SET((who_list[j])->specials.act3, PLR3_SURLIGHT))
-        strcat(who_output, "&n[&+WLight&+wbri&+Lnger&n]");
+          strcat(who_output, "&n[&+WLight&+wbri&+Lnger&n]");
         if(IS_SET((who_list[j])->specials.act3, PLR3_SURDRAGON))
-        strcat(who_output, "&n[&+gDr&+Gag&+Lon &+gS&+Glaye&+gr&n]");
+          strcat(who_output, "&n[&+gDr&+Gag&+Lon &+gS&+Glaye&+gr&n]");
         if(IS_SET((who_list[j])->specials.act3, PLR3_SURHEALS))
-        strcat(who_output, "&n[&+WD&+Ro&+rct&+Ro&+Wr&n]");
+          strcat(who_output, "&n[&+WD&+Ro&+rct&+Ro&+Wr&n]");
         if(IS_SET((who_list[j])->specials.act3, PLR3_SURSERIAL))
-        strcat(who_output, "&n[&+LSe&+wr&+Wi&+wa&+Ll &+rKiller&n]");
+          strcat(who_output, "&n[&+LSe&+wr&+Wi&+wa&+Ll &+rKiller&n]");
         if(IS_SET((who_list[j])->specials.act3, PLR3_SURREAPER))
-        strcat(who_output, "&n[&+LGr&+wi&+Wm Rea&+wp&+Ler&n]");
+          strcat(who_output, "&n[&+LGr&+wi&+Wm Rea&+wp&+Ler&n]");
         if(IS_SET((who_list[j])->specials.act3, PLR3_SURDECEPTICON))
-        strcat(who_output, "&n[&+LDe&+mCePTiC&+LoN&n]");
+          strcat(who_output, "&n[&+LDe&+mCePTiC&+LoN&n]");
         if(IS_SET((who_list[j])->specials.act3, PLR3_SURDEATHSDOOR))
-        strcat(who_output, "&n[&+MTo&+mug&+Mh G&+muy&n]");
+          strcat(who_output, "&n[&+MTo&+mug&+Mh G&+muy&n]");
 
-               /* if (IS_SET((who_list[j])->specials.act3, PLR3_FRAGLOW))
-		  strcat(who_output, " (&+yFrag &+YFood&n&N)"); */
+        /* No frag food title? :(
+        if( IS_SET((who_list[j])->specials.act3, PLR3_FRAGLOW) )
+          strcat(who_output, " (&+yFrag &+YFood&n&N)");
+        */
 
-		if( ( IS_TRUSTED(ch) || IS_NEWBIE_GUIDE(ch) ) && IS_NEWBIE(who_list[j]) ) {
-			strcat(who_output, " (&+GNewbie&N)");
-		}
+        if( ( IS_TRUSTED(ch) || IS_NEWBIE_GUIDE(ch) ) && IS_NEWBIE(who_list[j]) )
+        {
+          strcat(who_output, " (&+GNewbie&N)");
+        }
 
         strcat(who_output, "\n");
-        if (strlen(who_output) > (MAX_STRING_LENGTH - 175))
+        if( strlen(who_output) > (MAX_STRING_LENGTH - 175) )
         {
-          strcat(who_output, "List too long, use 'who <arg>'\n");
+          strcat(who_output, "-= List too long, use 'who <arg> =-'\n");
           break;
         }
       }
 
       sprintf(who_output + strlen(who_output),
-              "\nThere are %d &+gmortal(s)&n on.\n\n&+cTotal visible players: %d.&N\n&+cTotal connections: %d.&N\n\n&+rRecord number of connections this boot: %d.&n\n",
-              who_list_size, who_list_size + who_gods_size, used_descs,
-              max_descs);
+        "\nThere are %d &+gmortal(s)&n on.\n\n&+cTotal visible players: %d.&N\n"
+        "&+cTotal in-game connections: %d.&N\n\n&+rRecord number of connections this boot: %d.&n\n",
+        who_list_size, who_list_size + who_gods_size, total_ingame_connections, max_descs);
     }
     send_to_char(who_output, ch, LOG_NONE);
     strcpy(who_output, "");
   }
 
-  // this is brief info about a player available to gods only
-  if (IS_TRUSTED(ch) && (who_list_size + who_gods_size == 1))
+  // This is brief info about a player available to gods only
+  if( IS_TRUSTED(ch) && (who_list_size + who_gods_size == 1) )
   {
     tch = who_list_size ? who_list[0] : who_gods[0];
-    if (strcasecmp(tch->player.name, pattern))
+
+    if( strcasecmp(tch->player.name, pattern) )
       return;
-    if ((GET_LEVEL(ch) >= FORGER) && tch->desc && tch->desc->snoop.snoop_by_list
-        && GET_LEVEL(tch->desc->snoop.snoop_by_list->snoop_by) < FORGER)
-    {
-      snoop_by_ptr = tch->desc->snoop.snoop_by_list;
-      sprintf(who_output + strlen(who_output), " (Snooped By: %s",
-              GET_NAME(snoop_by_ptr->snoop_by));
 
-      snoop_by_ptr = snoop_by_ptr->next;
-      while (snoop_by_ptr)
+    if( (GET_LEVEL(ch) >= FORGER) && tch->desc && tch->desc->snoop.snoop_by_list )
+    {
+      bool seen = FALSE;
+
+      for( snoop_by_ptr = tch->desc->snoop.snoop_by_list; snoop_by_ptr; snoop_by_ptr = snoop_by_ptr->next )
       {
-        sprintf(who_output + strlen(who_output), ", %s",
-                GET_NAME(snoop_by_ptr->snoop_by));
-        snoop_by_ptr = snoop_by_ptr->next;
+        if( WIZ_INVIS( ch, snoop_by_ptr->snoop_by) )
+        {
+          continue;
+        }
+        if( !seen )
+        {
+          sprintf(who_output, " (Snooped By: %s", GET_NAME(snoop_by_ptr->snoop_by));
+          seen = TRUE;
+        }
+        else
+        {
+          sprintf(who_output + strlen(who_output), ", %s", GET_NAME(snoop_by_ptr->snoop_by));
+        }
       }
-      strcat(who_output, ")");
+      if( seen )
+      {
+        strcat(who_output, ")\n\r");
+      }
     }
 
-    strcat(who_output, "\n");
     timer = tch->desc->character->specials.timer;
-    sprintf(buf4, "%3d [%2ld] : ", tch->desc->descriptor, timer);
+    tchReal = (tch->desc->original != NULL) ? tch->desc->original : tch->desc->character;
+    sprinttype(tch->desc->connected, connected_types, buf5);
+
+    sprintf(buf4, "Desc: %3d, Idle: %3ld, Lvl:%3d, Switched: %c, Name: %s\n\r"
+      "Room: %6d, Vis level: %d, Connection: %-11s %15s\n\r\n\r",
+      tch->desc->descriptor, timer, GET_LEVEL( tchReal ), (tch->desc->original) ? 'Y' : 'N', GET_NAME(tchReal),
+      (tchReal->in_room > NOWHERE) ? world[tchReal->in_room].number : -1, tchReal->only.pc->wiz_invis, buf5,
+      (tch->desc->host) ? tch->desc->host : "UNKNOWN" );
+
     strcat(who_output, buf4);
-    sprintf(who_output + strlen(who_output), "[%2d]",
-            (tch->desc->original) ? GET_LEVEL(tch->desc->
-                                              original) : GET_LEVEL(tch->
-                                                                    desc->
-                                                                    character));
-    if (tch->desc->original)
-      strcat(who_output, " S ");
-    else
-      strcat(who_output, "   ");
-    sprintf(who_output + strlen(who_output), "%-12s",
-            (tch->desc->original) ? (tch->desc->original->player.name) :
-            (tch->desc->character->player.name));
-    if (tch->in_room > NOWHERE)
-      sprintf(who_output + strlen(who_output), "%6d ",
-              world[tch->in_room].number);
-    else
-      strcat(who_output, "   ??? ");
-    if (GET_LEVEL(ch) >= 62)
-    {
-      if (tch->desc->original &&
-          (tch->desc->original->only.pc->wiz_invis != 0))
-        sprintf(who_output + strlen(who_output), "%2d ",
-                tch->desc->original->only.pc->wiz_invis);
-      else if (tch->only.pc->wiz_invis != 0)
-        sprintf(who_output + strlen(who_output), "%2d ",
-                tch->only.pc->wiz_invis);
-      else
-        strcat(who_output, "   ");
-    }
-    else
-      strcat(who_output, "   ");
-    if (tch->desc)
-    {
-      if (tch->desc->host)
-      {
-        sprinttype(tch->desc->connected, connected_types, buf5);
-        sprintf(who_output + strlen(who_output), "%-11s", buf5);
-        sprintf(who_output + strlen(who_output), " %15s", tch->desc->host);
-      }
-      else
-      {
-        sprinttype(tch->desc->connected, connected_types, buf5);
-        sprintf(who_output + strlen(who_output), "%-11s", buf5);
-        strcat(who_output, " UNKNOWN        ");
-      }
-    }
-    else
-      strcat(who_output, "LINK DEAD");
     send_to_char(who_output, ch);
-    send_to_char("\n\n", ch);
-    *buf = '\0';
-    if (GET_CLASS(tch, CLASS_PSIONICIST) || GET_CLASS(ch, CLASS_MINDFLAYER))
+
+    if( USES_MANA(tch) )
     {
-      sprintf(buf3,
-            "      Hit Points = %d(%d),  Mana = %d(%d),  Movement Points = %d(%d)\n",
-              GET_HIT(tch), GET_MAX_HIT(tch),
-              GET_MANA(tch), GET_MAX_MANA(tch),
-              GET_VITALITY(tch), GET_MAX_VITALITY(tch));
+      sprintf(buf, "      Hit Points = %d(%d),  Mana = %d(%d),  Movement Points = %d(%d)\n",
+        GET_HIT(tch), GET_MAX_HIT(tch), GET_MANA(tch), GET_MAX_MANA(tch), GET_VITALITY(tch), GET_MAX_VITALITY(tch));
     }
     else
     {
-      sprintf(buf3,
-            "      Hit Points = %d(%d), Movement Points = %d(%d), Alignment = %d\n",
-              GET_HIT(tch), GET_MAX_HIT(tch),
-              GET_VITALITY(tch), GET_MAX_VITALITY(tch), GET_ALIGNMENT(tch));
+      sprintf(buf, "      Hit Points = %d(%d), Movement Points = %d(%d), Alignment = %d\n",
+        GET_HIT(tch), GET_MAX_HIT(tch), GET_VITALITY(tch), GET_MAX_VITALITY(tch), GET_ALIGNMENT(tch));
     }
-    strcat(buf, buf3);
-    sprintf(buf3, 
-            "      Experience to next level = %d.\n",
+
+    sprintf(buf3, "      Experience to next level = %d.\n",
             (new_exp_table[GET_LEVEL(tch) + 1] - GET_EXP(tch)));
     strcat(buf, buf3);
 
@@ -6560,33 +6546,18 @@ void do_who(P_char ch, char *argument, int cmd)
       tch->only.pc->epics, pafepics ? pafepics->modifier : 0 );
     strcat(buf, buf3);
 
-    sprintf(buf3,
-            "      Stats: STR = %d, DEX = %d, AGI = %d, CON = %d, LUCK = %d\n"
-            "             POW = %d, INT = %d, WIS = %d, CHA = %d\n",
-            GET_C_STR(tch), GET_C_DEX(tch), GET_C_AGI(tch), GET_C_CON(tch),
-            GET_C_LUK(tch), GET_C_POW(tch), GET_C_INT(tch), GET_C_WIS(tch),
-            GET_C_CHA(tch));
-    strcat(buf, buf3);
-    playing_time =
-      real_time_passed((long)
-                       ((time(0) - tch->player.time.logon) +
-                        tch->player.time.played), 0);
-    sprintf(buf3,
-            "      Playing time = %d days and %d hours, Age = %d years\n",
-            playing_time.day, playing_time.hour, GET_AGE(tch));
+    sprintf(buf3, "      Stats: STR = %d, DEX = %d, AGI = %d, CON = %d, LUCK = %d\n"
+      "             POW = %d, INT = %d, WIS = %d, CHA = %d\n",
+      GET_C_STR(tch), GET_C_DEX(tch), GET_C_AGI(tch), GET_C_CON(tch), GET_C_LUK(tch),
+      GET_C_POW(tch), GET_C_INT(tch), GET_C_WIS(tch), GET_C_CHA(tch));
     strcat(buf, buf3);
 
-    if (tch && strlen(tch->desc->client_str) > 2)
-    {
-      sprintf(buf3, 
-            "      Client:%s&n\n", tch->desc->client_str);
-    }
-    else
-    {
-      sprintf(buf3, 
-            "      Client: Unknown\n");
-    }
+    playing_time = real_time_passed((long)((time(0) - tch->player.time.logon) + tch->player.time.played), 0);
+    sprintf(buf3, "      Playing time = %d days and %d hours, Age = %d years\n",
+      playing_time.day, playing_time.hour, GET_AGE(tch));
+    strcat(buf, buf3);
 
+    sprintf(buf3, "      Client: %s&n\n", (strlen(tch->desc->client_str) > 2) ? tch->desc->client_str : "Unknown" );
     strcat(buf, buf3);
 
     send_to_char(buf, ch);
