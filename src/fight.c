@@ -685,7 +685,7 @@ void appear(P_char ch, bool removeHide )
   }
 
   affect_from_char(ch, SPELL_INVISIBLE);
-  affect_from_char(ch, SKILL_PERMINVIS);
+  affect_from_char(ch, TAG_PERMINVIS);
   affect_from_char(ch, SPELL_INVIS_MAJOR);
   affect_from_char(ch, SPELL_ECTOPLASMIC_FORM);
 

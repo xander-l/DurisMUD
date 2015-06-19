@@ -1067,9 +1067,6 @@
 #define POISON_HEART_TOXIN           (FIRST_POISON+3)
 #define LAST_POISON                  (POISON_HEART_TOXIN)
 
-#define SKILL_CAMP                   (LAST_POISON+1)
-#define SKILL_PERMINVIS              (LAST_POISON+2)
-
 /* everything below does not make part of players skill data */
 #define FIRST_TAG                    2001
 #define TAG_OBJ_DECAY                2001
@@ -1186,10 +1183,12 @@
 #define TAG_DEATHSDOOR               2112
 #define TAG_FOLLOWING                2113
 #define TAG_BARDSONG_FAILURE         2114
+#define TAG_CAMP                     2115
+#define TAG_PERMINVIS                2116
 
 #define SAVING_PARA   0
 #define SAVING_ROD    1
-#define SAVING_FEAR  2
+#define SAVING_FEAR   2
 #define SAVING_BREATH 3
 #define SAVING_SPELL  4
 

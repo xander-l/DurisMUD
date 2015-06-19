@@ -3008,8 +3008,9 @@ void do_stat(P_char ch, char *argument, int cmd)
       {
         if(aff->type == TAG_MEMORIZE)
         {
-          sprintf(buf, "    MEMORIZED &+Yspell&n %s%s&n\n",
-                  (aff->flags & AFFTYPE_CUSTOM1) ? "&+W" : "&+L",
+          sprintf(buf, "  %sMEMORIZED &+Yspell&n %s%s&n\n",
+                  (aff->flags & AFFTYPE_CUSTOM1) ? "  "  : "UN",
+                  (aff->flags & AFFTYPE_CUSTOM1) ? "&+W" : "&+w",
                   skills[aff->modifier].name);
           strcat(o_buf, buf);
           continue;
@@ -3020,8 +3021,7 @@ void do_stat(P_char ch, char *argument, int cmd)
                 apply_types[(int) aff->location],
                 aff->modifier,
                 aff->duration,
-                (skills[aff->type].name) ? skills[aff->type].name :
-                (aff->type == SKILL_PERMINVIS ? "Obj Invis" : ""));
+                (skills[aff->type].name) ? skills[aff->type].name : "Nameless Type" );
         *buf2 = '\0';
 
         if(aff->bitvector)
@@ -3074,8 +3074,13 @@ void do_stat(P_char ch, char *argument, int cmd)
       LOOP_EVENTS_CH( ne, k->nevents )
       {
         sprintf(o_buf + strlen(o_buf),
-                "%6d&+Y seconds,&n %s&+Y.\n",
+                "%6d&+Y seconds,&n %s",
                 ne_event_time(ne)/WAIT_SEC, get_function_name((void*)ne->func));
+        if( ne->func == event_short_affect )
+          sprintf(o_buf + strlen(o_buf), " - %s&+Y.\n", (ne->data == NULL || ((event_short_affect_data *)ne->data)->af == NULL)
+            ? "No affect" : skills[((event_short_affect_data *)ne->data)->af->type].name );
+        else
+          sprintf(o_buf + strlen(o_buf), "&+Y.\n" );
       }
       strcat(o_buf, "\n");
     }
@@ -7437,6 +7442,8 @@ void GetMIA2(char *playerName, char *returned)
   {
     sprintf(returned + strlen(returned), "%d second%s", seconds, (seconds > 1) ? "s" : "");
   }
+  sprintf(returned + strlen(returned), " - %ld mud hour%s.", timegone / SECS_PER_MUD_HOUR,
+    (timegone / SECS_PER_MUD_HOUR) > 1 ? "s" : "");
 }
 
 void do_finger(P_char ch, char *arg, int cmd)

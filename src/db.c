@@ -2998,6 +2998,8 @@ P_obj read_object(int nr, int type)
     }
   }
 
+  obj->nevents = NULL;
+
   if (obj_index[nr].func.obj)
   {
     if( (*obj_index[nr].func.obj) (obj, 0, CMD_SET_PERIODIC, 0) )

@@ -290,6 +290,7 @@ void do_awareness(P_char ch, char *argument, int cmd)
   af.duration = duration;
   af.modifier = lev_aware;
   af.bitvector = AFF_SKILL_AWARE;
+  af.flags = AFFTYPE_NODISPEL;
 
   if (IS_AFFECTED(ch, AFF_SKILL_AWARE))
   {

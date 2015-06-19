@@ -127,7 +127,6 @@ extern int map_ultra_modifier;
 extern int map_dayblind_modifier;
 
 void display_map(P_char ch, int n, int show_map_regardless);
-extern void event_short_affect(P_char, P_char , P_obj , void *);
 
 extern HelpFilesCPPClass help_index;
 
@@ -4489,7 +4488,7 @@ void do_score(P_char ch, char *argument, int cmd)
   struct follow_type *fol;
   struct affected_type *aff;
   bool     found = FALSE;
-  int      i, last = 0, percent, secs;
+  int      i, last, percent, secs;
   float    frags;
   char     buffer[1024];
   float    fragnum, hardcorepts = 0;
@@ -5550,11 +5549,13 @@ void do_score(P_char ch, char *argument, int cmd)
    */
   if( ch->affected )
   {
-    last = SKILL_CAMP;          /* gotta initalize it, to something not used */
+    // Initialize last to a nonsense value since we don't have a 'last aff type' before we start.
+    //   TYPE_UNDEFINED == skill number -1 as of 6/17/2015.
+    last = TYPE_UNDEFINED;
 
-    for (aff = ch->affected; aff; aff = aff->next)
+    for( aff = ch->affected; aff; aff = aff->next )
     {
-      if( aff->type && skills[aff->type].name
+      if( (aff->type > 0) && skills[aff->type].name
         && (aff->type <= LAST_SKILL || aff->type == TAG_CTF || aff->type == TAG_RESTED || aff->type == TAG_WELLRESTED) )
       {
         switch (aff->type)
@@ -5566,7 +5567,6 @@ void do_score(P_char ch, char *argument, int cmd)
           case SKILL_THROAT_CRUSHER:
           case SKILL_SNEAK:
           case SPELL_RECHARGER:
-          case SKILL_CAMP:
           case SPELL_SUMMON:
           case SKILL_SCRIBE:
           case SKILL_TACKLE:
@@ -5603,7 +5603,7 @@ void do_score(P_char ch, char *argument, int cmd)
             break;
         }
 
-        if( aff->flags & AFFTYPE_NOSHOW )
+        if( IS_SET(aff->flags, AFFTYPE_NOSHOW) )
         {
           continue;
         }

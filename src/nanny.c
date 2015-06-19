@@ -54,6 +54,7 @@ extern const char *command[];
 extern const char *fill_words[];
 extern const char *rude_ass[];
 extern const char *town_name_list[];
+extern Skill skills[];
 extern const struct race_names race_names_table[];
 extern const struct bonus_stat bonus_stats[];
 extern const struct con_app_type con_app[];
@@ -85,6 +86,9 @@ extern void assign_racial_skills(P_char ch);
 extern void reset_racial_skills(P_char ch);
 extern void GetMIA(char *playerName, char *returned);
 extern void GetMIA2(char *playerName, char *returned);
+extern int pulse;
+extern P_nevent ne_schedule[PULSES_IN_TICK];
+extern P_nevent ne_schedule_tail[PULSES_IN_TICK];
 
 #define TOGGLE_BIT(var, bit) ((var) = (var) ^ (bit))
 #define PLR_FLAGS(ch)          ((ch)->specials.act)
@@ -3022,14 +3026,10 @@ void schedule_pc_events(P_char ch)
   }
 
   add_event(event_autosave, 1200, ch, 0, 0, 0, 0, 0);
-  if (has_innate(ch, INNATE_HATRED))
-    add_event(event_hatred_check,
-        get_property("innate.timer.hatred", WAIT_SEC),
-        ch, 0, 0, 0, 0, 0);
+  if( has_innate(ch, INNATE_HATRED) )
+    add_event(event_hatred_check, get_property("innate.timer.hatred", WAIT_SEC), ch, 0, 0, 0, 0, 0);
   if (GET_CHAR_SKILL(ch, SKILL_SMITE_EVIL))
-    add_event(event_smite_evil,
-        get_property("skill.timer.secs.smiteEvil", 5) * WAIT_SEC,
-        ch, 0, 0, 0, 0, 0);
+    add_event(event_smite_evil, get_property("skill.timer.secs.smiteEvil", 5) * WAIT_SEC, ch, 0, 0, 0, 0, 0);
   if (GET_RACE(ch) == RACE_HALFLING)
     add_event(event_halfling_check, 1, ch, 0, 0, 0, 0, 0);
 
@@ -3045,7 +3045,7 @@ void schedule_pc_events(P_char ch)
 void enter_game(P_desc d)
 {
   struct  zone_data *zone;
-  struct affected_type af1, *afp1;
+  struct affected_type af1, *afp1, *afp2;
   crm_rec *crec = NULL;
   int      cost;
   int r_room = NOWHERE;
@@ -3055,155 +3055,12 @@ void enter_game(P_desc d)
   bool     nobonus = FALSE;
   P_char   ch = d->character;
   P_desc   i;
+  P_nevent evp;
 
-  if (GET_LEVEL(ch))
-  {
-    ch->desc = d;
+  // Bring them to life!
+  SET_POS(ch, POS_STANDING + STAT_NORMAL);
 
-    reset_char(ch);
-
-    cost = 0;
-    if ((d->rtype == RENT_CRASH) || (d->rtype == RENT_CRASH2))
-    {
-      send_to_char("\r\nRestoring items and pets from crash save info...\r\n",
-                   ch);
-      cost = restoreItemsOnly(ch, 100);
-    }
-    else if (d->rtype == RENT_CAMPED)
-    {
-      send_to_char("\r\nYou break camp and get ready to move on...\r\n", ch);
-      cost = restoreItemsOnly(ch, 0);
-    }
-    else if (d->rtype == RENT_INN)
-    {
-      send_to_char("\r\nRetrieving rented items from storage...\r\n", ch);
-      cost = restoreItemsOnly(ch, 100);
-    }
-    else if (d->rtype == RENT_LINKDEAD)
-    {
-      send_to_char("\r\nRetrieving items from linkdead storage...\r\n", ch);
-      cost = restoreItemsOnly(ch, 200);
-    }
-    else if(d->rtype == RENT_POOFARTI)
-    {
-      send_to_char("\r\nThe gods have taken your artifact...\r\n", ch);
-      cost = restoreItemsOnly(ch, 100);
-    }
-    else if(d->rtype == RENT_FIGHTARTI)
-    {
-      nobonus = TRUE;
-      send_to_char("\r\nYour artifacts argued all night...\r\n", ch);
-      cost = restoreItemsOnly(ch, 100);
-    }
-    else if(d->rtype == RENT_SWAPARTI)
-    {
-      send_to_char("\r\nThe gods have taken your artifact... and replaced it with another!\r\n", ch);
-      cost = restoreItemsOnly(ch, 100);
-    }
-    else if (d->rtype == RENT_DEATH)
-    {
-      if (ch->only.pc->pc_timer[PC_TIMER_HEAVEN] > time(NULL))
-        send_to_char("\r\nYour soul finds its way to the afterlife...\r\n", ch);
-      else
-        send_to_char("\r\nYou rejoin the land of the living...\r\n", ch);
-      restoreItemsOnly(ch, 0);
-    }
-    else
-    {
-      send_to_char("\r\nCouldn't find any items in storage for you...\r\n", ch);
-    }
-
-  if (cost == -2)
-    {
-      send_to_char
-        ("\r\nSomething is wrong with your saved items information - "
-         "please talk to an Implementor.\r\n", ch);
-    }
-    /* to avoid problems if game is shutdown/crashed while they are in 'camp'
-       mode, kill the affect if it's active here. */
-
-    if (IS_AFFECTED(ch, AFF_CAMPING))
-      affect_from_char(ch, SKILL_CAMP);
-
-    ch->specials.affected_by = 0;
-    ch->specials.affected_by2 = 0;
-    ch->specials.affected_by3 = 0;
-    ch->specials.affected_by4 = 0;
-    ch->specials.affected_by5 = 0;
-
-    if(affected_by_spell(ch, AIP_YOUSTRAHDME))
-      affect_from_char(ch, AIP_YOUSTRAHDME);
-
-    if(affected_by_spell(ch, AIP_YOUSTRAHDME2))
-      affect_from_char(ch, AIP_YOUSTRAHDME2);
-
-    ch->specials.z_cord = 0;    /* prevent swim crash bug */
-
-    /* remove any morph flag that might be leftover */
-    REMOVE_BIT(ch->specials.act, PLR_MORPH | PLR_WRITE | PLR_MAIL);
-
-    /* remove any sacking events */
-    // old guildhalls (deprecated)
-    //    clear_sacks(ch);
-
-    /* this may fix the disguise not showing on who bug */
-    if( PLR_FLAGGED(ch, PLR_NOWHO) )
-      PLR_TOG_CHK(ch, PLR_NOWHO);
-
-    /* check mail
-       if (mail_ok && has_mail(GET_NAME(ch)))
-       send_to_char("&=LWMail awaits you at your local postoffice.&n\r\n", ch);
-     */
-
-    /* time_gone is how many ticks (currently real minutes) they have been out
-       of the game. */
-    time_gone = (time(0) - ch->player.time.saved) / SECS_PER_MUD_HOUR;
-    rest = time(0) - ch->player.time.saved;
-
-    ch->player.time.birth -= time_gone;
-
-    SET_POS(ch, POS_STANDING + STAT_NORMAL);
-    heal_time = MAX(0, (time_gone - 120));
-
-    if (d->rtype != RENT_DEATH)
-    {
-      hit_g = BOUNDED(0, hit_regen(ch) * heal_time, 3000);
-      mana_g = BOUNDED(0, mana_regen(ch) * heal_time, 3000);
-      move_g = BOUNDED(0, move_regen(ch) * heal_time, 3000);
-    }
-    else
-    {
-      hit_g = mana_g = move_g = 0;
-    }
-
-    GET_HIT(ch)      = BOUNDED(1, GET_HIT(ch) + hit_g, GET_MAX_HIT(ch));
-    GET_MANA(ch)     = BOUNDED(1, GET_MANA(ch) + mana_g, GET_MAX_MANA(ch));
-    GET_VITALITY(ch) = BOUNDED(1, GET_VITALITY(ch) + move_g, GET_MAX_VITALITY(ch));
-
-    if (GET_HIT(ch) != GET_MAX_HIT(ch))
-      StartRegen(ch, EVENT_HIT_REGEN);
-    if (GET_MANA(ch) != GET_MAX_MANA(ch))
-      StartRegen(ch, EVENT_MANA_REGEN);
-    if (GET_VITALITY(ch) != GET_MAX_VITALITY(ch))
-      StartRegen(ch, EVENT_MOVE_REGEN);
-
-    set_char_size(ch);
-
-    update_skills(ch);
-// Once racial skills are removed, this will be unnecessary.
-//  Furthermore, it will wipe any formerly-racial now-epic skills learned. - Lohrr
-//    reset_racial_skills( ch );
-
-    set_surname(ch, 0);
-  }
-  /* don't do any of above for new chars */
-
-  send_to_char(WELC_MESSG, ch);
-  ch->desc = d;
-  ch->next = character_list;
-  character_list = ch;
-  affect_total(ch, FALSE);
-
+  // Then put them in a room.
   if ((d->rtype == RENT_QUIT && GET_LEVEL(ch) < 2) || d->rtype == RENT_DEATH)
   {
     /* defaults to birthplace on quit/death */
@@ -3268,17 +3125,311 @@ void enter_game(P_desc d)
     r_room = real_room(GET_BIRTHPLACE(ch));
   }
 
-  if (r_room > top_of_world)
+  // Stick them in the cage of smoke!
+  if( r_room > top_of_world )
     r_room = real_room(11);
+  // Stick them in An Empty Dimension
+  if( r_room < 0 )
+    r_room = real_room(1197);
 
   // check home/birthplace/spawn room to see if it's in a GH and if ch is allowed
   r_room = check_gh_home(ch, r_room);
-  
+
   ch->in_room = NOWHERE;
-  char_to_room(ch, r_room, -1);
+  char_to_room(ch, r_room, -2);
+
   ch->specials.x_cord = 0;
   ch->specials.y_cord = 0;
   ch->specials.z_cord = 0;
+
+  if( GET_LEVEL(ch) )
+  {
+    ch->desc = d;
+
+    reset_char(ch);
+
+    cost = 0;
+
+    if ((d->rtype == RENT_CRASH) || (d->rtype == RENT_CRASH2))
+    {
+      send_to_char("\r\nRestoring items and pets from crash save info...\r\n",
+                   ch);
+      cost = restoreItemsOnly(ch, 100);
+    }
+    else if (d->rtype == RENT_CAMPED)
+    {
+      send_to_char("\r\nYou break camp and get ready to move on...\r\n", ch);
+      cost = restoreItemsOnly(ch, 0);
+    }
+    else if (d->rtype == RENT_INN)
+    {
+      send_to_char("\r\nRetrieving rented items from storage...\r\n", ch);
+      cost = restoreItemsOnly(ch, 100);
+    }
+    else if (d->rtype == RENT_LINKDEAD)
+    {
+      send_to_char("\r\nRetrieving items from linkdead storage...\r\n", ch);
+      cost = restoreItemsOnly(ch, 200);
+    }
+    else if(d->rtype == RENT_POOFARTI)
+    {
+      send_to_char("\r\nThe gods have taken your artifact...\r\n", ch);
+      cost = restoreItemsOnly(ch, 100);
+    }
+    else if(d->rtype == RENT_FIGHTARTI)
+    {
+      nobonus = TRUE;
+      send_to_char("\r\nYour artifacts argued all night...\r\n", ch);
+      cost = restoreItemsOnly(ch, 100);
+    }
+    else if(d->rtype == RENT_SWAPARTI)
+    {
+      send_to_char("\r\nThe gods have taken your artifact... and replaced it with another!\r\n", ch);
+      cost = restoreItemsOnly(ch, 100);
+    }
+    else if (d->rtype == RENT_DEATH)
+    {
+      if (ch->only.pc->pc_timer[PC_TIMER_HEAVEN] > time(NULL))
+        send_to_char("\r\nYour soul finds its way to the afterlife...\r\n", ch);
+      else
+        send_to_char("\r\nYou rejoin the land of the living...\r\n", ch);
+      restoreItemsOnly(ch, 0);
+    }
+    else
+    {
+      send_to_char("\r\nCouldn't find any items in storage for you...\r\n", ch);
+    }
+
+  if (cost == -2)
+    {
+      send_to_char
+        ("\r\nSomething is wrong with your saved items information - "
+         "please talk to an Implementor.\r\n", ch);
+    }
+    /* to avoid problems if game is shutdown/crashed while they are in 'camp'
+       mode, kill the affect if it's active here. */
+
+    if (IS_AFFECTED(ch, AFF_CAMPING))
+      affect_from_char(ch, TAG_CAMP);
+
+    ch->specials.affected_by = 0;
+    ch->specials.affected_by2 = 0;
+    ch->specials.affected_by3 = 0;
+    ch->specials.affected_by4 = 0;
+    ch->specials.affected_by5 = 0;
+
+    if(affected_by_spell(ch, AIP_YOUSTRAHDME))
+      affect_from_char(ch, AIP_YOUSTRAHDME);
+
+    if(affected_by_spell(ch, AIP_YOUSTRAHDME2))
+      affect_from_char(ch, AIP_YOUSTRAHDME2);
+
+    ch->specials.z_cord = 0;    /* prevent swim crash bug */
+
+    /* remove any morph flag that might be leftover */
+    REMOVE_BIT(ch->specials.act, PLR_MORPH | PLR_WRITE | PLR_MAIL);
+
+    /* remove any sacking events */
+    // old guildhalls (deprecated)
+    //    clear_sacks(ch);
+
+    /* this may fix the disguise not showing on who bug */
+    if( PLR_FLAGGED(ch, PLR_NOWHO) )
+      PLR_TOG_CHK(ch, PLR_NOWHO);
+
+    /* check mail
+       if (mail_ok && has_mail(GET_NAME(ch)))
+       send_to_char("&=LWMail awaits you at your local postoffice.&n\r\n", ch);
+     */
+
+    // time_gone is how many ticks (currently real minutes) they have been out of the game.
+    time_gone = (time(0) - ch->player.time.saved) / SECS_PER_MUD_HOUR;
+    // rest is how many seconds they have been out of the game.
+    rest = time(0) - ch->player.time.saved;
+
+    ch->player.time.birth -= time_gone;
+
+    SET_POS(ch, POS_STANDING + STAT_NORMAL);
+    heal_time = MAX(0, (time_gone - 120));
+
+    if (d->rtype != RENT_DEATH)
+    {
+      hit_g = BOUNDED(0, hit_regen(ch) * heal_time, 3000);
+      mana_g = BOUNDED(0, mana_regen(ch) * heal_time, 3000);
+      move_g = BOUNDED(0, move_regen(ch) * heal_time, 3000);
+    }
+    else
+    {
+      hit_g = mana_g = move_g = 0;
+    }
+
+    GET_HIT(ch)      = BOUNDED(1, GET_HIT(ch) + hit_g, GET_MAX_HIT(ch));
+    GET_MANA(ch)     = BOUNDED(1, GET_MANA(ch) + mana_g, GET_MAX_MANA(ch));
+    GET_VITALITY(ch) = BOUNDED(1, GET_VITALITY(ch) + move_g, GET_MAX_VITALITY(ch));
+
+    if (GET_HIT(ch) != GET_MAX_HIT(ch))
+      StartRegen(ch, EVENT_HIT_REGEN);
+    if (GET_MANA(ch) != GET_MAX_MANA(ch))
+      StartRegen(ch, EVENT_MANA_REGEN);
+    if (GET_VITALITY(ch) != GET_MAX_VITALITY(ch))
+      StartRegen(ch, EVENT_MOVE_REGEN);
+
+    set_char_size(ch);
+
+    update_skills(ch);
+// Once racial skills are removed, this will be unnecessary.
+//  Furthermore, it will wipe any formerly-racial now-epic skills learned. - Lohrr
+//    reset_racial_skills( ch );
+
+    set_surname(ch, 0);
+  }
+  /* don't do any of above for new chars */
+
+  send_to_char(WELC_MESSG, ch);
+  ch->desc = d;
+  ch->next = character_list;
+  character_list = ch;
+
+  // Need to walk through ch->affects, and drop AFFTYPE_OFFLINE timers.
+  for( afp1 = ch->affected; afp1; afp1 = afp2 )
+  {
+    afp2 = afp1->next;
+
+    if( IS_SET(afp1->flags, AFFTYPE_OFFLINE) )
+    {
+      /* Debugging:
+      sprintf( Gbuf1, "enter_game: afp '%s' has AFFTYPE_OFFLINE\n\r", skills[afp1->type].name );
+      SEND_TO_Q( Gbuf1, d);
+       */
+      if( IS_SET(afp1->flags, AFFTYPE_SHORT) )
+      {
+        LOOP_EVENTS_CH( evp, ch->nevents )
+        {
+          if( evp->func == event_short_affect && evp->data != NULL
+            && ((struct event_short_affect_data*)(evp->data))->af == afp1 )
+          {
+            /* The following is my thinking through how this works (You can ignore this if you already know):
+             * So, the math goes: multiply event->timer * PULSES_IN_TICK so we have the number of 'rounds'
+             *   we make through the ne_schedule[] array until the event actually fires.  I had to modify this
+             *   calculation to take into account whether the current pulse has passed the current event or not.
+             * Then, we have to add event->element - pulse.  This correlates to which row of ne_schedule[]
+             *   we're currently executing (global variable pulse) vs which row the event is in.
+             * Once we do this math, we have a positive value of pulses that corresponds to how long it will be
+             *   before the event fires (in it's old position).
+             * Now we need to subtract the number of seconds of offline time * the number of pulses in a second.
+             *   This is the local variable rest (number of secs) * WAIT_SEC (pulses in a sec = 4 on 6/16/2015).
+             * Now, if our new number of pulses left before the event expires is negative or 0, it's time to
+             *   poof *afp1.  We do this via wear_off_messages (so they know it poofed), and affect_remove.
+             * If our new number of pulses left is positive, we need to move the event from it's old row to a new
+             *   one. So, we pull the event from it's row in ne_schedule[], updating the head/tail if necessary.
+             *   Then we update evp->timer (pulses left / number of rows + 1).  The + 1 to make it range from 1..
+             *   instead of 0.., which is important because the first thing ne_events() does is decrement evp->timer.
+             *   Now we update evp->element ((pulses left + pulse) % number of rows).  The + pulse is because that's
+             *   where the mud is currently executing.
+             *   Finally, we add evp to the tail of ne_schedule[evp->element] (since that's easy) and handles properly
+             *   for when evp->element == pulse.
+             * I probably should've just written pull_event_from_schedule, and add_event_to_schedule functions, but
+             *   hey, this is where I wrote it and I'm lazy. (You can break the code into functions if you want).  Perhaps
+             *   an event_warp_time_left( P_nevent event, int pulses_lost ) or such would work. *shrug*
+             */
+            long total_pulses = (evp->timer - ((evp->element < pulse) ? 0 : 1)) * PULSES_IN_TICK + evp->element - pulse;
+            /* Debugging:
+            sprintf( Gbuf1, "enter_game: short afp '%s': timer: %d, element: %d, pulse: %d, rest(pulses): &+Y%ld&n.\n\r"
+              "enter_game: timer(pulses): %d, element - pulse: %d, total pulses: &+Y%ld&n, total pulses - rest: &+Y%ld&n\n\r"
+              "enter_game: old time left on event(pulses/sec): %d/%d, old timer: &+B%d&n, old element: &+B%d&n.\n\r",
+              skills[afp1->type].name, evp->timer, evp->element, pulse, rest * WAIT_SEC,
+              (evp->timer - ((evp->element < pulse) ? 0 : 1)) * PULSES_IN_TICK, evp->element - pulse, total_pulses,
+              total_pulses - rest * WAIT_SEC,
+              ne_event_time(evp), ne_event_time(evp) / WAIT_SEC, evp->timer, evp->element );
+            SEND_TO_Q( Gbuf1, d);
+            */
+            // Calculate the new number of pulses we want the event to last.
+            if( (total_pulses = total_pulses - rest * WAIT_SEC) < 1 )
+            {
+              // If the event would've fired while they were logged off, fire it now.
+              wear_off_message( ch, afp1 );
+              affect_remove( ch, afp1 );
+              break;
+            }
+
+            // Pull evp from ne_schedule[] list.
+            // If we're not at the end.
+            if( evp->next_sched )
+            {
+              evp->next_sched->prev_sched = evp->prev_sched;
+            }
+            else if( evp == ne_schedule_tail[evp->element] )
+            {
+              ne_schedule_tail[evp->element] = evp->prev_sched;
+            }
+            else
+            {
+              raise(SIGSEGV);
+            }
+
+            // If we're not at the beginning.
+            if( evp->prev_sched )
+            {
+              evp->prev_sched->next_sched = evp->next_sched;
+            }
+            else if( evp == ne_schedule[evp->element] )
+            {
+              ne_schedule[evp->element] = evp->next_sched;
+            }
+            else
+            {
+              raise(SIGSEGV);
+            }
+
+            // Update the timer.  The +1 is because we want the range from 1..MAX not 0..MAX,
+            //   since the first thing ne_events() does is decrement the timer.
+            evp->timer = (total_pulses) / PULSES_IN_TICK + 1;
+
+            // total_pulses + pulse because our starting point is ne_schedule[pulse].
+            evp->element = (total_pulses + pulse) % PULSES_IN_TICK;
+
+            // Add evp to the end of the new row.
+            evp->next_sched = NULL;
+            evp->prev_sched = ne_schedule_tail[evp->element];
+            // If there was a previous element.
+            if( evp->prev_sched != NULL )
+            {
+              evp->prev_sched->next_sched = evp;
+            }
+            // Otherwise, this is the only element in the list, so add it to the head.
+            else
+            {
+              ne_schedule[evp->element] = evp;
+            }
+            ne_schedule_tail[evp->element] = evp;
+            /* Debugging:
+            sprintf( Gbuf1, "enter_game: new time left on event(pulses/sec): %d/%d, new timer: &+B%d&n, new element: &+B%d&n.\n\r",
+              ne_event_time(evp), ne_event_time(evp) / WAIT_SEC, evp->timer, evp->element );
+            SEND_TO_Q( Gbuf1, d);
+            */
+            break;
+          }
+        }
+      }
+      else if( time_gone > 0 )
+      {
+        /* Debugging:
+        sprintf( Gbuf1, "enter_game: not-short afp '%s' old duration: %d, new duration: %ld.\n\r",
+          skills[afp1->type].name, afp1->duration, afp1->duration - time_gone );
+        GetMIA2(ch->player.name, Gbuf1 + strlen(Gbuf1) );
+        strcat( Gbuf1, "\n\r" );
+        SEND_TO_Q( Gbuf1, d);
+        */
+        afp1->duration -= time_gone;
+        if( afp1->duration < 0 )
+        {
+          affect_remove( ch, afp1 );
+        }
+      }
+    }
+  }
+
+  affect_total(ch, FALSE);
 
   update_member(ch, 1);
 
@@ -3389,7 +3540,7 @@ void enter_game(P_desc d)
     af1.modifier = 0;
     af1.duration = 120;
     af1.location = 0;
-    af1.flags = AFFTYPE_PERM | AFFTYPE_NODISPEL;
+    af1.flags = AFFTYPE_PERM | AFFTYPE_NODISPEL | AFFTYPE_OFFLINE;
     affect_to_char(ch, &af1);
 
     debug( "'%s' getting well-rested bonus!", J_NAME(ch) );
@@ -3405,7 +3556,7 @@ void enter_game(P_desc d)
     af1.modifier = 0;
     af1.duration = 120;
     af1.location = 0;
-    af1.flags = AFFTYPE_PERM | AFFTYPE_NODISPEL;
+    af1.flags = AFFTYPE_PERM | AFFTYPE_NODISPEL | AFFTYPE_OFFLINE;
     affect_to_char(ch, &af1);
 
     debug( "'%s' getting rested bonus!", J_NAME(ch) );
@@ -3505,9 +3656,9 @@ void enter_game(P_desc d)
 
   /* initialize infobar */
   // Disabling
-  
+
   if(IS_SET(ch->specials.act, PLR_SMARTPROMPT))
-     REMOVE_BIT(ch->specials.act, PLR_SMARTPROMPT);     
+     REMOVE_BIT(ch->specials.act, PLR_SMARTPROMPT);
   //if (IS_SET(ch->specials.act, PLR_SMARTPROMPT) && IS_ANSI_TERM(d))
   //  InitScreen(ch);
 
@@ -3528,17 +3679,19 @@ void enter_game(P_desc d)
     affect_remove(ch, af);
   }
 
-  if(IS_AFFECTED5(ch, AFF5_HOLY_DHARMA)) 
+  if(IS_AFFECTED5(ch, AFF5_HOLY_DHARMA))
   {
     affect_from_char(ch, SPELL_HOLY_DHARMA);
     send_to_char("&+cThe &+Cdivine &+cinspiration withdraws from your soul.&n\r\n", ch);
   }
-  
+
   if(IS_SET(ch->specials.act, PLR_ANONYMOUS))
   {
     REMOVE_BIT(ch->specials.act, PLR_ANONYMOUS);
   }
-  
+
+  affect_from_char( ch, TAG_SKILL_TIMER );
+
   memset(&af1, 0, sizeof(af1));
   af1.type = TAG_SKILL_TIMER;
   af1.flags = AFFTYPE_STORE | AFFTYPE_SHORT;
@@ -3549,7 +3702,7 @@ void enter_game(P_desc d)
 
   af1.modifier = TAG_PHYS_SKILL_NOTCH;
   affect_to_char(ch, &af1);
-  
+
   initialize_logs(ch, true);
 
   send_offline_messages(ch);
@@ -3612,6 +3765,7 @@ if(d->character->player.time.played <  10000000  && !IS_TRUSTED(d->character))
   // This is to remove the racial epic skills set with TAG_RACIAL_SKILLS
   // after the current wipe (as of 4/25/14) this should be removed - Torgal
 //  clear_racial_skills(ch); - And removed. - Lohrr
+  do_look(ch, 0, -4);
 }
 
 void select_terminal(P_desc d, char *arg)
@@ -4375,7 +4529,6 @@ void select_main_menu(P_desc d, char *arg)
     {
       break;
     }
-      
     enter_game(d);
     STATE(d) = CON_PLYNG;
     d->prompt_mode = TRUE;

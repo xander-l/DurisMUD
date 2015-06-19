@@ -230,8 +230,6 @@ void initialize_skills()
   //needed by setbit
   skills[MAX_AFFECT_TYPES].name = "\n";
 
-  SKILL_CREATE("establish camp", SKILL_CAMP, 0);
-
   // Alchemist
   // Brawler
 
@@ -5105,7 +5103,9 @@ void create_tags()
   TAG_CREATE("decay", TAG_OBJ_DECAY);
   TAG_CREATE("orig", TAG_ALTERED_EXTRA2);
   TAG_CREATE("no misfire", TAG_NOMISFIRE);
-  TAG_CREATE("witch spell", TAG_WITCHSPELL);
+  TAG_CREATE_WITH_MESSAGES("witch spell", TAG_WITCHSPELL,
+                           "&+GYou feel somehow weaker.&n",
+                           "");
   TAG_CREATE("racial skills (deprecated)", TAG_RACIAL_SKILLS);
   TAG_CREATE("soulbind", TAG_SOULBIND);
 
@@ -5253,6 +5253,9 @@ void create_tags()
   TAG_CREATE("total epics gained", TAG_EPICS_GAINED);
 
   TAG_CREATE("regaining composure", TAG_BARDSONG_FAILURE );
+
+  TAG_CREATE("invisibility from object", TAG_PERMINVIS );
+  TAG_CREATE("establish camp", TAG_CAMP );
 }
 
 #ifdef SKILLPOINTS
@@ -5521,8 +5524,6 @@ void initialize_skills_new()
   SKILL_DEPEND( SKILL_PROTECT_FROM_EVIL, SKILL_NATURESPROTECTIONS, WHITE_SKILL );
   skills[SKILL_PROTECT_FROM_EVIL].maxtrainwarr = 100;
 
-// YOU ARE HERE.
-// 
   SKILL_CREATE( "Natures Senses", SKILL_NATURESSENSES, TAR_IGNORE );
   SKILL_DEPEND( SKILL_NATURESSENSES, SKILL_NATURESPROTECTIONS, 100 );
   skills[SKILL_NATURESSENSES].maxtrainwarr = 100;

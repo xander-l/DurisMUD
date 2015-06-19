@@ -34,6 +34,7 @@ int new_descriptor(int s);
 int new_connection(int s);
 
 /* affects.c */
+void event_short_affect(P_char, P_char , P_obj , void *);
 void remove_link(P_char ch, struct char_link_data *clda);
 void event_obj_affect(P_char, P_char, P_obj obj, void *af);
 void initialize_links();
@@ -966,6 +967,7 @@ int restoreSkills(char *, P_char, int);
 int restoreStatus(char *, P_char);
 int restorePetStatus(char *, P_char);
 int restoreWitnessed(char *, P_char);
+void updateShortAffects( P_char ch );
 int writeAffects(char *, struct affected_type *);
 int writeItems(char *, P_char);
 int writeSkills(char *, P_char, int);

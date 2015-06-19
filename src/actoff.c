@@ -2506,6 +2506,7 @@ void do_flee(P_char ch, char *argument, int cmd)
       af.type = SKILL_AWARENESS;
       af.duration = 1;
       af.bitvector = AFF_AWARE;
+      af.flags = AFFTYPE_NODISPEL;
       affect_to_char(ch, &af);
     }
     
@@ -4654,6 +4655,7 @@ void event_sneaky_strike(P_char ch, P_char victim, P_obj obj, void *data)
       	  afs.type = SKILL_AWARENESS;
       	  afs.duration = 5;
       	  afs.bitvector = AFF_AWARE;
+          afs.flags = AFFTYPE_NODISPEL;
       	  affect_to_char(victim, &afs);
         }
       }
@@ -7031,6 +7033,7 @@ void maul(P_char ch, P_char victim)
       af.type = SKILL_AWARENESS;
       af.duration = 1;
       af.bitvector = AFF_AWARE;
+      af.flags = AFFTYPE_NODISPEL;
       affect_to_char(victim, &af);
     }
   }
@@ -8289,6 +8292,7 @@ void bodyslam(P_char ch, P_char victim)
     af.type = SKILL_AWARENESS;
     af.duration = 1;
     af.bitvector = AFF_AWARE;
+    af.flags = AFFTYPE_NODISPEL;
     affect_to_char(victim, &af);
   }
 }

@@ -58,7 +58,6 @@ int  cast_as_damage_area(P_char, void (*func) (int, P_char, char *, int, P_char,
                          P_obj), int, P_char, float, float);
 extern const int race_hatred_data[][MAX_HATRED];
 extern bool epic_summon(P_char, char *);
-extern void event_short_affect(P_char, P_char , P_obj , void *);
 extern const struct class_names class_names_table[];
 extern char *specdata[][MAX_SPEC];
 extern int racial_shrug_data[];

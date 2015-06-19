@@ -62,6 +62,7 @@ extern const char *dirs[];
 extern const struct stat_data stat_factor[];
 extern const int rev_dir[];
 extern int top_of_world;
+extern int pulse;
 extern struct con_app_type con_app[];
 extern struct dex_app_type dex_app[];
 extern struct max_stat max_stats[];
@@ -99,6 +100,7 @@ extern void event_broken(struct char_link_data *);
 extern void charm_broken(struct char_link_data *);
 extern void casting_broken(struct char_link_data *);
 extern void tether_broken(struct char_link_data *);
+extern char *get_function_name(void *func);
 void     unlink_char_affect(P_char, struct affected_type *);
 struct link_description link_types[LNK_MAX + 1];
 
@@ -1721,6 +1723,12 @@ void event_short_affect(P_char ch, P_char victim, P_obj obj, void *data)
   struct event_short_affect_data *event_data = (struct event_short_affect_data*)data;
   struct affected_type *af;
 
+  // The affect was already removed.
+  if( data == NULL )
+  {
+    return;
+  }
+
   for (af = event_data->ch->affected; af; af = af->next)
     if (af == event_data->af)
       break;
@@ -1750,7 +1758,8 @@ struct affected_type *affect_to_char(P_char ch, struct affected_type *af)
 
   affected_alloc->next = ch->affected;
   ch->affected = affected_alloc;
-  if ((af->flags & AFFTYPE_NOAPPLY) == 0) {
+  if ((af->flags & AFFTYPE_NOAPPLY) == 0)
+  {
     ch->specials.affected_by |= af->bitvector;
     ch->specials.affected_by2 |= af->bitvector2;
     ch->specials.affected_by3 |= af->bitvector3;
@@ -1760,7 +1769,8 @@ struct affected_type *affect_to_char(P_char ch, struct affected_type *af)
 
   balance_affects(ch);
 
-  if ( IS_SET(af->flags, AFFTYPE_SHORT) ) {
+  if ( IS_SET(af->flags, AFFTYPE_SHORT) )
+  {
     struct event_short_affect_data data;
     data.ch = ch;
     data.af = affected_alloc;
@@ -1894,6 +1904,7 @@ void affect_to_end(P_char ch, struct affected_type *af)
 void affect_remove(P_char ch, struct affected_type *af)
 {
   struct affected_type *hjp;
+  P_nevent pnev;
 
   if (!(ch && ch->affected))
   {
@@ -1919,14 +1930,30 @@ void affect_remove(P_char ch, struct affected_type *af)
 
     if (hjp->next != af)
     {
-      logit(LOG_EXIT,
-            "could not locate affected_type in ch->affected for %s. affect_remove()",
-            GET_NAME(ch));
+      logit(LOG_EXIT, "affect_remove: could not locate affected_type in ch->affected for %s.", GET_NAME(ch));
       raise(SIGSEGV);
     }
     hjp->next = af->next;       /* skip the af element */
   }
-  if (af->flags & AFFTYPE_LINKED)
+
+  // If it's a short affect.
+  if( IS_SET(af->flags, AFFTYPE_SHORT) )
+  {
+    // Kill the timer on the corresponding event - let it die on its own.
+    LOOP_EVENTS_CH( pnev, ch->nevents )
+    {
+      if( pnev->func == event_short_affect && pnev->data != NULL
+        && ((struct event_short_affect_data*)(pnev->data))->af == af )
+      {
+        FREE( pnev->data );
+        pnev->data = NULL;
+        pnev->timer = 1;
+        break;
+      }
+    }
+  }
+
+  if( IS_SET(af->flags, AFFTYPE_LINKED) )
     unlink_char_affect(ch, af);
 
   mm_release(dead_affect_pool, af);
@@ -1951,8 +1978,10 @@ void affect_from_char(P_char ch, int skill)
   for (hjp = ch->affected; hjp; hjp = tmp)
   {
     tmp = hjp->next;
-    if (hjp->type == skill)
+    if( hjp->type == skill )
+    {
       affect_remove(ch, hjp);
+    }
   }
 }
 
@@ -3194,7 +3223,7 @@ int camp(P_char ch)
 
   if (IS_PC(ch) && IS_AFFECTED(ch, AFF_CAMPING))
   {
-    for (af = ch->affected; af && (af->type != SKILL_CAMP); af = af->next) ;
+    for (af = ch->affected; af && (af->type != TAG_CAMP); af = af->next) ;
 
     if (af)
     {
@@ -3206,7 +3235,7 @@ int camp(P_char ch)
           IS_SET(ch->specials.affected_by, AFF_HIDE) ||
           IS_IMMOBILE(ch))
       {
-        affect_from_char(ch, SKILL_CAMP);
+        affect_from_char(ch, TAG_CAMP);
         send_to_char("So much for that camping effort.\n", ch);
       }
       else
@@ -3224,7 +3253,7 @@ int camp(P_char ch)
             stop_fighting(ch);
           if( IS_DESTROYING(ch) )
             stop_destroying(ch);
-          affect_from_char(ch, SKILL_CAMP);
+          affect_from_char(ch, TAG_CAMP);
           if (!RACE_PUNDEAD(ch))
           {
             act("$n rolls $mself up in $s bedroll and tunes out the world.",

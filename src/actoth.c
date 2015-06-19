@@ -271,7 +271,7 @@ void do_camp(P_char ch, char *arg, int cmd)
     else
     {
       send_to_char( "You quickly pack up your things and move on.\n", ch );
-      affect_from_char(ch, SKILL_CAMP);
+      affect_from_char(ch, TAG_CAMP);
     }
     return;
   }
@@ -480,7 +480,7 @@ void do_camp(P_char ch, char *arg, int cmd)
     {
       next = aff->next;
 
-      if (aff->type == SKILL_CAMP)
+      if (aff->type == TAG_CAMP)
       {
         break;
       }
@@ -537,13 +537,14 @@ void do_camp(P_char ch, char *arg, int cmd)
    */
 
   bzero(&af, sizeof(af));
-  af.type = SKILL_CAMP;
+  af.type = TAG_CAMP;
   /*
    * this is short_affect_update time, about 140 seconds
    */
   af.duration = IS_TRUSTED(ch) ? 0 : 9;
   af.modifier = (int) ch->in_room;
   af.bitvector = AFF_CAMPING;
+  af.flags = AFFTYPE_NODISPEL;
   affect_to_char(ch, &af);
 }
 
@@ -2649,8 +2650,8 @@ void do_steal(P_char ch, char *argument, int cmd)
         send_to_char("Got it!\r\n", ch);
 
         if (IS_SET(obj->bitvector, AFF_INVISIBLE) &&
-            affected_by_spell(victim, SKILL_PERMINVIS))
-          affect_from_char(victim, SKILL_PERMINVIS);
+            affected_by_spell(victim, TAG_PERMINVIS))
+          affect_from_char(victim, TAG_PERMINVIS);
 
         obj_from_char(obj, TRUE);
         obj_to_char(obj, ch);
@@ -2860,6 +2861,7 @@ void do_steal(P_char ch, char *argument, int cmd)
     af.type = SKILL_AWARENESS;
     af.duration = 2;
     af.bitvector = AFF_AWARE;
+    af.flags = AFFTYPE_NODISPEL;
     affect_to_char(victim, &af);
   }
   else

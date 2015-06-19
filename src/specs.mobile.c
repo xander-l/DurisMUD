@@ -14566,10 +14566,10 @@ int witch_doctor(P_char ch, P_char customer, int cmd, char *arg)
     {
     "aviate",
         "a &+clight flask&n labeled \"&+CAv&+Wia&+Cte&n\"", 1000, 1, AFF_FLY},
-	{
-	"indigetis",
-	    "a &+Wglowing elixir&n labeled \"&+WIn&+wdiget&+Wis&n\"",
-		10000, 4, AFF4_EPIC_INCREASE}, 
+    {
+    "indigetis",
+        "a &+Wglowing elixir&n labeled \"&+WIn&+wdiget&+Wis&n\"",
+        10000, 4, AFF4_EPIC_INCREASE},
     {
     0}
   };
@@ -14602,8 +14602,10 @@ int witch_doctor(P_char ch, P_char customer, int cmd, char *arg)
         {
           memset(&af, 0, sizeof(struct affected_type));
           af.type = TAG_WITCHSPELL;
-          af.flags = AFFTYPE_NOSHOW | AFFTYPE_PERM | AFFTYPE_NODISPEL;
+
+          af.flags = AFFTYPE_NOSHOW | AFFTYPE_PERM | AFFTYPE_NODISPEL | AFFTYPE_OFFLINE;
           af.duration = 2000;
+
           if (elixir_list[i].affect_vector == 1)
             af.bitvector = elixir_list[i].affect_flag;
           else if (elixir_list[i].affect_vector == 2)
@@ -14639,22 +14641,20 @@ int witch_doctor(P_char ch, P_char customer, int cmd, char *arg)
       room = number(zone_table[world[room].zone].real_bottom,
                     zone_table[world[room].zone].real_top);
     }
-    while (++tries < 500 &&
+    while( tries++ < 500 &&
            (IS_SET(world[room].room_flags, PRIV_ZONE) ||
             IS_SET(world[room].room_flags, NO_TELEPORT) ||
             world[room].sector_type == SECT_OCEAN ||
             world[room].sector_type == SECT_WATER_SWIM ||
             world[room].sector_type == SECT_MOUNTAIN ||
             world[room].sector_type == SECT_WATER_NOSWIM));
-    if (tries == 500)
+    if (tries >= 500)
     {
-      statuslog(0,
-                "Witch Doctor cannot find a spot to land, check his proc plz");
+      statuslog(0, "Witch Doctor cannot find a spot to land, check his proc plz");
     }
     else
     {
-      act
-        ("$n looks around and says, '&+WNice doing trade with you but I need to serve other customers as well.&n'",
+      act("$n looks around and says, '&+WNice doing trade with you but I need to serve other customers as well.&n'",
          FALSE, ch, 0, 0, TO_ROOM);
       act("$n utters a few words, $s form blurs and shifts and $e's gone!",
           FALSE, ch, 0, 0, TO_ROOM);

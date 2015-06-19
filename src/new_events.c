@@ -355,6 +355,8 @@ void add_event(event_func func, int delay, P_char ch, P_char victim, P_obj obj, 
 
   if( ch && !IS_ALIVE(ch) && func != release_mob_mem )
   {
+    logit(LOG_DEBUG, "add_event: dead ch '%s' in room r%d/v%d function %s", GET_NAME(ch), ch->in_room,
+      ROOM_VNUM(ch->in_room), get_function_name((void *)func) );
     debug("add_event: dead ch '%s' in room r%d/v%d function %s", GET_NAME(ch), ch->in_room, ROOM_VNUM(ch->in_room),
       get_function_name((void *)func) );
     return;

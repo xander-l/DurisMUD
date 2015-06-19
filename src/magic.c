@@ -9185,6 +9185,7 @@ void spell_channel(int level, P_char ch, P_char victim, P_obj obj)
     new_af.type = SPELL_CHANNEL;
     new_af.duration = 24;
     new_af.location = APPLY_NONE;
+    new_af.flags = AFFTYPE_NODISPEL;
     affect_join(avatar, &new_af, FALSE, FALSE);
 
     // Make helpers in room abort spell, and knock them out
@@ -9211,6 +9212,7 @@ void spell_channel(int level, P_char ch, P_char victim, P_obj obj)
         af.duration = 2;
         af.location = APPLY_NONE;
         af.bitvector = AFF_KNOCKED_OUT;
+        af.flags = AFFTYPE_NODISPEL;
         affect_join(vict, &af, FALSE, FALSE);
         SET_POS(vict, POS_PRONE + GET_STAT(vict));
         vict->only.pc->pc_timer[3] = time(NULL);
@@ -12620,6 +12622,7 @@ void spell_greater_wraithform(int level, P_char ch, P_char victim, char *arg)
     af.duration =  10;
     af.type = SPELL_WRAITHFORM;
     af.bitvector = AFF_WRAITHFORM;
+    af.flags = AFFTYPE_NODISPEL;
     affect_to_char(ch, &af);
   }
   CharWait(ch, 3 * PULSE_VIOLENCE);
@@ -12704,6 +12707,7 @@ void spell_wraithform(int level, P_char ch, P_char victim, char *arg)
     af.duration =  10;
     af.type = SPELL_WRAITHFORM;
     af.bitvector = AFF_WRAITHFORM;
+    af.flags = AFFTYPE_NODISPEL;
     affect_to_char(ch, &af);
   }
   CharWait(ch, 3 * PULSE_VIOLENCE);
@@ -14992,11 +14996,7 @@ void spell_dispel_magic(int level, P_char ch, char *arg, int type,
         next_af_dude = next_af_dude->next;
       }
 
-      if((af->type != SKILL_CAMP) &&
-          (af->type != SKILL_AWARENESS) &&
-          (af->type != SPELL_WRAITHFORM) &&
-          (af->type != SPELL_CHANNEL) &&
-          !(af->flags & AFFTYPE_NODISPEL) && (af->type > 0))
+      if( !IS_SET(af->flags, AFFTYPE_NODISPEL) && (af->type > 0) )
       {
         if( nosave || !NewSaves(victim, SAVING_SPELL, (IS_ELITE(ch) ? mod + 5 : mod)) )
         {

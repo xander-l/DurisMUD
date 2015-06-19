@@ -3421,10 +3421,10 @@ void perform_wear(P_char ch, P_obj obj_object, int keyword)
 	
 
   if (IS_SET(obj_object->bitvector, AFF_INVISIBLE) &&
-      !affected_by_spell(ch, SKILL_PERMINVIS))
+      !affected_by_spell(ch, TAG_PERMINVIS))
   {
     bzero(&af, sizeof(af));
-    af.type = SKILL_PERMINVIS;
+    af.type = TAG_PERMINVIS;
     af.duration = -1;
     af.bitvector = AFF_INVISIBLE;
     affect_to_char(ch, &af);
@@ -5062,8 +5062,8 @@ int remove_item(P_char ch, P_obj obj_object, int position)
       obj_to_char(unequip_char(ch, position), ch);
 
       // Remove Affects
-      if (IS_SET(obj_object->bitvector, AFF_INVISIBLE) && affected_by_spell(ch, SKILL_PERMINVIS) && !wearing_invis(ch))
-        affect_from_char(ch, SKILL_PERMINVIS);
+      if (IS_SET(obj_object->bitvector, AFF_INVISIBLE) && affected_by_spell(ch, TAG_PERMINVIS) && !wearing_invis(ch))
+        affect_from_char(ch, TAG_PERMINVIS);
 
       if (obj_object && (o_af = get_obj_affect(obj_object, SKILL_ENCHANT)))
       {

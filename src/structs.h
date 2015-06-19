@@ -118,6 +118,8 @@ typedef struct combat_data *P_combat;
 #define AFFTYPE_NOSAVE     BIT_8
 #define AFFTYPE_NOAPPLY    BIT_9  // do not apply anything from this affect on char, it's used to store data only
 #define AFFTYPE_PERM       BIT_10 // affect will not disappear upon death
+#define AFFTYPE_OFFLINE    BIT_11 // Continue to countdown timer while offline.
+
 #define AFFTYPE_STORE (AFFTYPE_NOAPPLY |\
                        AFFTYPE_NODISPEL |\
                        AFFTYPE_NOSHOW)

@@ -3447,6 +3447,7 @@ void do_hamstring(P_char ch, char *arg, int cmd)
       afs.type = SKILL_AWARENESS;
       afs.duration = 5;
       afs.bitvector = AFF_AWARE;
+      afs.flags = AFFTYPE_NODISPEL;
       affect_to_char(vict, &afs);
     }
     /*

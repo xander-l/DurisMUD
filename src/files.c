@@ -86,6 +86,7 @@ int      calculate_mana(P_char ch);
 P_nevent get_scheduled(P_obj obj, event_func func);
 void     proclib_obj_event(P_char, P_char, P_obj obj, void*);
 void     event_poison(P_char, P_char, P_obj obj, void*);
+void     event_short_affect(P_char, P_char , P_obj , void *);
 
 struct ship_reg_node *ship_reg_db = NULL;
 
@@ -480,30 +481,77 @@ int writeStatus(char *buf, P_char ch)
   return (int) (buf - start);
 }
 
-int writeAffects(char *buf, struct affected_type *af)
+// This function updates ch's short affect durations for saving purposes.
+//   When called, it walks through ch's affects and finds the corresponding
+//   event for each short affect.  It then updates the duration of the affect
+//   with the time left on the event.
+void updateShortAffects( P_char ch )
+{
+  affected_type *paf = ch->affected;
+  P_nevent pnev;
+
+  // Look through each of ch's affects.
+  while( paf != NULL )
+  {
+    // If it's a short affect,
+    if( IS_SET( paf->flags, AFFTYPE_SHORT ) )
+    {
+      // Find the corresponding event.
+      LOOP_EVENTS_CH( pnev, ch->nevents )
+      {
+        // If the event is a short affect wear-off event and it corresponds to paf.
+        if( pnev->func == event_short_affect && pnev->data != NULL
+          && ((struct event_short_affect_data*)pnev->data)->af == paf )
+        {
+          break;
+        }
+      }
+      if( pnev )
+      {
+        // Update the duration (in pulses).
+        paf->duration = ne_event_time( pnev );
+      }
+      else
+      {
+        debug( "updateShortAffects: Couldn't find event for short affect '%s', timer %d, on '%s'.",
+          (paf->type > 0) ? skills[paf->type].name : "Unknown", paf->duration, J_NAME(ch) );
+      }
+    }
+    paf = paf->next;
+  }
+}
+
+// Writes the list of affects starting with af to the string buf.
+// af->duration updated with updateShortAffects(ch); please make sure this is called,
+//   or you will have timers being reset each time a player rents out / re enters game.
+int writeAffects( char *buf, struct affected_type *af )
 {
   struct affected_type *first = af;
   P_event  tmp;
   char    *start = buf;
   signed short count = 0;
 
-  while (af)
-  {
-    if (!(af->flags & AFFTYPE_NOSAVE))
-      count++;
-    af = af->next;
-  }
   ADD_BYTE(buf, (char) SAV_AFFVERS);
 
-  af = first;
+  while( af )
+  {
+    if( !IS_SET(af->flags, AFFTYPE_NOSAVE) )
+    {
+      count++;
+    }
+    af = af->next;
+  }
   ADD_SHORT(buf, count);
 
-  for (; af; af = af->next)
+  for( af = first; af; af = af->next )
   {
     byte     custom_messages = 0;       /* 0 - none, 1 - to_char, 2 - to_room, 3 - both */
 
-    if (af->flags & AFFTYPE_NOSAVE)
+    if( IS_SET(af->flags, AFFTYPE_NOSAVE) )
+    {
       continue;
+    }
+
 #ifndef _PFILE_
     if (af->wear_off_message_index != 0)
     {
@@ -513,18 +561,20 @@ int writeAffects(char *buf, struct affected_type *af)
       custom_messages |= 2;
     }
 #endif
+
     ADD_BYTE(buf, custom_messages);
+
 #ifndef _PFILE_
     if (custom_messages & 1)
-      ADD_STRING(buf,
-                 skills[af->type].wear_off_char[af->wear_off_message_index]);
+      ADD_STRING(buf, skills[af->type].wear_off_char[af->wear_off_message_index]);
     if (custom_messages & 2)
-      ADD_STRING(buf,
-                 skills[af->type].wear_off_room[af->wear_off_message_index]);
+      ADD_STRING(buf, skills[af->type].wear_off_room[af->wear_off_message_index]);
 #endif
+
     ADD_SHORT(buf, af->type);
-    if ((af->flags & AFFTYPE_SHORT) != 0)
+    if( IS_SET(af->flags, AFFTYPE_SHORT) )
     {
+
 #ifndef _PFILE_
       for (tmp = event_list; tmp; tmp = tmp->next_event)
         if ((struct affected_type *) tmp->target.t_arg == af)
@@ -536,10 +586,14 @@ int writeAffects(char *buf, struct affected_type *af)
       }
       else
 #endif
-        ADD_INT(buf, 0);
+        // af->duration updated with updateShortAffects(ch), but we want secs to save not pulses.
+        ADD_INT(buf, af->duration/WAIT_SEC);
     }
     else
+    {
       ADD_INT(buf, af->duration);
+    }
+
     ADD_SHORT(buf, af->flags);
     ADD_INT(buf, af->modifier);
     ADD_BYTE(buf, af->location);
@@ -1695,6 +1749,7 @@ int writeCharacter(P_char ch, int type, int room)
 
   ADD_INT(affect_off, (int) (buf - buff));
 
+  updateShortAffects(ch);
   buf += writeAffects(buf, ch->affected);
 
   ADD_INT(item_off, (int) (buf - buff));
@@ -2450,8 +2505,7 @@ int restoreAffects(char *buf, P_char ch)
        ch);
     return 0;
   }
-  count = GET_SHORT(buf);
-  for (; count > 0; count--)
+  for( count = GET_SHORT(buf); count > 0; count-- )
   {
     if (aff_vers > 4)
     {
@@ -2479,6 +2533,12 @@ int restoreAffects(char *buf, P_char ch)
       af.bitvector5 = GET_LONG(buf);
       /*af.bitvector6 = */ GET_LONG(buf);
       af.wear_off_message_index = 0;
+
+      // Duration saved as seconds for short affects, but we want to store duration as pulses in game.
+      if( aff_vers > 6 && IS_SET(af.flags, AFFTYPE_SHORT) )
+      {
+        af.duration *= WAIT_SEC;
+      }
     }
     else
     {
@@ -4314,6 +4374,7 @@ int writePet(P_char ch)
   all_affects(ch, FALSE);       /* reset to unaffected state */
   buf += writePetStatus(buf, ch);
   ADD_INT(affect_off, (int) (buf - buff));
+  updateShortAffects(ch);
   buf += writeAffects(buf, ch->affected);
   ADD_INT(item_off, (int) (buf - buff));
   buf += writeItems(buf, ch);
@@ -4869,6 +4930,7 @@ int writeShopKeeper(P_char ch)
   all_affects(ch, FALSE);       /* reset to unaffected state */
   buf += writePetStatus(buf, ch);
   ADD_INT(affect_off, (int) (buf - buff));
+  updateShortAffects(ch);
   buf += writeAffects(buf, ch->affected);
   ADD_INT(item_off, (int) (buf - buff));
   buf += writeItems(buf, ch);
