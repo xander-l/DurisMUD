@@ -134,12 +134,24 @@ void clear_nevent( P_nevent e )
         }
         else if( e1->obj != obj && e1->obj != NULL )
         {
-          debug( "clear_nevent: event->obj '%s' != obj '%s' in obj's event list.", OBJ_SHORT(e1->obj), OBJ_SHORT(obj) );
+          debug( "clear_nevent: event '%s': event->obj '%s' != obj '%s' in obj's event list.",
+            (e1->func != NULL) ? get_function_name((void *)e1->func) : "NULL",
+            OBJ_SHORT(e1->obj), OBJ_SHORT(obj) );
         }
       }
       if( !e1 || e1->next_obj != e->next_obj )
       {
-        debug( "clear_nevent: event->obj '%s' not in obj's event list.", OBJ_SHORT(obj) );
+        if( !e1 )
+        {
+          debug( "clear_nevent: obj '%s' does not have event '%s' in its event list head(%s).", OBJ_SHORT(obj),
+            (e->func != NULL) ? get_function_name((void *)e1->func) : "NoFunc",
+            (obj->nevents != NULL) ? ((obj->nevents->func != NULL) ? get_function_name((void *)obj->nevents->func) : "NoFunc") : "NULL" );
+        }
+        else
+        {
+          debug( "clear_nevent: obj '%s' failed to pull event '%s' from its list.", OBJ_SHORT(obj),
+            (e->func != NULL) ? get_function_name((void *)e1->func) : "NoFunc" );
+        }
       }
     }
   }
