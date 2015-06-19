@@ -6313,7 +6313,7 @@ void do_who(P_char ch, char *argument, int cmd)
   if( mortalsonly )
   {
     k = 1;
-    strcat(who_output, "\n Short Listing for Mortals\n-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
+    sprintf(who_output, "\n Short Listing for Mortals\n-=-=-=-=-=-=-=-=-=-=-=-=-=-\n");
     if( who_list_size == 0 )
       strcat(who_output, "<None>\n");
     else
