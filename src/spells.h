@@ -1181,10 +1181,9 @@
 #define ACH_CARGOCOUNT               2110
 #define ACH_DEATHSDOOR               2111
 #define TAG_DEATHSDOOR               2112
-#define TAG_FOLLOWING                2113
-#define TAG_BARDSONG_FAILURE         2114
-#define TAG_CAMP                     2115
-#define TAG_PERMINVIS                2116
+#define TAG_BARDSONG_FAILURE         2113
+#define TAG_CAMP                     2114
+#define TAG_PERMINVIS                2115
 
 #define SAVING_PARA   0
 #define SAVING_ROD    1

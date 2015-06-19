@@ -1003,27 +1003,42 @@ bool char_to_room(P_char ch, int room, int dir)
 
   // if anything has moved on the map, find everyone who can see them
   // and set their flag to send a map update
-  if (IS_MAP_ROOM(was_in) || IS_MAP_ROOM(ch->in_room))
+  if( IS_MAP_ROOM(was_in) || IS_MAP_ROOM(ch->in_room) )
   {
     for (d = descriptor_list; d; d = d->next)
     {
       who = d->character;
-      if (who && who->desc && who->desc->term_type == TERM_MSP &&
-          IS_MAP_ROOM(who->in_room))
+      if( who && who->desc && who->desc->term_type == TERM_MSP && IS_MAP_ROOM(who->in_room) )
       {
-        if (!CAN_SEE_Z_CORD(who, ch))
+        if( !CAN_SEE_Z_CORD(who, ch) )
           continue;
-        if(!IS_MAP_ROOM(ch->in_room))
+        // Don't show if people move off the map? :(
+        if( !IS_MAP_ROOM(ch->in_room) )
           continue;
-        if (ch == who)
+        if( ch == who )
           continue;
-        if (who->desc->last_map_update) //performance saving!
+        if( who->desc->last_map_update ) //performance saving!
           continue;
+
+        // If who is going to follow ch, then don't update map.
+        if( ch == who->following && was_in == who->in_room && GET_STAT(who) == STAT_NORMAL
+          && GET_POS(who) == POS_STANDING && CAN_ACT(who) )
+          continue;
+        // If ch is in the act of following someone.
+        if( IS_AFFECTED5(ch, AFF5_FOLLOWING) )
+        {
+          // If the person they're following is who, don't update who's automap.
+          if( ch->following == who )
+            continue;
+          // If they're following the same person (ie same group) and moving together.
+          if( ch->following == who->following && (who->in_room == was_in || who->in_room == ch->in_room) )
+            continue;
+        }
 
         int dist = calculate_map_distance(ch->in_room, who->in_room);
         int view_dist = map_view_distance(who, who->in_room);
 
-        if ( dist >= 0 && dist <= (view_dist*view_dist) ) 
+        if ( dist >= 0 && dist <= (view_dist*view_dist) )
         {
           who->desc->last_map_update = 1;
           continue;

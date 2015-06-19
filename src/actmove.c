@@ -1901,9 +1901,9 @@ int do_simple_move_skipping_procs(P_char ch, int exitnumb, unsigned int flags)
           act("You follow $N.", FALSE, k->follower, 0, ch, TO_CHAR);
           send_to_char("\n", k->follower);
           sprintf(amsg, "%s %s", command[cmd], dirs[exitnumb]);
-          set_short_affected_by( k->follower, TAG_FOLLOWING, 10 );
+          SET_BIT(k->follower->specials.affected_by5, AFF5_FOLLOWING);
           command_interpreter(k->follower, amsg);
-          affect_from_char( k->follower, TAG_FOLLOWING );
+          REMOVE_BIT(k->follower->specials.affected_by5, AFF5_FOLLOWING);
           num_followed++;
         }
       }

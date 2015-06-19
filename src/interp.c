@@ -1726,7 +1726,7 @@ void command_interpreter(P_char ch, char *argument)
           {
             // 1..6 or 541 .. 548 .. movement commands.  Allowing
             if( ((cmd >= CMD_NORTH && cmd <= CMD_DOWN) || (cmd >= CMD_NORTHWEST && cmd <= CMD_SE))
-              && affected_by_spell(ch, TAG_FOLLOWING) )
+              && IS_AFFECTED5(exec_char, AFF5_FOLLOWING) )
             {
               send_to_char("You move in the &+Lshadows&n.\r\n", exec_char);
             }
