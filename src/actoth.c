@@ -262,7 +262,7 @@ void do_camp(P_char ch, char *arg, int cmd)
   while (*arg == ' ')
     arg++;
 
-  if( isname( arg, "abort" ) )
+  if( isname( arg, "abort" ) || isname( arg, "stop" ) || isname( arg, "off" ) )
   {
     if( !IS_AFFECTED(ch, AFF_CAMPING) )
     {
@@ -318,9 +318,7 @@ void do_camp(P_char ch, char *arg, int cmd)
   /* no loot/camp */
   if (IS_AFFECTED4(ch, AFF4_LOOTER))
   {
-    send_to_char
-      ("Aw, play fair. Give your last victim a few minutes to even the score before you whimper off, hiding like a dog.\r\n",
-       ch);
+    send_to_char("Aw, play fair. Give your last victim a few minutes to even the score before you whimper off, hiding like a dog.\r\n", ch);
     return;
   }
   if (IS_AFFECTED2(ch, AFF2_FLURRY))
@@ -356,22 +354,17 @@ void do_camp(P_char ch, char *arg, int cmd)
   case SECT_CASTLE_WALL:
   case SECT_CASTLE_GATE:
   case SECT_CASTLE:
-    send_to_char
-      ("Riiight, you'd get run over by a cart, or knifed in your sleep!  Go to an Inn!\r\n",
-       ch);
+    send_to_char("Riiight, you'd get run over by a cart, or knifed in your sleep!  Go to an Inn!\r\n", ch);
     return;
     break;
   case SECT_SWAMP:
   case SECT_UNDRWLD_SLIME:
-    send_to_char
-      ("It's just a tad too wet to camp here, try to find a dry spot eh?\r\n",
-       ch);
+    send_to_char("It's just a tad too wet to camp here, try to find a dry spot eh?\r\n", ch);
     return;
     break;
   case SECT_NO_GROUND:
   case SECT_UNDRWLD_NOGROUND:
-    send_to_char
-      ("The price of rolling over in bed is little high here.\r\n", ch);
+    send_to_char("The price of rolling over in bed is little high here.\r\n", ch);
     return;
     break;
   case SECT_UNDRWLD_LIQMITH:
@@ -402,8 +395,7 @@ void do_camp(P_char ch, char *arg, int cmd)
      */
     break;
   default:
-    logit(LOG_DEBUG, "Bogus sector_type (%d) in do_camp",
-          world[ch->in_room].sector_type);
+    logit(LOG_DEBUG, "Bogus sector_type (%d) in do_camp", world[ch->in_room].sector_type);
     send_to_char("How strange!  This terrain doesn't seem to exist!\r\n", ch);
     return;
     break;
@@ -416,8 +408,7 @@ void do_camp(P_char ch, char *arg, int cmd)
   }
   else if (ch->specials.z_cord > 0)
   {
-    send_to_char
-      ("The price of rolling over in bed is little high here.\r\n", ch);
+    send_to_char("The price of rolling over in bed is little high here.\r\n", ch);
     return;
   }
   /*
