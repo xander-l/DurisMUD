@@ -861,7 +861,7 @@ flagDef  affected2_bits[] = {
   {"PROT_ACID", "Prot acid", 1, 0},
   {"POISONED", "Poisoned", 0, 0},
   {"SOULSHIELD", "Soulshield", 1, 0},
-  {"DUERGAR_HIDE", "Duergar hide", 0, 0},
+  {"SILENCED", "Silenced", 0, 0},
   {"MINOR_INVIS", "Minor invis", 1, 0},
   {"VAMP_TOUCH", "Vampiric touch", 1, 0},
   {"STUNNED", "Stunned", 0, 0},

@@ -73,6 +73,7 @@ void try_wield_weapon(P_char ch);
 int empty_slot_for_weapon(P_char ch);
 int very_angry_npc(P_char, P_char, int, char *);
 bool check_ch_nevents( P_char ch );
+bool check_disruptive_blow(P_char ch);
 
 #define UNDEAD_TYPES 6
 
@@ -762,14 +763,10 @@ bool MobCastSpell(P_char ch, P_char victim, P_obj object, int spl, int lvl)
     {
       if(victim && (victim != ch))
       {
-        if(IS_NPC(victim) &&
-          !IS_FIGHTING(victim) &&
-          !IS_DESTROYING(victim) &&
-          CAN_SEE(victim, ch) &&
-          (GET_POS(ch) == POS_STANDING))
+        if(IS_NPC(victim) && !IS_FIGHTING(victim) && !IS_DESTROYING(victim)
+          && CAN_SEE(victim, ch) && (GET_POS(ch) == POS_STANDING))
         {
-          if(number(1, 150) <=
-              (GET_LEVEL(victim) + STAT_INDEX(GET_C_INT(victim))))
+          if(number(1, 150) <= (GET_LEVEL(victim) + STAT_INDEX(GET_C_INT(victim))))
           {
             MobStartFight(victim, ch);
             if(!char_in_list(ch) || !char_in_list(victim))
@@ -819,58 +816,6 @@ bool MobCastSpell(P_char ch, P_char victim, P_obj object, int spl, int lvl)
   castdata.spell = spl;
   castdata.object = object;
 
-  /*  disruptive blow check */
-  if(IS_FIGHTING(ch))
-  {
-
-    for (kala = world[ch->in_room].people; kala; kala = kala2)
-    {
-      kala2 = kala->next_in_room;
-      if(kala == ch)
-        continue;
-      if(GET_POS(kala) != POS_STANDING)
-        continue;
-
-      if(ch->specials.fighting != kala)
-        continue;
-
-      skl = GET_CHAR_SKILL(kala, SKILL_DISRUPTIVE_BLOW);
-      int      success = 0;
-
-      success = skl - number(0, 170);
-
-      if(skl && success > 0)
-      {
-        notch_skill(kala, SKILL_DISRUPTIVE_BLOW, 17);
-        if(success > 75)
-        {
-          act("You lunge slamming your fist into $N's larynx.", FALSE, kala,
-              0, ch, TO_CHAR);
-          act("$n lunges slamming his fist into your throat.", FALSE, kala, 0,
-              ch, TO_VICT);
-          act("$n lunges slamming his fist into $N's larynx.", FALSE, kala, 0,
-              ch, TO_NOTVICT);
-          damage(kala, ch, 2 * (dice(5, 10)), SKILL_DISRUPTIVE_BLOW);
-          StopCasting(ch);
-          return FALSE;
-        }
-
-        else if(success > 50)
-        {
-          act("You hit $N in the face, sending $M reeling.", FALSE, kala, 0,
-              ch, TO_CHAR);
-          act("$n hits you in the face, sending you reeling.", FALSE, kala, 0,
-              ch, TO_VICT);
-          act("$n hits $N in the face, sending $M reeling.", FALSE, kala, 0,
-              ch, TO_NOTVICT);
-          damage(kala, ch, 4 * (dice(3, 10)), SKILL_DISRUPTIVE_BLOW);
-        }
-      }
-
-    }
-
-  }                             // END SPEC SKILL CHECK
-
 /*
  * Note the character as one in the process of spellcasting.  Various casting
  * checks, e.g. at the beginning of this function and in NewMobAct() disallow
@@ -883,6 +828,11 @@ bool MobCastSpell(P_char ch, P_char victim, P_obj object, int spl, int lvl)
   }
 
   SET_BIT(ch->specials.affected_by2, AFF2_CASTING);
+
+  if( IS_FIGHTING(ch) && check_disruptive_blow(ch) )
+  {
+    return TRUE;
+  }
 
   if((duration <= 4) || (lvl >= 60))
     event_spellcast(ch, victim, object, &castdata);

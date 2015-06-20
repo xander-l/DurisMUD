@@ -727,7 +727,7 @@ int can_enter_room(P_char ch, int room, int show_msg)
                      (mob_index[GET_RNUM(ch)].number == 11004)))
     return FALSE;
 
-  if( check_castle_walls(ch->in_room, room))
+  if( check_castle_walls(ch->in_room, room) && !IS_TRUSTED(ch) )
   {
     if( show_msg)
       send_to_char("Castle walls can't be simply walked through!\n", ch);

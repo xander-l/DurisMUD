@@ -3134,7 +3134,7 @@ void unspecialize(P_char ch, P_obj obj);
 void do_proclib(P_char ch, char *argument, int cmd);
 
 /* global outpost.h define */
-int check_castle_walls(int, int);
+bool check_castle_walls(int, int);
 
 /* gellz.c - Gellz special Procs atm */
 void do_deaths_door(P_char ch, char *arg, int cmd);

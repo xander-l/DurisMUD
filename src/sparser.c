@@ -2055,20 +2055,20 @@ void do_will(P_char ch, char *argument, int cmd)
 bool check_disruptive_blow(P_char ch)
 {
   struct damage_messages messages = {
-    "You lunge, slamming your fist into $N larynx.",
-    "$n lunges, slamming $s fist into your throat.",
-    "$n lunges, slamming $s fist into $N larynx.",
-    "You lunge, slamming your fist into $N larynx. $E's dead.",
+    "You lunge, slamming your fist into $N's larynx.",
+    "$n lunges toward you, slamming $s fist into your throat.",
+    "$n lunges, slamming $s fist into $N's larynx.",
+    "You lunge, slamming your fist into $N's larynx. $E's dead.",
     "$n lunges, slamming $s fist into your throat. That did it.",
-    "$n lunges, slamming $s fist into $N larynx. $E's dead."
+    "$n lunges, slamming $s fist into $N's larynx. $E's dead."
   };
   struct damage_messages messages2 = {
     "You hit $N in the face, sending $M reeling.",
     "$n hits you in the face, sending you reeling.",
     "$n hits $N in the face, sending $M reeling.",
-    "You lunge, slamming your fist into $N larynx. $E's dead.",
+    "You lunge, slamming your fist into $N's larynx. $E's dead.",
     "$n lunges, slamming $s fist into your throat. That did it.",
-    "$n lunges, slamming $s fist into $N larynx. $E's dead."
+    "$n lunges, slamming $s fist into $N's larynx. $E's dead."
   };
   int skl;
   int success;
