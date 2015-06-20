@@ -7378,21 +7378,22 @@ void GetMIA(char *playerName, char *returned)
     // % 1440 -> removes days.  .. / 60 -> hours MIA.
     if( (minutesgone % 1440) / 60 > 0 )
     {
-      sprintf(returned + strlen(returned), "%2ld hour%s%s",
+      sprintf(returned + strlen(returned), "%ld hour%s%s",
         (minutesgone % 1440) / 60, (((minutesgone % 1440) / 60) > 1) ? "s" : "", (minutesgone % 60) ? ", " : "");
     }
     // % 60 cuts out hours, just leaving minutes MIA.
     if( minutesgone % 60 )
     {
-      sprintf(returned + strlen(returned), "%2ld minute%s", (minutesgone % 60), ((minutesgone % 60) > 1) ? "s" : "");
+      sprintf(returned + strlen(returned), "%ld minute%s", (minutesgone % 60), ((minutesgone % 60) > 1) ? "s" : "");
     }
-    strcat(returned, "&n)");
   }
   else
   {
     minutesgone = time(0) - laston;
-    sprintf(returned + strlen(returned), "%ld second%s&n)\n\r", minutesgone, (minutesgone > 1) ? "s" : "" );
+    sprintf(returned + strlen(returned), "%ld second%s", minutesgone, (minutesgone > 1) ? "s" : "" );
   }
+
+  strcat(returned, "&n)");
 
   return;
 }
@@ -7452,6 +7453,8 @@ void do_finger(P_char ch, char *arg, int cmd)
   time_t   laston;
   char     Gbuf1[MAX_STRING_LENGTH], Gbuf2[512];
   P_char   finger_foo;
+  bool     in_game;
+  int      pid;
 
   if(!*arg || !arg)
   {
@@ -7470,77 +7473,86 @@ void do_finger(P_char ch, char *arg, int cmd)
   }
   if(GET_LEVEL(finger_foo) > GET_LEVEL(ch))
   {
-    send_to_char("Sorry, you cannot finger those higher level than you.\n",
-                 ch);
+    send_to_char("Sorry, you cannot finger those higher level than you.\n", ch);
     if(finger_foo)
       free_char(finger_foo);
     return;
   }
-  sprintf(Gbuf1,
-          "&+cName:&n %s %s &n&+cLevel:&n %d &+cClass:&n %s &n&+cRace:&n %s\n",
-          GET_NAME(finger_foo), GET_TITLE(finger_foo), GET_LEVEL(finger_foo),
-          get_class_string(finger_foo, Gbuf2),
-          race_names_table[(int) GET_RACE(finger_foo)].ansi);
+  sprintf(Gbuf1, "&+cName:&n %s %s &n&+cLevel:&n %d &+cClass:&n %s &n&+cRace:&n %s\n",
+    GET_NAME(finger_foo), GET_TITLE(finger_foo), GET_LEVEL(finger_foo), get_class_string(finger_foo, Gbuf2),
+    race_names_table[(int) GET_RACE(finger_foo)].ansi);
   laston = finger_foo->player.time.saved;
   timegone = (time(0) - laston) / 60;
   send_to_char(Gbuf1, ch);
-  sprintf(Gbuf1, "&+cPID:&n %d &+cLast saved:&n %s", GET_PID(finger_foo), asctime(localtime(&laston)));
+  pid = GET_PID(finger_foo);
+  sprintf(Gbuf1, "&+cPID:&n %d &+cLast saved:&n %s", pid, asctime(localtime(&laston)));
   Gbuf1[strlen(Gbuf1) - 1] = 0;
   send_to_char(Gbuf1, ch);
   send_to_char("\n", ch);
   time_t lastConnect = 0, lastDisconnect = 0;
   strcpy(Gbuf1, "Unrecorded IP");
   sql_select_IP_info(finger_foo, Gbuf1, sizeof(Gbuf1), &lastConnect, &lastDisconnect);
-  if(lastConnect >= lastDisconnect)
+
+  // If they just logged in, or logged out just after logging in (at menu: 1/rent)
+  if( lastConnect == lastDisconnect )
   {
-    send_to_char("&+cLast played from: &n", ch);
+    in_game = is_pid_online( pid, FALSE );
+  }
+  else if( lastConnect > lastDisconnect )
+  {
+    in_game = FALSE;
   }
   else
+  {
+    in_game = TRUE;
+  }
+
+  if( in_game )
   {
     send_to_char("&+cPlaying from: &n", ch);
   }
+  else
+  {
+    send_to_char("&+cLast played from: &n", ch);
+  }
   send_to_char(Gbuf1, ch);
 
-  if(lastConnect >= lastDisconnect)
-  {
-    if((lastConnect == 0) && (lastDisconnect == 0))
-      timegone = (time(0) - laston);
-    else
-      timegone = lastDisconnect;
-
-    GetMIA( finger_foo->player.name, Gbuf1);
-    send_to_char(Gbuf1, ch);
-    Gbuf1[0] = '\0';
-  }
-  else
+  if( in_game )
   {
     timegone = lastConnect;
     int hours = (timegone  / 3600),
         minutes = (timegone % 3600) / 60,
         seconds = (timegone % 60);
 
-    send_to_char("  &+c(Playing:&n ", ch);
-    if(hours)
-      sprintf(Gbuf1 + strlen(Gbuf1), "%d hour%s, ",
-              (int) hours,
-              (hours > 1) ? "s" : "");
-    if(minutes)
-      sprintf(Gbuf1 + strlen(Gbuf1), "%d minute%s, ",
-              (int) minutes, (minutes > 1) ? "s" : "");
+    send_to_char("  &n(&+cPlaying:&+w ", ch);
+    *Gbuf1 = '\0';
+    if( hours > 0 )
+      sprintf(Gbuf1, "%d hour%s", hours, (hours > 1) ? "s" : "");
+    if( minutes > 0 )
+      sprintf(Gbuf1 + strlen(Gbuf1), "%s%d minute%s", (hours > 0) ? ", " : "", minutes, (minutes > 1) ? "s" : "");
     // display seconds only if there are no hours/minutes
-    if(timegone < 60)
-      sprintf(Gbuf1 + strlen(Gbuf1), "%d second%s, ",
-              (int) seconds, (seconds > 1) ? "s" : "");
+    if( timegone < 60 )
+      sprintf(Gbuf1 + strlen(Gbuf1), "%d second%s", seconds, (seconds > 1) ? "s" : "");
+    strcat(Gbuf1, "&n)&n\n");
   }
-  Gbuf1[strlen(Gbuf1) - 2] = 0;
-  strcat(Gbuf1, "&+c)&n\n");
+  else
+  {
+    /* Handled in GetMIA
+    if((lastConnect == 0) && (lastDisconnect == 0))
+      timegone = (time(0) - laston);
+    else
+      timegone = lastDisconnect;
+    */
+
+    GetMIA( finger_foo->player.name, Gbuf1);
+    send_to_char(Gbuf1, ch);
+    Gbuf1[0] = '\0';
+  }
   send_to_char(Gbuf1, ch);
 
-  sprintf(Gbuf1,
-          "\n&+cLast Rented: &n%s&n &+W[&+C%d&+W]\n&n&+cBirthplace: &n%s&n &+W[&+C%d&+W]&n\n",
-          world[real_room0(GET_HOME(finger_foo))].name, GET_HOME(finger_foo),
-          world[real_room0(GET_BIRTHPLACE(finger_foo))].name,
-          GET_BIRTHPLACE(finger_foo));
+  sprintf(Gbuf1, "\n&+cLast Rented: &n%s&n &+W[&+C%d&+W]\n&n&+cBirthplace: &n%s&n &+W[&+C%d&+W]&n\n",
+    world[real_room0(GET_HOME(finger_foo))].name, GET_HOME(finger_foo),
+    world[real_room0(GET_BIRTHPLACE(finger_foo))].name, GET_BIRTHPLACE(finger_foo));
   send_to_char(Gbuf1, ch);
   if(finger_foo)
     free_char(finger_foo);

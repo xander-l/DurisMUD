@@ -297,7 +297,7 @@ struct ship_reg_node *ship_reg_db = NULL;
  * writing).  JAB
  */
 
-int writeStatus(char *buf, P_char ch)
+int writeStatus(char *buf, P_char ch, bool updateTime )
 {
   char    *start = buf;
   int      tmp, i;
@@ -339,10 +339,18 @@ int writeStatus(char *buf, P_char ch)
   ADD_INT(buf, GET_ORIG_BIRTHPLACE(ch));
 
   ADD_LONG(buf, ch->player.time.birth);
-  tmpl = time(0);
-  tmp = ch->player.time.played + (int) (tmpl - ch->player.time.logon);
-  ADD_INT(buf, tmp);            /* player age in secs */
-  ADD_LONG(buf, tmpl);          /* last save time */
+  if( updateTime )
+  {
+    tmpl = time(0);
+    tmp = ch->player.time.played + (int) (tmpl - ch->player.time.logon);
+    ADD_INT(buf, tmp);            /* player age in secs */
+    ADD_LONG(buf, tmpl);          /* last save time */
+  }
+  else
+  {
+    ADD_INT(buf, ch->player.time.played);
+    ADD_LONG(buf, ch->player.time.saved);
+  }
   ADD_SHORT(buf, ch->player.time.perm_aging);
 
   for (i = 0; i < MAX_CIRCLE + 1; i++)
@@ -1688,7 +1696,10 @@ int writeCharacter(P_char ch, int type, int room)
    */
 
   sql_update_money(ch);
-  sql_update_playtime(ch);
+  if( (type != RENT_POOFARTI) && (type != RENT_SWAPARTI) && (type != RENT_FIGHTARTI) )
+  {
+    sql_update_playtime(ch);
+  }
 	sql_update_epics(ch);
 
   save_zone_trophy(ch);
@@ -1737,7 +1748,8 @@ int writeCharacter(P_char ch, int type, int room)
 
   all_affects(ch, FALSE);
 
-  buf += writeStatus(buf, ch);
+  buf += writeStatus(buf, ch,
+    ((type != RENT_POOFARTI) && (type != RENT_SWAPARTI) && (type != RENT_FIGHTARTI)) ? TRUE : FALSE);
 
   ADD_INT(skill_off, (int) (buf - buff));
 

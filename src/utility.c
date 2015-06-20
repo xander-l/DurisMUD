@@ -5667,6 +5667,50 @@ P_char get_char_online(char *name)
   return 0;
 }
 
+// Similar to get_char_online, except uses pid, and we don't care about returning the whole P_char.
+// If you want to change this to get_char_from_pid_online... just change "return TRUE"s to "break"s and
+//   change the "return FALSE" to "return temp_ch" and initialize temp_ch to NULL.
+// The main reason I didn't return the P_char is mainly just to make the name of the function easier.
+bool is_pid_online( int pid, bool includeLD )
+{
+  P_char temp_ch;
+
+  if( includeLD )
+  {
+    for( temp_ch = character_list; temp_ch; temp_ch = temp_ch->next)
+    {
+      if( IS_PC( temp_ch ) && GET_PID(temp_ch) == pid )
+      {
+        return TRUE;
+      }
+    }
+  }
+  else
+  {
+    for( P_desc temp_d = descriptor_list; temp_d; temp_d = temp_d->next )
+    {
+      // Not checking people at the menu.
+      // If you wanted to check them, could add && connected != CON_SLCT (at menu) or such.
+      if( temp_d->connected != CON_PLYNG )
+      {
+        continue;
+      }
+
+      // Just making sure.  (If they're CON_PLYNG, they pretty much have to have a char, don't they?)
+      if( (temp_ch = (temp_d->original != NULL) ? temp_d->original : temp_d->character) == NULL )
+      {
+        continue;
+      }
+
+      if( IS_PC( temp_ch ) && GET_PID(temp_ch) == pid )
+      {
+        return TRUE;
+      }
+    }
+  }
+  return FALSE;
+}
+
 /* returns the CMD_ corresponding to the given direction */
 int cmd_from_dir(int dir)
 {

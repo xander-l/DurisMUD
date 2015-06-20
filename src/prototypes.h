@@ -971,7 +971,7 @@ void updateShortAffects( P_char ch );
 int writeAffects(char *, struct affected_type *);
 int writeItems(char *, P_char);
 int writeSkills(char *, P_char, int);
-int writeStatus(char *, P_char);
+int writeStatus(char *, P_char, bool);
 int writePetStatus(char *, P_char);
 int writeWitnessed(char *, P_char);
 uint getInt(char **);
@@ -2861,8 +2861,6 @@ int nq_action_check(P_char ch, P_char mob, char *phrase);
 void nq_char_death(P_char ch, P_char victim);
 
 /* utility.c */
-
-
 ClassSkillInfo SKILL_DATA_ALL(P_char ch, int skill);
 void debug( const char *format, ... );
 int create_html();
@@ -2990,6 +2988,7 @@ int decimal2binary(unsigned decimal, char* str);
 bool is_natural_creature(P_char);
 bool is_casting_aggr_spell(P_char);
 bool match_pattern(const char *pat, const char *str);
+bool is_pid_online( int pid, bool includeLD );
 
 /* statistcs.c */
 void event_write_statistic(P_char ch, P_char victim, P_obj obj, void *data);

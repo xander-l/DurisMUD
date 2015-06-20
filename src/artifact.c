@@ -2404,7 +2404,7 @@ void event_artifact_wars( P_char ch, P_char vict, P_obj obj, void * arg )
       else
       {
         artifact_fight( owner, item );
-        writeCharacter( owner, 1, owner->in_room );
+        writeCharacter( owner, RENT_CRASH, owner->in_room );
       }
     }
   }
@@ -2412,7 +2412,7 @@ void event_artifact_wars( P_char ch, P_char vict, P_obj obj, void * arg )
 
   debug( "event_artifact_wars: ended." );
   // 1800 = 60sec * 30min => Repeat every half hour...
-  add_event( event_artifact_wars, 10 * WAIT_SEC, NULL, NULL, NULL, 0, NULL, 0 );
+  add_event( event_artifact_wars, 1800 * WAIT_SEC, NULL, NULL, NULL, 0, NULL, 0 );
 }
 
 void artifact_fight( P_char owner, P_obj arti )
