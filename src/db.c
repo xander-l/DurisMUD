@@ -4384,8 +4384,8 @@ int real_room(const int virt)
 
   bot = 0;
   top = top_of_world;
-  if (virt == -1)
-    return -1;
+  if( virt < 0 )
+    return NOWHERE;
 
   /*
    * perform binary search on world-table
@@ -4401,7 +4401,7 @@ int real_room(const int virt)
 #if DB_NOTIFY
       logit(LOG_DEBUG, "real_room: Room %d not in database", virt);
 #endif
-      return (-1);
+      return NOWHERE;
     }
     if ((world + mid)->number > virt)
       top = mid - 1;

@@ -908,22 +908,21 @@ void do_at(P_char ch, char *argument, int cmd)
     send_to_char("You must supply a room number or a name.\n", ch);
     return;
   }
-  if(isdigit(*loc_str))
+  if( is_number(loc_str) )
   {
     loc_nr = atoi(loc_str);
-    for (location = 0; location <= top_of_world; location++)
-      if(world[location].number == loc_nr)
-      {
-        zc = 0;
-        break;
-      }
-      else if(location == top_of_world)
-      {
-        send_to_char("No room exists with that number.\n", ch);
-        return;
-      }
+    location = real_room(loc_nr);
+    if( location == NOWHERE )
+    {
+      send_to_char("No room exists with that number.\n", ch);
+      return;
+    }
+    else
+    {
+      zc = 0;
+    }
   }
-  else if((target_mob = get_char_vis(ch, loc_str)))
+  else if( (target_mob = get_char_vis(ch, loc_str)) )
   {
     if(target_mob->in_room != NOWHERE)
     {
