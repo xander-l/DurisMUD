@@ -2152,7 +2152,7 @@ void spell_create_greater_dracolich(int level, P_char ch, char *arg, int type, P
   /* all dracoliches are around level 52, and PCs must be at least level 51 to cast
      this spell, so I'm just gonna make it a straight random chance */
   // (GET_LEVEL(mob) > number((level - i * 2) * 2, level * 3))
-  if( IS_PC(ch) && !number(0, 1) )
+  if( IS_PC(ch) && !number(0, 9) )
   {
     act("$N is NOT pleased at being returned to life!", TRUE, ch, 0, mob, TO_ROOM);
     act("$N is NOT pleased with you at all!", TRUE, ch, 0, mob, TO_CHAR);

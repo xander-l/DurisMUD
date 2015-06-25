@@ -4896,82 +4896,71 @@ void spell_teleimage(int level, P_char ch, P_char victim, P_obj obj)
   }
 }
 
-void spell_dimension_door(int level, P_char ch, char *arg, int type,
-                          P_char victim, P_obj obj)
+void spell_dimension_door(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   int      location;
   char     buf[256] = { 0 };
   P_char   tmp = NULL;
   int      distance;
 
-  if(GET_SPEC(ch, CLASS_SORCERER, SPEC_SHADOW))
-    CharWait(ch, 4);
-  else if(IS_PC(ch))
-    CharWait(ch, 36);
-  else
-    CharWait(ch, 5);
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+    return;
 
-  if(!(victim) ||
-     IS_AFFECTED3(victim, AFF3_NON_DETECTION) ||
-     IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
-     IS_HOMETOWN(ch->in_room) ||
-     world[ch->in_room].sector_type == SECT_OCEAN ||
-     world[victim->in_room].sector_type == SECT_CASTLE ||
-     world[victim->in_room].sector_type == SECT_CASTLE_WALL ||
-     world[victim->in_room].sector_type == SECT_CASTLE_GATE)
+  if(GET_SPEC(ch, CLASS_SORCERER, SPEC_SHADOW))
+    CharWait(ch, WAIT_SEC);
+  else if(IS_PC(ch))
+    CharWait(ch, WAIT_SEC * 9);
+  else
+    CharWait(ch, WAIT_SEC * 1 + 1);
+
+  if( IS_AFFECTED3(victim, AFF3_NON_DETECTION) || IS_SET(world[ch->in_room].room_flags, NO_TELEPORT)
+    || IS_HOMETOWN(ch->in_room) || world[ch->in_room].sector_type == SECT_OCEAN
+    || world[victim->in_room].sector_type == SECT_CASTLE || world[victim->in_room].sector_type == SECT_CASTLE_WALL
+    || world[victim->in_room].sector_type == SECT_CASTLE_GATE )
   {
     send_to_char("&+CYou failed.\n", ch);
     return;
   }
-  if(IS_PC(victim) &&
-     IS_SET(victim->specials.act2, PLR2_NOLOCATE) &&
-     !is_introd(victim, ch))
+  if( IS_PC(victim) && IS_SET(victim->specials.act2, PLR2_NOLOCATE) && !is_introd(victim, ch) )
   {
     send_to_char("&+CYou failed.\n", ch);
     return;
   }
   P_char rider = get_linking_char(victim, LNK_RIDING);
-  if(IS_NPC(victim) && rider)
+  if( IS_NPC(victim) && rider )
   {
     send_to_char("&+CYou failed.\n", ch);
     return;
   }
 
-  if(!IS_TRUSTED(ch) &&
-     IS_TRUSTED(victim))
+  if( !IS_TRUSTED(ch) && IS_TRUSTED(victim) )
   {
     send_to_char("&+CYou failed.\n", ch);
     return;
   }
 
   location = victim->in_room;
-  
-  if(IS_SET(world[location].room_flags, NO_TELEPORT) ||
-      IS_HOMETOWN(location) ||
-      racewar(ch, victim) || world[location].sector_type == SECT_OCEAN ||
-      (IS_PC_PET(ch) && IS_PC(victim)))
+
+  if( IS_SET(world[location].room_flags, NO_TELEPORT) || IS_HOMETOWN(location)
+    || racewar(ch, victim) || world[location].sector_type == SECT_OCEAN || (IS_PC_PET(ch) && IS_PC(victim)) )
   {
     send_to_char("&+CYou failed.\n", ch);
     return;
   }
 
-  if(ch &&
-     !is_Raidable(ch, 0, 0))
+  if( !is_Raidable(ch, 0, 0) )
   {
     send_to_char("&+WYou are not raidable. The spell fails!\r\n", ch);
     return;
   }
-  
-  if(victim &&
-     IS_PC(ch) &&
-     IS_PC(victim) &&
-     !is_Raidable(victim, 0, 0))
+
+  if( IS_PC(ch) && IS_PC(victim) && !is_Raidable(victim, 0, 0) )
   {
     send_to_char("&+WYour target is not raidable. The spell fails!\r\n", ch);
     return;
   }
-  
-  distance = (int)(level * 1.35); 
+
+  distance = (int)(level * 1.35);
 
   if(GET_SPEC(ch, CLASS_SORCERER, SPEC_SHADOW))
     distance += 15;
@@ -4983,22 +4972,6 @@ void spell_dimension_door(int level, P_char ch, char *arg, int type,
     send_to_char("&+CYou failed.\n", ch);
     return;
   }
-  for (tmp = world[ch->in_room].people; tmp; tmp = tmp->next_in_room)
-  {
-    if((IS_AFFECTED(tmp, AFF_BLIND) ||
-         (tmp->specials.z_cord != ch->specials.z_cord) || (tmp == ch) ||
-         !number(0, 5)) && (IS_PC(ch) && !IS_TRUSTED(ch)))
-      continue;
-    if(CAN_SEE(tmp, ch))
-      act
-        ("&+LA black two-dimensional door appears next to $n, who steps into it and vanishes along with the door.",
-         FALSE, ch, 0, tmp, TO_VICT);
-    else
-      act
-        ("&+LA black two-dimensional door appears, then vanishes without a sound.",
-         FALSE, ch, 0, tmp, TO_VICT);
-    send_to_char(buf, tmp);
-  }
 
 #if defined(CTF_MUD) && (CTF_MUD == 1)
     if (ctf_carrying_flag(ch) == CTF_PRIMARY)
@@ -5008,22 +4981,34 @@ void spell_dimension_door(int level, P_char ch, char *arg, int type,
     }
 #endif
 
+  for (tmp = world[ch->in_room].people; tmp; tmp = tmp->next_in_room)
+  {
+    if( (IS_AFFECTED(tmp, AFF_BLIND) || (tmp->specials.z_cord != ch->specials.z_cord) || (tmp == ch) )
+    {
+      continue;
+    }
+    if(CAN_SEE(tmp, ch))
+      act("&+LA black two-dimensional door appears next to $n, who steps into it and vanishes along with the door.",
+        FALSE, ch, 0, tmp, TO_VICT);
+    else
+      act("&+LA black two-dimensional door appears, then vanishes without a sound.",
+        FALSE, ch, 0, tmp, TO_VICT);
+    send_to_char(buf, tmp);
+  }
+
   char_from_room(ch);
   char_to_room(ch, location, -1);
 
   for (tmp = world[ch->in_room].people; tmp; tmp = tmp->next_in_room)
   {
-    if((IS_AFFECTED(tmp, AFF_BLIND) || (tmp == ch) || !number(0, 5)) &&
-        (IS_PC(ch) && !IS_TRUSTED(ch)))
+    if( (IS_AFFECTED(tmp, AFF_BLIND) || (tmp->specials.z_cord != ch->specials.z_cord) || (tmp == ch) )
       continue;
     if(CAN_SEE(tmp, ch))
-      act
-        ("&+LA black rift in space opens next to you, and&n $n &+Lsteps out of it grinning.&n",
-         FALSE, ch, 0, tmp, TO_VICT);
+      act("&+LA black rift in space opens next to you, and&n $n &+Lsteps out of it grinning.&n",
+        FALSE, ch, 0, tmp, TO_VICT);
     else
-      act
-        ("&+LA black two-dimensional door appears, then vanishes without a sound.",
-         FALSE, ch, 0, tmp, TO_VICT);
+      act("&+LA black two-dimensional door appears, then vanishes without a sound.",
+        FALSE, ch, 0, tmp, TO_VICT);
     send_to_char(buf, tmp);
   }
 }
