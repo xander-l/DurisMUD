@@ -717,15 +717,38 @@ bool auction_remove(P_char ch, char *args)
   char arg[MAX_STRING_LENGTH];
   half_chop(args, arg, args);
   int auction_id = atoi(arg);
+  bool removeAll = FALSE;
+  int auc_ids[100], i;
+  MYSQL_RES *res;
+  MYSQL_ROW auction_row;
 
-  if( !qry("SELECT id FROM auctions WHERE id = '%d' and status = 'OPEN'", auction_id) )
-    return FALSE;
+  memset(&auc_ids, 0, sizeof(auc_ids));
 
-  MYSQL_RES *res = mysql_store_result(DB);
-	
-  MYSQL_ROW auction_row = mysql_fetch_row(res);
-		
-  if( !auction_row )
+  if( !strcmp(arg, "all") && GET_LEVEL(ch) == OVERLORD )
+  {
+    removeAll = TRUE;
+    if( !qry("SELECT id FROM auctions WHERE status = 'OPEN'", auction_id) )
+      return FALSE;
+  }
+  else
+  {
+    if( !qry("SELECT id FROM auctions WHERE id = '%d' and status = 'OPEN'", auction_id) )
+      return FALSE;
+  }
+
+  res = mysql_store_result(DB);
+
+  i = 0;
+  while( auction_row = mysql_fetch_row(res) )
+  {
+    auc_ids[i++] = atoi(auction_row[0]);
+    if( i == 100 )
+    {
+      break;
+    }
+  }
+
+  if( !auc_ids[0] )
   {
     send_to_char("&+WThere is no auction with that id!\r\n", ch);
     mysql_free_result(res);
@@ -733,15 +756,16 @@ bool auction_remove(P_char ch, char *args)
   }
 
   mysql_free_result(res);
-	
-  if( !qry("UPDATE auctions SET status = 'REMOVED' WHERE id = '%d'", auction_id) )
-    return FALSE;
 
-  sprintf(buff, "&+WAuction %d removed.\r\n", auction_id);
-  send_to_char(buff, ch);
-
-  logit(LOG_WIZ, "Auction [%d] removed by %s", auction_id, ch->player.name);
-
+  while( i > 0 )
+  {
+    if( qry("UPDATE auctions SET status = 'REMOVED' WHERE id = '%d'", auc_ids[--i]) )
+    {
+      sprintf(buff, "&+WAuction %d removed.\r\n", auc_ids[i]);
+      send_to_char(buff, ch);
+      logit(LOG_WIZ, "Auction [%d] removed by %s", auc_ids[i], ch->player.name);
+    }
+  }
   return TRUE;
 }
 
@@ -1019,11 +1043,16 @@ bool auction_pickup(P_char ch, char *args)
   return TRUE;
 }
 
-bool auction_help(P_char ch, char *arg) {
+bool auction_help(P_char ch, char *arg)
+{
 	send_to_char("&+WAuction syntax:\r\n- auction list [help]\r\n"
                      "- auction offer <item from your inventory> [starting price in plat] [buy-it-now price in plat] [length of auction in days] [quantity]\r\n"
                      "- auction bid <auction id> <value in plat>\r\n"
                      "- auction info <auction id>\r\n- auction pickup\r\n", ch);
+  if( IS_TRUSTED(ch) )
+  {
+    send_to_char( "- auction resort\r\n- auction remove\r\n", ch );
+  }
 	return TRUE;
 }
 

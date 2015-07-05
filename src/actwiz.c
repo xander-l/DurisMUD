@@ -2641,8 +2641,11 @@ void do_stat(P_char ch, char *argument, int cmd)
       strcat(o_buf, buf);
 
       playing_time =
-        real_time_passed((long) (k->player.time.played +
-                                 (time(0) - k->player.time.logon)), 0);
+#ifndef EQ_WIPE
+        real_time_passed((long) (k->player.time.played + (time(0) - k->player.time.logon)), 0);
+#else
+        real_time_passed((long) (k->player.time.played - EQ_WIPE + (time(0) - k->player.time.logon)), 0);
+#endif
       sprintf(buf,
               "&+YPlayed:  &N%3d &+Ydays  &N%2d &+Yhours  &N%2d &+Yminutes\n",
               playing_time.day, playing_time.hour, playing_time.minute);
@@ -5186,7 +5189,11 @@ void do_start(P_char ch, int nomsg)
     ch->only.pc->prompt = PROMPT_HIT | PROMPT_MAX_HIT | PROMPT_MANA |
       PROMPT_MAX_MANA | PROMPT_MOVE | PROMPT_MAX_MOVE; */
 
+#ifndef EQ_WIPE
   ch->player.time.played = 0;
+#else
+  ch->player.time.played = EQ_WIPE;
+#endif
   ch->player.time.logon = time(0);
 }
 

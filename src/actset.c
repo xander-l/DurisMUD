@@ -644,7 +644,11 @@ static void setbit_char(P_char ch, char *name, char *flag, char *val, int on_off
     }
     if (SAME_STRING(flag, "played"))
     {
+#ifndef EQ_WIPE
       ppl->player.time.played = 3600 * (atoi(val));
+#else
+      ppl->player.time.played = 3600 * (atoi(val)) + EQ_WIPE;
+#endif
       return;
     }
     if (SAME_STRING(flag, "ldir") || SAME_STRING(flag, "defpos") ||

@@ -4636,10 +4636,11 @@ void do_score(P_char ch, char *argument, int cmd)
       send_to_char(buf, ch);
     }
     /* playing time */
-    playing_time =
-      real_time_passed((long)
-                       ((time(0) - ch->player.time.logon) +
-                        ch->player.time.played), 0);
+#ifndef EQ_WIPE
+    playing_time = real_time_passed((long) ((time(0) - ch->player.time.logon) + ch->player.time.played), 0);
+#else
+    playing_time = real_time_passed((long) ((time(0) - ch->player.time.logon) + ch->player.time.played - EQ_WIPE), 0);
+#endif
     sprintf(buf, "Playing time: %d days / %d hours/ %d minutes\n",
             playing_time.day, playing_time.hour, playing_time.minute);
     send_to_char(buf, ch);
@@ -6588,7 +6589,11 @@ void do_who(P_char ch, char *argument, int cmd)
       GET_C_POW(tch), GET_C_INT(tch), GET_C_WIS(tch), GET_C_CHA(tch));
     strcat(buf, buf3);
 
+#ifndef EQ_WIPE
     playing_time = real_time_passed((long)((time(0) - tch->player.time.logon) + tch->player.time.played), 0);
+#else
+    playing_time = real_time_passed((long)((time(0) - tch->player.time.logon) + tch->player.time.played - EQ_WIPE), 0);
+#endif
     sprintf(buf3, "      Playing time = %d days and %d hours, Age = %d years\n",
       playing_time.day, playing_time.hour, GET_AGE(tch));
     strcat(buf, buf3);

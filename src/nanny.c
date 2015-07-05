@@ -1,4 +1,4 @@
-/****************************************************************************
+  /****************************************************************************
  *  File: nanny.c                                            Part of Duris   *
  *  Usage: handle non-playing sockets (new character creation too)           *
  *  Copyright  1990, 1991 - see 'license.doc' for complete information.      *
@@ -2948,17 +2948,20 @@ int number_of_players(void)
 
 void perform_eq_wipe(P_char ch)
 {
-  send_to_char("&+ROh shit, it seems we have misplaced your items...\n "
-               "&+RUpon further examination it appears your bank account\n", ch);
-  send_to_char("&+Ris empty as well. Your boat isnt where you left it.\n",ch);
-  send_to_char("&+RYou don't have any frags.  This can mean only one of\n"
-               "&+Rtwo things.  Either you've just been robbed or this is\n", ch);
-  send_to_char("&+Rthe eq-wipe.  Have a nice day.\r\n", ch);
-
-  // actually remove their eq!
   int i;
   P_obj obj, obj2;
+  P_ship ship;
+  char Gbuf1[MAX_STRING_LENGTH], Gbuf2[MAX_STRING_LENGTH];
 
+  send_to_char("&+ROh shit, it seems we have misplaced your items...\n", ch );
+//  send_to_char("&+RUpon further examination it appears your bank account is empty as well.\n\r", ch );
+  send_to_char("&+RYour boat isnt where you left it.\n" ,ch);
+//  send_to_char("&+RYou don't have any frags.\n", ch);
+//  send_to_char("&+RYou don't have any epicss.\n", ch);
+  send_to_char("&+RThis can mean only one of two things.  Either you've just been\n"
+               "&+R robbed or this i the eq-wipe.  Have a nice day.\r\n", ch);
+
+  // actually remove their eq!
   for (i = 0; i < MAX_WEAR; i++)
   {
     if (ch->equipment[i])
@@ -2972,6 +2975,22 @@ void perform_eq_wipe(P_char ch)
     extract_obj(obj, TRUE);
     obj = NULL;
   }
+
+  // Delete the locker as well
+  sprintf( Gbuf2, "%c%s", LOWER(*ch->player.name), ch->player.name + 1 );
+  sprintf( Gbuf1, "%s/%c/%s.locker", SAVE_DIR, *Gbuf2, Gbuf2 );
+  sprintf( Gbuf2, "rm -f %s %s.bak", Gbuf1, Gbuf1 );
+  system( Gbuf2 );
+
+  // Delete the ship too
+  if( ship = get_ship_from_owner(ch->player.name) )
+  {
+    shipObjHash.erase(ship);
+    delete_ship(ship);
+  }
+  else
+    debug( "%s has no ship.", ch->player.name );
+/*
   ch->only.pc->frags = 0;
   ch->only.pc->epics = 0;
 
@@ -2984,6 +3003,7 @@ void perform_eq_wipe(P_char ch)
   GET_GOLD(ch) = 0;
   GET_SILVER(ch) = 0;
   GET_COPPER(ch) = 0;
+*/
 }
 
 //#define MAX_HT_ESCAPE -1
@@ -3756,13 +3776,17 @@ if(d->character->base_stats.Wis < 80)
   if(GET_CLASS(ch, CLASS_NECROMANCER) && GET_ALIGNMENT(ch) > -10)
   GET_ALIGNMENT(ch) = -1000;
 
-/*
-if(d->character->player.time.played <  10000000  && !IS_TRUSTED(d->character))
+#ifdef EQ_WIPE
+  if(d->character->player.time.played < EQ_WIPE)
   {
-  perform_eq_wipe(ch);
-  ch->player.time.played = 10000000;
+    if( !IS_TRUSTED(d->character) )
+    {
+      perform_eq_wipe(ch);
+    }
+    ch->player.time.played += EQ_WIPE;
   }
-*/
+else ch->player.time.played -= EQ_WIPE; // PENIS
+#endif
 
   // This is to remove the racial epic skills set with TAG_RACIAL_SKILLS
   // after the current wipe (as of 4/25/14) this should be removed - Torgal
