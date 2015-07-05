@@ -10611,6 +10611,8 @@ void spell_fire_breath(int level, P_char ch, char *arg, int type, P_char victim,
     return;
   }
 
+  return; // Disabling item damage/drop code
+
   if( (IS_AFFECTED(victim, AFF_PROT_FIRE) && number(0, 4)) || IS_NPC(victim) )
   {
     return;
@@ -10697,6 +10699,8 @@ void spell_frost_breath(int level, P_char ch, char *arg, int type, P_char victim
   {
     return;
   }
+
+  return; // Disabling damage/drop code.
 
   if( (IS_AFFECTED2(victim, AFF2_PROT_COLD) && number(0, 4)) || IS_NPC(victim) )
   {
@@ -11074,8 +11078,9 @@ void spell_crimson_light(int level, P_char ch, char *arg, int type, P_char victi
     DAM_NONEDEAD)
       return;
 
-  if(IS_AFFECTED(victim, AFF_PROT_FIRE) &&
-    number(0, 4))
+  return; // Disabling item damage/drop code
+
+  if(IS_AFFECTED(victim, AFF_PROT_FIRE) && number(0, 4))
       return;
 
   // This prevents items from being dropped into water and disappearing.
