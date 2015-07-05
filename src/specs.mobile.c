@@ -9894,7 +9894,12 @@ int rentacleric(P_char ch, P_char vict, int cmd, char *argument)
   };
 
   if (cmd == CMD_SET_PERIODIC)
+  {
+    // So they can cast spells.
+    if( GET_LEVEL(ch) < 56 )
+      ch->player.level = 56;
     return TRUE;
+  }
 
   if (!ch || !AWAKE(ch) || IS_FIGHTING(ch))
     return FALSE;
