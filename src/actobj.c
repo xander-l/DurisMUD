@@ -50,6 +50,7 @@ extern const int new_exp_table[];
 
 extern void obj_affect_remove(P_obj, struct obj_affect *);
 extern bool has_eq_slot( P_char ch, int wear_slot );
+extern void arti_clear_sql( P_char ch, char *arg );
 
 #define USE_SPACE 0
 #define IN_WELL_ROOM(x) ((world[(x)->in_room].number == 55126) || (world[(x)->in_room].number == 8003))
@@ -2693,6 +2694,7 @@ void do_eat(P_char ch, char *argument, int cmd)
     return;
   }
 
+  updateArtiList = FALSE;
   // We need some sort of confirmation as to what to do here.
   if( IS_ARTIFACT(temp) && IS_TRUSTED(ch) )
   {
@@ -2701,17 +2703,14 @@ void do_eat(P_char ch, char *argument, int cmd)
     {
       updateArtiList = TRUE;
     }
-    else if( !strcmp(argument, "noupdate") )
-    {
-      updateArtiList = FALSE;
-    }
     else
     {
-      send_to_char( "&+YIn order to eat an artifact, you must specify '&+wupdate&+Y' or '&+wnoupdate&+Y'"
-        " as to whether or not to update the artifact list.  If you don't know which to choose, you're"
-        " better off handing it to another Immortal who knows.  The reason for this is to figure out if"
-        " the artifact is duplicated or if it's being pulled from a char for some reason, etc.&n\n\r", ch );
-      return;
+      send_to_char_f( ch, "&+YWhen eating an artifact, you must specify '&+weat <arti> update&+Y' if you"
+        " want to update the artifact list.  If you don't know whether to update, you're better off"
+        " handing it to another Immortal who knows or can figure it out.  The reason for this is to"
+        " figure out if the artifact is duplicated or if it's being pulled from a char for some"
+        " reason, etc.  However, since your hungry, we just won't update it this time.  You can use"
+        " '&+wartifact clear %d&+Y' to clear the DB entry if need be.&n\n\r", GET_OBJ_VNUM(temp) );
     }
   }
 
@@ -2867,7 +2866,12 @@ void do_eat(P_char ch, char *argument, int cmd)
      */
   }
 
-  extract_obj(temp); // Important not to kill arti-data, as only Immortals eat artifacts.
+  if( updateArtiList )
+  {
+    sprintf( Gbuf1, "%d", GET_OBJ_VNUM(temp) );
+    arti_clear_sql( ch, Gbuf1 );
+  }
+  extract_obj(temp);
   // Added by DTS 5/18/95 to solve light bug
   char_light(ch);
   room_light(ch->in_room, REAL);
