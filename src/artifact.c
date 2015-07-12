@@ -3212,7 +3212,7 @@ void event_artifact_check_bind_sql( P_char ch, P_char vict, P_obj obj, void * ar
         }
       }
       // Don't display artis that are on the corpse of owner.
-      else if( artidata.locType == ARTIFACT_ON_PC || artidata.location != list->owner_pid )
+      else if( artidata.locType =! ARTIFACT_ONCORPSE || artidata.location != list->owner_pid )
       {
         debug( "%3d: artifact '%s&n'%6d is not on a player atm.",
           ++counter, pad_ansi( arti ? OBJ_SHORT(arti) : "NULL", 35, TRUE).c_str(), list->vnum );
