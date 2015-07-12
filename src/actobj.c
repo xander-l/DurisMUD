@@ -3689,8 +3689,8 @@ int wear(P_char ch, P_obj obj_object, int keyword, bool showit )
         GET_NAME(ch), obj_object->short_description);
     }
     // Hunting Max_Race Equipment
-    if(obj_object->affected[i].location >= 41 &&
-      obj_object->affected[i].location <= 50)
+    if( obj_object->affected[i].location >= APPLY_STR_RACE
+      && obj_object->affected[i].location <= APPLY_LUCK_RACE && !IS_ARTIFACT(obj_object) )
     {
       wizlog(56, "%s has MAX_RACE item : %s", GET_NAME(ch), obj_object->short_description);
     }
@@ -3711,7 +3711,11 @@ int wear(P_char ch, P_obj obj_object, int keyword, bool showit )
 
     if(is_stat_max(obj_object->affected[i].location) && !IS_ARTIFACT(obj_object))
     {
-      if(obj_object->affected[i].modifier > 10)
+      // CHA and LUCK are less important.
+      if( (obj_object->affected[i].location == APPLY_LUCK_MAX && obj_object->affected[i].modifier > 15)
+        || (obj_object->affected[i].location == APPLY_CHA_MAX && obj_object->affected[i].modifier > 15)
+        || (obj_object->affected[i].location != APPLY_LUCK_MAX && obj_object->affected[i].location != APPLY_CHA_MAX
+        && obj_object->affected[i].modifier > 10) )
       {
         char buf[128];
         sprinttype(obj_object->affected[i].location, apply_types, buf);
