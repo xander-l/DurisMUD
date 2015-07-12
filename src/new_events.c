@@ -781,11 +781,14 @@ void ne_init_events(void)
   for( j = 0; j < top_of_world; j++ )
     room_light(j, REAL);
 
-  // Checks ALL artis rented and non for negative timers..
-  add_event( event_artifact_check_poof_sql, 35 * WAIT_SEC, NULL, NULL, NULL, 0, NULL, 0 );
+  // Checks to see if artifact souls are ready to merge.
+  add_event( event_artifact_check_bind_sql, 15 * WAIT_SEC, NULL, NULL, NULL, 0, NULL, 0 );
 
   // Makes artifacts fight and lose time on timers (penalty for multiple artis).
   add_event( event_artifact_wars_sql, 20 * WAIT_SEC, NULL, NULL, NULL, 0, NULL, 0 );
+
+  // Checks ALL artis rented and non for negative timers..
+  add_event( event_artifact_check_poof_sql, 35 * WAIT_SEC, NULL, NULL, NULL, 0, NULL, 0 );
 
   logit(LOG_STATUS, "Done scheduling events.\n");
 }

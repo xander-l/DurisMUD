@@ -53,9 +53,17 @@ extern struct mm_ds *dead_pconly_pool;
 
 struct arti_list
 {
-  int pid;
+  int        pid;
   arti_data *artis;
   arti_list *next;
+};
+
+struct bind_data
+{
+  int        vnum;
+  int        owner_pid;
+  long       timer;
+  bind_data *next;
 };
 
 // Internal globals
@@ -65,11 +73,12 @@ bool updateArtis = TRUE;
 void list_artifacts_sql( P_char ch, int type, bool Godlist, bool allArtis );
 void arti_clear_sql( P_char ch, char *arg );
 void arti_files_to_sql( P_char ch, char *arg );
+void arti_hunt_sql( P_char ch, char *arg );
 void arti_poof_sql( P_char ch, char *arg );
 void arti_remove_sql( int vnum, bool mortalToo );
+void arti_reset_sql( P_char ch, char *arg );
 void arti_swap_sql( P_char ch, char *arg );
 void arti_timer_sql( P_char ch, char *arg );
-void arti_hunt_sql( P_char ch, char *arg );
 P_char load_dummy_char( char *name );
 void nuke_eq( P_char ch );
 
@@ -188,6 +197,12 @@ void do_artifact_sql( P_char ch, char *arg, int cmd )
   if( is_abbrev(arg1, "files") )
   {
     arti_files_to_sql( ch, arg );
+    return;
+  }
+
+  if( is_abbrev(arg1, "reset") )
+  {
+    arti_reset_sql( ch, arg );
     return;
   }
 
@@ -674,6 +689,7 @@ void artifact_switch_check( P_char ch, P_obj arti )
     {
       act("&+L$p &+Lmerges with your &+wsoul&+L.", FALSE, ch, arti, 0, TO_CHAR);
       owner_pid = GET_PID(ch);
+      timer = 0;
       update = TRUE;
     }
     // 1% chance to complain.
@@ -1065,6 +1081,7 @@ void artifact_update_location_sql( P_obj arti )
     // PCs get a new timer if it wasn't previously owned.
     else
     {
+      artifact_switch_check( owner, arti );
       if( !timerStarted )
       {
         // Set the timer to the max for a newly acquired arti.
@@ -3101,4 +3118,247 @@ void arti_swap_sql( P_char ch, char *arg )
   sprintf( buf, "&+WArtifact '&+w%s&+W' &+w%d&+W swapped with artifact '&+w%s&+W' &+w%d&+W.&n\n\r",
     artishort1, vnum1, OBJ_SHORT(arti2), vnum2 );
   send_to_char( buf, ch );
+}
+
+// This function walks through the artifact_bind table, gathers its info, then compares
+//   it against where the arti is currently.  If it's not currently on the proper char
+//   the timer is set to switch owners.  If the timer is up, then the soul switches owners.
+void event_artifact_check_bind_sql( P_char ch, P_char vict, P_obj obj, void * arg )
+{
+  bind_data *bindData, *list;
+  arti_data  artidata;
+  P_char     owner;
+  P_obj      arti;
+  int        timer_length, counter;
+  long       curr_time;
+  MYSQL_RES *res;
+  MYSQL_ROW  row = NULL;
+
+  debug( "event_artifact_check_bind_sql(): beginning..." );
+
+  if( !qry("select vnum, owner_pid, timer from artifact_bind") )
+  {
+    debug( "event_artifact_check_bind_sql(): Failed initial query." );
+    logit(LOG_ARTIFACT, "event_artifact_check_bind_sql(): failed to read from database.");
+    return;
+  }
+
+  res = mysql_store_result(DB);
+
+  if( mysql_num_rows(res) < 1 )
+  {
+    debug( "event_artifact_check_bind_sql(): 0 rows in artifact_bind." );
+    logit(LOG_ARTIFACT, "event_artifact_check_bind_sql(): 0 rows in artifact_bind.");
+    mysql_free_result(res);
+    return;
+  }
+
+  timer_length = 60 * get_property("artifact.feeding.switch.lootallowance.min", 15);
+  curr_time = time(NULL);
+
+  bindData = list = NULL;
+  while( row = mysql_fetch_row(res) )
+  {
+    bindData = new bind_data;
+    bindData->vnum      = atoi(row[0]);
+    bindData->owner_pid = atoi(row[1]);
+    bindData->timer     = atol(row[2]);
+
+    bindData->next = list;
+    list = bindData;
+    bindData = NULL;
+  }
+
+  mysql_free_result(res);
+
+  counter = 0;
+  while( list != NULL )
+  {
+    bindData = list->next;
+
+    arti = read_object( list->vnum, VIRTUAL );
+    if( get_artifact_data_sql( list->vnum, &artidata ) )
+    {
+      if( artidata.locType == ARTIFACT_ON_PC )
+      {
+        // If we're on a new owner.
+        if( list->owner_pid != artidata.location )
+        {
+          // If the timer has expired
+          if( list->timer + timer_length < curr_time )
+          {
+            // If the owner isn't online, the soul can not merge.
+            if( owner = get_char_online( get_player_name_from_pid(artidata.location) ) )
+            {
+              act("&+L$p &+Lmerges with your &+wsoul&+L.", FALSE, owner, arti, 0, TO_CHAR);
+              qry("UPDATE artifact_bind SET owner_pid = %d, timer = %ld WHERE vnum = %d", artidata.location, curr_time, list->vnum);
+              logit(LOG_ARTIFACT, "event_artifact_check_bind_sql(): artifact '%s' %d merged with '%s' %d's soul.",
+                arti ? OBJ_SHORT(arti) : "NULL", list->vnum, J_NAME(owner), artidata.location );
+              debug( "%3d: artifact '%s'%6d merged with '%s' %d's soul.",
+                ++counter, pad_ansi( arti ? OBJ_SHORT(arti) : "NULL", 35, TRUE).c_str(), list->vnum, J_NAME(owner), artidata.location );
+            }
+            else
+            {
+              debug( "%3d: artifact '%s'%6d is ready to merge, but owner '%s' %d not online.",
+                ++counter, pad_ansi( arti ? OBJ_SHORT(arti) : "NULL", 35, TRUE).c_str(), list->vnum, get_player_name_from_pid(artidata.location), artidata.location );
+            }
+          }
+          else if( list->timer > curr_time )
+          {
+            debug( "%3d: artifact '%s'%6d's timer is later than curr_time.",
+              ++counter, pad_ansi( arti ? OBJ_SHORT(arti) : "NULL", 35, TRUE).c_str(), list->vnum, J_NAME(owner), artidata.location );
+            qry("UPDATE artifact_bind SET owner_pid = %d, timer = %ld WHERE vnum = %d", artidata.location, curr_time, list->vnum);
+          }
+        }
+      }
+      else
+      {
+        debug( "%3d: artifact '%s'%6d is not on a player atm.",
+          ++counter, pad_ansi( arti ? OBJ_SHORT(arti) : "NULL", 35, TRUE).c_str(), list->vnum );
+      }
+    }
+    else if( list->owner_pid > 0 )
+    {
+      logit(LOG_ARTIFACT, "event_artifact_check_bind_sql(): artifact '%s' %d is unowned, but bound.",
+        arti ? OBJ_SHORT(arti) : "NULL", list->vnum );
+      debug( "%3d: artifact '%s' %d is unowned, but bound.  Setting owner_pid = -1 and timer = 0.",
+        ++counter, pad_ansi( arti ? OBJ_SHORT(arti) : "NULL", 35, TRUE).c_str(), list->vnum );
+      qry("UPDATE artifact_bind SET owner_pid = -1, timer = 0 WHERE vnum = %d", list->vnum);
+    }
+    if( arti )
+    {
+      extract_obj( arti );
+    }
+
+    // Delete and move to next.
+    list->next = NULL;
+    delete list;
+    list = bindData;
+  }
+
+  debug( "event_artifact_check_bind_sql(): completed." );
+  // Checks every 7 minutes.
+  add_event( event_artifact_check_bind_sql, 7 * 60 * WAIT_SEC, NULL, NULL, NULL, 0, NULL, 0 );
+}
+
+// Resets the timers on artifacts that weren't properly bound.
+void arti_fixit_sql( P_char ch )
+{
+  int        pid, timer, curr_time;
+  int        vnum, location, counter;
+  time_t     new_time;
+  P_obj      arti;
+  MYSQL_RES *res;
+  MYSQL_ROW  row = NULL;
+
+  if( !qry("SELECT vnum, location FROM artifacts WHERE locType='OnPC'") )
+  {
+    send_to_char( "Failed SELECT command.\n\r", ch );
+    return;
+  }
+
+  res = mysql_store_result(DB);
+
+  if( mysql_num_rows(res) < 1 )
+  {
+    send_to_char( "Empty set; no artifacts on PC in table artifacts.\n\r", ch );
+    return;
+  }
+
+  new_time = time(NULL) + ARTIFACT_BLOOD_DAYS * SECS_PER_REAL_DAY;
+  curr_time = (int) time(NULL);
+
+  counter = 0;
+  // Walk through each arti that's on a PC.
+  while( (row = mysql_fetch_row(res)) )
+  {
+    vnum = atoi(row[0]);
+    location = atoi(row[1]);
+    sql_get_bind_data( vnum, &pid, &timer);
+    timer = curr_time;
+    arti = read_object( vnum, VIRTUAL );
+    // If the arti is on a different PC, we want to update artifact_bind AND increase the timer to max in artifacts.
+    if( location != pid )
+    {
+      sql_update_bind_data( vnum, &location, &timer);
+      qry("UPDATE artifacts SET timer = FROM_UNIXTIME(%lu) WHERE vnum = %d", new_time, vnum);
+      send_to_char_f( ch, "%3d) '%s'%6d - timer reset and now owned by '%s' %d.\n\r",
+        ++counter, pad_ansi( arti ? OBJ_SHORT(arti) : "NULL", 35, TRUE).c_str(), vnum, get_player_name_from_pid(location), location );
+    }
+  }
+  mysql_free_result(res);
+  if( counter == 0 )
+  {
+    send_to_char( "All artifact bind_data are up to date.\n\r", ch );
+  }
+}
+
+// Resets the 'soul' of the artifact of vnum == arg.
+// It resets the timer to 0 also, so it will merge asap.
+void arti_reset_sql( P_char ch, char *arg )
+{
+  int vnum;
+
+  if( !*arg || !strcmp(arg, "?") || !strcmp(arg, "help") )
+  {
+    send_to_char( "This command resets artifact bind data (The &+Lsoul&n of the artifact).\n\r", ch );
+    send_to_char( "It should only be used by those who know what they're doing.\n\r", ch );
+    send_to_char( "This will unmerge the soul from the owner of the artifact, but set the timer to 0,\n\r", ch );
+    send_to_char( "  so it will merge as soon as the owner triggers artifact_switch_check.\n\r", ch );
+    return;
+  }
+  if( GET_LEVEL(ch) < FORGER )
+  {
+    send_to_char( "Maybe you could ask someone of higher level to do this.\n\r", ch );
+    return;
+  }
+
+  if( !strcmp( "fixit", arg ) )
+  {
+    arti_fixit_sql( ch );
+    return;
+  }
+
+  if( isname( "all", arg ) )
+  {
+    if( GET_LEVEL(ch) < OVERLORD )
+    {
+      send_to_char( "Maybe you could ask someone of higher level to do this.\n\r", ch );
+      return;
+    }
+    if( !isname( "confirm", arg ) )
+    {
+      send_to_char( "&+RThis will reset all the artifacts' souls!  If you want to do this, it requires &+wconfirmation&+R.&n\n\r", ch );
+      send_to_char( "&=LRThis is probably a really bad idea!&n\n\r", ch );
+      return;
+    }
+    vnum = -1;
+  }
+  else if( (vnum = atoi(arg)) <= 0 )
+  {
+    send_to_char( "This command requires a vnum for an argument.\n\r", ch );
+    return;
+  }
+  if( vnum > 0 )
+  {
+    if( qry("UPDATE artifact_bind SET owner_pid = -1, timer = 0 WHERE vnum = %d", vnum) )
+    {
+      send_to_char_f( ch, "Artifact vnum %d has a hungry soul.\n\r", vnum );
+    }
+    else
+    {
+      send_to_char( "Update operation failed.\n\r", ch );
+    }
+  }
+  else
+  {
+    if( qry("UPDATE artifact_bind SET owner_pid = -1, timer = 0") )
+    {
+      send_to_char( "All artifacts' souls are hungry for an owner now.\n\r", ch );
+    }
+    else
+    {
+      send_to_char( "Update operation failed.\n\r", ch );
+    }
+  }
 }

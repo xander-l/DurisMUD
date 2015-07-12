@@ -640,6 +640,7 @@ void artifact_feed_to_min_sql( P_obj arti, int min_minutes );
 void artifact_timer_sql( int vnum, char *buffer );
 void artifact_update_location_sql( P_obj arti );
 void do_artifact_sql(P_char, char *, int);
+void event_artifact_check_bind_sql( P_char ch, P_char vict, P_obj obj, void * arg );
 void event_artifact_check_poof_sql( P_char ch, P_char vict, P_obj obj, void * arg );
 void event_artifact_wars_sql(P_char, P_char, P_obj, void*);
 bool get_artifact_data_sql( int vnum, P_arti artidata );
