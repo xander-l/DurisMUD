@@ -1381,80 +1381,80 @@ void command_interpreter(P_char ch, char *argument)
     {
       return;
     }
+  }
 
-    // If there's a current in the water to pull chars around.
-    if( world[ch->in_room].current_speed && !IS_TRUSTED(ch) )
+  // If there's a current in the water to pull chars around.
+  if( world[ch->in_room].current_speed && !IS_TRUSTED(ch) )
+  {
+    // If there's water and they're in it and not calling on Gods for help.
+    if( IS_WATER_ROOM(ch->in_room) && !IS_AFFECTED(ch, AFF_LEVITATE)
+      && !IS_AFFECTED(ch, AFF_FLY) && cmd != CMD_PETITION )
     {
-      // If there's water and they're in it and not calling on Gods for help.
-      if( IS_WATER_ROOM(ch->in_room) && !IS_AFFECTED(ch, AFF_LEVITATE)
-        && !IS_AFFECTED(ch, AFF_FLY) && cmd != CMD_PETITION )
+      if( number(1, 101) < world[ch->in_room].current_speed )
       {
-        if( number(1, 101) < world[ch->in_room].current_speed )
+        current = world[ch->in_room].current_direction;
+        if( CAN_GO(ch, current) )
         {
-          current = world[ch->in_room].current_direction;
-          if( CAN_GO(ch, current) )
-          {
-            send_to_char("The current sweeps you away!\r\n", ch);
-            do_move( ch, 0, exitnumb_to_cmd(current) );
-            return;
-          }
+          send_to_char("The current sweeps you away!\r\n", ch);
+          do_move( ch, 0, exitnumb_to_cmd(current) );
+          return;
         }
       }
     }
-    if (IS_AFFECTED2(ch, AFF2_CASTING))
-    {
-      /* This is all using the old event data stuff, ch->events is no longer used.
-       *   It has been replaced by P_nevent, ch->nevents, LOOP_EVENTS_CH, ev->func == event_spellcast
-       * Since we haven't seen it in a while, and ch->events is always NULL, no point in updating this.
-      // check for spellcast loop bug!!!!!
-      P_event  ev;
+  }
+  if (IS_AFFECTED2(ch, AFF2_CASTING))
+  {
+    /* This is all using the old event data stuff, ch->events is no longer used.
+     *   It has been replaced by P_nevent, ch->nevents, LOOP_EVENTS_CH, ev->func == event_spellcast
+     * Since we haven't seen it in a while, and ch->events is always NULL, no point in updating this.
+    // check for spellcast loop bug!!!!!
+    P_event  ev;
 
-      // This is POSSIBLY a spellcast event in the wrong place.  Instead of
-      //   just nuking it, see how long it has.  If more then 5 pulses, then nuke it.
-      LOOP_EVENTS( ev, ch->events )
+    // This is POSSIBLY a spellcast event in the wrong place.  Instead of
+    //   just nuking it, see how long it has.  If more then 5 pulses, then nuke it.
+    LOOP_EVENTS( ev, ch->events )
+    {
+      if( IS_PC(ch) && (ev->type == EVENT_SPELLCAST) && (event_time(ev, T_PULSES) > 5) )
       {
-        if( IS_PC(ch) && (ev->type == EVENT_SPELLCAST) && (event_time(ev, T_PULSES) > 5) )
-        {
-          statuslog(AVATAR, "Spellcast bug on %s: spell aborted.", J_NAME(ch));
-          StopCasting(ch);
-        }
+        statuslog(AVATAR, "Spellcast bug on %s: spell aborted.", J_NAME(ch));
+        StopCasting(ch);
       }
-      */
-      if( cmd != CMD_PETITION && cmd != CMD_RETURN )
+    }
+    */
+    if( cmd != CMD_PETITION && cmd != CMD_RETURN )
+    {
+      send_to_char("You're busy spellcasting!\r\n", ch);
+      if( IS_TRUSTED(ch) )
+        send_to_char("&+YTry 'return' or you can petition other gods for help if you're stuck.&n\r\n", ch);
+      else
+        send_to_char("If you think you're stuck, you can still petition.\r\n", ch);
+      return;
+    }
+  }
+  if( IS_AFFECTED(ch, AFF_KNOCKED_OUT) )
+  {
+    if( (STAT_MASK & cmd_info[cmd].minimum_position) != STAT_DEAD )
+    {
+      // Channel spell is multi-cast spell to create an avatar mob.
+      if( !(affected_by_spell(ch, SPELL_CHANNEL) && cmd == CMD_SAY) )
       {
-        send_to_char("You're busy spellcasting!\r\n", ch);
-        if( IS_TRUSTED(ch) )
-          send_to_char("&+YTry 'return' or you can petition other gods for help if you're stuck.&n\r\n", ch);
-        else
-          send_to_char("If you think you're stuck, you can still petition.\r\n", ch);
+        send_to_char("Being knocked unconscious strictly limits what you can do.\r\n", ch);
         return;
       }
     }
-    if( IS_AFFECTED(ch, AFF_KNOCKED_OUT) )
+  }
+ /* Check for ansi characters, mortals not allowed to use them to put
+  * color in says, shouts, gossips, titles, etc. SAM 6-94
+  */
+  // mortals may never use the magical newline
+  if( !IS_TRUSTED(ch) )
+  {
+    for (ch_ptr = argument; *ch_ptr != '\0'; ch_ptr++)
     {
-      if( (STAT_MASK & cmd_info[cmd].minimum_position) != STAT_DEAD )
+      if( *ch_ptr == '&' && *(ch_ptr + 1) == 'L' )
       {
-        // Channel spell is multi-cast spell to create an avatar mob.
-        if( !(affected_by_spell(ch, SPELL_CHANNEL) && cmd == CMD_SAY) )
-        {
-          send_to_char("Being knocked unconscious strictly limits what you can do.\r\n", ch);
-          return;
-        }
-      }
-    }
-   /* Check for ansi characters, mortals not allowed to use them to put
-    * color in says, shouts, gossips, titles, etc. SAM 6-94
-    */
-    // mortals may never use the magical newline
-    if( !IS_TRUSTED(ch) )
-    {
-      for (ch_ptr = argument; *ch_ptr != '\0'; ch_ptr++)
-      {
-        if( *ch_ptr == '&' && *(ch_ptr + 1) == 'L' )
-        {
-          send_to_char("No mortal may posess the newline!\r\n", ch);
-          return;
-        }
+        send_to_char("No mortal may posess the newline!\r\n", ch);
+        return;
       }
     }
 
