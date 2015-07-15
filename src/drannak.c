@@ -537,10 +537,12 @@ bool intercept_defensiveproc(P_char merc, P_char hitter)
   return TRUE;
 }
 
+// Modified this so it doesn't stack and lasts PULSE_VIOLENCE * 2.
 bool minotaur_race_proc(P_char ch, P_char victim)
 {
   int num, room = ch->in_room, save, pos, cmd;
   int class_chance = 0;
+  struct affected_type af;
 
   switch(ch->player.m_class)
   {
@@ -564,47 +566,36 @@ bool minotaur_race_proc(P_char ch, P_char victim)
       break;
   }
 
-  if (!IS_FIGHTING(ch) ||
-      !(victim = ch->specials.fighting) ||
-      !IS_ALIVE(victim) ||
-      !(room) ||
-      number(0, class_chance)) // 3%(15)
-        return false; 
+  if( !(victim = ch->specials.fighting) || !IS_ALIVE(victim)
+    || !(room) || number(0, class_chance)) // 3% for default (15)
+  {
+    return FALSE;
+  }
 
-  struct affected_type af;
-
+  // Stacks 0 times.
+  if( affected_by_spell_count(ch, TAG_MINOTAUR_RAGE) > 0 )
+  {
+    return FALSE;
+  }
 
   act("&+LAs you strike $N&+L, the power of your &+rance&+Lstor&+rs&+L fill you with &+rR&+RAG&+RE&+L!&n",
       TRUE, ch, 0, victim, TO_CHAR);
   act("&+LAs $n strikes $N&+L, the power of $n's &+rance&+Lstor&+rs&+L fill them with &+rR&+RAG&+RE&+L!&n",
       TRUE, ch, 0, victim, TO_NOTVICT);
 
-  if(affected_by_spell_count(ch, TAG_MINOTAUR_RAGE) < 6)
-  {
-    memset(&af, 0, sizeof(af));
-    af.type = TAG_MINOTAUR_RAGE;
-    af.duration = 130;
-    af.flags = AFFTYPE_SHORT;
-    affect_to_char(ch, &af);
-  }
-
   memset(&af, 0, sizeof(af));
-  af.type = TAG_INNATE_TIMER;
+  af.type = TAG_MINOTAUR_RAGE;
+  af.flags = AFFTYPE_SHORT;
+  af.duration = 2 * PULSE_VIOLENCE;
+  af.modifier = -1;
+
   af.location = APPLY_COMBAT_PULSE;
-  af.modifier = -1;
-  af.duration = 130;
-  af.flags = AFFTYPE_SHORT;
   affect_to_char(ch, &af);
 
-  memset(&af, 0, sizeof(af));
-  af.type = TAG_INNATE_TIMER;
   af.location = APPLY_SPELL_PULSE;
-  af.modifier = -1;
-  af.duration = 130;
-  af.flags = AFFTYPE_SHORT;
   affect_to_char(ch, &af);
 
-
+  return TRUE;
 }
 
 static FILE *aliaslist;

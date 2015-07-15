@@ -2622,7 +2622,7 @@ void do_stat(P_char ch, char *argument, int cmd)
     fragnum /= 100;
 
     sprintf(buf, "&+YPulse: &N%4d&+Y  Current Pulse: &N%4d&+Y  Dam Multiplier: &N%1.2f  &+YFrags:&n %+.02f\n",
-      k->specials.base_combat_round, k->specials.combat_tics,
+      (int)k->specials.base_combat_round, k->specials.combat_tics,
       k->specials.damage_mod, fragnum );
     strcat(o_buf, buf);
 

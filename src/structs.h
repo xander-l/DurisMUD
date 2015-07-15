@@ -1312,7 +1312,7 @@ struct char_special_data {
   unsigned int act2;            /* extra toggles - Zod                     */
   unsigned int act3;            /* achievement flags - Drannak             */
 
-  int           base_combat_round;
+  float         base_combat_round;
   int           combat_tics;
   float         damage_mod;
 

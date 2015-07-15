@@ -1060,7 +1060,7 @@ void do_fire(P_char ch, char *argument, int cmd)
   }
 
   // Delay is a multiplier for the combat pulse of ch.
-  CharWait( ch, WAIT_SEC + delay * ch->specials.base_combat_round );
+  CharWait( ch, WAIT_SEC + delay * (int)ch->specials.base_combat_round );
 
   // Shadow archery allows one to stay hidden.
   if( IS_AFFECTED(ch, AFF_HIDE) )

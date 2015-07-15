@@ -119,8 +119,8 @@ const struct race_names race_names_table[LAST_RACE + 2] = {
   {"Snake", "Snake", "&+gS&+Gn&+ga&+Gk&+ge&n", "RS"},
   {"Insect", "Insect", "&+wI&+Ln&+ws&+Le&+wc&+Lt&n", "I"},
   {"Arachnid", "Arachnid", "&+wA&+Lr&+wa&+Lc&+wh&+Ln&+wi&+Ld&n", "AS"},
-  {"Aquatic Animal", "Aquatic Animal", "&+bAquatic Animal&n", "F"}, // 60
-  {"Winged Animal", "Winged Animal", "&+WWinged Animal&n", "B"},
+  {"Aquatic Animal", "AquaticAnimal", "&+bAquatic Animal&n", "F"}, // 60
+  {"Winged Animal", "WingedAnimal", "&+WWinged Animal&n", "B"},
   {"Quadruped", "Quadruped", "&+yQuadruped&n", "AE"},
   {"Primate", "Primate", "&+yP&+Lr&+yi&+Lm&+ya&+Lt&+ye&n", "AA"},
   {"Humanoid", "Humanoid", "&+LH&+yu&+Lm&+ya&+Ln&+yo&+Li&+yd&n", "H"},

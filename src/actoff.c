@@ -1826,8 +1826,7 @@ bool circle(P_char ch, P_char victim)
   act("$n disappears from your vision for a moment, suddenly appearing behind you; you fail to counter $s advance...", FALSE, ch, 0,
       victim, TO_VICT);
   link_char(ch, victim, LNK_CIRCLING);
-  add_event(event_uncircle, (tch ? 1 : 3) * (ch->specials.base_combat_round + 1),
-      ch, victim, 0, 0, 0, 0);
+  add_event(event_uncircle, (tch ? 1 : 3) * ((int)ch->specials.base_combat_round + 1), ch, victim, 0, 0, 0, 0);
   return 1;
 }
 /* old circle, once more commented out
@@ -5260,7 +5259,7 @@ bool backstab(P_char ch, P_char victim)
         {
           stop_destroying(victim);
         }
-        ch->specials.combat_tics = ch->specials.base_combat_round;
+        ch->specials.combat_tics = (int)ch->specials.base_combat_round;
       }
       else
       {
@@ -5345,11 +5344,11 @@ void attack(P_char ch, P_char victim)
 
     mobact_rescueHandle(victim, ch);
 
-    ch->specials.combat_tics = ch->specials.base_combat_round;
+    ch->specials.combat_tics = (int)ch->specials.base_combat_round;
 
     if( !IS_FIGHTING(victim) )
     {
-      victim->specials.combat_tics = victim->specials.base_combat_round;
+      victim->specials.combat_tics = (int)victim->specials.base_combat_round;
     }
 
 #ifndef NEW_COMBAT
@@ -9006,8 +9005,7 @@ bool flank(P_char ch, P_char victim)
       victim, TO_VICT);
   link_char(ch, victim, LNK_FLANKING);
   CharWait(ch, PULSE_VIOLENCE * 1);
-  add_event(event_unflank, (tch ? 1 : 3) * (ch->specials.base_combat_round + 1),
-      ch, victim, 0, 0, 0, 0);
+  add_event(event_unflank, (tch ? 1 : 3) * ((int)ch->specials.base_combat_round + 1), ch, victim, 0, 0, 0, 0);
   return TRUE;
 }
 
@@ -9582,10 +9580,10 @@ void gaze(P_char ch, P_char victim)
         act("&+yThe world ceases to be as&n $n &+yturns $s &+Leyeless gaze&n at you.",
             FALSE, ch, 0, victim, TO_VICT);
       }
-      
+
       set_short_affected_by(victim, SKILL_GAZE, (int) (PULSE_VIOLENCE * 1.5));
       set_short_affected_by(ch, SKILL_BASH, (int) (PULSE_VIOLENCE * 3.0));
-      victim->specials.combat_tics = victim->specials.base_combat_round;
+      victim->specials.combat_tics = (int)victim->specials.base_combat_round;
 
       if(IS_NPC(victim))
         // they can't do any cmds anyway, so lag them so they can stack
@@ -9844,7 +9842,7 @@ void restrain(P_char ch, P_char victim)
       af.duration = (PULSE_VIOLENCE * 2);
       affect_to_char_with_messages(victim, &af, "&+LThe &+rminions&+L finally release their hold on you!", "$n &+Lfinally breaks free from the &+rminions &+Lrestraining them.");
       set_short_affected_by(ch, SKILL_BASH, (int) (PULSE_VIOLENCE * 3.0));
-      victim->specials.combat_tics = victim->specials.base_combat_round;
+      victim->specials.combat_tics = (int)victim->specials.base_combat_round;
       //CharWait(victim, (int) (2.0 * PULSE_VIOLENCE));
 
       // They can't do any cmds anyway, so lag them so they can stack

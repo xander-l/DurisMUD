@@ -945,7 +945,7 @@ void do_rage(P_char ch, char *argument, int cmd)
   af.duration = dura;
   affect_to_char(ch, &af);
 
-  set_short_affected_by(ch, SKILL_RAGE_REORIENT, (dura * 3 ) / 2);
+  set_short_affected_by(ch, SKILL_RAGE_REORIENT, dura + (5 * WAIT_SEC) / 2);
 }
 
 /*

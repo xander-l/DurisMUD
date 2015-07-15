@@ -5434,10 +5434,9 @@ void do_score(P_char ch, char *argument, int cmd)
 
   if(IS_PC(ch))
   {
-  
-        sprintf(buf, "&+YCombat Pulse: &N%4d&+Y &+MSpell Pulse&n:  %.2f&+Y ",
+    sprintf(buf, "&+YCombat Pulse: &N%4d&+Y &+MSpell Pulse&n:  %.2f&+Y ",
+      (int)ch->specials.base_combat_round, spell_pulse_data[GET_RACE(ch)] * SPELL_PULSE(ch) );
 //            ch->specials.base_combat_round, ch->points.spell_pulse);
-         ch->specials.base_combat_round, spell_pulse_data[GET_RACE(ch)] * SPELL_PULSE(ch) );
 
 
 

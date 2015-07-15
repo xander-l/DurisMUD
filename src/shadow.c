@@ -17,9 +17,9 @@ struct char_special_data {
   ulong act;                    /* flags for NPC behavior                  */
   ulong act2;                   /* extra toggles - Zod                     */
 
-  int		base_combat_round;
+  float base_combat_round;
   int		combat_tics;
-  float		damage_mod;
+  float	damage_mod;
 
   ush_int guild;                /* which guild? 			   */
   int guild_status;             /* rank, how you enter, etc.    	   */
@@ -587,7 +587,7 @@ void spell_locate_object(int level, P_char ch, char *arg)
    //if( IS_AFFECTED5(opponent, AFF5_GRAPPLED) && (!IS_AFFECTED5(ch, AFF5_GRAPPLER ) )){
    //        act("$N is standing in your way.", FALSE, ch, 0, 0, TO_CHAR);
    //                act("$n tries to attack but can't reach!", FALSE, ch, 0, 0, TO_ROOM);
-   //                      ch->specials.combat_tics = ch->specials.base_combat_round;
+   //                      ch->specials.combat_tics = (int)ch->specials.base_combat_round;
 
    //                        if (IS_FIGHTING(ch))
    //                                      stop_fighting(ch);
@@ -599,7 +599,7 @@ void spell_locate_object(int level, P_char ch, char *arg)
    //if(IS_AFFECTED5(ch, AFF5_GRAPPLED)){
    //        act("You try to break free but the grip is too strong!", FALSE, ch, 0, 0, TO_CHAR);
    //                act("$n tries to break free but the grid is too strong!", FALSE, ch, 0, 0, TO_ROOM);
-   //                  ch->specials.combat_tics = ch->specials.base_combat_round;
+   //                  ch->specials.combat_tics = (int)ch->specials.base_combat_round;
    //                           continue;
    //                               }
 
@@ -608,7 +608,7 @@ void spell_locate_object(int level, P_char ch, char *arg)
    //          //act("You continue the arm lock!", FALSE, ch, 0, 0, TO_CHAR);
    //      //        //act("$n continues locking $s opponents arms", FALSE, ch, 0, 0, TO_ROOM);
    //      //          }
-   //      //            ch->specials.combat_tics = ch->specials.base_combat_round;
+   //      //            ch->specials.combat_tics = (int)ch->specials.base_combat_round;
    //      //                       continue;
    //      //                           }
    //    //

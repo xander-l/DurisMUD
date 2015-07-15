@@ -54,6 +54,7 @@ extern P_index mob_index;
 extern P_index obj_index;
 extern P_obj object_list;
 extern P_room world;
+extern const int top_of_world;
 extern const struct race_names race_names_table[];
 extern const struct class_names class_names_table[];
 extern char *coin_names[];
@@ -79,9 +80,9 @@ extern float spell_pulse_data[LAST_RACE + 1];
 
 struct mm_ds *dead_affect_pool = NULL;
 struct mm_ds *dead_room_affect_pool = NULL;
-float    combat_by_class[CLASS_COUNT + 1][2];
-float    combat_by_race[LAST_RACE + 1][3];
-float    class_hitpoints[CLASS_COUNT + 1];
+float combat_by_class[CLASS_COUNT + 1][2];
+float combat_by_race[LAST_RACE + 1][3];
+float class_hitpoints[CLASS_COUNT + 1];
 struct mm_ds *dead_link_pool = NULL;
 struct mm_ds *dead_obj_affect_pool = NULL;
 
@@ -105,7 +106,7 @@ struct link_description link_types[LNK_MAX + 1];
 
 int damroll_cap;
 int hitroll_cap;
-
+float pulse_all;
 
 /*
  * complete rewriting of the affect handler routines.  Reason?  Several
@@ -1030,8 +1031,9 @@ void apply_affs(P_char ch, int mode)
   ch->points.move_reg = TmpAffs.move_reg;
   ch->points.mana_reg = TmpAffs.mana_reg;
 
+/* Original:
   // Using value defined in SPELL_PULSE macro.
-/*  switch((int)TmpAffs.spell_pulse)
+  switch((int)TmpAffs.spell_pulse)
   {
     case 5:
     case 4:
@@ -1071,6 +1073,7 @@ void apply_affs(P_char ch, int mode)
 */
   ch->points.spell_pulse = TmpAffs.spell_pulse;
 
+/* Original:
   switch((int)TmpAffs.combat_pulse)
   {
     case 5:
@@ -1113,6 +1116,7 @@ void apply_affs(P_char ch, int mode)
       TmpAffs.combat_pulse = 0;
       break;
   }
+*/
   ch->points.combat_pulse = TmpAffs.combat_pulse;
 
   if (mode)
@@ -1702,9 +1706,11 @@ void all_affects(P_char ch, int mode)
 char affect_total(P_char ch, int kill_ch)
 {
   P_char killer;
-  
-  if (!ch)
+
+  if( !ch )
+  {
     return FALSE;
+  }
 
   bzero(&TmpAffs, sizeof(struct hold_data));
 
@@ -1723,45 +1729,39 @@ char affect_total(P_char ch, int kill_ch)
                                  * now add them all back
                                  */
 
-  if(kill_ch &&
-    (GET_HIT(ch) < -10) &&
-    (GET_STAT(ch) != STAT_DEAD) &&
-    (IS_NPC(ch) ||
-    !ch->desc ||
-    (ch->desc &&
-    (ch->desc->connected == CON_PLYNG))))
+  if( kill_ch && (GET_HIT(ch) < -10) && (GET_STAT(ch) != STAT_DEAD)
+    && (IS_NPC(ch) || !ch->desc || (ch->desc && (ch->desc->connected == CON_PLYNG))) )
   {
     statuslog(ch->player.level, "%s killed in %d (%d hits) (affect_total)",
-              GET_NAME(ch),
-              ((ch->in_room == NOWHERE) ? -1 : world[ch->in_room].number),
-              GET_HIT(ch));
-    logit(LOG_DEATH, "%s killed in %d (%d hits) (affect_total)", GET_NAME(ch),
-          (ch->in_room == NOWHERE) ? -1 : world[ch->in_room].number,
-          GET_HIT(ch));
+      GET_NAME(ch), ROOM_VNUM(ch->in_room), GET_HIT(ch));
+    logit(LOG_DEATH, "%s killed in %d (%d hits) (affect_total)",
+      GET_NAME(ch), ROOM_VNUM(ch->in_room), GET_HIT(ch));
 
     // No more vit death or zerk death to avoid frags
-    for (killer = world[ch->in_room].people; killer; killer = killer->next_in_room)
+    for( killer = world[ch->in_room].people; killer; killer = killer->next_in_room )
     {
-      if (killer && 
-	  killer->specials.fighting &&
-	  killer->specials.fighting == ch &&
-	  killer->in_room == ch->in_room &&
-	  GET_RACEWAR(killer) != GET_RACEWAR(ch))
+      if( killer->specials.fighting && killer->specials.fighting == ch
+        && killer->in_room == ch->in_room && GET_RACEWAR(killer) != GET_RACEWAR(ch) )
       {
         die(ch, killer);
-	return TRUE;
+        return TRUE;
       }
     }
-    
+
     die(ch, ch);
     return TRUE;
   }
 
-  ch->specials.base_combat_round = (int) (combat_by_race[GET_RACE(ch)][0]); //original
-  ch->specials.base_combat_round += (int)(get_property("damage.pulse.class.all", 2)); //original
-  
+  // Almost the same as original, just changed get_prop... to pulse_all for speed.
+  ch->specials.base_combat_round = combat_by_race[GET_RACE(ch)][0] + pulse_all;
+
+  /* Original:
+  ch->specials.base_combat_round = (int)(combat_by_race[GET_RACE(ch)][0]);
+  ch->specials.base_combat_round += (int)(get_property("damage.pulse.class.all", 2));
+  */
+
 /*
-* This is the new style combat calculation - Drannak
+ * This is the new style combat calculation - Drannak
   ch->specials.base_combat_round = (200 - ch->base_stats.Agi);
   ch->specials.base_combat_round *= .13;
   if(GET_C_AGI(ch) > 100) //diminishing returns
@@ -1785,18 +1785,19 @@ char affect_total(P_char ch, int kill_ch)
 */
   ch->specials.damage_mod = combat_by_race[GET_RACE(ch)][1];
 
+  // Add class modifiers for pulse and damage.
   if (IS_PC(ch))
   {
     if (IS_MULTICLASS_PC(ch))
     {
-      ch->specials.base_combat_round += (int) MIN(combat_by_class[flag2idx(ch->player.m_class)][0],
-                                                 combat_by_class[flag2idx(ch->player.secondary_class)][0]);
+      ch->specials.base_combat_round += MIN(combat_by_class[flag2idx(ch->player.m_class)][0],
+        combat_by_class[flag2idx(ch->player.secondary_class)][0]);
       ch->specials.damage_mod *= MAX(combat_by_class[flag2idx(ch->player.m_class)][1],
-                                    combat_by_class[flag2idx(ch->player.secondary_class)][1]);
-    } 
+        combat_by_class[flag2idx(ch->player.secondary_class)][1]);
+    }
     else
     {
-      ch->specials.base_combat_round += (int) (combat_by_class[flag2idx(ch->player.m_class)][0]);
+      ch->specials.base_combat_round += (combat_by_class[flag2idx(ch->player.m_class)][0]);
       ch->specials.damage_mod *= combat_by_class[flag2idx(ch->player.m_class)][1];
     }
   }
@@ -1813,18 +1814,27 @@ char affect_total(P_char ch, int kill_ch)
     }
   }
 
+/* For testing.. just displays the base/mod/new for combat pulse.
+  if( IS_PC(ch) ) debug( "Base: %.2f, Mod: %.2f, New: %.2f, Final: %d.",
+    ch->specials.base_combat_round, COMBAT_PULSE(ch), ch->specials.base_combat_round * COMBAT_PULSE(ch),
+    (int)(ch->specials.base_combat_round * COMBAT_PULSE(ch) + .5) );
+*/
+  // Multiply it by the pulse modifier (and add .5 for the rounding).
+  ch->specials.base_combat_round = ch->specials.base_combat_round * COMBAT_PULSE(ch) + .5;
+  /* Original:
   ch->specials.base_combat_round += ch->points.combat_pulse;
+  */
 
   if (innate_two_daggers(ch))
-    ch->specials.base_combat_round += (int) get_property("innate.dualDaggers.pulse", -3.0);
+    ch->specials.base_combat_round += get_property("innate.dualDaggers.pulse", -3.0);
 
   if (IS_AFFECTED2(ch, AFF2_FLURRY))
-    ch->specials.base_combat_round = (int)(get_property("innate.flurry.pulse", .70) * ch->specials.base_combat_round);
+    ch->specials.base_combat_round = (get_property("innate.flurry.pulse", .70) * ch->specials.base_combat_round);
 
   if( GET_CLASS(ch, CLASS_REAVER) )
     apply_reaver_mods(ch);
 
-  ch->specials.base_combat_round = MAX(3, ch->specials.base_combat_round);
+  ch->specials.base_combat_round = MAX(3.0, ch->specials.base_combat_round);
 
   if (IS_PC(ch) && GET_CHAR_SKILL(ch, SKILL_MINE) >= 30)
 	  ch->specials.affected_by5 |= AFF5_MINE; /* high enough skill in forge grants miner's sight */
@@ -3039,6 +3049,9 @@ void update_damage_data()
   combat_by_class[0][0] = 0;
   combat_by_race[0][1] = 0;
   combat_by_race[0][0] = 0;
+
+  // This pulse-mod is added to the total pulses / round of each character in game.
+  pulse_all = get_property("damage.pulse.class.all", 1.0);
 }
 
 //---------------------------------------------------------------------------------

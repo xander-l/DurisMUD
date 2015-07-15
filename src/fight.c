@@ -6657,7 +6657,7 @@ int anatomy_strike(P_char ch, P_char victim, int msg, struct damage_messages *me
         FALSE, ch, 0, victim, TO_VICT);
       act("$n surprises $N with a blow to $S back, leaving $M momentarily confused.",
         FALSE, ch, 0, victim, TO_NOTVICT);
-      victim->specials.combat_tics = victim->specials.base_combat_round;
+      victim->specials.combat_tics = (int)victim->specials.base_combat_round;
       goto regular;
     case 3:
       if( IS_HUMANOID(victim) )
@@ -7356,6 +7356,7 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
     dam *= get_property("damage.modifier.divineforce", 1.250);
   }
 
+  /* Just commenting this out.. it's handled down below in minotaur_race_proc().
   // Dropped this to 30sec and made it not stack.
   if( (GET_RACE(victim) == RACE_MINOTAUR) && !number(0, 25) && !affected_by_spell(ch, TAG_MINOTAUR_RAGE) )
   {
@@ -7372,14 +7373,14 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
     affect_to_char(victim, &af);
 
     memset(&af, 0, sizeof(af));
-    af.type = TAG_INNATE_TIMER;
+    af.type = TAG_MINOTAUR_RAGE;
     af.location = APPLY_SPELL_PULSE;
     af.modifier = -1;
     af.duration = 30;
     af.flags = AFFTYPE_SHORT;
     affect_to_char(victim, &af);
-
   }
+  */
 
   // Replaced with innate intercept: intercept_defensiveproc below.
   if( has_innate( victim, INNATE_INTERCEPT ) && intercept_defensiveproc(victim, ch) )
@@ -7555,9 +7556,9 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
     return TRUE;
   }
 
-  if( (GET_RACE(ch) == RACE_MINOTAUR) && minotaur_race_proc(ch, victim) )
+  if( GET_RACE(ch) == RACE_MINOTAUR )
   {
-    return TRUE;
+    minotaur_race_proc(ch, victim);
   }
 
   if( affected_by_spell(ch, ACH_YOUSTRAHDME) && IS_UNDEADRACE(victim)
@@ -9016,6 +9017,7 @@ int calculate_attacks(P_char ch, int attacks[])
       ADD_ATTACK(PRIMARY_WEAPON);
     }
 
+/* No longer giving minos an extra attack.
     //loop through affects - Drannak
     struct affected_type *findaf, *next_af;  //initialize affects
 
@@ -9025,7 +9027,7 @@ int calculate_attacks(P_char ch, int attacks[])
       if(findaf && findaf->type == TAG_MINOTAUR_RAGE)
         ADD_ATTACK(PRIMARY_WEAPON);
     }
-
+*/
 
     if(GET_SPEC(ch, CLASS_ANTIPALADIN, SPEC_VIOLATOR))
     {
@@ -9382,7 +9384,7 @@ void perform_violence(void)
     }
     else
     {
-      ch->specials.combat_tics = ch->specials.base_combat_round;
+      ch->specials.combat_tics = (int)ch->specials.base_combat_round;
 #ifdef SIEGE_ENABLED
       multihit_siege( ch );
 #endif
@@ -9426,10 +9428,10 @@ void perform_violence(void)
     }
     else
     {
-      ch->specials.combat_tics = ch->specials.base_combat_round;
+      ch->specials.combat_tics = (int)ch->specials.base_combat_round;
       if (affected_by_spell(ch, SKILL_WHIRLWIND))
       {
-        GET_VITALITY(ch) -=(int)(get_property("skill.whirlwind.movement.drain", 10));
+        GET_VITALITY(ch) -= get_property("skill.whirlwind.movement.drain", 10);
         if( GET_VITALITY(ch) > 0 )
         {
           ch->specials.combat_tics -= (ch->specials.combat_tics >> 1);
