@@ -361,7 +361,7 @@ bool nokill(P_char, P_char);
 bool should_not_kill(P_char, P_char);
 void attack(P_char, P_char);
 bool backstab(P_char, P_char);
-void bash(P_char, P_char);
+void bash(P_char ch, P_char victim, bool _debug = FALSE);
 void bodyslam(P_char, P_char);
 void buck(P_char);
 void do_dreadnaught(P_char, char *, int);

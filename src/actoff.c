@@ -3067,6 +3067,12 @@ void do_bash(P_char ch, char *argument, int cmd)
     return;
   }
 
+  if( IS_TRUSTED(ch) && !strcmp( argument, "debug") )
+  {
+    bash(ch, NULL, TRUE);
+    return;
+  }
+
   victim = ParseTarget(ch, argument);
 
   if( !IS_ALIVE(victim) )
@@ -5515,8 +5521,9 @@ int good_for_skewering(P_obj obj)
      }
 }
 
-void bash(P_char ch, P_char victim)
+void bash(P_char ch, P_char victim, bool _debug )
 {
+  static bool DEBUG = TRUE;
   float percent_chance, modifier;
   int learned, dmg, ch_size, vict_size, skl, rolled;
   int skewer = GET_CHAR_SKILL(ch, SKILL_SKEWER);
@@ -5526,6 +5533,11 @@ void bash(P_char ch, P_char victim)
 
   if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
   {
+    if( ch && IS_TRUSTED(ch) && _debug )
+    {
+      DEBUG = !DEBUG;
+      debug( "bash: DEBUG turned %s.", DEBUG ? "ON" : "OFF" );
+    }
     return;
   }
 
@@ -5816,7 +5828,10 @@ if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
 
 
   rolled = number(1, 100);
-  debug("bash: (%s) bashing (%s) final percentage (%2.0f).", GET_NAME(ch), GET_NAME(victim), percent_chance);
+  if( DEBUG )
+  {
+    debug("bash: (%s) bashing (%s) final percentage (%2.0f).", GET_NAME(ch), GET_NAME(victim), percent_chance);
+  }
 
   if( !notch_skill(ch, SKILL_BASH, get_property("skill.notch.offensive", 7))
     && percent_chance < rolled )
