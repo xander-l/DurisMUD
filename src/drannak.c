@@ -1479,7 +1479,7 @@ void do_conjure(P_char ch, char *argument, int cmd)
     }
 
     // Set up stats - chance reflects how good the minion is. 100 cha -> avg 50 chance.
-    chance = number(2, GET_C_CHA(ch)/2);
+    chance = dice(2, GET_C_CHA(ch)/2);
 //    debug("Conjure chance %d", chance);
 
     if( chance > 70 )
