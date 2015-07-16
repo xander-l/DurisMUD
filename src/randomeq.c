@@ -787,8 +787,6 @@ bool check_random_drop(P_char ch, P_char mob, bool piece)
    *   with the equation in this format.
    */
   chance = (GET_C_LUK(ch) / luck_divisor) * char_mob_lvl_div + (50. - 100./luck_divisor);
-send_to_char_f( ch, "char_lvl: %.0f, mob_lvl: %.0f, ", char_lvl, mob_lvl ); // PENIS
-send_to_char_f( ch, "char_mob_lvl_div: %.2f, chance = %.2f, ", char_mob_lvl_div, chance ); // PENIS
   // Add up to or subtract up to 5 percentage points (rl luck).
   chance += (float)number(-5, 5);
 
@@ -808,7 +806,6 @@ send_to_char_f( ch, "char_mob_lvl_div: %.2f, chance = %.2f, ", char_mob_lvl_div,
     chance *= get_property("random.drop.modifier.hardcore", 1.500f);
   }
 
-send_to_char_f( ch, "Chance2: %.2f\n", chance ); // PENIS
   // chance currently somewhere around 45-80% (% = min for 100 luck equal lvls above 25 non-elite,
   //   and 80% = max for 100 luck equal lvls below 26 elite mob).
   // 45-80% * {10|3} / 100 = {4.5-8% for piece|1.35-2.4% for equipment}
@@ -824,7 +821,6 @@ send_to_char_f( ch, "Chance2: %.2f\n", chance ); // PENIS
 /* Disabled since no trophy atm.
   if (chance >= number(1, 100 + (trophy_mod * 2)))
 */
-send_to_char_f( ch, "final percentage: %.2f ~~ %d.\n", chance + .5, (int)(chance + .5) ); // PENIS
   // Add .5 for rounding fix to floor-function type-casting.
   if( (int)(chance + .5) >= number(1, 100) )
     return TRUE;
