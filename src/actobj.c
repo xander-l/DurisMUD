@@ -26,6 +26,7 @@
 #include "sql.h"
 #include "ctf.h"
 #include "tradeskill.h"
+#include "vnum.obj.h"
 
 /*
  * external variables
@@ -5263,7 +5264,7 @@ bool find_chance(P_char ch)
 
 bool is_salvageable(P_obj temp)
 {
-  if( GET_OBJ_VNUM(temp) == 1252 )
+  if( GET_OBJ_VNUM(temp) == VOBJ_RANDOM_ARMOR )
   {
     return FALSE;
   }
@@ -6340,7 +6341,7 @@ void do_salvage(P_char ch, char *argument, int cmd)
     {
       int recipenumber = obj_index[temp->R_num].virtual_number;
 
-      if( recipenumber == 1252 || recipenumber == 1253 || recipenumber == 1254 )
+      if( recipenumber == VOBJ_RANDOM_ARMOR || recipenumber == VOBJ_RANDOM_THRUSTED || recipenumber == VOBJ_RANDOM_WEAPON )
       {
         debug( "do_salvage: player: '%s' Not creating recipe for trash item %d.", J_NAME(ch), recipenumber );
         if( scitools )

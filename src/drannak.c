@@ -845,9 +845,9 @@ void random_recipe(P_char ch, P_char victim)
   if( result < chance )
   {
     P_obj reward = random_zone_item(ch);
-    if( obj_index[reward->R_num].virtual_number == 1252 ||
-        obj_index[reward->R_num].virtual_number == 1253 ||
-        obj_index[reward->R_num].virtual_number == 1254 )
+    if( obj_index[reward->R_num].virtual_number == VOBJ_RANDOM_ARMOR ||
+        obj_index[reward->R_num].virtual_number == VOBJ_RANDOM_THRUSTED ||
+        obj_index[reward->R_num].virtual_number == VOBJ_RANDOM_WEAPON )
     {
       extract_obj(reward);
       return;

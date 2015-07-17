@@ -1601,8 +1601,8 @@ void assign_objects(void)
   obj_index[real_object0(41)].func.obj = guild_badge;
 
 /* random eq proc  */
-  obj_index[real_object0(1253)].func.obj = thrusted_eq_proc;
-  obj_index[real_object0(1252)].func.obj = set_proc;
+  obj_index[real_object0(VOBJ_RANDOM_THRUSTED)].func.obj = thrusted_eq_proc;
+  obj_index[real_object0(VOBJ_RANDOM_ARMOR)].func.obj = set_proc;
   obj_index[real_object0(1251)].func.obj = encrusted_eq_proc;
   obj_index[real_object0(251)].func.obj = parchment_forge;
   obj_index[real_object0(400210)].func.obj = learn_recipe;

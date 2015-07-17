@@ -9759,16 +9759,14 @@ void spell_fear(int level, P_char ch, char *arg, int type, P_char victim,
 }
 
 
-void spell_reveal_true_name(int level, P_char ch, char *arg, int type,
-                            P_char victim, P_obj obj)
+void spell_reveal_true_name(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   char     newname = FALSE;
   char     *eol;
 
-  if(obj_index[obj->R_num].virtual_number == 1254 &&
-    identify_random(obj)) {
-    act("You discover that you are in fact in possession of $p!",
-        FALSE, ch, obj, 0, TO_CHAR);
+  if( obj_index[obj->R_num].virtual_number == VOBJ_RANDOM_WEAPON && identify_random(obj) )
+  {
+    act("You discover that you are in fact in possession of $p!", FALSE, ch, obj, 0, TO_CHAR);
     return;
   }
 
@@ -9824,10 +9822,9 @@ void spell_reveal_true_name(int level, P_char ch, char *arg, int type,
     return;
   }
 
-  if(newname)
+  if( newname )
   {
-    send_to_char
-      ("You glean the true nature of the item and rename it thusly.\n", ch);
+    send_to_char("You glean the true nature of the item and rename it thusly.\n", ch);
   }
   else                          // this could happen..
   {
@@ -9995,7 +9992,7 @@ void spell_identify(int level, P_char ch, char *arg, int type, P_char victim,
       send_to_char(Gbuf2, ch);
     }
 
-    if((obj_index[obj->R_num].func.obj && obj_index[obj->R_num].virtual_number != 1252) ||
+    if((obj_index[obj->R_num].func.obj && obj_index[obj->R_num].virtual_number != VOBJ_RANDOM_ARMOR) ||
         (GET_ITEM_TYPE(obj) == ITEM_WEAPON && obj->value[5] &&
          (GET_LEVEL(ch) < 56 ||
           !GET_CLASS(ch, CLASS_CONJURER))))
@@ -10004,7 +10001,7 @@ void spell_identify(int level, P_char ch, char *arg, int type, P_char victim,
          ch);
 
     if((isname("_id_", obj->name) && !obj->str_mask) ||
-        (obj_index[obj->R_num].virtual_number == 1254 && obj->value[5] &&
+        (obj_index[obj->R_num].virtual_number == VOBJ_RANDOM_WEAPON && obj->value[5] &&
          !strstr(obj->short_description, " of ")))
       act("You feel as if there is something more to $p that you can't quite reveal!",
           FALSE, ch, obj, 0, TO_CHAR);

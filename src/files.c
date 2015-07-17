@@ -25,6 +25,7 @@
 #include "necromancy.h"
 #include "sql.h"
 #include "trophy.h"
+#include "vnum.obj.h"
 
 #include <iostream>
 using namespace std;
@@ -3204,7 +3205,7 @@ P_obj restoreObjects(char *buf, P_char ch, int not_room)
 
     V_num = GET_INTE(buf);
 
-    if( purge_randoms && (V_num == 1252 || V_num == 1254) )
+    if( purge_randoms && (V_num == VOBJ_RANDOM_ARMOR || V_num == VOBJ_RANDOM_WEAPON) )
     {
       logit(LOG_OBJ, "Purging random #%d", V_num);
       obj = NULL;

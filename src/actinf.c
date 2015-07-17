@@ -44,7 +44,7 @@ using namespace std;
 #include "ships.h"
 #include "ctf.h"
 #include "epic_bonus.h"
-
+#include "vnum.obj.h"
 
 /* * external variables */
 
@@ -3317,7 +3317,7 @@ void do_examine(P_char ch, char *argument, int cmd)
   }
 
   if (tmp_object)
-    if (obj_index[tmp_object->R_num].virtual_number == 1252)
+    if (obj_index[tmp_object->R_num].virtual_number == VOBJ_RANDOM_ARMOR)
     {
       do_lore(ch, buf, 999);
     }

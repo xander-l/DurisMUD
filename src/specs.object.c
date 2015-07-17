@@ -13038,7 +13038,7 @@ struct set_data {
   int items[MAX_WEAR];
 } sets[] = {
   { (set_func)master_set, {22063, 22237, 22621, 45530, 45531, 75857, 82545, 82559}},
-  { random_set, {1252, 1254}},
+  { random_set, {VOBJ_RANDOM_ARMOR, VOBJ_RANDOM_WEAPON}},
   { (set_func)0, {0} }
 };
 
