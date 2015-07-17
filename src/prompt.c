@@ -634,8 +634,7 @@ void make_prompt(void)
         {
           strcat(pPrompt, " E: ");
           strcat(pPrompt, FirstWord(t_obj_f->name) );
-          sprintf(pPrompt + strlen(pPrompt), " EC: %d",
-            t_obj_f->condition );
+          sprintf(pPrompt + strlen(pPrompt), " EC: %d", t_obj_f->condition );
         }
       }
 
@@ -655,6 +654,11 @@ void make_prompt(void)
           strcat(pPrompt, " (AFK)");
       }
     }
+    else
+    {
+      pPrompt = promptbuf;
+    }
+
     if( ansi )
       strcat(pPrompt, "\033[0;32m> ");
     else
