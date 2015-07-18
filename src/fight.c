@@ -6196,7 +6196,8 @@ int calculate_ac(P_char ch)
 {
   int victim_ac = GET_AC(ch);
 
-  if( victim_ac < 0 )
+  // Only drop PCs ac since we don't want to mess with the ac set in zone files.
+  if( victim_ac < 0 && IS_PC(ch) )
   {
     victim_ac = ((float)victim_ac * dam_factor[DF_NEG_AC_MULT]);
   }
