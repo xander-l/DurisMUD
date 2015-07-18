@@ -183,13 +183,12 @@ void do_holy_smite(P_char ch, char *argument, int cmd)
   CharWait(ch, 2 * PULSE_VIOLENCE);
 }
 
-void spell_celestial_aura(int level, P_char ch, char *arg, int type,
-                                   P_char victim, P_obj obj)
+void spell_celestial_aura(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
 
   //The affects here are temporary, until I have time to whip up something really unique -Zion 9/13/08
-  if (!affected_by_spell(ch, SPELL_CELESTIAL_AURA))
+  if( !IS_AFFECTED(ch, AFF_ARMOR) )
   {
     act("&+WA beam of light emerges from the heavens, infusing $n&+W's body with h&+Yol&+Wy energy!&n",
         TRUE, ch, 0, 0, TO_ROOM);
@@ -200,10 +199,15 @@ void spell_celestial_aura(int level, P_char ch, char *arg, int type,
     af.duration =  4;
     af.location = APPLY_AC;
     af.modifier = -number(80, 150);
+    af.bitvector = AFF_ARMOR;
     affect_to_char(ch, &af);
 
     af.location = APPLY_HIT;
     af.modifier = number(50, 150);
     affect_to_char(ch, &af);
+  }
+  else
+  {
+    send_to_char( "&+WYou're already affected by an armor-type spell.\n", ch );
   }
 }

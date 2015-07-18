@@ -69,18 +69,17 @@ int      cast_as_damage_area(P_char,
                              bool (*s_func) (P_char, P_char));
 
 
-void spell_vapor_armor(int level, P_char ch, char *arg, int type,
-                       P_char victim, P_obj tar_obj)
+void spell_vapor_armor(int level, P_char ch, char *arg, int type, P_char victim, P_obj tar_obj)
 {
   struct affected_type af;
+  bool shown;
 
-  if(!(ch) ||
-     !IS_ALIVE(ch) ||
-     !(victim) ||
-     !IS_ALIVE(victim))
-        return;
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+  {
+    return;
+  }
 
-  if(!affected_by_spell(victim, SPELL_VAPOR_ARMOR))
+  if( !IS_AFFECTED(ch, AFF_ARMOR) )
   {
     memset(&af, 0, sizeof(af));
 
@@ -92,20 +91,27 @@ void spell_vapor_armor(int level, P_char ch, char *arg, int type,
 
     affect_to_char(victim, &af);
 
-    send_to_char
-      ("&+CYou feel the protection of the winds and storms flow through you.&n\r\n",
-       victim);
+    send_to_char("&+CYou feel the protection of the winds and storms flow through you.&n\r\n", victim);
   }
   else
   {
     struct affected_type *af1;
+    shown = FALSE;
     for (af1 = victim->affected; af1; af1 = af1->next)
     {
       if(af1->type == SPELL_VAPOR_ARMOR)
       {
         af1->duration = MAX(10, (int)(level / 2));
-        send_to_char("&+cYour vaporous armor is renewed!\r\n", victim);
+        if( !shown )
+        {
+          send_to_char("&+cYour vaporous armor is renewed!\r\n", victim);
+          shown = TRUE;
+        }
       }
+    }
+    if( !shown )
+    {
+      send_to_char( "&+WYou're already affected by an armor-type spell.\n", victim );
     }
   }
 }

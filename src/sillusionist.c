@@ -91,18 +91,18 @@ extern bool has_skin_spell(P_char);
 
 /* Let's do some spells yah! */
 
-void spell_phantom_armor(int level, P_char ch, char *arg, int type,
-                         P_char victim, P_obj obj)
+void spell_phantom_armor(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
+  bool shown;
 
-  if (!(victim && ch))
+  if( !(victim && ch) )
   {
     logit(LOG_EXIT, "assert: bogus parms");
     raise(SIGSEGV);
   }
 
-  if (!affected_by_spell(victim, SPELL_PHANTOM_ARMOR))
+  if( !IS_AFFECTED(ch, AFF_ARMOR) )
   {
     bzero(&af, sizeof(af));
     af.type = SPELL_PHANTOM_ARMOR;
@@ -111,20 +111,27 @@ void spell_phantom_armor(int level, P_char ch, char *arg, int type,
     af.bitvector = AFF_ARMOR;
     af.location = APPLY_AC;
     affect_to_char(victim, &af);
-    send_to_char
-      ("&+LShadowy &+Wphantoms&N blur your image to the outside!\r\n", victim);
+    send_to_char("&+LShadowy &+Wphantoms&N blur your image to the outside!\r\n", victim);
   }
   else
   {
     struct affected_type *af1;
 
+    shown = FALSE;
     for (af1 = victim->affected; af1; af1 = af1->next)
+    {
       if (af1->type == SPELL_PHANTOM_ARMOR)
       {
-      send_to_char
-        ("&+LShadowy &+Wphantoms&N blur your image to the outside!\r\n", victim);
+        shown = TRUE;
+        send_to_char("&+LShadowy &+Wphantoms&N blur your image to the outside!\r\n", victim);
         af1->duration = 15;
+        break;
       }
+    }
+    if( !shown )
+    {
+      send_to_char( "&+WYou're already affected by an armor-type spell.&n\n", victim );
+    }
   }
 }
 

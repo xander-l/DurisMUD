@@ -41,6 +41,7 @@ extern const int top_of_world;
 void spell_thornskin(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af1;
+  bool shown;
 
   if(!ch)
   {
@@ -64,13 +65,14 @@ void spell_thornskin(int level, P_char ch, char *arg, int type, P_char victim, P
       return;
     }
   }
-  if(!affected_by_spell(victim, SPELL_THORNSKIN))
+  if( !IS_AFFECTED(ch, AFF_ARMOR) )
   {
     bzero(&af1, sizeof(af1));
     af1.type = SPELL_THORNSKIN;
     af1.duration =  25;
     af1.modifier = -1 * level / 2;
     af1.location = APPLY_AC;
+    af1.bitvector = AFF_ARMOR;
     af1.bitvector5 = AFF5_THORNSKIN;
 
     affect_to_char(victim, &af1);
@@ -83,12 +85,22 @@ void spell_thornskin(int level, P_char ch, char *arg, int type, P_char victim, P
   {
     struct affected_type *af1;
 
+    shown = FALSE;
     for (af1 = victim->affected; af1; af1 = af1->next)
     {
       if(af1->type == SPELL_THORNSKIN)
       {
+        if( !shown )
+        {
+          send_to_char( "&+yThe thorns re-harden around you.&n\n", victim );
+          shown = TRUE;
+        }
         af1->duration = 25;
       }
+    }
+    if( !shown )
+    {
+      send_to_char( "&+WYou're already affected by an armor-type spell.\n", victim );
     }
   }
 }

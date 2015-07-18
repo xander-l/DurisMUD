@@ -1000,6 +1000,7 @@
 #define SKILL_GARROTE                1300
 #define SKILL_LEGSWEEP               1301
 #define SKILL_NATURES_RUIN           1302
+// Slots SKILL_ ...  1045 and 1186 are unused.
 
 #define LAST_SKILL                   SKILL_NATURES_RUIN
 

@@ -4592,15 +4592,15 @@ void spell_elemental_aura(int level, P_char ch, char *arg, int type, P_char vict
 void spell_armor(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
-  double mod = 1;
+  double mod;
+  bool shown;
 
-  if(!(ch) ||
-     !IS_ALIVE(ch) ||
-     !(victim) ||
-     !IS_ALIVE(victim))
-        return;
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+  {
+    return;
+  }
 
-  if(GET_SPEC(ch, CLASS_CLERIC, SPEC_HOLYMAN))
+  if( GET_SPEC(ch, CLASS_CLERIC, SPEC_HOLYMAN) )
   {
     mod = 1.25;
   }
@@ -4608,8 +4608,8 @@ void spell_armor(int level, P_char ch, char *arg, int type, P_char victim, P_obj
   {
     mod = 1;
   }
-  
-  if(!affected_by_spell(victim, SPELL_ARMOR))
+
+  if( !IS_AFFECTED(ch, AFF_ARMOR) )
   {
     bzero(&af, sizeof(af));
     af.type = SPELL_ARMOR;
@@ -4623,12 +4623,22 @@ void spell_armor(int level, P_char ch, char *arg, int type, P_char victim, P_obj
   else
   {
     struct affected_type *af1;
+    shown = FALSE;
     for (af1 = victim->affected; af1; af1 = af1->next)
     {
-      if(af1->type == SPELL_ARMOR)
+      if( af1->type == SPELL_ARMOR )
       {
+        if( !shown )
+        {
+          send_to_char("&+WThe bands of magic armor glow as new!\n", victim);
+          shown = TRUE;
+        }
         af1->duration = 20;
       }
+    }
+    if( !shown )
+    {
+      send_to_char( "&+WYou're already affected by an armor-type spell.\n", victim );
     }
   }
 }
@@ -4663,8 +4673,7 @@ void spell_virtue(int level, P_char ch, char *arg, int type, P_char victim, P_ob
 }
 
 
-void spell_dispel_lifeforce(int level, P_char ch, char *arg, int type,
-                            P_char victim, P_obj obj)
+void spell_dispel_lifeforce(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
 
@@ -7925,8 +7934,7 @@ void spell_stone_skin(int level, P_char ch, char *arg, int type, P_char victim, 
   affect_to_char(victim, &af);
 }
 
-void spell_ironwood(int level, P_char ch, char *arg, int type,
-                      P_char victim, P_obj obj)
+void spell_ironwood(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
   int      absorb = (level / 5) + number(1, 4);
@@ -11691,76 +11699,81 @@ int KludgeDuration(P_char ch, int baselevel, int baseduration)
 #endif
 }
 
-void spell_barkskin(int level, P_char ch, char *arg, int type, P_char victim,
-                    P_obj obj)
+void spell_barkskin(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af1;
   double mod = 1;
-  
-  if(!ch)
+  bool shown;
+
+  if( !ch )
   {
     logit(LOG_EXIT, "spell_barkskin called in magic.c with no ch");
     raise(SIGSEGV);
   }
-  if(ch) // Just making sure.
+  if(!IS_ALIVE(ch))
   {
-    if(!IS_ALIVE(ch))
+    act("Lay still, you seem to be dead!", TRUE, ch, 0, 0, TO_CHAR);
+    return;
+  }
+  if( !IS_ALIVE(victim) )
+  {
+    act("$N is not a valid target.", TRUE, ch, 0, victim, TO_CHAR);
+    return;
+  }
+  if(racewar(ch, victim))
+  {
+    if(NewSaves(victim, SAVING_PARA, 0))
     {
-      act("Lay still, you seem to be dead!", TRUE, ch, 0, 0, TO_CHAR);
+      act("$N evades your spell!", TRUE, ch, 0, victim, TO_CHAR);
       return;
     }
-    if(!victim ||
-       !IS_ALIVE(victim))
-    {
-      act("$N is not a valid target.", TRUE, ch, 0, victim, TO_CHAR);
-    }
-    if(racewar(ch, victim))
-    {
-      if(NewSaves(victim, SAVING_PARA, 0))
-      {
-        act("$N evades your spell!", TRUE, ch, 0, victim, TO_CHAR);
-        return;
-      }
-    }
-    if(GET_SPEC(ch, CLASS_DRUID, SPEC_WOODLAND))
-    {
-      mod = 1.25;
-    }
-    else
-    {
-      mod = 1;
-    }
-    if(!affected_by_spell(victim, SPELL_BARKSKIN))
-    {
-      bzero(&af1, sizeof(af1));
-      af1.type = SPELL_BARKSKIN;
-      af1.duration =  25;
-      af1.modifier =  (int) (-1 * mod * level);
-      af1.location = APPLY_AC;
-      af1.bitvector = AFF_BARKSKIN;
+  }
+  if(GET_SPEC(ch, CLASS_DRUID, SPEC_WOODLAND))
+  {
+    mod = 1.25;
+  }
+  else
+  {
+    mod = 1;
+  }
+  if( !IS_AFFECTED(ch, AFF_ARMOR) )
+  {
+    bzero(&af1, sizeof(af1));
+    af1.type = SPELL_BARKSKIN;
+    af1.duration =  25;
+    af1.modifier =  (int) (-1 * mod * level);
+    af1.location = APPLY_AC;
+    af1.bitvector = AFF_BARKSKIN | AFF_ARMOR;
 
-      affect_to_char(victim, &af1);
-      act("$n's skin gains the texture and toughness of &+ybark.&n", FALSE,
-          victim, 0, 0, TO_ROOM);
-      act("Your skin gains the texture and toughness of &+ybark.&n", FALSE,
-          victim, 0, 0, TO_CHAR);
-    }
-    else
-    {
-      struct affected_type *af1;
+    affect_to_char(victim, &af1);
+    act("$n's skin gains the texture and toughness of &+ybark.&n", FALSE,
+      victim, 0, 0, TO_ROOM);
+    act("Your skin gains the texture and toughness of &+ybark.&n", FALSE,
+      victim, 0, 0, TO_CHAR);
+  }
+  else
+  {
+    struct affected_type *af1;
 
-      for (af1 = victim->affected; af1; af1 = af1->next)
+    shown = FALSE;
+    for (af1 = victim->affected; af1; af1 = af1->next)
+    {
+      if(af1->type == SPELL_BARKSKIN)
       {
-        if(af1->type == SPELL_BARKSKIN)
+        if( !shown )
         {
-          af1->duration = 25;
+          send_to_char( "&+yYour skin rehardens.\n", ch );
+          shown = TRUE;
         }
+        af1->duration = 25;
       }
+    }
+    if( !shown )
+    {
+      send_to_char( "&+WYou're already affected by an armor-type spell.\n", victim );
     }
   }
 }
-
-// end of spell_barkskin
 
 void spell_grow_spike(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
@@ -12407,8 +12420,7 @@ void BackToUsualForm(P_char ch)
 }
 
 
-void spell_elemental_form(int level, P_char ch, char *arg, int type,
-                          P_char victim, P_obj obj)
+void spell_elemental_form(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
   int      type_mental;

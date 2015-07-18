@@ -66,7 +66,8 @@
 #define DF_DAMROLL_MOD          50
 #define DF_MELEEMASTERY         51
 #define DF_DRACOLICHVAMP        52
-#define LAST_DF                 52
+#define DF_NEG_AC_MULT          53
+#define LAST_DF                 53
 
 #define SPLDAM_GENERIC   1
 #define SPLDAM_FIRE      2

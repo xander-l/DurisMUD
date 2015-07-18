@@ -12,8 +12,7 @@
 #include "prototypes.h"
 #include "objmisc.h"
 
-void spell_baladors_protection(int level, P_char ch, char *arg, int type,
-                               P_char victim, P_obj obj)
+void spell_baladors_protection(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
 
@@ -22,11 +21,12 @@ void spell_baladors_protection(int level, P_char ch, char *arg, int type,
     struct affected_type *af1;
 
     for (af1 = victim->affected; af1; af1 = af1->next)
+    {
       if (af1->type == SPELL_BALADORS_PROTECTION)
       {
         af1->duration = 32;
       }
-   
+    }
     return;
   }
   bzero(&af, sizeof(af));
@@ -42,9 +42,7 @@ void spell_baladors_protection(int level, P_char ch, char *arg, int type,
     affect_to_char(victim, &af);
   }
 
-
   if (GET_LEVEL(ch) > 45)
-
   {
     af.type = SPELL_BALADORS_PROTECTION;
     af.duration = 32;
@@ -69,21 +67,20 @@ void spell_baladors_protection(int level, P_char ch, char *arg, int type,
     affect_to_char(victim, &af);
   }
 
-  if (GET_LEVEL(ch) > 4)
+  if( GET_LEVEL(ch) > 4 && !IS_AFFECTED(ch, AFF_ARMOR) )
   {
     af.type = SPELL_BALADORS_PROTECTION;
     af.duration = 32;
     af.modifier = -15;
+    af.bitvector = AFF_ARMOR;
     af.location = APPLY_AC;
     affect_to_char(victim, &af);
   }
 
   send_to_char("&+WYou feel Balador's protection wash over you.&n\n", victim);
-
 }
 
-void spell_ferrix_precision(int level, P_char ch, char *arg, int type,
-                            P_char victim, P_obj obj)
+void spell_ferrix_precision(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
 
@@ -117,8 +114,7 @@ void spell_ferrix_precision(int level, P_char ch, char *arg, int type,
 
 }
 
-void spell_eshabalas_vitality(int level, P_char ch, char *arg, int type,
-                              P_char victim, P_obj obj)
+void spell_eshabalas_vitality(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
   bool message = false;
@@ -169,8 +165,7 @@ void spell_eshabalas_vitality(int level, P_char ch, char *arg, int type,
   send_to_char("&+mEshabalas vitality flows through you!&n\n", ch);
 }
 
-void spell_kanchelsis_fury(int level, P_char ch, char *arg, int type,
-                           P_char victim, P_obj obj)
+void spell_kanchelsis_fury(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
 

@@ -818,8 +818,7 @@ spell_combat_mind(int level, P_char ch, char *arg, int type, P_char victim,
 
   if (victim != ch)
     act("Ok.", FALSE, ch, 0, victim, TO_CHAR);
-  act("&+yYour knowledge of battle tactics increases!", FALSE, ch, 0, victim,
-      TO_VICT);
+  act("&+yYour knowledge of battle tactics increases!", FALSE, ch, 0, victim, TO_VICT);
   return;
 }
 
@@ -827,7 +826,7 @@ void spell_fire_aura(int level, P_char ch, char *arg, int type, P_char victim, P
 {
   struct affected_type af;
 
-  if (!ch)
+  if( !IS_ALIVE(ch) )
     return;
 
   if (affected_by_spell(ch, SPELL_FIRE_AURA))
@@ -839,13 +838,13 @@ void spell_fire_aura(int level, P_char ch, char *arg, int type, P_char victim, P
   if( world[ch->in_room].sector_type == SECT_FIREPLANE || world[ch->in_room].sector_type == SECT_LAVA )
   {
     act("&+rYour body glows with an aura of fire!", FALSE, ch, 0, 0, TO_CHAR);
-    act("&+r$n's&+r body glows with an aura of fire!", FALSE, ch, 0, 0,
-        TO_ROOM);
+    act("&+r$n's&+r body glows with an aura of fire!", FALSE, ch, 0, 0, TO_ROOM);
     bzero(&af, sizeof(af));
     af.type = SPELL_FIRE_AURA;
     af.duration = (SECS_PER_MUD_DAY / 60);
 
     af.location = APPLY_AC;
+    af.modifier = -15;
     affect_to_char(victim, &af);
 
     af.location = APPLY_STR_MAX;
@@ -1478,13 +1477,11 @@ void spell_psionic_cloud(int level, P_char ch, char *arg, int type, P_char victi
   return;
 }
 
-void
-spell_displacement(int level, P_char ch, char *arg, int type, P_char victim,
-                   P_obj obj)
+void spell_displacement(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
 
-  if (affected_by_spell(ch, SPELL_DISPLACEMENT))
+  if( affected_by_spell(ch, SPELL_DISPLACEMENT) )
   {
     send_to_char("You're already affected by displacement!\r\n", ch);
     return;
@@ -1494,21 +1491,14 @@ spell_displacement(int level, P_char ch, char *arg, int type, P_char victim,
   af.type = SPELL_DISPLACEMENT;
   af.duration = level - 4;
   af.modifier = -level * 2;
-  af.bitvector = 0;
   af.location = APPLY_AC;
   affect_to_char(victim, &af);
 
-  act("&+WYour form shimmers, and you appear displaced.", FALSE, ch, 0,
-      victim, TO_CHAR);
-  act("&+W$N shimmers and appears a few inches away.", TRUE, ch, 0, victim,
-      TO_ROOM);
-
-  return;
+  act("&+WYour form shimmers, and you appear displaced.", FALSE, ch, 0, victim, TO_CHAR);
+  act("&+W$N shimmers and appears a few inches away.", TRUE, ch, 0, victim, TO_ROOM);
 }
 
-void
-spell_domination(int level, P_char ch, char *arg, int type, P_char victim,
-                 P_obj obj)
+void spell_domination(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   if (victim == ch)
   {
@@ -1651,9 +1641,7 @@ spell_energy_containment(int level, P_char ch, char *arg, int type,
   return;
 }
 
-void
-spell_enhance_armor(int level, P_char ch, char *arg, int type, P_char victim,
-                    P_obj obj)
+void spell_enhance_armor(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
 
@@ -1662,36 +1650,36 @@ spell_enhance_armor(int level, P_char ch, char *arg, int type, P_char victim,
     logit(LOG_EXIT, "assert: bogus parms in enhance armor");
     raise(SIGSEGV);
   }
-  
-  if (!affected_by_spell(victim, SPELL_ENHANCE_ARMOR))
+
+  // Allowing this to stack with other armor spells, since it's "enhance" and there's flesh armor too.
+  if( !affected_by_spell(ch, SPELL_ENHANCE_ARMOR) )
   {
     bzero(&af, sizeof(af));
     af.type = SPELL_ENHANCE_ARMOR;
     af.duration = 25;
     af.location = APPLY_AC;
     af.modifier = -1 * level;
+
     affect_to_char(victim, &af);
     send_to_char("&+BBands of psionic force surround you!\r\n", victim);
-    
-    act("$n becomes a little fuzzy as mist like bands surround $m.",
-      TRUE, victim, 0, 0, TO_ROOM);
+    act("$n becomes a little fuzzy as mist like bands surround $m.", TRUE, victim, 0, 0, TO_ROOM);
   }
   else
   {
     struct affected_type *af1;
 
-    for (af1 = victim->affected; af1; af1 = af1->next)
-      if (af1->type == SPELL_ENHANCE_ARMOR)
+    for( af1 = victim->affected; af1; af1 = af1->next )
+    {
+      if( af1->type == SPELL_ENHANCE_ARMOR )
       {
+        send_to_char("&+BThe bands of psionic force are refreshed!&n\r\n", victim);
         af1->duration = 25;
       }
+    }
   }
-
 }
 
-void
-spell_enhanced_strength(int level, P_char ch, char *arg, int type,
-                        P_char victim, P_obj obj)
+void spell_enhanced_strength(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
 
@@ -1797,10 +1785,10 @@ void spell_enhanced_constitution(int level, P_char ch, char *arg, int type,
   return;
 }
 
-void spell_flesh_armor(int level, P_char ch, char *arg, int type, P_char victim,
-                  P_obj obj)
+void spell_flesh_armor(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
+  bool shown;
 
   if(!(ch))
   {
@@ -1812,15 +1800,28 @@ void spell_flesh_armor(int level, P_char ch, char *arg, int type, P_char victim,
   {
     return;
   }
-  if(IS_AFFECTED5(ch, AFF5_FLESH_ARMOR))
+
+  if( IS_AFFECTED(ch, AFF_ARMOR) )
   {
     struct affected_type *af1;
+    shown = FALSE;
 
-    for (af1 = victim->affected; af1; af1 = af1->next)
-      if (af1->type == SPELL_FLESH_ARMOR)
+    for( af1 = victim->affected; af1; af1 = af1->next )
+    {
+      if( af1->type == SPELL_FLESH_ARMOR )
       {
+        if( !shown )
+        {
+          send_to_char("&+RYour flesh rehardens.\r\n", victim);
+          shown = TRUE;
+        }
         af1->duration = 25;
       }
+    }
+    if( !shown )
+    {
+      send_to_char( "&+WYou're already affected by an armor-type spell.&n\n", ch );
+    }
     return;
   }
 
@@ -1828,19 +1829,16 @@ void spell_flesh_armor(int level, P_char ch, char *arg, int type, P_char victim,
   af.type = SPELL_FLESH_ARMOR;
   af.duration = 25;
   af.location = APPLY_AC;
+  af.bitvector = AFF_ARMOR;
   af.bitvector5 = AFF5_FLESH_ARMOR;
   af.modifier = (int) (-1 * level);
   affect_to_char(victim, &af);
 
   send_to_char("&+RYour flesh gains a steel-like hardness.\r\n", victim);
-  act("$N's &+Rflesh begins to shimmer, then gains a harder look to it.",
-      TRUE, ch, 0, victim, TO_ROOM);
-
-  return;
+  act("$N's &+Rflesh begins to shimmer, then gains a harder look to it.", TRUE, ch, 0, victim, TO_ROOM);
 }
 
-void spell_inertial_barrier(int level, P_char ch, char *arg, int type,
-                       P_char victim, P_obj obj)
+void spell_inertial_barrier(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
 

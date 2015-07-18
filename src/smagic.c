@@ -133,48 +133,55 @@ void spell_guardian_spirits(int level, P_char ch, char *arg, int type, P_char vi
 {
   struct affected_type af;
   int duration;
-  
-  if(!(ch) ||
-     !(victim) ||
-     !IS_ALIVE(ch) ||
-     !IS_ALIVE(victim) ||
-     !GET_CLASS(ch, CLASS_SHAMAN))
-      return;
-  
+
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+  {
+    return;
+  }
+
+  if( !GET_CLASS(ch, CLASS_SHAMAN) )
+  {
+    send_to_char( "&+rYou can't seem to connect with your forefathers.&n\n", ch );
+    return;
+  }
+
   if(ch != victim)
   {
     send_to_char("&+rYou may not call upon the forefathers of others.\r\n", ch);
     return;
   }
-  
+
   if(affected_by_spell(victim, SPELL_GUARDIAN_SPIRITS))
   {
     send_to_char("&+rYou call upon the spirits of your forefathers to continue watching over you.\r\n", ch);
-    
+
     struct affected_type *af1;
     for (af1 = victim->affected; af1; af1 = af1->next)
     {
       if(af1->type == SPELL_GUARDIAN_SPIRITS)
       {
         af1->duration = MAX(4, level / 2 + number(-8, 0));
+        break;
       }
     }
     return;
   }
-  
+
   act("&+rYour spell summons forth the spirits of your forefathers who will now try to protect you from harm.&n",
     FALSE, ch, 0, victim, TO_CHAR);
   act("&+rGhostly spirits rise from the ground swirling around $N as $E finishes $S long incantation!",
     FALSE, ch, 0, victim, TO_ROOM);
-    
-  if(IS_PC(ch) ||
-     IS_PC_PET(ch) ||
-     IS_PC(victim) ||
-     IS_PC_PET(victim))
-      duration = MAX(4, level / 2 + number(-4, 0));
+
+  // No need to check ch and victim since we know ch == victim.
+  if( IS_PC(victim) || IS_PC_PET(victim) )
+  {
+    duration = MAX(4, level / 2 + number(-4, 0));
+  }
   else
+  {
     duration = 100;
-    
+  }
+
   memset(&af, 0, sizeof(af));
   af.type = SPELL_GUARDIAN_SPIRITS;
   af.duration =  duration;
@@ -183,23 +190,19 @@ void spell_guardian_spirits(int level, P_char ch, char *arg, int type, P_char vi
   af.location = APPLY_AC;
   affect_to_char(victim, &af);
 }
-  
+
 void essence_broken(struct char_link_data *cld)
 {
-  act("&+yYour essence leaves $N and returns to your body.&n",
-    FALSE, cld->linking, 0, cld->linked, TO_CHAR);
-  act("&+yThe essence of the wolf leaves your body.&n",
-    FALSE, cld->linking, 0, cld->linked, TO_VICT);
+  act("&+yYour essence leaves $N and returns to your body.&n", FALSE, cld->linking, 0, cld->linked, TO_CHAR);
+  act("&+yThe essence of the wolf leaves your body.&n", FALSE, cld->linking, 0, cld->linked, TO_VICT);
 }
 
-void spell_essence_of_the_wolf(int level, P_char ch, char *arg, int type,
-                               P_char victim, P_obj obj)
+void spell_essence_of_the_wolf(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   if(!ch || !victim || ch == victim)
     return;
 
-  if(get_linked_char(ch, LNK_ESSENCE_OF_WOLF) ||
-      get_linking_char(victim, LNK_ESSENCE_OF_WOLF))
+  if(get_linked_char(ch, LNK_ESSENCE_OF_WOLF) || get_linking_char(victim, LNK_ESSENCE_OF_WOLF))
     return;
 
   if(IS_NPC(victim))
@@ -207,22 +210,20 @@ void spell_essence_of_the_wolf(int level, P_char ch, char *arg, int type,
     send_to_char("You cannot imbue that being with your essence!\n", ch);
     return;
   }
-  
+
   do_point(ch, victim);
 
-  act
-    ("$n &+ythrows $s head back and thrusts $s chest out with a gasp of strain.\n"
-     "Their muscles swell with an unseen power.  After &n$n &+yregains $s senses,\n"
-     "$e looks around hungrily for a fight.&n", TRUE, victim, 0, 0, TO_ROOM);
-  act
-    ("&+yYour sight is filled with wolf eyes that permeating your own.  Mighty growling fills your ears and your chest swells as a second mighty spirit melds with your own.&n",
-     FALSE, victim, 0, 0, TO_CHAR);
+  act("$n &+ythrows $s head back and thrusts $s chest out with a gasp of strain.\n"
+      "Their muscles swell with an unseen power.  After &n$n &+yregains $s senses,\n"
+      "$e looks around hungrily for a fight.&n", TRUE, victim, 0, 0, TO_ROOM);
+  act("&+yYour sight is filled with wolf eyes that permeating your own.  Mighty growling"
+      " fills your ears and your chest swells as a second mighty spirit melds with your own.&n",
+      FALSE, victim, 0, 0, TO_CHAR);
 
   link_char(ch, victim, LNK_ESSENCE_OF_WOLF);
 }
 
-void spell_spirit_walk(int level, P_char ch, char *arg, int type,
-                       P_char victim, P_obj obj)
+void spell_spirit_walk(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   P_obj    tobj;
   int      found = 0;
@@ -1584,28 +1585,26 @@ void spell_bloodhound(int level, P_char ch, char *arg, int type,
   }
 }
 
-void spell_spirit_armor(int level, P_char ch, char *arg, int type,
-                        P_char victim, P_obj obj)
+void spell_spirit_armor(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
   int duration = level;
   int armor = level;
+  bool shown = FALSE;
 
-  if(!(ch) ||
-     !IS_ALIVE(ch) ||
-     !(victim) ||
-     !IS_ALIVE(victim))
-        return;
-  
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+  {
+    return;
+  }
+
   do_point(ch, victim);
-  
-  if(IS_SPIRITUALIST(ch))
+  if( IS_SPIRITUALIST(ch) )
   {
     duration += (int)(GET_LEVEL(ch) / 8);
     armor += GET_LEVEL(ch);
   }
-    
-  if(!affected_by_spell(victim, SPELL_SPIRIT_ARMOR))
+
+  if( !IS_AFFECTED(ch, AFF_ARMOR) )
   {
     bzero(&af, sizeof(af));
 
@@ -1630,20 +1629,29 @@ void spell_spirit_armor(int level, P_char ch, char *arg, int type,
 
       affect_to_char(victim, &af);
     }
-    send_to_char("&+mYou feel protective spirits watching over you.\n",
-                 victim);
-    act("&n$n&n&+m is briefly surrounded by a purple aura.&n", TRUE, victim,
-        0, 0, TO_ROOM);
+    send_to_char("&+mYou feel protective spirits watching over you.\n", victim);
+    act("&n$n&n&+m is briefly surrounded by a purple aura.&n", TRUE, victim, 0, 0, TO_ROOM);
   }
   else
   {
     struct affected_type *af1;
 
     for (af1 = victim->affected; af1; af1 = af1->next)
+    {
       if(af1->type == SPELL_SPIRIT_ARMOR)
       {
+        if( !shown )
+        {
+          send_to_char("&+mThe spirits seem refreshed.\n", victim);
+          shown = TRUE;
+        }
         af1->duration = duration;
       }
+    }
+    if( !shown )
+    {
+      send_to_char( "&+WYou're already affected by an armor-type spell.\n", victim );
+    }
   }
 }
 

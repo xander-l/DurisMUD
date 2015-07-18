@@ -559,29 +559,30 @@ void event_zion_dispator(P_char ch, P_char victim, P_obj obj, void *data)
   struct affected_type af;
   bool has_item = false;
 
-  if(!(ch) ||
-    !IS_ALIVE(ch))
+  if( !IS_ALIVE(ch) )
   {
     return;
   }
-  
-  for(int i = 0; i < NUM_PROCCING_SLOTS; i++)
+/* Shortened this up a good bit.
+  for( int i = 0; i < NUM_PROCCING_SLOTS; i++ )
   {
     P_obj item = ch->equipment[proccing_slots[i]];
 
-    if(item &&
-      obj_index[item->R_num].func.obj == zion_dispator &&
-      ch->equipment[WIELD] == item)
+    if( item && obj_index[item->R_num].func.obj == zion_dispator )
     {
       has_item = true;
       break;
     }
   }
-  
-  if(has_item)
+*/
+  if( ch->equipment[wield] &&  obj_index[ch->equipment[WIELD]->R_num].func.obj == zion_dispator )
   {
-    if(!number(0, 1) &&
-      !IS_FIGHTING(ch))
+    has_item = TRUE;
+  }
+
+  if( has_item )
+  {
+    if( !number(0, 1) && !IS_FIGHTING(ch) )
     {
       switch(number(0, 5))
       {
@@ -624,11 +625,12 @@ void event_zion_dispator(P_char ch, P_char victim, P_obj obj, void *data)
           }
           break;
         case 5:
-          if (!affected_by_spell(ch, SPELL_ARMOR))
+          // Borrowing the Theurgist version of prot. undead.
+          if( !affected_by_spell(ch, SPELL_PROTECT_SOUL) )
           {
             send_to_char("&+YThe power of the &+LNine Hells&+y flows forth from the rod, imbuing you with vile defense.\r\n", ch);
             bzero(&af, sizeof(af));
-            af.type = SPELL_ARMOR;
+            af.type = SPELL_PROTECT_SOUL;
             af.duration =  5;
             af.modifier = -100;
             af.location = APPLY_AC;
@@ -661,49 +663,42 @@ int zion_dispator(P_obj obj, P_char ch, int cmd, char *arg)
   // tell duris to always send the object CMD_PERIODIC
   if(cmd == CMD_SET_PERIODIC)
   {
-    return true;
+    return TRUE;
   }
-  
-  if(cmd == CMD_PERIODIC &&
-    !number(0, 1))
+
+  if( cmd == CMD_PERIODIC && !number(0, 1) )
   {
     hummer(obj);
-    return true;
+    return TRUE;
   }
-  
-  if(!(ch))
+
+  if( !IS_ALIVE(ch) )
   {
     return (FALSE);
   }
-  
-  if(ch->equipment[WIELD] == obj)
+
+  if( ch->equipment[WIELD] == obj )
   {
-     has_item_wielded = true;
+     has_item_wielded = TRUE;
   }
   else
   {
-    return false;
+    return FALSE;
   }
 
 // we have to check for this on every event because CMD_PERIODIC fires too slowly
 // character doesn't have the event scheduled, so fire the event which
 // handles the affect and will renew itself
-  if(!get_scheduled(ch, event_zion_dispator) &&
-    has_item_wielded &&
-    arg &&
-    (cmd == CMD_SAY) &&
-    isname(arg, "dis"))
+  if( !get_scheduled(ch, event_zion_dispator) && has_item_wielded && arg && (cmd == CMD_SAY) && isname(arg, "dis") )
   {
     add_event(event_zion_dispator, PULSE_VIOLENCE, ch, 0, 0, 0, 0, 0);
     act("&+LThe power of &+yDis &+Lawakens!&n", TRUE, ch, obj, 0, TO_CHAR);
     act("&+y$n&+y's $q &+ycomes alive with the &+rf&+Ri&+rr&+Re&+rs &+yof the &+LNine &+rHells!&n",
       FALSE, ch, obj, 0, TO_ROOM);
-    return true;
+    return TRUE;
   }
-  
-  if(cmd == CMD_GOTHIT &&
-    !number(0, 19) &&
-    has_item_wielded)
+
+  if( cmd == CMD_GOTHIT && !number(0, 19) && has_item_wielded )
   {
     if(!IS_AFFECTED4(ch, AFF4_HELLFIRE))
     {
@@ -732,7 +727,7 @@ int zion_dispator(P_obj obj, P_char ch, int cmd, char *arg)
     {
       act(buff, TRUE, ch, obj, NULL, TO_ROOM);
       sprintf(buff, "%s", dirs[random_dir]);
- // store the direction keyword in a buffer to be passed to cast_wall_of_iron
+      // store the direction keyword in a buffer to be passed to cast_wall_of_iron
       cast_wall_of_iron(60, ch, buff, 0, 0, 0);
     }
     return TRUE;

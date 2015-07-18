@@ -317,26 +317,17 @@ void update_dam_factors()
   dam_factor[DF_TROLLSKIN] = get_property("damage.reduction.trollskin", 0.8);
   dam_factor[DF_BARKSKIN] = get_property("damage.reduction.barkskin", 0.90);
   dam_factor[DF_BERSERKMELEE] = get_property("damage.reduction.berserk", 0.10);
-  dam_factor[DF_SOULMELEE] =
-    get_property("damage.reduction.soulshield.melee", 0.8);
-  dam_factor[DF_SOULSPELL] =
-    get_property("damage.reduction.soulshield.spell", 0.8);
-  dam_factor[DF_NEG_SHIELD_SPELL] =
-    get_property("damage.reduction.negshield.spell", 0.8);
-  dam_factor[DF_PROTLIVING] =
-    get_property("damage.reduction.protLiving", 0.95);
-  dam_factor[DF_PROTANIMAL] =
-    get_property("damage.reduction.protAnimal", 0.8);
-  dam_factor[DF_PROTECTION] =
-    get_property("damage.reduction.protElement", 0.75);
-  dam_factor[DF_PROTECTION_TROLL] =
-    get_property("damage.reduction.protFire.Troll", 0.90);
-  dam_factor[DF_ELSHIELDRED_TROLL] =
-    get_property("damage.reduction.fireColdShield.Troll", 0.80);
-  dam_factor[DF_ELSHIELDRED] =
-    get_property("damage.reduction.fireColdShield", 0.55);
-  dam_factor[DF_IRONWILL] =get_property("damage.reduction.towerOfIronWill", 0.5);
-  dam_factor[DF_TIGERPALM] =get_property("damage.reduction.tigerpalm", 0.65);
+  dam_factor[DF_SOULMELEE] = get_property("damage.reduction.soulshield.melee", 0.8);
+  dam_factor[DF_SOULSPELL] = get_property("damage.reduction.soulshield.spell", 0.8);
+  dam_factor[DF_NEG_SHIELD_SPELL] = get_property("damage.reduction.negshield.spell", 0.8);
+  dam_factor[DF_PROTLIVING] = get_property("damage.reduction.protLiving", 0.95);
+  dam_factor[DF_PROTANIMAL] = get_property("damage.reduction.protAnimal", 0.8);
+  dam_factor[DF_PROTECTION] = get_property("damage.reduction.protElement", 0.75);
+  dam_factor[DF_PROTECTION_TROLL] = get_property("damage.reduction.protFire.Troll", 0.90);
+  dam_factor[DF_ELSHIELDRED_TROLL] = get_property("damage.reduction.fireColdShield.Troll", 0.80);
+  dam_factor[DF_ELSHIELDRED] = get_property("damage.reduction.fireColdShield", 0.55);
+  dam_factor[DF_IRONWILL] = get_property("damage.reduction.towerOfIronWill", 0.5);
+  dam_factor[DF_TIGERPALM] = get_property("damage.reduction.tigerpalm", 0.65);
   dam_factor[DF_ELAFFINITY] = get_property("damage.reduction.elementalAffinity", 0.25);
   dam_factor[DF_COLDWRITHE] = get_property("damage.increase.coldWrithe", 2.0);
   dam_factor[DF_BARKFIRE] = get_property("damage.increase.barkskin", 1.15);
@@ -370,6 +361,7 @@ void update_dam_factors()
   dam_factor[DF_DAMROLL_MOD] = get_property("damroll.mod", 1.0);
   dam_factor[DF_MELEEMASTERY] = get_property("damage.modifier.meleemastery", 1.100);
   dam_factor[DF_DRACOLICHVAMP] = get_property("vamping.dracolich", 0.500);
+  dam_factor[DF_NEG_AC_MULT] = get_property("damage.neg.armorclass.multiplier", 0.500);
 }
 
 // The swashbuckler is considered the victim. // May09 -Lucrot
@@ -6202,7 +6194,12 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags, struct damage_m
 
 int calculate_ac(P_char ch)
 {
-  int victim_ac = BOUNDED(-750, GET_AC(ch), 100);
+  int victim_ac = GET_AC(ch);
+
+  if( victim_ac < 0 )
+  {
+    victim_ac = ((float)victim_ac * dam_factor[DF_NEG_AC_MULT]);
+  }
 
   if( GET_AC(ch) < 1 && load_modifier(ch) > 50 )
   {
