@@ -1,50 +1,55 @@
 #ifndef _VNUM_OBJ_H_
 #define _VNUM_OBJ_H_
 
-#define VOBJ_CORPSE                      2
-#define VOBJ_COINS                       3
-#define VOBJ_BLOOD                       4
+#define VOBJ_CORPSE                           2
+#define VOBJ_COINS                            3
+#define VOBJ_BLOOD                            4
 
-#define VOBJ_PATH_OF_FROST_ICE         110
-#define VOBJ_MINE                      193
-#define VOBJ_GEMMINE                   434
+#define VOBJ_PATH_OF_FROST_ICE              110
+#define VOBJ_MINE                           193
+#define VOBJ_THOUGHT_BEACON                 416
+#define VOBJ_HOLYSWORD_AMBRAN               425
+#define VOBJ_GEMMINE                        434
 
-#define VOBJ_THOUGHT_BEACON            416
 
-#define VOBJ_WALLS                     759
+#define VOBJ_WALLS                          759
 
-#define VOBJ_INGRED_DESERT_GRASS       820
-#define VOBJ_INGRED_NIGHTSHADE         821
-#define VOBJ_INGRED_MANDRAKE           822
-#define VOBJ_INGRED_GARLIC             823
-#define VOBJ_INGRED_FAERIE_DUST        824
-#define VOBJ_INGRED_DRAGON_BLOOD       825
-#define VOBJ_INGRED_GREEN_HERB         826
-#define VOBJ_INGRED_STRANGE_STONE      827
-#define VOBJ_INGRED_HUMAN_BONE         828
-#define VOBJ_POTION_BOTTLES            835
+#define VOBJ_INGRED_DESERT_GRASS            820
+#define VOBJ_INGRED_NIGHTSHADE              821
+#define VOBJ_INGRED_MANDRAKE                822
+#define VOBJ_INGRED_GARLIC                  823
+#define VOBJ_INGRED_FAERIE_DUST             824
+#define VOBJ_INGRED_DRAGON_BLOOD            825
+#define VOBJ_INGRED_GREEN_HERB              826
+#define VOBJ_INGRED_STRANGE_STONE           827
+#define VOBJ_INGRED_HUMAN_BONE              828
+#define VOBJ_POTION_BOTTLES                 835
 
-#define VOBJ_RANDOM_ARMOR             1252
-#define VOBJ_RANDOM_THRUSTED          1253
-#define VOBJ_RANDOM_WEAPON            1254
+#define VOBJ_RANDOM_ARMOR                  1252
+#define VOBJ_RANDOM_THRUSTED               1253
+#define VOBJ_RANDOM_WEAPON                 1254
 
-#define VOBJ_KOBOLD_DEATH_STONEPILE   1438
+#define VOBJ_KOBOLD_DEATH_STONEPILE        1438
 
-#define VOBJ_DRAGONNIA_ARCHBISHOP_KEY 6855
-#define VOBJ_DRAGONNIA_BISHOP_KEY     6857
+#define VOBJ_DRAGONNIA_ARCHBISHOP_KEY      6855
+#define VOBJ_DRAGONNIA_BISHOP_KEY          6857
 
-#define VOBJ_TEMPLATE_LOCK           11010
-#define VOBJ_TEMPLATE_KEY            11011
+#define VOBJ_TEMPLATE_LOCK                11010
+#define VOBJ_TEMPLATE_KEY                 11011
 
-#define VOBJ_TTFOREST_ROTTING_CORPSE 13520
+#define VOBJ_TTFOREST_ROTTING_CORPSE      13520
 
-#define VOBJ_EPIC_FIX_SCROLL         14126
+#define VOBJ_EPIC_FIX_SCROLL              14126
 
-#define VOBJ_NEWBIE2_SWORD_BLESSED   22804
+#define VOBJ_NEWBIE2_SWORD_BLESSED        22804
 
-#define VOBJ_HARPY_CHOOSE_FEATHER    31112
+#define VOBJ_HARPY_CHOOSE_FEATHER         31112
 
-#define VOBJ_HIGHWAY_ANKH_BLACKSWORD 41375
+#define VOBJ_HOLYSWORD_CHAOS              32822
+
+#define VOBJ_HIGHWAY_ANKH_BLACKSWORD      41375
+
+#define VOBJ_HOLYSWORD_DEATHRIDER         51005
 
 #define VOBJ_WH_ROTTING_CORPSE            55021
 #define VOBJ_WH_DRAGONHEART_ROTTED        55024
@@ -52,15 +57,15 @@
 #define VOBJ_WH_DRAGONHEART_BAHAMUT       55081
 #define VOBJ_WH_DRAGONHEART_DRAGONNIA     55082
 
-#define VOBJ_RAVENLOFT_MALLET        58427
-#define VOBJ_RAVENLOFT_LOCKED_CASE   58430
-#define VOBJ_RAVENLOFT_UNLOCKED_CASE 58428
+#define VOBJ_RAVENLOFT_MALLET             58427
+#define VOBJ_RAVENLOFT_LOCKED_CASE        58430
+#define VOBJ_RAVENLOFT_UNLOCKED_CASE      58428
 
-#define VOBJ_YUANTI_CRUSHERSTONE     80563
+#define VOBJ_YUANTI_CRUSHERSTONE          80563
 
-#define VOBJ_CLWCVRN_CRYSTAL_SHARDS  80730
-#define VOBJ_CLWCVRN_RAINBOW_KEY     80733
-#define VOBJ_CLWCVRN_RAINBOW_SHARDS  80734
+#define VOBJ_CLWCVRN_CRYSTAL_SHARDS       80730
+#define VOBJ_CLWCVRN_RAINBOW_KEY          80733
+#define VOBJ_CLWCVRN_RAINBOW_SHARDS       80734
 
 // Right now, forging and crafting essences are the same.
 #define VOBJ_CRAFTING_ESSENCE       400211
