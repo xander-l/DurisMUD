@@ -107,6 +107,8 @@ struct link_description link_types[LNK_MAX + 1];
 int damroll_cap;
 int hitroll_cap;
 float pulse_all;
+float shield_combat_mult;
+float shield_combat_tank_mult;
 
 /*
  * complete rewriting of the affect handler routines.  Reason?  Several
@@ -223,15 +225,6 @@ int apply_ac(P_char ch, int eq_pos)
   {
     case WEAR_SHIELD:
       value *= 15;
-      if( GET_CHAR_SKILL(ch, SKILL_SHIELD_COMBAT) )
-      {
-        value += (int) ( GET_CHAR_SKILL(ch, SKILL_SHIELD_COMBAT) * (float) get_property("skill.shieldCombat.ACBonusMultiplier", 1.00) );
-        if( GET_CLASS(ch, CLASS_WARRIOR | CLASS_PALADIN | CLASS_ANTIPALADIN | CLASS_MERCENARY) )
-        {
-      	  value *= 2;
-        }
-        notch_skill(ch, SKILL_SHIELD_COMBAT, 33.33);
-      }
       break;
     case WEAR_BODY:
       if (IS_SET(ch->equipment[eq_pos]->extra_flags, ITEM_WHOLE_BODY))
@@ -279,6 +272,23 @@ int apply_ac(P_char ch, int eq_pos)
   if( GET_ITEM_TYPE(ch->equipment[eq_pos]) == ITEM_SHIELD && eq_pos == WEAR_SHIELD )
   {
     value = MAX(value, ch->equipment[eq_pos]->value[3]);
+    if( GET_CHAR_SKILL(ch, SKILL_SHIELD_COMBAT) )
+    {
+      // We add a percentage of the skill * value * the multiplier.
+      // So, at 100 skill, we add value * multiplier (currently .5) -> value * 1.5.
+      value += (int) ( (float)value * (float)GET_CHAR_SKILL(ch, SKILL_SHIELD_COMBAT) * shield_combat_mult ) / 100;
+      // Only Swashbucklers and Guardians get tank bonus (and Pal/AP/Mercs).  Why Mercs?  Dunno...
+      if( GET_CLASS(ch, CLASS_PALADIN | CLASS_ANTIPALADIN | CLASS_MERCENARY)
+        || GET_SPEC(ch, CLASS_WARRIOR, SPEC_GUARDIAN ) || GET_SPEC(ch, CLASS_WARRIOR, SPEC_SWASHBUCKLER ) )
+      {
+      	value *= shield_combat_tank_mult;
+      }
+      /* Commented this out, it should be somewhere in calculate_ac or damage or such in fight.c.
+       *   Somewhere where ac is used, not when shield is equipped.  It doesn't matter atm, since
+       *   it's an epic skill right now.
+      notch_skill(ch, SKILL_SHIELD_COMBAT, 33.33);
+       */
+      }
   }
   else if( GET_ITEM_TYPE(ch->equipment[eq_pos]) == ITEM_ARMOR )
   {
@@ -3051,7 +3061,9 @@ void update_damage_data()
   combat_by_race[0][0] = 0;
 
   // This pulse-mod is added to the total pulses / round of each character in game.
-  pulse_all = get_property("damage.pulse.class.all", 1.0);
+  pulse_all = get_property("damage.pulse.class.all", 1.000);
+  shield_combat_mult= get_property("skill.shieldCombat.ACBonusMultiplier", 0.500);
+  shield_combat_tank_mult= get_property("skill.shieldCombat.ACTankMultiplier", 1.500);
 }
 
 //---------------------------------------------------------------------------------

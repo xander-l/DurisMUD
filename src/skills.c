@@ -5101,7 +5101,7 @@ void create_poisons()
 void create_tags()
 {
   TAG_CREATE("decay", TAG_OBJ_DECAY);
-  TAG_CREATE("orig", TAG_ALTERED_EXTRA2);
+  TAG_CREATE("alt_extra2", TAG_ALTERED_EXTRA2);
   TAG_CREATE("no misfire", TAG_NOMISFIRE);
   TAG_CREATE_WITH_MESSAGES("witch spell", TAG_WITCHSPELL,
                            "&+GYou feel somehow weaker.&n",

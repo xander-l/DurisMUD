@@ -3953,7 +3953,7 @@ tower shield indomitability _noquest_~
 &+LA s&+rh&+Rie&+rl&+Ld &+Ll&+rie&+Ls &+Lh&+rer&+Le &+Lr&+rad&+Riat&+rin&+Lg &+Lp&+ro&+Rw&+re&+Lr.&n~
 ~
 37 19 2 0 14 0 33563656 513 66 16409 0
-1 7 5 0 5 1 0 0
+1 7 5 135 5 1 0 0
 15 0 100 128 0 0 1048576
 A
 36 3
@@ -3977,7 +3977,7 @@ buckler saints~
 &+LSomeone has carelessly thrown away a great looking &+Wb&+wu&+Lc&+wk&+Ll&+we&+Wr &+Lhere.&n~
 ~
 37 23 2 0 15 0 9224 513 64 87085499 0
-2 1 2 0 5 1 0 0
+2 1 2 105 5 1 0 0
 5 0 100 0 0 0 536870912
 E
 buckler saints _noquest_~
@@ -4095,7 +4095,7 @@ shield winterhaven _noquest_~
 &+LA really nice &+wshield &+Llies here.&n~
 ~
 37 3 2 0 7 0 8704 513 66 0 268435456
-2 3 0 0 0 1 0 0
+2 3 0 30 0 1 0 0
 50 0 100
 A
 18 2

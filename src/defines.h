@@ -79,6 +79,10 @@ typedef unsigned int uint;
 #define BIT_31  1073741824U
 #define BIT_32  2147483648U
 
+#define MAX_INT_SIGNED    2147483647
+#define MIN_INT_SIGNED   -2147483647
+#define MAX_INT_UNSIGNED  4294967295U
+
 /* The following defs are for obj_data  */
 
 /* note:  before reassigning any of these, especially the ones that you have no

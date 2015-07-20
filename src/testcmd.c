@@ -7,6 +7,8 @@
 #include "map.h"
 #include "spells.h"
 #include "interp.h"
+#include "utility.h"
+#include "objmisc.h"
 #include <fstream>
 #include <math.h>
 using namespace std;
@@ -14,6 +16,8 @@ using namespace std;
 extern struct zone_data *zone_table;
 extern struct room_data *world;
 extern const int top_of_world;
+extern P_index obj_index;
+extern int top_of_objt;
 extern const flagDef room_bits[];
 extern const char *sector_types[];
 extern const char *sector_symbol[];
@@ -282,6 +286,258 @@ void do_test(P_char ch, char *arg, int cmd)
 
   arg = one_argument(arg, buff);
 
+  if( isname("shield", buff) )
+  {
+    int rnum, count, count2, afnum, currac, maxac, minac;
+    long sum;
+    P_obj obj;
+
+    for( sum = 0, rnum = count = 0, maxac = MIN_INT_SIGNED, minac = MAX_INT_SIGNED; rnum <= top_of_objt; rnum++ )
+    {
+      obj = read_object( rnum, REAL );
+      if( obj->type == ITEM_SHIELD )
+      {
+        count++;
+        // This is pulled from affects.c - apply_ac
+        switch( obj->material )
+        {
+          case MAT_UNDEFINED:
+          case MAT_NONSUBSTANTIAL:
+            currac = 0;
+            break;
+          case MAT_FLESH:
+          case MAT_REEDS:
+          case MAT_HEMP:
+          case MAT_LIQUID:
+          case MAT_CLOTH:
+          case MAT_PAPER:
+          case MAT_PARCHMENT:
+          case MAT_LEAVES:
+          case MAT_GENERICFOOD:
+          case MAT_RUBBER:
+          case MAT_FEATHER:
+          case MAT_WAX:
+            currac = 15;
+            break;
+          case MAT_BARK:
+          case MAT_SOFTWOOD:
+          case MAT_SILICON:
+          case MAT_CERAMIC:
+          case MAT_PEARL:
+          case MAT_EGGSHELL:
+            currac = 30;
+            break;
+          case MAT_HIDE:
+          case MAT_LEATHER:
+          case MAT_CURED_LEATHER:
+          case MAT_LIMESTONE:
+            currac = 45;
+            break;
+          case MAT_IVORY:
+          case MAT_BAMBOO:
+          case MAT_HARDWOOD:
+          case MAT_COPPER:
+          case MAT_BONE:
+          case MAT_MARBLE:
+            currac = 60;
+            break;
+          case MAT_STONE:
+          case MAT_SILVER:
+          case MAT_BRONZE:
+          case MAT_IRON:
+          case MAT_REPTILESCALE:
+            currac = 75;
+            break;
+          case MAT_GOLD:
+          case MAT_CHITINOUS:
+          case MAT_CRYSTAL:
+          case MAT_STEEL:
+          case MAT_BRASS:
+          case MAT_OBSIDIAN:
+          case MAT_GRANITE:
+          case MAT_GEM:
+            currac = 90;
+            break;
+          case MAT_ELECTRUM:
+          case MAT_PLATINUM:
+          case MAT_RUBY:
+          case MAT_EMERALD:
+          case MAT_SAPPHIRE:
+          case MAT_GLASSTEEL:
+            currac = 105;
+            break;
+          case MAT_DRAGONSCALE:
+          case MAT_DIAMOND:
+            currac = 120;
+            break;
+          case MAT_MITHRIL:
+          case MAT_ADAMANTIUM:
+            currac = 135;
+            break;
+          default:
+            currac = 0;
+        }
+        if( obj->value[3] < 0 )
+        {
+          send_to_char_f(ch, "Shield '%s' %d needs a fix to make val3 positive.\n", OBJ_SHORT(obj), GET_OBJ_VNUM(obj));
+          currac = MAX(currac, -obj->value[3]);
+        }
+        else
+        {
+          currac = MAX(currac, obj->value[3]);
+        }
+        for( afnum = 0; afnum < MAX_OBJ_AFFECT; afnum++ )
+        {
+          if( obj->affected[afnum].location == APPLY_AC )
+          {
+            if( obj->affected[afnum].modifier > 0 )
+            {
+              send_to_char_f(ch, "Shield '%s' %d needs a fix to make a%dmod negative.\n",
+                OBJ_SHORT(obj), GET_OBJ_VNUM(obj), afnum);
+              currac += obj->affected[afnum].modifier;
+            }
+            currac -= obj->affected[afnum].modifier;
+          }
+        }
+        if( currac <= 0 )
+        {
+          send_to_char_f( ch, "Shield '%s' %d needs a fix, since it has %d total ac.\n",
+            OBJ_SHORT(obj), GET_OBJ_VNUM(obj), currac );
+        }
+        sum += currac;
+        if( currac > maxac )
+        {
+          maxac = currac;
+        }
+        if( currac < minac )
+        {
+          minac = currac;
+        }
+      }
+      extract_obj(obj);
+    }
+    send_to_char_f( ch, "\nThe total number of shields: %d, sum of ac: %ld, average ac: %ld, max ac: %d, min ac: %d.\n",
+      count, sum, sum / count, maxac, minac );
+    send_to_char_f( ch, "Shields with max %d ac:\n", maxac );
+    buff[0] = '\0';
+    for( rnum = count = count2 = 0; rnum <= top_of_objt; rnum++ )
+    {
+      obj = read_object( rnum, REAL );
+      if( obj->type == ITEM_SHIELD )
+      {
+        switch( obj->material )
+        {
+          case MAT_UNDEFINED:
+          case MAT_NONSUBSTANTIAL:
+            currac = 0;
+            break;
+          case MAT_FLESH:
+          case MAT_REEDS:
+          case MAT_HEMP:
+          case MAT_LIQUID:
+          case MAT_CLOTH:
+          case MAT_PAPER:
+          case MAT_PARCHMENT:
+          case MAT_LEAVES:
+          case MAT_GENERICFOOD:
+          case MAT_RUBBER:
+          case MAT_FEATHER:
+          case MAT_WAX:
+            currac = 15;
+            break;
+          case MAT_BARK:
+          case MAT_SOFTWOOD:
+          case MAT_SILICON:
+          case MAT_CERAMIC:
+          case MAT_PEARL:
+          case MAT_EGGSHELL:
+            currac = 30;
+            break;
+          case MAT_HIDE:
+          case MAT_LEATHER:
+          case MAT_CURED_LEATHER:
+          case MAT_LIMESTONE:
+            currac = 45;
+            break;
+          case MAT_IVORY:
+          case MAT_BAMBOO:
+          case MAT_HARDWOOD:
+          case MAT_COPPER:
+          case MAT_BONE:
+          case MAT_MARBLE:
+            currac = 60;
+            break;
+          case MAT_STONE:
+          case MAT_SILVER:
+          case MAT_BRONZE:
+          case MAT_IRON:
+          case MAT_REPTILESCALE:
+            currac = 75;
+            break;
+          case MAT_GOLD:
+          case MAT_CHITINOUS:
+          case MAT_CRYSTAL:
+          case MAT_STEEL:
+          case MAT_BRASS:
+          case MAT_OBSIDIAN:
+          case MAT_GRANITE:
+          case MAT_GEM:
+            currac = 90;
+            break;
+          case MAT_ELECTRUM:
+          case MAT_PLATINUM:
+          case MAT_RUBY:
+          case MAT_EMERALD:
+          case MAT_SAPPHIRE:
+          case MAT_GLASSTEEL:
+            currac = 105;
+            break;
+          case MAT_DRAGONSCALE:
+          case MAT_DIAMOND:
+            currac = 120;
+            break;
+          case MAT_MITHRIL:
+          case MAT_ADAMANTIUM:
+            currac = 135;
+            break;
+          default:
+            currac = 0;
+        }
+        if( obj->value[3] < 0 )
+        {
+          currac = MAX(currac, -obj->value[3]);
+        }
+        else
+        {
+          currac = MAX(currac, obj->value[3]);
+        }
+        for( afnum = 0; afnum < MAX_OBJ_AFFECT; afnum++ )
+        {
+          if( obj->affected[afnum].location == APPLY_AC )
+          {
+            if( obj->affected[afnum].modifier > 0 )
+            {
+              currac += obj->affected[afnum].modifier;
+            }
+            currac -= obj->affected[afnum].modifier;
+          }
+        }
+        if( currac == maxac )
+        {
+          send_to_char_f( ch, "%2d) '%s' %6d.\n", ++count, pad_ansi(OBJ_SHORT(obj), 35, TRUE).c_str(), GET_OBJ_VNUM(obj) );
+        }
+        // Sneak in and keep a record of minac shields too.
+        if( currac == minac )
+        {
+          sprintf( buff + strlen(buff), "%2d) '%s' %6d.\n", ++count2, pad_ansi(OBJ_SHORT(obj), 35, TRUE).c_str(), GET_OBJ_VNUM(obj) );
+        }
+      }
+      extract_obj(obj);
+    }
+    send_to_char_f( ch, "Shields with min %d ac:\n", minac );
+    send_to_char( buff, ch );
+    return;
+  }
   if( isname("passwd", buff) )
   {
     char buf1[MAX_STRING_LENGTH];
