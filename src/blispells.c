@@ -70,7 +70,7 @@ void spell_thornskin(int level, P_char ch, char *arg, int type, P_char victim, P
     bzero(&af1, sizeof(af1));
     af1.type = SPELL_THORNSKIN;
     af1.duration =  25;
-    af1.modifier = -1 * level / 2;
+    af1.modifier = -1 * level / 4;
     af1.location = APPLY_AC;
     af1.bitvector = AFF_ARMOR;
     af1.bitvector5 = AFF5_THORNSKIN;

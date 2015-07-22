@@ -817,6 +817,11 @@ void apply_affs(P_char ch, int mode)
   if (has_innate(ch, INNATE_EYELESS))
     SET_BIT(ch->specials.affected_by5, AFF5_NOBLIND);
 
+  if( IS_AFFECTED5(ch, AFF5_THORNSKIN) )
+  {
+    REMOVE_BIT(ch->specials.affected_by, AFF_BARKSKIN);
+  }
+
   /*
    * for stats, it just flat out recalcs them, no +/- about it, safer
    * that way
@@ -1135,6 +1140,8 @@ void apply_affs(P_char ch, int mode)
       GET_AC(ch) -= 30;
     if (IS_AFFECTED(ch, AFF_BARKSKIN))
       GET_AC(ch) -= 100;
+    if( IS_AFFECTED5(ch, AFF5_THORNSKIN) )
+      GET_AC(ch) -= 50;
     if (IS_AFFECTED3(ch, AFF3_GR_SPIRIT_WARD))
       ch->specials.apply_saving_throw[SAVING_SPELL] -= 4;
     if (IS_AFFECTED3(ch, AFF3_SPIRIT_WARD))
