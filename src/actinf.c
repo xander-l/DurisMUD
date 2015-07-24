@@ -6218,7 +6218,7 @@ void do_who(P_char ch, char *argument, int cmd)
       align = -1;
     else if( is_abbrev(arg, "sort") )
       sort = TRUE;
-    else if( !strcmp(arg, "short") || is_abbrev(arg, "mortals") )
+    else if( !strcmp(arg, "short") || !strcmp(arg, "mortal") )
       mortalsonly = TRUE;
     else if( is_abbrev(arg, "lfg") )
       lfg = TRUE;
