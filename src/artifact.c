@@ -1367,6 +1367,14 @@ void poof_artifact( P_obj arti )
   // Save where appropriate.
   if( owner )
   {
+    char buf[MAX_STRING_LENGTH];
+    char name[16];
+    sprintf( name, "%s", GET_NAME(owner) );
+    name[0] = LOWER(name[0]);
+    sprintf( buf, "cp -f %s/%c/%s %s/%c/%s.bak", SAVE_DIR, name[0], name, SAVE_DIR, name[0], name );
+    debug( "poof_artifact: %s", buf );
+    system( buf );
+
     writeCharacter(owner, RENT_POOFARTI, owner->in_room);
   }
   if( cont != NULL && GET_OBJ_VNUM(cont) == VOBJ_CORPSE && IS_SET(cont->value[CORPSE_FLAGS], PC_CORPSE) )
@@ -1945,6 +1953,7 @@ void event_artifact_check_poof_sql( P_char ch, P_char vict, P_obj obj, void * ar
           if( arti )
           {
             poof_artifact( arti );
+            nuke_eq( owner );
           }
           else
           {
@@ -1956,7 +1965,7 @@ void event_artifact_check_poof_sql( P_char ch, P_char vict, P_obj obj, void * ar
             logit( LOG_ARTIFACT, "event_artifact_check_poof_sql: Could not find artifact vnum %d on pfile of '%s' %d.",
               vnum, get_player_name_from_pid( location ), location );
           }
-          extract_char( owner );
+          extract_char( owner, FALSE );
         }
         // PC online.
         else
