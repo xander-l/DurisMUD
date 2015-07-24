@@ -952,7 +952,7 @@ int warmaster( P_char ch, P_char pl, int cmd, char *arg )
         town->zone->name );
     send_to_char( buf, pl );
     obj_from_char( donation );
-    town->resources += itemvalue( ch, donation );
+    town->resources += itemvalue( donation );
     extract_obj( donation, TRUE ); // Will never bi arti, but ok.
     save_towns();
     return TRUE;

@@ -47,7 +47,6 @@ extern P_char character_list;
 extern struct zone_data *zone_table;
 
 extern P_nevent get_scheduled(P_char ch, event_func func);
-extern int itemvalue(P_char ch, P_obj obj);
 void event_memorize(P_char, P_char, P_obj, void *);
 int is_wearing_necroplasm(P_char);
 
@@ -2340,12 +2339,12 @@ void StorageLocker::SortIValues(void)
         object = rest;
         rest = rest->next_content;
         object->next_content = NULL;
-        value = itemvalue( m_chUser, object );
+        value = itemvalue( object );
 
         // Put into right spot in chest.
         // If value is smallest, insert to head of list.
         if( !pChests->m_pChestObject->contains
-          || value <= itemvalue( m_chUser, pChests->m_pChestObject->contains ) )
+          || value <= itemvalue( pChests->m_pChestObject->contains ) )
         {
           object->next_content = pChests->m_pChestObject->contains;
           pChests->m_pChestObject->contains = object;
@@ -2355,7 +2354,7 @@ void StorageLocker::SortIValues(void)
           // Walk through the list to find the correct spot.
           pObjList = pChests->m_pChestObject->contains;
           while( pObjList->next_content
-            && value > itemvalue( m_chUser, pObjList->next_content ) )
+            && value > itemvalue( pObjList->next_content ) )
             pObjList = pObjList->next_content;
 
           // Insert the object into the list.

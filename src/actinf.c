@@ -3354,7 +3354,7 @@ void do_examine(P_char ch, char *argument, int cmd)
     act(buf, FALSE, ch, tmp_object, 0, TO_CHAR);
 
     sprintf(buf, "$p &nhas an item value of &+W%d&n.",
-            itemvalue(ch, tmp_object));
+            itemvalue(tmp_object));
     act(buf, FALSE, ch, tmp_object, 0, TO_CHAR);
 
     if ((GET_ITEM_TYPE(tmp_object) == ITEM_WAND || GET_ITEM_TYPE(tmp_object) == ITEM_STAFF) && IS_AFFECTED2(ch, AFF2_DETECT_MAGIC))

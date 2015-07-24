@@ -2,4 +2,22 @@
 &+cThe P&+Ca&+ct&+Ch &+cB&+Ce&+ct&+Cw&+ce&+Ce&+cn &+rW&+Ro&+rr&+Rl&+rd&+Rs&n~
 ~
 400 0 0 0
+D0
+~
+~
+0 0 400999
+S
+#400999
+Top of Tradeskills~
+This room has the last vnum used by tradeskills (hopefully).
+It has no other purpose, but to serve as a upperlimit for vnums.
+I wanted to be able to 'world obj' and get a list of objects in this zone,
+so I created this room.
+Enjoy!
+~
+400 0 0 0
+D2
+~
+~
+0 0 400000
 S

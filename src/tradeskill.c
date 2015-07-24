@@ -492,7 +492,7 @@ void do_forge(P_char ch, char *argument, int cmd)
   if( commandType == 1 )
   {
     // Display required materials to make obj - formula below:
-    iVal = itemvalue(ch, obj);
+    iVal = itemvalue(obj);
     numHighQuality = (iVal + 4) / 5;
     numLowQuality = (iVal + 4) - numHighQuality * 5;
     lowQualityMaterialVnum = get_matstart(obj);
@@ -561,7 +561,7 @@ void do_forge(P_char ch, char *argument, int cmd)
   else if( commandType == 3 )
   {
     // Attempt to make obj:
-    iVal = itemvalue(ch, obj);
+    iVal = itemvalue(obj);
     if( iVal > 100 )
     {
       act("You look at the recipe for $p&n, but can't seem to discern how to make it.  &+mHow strange.&N",
@@ -3055,7 +3055,7 @@ int learn_tradeskill(P_char ch, P_char pl, int cmd, char *arg)
 }
 
 
-int itemvalue(P_char ch, P_obj obj)
+int itemvalue( P_obj obj )
 {
   long workingvalue = 0;
   double multiplier = 1;

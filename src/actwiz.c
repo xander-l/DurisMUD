@@ -2156,7 +2156,7 @@ void do_stat(P_char ch, char *argument, int cmd)
 
     sprintf(o_buf + strlen(o_buf),
             "&+YWeight: &N%d&+Y lbs   Value: &N%s   &+YCondition: &N%d   &+YItem Value: &N%d\n",//%d(%d%%)\n",
-            j->weight, comma_string((long) (j->cost)), j->condition, itemvalue(ch, j));
+            j->weight, comma_string((long) (j->cost)), j->condition, itemvalue(j));
 //, j->max_condition, (int) (((float) j->condition / j->max_condition) * 100)); wipe2011
 
     sprintf(o_buf + strlen(o_buf),

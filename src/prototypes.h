@@ -341,7 +341,7 @@ void do_drandebug(P_char ch, char *arg, int cmd);
 int get_matstart(P_obj obj);
 bool has_affect(P_obj obj);
 void do_refine(P_char ch, char *arg, int cmd);
-int itemvalue(P_char ch, P_obj obj);
+int itemvalue(P_obj obj);
 void do_dice(P_char ch, char *arg, int cmd);
 
 /* actoff.c */

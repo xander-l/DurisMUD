@@ -196,7 +196,7 @@ P_obj quest_item_reward(P_char ch)
 
   if(reward)
   {
-    wizlog(56, "quest_item_reward: %s reward was: %s [%d] ivalue %d.", GET_NAME(ch), reward->short_description, GET_OBJ_VNUM(reward), itemvalue(ch, reward));
+    wizlog(56, "quest_item_reward: %s reward was: %s [%d] ivalue %d.", GET_NAME(ch), reward->short_description, GET_OBJ_VNUM(reward), itemvalue(reward));
 
     REMOVE_BIT(reward->extra_flags, ITEM_SECRET);
     REMOVE_BIT(reward->extra_flags, ITEM_INVISIBLE);

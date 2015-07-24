@@ -75,7 +75,6 @@ extern const flagDef affected3_bits[];
 extern const flagDef affected4_bits[];
 extern const flagDef affected5_bits[];
 extern int top_of_zone_table;
-extern int itemvalue(P_char ch, P_obj obj);
 
 void yank_make_item(P_char, P_obj);
 void lore_item( P_char ch, P_obj obj );
@@ -2927,7 +2926,7 @@ void lore_item( P_char ch, P_obj obj )
     }
   }
 
-  sprintf(Gbuf2, "$p &nhas an item value of &+W%d&n.", itemvalue(ch, obj));
+  sprintf(Gbuf2, "$p &nhas an item value of &+W%d&n.", itemvalue(obj));
   act(Gbuf2, FALSE, ch, obj, 0, TO_CHAR);
 }
 
@@ -3881,7 +3880,7 @@ void do_craft(P_char ch, char *argument, int cmd)
     }
 
     // Minimum value is iVal 1 -> 1 Max quality material, 0 Min quality materials to create.
-    int iVal = itemvalue(ch, tobj);
+    int iVal = itemvalue(tobj);
     int lowQualityMaterialVnum = get_matstart(tobj);
 
     if( lowQualityMaterialVnum <= 0 )
@@ -3963,7 +3962,7 @@ void do_craft(P_char ch, char *argument, int cmd)
     }
 
     // Minimum value is iVal 1 -> 1 Max quality material, 0 Min quality materials to create.
-    int iVal = itemvalue(ch, tobj);
+    int iVal = itemvalue(tobj);
     if( iVal > 100 )
     {
       act("You look at the recipe for $p&n, but can't seem to discern how to make it.  &+mHow strange.&N",

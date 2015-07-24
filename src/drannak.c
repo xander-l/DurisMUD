@@ -769,7 +769,7 @@ int equipped_value(P_char ch)
   {
     temp_obj = ch->equipment[k];
     if(temp_obj)
-      total += itemvalue(ch, temp_obj);
+      total += itemvalue(temp_obj);
   }
   return total;
 }
@@ -819,7 +819,7 @@ void create_recipe(P_char ch, P_obj temp)
   objrecipe->short_description = str_dup(buffer);
 
   objrecipe->str_mask |= STRUNG_DESC2;
-  debug( "create_recipe: %s reward was: %s ival: %d.", J_NAME(ch), objrecipe->short_description, itemvalue(ch, temp) );
+  debug( "create_recipe: %s reward was: %s ival: %d.", J_NAME(ch), objrecipe->short_description, itemvalue(temp) );
   obj_to_char( objrecipe, ch );
 }
 
@@ -2026,9 +2026,9 @@ void enhance(P_char ch, P_obj source, P_obj material)
     return;
 
   chluck = (GET_C_LUK(ch));
-  sval = itemvalue(ch, source);
-  val = itemvalue(ch, material);
-  minval = itemvalue(ch, source) - 5;
+  sval = itemvalue(source);
+  val = itemvalue(material);
+  minval = itemvalue(source) - 5;
   searchcount = 0;
   maxsearch = 20000;
   // Only search matching wear flags unless none matching, then just search source wear flags.
@@ -2044,7 +2044,7 @@ void enhance(P_char ch, P_obj source, P_obj material)
     return;
   }
 
-  if( itemvalue( ch, source ) > 100 )
+  if( itemvalue( source ) > 100 )
   {
     send_to_char( "This item is too powerful to be enhanced further.\n", ch );
     return;
@@ -2098,7 +2098,7 @@ void enhance(P_char ch, P_obj source, P_obj material)
     send_to_char("&+YYou feel &+MLucky&+Y!\r\n", ch);
   }
 
-  mod += itemvalue(ch, source);
+  mod += itemvalue(source);
   validobj = FALSE;
   /*debug sprintf(buf, "validobj value: %d\n\r", validobj);
     send_to_char(buf, ch);*/
@@ -2117,7 +2117,7 @@ void enhance(P_char ch, P_obj source, P_obj material)
       validobj = FALSE;
       extract_obj(robj);
     }
-    else if( itemvalue(ch, robj) != mod
+    else if( itemvalue(robj) != mod
       || (robj->type == ITEM_STAFF && robj->value[3] > 0)
       || robj->type == ITEM_TREASURE || robj->type == ITEM_POTION
       || robj->type == ITEM_MONEY || robj->type == ITEM_KEY
@@ -2206,7 +2206,7 @@ void enhance(P_char ch, P_obj source, P_obj material)
   extract_obj(material);
   statuslog(ch->player.level, "&+BEnhancement&n:&n %s&n just got [%d] '%s&n' ival [%d] at [%d]!",
     GET_NAME(ch), obj_index[robj->R_num].virtual_number, robj->short_description,
-    itemvalue(ch, robj), (ch->in_room == NOWHERE) ? -1 : world[ch->in_room].number);
+    itemvalue(robj), (ch->in_room == NOWHERE) ? -1 : world[ch->in_room].number);
   return;
 }
 
@@ -2272,7 +2272,7 @@ void do_enhance(P_char ch, char *argument, int cmd)
   }
 
   /* Removing this.  There's a cap in void enhance(..).
-  if(itemvalue(ch, source) > (GET_LEVEL(ch) * 1.5))
+  if(itemvalue(source) > (GET_LEVEL(ch) * 1.5))
   {
     send_to_char("&+YYou must gain a higher level in order to enhance that item!&n\r\n", ch);
     return;
@@ -2297,10 +2297,10 @@ void modenhance(P_char ch, P_obj source, P_obj material)
   long robjint;
   int mod = 0, loctype = 0;
   int validobj, cost, searchcount = 0, tries;
-  int sval = itemvalue(ch, source);
+  int sval = itemvalue(source);
   validobj = 0;
-  int val = itemvalue(ch, material);
-  int minval = itemvalue(ch, source) - 5;
+  int val = itemvalue(material);
+  int minval = itemvalue(source) - 5;
 
 
   if(val <= 20)

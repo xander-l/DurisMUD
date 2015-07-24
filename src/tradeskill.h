@@ -14,12 +14,13 @@
 #define PARCHMENT_VNUM  251
 #define MAX_NEEDED_ORE  5
 
-#define LOWEST_MAT_VNUM   400000
-#define HIGHEST_MAT_VNUM  400210
-#define MAG_ESSENCE_VNUM  400211
+#define LOWEST_MAT_VNUM     400000
+#define HIGHEST_MAT_VNUM    400209
+#define SALVAGE_RECIPE_VNUM 400210
+#define MAG_ESSENCE_VNUM    400211
 
-#define LOWEST_ORE_VNUM   400260
-#define NUMBER_ORE_TYPES       8
+#define LOWEST_ORE_VNUM     400260
+#define NUMBER_ORE_TYPES         8
 
 // The below reg ore vnums are outdated; the new vnums are in order starting with above.
 #define SMALL_IRON_ORE 194
