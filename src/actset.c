@@ -588,11 +588,21 @@ static void setbit_char(P_char ch, char *name, char *flag, char *val, int on_off
     return;
   }
   // only level forger+ can setbit players (outside of themselves)
-  if (IS_PC(ppl) && ppl != ch &&
-      ((GET_LEVEL(ch) < FORGER) || (GET_LEVEL(ch) <= GET_LEVEL(ppl))))
+  if( IS_PC(ppl) && ppl != ch
+    && ((GET_LEVEL(ch) < FORGER) || (GET_LEVEL(ch) <= GET_LEVEL(ppl))) )
   {
-    send_to_char("Nope, you are too wimpy to affect them.\r\n", ch);
-    return;
+    // Allowing Ashyel, my admin assistant, to be Greater God and setbit.
+    // Note: she still has to be Greater God to use setbit at all.
+    if( strcmp( ch->player.name, "Ashyel" ) )
+    {
+      send_to_char("Nope, you are too wimpy to affect them.\r\n", ch);
+      return;
+    }
+    else
+    {
+      debug( "Ashyel: setbit_char '%s' '%s' '%s' '%d'.", name, flag, val, on_off );
+      logit(LOG_WIZ, "Ashyel: setbit_char '%s' '%s' '%s' '%d'.", name, flag, val, on_off );
+    }
   }
 
   /* bleah, have to make exceptions now that mobs/pcs aren't the same */
