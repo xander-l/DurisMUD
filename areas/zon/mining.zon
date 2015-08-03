@@ -94,29 +94,29 @@ D 0 4962 5 5 100 0 0 0
 *     "The End of the Rough Tunnel" - closed/secret
 *
 *
-O 0 4920 1 4903 100 0 0 0          * wooden crate
-P 1 4921 9 4920 100 0 0 0          *   a mining pick
-O 0 4965 1 4911 100 0 0 0          * a wooden desk
-O 0 4987 1 4914 100 0 0 0          * a wall map
+O 0 4900 1 4903 100 0 0 0          * wooden crate
+P 1 4901 9 4900 100 0 0 0          *   a mining pick
+O 0 4905 1 4911 100 0 0 0          * a wooden desk
+O 0 4907 1 4914 100 0 0 0          * a wall map
 O 0 4919 4 4915 100 0 0 0          * a mining cart
 O 0 4919 4 4925 100 0 0 0          * a mining cart
 O 0 4919 4 4933 100 0 0 0          * a mining cart
 O 0 4919 4 4937 100 0 0 0          * a mining cart
-O 0 4932 1 4942 100 0 0 0          * a wooden desk
-P 1 4943 1 4932 100 0 0 0          *   the engineers key
+O 0 4902 1 4942 100 0 0 0          * a wooden desk
+P 1 4903 1 4902 100 0 0 0          *   the engineers key
 O 0 4908 1 4962 100 0 0 0          * an iron chest
 O 0 4909 1 4962 100 0 0 0          * a wooden treasure chest
 O 0 4910 1 4962 100 0 0 0          * a wooden rack
 P 1 4915 1 4910 100 0 0 0          *   a golden boomerang
 O 0 4917 1 4964 100 0 0 0          * a cotton backpack
-O 0 4976 10 4967 100 0 0 0         * the vault key
+O 0 4906 10 4967 100 0 0 0         * the vault key
 *
 M 0 4920 6 4904 100 0 0 0          * a halfling mine guard
 M 0 4920 6 4904 100 0 0 0          * a halfling mine guard
 M 0 4920 6 4905 100 0 0 0          * a halfling mine guard
-E 1 4921 9 16 100 0 0 0            *   a mining pick
+E 1 4901 9 16 100 0 0 0            *   a mining pick
 M 0 4920 6 4905 100 0 0 0          * a halfling mine guard
-E 1 4921 9 16 100 0 0 0            *   a mining pick
+E 1 4901 9 16 100 0 0 0            *   a mining pick
 M 0 4920 6 4906 100 0 0 0          * a halfling mine guard
 M 0 4920 6 4906 100 0 0 0          * a halfling mine guard
 M 0 4901 1 4907 100 0 0 0          * an exhausted halfling
@@ -134,10 +134,10 @@ M 0 4906 5 4919 100 0 0 0          * a halfling worker
 M 0 4902 1 4920 100 0 0 0          * a naked halfling
 M 0 4911 5 4921 100 0 0 0          * a halfling miner
 E 1 4913 1 13 100 0 0 0            *   a belt of mining
-E 1 4921 9 16 100 0 0 0            *   a mining pick
+E 1 4901 9 16 100 0 0 0            *   a mining pick
 M 0 4916 9 4923 100 0 0 0          * a furry rat
 M 0 4911 5 4925 100 0 0 0          * a halfling miner
-E 1 4921 9 16 100 0 0 0            *   a mining pick
+E 1 4901 9 16 100 0 0 0            *   a mining pick
 M 0 4916 9 4926 100 0 0 0          * a furry rat
 M 0 4912 1 4928 100 0 0 0          * a halfling cart pusher
 M 0 4903 1 4929 100 0 0 0          * a filthy squatter
@@ -151,21 +151,21 @@ M 0 4909 1 4932 100 0 0 0          * a halfling chiseller
 E 1 4914 1 16 100 0 0 0            *   a simple chisel
 M 0 4916 9 4932 100 0 0 0          * a furry rat
 M 0 4911 5 4934 100 0 0 0          * a halfling miner
-E 1 4921 9 16 100 0 0 0            *   a mining pick
+E 1 4901 9 16 100 0 0 0            *   a mining pick
 M 0 4916 9 4934 100 0 0 0          * a furry rat
 M 0 4911 5 4936 100 0 0 0          * a halfling miner
-E 1 4921 9 16 100 0 0 0            *   a mining pick
+E 1 4901 9 16 100 0 0 0            *   a mining pick
 M 0 4916 9 4936 100 0 0 0          * a furry rat
 M 0 4911 5 4938 100 0 0 0          * a halfling miner
-E 1 4921 9 16 100 0 0 0            *   a mining pick
+E 1 4901 9 16 100 0 0 0            *   a mining pick
 M 0 4906 5 4938 100 0 0 0          * a halfling worker
 M 0 4905 1 4939 100 0 0 0          * a halfling miner
-E 1 4921 9 16 100 0 0 0            *   a mining pick
+E 1 4901 9 16 100 0 0 0            *   a mining pick
 M 0 4906 5 4939 100 0 0 0          * a halfling worker
 M 0 4918 1 4941 100 0 0 0          * a halfling bellowman
 M 0 4914 1 4942 100 0 0 0          * a halfling engineer
 E 1 4918 1 3 100 0 0 0             *   a pentagram
-G 1 4954 1 0 100 0 0 0             *    a desk key
+G 1 4904 1 0 100 0 0 0             *    a desk key
 M 0 4922 1 4947 100 0 0 0          * a vicious balor
 E 1 4911 1 16 100 0 0 0            *   a balor's whip
 M 0 4919 5 4955 100 0 0 0          * a red demon
@@ -174,7 +174,7 @@ M 0 4919 5 4957 100 0 0 0          * a red demon
 M 0 4919 5 4959 100 0 0 0          * a red demon
 M 0 4919 5 4961 100 0 0 0          * a red demon
 M 0 4915 1 4962 100 0 0 0          * the vaultkeeper
-G 1 4976 10 0 100 0 0 0            *    the vault key
+G 1 4906 10 0 100 0 0 0            *    the vault key
 M 0 4916 9 4963 100 0 0 0          * a furry rat
 M 0 4916 9 4963 100 0 0 0          * a furry rat
 M 0 4923 2 4965 100 0 0 0          * a service tunnel janitor

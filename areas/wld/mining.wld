@@ -156,10 +156,6 @@ D2
 ~
 ~
 0 0 4906
-D3
-~
-~
-0 0 -1
 S
 #4908
 &+LBefore the Mines &N&+WVault&N~
@@ -175,7 +171,7 @@ S
 D0
 ~
 vault door~
-3 4976 4962
+3 4906 4962
 D1
 ~
 ~
@@ -337,7 +333,7 @@ D5
    A trapdoor is visible here cut into the stone.&N
 ~
 trapdoor~
-2 4943 4943
+2 4903 4943
 S
 #4915
 &N&+LThe Central Line&N~
@@ -1289,7 +1285,7 @@ a &N&+Cmetallic alloy&N.  Nothing could break into this &N&+Wvault&N.
 D2
 ~
 vault door~
-2 4976 4908
+2 4906 4908
 D5
    This trapdoor seemingly came from nowhere.  It's made of metal.&N
 ~

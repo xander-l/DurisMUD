@@ -1,3 +1,112 @@
+#4900
+wooden crate~
+&+ywooden crate&N~
+&NA &N&+ywooden crate&N resides in the corner.&N~
+~
+15 6 3 0 7 0 0 0 0 0 0
+100 1 0 100 0 0 0 0
+450 0 100
+E
+wooden crate~
+   This wooden crate seems to be used as a storage bin.
+~
+#4901
+mining pick~
+a mining pick~
+A old mining pick lies here.&N~
+~
+5 15 3 0 7 0 8192 8193 0 0 0
+11 2 4 0 0 0 0 0
+5 150 65
+E
+mining pick~
+&N  This mining pick is old and well used.  &N
+~
+A
+2 1
+#4902
+wooden desk~
+&+ya wooden desk&N~
+A &N&+ywooden desk&N covered in &N&+Wpapers&N rests here.&N~
+~
+15 6 3 0 7 0 0 0 1024 0 0
+100 15 4904 100 0 0 0 0
+5000 0 100
+E
+wooden desk~
+   This wooden desk is covered in papers.  It has a few drawers, but
+they are locked.  The wood seems old, but it is highly posished so it
+gives off a shine.&N
+~
+#4903
+key~
+the engineers key~
+The engineers key lies here forgotten.&N~
+~
+18 15 1 0 10 0 1 16385 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+key~
+   The engineers key hums with magic.&N
+~
+#4904
+key~
+a desk key~
+A key made for a desk lies here forgotten.&N~
+~
+18 15 1 0 7 0 4096 16385 0 0 0
+0 0 0 0 0 0 0 0
+1 1 100
+E
+key~
+   This is a steel key.&N
+~
+#4905
+wooden desk~
+&+ya wooden desk&N~
+A &N&+ywooden desk&N covered in &N&+Wpapers&N rests here.&N~
+~
+15 6 3 0 7 0 0 0 1024 0 0
+100 1 0 100 0 0 0 0
+5000 0 100
+E
+wooden desk~
+&N   This&N&+y wooden desk &Nis covered in &N&+Wpapers&N.  It has a few &N&+ydrawers&N.
+The &N&+ywood &Nseems old, but it is highly posished so it gives off a shine.&N
+~
+#4906
+vault key~
+the vault key~
+The vault key lies here, discarded, unwanted.  &N~
+~
+18 21 1 0 11 0 1 16385 0 0 0
+0 0 0 0 0 0 0 0
+1 1 50
+E
+vault key~
+   This small copper key has many teeth.  It seems to be a very
+advanced key.  And old. Very old.
+~
+#4907
+schematic map~
+a wall map~
+A large schematic hangs on the wall.&N~
+~
+13 15 3 0 7 0 67117056 0 0 0 0
+0 0 0 0 0 0 0 0
+12 1 100
+E
+schematic map~
+&+c/=========================================\
+&+c|            &+r\ &+cx - &+Lnew tunnel             &+c|
+&+c|             &+r\&+cx                          &+c|
+&+c|   &+Lbellows &+cxx H E - &+GEngineers &+yoffice     &+c|
+&+c|              x&+r\                         &+c|
+&+c|              x&+r \                        &+c|
+&+c|    &+Lmain line &+cx &+r \&+W - &+LDon't go down!      &+c|
+&+c\=========================================/
+~
 #4908
 iron chest~
 an &N&+ciron&N &N&+Lchest&N~
@@ -180,113 +289,4 @@ E
 mining cart~
    This &N&+ywooden mining cart&N rests upon to &N&+Cmetal axles&N.  The grooved
 wheels fit perfectly onto the rail system.
-~
-#4920
-wooden crate~
-&+ywooden crate&N~
-&NA &N&+ywooden crate&N resides in the corner.&N~
-~
-15 6 3 0 7 0 0 0 0 0 0
-100 1 0 100 0 0 0 0
-450 0 100
-E
-wooden crate~
-   This wooden crate seems to be used as a storage bin.
-~
-#4921
-mining pick~
-a mining pick~
-A old mining pick lies here.&N~
-~
-5 15 3 0 7 0 8192 8193 0 0 0
-11 2 4 0 0 0 0 0
-5 150 65
-E
-mining pick~
-&N  This mining pick is old and well used.  &N
-~
-A
-2 1
-#4932
-wooden desk~
-&+ya wooden desk&N~
-A &N&+ywooden desk&N covered in &N&+Wpapers&N rests here.&N~
-~
-15 6 3 0 7 0 0 0 1024 0 0
-100 15 4954 100 0 0 0 0
-5000 0 100
-E
-wooden desk~
-   This wooden desk is covered in papers.  It has a few drawers, but
-they are locked.  The wood seems old, but it is highly posished so it
-gives off a shine.&N
-~
-#4943
-key~
-the engineers key~
-The engineers key lies here forgotten.&N~
-~
-18 15 1 0 10 0 1 16385 0 0 0
-0 0 0 0 0 0 0 0
-1 1 100
-E
-key~
-   The engineers key hums with magic.&N
-~
-#4954
-key~
-a desk key~
-A key made for a desk lies here forgotten.&N~
-~
-18 15 1 0 7 0 4096 16385 0 0 0
-0 0 0 0 0 0 0 0
-1 1 100
-E
-key~
-   This is a steel key.&N
-~
-#4965
-wooden desk~
-&+ya wooden desk&N~
-A &N&+ywooden desk&N covered in &N&+Wpapers&N rests here.&N~
-~
-15 6 3 0 7 0 0 0 1024 0 0
-100 1 0 100 0 0 0 0
-5000 0 100
-E
-wooden desk~
-&N   This&N&+y wooden desk &Nis covered in &N&+Wpapers&N.  It has a few &N&+ydrawers&N.
-The &N&+ywood &Nseems old, but it is highly posished so it gives off a shine.&N
-~
-#4976
-vault key~
-the vault key~
-The vault key lies here, discarded, unwanted.  &N~
-~
-18 21 1 0 11 0 1 16385 0 0 0
-0 0 0 0 0 0 0 0
-1 1 50
-E
-vault key~
-   This small copper key has many teeth.  It seems to be a very
-advanced key.  And old. Very old.
-~
-#4987
-schematic map~
-a wall map~
-A large schematic hangs on the wall.&N~
-~
-13 15 3 0 7 0 67117056 0 0 0 0
-0 0 0 0 0 0 0 0
-12 1 100
-E
-schematic map~
-#&N&+c========================================= &NCCCCP
-#          x - &N&+Lnew tunnel&N                   cccp
-#&N&+Lbellows&N\  x                              CCCCB
-#       xx H E - &N&+GEngineers &N&+yoffice&N        CCD
-#          x&N&+r\&N                               CCCD
-#          x&N&+r \&N                           CCCD
-#&N&+Lmain line x &N&+r \&N&N&+W - &N&+LDon't go down!        CCPD
-#&N&+c=========================================
 ~
