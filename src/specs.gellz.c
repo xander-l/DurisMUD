@@ -838,40 +838,40 @@ void do_deaths_door(P_char ch, char *arg, int cmd)
     {
       return;
     }
-    sprintf( buf, "You still need: " );
+    sprintf( buf, "&+yYou still need&+W: " );
     if( ch->base_stats.Str < 100 )
     {
-      sprintf( buf + strlen(buf), "%d Strength, ", 100 - ch->base_stats.Str );
+      sprintf( buf + strlen(buf), "&+w%d &+LStr&+y, ", 100 - ch->base_stats.Str );
     }
     if( ch->base_stats.Dex < 100 )
     {
-      sprintf( buf + strlen(buf), "%d Dexterity, ", 100 - ch->base_stats.Dex );
+      sprintf( buf + strlen(buf), "&+w%d &+LDex&+y, ", 100 - ch->base_stats.Dex );
     }
     if( ch->base_stats.Int < 100 )
     {
-      sprintf( buf + strlen(buf), "%d Intelligence, ", 100 - ch->base_stats.Int );
+      sprintf( buf + strlen(buf), "&+w%d &+LInt&+y, ", 100 - ch->base_stats.Int );
     }
     if( ch->base_stats.Wis < 100 )
     {
-      sprintf( buf + strlen(buf), "%d Wisdom, ", 100 - ch->base_stats.Wis );
+      sprintf( buf + strlen(buf), "&+w%d &+LWis&+y, ", 100 - ch->base_stats.Wis );
     }
     if( ch->base_stats.Agi < 100 )
     {
-      sprintf( buf + strlen(buf), "%d Agility, ", 100 - ch->base_stats.Agi );
+      sprintf( buf + strlen(buf), "&+w%d &+LAgi&+y, ", 100 - ch->base_stats.Agi );
     }
     if( ch->base_stats.Con < 100 )
     {
-      sprintf( buf + strlen(buf), "%d Constitution, ", 100 - ch->base_stats.Con );
+      sprintf( buf + strlen(buf), "&+w%d &+LCon&+y, ", 100 - ch->base_stats.Con );
     }
     if( ch->base_stats.Pow < 100 )
     {
-      sprintf( buf + strlen(buf), "%d Power, ", 100 - ch->base_stats.Pow );
+      sprintf( buf + strlen(buf), "&+w%d &+LPow&+y, ", 100 - ch->base_stats.Pow );
     }
     if( ch->base_stats.Cha < 100 )
     {
-      sprintf( buf + strlen(buf), "%d Charisma, ", 100 - ch->base_stats.Cha );
+      sprintf( buf + strlen(buf), "&+w%d &+LCha&+y, ", 100 - ch->base_stats.Cha );
     }
-    sprintf( buf + strlen(buf) - 2, ".\n" );
+    sprintf( buf + strlen(buf) - 2, "&+y.\n" );
     send_to_char(buf, ch );
     return;
   }
