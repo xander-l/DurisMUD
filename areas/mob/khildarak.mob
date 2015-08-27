@@ -6,7 +6,7 @@ a &+rduergar guard&N watches the area intently
 This guard has a stone cold expression that tells you he is serious about his
 craft. His bald head bears a tatoo of a large fist.
 ~
-67110926 2624 0 0 67108888 2 0 0 -1000 S
+67110926 2880 0 0 67108888 2 0 0 -1000 S
 PD 6 1 0 -1
 55 -5 -98 51d131+4335 7d6+30
 6.9.4.6 206550
@@ -72,7 +72,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a tatoo of a fist shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -85,7 +85,7 @@ The clan &+rcrafts priest&N stands here in silence
 This duergar is average in size, a tatoo of a small skull shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -98,7 +98,7 @@ The clan &+relder&N watches you closely
 This duergar is average in size, the tatoo of a small skull shows on his
 bald head. His face conveys a feeling of experience and wisdom.
 ~
-1073743886 64 0 0 48 2 0 0 -1000 S
+1073743886 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 50 -3 -95 50d119+2750 6d6+25
 0.3.1.5 121500
@@ -125,7 +125,7 @@ This duergar is very small, the tatoo of a small skull can be seen on her
 forehead. She seems not to notice you as she busies herself with meal
 preparation.
 ~
-1073743886 64 0 0 0 2 0 0 -800 S
+1073743886 320 0 0 0 2 0 0 -800 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -165,7 +165,7 @@ a &+Bduergar archer&N scans the area intently.&N
 This duergar is fairly large, his bald head bearing a tatoo of a large
 fist. He gives you a stern glance.
 ~
-1140852750 64 0 0 0 2 0 0 -1000 S
+1140852750 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 20 13 35 20d35+140 3d4+2
 0.9.3.0 9720
@@ -204,7 +204,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a dark, round tatoo can be seen on his
 forehead. He hardly notices you as he shuffles through stuff on his desk.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -217,7 +217,7 @@ The clan &+relder&N turns to face you
 This duergar is average in size, a small dark round tatoo can be seen on his
 bald head. His face conveys a feeling of experience and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -243,7 +243,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a small round tatoo shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -296,7 +296,7 @@ a &+Bclansdwarf&N stands behind the bar, ready to serve you
 This duergar is average size, a tatoo the shape of a keg shows on
 his bald head. He looks at you impatiently, waiting for your order.
 ~
-1073743883 64 0 0 16 2 0 0 -1000 S
+1073743883 320 0 0 16 2 0 0 -1000 S
 PD 6 1 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
@@ -309,7 +309,7 @@ a &+rclansdwarf&N glares at you in anger as she pounds back a &+Ybrew&N
 This duergar is very small, a small, round black tatoo can be seen on her
 bald head.
 ~
-1140852750 64 0 0 0 2 0 0 -800 S
+1140852750 320 0 0 0 2 0 0 -800 S
 PD 6 1 0 -1
 5 20 83 5d17+27 1d5+0
 3.1.0.0 648
@@ -362,7 +362,7 @@ This duergar is average in size, a blood red tatoo in the shape of an axe
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140885518 64 0 0 48 2 0 0 -1000 S
+1140885518 320 0 0 48 2 0 0 -1000 S
 PD 6 16384 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
@@ -388,7 +388,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a tatoo in the shape of an eye
 can be seen on his forehead. He hardly notices you as he works.
 ~
-1073743887 64 0 0 0 2 0 0 -1000 S
+1073743887 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
@@ -414,7 +414,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a blood red tatoo of an axe shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 16384 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -456,7 +456,7 @@ This duergar is very small, the tatoo of a mushroom can be seen on her
 forehead. She seems not to notice you as she busies herself with meal
 preparation.
 ~
-1073743886 64 0 0 0 2 0 0 -800 S
+1073743886 320 0 0 0 2 0 0 -800 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -482,7 +482,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a small tatoo of a mushroom shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -508,7 +508,7 @@ The clan &+rcrafts priest&N prays to the gods of his craft&N
 This duergar is average in size, a tatoo of a mushroom shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -522,7 +522,7 @@ This duergar is average in size, a tatoo in the shape of a mushroom
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -564,7 +564,7 @@ This duergar is fairly large, he bears the tatoo of a large fist, indicating
 that he is from clan Crushing Fist and has been hired to protect this area.
 He watches you closely, never taking his eyes off of you.
 ~
-1140852750 64 0 0 16 2 0 0 -1000 S
+1140852750 320 0 0 16 2 0 0 -1000 S
 PD 6 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
@@ -590,7 +590,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a tatoo of a dragon shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -604,7 +604,7 @@ This duergar is average in size, a tatoo in the shape of a dragon
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -631,7 +631,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a small tatoo of a dragon shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -683,7 +683,7 @@ the clan &+cguild officer&N looks you square in the eye&N
 This duergar is average sized, a tatoo in the shape of a snake
 can be seen on his forehead. He hardly notices you as he works.
 ~
-1073743887 64 0 0 0 2 0 0 -1000 S
+1073743887 320 0 0 0 2 0 0 -1000 S
 PD 6 4096 0 -1
 40 2 -28 40d80+840 4d7+10
 3.3.3.3 51840
@@ -710,7 +710,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a tatoo of a snake shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 4096 0 -1
 10 18 67 10d18+35 2d3+1
 5.3.0.0 1296
@@ -763,7 +763,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a tatoo in the shape of a shield shows on his
 bald head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -776,7 +776,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a tatoo in the shape of a shield shows on his
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -790,7 +790,7 @@ This duergar is average in size, a tatoo in the shape of a shield
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -858,7 +858,7 @@ This duergar is very small, the tatoo of a needle and thread can be seen on her
 forehead. She seems not to notice you as she busies herself with meal
 preparation.
 ~
-1073743886 64 0 0 0 2 0 0 -800 S
+1073743886 320 0 0 0 2 0 0 -800 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -871,7 +871,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a tatoo of a needle and thread shows on his
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -885,7 +885,7 @@ This duergar is average in size, a tatoo in the shape of a needle and thread
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -898,7 +898,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a tatoo of a needle and thread shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -926,7 +926,7 @@ This duergar is average in size, a tatoo in the shape of an axe head
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -952,7 +952,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a tatoo of an axe head  shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -978,7 +978,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a tatoo of an sword shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -1017,7 +1017,7 @@ a &+rclansdwarf&N works on the clans crafts
 This duergar is very small, a tatoo of a sword can be seen on her
 bald head. She seems not to notice you as she goes about her craft.
 ~
-1140852750 64 0 0 0 2 0 0 -800 S
+1140852750 320 0 0 0 2 0 0 -800 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -1043,7 +1043,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a tatoo of a sword shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -1057,7 +1057,7 @@ This duergar is average in size, a tatoo in the shape of a sword
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -1097,7 +1097,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a tatoo of a gauntlet shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -1110,7 +1110,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a tatoo of a gauntlet shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -1149,7 +1149,7 @@ The clan &+Lelder&N demonstrates a battle skill&N
 This duergar is average in size, a tatoo of a gauntlet can be seen on his
 bald head. His face conveys a feeling of experience and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -1177,7 +1177,7 @@ This duergar is average in size, a tatoo in the shape of a diamond
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -1257,7 +1257,7 @@ the clan &+cguild officer&N is ready to help you&N
 This duergar is average sized, a tatoo in the shape of a skull with a large
 crack can be seen on his forehead. He hardly notices you as he works.
 ~
-1073743887 64 0 0 0 2 0 0 -1000 S
+1073743887 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
@@ -1284,7 +1284,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a tatoo of a skull with a large crack shows
 on his forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -1298,7 +1298,7 @@ This duergar is average in size, a tatoo in the shape of a skull with a large
 crack can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1073776655 64 0 0 48 2 0 0 -1000 S
+1073776655 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 25 11 19 25d47+250 3d5+3
 6.2.6.1 22275
@@ -1325,7 +1325,7 @@ This duergar is very small, the tatoo of a skull with a large crack can be
 seen on her forehead. She seems not to notice you as she busies herself with
 meal preparation.
 ~
-1073743886 64 0 0 0 2 0 0 -800 S
+1073743886 320 0 0 0 2 0 0 -800 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -1338,7 +1338,7 @@ The clan &+cguild officer&N sits at his desk.
 This duergar is average sized, a small tatoo of an eel shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -1352,7 +1352,7 @@ This dwarf is an average duergar, he doesnt seem to care if you buy
 anything or not as he watches you distrustfully. A small tatoo of an
 eel can be seen on his bald head.
 ~
-1073741835 64 0 0 24 2 0 0 -1000 S
+1073741835 320 0 0 24 2 0 0 -1000 S
 PD 6 1 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
@@ -1365,7 +1365,7 @@ duergar dwarf elder~
 This duergar is average in size, a tatoo in the shape of an eel can be
 seen on his bald head. His face conveys a feeling of experience and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -1378,7 +1378,7 @@ The clan &+rcrafts priest&N watches you silently.
 This duergar is average in size, a tatoo of an eel shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -1470,7 +1470,7 @@ The clan &+cguild officer&N sits at his desk.
 This duergar is average sized, a small tatoo of a bear claw shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -1483,7 +1483,7 @@ The clan &+rcrafts priest&N watches you silently.
 This duergar is average in size, a tatoo of a bear claw shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -1497,7 +1497,7 @@ This duergar is average in size, a tatoo in the shape of a bear claw
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -1537,7 +1537,7 @@ The clan &+cguild officer&N sits at his desk.
 This duergar is average sized, a tatoo of a scroll shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -1550,7 +1550,7 @@ The clan &+rcrafts priest&N watches you silently.
 This duergar is average in size, a tatoo of a scroll shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -1564,7 +1564,7 @@ This duergar is average in size, a tatoo in the shape of a scroll
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -1578,7 +1578,7 @@ This duergar is very small, the tatoo of a small mushroom can be seen on her
 forehead. She seems not to notice you as she busies herself with meal
 preparation.
 ~
-1073743886 64 0 0 0 2 0 0 -800 S
+1073743886 320 0 0 0 2 0 0 -800 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -1591,7 +1591,7 @@ The clan &+cguild officer&N sits at his desk.
 This duergar is average sized, a small tatoo of an arrow shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -1631,7 +1631,7 @@ This duergar is average in size, a tatoo in the shape of an arrow
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -1644,7 +1644,7 @@ The clan &+rcrafts priest&N watches you silently.
 This duergar is average in size, a tatoo in he shape of an arrow shows on his
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -1671,7 +1671,7 @@ The clan &+rcrafts priest&N watches you silently.
 This duergar is average in size, a tatoo of an eye shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 32 0 -1
 10 18 67 10d19+45 2d3+1
 5.3.0.0 1296
@@ -1684,7 +1684,7 @@ The clan &+cguild officer&N sits at his desk.
 This duergar is average sized, a blood red tatoo in the shape of an axe
 can be seen on his forehead. He hardly notices you as he works.
 ~
-1073743887 64 0 0 0 2 0 0 -1000 S
+1073743887 320 0 0 0 2 0 0 -1000 S
 PD 6 16384 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
@@ -1711,7 +1711,7 @@ The clan &+cguild officer&N sits at his desk.
 This duergar is average sized, a tatoo in the shape of an eye
 can be seen on his forehead. He hardly notices you as he works.
 ~
-1073743887 64 0 0 0 2 0 0 -1000 S
+1073743887 320 0 0 0 2 0 0 -1000 S
 PD 6 32 0 -1
 40 2 -28 40d88+880 4d7+10
 3.3.3.3 51840
@@ -1725,7 +1725,7 @@ This duergar is average in size, a tatoo in the shape of an eye
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1073776654 64 0 0 48 2 0 0 -1000 S
+1073776654 320 0 0 48 2 0 0 -1000 S
 PD 6 32 0 -1
 25 11 19 25d44+225 3d5+3
 6.2.6.1 22275
@@ -1752,7 +1752,7 @@ This duergar is very small, the tatoo of an eye can be seen on her
 forehead. She seems not to notice you as she busies herself with meal
 preparation.
 ~
-1073743886 64 0 0 0 2 0 0 -800 S
+1073743886 320 0 0 0 2 0 0 -800 S
 PD 6 32 0 -1
 15 15 51 15d25+75 2d5+2
 7.6.2.0 7290
@@ -1818,7 +1818,7 @@ This duergar is average in size, a tatoo in the shape of a dagger
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1073776654 64 0 0 48 2 0 0 -1000 S
+1073776654 320 0 0 48 2 0 0 -1000 S
 PD 6 8192 0 -1
 25 11 19 25d40+200 3d5+3
 6.2.6.1 22275
@@ -1831,7 +1831,7 @@ The clan &+cguild officer&N sits at his desk.
 This duergar is average sized, a tatoo in the shape of a dagger
 can be seen on his forehead. He hardly notices you as he works.
 ~
-1073743887 64 0 0 0 2 0 0 -1000 S
+1073743887 320 0 0 0 2 0 0 -1000 S
 PD 6 8192 0 -1
 40 2 -28 40d80+840 4d7+10
 3.3.3.3 51840
@@ -1858,7 +1858,7 @@ The clan &+rcrafts priest&N watches you silently.
 This duergar is average in size, a tatoo of a dagger shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 8192 0 -1
 10 18 67 10d18+35 2d3+1
 5.3.0.0 1296
@@ -1885,7 +1885,7 @@ This duergar is very small, the tatoo of a dagger can be seen on her
 forehead. She seems not to notice you as she busies herself with meal
 preparation.
 ~
-1073743886 64 0 0 0 2 0 0 -800 S
+1073743886 320 0 0 0 2 0 0 -800 S
 PD 6 8192 0 -1
 15 15 51 15d23+60 2d5+2
 7.6.2.0 7290
@@ -1926,7 +1926,7 @@ duergar inquisitor _nosneak_~
 but a top-knot. In his neck he has a tattoo of skull and
 dagger marking him as a member of the Clan Stoutdwarf.
 ~
-1140983816 64 0 0 8 0 0 0 -1000 S
+1140983816 320 0 0 8 0 0 0 -1000 S
 PD 0 1 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2000,7 +2000,7 @@ moves with the fluid and grace of a practiced assassin, precisely falling
 into shadows with the greatest of skill and ease.  His eyes peer out intently
 from slits cut into his mask, waiting and watching for intruders.
 ~
-1140852808 64 0 0 404234554 30 0 0 -1000 S
+1140852808 320 0 0 404234554 30 0 0 -1000 S
 PD 6 20480 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -2027,7 +2027,7 @@ The clan &+cguild officer&N sits at his desk.
 This duergar is average sized, a small tatoo of a red dot shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -2054,7 +2054,7 @@ This duergar is average in size, a red dot tatoo in the shape of an axe
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -2067,7 +2067,7 @@ The clan &+rcrafts priest&N watches you silently.
 This duergar is average in size, a small red dot tatoo shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -2094,7 +2094,7 @@ The clan &+cguild officer&N sits at his desk.
 This duergar is average sized, a tatoo of an arch shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -2133,7 +2133,7 @@ The clan &+rcrafts priest&N watches you silently.
 This duergar is average in size, a tatoo in the shape of an arch shows on his
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -2147,7 +2147,7 @@ This duergar is average in size, a tatoo in the shape of an arch can be
 seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -2215,7 +2215,7 @@ a &+mdrow warrior&N shares stories of his adventures.
 This drow warrior looks lean and agile. He looks you up and down as if
 sizing you up for battle.
 ~
-1073743886 64 0 0 16 2 0 0 -1000 S
+1073743886 320 0 0 16 2 0 0 -1000 S
 PL 0 1 0 -1
 5 20 83 5d17+27 1d5+0
 3.1.0.0 648
@@ -2230,7 +2230,7 @@ size of a normal duergar, with green skin and yellow teeth. He looks at you
 and smiles dumbly 'You come see Ghore! You visit me. Me not know who you are,
 but red shapes are funny!'. He then precedes to spew &+yvomit&N down his chest.
 ~
-1073743886 64 0 0 33554448 0 0 0 -1000 S
+1073743886 320 0 0 33554448 0 0 0 -1000 S
 PT 0 1 0 -1
 3 20 90 3d17+17 1d5+0
 2.1.0.0 388
@@ -2245,7 +2245,7 @@ size of a normal duergar, with green skin and yellow teeth. He looks at you
 and smiles dumbly 'You come see Ghore! You visit me. Me not know who you are,
 but red shapes are funny!'
 ~
-1073743886 64 0 0 33554448 0 0 0 -1000 S
+1073743886 320 0 0 33554448 0 0 0 -1000 S
 PT 0 1 0 -1
 30 8 3 30d65+390 3d6+4
 0.5.7.1 26730
@@ -2259,7 +2259,7 @@ This ogre is absolutely huge compared to the average inhabitant of this city.
 He glances over his shoulder as he urinates in the corner. "Red shape small,
 me big ....  you go away now!'
 ~
-1073743886 64 0 0 33554448 0 0 0 -1000 S
+1073743886 320 0 0 33554448 0 0 0 -1000 S
 PO 0 1 0 -1
 3 20 90 3d17+17 1d5+0
 2.1.0.0 388
@@ -2272,7 +2272,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a tatoo of a keg shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -2285,7 +2285,7 @@ The clan &+Yelder&N concentrates on his work
 This duergar is average in size, a tatoo in the shape of a keg can be seen
 on his bald head. His face conveys a feeling of experience and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -2298,7 +2298,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a tatoo of a keg shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -2325,7 +2325,7 @@ This duergar is fairly large, he bears the tatoo of a large fist, indicating
 that he is from clan Crushing Fist and has been hired to protect this area.
 He watches you closely, never taking his eyes off of you.
 ~
-1140852748 33556544 0 0 16 2 0 0 -1000 S
+1140852748 33556800 0 0 16 2 0 0 -1000 S
 PD 6 1 0 -1
 40 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
@@ -2338,7 +2338,7 @@ a &+rduergar merchant&N watches his cart closely.&N
 This duergar is from another city, selling odds and ends from his hometown.
 He watches you and his cart carefully.
 ~
-1073744012 64 0 0 0 2 0 0 0 S
+1073744012 320 0 0 0 2 0 0 0 S
 PD 0 1 0 -1
 20 13 35 20d35+140 3d4+2
 0.9.3.0 9720
@@ -2365,7 +2365,7 @@ A &+rclansdwarf&N looks through the merchants carts.&N
 This duergar female is quite small and fragile looking. She glances at you
 and quickly looks away.
 ~
-1073741964 0 0 0 0 2 0 0 -1000 S
+1073741964 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -2378,7 +2378,7 @@ a &+Bclansdwarf&N shouts as he pushes his cart.&N
 This duergar is average size, bearing the tatoo of a small red dot. He watches
 his cart closely, ready to catch any thieves.
 ~
-1073744012 64 0 0 0 2 0 0 -1000 S
+1073744012 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -2422,7 +2422,7 @@ and wisdom. He has been appointed by the council of elders to preside over
 the court, a job that usually means a short life span. He gives you a stern
 glance, letting you know that he means business.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -2436,7 +2436,7 @@ This duergar is average in size, a tatoo in the shape of a large fist
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -2463,7 +2463,7 @@ An &+mapprentice&N practices fighting skills
 This duergar is very small, a tatoo of a fist can be seen on her
 bald head. She seems not to notice you as she goes about her craft.
 ~
-1140852750 64 0 0 0 2 0 0 -800 S
+1140852750 320 0 0 0 2 0 0 -800 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -2476,7 +2476,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a tatoo of a fist shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -2503,7 +2503,7 @@ This duergar is very small, the tatoo of a spider can be seen on her
 forehead. She seems not to notice you as she busies herself with meal
 preparation.
 ~
-1073743886 64 0 0 0 2 0 0 -800 S
+1073743886 320 0 0 0 2 0 0 -800 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -2517,7 +2517,7 @@ This duergar is average in size, a tatoo in the shape of a spider
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -2530,7 +2530,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a tatoo of a spider shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -2543,7 +2543,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a tatoo of a spider shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -2790,7 +2790,7 @@ This duergar is very small, the tatoo of a scroll can be seen on her
 forehead. She seems not to notice you as she busies herself with meal
 preparation.
 ~
-1073743886 64 0 0 0 2 0 0 -800 S
+1073743886 320 0 0 0 2 0 0 -800 S
 PD 6 1 0 -1
 8 18 74 8d21+44 2d3+1
 4.2.0.0 1036
@@ -2882,7 +2882,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a tatoo of an eye enclosed in a circle can be
 seen on his bald head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -2895,7 +2895,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a tatoo of an eye enclosed in a circle shows
 on his forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -2909,7 +2909,7 @@ This duergar is average in size, a tatoo in the shape of an eye enclosed in
 a circle can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -2936,7 +2936,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a tatoo of a small chisel shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -2962,7 +2962,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a small tatoo of a chisel shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -2989,7 +2989,7 @@ This duergar is average in size, a tatoo in the shape of a small chisel
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -3016,7 +3016,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a tatoo of a mining pick shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -3030,7 +3030,7 @@ This duergar is average in size, a tatoo in the shape of a mining pick
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -3056,7 +3056,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a tatoo of a mining pick shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -3082,7 +3082,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a tatoo of a whip shows on his bare
 forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -3095,7 +3095,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a tatoo of a whip shows on his bald
 head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -3109,7 +3109,7 @@ This duergar is average in size, a tatoo in the shape of a whip
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 53 -5 -104 53d131+4505 7d6+30
 8.0.6.6 214650
@@ -3288,7 +3288,7 @@ This duergar is average in size, a tatoo in the shape of a snake can
 be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140885518 64 0 0 48 2 0 0 -1000 S
+1140885518 320 0 0 48 2 0 0 -1000 S
 PD 6 4096 0 -1
 25 11 19 25d40+200 3d5+3
 6.2.6.1 22275
@@ -3371,7 +3371,7 @@ This duergar is young, an apprentice judging from the job he has been given.
 He scans the streets looking for small vermin. His bald head bears the tatoo
 of a skull.
 ~
-1073741964 0 0 0 0 2 0 0 -1000 S
+1073741964 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 3 20 90 3d17+17 1d5+0
 2.1.0.0 388
@@ -3385,7 +3385,7 @@ This duergar is average in size, a tatoo of a pair of crossed swords
 can be seen on his bald head. His face conveys a feeling of experience
 and wisdom.
 ~
-1140852750 64 0 0 48 2 0 0 -1000 S
+1140852750 320 0 0 48 2 0 0 -1000 S
 PD 6 1 0 -1
 35 6 -12 35d83+595 4d6+7
 9.9.1.2 45360
@@ -3398,7 +3398,7 @@ The clan &+rcrafts priest&N watches you silently
 This duergar is average in size, a tatoo of a set of crossed swords shows on
 his bare forhead. He looks at you with stern silence.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 10 18 67 10d21+55 2d3+1
 5.3.0.0 1296
@@ -3411,7 +3411,7 @@ The clan &+cguild officer&N sits at his desk
 This duergar is average sized, a tatoo of a set of crossed swords shows on his
 bald head. He seems quite busy.
 ~
-1073743886 64 0 0 0 2 0 0 -1000 S
+1073743886 320 0 0 0 2 0 0 -1000 S
 PD 6 1 0 -1
 15 15 51 15d27+90 2d5+2
 7.6.2.0 7290
@@ -3450,7 +3450,7 @@ a &+rclansdwarf&N watches the area closely.&N
 This duergar is fairly large, he bears the tatoo of a set of crossed swords.
 He watches you closely, never taking his eyes off of you.
 ~
-1140852748 64 0 0 24 2 0 0 -1000 S
+1140852748 320 0 0 24 2 0 0 -1000 S
 PD 6 1 0 -1
 55 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
@@ -3463,7 +3463,7 @@ a &+Llarge cave bear&N looks towards you and growls
 This cave bear is huge, its thick black fur ripples from the muscle underneath.
 It watches you with caution.
 ~
-1207959560 64 0 0 16777264 2 0 0 -600 S
+1207959560 320 0 0 16777264 2 0 0 -600 S
 ac 0 0 0 -1
 50 8 3 30d55+330 3d6+4
 0.0.0.0 26730
@@ -3515,7 +3515,7 @@ high priest guard duergar _spec3_ _nosneak_~
 attacks upon the city.  The priest has a weathered and ancient appearance, but
 moves quickly when needed.  She keeps a rosary near her left hand at all times.
 ~
-67110986 64 0 0 268435514 32798 0 0 -1000 S
+67110986 320 0 0 268435514 32798 0 0 -1000 S
 PD 6 32 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
@@ -3528,7 +3528,7 @@ a &+rclansdwarf&N stands ready to reinforce the gates
 This duergar is fairly large, he bears the tatoo of a set of crossed swords.
 He watches you closely, never taking his eyes off of you.
 ~
-1140852748 64 0 0 24 2 0 0 -1000 S
+1140852748 320 0 0 24 2 0 0 -1000 S
 PD 6 1 0 -1
 55 2 -28 40d95+920 4d7+10
 3.3.3.3 51840
