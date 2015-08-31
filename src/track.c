@@ -409,11 +409,13 @@ int MaxTrackDist(P_char ch)
   return dist;
 }
 
-#define MAX_TRACK_DURATION 1440 /* 360  seconds, 6 mins      */
+// 90 seconds, 1.5 mins
+#define MAX_TRACK_DURATION 90 * WAIT_SEC
 
 void add_track(P_char ch, int dir)
 {
-  P_obj track, obj, next_obj;
+  P_char  mount;
+  P_obj   track, obj, next_obj;
   int     counter, found, dura, zon;
   char    buf1[MAX_STRING_LENGTH];
 //  char    buf2[MAX_STRING_LENGTH];
@@ -446,73 +448,68 @@ void add_track(P_char ch, int dir)
 
   dura = MAX_TRACK_DURATION;
 
-  if (IS_AFFECTED(ch, AFF_SNEAK))
-    dura -= 700;
-
   switch (world[ch->in_room].sector_type)
   {
-  case SECT_WATER_SWIM:
-  case SECT_WATER_NOSWIM:
-  case SECT_UNDERWATER:
-  case SECT_UNDRWLD_WATER:
-  case SECT_UNDRWLD_NOGROUND:
-  case SECT_NO_GROUND:
-  case SECT_FIREPLANE:
-  case SECT_OCEAN:
-  case SECT_UNDRWLD_NOSWIM:
-  case SECT_ASTRAL:
-  case SECT_ETHEREAL:
-    return;
-  case SECT_UNDRWLD_INSIDE:
-  case SECT_INSIDE:
-    dura -= 1000;
-    break;
-  case SECT_UNDERWATER_GR:
-  case SECT_CITY:
-  case SECT_ROAD:
-  case SECT_LAVA:
-    dura -= 600;
-    break;
-  case SECT_DESERT:
-  case SECT_ARCTIC:
-    if (GET_RACE(ch) == RACE_BARBARIAN)
-      dura -= 200;
-    else
-      dura += 200;
-    break;
-  case SECT_FOREST:
-
-    if (GET_RACE(ch) == RACE_GREY)
-      dura -= 800;
-    else if (GET_RACE(ch) == RACE_CENTAUR)
-      dura -= 300;
-    else if (GET_RACE(ch) == RACE_HALFELF)
-      dura -= 500;
-    break;
-  case SECT_UNDRWLD_MOUNTAIN:
-  case SECT_UNDRWLD_SLIME:
-  case SECT_UNDRWLD_MUSHROOM:
-  case SECT_UNDRWLD_LIQMITH:
-  case SECT_UNDRWLD_WILD:
-  case SECT_UNDRWLD_CITY:
-    if (GET_RACE(ch) == RACE_DROW || GET_RACE(ch) == RACE_DUERGAR)
-      dura -= 600;
-    else
-      dura += 600;
-    break;
-  case SECT_HILLS:
-
-    if (GET_RACE(ch) == RACE_HALFLING || GET_RACE(ch) == RACE_GOBLIN)
-      dura -= 500;
-    break;
-  case SECT_MOUNTAIN:
-    if (GET_RACE(ch) == RACE_MOUNTAIN || GET_RACE(ch) == RACE_DUERGAR)
-      dura -= 500; 
-    else
-      dura += 500;
-    break;
-  default:
-    break;                      /* stuff is as we want it to be.      */
+    case SECT_WATER_SWIM:
+    case SECT_WATER_NOSWIM:
+    case SECT_UNDERWATER:
+    case SECT_UNDRWLD_WATER:
+    case SECT_UNDRWLD_NOGROUND:
+    case SECT_NO_GROUND:
+    case SECT_FIREPLANE:
+    case SECT_OCEAN:
+    case SECT_UNDRWLD_NOSWIM:
+    case SECT_ASTRAL:
+    case SECT_ETHEREAL:
+    case SECT_ROAD:
+      return;
+    case SECT_UNDRWLD_INSIDE:
+    case SECT_INSIDE:
+      dura /= 4;
+      break;
+    case SECT_UNDERWATER_GR:
+    case SECT_CITY:
+    case SECT_LAVA:
+      dura /= 3;
+      break;
+    case SECT_DESERT:
+    case SECT_ARCTIC:
+      if (GET_RACE(ch) == RACE_BARBARIAN)
+        dura = (2 * dura) / 3;
+      else
+        dura += 60;
+      break;
+    case SECT_FOREST:
+      if( GET_RACE(ch) == RACE_GREY )
+        dura /= 4;
+      else if( GET_RACE(ch) == RACE_CENTAUR )
+        dura /= 2;
+      else if( GET_RACE(ch) == RACE_HALFELF )
+        dura /= 3;
+      break;
+    case SECT_UNDRWLD_MOUNTAIN:
+    case SECT_UNDRWLD_SLIME:
+    case SECT_UNDRWLD_MUSHROOM:
+    case SECT_UNDRWLD_LIQMITH:
+    case SECT_UNDRWLD_WILD:
+    case SECT_UNDRWLD_CITY:
+      if( GET_RACE(ch) == RACE_DROW || GET_RACE(ch) == RACE_DUERGAR )
+        dura /= 4;
+      else
+        dura *= 2;
+      break;
+    case SECT_HILLS:
+      if( GET_RACE(ch) == RACE_HALFLING || GET_RACE(ch) == RACE_GOBLIN )
+        dura /= 3;
+      break;
+    case SECT_MOUNTAIN:
+      if (GET_RACE(ch) == RACE_MOUNTAIN || GET_RACE(ch) == RACE_DUERGAR)
+        dura /= 3;
+      else
+        dura += 40;
+      break;
+    default:
+      break;                      /* stuff is as we want it to be.      */
   }
 
 /*  Removing weather conditions until weather is rationalized
@@ -526,28 +523,26 @@ void add_track(P_char ch, int dir)
        (100 - sector_table[zon].conditions.windspeed) / 100 / 100;
 */
 
-  // flying people break branches and push down grasses as they 
-  // fly around
+  // Flying people break branches and push down grasses as they fly around
   if( IS_AFFECTED(ch, AFF_FLY) )
   {
-    // Sneaking makes no difference while flying.
-    if (IS_AFFECTED(ch, AFF_SNEAK))
-      dura += 700;
-
     if (number(0,2))
-      dura -= 900;
+      dura /= 5;
     else
       return;
   }
+  // Sneaking only makes a difference if not flying.
+  else if( IS_AFFECTED(ch, AFF_SNEAK) )
+    dura /= 2;
 
   // Dragonkin tracks are gigantic
   if( GET_RACE(ch) == RACE_DRAGONKIN )
     dura *= 2;
 
-  dura += GET_WEIGHT(ch);
+  dura += GET_WEIGHT(ch) / 10;
 
-  // Minimum 15 seconds, maximum MAX_TRACK_DURATION.
-  dura = BOUNDED( 60, dura, MAX_TRACK_DURATION );
+  // Minimum 10 seconds, maximum MAX_TRACK_DURATION.
+  dura = BOUNDED( 10 * WAIT_SEC, dura, MAX_TRACK_DURATION );
 
   // Count the number of tracks in the room.
   counter = 0;
@@ -583,17 +578,23 @@ void add_track(P_char ch, int dir)
 //  strcpy(buf2, "");
   strcpy(buf3, "");
 
-  if (IS_DISGUISE_SHAPE(ch))
+  // Show tracks of the mount if mounted.
+  if( (mount = GET_MOUNT(ch)) != NULL )
   {
-    sprintf(buf1, "There are %s tracks going %s.",
-		                     race_names_table[(int) GET_DISGUISE_RACE(ch)].ansi, dirs[dir]);
+    sprintf(buf1, "There are deep %s tracks going %s.", race_names_table[(int) GET_RACE(mount)].ansi, dirs[dir]);
+    strcpy(buf3, mount->player.short_descr);
+    track->value[0] = dir;
+    dura += 15 * WAIT_SEC;
+  }
+  else if( IS_DISGUISE_SHAPE(ch) )
+  {
+    sprintf(buf1, "There are %s tracks going %s.", race_names_table[(int) GET_DISGUISE_RACE(ch)].ansi, dirs[dir]);
     strcpy(buf3, ch->disguise.name);
     track->value[0] = dir;
   }
   else
   {
-    sprintf(buf1, "There are %s tracks going %s.",
-		                     race_names_table[(int) GET_RACE(ch)].ansi, dirs[dir]);
+    sprintf(buf1, "There are %s tracks going %s.", race_names_table[(int) GET_RACE(ch)].ansi, dirs[dir]);
     strcpy(buf3, ch->player.short_descr);
     track->value[0] = dir;
   }
