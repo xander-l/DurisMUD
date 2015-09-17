@@ -2682,13 +2682,13 @@ int learn_recipe(P_obj obj, P_char ch, int cmd, char *arg)
  *   load item via var, message char "You bought $p", subtract epics,
  *   send item to char, and save char.
  */
-#define COST_EPIC_MUSHROOM           125
-#define COST_EPIC_FIX_SCROLL          85
-#define COST_EPIC_FAERIE_BAG          50
-#define COST_EPIC_BATTLEROBE        5000
+#define COST_EPIC_MUSHROOM           225
+#define COST_EPIC_FIX_SCROLL         105
+#define COST_EPIC_FAERIE_BAG         100
+#define COST_EPIC_BATTLEROBE        7500
 #define COST_EPIC_TOCORPSE_POTION    500
-#define COST_EPIC_LANTAN_TOOLS       150
-#define COST_EPIC_FOREST_EYES       2500
+#define COST_EPIC_LANTAN_TOOLS       500
+#define COST_EPIC_FOREST_EYES       4500
 #define COST_EPIC_BOTTLE_EPICS       100
 
 int epic_store(P_char ch, P_char pl, int cmd, char *arg)

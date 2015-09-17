@@ -2391,6 +2391,11 @@ send_to_char(buf, ch);
               validobj = FALSE;
               extract_obj(robj, FALSE);
             }
+            else if(door == REG_FAERIE_BAG_VNUM && itemvalue(robj) > 125)
+            {
+              validobj = FALSE;
+              extract_obj(robj, FALSE);
+            }
             else if(door == RARE_FAERIE_BAG_VNUM && itemvalue(robj) < 25)
             {
               validobj = FALSE;
