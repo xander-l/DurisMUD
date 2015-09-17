@@ -7938,7 +7938,7 @@ void spell_ironwood(int level, P_char ch, char *arg, int type, P_char victim, P_
   struct affected_type af;
   int absorb = (level / 5) + number(1, 4);
 
-  if( !IS_AFFECTED(ch, AFF_BARKSKIN) )
+  if( !IS_AFFECTED(victim, AFF_BARKSKIN) )
   {
     send_to_char("They're not even made of wood! How can you begin to make it resemble iron!\n", ch);
     return;
