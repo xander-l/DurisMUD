@@ -682,80 +682,74 @@ void do_rwc(P_char ch, char *argument, int cmd)
 
 void do_project(P_char ch, char *argument, int cmd)
 {
-  P_desc   i;
-  char     Gbuf1[MAX_STRING_LENGTH];
+  P_desc desc;
+  char   Gbuf1[MAX_STRING_LENGTH];
 
-  if (IS_NPC(ch))
+  if( IS_NPC(ch) )
   {
-    if (!IS_ILLITHID(ch) && !IS_PILLITHID(ch))
+    if( !IS_ILLITHID(ch) && !IS_PILLITHID(ch) )
     {
       send_to_char("You're not an illithid ..\r\n", ch);
       return;
     }
   }
-  else if (IS_SET(ch->specials.act, PLR_SILENCE))
+  else if( IS_SET(ch->specials.act, PLR_SILENCE) )
   {
-    send_to_char
-      ("Alas, the gods have taken away your ability to transmit..\r\n", ch);
+    send_to_char("Alas, the gods have taken away your ability to transmit..\r\n", ch);
     return;
   }
-  if (!IS_TRUSTED(ch) && !IS_ILLITHID(ch) && !IS_PILLITHID(ch))
+  if( !IS_TRUSTED(ch) && !IS_ILLITHID(ch) && !IS_PILLITHID(ch) )
   {
     send_to_char("Might not hurt if you knew _HOW_...\r\n", ch);
     return;
   }
   if (GET_LEVEL(ch) < 5)
   {
-    send_to_char("You do not yet have enough control over your thoughts.\r\n",
-                 ch);
+    send_to_char("You do not yet have enough control over your thoughts.\r\n", ch);
     return;
   }
-  if (!IS_SET(ch->specials.act2, PLR2_PROJECT))
+  if( !IS_SET(ch->specials.act2, PLR2_PROJECT) )
   {
-    send_to_char
-      ("You do not feel close enough to the Elder Brain to communicate in this fashion...\r\n",
-       ch);
+    send_to_char("You do not feel close enough to the Elder Brain to communicate in this fashion...\r\n", ch);
     return;
   }
+
   while (*argument == ' ' && *argument != '\0')
     argument++;
 
   if (!*argument)
   {
-    send_to_char
-      ("In order to be telepathic, you must have something to say..\r\n", ch);
+    send_to_char("In order to be telepathic, you must have something to say..\r\n", ch);
     return;
   }
   else if (ch->desc)
   {
+    sprintf(Gbuf1, "&+mYou project '&+M%s&n&+m' across the ether.&n\n", argument);
+
     if (IS_SET(ch->specials.act, PLR_ECHO) || IS_NPC(ch))
     {
-      sprintf(Gbuf1, "&+mYou project '&+M%s&n&+m' across the ether\r\n",
-              argument);
       send_to_char(Gbuf1, ch);
     }
     else
       send_to_char("Ok.\r\n", ch);
-    
-    sprintf(Gbuf1, "&+mYou project '&+M%s&n&+m' across the ether\r\n", argument);
+
     write_to_pc_log(ch, Gbuf1, LOG_PRIVATE);
-    
-    if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
+
+    if( get_property("logs.chat.status", 0.000) && IS_PC(ch) )
       logit(LOG_CHAT, "%s projects '%s'", GET_NAME(ch), argument);
   }
-  for (i = descriptor_list; i; i = i->next)
-    if ((i->character != ch) && !i->connected &&
-        ((GET_RACE(i->character) == RACE_ILLITHID) || IS_PILLITHID(i->character) 
-||
-         IS_TRUSTED(i->character)) &&
-        (IS_SET(i->character->specials.act2, PLR2_PROJECT)))
+
+  sprintf(Gbuf1, "&+m%s&+m projects '&+M%s&n&+m' accross the ether.&n\n", GET_NAME(ch), argument);
+  for( desc = descriptor_list; desc; desc = desc->next )
+  {
+    if( (desc->character != ch) && !desc->connected
+      && ((GET_RACE(desc->character) == RACE_ILLITHID) || IS_PILLITHID(desc->character)
+      || IS_TRUSTED(desc->character)) && (IS_SET(desc->character->specials.act2, PLR2_PROJECT)) )
     {
-      sprintf(Gbuf1, "&+m$n projects '&+M%s&n&+m' across the ether&n",
-              argument);
-      act(Gbuf1, 0, ch, 0, i->character, TO_VICT | ACT_IGNORE_ZCOORD);
-      sprintf(Gbuf1, "&+m%s projects '&+M%s&n&+M' accross the ether&n", GET_NAME(ch), argument);
-      write_to_pc_log(i->character, Gbuf1, LOG_PRIVATE);
+      act(Gbuf1, 0, ch, 0, desc->character, TO_VICT | ACT_IGNORE_ZCOORD);
+      write_to_pc_log(desc->character, Gbuf1, LOG_PRIVATE);
     }
+  }
 }
 
 void do_page(P_char ch, char *argument, int cmd)
