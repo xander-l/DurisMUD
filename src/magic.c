@@ -11748,7 +11748,7 @@ void spell_barkskin(int level, P_char ch, char *arg, int type, P_char victim, P_
     act("Your skin gains the texture and toughness of &+ybark.&n", FALSE,
       victim, 0, 0, TO_CHAR);
   }
-  else if( !IS_AFFECTED(ch, AFF_BARKSKIN) && !IS_AFFECTED5(ch, AFF5_THORNSKIN) )
+  else if( !IS_AFFECTED(victim, AFF_BARKSKIN) && !IS_AFFECTED5(victim, AFF5_THORNSKIN) )
   {
     bzero(&af1, sizeof(af1));
     af1.type = SPELL_BARKSKIN;
@@ -11770,7 +11770,7 @@ void spell_barkskin(int level, P_char ch, char *arg, int type, P_char victim, P_
       {
         if( !shown )
         {
-          send_to_char( "&+yYour skin rehardens.\n", ch );
+          send_to_char( "&+yYour skin rehardens.\n", victim );
           shown = TRUE;
         }
         af1->duration = 25;
