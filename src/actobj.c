@@ -3977,19 +3977,25 @@ int wear(P_char ch, P_obj obj_object, int keyword, bool showit )
     break;
 
   case 6: /* Feet */
-    if( CAN_WEAR(obj_object, ITEM_WEAR_FEET) && !IS_DRIDER(ch) && !IS_THRIKREEN(ch)
-      && !IS_HARPY(ch) && !IS_MINOTAUR(ch) && (!IS_CENTAUR(ch)
-      || (IS_CENTAUR(ch) && !strcmp(obj_object->name, "horseshoe"))) )
+    if( CAN_WEAR(obj_object, ITEM_WEAR_FEET) )
     {
-      // Replace if Wearing Something or Wear New Item
-      return remove_and_wear(ch, obj_object, WEAR_FEET, keyword, comnd, showit);
-    }
-    else
-    {
-      if( showit )
+      if( isname("horseshoes", obj_object->name) )
       {
-        send_to_char("You can't wear that on your feet.\r\n", ch);
+        if( IS_CENTAUR(ch) )
+        {
+          // Replace if Wearing Something or Wear New Item
+          return remove_and_wear(ch, obj_object, WEAR_FEET, keyword, comnd, showit);
+        }
       }
+      else if( !IS_DRIDER(ch) && !IS_THRIKREEN(ch) && !IS_HARPY(ch) && !IS_MINOTAUR(ch) && !IS_CENTAUR(ch) )
+      {
+        // Replace if Wearing Something or Wear New Item
+        return remove_and_wear(ch, obj_object, WEAR_FEET, keyword, comnd, showit);
+      }
+    }
+    if( showit )
+    {
+      send_to_char("You can't wear that on your feet.\r\n", ch);
     }
     break;
 

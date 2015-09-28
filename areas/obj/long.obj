@@ -972,7 +972,7 @@ set horseshoes blood bloodied~
 &+ra set of bloodi&+wed horseshoes&N~
 &+WA set of horseshoes lies here.&N~
 ~
-11 15 10 0 12 0 512 16777217 64 0 16384
+11 15 10 0 12 0 512 65 64 0 16384
 0 0 0 0 0 0 0 0
 8 60000 100
 A
