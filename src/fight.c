@@ -9908,7 +9908,7 @@ void DestroyStuff(P_char victim, int type)
 {
   int slot, poofed = 0, worn = 0;
   P_obj item;
-  int poof_chance = (int)(get_property("pvp.eq.poof.chance", 10));
+  int poof_chance = get_property("pvp.eq.poof.chance", 10);
   //  int poof_chance_niceq_multiplier = (int)(get_property("pvp.eq.poof.niceeq.chance.multiplier", 2));
 
   if(!(victim))

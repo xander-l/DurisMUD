@@ -1040,7 +1040,7 @@ int exp_mod(P_char killer, P_char victim)
   }
   else if( diff > 10 )          /* 11 - 15  */
   {
-    mod = 30;
+    mod = 20;
   }
   else if( diff > 5 )           /*  6 - 10  */
   {
