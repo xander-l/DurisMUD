@@ -3515,6 +3515,17 @@ int itemvalue( P_obj obj )
   }
 
   workingvalue *= multiplier;
+
+  if( obj->type == ITEM_KEY || obj->type == ITEM_SWITCH || obj->type == ITEM_TELEPORT
+    || obj->type == ITEM_VEHICLE || obj->type == ITEM_SHIP || obj->type == ITEM_STORAGE )
+  {
+    if( workingvalue != 1 )
+    {
+      debug( "Always load obj '%s' %d has stats giving ival %d.", OBJ_SHORT(obj), GET_OBJ_VNUM(obj), workingvalue );
+    }
+    return 1;
+  }
+
   //debug("&+YItem value is: &n%d", workingvalue); 
   return workingvalue;
 }
