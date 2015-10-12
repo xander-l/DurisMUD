@@ -45,6 +45,9 @@
 
 extern bool g_readFromSubdirs;
 
+void updateQuestItems();
+void addQuestItems(quest *questPtr);
+
 //
 // writeQuesttoFile : Writes a quest to a file
 //
@@ -175,6 +178,8 @@ void writeQuestFile(const char *filename)
 
   _outtext(strn);
 
+  updateQuestItems();
+
   while (numb <= highest)
   {
     const mobType *mob = findMob(numb);
@@ -186,4 +191,65 @@ void writeQuestFile(const char *filename)
   }
 
   fclose(questFile);
+}
+
+// Sets the quest-item flag appropriately (ITEM2_QUESTITEM).
+//   Note: This is not to be handled by zone writers.
+void updateQuestItems()
+{
+  uint objVnum = getLowestObjNumber();
+  const uint objVnumHigh = getHighestObjNumber();
+  objectType *qObjType;
+  uint mobVnum = getLowestMobNumber();
+  const uint mobVnumHigh = getHighestMobNumber();
+
+  // Remove all quest item flags.
+  while( objVnum <= objVnumHigh )
+  {
+    if( (qObjType = findObj(objVnum)) != NULL )
+    {
+      // extra2Bits and not quest item flag.
+      qObjType->extra2Bits &= ~ITEM2_QUESTITEM;
+    }
+    objVnum++;
+  }
+
+  // Add the proper quest item flags.
+  while( mobVnum <= mobVnumHigh )
+  {
+    const mobType *mob = findMob(mobVnum);
+
+    if( mob && mob->questPtr )
+    {
+      addQuestItems(mob->questPtr);
+    }
+
+    mobVnum++;
+  }
+
+}
+
+// Assigns the ITEM2_QUESTITEM flag to quest items in the questPtr list.
+void addQuestItems(quest *questPtr)
+{
+  questQuest *qList = (questPtr == NULL) ? NULL : questPtr->questHead;
+  questItem  *qItem;
+  objectType *qObjType;
+
+  // Walk through the quests.
+  while( qList )
+  {
+    // Walk though each thing given for quest.
+    qItem = qList->questPlayGiveHead;
+    while( qItem != NULL )
+    {
+      // If it's an object..
+      if( qItem->itemType == QUEST_GITEM_OBJ && (qObjType = findObj(qItem->itemVal)) != NULL )
+      {
+        qObjType->extra2Bits = qObjType->extra2Bits | ITEM2_QUESTITEM;
+      }
+      qItem = qItem->Next;
+    }
+    qList = qList->Next;
+  }
 }

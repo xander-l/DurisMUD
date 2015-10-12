@@ -47,11 +47,11 @@
 #include "editqst.h"
 
 
-
 extern bool g_madeChanges;
 extern uint g_numbLookupEntries;
 extern menu g_questDeleteCreateMenu;
 
+extern void updateQuestItems();
 
 //
 // displayEditQuestMenu : Displays edit quest menu
@@ -292,13 +292,14 @@ mobType *realEditQuest(quest *qst, mobType *mob, const bool allowJump)
   const uint mobNumb = mob->mobNumber;
 
 
-  if (!qst) 
+  if( !qst )
+  {
     return NULL;
+  }
 
- // copy qst into newQuest and display the menu
-
+  // copy qst into newQuest and display the menu
   newQuest = copyQuest(qst);
-  if (!newQuest)
+  if( !newQuest )
   {
     displayAllocError("quest", "realEditQuest");
 
@@ -307,41 +308,41 @@ mobType *realEditQuest(quest *qst, mobType *mob, const bool allowJump)
 
   displayEditQuestMenu(newQuest, mob);
 
-  while (true)
+  while( TRUE )
   {
     ch = toupper(getkey());
 
-    if (checkMenuKey(ch, false) == MENUKEY_ABORT)
+    if( checkMenuKey(ch, false) == MENUKEY_ABORT )
     {
       deleteQuest(newQuest, false);
 
       _outtext("\n\n");
-
+      updateQuestItems();
       return NULL;
     }
 
-    if (allowJump)
+    if( allowJump )
     {
-      if ((checkMenuKey(ch, false) == MENUKEY_NEXT) || (checkMenuKey(ch, false) == MENUKEY_PREV) ||
-          (checkMenuKey(ch, false) == MENUKEY_JUMP))
+      if( (checkMenuKey(ch, false) == MENUKEY_NEXT) || (checkMenuKey(ch, false) == MENUKEY_PREV) ||
+          (checkMenuKey(ch, false) == MENUKEY_JUMP) )
       {
-        done = true;
+        done = TRUE;
       }
     }
 
    // if interpEditQuestMenu is TRUE, user has quit
-
-    if (!done)
+    if( !done )
     {
       done = interpEditQuestMenu(ch, newQuest, mob);
     }
 
-    if (done == QUEST_DELETED)
+    if( done == QUEST_DELETED )
     {
+      updateQuestItems();
       return NULL;
     }
 
-    if (done)
+    if( done )
     {
       if (!compareQuestInfo(qst, newQuest))   // changes have been made
       {
@@ -351,16 +352,17 @@ mobType *realEditQuest(quest *qst, mobType *mob, const bool allowJump)
 
         delete newQuest;
 
-        g_madeChanges = true;
+        g_madeChanges = TRUE;
+        updateQuestItems();
       }
-      else 
+      else
       {
         deleteQuest(newQuest, false);
       }
 
-      if (allowJump)
+      if( allowJump )
       {
-        if (checkMenuKey(ch, false) == MENUKEY_JUMP)
+        if( checkMenuKey(ch, false) == MENUKEY_JUMP )
         {
           uint numb = mob->mobNumber;
 

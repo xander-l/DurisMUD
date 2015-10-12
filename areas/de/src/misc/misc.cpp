@@ -75,6 +75,7 @@ extern objectType **g_objLookup;
 extern mobType **g_mobLookup;
 extern command g_lookupCommands[];
 
+extern void updateQuestItems();
 
 //
 // getScreenHeight : returns number of lines screen has, as defined by user
@@ -156,6 +157,7 @@ bool writeFiles(void)
 {
   char strn[512];
 
+  updateQuestItems();
 
   if (roomHasAllFollowers() >= 0)
   {
