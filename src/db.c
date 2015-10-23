@@ -1915,7 +1915,7 @@ P_char read_mobile(int nr, int type)
 {
   P_char   mob = NULL;
   char     Gbuf1[MAX_STRING_LENGTH], buf[MAX_INPUT_LENGTH], letter = 0;
-  int      foo, bar, i, j;
+  int      foo, bar, i, j, min_stat;
   long     tmp, tmp1, tmp2, tmp3, tmp4, tmp5, tmp6, tmp7, tmp8, tmp9;
   unsigned utmp1, utmp2, utmp3, utmp4, utmp5, utmp6, utmp7, utmp8, utmp9;
   int      stmp, stmp3, stmp4, level;
@@ -1932,8 +1932,7 @@ P_char read_mobile(int nr, int type)
     }
   if (nr < 0)
   {
-    logit(LOG_DEBUG, "read_mobile: negative rnum (%d). args %d, %s", nr,
-          i, type ? "VIRTUAL" : "REAL");
+    logit(LOG_DEBUG, "read_mobile: negative rnum (%d). args %d, %s", nr, i, type ? "VIRTUAL" : "REAL");
     return 0;
   }
   fseek(mob_f, mob_index[nr].pos, 0);
@@ -2035,7 +2034,7 @@ P_char read_mobile(int nr, int type)
    */
 
   fgets(buf, sizeof(buf) - 1, mob_f);
-  if (sscanf(buf, " %u %u %u %u %u %u %u %u %u %c \n", &utmp1, &utmp7, &utmp8, &utmp9, &utmp2, &utmp3, &utmp4, &utmp5, &utmp6, &letter) == 10)
+  if( sscanf(buf, " %u %u %u %u %u %u %u %u %u %c \n", &utmp1, &utmp7, &utmp8, &utmp9, &utmp2, &utmp3, &utmp4, &utmp5, &utmp6, &letter) == 10 )
   {
     mob->specials.act = utmp1;
     mob->specials.affected_by = utmp2;
@@ -2048,7 +2047,7 @@ P_char read_mobile(int nr, int type)
     mob->only.npc->aggro2_flags = utmp8;
     mob->only.npc->aggro3_flags = utmp9;
   }
-  else if (sscanf(buf, " %lu %lu %lu %lu %lu %lu %lu %lu %c \n", &tmp1, &tmp7, &tmp8, &tmp2, &tmp3, &tmp4, &tmp5, &tmp6, &letter) == 9)
+  else if( sscanf(buf, " %lu %lu %lu %lu %lu %lu %lu %lu %c \n", &tmp1, &tmp7, &tmp8, &tmp2, &tmp3, &tmp4, &tmp5, &tmp6, &letter) == 9 )
   {
     mob->specials.act = tmp1;
     mob->only.npc->aggro_flags = tmp7;
@@ -2061,10 +2060,7 @@ P_char read_mobile(int nr, int type)
     mob->specials.affected_by5 = 0;
     mob->specials.alignment = tmp6;
   }
-  else
-    if (sscanf
-        (buf, " %lu %lu %lu %lu %c \n", &tmp1, &tmp2, &tmp3, &tmp4,
-         &letter) == 5)
+  else if( sscanf(buf, " %lu %lu %lu %lu %c \n", &tmp1, &tmp2, &tmp3, &tmp4, &letter) == 5 )
   {
     mob->specials.act = tmp1;
     mob->specials.affected_by = tmp2;
@@ -2073,12 +2069,11 @@ P_char read_mobile(int nr, int type)
   }
   else
   {
-    if (sscanf(buf, " %lu %lu %lu %c \n", &tmp1, &tmp2, &tmp3, &letter) < 3)
+    if( sscanf(buf, " %lu %lu %lu %c \n", &tmp1, &tmp2, &tmp3, &letter) < 3 )
     {
-      logit(LOG_DEBUG, "Mob %d has messed up format.",
-            mob_index[nr].virtual_number);
+      logit(LOG_DEBUG, "Mob %d has messed up format.", mob_index[nr].virtual_number);
       extract_char(mob);
-      return 0;
+      return NULL;
     }
     mob->specials.act = tmp1;
     mob->specials.affected_by = tmp2;
@@ -2086,33 +2081,39 @@ P_char read_mobile(int nr, int type)
     mob->specials.alignment = tmp3;
   }
 
-  if (IS_SET(mob->specials.act, ACT_CANFLY))    /* hack hack  */
+  /* hack hack  */
+  if( IS_SET(mob->specials.act, ACT_CANFLY) )
     SET_BIT(mob->specials.affected_by, AFF_FLY);
-  if (IS_AFFECTED2(mob, AFF2_CASTING))
+  if( IS_AFFECTED2(mob, AFF2_CASTING) )
     REMOVE_BIT(mob->specials.affected_by2, AFF2_CASTING);
-  if (IS_AFFECTED(mob, AFF_FEAR))
+  if( IS_AFFECTED(mob, AFF_FEAR) )
     REMOVE_BIT(mob->specials.affected_by, AFF_FEAR);
-  if (IS_AFFECTED(mob, AFF_CAMPING))
+  if( IS_AFFECTED(mob, AFF_CAMPING) )
     REMOVE_BIT(mob->specials.affected_by, AFF_CAMPING);
-  if (IS_AFFECTED2(mob, AFF2_MAJOR_PARALYSIS))
+  if( IS_AFFECTED2(mob, AFF2_MAJOR_PARALYSIS) )
     REMOVE_BIT(mob->specials.affected_by2, AFF2_MAJOR_PARALYSIS);
-  if (IS_AFFECTED2(mob, AFF2_SCRIBING))
+  if( IS_AFFECTED2(mob, AFF2_SCRIBING) )
     REMOVE_BIT(mob->specials.affected_by2, AFF2_SCRIBING);
 
   SET_BIT(mob->specials.act, ACT_ISNPC);
 
-  if (letter == 'S')
+  // This should always be true as of 10/22/2015.
+  if( letter == 'S' )
   {
     fgets(buf, sizeof(buf) - 1, mob_f);
-    if (sscanf(buf, " %s %i %u %i %i \n", Gbuf1, &stmp, &utmp2, &stmp3, &stmp4) == 5)
+    if( sscanf(buf, " %s %i %u %i %i \n", Gbuf1, &stmp, &utmp2, &stmp3, &stmp4) == 5 )
     {
-      mob->player.race = 0;
+      mob->player.race = RACE_NONE;
 
-      /* defaults to RACE_NONE */
-      for (i = 0; (i <= LAST_RACE) && !mob->player.race; i++)
-      if (!str_cmp(race_names_table[i].code, Gbuf1))
-        mob->player.race = i;
-
+      // Start with the first race and end with the last.
+      for( i = 1; i <= LAST_RACE; i++ )
+      {
+        if( !str_cmp(race_names_table[i].code, Gbuf1) )
+        {
+          mob->player.race = i;
+          break;
+        }
+      }
       GET_HOME(mob) = stmp;
       mob->player.m_class = utmp2;
       mob->player.spec = stmp3;
@@ -2122,23 +2123,27 @@ P_char read_mobile(int nr, int type)
     {
       sscanf(buf, " %s %i %u %i \n", Gbuf1, &stmp, &utmp2, &stmp3);
 
-      mob->player.race = 0;
+      mob->player.race = RACE_NONE;
 
-      /* defaults to RACE_NONE */
-      for (i = 0; (i <= LAST_RACE) && !mob->player.race; i++)
-        if (!str_cmp(race_names_table[i].code, Gbuf1))
+      for( i = 1; i <= LAST_RACE; i++ )
+      {
+        if( !str_cmp(race_names_table[i].code, Gbuf1) )
+        {
           mob->player.race = i;
+          break;
+        }
+      }
 
       GET_HOME(mob) = stmp;
       mob->player.m_class = utmp2;
       mob->player.size = stmp3;
     }
-    /* The new easy monsters */
+
     fscanf(mob_f, " %ld ", &tmp);
     if( tmp > MAXLVL || tmp < 1 )
     {
-      logit(LOG_DEBUG, "Bad level %d for mob '%s' %d", tmp, J_NAME(mob), GET_VNUM(mob) );
-      debug( "Bad level %d for mob '%s' %d", tmp, J_NAME(mob), GET_VNUM(mob) );
+      logit(LOG_DEBUG, "Bad level %d for mob '%s' %d.", tmp, J_NAME(mob), GET_VNUM(mob) );
+      debug( "Bad level %d for mob '%s' %d.", tmp, J_NAME(mob), GET_VNUM(mob) );
       mob->player.level = level = (tmp > MAXLVL) ? MAXLVL : 1;
     }
     else
@@ -2152,31 +2157,34 @@ P_char read_mobile(int nr, int type)
     if (IS_SET(mob->specials.act, ACT_ELITE))
       mob->player.level -= number(10, 20);
 
-    if (IS_SET(mob->specials.act, ACT_TEACHER) ||
-	IS_SET(mob->specials.act, ACT_SPEC_TEACHER))
+    if( IS_SET(mob->specials.act, ACT_TEACHER) || IS_SET(mob->specials.act, ACT_SPEC_TEACHER)
+      && mob->player.level < 56 )
       mob->player.level = 56;
+
+    level = mob->player.level;
 #endif
 
-/*
- * The following initialises the # of spells useable for NPCs in a given
- * spell circle based on the spl_table[level][spell_circle] in memorize.c.
- * Element 0 of this tracking array serves as an accumulator used in
- * replenishing used slots. - SKB 31 Mar 1995
- */
-
+  /*
+   * The following initialises the # of spells useable for NPCs in a given
+   * spell circle based on the spl_table[level][spell_circle] in memorize.c.
+   * Element 0 of this tracking array serves as an accumulator used in
+   * replenishing used slots. - SKB 31 Mar 1995
+   */
     mob->specials.undead_spell_slots[0] = 0;
-    for (j = 1; j <= MAX_CIRCLE; j++)
-      mob->specials.undead_spell_slots[j] = spl_table[GET_LEVEL(mob)][j - 1];
+    for( j = 1; j <= MAX_CIRCLE; j++ )
+    {
+      mob->specials.undead_spell_slots[j] = spl_table[level][j - 1];
+    }
 
     fscanf(mob_f, " %ld ", &tmp);
     /* was warping things.  Tempy fix til everything changes.  JAB */
     if(IS_WARRIOR(mob) || IS_GREATER_RACE(mob) || IS_ELITE(mob) || IS_GIANT(mob))
     {
-      mob->points.base_hitroll = BOUNDED(2, (GET_LEVEL(mob) >> 1), 25);
+      mob->points.base_hitroll = BOUNDED(2, (level >> 1), 25);
     }
     else
     {
-      mob->points.base_hitroll = BOUNDED(0, (GET_LEVEL(mob) / 3), 25);
+      mob->points.base_hitroll = BOUNDED(0, (level / 3), 25);
     }
 
     mob->points.hitroll = mob->points.base_hitroll;
@@ -2207,7 +2215,7 @@ P_char read_mobile(int nr, int type)
             mob_index[nr].virtual_number, mob->points.hit);
 
     fscanf(mob_f, " %ldd%ld+%ld \n", &tmp, &tmp2, &tmp3);
-    mob->points.base_damroll = mob->points.damroll = tmp3 + level/2;
+    mob->points.base_damroll = mob->points.damroll = tmp3 + level;
     mob->points.damnodice = tmp;
     mob->points.damsizedice = tmp2;
 
@@ -2219,10 +2227,9 @@ P_char read_mobile(int nr, int type)
       GET_SILVER(mob) = tmp2;   /* * (number(50, 200) / 100); */
       GET_COPPER(mob) = tmp1;   /* * (number(50, 200) / 100); */
       GET_EXP(mob) = tmp;
-      if (GET_PLATINUM(mob) > 20)
+      if( GET_PLATINUM(mob) > 20 )
       {
-        tmp = ((GET_PLATINUM(mob) * 1000) + (GET_GOLD(mob) * 100) +
-               (GET_SILVER(mob) * 10) + GET_COPPER(mob));
+        tmp =( (GET_PLATINUM(mob) * 1000) + (GET_GOLD(mob) * 100) + (GET_SILVER(mob) * 10) + GET_COPPER(mob) );
         ADD_MONEY(mob, tmp);
       }
     }
@@ -2237,45 +2244,51 @@ P_char read_mobile(int nr, int type)
       }
       else
       {
-        logit(LOG_DEBUG, "Bogus cash and/or exp for mob %d",
-              mob_index[nr].virtual_number);
+        logit(LOG_DEBUG, "Bogus cash and/or exp for mob %d", mob_index[nr].virtual_number);
         raise(SIGSEGV);
       }
     }
   }
   else
   {
+    mob->player.level = level = 1;
+    mob->player.race = RACE_NONE;
+    mob->player.m_class = CLASS_NONE;
+    mob->player.spec = SPEC_NONE;
+    mob->player.size = SIZE_NONE;
+
     fscanf(mob_f, " %ld ", &tmp);
-    mob->base_stats.Str = (sh_int) (tmp * 4.5);
+    mob->base_stats.Str = (sh_int)(tmp * 4.5);
 
     fscanf(mob_f, " %ld ", &tmp);
 
     fscanf(mob_f, " %ld ", &tmp);
-    mob->base_stats.Int = (sh_int) (tmp * 4.5);
+    mob->base_stats.Int = (sh_int)(tmp * 4.5);
 
     fscanf(mob_f, " %ld ", &tmp);
-    mob->base_stats.Wis = (sh_int) (tmp * 4.5);
+    mob->base_stats.Wis = (sh_int)(tmp * 4.5);
 
     fscanf(mob_f, " %ld ", &tmp);
-    mob->base_stats.Dex = (sh_int) (tmp * 4.5);
+    mob->base_stats.Dex = (sh_int)(tmp * 4.5);
 
     fscanf(mob_f, " %ld \n", &tmp);
-    mob->base_stats.Con = (sh_int) (tmp * 4.5);
+    mob->base_stats.Con = (sh_int)(tmp * 4.5);
 
     mob->base_stats.Pow = mob->base_stats.Int;
     mob->base_stats.Agi = mob->base_stats.Dex;
-    mob->base_stats.Cha = number(1, 100);
-    mob->base_stats.Kar = number(1, 100);
-    mob->base_stats.Luk = number(1, 100);
+    mob->base_stats.Cha = dice(3, 20) + 40;
+    mob->base_stats.Kar = dice(3, 20) + 40;
+    mob->base_stats.Luk = dice(3, 20) + 40;
 
     fscanf(mob_f, " %ld ", &tmp);
     fscanf(mob_f, " %ld ", &tmp2);
 
     mob->points.base_hit = number(tmp, tmp2);
     mob->points.hit = mob->points.max_hit = mob->points.base_hit;
-    if (mob->points.hit < 0)
-      logit(LOG_DEBUG, "MOB #%d has negative (%d) hp.",
-            mob_index[nr].virtual_number, mob->points.hit);
+    if( mob->points.hit < 0 )
+    {
+      logit(LOG_DEBUG, "MOB #%d has negative (%d) hp.", mob_index[nr].virtual_number, mob->points.hit);
+    }
 
     fscanf(mob_f, " %ld ", &tmp);
 
@@ -2285,8 +2298,7 @@ P_char read_mobile(int nr, int type)
     mob->points.mana = mob->points.base_mana = mob->points.max_mana = tmp;
 
     fscanf(mob_f, " %ld ", &tmp);
-    mob->points.vitality = mob->points.base_vitality =
-      mob->points.max_vitality = tmp;
+    mob->points.vitality = mob->points.base_vitality = mob->points.max_vitality = tmp;
 
     fscanf(mob_f, " %ld ", &tmp);
     GET_EXP(mob) = tmp;
@@ -2306,7 +2318,7 @@ P_char read_mobile(int nr, int type)
    * ok, this has to be changed, until all mob files are changed.  We
    * have to interpret old 'position' number into new one. JAB
    */
-  switch (tmp)
+  switch( tmp )
   {
   case 0:                      /* * was POSITION_DEAD */
     logit(LOG_DEBUG, "Mob %d tried to load dead",
@@ -2406,7 +2418,7 @@ P_char read_mobile(int nr, int type)
   fscanf(mob_f, " %ld \n", &tmp);
   mob->player.sex = tmp;
 
-  if (letter == 'S')
+  if( letter == 'S' )
   {
     mob->player.time.birth = time(0);
     mob->player.time.played = 0;
@@ -2418,24 +2430,21 @@ P_char read_mobile(int nr, int type)
     for (i = 0; i < 5; i++)
       mob->specials.apply_saving_throw[i] = 0;
 
-    if((GET_LEVEL(mob) > 50) ||
-      IS_GREATER_RACE(mob) ||
-      IS_ELITE(mob))
+    if( (GET_LEVEL(mob) > 50) || IS_GREATER_RACE(mob) || IS_ELITE(mob) )
     {
-      roll_basic_abilities(mob, 2);
+      roll_basic_attributes(mob, ROLL_MOB_ELITE);
     }
-    else if (GET_LEVEL(mob) > 5)
-      roll_basic_abilities(mob, 0);
+    else if( GET_LEVEL(mob) > 5 )
+    {
+      roll_basic_attributes(mob, ROLL_MOB_GOOD);
+    }
     else
-      roll_basic_abilities(mob, -1);
+    {
+      roll_basic_attributes(mob, ROLL_MOB_NORMAL);
+    }
 
-    if(IS_GREATER_RACE(mob) ||
-      IS_ELITE(mob) ||
-      strstr(mob->player.name, "guard") ||
-      strstr(mob->player.name, "elite") ||
-      strstr(mob->player.name, "militia") ||
-      strstr(mob->player.name, "fighter") ||
-      strstr(mob->player.name, "warrior"))
+    if( strstr(mob->player.name, "guard") || strstr(mob->player.name, "elite") || strstr(mob->player.name, "militia")
+      || strstr(mob->player.name, "fighter") || strstr(mob->player.name, "warrior") )
     {
       while (mob->base_stats.Str < min_stats_for_class[1][0])
         mob->base_stats.Str += number(10, 20);
@@ -2446,10 +2455,8 @@ P_char read_mobile(int nr, int type)
       while (mob->base_stats.Con < min_stats_for_class[1][3])
         mob->base_stats.Con += number(10, 20);
     }
-    if (strstr(mob->player.name, "thief") ||
-        strstr(mob->player.name, "rogue") ||
-        strstr(mob->player.name, "bandit") ||
-        strstr(mob->player.name, "assassin"))
+    if( strstr(mob->player.name, "thief") || strstr(mob->player.name, "rogue") || strstr(mob->player.name, "bandit")
+      || strstr(mob->player.name, "assassin") )
     {
       while (mob->base_stats.Dex < min_stats_for_class[13][1])
         mob->base_stats.Dex += number(10, 20);
@@ -2459,21 +2466,51 @@ P_char read_mobile(int nr, int type)
         mob->base_stats.Int += number(10, 20);
       while (mob->base_stats.Cha < min_stats_for_class[13][7])
         mob->base_stats.Cha += number(10, 20);
-      if (GET_CLASS(mob, CLASS_ROGUE) && (!mob_index[GET_RNUM(mob)].func.mob))
+      if( GET_CLASS(mob, CLASS_ROGUE) && (!mob_index[GET_RNUM(mob)].func.mob) )
         mob_index[GET_RNUM(mob)].func.mob = thief;
     }
-    if (strstr(mob->player.name, "bailiff"))
+    if( strstr(mob->player.name, "bailiff") )
+    {
       if (!mob_index[GET_RNUM(mob)].func.mob)
+      {
         mob_index[GET_RNUM(mob)].func.mob = citizenship;
+      }
+    }
 
-    mob->base_stats.Str = BOUNDED(25, mob->base_stats.Str, 200);
-    mob->base_stats.Dex = BOUNDED(25, mob->base_stats.Dex, 200);
-    mob->base_stats.Agi = BOUNDED(25, mob->base_stats.Dex, 200);
-    mob->base_stats.Con = BOUNDED(25, mob->base_stats.Con, 200);
-    mob->base_stats.Pow = BOUNDED(25, mob->base_stats.Con, 200);
-    mob->base_stats.Int = BOUNDED(25, mob->base_stats.Int, 200);
-    mob->base_stats.Wis = BOUNDED(25, mob->base_stats.Wis, 200);
-    mob->base_stats.Cha = BOUNDED(25, mob->base_stats.Wis, 200);
+    // Start at first class, run through CLASS_COUNT and make sure they meet minimum requirements.
+    for( int cls = 0; cls <= CLASS_COUNT; cls++ )
+    {
+      // If they have the class, make sure the stats fit.
+      if( GET_CLASS(mob, 1 << cls) )
+      {
+        // Str = 0, Dex = 1, Agi = 2, Con = 3, Pow = 4, Int = 5, Wis = 6, Cha = 7
+        while( mob->base_stats.Str < min_stats_for_class[cls+1][0] )
+          mob->base_stats.Str += number(10, 20);
+        while( mob->base_stats.Dex < min_stats_for_class[cls+1][1] )
+          mob->base_stats.Dex += number(10, 20);
+        while( mob->base_stats.Agi < min_stats_for_class[cls+1][2] )
+          mob->base_stats.Agi += number(10, 20);
+        while( mob->base_stats.Con < min_stats_for_class[cls+1][3] )
+          mob->base_stats.Con += number(10, 20);
+        while( mob->base_stats.Pow < min_stats_for_class[cls+1][4] )
+          mob->base_stats.Pow += number(10, 20);
+        while( mob->base_stats.Int < min_stats_for_class[cls+1][5] )
+          mob->base_stats.Int += number(10, 20);
+        while( mob->base_stats.Wis < min_stats_for_class[cls+1][6] )
+          mob->base_stats.Wis += number(10, 20);
+        while( mob->base_stats.Cha < min_stats_for_class[cls+1][7] )
+          mob->base_stats.Cha += number(10, 20);
+      }
+    }
+
+    mob->base_stats.Str = BOUNDED(25, mob->base_stats.Str, 100);
+    mob->base_stats.Dex = BOUNDED(25, mob->base_stats.Dex, 100);
+    mob->base_stats.Agi = BOUNDED(25, mob->base_stats.Agi, 100);
+    mob->base_stats.Con = BOUNDED(25, mob->base_stats.Con, 100);
+    mob->base_stats.Pow = BOUNDED(25, mob->base_stats.Pow, 100);
+    mob->base_stats.Int = BOUNDED(25, mob->base_stats.Int, 100);
+    mob->base_stats.Wis = BOUNDED(25, mob->base_stats.Wis, 100);
+    mob->base_stats.Cha = BOUNDED(25, mob->base_stats.Cha, 100);
 
     /* * variable mana */
     i = 80 + dice(MAX(1, GET_LEVEL(mob)), IS_ANIMAL(mob) ? 1 : 4) +
@@ -2496,12 +2533,11 @@ P_char read_mobile(int nr, int type)
 
     mob->points.mana = mob->points.base_mana = mob->points.max_mana = i;
 
-    mob->points.vitality = mob->points.base_vitality =
-      mob->points.max_vitality =
-      MAX(50,
-          mob->base_stats.Agi) + (mob->base_stats.Str +
-                                  mob->base_stats.Con) /
-      ((IS_ANIMAL(mob)) ? 1 : 2);
+    mob->points.max_vitality =
+      mob->base_stats.Agi + (mob->base_stats.Str + mob->base_stats.Con) / ((IS_ANIMAL(mob)) ? 1 : 2);
+    if( mob->points.max_vitality < 50 )
+      mob->points.max_vitality = 50;
+    mob->points.vitality = mob->points.base_vitality = mob->points.max_vitality;
 
   }
   else
@@ -2514,22 +2550,18 @@ P_char read_mobile(int nr, int type)
       if (!str_cmp(race_names_table[i].code, Gbuf1))
         mob->player.race = i;
 
-    logit(LOG_MOB, "Old style mob: %d Race: %s(%d)",
-          mob_index[nr].virtual_number, Gbuf1, mob->player.race);
+    logit(LOG_MOB, "Old style mob: %d Race: %s(%d)", mob_index[nr].virtual_number, Gbuf1, mob->player.race);
 
     fscanf(mob_f, " %ld ", &tmp);
 //    GET_LEVEL(mob) = tmp;
     mob->player.level = tmp;
 
 #if defined(CTF_MUD) && (CTF_MUD == 1)
-    if (!IS_SET(mob->specials.act, ACT_ELITE))
+    if( !IS_SET(mob->specials.act, ACT_ELITE) )
       mob->player.level = (int)(mob->player.level/2);
-
-    if (IS_SET(mob->specials.act, ACT_ELITE))
+    if( IS_SET(mob->specials.act, ACT_ELITE) )
       mob->player.level -= number(5, 15);
-    
-    if (IS_SET(mob->specials.act, ACT_TEACHER) ||
-	IS_SET(mob->specials.act, ACT_SPEC_TEACHER))
+    if( IS_SET(mob->specials.act, ACT_TEACHER) || IS_SET(mob->specials.act, ACT_SPEC_TEACHER) )
       mob->player.level = 56;
 #endif
 
@@ -2633,8 +2665,7 @@ P_char read_mobile(int nr, int type)
     if (mob_index[nr].number == 1)      /*
                                          * only first, not every
                                          */
-      logit(LOG_MOB, "ACT_SPEC, but no function: %d %s",
-            mob_index[nr].virtual_number, GET_NAME(mob));
+      logit(LOG_MOB, "ACT_SPEC, but no function: %d %s", mob_index[nr].virtual_number, GET_NAME(mob));
   }
   /* if they have a func but no spec bit, add one -- DTS 2/12/95 */
   if (mob_index[nr].func.mob && !IS_SET(mob->specials.act, ACT_SPEC))

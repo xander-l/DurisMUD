@@ -1404,8 +1404,8 @@ void spell_create_dracolich(int level, P_char ch, char *arg, int type, P_char vi
     // 5d6 at level 56.
     mob->points.damnodice = (level - 6) / 10;
     mob->points.damsizedice = (level + 10) / 11;
-    // 32 - 40 at level 56.
-    mob->points.base_damroll = mob->points.damroll = level / 2 + number( 4, 12 );
+    // 60 - 80 (actual 15 - 20) at level 56.
+    mob->points.base_damroll = mob->points.damroll = level + number( 4, 24 );
   }
 
   char_to_room(mob, ch->in_room, 0);
@@ -2125,8 +2125,8 @@ void spell_create_greater_dracolich(int level, P_char ch, char *arg, int type, P
     // 6d7 at level 56.
     mob->points.damnodice = (level + 9)/10;
     mob->points.damsizedice = (level + 4)/10 + 1;
-    // 41 - 51 at 56.
-    mob->points.base_damroll = mob->points.damroll = (3 * level) / 4 + number( -2, 6 ) + dice(4, 3);
+    // 80 - 100 (actual 20 - 25) at level 56.
+    mob->points.base_damroll = mob->points.damroll = level + number( 24, 44 );
   }
 
   if( GET_C_STR(mob) < 95 || GET_C_DEX(mob) < 95 )

@@ -1308,4 +1308,10 @@ struct material_data {
 
 #define MAX_ALTITUDE 3
 
+#define ROLL_BAD       -1
+#define ROLL_NORMAL     0
+#define ROLL_MOB_NORMAL 1
+#define ROLL_MOB_GOOD   2
+#define ROLL_MOB_ELITE  3
+
 #endif /* _DURIS_DEFINES_H_ */

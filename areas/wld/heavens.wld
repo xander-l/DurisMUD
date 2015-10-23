@@ -551,6 +551,12 @@ D2
 ~
 0 0 40
 S
+#46
+&=LCBad Mob Holding Room&n~
+This room is designed to hold mobs that failed to load due to bad zone files.
+~
+1 1283494097 28
+S
 #66
 &+CKharne's Glorious Room of Meditation&N~
    Nothing special in this room, outside of tons of LSAT study material

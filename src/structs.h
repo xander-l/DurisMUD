@@ -2009,37 +2009,38 @@ struct mcname {
 //  #include "ships.h"
 //#endif
 
-#define MIN_SPEC 0
+#define MIN_SPEC            0
+#define SPEC_NONE           0
 //Bard Specs
-#define SPEC_LOREMASTER 1
-#define SPEC_BATTLESEINGER 2
-#define SPEC_STORMSINGER 3
+#define SPEC_LOREMASTER     1
+#define SPEC_BATTLESEINGER  2
+#define SPEC_STORMSINGER    3
 
 //Monk Specs
-#define SPEC_WAYOFDRAGON 1
-#define SPEC_WAYOFSNAKE 2
-#define SPEC_CHIMONK 3
+#define SPEC_WAYOFDRAGON    1
+#define SPEC_WAYOFSNAKE     2
+#define SPEC_CHIMONK        3
 
 
 // Dreadlord Specs
-#define SPEC_DEATHLORD 1
-#define SPEC_SHADOWLORD 2
+#define SPEC_DEATHLORD      1
+#define SPEC_SHADOWLORD     2
 
 //Reaver Specs
-#define SPEC_ICE_REAVER 1
-#define SPEC_FLAME_REAVER 2
-#define SPEC_SHOCK_REAVER 3
-#define SPEC_EARTH_REAVER 4
+#define SPEC_ICE_REAVER     1
+#define SPEC_FLAME_REAVER   2
+#define SPEC_SHOCK_REAVER   3
+#define SPEC_EARTH_REAVER   4
 
 //Conj Specs
-#define SPEC_AIR 1
-#define SPEC_WATER 2
-#define SPEC_FIRE 3
-#define SPEC_EARTH 4
+#define SPEC_AIR            1
+#define SPEC_WATER          2
+#define SPEC_FIRE           3
+#define SPEC_EARTH          4
 
 //Alchemist Specs
-#define SPEC_BATTLE_FORGER 1
-#define SPEC_BLACKSMITH 2
+#define SPEC_BATTLE_FORGER  1
+#define SPEC_BLACKSMITH     2
 
 //Merc Specs
 #define SPEC_BRIGAND 1

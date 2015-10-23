@@ -5083,7 +5083,7 @@ void select_reroll(P_desc d, char *arg)
     break;
   default:
     SEND_TO_Q("\r\n\r\nRerolling this character.\r\n\r\n", d);
-    roll_basic_abilities(d->character, 0);
+    roll_basic_attributes(d->character, ROLL_NORMAL);
     display_stats(d);
     SEND_TO_Q(reroll, d);
     SEND_TO_Q("Do you want to reroll this char (y/n) [y]:  ", d);
@@ -5349,7 +5349,7 @@ void select_class(P_desc d, char *arg)
   /* Krov: didn't get hometown choice either, roll the stats */
   //STATE(d) = CON_BONUS1;
   STATE(d) = CON_REROLL;
-  roll_basic_abilities(d->character, 0);
+  roll_basic_attributes(d->character, ROLL_NORMAL);
   display_characteristics(d);
 
     display_stats(d);//
@@ -5466,7 +5466,7 @@ void select_alignment(P_desc d, char *arg)
   GET_ORIG_BIRTHPLACE(d->character) = home;
 
     STATE(d) = CON_REROLL;
-  roll_basic_abilities(d->character, 0);
+  roll_basic_attributes(d->character, ROLL_NORMAL);
   display_characteristics(d);
   display_stats(d);
   SEND_TO_Q(reroll, d);
@@ -5524,7 +5524,7 @@ void select_hometown(P_desc d, char *arg)
   GET_ORIG_BIRTHPLACE(d->character) = home;
 
   STATE(d) = CON_REROLL;
-  roll_basic_abilities(d->character, 0);
+  roll_basic_attributes(d->character, ROLL_NORMAL);
   display_characteristics(d);
   display_stats(d);
   SEND_TO_Q(reroll, d);

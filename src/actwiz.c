@@ -4941,7 +4941,7 @@ void do_purge(P_char ch, char *argument, int cmd)
 
 
 /*
-   Krov: major modifications to roll_basic_abilities are
+   Krov: major modifications to roll_basic_attributes are
    - fixed "stat points" plus a bit of luck for roll fanatics
    - class restrictions are obeyed, since new nanny fixes class before
    rolling the stats
@@ -4955,15 +4955,15 @@ void do_purge(P_char ch, char *argument, int cmd)
 // This function now assigns a static low level base value to all
 // "normal" stats(not luck or karma). - Jexni
 
-void roll_basic_abilities(P_char ch, int flag)
+void roll_basic_attributes(P_char ch, int type)
 {
-
+  int faces, rolls, base, value;
 /* screw 'bell curves' and stat totalling, let's keep it simple */
 
 #if 0
   int i, rolls[10], statp, temp, total, sides;
   /* this gives the total points distributed on _10_ stats,
-     according to flag+1 */
+     according to type+1 */
   static int totlim[5] =
   {
     250, 550, 600, 650, 700
@@ -4982,10 +4982,10 @@ void roll_basic_abilities(P_char ch, int flag)
   }
 
   /* determine how many points will be distributed */
-  if (flag >= 4)
+  if (type >= 4)
     total = number(temp, 800);
   else {
-    total = totlim[flag + 1];
+    total = totlim[type + 1];
     total += (dice(3, 21) + 17);
   }
 
@@ -5024,16 +5024,89 @@ void roll_basic_abilities(P_char ch, int flag)
   ch->base_stats.Kar = ch->curr_stats.Kar = number(1, 100);
   ch->base_stats.Luk = ch->curr_stats.Luk = number(1, 100);
 #endif
-  ch->base_stats.Str = ch->curr_stats.Str = MIN(dice(5, 8) + 53, 95);
-  ch->base_stats.Dex = ch->curr_stats.Dex = MIN(dice(5, 8) + 53, 95);
-  ch->base_stats.Agi = ch->curr_stats.Agi = MIN(dice(5, 8) + 53, 95);
-  ch->base_stats.Con = ch->curr_stats.Con = MIN(dice(5, 8) + 53, 95);
-  ch->base_stats.Pow = ch->curr_stats.Pow = MIN(dice(5, 8) + 53, 95);
-  ch->base_stats.Int = ch->curr_stats.Int = MIN(dice(5, 8) + 53, 95);
-  ch->base_stats.Wis = ch->curr_stats.Wis = MIN(dice(5, 8) + 53, 95);
-  ch->base_stats.Cha = ch->curr_stats.Cha = MIN(dice(5, 8) + 53, 95);
-  ch->base_stats.Kar = ch->curr_stats.Kar = MIN(dice(5, 8) + 53, 95);
-  ch->base_stats.Luk = ch->curr_stats.Luk = MIN(dice(5, 8) + 53, 95);
+
+  // Bad rolls - 44 to 80.
+  if( type == ROLL_BAD )
+  {
+    rolls = 4;
+    faces = 10;
+    base = 40;
+  }
+  // Normal rolls - 58 to 93.
+  else if( type == ROLL_NORMAL )
+  {
+    rolls = 5;
+    faces = 8;
+    base = 53;
+  }
+  // Normal mob rolls - 68 - 98.
+  else if( type == ROLL_MOB_NORMAL )
+  {
+    rolls = 3;
+    faces = 11;
+    base = 65;
+  }
+  // Good mob rolls - 80 - 98.
+  else if( type == ROLL_MOB_GOOD )
+  {
+    rolls = 3;
+    faces = 7;
+    base = 77;
+  }
+  // Elite mob rolls - 91 - 100
+  else if( type == ROLL_MOB_ELITE )
+  {
+    rolls = 3;
+    faces = 4;
+    base = 88;
+  }
+  // Buggy, give 51 to 100.
+  else
+  {
+    debug( "roll_basic_attributes: Bad type (%d) on char '%s' %d.", type, J_NAME(ch), GET_ID(ch) );
+    logit(LOG_WIZ, "roll_basic_attributes: Bad type (%d) on char '%s' %d.", type, J_NAME(ch), GET_ID(ch) );
+    rolls = 1;
+    faces = 50;
+    base = 50;
+  }
+
+  if( type != ROLL_MOB_NORMAL && type != ROLL_MOB_GOOD && type != ROLL_MOB_ELITE )
+  {
+    ch->base_stats.Str = ch->curr_stats.Str = dice(rolls, faces) + base;
+    ch->base_stats.Dex = ch->curr_stats.Dex = dice(rolls, faces) + base;
+    ch->base_stats.Agi = ch->curr_stats.Agi = dice(rolls, faces) + base;
+    ch->base_stats.Con = ch->curr_stats.Con = dice(rolls, faces) + base;
+    ch->base_stats.Pow = ch->curr_stats.Pow = dice(rolls, faces) + base;
+    ch->base_stats.Int = ch->curr_stats.Int = dice(rolls, faces) + base;
+    ch->base_stats.Wis = ch->curr_stats.Wis = dice(rolls, faces) + base;
+    ch->base_stats.Cha = ch->curr_stats.Cha = dice(rolls, faces) + base;
+    ch->base_stats.Kar = ch->curr_stats.Kar = dice(rolls, faces) + base;
+    ch->base_stats.Luk = ch->curr_stats.Luk = dice(rolls, faces) + base;
+  }
+  // Mobs may have a 'lower limit' already entered in base_stats.
+  else
+  {
+    if( (value = dice(rolls, faces) + base) > ch->base_stats.Str )
+      ch->base_stats.Str = ch->curr_stats.Str = value;
+    if( (value = dice(rolls, faces) + base) > ch->base_stats.Dex )
+      ch->base_stats.Dex = ch->curr_stats.Dex = value;
+    if( (value = dice(rolls, faces) + base) > ch->base_stats.Agi )
+      ch->base_stats.Agi = ch->curr_stats.Agi = value;
+    if( (value = dice(rolls, faces) + base) > ch->base_stats.Con )
+      ch->base_stats.Con = ch->curr_stats.Con = value;
+    if( (value = dice(rolls, faces) + base) > ch->base_stats.Pow )
+      ch->base_stats.Pow = ch->curr_stats.Pow = value;
+    if( (value = dice(rolls, faces) + base) > ch->base_stats.Int )
+      ch->base_stats.Int = ch->curr_stats.Int = value;
+    if( (value = dice(rolls, faces) + base) > ch->base_stats.Wis )
+      ch->base_stats.Wis = ch->curr_stats.Wis = value;
+    if( (value = dice(rolls, faces) + base) > ch->base_stats.Cha )
+      ch->base_stats.Cha = ch->curr_stats.Cha = value;
+    if( (value = dice(rolls, faces) + base) > ch->base_stats.Kar )
+      ch->base_stats.Kar = ch->curr_stats.Kar = value;
+    if( (value = dice(rolls, faces) + base) > ch->base_stats.Luk )
+      ch->base_stats.Luk = ch->curr_stats.Luk = value;
+  }
 }
 
 // fullReset -> Do we reset epic skills/tradeskills?
@@ -5376,35 +5449,31 @@ void do_reroll(P_char ch, char *argument, int cmd)
     return;
   }
   if(!*modifier || (*modifier == '1'))
-    flag = 0;
+    flag = ROLL_NORMAL;
   else if(*modifier == '0')
-    flag = -1;
+    flag = ROLL_BAD;
   else if(*modifier == '2')
-    flag = 1;
+    flag = ROLL_MOB_NORMAL;
   else if(*modifier == '3')
-    flag = 2;
+    flag = ROLL_MOB_GOOD;
   else if(*modifier == '4')
-    flag = 3;
+    flag = ROLL_MOB_ELITE;
   else
   {
     send_to_char(REROLL_SYNTAX, ch);
     return;
   }
 
-  roll_basic_abilities(victim, flag);
+  roll_basic_attributes(victim, flag);
   if(!IS_TRUSTED(ch))
     send_to_char("Rerolled...\n", ch);
   else
   {
-    sprintf(buf,
-            "%s Rerolled:     Avg:(%d)\n  S:%3d  D:%3d  A:%3d  C:%3d\n  P:%3d  I:%3d  W:%3d Ch:%3d\n",
-            GET_NAME(victim),
-            (GET_C_STR(victim) + GET_C_DEX(victim) + GET_C_AGI(victim) +
-             GET_C_CON(victim) + GET_C_POW(victim) + GET_C_INT(victim) +
-             GET_C_WIS(victim) + GET_C_CHA(victim)) / 8, GET_C_STR(victim),
-            GET_C_DEX(victim), GET_C_AGI(victim), GET_C_CON(victim),
-            GET_C_POW(victim), GET_C_INT(victim), GET_C_WIS(victim),
-            GET_C_CHA(victim));
+    sprintf(buf, "%s Rerolled:     Avg:(%d)\n  S:%3d  D:%3d  A:%3d  C:%3d\n  P:%3d  I:%3d  W:%3d Ch:%3d\n",
+      GET_NAME(victim), (GET_C_STR(victim) + GET_C_DEX(victim) + GET_C_AGI(victim) + GET_C_CON(victim)
+      + GET_C_POW(victim) + GET_C_INT(victim) + GET_C_WIS(victim) + GET_C_CHA(victim)) / 8, GET_C_STR(victim),
+      GET_C_DEX(victim), GET_C_AGI(victim), GET_C_CON(victim), GET_C_POW(victim), GET_C_INT(victim), GET_C_WIS(victim),
+      GET_C_CHA(victim));
     send_to_char(buf, ch);
 
     if(affect_total(victim, TRUE))
@@ -5412,15 +5481,12 @@ void do_reroll(P_char ch, char *argument, int cmd)
   }
   if(IS_TRUSTED(ch))
   {
-    wizlog(GET_LEVEL(ch), "%s has rerolled %s%s", GET_NAME(ch),
-           GET_NAME(victim),
-           (flag == -1) ? " miserably" : (flag == 0) ? "" : (flag ==
-                                                             1) ? " good"
-           : (flag == 2) ? " great" : " godlike");
-    logit(LOG_WIZ, "%s has rerolled %s%s", GET_NAME(ch), GET_NAME(victim),
-          (flag == -1) ? " miserably" : (flag == 0) ? "" : (flag ==
-                                                            1) ? " good"
-          : (flag == 2) ? " great" : " godlike");
+    wizlog(GET_LEVEL(ch), "%s has rerolled %s %s.", GET_NAME(ch), GET_NAME(victim), (flag == ROLL_BAD) ? " miserably"
+      : (flag == ROLL_NORMAL) ? "normal" : (flag == ROLL_MOB_NORMAL) ? "mob-normal" : (flag == ROLL_MOB_GOOD)
+      ? " mob-good" : " mob-elite");
+    logit(LOG_WIZ, "%s has rerolled %s %s.", GET_NAME(ch), GET_NAME(victim), (flag == ROLL_BAD) ? " miserably"
+      : (flag == ROLL_NORMAL) ? "normal" : (flag == ROLL_MOB_NORMAL) ? "mob-normal" : (flag == ROLL_MOB_GOOD)
+      ? " mob-good" : " mob-elite");
   }
 }
 
