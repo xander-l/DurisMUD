@@ -987,16 +987,20 @@ struct attr_names_struct {
 #define MAX_RACEWAR          4
 
 /* class defn's (PC) */
-#define CLASS_NONE            0
-#define CLASS_WARRIOR           BIT_1
-#define CLASS_RANGER            BIT_2
-#define CLASS_PSIONICIST        BIT_3
-#define CLASS_PALADIN           BIT_4
-#define CLASS_ANTIPALADIN       BIT_5
-#define CLASS_CLERIC            BIT_6
-#define CLASS_MONK              BIT_7
-#define CLASS_DRUID             BIT_8
-#define CLASS_SHAMAN            BIT_9
+/* IF YOU ADD A CLASS, YOU NEED TO ADD IT HERE AND EXPMOD_CLS_...
+ * IF YOU REMOVE A CLASS, YOU SHOULD TO UPDATE EXPMOD_CLS_... to EXPMOD_CLS_UNUSED or such."
+ * What's important is that flag2idx(<class>) == EXPMOD_CLS_<class>.
+ */
+#define CLASS_NONE                   0
+#define CLASS_WARRIOR            BIT_1
+#define CLASS_RANGER             BIT_2
+#define CLASS_PSIONICIST         BIT_3
+#define CLASS_PALADIN            BIT_4
+#define CLASS_ANTIPALADIN        BIT_5
+#define CLASS_CLERIC             BIT_6
+#define CLASS_MONK               BIT_7
+#define CLASS_DRUID              BIT_8
+#define CLASS_SHAMAN             BIT_9
 #define CLASS_SORCERER          BIT_10
 #define CLASS_NECROMANCER       BIT_11
 #define CLASS_CONJURER          BIT_12
@@ -1017,12 +1021,12 @@ struct attr_names_struct {
 #define CLASS_AVENGER           BIT_27
 #define CLASS_THEURGIST         BIT_28
 #define CLASS_SUMMONER          BIT_29
-#define CLASS_COUNT             29
+#define CLASS_COUNT                 29
 
-#define CLASS_TYPE_MAGE      20
-#define CLASS_TYPE_THIEF     21
-#define CLASS_TYPE_WARRIOR   22
-#define CLASS_TYPE_CLERIC    23
+#define CLASS_TYPE_WARRIOR   1
+#define CLASS_TYPE_MAGE      2
+#define CLASS_TYPE_CLERIC    3
+#define CLASS_TYPE_THIEF     4
 
 /* animals fall into three categorizations */
 #define ANIMAL_TYPE_BIRD     0
@@ -1313,5 +1317,74 @@ struct material_data {
 #define ROLL_MOB_NORMAL 1
 #define ROLL_MOB_GOOD   2
 #define ROLL_MOB_ELITE  3
+
+// It is IMPERATIVE that EXP_MOD_CLS_* == flag2idx(CLASS_*)
+// If you add a new class, you MUST add EXP_MOD_CLS_<newclass> and shift the rest of the values down one!!!
+// Note: On 10/25/2015, I left 3 empty spaces for new classes, just change EXPMOD_CLS_NEWCLASS{1|2|3} with
+//   EXPMOD_CLS_<new class name>; no need to shift (these slots are unused atm).
+#define EXPMOD_NONE                         0
+#define EXPMOD_CLS_WARRIOR                  1
+#define EXPMOD_CLS_RANGER                   2
+#define EXPMOD_CLS_PSIONICIST               3
+#define EXPMOD_CLS_PALADIN                  4
+#define EXPMOD_CLS_ANTIPALADIN              5
+#define EXPMOD_CLS_CLERIC                   6
+#define EXPMOD_CLS_MONK                     7
+#define EXPMOD_CLS_DRUID                    8
+#define EXPMOD_CLS_SHAMAN                   9
+#define EXPMOD_CLS_SORCERER                10
+#define EXPMOD_CLS_NECROMANCER             11
+#define EXPMOD_CLS_CONJURER                12
+#define EXPMOD_CLS_ROGUE                   13
+#define EXPMOD_CLS_ASSASSIN                14
+#define EXPMOD_CLS_MERCENARY               15
+#define EXPMOD_CLS_BARD                    16
+#define EXPMOD_CLS_THIEF                   17
+#define EXPMOD_CLS_WARLOCK                 18
+#define EXPMOD_CLS_MINDFLAYER              19
+#define EXPMOD_CLS_ALCHEMIST               20
+#define EXPMOD_CLS_BERSERKER               21
+#define EXPMOD_CLS_REAVER                  22
+#define EXPMOD_CLS_ILLUSIONIST             23
+#define EXPMOD_CLS_BLIGHTER                24
+#define EXPMOD_CLS_DREADLORD               25
+#define EXPMOD_CLS_ETHERMANCER             26
+#define EXPMOD_CLS_AVENGER                 27
+#define EXPMOD_CLS_THEURGIST               28
+#define EXPMOD_CLS_SUMMONER                29
+#define EXPMOD_CLS_NEWCLASS1               30
+#define EXPMOD_CLS_NEWCLASS2               31
+#define EXPMOD_CLS_NEWCLASS3               32
+#define EXPMOD_LVL_31_UP                   33
+#define EXPMOD_LVL_41_UP                   34
+#define EXPMOD_LVL_51_UP                   35
+#define EXPMOD_LVL_55_UP                   36
+#define EXPMOD_RES_EVIL                    37
+#define EXPMOD_RES_NORMAL                  38
+#define EXPMOD_VICT_BREATHES               39
+#define EXPMOD_VICT_ACT_AGGRO              40
+#define EXPMOD_VICT_ACT_HUNTER             41
+#define EXPMOD_VICT_ELITE                  42
+#define EXPMOD_VICT_HOMETOWN               43
+#define EXPMOD_VICT_NOMEMORY               44
+#define EXPMOD_PVP                         45
+#define EXPMOD_GLOBAL                      46
+#define EXPMOD_GOOD                        47
+#define EXPMOD_EVIL                        48
+#define EXPMOD_UNDEAD                      49
+#define EXPMOD_NEUTRAL                     50
+#define EXPMOD_DAMAGE                      51
+#define EXPMOD_HEAL_NONHEALER              52
+#define EXPMOD_HEAL_PETS                   53
+#define EXPMOD_HEALING                     54
+#define EXPMOD_MELEE                       55
+#define EXPMOD_TANK                        56
+#define EXPMOD_KILL                        57
+#define EXPMOD_PALADIN_VS_GOOD             58
+#define EXPMOD_PALADIN_VS_EVIL             59
+#define EXPMOD_ANTIPALADIN_VS_GOOD         60
+
+#define EXPMOD_MAX                         60
+
 
 #endif /* _DURIS_DEFINES_H_ */

@@ -57,6 +57,7 @@ extern uint event_counter[];
 extern struct mm_ds *dead_pconly_pool;
 extern struct mm_ds *dead_trophy_pool;
 extern int portal_id;
+extern float exp_mods[EXPMOD_MAX+1];
 extern void obj_affect_remove(P_obj, struct obj_affect *);
 void     delete_knownShapes(P_char ch);
 void     proclib_obj_event(P_char, P_char, P_obj obj, void*);
@@ -2226,7 +2227,12 @@ P_char read_mobile(int nr, int type)
       GET_GOLD(mob) = tmp3;     /* * (number(50, 200) / 100); */
       GET_SILVER(mob) = tmp2;   /* * (number(50, 200) / 100); */
       GET_COPPER(mob) = tmp1;   /* * (number(50, 200) / 100); */
-      GET_EXP(mob) = tmp;
+      if( tmp > 10000000 )
+      {
+        logit(LOG_MOB, "Mob '%s' %d has extreme exp %s.", mob->player.name, mob_index[nr].virtual_number,
+          comma_string(tmp) );
+      }
+      GET_EXP(mob) = tmp * exp_mods[EXPMOD_GLOBAL];
       if( GET_PLATINUM(mob) > 20 )
       {
         tmp =( (GET_PLATINUM(mob) * 1000) + (GET_GOLD(mob) * 100) + (GET_SILVER(mob) * 10) + GET_COPPER(mob) );
@@ -2240,7 +2246,7 @@ P_char read_mobile(int nr, int type)
       if (sscanf(buf, " %ld %ld", &tmp1, &tmp) == 2)
       {
         ADD_MONEY(mob, tmp1);
-        GET_EXP(mob) = tmp;
+        GET_EXP(mob) = tmp * exp_mods[EXPMOD_GLOBAL];
       }
       else
       {
@@ -2301,7 +2307,7 @@ P_char read_mobile(int nr, int type)
     mob->points.vitality = mob->points.base_vitality = mob->points.max_vitality = tmp;
 
     fscanf(mob_f, " %ld ", &tmp);
-    GET_EXP(mob) = tmp;
+    GET_EXP(mob) = tmp * exp_mods[EXPMOD_GLOBAL];
 
     /* Get hometown */
     fscanf(mob_f, " %ld ", &tmp);
@@ -2478,7 +2484,7 @@ P_char read_mobile(int nr, int type)
     }
 
     // Start at first class, run through CLASS_COUNT and make sure they meet minimum requirements.
-    for( int cls = 0; cls <= CLASS_COUNT; cls++ )
+    for( int cls = 0; cls < CLASS_COUNT; cls++ )
     {
       // If they have the class, make sure the stats fit.
       if( GET_CLASS(mob, 1 << cls) )
@@ -2613,7 +2619,7 @@ P_char read_mobile(int nr, int type)
       GET_SILVER(mob) = tmp2;
       GET_GOLD(mob) = tmp3;
       GET_PLATINUM(mob) = tmp4;
-      GET_EXP(mob) = tmp;
+      GET_EXP(mob) = tmp * exp_mods[EXPMOD_GLOBAL];
     }
     else
     {
@@ -2622,7 +2628,7 @@ P_char read_mobile(int nr, int type)
       if (sscanf(buf, " %ld %ld", &tmp1, &tmp) == 2)
       {
         ADD_MONEY(mob, tmp1);
-        GET_EXP(mob) = tmp;
+        GET_EXP(mob) = tmp * exp_mods[EXPMOD_GLOBAL];
       }
       else
       {

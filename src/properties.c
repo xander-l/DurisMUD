@@ -30,6 +30,7 @@ extern void update_spellpulse_data();
 extern void update_racial_shrug_data();
 extern void update_racial_exp_mods();
 extern void update_racial_exp_mod_victims();
+extern void update_exp_mods();
 extern void update_stat_data();
 extern void update_dam_factors();
 extern void update_racial_dam_factors();
@@ -108,6 +109,7 @@ void apply_properties()
   update_racial_shrug_data();
   update_racial_exp_mods();
   update_racial_exp_mod_victims();
+  update_exp_mods();
   update_exp_table();
   update_dam_factors();
   update_racial_dam_factors();

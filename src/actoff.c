@@ -4178,7 +4178,8 @@ void do_headbutt(P_char ch, char *argument, int cmd)
     return;
   }
 
-  if( /*PENIS IS_TRUSTED(victim) ||*/ isname("_nobutt_", GET_NAME(victim)) )
+  // Higher and equal level Immortals can headbutt.
+  if( (IS_TRUSTED(victim) && GET_LEVEL(victim) > GET_LEVEL(ch)) || isname("_nobutt_", GET_NAME(victim)) )
   {
     act("$N is clearly too quick and clever for such a brutish attack.", FALSE, ch, 0, victim, TO_CHAR);
     return;

@@ -94,6 +94,8 @@ extern struct mm_ds *dead_pconly_pool;
 extern void set_long_description(P_obj t_obj, const char *newDescription);
 extern void set_short_description(P_obj t_obj, const char *newDescription);
 extern const struct golem_description golem_data[];
+extern float exp_mods[EXPMOD_MAX+1];
+
 // THE NEXT PERSON THAT OUTRIGHT COPIES A SPELL JUST TO CHANGE THE NAME/MESSAGES
 // IT OUTPUTS IS GOING TO BE CASTRATED BY ME AND FORCED TO EAT THEIR OWN GENITALIA.
 // There is no reason to do this other than to make a headache for another coder.
@@ -15517,11 +15519,11 @@ void spell_resurrect(int level, P_char ch, char *arg, int type, P_char victim, P
       }
       else if( EVIL_RACE(t_ch) )
       {
-         resu_exp = (long)(resu_exp * (get_property("gain.exp.mod.res.evil", 0.750)));
+         resu_exp = (long)(resu_exp * exp_mods[EXPMOD_RES_EVIL]);
       }
       else
       {
-         resu_exp = (long)(resu_exp * get_property("gain.exp.mod.res.normal", 0.750));
+         resu_exp = (long)(resu_exp * exp_mods[EXPMOD_RES_NORMAL]);
       }
     }
 

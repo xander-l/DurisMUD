@@ -61,6 +61,7 @@ extern float racial_exp_mod_victims[LAST_RACE + 1];
 
 long     new_exp_table[TOTALLVLS];
 long     global_exp_limit;
+float    exp_mods[EXPMOD_MAX+1];
 
 void     checkPeriodOfFame(P_char ch, char killer[1024]);
 void     advance_skillpoints( P_char ch );
@@ -498,12 +499,10 @@ void gain_practices(P_char ch)
   case CLASS_SHAMAN:
   case CLASS_CLERIC:
   case CLASS_DRUID:
-    ch->only.pc->spells_to_learn +=
-      MAX(2, wis_app[STAT_INDEX(GET_C_WIS(ch))].bonus + 2) + number(0, 1);
+    ch->only.pc->spells_to_learn += MAX(2, wis_app[STAT_INDEX(GET_C_WIS(ch))].bonus + 2) + number(0, 1);
     break;
   default:
-    ch->only.pc->spells_to_learn +=
-      MAX(1, wis_app[STAT_INDEX(GET_C_WIS(ch))].bonus + 1) + number(0, 1);
+    ch->only.pc->spells_to_learn += MAX(1, wis_app[STAT_INDEX(GET_C_WIS(ch))].bonus + 1) + number(0, 1);
     break;
   }
 #endif
@@ -524,12 +523,10 @@ void lose_practices(P_char ch)
   case CLASS_SHAMAN:
   case CLASS_CLERIC:
   case CLASS_DRUID:
-    ch->only.pc->spells_to_learn -=
-      MAX(2, wis_app[STAT_INDEX(GET_C_WIS(ch))].bonus + 2) + 1;
+    ch->only.pc->spells_to_learn -= MAX(2, wis_app[STAT_INDEX(GET_C_WIS(ch))].bonus + 2) + 1;
     break;
   default:
-    ch->only.pc->spells_to_learn +=
-      MAX(1, wis_app[STAT_INDEX(GET_C_WIS(ch))].bonus + 1) + 1;
+    ch->only.pc->spells_to_learn += MAX(1, wis_app[STAT_INDEX(GET_C_WIS(ch))].bonus + 1) + 1;
     break;
   }
 #endif
@@ -845,14 +842,14 @@ float gain_exp_modifiers_race_only(P_char ch, P_char victim, float XP)
      GET_RACE(ch) >= 1 &&
      GET_RACE(ch) <= LAST_RACE )
   {
-    XP = XP * racial_exp_mods[GET_RACE(ch)];
+    XP *= racial_exp_mods[GET_RACE(ch)];
   }
 // debug("Gain exp ch (%d) Start.", (int)XP);  
   if(victim &&
      GET_RACE(victim) >= 1 &&
      GET_RACE(victim) <= LAST_RACE )
   {
-    XP = XP * racial_exp_mod_victims[GET_RACE(victim)];
+    XP *= racial_exp_mod_victims[GET_RACE(victim)];
   }
 // debug("Gain exp victim (%d) Start.", (int)XP);   
   prop_buf[0];
@@ -862,143 +859,110 @@ float gain_exp_modifiers_race_only(P_char ch, P_char victim, float XP)
 
 float gain_exp_modifiers(P_char ch, P_char victim, float XP)
 {
-
 // debug("Gain exp modifiers (%d).", (int)XP);
 
-  if(victim)
+  if( victim )
   {
     if(CHAR_IN_TOWN(ch) &&
       (GET_LEVEL(victim) > 20) &&
       !IS_PC(victim))
     {
-      XP = XP * get_property("gain.exp.mod.victim.location.hometown", 1.00);
+      XP *= exp_mods[EXPMOD_VICT_HOMETOWN];
       if(!number(0, 49)) // Limit the spam
         send_to_char("&+gThis being a hometown, you receive fewer exps...&n\r\n", ch);
-    } 
-      
-    if(!IS_MULTICLASS_NPC(victim) &&
-        GET_LEVEL(victim) > 20 &&
-        !IS_PC(victim))
-    {
-      if(GET_CLASS(victim, CLASS_WARRIOR))
-        XP = XP * get_property("gain.exp.mod.warrior", 1.00);
-      else if(GET_CLASS(victim, CLASS_MERCENARY))
-        XP = XP * get_property("gain.exp.mod.mercenary", 1.00);
-      else if(GET_CLASS(victim, CLASS_ROGUE))
-        XP = XP * get_property("gain.exp.mod.rogue", 1.00);
-      else if(GET_CLASS(victim, CLASS_AVENGER))
-        XP = XP * get_property("gain.exp.mod.avenger", 1.00);
-      else if(GET_CLASS(victim, CLASS_DREADLORD))
-        XP = XP * get_property("gain.exp.mod.dreadlord", 1.00);
-      else if(GET_CLASS(victim, CLASS_SORCERER))
-        XP = XP * get_property("gain.exp.mod.sorcerer", 1.00);
-      else if(GET_CLASS(victim, CLASS_CONJURER))
-        XP = XP * get_property("gain.exp.mod.conjurer", 1.00);
-      else if(GET_CLASS(victim, CLASS_NECROMANCER))
-        XP = XP * get_property("gain.exp.mod.necromancer", 1.00);
-      else if(GET_CLASS(victim, CLASS_NECROMANCER))
-        XP = XP * get_property("gain.exp.mod.theurgist", 1.00);
-      else if(GET_CLASS(victim, CLASS_PSIONICIST))
-        XP = XP * get_property("gain.exp.mod.psionicist", 1.00);
-      else if(GET_CLASS(victim, CLASS_PALADIN))
-        XP = XP * get_property("gain.exp.mod.paladin", 1.00);
-      else if(GET_CLASS(victim, CLASS_ANTIPALADIN))
-        XP = XP * get_property("gain.exp.mod.antipaladin", 1.00);
-      else if(GET_CLASS(victim, CLASS_ETHERMANCER))
-        XP = XP * get_property("gain.exp.mod.ethermancer", 1.00);
-      else if(GET_CLASS(victim, CLASS_BERSERKER))
-        XP = XP * get_property("gain.exp.mod.berserker", 1.00);
-      else if(GET_CLASS(victim, CLASS_MONK))
-        XP = XP * get_property("gain.exp.mod.monk", 1.00);
-      else if(GET_CLASS(victim, CLASS_CLERIC))
-        XP = XP * get_property("gain.exp.mod.cleric", 1.00);
-      else if(GET_CLASS(victim, CLASS_SHAMAN))
-        XP = XP * get_property("gain.exp.mod.shaman", 1.00);
-      else if(GET_CLASS(victim, CLASS_DRUID))
-        XP = XP * get_property("gain.exp.mod.druid", 1.00);
-      else if(GET_CLASS(victim, CLASS_RANGER))
-        XP = XP * get_property("gain.exp.mod.ranger", 1.00);
-      else if(GET_CLASS(victim, CLASS_MINDFLAYER))
-        XP = XP * get_property("gain.exp.mod.mindflayer", 1.00);
-      else if(GET_CLASS(victim, CLASS_REAVER))
-        XP = XP * get_property("gain.exp.mod.reaver", 1.00);
-      else if(GET_CLASS(victim, CLASS_SUMMONER))
-        XP = XP * get_property("gain.exp.mod.summoner", 1.00);
-      else
-        XP = XP * get_property("gain.exp.mod.other", 1.00);
     }
-  
+
+    if( GET_LEVEL(victim) > 20 )
+    {
+      if( !IS_MULTICLASS_NPC(victim) )
+      {
+        XP *= exp_mods[flag2idx(victim->player.m_class)];
+      }
+      // Apply all mods for NPCs.
+      else
+      {
+        // Start at first class, run to CLASS_COUNT and apply all multipliers.
+        for( int cls = 0; cls < CLASS_COUNT; cls++ )
+        {
+          // If they have the class, apply the multiplier.
+          if( GET_CLASS(victim, 1 << cls) )
+          {
+            // We use cls+1 here, because 1 << 0 == 1 == BIT_1 == CLASS_WARRIOR -> EXPMOD_CLS_WARRIOR == 1
+            //   1 << 1 == 2 == CLASS_RANGER -> EXPMOD_CLS_RANGER == 2, 1 << 3 == 4 == CLASS_PSIONICIST ...
+            XP *= exp_mods[cls+1];
+          }
+        }
+      }
+    }
+
     // Aggro mobs yield more exp
     if (aggressive_to_basic(victim, ch))
     {
-      XP = XP * get_property("gain.exp.mod.victim.act.aggro", 1.25);
+      XP *= exp_mods[EXPMOD_VICT_ACT_AGGRO];
     }
-    
+
     // Careful with the breath modifier since many greater race mobs have a breathe weapon.
     if(CAN_BREATHE(victim))
     {
-      XP = XP * get_property("gain.exp.mod.victim.ability.breath.weapon", 1.00);
+      XP *= exp_mods[EXPMOD_VICT_BREATHES];
     }
-    
+
     if(IS_ELITE(victim))
     {
-      XP = XP * get_property("gain.exp.mod.victim.elite", 1.00);
+      XP *= exp_mods[EXPMOD_VICT_ELITE];
     }
-    
+
     if(IS_SET(victim->specials.act, ACT_HUNTER))
     {
-      XP = XP * get_property("gain.exp.mod.victim.act.hunter", 1.00);
+      XP *= exp_mods[EXPMOD_VICT_ACT_HUNTER];
     }
-    
-    if(!IS_PC(victim) &&
-       !IS_SET(victim->specials.act, ACT_MEMORY))
+
+    if( !IS_PC(victim) && !IS_SET(victim->specials.act, ACT_MEMORY) )
     {
-      XP = XP * get_property("gain.exp.mod.victim.act.nomemory", 1.00);
+      XP *= exp_mods[EXPMOD_VICT_NOMEMORY];
     }
-    
-    if(GET_CLASS(ch, CLASS_PALADIN) &&
-       IS_GOOD(victim))
+
+    if( GET_CLASS(ch, CLASS_PALADIN) )
     {
-      XP = XP * get_property("exp.factor.paladin.vsGood", 0.2);
+      if( IS_GOOD(victim) )
+        XP *= exp_mods[EXPMOD_PALADIN_VS_GOOD];
+      else if( IS_EVIL(victim) )
+        XP *= exp_mods[EXPMOD_PALADIN_VS_EVIL];
     }
-    
-    if(GET_CLASS(ch, CLASS_PALADIN) &&
-       IS_EVIL(victim))
+    else if( GET_CLASS(ch, CLASS_ANTIPALADIN) && IS_GOOD(victim) )
     {
-      XP = XP * get_property("exp.factor.paladin.vsEvil", 1.1);
-    }
-    
-    if(GET_CLASS(ch, CLASS_ANTIPALADIN) &&
-       IS_GOOD(victim))
-    {
-      XP = XP * get_property("exp.factor.antipaladin.vsGood", 1.05);
+      XP *= exp_mods[EXPMOD_ANTIPALADIN_VS_GOOD];
     }
   }
-      
-// Exp penalty for classes that advance too quickly.
-  if(GET_CLASS(ch, CLASS_NECROMANCER) &&
-     GET_LEVEL(ch) < 31)
-        XP = XP * get_property("gain.exp.mod.player.necro", 1.00);
-  else if(GET_CLASS(ch, CLASS_NECROMANCER))
-    XP = XP * get_property("gain.exp.mod.player.necro.tier", 1.00);
 
   // Exp penalty for classes that advance too quickly.
+  /* We don't need a f'n second modifier for these classes, wth?!?
+  if(GET_CLASS(ch, CLASS_NECROMANCER) )
+  {
+    if(GET_LEVEL(ch) < 31)
+      XP *= get_property("gain.exp.mod.player.necro", 1.00);
+    else
+      XP *= get_property("gain.exp.mod.player.necro.tier", 1.00);
+  }
+  // Exp penalty for classes that advance too quickly.
   if(GET_CLASS(ch, CLASS_MERCENARY))
-    XP = XP * get_property("gain.exp.mod.player.merc", 1.00);
-    
+    XP *= get_property("gain.exp.mod.player.merc", 1.00);
+  */
+
+  /* We don't need a second modifier for clerics... wtf
   // Exp bonus for clerics, since we really need this class above all else.
-  if(!IS_MULTICLASS_PC(ch) &&
-     GET_CLASS(ch, CLASS_CLERIC))
-      XP = XP * get_property("gain.exp.mod.player.cleric", 1.00);
+  if(!IS_MULTICLASS_PC(ch) && GET_CLASS(ch, CLASS_CLERIC))
+    XP *= get_property("gain.exp.mod.player.cleric", 1.00);
+  */
 
   if(GET_LEVEL(ch) >= 31)
-    XP = XP * get_property("gain.exp.mod.player.level.thirtyone", 1.000);
+    XP *= exp_mods[EXPMOD_LVL_31_UP];
   if(GET_LEVEL(ch) >= 41)
-    XP = XP * get_property("gain.exp.mod.player.level.fortyone", 1.000);
+    XP *= exp_mods[EXPMOD_LVL_41_UP];
   if(GET_LEVEL(ch) >= 51)
-    XP = XP * get_property("gain.exp.mod.player.level.fiftyone", 1.000);
+    XP *= exp_mods[EXPMOD_LVL_51_UP];
   if(GET_LEVEL(ch) >= 55)
-    XP = XP * get_property("gain.exp.mod.player.level.fiftyfive", 1.000);    
+    XP *= exp_mods[EXPMOD_LVL_55_UP];
 
 // debug("Gain exps mofidiers (%d).", (int)XP);
 
@@ -1007,13 +971,15 @@ float gain_exp_modifiers(P_char ch, P_char victim, float XP)
 
 float gain_global_exp_modifiers(P_char ch, float XP)
 {
-  if (RACE_GOOD(ch))
-    XP = XP * get_property("exp.factor.racewar.good", 1.0);
-  else if (RACE_EVIL(ch))
-    XP = XP * get_property("exp.factor.racewar.evil", 1.0);
-  else if (RACE_PUNDEAD(ch))
-    XP = XP * get_property("exp.factor.racewar.undead", 1.0);
-  XP = XP * get_property("exp.factor.global", 1.0);
+  if( RACE_GOOD(ch) )
+    XP *= exp_mods[EXPMOD_GOOD];
+  else if( RACE_EVIL(ch) )
+    XP *= exp_mods[EXPMOD_EVIL];
+  else if( RACE_PUNDEAD(ch) )
+    XP *= exp_mods[EXPMOD_UNDEAD];
+  else if( RACE_NEUTRAL(ch) )
+    XP *= exp_mods[EXPMOD_NEUTRAL];
+  XP *= exp_mods[EXPMOD_GLOBAL];
 
   return XP;
 }
@@ -1098,7 +1064,7 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
 
   if( victim && type != EXP_RESURRECT )
   {
-    if( IS_PC_PET(victim) || IS_SHOPKEEPER(victim)
+    if( (IS_PC_PET(victim) && type != EXP_HEALING) || IS_SHOPKEEPER(victim)
       || IS_SET(world[victim->in_room].room_flags, GUILD_ROOM | SAFE_ZONE) )
     {
       return 0;
@@ -1165,11 +1131,11 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
       }
     }
 
-    XP = XP * get_property("exp.factor.damage", 1.00);
+    XP *= exp_mods[EXPMOD_DAMAGE];
 // debug("damage 1 exp gain (%d)", (int)XP);
     XP = gain_global_exp_modifiers(ch, XP);
 // debug("damage 2 exp gain (%d)", (int)XP);
-    XP = XP * exp_mod(ch, victim) / 100;
+    XP *= exp_mod(ch, victim) / 100;
 // debug("damage 3 exp gain (%d)", (int)XP);
     XP = modify_exp_by_zone_trophy(ch, type, XP);
 // debug("damage 4 exp gain (%d)", (int)XP);
@@ -1200,24 +1166,27 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
     }
 
     XP = ((XP + 10) / 5) * ((GET_LEVEL(ch) + GET_LEVEL(victim)) / 2);
-    XP = XP * get_property("exp.factor.healing", 1.00);
+    XP *= exp_mods[EXPMOD_HEALING];
 
 // debug("healing 1 (%d)", (int)XP);
-    if(!GET_CLASS(ch, CLASS_CLERIC) &&
-       !GET_SPEC(ch, CLASS_SHAMAN, SPEC_SPIRITUALIST))
+    if( !GET_CLASS(ch, CLASS_CLERIC) && !GET_SPEC(ch, CLASS_SHAMAN, SPEC_SPIRITUALIST) )
     {
-      XP = XP * get_property("exp.factor.healing.class.penalty", 0.50);
+      XP *= exp_mods[EXPMOD_HEAL_NONHEALER];
     }
 
 // debug("healing 2 (%d)", (int)XP);
-    if(IS_NPC(victim))
+    if( IS_PC_PET(victim) )
+    {
+      XP *= exp_mods[EXPMOD_HEAL_PETS];
+    }
+    else if(IS_NPC(victim))
       XP /= 2;
     if(ch == victim)
       XP = XP / 2;
 // debug("healing 3 (%d)", (int)XP);
     XP = gain_global_exp_modifiers(ch, XP);
 // debug("healing 4 (%d)", (int)XP);
-    XP = XP * exp_mod(ch, attacker) / 100;
+    XP *= exp_mod(ch, attacker) / 100;
 // debug("healing 5 (%d)", (int)XP);
     XP = modify_exp_by_zone_trophy(ch, type, XP);
 // debug("healing 6 (%d)", (int)XP);
@@ -1247,11 +1216,11 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
     else
         return 0;
 
-    XP = XP * get_property("exp.factor.tanking", 1.00);
+    XP *= exp_mods[EXPMOD_TANK];
 // debug("tanking 1 (%d)", (int)XP);
     XP = gain_global_exp_modifiers(ch, XP);
 // debug("tanking 2 (%d)", (int)XP);
-    XP = XP * exp_mod(ch, victim) / 100;
+    XP *= exp_mod(ch, victim) / 100;
 // debug("tanking 3 (%d)", (int)XP);
     XP = modify_exp_by_zone_trophy(ch, type, XP);
 // debug("tanking 4 (%d)", (int)XP);
@@ -1274,14 +1243,15 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
 // debug("Same side melee returning 0");
       return 0;
     }
-    XP = XP * GET_LEVEL(victim) * get_property("exp.factor.melee", 1.00);  // Just a small boost for lowbies, becomes insignificant at higher levels  -Odorf
+    // Just a small boost for lowbies, becomes insignificant at higher levels  -Odorf
+    XP *= GET_LEVEL(victim) * exp_mods[EXPMOD_MELEE];
 // debug("melee 1 exp gain (%d)", (int)XP);
     if (GET_LEVEL(victim) < GET_LEVEL(ch) - 5)
         XP = XP / (1 + (GET_LEVEL(ch) - GET_LEVEL(victim) + 5) / 2); // no exp flow from fighting small mobs
 // debug("melee 2 exp gain (%d)", (int)XP);
     XP = gain_global_exp_modifiers(ch, XP);
 // debug("melee 3 exp gain (%d)", (int)XP);
-    XP = XP * exp_mod(ch, victim) / 100;
+    XP *= exp_mod(ch, victim) / 100;
 // debug("melee 4 exp gain (%d)", (int)XP);
     XP = modify_exp_by_zone_trophy(ch, type, XP);
 // debug("melee 5 exp gain (%d)", (int)XP);
@@ -1294,8 +1264,6 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
   }
   else if( type == EXP_DEATH )
   {
-    float mod = get_property("exp.factor.global", 1.0);
-
     // Goods don't lose exp on death untill over the threshold.
     if( RACE_GOOD(ch) && GET_LEVEL(ch) < (int) get_property("exp.goodieDeathExpLossLevelThreshold", 20) )
     {
@@ -1305,8 +1273,8 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
     XP = -1 * (new_exp_table[GET_LEVEL(ch) + 1] * get_property("exp.death.level.loss", 0.10));
     // We reduce the exp loss from death by 2x of the global modifier if the global modifier is less than 1/2.
     // So, .4 -> 80% modifier, .3 -> 60% modifier, .15 -> 30% modifier, etc.
-    if( mod < .5 )
-      XP = XP * 2 * mod;
+    if( exp_mods[EXPMOD_GLOBAL] < .5 )
+      XP *= 2 * exp_mods[EXPMOD_GLOBAL];
 // debug("death 1 exp gain (%d)", (int)XP);
   }
   else if(type == EXP_KILL)
@@ -1370,11 +1338,11 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
     */
       if (!IS_PC(victim))
       {
-        XP = XP * get_property("exp.factor.kill", 1.00) ;
+        XP *= exp_mods[EXPMOD_KILL];
 // debug("kill 1 exp gain (%d)", (int)XP);
         XP = gain_global_exp_modifiers(ch, XP);
 // debug("kill 2 exp gain (%d)", (int)XP);
-        XP = XP * exp_mod(ch, victim) / 100;
+        XP *= exp_mod(ch, victim) / 100;
 // debug("kill 3 exp gain (%d)", (int)XP);
         XP = modify_exp_by_zone_trophy(ch, type, XP);
 // debug("kill 4 exp gain (%d)", (int)XP);
@@ -1389,9 +1357,9 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
         GET_NAME(victim), GET_LEVEL(victim), GET_NAME(ch), GET_LEVEL(ch), GET_EXP(ch), GET_EXP(ch) + (int)XP, (int)XP);
     //}
 
-    if(pvp)
+    if( pvp )
     {
-      XP = XP * get_property("gain.exp.mod.pvp", 1.000);
+      XP *= exp_mods[EXPMOD_PVP];
 // debug("kill 8 exp gain (%d)", (int)XP);
     }
     check_boon_completion(ch, victim, XP, BOPT_MOB);
@@ -1665,3 +1633,72 @@ void point_update(void)
   }
 }
 
+// Fills in / Updates the exp_mods array properly.
+void update_exp_mods()
+{
+  exp_mods[EXPMOD_NONE] = 0;
+  // gain.exp.mod.*
+  exp_mods[EXPMOD_RES_EVIL] = get_property("gain.exp.mod.res.evil", 0.750 );
+  exp_mods[EXPMOD_RES_NORMAL] = get_property("gain.exp.mod.res.normal", 0.800 );
+
+  exp_mods[EXPMOD_CLS_WARRIOR] = get_property("gain.exp.mod.warrior", 1.000 );
+  exp_mods[EXPMOD_CLS_RANGER] = get_property("gain.exp.mod.ranger", 1.000 );
+  exp_mods[EXPMOD_CLS_PSIONICIST] = get_property("gain.exp.mod.psionicist", 1.000 );
+  exp_mods[EXPMOD_CLS_PALADIN] = get_property("gain.exp.mod.paladin", 1.000 );
+  exp_mods[EXPMOD_CLS_ANTIPALADIN] = get_property("gain.exp.mod.antipaladin", 1.000 );
+  exp_mods[EXPMOD_CLS_CLERIC] = get_property("gain.exp.mod.cleric", 2.000 );
+  exp_mods[EXPMOD_CLS_MONK] = get_property("gain.exp.mod.monk", 1.000 );
+  exp_mods[EXPMOD_CLS_DRUID] = get_property("gain.exp.mod.druid", 1.000 );
+  exp_mods[EXPMOD_CLS_SHAMAN] = get_property("gain.exp.mod.shaman", 1.000 );
+  exp_mods[EXPMOD_CLS_SORCERER] = get_property("gain.exp.mod.sorcerer", 1.000 );
+  exp_mods[EXPMOD_CLS_NECROMANCER] = get_property("gain.exp.mod.necromancer", 0.638 );
+  exp_mods[EXPMOD_CLS_CONJURER] = get_property("gain.exp.mod.conjurer", 1.000 );
+  exp_mods[EXPMOD_CLS_ROGUE] = get_property("gain.exp.mod.rogue", 1.000 );
+  exp_mods[EXPMOD_CLS_ASSASSIN] = get_property("gain.exp.mod.assassin", 1.000 );
+  exp_mods[EXPMOD_CLS_MERCENARY] = get_property("gain.exp.mod.mercenary", 0.638 );
+  exp_mods[EXPMOD_CLS_BARD] = get_property("gain.exp.mod.bard", 1.000 );
+  exp_mods[EXPMOD_CLS_THIEF] = get_property("gain.exp.mod.thief", 1.000 );
+  exp_mods[EXPMOD_CLS_WARLOCK] = get_property("gain.exp.mod.warlock", 1.000 );
+  exp_mods[EXPMOD_CLS_MINDFLAYER] = get_property("gain.exp.mod.mindflayer", 1.000 );
+  exp_mods[EXPMOD_CLS_ALCHEMIST] = get_property("gain.exp.mod.alchemist", 1.000 );
+  exp_mods[EXPMOD_CLS_BERSERKER] = get_property("gain.exp.mod.berserker", 1.000 );
+  exp_mods[EXPMOD_CLS_REAVER] = get_property("gain.exp.mod.reaver", 1.000 );
+  exp_mods[EXPMOD_CLS_ILLUSIONIST] = get_property("gain.exp.mod.illusionist", 1.000 );
+  exp_mods[EXPMOD_CLS_BLIGHTER] = get_property("gain.exp.mod.blighter", 1.000 );
+  exp_mods[EXPMOD_CLS_DREADLORD] = get_property("gain.exp.mod.dreadlord", 1.000 );
+  exp_mods[EXPMOD_CLS_ETHERMANCER] = get_property("gain.exp.mod.ethermancer", 1.000 );
+  exp_mods[EXPMOD_CLS_AVENGER] = get_property("gain.exp.mod.avenger", 1.000 );
+  exp_mods[EXPMOD_CLS_THEURGIST] = get_property("gain.exp.mod.theurgist", 1.000 );
+  exp_mods[EXPMOD_CLS_SUMMONER] = get_property("gain.exp.mod.summoner", 1.000 );
+  exp_mods[EXPMOD_CLS_NEWCLASS1] = get_property("gain.exp.mod.newclass1", 1.000 );
+  exp_mods[EXPMOD_CLS_NEWCLASS2] = get_property("gain.exp.mod.newclass2", 1.000 );
+  exp_mods[EXPMOD_CLS_NEWCLASS3] = get_property("gain.exp.mod.newclass3", 1.000 );
+  exp_mods[EXPMOD_VICT_ACT_HUNTER] = get_property("gain.exp.mod.victim.act.hunter", 1.200 );
+  exp_mods[EXPMOD_VICT_ELITE] = get_property("gain.exp.mod.victim.elite", 1.250 );
+  exp_mods[EXPMOD_VICT_NOMEMORY] = get_property("gain.exp.mod.victim.act.nomemory", 0.250 );
+  exp_mods[EXPMOD_VICT_HOMETOWN] = get_property("gain.exp.mod.victim.location.hometown", 0.100 );
+  exp_mods[EXPMOD_LVL_31_UP] = get_property("gain.exp.mod.player.level.thirtyone", 1.000 );
+  exp_mods[EXPMOD_LVL_41_UP] = get_property("gain.exp.mod.player.level.fortyone", 1.000 );
+  exp_mods[EXPMOD_LVL_51_UP] = get_property("gain.exp.mod.player.level.fiftyone", 1.000 );
+  exp_mods[EXPMOD_LVL_55_UP] = get_property("gain.exp.mod.player.level.fiftyfive", 1.000 );
+  exp_mods[EXPMOD_VICT_BREATHES] = get_property("gain.exp.mod.victim.ability.breath.weapon", 1.000 );
+  exp_mods[EXPMOD_VICT_ACT_AGGRO] = get_property("gain.exp.mod.victim.act.aggro", 1.000 );
+  exp_mods[EXPMOD_PVP] = get_property("gain.exp.mod.pvp", 3.000 );
+
+  // exp.factor.*
+  exp_mods[EXPMOD_GLOBAL] = get_property("exp.factor.global", 1.000 );
+  exp_mods[EXPMOD_GOOD] = get_property("exp.factor.racewar.good", 1.000 );
+  exp_mods[EXPMOD_EVIL] = get_property("exp.factor.racewar.evil", 1.000 );
+  exp_mods[EXPMOD_UNDEAD] = get_property("exp.factor.racewar.undead", 1.000 );
+  exp_mods[EXPMOD_NEUTRAL] = get_property("exp.factor.racewar.neutral", 1.000 );
+  exp_mods[EXPMOD_DAMAGE] = get_property("exp.factor.damage", 1.000 );
+  exp_mods[EXPMOD_HEAL_NONHEALER] = get_property("exp.factor.healing.class.penalty", 0.500 );
+  exp_mods[EXPMOD_HEAL_PETS] = get_property("exp.factor.healing.pets", 0.100 );
+  exp_mods[EXPMOD_HEALING] = get_property("exp.factor.healing", 1.000 );
+  exp_mods[EXPMOD_MELEE] = get_property("exp.factor.melee", 1.000 );
+  exp_mods[EXPMOD_TANK] = get_property("exp.factor.tanking", 1.000 );
+  exp_mods[EXPMOD_KILL] = get_property("exp.factor.kill", 1.000 );
+  exp_mods[EXPMOD_PALADIN_VS_GOOD] = get_property("exp.factor.paladin.vsGood", 0.200 );
+  exp_mods[EXPMOD_PALADIN_VS_EVIL] = get_property("exp.factor.paladin.vsEvil", 1.100 );
+  exp_mods[EXPMOD_ANTIPALADIN_VS_GOOD] = get_property("exp.factor.antipaladin.vsGood", 1.050 );
+}

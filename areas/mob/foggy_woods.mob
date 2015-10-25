@@ -324,7 +324,7 @@ harsh northern forests, it looks up at you and scampers off to a tree.
 200 0 0 0 0 0 0 0 0 S
 A 0 0 0 -1
 3 20 90 3d15+11 1d5+0
-0.0.0.0 40000000
+0.0.0.0 0
 8 8 1
 #90022
 ulon shopkeeper~
@@ -368,7 +368,7 @@ harsh northern forests, it looks up at you and scampers off to a tree.
 200 0 0 0 0 0 0 0 0 S
 A 0 0 0 -1
 3 20 90 3d15+11 1d5+0
-0.0.0.0 40000000
+0.0.0.0 0
 8 8 2
 #90025
 red-tailed hawk~
