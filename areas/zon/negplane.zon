@@ -204,103 +204,153 @@ O 0 26606 1 26870 100 0 0 0        * a huge, freezing-cold salt crystal
 *
 M 0 26608 1 26600 100 0 0 0        * the negative material planar projection of Sodolum, the necromancer
 M 0 26603 65 26601 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26604 15 26601 100 0 0 0       * a shadow
 M 0 26624 8 26602 100 0 0 0        * a negative material planar projection of a wraith
 M 0 26603 65 26604 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26607 6 26605 100 0 0 0        * a greater shadowbeast
 G 1 26664 6 0 100 0 0 0            *    a shadowy potion
 M 0 26603 65 26607 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26608 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26606 8 26608 100 0 0 0        * a young shadowbeast
 M 0 26607 6 26608 100 0 0 0        * a greater shadowbeast
 G 1 26664 6 0 100 0 0 0            *    a shadowy potion
 M 0 26626 2 26609 100 0 0 0        * a negative material planar projection of an ancient lich
 E 1 26648 1 3 100 0 0 0            *   a black diamond necklace with glowing spheres
 M 0 26603 65 26609 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26610 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26611 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26604 15 26612 100 0 0 0       * a shadow
 M 0 26609 5 26612 100 0 0 0        * a lesser entropy elemental
 M 0 26603 65 26613 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26605 4 26614 100 0 0 0        * the negative material planar projection of a vampire
 E 1 26607 1 1 50 0 0 0             *   a chilling ring of the negative material plane
 M 0 26603 65 26617 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26609 5 26618 100 0 0 0        * a lesser entropy elemental
 M 0 26609 5 26618 100 0 0 0        * a lesser entropy elemental
 M 0 26615 3 26618 100 0 0 0        * a greater entropy elemental
 M 0 26603 65 26618 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26606 8 26619 100 0 0 0        * a young shadowbeast
 M 0 26604 15 26620 100 0 0 0       * a shadow
 M 0 26603 65 26620 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26606 8 26622 100 0 0 0        * a young shadowbeast
 M 0 26624 8 26622 100 0 0 0        * a negative material planar projection of a wraith
 M 0 26605 4 26623 100 0 0 0        * the negative material planar projection of a vampire
 M 0 26607 6 26625 100 0 0 0        * a greater shadowbeast
 G 1 26664 6 0 100 0 0 0            *    a shadowy potion
 M 0 26603 65 26626 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26627 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26624 8 26628 100 0 0 0        * a negative material planar projection of a wraith
 M 0 26603 65 26628 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26629 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26630 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26606 8 26631 100 0 0 0        * a young shadowbeast
 M 0 26603 65 26632 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26633 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26634 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26635 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26604 15 26636 100 0 0 0       * a shadow
 M 0 26603 65 26636 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26605 4 26637 100 0 0 0        * the negative material planar projection of a vampire
 M 0 26603 65 26637 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26639 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26640 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26609 5 26640 100 0 0 0        * a lesser entropy elemental
 M 0 26606 8 26643 100 0 0 0        * a young shadowbeast
 M 0 26603 65 26643 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26645 100 0 0 0       * a dense pocket of negative energy
 M 0 26606 8 26646 100 0 0 0        * a young shadowbeast
 M 0 26607 6 26646 100 0 0 0        * a greater shadowbeast
 G 1 26664 6 0 100 0 0 0            *    a shadowy potion
 M 0 26603 65 26647 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26648 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26649 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26650 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26651 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26604 15 26652 100 0 0 0       * a shadow
 M 0 26603 65 26653 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26625 5 26653 100 0 0 0        * a negative material planar projection of a wight
 M 0 26615 3 26654 100 0 0 0        * a greater entropy elemental
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26656 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26606 8 26657 100 0 0 0        * a young shadowbeast
 M 0 26607 6 26657 100 0 0 0        * a greater shadowbeast
 E 1 26608 1 9 100 0 0 0            *   a pair of shadowbeast talons
 E 1 26664 6 18 100 0 0 0           *   a shadowy potion
 M 0 26603 65 26658 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26659 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26661 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26625 5 26662 100 0 0 0        * a negative material planar projection of a wight
 M 0 26603 65 26662 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26606 8 26663 100 0 0 0        * a young shadowbeast
 M 0 26603 65 26664 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26604 15 26665 100 0 0 0       * a shadow
 M 0 26604 15 26665 100 0 0 0       * a shadow
 M 0 26603 65 26665 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26666 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26615 3 26666 100 0 0 0        * a greater entropy elemental
 M 0 26624 8 26666 100 0 0 0        * a negative material planar projection of a wraith
 M 0 26603 65 26667 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26667 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26668 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26669 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26670 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26625 5 26671 100 0 0 0        * a negative material planar projection of a wight
 M 0 26607 6 26673 100 0 0 0        * a greater shadowbeast
 G 1 26664 6 0 100 0 0 0            *    a shadowy potion
 M 0 26624 8 26674 100 0 0 0        * a negative material planar projection of a wraith
 M 0 26603 65 26676 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26677 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26678 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26679 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26609 5 26679 100 0 0 0        * a lesser entropy elemental
 M 0 26624 8 26680 100 0 0 0        * a negative material planar projection of a wraith
 M 0 26604 15 26681 100 0 0 0       * a shadow
@@ -348,6 +398,7 @@ M 0 26604 15 26756 100 0 0 0       * a shadow
 M 0 26604 15 26756 100 0 0 0       * a shadow
 M 0 26604 15 26758 100 0 0 0       * a shadow
 M 0 26603 65 26758 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26620 24 26759 100 0 0 0       * a dire stalker
 E 1 26617 50 16 100 0 0 0          *   a dire stalker's dagger
 E 1 26617 50 17 100 0 0 0          *   a dire stalker's dagger
@@ -358,16 +409,20 @@ M 0 26636 2 26760 100 0 0 0        * the negative material planar projection of 
 M 0 26626 2 26760 100 0 0 0        * a negative material planar projection of an ancient lich
 M 0 26604 15 26761 100 0 0 0       * a shadow
 M 0 26603 65 26761 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26604 15 26763 100 0 0 0       * a shadow
 M 0 26625 5 26763 100 0 0 0        * a negative material planar projection of a wight
 M 0 26603 65 26763 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26604 15 26765 100 0 0 0       * a shadow
 M 0 26605 4 26766 100 0 0 0        * the negative material planar projection of a vampire
 M 0 26624 8 26767 100 0 0 0        * a negative material planar projection of a wraith
 M 0 26603 65 26767 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26604 15 26768 100 0 0 0       * a shadow
 M 0 26625 5 26769 100 0 0 0        * a negative material planar projection of a wight
 M 0 26603 65 26769 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26622 1 26770 100 0 0 0        * Kalekyrnix, father of all prime material planar shadow dragons
 G 1 26623 1 0 100 0 0 0            *    an obsidian key
 M 0 26620 24 26771 100 0 0 0       * a dire stalker
@@ -483,27 +538,38 @@ M 0 26632 10 26835 100 0 0 0       * an undead beholder director
 M 0 26631 6 26835 100 0 0 0        * an undead beholder overseer
 M 0 26624 8 26837 100 0 0 0        * a negative material planar projection of a wraith
 M 0 26603 65 26838 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26839 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26840 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26841 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26603 65 26842 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26638 2 26844 100 0 0 0        * a shadow dragon
 M 0 26636 2 26844 100 0 0 0        * the negative material planar projection of a dracolich
 M 0 26603 65 26844 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26627 2 26845 100 0 0 0        * a negative material planar projection of a skeletal dragon
 M 0 26627 2 26848 100 0 0 0        * a negative material planar projection of a skeletal dragon
 M 0 26603 65 26848 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26639 1 26849 100 0 0 0        * the negative material planar projection of Nakral
 E 1 26653 1 20 10 0 0 0            *   the death-mask of Nakral
 M 0 26603 65 26849 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26638 2 26850 100 0 0 0        * a shadow dragon
 M 0 26603 65 26852 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26637 1 26854 100 0 0 0        * the negative material planar projection of Quturac
 G 1 26651 1 0 70 0 0 0             *    a fragment of the tail of Quturac
 M 0 26603 65 26854 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26640 1 26855 100 0 0 0        * the negative material planar project of Dranum, the wraith
 E 1 26652 1 21 70 0 0 0            *   the living essence of Dranum
 M 0 26603 65 26855 100 0 0 0       * a dense pocket of negative energy
+G 1 26668 66 0 100 0 0 0           *    A NoCharm Item
 M 0 26641 1 26856 100 0 0 0        * the negative material planar protection of Satar Ghulan
 E 1 26654 1 19 30 0 0 0            *   a lens of the negative material plane
 M 0 26644 1 26857 100 0 0 0        * the vanquished spirit of the once mighty Sodolum

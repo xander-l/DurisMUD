@@ -1058,3 +1058,11 @@ key glowing~
 18 15 3 0 7 0 0 16385 0 0 0
 0 100 0 0 0 0 0 0
 0 0 100
+#26668
+nocharm item~
+&+LA NoCharm Item&n~
+&+LA NoCharm Item lies here.&n~
+~
+18 15 3 0 7 0 11014146 16385 3072 0 0
+0 0 0 0 0 0 0 0
+0 0 100
