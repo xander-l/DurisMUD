@@ -845,19 +845,14 @@ void call_protector(P_char ch, P_char tmp_ch, int nprotector, int type)
     "\n"
   };
 
-  /*
-     create the protector from the number especified 
-   */
-  if (!(protector = read_mobile(nprotector, REAL)))
+  // Create the protector from the number especified.
+  if( !(protector = read_mobile(nprotector, REAL)) )
     return;
 
-  /*
-     Verify gender 
-   */
-  if ((GET_SEX(protector) == SEX_MALE) &&
-      ((type == H_MAMMA) || (type == H_SISTER)))
+  // Verify gender
+  if( (GET_SEX(protector) == SEX_MALE) && ((type == H_MAMMA) || (type == H_SISTER)) )
   {
-    if (type == H_MAMMA)
+    if( type == H_MAMMA )
       type = H_PAPA;
     else
       type = H_BROTHER;
@@ -887,27 +882,25 @@ void call_protector(P_char ch, P_char tmp_ch, int nprotector, int type)
   act(" $n blocks $N's attack! ", FALSE, ch->following, 0, tmp_ch,
       TO_NOTVICT);
   act(" You block $N's attack! ", FALSE, ch->following, 0, tmp_ch, TO_CHAR);
-  if (!IS_FIGHTING(tmp_ch))
+  if( !IS_FIGHTING(tmp_ch) )
     set_fighting(tmp_ch, ch->following);
-  if ((GET_SEX(ch) == SEX_FEMALE) &&
-      !((type == H_MAMMA) || (type == H_PAPA) || (type == H_FRIEND)))
+  if( (GET_SEX(ch) == SEX_FEMALE) &&
+      !((type == H_MAMMA) || (type == H_PAPA) || (type == H_FRIEND)) )
     strcpy(buf, "sister");
   else
     strcpy(buf, caretype[(int) type]);
   sprintf(buf1, "$n says 'Why? why? why are you fighting with my %s'.", buf);
   act(buf1, 1, protector, 0, 0, TO_ROOM);
-  if (protector->in_room != tmp_ch->in_room)
+  if( protector->in_room != tmp_ch->in_room )
     return;
 
-  if (!damage(protector, tmp_ch,
-              number((GET_LEVEL(protector) >> 1),
-                     (GET_LEVEL(protector) * 2)), TYPE_UNDEFINED))
-    if (!damage(protector, tmp_ch,
-                number((GET_LEVEL(protector) >> 1),
-                       (GET_LEVEL(protector) * 2)), TYPE_UNDEFINED))
-      damage(protector, tmp_ch,
-             number((GET_LEVEL(protector) >> 1),
-                    (GET_LEVEL(protector) * 2)), TYPE_UNDEFINED);
+  if( !damage(protector, tmp_ch, number((GET_LEVEL(protector) >> 1), (GET_LEVEL(protector) * 2)), TYPE_UNDEFINED) )
+  {
+    if( !damage(protector, tmp_ch, number((GET_LEVEL(protector) >> 1), (GET_LEVEL(protector) * 2)), TYPE_UNDEFINED) )
+    {
+      damage(protector, tmp_ch, number((GET_LEVEL(protector) >> 1), (GET_LEVEL(protector) * 2)), TYPE_UNDEFINED);
+    }
+  }
 }
 
 void call_protection(P_char ch, P_char tmp_ch)
@@ -920,8 +913,7 @@ void call_protection(P_char ch, P_char tmp_ch)
   {
     stop_fighting(tmp_ch);
     act(" $n blocks your attack! ", FALSE, ch->following, 0, tmp_ch, TO_VICT);
-    act(" $n blocks $N's attack! ", FALSE, ch->following, 0, tmp_ch,
-        TO_NOTVICT);
+    act(" $n blocks $N's attack! ", FALSE, ch->following, 0, tmp_ch, TO_NOTVICT);
     act(" You block $N's attack! ", FALSE, ch->following, 0, tmp_ch, TO_CHAR);
     if ((ch->following != tmp_ch) && IS_NPC(ch->following))
     {
@@ -1014,34 +1006,54 @@ void call_protection(P_char ch, P_char tmp_ch)
 
 int baby_dragon(P_char ch, P_char pl, int cmd, char *arg)
 {
+  static int num_tears = 0;
+  static int rotation = number(0,9);
   P_char   tmp_ch;
   P_char   attacker;
   char     Gbuf1[MAX_STRING_LENGTH], Gbuf2[MAX_STRING_LENGTH];
 
-  /*
-     check for periodic event calls 
-   */
-  if (cmd == CMD_SET_PERIODIC)
+  // Check for periodic event calls
+  if( cmd == CMD_SET_PERIODIC )
     return TRUE;
 
-  if (ch->specials.fighting)
+  if( ch->specials.fighting )
   {
-    for (tmp_ch = world[ch->in_room].people; tmp_ch;
-         tmp_ch = tmp_ch->next_in_room)
-      if (tmp_ch && (tmp_ch->specials.fighting == ch))
+    for( tmp_ch = world[ch->in_room].people; tmp_ch; tmp_ch = tmp_ch->next_in_room )
+    {
+      if( tmp_ch && (tmp_ch->specials.fighting == ch) )
       {
-
-        if (OUTSIDE(ch) && !ch->group)
+        /* Commented this out.. to make it harder to cheese the dragonslayer achievement.
+        if( OUTSIDE(ch) && !ch->group )
+         */
         {
           act("$n is crying.", 0, ch, 0, 0, TO_ROOM);
-          act("$n is crying.", 0, ch, 0, 0, TO_ROOM);
-          act("$n is crying.", 0, ch, 0, 0, TO_ROOM);
-          act("You see a great dragon flying toward you!.",
-              0, ch, 0, 0, TO_ROOM);
-          switch (number(0, 9))
+          act("$n cries louder.", 0, ch, 0, 0, TO_ROOM);
+          if( ++num_tears >= 10 )
+          {
+            act("You hear an ungodly amount of flapping wings!.", 0, ch, 0, 0, TO_ROOM);
+            while( num_tears-- > 0 )
+            {
+              switch( number(0, 2) )
+              {
+                case 0:
+                  call_protector(ch, tmp_ch, real_mobile(6830), H_FRIEND);
+                  break;
+                case 1:
+                  call_protector(ch, tmp_ch, real_mobile(6817), H_FRIEND);
+                  break;
+                case 2:
+                  call_protector(ch, tmp_ch, real_mobile(6803), H_FRIEND);
+                  break;
+              }
+            }
+          }
+          act("You see a great dragon flying toward you!.", 0, ch, 0, 0, TO_ROOM);
+          // This way we cycle through each as opposed to picking a random one.
+          rotation = (rotation + 1) % 10;
+          switch( rotation )
           {
           case 1:
-            call_protector(ch, tmp_ch, real_mobile(1), H_MAMMA);
+            call_protector(ch, tmp_ch, real_mobile(6830), H_FRIEND);
             break;
           case 2:
             call_protector(ch, tmp_ch, real_mobile(6816), H_MAMMA);
@@ -1067,74 +1079,67 @@ int baby_dragon(P_char ch, P_char pl, int cmd, char *arg)
           }
           return TRUE;
         }
-        if (ch->group)
+        if( ch->group )
         {
-          for (attacker = world[ch->in_room].people; attacker;
-               attacker = attacker->next_in_room)
-            if (attacker && (attacker->specials.fighting == ch))
+          for( attacker = world[ch->in_room].people; attacker; attacker = attacker->next_in_room )
+          {
+            if( attacker && (attacker->specials.fighting == ch) )
+            {
               call_protection(ch, attacker);
+            }
+          }
           return TRUE;
         }
         if (!ch->group && !number(0, 9))
         {
           act("$n is crying.", 0, ch, 0, 0, TO_ROOM);
-          act("$n is crying.", 0, ch, 0, 0, TO_ROOM);
+          act("$n cries louder.", 0, ch, 0, 0, TO_ROOM);
           act("You see a dragon coming toward you!.", 0, ch, 0, 0, TO_ROOM);
           call_protector(ch, tmp_ch, real_mobile(6814), H_FRIEND);
           return TRUE;
         }
       }
+    }
   }
-  if (cmd && pl)
+  if( cmd && pl )
   {
-    if (pl == ch)
+    if( pl == ch )
       return FALSE;
     switch (cmd)
     {
-    case CMD_PAT:
-      do_action(pl, arg, CMD_PAT);
-      if (isname(arg, ch->player.name))
-      {
-        if (ch->following)
-          stop_follower(ch);
-        add_follower(ch, pl);
-        group_add_member(pl, ch);
-        act("$n tells you 'Can i be your friend? =)'.", 1, ch, 0, pl,
-            TO_VICT);
-      }
-      return TRUE;
-      break;
-    case 25:                   /*
-                                   kill 
-                                 */
-    case 70:                   /*
-                                   hit 
-                                 */
-    case 154:                  /*
-                                   back stabb, bash, kick 
-                                 */
-    case 157:
-    case 159:
-    case 236:                  /*
-                                   murder 
-                                 */
-      one_argument(arg, Gbuf1);
-      if ((ch == get_char_room(Gbuf1, pl->in_room)) && (pl == ch->following))
-      {
-        strcpy(Gbuf2, pl->player.name);
-        do_action(pl, Gbuf2, CMD_SLAP);
-        act
-          ("$n ask $mself 'Why? why? why was I trying to harm $N?  Who is my friend!'.",
-           1, ch->following, 0, ch, TO_ROOM);
-        act
-          ("You ask yourself 'Why? why? why was I trying to harm $N?  Who is my friend!'.",
-           1, ch->following, 0, ch, TO_CHAR);
+      case CMD_PAT:
+        do_action(pl, arg, CMD_PAT);
+        if( isname(arg, ch->player.name) )
+        {
+          if( ch->following )
+            stop_follower(ch);
+          add_follower(ch, pl);
+          group_add_member(pl, ch);
+          act("$n tells you 'Can i be your friend? =)'.", 1, ch, 0, pl, TO_VICT);
+        }
         return TRUE;
-      }
-      break;
-    default:
-      return FALSE;
-      break;
+        break;
+      case CMD_KILL:
+      case CMD_HIT:
+      case CMD_BACKSTAB:
+      case CMD_BASH:
+      case CMD_KICK:
+      case CMD_MURDER:
+        one_argument(arg, Gbuf1);
+        if ((ch == get_char_room(Gbuf1, pl->in_room)) && (pl == ch->following))
+        {
+          strcpy(Gbuf2, pl->player.name);
+          do_action(pl, Gbuf2, CMD_SLAP);
+          act("$n ask $mself 'Why? why? why was I trying to harm $N?  Who is my friend!'.",
+            1, ch->following, 0, ch, TO_ROOM);
+          act("You ask yourself 'Why? why? why was I trying to harm $N?  Who is my friend!'.",
+            1, ch->following, 0, ch, TO_CHAR);
+          return TRUE;
+        }
+        break;
+      default:
+        return FALSE;
+        break;
     }
   }
   return FALSE;
