@@ -19196,7 +19196,7 @@ void pleasantry(P_char ch)
   char     buf[256];
   int      x;
 
-  x = number(1, 18);
+  x = number(1, 24);
 
   sprintf(buf, "say I'm buggy!");       /* just in case */
   switch (x)
@@ -19205,19 +19205,16 @@ void pleasantry(P_char ch)
     sprintf(buf, "say Duris is the reason I can't pay child-support!");
     break;
   case 2:
-    sprintf(buf,
-            "say I think I'll donate 50 dollars for all the endless volunteer work that goes into Duris!");
+    sprintf(buf, "say I think I'll donate 50 dollars for all the endless volunteer work that goes into Duris!");
     break;
   case 3:
     sprintf(buf, "say I love this game, I'm teaching my kids how to play!");
     break;
   case 4:
-    sprintf(buf,
-            "say I shouldn't be pressuring Zion, he knows what he's doing and it takes time.");
+    sprintf(buf, "say I shouldn't be pressuring Zion, he knows what he's doing and it takes time.");
     break;
   case 5:
-    sprintf(buf,
-            "say I may die a virgin, but at least I'll be the best Duris player ever!");
+    sprintf(buf, "say I may die a virgin, but at least I'll be the best Duris player ever!");
     break;
   case 6:
     sprintf(buf, "say One of the immortals totally rick-rolled me.");
@@ -19226,8 +19223,7 @@ void pleasantry(P_char ch)
     sprintf(buf, "say Isn't this a REALLY cool zone?  Duris has the BEST areas!");
     break;
   case 8:
-    sprintf(buf,
-            "say I heard Torgal spends money on the Duris link. I can't believe I was such a twink as to complain about anything!");
+    sprintf(buf, "say I heard Torgal spends money on the Duris link. I can't believe I was such a twink as to complain about anything!");
     break;
   case 9:
     sprintf(buf, "dance");
@@ -19244,41 +19240,50 @@ void pleasantry(P_char ch)
     sprintf(buf, "blush");
     break;
   case 11:
-    sprintf(buf,
-            "say If I had to choose between sex and Duris, I choose Duris!");
+    sprintf(buf, "say If I had to choose between sex and Duris, I choose Duris!");
     break;
   case 12:
-    sprintf(buf,
-            "say Has anyone seen Aycer? I want to zone, but I'm just too lazy to learn how to lead!");
+    sprintf(buf, "say Has anyone seen Aycer? I want to zone, but I'm just too lazy to learn how to lead!");
     break;
   case 13:
     sprintf(buf, "omg");
     command_interpreter(ch, buf);
-    sprintf(buf,
-            "say Torgal rules! I hope I'm just like him when I grow up, minus the fu-man-chu!");
+    sprintf(buf, "say Torgal rules! I hope I'm just like him when I grow up, minus the fu-man-chu!");
     break;
   case 14:
-    sprintf(buf,
-            "say Someday, I hope I'm remembered as a great player! Like Vuthen!");
+    sprintf(buf, "say Someday, I hope I'm remembered as a great player! Like Vuthen!");
     command_interpreter(ch, buf);
     sprintf(buf, "rofl me");
     break;
   case 15:
-    sprintf(buf,
-            "say People who whine about anything here should just be deleted!");
+    sprintf(buf, "say People who whine about anything here should just be deleted!");
     break;
-
   case 16:
-    sprintf(buf,
-            "say Try not to get too good at Duris, or Torgal will code lag to your character!");
+    sprintf(buf, "say Try not to get too good at Duris, or Torgal will code lag to your character!");
     break;
-
   case 17:
     sprintf(buf, "say Lions, Tigers and Cerif's, Oh My!");
     break;
-
   case 18:
     sprintf(buf, "say Thank god this isn't Toril!  I'd hate to play a game with no development!");
+    break;
+  case 19:
+    sprintf(buf, "say Man, Lohrr really has done a lot of work on here.  We should cut him some slack for all the sleep he's lost.");
+    break;
+  case 20:
+    sprintf(buf, "say I wish exp was harder so we wouldn't level so quickly.");
+    break;
+  case 21:
+    sprintf(buf, "say Just think, if zones were worth less epics, we could do even more zones!");
+    break;
+  case 22:
+    sprintf(buf, "say I wish mobs were more difficult.  I haven't died enough today.");
+    break;
+  case 23:
+    sprintf(buf, "say I love how Immortal's handle cheating here.");
+    break;
+  case 24:
+    sprintf(buf, "say I wish Lohrr would go out with me, but Immortals don't date mortals..");
     break;
   }
   command_interpreter(ch, buf);
