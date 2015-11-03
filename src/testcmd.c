@@ -14,6 +14,7 @@
 using namespace std;
 
 extern struct zone_data *zone_table;
+extern int top_of_zone_table;
 extern struct room_data *world;
 extern const int top_of_world;
 extern P_index obj_index;
@@ -288,6 +289,20 @@ void do_test(P_char ch, char *arg, int cmd)
 
   arg = one_argument(arg, buff);
 
+  if( isname("mapzones", buff) )
+  {
+    send_to_char( "&=LCNum) Zone Name                           (Zon#)&n\n", ch );
+    for( int i = 0, count = 0; i < top_of_zone_table; i++ )
+    {
+      if( IS_SET(zone_table[i].flags, ZONE_MAP) )
+      {
+        sprintf( buff, "%3d) %s&n (%d): IS a map zone.\n", ++count, pad_ansi(zone_table[i].name, 35, TRUE).c_str(),
+          zone_table[i].number );
+        send_to_char( buff, ch );
+      }
+    }
+    return;
+  }
   if( isname("exp_mods", buff) )
   {
     // Last updated 10/31/2015
