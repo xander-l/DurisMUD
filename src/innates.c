@@ -4864,12 +4864,25 @@ bool has_divine_force(P_char ch)
   }
 }
 
+struct innate_item
+{
+  char *name;
+  int   num;
+};
+
+int innate_cmp(const void *va, const void *vb)
+{
+  return (str_cmp( ((innate_item *)va)->name, ((innate_item *)vb)->name ));
+}
+
 // Shows all innates to ch and who can use them.
 void do_list_innates( P_char ch, char *args )
 {
-  int i, j, k;
+  int h, i, j, k;
   char Gbuf1[MAX_STRING_LENGTH];
   bool racefound, classfound, fulllist, playeronly;
+
+  struct innate_item innate_order[LAST_INNATE+1];
 
   // Options: 'all', 'player', 'partial'.
   fulllist = is_abbrev( args, "all" ) ? TRUE : FALSE;
@@ -4877,8 +4890,16 @@ void do_list_innates( P_char ch, char *args )
 
   send_to_char( "&+WListing of Innates:&n\n", ch );
 
-  for( i = 0; i < LAST_INNATE+1; i++ )
+  for( h = 0; h <= LAST_INNATE; h++ )
   {
+    innate_order[h].name = innates_data[h].name;
+    innate_order[h].num = h;
+  }
+  qsort( innate_order, LAST_INNATE+1, sizeof(struct innate_item), innate_cmp );
+
+  for( h = 0; h <= LAST_INNATE; h++ )
+  {
+    i = innate_order[h].num;
     // Enter list of races (skip RACE_NONE).
     racefound = FALSE;
     for( j = 1; j <= (playeronly ? RACE_PLAYER_MAX : LAST_RACE); j++ )
