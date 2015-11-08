@@ -1912,8 +1912,11 @@ bool SanityCheck(P_char ch, const char *calling)
   // Rules here: If no ch, "Null -1", If ch has no only data "<name> -1"
   if( !IS_ALIVE(ch) )
   {
-    logit( LOG_DEBUG, "%s: ch is not alive: %s %d.", calling, (ch == NULL) ? ("Null", -1)
-      : (GET_NAME(ch), (ch->only.npc != NULL) ? (IS_NPC(ch) ? ch->only.npc->idnum : ch->only.pc->pid) : -1) );
+    if( !ch )
+      logit( LOG_DEBUG, "%s: ch does not exist!", calling );
+    else
+      logit( LOG_DEBUG, "%s: ch is not alive: %s %d.", calling, GET_NAME(ch),
+        (ch->only.npc != NULL) ? (IS_NPC(ch) ? ch->only.npc->idnum : ch->only.pc->pid) : -1 );
     return FALSE;
   }
 
