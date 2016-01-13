@@ -822,7 +822,7 @@ void update_exp_table()
     //   up to exp.required.62.  If no value is set, take the previous.
     // If you change this back, need to reset values in duris.properties.
 //    sprintf(buf, "exp.required.%d", ((i + 4) / 5) * 5);
-    sprintf(buf, "exp.required.%d", i);
+    sprintf(buf, "exp.required.%02d", i);
     new_exp_table[i] = get_property(buf, -1);
     // If exp.required.i not found, set to i-1's value.
     if( new_exp_table[i] == -1 )
