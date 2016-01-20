@@ -1215,8 +1215,9 @@ void chant_ki_strike(P_char ch, char *argument, int cmd)
   int      dam, percent;
   int      skl_lvl = 0;
   int      level = GET_LEVEL(ch);
+  P_nevent combo_event;
 
-  if (!GET_CLASS(ch, CLASS_MONK))
+  if( !GET_CLASS(ch, CLASS_MONK) )
   {
     send_to_char("Too bad you're not a monk, eh?\r\n", ch);
     return;
@@ -1288,20 +1289,47 @@ void chant_ki_strike(P_char ch, char *argument, int cmd)
     }
   }
 
-  if (!IS_FIGHTING(ch) && !IS_DESTROYING(ch))
+  // appear is called in set_fighting.
+  if( !IS_FIGHTING(ch) && !IS_DESTROYING(ch) )
     set_fighting(ch, vict);
-  appear(ch);
+  else
+    appear(ch);
+
+  // If ch dies too fast.
+  if( !char_in_list(ch) )
+    return;
+
+  // If in middle of combination, fail the combo.
+  if( (combo_event = get_scheduled( ch, event_combination)) != NULL )
+  {
+    act("&+LYou abandon your combination to make your move...&n", FALSE, ch, 0, vict, TO_CHAR);
+    disarm_single_event( combo_event );
+    affect_from_char(ch, SKILL_COMBINATION);
+  }
+
+  // If target isn't standing, we fail.
+  if( GET_POS(vict) != POS_STANDING )
+  {
+    act("&+BYou lean in to strike at $N&+B, but miss and fall over!&n",
+      FALSE, ch, 0, vict, TO_CHAR);
+    act("&+B$n&+B lunges at $N&+B, and falls over!&n",
+      FALSE, ch, 0, vict, TO_NOTVICT);
+    act("&+B$n&+B lunges at you, misses his strike and falls over!&n",
+      FALSE, ch, 0, vict, TO_VICT);
+    SET_POS(ch, POS_SITTING + GET_STAT(ch));
+    CharWait(ch, (int) (PULSE_VIOLENCE));
+    return;
+  }
+
   act("&+BYou swiftly strike at $N&+B, delivering a quick, decisive blow to a pressure point!&n",
     FALSE, ch, 0, vict, TO_CHAR);
   act("&+B$n&+B lunges at $N&+B striking $S chest, leaving $M slightly dazed!&n",
     FALSE, ch, 0, vict, TO_NOTVICT);
   act("&+B$n&+B lunges at you, and before you can react, you feel somewhat dazed!&n",
      FALSE, ch, 0, vict, TO_VICT);
-  CharWait(vict, (int) (1.5 * PULSE_VIOLENCE));
-  if (!char_in_list(ch))
-    return;
 
   CharWait(ch, (int) (2.5 * PULSE_VIOLENCE));
+  CharWait(vict, (int) (1.5 * PULSE_VIOLENCE));
 
   percent = (BOUNDED(0, (GET_LEVEL(ch) - GET_LEVEL(vict)), 100));
   percent += number(-5, 20);
@@ -1309,27 +1337,24 @@ void chant_ki_strike(P_char ch, char *argument, int cmd)
   if (GET_CHAR_SKILL(ch, SKILL_ANATOMY))
     percent += (int)(GET_CHAR_SKILL(ch, SKILL_ANATOMY)/10);
 
-  if(!affected_by_spell(vict, SKILL_KI_STRIKE) &&
-    (percent > number(1, 30)) &&
-    !IS_GREATER_RACE(vict) &&
-    !IS_ELITE(vict))
+  if( !affected_by_spell(vict, SKILL_KI_STRIKE) && (percent > number(1, 30))
+    && !IS_GREATER_RACE(vict) && !IS_ELITE(vict) )
   {
-      act("&+bYour attack on $N&+b's pressure point is particularly devastating!&n",
-        FALSE, ch, 0, vict, TO_CHAR);
-      act("&+b$n&+b's attack strikes hard, and you feel yourself slloooowwwww down!&n",
-        FALSE, ch, 0, vict, TO_VICT);
-      act("&+b$N&+b begins to move MUCH more sluggishly!&n",
-        FALSE, ch, 0, vict, TO_NOTVICT);
-      struct affected_type af;
-      memset(&af, 0, sizeof(af));
-      af.type = SKILL_KI_STRIKE;
-      af.duration =  1;
-      af.bitvector2 = AFF2_SLOW;
-      affect_to_char(vict, &af);
+    act("&+bYour attack on $N&+b's pressure point is particularly devastating!&n",
+      FALSE, ch, 0, vict, TO_CHAR);
+    act("&+b$n&+b's attack strikes hard, and you feel yourself slloooowwwww down!&n",
+      FALSE, ch, 0, vict, TO_VICT);
+    act("&+b$N&+b begins to move MUCH more sluggishly!&n",
+      FALSE, ch, 0, vict, TO_NOTVICT);
+    struct affected_type af;
+    memset(&af, 0, sizeof(af));
+    af.type = SKILL_KI_STRIKE;
+    af.duration =  1;
+    af.bitvector2 = AFF2_SLOW;
+    affect_to_char(vict, &af);
 
+    CharWait(ch, (int) (0.2 * PULSE_VIOLENCE));
   }
-
-  CharWait(ch, (int) (0.2 * PULSE_VIOLENCE));
 }
 
 void chant_regenerate(P_char ch, char *argument, int cmd)

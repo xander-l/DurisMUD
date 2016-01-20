@@ -431,6 +431,7 @@ bool isKickable(P_char, P_char);
 bool isMaulable(P_char, P_char);
 double orc_horde_dam_modifier(P_char, double, int);
 bool check_crippling_strike( P_char ch );
+void event_combination(P_char ch, P_char victim, P_obj obj, void *data);
 
 /* actoth.c */
 
