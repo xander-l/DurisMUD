@@ -2196,7 +2196,7 @@ int hit(P_char ch, P_char victim, P_obj weapon, const int hit_type,
     {
       dam += dice(p_weapon->value[1], MAX(1, p_weapon->value[2]));
     }
-    dam += str_app[STAT_INDEX(GET_C_STR(ch))].todam + GET_DAMROLL(ch);
+    dam += TRUE_DAMROLL(ch);
 
     if (p_weapon && (p_weapon->value[3] == 11) &&
         ((type == SKILL_BACKSTAB) || (type == SKILL_CIRCLE)))

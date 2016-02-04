@@ -1293,7 +1293,7 @@ void do_throw(P_char ch, char *argument, int cmd)
      }
 
      dmg = dice(weapon->value[1], MAX(1, weapon->value[2]));
-     dmg += str_app[STAT_INDEX(GET_C_STR(ch))].todam + GET_DAMROLL(ch);
+     dmg += TRUE_DAMROLL(ch);
 
      if (!CAN_HURT(ch, weapon, vict)) ;
      dmg = 1;

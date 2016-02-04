@@ -7305,7 +7305,7 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
     */
   }
 
-  tmp = str_app[STAT_INDEX(GET_C_STR(ch))].todam + (int) (GET_DAMROLL(ch) * dam_factor[DF_DAMROLL_MOD] );
+  tmp = TRUE_DAMROLL(ch) * dam_factor[DF_DAMROLL_MOD];
   // Randomize a bit by dropping between 0 and 10% of the damage incurred via damroll mods.
   tmp = (tmp * number(90,100))/100;
   dam += tmp;

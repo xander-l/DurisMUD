@@ -2810,14 +2810,13 @@ void do_stat(P_char ch, char *argument, int cmd)
         !k->equipment[SECONDARY_WEAPON]))
     {
       sprintf(buf, "%s   &+YUnarmed damage: &N%d&+Yd&N%d  &+Y+Dam: &N%d\n",
-              buf, k->points.damnodice, k->points.damsizedice,
-              GET_DAMROLL(k) + str_app[STAT_INDEX(GET_C_STR(k))].todam);
+              buf, k->points.damnodice, k->points.damsizedice, TRUE_DAMROLL(k) );
     }
     else
     {
       sprintf(buf, "%s  &+Y+Dam: &N%d+%d = %d\n", buf,
               GET_DAMROLL(k), str_app[STAT_INDEX(GET_C_STR(k))].todam,
-              GET_DAMROLL(k) + str_app[STAT_INDEX(GET_C_STR(k))].todam);
+              TRUE_DAMROLL(k) );
     }
     strcat(o_buf, buf);
 

@@ -468,6 +468,7 @@ int race_size(int race);
 #define GET_HITROLL(ch) ((ch)->points.hitroll)
 
 #define GET_DAMROLL(ch) ((ch)->points.damroll)
+#define TRUE_DAMROLL(ch) ((ch)->points.damroll + str_app[STAT_INDEX(GET_C_STR(ch))].todam)
 
 #define GET_WIZINVIS(ch) ((ch)->only.pc->wiz_invis)
 

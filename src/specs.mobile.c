@@ -8363,12 +8363,13 @@ int warhorse(P_char ch, P_char pl, int cmd, char *arg)
       for (i = 1; i < 4; i++)
       {
         if (!AWAKE(vict) || !StatSave(vict, APPLY_AGI, -2))
-          if (damage
-              (ch, vict,
-               (dice(ch->points.damnodice, ch->points.damsizedice) +
-                GET_DAMROLL(ch) + str_app[STAT_INDEX(GET_C_STR(ch))].todam),
-               TYPE_UNDEFINED))
+        {
+          if( damage(ch, vict, ( dice(ch->points.damnodice, ch->points.damsizedice) + TRUE_DAMROLL(ch) ),
+            TYPE_UNDEFINED) )
+          {
             break;
+          }
+        }
       }
       return TRUE;
       break;

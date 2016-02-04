@@ -1761,7 +1761,7 @@ int calcChDamagetoVict(P_char ch, P_char victim, P_obj weap,
   else
     dam++;
 
-  dam += str_app[STAT_INDEX(GET_C_STR(ch))].todam + GET_DAMROLL(ch);
+  dam += TRUE_DAMROLL(ch);
 
   if (weap && (GET_ITEM_TYPE(weap) == ITEM_WEAPON) &&
       isBackstabber(weap) &&

@@ -422,7 +422,7 @@ int lightning_sword(P_obj obj, P_char ch, int cmd, char *arg)
   }
 
   dam = dice(obj->value[1], obj->value[2]);
-  dam += str_app[STAT_INDEX(GET_C_STR(ch))].todam + GET_DAMROLL(ch);
+  dam += TRUE_DAMROLL(ch);
 
   dam = (int) (dam * ch->specials.damage_mod);
 
