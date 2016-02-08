@@ -2635,12 +2635,27 @@ void conjure_specialized(P_char ch, int level)
   }
   else
   {
-    act("$N says 'I shall serve you for a short time $n!'", TRUE, ch, 0, mob,
-        TO_ROOM);
-    act("$N says 'I shall serve you for a short time!'", TRUE, ch, 0, mob,
-        TO_CHAR);
+    int duration;
+    act("$N says 'I shall serve you for a short time $n!'", TRUE, ch, 0, mob, TO_ROOM);
+    act("$N says 'I shall serve you for a short time!'", TRUE, ch, 0, mob, TO_CHAR);
 
-    int duration = setup_pet(mob, ch, 400 / STAT_INDEX(GET_C_INT(mob)), PET_NOCASH);
+    duration = 400 / STAT_INDEX(GET_C_INT(mob));
+    if( good_terrain == 1 )
+    {
+      duration = (duration * 4) / 3;
+    }
+
+    if( has_air_staff_arti(ch) )
+    {
+      duration *= 2;
+    }
+    else
+    {
+      duration = (duration * GET_C_CHA(ch)) / 100;
+    }
+
+    duration = setup_pet(mob, ch, duration, PET_NOCASH);
+
     add_follower(mob, ch);
     /* if the pet will stop being charmed after a bit, also make it suicide 1-10 minutes later */
     if(duration >= 0)
