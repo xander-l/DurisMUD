@@ -253,14 +253,16 @@ P_obj has_instrument(P_char ch)
     raise(SIGSEGV);
   }
 
-  for (i = WIELD; i <= HOLD; i++)
-    if(ch->equipment[i] && (ch->equipment[i]->type == ITEM_INSTRUMENT) &&
-       (CAN_SEE_OBJ(ch, ch->equipment[i]) ||
-       (has_innate(ch, INNATE_BLINDSINGING) &&
-       GET_CHAR_SKILL(ch, ch->equipment[i]->value[0] + INSTRUMENT_OFFSET) >= 70)))
+  for( i = WIELD; i <= HOLD; i++ )
+  {
+    if( (ch->equipment[i] != NULL) && (ch->equipment[i]->type == ITEM_INSTRUMENT)
+      && (CAN_SEE_OBJ( ch, ch->equipment[i] ) || ( IS_ARTIFACT(ch->equipment[i]) )
+      || ( has_innate(ch, INNATE_BLINDSINGING)
+        && (GET_CHAR_SKILL( ch, ch->equipment[i]->value[0] + INSTRUMENT_OFFSET ) >= 70) )) )
     {
       return ch->equipment[i];
     }
+  }
 
   return NULL;
 }
