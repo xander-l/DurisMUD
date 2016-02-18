@@ -7,6 +7,7 @@
 #include "structs.h"
 #include "utils.h"
 #include "comm.h"
+#include "damage.h"
 
 extern P_desc descriptor_list;
 extern P_index mob_index;
@@ -484,268 +485,310 @@ void trapdamage(P_char ch, P_obj obj)
 {
   struct affected_type af;
   P_char   wch, next_ch;
-  int      level, dam;
+  int      level, dam, numdice, numsides;
+  struct damage_messages messages;
 
   if (!obj->trap_charge)
     return;
 
-  if (IS_NPC(ch))
+  if( IS_NPC(ch) && !IS_PC_PET(ch) )
     return;
-  
-  if (obj->trap_charge > 0)
-    obj->trap_charge -= 1;
 
-  if (obj->trap_level)
+  if (obj->trap_charge > 0)
+    obj->trap_charge--;
+
+  if( obj->trap_level )
     level = obj->trap_level;
   else
     level = 25;
-  if (level > 100)
-    level = 100;
 
-  dam = dice(level, 10);
+  // Format: xxyy where xx d yy is the amount of damage.
+  if( level > 100 )
+  {
+    numdice = level / 100;
+    numsides = level % 100;
+  }
+  else
+  {
+    numdice = level;
+    numsides = 10;
+  }
+
+  messages.obj = obj;
+  dam = dice(numdice, numsides);
 
   switch (obj->trap_dam)
   {
-  case TRAP_DAM_SLEEP:
-    if (!IS_SET(obj->trap_eff, TRAP_EFF_ROOM))
-    {
-      if (IS_AFFECTED(ch, AFF_SLEEP) || IS_TRUSTED(ch))
-        return;
-
-      bzero(&af, sizeof(af));
-      af.type = SPELL_SLEEP;
-      af.duration = level / 4;
-      af.bitvector = AFF_SLEEP;
-      affect_to_char(ch, &af);
-
-      act
-        ("&+LA strange gas pours forth from $p, making you feel very sleepy ..... zzzzzz",
-         FALSE, ch, obj, 0, TO_CHAR);
-      if (ch->specials.fighting)
-        stop_fighting(ch);
-      if( IS_DESTROYING(ch) )
-        stop_destroying(ch);
-      if (GET_STAT(ch) > STAT_SLEEPING)
+    case TRAP_DAM_SLEEP:
+      if( !IS_SET(obj->trap_eff, TRAP_EFF_ROOM) )
       {
-        act("&+LA strange gas pours forth from $p, and $n goes to sleep.",
-            TRUE, ch, obj, 0, TO_ROOM);
-        SET_POS(ch, GET_POS(ch) + STAT_SLEEPING);
-      }
-    }
-    else
-    {
-      LOOP_THRU_PEOPLE(wch, ch)
-      {
-        if (IS_AFFECTED(wch, AFF_SLEEP) || IS_TRUSTED(wch))
-          continue;
+        if( IS_AFFECTED(ch, AFF_SLEEP) || IS_TRUSTED(ch) )
+        {
+          return;
+        }
 
         bzero(&af, sizeof(af));
         af.type = SPELL_SLEEP;
-        af.duration = level / 2;
+        af.duration = dam / 4;
         af.bitvector = AFF_SLEEP;
-        affect_to_char(wch, &af);
+        affect_to_char(ch, &af);
 
-        act
-          ("&+LA strange gas pours forth from $p, making you feel very sleepy ..... zzzzzz",
-           FALSE, wch, obj, 0, TO_CHAR);
-        if (wch->specials.fighting)
-          stop_fighting(wch);
-        if( IS_DESTROYING(wch) )
-          stop_destroying(wch);
-        if (GET_STAT(wch) > STAT_SLEEPING)
+        act("&+LA strange gas pours forth from $p, making you feel very sleepy ..... zzzzzz",
+          FALSE, ch, obj, 0, TO_CHAR);
+        if( ch->specials.fighting )
+          stop_fighting(ch);
+        if( IS_DESTROYING(ch) )
+          stop_destroying(ch);
+
+        if( GET_STAT(ch) > STAT_SLEEPING )
         {
-          SET_POS(wch, GET_POS(wch) + STAT_SLEEPING);
+          act("&+LA strange gas pours forth from $p, and $n goes to sleep.",
+            TRUE, ch, obj, 0, TO_ROOM);
+          SET_POS(ch, GET_POS(ch) + STAT_SLEEPING);
         }
       }
-    }
-    break;
-  case TRAP_DAM_TELEPORT:
-    if (!IS_SET(obj->trap_eff, TRAP_EFF_ROOM))
-    {
-      send_to_char("You hear a strange... POP!\r\n", ch);
-      spell_teleport(60, ch, 0, 0, ch, 0);
-    }
-    else
-    {
-      send_to_room("You hear a strange... POP!\r\n", ch->in_room);
-/*      LOOP_THRU_PEOPLE(wch, ch)*/
-      for (wch = world[ch->in_room].people; wch; wch = next_ch)
+      else
       {
-        next_ch = wch->next_in_room;
+        LOOP_THRU_PEOPLE(wch, ch)
+        {
+          if (IS_AFFECTED(wch, AFF_SLEEP) || IS_TRUSTED(wch))
+            continue;
 
-        spell_teleport(60, wch, 0, 0, wch, 0);
+          bzero(&af, sizeof(af));
+          af.type = SPELL_SLEEP;
+          af.duration = dice( numdice, numsides);
+          af.bitvector = AFF_SLEEP;
+          affect_to_char(wch, &af);
+
+          act("&+LA strange gas pours forth from $p, making you feel very sleepy ..... zzzzzz",
+            FALSE, wch, obj, 0, TO_CHAR);
+          if (wch->specials.fighting)
+            stop_fighting(wch);
+          if( IS_DESTROYING(wch) )
+            stop_destroying(wch);
+          if (GET_STAT(wch) > STAT_SLEEPING)
+          {
+            SET_POS(wch, GET_POS(wch) + STAT_SLEEPING);
+          }
+        }
       }
-    }
-    break;
-  case TRAP_DAM_FIRE:
-    if (!IS_SET(obj->trap_eff, TRAP_EFF_ROOM))
-    {
-      act("A fireball shoots out of $p and hits $n!", FALSE, ch, obj, 0,
-          TO_ROOM);
-      act("A fireball shoots out of $p and hits you!", TRUE, ch, obj, 0,
-          TO_CHAR);
-      spell_fireball(level, ch, NULL, 0, ch, 0);
-    }
-    else
-    {
-      act("A fireball shoots out of $p and hits everyone in the room!", FALSE,
-          ch, obj, 0, TO_ROOM);
-      act("A fireball shoots out of $p and hits everyone in the room!", FALSE,
-          ch, obj, 0, TO_CHAR);
-/*      LOOP_THRU_PEOPLE(wch, ch)*/
-      for (wch = world[ch->in_room].people; wch; wch = next_ch)
+      break;
+    case TRAP_DAM_TELEPORT:
+      if (!IS_SET(obj->trap_eff, TRAP_EFF_ROOM))
       {
-        next_ch = wch->next_in_room;
-
-        spell_fireball(level, ch, NULL, 0, wch, 0);
+        send_to_char("You hear a strange... POP!\r\n", ch);
+        spell_teleport(60, ch, 0, 0, ch, 0);
       }
-    }
-    break;
-  case TRAP_DAM_COLD:
-    if (!IS_SET(obj->trap_eff, TRAP_EFF_ROOM))
-    {
-      act("A blast of frost from $p hits $n!", FALSE, ch, obj, NULL, TO_ROOM);
-      act("A blast of frost from $p hits you!", FALSE, ch, obj, NULL,
-          TO_CHAR);
-      spell_cone_of_cold(level, ch, NULL, SPELL_TYPE_SPELL, ch, 0);
-    }
-    else
-    {
-      act("A blast of frost from $p fills the room freezing you!", FALSE, ch,
-          obj, NULL, TO_ROOM);
-      act("A blast of frost from $p fills the room freezing you!", FALSE, ch,
-          obj, NULL, TO_CHAR);
-/*      LOOP_THRU_PEOPLE(wch, ch)*/
-      for (wch = world[ch->in_room].people; wch; wch = next_ch)
+      else
       {
-        next_ch = wch->next_in_room;
+        send_to_room("You hear a strange... POP!\r\n", ch->in_room);
 
-        spell_cone_of_cold(level, ch, NULL, SPELL_TYPE_SPELL, wch, 0);
+        for (wch = world[ch->in_room].people; wch; wch = next_ch)
+        {
+          next_ch = wch->next_in_room;
+
+          spell_teleport(60, wch, 0, 0, wch, 0);
+        }
       }
-    }
-    break;
-  case TRAP_DAM_ACID:
-    if (!IS_SET(obj->trap_eff, TRAP_EFF_ROOM))
-    {
-      act("A blast of acid erupts from $p, burning your skin!", FALSE, ch,
-          obj, NULL, TO_CHAR);
-      act("A blast of acid erupts from $p, burning $n's skin!", FALSE, ch,
-          obj, NULL, TO_ROOM);
-      spell_acid_blast(level, ch, NULL, SPELL_TYPE_SPELL, ch, 0);
-    }
-    else
-    {
-      act("A blast of acid erupts from $p, burning your skin!", FALSE, ch,
-          obj, NULL, TO_ROOM);
-      act("A blast of acid erupts from $p, burning your skin!", FALSE, ch,
-          obj, NULL, TO_CHAR);
-/*      LOOP_THRU_PEOPLE(wch, ch)*/
-      for (wch = world[ch->in_room].people; wch; wch = next_ch)
+      break;
+    case TRAP_DAM_FIRE:
+      messages.attacker =
+        "The &+rfireball&N hits $N.";
+      messages.victim =
+        "You are enveloped in &+rflames from a fireball&N sent by $P - OUCH!";
+      messages.room =
+        "The &+rfireball&N explodes into the face of $N.";
+      messages.death_attacker =
+        "The &+rfireball&N hits $N with full force, causing an immediate death.";
+      messages.death_victim =
+        "As the &+rfireball&N hits you, you burst into &+rflames&N and die.";
+      messages.death_room =
+        "The heat from the &+rfireball&N turns $N into a charred corpse.";
+
+      if (!IS_SET(obj->trap_eff, TRAP_EFF_ROOM))
       {
-        next_ch = wch->next_in_room;
+        act("A &+rfireball&n shoots out of $p and hits $n!", FALSE, ch, obj, 0, TO_ROOM);
+        act("A &+rfireball&n shoots out of $p and hits you!", TRUE, ch, obj, 0, TO_CHAR);
 
-        spell_acid_blast(level, ch, NULL, SPELL_TYPE_SPELL, wch, 0);
+        spell_damage(ch, ch, dam, SPLDAM_FIRE, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &messages);
       }
-    }
-    break;
-  case TRAP_DAM_ENERGY:
-    if (!IS_SET(obj->trap_eff, TRAP_EFF_ROOM))
-    {
-      act("A pulse of energy from $p zaps $n!", FALSE, ch, obj, NULL,
-          TO_ROOM);
-      act("A pulse of energy from $p zaps you!", FALSE, ch, obj, NULL,
-          TO_CHAR);
-      spell_energy_drain(level, ch, NULL, 0, ch, 0);
-    }
-    else
-    {
-      act("A pulse of energy from $p zaps you!", FALSE, ch, obj, NULL,
-          TO_ROOM);
-      act("A pulse of energy from $p zaps you!", FALSE, ch, obj, NULL,
-          TO_CHAR);
-/*      LOOP_THRU_PEOPLE(wch, ch)*/
-      for (wch = world[ch->in_room].people; wch; wch = next_ch)
+      else
       {
-        next_ch = wch->next_in_room;
+        act("A fireball shoots out of $p and hits everyone in the room!", FALSE, ch, obj, 0, TO_ROOM);
+        act("A fireball shoots out of $p and hits everyone in the room!", FALSE, ch, obj, 0, TO_CHAR);
+        for( wch = world[ch->in_room].people; wch; wch = next_ch )
+        {
+          next_ch = wch->next_in_room;
 
-        spell_energy_drain(level, ch, NULL, 0, wch, 0);
+          spell_damage(ch, ch, dam, SPLDAM_FIRE, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &messages);
+        }
       }
-    }
-    break;
-  case TRAP_DAM_BLUNT:
-    if (!IS_SET(obj->trap_eff, TRAP_EFF_ROOM))
-    {
-      act("$n sets off a trap on $p and a blunt object flies forth!", FALSE,
-          ch, obj, NULL, TO_ROOM);
-      act("You are hit by a blunt object from $p!", FALSE, ch, obj, NULL,
-          TO_CHAR);
-      damage(ch, ch, dam, TYPE_TRAP);
-    }
-    else
-    {
-      act("$n sets off a trap on $p and you are hit by a flying object!",
-          FALSE, ch, obj, NULL, TO_ROOM);
-      act("You are hit by a flying blunt object from $p!", FALSE, ch, obj,
-          NULL, TO_CHAR);
-/*      LOOP_THRU_PEOPLE(wch, ch)*/
-      for (wch = world[ch->in_room].people; wch; wch = next_ch)
+      break;
+    case TRAP_DAM_COLD:
+      messages.attacker =
+        "&+BThe blast of &+ccold&+B strikes $N &+Bdead on.";
+      messages.victim =
+        "&+BThe blast of &+ccold&+B strikes you dead on, freezing up your limbs! BRRR.";
+      messages.room =
+        "&+BThe blast of &+ccold&+B hits $N&+B, who screams out in pain!";
+      messages.death_attacker =
+        "&+BThe blast of &+ccold&+B leaves $N &+Cfrozen &+Bsolid!";
+      messages.death_victim =
+        "&+BYour body turns to &+Cice&+B the blast of &+ccold&+B hits you, AARRGHGHHGH!!";
+      messages.death_room =
+        "&+BThe blast of &+ccold&+B hits $N&+B, who &+Cfreezes solid&+B and dies instantly!";
+
+      if (!IS_SET(obj->trap_eff, TRAP_EFF_ROOM))
       {
-        next_ch = wch->next_in_room;
+        act("&+BA blast of &+cfrost&+B emanates from $p&+B!", FALSE, ch, obj, NULL, TO_ROOM);
+        act("&+BA blast of &+cfrost&+B emanates from $p&+B!", FALSE, ch, obj, NULL, TO_CHAR);
 
-        damage(ch, wch, dam, TYPE_TRAP);
+        spell_damage(ch, ch, dam, SPLDAM_COLD, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &messages);
       }
-    }
-    break;
-  case TRAP_DAM_PIERCE:
-    if (!IS_SET(obj->trap_eff, TRAP_EFF_ROOM))
-    {
-      act("$n sets off a trap on $p and is pierced in the chest!", FALSE, ch,
-          obj, NULL, TO_ROOM);
-      act("You set off a trap on $p and are pierced through the chest!",
-          FALSE, ch, obj, NULL, TO_CHAR);
-      damage(ch, ch, dam, TYPE_TRAP);
-    }
-    else
-    {
-      act("$n sets off a trap on $p and you are hit by a piercing object!",
-          FALSE, ch, obj, NULL, TO_ROOM);
-      act("You set off a trap on $p and are pierced through the chest!",
-          FALSE, ch, obj, NULL, TO_CHAR);
-/*      LOOP_THRU_PEOPLE(wch, ch)*/
-      for (wch = world[ch->in_room].people; wch; wch = next_ch)
+      else
       {
-        next_ch = wch->next_in_room;
+        act("&+BA blast of &+cfrost&+B emanates from $p&+B and fills the room!", FALSE, ch, obj, NULL, TO_ROOM);
+        act("&+BA blast of &+cfrost&+B emanates from $p&+B and fills the room!", FALSE, ch, obj, NULL, TO_CHAR);
+        for( wch = world[ch->in_room].people; wch; wch = next_ch )
+        {
+          next_ch = wch->next_in_room;
 
-        damage(ch, wch, dam, TYPE_TRAP);
+          spell_damage(ch, ch, dam, SPLDAM_COLD, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &messages);
+        }
       }
-    }
-    break;
-  case TRAP_DAM_SLASH:
-    if (!IS_SET(obj->trap_eff, TRAP_EFF_ROOM))
-    {
-      act("$n just got slashed by a trap on $p.", FALSE, ch, obj, NULL,
-          TO_ROOM);
-      act("You just got slashed by a trap on $p!", FALSE, ch, obj, NULL,
-          TO_CHAR);
-      dam = (dam / 5);
-      damage(ch, ch, dam, TYPE_TRAP);
-    }
-    else
-    {
-      act("$n set off a trap releasing a blade that slashes you!", FALSE, ch,
-          obj, NULL, TO_ROOM);
-      act("You set off a trap releasing blades around the room..", FALSE, ch,
-          obj, NULL, TO_CHAR);
-      act("One of the blades slashes you in the chest!", FALSE, ch, obj, NULL,
-          TO_CHAR);
-/*      LOOP_THRU_PEOPLE(wch, ch)*/
-      for (wch = world[ch->in_room].people; wch; wch = next_ch)
+      break;
+    case TRAP_DAM_ACID:
+      messages.attacker =
+        "The blast of &+Gacid&n douses $N.";
+      messages.victim =
+        "The blast of &+Gacid&n douses you.";
+      messages.room =
+        "The blast of &+Gacid&n hits $N, who screams out in pain!";
+      messages.death_attacker =
+        "The blast of &+Gacid&n turns $N into a &+gsticky ooze&n.";
+      messages.death_victim =
+        "Your body turns to &+gooze&n as the blast of &+Gacid&n hits you!";
+      messages.death_room =
+        "The blast of &+Gacid&n turns $N into a &+gsticky puddle&n.";
+
+      if (!IS_SET(obj->trap_eff, TRAP_EFF_ROOM))
       {
-        next_ch = wch->next_in_room;
+        act("A blast of acid erupts from $p, burning your skin!", FALSE, ch, obj, NULL, TO_CHAR);
+        act("A blast of acid erupts from $p, burning $n's skin!", FALSE, ch, obj, NULL, TO_ROOM);
 
-        damage(ch, wch, dam, TYPE_TRAP);
+        spell_damage(ch, ch, dam, SPLDAM_ACID, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &messages);
       }
-    }
-    break;
+      else
+      {
+        act("A blast of acid erupts from $p, burning your skin!", FALSE, ch, obj, NULL, TO_ROOM);
+        act("A blast of acid erupts from $p, burning your skin!", FALSE, ch, obj, NULL, TO_CHAR);
+
+        for (wch = world[ch->in_room].people; wch; wch = next_ch)
+        {
+          next_ch = wch->next_in_room;
+
+          spell_damage(ch, ch, dam, SPLDAM_ACID, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &messages);
+        }
+      }
+      break;
+    case TRAP_DAM_ENERGY:
+      messages.attacker =
+        "The &+cpulse&n of &+Yenergy&n shocks $N.";
+      messages.victim =
+        "The &+cpulse&n of &+Yenergy&n shocks you.";
+      messages.room =
+        "The &+cpulse&n of &+Yenergy&n shocks $N.";
+      messages.death_attacker =
+        "The &+cpulse&n of &+Yenergy&n turns $N to &+Lash&n.";
+      messages.death_victim =
+        "The &+cpulse&n of &+Yenergy&n turns you to &+wash&n.";
+      messages.death_room =
+        "The &+cpulse&n of &+Yenergy&n turns $N to a pile of &+Ycrackling&n &+wash&n.";
+
+      if (!IS_SET(obj->trap_eff, TRAP_EFF_ROOM))
+      {
+        act("A &+cpulse&n of &+Yenergy&n from $p zaps $n!", FALSE, ch, obj, NULL, TO_ROOM);
+        act("A &+cpulse&n of &+Yenergy&n from $p zaps you!", FALSE, ch, obj, NULL, TO_CHAR);
+
+        spell_damage(ch, ch, dam, SPLDAM_LIGHTNING, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &messages);
+      }
+      else
+      {
+        act("A &+cpulse&n of &+Yenergy&n from $p zaps you!", FALSE, ch, obj, NULL, TO_ROOM);
+        act("A &+cpulse&n of &+Yenergy&n from $p zaps you!", FALSE, ch, obj, NULL, TO_CHAR);
+
+        for (wch = world[ch->in_room].people; wch; wch = next_ch)
+        {
+          next_ch = wch->next_in_room;
+
+          spell_damage(ch, ch, dam, SPLDAM_LIGHTNING, SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &messages);
+        }
+      }
+      break;
+    case TRAP_DAM_BLUNT:
+      if (!IS_SET(obj->trap_eff, TRAP_EFF_ROOM))
+      {
+        act("$n sets off a trap on $p and a blunt object flies forth!", FALSE, ch, obj, NULL, TO_ROOM);
+        act("You are hit by a blunt object from $p!", FALSE, ch, obj, NULL, TO_CHAR);
+
+        damage(ch, ch, dam, TYPE_TRAP);
+      }
+      else
+      {
+        act("$n sets off a trap on $p and you are hit by a flying object!", FALSE, ch, obj, NULL, TO_ROOM);
+        act("You are hit by a flying blunt object from $p!", FALSE, ch, obj, NULL, TO_CHAR);
+
+        for (wch = world[ch->in_room].people; wch; wch = next_ch)
+        {
+          next_ch = wch->next_in_room;
+
+          damage(ch, wch, dam, TYPE_TRAP);
+        }
+      }
+      break;
+    case TRAP_DAM_PIERCE:
+      if( !IS_SET(obj->trap_eff, TRAP_EFF_ROOM) )
+      {
+        act("$n sets off a trap on $p and is pierced in the chest!", FALSE, ch, obj, NULL, TO_ROOM);
+        act("You set off a trap on $p and are pierced through the chest!", FALSE, ch, obj, NULL, TO_CHAR);
+
+        damage(ch, ch, dam, TYPE_TRAP);
+      }
+      else
+      {
+        act("$n sets off a trap on $p and you are hit by a piercing object!", FALSE, ch, obj, NULL, TO_ROOM);
+        act("You set off a trap on $p and are pierced through the chest!", FALSE, ch, obj, NULL, TO_CHAR);
+
+        for (wch = world[ch->in_room].people; wch; wch = next_ch)
+        {
+          next_ch = wch->next_in_room;
+
+          damage(ch, wch, dam, TYPE_TRAP);
+        }
+      }
+      break;
+    case TRAP_DAM_SLASH:
+      if (!IS_SET(obj->trap_eff, TRAP_EFF_ROOM))
+      {
+        act("$n just got slashed by a trap on $p.", FALSE, ch, obj, NULL, TO_ROOM);
+        act("You just got slashed by a trap on $p!", FALSE, ch, obj, NULL, TO_CHAR);
+
+        dam = (dam / 5);
+        damage(ch, ch, dam, TYPE_TRAP);
+      }
+      else
+      {
+        act("$n set off a trap releasing a blade that slashes you!", FALSE, ch, obj, NULL, TO_ROOM);
+        act("You set off a trap releasing blades around the room..", FALSE, ch, obj, NULL, TO_CHAR);
+        act("One of the blades slashes you in the chest!", FALSE, ch, obj, NULL, TO_CHAR);
+
+        for (wch = world[ch->in_room].people; wch; wch = next_ch)
+        {
+          next_ch = wch->next_in_room;
+
+          damage(ch, wch, dam, TYPE_TRAP);
+        }
+      }
+      break;
   }
 }
