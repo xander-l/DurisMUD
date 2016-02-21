@@ -100,17 +100,19 @@ struct mine_range_data {
   int start;
   int end;
   int type;
+  int mine_duration;
   bool reload;
 } mine_data[] = {
   // Note: Don't comment these out, just set max number to 0 in duris.properties.
   //  Also, to add a type, you need to add to #defines MINES_... in tradeskill.h and
   //    catch the type in mines_properties() in this file, and add to duris.properties.
-  // Zone display name, command argument matching, start range, end range, mine type, reloading mines?
-  {"Surface Map", "map", 500000, 659999, VOBJ_MINE, TRUE},
-  {"Underdark", "ud", 700000, 859999, VOBJ_MINE, TRUE},
-  {"Tharnadia Rift", "tharnrift", 110000, 119999, VOBJ_MINE, FALSE},
-  {"Surface Map - G", "mapg", 500000, 659999, VOBJ_GEMMINE, TRUE},
-  {"Underdark - G", "udg", 700000, 859999, VOBJ_GEMMINE, TRUE},
+  // Zone display name, command argument matching, start range, end range, mine type, duration, reloading mines?
+  // Note: mine_duration is in sets of 4 sec: 11 -> 9 * 4 = 36 sec, since event_mine_check occurs every 4 sec.
+  {"Surface Map",     "map",       500000, 659999,    VOBJ_MINE,  9, TRUE },
+  {"Underdark",       "ud",        700000, 859999,    VOBJ_MINE,  9, TRUE },
+  {"Tharnadia Rift",  "tharnrift", 110000, 119999,    VOBJ_MINE,  9, FALSE},
+  {"Surface Map - G", "mapg",      500000, 659999, VOBJ_GEMMINE, 15, TRUE },
+  {"Underdark - G",   "udg",       700000, 859999, VOBJ_GEMMINE, 15, TRUE },
   {0}
 };
 
@@ -1519,7 +1521,24 @@ int mine(P_obj obj, P_char ch, int cmd, char *arg)
 
     struct mining_data data;
     data.room = ch->in_room;
-    data.counter = IS_TRUSTED(ch) ? 3 : (140 - GET_CHAR_SKILL(ch, SKILL_MINE)) / 3;
+    // Immortals get 1 bout of 'You continue mining..' to make sure it works right.
+    if( IS_TRUSTED(ch) )
+    {
+      data.counter = 2;
+    }
+    else
+    {
+      // At 1 skill, roughly twice as long as 100 skill.  At 100 skill, ticks represented by val2 = mine_duration.
+      data.counter = (obj->value[2] * 200) / (100 + GET_CHAR_SKILL( ch, SKILL_MINE ));
+      // Anti-cheater code: less than 16 sec?
+      if( data.counter < 4 )
+      {
+        // Punish with a long counter... 3 mins sounds good.
+        data.counter = 45;
+      }
+      // Add a little real life luck variance to create the myths!
+      data.counter += number( -1, 1 );
+    }
     data.mine_quality = obj->value[1];
     data.mine_type = obj_index[obj->R_num].virtual_number;
 
@@ -1580,7 +1599,7 @@ void event_mine_check( P_char ch, P_char victim, P_obj, void *data )
     return;
   }
 
-  if( mdata->counter == 0 )
+  if( --mdata->counter <= 0 )
   {
     if( mdata->mine_type == VOBJ_MINE )
     {
@@ -1778,20 +1797,20 @@ void event_mine_check( P_char ch, P_char victim, P_obj, void *data )
     }
   }
 
-  if( !notch_skill(ch, SKILL_MINE, get_property("skill.notch.mining", 2.5)) &&
-      !number(0, (GET_CHAR_SKILL(ch, SKILL_MINE) * 2) ))
+  if( !notch_skill(ch, SKILL_MINE, get_property("skill.notch.mining", 2.5))
+    && !number(0, (GET_CHAR_SKILL(ch, SKILL_MINE) * 2) ))
   {
     send_to_char("You thought you found something, but it was just worthless rock.\n", ch);  
     return;
   }
 
-  if(!number(0, 999))
+  if( !number(0, 999) )
   {
     create_parchment(ch);
   }
 
   // If pick breaks, return.
-  if(!number(0,4) && (OBJ_VNUM(pick) != 83318) && DamageOneItem(ch, 1, pick, false))
+  if( !number(0,4) && (OBJ_VNUM(pick) != 83318) && DamageOneItem(ch, 1, pick, false) )
   {
     return;
   }
@@ -1800,10 +1819,9 @@ void event_mine_check( P_char ch, P_char victim, P_obj, void *data )
   notch_skill(ch, SKILL_MINE, get_property("skill.notch.mining", 2.5));
   GET_VITALITY(ch) -= (number(0,100) > GET_CHAR_SKILL(ch, SKILL_MINE)) ? 3 : 2;
 
-  mdata->counter--;
   add_event(event_mine_check, PULSE_VIOLENCE, ch, 0, 0, 0, mdata, sizeof(struct mining_data));
 
-  //noise distance calc
+  // Noise distance calc
   for (P_desc i = descriptor_list; i; i = i->next)
   {
     if( i->connected != CON_PLYNG || ch == i->character
@@ -2052,6 +2070,7 @@ bool load_one_mine(int map)
 
   int random = number(0,99);
 
+  mine->value[2] = mine_data[map].mine_duration;
   if( mine_data[map].type == VOBJ_GEMMINE )
   {
     mine->value[0] = number(10, 25);
