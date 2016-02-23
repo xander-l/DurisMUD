@@ -34,6 +34,7 @@
 
 extern P_desc descriptor_list;
 extern P_index obj_index;
+extern P_obj object_list;
 extern P_room world;
 extern const int top_of_world;
 extern P_event event_list;
@@ -645,6 +646,38 @@ void do_get(P_char ch, char *argument, int cmd)
     }
     else
     {
+      if( IS_TRUSTED(ch) && !strcmp(arg1, "nowhere") )
+      {
+        send_to_char("Collecting Items from Nowhere:\n", ch);
+        next_obj = object_list;
+        Gbuf2[(i=0)] = '\0';
+        while( next_obj )
+        {
+          s_obj = next_obj;
+          next_obj = next_obj->next;
+          // If the object is in the void, or a bad room, or worn on or carried by a bad person, or inside a bad object
+          if( OBJ_NOWHERE(s_obj) || (OBJ_ROOM(s_obj) && ( ROOM_VNUM(s_obj->loc.room) == NOWHERE ))
+            || (OBJ_WORN( s_obj ) && ( s_obj->loc.wearing == NULL ))
+            || (OBJ_CARRIED( s_obj ) && ( s_obj->loc.carrying == NULL ))
+            || (OBJ_INSIDE( s_obj ) && ( s_obj->loc.inside == NULL )) )
+          {
+            // Set object to LOC_NOWHERE so we can give it to the char without errors: Applies to NULL location objects.
+            s_obj->loc_p = LOC_NOWHERE;
+            obj_to_char( s_obj, ch );
+            i += sprintf( Gbuf2 + i, "%s, ", OBJ_SHORT(s_obj) );
+          }
+        }
+        if( i > 0 )
+        {
+          sprintf( Gbuf2 + i - 2, ".\n" );
+        }
+        else
+        {
+          sprintf( Gbuf2, "No items found in nowhere.\n" );
+        }
+        send_to_char( Gbuf2, ch );
+        return;
+      }
       sprintf(Gbuf3, "You do not see a %s here.\r\n", arg1);
       send_to_char(Gbuf3, ch);
       fail = TRUE;
