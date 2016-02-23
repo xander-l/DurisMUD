@@ -20066,10 +20066,11 @@ void spell_banish(int level, P_char ch, char *arg, int type, P_char victim, P_ob
 }
 
 
-void spell_doom_blade(int level, P_char ch, char *arg, int type,
-                       P_char victim, P_obj obj)
+void spell_doom_blade(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
-  P_obj    weapon;
+  P_obj weapon = NULL;
+
+  debug( "doom blade (%d): Cast by: '%s' (%d).", type, J_NAME(ch), GET_ID(ch) );
 
   if (GET_CLASS(ch, CLASS_THEURGIST))
   {
