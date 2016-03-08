@@ -2,7 +2,7 @@
 &+LThe &+cCity &+Lof &+WWinterhaven&n~
 55642 2 4 20 40 1
 *
-* Zone edited with durisEdit v3.00
+* Zone edited with durisEdit v3.02
 *
 *
 D 0 55046 5 1 100 0 0 0
@@ -756,6 +756,7 @@ G 1 55393 1 0 100 0 0 0            *    a small vial full of green sludge
 G 1 55394 1 0 100 0 0 0            *    the potion of spiritual protection
 G 1 55395 1 0 100 0 0 0            *    the opaque white potion of regeneration
 G 1 55396 1 0 100 0 0 0            *    the dazzling blue potion of lesser battle readiness
+G 1 55555 999 0 100 0 0 0          *    a potion of endurance
 M 0 55097 1 55200 100 0 0 0        * Bipplewizzlille
 M 0 55110 1 55201 100 0 0 0        * Thorl
 M 0 55189 1 55202 100 0 0 0        * a novice Spellslinger

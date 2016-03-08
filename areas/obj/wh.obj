@@ -5382,3 +5382,11 @@ delicate bubble _noquest_~
 0 0 100
 T
 2 0 0 0
+#55555
+potion endurance~
+&+ca potion of endurance&n~
+&+cA potion of endurance&n lies here.~
+~
+10 15 3 0 7 0 0 0 0 0 0
+40 355 0 0 0 0 0 0
+0 1500 100
