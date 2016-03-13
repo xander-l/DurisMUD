@@ -810,7 +810,7 @@ void create_recipe(P_char ch, P_obj temp)
     }
   }
 
-  if(!is_salvageable(temp))
+  if( !is_salvageable(temp) || IS_OBJ_STAT2(temp, ITEM2_QUESTITEM) )
     return;
 
   objrecipe = read_object(400210, VIRTUAL);

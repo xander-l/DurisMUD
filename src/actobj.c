@@ -5315,7 +5315,7 @@ bool is_salvageable(P_obj temp)
     return FALSE;
   }
 
-  if( IS_SET(temp->extra_flags, ITEM_NOSELL) || IS_OBJ_STAT2(temp, ITEM2_QUESTITEM) )
+  if( IS_SET(temp->extra_flags, ITEM_NOSELL) )
   {
     return FALSE;
 	}
