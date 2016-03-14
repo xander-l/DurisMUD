@@ -3147,7 +3147,7 @@ fog mist~
 &+Wseen a mist this thick that seems so alive.
 ~
 #293
-bass _fishing_~
+bass fish _fishing_~
 &+ca large bass&n~
 &+cA large bass lies here flapping weakly.&n~
 ~
@@ -3155,7 +3155,7 @@ bass _fishing_~
 18 9 9 0 3 3 0 0
 0 0 100
 #294
-piranha _fishing_~
+piranha fish _fishing_~
 &+ra piranha&n~
 &+rA small piranha lies here quite dead.&n~
 ~
@@ -3163,7 +3163,7 @@ piranha _fishing_~
 9 10 9 0 0 0 5 0
 0 0 100
 #295
-cod _fishing_~
+cod fish _fishing_~
 &+Wa medium sized cod&n~
 &+WA medium sized cod lies here.&n~
 ~
@@ -3358,7 +3358,7 @@ A glass of sparkling white champagne is resting here.~
 1 1 23 0 0 0 0 0
 1 1 100
 #318
-pike _fishing_~
+pike fish _fishing_~
 &+ca large pike fish&n~
 &+cA large pike lies here.&n~
 ~
@@ -3366,7 +3366,7 @@ pike _fishing_~
 12 6 8 0 2 0 0 2
 0 100 100
 #319
-impressive lobster _fishing_~
+impressive lobster fish _fishing_~
 an &+rimpressive &+Rlobster&n~
 &+rA red lobster crawls here snapping its claws.&n~
 ~
@@ -3454,7 +3454,7 @@ A bowl of ice cream is resting here.~
 1 0 0 0 0 0 0 0
 1 1 100
 #330
-hairy crab _fishing_~
+hairy crab fish _fishing_~
 &+ya large hairy crab&n~
 &+yA large hairy crab scurries to get away from you.&n~
 ~
@@ -3475,7 +3475,7 @@ This small wooden container is made of hardwood and sealed at both end.
 A stamp burned into the wood marks it as holding a red wine.
 ~
 #332
-shrimp _fishing_~
+shrimp fish _fishing_~
 a &+rlarge shrimp&n~
 &+rA large shrimp lies here dead as a bat.&n~
 ~
@@ -3483,7 +3483,7 @@ a &+rlarge shrimp&n~
 4 8 6 0 0 0 3 0
 0 0 100
 #333
-oyster _fishing_~
+oyster fish _fishing_~
 &+wa large flat oyster&n~
 &+wA large flat &+Woyster &+wlies here on the ground.&n~
 ~
@@ -3491,7 +3491,7 @@ oyster _fishing_~
 4 8 6 0 0 3 0 1
 0 0 100
 #334
-clam _fishing_~
+clam fish _fishing_~
 a &+ysmall clam&n~
 &+yA small clam lies here on the ground.&n~
 ~
@@ -3499,7 +3499,7 @@ a &+ysmall clam&n~
 4 4 4 0 1 1 1 0
 0 100 100
 #335
-mussel _fishing_~
+mussel fish _fishing_~
 &+ba large &+Bmussel&n~
 &+bA large &+Bmussel&n lies here on the ground.&n~
 ~
@@ -3698,7 +3698,7 @@ E
 symbols~
 ~
 #355
-rainbow trout _fishing_~
+rainbow trout fish _fishing_~
 &+ca &+Rra&+Bin&+Ybow&+c trout&n~
 &+cA coloured trout lays stinking here.&n~
 ~
@@ -3706,7 +3706,7 @@ rainbow trout _fishing_~
 10 3 5 0 0 0 2 0
 0 0 100
 #356
-perch _fishing_~
+perch fish _fishing_~
 &+ca sp&+yeckl&+ced perch&n~
 &+cA perch lies on the ground, rotting.&n~
 ~
