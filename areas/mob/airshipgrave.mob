@@ -982,7 +982,7 @@ firbolg scout~
 &+yscout for his pack, scouting the area in search of prey.
 ~
 1073743880 1 0 0 8 0 0 0 -1000 S
-G 0 1 0 -1
+FB 0 1 0 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -998,7 +998,7 @@ firbolg sentry~
 &+ybe used as a tent for an average man.
 ~
 10 1 0 0 8 0 0 0 -1000 S
-G 0 1 0 -1
+FB 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1035,7 +1035,7 @@ firbolg warmonger monger~
 &+yother than to smash stuff.
 ~
 1073743880 1 0 0 8 0 0 0 -1000 S
-G 0 16384 0 -1
+FB 0 16384 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1052,7 +1052,7 @@ firbolg warchief chief~
 &+ysieze his prey, before leading his group onwards up the mountainside.
 ~
 10 1 0 0 24 0 0 0 -1000 S
-G 0 16385 0 -1
+FB 0 16385 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -1067,7 +1067,7 @@ firbolg shaman~
 &+yhere blessing his kinsmen with various mystical enchantments.
 ~
 1073743880 1 0 0 8 0 0 0 -1000 S
-G 0 256 0 -1
+FB 0 256 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
