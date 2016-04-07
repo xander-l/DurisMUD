@@ -5840,8 +5840,8 @@ void do_time(P_char ch, char *argument, int cmd)
   sprintf(Gbuf2, "Current time is: %s (%s)\n",
           tmstr, (lt->tm_isdst <= 0) ? "GMT" : "GMT");
   send_to_char(Gbuf2, ch);
-  // Subtract 5 hrs.
-  ct -= 5*60*60;
+  // Subtract 4 hrs.
+  ct -= 4*60*60;
   lt = localtime(&ct);
   tmstr = asctime(lt);
   *(tmstr + strlen(tmstr) - 1) = '\0';

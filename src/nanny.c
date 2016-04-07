@@ -3601,11 +3601,11 @@ void enter_game(P_desc d)
 
   GetMIA(ch->player.name, Gbuf1 );
   // Convert to EST.
-  ct -= 5*60*60;
+  ct -= 4*60*60;
   sprintf(timestr, "%s", asctime( localtime(&ct) ));
   *(timestr + strlen(timestr) - 1) = '\0';
   strcat( timestr, " EST" );
-  ct += 5*60*60;
+  ct += 4*60*60;
 
   loginlog(GET_LEVEL(ch), "%s [%s] enters game @ %s.%s [%d]",
            GET_NAME(ch), d->host, timestr, Gbuf1, world[ch->in_room].number);
