@@ -1475,6 +1475,9 @@ void command_interpreter(P_char ch, char *argument)
             send_to_char("Pardon? No ansi chars allowed as input.\r\n", ch);
             return;
             break;
+          case '&':
+              ch_ptr++;
+            break;
           }
         }
       }

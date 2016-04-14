@@ -1594,13 +1594,16 @@ void do_action(P_char ch, char *argument, int cmd)
   {
     for (ch_ptr = buf; *ch_ptr != '\0'; ch_ptr++)
     {
-      if (*ch_ptr == '$')
+      if (*ch_ptr == '&')
         switch (*(ch_ptr + 1))
         {
         case '+':
         case '-':
         case '=':
           send_to_char("Pardon? No ansi chars allowed as input.\r\n", ch);
+          break;
+        case '&':
+          ch_ptr++;
           break;
         }
     }
