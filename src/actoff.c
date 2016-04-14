@@ -8352,8 +8352,6 @@ void bodyslam(P_char ch, P_char victim)
     (int) (percent_chance * ((double) BOUNDED(80, 100 + GET_LEVEL(ch) - GET_LEVEL(victim), 125)) / 100);
   percent_chance =
     (int) (percent_chance * ((double) BOUNDED(60, 100 + (GET_C_AGI(ch) - GET_C_AGI(victim)) / 2, 155)) / 100);
-  // Bodyslammer's dex can reduce, but not increase chance.  This is done for balancing.
-  percent_chance = ( percent_chance * (MIN( 100, GET_C_DEX(ch) ) / 2 + 50) ) / 100;
 
   if(IS_AFFECTED(victim, AFF_AWARE))
   {
