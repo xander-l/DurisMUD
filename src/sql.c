@@ -861,13 +861,11 @@ int sql_find_racewar_for_ip( char *ip, int *racewar_side )
     if( last_disconnect > last_connect && last_disconnect <= hour_ago )
       return 0;
 
-debug( "PENIS: racewar_side: %d for ip '%s'. time to clear: %lu sec.", atoi(row[3]), ip, last_disconnect - hour_ago );
     while( row != NULL )
       row = mysql_fetch_row(db);
     // Return an hour if they're still online, or time delta to an hour offline.
     return (last_disconnect < last_connect) ? 60 * 60 : last_disconnect - hour_ago;
   }
-debug( "PENIS: IP '%s' not found.", ip );
   return RACEWAR_NONE;
 }
 
