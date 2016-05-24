@@ -5404,6 +5404,12 @@ void do_salvage(P_char ch, char *argument, int cmd)
     return;
   }
 
+  if( IS_SET(item->extra_flags, ITEM_NODROP) )
+  {
+    act("But your $q is so pretty.", FALSE, ch, item, 0, TO_CHAR);
+    return;
+  }
+
   itemvnum = OBJ_VNUM(item);
 
   // Handle salvage materials
