@@ -1,19 +1,20 @@
 /* constants below are used to recognize wall type -
         they are set in val[3] of wall object */
-#define WALL_OF_FLAMES   0
-#define WALL_OF_ICE 1
-#define LIGHTNING_CURTAIN 2
-#define WALL_OF_FOG 3
-#define PRISMATIC_WALL 4
-#define WEB 5
-#define LIFE_WARD 6
-#define ILLUSIONARY_WALL 7
-#define WALL_OF_FORCE 8
-#define WALL_OF_STONE 9
-#define WALL_OF_IRON 10
-#define WATCHING_WALL 11
-#define WALL_OUTPOST 12
-#define WALL_OF_BONES 13
+#define WALL_OF_FLAMES     0
+#define WALL_OF_ICE        1
+#define LIGHTNING_CURTAIN  2
+#define WALL_OF_FOG        3
+#define PRISMATIC_WALL     4
+#define WEB                5
+#define LIFE_WARD          6
+#define ILLUSIONARY_WALL   7
+#define WALL_OF_FORCE      8
+#define WALL_OF_STONE      9
+#define WALL_OF_IRON      10
+#define WATCHING_WALL     11
+#define WALL_OUTPOST      12
+#define WALL_OF_BONES     13
+#define WALL_OF_AIR       14
 
 int player_council_room(int, P_char, int, char *);
 int cage_room1(int, P_char, int, char *);

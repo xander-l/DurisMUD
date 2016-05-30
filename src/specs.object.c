@@ -7367,7 +7367,7 @@ int wall_generic(P_obj obj, P_char ch, int cmd, char *arg)
     else if(IS_PC(ch) && has_innate( ch, INNATE_WALL_CLIMBING ) )
     {
       int rand1 = number(1, 100);
-      if (rand1 > 60)
+      if( rand1 > 60 )
       {
         act("&+L$n&+L slams up against the wall, slinks into a shadow, and quickly darts over the wall.", TRUE, ch, obj, 0, TO_ROOM);
         act("&+LYou thrust yourself up against the wall and slip into a nearby shadow, quickly darting over the top of the wall and away.", TRUE, ch, obj, 0, TO_CHAR);
@@ -7468,13 +7468,77 @@ int wall_generic(P_obj obj, P_char ch, int cmd, char *arg)
       act("Oof! $n bumps into $p...", TRUE, ch, obj, 0, TO_NOTVICT);
 	  }
 	  return TRUE;
+  case WALL_OF_AIR:
+    int chance, fall_chance;
+
+    switch( GET_SIZE(ch) )
+    {
+      case SIZE_NONE:
+      case SIZE_TINY:
+      case SIZE_SMALL:
+        chance = 15;
+        fall_chance = 20;
+        break;
+      case SIZE_MEDIUM:
+        chance = 25;
+        fall_chance = 15;
+        break;
+      case SIZE_LARGE:
+      case SIZE_HUGE:
+        chance = 50;
+        fall_chance = 10;
+        break;
+      case SIZE_GIANT:
+      case SIZE_GARGANTUAN:
+        chance = 70;
+        fall_chance = 0;
+        break;
+      case SIZE_DEFAULT:
+      default:
+        chance = 0;
+        fall_chance = 100;
+        break;
+    }
+
+    // Let stats play a minor role.
+    chance += (GET_C_AGI(ch) + GET_C_STR(ch)) / 50;
+    fall_chance -= (GET_C_AGI(ch) + GET_C_STR(ch)) / 50;
+
+    if( chance >= number(1, 100) )
+    {
+      act( "$n steps through $p!", TRUE, ch, obj, NULL, TO_ROOM);
+      act( "&+cYou manage to break through the high winds on to the other side!&n", FALSE, ch, obj, NULL, TO_CHAR );
+      do_simple_move_skipping_procs(ch, dircmd, 0);
+      update_pos(ch);
+      drag_followers = TRUE;
+    }
+    else if( fall_chance >= number(1, 100) )
+    {
+      // They got knocked down.
+      act( "&+WThe &+CHIGH winds &+Wsend you flying back into the room, crashing to the ground &+RH&+rA&+RR&+rD&+W!&n",
+        FALSE, ch, obj, NULL, TO_CHAR );
+      act( "&+WThe &+CHIGH winds &+Wsend $n&+W flying back into the room, who proceeds to fall to the ground.  Hah!&n",
+        TRUE, ch, obj, NULL, TO_ROOM );
+
+      SET_POS(ch, GET_STAT(ch) + POS_SITTING);
+      return TRUE;
+    }
+    else
+    {
+      // Didn't fall, but couldn't make it through.
+      act( "&+WThe high &+Cwinds &+Wwere too strong for you to go that way!&n", FALSE, ch, obj, NULL, TO_CHAR );
+      act( "&+WThe high &+Cwinds &+Wwere too strong for $n&+W to make $s way through.",
+        TRUE, ch, obj, NULL, TO_ROOM );
+      return TRUE;
+    }
+    break;
   default:
     logit(LOG_DEBUG, "Wrong value[3] set in wall.");
     send_to_char("Serious screw-up on wall! Tell a god.\n", ch);
     return FALSE;
   }
 
-  if (drag_followers && was_in != ch->in_room && ch->followers)
+  if( drag_followers && was_in != ch->in_room && ch->followers )
   {
     for (k = ch->followers; k; k = next_dude)
     {

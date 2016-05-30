@@ -897,8 +897,7 @@ void cast_area_resurrect(int level, P_char ch, char *arg, int type,
   }
 }
 
-void cast_wall_of_flames(int level, P_char ch, char *arg, int type,
-                         P_char tar_ch, P_obj tar_obj)
+void spell_wall_of_flames(int level, P_char ch, char *arg, int type, P_char tar_ch, P_obj tar_obj)
 {
   char     buf1[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH],
     Gbuf4[MAX_STRING_LENGTH];
@@ -934,7 +933,7 @@ void cast_wall_of_flames(int level, P_char ch, char *arg, int type,
   }
 }
 
-void cast_wall_of_ice(int level, P_char ch, char *arg, int type,
+void spell_wall_of_ice(int level, P_char ch, char *arg, int type,
                       P_char tar_ch, P_obj tar_obj)
 {
   char     buf1[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH],
@@ -999,7 +998,7 @@ void cast_life_ward(int level, P_char ch, char *arg, int type, P_char tar_ch,
   }
 }
 
-void cast_wall_of_stone(int level, P_char ch, char *arg, int type,
+void spell_wall_of_stone(int level, P_char ch, char *arg, int type,
                         P_char tar_ch, P_obj tar_obj)
 {
   char     buf1[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH],
@@ -1033,7 +1032,7 @@ void cast_wall_of_stone(int level, P_char ch, char *arg, int type,
   }
 }
 
-void cast_wall_of_iron(int level, P_char ch, char *arg, int type,
+void spell_wall_of_iron(int level, P_char ch, char *arg, int type,
                        P_char tar_ch, P_obj tar_obj)
 {
   char     buf1[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH],
@@ -1066,7 +1065,7 @@ void cast_wall_of_iron(int level, P_char ch, char *arg, int type,
   }
 }
 
-void cast_wall_of_force(int level, P_char ch, char *arg, int type,
+void spell_wall_of_force(int level, P_char ch, char *arg, int type,
                         P_char tar_ch, P_obj tar_obj)
 {
   char     buf1[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH],
@@ -1100,7 +1099,7 @@ void cast_wall_of_force(int level, P_char ch, char *arg, int type,
   }
 }
 
-void cast_wall_of_bones(int level, P_char ch, char *arg, int type, P_char tar_ch, P_obj tar_obj)
+void spell_wall_of_bones(int level, P_char ch, char *arg, int type, P_char tar_ch, P_obj tar_obj)
 {
   char     buf1[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH],
            Gbuf4[MAX_STRING_LENGTH], Gbuf5[MAX_STRING_LENGTH];

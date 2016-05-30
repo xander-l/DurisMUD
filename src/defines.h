@@ -144,6 +144,7 @@ typedef unsigned int uint;
 
 /* Bitvector For 'wear_flags' */
 
+#define ITEM_NONE               0
 #define ITEM_TAKE           BIT_1
 #define ITEM_WEAR_FINGER    BIT_2
 #define ITEM_WEAR_NECK      BIT_3

@@ -55,8 +55,12 @@ extern const int carve_part_flag[];
 extern struct mm_ds *dead_mob_pool;
 extern struct mm_ds *dead_pconly_pool;
 extern Skill skills[];
-extern const char *get_function_name(void *);
-extern bool has_skin_spell(P_char);
+
+extern const char *get_function_name( void * );
+extern bool has_skin_spell( P_char );
+extern bool exit_wallable( int room, int dir, P_char ch );
+extern bool create_walls( int room, int exit, P_char ch, int level, int type, int power,
+  int decay, char *short_desc, char *desc, ulong flags );
 
 #define WIND_BLADE 98
 
@@ -2928,3 +2932,63 @@ void spell_arctic_blast(int level, P_char ch, char *arg, int type, P_char victim
 
 }
 
+void spell_ice_spikes(int level, P_char ch, char *arg, int type, P_char victim, P_obj tar_obj)
+{
+  int dam;
+  int num_missiles = 3;
+  struct damage_messages messages = {
+    "&+CYou hurl a spike of &+Rr&+raz&+Ror &+Csharp &+Wice &+Cat $N&+C.",
+    "&+CGiant Spikes of &+Wice&+C hit you square in the chest, impaling you!",
+    "$n &+Cstretches out $s hand, unleashing a torret of &+Rr&+raz&+Ror &+Csharp &+Wice &+Ctoward $N&+C!&n",
+    "&+CYour deadly &+Wspike &+Cof &+Wice &+Rimpales &+C$N&+C ending $S life abruptly.&n",
+    "&+CYou clutch at the &+Wice spike &+rimpaling &+Cyour chest as the world fades &+cto &+Lblack...&n",
+    "$n &+Chits $N&+C with one final &+rbarrage &+Cof &+Wice spikes &+Cand $E falls over clutching $S chest...&n",
+    0
+  };
+
+  if( GET_LEVEL(ch) >= 53 )
+  {
+    num_missiles++;
+  }
+
+  // dam should total: 9 * level +/- 25 .. but 3 spikes -> 3 * level +/- 8..
+  // Making it vary a little more and do a little less..
+  dam = 3 * level + number(-30, 4);
+
+  if( NewSaves(victim, SAVING_SPELL, 0) )
+  {
+    dam = (dam * 2) / 3;
+  }
+
+  while( num_missiles-- && spell_damage(ch, victim, dam, SPLDAM_COLD, 0, &messages) == DAM_NONEDEAD )
+  {
+    ;
+  }
+}
+
+void spell_wall_of_air(int level, P_char ch, char *arg, int type, P_char tar_ch, P_obj tar_obj)
+{
+  char buf1[MAX_STRING_LENGTH], buf2[MAX_STRING_LENGTH], dir_string[MAX_INPUT_LENGTH];
+  int  var = 0;
+
+  one_argument(arg, dir_string);
+  var = dir_from_keyword(dir_string);
+
+  if( !exit_wallable(ch->in_room, var, ch) )
+  {
+    send_to_char( "It's not possible to wall in that direction.\n", ch );
+    return;
+  }
+
+  if( create_walls(ch->in_room, var, ch, level, WALL_OF_AIR, level, 1800,
+    "&+wa wall of air&n",
+    "&+WThe &+Cwinds &+Wappear to be especially strong coming from the %s&+W!&n", ITEM_NONE) )
+  {
+
+    sprintf(buf1, "&+WThe winds pick up &+Rviolently &+Wto the %s!&n\r\n", dirs[var]);
+    sprintf(buf2, "&+WThe winds pick up &+Rviolently &+Wto the %s!&n\r\n", dirs[rev_dir[var]]);
+
+    send_to_room(buf1, ch->in_room);
+    send_to_room(buf2, (world[ch->in_room].dir_option[var])->to_room);
+  }
+}

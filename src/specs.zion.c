@@ -727,8 +727,8 @@ int zion_dispator(P_obj obj, P_char ch, int cmd, char *arg)
     {
       act(buff, TRUE, ch, obj, NULL, TO_ROOM);
       sprintf(buff, "%s", dirs[random_dir]);
-      // store the direction keyword in a buffer to be passed to cast_wall_of_iron
-      cast_wall_of_iron(60, ch, buff, 0, 0, 0);
+      // store the direction keyword in a buffer to be passed to spell_wall_of_iron
+      spell_wall_of_iron(60, ch, buff, 0, 0, 0);
     }
     return TRUE;
   }
