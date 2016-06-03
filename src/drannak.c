@@ -2632,13 +2632,12 @@ void enhancematload( P_char ch, P_char killer )
   {
     moblvl * 10;
   }
-  if( number(1, 5000) < moblvl )
+  if( number(1, 3000) < moblvl )
   {
     debug( "enhancematload: mob: '%s' (%d) moblvl %d%s", J_NAME(ch), GET_VNUM(ch), moblvl, IS_ELITE(ch) ? " ELITE." : "." );
     if(number(1, 4000) < moblvl)
     {
-      reward = number(1, 8);
-      switch( reward )
+      switch( number(1, 8) )
       {
         case 1:
           reward = 400239;

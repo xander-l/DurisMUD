@@ -2509,8 +2509,7 @@ void die(P_char ch, P_char killer)
           send_to_char("It appears you were able to salvage a piece of material from your enemy.\n", killer);
         }
       }
-      if(tempobj &&
-          ch)
+      if(tempobj && ch)
       {
         obj_to_char(tempobj, ch);
       }
