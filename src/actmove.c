@@ -1925,7 +1925,8 @@ int do_simple_move_skipping_procs(P_char ch, int exitnumb, unsigned int flags)
           sprintf(amsg, "%s %s", command[cmd], dirs[exitnumb]);
           SET_BIT(k->follower->specials.affected_by5, AFF5_FOLLOWING);
           command_interpreter(k->follower, amsg);
-          REMOVE_BIT(k->follower->specials.affected_by5, AFF5_FOLLOWING);
+          if( IS_ALIVE(k->follower) )
+            REMOVE_BIT(k->follower->specials.affected_by5, AFF5_FOLLOWING);
           num_followed++;
         }
       }
