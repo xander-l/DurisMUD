@@ -453,8 +453,16 @@ void run_the_game(int port)
   }
   if( _copyover )
   {
-    logit(LOG_EXIT, "Copyover reboot.");
-    exit(53);
+    if( _autoboot )
+    {
+      logit(LOG_EXIT, "Auto reboot with copyover.");
+      exit(57);
+    }
+    else
+    {
+      logit(LOG_EXIT, "Copyover reboot.");
+      exit(53);
+    }
   }
   if( _autoboot )
   {

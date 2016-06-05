@@ -8,7 +8,7 @@ ulimit -c unlimited
 while [[ $RESULT != 0 && $RESULT != 55 ]]; do
 	DATESTR=`date +%C%y.%m.%d-%H.%M.%S`
 
-  if [ $RESULT == 53 ]; then
+  if [[ $RESULT == 53 || $RESULT == 57 ]]; then
     if [ -f src/dms_new ]; then
 			if [ -f dms ]; then
 		  	mv dms dms.$DATESTR
@@ -39,7 +39,7 @@ while [[ $RESULT != 0 && $RESULT != 55 ]]; do
 	fi
 
   echo "Starting duris..."
-  ./dms 7777 # > dms.out
+  ./dms 7788 # > dms.out
 
 	# capture the exit code
   RESULT=${PIPESTATUS[0]}
@@ -53,6 +53,7 @@ while [[ $RESULT != 0 && $RESULT != 55 ]]; do
 		54) STOP_REASON="auto reboot";;
 		55) STOP_REASON="pwipe shutdown";;
 		56) STOP_REASON="mud hung reboot";;
+		57) STOP_REASON="auto reboot with copyover";;
 		*) STOP_REASON="unknown";;
 	esac
 

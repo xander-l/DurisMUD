@@ -4017,6 +4017,7 @@ void timedShutdown(P_char ch, P_char, P_obj, void *data)
         sql_log(ch, WIZLOG, buf);
         shutdownflag = 1;
         break;
+
       case TimedShutdownData::REBOOT:
         sprintf(buf, "\r\n%s shreds the world around you.\r\n", shutdownData.IssuedBy);
         send_to_all(buf);
@@ -4031,6 +4032,14 @@ void timedShutdown(P_char ch, P_char, P_obj, void *data)
         logit(LOG_STATUS, buf);
         sql_log(ch, WIZLOG, buf);
         shutdownflag = _copyover = 1;
+        break;
+
+      case TimedShutdownData::AUTOREBOOT_COPYOVER:
+        sprintf(buf, "\r\nDuris fades into nothing, as the world begins its reconstruction...\r\n", shutdownData.IssuedBy);
+        send_to_all(buf);
+        logit(LOG_STATUS, buf);
+        sql_log(ch, WIZLOG, buf);
+        shutdownflag = _autoboot = _copyover = 1;
         break;
 
       case TimedShutdownData::AUTOREBOOT:
@@ -4211,7 +4220,21 @@ void do_shutdown(P_char ch, char *argument, int cmd)
 
   if( shutdownData.eShutdownType == TimedShutdownData::AUTOREBOOT )
   {
-    return; //AutoREboots cannot be cycled.
+    if( !str_cmp(arg, "copyover") )
+    {
+      shutdownData.eShutdownType = TimedShutdownData::AUTOREBOOT_COPYOVER;
+      send_to_all( "&+R*** Code will copyover at auto reboot. ***&N\n" );
+    }
+    return; //AutoReboots cannot be cycled.
+  }
+  if( shutdownData.eShutdownType == TimedShutdownData::AUTOREBOOT_COPYOVER )
+  {
+    if( !str_cmp(arg, "copyover") )
+    {
+      shutdownData.eShutdownType = TimedShutdownData::AUTOREBOOT;
+      send_to_all( "&+R*** Code will no longer copyover at auto reboot. ***&N\n" );
+    }
+    return; //AutoReboots cannot be cycled.
   }
 
   // if there is a pending shutdown, cancel it now...

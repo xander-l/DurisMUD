@@ -2377,6 +2377,7 @@ struct TimedShutdownData
     REBOOT,
     COPYOVER,
     AUTOREBOOT,
+    AUTOREBOOT_COPYOVER,
     PWIPE
   }
   eShutdownType;
