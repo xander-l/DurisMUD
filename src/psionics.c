@@ -1833,6 +1833,8 @@ void spell_inertial_barrier(int level, P_char ch, char *arg, int type, P_char vi
   af.bitvector3 = AFF3_INERTIAL_BARRIER;
   affect_to_char(victim, &af);
 
+  send_to_char( "You feel uneasy, almost as if a headache is coming on.  Almost as if you're slightly in control of reality now.\n", victim );
+
   return;
 }
 
