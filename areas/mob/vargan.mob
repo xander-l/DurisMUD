@@ -98,7 +98,7 @@ minotaur~
 &+gapart with his bare hands.
 ~
 2120 1 0 0 33554432 0 0 0 -1000 S
-G 0 1 0 -1
+MT 0 1 0 -1
 28 8 20 28d65+504 3d6+4
 8.3.7.1 24948
 8 8 0
@@ -128,7 +128,7 @@ starved minotaur~
 &+gapart with his bare hands.
 ~
 1073743945 1 0 0 33554432 0 0 0 -1000 S
-G 0 1 0 -1
+MT 0 1 0 -1
 31 6 10 31d83+682 4d6+7
 5.7.9.1 40176
 8 8 0
