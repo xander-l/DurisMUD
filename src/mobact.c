@@ -9317,7 +9317,7 @@ bool CheckForRemember(P_char ch)
     return FALSE;
   }
 
-  if(IS_NPC(ch) && (!HAS_MEMORY(ch) || (GET_MEMORY(ch) == NULL)))
+  if( !HAS_MEMORY(ch) || (GET_MEMORY(ch) == NULL) )
   {
     return FALSE;
   }
@@ -9329,6 +9329,7 @@ bool CheckForRemember(P_char ch)
 
   if(GET_HIT(ch) <= (GET_MAX_HIT(ch) / 3))
   {
+
     real_birthroom = real_room0(ch->player.birthplace);
     if(IS_SET(ch->specials.act, ACT_SENTINEL) &&
        real_birthroom &&
@@ -9336,7 +9337,7 @@ bool CheckForRemember(P_char ch)
     {
       TryToGetHome(ch);
     }
-    
+
     if( !CAN_ACT(ch) || IS_IMMOBILE(ch) )
     {
       add_event(event_mob_mundane, PULSE_VIOLENCE, ch, NULL, NULL, 0, NULL, 0);
@@ -9355,6 +9356,11 @@ bool CheckForRemember(P_char ch)
       continue;
     if(CheckFor_remember(ch, tmpch))
     {
+      if( ch->in_room == tmpch->in_room )
+      {
+        MobStartFight(ch, tmpch);
+        return TRUE;
+      }
       if(GET_CHAR_ZONE(ch) == GET_CHAR_ZONE(tmpch))
       {
         if((!b || number(0, 1)) && (Summonable(tmpch) || !Summonable(b)))
@@ -9383,20 +9389,19 @@ void mobact_memoryHandle(P_char mob)
   if(CHAR_IN_SAFE_ROOM(mob))
     return;
 
-  if(!HAS_MEMORY(mob) || IS_FIGHTING(mob) || ALONE(mob) ||
-      !IS_AWAKE(mob) || (NumAttackers(mob) > 0) || (mob->in_room == NOWHERE))
+  if( !HAS_MEMORY(mob) || IS_FIGHTING(mob) || ALONE(mob) || !IS_AWAKE(mob) || (NumAttackers(mob) > 0) )
   {
     return;
   }
 /*  found = FALSE;*/
-  for (vict = world[mob->in_room].people; vict /*&& !found */ ;
-       vict = vict->next_in_room)
+  for( vict = world[mob->in_room].people; vict /*&& !found */ ; vict = vict->next_in_room )
   {
     if(IS_NPC(vict) || !CAN_SEE(mob, vict))
       continue;
     if(vict == GET_MASTER(mob))
       continue;
     for (mem = mob->only.npc->memory; mem; mem = mem->next)
+    {
       if(mem->pcID == GET_PID(vict))
       {
         if((IS_SET(world[mob->in_room].room_flags, SINGLE_FILE) &&
@@ -9418,8 +9423,8 @@ void mobact_memoryHandle(P_char mob)
           return;
         }
       }
+    }
   }
-
 }
 
 bool npc_has_spell_slot(P_char mob, int spl)
