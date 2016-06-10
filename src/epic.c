@@ -758,6 +758,7 @@ void epic_stone_level_char(P_obj obj, P_char ch)
 {
   char buf[256];
   int  epics_for_level, anystone_epics_for_level;
+  int  levelcap = sql_level_cap( GET_RACEWAR(ch) );
 
   if( !IS_ALIVE(ch) || IS_NPC(ch) || !obj )
   {
@@ -772,7 +773,8 @@ void epic_stone_level_char(P_obj obj, P_char ch)
   }
 
   // Already attained max level or doesn't want to spend epics to level.
-  if( GET_LEVEL(ch) >= MAXLVLMORTAL || PLR3_FLAGGED(ch, PLR3_NOLEVEL) )
+  if( GET_LEVEL(ch) >= MAXLVLMORTAL || PLR3_FLAGGED(ch, PLR3_NOLEVEL)
+    || (GET_LEVEL( ch ) >= levelcap) )
   {
     return;
   }
@@ -993,8 +995,8 @@ int epic_stone(P_obj obj, P_char ch, int cmd, char *arg)
     {
       statuslog(GREATER_G, "%s touched the epic stone in %s", ch->player.name, zone_table[real_zone0(zone_number)].name);
       epiclog( 56, "%s touched the epic stone in %s.", J_NAME(ch), strip_ansi(zone_table[real_zone0(zone_number)].name).c_str());
-        if (get_property("thanksgiving", 0.000))
-    thanksgiving_proc(ch);
+      if (get_property("thanksgiving", 0.000))
+        thanksgiving_proc(ch);
     }
 
     epic_stone_one_touch(obj, ch, epic_value);
