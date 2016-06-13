@@ -235,7 +235,7 @@ void name_ship_rooms(P_ship ship)
 
      if (i == 0) 
      {
-        sprintf(buf, "&+ROn the &+WBridge&N&+R of the &+L%s&N %s", SHIP_CLASS_NAME(ship), ship->name);
+        sprintf(buf, "&+ROn the &+WBridge&N&+R of the &+L%s&N %s&N", SHIP_CLASS_NAME(ship), ship->name);
      } 
      else 
      {
