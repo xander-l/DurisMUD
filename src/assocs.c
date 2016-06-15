@@ -627,6 +627,12 @@ bool Guild::add_member( P_char ch, int rank )
   members = new_member;
   member_count++;
 
+
+  if( IS_PC(ch) )
+  {
+    SET_BIT(ch->specials.act, PLR_GCC);
+    SET_BIT(ch->specials.act2, PLR2_ACC);
+  }
   save( );
   return TRUE;
 }
