@@ -1585,9 +1585,9 @@ int do_simple_move_skipping_procs(P_char ch, int exitnumb, unsigned int flags)
         {
           act(amsg, TRUE, ch, mount->lobj?mount->lobj->Visible_Object():0, tch, TO_VICT | ACT_IGNORE_ZCOORD);
         }
-        else if( SNEAK(ch) )
+        else if( !SNEAK(ch) )
         {
-          act(amsg, TRUE, ch, ch->lobj?ch->lobj->Visible_Object():0, tch, TO_VICT | ACT_IGNORE_ZCOORD);
+          act(amsg, TRUE, ch, ch->lobj ? ch->lobj->Visible_Object() : NULL, tch, TO_VICT | ACT_IGNORE_ZCOORD);
         }
         else
         {
