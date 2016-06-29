@@ -3092,12 +3092,12 @@ D
 S
 #83426
 M
-qc_action 90~
-&N$n tosses a few large &+Weggs&N onto a frying pan and cooks them thoroughly.
-Tossing the egg into a large cauldron, $N adds several spices and stirs the mix.
+qc_action 71~
+&N$n tosses a few large &+Weggs&N into a &+Lfrying pan&n and cooks them thoroughly.
+Then $n tosses the &+Yegg&N into a &+Llarge cauldron&n, adds several &+yspices&N and stirs the &+ym&+Yi&+yx&n.
 ~
 M
-qc_action 90~
+qc_action 83~
 &N$n stirs a large cauldron full of &+Rbubbling &Nsoup.
 ~
 MA
