@@ -42,13 +42,13 @@
 /* definition of association bits, as compact as possible to leave
    room for later extensions */
 /* player bits */
-#define A_SF1           1u /* SF2,SF1        00:no thanks. 01:applicant   */
-#define A_SF2           2u /* society flags  10:member. 11:banned.        */
-#define A_RK1           4u /* RK3,RK2,RK1  000:enemy. 001:on parole.      */
-#define A_RK2           8u /* rank   010:normal. 011:senior. 100:officer. */
-#define A_RK3          16u /* bits   101:deputy. 110:leader. 111:god.     */
-#define A_DEBT         32u /* 0=no debts, 1=has debts                     */
-#define A_STATICTITLE  64u /* change title on logon?                      */
+#define A_SF1           BIT_1 /* SF2,SF1        00:no thanks. 01:applicant   */
+#define A_SF2           BIT_2 /* society flags  10:member. 11:banned.        */
+#define A_RK1           BIT_3 /* RK3,RK2,RK1  000:enemy. 001:on parole.      */
+#define A_RK2           BIT_4 /* rank   010:normal. 011:senior. 100:officer. */
+#define A_RK3           BIT_5 /* bits   101:deputy. 110:leader. 111:god.     */
+#define A_DEBT          BIT_6 /* 0=no debts, 1=has debts                     */
+#define A_STATICTITLE   BIT_7 /* change title on logon?                      */
 
 #define ASC_NUM_RANKS 8
 #define A_RANK_BITS(bits) (bits & ( A_RK3 | A_RK2 | A_RK1 ))
@@ -120,9 +120,9 @@
 #define SET_LEADER(asn)   (SET_M_BITS((asn), A_RK_MASK, A_LEADER))
 #define IS_GOD(asn)       (IS_M_BITS((asn),  A_RK_MASK, A_RK_MASK))
 #define SET_GOD(asn)      (SET_M_BITS((asn), A_RK_MASK, A_RK_MASK))
-#define IS_STT(asn)       ((asn) & A_STATICTITLE)
-#define SET_STT(asn)      (SET_M_BITS((asn), A_STATICTITLE, A_STATICTITLE))
-#define REMOVE_STT(asn)   (SET_M_BITS((asn), A_STATICTITLE, ~A_STATICTITLE))
+#define IS_STT(asn)       (IS_SET((asn), A_STATICTITLE))
+#define SET_STT(asn)      (SET_BIT((asn), A_STATICTITLE))
+#define REMOVE_STT(asn)   (REMOVE_BIT((asn), A_STATICTITLE))
 #define IS_HIDDENTITLE(asn) ((asn) & A_HIDETITLE)
 #define IS_HIDDENSUBTITLE(asn) ((asn) & A_HIDESUBTITLE)
 
@@ -133,8 +133,8 @@
 /* protect higher routine from knowing specific flags */
 #define IS_DEBT(asn) ((asn) & A_DEBT)
 #define HAS_FINE( ch )  ( IS_DEBT(GET_A_BITS( ch )) )
-#define SET_DEBT(asn) ((asn) |= A_DEBT)
-#define REMOVE_DEBT(asn) ((asn) &= ~A_DEBT)
+#define SET_DEBT(asn) (SET_BIT(asn, A_DEBT))
+#define REMOVE_DEBT(asn) (REMOVE_BIT(asn, A_DEBT))
 #define IS_CHALL(asn) ((asn) & A_CHALL)
 #define SET_CHALL(asn) ((asn) |= A_CHALL)
 #define REMOVE_CHALL(asn) ((asn) &= ~A_CHALL)
@@ -153,8 +153,8 @@ typedef struct guild_member *P_member;
 struct guild_member
 {
   char name[MAX_NAME_LENGTH + 1];
-  unsigned long bits;
-  unsigned long debt; // In copper
+  unsigned int bits;
+  unsigned int debt; // In copper
   P_member next;
 };
 
@@ -202,7 +202,7 @@ class Guild
     void add_construction( int cps ) { construction += cps; save(); }
     void set_construction( int cps ) { construction = cps; save(); }
 
-    void set_bits( unsigned long new_bits ) { bits = new_bits; save(); }
+    void set_bits( unsigned int new_bits ) { bits = new_bits; save(); }
 
     unsigned int get_overmax( ) { return overmax; }
     void add_overmax( unsigned int _overmax ) { overmax += _overmax; save(); }
@@ -253,7 +253,7 @@ class Guild
 
     static void initialize();
     Guild( char *_name, unsigned int _racewar, unsigned int _id_number, unsigned long _prestige,
-      unsigned long _construction, unsigned long _money, unsigned long _bits );
+      unsigned long _construction, unsigned long _money, unsigned int _bits );
     Guild( );
     ~Guild( );
 
@@ -273,7 +273,7 @@ class Guild
     unsigned long construction;
     unsigned int  platinum, gold, silver, copper;
     unsigned int  member_count;
-    unsigned long bits;
+    unsigned int  bits;
     unsigned int  overmax;
     struct guild_frags frags;
     P_member members;

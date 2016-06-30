@@ -1312,7 +1312,7 @@ struct char_special_data {
   float         damage_mod;
 
   P_Guild guild;                /* which guild?                            */
-  int guild_status;             /* rank, how you enter, etc.               */
+  unsigned int guild_status;    /* rank, how you enter, etc.               */
 
   int carry_weight;             /* Carried weight                          */
   ush_int carry_items;          /* Number of items carried                 */

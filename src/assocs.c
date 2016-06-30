@@ -373,7 +373,7 @@ bool found_asc(P_char god, P_char leader, char *bits, char *asc_name)
 }
 
 Guild::Guild( char *_name, unsigned int _racewar, unsigned int _id_number, unsigned long _prestige, \
-      unsigned long _construction, unsigned long _money, unsigned long _bits )
+      unsigned long _construction, unsigned long _money, unsigned int _bits )
 {
   strcpy( name, _name );
   racewar = _racewar;
@@ -469,7 +469,7 @@ void Guild::save( )
     strcat( write_buf, "\n" );
   }
   // Then the guild bits, prestige and construction.
-  sprintf( buf, "%lu %lu %lu\n", bits, prestige, construction );
+  sprintf( buf, "%u %lu %lu\n", bits, prestige, construction );
   strcat( write_buf, buf );
   // Then guild funds.
   sprintf( buf, "%u %u %u %u\n", platinum, gold, silver, copper );
@@ -477,7 +477,7 @@ void Guild::save( )
 
   for( pMembers = members; pMembers != NULL; pMembers = pMembers->next )
   {
-    sprintf( buf, "%s %lu %lu\n", pMembers->name, pMembers->bits, pMembers->debt );
+    sprintf( buf, "%s %u %u\n", pMembers->name, pMembers->bits, pMembers->debt );
     strcat( write_buf, buf );
   }
 
@@ -523,7 +523,7 @@ bool Guild::load_guild( int guild_num )
   // Then get the guild bits, prestige and construction.
   fgets( buf, MAX_STR_NORMAL, file );
 
-  sscanf( buf, "%lu %lu %lu\n", &new_guild->bits, &new_guild->prestige, &new_guild->construction );
+  sscanf( buf, "%u %lu %lu\n", &new_guild->bits, &new_guild->prestige, &new_guild->construction );
 
   // Then get the money for the guild...
   fscanf( file, "%u %u %u %u\n", &(new_guild->platinum), &(new_guild->gold),
@@ -2172,9 +2172,9 @@ void Guild::enroll( P_char member, P_char victim )
 //   all from checks in do_society.
 void Guild::fine( P_char member, char *target, int p, int g, int s, int c )
 {
-  long unsigned mem_bits = GET_A_BITS( member );
-  long unsigned fine_in_copper = (1000 * p) + (100 * g) + (10 * s) + c;
-  long unsigned new_debt;
+  unsigned int mem_bits = GET_A_BITS( member );
+  long fine_in_copper = (1000 * p) + (100 * g) + (10 * s) + c;
+  long new_debt;
   P_member pMembers;
   P_char victim;
 
@@ -2230,11 +2230,18 @@ void Guild::fine( P_char member, char *target, int p, int g, int s, int c )
   // If all then we walk through each member...
   for( pMembers = members; pMembers != NULL; pMembers = pMembers->next )
   {
-    pMembers->debt += fine_in_copper;
+    if( A_RANK_BITS(pMembers->bits) >= A_LEADER )
+      continue;
 
-    if( pMembers->debt < 0 )
+    new_debt = pMembers->debt + fine_in_copper;
+
+    if( new_debt < 0 )
     {
       pMembers->debt = 0;
+    }
+    else
+    {
+      pMembers->debt = new_debt;
     }
     if( pMembers->debt == 0 )
     {
@@ -2963,7 +2970,7 @@ void Guild::update_bits( P_char ch )
 {
   P_member pMembers;
   char    *char_name = GET_NAME(ch);
-  int      ch_bits = GET_A_BITS(ch);
+  unsigned int ch_bits = GET_A_BITS(ch);
 
   // We don't update Immortal's bits.
   if( IS_TRUSTED(ch) )
@@ -2973,6 +2980,7 @@ void Guild::update_bits( P_char ch )
   {
     if( !strcmp(pMembers->name, char_name) )
     {
+
       // Check the rank bits.
       if( A_RANK_BITS(ch_bits) != A_RANK_BITS(pMembers->bits) )
       {
