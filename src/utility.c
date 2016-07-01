@@ -2589,6 +2589,7 @@ bool is_aggr_to(P_char ch, P_char target)
 {
   int      tmp_race = 0;
   register int chance;
+  P_char master;
 
   if( ch == target || !IS_ALIVE(ch) || !IS_ALIVE(target) )
   {
@@ -2600,8 +2601,9 @@ bool is_aggr_to(P_char ch, P_char target)
     return FALSE;
   }
 
-  if( (target->group && ( target->group == ch->group ))
-    || (target->following && ( target->following == ch->following )) )
+  // If it's a pet with master in the room, the only thing they attack is what's fighting their master.
+  if( IS_NPC(ch) && (( master = get_linked_char(ch, LNK_PET) ) != NULL) && (ch->in_room == master->in_room)
+    && !(GET_OPPONENT(target) == master) )
   {
     return FALSE;
   }
