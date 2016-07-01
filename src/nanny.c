@@ -3247,7 +3247,7 @@ void enter_game(P_desc d)
       send_to_char("\r\nCouldn't find any items in storage for you...\r\n", ch);
     }
 
-  if (cost == -2)
+    if (cost == -2)
     {
       send_to_char
         ("\r\nSomething is wrong with your saved items information - "
@@ -3328,7 +3328,12 @@ void enter_game(P_desc d)
 
     set_surname(ch, 0);
   }
-  /* don't do any of above for new chars */
+  // Don't do any of above for new chars, but do give well-rested bonus.
+  else
+  {
+    // Slept for a year.
+    rest = 365 * 24 * 60 * 60;
+  }
 
   send_to_char(WELC_MESSG, ch);
   ch->desc = d;
@@ -4623,9 +4628,7 @@ void select_main_menu(P_desc d, char *arg)
 
   if (d->rtype > 20)
   {
-    SEND_TO_Q
-      ("Your password has been expired.  Please enter your current password:",
-       d);
+    SEND_TO_Q("Your password has been expired.  Please enter your current password:", d);
     echo_off(d);
     strcpy(d->old_pwd, d->character->only.pc->pwd);
     STATE(d) = CON_PWD_NEW;
