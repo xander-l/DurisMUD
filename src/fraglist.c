@@ -18,6 +18,7 @@ extern P_room world;
 extern const racewar_struct racewar_color[MAX_RACEWAR+2];
 
 extern void get_level_cap( int *max_level, int *racewar );
+extern int sql_level_cap( int racewar_side );
 
 /*
  * fragWorthy - is ch worthy of gaining a frag and victim worthy of losing
@@ -180,7 +181,7 @@ void do_fraglist(P_char ch, char *arg, int cmd)
   char     i;
   float    fragnum = 0;
   char     filename[1024];
-  int      cap_level, cap_racewar;
+  int      cap_level, cap_racewar, cap_others;
 
   if( !IS_ALIVE(ch) )
     return;
@@ -514,8 +515,9 @@ void do_fraglist(P_char ch, char *arg, int cmd)
 
 //  sprintf(buf, "\r\n&+WTop Fraggers\r\n\r\n");
   get_level_cap( &cap_level, &cap_racewar );
+  cap_others = sql_level_cap( (cap_racewar == RACEWAR_GOOD) ? RACEWAR_EVIL : RACEWAR_GOOD );
   sprintf(buf, "Frag Level Cap: %d - &+%c%s&n, %d - Others\n\n&+WTop Fraggers\n\n",
-    cap_level, racewar_color[cap_racewar].color, racewar_color[cap_racewar].name, cap_level - 1 );
+    cap_level, racewar_color[cap_racewar].color, racewar_color[cap_racewar].name, cap_others );
 
   for (i = 0; i < MAX_FRAG_SIZE; i++)
   {
