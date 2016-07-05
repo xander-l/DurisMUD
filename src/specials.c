@@ -109,24 +109,19 @@ void firesector(P_char ch)
 
 void event_underwatersector(P_char ch, P_char victim, P_obj obj, void *data)
 {
-  if (IS_AFFECTED(ch, AFF_WATERBREATH) || (ch->in_room == -1) ||
-      !IS_UNDERWATER(ch))
+  if( IS_AFFECTED(ch, AFF_WATERBREATH) || (ch->in_room == -1) || !IS_UNDERWATER(ch) )
   {
     REMOVE_BIT(ch->specials.affected_by2, AFF2_HOLDING_BREATH);
     REMOVE_BIT(ch->specials.affected_by2, AFF2_IS_DROWNING);
     return;
   }
 
-  if (IS_AFFECTED2(ch, AFF2_IS_DROWNING))
+  if( IS_AFFECTED2(ch, AFF2_IS_DROWNING) )
   {
     if (GET_HIT(ch) < 0)
     {
-      send_to_char
-        ("Failing to hold your breath any second longer, you draw an airless breath..\r\n",
-         ch);
-      act
-        ("Failing to hold $s breath any second longer, $n draws an airless breath..",
-         FALSE, ch, 0, 0, TO_ROOM);
+      send_to_char("Failing to hold your breath any second longer, you draw an airless breath..\r\n", ch);
+      act("Failing to hold $s breath any second longer, $n draws an airless breath..", FALSE, ch, 0, 0, TO_ROOM);
       die(ch, ch);
       return;
     }
@@ -139,7 +134,7 @@ void event_underwatersector(P_char ch, P_char victim, P_obj obj, void *data)
     if( ch->desc )
       ch->desc->prompt_mode = TRUE;
   }
-  else if (IS_AFFECTED2(ch, AFF2_HOLDING_BREATH))
+  else if( IS_AFFECTED2(ch, AFF2_HOLDING_BREATH) )
   {
     send_to_char("&+BYour lungs begin to burn!&n\r\n", ch);
     REMOVE_BIT(ch->specials.affected_by2, AFF2_HOLDING_BREATH);
@@ -158,11 +153,10 @@ void event_underwatersector(P_char ch, P_char victim, P_obj obj, void *data)
 
 void underwatersector(P_char ch)
 {
-  if ((IS_NPC(ch) && !IS_PC_PET(ch)) || !IS_UNDERWATER(ch) ||
-      IS_TRUSTED(ch) || IS_AFFECTED(ch, AFF_WATERBREATH))
+  if( (IS_NPC(ch) && !IS_PC_PET(ch)) || !IS_UNDERWATER(ch) || IS_TRUSTED(ch) || IS_AFFECTED(ch, AFF_WATERBREATH) )
     return;
 
-  if (!get_scheduled(ch, event_underwatersector))
+  if( !get_scheduled(ch, event_underwatersector) )
     add_event(event_underwatersector, 3, ch, 0, 0, 0, 0, 0);
 }
 

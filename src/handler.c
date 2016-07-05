@@ -1156,7 +1156,7 @@ bool char_to_room(P_char ch, int room, int dir)
     }
   }
 
-  if( !IS_SET(world[ch->in_room].room_flags, UNDERWATER) && IS_AFFECTED2(ch, AFF2_HOLDING_BREATH) )
+  if( !IS_UNDERWATER(ch) && IS_AFFECTED2(ch, AFF2_HOLDING_BREATH) )
   {
     REMOVE_BIT(ch->specials.affected_by2, AFF2_HOLDING_BREATH);
   }

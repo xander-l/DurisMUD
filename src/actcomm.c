@@ -376,7 +376,7 @@ int say(P_char ch, const char *argument)
   else if( (IS_SET(world[ch->in_room].room_flags, UNDERWATER) || ch->specials.z_cord < 0)
     && !IS_TRUSTED(ch) && !IS_NPC(ch) )
   {
-    send_to_char("You try to say something in the water...", ch);
+    send_to_char("You try to say something in the water...\n", ch);
     act("$n's mouth moves, but all that comes forth is bubbles...", TRUE, ch, 0, 0, TO_ROOM);
     return FALSE;
   }

@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+#include <math.h>
 
 #include "comm.h"
 #include "db.h"
@@ -408,13 +409,13 @@ int move_regen( P_char ch, bool display_only )
     return 0;
   }
 
-  if(GET_VITALITY(ch) > GET_MAX_VITALITY(ch))
+  if( GET_VITALITY(ch) > GET_MAX_VITALITY(ch) )
   {
     gain = (GET_MAX_VITALITY(ch) - GET_VITALITY(ch)) >> 2;
     return (int) MIN(-1, gain);
   }
-  
-  if(IS_NPC(ch) || IS_UNDEADRACE(ch) || IS_ANGEL(ch))
+
+  if( IS_NPC(ch) || IS_UNDEADRACE(ch) || IS_ANGEL(ch) )
   {
     gain = 22;
   }
@@ -423,9 +424,9 @@ int move_regen( P_char ch, bool display_only )
     gain = graf(ch, age(ch).year, 14, 20, 20, 16, 14, 12, 11);
   }
 
-  if (GET_COND(ch, FULL) == 0)
+  if( GET_COND(ch, FULL) == 0 )
     gain /= 1.250;
-  if (GET_COND(ch, THIRST) == 0)
+  if( GET_COND(ch, THIRST) == 0 )
     gain /= 1.250;
 
   /*
@@ -461,13 +462,12 @@ int move_regen( P_char ch, bool display_only )
       break;
   }
 
-  if (gain || ch->points.move_reg < 0)
+  if( gain || ch->points.move_reg < 0 )
     gain += ch->points.move_reg;
 
-  if(gain > 0 &&
-    IS_AFFECTED4(ch, AFF4_TUPOR))
-      gain += 20;
- 
+  if( gain > 0 && IS_AFFECTED4(ch, AFF4_TUPOR) )
+    gain += 20;
+
   gain += (int)((float)gain * get_epic_bonus(ch, EPIC_BONUS_MOVES));
 
   /* This is another pretty hack to increase movement points
@@ -483,7 +483,8 @@ int move_regen( P_char ch, bool display_only )
   if( GET_RACE(ch) == RACE_QUADRUPED )
     gain += dice( 2, 3 );
 
-  return (int) (gain * gain / 5);
+  return (int) (gain * fabsf(gain) / 5);
+//  return (int) (gain * gain / 5);
 }
 
 void gain_practices(P_char ch)

@@ -231,10 +231,11 @@ SECS_PER_MUD_DAY)
 #define IS_CASTLE(r) ( world[r].sector_type == SECT_CASTLE_WALL || world[r].sector_type == SECT_CASTLE_GATE \
   || world[r].sector_type == SECT_CASTLE )
 
-#define IS_UNDERWATER(c) (world[c->in_room].sector_type == SECT_UNDERWATER \
-                || world[c->in_room].sector_type == SECT_UNDERWATER_GR \
-                || world[c->in_room].sector_type == SECT_WATER_PLANE \
-    || (IS_WATER_ROOM(c->in_room) && c->specials.z_cord < 0))
+#define IS_UNDERWATER(c) ( (world[c->in_room].sector_type == SECT_UNDERWATER) \
+  || (world[c->in_room].sector_type == SECT_UNDERWATER_GR)                    \
+  || (world[c->in_room].sector_type == SECT_WATER_PLANE)                      \
+  || (IS_WATER_ROOM(c->in_room) && c->specials.z_cord < 0)                    \
+  || (IS_SET(world[ch->in_room].room_flags, UNDERWATER)) )
 
 #define IS_WATER_ROOM(r) (world[r].sector_type == SECT_UNDRWLD_WATER \
     || world[r].sector_type == SECT_UNDRWLD_NOSWIM \

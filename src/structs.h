@@ -2250,12 +2250,9 @@ struct event_short_affect_data {
 
 struct hold_data
 {
-  int      c_Str, c_Dex, c_Agi, c_Con, c_Pow, c_Int, c_Wis, c_Cha, c_Kar,
-  c_Luc;
-  int      m_Str, m_Dex, m_Agi, m_Con, m_Pow, m_Int, m_Wis, m_Cha, m_Kar,
-    m_Luc;
-  int      r_Str, r_Dex, r_Agi, r_Con, r_Pow, r_Int, r_Wis, r_Cha, r_Kar,
-    r_Luc;
+  int      c_Str, c_Dex, c_Agi, c_Con, c_Pow, c_Int, c_Wis, c_Cha, c_Kar, c_Luc;
+  int      m_Str, m_Dex, m_Agi, m_Con, m_Pow, m_Int, m_Wis, m_Cha, m_Kar, m_Luc;
+  int      r_Str, r_Dex, r_Agi, r_Con, r_Pow, r_Int, r_Wis, r_Cha, r_Kar, r_Luc;
   int      AC, Age, Dam, Hit, Hits, Fprot, Move, Mana;
   int      S_spell, S_para, S_petri, S_rod, S_breath;
   sh_int   hit_reg, move_reg, mana_reg;
