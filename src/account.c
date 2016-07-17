@@ -823,7 +823,7 @@ void account_new_char_name(P_desc d, char *arg)
        d);
     return;
   }
-  if (IS_SET(game_locked, LOCK_CREATE))
+  if (IS_SET(game_locked, LOCK_CREATION))
   {
     SEND_TO_Q("Game is currently not allowing creation of new characters.\r\n"
               "Please use an existing character, or try again later.\r\n\r\n",

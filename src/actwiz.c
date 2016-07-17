@@ -3646,26 +3646,29 @@ void do_wizlock(P_char ch, char *arg, int cmd)
   char     buf[MAX_STRING_LENGTH];
   char     buf1[MAX_STRING_LENGTH];
 
-  if(!*arg)
+  if( !*arg || !str_cmp(arg, "?") )
   {
-    send_to_char("Usage: wizlock <create | connections | maxplayers>\n", ch);
+    send_to_char_f( ch, "Status: \nCreation   : %s\nConnections: %s\nMaxplayers : %s %d / %d\nLevel      : %s %d\n",
+      (IS_SET(game_locked, LOCK_CREATION)) ? "Yes" : "No ",
+      (IS_SET(game_locked, LOCK_CONNECTIONS)) ? "Yes" : "No ",
+      (IS_SET(game_locked, LOCK_MAX_PLAYERS)) ? "Yes" : "No ", number_of_players(), game_locked_players,
+      (IS_SET(game_locked, LOCK_LEVEL)) ? "Yes" : "No ", game_locked_level );
+    send_to_char("Usage: wizlock <creation | connections | maxplayers | level | ?> [value]\n", ch);
     return;
   }
-  one_argument(arg, buf1);
+  arg = one_argument(arg, buf1);
 
-  if(is_abbrev(buf1, "create"))
+  if(is_abbrev(buf1, "creation"))
   {
-    if(IS_SET(game_locked, LOCK_CREATE))
+    if(IS_SET(game_locked, LOCK_CREATION))
     {
-      REMOVE_BIT(game_locked, LOCK_CREATE);
-      sprintf(buf,
-              "&+GDuris DikuMUD ->&n Restrictions on new character creations lifted.\n");
+      REMOVE_BIT(game_locked, LOCK_CREATION);
+      sprintf(buf, "&+GDuris DikuMUD ->&n Restrictions on new character creations lifted.\n");
     }
     else
     {
-      SET_BIT(game_locked, LOCK_CREATE);
-      sprintf(buf,
-              "&+RDuris DikuMUD ->&n Game is being locked;  no more character creation.\n");
+      SET_BIT(game_locked, LOCK_CREATION);
+      sprintf(buf, "&+RDuris DikuMUD ->&n Game is being locked;  no more character creation.\n");
     }
   }
   else if(is_abbrev(buf1, "connections"))
@@ -3673,14 +3676,12 @@ void do_wizlock(P_char ch, char *arg, int cmd)
     if(IS_SET(game_locked, LOCK_CONNECTIONS))
     {
       REMOVE_BIT(game_locked, LOCK_CONNECTIONS);
-      sprintf(buf,
-              "&+GDuris DikuMUD ->&n Restrictions on new connections lifted.\n");
+      sprintf(buf, "&+GDuris DikuMUD ->&n Restrictions on new connections lifted.\n");
     }
     else
     {
       SET_BIT(game_locked, LOCK_CONNECTIONS);
-      sprintf(buf,
-              "&+RDuris DikuMUD ->&n Game is being locked; no more connections.\n");
+      sprintf(buf, "&+RDuris DikuMUD ->&n Game is being locked; no more connections.\n");
     }
   }
   else if(is_abbrev(buf1, "maxplayers"))
@@ -3688,20 +3689,48 @@ void do_wizlock(P_char ch, char *arg, int cmd)
     if(IS_SET(game_locked, LOCK_MAX_PLAYERS))
     {
       REMOVE_BIT(game_locked, LOCK_MAX_PLAYERS);
-      sprintf(buf,
-              "&+GDuris DikuMUD ->&n Restrictions on max players lifted.\n");
+      sprintf(buf, "&+GDuris DikuMUD ->&n Restrictions on max players lifted.\n");
     }
     else
     {
-      SET_BIT(game_locked, LOCK_MAX_PLAYERS);
-      sprintf(buf,
-              "&+RDuris DikuMUD ->&n Game is limited to a MAX of %d players\n",
-              MAX_PLAYERS_BEFORE_LOCK);
+      one_argument( arg, buf1 );
+      if( is_number(buf1) && (atoi(buf1) >= 0) )
+      {
+        SET_BIT(game_locked, LOCK_MAX_PLAYERS);
+        game_locked_players = atoi(buf1);
+        sprintf(buf,"&+RDuris DikuMUD ->&n Game is limited to a MAX of %d players.\n", game_locked_players );
+      }
+      else
+      {
+        send_to_char( "To lock a number of players, please supply the number that's at least 0.\n", ch );
+      }
+    }
+  }
+  else if(is_abbrev(buf1, "level"))
+  {
+    if( IS_SET(game_locked, LOCK_LEVEL) )
+    {
+      REMOVE_BIT(game_locked, LOCK_LEVEL);
+      sprintf(buf, "&+GDuris DikuMUD ->&n Restrictions on level lifted.\n");
+    }
+    else
+    {
+      one_argument( arg, buf1 );
+      if( is_number(buf1) && (atoi(buf1) > 0) )
+      {
+        SET_BIT(game_locked, LOCK_LEVEL);
+        game_locked_level = atoi(buf1);
+        sprintf(buf,"&+RDuris DikuMUD ->&n Game is limited to level %d players.\n", game_locked_level );
+      }
+      else
+      {
+        send_to_char( "To level-lock the game, please supply the number that's at least 1.\n", ch );
+      }
     }
   }
   else
   {
-    send_to_char("Usage: wizlock <create | connections | maxplayers>.\n", ch);
+    send_to_char("Usage: wizlock <creation | connections | maxplayers | level | ?> [value].\n", ch);
     return;
   }
 

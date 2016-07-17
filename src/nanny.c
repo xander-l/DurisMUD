@@ -109,7 +109,9 @@ void event_halfling_check(P_char, P_char, P_obj, void*);
 void event_smite_evil(P_char, P_char, P_obj, void*);
 long unsigned int ip2ul(const char *ip);
 
-unsigned int game_locked = LOCK_CREATE;       /* 0x00000001;  no creation */
+unsigned int game_locked = LOCK_CREATION;       /* 0x00000001;  no creation */
+unsigned int game_locked_players = 0;
+unsigned int game_locked_level = 0;
 struct mm_ds *dead_pconly_pool = NULL;
 long int highestPCidNumb;
 
@@ -2944,12 +2946,13 @@ int number_of_players(void)
   P_desc   d;
   int      count = 0;
 
-  for (d = descriptor_list; d != NULL; d = d->next)
+  for( d = descriptor_list; d != NULL; d = d->next )
   {
-    count++;
+    if( !(d->character) || (GET_LEVEL( d->character ) < MINLVLIMMORTAL) )
+      count++;
   }
 
-  return (count);
+  return count;
 }
 
 void perform_eq_wipe(P_char ch)
@@ -4083,9 +4086,7 @@ void select_name(P_desc d, char *arg, int flag)
   if (!pfile_exists(SAVE_DIR, tmp_name) &&
       pfile_exists(BADNAME_DIR, tmp_name))
   {
-    SEND_TO_Q
-      ("That name has been declined before, and would be now too!\r\nName:",
-       d);
+    SEND_TO_Q("That name has been declined before, and would be now too!\r\nName:", d);
     return;
   }
 
@@ -4122,13 +4123,11 @@ void select_name(P_desc d, char *arg, int flag)
   }
   else if (pfile_exists(BADNAME_DIR, tmp_name))
   {
-    SEND_TO_Q
-      ("That name has been declined before, and would be now too!\r\nName:",
-       d);
+    SEND_TO_Q("That name has been declined before, and would be now too!\r\nName:", d);
     return;
   }
   /* new player */
-  if( (IS_SET(game_locked, LOCK_CREATE) || !strcmp(get_mud_info("lock").c_str(), "create"))
+  if( (IS_SET(game_locked, LOCK_CREATION) || !strcmp(get_mud_info("lock").c_str(), "create"))
     && !pfile_exists("Players/Accepted", tmp_name) )
   {
     if( !flag && d->character )
@@ -4152,10 +4151,16 @@ void select_name(P_desc d, char *arg, int flag)
     STATE(d) = CON_NAME;
     return;
   }
-  else if ((IS_SET(game_locked, LOCK_CONNECTIONS)) ||
-           ((IS_SET(game_locked, LOCK_MAX_PLAYERS)) &&
-            (number_of_players() >= MAX_PLAYERS_BEFORE_LOCK)))
+  else if( IS_SET(game_locked, LOCK_CONNECTIONS) )
   {
+    SEND_TO_Q("Game is temporarily closed to new connections.  Please try again later.\r\n", d);
+    STATE(d) = CON_FLUSH;
+    return;
+  }
+  else if( ((IS_SET(game_locked, LOCK_MAX_PLAYERS)) && (number_of_players() > game_locked_players)) )
+  {
+    sprintf( Gbuf1, "Game is temporarily locked to %d chars.\n", game_locked_players );
+    SEND_TO_Q(Gbuf1, d);
     SEND_TO_Q("Game is temporarily full.  Please try again later.\r\n", d);
     STATE(d) = CON_FLUSH;
     return;
@@ -4435,20 +4440,28 @@ void select_pwd(P_desc d, char *arg)
 
       if( IS_SET(game_locked, LOCK_CONNECTIONS) && !IS_TRUSTED(d->character) )
       {
-        SEND_TO_Q("\r\nGame is temporarily closed to additional players.\r\n",
-                  d);
-        SEND_TO_Q("Please try again later.  -The Mgmt\r\n", d);
+        SEND_TO_Q("\r\nGame is temporarily closed to additional players.\r\n", d);
+        SEND_TO_Q("Please try again later.  -The Mgt\r\n", d);
         STATE(d) = CON_FLUSH;
         return;
       }
 
       if( (IS_SET(game_locked, LOCK_MAX_PLAYERS)) && !IS_TRUSTED(d->character)
-        && (number_of_players() >= MAX_PLAYERS_BEFORE_LOCK) )
+        && (number_of_players() > game_locked_players) )
       {
-        SEND_TO_Q("\r\nGame is currently full.  Please try again later.\r\n",
-                  d);
-        SEND_TO_Q
-          ("Note 5pm - 8am EST there are no limits on connections.\r\n", d);
+        sprintf( Gbuf1, "Game is temporarily locked to %d chars.\n", game_locked_players );
+        SEND_TO_Q(Gbuf1, d);
+        SEND_TO_Q("\r\nGame is currently full.  Please try again later.\r\n", d);
+//        SEND_TO_Q("Note 5pm - 8am EST there are no limits on connections.\r\n", d);
+        STATE(d) = CON_FLUSH;
+        return;
+      }
+
+      if( ((IS_SET(game_locked, LOCK_LEVEL)) && (GET_LEVEL(d->character) < game_locked_level)) )
+      {
+        sprintf( Gbuf1, "Game is temporarily locked to your level (levels below %d).  Please try again later.\r\n",
+          game_locked_level );
+        SEND_TO_Q(Gbuf1, d);
         STATE(d) = CON_FLUSH;
         return;
       }
