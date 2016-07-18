@@ -5234,6 +5234,8 @@ void create_tags()
   TAG_CREATE("troll burn", TAG_TROLL_BURN);
   TAG_CREATE("guildhall tag", TAG_GUILDHALL);
   TAG_CREATE("direction tag", TAG_DIRECTION);
+  TAG_CREATE("holy offense", TAG_HOLY_OFFENSE);
+  TAG_CREATE("holy defense", TAG_HOLY_DEFENSE);
   TAG_CREATE("boon power", TAG_BOON);
   TAG_CREATE("flag carrier", TAG_CTF);
   TAG_CREATE("ctf flag bonus", TAG_CTF_BONUS);
