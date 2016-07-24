@@ -3114,7 +3114,7 @@ cudgel oaken stout oak wood~
 &+ya stout oaken cudgel&N~
 &+yA stout cudgel carved from oak wood lies here.&N~
 ~
-5 6 3 0 7 0 8192 8193 0 0 0
+5 6 3 0 7 0 8200 8193 0 0 0
 10 1 6 7 0 0 0 0
 3 0 100
 #291
@@ -4096,7 +4096,7 @@ bag leather small~
 &+ya small leather bag&N~
 &+yA small leather bag lies here.&N~
 ~
-15 13 3 4 7 0 0 16385 0 0 0
+15 13 3 4 7 0 8 16385 0 0 0
 30 1 0 80 0 0 0 0
 2 10 100
 #391
@@ -6223,7 +6223,7 @@ bag purple cloth delicate~
 &+ma bag of delicate purple cloth&N~
 &+mA bag made from some delicate purple cloth lies here.&N~
 ~
-15 3 3 8 7 0 0 16385 0 0 0
+15 3 3 8 7 0 8 16385 0 0 0
 50 1 0 100 0 0 0 0
 2 0 100
 #610
@@ -7101,7 +7101,7 @@ cord woven skulls skull bones bone sinew human decorated~
 &+La cord of human sinew, decorated with skulls&N~
 &+LSkulls and bones dangle from a woven cord which has been left here.&N~
 ~
-11 10 0 0 7 0 0 5 0 0 0
+11 10 0 0 7 0 8 5 0 0 0
 0 0 0 9 0 0 0 0
 2 40 100
 #734
