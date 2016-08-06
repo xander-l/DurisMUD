@@ -13417,7 +13417,7 @@ void spell_shatter(int level, P_char ch, char *arg, int type, P_char victim, P_o
   };
 
   // Corresponds to approx bigbys + 10 damage saved (This is 9th circle vs bigbys 8th for Bards).
-  dam = 15 * level + dice(3, level);
+  dam = 10 * level + dice(level, 3);
   // 92 - 100 pow has no bonus, < 92 pow means easier to save, > 100 pow means harder to save.
   savemod = STAT_INDEX( GET_C_POW(ch) ) - 15;
 

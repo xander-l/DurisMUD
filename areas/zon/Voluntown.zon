@@ -2,7 +2,7 @@
 &+LThe &+BRo&+bya&+Bl &+wMau&+Lso&+wleum &+Lof Castle &+WIce&+CCrag&n~
 142532 0 0 40 50 6
 *
-* Zone edited with durisEdit v3.00
+* Zone edited with durisEdit v3.02
 *
 *
 D 0 142400 3 2 100 0 0 0
@@ -151,6 +151,7 @@ G 1 142400 1 0 100 0 0 0           *    a golden seal of the fates
 G 1 142448 1 0 100 0 0 0           *    the necklace of the icecrag royalty
 G 1 359 1 0 100 0 0 0              *    (object type not in this .obj file)
 G 1 22070 1 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 142419 1 0 100 0 0 0           *    the legendary cutlass 'Sanguine Song'
 M 0 142427 1 142446 100 0 0 0      * Hynera Drakenstone
 E 1 142445 1 16 100 0 0 0          *   a green bladed dagger named 'Sepsis'
 E 1 142446 1 17 100 0 0 0          *   an iron dagger
@@ -176,7 +177,6 @@ E 1 142417 10 16 100 0 0 0         *   a massive femur bone
 E 1 142417 10 17 100 0 0 0         *   a massive femur bone
 M 0 142407 9 142468 100 0 0 0      * A frozen corpse
 M 0 142408 1 142469 100 0 0 0      * Bran Boru
-E 1 142419 1 16 100 0 0 0          *   the legendary cutlass 'Sanguine Song'
 G 1 142418 1 0 100 0 0 0           *    the royal key of Boru
 F 1 142409 2 142469 100 0 0 0      * A frost giant skeleton (following)
 F 1 142409 2 142469 100 0 0 0      * A frost giant skeleton (following)
