@@ -39,6 +39,7 @@ extern float hp_mob_con_factor;
 extern float hp_mob_npc_pc_ratio;
 extern int damroll_cap;
 extern int hitroll_cap;
+extern int errand_notch;
 
 void     update_exp_table();
 
@@ -118,6 +119,7 @@ void apply_properties()
   hp_mob_npc_pc_ratio = get_property("hitpoints.mob.NpcPcRatio", 2.0);
   damroll_cap = get_property("damage.damrollCap", 64);
   hitroll_cap = get_property("damage.hitrollCap", 75);
+  errand_notch = get_property("epic.errandStep", 500);
 }
 
 int parse_property(struct property *property, char *buf)

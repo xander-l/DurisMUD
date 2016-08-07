@@ -64,6 +64,8 @@ const char *prestige_names[EPIC_MAX_PRESTIGE] = {
   "Living Legend"
 };
 
+int errand_notch;
+
 int epic_points(P_char ch)
 {
   for (int i = 0; epic_teachers[i].vnum; i++) {
@@ -343,7 +345,6 @@ void gain_epic(P_char ch, int type, int data, int amount)
   char buffer[256];
   struct affected_type af, *afp;
   int notch = get_property("epic.skillPointStep", 100);
-  int errand_notch = get_property("epic.errandStep", 200);
 
   // If invalid ch or bad load of errand_notch (don't care about notch as we don't use skillpoints anymore).
   if( !IS_ALIVE(ch) || errand_notch < 1 )
@@ -1104,6 +1105,7 @@ void epic_initialization()
   for (int i = 0; epic_teachers[i].vnum; i++) {
     mob_index[real_mobile(epic_teachers[i].vnum)].func.mob = epic_teacher;
   }
+  errand_notch = get_property("epic.errandStep", 200);
 }
 
 int stat_shops(int room, P_char ch, int cmd, char *arg)
