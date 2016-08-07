@@ -2912,11 +2912,11 @@ void spell_wall_of_bones(int level, P_char ch, char *arg, int type, P_char tar_c
           return;
         }
       }
-      else if( OBJ_VNUM(corpse) == VOBJ_PILE_BONES )
+      else if( corpse && OBJ_VNUM(corpse) == VOBJ_PILE_BONES )
       {
         clevel = corpse->value[CORPSE_LEVEL];
       }
-      else if( OBJ_VNUM(corpse) == VOBJ_DRAGON_SCALE )
+      else if( corpse && OBJ_VNUM(corpse) == VOBJ_DRAGON_SCALE )
       {
         scales = 1;
       }
