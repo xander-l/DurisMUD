@@ -46,10 +46,7 @@ void convertMob(P_char ch)
   float    xp, copp, silv, gold, plat;
   int      damN, damS, damA, hits, level, x, xhigh;
 
-  if (!ch)
-    return;
-    
-  if(IS_PC(ch))
+  if( !ch || IS_PC(ch) )
     return;
 
   set_npc_multi(ch);
@@ -74,7 +71,7 @@ void convertMob(P_char ch)
   if (GET_RACE(ch) == RACE_UNDEAD &&
       isname("skeleton", GET_NAME(ch)))
       GET_RACE(ch) = RACE_SKELETON;
-      
+
   if (GET_RACE(ch) == RACE_UNDEAD &&
       isname("zombie", GET_NAME(ch)))
       GET_RACE(ch) = RACE_ZOMBIE;
@@ -157,7 +154,7 @@ void convertMob(P_char ch)
   if (GET_LEVEL(ch) > 50)
   {
 //    GET_EXP(ch) = (int) (GET_LEVEL(ch) * 2500);
-    xp = 2500;
+    xp = 4000;
     copp = 0;
     silv = 0;
     gold = .4292;

@@ -2944,9 +2944,7 @@ void kill_gain(P_char ch, P_char victim)
             learn_conjure_recipe(ch, victim);
         }
       }
-
     }
-
     return;
   }
 
@@ -2997,14 +2995,13 @@ void kill_gain(P_char ch, P_char victim)
 
       /* power leveler stopgap measure */
       if( (GET_LEVEL(gl->ch) + 40) < highest_level )
-        XP /= 10000;
+        XP /= 5000;
       else if( (GET_LEVEL(gl->ch) + 30) < highest_level )
-        XP /= 2000;
+        XP /= 1000;
       else if( (GET_LEVEL(gl->ch) + 20) < highest_level )
-        XP /= 300;
+        XP /= 150;
       else if( (GET_LEVEL(gl->ch) + 15) < highest_level )
-        XP /= 80;
-
+        XP /= 40;
 
       if( XP && IS_PC(gl->ch) )
       {
