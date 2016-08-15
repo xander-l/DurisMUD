@@ -14,3 +14,11 @@ ship~
 28 15 3 0 7 0 67117056 0 0 0 0
 0 0 0 0 0 0 0 0
 0 0 100
+#60002
+wooden crate~
+&+ya large wooden crate&N~
+&+yA large wooden crate floats here.&N~
+~
+13 5 3 0 7 0 8192 0 1024 0 0
+0 0 0 0 0 0 0 0
+0 0 100

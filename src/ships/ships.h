@@ -7,7 +7,7 @@
 
 #define VOBJ_PANEL          60000
 #define VOBJ_ALL_SHIPS      60001
-#define VOBJ_CARGO_CRATE    40226
+#define VOBJ_CARGO_CRATE    60002
 
 #define VROOM_DAVY_JONES    60000
 #define VROOM_SHIP_TRANSIT  60001
