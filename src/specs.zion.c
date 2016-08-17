@@ -36,6 +36,8 @@ bool exit_wallable(int room, int dir, P_char ch);
 
 int tharnrifts_portal(P_obj obj, P_char ch, int cmd, char *arg)
 {
+  int racewar;
+
   if (cmd == CMD_SET_PERIODIC)
   {
     return TRUE;
@@ -54,7 +56,8 @@ int tharnrifts_portal(P_obj obj, P_char ch, int cmd, char *arg)
   {
     if (isname(arg, "portal") || isname(arg, "shadowrift"))
     {
-      if(IS_RACEWAR_GOOD(ch))
+      racewar = IS_PC_PET(ch) ? GET_RACEWAR(GET_MASTER(ch)) : GET_RACEWAR(ch);
+      if( racewar == RACEWAR_GOOD )
         obj->value[0] = 5569;
       else
         obj->value[0] = 5583;
