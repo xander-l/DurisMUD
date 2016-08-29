@@ -2198,24 +2198,28 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
   char    *tmp_desc;
 
   const char *keywords[] = {
-    "north",
+    "north",        // 0
     "east",
     "south",
     "west",
     "up",
-    "down",
+    "down",         // 5
     "in",
     "at",
     "",                         /* Look at '' case */
     "room",
-    "northwest",
+    "northwest",    // 10
     "southwest",
     "northeast",
     "southeast",
     "nw",
-    "sw",
+    "sw",           // 15
     "ne",
     "se",
+    "n",
+    "e",
+    "s",            // 20
+    "w",
     "inside",
     "\n"
   };
@@ -2284,7 +2288,7 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
   brief_mode = IS_SET(GET_TRUE_CHAR(ch)->specials.act, PLR_BRIEF);
 
   /* Partial Match */
-  keyword_no = search_block(arg1, keywords, FALSE);
+  keyword_no = search_block(arg1, keywords, TRUE);
 
   /* Let arg2 become the target object (arg1) */
   if( (keyword_no == -1) && *arg1 )
@@ -2300,39 +2304,40 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
   // If we have no args, and CMD_LOOKOUT or CMD_LOOKAFAR
   if( (keyword_no == 8) && (cmd != CMD_LOOK) )
   {
-    keyword_no = 20;
+    keyword_no = 23;
   }
 
   switch (keyword_no)
   {
     /* look <dir> */
+    /* we get to decrement keyword_no because of northwest etc */
+  case 18:
+  case 19:
+  case 20:
+  case 21:
+    keyword_no -= 10;
+  case 14:
+  case 15:
+  case 16:
+  case 17:
+    keyword_no -= 4;
+  case 10:
+  case 11:
+  case 12:
+  case 13:
+    keyword_no -= 4;
   case 0:
   case 1:
   case 2:
   case 3:
   case 4:
   case 5:
-  case 10:
-  case 11:
-  case 12:
-  case 13:
-  case 14:
-  case 15:
-  case 16:
-  case 17:
     /*
      * ok, this gets ugly, but adding vis_mode helps, all the
      * MAGIC_DARK cases are already handled.  vis_mode < 3 works prety
      * much like this routine always has.  vis_mode 3 can't see closed
      * exits.
      */
-
-    /* we get to decrement keyword_no because of northwest etc */
-
-    if (keyword_no >= 14)
-      keyword_no -= 8;
-    else if (keyword_no >= 10)
-      keyword_no -= 4;
 
     if( !EXIT(ch, keyword_no) || (!IS_TRUSTED(ch) && IS_SET(EXIT(ch, keyword_no)->exit_info, EX_ILLUSION)) )
     {
@@ -2770,9 +2775,9 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
 
   case 8:                      /* look COMMAND, with NULL args, brief is forced */
   case 9:                      /* look 'room', brief is overridden */
-  case 20:                     /* look called with CMD_LOOKOUT or CMD_LOOKAFAR */
+  case 23:                     /* look called with CMD_LOOKOUT or CMD_LOOKAFAR */
 
-  case 18:                     // looking 'inside' something - so we can show a room w/o the map
+  case 22:                     // looking 'inside' something - so we can show a room w/o the map
 
     switch (keyword_no)
     {
