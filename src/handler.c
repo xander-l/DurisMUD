@@ -70,6 +70,7 @@ void     send_to_arena(char *msg, int race);
 extern void timedShutdown(P_char ch, P_char, P_obj, void *data);
 //void disarm_obj_events(P_obj obj, event_func func);
 int map_view_distance(P_char ch, int room);
+bool leave_safe_room( P_char ch );
 
 /*
  * called every 20 seconds, just loops through chars doing...stuff
@@ -1266,13 +1267,20 @@ bool char_to_room(P_char ch, int room, int dir)
   // Purge NPCs from safe rooms? ok...
   if( IS_SET(world[room].room_flags, SAFE_ROOM) )
   {
-    if( IS_NPC(ch) )
+    // Do not purge pets...
+    if( IS_NPC(ch) && (GET_MASTER( ch ) == NULL) )
     {
+      // Attempt to have them leave the room first.
+      if( leave_safe_room(ch) )
+      {
+        return TRUE;
+      }
       // If we have an Immortal switched into the char.
       if( ch->desc )
       {
         do_return( ch, NULL, CMD_DEATH );
       }
+
       extract_char(ch);
       ch = NULL;
       return FALSE;
@@ -4028,4 +4036,28 @@ int io_agi_defense(P_char ch)
   i = MAX(-275, 275 - i);
   return -((18906 - (i * i / 4)) / 151 - 44);
 #endif
+}
+
+// Attempts to move a NPC out of a safe room (they're not allowed there).
+bool leave_safe_room( P_char ch )
+{
+  int i, dir;
+
+  // Start with a random direction, and walk around the possible dirs.
+  i = dir = number( 0, NUM_EXITS-1 );
+
+  // While we can't move them that direction,
+  while( !leave_by_exit(ch, dir) )
+  {
+    // Look at the next direction.
+    dir = (dir + 1) % NUM_EXITS;
+    // Fail if we make a full circle.
+    if( dir == i )
+    {
+      return FALSE;
+    }
+  }
+
+  do_simple_move( ch, dir, 0 );
+  return TRUE;
 }
