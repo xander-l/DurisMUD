@@ -2086,21 +2086,56 @@ int fill_word(char *argument)
   return (search_block(argument, fill_words, TRUE) >= 0);
 }
 
-/*
- * determine if a given string is an abbreviation of another
- */
-int is_abbrev(const char *arg1, const char *arg2)
+// Determine if a given string is an abbreviation of another
+bool is_abbrev(const char *arg1, const char *arg2)
 {
-  int      i;
+  int i;
 
-  if (!arg1 || !arg2)
-    return 0;
+  if( !arg1 || !arg2 )
+    return FALSE;
 
-  for (i = 0; *(arg1 + i); i++)
+  for( i = 0; *(arg1 + i); i++ )
+  {
     if (LOWER(*(arg1 + i)) != LOWER(*(arg2 + i)))
-      return (0);
+    {
+      return FALSE;
+    }
+  }
 
-  return (1);
+  return TRUE;
+}
+
+// Determine if arg2 is a suffix of arg1.
+bool ends_with(const char *arg1, const char *arg2)
+{
+  int i1, i2;
+
+  if( !arg1 || !arg2 )
+  {
+    return FALSE;
+  }
+
+  i1 = strlen(arg1);
+  i2 = strlen(arg2);
+
+  // Suffix must not be longer than the orignal string.
+  if( i2 > i1 )
+  {
+    return FALSE;
+  }
+
+  // We check to see that the length is > 0, then decrement to check with the index.
+  while( i2-- > 0 )
+  {
+    // must decrement i1 as well since we want the index not the length.
+    --i1;
+    if( LOWER(*(arg1 + i1)) != LOWER(*(arg2 + i2)) )
+    {
+      return FALSE;
+    }
+  }
+
+  return TRUE;
 }
 
 /*

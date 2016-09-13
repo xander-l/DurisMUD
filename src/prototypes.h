@@ -1246,7 +1246,8 @@ bool special(P_char, int, char *);
 char *one_argument(const char *, char *);
 char lower(char);
 int fill_word(char *);
-int is_abbrev(const char *, const char *); // Checks to see if char *a is a prefix of char* b
+bool is_abbrev(const char *, const char *); // Checks to see if char *a is a prefix of char* b
+bool ends_with(const char *, const char *); // Checks to see if char *a ends with suffix char* b
 bool is_number(char *);
 bool is_real_number(char *);
 int old_search_block(const char *, uint, uint, const char **, int);

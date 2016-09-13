@@ -2822,9 +2822,11 @@ void extract_char(P_char ch)
         do_return(t_desc->character, 0, -4);
   }
   
-  if (IS_PC(ch))
+  if( IS_PC(ch) )
   {
-    update_ingame_racewar( -GET_RACEWAR(GET_TRUE_CHAR(ch)) );
+    // If it's not an immortal or a locker char.
+    if( GET_LEVEL(ch) < MINLVLIMMORTAL && !ends_with(GET_NAME(ch), ".locker") )
+      update_ingame_racewar( -GET_RACEWAR(GET_TRUE_CHAR(ch)) );
     if (IS_AFFECTED2(ch, AFF2_CASTING))
       StopCasting(ch);
   }

@@ -255,6 +255,17 @@ void do_test_writemap(P_char ch, char *arg, int cmd)
   }
     
 }
+
+void do_test_suffix( P_char ch, char *arg )
+{
+  char orig[MAX_STRING_LENGTH], suffix[MAX_STRING_LENGTH];
+
+  arg = one_argument( arg, orig );
+  arg = one_argument( arg, suffix);
+
+  send_to_char_f( ch, "string: '%s', suffix: '%s', suffix: %s.\n", orig, suffix, YESNO(ends_with( orig, suffix )) );
+}
+
 /*
 void do_test_add_epic_skillpoint(P_char ch, const char *charname)
 {
@@ -290,6 +301,11 @@ void do_test(P_char ch, char *arg, int cmd)
 
   arg = one_argument(arg, buff);
 
+  if( isname("suffix", buff) )
+  {
+    do_test_suffix( ch, arg );
+    return;
+  }
   if( isname("missile", buff) )
   {
     int count, rnum, type, avgdam, maxdam;

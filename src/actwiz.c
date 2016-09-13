@@ -159,6 +159,8 @@ extern float racial_exp_mod_victims[LAST_RACE + 1];
 extern int damroll_cap;
 extern const racewar_struct racewar_color[MAX_RACEWAR+2];
 
+extern void update_ingame_racewar( int racewar );
+
 typedef void cmd_func(P_char, char *, int);
 extern const struct innate_data
 {
@@ -529,6 +531,7 @@ void do_read_player(P_char ch, char *arg, int cmd)
   vict->specials.was_in_room = vict->in_room;
 
   char_to_room(vict, ch->in_room, -2);
+  update_ingame_racewar( GET_RACEWAR(vict) );
 
   act("$N &+Bappears before you, greatly humbled by your power.", FALSE, ch,
       0, vict, TO_CHAR);
