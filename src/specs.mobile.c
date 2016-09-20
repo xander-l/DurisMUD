@@ -880,22 +880,20 @@ void demogorgon_second_head(P_char ch)
 
 int demogorgon(P_char ch, P_char tch, int cmd, char *arg)
 {
-  
   P_char victim;
   int      helpers[] = { 19830, 19850, 19860, 19880, 19840, 19870, 19400, 19901, 19760, 0 };
   static bool stats_increased = FALSE;
   static bool demogorgon_shouted = FALSE;
 
-  if (cmd == CMD_SET_PERIODIC)
-    return FALSE;
+  if( cmd == CMD_SET_PERIODIC )
+    return TRUE;
 
-  if (!ch || !IS_AWAKE(ch) || cmd || IS_IMMOBILE(ch))
+  if( !IS_ALIVE(ch) || !IS_AWAKE(ch) || cmd || IS_IMMOBILE(ch) )
     return FALSE;
 
 /*
   He's a demon prince, he should have proper stats.
-*/  
-
+*/
   if (!stats_increased)
   {
     stats_increased = TRUE;
@@ -903,12 +901,11 @@ int demogorgon(P_char ch, P_char tch, int cmd, char *arg)
     act("$n &+Lgrows more powerful!", FALSE, ch, 0, 0, TO_ROOM);
     return TRUE;
   }
-  
+
 /*
   Recharging the shout action, and preparing for the next battle
   (a little surprise for groups that massed and/or had to retreat)
 */
-  
   if (demogorgon_shouted && !number(0, 10) && !IS_FIGHTING(ch))
   {
     demogorgon_shouted = FALSE; /* he's ready for shouting again */
@@ -916,19 +913,19 @@ int demogorgon(P_char ch, P_char tch, int cmd, char *arg)
     wizlog(MINLVLIMMORTAL, "Demogorgon has just regained the ability to call for help.");
     return TRUE;
   }
-  
+
   if (!IS_FIGHTING(ch))
     return FALSE;
 
-/* 
+/*
   Note, the new "call friends in" radius is only TWO - this makes it
-  possible for groups to take chances with tackling the boss before 
+  possible for groups to take chances with tackling the boss before
   having actually fully cleared the grid. Radius 3 is still a good
   chunk of the cubic grid. Most of it actually. To check if this shouldn't
   get lowered down to 2.
 */
 
-  if (!demogorgon_shouted) 
+  if (!demogorgon_shouted)
   {
     demogorgon_shouted = TRUE;
     shout_and_hunt(ch, 3, "&+GYou will pay for attacking me mortal worms!   Denizens of darkness, come and feast upon %s!", NULL, helpers, 0, 0);
