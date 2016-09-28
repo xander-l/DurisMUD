@@ -286,7 +286,7 @@ SECS_PER_MUD_DAY)
 bool IS_TWILIGHT_ROOM(int r);
 bool IS_OUTDOORS(int r);
 
-#define IS_ROOM( room, flag ) (IS_SET(world[room].room_flags, flag) )
+#define IS_ROOM( room, flag ) (IS_SET(world[room].room_flags, (flag)) )
 
 #define SET_BIT(var, bit)  ((var) = (var) | (bit))
 

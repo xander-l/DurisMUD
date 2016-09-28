@@ -10503,6 +10503,7 @@ int patrol_leader(P_char ch, P_char pl, int cmd, char *arg)
         if (CAN_GO(ch, door) &&
             EXIT(ch, door)->to_room != NOWHERE &&
             !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_MOB) &&
+            !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_TRACK) &&
             world[EXIT(ch, door)->to_room].sector_type != SECT_NO_GROUND)
         {
           if (world[EXIT(ch, door)->to_room].justice_area ==
@@ -10645,6 +10646,7 @@ int patrol_leader_road(P_char ch, P_char pl, int cmd, char *arg)
               (EXIT(ch, door)->to_room) &&
               CAN_GO(ch, door) &&
               !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_MOB) &&
+              !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_TRACK) &&
               world[EXIT(ch, door)->to_room].sector_type != SECT_NO_GROUND &&
               world[EXIT(ch, door)->to_room].justice_area ==
               world[ch->in_room].justice_area &&
@@ -10668,6 +10670,7 @@ int patrol_leader_road(P_char ch, P_char pl, int cmd, char *arg)
           if (CAN_GO(ch, door) &&
               (EXIT(ch, door)->to_room) &&
               !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_MOB) &&
+              !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_TRACK) &&
               world[EXIT(ch, door)->to_room].sector_type != SECT_NO_GROUND)
           {
             if (EXIT(ch, door)->to_room &&
@@ -10698,6 +10701,7 @@ int patrol_leader_road(P_char ch, P_char pl, int cmd, char *arg)
               CAN_GO(ch, door) &&
               (EXIT(ch, door)->to_room) &&
               !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_MOB) &&
+              !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_TRACK) &&
               world[EXIT(ch, door)->to_room].sector_type != SECT_NO_GROUND &&
               world[EXIT(ch, door)->to_room].justice_area ==
               world[ch->in_room].justice_area &&

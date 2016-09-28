@@ -988,7 +988,7 @@ int floating_pool(P_obj obj, P_char ch, int cmd, char *arg)
                  EX_SECRET)) &&
         (!IS_SET(world[(my_room)].dir_option[(i)]->exit_info,
                  EX_BLOCKED)) &&
-        (!IS_ROOM(FLT_TOROOM(my_room, i), ROOM_NO_MOB)))
+        (!IS_ROOM(FLT_TOROOM(my_room, i), ROOM_NO_MOB | ROOM_NO_TRACK)))
       pos_dirs[num_choices++] = i;
 
   if (!num_choices)
@@ -1086,8 +1086,7 @@ int teleporting_pool(P_obj obj, P_char ch, int cmd, char *arg)
       to_room = (number(zone_table[world[obj->loc.room].zone].real_bottom,
                         zone_table[world[obj->loc.room].zone].real_top));
     }
-    while( IS_ROOM(to_room, ROOM_PRIVATE) ||
-           IS_ROOM(to_room, ROOM_NO_MOB));
+    while( IS_ROOM(to_room, ROOM_PRIVATE | ROOM_NO_MOB | ROOM_NO_TRACK) );
 
     act("$p &+Lslowly vanishes away into nothingness.&N", TRUE, NULL, obj, NULL, TO_ROOM);
     obj_from_room(obj);
@@ -1130,8 +1129,7 @@ int teleporting_map_pool(P_obj obj, P_char ch, int cmd, char *arg)
       to_room = (number(zone_table[world[obj->loc.room].zone].real_bottom,
         zone_table[world[obj->loc.room].zone].real_top));
     }
-    while( IS_ROOM(to_room, ROOM_PRIVATE)
-      || IS_ROOM(to_room, ROOM_NO_MOB) );
+    while( IS_ROOM(to_room, ROOM_PRIVATE | ROOM_NO_MOB | ROOM_NO_TRACK) );
 
     act("$p &+Lslowly vanishes away into nothingness.&N", TRUE, NULL, obj, NULL, TO_ROOM);
     obj_from_room(obj);

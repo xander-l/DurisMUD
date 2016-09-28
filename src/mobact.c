@@ -8759,6 +8759,9 @@ int MobCanGo(P_char ch, int dir)
   if(IS_ROOM(EXIT(ch, foo)->to_room, ROOM_NO_MOB))
     return FALSE;
 
+  if(IS_ROOM(EXIT(ch, foo)->to_room, ROOM_NO_TRACK))
+    return FALSE;
+
   if(IS_SET(ch->specials.act, ACT_STAY_ZONE) &&
       !IS_SET(ch->specials.act, ACT_HUNTER) &&
       (world[ch->in_room].zone != world[EXIT(ch, foo)->to_room].zone))
@@ -8829,7 +8832,7 @@ void MobHuntCheck(P_char ch, P_char vict)
       (world[ch->in_room].zone != world[vict->in_room].zone))
     return;
 
-  if(IS_ROOM(vict->in_room, ROOM_NO_MOB))
+  if(IS_ROOM(vict->in_room, ROOM_NO_TRACK))
     return;
 
   for (tmp = world[ch->in_room].people; tmp; tmp = tmp->next_in_room)

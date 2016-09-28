@@ -104,6 +104,7 @@ bool GuildhallRoom::init()
 
   SET_BIT(this->room->room_flags, ROOM_GUILD);
   SET_BIT(this->room->room_flags, ROOM_NO_MOB);
+  SET_BIT(this->room->room_flags, ROOM_NO_TRACK);
   SET_BIT(this->room->room_flags, ROOM_NO_TELEPORT);
   SET_BIT(this->room->room_flags, ROOM_NO_RECALL);
   SET_BIT(this->room->room_flags, ROOM_NO_SUMMON);
@@ -139,6 +140,7 @@ bool GuildhallRoom::deinit()
     // TODO: make sure removing ROOM_GUILD doesnt mess up enter_game calculations, etc
     REMOVE_BIT(this->room->room_flags, ROOM_GUILD);
     REMOVE_BIT(this->room->room_flags, ROOM_NO_MOB);
+    REMOVE_BIT(this->room->room_flags, ROOM_NO_TRACK);
     REMOVE_BIT(this->room->room_flags, ROOM_NO_TELEPORT);
     REMOVE_BIT(this->room->room_flags, ROOM_NO_RECALL);
     REMOVE_BIT(this->room->room_flags, ROOM_NO_SUMMON);

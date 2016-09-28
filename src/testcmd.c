@@ -266,6 +266,20 @@ void do_test_suffix( P_char ch, char *arg )
   send_to_char_f( ch, "string: '%s', suffix: '%s', suffix: %s.\n", orig, suffix, YESNO(ends_with( orig, suffix )) );
 }
 
+void do_test_no_track( P_char ch, char *arg )
+{
+  int rroom = -1, count = 0;
+
+  send_to_char( "&=LWNo Track Rooms:&N\n", ch );
+  while( ++rroom < top_of_world )
+  {
+    if( IS_ROOM(rroom, ROOM_NO_TRACK) )
+    {
+      send_to_char_f( ch, "Room: %3d) %6d '%s'.\n", ++count, world[rroom].number, world[rroom].name );
+    }
+  }
+}
+
 /*
 void do_test_add_epic_skillpoint(P_char ch, const char *charname)
 {
@@ -301,6 +315,11 @@ void do_test(P_char ch, char *arg, int cmd)
 
   arg = one_argument(arg, buff);
 
+  if( isname("no_track", buff) )
+  {
+    do_test_no_track( ch, arg );
+    return;
+  }
   if( isname("suffix", buff) )
   {
     do_test_suffix( ch, arg );

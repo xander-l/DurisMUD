@@ -1667,7 +1667,7 @@ byte find_first_step(int src, int target, long hunt_flags, int is_ship, int wago
         && (can_fly || !NEEDS_FLY( src, curr_dir ))
         && (!stay_zone || SAME_ZONE(src, curr_dir ))
         && (can_dispel || !IS_WALLED( src, curr_dir ) || ( can_break && IS_BREAKABLE(src, curr_dir) ))
-        && (!no_mob || !IS_ROOM( exit->to_room, ROOM_NO_MOB )) )
+        && (!no_mob || !IS_ROOM( exit->to_room, ROOM_NO_TRACK )) )
       {
         // If the target room is one room away and we've found it.
         if( (rr_targ ? IS_ROADRANGER_TARGET(exit->to_room) : (exit->to_room == target)) )
@@ -1730,7 +1730,7 @@ byte find_first_step(int src, int target, long hunt_flags, int is_ship, int wago
           && (can_fly || !NEEDS_FLY( curr_room, curr_dir ))
           && (!stay_zone || SAME_ZONE(curr_room, curr_dir ))
           && (can_dispel || !IS_WALLED( curr_room, curr_dir ) || ( can_break && IS_BREAKABLE(curr_room, curr_dir) ))
-          && (!no_mob || !IS_ROOM( exit->to_room, ROOM_NO_MOB )) )
+          && (!no_mob || !IS_ROOM( exit->to_room, ROOM_NO_TRACK )) )
         {
           // If we've found the target room.
           if( (rr_targ ? IS_ROADRANGER_TARGET(exit->to_room) : (exit->to_room == target)) )

@@ -1499,6 +1499,7 @@ int range_scan(P_char ch, P_char target, int distance, int type_scan)
        if (CAN_GO(ch, door) &&
            !check_wall(ch->in_room, door) &&
            !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_MOB) &&
+           !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_TRACK) &&
            !IS_ROOM(EXIT(ch, door)->to_room, ROOM_MAGIC_DARK))
        {
          target_room = world[ch->in_room].dir_option[door]->to_room;
@@ -1593,6 +1594,7 @@ int range_scan_track(P_char ch, int distance, int type_scan)
        if (CAN_GO(ch, door) &&
            !check_wall(ch->in_room, door) &&
            !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_MOB) &&
+           !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_TRACK) &&
            !IS_ROOM(EXIT(ch, door)->to_room, ROOM_MAGIC_DARK))
        {
          target_room = world[ch->in_room].dir_option[door]->to_room;

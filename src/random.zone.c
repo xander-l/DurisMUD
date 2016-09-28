@@ -239,6 +239,7 @@ void create_zone(int theme, int map_room1, int map_room2, int level_range,
       //First room is !mob.
 
       SET_BIT(world[room_nr].room_flags, ROOM_NO_MOB);
+      SET_BIT(world[room_nr].room_flags, ROOM_NO_TRACK);
 
       if (map_room1 == 999)
       {
