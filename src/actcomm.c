@@ -134,7 +134,7 @@ bool is_silent(P_char ch, bool showit)
 
   if( ch->in_room != NOWHERE
     && ((IS_SET(zone_table[world[ch->in_room].zone].flags, ZONE_SILENT)
-    || IS_SET(world[ch->in_room].room_flags, ROOM_SILENT)
+    || IS_ROOM( ch->in_room, ROOM_SILENT)
     || IS_AFFECTED2(ch, AFF2_SILENCED) || (IS_PC(ch) && IS_SET(ch->specials.act, PLR_SILENCE))
     || affected_by_spell_flagged(ch, SKILL_THROAT_CRUSH, AFFTYPE_CUSTOM1))
     && !IS_TRUSTED(ch)) )
@@ -373,7 +373,7 @@ int say(P_char ch, const char *argument)
     send_to_avatar(ch, argument + i);
     return TRUE;
   }
-  else if( (IS_SET(world[ch->in_room].room_flags, UNDERWATER) || ch->specials.z_cord < 0)
+  else if( (IS_ROOM( ch->in_room, ROOM_UNDERWATER) || ch->specials.z_cord < 0)
     && !IS_TRUSTED(ch) && !IS_NPC(ch) )
   {
     send_to_char("You try to say something in the water...\n", ch);
@@ -848,7 +848,7 @@ void do_shout(P_char ch, char *argument, int cmd)
     send_to_char("You cannot speak in that form!\r\n", ch);
     return;
   }
-  if ((IS_SET(world[ch->in_room].room_flags, UNDERWATER) ||
+  if ((IS_ROOM( ch->in_room, ROOM_UNDERWATER) ||
        ch->specials.z_cord < 0) && !IS_TRUSTED(ch) && !IS_NPC(ch))
   {
     send_to_char
@@ -945,7 +945,7 @@ void do_tell(P_char ch, char *argument, int cmd)
     send_to_char("Who do you wish to tell what??\r\n", ch);
     return;
   }
-  if ((IS_SET(world[ch->in_room].room_flags, UNDERWATER) ||
+  if ((IS_ROOM( ch->in_room, ROOM_UNDERWATER) ||
        ch->specials.z_cord < 0) && !IS_TRUSTED(ch))
   {
     send_to_char("Your species doesn't know how to communicate underwater...",
@@ -990,7 +990,7 @@ void do_tell(P_char ch, char *argument, int cmd)
     send_to_char("You try to tell yourself something.\r\n", ch);
   else if (!vict->desc || (IS_AFFECTED4(vict, AFF4_DEAF)))
     act("$E can't hear you.", FALSE, ch, 0, vict, TO_CHAR);
-  else if (((IS_SET(world[vict->in_room].room_flags, UNDERWATER)) ||
+  else if (((IS_ROOM( vict->in_room, ROOM_UNDERWATER)) ||
             vict->specials.z_cord < 0) && !IS_TRUSTED(vict))
   {
     act("$E can't hear you.", FALSE, ch, 0, vict, TO_CHAR);
@@ -1096,7 +1096,7 @@ void do_whisper(P_char ch, char *argument, int cmd)
   {
     return;
   }
-  else if ((IS_SET(world[ch->in_room].room_flags, UNDERWATER) ||
+  else if ((IS_ROOM( ch->in_room, ROOM_UNDERWATER) ||
             ch->specials.z_cord < 0) && !IS_TRUSTED(ch) && !IS_NPC(ch))
   {
     send_to_char
@@ -1185,7 +1185,7 @@ void do_ask(P_char ch, char *argument, int cmd)
     send_to_char("No-one by that name here...\r\n", ch);
     return;
   }
-  else if ((IS_SET(world[ch->in_room].room_flags, UNDERWATER) ||
+  else if ((IS_ROOM( ch->in_room, ROOM_UNDERWATER) ||
             ch->specials.z_cord < 0) && !IS_TRUSTED(ch) && !IS_NPC(ch))
   {
     send_to_char("Too difficult to do here...", ch);
@@ -2008,7 +2008,7 @@ void do_yell(P_char ch, char *argument, int cmd)
        ch);
     return;
   }
-  if ((IS_SET(world[ch->in_room].room_flags, UNDERWATER) ||
+  if ((IS_ROOM( ch->in_room, ROOM_UNDERWATER) ||
        ch->specials.z_cord < 0) && !IS_TRUSTED(ch) && !IS_NPC(ch))
   {
     send_to_char
@@ -2045,7 +2045,7 @@ void do_yell(P_char ch, char *argument, int cmd)
       if (i->character && (i->character != ch) &&
           !is_silent(i->character, FALSE) &&
           !IS_SET(i->character->specials.act, PLR_NOSHOUT) && !i->connected &&
-          (!(world[ch->in_room].room_flags & INDOORS) ||
+          (!IS_ROOM( ch->in_room, ROOM_INDOORS) ||
            (i->character->in_room == ch->in_room)))
       {
         if (world[i->character->in_room].zone != world[ch->in_room].zone)
@@ -2107,7 +2107,7 @@ void do_beep(P_char ch, char *argument, int cmd)
     send_to_char("Who do you wish to beep?\r\n", ch);
     return;
   }
-  if( (IS_SET(world[ch->in_room].room_flags, UNDERWATER)
+  if( (IS_ROOM( ch->in_room, ROOM_UNDERWATER)
     || ch->specials.z_cord < 0) && !IS_TRUSTED(ch))
   {
     send_to_char("Your species doesn't know how to beep underwater...", ch);
@@ -2156,7 +2156,7 @@ void do_beep(P_char ch, char *argument, int cmd)
   {
     act("$E can't hear you.", FALSE, ch, 0, vict, TO_CHAR);
   }
-  else if( (IS_SET(world[vict->in_room].room_flags, UNDERWATER)
+  else if( (IS_ROOM( vict->in_room, ROOM_UNDERWATER)
     || vict->specials.z_cord < 0) && !IS_TRUSTED(vict) )
   {
     act("$E can't hear you.", FALSE, ch, 0, vict, TO_CHAR);
@@ -2164,7 +2164,7 @@ void do_beep(P_char ch, char *argument, int cmd)
   }
   else if( !IS_TRUSTED(ch)
     && ((IS_SET(zone_table[world[ch->in_room].zone].flags, ZONE_SILENT)
-    || IS_SET(world[ch->in_room].room_flags, ROOM_SILENT))
+    || IS_ROOM( ch->in_room, ROOM_SILENT))
     || GET_STAT(vict) < STAT_RESTING || (PLR3_FLAGGED(vict, PLR3_NOBEEP)
     && !is_linked_from(vict, ch, LNK_CONSENT))))
   {

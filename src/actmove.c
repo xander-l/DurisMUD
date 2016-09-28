@@ -427,8 +427,7 @@ int leave_by_exit(P_char ch, int exitnumb)
    * to keep them from riding into buildings, while in caves, etc
    */
 #if 0
-  if( IS_RIDING(ch) && !IS_TRUSTED(ch) &&
-      (world[room_to].room_flags & INDOORS))
+  if( IS_RIDING(ch) && !IS_TRUSTED(ch) && IS_ROOM(room_to, INDOORS) )
   {
     send_to_char("While mounted? I don't think so...\n", ch);
     return (0);
@@ -443,21 +442,21 @@ int leave_by_exit(P_char ch, int exitnumb)
    * most degenerate case (ch is alone in room)
    */
 
-  if( IS_RIDING(ch) && (world[room_to].room_flags & SINGLE_FILE))
+  if( IS_RIDING(ch) && IS_ROOM(room_to, ROOM_SINGLE_FILE))
   {
     send_to_char("You can't fit into this narrow passage while mounted...\n", ch);
     return FALSE;
   }
 
   if( (( rider = get_linking_char(ch, LNK_RIDING) ) != NULL)
-    && (world[room_to].room_flags & SINGLE_FILE) )
+    && IS_ROOM(room_to, ROOM_SINGLE_FILE) )
   {
     send_to_char("You are almost knocked off your mount trying to head into such a cramped space.\n", rider );
     send_to_char("You almost knock off your rider trying to head into such a cramped space.\n", ch );
     return FALSE;
   }
 
-  if( (world[ch->in_room].room_flags & SINGLE_FILE) && !IS_TRUSTED(ch) &&
+  if( IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) && !IS_TRUSTED(ch) &&
       !IS_AFFECTED(ch, AFF_WRAITHFORM) && ((world[ch->in_room].people != ch)
                                            || (ch->next_in_room)))
   {
@@ -499,7 +498,7 @@ int leave_by_exit(P_char ch, int exitnumb)
 
     if( (exit1 == -1) || (exit2 == -1))
     {
-      REMOVE_BIT(world[ch->in_room].room_flags, SINGLE_FILE);
+      REMOVE_BIT(world[ch->in_room].room_flags, ROOM_SINGLE_FILE);
       logit(LOG_DEBUG, "Room %d set SINGLE_FILE with < 2 exits",
             world[ch->in_room].number);
       exit1 = -1;               /*
@@ -508,7 +507,7 @@ int leave_by_exit(P_char ch, int exitnumb)
     }
     if( exit3 != -1)
     {
-      REMOVE_BIT(world[ch->in_room].room_flags, SINGLE_FILE);
+      REMOVE_BIT(world[ch->in_room].room_flags, ROOM_SINGLE_FILE);
       logit(LOG_DEBUG, "Room %d set SINGLE_FILE with > 2 exits",
             world[ch->in_room].number);
       exit1 = -1;               /*
@@ -774,7 +773,7 @@ int can_enter_room(P_char ch, int room, int show_msg)
     }
   }
   
-  if( IS_SET(world[room].room_flags, PRIVATE))
+  if( IS_ROOM(room, ROOM_PRIVATE) )
   {
     for (i = 0, pers = world[room].people; pers;
          pers = pers->next_in_room, i++) ;
@@ -789,7 +788,7 @@ int can_enter_room(P_char ch, int room, int show_msg)
   /*
    * tunnels are not single-file, but are still pretty small
    */
-  if( (world[room].room_flags & (INDOORS | NO_PRECIP)) &&
+  if( IS_ROOM( room, (ROOM_INDOORS | ROOM_NO_PRECIP)) &&
       ch->specials.z_cord > 0)
   {
     if( !IS_TRUSTED(ch))
@@ -806,7 +805,7 @@ int can_enter_room(P_char ch, int room, int show_msg)
     }
   }
   if( ch->specials.z_cord > 0)
-    if( (world[room].room_flags & TUNNEL))
+    if( IS_ROOM( room, ROOM_TUNNEL))
     {
       if( !IS_TRUSTED(ch))
       {
@@ -857,9 +856,9 @@ int can_enter_room(P_char ch, int room, int show_msg)
    * cant move around on ocean unless in a ship --TAM 04/16/94
    */
 #if 1
-  if( world[room].sector_type == SECT_OCEAN && !IS_TRUSTED(ch) &&       // !IS_SET(world[ch->in_room].room_flags, DOCKABLE) &&
+  if( world[room].sector_type == SECT_OCEAN && !IS_TRUSTED(ch) &&       // !IS_ROOM(ch->in_room, ROOM_DOCKABLE) &&
       world[ch->in_room].sector_type != SECT_OCEAN &&
-      !IS_SET(world[room].room_flags, UNDERWATER) )
+      !IS_ROOM(room, ROOM_UNDERWATER) )
   {
     if( !is_ice(ch, room))
     {
@@ -1035,7 +1034,7 @@ char    *enter_message(P_char ch, P_char people, int exitnumb, char *amsg,
   {
     if(CAN_SEE(people, mount))
     {
-      if((IS_SET(world[ch->in_room].room_flags, UNDERWATER)) ||
+      if((IS_ROOM(ch->in_room, ROOM_UNDERWATER)) ||
         (ch->specials.z_cord < 0))
       {
         sprintf(tmp2, "swims in on %s", J_NAME(mount));
@@ -1045,7 +1044,7 @@ char    *enter_message(P_char ch, P_char people, int exitnumb, char *amsg,
         sprintf(tmp2, "rides in on %s", J_NAME(mount));
       }
     }
-    else if((IS_SET(world[ch->in_room].room_flags, UNDERWATER)) ||
+    else if((IS_ROOM(ch->in_room, ROOM_UNDERWATER)) ||
            (ch->specials.z_cord < 0))
     {
       strcpy(tmp2, "swims in on something");
@@ -1066,7 +1065,7 @@ char    *enter_message(P_char ch, P_char people, int exitnumb, char *amsg,
     /* amsg's only %s is placeholder for verb .. */
 
     sprintf(tmp, amsg,
-            IS_SET(world[ch->in_room].room_flags, UNDERWATER) ? "swims in" :
+            IS_ROOM(ch->in_room, ROOM_UNDERWATER) ? "swims in" :
             ch->specials.z_cord < 0 ? "swims in" :
             ch->specials.z_cord > 0 ? "flies in" :
             LEVITATE(ch, exitnumb) ? "floats in" :
@@ -1118,7 +1117,7 @@ char    *leave_message(P_char ch, P_char people, int exitnumb, char *amsg)
 
   /* add verb and direction */
   sprintf(amsg + strlen(amsg), "%s %s",
-          IS_SET(world[ch->in_room].room_flags, UNDERWATER) ? "swims" :
+          IS_ROOM(ch->in_room, ROOM_UNDERWATER) ? "swims" :
           ch->specials.z_cord < 0 ? "swims" :
           ch->specials.z_cord > 0 ? "flies" :
           LEVITATE(ch, exitnumb) ? "floats" :
@@ -1619,7 +1618,7 @@ int do_simple_move_skipping_procs(P_char ch, int exitnumb, unsigned int flags)
   was_in = ch->in_room;
   new_room = world[was_in].dir_option[exitnumb]->to_room;
   zone = &zone_table[world[new_room].zone];
-  if( IS_SET(world[was_in].room_flags, LOCKER) )
+  if( IS_ROOM(was_in, ROOM_LOCKER) )
   {
     if( zone->status > ZONE_NORMAL )
     {
@@ -1842,7 +1841,7 @@ int do_simple_move_skipping_procs(P_char ch, int exitnumb, unsigned int flags)
   }
 
 // old guildhalls (deprecated)
-//  if(!IS_SET(world[ch->in_room].room_flags, GUILD_ROOM) &&
+//  if(!IS_ROOM(ch->in_room, GUILD_ROOM) &&
 //     IS_SET(ch->specials.affected_by4, AFF4_SACKING))
 //  {
 //    /* they are not in a guild room, but are set as sacking */
@@ -1859,7 +1858,7 @@ int do_simple_move_skipping_procs(P_char ch, int exitnumb, unsigned int flags)
       memset(&raf, 0, sizeof(struct room_affect));
       raf.type = SPELL_GLOBE_OF_DARKNESS;
       raf.duration = 1;
-      raf.room_flags = MAGIC_DARK;
+      raf.room_flags = ROOM_MAGIC_DARK;
       raf.ch = ch;
       praf = affect_to_room(was_in, &raf);
     }
@@ -1868,7 +1867,7 @@ int do_simple_move_skipping_procs(P_char ch, int exitnumb, unsigned int flags)
       memset(&raf, 0, sizeof(struct room_affect));
       raf.type = SPELL_MAGE_FLAME;
       raf.duration = 1;
-      raf.room_flags = MAGIC_LIGHT;
+      raf.room_flags = ROOM_MAGIC_LIGHT;
       raf.ch = ch;
       praf = affect_to_room(was_in, &raf);
     }
@@ -3174,7 +3173,7 @@ void do_enter(P_char ch, char *argument, int cmd)
           {
             strcpy(Gbuf1, dirs[door]);
             // old guildhalls (deprecated)
-//            if( IS_SET(world[ch->in_room].room_flags, ROOM_ATRIUM))
+//            if( IS_ROOM(ch->in_room, ROOM_ATRIUM))
 //            {
 //              if( !House_can_enter(ch, world[ch->in_room].number, door))
 //              {
@@ -3188,7 +3187,7 @@ void do_enter(P_char ch, char *argument, int cmd)
     sprintf(Gbuf4, "There is no %s here.\n", Gbuf1);
     send_to_char(Gbuf4, ch);
   }
-  else if( IS_SET(world[ch->in_room].room_flags, INDOORS))
+  else if( IS_ROOM(ch->in_room, ROOM_INDOORS))
     send_to_char("You are already indoors.\n", ch);
   else
   {
@@ -3201,11 +3200,10 @@ void do_enter(P_char ch, char *argument, int cmd)
           !IS_SET(EXIT(ch, door)->exit_info, EX_BLOCKED))
         if( EXIT(ch, door)->to_room != NOWHERE)
           if( !IS_SET(EXIT(ch, door)->exit_info, EX_CLOSED) &&
-              IS_SET(world[EXIT(ch, door)->to_room].room_flags,
-                     INDOORS) && dirs[door])
+              IS_ROOM(EXIT(ch, door)->to_room, ROOM_INDOORS) && dirs[door])
           {
             // old guildhalls (deprecated
-//            if( IS_SET(world[ch->in_room].room_flags, ROOM_ATRIUM))
+//            if( IS_ROOM(ch->in_room, ROOM_ATRIUM))
 //            {
 //              if( !House_can_enter(ch, world[ch->in_room].number, -1))
 //              {
@@ -3234,7 +3232,7 @@ void do_leave(P_char ch, char *argument, int cmd)
     return;
   }
 
-  if( !IS_SET(world[ch->in_room].room_flags, INDOORS))
+  if( !IS_ROOM(ch->in_room, INDOORS))
     send_to_char("You are outside.. where do you want to go?\n", ch);
   else
   {
@@ -3244,7 +3242,7 @@ void do_leave(P_char ch, char *argument, int cmd)
           !IS_SET(EXIT(ch, door)->exit_info, EX_BLOCKED))
         if( EXIT(ch, door)->to_room != NOWHERE)
           if( !IS_SET(EXIT(ch, door)->exit_info, EX_CLOSED) &&
-              !IS_SET(world[EXIT(ch, door)->to_room].room_flags, INDOORS) &&
+              !IS_ROOM(EXIT(ch, door)->to_room, INDOORS) &&
               dirs[door])
           {
             strcpy(Gbuf1, dirs[door]);
@@ -3527,7 +3525,7 @@ void do_drag(P_char ch, char *argument, int cmd)
 
         return;
       }
-      if(IS_SET(world[ch->in_room].room_flags, LOCKER))
+      if(IS_ROOM(ch->in_room, ROOM_LOCKER))
       {
         act("The locker door slams shut before you can drag $N behind you.",
             TRUE, ch, 0, tch, TO_CHAR);
@@ -3639,7 +3637,7 @@ void do_drag(P_char ch, char *argument, int cmd)
     if( ch->in_room != NOWHERE)
     {
 
-      if(IS_SET(world[ch->in_room].room_flags, LOCKER))
+      if(IS_ROOM(ch->in_room, ROOM_LOCKER))
       {
         act("The locker door slams shut on your hand before you can pull $p in.",
             TRUE, ch, obj, 0, TO_CHAR);

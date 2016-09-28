@@ -363,7 +363,7 @@ void spell_shadow_travel(int level, P_char ch, char *arg, int type,
     return;
   }
   
-  if (IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
+  if (IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) ||
       world[ch->in_room].sector_type == SECT_OCEAN ||
       IS_HOMETOWN(ch->in_room) )
   {
@@ -381,7 +381,7 @@ void spell_shadow_travel(int level, P_char ch, char *arg, int type,
 
   location = victim->in_room;
 
-  if (IS_SET(world[location].room_flags, NO_TELEPORT) ||
+  if (IS_ROOM(location, ROOM_NO_TELEPORT) ||
       IS_HOMETOWN(location) ||
       world[location].sector_type == SECT_CASTLE ||
       world[location].sector_type == SECT_CASTLE_GATE ||
@@ -1382,7 +1382,7 @@ void spell_dream_travel(int level, P_char ch, char *arg, int type, P_char victim
 
         if( IS_NPC(targ) || is_linked_to(ch, targ, LNK_CONSENT) )
         {
-          if( (IS_SET(world[targ->in_room].room_flags, NO_TELEPORT) || IS_HOMETOWN(targ->in_room) ) && !IS_TRUSTED(ch) )
+          if( (IS_ROOM(targ->in_room, ROOM_NO_TELEPORT) || IS_HOMETOWN(targ->in_room) ) && !IS_TRUSTED(ch) )
           {
             send_to_char("You feel slightly sleepy, but shake it off.\r\n", ch);
             continue;
@@ -2112,7 +2112,7 @@ void spell_flicker(int level, P_char ch, char *arg, int type, P_char victim,
 
     act("&+LThe room is blanketed in da&+mnci&+Mng sh&+mado&+Lws.&n", 0, ch, 0, 0, TO_ROOM);
     act("&+LThe room is blanketed in da&+mnci&+Mng sh&+mado&+Lws.&n", 0, ch, 0, 0, TO_CHAR);
-    SET_BIT(world[ch->in_room].room_flags, TWILIGHT);
+    SET_BIT(world[ch->in_room].room_flags, ROOM_TWILIGHT);
 
     gl = ch->group;
     /* leader first */
@@ -2288,7 +2288,7 @@ void cast_ardgral(int level, P_char ch, char *arg, int type, P_char tar_ch,
 
   to_room = real_room0(number(30401, 30464));
 
-  if( IS_SET(world[ch->in_room].room_flags, NO_GATE)
+  if( IS_ROOM(ch->in_room, ROOM_NO_GATE)
     || IS_HOMETOWN(ch->in_room) )
   {
     send_to_char(msg.fail_to_caster, ch);

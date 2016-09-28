@@ -276,10 +276,8 @@ void spell_spirit_walk(int level, P_char ch, char *arg, int type, P_char victim,
   location = tobj->loc.room;
 
   // if room is !port, fail!
-  if(IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
-      IS_SET(world[location].room_flags, NO_TELEPORT) ||
-      IS_HOMETOWN(ch->in_room) ||
-      IS_HOMETOWN(location))
+  if( IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) || IS_ROOM(location, ROOM_NO_TELEPORT)
+    || IS_HOMETOWN(ch->in_room) || IS_HOMETOWN(location) )
   {
     act
       ("&+L$n quickly becomes dazed and immobile from a sudden shock to the core of his spirit.&N",
@@ -4183,7 +4181,7 @@ void spell_spirit_jump(int level, P_char ch, char *arg, int type, P_char victim,
   }
 
   if( IS_AFFECTED3(victim, AFF3_NON_DETECTION) || IS_HOMETOWN(ch->in_room)
-    || IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) || world[victim->in_room].sector_type == SECT_CASTLE
+    || IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) || world[victim->in_room].sector_type == SECT_CASTLE
     || world[victim->in_room].sector_type == SECT_CASTLE_WALL
     || world[victim->in_room].sector_type == SECT_CASTLE_GATE
     || (IS_PC(victim) && IS_SET(victim->specials.act2, PLR2_NOLOCATE) && !is_introd(victim, ch)) )
@@ -4200,7 +4198,7 @@ void spell_spirit_jump(int level, P_char ch, char *arg, int type, P_char victim,
 
   location = victim->in_room;
 
-  if( IS_SET(world[location].room_flags, NO_TELEPORT) || IS_HOMETOWN(location) || racewar(ch, victim)
+  if( IS_ROOM(location, ROOM_NO_TELEPORT) || IS_HOMETOWN(location) || racewar(ch, victim)
     || (GET_MASTER(ch) && IS_PC(victim)) )
   {
     send_to_char("&+CYou failed.\n", ch);

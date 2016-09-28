@@ -753,7 +753,7 @@ int mox_totem(P_obj obj, P_char ch, int cmd, char *argument)
 
   curr_time = time(NULL);
 
-  if( !IS_SET(world[ch->in_room].room_flags, NO_MAGIC) )
+  if( !IS_ROOM(ch->in_room, ROOM_NO_MAGIC) )
   {
     if (obj->timer[0] + 30 <= curr_time)
     {

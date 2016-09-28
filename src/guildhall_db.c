@@ -98,10 +98,10 @@ int next_guildhall_room_vnum()
       continue;
     
     // skip if vnum room is already set as guild room
-    if( IS_SET(world[real_room0(vnum)].room_flags, GUILD_ROOM) )
+    if( IS_ROOM(real_room0(vnum), ROOM_GUILD) )
       continue;
     
-    SET_BIT(world[real_room0(vnum)].room_flags, GUILD_ROOM);
+    SET_BIT(world[real_room0(vnum)].room_flags, ROOM_GUILD);
     
     return vnum;
   }

@@ -516,9 +516,9 @@ void cast_gate(int level, P_char ch, char *arg, int type, P_char tar_ch, P_obj t
     }
 
     if ((to_room == NOWHERE) || (to_room == from_room) ||
-        IS_SET(world[to_room].room_flags, NO_MAGIC) ||
-        IS_SET(world[from_room].room_flags, NO_GATE) ||
-        IS_SET(world[to_room].room_flags, NO_GATE) ||
+        IS_ROOM(to_room, ROOM_NO_MAGIC) ||
+        IS_ROOM(from_room, ROOM_NO_GATE) ||
+        IS_ROOM(to_room, ROOM_NO_GATE) ||
         IS_HOMETOWN(to_room) ||
         IS_HOMETOWN(from_room))
     {
@@ -646,8 +646,8 @@ void cast_nether_gate(int level, P_char ch, char *arg, int type,
     }
 
     if ((to_room == NOWHERE) || (to_room == from_room) ||
-        IS_SET(world[from_room].room_flags, NO_GATE) ||
-        IS_SET(world[to_room].room_flags, NO_GATE) ||
+        IS_ROOM(from_room, ROOM_NO_GATE) ||
+        IS_ROOM(to_room, ROOM_NO_GATE) ||
         IS_HOMETOWN(to_room) ||
         IS_HOMETOWN(from_room))
     {
@@ -826,9 +826,9 @@ void cast_plane_shift(int level, P_char ch, char *arg, int type, P_char tar_ch, 
 
       if((to_room == NOWHERE) ||
         (to_room == ch->in_room) ||
-        IS_SET(world[to_room].room_flags, NO_MAGIC) ||
-        IS_SET(world[ch->in_room].room_flags, NO_GATE) ||
-        IS_SET(world[to_room].room_flags, NO_GATE) ||
+        IS_ROOM(to_room, ROOM_NO_MAGIC) ||
+        IS_ROOM(ch->in_room, ROOM_NO_GATE) ||
+        IS_ROOM(to_room, ROOM_NO_GATE) ||
         IS_HOMETOWN(to_room) ||
         IS_HOMETOWN(ch->in_room))
       {
@@ -906,7 +906,7 @@ void spell_wall_of_flames(int level, P_char ch, char *arg, int type, P_char tar_
   one_argument(arg, Gbuf4);
   var = dir_from_keyword(Gbuf4);
 
-  if (IS_SET(world[ch->in_room].room_flags, UNDERWATER))
+  if (IS_ROOM(ch->in_room, ROOM_UNDERWATER))
   {
     send_to_char("Fire has a problem staying lit underwater...", ch);
     return;
@@ -1427,7 +1427,7 @@ void event_ethereal_grounds(P_char ch, P_char victim, P_obj obj, void *data)
                 g_data->room);
 
    world[g_data->room].sector_type = SECT_ETHEREAL;
-   REMOVE_BIT(world[g_data->room].room_flags, INDOORS);
+   REMOVE_BIT(world[g_data->room].room_flags, ROOM_INDOORS);
 }
 
 void spell_ethereal_grounds(int level, P_char ch, char *arg, int type,
@@ -1487,7 +1487,7 @@ void event_trans_mud_rock(P_char ch, P_char victim, P_obj obj, void *data)
   send_to_room("&+yThe muddy ground swirls together and becomes &nsolid.\n", g_data->room);
 
   world[g_data->room].sector_type = SECT_FIELD;
-  REMOVE_BIT(world[g_data->room].room_flags, INDOORS);
+  REMOVE_BIT(world[g_data->room].room_flags, ROOM_INDOORS);
 }
 
 void cast_transmute_mud_rock(int level, P_char ch, char *arg, int type, P_char tar_ch,
@@ -1543,7 +1543,7 @@ void event_trans_rock_mud(P_char ch, P_char victim, P_obj obj, void *data)
   send_to_room("&+yThe ground swirls around and becomes &+mswampy!&n\n", g_data->room);
 
   world[g_data->room].sector_type = SECT_SWAMP;
-  REMOVE_BIT(world[g_data->room].room_flags, INDOORS);
+  REMOVE_BIT(world[g_data->room].room_flags, ROOM_INDOORS);
 }
 
 void cast_transmute_rock_mud(int level, P_char ch, char *arg, int type, P_char tar_ch,
@@ -1608,7 +1608,7 @@ void event_trans_mud_water(P_char ch, P_char victim, P_obj obj, void *data)
   send_to_room("&+yThe &+mswamp &+Bwater &+yrises and fills the area!&n\n", g_data->room);
 
   world[g_data->room].sector_type = SECT_WATER_SWIM;
-  REMOVE_BIT(world[g_data->room].room_flags, INDOORS);
+  REMOVE_BIT(world[g_data->room].room_flags, ROOM_INDOORS);
 }
 
 void cast_transmute_mud_water(int level, P_char ch, char *arg, int type, P_char tar_ch,
@@ -1666,7 +1666,7 @@ void event_trans_water_mud(P_char ch, P_char victim, P_obj obj, void *data)
                g_data->room);
 
   world[g_data->room].sector_type = SECT_SWAMP;
-  REMOVE_BIT(world[g_data->room].room_flags, INDOORS);
+  REMOVE_BIT(world[g_data->room].room_flags, ROOM_INDOORS);
 }
 
 void cast_transmute_water_mud(int level, P_char ch, char *arg, int type, P_char tar_ch,
@@ -1728,7 +1728,7 @@ void event_trans_water_air(P_char ch, P_char victim, P_obj obj, void *data)
    send_to_room("&+BThe water in this area &+Wevaporates!&n\n", g_data->room);
 
    world[g_data->room].sector_type = SECT_AIR_PLANE;
-   REMOVE_BIT(world[g_data->room].room_flags, INDOORS);
+   REMOVE_BIT(world[g_data->room].room_flags, ROOM_INDOORS);
 }
 
 void cast_transmute_water_air(int level, P_char ch, char *arg, int type, P_char tar_ch,
@@ -1790,7 +1790,7 @@ void event_trans_air_water(P_char ch, P_char victim, P_obj obj, void *data)
                 g_data->room);
 
    world[g_data->room].sector_type = SECT_WATER_SWIM;
-   REMOVE_BIT(world[g_data->room].room_flags, INDOORS);
+   REMOVE_BIT(world[g_data->room].room_flags, ROOM_INDOORS);
 }
 
 void cast_transmute_air_water(int level, P_char ch, char *arg, int type, P_char tar_ch,
@@ -1845,7 +1845,7 @@ void event_trans_rock_lava(P_char ch, P_char victim, P_obj obj, void *data)
   send_to_room("&+RThe ground opens up spewing lava everywhere!&n\n", g_data->room);
 
   world[g_data->room].sector_type = SECT_FIREPLANE;
-  REMOVE_BIT(world[g_data->room].room_flags, INDOORS);
+  REMOVE_BIT(world[g_data->room].room_flags, ROOM_INDOORS);
 }
 
 void cast_transmute_rock_lava(int level, P_char ch, char *arg, int type, P_char tar_ch, P_obj tar_obj)
@@ -1914,7 +1914,7 @@ void event_trans_lava_rock(P_char ch, P_char victim, P_obj obj, void *data)
                 g_data->room);
 
    world[g_data->room].sector_type = SECT_HILLS;
-   REMOVE_BIT(world[g_data->room].room_flags, INDOORS);
+   REMOVE_BIT(world[g_data->room].room_flags, ROOM_INDOORS);
 }
 
 void cast_transmute_lava_rock(int level, P_char ch, char *arg, int type, P_char tar_ch,
@@ -1971,7 +1971,7 @@ void event_depressed_earth(P_char ch, P_char victim, P_obj obj, void *data)
                 g_data->room);
 
    world[g_data->room].sector_type = SECT_SWAMP;
-   REMOVE_BIT(world[g_data->room].room_flags, INDOORS);
+   REMOVE_BIT(world[g_data->room].room_flags, ROOM_INDOORS);
 }
 
 void cast_depressed_earth(int level, P_char ch, char *arg, int type, P_char tar_ch,
@@ -2048,7 +2048,7 @@ void event_grow(P_char ch, P_char victim, P_obj obj, void *data)
   }
 
   world[g_data->room].sector_type = SECT_FOREST;
-  REMOVE_BIT(world[g_data->room].room_flags, INDOORS);
+  REMOVE_BIT(world[g_data->room].room_flags, ROOM_INDOORS);
 }
 
 void cast_grow(int level, P_char ch, char *arg, int type, P_char tar_ch,
@@ -2099,7 +2099,7 @@ void cast_grow(int level, P_char ch, char *arg, int type, P_char tar_ch,
 
   }
   
-  if(IS_SET(world[ch->in_room].room_flags, GUILD_ROOM))
+  if( IS_ROOM(ch->in_room, ROOM_GUILD) )
   {
     send_to_char("This terrain is not fit for a forest.\n", ch);
     return;

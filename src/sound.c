@@ -77,7 +77,7 @@ void sound_to_room(const char *messg, int room)
     for (i = world[room].people; i; i = i->next_in_room)
       if (i->desc && i->desc->term_type == TERM_MSP)
         if (IS_TRUSTED(i) ||
-            !IS_SET(world[i->in_room].room_flags, ROOM_SILENT) ||
+            !IS_ROOM(i->in_room, ROOM_SILENT) ||
             i->specials.z_cord == 0)
           write_to_q(messg, &i->desc->output, 2);
 }

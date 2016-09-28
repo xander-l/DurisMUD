@@ -666,7 +666,7 @@ bool holy_weapon_proc(P_char ch, P_char victim)
     af.type = SPELL_CONTINUAL_LIGHT;
     // 1 sec per level.
     af.duration = (GET_LEVEL(ch) * 4);
-    af.room_flags = TWILIGHT;
+    af.room_flags = ROOM_TWILIGHT;
     af.ch = ch;
     affect_to_room(ch->in_room, &af);
 

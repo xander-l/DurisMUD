@@ -2328,7 +2328,7 @@ int shout_and_hunt(P_char ch, int max_distance, const char *shout_str, int (*loc
   /*
    * if its quiet in here, can't shout for help
    */
-  if( IS_SET(world[ch->in_room].room_flags, ROOM_SILENT) )
+  if( IS_ROOM(ch->in_room, ROOM_SILENT) )
   {
     return FALSE;
   }
@@ -2841,8 +2841,7 @@ void justice_engine(int town)
   }
 
   if ((hometowns[town - 1].jail_room != 0) &&
-      IS_SET(world[real_room(hometowns[town - 1].jail_room)].room_flags,
-             JAIL))
+      IS_ROOM(real_room(hometowns[town - 1].jail_room), ROOM_JAIL))
   {
     for (tch = world[real_room(hometowns[town - 1].jail_room)].people; tch;
          tch = temp)

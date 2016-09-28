@@ -258,7 +258,7 @@ void do_gsay(P_char ch, char *arg, int cmd)
     send_to_char("But you are a member of no group?!\r\n", ch);
     return;
   }
-  if (IS_SET(world[ch->in_room].room_flags, UNDERWATER) && !IS_TRUSTED(ch))
+  if( IS_ROOM(ch->in_room, ROOM_UNDERWATER) && !IS_TRUSTED(ch))
   {
     send_to_char("You cannot group say while underwater...\r\n", ch);
     return;
@@ -432,7 +432,7 @@ void do_stampede(P_char ch, char *arg, int cmd)
     send_to_char("You have no footing here!\r\n", ch);
     return;
   }
-  if (IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+  if (IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
   {
     send_to_char("It's too cramped in here to stampede!\r\n", ch);
     return;
@@ -837,7 +837,7 @@ void do_flurry_of_blows(P_char ch, char *arg)
         " of this place.\r\n", ch);
     return;
   }
-  if (IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+  if (IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
   {
     send_to_char("Sorry, it's too cramped here for nasty maneuvers!\r\n", ch);
     return;
@@ -962,7 +962,7 @@ void do_hitall(P_char ch, char *arg, int cmd)
         " of this place.\r\n", ch);
     return;
   }
-  if (IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+  if (IS_ROOM( ch->in_room, ROOM_SINGLE_FILE))
   {
     send_to_char("Sorry, it's too cramped here for nasty maneuvers!\r\n", ch);
     return;
@@ -1953,8 +1953,8 @@ bool shapechange_canShapechange(P_char ch)
     send_to_char("You can't change your form when you have a rider!\r\n", ch);
     return FALSE;
   }
-  if (IS_SET(world[ch->in_room].room_flags, NO_MOB) ||
-      IS_SET(world[ch->in_room].room_flags, SAFE_ROOM))
+  if (IS_ROOM( ch->in_room, ROOM_NO_MOB) ||
+      IS_ROOM( ch->in_room, ROOM_SAFE))
   {
     send_to_char("Something in the air prevents yer magics!\r\n", ch);
     return FALSE;
@@ -4397,12 +4397,12 @@ bool throw_potion(P_char ch, P_obj potion, P_char victim, P_obj obj)
     unequip_char(ch, HOLD);
   }
 
-  if (IS_SET(world[ch->in_room].room_flags, NO_MAGIC) && !IS_TRUSTED(ch))
+  if (IS_ROOM( ch->in_room, ROOM_NO_MAGIC) && !IS_TRUSTED(ch))
   {
     send_to_char("Nothing seems to happen.\r\n", ch);
   }
   else if (victim && (victim != ch) && !IS_TRUSTED(ch) &&
-      (IS_SET(world[ch->in_room].room_flags, SINGLE_FILE)) &&
+      (IS_ROOM( ch->in_room, ROOM_SINGLE_FILE)) &&
       !AdjacentInRoom(ch, victim))
   {
     send_to_char("You can't get a clear line of sight!\r\n", ch);
@@ -4605,7 +4605,7 @@ void do_home(P_char ch, char *argument, int cmd)
   if(IS_NPC(ch))
     return;
 
-  if(IS_SET(world[ch->in_room].room_flags, SAFE_ROOM))
+  if(IS_ROOM( ch->in_room, ROOM_SAFE))
   {
     send_to_char("Try somewhere else...\r\n", ch);
     return;

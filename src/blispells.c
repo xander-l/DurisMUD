@@ -402,7 +402,7 @@ void spell_forbiddance(int level, P_char ch, char *arg, int type, P_char victim,
   memset(&af, 0, sizeof(struct room_affect));
   af.type = SPELL_FORBIDDANCE;
   af.duration = (GET_LEVEL(ch) * 4);
-  af.room_flags = NO_RECALL + NO_TELEPORT + NO_SUMMON + NO_GATE;
+  af.room_flags = ROOM_NO_RECALL + ROOM_NO_TELEPORT + ROOM_NO_SUMMON + ROOM_NO_GATE;
   af.ch = ch;
   affect_to_room(ch->in_room, &af);
 
@@ -1201,7 +1201,7 @@ void spell_bloodstone(int level, P_char ch, char *arg, int type, P_char victim, 
     return;
   }
 
-  if( IS_SET(world[ch->in_room].room_flags, NO_TELEPORT)
+  if( IS_ROOM(ch->in_room, ROOM_NO_TELEPORT)
     || world[ch->in_room].sector_type == SECT_OCEAN )
   {
     send_to_char("The powers of nature ignore your call for serenity.\n", ch);

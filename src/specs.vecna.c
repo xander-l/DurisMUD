@@ -578,7 +578,7 @@ int vecna_staffoaken(P_obj obj, P_char ch, int cmd, char *arg)
     // The periodic stuff...
     // 50% of the time, when hurt... heal...
     if ( (number(0, 100) <= 50) && (GET_HIT(ch) < GET_MAX_HIT(ch)) && (world[ch->in_room].sector_type != SECT_INSIDE)
-      && !IS_SET(world[ch->in_room].room_flags, INDOORS) )
+      && !IS_ROOM(ch->in_room, ROOM_INDOORS) )
     {
       act("&+gYou raise $p&+g overhead and it covers you with its &+Ghealing magic.&n", TRUE, ch, obj, NULL, TO_CHAR);
       act("&+GA warm feeling fills your body.&n", TRUE, ch, NULL, NULL, TO_CHAR);
@@ -590,7 +590,7 @@ int vecna_staffoaken(P_obj obj, P_char ch, int cmd, char *arg)
 
     // Or remaining 50% of time, 70% chance to check wanting to be outside if inside.
     if( !IS_TRUSTED(ch) && number(0, 100) <= 70 && world[ch->in_room].sector_type == SECT_INSIDE
-      || IS_SET(world[ch->in_room].room_flags, INDOORS) )
+      || IS_ROOM(ch->in_room, ROOM_INDOORS) )
     {
       dam = dice(25, 5) + 75;
       if (number(0, 100) <= 50)

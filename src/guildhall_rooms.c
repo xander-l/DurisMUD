@@ -102,13 +102,13 @@ bool GuildhallRoom::init()
 
   this->room = &world[real_room0(this->vnum)];
 
-  SET_BIT(this->room->room_flags, GUILD_ROOM);
-  SET_BIT(this->room->room_flags, NO_MOB);
-  SET_BIT(this->room->room_flags, NO_TELEPORT);
-  SET_BIT(this->room->room_flags, NO_RECALL);
-  SET_BIT(this->room->room_flags, NO_SUMMON);
-  SET_BIT(this->room->room_flags, NO_GATE);
-  SET_BIT(this->room->room_flags, TWILIGHT);
+  SET_BIT(this->room->room_flags, ROOM_GUILD);
+  SET_BIT(this->room->room_flags, ROOM_NO_MOB);
+  SET_BIT(this->room->room_flags, ROOM_NO_TELEPORT);
+  SET_BIT(this->room->room_flags, ROOM_NO_RECALL);
+  SET_BIT(this->room->room_flags, ROOM_NO_SUMMON);
+  SET_BIT(this->room->room_flags, ROOM_NO_GATE);
+  SET_BIT(this->room->room_flags, ROOM_TWILIGHT);
 
   // set up room exits
   for( int dir = 0; dir < NUM_EXITS; dir++ )
@@ -136,14 +136,14 @@ bool GuildhallRoom::deinit()
 {
   if( this->room )
   {
-    // TODO: make sure removing GUILD_ROOM doesnt mess up enter_game calculations, etc
-    REMOVE_BIT(this->room->room_flags, GUILD_ROOM);
-    REMOVE_BIT(this->room->room_flags, NO_MOB);
-    REMOVE_BIT(this->room->room_flags, NO_TELEPORT);
-    REMOVE_BIT(this->room->room_flags, NO_RECALL);
-    REMOVE_BIT(this->room->room_flags, NO_SUMMON);
-    REMOVE_BIT(this->room->room_flags, NO_GATE);
-    REMOVE_BIT(this->room->room_flags, TWILIGHT);
+    // TODO: make sure removing ROOM_GUILD doesnt mess up enter_game calculations, etc
+    REMOVE_BIT(this->room->room_flags, ROOM_GUILD);
+    REMOVE_BIT(this->room->room_flags, ROOM_NO_MOB);
+    REMOVE_BIT(this->room->room_flags, ROOM_NO_TELEPORT);
+    REMOVE_BIT(this->room->room_flags, ROOM_NO_RECALL);
+    REMOVE_BIT(this->room->room_flags, ROOM_NO_SUMMON);
+    REMOVE_BIT(this->room->room_flags, ROOM_NO_GATE);
+    REMOVE_BIT(this->room->room_flags, ROOM_TWILIGHT);
   }
   
   // set up room exits
@@ -321,7 +321,7 @@ bool HealRoom::init()
 {
   GuildhallRoom::init();
 
-  SET_BIT(this->room->room_flags, HEAL);
+  SET_BIT(this->room->room_flags, ROOM_HEAL);
   
   // load fountain object
   if( (this->fountain = read_object(GH_FOUNTAIN_VNUM, VIRTUAL)) )
@@ -545,7 +545,7 @@ bool HealRoom::deinit()
 {
   GuildhallRoom::init();
   
-  REMOVE_BIT(this->room->room_flags, HEAL);
+  REMOVE_BIT(this->room->room_flags, ROOM_HEAL);
   
   // deinit fountain obj
   if( this->fountain )

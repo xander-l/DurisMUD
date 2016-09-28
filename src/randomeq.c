@@ -665,7 +665,7 @@ bool check_random_drop(P_char ch, P_char mob, bool piece)
     return FALSE;
   }
 
-  if( IS_SET(world[ch->in_room].room_flags, GUILD_ROOM) )
+  if( IS_ROOM(ch->in_room, ROOM_GUILD) )
   {
     return FALSE;
   }

@@ -1560,7 +1560,7 @@ void ship_activity()
             !SHIP_DOCKED(ship) &&
             !SHIP_ANCHORED(ship)) 
         {
-            if (IS_WATER_ROOM(ship->location) || IS_SET(world [ship->location].room_flags, DOCKABLE) || SHIP_FLYING(ship))
+            if (IS_WATER_ROOM(ship->location) || IS_ROOM(ship->location, ROOM_DOCKABLE) || SHIP_FLYING(ship))
             {
                 // Setspeed to Speed DRANNAK
                // if (ship->setspeed > ship->get_maxspeed()) 

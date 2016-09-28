@@ -655,7 +655,7 @@ bool is_in_safe(P_char ch)
   if(!ch)
     return FALSE;
 
-  if(IS_SET(world[ch->in_room].room_flags, SAFE_ROOM))
+  if(IS_ROOM( ch->in_room, ROOM_SAFE))
   {
     send_to_char("No fighting permitted in this room.\n", ch);
     return TRUE;
@@ -1297,13 +1297,13 @@ void do_charge(P_char ch, char *argument, int cmd)
       break;
   }
 
-  if( IS_ROOM(ch->in_room, UNDERWATER) )
+  if( IS_ROOM(ch->in_room, ROOM_UNDERWATER) )
   {
     send_to_char("&+WThe waves hamper your ability to charge!\r\n", ch);
     return;
   }
 
-  if( IS_ROOM(ch->in_room, SINGLE_FILE) || IS_ROOM(ch->in_room, TUNNEL) )
+  if( IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) || IS_ROOM(ch->in_room, ROOM_TUNNEL) )
   {
     send_to_char("It's too cramped in here to charge.\n", ch);
     return;
@@ -1385,7 +1385,7 @@ void do_charge(P_char ch, char *argument, int cmd)
       return;
     }                           /* could find victim */
 
-    if( IS_ROOM(victim->in_room, SINGLE_FILE) || IS_ROOM(victim->in_room, TUNNEL) )
+    if( IS_ROOM(victim->in_room, ROOM_SINGLE_FILE) || IS_ROOM(victim->in_room, ROOM_TUNNEL) )
     {
       send_to_char("It's too cramped in there to charge.\n", ch);
       return;
@@ -1452,7 +1452,7 @@ void do_charge(P_char ch, char *argument, int cmd)
        IS_SET(EXIT(ch, dir)->exit_info, EX_CLOSED) ||
        IS_SET(EXIT(ch, dir)->exit_info, EX_SECRET) ||
        IS_SET(EXIT(ch, dir)->exit_info, EX_BLOCKED) ||
-       IS_SET(world[ch->in_room].room_flags, GUILD_ROOM)) // Prevents charging past golems
+       IS_ROOM( ch->in_room, ROOM_GUILD)) // Prevents charging past golems
     {
       send_to_char("You slam into an obstacle!\n", ch);
       return;
@@ -1630,7 +1630,7 @@ void do_charge(P_char ch, char *argument, int cmd)
   {
     if( (dir != -1) && EXIT(ch, dir) && EXIT(ch, dir)->to_room != NOWHERE
       && !(IS_SET(EXIT(ch, dir)->exit_info, EX_CLOSED | EX_BLOCKED | EX_SECRET))
-      && !IS_ROOM(ch->in_room, GUILD_ROOM)) // Prevents charging past golems
+      && !IS_ROOM(ch->in_room, ROOM_GUILD)) // Prevents charging past golems
     {
       int room = EXIT(ch, dir)->to_room;
       if( world[room].sector_type == SECT_OCEAN )
@@ -1818,7 +1818,7 @@ void do_circle(P_char ch, char *argument, int cmd)
     return;
   }
   
-  if(IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+  if(IS_ROOM( ch->in_room, ROOM_SINGLE_FILE))
   {
     send_to_char("There is no room to circle your opponent in here.\r\n", ch);
     return;
@@ -3994,7 +3994,7 @@ void do_assist_core(P_char ch, P_char victim)
   /*
    * Muhahahahahaha!
    */
-  if(world[ch->in_room].room_flags & SINGLE_FILE)
+  if(IS_ROOM( ch->in_room, ROOM_SINGLE_FILE) )
   {
     if(AdjacentInRoom(ch, victim))
       act("$N is in your way!  You can't get past to assist $M!",
@@ -5163,7 +5163,7 @@ bool backstab(P_char ch, P_char victim)
     return FALSE;
   }
 
-  if( IS_SET(world[ch->in_room].room_flags, SINGLE_FILE) )
+  if( IS_ROOM( ch->in_room, ROOM_SINGLE_FILE) )
   {
     send_to_char("It's far too narrow in here to sneak up behind someone to stab them in the back...\r\n", ch);
     return false;
@@ -6339,7 +6339,7 @@ void do_tackle(P_char ch, char *arg, int cmd)
     if(!IS_FIGHTING(ch) &&
        !number(0, 4) &&
        GET_POS(vict) == POS_STANDING &&
-       !IS_SET(world[ch->in_room].room_flags, GUILD_ROOM)) // Prevents tackling past golems.
+       !IS_ROOM( ch->in_room, ROOM_GUILD)) // Prevents tackling past golems.
     {
       door = number(0, NUM_EXITS - 1);
       
@@ -6880,7 +6880,7 @@ void rescue(P_char ch, P_char rescuee, bool rescue_all)
     return;
   }
   
-  if((world[ch->in_room].room_flags & SINGLE_FILE))
+  if( IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) )
   {
     send_to_char("It's too narrow in here to rescue anyone!\n", ch);
     return;
@@ -9058,7 +9058,7 @@ void do_flank(P_char ch, char *argument, int cmd)
     return;
   }
   
-  if (IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+  if (IS_ROOM( ch->in_room, ROOM_SINGLE_FILE))
   {
     send_to_char("There is no room in here to flank...\r\n", ch);
     return;
@@ -9218,7 +9218,7 @@ void event_call_grave(P_char ch, P_char victim, P_obj obj, void *data)
   int      i, room, num, skill;
   P_char   skeleton;
   
-  if (IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+  if (IS_ROOM( ch->in_room, ROOM_SINGLE_FILE))
   {
     send_to_char("&+LYou find no corpses in this narrow environment.\r\n", ch);
     return;
@@ -9621,7 +9621,7 @@ void gaze(P_char ch, P_char victim)
   
   percent_chance = BOUNDED(1, percent_chance, 90);
 
-  if(world[ch->in_room].room_flags & SINGLE_FILE &&
+  if( IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) &&
      !AdjacentInRoom(ch, victim) &&
      !IS_TRUSTED(ch))
   {
@@ -9872,7 +9872,7 @@ void restrain(P_char ch, P_char victim)
   percent_chance = (int)(percent_chance * GET_C_POW(ch) / GET_C_POW(victim)) +
     GET_LEVEL(ch) - GET_LEVEL(victim) + number(-15, 5);
 
-  if( world[ch->in_room].room_flags & SINGLE_FILE && !AdjacentInRoom(ch, victim) && !IS_TRUSTED(ch) )
+  if( IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) && !AdjacentInRoom(ch, victim) && !IS_TRUSTED(ch) )
   {
     act("&+LYour &+rminions &+Lwould have a difficult time in such a narrow area.",
       FALSE, ch, 0, victim, TO_CHAR);
@@ -10182,7 +10182,7 @@ bool MobShouldFlee(P_char ch)
      !room_has_valid_exit(ch->in_room))
         return false;
     
-  if(IS_SET(world[ch->in_room].room_flags, (NO_MAGIC | ROOM_SILENT)) ||
+  if(IS_ROOM( ch->in_room, (ROOM_NO_MAGIC | ROOM_SILENT)) ||
      affected_by_spell(ch, SPELL_FEEBLEMIND) ||
      IS_AFFECTED(ch, AFF_BLIND) ||
      IS_AFFECTED2(ch, AFF2_SILENCED) ||

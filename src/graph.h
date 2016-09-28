@@ -56,13 +56,11 @@ extern int bfs_cur_marker;
                        (TOROOM(x, y) != NOWHERE) &&  \
                        (world[TOROOM(x, y)].sector_type == SECT_CITY))
 #define ON_ROAD(x) (world[x].sector_type == SECT_CITY)
-#define TO_DOCKABLE(x, y) (IS_SET(world[TOROOM(x,y)].room_flags, DOCKABLE))
-#define TO_GUILD(x, y) (IS_SET(world[TOROOM(x,y)].room_flags, GUILD_ROOM))
-#define TO_NOSWIM(x, y)(world[TOROOM(x, y)].sector_type == \
-                        SECT_WATER_NOSWIM)
+#define TO_DOCKABLE(x, y) ( IS_ROOM(TOROOM( x, y ), ROOM_DOCKABLE) )
+#define TO_GUILD(x, y)    ( IS_ROOM(TOROOM( x, y ), ROOM_GUILD) )
+#define TO_NOSWIM(x, y)(world[TOROOM(x, y)].sector_type == SECT_WATER_NOSWIM)
 #define NEEDS_FLY(x, y) (TO_OCEAN(x,y) || TO_NOSWIM(x,y))
-#define TO_NOGROUND(x, y)(world[TOROOM(x, y)].sector_type == \
-                          SECT_NO_GROUND)
+#define TO_NOGROUND(x, y)(world[TOROOM(x, y)].sector_type == SECT_NO_GROUND)
 
 #define VALID_EDGE(x, y) (world[(x)].dir_option[(y)] && \
 			  (TOROOM(x, y) != NOWHERE) &&	\
@@ -82,7 +80,7 @@ extern int bfs_cur_marker;
   && !IS_SET(exit->exit_info, EX_LOCKED | EX_BLOCKED)                                                 \
   && !IS_OCEAN_ROOM(exit->to_room)                                                                    \
   && (( world[exit->to_room].sector_type != SECT_MOUNTAIN ) || !IS_MAP_ROOM( exit->to_room ))         \
-  && !IS_SET(world[exit->to_room].room_flags, GUILD_ROOM) )
+  && !IS_ROOM(exit->to_room, ROOM_GUILD) )
 
 // Handles the missing hometown check difference between VALID_EDGE() and VALID_EDGE2()
 #define HOMETOWN_CHECK( src, dest ) (zone_table[world[src].zone].hometown ==  zone_table[world[dest].zone].hometown)
@@ -103,8 +101,8 @@ extern int bfs_cur_marker;
                                         TOROOM(room, dir) != NOWHERE && \
                                         TOROOM(room, dir) != orig_room && \
                                         world[room].zone == world[TOROOM(room,dir)].zone && \
-                                        !IS_SET(world[TOROOM(room,dir)].room_flags, PRIV_ZONE) && \
-                                        !IS_SET(world[TOROOM(room,dir)].room_flags, NO_TELEPORT) && \
+                                        !IS_SET(zone_table[world[ch->in_room].zone].flags, ZONE_PRIVATE) && \
+                                        !IS_ROOM(TOROOM(room,dir), ROOM_NO_TELEPORT) && \
                                         !IS_HOMETOWN(TOROOM(room,dir)) && \
                                         world[TOROOM(room,dir)].sector_type != SECT_MOUNTAIN && \
                                         world[TOROOM(room,dir)].sector_type != SECT_UNDRWLD_MOUNTAIN && \
@@ -206,8 +204,8 @@ enum RMFR_Q_TYPE
 
 extern const int distance_array[MAX_AXIS_INDEX][MAX_AXIS_INDEX][MAX_AXIS_INDEX];
 
-#define IS_OUTSIDE(room)   (!IS_SET(world[room].room_flags, INDOORS))
-#define IS_INSIDE(room)    (IS_SET(world[room].room_flags, INDOORS))
+#define IS_OUTSIDE(room)   (!IS_ROOM(room, ROOM_INDOORS))
+#define IS_INSIDE(room)    (IS_ROOM(room, ROOM_INDOORS))
 
 void radiate_message_from_room(int room, char* message, int radius, RMFR_FLAGS flags, int pcbase);
 

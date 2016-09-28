@@ -349,7 +349,7 @@ int deva_cloak(P_obj obj, P_char ch, int cmd, char *arg)
   }
 
   curr_time = time(NULL);
-  if( !IS_SET(world[ch->in_room].room_flags, NO_MAGIC) )
+  if( !IS_ROOM(ch->in_room, ROOM_NO_MAGIC) )
   {
     if ((obj->timer[0] + 360) <= curr_time)
     {
@@ -627,7 +627,7 @@ int reliance_pegasus(P_obj obj, P_char ch, int cmd, char *arg)
         return TRUE;
       }
 
-      if( IS_SET(world[ch->in_room].room_flags, LOCKER) || IS_SET(world[ch->in_room].room_flags, SINGLE_FILE) )
+      if( IS_ROOM(ch->in_room, ROOM_LOCKER) || IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) )
       {
         send_to_char("A pegasus couldn't fit in here!\r\n", ch);
         return TRUE;

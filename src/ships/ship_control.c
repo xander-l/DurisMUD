@@ -182,7 +182,7 @@ int order_maneuver(P_char ch, P_ship ship, char* arg)
         return TRUE;
     }
 
-    if ((IS_SET(world [dir_room].room_flags, DOCKABLE) || world[dir_room].number < 110000) && ship->timer[T_BSTATION] > 0)
+    if ((IS_ROOM(dir_room, ROOM_DOCKABLE) || world[dir_room].number < 110000) && ship->timer[T_BSTATION] > 0)
     {
         if (ship->target != NULL) 
             send_to_char ("Your crew is on alert status while you have a target locked!\r\n", ch);
@@ -191,7 +191,7 @@ int order_maneuver(P_char ch, P_ship ship, char* arg)
         return TRUE;
     }
 
-    if (IS_WATER_ROOM(dir_room) || IS_SET(world [dir_room].room_flags, DOCKABLE)) 
+    if (IS_WATER_ROOM(dir_room) || IS_ROOM(dir_room, ROOM_DOCKABLE))
     {
         if (ship->autopilot) 
             stop_autopilot(ship);
@@ -201,7 +201,7 @@ int order_maneuver(P_char ch, P_ship ship, char* arg)
             (world[ship->location].number < 110000) ||
             (world[dir_room].sector_type != SECT_OCEAN) || 
             (world[dir_room].number < 110000) ||
-            IS_SET(world[dir_room].room_flags, DOCKABLE)) 
+            IS_ROOM(dir_room, ROOM_DOCKABLE)) 
         //if ((world[dir_room].number < 110000) || (world[ship->location].number < 110000) ||
         {
             ship->speed = 0;
@@ -215,7 +215,7 @@ int order_maneuver(P_char ch, P_ship ship, char* arg)
             if (!IS_TRUSTED(ch))
                 ship->timer[T_MANEUVER] = 5;
             everyone_look_out_ship(ship);
-            if (IS_SET(world[ship->location].room_flags, DOCKABLE))
+            if (IS_ROOM(ship->location, ROOM_DOCKABLE))
             {
                 dock_ship(ship, ship->location);
                 check_contraband(ship, ship->location);

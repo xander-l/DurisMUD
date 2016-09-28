@@ -5102,7 +5102,7 @@ int farmer(P_char ch, P_char pl, int cmd, char *arg)
       do_action(ch, 0, CMD_YODEL);
       break;
     case 2:
-      if (world[ch->in_room].room_flags & INDOORS)
+      if( IS_ROOM(ch->in_room, ROOM_INDOORS) )
         mobsay(ch, "Ya know, I really like being outside.");
       else
       {
@@ -5631,7 +5631,7 @@ int boulder_pusher(P_char ch, P_char t_ch, int cmd, char *arg)
               0, 0, TO_ROOM);
           if (!IS_SET
               (zone_table[world[victim->in_room].zone].flags, ZONE_SILENT) &&
-              !IS_SET(world[victim->in_room].room_flags, ROOM_SILENT))
+              !IS_ROOM(victim->in_room, ROOM_SILENT))
           {
             act
               ("You hear a mighty roar from overhead, and feel a sudden chill!",
@@ -7622,7 +7622,7 @@ void nw_block_exit(int room, int dir, int flag)
         {
           if( IS_AWAKE(t_ch) && !IS_AFFECTED(t_ch, AFF_BLIND) )
           {
-            if( !IS_SET(world[i].room_flags, ROOM_SILENT) )
+            if( !IS_ROOM(i, ROOM_SILENT) )
             {
               send_to_char(Gbuf2, t_ch);
             }
@@ -10450,7 +10450,7 @@ int patrol_leader(P_char ch, P_char pl, int cmd, char *arg)
   }
 
   if (!CombatInRoom && (ch->in_room != NOWHERE) &&
-      !IS_SET(world[ch->in_room].room_flags, ROOM_SILENT) &&
+      !IS_ROOM(ch->in_room, ROOM_SILENT) &&
       !IS_SET(zone_table[world[ch->in_room].zone].flags, ZONE_SILENT) &&
       (MIN_POS(ch, POS_STANDING + STAT_NORMAL)))
   {
@@ -10502,7 +10502,7 @@ int patrol_leader(P_char ch, P_char pl, int cmd, char *arg)
       {
         if (CAN_GO(ch, door) &&
             EXIT(ch, door)->to_room != NOWHERE &&
-            !IS_SET(world[EXIT(ch, door)->to_room].room_flags, NO_MOB) &&
+            !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_MOB) &&
             world[EXIT(ch, door)->to_room].sector_type != SECT_NO_GROUND)
         {
           if (world[EXIT(ch, door)->to_room].justice_area ==
@@ -10589,7 +10589,7 @@ int patrol_leader_road(P_char ch, P_char pl, int cmd, char *arg)
   }
 
   if (!CombatInRoom && (ch->in_room != NOWHERE) &&
-      !IS_SET(world[ch->in_room].room_flags, ROOM_SILENT) &&
+      !IS_ROOM(ch->in_room, ROOM_SILENT) &&
       !IS_SET(zone_table[world[ch->in_room].zone].flags, ZONE_SILENT) &&
       (MIN_POS(ch, POS_STANDING + STAT_NORMAL)))
   {
@@ -10644,7 +10644,7 @@ int patrol_leader_road(P_char ch, P_char pl, int cmd, char *arg)
           if ((MIN_POS(ch, POS_STANDING + STAT_RESTING)) &&
               (EXIT(ch, door)->to_room) &&
               CAN_GO(ch, door) &&
-              !IS_SET(world[EXIT(ch, door)->to_room].room_flags, NO_MOB) &&
+              !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_MOB) &&
               world[EXIT(ch, door)->to_room].sector_type != SECT_NO_GROUND &&
               world[EXIT(ch, door)->to_room].justice_area ==
               world[ch->in_room].justice_area &&
@@ -10667,7 +10667,7 @@ int patrol_leader_road(P_char ch, P_char pl, int cmd, char *arg)
         {
           if (CAN_GO(ch, door) &&
               (EXIT(ch, door)->to_room) &&
-              !IS_SET(world[EXIT(ch, door)->to_room].room_flags, NO_MOB) &&
+              !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_MOB) &&
               world[EXIT(ch, door)->to_room].sector_type != SECT_NO_GROUND)
           {
             if (EXIT(ch, door)->to_room &&
@@ -10697,7 +10697,7 @@ int patrol_leader_road(P_char ch, P_char pl, int cmd, char *arg)
           if ((MIN_POS(ch, POS_STANDING + STAT_RESTING)) &&
               CAN_GO(ch, door) &&
               (EXIT(ch, door)->to_room) &&
-              !IS_SET(world[EXIT(ch, door)->to_room].room_flags, NO_MOB) &&
+              !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_MOB) &&
               world[EXIT(ch, door)->to_room].sector_type != SECT_NO_GROUND &&
               world[EXIT(ch, door)->to_room].justice_area ==
               world[ch->in_room].justice_area &&
@@ -14370,7 +14370,7 @@ int outpost_captain(P_char ch, P_char pl, int cmd, char *arg)
   }
 
   if (!CombatInRoom && (ch->in_room != NOWHERE) &&
-      !IS_SET(world[ch->in_room].room_flags, ROOM_SILENT) &&
+      !IS_ROOM(ch->in_room, ROOM_SILENT) &&
       !IS_SET(zone_table[world[ch->in_room].zone].flags, ZONE_SILENT) &&
       (MIN_POS(ch, POS_STANDING + STAT_NORMAL)))
   {
@@ -14388,7 +14388,7 @@ int outpost_captain(P_char ch, P_char pl, int cmd, char *arg)
       {
         if (!d->connected &&
             (world[ch->in_room].zone == world[d->character->in_room].zone) &&
-            !(IS_SET(world[ch->in_room].room_flags, GUILD_ROOM)))
+            !(IS_ROOM(ch->in_room, ROOM_GUILD)))
         {
           /*found char in same zone */
           if ((IS_PC(d->character) && IS_RACEWAR_EVIL(d->character) &&
@@ -14606,13 +14606,10 @@ int witch_doctor(P_char witch, P_char customer, int cmd, char *arg)
       room = number(zone_table[world[room].zone].real_bottom,
                     zone_table[world[room].zone].real_top);
     }
-    while( tries++ < 500 &&
-           (IS_SET(world[room].room_flags, PRIV_ZONE) ||
-            IS_SET(world[room].room_flags, NO_TELEPORT) ||
-            world[room].sector_type == SECT_OCEAN ||
-            world[room].sector_type == SECT_WATER_SWIM ||
-            world[room].sector_type == SECT_MOUNTAIN ||
-            world[room].sector_type == SECT_WATER_NOSWIM));
+    while( tries++ < 500
+      && (PRIVATE_ZONE(room) || IS_ROOM(room, ROOM_NO_TELEPORT)
+      || world[room].sector_type == SECT_OCEAN || world[room].sector_type == SECT_WATER_SWIM
+      || world[room].sector_type == SECT_MOUNTAIN || world[room].sector_type == SECT_WATER_NOSWIM) );
     if (tries >= 500)
     {
       statuslog(0, "Witch Doctor cannot find a spot to land, check his proc plz");

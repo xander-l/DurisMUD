@@ -439,23 +439,23 @@ void do_camp(P_char ch, char *arg, int cmd)
    * circumstances (SINGLE_FILE, etc)
    */
 
-  if (IS_SET(world[ch->in_room].room_flags, TUNNEL) ||
-      IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+  if (IS_ROOM( ch->in_room, ROOM_TUNNEL) ||
+      IS_ROOM( ch->in_room, ROOM_SINGLE_FILE))
   {
     send_to_char("It's a little too cramped to camp in here.\r\n", ch);
     return;
   }
-  if (IS_SET(world[ch->in_room].room_flags, UNDERWATER))
+  if (IS_ROOM( ch->in_room, ROOM_UNDERWATER))
   {
     send_to_char("I've got just three words: Davy Jones' Locker.\r\n", ch);
     return;
   }
-  if (IS_SET(world[ch->in_room].room_flags, JAIL))
+  if (IS_ROOM( ch->in_room, ROOM_JAIL))
   {
     send_to_char("Just relax Jailbird, you are gonna be here for a while.\r\n", ch);
     return;
   }
-  if (IS_SET(world[ch->in_room].room_flags, GUILD_ROOM))
+  if (IS_ROOM( ch->in_room, ROOM_GUILD))
   {
     send_to_char("You're not allowed to camp here!\r\n", ch);
     return;
@@ -1498,13 +1498,13 @@ void do_forage(P_char ch, char *arg, int cmd)
    * ok, terrain is good, let's see if there are any extenuating
    * circumstances (SINGLE_FILE, etc)
    */
-  if( IS_SET(world[ch->in_room].room_flags, TUNNEL)
-    || IS_SET(world[ch->in_room].room_flags, SINGLE_FILE) )
+  if( IS_ROOM( ch->in_room, ROOM_TUNNEL)
+    || IS_ROOM( ch->in_room, ROOM_SINGLE_FILE) )
   {
     send_to_char("It's a little too cramped to forage in here.\r\n", ch);
     return;
   }
-  if( IS_SET(world[ch->in_room].room_flags, UNDERWATER) )
+  if( IS_ROOM( ch->in_room, ROOM_UNDERWATER) )
   {
     send_to_char("Fish, sure.  Forage?  Nah.\r\n", ch);
     return;
@@ -2433,7 +2433,7 @@ void listen(P_char ch, char *argument)
   if (!ch->desc || IS_NPC(ch))
     return;
 
-  if (IS_SET(world[ch->in_room].room_flags, ROOM_SILENT))
+  if (IS_ROOM( ch->in_room, ROOM_SILENT))
   {
     send_to_char("What is the sound of one hand clapping?\r\n", ch);
     return;
@@ -2534,7 +2534,7 @@ void do_listen(P_char ch, char *argument, int cmd)
   if (!ch->desc || IS_NPC(ch))
     return;
 
-  if (IS_SET(world[ch->in_room].room_flags, ROOM_SILENT))
+  if (IS_ROOM( ch->in_room, ROOM_SILENT))
   {
     send_to_char("What is the sound of one hand clapping?\r\n", ch);
     return;
@@ -2712,7 +2712,7 @@ void do_steal(P_char ch, char *argument, int cmd)
     return;
   }
   */
-  if( (world[ch->in_room].room_flags & SINGLE_FILE) && !AdjacentInRoom(ch, victim) )
+  if( IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) && !AdjacentInRoom(ch, victim) )
   {
     act("$N seems to be just a BIT out of reach.", FALSE, ch, 0, victim, TO_CHAR);
     return;
@@ -3258,7 +3258,7 @@ bool newsteal_CheckIfValid(P_char ch, const char *victim_name, const char *args)
     send_to_char("You want to steal from yourself?  That's silly!\r\n", ch);
     return false;
   }
-  if ((world[ch->in_room].room_flags & SINGLE_FILE) &&
+  if ((IS_ROOM( ch->in_room, SINGLE_FILE) &&
       !AdjacentInRoom(ch, victim))
   {
     act("$N seems to be just a BIT out of reach.", FALSE, ch, 0, victim, TO_CHAR);
@@ -3856,7 +3856,7 @@ void do_quaff(P_char ch, char *argument, int cmd)
   }
 
 
-  if(IS_SET(world[ch->in_room].room_flags, NO_MAGIC))
+  if( IS_ROOM(ch->in_room, ROOM_NO_MAGIC) )
   {
     send_to_char("You feel a slight gathering of magic within you, but it fades.\r\n", ch);
   }
@@ -3944,7 +3944,7 @@ void do_recite(P_char ch, char *argument, int cmd)
   if (equipped)
     unequip_char(ch, HOLD);
 
-  if (IS_SET(world[ch->in_room].room_flags, NO_MAGIC) && !IS_TRUSTED(ch))
+  if( IS_ROOM(ch->in_room, ROOM_NO_MAGIC) && !IS_TRUSTED(ch))
     send_to_char("Nothing seems to happen.\r\n", ch);
   else
   {
@@ -4025,8 +4025,7 @@ void do_use(P_char ch, char *argument, int cmd)
 
   if (CHAR_IN_NO_MAGIC_ROOM(ch))
   {
-    send_to_char
-      ("No magic exists around here for the wand to draw upon!\r\n", ch);
+    send_to_char("No magic exists around here for the wand to draw upon!\r\n", ch);
     return;
   }
   if (IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM))
@@ -4054,7 +4053,7 @@ void do_use(P_char ch, char *argument, int cmd)
       sql_log(ch, WIZLOG, "Used %s [%d]", stick->short_description, obj_index[stick->R_num].virtual_number);
     }
     if ((stick->value[2] > 0) &&
-        !IS_SET(world[ch->in_room].room_flags, NO_MAGIC))
+        !IS_ROOM( ch->in_room, ROOM_NO_MAGIC))
     {
       stick->value[2]--;
     }
@@ -4091,7 +4090,7 @@ void do_use(P_char ch, char *argument, int cmd)
       sql_log(ch, WIZLOG, "Used %s [%d]", stick->short_description, obj_index[stick->R_num].virtual_number);
     }
     if ((stick->value[2] > 0) &&
-        !IS_SET(world[ch->in_room].room_flags, NO_MAGIC))
+        !IS_ROOM( ch->in_room, ROOM_NO_MAGIC))
     {
       stick->value[2]--;
     }
@@ -6117,7 +6116,7 @@ void do_suicide(P_char ch, char *argument, int cmd)
     return;
   }
 
-  if( (world[ch->in_room].room_flags & JAIL) || IS_AFFECTED(ch, AFF_BOUND) )
+  if( IS_ROOM( ch->in_room, ROOM_JAIL) || IS_AFFECTED(ch, AFF_BOUND) )
   {
     send_to_char("You can't do that in your current state.\r\n", ch);
     ch->desc->confirm_state = CONFIRM_NONE;

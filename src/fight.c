@@ -7866,8 +7866,7 @@ void set_fighting(P_char ch, P_char vict)
         IS_REACH_WEAPON(ch->equipment[PRIMARY_WEAPON])))
     return;
 
-  if ((world[ch->in_room].room_flags & SINGLE_FILE) &&
-      !AdjacentInRoom(ch, victim))
+  if( IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) && !AdjacentInRoom(ch, victim) )
   {
     if (IS_PC(ch) || !(victim = PickTarget(ch)))
       return;

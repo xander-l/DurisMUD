@@ -1353,14 +1353,13 @@ bool parse_spell_arguments(P_char ch, struct spell_target_data * data, char *arg
         range = IS_SET(skills[spl].targets, TAR_RANGE2) ? 2 : 1;
         if ((vict = get_char_ranged_vis(ch, ranged_arg, range)))
         {
-          if (world[vict->in_room].room_flags & SINGLE_FILE)
+          if( IS_ROOM(vict->in_room, ROOM_SINGLE_FILE) )
           {
             send_to_char("It's too cramped in there to cast accurately.\n", ch);
             return FALSE;
           }
 
-          if ((world[vict->in_room].room_flags & ARENA) !=
-              (world[ch->in_room].room_flags & ARENA))
+          if( IS_ROOM(vict->in_room, ROOM_ARENA) != IS_ROOM(ch->in_room, ROOM_ARENA) )
           {
             send_to_char("You wouldn't want to piss off the arena authorities..\n", ch);
             return FALSE;
@@ -1471,7 +1470,7 @@ bool parse_spell_arguments(P_char ch, struct spell_target_data * data, char *arg
       range = IS_SET(skills[spl].targets, TAR_RANGE2) ? 2 : 1;
       if ((vict = get_char_ranged_vis(ch, ranged_arg, range)))
       {
-        if (world[vict->in_room].room_flags & SINGLE_FILE)
+        if( IS_ROOM(vict->in_room, ROOM_SINGLE_FILE) )
         {
           send_to_char("It's too cramped in there to cast accurately.\n", ch);
           return FALSE;
@@ -1536,7 +1535,7 @@ bool parse_spell_arguments(P_char ch, struct spell_target_data * data, char *arg
     send_to_char("&+WYou can only cast this spell upon yourself.\n", ch);
     return FALSE;
   }
-  if (IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+  if( IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) )
   {
     // TAR_AREA + TAR_CHAR_ROOM = Can target either the whole room, or a single character
     //   This is NOT the same as targetting a group within the room via TAR_AREA + target name argument.
@@ -1964,7 +1963,7 @@ void do_will(P_char ch, char *argument, int cmd)
   splnum = spl;
   SpellCastShow(ch, spl);
 
-  if (IS_SET(world[ch->in_room].room_flags, NO_PSI) && !IS_TRUSTED(ch))
+  if( IS_ROOM(ch->in_room, ROOM_NO_PSI) && !IS_TRUSTED(ch) )
   {
     send_to_char("Your psionic powers gather, then fade away.\n", ch);
     StopCasting(ch);
@@ -2256,7 +2255,7 @@ void do_cast(P_char ch, char *argument, int cmd)
   tmp_spl.object = common_target_data.t_obj;
   tmp_spl.arg = str_dup(common_target_data.arg);
 
-  if( IS_SET(world[ch->in_room].room_flags, NO_MAGIC) && !IS_TRUSTED(ch) )
+  if( IS_ROOM(ch->in_room, ROOM_NO_MAGIC) && !IS_TRUSTED(ch) )
   {
     send_to_char("The magic gathers, then fades away.\n", ch);
     StopCasting(ch);

@@ -117,7 +117,7 @@ int CanDoFightMove(P_char ch, P_char victim)
     return FALSE;
   }
 
-  if( (world[ch->in_room].room_flags & SINGLE_FILE) && !AdjacentInRoom(ch, victim) )
+  if( IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) && !AdjacentInRoom(ch, victim) )
   {
     act("$N seems to be just a BIT out of reach.", FALSE, ch, 0, victim, TO_CHAR);
     return FALSE;
@@ -1028,7 +1028,7 @@ void chant_quivering_palm(P_char ch, char *argument, int cmd)
        ch);
     return;
   }
-  if ((IS_SET(world[ch->in_room].room_flags, SINGLE_FILE)) &&
+  if ((IS_ROOM(ch->in_room, ROOM_SINGLE_FILE)) &&
       (!AdjacentInRoom(ch, vict)))
   {
     send_to_char("Your target is too far for your palm to reach!\n", ch);
@@ -1145,7 +1145,7 @@ void chant_jin_touch(P_char ch, char *argument, int cmd)
     return;
   }
   
-  if ((IS_SET(world[ch->in_room].room_flags, SINGLE_FILE)) &&
+  if ((IS_ROOM(ch->in_room, ROOM_SINGLE_FILE)) &&
       (!AdjacentInRoom(ch, vict)))
   {
     send_to_char("&+GYour target is too far for your touch to reach!\n", ch);
@@ -1260,7 +1260,7 @@ void chant_ki_strike(P_char ch, char *argument, int cmd)
     send_to_char("You feel ashamed to try to disrupt the tranquility of this place.\r\n", ch);
     return;
   }
-  if( (IS_SET(world[ch->in_room].room_flags, SINGLE_FILE)) && (!AdjacentInRoom(ch, vict)) )
+  if( (IS_ROOM(ch->in_room, ROOM_SINGLE_FILE)) && (!AdjacentInRoom(ch, vict)) )
   {
     send_to_char("Your target is too far for your touch to reach!\n", ch);
     return;
@@ -1995,7 +1995,7 @@ void mount_summoning_thing(P_char ch, P_char victim, P_obj obj, void *data)
   if( (ch->in_room == NOWHERE) || !IS_ALIVE(ch) )
     return;
 
-  if(IS_SET(world[ch->in_room].room_flags, LOCKER))
+  if(IS_ROOM(ch->in_room, ROOM_LOCKER))
   {
     send_to_char("Your mount couldn't find its way into the locker.\r\n", ch);
     return;
@@ -2003,7 +2003,7 @@ void mount_summoning_thing(P_char ch, P_char victim, P_obj obj, void *data)
   
   if(!is_prime_plane(ch->in_room) ||
     world[ch->in_room].sector_type == SECT_OCEAN ||
-    IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+    IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
   {
     send_to_char("&+LYour mount cannot find you here...\r\n", ch);
     return;
@@ -2186,8 +2186,8 @@ void do_summon_mount(P_char ch, char *arg, int cmd)
     return;
   }
 
-  if( IS_SET(world[ch->in_room].room_flags, LOCKER)
-    || IS_SET(world[ch->in_room].room_flags, SINGLE_FILE) )
+  if( IS_ROOM(ch->in_room, ROOM_LOCKER)
+    || IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) )
   {
     send_to_char("A horse couldn't fit in here!\r\n", ch);
     return;
@@ -2240,7 +2240,7 @@ void do_summon_warg(P_char ch, char *arg, int cmd)
       return;
     }
 
-	if (IS_SET(world[ch->in_room].room_flags, LOCKER)) {
+	if (IS_ROOM(ch->in_room, ROOM_LOCKER)) {
 		send_to_char("A warg couldn't fit in here!\r\n", ch);
 		return;
 	}
@@ -2276,13 +2276,13 @@ void orc_summoning_thing(P_char ch, P_char victim, P_obj obj, void *data)
                                          */
     return;
 
-  if (IS_SET(world[ch->in_room].room_flags, LOCKER))
+  if (IS_ROOM(ch->in_room, ROOM_LOCKER))
   {
 		send_to_char("Your horde couldn't possibly fit in your locker!\r\n", ch);
 	  return;
 	}
 
-  if (IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+  if (IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
   {
 		send_to_char("Your horde failed to reach you in this single file room. They went home.\r\n", ch);
 	  return;
@@ -2361,7 +2361,7 @@ void do_summon_orc(P_char ch, char *arg, int cmd)
     return;
   }
   
-  if (IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+  if (IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
   {
 		send_to_char("Your horde will not reach you here in this single file room.\r\n", ch);
 	}
@@ -2438,7 +2438,7 @@ void do_ogre_roar(P_char ch, char *argument, int cmd)
   /* victim isn't hearing the roar */
   if (IS_AFFECTED(vict, AFF_KNOCKED_OUT) || IS_AFFECTED(vict, AFF_SLEEP) ||
       GET_STAT(vict) < STAT_RESTING ||
-      IS_SET(world[(vict)->in_room].room_flags, ROOM_SILENT))
+      IS_ROOM(vict->in_room, ROOM_SILENT))
   {
     act("$N isn't able to hear your roar.", FALSE, ch, 0, vict, TO_CHAR);
     return;
@@ -3686,7 +3686,7 @@ void do_true_strike(P_char ch, char *argument, int cmd)
     return;
   }
 
-  if (IS_SET(world[ch->in_room].room_flags, SINGLE_FILE) &&
+  if (IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) &&
       (!AdjacentInRoom(ch, vict)))
   {
     send_to_char("Your target is to far away for your punch to reach.\n\r",

@@ -235,7 +235,7 @@ SECS_PER_MUD_DAY)
   || (world[c->in_room].sector_type == SECT_UNDERWATER_GR)                    \
   || (world[c->in_room].sector_type == SECT_WATER_PLANE)                      \
   || (IS_WATER_ROOM(c->in_room) && c->specials.z_cord < 0)                    \
-  || (IS_SET(world[ch->in_room].room_flags, UNDERWATER)) )
+  || (IS_ROOM( ch->in_room, ROOM_UNDERWATER)) )
 
 #define IS_WATER_ROOM(r) (world[r].sector_type == SECT_UNDRWLD_WATER \
     || world[r].sector_type == SECT_UNDRWLD_NOSWIM \
@@ -266,22 +266,22 @@ SECS_PER_MUD_DAY)
     && world[r].sector_type != SECT_ASTRAL \
     && world[r].sector_type != SECT_NEG_PLANE)
 
-#define IS_LIGHT(r) ( (world[r].light > 0 && !IS_SET(world[r].room_flags, MAGIC_DARK)) \
-                    || IS_SUNLIT(r) || IS_TWILIGHT_ROOM(r) || IS_ROOM(r, MAGIC_LIGHT) )
+#define IS_LIGHT(r) ( (world[r].light > 0 && !IS_ROOM( r, ROOM_MAGIC_DARK)) \
+                    || IS_SUNLIT(r) || IS_TWILIGHT_ROOM(r) || IS_ROOM(r, ROOM_MAGIC_LIGHT) )
 
 #define CAN_DAYPEOPLE_SEE(r) ( world[r].light > 0 || IS_SUNLIT(r) || IS_TWILIGHT_ROOM(r) \
-                             || IS_ROOM(r, MAGIC_LIGHT) )
+                             || IS_ROOM(r, ROOM_MAGIC_LIGHT) )
 
 // This isn't simply !LIGHT, because twilight counts as both, and so does dark + lights in room.
-#define CAN_NIGHTPEOPLE_SEE(r) ( IS_TWILIGHT_ROOM(r) || (!IS_SUNLIT(r) && !IS_ROOM(r, MAGIC_LIGHT)) )
+#define CAN_NIGHTPEOPLE_SEE(r) ( IS_TWILIGHT_ROOM(r) || (!IS_SUNLIT(r) && !IS_ROOM(r, ROOM_MAGIC_LIGHT)) )
 
-#define IS_MAGIC_LIGHT(r) ( IS_SET(world[r].room_flags, MAGIC_LIGHT) && !IS_SET(world[r].room_flags, MAGIC_DARK ) )
-#define IS_MAGIC_DARK(r) ( IS_SET(world[r].room_flags, MAGIC_DARK) && !IS_SET(world[r].room_flags, MAGIC_LIGHT ) )
+#define IS_MAGIC_LIGHT(r) ( IS_ROOM( r, ROOM_MAGIC_LIGHT) && !IS_ROOM( r, ROOM_MAGIC_DARK ) )
+#define IS_MAGIC_DARK(r) ( IS_ROOM( r, ROOM_MAGIC_DARK) && !IS_ROOM( r, ROOM_MAGIC_LIGHT ) )
 
 // For it to be sunlit, the sun must be out and bright, we must be outdoors,
 //   not under cover (ie forest) and not in a DARK or MAGIC_DARK room.
 #define IS_SUNLIT(r) ( IS_DAY && !IS_TWILIGHT && IS_OUTDOORS(r) \
-  && !IS_ROOM(r, DARK | MAGIC_DARK ) )
+  && !IS_ROOM(r, ROOM_DARK | ROOM_MAGIC_DARK ) )
 
 bool IS_TWILIGHT_ROOM(int r);
 bool IS_OUTDOORS(int r);
@@ -586,7 +586,7 @@ int race_size(int race);
 
 #define OBJN(obj, vict)  (CAN_SEE_OBJ((vict), (obj))? FirstWord((obj)->name): "something")
 
-#define OUTSIDE(ch)  (!IS_SET(world[(ch)->in_room].room_flags, INDOORS) && !IS_UNDERWORLD(ch->in_room))
+#define OUTSIDE(ch)  (!IS_ROOM((ch)->in_room, ROOM_INDOORS) && !IS_UNDERWORLD(ch->in_room))
 
 #define ROOM_VOID_VNUM        0
 #define ROOM_LIMBO_VNUM       1
@@ -632,24 +632,25 @@ int race_size(int race);
 
 /* New Macros */
 
-#define CHAR_IN_SAFE_ROOM(CH)  IS_SET(world[(CH)->in_room].room_flags, SAFE_ROOM)
+#define CHAR_IN_SAFE_ROOM(CH)  IS_ROOM( (CH)->in_room, ROOM_SAFE )
 
-#define CHAR_IN_NO_MAGIC_ROOM(CH)  IS_SET(world[(CH)->in_room].room_flags, NO_MAGIC)
+#define CHAR_IN_NO_MAGIC_ROOM(CH)  IS_ROOM( (CH)->in_room, ROOM_NO_MAGIC)
 
-#define MOB_IN_NO_MAGIC_ROOM(ch) (IS_SET(world[ch->in_room].room_flags, (NO_MAGIC | ROOM_SILENT) || \
+#define MOB_IN_NO_MAGIC_ROOM(ch) (IS_ROOM( ch->in_room, (ROOM_NO_MAGIC | ROOM_SILENT) || \
                                  ch->in_room != NOWHERE) || \
-                                 IS_SET(world[ch->in_room].room_flags, SAFE_ROOM))
+                                 IS_ROOM( ch->in_room, ROOM_SAFE))
 
-#define CHAR_IN_PRIV_ZONE(CH)  IS_SET(world[(CH)->in_room].room_flags, PRIV_ZONE)
+#define CHAR_IN_PRIV_ZONE(CH) IS_SET(zone_table[world[(CH)->in_room].zone].flags, ZONE_PRIVATE)
+#define PRIVATE_ZONE(room) IS_SET(zone_table[world[(room)].zone].flags, ZONE_PRIVATE)
 
-#define CHAR_IN_ARENA(CH) IS_SET(world[(CH)->in_room].room_flags, ARENA)
+#define CHAR_IN_ARENA(CH) IS_ROOM( (CH)->in_room, ROOM_ARENA )
 
 #define CHAR_IN_HEAL_ROOM(CH)  ((CH)->in_room != NOWHERE &&\
-    (IS_SET(world[(CH)->in_room].room_flags, HEAL) ||\
+    (IS_ROOM( (CH)->in_room, ROOM_HEAL ) ||\
      get_spell_from_room(&world[ch->in_room], SPELL_CONSECRATE_LAND)))
 
 #define CHAR_IN_NO_HEAL_ROOM(CH)\
-  ((CH)->in_room != NOWHERE && IS_SET(world[(CH)->in_room].room_flags, NO_HEAL))
+  ( ((CH)->in_room != NOWHERE) && IS_ROOM((CH)->in_room, ROOM_NO_HEAL) )
 
 #define NEEDS_HEAL(ch) (ch->points.hit < ch->points.base_hit)
 

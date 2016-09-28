@@ -338,7 +338,7 @@ int shimmer_shortsword(P_obj obj, P_char ch, int cmd, char *arg)
 
   curr_time = time(NULL);
 
-  if( !IS_SET(world[ch->in_room].room_flags, NO_MAGIC) )
+  if( !IS_ROOM(ch->in_room, ROOM_NO_MAGIC) )
   {
     // Every 10 sec?!
     if( obj->timer[0] + 10 <= curr_time )

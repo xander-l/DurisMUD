@@ -1045,8 +1045,7 @@ bool DragonCombat(P_char ch, int awe)
     {
 #endif
 #if 0
-      if (!IS_SET(world[ch->in_room].room_flags, NO_MAGIC) &&
-          !IS_SET(world[ch->in_room].room_flags, ROOM_SILENT))
+      if( !IS_ROOM(ch->in_room, NO_MAGIC | ROOM_SILENT) )
       {
         /* * if they have any mana, they cast 1 in 3 */
         if ((GET_MANA(ch) > 9) && !number(0, 2))

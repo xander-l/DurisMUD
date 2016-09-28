@@ -1349,7 +1349,7 @@ int newbie_spellup_mob(P_char ch, P_char victim, int cmd, char *arg)
   // everything after here is in the periodic event
 
   /* make sure I'm even able to cast in this room! */
-  if( IS_SET(world[ch->in_room].room_flags,  SAFE_ROOM | NO_MAGIC | ROOM_SILENT)
+  if( IS_ROOM(ch->in_room, ROOM_SAFE | ROOM_NO_MAGIC | ROOM_SILENT)
     || affected_by_spell(ch, SPELL_FEEBLEMIND) || IS_AFFECTED2(ch, AFF2_SILENCED) )
   {
     return FALSE;
@@ -3872,7 +3872,7 @@ int collar_frost(P_obj obj, P_char ch, int cmd, char *arg)
     return FALSE;
   }
 
-  if( !OBJ_WORN(obj) || !IS_ALIVE(ch) || IS_SET(world[ch->in_room].room_flags, LOCKER) )
+  if( !OBJ_WORN(obj) || !IS_ALIVE(ch) || IS_ROOM(ch->in_room, ROOM_LOCKER) )
   {
     return FALSE;
   }
@@ -3949,7 +3949,7 @@ int collar_frost(P_obj obj, P_char ch, int cmd, char *arg)
           debug("collar_frost: missing mental (%s) or room (%d).", icemental ? J_NAME(icemental) : "NULL", ch->in_room );
           return FALSE;
         }
-        if( IS_SET(world[ch->in_room].room_flags, SINGLE_FILE) )
+        if( IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) )
         {
           send_to_char("&+cThe elemental failed to arrive. This area is too narrow.\r\n", ch);
           extract_char( icemental );
@@ -4011,7 +4011,7 @@ int collar_flames(P_obj obj, P_char ch, int cmd, char *arg)
     return FALSE;
   }
 
-  if( !OBJ_WORN(obj) || !IS_ALIVE(ch) || IS_NPC(ch) || IS_SET(world[ch->in_room].room_flags, LOCKER) )
+  if( !OBJ_WORN(obj) || !IS_ALIVE(ch) || IS_NPC(ch) || IS_ROOM(ch->in_room, ROOM_LOCKER) )
   {
     return FALSE;
   }
@@ -4085,7 +4085,7 @@ int collar_flames(P_obj obj, P_char ch, int cmd, char *arg)
           return FALSE;
         }
 
-        if(IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+        if(IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
         {
           send_to_char("&+RThe elemental failed to arrive. This area is too narrow.\r\n", ch);
           return FALSE;

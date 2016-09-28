@@ -2008,24 +2008,16 @@ void initialize_tradeskills()
 
 bool invalid_mine_room(int rroom_id)
 {
-  if( IS_SET(world[rroom_id].room_flags, PRIVATE) || 
-      IS_SET(world[rroom_id].room_flags, PRIV_ZONE) || 
-      //IS_SET(world[rroom_id].room_flags, NO_TELEPORT) || 
-      world[rroom_id].dir_option[DIR_DOWN] || 
-      IS_WATER_ROOM(rroom_id) || 
-      world[rroom_id].sector_type == SECT_MOUNTAIN || 
-      world[rroom_id].sector_type == SECT_ROAD || 
-      world[rroom_id].sector_type == SECT_UNDRWLD_MOUNTAIN || 
-      world[rroom_id].sector_type == SECT_UNDRWLD_NOGROUND ||
-      world[rroom_id].sector_type == SECT_UNDRWLD_NOSWIM ||
-      world[rroom_id].sector_type == SECT_UNDRWLD_WATER ||
-      world[rroom_id].sector_type == SECT_UNDRWLD_INSIDE ||
-      world[rroom_id].sector_type == SECT_UNDRWLD_CITY ||
-      world[rroom_id].sector_type == SECT_OCEAN ||
-      world[rroom_id].sector_type == SECT_INSIDE ||
-      world[rroom_id].sector_type == SECT_CASTLE ||
-      world[rroom_id].sector_type == SECT_CASTLE_WALL ||
-      world[rroom_id].sector_type == SECT_CASTLE_GATE)
+  if( IS_ROOM(rroom_id, ROOM_PRIVATE) || PRIVATE_ZONE(rroom_id)
+    //|| IS_ROOM(rroom_id, ROOM_NO_TELEPORT)
+    || world[rroom_id].dir_option[DIR_DOWN] || IS_WATER_ROOM(rroom_id)
+    || world[rroom_id].sector_type == SECT_MOUNTAIN || world[rroom_id].sector_type == SECT_ROAD
+    || world[rroom_id].sector_type == SECT_UNDRWLD_MOUNTAIN || world[rroom_id].sector_type == SECT_UNDRWLD_NOGROUND
+    || world[rroom_id].sector_type == SECT_UNDRWLD_NOSWIM || world[rroom_id].sector_type == SECT_UNDRWLD_WATER
+    || world[rroom_id].sector_type == SECT_UNDRWLD_INSIDE || world[rroom_id].sector_type == SECT_UNDRWLD_CITY
+    || world[rroom_id].sector_type == SECT_OCEAN || world[rroom_id].sector_type == SECT_INSIDE
+    || world[rroom_id].sector_type == SECT_CASTLE || world[rroom_id].sector_type == SECT_CASTLE_WALL
+    || world[rroom_id].sector_type == SECT_CASTLE_GATE )
     return TRUE;
   
   for( P_obj tobj = world[rroom_id].contents; tobj; tobj = tobj->next )

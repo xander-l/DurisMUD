@@ -634,8 +634,7 @@ void do_emote(P_char ch, char *argument, int cmd)
   }
   for (i = 0; *(argument + i) == ' '; i++) ;
 
-  if(IS_SET(world[ch->in_room].room_flags, UNDERWATER) &&
-      !IS_TRUSTED(ch) && !IS_NPC(GET_PLYR(ch)))
+  if( IS_ROOM(ch->in_room, ROOM_UNDERWATER) && !IS_TRUSTED(ch) && !IS_NPC(GET_PLYR(ch)))
   {
     send_to_char("You cannot emote while swimming around in water...", ch);
     return;
@@ -966,7 +965,7 @@ void do_at(P_char ch, char *argument, int cmd)
     return;
   }
 
-  if(IS_SET(world[location].room_flags, PRIVATE) && (GET_LEVEL(ch) < OVERLORD))
+  if(IS_ROOM( location, ROOM_PRIVATE) && (GET_LEVEL(ch) < OVERLORD))
   {
     send_to_char("It is far too private there.\n", ch);
     return;
@@ -1088,7 +1087,7 @@ void do_goto(P_char ch, char *argument, int cmd)
     return;
   }
   /* a location has been found.  */
-  if(IS_SET(world[location].room_flags, PRIVATE) && (GET_LEVEL(ch) < MAXLVL))
+  if(IS_ROOM( location, ROOM_PRIVATE) && (GET_LEVEL(ch) < MAXLVL))
   {
     if(GET_LEVEL(ch) < MAXLVL)
     {
@@ -1812,7 +1811,7 @@ void do_stat(P_char ch, char *argument, int cmd)
       for( int i = zone->real_bottom; i < zone->real_top; i++ )
       {
         // If the room is teleportable, display it w/room vnum.
-        if( !IS_SET(world[i].room_flags, NO_TELEPORT) )
+        if( !IS_ROOM( i, ROOM_NO_TELEPORT) )
         {
           sprintf( buf, "[&+C%d&n] %s\n", world[i].number, world[i].name );
           send_to_char( buf, ch );
@@ -6774,7 +6773,7 @@ void do_teleport(P_char ch, char *argument, int cmd)
     send_to_char("No such target (person) can be found.\n", ch);
     return;
   }
-  if(IS_SET(world[target].room_flags, PRIVATE) && (GET_LEVEL(ch) < MAXLVL))
+  if(IS_ROOM( target, ROOM_PRIVATE) && (GET_LEVEL(ch) < MAXLVL))
   {
     send_to_char("That room is private.\n", ch);
     return;
@@ -8680,7 +8679,7 @@ void do_which(P_char ch, char *args, int cmd)
     w_bit = 1 << i;
     for (room_nr = 0; room_nr < top_of_world; room_nr++)
     {
-      if(world[room_nr].room_flags & w_bit)
+      if( IS_ROOM(room_nr, w_bit) )
       {
         sprintf(buf1, "&+Y[&n%5d&+Y](&n%5d&+Y)&n %s\n", world[room_nr].number,
                 room_nr, world[room_nr].name);

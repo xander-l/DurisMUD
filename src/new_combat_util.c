@@ -1958,7 +1958,7 @@ int getCharParryVal(const P_char vict, const P_char attacker,
     break;
   }
 
-  if (IS_SET(world[vict->in_room].room_flags, SINGLE_FILE))
+  if (IS_ROOM(vict->in_room, SINGLE_FILE))
   {
     if (!mod_sect)
       mod -= 0.25;              //chance -= 25;
@@ -2158,7 +2158,7 @@ int getCharDodgeVal(const P_char vict, const P_char attacker,
     break;
   }
 
-  if (IS_SET(world[vict->in_room].room_flags, SINGLE_FILE))
+  if (IS_ROOM(vict->in_room, SINGLE_FILE))
   {
     if (!mod_sect)
       mod -= 0.25;              //chance -= 25;

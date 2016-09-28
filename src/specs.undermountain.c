@@ -2211,7 +2211,7 @@ void event_flame_of_north(P_char ch, P_char victim, P_obj obj, void *data)
 	  return;
   }
 
-  if( !IS_SET(world[ch->in_room].room_flags, NO_MAGIC) )
+  if( !IS_ROOM(ch->in_room, ROOM_NO_MAGIC) )
   {
      if( !affected_by_spell(ch, SPELL_ILIENZES_FLAME_SWORD) && !number(0, 3) )
      {

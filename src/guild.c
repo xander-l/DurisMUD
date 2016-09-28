@@ -156,7 +156,7 @@ int notch_skill(P_char ch, int skill, float chance)
   if( IS_NPC(ch) )
     return 0;
 
-  if( IS_SET(world[ch->in_room].room_flags, GUILD_ROOM | SAFE_ROOM) )
+  if( IS_ROOM(ch->in_room, ROOM_GUILD | ROOM_SAFE) )
     return 0;
 
   if( IS_FIGHTING(ch) )

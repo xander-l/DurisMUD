@@ -308,7 +308,7 @@ int whats_in_maproom(P_char ch, int room, int distance, int show_regardless)
 #endif
 
   // Underwater / sight blocked / 999 ??
-  if( ch->specials.z_cord < 0 || IS_SET(world[room].room_flags, BLOCKS_SIGHT) || show_regardless == 999 )
+  if( (ch->specials.z_cord < 0) || IS_ROOM(room, ROOM_BLOCKS_SIGHT) || (show_regardless == 999) )
   {
     return CONTAINS_NOTHING;
   }
@@ -426,12 +426,12 @@ int whats_in_maproom(P_char ch, int room, int distance, int show_regardless)
   }
 
   // Category 3: Light/Dark:
-  if( IS_SET(world[room].room_flags, MAGIC_DARK) && !IS_SET(world[room].room_flags, MAGIC_LIGHT) )
+  if( IS_ROOM(room, ROOM_MAGIC_DARK) && !IS_ROOM(room, ROOM_MAGIC_LIGHT) )
   {
     return CONTAINS_MAGIC_DARK;
   }
 
-  if( IS_SET(world[room].room_flags, MAGIC_LIGHT) && !IS_SET(world[room].room_flags, MAGIC_DARK) )
+  if( IS_ROOM(room, ROOM_MAGIC_LIGHT) && !IS_ROOM(room, ROOM_MAGIC_DARK) )
   {
     return CONTAINS_MAGIC_LIGHT;
   }

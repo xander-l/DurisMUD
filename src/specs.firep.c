@@ -70,9 +70,9 @@ int kossuth(P_char ch, P_char pl, int cmd, char *arg)
   {
     return FALSE;
   }
-  if (IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+  if( IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) )
   {
-    REMOVE_BIT(world[ch->in_room].room_flags, SINGLE_FILE);
+    REMOVE_BIT(world[ch->in_room].room_flags, ROOM_SINGLE_FILE);
     act("&+RKossuth bellows &+Wmightily&+R, and great &+Lmasses &+Rof molten rock assemble\r\n"
         "&+Rthemselves into a &+Lwider &+Rlandmass about his &+Wawesome &+Rfigure!&n",
          FALSE, ch, 0, 0, TO_ROOM);

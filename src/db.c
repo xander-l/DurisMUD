@@ -1319,19 +1319,19 @@ void boot_world(int mini_mode)
       }
       /* fix a few things */
 
-      if (IS_SET(world[room_nr].room_flags, NO_MAGIC))
-        if (!IS_SET(world[room_nr].room_flags, NO_SUMMON))
-          SET_BIT(world[room_nr].room_flags, NO_SUMMON);
-      if (IS_SET(world[room_nr].room_flags, JAIL))
-        if (!IS_SET(world[room_nr].room_flags, SAFE_ROOM))
-          SET_BIT(world[room_nr].room_flags, SAFE_ROOM);
+      if (IS_ROOM(room_nr, ROOM_NO_MAGIC))
+        if (!IS_ROOM(room_nr, ROOM_NO_SUMMON))
+          SET_BIT(world[room_nr].room_flags, ROOM_NO_SUMMON);
+      if (IS_ROOM(room_nr, ROOM_JAIL))
+        if (!IS_ROOM(room_nr, ROOM_SAFE))
+          SET_BIT(world[room_nr].room_flags, ROOM_SAFE);
       if ((zone_table[zone].flags & ZONE_MAP) && (SECT_CITY == world[room_nr].sector_type))
         world[room_nr].sector_type = SECT_ROAD;
 
       //Make roads no gate..
       if( world[room_nr].sector_type == SECT_ROAD){
-        SET_BIT(world[room_nr].room_flags, NO_GATE);
-        SET_BIT(world[room_nr].room_flags, NO_TELEPORT);
+        SET_BIT(world[room_nr].room_flags, ROOM_NO_GATE);
+        SET_BIT(world[room_nr].room_flags, ROOM_NO_TELEPORT);
       }
         //ADD NO PORT
 
@@ -1365,8 +1365,8 @@ void boot_world(int mini_mode)
       }
       if (world[room_nr].sector_type == SECT_INSIDE)
       {
-        SET_BIT(world[room_nr].room_flags, INDOORS);
-        SET_BIT(world[room_nr].room_flags, NO_PRECIP);
+        SET_BIT(world[room_nr].room_flags, ROOM_INDOORS);
+        SET_BIT(world[room_nr].room_flags, ROOM_NO_PRECIP);
       }
       if ((world[room_nr].sector_type == SECT_NO_GROUND) &&
           (!world[room_nr].dir_option[5] ||
@@ -1380,7 +1380,7 @@ void boot_world(int mini_mode)
       {
         world[room_nr].chance_fall = 0;
       }
-      if (world[room_nr].room_flags & ROOM_IS_INN)
+      if (world[room_nr].room_flags & ROOM_INN)
         world[room_nr].funct = inn;
 
       room_nr++;

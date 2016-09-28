@@ -2773,7 +2773,7 @@ void send_to_outdoor(const char *messg)
     for (i = descriptor_list; i; i = i->next)
       if (!i->connected && OUTSIDE(i->character))
         if (IS_TRUSTED(i->character) ||
-            !IS_SET(world[i->character->in_room].room_flags, ROOM_SILENT))
+            !IS_ROOM(i->character->in_room, ROOM_SILENT))
           write_to_q(messg, &i->output, 2);
 }
 
@@ -2787,7 +2787,7 @@ void send_to_nearby_rooms(int from_room, const char *messg)
   if (messg)
     for (i = descriptor_list; i; i = i->next)
       if (!i->connected && OUTSIDE(i->character))
-        if (!IS_SET(world[i->character->in_room].room_flags, ROOM_SILENT) &&
+        if (!IS_ROOM(i->character->in_room, ROOM_SILENT) &&
             (how_close(from_room, i->character->in_room, 10) >= 0))
           write_to_q(messg, &i->output, 2);
 #endif
@@ -2795,12 +2795,12 @@ void send_to_nearby_rooms(int from_room, const char *messg)
 
 void send_to_zone_outdoor(int z_num, const char *messg)
 {
-  send_to_zone_func(z_num, (int) (-INDOORS), messg);
+  send_to_zone_func(z_num, (int) (-ROOM_INDOORS), messg);
 }
 
 void send_to_zone_indoor(int z_num, const char *messg)
 {
-  send_to_zone_func(z_num, (int) INDOORS, messg);
+  send_to_zone_func(z_num, (int) ROOM_INDOORS, messg);
 }
 
 void send_to_zone(int z_num, const char *msg)
@@ -2816,7 +2816,7 @@ void send_to_except(const char *messg, P_char ch)
     for (i = descriptor_list; i; i = i->next)
       if (ch->desc != i && !i->connected)
         if (IS_TRUSTED(i->character) ||
-            !IS_SET(world[i->character->in_room].room_flags, ROOM_SILENT))
+            !IS_ROOM(i->character->in_room, ROOM_SILENT))
           write_to_q(messg, &i->output, 2);
 }
 
@@ -2845,7 +2845,7 @@ void send_to_room(const char *messg, int room)
     for (i = world[room].people; i; i = i->next_in_room)
       if (i->desc)
         if (IS_TRUSTED(i) ||
-            !IS_SET(world[i->in_room].room_flags, ROOM_SILENT) ||
+            !IS_ROOM(i->in_room, ROOM_SILENT) ||
             i->specials.z_cord == 0)
           write_to_q(messg, &i->desc->output, 2);
 }
@@ -2891,7 +2891,7 @@ void send_to_room_except_two(const char *messg, int room, P_char ch1,
     for (i = world[room].people; i; i = i->next_in_room)
       if ((i != ch1) && (i != ch2) && i->desc)
         if (IS_TRUSTED(i) ||
-            !IS_SET(world[i->in_room].room_flags, ROOM_SILENT))
+            !IS_ROOM(i->in_room, ROOM_SILENT))
           write_to_q(messg, &i->desc->output, 2);
 }
 
@@ -3332,7 +3332,7 @@ void act(const char *str, int hide_invisible, P_char ch, P_obj obj, void *vict_o
     {
       // If it's silencable, and not to an Imm, and there is a flag flag to not show it.
       if( sil && !IS_TRUSTED(to)
-        && (IS_SET( world[to->in_room].room_flags, ROOM_SILENT ) || IS_AFFECTED4( to, AFF4_DEAF )) )
+        && (IS_ROOM( to->in_room, ROOM_SILENT ) || IS_AFFECTED4( to, AFF4_DEAF )) )
       {
         continue;
       }

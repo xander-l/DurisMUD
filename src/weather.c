@@ -244,7 +244,7 @@ void event_astral_clock(P_char ch, P_char victim, P_obj obj, void *data)
       {
         int      r = d->character->in_room;
 
-        if (!IS_SET(world[r].room_flags, INDOORS) && NORMAL_PLANE(r) &&
+        if (!IS_ROOM(r, ROOM_INDOORS) && NORMAL_PLANE(r) &&
             !IS_UNDERWORLD(r) && d->character->specials.z_cord >= 0)
           send_to_char(s, d->character);
       }
@@ -813,7 +813,7 @@ void blow_out_torches(void)
   P_obj    obj;
 
   for (i = character_list; i; i = i->next)
-    if (!IS_SET(world[i->in_room].room_flags, INDOORS) &&
+    if (!IS_ROOM(i->in_room, ROOM_INDOORS) &&
         i->equipment[WEAR_LIGHT])
     {
       obj = i->equipment[WEAR_LIGHT];
@@ -967,8 +967,8 @@ void send_to_weather_sector(int z, const char *msg)
   {
     if( !i->connected && (in_weather_sector(i->character->in_room) == z)
         && NORMAL_PLANE(i->character->in_room) && OUTSIDE(i->character)
-        && !IS_SET(world[i->character->in_room].room_flags, NO_PRECIP)
-        && !IS_SET(world[i->character->in_room].room_flags, DARK)
+        && !IS_ROOM(i->character->in_room, ROOM_NO_PRECIP)
+        && !IS_ROOM(i->character->in_room, ROOM_DARK)
         && i->character->specials.z_cord >= 0
         && !IS_BLIND(i->character) && IS_AWAKE(i->character) )
     {

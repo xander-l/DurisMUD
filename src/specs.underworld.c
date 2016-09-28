@@ -643,7 +643,7 @@ int orb_of_the_sea(P_obj obj, P_char ch, int cmd, char *arg)
     }
   }
 
-  if( OBJ_WORN_BY(obj, ch) && IS_ALIVE(victim) && !IS_SET(world[ch->in_room].room_flags, NO_TELEPORT)
+  if( OBJ_WORN_BY(obj, ch) && IS_ALIVE(victim) && !IS_ROOM(ch->in_room, ROOM_NO_TELEPORT)
     && !IS_GH_GOLEM(victim) && GET_RACE(victim) != RACE_CONSTRUCT && !(strstr(victim->player.name, "_no_move_")) )
   {
     // 1/30 chance.
@@ -1586,11 +1586,8 @@ int elfgate(P_obj obj, P_char ch, int cmd, char *arg)
   {
     to_room = number(0, top_of_world);
   }
-  while (IS_SET(world[to_room].room_flags, PRIVATE) ||
-         IS_SET(world[to_room].room_flags, PRIV_ZONE) ||
-         IS_SET(world[to_room].room_flags, NO_TELEPORT) ||
-         world[to_room].sector_type == SECT_OCEAN ||
-         world[to_room].number < 110000 || world[to_room].number >= 210000);
+  while( IS_ROOM(to_room, ROOM_PRIVATE) || PRIVATE_ZONE(to_room) || IS_ROOM(to_room, ROOM_NO_TELEPORT)
+    || world[to_room].sector_type == SECT_OCEAN || world[to_room].number < 110000 || world[to_room].number >= 210000);
 /*         !IS_MAP_ROOM(to_room)); */
   if (IS_FIGHTING(ch))
     stop_fighting(ch);
@@ -1653,11 +1650,8 @@ int nexus(P_obj obj, P_char ch, int cmd, char *arg)
   {
     to_room = number(0, top_of_world);
   }
-  while (IS_SET(world[to_room].room_flags, PRIVATE) ||
-         IS_SET(world[to_room].room_flags, PRIV_ZONE) ||
-         IS_SET(world[to_room].room_flags, NO_TELEPORT) ||
-         world[to_room].sector_type == SECT_OCEAN ||
-         !IS_SURFACE_MAP(to_room));
+  while( IS_ROOM(to_room, ROOM_PRIVATE) || PRIVATE_ZONE(to_room) || IS_ROOM(to_room, ROOM_NO_TELEPORT)
+    || world[to_room].sector_type == SECT_OCEAN || !IS_SURFACE_MAP(to_room) );
   if (IS_FIGHTING(ch))
     stop_fighting(ch);
   if( IS_DESTROYING(ch) )
@@ -1761,7 +1755,7 @@ int magic_map_pool(P_obj obj, P_char ch, int cmd, char *arg)
   while( world[target_room].sector_type == SECT_MOUNTAIN
     || world[target_room].sector_type == SECT_INSIDE
     || world[target_room].sector_type == SECT_OCEAN
-    || IS_SET(world[target_room].room_flags, NO_GATE) )
+    || IS_ROOM(target_room, ROOM_NO_GATE) )
   {
     target_room = real_room(random_map_room());
   }
@@ -2130,11 +2124,11 @@ int tiamat(P_char ch, P_char pl, int cmd, char *arg)
       affect_from_char(ch, SPELL_SILENCE);
     }
 
-    if( !IS_SET(world[ch->in_room].room_flags, MAGIC_LIGHT) )
+    if( !IS_ROOM(ch->in_room, ROOM_MAGIC_LIGHT) )
     {
       act("A beam of light radiates from &+LTiamats eyes, lighting a sconce upon the wall.",
         FALSE, ch, NULL, NULL, TO_ROOM);
-      SET_BIT(world[ch->in_room].room_flags, MAGIC_LIGHT);
+      SET_BIT(world[ch->in_room].room_flags, ROOM_MAGIC_LIGHT);
     }
   }
 

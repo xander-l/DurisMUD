@@ -626,7 +626,7 @@ void spell_mind_travel(int level, P_char ch, char *arg, int type, P_char victim,
     return;
   }
 
-  if (IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
+  if (IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) ||
       world[ch->in_room].sector_type == SECT_OCEAN)
   {
     send_to_char("&+CYou failed.\r\n", ch);
@@ -968,7 +968,7 @@ void
 spell_create_sound(int level, P_char ch, char *arg, int type, P_char victim,
                    P_obj obj)
 {
-  if (IS_SET(world[ch->in_room].room_flags, ROOM_SILENT))
+  if (IS_ROOM(ch->in_room, ROOM_SILENT))
   {
     act("&+WYour sonic boom of mental power dispels the silence!", 0, ch, 0,
         0, TO_CHAR);
@@ -2179,7 +2179,7 @@ void spell_depart(int level, P_char ch, char *arg, int type, P_char victim, P_ob
   if( !IS_ALIVE(ch) || ch->in_room == NOWHERE )
     return;
 
-  if((IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
+  if((IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) ||
       IS_HOMETOWN(ch->in_room) ||
       world[ch->in_room].sector_type == SECT_OCEAN) &&
       level < 60)
@@ -2223,12 +2223,9 @@ void spell_depart(int level, P_char ch, char *arg, int type, P_char victim, P_ob
           zone_table[world[victim->in_room].zone].real_top);
       tries++;
     }
-    while((IS_SET(world[to_room].room_flags, PRIVATE) ||
-          IS_SET(world[to_room].room_flags, PRIV_ZONE) ||
-          IS_SET(world[to_room].room_flags, NO_TELEPORT) ||
-          IS_HOMETOWN(to_room) ||
-          world[to_room].sector_type == SECT_OCEAN) &&
-          tries < 1000);
+    while( (IS_ROOM(to_room, ROOM_PRIVATE) || PRIVATE_ZONE(to_room)
+      || IS_ROOM(to_room, ROOM_NO_TELEPORT) || IS_HOMETOWN(to_room) || world[to_room].sector_type == SECT_OCEAN)
+      && tries < 1000);
   }
 
   if(tries >= 1000)
@@ -2720,8 +2717,8 @@ void spell_radial_navigation(int level, P_char ch, char *arg, int type, P_char v
   temp = world[ch->in_room].sector_type;
   if( !IS_TRUSTED(ch) && ((to_room == NOWHERE) || (to_room == ch->in_room)
     || !IS_MAP_ROOM(ch->in_room) || !IS_MAP_ROOM(to_room)
-    || IS_SET(world[ch->in_room].room_flags, NO_TELEPORT)
-    || IS_SET(world[to_room].room_flags, NO_TELEPORT) || (GET_MASTER(ch) && IS_PC(victim))) )
+    || IS_ROOM(ch->in_room, ROOM_NO_TELEPORT)
+    || IS_ROOM(to_room, ROOM_NO_TELEPORT) || (GET_MASTER(ch) && IS_PC(victim))) )
   {
     act("&+L$n's&+L outline begins to &n&+rvibrate&+L, then &+Bblur&+L.... then stabilize.&N",
        TRUE, ch, 0, 0, TO_ROOM);
@@ -2783,25 +2780,23 @@ void spell_ethereal_rift(int level, P_char ch, char *arg, int type,
                      zone_table[world[victim->in_room].zone].real_top);
     found++;
   }
-  while ((IS_SET(world[to_room].room_flags, PRIVATE) ||
-          IS_SET(world[to_room].room_flags, PRIV_ZONE) ||
-          IS_SET(world[to_room].room_flags, NO_TELEPORT) ||
-          IS_HOMETOWN(to_room) ||
-          world[to_room].sector_type == SECT_OCEAN) && found < 1000);
+  while( (IS_ROOM(to_room, ROOM_PRIVATE) || PRIVATE_ZONE(to_room)
+    || IS_ROOM(to_room, ROOM_NO_TELEPORT) || IS_HOMETOWN(to_room) || world[to_room].sector_type == SECT_OCEAN)
+    && found < 1000);
 
-  if ((IS_SET(world[victim->in_room].room_flags, PRIVATE) ||
-       IS_SET(world[victim->in_room].room_flags, PRIV_ZONE) ||
-       IS_SET(world[victim->in_room].room_flags, NO_TELEPORT) ||
-       IS_HOMETOWN(victim->in_room) ||
-       world[victim->in_room].sector_type == SECT_OCEAN))
+  if( (IS_ROOM(victim->in_room, ROOM_PRIVATE) || PRIVATE_ZONE(victim->in_room)
+    || IS_ROOM(victim->in_room, ROOM_NO_TELEPORT) || IS_HOMETOWN(victim->in_room)
+    || world[victim->in_room].sector_type == SECT_OCEAN) )
+  {
     to_room = ch->in_room;
+  }
 
-  if ((IS_SET(world[ch->in_room].room_flags, PRIVATE) ||
-       IS_SET(world[ch->in_room].room_flags, PRIV_ZONE) ||
-       IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
-       IS_HOMETOWN(ch->in_room) ||
-       world[ch->in_room].sector_type == SECT_OCEAN))
+  if( (IS_ROOM(ch->in_room, ROOM_PRIVATE) || PRIVATE_ZONE(ch->in_room)
+    || IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) || IS_HOMETOWN(ch->in_room)
+    || (world[ch->in_room].sector_type == SECT_OCEAN)) )
+  {
     to_room = ch->in_room;
+  }
 
   if (found == 1000)
     to_room = ch->in_room;
@@ -2876,11 +2871,11 @@ void spell_ether_warp(int level, P_char ch, char *arg, int type, P_char victim, 
   if( !IS_TRUSTED(ch) /*  && !IS_ILLITHID(ch) */  &&
       ((to_room == NOWHERE) || (to_room == ch->in_room) ||
        IS_TRUSTED(victim) ||
-       IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
+       IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) ||
        IS_HOMETOWN(ch->in_room) ||
        IS_HOMETOWN(to_room) ||
-       IS_SET(world[to_room].room_flags, NO_MAGIC) ||
-       IS_SET(world[to_room].room_flags, NO_TELEPORT) ||
+       IS_ROOM(to_room, ROOM_NO_MAGIC) ||
+       IS_ROOM(to_room, ROOM_NO_TELEPORT) ||
        world[to_room].sector_type == SECT_OCEAN ||
        IS_AFFECTED3(victim, AFF3_NON_DETECTION) ||
        (IS_NPC(victim) && !GET_SPEC(ch, CLASS_PSIONICIST, SPEC_PSYCHEPORTER)) ||
@@ -2901,11 +2896,11 @@ void spell_ether_warp(int level, P_char ch, char *arg, int type, P_char victim, 
   if (!IS_TRUSTED(ch) /* && IS_ILLITHID(ch) */  &&
       ((to_room == NOWHERE) || (to_room == ch->in_room) ||
        IS_TRUSTED(victim) ||
-       IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
+       IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) ||
        IS_HOMETOWN(ch->in_room) ||
        IS_HOMETOWN(to_room) ||
-       IS_SET(world[to_room].room_flags, NO_MAGIC) ||
-       IS_SET(world[to_room].room_flags, NO_TELEPORT) ||
+       IS_ROOM(to_room, ROOM_NO_MAGIC) ||
+       IS_ROOM(to_room, ROOM_NO_TELEPORT) ||
        world[to_room].sector_type == SECT_OCEAN ||
        IS_AFFECTED3(victim, AFF3_NON_DETECTION) ||
        (IS_NPC(victim) && !GET_SPEC(ch, CLASS_PSIONICIST, SPEC_PSYCHEPORTER)) ||
@@ -2975,7 +2970,7 @@ void spell_thought_beacon(int level, P_char ch, char *arg, int type,
   struct affected_type af, *afp;
   int duration = level * 4 * WAIT_MIN;
 
-  if (IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
+  if (IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) ||
       world[ch->in_room].sector_type == SECT_OCEAN) {
     send_to_char("Something blocks your mental powers here.\n", ch);
     return;

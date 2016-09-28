@@ -224,7 +224,7 @@ P_char guard_check(P_char attacker, P_char victim)
     return victim;
   }
   
-  if(IS_SET(world[attacker->in_room].room_flags, SINGLE_FILE))
+  if(IS_ROOM(attacker->in_room, ROOM_SINGLE_FILE))
   {
     act("You attempt to dive in front of $N, but this place is too cramped!!!",
       FALSE, guard, 0, victim, TO_CHAR);

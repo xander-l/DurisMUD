@@ -3363,7 +3363,7 @@ void halfling_stealaction(P_char ch, char *arg, int cmd)
       ((IS_CARRYING_N(ch) + 1) > CAN_CARRY_N(ch)) ||
       (IS_CARRYING_W(ch) >= CAN_CARRY_W(ch)) ||
       (CHAR_IN_SAFE_ZONE(ch)) || IS_TRUSTED(ch) ||
-      ((world[ch->in_room].room_flags & SINGLE_FILE) &&
+      (IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) &&
     !AdjacentInRoom(ch, vict)) || IS_FIGHTING(ch) || IS_FIGHTING(vict) ||
       (!IS_NPC(vict) && !vict->desc && (GET_LEVEL(ch) <= MAXLVLMORTAL)))
     return;
@@ -4554,7 +4554,7 @@ void do_fade(P_char ch, char *argument, int cmd)
     return;
   }
 
-  if (IS_SET(world[ch->in_room].room_flags, NO_RECALL) ||
+  if (IS_ROOM(ch->in_room, ROOM_NO_RECALL) ||
       (world[ch->in_room].sector_type == SECT_OCEAN))
   {
     send_to_char("You cannot fade from this room.\n", ch);

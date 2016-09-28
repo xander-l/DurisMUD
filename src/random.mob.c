@@ -767,9 +767,9 @@ int find_mob_map_room(P_char random_mob)
   {
     to_room = number(0, top_of_world);
     tries++;
-  } while ((IS_SET(world[to_room].room_flags, PRIVATE) ||
-         IS_SET(world[to_room].room_flags, PRIV_ZONE) ||
-         IS_SET(world[to_room].room_flags, NO_TELEPORT) ||
+  } while( (IS_ROOM(to_room, ROOM_PRIVATE) ||
+         PRIVATE_ZONE(to_room) ||
+         IS_ROOM(to_room, ROOM_NO_TELEPORT) ||
          world[to_room].sector_type == SECT_OCEAN ||
           world[to_room].sector_type == SECT_MOUNTAIN ||
           world[to_room].sector_type == SECT_WATER_SWIM ||

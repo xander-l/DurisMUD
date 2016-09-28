@@ -520,7 +520,7 @@ void do_fire(P_char ch, char *argument, int cmd)
     return;
   }
 
-  if( (world[victim->in_room].room_flags & SINGLE_FILE) && !AdjacentInRoom(ch, victim) )
+  if( IS_ROOM(victim->in_room, ROOM_SINGLE_FILE) && !AdjacentInRoom(ch, victim) )
   {
     if( victim->in_room != ch->in_room )
       send_to_char("It's too cramped in there to find a target.\n", ch);
@@ -1228,14 +1228,13 @@ void do_throw(P_char ch, char *argument, int cmd)
    target_room = ch->in_room;
  }
 
- if ((world[vict->in_room].room_flags & SINGLE_FILE) &&
-     !AdjacentInRoom(ch, vict))
- {
-   if (vict->in_room != ch->in_room)
-     send_to_char("It's too cramped in there to find a target.\r\n", ch);
-   else
-     send_to_char("It's too cramped in here to throw accurately.\r\n", ch);
- }
+  if( IS_ROOM(vict->in_room, ROOM_SINGLE_FILE) && !AdjacentInRoom(ch, vict) )
+  {
+    if (vict->in_room != ch->in_room)
+      send_to_char("It's too cramped in there to find a target.\r\n", ch);
+    else
+      send_to_char("It's too cramped in here to throw accurately.\r\n", ch);
+  }
 
  if (vict == ch)
  {
@@ -1499,8 +1498,8 @@ int range_scan(P_char ch, P_char target, int distance, int type_scan)
      {
        if (CAN_GO(ch, door) &&
            !check_wall(ch->in_room, door) &&
-           !IS_SET(world[EXIT(ch, door)->to_room].room_flags, NO_MOB) &&
-           !IS_SET(world[EXIT(ch, door)->to_room].room_flags, MAGIC_DARK))
+           !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_MOB) &&
+           !IS_ROOM(EXIT(ch, door)->to_room, ROOM_MAGIC_DARK))
        {
          target_room = world[ch->in_room].dir_option[door]->to_room;
          ch->in_room = target_room;
@@ -1593,8 +1592,8 @@ int range_scan_track(P_char ch, int distance, int type_scan)
      {
        if (CAN_GO(ch, door) &&
            !check_wall(ch->in_room, door) &&
-           !IS_SET(world[EXIT(ch, door)->to_room].room_flags, NO_MOB) &&
-           !IS_SET(world[EXIT(ch, door)->to_room].room_flags, MAGIC_DARK))
+           !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_MOB) &&
+           !IS_ROOM(EXIT(ch, door)->to_room, ROOM_MAGIC_DARK))
        {
          target_room = world[ch->in_room].dir_option[door]->to_room;
          ch->in_room = target_room;
@@ -2056,7 +2055,7 @@ void do_cover(P_char ch, char *argument, int cmd)
    return;
  }
 
- if (IS_SET(world[(ch)->in_room].room_flags, INDOORS))
+ if( IS_ROOM(ch->in_room, ROOM_INDOORS) )
  {
    send_to_char("Not very usefull inside.\r\n", ch);
    return;

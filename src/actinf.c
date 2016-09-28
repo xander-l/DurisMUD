@@ -2136,7 +2136,7 @@ void display_room_auras(P_char ch, int room_no)
   if ((IS_AFFECTED2(ch, AFF2_DETECT_GOOD) ||
       affected_by_spell(ch, SPELL_AURA_SIGHT) ||
       affected_by_spell(ch, SPELL_FAERIE_SIGHT)) &&
-       (IS_SET(world[room_no].room_flags, HEAL) ||
+       (IS_ROOM( room_no, ROOM_HEAL) ||
        get_spell_from_room(&world[room_no], SPELL_CONSECRATE_LAND)))
   {
     buffer[0] = 0;
@@ -2147,7 +2147,7 @@ void display_room_auras(P_char ch, int room_no)
   if ((IS_AFFECTED2(ch, AFF2_DETECT_EVIL) ||
       affected_by_spell(ch, SPELL_AURA_SIGHT) ||
       affected_by_spell(ch, SPELL_FAERIE_SIGHT)) &&
-      IS_SET(world[room_no].room_flags, NO_HEAL))
+      IS_ROOM( room_no, ROOM_NO_HEAL))
   {
     buffer[0] = 0;  
     sprintf(buffer, "&+LAn &n&+revil&+L aura fills the area.&n\n");
@@ -2157,36 +2157,35 @@ void display_room_auras(P_char ch, int room_no)
   if ((IS_AFFECTED2(ch, AFF2_DETECT_MAGIC) || 
       affected_by_spell(ch, SPELL_AURA_SIGHT) ||
       affected_by_spell(ch, SPELL_FAERIE_SIGHT)) &&
-      IS_SET(world[room_no].room_flags, NO_MAGIC))
+      IS_ROOM( room_no, ROOM_NO_MAGIC))
   {
     buffer[0] = 0;
     sprintf(buffer, "&+bThis area seems to be &+Ldevoid&n&+b of &+Bmagic&n&+b!&n\n");
     send_to_char(buffer, ch);
   }
     
-  if((world[room_no].room_flags & SINGLE_FILE) ||
-    (world[room_no].room_flags & TUNNEL))
+  if(IS_ROOM( room_no, ROOM_SINGLE_FILE) || IS_ROOM( room_no, ROOM_TUNNEL))
   {
     buffer[0] = 0;
     sprintf(buffer, "&+WThis area seems to be exceptionally &+ynarrow!&n\n");
     send_to_char(buffer, ch);
   }
   
-  if (IS_SET(world[room_no].room_flags, ROOM_SILENT))
+  if (IS_ROOM( room_no, ROOM_SILENT))
   {
     buffer[0] = 0;
     strcat(buffer, "&+wAn &+yunnatural&+w silence fills this area.&n\r\n");
     send_to_char(buffer, ch);
   }
   
-  if(IS_SET(world[ch->in_room].room_flags, MAGIC_LIGHT))
+  if(IS_ROOM( ch->in_room, ROOM_MAGIC_LIGHT))
   {
     buffer[0] = 0;
     strcat(buffer, "&+wA &+Wbright light&n&+w fills this area.&n\r\n");
     send_to_char(buffer, ch);
   }
   
-  if(IS_SET(world[ch->in_room].room_flags, MAGIC_DARK))
+  if(IS_ROOM( ch->in_room, ROOM_MAGIC_DARK))
   {
     buffer[0] = 0;
     strcat(buffer, "&+LAn unnatural darkness fills this area.&n\r\n");
@@ -2510,20 +2509,20 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
      */
     if( (!world[temp].dir_option[rev_dir[keyword_no]]
       || (world[temp].dir_option[rev_dir[keyword_no]]->to_room != room_no))
-      && !IS_TRUSTED(ch) && !IS_SET(world[ch->in_room].room_flags, GUILD_ROOM) )
+      && !IS_TRUSTED(ch) && !IS_ROOM( ch->in_room, ROOM_GUILD) )
     {
       /* sight blocked */
       send_to_char("Something seems to be blocking your line of sight.\n", ch);
       return;
     }
 
-    if( IS_SET(world[ch->in_room].room_flags, BLOCKS_SIGHT) && !IS_TRUSTED(ch) )
+    if( IS_ROOM( ch->in_room, ROOM_BLOCKS_SIGHT) && !IS_TRUSTED(ch) )
     {
       send_to_char("It's too difficult to see what lies in that direction.\n", ch);
       return;
     }
 
-    if( IS_SET(world[temp].room_flags, BLOCKS_SIGHT) && !IS_TRUSTED(ch) )
+    if( IS_ROOM(temp, ROOM_BLOCKS_SIGHT) && !IS_TRUSTED(ch) )
     {
       send_to_char("It's too difficult to see anything in that direction.\n", ch);
       return;
@@ -2831,7 +2830,7 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
     if( vis_mode == 4 )
     {
       /* cackle! JAB */
-      if( IS_SET(world[room_no].room_flags, INDOORS) )
+      if( IS_ROOM( room_no, ROOM_INDOORS) )
       {
         send_to_char("An Enclosed Space\n", ch);
       }
@@ -3166,7 +3165,7 @@ void show_exits_to_char(P_char ch, int room_no, int mode)
 
         if( exit->to_room != NOWHERE )
         {
-          if (IS_SET(world[exit->to_room].room_flags, MAGIC_DARK))
+          if (IS_ROOM(exit->to_room, ROOM_MAGIC_DARK))
           {
             strcat(buffer, "(&+LMagic Dark&n) ");
           }
@@ -3174,7 +3173,7 @@ void show_exits_to_char(P_char ch, int room_no, int mode)
           {
             strcat(buffer, "(&+LDark&n) ");
           }
-          else if (IS_SET(world[exit->to_room].room_flags, MAGIC_LIGHT))
+          else if (IS_ROOM(exit->to_room, ROOM_MAGIC_LIGHT))
           {
             strcat(buffer, "(&+WMagic Light&n) ");
           }
@@ -5030,7 +5029,7 @@ void do_score(P_char ch, char *argument, int cmd)
   if (IS_AFFECTED2(ch, AFF2_STUNNED))
     strcat(buf, " Stunned");
 
-  if ((IS_SET(world[ch->in_room].room_flags, UNDERWATER)) ||
+  if ((IS_ROOM( ch->in_room, ROOM_UNDERWATER)) ||
       ch->specials.z_cord < 0)
   {
     if (!IS_AFFECTED2(ch, AFF2_HOLDING_BREATH) &&
@@ -8469,7 +8468,7 @@ void do_scan(P_char ch, char *argument, int cmd)
     return;
   }
 
-  if( IS_SET(world[ch->in_room].room_flags, BLOCKS_SIGHT) )
+  if( IS_ROOM( ch->in_room, ROOM_BLOCKS_SIGHT) )
   {
     send_to_char("There's too much stuff blocking your sight here to scan.\n", ch);
     return;
@@ -8586,7 +8585,7 @@ void do_scan(P_char ch, char *argument, int cmd)
       {
         if( !CAN_GO(ch, dir) )
           continue;
-        if( IS_SET(world[EXIT(ch, dir)->to_room].room_flags, BLOCKS_SIGHT) )
+        if( IS_ROOM(EXIT(ch, dir)->to_room, ROOM_BLOCKS_SIGHT) )
           continue;
         vis_mode = get_vis_mode(ch, EXIT(ch, dir)->to_room);
 

@@ -77,7 +77,7 @@ void do_mount(P_char ch, char *argument, int cmd)
     send_to_char("You are already riding on something.\r\n", ch);
     return;
   }
-  if (world[ch->in_room].room_flags & SINGLE_FILE)
+  if( IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) )
   {
     send_to_char("This room is too narrow to ride.\r\n", ch);
     return;

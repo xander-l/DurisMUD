@@ -137,7 +137,7 @@ int get_vis_mode(P_char ch, int room)
     return 2;
   }
   // Normal inside rooms are twilight, unless magic lit/darked.
-  if( (IS_SET(world[room].room_flags, LOCKER) || IS_INSIDE(room)) && !IS_MAGIC_LIGHT(room) && !IS_MAGIC_DARK(room) )
+  if( (IS_ROOM(room, ROOM_LOCKER) || IS_INSIDE(room)) && !IS_MAGIC_LIGHT(room) && !IS_MAGIC_DARK(room) )
   {
     return 2;
   }
@@ -1543,7 +1543,7 @@ bool ac_can_see_obj(P_char sub, P_obj obj, int zrange )
 
   /* Room is magically dark
      Done Later - Granor */
-  /*if (IS_SET (world[obj->loc.room].room_flags, MAGIC_DARK) && IS_PC(sub)
+  /*if (IS_ROOM(obj->loc.room, ROOM_MAGIC_DARK) && IS_PC(sub)
      && !IS_AFFECTED2(sub, AFF2_ULTRAVISION) &&
      !IS_TWILIGHT_ROOM(obj->loc.room))
      return 0;
@@ -2388,8 +2388,7 @@ bool aggressive_to(P_char ch, P_char target)
   if (IS_IMMOBILE(ch))
     return FALSE;
 
-  if ((world[ch->in_room].room_flags & SINGLE_FILE) &&
-      !AdjacentInRoom(ch, target))
+  if( IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) && !AdjacentInRoom(ch, target) )
     return FALSE;
 
   /* now needs a master to inhibit aggression */
@@ -4356,7 +4355,7 @@ void broadcast_to_arena(const char *msg, P_char ch, P_char vict, int rm)
   P_char   c;
 
 
-  if (!IS_SET(world[rm].room_flags, ARENA))
+  if (!IS_ROOM(rm, ROOM_ARENA))
     return;                     /* ? */
 
   rm = world[rm].number;
@@ -4835,7 +4834,7 @@ bool should_area_hit(P_char ch, P_char victim)
   if( IS_TRUSTED(victim) && (GET_OPPONENT(victim) != ch) )
     return FALSE;
 
-  if( (world[ch->in_room].room_flags & SINGLE_FILE) && !AdjacentInRoom(ch, victim) )
+  if( IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) && !AdjacentInRoom(ch, victim) )
     return FALSE;
 
   if( af = get_spell_from_char(victim, TAG_IMMUNE_AREA) )
@@ -4968,7 +4967,7 @@ int cast_as_damage_area(P_char ch, void (*spell_func) (int, P_char, char *, int,
   ////////////
   // new algo
 
-  if(IS_SET(world[ch_room].room_flags, SAFE_ROOM))
+  if(IS_ROOM(ch_room, ROOM_SAFE))
   {
     return 0;
   }
@@ -5057,8 +5056,8 @@ int cast_as_damage_area(P_char ch, void (*spell_func) (int, P_char, char *, int,
 
   int vict_room = victim->in_room;
   
-  if(IS_SET(world[ch_room].room_flags, SAFE_ROOM) ||
-     IS_SET(world[vict_room].room_flags, SAFE_ROOM))
+  if(IS_ROOM(ch_room, ROOM_SAFE) ||
+     IS_ROOM(vict_room, ROOM_SAFE))
   {
     return 0;
   }
@@ -5231,7 +5230,7 @@ bool is_hot_in_room(int room)
 
 // This function determines whether room real number r is currently twilight.
 // Checks for all cases where a room is twilight.  If it finds one, returns TRUE.
-//   If none found, it defaults to return FALSE.  The one exception is the room flag DARK.
+//   If none found, it defaults to return FALSE.  The one exception is the room flag ROOM_DARK.
 bool IS_TWILIGHT_ROOM(int r)
 {
   int sect = world[r].sector_type;
@@ -5239,28 +5238,28 @@ bool IS_TWILIGHT_ROOM(int r)
 
   // Twilight rooms are twilight unless magically darkened or lit.
   //   Twilight flag also overrides dark flag.
-  if( IS_SET(flags, TWILIGHT) && !IS_SET(flags, MAGIC_DARK | MAGIC_LIGHT) )
+  if( IS_SET(flags, ROOM_TWILIGHT) && !IS_SET(flags, ROOM_MAGIC_DARK | ROOM_MAGIC_LIGHT) )
   {
     return TRUE;
   }
 
   // If it's lit and darked, it's twilight.
-  if( IS_SET(flags, MAGIC_LIGHT) && IS_SET(flags, MAGIC_DARK | DARK) )
+  if( IS_SET(flags, ROOM_MAGIC_LIGHT) && IS_SET(flags, ROOM_MAGIC_DARK | ROOM_DARK) )
   {
     return TRUE;
   }
 
   // This should be the only return FALSE until the end default return.
-  //   If a room isn't flagged MAGIC_LIGHT, but is flagged DARK or MAGIC_DARK, it's not twilight.
-  //   Also, if a room isn't flagged DARK or MAGIC_DARK, but is flagged MAGIC_LIGHT, it's not twilight.
-  if( IS_SET(flags, DARK | MAGIC_DARK) || IS_SET(flags, MAGIC_LIGHT) )
+  //   If a room isn't flagged ROOM_MAGIC_LIGHT, but is flagged ROOM_DARK or ROOM_MAGIC_DARK, it's not twilight.
+  //   Also, if a room isn't flagged ROOM_DARK or ROOM_MAGIC_DARK, but is flagged ROOM_MAGIC_LIGHT, it's not twilight.
+  if( IS_SET(flags, ROOM_DARK | ROOM_MAGIC_DARK) || IS_SET(flags, ROOM_MAGIC_LIGHT) )
   {
     return FALSE;
   }
 
   // All UD map rooms are twilight unless magically darkened/lit.
   // Underwater rooms and indoors, by default, are twilight, for now.
-  if( IS_UD_MAP(r) || IS_SET(flags, UNDERWATER | INDOORS) )
+  if( IS_UD_MAP(r) || IS_SET(flags, ROOM_UNDERWATER | ROOM_INDOORS) )
   {
     return TRUE;
   }
@@ -5347,8 +5346,8 @@ bool IS_OUTDOORS(int r)
   // Rooms that are Lockers/Indoors/etc are not outside rooms.
   // Note: The "HOUSE" bit was removed.  I dunno if it'll come back or not,
   //   but should be in this list if it does.
-  if( IS_SET(flags, LOCKER | INDOORS | UNDERWATER | TUNNEL | PRIVATE | NO_PRECIP
-    | SINGLE_FILE | JAIL | GUILD_ROOM ) )
+  if( IS_SET(flags, ROOM_LOCKER | ROOM_INDOORS | ROOM_UNDERWATER | ROOM_TUNNEL | ROOM_PRIVATE | ROOM_NO_PRECIP
+    | ROOM_SINGLE_FILE | ROOM_JAIL | ROOM_GUILD ) )
   {
     return FALSE;
   }

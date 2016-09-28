@@ -200,7 +200,7 @@ int amethyst_orb(P_obj obj, P_char ch, int cmd, char *arg)
     int      to_room = 0;
     int      safeguard = 0;
 
-    if (IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) && IS_SET(obj->wear_flags, ITEM_TAKE))
+    if (IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) && IS_SET(obj->wear_flags, ITEM_TAKE))
       return TRUE;
     
     if (IS_HOMETOWN(ch->in_room))
@@ -230,8 +230,8 @@ int amethyst_orb(P_obj obj, P_char ch, int cmd, char *arg)
             (world[to_room].zone == 192) ||
             (world[to_room].zone == 194) ||
             (world[to_room].zone == 198) ||
-            IS_SET(world[to_room].room_flags, NO_MAGIC) ||
-            IS_SET(world[to_room].room_flags, NO_TELEPORT) ||
+            IS_ROOM(to_room, ROOM_NO_MAGIC) ||
+            IS_ROOM(to_room, ROOM_NO_TELEPORT) ||
             IS_HOMETOWN(to_room)));
 
     if (safeguard >= 10000)

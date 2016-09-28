@@ -238,7 +238,7 @@ void create_zone(int theme, int map_room1, int map_room2, int level_range,
       random_zone_data[LOADED_RANDOM_ZONES].map_room = world[map_room].number;
       //First room is !mob.
 
-      SET_BIT(world[room_nr].room_flags, NO_MOB);
+      SET_BIT(world[room_nr].room_flags, ROOM_NO_MOB);
 
       if (map_room1 == 999)
       {
@@ -711,13 +711,10 @@ int find_map_place()
   {
     to_room = number(start, end);
   }
-  while ((IS_SET(world[to_room].room_flags, PRIVATE) || 
-          IS_SET(world[to_room].room_flags, PRIV_ZONE) || 
-          IS_SET(world[to_room].room_flags, NO_TELEPORT) || 
-          world[to_room].dir_option[DIR_DOWN] || IS_WATER_ROOM(to_room) || 
-          world[to_room].sector_type == SECT_MOUNTAIN ||
-          world[to_room].sector_type == SECT_UNDRWLD_MOUNTAIN ||
-          world[to_room].sector_type == SECT_OCEAN) && tries++ < 1000);
+  while( (IS_ROOM( to_room, ROOM_PRIVATE | ROOM_NO_TELEPORT ) || PRIVATE_ZONE( to_room )
+    || world[to_room].dir_option[DIR_DOWN] || IS_WATER_ROOM( to_room )
+    || world[to_room].sector_type == SECT_MOUNTAIN || world[to_room].sector_type == SECT_UNDRWLD_MOUNTAIN
+    || world[to_room].sector_type == SECT_OCEAN) && tries++ < 1000 );
 
   if (tries >= 1000)
   {
@@ -1586,7 +1583,7 @@ int create_lab(int type)
 
     parent_room = current_room;
 
-    SET_BIT(world[real_room(current_room)].room_flags, NO_TELEPORT);
+    SET_BIT(world[real_room(current_room)].room_flags, ROOM_NO_TELEPORT);
 
     current_room = connect_lab(current_room, direction);
     connect_other(current_room);

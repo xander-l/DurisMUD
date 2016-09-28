@@ -988,7 +988,7 @@ int floating_pool(P_obj obj, P_char ch, int cmd, char *arg)
                  EX_SECRET)) &&
         (!IS_SET(world[(my_room)].dir_option[(i)]->exit_info,
                  EX_BLOCKED)) &&
-        (!IS_SET(world[FLT_TOROOM(my_room, i)].room_flags, NO_MOB)))
+        (!IS_ROOM(FLT_TOROOM(my_room, i), ROOM_NO_MOB)))
       pos_dirs[num_choices++] = i;
 
   if (!num_choices)
@@ -1086,8 +1086,8 @@ int teleporting_pool(P_obj obj, P_char ch, int cmd, char *arg)
       to_room = (number(zone_table[world[obj->loc.room].zone].real_bottom,
                         zone_table[world[obj->loc.room].zone].real_top));
     }
-    while (IS_SET(world[to_room].room_flags, PRIVATE) ||
-           IS_SET(world[to_room].room_flags, NO_MOB));
+    while( IS_ROOM(to_room, ROOM_PRIVATE) ||
+           IS_ROOM(to_room, ROOM_NO_MOB));
 
     act("$p &+Lslowly vanishes away into nothingness.&N", TRUE, NULL, obj, NULL, TO_ROOM);
     obj_from_room(obj);
@@ -1130,8 +1130,8 @@ int teleporting_map_pool(P_obj obj, P_char ch, int cmd, char *arg)
       to_room = (number(zone_table[world[obj->loc.room].zone].real_bottom,
         zone_table[world[obj->loc.room].zone].real_top));
     }
-    while( IS_SET(world[to_room].room_flags, PRIVATE)
-      || IS_SET(world[to_room].room_flags, NO_MOB) );
+    while( IS_ROOM(to_room, ROOM_PRIVATE)
+      || IS_ROOM(to_room, ROOM_NO_MOB) );
 
     act("$p &+Lslowly vanishes away into nothingness.&N", TRUE, NULL, obj, NULL, TO_ROOM);
     obj_from_room(obj);
@@ -1173,7 +1173,7 @@ int ring_elemental_control(P_obj obj, P_char ch, int cmd, char *arg)
     return FALSE;
   }
 
-  if (IS_SET(world[ch->in_room].room_flags, NO_MAGIC))
+  if (IS_ROOM(ch->in_room, ROOM_NO_MAGIC))
   {
     send_to_char("That doesn't seem to do anything!\n", ch);
     return FALSE;
@@ -10487,7 +10487,7 @@ int dragon_skull_helm(P_obj obj, P_char ch, int cmd, char *argument)
   }
 
   curr_time = time(NULL);
-  if( !IS_SET(world[ch->in_room].room_flags, NO_MAGIC) )
+  if( !IS_ROOM(ch->in_room, ROOM_NO_MAGIC) )
   {
     // 1 min timer.
     if (obj->timer[0] + 60 <= curr_time)
@@ -10578,7 +10578,7 @@ int priest_rudder(P_obj obj, P_char ch, int cmd, char *argument)
   {
     act("&+L$n's $q &+chums &+wsoftly&+L.&N", FALSE, ch, obj, 0, TO_ROOM);
     act("&+LYour $q &+chums &+wsoftly&+L.&N", FALSE, ch, obj, 0, TO_CHAR);
-    if( !IS_SET(world[ch->in_room].room_flags, NO_MAGIC) )
+    if( !IS_ROOM(ch->in_room, ROOM_NO_MAGIC) )
     {
       spell_mass_heal(35, ch, 0, 0, ch, 0);
     }
@@ -10632,7 +10632,7 @@ int ljs_armor(P_obj obj, P_char ch, int cmd, char *arg)
       act("&+L$n's&N $q &+Lgrows a &+wtough &+Llayer of skin.&N", TRUE, ch, obj, vict, TO_NOTVICT);
       act("&+LYour&N $q &+Lgrows a &+wtough &+Llayer of skin.&N", TRUE, ch, obj, vict, TO_CHAR);
       act("&+L$n's&N $q &+Lgrows a &+wtough &+Llayer of skin.&N", TRUE, ch, obj, vict, TO_VICT);
-      if( !IS_SET(world[ch->in_room].room_flags, NO_MAGIC) )
+      if( !IS_ROOM(ch->in_room, ROOM_NO_MAGIC) )
       {
         spell_prot_from_undead(60, ch, 0, 0, ch, 0);
       }
@@ -10643,7 +10643,7 @@ int ljs_armor(P_obj obj, P_char ch, int cmd, char *arg)
       act("&+w$n's&N $q &+Lgrows a &+Wtough &+Llayer of skin.&N", TRUE, ch, obj, vict, TO_NOTVICT);
       act("&+wYour&N $q &+Lgrows a &+Wtough &+Llayer of skin.&N", TRUE, ch, obj, vict, TO_CHAR);
       act("&+w$n's&N $q &+Lgrows a &+Wtough &+Llayer of skin.&N", TRUE, ch, obj, vict, TO_VICT);
-      if( !IS_SET(world[ch->in_room].room_flags, NO_MAGIC) )
+      if( !IS_ROOM(ch->in_room, ROOM_NO_MAGIC) )
       {
         spell_protection_from_living(60, ch, 0, 0, ch, 0);
       }
@@ -11215,7 +11215,7 @@ int glowing_necklace(P_obj obj, P_char ch, int cmd, char *arg)
     return FALSE;
   }
 
-  if( !OBJ_WORN(obj) || !IS_ALIVE(ch) || IS_SET(world[ch->in_room].room_flags, LOCKER) )
+  if( !OBJ_WORN(obj) || !IS_ALIVE(ch) || IS_ROOM(ch->in_room, ROOM_LOCKER) )
   {
     return FALSE;
   }
@@ -11936,7 +11936,7 @@ int lyrical_instrument_of_time(P_obj obj, P_char ch, int cmd, char *argument)
 
   curr_time = time(NULL);
 
-  if (!IS_SET(world[temp_ch->in_room].room_flags, NO_MAGIC))
+  if (!IS_ROOM(temp_ch->in_room, ROOM_NO_MAGIC))
   {
     if (obj->timer[0] + 30 <= curr_time)
     {
@@ -12220,7 +12220,7 @@ int mace_dragondeath(P_obj obj, P_char ch, int cmd, char *arg)
     return FALSE;
   }
 
-  if( cmd == CMD_PERIODIC && !IS_SET(world[temp_ch->in_room].room_flags, NO_MAGIC))
+  if( cmd == CMD_PERIODIC && !IS_ROOM(temp_ch->in_room, ROOM_NO_MAGIC))
   {
     curr_time = time(NULL);
 
@@ -13866,8 +13866,8 @@ int portal_general_internal( P_obj obj, P_char ch, int cmd, char *arg, struct po
 
   if (!can_enter_room(ch, to_room, FALSE) ||
       ((obj->value[1] == RACE_ILLITHID) && (!IS_ILLITHID(ch))) ||
-      (IS_SET(world[ch->in_room].room_flags, ARENA) !=
-       IS_SET(world[to_room].room_flags, ARENA)))
+      (IS_ROOM(ch->in_room, ROOM_ARENA) !=
+       IS_ROOM(to_room, ROOM_ARENA)))
   {
     send_to_char("A strong force pushes you back!\n", ch);
     return TRUE;
@@ -13907,7 +13907,7 @@ int portal_general_internal( P_obj obj, P_char ch, int cmd, char *arg, struct po
      CharWait(ch, obj->value[6] * WAIT_SEC);
 
 #if 0
-  if (IS_SET(world[to_room].room_flags, DEATH) && !IS_TRUSTED(ch))
+  if (IS_ROOM(to_room, ROOM_DEATH) && !IS_TRUSTED(ch))
   {
     death_cry(ch);
     // If it's not an immortal.

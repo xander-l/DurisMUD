@@ -132,8 +132,8 @@ bool can_relocate_to(P_char ch, P_char victim)
 
   if( !(victim) || !(location) || !can_enter_room(ch, location, FALSE)
     || (( racewar(ch, victim) || IS_NPC(victim)
-    || IS_SET(world[ch->in_room].room_flags, SINGLE_FILE)
-    || IS_SET(world[victim->in_room].room_flags, SINGLE_FILE) ) && !IS_TRUSTED(ch)) )
+    || IS_ROOM(ch->in_room, ROOM_SINGLE_FILE)
+    || IS_ROOM(victim->in_room, ROOM_SINGLE_FILE) ) && !IS_TRUSTED(ch)) )
   {
     send_to_char("&+CYou failed.\n", ch);
     return FALSE;
@@ -163,7 +163,7 @@ bool can_relocate_to(P_char ch, P_char victim)
     return FALSE;
   }
 
-  if( IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) || IS_HOMETOWN(ch->in_room) )
+  if( IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) || IS_HOMETOWN(ch->in_room) )
   {
     send_to_char("The magic in this room prevents you from leaving.\n", ch);
     return FALSE;
@@ -175,7 +175,7 @@ bool can_relocate_to(P_char ch, P_char victim)
     return FALSE;
   }
 
-  if( IS_SET(world[location].room_flags, NO_TELEPORT) || IS_HOMETOWN(location)
+  if( IS_ROOM(location, ROOM_NO_TELEPORT) || IS_HOMETOWN(location)
     || world[location].sector_type == SECT_OCEAN )
   {
     send_to_char("&+CYou failed.\n", ch);
@@ -1530,7 +1530,7 @@ void spell_mirror_image(int level, P_char ch, char *arg, int type, P_char victim
     return;
   }
 
-  if(IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+  if(IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
   {
     send_to_char("Ain't enough room here to do that, bubba.\n", ch);
     return;
@@ -4390,8 +4390,8 @@ void spell_siren_song(int level, P_char ch, char *arg, int type,
     return;
   }
 //CANT CAST FROM OR TO GUILDHALLROOMS
-  if((IS_SET(world[ch->in_room].room_flags, GUILD_ROOM)) ||
-      (IS_SET(world[victim->in_room].room_flags, GUILD_ROOM)))
+  if((IS_ROOM(ch->in_room, ROOM_GUILD)) ||
+      (IS_ROOM(victim->in_room, ROOM_GUILD)))
   {
     send_to_char("Your siren song stops abruptly!\n", ch);
     return;
@@ -4903,7 +4903,7 @@ void spell_dimension_door(int level, P_char ch, char *arg, int type, P_char vict
   else
     CharWait(ch, WAIT_SEC * 1 + 1);
 
-  if( IS_AFFECTED3(victim, AFF3_NON_DETECTION) || IS_SET(world[ch->in_room].room_flags, NO_TELEPORT)
+  if( IS_AFFECTED3(victim, AFF3_NON_DETECTION) || IS_ROOM(ch->in_room, ROOM_NO_TELEPORT)
     || IS_HOMETOWN(ch->in_room) || world[ch->in_room].sector_type == SECT_OCEAN
     || world[victim->in_room].sector_type == SECT_CASTLE || world[victim->in_room].sector_type == SECT_CASTLE_WALL
     || world[victim->in_room].sector_type == SECT_CASTLE_GATE )
@@ -4931,7 +4931,7 @@ void spell_dimension_door(int level, P_char ch, char *arg, int type, P_char vict
 
   location = victim->in_room;
 
-  if( IS_SET(world[location].room_flags, NO_TELEPORT) || IS_HOMETOWN(location)
+  if( IS_ROOM(location, ROOM_NO_TELEPORT) || IS_HOMETOWN(location)
     || racewar(ch, victim) || world[location].sector_type == SECT_OCEAN || (IS_PC_PET(ch) && IS_PC(victim)) )
   {
     send_to_char("&+CYou failed.\n", ch);
@@ -5025,7 +5025,7 @@ void spell_dark_compact(int level, P_char ch, char *arg, int type,
   else
     CharWait(ch, 5);
 
-  if(IS_SET(world[ch->in_room].room_flags, NO_TELEPORT))
+  if(IS_ROOM(ch->in_room, ROOM_NO_TELEPORT))
   {
     send_to_char("The magic in this room prevents you from leaving.\n", ch);
     return;
@@ -5040,16 +5040,16 @@ void spell_dark_compact(int level, P_char ch, char *arg, int type,
   {
     location = real_room0(number(210000, 214000));
     while ((world[location].sector_type == SECT_OCEAN) ||
-           IS_SET(world[location].room_flags, NO_TELEPORT) ||
-           IS_SET(world[location].room_flags, NO_GATE))
+           IS_ROOM(location, ROOM_NO_TELEPORT) ||
+           IS_ROOM(location, ROOM_NO_GATE))
       location = real_room0(number(210000, 214000));
   }
   else
   {
     location = real_room0(number(140000, 159999));
     while ((world[location].sector_type == SECT_OCEAN) ||
-           IS_SET(world[location].room_flags, NO_TELEPORT) ||
-           IS_SET(world[location].room_flags, NO_GATE))
+           IS_ROOM(location, ROOM_NO_TELEPORT) ||
+           IS_ROOM(location, ROOM_NO_GATE))
       location = real_room0(number(140000, 159999));
   }
 
@@ -5131,7 +5131,7 @@ void spell_group_teleport(int level, P_char ch, char *arg, int type, P_char vict
   }
 
   // make sure the room allows teleportation
-  if(IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
+  if(IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) ||
       IS_HOMETOWN(ch->in_room) ||
       world[ch->in_room].sector_type == SECT_OCEAN)
   {
@@ -5153,9 +5153,8 @@ void spell_group_teleport(int level, P_char ch, char *arg, int type, P_char vict
                        zone_table[world[ch->in_room].zone].real_top);
       tries++;
     }
-    while ((IS_SET(world[to_room].room_flags, PRIVATE) ||
-          IS_SET(world[to_room].room_flags, PRIV_ZONE) ||
-          IS_SET(world[to_room].room_flags, NO_TELEPORT) ||
+    while ((IS_ROOM(to_room, ROOM_PRIVATE) ||
+          IS_ROOM(to_room, ROOM_NO_TELEPORT) ||
           IS_HOMETOWN(to_room) ||
           world[to_room].sector_type == SECT_OCEAN) && tries < 1000);
     }
@@ -5178,9 +5177,8 @@ do
                        zone_table[world[ch->in_room].zone].real_top);
       tries++;
     }
-    while ((IS_SET(world[to_room].room_flags, PRIVATE) ||
-          IS_SET(world[to_room].room_flags, PRIV_ZONE) ||
-          IS_SET(world[to_room].room_flags, NO_TELEPORT) ||
+    while ((IS_ROOM(to_room, ROOM_PRIVATE) ||
+          IS_ROOM(to_room, ROOM_NO_TELEPORT) ||
           IS_HOMETOWN(to_room) ||
           world[to_room].sector_type == SECT_OCEAN) && tries < 1000);
   }
@@ -5260,7 +5258,7 @@ void spell_teleport(int level, P_char ch, char *arg, int type, P_char victim, P_
   int from_room, dir, to_room;
   P_char   vict, t_ch;
 
-  if((IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
+  if((IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) ||
       IS_HOMETOWN(ch->in_room) ||
       world[ch->in_room].sector_type == SECT_OCEAN) && level < 60)
   {
@@ -5309,10 +5307,9 @@ void spell_teleport(int level, P_char ch, char *arg, int type, P_char victim, P_
           zone_table[world[vict->in_room].zone].real_top);
       tries++;
     }
-    while ((IS_SET(world[to_room].room_flags, PRIVATE) ||
-          IS_SET(world[to_room].room_flags, PRIV_ZONE) ||
-          IS_SET(world[to_room].room_flags, NO_MAGIC) ||
-          IS_SET(world[to_room].room_flags, NO_TELEPORT) ||
+    while ((IS_ROOM(to_room, ROOM_PRIVATE) ||
+          IS_ROOM(to_room, ROOM_NO_MAGIC) ||
+          IS_ROOM(to_room, ROOM_NO_TELEPORT) ||
           IS_HOMETOWN(to_room) ||
           world[to_room].sector_type == SECT_OCEAN) && tries < 1000);
     if(tries >= 1000)
@@ -8225,7 +8222,7 @@ void spell_word_of_recall(int level, P_char ch, char *arg, int type, P_char vict
   if(IS_NPC(victim) && IS_PC_PET(victim))
    return;
 
-  if(IS_SET(world[ch->in_room].room_flags, ROOM_SILENT))
+  if(IS_ROOM(ch->in_room, ROOM_SILENT))
   {
     send_to_char("No sound can be heard.\n", ch);
     return;
@@ -8237,7 +8234,7 @@ void spell_word_of_recall(int level, P_char ch, char *arg, int type, P_char vict
     return;
   }
 
-  if(IS_SET(world[ch->in_room].room_flags, NO_RECALL))
+  if(IS_ROOM(ch->in_room, ROOM_NO_RECALL))
      //||(world[ch->in_room].sector_type == SECT_OCEAN))
   {
     if(ch == victim)
@@ -8411,7 +8408,7 @@ int Summonable(P_char ch)
     IS_SHOPKEEPER(ch)))
       return FALSE;
 
-  if(IS_SET(world[ch->in_room].room_flags, NO_SUMMON))
+  if(IS_ROOM(ch->in_room, ROOM_NO_SUMMON))
     return FALSE;
 
   for (target = 0; target < MAX_WEAR; target++)
@@ -8445,7 +8442,7 @@ void spell_summon(int level, P_char ch, char *arg, int type, P_char victim,
    */
 
   if(IS_PC(ch) &&
-     !IS_SET(world[ch->in_room].room_flags, NO_SUMMON) &&
+     !IS_ROOM(ch->in_room, ROOM_NO_SUMMON) &&
      !number(0, 9))
   {
     mob = read_mobile(real_mobile(200), REAL);
@@ -8478,8 +8475,8 @@ void spell_summon(int level, P_char ch, char *arg, int type, P_char victim,
     return;
   }
   
-  if(IS_SET(world[ch->in_room].room_flags, NO_SUMMON) ||
-     IS_SET(world[victim->in_room].room_flags, NO_SUMMON) ||
+  if(IS_ROOM(ch->in_room, ROOM_NO_SUMMON) ||
+     IS_ROOM(victim->in_room, ROOM_NO_SUMMON) ||
     (IS_NPC(victim) && IS_SHOPKEEPER(victim)) ||
     (IS_PC(victim) &&
     IS_SET(victim->specials.act2, PLR2_NOLOCATE) &&
@@ -11229,16 +11226,16 @@ void cont_light_dissipate_event(P_char ch, P_char victim, P_obj obj, void *data)
     logit(LOG_DEBUG, "Cont light dissipation in invalid room. [%d]", room);
     return;
   }
-  if(!IS_SET(world[room].room_flags, MAGIC_LIGHT))
+  if(!IS_ROOM(room, ROOM_MAGIC_LIGHT))
     had_light = FALSE;
 
-  REMOVE_BIT(world[room].room_flags, MAGIC_LIGHT);
+  REMOVE_BIT(world[room].room_flags, ROOM_MAGIC_LIGHT);
 
   if(readd_dark)
-    SET_BIT(world[room].room_flags, DARK);
+    SET_BIT(world[room].room_flags, ROOM_DARK);
 
   if(readd_twilight)
-    SET_BIT(world[room].room_flags, TWILIGHT);
+    SET_BIT(world[room].room_flags, ROOM_TWILIGHT);
 
   if(had_light)
     send_to_room("The light in the area seems to dissipate a bit.\n", room);
@@ -11274,36 +11271,36 @@ void spell_continual_light(int level, P_char ch, char *arg, int type,
   /*
     send_to_char("&+WThe room lights up&n and then dims slightly.\n", ch);
     act("&+WThe room lights up.&n", 0, ch, 0, 0, TO_ROOM);
-    SET_BIT(world[ch->in_room].room_flags, TWILIGHT);
+    SET_BIT(world[ch->in_room].room_flags, ROOM_TWILIGHT);
   */
 
-    if(IS_SET(world[ch->in_room].room_flags, MAGIC_LIGHT))
+    if(IS_ROOM(ch->in_room, ROOM_MAGIC_LIGHT))
     {
       send_to_char("The room already appears to be lit, so nothing happens.\n", ch);
       return;
     }
 
-    if(IS_SET(world[ch->in_room].room_flags, MAGIC_DARK))
+    if(IS_ROOM(ch->in_room, ROOM_MAGIC_DARK))
     {
-       REMOVE_BIT(world[ch->in_room].room_flags, MAGIC_DARK);
+       REMOVE_BIT(world[ch->in_room].room_flags, ROOM_MAGIC_DARK);
        send_to_char("The room becomes much less stygian.\n", ch);
        act("The room becomes much less stygian.", 0, ch, 0, 0, TO_ROOM);
     }
     else
     {
-      if(IS_SET(world[ch->in_room].room_flags, DARK))
+      if(IS_ROOM(ch->in_room, ROOM_DARK))
       {
-        REMOVE_BIT(world[ch->in_room].room_flags, DARK);
+        REMOVE_BIT(world[ch->in_room].room_flags, ROOM_DARK);
         readd_dark = TRUE;
       }
-      if(IS_SET(world[ch->in_room].room_flags, TWILIGHT))
+      if(IS_ROOM(ch->in_room, ROOM_TWILIGHT))
       {
-        REMOVE_BIT(world[ch->in_room].room_flags, TWILIGHT);
+        REMOVE_BIT(world[ch->in_room].room_flags, ROOM_TWILIGHT);
         readd_twilight = TRUE;
       }
       sprintf(buff, "%d %d %d", ch->in_room, readd_dark, readd_twilight);
 
-      SET_BIT(world[ch->in_room].room_flags, MAGIC_LIGHT);
+      SET_BIT(world[ch->in_room].room_flags, ROOM_MAGIC_LIGHT);
 
       send_to_char("&+WThe room lights up!\n", ch);
       act("&+WThe room lights up!", 0, ch, 0, 0, TO_ROOM);
@@ -11336,7 +11333,7 @@ void event_airy_water_dissipate(P_char ch, P_char victim, P_obj obj,
     raise(SIGSEGV);
   }
   if(d->readd_uw)
-    SET_BIT(world[d->room].room_flags, UNDERWATER);
+    SET_BIT(world[d->room].room_flags, ROOM_UNDERWATER);
 
   world[d->room].sector_type = d->old_sect;
 
@@ -11372,11 +11369,11 @@ void spell_airy_water(int level, P_char ch, char *arg, int type,
     ("A large air bubble slowly expands around $n&n, displacing all water in the area.",
      FALSE, ch, 0, 0, TO_ROOM);
 
-  data.readd_uw = IS_SET(world[ch->in_room].room_flags, UNDERWATER);
+  data.readd_uw = IS_ROOM(ch->in_room, ROOM_UNDERWATER);
   data.old_sect = world[ch->in_room].sector_type;
   data.room = ch->in_room;
 
-  REMOVE_BIT(world[ch->in_room].room_flags, UNDERWATER);
+  REMOVE_BIT(world[ch->in_room].room_flags, ROOM_UNDERWATER);
   world[ch->in_room].sector_type = SECT_WATER_SWIM;
 
   /* update everyone's underwater status */
@@ -11473,7 +11470,7 @@ int get_room_in_zone(int zone_room, P_char ch)
     to_room = number(low, high);
   }
   while ((!can_enter_room(ch, to_room, FALSE) ||
-          IS_SET(world[to_room].room_flags, NO_TELEPORT) || IS_HOMETOWN(to_room)) && --level);
+          IS_ROOM(to_room, ROOM_NO_TELEPORT) || IS_HOMETOWN(to_room)) && --level);
 
   if(level)
     start_room = to_room;
@@ -11520,7 +11517,7 @@ bool check_item_teleport(P_char ch, char *arg, int cmd)
 
   // allow house/guild entrances to always work regardless of no-magic status
  /*
-  if(IS_SET(world[ch->in_room].room_flags, NO_MAGIC) && (vnum != 11001) &&
+  if(IS_ROOM(ch->in_room, ROOM_NO_MAGIC) && (vnum != 11001) &&
       (vnum != 11007) && (vnum != 11008))
   {
     send_to_char("That doesn't seem to do anything!\n", ch);
@@ -11555,7 +11552,7 @@ bool check_item_teleport(P_char ch, char *arg, int cmd)
     to_room = real_room(to_room);
 
   // old guildhalls (deprecated)
-//  if(IS_SET(world[ch->in_room].room_flags, ROOM_ATRIUM))
+//  if(IS_ROOM(ch->in_room, ROOM_ROOM_ATRIUM))
 //  {
 //    if(!House_can_enter(ch, world[ch->in_room].number, -1))
 //    {
@@ -11652,8 +11649,8 @@ bool check_item_teleport(P_char ch, char *arg, int cmd)
 //  }
 
   if(!obj->value[2] ||
-      (IS_SET(world[ch->in_room].room_flags, ARENA) !=
-       IS_SET(world[to_room].room_flags, ARENA)))
+      (IS_ROOM(ch->in_room, ROOM_ARENA) !=
+       IS_ROOM(to_room, ROOM_ARENA)))
   {
     send_to_char("Nothing happens.\n\n", ch);
     return TRUE;
@@ -13329,7 +13326,7 @@ void spell_disintegrate(int level, P_char ch, char *arg, int type, P_char victim
     {
       dam = (dam * 2);
 
-      if(!IS_SET(world[victim->in_room].room_flags, ARENA))
+      if(!IS_ROOM(victim->in_room, ROOM_ARENA))
       {
         i = 0;
         do
@@ -13958,7 +13955,7 @@ void astral_banishment(P_char ch, P_char victim, int hwordtype, int level)
 
   if( GET_RACE(victim) == (hwordtype == BANISHMENT_HOLY_WORD ? RACE_GITHYANKI : RACE_GITHZERAI)
     && number(0,100) < 2 + BOUNDED(-2, level-lev, 2) && !IS_HOMETOWN(ch->in_room)
-    && !IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) && !(world[ch->in_room].sector_type == SECT_OCEAN) )
+    && !IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) && !(world[ch->in_room].sector_type == SECT_OCEAN) )
   {
     if( has_band )
     {
@@ -15850,7 +15847,7 @@ void spell_lesser_resurrect(int level, P_char ch, char *arg, int type, P_char vi
     {
       next_obj = t_obj->next_content;
       // WHY ON EARTH WOULD WE WANT TO DO THIS? - KVARK
-//      if(IS_SET(world[t_ch->in_room].room_flags, DEATH) || IS_SET(obj->extra_flags, ITEM_TRANSIENT))
+//      if(IS_ROOM(t_ch->in_room, ROOM_DEATH) || IS_SET(obj->extra_flags, ITEM_TRANSIENT))
       if(IS_SET(obj->extra_flags, ITEM_TRANSIENT))
       {
         extract_obj(t_obj, TRUE); // Transient artis?
@@ -15872,7 +15869,7 @@ void spell_lesser_resurrect(int level, P_char ch, char *arg, int type, P_char vi
 
         t_obj = unequip_char(t_ch, l);
         /*
-         * below used to contain: IS_SET(world[t_ch->in_room].room_flags, DEATH)
+         * below used to contain: IS_ROOM(t_ch->in_room, ROOM_DEATH)
          * Alas, that is not good.
          * /
          */
@@ -16263,10 +16260,10 @@ void darkness_dissipate_event(P_char ch, P_char victim, P_obj obj, void *data)
     return;
   }
 
-  if(!IS_SET(world[room].room_flags, MAGIC_DARK))
+  if(!IS_ROOM(room, ROOM_MAGIC_DARK))
     return;
 
-  REMOVE_BIT(world[room].room_flags, MAGIC_DARK);
+  REMOVE_BIT(world[room].room_flags, ROOM_MAGIC_DARK);
   send_to_room("&+LThe darkness seems to lift a bit.\n", room);
   room_light(room, REAL);
 
@@ -16298,24 +16295,24 @@ void spell_darkness(int level, P_char ch, char *arg, int type, P_char victim,
 /*
     send_to_char("&+LThe room is carpeted in darkness!\n", ch);
     act("&+LThe room goes dark!", 0, ch, 0, 0, TO_ROOM);
-    SET_BIT(world[ch->in_room].room_flags, TWILIGHT);
+    SET_BIT(world[ch->in_room].room_flags, ROOM_TWILIGHT);
 */
-    if(IS_SET(world[ch->in_room].room_flags, MAGIC_DARK))
+    if(IS_ROOM(ch->in_room, ROOM_MAGIC_DARK))
     {
       send_to_char("Nothing happens.\n", ch);
       return;
     }
 
-    if(IS_SET(world[ch->in_room].room_flags, MAGIC_LIGHT))
+    if(IS_ROOM(ch->in_room, ROOM_MAGIC_LIGHT))
     {
-       REMOVE_BIT(world[ch->in_room].room_flags, MAGIC_LIGHT);
+       REMOVE_BIT(world[ch->in_room].room_flags, ROOM_MAGIC_LIGHT);
        send_to_char("&+LThe room becomes much more stygian.\n", ch);
        act("&+LThe room becomes much more stygian.", 0, ch, 0, 0, TO_ROOM);
     }
     else
     {
       sprintf(buff, "%d", ch->in_room);
-      SET_BIT(world[ch->in_room].room_flags, MAGIC_DARK);
+      SET_BIT(world[ch->in_room].room_flags, ROOM_MAGIC_DARK);
       send_to_char("&+LThe room is carpeted in darkness!\n", ch);
       act("&+LThe room goes dark!", 0, ch, 0, 0, TO_ROOM);
 
@@ -18881,7 +18878,7 @@ void spell_ether_sense(int level, P_char ch, char *arg, int type, P_char vict,
   {
     if(!d->connected &&
         (world[ch->in_room].zone == world[d->character->in_room].zone) &&
-        !(IS_SET(world[ch->in_room].room_flags, GUILD_ROOM)))
+        !(IS_ROOM(ch->in_room, ROOM_GUILD)))
     {
       /*found char in same zone */
       if((GET_LEVEL(d->character) > 25) && !IS_TRUSTED(d->character))
@@ -20752,7 +20749,7 @@ void spell_moonstone(int level, P_char ch, char *arg, int type,
   if(IS_NPC(ch))
   return;
 
-  if(IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
+  if(IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) ||
       world[ch->in_room].sector_type == SECT_OCEAN) {
     send_to_char("The powers of nature ignore your call for serenity.\n", ch);
     return;
@@ -20824,13 +20821,13 @@ bool can_do_general_portal( int level, P_char ch, P_char victim,
   if(!IS_TRUSTED(ch) &&
        // target room check
        ((to_room == NOWHERE) || (to_room == ch->in_room) ||
-        IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
+        IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) ||
         IS_HOMETOWN(ch->in_room) ||
         IS_HOMETOWN(to_room) ||
-        IS_SET(world[to_room].room_flags, SINGLE_FILE) ||
+        IS_ROOM(to_room, ROOM_SINGLE_FILE) ||
         world[ch->in_room].sector_type == SECT_OCEAN ||
-        IS_SET(world[to_room].room_flags, NO_MAGIC) ||
-        IS_SET(world[to_room].room_flags, NO_TELEPORT) ||
+        IS_ROOM(to_room, ROOM_NO_MAGIC) ||
+        IS_ROOM(to_room, ROOM_NO_TELEPORT) ||
 //        IS_NPC(ch) ||
         IS_PC_PET(ch) ||
         // victim check

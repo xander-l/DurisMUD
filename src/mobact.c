@@ -625,7 +625,7 @@ bool MobCastSpell(P_char ch, P_char victim, P_obj object, int spl, int lvl)
     return TRUE;                 /* if already in the process of casting one. */
   }
 
-  if( (world[ch->in_room].room_flags & SINGLE_FILE) && !AdjacentInRoom(ch, victim) )
+  if( IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) && !AdjacentInRoom(ch, victim) )
   {
     return FALSE;
   }
@@ -684,14 +684,14 @@ bool MobCastSpell(P_char ch, P_char victim, P_obj object, int spl, int lvl)
 
   if( !GET_CLASS(ch, CLASS_PSIONICIST) && !GET_CLASS(ch, CLASS_MINDFLAYER))
   {
-    if(IS_SET(world[ch->in_room].room_flags, ROOM_SILENT))
+    if(IS_ROOM(ch->in_room, ROOM_SILENT))
     {
       return FALSE;
     }
 
     send_to_char("&+cYou start chanting...\r\n&N", ch);
 
-    if( IS_SET(world[ch->in_room].room_flags, NO_MAGIC) )
+    if( IS_ROOM(ch->in_room, ROOM_NO_MAGIC) )
     {
       send_to_char("&+WThe magic gathers, then fades away.\r\n", ch);
       return FALSE;
@@ -1513,7 +1513,7 @@ bool CastMageSpell(P_char ch, P_char victim, int helping)
     if(((n_attk > 1) ||
         has_help(target) ||
         no_chars_in_room_deserve_helping(ch)) &&
-        !IS_SET(world[ch->in_room].room_flags, SINGLE_FILE) &&
+        !IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) &&
         (number(0, 3)))
     {
       if(!spl &&
@@ -1729,7 +1729,7 @@ bool CastMageSpell(P_char ch, P_char victim, int helping)
     spl = SPELL_DISINTEGRATE;
   }
   else if(!spl && npc_has_spell_slot(ch, SPELL_PRISMATIC_SPRAY) &&
-      !IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+      !IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
   {
     spl = SPELL_PRISMATIC_SPRAY;
   }
@@ -1754,7 +1754,7 @@ bool CastMageSpell(P_char ch, P_char victim, int helping)
   }
 
   if(!spl && npc_has_spell_slot(ch, SPELL_COLOR_SPRAY) && !IS_GLOBED(target)
-     && !IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+     && !IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
   {
     spl = SPELL_COLOR_SPRAY;
   }
@@ -2074,7 +2074,7 @@ bool CastReaverSpell(P_char ch, P_char victim, int helping)
       return (MobCastSpell(ch, tmp, 0, spl, lvl));
 
     if(!spl && npc_has_spell_slot(ch, SPELL_CHAIN_LIGHTNING) &&
-        !IS_SET(world[ch->in_room].room_flags, SINGLE_FILE) && !number(0, 6))
+        !IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) && !number(0, 6))
     {
       spl = SPELL_CHAIN_LIGHTNING;
     }
@@ -2120,7 +2120,7 @@ bool CastReaverSpell(P_char ch, P_char victim, int helping)
   }
   if(!spl && npc_has_spell_slot(ch, SPELL_TELEPORT) &&
       (dam > GET_MAX_HIT(ch) * 7 / 8) && (number(0, 15) == 3) &&
-      !IS_SET(world[ch->in_room].room_flags, NO_TELEPORT))
+      !IS_ROOM(ch->in_room, ROOM_NO_TELEPORT))
     spl = SPELL_TELEPORT;
 
   if(spl && ch && target)
@@ -2297,7 +2297,7 @@ bool CastRangerSpell(P_char ch, P_char victim, int helping)
 
   if(((NumAttackers(ch) >= 1) || has_help(target) ||
        no_chars_in_room_deserve_helping(ch)) &&
-      !IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+      !IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
   {
     if(!spl && npc_has_spell_slot(ch, SPELL_FIRESTORM))
       spl = SPELL_FIRESTORM;
@@ -2499,7 +2499,7 @@ bool CastWarlockSpell(P_char ch, P_char victim, int helping)
 
   if(((NumAttackers(ch) >= 1) || has_help(target) ||
        no_chars_in_room_deserve_helping(ch)) &&
-      !IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+      !IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
   {
     if(!spl && npc_has_spell_slot(ch, SPELL_ENTROPY_STORM))
       spl = SPELL_ENTROPY_STORM;
@@ -2704,7 +2704,7 @@ bool CastDruidSpell(P_char ch, P_char victim, int helping)
 
   if(((NumAttackers(ch) > 1) || has_help(target) ||
        no_chars_in_room_deserve_helping(ch)) &&
-      !IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+      !IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
   {
     if(!spl && npc_has_spell_slot(ch, SPELL_NOVA) && !ch->specials.z_cord &&
         number(0, 2))
@@ -2844,7 +2844,7 @@ bool CastShamanSpell(P_char ch, P_char victim, int helping)
 
   /* make sure I'm even able to cast in this room! */
   // Cast in this room to remove afflictions, unless it is silent
-  if( !IS_SET(world[ch->in_room].room_flags, (NO_MAGIC | ROOM_SILENT)) )
+  if( !IS_ROOM(ch->in_room, (ROOM_NO_MAGIC | ROOM_SILENT)) )
   {
     if( npc_has_spell_slot(ch, SPELL_RESTORATION)
       && DO_SHAM_RESTORATION(target) && !number(0, 2) )
@@ -3090,7 +3090,7 @@ bool CastShamanSpell(P_char ch, P_char victim, int helping)
   }
   else if( ((NumAttackers(ch) > 1) || has_help(target)
     || no_chars_in_room_deserve_helping(ch))
-    && !IS_SET(world[ch->in_room].room_flags, SINGLE_FILE) )
+    && !IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) )
   {
     // let's assume these spells are never blockable by globe, shall we?
     if( npc_has_spell_slot(ch, SPELL_ELEM_FURY) && OUTSIDE(ch) && !number(0, 2) )
@@ -3492,7 +3492,7 @@ bool CastEtherSpell(P_char ch, P_char victim, int helping)
 
   if(((NumAttackers(ch) > 1) || has_help(target) ||
        no_chars_in_room_deserve_helping(ch)) &&
-      !IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+      !IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
   {
 
     // let's assume these spells are never blockable by globe, shall we?
@@ -3625,11 +3625,11 @@ bool CastClericSpell(P_char ch, P_char victim, int helping)
    * my birthplace, get home!
    */
 
-  if(!spl && IS_FIGHTING(ch) && (GET_HIT(ch) < (GET_MAX_HIT(ch) >> 2)) &&
+  if( !spl && IS_FIGHTING(ch) && (GET_HIT(ch) < (GET_MAX_HIT(ch) >> 2)) &&
       (world[ch->in_room].number != GET_BIRTHPLACE(ch)) &&
       npc_has_spell_slot(ch, SPELL_WORD_OF_RECALL) &&
-      !IS_SET(world[ch->in_room].room_flags, NO_RECALL) &&
-      !IS_SET(world[real_room0(GET_BIRTHPLACE(ch))].room_flags, NO_RECALL))
+      !IS_ROOM(ch->in_room, ROOM_NO_RECALL) &&
+      !IS_ROOM(real_room0(GET_BIRTHPLACE(ch)), ROOM_NO_RECALL) )
     spl = SPELL_WORD_OF_RECALL;
 
   if(!spl && (ch == target) && !IS_AFFECTED2(ch, AFF2_SOULSHIELD) &&
@@ -3871,7 +3871,7 @@ bool CastClericSpell(P_char ch, P_char victim, int helping)
   if(!spl &&
     (IS_EVIL(ch) || IS_GOOD(ch)) &&
     npc_has_spell_slot(ch, SPELL_HOLY_WORD) &&
-    !IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+    !IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
   {
     if(IS_EVIL(ch) &&
        room_has_good_enemy(target))
@@ -3899,7 +3899,7 @@ bool CastClericSpell(P_char ch, P_char victim, int helping)
   if(!spl &&
       ((NumAttackers(ch) > 1) || has_help(target) ||
        no_chars_in_room_deserve_helping(ch)) &&
-      !IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+      !IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
   {
     if(npc_has_spell_slot(ch, SPELL_EARTHQUAKE) && (number(0, 3) == 1))
       spl = SPELL_EARTHQUAKE;
@@ -4287,7 +4287,7 @@ bool CastPaladinSpell(P_char ch, P_char victim, int helping)
   /* no they aren't - Jexni 11/25/08 */
 
   if(!spl && IS_GOOD(ch) && npc_has_spell_slot(ch, SPELL_HOLY_WORD) &&
-      !IS_SET(world[ch->in_room].room_flags, SINGLE_FILE) &&
+      !IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) &&
       room_has_evil_enemy(ch) && number(0, 2))
   {
     int evnum = 0;
@@ -4526,7 +4526,7 @@ bool CastAntiPaladinSpell(P_char ch, P_char victim, int helping)
      npc_has_spell_slot(ch, SPELL_APOCALYPSE) &&
      number(0, 2) &&
      target != ch &&
-     !IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+     !IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
   {
     spl = SPELL_APOCALYPSE;
   }
@@ -4538,7 +4538,7 @@ bool CastAntiPaladinSpell(P_char ch, P_char victim, int helping)
      npc_has_spell_slot(ch, SPELL_UNHOLY_WORD) &&
      room_has_good_enemy(ch) &&
      target != ch &&
-     !IS_SET(world[ch->in_room].room_flags, SINGLE_FILE) &&
+     !IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) &&
      number(0, 2))
   {
     spl = SPELL_UNHOLY_WORD;
@@ -4547,7 +4547,7 @@ bool CastAntiPaladinSpell(P_char ch, P_char victim, int helping)
   if(!spl &&
      npc_has_spell_slot(ch, SPELL_VORTEX_OF_FEAR) &&
      !number(0, 4) &&
-     !IS_SET(world[ch->in_room].room_flags, SINGLE_FILE))
+     !IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
   {
     spl = SPELL_VORTEX_OF_FEAR;
   }
@@ -4660,7 +4660,7 @@ bool WillPsionicistSpell(P_char ch, P_char victim)
 
   if(GET_HIT(ch) < (int)(GET_MAX_HIT(ch) / 10) &&
      knows_spell(ch, SPELL_DEPART))
-    if(!IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) &&
+    if(!IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) &&
         !IS_HOMETOWN(ch->in_room) &&
         world[ch->in_room].sector_type != SECT_OCEAN &&
         IS_FIGHTING(ch))
@@ -5941,7 +5941,7 @@ bool MobBard(P_char ch)
         return TRUE;
       }
     case 2:
-      if(!IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
+      if(!IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) ||
         !IS_HOMETOWN(ch->in_room))
       {
         do_play(ch, " chaos", CMD_PLAY);
@@ -6988,7 +6988,7 @@ P_char PickTarget(P_char ch)
     return NULL;
   }
   
-  if(IS_SET(world[ch->in_room].room_flags, SAFE_ROOM))
+  if(IS_ROOM(ch->in_room, ROOM_SAFE))
   {
     return NULL;
   }
@@ -7113,7 +7113,7 @@ void MobStartFight(P_char ch, P_char vict)
     return;
   }
 
-  if( IS_SET(world[ch->in_room].room_flags, SAFE_ROOM) )
+  if( IS_ROOM(ch->in_room, ROOM_SAFE) )
   {
     return;
   }
@@ -7158,7 +7158,7 @@ void MobStartFight(P_char ch, P_char vict)
     return;
   }
 
-  if((world[ch->in_room].room_flags & SINGLE_FILE) && !AdjacentInRoom(ch, vict))
+  if( IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) && !AdjacentInRoom(ch, vict) )
   {
     fudge_flag = TRUE;
   }
@@ -7957,7 +7957,7 @@ PROFILE_END(mundane_wagon);
 PROFILE_START(mundane_wakeup);
   if((GET_STAT(ch) == STAT_SLEEPING) && !ALONE(ch) &&
       /*(ch->in_room != NOWHERE) && - included in ALONE macro -Odorf */
-      !IS_SET(world[ch->in_room].room_flags, ROOM_SILENT) &&
+      !IS_ROOM(ch->in_room, ROOM_SILENT) &&
       !IS_AFFECTED(ch, AFF_SLEEP) && !IS_AFFECTED(ch, AFF_KNOCKED_OUT))
   { // 1.3%
     LOOP_THRU_PEOPLE(tmp_ch, ch)
@@ -8198,7 +8198,7 @@ PROFILE_END(mundane_wallbreak);
   }
 PROFILE_END(mundane_wallbreak);
 #if 0
-  if(IS_SET(world[ch->in_room].room_flags, MAGIC_DARK))
+  if(IS_ROOM(ch->in_room, MAGIC_DARK))
   {
     /* ok, we're in a magically dark room, escape whatever way we can! */
     if(!IS_FIGHTING(ch))
@@ -8210,7 +8210,7 @@ PROFILE_END(mundane_wallbreak);
         goto normal;
       }
       if(!IS_SET(ch->specials.act, ACT_SENTINEL) &&
-          !IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) &&
+          !IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) &&
           knows_spell(ch, SPELL_TELEPORT) &&
           npc_has_spell_slot(ch, SPELL_TELEPORT))
       {
@@ -8320,18 +8320,18 @@ PROFILE_START(mundane_assist);
       !IS_SET(ch->specials.act, ACT_SENTINEL) && !IS_PATROL(ch) &&
       IS_SET(ch->specials.act, ACT_PROTECTOR) && ((door = number(0, 10)) < 6)
       && (ch->in_room != NOWHERE) &&
-      !IS_SET(world[ch->in_room].room_flags, ROOM_SILENT) &&
+      !IS_ROOM(ch->in_room, ROOM_SILENT) &&
       !IS_SET(zone_table[world[ch->in_room].zone].flags, ZONE_SILENT) &&
       (MIN_POS(ch, POS_STANDING + STAT_NORMAL)))
   {
     for (door = 0; door < NUM_EXITS; door++)
     {
-      if(CAN_GO(ch, door) && !IS_SET(world[EXIT(ch, door)->to_room].room_flags, NO_MOB) &&
+      if(CAN_GO(ch, door) && !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_MOB) &&
         (world[EXIT(ch, door)->to_room].zone == world[ch->in_room].zone) &&
         !IS_SET(zone_table[world[EXIT(ch, door)->to_room].zone].flags, ZONE_SILENT) &&
-        !IS_SET(world[EXIT(ch, door)->to_room].room_flags, ROOM_SILENT
-        && (EXIT(ch, door)->to_room != NOWHERE) )
-        /* &&!IS_SET(world[EXIT(ch, door)->to_room].room_flags, MAGIC_DARK) */)
+        !IS_ROOM(EXIT(ch, door)->to_room, ROOM_SILENT)
+        && (EXIT(ch, door)->to_room != NOWHERE)
+        /* &&!IS_ROOM(EXIT(ch, door)->to_room, ROOM_MAGIC_DARK) */)
       {
         P_char next;
         for (tmp_ch = world[EXIT(ch, door)->to_room].people; tmp_ch;
@@ -8483,12 +8483,12 @@ PROFILE_START(mundane_wander);
       !get_linking_char(ch, LNK_RIDING) && should_teacher_move(ch))
   { // 96%
     if((!IS_SET(ch->specials.act, ACT_SENTINEL) ||
-         (IS_SET(world[ch->in_room].room_flags, SAFE_ROOM) &&
+         (IS_ROOM(ch->in_room, ROOM_SAFE) &&
           IS_AGGRESSIVE(ch) &&
           GET_HIT(ch) > GET_MAX_HIT(ch) / 2)) &&
         (MIN_POS(ch, POS_STANDING + STAT_RESTING)) &&
         ((door = number(0, NUM_EXITS)) < NUM_EXITS) && CAN_GO(ch, door) &&
-        !IS_SET(world[EXIT(ch, door)->to_room].room_flags, NO_MOB) &&
+        !IS_ROOM(EXIT(ch, door)->to_room, ROOM_NO_MOB) &&
         world[EXIT(ch, door)->to_room].sector_type != SECT_NO_GROUND)
     { // 13%
       if(ch->only.npc->last_direction == door)
@@ -8756,7 +8756,7 @@ int MobCanGo(P_char ch, int dir)
   if(IS_PC(ch) || !CAN_GO(ch, foo))
     return FALSE;
 
-  if(IS_SET(world[EXIT(ch, foo)->to_room].room_flags, NO_MOB))
+  if(IS_ROOM(EXIT(ch, foo)->to_room, ROOM_NO_MOB))
     return FALSE;
 
   if(IS_SET(ch->specials.act, ACT_STAY_ZONE) &&
@@ -8829,7 +8829,7 @@ void MobHuntCheck(P_char ch, P_char vict)
       (world[ch->in_room].zone != world[vict->in_room].zone))
     return;
 
-  if(IS_SET(world[vict->in_room].room_flags, NO_MOB))
+  if(IS_ROOM(vict->in_room, ROOM_NO_MOB))
     return;
 
   for (tmp = world[ch->in_room].people; tmp; tmp = tmp->next_in_room)
@@ -8998,8 +8998,8 @@ void MobHuntCheck(P_char ch, P_char vict)
   }
   if(ch->in_room != vict->in_room) {
     if(!IS_SET(ch->specials.act, ACT_SENTINEL) &&      /*IS_MAGE(ch) && */
-        !IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) &&
-        !IS_SET(world[vict->in_room].room_flags, NO_TELEPORT) &&
+        !IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) &&
+        !IS_ROOM(vict->in_room, ROOM_NO_TELEPORT) &&
         world[ch->in_room].zone == world[vict->in_room].zone &&
         npc_has_spell_slot(ch, SPELL_DIMENSION_DOOR))
       MobCastSpell(ch, vict, 0, SPELL_DIMENSION_DOOR, GET_LEVEL(ch));
@@ -9151,10 +9151,10 @@ void send_to_zone_func(int z, int mask, const char *msg)
   for (foo = remember_array[z]; foo; foo = foo->next)
   {
     if(mask > 0)
-      if(!IS_SET(world[foo->c->in_room].room_flags, mask))
+      if(!IS_ROOM(foo->c->in_room, mask))
         continue;
     if(mask < 0)
-      if(IS_SET(world[foo->c->in_room].room_flags, -mask))
+      if(IS_ROOM(foo->c->in_room, -mask))
         continue;
     send_to_char(msg, foo->c);
   }
@@ -9175,7 +9175,7 @@ void zone_spellmessage(int room, const char *msg, const char *msg_dir)
     return;
   z = world[room].zone;
 
-  bool indoors = IS_SET(world[room].room_flags, INDOORS);
+  bool indoors = IS_ROOM(room, ROOM_INDOORS);
 
   for (chars_in_zone = remember_array[z]; chars_in_zone;
        chars_in_zone = chars_in_zone->next)
@@ -9183,9 +9183,9 @@ void zone_spellmessage(int room, const char *msg, const char *msg_dir)
     int c_room = chars_in_zone->c->in_room;
     if(c_room == room)
       continue;
-    if(indoors && !IS_SET(world[c_room].room_flags, INDOORS))
+    if(indoors && !IS_ROOM(c_room, ROOM_INDOORS))
       continue;
-    if(!indoors && IS_SET(world[c_room].room_flags, INDOORS))
+    if(!indoors && IS_ROOM(c_room, ROOM_INDOORS))
       continue;
 
     if (IS_MAP_ROOM(room))
@@ -9219,7 +9219,7 @@ void zone_powerspellmessage(int room, const char *msg)
     return;
   z = world[room].zone;
 
-  mask = (int) (IS_SET(world[room].room_flags, INDOORS) ? INDOORS : -INDOORS);
+  mask = (int) (IS_ROOM(room, ROOM_INDOORS) ? ROOM_INDOORS : -ROOM_INDOORS);
 
   for (chars_in_zone = remember_array[z]; chars_in_zone;
        chars_in_zone = chars_in_zone->next)
@@ -9227,10 +9227,10 @@ void zone_powerspellmessage(int room, const char *msg)
     if(chars_in_zone->c->in_room == room)
       continue;
     if((mask > 0) &&
-        !IS_SET(world[chars_in_zone->c->in_room].room_flags, mask))
+        !IS_ROOM(chars_in_zone->c->in_room, mask))
       continue;
     if((mask < 0) &&
-        IS_SET(world[chars_in_zone->c->in_room].room_flags, -mask))
+        IS_ROOM(chars_in_zone->c->in_room, -mask))
       continue;
     if(StatSave(chars_in_zone->c, APPLY_POW, 0))
       send_to_char(msg, chars_in_zone->c);
@@ -9408,7 +9408,7 @@ void mobact_memoryHandle(P_char mob)
     {
       if(mem->pcID == GET_PID(vict))
       {
-        if((IS_SET(world[mob->in_room].room_flags, SINGLE_FILE) &&
+        if((IS_ROOM(mob->in_room, ROOM_SINGLE_FILE) &&
              !AdjacentInRoom(mob, vict)) || !is_aggr_to(mob, vict))
           continue;
         if(GET_HIT(mob) >= (GET_MAX_HIT(mob)) >> 2)
@@ -9763,7 +9763,7 @@ void event_mob_hunt(P_char ch, P_char victim, P_obj obj, void *d)
       knows_spell(ch, SPELL_RAVENFLIGHT)) &&
      !IS_AFFECTED((ch), AFF_LEVITATE) &&
      !IS_AFFECTED((ch), AFF_FLY) &&
-     !IS_SET(world[cur_room].room_flags, (NO_MAGIC | ROOM_SILENT)))
+     !IS_ROOM(cur_room, (ROOM_NO_MAGIC | ROOM_SILENT)))
   {
 
     /*
@@ -9813,7 +9813,7 @@ void event_mob_hunt(P_char ch, P_char victim, P_obj obj, void *d)
    * cleric mobs should vigorize themselves...
    */
   if((GET_VITALITY(ch) <= (GET_MAX_VITALITY(ch) / 4)) &&       /*IS_CLERIC(ch) && */
-      !IS_SET(world[cur_room].room_flags, (NO_MAGIC | ROOM_SILENT)))
+      !IS_ROOM(cur_room, (ROOM_NO_MAGIC | ROOM_SILENT)))
   {
     if(npc_has_spell_slot(ch, SPELL_INVIGORATE))
     {
@@ -9945,8 +9945,8 @@ void event_mob_hunt(P_char ch, P_char victim, P_obj obj, void *d)
      number(0, 10))
     if((IS_MAGE(ch) ||
        GET_CLASS(ch, CLASS_SHAMAN)) &&
-       !IS_SET(world[cur_room].room_flags, NO_TELEPORT | NO_MAGIC | ROOM_SILENT) &&
-       !IS_SET(world[targ_room].room_flags, NO_TELEPORT | NO_MAGIC | ROOM_SILENT))
+       !IS_ROOM(cur_room, ROOM_NO_TELEPORT | ROOM_NO_MAGIC | ROOM_SILENT) &&
+       !IS_ROOM(targ_room, ROOM_NO_TELEPORT | ROOM_NO_MAGIC | ROOM_SILENT))
     {
 
       /*
@@ -10009,11 +10009,9 @@ void event_mob_hunt(P_char ch, P_char victim, P_obj obj, void *d)
    * going....
    */
 
-  if(IS_CLERIC(ch) && (dummy > 6) &&
-      !IS_SET(world[cur_room].room_flags, (NO_MAGIC | NO_RECALL | ROOM_SILENT))
-      &&
-      GET_BIRTHPLACE(ch) && (real_room(GET_BIRTHPLACE(ch)) != NOWHERE) &&
-      !IS_SET(world[real_room0(GET_BIRTHPLACE(ch))].room_flags, NO_RECALL))
+  if( IS_CLERIC(ch) && (dummy > 6) && !IS_ROOM(cur_room, (ROOM_NO_MAGIC | ROOM_NO_RECALL | ROOM_SILENT))
+    && GET_BIRTHPLACE(ch) && (real_room(GET_BIRTHPLACE(ch)) != NOWHERE)
+    && !IS_ROOM(real_room0(GET_BIRTHPLACE(ch)), ROOM_NO_RECALL) )
   {
     if(targ_room == real_room(GET_BIRTHPLACE(ch)))
       dummy2 = 0;
@@ -10964,7 +10962,7 @@ bool CastBlighterSpell(P_char ch, P_char victim, bool helping)
   // If we're fighting a group.. check areas..
   if( ((NumAttackers(ch) > 1) || has_help(target)
     || no_chars_in_room_deserve_helping(ch))
-    && !IS_SET(world[ch->in_room].room_flags, SINGLE_FILE) )
+    && !IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) )
   {
     if( npc_has_spell_slot(ch, SPELL_SANDSTORM) && !ch->specials.z_cord
       && number(0, 2) )

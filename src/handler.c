@@ -401,25 +401,25 @@ int room_light(int room_nr, int flag)
 
   //if (world[rroom].sector_type == SECT_INSIDE)
   //{
-  if (IS_SET(world[rroom].room_flags, DARK))
+  if (IS_ROOM(rroom, DARK))
     amt -= 2;
 
-    if (IS_SET(world[rroom].room_flags, MAGIC_DARK ))
+    if (IS_ROOM(rroom, MAGIC_DARK ))
       amt -= 1;
     //else
       //amt++; // give them a little light
   //}
-  //else if (IS_SET(world[rroom].room_flags, DARK))
+  //else if (IS_ROOM(rroom, DARK))
     //amt--;
 
-  //if (IS_SET(world[rroom].room_flags, MAGIC_DARK))
+  //if (IS_ROOM(rroom, MAGIC_DARK))
   //{
 //    world[rroom].light = -1;
 //    return -1;
     //amt = -1;
     //amt--;
   //}
-  if (IS_SET(world[rroom].room_flags, MAGIC_LIGHT))
+  if (IS_ROOM(rroom, MAGIC_LIGHT))
     amt += 4;
 
   if (world[rroom].sector_type == SECT_FIREPLANE)
@@ -926,7 +926,7 @@ bool char_to_room(P_char ch, int room, int dir)
   }
 #endif
 
-  if( !IS_SET(world[room].room_flags, SINGLE_FILE) )
+  if( !IS_ROOM(room, ROOM_SINGLE_FILE) )
   {
     ch->next_in_room = world[room].people;
     world[room].people = ch;
@@ -945,12 +945,12 @@ bool char_to_room(P_char ch, int room, int dir)
 
     if ((exit1 == -1) || (exit2 == -1))
     {
-      REMOVE_BIT(world[room].room_flags, SINGLE_FILE);
+      REMOVE_BIT(world[room].room_flags, ROOM_SINGLE_FILE);
       exit1 = -1;               /* will cause normal behavior */
     }
     if (exit3 != -1)
     {
-      REMOVE_BIT(world[room].room_flags, SINGLE_FILE);
+      REMOVE_BIT(world[room].room_flags, ROOM_SINGLE_FILE);
       exit1 = -1;               /* will cause normal behavior */
     }
     if ((exit1 == -1) || (exit1 == rev_dir[(dir < 0) ? 0 : dir]))
@@ -973,11 +973,11 @@ bool char_to_room(P_char ch, int room, int dir)
   }
 
   was_in = real_room0(ch->specials.was_in_room);
-  was_in_arena = world[was_in].room_flags & ARENA;
+  was_in_arena = IS_ROOM(was_in, ROOM_ARENA);
 
   ch->in_room = room;
 
-  if ((was_in_arena != (world[room].room_flags & ARENA)) && !IS_TRUSTED(ch))
+  if( (was_in_arena != IS_ROOM( room, ROOM_ARENA )) && !IS_TRUSTED(ch) )
   {
     if (was_in_arena && IS_SET(arena.flags, FLAG_SEENAME))
     {
@@ -1150,7 +1150,7 @@ bool char_to_room(P_char ch, int room, int dir)
   }
 
   /* underwater stuff */
-  if( IS_SET(world[ch->in_room].room_flags, UNDERWATER) || ch->specials.z_cord < 0 )
+  if( IS_ROOM(ch->in_room, ROOM_UNDERWATER) || ch->specials.z_cord < 0 )
   {
     underwatersector(ch);
     if( !IS_ALIVE(ch) )
@@ -1195,7 +1195,7 @@ bool char_to_room(P_char ch, int room, int dir)
       StartRegen(ch, EVENT_MOVE_REGEN);
   }
   /* Underwater stuff */
-  if (IS_SET(world[room].room_flags, UNDERWATER) || ch->specials.z_cord < 0)
+  if (IS_ROOM(room, ROOM_UNDERWATER) || ch->specials.z_cord < 0)
   {
     if (!IS_AFFECTED2(ch, AFF2_IS_DROWNING) &&
         !IS_AFFECTED2(ch, AFF2_HOLDING_BREATH))
@@ -1266,7 +1266,7 @@ bool char_to_room(P_char ch, int room, int dir)
   }
 
   // Purge NPCs from safe rooms? ok...
-  if( IS_SET(world[room].room_flags, SAFE_ROOM) )
+  if( IS_ROOM(room, ROOM_SAFE) )
   {
     // Do not purge pets...
     if( IS_NPC(ch) && (GET_MASTER( ch ) == NULL) )
@@ -2151,7 +2151,7 @@ void obj_to_room(P_obj object, int room)
     /* Transient objects needed to be destroyed when dropped */
     // in lockers, this can cause problems with the resort events, so make
     // the DECAY event slightly delayed...
-    if (!IS_SET(world[room].room_flags, LOCKER))
+    if (!IS_ROOM(room, ROOM_LOCKER))
       set_obj_affected(object, 0, TAG_OBJ_DECAY, 0);
     else
       set_obj_affected(object, 2, TAG_OBJ_DECAY, 0);

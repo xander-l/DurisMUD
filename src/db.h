@@ -178,6 +178,7 @@ extern const char* BACKGR_STORY;
 #define ZONE_NEW_RESET BIT_4
 #define ZONE_MAP       BIT_5
 #define ZONE_CLOSED    BIT_6
+#define ZONE_PRIVATE   BIT_7
 
 // 1209600 = 14 days
 //#define ARTIFACT_TIMER_SEC 1209600

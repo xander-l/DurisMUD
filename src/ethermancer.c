@@ -529,7 +529,7 @@ void spell_windwalk(int level, P_char ch, char *arg, int type, P_char victim,
     send_to_char("&+yYou failed.\r\n", ch);
     return;
   }
-  if (IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
+  if (IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) ||
       world[ch->in_room].sector_type == SECT_OCEAN)
   {
     send_to_char("&+yYou failed.\r\n", ch);
@@ -550,7 +550,7 @@ void spell_windwalk(int level, P_char ch, char *arg, int type, P_char victim,
 
   location = victim->in_room;
 
-  if (IS_SET(world[location].room_flags, NO_TELEPORT) ||
+  if (IS_ROOM(location, ROOM_NO_TELEPORT) ||
       world[location].sector_type == SECT_CASTLE ||
       world[location].sector_type == SECT_CASTLE_WALL ||
       world[location].sector_type == SECT_CASTLE_GATE ||
@@ -1372,7 +1372,7 @@ int door, target_room;
 
   /* Indoors and non precipitation rooms are poor terrains. */
   if(world[ch->in_room].sector_type == SECT_INSIDE ||
-    IS_SET(world[ch->in_room].room_flags, INDOORS))
+    IS_ROOM(ch->in_room, ROOM_INDOORS))
   {
     dam /= 2;
     takedown_chance /= 1.1;
@@ -1427,11 +1427,10 @@ void spell_tempest(int level, P_char ch, char *arg, int type, P_char victim, P_o
   cast_as_damage_area(ch, spell_single_tempest, level, victim,
   get_property("spell.area.minChance.squallTempest", 90),
   get_property("spell.area.chanceStep.squallTempest", 10));
-  
-  if(world[room].sector_type == SECT_INSIDE ||
-    IS_SET(world[room].room_flags, INDOORS))
-      act("&+wYou have difficulty summoning the squall.&n",
-        FALSE, ch, 0, victim, TO_CHAR);
+
+  if( world[room].sector_type == SECT_INSIDE || IS_ROOM(room, ROOM_INDOORS) )
+    act("&+wYou have difficulty summoning the squall.&n",
+      FALSE, ch, 0, victim, TO_CHAR);
 
   zone_spellmessage(ch->in_room,"&+wYou feel a bitterly &+Ccold&+w wisp of air.\r\n",
                                 "&+wYou feel a bitterly &+Ccold&+w wisp of air from the %s.\r\n");
@@ -2058,7 +2057,7 @@ void spell_ethereal_travel(int level, P_char ch, char *arg, int type,
 
  location = victim->in_room;
 
- if (IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
+ if (IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) ||
       IS_HOMETOWN(ch->in_room))
   {
     send_to_char("The magic in this room prevents you from leaving.\n", ch);
@@ -2081,7 +2080,7 @@ void spell_ethereal_travel(int level, P_char ch, char *arg, int type,
     send_to_char("won't work.\n", ch);
     return;
   }
-  if (IS_SET(world[location].room_flags, NO_TELEPORT) ||
+  if (IS_ROOM(location, ROOM_NO_TELEPORT) ||
       IS_HOMETOWN(location))
   {
     send_to_char("The magic in that room prevents you from entering.\n", ch);
@@ -2724,7 +2723,7 @@ void spell_etheric_gust(int level, P_char ch, char *arg, int type, P_char victim
   if( !IS_ALIVE(ch) || ch->in_room == NOWHERE )
     return;
 
-  if((IS_SET(world[ch->in_room].room_flags, NO_TELEPORT) ||
+  if((IS_ROOM(ch->in_room, ROOM_NO_TELEPORT) ||
       IS_HOMETOWN(ch->in_room) ||
       world[ch->in_room].sector_type == SECT_OCEAN) &&
       level < 60)
@@ -2768,12 +2767,9 @@ void spell_etheric_gust(int level, P_char ch, char *arg, int type, P_char victim
           zone_table[world[victim->in_room].zone].real_top);
       tries++;
     }
-    while((IS_SET(world[to_room].room_flags, PRIVATE) ||
-          IS_SET(world[to_room].room_flags, PRIV_ZONE) ||
-          IS_SET(world[to_room].room_flags, NO_TELEPORT) ||
-          IS_HOMETOWN(to_room) ||
-          world[to_room].sector_type == SECT_OCEAN) &&
-          tries < 1000);
+    while( (IS_ROOM(to_room, ROOM_PRIVATE) || PRIVATE_ZONE(to_room)
+      || IS_ROOM(to_room, ROOM_NO_TELEPORT) || IS_HOMETOWN(to_room)
+      || world[to_room].sector_type == SECT_OCEAN) && tries < 1000);
   }
 
   if(tries >= 1000)

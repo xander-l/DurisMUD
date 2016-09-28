@@ -79,7 +79,7 @@ void listen_say(P_char ch, P_char tch, const char *buf)
   int iskl, range, nrange, howclose;
   char strn[MAX_STRING_LENGTH], buf1[MAX_STRING_LENGTH];
   
-  if (IS_SET(world[tch->in_room].room_flags, ROOM_SILENT))
+  if (IS_ROOM(tch->in_room, ROOM_SILENT))
     return;
 
   iskl = GET_CHAR_SKILL(tch, SKILL_IMPROVED_LISTEN);
@@ -134,7 +134,7 @@ void listen_gsay(P_char ch, P_char tch, const char *buf)
   int iskl, range, nrange, howclose;
   char strn[MAX_STRING_LENGTH], buf1[MAX_STRING_LENGTH];
   
-  if (IS_SET(world[tch->in_room].room_flags, ROOM_SILENT))
+  if (IS_ROOM(tch->in_room, ROOM_SILENT))
     return;
   
   iskl = GET_CHAR_SKILL(tch, SKILL_IMPROVED_LISTEN);
