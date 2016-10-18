@@ -987,6 +987,8 @@ void Guild::display( P_char member )
   strcat(buf, "Members:\n");
   if( members != NULL )
   {
+    update_online_members();
+
     // Start with A_LEADER -> 6 (we skip A_GOD and -1 because 0..7).
     // And we finish with 1 not 0, because we don't care about A_ENEMY.
     for( int i = ASC_NUM_RANKS - 2; i >= 0; i-- )
@@ -998,8 +1000,8 @@ void Guild::display( P_char member )
         if( NR_RANK(pMembers->bits) == i )
         {
           sprintf( buf + strlen(buf), " %s | %-12s | %s | %s\n",
-            (get_char_online( pMembers->name, FALSE )) ? "&+Go&n"
-            : (get_char_online( pMembers->name, TRUE )) ? "&+y+&n" : " ", pMembers->name,
+            (pMembers->online_status == GSTAT_ONLINE) ? "&+Go&n"
+            : (pMembers->online_status == GSTAT_LINKDEAD) ? "&+y+&n" : " ", pMembers->name,
             current_title, (pMembers->debt && ( (rank > A_SENIOR) || !strcmp(pMembers->name, GET_NAME( member )) ))
             ? (( (rank > GET_RK_BITS( pMembers->bits )) || !strcmp(pMembers->name, GET_NAME( member )) )
             ? coin_stringv( pMembers->debt, 0 ) : "&+R(-)&n") : "" );
@@ -3131,3 +3133,31 @@ int Guild::update( )
   save( );
 }
 
+void Guild::update_online_members()
+{
+  P_member pMember = members;
+  P_char ch;
+
+  while( pMember )
+  {
+    pMember->online_status = GSTAT_OFFLINE;
+    pMember = pMember->next;
+  }
+
+  for( ch = character_list; ch != NULL; ch = ch->next )
+  {
+    // If they're a PC member of this guild (no golems etc).
+    if( IS_PC(ch) && this == GET_ASSOC(ch) )
+    {
+      // Find the member in the list.
+      for( pMember = members; pMember != NULL; pMember = pMember->next )
+      {
+        if( !strcmp(pMember->name, GET_NAME( ch )) )
+        {
+          pMember->online_status = ch->desc ? GSTAT_ONLINE : GSTAT_LINKDEAD;
+          break;
+        }
+      }
+    }
+  }
+}

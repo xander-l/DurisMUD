@@ -141,6 +141,10 @@
 #define SET_HIDETITLE(asn) ((asn) |= A_HIDETITLE)
 #define SET_HIDESUBTITLE(asn) ((asn) |= A_HIDESUBTITLE)
 
+#define GSTAT_OFFLINE   0
+#define GSTAT_LINKDEAD  1
+#define GSTAT_ONLINE    2
+
 // Contained by the Guild class.
 struct guild_frags
 {
@@ -155,6 +159,7 @@ struct guild_member
   char name[MAX_NAME_LENGTH + 1];
   unsigned int bits;
   unsigned int debt; // In copper
+  ushort online_status;
   P_member next;
 };
 
@@ -167,15 +172,6 @@ struct guild_frag_info
     char top_fragger[MAX_NAME_LENGTH + 1];
     long top_frags;
     int  num_members;
-};
-
-typedef struct amember_data * P_Amember;
-
-class amember_data {
-  char      name[MAX_INPUT_LENGTH];
-  int       pid;
-  int       rank;
-  P_Amember next;
 };
 
 typedef struct Guild * P_Guild;
@@ -249,7 +245,6 @@ class Guild
     void name_title( P_char member, char *title_info );
 
     void save( );
-    void save_members( P_member member, char *buf );
 
     static void initialize();
     Guild( char *_name, unsigned int _racewar, unsigned int _id_number, unsigned long _prestige,
@@ -264,6 +259,7 @@ class Guild
     void title_trim( char *raw_title, char *good_title );
     int max_assoc_size();
     void default_title( P_char ch );
+    void update_online_members();
 
     char name[ASC_MAX_STR];
     char titles[ASC_NUM_RANKS][ASC_MAX_STR_RANK];
