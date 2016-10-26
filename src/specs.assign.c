@@ -330,7 +330,7 @@ void assign_mobiles(void)
   mob_index[real_mobile0(75013)].func.mob = archer;
 
   /* Undead Map (map10) */
-  mob_index[real_mobile0(210003)].func.mob = charon;
+  mob_index[real_mobile0(VMOB_CHARON_BOATMAN)].func.mob = charon;
 
   /* breale */
   mob_index[real_mobile0(2613)].func.mob = breale_townsfolk;
@@ -1389,7 +1389,7 @@ void assign_objects(void)
   obj_index[real_object0(26665)].func.obj = elvenkind_cloak;
 
   /* Undead zone */
-  obj_index[real_object0(210001)].func.obj = charon_ship;
+  obj_index[real_object0(VOBJ_UNDEAD_FERRY)].func.obj = charon_ship;
 
   /* Olympus */
 #if 0

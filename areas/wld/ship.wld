@@ -9,9 +9,13 @@ S
 600 0 0
 S
 #60002
-&+yAboard a ship&N~
+&+LAboard a spectral galleon~
+   &+LThe ship appears to be made of a complete unidentifiable substance.
+&+LThe space alloted to passengers is rather insignificant in regard
+&+Lthe the actual size of the ship.
+&n
 ~
-600 176193608 1
+600 176459848 0
 S
 #60003
 &+yAboard a ship&N~

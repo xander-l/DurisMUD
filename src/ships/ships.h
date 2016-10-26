@@ -11,7 +11,7 @@
 
 #define VROOM_DAVY_JONES    60000
 #define VROOM_SHIP_TRANSIT  60001
-// Includes davy jones and transit.
+// Includes davy jones and transit and ferry (60002).
 #define VROOM_SHIPS_START   60000
 #define VROOM_SHIPS_END     64999
 

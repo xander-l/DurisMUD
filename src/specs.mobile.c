@@ -36,6 +36,7 @@
 #include "epic.h"
 #include "necromancy.h"
 #include "vnum.obj.h"
+#include "vnum.room.h"
 #include "tradeskill.h"
 
 /*
@@ -2578,7 +2579,7 @@ int charon(P_char ch, P_char pl, int cmd, char *arg)
       act("&+LA black haze surrounds $n&+L... when it clears, $e is gone!",
           FALSE, pl, 0, 0, TO_ROOM);
       char_from_room(pl);
-      char_to_room(pl, real_room0(1299), 0);
+      char_to_room(pl, real_room0(VROOM_UNDEAD_FERRY), 0);
       return TRUE;
     }
     return FALSE;
@@ -2608,10 +2609,10 @@ int charon(P_char ch, P_char pl, int cmd, char *arg)
   }
   else
   {
-    if (world[ch->in_room].number != 1299)
+    if (world[ch->in_room].number != VROOM_UNDEAD_FERRY)
     {
       ship = get_obj_in_list_vis(ch, "galleon", world[ch->in_room].contents);
-      if (!ship || !(to_room = real_room0(1299)))
+      if (!ship || !(to_room = real_room0(VROOM_UNDEAD_FERRY)))
         return FALSE;
       if (ship->timer[1] == 1)
       {

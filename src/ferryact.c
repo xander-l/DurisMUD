@@ -23,6 +23,8 @@ For the main ferry documentation, see ferry.c
 #include "utility.h"
 #include "graph.h"
 #include "ferry.h"
+#include "vnum.obj.h"
+#include "vnum.mob.h"
 
 #include <vector>
 #include <list>
@@ -152,26 +154,39 @@ Ferry* load_oldferry() {
 	
 }
 
-void init_ferries() {
-		
+void init_ferries()
+{
+ P_obj undead_ferry;
+ P_char Charon;
+
 #ifdef DISABLE_FERRIES
 	fprintf(stderr, "--    Ferries disabled\r\n");
 	return;
-#endif	
-	
+#endif
+
 	fprintf(stderr, "--    Booting Ferries\r\n");
-	
+
   ferry_list.push_back( load_wavedancer() );
 	ferry_list.push_back( load_seastalker() );
 	ferry_list.push_back( load_seaspray() );
 	ferry_list.push_back( load_oldferry() );
-  
+
 	for( list<Ferry*>::iterator it = ferry_list.begin(); it != ferry_list.end(); it++ ) {
 		if( *it ) {
 			(*it)->init();
 		}
 	}
-	
+
+  undead_ferry = read_object( VOBJ_UNDEAD_FERRY, VIRTUAL );
+  if( undead_ferry != NULL )
+  {
+    obj_to_room( undead_ferry, real_room0(600586) );
+  }
+  Charon = read_mobile( VMOB_CHARON_BOATMAN, VIRTUAL );
+  if( Charon )
+  {
+    char_to_room( Charon, real_room0(600586), -2 );
+  }
 	//fprintf(stderr, "      Ferry loading complete.\r\n");
 }
 

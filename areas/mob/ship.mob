@@ -1,0 +1,143 @@
+#60001
+roving hellbeast hell beast~
+&+ra roving hell&+Lbeast&n~
+&+rA roving hell&+Lbeast&+r travels the wasteland in a pack.&n
+~
+~
+1073743912 1 0 0 1 0 0 -1000 S
+AC 0 1 -1
+30 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#60002
+roving hellbeast hell beast~
+&+ra roving hell&+Lbeast&n~
+&+rA roving hell&+Lbeast&+r travels the wasteland in a pack.&n
+~
+~
+1073743914 1 0 0 1 0 0 -1000 S
+AC 0 1 -1
+30 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#60003
+magnus archlich arch lich~
+&+LMagnus the &+Larchlich&n~
+&+LThe archlich viscount, Magnus, travels the wastelands.&n
+~
+~
+1074174024 0 0 402653212 262144 0 0 -1000 S
+U 0 512 4
+55 170 -100 10d10+25000 5d10+20
+0.0.0.100 150000
+8 8 0
+#60004
+high magus styge~
+&+YStyge, the high magus&n~
+&+YThe high magus, Styge, stands here.&n
+~
+~
+1074174024 0 0 402653212 262144 0 0 -1000 S
+U 0 2048 4
+55 170 -100 10d10+25000 5d10+20
+0.0.0.100 150000
+8 8 0
+#60005
+skeleton skeletal knight~
+&+Wa skeletal knight&n~
+&+WA dangerous looking skeleton shambles about here.&n
+~
+~
+1074141257 1 0 402653240 1 0 0 -1000 S
+U 0 1 5
+55 0 0 10d10+25000 5d10+30
+0.0.0.100 0
+8 8 0
+#60006
+powerful figure lich~
+&+La &+bwandering &+Llich&n~
+&+LA powerful looking figure wanders the land.&n
+~
+~
+1074141257 1 0 402653212 262144 0 0 -1000 S
+U 0 512 4
+50 170 -100 10d10+25000 5d10+20
+0.0.0.100 150000
+8 8 0
+#60007
+shade form~
+&+La dark shade&n~
+&+LAn outline of a humanoid form can barely be seen here.&n
+~
+~
+1074137417 1 0 403177500 0 69206016 0 -1000 S
+U 0 8192 4
+50 170 -100 10d10+20000 5d10+30
+0.0.0.100 200000
+8 8 0
+#60008
+charon boatman~
+&+WCharon&n~
+&+WCharon, the boatman of the &+LRiver Styx&+W awaits his cargo.&n
+~
+~
+34043979 0 0 402653228 262144 67108864 0 0 S
+U 0 20 3
+60 190 -100 10d10+29000 10d10+50
+0.0.0.0 1000000
+8 8 0
+#60009
+undead behemoth~
+&+La large undead behemoth&n~
+&+LA monsterous undead behemoth prowls the wastelands.&n
+~
+~
+1107695692 1 0 296 2 0 0 -1000 S
+AC 0 1 5
+60 0 0 6d143+9900 6d6+30
+0.0.0.0 0
+8 8 0
+#60010
+zombie warrior~
+&+ra large zombie warrior&N~
+&+LA large zombie shambles around looking for things to kill!&N
+~
+~
+1107695692 1 0 296 2 0 0 -1000 S
+U 0 16384 5
+60 0 0 6d143+9900 6d6+30
+0.0.0.0 0
+8 8 0
+#60011
+ustrel wight warrior~
+&+RUstrel, the &+rwight&+R warlord&n~
+&+rA mighty &+RWight&+r warlord wanders the wasteland.&n
+~
+~
+1073776648 0 0 0 0 0 0 -1000 S
+UW 0 1 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#60012
+dracolich~
+&+La dracolich&n~
+&+LA monsterous dracolich flies across the land of undeath.&n
+~
+~
+1073874952 1 0 0 0 0 0 -1000 S
+UD 0 1 -1
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#60013
+bog wyrm~
+&+ga bog wyrm&n~
+&+gA hideous bog wyrm hunts through the marshes.&n
+~
+~
+1073747976 1 0 0 0 0 0 -1000 S
+DK 0 1 -1
+58 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0

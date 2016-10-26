@@ -813,8 +813,8 @@ int find_free_ship_room()
 {
   int rroom, vroom;
 
-  // Two rooms (davy jones for sunken ships, and ship transit room) are used already.
-  vroom = (SHIPZONE * 100) + 2;
+  // Three rooms (davy jones for sunken ships, ship transit room, and undead ferry room) are used already.
+  vroom = (SHIPZONE * 100) + 3;
   while( (rroom = real_room0(vroom)) )
   {
     if( world[rroom].funct != ship_room_proc )
