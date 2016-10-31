@@ -12,6 +12,7 @@
 #include <string.h>
 #include <time.h>
 #include <stdlib.h>
+#include <math.h>
 
 #include "comm.h"
 #include "db.h"
@@ -6870,93 +6871,93 @@ void spell_heal(int level, P_char ch, char *arg, int type, P_char victim, P_obj 
 
 }
 */
-void spell_natures_touch(int level, P_char ch, char *arg, int type,
-                         P_char victim, P_obj obj)
+
+void event_natures_touch(P_char ch, P_char vict, P_obj obj, void *data)
 {
-  struct affected_type af;
-  int healpoints;
-  int duration = (int) (WAIT_SEC * 1.5 * 56 / level);
+  int healpoints, wavevalue, x;
 
-  if(!IS_ALIVE(victim) ||
-    !IS_ALIVE(ch))
-      return;
+  healpoints = wavevalue = *((int *) data);
 
-  healpoints = level * 5 / 2;
-  
-  if(!GET_CLASS(ch, CLASS_DRUID))
-    healpoints /= 2;
-  
-  if(GET_CLASS(ch, CLASS_DRUID) &&
-     IS_BLIND(victim))
-        spell_cure_blind(level, ch, NULL, SPELL_TYPE_SPELL, victim, obj);
-  
-  grapple_heal(victim);
-
-  switch (world[ch->in_room].sector_type)
+  switch( world[vict->in_room].sector_type )
   {
+  case SECT_UNDRWLD_CITY:
   case SECT_CITY:
-    healpoints -= 20;
+    healpoints = (healpoints * 2) / 3;
     break;
   case SECT_FIELD:
-    healpoints += 40;
+    healpoints = (healpoints * 4) / 3;
     break;
   case SECT_FOREST:
-    healpoints += 60;
+  case SECT_UNDRWLD_MUSHROOM:
+    healpoints = (healpoints * 3) / 2;
     break;
   case SECT_HILLS:
-    healpoints += 30;
+  case SECT_UNDRWLD_WILD:
+    healpoints = (healpoints * 5) / 4;
     break;
   case SECT_UNDERWATER_GR:
-  case SECT_MOUNTAIN:
-    healpoints += 10;
-    break;
-  case SECT_UNDRWLD_WILD:
-  case SECT_UNDRWLD_CITY:
-  case SECT_UNDRWLD_MOUNTAIN:
   case SECT_UNDRWLD_SLIME:
+  case SECT_MOUNTAIN:
+  case SECT_UNDRWLD_MOUNTAIN:
+    healpoints = (healpoints * 6) / 5;
+    break;
   case SECT_UNDRWLD_LOWCEIL:
   case SECT_UNDRWLD_LIQMITH:
-  case SECT_UNDRWLD_MUSHROOM:
-    healpoints += 5;
+    healpoints = (healpoints * 7) / 6;
     break;
   default:
     break;
   }
 
-  if (!(GET_CLASS(ch, CLASS_DRUID) || GET_CLASS(ch, CLASS_RANGER)))
-    healpoints /= 3;
+  x = vamp(vict, healpoints, GET_MAX_HIT(vict));
+  update_pos(vict);
 
-  if(IS_NPC(victim))
+  if( x > 0 && IS_FIGHTING(vict) )
+    gain_exp(ch, vict, x, EXP_HEALING);
+
+  wavevalue /= 2;
+  if( wavevalue > 1 )
+    add_event(event_natures_touch, 2, ch, vict, 0, 0, &wavevalue, sizeof(wavevalue));
+}
+
+void spell_natures_touch(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
+{
+  struct affected_type af;
+  int healpoints;
+
+  if(!IS_ALIVE(victim) || !IS_ALIVE(ch))
+    return;
+
+  // 32 at level 21 -> 63 hps healing, 50 at level 56 -> 97 hps healing, modified by terrain.
+  healpoints = (level / 2) + 22;
+
+  if( !GET_CLASS(ch, CLASS_DRUID) )
   {
-    heal(victim, ch, healpoints, GET_MAX_HIT(victim) - number(1, 4));
-    update_pos(victim);
+    if( !GET_CLASS(ch, CLASS_RANGER) )
+      healpoints /= 4;
+    else
+      healpoints /= 2;
   }
-  else
+
+  if( GET_CLASS(ch, CLASS_DRUID) && IS_BLIND(victim) )
+    spell_cure_blind(level, ch, NULL, SPELL_TYPE_SPELL, victim, obj);
+
+  grapple_heal(victim);
+
+  if( healpoints < 8 )
   {
-    memset(&af, 0, sizeof(af));
-    af.type = SPELL_NATURES_TOUCH;
-    af.flags = AFFTYPE_SHORT | AFFTYPE_NOSAVE;
-    af.duration = duration;
-    af.location = APPLY_HIT_REG;
-    af.modifier = SECS_PER_MUD_HOUR * WAIT_SEC / duration * healpoints;
-    af.bitvector4 = AFF4_REGENERATION;
-    affect_to_char(victim, &af);
-    update_achievements(ch, victim, healpoints, 1);
-    
-    if(IS_FIGHTING(victim))
-    {
-      gain_exp(ch, victim, MIN(healpoints, GET_MAX_HIT(victim) - GET_HIT(victim)), EXP_HEALING);
-      update_pos(victim);
-    }
+    healpoints = 8;
   }
-  
+
+  add_event(event_natures_touch, 1, ch, victim, 0, 0, &healpoints, sizeof(healpoints));
+
   if(ch == victim)
     act("&+GThe warmth of nature fills your body.", FALSE, ch, 0, victim, TO_CHAR);
   else
   {
-     act("&+GThe warmth of nature fills your body.", FALSE, ch, 0, victim, TO_VICT);
-     act("&+GYou gently touch $N&+G's body, and $S wounds begin to heal!",
-       FALSE, ch, 0, victim, TO_CHAR);
+    act("&+GThe warmth of nature fills your body.", FALSE, ch, 0, victim, TO_VICT);
+    act("&+GYou gently touch $N&+G's body, and $S wounds begin to heal!",
+      FALSE, ch, 0, victim, TO_CHAR);
   }
   act("&+G$n &+Ggently touches $N&+G's body, and $S wounds begin to heal!",
     FALSE, ch, 0, victim, TO_NOTVICT);
