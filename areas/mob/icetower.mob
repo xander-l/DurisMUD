@@ -82,7 +82,7 @@ ice elemental~
 &+Cthe ice tower in search of victims.
 ~
 1073743944 0 0 0 0 64 0 0 -1000 S
-EW 0 1 0 7
+IE 0 1 0 7
 25 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
@@ -200,7 +200,7 @@ blow to the head.  In his hand a large club of &+Cice&n is readied to put a
 swift end to the lives of anyone foolish enough to cross the enormous beast.
 ~
 1073743976 1 0 0 8 0 0 0 -500 S
-G 0 1 0 -1
+IG 0 1 0 -1
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -277,7 +277,7 @@ and dictates how the mining operation is run.  It is unlikely that this &+cgiant
 will take kindly to your barging into his office.
 ~
 2154 1 0 0 8 0 0 0 -1000 S
-G 0 1 0 -1
+IG 0 1 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -307,7 +307,7 @@ must thoroughly enjoy his job, because an unmistakable smile appears on his
 face with every snap of his whip.
 ~
 1073743946 1 0 0 8 0 0 0 -1000 S
-G 0 1 0 -1
+IG 0 1 0 -1
 40 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -393,7 +393,7 @@ which has caught the attention of &+LAs&+chiva&+Lhr&n.  This strong giant stands
 defiantly here, willing to give his life in protection of his master.
 ~
 10314 1 0 0 8 0 0 0 -1000 S
-G 0 1 0 -1
+IG 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -408,7 +408,7 @@ The &+Wfrost &+Cgiant&n has sold his services to the &+Cice sorceress&n in excha
 for monetary compensation.
 ~
 14410 1 0 0 8 0 0 0 -1000 S
-G 0 256 0 -1
+IG 0 256 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
@@ -425,7 +425,7 @@ humanoid.  With weapon in hand, this giant lumbers forth to defend the domain
 of his master.
 ~
 1073743944 1 0 0 268435468 2048 0 0 -1000 S
-G 0 1 0 -1
+IG 0 1 0 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
