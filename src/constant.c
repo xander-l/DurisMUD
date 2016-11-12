@@ -102,7 +102,7 @@ const int allowed_secondary_classes[CLASS_COUNT + 1][5] = {
   {CLASS_WARRIOR, -1},          		              /* APa */
   {CLASS_DRUID, CLASS_BARD, CLASS_WARRIOR, CLASS_SHAMAN, -1}, /* Cle */
   {-1},                        	 		              /* Mon */
-  {CLASS_CLERIC, -1},                             /* Dru */
+  {-1},                                           /* Dru */
   {CLASS_CONJURER, CLASS_DRUID, CLASS_CLERIC, CLASS_BLIGHTER, -1},/* Sha */
   {CLASS_CONJURER, -1},         		              /* Sor */
   {-1},                         		              /* Nec */
@@ -118,7 +118,7 @@ const int allowed_secondary_classes[CLASS_COUNT + 1][5] = {
   {-1},                         		              /* Ber */
   {CLASS_SORCERER, CLASS_ROGUE, CLASS_PSIONICIST, -1}, /* Rea */
   {-1},                         		              /* Ilu */
-  {CLASS_CLERIC, -1},                             /* Bli */
+  {-1},                                           /* Bli */
   {-1},                                  	        /* Dre */
   {CLASS_SORCERER, CLASS_SHAMAN, -1},             /* Eth */
   {-1},                                           /* Ave */
