@@ -183,7 +183,19 @@ void spell_kanchelsis_fury(int level, P_char ch, char *arg, int type, P_char vic
     af.modifier = (level / 7) + 2;
     af.location = APPLY_STR_MAX;
     affect_to_char(victim, &af);
-    if (level >= 56)
+    if( level >= 56 )
+    {
+      af.location = APPLY_COMBAT_PULSE;
+      af.modifier = -3;
+      affect_to_char(victim, &af);
+    }
+    else if( level >= 53 )
+    {
+      af.location = APPLY_COMBAT_PULSE;
+      af.modifier = -2;
+      affect_to_char(victim, &af);
+    }
+    else if( level >= 51 )
     {
       af.location = APPLY_COMBAT_PULSE;
       af.modifier = -1;
