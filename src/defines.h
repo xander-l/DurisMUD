@@ -1114,8 +1114,8 @@ struct surname_struct
 
 /* postures */
 #define POS_PRONE       0
-#define POS_KNEELING    1
-#define POS_SITTING     2
+#define POS_SITTING     1
+#define POS_KNEELING    2
 #define POS_STANDING    3
 
 /* status */

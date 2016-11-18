@@ -5134,7 +5134,7 @@ int melee_damage(P_char ch, P_char victim, double dam, int flags, struct damage_
 
   if(!(flags & PHSDAM_NOPOSITION))
   {
-    if (MIN_POS(victim, POS_STANDING + STAT_NORMAL))
+    if( MIN_POS(victim, POS_STANDING + STAT_NORMAL) )
     {
       if (get_linked_char(ch, LNK_FLANKING) == victim)
       {
@@ -5145,17 +5145,32 @@ int melee_damage(P_char ch, P_char victim, double dam, int flags, struct damage_
         dam = (dam * get_property("damage.modifier.circle", 2.0));
       }
     }
-    else if (MIN_POS(victim, POS_SITTING + STAT_RESTING)
-      && !has_innate(victim, INNATE_GROUNDFIGHTING))
+    // They get 1/2 the bonus damage if target not standing.
+    else
     {
-      dam = (dam * get_property("damage.modifier.sitting", 1.150));
+      if (get_linked_char(ch, LNK_FLANKING) == victim)
+      {
+        dam = dam * ( 1 + get_property("damage.modifier.flank", 1.5) ) / 2;
+      }
+      if (get_linked_char(ch, LNK_CIRCLING) == victim)
+      {
+        dam = dam * ( 1 + get_property("damage.modifier.circle", 2.0) ) / 2;
+      }
     }
-    else if (MIN_POS(victim, POS_KNEELING + STAT_DEAD)
-      && !has_innate(victim, INNATE_GROUNDFIGHTING))
+
+    if( MIN_POS(victim, POS_STANDING + STAT_NORMAL) )
     {
-      dam = (dam * get_property("damage.modifier.kneeling", 1.300));
+      // No bonus.
     }
-    else if (!has_innate(victim, INNATE_GROUNDFIGHTING))
+    else if( MIN_POS(victim, POS_KNEELING + STAT_DEAD) && !has_innate(victim, INNATE_GROUNDFIGHTING) )
+    {
+      dam = (dam * get_property("damage.modifier.kneeling", 1.150));
+    }
+    else if( MIN_POS(victim, POS_SITTING + STAT_DEAD) && !has_innate(victim, INNATE_GROUNDFIGHTING) )
+    {
+      dam = (dam * get_property("damage.modifier.sitting", 1.300));
+    }
+    else if( MIN_POS(victim, POS_PRONE + STAT_DEAD) && !has_innate(victim, INNATE_GROUNDFIGHTING) )
     {
       dam = (dam * get_property("damage.modifier.lying", 1.500));
     }
