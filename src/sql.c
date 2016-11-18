@@ -433,6 +433,8 @@ int sql_level_cap( int racewar_side )
 }
 
 // Checks the number of frags against the current highest and sets the new highest if applicable.
+// Adjusted the time inbetween notches from a static 1 day to 1 day for levels 26-29, 2 days for 30-39,
+//   3 days for 40-49, and 4 days for 50-56.
 void sql_check_level_cap( long max_frags, int racewar )
 {
   long old_max_frags;
@@ -456,12 +458,12 @@ void sql_check_level_cap( long max_frags, int racewar )
       if( old_level < FRAGS_TO_LEVEL(max_frags) )
       {
         sprintf(query, "UPDATE level_cap SET most_frags = %f, racewar_leader = %d, level = %d, next_update = FROM_UNIXTIME(%ld)",
-          max_frags/100., racewar, old_level + 1, time(NULL) + SECS_PER_REAL_DAY );
+          max_frags/100., racewar, old_level + 1, time(NULL) + SECS_PER_REAL_DAY * ((old_level + 5) / 10 - 1) );
         db_query(query);
       }
       else
       {
-        sprintf(query, "UPDATE level_cap SET most_frags = %f, racewar_leader = %d", max_frags/100., racewar );
+        sprintf(query, "UPDATE level_cap SET most_frags = %f, racewar_leader = %d", max_frags / 100., racewar );
         db_query(query);
       }
     }
@@ -469,7 +471,7 @@ void sql_check_level_cap( long max_frags, int racewar )
     else if( old_level < FRAGS_TO_LEVEL(old_max_frags) )
     {
       sprintf(query, "UPDATE level_cap SET level = %d, next_update = FROM_UNIXTIME(%ld)",
-        old_level + 1, time(NULL) + SECS_PER_REAL_DAY );
+        old_level + 1, time(NULL) + SECS_PER_REAL_DAY * ((old_level + 5) / 10 - 1) );
       db_query(query);
     }
   }
