@@ -4206,7 +4206,7 @@ display case~
 &+Wa display case&N~
 &+WA shiny glass display case &N&+msits atop a mithril column.~
 ~
-15 7 3 0 7 0 1 0 0 0 0
+15 7 3 0 7 0 1 0 65536 0 0
 20 29 83371 0 0 0 0 0
 10000 0 100
 E
