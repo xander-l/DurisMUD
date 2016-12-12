@@ -5659,43 +5659,43 @@ void spell_flame_blade(int level, P_char ch, char *arg, int type,
 
   blade->extra_flags |= ITEM_NORENT;
   blade->bitvector = 0;
+  blade->value[6] = GET_LEVEL(ch);
+
   /* how about some gay de procs for flame blade? Yeah baby! */
-  if(GET_LEVEL(ch) >= 21)
-      {
-          blade->value[5] = 195;
-          blade->value[6] = GET_LEVEL(ch);
-          blade->value[7] = 40; //procs flameburst
-      }
-  if(GET_LEVEL(ch) >= 26)
-      {
-      SET_BIT(blade->bitvector, AFF_PROT_FIRE);
-      }
-  if(GET_LEVEL(ch) >= 31)
-      {
-      SET_BIT(blade->bitvector2, AFF2_FIRESHIELD);
-      }
-  if(GET_LEVEL(ch) >= 36)
-      {
-          blade->value[5] = 26;
-          blade->value[6] = GET_LEVEL(ch);
-          blade->value[7] = 40; //procs fireball
-      }
-  if(GET_LEVEL(ch) >= 41)
-      {
-      blade->value[5] = 21;
-          blade->value[6] = GET_LEVEL(ch);
-          blade->value[7] = 40; //procs flamestrike
-      }
-  if(GET_LEVEL(ch) >= 51)
-      {
-          blade->value[5] = 124;
-          blade->value[6] = GET_LEVEL(ch);
-          blade->value[7] = 40; //procs sunray
-      }
+  if( GET_LEVEL(ch) >= 51 )
+  {
+    blade->value[5] = 124;
+    blade->value[7] = 30; //procs sunray
+  }
+  else if( GET_LEVEL(ch) >= 41 )
+  {
+    blade->value[5] = 26;
+    blade->value[7] = 25; //procs fireball, better chance.
+  }
+  else if( GET_LEVEL(ch) >= 36 )
+  {
+    blade->value[5] = 26;
+    blade->value[7] = 40; //procs fireball
+  }
+  else if( GET_LEVEL(ch) >= 21 )
+  {
+    blade->value[5] = 195;
+    blade->value[7] = 40; //procs flameburst
+  }
+
   if(GET_LEVEL(ch) >= 56)
-      {
-      SET_BIT(blade->bitvector2, AFF2_FIRE_AURA);
-      }
+  {
+    SET_BIT(blade->bitvector2, AFF2_FIRE_AURA);
+  }
+  if(GET_LEVEL(ch) >= 31)
+  {
+    SET_BIT(blade->bitvector2, AFF2_FIRESHIELD);
+  }
+  if(GET_LEVEL(ch) >= 26)
+  {
+    SET_BIT(blade->bitvector, AFF_PROT_FIRE);
+  }
+
   act("$p &+Warrives in a burst of &n&+rfire.", TRUE, ch, blade, 0, TO_ROOM);
   act("$p &+Warrives in a burst of &n&+rfire.", TRUE, ch, blade, 0, TO_CHAR);
   blade->timer[0] = 180;
