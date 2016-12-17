@@ -5114,6 +5114,13 @@ void create_poisons()
 
 void create_tags()
 {
+  TAG_CREATE( "stoned", HERB_SMOKED );
+  TAG_CREATE( "ocularius", HERB_OCULARIUS );
+  TAG_CREATE( "blue haze", HERB_BLUE_HAZE );
+  TAG_CREATE( "medicus", HERB_MEDICUS );
+  TAG_CREATE( "black kush", HERB_BLACK_KUSH );
+  TAG_CREATE( "gootwiet", HERB_GOOTWIET );
+
   TAG_CREATE("decay", TAG_OBJ_DECAY);
   TAG_CREATE("alt_extra2", TAG_ALTERED_EXTRA2);
   TAG_CREATE("no misfire", TAG_NOMISFIRE);

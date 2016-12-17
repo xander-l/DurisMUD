@@ -388,7 +388,7 @@ extern unsigned int game_locked_level;
 #define CMD_FOOL           357
 #define CMD_NOOGIE         358
 #define CMD_MELT           359
-#define CMD_SMOKE          360
+#define CMD_SMOKE          360 // Smoking dat herb.
 #define CMD_WHEEZE         361
 #define CMD_BIRD           362
 #define CMD_BOGGLE         363

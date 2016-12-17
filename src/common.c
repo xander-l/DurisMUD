@@ -565,6 +565,8 @@ const char *item_types[] = {
   "SHIELD",
   "BANDAGE",
   "SPAWNER",
+  "HERB",
+  "PIPE",
   "\n"
 };
 
@@ -986,6 +988,8 @@ flagDef  affected5_bits[] = {
   {"FOREST_SIGHT", "Forest Sight", 1, 0},
   {"THORNSKIN", "Thornskin", 1, 0},
   {"FOLLOWING", "Following", 1, 0},
+  {"ORDERING", "Ordering", 1, 0},
+  {"STONED", "Stoned", 1, 0},
   {0}
 };
 

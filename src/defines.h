@@ -134,7 +134,9 @@ typedef unsigned int uint;
 #define ITEM_SHIELD     37      /* dedicated type for shields */
 #define ITEM_BANDAGE    38
 #define ITEM_SPAWNER    39
-#define ITEM_LAST       39
+#define ITEM_HERB       40
+#define ITEM_PIPE       41
+#define ITEM_LAST       41
 
  /* obj->material - moved to objmisc.h */
 
@@ -804,6 +806,7 @@ struct attr_names_struct {
 #define AFF5_THORNSKIN          BIT_28
 #define AFF5_FOLLOWING          BIT_29
 #define AFF5_ORDERING           BIT_30
+#define AFF5_STONED             BIT_31
 
 /* modifiers to char's abilities */
 

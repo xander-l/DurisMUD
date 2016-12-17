@@ -56,7 +56,8 @@ extern flagDef g_armorMiscFlagDef[], g_contFlagDef[], g_totemSphereFlagDef[],
                g_objWeaponTypeList[], objWeaponDamageTypeList[], g_objMissileTypeList[],
                g_objLiquidTypeList[], g_objArmorThicknessList[], g_objTypeList[],
                g_objShieldTypeList[], g_objShieldShapeList[], g_objShieldSizeList[],
-               g_objCraftsmanshipList[], g_objTrapDamList[];
+               g_objCraftsmanshipList[], g_objTrapDamList[], g_objPipeTypeList[],
+               g_objHerbSpellList[];
 
 extern "C" const char *apply_types[];
 extern "C" Skill skills[MAX_AFFECT_TYPES+1];
@@ -156,7 +157,6 @@ const char *getShieldTypeStrn(const int shieldType)
   return getFlagNameFromList(g_objShieldTypeList, shieldType);
 }
 
-
 //
 // getShieldShapeStrnShort
 //
@@ -176,6 +176,17 @@ const char *getShieldSizeStrn(const int shieldSize)
   return getFlagNameFromList(g_objShieldSizeList, shieldSize);
 }
 
+// For smoking pipe types.
+const char *getPipeTypeStrn(const int pipeType)
+{
+  return getFlagNameFromList(g_objPipeTypeList, pipeType);
+}
+
+// For smoking herb spells.
+const char *getHerbSpellStrn(const int herbSpell)
+{
+  return getFlagNameFromList(g_objHerbSpellList, herbSpell);
+}
 
 //
 // getSkillTypeStrn
@@ -328,278 +339,421 @@ const char *getObjValueStrn(const uint objType, const uint valueField, const int
   if ((objType > ITEM_LAST) || (objType < ITEM_LOWEST))
     return "obj type out of range";
 
-  switch (valueField)
+  // This was done so backwards.. smh... should be switch objType first.
+  switch( valueField )
   {
-    case 0 : switch (objType)
-             {
-               case ITEM_POTION : 
-               case ITEM_SCROLL : 
-               case ITEM_WAND   : 
-               case ITEM_STAFF  : return "spell level";
-               case ITEM_WEAPON : if (showCurrentValInfo)
-                                  {
-                                    strncpy(valstrn, getWeapTypeStrn(objValue), 63);
-                                    valstrn[63] = '\0';
+    case 0:
+      switch( objType )
+      {
+        case ITEM_POTION:
+        case ITEM_SCROLL:
+        case ITEM_WAND:
+        case ITEM_STAFF:
+          return "spell level";
+        case ITEM_WEAPON:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getWeapTypeStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "weapon type [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "weapon type");
+          }
+          return strn;
+        case ITEM_MISSILE:
+          return "to-hit modifier";
+        case ITEM_FIREWEAPON:
+          return "range";
+        case ITEM_ARMOR:
+          return "armor class";
+        case ITEM_CONTAINER:
+          return "max holdable weight";
+        case ITEM_NOTE:
+          return "language";
+        case ITEM_DRINKCON:
+          return "max. drink units";
+        case ITEM_FOOD:
+          return "number of hours full";
+        case ITEM_MONEY:
+          return "number of copper coins";
+        case ITEM_TELEPORT:
+          return "target room";
+        case ITEM_SWITCH:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getCommandStrn(objValue, true), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "trigger command [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "trigger command");
+          }
+          return strn;
+        case ITEM_QUIVER:
+          return "max capacity";
+        case ITEM_PICK:
+          return "% chance added to picking lock";
+        case ITEM_INSTRUMENT:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getInstrumentTypeStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "instrument type [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "instrument type");
+          }
+          return strn;
+        case ITEM_TOTEM:
+          if (showCurrentValInfo)
+          {
+            strncpy(valstrn, getTotemSphereStrn(objValue, strn2), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "sphere(s) [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "sphere(s)");
+          }
+          return strn;
+        case ITEM_SHIELD:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getShieldTypeStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "shield type [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "shield type");
+          }
+          return strn;
+        case ITEM_HERB:
+          return "spell level";
+        case ITEM_PIPE:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getPipeTypeStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "pipe type [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "pipe type");
+          }
+          return strn;
+        default:
+          return "not used";
+      }
+    case 1:
+      switch( objType )
+      {
+        case ITEM_POTION:
+        case ITEM_SCROLL:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getSpellTypeStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "spell type [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "spell type");
+          }
+          return strn;
+        case ITEM_WAND:
+        case ITEM_STAFF:
+          return "max charges";
+        case ITEM_MISSILE:
+        case ITEM_WEAPON:
+          return "number of damage dice";
+        case ITEM_FIREWEAPON:
+          return "rate of fire";
+        case ITEM_CONTAINER:
+        case ITEM_QUIVER:
+          return "container flags";
+        case ITEM_DRINKCON:
+          return "number of drink units left";
+        case ITEM_KEY:
+          return "% chance of key breaking";
+        case ITEM_MONEY:
+          return "number silver coins";
+        case ITEM_TELEPORT:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getCommandStrn(objValue, true), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "activating command [%s]", valstrn);
+          }
+          else
+            strcpy(strn, "activating command");
+          return strn;
+        case ITEM_SWITCH:
+          return "room # with blocked exit";
+        case ITEM_PICK:
+          return "% chance of pick breaking";
+        case ITEM_INSTRUMENT:
+          return "level of effect";
+        case ITEM_TOTEM:
+          return "ward/ward type (unused)";
+        case ITEM_SHIELD:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getShieldShapeStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "shield shape [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "shield shape");
+          }
+          return strn;
+        case ITEM_HERB:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getHerbSpellStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "herb spell [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "herb spell");
+          }
+          return strn;
+        case ITEM_PIPE:
+          return "pipe hitpoints";
+        default:
+          return "not used";
+      }
 
-                                    sprintf(strn, "weapon type [%s]", valstrn);
-                                  }
-                                  else strcpy(strn, "weapon type");
-
-                                  return strn;
-               case ITEM_MISSILE: return "to-hit modifier";
-               case ITEM_FIREWEAPON: return "range";
-               case ITEM_ARMOR  : return "armor class";
-               case ITEM_CONTAINER : return "max holdable weight";
-               case ITEM_NOTE   : return "language";
-               case ITEM_DRINKCON : return "max. drink units";
-               case ITEM_FOOD   : return "number of hours filled";
-               case ITEM_MONEY  : return "numb copper coins";
-               case ITEM_TELEPORT : return "target room";
-               case ITEM_SWITCH : if (showCurrentValInfo)
-                                  {
-                                    strncpy(valstrn, getCommandStrn(objValue, true), 63);
-                                    valstrn[63] = '\0';
-
-                                    sprintf(strn, "trigger command [%s]", valstrn);
-                                  }
-                                  else strcpy(strn, "trigger command");
-
-                                  return strn;
-               case ITEM_QUIVER : return "max capacity";
-               case ITEM_PICK : return "% chance added to picking lock";
-               case ITEM_INSTRUMENT : if (showCurrentValInfo)
-                                      {
-                                        strncpy(valstrn, getInstrumentTypeStrn(objValue), 63);
-                                        valstrn[63] = '\0';
-
-                                        sprintf(strn, "instrument type [%s]", valstrn);
-                                      }
-                                      else strcpy(strn, "instrument type");
-
-                                      return strn;
-               case ITEM_TOTEM : if (showCurrentValInfo)
-                                 {
-                                   strncpy(valstrn, getTotemSphereStrn(objValue, strn2), 63);
-                                   valstrn[63] = '\0';
-
-                                   sprintf(strn, "sphere(s) [%s]", valstrn);
-                                 }
-                                 else strcpy(strn, "sphere(s)");
-
-                                 return strn;
-               case ITEM_SHIELD : if (showCurrentValInfo)
-                                  {
-                                    strncpy(valstrn, getShieldTypeStrn(objValue), 63);
-                                    valstrn[63] = '\0';
-
-                                    sprintf(strn, "shield type [%s]", valstrn);
-                                  }
-                                  else strcpy(strn, "shield type");
-
-                                  return strn;
-
-               default : return "not used";
-             }
-
-    case 1 : switch (objType)
-             {
-               case ITEM_POTION :
-               case ITEM_SCROLL : if (showCurrentValInfo)
-                                  {
-                                    strncpy(valstrn, getSpellTypeStrn(objValue), 63);
-                                    valstrn[63] = '\0';
-
-                                    sprintf(strn, "spell type [%s]", valstrn);
-                                  }
-                                  else strcpy(strn, "spell type");
-
-                                  return strn;
-               case ITEM_WAND   :
-               case ITEM_STAFF  : return "max charges";
-               case ITEM_MISSILE :
-               case ITEM_WEAPON : return "number of damage dice";
-               case ITEM_FIREWEAPON: return "rate of fire";
-               case ITEM_CONTAINER :
-               case ITEM_QUIVER : return "container flags";
-               case ITEM_DRINKCON : return "number of drink units left";
-               case ITEM_KEY    : return "% chance of key breaking";
-               case ITEM_MONEY  : return "numb silver coins";
-               case ITEM_TELEPORT : if (showCurrentValInfo)
-                                    {
-                                      strncpy(valstrn, getCommandStrn(objValue, true), 63);
-                                      valstrn[63] = '\0';
-
-                                      sprintf(strn, "activating command [%s]", valstrn);
-                                    }
-                                    else strcpy(strn, "activating command");
-
-                                    return strn;
-               case ITEM_SWITCH : return "room # with blocked exit";
-               case ITEM_PICK   : return "% chance of pick breaking";
-               case ITEM_INSTRUMENT : return "level of effect";
-               case ITEM_TOTEM : return "ward/ward type (unused)";
-               case ITEM_SHIELD : if (showCurrentValInfo)
-                                  {
-                                    strncpy(valstrn, getShieldShapeStrn(objValue), 63);
-                                    valstrn[63] = '\0';
-
-                                    sprintf(strn, "shield shape [%s]", valstrn);
-                                  }
-                                  else strcpy(strn, "shield shape");
-
-                                  return strn;
-
-               default : return "not used";
-             }
-
-    case 2 : switch (objType)
-             {
-               case ITEM_LIGHT  : return "# hours light lasts";
-               case ITEM_POTION :
-               case ITEM_SCROLL : if (showCurrentValInfo)
-                                  {
-                                    strncpy(valstrn, getSpellTypeStrn(objValue), 63);
-                                    valstrn[63] = '\0';
-
-                                    sprintf(strn, "spell type [%s]", valstrn);
-                                  }
-                                  else strcpy(strn, "spell type");
-
-                                  return strn;
-               case ITEM_WAND   :
-               case ITEM_STAFF  : return "# charges left";
-               case ITEM_MISSILE:
-               case ITEM_WEAPON : return "range of damage dice";
-               case ITEM_CONTAINER : return "item that opens container";
-               case ITEM_DRINKCON : if (showCurrentValInfo)
-                                    {
-                                      strncpy(valstrn, getLiqTypeStrn(objValue), 63);
-                                      valstrn[63] = '\0';
-
-                                      sprintf(strn, "type of liquid [%s&n]", valstrn);
-                                    }
-                                    else strcpy(strn, "type of liquid");
-
-                                    return strn;
-               case ITEM_MONEY  : return "numb gold coins";
-               case ITEM_TELEPORT : return "# charges [-1 = infinite]";
-               case ITEM_SWITCH : if (showCurrentValInfo)
-                                  {
-                                    strncpy(valstrn, getExitStrn(objValue), 63);
-                                    valstrn[63] = '\0';
-
-                                    sprintf(strn, "dir of blocked exit [%s]", valstrn);
-                                  }
-                                  else strcpy(strn, "dir of blocked exit");
-
-                                  return strn;
-
-               case ITEM_QUIVER : if (showCurrentValInfo)
-                                  {
-                                    strncpy(valstrn, getMissileTypeStrn(objValue), 63);
-                                    valstrn[63] = '\0';
-
-                                    sprintf(strn, "missile type [%s]", valstrn);
-                                  }
-                                  else strcpy(strn, "missile type");
-
-                                  return strn;
-               case ITEM_INSTRUMENT : return "break chance (1000max)";
-               case ITEM_SPELLBOOK : return "number of pages";
-               case ITEM_TOTEM : return "level of ward (unused)";
-               case ITEM_SHIELD : if (showCurrentValInfo)
-                                  {
-                                    strncpy(valstrn, getShieldSizeStrn(objValue), 63);
-                                    valstrn[63] = '\0';
-
-                                    sprintf(strn, "shield size [%s]", valstrn);
-                                  }
-                                  else strcpy(strn, "shield size");
-
-                                  return strn;
-
-               default : return "not used";
-             }
-
-    case 3 : switch (objType)
-             {
-               case ITEM_POTION :
-               case ITEM_WAND   :
-               case ITEM_STAFF  :
-               case ITEM_SCROLL : if (showCurrentValInfo)
-                                  {
-                                    strncpy(valstrn, getSpellTypeStrn(objValue), 63);
-                                    valstrn[63] = '\0';
-
-                                    sprintf(strn, "spell type [%s]", valstrn);
-                                  }
-                                  else strcpy(strn, "spell type");
-
-                                  return strn;
-
-               case ITEM_FIREWEAPON :
-               case ITEM_MISSILE: if (showCurrentValInfo)
-                                  {
-                                    strncpy(valstrn, getMissileTypeStrn(objValue), 63);
-                                    valstrn[63] = '\0';
-
-                                    sprintf(strn, "missile type [%s]", valstrn);
-                                  }
-                                  else strcpy(strn, "missile type");
-
-                                  return strn;
-               case ITEM_ARMOR  : if (showCurrentValInfo)
-                                  {
-                                    strncpy(valstrn, getArmorThicknessStrn(objValue), 63);
-                                    valstrn[63] = '\0';
-
-                                    sprintf(strn, "armor thickness [%s]", valstrn);
-                                  }
-                                  else strcpy(strn, "armor thickness");
-
-                                  return strn;
-               case ITEM_CONTAINER : return "max space capacity";
-               case ITEM_DRINKCON:
-               case ITEM_FOOD   : return "poisoned if non-zero";
-               case ITEM_MONEY  : return "numb platinum coins";
-               case ITEM_SWITCH : return "0 = wall moves, 1 = switch moves";
-               case ITEM_QUIVER : return "current amount of missiles";
-               case ITEM_INSTRUMENT : return "min level to use";
-               case ITEM_SHIELD : return "armor class";
-
-               default : return "not used";
-             }
-
-    case 4 : switch (objType)
-             {
-               case ITEM_WEAPON : return "poison type (0 = none)";
-               case ITEM_ARMOR : return "misc. armor flags";
-               case ITEM_POTION : return "damage caused by drinking";
-               case ITEM_SHIELD : if (showCurrentValInfo)
-                                  {
-                                    strncpy(valstrn, getArmorThicknessStrn(objValue), 63);
-                                    valstrn[63] = '\0';
-
-                                    sprintf(strn, "shield thickness [%s]", valstrn);
-                                  }
-                                  else strcpy(strn, "shield thickness");
-
-                                  return strn;
-
-               default : return "not used";
-             }
-
-    case 5 : switch (objType)
-             {
-               case ITEM_SHIELD : return "misc. shield flags";
-
-               default : return "not used";
-             }
-
-    case 6 :
-    case 7 : return "not used";
-
-    default : return "unrecognized value field";
+    case 2:
+      switch( objType )
+      {
+        case ITEM_LIGHT:
+          return "# mud hours light lasts";
+        case ITEM_POTION:
+        case ITEM_SCROLL:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getSpellTypeStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "spell type [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "spell type");
+          }
+          return strn;
+        case ITEM_WAND:
+        case ITEM_STAFF:
+          return "# charges left";
+        case ITEM_MISSILE:
+        case ITEM_WEAPON:
+          return "range of damage dice";
+        case ITEM_CONTAINER:
+          return "item that opens container";
+        case ITEM_DRINKCON:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getLiqTypeStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "type of liquid [%s&n]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "type of liquid");
+          }
+          return strn;
+        case ITEM_MONEY:
+          return "number of gold coins";
+        case ITEM_TELEPORT:
+          return "# charges [-1 = infinite]";
+        case ITEM_SWITCH:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getExitStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "dir of blocked exit [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "dir of blocked exit");
+          }
+          return strn;
+        case ITEM_QUIVER:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getMissileTypeStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "missile type [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "missile type");
+          }
+          return strn;
+        case ITEM_INSTRUMENT:
+          return "break chance (1000max)";
+        case ITEM_SPELLBOOK:
+          return "number of pages";
+        case ITEM_TOTEM:
+          return "level of ward (unused)";
+        case ITEM_SHIELD:
+          if (showCurrentValInfo)
+          {
+            strncpy(valstrn, getShieldSizeStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "shield size [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "shield size");
+          }
+          return strn;
+        case ITEM_HERB:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getHerbSpellStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "2nd herb spell [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "2nd herb spell");
+          }
+          return strn;
+        case ITEM_PIPE:
+          return "Pipe damage % chance";
+        default:
+          return "not used";
+      }
+    case 3:
+      switch( objType )
+      {
+        case ITEM_POTION:
+        case ITEM_WAND:
+        case ITEM_STAFF:
+        case ITEM_SCROLL:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getSpellTypeStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "spell type [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "spell type");
+          }
+          return strn;
+        case ITEM_FIREWEAPON:
+        case ITEM_MISSILE:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getMissileTypeStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "missile type [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "missile type");
+          }
+          return strn;
+        case ITEM_ARMOR:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getArmorThicknessStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "armor thickness [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "armor thickness");
+          }
+          return strn;
+        case ITEM_CONTAINER:
+          return "max space capacity";
+        case ITEM_DRINKCON:
+        case ITEM_FOOD:
+          return "poisoned if non-zero";
+        case ITEM_MONEY:
+          return "numb platinum coins";
+        case ITEM_SWITCH:
+          return "0 = wall moves, 1 = switch moves";
+        case ITEM_QUIVER:
+          return "current amount of missiles";
+        case ITEM_INSTRUMENT:
+          return "min level to use";
+        case ITEM_SHIELD:
+          return "armor class";
+        case ITEM_HERB:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getHerbSpellStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "3rd herb spell [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "3rd herb spell");
+          }
+          return strn;
+        default:
+          return "not used";
+      }
+    case 4:
+      switch (objType)
+      {
+        case ITEM_WEAPON:
+          return "poison type (0 = none)";
+        case ITEM_ARMOR:
+          return "misc. armor flags";
+        case ITEM_POTION:
+          return "damage caused by drinking";
+        case ITEM_SHIELD:
+          if( showCurrentValInfo )
+          {
+            strncpy(valstrn, getArmorThicknessStrn(objValue), 63);
+            valstrn[63] = '\0';
+            sprintf(strn, "shield thickness [%s]", valstrn);
+          }
+          else
+          {
+            strcpy(strn, "shield thickness");
+          }
+          return strn;
+        default:
+          return "not used";
+      }
+    case 5:
+      switch( objType )
+      {
+        case ITEM_SHIELD:
+          return "misc. shield flags";
+        default:
+          return "not used";
+      }
+    case 6:
+      switch (objType)
+      {
+        case ITEM_HERB:
+          return "stoned duration";
+        default:
+          return "not used";
+      }
+    case 7:
+      switch (objType)
+      {
+        case ITEM_HERB:
+          return "herb spell duration";
+        default:
+          return "not used";
+      }
+    default:
+      return "unrecognized value field";
   }
 }
 

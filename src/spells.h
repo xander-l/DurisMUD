@@ -1075,6 +1075,14 @@
 #define POISON_HEART_TOXIN           (FIRST_POISON+3)
 #define LAST_POISON                  (POISON_HEART_TOXIN)
 
+// These need to be static since they're set in .obj files in zones.
+#define HERB_SMOKED         1900
+#define HERB_OCULARIUS      1901
+#define HERB_BLUE_HAZE      1902
+#define HERB_MEDICUS        1903
+#define HERB_BLACK_KUSH     1904
+#define HERB_GOOTWIET       1905
+
 /* everything below does not make part of players skill data */
 #define FIRST_TAG                    2001
 #define TAG_OBJ_DECAY                2001

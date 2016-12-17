@@ -48,6 +48,7 @@
 #include "../obj/shields.h"
 #include "../obj/material.h"
 #include "../obj/objcraft.h"
+#include "../obj/instrmnt.h"
 #include "../defines.h"
 
 #include "../misc/mudcomm.h"
@@ -2010,7 +2011,7 @@ uint checkObjectValues(FILE *file, size_t& numbLines, bool *userQuit)
 
          // flute is lowest, horn is highest, this may be as good as it gets
 
-          errors += checkObjectValueRange(obj, 0, INSTRUMENT_FLUTE, INSTRUMENT_HORN, NO_EXCLUSION, file,
+          errors += checkObjectValueRange(obj, 0, INSTRUMENT_LOWEST, INSTRUMENT_HIGHEST, NO_EXCLUSION, file,
                                           numbLines, userQuit);
           if (*userQuit)
             return errors;

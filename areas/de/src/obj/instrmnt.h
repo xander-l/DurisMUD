@@ -31,15 +31,8 @@
 #ifndef _INSTRMNT_H_
 
 #define INSTRUMENT_LOWEST            184
-#define INSTRUMENT_FLUTE             184
-#define INSTRUMENT_LYRE              185
-#define INSTRUMENT_MANDOLIN          186
-#define INSTRUMENT_HARP              187
-#define INSTRUMENT_DRUMS             188
-#define INSTRUMENT_HORN              189
-#define INSTRUMENT_HIGHEST           189
-
 #define NUMB_INSTRUMENT_TYPES        6
+#define INSTRUMENT_HIGHEST           189
 
 #define _INSTRMNT_H_
 #endif

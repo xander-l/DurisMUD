@@ -508,6 +508,12 @@
 #define LISTOBJ_ACTIONDESC        BIT_3
 #define LISTOBJ_STATS             BIT_4
 
+#define PIPE_ROLLING_PAPERS 1
+#define PIPE_CHILLUM        2
+#define PIPE_HOOKAH         3
+#define PIPE_NOSE_PIPE      4
+#define PIPE_REGULAR        5
+
 #ifndef _DE_
 int obj_zone_id(P_obj o);
 int obj_room_id(P_obj o);

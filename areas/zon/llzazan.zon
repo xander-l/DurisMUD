@@ -317,5 +317,16 @@ P 1 36247 1 36251 100 0 0 0        *   an ashwood lyre
 P 1 36248 1 36251 100 0 0 0        *   a steel mandolin
 P 1 36249 1 36251 100 0 0 0        *   a silver flute
 P 1 36250 1 36251 100 0 0 0        *   an oaken harp
+M 0 101 1 36329 100 0 0 0          * your local drug dealer
+G 1 829 999 0 100 0 0 0            *    some resin of Ocularius
+G 1 830 999 0 100 0 0 0            *    some heirloom Blue Haze
+G 1 831 999 0 100 0 0 0            *    some landrace Medicus
+G 1 832 999 0 100 0 0 0            *    some feral Black Kush
+G 1 833 999 0 100 0 0 0            *    some wild Gootwiet
+G 1 834 999 0 100 0 0 0            *    a piece of rolling paper
+G 1 835 999 0 100 0 0 0            *    a ceramic chillum
+G 1 836 999 0 100 0 0 0            *    an obsidian hookah
+G 1 837 999 0 100 0 0 0            *    a mistweyd nose-pipe
+G 1 838 999 0 100 0 0 0            *    a handcarved pipe
 *
 S

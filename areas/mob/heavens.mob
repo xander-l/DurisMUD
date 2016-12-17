@@ -1240,6 +1240,17 @@ VT 0 1 0 3
 25 -7 -143 25d10+100 3d8+10
 0.0.0.0 358425
 8 8 0
+#101
+local drug dealer~
+&+Lyour local drug dealer&n~
+&+LYour local dealer peers at you.&n
+~
+~
+50331656 0 0 0 0 0 0 0 -1000 S
+H2 0 9240576 0 -1
+56 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
 #200
 dark shadow demon shape~
 &+La dark shadow&n~

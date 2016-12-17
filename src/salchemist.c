@@ -473,7 +473,7 @@ P_obj get_bottle(P_char ch)
   for (t_obj = ch->carrying; t_obj; t_obj = next_obj)
   {
     next_obj = t_obj->next_content;
-    if(obj_index[t_obj->R_num].virtual_number == BOTTLE_VIRTUAL && strstr(t_obj->name, "bottle"))
+    if( OBJ_VNUM(t_obj) == VOBJ_POTION_BOTTLES && strstr(t_obj->name, "bottle") )
     {
       return t_obj;
     }
@@ -542,7 +542,7 @@ void do_mix(P_char ch, char *argument, int cmd)
 
         if(number(0, 5))
         {
-          bottle = read_object(835, VIRTUAL);
+          bottle = read_object(VOBJ_POTION_BOTTLES, VIRTUAL);
           obj_to_char(bottle, ch);
         }
 

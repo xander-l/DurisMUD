@@ -1110,5 +1110,17 @@ M 0 97594 1 97758 100 0 0 0        * a wood golem
 M 0 97595 1 97758 100 0 0 0        * a deep gnome slave
 M 0 97596 1 97758 100 0 0 0        * a rakshasa slave
 M 0 97597 1 97758 100 0 0 0        * an ettin warrior
+M 0 101 1 97685 100 0 0 0          * your local drug dealer
+G 1 829 999 0 100 0 0 0            *    some resin of Ocularius
+G 1 830 999 0 100 0 0 0            *    some heirloom Blue Haze
+G 1 831 999 0 100 0 0 0            *    some landrace Medicus
+G 1 832 999 0 100 0 0 0            *    some feral Black Kush
+G 1 833 999 0 100 0 0 0            *    some wild Gootwiet
+G 1 834 999 0 100 0 0 0            *    a piece of rolling paper
+G 1 835 999 0 100 0 0 0            *    a ceramic chillum
+G 1 836 999 0 100 0 0 0            *    an obsidian hookah
+G 1 837 999 0 100 0 0 0            *    a mistweyd nose-pipe
+G 1 838 999 0 100 0 0 0            *    a handcarved pipe
+
 *
 S

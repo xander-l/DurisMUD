@@ -45,6 +45,8 @@
 #include "obj/missiles.h"
 #include "zone/zone.h"
 #include "defines.h"
+#include "objmisc.h"
+#include "spells.h"
 
 /////////////////////////////////
 // ROOMS
@@ -182,6 +184,8 @@ flagDef g_objTypeList[] =
   { "ITEM_SHIELD", "Shield", 1, ITEM_SHIELD },
   { "ITEM_BANDAGE", "Bandage", 1, ITEM_BANDAGE },
   { "ITEM_SPAWNER", "Spawner", 1, ITEM_SPAWNER },
+  { "ITEM_HERB", "Herb", 1, ITEM_HERB },
+  { "ITEM_PIPE", "Pipe", 1, ITEM_PIPE },
   { 0 }
 };
 
@@ -322,15 +326,17 @@ flagDef g_objMissileTypeList[] =
 //
 // obj instrument types
 //
-
+// 184 is the random magic starting number for instruments.. FIRST_INSTRUMENT is the value of
+//   the first instrument skill number (the flute skill), and INSTRUMENT_FLUTE is the value of
+//   the flute skill number.
 flagDef g_objInstrTypeList[] =
 {
-  { "INSTRUMENT_FLUTE", "Flute", 1, INSTRUMENT_FLUTE },
-  { "INSTRUMENT_LYRE", "Lyre", 1, INSTRUMENT_LYRE },
-  { "INSTRUMENT_MANDOLIN", "Mandolin", 1, INSTRUMENT_MANDOLIN },
-  { "INSTRUMENT_HARP", "Harp", 1, INSTRUMENT_HARP },
-  { "INSTRUMENT_DRUMS", "Drums", 1, INSTRUMENT_DRUMS },
-  { "INSTRUMENT_HORN", "Horn", 1, INSTRUMENT_HORN },
+  { "INSTRUMENT_FLUTE", "Flute", 1, INSTRUMENT_FLUTE - FIRST_INSTRUMENT + 184 },
+  { "INSTRUMENT_LYRE", "Lyre", 1, INSTRUMENT_LYRE - FIRST_INSTRUMENT + 184 },
+  { "INSTRUMENT_MANDOLIN", "Mandolin", 1, INSTRUMENT_MANDOLIN - FIRST_INSTRUMENT + 184 },
+  { "INSTRUMENT_HARP", "Harp", 1, INSTRUMENT_HARP - FIRST_INSTRUMENT + 184 },
+  { "INSTRUMENT_DRUMS", "Drums", 1, INSTRUMENT_DRUMS - FIRST_INSTRUMENT + 184 },
+  { "INSTRUMENT_HORN", "Horn", 1, INSTRUMENT_HORN - FIRST_INSTRUMENT + 184 },
   { 0 }
 };
 
@@ -387,7 +393,6 @@ flagDef g_objShieldTypeList[] =
   { 0 }
 };
 
-
 //
 // obj shield shapes
 //
@@ -421,6 +426,25 @@ flagDef g_objShieldSizeList[] =
 };
 
 
+flagDef g_objPipeTypeList[] =
+{
+  { "PIPE_ROLLING_PAPERS", "Rolling papers", 1, PIPE_ROLLING_PAPERS },
+  { "PIPE_CHILLUM", "Chillum", 1, PIPE_CHILLUM },
+  { "PIPE_HOOKAH", "Hookah", 1, PIPE_HOOKAH },
+  { "PIPE_NOSE_PIPE", "Nose pipe", 1, PIPE_NOSE_PIPE },
+  { "PIPE_REGULAR", "Regular pipe", 1, PIPE_REGULAR },
+  { 0 }
+};
+
+flagDef g_objHerbSpellList[] =
+{
+  { "HERB_OCULARIUS", "Ocularius", 1, HERB_OCULARIUS },
+  { "HERB_BLUE_HAZE", "Blue haze", 1, HERB_BLUE_HAZE },
+  { "HERB_MEDICUS", "Medicus", 1, HERB_MEDICUS },
+  { "HERB_BLACK_KUSH", "Black kush", 1, HERB_BLACK_KUSH },
+  { "HERB_GOOTWIET", "Gootwiet", 1, HERB_GOOTWIET },
+  { 0 }
+};
 
 
 

@@ -10691,7 +10691,7 @@ int alch_bag(P_obj obj, P_char ch, int cmd, char *arg)
   {
 /* if this somehow works, it is a MIRACLE as I had nothing to copy from */
 /* should add a full set of ingredients into the pouch! */
-/* obj #'s to use....... 821, 822, 823, 824, 825, 826, 827, 835 -Raxxel*/
+/* obj #'s to use....... 821, 822, 823, 824, 825, 826, 827, 839 -Raxxel*/
 
 /* begin experimental code! */
     obj->timer[0] = curr_time;

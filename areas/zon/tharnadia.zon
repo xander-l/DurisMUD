@@ -1830,5 +1830,16 @@ G 1 132507 999 0 100 0 0 0         *    a piece of fried mutton
 M 0 400000 1 133072 100 0 0 0      * (mob type not in this .mob file)
 M 0 132675 1 133073 100 0 0 0      * Kotil
 M 0 400001 1 133074 100 0 0 0      * (mob type not in this .mob file)
+M 0 101 1 132767 100 0 0 0         * your local drug dealer
+G 1 829 999 0 100 0 0 0            *    some resin of Ocularius
+G 1 830 999 0 100 0 0 0            *    some heirloom Blue Haze
+G 1 831 999 0 100 0 0 0            *    some landrace Medicus
+G 1 832 999 0 100 0 0 0            *    some feral Black Kush
+G 1 833 999 0 100 0 0 0            *    some wild Gootwiet
+G 1 834 999 0 100 0 0 0            *    a piece of rolling paper
+G 1 835 999 0 100 0 0 0            *    a ceramic chillum
+G 1 836 999 0 100 0 0 0            *    an obsidian hookah
+G 1 837 999 0 100 0 0 0            *    a mistweyd nose-pipe
+G 1 838 999 0 100 0 0 0            *    a handcarved pipe
 *
 S

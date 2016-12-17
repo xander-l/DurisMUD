@@ -3164,5 +3164,8 @@ bool check_castle_walls(int, int);
 /* gellz.c - Gellz special Procs atm */
 void do_deaths_door(P_char ch, char *arg, int cmd);
 
+// smoke.c
+void do_smoke(P_char ch, char *arg, int cmd);
+
 #endif /* _SOJ_PROTOTYPES_H_ */
 

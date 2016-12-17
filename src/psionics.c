@@ -40,7 +40,6 @@ extern int guild_locations[][CLASS_COUNT + 1];
 extern int hometown[];
 extern const int top_of_world;
 extern struct time_info_data time_info;
-extern struct weather_data weather_info;
 extern struct wis_app_type wis_app[];
 extern struct zone_data *zone_table;
 extern struct remember_data *remember_array[];

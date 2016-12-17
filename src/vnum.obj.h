@@ -50,7 +50,7 @@
 
 #define VOBJ_FORAGE_NUM_TYPES                29
 
-#define VOBJ_POTION_BOTTLES                 835
+#define VOBJ_POTION_BOTTLES                 839
 
 #define VOBJ_RANDOM_ARMOR                  1252
 #define VOBJ_RANDOM_THRUSTED               1253

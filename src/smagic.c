@@ -55,7 +55,6 @@ extern int guild_locations[][CLASS_COUNT + 1];
 extern int spl_table[TOTALLVLS][MAX_CIRCLE];
 extern int hometown[];
 extern struct time_info_data time_info;
-extern struct weather_data weather_info;
 extern struct zone_data *zone_table;
 extern Skill skills[];
 extern int cast_as_damage_area(P_char,

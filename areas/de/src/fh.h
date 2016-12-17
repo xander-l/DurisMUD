@@ -1103,6 +1103,8 @@ const char *getLiqTypeStrn(const uint liquidType);
 const char *getWeapTypeStrn(const uint weaponType);
 const char *getArmorThicknessStrn(const int armorThickness);
 const char *getShieldTypeStrn(const int shieldType);
+const char *getPipeTypeStrn(const int pipeType);
+const char *getHerbSpellStrn(const int herbSpell);
 const char *getShieldShapeStrn(const int shieldShape);
 const char *getShieldSizeStrn(const int shieldSize);
 const char *getSkillTypeStrn(const int skillType);

@@ -62,7 +62,6 @@ extern int hometown[];
 extern struct str_app_type str_app[];
 extern struct con_app_type con_app[];
 extern struct time_info_data time_info;
-extern struct weather_data weather_info;
 extern struct wis_app_type wis_app[];
 extern struct zone_data *zone_table;
 extern struct sector_data *sector_table;

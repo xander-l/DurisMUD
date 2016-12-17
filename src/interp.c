@@ -60,7 +60,6 @@
  * external variables
  */
 extern struct time_info_data time_info;
-extern struct weather_data weather_info;
 extern P_desc descriptor_list;
 
 extern char debug_mode;
@@ -1083,7 +1082,7 @@ const char *command[MAX_CMD] = {
   "offlinemsg",
   "instacast",
   "surname",
-  "\n"                          /* MAX_CMD = 833, MAX_CMD_LIST = 1000 */
+  "\n"                          /* MAX_CMD = 835, MAX_CMD_LIST = 1000 */
 };
 
 const char *fill_words[] = {
@@ -2660,6 +2659,7 @@ void assign_command_pointers(void)
   CMD_N(CMD_GATHER, STAT_NORMAL + POS_PRONE, do_gather, 0, TRUE);
   CMD_N(CMD_AREA, STAT_RESTING + POS_PRONE, do_area, 0, FALSE);
   CMD_N(CMD_DEATHS_DOOR, STAT_NORMAL + POS_PRONE, do_deaths_door, 25, FALSE);
+  CMD_N(CMD_SMOKE, STAT_RESTING + POS_PRONE, do_smoke, 1, TRUE );
   /*
    * normal commands (allowed while fighting)
    */
@@ -3046,7 +3046,7 @@ void assign_command_pointers(void)
   CMD_SOC(CMD_SMELL, STAT_RESTING + POS_PRONE);
   CMD_SOC(CMD_SMILE, STAT_RESTING + POS_PRONE);
   CMD_SOC(CMD_SMIRK, STAT_RESTING + POS_PRONE);
-  CMD_SOC(CMD_SMOKE, STAT_RESTING + POS_PRONE);
+//  CMD_SOC(CMD_SMOKE, STAT_RESTING + POS_PRONE);
   CMD_SOC(CMD_SNAP, STAT_RESTING + POS_PRONE);
   CMD_SOC(CMD_SNARL, STAT_RESTING + POS_PRONE);
   CMD_SOC(CMD_SNEER, STAT_RESTING + POS_PRONE);

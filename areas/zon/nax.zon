@@ -372,5 +372,16 @@ G 1 368 999 0 100 0 0 0            *    (object type not in this .obj file)
 G 1 369 999 0 100 0 0 0            *    (object type not in this .obj file)
 M 0 37763 1 37943 100 0 0 0        * A meditating shaman
 M 0 37765 1 37944 100 0 0 0        * Asterion, the minotaur Archmage
+M 0 101 1 37718 100 0 0 0          * your local drug dealer
+G 1 829 999 0 100 0 0 0            *    some resin of Ocularius
+G 1 830 999 0 100 0 0 0            *    some heirloom Blue Haze
+G 1 831 999 0 100 0 0 0            *    some landrace Medicus
+G 1 832 999 0 100 0 0 0            *    some feral Black Kush
+G 1 833 999 0 100 0 0 0            *    some wild Gootwiet
+G 1 834 999 0 100 0 0 0            *    a piece of rolling paper
+G 1 835 999 0 100 0 0 0            *    a ceramic chillum
+G 1 836 999 0 100 0 0 0            *    an obsidian hookah
+G 1 837 999 0 100 0 0 0            *    a mistweyd nose-pipe
+G 1 838 999 0 100 0 0 0            *    a handcarved pipe
 *
 S

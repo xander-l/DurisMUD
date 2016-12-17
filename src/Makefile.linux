@@ -226,6 +226,7 @@ OBJS	=  \
 				 avengers.o \
 				 specs.lucrot.o \
 				 specs.gellz.o \
+				 smoke.o \
 				 multiplay_whitelist.o
 
 SHARED_PFILE_OBJS=pf-skills.o \
