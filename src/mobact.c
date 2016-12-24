@@ -9355,14 +9355,19 @@ void DelCharFromZone(P_char ch)
     // Surface map checks continent, others zone.
     if( IS_SURFACE_MAP(ch->in_room) )
     {
-      // The negative sign means it's a continent and not a regular zone.
-      misfire.zone_number = -CONTINENT(ch->in_room);
-      misfire.racewar_side = GET_RACEWAR(ch);
-      // Create a cooldown timer for misfiring.
-      add_event( event_misfire_cooldown, 15 * WAIT_SEC, NULL, NULL, NULL, 0, &misfire, sizeof(misfire));
+      if( (( --continent_misfire.players[CONTINENT(ch->in_room)][GET_RACEWAR(ch)] )
+        == misfire_properties.pvp_maxAllies[GET_RACEWAR(ch)])
+        && continent_misfire.misfiring[CONTINENT(ch->in_room)][GET_RACEWAR(ch)] )
+      {
+        // The negative sign means it's a continent and not a regular zone.
+        misfire.zone_number = -CONTINENT(ch->in_room);
+        misfire.racewar_side = GET_RACEWAR(ch);
+        // Create a cooldown timer for misfiring.
+        add_event( event_misfire_cooldown, 15 * WAIT_SEC, NULL, NULL, NULL, 0, &misfire, sizeof(misfire));
+      }
     }
     // If we're dropping below misfire size and misfiring is ocurring.
-    else if( (zone_table[zn].players[GET_RACEWAR(ch)]-- == misfire_properties.pvp_maxAllies[GET_RACEWAR(ch)]) && zone_table[zn].misfiring[GET_RACEWAR(ch)] )
+    else if( (--zone_table[zn].players[GET_RACEWAR(ch)] == misfire_properties.pvp_maxAllies[GET_RACEWAR(ch)]) && zone_table[zn].misfiring[GET_RACEWAR(ch)] )
     {
       misfire.zone_number = zn;
       misfire.racewar_side = GET_RACEWAR(ch);
@@ -11235,7 +11240,7 @@ void startPvP( P_char ch )
   // Misfire activation here.
   if( !CONTINENT(ch->in_room) )
   {
-    if( zone_table[zn].players[GET_RACEWAR(ch)] >= misfire_properties.pvp_maxAllies[GET_RACEWAR(ch)] )
+    if( zone_table[zn].players[GET_RACEWAR(ch)] > misfire_properties.pvp_maxAllies[GET_RACEWAR(ch)] )
     {
       zone_table[zn].misfiring[GET_RACEWAR(ch)] = TRUE;
     }
@@ -11243,7 +11248,7 @@ void startPvP( P_char ch )
   else
   {
     if( continent_misfire.players[CONTINENT(ch->in_room)][GET_RACEWAR(ch)]
-      >= misfire_properties.pvp_maxAllies[GET_RACEWAR(ch)] )
+      > misfire_properties.pvp_maxAllies[GET_RACEWAR(ch)] )
     {
       continent_misfire.misfiring[CONTINENT(ch->in_room)][GET_RACEWAR(ch)] = TRUE;
     }

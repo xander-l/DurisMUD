@@ -159,6 +159,7 @@ extern float racial_exp_mod_victims[LAST_RACE + 1];
 extern int damroll_cap;
 extern const racewar_struct racewar_color[MAX_RACEWAR+2];
 extern struct continent_misfire_data continent_misfire;
+extern struct misfire_properties_struct misfire_properties;
 
 typedef void cmd_func(P_char, char *, int);
 extern const struct innate_data
@@ -1508,6 +1509,14 @@ void stat_spldam(P_char ch, char *arg)
   }
 }
 
+void stat_pvp(P_char ch)
+{
+  for( int i = 0; i <= MAX_RACEWAR; i++ )
+  {
+    send_to_char_f( ch, "misfire.pvp.maxAllies.%s: %d.\n", racewar_color[i].name, misfire_properties.pvp_maxAllies[i]);
+  }
+}
+
 void stat_game(P_char ch)
 {
   P_desc   d;
@@ -1653,8 +1662,15 @@ void do_stat(P_char ch, char *argument, int cmd)
     stat_game(ch);
     return;
   }
-  /* stats on room  */
 
+  // Stats on pvp table
+  if((*arg1 == 'p') || (*arg1 == 'P'))
+  {
+    stat_pvp(ch);
+    return;
+  }
+
+  /* stats on room  */
   if((*arg1 == 'r') || (*arg1 == 'R'))
   {
     if( *(arg1+1) == 'a' || *(arg1+1) == 'A' )
