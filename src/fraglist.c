@@ -8,6 +8,7 @@
 #include "utils.h"
 #include "spells.h"
 #include "ships.h"
+#include "sql.h"
 #define MAX_FRAG_SIZE    10     /* max size of high/low lists */
 
 extern const struct class_names class_names_table[];
@@ -537,9 +538,9 @@ void do_fraglist(P_char ch, char *arg, int cmd)
     days = cap_timer;
   }
 
-  sprintf(buf, "Frag Level Cap: %d - &+%c%s&n, %d - Others, Timer: %02d:%02d:%02d:%02d\n\n&+WTop Fraggers\n\n",
+  sprintf(buf, "Frag Level Cap: %d - &+%c%s&n, %d - Others\nTimer: %02d:%02d:%02d:%02d Frags needed: %.2f\n\n&+WTop Fraggers\n\n",
     cap_level, racewar_color[cap_racewar].color, racewar_color[cap_racewar].name, cap_others,
-    days, hours, mins, secs );
+    days, hours, mins, secs, LEVEL_TO_FRAGS(cap_level + 1) );
 
   for (i = 0; i < MAX_FRAG_SIZE; i++)
   {
