@@ -2902,12 +2902,12 @@ void Guild::withdraw( P_char member, int p, int g, int s, int c )
 
 void Guild::name_title( P_char member, char *args )
 {
-  char buf[MAX_STRING_LENGTH];
+  char arg1[MAX_STRING_LENGTH];
   int rank_number;
 
-  args = lohrr_chop( args, buf );
+  args = lohrr_chop( args, arg1 );
 
-  if( *buf == '\0' || *buf == '?' )
+  if( *arg1 == '\0' || *arg1 == '?' )
   {
     send_to_char( "&+YSyntax: &+wsociety name <rank number|name> <new rank name>&+Y.&n\n", member );
     send_to_char( "Ranks:  0 = enemy, 1 = parole, 2 = normal, 3 = senior, 4 = officer, 5 = deputy,"
@@ -2921,52 +2921,52 @@ void Guild::name_title( P_char member, char *args )
     return;
   }
 
-  if( is_number(buf) )
+  if( is_number(arg1) )
   {
-    rank_number = atoi(buf);
+    rank_number = atoi(arg1);
     if( (rank_number) < 0 || (rank_number >= ASC_NUM_RANKS) )
     {
-      send_to_char_f( member, "'%s' is not a valid rank number (0-%d).\n", buf, ASC_NUM_RANKS - 1 );
+      send_to_char_f( member, "'%s' is not a valid rank number (0-%d).\n", arg1, ASC_NUM_RANKS - 1 );
       return;
     }
   }
   else
   {
-    if( is_abbrev(buf, "enemy") )
+    if( is_abbrev(arg1, "enemy") )
     {
       rank_number = 0;
     }
-    else if( is_abbrev(buf, "parole") )
+    else if( is_abbrev(arg1, "parole") )
     {
       rank_number = 1;
     }
-    else if( is_abbrev(buf, "normal") )
+    else if( is_abbrev(arg1, "normal") )
     {
       rank_number = 2;
     }
-    else if( is_abbrev(buf, "senior") )
+    else if( is_abbrev(arg1, "senior") )
     {
       rank_number = 3;
     }
-    else if( is_abbrev(buf, "officer") )
+    else if( is_abbrev(arg1, "officer") )
     {
       rank_number = 4;
     }
-    else if( is_abbrev(buf, "deputy") )
+    else if( is_abbrev(arg1, "deputy") )
     {
       rank_number = 5;
     }
-    else if( is_abbrev(buf, "leader") )
+    else if( is_abbrev(arg1, "leader") )
     {
       rank_number = 6;
     }
-    else if( is_abbrev(buf, "king") )
+    else if( is_abbrev(arg1, "king") )
     {
       rank_number = 7;
     }
     else
     {
-      send_to_char_f( member, "'%s' is not a valid rank number or name.\n" );
+      send_to_char_f( member, "'%s' is not a valid rank number or name.\n", arg1 );
       send_to_char( "&+YSyntax: &+wsociety name <rank number|name> <new rank name>&+Y.&n\n", member );
       send_to_char( "Ranks:  0 = enemy, 1 = parole, 2 = normal, 3 = senior, 4 = officer, 5 = deputy,"
         " 6 = leader, 7 = king.\n", member );
