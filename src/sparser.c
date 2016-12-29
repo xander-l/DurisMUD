@@ -444,6 +444,12 @@ P_char misfire_check(P_char ch, P_char victim, int flag)
     return victim;
   }
 
+  // Can't misfire if nobody els is in the room.
+  if( (world[victim->in_room].people == victim) && victim->next_in_room == NULL )
+  {
+    return victim;
+  }
+
   // new_target is used as a comparison below.
   new_target = victim;
 
