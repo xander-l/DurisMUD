@@ -375,6 +375,7 @@ void list_artifacts_sql( P_char ch, int type, bool Godlist, bool allArtis )
           articount[GET_RACEWAR(owner)]++;
         }
         nuke_eq(owner);
+        owner->in_room = NOWHERE;
         extract_char(owner);
         owner = NULL;
       }
