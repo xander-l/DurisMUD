@@ -12322,13 +12322,13 @@ void where_nowhere(P_char ch, char *args)
 struct line_info
 {
   char line[512]; // Shouldn't be more than 512 chars per line.
-  int  zone_number;
+  int  room_number;
 };
 
 // To sort the players by zone in where command using qsort.
 int where_compare(const void *line1, const void *line2)
 {
-  return ((line_info *)line1)->zone_number > ((line_info *)line2)->zone_number;
+  return ((line_info *)line1)->room_number > ((line_info *)line2)->room_number;
 }
 
 // Does a lookup and shows where things are in game.
@@ -12382,7 +12382,7 @@ void do_where(P_char ch, char *argument, int cmd)
             IS_TRUSTED(t_ch) ? 'w' : racewar_color[GET_RACEWAR(t_ch)].color, t_ch->player.name,
             ROOM_ZONE_NUMBER(d->character->in_room), world[d->character->in_room].number,
             world[d->character->in_room].name, FirstWord(d->character->player.name));
-          lines[line_count].zone_number = ROOM_ZONE_NUMBER(d->character->in_room);
+          lines[line_count].room_number = ROOM_VNUM(d->character->in_room);
         }
         else
         {
@@ -12390,14 +12390,14 @@ void do_where(P_char ch, char *argument, int cmd)
             IS_TRUSTED(t_ch) ? 'w' : racewar_color[GET_RACEWAR(t_ch)].color, t_ch->player.name,
             ROOM_ZONE_NUMBER(d->character->in_room), world[d->character->in_room].number,
             world[d->character->in_room].name);
-          lines[line_count].zone_number = ROOM_ZONE_NUMBER(d->character->in_room);
+          lines[line_count].room_number = ROOM_VNUM(d->character->in_room);
         }
         // We increment here because we want to increment before the break.
         if( strlen(lines[line_count++].line) + length + 512 > MAX_STRING_LENGTH )
         {
           sprintf(lines[line_count].line, "   ...the list is too long...\n");
           // Max zone number is 9999999.
-          lines[line_count++].zone_number = 10000000;
+          lines[line_count++].room_number = 10000000;
           break;
         }
         // We use -1 here, because we already incremented.
@@ -12456,27 +12456,44 @@ void do_where(P_char ch, char *argument, int cmd)
       if( t_ch && IS_PC(t_ch) && (d->connected == CON_PLAYING)
         && (d->character->in_room != NOWHERE) && CAN_SEE(ch, t_ch) && t_ch->player.racewar == racewar )
       {
-        if (d->original)        /* If switched */
-          sprintf(buf2, "%-20s &+Y- &n[&+R%4d&+W:&+C%6d&n] %s &n(In body of %s&n)\n",
-                  t_ch->player.name, ROOM_ZONE_NUMBER(d->character->in_room), world[d->character->in_room].number,
-                  world[d->character->in_room].name, FirstWord(d->character->player.name));
-        else
-          sprintf(buf2, "%-20s &+Y- &n[&+R%4d&+W:&+C%6d&n] %s&n\n",
-                  t_ch->player.name, ROOM_ZONE_NUMBER(d->character->in_room), world[d->character->in_room].number,
-                  world[d->character->in_room].name);
-
-        if (strlen(buf2) + length + 35 > MAX_STRING_LENGTH)
+        if( d->original )        /* If switched */
         {
-          sprintf(buf2, "   ...the list is too long...\n");
-          strcat(buf, buf2);
+          sprintf(lines[line_count].line, "&+%c%-20s &+Y- &n[&+R%4d&+W:&+C%6d&n] %s &n(In body of %s&n)\n",
+            IS_TRUSTED(t_ch) ? 'w' : racewar_color[GET_RACEWAR(t_ch)].color, t_ch->player.name,
+            ROOM_ZONE_NUMBER(d->character->in_room), world[d->character->in_room].number,
+            world[d->character->in_room].name, FirstWord(d->character->player.name));
+          lines[line_count].room_number = ROOM_VNUM(d->character->in_room);
         }
-        strcat(buf, buf2);
-        length = strlen(buf);
+        else
+        {
+          sprintf(lines[line_count].line, "&+%c%-20s - &n[&+R%4d&+W:&+C%6d&n] %s&n\n",
+            IS_TRUSTED(t_ch) ? 'w' : racewar_color[GET_RACEWAR(t_ch)].color, t_ch->player.name,
+            ROOM_ZONE_NUMBER(d->character->in_room), world[d->character->in_room].number,
+            world[d->character->in_room].name);
+          lines[line_count].room_number = ROOM_VNUM(d->character->in_room);
+        }
+        // We increment here because we want to increment before the break.
+        if( strlen(lines[line_count++].line) + length + 512 > MAX_STRING_LENGTH )
+        {
+          sprintf(lines[line_count].line, "   ...the list is too long...\n");
+          // Max zone number is 9999999.
+          lines[line_count++].room_number = 10000000;
+          break;
+        }
+        // We use -1 here, because we already incremented.
+        length += strlen(lines[line_count-1].line);
       }
     }
-    page_string(ch->desc, buf, 1);
+    // Sort
+    qsort(lines, line_count, sizeof(line_info), where_compare);
+    // Send.
+    for( int i = 0; i < line_count; i++ )
+    {
+      send_to_char( lines[i].line, ch );
+    }
     return;
   }
+
   /*
    * This chunk of code allows "where <v-number>" if the argument is a
    * number.  It will return all mobs/objects with that v-number.
