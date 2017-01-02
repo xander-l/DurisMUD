@@ -4350,6 +4350,7 @@ void affect_update(void)
 //---------------------------------------------------------------------------------
 void short_affect_update(void)
 {
+  bool killed;
   P_char   i, i_next, killer;
   struct affected_type *af, *next_af_dude;
 
@@ -4371,6 +4372,7 @@ void short_affect_update(void)
           (i->in_room == NOWHERE) ? -1 : world[i->in_room].number);
       }
 
+      killed = FALSE;
       // No more vit death or zerk death to avoid frags
       for( killer = world[i->in_room].people; killer; killer = killer->next_in_room )
       {
@@ -4378,13 +4380,13 @@ void short_affect_update(void)
 	        killer->in_room == i->in_room && GET_RACEWAR(killer) != GET_RACEWAR(i) )
         {
           die(i, killer);
-          i = NULL;
+          killed = TRUE;
           break;
         }
       }
 
       // We don't die a second time if there's a killer.  This prevents crashes.
-      if( i )
+      if( !killed )
       {
         die(i, i);
       }
