@@ -192,7 +192,7 @@ M 0 29405 4 29415 100 0 0 0        * a singing bird
 M 0 29406 2 29416 100 0 0 0        * a small child
 G 1 29413 2 0 100 0 0 0            *    a scrap of cloth
 M 0 29407 2 29416 100 0 0 0        * a small child
-E 1 29435 3 16 100 0 0 0           *   sewing needle
+E 1 29435 3 16 100 0 0 0           *   a sewing needle
 M 0 29416 4 29417 100 0 0 0        * a chipmunk
 M 0 29422 1 29418 100 0 0 0        * a lonely bard
 E 1 29407 1 18 100 0 0 0           *   a stylish horn
@@ -250,7 +250,7 @@ G 1 29402 999 0 100 0 0 0          *    faerie dust
 G 1 5 1 0 100 0 0 0                *    (object type not in this .obj file)
 G 1 29420 2 0 100 0 0 0            *    a paint set
 G 1 29422 2 0 100 0 0 0            *    a pin cushion
-G 1 29435 3 0 100 0 0 0            *    sewing needle
+G 1 29435 3 0 100 0 0 0            *    a sewing needle
 G 1 29432 2 0 100 0 0 0            *    a gnomish toolbox
 G 1 29446 1 0 100 0 0 0            *    a wet potion
 M 0 29428 1 29438 100 0 0 0        * an art instructor
@@ -274,7 +274,7 @@ E 1 29422 2 15 100 0 0 0           *   a pin cushion
 M 0 29406 2 29442 100 0 0 0        * a small child
 G 1 29413 2 0 100 0 0 0            *    a scrap of cloth
 M 0 29407 2 29442 100 0 0 0        * a small child
-E 1 29435 3 16 100 0 0 0           *   sewing needle
+E 1 29435 3 16 100 0 0 0           *   a sewing needle
 M 0 29435 2 29443 100 0 0 0        * a sleeping seamstress 
 M 0 29436 2 29443 100 0 0 0        * an aspiring tailor
 M 0 29435 2 29443 100 0 0 0        * a sleeping seamstress 
