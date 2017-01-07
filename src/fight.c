@@ -9625,8 +9625,8 @@ void perform_violence(void)
 
     if( IS_PC(ch) && IS_PC(opponent) )
     {
-      startPvP( ch );
-      startPvP( opponent );
+      startPvP( ch, GET_RACEWAR(ch) != GET_RACEWAR(opponent) );
+      startPvP( opponent, GET_RACEWAR(ch) != GET_RACEWAR(opponent) );
     }
 
     if( !FightingCheck(ch, opponent, "perform_violence") )

@@ -1843,7 +1843,7 @@ int dummy_function(P_char, P_char, int, char*);
 int babau_combat(P_char, P_char, int, char*);
 int summon_new_demon(P_char, int);
 bool should_teacher_move(P_char);
-void startPvP( P_char ch );
+void startPvP( P_char ch, bool racewar );
 
 /* mobconv.c */
 

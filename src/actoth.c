@@ -3057,7 +3057,7 @@ void do_steal(P_char ch, char *argument, int cmd)
   // Bleh.. they can have the full timer.. I don't feel like adding a timer argument to startPvP(ch).
   if( IS_PC(ch) && IS_PC(victim) )
   {
-    startPvP( ch );
+    startPvP( ch, GET_RACEWAR(ch) != GET_RACEWAR(victim) );
   }
 
   /* successful heist is less likely to be detected */

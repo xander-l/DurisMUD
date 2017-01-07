@@ -11230,12 +11230,17 @@ void event_mob_proc(P_char mob, P_char victim, P_obj object, void *data)
   }
 }
 
-void startPvP( P_char ch )
+void startPvP( P_char ch, bool racewar )
 {
   int zn = world[ch->in_room].zone;
 
   affect_from_char( ch, TAG_PVPDELAY );
   set_short_affected_by(ch, TAG_PVPDELAY, WAIT_PVPDELAY);
+
+  if( !racewar )
+  {
+    return;
+  }
 
   // Misfire activation here.
   if( !CONTINENT(ch->in_room) )

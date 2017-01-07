@@ -730,8 +730,8 @@ void do_fire(P_char ch, char *argument, int cmd)
     {
       if( IS_PC(ch) && IS_PC(victim) )
       {
-        startPvP( ch );
-        startPvP( victim );
+        startPvP( ch, GET_RACEWAR(ch) != GET_RACEWAR(victim) );
+        startPvP( victim, GET_RACEWAR(ch) != GET_RACEWAR(victim) );
       }
       if( !affected_by_spell(ch, TAG_FIRING) )
       {
@@ -1257,8 +1257,8 @@ void do_throw(P_char ch, char *argument, int cmd)
     {
       if (IS_PC(ch) && IS_PC(vict))
 		  {
-        startPvP( ch );
-        startPvP( vict );
+        startPvP( ch, GET_RACEWAR(ch) != GET_RACEWAR(vict) );
+        startPvP( vict, GET_RACEWAR(ch) != GET_RACEWAR(vict) );
 		  }
 
       sprintf(messages.attacker, "You hit $N with $p!");
