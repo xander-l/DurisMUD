@@ -3710,7 +3710,7 @@ void spell_mending(int level, P_char ch, char *arg, int type, P_char victim, P_o
 {
   int gain;
 
-  gain = (level / 2) + number(-20, 20);
+  gain = (level * 2) + number(-20, 20);
 
   if( has_innate(ch, INNATE_IMPROVED_HEAL) )
     gain += (int) (number((int) (level / 2), (int) (level)));
