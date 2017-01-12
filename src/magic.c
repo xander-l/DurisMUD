@@ -475,7 +475,7 @@ void spell_prismatic_spray(int level, P_char ch, char *arg, int type,
     }
   }
 
-  zone_spellmessage(room,
+  zone_spellmessage(room, TRUE,
     "&+CC&+co&+Cl&+co&+Cr&+cf&+Cu&+cl&N &+Crays of &+Wlight &+Cstreak throughout the sky!&n\n\r",
     "&+CC&+co&+Cl&+co&+Cr&+cf&+Cu&+cl&N &+Crays of &+Wlight &+Cstreak throughout the sky to the %s!&n\n\r");
 }
@@ -3311,7 +3311,7 @@ void spell_chain_lightning(int level, P_char ch, char *arg, int type, P_char vic
   room = ch->in_room;
   send_to_char("A writhing &=LBbolt of lightning&n leaves your hands...\n", ch);
   act("A writhing &=LBbolt of lightning&n leaves $n's hands...", FALSE, ch, 0, 0, TO_ROOM);
-  zone_spellmessage(room,
+  zone_spellmessage(room, TRUE,
                        "&=LBThe sky lights up with brilliant lightning flashes!\n",
                        "&=LBThe sky to the %s lights up with brilliant lightning flashes!\n");
 
@@ -3507,7 +3507,7 @@ void spell_meteorswarm(int level, P_char ch, char *arg, int type,
         TO_ROOM);
   }
 
-  zone_spellmessage(ch->in_room,
+  zone_spellmessage(ch->in_room, TRUE,
                        "&+rThe sky is full of &+Rflaming meteors!\r\n",
                        "&+rThe sky to %s is full of &+Rflaming meteors!\r\n");
   cast_as_damage_area(ch, spell_single_meteorswarm, level, victim,
@@ -3776,7 +3776,7 @@ void spell_earthquake(int level, P_char ch, char *arg, int type, P_char victim, 
     }
     if(IS_ALIVE(ch))
     {
-      zone_spellmessage(ch->in_room,
+      zone_spellmessage(ch->in_room, TRUE,
         "&+yThe ea&+Lrt&+yh tr&+Lemb&+yle&+Ls an&+yd sh&+Liv&+yers!\n",
         "&+yThe ea&+Lrt&+yh tr&+Lemb&+yle&+Ls an&+yd sh&+Liv&+yers &+Lto the %s!\n");
     }
@@ -3820,7 +3820,7 @@ void spell_firestorm(int level, P_char ch, char *arg, int type, P_char victim,
                ch);
   act("$n creates a &+Rraging&n &+rfirestorm&n!", FALSE, ch, 0, 0,
       TO_VICTROOM);
-  zone_spellmessage(ch->in_room,
+  zone_spellmessage(ch->in_room, FALSE,
                     "&+YYou feel a blast of &+Rheat!\n",
                     "&+YYou feel a blast of &+Rheat &+Yfrom the %s!\n");
   cast_as_damage_area(ch, spell_single_firestorm, level, victim,
@@ -3989,13 +3989,13 @@ void event_call_lightning(P_char ch, P_char vict, P_obj obj, void *data)
   {
     if(number(0, 1))
     {
-      zone_spellmessage(ch->in_room,
+      zone_spellmessage(ch->in_room, TRUE,
         "&+wThe air is filled with &+c&+Ce&+cl&+Ce&+cc&+Ct&+cr&+Ci&+cc &+Cs&+ct&+Ca&+ct&+Ci&+cc.\n",
         "&+wThe air to the %s is filled with &+c&+Ce&+cl&+Ce&+cc&+Ct&+cr&+Ci&+cc &+Cs&+ct&+Ca&+ct&+Ci&+cc.\n");
     }
     else
     {
-      zone_spellmessage(ch->in_room,
+      zone_spellmessage(ch->in_room, TRUE,
        "&+WA clap of &+Lthunder&n &+Wbellows off in the distance.\n",
        "&+WA clap of &+Lthunder&n &+Wbellows off to the %s.\n");
     }
@@ -4019,7 +4019,7 @@ void spell_call_lightning(int level, P_char ch, P_char victim, P_obj obj)
     return;
   }
 
-  zone_spellmessage(ch->in_room,
+  zone_spellmessage(ch->in_room, TRUE,
     "&+LA storm is brewing nearby...\n",
     "&+LA storm is brewing to the %s...\n");
   
@@ -4291,7 +4291,7 @@ void event_nova(P_char ch, P_char victim, P_obj obj, void *data)
     ("&+L$n's&+L immense &+Wgathering of light&+w comes to fruition, &+Yexploding with violent force!",
      FALSE, ch, 0, 0, TO_ROOM);
      
-  zone_spellmessage(ch->in_room,
+  zone_spellmessage(ch->in_room, TRUE,
     "&+YT&+yh&+Yi&+yn &+Yr&+ya&+Yy&+ys of &+Yli&+ygh&+Yt &+rex&+Rplo&+rde &+ythroughout the &+Warea!\n",
     "&+YT&+yh&+Yi&+yn &+Yr&+ya&+Yy&+ys of &+Yli&+ygh&+Yt &+rex&+Rplo&+rde &+ythroughout the &+Warea to the %s!\n");
      
@@ -13171,7 +13171,7 @@ void spell_obtenebration(int level, P_char ch, char *arg, int type,
         FALSE, ch, 0, 0, TO_ROOM);
   }
 
-  zone_spellmessage(ch->in_room,
+  zone_spellmessage(ch->in_room, TRUE,
     "&+LOff in the distance there is a &+wpiercing vibration.\n",
     "&+LOff in the distance to the %s there is a &+wpiercing vibration.\n");
  
@@ -13246,7 +13246,7 @@ void spell_incendiary_cloud(int level, P_char ch, char *arg, int type,
         FALSE, ch, 0, 0, TO_ROOM);
   }
 
-  zone_spellmessage(ch->in_room,
+  zone_spellmessage(ch->in_room, TRUE,
     "&+yOff in the distance there is a &+Ythundering &+Rroar &+yand &+wbillowing &+Lsmoke.\n",
     "&+yOff in the distance to the %s there is a &+Ythundering &+Rroar &+yand &+wbillowing &+Lsmoke.\n");
  
@@ -13679,7 +13679,7 @@ void spell_ice_storm(int level, P_char ch, char *arg, int type, P_char victim,
   cast_as_damage_area(ch, spell_single_icestorm, level, victim,
                       get_property("spell.area.minChance.iceStorm", 90),
                       get_property("spell.area.chanceStep.iceStorm", 10));
-  zone_spellmessage(ch->in_room,
+  zone_spellmessage(ch->in_room, FALSE,
                     "&+CYou feel a blast of &+Bcold!\n",
                     "&+CYou feel a blast of &+Bcold &+Cfrom the %s!\n");
 }
@@ -14128,7 +14128,7 @@ void spell_aid_of_the_heavens(int level, P_char ch, char *arg, int type, P_char 
 
   act("&+WYou call down a holy beam of light from the heavens.", FALSE, ch, 0, 0, TO_CHAR);
   
-  zone_spellmessage(ch->in_room,
+  zone_spellmessage(ch->in_room, TRUE,
     "&+LYou see a bright light shining on the horizon.\n",
     "&+LThe air to the %s &+Rwarms &+Land the &+Yholy shine&n enlightens your senses.\n");
 
@@ -14142,7 +14142,7 @@ void spell_summon_ghasts(int level, P_char ch, char *arg, int type, P_char victi
   int room;
   room = ch->in_room;
   send_to_room("&+LDeathly incorporeal ghasts enter the realm of the living...\n", ch->in_room);
-  zone_spellmessage(ch->in_room,
+  zone_spellmessage(ch->in_room, FALSE,
     "&+LThe air &+cchills &+Land the odor of &+rdeath &+Land &+ydecay &+Lassault your senses.\n",
     "&+LThe air to the %s &+cchills &+Land the odor of &+rdeath &+Land &+ydecay &+Lassaults your senses.\n");
 
@@ -18307,7 +18307,7 @@ void spell_cdoom(int level, P_char ch, char *arg, int type, P_char victim, P_obj
 */
 	{
     add_event(event_cdoom, 0, ch, 0, NULL, 0, &cDoomData, sizeof(CDoomData));
-    zone_spellmessage(ch->in_room,
+    zone_spellmessage(ch->in_room, TRUE,
       "&+LThe &+minsects &+Lof the &+yarea&+L seem to be called away...&n\r\n",
       "&+LThe &+minsects &+Lof the &+yarea&+L seem to be called away to the %s...&n\r\n");
 	}
@@ -18594,7 +18594,7 @@ void event_apocalypse(P_char ch, P_char victim, P_obj obj, void *data)
   {
     send_to_room("&+LA distant &+wroar &+Lcan be heard from the skies...\n\n", ch->in_room);
 
-    zone_spellmessage(ch->in_room,
+    zone_spellmessage(ch->in_room, TRUE,
       "&+LA distant &+wroar &+Lcan be heard off in the distance...\n\n",
       "&+LA distant &+wroar &+Lcan be heard off from the %s...\n\n");
 

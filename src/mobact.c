@@ -9242,7 +9242,7 @@ void send_to_zone_func(int z, int mask, const char *msg)
  */
 
 static char buf[MAX_STRING_LENGTH];
-void zone_spellmessage(int room, const char *msg, const char *msg_dir)
+void zone_spellmessage(int room, bool hide_deaf, const char *msg, const char *msg_dir)
 {
   int      z, mask;
   struct remember_data *chars_in_zone;
@@ -9262,6 +9262,8 @@ void zone_spellmessage(int room, const char *msg, const char *msg_dir)
     if(indoors && !IS_ROOM(c_room, ROOM_INDOORS))
       continue;
     if(!indoors && IS_ROOM(c_room, ROOM_INDOORS))
+      continue;
+    if( hide_deaf and !CAN_HEAR(chars_in_zone->c) )
       continue;
 
     if (IS_MAP_ROOM(room))

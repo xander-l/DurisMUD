@@ -1427,6 +1427,8 @@ char *CRYPT2( char *passwd, char *name );
   && race != RACE_SKELETON && race != RACE_WRAITH    && race != RACE_V_ELEMENTAL && race != RACE_I_ELEMENTAL \
   && race != RACE_SHADOW   && race != RACE_AVATAR )
 
+#define CAN_HEAR(ch) ( !IS_AFFECTED4(ch, AFF4_DEAF) && (GET_STAT(ch) > STAT_SLEEPING) )
+
 // Return values for coin_type(char *)
 #define COIN_NONE    -1
 #define COIN_COPPER   0

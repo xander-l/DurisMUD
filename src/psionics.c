@@ -1129,8 +1129,7 @@ void spell_death_field(int level, P_char ch, char *arg, int type,
                       get_property("spell.area.minChance.deathField", 60),
                       get_property("spell.area.chanceStep.deathField", 30));
 
-  zone_spellmessage(ch->in_room,
-                    "&+LYour brain hurts as a black haze fills the sky!\r\n");
+  zone_spellmessage(ch->in_room, TRUE, "&+LYour brain hurts as a black haze fills the sky!\r\n");
   CharWait( ch, WAIT_SEC*2 );
 }
 
@@ -1433,8 +1432,7 @@ void spell_psionic_cloud(int level, P_char ch, char *arg, int type, P_char victi
      FALSE, ch, 0, 0, TO_CHAR);
   act("&+L$n &+Lsquints and a dark haze of psionic energy appears!", FALSE,
       ch, 0, 0, TO_ROOM);
-  zone_spellmessage(ch->in_room,
-                    "&+LYou feel weakened as your psyche senses a massive energy influx!\r\n");
+  zone_spellmessage(ch->in_room, FALSE, "&+LYou feel weakened as your psyche senses a massive energy influx!\r\n" );
 
   return;
 }
