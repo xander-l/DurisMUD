@@ -2790,21 +2790,22 @@ void do_eat(P_char ch, char *argument, int cmd)
       if (temp->value[3] > 0) // TODO: apply poison
       {
           act("You feel &+gs&+Gi&+gc&+Gk&n.", FALSE, ch, 0, 0, TO_CHAR);
-          hit_reg = -temp->value[3];
+          hit_reg = -temp->value[3] - hit_regen(ch, TRUE);
           mov_reg = 0;
       }
       else
       {
-        hit_reg = 1;
+        hit_reg = 15;
         if (temp->value[1] != 0)
-          hit_reg = temp->value[1];
-        mov_reg = hit_reg;
+          hit_reg = temp->value[1] * 15;
         if (temp->value[2] != 0)
           mov_reg = temp->value[2];
+        else
+          mov_reg = hit_reg;
       }
 
       af.location = APPLY_HIT_REG;
-      af.modifier = 15 * hit_reg;
+      af.modifier = hit_reg;
       affect_to_char(ch, &af);
 
       if( mov_reg != 0 )
