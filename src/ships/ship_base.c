@@ -22,12 +22,14 @@
 #include "spells.h"
 #include "structs.h"
 #include "utils.h"
+#include "utility.h"
 #include "events.h"
 #include "map.h"
 #include "limits.h"
 #include "ctf.h"
 
 extern char buf[MAX_STRING_LENGTH];
+extern bool insert_money_pickup(int pid, int money);
 
 struct ContactData contacts[MAXSHIPS];
 struct ShipMap tactical_map[101][101];
@@ -1913,9 +1915,14 @@ void finish_sinking(P_ship ship)
         }
         else
         {
+           /* Putting this into auction house instead.
             ship->money = insurance; // if owner is not online, money go into ships coffer
             wizlog(56, "Ship insurance to ship's coffer: %d", insurance / 1000);
             logit(LOG_SHIP, "%s's insurance to ship's coffer: %d", ship->ownername, insurance / 1000);
+            */
+            insert_money_pickup(get_player_pid_from_name(SHIP_OWNER(ship)), insurance);
+            wizlog( 56, "Ship insurance to auction house: %s", coin_stringv(insurance) );
+            logit( LOG_SHIP, "%s's insurance to auction hourse: %s", ship->ownername, coin_stringv(insurance) );
         }
 
         int old_class = ship->m_class;
