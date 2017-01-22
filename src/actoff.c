@@ -6375,7 +6375,7 @@ void do_tackle(P_char ch, char *arg, int cmd)
        FALSE, ch, 0, vict, TO_NOTVICT);
     act("$n &+ctackles&n you square in the chest knocking the &+Cwind&n out of you!",
        FALSE, ch, 0, vict, TO_VICT);
-    if( mount = get_linked_char(vict, LNK_RIDING) )
+    if( (mount = get_linked_char(vict, LNK_RIDING)) && (number(1, 100) > GET_CHAR_SKILL( vict, SKILL_MOUNTED_COMBAT )) )
     {
       act( "$n falls off of $N.", FALSE, vict, NULL, mount, TO_ROOM );
       act( "You fall off of $N.", FALSE, vict, NULL, mount, TO_CHAR );
