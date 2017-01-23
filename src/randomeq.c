@@ -63,8 +63,7 @@ extern struct zone_data *zone_table;
 extern void material_restrictions(P_obj);
 
 int      find_map_place();
-void     create_zone(int theme, int map_room1, int map_room2, int level_range,
-                     int rooms);
+void     create_zone(int theme, int map_room1, int map_room2, int level_range, int rooms);
 void     set_keywords(P_obj t_obj, const char *newKeys);
 void     set_short_description(P_obj t_obj, const char *newShort);
 void     set_long_description(P_obj t_obj, const char *newDescription);
@@ -850,7 +849,7 @@ P_obj create_random_eq_new( P_char killer, P_char mob, int object_type, int mate
 {
   P_obj    obj;
   int      ansi_n = 0;
-  int      howgood, material, prefix, slot, value, bonus, count;
+  int      howgood, material, prefix, slot, value, bonus, count, chance;
   int      splnum, tries;
   bool     should_have_weapon_proc = FALSE;
   struct zone_data *zone = NULL;
@@ -933,10 +932,17 @@ P_obj create_random_eq_new( P_char killer, P_char mob, int object_type, int mate
     sprintf( owner, "%s", FirstWord(GET_NAME(killer)) );
   }
 
+  // Chance for a named item. 0% for <= level 10, luck = every 4 points over 60 gives one point to multiplier
+  // At level 11 killer, 100 luck, 20 mob: 1 * 10 *  58 =   580  -> ~0.06% chance
+  // At level 11 killer, 160 luck, 20 mob: 1 * 25 *  58 =  1450  -> ~0.1 % chance
+  // At level 56 killer, 100 luck, 62 mob: 5 * 10 * 100 =  5000  ->  0.5 % chance
+  // At level 56 killer, 160 luck, 62 mob: 5 * 25 * 100 = 12500  ->  1.25% chance
+  chance = 2 * ( GET_LEVEL(killer) / 11 ) * ( (GET_C_LUK( killer ) - 60) / 4 ) * ( GET_LEVEL(mob) + 38 );
+//debug( "Chance: %5d, or %.04f%%.", chance, chance / 10000. );
   // Set the items name / short / long descriptions!
   // For PCs and non-shop-keeper mobs.
-  if( !number(0, (int) (400 / (GET_LEVEL(killer) + GET_C_LUK(killer) + GET_LEVEL(mob))))
-    && (material_type) == -1 && ansi_n && (IS_PC(killer) || mob_index[GET_RNUM(killer)].func.mob != shop_keeper) )
+  if( (number( 1, 1000000 ) < chance)
+    && (material_type == -1) && ansi_n && (IS_PC(killer) || mob_index[GET_RNUM(killer)].func.mob != shop_keeper) )
   {
     if( IS_NEWBIE(killer) )
     {
