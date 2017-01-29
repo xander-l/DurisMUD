@@ -1609,7 +1609,7 @@ void event_mine_check( P_char ch, P_char victim, P_obj, void *data )
   {
     if( mdata->mine_type == VOBJ_MINE )
     {
-      if( GET_C_LUK(ch) > number(1, 5000) )
+      if( GET_C_LUK(ch) > number(1, 3000) )
       {
         ore = get_gem_from_mine(ch, mdata->mine_quality);
         gem = TRUE;
