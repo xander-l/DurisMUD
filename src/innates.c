@@ -5034,7 +5034,7 @@ void do_squidrage(P_char ch, char *arg, int cmd)
     return;
   }
 
-  if( !GET_CLASS(ch, CLASS_WARRIOR) || GET_RACE(ch) != RACE_ILLITHID )
+  if( (GET_RACE(ch) != RACE_ILLITHID) || IS_CASTER(ch) || GET_CLASS(ch, CLASS_MINDFLAYER | CLASS_PSIONICIST) )
   {
     send_to_char( "Pardon?\n", ch );
     return;
