@@ -380,6 +380,9 @@ void get_level_cap_info( long *max_frags, int *racewar, int *level, time_t *next
     debug( "get_level_cap_info: Database read fail." );
     *max_frags = (long)-1;
     *racewar = RACEWAR_NONE;
+    *level = 25;
+    *next_update = 0;
+    return;
   }
   *max_frags   = (long)(atof( row[0] ) * 100. + .01);
   *racewar     = atoi(row[1]);
@@ -405,7 +408,7 @@ int sql_level_cap( int racewar_side )
 
   if( (db == NULL) || (( row = mysql_fetch_row(db) ) == NULL) )
   {
-    debug( "get_level_cap_info: Database read fail." );
+    debug( "sql_level_cap: Database read fail." );
     return 25;
   }
 
@@ -950,10 +953,12 @@ int sql_find_racewar_for_ip( char *ip, int *racewar_side )
 
   if( db && (( row = mysql_fetch_row(db) ) != NULL) )
   {
-    last_connect = strtoul(row[0], NULL, 10);
-    last_disconnect = strtoul(row[1], NULL, 10);
-    hour_ago = strtoul(row[2], NULL, 10) - 60 * 60;
-    *racewar_side = atoi(row[3]);
+    // Arih: fix NULL pointer crash when last_disconnect is NULL in ip_info table - 20251103
+    // UNIX_TIMESTAMP() returns NULL for NULL datetime values, causing strtoul to segfault
+    last_connect = row[0] ? strtoul(row[0], NULL, 10) : 0;
+    last_disconnect = row[1] ? strtoul(row[1], NULL, 10) : 0;
+    hour_ago = row[2] ? strtoul(row[2], NULL, 10) - 60 * 60 : 0;
+    *racewar_side = row[3] ? atoi(row[3]) : 0;
 
     // If they've been offline for an hour or more, return a 0 timer.
     if( last_disconnect > last_connect && last_disconnect <= hour_ago )
