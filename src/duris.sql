@@ -3,6 +3,17 @@
 -- Host: localhost    Database: duris
 -- ------------------------------------------------------
 -- Server version	5.0.51a-24+lenny5
+--
+-- Arih: Last update 2025-11-04
+-- Merged fix_mysql_schema.sql into this file for MySQL 8.0 compatibility
+-- Changes:
+--   - Updated ip_info table: replaced '0000-00-00 00:00:00' with NULL defaults
+--   - Added racewar_side column to ip_info table
+--   - Added artifacts table with column order documentation
+--   - Added artifacts_mortal table
+--   - Added locker_access table for storage permissions
+--   - level_cap table already present with correct structure
+--
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -391,8 +402,9 @@ SET character_set_client = utf8;
 CREATE TABLE `ip_info` (
   `pid` bigint(20) NOT NULL default '0',
   `last_ip` varchar(50) NOT NULL default 'none',
-  `last_connect` datetime NOT NULL default '0000-00-00 00:00:00',
-  `last_disconnect` datetime NOT NULL default '0000-00-00 00:00:00',
+  `last_connect` datetime NULL DEFAULT NULL,
+  `last_disconnect` datetime NULL DEFAULT NULL,
+  `racewar_side` int(11) NOT NULL default '0',
   PRIMARY KEY  (`pid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
@@ -903,6 +915,65 @@ CREATE TABLE `zone_touches` (
   KEY `zone_number_index` (`zone_number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `artifacts`
+-- Arih : artifacts table - main artifact tracking
+-- IMPORTANT: Column order matters! The MUD code uses INSERT VALUES without column names
+-- INSERT INTO artifacts VALUES( vnum, owned, locType, location, timer, type, SYSDATE())
+-- IMPORTANT: ENUM order matters! Must match artifact.c:99
+--
+
+DROP TABLE IF EXISTS `artifacts`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `artifacts` (
+  `vnum` int(11) NOT NULL,
+  `owned` char(1) NOT NULL,
+  `locType` enum('NotInGame','OnNPC','OnPC','OnGround','OnCorpse') NOT NULL default 'NotInGame',
+  `location` int(11) NOT NULL,
+  `timer` datetime default NULL,
+  `type` int(11) NOT NULL,
+  `lastUpdate` datetime default NULL,
+  PRIMARY KEY  (`vnum`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `artifacts_mortal`
+-- Arih : artifacts_mortal table structure matches the INSERT/SELECT query in artifact.c:474
+--
+
+DROP TABLE IF EXISTS `artifacts_mortal`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `artifacts_mortal` (
+  `vnum` int(11) NOT NULL,
+  `owned` char(1) NOT NULL,
+  `locType` int(11) NOT NULL,
+  `location` int(11) NOT NULL,
+  `timer` datetime default NULL,
+  `type` int(11) NOT NULL,
+  PRIMARY KEY  (`vnum`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `locker_access`
+-- Storage locker access control table
+-- Used in storage_lockers.c for managing locker permissions
+--
+
+DROP TABLE IF EXISTS `locker_access`;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+CREATE TABLE `locker_access` (
+  `owner` varchar(255) NOT NULL,
+  `visitor` varchar(255) NOT NULL,
+  PRIMARY KEY  (`owner`,`visitor`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+SET character_set_client = @saved_cs_client;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
