@@ -376,6 +376,10 @@ int sql_save_player_core(P_char ch)
 
   db_query(query);
 
+  // Update frag leaderboard tables for web statistics
+  sql_update_account_character(ch);
+  sql_update_frag_leaderboard(ch);
+
   return 1;
 }
 
@@ -538,6 +542,119 @@ void sql_modify_frags(P_char ch, int gain)
   sql_save_progress(GET_PID(ch), gain, "FRAGS");
   if( gain > 0 )
     sql_check_level_cap( ch->only.pc->frags, GET_RACEWAR(ch) );
+
+  // Update frag leaderboard with new frag count (incremental update for performance)
+  // Only update if the character is in the database (pid > 0)
+  if( GET_PID(ch) > 0 )
+  {
+    db_query(
+      "UPDATE frag_leaderboard SET total_frags = %d, last_updated = NOW() WHERE pid = %ld AND deleted_at IS NULL",
+      ch->only.pc->frags, GET_PID(ch)
+    );
+  }
+}
+
+/*
+ * Frag Leaderboard Hybrid System - for web statistics
+ * These functions maintain the account_characters and frag_leaderboard tables
+ * The MUD continues to use flat files, but web can query the database
+ */
+
+/* Helper function to get account name safely */
+static const char* get_account_name_safe(P_char ch)
+{
+  // If character has descriptor with account, return account name
+  if (ch->desc && ch->desc->account && ch->desc->account->acct_name)
+    return ch->desc->account->acct_name;
+
+  // Character not connected or no account - return "Unknown"
+  // This can happen when updating offline characters or during loading
+  return "Unknown";
+}
+
+/* Update account_characters mapping table */
+void sql_update_account_character(P_char ch)
+{
+  char account_name_sql[MAX_STRING_LENGTH];
+  char char_name_sql[MAX_STRING_LENGTH];
+  const char *account_name;
+
+  if (!ch || IS_NPC(ch))
+    return;
+
+  if (IS_MORPH(ch))
+    ch = MORPH_ORIG(ch);
+
+  account_name = get_account_name_safe(ch);
+
+  // Escape strings for SQL safety
+  mysql_str(account_name, account_name_sql);
+  mysql_str(ch->player.name, char_name_sql);
+
+  // Insert or update account_characters mapping
+  // Using REPLACE to handle both insert and update cases
+  db_query(
+    "REPLACE INTO account_characters "
+    "(account_name, pid, char_name, created_at, deleted_at) "
+    "VALUES('%s', %ld, '%s', COALESCE((SELECT created_at FROM account_characters WHERE pid = %ld), NOW()), NULL)",
+    account_name_sql, GET_PID(ch), char_name_sql, GET_PID(ch)
+  );
+}
+
+/* Update frag_leaderboard table with current character data */
+void sql_update_frag_leaderboard(P_char ch)
+{
+  char account_name_sql[MAX_STRING_LENGTH];
+  char char_name_sql[MAX_STRING_LENGTH];
+  char race_sql[MAX_STRING_LENGTH];
+  char class_sql[MAX_STRING_LENGTH];
+  const char *account_name;
+  const char *race_name;
+  const char *class_name;
+
+  if (!ch || IS_NPC(ch))
+    return;
+
+  if (IS_MORPH(ch))
+    ch = MORPH_ORIG(ch);
+
+  account_name = get_account_name_safe(ch);
+  race_name = race_names_table[ch->player.race].normal;
+  class_name = class_names_table[flag2idx(ch->player.m_class)].normal;
+
+  // Escape strings for SQL safety
+  mysql_str(account_name, account_name_sql);
+  mysql_str(ch->player.name, char_name_sql);
+  mysql_str(race_name, race_sql);
+  mysql_str(class_name, class_sql);
+
+  // Insert or update frag_leaderboard
+  // Using REPLACE to handle both insert and update cases
+  db_query(
+    "REPLACE INTO frag_leaderboard "
+    "(pid, account_name, char_name, total_frags, racewar, race, class, level, deleted_at) "
+    "VALUES(%ld, '%s', '%s', %d, %d, '%s', '%s', %d, NULL)",
+    GET_PID(ch), account_name_sql, char_name_sql, ch->only.pc->frags,
+    GET_RACEWAR(ch), race_sql, class_sql, GET_LEVEL(ch)
+  );
+}
+
+/* Soft delete a character from the leaderboard tables */
+void sql_soft_delete_character(long pid)
+{
+  if (pid <= 0)
+    return;
+
+  // Set deleted_at timestamp to NOW() for this character
+  db_query(
+    "UPDATE account_characters SET deleted_at = NOW() WHERE pid = %ld AND deleted_at IS NULL",
+    pid
+  );
+
+  db_query(
+    "UPDATE frag_leaderboard SET deleted_at = NOW() WHERE pid = %ld AND deleted_at IS NULL",
+    pid
+  );
 }
 
 /* Save frags delta */

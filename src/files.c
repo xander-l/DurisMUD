@@ -2020,6 +2020,9 @@ int deleteCharacter(P_char ch, bool bDeleteLocker)
     GET_ASSOC(ch)->kick(ch);
   }
 
+  // Soft delete character from frag leaderboard tables (for web statistics)
+  sql_soft_delete_character( GET_PID(ch) );
+
 #ifdef USE_ACCOUNT
   remove_char_from_list(ch->desc->account, ch->player.name);
 #endif

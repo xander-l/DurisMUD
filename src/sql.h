@@ -70,6 +70,11 @@ void update_zone_epic_level(int,int);
 
 void show_frag_trophy(P_char ch, P_char who);
 
+// Frag leaderboard hybrid system - for web statistics
+void sql_update_frag_leaderboard(P_char ch);
+void sql_update_account_character(P_char ch);
+void sql_soft_delete_character(long pid);
+
 string get_mud_info(const char *name);
 void send_mud_info(const char *name, P_char ch);
 
