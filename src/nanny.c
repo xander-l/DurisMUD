@@ -6241,6 +6241,24 @@ void init_char(P_char ch)
   ch->only.pc->nb_left_guild = 0;
   ch->only.pc->time_left_guild = 0;
   ch->player.secondary_level = 0;
+
+  /* Initialize frags, epics, and deaths to prevent random values */
+  ch->only.pc->frags = 0;
+  ch->only.pc->epics = 0;
+  ch->only.pc->numb_deaths = 0;
+
+  /* Initialize bank balances (spare1-spare4 map to copper/silver/gold/platinum) */
+  ch->only.pc->spare1 = 0;  /* GET_BALANCE_COPPER */
+  ch->only.pc->spare2 = 0;  /* GET_BALANCE_SILVER */
+  ch->only.pc->spare3 = 0;  /* GET_BALANCE_GOLD */
+  ch->only.pc->spare4 = 0;  /* GET_BALANCE_PLATINUM */
+
+  /* Initialize money in hand */
+  GET_PLATINUM(ch) = 0;
+  GET_GOLD(ch) = 0;
+  GET_SILVER(ch) = 0;
+  GET_COPPER(ch) = 0;
+
   for (i = 0; i < MAX_TONGUE; i++)
     GET_LANGUAGE(ch, i) = 0;
 
