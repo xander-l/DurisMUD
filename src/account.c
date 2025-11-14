@@ -301,6 +301,22 @@ void get_account_password(P_desc d, char *arg)
     }
   }
 
+  // Check for duplicate account login - kick old connection if found
+  P_desc k;
+  for (k = descriptor_list; k; k = k->next)
+  {
+    if ((k != d) && k->account && k->account->acct_name &&
+        !strcasecmp(k->account->acct_name, d->account->acct_name))
+    {
+      // Same account already logged in - disconnect the old connection
+      SEND_TO_Q("\r\n\r\nYour account has been logged in from another location.\r\n", k);
+      SEND_TO_Q("Disconnecting...\r\n\r\n", k);
+      close_socket(k);
+      SEND_TO_Q("Overriding old connection...\r\n", d);
+      break;  // Only one duplicate should exist
+    }
+  }
+
   echo_on(d);
 #ifdef REQUIRE_EMAIL_VERIFICATION
   if (is_account_confirmed(d))
