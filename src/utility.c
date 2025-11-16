@@ -2539,9 +2539,7 @@ bool aggressive_to(P_char ch, P_char target)
 
     /* try to kill invaders on sight  */
 
-    if (IS_AGGROFLAG(ch, AGGR_OUTCASTS) && IS_PC(target) &&
-        ((IS_INVADER(target)) ||
-         ((PC_JUSTICE_FLAGS(target)) == JUSTICE_IS_OUTCAST)))
+    if (IS_AGGROFLAG(ch, AGGR_OUTCASTS) && IS_PC(target) && IS_INVADER(target))
       return TRUE;
 
     /* now, race-specific flags */

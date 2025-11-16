@@ -1312,7 +1312,6 @@ void do_subterfuge(P_char ch, char *arg, int cmd)
     act("$N looks pretty confused..", FALSE, ch, 0, npc, TO_NOTVICT);
     act("$N looks pretty confused..", FALSE, ch, 0, npc, TO_CHAR);
     clearMemory(npc);
-    witness_destroy(npc);
 
     return;
   }

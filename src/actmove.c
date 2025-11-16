@@ -3499,14 +3499,6 @@ void do_drag(P_char ch, char *argument, int cmd)
           FALSE, ch, 0, tch, TO_CHAR);
       return;
     }
-    if((tch->specials.arrest_by != NULL) &&
-      IS_AFFECTED(tch, AFF_BOUND) &&
-        IS_NPC(ch))
-    {
-      if( CHAR_IN_TOWN(ch))
-        if( GET_CRIME_T(CHAR_IN_TOWN(ch), CRIME_CORPSE_DRAG))
-          return;
-    }
     act("$n tries to drag $N out of the room.", TRUE, ch, 0, tch, TO_ROOM);
     if(!IS_TRUSTED(ch))
     {
