@@ -165,6 +165,15 @@ extern struct misfire_properties_struct misfire_properties;
 
 typedef void cmd_func(P_char, char *, int);
 
+void write_shutdown_info(const char *immortal_name, const char *reason)
+{
+  FILE *fp = fopen("logs/shutdown_info.txt", "w");
+  if (fp) {
+    fprintf(fp, "%s|%s\n", immortal_name, reason);
+    fclose(fp);
+  }
+}
+
 void apply_zone_modifier(P_char ch);
 static P_char load_locker_char(P_char ch, char *locker_name, int bValidateAccess);
 void shopping_stat( P_char ch, P_char keeper, char *arg, int cmd );
@@ -3926,7 +3935,7 @@ void do_wizmsg(P_char ch, char *arg, int cmd)
   }
 }
 
-TimedShutdownData shutdownData = {0, -1, TimedShutdownData::NONE};
+TimedShutdownData shutdownData = {0, -1, TimedShutdownData::NONE, "", ""};
 
 
 void timedShutdown(P_char ch, P_char, P_obj, void *data)
@@ -3951,6 +3960,7 @@ void timedShutdown(P_char ch, P_char, P_obj, void *data)
         send_to_all(buf);
         logit(LOG_STATUS, buf);
         sql_log(ch, WIZLOG, buf);
+        write_shutdown_info(shutdownData.IssuedBy, shutdownData.Reason);
         shutdownflag = 1;
         break;
 
@@ -3959,6 +3969,7 @@ void timedShutdown(P_char ch, P_char, P_obj, void *data)
         send_to_all(buf);
         logit(LOG_STATUS, buf);
         sql_log(ch, WIZLOG, buf);
+        write_shutdown_info(shutdownData.IssuedBy, shutdownData.Reason);
         shutdownflag = _reboot = 1;
         break;
 
@@ -3967,6 +3978,7 @@ void timedShutdown(P_char ch, P_char, P_obj, void *data)
         send_to_all(buf);
         logit(LOG_STATUS, buf);
         sql_log(ch, WIZLOG, buf);
+        write_shutdown_info(shutdownData.IssuedBy, shutdownData.Reason);
         shutdownflag = _copyover = 1;
         break;
 
@@ -4000,6 +4012,7 @@ void timedShutdown(P_char ch, P_char, P_obj, void *data)
         {
           logit(LOG_STATUS, "Successful wipe of SQL stuff." );
         }
+        write_shutdown_info(shutdownData.IssuedBy, shutdownData.Reason);
         shutdownflag = _pwipe = 1;
         break;
 
@@ -4139,18 +4152,40 @@ void do_shutdown(P_char ch, char *argument, int cmd)
 
   int mins_to_reboot = 0;
   const char *type = "reboot";
+  char reason[MAX_STRING_LENGTH];
+  strcpy(reason, "No reason given");  // Default reason
+
   if( shutdownData.eShutdownType == TimedShutdownData::OK
     || shutdownData.eShutdownType == TimedShutdownData::PWIPE )
   {
     type = "shutdown";
   }
-  if(argument)
-  {
-    while (isspace(*argument))
-      argument++;
-    if(argument[0])
-    {
-      mins_to_reboot = atol(argument);
+
+  // Parse: shutdown <type> [minutes] [reason...]
+  char temp_arg[MAX_INPUT_LENGTH];
+  const char *reason_start = argument;
+
+  if (argument && *argument) {
+    reason_start = one_argument(argument, temp_arg);
+
+    // If temp_arg is numeric, it's minutes
+    if (isdigit(temp_arg[0])) {
+      mins_to_reboot = atol(temp_arg);
+
+      // Skip whitespace to get to reason
+      while (isspace(*reason_start))
+        reason_start++;
+
+      // If there's text after minutes, that's the reason
+      if (reason_start && *reason_start) {
+        strncpy(reason, reason_start, MAX_STRING_LENGTH - 1);
+        reason[MAX_STRING_LENGTH - 1] = '\0';
+      }
+    }
+    // If temp_arg is NOT numeric, entire argument is the reason
+    else {
+      strncpy(reason, argument, MAX_STRING_LENGTH - 1);
+      reason[MAX_STRING_LENGTH - 1] = '\0';
     }
   }
 
@@ -4182,13 +4217,26 @@ void do_shutdown(P_char ch, char *argument, int cmd)
     shutdownData.eShutdownType = TimedShutdownData::NONE;
     wizlog(60, buf);
     sql_log( ch, WIZLOG, "Shutdown cancelled by %s", GET_NAME(ch) );
+    // Delete shutdown info file when cancelled
+    unlink("logs/shutdown_info.txt");
   }
 
   if( !*arg )
   {
-    send_to_char("Syntax: shutdown <ok | reboot | copyover>  [minutes to reboot].\r\n"
-                 "  Scheduled shutdowns are cancelled when the scheduler leaves the game or\r\n"
-                 "  uses the shutdown command again (even only to get this help)\r\n", ch);
+    send_to_char("Syntax: shutdown <ok | reboot | copyover> [minutes] [reason]\r\n"
+                 "\r\n"
+                 "Examples:\r\n"
+                 "  shutdown reboot                    - Immediate reboot (no reason given)\r\n"
+                 "  shutdown reboot 5                  - Reboot in 5 minutes (no reason given)\r\n"
+                 "  shutdown reboot updating new code  - Immediate reboot with reason\r\n"
+                 "  shutdown reboot 5 emergency patch  - Reboot in 5 minutes with reason\r\n"
+                 "  shutdown copyover fixing bug       - Hot restart with reason\r\n"
+                 "  shutdown ok server maintenance     - Shutdown (no restart) with reason\r\n"
+                 "\r\n"
+                 "Notes:\r\n"
+                 "  - Scheduled shutdowns are cancelled when the scheduler leaves the game\r\n"
+                 "    or uses the shutdown command again\r\n"
+                 "  - Reason is optional but recommended for tracking purposes\r\n", ch);
     return;
   }
 
@@ -4255,6 +4303,8 @@ void do_shutdown(P_char ch, char *argument, int cmd)
     type = "shutdown";
   }
   strcpy(shutdownData.IssuedBy, GET_NAME(ch));
+  strncpy(shutdownData.Reason, reason, 255);
+  shutdownData.Reason[255] = '\0';
   shutdownData.next_warning = -1;
   shutdownData.reboot_time = (time(0) + (mins_to_reboot * 60));
   snprintf(buf, MAX_STRING_LENGTH, "Scheduled %s initiated by %s in %d minutes.", type, GET_NAME(ch), mins_to_reboot);

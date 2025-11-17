@@ -5848,13 +5848,19 @@ void do_time(P_char ch, char *argument, int cmd)
   uptime = real_time_passed(ct, boot_time);
 
   //Auto Reboot - Drannak
-  if( (uptime.day * 24 + uptime.hour) > 65 )
+  // Read autoreboot settings from properties
+  int autoreboot_threshold_hours = get_property("autoreboot.threshold.hours", 65);
+  int autoreboot_delay_minutes = get_property("autoreboot.delay.minutes", 60);
+
+  if( (uptime.day * 24 + uptime.hour) > autoreboot_threshold_hours )
   {
-    // If no shutdown in progress, or shutdown is > 60 minutes out.
+    // If no shutdown in progress, or shutdown is > delay minutes out.
     if( shutdownData.reboot_time == 0
-      || shutdownData.reboot_time - time(NULL) > 60 * 60 )
+      || shutdownData.reboot_time - time(NULL) > autoreboot_delay_minutes * 60 )
     {
-      do_shutdown(ch, "autoreboot 60", 1);
+      char shutdown_cmd[100];
+      snprintf(shutdown_cmd, 100, "autoreboot %d", autoreboot_delay_minutes);
+      do_shutdown(ch, shutdown_cmd, 1);
     }
   }
 
