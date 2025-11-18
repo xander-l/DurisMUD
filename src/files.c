@@ -2037,13 +2037,7 @@ int deleteCharacter(P_char ch, bool bDeleteLocker)
     debug( "deleteCharacter: Error: pfile (%s) still exists.", Gbuf1 );
     debug( "deleteCharacter: Command: (%s) failed.", Gbuf2 );
     fclose( f );
-    snprintf(Gbuf2, MAX_STRING_LENGTH, "rm -f %s", Gbuf1 );
-    system( Gbuf2 );
-    if ((f = fopen( Gbuf1, "r" )))
-    {
-      fclose( f );
-      debug( "deleteCharacter: Command: (%s) failed.", Gbuf2 );
-    }
+    unlink(Gbuf1);
   }
 
   if( bDeleteLocker )
