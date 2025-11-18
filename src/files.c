@@ -4122,12 +4122,13 @@ int restoreItemsOnly(P_char ch, int flatrate)
 
 void restoreCorpses(void)
 {
-  FILE    *flist, *f;
+  FILE     *f;
   char     Gbuf1[MAX_STRING_LENGTH], Gbuf2[MAX_STRING_LENGTH];
   char     Gbuf3[MAX_STRING_LENGTH], buff[SAV_MAXSIZE], *buf;
   char     mybuf[MAX_STRING_LENGTH];
   int      size, csize, tmp, start, map, end;
   struct stat statbuf;
+  struct dirent *de;
 
   snprintf(Gbuf1, MAX_STRING_LENGTH, "%s/Corpses", SAVE_DIR);
   if (stat(Gbuf1, &statbuf) == -1)
@@ -4135,29 +4136,21 @@ void restoreCorpses(void)
     perror("Corpses dir");
     return;
   }
-  snprintf(Gbuf2, MAX_STRING_LENGTH, "%s/corpse_list", SAVE_DIR);
-  if (stat(Gbuf2, &statbuf) == 0)
-  {
-    unlink(Gbuf2);
-  }
-  else if (errno != ENOENT)
-  {
-    perror("corpse_list");
-    return;
-  }
-  snprintf(Gbuf3, MAX_STRING_LENGTH, "/bin/ls -1 %s > %s", Gbuf1, Gbuf2);
-  system(Gbuf3);                /* ls a list of Corpses dir into corpse_list */
-  flist = fopen(Gbuf2, "r");
-  if (!flist)
-    return;
 
-  while (fscanf(flist, " %s \n", Gbuf2) != EOF)
+  DIR *dir = opendir(Gbuf1);
+  if (!dir)
+    return perror("corpse_list");
+
+  while ((de = readdir(dir)))
   {
-    snprintf(Gbuf3, MAX_STRING_LENGTH, "%s/%s", Gbuf1, Gbuf2);
+    if (de->d_name[0] == '.') // . .. .gitignore
+      continue;
+
+    snprintf(Gbuf3, MAX_STRING_LENGTH, "%s/%s", Gbuf1, de->d_name);
     f = fopen(Gbuf3, "r");
     if (!f)
     {
-      logit(LOG_CORPSE, "Could not restore Corpse file %s", Gbuf2);
+      logit(LOG_CORPSE, "Could not restore Corpse file %s", de->d_name);
       continue;
     }
     buf = buff;
@@ -4166,24 +4159,24 @@ void restoreCorpses(void)
 
     if (size < 4)
     {
-      fprintf(stderr, "Problem restoring corpse: %s\n", Gbuf2);
-      logit(LOG_FILE, "Problem restoring corpse: %s.", Gbuf2);
+      fprintf(stderr, "Problem restoring corpse: %s\n", de->d_name);
+      logit(LOG_FILE, "Problem restoring corpse: %s.", de->d_name);
       continue;
     }
 
     if ((GET_BYTE(buf) != short_size) || (GET_BYTE(buf) != int_size) ||
         (GET_BYTE(buf) != long_size))
     {
-      logit(LOG_FILE, "Save file %s in different machine format.", Gbuf2);
-      fprintf(stderr, "Problem restoring corpse: %s\n", Gbuf2);
-      logit(LOG_FILE, "Problem restoring corpse: %s.", Gbuf2);
+      logit(LOG_FILE, "Save file %s in different machine format.", de->d_name);
+      fprintf(stderr, "Problem restoring corpse: %s\n", de->d_name);
+      logit(LOG_FILE, "Problem restoring corpse: %s.", de->d_name);
       continue;
     }
     if (size < (5 * int_size + 5 * sizeof(char) + long_size))
     {
-      logit(LOG_FILE, "Corpse file %s is too small (%d).", Gbuf2, size);
-      fprintf(stderr, "Problem restoring corpse: %s\n", Gbuf2);
-      logit(LOG_FILE, "Problem restoring corpse: %s.", Gbuf2);
+      logit(LOG_FILE, "Corpse file %s is too small (%d).", de->d_name, size);
+      fprintf(stderr, "Problem restoring corpse: %s\n", de->d_name);
+      logit(LOG_FILE, "Problem restoring corpse: %s.", de->d_name);
       continue;
     }
     /*
@@ -4251,7 +4244,7 @@ void restoreCorpses(void)
     }
   }
 
-  fclose(flist);
+  closedir(dir);
 }
 
 /** Pet only functions below. Calls some from above. **/
