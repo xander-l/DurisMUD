@@ -3931,14 +3931,14 @@ int SeaKingdom_Tsunami(P_obj obj, P_char ch, int cmd, char *arg)
               act
                 ("&+W$N&+L is &+Bvit&+Cal&+Wiz&+Ced by &+WTsu&+Bna&+bmi's&+W power&+W!",
                  FALSE, ch, obj, vict, TO_ROOM);
-              spell_vitality(60, ch, 0, SPELL_TYPE_SPELL, vict, 0);
+              spell_vitality(GET_LEVEL(ch), ch, 0, SPELL_TYPE_SPELL, vict, 0);
             }
             else if (vict == ch)
             {
               act
                 ("&+W$n&+L is &+Bvit&+Cal&+Wiz&+Ced by &+WTsu&+Bna&+bmi's&+W power&+W!",
                  FALSE, ch, obj, vict, TO_ROOM);
-              spell_vitality(60, ch, 0, SPELL_TYPE_SPELL, ch, 0);
+              spell_vitality(GET_LEVEL(ch), ch, 0, SPELL_TYPE_SPELL, ch, 0);
             }
           }
           else
