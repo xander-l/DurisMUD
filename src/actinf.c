@@ -1481,9 +1481,6 @@ void show_char_to_char(P_char i, P_char ch, int mode)
           strcat(buffer, "(&+BB&n)");
         */
 
-        if (IS_PC(i) && i->desc && i->desc->olc)
-          strcat(buffer, " (&+MOLC&N)");
-
         if (IS_PC(i) && IS_SET(i->specials.act, PLR_WRITE))
           strcat(buffer, " (&+LEDIT&N)");
 
@@ -6488,8 +6485,6 @@ void do_who(P_char ch, char *argument, int cmd)
       strcat(who_output, " ");
       if( GET_TITLE(who_gods[j]) )
         strcat(who_output, GET_TITLE(who_gods[j]));
-      if( who_gods[j]->desc && who_gods[j]->desc->olc )
-        strcat(who_output, " (&+MOLC&N)");
       if( IS_SET((who_gods[j])->specials.act, PLR_AFK) )
         strcat(who_output, " (&+RAFK&N)");
 
@@ -6552,8 +6547,6 @@ void do_who(P_char ch, char *argument, int cmd)
           strcat(who_output, race_names_table[get_real_race(who_list[j])].ansi);
           strcat(who_output, "&N)");
 
-          if( who_list[j]->desc && who_list[j]->desc->olc )
-            strcat(who_output, " (&+MOLC&N)");
           if( IS_HARDCORE(who_list[j]) )
             strcat(who_output, "&+L (&+rHard&+RCore&+L)&n");
           if( IS_SET((who_list[j])->specials.act, PLR_AFK) )

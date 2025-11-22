@@ -28,7 +28,6 @@
 #include "events.h"
 #include "interp.h"
 #include "lookup_process.h"
-#include "olc.h"
 #include "prototypes.h"
 #include "structs.h"
 #include "utils.h"
@@ -818,10 +817,7 @@ void game_loop(int port, int sslport)
         }
         point->prompt_mode = TRUE;
 
-/*        if (point->olc)
-          olc_string_add(point->olc, comm);
-                                                                else */ if (point->showstr_count)
-                                                        /* pager for text */
+        if (point->showstr_count) /* pager for text */
           show_string(point, comm);
         else if (point->str)    /* mail, boards */
           string_add(point, comm);
@@ -857,7 +853,7 @@ void game_loop(int port, int sslport)
         if (point->character && (IS_PC(point->character) || IS_MORPH(point->character)))
         {
           if( IS_SET(GET_PLYR(point->character)->specials.act, PLR_OLDSMARTP)
-            && !point->showstr_count && !point->str && !point->olc && !IS_FIGHTING(GET_PLYR(point->character)))
+            && !point->showstr_count && !point->str && !IS_FIGHTING(GET_PLYR(point->character)))
           {
             point->prompt_mode = FALSE;
           }
@@ -1498,9 +1494,6 @@ void close_socket(struct descriptor_data *d)
       d->snoop.snooping = 0;
     }
   }
-/*  if (d->olc) {
-    olc_end(d->olc);
-  }*/
   if (d->str && (*d->str))
   {
     FREE(*d->str);
@@ -1869,7 +1862,6 @@ int new_descriptor(int s, bool ssl)
                                  */
   strcpy(newd->login, " ? ");
   newd->editor = NULL;
-  newd->olc = NULL;
   newd->out_compress = MCCP_NONE;
   newd->z_str = NULL;
   newd->sslses = sslses;
@@ -2390,7 +2382,7 @@ int process_output(P_desc t)
       return (-1);
   }
 
-  if (!t->connected && t->character && !t->olc &&
+  if (!t->connected && t->character &&
       (IS_PC(t->character) || IS_MORPH(t->character)) &&
       !IS_SET(GET_PLYR(t->character)->specials.act, PLR_COMPACT))
   {

@@ -2207,10 +2207,6 @@ int getItemMaxSP(const P_obj item);
 void setItemMaxSP(P_obj item);
 int getItemCurrentSP(const P_obj item);
 
-/* olc.c */
-void do_olc(P_char, char *, int);
-
-
 /* prompt.c */
 
 void UpdateScreen(P_char, int);

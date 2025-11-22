@@ -19,7 +19,6 @@
 #include "db.h"
 #include "events.h"
 #include "interp.h"
-#include "olc.h"
 #include "prototypes.h"
 #include "structs.h"
 #include "utils.h"
@@ -50,8 +49,6 @@ void make_prompt(void)
       t_obj_f = t_ch->specials.destroying_obj;
     }
 
-//  Dunno about this old code... Guess I'll leave it commented out.
-//    if (!point->prompt_mode && !point->showstr_count && !point->str && !point->olc )
     if( !point->prompt_mode )
     {
       continue;
@@ -81,13 +78,6 @@ void make_prompt(void)
       point->prompt_mode = FALSE;
       continue;
     }
-    /* Online zone editing maybe?
-    if (point->olc)
-    {
-        olc_prompt(point->olc);
-        continue;
-    }
-    */
 
     // Don't show a prompt if we're not in the game yet.
     // Don't show a prompt if awaiting a yes/no answer - SAM 7-94
