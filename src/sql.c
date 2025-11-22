@@ -250,7 +250,7 @@ int initialize_mysql()
   }
     
   DB = mysql_real_connect(DB, DB_HOST, DB_USER, DB_PASSWD, db_name,
-                          0, NULL, 0);
+                          0, NULL, CLIENT_MULTI_STATEMENTS);
   if (DB == NULL)
   {
     logit(LOG_STATUS, "Error connecting to database.");
@@ -1195,6 +1195,38 @@ MYSQL_RES *db  = db_query("SELECT UPPER(si_title) , old_id, REPLACE(REPLACE(REPL
   strcat(buf2, "\r\n");
   strcat(buf, buf2);
  send_to_char(buf, ch);
+}
+
+void sql_clear_results()
+{
+	int status = 0;
+	do
+	{
+		/* did current statement return data? */
+		MYSQL_RES *result = mysql_store_result(DB);
+		if (result)
+		{
+			mysql_free_result(result);
+		}
+		else /* no result set or error */
+		{
+			if (mysql_field_count(DB) == 0)
+			{
+				//printf("%lld rows affected\n", mysql_affected_rows(DB));
+			}
+			else /* some error occurred */
+			{
+				logit(LOG_DEBUG, "MySQL error: %s", mysql_error(DB));
+				break;
+			}
+		}
+		/* more results? -1 = no, >0 = error, 0 = yes (keep looping) */
+		if ((status = mysql_next_result(DB)) > 0)
+		{
+			logit(LOG_DEBUG, "MySQL error: %s", mysql_error(DB));
+			break;
+		}
+	} while (status == 0);
 }
 
 bool qry(const char *format, ...)

@@ -411,8 +411,12 @@ void list_artifacts_sql( P_char ch, int type, bool Godlist, bool allArtis )
       snprintf(timer, MAX_STRING_LENGTH, "%c%2d:%02d:%02d", negTime ? '-' : ' ', days, hours, minutes );
 
       // Trim locName: NAX_NAME_LENGTH + strlen("'s corpse") == 12 + 9 == 21.
-      snprintf(locNameBuf2, MAX_STRING_LENGTH, "%s", pad_ansi(locName, MAX_NAME_LENGTH + 9, TRUE).c_str() );
-      locName = locNameBuf2;
+	  if (!locName)
+	  {
+		locName = "&+RUnknown&n";
+	  }
+	  snprintf(locNameBuf2, MAX_STRING_LENGTH, "%s", pad_ansi(locName, MAX_NAME_LENGTH + 9, TRUE).c_str());
+	  locName = locNameBuf2;
       snprintf(buf, MAX_STRING_LENGTH, "%-21s&n%-11s %-22s%s (#%d)\r\n", locName, timer, row[5], obj->short_description, vnum );
       send_to_char( buf, ch );
       shownData = TRUE;

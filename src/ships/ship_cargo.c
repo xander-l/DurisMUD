@@ -161,73 +161,65 @@ int read_cargo()
 #endif
 }
 
-
 int write_cargo()
 {
 #ifdef __NO_MYSQL__
-  return FALSE;
+	return FALSE;
 #else
-  if(!qry("delete from ship_cargo_market_mods"))
-  {
-    logit(LOG_DEBUG, "write_cargo(): cargo query failed!");
-    return FALSE;
-  }
+	if (!qry("delete from ship_cargo_market_mods; delete from ship_cargo_prices;"))
+	{
+		logit(LOG_DEBUG, "write_cargo(): cargo query failed!");
+		return FALSE;
+	}
+	sql_clear_results();
 
-  if(!qry("delete from ship_cargo_prices"))
-  {
-    logit(LOG_DEBUG, "write_cargo(): price query failed!");
-    return FALSE;
-  }
-  
-  for( int port = 0; port < NUM_PORTS; port++ )
-  {
-    for( int type = 0; type < NUM_PORTS; type++ )
-    {
-      if(port == type)
-      {
-        // insert into prices table
-        if(!qry("insert into ship_cargo_prices (type, port_id, cargo_type, price) values ('%s', %d, %d, %d)", "CARGO", port, type, cargo_sell_price(port)))
-        {
-          logit(LOG_DEBUG, "write_cargo(): insert query failed!");
-          return FALSE;
-        }
-        if(!qry("insert into ship_cargo_prices (type, port_id, cargo_type, price) values ('%s', %d, %d, %d)", "CONTRABAND", port, type, contra_sell_price(port)))
-        {
-          logit(LOG_DEBUG, "write_cargo(): insert query failed!");
-          return FALSE;
-        }              
-      }
-      else
-      {
-        // insert into prices table
-        if(!qry("insert into ship_cargo_prices (type, port_id, cargo_type, price) values ('%s', %d, %d, %d)", "CARGO", port, type, cargo_buy_price(port, type)))
-        {
-          logit(LOG_DEBUG, "write_cargo(): insert query failed!");
-          return FALSE;
-        }
-        
-        if(!qry("insert into ship_cargo_prices (type, port_id, cargo_type, price) values ('%s', %d, %d, %d)", "CONTRABAND", port, type, contra_buy_price(port, type)))
-        {
-          logit(LOG_DEBUG, "write_cargo(): insert query failed!");
-          return FALSE;
-        }        
-      }
-      
-      // insert into mods table
-      if(!qry("insert into ship_cargo_market_mods (type, port_id, cargo_type, modifier) values ('%s', %d, %d, %f)", "CARGO", port, type, ship_cargo_market_mod[port][type]))
-      {
-        logit(LOG_DEBUG, "write_cargo(): insert query failed!");
-        return FALSE;
-      }
-              
-      if(!qry("insert into ship_cargo_market_mods (type, port_id, cargo_type, modifier) values ('%s', %d, %d, %f)", "CONTRABAND", port, type, ship_contra_market_mod[port][type]))
-      {
-        logit(LOG_DEBUG, "write_cargo(): insert query failed!");
-        return FALSE;
-      }
-    }
-  }
-  return TRUE;
+	char buffer[MAX_STRING_LENGTH] = {0};
+	char cargoPrices[MAX_STRING_LENGTH / 4] = {0};
+	char contrabandPrices[MAX_STRING_LENGTH / 4] = {0};
+	char cargoMarketMods[MAX_STRING_LENGTH / 4] = {0};
+	char contrabandMarketMods[MAX_STRING_LENGTH / 4] = {0};
+
+	// create 4 separate statements
+	snprintf(cargoPrices, ARRAY_SIZE(cargoPrices), "insert into ship_cargo_prices (type, port_id, cargo_type, price) values ");
+	snprintf(contrabandPrices, ARRAY_SIZE(contrabandPrices), "insert into ship_cargo_prices (type, port_id, cargo_type, price) values ");
+	snprintf(cargoMarketMods, ARRAY_SIZE(cargoMarketMods), "insert into ship_cargo_market_mods (type, port_id, cargo_type, modifier) values ");
+	snprintf(contrabandMarketMods, ARRAY_SIZE(contrabandMarketMods), "insert into ship_cargo_market_mods (type, port_id, cargo_type, modifier) values ");
+
+	bool isFirst = true;
+
+	for (int port = 0; port < NUM_PORTS; port++)
+	{
+		char buf[1024];
+		for (int type = 0; type < NUM_PORTS; type++)
+		{
+			int price = port == type ? cargo_sell_price(port) : cargo_buy_price(port, type);
+			
+			// insert into prices table
+			snprintf(buf, ARRAY_SIZE(buf), "%s('%s', %d, %d, %d)", isFirst ? "" : ",", "CARGO", port, type, price);
+			strncat(cargoPrices, buf, ARRAY_SIZE(buf));
+			snprintf(buf, ARRAY_SIZE(buf), "%s('%s', %d, %d, %d)", isFirst ? "" : ",", "CONTRABAND", port, type, price);
+			strncat(contrabandPrices, buf, ARRAY_SIZE(buf));
+			
+
+			// insert into mods table
+			snprintf(buf, ARRAY_SIZE(buf), "%s('%s', %d, %d, %f);", isFirst ? "" : ",", "CARGO", port, type, ship_cargo_market_mod[port][type]);
+			strncat(cargoMarketMods, buf, ARRAY_SIZE(buf));
+			snprintf(buf, ARRAY_SIZE(buf), "%s('%s', %d, %d, %f);", isFirst ? "" : ",", "CONTRABAND", port, type, ship_contra_market_mod[port][type]);
+			strncat(contrabandMarketMods, buf, ARRAY_SIZE(buf));
+			isFirst = false;
+		}
+	}
+
+	// put all the statements into a single buffer
+	snprintf(buffer, ARRAY_SIZE(buffer), "%s;%s;%s;%s;", cargoPrices, contrabandPrices, cargoMarketMods, contrabandMarketMods);
+
+	if (!qry(buffer))
+	{
+		logit(LOG_DEBUG, "write_cargo(): insert query failed!");
+		return FALSE;
+	}
+	sql_clear_results();
+	return TRUE;
 #endif
 }
 
