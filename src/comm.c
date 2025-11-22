@@ -843,35 +843,19 @@ void game_loop(int port, int sslport)
     for (point = descriptor_list; point; point = next_point)
     {
       next_point = point->next;
-      if (FD_ISSET(point->descriptor, &output_set) && point->output.head)
-        if (process_output(point) < 0)
-        {
-          close_socket(point);
-        }
-        else
-#ifdef SMART_PROMPT
-        if (point->character && (IS_PC(point->character) || IS_MORPH(point->character)))
-        {
-          if( IS_SET(GET_PLYR(point->character)->specials.act, PLR_OLDSMARTP)
-            && !point->showstr_count && !point->str && !IS_FIGHTING(GET_PLYR(point->character)))
-          {
-            point->prompt_mode = FALSE;
-          }
-          else if( !IS_SET(GET_PLYR(point->character)->specials.act, PLR_SMARTPROMPT) )
-          {
-            point->prompt_mode = TRUE;
-          }
-        }
-/*
-              !IS_SET(GET_PLYR(point->character)->specials.act, PLR_SMARTPROMPT)
-           && !IS_SET(GET_PLYR(point->character)->specials.act, PLR_OLDSMARTP))
-*/
-#endif
-//        point->prompt_mode = TRUE;
+
+      // this code tries to skip players who have too much pending text.
+      // But, we currently boot them anyway...
+      if (!FD_ISSET(point->descriptor, &output_set))
+        continue;
+
+      if (process_output(point) < 0)
+      {
+        close_socket(point);
+        continue;
+      }
     }
 
-    /* give the people some prompts */
-    make_prompt();
     PROFILE_END(prompts);
 
     /* handle heartbeat stuff */
@@ -2228,7 +2212,9 @@ int process_output(P_desc t)
   snoop_by_data *snoop_by_ptr;
   P_char   realChar = t->original ? t->original : t->character;
 
-  if( STATE(t) == CON_PLAYING && IS_PC(realChar)
+  bool text = t->output.head;
+
+  if (text && STATE(t) == CON_PLAYING && IS_PC(realChar)
     && ((t->prompt_mode == (PLR_FLAGGED(realChar, PLR_SMARTPROMPT))
     || (t->prompt_mode != PLR_FLAGGED(realChar, PLR_OLDSMARTP)))) )
   {
@@ -2238,6 +2224,30 @@ int process_output(P_desc t)
       return (-1);
     }
   }
+
+  if (text && !t->connected && t->character &&
+      (IS_PC(t->character) || IS_MORPH(t->character)) &&
+      !IS_SET(GET_PLYR(t->character)->specials.act, PLR_COMPACT))
+  {
+    write_to_q("\r\n", &t->output, 1);
+  }
+
+#ifdef SMART_PROMPT
+  if (t->character && (IS_PC(t->character) || IS_MORPH(t->character)))
+  {
+    if( IS_SET(GET_PLYR(t->character)->specials.act, PLR_OLDSMARTP)
+      && !t->showstr_count && !t->str && !IS_FIGHTING(GET_PLYR(t->character)))
+    {
+      t->prompt_mode = FALSE;
+    }
+    else if( !IS_SET(GET_PLYR(t->character)->specials.act, PLR_SMARTPROMPT) && text)
+    {
+      t->prompt_mode = TRUE;
+    }
+  }
+#endif
+
+  make_prompt(t);
 
   /* Cycle thru output queue */
   while( get_from_q(&t->output, buf) )
@@ -2382,15 +2392,6 @@ int process_output(P_desc t)
       return (-1);
   }
 
-  if (!t->connected && t->character &&
-      (IS_PC(t->character) || IS_MORPH(t->character)) &&
-      !IS_SET(GET_PLYR(t->character)->specials.act, PLR_COMPACT))
-  {
-    if (write_to_descriptor(t, "\r\n") < 0)
-    {
-      return (-1);
-    }
-  }
   return (1);
 }
 

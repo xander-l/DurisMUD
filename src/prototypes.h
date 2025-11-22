@@ -2212,7 +2212,7 @@ int getItemCurrentSP(const P_obj item);
 void UpdateScreen(P_char, int);
 void InitScreen(P_char);
 char *make_bar(long, long, long);
-void make_prompt(void);
+void make_prompt(P_desc);
 
 /* processlogin.c */
 
