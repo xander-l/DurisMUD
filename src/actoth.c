@@ -981,6 +981,13 @@ void do_rage(P_char ch, char *argument, int cmd)
   af.duration = dura;
   affect_to_char(ch, &af);
 
+  bzero(&af, sizeof(af));
+  af.type = SKILL_RAGE;
+  af.location = APPLY_COMBAT_PULSE;
+  af.modifier = -10;
+  af.duration = dura;
+  affect_to_char(ch, &af);
+
   set_short_affected_by(ch, SKILL_RAGE_REORIENT, dura + (5 * WAIT_SEC) / 2);
 }
 
