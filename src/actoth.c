@@ -980,13 +980,13 @@ void do_rage(P_char ch, char *argument, int cmd)
   af.bitvector2 = AFF2_FLURRY;
   af.duration = dura;
   affect_to_char(ch, &af);
-
+/* Not needed --Eikel
   bzero(&af, sizeof(af));
   af.type = SKILL_RAGE;
   af.location = APPLY_COMBAT_PULSE;
   af.modifier = -10;
   af.duration = dura;
-  affect_to_char(ch, &af);
+  affect_to_char(ch, &af);*/
 
   set_short_affected_by(ch, SKILL_RAGE_REORIENT, dura + (5 * WAIT_SEC) / 2);
 }

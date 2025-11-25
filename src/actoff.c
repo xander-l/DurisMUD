@@ -8845,13 +8845,13 @@ void do_whirlwind(P_char ch, char *argument, int cmd)
   af.duration = 3 * PULSE_VIOLENCE;
   af.flags = AFFTYPE_SHORT;
   affect_to_char(ch, &af);
-
+/* Not needed -- Eikel
   bzero(&af, sizeof(af));
   af.type = SKILL_WHIRLWIND;
   af.location = APPLY_COMBAT_PULSE;
   af.modifier = -12;
   af.duration = 5 * PULSE_VIOLENCE;
-  affect_to_char(ch, &af);
+  affect_to_char(ch, &af);*/
 }
 
 void do_trip(P_char ch, char *argument, int cmd)
