@@ -4537,7 +4537,7 @@ int spell_damage(P_char ch, P_char victim, double dam, int type, uint flags, str
 
   if((af = get_spell_from_char(victim, SPELL_ELEM_AFFINITY)) && ELEMENTAL_DAM(type))
   {
-    char    *colors[5] = { "rfire", "Bcold", "Ylightning", "ggas", "Gacid" };
+    char    *colors[6] = { "rfire", "Bcold", "Ylightning", "ggas", "Gacid", "yearth"  };
     char     buf[128];
 
     if (af->modifier == type)
@@ -4546,7 +4546,10 @@ int spell_damage(P_char ch, P_char victim, double dam, int type, uint flags, str
     }
     else
     {
-      snprintf(buf, 128, "You feel less vulnerable to &+%s!&n\n", colors[type - 2]);
+      if (ELEMENTAL_DAM(type) == SPLDAM_EARTH)
+        snprintf(buf, 128, "You feel less vulnerable to &+%s!&n\n", colors[5]);
+      else 
+        snprintf(buf, 128, "You feel less vulnerable to &+%s!&n\n", colors[type - 2]);
       send_to_char(buf, victim);
       af->modifier = type;
     }
