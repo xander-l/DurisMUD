@@ -124,7 +124,7 @@ void make_prompt(P_desc point)
       snprintf(promptbuf + strlen(promptbuf), MAX_STRING_LENGTH - strlen(promptbuf), "&+r %dh", t_ch->points.hit);
     // Nearing death -> Bright red on grey.
     else
-      snprintf(promptbuf + strlen(promptbuf), MAX_STRING_LENGTH - strlen(promptbuf), "&=KR %dh", t_ch->points.hit);
+      snprintf(promptbuf + strlen(promptbuf), MAX_STRING_LENGTH - strlen(promptbuf), "&+R %dh", t_ch->points.hit);
   }
   if( IS_SET(t_ch_p, PROMPT_MAX_HIT) )
     snprintf(promptbuf + strlen(promptbuf), MAX_STRING_LENGTH - strlen(promptbuf), "&+g/%dH", GET_MAX_HIT(t_ch));
@@ -145,7 +145,7 @@ void make_prompt(P_desc point)
     else if (percent >= 0)
       snprintf(promptbuf + strlen(promptbuf), MAX_STRING_LENGTH - strlen(promptbuf), "&+r %dm", GET_MANA(t_ch));
     else
-      snprintf(promptbuf + strlen(promptbuf), MAX_STRING_LENGTH - strlen(promptbuf), "&=KR%dm", GET_MANA(t_ch));
+      snprintf(promptbuf + strlen(promptbuf), MAX_STRING_LENGTH - strlen(promptbuf), "&+R%dm", GET_MANA(t_ch));
   }
   if( IS_SET(t_ch_p, PROMPT_MAX_MANA) )
     snprintf(promptbuf + strlen(promptbuf), MAX_STRING_LENGTH - strlen(promptbuf), "&+g/%dM", GET_MAX_MANA(t_ch));
