@@ -1,0 +1,257 @@
+#1
+The Wreck of the Dreadnaught Cyclops~
+420053 2 0 40 50 1
+*
+* Zone edited with durisEdit v3.02
+*
+*
+D 0 420001 2 1 100 0 0 0
+*     south exit from "Within the hull of the sunken Dreadnaught" to
+*     "An eerie decrepid officer's quarters within the Wreck." - closed
+*
+D 0 420004 0 5 100 0 0 0
+*     north exit from "An eerie decrepid officer's quarters within the Wreck." to
+*     "Within the hull of the sunken Dreadnaught" - closed/secret
+*
+D 0 420009 2 2 100 0 0 0
+*     south exit from "Entrance to the Gunnery Deck" to
+*     "The Gunnery Deck" - closed/locked
+*
+D 0 420024 0 2 100 0 0 0
+*     north exit from "The Gunnery Deck" to
+*     "Entrance to the Gunnery Deck" - closed/locked
+*
+D 0 420018 1 6 100 0 0 0
+*     east exit from "The rear of the wrecked Dreadnaught, the Cyclops." to
+*     "The ocean floor outside of a shipwreck." - closed/locked/secret
+*
+D 0 420019 3 2 100 0 0 0
+*     west exit from "The ocean floor outside of a shipwreck." to
+*     "The rear of the wrecked Dreadnaught, the Cyclops." - closed/locked
+*
+D 0 420032 2 2 100 0 0 0
+*     south exit from "The aft of the wreck, close to the Captain's Quarters" to
+*     "The Captain's Quarters" - closed/locked
+*
+D 0 420033 0 2 100 0 0 0
+*     north exit from "The Captain's Quarters" to
+*     "The aft of the wreck, close to the Captain's Quarters" - closed/locked
+*
+D 0 420036 2 2 100 0 0 0
+*     south exit from "Before the Hold of the Ship" to
+*     "Within the Hold of the Ship" - closed/locked
+*
+D 0 420037 0 2 100 0 0 0
+*     north exit from "Within the Hold of the Ship" to
+*     "Before the Hold of the Ship" - closed/locked
+*
+*
+O 0 420002 7 420004 100 0 0 0      * a MASSIVE pile of platinum and gold coins.
+O 0 420014 2 420004 100 0 0 0      * an adamantium bracer inscribed with elvish runes
+O 0 420015 1 420022 100 0 0 0      * an iron and brass chest
+P 1 420019 1 420015 100 0 0 0      *   a rusty key bearing a naval gunnery symbol
+P 1 420020 1 420015 100 0 0 0      *   a psionicist's mindstone bangle
+P 1 420021 1 420015 100 0 0 0      *   a flowing black robe with a Mindflayers Crest
+P 1 420002 7 420015 100 0 0 0      *   a MASSIVE pile of platinum and gold coins.
+P 1 420000 1 420015 100 0 0 0      *   a khopis shortsword named 'WindRage'
+O 0 420022 1 420033 100 0 0 0      * a broken desk
+P 1 420030 1 420022 100 0 0 0      *   a complex multitooth key
+P 1 420031 1 420022 100 0 0 0      *   the logbook of the Dreadnaught Cyclops
+O 0 420002 7 420050 100 0 0 0      * a MASSIVE pile of platinum and gold coins.
+O 0 420026 7 420050 100 0 0 0      * a Treasure Chest
+P 1 420027 1 420026 100 0 0 0      *   an ornate oaken staff encrusted with emeralds
+P 1 420024 1 420026 100 0 0 0      *   a Dark Phase Dagger
+O 0 420002 7 420051 100 0 0 0      * a MASSIVE pile of platinum and gold coins.
+O 0 420026 7 420051 100 0 0 0      * a Treasure Chest
+P 1 420028 1 420026 100 0 0 0      *   the Priest Master Platemail
+P 1 420029 1 420026 100 0 0 0      *   the boots of the High Ranger
+O 0 420002 7 420052 100 0 0 0      * a MASSIVE pile of platinum and gold coins.
+O 0 420026 7 420052 100 0 0 0      * a Treasure Chest
+P 1 420033 1 420026 100 0 0 0      *   an obsidian totem of 'Tiamat'
+P 1 420034 1 420026 100 0 0 0      *   a hood and cowl of the RavensClaw Thieve's Guild
+O 0 420026 7 420052 100 0 0 0      * a Treasure Chest
+P 1 420035 1 420026 100 0 0 0      *   the boots of Deep Magic
+P 1 420036 1 420026 100 0 0 0      *   a Golden Helm of Torm's Wisdom
+O 0 420002 7 420053 100 0 0 0      * a MASSIVE pile of platinum and gold coins.
+O 0 420026 7 420053 100 0 0 0      * a Treasure Chest
+P 1 420041 1 420026 100 0 0 0      *   an earring of swift precision
+P 1 420042 1 420026 100 0 0 0      *   a flaming Great Axe of Nivard
+O 0 420026 7 420053 100 0 0 0      * a Treasure Chest
+P 1 420039 1 420026 100 0 0 0      *   some robes of the Rainbow
+P 1 420040 1 420026 100 0 0 0      *   an earring of bloodshed
+O 0 420026 7 420053 100 0 0 0      * a Treasure Chest
+P 1 420037 1 420026 100 0 0 0      *   a helm of the Dark Knight
+P 1 420038 1 420026 100 0 0 0      *   a strange golden ring bearing the symbol of Kevald
+O 0 420002 7 420053 100 0 0 0      * a MASSIVE pile of platinum and gold coins.
+*
+M 0 420003 7 420001 100 0 0 0      * A Drowned Swashbuckler
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420005 15 17 100 0 0 0         *   a rusty iron dirk
+M 0 420006 9 420002 100 0 0 0      * a beholderfish
+M 0 420000 8 420003 100 0 0 0      * A Drowned
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420004 31 17 100 0 0 0         *   a rusty iron cutlass
+M 0 420000 8 420003 100 0 0 0      * A Drowned
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420004 31 17 100 0 0 0         *   a rusty iron cutlass
+M 0 420001 1 420004 100 0 0 0      * A DeathTrap Krayot Dragon
+G 1 420003 1 0 100 0 0 0           *    a quiver of mithril glowing red
+M 0 420006 9 420006 100 0 0 0      * a beholderfish
+M 0 420000 8 420007 100 0 0 0      * A Drowned
+F 1 420003 7 420007 100 0 0 0      * A Drowned Swashbuckler (following)
+M 0 420000 8 420007 100 0 0 0      * A Drowned
+F 1 420003 7 420007 100 0 0 0      * A Drowned Swashbuckler (following)
+M 0 420006 9 420008 100 0 0 0      * a beholderfish
+M 0 420000 8 420009 100 0 0 0      * A Drowned
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420004 31 17 100 0 0 0         *   a rusty iron cutlass
+F 1 420003 7 420009 100 0 0 0      * A Drowned Swashbuckler (following)
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420005 15 17 100 0 0 0         *   a rusty iron dirk
+M 0 420006 9 420009 100 0 0 0      * a beholderfish
+M 0 420013 1 420009 100 0 0 0      * A RavensClaw thief corpse
+E 1 420017 1 8 100 0 0 0           *   some boots of the RavensClaw Thieve's Guild
+E 1 420005 15 16 100 0 0 0         *   a rusty iron dirk
+G 1 420025 1 0 100 0 0 0           *    the Sanguine Jewel
+M 0 420006 9 420011 100 0 0 0      * a beholderfish
+M 0 420000 8 420013 100 0 0 0      * A Drowned
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420004 31 17 100 0 0 0         *   a rusty iron cutlass
+F 1 420003 7 420013 100 0 0 0      * A Drowned Swashbuckler (following)
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420005 15 17 100 0 0 0         *   a rusty iron dirk
+M 0 420006 9 420013 100 0 0 0      * a beholderfish
+M 0 420000 8 420014 100 0 0 0      * A Drowned
+F 1 420012 6 420014 100 0 0 0      * a Drowned cantrip spellslinger (following)
+M 0 420000 8 420015 100 0 0 0      * A Drowned
+M 0 420007 1 420016 100 0 0 0      * A Drowned surgeon
+E 1 420009 1 5 100 0 0 0           *   the flowing robes of the Drowned Surgeon
+E 1 420010 1 6 100 0 0 0           *   a white surgeons cap adorned with a golden cross
+E 1 420008 1 14 100 0 0 0          *   some silver holy beads of Icecrag
+E 1 420007 1 16 100 0 0 0          *   a coldsteel scalpel
+F 1 420012 6 420016 100 0 0 0      * a Drowned cantrip spellslinger (following)
+F 1 420012 6 420016 100 0 0 0      * a Drowned cantrip spellslinger (following)
+M 0 420009 1 420018 100 0 0 0      * The Drowned helmsman
+E 1 420013 1 6 100 0 0 0           *   the helm of Smashing
+E 1 420014 2 14 100 0 0 0          *   an adamantium bracer inscribed with elvish runes
+E 1 420012 1 16 100 0 0 0          *   the legendary warhammer 'Cyclop's Maul'
+E 1 420011 19 17 100 0 0 0         *   a rusty iron fuse rod
+F 1 420008 8 420018 100 0 0 0      * A Drowned cannoneer (following)
+E 1 420011 19 16 100 0 0 0         *   a rusty iron fuse rod
+E 1 420011 19 17 100 0 0 0         *   a rusty iron fuse rod
+F 1 420008 8 420018 100 0 0 0      * A Drowned cannoneer (following)
+E 1 420011 19 16 100 0 0 0         *   a rusty iron fuse rod
+E 1 420011 19 17 100 0 0 0         *   a rusty iron fuse rod
+F 1 420012 6 420018 100 0 0 0      * a Drowned cantrip spellslinger (following)
+M 0 420011 6 420019 100 0 0 0      * A monkfish
+F 1 420011 6 420019 100 0 0 0      * A monkfish (following)
+M 0 420010 7 420020 100 0 0 0      * a large swordfish
+F 1 420010 7 420020 100 0 0 0      * a large swordfish (following)
+F 1 420010 7 420020 100 0 0 0      * a large swordfish (following)
+F 1 420010 7 420020 100 0 0 0      * a large swordfish (following)
+M 0 420011 6 420020 100 0 0 0      * A monkfish
+M 0 420006 9 420021 100 0 0 0      * a beholderfish
+F 1 420006 9 420021 100 0 0 0      * a beholderfish (following)
+F 1 420011 6 420021 100 0 0 0      * A monkfish (following)
+F 1 420010 7 420021 100 0 0 0      * a large swordfish (following)
+M 0 420004 1 420022 100 0 0 0      * A GIANT megalodon shark
+G 1 420016 1 0 100 0 0 0           *    a small iron and brass key
+F 1 420005 4 420022 100 0 0 0      * An octolamprey (following)
+F 1 420005 4 420022 100 0 0 0      * An octolamprey (following)
+F 1 420005 4 420022 100 0 0 0      * An octolamprey (following)
+F 1 420005 4 420022 100 0 0 0      * An octolamprey (following)
+M 0 420002 1 420023 100 0 0 0      * The Drowned Engineer
+E 1 420006 4 16 100 0 0 0          *   a large rusty wrench
+E 1 420006 4 17 100 0 0 0          *   a large rusty wrench
+E 1 420006 4 25 100 0 0 0          *   a large rusty wrench
+E 1 420006 4 26 100 0 0 0          *   a large rusty wrench
+G 1 420001 1 0 100 0 0 0           *    a rod of Waterfyre
+F 1 420003 7 420023 100 0 0 0      * A Drowned Swashbuckler (following)
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420005 15 17 100 0 0 0         *   a rusty iron dirk
+M 0 420008 8 420024 100 0 0 0      * A Drowned cannoneer
+E 1 420011 19 16 100 0 0 0         *   a rusty iron fuse rod
+E 1 420011 19 17 100 0 0 0         *   a rusty iron fuse rod
+F 1 420008 8 420024 100 0 0 0      * A Drowned cannoneer (following)
+E 1 420011 19 16 100 0 0 0         *   a rusty iron fuse rod
+E 1 420011 19 17 100 0 0 0         *   a rusty iron fuse rod
+M 0 420008 8 420025 100 0 0 0      * A Drowned cannoneer
+E 1 420011 19 16 100 0 0 0         *   a rusty iron fuse rod
+E 1 420011 19 17 100 0 0 0         *   a rusty iron fuse rod
+F 1 420008 8 420025 100 0 0 0      * A Drowned cannoneer (following)
+E 1 420011 19 16 100 0 0 0         *   a rusty iron fuse rod
+E 1 420011 19 17 100 0 0 0         *   a rusty iron fuse rod
+F 1 420014 6 420025 100 0 0 0      * A Dead Powder Monkey (following)
+E 1 420005 15 16 100 0 0 0         *   a rusty iron dirk
+M 0 420008 8 420029 100 0 0 0      * A Drowned cannoneer
+E 1 420011 19 16 100 0 0 0         *   a rusty iron fuse rod
+E 1 420011 19 17 100 0 0 0         *   a rusty iron fuse rod
+F 1 420014 6 420029 100 0 0 0      * A Dead Powder Monkey (following)
+E 1 420005 15 16 100 0 0 0         *   a rusty iron dirk
+M 0 420006 9 420030 100 0 0 0      * a beholderfish
+M 0 420008 8 420031 100 0 0 0      * A Drowned cannoneer
+E 1 420011 19 16 100 0 0 0         *   a rusty iron fuse rod
+E 1 420011 19 17 100 0 0 0         *   a rusty iron fuse rod
+F 1 420014 6 420031 100 0 0 0      * A Dead Powder Monkey (following)
+E 1 420005 15 16 100 0 0 0         *   a rusty iron dirk
+F 1 420014 6 420031 100 0 0 0      * A Dead Powder Monkey (following)
+E 1 420005 15 16 100 0 0 0         *   a rusty iron dirk
+M 0 420015 9 420032 100 0 0 0      * An Elite Drowned Guard
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420004 31 17 100 0 0 0         *   a rusty iron cutlass
+F 1 420015 9 420032 100 0 0 0      * An Elite Drowned Guard (following)
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420004 31 17 100 0 0 0         *   a rusty iron cutlass
+M 0 420017 1 420033 100 0 0 0      * The Drowned Captain
+E 1 420032 1 16 100 0 0 0          *   a legendary FrostBrand of Do'Urden
+E 1 420005 15 17 100 0 0 0         *   a rusty iron dirk
+G 1 420023 1 0 100 0 0 0           *    a small gold desk key
+F 1 420015 9 420033 100 0 0 0      * An Elite Drowned Guard (following)
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420004 31 17 100 0 0 0         *   a rusty iron cutlass
+F 1 420015 9 420033 100 0 0 0      * An Elite Drowned Guard (following)
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420004 31 17 100 0 0 0         *   a rusty iron cutlass
+F 1 420012 6 420033 100 0 0 0      * a Drowned cantrip spellslinger (following)
+E 1 420005 15 16 100 0 0 0         *   a rusty iron dirk
+M 0 420003 7 420034 100 0 0 0      * A Drowned Swashbuckler
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420005 15 17 100 0 0 0         *   a rusty iron dirk
+F 1 420014 6 420034 100 0 0 0      * A Dead Powder Monkey (following)
+E 1 420005 15 16 100 0 0 0         *   a rusty iron dirk
+F 1 420014 6 420034 100 0 0 0      * A Dead Powder Monkey (following)
+E 1 420005 15 16 100 0 0 0         *   a rusty iron dirk
+M 0 420010 7 420035 100 0 0 0      * a large swordfish
+F 1 420011 6 420035 100 0 0 0      * A monkfish (following)
+M 0 420015 9 420036 100 0 0 0      * An Elite Drowned Guard
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420004 31 17 100 0 0 0         *   a rusty iron cutlass
+M 0 420015 9 420036 100 0 0 0      * An Elite Drowned Guard
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420004 31 17 100 0 0 0         *   a rusty iron cutlass
+M 0 420020 1 420037 100 0 0 0      * an obsidian Hold Guardian Golem
+E 1 420011 19 16 100 0 0 0         *   a rusty iron fuse rod
+E 1 420011 19 17 100 0 0 0         *   a rusty iron fuse rod
+M 0 420010 7 420040 100 0 0 0      * a large swordfish
+F 1 420011 6 420040 100 0 0 0      * A monkfish (following)
+M 0 420016 1 420041 100 0 0 0      * The Drowned First Mate
+E 1 420045 1 5 100 0 0 0           *   some black monk robes of Mastery
+G 1 420046 1 0 100 0 0 0           *    a key to the captain's quarters
+M 0 420015 9 420041 100 0 0 0      * An Elite Drowned Guard
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420004 31 17 100 0 0 0         *   a rusty iron cutlass
+F 1 420012 6 420041 100 0 0 0      * a Drowned cantrip spellslinger (following)
+E 1 420005 15 16 100 0 0 0         *   a rusty iron dirk
+M 0 420018 1 420047 100 0 0 0      * The Beholder Kraken
+G 1 420043 1 0 100 0 0 0           *    a corroded treasure chest key
+G 1 420044 1 0 100 0 0 0           *    a beholder kraken hide
+F 1 420019 2 420047 100 0 0 0      * A beholder kraken long tentacle (following)
+F 1 420019 2 420047 100 0 0 0      * A beholder kraken long tentacle (following)
+M 0 420015 9 420050 100 0 0 0      * An Elite Drowned Guard
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420004 31 17 100 0 0 0         *   a rusty iron cutlass
+F 1 420015 9 420050 100 0 0 0      * An Elite Drowned Guard (following)
+E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass
+E 1 420004 31 17 100 0 0 0         *   a rusty iron cutlass
+*
+S

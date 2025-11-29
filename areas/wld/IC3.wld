@@ -1,0 +1,966 @@
+#420000
+&+LA &+Cpocket &+Lof &+Cair &+Linside the wrecked &+yhull of the ship&+L.&n~
+&+yThe inside of the ship has a small &+Cair pocket &+ywhich has likely not been breathed in
+&+ysome time yet still has &+Woxygen&+y. A deep sense of &+Ldread &+yand &+Lforboding &+yseems
+&+yto permeate the inside of this once massive ship. The smell of &+csea&+Cwa&+cter &+yand
+&+Ldecay &+yalso drift into your nostrils. It is best to proceed with extreme caution due to
+&+ythe tales that are told about the &+Lcurse &+yplaced upon this ship by &+WPoseidon.&n
+~
+1 1073872909 0
+D0
+~
+~
+0 0 420001
+D2
+~
+~
+0 0 420001
+S
+#420001
+&+yWithin the &+Yhull &+yof the &+csunken &+yDreadnaught&n~
+&+yIt is dark as &+Lnight &+ywithin the hull of the Dreadnaught. &+LShadows &+yseem to be moving throughout the area
+&+yand occasionally you can hear a faint &+rcreaking &+yas the planks and timbers of the once massive ship are
+&+ymoved by either &+Boc&+be&+ca&+Cni&+Wc &+Bcurrents &+yor creatures lurking within. Some holes in the hull allow a very dim
+&+wlight &+yfrom the distant surface to barely illuminate the surroundings. To the south you hear something
+&+rmoving &+yaround behind the door.&n
+~
+1 1216380969 0
+D0
+~
+~
+0 0 420000
+D1
+~
+~
+0 0 420002
+D2
+~
+~
+1 0 420004
+D3
+~
+~
+0 0 420003
+S
+#420002
+&+yWithin the &+Yhull &+yof the &+csunken &+yDreadnaught&n~
+&+yIt is dark as &+Lnight &+ywithin the hull of the Dreadnaught. &+LShadows &+yseem to be moving throughout the area
+&+yand occasionally you can hear a faint &+rcreaking &+yas the planks and timbers of the once massive ship are
+&+ymoved by either &+Boc&+be&+ca&+Cni&+Wc &+Bcurrents &+yor creatures lurking within. Some holes in the hull allow a very dim
+&+wlight &+yfrom the distant surface to barely illuminate the surroundings.&n
+~
+1 1216380961 0
+D1
+~
+~
+0 0 420005
+D2
+~
+~
+0 0 420006
+D3
+~
+~
+0 0 420001
+S
+#420003
+&+yWithin the &+Yhull &+yof the &+csunken &+yDreadnaught&n~
+&+yIt is dark as &+Lnight &+ywithin the hull of the Dreadnaught. &+LShadows &+yseem to be moving throughout the area
+&+yand occasionally you can hear a faint &+rcreaking &+yas the planks and timbers of the once massive ship are
+&+ymoved by either &+Boc&+be&+ca&+Cni&+Wc &+Bcurrents &+yor creatures lurking within. Some holes in the hull allow a very dim
+&+wlight &+yfrom the distant surface to barely illuminate the surroundings.&n
+~
+1 1216380969 0
+D1
+~
+~
+0 0 420001
+D3
+~
+~
+0 0 420023
+S
+#420004
+&+yAn &+Leer&+wi&+Le decrepid &+cofficer's &+yquarters within the Wreck.&n~
+&+yAs you entered the room the door and some rubble &+RCRASHES&+y behind to the south and the
+&+yexit disappears! This room is very &+Ldark&+y and old belongings to an unknown officer lay
+&+yin the corner from the wreck with &+Ybroken &+yfurniture all around.&n
+~
+1 1216385129 0
+D0
+~
+broken door~
+5 0 420001
+S
+#420005
+&+yWithin the &+Yhull &+yof the &+csunken &+yDreadnaught&n~
+&+yIt is dark as &+Lnight &+ywithin the hull of the Dreadnaught. &+LShadows &+yseem to be moving throughout the area
+&+yand occasionally you can hear a faint &+rcreaking &+yas the planks and timbers of the once massive ship are
+&+ymoved by either &+Boc&+be&+ca&+Cni&+Wc &+Bcurrents &+yor creatures lurking within. Some holes in the hull allow a very dim
+&+wlight &+yfrom the distant surface to barely illuminate the surroundings.&n
+~
+1 1216381033 0
+D1
+~
+~
+0 0 420008
+D2
+~
+~
+0 0 420007
+D3
+~
+~
+0 0 420002
+S
+#420006
+&+yWithin the &+Yhull &+yof the &+csunken &+yDreadnaught&n~
+&+yIt is dark as &+Lnight &+ywithin the hull of the Dreadnaught. &+LShadows &+yseem to be moving throughout the area
+&+yand occasionally you can hear a faint &+rcreaking &+yas the planks and timbers of the once massive ship are
+&+ymoved by either &+Boc&+be&+ca&+Cni&+Wc &+Bcurrents &+yor creatures lurking within. Some holes in the hull allow a very dim
+&+wlight &+yfrom the distant surface to barely illuminate the surroundings.&n
+~
+1 1216381033 0
+D0
+~
+~
+0 0 420002
+D1
+~
+~
+0 0 420007
+S
+#420007
+&+yWithin the &+Yhull &+yof the &+csunken &+yDreadnaught&n~
+&+yIt is dark as &+Lnight &+ywithin the hull of the Dreadnaught. &+LShadows &+yseem to be moving throughout the area
+&+yand occasionally you can hear a faint &+rcreaking &+yas the planks and timbers of the once massive ship are
+&+ymoved by either &+Boc&+be&+ca&+Cni&+Wc &+Bcurrents &+yor creatures lurking within. Some holes in the hull allow a very dim
+&+wlight &+yfrom the distant surface to barely illuminate the surroundings.&n
+~
+1 1216381033 0
+D0
+~
+~
+0 0 420005
+D3
+~
+~
+0 0 420006
+S
+#420008
+&+yWithin the &+Yhull &+yof the &+csunken &+yDreadnaught&n~
+&+yIt is dark as &+Lnight &+ywithin the hull of the Dreadnaught. &+LShadows &+yseem to be moving throughout the area
+&+yand occasionally you can hear a faint &+rcreaking &+yas the planks and timbers of the once massive ship are
+&+ymoved by either &+Boc&+be&+ca&+Cni&+Wc &+Bcurrents &+yor creatures lurking within. Some holes in the hull allow a very dim
+&+wlight &+yfrom the distant surface to barely illuminate the surroundings.&n
+~
+1 1216381033 0
+D1
+~
+~
+0 0 420010
+D2
+~
+~
+0 0 420009
+D3
+~
+~
+0 0 420005
+S
+#420009
+&+yEntrance to the &+rGunnery &+yDeck&n~
+&+yBecause the wreck is resting on it's starboard side, the &+Yhatch &+ywhich used to lead below to the &+rgunnery
+&+ydeck is now against the southern facing floor.  It appears to have been locked for some reason perhaps
+&+yto keep the &+rgunnery &+Lcrew &+yfrom leaving their posts during the epic battles the Cyclops had been in. The
+&+clock &+yis slightly &+rrusted&+y but appears to be functional.
+~
+1 142639209 0
+D0
+~
+~
+0 0 420008
+D2
+&+yThis &+Yhatch &+yhas a &+bnaval &+rgunnery &+ysymbol above the lock.&n
+~
+hatch gunnery~
+2 420019 420024
+S
+#420010
+&+yWithin the &+Yhull &+yof the &+csunken &+yDreadnaught&n~
+&+yIt is dark as &+Lnight &+ywithin the hull of the Dreadnaught. &+LShadows &+yseem to be moving throughout the area
+&+yand occasionally you can hear a faint &+rcreaking &+yas the planks and timbers of the once massive ship are
+&+ymoved by either &+Boc&+be&+ca&+Cni&+Wc &+Bcurrents &+yor creatures lurking within. Some holes in the hull allow a very dim
+&+wlight &+yfrom the distant surface to barely illuminate the surroundings.&n
+~
+1 1216381033 0
+D1
+~
+~
+0 0 420012
+D2
+~
+~
+0 0 420011
+D3
+~
+~
+0 0 420008
+S
+#420011
+&+yWithin the &+Yhull &+yof the &+csunken &+yDreadnaught&n~
+&+yIt is dark as &+Lnight &+ywithin the hull of the Dreadnaught. &+LShadows &+yseem to be moving throughout the area
+&+yand occasionally you can hear a faint &+rcreaking &+yas the planks and timbers of the once massive ship are
+&+ymoved by either &+Boc&+be&+ca&+Cni&+Wc &+Bcurrents &+yor creatures lurking within. Some holes in the hull allow a very dim
+&+wlight &+yfrom the distant surface to barely illuminate the surroundings.&n
+~
+1 142639209 0
+D0
+~
+~
+0 0 420010
+D1
+~
+~
+0 0 420013
+S
+#420012
+&+yWithin the &+Yhull &+yof the &+csunken &+yDreadnaught&n~
+&+yIt is dark as &+Lnight &+ywithin the hull of the Dreadnaught. &+LShadows &+yseem to be moving throughout the area
+&+yand occasionally you can hear a faint &+rcreaking &+yas the planks and timbers of the once massive ship are
+&+ymoved by either &+Boc&+be&+ca&+Cni&+Wc &+Bcurrents &+yor creatures lurking within. Some holes in the hull allow a very dim
+&+wlight &+yfrom the distant surface to barely illuminate the surroundings.&n
+~
+1 1216381033 0
+D1
+~
+~
+0 0 420014
+D2
+~
+~
+0 0 420013
+D3
+~
+~
+0 0 420010
+S
+#420013
+&+yWithin the &+Yhull &+yof the &+csunken &+yDreadnaught&n~
+&+yIt is dark as &+Lnight &+ywithin the hull of the Dreadnaught. &+LShadows &+yseem to be moving throughout the area
+&+yand occasionally you can hear a faint &+rcreaking &+yas the planks and timbers of the once massive ship are
+&+ymoved by either &+Boc&+be&+ca&+Cni&+Wc &+Bcurrents &+yor creatures lurking within. Some holes in the hull allow a very dim
+&+wlight &+yfrom the distant surface to barely illuminate the surroundings.&n
+~
+1 1216381033 0
+D0
+~
+~
+0 0 420012
+D1
+~
+~
+0 0 420015
+D3
+~
+~
+0 0 420011
+S
+#420014
+&+yWithin the &+Yhull &+yof the &+csunken &+YDreadnaught&n~
+&+yIt is dark as &+Lnight &+ywithin the hull of the Dreadnaught. &+LShadows &+yseem to be moving throughout the area
+&+yand occasionally you can hear a faint &+rcreaking &+yas the planks and timbers of the once massive ship are
+&+ymoved by either &+Boc&+be&+ca&+Cni&+Wc &+Bcurrents &+yor creatures lurking within. Some holes in the hull allow a very dim
+&+wlight &+yfrom the distant surface to barely illuminate the surroundings.&n
+~
+1 1216381025 0
+D1
+~
+~
+0 0 420016
+D2
+~
+~
+0 0 420015
+D3
+~
+~
+0 0 420012
+S
+#420015
+&+yWithin the &+Yhull &+yof the &+csunken &+yDreadnaught&n~
+&+yIt is dark as &+Lnight &+ywithin the hull of the Dreadnaught. &+LShadows &+yseem to be moving throughout the area
+&+yand occasionally you can hear a faint &+rcreaking &+yas the planks and timbers of the once massive ship are
+&+ymoved by either &+Boc&+be&+ca&+Cni&+Wc &+Bcurrents &+yor creatures lurking within. Some holes in the hull allow a very dim
+&+wlight &+yfrom the distant surface to barely illuminate the surroundings.&n
+~
+1 1216381033 0
+D0
+~
+~
+0 0 420014
+D3
+~
+~
+0 0 420013
+S
+#420016
+&+yThe remains of a &+Wsurgical &+ystation&n~
+&+yThis &+Ldilapidated &+yroom used to serve as a &+Wsurgeon's &+ystation where injured crew would be attended
+&+yto. It has been under &+Bwater &+yfor quite some time and much of the timber has rotten or been eaten
+&+yby &+wshipworm. The &+Wsurgeon's &+ytable still manages to somehow still stand upright. In the corner of
+&+ythe room there is a cupboard that bears the faded words, "&+YSupplies&+y".&n
+~
+1 1216512097 0
+D2
+~
+~
+0 0 420017
+D3
+~
+~
+0 0 420014
+S
+#420017
+&+yApproaching the &+Lruined &+yaft of the Cyclops&n~
+&+yIt is dark as &+Lnight &+ywithin the hull of the Dreadnaught. &+LShadows &+yseem to be moving throughout the area
+&+yand occasionally you can hear a faint &+rcreaking &+yas the planks and timbers of the once massive ship are
+&+ymoved by either &+Boc&+be&+ca&+Cni&+Wc &+Bcurrents &+yor creatures lurking within. Some holes in the hull allow a very dim
+&+wlight &+yfrom the distant surface to barely illuminate the surroundings.&n
+~
+1 1216381033 0
+D0
+~
+~
+0 0 420016
+D2
+~
+~
+0 0 420018
+S
+#420018
+&+yThe rear of the wrecked Dreadnaught, the &+LCyclops&+y.&n~
+&+yA part of the ship broke off when it sank southeast of &+CIcecrag&+y during the battle with &+WPoseidon's
+&+CMer&+cpeo&+Cple&+y. This collapsed area is covered with debris that settled to the ocean floor. Moving the
+&+ydebris would likely require a &+mmagical &+yimplement. Such as a &+CWa&+cter&+CFy&+cre &+Lrod&+y. Or other &+Cunderwater &+bmagic
+&+Ldevice&+y.&n
+~
+1 1216381025 9
+D0
+~
+~
+0 0 420017
+D1
+&+yA pile of rubble and debris is here, obstructing the damaged part of the wreck to the east.&n
+~
+rubble~
+7 420001 420019
+S
+#420019
+&+BThe ocean &+Yfloor &+Boutside of a &+Lship&+ywreck.&n~
+&+YThe yellow sands stretch out in all directions. To the east you see the &+Ldark silhouette&+Y of what
+&+Yappears to be more of the &+ywreck&+Y from the &+yDreadnaught &+LCyclops&+Y. &+YDark shadows &+Yof what are likely
+&+Yto be large &+Rpre&+rdat&+Rors &+Cswimming &+Ycloseby can be seen in your periphery.&n
+~
+1 1216380993 9
+D1
+~
+~
+0 0 420020
+D3
+~
+rubble~
+3 420001 420018
+S
+#420020
+&+BThe ocean &+Yfloor &+Boutside of a &+Lship&+ywreck.&n~
+&+YThe yellow sands stretch out in all directions. To the east you see the &+Ldark silhouette&+Y of what appears
+&+Yto be more of the &+ywreck&+Y from the &+yDreadnaught &+LCyclops&+Y. &+YDark shadows &+Yof what are likely to be large
+&+Rpredators &+Cswimming &+Ycloseby can be seen in your periphery.&n
+~
+1 1216381025 0
+D1
+~
+~
+0 0 420021
+D3
+~
+~
+0 0 420019
+S
+#420021
+&+BThe ocean &+Yfloor &+Boutside of a &+Lship&+ywreck.&n~
+&+yJust to the east is a large &+Ldark shadow &+yof what appears to be more wreckage. A massive &+Ldark shape&+y of what is
+&+ypossible a &+rGIANT &+cshark &+yseems to also &+Lloom&+y to the east in the center of the &+Lwreckage.&n
+~
+1 1216381025 9
+D1
+~
+~
+0 0 420022
+D3
+~
+~
+0 0 420020
+S
+#420022
+&+yA &+Lbroken &+yoff rear portion of the Dreadnaught &+LCyclops&+y.&n~
+&+yA large portion of the rear of the ship lies here on the ocean floor and has become the home of many
+&+bsea &+Ccreatures&+y. Some of which are quite large and whose shadows can be seen swimming at the edge of
+&+yyour vision. There appears to be a large &+ciron &+yand &+Ybrass &+Lchest &+yresting in the corner under some debris.&n
+~
+1 1216381033 0
+D3
+~
+~
+0 0 420021
+S
+#420023
+&+LThe r&+wu&+Li&+wn&+Led fore &+yof the Dreadnaught Cyclops.&n~
+&+yThis part of the ship is in serious ruin. Rubble lies strewn about and &+cfish &+yswim languidly through
+&+ythe area. There appears to be a pile of equipment and &+wrigging &+ystrewn all about the area. The wreck ends
+&+yhere at the fore of the ship.
+~
+1 1216380969 0
+D1
+~
+~
+0 0 420003
+S
+#420024
+&+yThe &+RGunnery &+LDeck&n~
+&+yThe &+Ygunnery &+ydeck of the ship is where the &+Wballistaes &+yand &+ccannons&+y were kept to fire on enemy vessels.
+&+yThe ship is resting on her starboard side, so above you the remains of many gun ports damaged by the
+&+ybattle with &+wPoseidon's &+yhordes and enemy ships from &+GEvermeet &+yare seen. The Dreadnaught Cyclops was no
+&+yweak vessel and had 50 &+Wballistae &+yand &+ccannons &+yon both sides. The remains of gun ports can be also seen
+&+yat your feet. &+rRusty &+ccannons &+yand smashed &+Wballistae &+ylay strewn about everywhere... as well as what may
+&+ybe moving &+Lshadows...&n
+~
+1 1216381033 0
+D0
+~
+~
+2 0 420009
+D1
+~
+~
+0 0 420028
+D2
+~
+~
+0 0 420038
+D3
+~
+~
+0 0 420025
+S
+#420025
+&+LThe &+RGunnery &+yDeck&n~
+&+yThe &+Ygunnery &+ydeck of the ship is where the &+Wballistaes &+yand &+ccannons&+y were kept to fire on enemy vessels.
+&+yThe ship is resting on her starboard side, so above you the remains of many gun ports damaged by the
+&+ybattle with &+wPoseidon's &+yhordes and enemy ships from &+GEvermeet &+yare seen. The Dreadnaught Cyclops was no
+&+yweak vessel and had 50 &+Wballistae &+yand &+ccannons &+yon both sides. The remains of gun ports can be also seen
+&+yat your feet. &+rRusty &+ccannons &+yand smashed &+Wballistae &+ylay strewn about everywhere... as well as what may
+&+ybe moving &+Lshadows...&n
+~
+1 1216381033 0
+D1
+~
+~
+0 0 420024
+D2
+~
+~
+0 0 420039
+D3
+~
+~
+0 0 420026
+S
+#420026
+&+LThe &+RGunnery &+yDeck&n~
+&+yThe &+Ygunnery &+ydeck of the ship is where the &+Wballistaes &+yand &+ccannons&+y were kept to fire on enemy vessels.
+&+yThe ship is resting on her starboard side, so above you the remains of many gun ports damaged by the
+&+ybattle with &+wPoseidon's &+yhordes and enemy ships from &+GEvermeet &+yare seen. The Dreadnaught Cyclops was no
+&+yweak vessel and had 50 &+Wballistae &+yand &+ccannons &+yon both sides. The remains of gun ports can be also seen
+&+yat your feet. &+rRusty &+ccannons &+yand smashed &+Wballistae &+ylay strewn about everywhere... as well as what may
+&+ybe moving &+Lshadows...&n
+~
+1 1216381033 0
+D1
+~
+~
+0 0 420025
+D2
+~
+~
+0 0 420040
+D3
+~
+~
+0 0 420027
+S
+#420027
+&+LThe &+RGunnery &+yDeck&n~
+&+yThe &+Ygunnery &+ydeck of the ship is where the &+Wballistaes &+yand &+ccannons&+y were kept to fire on enemy vessels.
+&+yThe ship is resting on her starboard side, so above you the remains of many gun ports damaged by the
+&+ybattle with &+wPoseidon's &+yhordes and enemy ships from &+GEvermeet &+yare seen. The Dreadnaught Cyclops was no
+&+yweak vessel and had 50 &+Wballistae &+yand &+ccannons &+yon both sides. The remains of gun ports can be also seen
+&+yat your feet. &+rRusty &+ccannons &+yand smashed &+Wballistae &+ylay strewn about everywhere... as well as what may
+&+ybe moving &+Lshadows...&n
+~
+1 1216381033 0
+D1
+~
+~
+0 0 420026
+D2
+~
+~
+0 0 420041
+S
+#420028
+&+LThe &+RGunnery &+yDeck~
+&+yThe &+Ygunnery &+ydeck of the ship is where the &+Wballistaes &+yand &+ccannons&+y were kept to fire on enemy vessels.
+&+yThe ship is resting on her starboard side, so above you the remains of many gun ports damaged by the
+&+ybattle with &+wPoseidon's &+yhordes and enemy ships from &+GEvermeet &+yare seen. The Dreadnaught Cyclops was no
+&+yweak vessel and had 50 &+Wballistae &+yand &+ccannons &+yon both sides. The remains of gun ports can be also seen
+&+yat your feet. &+rRusty &+ccannons &+yand smashed &+Wballistae &+ylay strewn about everywhere... as well as what may
+&+ybe moving &+Lshadows...&n
+~
+1 1216381033 0
+D1
+~
+~
+0 0 420029
+D2
+~
+~
+0 0 420036
+D3
+~
+~
+0 0 420024
+S
+#420029
+&+LThe &+RGunnery &+yDeck~
+&+yThe &+Ygunnery &+ydeck of the ship is where the &+Wballistaes &+yand &+ccannons&+y were kept to fire on enemy vessels.
+&+yThe ship is resting on her starboard side, so above you the remains of many gun ports damaged by the
+&+ybattle with &+wPoseidon's &+yhordes and enemy ships from &+GEvermeet &+yare seen. The Dreadnaught Cyclops was no
+&+yweak vessel and had 50 &+Wballistae &+yand &+ccannons &+yon both sides. The remains of gun ports can be also seen
+&+yat your feet. &+rRusty &+ccannons &+yand smashed &+Wballistae &+ylay strewn about everywhere... as well as what may
+&+ybe moving &+Lshadows...&n
+~
+1 1216381033 0
+D1
+~
+~
+0 0 420030
+D2
+~
+~
+0 0 420035
+D3
+~
+~
+0 0 420028
+S
+#420030
+&+LThe &+RGunnery &+yDeck~
+&+yThe &+Ygunnery &+ydeck of the ship is where the &+Wballistaes &+yand &+ccannons&+y were kept to fire on enemy vessels.
+&+yThe ship is resting on her starboard side, so above you the remains of many gun ports damaged by the
+&+ybattle with &+wPoseidon's &+yhordes and enemy ships from &+GEvermeet &+yare seen. The Dreadnaught Cyclops was no
+&+yweak vessel and had 50 &+Wballistae &+yand &+ccannons &+yon both sides. The remains of gun ports can be also seen
+&+yat your feet. &+rRusty &+ccannons &+yand smashed &+Wballistae &+ylay strewn about everywhere... as well as what may
+&+ybe moving &+Lshadows...&n
+~
+1 1216381001 0
+D1
+~
+~
+0 0 420031
+D2
+~
+~
+0 0 420034
+D3
+~
+~
+0 0 420029
+S
+#420031
+&+LThe &+RGunnery &+yDeck&n~
+&+yThe &+Ygunnery &+ydeck of the ship is where the &+Wballistaes &+yand &+ccannons&+y were kept to fire on enemy vessels.
+&+yThe ship is resting on her starboard side, so above you the remains of many gun ports damaged by the
+&+ybattle with &+wPoseidon's &+yhordes and enemy ships from &+GEvermeet &+yare seen. The Dreadnaught Cyclops was no
+&+yweak vessel and had 50 &+Wballistae &+yand &+ccannons &+yon both sides. The remains of gun ports can be also seen
+&+yat your feet. &+rRusty &+ccannons &+yand smashed &+Wballistae &+ylay strewn about everywhere... as well as what may
+&+ybe moving &+Lshadows...&n
+~
+1 1207992425 0
+D2
+~
+~
+0 0 420032
+D3
+~
+~
+0 0 420030
+S
+#420032
+&+yThe aft of the wreck, close to the &+CCa&+cpt&+Cai&+cn's &+yQuarters&n~
+&+yRubble is strewn about here in the aft of the ship, located nearby would be the Captain's Quarters. The fore
+&+yof the ship would be where the First Mate's Quarters would be. This would help keep the crew under control of
+&+ythem both by keeping them between the two highest ranking officers even at rest.&n
+~
+1 1216381033 0
+D0
+~
+~
+0 0 420031
+D2
+~
+door~
+3 420046 420033
+S
+#420033
+&+LThe &+CCa&+cpt&+Cai&+cn's &+yQuarters&n~
+&+yThe &+CCa&+cpt&+Cai&+cn's &+yquarters were very spacious and the remnant's of oppulent furniture with &+Rvelvet &+yand &+msilk&n
+&+yupholstery are strewn about the room. An old desk with sea rot lies on it's side and it's drawers lie&n
+&+yopen...all except for one drawer which appears to have a &+clock&+y on it. There is a &+Ycage&+y with a &+Ldead &+Bbird&n
+&+Wbones&+y within on it's side in the corner. Shattered &+Ylamps &+yadorn the remnants of the hulls wall beneath&n
+&+yyour feet. Broken &+Wdishes &+yand &+rrusted &+Csilverware &+yalso can be seen scattered here.&n
+~
+1 1216381033 0
+D0
+~
+~
+3 0 420032
+S
+#420034
+&+LThe &+RGunnery &+yDeck~
+&+yThe &+Ygunnery &+ydeck of the ship is where the &+Wballistaes &+yand &+ccannons&+y were kept to fire on enemy vessels.
+&+yThe ship is resting on her starboard side, so above you the remains of many gun ports damaged by the
+&+ybattle with &+wPoseidon's &+yhordes and enemy ships from &+GEvermeet &+yare seen. The Dreadnaught Cyclops was no
+&+yweak vessel and had 50 &+Wballistae &+yand &+ccannons &+yon both sides. The remains of gun ports can be also seen
+&+yat your feet. &+rRusty &+ccannons &+yand smashed &+Wballistae &+ylay strewn about everywhere... as well as what may
+&+ybe moving &+Lshadows...&n
+~
+1 1216381025 0
+D0
+~
+~
+0 0 420030
+S
+#420035
+&+LThe &+RGunnery &+yDeck&n~
+&+yThe &+Ygunnery &+ydeck of the ship is where the &+Wballistaes &+yand &+ccannons&+y were kept to fire on enemy vessels.
+&+yThe ship is resting on her starboard side, so above you the remains of many gun ports damaged by the
+&+ybattle with &+wPoseidon's &+yhordes and enemy ships from &+GEvermeet &+yare seen. The Dreadnaught Cyclops was no
+&+yweak vessel and had 50 &+Wballistae &+yand &+ccannons &+yon both sides. The remains of gun ports can be also seen
+&+yat your feet. &+rRusty &+ccannons &+yand smashed &+Wballistae &+ylay strewn about everywhere... as well as what may
+&+ybe moving &+Lshadows...&n
+~
+1 1216381025 0
+D0
+~
+~
+0 0 420029
+S
+#420036
+&+LBefore the Hold of the &+yShip&n~
+&+yThere is a &+Lhatch&+y to the south that leads into the hold of the ship where the cargo and other precious
+&+yitems are stored. It is rumored that the &+LDreadnaught Cyclops&+y carried a vast &+Ytreasure trove&+y when sunk
+&+ycarrying an entire treasury shipment to &+CIcecrag&+y during the &+WPlatyr Dynasty&+y. Rumor has it that &+BAuril&+y was
+&+ybehind convincing Poseidon to betray the family Platyr by convincing him that they planned to cleanse
+&+ythe sea of all merpeople because they believed them to be immoral creatures. What treasures await and
+&+yalso consequently, what dangers lie to the south behind the hatch is unknown...
+~
+1 1216381033 0
+D0
+~
+~
+0 0 420028
+D2
+&+yAnother &+Lhatch &+yis here with an &+Lancient &+CIcecrag &+wsymbol &+yof &+Ytreasure &+yand cargo above the &+Llock&+y.&n
+~
+hatch hold~
+3 420030 420037
+S
+#420037
+&+LWithin the Hold of the &+yShip&n~
+&+LThis is the main stretch of the hold where the ballast is kept to weigh the ship down so she doesn't
+&+Llist to either side. The ballast stone is all underfoot, a dark stone probably mined from around the
+&+ymountains&+L near &+RBloodstone&+L. You are standing on the starboard side of the hold, an inky blackness is
+&+Lall around and dark shapes seems to move in the shadowy remnants of the once mighty &+yship&+L.&n
+~
+1 0 0
+D0
+A hatch is here to the north.
+~
+hatch~
+3 0 420036
+D1
+~
+~
+0 0 420045
+D2
+~
+~
+0 0 420047
+D3
+~
+~
+0 0 420043
+S
+#420038
+&+yThe &+rGunnery &+yDeck&n~
+&+yThe &+Ygunnery &+ydeck of the ship is where the &+Wballistaes &+yand &+ccannons&+y were kept to fire on enemy vessels.
+&+yThe ship is resting on her starboard side, so above you the remains of many gun ports damaged by the
+&+ybattle with &+wPoseidon's &+yhordes and enemy ships from &+GEvermeet &+yare seen. The Dreadnaught Cyclops was no
+&+yweak vessel and had 50 &+Wballistae &+yand &+ccannons &+yon both sides. The remains of gun ports can be also seen
+&+yat your feet. &+rRusty &+ccannons &+yand smashed &+Wballistae &+ylay strewn about everywhere... as well as what may
+&+ybe moving &+Lshadows...&n
+~
+1 1216381033 0
+D0
+~
+~
+0 0 420024
+D4
+~
+~
+0 0 420042
+S
+#420039
+&+LThe &+RGunnery &+yDeck~
+&+yThe &+Ygunnery &+ydeck of the ship is where the &+Wballistaes &+yand &+ccannons&+y were kept to fire on enemy vessels.
+&+yThe ship is resting on her starboard side, so above you the remains of many gun ports damaged by the
+&+ybattle with &+wPoseidon's &+yhordes and enemy ships from &+GEvermeet &+yare seen. The Dreadnaught Cyclops was no
+&+yweak vessel and had 50 &+Wballistae &+yand &+ccannons &+yon both sides. The remains of gun ports can be also seen
+&+yat your feet. &+rRusty &+ccannons &+yand smashed &+Wballistae &+ylay strewn about everywhere... as well as what may
+&+ybe moving &+Lshadows...&n
+~
+1 1216381033 0
+D0
+~
+~
+0 0 420025
+S
+#420040
+&+LThe &+RGunnery &+yDeck&n~
+&+yThe &+Ygunnery &+ydeck of the ship is where the &+Wballistaes &+yand &+ccannons&+y were kept to fire on enemy vessels.
+&+yThe ship is resting on her starboard side, so above you the remains of many gun ports damaged by the
+&+ybattle with &+wPoseidon's &+yhordes and enemy ships from &+GEvermeet &+yare seen. The Dreadnaught Cyclops was no
+&+yweak vessel and had 50 &+Wballistae &+yand &+ccannons &+yon both sides. The remains of gun ports can be also seen
+&+yat your feet. &+rRusty &+ccannons &+yand smashed &+Wballistae &+ylay strewn about everywhere... as well as what may
+&+ybe moving &+Lshadows...&n
+~
+1 1216381033 0
+D0
+~
+~
+0 0 420026
+S
+#420041
+&+cThe First Mate's &+yQuarters&n~
+&+yThe room is in disarray after the ship &+bsunk&+y and landed on her starboard side. Smashed furniture is strewn
+&+yall over. The remnants of a bed lie in the corner with &+rrusted &+csp&+rri&+cngs&+y showing. All of the furniture is in
+&+Ypieces&+y. The &+cfirst mate's &+yquarters were modest but there is nothing left intact or of interest here. There
+&+yis, however, a sense of being &+Lwatched...&n
+~
+1 1216381033 0
+D0
+~
+~
+0 0 420027
+S
+#420042
+&+cAn Abandoned &+RG&+ru&+Rn &+LPort&n~
+&+yMost of the gun ports were destroyed before the ship sank but this is one appears to have
+&+yescaped damage here on the port side of the ship. Being that the Cyclops sank and now is
+&+yresting on her starboard side, this &+cabandoned &+rgun &+yport is a ghostly reminder of the crew's
+&+yfinal moments before they drowned. An old &+Ycannon&+y lies on it's side near your feet. You see
+&+ythe dim surface &+wlight &+yout of the gun port many leagues above you.&n
+~
+1 1073872937 0
+D5
+~
+~
+0 0 420038
+S
+#420043
+&+LWithin the Hold of the Ship~
+&+LThis is the main stretch of the hold where the ballast is kept to weigh the ship down so she doesn't
+&+Llist to either side. The ballast stone is all underfoot, a dark stone probably mined from around the
+&+ymountains&+L near &+RBloodstone&+L. You are standing on the starboard side of the hold, an inky blackness is
+&+Lall around and dark shapes seems to move in the shadowy remnants of the once mighty &+yship&+L.&n
+~
+1 1216381033 0
+D1
+~
+~
+0 0 420037
+D3
+~
+~
+0 0 420044
+S
+#420044
+&+LWithin the Hold of the Ship~
+&+LThis is the main stretch of the hold where the ballast is kept to weigh the ship down so she doesn't
+&+Llist to either side. The ballast stone is all underfoot, a dark stone probably mined from around the
+&+ymountains&+L near &+RBloodstone&+L. You are standing on the starboard side of the hold, an inky blackness is
+&+Lall around and dark shapes seems to move in the shadowy remnants of the once mighty &+yship&+L.&n
+~
+1 1216381033 0
+D1
+~
+~
+0 0 420043
+S
+#420045
+&+LWithin the Hold of the Ship~
+&+LThis is the main stretch of the hold where the ballast is kept to weigh the ship down so she doesn't
+&+Llist to either side. The ballast stone is all underfoot, a dark stone probably mined from around the
+&+ymountains&+L near &+RBloodstone&+L. You are standing on the starboard side of the hold, an inky blackness is
+&+Lall around and dark shapes seems to move in the shadowy remnants of the once mighty &+yship&+L.&n
+~
+1 1216381033 0
+D1
+~
+~
+0 0 420046
+D3
+~
+~
+0 0 420037
+S
+#420046
+&+LWithin the Hold of the Ship~
+&+LThis is the main stretch of the hold where the ballast is kept to weigh the ship down so she doesn't
+&+Llist to either side. The ballast stone is all underfoot, a dark stone probably mined from around the
+&+ymountains&+L near &+RBloodstone&+L. You are standing on the starboard side of the hold, an inky blackness is
+&+Lall around and dark shapes seems to move in the shadowy remnants of the once mighty &+yship&+L.&n
+~
+1 1216381033 0
+D3
+~
+~
+0 0 420045
+S
+#420047
+&+LWithin the Hold of the Ship&n~
+&+LThis is the main stretch of the hold where the ballast is kept to weigh the ship down so she doesn't
+&+Llist to either side. The ballast stone is all underfoot, a dark stone probably mined from around the
+&+ymountains&+L near &+RBloodstone&+L. You are standing on the starboard side of the hold, an inky blackness is
+&+Lall around and dark shapes seems to move in the shadowy remnants of the once mighty &+yship&+L.&n
+~
+1 1216380969 0
+D0
+~
+~
+0 0 420037
+D1
+~
+~
+0 0 420048
+D2
+~
+~
+0 0 420050
+D3
+~
+~
+0 0 420049
+S
+#420048
+&+LWithin the Hold of the &+yShip&n~
+&+LThis is the main stretch of the hold where the ballast is kept to weigh the ship down so she doesn't
+&+Llist to either side. The ballast stone is all underfoot, a dark stone probably mined from around the
+&+ymountains&+L near &+RBloodstone&+L. You are standing on the starboard side of the hold, an inky blackness is
+&+Lall around and dark shapes seems to move in the shadowy remnants of the once mighty &+yship&+L.&n
+~
+1 1216381033 0
+D3
+~
+~
+0 0 420047
+S
+#420049
+&+LWithin the Hold of the &+yShip&n~
+&+LThis is the main stretch of the hold where the ballast is kept to weigh the ship down so she doesn't
+&+Llist to either side. The ballast stone is all underfoot, a dark stone probably mined from around the
+&+ymountains&+L near &+RBloodstone&+L. You are standing on the starboard side of the hold, an inky blackness is
+&+Lall around and dark shapes seems to move in the shadowy remnants of the once mighty &+yship&+L.&n
+~
+1 1216381033 0
+D1
+~
+~
+0 0 420047
+S
+#420050
+&+LThe &+YTreasury &+LHold&n~
+&+LLined along the walls are precious &+Bstones&+L, &+Rgems&+L, shattered &+Wstatues &+Land &+wantiquities&+L. &+YTreasure &+ychests&+L are
+&+Llaying strewn about the area. Piles of &+Wplatinum&+L, &+Ygold &+Land &+wsilver &+Wcoins&+L are mixed in with the balast and
+&+Ysand &+Lfrom the &+Bocean&+L floor. Here is one of the greatest lost &+Ytreasure &+Wtroves&+L of Duris, a legendary horde
+&+Lfrom several hundred years ago during &+CIcecrag's &+WPlatyr &+Ldynasty.&n
+~
+1 1216381033 0
+D0
+~
+~
+0 0 420047
+D1
+~
+~
+0 0 420051
+S
+#420051
+&+LThe &+YTreasury &+LHold&n~
+&+LLined along the walls are precious &+Bstones&+L, &+Rgems&+L, shattered &+Wstatues &+Land &+wantiquities&+L. &+YTreasure &+ychests&+L are
+&+Llaying strewn about the area. Piles of &+Wplatinum&+L, &+Ygold &+Land &+wsilver &+Wcoins&+L are mixed in with the balast and
+&+Ysand &+Lfrom the &+Bocean&+L floor. Here is one of the greatest lost &+Ytreasure &+Wtroves&+L of Duris, a legendary horde
+&+Lfrom several hundred years ago during &+CIcecrag's &+WPlatyr &+Ldynasty.&n
+~
+1 1216381033 0
+D1
+~
+~
+0 0 420052
+D3
+~
+~
+0 0 420050
+S
+#420052
+&+LThe &+YTreasury &+LHold&n~
+&+LLined along the walls are precious &+Bstones&+L, &+Rgems&+L, shattered &+Wstatues &+Land &+wantiquities&+L. &+YTreasure &+ychests&+L are
+&+Llaying strewn about the area. Piles of &+Wplatinum&+L, &+Ygold &+Land &+wsilver &+Wcoins&+L are mixed in with the balast and
+&+Ysand &+Lfrom the &+Bocean&+L floor. Here is one of the greatest lost &+Ytreasure &+Wtroves&+L of Duris, a legendary horde
+&+Lfrom several hundred years ago during &+CIcecrag's &+WPlatyr &+Ldynasty.&n
+~
+1 1216381033 0
+D1
+~
+~
+0 0 420053
+D3
+~
+~
+0 0 420051
+S
+#420053
+&+LThe &+YTreasury &+LHold&n~
+&+LLined along the walls are precious &+Bstones&+L, &+Rgems&+L, shattered &+Wstatues &+Land &+wantiquities&+L. &+YTreasure &+ychests&+L are
+&+Llaying strewn about the area. Piles of &+Wplatinum&+L, &+Ygold &+Land &+wsilver &+Wcoins&+L are mixed in with the balast and
+&+Ysand &+Lfrom the &+Bocean&+L floor. Here is one of the greatest lost &+Ytreasure &+Wtroves&+L of Duris, a legendary horde
+&+Lfrom several hundred years ago during &+CIcecrag's &+WPlatyr &+Ldynasty.&n
+~
+1 1216381033 0
+D3
+~
+~
+0 0 420052
+S
