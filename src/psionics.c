@@ -2912,8 +2912,6 @@ void spell_ether_warp(int level, P_char ch, char *arg, int type, P_char victim, 
 //    || how_close(victim->in_room, ch->in_room, level*1.35+15) < 0)) )
   {
     to_room = ch->in_room;
-  } else {
-    to_room = victim->in_room;
   }
 
   send_to_char("Your body explodes into light.\r\n", ch);
