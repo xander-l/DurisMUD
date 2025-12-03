@@ -46,7 +46,7 @@ extern P_desc descriptor_list;
 extern const struct race_names race_names_table[];
 extern P_room world;
 extern void purge_linked_auras(P_char ch);
-
+extern string pad_ansi(const char *str, int length, bool trim_to_length);
 
 struct mm_ds *dead_group_pool = NULL;
 
@@ -411,7 +411,25 @@ void do_group(P_char ch, char *argument, int cmd)
         if (racewar(ch, gl->ch))
           strcpy(Gbuf3, race_names_table[GET_RACE(gl->ch)].ansi);
         else
-          strcpy(Gbuf3, GET_NAME(gl->ch));
+        {
+            snprintf(Gbuf3, MAX_STRING_LENGTH, 
+              "&n[&+w%2d&n%s%s&n] %s", 
+              GET_LEVEL(gl->ch),
+              (IS_TRUSTED(gl->ch) && (IS_SET(gl->ch->specials.act, PLR_ANONYMOUS)) ? "*" : " "),
+              pad_ansi(get_class_name(gl->ch, ch), 16, TRUE).c_str(), 
+              GET_NAME(gl->ch));
+
+            //strcpy(Gbuf3, GET_NAME(gl->ch));
+            strcat(Gbuf3, " &N(");
+            strcat(Gbuf3, race_names_table[get_real_race(gl->ch)].ansi);
+            strcat(Gbuf3, "&N)");
+
+            if (IS_AFFECTED2(ch, AFF2_DETECT_EVIL) && IS_EVIL(gl->ch))
+              strcat(Gbuf3, "(&+rRed Aura&n)");
+
+            if (IS_AFFECTED2(ch, AFF2_DETECT_GOOD) && IS_GOOD(gl->ch))
+              strcat(Gbuf3, "(&+YGold Aura&n)");
+        }
       }
       snprintf(Gbuf1, MAX_STRING_LENGTH, "( Head) %-30s %-s\n",
               (ch->in_room == gl->ch->in_room) ? Gbuf2 : "",
@@ -440,7 +458,25 @@ void do_group(P_char ch, char *argument, int cmd)
           if (racewar(ch, gl->ch))
             strcpy(Gbuf3, race_names_table[GET_RACE(gl->ch)].ansi);
           else
-            strcpy(Gbuf3, GET_NAME(gl->ch));
+          {
+            snprintf(Gbuf3, MAX_STRING_LENGTH, 
+              "&n[&+w%2d&n%s%s&n] %s", 
+              GET_LEVEL(gl->ch),
+              (IS_TRUSTED(gl->ch) && (IS_SET(gl->ch->specials.act, PLR_ANONYMOUS)) ? "*" : " "),
+              pad_ansi(get_class_name(gl->ch, ch), 16, TRUE).c_str(), 
+              GET_NAME(gl->ch));
+
+            //strcpy(Gbuf3, GET_NAME(gl->ch));
+            strcat(Gbuf3, " &N(");
+            strcat(Gbuf3, race_names_table[get_real_race(gl->ch)].ansi);
+            strcat(Gbuf3, "&N)");
+            
+            if (IS_AFFECTED2(ch, AFF2_DETECT_EVIL) && IS_EVIL(gl->ch))
+              strcat(Gbuf3, "(&+rRed Aura&n)");
+
+            if (IS_AFFECTED2(ch, AFF2_DETECT_GOOD) && IS_GOOD(gl->ch))
+              strcat(Gbuf3, "(&+YGold Aura&n)");
+          }
         }
 
         snprintf(Gbuf1, MAX_STRING_LENGTH, "(%-5s) %-30s %-s\n",
