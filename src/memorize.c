@@ -201,6 +201,22 @@ int max_spells_in_circle(P_char ch, int circ)
   return max_spells_in_circle(ch, circ, get_max_circle(ch));
 }
 
+int get_spells_in_circle(P_char ch, int circ)
+{
+  int count = 0;
+  for (int spl = FIRST_SPELL; spl <= LAST_SPELL; spl++)
+  {
+    int circle = get_spell_circle(ch, spl);
+
+    if (circle < MAX_CIRCLE + 1)
+    {
+      if(circ == circle) count++;
+    }
+  }
+
+  return count;
+}
+
 // This works for PCs and NPCs?  Does now.
 int get_spell_circle(P_char ch, int spl)
 {
@@ -1455,6 +1471,9 @@ void do_memorize(P_char ch, char *argument, int cmd)
     i = 0;
     for (circle = 1; circle <= get_max_circle(ch); circle++)
     {
+
+      if(!get_spells_in_circle(ch, circle)) continue;
+      
       if (max_spells_in_circle(ch, circle) > memorized[circle])
       {
         if (i)
