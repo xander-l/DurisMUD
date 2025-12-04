@@ -19,12 +19,12 @@ A
 A
 34 4
 #139802
-nether~
+nether smoke disc~
 &+LA swir&+rling ne&+Rther of &+Lsmoke~
 &+LA massive swir&+rling ne&+Rther of &+Lsmoke spins in the shape of a disc~
 ~
 25 1 3 0 7 0 33554433 0 1088 0 0
-139937 7 0 0 0 0 0 0
+139937 7 -1 0 0 0 0 0
 0 0 100
 #139803
 staff fluxing energy red~
@@ -75,12 +75,12 @@ A
 A
 32 4
 #139807
-nether~
+nether smoke disc~
 &+LA swir&+rling ne&+Rther of &+Lsmoke~
 &+LA massive swir&+rling ne&+Rther of &+Lsmoke spins in the shape of a disc~
 ~
 25 1 3 0 7 0 33554433 0 1088 0 0
-139863 7 0 0 0 0 0 0
+139863 7 -1 0 0 0 0 0
 0 0 100
 #139808
 charred ehkahk heart~

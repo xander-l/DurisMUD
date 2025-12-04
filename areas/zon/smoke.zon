@@ -2,7 +2,7 @@
 &+LThe &+CPara&+L-&+rElemental&+L Plane of Smoke~
 139952 2 0 40 50 2
 *
-* Zone edited with durisEdit v3.00
+* Zone edited with durisEdit v3.02
 *
 *
 D 0 139941 0 2 100 0 0 0
@@ -22,7 +22,7 @@ D 0 139945 2 1 100 0 0 0
 *     "Ehkahk's Vault" - closed
 *
 *
-O 0 139821 2 139832 100 0 0 0      * A Blue Portal
+O 0 139821 2 139832 100 0 0 0      * a Blue Portal
 O 0 139802 1 139863 100 0 0 0      * A swirling nether of smoke
 O 0 139811 1 139894 100 0 0 0      * A massive box of solid obsidian
 P 1 139814 1 139811 100 0 0 0      *   A wretched broadsword named 'Hate'
@@ -31,11 +31,11 @@ P 1 139815 3 139811 100 0 0 0      *   An ancient script called 'Fortitude'
 P 1 139815 3 139811 100 0 0 0      *   An ancient script called 'Fortitude'
 P 1 139815 3 139811 100 0 0 0      *   An ancient script called 'Fortitude'
 P 1 139817 1 139811 100 0 0 0      *   Cael-drzk's treads of mobility
-O 0 139820 2 139894 100 0 0 0      * A Red Portal
+O 0 139820 2 139894 100 0 0 0      * a Red Portal
 O 0 139807 1 139937 100 0 0 0      * A swirling nether of smoke
 O 0 139819 1 139940 100 0 0 0      * A swirling portal of smoke and ash
-O 0 139820 2 139944 100 0 0 0      * A Red Portal
-O 0 139821 2 139944 100 0 0 0      * A Blue Portal
+O 0 139820 2 139944 100 0 0 0      * a Red Portal
+O 0 139821 2 139944 100 0 0 0      * a Blue Portal
 O 0 139830 1 139945 100 0 0 0      * The massive forge of the Plane of Smoke
 *
 M 0 139807 3 139801 100 0 0 0      * A powerful conjurer of smoke and ash
@@ -73,7 +73,7 @@ M 0 139809 1 139863 100 0 0 0      * Ehkahk, the Prince of the Para-Elemental Pl
 E 1 139805 1 12 100 0 0 0          *   A swirling mass of black smoke and hot ash
 E 1 139835 1 16 100 0 0 0          *   Ehkahk Elemental Attack
 G 1 139808 1 0 100 0 0 0           *    The charred remains of the heart of Ehkahk
-G 1 359 1 0 100 0 0 0              *    an unnamed object
+G 1 359 1 0 100 0 0 0              *    (object type not in this .obj file)
 M 0 139822 1 139863 40 0 0 0       * Charzzlk, the ash elemental
 G 1 139829 1 0 100 0 0 0           *    A wretched broadsword named 'Discontent'
 M 0 139804 8 139875 100 0 0 0      * A smoke mephit

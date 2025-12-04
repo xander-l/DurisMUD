@@ -264,7 +264,7 @@ void do_track_not_in_use(P_char ch, char *arg, int cmd)
   
   if (found_track != TRUE)
   {
-    send_to_char("&+LYou are unable to find any tracks.&n\r\n", ch);
+    send_to_char("You are unable to find any trace.\r\n", ch);
   }
 
   notch_skill(ch, SKILL_TRACK, 10);
@@ -371,6 +371,8 @@ void do_track(P_char ch, char *arg, int cmd) //do_track_not_in_use
     // If it's a God, allow tracking to room vnum.
     if( !IS_TRUSTED(ch) || real_room(atoi(name)) <= 0 )
     {
+      send_to_char("You attempt your skills at tracking.\n", ch);
+      CharWait(ch, PULSE_VIOLENCE);
       send_to_char("You are unable to find any tracks.\n", ch);
       return;
     }
