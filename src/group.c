@@ -46,7 +46,7 @@ extern P_desc descriptor_list;
 extern const struct race_names race_names_table[];
 extern P_room world;
 extern void purge_linked_auras(P_char ch);
-
+extern string pad_ansi(const char *str, int length, bool trim_to_length);
 
 struct mm_ds *dead_group_pool = NULL;
 
@@ -401,9 +401,37 @@ void do_group(P_char ch, char *argument, int cmd)
                 GET_MAX_VITALITY(gl->ch), GET_MANA(gl->ch),
                 GET_MAX_MANA(gl->ch));
       else*/
-        snprintf(Gbuf2, MAX_STRING_LENGTH, "%5d/%-5d hit, %4d/%-4d move",
-                GET_HIT(gl->ch), GET_MAX_HIT(gl->ch),
-                GET_VITALITY(gl->ch), GET_MAX_VITALITY(gl->ch));
+
+        char hp_ansi_char = 'g';
+        int hp_percent = (int)(((float)GET_HIT(gl->ch) / (float)GET_MAX_HIT(gl->ch)) * 100.0f);
+        if (hp_percent >= 100)      hp_ansi_char = 'g';
+        else if (hp_percent >= 90)  hp_ansi_char = 'y';
+        else if (hp_percent >= 75)  hp_ansi_char = 'Y';
+        else if (hp_percent >= 50)  hp_ansi_char = 'M';
+        else if (hp_percent >= 30)  hp_ansi_char = 'm';
+        else if (hp_percent >= 15)  hp_ansi_char = 'R';
+        else if (hp_percent >= 0)   hp_ansi_char = 'r';
+        else                        hp_ansi_char = 'r';
+
+        char mv_ansi_char = 'g';
+        int mv_percent = (int)(((float)GET_VITALITY(gl->ch) / (float)GET_MAX_VITALITY(gl->ch)) * 100.0f);
+        if (mv_percent >= 100)      mv_ansi_char = 'g';
+        else if (mv_percent >= 90)  mv_ansi_char = 'y';
+        else if (mv_percent >= 75)  mv_ansi_char = 'Y';
+        else if (mv_percent >= 50)  mv_ansi_char = 'M';
+        else if (mv_percent >= 30)  mv_ansi_char = 'm';
+        else if (mv_percent >= 15)  mv_ansi_char = 'R';
+        else if (mv_percent >= 0)   mv_ansi_char = 'r';
+        else                        mv_ansi_char = 'r';
+
+        snprintf(Gbuf2, MAX_STRING_LENGTH, "%5d/%-5dH (&+%c%3d&n%), %5d/%-5dV (&+%c%3d&n%)",
+          GET_HIT(gl->ch), GET_MAX_HIT(gl->ch),
+          hp_ansi_char,
+          hp_percent,
+          GET_VITALITY(gl->ch), GET_MAX_VITALITY(gl->ch),
+          mv_ansi_char,
+          mv_percent);
+
       if (IS_NPC(gl->ch))
         strcpy(Gbuf3, gl->ch->player.short_descr);
       else
@@ -411,12 +439,37 @@ void do_group(P_char ch, char *argument, int cmd)
         if (racewar(ch, gl->ch))
           strcpy(Gbuf3, race_names_table[GET_RACE(gl->ch)].ansi);
         else
-          strcpy(Gbuf3, GET_NAME(gl->ch));
+        {
+          snprintf(Gbuf3, MAX_STRING_LENGTH, 
+            "&n[&+w%2d&n%s%s&n] %s", 
+            GET_LEVEL(gl->ch),
+            (IS_TRUSTED(gl->ch) && (IS_SET(gl->ch->specials.act, PLR_ANONYMOUS)) ? "*" : " "),
+            pad_ansi(get_class_name(gl->ch, ch), 16, TRUE).c_str(), 
+            pad_ansi(GET_NAME(gl->ch), MAX_NAME_LENGTH, TRUE).c_str());
+        }
       }
-      snprintf(Gbuf1, MAX_STRING_LENGTH, "( Head) %-30s %-s\n",
-              (ch->in_room == gl->ch->in_room) ? Gbuf2 : "",
-              (!CAN_SEE_Z_CORD(ch, gl->ch)) ? "Someone" : Gbuf3);
-/*       IS_NPC(gl->ch) ? gl->ch->player.short_descr : GET_NAME(gl->ch)*/
+      snprintf(Gbuf1, MAX_STRING_LENGTH, "%s %-30s",
+              (!CAN_SEE_Z_CORD(ch, gl->ch)) ? "Someone" : Gbuf3,
+              (ch->in_room == gl->ch->in_room) ? Gbuf2 : ""
+      );
+
+      if (!racewar(ch, gl->ch) && !IS_NPC(gl->ch) && CAN_SEE_Z_CORD(ch, gl->ch))
+      {
+        strcat(Gbuf1, " &n(");
+        strcat(Gbuf1, race_names_table[get_real_race(gl->ch)].ansi);
+        strcat(Gbuf1, "&n)");
+      }
+
+      if(ch->in_room == gl->ch->in_room)
+      {
+        if (IS_AFFECTED2(ch, AFF2_DETECT_EVIL) && IS_EVIL(gl->ch))
+          strcat(Gbuf1, " (&+rRed Aura&n)");
+
+        if (IS_AFFECTED2(ch, AFF2_DETECT_GOOD) && IS_GOOD(gl->ch))
+          strcat(Gbuf1, " (&+YGold Aura&n)");
+      }
+
+      strcat(Gbuf1, "\n");
 
       send_to_char(Gbuf1, ch);
 
@@ -429,9 +482,36 @@ void do_group(P_char ch, char *argument, int cmd)
                   GET_MAX_VITALITY(gl->ch), GET_MANA(gl->ch),
                   GET_MAX_MANA(gl->ch));
         else*/
-          snprintf(Gbuf2, MAX_STRING_LENGTH, "%5d/%-5d hit, %4d/%-4d move",
-                  GET_HIT(gl->ch), GET_MAX_HIT(gl->ch),
-                  GET_VITALITY(gl->ch), GET_MAX_VITALITY(gl->ch));
+
+                char hp_ansi_char = 'g';
+        int hp_percent = (int)(((float)GET_HIT(gl->ch) / (float)GET_MAX_HIT(gl->ch)) * 100.0f);
+        if (hp_percent >= 100)      hp_ansi_char = 'g';
+        else if (hp_percent >= 90)  hp_ansi_char = 'y';
+        else if (hp_percent >= 75)  hp_ansi_char = 'Y';
+        else if (hp_percent >= 50)  hp_ansi_char = 'M';
+        else if (hp_percent >= 30)  hp_ansi_char = 'm';
+        else if (hp_percent >= 15)  hp_ansi_char = 'R';
+        else if (hp_percent >= 0)   hp_ansi_char = 'r';
+        else                        hp_ansi_char = 'r';
+
+        char mv_ansi_char = 'g';
+        int mv_percent = (int)(((float)GET_VITALITY(gl->ch) / (float)GET_MAX_VITALITY(gl->ch)) * 100.0f);
+        if (mv_percent >= 100)      mv_ansi_char = 'g';
+        else if (mv_percent >= 90)  mv_ansi_char = 'y';
+        else if (mv_percent >= 75)  mv_ansi_char = 'Y';
+        else if (mv_percent >= 50)  mv_ansi_char = 'M';
+        else if (mv_percent >= 30)  mv_ansi_char = 'm';
+        else if (mv_percent >= 15)  mv_ansi_char = 'R';
+        else if (mv_percent >= 0)   mv_ansi_char = 'r';
+        else                        mv_ansi_char = 'r';
+
+        snprintf(Gbuf2, MAX_STRING_LENGTH, "%5d/%-5dH (&+%c%3d&n%), %5d/%-5dV (&+%c%3d&n%)",
+          GET_HIT(gl->ch), GET_MAX_HIT(gl->ch),
+          hp_ansi_char,
+          hp_percent,
+          GET_VITALITY(gl->ch), GET_MAX_VITALITY(gl->ch),
+          mv_ansi_char,
+          mv_percent);
 
         if (IS_NPC(gl->ch))
           strcpy(Gbuf3, gl->ch->player.short_descr);
@@ -440,16 +520,37 @@ void do_group(P_char ch, char *argument, int cmd)
           if (racewar(ch, gl->ch))
             strcpy(Gbuf3, race_names_table[GET_RACE(gl->ch)].ansi);
           else
-            strcpy(Gbuf3, GET_NAME(gl->ch));
+          {
+            snprintf(Gbuf3, MAX_STRING_LENGTH, 
+              "&n[&+w%2d&n%s%s&n] %s", 
+              GET_LEVEL(gl->ch),
+              (IS_TRUSTED(gl->ch) && (IS_SET(gl->ch->specials.act, PLR_ANONYMOUS)) ? "*" : " "),
+              pad_ansi(get_class_name(gl->ch, ch), 16, TRUE).c_str(), 
+              pad_ansi(GET_NAME(gl->ch), MAX_NAME_LENGTH, TRUE).c_str()
+              );
+          }
         }
 
-        snprintf(Gbuf1, MAX_STRING_LENGTH, "(%-5s) %-30s %-s\n",
-                (!IS_BACKRANKED(gl->ch) ? "Front" : "Back"),
+        snprintf(Gbuf1, MAX_STRING_LENGTH, "%s %-30s",
+                (!CAN_SEE_Z_CORD(ch, gl->ch)) ? "Someone" : Gbuf3,
                 ((ch->in_room == gl->ch->in_room) && (!racewar(ch, gl->ch) || IS_DISGUISE(gl->ch)) )
-                ? Gbuf2 : "",
-                (!CAN_SEE_Z_CORD(ch, gl->ch)) ? "Someone" : Gbuf3);
-/*              IS_NPC(gl->ch) ? gl->ch->player.short_descr :
-                GET_NAME(gl->ch));*/
+                ? Gbuf2 : "");
+
+        if (!racewar(ch, gl->ch) && !IS_NPC(gl->ch) && CAN_SEE_Z_CORD(ch, gl->ch))
+        {
+          strcat(Gbuf1, " &n(");
+          strcat(Gbuf1, race_names_table[get_real_race(gl->ch)].ansi);
+          strcat(Gbuf1, "&n)");
+        }
+        if(ch->in_room == gl->ch->in_room)
+        {
+          if (IS_AFFECTED2(ch, AFF2_DETECT_EVIL) && IS_EVIL(gl->ch))
+            strcat(Gbuf1, " (&+rRed Aura&n)");
+
+          if (IS_AFFECTED2(ch, AFF2_DETECT_GOOD) && IS_GOOD(gl->ch))
+            strcat(Gbuf1, " (&+YGold Aura&n)");
+        }
+        strcat(Gbuf1, "\n");
         send_to_char(Gbuf1, ch);
       }
     }

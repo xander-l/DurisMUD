@@ -51,7 +51,7 @@ void make_prompt(P_desc point)
   if (point->showstr_count)
   {
     snprintf(promptbuf, MAX_INPUT_LENGTH,
-            "\n&+g[Return to continue, (q)uit, (r)efresh, (b)ack, or page number (%d/%d)]&n\n",
+            "\n[Return to continue, (q)uit, (r)efresh, (b)ack, or page number (%d/%d)]\n",
             point->showstr_page, point->showstr_count);
     if (write_to_descriptor(point, promptbuf) < 0)
     {
