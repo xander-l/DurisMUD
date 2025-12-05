@@ -1251,6 +1251,72 @@ H2 0 8454144 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
+#102
+fledgling dragon welp small~
+A fledgling &+Gdr&+Lag&+Gon&n &+Rwhelp&n~
+A small &+RDragon&n stands here waiting for it's master.
+~
+~
+8 0 0 0 0 0 0 0 0 S
+D 0 1 0 4
+10 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#103
+powerful fire drake~
+A powerful &+rfire&n &+GDr&+La&+Gke&n~
+A &+CPowerful&n looking &+rfire&n &+gDrake&n is here.
+~
+~
+8 0 0 0 0 0 0 0 0 S
+D 0 1 0 4
+20 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#104
+mighty dragon~
+A Mighty &+GDr&+Lag&+Gon&n~
+A &+MMighty&n &+rDragon&n is here.
+~
+~
+8 0 0 0 0 0 0 0 0 S
+D 0 1 0 4
+28 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#105
+serpentine wyrm dragon~
+A Serpentine &+GW&+Ly&+Gr&+Lm&n~
+A &+gSerpentine&n looking &+rDragon&n is here.
+~
+~
+8 0 0 0 0 0 0 0 0 S
+D 0 1 0 4
+38 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#106
+ferocious wyvern~
+A Ferocious &+GWy&+Lve&+Grn&n~
+A &+rFerocious&n looking &+gWyvern&n is here.
+~
+~
+8 0 0 0 0 0 0 0 0 S
+D 0 1 0 5
+48 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
+#107
+inferno hellkite hell kite dragon~
+An &+Rinferno&n &+GH&+ge&+Gl&+gl&+Gk&+gi&+Gt&+ge&n~
+A &+CLarge&n &+RHellkite&n is here.
+~
+~
+8 0 0 0 0 0 0 0 0 S
+D 0 1 0 6
+55 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 0
 #200
 dark shadow demon shape~
 &+La dark shadow&n~

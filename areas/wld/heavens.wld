@@ -8,6 +8,16 @@ your skin.
 ~
 1 134774848 0
 S
+#4
+&+BE&+Ri&+Bk&+Re&+Bl&+R'&+Bs &+YRoom &+Cof &+MContemplation&n~
+This room is where the &+LForger&n &+BE&+Ri&+Bk&+Re&+Bl&n goes to contemplate his great changes related to the world of &+rDuris&n.
+~
+1 0 0
+D5
+~
+~
+0 0 1200
+S
 #10
 &+rIlienze's Chamber of Sorrow and Sillyness~
 &+m   This room is filled with all sorts of sharp and pointy objects that make
@@ -841,6 +851,10 @@ D1
 ~
 ~
 1 0 17
+D4
+~
+~
+0 0 4
 D5
 Hell is that way.
 ~

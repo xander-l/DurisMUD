@@ -251,6 +251,12 @@ O 0 89 9999 1234 100 0 0 0         * a holy bulletin board
 O 0 1211 99 1255 100 0 0 0         * a book of Duris ANSI codes
 O 0 89 9999 1255 100 0 0 0         * a holy bulletin board
 *
+M 0 102 1 4 100 0 0 0              * A fledgling dragon whelp
+M 0 103 1 4 100 0 0 0              * A powerful fire Drake
+M 0 104 1 4 100 0 0 0              * A Mighty Dragon
+M 0 105 1 4 100 0 0 0              * A Serpentine Wyrm
+M 0 106 1 4 100 0 0 0              * A Ferocious Wyvern
+M 0 107 1 4 100 0 0 0              * An inferno Hellkite
 M 0 37 1 15 100 0 0 0              * Ooklahsha
 E 1 176 1 24 100 0 0 0             *   a badge spun of twilight
 M 0 38 1 15 100 0 0 0              * Ooyalasha
