@@ -577,7 +577,7 @@ void do_forge(P_char ch, char *argument, int cmd)
   {
     // Attempt to make obj:
     iVal = itemvalue(obj);
-    if( iVal > 100 || IS_OBJ_STAT2(obj, ITEM2_QUESTITEM) )
+    if( iVal > GET_LEVEL(ch) * 3 || IS_OBJ_STAT2(obj, ITEM2_QUESTITEM) )
     {
       act("You look at the recipe for $p&n, but can't seem to discern how to make it.  &+mHow strange.&N",
         FALSE, ch, obj, 0, TO_CHAR);
