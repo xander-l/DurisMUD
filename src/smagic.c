@@ -4195,7 +4195,7 @@ void spell_spirit_jump(int level, P_char ch, char *arg, int type, P_char victim,
     return;
   }
 
-  distance = (level * 27) / 20 + (IS_SPIRITUALIST(ch) ? 15 : 0);
+  distance = (level * 27) / 10 + (IS_SPIRITUALIST(ch) ? 15 : 0);
 
   if( !IS_TRUSTED(ch) && ((how_close(ch->in_room, victim->in_room, distance) < 0)) )
 //    || (how_close(victim->in_room, ch->in_room, distance) < 0)) )

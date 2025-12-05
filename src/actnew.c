@@ -3950,7 +3950,7 @@ void do_craft(P_char ch, char *argument, int cmd)
 
     // Minimum value is iVal 1 -> 1 Max quality material, 0 Min quality materials to create.
     int iVal = itemvalue(tobj);
-    if( iVal > 100 || IS_OBJ_STAT2(tobj, ITEM2_QUESTITEM) )
+    if( iVal > GET_LEVEL(ch) * 3 || IS_OBJ_STAT2(tobj, ITEM2_QUESTITEM) )
     {
       act("You look at the recipe for $p&n, but can't seem to discern how to make it.  &+mHow strange.&N",
         FALSE, ch, tobj, 0, TO_CHAR);
