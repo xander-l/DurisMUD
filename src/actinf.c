@@ -2877,7 +2877,7 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
     }
 
     // cmd == CMD_LOOKOUT -> Mode = -1 (for look out on ship).
-    if (IS_MAP_ROOM(room_no)) map_look_room( ch, room_no, MAP_USE_TOGGLE );  // Fix looking from zone to map room -- Eikel.
+    if (IS_MAP_ROOM(room_no) && !IS_MAP_ROOM(ch->in_room)) map_look_room( ch, room_no, MAP_USE_TOGGLE );  // Fix looking from zone to map room -- Eikel.
     show_exits_to_char(ch, room_no, (cmd == CMD_LOOKOUT) ? -1 : 1);
     if (get_spell_from_room(&world[room_no], SPELL_WANDERING_WOODS))
     {
