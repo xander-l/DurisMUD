@@ -35,6 +35,37 @@ extern struct time_info_data time_info;
 extern const int rev_dir[];
 extern const char *dirs[];
 
+bool has_dragoon_mount(P_char ch)
+{
+  struct follow_type *fol;
+
+  for( fol = ch->followers; fol; fol = fol->next )
+  {
+    if( IS_NPC(fol->follower) && IS_SET(fol->follower->specials.act, ACT_MOUNT) )
+    {
+      if(GET_RACE(fol->follower) == RACE_DRAGON)
+        return true;
+    }
+  }
+
+  return false;
+}
+
+bool is_dragoon_mounted(P_char ch)
+{
+  if(IS_DRAGOON(ch))
+  {
+    P_char   mount = get_linked_char(ch, LNK_RIDING);
+    
+    if(mount != NULL)
+    {
+        if(GET_RACE(mount) == RACE_DRAGON)
+          return true;
+    }
+  }
+  return false;
+}
+
 void do_mount(P_char ch, char *argument, int cmd)
 {
   char     name[MAX_STRING_LENGTH];
@@ -223,6 +254,12 @@ void do_mount(P_char ch, char *argument, int cmd)
   act("$n climbs on and rides $N.", TRUE, ch, 0, mount, TO_NOTVICT);
   act("$n climbs on and rides you.", FALSE, ch, 0, mount, TO_VICT);
   notch_skill(ch, SKILL_MOUNT, 20);
+
+  if(is_dragoon_mounted(ch))
+  {
+    // restart commune
+    do_assimilate(ch, "nl", CMD_COMMUNE);
+  }
 }
 
 /*

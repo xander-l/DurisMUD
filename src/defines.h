@@ -1051,7 +1051,8 @@ struct surname_struct
 #define CLASS_AVENGER           BIT_27
 #define CLASS_THEURGIST         BIT_28
 #define CLASS_SUMMONER          BIT_29
-#define CLASS_COUNT                 29
+#define CLASS_DRAGOON           BIT_30
+#define CLASS_COUNT                 30
 
 #define CLASS_TYPE_WARRIOR   1
 #define CLASS_TYPE_MAGE      2
@@ -1263,6 +1264,7 @@ struct surname_struct
 #define AGGR3_AVENGER        BIT_16
 #define AGGR3_BLIGHTER       BIT_17
 #define AGGR3_SUMMONER       BIT_18
+#define AGGR3_DRAGOON        BIT_19
 
 #define SECS_BETWEEN_AFF_REFRESH  60    /* RL seconds between each refresh */
 

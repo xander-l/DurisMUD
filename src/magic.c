@@ -16338,7 +16338,7 @@ void spell_infravision(int level, P_char ch, char *arg, int type, P_char victim,
 {
   struct affected_type af;
 
-  if(IS_AFFECTED(victim, AFF_INFRAVISION))
+  if(IS_AFFECTED(victim, AFF_INFRAVISION) || has_innate(victim, INNATE_OPHIDIAN_EYES))
     return;
 
   if(!affected_by_spell(victim, SPELL_INFRAVISION))

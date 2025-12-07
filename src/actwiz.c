@@ -5263,7 +5263,7 @@ void do_start(P_char ch, int nomsg)
 
   GET_EXP(ch) = 1;
 
-  if(isname("Duris", GET_NAME(ch)) || god_check(GET_NAME(ch)))
+  if(isname("Tyrus", GET_NAME(ch)) || god_check(GET_NAME(ch)))
   {
     ch->player.level = OVERLORD;
   }

@@ -865,6 +865,9 @@ extern unsigned int game_locked_level;
 #define CMD_INSTACAST      834 // Instantly cast a spell (gods only).
 #define CMD_SURNAME        835 // Set yer surname to an available option.
 #define CMD_NAMEDREPORT    836 // show named equipment spells by zone
+#define CMD_DRAGON_ROAR    837
+#define CMD_DRAGON_BREATH  838
+#define CMD_DRAGON_STRIKE  839
 
 /* The CMD_s below are not real commands, they are used in item special procedures to identify
  * when wearer gets hit in melee or nuked and when an item is poofing on ground.

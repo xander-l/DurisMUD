@@ -541,7 +541,8 @@ int IS_CLERIC(P_char ch)
           GET_CLASS(ch, CLASS_CLERIC) ||
           GET_CLASS(ch, CLASS_SHAMAN) ||
           GET_CLASS(ch, CLASS_ETHERMANCER) ||
-          GET_CLASS(ch, CLASS_PALADIN));
+          GET_CLASS(ch, CLASS_PALADIN) ||
+          GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_PRIEST));
 }
 
 int IS_HOLY(P_char ch)
@@ -566,7 +567,7 @@ int IS_MAGE(P_char ch)
     CLASS_PSIONICIST) |
     CLASS_THEURGIST |
     CLASS_SUMMONER
-);
+  ) || (IS_DRAGOON(ch) && GET_SPEC(ch, CLASS_DRAGOON, 0));
 }
 
 int IS_THIEF(P_char ch)
@@ -589,7 +590,8 @@ int IS_WARRIOR(P_char ch)
           GET_CLASS(ch, CLASS_RANGER) || 
           GET_CLASS(ch, CLASS_REAVER) ||
           GET_CLASS(ch, CLASS_AVENGER) ||
-          GET_CLASS(ch, CLASS_MERCENARY));
+          GET_CLASS(ch, CLASS_MERCENARY) ||
+          GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_LANCER));
 }
 
 bool In_Adjacent_Room(P_char ch, P_char vict)

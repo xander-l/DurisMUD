@@ -965,7 +965,7 @@ for ((IN_ROOM) = world[(PLAYER)->in_room].people; (IN_ROOM) != NULL; (IN_ROOM) =
 #define IS_PARTIAL_CASTER_CLASS(cls) ( (cls) &\
    (CLASS_AVENGER))
 #define IS_SEMI_CASTER_CLASS(cls) ( (cls) &\
-  (CLASS_ANTIPALADIN | CLASS_PALADIN | CLASS_RANGER |\
+  (CLASS_ANTIPALADIN | CLASS_PALADIN | CLASS_RANGER | CLASS_DRAGOON | \
    CLASS_REAVER | CLASS_AVENGER))
 #define IS_CASTER_CLASS(cls) (\
   IS_PURE_CASTER_CLASS(cls) || IS_SEMI_CASTER_CLASS(cls) )
@@ -977,7 +977,7 @@ for ((IN_ROOM) = world[(PLAYER)->in_room].people; (IN_ROOM) != NULL; (IN_ROOM) =
   (CLASS_CLERIC | CLASS_PALADIN | CLASS_ANTIPALADIN | CLASS_AVENGER))
 #define IS_MEMING_CLASS(cls) (IS_BOOK_CLASS(cls) || ((cls) & CLASS_SHAMAN))
 
-#define USES_COMMUNE(ch) ((IS_NPC(ch) || GET_PRIME_CLASS(ch, CLASS_DRUID) || GET_PRIME_CLASS(ch, CLASS_RANGER) \
+#define USES_COMMUNE(ch) ((IS_NPC(ch) || GET_PRIME_CLASS(ch, CLASS_DRUID) || GET_PRIME_CLASS(ch, CLASS_RANGER) || GET_PRIME_CLASS(ch, CLASS_DRAGOON) \
 || (!(IS_CASTER_CLASS(ch->player.m_class) || USES_MANA(ch)) \
 && ( GET_SECONDARY_CLASS(ch, CLASS_DRUID) || GET_SECONDARY_CLASS( ch, CLASS_RANGER) )) ))
 
@@ -1354,7 +1354,7 @@ char *CRYPT2( char *passwd, char *name );
 
 // Can't seem to find this defined anywhere else.
 #define IS_MELEE_CLASS(ch) \
-        (GET_CLASS(ch, CLASS_WARRIOR | CLASS_PALADIN | CLASS_ROGUE | CLASS_MERCENARY | CLASS_DREADLORD | CLASS_REAVER | CLASS_AVENGER | CLASS_ANTIPALADIN | CLASS_RANGER | CLASS_MONK))
+        (GET_CLASS(ch, CLASS_WARRIOR | CLASS_PALADIN | CLASS_ROGUE | CLASS_MERCENARY | CLASS_DREADLORD | CLASS_REAVER | CLASS_AVENGER | CLASS_ANTIPALADIN | CLASS_RANGER | CLASS_MONK | CLASS_DRAGOON))
 
         
 #define SHAMAN_MOVE_SPELL(ch) \
@@ -1414,6 +1414,8 @@ char *CRYPT2( char *passwd, char *name );
                       (GET_RACE(ch) == RACE_BRALANI) || \
                       (GET_RACE(ch) == RACE_DEVA) || \
                        IS_ANGELIC(ch))
+
+#define IS_DRAGOON(ch) GET_CLASS(ch, CLASS_DRAGOON)
 
 #define INFRA_INVIS_RACE(race)   (race == RACE_UNDEAD      || race == RACE_GHOST       || race == RACE_VAMPIRE       \
   || race == RACE_LICH         || race == RACE_PDKNIGHT    || race == RACE_ZOMBIE      || race == RACE_SPECTRE       \

@@ -1010,9 +1010,12 @@
 #define SKILL_GARROTE                1300
 #define SKILL_LEGSWEEP               1301
 #define SKILL_NATURES_RUIN           1302
+#define SKILL_DRAGON_ROAR            1303
+#define SKILL_DRAGON_BREATH          1304
+#define SKILL_DRAGON_STRIKE          1305
 // Slots SKILL_ ...  1045 and 1186 are unused.
 
-#define LAST_SKILL                   SKILL_NATURES_RUIN
+#define LAST_SKILL                   SKILL_DRAGON_STRIKE
 
 //#ifdef SKILLPOINTS
 //#define WHITE_SKILL                  -1

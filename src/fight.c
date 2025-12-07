@@ -6401,38 +6401,56 @@ int calculate_thac_zero(P_char ch, int skill)
   {
     to_hit = get_property("to.hit.GreaterRaceTypes", 13);
   }
-  else if( GET_CLASS(ch, CLASS_WARRIOR) || GET_CLASS(ch, CLASS_DREADLORD)
-    || GET_CLASS(ch, CLASS_AVENGER) || GET_CLASS(ch, CLASS_PALADIN)
-    || GET_CLASS(ch, CLASS_ANTIPALADIN) || affected_by_spell(ch, SPELL_COMBAT_MIND)
-    || is_wearing_necroplasm(ch) )
+  else if( GET_CLASS(ch, CLASS_WARRIOR) 
+        || GET_CLASS(ch, CLASS_DREADLORD)
+        || GET_CLASS(ch, CLASS_AVENGER) 
+        || GET_CLASS(ch, CLASS_PALADIN)
+        || GET_CLASS(ch, CLASS_ANTIPALADIN) 
+        || affected_by_spell(ch, SPELL_COMBAT_MIND)
+        || is_wearing_necroplasm(ch)
+        || GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_LANCER) )
   {
     to_hit = get_property("to.hit.WarriorTypes", 10);
   }
-  else if( GET_CLASS(ch, CLASS_MERCENARY) || GET_CLASS(ch, CLASS_REAVER)
-    || GET_CLASS(ch, CLASS_RANGER) || GET_CLASS(ch, CLASS_BERSERKER)
-    || GET_SPEC(ch, CLASS_NECROMANCER, SPEC_REAPER)
-    || GET_SPEC(ch, CLASS_THEURGIST, SPEC_THAUMATURGE)
-    || GET_SPEC(ch, CLASS_CLERIC, SPEC_ZEALOT) )
+  else if( GET_CLASS(ch, CLASS_MERCENARY) 
+        || GET_CLASS(ch, CLASS_REAVER)
+        || GET_CLASS(ch, CLASS_RANGER) 
+        || GET_CLASS(ch, CLASS_BERSERKER)
+        || GET_SPEC(ch, CLASS_NECROMANCER, SPEC_REAPER)
+        || GET_SPEC(ch, CLASS_THEURGIST, SPEC_THAUMATURGE)
+        || GET_SPEC(ch, CLASS_CLERIC, SPEC_ZEALOT) 
+        || GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_HUNTER))
   {
     to_hit = get_property("to.hit.HitterTankTypes", 8);
   }
-  else if( GET_CLASS(ch, CLASS_THIEF) || GET_CLASS(ch, CLASS_BARD)
-    || GET_CLASS(ch, CLASS_ROGUE) || GET_CLASS(ch, CLASS_ASSASSIN)
-    || GET_CLASS(ch, CLASS_MONK) )
+  else if( GET_CLASS(ch, CLASS_THIEF) 
+        || GET_CLASS(ch, CLASS_BARD)
+        || GET_CLASS(ch, CLASS_ROGUE) 
+        || GET_CLASS(ch, CLASS_ASSASSIN)
+        || GET_CLASS(ch, CLASS_MONK) )
   {
     to_hit = get_property("to.hit.RogueTypes", 7);
   }
-  else if( GET_CLASS(ch, CLASS_CLERIC) || GET_CLASS(ch, CLASS_DRUID)
-    || GET_CLASS(ch, CLASS_BLIGHTER) || GET_CLASS(ch, CLASS_SHAMAN)
-    || GET_CLASS(ch, CLASS_WARLOCK) || GET_CLASS(ch, CLASS_ETHERMANCER)
-    || GET_CLASS(ch, CLASS_ALCHEMIST) || GET_CLASS(ch, CLASS_PSIONICIST) )
+  else if( GET_CLASS(ch, CLASS_CLERIC) 
+        || GET_CLASS(ch, CLASS_DRUID)
+        || GET_CLASS(ch, CLASS_BLIGHTER) 
+        || GET_CLASS(ch, CLASS_SHAMAN)
+        || GET_CLASS(ch, CLASS_WARLOCK) 
+        || GET_CLASS(ch, CLASS_ETHERMANCER)
+        || GET_CLASS(ch, CLASS_ALCHEMIST) 
+        || GET_CLASS(ch, CLASS_PSIONICIST)
+        || GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_PRIEST) )
   {
     to_hit = get_property("to.hit.ClericTypes", 6);
   }
-  else if( GET_CLASS(ch, CLASS_SORCERER) || GET_CLASS(ch, CLASS_CONJURER)
-    || GET_CLASS(ch, CLASS_NECROMANCER) || GET_CLASS(ch, CLASS_THEURGIST)
-    || GET_CLASS(ch, CLASS_ILLUSIONIST) || GET_CLASS(ch, CLASS_MINDFLAYER)
-    || GET_CLASS(ch, CLASS_SUMMONER) )
+  else if( GET_CLASS(ch, CLASS_SORCERER) 
+        || GET_CLASS(ch, CLASS_CONJURER)
+        || GET_CLASS(ch, CLASS_NECROMANCER) 
+        || GET_CLASS(ch, CLASS_THEURGIST)
+        || GET_CLASS(ch, CLASS_ILLUSIONIST) 
+        || GET_CLASS(ch, CLASS_MINDFLAYER)
+        || GET_CLASS(ch, CLASS_SUMMONER) 
+        || GET_CLASS(ch, CLASS_DRAGOON) )
   {
     to_hit = get_property("to.hit.MageTypes", 4);
   }
