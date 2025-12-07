@@ -2733,7 +2733,7 @@ void spell_radial_navigation(int level, P_char ch, char *arg, int type, P_char v
   }
 
   /* subtract mana regardless of success..  snif */
-  GET_MANA(ch) -= (distance * 3);
+  GET_MANA(ch) -= (distance * 12);
   CharWait(ch, 2.5*WAIT_SEC);
 
   /* twould be best to add more to their knock out time if they're already knocked out, but f it */
