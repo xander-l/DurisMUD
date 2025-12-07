@@ -3170,7 +3170,7 @@ P_char get_char_room_vis(P_char ch, const char *name)
        /* racewar(ch, i) || */ (IS_DISGUISE(i) && (i != ch)) ))) ||
        (isname(tmp, GET_NAME(i)) && (IS_NPC(i))) ||
          ((i != ch) && !IS_TRUSTED(ch) && !CAN_DAYPEOPLE_SEE(ch->in_room) &&
-          IS_AFFECTED(ch, AFF_INFRAVISION) && (isname(tmp, "shape") ||
+          (IS_AFFECTED(ch, AFF_INFRAVISION) || has_innate(ch, INNATE_OPHIDIAN_EYES)) && (isname(tmp, "shape") ||
                                                isname(tmp, "outline")))))
     {
       if (j == k)

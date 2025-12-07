@@ -148,7 +148,7 @@ int get_vis_mode(P_char ch, int room)
   }
 
   // If they have infra, they use it here; we failed at regular vision.
-  if( IS_AFFECTED(ch, AFF_INFRAVISION) )
+  if( IS_AFFECTED(ch, AFF_INFRAVISION) || has_innate(ch, INNATE_OPHIDIAN_EYES) )
   {
     /* Removing absolute blindness and moving it to infra, and infra to regular.
     return 3;
@@ -1282,7 +1282,7 @@ bool ac_can_see(P_char sub, P_char obj, bool check_z)
       return FALSE;
     }
 
-    if( !IS_AFFECTED(sub, AFF_DETECT_INVISIBLE)
+    if( !IS_AFFECTED(sub, AFF_DETECT_INVISIBLE) && !(has_innate(sub, INNATE_OPHIDIAN_EYES) && GET_LEVEL(sub) > 36)
       && !(IS_NPC(obj) && (obj->following == sub) && IS_AFFECTED4(sub, AFF4_SENSE_FOLLOWER)) )
     {
       return FALSE;
@@ -1353,7 +1353,7 @@ bool ac_can_see(P_char sub, P_char obj, bool check_z)
       if( !globe )
       {
         // Here we check sub's infra vs obj's race (some races are invis to infravision).
-        if( IS_AFFECTED(sub, AFF_INFRAVISION) )
+        if( IS_AFFECTED(sub, AFF_INFRAVISION) || has_innate(sub, INNATE_OPHIDIAN_EYES) )
         {
 // Changed this for the 6/3/2016 wipe.
 } else {
@@ -1389,7 +1389,7 @@ bool ac_can_see(P_char sub, P_char obj, bool check_z)
       if( !flame )
       {
         // Here we check sub's infra vs obj's race (some races are invis to infravision).
-        if( IS_AFFECTED(sub, AFF_INFRAVISION) )
+        if( IS_AFFECTED(sub, AFF_INFRAVISION) || has_innate(sub, INNATE_OPHIDIAN_EYES))
         {
 // Changed this for the 6/3/2016 wipe.
 } else {
@@ -1430,7 +1430,7 @@ bool ac_can_see(P_char sub, P_char obj, bool check_z)
       // If no globe of darkness in room, then sub can not see in obj's room.
       if( !globe )
       {
-        if( IS_AFFECTED(sub, AFF_INFRAVISION) )
+        if( IS_AFFECTED(sub, AFF_INFRAVISION) || has_innate(sub, INNATE_OPHIDIAN_EYES))
         {
 // Changed this for the 6/3/2016 wipe.
 } else {
@@ -1450,7 +1450,7 @@ bool ac_can_see(P_char sub, P_char obj, bool check_z)
       }
     }
     // Else check for nightblind: Dark room with no infra/ultra subject.
-    else if( !IS_AFFECTED(sub, AFF_INFRAVISION) && !IS_AFFECTED2(sub, AFF2_ULTRAVISION) && !CAN_DAYPEOPLE_SEE(oroom) )
+    else if( !has_innate(sub, INNATE_OPHIDIAN_EYES) && !IS_AFFECTED(sub, AFF_INFRAVISION) && !IS_AFFECTED2(sub, AFF2_ULTRAVISION) && !CAN_DAYPEOPLE_SEE(oroom) )
     {
       flame = FALSE;
       // Anyone with mage flame overrides room to twilight.
@@ -1465,7 +1465,7 @@ bool ac_can_see(P_char sub, P_char obj, bool check_z)
       // If no mage flame in room, then sub can not see in obj's room.
       if( !flame )
       {
-        if( IS_AFFECTED(sub, AFF_INFRAVISION) )
+        if( IS_AFFECTED(sub, AFF_INFRAVISION) || has_innate(sub, INNATE_OPHIDIAN_EYES))
         {
 // Changed this for the 6/3/2016 wipe.
 } else {
@@ -1540,7 +1540,7 @@ bool ac_can_see_obj(P_char sub, P_obj obj, int zrange )
     return FALSE;
 
   /* Check to see if object is invis */
-  if( IS_SET(obj->extra_flags, ITEM_INVISIBLE) && !IS_AFFECTED(sub, AFF_DETECT_INVISIBLE) )
+  if( IS_SET(obj->extra_flags, ITEM_INVISIBLE) && !IS_AFFECTED(sub, AFF_DETECT_INVISIBLE) && !(has_innate(sub, INNATE_OPHIDIAN_EYES) && GET_LEVEL(sub) > 36))
     return FALSE;
 
   /* Check if subject is blind */
@@ -2382,6 +2382,9 @@ bool aggressive_to_class(P_char ch, P_char target)
     if (IS_AGGRO2FLAG(ch, AGGR3_AVENGER) && GET_CLASS1(target, CLASS_AVENGER))
       return TRUE;
 
+    if (IS_AGGRO3FLAG(ch, AGGR3_DRAGOON) && GET_CLASS1(target, CLASS_DRAGOON))
+      return TRUE;
+
     return FALSE;
 }
 
@@ -2873,7 +2876,7 @@ char *PERS(P_char ch, P_char vict, int short_d, bool noansi)
 
   // Handle infravision during dayblind / nightblind.
   // If they have infra, then it's a red shape..
-  if( IS_AFFECTED(vict, AFF_INFRAVISION) ) // && !IS_TRUSTED(vict) )
+  if( IS_AFFECTED(vict, AFF_INFRAVISION) || has_innate(vict, INNATE_OPHIDIAN_EYES)) // && !IS_TRUSTED(vict) )
   {
 // Changed this for the 6/3/2016 wipe.
 } else {

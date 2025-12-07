@@ -473,8 +473,9 @@ struct edit_data {
 #define INNATE_LIVING_STONE           172
 #define INNATE_INVISIBILITY           173
 #define INNATE_INFERNAL_FURY          174
+#define INNATE_OPHIDIAN_EYES          175
 
-#define LAST_INNATE                   174   // LAST means last, not last + 1 or whatever
+#define LAST_INNATE                   175   // LAST means last, not last + 1 or whatever
 
 struct extra_descr_data {
   char *keyword;                /* Keyword in look/examine          */
@@ -2200,6 +2201,11 @@ struct mcname {
 #define SPEC_CONTROLLER 1
 #define SPEC_MENTALIST  2
 #define SPEC_NATURALIST 3
+
+// Dragoon Specs
+#define SPEC_DRAGON_HUNTER 1
+#define SPEC_DRAGON_PRIEST 2
+#define SPEC_DRAGON_LANCER 3
 
 #define MAX_SPEC 4
 

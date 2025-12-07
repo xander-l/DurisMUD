@@ -26,3 +26,5 @@ arih/
 Accounts/email.db
 Accounts/*/*
 !Accounts/*/.gitkeep
+duris.crt
+duris.key

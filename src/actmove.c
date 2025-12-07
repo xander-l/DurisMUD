@@ -1084,7 +1084,7 @@ char    *enter_message(P_char ch, P_char people, int exitnumb, char *amsg,
       !ch->lobj->Visible_Type())))
     {
       if(IS_TRUSTED(people) ||
-        ((IS_AFFECTED(people, AFF_SENSE_LIFE) ||
+        (((IS_AFFECTED(people, AFF_SENSE_LIFE) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 25)) ||
         IS_AFFECTED(people, AFF_SKILL_AWARE)) &&
         StatSave(people, APPLY_INT, -4)) ||
           (GET_SPEC(ch, CLASS_ROGUE, SPEC_THIEF) &&
@@ -1591,7 +1591,7 @@ int do_simple_move_skipping_procs(P_char ch, int exitnumb, unsigned int flags)
         else
         {
           /* sneaking, gods see it, and certain others may detect it as well. */
-          if( IS_TRUSTED(tch) || ((IS_AFFECTED(tch, AFF_SENSE_LIFE) || (ch->lobj && ch->lobj->Visible_Type())
+          if( IS_TRUSTED(tch) || (((IS_AFFECTED(tch, AFF_SENSE_LIFE) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 25)) || (ch->lobj && ch->lobj->Visible_Type())
             || IS_AFFECTED(tch, AFF_SKILL_AWARE)) && StatSave(tch, APPLY_INT, -4)) )
           {
             act(amsg, TRUE,ch,ch->lobj?ch->lobj->Visible_Object():0, tch, TO_VICT | ACT_IGNORE_ZCOORD);
@@ -1741,7 +1741,7 @@ int do_simple_move_skipping_procs(P_char ch, int exitnumb, unsigned int flags)
         {
           add_event(event_agg_attack, 1 + (calming / 3), tch, ch, 0, 0, 0, 0);
         }
-        else if( IS_TRUSTED(tch) || ((IS_AFFECTED(tch, AFF_SENSE_LIFE)
+        else if( IS_TRUSTED(tch) || (((IS_AFFECTED(tch, AFF_SENSE_LIFE) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 25))
           || IS_AFFECTED(tch, AFF_SKILL_AWARE)) && StatSave(tch, APPLY_INT, -4)) )
         {
           if( !(flags & MVFLG_NOMSG) )

@@ -45,7 +45,8 @@ const char *specdata[][MAX_SPEC] = {
   {"&+CTem&+cpe&+Cst Ma&+cgu&+Cs&n", "&+WFro&+cst &+CMagus&n", "&+YSt&+ya&+Yr &+LMa&+wgu&+Ls&n", ""}, // Ethermancer
   {"&+YLight&+Wbringer&n", "&+WInq&+wuisi&+Wtor&n", "", ""},                                      // Avenger
   {"&+wMedium&n&n", "&+YT&+Re&+rmpl&+Ra&+Yr&n", "&+C&+WT&+ch&+Ca&+Wu&+Cm&+ca&+Ct&+Wu&+Cr&+cg&+Ce&n", ""}, // Theurgist
-  {"&+cCon&+Ctrol&+Wler&n", "&+rM&+Re&+Yn&+Wtal&+Yi&+Rs&+rt&n", "&+gNat&+Gural&+yist&n", ""}       // Summoner
+  {"&+cCon&+Ctrol&+Wler&n", "&+rM&+Re&+Yn&+Wtal&+Yi&+Rs&+rt&n", "&+gNat&+Gural&+yist&n", ""},       // Summoner
+  {"&+GDr&+Lag&+Gon&n &+gHu&+Lnt&n&+ger&n", "&+GDr&+Lag&+Gon&n &+RPr&n&+Lie&+Rst&n", "&+GDr&+Lag&+Gon&n &+MLa&n&+Lnc&+Mer&n", ""} // Dragoon
 };
 /*
  * mob race lookup table, used to assign a race to a mob when reading them
@@ -1123,36 +1124,37 @@ const char *apply_names[] = {
 
 extern const struct class_names class_names_table[];
 const struct class_names class_names_table[] = {
-  {"None", "Unknown Class", "---", '-'},
-  {"Warrior", "&+BWarrior&n", "War", 'w'},
-  {"Ranger", "&+GRanger&n", "Ran", 'r'},
-  {"Psionicist", "&+bPsionicist&n", "Psi", 'p'},
-  {"Paladin", "&+WPaladin&n", "Pal", 'l'},
-  {"Anti-Paladin", "&+LAnti-Paladin&n", "A-P", 'i'},
-  {"Cleric", "&+cCleric&n", "Cle", 'c'},
-  {"Monk", "&+LM&Non&+Lk&n", "Mon", 'k'},
-  {"Druid", "&+gDruid&n", "Dru", 'd'},
-  {"Shaman", "&+CShaman&n", "Sha", 'h'},
-  {"Sorcerer", "&+MSorcerer&n", "Sor", 's'},
-  {"Necromancer", "&+mNecromancer&n", "Nec", 'n'},
-  {"Conjurer", "&+YConjurer&n", "Con", 'j'},
-  {"Rogue", "&+rRogue&n", "Rog", 't'},
-  {"Assassin", "&+rAssassin&n", "Ass", 'a'},
-  {"Mercenary", "&+yMercenary&n", "Mer", 'm'},
-  {"Bard", "&+LB&N&+bar&N&+Ld&n", "Bar", 'b'},
-  {"Thief", "&+LThief&n", "Thf", 't'},
-  {"Warlock", "&+BWar&+Llock&n", "Wlk", 'o'},
-  {"MindFlayer", "&+MMindFlayer&n", "Mfl", 'f'},
-  {"Alchemist", "&+CAlc&+chem&+Cist&n", "Alc", 'q'},
-  {"Berserker", "&+rBeR&+RSeR&n&+rKeR&n", "Ber", 'u'},
-  {"Reaver", "&+LRe&+Wav&+Ler&n", "Rev", 'v'},
-  {"Illusionist", "&+WIl&+Clu&+csi&+Con&+Wist&n", "Ilu", 'y'},
-  {"Blighter", "&+LBl&+yi&+ggh&+yt&+Ler&n", "Bli", 'x'},
-  {"Dreadlord", "&+LDread&+rlord&n", "Dre", 'e'},
-  {"Ethermancer", "&+wEthermancer&n", "Eth", 'g'},
-  {"Avenger", "&+WAvenger&n", "Ave", '2'},
-  {"Theurgist", "&+cTh&+Ceur&+Wgist&n", "The", '1'},
-  {"Summoner", "&+RSummoner&n", "Sum", '3'},
+  {"None",          "Unknown Class",                "---", '-'},
+  {"Warrior",       "&+BWarrior&n",                 "War", 'w'},
+  {"Ranger",        "&+GRanger&n",                  "Ran", 'r'},
+  {"Psionicist",    "&+bPsionicist&n",              "Psi", 'p'},
+  {"Paladin",       "&+WPaladin&n",                 "Pal", 'l'},
+  {"Anti-Paladin",  "&+LAnti-Paladin&n",            "A-P", 'i'},
+  {"Cleric",        "&+cCleric&n",                  "Cle", 'c'},
+  {"Monk",          "&+LM&Non&+Lk&n",               "Mon", 'k'},
+  {"Druid",         "&+gDruid&n",                   "Dru", 'd'},
+  {"Shaman",        "&+CShaman&n",                  "Sha", 'h'},
+  {"Sorcerer",      "&+MSorcerer&n",                "Sor", 's'},
+  {"Necromancer",   "&+mNecromancer&n",             "Nec", 'n'},
+  {"Conjurer",      "&+YConjurer&n",                "Con", 'j'},
+  {"Rogue",         "&+rRogue&n",                   "Rog", 't'},
+  {"Assassin",      "&+rAssassin&n",                "Ass", 'a'},
+  {"Mercenary",     "&+yMercenary&n",               "Mer", 'm'},
+  {"Bard",          "&+LB&N&+bar&N&+Ld&n",          "Bar", 'b'},
+  {"Thief",         "&+LThief&n",                   "Thf", 't'},
+  {"Warlock",       "&+BWar&+Llock&n",              "Wlk", 'o'},
+  {"MindFlayer",    "&+MMindFlayer&n",              "Mfl", 'f'},
+  {"Alchemist",     "&+CAlc&+chem&+Cist&n",         "Alc", 'q'},
+  {"Berserker",     "&+rBeR&+RSeR&n&+rKeR&n",       "Ber", 'u'},
+  {"Reaver",        "&+LRe&+Wav&+Ler&n",            "Rev", 'v'},
+  {"Illusionist",   "&+WIl&+Clu&+csi&+Con&+Wist&n", "Ilu", 'y'},
+  {"Blighter",      "&+LBl&+yi&+ggh&+yt&+Ler&n",    "Bli", 'x'},
+  {"Dreadlord",     "&+LDread&+rlord&n",            "Dre", 'e'},
+  {"Ethermancer",   "&+wEthermancer&n",             "Eth", 'g'},
+  {"Avenger",       "&+WAvenger&n",                 "Ave", '2'},
+  {"Theurgist",     "&+cTh&+Ceur&+Wgist&n",         "The", '1'},
+  {"Summoner",      "&+RSummoner&n",                "Sum", '3'},
+  {"Dragoon",       "&+GDr&+Lago&n&+Gon&n",         "Dra", '4'},
   { NULL, NULL, NULL, '\0' }
 };
 

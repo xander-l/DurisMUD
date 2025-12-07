@@ -811,7 +811,7 @@ void show_tracks(P_char ch, int room)
     break;
   }
 
-  if( IS_AFFECTED(ch, AFF_FARSEE) )
+  if( IS_AFFECTED(ch, AFF_FARSEE) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 41) )
   {
     percent -= 10;
   }
@@ -927,7 +927,7 @@ void show_tracks(P_char ch, int room)
 
     if( obj->R_num == real_object(VNUM_TRACKS) )
     {
-      if( affected_by_spell(ch, SPELL_AURA_SIGHT) )
+      if( affected_by_spell(ch, SPELL_AURA_SIGHT))
       {
         if( chance > number(1, 100) )
         {
@@ -971,6 +971,15 @@ void show_tracks(P_char ch, int room)
           }
         }
       }
+      
+      if( GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_HUNTER) && has_innate(ch, INNATE_OPHIDIAN_EYES))
+      {
+          if (chance > number(1, 100) )
+          {
+            send_to_char("Your &+Goph&+Lid&+Gian&n eyes sense a presence through the veil.", ch);
+          }
+      }
+
       if( skill > percent || forest_check )
       {
         if (percent < 0)

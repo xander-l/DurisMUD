@@ -34,16 +34,16 @@ struct allowed_race_spec_struct {
 	 * RACE_PVAMPIRE,  RACE_GITHZERAI, RACE_DRIDER,    RACE_AGATHINON, RACE_ELADRIN,  RACE_KOBOLD,
 	 * RACE_PILLITHID, RACE_KUOTOA,    RACE_WOODELF,   RACE_FIRBOLG */
 	/* Start Human Options */
-  {RACE_HUMAN, CLASS_WARRIOR,     SPEC_GUARDIAN},
-  {RACE_HUMAN, CLASS_WARRIOR,     SPEC_SWORDSMAN},
-  {RACE_HUMAN, CLASS_WARRIOR,     SPEC_SWASHBUCKLER},
+  	{RACE_HUMAN, CLASS_WARRIOR,     SPEC_GUARDIAN},
+  	{RACE_HUMAN, CLASS_WARRIOR,     SPEC_SWORDSMAN},
+  	{RACE_HUMAN, CLASS_WARRIOR,     SPEC_SWASHBUCKLER},
 	{RACE_HUMAN, CLASS_MERCENARY,   SPEC_ALL},
-  {RACE_HUMAN, CLASS_PALADIN,     SPEC_ALL},
-  {RACE_HUMAN, CLASS_RANGER,      SPEC_ALL},
+  	{RACE_HUMAN, CLASS_PALADIN,     SPEC_ALL},
+  	{RACE_HUMAN, CLASS_RANGER,      SPEC_ALL},
 	{RACE_HUMAN, CLASS_DRUID,       SPEC_ALL},
 	{RACE_HUMAN, CLASS_ROGUE,       SPEC_THIEF},
 	{RACE_HUMAN, CLASS_ROGUE,       SPEC_ASSASSIN},
-  {RACE_HUMAN, CLASS_CLERIC,      SPEC_ALL},
+  	{RACE_HUMAN, CLASS_CLERIC,      SPEC_ALL},
 	{RACE_HUMAN, CLASS_SORCERER,    SPEC_ALL},
 	{RACE_HUMAN, CLASS_CONJURER,    SPEC_ALL},
 	{RACE_HUMAN, CLASS_SUMMONER,    SPEC_ALL},
@@ -55,31 +55,35 @@ struct allowed_race_spec_struct {
 	{RACE_HUMAN, CLASS_BARD,        SPEC_ALL},
 	{RACE_HUMAN, CLASS_SHAMAN,      SPEC_ALL},
 	{RACE_HUMAN, CLASS_SHAMAN,      SPEC_ALL},
-  {RACE_HUMAN, CLASS_PSIONICIST,  SPEC_ALL},
+  	{RACE_HUMAN, CLASS_PSIONICIST,  SPEC_ALL},
+	{RACE_HUMAN, CLASS_DRAGOON,  	SPEC_DRAGON_HUNTER},
+    {RACE_HUMAN, CLASS_DRAGOON,  	SPEC_DRAGON_LANCER},
 	/* End Human Options */
 
 	/* Start Orc Options */
 	{RACE_ORC, CLASS_WARRIOR,       SPEC_GUARDIAN},
 	{RACE_ORC, CLASS_WARRIOR,       SPEC_SWORDSMAN},
 	{RACE_ORC, CLASS_WARRIOR,       SPEC_SWASHBUCKLER},
-  {RACE_ORC, CLASS_PSIONICIST,    SPEC_ALL},
+  	{RACE_ORC, CLASS_PSIONICIST,    SPEC_ALL},
 	{RACE_ORC, CLASS_MERCENARY,     SPEC_ALL},
 	{RACE_ORC, CLASS_ANTIPALADIN,   SPEC_ALL},
 	{RACE_ORC, CLASS_REAVER,        SPEC_ALL},
 	{RACE_ORC, CLASS_ROGUE,         SPEC_THIEF},
 	{RACE_ORC, CLASS_ROGUE,         SPEC_ASSASSIN},
 	{RACE_ORC, CLASS_CLERIC,        SPEC_ALL},
-  {RACE_ORC, CLASS_SORCERER,      SPEC_ALL},
+  	{RACE_ORC, CLASS_SORCERER,      SPEC_ALL},
 	{RACE_ORC, CLASS_CONJURER,      SPEC_ALL},
 	{RACE_ORC, CLASS_SUMMONER,      SPEC_ALL},
 	{RACE_ORC, CLASS_ETHERMANCER,   SPEC_ALL},
-  {RACE_ORC, CLASS_MONK, 	        SPEC_ALL},
+  	{RACE_ORC, CLASS_MONK, 	        SPEC_ALL},
 	{RACE_ORC, CLASS_NECROMANCER,   SPEC_ALL},
-  {RACE_ORC, CLASS_ILLUSIONIST,   SPEC_ALL},
+  	{RACE_ORC, CLASS_ILLUSIONIST,   SPEC_ALL},
 	{RACE_ORC, CLASS_BERSERKER,     SPEC_ALL},
 	{RACE_ORC, CLASS_BARD,          SPEC_ALL},
 	{RACE_ORC, CLASS_SHAMAN,        SPEC_ALL},
 	{RACE_ORC, CLASS_BLIGHTER,      SPEC_ALL},
+	{RACE_ORC, CLASS_DRAGOON,  		SPEC_DRAGON_HUNTER},
+	{RACE_ORC, CLASS_DRAGOON,  		SPEC_DRAGON_LANCER},
 	/* End Orc Options */
 
 	/* Start Mountain Dwarf Options */
@@ -108,7 +112,7 @@ struct allowed_race_spec_struct {
   /* End Duergar Dwarf Options */
 
 	/* Start Centaur Options */
-  {RACE_CENTAUR, CLASS_WARRIOR,     SPEC_GUARDIAN},
+  	{RACE_CENTAUR, CLASS_WARRIOR,     SPEC_GUARDIAN},
 	{RACE_CENTAUR, CLASS_WARRIOR,     SPEC_SWORDSMAN},
 	{RACE_CENTAUR, CLASS_PALADIN,     SPEC_CRUSADER},
 	{RACE_CENTAUR, CLASS_RANGER,      SPEC_ALL},
@@ -117,17 +121,17 @@ struct allowed_race_spec_struct {
 	/* End Centaur Options */
 
 	/* Start Drider Options */
-  {RACE_DRIDER, CLASS_WARRIOR,        SPEC_SWORDSMAN},
-  {RACE_DRIDER, CLASS_WARRIOR,        SPEC_GUARDIAN},
-  {RACE_DRIDER, CLASS_ANTIPALADIN,    SPEC_DARKKNIGHT},
-  {RACE_DRIDER, CLASS_SORCERER,       SPEC_ALL},
-  {RACE_DRIDER, CLASS_REAVER,         SPEC_ALL},
-  {RACE_DRIDER, CLASS_NECROMANCER,    SPEC_ALL},
+  	{RACE_DRIDER, CLASS_WARRIOR,        SPEC_SWORDSMAN},
+  	{RACE_DRIDER, CLASS_WARRIOR,        SPEC_GUARDIAN},
+  	{RACE_DRIDER, CLASS_ANTIPALADIN,    SPEC_DARKKNIGHT},
+  	{RACE_DRIDER, CLASS_SORCERER,       SPEC_ALL},
+  	{RACE_DRIDER, CLASS_REAVER,         SPEC_ALL},
+  	{RACE_DRIDER, CLASS_NECROMANCER,    SPEC_ALL},
 	{RACE_DRIDER, CLASS_BLIGHTER,       SPEC_ALL},
 	/* End Drider Options */
 
 	/* Start Barbarian Options */
-  {RACE_BARBARIAN, CLASS_WARRIOR,     SPEC_GUARDIAN},
+  	{RACE_BARBARIAN, CLASS_WARRIOR,     SPEC_GUARDIAN},
 	{RACE_BARBARIAN, CLASS_WARRIOR,     SPEC_SWORDSMAN},
 	{RACE_BARBARIAN, CLASS_MERCENARY,   SPEC_ALL},
 	{RACE_BARBARIAN, CLASS_ROGUE,       SPEC_THIEF},
@@ -164,8 +168,10 @@ struct allowed_race_spec_struct {
 	{RACE_GREY, CLASS_ILLUSIONIST,  SPEC_ALL},
 	{RACE_GREY, CLASS_BARD,         SPEC_ALL},
 	{RACE_GREY, CLASS_SHAMAN,       SPEC_ALL},
-  {RACE_GREY, CLASS_PSIONICIST,   SPEC_ALL},
+  	{RACE_GREY, CLASS_PSIONICIST,   SPEC_ALL},
  	{RACE_GREY, CLASS_MONK,         SPEC_ALL},
+	{RACE_GREY, CLASS_DRAGOON,  	SPEC_DRAGON_PRIEST},
+	{RACE_GREY, CLASS_DRAGOON,  	SPEC_DRAGON_HUNTER},
 	/* End Grey Elf Options */
 
 	/* Start Tiefling Options */
@@ -188,8 +194,11 @@ struct allowed_race_spec_struct {
 	{RACE_TIEFLING, CLASS_ILLUSIONIST,  SPEC_ALL},
 	{RACE_TIEFLING, CLASS_BARD,         SPEC_ALL},
 	{RACE_TIEFLING, CLASS_SHAMAN,       SPEC_ALL},
-  {RACE_TIEFLING, CLASS_PSIONICIST,   SPEC_ALL},
+  	{RACE_TIEFLING, CLASS_PSIONICIST,   SPEC_ALL},
  	{RACE_TIEFLING, CLASS_MONK,         SPEC_ALL},
+	{RACE_TIEFLING, CLASS_DRAGOON,  	SPEC_DRAGON_PRIEST},
+	{RACE_TIEFLING, CLASS_DRAGOON,  	SPEC_DRAGON_HUNTER},
+	{RACE_TIEFLING, CLASS_DRAGOON,  	SPEC_DRAGON_LANCER},
 	/* End Tiefling Options */
 
 	/* Start Drow Elf Options */
@@ -202,17 +211,19 @@ struct allowed_race_spec_struct {
 	{RACE_DROW, CLASS_ROGUE,        SPEC_THIEF},
 	{RACE_DROW, CLASS_ROGUE,        SPEC_ASSASSIN},
 	{RACE_DROW, CLASS_CLERIC,       SPEC_ALL},
-  {RACE_DROW, CLASS_SORCERER,     SPEC_ALL},
+  	{RACE_DROW, CLASS_SORCERER,     SPEC_ALL},
 	{RACE_DROW, CLASS_CONJURER,     SPEC_ALL},
 	{RACE_DROW, CLASS_SUMMONER,     SPEC_ALL},
 	{RACE_DROW, CLASS_ETHERMANCER,  SPEC_ALL},
 	{RACE_DROW, CLASS_NECROMANCER,  SPEC_ALL},
-  {RACE_DROW, CLASS_ILLUSIONIST,  SPEC_ALL},
+  	{RACE_DROW, CLASS_ILLUSIONIST,  SPEC_ALL},
 	{RACE_DROW, CLASS_BARD,         SPEC_ALL},
 	{RACE_DROW, CLASS_SHAMAN,       SPEC_ALL},
 	{RACE_DROW, CLASS_PSIONICIST,   SPEC_ALL},
  	{RACE_DROW, CLASS_MONK,         SPEC_ALL},
 	{RACE_DROW, CLASS_BLIGHTER,     SPEC_ALL},
+	{RACE_DROW, CLASS_DRAGOON,  	SPEC_DRAGON_PRIEST},
+	{RACE_DROW, CLASS_DRAGOON,  	SPEC_DRAGON_HUNTER},
 	/* End Drow Elf Options */
 
 	/* Start Gnome Options */
@@ -555,7 +566,7 @@ void do_specialize(P_char ch, char *argument, int cmd)
   {
     snprintf(buf, MAX_STRING_LENGTH, "You can choose from the following specializations:\n\r");
 
-    found_one = append_valid_specs(buf, ch);;
+    found_one = append_valid_specs(buf, ch);
 
     if( !found_one )
     {
@@ -569,6 +580,19 @@ void do_specialize(P_char ch, char *argument, int cmd)
 
   for( teacher = world[ch->in_room].people; teacher; teacher = teacher->next_in_room )
   {
+	if(IS_DRAGOON(ch) && IS_NPC(teacher) && IS_SET(teacher->specials.act, ACT_SPEC_TEACHER))
+	{
+		if( GET_CLASS(teacher, CLASS_RANGER) || 
+			GET_CLASS(teacher, CLASS_MERCENARY) ||
+			GET_CLASS(teacher, CLASS_PALADIN) ||
+			GET_CLASS(teacher, CLASS_ANTIPALADIN) ||
+			GET_CLASS(teacher, CLASS_SHAMAN) ||
+			GET_CLASS(teacher, CLASS_DRUID))
+		{
+			break;
+		}
+	}
+
     if( IS_NPC(teacher) && GET_CLASS(teacher, ch->player.m_class)
       && IS_SET(teacher->specials.act, ACT_SPEC_TEACHER) )
     {
@@ -594,7 +618,8 @@ void do_specialize(P_char ch, char *argument, int cmd)
     return;
   }
 
-  if( teacher->player.m_class != ch->player.m_class
+  
+  if( teacher->player.m_class != ch->player.m_class && !IS_DRAGOON(ch)
     && !(IS_PC(teacher) && IS_TRUSTED(teacher) && is_linked_to(ch, teacher, LNK_CONSENT)) )
   {
     mobsay(teacher, "I know nothing of your kind. Be gone.");
@@ -634,11 +659,35 @@ void do_specialize(P_char ch, char *argument, int cmd)
 
     if( is_abbrev( argument, strip_ansi(GET_SPEC_NAME(ch->player.m_class, i)).c_str()) )
     {
-      snprintf(buf, MAX_STRING_LENGTH, "From this day onwards you will follow the path of the %s&n!", GET_SPEC_NAME(ch->player.m_class, i));
-      ch->player.spec = i+1;
-      update_skills(ch);
-      mobsay(teacher, buf);
-      return;
+		if(IS_DRAGOON(ch))
+		{
+			if(i+1 == SPEC_DRAGON_HUNTER && !(GET_CLASS(teacher, CLASS_RANGER) || GET_CLASS(teacher, CLASS_MERCENARY)))
+			{
+				snprintf(buf, MAX_STRING_LENGTH, "I cannot teach you to follow the path of the %s&n!", GET_SPEC_NAME(ch->player.m_class, i));
+      			mobsay(teacher, buf);
+				return;
+			}
+
+			if(i+1 == SPEC_DRAGON_PRIEST && !(GET_CLASS(teacher, CLASS_SHAMAN) || GET_CLASS(teacher, CLASS_DRUID)))
+			{
+				snprintf(buf, MAX_STRING_LENGTH, "I cannot teach you to follow the path of the %s&n!", GET_SPEC_NAME(ch->player.m_class, i));
+      			mobsay(teacher, buf);
+				return;
+			}
+
+			if(i+1 == SPEC_DRAGON_LANCER && !(GET_CLASS(teacher, CLASS_PALADIN) || GET_CLASS(teacher, CLASS_ANTIPALADIN)))
+			{
+				snprintf(buf, MAX_STRING_LENGTH, "I cannot teach you to follow the path of the %s&n!", GET_SPEC_NAME(ch->player.m_class, i));
+      			mobsay(teacher, buf);
+				return;
+			}
+		}
+		
+		snprintf(buf, MAX_STRING_LENGTH, "From this day onwards you will follow the path of the %s&n!", GET_SPEC_NAME(ch->player.m_class, i));
+		ch->player.spec = i+1;
+		update_skills(ch);
+		mobsay(teacher, buf);
+		return;
     }
   }
 
