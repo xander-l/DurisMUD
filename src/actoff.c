@@ -1312,7 +1312,7 @@ void do_charge(P_char ch, char *argument, int cmd)
   }
 
   if( !has_innate(ch, INNATE_CHARGE)
-    || (IS_RIDING(ch) && ( GET_CLASS(ch, CLASS_PALADIN) || GET_CLASS(ch, CLASS_ANTIPALADIN) )) )
+    || (IS_RIDING(ch) && ( GET_CLASS(ch, CLASS_PALADIN) || GET_CLASS(ch, CLASS_ANTIPALADIN) || GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_LANCER) )) )
   {
     lance_charge(ch, argument);
     return;
