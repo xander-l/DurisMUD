@@ -13333,9 +13333,9 @@ void spell_disintegrate(int level, P_char ch, char *arg, int type, P_char victim
     TRUE, ch, 0, victim, TO_VICT);
   act("You grin evilly as you send a &+Ggreen beam of disintegration&n streaking towards&n $N!",
     TRUE, ch, 0, victim, TO_CHAR);
-
-  if(resists_spell(ch, victim))
-    return;
+  // Making Disintegrate !shrug -- Eikel.
+  //if(resists_spell(ch, victim))
+  //  return;
 
   if(!saves_spell(victim, SAVING_SPELL))
   {
