@@ -665,7 +665,7 @@ void spell_burning_hands(int level, P_char ch, char *arg, int type,
   int dam = (dice((num_dice+5), 6) * 4);
 
   // dragoon dragon priest bonus
-  if(type == 1) dam += dam * 0.05;
+  if(type > 1) dam += dam * 0.05;
   
   spell_damage(ch, victim, dam, SPLDAM_FIRE, SPLDAM_ALLGLOBES, &messages);
 }
@@ -3827,7 +3827,7 @@ void spell_firestorm(int level, P_char ch, char *arg, int type, P_char victim,
 
   memset(&raf, 0, sizeof(raf));
   raf.type = SPELL_FIRESTORM;
-  if(type == 1) raf.duration = (int)(2 * PULSE_VIOLENCE); // dragoon dragon priest
+  if(type >= 1) raf.duration = (int)(2 * PULSE_VIOLENCE); // dragoon dragon priest
   else          raf.duration = (int)(1.5 * PULSE_VIOLENCE); // everyone else
   affect_to_room(room, &raf);
 
@@ -17882,7 +17882,7 @@ void spell_immolate(int level, P_char ch, char *arg, int type, P_char victim,
     }
     
     int dam = GET_LEVEL(ch) * 4 + number(4, 20);
-    if(type == 1) dam += dam * 0.05;
+    if(type > 1) dam += dam * 0.05;
 
     if(IS_ALIVE(victim) &&
       (spell_damage(ch, victim, dam, SPLDAM_FIRE, SPLDAM_NODEFLECT, NULL) == DAM_NONEDEAD));
@@ -18068,7 +18068,7 @@ void spell_magma_burst(int level, P_char ch, char *arg, int type, P_char victim,
 
   if((af = get_spell_from_char(victim, SPELL_MAGMA_BURST)) == NULL)
   {
-    if(type == 1)
+    if(type >= 1)
     {
       act("A pillar of &+Wwhite flame &Nbellows from $n's gaping maw enveloping $N in a &+Rfi&+rery in&+Rferno&N.", TRUE, ch, 0, victim, TO_NOTVICT);
       act("A pillar of &+Wwhite flame &Nbellows from $n's gaping maw enveloping you in a &+Rfi&+rery in&+Rferno&N.", TRUE, ch, 0, victim, TO_VICT);
@@ -18097,7 +18097,7 @@ void spell_magma_burst(int level, P_char ch, char *arg, int type, P_char victim,
   }
   else
   {
-    if(type == 1)
+    if(type >= 1)
     {
       act("A pillar of &+Wwhite flame &Nbellows from $n's gaping maw, making the &+Rfi&+rery in&+Rferno&N burn &+Wbrighter&n.", TRUE, ch, 0, victim, TO_NOTVICT);
       act("A pillar of &+Wwhite flame &Nbellows from $n's gaping maw, making the &+Rfi&+rery in&+Rferno&N burn &+Wbrighter&n.", TRUE, ch, 0, victim, TO_VICT);
