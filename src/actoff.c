@@ -3992,21 +3992,22 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
   }
   else
   {
-    //send_to_char("Your &+Gdr&+Gag&+Lon&n rears back and blasts forth a torrent of &+RFLAMES&n\r\n", ch);
+    //send_to_char("$n rears back and blasts $N with a torrent of &+RFLAMES&n\r\n", ch);
 
     if(GET_LEVEL(mount) < 51)
     {
-      act("$n breathes a torrent &+RFLAMES&n directly at $N!", FALSE, mount, 0, victim, TO_NOTVICTROOM);
-      act("$n breathes a torrent &+RFLAMES&n directly at you!", FALSE, mount, 0, victim, TO_VICT);
+      act("$n rears back and blasts $N with a torrent of &+RFLAMES&n", FALSE, mount, 0, victim, TO_NOTVICTROOM);
+      act("$n rears back and blasts YOU with a torrent of &+RFLAMES&n", FALSE, mount, 0, victim, TO_VICT);
     }
     else
     {
-      act("$n breathes a hellish &+RFIRESTORM&n into the area!", FALSE, mount, 0, victim, TO_NOTVICTROOM);
-      act("$n breathes a hellish &+RFIRESTORM&n into the area!", FALSE, mount, 0, victim, TO_VICT);
+      act("$n breathes a hellish &+RFIRESTORM&n into the area!", FALSE, mount, 0, victim, TO_ROOM);
     }    
 
+    // force engagement on dragon or on dragon rider?
     engage(ch, victim);
 
+    //TODO:  probably need to change the get levels to mount levels but didn't see to work correctly
     if(GET_LEVEL(ch) < 11)      spell_burning_hands(GET_LEVEL(ch), mount, "", is_priest, victim, 0);
     else if(GET_LEVEL(ch) < 21) spell_flameburst(GET_LEVEL(ch), mount, "", is_priest, victim, 0);
     else if(GET_LEVEL(ch) < 31) spell_molten_spray(GET_LEVEL(ch), mount, "", is_priest, victim, 0);
