@@ -251,7 +251,7 @@ P_obj has_instrument(P_char ch)
     raise(SIGSEGV);
   }
 
-  for( i = WIELD; i <= HOLD; i++ )
+  for( i = WIELD; i <= WEAR_ATTACH_BELT_3; i++ )
   {
     if( (ch->equipment[i] != NULL) && (ch->equipment[i]->type == ITEM_INSTRUMENT)
       && (CAN_SEE_OBJ( ch, ch->equipment[i] ) || ( IS_ARTIFACT(ch->equipment[i]) )
