@@ -1,3 +1,31 @@
+&+R12/6/25
+- Enhance now updated to be inline with forge and craft.
+- Allow farsee from zone to map room.
+- Adjust Paladin Healing proc, downgrade from full-heal.
+- Fix bad Ansi in paging.
+- Stop Necroplasm from being able to be used by PSI.
+- Group command enhancements for PC display.  Only to group command and not msp updates.  Feedback appreciated.
+
+Zone Updates:
+- Increase cost of wall wands in Sarmiz.
+- 
+
+&+R12/4/25
+- Let's see if this news update works....
+- Necros have have gate and wall of bones removed.
+- Updated max travel distance for dimension door and all related spells / abilities.  Feedback appreciated.
+- Added more zones to named sets.  Use 'namedreport' command to see what's new.
+- Got rid empty circles displaying on partial casters mem/pray display.
+- Various crash fixes.
+- Track display for dead and can't track now match so track can't be used to scout dead mobs.
+- Forge/craft max ival upped to 3 time character level.  Feedback appreciated.
+
+- Zone updates:
+ - made mantis key break in oasis
+ - set drow guilds to never reset
+ - set smoke plane to reset when empty and fix portal to quest mobs
+
+
 &+R11/2/25
 - New server is up! Not sure if I should import the news from Drevarr since this is old codebase.
      the source code supplied by Xanadinn - Arih
