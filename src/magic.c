@@ -7950,7 +7950,8 @@ bool has_skin_spell(P_char ch)
      !affected_by_spell(ch, SPELL_VINES) &&
      !IS_AFFECTED5(ch, AFF5_VINES) &&
 	 !affected_by_spell(ch, SPELL_ICE_ARMOR) &&
-	 !affected_by_spell(ch, SPELL_NEG_ARMOR))
+	 !affected_by_spell(ch, SPELL_NEG_ARMOR) &&
+	 !affected_by_spell(ch, SPELL_DRAGON_SKIN))
     return false;
   else
     return true;
@@ -8011,6 +8012,30 @@ void spell_stone_skin(int level, P_char ch, char *arg, int type, P_char victim, 
   af.duration = 4;
   af.modifier = absorb;
   affect_to_char(victim, &af);
+}
+
+void spell_dragon_skin(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
+{
+	struct affected_type af;
+    int    absorb = (level / 4) + number(1, 4);
+
+	if (!has_skin_spell(ch))
+	{
+		// todo: update these
+		act("&+L$n&+L's skin seems to turn to stone.", TRUE, victim, 0, 0, TO_ROOM);
+        act("&+LYou feel your skin harden to stone.", TRUE, victim, 0, 0, TO_CHAR);
+	}
+	else
+	{
+		send_to_char("Your skin is already hard as a rock!\n", ch);
+		return;
+	}
+
+	bzero(&af, sizeof(af));
+	af.type = SPELL_DRAGON_SKIN;
+	af.duration = 4;
+	af.modifier = absorb;
+	affect_to_char(ch, &af);
 }
 
 void spell_ironwood(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)

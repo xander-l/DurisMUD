@@ -703,7 +703,8 @@
 #define SPELL_GIRILALS_GRANITE_HAMMER 652
 #define SPELL_ILESHS_SMASHING_FURY    653
 #define SPELL_INFERNAL_FURY           654
-#define LAST_SPELL SPELL_INFERNAL_FURY
+#define SPELL_DRAGON_SKIN             655
+#define LAST_SPELL SPELL_DRAGON_SKIN
 
 
 #define FIRST_SKILL                  1000  /* should be a decent split point */
