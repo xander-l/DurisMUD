@@ -520,12 +520,12 @@ int whats_in_maproom(P_char ch, int room, int distance, int show_regardless)
           // Priority of good/evil: You see enemy P before friendly P color.
           if( GET_RACEWAR(ch) != GET_RACEWAR(who) )
           {
-            if( IS_GOOD(who) && IS_AFFECTED2(ch, AFF2_DETECT_GOOD) )
+            if( IS_GOOD(who) && ((IS_AFFECTED2(ch, AFF2_DETECT_GOOD) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20))))
             {
               val = MIN( val, CONTAINS_GOOD_PC);
             }
             // Here is tricky.. CONTAINS_GOOD_PC < CONTAINS_EVIL_PC, but we still want to show Evil over Good.
-            else if( IS_EVIL(who) && IS_AFFECTED2(ch, AFF2_DETECT_EVIL) )
+            else if( IS_EVIL(who) && (IS_AFFECTED2(ch, AFF2_DETECT_EVIL) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20)))
             {
               val = (val == CONTAINS_GOOD_PC) ? CONTAINS_EVIL_PC : MIN(val, CONTAINS_EVIL_PC);
             }
@@ -542,11 +542,11 @@ int whats_in_maproom(P_char ch, int room, int distance, int show_regardless)
               continue;
             }
 
-            if( IS_EVIL(who) && IS_AFFECTED2(ch, AFF2_DETECT_EVIL) )
+            if( IS_EVIL(who) && (IS_AFFECTED2(ch, AFF2_DETECT_EVIL) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20)) )
             {
               val = MIN( val, CONTAINS_EVIL_PC);
             }
-            else if( IS_GOOD(who) && IS_AFFECTED2(ch, AFF2_DETECT_GOOD) )
+            else if( IS_GOOD(who) && (IS_AFFECTED2(ch, AFF2_DETECT_GOOD) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20)) )
             {
               val = MIN( val, CONTAINS_GOOD_PC);
             }
@@ -887,7 +887,7 @@ int map_view_distance(P_char ch, int room)
     // The map_*_modifiers vary over time of day (done in weather.c).
     if( IS_DAYBLIND(ch) && IS_SUNLIT(ch->in_room) )
     {
-      if( IS_AFFECTED(ch, AFF_INFRAVISION) )
+      if( IS_AFFECTED(ch, AFF_INFRAVISION) || has_innate(ch, INNATE_OPHIDIAN_EYES))
       {
         n = BOUNDED(0, (map_dayblind_modifier + 2), 8);
       }
@@ -907,7 +907,7 @@ int map_view_distance(P_char ch, int room)
         n = BOUNDED(0, (map_normal_modifier), 8);
       }
       // Infra raises view slightly on surface maps.
-      if( IS_AFFECTED(ch, AFF_INFRAVISION) )
+      if( IS_AFFECTED(ch, AFF_INFRAVISION) || has_innate(ch, INNATE_OPHIDIAN_EYES) )
       {
         n = MIN( 8, n + 1 );
       }
@@ -937,7 +937,7 @@ int map_view_distance(P_char ch, int room)
       n += 2;
     }
     // Infra raises view slightly on UD maps too.
-    else if( IS_AFFECTED(ch, AFF_INFRAVISION) )
+    else if( IS_AFFECTED(ch, AFF_INFRAVISION) || has_innate(ch, INNATE_OPHIDIAN_EYES))
     {
       n++;
     }

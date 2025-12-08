@@ -25,7 +25,7 @@
 #include "justice.h"
 #include "damage.h"
 #include "guard.h"
-
+#include "utils.h"
 /*
    external variables
  */
@@ -1999,16 +1999,32 @@ void mount_summoning_thing(P_char ch, P_char victim, P_obj obj, void *data)
 
   if(IS_ROOM(ch->in_room, ROOM_LOCKER))
   {
-    send_to_char("Your mount couldn't find its way into the locker.\r\n", ch);
+    if(IS_DRAGOON(ch))
+      send_to_char("Your &+Gdr&+Lag&+Gon&n couldn't find its way into the locker.\r\n", ch);
+    else
+      send_to_char("Your mount couldn't find its way into the locker.\r\n", ch);
     return;
   }
 
-  if(!is_prime_plane(ch->in_room) ||
-    world[ch->in_room].sector_type == SECT_OCEAN ||
-    IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
+
+  if(!IS_DRAGOON(ch))
   {
-    send_to_char("&+LYour mount cannot find you here...\r\n", ch);
-    return;
+    if(!is_prime_plane(ch->in_room) ||
+      world[ch->in_room].sector_type == SECT_OCEAN ||
+      IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
+    {
+      send_to_char("&+LYour mount cannot find you here...\r\n", ch);
+      return;
+    }
+  }
+  else
+  {
+    if(world[ch->in_room].sector_type == SECT_OCEAN ||
+      IS_ROOM(ch->in_room, ROOM_SINGLE_FILE))
+      {
+        send_to_char("&+LYour &+Gdr&+Lag&+Gon&n cannot find you here...\r\n", ch);
+        return;
+      }
   }
   
   for (fol = ch->followers; fol; fol = fol->next)
@@ -2016,7 +2032,10 @@ void mount_summoning_thing(P_char ch, P_char victim, P_obj obj, void *data)
     if (IS_NPC(fol->follower) &&
         IS_SET(fol->follower->specials.act, ACT_MOUNT))
     {
-      send_to_char("You already have a mount!\r\n", ch);
+      if(IS_DRAGOON(ch))
+        send_to_char("You already have a &+Gdr&+Lag&+Gon&n!\r\n", ch);
+      else
+        send_to_char("You already have a mount!\r\n", ch);
       return;
     }
   }
@@ -2037,6 +2056,15 @@ void mount_summoning_thing(P_char ch, P_char victim, P_obj obj, void *data)
   {
     mount = read_mobile( 39 , VIRTUAL);
   }
+  else if(IS_DRAGOON(ch))
+  {
+    if(GET_LEVEL(ch) < 11)      mount = read_mobile( 102, VIRTUAL);
+    else if(GET_LEVEL(ch) < 21) mount = read_mobile( 103, VIRTUAL);
+    else if(GET_LEVEL(ch) < 31) mount = read_mobile( 104, VIRTUAL);
+    else if(GET_LEVEL(ch) < 41) mount = read_mobile( 105, VIRTUAL);
+    else if(GET_LEVEL(ch) < 51) mount = read_mobile( 106, VIRTUAL);
+    else                        mount = read_mobile( 107, VIRTUAL);
+  }
   else
   {
     send_to_char("A mount didn't load. Please report this with the bug command.", ch);
@@ -2052,9 +2080,18 @@ void mount_summoning_thing(P_char ch, P_char victim, P_obj obj, void *data)
   {
     char_to_room(mount, ch->in_room, -2);
 
-    act("$N answers your summons!", TRUE, ch, 0, mount, TO_CHAR);
-    act("$N walks in, seemingly from nowhere, and nuzzles $n's face.", TRUE, ch,
-        0, mount, TO_ROOM);
+    if(IS_DRAGOON(ch))
+    {
+      act("$N answers your call for aid with a mighty &-L&+RROAR&n!", TRUE, ch, 0, mount, TO_CHAR);
+      act("$N swoops in with a mighty &-L&+RROAR&n, and stands ready to heed $n.", TRUE, ch,
+          0, mount, TO_ROOM);
+    }
+    else
+    {
+      act("$N answers your summons!", TRUE, ch, 0, mount, TO_CHAR);
+      act("$N walks in, seemingly from nowhere, and nuzzles $n's face.", TRUE, ch,
+          0, mount, TO_ROOM);
+    }
     setup_pet(mount, ch, -1, PET_NOCASH);
     add_follower(mount, ch);
     if(GET_LEVEL(ch) > 50 ||
@@ -2062,6 +2099,21 @@ void mount_summoning_thing(P_char ch, P_char victim, P_obj obj, void *data)
       GET_SPEC(ch, CLASS_ANTIPALADIN, SPEC_DEMONIC))
     {
       SET_BIT(mount->specials.affected_by, AFF_FLY);
+    }
+
+    if(IS_DRAGOON(ch))
+    {
+      if(GET_LEVEL(ch) >= 30)
+      {
+        SET_BIT(mount->specials.affected_by, AFF_FLY);
+      }
+      else
+      {
+        SET_BIT(mount->specials.affected_by, AFF_LEVITATE);
+      }
+
+      SET_BIT(mount->specials.affected_by, AFF_PROT_FIRE);
+      SET_BIT(mount->specials.affected_by4, AFF4_NOFEAR);
     }
 
     // Made all ap and paladin mounts more resistant. Nov08 -Lucrot
@@ -2188,16 +2240,22 @@ void do_summon_mount(P_char ch, char *arg, int cmd)
     }
   }
 
-  if( !is_prime_plane(ch->in_room) )
+  if(!IS_DRAGOON(ch))
   {
-    send_to_char("&+LYour mount cannot answer your call in this strange land/terrain...\r\n", ch);
-    return;
+    if( !is_prime_plane(ch->in_room) )
+    {
+      send_to_char("&+LYour mount cannot answer your call in this strange land/terrain...\r\n", ch);
+      return;
+    }
   }
 
   if( IS_ROOM(ch->in_room, ROOM_LOCKER)
     || IS_ROOM(ch->in_room, ROOM_SINGLE_FILE) )
   {
-    send_to_char("A horse couldn't fit in here!\r\n", ch);
+    if(IS_DRAGOON(ch))
+      send_to_char("A dragon couldn't fit in here!\r\n", ch);
+    else
+      send_to_char("A horse couldn't fit in here!\r\n", ch);
     return;
   }
 
@@ -2218,10 +2276,14 @@ void do_summon_mount(P_char ch, char *arg, int cmd)
     send_to_char("Your innate skill seems to falter. You must be evil.\r\n", ch);
     return;
   }
-  if( !OUTSIDE(ch) && !IS_UNDERWORLD(ch->in_room) )
+
+  if(!IS_DRAGOON(ch))
   {
-    send_to_char("Try again, OUTDOORS THIS TIME!\r\n", ch);
-    return;
+    if( !OUTSIDE(ch) && !IS_UNDERWORLD(ch->in_room) )
+    {
+      send_to_char("Try again, OUTDOORS THIS TIME!\r\n", ch);
+      return;
+    }
   }
 
   if( !check_innate_time(ch, INNATE_SUMMON_MOUNT) )
@@ -2236,7 +2298,10 @@ void do_summon_mount(P_char ch, char *arg, int cmd)
     return;
   }
 
-  send_to_char("You begin calling for a mount..\r\n", ch);
+  if(IS_DRAGOON(ch))
+    send_to_char("You call upon the &+GDr&+Lag&+Gon&n god for aid..\r\n", ch);
+  else
+    send_to_char("You begin calling for a mount..\r\n", ch);
   sumtime = number(70 - GET_LEVEL(ch), 100 + number(1, 200 - 2 * GET_LEVEL(ch)));
   add_event(mount_summoning_thing, sumtime, ch, 0, 0, 0, 0, 0);
 }

@@ -664,6 +664,9 @@ void spell_burning_hands(int level, P_char ch, char *arg, int type,
   int num_dice = (level / 10);
   int dam = (dice((num_dice+5), 6) * 4);
 
+  // dragoon dragon priest bonus
+  if(type > 1) dam += dam * 0.05;
+  
   spell_damage(ch, victim, dam, SPLDAM_FIRE, SPLDAM_ALLGLOBES, &messages);
 }
 
@@ -3824,7 +3827,8 @@ void spell_firestorm(int level, P_char ch, char *arg, int type, P_char victim,
 
   memset(&raf, 0, sizeof(raf));
   raf.type = SPELL_FIRESTORM;
-  raf.duration = (int)(1.5 * PULSE_VIOLENCE);
+  if(type >= 1) raf.duration = (int)(2 * PULSE_VIOLENCE); // dragoon dragon priest
+  else          raf.duration = (int)(1.5 * PULSE_VIOLENCE); // everyone else
   affect_to_room(room, &raf);
 
   for (tch = world[room].people; tch; tch = tch->next_in_room)
@@ -4949,7 +4953,7 @@ void spell_dimension_door(int level, P_char ch, char *arg, int type, P_char vict
     return;
   }
 
-  distance = (int)(level * 2.35);
+  distance = (int)(level * 4.35);
 
   if(GET_SPEC(ch, CLASS_SORCERER, SPEC_SHADOW))
     distance += 15;
@@ -16338,7 +16342,7 @@ void spell_infravision(int level, P_char ch, char *arg, int type, P_char victim,
 {
   struct affected_type af;
 
-  if(IS_AFFECTED(victim, AFF_INFRAVISION))
+  if(IS_AFFECTED(victim, AFF_INFRAVISION) || has_innate(victim, INNATE_OPHIDIAN_EYES))
     return;
 
   if(!affected_by_spell(victim, SPELL_INFRAVISION))
@@ -17876,8 +17880,12 @@ void spell_immolate(int level, P_char ch, char *arg, int type, P_char victim,
     {
       engage(ch, victim);
     }
+    
+    int dam = GET_LEVEL(ch) * 4 + number(4, 20);
+    if(type > 1) dam += dam * 0.05;
+
     if(IS_ALIVE(victim) &&
-      (spell_damage(ch, victim, (int) GET_LEVEL(ch) * 4 + number(4, 20), SPLDAM_FIRE, SPLDAM_NODEFLECT, NULL) == DAM_NONEDEAD));
+      (spell_damage(ch, victim, dam, SPLDAM_FIRE, SPLDAM_NODEFLECT, NULL) == DAM_NONEDEAD));
     {
       if(ch &&
         IS_ALIVE(victim)) // Adding another check.
@@ -18060,9 +18068,18 @@ void spell_magma_burst(int level, P_char ch, char *arg, int type, P_char victim,
 
   if((af = get_spell_from_char(victim, SPELL_MAGMA_BURST)) == NULL)
   {
-    act("Two pillars of &+Wwhite flame &Nleap from $n's outstreached palms enveloping $N in a &+Rfi&+rery in&+Rferno&N.", TRUE, ch, 0, victim, TO_NOTVICT);
-    act("Two pillars of &+Wwhite flame &Nleap from $n's outstreached palms enveloping you in a &+Rfi&+rery in&+Rferno&N.", TRUE, ch, 0, victim, TO_VICT);
-    act("Two pillars of &+Wwhite flame &Nleap from your outstreached palms enveloping $N in a &+Rfi&+rery in&+Rferno&N.", TRUE, ch, 0, victim, TO_CHAR);
+    if(type >= 1)
+    {
+      act("A pillar of &+Wwhite flame &Nbellows from $n's gaping maw enveloping $N in a &+Rfi&+rery in&+Rferno&N.", TRUE, ch, 0, victim, TO_NOTVICT);
+      act("A pillar of &+Wwhite flame &Nbellows from $n's gaping maw enveloping you in a &+Rfi&+rery in&+Rferno&N.", TRUE, ch, 0, victim, TO_VICT);
+      act("A pillar of &+Wwhite flame &Nbellows from your gaping maw enveloping $N in a &+Rfi&+rery in&+Rferno&N.", TRUE, ch, 0, victim, TO_CHAR);
+    }
+    else
+    {
+      act("Two pillars of &+Wwhite flame &Nleap from $n's outstreached palms enveloping $N in a &+Rfi&+rery in&+Rferno&N.", TRUE, ch, 0, victim, TO_NOTVICT);
+      act("Two pillars of &+Wwhite flame &Nleap from $n's outstreached palms enveloping you in a &+Rfi&+rery in&+Rferno&N.", TRUE, ch, 0, victim, TO_VICT);
+      act("Two pillars of &+Wwhite flame &Nleap from your outstreached palms enveloping $N in a &+Rfi&+rery in&+Rferno&N.", TRUE, ch, 0, victim, TO_CHAR);
+    }
 
     struct affected_type new_affect;
 
@@ -18070,7 +18087,8 @@ void spell_magma_burst(int level, P_char ch, char *arg, int type, P_char victim,
     memset(af, 0, sizeof(new_affect));
     af->type = SPELL_MAGMA_BURST;
     af->duration = 1;
-    af->modifier = 3;
+    if(type > 1) af->modifier = 4;// dragoon dragon priest
+    else         af->modifier = 3; // anyone else
     affect_to_char(victim, af);
     add_event(event_magma_burst, 0, ch, victim, NULL, 0, &level, sizeof(level));
 
@@ -18079,9 +18097,19 @@ void spell_magma_burst(int level, P_char ch, char *arg, int type, P_char victim,
   }
   else
   {
-    act("Two pillars of &+Wwhite flame &Nleap from $n's outstreached palms, making the &+Rfi&+rery in&+Rferno&N burn &+Wbrighter&n.", TRUE, ch, 0, victim, TO_NOTVICT);
-    act("Two pillars of &+Wwhite flame &Nleap from $n's outstreached palms, making the &+Rfi&+rery in&+Rferno&N burn &+Wbrighter&n.", TRUE, ch, 0, victim, TO_VICT);
-    act("Two pillars of &+Wwhite flame &Nleap from your outstreached palms, making the &+Rfi&+rery in&+Rferno&N burn &+Wbrighter&n.", TRUE, ch, 0, victim, TO_CHAR);
+    if(type >= 1)
+    {
+      act("A pillar of &+Wwhite flame &Nbellows from $n's gaping maw, making the &+Rfi&+rery in&+Rferno&N burn &+Wbrighter&n.", TRUE, ch, 0, victim, TO_NOTVICT);
+      act("A pillar of &+Wwhite flame &Nbellows from $n's gaping maw, making the &+Rfi&+rery in&+Rferno&N burn &+Wbrighter&n.", TRUE, ch, 0, victim, TO_VICT);
+      act("A pillar of &+Wwhite flame &Nbellows from your gaping maw, making the &+Rfi&+rery in&+Rferno&N burn &+Wbrighter&n.", TRUE, ch, 0, victim, TO_CHAR);
+    }
+    else
+    {
+      act("Two pillars of &+Wwhite flame &Nleap from $n's outstreached palms, making the &+Rfi&+rery in&+Rferno&N burn &+Wbrighter&n.", TRUE, ch, 0, victim, TO_NOTVICT);
+      act("Two pillars of &+Wwhite flame &Nleap from $n's outstreached palms, making the &+Rfi&+rery in&+Rferno&N burn &+Wbrighter&n.", TRUE, ch, 0, victim, TO_VICT);
+      act("Two pillars of &+Wwhite flame &Nleap from your outstreached palms, making the &+Rfi&+rery in&+Rferno&N burn &+Wbrighter&n.", TRUE, ch, 0, victim, TO_CHAR);
+    }
+
     af->modifier = ( af->modifier < 3 ) ? 3 : af->modifier + 1;
   }
 }

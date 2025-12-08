@@ -448,10 +448,20 @@ void do_group(P_char ch, char *argument, int cmd)
             pad_ansi(GET_NAME(gl->ch), MAX_NAME_LENGTH, TRUE).c_str());
         }
       }
-      snprintf(Gbuf1, MAX_STRING_LENGTH, "%s %-30s",
-              (!CAN_SEE_Z_CORD(ch, gl->ch)) ? "Someone" : Gbuf3,
-              (ch->in_room == gl->ch->in_room) ? Gbuf2 : ""
+      if(IS_NPC(gl->ch))
+      {
+        snprintf(Gbuf1, MAX_STRING_LENGTH, "%-39s %-30s",
+          (!CAN_SEE_Z_CORD(ch, gl->ch)) ? "Someone" : Gbuf3,
+          (ch->in_room == gl->ch->in_room) ? Gbuf2 : ""
+        );
+      }
+      else
+      {
+        snprintf(Gbuf1, MAX_STRING_LENGTH, "%s %-30s",
+          (!CAN_SEE_Z_CORD(ch, gl->ch)) ? "Someone" : Gbuf3,
+          (ch->in_room == gl->ch->in_room) ? Gbuf2 : ""
       );
+      }
 
       if (!racewar(ch, gl->ch) && !IS_NPC(gl->ch) && CAN_SEE_Z_CORD(ch, gl->ch))
       {
@@ -462,10 +472,10 @@ void do_group(P_char ch, char *argument, int cmd)
 
       if(ch->in_room == gl->ch->in_room)
       {
-        if (IS_AFFECTED2(ch, AFF2_DETECT_EVIL) && IS_EVIL(gl->ch))
+        if (((has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20) || IS_AFFECTED2(ch, AFF2_DETECT_EVIL)) && IS_EVIL(gl->ch))
           strcat(Gbuf1, " (&+rRed Aura&n)");
 
-        if (IS_AFFECTED2(ch, AFF2_DETECT_GOOD) && IS_GOOD(gl->ch))
+        if (((has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20) || IS_AFFECTED2(ch, AFF2_DETECT_GOOD)) && IS_GOOD(gl->ch))
           strcat(Gbuf1, " (&+YGold Aura&n)");
       }
 
@@ -531,10 +541,20 @@ void do_group(P_char ch, char *argument, int cmd)
           }
         }
 
-        snprintf(Gbuf1, MAX_STRING_LENGTH, "%s %-30s",
+        if(IS_NPC(gl->ch))
+        {
+          snprintf(Gbuf1, MAX_STRING_LENGTH, "%-39s %-30s",
+            (!CAN_SEE_Z_CORD(ch, gl->ch)) ? "Someone" : Gbuf3,
+            (ch->in_room == gl->ch->in_room) ? Gbuf2 : ""
+          );
+        }
+        else
+        {
+          snprintf(Gbuf1, MAX_STRING_LENGTH, "%s %-30s",
                 (!CAN_SEE_Z_CORD(ch, gl->ch)) ? "Someone" : Gbuf3,
                 ((ch->in_room == gl->ch->in_room) && (!racewar(ch, gl->ch) || IS_DISGUISE(gl->ch)) )
                 ? Gbuf2 : "");
+        }
 
         if (!racewar(ch, gl->ch) && !IS_NPC(gl->ch) && CAN_SEE_Z_CORD(ch, gl->ch))
         {
@@ -544,10 +564,10 @@ void do_group(P_char ch, char *argument, int cmd)
         }
         if(ch->in_room == gl->ch->in_room)
         {
-          if (IS_AFFECTED2(ch, AFF2_DETECT_EVIL) && IS_EVIL(gl->ch))
+          if (((has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20) || IS_AFFECTED2(ch, AFF2_DETECT_EVIL)) && IS_EVIL(gl->ch))
             strcat(Gbuf1, " (&+rRed Aura&n)");
 
-          if (IS_AFFECTED2(ch, AFF2_DETECT_GOOD) && IS_GOOD(gl->ch))
+          if (((has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20) || IS_AFFECTED2(ch, AFF2_DETECT_GOOD)) && IS_GOOD(gl->ch))
             strcat(Gbuf1, " (&+YGold Aura&n)");
         }
         strcat(Gbuf1, "\n");
@@ -1255,4 +1275,21 @@ int is_guild_golem(P_char ch, P_char pl)
   allowed = ( (( GET_ASSOC(pl) == guild ) && IS_MEMBER( bits ) && GT_PAROLE( bits )) || IS_TRUSTED(pl) );
 
   return (allowed);
+}
+
+bool is_in_dragoon_group(P_char ch, P_char vict)
+{
+    if(ch == vict) return TRUE;
+
+    struct group_list *gl;
+
+    if( ch->group )
+    {
+      for( gl = ch->group; gl; gl = gl->next )
+      {
+        if(gl->ch == vict) return TRUE;
+      }
+    }
+
+    return FALSE;
 }

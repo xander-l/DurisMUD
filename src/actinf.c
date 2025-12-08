@@ -783,7 +783,7 @@ char *show_obj_to_char(P_obj object, P_char ch, int mode, bool print)
       strcat(buf, " (&+Lburied&n)");
       found = TRUE;
     }
-    if (IS_OBJ_STAT2(object, ITEM2_MAGIC) && (IS_TRUSTED(ch) || IS_AFFECTED2(ch, AFF2_DETECT_MAGIC)))
+    if (IS_OBJ_STAT2(object, ITEM2_MAGIC) && (IS_TRUSTED(ch) || IS_AFFECTED2(ch, AFF2_DETECT_MAGIC) || has_innate(ch, INNATE_OPHIDIAN_EYES)))
     {
       strcat(buf, " (&+bmagic&n)");
       found = TRUE;
@@ -1244,10 +1244,10 @@ void create_in_room_status(P_char ch, P_char i, char buffer[])
   if (IS_AFFECTED(i, AFF_CAMPING))
     strcat(buffer, " (&+ycamping&n) ");
 
-  if (IS_AFFECTED2(ch, AFF2_DETECT_EVIL) && IS_EVIL(i))
+  if ((IS_AFFECTED2(ch, AFF2_DETECT_EVIL) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20)) && IS_EVIL(i))
     strcat(buffer, "(&+rRed Aura&n)");
 
-  if (IS_AFFECTED2(ch, AFF2_DETECT_GOOD) && IS_GOOD(i))
+  if ((IS_AFFECTED2(ch, AFF2_DETECT_GOOD) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20)) && IS_GOOD(i))
     strcat(buffer, "(&+YGold Aura&n)");
 }
 
@@ -1316,7 +1316,7 @@ void show_char_to_char(P_char i, P_char ch, int mode)
     if( !CAN_SEE_Z_CORD(ch, i) && !IS_TRUSTED(i) && IS_AFFECTED3(i, AFF3_NON_DETECTION)
       && !affected_by_spell(ch, SPELL_TRUE_SEEING) && !GET_CLASS(ch, CLASS_PSIONICIST | CLASS_DRUID) )
     {
-      if( IS_AFFECTED(ch, AFF_SENSE_LIFE) )
+      if( IS_AFFECTED(ch, AFF_SENSE_LIFE) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 25))
       {
         if( higher )
           send_to_char("&+LYou sense a hidden lifeform above you.\n", ch);
@@ -1951,8 +1951,8 @@ void list_char_to_char(P_char list, P_char ch, int mode)
 //    if (i->specials.z_cord == ch->specials.z_cord) {
     if( !CAN_SEE_Z_CORD(ch, i) )
     {
-      if( IS_AFFECTED(ch, AFF_SENSE_LIFE) && !IS_UNDEAD(i) &&
-          !IS_ANGEL(i) && !IS_AFFECTED3(i, AFF3_NON_DETECTION) )
+      if( (IS_AFFECTED(ch, AFF_SENSE_LIFE) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 25))
+           && !IS_UNDEAD(i) && !IS_ANGEL(i) && !IS_AFFECTED3(i, AFF3_NON_DETECTION) )
       {
         if( higher )
           send_to_char("&+LYou sense a lifeform above you.\n", ch);
@@ -1961,7 +1961,7 @@ void list_char_to_char(P_char list, P_char ch, int mode)
         else
           send_to_char("&+LYou sense a lifeform nearby.\n", ch);
       }
-      else if( IS_AFFECTED(ch, AFF_SENSE_LIFE)
+      else if( (IS_AFFECTED(ch, AFF_SENSE_LIFE) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 25))
         && (IS_AFFECTED3(i, AFF3_NON_DETECTION) || IS_UNDEAD(i) || IS_ANGEL(i))
         && !number(0, 3) )
       {
@@ -2134,7 +2134,9 @@ void display_room_auras(P_char ch, int room_no)
   if (!ch || !IS_ALIVE(ch))
     return;
 
-  if ((IS_AFFECTED2(ch, AFF2_DETECT_GOOD) ||
+  if (
+      (IS_AFFECTED2(ch, AFF2_DETECT_GOOD) ||
+      (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20) ||
       affected_by_spell(ch, SPELL_AURA_SIGHT) ||
       affected_by_spell(ch, SPELL_FAERIE_SIGHT)) &&
        (IS_ROOM( room_no, ROOM_HEAL) ||
@@ -2147,6 +2149,7 @@ void display_room_auras(P_char ch, int room_no)
     
   if ((IS_AFFECTED2(ch, AFF2_DETECT_EVIL) ||
       affected_by_spell(ch, SPELL_AURA_SIGHT) ||
+      (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20) ||
       affected_by_spell(ch, SPELL_FAERIE_SIGHT)) &&
       IS_ROOM( room_no, ROOM_NO_HEAL))
   {
@@ -2157,6 +2160,7 @@ void display_room_auras(P_char ch, int room_no)
   
   if ((IS_AFFECTED2(ch, AFF2_DETECT_MAGIC) || 
       affected_by_spell(ch, SPELL_AURA_SIGHT) ||
+      has_innate(ch, INNATE_OPHIDIAN_EYES) ||
       affected_by_spell(ch, SPELL_FAERIE_SIGHT)) &&
       IS_ROOM( room_no, ROOM_NO_MAGIC))
   {
@@ -2433,7 +2437,7 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
         }
       }
 
-      if( IS_AFFECTED(ch, AFF_FARSEE) )
+      if( IS_AFFECTED(ch, AFF_FARSEE) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 41) )
       {
         if( !IS_TRUSTED(ch) && IS_SET(EXIT(ch, keyword_no)->exit_info, EX_CLOSED) )
         {
@@ -2462,7 +2466,7 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
       {
         send_to_char("Looks like an exit.\n", ch);
       }
-      if( !IS_TRUSTED(ch) && !IS_AFFECTED(ch, AFF_FARSEE) )
+      if( !IS_TRUSTED(ch) && !IS_AFFECTED(ch, AFF_FARSEE) && !(has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 41) )
       {
         return;
       }
@@ -2477,7 +2481,7 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
     /* real room we are peering into */
     temp = world[room_no].dir_option[keyword_no]->to_room;
 
-    if( IS_AFFECTED(ch, AFF_FARSEE) )
+    if( IS_AFFECTED(ch, AFF_FARSEE) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 41) )
     {
       snprintf(buffer, MAX_STRING_LENGTH, "You extend your sights %sward.\n", dirs[keyword_no]);
       send_to_char(buffer, ch);
@@ -2498,7 +2502,7 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
         send_to_char("Swirling mists block your sight.\n", ch);
       return;
     }
-    if( (vis_mode == 1) && IS_AFFECTED(ch, AFF_FARSEE) )
+    if( (vis_mode == 1) && (IS_AFFECTED(ch, AFF_FARSEE) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 41)) )
     {
       vis_mode = 2;
     }
@@ -2877,7 +2881,7 @@ void new_look(P_char ch, char *argument, int cmd, int room_no)
     }
 
     // cmd == CMD_LOOKOUT -> Mode = -1 (for look out on ship).
-    if (IS_MAP_ROOM(room_no) && !IS_MAP_ROOM(ch->in_room)) map_look_room( ch, room_no, MAP_USE_TOGGLE );  // Fix looking from zone to map room -- Eikel.
+    if (IS_MAP_ROOM(room_no) && !IS_MAP_ROOM(ch->in_room) && cmd != CMD_LOOKOUT) map_look_room( ch, room_no, MAP_USE_TOGGLE );  // Fix looking from zone to map room -- Eikel.
     show_exits_to_char(ch, room_no, (cmd == CMD_LOOKOUT) ? -1 : 1);
     if (get_spell_from_room(&world[room_no], SPELL_WANDERING_WOODS))
     {
@@ -3399,7 +3403,7 @@ void do_examine(P_char ch, char *argument, int cmd)
             itemvalue(tmp_object));
     act(buf, FALSE, ch, tmp_object, 0, TO_CHAR);
 
-    if ((GET_ITEM_TYPE(tmp_object) == ITEM_WAND || GET_ITEM_TYPE(tmp_object) == ITEM_STAFF) && IS_AFFECTED2(ch, AFF2_DETECT_MAGIC))
+    if ((GET_ITEM_TYPE(tmp_object) == ITEM_WAND || GET_ITEM_TYPE(tmp_object) == ITEM_STAFF) && IS_AFFECTED2(ch, AFF2_DETECT_MAGIC) || has_innate(ch, INNATE_OPHIDIAN_EYES))
     {
       int max = tmp_object->value[1];
       if( max < 1 )
@@ -5194,17 +5198,17 @@ void do_score(P_char ch, char *argument, int cmd)
 //     else
      strcat(buf, " &+MI&+Ll&+ml&+Mu&+Ls&+mi&+Mo&+Ln&+ms&n");
   }
-  if (IS_AFFECTED(ch, AFF_DETECT_INVISIBLE))
+  if (IS_AFFECTED(ch, AFF_DETECT_INVISIBLE) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 36))
     strcat(buf, " &+CI&+cn&+Cv&+ci&+Cs&+ci&+Cb&+cl&+Ce&n");
-  if (IS_AFFECTED2(ch, AFF2_DETECT_EVIL))
+  if (IS_AFFECTED2(ch, AFF2_DETECT_EVIL) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20))
     strcat(buf, " &+RE&+rv&+Ri&+rl&n");
-  if (IS_AFFECTED2(ch, AFF2_DETECT_GOOD))
+  if (IS_AFFECTED2(ch, AFF2_DETECT_GOOD) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20))
     strcat(buf, " &+YGood&n");
-  if (IS_AFFECTED2(ch, AFF2_DETECT_MAGIC))
+  if (IS_AFFECTED2(ch, AFF2_DETECT_MAGIC) || has_innate(ch, INNATE_OPHIDIAN_EYES))
     strcat(buf, " &+MM&+ma&+Mg&+mi&+Mc&n");
-  if (IS_AFFECTED(ch, AFF_SENSE_LIFE))
+  if (IS_AFFECTED(ch, AFF_SENSE_LIFE) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 25))
     strcat(buf, " &+WLife&n");
-  if (IS_AFFECTED(ch, AFF_INFRAVISION))
+  if (IS_AFFECTED(ch, AFF_INFRAVISION) || has_innate(ch, INNATE_OPHIDIAN_EYES))
     strcat(buf, " &+rHeat&n");
   if (IS_AFFECTED4(ch, AFF4_SENSE_HOLINESS))
     strcat(buf, " &+WH&+Yo&+Wl&+Yi&+Wn&+Ye&+Ws&+Ys&n");
@@ -5217,7 +5221,7 @@ void do_score(P_char ch, char *argument, int cmd)
   }
   buf[0] = 0;
 
-  if (IS_AFFECTED2(ch, AFF2_DETECT_MAGIC) || IS_TRUSTED(ch) )
+  if (IS_AFFECTED2(ch, AFF2_DETECT_MAGIC) || IS_TRUSTED(ch) || has_innate(ch, INNATE_OPHIDIAN_EYES) )
   {
     if (IS_AFFECTED(ch, AFF_PROTECT_EVIL))
       strcat(buf, " &+RE&+rv&+Ri&+rl&n");
@@ -5280,7 +5284,7 @@ void do_score(P_char ch, char *argument, int cmd)
   {
     strcat(buf, " &+MUltravision&n");
   }
-  if( IS_AFFECTED(ch, AFF_FARSEE) )
+  if( IS_AFFECTED(ch, AFF_FARSEE) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 41))
   {
     strcat(buf, " &+YFarsee&n");
   }
@@ -7364,7 +7368,7 @@ bool get_equipment_list(P_char ch, char *buf, int list_only)
         if (IS_OBJ_STAT(t_obj, ITEM_BURIED))
           strcat(buf, " (&+Lburied&n)");
         if (IS_OBJ_STAT2(t_obj, ITEM2_MAGIC) &&
-            (IS_TRUSTED(ch) || IS_AFFECTED2(ch, AFF2_DETECT_MAGIC)))
+            (IS_TRUSTED(ch) || IS_AFFECTED2(ch, AFF2_DETECT_MAGIC)) || has_innate(ch, INNATE_OPHIDIAN_EYES))
           strcat(buf, " (&+bmagic&n)");
         if (get_obj_affect(t_obj, SKILL_ENCHANT))
           strcat(buf, " (&+mEnchanted&n)");
@@ -8622,7 +8626,7 @@ void do_scan(P_char ch, char *argument, int cmd)
           percent = number(1, 100) - basemod - dirmod;
 
           // No ULTRA/INFRA + DARK = NOT ok, DAYBLIND + LIGHT = NOT ok.
-          if( (!(IS_AFFECTED2(ch, AFF2_ULTRAVISION) || IS_AFFECTED(ch, AFF_INFRAVISION))
+          if( (!(IS_AFFECTED2(ch, AFF2_ULTRAVISION) || IS_AFFECTED(ch, AFF_INFRAVISION) || has_innate(ch, INNATE_OPHIDIAN_EYES))
             && IS_MAGIC_DARK(vict->in_room)) || (IS_DAYBLIND(ch) && IS_MAGIC_LIGHT(vict->in_room)) )
           {
             percent = 0;

@@ -1252,69 +1252,69 @@ H2 0 8454144 0 -1
 0.0.0.0 0
 8 8 1
 #102
-fledgling dragon welp small~
-A fledgling &+Gdr&+Lag&+Gon&n &+Rwhelp&n~
-A small &+RDragon&n stands here waiting for it's master.
+smoldering whelp dragon mount dragoonmount~
+A &+Lsmo&n&+rlde&+Lring&n &+Gwh&+Le&+Glp&n~
+A small &+Lsmo&n&+rlde&+Lring&n &+Gwh&+Le&+Glp&n stands here waiting for it's master.
 ~
 ~
-8 0 0 0 0 0 0 0 0 S
-D 0 1 0 4
-10 0 0 1d1+1 1d1+1
+134217736 0 0 0 536870912 0 0 0 0 S
+D 0 1 0 3
+1 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
 #103
-powerful fire drake~
-A powerful &+rfire&n &+GDr&+La&+Gke&n~
-A &+CPowerful&n looking &+rfire&n &+gDrake&n is here.
+ember drake dragon mount dragoonmount~
+An &+rem&+Rb&n&+rer&n &+Gdr&+La&+Gke&n~
+A juvenile &+rem&+Rb&n&+rer&n &+Gdr&+La&+Gke&n floats here ready to heed it's master.
 ~
 ~
-8 0 0 0 0 0 0 0 0 S
-D 0 1 0 4
-20 0 0 1d1+1 1d1+1
+134217736 0 0 0 603979776 0 0 0 0 S
+D 0 1 0 3
+11 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
 #104
-mighty dragon~
-A Mighty &+GDr&+Lag&+Gon&n~
-A &+MMighty&n &+rDragon&n is here.
+charred dragon mount dragoonmount~
+A &+Rch&+Larr&+Red&n &+Gdr&+Lag&+Gon&n~
+An imposing &+Rch&+Larr&+Red&n &+Gdr&+Lag&+Gon&n is perched at the ready for it's master.
 ~
 ~
-8 0 0 0 0 0 0 0 0 S
+134217736 0 0 0 671088640 0 0 4096 0 S
 D 0 1 0 4
-28 0 0 1d1+1 1d1+1
+21 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
 #105
-serpentine wyrm dragon~
-A Serpentine &+GW&+Ly&+Gr&+Lm&n~
-A &+gSerpentine&n looking &+rDragon&n is here.
+flame wyrm dragon mount dragoonmount~
+A serpentine &+Rfl&+Ya&+Rme&n &+Gw&+Ly&+Gr&+Lm&n~
+A serpentine &+Rfl&+Ya&+Rme&n &+Gw&+Ly&+Gr&+Lm&n slithers through the air seeking it's master.
 ~
 ~
-8 0 0 0 0 0 0 0 0 S
+134217736 0 0 0 671088640 4194304 0 4096 0 S
 D 0 1 0 4
-38 0 0 1d1+1 1d1+1
+31 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
 #106
-ferocious wyvern~
-A Ferocious &+GWy&+Lve&+Grn&n~
-A &+rFerocious&n looking &+gWyvern&n is here.
+scorched wyvern dragon mount dragoonmount~
+A &+Rsco&+Yrc&+Rhed&n &+Gwy&+Lve&+Grn&n~
+A massive &+Rsco&+Yrc&+Rhed&n &+Gwy&+Lve&+Grn&n glides here awaiting it's master.
 ~
 ~
-8 0 0 0 0 0 0 0 0 S
+134217736 0 0 0 671088656 4194304 0 4096 0 S
 D 0 1 0 5
-48 0 0 1d1+1 1d1+1
+41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
 #107
-inferno hellkite hell kite dragon~
-An &+Rinferno&n &+GH&+ge&+Gl&+gl&+Gk&+gi&+Gt&+ge&n~
-A &+CLarge&n &+RHellkite&n is here.
+inferno hellkite dragon mount dragoonmount~
+An &+Rinferno&n &+Ghel&+Llk&+Gite&n~
+An indomitable &+Rinferno&n &+Ghel&+Llk&+Gite&n soars here hearkening it's master.
 ~
 ~
-8 0 0 0 0 0 0 0 0 S
+134217736 0 0 0 671088648 4194305 0 4096 0 S
 D 0 1 0 6
-55 0 0 1d1+1 1d1+1
+51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
 #200

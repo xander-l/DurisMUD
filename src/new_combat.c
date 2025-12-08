@@ -683,7 +683,8 @@ int calcChDamagetoVictwithArmor(P_char ch, P_char victim, P_obj weap,
 
     if (IS_RIDING(victim) && !IS_RIDING(ch) &&
         ((GET_CLASS(victim) == CLASS_PALADIN) ||
-         (GET_CLASS(victim) == CLASS_ANTIPALADIN)))
+         (GET_CLASS(victim) == CLASS_ANTIPALADIN) ||
+         (GET_CLASS(victim) == CLASS_DRAGOON)))
     {
       if (GET_CHAR_SKILL(ch, SKILL_MOUNTED_COMBAT) < number(1, 101))
         *damDefl += 0.1;

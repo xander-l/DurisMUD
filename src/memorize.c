@@ -39,6 +39,8 @@ extern char *spells[];
 P_nevent  get_scheduled(P_char, event_func);
 extern void event_wait(P_char, P_char, P_obj, void*);
 extern int is_wearing_necroplasm(P_char);
+extern bool is_dragoon_mounted(P_char ch);
+
 void     event_memorize(P_char, P_char, P_obj, void *);
 void     event_scribe(P_char, P_char, P_obj, void *);
 void     affect_to_end(P_char ch, struct affected_type *af);
@@ -917,6 +919,12 @@ void handle_undead_mem(P_char ch)
     return;
   }
 
+  if(IS_DRAGOON(ch) && !is_dragoon_mounted(ch)) 
+  {
+    send_to_char("You feel unable to &+rcommune&n with the &+GDr&+Lag&+Gon&n god...\n", ch);
+    return;
+  }
+
   for( i = get_max_circle(ch); i >= 1; i-- )
   {
     if( ch->specials.undead_spell_slots[i] >= max_spells_in_circle(ch, i) )
@@ -963,6 +971,11 @@ void handle_undead_mem(P_char ch)
     else if( USES_DEFOREST(ch) )
     {
       snprintf(gbuf, MAX_STRING_LENGTH, "&+yYou draw a %d%s circle of energy from your surroundings.\n",
+        i, i == 1 ? "st" : (i == 2 ? "nd" : (i == 3 ? "rd" : "th")));
+    }
+    else if(IS_DRAGOON(ch))
+    {
+      snprintf(gbuf, MAX_STRING_LENGTH, "The &+Gdr&+Lag&+Gon&n god's &+rpower&n courses into your %d%s circle of knowledge.\n",
         i, i == 1 ? "st" : (i == 2 ? "nd" : (i == 3 ? "rd" : "th")));
     }
     else
@@ -1020,6 +1033,10 @@ void handle_undead_mem(P_char ch)
     send_to_char("&+mThe energies in your mind converge into full cohesion...\n", ch);
   }
   */
+  else if(IS_DRAGOON(ch))
+  {
+    send_to_char("Your &+Gdra&+Lcon&+Gic&n &+rcommunion&n is now complete...\n", ch);
+  }
   else if( USES_DEFOREST(ch) )
   {
     send_to_char( "&+yYour consumption of nature's energy is complete.&n\n", ch);
@@ -1215,7 +1232,8 @@ void do_assimilate(P_char ch, char *argument, int cmd)
     }
     strcat(Gbuf1, "\n");
   }
-  send_to_char(Gbuf1, ch);
+  if( strcmp(argument, "nl"))
+    send_to_char(Gbuf1, ch);
 
   if( (USES_COMMUNE(ch) || USES_FOCUS(ch) || USES_DEFOREST(ch)) && need_mem && !get_scheduled(ch, event_memorize) )
     add_event(event_memorize, get_circle_memtime(ch, need_mem), ch, 0, 0, 0, 0, 0);

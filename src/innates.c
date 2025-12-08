@@ -417,7 +417,9 @@ const struct innate_data innates_data[LAST_INNATE + 1] =
   {"intercept", NULL, SKILL_NONE},
   {"detect subversion", NULL, SKILL_NONE},
   {"living stone", NULL, SKILL_NONE},
-  {"invisibility", NULL, SKILL_NONE }
+  {"invisibility", NULL, SKILL_NONE },
+  {"infernal fury", NULL, SKILL_NONE },
+  {"ophidian eyes", NULL, SKILL_NONE }
 };
 
 string list_innates(int race, int cls, int spec)
@@ -1088,6 +1090,13 @@ void assign_innates()
   ADD_CLASS_INNATE(INNATE_ENTRAPMENT, CLASS_MERCENARY, 45, 0);  
   
 //  ADD_CLASS_INNATE(INNATE_LEVITATE, CLASS_ETHERMANCER, 1, 0);
+
+  ADD_CLASS_INNATE(INNATE_SUMMON_MOUNT, CLASS_DRAGOON, 1, 0);
+  ADD_CLASS_INNATE(INNATE_PROT_FIRE, CLASS_DRAGOON, 1, 0);
+  ADD_CLASS_INNATE(INNATE_ENLARGE, CLASS_DRAGOON, 31, 0);
+  ADD_CLASS_INNATE(INNATE_BATTLE_FRENZY, CLASS_DRAGOON, 16, 0);
+  ADD_CLASS_INNATE(INNATE_BATTLE_RAGE, CLASS_DRAGOON, 41, 0);
+  ADD_CLASS_INNATE(INNATE_OPHIDIAN_EYES, CLASS_DRAGOON, 16, 0);
 }
 
 P_char parse_victim(P_char ch, char *arg, uint flags)

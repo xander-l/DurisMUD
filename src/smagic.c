@@ -705,14 +705,30 @@ void spell_flameburst(int level, P_char ch, char *arg, int type,
                       P_char victim, P_obj obj)
 {
   int      dam;
-  struct damage_messages messages = {
-    "Your &+rflameburst&n collides silently with $N&n, who screams out in sudden pain.",
-    "You scream out in sudden pain as a &+rflameburst&n sent by $n&n hits you.",
-    "A &+rflameburst&n sent from $n&n's outstretched arms collides silently with $N&n.",
-    "With a burst of heat, $N&n is burnt to a crisp.",
-    "&+REverything seems so hot..  the pain, the paiiin...&n",
-    "A sudden burst of &+rflame&n flies from $n&n's fingertips, burning $N&n to a crisp."
-  };
+  struct damage_messages messages;
+  
+  if(type >= 1)
+  {
+    messages = {
+      "Your &+rflameburst&n collides silently with $N&n, who screams out in sudden pain.",
+      "You scream out in sudden pain as a &+rflameburst&n sent by $n&n hits you.",
+      "A &+rflameburst&n sent from $n&n's jaws collides with $N&n.",
+      "With a burst of heat, $N&n is burnt to a crisp.",
+      "&+REverything seems so hot..  the pain, the paiiin...&n",
+      "A sudden burst of &+rflame&n flies from $n&n's jaws, burning $N&n to a crisp."
+    };
+  }
+  else
+  {
+    messages = {
+      "Your &+rflameburst&n collides silently with $N&n, who screams out in sudden pain.",
+      "You scream out in sudden pain as a &+rflameburst&n sent by $n&n hits you.",
+      "A &+rflameburst&n sent from $n&n's outstretched arms collides silently with $N&n.",
+      "With a burst of heat, $N&n is burnt to a crisp.",
+      "&+REverything seems so hot..  the pain, the paiiin...&n",
+      "A sudden burst of &+rflame&n flies from $n&n's fingertips, burning $N&n to a crisp."
+    };
+  }
 
   if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
     return;
@@ -720,18 +736,22 @@ void spell_flameburst(int level, P_char ch, char *arg, int type,
   int num_dice = (level / 10);
   dam = (dice((num_dice+4), 6) * 5);
   dam = BOUNDED(1, dam, 200);
-
-  do_point(ch, victim);
+ 
+  if(type == 0) do_point(ch, victim);
 
   if(!NewSaves(victim, SAVING_SPELL, 0))
     dam = (int)(dam * 1.33);
   
+  // dragoon dragon priest bonus
+  if(type >= 1) dam += dam * 0.05;
+
   if(GET_RACE(victim) == RACE_W_ELEMENTAL)
   {
     spell_damage(ch, victim, (int)(dam * 1.25), SPLDAM_FIRE, SPLDAM_NOSHRUG | SPLDAM_ALLGLOBES, &messages);
     send_to_char("&+RYour f&+ri&+Re&+rr&+Ry b&+ru&+Rr&+rs&+Rt causes your victim to &+ysizzle &+Rquite nicely!\r\n", ch);
     return;
   }
+
   spell_damage(ch, victim, dam, SPLDAM_FIRE, SPLDAM_ALLGLOBES, &messages);
 }
 
@@ -803,21 +823,38 @@ void spell_scorching_touch(int level, P_char ch, char *arg, int type,
 void spell_molten_spray(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   int  dam;
-  struct damage_messages messages = {
-    "Your blast of &+Rmolten spray&n slams into $N&n, burning holes into $S flesh.",
-    "$n&n fires a blast of &+Rmolten spray&n at you, causing unbearable pain.",
-    "A blast of &+Rmolten spray&n sent by $n&n coats $N&n with searing agony.",
-    "Your &+Rmolten spray&n melts what remains of $N&n into a puddle of liquid flesh.",
-    "$n&n sends a blast of &+Rmolten spray&n into your face, and you slip away..",
-    "A burst of &+Rmolten spray&n sent from $n&n's fingertips melts $N&n into a puddle of mush."
-  };
+  struct damage_messages messages;
+
+  if(type >= 1)
+  { 
+    messages = {
+      "Your blast of &+Rmolten spray&n slams into $N&n, burning holes into $S flesh.",
+      "$n&n fires a blast of &+Rmolten spray&n at you, causing unbearable pain.",
+      "A blast of &+Rmolten spray&n sent by $n&n coats $N&n with searing agony.",
+      "Your &+Rmolten spray&n melts what remains of $N&n into a puddle of liquid flesh.",
+      "$n&n sends a blast of &+Rmolten spray&n into your face, and you slip away..",
+      "A burst of &+Rmolten spray&n sent from $n&n's maw melts $N&n into a puddle of mush."
+    };
+  }
+  else
+  {
+    messages = {
+      "Your blast of &+Rmolten spray&n slams into $N&n, burning holes into $S flesh.",
+      "$n&n fires a blast of &+Rmolten spray&n at you, causing unbearable pain.",
+      "A blast of &+Rmolten spray&n sent by $n&n coats $N&n with searing agony.",
+      "Your &+Rmolten spray&n melts what remains of $N&n into a puddle of liquid flesh.",
+      "$n&n sends a blast of &+Rmolten spray&n into your face, and you slip away..",
+      "A burst of &+Rmolten spray&n sent from $n&n's fingertips melts $N&n into a puddle of mush."
+    };
+  }
+  
 
   if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
   {
     return;
   }
 
-  do_point(ch, victim);
+  if(type != 1) do_point(ch, victim);
 
   dam = dice(level, 2) * 4;
 
@@ -825,6 +862,9 @@ void spell_molten_spray(int level, P_char ch, char *arg, int type, P_char victim
   {
     dam = (int) (dam * 1.25);
   }
+
+  // dragoon dragon priest bonus
+  if(type > 1) dam += dam * 0.05;
 
   if( IS_UNDEADRACE(victim) )
   {
@@ -4195,7 +4235,7 @@ void spell_spirit_jump(int level, P_char ch, char *arg, int type, P_char victim,
     return;
   }
 
-  distance = (level * 27) / 10 + (IS_SPIRITUALIST(ch) ? 15 : 0);
+  distance = (level * 27) / 5 + (IS_SPIRITUALIST(ch) ? 15 : 0);
 
   if( !IS_TRUSTED(ch) && ((how_close(ch->in_room, victim->in_room, distance) < 0)) )
 //    || (how_close(victim->in_room, ch->in_room, distance) < 0)) )
