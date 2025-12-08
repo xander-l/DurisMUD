@@ -1256,3 +1256,20 @@ int is_guild_golem(P_char ch, P_char pl)
 
   return (allowed);
 }
+
+bool is_in_dragoon_group(P_char ch, P_char vict)
+{
+    if(ch == vict) return TRUE;
+
+    struct group_list *gl;
+
+    if( ch->group )
+    {
+      for( gl = ch->group; gl; gl = gl->next )
+      {
+        if(gl->ch == vict) return TRUE;
+      }
+    }
+
+    return FALSE;
+}

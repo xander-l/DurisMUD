@@ -81,6 +81,7 @@ extern P_char make_mirror(P_char);
 extern void do_bite(P_char ch, char *arg, int cmd);
 extern bool has_dragoon_mount(P_char ch);
 extern bool is_dragoon_mounted(P_char ch);
+extern bool is_in_dragoon_group(P_char ch, P_char vict);
 
 struct failed_takedown_messages
 {
@@ -3727,15 +3728,24 @@ void kick(P_char ch, P_char victim)
 
 void do_dragon_roar(P_char ch, char *argument, int cmd)
 {
-  P_char   victim;
+  P_char   victim = NULL, mount = NULL;
   int      skl_lvl = 0;
-  //int      dam = 0;
+  int      hpoints = (GET_CHAR_SKILL(ch, SKILL_DRAGON_ROAR) / 2);
+  struct group_list *gl;
+  int      dampoints = (GET_CHAR_SKILL(ch, SKILL_DRAGON_ROAR) / 20);
+  int      percent_chance;
+  bool     is_hunter=FALSE;
+  int      skl;
+  struct affected_type af;
   
   if(!IS_ALIVE(ch) )
   {
     if( ch ) send_to_char("Lay still, you seem to be dead.\r\n", ch);
     return;
   }
+
+  if(!SanityCheck(ch, "dragon_roar"))
+    return;
 
   if((skl_lvl = GET_CHAR_SKILL(ch, SKILL_DRAGON_ROAR)) == 0)
   {
@@ -3761,7 +3771,101 @@ void do_dragon_roar(P_char ch, char *argument, int cmd)
     return;
   }
 
-  send_to_char("You command your dragon to roar.\r\n", ch);
+  if( affected_by_spell(ch, SKILL_DRAGON_ROAR) ||
+      affected_by_spell(ch, SKILL_DRAGON_BREATH) ||
+      affected_by_spell(ch, SKILL_DRAGON_STRIKE))
+  {
+    send_to_char("Your &+Gdr&+Lag&+Gon&n needs to re-orient itself before it can roar again.\n", ch);
+    return;
+  }
+
+  mount = get_linked_char(ch, LNK_RIDING);
+
+  is_hunter = GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_HUNTER);
+  percent_chance = ( 95 * GET_CHAR_SKILL(ch, SKILL_DRAGON_ROAR) ) / 100;
+  percent_chance = BOUNDED(1, percent_chance, 99);
+  int power = MAX(0, (int)(((GET_C_POW(ch) - 100)/2)));
+
+  if((percent_chance + power) > number(1, 100) 
+   && number(0, 75) < GET_CHAR_SKILL(ch, SKILL_MOUNT))
+  {
+    send_to_char("You command your &+Gdr&+Lag&+Gon&n to unleash a &+rpowerful &-L&+RROAR!!&n\r\n", ch);
+    act("$n commands $N to unleash a &+rpowerful &-L&+RROAR!!&n", TRUE, ch, 0, mount, TO_ROOM);
+
+    struct affected_type af;
+    int empower = is_hunter ? GET_CHAR_SKILL(ch, SKILL_DRAGON_ROAR) : GET_CHAR_SKILL(ch, SKILL_DRAGON_ROAR) / 2;
+
+    for (victim = world[ch->in_room].people; victim; victim = victim->next_in_room)
+    {
+      if(is_in_dragoon_group(ch, victim) || victim == mount)
+      {
+        if(!affected_by_spell(victim, SKILL_DRAGON_ROAR))
+        {
+          bzero(&af, sizeof(af));
+          af.type = SKILL_DRAGON_ROAR;
+          af.duration = (dampoints) / 2;
+          //HPS
+          af.modifier = hpoints;
+          af.location = APPLY_HIT;
+          affect_to_char(victim, &af);
+          //HIT
+          af.modifier = dampoints;
+          af.location = APPLY_HITROLL;
+          affect_to_char(victim, &af);
+          //DAM
+          af.modifier = dampoints;
+          af.location = APPLY_DAMROLL;
+          affect_to_char(victim, &af);
+          update_pos(victim);
+          send_to_char("Your &+rblood&n boils as you heed the &+Gdr&+Lag&+Gon&n &+Lgod&n's call!\r\n", victim);
+          act("$n hearkens the &+Gdr&+Lag&+Gon&n &+Lgod&n's call!", TRUE, victim, 0, 0, TO_ROOM);
+        }
+      }
+      else
+      {
+        if(!affected_by_spell(victim, SKILL_DRAGON_ROAR))
+        {
+          bzero(&af, sizeof(af));
+          af.type = SKILL_DRAGON_ROAR;
+          af.duration = (dampoints) / 2;
+          af.modifier = 0 - MAX(2, (GET_LEVEL(ch) / 8) + (empower / 10));
+          af.location = APPLY_HITROLL;
+          affect_to_char(victim, &af);
+          af.modifier = 0 - MAX(2, (GET_LEVEL(ch) / 8) + (empower / 10));
+          af.location = APPLY_DAMROLL;
+          affect_to_char(victim, &af);
+          send_to_char("The &+Gdr&+Lag&+Gon&n's &+RROAR&n shakes you to your core!\r\n", victim);
+          act("$N looks shaken by the &+Gdr&+Lag&+Gon&n's &+RROAR&n!", TRUE, ch, 0, victim, TO_CHAR);
+          act("$N looks shaken by the &+Gdr&+Lag&+Gon&n's &+RROAR&n!", TRUE, ch, 0, victim, TO_NOTVICTROOM);
+        }
+        
+        if(!IS_AFFECTED4(victim, AFF4_NOFEAR) && !IS_ELITE(victim) && !IS_GREATER_RACE(victim) && !IS_DRAGOON(victim))
+        {
+          if(is_hunter)
+          {
+            if ((number(0, 100) < (int)get_property("skill.dragon_roar.hunter.flee.chance", 10.000)) &&
+                (number(0, 100) < GET_CHAR_SKILL(ch, SKILL_DRAGON_ROAR)) &&
+                ((GET_LEVEL(ch)+MIN(5, (empower/20))) >= GET_LEVEL(victim)) &&
+                !IS_TRUSTED(victim) &&
+                !fear_check(victim))
+            {
+              send_to_char("The &+Gdr&+Lag&+Gon&n's &+RROAR&n fills you with &+LDREAD&n!\n", victim);
+              do_flee(victim, 0, 0);
+            }
+          }
+        }
+      }
+    }
+
+    notch_skill(ch, SKILL_DRAGON_ROAR, 10);
+  }
+  else
+  {
+    send_to_char("Your &+Gdr&+Lag&+Gon&n fails to obey your command.\r\n", ch);
+    act("$N disobeys $n's command,", TRUE, ch, 0, mount, TO_ROOM);
+  }
+
+  CharWait(ch, PULSE_VIOLENCE * 2);
 }
 
 void do_dragon_breath(P_char ch, char *argument, int cmd)
@@ -3909,7 +4013,7 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
         send_to_char("You command your &+Gdr&+Lag&+Gon&n to &+RSTRIKE&n!!!\n", ch);
       break;
       case 2:
-        send_to_char("Your &+Gdr&+Lag&+Gon&n sweeps it's massive tail!!!\n", ch);
+        send_to_char("Your &+Gdr&+Lag&+Gon&n &+RSTRIKES&n with it's massive tail!!!\n", ch);
       break;
       case 3:
         send_to_char("Your &+Gdr&+Lag&+Gon&n crashes it's tail through the area!!!\n", ch);
@@ -3994,7 +4098,7 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
 
   if(knockdown_chance == TAKEDOWN_CANCELLED)
   {
-    send_to_char("Your &+Gdr&+Lag&+Gon&n's tail swings wildy in the air.\r\n", ch);
+    send_to_char("Your &+Gdr&+Lag&+Gon&n's tail swings wildy through the area missing it's target!\r\n", ch);
     return;
   }
   else if(knockdown_chance == TAKEDOWN_PENALTY)
@@ -4003,7 +4107,7 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
   }
 
   percent_chance = BOUNDED(1, percent_chance, 99);
-  int charisma = MAX(0, (int)(((GET_C_CHA(ch) - 100)/2)));
+  int power = MAX(0, (int)(((GET_C_POW(ch) - 100)/2)));
   
   if(IS_NPC(ch) && (number(0, 50) > percent_chance))
   {
@@ -4015,7 +4119,7 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
   act("You order your &+Gdr&+Lag&+Gon&n to tail strike $N.", FALSE, ch, 0, victim, TO_CHAR);
 
   if(!notch_skill(ch, SKILL_MOUNTED_COMBAT, get_property("skill.notch.offensive", 7)) &&
-     (percent_chance + charisma) < number(1, 100))
+     (percent_chance + power) < number(1, 100))
   {
     if(50 + GET_C_DEX(ch) / 2 > number(0, 100) || is_lancer)
     {
