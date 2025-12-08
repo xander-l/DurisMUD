@@ -2073,9 +2073,9 @@ SPELL_CREATE("vigorize light", SPELL_VIGORIZE_LIGHT, PULSE_SPELLCAST * 2,
   SPELL_ADD(CLASS_SUMMONER, 6);
   SPEC_SPELL_ADD(CLASS_REAVER, 7, SPEC_EARTH_REAVER);
 
-  SPELL_CREATE_MSG("dragon skin", SPELL_STONE_SKIN, PULSE_SPELLCAST * 4 / 3,
+  SPELL_CREATE_MSG("dragon skin", SPELL_DRAGON_SKIN, PULSE_SPELLCAST * 4 / 3,
                 TAR_SELF_ONLY,
-                spell_stone_skin, "Your dragon scale armor returns to normal.");
+                spell_dragon_skin, "Your dragon scale armor returns to normal.");
   SPELL_ADD(CLASS_DRAGOON, 7);
 
   SPELL_CREATE_MSG("group stone skin", SPELL_GROUP_STONE_SKIN, PULSE_SPELLCAST * 5,
