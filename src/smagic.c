@@ -707,7 +707,7 @@ void spell_flameburst(int level, P_char ch, char *arg, int type,
   int      dam;
   struct damage_messages messages;
   
-  if(type == 1)
+  if(type >= 1)
   {
     messages = {
       "Your &+rflameburst&n collides silently with $N&n, who screams out in sudden pain.",
@@ -737,13 +737,13 @@ void spell_flameburst(int level, P_char ch, char *arg, int type,
   dam = (dice((num_dice+4), 6) * 5);
   dam = BOUNDED(1, dam, 200);
  
-  if(type != 1) do_point(ch, victim);
+  if(type == 0) do_point(ch, victim);
 
   if(!NewSaves(victim, SAVING_SPELL, 0))
     dam = (int)(dam * 1.33);
   
   // dragoon dragon priest bonus
-  if(type == 1) dam += dam * 0.05;
+  if(type >= 1) dam += dam * 0.05;
 
   if(GET_RACE(victim) == RACE_W_ELEMENTAL)
   {
@@ -824,9 +824,9 @@ void spell_molten_spray(int level, P_char ch, char *arg, int type, P_char victim
 {
   int  dam;
   struct damage_messages messages;
-  
-  if(type == 1)
-  {
+
+  if(type >= 1)
+  { 
     messages = {
       "Your blast of &+Rmolten spray&n slams into $N&n, burning holes into $S flesh.",
       "$n&n fires a blast of &+Rmolten spray&n at you, causing unbearable pain.",
@@ -864,7 +864,7 @@ void spell_molten_spray(int level, P_char ch, char *arg, int type, P_char victim
   }
 
   // dragoon dragon priest bonus
-  if(type == 1) dam += dam * 0.05;
+  if(type > 1) dam += dam * 0.05;
 
   if( IS_UNDEADRACE(victim) )
   {

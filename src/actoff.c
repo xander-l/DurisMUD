@@ -4008,12 +4008,12 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
     engage(ch, victim);
 
     //TODO:  probably need to change the get levels to mount levels but didn't see to work correctly
-    if(GET_LEVEL(ch) < 11)      spell_burning_hands(GET_LEVEL(ch), mount, "", is_priest, victim, 0);
-    else if(GET_LEVEL(ch) < 21) spell_flameburst(GET_LEVEL(ch), mount, "", is_priest, victim, 0);
-    else if(GET_LEVEL(ch) < 31) spell_molten_spray(GET_LEVEL(ch), mount, "", is_priest, victim, 0);
-    else if(GET_LEVEL(ch) < 41) spell_magma_burst(GET_LEVEL(ch), mount, "", 1 + is_priest, victim, 0);
-    else if(GET_LEVEL(ch) < 51) spell_immolate(GET_LEVEL(ch), mount, "", is_priest, victim, 0);
-    else                        spell_firestorm(GET_LEVEL(ch), mount, "", is_priest, victim, 0);
+    if(GET_LEVEL(mount) < 11)      spell_burning_hands(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
+    else if(GET_LEVEL(mount) < 21) spell_flameburst(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
+    else if(GET_LEVEL(mount) < 31) spell_molten_spray(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
+    else if(GET_LEVEL(mount) < 41) spell_magma_burst(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
+    else if(GET_LEVEL(mount) < 51) spell_immolate(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
+    else                           spell_firestorm(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
 
     notch_skill(ch, SKILL_DRAGON_BREATH, 10);
   }
