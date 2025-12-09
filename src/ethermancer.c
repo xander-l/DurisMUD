@@ -542,7 +542,7 @@ void spell_windwalk(int level, P_char ch, char *arg, int type, P_char victim, P_
   P_char rider = get_linking_char(victim, LNK_RIDING);
   if(IS_NPC(victim) && rider)
   {
-    send_to_char("&+CYou failed.\n", ch);
+    send_to_char("&+yYou failed.\n", ch);
     return;
   }
 
@@ -574,12 +574,12 @@ void spell_windwalk(int level, P_char ch, char *arg, int type, P_char victim, P_
     return;
   }
   
-  distance = (int)(level * 1.35);
-  if (GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_TEMPESTMAGUS))
+  distance = (int)(level * (int)get_property("spell.dim.perlevel.modifier", 1.35));
+  if(GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_TEMPESTMAGUS))
     distance += 15;
 
-  if( !IS_TRUSTED(ch) && (( how_close(ch->in_room, victim->in_room, distance) < 0 )) )
-//    || (how_close(victim->in_room, ch->in_room, distance) < 0)) )
+  if( !IS_TRUSTED(ch) && how_close(ch->in_room, victim->in_room, distance) < 0
+    && how_close(victim->in_room, ch->in_room, distance) < 0 )
   {
     send_to_char("&+yYou failed.\r\n", ch);
     return;
