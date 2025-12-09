@@ -2103,15 +2103,6 @@ void mount_summoning_thing(P_char ch, P_char victim, P_obj obj, void *data)
 
     if(IS_DRAGOON(ch))
     {
-      if(GET_LEVEL(ch) >= 30)
-      {
-        SET_BIT(mount->specials.affected_by, AFF_FLY);
-      }
-      else
-      {
-        SET_BIT(mount->specials.affected_by, AFF_LEVITATE);
-      }
-
       SET_BIT(mount->specials.affected_by, AFF_PROT_FIRE);
       SET_BIT(mount->specials.affected_by4, AFF4_NOFEAR);
     }

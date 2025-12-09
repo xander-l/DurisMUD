@@ -82,6 +82,8 @@ extern void do_bite(P_char ch, char *arg, int cmd);
 extern bool has_dragoon_mount(P_char ch);
 extern bool is_dragoon_mounted(P_char ch);
 extern bool is_in_dragoon_group(P_char ch, P_char vict);
+extern void DelayCommune(P_char ch, int delay);
+extern int get_next_dragoon_circle(P_char ch);
 
 struct failed_takedown_messages
 {
@@ -3737,7 +3739,8 @@ void do_dragon_roar(P_char ch, char *argument, int cmd)
   bool     is_hunter=FALSE;
   int      skl;
   struct affected_type af;
-  
+  char     buf[MAX_STRING_LENGTH];
+
   if(!IS_ALIVE(ch) )
   {
     if( ch ) send_to_char("Lay still, you seem to be dead.\r\n", ch);
@@ -3786,78 +3789,102 @@ void do_dragon_roar(P_char ch, char *argument, int cmd)
   percent_chance = BOUNDED(1, percent_chance, 99);
   int power = MAX(0, (int)(((GET_C_POW(ch) - 100)/2)));
 
+  appear(ch);
+  appear(mount);
+
   if((percent_chance + power) > number(1, 100) 
-   && number(0, 75) < GET_CHAR_SKILL(ch, SKILL_MOUNT))
+   /*&& number(0, 75) < GET_CHAR_SKILL(ch, SKILL_MOUNT)*/)
   {
     send_to_char("You command your &+Gdr&+Lag&+Gon&n to unleash a &+rpowerful &-L&+RROAR!!&n\r\n", ch);
     act("$n commands $N to unleash a &+rpowerful &-L&+RROAR!!&n", TRUE, ch, 0, mount, TO_ROOM);
 
     struct affected_type af;
     int empower = is_hunter ? GET_CHAR_SKILL(ch, SKILL_DRAGON_ROAR) : GET_CHAR_SKILL(ch, SKILL_DRAGON_ROAR) / 2;
+    
+    // Will now drain spell circles but higher circles should do better shit IMHO
+    int circle = get_next_dragoon_circle(ch);
 
-    for (victim = world[ch->in_room].people; victim; victim = victim->next_in_room)
+    if(circle == 0)
     {
-      if(is_in_dragoon_group(ch, victim) || victim == mount)
+      act("$N &+RBELCHES&n a large &+WPUFF&n of foul &+LSMOKE&n!", FALSE, ch, 0, mount, TO_ROOM);
+      act("$N &+RBELCHES&n a large &+WPUFF&n of foul &+LSMOKE&n!", FALSE, ch, 0, mount, TO_CHAR);
+    }
+    else
+    {
+      for (victim = world[ch->in_room].people; victim; victim = victim->next_in_room)
       {
-        if(!affected_by_spell(victim, SKILL_DRAGON_ROAR))
+        if(is_in_dragoon_group(ch, victim) || victim == mount)
         {
-          bzero(&af, sizeof(af));
-          af.type = SKILL_DRAGON_ROAR;
-          af.duration = (dampoints) / 2;
-          //HPS
-          af.modifier = hpoints;
-          af.location = APPLY_HIT;
-          affect_to_char(victim, &af);
-          //HIT
-          af.modifier = dampoints;
-          af.location = APPLY_HITROLL;
-          affect_to_char(victim, &af);
-          //DAM
-          af.modifier = dampoints;
-          af.location = APPLY_DAMROLL;
-          affect_to_char(victim, &af);
-          update_pos(victim);
-          send_to_char("Your &+rblood&n boils as you heed the &+Gdr&+Lag&+Gon&n &+Lgod&n's call!\r\n", victim);
-          act("$n hearkens the &+Gdr&+Lag&+Gon&n &+Lgod&n's call!", TRUE, victim, 0, 0, TO_ROOM);
-        }
-      }
-      else
-      {
-        if(!affected_by_spell(victim, SKILL_DRAGON_ROAR))
-        {
-          bzero(&af, sizeof(af));
-          af.type = SKILL_DRAGON_ROAR;
-          af.duration = (dampoints) / 2;
-          af.modifier = 0 - MAX(2, (GET_LEVEL(ch) / 8) + (empower / 10));
-          af.location = APPLY_HITROLL;
-          affect_to_char(victim, &af);
-          af.modifier = 0 - MAX(2, (GET_LEVEL(ch) / 8) + (empower / 10));
-          af.location = APPLY_DAMROLL;
-          affect_to_char(victim, &af);
-          send_to_char("The &+Gdr&+Lag&+Gon&n's &+RROAR&n shakes you to your core!\r\n", victim);
-          act("$N looks shaken by the &+Gdr&+Lag&+Gon&n's &+RROAR&n!", TRUE, ch, 0, victim, TO_CHAR);
-          act("$N looks shaken by the &+Gdr&+Lag&+Gon&n's &+RROAR&n!", TRUE, ch, 0, victim, TO_NOTVICTROOM);
-        }
-
-        if(!IS_AFFECTED4(victim, AFF4_NOFEAR) && !IS_ELITE(victim) && !IS_GREATER_RACE(victim) && !IS_DRAGOON(victim))
-        {
-          if(is_hunter)
+          if(!affected_by_spell(victim, SKILL_WAR_CRY))
           {
-            if ((number(0, 100) < (int)get_property("skill.dragon_roar.hunter.flee.chance", 10.000)) &&
-                (number(0, 100) < GET_CHAR_SKILL(ch, SKILL_DRAGON_ROAR)) &&
-                ((GET_LEVEL(ch)+MIN(5, (empower/20))) >= GET_LEVEL(victim)) &&
-                !IS_TRUSTED(victim) &&
-                !fear_check(victim))
+            bzero(&af, sizeof(af));
+            af.type = SKILL_WAR_CRY;
+            af.duration = (dampoints) / 2;
+            //HPS
+            af.modifier = hpoints;
+            af.location = APPLY_HIT;
+            affect_to_char(victim, &af);
+            //HIT
+            af.modifier = dampoints;
+            af.location = APPLY_HITROLL;
+            affect_to_char(victim, &af);
+            //DAM
+            af.modifier = dampoints;
+            af.location = APPLY_DAMROLL;
+            affect_to_char(victim, &af);
+            update_pos(victim);
+            send_to_char("Your &+rblood&n boils as you heed the &+Gdr&+Lag&+Gon&n &+Lgod&n's call!\r\n", victim);
+            act("$n hearkens the &+Gdr&+Lag&+Gon&n &+Lgod&n's call!", TRUE, victim, 0, 0, TO_ROOM);
+          }
+        }
+        else
+        {
+          if(!affected_by_spell(victim, SONG_COWARDICE))
+          {
+            bzero(&af, sizeof(af));
+            af.type = SONG_COWARDICE;
+            af.duration = (dampoints) / 2;
+            af.modifier = 0 - MAX(2, (GET_LEVEL(ch) / 8) + (empower / 10));
+            af.location = APPLY_HITROLL;
+            affect_to_char(victim, &af);
+            af.modifier = 0 - MAX(2, (GET_LEVEL(ch) / 8) + (empower / 10));
+            af.location = APPLY_DAMROLL;
+            affect_to_char(victim, &af);
+            send_to_char("The &+Gdr&+Lag&+Gon&n's &+RROAR&n shakes you to your core!\r\n", victim);
+            act("$N looks shaken by the &+Gdr&+Lag&+Gon&n's &+RROAR&n!", TRUE, ch, 0, victim, TO_CHAR);
+            act("$N looks shaken by the &+Gdr&+Lag&+Gon&n's &+RROAR&n!", TRUE, ch, 0, victim, TO_NOTVICTROOM);
+          }
+
+          if(!IS_AFFECTED4(victim, AFF4_NOFEAR) && !IS_ELITE(victim) && !IS_GREATER_RACE(victim) && !IS_DRAGOON(victim))
+          {
+            if(is_hunter)
             {
-              send_to_char("The &+Gdr&+Lag&+Gon&n's &+RROAR&n fills you with &+LDREAD&n!\n", victim);
-              do_flee(victim, 0, 0);
+              if ((number(0, 100) < (int)get_property("skill.dragon_roar.hunter.flee.chance", 10.000)) &&
+                  (number(0, 100) < GET_CHAR_SKILL(ch, SKILL_DRAGON_ROAR)) &&
+                  ((GET_LEVEL(ch)+MIN(5, (empower/20))) >= GET_LEVEL(victim)) &&
+                  !IS_TRUSTED(victim) &&
+                  !fear_check(victim))
+              {
+                send_to_char("The &+Gdr&+Lag&+Gon&n's &+RROAR&n fills you with &+LDREAD&n!\n", victim);
+                do_flee(victim, 0, 0);
+              }
             }
           }
         }
       }
+
+      ch->specials.undead_spell_slots[circle]--;
+
+      snprintf(buf, MAX_STRING_LENGTH, "The &+Gdr&+Lag&+Gon&n god's &+rpower&n drains from your %d%s circle of knowledge.\n",
+        circle, circle == 1 ? "st" : (circle == 2 ? "nd" : (circle == 3 ? "rd" : "th")));
+      send_to_char(buf, ch);
+
+      DelayCommune(ch, (int) (3 * PULSE_VIOLENCE));
+
+      notch_skill(ch, SKILL_DRAGON_ROAR, 10);
     }
 
-    notch_skill(ch, SKILL_DRAGON_ROAR, 10);
+    set_short_affected_by(ch, SKILL_DRAGON_ROAR, (int) (3 * PULSE_VIOLENCE));
   }
   else
   {
@@ -3875,6 +3902,7 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
   int      percent_chance;
   bool     is_priest = FALSE;
   char     name[MAX_INPUT_LENGTH];
+  char     buf[MAX_STRING_LENGTH];
   
   if(!IS_ALIVE(ch) )
   {
@@ -3975,6 +4003,9 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
     return;
   }
 
+  appear(ch);
+  appear(mount);
+
   victim = guard_check(ch, victim);
 
   is_priest = GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_PRIEST);
@@ -3985,37 +4016,68 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
   int power = MAX(0, (int)(((GET_C_POW(ch) - 100)/2)));
 
   if((!notch_skill(ch, SKILL_MOUNTED_COMBAT, get_property("skill.notch.offensive", 7)) 
-    && (percent_chance + power) < number(1, 100)) || number(0, 65) > GET_CHAR_SKILL(ch, SKILL_MOUNT))
+    && (percent_chance + power) < number(1, 100)) /*|| number(0, 65) > GET_CHAR_SKILL(ch, SKILL_MOUNT)*/)
   {
       act("$N thrashes wildy without heeding $n's order.", FALSE, ch, 0, mount, TO_ROOM);
       act("$N thrashes wildy without heeding your order.", FALSE, ch, 0, mount, TO_CHAR);
   }
   else
   {
-    //send_to_char("$n rears back and blasts $N with a torrent of &+RFLAMES&n\r\n", ch);
-
-    if(GET_LEVEL(mount) < 51)
-    {
-      act("$n rears back and blasts $N with a torrent of &+RFLAMES&n", FALSE, mount, 0, victim, TO_NOTVICTROOM);
-      act("$n rears back and blasts YOU with a torrent of &+RFLAMES&n", FALSE, mount, 0, victim, TO_VICT);
-    }
-    else
-    {
-      act("$n breathes a hellish &+RFIRESTORM&n into the area!", FALSE, mount, 0, victim, TO_ROOM);
-    }    
-
     // force engagement on dragon or on dragon rider?
     engage(ch, victim);
 
-    //TODO:  probably need to change the get levels to mount levels but didn't see to work correctly
-    if(GET_LEVEL(mount) < 11)      spell_burning_hands(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
-    else if(GET_LEVEL(mount) < 21) spell_flameburst(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
-    else if(GET_LEVEL(mount) < 31) spell_molten_spray(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
-    else if(GET_LEVEL(mount) < 41) spell_magma_burst(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
-    else if(GET_LEVEL(mount) < 51) spell_immolate(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
-    else                           spell_firestorm(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
+    int circle = get_next_dragoon_circle(ch);
 
-    notch_skill(ch, SKILL_DRAGON_BREATH, 10);
+    if(circle == 0)
+    {
+      act("$N &+RBELCHES&n a large &+WPUFF&n of foul &+LSMOKE&n!", FALSE, ch, 0, mount, TO_ROOM);
+      act("$N &+RBELCHES&n a large &+WPUFF&n of foul &+LSMOKE&n!", FALSE, ch, 0, mount, TO_CHAR);
+    }
+    else
+    {
+      //send_to_char("$n rears back and blasts $N with a torrent of &+RFLAMES&n\r\n", ch);
+      act("$n rears back and blasts $N with a torrent of &+RFLAMES&n!", FALSE, mount, 0, victim, TO_NOTVICTROOM);
+      act("$n rears back and blasts YOU with a torrent of &+RFLAMES&n!", FALSE, mount, 0, victim, TO_VICT);  
+
+      switch(circle)
+      {
+        case 1:
+        case 2:
+          spell_burning_hands(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
+        break;
+        case 3:
+        case 4:
+          spell_flameburst(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
+        break;
+        case 5:
+        case 6:
+          spell_molten_spray(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
+        break;
+        case 7:
+        case 8:
+          spell_fireball(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
+          break;
+        case 9:
+        case 10:
+          spell_magma_burst(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
+          break;
+        case 11:
+        case 12:
+          spell_immolate(GET_LEVEL(mount), mount, "", 1 + is_priest, victim, 0);
+        break;
+      }                         
+      
+      ch->specials.undead_spell_slots[circle]--;
+
+      snprintf(buf, MAX_STRING_LENGTH, "The &+Gdr&+Lag&+Gon&n god's &+rpower&n drains from your %d%s circle of knowledge.\n",
+        circle, circle == 1 ? "st" : (circle == 2 ? "nd" : (circle == 3 ? "rd" : "th")));
+      send_to_char(buf, ch);
+
+      notch_skill(ch, SKILL_DRAGON_BREATH, 10);
+      DelayCommune(ch, (int) (3 * PULSE_VIOLENCE));
+    }
+
+    set_short_affected_by(ch, SKILL_DRAGON_BREATH, (int) (3 * PULSE_VIOLENCE));
   }
 
   CharWait(ch, PULSE_VIOLENCE * 2);
@@ -4139,6 +4201,9 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
     send_to_char("Your &+Gdra&+Lag&+Gon&n is afflicted and cannot hearken you.\n\r", ch);
     return;
   }
+
+  appear(ch);
+  appear(mount);
 
   victim = guard_check(ch, victim);
 
@@ -4280,9 +4345,10 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
         GET_NAME(ch), knockdown_chance, GET_NAME(victim));
     }
     
+    set_short_affected_by(ch, SKILL_DRAGON_STRIKE, (int) (3 * PULSE_VIOLENCE));
+
     if(knockdown_chance > number(1, 100))
     {
-      set_short_affected_by(ch, SKILL_BASH, (int) (3 * PULSE_VIOLENCE));
       act("$n is knocked to the ground!", FALSE, victim, 0, 0, TO_ROOM);
       send_to_char("You are knocked to the ground!\n", victim);
       SET_POS(victim, POS_SITTING + GET_STAT(victim));

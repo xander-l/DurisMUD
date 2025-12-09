@@ -1282,7 +1282,7 @@ bool ac_can_see(P_char sub, P_char obj, bool check_z)
       return FALSE;
     }
 
-    if( !IS_AFFECTED(sub, AFF_DETECT_INVISIBLE) && !(has_innate(sub, INNATE_OPHIDIAN_EYES) && GET_LEVEL(sub) > 36)
+    if( !IS_AFFECTED(sub, AFF_DETECT_INVISIBLE) && !(has_innate(sub, INNATE_OPHIDIAN_EYES) && GET_LEVEL(sub) > 45)
       && !(IS_NPC(obj) && (obj->following == sub) && IS_AFFECTED4(sub, AFF4_SENSE_FOLLOWER)) )
     {
       return FALSE;
@@ -1540,7 +1540,7 @@ bool ac_can_see_obj(P_char sub, P_obj obj, int zrange )
     return FALSE;
 
   /* Check to see if object is invis */
-  if( IS_SET(obj->extra_flags, ITEM_INVISIBLE) && !IS_AFFECTED(sub, AFF_DETECT_INVISIBLE) && !(has_innate(sub, INNATE_OPHIDIAN_EYES) && GET_LEVEL(sub) > 36))
+  if( IS_SET(obj->extra_flags, ITEM_INVISIBLE) && !IS_AFFECTED(sub, AFF_DETECT_INVISIBLE) && !(has_innate(sub, INNATE_OPHIDIAN_EYES) && GET_LEVEL(sub) > 45))
     return FALSE;
 
   /* Check if subject is blind */

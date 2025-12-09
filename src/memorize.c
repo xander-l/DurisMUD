@@ -219,6 +219,19 @@ int get_spells_in_circle(P_char ch, int circ)
   return count;
 }
 
+int get_next_dragoon_circle(P_char ch)
+{
+  for(int circle = get_max_circle(ch); circle >= 1; circle-- )
+  {
+    if( ch->specials.undead_spell_slots[circle] > 0 )
+    {
+      return circle;
+    }
+  }
+
+  return 0;
+}
+
 // This works for PCs and NPCs?  Does now.
 int get_spell_circle(P_char ch, int spl)
 {

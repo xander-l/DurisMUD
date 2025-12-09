@@ -817,6 +817,7 @@ int vecna_krindor_main(P_obj obj, P_char ch, int cmd, char *arg)
           obj->short_description = str_dup(buf);
           obj->type = ITEM_INSTRUMENT;
           SET_BIT(obj->wear_flags, ITEM_HOLD);
+	  SET_BIT(obj->wear_flags, ITEM_ATTACH_BELT);
           SET_BIT(obj->extra_flags, ITEM_ALLOWED_CLASSES);
           SET_BIT(obj->anti_flags, owner->player.m_class);
           obj->affected[0].location = APPLY_HIT_REG;
