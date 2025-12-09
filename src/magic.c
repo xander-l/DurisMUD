@@ -9877,7 +9877,7 @@ void spell_reveal_true_name(int level, P_char ch, char *arg, int type, P_char vi
 
     for (ex = obj->ex_description; ex; ex = ex->next)
     {                           /* find new name */
-      if(isname("_id_name_", ex->keyword))
+      if(isname("_id_name_", ex->keyword) && ex->description)
         break;
     }
     if(ex)
@@ -9890,7 +9890,7 @@ void spell_reveal_true_name(int level, P_char ch, char *arg, int type, P_char vi
     }
     for (ex = obj->ex_description; ex; ex = ex->next)
     {                           /* find new short */
-      if(isname("_id_short_", ex->keyword))
+      if(isname("_id_short_", ex->keyword) && ex->description)
         break;
     }
     if(ex)
@@ -9904,7 +9904,7 @@ void spell_reveal_true_name(int level, P_char ch, char *arg, int type, P_char vi
     }
     for (ex = obj->ex_description; ex; ex = ex->next)
     {                           /*find new desc */
-      if(isname("_id_desc_", ex->keyword))
+      if(isname("_id_desc_", ex->keyword) && ex->description)
         break;
     }
     if(ex)
