@@ -2480,7 +2480,7 @@ void assign_command_pointers(void)
 
   CMD_N(CMD_BURY, STAT_NORMAL + POS_STANDING, do_bury, 0, TRUE);
   CMD_Y(CMD_GCC, STAT_SLEEPING + POS_PRONE, do_gcc, 0, FALSE);
-  CMD_N(CMD_SUMMON, STAT_NORMAL + POS_STANDING, do_innate, 10, TRUE);
+  CMD_N(CMD_SUMMON, STAT_NORMAL + POS_STANDING, do_innate, 1, TRUE); // MWD 25 - Changed to 1 for dragoons, innate summon mount should check for correct level
 #ifdef MEM_DEBUG
   CMD_Y(CMD_MREPORT, STAT_DEAD + POS_PRONE, do_mreport, AVATAR, FALSE);
 #endif

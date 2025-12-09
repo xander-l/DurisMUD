@@ -462,10 +462,10 @@ void do_group(P_char ch, char *argument, int cmd)
 
       if(ch->in_room == gl->ch->in_room)
       {
-        if (((has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20) || IS_AFFECTED2(ch, AFF2_DETECT_EVIL)) && IS_EVIL(gl->ch))
+        if (((has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_LANCER)) || IS_AFFECTED2(ch, AFF2_DETECT_EVIL)) && IS_EVIL(gl->ch))
           strcat(Gbuf1, " (&+rRed Aura&n)");
 
-        if (((has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20) || IS_AFFECTED2(ch, AFF2_DETECT_GOOD)) && IS_GOOD(gl->ch))
+        if (((has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_LANCER)) || IS_AFFECTED2(ch, AFF2_DETECT_GOOD)) && IS_GOOD(gl->ch))
           strcat(Gbuf1, " (&+YGold Aura&n)");
       }
 
@@ -544,10 +544,10 @@ void do_group(P_char ch, char *argument, int cmd)
         }
         if(ch->in_room == gl->ch->in_room)
         {
-          if (((has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20) || IS_AFFECTED2(ch, AFF2_DETECT_EVIL)) && IS_EVIL(gl->ch))
+          if (((has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_LANCER)) || IS_AFFECTED2(ch, AFF2_DETECT_EVIL)) && IS_EVIL(gl->ch))
             strcat(Gbuf1, " (&+rRed Aura&n)");
 
-          if (((has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 20) || IS_AFFECTED2(ch, AFF2_DETECT_GOOD)) && IS_GOOD(gl->ch))
+          if (((has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_LANCER)) || IS_AFFECTED2(ch, AFF2_DETECT_GOOD)) && IS_GOOD(gl->ch))
             strcat(Gbuf1, " (&+YGold Aura&n)");
         }
         strcat(Gbuf1, "\n");

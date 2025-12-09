@@ -811,7 +811,7 @@ void show_tracks(P_char ch, int room)
     break;
   }
 
-  if( IS_AFFECTED(ch, AFF_FARSEE) || (has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_LEVEL(ch) > 41) )
+  if( IS_AFFECTED(ch, AFF_FARSEE))
   {
     percent -= 10;
   }
@@ -823,6 +823,11 @@ void show_tracks(P_char ch, int room)
   if( affected_by_spell(ch, SPELL_MOLEVISION) )
   {
     percent += 20;
+  }
+
+  if(has_innate(ch, INNATE_OPHIDIAN_EYES) && GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_HUNTER))
+  {
+    percent += 5;
   }
 
   switch( world[room].sector_type )
