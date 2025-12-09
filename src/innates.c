@@ -4181,6 +4181,13 @@ void webwrap(P_char ch, P_char victim)
   struct affected_type af;
   int chance;
 
+  if (check_freedom_of_movement(victim, number(0, 1)) && !IS_TRUSTED(ch))
+  {
+	send_to_char("&+CTheir movement magic prevented your webs!&n\r\n",
+         ch);
+	return;
+  }
+
   if( get_takedown_size(ch) < get_takedown_size(victim) - 1 )
   {
   	send_to_char("You are too small to immobilize your victim!\n", ch);

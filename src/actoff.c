@@ -8,7 +8,7 @@
  * ***************************************************************************
  */
 
-#define TAKEDOWN_DEFAULT               0
+#define TAKEDOWN_DEFAULT           0
 #define TAKEDOWN_AIR_ELEMENTAL     BIT_1
 #define TAKEDOWN_FIRE_ELEMENTAL    BIT_2
 #define TAKEDOWN_EARTH_ELEMENTAL   BIT_3
@@ -132,7 +132,7 @@ struct failed_takedown_messages failed_bash_messages[] = {
   {TAKEDOWN_DEFAULT,
    "You make a futile attempt to bash $N, but $E is simply immovable.",
    "$n makes a futile attempt to bash $N, but $E is simply immovable.",
-   "$n makes a futile attempt to bash you, but you are simply immovable."}
+   "$n makes a futile attempt to bash you, but you are simply immovable."},
 };
 
 struct failed_takedown_messages failed_trip_messages[] = {
@@ -428,6 +428,13 @@ float takedown_check(P_char ch, P_char victim, float chance, int skill, ulong ap
     CharWait(ch, PULSE_VIOLENCE);
 
     return TAKEDOWN_CANCELLED;
+  }
+
+  if (check_freedom_of_movement(victim, GET_LEVEL(ch) - GET_LEVEL(victim) >= 10 ? true : number(0, 1)))
+  {
+	show_failed_takedown_messages(ch, victim, skill, TAKEDOWN_EVADE);
+	CharWait(ch, WAIT_SEC * number(1, 3));
+	return TAKEDOWN_CANCELLED;
   }
 
   // Evade - Dodges takedowns, max 33% chance.

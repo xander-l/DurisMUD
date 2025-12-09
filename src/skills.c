@@ -5176,6 +5176,17 @@ SPELL_ADD(CLASS_SUMMONER, 11);
   SKILL_ADD(CLASS_DRAGOON, 1, 100);
   SKILL_CREATE("dragon strike", SKILL_DRAGON_STRIKE, TAR_PHYS);
   SKILL_ADD(CLASS_DRAGOON, 1, 100);
+
+  SPELL_CREATE("freedom of movement", SPELL_FREEDOM_OF_MOVEMENT, PULSE_SPELLCAST * 2,
+                TAR_CHAR_ROOM,
+                spell_freedom_of_movement, "&+yYour movement is no longer unhindered!&n");
+  SPELL_ADD(CLASS_DRUID, 8);
+  SPELL_ADD(CLASS_BLIGHTER, 8);
+  SPELL_ADD(CLASS_CLERIC, 8);
+  SPELL_ADD(CLASS_BARD, 8);
+  SPELL_ADD(CLASS_REAVER, 8);
+  SPELL_ADD(CLASS_RANGER, 8);
+
 #ifndef _DE_
   create_epic_skills();
 #endif

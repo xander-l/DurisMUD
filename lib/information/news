@@ -1,3 +1,28 @@
+&+R12/9/25
+- Fixed bug with reveal true name
+- More Dragoon balancing
+- Allow Krindors to be worn on belt.
+- Allow bards to play instruments attached to belt.
+- Change Disintegrate to ignore shrug.
+- Triple attack should now be assigned to warrior at level 51.
+- Added new spell 'freedom of movement':
+  * 8th circle for Bard, Blighter, Cleric, Druid, Ranger, Reaver
+  * target character in room
+  * duration of 2-3 minutes depending on caster level
+  * removes minor/major para, entangle, and earthen grasp on cast
+  * makes base move cost of any room 1 for duration of spell (still modified by position, etc)
+  * blocks all sources of minor paralysis at least once (50% chance to consume spell)
+  * blocks all sources of major paralysis only once (100% chance to consume spell)
+  * blocks all takedown skills at least once (min 50% chance to consume spell, 100% when 10+ levels over victim)
+
+&+R12/7/25
+- Mindflayer Detonates are now not shruggable (by NPCs).
+- Allow Mindflayers to obtain Spell Penetration epic skill.
+- Further extend range of Dimension-Door type spells.
+- Fix mob alignment in group display.
+- Severly increase mana burned by radial nagivation.
+
+
 &+R12/6/25
 - Enhance now updated to be inline with forge and craft.
 - Allow farsee from zone to map room.
@@ -8,7 +33,7 @@
 
 Zone Updates:
 - Increase cost of wall wands in Sarmiz.
-- 
+ 
 
 &+R12/4/25
 - Let's see if this news update works....
