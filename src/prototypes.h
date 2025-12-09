@@ -2649,6 +2649,7 @@ void spell_sense_life(int, P_char, char *, int, P_char, P_obj);
 void spell_sense_follower(int, P_char, char *, int, P_char, P_obj);
 void spell_slow(int, P_char, char *, int, P_char, P_obj);
 void spell_stone_skin(int, P_char, char *, int, P_char, P_obj);
+void spell_dragon_skin(int, P_char, char *, int, P_char, P_obj);
 void spell_ironwood(int, P_char, char *, int, P_char, P_obj);
 void spell_strength(int, P_char, char *, int, P_char, P_obj);
 void spell_summon(int, P_char, char *, int, P_char, P_obj);

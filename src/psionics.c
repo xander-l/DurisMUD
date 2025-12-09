@@ -1158,6 +1158,8 @@ void spell_detonate2(int level, P_char ch, char *arg, int type, P_char victim, P
   if (resists_spell(ch, victim))
     if (GET_SPEC(ch, CLASS_PSIONICIST, SPEC_PYROKINETIC))
       dam = (int) (dam * get_property("spell.detonate.shrugModifier", 0.7));
+    else if (GET_CLASS(ch, CLASS_MINDFLAYER) && IS_NPC(victim))
+      dam = (int) (dam * get_property("spell.detonate.shrugModifierMindflayer", 0.9));
     else
       return;
 
@@ -1209,6 +1211,10 @@ void spell_detonate(int level, P_char ch, char *arg, int type, P_char victim, P_
     if( GET_SPEC(ch, CLASS_PSIONICIST, SPEC_PYROKINETIC) )
     {
       dam = (int) (dam * get_property("spell.detonate.shrugModifier", 0.7));
+    }
+    else if (GET_CLASS(ch, CLASS_MINDFLAYER) && IS_NPC(victim))
+    {
+      dam = (int) (dam * get_property("spell.detonate.shrugModifierMindflayer", 0.9));
     }
     else
     {
@@ -2733,7 +2739,7 @@ void spell_radial_navigation(int level, P_char ch, char *arg, int type, P_char v
   }
 
   /* subtract mana regardless of success..  snif */
-  GET_MANA(ch) -= (distance * 3);
+  GET_MANA(ch) -= (distance * get_property("spells.radialnavigation.manaburnfactor", 12));
   CharWait(ch, 2.5*WAIT_SEC);
 
   /* twould be best to add more to their knock out time if they're already knocked out, but f it */
@@ -2908,7 +2914,7 @@ void spell_ether_warp(int level, P_char ch, char *arg, int type, P_char victim, 
   }
 
   if( !IS_TRUSTED(ch) && IS_NPC(victim) && (GET_SPEC(ch, CLASS_PSIONICIST, SPEC_PSYCHEPORTER) || IS_ILLITHID(ch))
-    && (( how_close(ch->in_room, victim->in_room, level*2.35+15) < 0 )) )
+    && (( how_close(ch->in_room, victim->in_room, level*4.35+15) < 0 )) )
 //    || how_close(victim->in_room, ch->in_room, level*1.35+15) < 0)) )
   {
     to_room = ch->in_room;

@@ -448,10 +448,20 @@ void do_group(P_char ch, char *argument, int cmd)
             pad_ansi(GET_NAME(gl->ch), MAX_NAME_LENGTH, TRUE).c_str());
         }
       }
-      snprintf(Gbuf1, MAX_STRING_LENGTH, "%s %-30s",
-              (!CAN_SEE_Z_CORD(ch, gl->ch)) ? "Someone" : Gbuf3,
-              (ch->in_room == gl->ch->in_room) ? Gbuf2 : ""
+      if(IS_NPC(gl->ch))
+      {
+        snprintf(Gbuf1, MAX_STRING_LENGTH, "%-39s %-30s",
+          (!CAN_SEE_Z_CORD(ch, gl->ch)) ? "Someone" : Gbuf3,
+          (ch->in_room == gl->ch->in_room) ? Gbuf2 : ""
+        );
+      }
+      else
+      {
+        snprintf(Gbuf1, MAX_STRING_LENGTH, "%s %-30s",
+          (!CAN_SEE_Z_CORD(ch, gl->ch)) ? "Someone" : Gbuf3,
+          (ch->in_room == gl->ch->in_room) ? Gbuf2 : ""
       );
+      }
 
       if (!racewar(ch, gl->ch) && !IS_NPC(gl->ch) && CAN_SEE_Z_CORD(ch, gl->ch))
       {
@@ -531,10 +541,20 @@ void do_group(P_char ch, char *argument, int cmd)
           }
         }
 
-        snprintf(Gbuf1, MAX_STRING_LENGTH, "%s %-30s",
+        if(IS_NPC(gl->ch))
+        {
+          snprintf(Gbuf1, MAX_STRING_LENGTH, "%-39s %-30s",
+            (!CAN_SEE_Z_CORD(ch, gl->ch)) ? "Someone" : Gbuf3,
+            (ch->in_room == gl->ch->in_room) ? Gbuf2 : ""
+          );
+        }
+        else
+        {
+          snprintf(Gbuf1, MAX_STRING_LENGTH, "%s %-30s",
                 (!CAN_SEE_Z_CORD(ch, gl->ch)) ? "Someone" : Gbuf3,
                 ((ch->in_room == gl->ch->in_room) && (!racewar(ch, gl->ch) || IS_DISGUISE(gl->ch)) )
                 ? Gbuf2 : "");
+        }
 
         if (!racewar(ch, gl->ch) && !IS_NPC(gl->ch) && CAN_SEE_Z_CORD(ch, gl->ch))
         {

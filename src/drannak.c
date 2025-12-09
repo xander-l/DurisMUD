@@ -2010,8 +2010,8 @@ void enhance(P_char ch, P_obj source, P_obj material)
     return;
   }
 
-  // 95 can enhance to a max ival 99 item.
-  if( sval > 95 )
+  // Can enhance up to 3x level, same as forge/craft. --Eikel
+  if( sval > GET_LEVEL(ch) * 3)
   {
     send_to_char( "This item is too powerful to be enhanced further.\n", ch );
     return;
