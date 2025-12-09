@@ -5179,7 +5179,8 @@ SPELL_ADD(CLASS_SUMMONER, 11);
 
   SPELL_CREATE("freedom of movement", SPELL_FREEDOM_OF_MOVEMENT, PULSE_SPELLCAST * 2,
                 TAR_CHAR_ROOM,
-                spell_freedom_of_movement, "&+yYour movement is no longer unhindered!&n");
+                spell_freedom_of_movement);
+//                spell_freedom_of_movement, "&+yYour movement is no longer unhindered!&n");
   SPELL_ADD(CLASS_DRUID, 8);
   SPELL_ADD(CLASS_BLIGHTER, 8);
   SPELL_ADD(CLASS_CLERIC, 8);

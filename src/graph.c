@@ -1801,6 +1801,7 @@ int how_close(int src, int target, int max_steps)
     {
       /* ack!  we searched too many rooms.. just give up */
       bfs_clear_queue();
+      logit(LOG_DEBUG, "graph.c: how_close(): Hit BFS_MAX_ROOMS going from room %d to %d", src, target);
       return BFS_ERROR;
     }
     if (queue_head->room == target)
@@ -1814,6 +1815,7 @@ int how_close(int src, int target, int max_steps)
     else if (queue_head->step_no > max_steps)
     {
       bfs_clear_queue();
+      logit(LOG_DEBUG, "graph.c: how_close(): Hit dim distance limit going from room %d to %d", src, target);
       return BFS_NO_PATH;
     }
     else
