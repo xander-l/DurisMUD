@@ -3967,6 +3967,8 @@ int can_char_use_item(P_char ch, P_obj obj)
       }
     }
   }
+
+  
   // Allow Summoners/Summoner Multiclasses to wear Conjurer eq unless specifically denied.
   if( GET_CLASS(ch, CLASS_SUMMONER) )
   {
@@ -3979,18 +3981,75 @@ int can_char_use_item(P_char ch, P_obj obj)
     }
   }
 
+  if( GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_PRIEST) )
+  {
+    if( IS_SET(obj->extra_flags, ITEM_ALLOWED_CLASSES) )
+    {
+      if( IS_SET(obj->anti_flags, CLASS_DRUID) || IS_SET(obj->anti_flags, CLASS_SHAMAN) )
+      {
+        return TRUE;
+      }
+    }
+  }
+
+  if( GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_HUNTER) )
+  {
+    if( IS_SET(obj->extra_flags, ITEM_ALLOWED_CLASSES) )
+    {
+      if( IS_SET(obj->anti_flags, CLASS_RANGER) || IS_SET(obj->anti_flags, CLASS_MERCENARY) )
+      {
+        return TRUE;
+      }
+    }
+  }
+
+  // not sure if I want this, maybe it should be warrior/? ?
+  if( GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_LANCER) )
+  {
+    if( IS_SET(obj->extra_flags, ITEM_ALLOWED_CLASSES) )
+    {
+      if( IS_SET(obj->anti_flags, CLASS_PALADIN) || IS_SET(obj->anti_flags, CLASS_ANTIPALADIN) )
+      {
+        return TRUE;
+      }
+    }
+  }
+
   if( !IS_MULTICLASS_PC(ch) )
   {
     if( !IS_SET(obj->extra_flags, ITEM_ALLOWED_CLASSES) )
     {
-      if( IS_SET(obj->anti_flags, ch->player.m_class) )
+      if(IS_DRAGOON(ch))
       {
-        return FALSE;
+        if( IS_SET(obj->anti_flags, CLASS_WARRIOR) )
+        {
+          return FALSE;
+        }
+      }
+      else
+      {
+        if( IS_SET(obj->anti_flags, ch->player.m_class) )
+        {
+          return FALSE;
+        }
       }
     }
-    else if( !IS_SET(obj->anti_flags, ch->player.m_class) )
+    else 
     {
-      return FALSE;
+       if(IS_DRAGOON(ch))
+      {
+        if( !IS_SET(obj->anti_flags, CLASS_SORCERER) )
+        {
+          return FALSE;
+        }
+      }
+      else
+      {
+        if( !IS_SET(obj->anti_flags, ch->player.m_class) )
+        {
+          return FALSE;
+        }
+      }
     }
   }
   // Multiclass can use either class of equipment. Nov08 -Lucrot

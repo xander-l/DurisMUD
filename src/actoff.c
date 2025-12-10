@@ -3855,7 +3855,7 @@ void do_dragon_roar(P_char ch, char *argument, int cmd)
             act("$N looks shaken by the &+Gdr&+Lag&+Gon&n's &+RROAR&n!", TRUE, ch, 0, victim, TO_NOTVICTROOM);
           }
 
-          if(!IS_AFFECTED4(victim, AFF4_NOFEAR) && !IS_ELITE(victim) && !IS_GREATER_RACE(victim) && !IS_DRAGOON(victim))
+          if(!IS_AFFECTED4(victim, AFF4_NOFEAR) && !IS_ELITE(victim) && !IS_GREATER_RACE(victim))
           {
             if(is_hunter)
             {
@@ -4098,9 +4098,9 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
     "Your &+Gdr&+Lag&+Gon&N hearkens your call and sweeps $s tail into $N with a magnificent &-L&+RSWOOSH&n!",
     "$n's tail sweeps into you with a magnificent &-L&+RSWOOSH&n!",
     "$n's tail sweeps into $N's body with a magnificent &-L&+RSWOOSH&n!",
-    "Your &+Gdr&+Lag&+Gon&N heeds your command and viciously sweeps $s tail into $N, turning $S into a pink mist.",
-    "$n's tail sweeps into you, &-L&+RSKADOOSH&n!!! Your body is obliterated by the force.",
-    "$n sweeps $s tail and viciously obliterates $N's body with a loud &-L&+LSKADOOSH&n.",
+    "Your &+Gdr&+Lag&+Gon&N heeds your command and viciously sweeps $s tail into $N, turning $S into a pink mist!",
+    "$n's tail sweeps into you, &-L&+RSKADOOSH&n!!! Your body is obliterated by the force!",
+    "$n sweeps $s tail and viciously obliterates $N's body with a loud &-L&+RSKADOOSH&n!",
     0, 0
   };
 

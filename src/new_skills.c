@@ -2180,8 +2180,12 @@ void mount_summoning_thing(P_char ch, P_char victim, P_obj obj, void *data)
  
     // Level 30 mount factor average = 22.5 based on 0.750 mod.
     // Level 56 mount factor average = 42 based on 0.750 mod. Nov08 -Lucrot
-    factor = (int) (GET_LEVEL(ch) * get_property("mount.summoned.FactorMod", 0.750) +
-      number(-5, 5));
+
+    if(GET_LEVEL(ch) < 6) // TODO: hack for level 1 dragoon mounts dying
+      factor = (int) (GET_LEVEL(ch) * get_property("mount.summoned.FactorMod", 0.750) + number(0, 5));
+    else
+      factor = (int) (GET_LEVEL(ch) * get_property("mount.summoned.FactorMod", 0.750) + number(-5, 5));
+
     mount->base_stats.Str = BOUNDED(75, mount->base_stats.Str, 75 + factor);
     mount->base_stats.Agi = BOUNDED(75, mount->base_stats.Agi, 75 + factor);
     mount->base_stats.Con = BOUNDED(75, mount->base_stats.Con, 75 + factor);

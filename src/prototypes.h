@@ -2649,7 +2649,6 @@ void spell_sense_life(int, P_char, char *, int, P_char, P_obj);
 void spell_sense_follower(int, P_char, char *, int, P_char, P_obj);
 void spell_slow(int, P_char, char *, int, P_char, P_obj);
 void spell_stone_skin(int, P_char, char *, int, P_char, P_obj);
-void spell_dragon_skin(int, P_char, char *, int, P_char, P_obj);
 void spell_ironwood(int, P_char, char *, int, P_char, P_obj);
 void spell_strength(int, P_char, char *, int, P_char, P_obj);
 void spell_summon(int, P_char, char *, int, P_char, P_obj);
@@ -2897,6 +2896,24 @@ void spell_asphyxiate(int, P_char, char*, int, P_char, P_obj);
 void spell_natures_calling(int, P_char, char *, int, P_char, P_obj);
 void spell_natures_call(int, P_char, char*, int, P_char, P_obj);
 void event_natures_call(P_char, P_char, P_obj, void *);
+// dragoon spells
+void spell_pyroclastars_boon(int, P_char, char *, int, P_char, P_obj);
+void spell_pyroclastars_ember_blade(int, P_char, char *, int, P_char, P_obj);
+void spell_pyroclastars_cinder_lance(int, P_char, char *, int, P_char, P_obj);
+void spell_pyroclastars_charred_totem(int, P_char, char *, int, P_char, P_obj);
+void spell_pyroclastars_soulbrand(int, P_char, char *, int, P_char, P_obj);
+void spell_pyroclastars_aegis(int, P_char, char *, int, P_char, P_obj);
+void spell_pyroclastars_sanctum(int, P_char, char *, int, P_char, P_obj);
+void spell_pyroclastars_immolation(int, P_char, char *, int, P_char, P_obj);
+void spell_pyroclastars_keen_senses(int, P_char, char *, int, P_char, P_obj);
+void spell_pyroclastars_firelance(int, P_char, char *, int, P_char, P_obj);
+void spell_pyroclastars_draconic_oath(int, P_char, char *, int, P_char, P_obj);
+void spell_pyroclastars_draconic_concord(int, P_char, char *, int, P_char, P_obj);
+void spell_pyroclastars_draconic_avowal(int, P_char, char *, int, P_char, P_obj);
+void spell_pyroclastars_ashen_crown(int, P_char, char *, int, P_char, P_obj);
+void spell_pyroclastars_decree(int, P_char, char *, int, P_char, P_obj);
+void spell_pyroclastars_draconic_sigil(int, P_char, char *, int, P_char, P_obj);
+void spell_pyroclastars_draconic_apex(int, P_char, char *, int, P_char, P_obj);
 
 /* Siege Engines */
 void event_move_engine(P_char ch, P_char victim, P_obj obj, void *data);
