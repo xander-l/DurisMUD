@@ -7252,12 +7252,15 @@ int wall_generic(P_obj obj, P_char ch, int cmd, char *arg)
     act("$n &+Wsteps through the web&n", TRUE, ch, NULL, NULL, TO_ROOM);
     if (!NewSaves(ch, SAVING_PARA, 0))
     {
-      bzero(&af, sizeof(af));
-      af.type = SPELL_MINOR_PARALYSIS;
-      af.flags = AFFTYPE_SHORT;
-      af.duration = number(4, 15) * WAIT_SEC;
-      af.bitvector2 = AFF2_MINOR_PARALYSIS;
-      affect_to_char(ch, &af);
+		if (!check_freedom_of_movement(ch, number(0, 1)))
+		{
+			bzero(&af, sizeof(af));
+			af.type = SPELL_MINOR_PARALYSIS;
+			af.flags = AFFTYPE_SHORT;
+			af.duration = number(4, 15) * WAIT_SEC;
+			af.bitvector2 = AFF2_MINOR_PARALYSIS;
+			affect_to_char(ch, &af);
+		}
     }
     spell_dispel_magic(45 + GET_ALT_SIZE(ch), ch, NULL, SPELL_TYPE_SPELL, 0, obj);
     update_pos(ch);
@@ -10918,21 +10921,24 @@ int imprison_armor(P_obj obj, P_char ch, int cmd, char *arg)
     return FALSE;
   }
 
-  act("&+L$n's $q &+bfl&+Bar&+Wes &+Bup &+bat &+L$N's &+chit &+Land &=LBZAPPPPS &N&+W$M&+L!&N", TRUE, ch, obj, victim, TO_NOTVICT);
-  act("&+L$n's $q &+bfl&+Bar&+Wes &+Bup &+bat &+Lyour &+chit &+Land &=LBZAPPPPS &N&+WYOU&+L!&N", TRUE, ch, obj, victim, TO_VICT);
-  act("&+LYour $q &+bfl&+Bar&+Wes &+Bup &+bat &+L$N's &+chit &+Land &=LBZAPPPPS &N&+W$M&+L!&N", TRUE, ch, obj, victim, TO_CHAR);
-  af.type = SPELL_MAJOR_PARALYSIS;
-  af.duration = 5;
-  af.bitvector2 = AFF2_MAJOR_PARALYSIS;
-  affect_to_char(victim, &af);
+  if (!check_freedom_of_movement(victim, number(0, 1)))
+  {
+	act("&+L$n's $q &+bfl&+Bar&+Wes &+Bup &+bat &+L$N's &+chit &+Land &=LBZAPPPPS &N&+W$M&+L!&N", TRUE, ch, obj, victim, TO_NOTVICT);
+	act("&+L$n's $q &+bfl&+Bar&+Wes &+Bup &+bat &+Lyour &+chit &+Land &=LBZAPPPPS &N&+WYOU&+L!&N", TRUE, ch, obj, victim, TO_VICT);
+	act("&+LYour $q &+bfl&+Bar&+Wes &+Bup &+bat &+L$N's &+chit &+Land &=LBZAPPPPS &N&+W$M&+L!&N", TRUE, ch, obj, victim, TO_CHAR);
+	af.type = SPELL_MAJOR_PARALYSIS;
+	af.duration = 5;
+	af.bitvector2 = AFF2_MAJOR_PARALYSIS;
+	affect_to_char(victim, &af);
 
-  if( IS_FIGHTING(victim) )
-  {
-    stop_fighting(victim);
-  }
-  if( IS_DESTROYING(victim) )
-  {
-    stop_destroying(victim);
+	if( IS_FIGHTING(victim) )
+	{
+		stop_fighting(victim);
+	}
+	if( IS_DESTROYING(victim) )
+	{
+		stop_destroying(victim);
+	}
   }
 
   return TRUE;

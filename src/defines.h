@@ -671,6 +671,7 @@ struct attr_names_struct {
 #define AFF_CAMPING           BIT_31
 #define AFF_BIOFEEDBACK       BIT_32
 #define AFF_INFERNAL_FURY     BIT_33
+#define AFF_FREEDOM_OF_MVMNT  BIT_34
 
 /* affected_by2 */
 

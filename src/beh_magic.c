@@ -272,7 +272,7 @@ void spell_beholder_paralyze(int level, P_char ch, P_char victim, P_obj obj)
       lev = -lev;
     }
 
-    if(IS_AFFECTED2(victim, AFF2_MAJOR_PARALYSIS))
+    if(IS_AFFECTED2(victim, AFF2_MAJOR_PARALYSIS) || !check_freedom_of_movement(victim, GET_LEVEL(ch) > 50))
     {
       return;
     }

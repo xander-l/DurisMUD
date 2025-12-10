@@ -1346,6 +1346,13 @@ void earthen_grasp( int level, P_char ch, P_char victim )
   {
     effect = EG_FAIL;
   }
+  // if they have freedom of movement
+  else if (check_freedom_of_movement(victim, number(0, 1)) && !IS_TRUSTED(ch))
+  {
+	send_to_char("&+CTheir movement magic prevented your spell!&n\r\n",
+         ch);
+	effect = EG_FAIL;
+  }
   // If they fail their str bonus save..
   else if(!NewSaves(victim, SAVING_PARA, attdiff))
   {
@@ -4206,7 +4213,7 @@ void spell_spirit_jump(int level, P_char ch, char *arg, int type, P_char victim,
 
   if( victim->in_room == NOWHERE )
   {
-    send_to_char("&+CYou failed.\n", ch);
+    send_to_char("&+cYou failed.\n", ch);
     return;
   }
 
@@ -4216,13 +4223,13 @@ void spell_spirit_jump(int level, P_char ch, char *arg, int type, P_char victim,
     || world[victim->in_room].sector_type == SECT_CASTLE_GATE
     || (IS_PC(victim) && IS_SET(victim->specials.act2, PLR2_NOLOCATE) && !is_introd(victim, ch)) )
   {
-    send_to_char("&+CYou failed.\n", ch);
+    send_to_char("&+cYou failed.\n", ch);
     return;
   }
   P_char rider = get_linking_char(victim, LNK_RIDING);
   if( IS_NPC(victim) && rider )
   {
-    send_to_char("&+CYou failed.\n", ch);
+    send_to_char("&+cYou failed.\n", ch);
     return;
   }
 
@@ -4231,14 +4238,17 @@ void spell_spirit_jump(int level, P_char ch, char *arg, int type, P_char victim,
   if( IS_ROOM(location, ROOM_NO_TELEPORT) || IS_HOMETOWN(location) || racewar(ch, victim)
     || (GET_MASTER(ch) && IS_PC(victim)) )
   {
-    send_to_char("&+CYou failed.\n", ch);
+    send_to_char("&+cYou failed.\n", ch);
     return;
   }
 
-  distance = (level * 27) / 5 + (IS_SPIRITUALIST(ch) ? 15 : 0);
+//  distance = (level * 27) / 5 + (IS_SPIRITUALIST(ch) ? 15 : 0);
+  distance = (int)(level * (int)get_property("spell.dim.perlevel.modifier", 1.35));
+  if(GET_SPEC(ch, CLASS_SHAMAN, SPEC_SPIRITUALIST))
+    distance += 15;
 
-  if( !IS_TRUSTED(ch) && ((how_close(ch->in_room, victim->in_room, distance) < 0)) )
-//    || (how_close(victim->in_room, ch->in_room, distance) < 0)) )
+  if( !IS_TRUSTED(ch) && how_close(ch->in_room, victim->in_room, distance) < 0
+    && how_close(victim->in_room, ch->in_room, distance) < 0 )
   {
     send_to_char("&+cYou failed.\n", ch);
     return;

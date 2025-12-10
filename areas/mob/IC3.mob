@@ -7,7 +7,7 @@ A &+Gzo&+gmb&+yi&+Ge&+g, known as a &+CD&+cro&+Cwn&+ced&+g, &+Wrushes &+gtowards
 ~
 17190986 1 0 0 0 0 0 0 -1000 S
 RE 0 16793601 0 4
-56 0 0 1d1+6000 1d1+1
+56 0 0 1d100+15000 50d8+100
 0.0.0.100 250000
 8 8 0
 #420001
@@ -20,9 +20,9 @@ A &+RMA&+rSS&+RI&+rVE &+cUnderwater &+RKrayot &+GDr&+gag&+Go&+gn &+Csw&+ci&+Cms&
 &+gare extremely &+Gtoxic&n and drain blood as they dig into your &+rflesh&n. They are known by sailors as
 &+Ldeath traps&n.
 ~
-19290186 1 0 0 941204156 14430 67371008 85004288 -1000 S
+19355722 1 0 0 941204156 14430 67371008 85004288 -1000 S
 D 0 18874371 0 7
-60 0 0 1d1+27500 1d1+1
+60 0 0 1d100+30000 70d8+150
 0.0.0.5000 6000000
 8 8 0
 #420002
@@ -32,9 +32,9 @@ The &+CD&+cro&+Cwn&+ced &+YEngineer~
 ~
 &+yThe former &+Yengineer &+yof the dreadnaught is here, looking around for things to fix in &+Ldeath&+y.&n
 ~
-1158051914 1 0 0 3087115196 270534686 67371136 34158080 -1000 S
+1158117450 1 0 0 3087115196 270534686 67371136 34158080 -1000 S
 RE 0 17826307 0 5
-60 0 0 1d1+19000 6d8+1
+60 0 0 1d100+25000 60d8+100
 0.0.0.1000 1500000
 8 8 0
 #420003
@@ -45,9 +45,9 @@ A &+CDr&+cow&+cne&+Cd &+bSwas&+Whbu&+Buckler&n continues to crew the &+Bdoomed &
 &+yAdorned in &+rrusty gear &+ya &+Ldead &+bSwash&+Wbuc&+Bkler &+yseems to take issue with your presence and RUSHES
 &+yat you!!!
 ~
-1627797576 1 0 0 940124860 270534722 620756992 0 -1000 S
+1627863112 1 0 0 940124860 270534722 620756992 0 -1000 S
 RE 0 1 3 4
-58 0 0 1d1+8000 1d1+1
+58 0 0 1d100+20000 60d8+100
 0.0.0.500 500000
 8 8 0
 #420004
@@ -57,9 +57,9 @@ A &+RMASSIVE &+WMega&+wlo&+Wdon &+cshark &+Cswims&n towards you rapidly.
 ~
 &+cMeasuring 50 feet in length this &+CGIANT &+Bshark has many rows of razor sharp &+Wteeth&+c!&n
 ~
-1090943306 1 0 0 402653720 270796864 67371040 0 0 S
+1091008842 1 0 0 402653720 270796864 67371040 0 0 S
 F 0 16777217 0 7
-60 0 0 1d1+13000 8d6+1
+60 0 0 1d100+25000 80d6+100
 0.0.0.500 1500000
 8 8 0
 #420005
@@ -71,9 +71,9 @@ A massive parasite known to attach itself to larger fish and feed off of them, a
 at nearby prey to eat. Octolampreys can grow to be 20 feet long and have tenacles 50 feet long full of razored
 hooks and suckers.
 ~
-1076262984 1 0 0 3088615960 268699648 84148224 101781504 -1000 S
+1076328520 1 0 0 3088615960 268699648 84148224 101781504 -1000 S
 AC 0 1048577 0 5
-56 0 0 1d1+7000 1d1+1
+56 0 0 1d100+15000 50d6+100
 0.0.0.0 700000
 8 8 0
 #420006
@@ -85,9 +85,9 @@ Spoken of only in &+Bsailors&n legends, a &+mb&+We&+mh&+Wo&+mlder&+cf&+Ci&+csh&n
 and bars throughout Duris. Ten feet long with &+Weyes&n all over it's body, these predators can, and&n
 will eat all they come in contact with, subduing them with their underwater &+Ylights&n.
 ~
-1076262984 1 0 0 3088615998 268437518 67371008 68170752 -1000 S
+1076328520 1 0 0 3088615998 268437518 67371008 68170752 -1000 S
 BH 0 1048581 0 5
-60 0 0 1d1+6500 1d1+1
+60 0 0 1d100+25000 100d4+100
 0.0.0.0 500000
 8 8 0
 #420007
@@ -98,9 +98,9 @@ A &+CDr&+cow&+Cne&+cd &+Wsurgeon&+y attempts to save a long &+Ldead &+ycrew.&n
 Another drowned zombie, this one wearing tattered &+yship &+Wsurgeon robes&n notices you and tries to make you
 join the crew! YIKES!
 ~
-1359378440 1 0 0 2550661656 270546946 67371072 651245056 -1000 S
+1359443976 1 0 0 2550661656 270546946 67371072 651245056 -1000 S
 RE 0 132128 0 4
-60 0 0 1d1+10000 1d1+1
+60 0 0 1d100+20000 50d8+100
 0.0.0.500 2000000
 8 8 0
 #420008
@@ -111,9 +111,9 @@ A &+CDr&+cow&+Cne&+cd &+rcannoneer&n rushes at you, angry you are still alive!
 In life this drowned zombie appears to have been a cannoneer. In &+Ldeath&n it appears it wants to bludgeon
 you to death &+Cunderwater&n with a rusty &+Rf&+Yu&+rs&+Re &+rrod&n!
 ~
-1074165864 1 0 0 403180188 272894017 1157890176 667235840 -1000 S
+1074231400 1 0 0 403180188 272894017 1157890176 667235840 -1000 S
 UK 0 17842177 0 5
-59 0 0 1d1+6000 1d1+1
+59 0 0 1d100+20000 70d8+100
 0.0.0.400 1000000
 8 8 0
 #420009
@@ -125,9 +125,9 @@ This &+Lreanimated corpse of a long dead &+Yhelmsman&n appears to be eternally e
 reattach the rear portion of the wrecked &+yDreadnaught&n. In life he would have made a formadible enemy and now that
 he's dead, it appears even more so!
 ~
-119953482 1 0 0 2550213304 269793375 67895296 647050752 -1000 S
+120019018 1 0 0 2550213304 269793375 67895296 647050752 -1000 S
 UW 0 17825809 0 6
-60 0 0 1d1+10000 1d1+1
+60 0 0 1d100+20000 50d8+150
 0.0.0.500 1000000
 8 8 0
 #420010
@@ -137,9 +137,9 @@ large swordfish~
 ~
 &+BA large &+csword&+Wfish &+Bmeasures in at 15 feet long with a razor sharp &+Cbill &+Bready to &+Rc&+ru&+Rt&+B!&n
 ~
-1090943050 1 0 0 2283274780 270544898 67371008 101790728 -1000 S
+1091008586 1 0 0 2283274780 270544898 67371008 101790728 -1000 S
 AC 0 1048576 1 6
-58 0 0 1d1+5000 1d1+1
+58 0 0 1d100+15000 50d8+50
 0.0.0.0 250000
 8 8 0
 #420011
@@ -150,9 +150,9 @@ A &+Lm&+wo&+Ln&+wk&+cfish&n~
 &+cThe many armed &+Lm&+wo&+Ln&+wk&+cfish &+cis found throughout the ocean but they are greatly feared. They possess
 &+cmany arms and also similarly skilled to &+LM&+wo&+Ln&+wk&+L's &+cof the surface world. This one is coming for you!&n
 ~
-1074165832 1 0 0 3088687678 270810206 88342624 68498440 -1000 S
+1074231368 1 0 0 3088687678 270810206 88342624 68498440 -1000 S
 EW 0 69 0 5
-57 0 0 1d1+5000 1d1+1
+57 0 0 1d100+15000 10d20+100
 0.0.0.0 600000
 8 8 0
 #420012
@@ -164,9 +164,9 @@ This &+cDr&+Cow&+cne&+Cd&n man appears to have been a spellslinger in life that 
 and seems to be unaware that it has died. The &+wtattered &+mmagenta robes &+Cwaver&n in the &+Bcold water&n,
 and flows around it. Both of the &+Lcorpses&n hands appear to &+Mglow&n with &+Ypower&n.
 ~
-1359366728 1 0 0 940124350 270538844 222822400 570766352 -1000 S
+1359432264 1 0 0 940124350 270538844 222822400 570766352 -1000 S
 UL 0 133632 0 4
-60 0 0 1d1+4000 1d1+1
+60 0 0 1d100+10000 50d4+100
 0.0.0.300 500000
 8 8 0
 #420013
@@ -178,9 +178,9 @@ corpse zombie thief ravensclaw~
 &+Lthinking of easy &+Wmoney &+Land &+Ytreasure &+Las the crew slept. When the ship sunk however, he too
 &+Lwas cursed to roam this &+Bsunken wreck as a reanimated &+ccorpse &+Lforever...&n
 ~
-18233418 1 0 0 404333214 268441822 620756992 605033472 -1000 S
+18298954 1 0 0 404333214 268441822 620756992 605033472 -1000 S
 ZO 0 90113 0 4
-60 0 0 1d1+8000 1d1+1
+60 0 0 1d100+15000 50d8+100
 0.0.1000.1500 6000000
 8 8 0
 #420014
@@ -191,9 +191,9 @@ dead zombie powder monkey~
 &+LA &+Gputrified &+gcorpse &+Lstill animated &+Cunderwater &+Lis here trying to put something into the old &+rrusty &+ccannons&n
 &+Land &+Wballistaes&+L, oblivious that it is dead... until it sees you and charges!&n
 ~
-1359370316 1 0 0 402729628 268712158 620757120 100676608 -1000 S
+1359435852 1 0 0 402729628 268712158 620757120 100676608 -1000 S
 RE 0 1049089 0 4
-58 0 0 1d1+8000 1d1+1
+58 0 0 1d100+15000 50d6+100
 0.0.0.100 1000000
 8 8 0
 #420015
@@ -203,9 +203,9 @@ An &+cEl&+Cit&+ce D&+Cro&+cwn&+Ce&+cd Guard&n stands guarding something.&n
 ~
 &+LA &+Cdr&+cow&+Cne&+cd guard&n is here guarding someone or something nearby.&n
 ~
-1359378506 1 0 0 940155548 268711950 88342688 76624896 -1000 S
+1359444042 1 0 0 940155548 268711950 88342688 76624896 -1000 S
 UK 0 17957393 0 4
-60 0 -300 1d1+10000 1d1+1
+60 0 -300 1d100+25000 50d8+100
 0.0.0.1000 2500000
 8 8 0
 #420016
@@ -218,7 +218,7 @@ seeking revenge against the living!!!&n
 ~
 424010 1 0 0 404292510 268712030 84148416 76617216 -1000 S
 UK 0 131136 0 4
-60 0 0 1d1+12000 1d1+1
+60 0 0 1d100+27000 10d20+100
 0.0.0.5000 5000000
 8 8 0
 #420017
@@ -229,9 +229,9 @@ drowned captain~
 This man died a long time ago but is preserved by the dark curse Poseidon placed on the crew
 of the Dreadnaught Cyclops.
 ~
-1359378506 1 0 0 1040262044 268744926 1157628064 613488128 -1000 S
+1359444042 1 0 0 1040262044 268744926 1157628064 613488128 -1000 S
 UW 0 17826321 0 4
-60 0 0 1d1+24000 1d1+1
+60 0 0 1d100+30000 80d6+100
 0.0.0.7000 7000000
 8 8 0
 #420018
@@ -241,9 +241,9 @@ beholder kraken~
 ~
 &+ROH MY GOD!!! &+LBehold! The &+MKraken&+L!!!&n
 ~
-19298378 1 0 0 3154223644 270579870 71565440 67441664 -1000 S
+19363914 1 0 0 3154223644 270579870 71565440 67441664 -1000 S
 BH 0 68 0 7
-60 0 0 1d1+50000 1d1+1
+60 0 0 1d100+50000 50d6+100
 0.0.0.0 20000000
 8 8 0
 #420019
@@ -253,9 +253,9 @@ tentacle long beholder kraken~
 ~
 &+MYIKES! THE TENTACLE ALMOST HIT YOU!!!&n
 ~
-1090943050 1 0 0 2617770812 270810334 88866944 110178816 -1000 S
+1091008586 1 0 0 2617770812 270810334 88866944 110178816 -1000 S
 MF 0 1310980 0 5
-59 0 0 1d1+15000 1d1+1
+59 0 0 1d100+15000 50d8+50
 0.0.10000.2000 4000000
 8 8 0
 #420020
@@ -265,8 +265,8 @@ obsidian golem guardian~
 ~
 &+LA giant construct made of magically phased obsidian, this golem is ready to destroy you all!&n
 ~
-354842698 1 0 0 939633564 269760670 84148256 638653440 0 S
+354908234 1 0 0 939633564 269760670 84148256 638653440 0 S
 CN 0 17825793 0 7
-60 0 0 1d1+25000 1d1+1
+60 0 0 1d100+25000 50d8+100
 0.0.0.5000 10000000
 8 8 0

@@ -4904,18 +4904,21 @@ int check_shields(P_char ch, P_char victim, int dam, int flags)
                 !IS_GREATER_RACE(ch) &&
                 (GET_LEVEL(ch) + 5) > GET_LEVEL(victim))
             {
-              af.type = SPELL_MINOR_PARALYSIS;
-              af.bitvector2 = AFF2_MINOR_PARALYSIS;
-              af.duration = PULSE_VIOLENCE;
-              affect_to_char(ch, &af);
-              act("&+wYour entire body freezes upon contact with the &+Wholy aura&n &+wsurrounding&n $N!",
-                  FALSE, ch, 0, victim, TO_CHAR);
-              act("$n's &+wentire body freezes upon contact with the &+Wholy aura&n &+wsurrounding&n $N!",
-                  FALSE, ch, 0, victim, TO_NOTVICT);
-              act("$n's &+wentire body freezes upon contact with the &+Wholy aura&n &+wsurrounding you!&n",
-                  FALSE, ch, 0, victim, TO_VICT);
-              update_pos(ch);
-              break;
+				if (!check_freedom_of_movement(victim, false))
+				{
+					af.type = SPELL_MINOR_PARALYSIS;
+					af.bitvector2 = AFF2_MINOR_PARALYSIS;
+					af.duration = PULSE_VIOLENCE;
+					affect_to_char(ch, &af);
+					act("&+wYour entire body freezes upon contact with the &+Wholy aura&n &+wsurrounding&n $N!",
+						FALSE, ch, 0, victim, TO_CHAR);
+					act("$n's &+wentire body freezes upon contact with the &+Wholy aura&n &+wsurrounding&n $N!",
+						FALSE, ch, 0, victim, TO_NOTVICT);
+					act("$n's &+wentire body freezes upon contact with the &+Wholy aura&n &+wsurrounding you!&n",
+						FALSE, ch, 0, victim, TO_VICT);
+					update_pos(ch);
+					break;
+				}
             }
           case 2:
             if(!EYELESS(ch) &&

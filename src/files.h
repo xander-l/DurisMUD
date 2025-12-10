@@ -108,9 +108,14 @@
 #define ADD_INT(buf, i) { uint tmp_ = ((unsigned) (i)); \
                             bcopy(&tmp_, buf, int_size); buf += int_size; }
 
-#define ADD_LONG(buf, l) { ulong tmp_ = ((unsigned) (l)); \
+/*#define ADD_LONG(buf, l) { ulong tmp_ = ((unsigned) (l)); \
+                             bcopy(&tmp_, buf, long_size); \
+                             buf += long_size; } */
+
+#define ADD_LONG(buf, l) { long tmp_ = ((long) (l)); \
                              bcopy(&tmp_, buf, long_size); \
                              buf += long_size; }
+
 
 #define ADD_STRING(buf, s) { ush_int l_; \
                                if (s) { l_ = (ush_int)strlen(s); \

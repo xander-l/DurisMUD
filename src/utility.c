@@ -2116,6 +2116,11 @@ int move_cost(P_char ch, int dir)
   if ((dir < 0) || (dir > (NUM_EXITS - 1)))
     return -1;
 
+  if (IS_AFFECTED(ch, AFF_FREEDOM_OF_MVMNT))
+  {
+	return 1;
+  }
+
   a = movement_loss[(int) world[ch->in_room].sector_type];
   b = movement_loss[(int) world[world[ch->in_room].dir_option[dir]->to_room].sector_type];
 

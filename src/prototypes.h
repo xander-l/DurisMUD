@@ -1015,7 +1015,7 @@ int writeStatus(char *, P_char, bool);
 int writePetStatus(char *, P_char);
 int writeWitnessed(char *, P_char);
 uint getInt(char **);
-unsigned long getLong(char **);
+long getLong(char **);
 ulong ObjUniqueFlags(P_obj, P_obj);
 ush_int getShort(char **);
 void PurgeCorpseFile(P_obj);
@@ -1552,6 +1552,8 @@ void spell_repair_one_item(int, P_char, char *, int, P_char, P_obj);
 void spell_corpse_portal(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj);
 void spell_contain_being(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj);
 void spell_infernal_fury(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj);
+void spell_freedom_of_movement(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj);
+bool check_freedom_of_movement(P_char ch, bool clear);
 int get_spell_component(P_char, int, int);
 
 /* smagic.c */

@@ -9,7 +9,7 @@
 #define BFS_ALREADY_THERE   -2
 #define BFS_NO_PATH         -3
 
-#define BFS_MAX_ROOMS      8192U /* limits how many rooms are searched for a target */
+#define BFS_MAX_ROOMS      32768U /* limits how many rooms are searched for a target */
 #define BFS_MAX_ROOMS_MAP  160000
 
 // bitflags passed to find_first_step() to determine exits, etc used

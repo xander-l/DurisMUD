@@ -5278,6 +5278,15 @@ SPELL_ADD(CLASS_SUMMONER, 11);
     TAR_IGNORE, 
     spell_pyroclastars_draconic_apex);
   SPELL_ADD(CLASS_DRAGOON, 12);
+  SPELL_CREATE_MSG("freedom of movement", SPELL_FREEDOM_OF_MOVEMENT, PULSE_SPELLCAST * 2,
+                   TAR_SELF_ONLY,
+                   spell_freedom_of_movement, "&+yYour movement is no longer unhindered!&n");
+  SPELL_ADD(CLASS_DRUID, 10);
+  SPELL_ADD(CLASS_BLIGHTER, 10);
+  SPELL_ADD(CLASS_CLERIC, 10);
+  SPELL_ADD(CLASS_BARD, 10);
+  SPELL_ADD(CLASS_REAVER, 10);
+  SPELL_ADD(CLASS_RANGER, 10);
 
 #ifndef _DE_
   create_epic_skills();

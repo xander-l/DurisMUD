@@ -682,22 +682,23 @@ void fetid_breath(P_char ch, P_char victim)
   {
     struct affected_type af;
     
-    bzero(&af, sizeof(af));
-    af.type = SPELL_MINOR_PARALYSIS;
-    af.flags = AFFTYPE_SHORT;
-    af.duration = WAIT_SEC;
-    af.bitvector2 = AFF2_MINOR_PARALYSIS;
+	if (!check_freedom_of_movement(victim, number(0, 1)))
+	{
+		bzero(&af, sizeof(af));
+		af.type = SPELL_MINOR_PARALYSIS;
+		af.flags = AFFTYPE_SHORT;
+		af.duration = WAIT_SEC;
+		af.bitvector2 = AFF2_MINOR_PARALYSIS;
 
-    affect_to_char(victim, &af);
-    
-    act ("$n &+Wturns pale as some magical force occupies $s body, causing all motion to halt.",
-       FALSE, victim, 0, 0, TO_ROOM);
-    send_to_char ("&+LYour body becomes like stone as the paralyzation takes effect.\n",
-       victim);
-    if (IS_FIGHTING(victim))
-      stop_fighting(victim);
-    if( IS_DESTROYING(victim) )
-      stop_destroying(victim);
+		affect_to_char(victim, &af);
+		
+		act ("$n &+Wturns pale as some magical force occupies $s body, causing all motion to halt.", FALSE, victim, 0, 0, TO_ROOM);
+		send_to_char ("&+LYour body becomes like stone as the paralyzation takes effect.\n", victim);
+		if (IS_FIGHTING(victim))
+		stop_fighting(victim);
+		if( IS_DESTROYING(victim) )
+		stop_destroying(victim);
+	}
   }
 
 }
@@ -6643,7 +6644,8 @@ int plant_attacks_paralysis(P_char ch, P_char pl, int cmd, char *arg)
   LOOP_THRU_PEOPLE(vict, ch)
     if ((vict != ch) && (IS_PC(vict) || IS_PC_PET(vict)) && !number(0, 2) &&
         !IS_AFFECTED2(vict, AFF2_MAJOR_PARALYSIS) &&
-        !saves_spell(vict, SAVING_PARA))
+        !saves_spell(vict, SAVING_PARA) &&
+	    !check_freedom_of_movement(vict, false))
   {
     act
       ("$n reach up and wrap themselves about you, making it difficult to move, or even breathe!",
@@ -9264,7 +9266,7 @@ int jotun_thrym(P_char ch, P_char pl, int cmd, char *arg)
     if (!number(0, 2))
     {
       vict = GET_OPPONENT(ch);
-      if (!vict)
+      if (!vict || check_freedom_of_movement(vict, true))
         return FALSE;
 
       act

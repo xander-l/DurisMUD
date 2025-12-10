@@ -4911,24 +4911,24 @@ void spell_dimension_door(int level, P_char ch, char *arg, int type, P_char vict
     || world[victim->in_room].sector_type == SECT_CASTLE || world[victim->in_room].sector_type == SECT_CASTLE_WALL
     || world[victim->in_room].sector_type == SECT_CASTLE_GATE )
   {
-    send_to_char("&+CYou failed.\n", ch);
+    send_to_char("&+cYou failed.\n", ch);
     return;
   }
   if( IS_PC(victim) && IS_SET(victim->specials.act2, PLR2_NOLOCATE) && !is_introd(victim, ch) )
   {
-    send_to_char("&+CYou failed.\n", ch);
+    send_to_char("&+cYou failed.\n", ch);
     return;
   }
   P_char rider = get_linking_char(victim, LNK_RIDING);
   if( IS_NPC(victim) && rider )
   {
-    send_to_char("&+CYou failed.\n", ch);
+    send_to_char("&+cYou failed.\n", ch);
     return;
   }
 
   if( !IS_TRUSTED(ch) && IS_TRUSTED(victim) )
   {
-    send_to_char("&+CYou failed.\n", ch);
+    send_to_char("&+cYou failed.\n", ch);
     return;
   }
 
@@ -4937,7 +4937,7 @@ void spell_dimension_door(int level, P_char ch, char *arg, int type, P_char vict
   if( IS_ROOM(location, ROOM_NO_TELEPORT) || IS_HOMETOWN(location)
     || racewar(ch, victim) || world[location].sector_type == SECT_OCEAN || (IS_PC_PET(ch) && IS_PC(victim)) )
   {
-    send_to_char("&+CYou failed.\n", ch);
+    send_to_char("&+cYou failed.\n", ch);
     return;
   }
 
@@ -4953,13 +4953,12 @@ void spell_dimension_door(int level, P_char ch, char *arg, int type, P_char vict
     return;
   }
 
-  distance = (int)(level * 4.35);
-
+  distance = (int)(level * (int)get_property("spell.dim.perlevel.modifier", 1.35));
   if(GET_SPEC(ch, CLASS_SORCERER, SPEC_SHADOW))
     distance += 15;
 
-  if( !IS_TRUSTED(ch) && (( how_close(ch->in_room, victim->in_room, distance) < 0 )) )
-//    || (how_close(victim->in_room, ch->in_room, distance) < 0)) )
+  if( !IS_TRUSTED(ch) && how_close(ch->in_room, victim->in_room, distance) < 0
+    && how_close(victim->in_room, ch->in_room, distance) < 0 )
   {
     send_to_char("&+cYou failed.\n", ch);
     return;
@@ -7528,6 +7527,13 @@ void spell_major_paralysis(int level, P_char ch, char *arg, int type,
                            IS_SET(victim->specials.act, ACT_IMMUNE_TO_PARA))))
     return;
 
+  if (check_freedom_of_movement(victim, number(0, 1)) && !IS_TRUSTED(ch))
+  {
+	send_to_char("&+CTheir movement magic prevented your spell!&n\r\n",
+         ch);
+	return;
+  }
+
   /*
    * calling with negative level negates save
    */
@@ -7583,6 +7589,13 @@ void spell_minor_paralysis(int level, P_char ch, char *arg, int type,
   if(resists_spell(ch, victim) ||
       (IS_NPC(victim) && IS_SET(victim->specials.act, ACT_IMMUNE_TO_PARA)))
     return;
+
+  if (check_freedom_of_movement(victim, false) && !IS_TRUSTED(ch))
+  {
+	send_to_char("&+CTheir movement magic prevented your spell!&n\r\n",
+         ch);
+	return;
+  }
 
   if(!NewSaves(victim, SAVING_PARA, 0))
   {
@@ -9852,7 +9865,7 @@ void spell_reveal_true_name(int level, P_char ch, char *arg, int type, P_char vi
 
     for (ex = obj->ex_description; ex; ex = ex->next)
     {                           /* find new name */
-      if(isname("_id_name_", ex->keyword))
+      if(isname("_id_name_", ex->keyword) && ex->description)
         break;
     }
     if(ex)
@@ -9865,7 +9878,7 @@ void spell_reveal_true_name(int level, P_char ch, char *arg, int type, P_char vi
     }
     for (ex = obj->ex_description; ex; ex = ex->next)
     {                           /* find new short */
-      if(isname("_id_short_", ex->keyword))
+      if(isname("_id_short_", ex->keyword) && ex->description)
         break;
     }
     if(ex)
@@ -9879,7 +9892,7 @@ void spell_reveal_true_name(int level, P_char ch, char *arg, int type, P_char vi
     }
     for (ex = obj->ex_description; ex; ex = ex->next)
     {                           /*find new desc */
-      if(isname("_id_desc_", ex->keyword))
+      if(isname("_id_desc_", ex->keyword) && ex->description)
         break;
     }
     if(ex)
@@ -12014,6 +12027,13 @@ void spell_entangle(int level, P_char ch, char *arg, int type, P_char victim, P_
     return;
   }
 
+  if (check_freedom_of_movement(victim, number(0, 1)) && !IS_TRUSTED(ch))
+  {
+	send_to_char("&+CTheir movement magic prevented your spell!&n\r\n",
+         ch);
+	return;
+  }
+
 /*
 if( (!(IS_NPC(victim)) && (world[ch->in_room].sector_type == SECT_FOREST)  && (CASTING_MOD(ch) > 2) )) {
     if(!(StatSave(victim, APPLY_AGI, (-1 * (-4+CASTING_MOD(ch))) ))) {
@@ -13990,6 +14010,43 @@ void spell_infernal_fury(int level, P_char ch, char *arg, int type, P_char victi
 	}
 }
 
+bool check_freedom_of_movement(P_char ch, bool clear)
+{
+	// only the spell works for these checks
+	if( affected_by_spell(ch, SPELL_FREEDOM_OF_MOVEMENT) )
+	{
+		if (clear)
+		{
+			act("&+yYour movement is no longer unhindered!&n", TRUE, ch, 0, 0, TO_CHAR);
+			affect_from_char(ch, SPELL_FREEDOM_OF_MOVEMENT);
+		}
+		return true;
+	}
+	return false;
+}
+
+void spell_freedom_of_movement(int level, P_char ch, char *arg, int type, P_char victim,
+                P_obj obj)
+{
+	struct affected_type af;
+
+	if (!affected_by_spell(victim, SPELL_FREEDOM_OF_MOVEMENT))
+	{
+		act("$n &+gappears to move unhindered through the world.&n", TRUE, victim, 0, 0, TO_ROOM);
+		act("You &+gbegin to move unhindered through the world.&n", TRUE, victim, 0, 0, TO_CHAR);
+		bzero(&af, sizeof(af));
+		af.type = SPELL_FREEDOM_OF_MOVEMENT;
+		af.duration = (GET_LEVEL(ch) / 28) + 1; // 1-3 minutes depends on level of caster
+		af.bitvector = AFF_FREEDOM_OF_MVMNT;
+		affect_to_char(victim, &af);
+
+		// maybe need an affects_from_char to make this a single call
+		affect_from_char(victim, SPELL_MINOR_PARALYSIS);
+		affect_from_char(victim, SPELL_MAJOR_PARALYSIS);
+		affect_from_char(victim, SPELL_EARTHEN_GRASP);
+		affect_from_char(victim, SPELL_ENTANGLE);
+	}
+}
 
 void spell_ghastly_touch(int level, P_char ch, char *arg, int type, P_char victim,
                 P_obj obj)
@@ -17588,7 +17645,7 @@ void event_judgement(P_char ch, P_char victim, P_obj obj, void *data)
     
     if(GET_RACE(victim) == RACE_TROLL)
     {
-      if(!NewSaves(victim, SAVING_FEAR, 3))
+      if(!NewSaves(victim, SAVING_FEAR, 3) && !check_freedom_of_movement(victim, true))
       {
         bzero(&af, sizeof(af));
 
@@ -19828,7 +19885,8 @@ void spell_chaotic_ripple(int level, P_char ch, char *arg, int type,
       }
       if(!NewSaves(victim, SAVING_PARA, 0) &&
          !IS_GREATER_RACE(victim) &&
-         !IS_ELITE(victim))
+         !IS_ELITE(victim) &&
+		 !check_freedom_of_movement(victim, number(0, 1)))
       {
         af.type = SPELL_MAJOR_PARALYSIS;
         af.flags = AFFTYPE_SHORT;
