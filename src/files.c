@@ -2116,9 +2116,9 @@ uint getInt(char **buf)
   return i;
 }
 
-unsigned long getLong(char **buf)
+long getLong(char **buf)
 {
-  ulong    l;
+  long    l;
 
   bcopy(*buf, &l, long_size);
 
@@ -2127,6 +2127,7 @@ unsigned long getLong(char **buf)
 
   return l;
 }
+
 char    *getString(char **buf)
 {
   int      len;
