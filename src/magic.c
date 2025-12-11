@@ -22028,22 +22028,22 @@ void spell_animae_cicatrix(int level, P_char ch, char *arg, int type,
   send_to_char("You cast Pyroclastar's searing oathbrand. -- not finished", ch);
 }
 
-void spell_emberfang_blade(int level, P_char ch, char *arg, int type,
+void spell_ensis_unguis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's emberfang blade. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's ensis unguis. -- not finished", ch);
 }
 
-void spell_cinderwing_lance(int level, P_char ch, char *arg, int type,
+void spell_lancea_cineralae(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
   send_to_char("You cast Pyroclastar's cinderwing lance. -- not finished", ch);
 }
 
-void spell_ashclaw_totem(int level, P_char ch, char *arg, int type,
+void spell_simulacrum_anguis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's ashclaw totem. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's simulacrum anguis. -- not finished", ch);
 }
 
 void spell_stigmata_draconica(int level, P_char ch, char *arg, int type,

@@ -5174,25 +5174,25 @@ SPELL_ADD(CLASS_SUMMONER, 11);
     "Your &+Gdra&+Lcon&+Gic&n &+rsoulscar&n fades.");
   SPELL_ADD(CLASS_DRAGOON, 3);
 
-  SPELL_CREATE("emberfang blade", 
-    SPELL_EMBERFANG_BLADE, 
+  SPELL_CREATE("ensis unguis", 
+    SPELL_ENSIS_UNGUIS, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_emberfang_blade);
+    spell_ensis_unguis);
   SPELL_ADD(CLASS_DRAGOON, 4);
 
-  SPELL_CREATE("cinderwing lance", 
-    SPELL_CINDERWING_LANCE, 
+  SPELL_CREATE("lancea cineralae", 
+    SPELL_LANCEA_CINERALAE, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_cinderwing_lance);
+    spell_lancea_cineralae);
   SPEC_SPELL_ADD(CLASS_DRAGOON, 4, SPEC_DRAGON_LANCER);
 
-  SPELL_CREATE("ashclaw totem", 
-    SPELL_ASHCLAW_TOTEM, 
+  SPELL_CREATE("simulacrum anguis", 
+    SPELL_SIMULACRUM_ANGUIS, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_ashclaw_totem);
+    spell_simulacrum_anguis);
   SPEC_SPELL_ADD(CLASS_DRAGOON, 4, SPEC_DRAGON_PRIEST);
 
   SPELL_CREATE("stigmata draconica", 

@@ -2900,9 +2900,9 @@ void spell_natures_call(int, P_char, char*, int, P_char, P_obj);
 void event_natures_call(P_char, P_char, P_obj, void *);
 // dragoon spells
 void spell_animae_cicatrix(int, P_char, char *, int, P_char, P_obj);
-void spell_emberfang_blade(int, P_char, char *, int, P_char, P_obj);
-void spell_cinderwing_lance(int, P_char, char *, int, P_char, P_obj);
-void spell_ashclaw_totem(int, P_char, char *, int, P_char, P_obj);
+void spell_ensis_unguis(int, P_char, char *, int, P_char, P_obj);
+void spell_lancea_cineralae(int, P_char, char *, int, P_char, P_obj);
+void spell_simulacrum_anguis(int, P_char, char *, int, P_char, P_obj);
 void spell_stigmata_draconica(int, P_char, char *, int, P_char, P_obj);
 void spell_drakescale_aegis(int, P_char, char *, int, P_char, P_obj);
 void spell_judicium_fidei(int, P_char, char *, int, P_char, P_obj);
