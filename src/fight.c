@@ -8059,8 +8059,11 @@ void set_fighting(P_char ch, P_char vict)
   GET_OPPONENT(ch) = victim;
   ch->specials.next_fighting = combat_list;
   combat_list = ch;
-  stop_memorizing(ch);
-  stop_memorizing(victim);
+
+  if(!IS_DRAGOON(ch))
+    stop_memorizing(ch);
+  if(!IS_DRAGOON(victim))
+    stop_memorizing(victim);
 
   /* call for initial 'dragon fear' check.  -JAB */
 
@@ -8188,7 +8191,9 @@ void set_destroying(P_char ch, P_obj obj)
   ch->specials.destroying_obj = obj;
   ch->specials.next_destroying = destroying_list;
   destroying_list = ch;
-  stop_memorizing(ch);
+
+  if(!IS_DRAGOON(ch))
+    stop_memorizing(ch);
 
   if (GET_STAT(ch) == STAT_SLEEPING)
   {
