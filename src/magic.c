@@ -22025,7 +22025,7 @@ void spell_contain_being(int level, P_char ch, char *arg, int type,
 void spell_animae_cicatrix(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's searing oathbrand. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's animae cicatrix. -- not finished", ch);
 }
 
 void spell_ensis_unguis(int level, P_char ch, char *arg, int type,
@@ -22037,7 +22037,7 @@ void spell_ensis_unguis(int level, P_char ch, char *arg, int type,
 void spell_lancea_cineralae(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's cinderwing lance. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's lancea cineralae. -- not finished", ch);
 }
 
 void spell_simulacrum_anguis(int level, P_char ch, char *arg, int type,
@@ -22079,7 +22079,7 @@ void spell_sanguinis_ignis(int level, P_char ch, char *arg, int type,
 void spell_sanctum_draconis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's fire lance. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's sanctum draconis. -- not finished", ch);
 }
 
 void spell_vivernae_concordia(int level, P_char ch, char *arg, int type,
