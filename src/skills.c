@@ -1321,8 +1321,7 @@ void initialize_skills()
   SPEC_SPELL_ADD(CLASS_CONJURER, 7, SPEC_EARTH);
 
   SPELL_CREATE("firelance", SPELL_FIRELANCE, PULSE_SPELLCAST * 2,
-                TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_firelance);
-  SPEC_SPELL_ADD(CLASS_DRAGOON, 5, SPEC_DRAGON_LANCER);           
+                TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_firelance);         
   SPELL_ADD(CLASS_BLIGHTER, 6);
 
   SPELL_CREATE("earth spike", SPELL_GROW_SPIKES, PULSE_SPELLCAST * 2,
@@ -1509,7 +1508,6 @@ void initialize_skills()
   SPELL_CREATE("flame blade", SPELL_FLAME_BLADE, PULSE_SPELLCAST * 2,
                 TAR_IGNORE | TAR_NOCOMBAT, spell_flame_blade);
   SPELL_ADD(CLASS_DRUID, 3);
-  SPELL_ADD(CLASS_DRAGOON, 4);
 
   SPELL_CREATE("elemental swarm", SPELL_ELEMENTAL_SWARM, PULSE_SPELLCAST * 3,
                 TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_elemental_swarm);
@@ -1891,7 +1889,6 @@ SPELL_CREATE("vigorize light", SPELL_VIGORIZE_LIGHT, PULSE_SPELLCAST * 2,
                 TAR_OBJ_INV | TAR_OBJ_EQUIP | TAR_NOCOMBAT, spell_enchant_weapon);
   SPELL_ADD(CLASS_CONJURER, 4);
   SPELL_ADD(CLASS_SUMMONER, 4);
-  SPELL_ADD(CLASS_DRAGOON,  3);
 
   SPELL_CREATE("knock", SPELL_KNOCK, PULSE_SPELLCAST * 3,
                 TAR_OBJ_INV | TAR_OBJ_ROOM | TAR_NOCOMBAT, spell_knock);
@@ -2073,11 +2070,6 @@ SPELL_CREATE("vigorize light", SPELL_VIGORIZE_LIGHT, PULSE_SPELLCAST * 2,
   SPELL_ADD(CLASS_SUMMONER, 6);
   SPEC_SPELL_ADD(CLASS_REAVER, 7, SPEC_EARTH_REAVER);
 
-  SPELL_CREATE_MSG("dragon skin", SPELL_DRAGON_SKIN, PULSE_SPELLCAST * 4 / 3,
-                TAR_SELF_ONLY,
-                spell_dragon_skin, "Your dragon scale armor returns to normal.");
-  SPELL_ADD(CLASS_DRAGOON, 7);
-
   SPELL_CREATE_MSG("group stone skin", SPELL_GROUP_STONE_SKIN, PULSE_SPELLCAST * 5,
                 TAR_IGNORE,
                 spell_group_stone_skin, "You fell your skin soften and return to normal.");
@@ -2124,7 +2116,6 @@ SPELL_CREATE("vigorize light", SPELL_VIGORIZE_LIGHT, PULSE_SPELLCAST * 2,
   SPELL_ADD(CLASS_CONJURER, 3);
   SPELL_ADD(CLASS_SUMMONER, 3);
   SPELL_ADD(CLASS_THEURGIST, 4);
-  SPELL_ADD(CLASS_DRAGOON, 3);
 
   SPELL_CREATE_MSG("dexterity", SPELL_DEXTERITY, PULSE_SPELLCAST * 2,
                 TAR_CHAR_ROOM | TAR_NOCOMBAT,
@@ -2162,7 +2153,6 @@ SPELL_CREATE("vigorize light", SPELL_VIGORIZE_LIGHT, PULSE_SPELLCAST * 2,
                 spell_blur, "&+BYour motions slow to normal.");
   SPELL_ADD(CLASS_RANGER, 11);
   SPELL_ADD(CLASS_ETHERMANCER, 11);
-  SPEC_SPELL_ADD(CLASS_DRAGOON, 11, SPEC_DRAGON_HUNTER);
 
   SPELL_CREATE_MSG("pass without trace", SPELL_PASS_WITHOUT_TRACE, PULSE_SPELLCAST * 2,
                 TAR_SELF_ONLY,
@@ -2199,7 +2189,6 @@ SPELL_CREATE("vigorize light", SPELL_VIGORIZE_LIGHT, PULSE_SPELLCAST * 2,
                 TAR_SELF_ONLY,
                 spell_stornogs_spheres);
   SPELL_ADD(CLASS_CONJURER, 11);
-  SPEC_SPELL_ADD(CLASS_DRAGOON, 11, SPEC_DRAGON_PRIEST);
 
   SPELL_CREATE_MSG("decaying flesh", SPELL_DECAYING_FLESH, PULSE_SPELLCAST * 1,
 		TAR_CHAR_ROOM | TAR_FIGHT_VICT | TAR_AGGRO, spell_decaying_flesh, "The &+gdecay&n finally leaves your body.");
@@ -2533,7 +2522,6 @@ SPELL_ADD(CLASS_SUMMONER, 11);
   SPELL_ADD(CLASS_SORCERER, 6);
   SPEC_SPELL_ADD(CLASS_REAVER, 6, SPEC_FLAME_REAVER);
   SPELL_ADD(CLASS_THEURGIST, 5);
-  SPELL_ADD(CLASS_DRAGOON, 5);
 
   SPELL_CREATE("color spray", SPELL_COLOR_SPRAY, PULSE_SPELLCAST * 5 / 3,
                 TAR_AREA | TAR_OFFAREA | TAR_AGGRO,
@@ -5170,6 +5158,7 @@ SPELL_ADD(CLASS_SUMMONER, 11);
                 TAR_SELF_ONLY,
                 spell_infernal_fury);
 
+  /*---- DRAGOON SKILLS / SPELLS ----*/
   SKILL_CREATE("dragon roar", SKILL_DRAGON_ROAR, TAR_MENTAL);
   SKILL_ADD(CLASS_DRAGOON, 1, 100);
   SKILL_CREATE("dragon breath", SKILL_DRAGON_BREATH, TAR_PHYS);
@@ -5177,6 +5166,118 @@ SPELL_ADD(CLASS_SUMMONER, 11);
   SKILL_CREATE("dragon strike", SKILL_DRAGON_STRIKE, TAR_PHYS);
   SKILL_ADD(CLASS_DRAGOON, 1, 100);
 
+  SPELL_CREATE_MSG("searing oathbrand", 
+    SPELL_PYROCLASTARS_BOON, 
+    PULSE_SPELLCAST * 2,
+    TAR_IGNORE, 
+    spell_pyroclastars_boon, 
+    "You awake from your magical slumber.");
+  SPELL_ADD(CLASS_DRAGOON, 3);
+
+  SPELL_CREATE("emberfang blade", 
+    SPELL_PYROCLASTARS_EMBER_BLADE, 
+    PULSE_SPELLCAST * 2,
+    TAR_IGNORE, 
+    spell_pyroclastars_ember_blade);
+  SPELL_ADD(CLASS_DRAGOON, 4);
+
+  SPELL_CREATE("cinderwing lance", 
+    SPELL_PYROCLASTARS_CINDER_LANCE, 
+    PULSE_SPELLCAST * 2,
+    TAR_IGNORE, 
+    spell_pyroclastars_cinder_lance);
+  SPEC_SPELL_ADD(CLASS_DRAGOON, 4, SPEC_DRAGON_LANCER);
+
+  SPELL_CREATE("ashclaw totem", 
+    SPELL_PYROCLASTARS_CHARRED_TOTEM, 
+    PULSE_SPELLCAST * 2,
+    TAR_IGNORE, 
+    spell_pyroclastars_charred_totem);
+  SPEC_SPELL_ADD(CLASS_DRAGOON, 4, SPEC_DRAGON_PRIEST);
+
+  SPELL_CREATE("draconic soulscar", 
+    SPELL_PYROCLASTARS_SOULBRAND, 
+    PULSE_SPELLCAST * 2,
+    TAR_IGNORE, 
+    spell_pyroclastars_soulbrand);
+  SPELL_ADD(CLASS_DRAGOON, 5);
+
+  SPELL_CREATE("drakescale aegis", 
+    SPELL_PYROCLASTARS_AEGIS, 
+    PULSE_SPELLCAST * 2,
+    TAR_IGNORE, 
+    spell_pyroclastars_aegis);
+  SPELL_ADD(CLASS_DRAGOON, 6);
+
+  SPELL_CREATE("soulrend skylance", 
+    SPELL_PYROCLASTARS_SANCTUM, 
+    PULSE_SPELLCAST * 2,
+    TAR_IGNORE, 
+    spell_pyroclastars_sanctum);
+  SPELL_ADD(CLASS_DRAGOON, 7);
+
+  SPELL_CREATE("soulmend liturgy", 
+    SPELL_PYROCLASTARS_IMMOLATION, 
+    PULSE_SPELLCAST * 2,
+    TAR_IGNORE, 
+    spell_pyroclastars_immolation);
+  SPEC_SPELL_ADD(CLASS_DRAGOON, 8, SPEC_DRAGON_PRIEST);
+
+  SPELL_CREATE("bloodflame insticts", 
+    SPELL_PYROCLASTARS_KEEN_SENSES, 
+    PULSE_SPELLCAST * 2,
+    TAR_IGNORE, 
+    spell_pyroclastars_keen_senses);
+  SPEC_SPELL_ADD(CLASS_DRAGOON, 8, SPEC_DRAGON_HUNTER);
+
+  SPELL_CREATE("sanctum draconis", 
+    SPELL_PYROCLASTARS_FIRELANCE, 
+    PULSE_SPELLCAST * 2,
+    TAR_IGNORE, 
+    spell_pyroclastars_firelance);
+  SPEC_SPELL_ADD(CLASS_DRAGOON, 8, SPEC_DRAGON_LANCER);
+
+  SPELL_CREATE("accord of the wyvern", 
+    SPELL_PYROCLASTARS_DRACONIC_OATH, 
+    PULSE_SPELLCAST * 2,
+    TAR_IGNORE, 
+    spell_pyroclastars_draconic_oath);
+  SPEC_SPELL_ADD(CLASS_DRAGOON, 9, SPEC_DRAGON_HUNTER);
+
+  SPELL_CREATE("pact of the wyrm", 
+    SPELL_PYROCLASTARS_DRACONIC_CONCORD, 
+    PULSE_SPELLCAST * 2,
+    TAR_IGNORE, 
+    spell_pyroclastars_draconic_concord);
+  SPEC_SPELL_ADD(CLASS_DRAGOON, 9, SPEC_DRAGON_PRIEST);
+
+  SPELL_CREATE("vow of the hellkite", 
+    SPELL_PYROCLASTARS_DRACONIC_AVOWAL, 
+    PULSE_SPELLCAST * 2,
+    TAR_IGNORE, 
+    spell_pyroclastars_draconic_avowal);
+  SPEC_SPELL_ADD(CLASS_DRAGOON, 9, SPEC_DRAGON_LANCER);
+
+  SPELL_CREATE("pyroclastars edict", 
+    SPELL_PYROCLASTARS_DECREE, 
+    PULSE_SPELLCAST * 2,
+    TAR_IGNORE, 
+    spell_pyroclastars_decree);
+  SPELL_ADD(CLASS_DRAGOON, 10);
+
+  SPELL_CREATE("pyroclastars sigil", 
+    SPELL_PYROCLASTARS_ARCANE_SIGIL, 
+    PULSE_SPELLCAST * 2,
+    TAR_IGNORE, 
+    spell_pyroclastars_draconic_sigil);
+  SPELL_ADD(CLASS_DRAGOON, 11);
+
+  SPELL_CREATE("pyrodraconic apotheosis", 
+    SPELL_PYROCLASTARS_DRACONIC_APEX, 
+    PULSE_SPELLCAST * 2,
+    TAR_IGNORE, 
+    spell_pyroclastars_draconic_apex);
+  SPELL_ADD(CLASS_DRAGOON, 12);
   SPELL_CREATE_MSG("freedom of movement", SPELL_FREEDOM_OF_MOVEMENT, PULSE_SPELLCAST * 2,
                    TAR_SELF_ONLY,
                    spell_freedom_of_movement, "&+yYour movement is no longer unhindered!&n");

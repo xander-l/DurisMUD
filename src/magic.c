@@ -7963,8 +7963,7 @@ bool has_skin_spell(P_char ch)
      !affected_by_spell(ch, SPELL_VINES) &&
      !IS_AFFECTED5(ch, AFF5_VINES) &&
 	 !affected_by_spell(ch, SPELL_ICE_ARMOR) &&
-	 !affected_by_spell(ch, SPELL_NEG_ARMOR) &&
-	 !affected_by_spell(ch, SPELL_DRAGON_SKIN))
+	 !affected_by_spell(ch, SPELL_NEG_ARMOR))
     return false;
   else
     return true;
@@ -8025,30 +8024,6 @@ void spell_stone_skin(int level, P_char ch, char *arg, int type, P_char victim, 
   af.duration = 4;
   af.modifier = absorb;
   affect_to_char(victim, &af);
-}
-
-void spell_dragon_skin(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
-{
-	struct affected_type af;
-    int    absorb = (level / 4) + number(1, 4);
-
-	if (!has_skin_spell(ch))
-	{
-		// todo: update these
-		act("&+L$n&+L's skin seems to turn to stone.", TRUE, victim, 0, 0, TO_ROOM);
-        act("&+LYou feel your skin harden to stone.", TRUE, victim, 0, 0, TO_CHAR);
-	}
-	else
-	{
-		send_to_char("Your skin is already hard as a rock!\n", ch);
-		return;
-	}
-
-	bzero(&af, sizeof(af));
-	af.type = SPELL_DRAGON_SKIN;
-	af.duration = 4;
-	af.modifier = absorb;
-	affect_to_char(ch, &af);
 }
 
 void spell_ironwood(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
@@ -22044,4 +22019,108 @@ void spell_contain_being(int level, P_char ch, char *arg, int type,
   affect_to_char_with_messages(victim, &af, "You your physical composure returns to normal.", "$n's &+Yphysical composure slowly returns to &+Lnormal&n.");
 
  
+}
+
+
+/* ---- DRAGOON SPELLS ----*/
+void spell_pyroclastars_boon(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's boon. -- not finished", ch);
+}
+
+void spell_pyroclastars_ember_blade(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's ember blade. -- not finished", ch);
+}
+
+void spell_pyroclastars_cinder_lance(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's cinder lance. -- not finished", ch);
+}
+
+void spell_pyroclastars_charred_totem(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's charred totem. -- not finished", ch);
+}
+
+void spell_pyroclastars_soulbrand(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's soulbrand. -- not finished", ch);
+}
+
+void spell_pyroclastars_aegis(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's aegis. -- not finished", ch);
+}
+
+void spell_pyroclastars_sanctum(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's sanctum. -- not finished", ch);
+}
+
+void spell_pyroclastars_immolation(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's immolation. -- not finished", ch);  
+}
+
+void spell_pyroclastars_keen_senses(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's keen senses. -- not finished", ch);
+}
+
+void spell_pyroclastars_firelance(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's fire lance. -- not finished", ch);
+}
+
+void spell_pyroclastars_draconic_oath(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's draconic oath. -- not finished", ch);
+}
+
+void spell_pyroclastars_draconic_concord(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's concord. -- not finished", ch);
+}
+
+void spell_pyroclastars_draconic_avowal(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's avowal. -- not finished", ch);  
+}
+
+void spell_pyroclastars_ashen_crown(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's ashen crown. -- not finished", ch);  
+}
+
+void spell_pyroclastars_decree(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's decree. -- not finished", ch);
+}
+
+void spell_pyroclastars_draconic_sigil(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's draconic sigil. -- not finished", ch);
+}
+
+void spell_pyroclastars_draconic_apex(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  send_to_char("You cast Pyroclastar's draconic apex. -- not finished", ch);
 }
