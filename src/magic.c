@@ -22021,106 +22021,99 @@ void spell_contain_being(int level, P_char ch, char *arg, int type,
  
 }
 
-
 /* ---- DRAGOON SPELLS ----*/
-void spell_pyroclastars_boon(int level, P_char ch, char *arg, int type,
+void spell_animae_cicatrix(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's boon. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's animae cicatrix. -- not finished", ch);
 }
 
-void spell_pyroclastars_ember_blade(int level, P_char ch, char *arg, int type,
+void spell_ensis_unguis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's ember blade. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's ensis unguis. -- not finished", ch);
 }
 
-void spell_pyroclastars_cinder_lance(int level, P_char ch, char *arg, int type,
+void spell_lancea_cineralae(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's cinder lance. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's lancea cineralae. -- not finished", ch);
 }
 
-void spell_pyroclastars_charred_totem(int level, P_char ch, char *arg, int type,
+void spell_simulacrum_anguis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's charred totem. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's simulacrum anguis. -- not finished", ch);
 }
 
-void spell_pyroclastars_soulbrand(int level, P_char ch, char *arg, int type,
+void spell_stigmata_draconica(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's soulbrand. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's stigmata draconica. -- not finished", ch);
 }
 
-void spell_pyroclastars_aegis(int level, P_char ch, char *arg, int type,
+void spell_drakescale_aegis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's aegis. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's drakescale aegis. -- not finished", ch);
 }
 
-void spell_pyroclastars_sanctum(int level, P_char ch, char *arg, int type,
+void spell_judicium_fidei(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's sanctum. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's judicium fidei. -- not finished", ch);
 }
 
-void spell_pyroclastars_immolation(int level, P_char ch, char *arg, int type,
+void spell_igneus_vitae(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's immolation. -- not finished", ch);  
+  send_to_char("You cast Pyroclastar's igneus vitae. -- not finished", ch);  
 }
 
-void spell_pyroclastars_keen_senses(int level, P_char ch, char *arg, int type,
+void spell_sanguinis_ignis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's keen senses. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's sanguinis ignis. -- not finished", ch);
 }
 
-void spell_pyroclastars_firelance(int level, P_char ch, char *arg, int type,
+void spell_sanctum_draconis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's fire lance. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's sanctum draconis. -- not finished", ch);
 }
 
-void spell_pyroclastars_draconic_oath(int level, P_char ch, char *arg, int type,
+void spell_vivernae_concordia(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's draconic oath. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's vivernae concordia. -- not finished", ch);
 }
 
-void spell_pyroclastars_draconic_concord(int level, P_char ch, char *arg, int type,
+void spell_pactum_serpentis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's concord. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's pactum serpentis. -- not finished", ch);
 }
 
-void spell_pyroclastars_draconic_avowal(int level, P_char ch, char *arg, int type,
+void spell_ritus_draconum(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's avowal. -- not finished", ch);  
+  send_to_char("You cast Pyroclastar's ritus draconum. -- not finished", ch);  
 }
 
-void spell_pyroclastars_ashen_crown(int level, P_char ch, char *arg, int type,
+void spell_edictum_cineris(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's ashen crown. -- not finished", ch);  
+  send_to_char("You cast Pyroclastar's edictum cineris. -- not finished", ch);  
 }
 
-void spell_pyroclastars_decree(int level, P_char ch, char *arg, int type,
+void spell_sigillum_negati(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's decree. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's sigillum negati. -- not finished", ch);
 }
 
-void spell_pyroclastars_draconic_sigil(int level, P_char ch, char *arg, int type,
+void spell_draconic_apotheosis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's draconic sigil. -- not finished", ch);
-}
-
-void spell_pyroclastars_draconic_apex(int level, P_char ch, char *arg, int type,
-                       P_char victim, P_obj obj)
-{
-  send_to_char("You cast Pyroclastar's draconic apex. -- not finished", ch);
+  send_to_char("You cast Pyroclastar's draconic apotheosis. -- not finished", ch);
 }

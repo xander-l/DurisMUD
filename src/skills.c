@@ -5166,118 +5166,119 @@ SPELL_ADD(CLASS_SUMMONER, 11);
   SKILL_CREATE("dragon strike", SKILL_DRAGON_STRIKE, TAR_PHYS);
   SKILL_ADD(CLASS_DRAGOON, 1, 100);
 
-  SPELL_CREATE_MSG("searing oathbrand", 
-    SPELL_PYROCLASTARS_BOON, 
+  SPELL_CREATE_MSG("animae cicatrix", 
+    SPELL_ANIMAE_CICATRIX, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_pyroclastars_boon, 
-    "You awake from your magical slumber.");
+    spell_animae_cicatrix, 
+    "Your &+Gdra&+Lcon&+Gic&n &+rsoulscar&n fades.");
   SPELL_ADD(CLASS_DRAGOON, 3);
 
-  SPELL_CREATE("emberfang blade", 
-    SPELL_PYROCLASTARS_EMBER_BLADE, 
+  SPELL_CREATE("ensis unguis", 
+    SPELL_ENSIS_UNGUIS, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_pyroclastars_ember_blade);
+    spell_ensis_unguis);
   SPELL_ADD(CLASS_DRAGOON, 4);
 
-  SPELL_CREATE("cinderwing lance", 
-    SPELL_PYROCLASTARS_CINDER_LANCE, 
+  SPELL_CREATE("lancea cineralae", 
+    SPELL_LANCEA_CINERALAE, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_pyroclastars_cinder_lance);
+    spell_lancea_cineralae);
   SPEC_SPELL_ADD(CLASS_DRAGOON, 4, SPEC_DRAGON_LANCER);
 
-  SPELL_CREATE("ashclaw totem", 
-    SPELL_PYROCLASTARS_CHARRED_TOTEM, 
+  SPELL_CREATE("simulacrum anguis", 
+    SPELL_SIMULACRUM_ANGUIS, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_pyroclastars_charred_totem);
+    spell_simulacrum_anguis);
   SPEC_SPELL_ADD(CLASS_DRAGOON, 4, SPEC_DRAGON_PRIEST);
 
-  SPELL_CREATE("draconic soulscar", 
-    SPELL_PYROCLASTARS_SOULBRAND, 
+  SPELL_CREATE("stigmata draconica", 
+    SPELL_STIGMATA_DRACONICA, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_pyroclastars_soulbrand);
+    spell_stigmata_draconica);
   SPELL_ADD(CLASS_DRAGOON, 5);
 
   SPELL_CREATE("drakescale aegis", 
-    SPELL_PYROCLASTARS_AEGIS, 
+    SPELL_DRAKESCALE_AEGIS, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_pyroclastars_aegis);
+    spell_drakescale_aegis);
   SPELL_ADD(CLASS_DRAGOON, 6);
 
-  SPELL_CREATE("soulrend skylance", 
-    SPELL_PYROCLASTARS_SANCTUM, 
+  SPELL_CREATE("judicium fidei", 
+    SPELL_JUDICIUM_FIDEI, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_pyroclastars_sanctum);
+    spell_judicium_fidei);
   SPELL_ADD(CLASS_DRAGOON, 7);
 
-  SPELL_CREATE("soulmend liturgy", 
-    SPELL_PYROCLASTARS_IMMOLATION, 
+  SPELL_CREATE("igneus vitae", 
+    SPELL_IGNEUS_VITAE, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_pyroclastars_immolation);
+    spell_igneus_vitae);
   SPEC_SPELL_ADD(CLASS_DRAGOON, 8, SPEC_DRAGON_PRIEST);
 
-  SPELL_CREATE("bloodflame insticts", 
-    SPELL_PYROCLASTARS_KEEN_SENSES, 
+  SPELL_CREATE("sanguinis ignis", 
+    SPELL_SANGUINIS_IGNIS, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_pyroclastars_keen_senses);
+    spell_sanguinis_ignis);
   SPEC_SPELL_ADD(CLASS_DRAGOON, 8, SPEC_DRAGON_HUNTER);
 
   SPELL_CREATE("sanctum draconis", 
-    SPELL_PYROCLASTARS_FIRELANCE, 
+    SPELL_SANCTUM_DRACONIS, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_pyroclastars_firelance);
+    spell_sanctum_draconis);
   SPEC_SPELL_ADD(CLASS_DRAGOON, 8, SPEC_DRAGON_LANCER);
 
-  SPELL_CREATE("accord of the wyvern", 
-    SPELL_PYROCLASTARS_DRACONIC_OATH, 
+  SPELL_CREATE("vivernae concordia", 
+    SPELL_VIVERNAE_CONCORDIA, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_pyroclastars_draconic_oath);
+    spell_vivernae_concordia);
   SPEC_SPELL_ADD(CLASS_DRAGOON, 9, SPEC_DRAGON_HUNTER);
 
-  SPELL_CREATE("pact of the wyrm", 
-    SPELL_PYROCLASTARS_DRACONIC_CONCORD, 
+  SPELL_CREATE("pactum serpentis", 
+    SPELL_PACTUM_SERPENTIS, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_pyroclastars_draconic_concord);
+    spell_pactum_serpentis);
   SPEC_SPELL_ADD(CLASS_DRAGOON, 9, SPEC_DRAGON_PRIEST);
 
-  SPELL_CREATE("vow of the hellkite", 
-    SPELL_PYROCLASTARS_DRACONIC_AVOWAL, 
+  SPELL_CREATE("ritus draconum", 
+    SPELL_RITUS_DRACONUM, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_pyroclastars_draconic_avowal);
+    spell_ritus_draconum);
   SPEC_SPELL_ADD(CLASS_DRAGOON, 9, SPEC_DRAGON_LANCER);
 
-  SPELL_CREATE("pyroclastars edict", 
-    SPELL_PYROCLASTARS_DECREE, 
+  SPELL_CREATE("edictum cineris", 
+    SPELL_EDICTUM_CINERIS, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_pyroclastars_decree);
+    spell_edictum_cineris);
   SPELL_ADD(CLASS_DRAGOON, 10);
 
-  SPELL_CREATE("pyroclastars sigil", 
-    SPELL_PYROCLASTARS_ARCANE_SIGIL, 
+  SPELL_CREATE("sigillum negati", 
+    SPELL_SIGILLUM_NEGATI, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_pyroclastars_draconic_sigil);
+    spell_sigillum_negati);
   SPELL_ADD(CLASS_DRAGOON, 11);
 
-  SPELL_CREATE("pyrodraconic apotheosis", 
-    SPELL_PYROCLASTARS_DRACONIC_APEX, 
+  SPELL_CREATE("draconic apotheosis", 
+    SPELL_DRACONIC_APOTHEOSIS, 
     PULSE_SPELLCAST * 2,
     TAR_IGNORE, 
-    spell_pyroclastars_draconic_apex);
+    spell_draconic_apotheosis);
   SPELL_ADD(CLASS_DRAGOON, 12);
+
   SPELL_CREATE_MSG("freedom of movement", SPELL_FREEDOM_OF_MOVEMENT, PULSE_SPELLCAST * 2,
                    TAR_SELF_ONLY,
                    spell_freedom_of_movement, "&+yYour movement is no longer unhindered!&n");
