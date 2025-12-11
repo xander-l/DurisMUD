@@ -2564,7 +2564,7 @@ SPELL_ADD(CLASS_SUMMONER, 11);
                 spell_gaseous_cloud);
   SPELL_ADD(CLASS_SHAMAN, 10);
   
-  SPELL_CREATE_MSG("guardian spirits", SPELL_GUARDIAN_SPIRITS, PULSE_SPELLCAST * 20,
+  SPELL_CREATE_MSG("guardian spirits", SPELL_GUARDIAN_SPIRITS, PULSE_SPELLCAST * 7,
                 TAR_SELF_ONLY | TAR_NOCOMBAT | TAR_SPIRIT,
                 spell_guardian_spirits, "&+RThe spirits of your forefathers are no longer watching over you.&n");
   SPEC_SPELL_ADD(CLASS_SHAMAN, 11, SPEC_SPIRITUALIST);
