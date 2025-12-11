@@ -4438,7 +4438,7 @@ void event_firebrand(P_char ch, P_char victim, P_obj obj, void *data)
   {
     if(6 > number(1, 10))
     {
-      stop_memorizing(victim);
+      if(!IS_DRAGOON(victim)) stop_memorizing(victim);
     }
     
     add_event(event_firebrand, PULSE_VIOLENCE, ch, victim, NULL, 0, &level,

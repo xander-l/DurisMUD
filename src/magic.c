@@ -17900,7 +17900,7 @@ void event_immolate(P_char ch, P_char vict, P_obj obj, void *data)
           &burntime, sizeof(burntime));
       
         if(4 > number(1, 10))
-          stop_memorizing(vict);
+          if(!IS_DRAGOON(ch)) stop_memorizing(vict);
       }
     }
   }
@@ -18114,7 +18114,7 @@ void event_magma_burst(P_char ch, P_char vict, P_obj obj, void *data)
     add_event(event_magma_burst, PULSE_VIOLENCE, ch, vict, NULL, 0, &level, sizeof(level));
     if( 5 > number(1, 10) )
     {
-      stop_memorizing(vict);
+      if(!IS_DRAGOON(vict)) stop_memorizing(vict);
     }
   }
 }
