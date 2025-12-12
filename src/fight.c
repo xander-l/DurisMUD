@@ -894,7 +894,15 @@ void AddFrags(P_char ch, P_char victim)
         if( real_gain + recfrag >= get_property("epic.frag.threshold", 0.10)*100 )
         {
           frag_gain = (int) ((real_gain/100.00) * (float) (get_property("epic.frag.amount", 20.000)));
-          epic_frag(tch, GET_PID(victim), frag_gain);
+          
+          // Apply bonuses based on the victim's number of frags -- Eikel.
+          frag_gain += GET_FRAGS(victim);
+          if (frag_gain < get_property("epic.frag.minimum.epics", 100))
+            epic_frag(tch, GET_PID(victim), get_property("epic.frag.minimum.epics", 100));
+          else if (frag_gain > get_property("epic.frag.maximum.epics", 1500))
+            epic_frag(tch, GET_PID(victim), get_property("epic.frag.maximum.epics", 1500));
+          else
+            epic_frag(tch, GET_PID(victim), frag_gain);
         }
 
         if( GET_RACE(tch) == RACE_HALFLING || GET_CLASS(tch, CLASS_MERCENARY) )

@@ -4314,7 +4314,8 @@ int mace_of_sea(P_obj obj, P_char ch, int cmd, char *arg)
   act("&+b$n's&N $q &n&+rglows blue...&N", TRUE, ch, obj, victim, TO_NOTVICT);
   act("&+bYour&N $q &n&+rglows blue...&N", TRUE, ch, obj, victim, TO_CHAR);
   act("&+b$n's&N $q &n&+rglows blue...&N", TRUE, ch, obj, victim, TO_VICT);
-  spell_lightning_bolt(40, ch, NULL, 0, victim, obj);
+  //spell_lightning_bolt(40, ch, NULL, 0, victim, obj);
+  spell_dread_wave( 40, ch, NULL, 0, victim, obj);
   return TRUE;
 }
 
