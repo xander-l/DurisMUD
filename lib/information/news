@@ -1,3 +1,20 @@
+&+R12/10/25
+- Spell 'freedom of movement' changes:
+  * moved to 10th circle
+  * self only
+  * increased casting time to 3 *s
+- Got rid of unsigned frag bug.
+- Increased MUD's BFS max room limit so dim can work.  World is big yo.
+- Various Dragoon changes.
+- Fix to enhance to REALLY up the ival restriction.
+- Lowered casting time of Guardian Spirits
+
+Zones:
+- The Wreck of the Dreadnaught Cyclops Updates
+  * balance pass, should be as difficult as Tiamat/Vecna's now
+  * added affect bits and procs to equipment
+- 
+
 &+R12/9/25
 - Fixed bug with reveal true name
 - More Dragoon balancing
