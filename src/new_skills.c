@@ -2101,12 +2101,6 @@ void mount_summoning_thing(P_char ch, P_char victim, P_obj obj, void *data)
       SET_BIT(mount->specials.affected_by, AFF_FLY);
     }
 
-    if(IS_DRAGOON(ch))
-    {
-      SET_BIT(mount->specials.affected_by, AFF_PROT_FIRE);
-      SET_BIT(mount->specials.affected_by4, AFF4_NOFEAR);
-    }
-
     // Made all ap and paladin mounts more resistant. Nov08 -Lucrot
     if(GET_CLASS(ch, CLASS_ANTIPALADIN | CLASS_PALADIN))
     { // Tweaked AC from level * 3 to level * 6 Nov08 -Lucrot
@@ -2294,9 +2288,10 @@ void do_summon_mount(P_char ch, char *arg, int cmd)
   }
 
   if(IS_DRAGOON(ch))
-    send_to_char("You call upon the &+GDr&+Lag&+Gon&n god for aid..\r\n", ch);
+    send_to_char("You call upon the &+Gdr&+Lag&+Gon&n &+Lgod&n for aid..\r\n", ch);
   else
     send_to_char("You begin calling for a mount..\r\n", ch);
+    
   sumtime = number(70 - GET_LEVEL(ch), 100 + number(1, 200 - 2 * GET_LEVEL(ch)));
   add_event(mount_summoning_thing, sumtime, ch, 0, 0, 0, 0, 0);
 }

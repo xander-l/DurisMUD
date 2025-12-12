@@ -39,16 +39,18 @@ bool has_dragoon_mount(P_char ch)
 {
   struct follow_type *fol;
 
-  for( fol = ch->followers; fol; fol = fol->next )
+  P_char mount = get_linked_char(ch, LNK_RIDING);
+
+  //if(pet == NULL) return FALSE;
+  if(mount == NULL) return FALSE;
+  //if(mount != pet) return FALSE;
+
+  if(GET_RACE(mount) == RACE_DRAGON)
   {
-    if( IS_NPC(fol->follower) && IS_SET(fol->follower->specials.act, ACT_MOUNT) )
-    {
-      if(GET_RACE(fol->follower) == RACE_DRAGON)
-        return true;
-    }
+    return TRUE;
   }
 
-  return false;
+  return FALSE;
 }
 
 bool is_dragoon_mounted(P_char ch)
@@ -60,10 +62,55 @@ bool is_dragoon_mounted(P_char ch)
     if(mount != NULL)
     {
         if(GET_RACE(mount) == RACE_DRAGON)
-          return true;
+          return TRUE;
     }
   }
-  return false;
+  return FALSE;
+}
+
+P_char get_dragoon_mount(P_char ch)
+{
+  struct follow_type *fol;
+
+  if(!ch) return NULL;
+  
+  if(!GET_CLASS(ch, CLASS_DRAGOON)) return NULL;
+
+  //P_char pet = get_linked_char(ch, LNK_PET);
+  P_char mount = get_linked_char(ch, LNK_RIDING);
+
+  //if(pet == NULL) return NULL;
+  if(mount == NULL) return NULL;
+  //if(mount != pet) return NULL;
+
+  if(GET_RACE(mount) == RACE_DRAGON)
+  {
+    return mount;
+  }
+
+  return NULL;
+}
+
+bool is_dragoon_mount(P_char ch, P_char mount)
+{
+  P_char candidate = get_linked_char(ch, LNK_RIDING);
+}
+
+P_char get_dragoon_rider(P_char mount)
+{
+  P_char rider = get_linked_char(mount, LNK_RIDING);
+
+  if(rider == NULL) return NULL;
+
+  if(IS_DRAGOON(rider))
+  {
+    if(get_dragoon_mount(rider) == mount)
+    {
+      return rider;
+    }
+  }
+
+  return NULL;
 }
 
 void do_mount(P_char ch, char *argument, int cmd)

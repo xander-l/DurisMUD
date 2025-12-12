@@ -81,9 +81,11 @@ extern P_char make_mirror(P_char);
 extern void do_bite(P_char ch, char *arg, int cmd);
 extern bool has_dragoon_mount(P_char ch);
 extern bool is_dragoon_mounted(P_char ch);
+extern bool is_dragoon_mount(P_char mount);
 extern bool is_in_dragoon_group(P_char ch, P_char vict);
 extern void DelayCommune(P_char ch, int delay);
 extern int get_next_dragoon_circle(P_char ch);
+extern P_char get_dragoon_mount(P_char ch);
 
 struct failed_takedown_messages
 {
@@ -3781,6 +3783,14 @@ void do_dragon_roar(P_char ch, char *argument, int cmd)
     return;
   }
 
+  mount = get_dragoon_mount(ch);
+
+  if(mount == NULL)
+  {
+    send_to_char("You are not mounted on your &+Gdr&+Lag&+Gon&n.\n", ch);
+    return;
+  }
+
   if( affected_by_spell(ch, SKILL_DRAGON_ROAR) ||
       affected_by_spell(ch, SKILL_DRAGON_BREATH) ||
       affected_by_spell(ch, SKILL_DRAGON_STRIKE))
@@ -3788,8 +3798,6 @@ void do_dragon_roar(P_char ch, char *argument, int cmd)
     send_to_char("Your &+Gdr&+Lag&+Gon&n needs to re-orient itself before it can roar again.\n", ch);
     return;
   }
-
-  mount = get_linked_char(ch, LNK_RIDING);
 
   is_hunter = GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_HUNTER);
   percent_chance = ( 95 * GET_CHAR_SKILL(ch, SKILL_DRAGON_ROAR) ) / 100;
@@ -3899,7 +3907,7 @@ void do_dragon_roar(P_char ch, char *argument, int cmd)
     act("$N disobeys $n's command,", TRUE, ch, 0, mount, TO_ROOM);
   }
 
-  CharWait(ch, PULSE_VIOLENCE * 2);
+  CharWait(ch, PULSE_VIOLENCE);
 }
 
 void do_dragon_breath(P_char ch, char *argument, int cmd)
@@ -3944,6 +3952,14 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
     return;
   }
 
+  mount = get_dragoon_mount(ch);
+
+  if(mount == NULL)
+  {
+    send_to_char("You are not mounted on your &+Gdr&+Lag&+Gon&n.\n", ch);
+    return;
+  }
+
   if( affected_by_spell(ch, SKILL_DRAGON_ROAR) ||
       affected_by_spell(ch, SKILL_DRAGON_BREATH) ||
       affected_by_spell(ch, SKILL_DRAGON_STRIKE))
@@ -3958,8 +3974,6 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
   {
     victim = get_char_room_vis(ch, name);
   }
-
-  mount = get_linked_char(ch, LNK_RIDING);
 
   if( victim && (mount == victim) )
   {
@@ -4087,7 +4101,7 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
     set_short_affected_by(ch, SKILL_DRAGON_BREATH, (int) (3 * PULSE_VIOLENCE));
   }
 
-  CharWait(ch, PULSE_VIOLENCE * 2);
+  CharWait(ch, PULSE_VIOLENCE);
 }
 
 void do_dragon_strike(P_char ch, char *argument, int cmd)
@@ -4144,6 +4158,14 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
     return;
   }
 
+  mount = get_dragoon_mount(ch);
+
+  if(mount == NULL)
+  {
+    send_to_char("You are not mounted on your &+Gdr&+Lag&+Gon&n.\n", ch);
+    return;
+  }
+
   if( affected_by_spell(ch, SKILL_DRAGON_ROAR) ||
       affected_by_spell(ch, SKILL_DRAGON_BREATH) ||
       affected_by_spell(ch, SKILL_DRAGON_STRIKE))
@@ -4157,8 +4179,6 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
   {
     victim = get_char_room_vis(ch, name);
   }
-
-  mount = get_linked_char(ch, LNK_RIDING);
 
   if( victim && (mount == victim) )
   {
@@ -4278,7 +4298,7 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
     knockdown_chance = 0;
   }
 
-  CharWait(ch, PULSE_VIOLENCE * 2);
+  CharWait(ch, PULSE_VIOLENCE);
 
   knockdown_chance = takedown_check(ch, victim, knockdown_chance, SKILL_DRAGON_STRIKE, TAKEDOWN_ALL & !TAKEDOWN_AGI_CHECK);
 
@@ -5622,6 +5642,18 @@ bool single_stab(P_char ch, P_char victim, P_obj weapon)
     act("You attempt to stab $N in the back, but their &+Lstone skin&n quickly absorbs the impact before fading away!",
       FALSE, ch, 0, victim, TO_CHAR);
     act("$n attempts to stab $N in the back, but $N's &+Lstone skin&n quickly absorbs the impact before fading away!",
+      FALSE, ch, 0, victim, TO_NOTVICTROOM);
+  }
+
+  if(affected_by_spell(victim, SPELL_DRAKESCALE_AEGIS) && dam > 1)
+  {
+    affect_from_char(victim, SPELL_DRAKESCALE_AEGIS);
+    dam = 1;
+    act("$n attempts to stab you in the back, but your &+Gdrak&+Les&+Gcale&n quickly absorbs the impact before fading away!",
+      FALSE, ch, 0, victim, TO_VICT);
+    act("You attempt to stab $N in the back, but their &+Gdrak&+Les&+Gcale&n quickly absorbs the impact before fading away!",
+      FALSE, ch, 0, victim, TO_CHAR);
+    act("$n attempts to stab $N in the back, but $N's &+Gdrak&+Les&+Gcale&n quickly absorbs the impact before fading away!",
       FALSE, ch, 0, victim, TO_NOTVICTROOM);
   }
 
