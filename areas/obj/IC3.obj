@@ -40,7 +40,7 @@ quiver mithril glowing red~
 A
 58 -1
 A
-32 8
+32 6
 #420004
 rusty iron cutlass~
 &+ya rusty &+ciron cutlass&n~
@@ -83,7 +83,7 @@ scalpel coldsteel steel~
 &+cA &+Bcold&+Csteel scalpel&n lies here.~
 ~
 5 16 2 0 14 0 16785681 8413185 127 266076668 0
-2 6 4 0 0 0 0 0
+2 4 6 0 0 0 0 0
 0 0 100
 A
 18 6
@@ -200,9 +200,9 @@ boots ravensclaw guild~
 -100 0 0 3 0 0 0 0
 -100 0 100 134742016 0 536870912 0
 A
-32 7
+32 5
 A
-36 10
+36 6
 #420018
 key never winter~
 &+ca heavy &+Csteel key &+cbearing the seal of &+LNever &+WWinter&n~
@@ -240,7 +240,7 @@ robe black mindflayers~
 -150 0 0 4 0 0 0 0
 0 5000000 100 134217728 2048 536870912 0
 A
-35 8
+35 6
 A
 56 5
 #420022
@@ -265,7 +265,7 @@ phase dagger dark~
 &+LA Dark Phase Dagger, forged deep in the heart of the Negative Material Plane,  lies here.&n~
 ~
 5 44 3 0 14 0 100671536 8396801 126 534646780 0
-2 6 4 0 0 645 46 40
+2 5 5 0 0 645 46 40
 0 0 100
 A
 32 5
@@ -296,9 +296,9 @@ staff oaken emeralds~
 60 999 999 364 0 0 0 0
 2 0 100 134217760 12416 32 0
 A
-35 10
+35 8
 A
-14 100
+14 80
 #420028
 platemail priest master~
 &+Wthe &+cPriest&+W Master Platemail&n~
@@ -320,7 +320,7 @@ The boots of the &+GHigh Ranger&n lies here discarded by some fool.~
 -50 0 0 0 0 0 0 0
 2 0 100 134742016 0 536870912 0
 A
-14 120
+14 80
 A
 54 15
 #420030
@@ -374,7 +374,7 @@ hood cowl ravensclaw guild~
 A
 32 6
 A
-13 100
+13 60
 #420035
 boots deep magic~
 &+Lthe boots of &+mDeep Magic&n~
@@ -384,9 +384,9 @@ boots deep magic~
 -50 0 0 0 0 0 0 0
 0 0 100 134217728 2048 0 0
 A
-33 7
+33 6
 A
-14 80
+14 60
 #420036
 golden helm torm justice~
 &+wa &+YGolden &+wHelm of &+WTorm's Wisdom&n~
@@ -396,9 +396,9 @@ golden helm torm justice~
 -75 0 0 0 0 0 0 0
 0 0 100 0 32768 128 0
 A
-34 20
+34 10
 A
-13 100
+13 80
 #420037
 helm dark knight~
 &+La helm of the Dark Knight&n~
@@ -408,9 +408,9 @@ helm dark knight~
 -75 0 0 0 0 0 0 0
 1 0 100 0 34816 0 536870912
 A
-31 10
+31 8
 A
-13 100
+13 80
 #420038
 golden strange ring kevald~
 &+Ya strange golden ring bearing the symbol of &+LKevald&n~
@@ -432,7 +432,7 @@ rainbow robes~
 -150 0 0 0 0 0 0 0
 0 0 100 536944640 12480 64 67108864
 A
-35 10
+35 5
 A
 57 -2
 #420040
@@ -444,9 +444,9 @@ earring bloodshed~
 -20 0 0 0 0 0 0 0
 0 0 100
 A
-19 15
+19 9
 A
-31 10
+31 8
 #420041
 earring swift precision~
 &+gan &+Gearring &+gof &+Csw&+cif&+Ct &+Gprecision&n~
@@ -456,9 +456,9 @@ earring swift precision~
 -20 0 0 0 0 0 0 0
 0 0 100
 A
-32 10
+32 8
 A
-18 15
+18 9
 #420042
 flaming great axe nivard~
 &+ca &+Rfl&+ram&+Yin&+Rg &+CGreat Axe&+c of &+WNivard&n~

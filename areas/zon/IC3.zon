@@ -61,19 +61,19 @@ O 0 420002 7 420050 100 0 0 0      * a MASSIVE pile of platinum and gold coins.
 O 0 420026 7 420050 100 0 0 0      * a Treasure Chest
 P 1 420027 1 420026 100 0 0 0      *   an ornate oaken staff encrusted with emeralds
 P 1 420024 1 420026 100 0 0 0      *   a Dark Phase Dagger
-P 1 360 1 420026 100 0 0 0         *   (object type not in this .obj file)
-O 0 420002 7 420051 100 0 0 0      * a MASSIVE pile of platinum and gold coins.
+O 0 360 1 420050 100 0 0 0         * (object type not in this .obj file)
+O 0 420002 7 420051 50 0 0 0       * a MASSIVE pile of platinum and gold coins.
 O 0 420026 7 420051 100 0 0 0      * a Treasure Chest
 P 1 420028 1 420026 100 0 0 0      *   the Priest Master Platemail
 P 1 420029 1 420026 100 0 0 0      *   the boots of the High Ranger
-O 0 420002 7 420052 100 0 0 0      * a MASSIVE pile of platinum and gold coins.
+O 0 420002 7 420052 40 0 0 0       * a MASSIVE pile of platinum and gold coins.
 O 0 420026 7 420052 100 0 0 0      * a Treasure Chest
 P 1 420033 1 420026 100 0 0 0      *   an obsidian totem of 'Tiamat'
 P 1 420034 1 420026 100 0 0 0      *   a hood and cowl of the RavensClaw Thieve's Guild
 O 0 420026 7 420052 100 0 0 0      * a Treasure Chest
 P 1 420035 1 420026 100 0 0 0      *   the boots of Deep Magic
 P 1 420036 1 420026 100 0 0 0      *   a Golden Helm of Torm's Wisdom
-O 0 420002 7 420053 100 0 0 0      * a MASSIVE pile of platinum and gold coins.
+O 0 420002 7 420053 30 0 0 0       * a MASSIVE pile of platinum and gold coins.
 O 0 420026 7 420053 100 0 0 0      * a Treasure Chest
 P 1 420041 1 420026 100 0 0 0      *   an earring of swift precision
 P 1 420042 1 420026 100 0 0 0      *   a flaming Great Axe of Nivard
@@ -83,7 +83,7 @@ P 1 420040 1 420026 100 0 0 0      *   an earring of bloodshed
 O 0 420026 7 420053 100 0 0 0      * a Treasure Chest
 P 1 420037 1 420026 100 0 0 0      *   a helm of the Dark Knight
 P 1 420038 1 420026 100 0 0 0      *   a strange golden ring bearing the symbol of Kevald
-O 0 420002 7 420053 100 0 0 0      * a MASSIVE pile of platinum and gold coins.
+O 0 420002 7 420053 30 0 0 0       * a MASSIVE pile of platinum and gold coins.
 *
 M 0 420003 7 420001 100 0 0 0      * A Drowned Swashbuckler
 E 1 420004 31 16 100 0 0 0         *   a rusty iron cutlass

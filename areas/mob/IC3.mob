@@ -5,10 +5,10 @@ A &+Gzo&+gmb&+yi&+Ge&+g, known as a &+CD&+cro&+Cwn&+ced&+g, &+Wrushes &+gtowards
 ~
 &+LA &+Ghid&+geo&+Gus zombie &+Lbrought back by the &+wcurse &+Lof &+WPoseidon&+c, is trying to drown _YOU_!!!&n
 ~
-17190986 1 0 0 0 0 0 0 -1000 S
+17256520 1 0 0 0 0 0 0 -1000 S
 RE 0 16793601 0 4
 56 0 0 1d100+15000 50d8+100
-0.0.0.100 250000
+0.0.0.20 250000
 8 8 0
 #420001
 dragon krayot deathtrap~
@@ -23,7 +23,7 @@ A &+RMA&+rSS&+RI&+rVE &+cUnderwater &+RKrayot &+GDr&+gag&+Go&+gn &+Csw&+ci&+Cms&
 19355722 1 0 0 941204156 14430 67371008 85004288 -1000 S
 D 0 18874371 0 7
 60 0 0 1d100+30000 70d8+150
-0.0.0.5000 6000000
+0.0.0.100 6000000
 8 8 0
 #420002
 engineer drowned~
@@ -35,7 +35,7 @@ The &+CD&+cro&+Cwn&+ced &+YEngineer~
 1158117450 1 0 0 3087115196 270534686 67371136 34158080 -1000 S
 RE 0 17826307 0 5
 60 0 0 1d100+25000 60d8+100
-0.0.0.1000 1500000
+0.0.0.20 1500000
 8 8 0
 #420003
 drowned zombie swashbuckler~
@@ -48,7 +48,7 @@ A &+CDr&+cow&+cne&+Cd &+bSwas&+Whbu&+Buckler&n continues to crew the &+Bdoomed &
 1627863112 1 0 0 940124860 270534722 620756992 0 -1000 S
 RE 0 1 3 4
 58 0 0 1d100+20000 60d8+100
-0.0.0.500 500000
+0.0.0.20 500000
 8 8 0
 #420004
 megalodon shark giant~
@@ -57,10 +57,10 @@ A &+RMASSIVE &+WMega&+wlo&+Wdon &+cshark &+Cswims&n towards you rapidly.
 ~
 &+cMeasuring 50 feet in length this &+CGIANT &+Bshark has many rows of razor sharp &+Wteeth&+c!&n
 ~
-1091008842 1 0 0 402653720 270796864 67371040 0 0 S
+1091008840 1 0 0 402653720 270796864 67371040 0 0 S
 F 0 16777217 0 7
 60 0 0 1d100+25000 80d6+100
-0.0.0.500 1500000
+0.0.0.0 1500000
 8 8 0
 #420005
 octolamprey parasite~
@@ -101,7 +101,7 @@ join the crew! YIKES!
 1359443976 1 0 0 2550661656 270546946 67371072 651245056 -1000 S
 RE 0 132128 0 4
 60 0 0 1d100+20000 50d8+100
-0.0.0.500 2000000
+0.0.0.20 2000000
 8 8 0
 #420008
 drowned cannoneer~
@@ -114,7 +114,7 @@ you to death &+Cunderwater&n with a rusty &+Rf&+Yu&+rs&+Re &+rrod&n!
 1074231400 1 0 0 403180188 272894017 1157890176 667235840 -1000 S
 UK 0 17842177 0 5
 59 0 0 1d100+20000 70d8+100
-0.0.0.400 1000000
+0.0.0.20 1000000
 8 8 0
 #420009
 drowned helmsman~
@@ -125,10 +125,10 @@ This &+Lreanimated corpse of a long dead &+Yhelmsman&n appears to be eternally e
 reattach the rear portion of the wrecked &+yDreadnaught&n. In life he would have made a formadible enemy and now that
 he's dead, it appears even more so!
 ~
-120019018 1 0 0 2550213304 269793375 67895296 647050752 -1000 S
+120019016 1 0 0 2550213304 269793375 67895296 647050752 -1000 S
 UW 0 17825809 0 6
 60 0 0 1d100+20000 50d8+150
-0.0.0.500 1000000
+0.0.0.20 1000000
 8 8 0
 #420010
 large swordfish~
@@ -137,7 +137,7 @@ large swordfish~
 ~
 &+BA large &+csword&+Wfish &+Bmeasures in at 15 feet long with a razor sharp &+Cbill &+Bready to &+Rc&+ru&+Rt&+B!&n
 ~
-1091008586 1 0 0 2283274780 270544898 67371008 101790728 -1000 S
+1091008584 1 0 0 2283274780 270544898 67371008 101790728 -1000 S
 AC 0 1048576 1 6
 58 0 0 1d100+15000 50d8+50
 0.0.0.0 250000
@@ -167,7 +167,7 @@ and flows around it. Both of the &+Lcorpses&n hands appear to &+Mglow&n with &+Y
 1359432264 1 0 0 940124350 270538844 222822400 570766352 -1000 S
 UL 0 133632 0 4
 60 0 0 1d100+10000 50d4+100
-0.0.0.300 500000
+0.0.0.30 500000
 8 8 0
 #420013
 corpse zombie thief ravensclaw~
@@ -181,7 +181,7 @@ corpse zombie thief ravensclaw~
 18298954 1 0 0 404333214 268441822 620756992 605033472 -1000 S
 ZO 0 90113 0 4
 60 0 0 1d100+15000 50d8+100
-0.0.1000.1500 6000000
+0.0.0.100 6000000
 8 8 0
 #420014
 dead zombie powder monkey~
@@ -194,7 +194,7 @@ dead zombie powder monkey~
 1359435852 1 0 0 402729628 268712158 620757120 100676608 -1000 S
 RE 0 1049089 0 4
 58 0 0 1d100+15000 50d6+100
-0.0.0.100 1000000
+0.0.0.0 1000000
 8 8 0
 #420015
 elite drowned guard~
@@ -206,7 +206,7 @@ An &+cEl&+Cit&+ce D&+Cro&+cwn&+Ce&+cd Guard&n stands guarding something.&n
 1359444042 1 0 0 940155548 268711950 88342688 76624896 -1000 S
 UK 0 17957393 0 4
 60 0 -300 1d100+25000 50d8+100
-0.0.0.1000 2500000
+0.0.0.50 2500000
 8 8 0
 #420016
 drowned zombie first mate~
@@ -216,10 +216,10 @@ drowned zombie first mate~
 The first mate of the Cyclops met his end a long time ago under the ocean...that has not stopped him from
 seeking revenge against the living!!!&n
 ~
-424010 1 0 0 404292510 268712030 84148416 76617216 -1000 S
+489546 1 0 0 404292510 268712030 84148416 76617216 -1000 S
 UK 0 131136 0 4
 60 0 0 1d100+27000 10d20+100
-0.0.0.5000 5000000
+0.0.0.100 5000000
 8 8 0
 #420017
 drowned captain~
@@ -232,7 +232,7 @@ of the Dreadnaught Cyclops.
 1359444042 1 0 0 1040262044 268744926 1157628064 613488128 -1000 S
 UW 0 17826321 0 4
 60 0 0 1d100+30000 80d6+100
-0.0.0.7000 7000000
+0.0.0.500 7000000
 8 8 0
 #420018
 beholder kraken~
@@ -244,7 +244,7 @@ beholder kraken~
 19363914 1 0 0 3154223644 270579870 71565440 67441664 -1000 S
 BH 0 68 0 7
 60 0 0 1d100+50000 50d6+100
-0.0.0.0 20000000
+0.0.0.500 20000000
 8 8 0
 #420019
 tentacle long beholder kraken~
@@ -256,7 +256,7 @@ tentacle long beholder kraken~
 1091008586 1 0 0 2617770812 270810334 88866944 110178816 -1000 S
 MF 0 1310980 0 5
 59 0 0 1d100+15000 50d8+50
-0.0.10000.2000 4000000
+0.0.0.0 4000000
 8 8 0
 #420020
 obsidian golem guardian~
@@ -268,5 +268,5 @@ obsidian golem guardian~
 354908234 1 0 0 939633564 269760670 84148256 638653440 0 S
 CN 0 17825793 0 7
 60 0 0 1d100+25000 50d8+100
-0.0.0.5000 10000000
+0.0.0.0 10000000
 8 8 0
