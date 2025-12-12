@@ -1048,7 +1048,7 @@ void handle_undead_mem(P_char ch)
   */
   else if(IS_DRAGOON(ch))
   {
-    send_to_char("Your &+Gdra&+Lcon&+Gic&n &+rcommunion&n is now complete...\n", ch);
+    send_to_char("Your &+Gdra&+Lco&+Gnic&n &+rcommunion&n is now complete...\n", ch);
   }
   else if( USES_DEFOREST(ch) )
   {
