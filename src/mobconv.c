@@ -411,9 +411,7 @@ void convertMob(P_char ch)
    * hitpoints etc. the goal was to make it intuitively adjustable via
    * two provided properties. /tharkun
    */
-  hits = (int) ((0.00000045 *
-    (stat_factor[GET_RACE(ch)].Con * stat_factor[GET_RACE(ch)].Con * hp_mob_con_factor
-    + 100 * 100 * (1 - hp_mob_con_factor)) * level * level + 2) * level * hp_mob_npc_pc_ratio);
+  hits = (int) ((0.00000045 * (stat_factor[GET_RACE(ch)].Con * stat_factor[GET_RACE(ch)].Con * hp_mob_con_factor + 100 * 100 * (1 - hp_mob_con_factor)) * level * level + 2) * level * hp_mob_npc_pc_ratio);
 
   hits -= (int) (0.5 * hits * (1.0 - class_hitpoints[flag2idx(ch->player.m_class)]));
 

@@ -4548,7 +4548,7 @@ static const char *tog_messages[][2] = {
    "Newbie chat: -=&+GON&n=-\r\n"},
   {"Damage Display is now OFF\r\n",
    "Damage Display is now ON\r\n"},
-  {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0},
+  {"", ""}, {"", ""}, {"", ""}, {"", ""}, {"", ""},
   {"Heal Display is now OFF\r\n",
    "Heal Display is now ON\r\n"},
   {"Group needed is now OFF\r\n",

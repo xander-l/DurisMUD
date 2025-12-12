@@ -13210,16 +13210,35 @@ void check_zone_spells(P_char ch, P_obj obj, int count, const char *zone_name)
     return;
   }
 
+  bool spellsRemoved = false;
+
   // For the three possible spellups,
   for( i = 0; i < 3; i++ )
   {
-    // If the required num of eq is met for spell
-    if( zones_random_data[zone_idx].proc_spells[i][0] &&
-        zones_random_data[zone_idx].proc_spells[i][0] <= count)
+    if( zones_random_data[zone_idx].proc_spells[i][0] )
     {
-      // cast the spell on ch.
-      apply_zone_spell(ch, count, zone_name, obj, zones_random_data[zone_idx].proc_spells[i][1]);
+	  // If the required num of eq is met for spell
+	  if( zones_random_data[zone_idx].proc_spells[i][0] <= count )
+	  {
+		// cast the spell on ch.
+		apply_zone_spell(ch, count, zone_name, obj, zones_random_data[zone_idx].proc_spells[i][1]);
+	  }
+	  else if ( affected_by_spell(ch, zones_random_data[zone_idx].proc_spells[i][1]) )
+	  {
+		// remove the spell from the character
+		struct affected_type* paf = get_spell_from_char(ch, zones_random_data[zone_idx].proc_spells[i][1]);
+		wear_off_message(ch, paf);
+		affect_from_char(ch, zones_random_data[zone_idx].proc_spells[i][1]);
+		spellsRemoved = true;
+	  }
     }
+  }
+
+  if( spellsRemoved )
+  {
+    char buffer[512];
+    snprintf(buffer, 512, "The spirits of %s remove their blessings.\n", zone_name);
+    send_to_char(buffer, ch);
   }
 }
 
