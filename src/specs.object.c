@@ -12991,6 +12991,8 @@ struct random_set_wear_off {
   char zone_name[256];
 };
 
+void check_zone_spells(P_char ch, P_obj obj, int count, const char *zone_name);
+
 void event_random_set_proc(P_char ch, P_char victim, P_obj obj, void* data)
 {
   struct random_set_wear_off *rdata = (struct random_set_wear_off*)data;
@@ -13004,6 +13006,7 @@ void event_random_set_proc(P_char ch, P_char victim, P_obj obj, void* data)
       snprintf(buffer, 256, "Spirits of %s no longer support you.\n", rdata->zone_name);
       send_to_char(buffer, ch);
       affect_remove(ch, afp);
+	  check_zone_spells(ch, obj, 0, rdata->zone_name);
     }
   }
 }
@@ -13168,6 +13171,16 @@ void apply_zone_spell(P_char ch, int count, const char *zone_name, P_obj obj, in
     snprintf(buffer, 512, "The spirits of %s grant you their strength.\n", zone_name);
     send_to_char(buffer, ch);
   }
+
+  if( message != SETMSG_NONE )
+  {
+	// mark this as from a set
+	struct affected_type* paf = get_spell_from_char(ch, spell);
+	if (paf)
+	{
+		SET_BIT(paf->flags, AFFTYPE_SET_AFFECT | AFFTYPE_NOSAVE);
+	}
+  }
 }
 
 #undef SETMSG_NONE
@@ -13217,16 +13230,16 @@ void check_zone_spells(P_char ch, P_obj obj, int count, const char *zone_name)
   {
     if( zones_random_data[zone_idx].proc_spells[i][0] )
     {
+	  struct affected_type* paf;
 	  // If the required num of eq is met for spell
 	  if( zones_random_data[zone_idx].proc_spells[i][0] <= count )
 	  {
 		// cast the spell on ch.
 		apply_zone_spell(ch, count, zone_name, obj, zones_random_data[zone_idx].proc_spells[i][1]);
 	  }
-	  else if ( affected_by_spell(ch, zones_random_data[zone_idx].proc_spells[i][1]) )
+	  else if ( (paf = get_spell_from_char(ch, zones_random_data[zone_idx].proc_spells[i][1], NULL, AFFTYPE_SET_AFFECT)) != NULL )
 	  {
-		// remove the spell from the character
-		struct affected_type* paf = get_spell_from_char(ch, zones_random_data[zone_idx].proc_spells[i][1]);
+		// remove the spell from the character		
 		wear_off_message(ch, paf);
 		affect_from_char(ch, zones_random_data[zone_idx].proc_spells[i][1]);
 		spellsRemoved = true;
@@ -13259,12 +13272,6 @@ int random_set(P_char ch, P_obj obj, int count, int cmd, char *arg)
     return FALSE;
   }
 
-  // Why do we return true here?
-  if( count < 2 )
-  {
-    return FALSE;
-  }
-
   zone_name = strstr(obj->short_description, " &+rfrom") + 9;
   int context;
   // Find the matching zone for the random eq.
@@ -13272,6 +13279,12 @@ int random_set(P_char ch, P_obj obj, int count, int cmd, char *arg)
   {
     if( strstr(zone_name, zone_table[context].name) )
       break;
+  }
+
+  // Why do we return true here?
+  if( count < 2 )
+  {
+    return FALSE;
   }
 
   // Look for a random item proc..
