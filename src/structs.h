@@ -134,6 +134,7 @@ typedef struct combat_data *P_combat;
 #define AFFTYPE_PERM       BIT_10 // affect will not disappear upon death
 #define AFFTYPE_OFFLINE    BIT_11 // Continue to countdown timer while offline.
 #define AFFTYPE_LINKED_OBJ BIT_12
+#define AFFTYPE_SET_AFFECT BIT_13
 #define AFFTYPE_STORE (AFFTYPE_NOAPPLY |\
                        AFFTYPE_NODISPEL |\
                        AFFTYPE_NOSHOW)

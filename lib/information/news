@@ -1,3 +1,20 @@
+&+R12/12/25
+- Dreadnaught skill effectiveness now scales with skill level.
+- Dreadnaught now applies 1% to 10% spell damage reduction, scaling with skill level.
+- Updated named set proc to remove spells grants when removing the set pieces.
+- Implemenation for Dragoon spells:
+  * Animae Cicatrix
+  * Stigmata Draconica
+  * Drakescale Aegis
+- Dragoon can now commune in combat.
+- Various Dragoon balance changes.
+- Another balance pass on The Wreck of the Dreadnaught Cyclops:
+  * Slight nerf to some equipment.
+  * Made more mobs non-sentinel to get extra roaming.
+  * Set extra gold piles in treasure as rare loads.
+  * Moved epic stone to floor in first treasure room.
+
+
 &+R12/10/25
 - Spell 'freedom of movement' changes:
   * moved to 10th circle

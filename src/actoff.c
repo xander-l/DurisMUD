@@ -10917,30 +10917,34 @@ void do_dreadnaught(P_char ch, char *, int)
     return;
   }  
 
+  int duration = PULSE_VIOLENCE * (2 + number(0, 2));
+
   if(number(1, 102) < GET_CHAR_SKILL(ch, SKILL_DREADNAUGHT))
   {
     act("&+RCCCHHHAAARRGGEEEE!!!&+y You raise your defenses and assume a stoic stance!&n", FALSE, ch, 0, 0, TO_CHAR);
     act("$n &+ysuddenly assumes a &+Ydefensive&+y position, shield and weapon at the ready!&n", FALSE, ch, 0, 0, TO_ROOM);
   
     memset(&af, 0, sizeof(af));
-	
+
     af.type = SKILL_DREADNAUGHT;
     af.bitvector5 = AFF5_DREADNAUGHT;
-    af.flags = AFFTYPE_SHORT | AFFTYPE_NODISPEL ;
-    af.duration = 40;
+    af.flags = AFFTYPE_SHORT | AFFTYPE_NODISPEL;
+	af.level = GET_CHAR_SKILL(ch, SKILL_DREADNAUGHT);
+    af.duration = duration;
     affect_to_char(ch, &af);
 
     memset(&af, 0, sizeof(af));
     af.type = SKILL_DREADNAUGHT;
     af.bitvector4 = AFF4_NOFEAR;
-    af.duration = 40;
-    af.flags = AFFTYPE_SHORT | AFFTYPE_NODISPEL ;
+	af.level = GET_CHAR_SKILL(ch, SKILL_DREADNAUGHT);
+    af.duration = duration;
+    af.flags = AFFTYPE_SHORT | AFFTYPE_NODISPEL;
 
     affect_to_char_with_messages(ch, &af,
                                  "&+yYou lower your &+Yguard&+y, and assume an offensive stance.",
                                  "$n &+ylowers his guard, and assumes an offensive stance.&n");
 
-    set_short_affected_by(ch, TAG_DREADNAUGHT, 65);
+    set_short_affected_by(ch, TAG_DREADNAUGHT, duration + PULSE_VIOLENCE);
     notch_skill(ch, SKILL_DREADNAUGHT, 6.67);
     return;
   }

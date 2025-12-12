@@ -188,6 +188,7 @@ void which_stat(P_char ch, char *argument);
 void which_spec(P_char ch, char *argument);
 void which_food(P_char ch, char *argument);
 void which_weapon(P_char ch, char *argument);
+void which_armor(P_char ch, char *argument);
 void choronize(char *argument);
 int SpammingNchat( P_char ch );
 
@@ -8683,6 +8684,11 @@ void do_which(P_char ch, char *args, int cmd)
     which_weapon( ch, rest );
     return;
   }
+  else if ( is_abbrev(arg1, "armor"))
+  {
+	which_armor( ch, rest );
+    return;
+  }
   if(!*o_buf)
     send_to_char("No matches.\n", ch);
   else
@@ -12383,6 +12389,84 @@ char *weapon_modifiers( P_obj weapon )
   snprintf(mod_string, MAX_STRING_LENGTH, "%dd%d %d/%d", weapon->value[1], weapon->value[2], hit, dam );
 
   return mod_string;
+}
+
+char *armor_modifiers( P_obj armor )
+{
+  static char mod_string[MAX_STRING_LENGTH];
+
+  snprintf(mod_string, MAX_STRING_LENGTH, "&+YAC-apply: &N%d", armor->value[0] );
+
+  return mod_string;
+}
+
+void which_armor(P_char ch, char *argument)
+{
+	int   count;
+	char  buf[MAX_STRING_LENGTH];
+	char  arg1[100];
+	char  arg2[10];
+	P_obj obj;
+
+	argument_interpreter(argument, arg1, arg2);
+
+	if( !is_number(arg1) )
+	{
+		send_to_char( "Please an AC (value0) value to compare.\n", ch );
+		return;
+	}
+
+	int acValue = atoi(arg1);
+
+	typedef enum 
+	{
+		OP_LESS_THAN = 0,
+		OP_EQUAL = 1,
+		OP_GREATER_THAN = 2
+	} Operand;
+
+	Operand op = OP_EQUAL;
+
+	if( !strcmp(arg2, "-") )
+	{
+		op = OP_LESS_THAN;
+	}
+	else if( !strcmp(arg2, "+") )
+	{
+		op = OP_GREATER_THAN;
+	}
+
+	// Display the Header:
+				// "  1)    0/   0     13 a *huge* valium tablet measuri - Unknown."
+	snprintf(buf, MAX_STRING_LENGTH, "&=LWNum) INGAME      VNUM Description                    - Modifiers&n\n"
+			"         &=LW/ LIMIT&n\n" );
+	send_to_char( buf, ch );
+	count = 0;
+	for( int r_num = 0; r_num <= top_of_objt; r_num++ )
+	{
+		// Load a copy of object.
+		obj = read_object(r_num, REAL);
+
+		if( (obj->type == ITEM_ARMOR) )
+		{
+			if( (op == OP_EQUAL && obj->value[0] == acValue) ||
+		        (op == OP_LESS_THAN && obj->value[0] < acValue) ||
+			    (op == OP_GREATER_THAN && obj->value[0] > acValue) )
+				{
+					snprintf(buf, MAX_STRING_LENGTH, "%3d) &%s%4d/%4d %6d&n %s&n - %s.\n", 
+						++count, 
+						OBJ_COLOR(r_num), 
+						obj_index[r_num].number-1, 
+						obj_index[r_num].limit, 
+						obj_index[r_num].virtual_number, 
+						pad_ansi( obj->short_description, 30, TRUE ).c_str(), 
+						armor_modifiers(obj) );
+					send_to_char( buf, ch );
+				}
+		}
+		// Free up the object copy.
+		extract_obj( obj, FALSE );
+	}
 }
 
 void which_weapon(P_char ch, char *argument)
