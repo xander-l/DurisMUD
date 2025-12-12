@@ -394,7 +394,7 @@ void spell_shadow_travel(int level, P_char ch, char *arg, int type, P_char victi
     return;
   }
 
-  distance = (int)(level * (int)get_property("spell.dim.perlevel.modifier", 1.35));
+  distance = (int)(level * get_property("spell.dim.perlevel.modifier", 1.35));
   if(GET_SPEC(ch, CLASS_ILLUSIONIST, SPEC_DARK_DREAMER))
     distance += 15;
 

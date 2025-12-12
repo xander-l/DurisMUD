@@ -4953,7 +4953,7 @@ void spell_dimension_door(int level, P_char ch, char *arg, int type, P_char vict
     return;
   }
 
-  distance = (int)(level * (int)get_property("spell.dim.perlevel.modifier", 1.35));
+  distance = (int)(level * get_property("spell.dim.perlevel.modifier", 1.35));
   if(GET_SPEC(ch, CLASS_SORCERER, SPEC_SHADOW))
     distance += 15;
 

@@ -574,7 +574,7 @@ void spell_windwalk(int level, P_char ch, char *arg, int type, P_char victim, P_
     return;
   }
   
-  distance = (int)(level * (int)get_property("spell.dim.perlevel.modifier", 1.35));
+  distance = (int)(level * get_property("spell.dim.perlevel.modifier", 1.35));
   if(GET_SPEC(ch, CLASS_ETHERMANCER, SPEC_TEMPESTMAGUS))
     distance += 15;
 
