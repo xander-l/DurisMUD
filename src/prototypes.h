@@ -1162,7 +1162,7 @@ P_obj get_obj_vis(P_char ch, char *name, int zrange = 0);
 P_obj get_obj_equipped( P_char ch, char *arg );
 P_obj unequip_char(P_char, int, bool = FALSE);
 void unequip_all(P_char);
-struct affected_type *get_spell_from_char(P_char ch, int spell, void *context = NULL);
+struct affected_type *get_spell_from_char(P_char ch, int spell, void *context = NULL, int flagMask = 0);
 struct room_affect *get_spell_from_room(P_room, int );
 bool affected_by_spell(P_char, int);
 int affected_by_spell_count(P_char, int);

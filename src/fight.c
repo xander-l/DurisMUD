@@ -4716,6 +4716,15 @@ if (get_linked_char(victim, LNK_ETHEREAL) || get_linking_char(victim, LNK_ETHERE
   }
 }
 
+  if(affected_by_spell(victim, SKILL_DREADNAUGHT))
+  {
+	struct affected_type* paf = get_spell_from_char(ch, SKILL_DREADNAUGHT);
+	// 2% to 10% reduction based on skill level (with a chance for a few extra percent when skill is 95+)
+	float skill = BOUNDED(2, paf->level / 10, 10) + (paf->level > 95 ? number((paf->level - 95)/2, paf->level - 95) : 0);
+	float reduction = (100.0 - skill) / 100.0;
+    dam *= reduction;
+  }
+
   // Aura of spell protection reduces damage by mod percent.
   if( IS_AFFECTED3( victim, AFF3_PALADIN_AURA ) && has_aura(victim, AURA_SPELL_PROTECTION ) )
   {
@@ -5324,7 +5333,7 @@ int melee_damage(P_char ch, P_char victim, double dam, int flags, struct damage_
     reduction = 1. - get_property("damage.reduction.negarmor", .75);
     skin = SPELL_NEG_ARMOR;
   }
-  if (affected_by_spell(victim, SPELL_DRAKESCALE_AEGIS) && !(flags & PHSDAM_NOREDUCE))
+  else if (affected_by_spell(victim, SPELL_DRAKESCALE_AEGIS) && !(flags & PHSDAM_NOREDUCE))
   {
     reduction = 1. - get_property("damage.reduction.drakescaleAegis", 0.75);
     skin = SPELL_DRAKESCALE_AEGIS;
@@ -5369,12 +5378,19 @@ int melee_damage(P_char ch, P_char victim, double dam, int flags, struct damage_
 
   if(affected_by_spell(ch, SKILL_DREADNAUGHT) && !(flags & PHSDAM_NOREDUCE))
   {
-    dam *= .2;
+	struct affected_type* paf = get_spell_from_char(ch, SKILL_DREADNAUGHT);
+	// 80% to 40% reduction based on skill level
+	float reduction = BOUNDED(20, paf->level, 60) / 100.0;
+    dam *= reduction;
   }
 
   if(affected_by_spell(victim, SKILL_DREADNAUGHT) && !(flags & PHSDAM_NOREDUCE))
   {
-    dam *= .4;
+	struct affected_type* paf = get_spell_from_char(ch, SKILL_DREADNAUGHT);
+	// 20% to 60% reduction based on skill level (with a chance for a few extra percent when skill is 91+)
+	float skill = BOUNDED(20, paf->level, 60) + (paf->level > 90 ? number((paf->level - 90)/2, paf->level - 90) : 0);
+	float reduction = (100.0 - skill) / 100.0;
+    dam *= reduction;
   }
 
   dam = MAX(1, dam);
