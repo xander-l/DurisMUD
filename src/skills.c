@@ -5168,10 +5168,10 @@ SPELL_ADD(CLASS_SUMMONER, 11);
 
   SPELL_CREATE_MSG("animae cicatrix", 
     SPELL_ANIMAE_CICATRIX, 
-    PULSE_SPELLCAST * 2,
-    TAR_IGNORE, 
+    PULSE_SPELLCAST,
+    TAR_SELF_ONLY, 
     spell_animae_cicatrix, 
-    "Your &+Gdra&+Lcon&+Gic&n &+rsoulscar&n fades.");
+    "The &+Gdr&+Lag&+Gon&n god's scar on your soul fades.");
   SPELL_ADD(CLASS_DRAGOON, 3);
 
   SPELL_CREATE("ensis unguis", 
@@ -5195,18 +5195,20 @@ SPELL_ADD(CLASS_SUMMONER, 11);
     spell_simulacrum_anguis);
   SPEC_SPELL_ADD(CLASS_DRAGOON, 4, SPEC_DRAGON_PRIEST);
 
-  SPELL_CREATE("stigmata draconica", 
+  SPELL_CREATE_MSG("stigmata draconica", 
     SPELL_STIGMATA_DRACONICA, 
-    PULSE_SPELLCAST * 2,
-    TAR_IGNORE, 
-    spell_stigmata_draconica);
+    PULSE_SPELLCAST * 3,
+    TAR_SELF_ONLY, 
+    spell_stigmata_draconica,
+    "The sores on your hands close as the &+Gdr&+Lag&+Gon&n god's &+rstigmata&n fades. &+Rred.&n");
   SPELL_ADD(CLASS_DRAGOON, 5);
 
-  SPELL_CREATE("drakescale aegis", 
+  SPELL_CREATE_MSG("drakescale aegis", 
     SPELL_DRAKESCALE_AEGIS, 
-    PULSE_SPELLCAST * 2,
-    TAR_IGNORE, 
-    spell_drakescale_aegis);
+    PULSE_SPELLCAST * 4,
+    TAR_SELF_ONLY, 
+    spell_drakescale_aegis,
+    "The scales penetrating your flesh subside, easing your &+rpain&n.");
   SPELL_ADD(CLASS_DRAGOON, 6);
 
   SPELL_CREATE("judicium fidei", 

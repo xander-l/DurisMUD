@@ -103,6 +103,13 @@ extern void holy_crusade_check(P_char, P_char);
 extern int is_wearing_necroplasm(P_char);
 extern int top_of_zone_table;
 
+extern bool has_dragoon_mount(P_char ch);
+extern bool is_dragoon_mounted(P_char ch);
+extern bool is_dragoon_mount(P_char mount);
+extern bool is_in_dragoon_group(P_char ch, P_char vict);
+extern int get_next_dragoon_circle(P_char ch);
+extern P_char get_dragoon_mount(P_char ch);
+
 /* Structures */
 
 //extern struct mm_ds *wdead_trophy_pool;
@@ -5317,6 +5324,11 @@ int melee_damage(P_char ch, P_char victim, double dam, int flags, struct damage_
     reduction = 1. - get_property("damage.reduction.negarmor", .75);
     skin = SPELL_NEG_ARMOR;
   }
+  if (affected_by_spell(victim, SPELL_DRAKESCALE_AEGIS) && !(flags & PHSDAM_NOREDUCE))
+  {
+    reduction = 1. - get_property("damage.reduction.drakescaleAegis", 0.75);
+    skin = SPELL_DRAKESCALE_AEGIS;
+  }
   else
   {
     skin = 0;
@@ -5469,6 +5481,20 @@ void check_vamp(P_char ch, P_char victim, double fdam, uint flags)
   if(flags & SPLDAM_NOVAMP)
   {
     return;
+  }
+
+  if(IS_DRAGOON(ch) && affected_by_spell(ch, SPELL_STIGMATA_DRACONICA))
+  {
+    P_char mount = get_dragoon_mount(ch);
+
+    if(mount != NULL)
+    {
+      if(mount == victim)
+      {
+        vamped = vamp(ch, dam * dam_factor[DF_TOUCHVAMP], GET_MAX_HIT(ch) * VAMPPERCENT(ch) );
+        send_to_char("The &+Gdr&+Lag&+Gon&n's blood burns your stigmata as you fill with &+rpower&n!\n", ch);
+      }
+    }
   }
 
   // Arrow type vamp. Apr09 -Lucrot
@@ -6171,6 +6197,24 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags, struct damage_m
     if( (ch != victim) )
     {
       check_vamp(ch, victim, dam, flags);
+    }
+
+    P_char rider = GET_RIDER(victim);
+
+    if(rider != NULL)
+    {
+      if(IS_DRAGOON(rider) && affected_by_spell(rider, SPELL_STIGMATA_DRACONICA))
+      {
+        if(is_dragoon_mounted(rider))
+        {
+          P_char mount = get_dragoon_mount(rider);
+
+          if(mount == victim)
+          {
+            check_vamp(rider, victim, dam, flags);
+          }
+        }
+      }
     }
 
     if( victim && IS_DISGUISE(victim) )

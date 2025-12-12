@@ -1074,6 +1074,9 @@ void show_visual_status(P_char ch, P_char tar_char)
   if (affected_by_spell(tar_char, SPELL_STONE_SKIN))
     SVS("&+L$S body seems to be made of stone!");
 
+  if (affected_by_spell(tar_char, SPELL_DRAKESCALE_AEGIS))
+    SVS("$S body is covered in &+rbloody&n &+Gdrak&+Les&+Gcale&n!");
+
   if (affected_by_spell(tar_char, SPELL_SHADOW_SHIELD))
     SVS("&+y$S body appears to be covered with "
         "&+Ls&+Ww&+Li&+Wr&+Ll&+Wi&+Ln&+Wg &+Lshadows!&n");

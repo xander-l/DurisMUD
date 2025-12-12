@@ -14132,6 +14132,11 @@ int khaziddea_blade(P_obj obj, P_char ch, int cmd, char *arg)
     affect_from_char(victim, SPELL_SHADOW_SHIELD);
     fired = TRUE;
   }
+  else if( affected_by_spell(victim, SPELL_DRAKESCALE_AEGIS) )
+  {
+    affect_from_char(victim, SPELL_DRAKESCALE_AEGIS);
+    fired = TRUE;
+  }
 
   if( fired )
   {

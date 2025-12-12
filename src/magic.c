@@ -7962,8 +7962,9 @@ bool has_skin_spell(P_char ch)
      !affected_by_spell(ch, SPELL_IRONWOOD) &&
      !affected_by_spell(ch, SPELL_VINES) &&
      !IS_AFFECTED5(ch, AFF5_VINES) &&
-	 !affected_by_spell(ch, SPELL_ICE_ARMOR) &&
-	 !affected_by_spell(ch, SPELL_NEG_ARMOR))
+	   !affected_by_spell(ch, SPELL_ICE_ARMOR) &&
+	   !affected_by_spell(ch, SPELL_NEG_ARMOR) &&
+     !affected_by_spell(ch, SPELL_DRAKESCALE_AEGIS))
     return false;
   else
     return true;
@@ -22025,7 +22026,66 @@ void spell_contain_being(int level, P_char ch, char *arg, int type,
 void spell_animae_cicatrix(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's animae cicatrix. -- not finished", ch);
+  
+  struct affected_type af;
+
+  if(affected_by_spell(victim, SPELL_ANIMAE_CICATRIX))
+  {
+    send_to_char("Your soul is already scarred by the &+Gdr&+Lag&+Gon&n god!\n", victim);
+    return;
+  }
+  act("Your soul is scarred by the &+Gdr&+Lag&+Gon&n god's &+rpower&n!", FALSE, victim, 0, 0, TO_CHAR);
+
+  bzero(&af, sizeof(af));
+  af.type = SPELL_ANIMAE_CICATRIX;
+  af.duration =  5;
+  af.modifier = 10;
+  af.location = APPLY_POW;
+  affect_to_char(victim, &af);
+  af.location = APPLY_FIRE_PROT;
+  affect_to_char(victim, &af);
+  af.modifier = 10;
+  af.location = APPLY_HITROLL;
+  affect_to_char(victim, &af);
+  af.modifier = 10;
+  af.location = APPLY_DAMROLL;
+  affect_to_char(victim, &af);
+  af.modifier = 10;
+  af.location = APPLY_WIS;
+  affect_to_char(victim, &af);
+  af.modifier = 10;
+  af.location = APPLY_AGI;
+  affect_to_char(victim, &af);
+  af.modifier = 10;
+  af.location = APPLY_STR;
+  affect_to_char(victim, &af);
+  af.modifier = 5;
+  af.location = APPLY_POW_MAX;
+  affect_to_char(victim, &af);
+  
+  if(GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_PRIEST))
+  {
+    af.modifier = 5;
+    af.location = APPLY_WIS_MAX;
+    affect_to_char(victim, &af);
+  }
+
+  if(GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_HUNTER))
+  {
+    af.modifier = 5;
+    af.location = APPLY_AGI_MAX;
+    affect_to_char(victim, &af);
+  }
+
+  if(GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_LANCER))
+  {
+    af.modifier = 5;
+    af.location = APPLY_STR_MAX;
+    affect_to_char(victim, &af);
+  }
+
+  // Take a little damage for your benefits
+  spell_damage(ch, victim, GET_HIT(victim) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
 }
 
 void spell_ensis_unguis(int level, P_char ch, char *arg, int type,
@@ -22049,13 +22109,54 @@ void spell_simulacrum_anguis(int level, P_char ch, char *arg, int type,
 void spell_stigmata_draconica(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's stigmata draconica. -- not finished", ch);
+  struct affected_type af;
+  int duration_i = (int) (level / 5);
+
+  if(affected_by_spell(victim, SPELL_STIGMATA_DRACONICA))
+  {
+    act("Your hands are still bloodied from the &+rstigmata&n", TRUE, ch, 0, victim, TO_CHAR);
+    return;
+  }
+
+  bzero(&af, sizeof(af));
+  af.type = SPELL_STIGMATA_DRACONICA;
+  af.location = APPLY_NONE;
+  af.modifier = level;
+  af.duration = BOUNDED(2, duration_i , 10);
+  affect_to_char(ch, &af);
+
+  act("Open &+rsores&n erupt on the plams of $n's hands..", FALSE, ch, 0, 0, TO_ROOM);
+  act("Open &+rsores&n erput on the palms of your hands..", FALSE, ch, 0, 0, TO_CHAR);
+
+  spell_damage(ch, victim, GET_HIT(victim) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
 }
 
 void spell_drakescale_aegis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's drakescale aegis. -- not finished", ch);
+  struct affected_type af;
+  int    absorb = (level / 4) + number(1, 4);
+
+  if(!has_skin_spell(victim))
+  {
+    absorb = (int) (absorb * .8);
+    act("Scales erupt from under $n's &+rflesh&n covering them in thick &+Gdrak&+Les&+Gcale&n armor.", TRUE, victim, 0, 0, TO_ROOM);
+    act("Scales erupt from under your flesh as the &+Gdr&+Lag&+Gon&n god's &+rpower&n protects you.", TRUE, victim, 0, 0, TO_CHAR); 
+  }
+  else
+  {
+    send_to_char("&+GDrak&+Les&+Gcale&n already pentrates your &nflesh&n!\n", ch);
+    return;
+  }
+
+  bzero(&af, sizeof(af));
+  af.type = SPELL_DRAKESCALE_AEGIS;
+  af.duration = 5;
+  af.modifier = absorb;
+  affect_to_char(victim, &af);
+
+  // Take a little damage for your benefits
+  spell_damage(ch, victim, GET_HIT(victim) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
 }
 
 void spell_judicium_fidei(int level, P_char ch, char *arg, int type,
