@@ -11175,6 +11175,37 @@ int proc_whirlwinds(P_obj obj, P_char ch, int cmd, char *arg)
   return FALSE;
 }
 
+int sword_whirlwinds(P_obj obj, P_char ch, int cmd, char *arg)
+{
+  P_char   victim;
+
+  if (cmd == CMD_SET_PERIODIC)
+  {
+    return FALSE;
+  }
+
+  if( cmd != CMD_MELEE_HIT || !IS_ALIVE(ch) || !OBJ_WORN_BY(obj, ch) )
+  {
+    return FALSE;
+  }
+  victim = (P_char) arg;
+  // 1/30 chance.
+  if( !IS_ALIVE(victim) || number(0, 29) )
+  {
+    return FALSE;
+  }
+
+  act("&+b$n's&N $q &n&+rglows blue...&N", TRUE, ch, obj, victim, TO_NOTVICT);
+  act("&+bYour&N $q &n&+rglows blue...&N", TRUE, ch, obj, victim, TO_CHAR);
+  act("&+b$n's&N $q &n&+rglows blue...&N", TRUE, ch, obj, victim, TO_VICT);
+  //spell_lightning_bolt(40, ch, NULL, 0, victim, obj);
+  //spell_asphyxiate( 51, ch, NULL, 0, victim, obj);
+  spell_cyclone(46, ch, NULL, 0, victim, obj);
+  spell_cyclone(46, ch, NULL, 0, victim, obj);
+  spell_cyclone(46, ch, NULL, 0, victim, obj);
+  return TRUE;
+}
+
 int glowing_necklace(P_obj obj, P_char ch, int cmd, char *arg)
 {
   int      curr_time;

@@ -2113,6 +2113,7 @@ void assign_objects(void)
 //  obj_index[real_object0(67258)].func.obj = icicle_saber;
   obj_index[real_object0(67237)].func.obj = serpent_blade;
   obj_index[real_object0(67242)].func.obj = lich_spine;
+  obj_index[real_object0(67276)].func.obj = sword_whirlwinds;
 
   /*
      newbiezone

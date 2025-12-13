@@ -53,6 +53,7 @@ int god_bp(P_obj obj, P_char ch, int cmd, char *arg);
 int out_of_god_bp(P_obj obj, P_char ch, int cmd, char *arg);
 int ring_of_regeneration(P_obj obj, P_char ch, int cmd, char *arg);
 int proc_whirlwinds(P_obj obj, P_char ch, int cmd, char *arg);
+int sword_whirlwinds(P_obj obj, P_char ch, int cmd, char *arg);
 int glowing_necklace(P_obj obj, P_char ch, int cmd, char *arg);
 int staff_shadow_summoning(P_obj obj, P_char ch, int cmd, char *arg);
 int rod_of_magic(P_obj obj, P_char ch, int cmd, char *arg);
