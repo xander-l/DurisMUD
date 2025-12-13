@@ -2397,6 +2397,7 @@ bool aggressive_to(P_char ch, P_char target)
 {
   int      tmp_race = 0;
   register int chance;
+  struct affected_type *af;
 
   if (!ch || !target || ch == target)
     return FALSE;
@@ -2425,6 +2426,15 @@ bool aggressive_to(P_char ch, P_char target)
     if( GET_OPPONENT(GET_MASTER(ch)) )
       return TRUE;              /* master is fighting the target, so return true */
     return FALSE;
+  }
+
+  if (affected_by_spell(ch, SKILL_TAUNT))
+  {
+	af = get_spell_from_char(ch, SKILL_TAUNT);
+	if (af && af->context != (void*)target)
+	{
+		return TRUE;
+	}
   }
 
   /* now different checks for pcs/npcs */

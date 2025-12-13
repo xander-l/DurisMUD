@@ -637,6 +637,17 @@ P_char ParseTarget(P_char ch, char *argument)
       victim = NULL;
     }
   }
+
+  if(affected_by_spell(ch, SKILL_TAUNT))
+  {
+	struct affected_type* paf = get_spell_from_char(ch, SKILL_TAUNT);
+	if(paf && paf->context != (void*)victim && CAN_SEE(ch, (P_char)paf->context))
+	{
+		send_to_char("You try to switch opponents but can't!", ch);
+		victim = (P_char)paf->context;
+	}
+  }
+
   return victim;
 }
 
@@ -11443,4 +11454,125 @@ bool check_crippling_strike( P_char ch )
     }
   }
   return FALSE;
+}
+
+void do_taunt(P_char ch, char *arg, int cmd)
+{
+	P_char vict;
+	int skl_lvl = 0, saveMod, percent_chance;
+	struct affected_type af;
+	struct affected_type *paf;
+
+	if(!IS_ALIVE(ch) )
+	{
+		send_to_char("Lay still, you seem to be dead.\r\n", ch);
+		return;
+	}
+
+	if(!SanityCheck(ch, "do_taunt"))
+		return;
+
+	if((skl_lvl = GET_CHAR_SKILL(ch, SKILL_TAUNT)) == 0)
+	{
+		// taunt is a social if you don't have the skill
+		do_action(ch, arg, cmd);
+		return;
+	}
+
+	if( IS_DESTROYING(ch) )
+	{
+		send_to_char( "You can't taunt an object.\n", ch );
+		return;
+	}
+
+	if( !IS_FIGHTING(ch) )
+	{
+		vict = ParseTarget(ch, arg);
+		if( !vict )
+		{
+			send_to_char("Taunt who?\n", ch);
+			return;
+		}
+	}
+	else
+	{
+		vict = GET_OPPONENT(ch);
+		// If fighting and not fighting. buggy!
+		if( !vict )
+		{
+			stop_fighting(ch);
+			return;
+		}
+	}
+
+	// mod of 2 to 25, scaled linearly with skill level
+	saveMod = MAX(2, skl_lvl / 4);
+	percent_chance = MIN(skl_lvl, 99);
+
+	if( !IS_ALIVE(vict) )
+	{
+		return;
+	}
+
+	if( (notch_skill(ch, SKILL_TAUNT, get_property("skill.notch.offensive", 7)) || 
+	     number(1, 100) <= percent_chance || IS_TRUSTED(ch)) )
+	{
+		act("You &+Wmercilessly &+Rtaunt&n $N.", TRUE, ch, NULL, vict, TO_CHAR);
+		act("$n &+Wmercilessly &+Rtaunts &+Wyou.&n", TRUE, ch, NULL, vict, TO_VICT);
+		act("$n &+Wmercilessly &+Rtaunts&n $N&+W.&n", TRUE, ch, NULL, vict, TO_NOTVICT);
+
+		if(IS_TRUSTED(ch) || !NewSaves(vict, SAVING_FEAR, saveMod))
+		{
+			paf = get_spell_from_char(vict, SKILL_TAUNT);
+			int duration = BOUNDED(2, skl_lvl / 10, 5) * PULSE_VIOLENCE * ( IS_NPC(vict) ? 2 : 1 );
+			if( paf && paf->context == (void*)ch )
+			{
+				// update taunt duration
+				paf->duration += duration;
+			}
+			else
+			{
+				// remove existing taunt
+				if (paf)
+				  affect_from_char(ch, SKILL_TAUNT);
+
+				// successful taunt
+				bzero(&af, sizeof(af));
+				af.type = SKILL_TAUNT;
+				af.flags = AFFTYPE_SHORT | AFFTYPE_NOSAVE;
+				af.context = (void*)ch;
+				af.duration = duration;
+				affect_to_char_with_messages(vict, &af,
+											"You finally let the words go and can focus on other targets again.",
+											"$n seems to have calmed down.");
+				if( GET_OPPONENT(vict) != ch )
+				{
+					stop_fighting(vict);
+					engage(vict, ch);
+				}
+			}
+
+			act("&+WYou definitely got under $S skin!&n", TRUE, ch, NULL, vict, TO_CHAR);
+    		act("&=LRThat last momma joke was the final straw!&n", TRUE, ch, NULL, vict, TO_VICT);
+    		act("$n &+Wseems to have riled up &n$N&+W!&n", TRUE, ch, NULL, vict, TO_NOTVICT);
+
+			CharWait(vict, PULSE_VIOLENCE);
+		}
+		else
+		{
+			// good taunt but target resisted
+			act("&+LYou failed to get under $S skin.&n", TRUE, ch, NULL, vict, TO_CHAR);
+    		act("You have a thicker skin than that.", TRUE, ch, NULL, vict, TO_VICT);
+    		act("$N doesn't seem to be impressed.", TRUE, ch, NULL, vict, TO_NOTVICT);
+		}
+	}
+	else
+	{
+		// unsuccesful taunt
+		act("&+LYou attempt to taunt &n$N&+L, but just fumble around with words.&n", TRUE, ch, NULL, vict, TO_CHAR);
+    	act("$n shouts something unintelligible at you.&n", TRUE, ch, NULL, vict, TO_VICT);
+    	act("$n shouts something unintelligible at $N.&n", TRUE, ch, NULL, vict, TO_NOTVICT);
+	}
+
+	CharWait(ch, (int)(PULSE_VIOLENCE * 1));
 }

@@ -1319,6 +1319,7 @@ bool parse_spell_arguments(P_char ch, struct spell_target_data * data, char *arg
   bool     target_ok;
   int      i, range;
   int      spl = data->ttype;
+  struct affected_type *af;
 
   for (; *argument == ' '; argument++) ;
 
@@ -1595,6 +1596,14 @@ bool parse_spell_arguments(P_char ch, struct spell_target_data * data, char *arg
       send_to_char("You are afraid that it could harm your master.\n", ch);
       return FALSE;
     }
+  }
+  if( affected_by_spell(ch, SKILL_TAUNT) && IS_SET(skills[spl].targets, TAR_AGGRO) )
+  {
+	if( (af = get_spell_from_char(ch, SKILL_TAUNT)) != NULL && CAN_SEE(ch, (P_char)af->context) )
+	{
+		send_to_char("You don't want to switch targets.\n", ch);
+		vict = (P_char)af->context;
+	}
   }
   data->t_char = vict;
   data->t_obj = obj;

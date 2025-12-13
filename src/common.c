@@ -848,6 +848,8 @@ flagDef  affected1_bits[] = {
   {"PROT_FIRE", "Prot fire", 1, 0},
   {"CAMPING", "Camping", 0, 0},
   {"BIOFEEDBACK", "Biofeedback", 1, 0},
+  {"INFERNAL_FURY", "Infernal Fury", 1, 0},
+  {"FREEDOM_OF_MVMNT", "Freedom of Movement", 1, 0},
   {0}
 };
 

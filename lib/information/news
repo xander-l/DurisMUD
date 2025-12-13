@@ -1,4 +1,7 @@
 &+R12/12/25
+- Really did fix dim type spell range now.
+- Made Mace of the Sea a worthwhile Artifact.
+- Alter frag epic bonus calculation to take victim's frags into consideration.
 - Dreadnaught skill effectiveness now scales with skill level.
 - Dreadnaught now applies 1% to 10% spell damage reduction, scaling with skill level.
 - Updated named set proc to remove spells grants when removing the set pieces.

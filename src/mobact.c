@@ -150,6 +150,12 @@ P_char pick_target(P_char ch, unsigned int flags)
 {
   P_char tch, any = 0, weakest = 0, caster = 0, good = 0;
   int hits = 5000;
+  struct affected_type *af;
+
+  if((af = get_spell_from_char(ch, SKILL_TAUNT)) != NULL && CAN_SEE(ch, (P_char)af->context))
+  {
+	return (P_char)af->context;
+  }
 
   for (tch = world[ch->in_room].people; tch; tch = tch->next_in_room)
   {
@@ -6610,7 +6616,10 @@ void MobCombat( P_char ch )
     return;
   }
 
-  if( (number(1, 400) <= (GET_C_INT(ch) / 4 + GET_LEVEL(ch))) && CAN_ACT(ch) && !IS_ANIMAL(ch) )
+  // make mobs auto switch if taunted at 75% or pass int check for non-animals
+  if( CAN_ACT(ch) && 
+      (( affected_by_spell(ch, SKILL_TAUNT) && number(0, 3) ) || 
+	   ( (number(1, 400) <= (GET_C_INT(ch) / 4 + GET_LEVEL(ch))) && !IS_ANIMAL(ch) )) )
   {
     tch = PickTarget(ch);
 
@@ -6988,6 +6997,7 @@ P_char PickTarget(P_char ch)
   int      target_table[MAX_TARGETS + 1];
   P_char   target_addr[MAX_TARGETS + 1];
   int      a, b, c, d, n_a;
+  struct affected_type *af;
 
   if(!SanityCheck(ch, "PickTarget"))
   {
@@ -7004,6 +7014,11 @@ P_char PickTarget(P_char ch)
      IS_IMMOBILE(ch))
   {
     return NULL;
+  }
+
+  if((af = get_spell_from_char(ch, SKILL_TAUNT)) != NULL && CAN_SEE(ch, (P_char)af->context))
+  {
+	return (P_char)af->context;
   }
   
   a = 0;
@@ -8061,7 +8076,7 @@ PROFILE_END(mundane_mobcast);
 PROFILE_START(mundane_track);
   if(IS_SET(ch->specials.act, ACT_MEMORY) && !IS_FIGHTING(ch))
   { // 85%
-    if(IS_SET(ch->specials.act, ACT_HUNTER)) 
+    if(IS_SET(ch->specials.act, ACT_HUNTER) || affected_by_spell(ch, SKILL_TAUNT)) 
     { // 38%
       if ( ch->only.npc != NULL && GET_MEMORY(ch) != NULL) // guardcheck (no hunt will happen if mob has no memory)  -Odorf
       {
@@ -9580,6 +9595,7 @@ bool InitNewMobHunt(P_char ch)
   P_char   tmpch;
   int      dummy;
   hunt_data data;
+  struct affected_type *af = NULL;
 
   if(!ch)
   {
@@ -9589,8 +9605,16 @@ bool InitNewMobHunt(P_char ch)
   if(IS_PC(ch))
     return FALSE;
 
-  if(!IS_SET(ch->specials.act, ACT_HUNTER) || IS_FIGHTING(ch) ||
-      GET_MASTER(ch) || IS_SET(ch->specials.act2, ACT2_NO_LURE))
+  if( (af = get_spell_from_char(ch, SKILL_TAUNT)) != NULL )
+  {
+	// priority target is taunter
+	tmpch = (P_char)af->context;
+  }
+  
+  if(IS_SET(ch->specials.act2, ACT2_NO_LURE) ||
+     (!af || !tmpch || !IS_ALIVE(tmpch)) || 
+	 (!IS_SET(ch->specials.act, ACT_HUNTER) && !tmpch) || IS_FIGHTING(ch) ||
+	 (GET_MASTER(ch) && !tmpch))
   {
     return FALSE;
   }
@@ -9615,15 +9639,27 @@ bool InitNewMobHunt(P_char ch)
   /*
    * only initiate hunting people who are in my zone
    */
-  for (a = remember_array[world[ch->in_room].zone]; a; a = a->next)
+  a = remember_array[world[ch->in_room].zone];
+  if (!tmpch)
   {
-    tmpch = a->c;
-
+	// no taunt target, start at beginning of remember list
+	tmpch = a->c;
+  }
+  for (; a; a = a->next)
+  {
     if(!SanityCheck(tmpch, "InitNewMobHunt"))
+	{
+	  // iterate tmpch
+	  tmpch = a->c;
       continue;
+	}
 
     if( GET_STAT(tmpch) == STAT_DEAD || !CAN_SEE(ch, tmpch) )
+	{
+	  // iterate tmpch
+	  tmpch = a->c;
       continue;
+	}
 
     if(CheckFor_remember(ch, tmpch) &&
         (GET_CHAR_ZONE(ch) == GET_CHAR_ZONE(tmpch)))
@@ -9655,6 +9691,8 @@ bool InitNewMobHunt(P_char ch)
         return TRUE;
       }
     }
+	// iterate tmpch
+	tmpch = a->c;
   }
 
   /*
@@ -9750,7 +9788,7 @@ void event_mob_hunt(P_char ch, P_char victim, P_obj obj, void *d)
      * non-HUNTER mobs should NEVER fall in here
      */
 
-    if(!IS_SET(ch->specials.act, ACT_HUNTER))
+    if(!IS_SET(ch->specials.act, ACT_HUNTER) && !affected_by_spell(ch, SKILL_TAUNT))
       return;
 
     if(IS_SET(ch->specials.act2, ACT2_NO_LURE))

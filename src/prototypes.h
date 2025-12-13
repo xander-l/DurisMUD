@@ -370,6 +370,7 @@ void bash(P_char ch, P_char victim, bool _debug = FALSE);
 void bodyslam(P_char, P_char);
 void buck(P_char);
 void do_dreadnaught(P_char, char *, int);
+void do_taunt(P_char, char *, int);
 void do_shadowstep(P_char, char *, int);
 void parlay(P_char, P_char);
 void do_assist(P_char, char *, int);
