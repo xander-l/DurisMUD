@@ -6553,6 +6553,10 @@ if((GET_RACE(victim) == RACE_OGRE) && ch_size < vict_size)
     percent_chance = .70 * percent_chance + .30 * modifier;
 //    debug("bash: (%s) bashing (%s) str/agi percentage (%d) mod (%f).", GET_NAME(ch), GET_NAME(victim), percent_chance, modifier);
   }
+  else if (GET_RACE(ch) == RACE_E_ELEMENTAL || GET_RACE(ch) == RACE_W_ELEMENTAL) // Water and Earth Elementals get a 20% bonus to bash.
+  {
+    percent_chance += 20;
+  }
   else
   {
     percent_chance -= 10;
