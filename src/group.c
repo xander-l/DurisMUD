@@ -49,6 +49,8 @@ extern void purge_linked_auras(P_char ch);
 extern string pad_ansi(const char *str, int length, bool trim_to_length);
 
 struct mm_ds *dead_group_pool = NULL;
+void remove_aura_message(P_char ch, P_char commander);
+void add_aura_message(P_char ch, P_char commander);
 
 
 /*
@@ -269,6 +271,95 @@ P_char get_char_on_ship_bridge(P_char ch, const char *name)
 
 
     return vict;
+}
+
+ /* do_appoint - appoint a specific group member as the group leader
+    Usage: appoint <name>
+    Only the current group leader may use this command. The function will
+    look for a member in the leader's group that matches <name> (abbrev
+    allowed). If found, that member becomes the new leader: the code
+    accomplishes this by swapping the 'ch' pointers in the group's head
+    node and the target node. Group-related client updates and aura
+    messages are adjusted and notifications are sent. */ 
+
+void do_appoint(P_char ch, char *argument, int cmd) 
+{ 
+  char name[MAX_INPUT_LENGTH]; 
+  char buf[MAX_STRING_LENGTH]; 
+  struct group_list *gl, *target = NULL; 
+  P_char newleader = NULL, oldleader = NULL;
+
+  if (!ch) return;
+
+  one_argument(argument, name);
+
+  if (!ch->group || (ch->group->ch != ch)) 
+  { 
+    send_to_char("You must be the leader of a group to appoint someone.\n", ch); 
+    return; 
+  }
+
+  if (!*name) 
+  {  
+    send_to_char("Appoint whom?\n", ch); 
+    return; 
+  }
+
+  oldleader = ch;
+
+  /* search group's list for the named member (allow abbrev) */ 
+  for (gl = ch->group; gl; gl = gl->next) 
+  { 
+    if (gl->ch && is_abbrev(name, GET_NAME(gl->ch))) 
+    { target = gl; 
+      break; 
+    } 
+  }
+
+  if (!target) 
+  { 
+    send_to_char("They aren't a member of your group.\n", ch); 
+    return; 
+  }
+
+  newleader = target->ch;
+
+  if (newleader == ch) 
+  { 
+    send_to_char("You are already the leader of your group.\n", ch); 
+    return; 
+  }
+
+  /* Swap the character pointers between the head (current leader) and the target node. This effectively makes newleader the head->ch and oldleader becomes the target node's ch. */ 
+  ch->group->ch = newleader; target->ch = oldleader;
+
+  /* Notify leader and the appointed member */ 
+  snprintf(buf, MAX_STRING_LENGTH, "You appoint %s as the leader of the group.\n", GET_NAME(newleader)); 
+  send_to_char(buf, oldleader);
+
+  act("$N is now the leader of your group.", TRUE, oldleader, 0, newleader, TO_CHAR); 
+  act("$N is now the leader of $n's group.", TRUE, oldleader, 0, newleader, TO_NOTVICT); 
+  act("You have been appointed leader of the group by $n!", FALSE, oldleader, 0, newleader, TO_VICT);
+
+  /* Update aura messages: for members that have command aura, remove old, add new. */ 
+  for (gl = ch->group; gl; gl = gl->next) { 
+
+    if (!gl->ch) continue;
+
+    if (gl->ch == newleader)
+      continue;
+
+    if (in_command_aura(gl->ch))
+    {
+      remove_aura_message(gl->ch, oldleader);
+      add_aura_message(gl->ch, newleader);
+    }
+  }
+
+  /* Flag group clients for a group update (MSP/clients) */ 
+  for (gl = ch->group; gl; gl = gl->next) { 
+    if (gl->ch && gl->ch->desc && gl->ch->desc->term_type == TERM_MSP) gl->ch->desc->last_group_update = 1; 
+  }   
 }
 
 void do_group(P_char ch, char *argument, int cmd)
