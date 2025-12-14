@@ -2,7 +2,7 @@
 &N&+LThe Kingdom of &N&+rT&N&+gor&N&+rg&N~
 29181 1 8 30 45 1
 *
-* Zone edited with durisEdit v3.00
+* Zone edited with durisEdit v3.02
 *
 *
 D 0 28902 4 5 100 0 0 0
@@ -472,7 +472,7 @@ O 0 359 1 29093 100 0 0 0          * (object type not in this .obj file)
 O 0 28957 1 29097 100 0 0 0        * a red hued fountain
 *
 M 0 28900 7 28900 100 0 0 0        * a deer
-M 0 28916 1 28902 100 0 0 0        * a decaying undead dragon
+M 0 28916 1 28902 35 0 0 0         * a decaying undead dragon
 G 1 28923 1 0 33 0 0 0             *    a strip of dracolich hide
 M 0 28958 4 28903 100 0 0 0        * an elite ogre guard
 M 0 28919 2 28905 100 0 0 0        * the war cleric
