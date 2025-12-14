@@ -46,9 +46,9 @@ boots inertia~
 &+Wt&+wh&+Le &+Wb&+wo&+Lo&+Wt&+ws &+Lof &+Lin&+be&+mr&+bt&+Lia&n~
 &+LA set of glowing black boots hover in mid air here!&n~
 ~
-9 19 10 0 15 0 335586305 16449 64 67108888 0
+9 19 10 0 15 0 335586305 16449 64 67108889 0
 0 0 0 5 0 0 0 0
-0 0 100 0 0 524288 0
+0 0 100 268435456 28 524288 0
 E
 boots inertia unique~
 &+W  These adamant&+wium boot&+Ls seem to be&+b like none othe&+rr.  Th&+Le magic

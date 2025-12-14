@@ -4555,12 +4555,12 @@ gladius backstabber _noquest_~
 &+LA peculiar gladius has been left behind here.&n~
 ~
 5 16 2 0 15 0 268444737 8193 72 126976 0
-2 5 4 0 0 0 0 0
-5 0 100 524304 2048 0 0
+2 6 4 0 0 0 0 0
+5 0 100 524304 2078 536870912 67108864
 A
-18 5
+18 10
 A
-32 5
+32 7
 #55378
 virulent herpes simplex _noquest_~
 &+La &+Rvirulent &+Lcase of &+cherpes &+Csimplex&n~

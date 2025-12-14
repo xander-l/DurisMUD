@@ -4097,9 +4097,9 @@ int dagger_of_wind(P_obj obj, P_char ch, int cmd, char *arg)
     return FALSE;
   }
 
-  // 1/25 chance.
+  // 1/15 chance.
   /* if(CheckMultiProcTiming(ch) && */
-  if(!number(0, 24))
+  if(!number(0, 14))
   {
     if( IS_FIGHTING(ch) )
     {
@@ -4115,6 +4115,8 @@ int dagger_of_wind(P_obj obj, P_char ch, int cmd, char *arg)
         stop_fighting(vict);
       }
     }
+    if (!number<0, 14)
+      spell_deflect(60, ch, NULL, SPELL_TYPE_SPELL, ch, 0);
     return TRUE;
   }
   return FALSE;

@@ -3692,7 +3692,7 @@ int gladius_backstabber(P_obj obj, P_char ch, int cmd, char *arg)
     }
 
     // 1/30 chance.
-    if( cmd == CMD_MELEE_HIT && !number(0, 29) && CheckMultiProcTiming(ch) )
+    if( cmd == CMD_MELEE_HIT && !number(0, 24) && CheckMultiProcTiming(ch) )
     {
       act("&nYour $q &nbegins to &+mhum&n.", TRUE, ch, obj, vict, TO_CHAR);
       act("&nYou quickly vanish and reappear behind $N!", TRUE, ch, obj, vict, TO_CHAR);
