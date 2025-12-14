@@ -701,7 +701,7 @@ int vecna_staffoaken(P_obj obj, P_char ch, int cmd, char *arg)
       act("You tap $p on the ground three times...&n", FALSE, ch, obj, 0, TO_CHAR);
       spell_freedom_of_movement(46, ch, 0, SPELL_TYPE_SPELL, ch, 0);
       for(struct group_list *gl = ch->group; gl; gl = gl->next)
-        spell_freedom_of_movement(46, ch, 0, SPELL_TYPE_SPELL, ch->group->next->ch, 0);
+        spell_freedom_of_movement(46, ch, 0, SPELL_TYPE_SPELL, gl->ch, 0);
       return TRUE;
     }
   }
