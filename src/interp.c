@@ -1087,6 +1087,7 @@ const char *command[MAX_CMD] = {
   "dragonroar",
   "dragonbreath",
   "dragonstrike",
+  "appoint",
   "\n"                          /* MAX_CMD = 836, MAX_CMD_LIST = 1000 */
 };
 
@@ -2729,6 +2730,7 @@ void assign_command_pointers(void)
   CMD_Y(CMD_GLANCE, STAT_RESTING + POS_PRONE, do_glance, 0, FALSE);
   CMD_Y(CMD_GRAB, STAT_RESTING + POS_PRONE, do_grab, 0, TRUE);
   CMD_Y(CMD_GROUP, STAT_RESTING + POS_PRONE, do_group, 0, FALSE);
+  CMD_Y(CMD_APPOINT, STAT_RESTING + POS_PRONE, do_appoint, 0, FALSE);
   CMD_Y(CMD_GSAY, STAT_RESTING + POS_PRONE, do_gsay, 0, FALSE);
   CMD_Y(CMD_HEADBUTT, STAT_NORMAL + POS_STANDING, do_headbutt, 0, TRUE);
   CMD_Y(CMD_HIT, STAT_NORMAL + POS_STANDING, do_hit, 0, TRUE);
