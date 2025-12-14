@@ -432,6 +432,15 @@ int dragonkind(P_obj obj, P_char ch, int cmd, char *arg)
       return FALSE;
     }
   }
+
+  if (!number(0,25))
+    if (IS_FIGHTING(ch)) {
+      spell_dragon(60, ch, 0, SPELL_TYPE_SPELL, vict, 0);
+      return TRUE;
+    }
+      
+     
+    
   return FALSE;
 }
 
