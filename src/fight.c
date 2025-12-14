@@ -5056,7 +5056,13 @@ int check_shields(P_char ch, P_char victim, int dam, int flags)
       result = spell_damage(victim, ch, dam, SPLDAM_HOLY, sflags | SPLDAM_GRSPIRIT, &soulshield);
     }
   }
-  if( result == DAM_NONEDEAD && IS_AFFECTED2(victim, AFF2_FIRESHIELD) )
+
+  // infernal fury / fireshield / coldshield / lightning shield are mutually exlusive
+  if( result == DAM_NONEDEAD && IS_AFFECTED(victim, AFF_INFERNAL_FURY) )
+  {
+    result = spell_damage(victim, ch, (int) (dam * ifshield), SPLDAM_NEGATIVE, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &infernalfury);
+  }
+  else if( result == DAM_NONEDEAD && IS_AFFECTED2(victim, AFF2_FIRESHIELD) )
   {
     result = spell_damage(victim, ch, (int) (dam * fshield), SPLDAM_FIRE, sflags, &fireshield);
   }
@@ -5067,16 +5073,19 @@ int check_shields(P_char ch, P_char victim, int dam, int flags)
   else if(result == DAM_NONEDEAD && IS_AFFECTED3(victim, AFF3_LIGHTNINGSHIELD))
   {
     result = spell_damage(victim, ch, (int) (dam * lshield), SPLDAM_LIGHTNING, sflags, &lightningshield);
-  }
-  else if( result == DAM_NONEDEAD && IS_AFFECTED5(victim, AFF5_THORNSKIN) )
+  }  
+  
+  // thornskin can apply on top of other damage shields
+  if( result == DAM_NONEDEAD && IS_AFFECTED5(victim, AFF5_THORNSKIN) )
   {
 	struct affected_type* afp = get_spell_from_char(victim, SPELL_THORNSKIN);
 	double thornDamage = afp == NULL ? 2 : dice(MAX(2, afp->level / 10), 2); // 2 dam for bit, (level/10, min 2)d2 - 2d2 at 1, 5d2 at 50
+	if (affected_by_spell(victim, SPELL_IRONWOOD))
+	{
+		// double damage if ironwood is up as well
+		thornDamage *= 2;
+	}
 	result = raw_damage(victim, ch, thornDamage, RAWDAM_DEFAULT | PHSDAM_NOREDUCE | flags, &thornskin);
-  }
-  else if( result == DAM_NONEDEAD && IS_AFFECTED(victim, AFF_INFERNAL_FURY) )
-  {
-    result = spell_damage(victim, ch, (int) (dam * ifshield), SPLDAM_NEGATIVE, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG | SPLDAM_NODEFLECT, &infernalfury);
   }
 
 

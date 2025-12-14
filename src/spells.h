@@ -895,10 +895,10 @@
 #define SKILL_BLOOD_SCENT            1168
 #define SKILL_BATTLE_ORDERS	         1169
 #define SKILL_CALL_GRAVE             1170
-#define SKILL_DISRUPTIVE_BLOW	       1171
+#define SKILL_DISRUPTIVE_BLOW	     1171
 #define SKILL_CRIPPLING_STRIKE	     1172
 #define SKILL_REACH_WEAPONS          1173
-#define SKILL_AMBUSH	               1174
+#define SKILL_AMBUSH	             1174
 #define SKILL_QUICK_STEP             1175
 #define SKILL_SNEAKY_STRIKE          1176
 #define SKILL_MANGLE                 1177
@@ -908,21 +908,21 @@
 #define SKILL_MUG                    1181
 #define SKILL_FADE                   1182
 #define SKILL_SHADOW_MOVEMENT        1183
-#define SKILL_SHRIEK		             1184
+#define SKILL_SHRIEK		         1184
 #define SKILL_LEGEND_LORE            1185
-//#define SONG_DRIFTING                1186
+//#define SONG_DRIFTING              1186
 #define SKILL_DISPERSE_FLAMES        1187
 #define SKILL_FLAME_MASTERY          1188
 #define SKILL_SOUL_TRAP              1189
 #define SKILL_MINE                   1190
-#define SKILL_FLURRY_OF_BLOWS	       1191
-#define SKILL_FIST_OF_DRAGON	       1192
+#define SKILL_FLURRY_OF_BLOWS	     1191
+#define SKILL_FIST_OF_DRAGON	     1192
 #define SKILL_FISHING                1193
 #define SKILL_HEALING_MASTERY        1194
 #define SKILL_DOUBLE_HEADBUTT        1195
 #define SKILL_SPELLBIND              1196
-#define SKILL_RETREAT				         1197
-#define SKILL_EXPEDITED_RETREAT		   1198
+#define SKILL_RETREAT				 1197
+#define SKILL_EXPEDITED_RETREAT		 1198
 #define SKILL_CHANT_MASTERY          1199
 #define SKILL_SPELL_MASTERY          1200
 #define SKILL_ANATOMY                1201
@@ -941,9 +941,9 @@
 #define SKILL_SILENT_SPELL           1214
 #define SKILL_SHIELD_COMBAT          1215
 #define SKILL_IMPROVED_SHIELD_COMBAT 1216
-#define SKILL_SLIP		               1217
+#define SKILL_SLIP		             1217
 #define SKILL_IMPROVED_LISTEN        1218
-#define SKILL_TWOWEAPON 	           1219
+#define SKILL_TWOWEAPON 	         1219
 #define SKILL_IMPROVED_TWOWEAPON     1220
 #define SKILL_KI_STRIKE              1221
 #define SKILL_INFUSE_LIFE            1222
@@ -1018,10 +1018,10 @@
 #define SKILL_PROTECT_FROM_EVIL      1291
 #define SKILL_NATURESSENSES          1292
 #define SKILL_RESTRAIN               1293
-#define SKILL_BLADE_BARRAGE		       1294
+#define SKILL_BLADE_BARRAGE          1294
 #define SKILL_RIFF                   1295
 #define SKILL_CONCENTRATION          1296
-#define SKILL_SALVAGE		             1297
+#define SKILL_SALVAGE	             1297
 #define SKILL_DREADNAUGHT            1298
 #define SKILL_SHADOWSTEP             1299
 #define SKILL_GARROTE                1300
@@ -1031,9 +1031,7 @@
 #define SKILL_DRAGON_BREATH          1304
 #define SKILL_DRAGON_STRIKE          1305
 #define SKILL_TAUNT                  1306
-// Slots SKILL_ ...  1045 and 1186 are unused.
-
-#define LAST_SKILL                   SKILL_DRAGON_STRIKE
+#define LAST_SKILL                   SKILL_TAUNT
 
 //#ifdef SKILLPOINTS
 //#define WHITE_SKILL                  -1

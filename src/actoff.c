@@ -11524,7 +11524,7 @@ void do_taunt(P_char ch, char *arg, int cmd)
 		if(IS_TRUSTED(ch) || !NewSaves(vict, SAVING_FEAR, saveMod))
 		{
 			paf = get_spell_from_char(vict, SKILL_TAUNT);
-			int duration = BOUNDED(2, skl_lvl / 10, 5) * PULSE_VIOLENCE * ( IS_NPC(vict) ? 2 : 1 );
+			int duration = BOUNDED(2, skl_lvl / 10, 10) * WAIT_SEC * ( IS_NPC(vict) ? 2 : 1 );
 			if( paf && paf->context == (void*)ch )
 			{
 				// update taunt duration

@@ -9592,7 +9592,7 @@ bool InitNewMobHunt(P_char ch)
 {
   P_nevent  ev = NULL;
   struct remember_data *a;
-  P_char   tmpch;
+  P_char   tmpch = NULL;
   int      dummy;
   hunt_data data;
   struct affected_type *af = NULL;
@@ -9612,7 +9612,7 @@ bool InitNewMobHunt(P_char ch)
   }
   
   if(IS_SET(ch->specials.act2, ACT2_NO_LURE) ||
-     (!af || !tmpch || !IS_ALIVE(tmpch)) || 
+     (tmpch && !IS_ALIVE(tmpch)) || 
 	 (!IS_SET(ch->specials.act, ACT_HUNTER) && !tmpch) || IS_FIGHTING(ch) ||
 	 (GET_MASTER(ch) && !tmpch))
   {
@@ -9640,7 +9640,7 @@ bool InitNewMobHunt(P_char ch)
    * only initiate hunting people who are in my zone
    */
   a = remember_array[world[ch->in_room].zone];
-  if (!tmpch)
+  if (!tmpch && a)
   {
 	// no taunt target, start at beginning of remember list
 	tmpch = a->c;

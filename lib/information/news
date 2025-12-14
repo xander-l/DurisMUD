@@ -1,3 +1,16 @@
+&+R12/13/25
+- Added 'taunt' skill to Guardians at level 30.  This is very similar to an MMO
+  style taunt skill.  Forces a target to stay focused on you, while they are
+  in the room.  Also will force all mobs that aren't ACT_NOLURE to track you
+  while they are taunted.  Please test this out and give some feedback!
+  * details: requires passing skill check and the target failing a fear save
+- Moved 'dreadnaught' to level 41 for Guardians.
+- Moved 'shield punch' to level 30 for Guardians.
+- Spell 'freedom of movement' is now !combat, also increased casting time from 2 to 4 *s.
+- Spell 'thornskin' applies always regardless of other damage shields. Also the spell
+  now does double damage when 'ironwood' is active.
+
+
 &+R12/12/25
 - Really did fix dim type spell range now.
 - Made Mace of the Sea a worthwhile Artifact.
@@ -33,7 +46,7 @@ Zones:
 - The Wreck of the Dreadnaught Cyclops Updates
   * balance pass, should be as difficult as Tiamat/Vecna's now
   * added affect bits and procs to equipment
-- 
+
 
 &+R12/9/25
 - Fixed bug with reveal true name
