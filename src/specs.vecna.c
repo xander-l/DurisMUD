@@ -696,7 +696,7 @@ int vecna_staffoaken(P_obj obj, P_char ch, int cmd, char *arg)
     } else if ( isname(arg, "freedom") )
     {
       curr_time = time(NULL);
-      if (obj->timer[1] + number (15, 20) <= curr_time) {
+      if (obj->timer[1] + 900 <= curr_time) {
         act("$n says 'freedom' to $p.", FALSE, ch, obj, 0, TO_ROOM);
         act("You say 'freedom'", FALSE, ch, obj, 0, TO_CHAR);
         act("$n taps $p on the ground three times...&n", FALSE, ch, obj, 0, TO_ROOM);
