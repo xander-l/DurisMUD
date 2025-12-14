@@ -6143,7 +6143,17 @@ void attack(P_char ch, P_char victim)
     return;
   }
 
-  if(!IS_FIGHTING(ch))
+  if ( affected_by_spell(ch, SKILL_TAUNT) )
+  {
+	af = get_spell_from_char(ch, SKILL_TAUNT);
+	if ( af && CAN_SEE(ch, (P_char)af->context) && victim != (P_char)af->context )
+	{
+		send_to_char("You try to switch opponents but can't!", ch);
+		victim = (P_char)af->context;
+	}
+  }
+
+  if( !IS_FIGHTING(ch) )
   {
 /*
  * Tracked the mud crashing down to this call here.  Will dig further but
