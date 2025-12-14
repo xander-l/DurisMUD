@@ -693,6 +693,16 @@ int vecna_staffoaken(P_obj obj, P_char ch, int cmd, char *arg)
       act("You tap $p on the ground three times...&n", FALSE, ch, obj, 0, TO_CHAR);
       spell_consecrate_land(GET_LEVEL(ch), ch, 0, SPELL_TYPE_SPELL, ch, 0);
       return TRUE;
+    } else if ( isname(arg, "freedom") )
+    {
+      act("$n says 'freedom' to $p.", FALSE, ch, obj, 0, TO_ROOM);
+      act("You say 'freedom'", FALSE, ch, obj, 0, TO_CHAR);
+      act("$n taps $p on the ground three times...&n", FALSE, ch, obj, 0, TO_ROOM);
+      act("You tap $p on the ground three times...&n", FALSE, ch, obj, 0, TO_CHAR);
+      spell_freedom_of_movement(46, ch, 0, SPELL_TYPE_SPELL, ch, 0);
+      for(struct group_list *gl = ch->group; gl; gl = gl->next)
+        spell_freedom_of_movement(46, ch, 0, SPELL_TYPE_SPELL, ch->group->next->ch, 0);
+      return TRUE;
     }
   }
 
