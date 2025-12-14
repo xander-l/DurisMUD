@@ -9,7 +9,9 @@
 - Spell 'freedom of movement' is now !combat, also increased casting time from 2 to 4 *s.
 - Spell 'thornskin' applies always regardless of other damage shields. Also the spell
   now does double damage when 'ironwood' is active.
-
+- Added new command 'appoint' to appoint leaders in groups.
+- Increase bash success chance for water and earth elemental pets.
+- Upgrade Sword of Whirlwinds proc.
 
 &+R12/12/25
 - Really did fix dim type spell range now.

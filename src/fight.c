@@ -5403,7 +5403,7 @@ int melee_damage(P_char ch, P_char victim, double dam, int flags, struct damage_
 
   if(affected_by_spell(victim, SKILL_DREADNAUGHT) && !(flags & PHSDAM_NOREDUCE))
   {
-	struct affected_type* paf = get_spell_from_char(ch, SKILL_DREADNAUGHT);
+	struct affected_type* paf = get_spell_from_char(victim, SKILL_DREADNAUGHT);
 	// 20% to 60% reduction based on skill level (with a chance for a few extra percent when skill is 91+)
 	float skill = BOUNDED(20, paf->level, 60) + (paf->level > 90 ? number((paf->level - 90)/2, paf->level - 90) : 0);
 	float reduction = (100.0 - skill) / 100.0;
