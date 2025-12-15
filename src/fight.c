@@ -9523,7 +9523,7 @@ int calculate_attacks(P_char ch, int attacks[])
       if( number(1, GET_C_DEX(ch)) > 60 )
       {
         send_to_char("&nYour improved &+gdexterity&n grants you an additional attack!&n\n\r", ch);
-        if (IS_SET(ch->equipment[PRIMARY_WEAPON]->extra_flags, ITEM_TWOHANDS) && weapon == NULL)
+        if (ch->equipment[PRIMARY_WEAPON] && IS_SET(ch->equipment[PRIMARY_WEAPON]->extra_flags, ITEM_TWOHANDS) && weapon == NULL)
           ADD_ATTACK(PRIMARY_WEAPON);
         else
           ADD_ATTACK(SECONDARY_WEAPON);
