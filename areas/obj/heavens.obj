@@ -813,6 +813,18 @@ A trustee artifact lies here, discarded.~
 9 16 0 0 7 0 0 2097153 0 0 0
 0 16 0 3 0 0 0 0
 1 1 100
+#56
+blood soaked ember talon blade~
+&na &+rblood-soaked&n &+rem&+yb&+rer-&+Ltalon&n blade&n~
+&nA &+rblood-soaked&n &+rem&+yb&+rer-&+Ltalon&n blade&n, born of devotion that took what faith could not give.~
+~
+5 10 3 0 0 0 8470984 8192 2240 0 0
+9 3 5 0 0 0 0 0
+0 0 100 0 4194304 0 0
+A
+18 2
+A
+19 2
 #57
 tome pirate guide~
 &+ya &+Wsalty &+ytome marked &+L'&+bA Guide to the &+BHigh Seas&+L'&n~
@@ -1192,6 +1204,18 @@ flames bulletin board~
 13 16 4 50 7 0 0 0 0 0 0
 2 2 2 57 0 0 0 0
 0 0 100
+#93
+malformed cinder wing cinderwing lance~
+a &+mmalformed&n &+rci&+Lnd&+Rer&n-&+Lwi&n&+rng&n lance~
+&nA &+mmalformed&n &+rci&+Lnd&+Rer&n-&+Lwi&n&+rng&n lance, bearing the scars of a rite that demanded more than was given.~
+~
+5 10 4 0 0 0 8470984 8192 2252 0 0
+16 4 4 0 0 0 0 0
+0 0 100 73728 0 0 0
+A
+18 1
+A
+19 3
 #94
 map maps duris~
 Duris Maps (&+GANSI&N)~
@@ -2080,6 +2104,18 @@ quarrel bolt crossbow heavy~
 7 5 2 3 7 0 0 1 0 0 0
 2 2 8 3 0 0 0 0
 1 20 100
+#171
+seared serpentine viscera serpentine-viscera totem~
+a &+Lseared&n &+gserpentine&n-&+rviscera&n totem~
+&nA &+Lseared&n &+gserpentine&n-&+rviscera&n totem crudely bound with the careless finality of something taken, not given~
+~
+5 2 3 0 0 0 8470984 8192 2240 0 0
+10 3 4 0 0 0 0 0
+0 0 100 0 0 64 1048576
+A
+18 1
+A
+19 1
 #172
 tome ancient dusty~
 &+yan ancient tome filled with forgotten knowledge&n~

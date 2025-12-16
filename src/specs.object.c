@@ -14850,6 +14850,21 @@ int random_gc_room( )
   return 0;
 }
 
+int dragoon_blade( P_obj obj, P_char ch, int cmd, char *argument )
+{
+  return 0;
+}
+
+int dragoon_lance( P_obj obj, P_char ch, int cmd, char *argument )
+{
+  return 0;
+}
+
+int dragoon_totem( P_obj obj, P_char ch, int cmd, char *argument )
+{
+  return 0;
+}
+
 int gc_portal( P_obj obj, P_char ch, int cmd, char *argument )
 {
   char buf[MAX_INPUT_LENGTH];
