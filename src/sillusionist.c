@@ -662,14 +662,21 @@ void spell_reflection(int level, P_char ch, char *arg, int type,
 
   numb = BOUNDED(1, (level - 26) / 5, 4);
 
-  spot = number(0, numb);
-  targ = number(0, numb);
+  // make reflection always disengage target
+  spot = number(0, numb - 1);
+  targ = number(0, numb - 1);
+  while( targ == spot )
+  {
+    spot = number(0, numb);
+  }
 
   act("&+L$n &+Cs&+Bs&+bs&+Cp&+Bp&+b&+Cl&+Bl&+bl&+Ci&+Bi&+bi&+Ct&+Bt&+bt&+Cs&+Bs&+bs&+L into many images!&N",
      FALSE, victim, 0, 0, TO_ROOM);
   send_to_char
     ("&+LYou &+Cs&+Bs&+bs&+Cp&+Bp&+b&+Cl&+Bl&+bl&+Ci&+Bi&+bi&+Ct&+Bt&+bt&+Cs&+Bs&+bs&+L into many images!&N\r\n",
      victim);
+
+  logit(LOG_DEBUG, "REFLECTION: (%s) casting on (%s).", GET_NAME(ch), GET_NAME(victim));
 
   for(i = 0; i < numb; i++)
   {
@@ -726,8 +733,6 @@ void spell_reflection(int level, P_char ch, char *arg, int type,
     add_follower(image, ch);
 
     /* string it */
-
-    logit(LOG_DEBUG, "REFLECTION: (%s) casting on (%s).", GET_NAME(ch), GET_NAME(victim));
 
     snprintf(Gbuf1, MAX_STRING_LENGTH, "image %s %s", GET_NAME(victim),
             race_names_table[GET_RACE(victim)].normal);
