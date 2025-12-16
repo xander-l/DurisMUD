@@ -128,6 +128,9 @@ D 0 40 2 0 100 0 0 0
 *
 O 0 1278 999 3 100 0 0 0           * the book of files
 O 0 29 1 3 100 0 0 0               * Code Planning bulletin board
+O 0 56 1 3 100 0 0 0               * a blood-soaked ember-talon blade
+O 0 93 1 3 100 0 0 0               * a malformed cinder-wing lance
+O 0 171 1 3 100 0 0 0              * a seared serpentine-viscera totem
 O 0 89 9999 10 100 0 0 0           * a holy bulletin board
 O 0 1278 999 10 100 0 0 0          * the book of files
 O 0 1278 999 14 100 0 0 0          * the book of files

@@ -22031,10 +22031,10 @@ void spell_animae_cicatrix(int level, P_char ch, char *arg, int type,
 
   if(affected_by_spell(victim, SPELL_ANIMAE_CICATRIX))
   {
-    send_to_char("Your soul is already scarred by the &+Gdr&+Lag&+Gon&n god!\n", victim);
+    send_to_char("Your soul is already scarred by the &+Gdr&+Lag&+Gon&n god's &+rember&n-&+Ldark&n magic!\n", victim);
     return;
   }
-  act("Your soul is scarred by the &+Gdr&+Lag&+Gon&n god's &+rpower&n!", FALSE, victim, 0, 0, TO_CHAR);
+  act("The &+Gdr&+Lag&+Gon&n god's &+rember&n-&+Ldark&n spark scars your soul, leaving you torn!", FALSE, victim, 0, 0, TO_CHAR);
 
   bzero(&af, sizeof(af));
   af.type = SPELL_ANIMAE_CICATRIX;
@@ -22091,19 +22091,160 @@ void spell_animae_cicatrix(int level, P_char ch, char *arg, int type,
 void spell_ensis_unguis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's ensis unguis. -- not finished", ch);
+  P_obj    blade;
+
+  blade = read_object(real_object(56), REAL);
+  if(!blade)
+  {
+    logit(LOG_DEBUG, "spell_ensis_unguis(): obj 56 not loadable");
+    return;
+  }
+
+  blade->extra_flags |= ITEM_NORENT;
+  blade->bitvector = 0;
+  blade->value[6] = GET_LEVEL(ch);
+
+  /* how about some gay de procs for flame blade? Yeah baby! */
+  if( GET_LEVEL(ch) >= 51 )
+  {
+    blade->value[5] = 124;
+    blade->value[7] = 30; //procs sunray
+  }
+  else if( GET_LEVEL(ch) >= 41 )
+  {
+    blade->value[5] = 26;
+    blade->value[7] = 25; //procs fireball, better chance.
+  }
+  else if( GET_LEVEL(ch) >= 36 )
+  {
+    blade->value[5] = 26;
+    blade->value[7] = 40; //procs fireball
+  }
+  else if( GET_LEVEL(ch) >= 21 )
+  {
+    blade->value[5] = 195;
+    blade->value[7] = 40; //procs flameburst
+  }
+
+  act("$n forearm snaps as $e tears free $p from $s &+rflesh&n.",     TRUE, ch, blade, 0, TO_ROOM);
+  act("Your forearm snaps as you tear free $p from your &+rflesh&n.", TRUE, ch, blade, 0, TO_CHAR);
+
+  blade->timer[0] = 180;
+  if (IS_PC(ch))
+    blade->timer[1] = GET_PID(ch);
+  else
+    blade->timer[1] = -1;
+
+  obj_to_char(blade, ch);
+
+  // Take a little damage for your benefits
+  spell_damage(ch, ch, GET_HIT(ch) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
 }
 
 void spell_lancea_cineralae(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's lancea cineralae. -- not finished", ch);
+  P_obj    blade;
+
+  blade = read_object(real_object(93), REAL);
+  if(!blade)
+  {
+    logit(LOG_DEBUG, "spell_lancea_cineralae(): obj 93 not loadable");
+    return;
+  }
+
+  blade->extra_flags |= ITEM_NORENT;
+  blade->bitvector = 0;
+  blade->value[6] = GET_LEVEL(ch);
+
+  /* how about some gay de procs for flame blade? Yeah baby! */
+  if( GET_LEVEL(ch) >= 51 )
+  {
+    blade->value[5] = 124;
+    blade->value[7] = 30; //procs sunray
+  }
+  else if( GET_LEVEL(ch) >= 41 )
+  {
+    blade->value[5] = 26;
+    blade->value[7] = 25; //procs fireball, better chance.
+  }
+  else if( GET_LEVEL(ch) >= 36 )
+  {
+    blade->value[5] = 26;
+    blade->value[7] = 40; //procs fireball
+  }
+  else if( GET_LEVEL(ch) >= 21 )
+  {
+    blade->value[5] = 195;
+    blade->value[7] = 40; //procs flameburst
+  }
+
+  act("As $n writhes in agony a disgusting growth erupts from $s shoulder $e rips away $p.",     TRUE, ch, blade, 0, TO_ROOM);
+  act("You writhe in agony as a disgusting growth erupts from your shoulder, you rip away $p.", TRUE, ch, blade, 0, TO_CHAR);
+
+  blade->timer[0] = 180;
+  if (IS_PC(ch))
+    blade->timer[1] = GET_PID(ch);
+  else
+    blade->timer[1] = -1;
+
+  obj_to_char(blade, ch);
+  
+  // Take a little damage for your benefits
+  spell_damage(ch, ch, GET_HIT(ch) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
 }
 
 void spell_simulacrum_anguis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's simulacrum anguis. -- not finished", ch);
+  P_obj    blade;
+
+  blade = read_object(real_object(171), REAL);
+  if(!blade)
+  {
+    logit(LOG_DEBUG, "spell_simulacrum_anguis(): obj 171 not loadable");
+    return;
+  }
+
+  blade->extra_flags |= ITEM_NORENT;
+  blade->bitvector = 0;
+  blade->value[6] = GET_LEVEL(ch);
+
+  /* how about some gay de procs for flame blade? Yeah baby! */
+  if( GET_LEVEL(ch) >= 51 )
+  {
+    blade->value[5] = 124;
+    blade->value[7] = 30; //procs sunray
+  }
+  else if( GET_LEVEL(ch) >= 41 )
+  {
+    blade->value[5] = 26;
+    blade->value[7] = 25; //procs fireball, better chance.
+  }
+  else if( GET_LEVEL(ch) >= 36 )
+  {
+    blade->value[5] = 26;
+    blade->value[7] = 40; //procs fireball
+  }
+  else if( GET_LEVEL(ch) >= 21 )
+  {
+    blade->value[5] = 195;
+    blade->value[7] = 40; //procs flameburst
+  }
+
+  act("$n clutches $s abdomen as $s entrails burst out in a writhing mass, forming $p.",     TRUE, ch, blade, 0, TO_ROOM);
+  act("$n clutch you abdomen as your entrails burst out in a writhing mass, forming $p.", TRUE, ch, blade, 0, TO_CHAR);
+
+  blade->timer[0] = 180;
+  if (IS_PC(ch))
+    blade->timer[1] = GET_PID(ch);
+  else
+    blade->timer[1] = -1;
+
+  obj_to_char(blade, ch);
+  
+  // Take a little damage for your benefits
+  spell_damage(ch, ch, GET_HIT(ch) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
 }
 
 void spell_stigmata_draconica(int level, P_char ch, char *arg, int type,

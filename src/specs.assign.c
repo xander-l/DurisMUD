@@ -1674,6 +1674,9 @@ void assign_objects(void)
     obj_index[real_object0(11065)].func.obj = magic_mouth;
 
   /* heavens */
+  obj_index[real_object0(56)].func.obj = dragoon_blade;
+  obj_index[real_object0(93)].func.obj = dragoon_lance;
+  obj_index[real_object0(171)].func.obj = dragoon_totem;
   obj_index[real_object0(465)].func.obj = gc_portal;
   obj_index[real_object0(466)].func.obj = ec_portal;
   obj_index[real_object0(467)].func.obj = ud_portal;

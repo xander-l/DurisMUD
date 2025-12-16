@@ -5203,7 +5203,7 @@ SPELL_ADD(CLASS_SUMMONER, 11);
     "The sores on your hands close as the &+Gdr&+Lag&+Gon&n god's &+rstigmata&n fades. &+Rred.&n");
   SPELL_ADD(CLASS_DRAGOON, 5);
 
-  SPELL_CREATE_MSG("drakescale aegis", 
+  SPELL_CREATE_MSG("aegis squamarum", 
     SPELL_DRAKESCALE_AEGIS, 
     PULSE_SPELLCAST * 4,
     TAR_SELF_ONLY, 

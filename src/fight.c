@@ -5525,7 +5525,11 @@ void check_vamp(P_char ch, P_char victim, double fdam, uint flags)
       if(mount == victim)
       {
         vamped = vamp(ch, dam * dam_factor[DF_TOUCHVAMP], GET_MAX_HIT(ch) * VAMPPERCENT(ch) );
-        send_to_char("The &+Gdr&+Lag&+Gon&n's blood burns your stigmata as you fill with &+rpower&n!\n", ch);
+        
+        if(vamped)
+        {
+          send_to_char("The &+Gdr&+Lag&+Gon&n's &+Rblood&n burns your &+Lstigmata&n as you fill with &+rpower&n!\n", ch);
+        }
       }
     }
   }
