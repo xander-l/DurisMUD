@@ -5066,12 +5066,12 @@ void select_race(P_desc d, char *arg)
     strcpy(Gbuf, "ILLITHID");
     break;
     */
-    case 'i':
+/*    case 'i': -- Illithids disabled again, -- Eikel.
     GET_RACE(d->character) = RACE_ILLITHID;
     break;
     case 'I': 
     strcpy(Gbuf, "ILLITHID");
-    break;
+    break; */
   case 'j':
     GET_RACE(d->character) = RACE_GITHYANKI;
     break;
