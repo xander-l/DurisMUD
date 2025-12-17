@@ -76,6 +76,12 @@ int shaman_shield_damage_adjustments(P_char ch, P_char victim, int dam)
     return (int) (dam * 0.75);
   }
   
+  if(IS_AFFECTED5(victim, AFF5_JUDICIUM_FIDEI))
+  {
+    send_to_char("Your spell sizzles as your victims &+Lseared&n &+rflesh&n rejects your faith.\r\n", ch);
+    return (int) (dam * 0.75);
+  }
+
   if(IS_AFFECTED3(victim, AFF3_GR_SPIRIT_WARD))
   {
     send_to_char("&+WYour victim's spirit is greatly protected causing your spell to do less damage.\r\n", ch);

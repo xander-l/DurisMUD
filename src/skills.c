@@ -5205,7 +5205,7 @@ SPELL_ADD(CLASS_SUMMONER, 11);
 
   SPELL_CREATE_MSG("aegis squamarum", 
     SPELL_DRAKESCALE_AEGIS, 
-    PULSE_SPELLCAST * 4,
+    PULSE_SPELLCAST * 3,
     TAR_SELF_ONLY, 
     spell_drakescale_aegis,
     "The scales penetrating your flesh subside, easing your &+rpain&n.");
@@ -5213,8 +5213,8 @@ SPELL_ADD(CLASS_SUMMONER, 11);
 
   SPELL_CREATE("judicium fidei", 
     SPELL_JUDICIUM_FIDEI, 
-    PULSE_SPELLCAST * 2,
-    TAR_IGNORE, 
+    PULSE_SPELLCAST * 3,
+    TAR_SELF_ONLY, 
     spell_judicium_fidei);
   SPELL_ADD(CLASS_DRAGOON, 7);
 

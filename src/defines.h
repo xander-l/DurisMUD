@@ -812,6 +812,7 @@ struct attr_names_struct {
 #define AFF5_FOLLOWING          BIT_29
 #define AFF5_ORDERING           BIT_30
 #define AFF5_STONED             BIT_31
+#define AFF5_JUDICIUM_FIDEI     BIT_32
 
 /* modifiers to char's abilities */
 

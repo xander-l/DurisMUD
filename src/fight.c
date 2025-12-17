@@ -388,7 +388,7 @@ void update_dam_factors()
   dam_factor[DF_KNEELING] = get_property("damage.modifier.kneeling", 1.150);
   dam_factor[DF_SITTING] = get_property("damage.modifier.sitting", 1.300);
   dam_factor[DF_PRONE] = get_property("damage.modifier.prone", 1.500);
-
+  dam_factor[DF_JUDICIUM_FIDEI] = get_property("damage.modifier.judicium", 1.500);
 }
 
 // The swashbuckler is considered the victim. // May09 -Lucrot
@@ -4498,6 +4498,13 @@ int spell_damage(P_char ch, P_char victim, double dam, int type, uint flags, str
     default:
       break;
   }
+
+  // Reject all other faiths - MWD25
+  if(IS_AFFECTED5(victim, AFF5_JUDICIUM_FIDEI))
+  {
+    dam *= dam_factor[DF_JUDICIUM_FIDEI];
+  }
+
   // end of apply damage modifiers
   /*
   //misfire damage reduction code for spells - drannak 8-12-2012 disabling to tweak
@@ -4878,6 +4885,13 @@ int check_shields(P_char ch, P_char victim, int dam, int flags)
   if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
   {
     return 0;
+  }
+
+  // Reject all other faiths MWD25
+  if(IS_AFFECTED5(ch, AFF5_JUDICIUM_FIDEI))
+  {
+    // Reduce shield damages by a quarter
+    dam = dam * 0.25f;
   }
 
   // if you ever change soulshield or neg shield damage make sure to check the
