@@ -4980,6 +4980,9 @@ void do_score(P_char ch, char *argument, int cmd)
   if (IS_AFFECTED5(ch, AFF5_VINES))
     strcat(buf, "&+g Vines&n");
 
+  if (IS_AFFECTED(ch, AFF_SANCTUM_DRACONIS))
+    strcat(buf, " &+LSanctum Draconis&n");
+
   if (IS_AFFECTED4(ch, AFF4_SANCTUARY))
     strcat(buf, " &+WSanctuary&n");
   if (IS_AFFECTED4(ch, AFF4_HELLFIRE))
@@ -5682,6 +5685,7 @@ void do_score(P_char ch, char *argument, int cmd)
           case SPELL_ETHEREAL_FORM:
           case SPELL_HOLY_DHARMA:
           case SPELL_SANCTUARY:
+          case SPELL_SANCTUM_DRACONIS:
           case SPELL_BLUR:
           case SPELL_FAERIE_SIGHT:
             if(!IS_AFFECTED2(ch, AFF2_DETECT_MAGIC))

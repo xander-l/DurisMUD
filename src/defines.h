@@ -672,6 +672,7 @@ struct attr_names_struct {
 #define AFF_BIOFEEDBACK       BIT_32
 #define AFF_INFERNAL_FURY     BIT_33
 #define AFF_FREEDOM_OF_MVMNT  BIT_34
+#define AFF_SANCTUM_DRACONIS  BIT_34
 
 /* affected_by2 */
 
