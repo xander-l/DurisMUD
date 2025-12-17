@@ -720,7 +720,8 @@
 #define SPELL_SIGILLUM_NEGATI         669
 #define SPELL_DRACONIC_APOTHEOSIS     670
 #define SPELL_FREEDOM_OF_MOVEMENT     671
-#define LAST_SPELL SPELL_FREEDOM_OF_MOVEMENT
+#define SPELL_SANGUINIS_IGNIS_AFF     672
+#define LAST_SPELL SPELL_SANGUINIS_IGNIS_AFF
 
 
 #define FIRST_SKILL                  1000  /* should be a decent split point */

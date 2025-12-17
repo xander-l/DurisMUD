@@ -12429,7 +12429,8 @@ void spell_regeneration(int level, P_char ch, char *arg, int type, P_char victim
 
   if( affected_by_spell(victim, SPELL_ACCEL_HEALING)
     || affected_by_spell(victim, SKILL_REGENERATE)
-    || affected_by_spell(victim, SPELL_REGENERATION) )
+    || affected_by_spell(victim, SPELL_REGENERATION)
+    || affected_by_spell(victim, SPELL_IGNEUS_VITAE) )
   {
     send_to_char("You can't possibly heal any faster.\n", victim);
     return;
@@ -19141,7 +19142,8 @@ void spell_accel_healing(int level, P_char ch, char *arg, int type, P_char victi
     return;
 
   if(affected_by_spell(victim, SKILL_REGENERATE) ||
-    affected_by_spell(victim, SPELL_REGENERATION))
+    affected_by_spell(victim, SPELL_REGENERATION) 
+    || affected_by_spell(victim, SPELL_IGNEUS_VITAE) )
   {
     act("$N can't possibly heal any faster.", TRUE, ch, 0, victim, TO_CHAR);
     return;
@@ -22329,13 +22331,59 @@ void spell_judicium_fidei(int level, P_char ch, char *arg, int type,
 void spell_igneus_vitae(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's igneus vitae. -- not finished", ch);  
+  struct affected_type af;
+  char Gbuf1[100];
+  int  skl_lvl;
+
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+    return;
+
+  if( affected_by_spell(victim, SPELL_ACCEL_HEALING)
+    || affected_by_spell(victim, SKILL_REGENERATE)
+    || affected_by_spell(victim, SPELL_REGENERATION)
+    || affected_by_spell(victim, SPELL_IGNEUS_VITAE) )
+  {
+    send_to_char("You can't possibly heal any faster.\n", victim);
+    return;
+  }
+
+  skl_lvl = MAX( 4, (level / 10) );
+
+  snprintf(Gbuf1, 100, "Your soul burns with &+Gdr&+Lag&+Gon&n god's &+rpower&n.\n");
+
+  bzero(&af, sizeof(af));
+  af.type = SPELL_IGNEUS_VITAE;
+  af.duration = skl_lvl;
+  af.bitvector4 = AFF4_REGENERATION;
+  send_to_char(Gbuf1, victim);
+  affect_to_char(victim, &af);  
 }
 
 void spell_sanguinis_ignis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's sanguinis ignis. -- not finished", ch);
+  struct affected_type af;
+  char Gbuf1[100];
+  int  skl_lvl;
+
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+    return;
+
+  if( affected_by_spell(victim, SPELL_SANGUINIS_IGNIS))
+  {
+    send_to_char("Your &+rblood&n is already boiling with power.\n", victim);
+    return;
+  }
+
+  skl_lvl = MAX( 4, (level / 10) );
+
+  snprintf(Gbuf1, 100, "Your blood burns with &+Gdr&+Lag&+Gon&n god's &+rpower&n.\n");
+
+  bzero(&af, sizeof(af));
+  af.type = SPELL_SANGUINIS_IGNIS;
+  af.duration = skl_lvl;
+  send_to_char(Gbuf1, victim);
+  affect_to_char(victim, &af);  
 }
 
 void spell_sanctum_draconis(int level, P_char ch, char *arg, int type,
