@@ -388,7 +388,7 @@ void update_dam_factors()
   dam_factor[DF_KNEELING] = get_property("damage.modifier.kneeling", 1.150);
   dam_factor[DF_SITTING] = get_property("damage.modifier.sitting", 1.300);
   dam_factor[DF_PRONE] = get_property("damage.modifier.prone", 1.500);
-
+  dam_factor[DF_JUDICIUM_FIDEI] = get_property("damage.modifier.judicium", 1.500);
 }
 
 // The swashbuckler is considered the victim. // May09 -Lucrot
@@ -4498,6 +4498,13 @@ int spell_damage(P_char ch, P_char victim, double dam, int type, uint flags, str
     default:
       break;
   }
+
+  // Reject all other faiths - MWD25
+  if(IS_AFFECTED5(victim, AFF5_JUDICIUM_FIDEI))
+  {
+    dam *= dam_factor[DF_JUDICIUM_FIDEI];
+  }
+
   // end of apply damage modifiers
   /*
   //misfire damage reduction code for spells - drannak 8-12-2012 disabling to tweak
@@ -4878,6 +4885,13 @@ int check_shields(P_char ch, P_char victim, int dam, int flags)
   if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
   {
     return 0;
+  }
+
+  // Reject all other faiths MWD25
+  if(IS_AFFECTED5(ch, AFF5_JUDICIUM_FIDEI))
+  {
+    // Reduce shield damages by a quarter
+    dam = dam * 0.25f;
   }
 
   // if you ever change soulshield or neg shield damage make sure to check the
@@ -8550,6 +8564,10 @@ int dodgeSucceed(P_char char_dodger, P_char attacker, P_obj wpn)
   {
     //debug("dodging (%s) affected by battle senses.", GET_NAME(char_dodger));
   }
+  else if(affected_by_spell(char_dodger, SPELL_SANGUINIS_IGNIS_AFF))
+  {
+    debug("dodging (%s) affected by sanguinis ignis.", GET_NAME(char_dodger));
+  }
   else if(number(1, 101) > percent)   // Dodge success or failure.
   {
     return 0; // Failed dodge.
@@ -9901,6 +9919,42 @@ void perform_violence(void)
             FALSE, opponent, 0, 0, TO_NOTVICT);
 
         set_short_affected_by(opponent, SKILL_BATTLE_SENSES, 1);
+      }
+    }
+
+    if(!affected_by_spell(opponent, SKILL_BATTLE_SENSES) && GET_CHAR_SKILL(opponent, SKILL_BATTLE_SENSES)
+      && GET_POS(opponent) == POS_STANDING && !IS_STUNNED(opponent) && !IS_BLIND(opponent))
+    {
+      if((1 + (GET_CHAR_SKILL(opponent, SKILL_BATTLE_SENSES) / 10 )) >= number(1, 100))
+      {
+        act("&+wA sense of awareness &+bflows &+wover you as you move into &+rbattle.&n",
+            FALSE, opponent, 0, 0, TO_CHAR);
+        act("$n maneuvers around you like a &+yviper!&n", FALSE, opponent, 0, 0, TO_VICT);
+        act("$n &+bflows into battle with the speed of a &+yviper.&n",
+            FALSE, opponent, 0, 0, TO_NOTVICT);
+
+        set_short_affected_by(opponent, SKILL_BATTLE_SENSES, 1);
+      }
+    }
+
+    if(IS_DRAGOON(opponent) && is_dragoon_mounted(opponent))
+    {
+      if(affected_by_spell(opponent, SPELL_SANGUINIS_IGNIS) && 
+        !affected_by_spell(opponent, SPELL_SANGUINIS_IGNIS_AFF) &&
+        GET_POS(opponent) == POS_STANDING && 
+        !IS_STUNNED(opponent) && !IS_BLIND(opponent))
+      {
+        // 10% chance on shaman spell knowledge + 5% POW modifier
+        if(((1 + (GET_CHAR_SKILL(opponent, SKILL_SPELL_KNOWLEDGE_SHAMAN) / 10 ) + (GET_C_POW(ch) / 20))) >= number(1, 100))
+        {
+          act("You smell &+rblood&n as you maneuver your &+Gdr&+Lag&+Gon&n into battle!",
+              FALSE, opponent, 0, 0, TO_CHAR);
+          act("$n maneuvers $s &+Gdr&+Lag&+Gon&n around you, tracking your movements!&n", FALSE, opponent, 0, 0, TO_VICT);
+          act("$n maneuvers $s &+Gdr&+Lag&+Gon&n into battle, tracking $s prey!&n",
+              FALSE, opponent, 0, 0, TO_NOTVICT);
+
+          set_short_affected_by(opponent, SPELL_SANGUINIS_IGNIS_AFF, 1);
+        }
       }
     }
 

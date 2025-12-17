@@ -12429,7 +12429,8 @@ void spell_regeneration(int level, P_char ch, char *arg, int type, P_char victim
 
   if( affected_by_spell(victim, SPELL_ACCEL_HEALING)
     || affected_by_spell(victim, SKILL_REGENERATE)
-    || affected_by_spell(victim, SPELL_REGENERATION) )
+    || affected_by_spell(victim, SPELL_REGENERATION)
+    || affected_by_spell(victim, SPELL_IGNEUS_VITAE) )
   {
     send_to_char("You can't possibly heal any faster.\n", victim);
     return;
@@ -19141,7 +19142,8 @@ void spell_accel_healing(int level, P_char ch, char *arg, int type, P_char victi
     return;
 
   if(affected_by_spell(victim, SKILL_REGENERATE) ||
-    affected_by_spell(victim, SPELL_REGENERATION))
+    affected_by_spell(victim, SPELL_REGENERATION) 
+    || affected_by_spell(victim, SPELL_IGNEUS_VITAE) )
   {
     act("$N can't possibly heal any faster.", TRUE, ch, 0, victim, TO_CHAR);
     return;
@@ -22034,11 +22036,11 @@ void spell_animae_cicatrix(int level, P_char ch, char *arg, int type,
     send_to_char("Your soul is already scarred by the &+Gdr&+Lag&+Gon&n god's &+rember&n-&+Ldark&n magic!\n", victim);
     return;
   }
-  act("The &+Gdr&+Lag&+Gon&n god's &+rember&n-&+Ldark&n spark scars your soul, leaving you torn!", FALSE, victim, 0, 0, TO_CHAR);
+  act("The &+Gdr&+Lag&+Gon&n god's &+rpower&n scars your soul, leaving you torn!", FALSE, victim, 0, 0, TO_CHAR);
 
   bzero(&af, sizeof(af));
   af.type = SPELL_ANIMAE_CICATRIX;
-  af.duration =  5;
+  af.duration = (int) (5 + GET_CHAR_SKILL(ch, SKILL_SPELL_KNOWLEDGE_SHAMAN) / 5);
   af.modifier = 10;
   af.location = APPLY_POW;
   affect_to_char(victim, &af);
@@ -22251,7 +22253,7 @@ void spell_stigmata_draconica(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
   struct affected_type af;
-  int duration_i = (int) (level / 5);
+  int duration_i = (int) (15 + GET_CHAR_SKILL(ch, SKILL_SPELL_KNOWLEDGE_SHAMAN) / 5);
 
   if(affected_by_spell(victim, SPELL_STIGMATA_DRACONICA))
   {
@@ -22269,7 +22271,7 @@ void spell_stigmata_draconica(int level, P_char ch, char *arg, int type,
   act("Open &+rsores&n erupt on the plams of $n's hands..", FALSE, ch, 0, 0, TO_ROOM);
   act("Open &+rsores&n erput on the palms of your hands..", FALSE, ch, 0, 0, TO_CHAR);
 
-  spell_damage(ch, victim, GET_HIT(victim) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
+  spell_damage(ch, ch, GET_HIT(ch) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
 }
 
 void spell_drakescale_aegis(int level, P_char ch, char *arg, int type,
@@ -22292,30 +22294,96 @@ void spell_drakescale_aegis(int level, P_char ch, char *arg, int type,
 
   bzero(&af, sizeof(af));
   af.type = SPELL_DRAKESCALE_AEGIS;
-  af.duration = 5;
+  af.duration = (int) (10 + GET_CHAR_SKILL(ch, SKILL_SPELL_KNOWLEDGE_SHAMAN) / 5);
   af.modifier = absorb;
   affect_to_char(victim, &af);
 
   // Take a little damage for your benefits
-  spell_damage(ch, victim, GET_HIT(victim) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
+  spell_damage(ch, ch, GET_HIT(ch) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
 }
 
 void spell_judicium_fidei(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's judicium fidei. -- not finished", ch);
+  struct affected_type af;
+
+  if( !ch || !IS_ALIVE(ch) || !victim || !IS_ALIVE(victim) )
+  {
+    return;
+  }
+
+  if(!IS_AFFECTED5(ch, AFF5_JUDICIUM_FIDEI))
+  {
+    act("$n's flesh &+rsears&n as the &+Gdr&+Lag&+Gon&n god's power eminates around $m!", TRUE, victim, 0, 0, TO_ROOM);
+    act("Your flesh &+rsears&n as the &+Gdr&+Lag&+Gon&n god's power eminates around you!", TRUE, victim, 0, 0, TO_CHAR);
+
+    bzero(&af, sizeof(af));
+    af.type = SPELL_JUDICIUM_FIDEI;
+    af.duration =  (int) (5 + GET_CHAR_SKILL(ch, SKILL_SPELL_KNOWLEDGE_SHAMAN) / 5);
+    af.bitvector5 = AFF5_JUDICIUM_FIDEI;
+    affect_to_char(victim, &af);
+
+    // Take a little damage for your benefits
+    spell_damage(ch, ch, GET_HIT(ch) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
+  }
 }
 
 void spell_igneus_vitae(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's igneus vitae. -- not finished", ch);  
+  struct affected_type af;
+  char Gbuf1[100];
+  int  skl_lvl;
+
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+    return;
+
+  if( affected_by_spell(victim, SPELL_ACCEL_HEALING)
+    || affected_by_spell(victim, SKILL_REGENERATE)
+    || affected_by_spell(victim, SPELL_REGENERATION)
+    || affected_by_spell(victim, SPELL_IGNEUS_VITAE) )
+  {
+    send_to_char("You can't possibly heal any faster.\n", victim);
+    return;
+  }
+
+  skl_lvl = MAX( 4, (level / 10) );
+
+  snprintf(Gbuf1, 100, "Your soul burns with &+Gdr&+Lag&+Gon&n god's &+rpower&n.\n");
+
+  bzero(&af, sizeof(af));
+  af.type = SPELL_IGNEUS_VITAE;
+  af.duration = skl_lvl;
+  af.bitvector4 = AFF4_REGENERATION;
+  send_to_char(Gbuf1, victim);
+  affect_to_char(victim, &af);  
 }
 
 void spell_sanguinis_ignis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's sanguinis ignis. -- not finished", ch);
+  struct affected_type af;
+  char Gbuf1[100];
+  int  skl_lvl;
+
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+    return;
+
+  if( affected_by_spell(victim, SPELL_SANGUINIS_IGNIS))
+  {
+    send_to_char("Your &+rblood&n is already boiling with power.\n", victim);
+    return;
+  }
+
+  skl_lvl = MAX( 4, (level / 10) );
+
+  snprintf(Gbuf1, 100, "Your blood burns with &+Gdr&+Lag&+Gon&n god's &+rpower&n.\n");
+
+  bzero(&af, sizeof(af));
+  af.type = SPELL_SANGUINIS_IGNIS;
+  af.duration = skl_lvl;
+  send_to_char(Gbuf1, victim);
+  affect_to_char(victim, &af);  
 }
 
 void spell_sanctum_draconis(int level, P_char ch, char *arg, int type,

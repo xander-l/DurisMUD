@@ -30,6 +30,7 @@ extern P_char character_list;
 extern const char *rude_ass[];
 extern const int davy_jones_locker_rnum;
 extern const int ship_transit_rnum;
+extern struct affected_type *get_spell_from_char(P_char ch, int spell, void *context);
 
 int list_cargo(P_char ch, P_ship ship, bool owned)
 {

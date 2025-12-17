@@ -1110,6 +1110,11 @@ void show_visual_status(P_char ch, P_char tar_char)
       SVS("&+W$E is glowing with holiness!&n");
   }
   
+  if (IS_AFFECTED5(tar_char, AFF5_JUDICIUM_FIDEI))
+  {
+    SVS("$S skin is &+Lseared&n with the &+Gdr&+Lag&+Gon&n god's &+rpower&n!");
+  }
+
   if (IS_AFFECTED4(tar_char, AFF4_NEG_SHIELD))
     SVS("&+L$E is surrounded by a &+rputrid &+Laura!&n");
 
@@ -4987,6 +4992,11 @@ void do_score(P_char ch, char *argument, int cmd)
       strcat(buf, " &+WHoly Aura");
     else
       strcat(buf, " &+WSoulshielded&n");
+
+  if(IS_AFFECTED5(ch, AFF5_JUDICIUM_FIDEI))
+  {
+    strcat(buf, " &nJudicim Fidei&n");
+  }
 
   if( IS_AFFECTED2(ch, AFF2_FIRESHIELD) )
   {

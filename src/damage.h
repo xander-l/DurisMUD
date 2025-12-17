@@ -85,7 +85,8 @@
 #define DF_KNEELING             69
 #define DF_SITTING              70
 #define DF_PRONE                71
-#define LAST_DF                 71
+#define DF_JUDICIUM_FIDEI       72
+#define LAST_DF                 72
 
 #define SPLDAM_GENERIC   1
 #define SPLDAM_FIRE      2

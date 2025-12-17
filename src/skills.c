@@ -5205,79 +5205,83 @@ SPELL_ADD(CLASS_SUMMONER, 11);
 
   SPELL_CREATE_MSG("aegis squamarum", 
     SPELL_DRAKESCALE_AEGIS, 
-    PULSE_SPELLCAST * 4,
+    PULSE_SPELLCAST * 3,
     TAR_SELF_ONLY, 
     spell_drakescale_aegis,
     "The scales penetrating your flesh subside, easing your &+rpain&n.");
   SPELL_ADD(CLASS_DRAGOON, 6);
 
-  SPELL_CREATE("judicium fidei", 
+  SPELL_CREATE_MSG("judicium fidei", 
     SPELL_JUDICIUM_FIDEI, 
-    PULSE_SPELLCAST * 2,
-    TAR_IGNORE, 
-    spell_judicium_fidei);
+    PULSE_SPELLCAST * 3,
+    TAR_SELF_ONLY, 
+    spell_judicium_fidei,
+    "The stench of &+rburning&n flesh fades as your skin cools.");
   SPELL_ADD(CLASS_DRAGOON, 7);
 
-  SPELL_CREATE("igneus vitae", 
+  SPELL_CREATE_MSG("igneus vitae", 
     SPELL_IGNEUS_VITAE, 
-    PULSE_SPELLCAST * 2,
-    TAR_IGNORE, 
-    spell_igneus_vitae);
+    PULSE_SPELLCAST * 4,
+    TAR_SELF_ONLY, 
+    spell_igneus_vitae, 
+    "Your soul cools as the &+Gdr&+Lag&+Gon&n god's &+rpower&n fades.");
   SPEC_SPELL_ADD(CLASS_DRAGOON, 8, SPEC_DRAGON_PRIEST);
 
-  SPELL_CREATE("sanguinis ignis", 
+  SPELL_CREATE_MSG("sanguinis ignis", 
     SPELL_SANGUINIS_IGNIS, 
-    PULSE_SPELLCAST * 2,
-    TAR_IGNORE, 
-    spell_sanguinis_ignis);
+    PULSE_SPELLCAST * 4,
+    TAR_SELF_ONLY, 
+    spell_sanguinis_ignis,
+    "Your blood cools as the &+Gdr&+Lag&+Gon&n god's &+rpower&n fades.");
   SPEC_SPELL_ADD(CLASS_DRAGOON, 8, SPEC_DRAGON_HUNTER);
 
-  SPELL_CREATE("sanctum draconis", 
+  SPELL_CREATE_MSG("sanctum draconis", 
     SPELL_SANCTUM_DRACONIS, 
-    PULSE_SPELLCAST * 2,
-    TAR_IGNORE, 
-    spell_sanctum_draconis);
+    PULSE_SPELLCAST * 4,
+    TAR_SELF_ONLY, 
+    spell_sanctum_draconis,
+    "Your resolve cools as the &+Gdr&+Lag&+Gon&n god's &+rpower&n fades.");
   SPEC_SPELL_ADD(CLASS_DRAGOON, 8, SPEC_DRAGON_LANCER);
 
   SPELL_CREATE("vivernae concordia", 
     SPELL_VIVERNAE_CONCORDIA, 
-    PULSE_SPELLCAST * 2,
-    TAR_IGNORE, 
+    PULSE_SPELLCAST * 4,
+    TAR_SELF_ONLY, 
     spell_vivernae_concordia);
   SPEC_SPELL_ADD(CLASS_DRAGOON, 9, SPEC_DRAGON_HUNTER);
 
   SPELL_CREATE("pactum serpentis", 
     SPELL_PACTUM_SERPENTIS, 
-    PULSE_SPELLCAST * 2,
-    TAR_IGNORE, 
+    PULSE_SPELLCAST * 4,
+    TAR_SELF_ONLY, 
     spell_pactum_serpentis);
   SPEC_SPELL_ADD(CLASS_DRAGOON, 9, SPEC_DRAGON_PRIEST);
 
   SPELL_CREATE("ritus draconum", 
     SPELL_RITUS_DRACONUM, 
-    PULSE_SPELLCAST * 2,
-    TAR_IGNORE, 
+    PULSE_SPELLCAST * 4,
+    TAR_SELF_ONLY, 
     spell_ritus_draconum);
   SPEC_SPELL_ADD(CLASS_DRAGOON, 9, SPEC_DRAGON_LANCER);
 
   SPELL_CREATE("edictum cineris", 
     SPELL_EDICTUM_CINERIS, 
-    PULSE_SPELLCAST * 2,
+    PULSE_SPELLCAST * 5,
     TAR_IGNORE, 
     spell_edictum_cineris);
   SPELL_ADD(CLASS_DRAGOON, 10);
 
   SPELL_CREATE("sigillum negati", 
     SPELL_SIGILLUM_NEGATI, 
-    PULSE_SPELLCAST * 2,
+    PULSE_SPELLCAST * 5,
     TAR_IGNORE, 
     spell_sigillum_negati);
   SPELL_ADD(CLASS_DRAGOON, 11);
 
   SPELL_CREATE("draconic apotheosis", 
     SPELL_DRACONIC_APOTHEOSIS, 
-    PULSE_SPELLCAST * 2,
-    TAR_IGNORE, 
+    PULSE_SPELLCAST * 5,
+    TAR_SELF_ONLY, 
     spell_draconic_apotheosis);
   SPELL_ADD(CLASS_DRAGOON, 12);
 
