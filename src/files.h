@@ -30,7 +30,7 @@
 #define SAV_STATVERS  47
 #define SAV_SKILLVERS 2
 #define SAV_ITEMVERS  35
-#define SAV_AFFVERS   7
+#define SAV_AFFVERS   8
 //#define SAV_MAXSIZE 65536
 #define SAV_MAXSIZE 240000
 #define SAV_SAVEVERS  5
