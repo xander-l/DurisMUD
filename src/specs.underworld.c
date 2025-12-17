@@ -4124,7 +4124,7 @@ int dagger_of_wind(P_obj obj, P_char ch, int cmd, char *arg)
         stop_fighting(vict);
       }
     }
-    if (!number<0, 14)
+    if (!number<0, 3)
       spell_deflect(60, ch, NULL, SPELL_TYPE_SPELL, ch, 0);
     return TRUE;
   }
