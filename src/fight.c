@@ -4727,8 +4727,8 @@ if (get_linked_char(victim, LNK_ETHEREAL) || get_linking_char(victim, LNK_ETHERE
   if(affected_by_spell(victim, SKILL_DREADNAUGHT))
   {
 	struct affected_type* paf = get_spell_from_char(victim, SKILL_DREADNAUGHT);
-	// 2% to 10% reduction based on skill level (with a chance for a few extra percent when skill is 95+)
-	float skill = BOUNDED(2, paf->level / 10, 10) + (paf->level > 95 ? number((paf->level - 95)/2, paf->level - 95) : 0);
+	// 5% to 20% reduction based on skill level (with a chance for a few extra percent when skill is 95+)
+	float skill = BOUNDED(5, paf->level / 5, 20) + (paf->level > 95 ? number(0, paf->level - 95) : 0);
 	float reduction = (100.0 - skill) / 100.0;
     dam *= reduction;
   }

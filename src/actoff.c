@@ -10929,8 +10929,9 @@ bool CheckMultiProcTiming(P_char ch)
 void do_dreadnaught(P_char ch, char *, int)
 {
   struct affected_type af;
+  int skl_lvl = GET_CHAR_SKILL(ch, SKILL_DREADNAUGHT);
 
-  if(GET_CHAR_SKILL(ch, SKILL_DREADNAUGHT) < 1)
+  if(skl_lvl < 1)
   {
     send_to_char("You have no training in such a specialized area of defensive abilities.\r\n", ch);
     return;
@@ -10942,9 +10943,10 @@ void do_dreadnaught(P_char ch, char *, int)
     return;
   }  
 
-  int duration = PULSE_VIOLENCE * (2 + number(0, 2));
+  // (skl_lvl/2) rounds + (char_level/14) rounds + 1 round = 3 to 7 rounds
+  int duration = PULSE_VIOLENCE * ((GET_LEVEL(ch) / 14) + number(0, skl_lvl / 50) + 1);
 
-  if(number(1, 102) < GET_CHAR_SKILL(ch, SKILL_DREADNAUGHT))
+  if(number(1, 101) < skl_lvl)
   {
     act("&+RCCCHHHAAARRGGEEEE!!!&+y You raise your defenses and assume a stoic stance!&n", FALSE, ch, 0, 0, TO_CHAR);
     act("$n &+ysuddenly assumes a &+Ydefensive&+y position, shield and weapon at the ready!&n", FALSE, ch, 0, 0, TO_ROOM);
@@ -11499,28 +11501,15 @@ void do_taunt(P_char ch, char *arg, int cmd)
 		return;
 	}
 
-	if( !IS_FIGHTING(ch) )
+	vict = ParseTarget(ch, arg);
+	if( !vict )
 	{
-		vict = ParseTarget(ch, arg);
-		if( !vict )
-		{
-			send_to_char("Taunt who?\n", ch);
-			return;
-		}
-	}
-	else
-	{
-		vict = GET_OPPONENT(ch);
-		// If fighting and not fighting. buggy!
-		if( !vict )
-		{
-			stop_fighting(ch);
-			return;
-		}
+		send_to_char("Taunt who?\n", ch);
+		return;
 	}
 
-	// mod of 2 to 25, scaled linearly with skill level
-	saveMod = MAX(2, skl_lvl / 4);
+	// mod of 2 to 20, scaled linearly with skill level
+	saveMod = MAX(2, skl_lvl / 5);
 	percent_chance = MIN(skl_lvl, 99);
 
 	if( !IS_ALIVE(vict) )
@@ -11570,7 +11559,7 @@ void do_taunt(P_char ch, char *arg, int cmd)
     		act("&=LRThat last momma joke was the final straw!&n", TRUE, ch, NULL, vict, TO_VICT);
     		act("$n &+Wseems to have riled up &n$N&+W!&n", TRUE, ch, NULL, vict, TO_NOTVICT);
 
-			CharWait(vict, PULSE_VIOLENCE);
+			CharWait(vict, WAIT_SEC * 2);
 		}
 		else
 		{
