@@ -617,6 +617,7 @@ int writeAffects( char *buf, struct affected_type *af )
     ADD_LONG(buf, af->bitvector4);
     ADD_LONG(buf, af->bitvector5);
     ADD_LONG(buf, 0);           //af->bitvector6);
+	ADD_SHORT(buf, af->level);
   }
 
   return (int) (buf - start);
@@ -2603,6 +2604,15 @@ int restoreAffects(char *buf, P_char ch)
       af.bitvector5 = GET_LONG(buf);
       /*af.bitvector6 = */ GET_LONG(buf);
       af.wear_off_message_index = 0;
+
+	  if( aff_vers > 7 )
+      {
+        af.level = GET_SHORT(buf);
+      }
+	  else
+	  {
+		af.level = GET_LEVEL(ch);
+	  }
 
       // Duration saved as seconds for short affects, but we want to store duration as pulses in game.
       if( aff_vers > 6 && IS_SET(af.flags, AFFTYPE_SHORT) )
