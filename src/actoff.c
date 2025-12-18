@@ -3905,9 +3905,9 @@ void do_dragon_roar(P_char ch, char *argument, int cmd)
         circle, circle == 1 ? "st" : (circle == 2 ? "nd" : (circle == 3 ? "rd" : "th")));
       send_to_char(buf, ch);
 
-      DelayCommune(ch, (int) (3 * PULSE_VIOLENCE));
+      DelayCommune(ch, (int) (2 * PULSE_VIOLENCE));
 
-      notch_skill(ch, SKILL_DRAGON_ROAR, 10);
+      notch_skill(ch, SKILL_DRAGON_ROAR, get_property("skill.notch.defensive", 7));
     }
 
     set_short_affected_by(ch, SKILL_DRAGON_ROAR, (int) (3 * PULSE_VIOLENCE));
@@ -4105,8 +4105,8 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
         circle, circle == 1 ? "st" : (circle == 2 ? "nd" : (circle == 3 ? "rd" : "th")));
       send_to_char(buf, ch);
 
-      notch_skill(ch, SKILL_DRAGON_BREATH, 10);
-      DelayCommune(ch, (int) (3 * PULSE_VIOLENCE));
+      notch_skill(ch, SKILL_DRAGON_BREATH, get_property("skill.notch.offensive", 7));
+      DelayCommune(ch, (int) (2 * PULSE_VIOLENCE));
     }
 
     set_short_affected_by(ch, SKILL_DRAGON_BREATH, (int) (3 * PULSE_VIOLENCE));
@@ -4219,25 +4219,25 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
     return;
   }
 
-  if( !IS_IMMOBILE(mount) && !IS_BLIND(mount) )
-  {
-    switch ( number(1, 3) )
-    {
-      case 1:
-        send_to_char("You command your &+Gdr&+Lag&+Gon&n to &+RSTRIKE&n!!!\n", ch);
-      break;
-      case 2:
-        send_to_char("Your &+Gdr&+Lag&+Gon&n &+RSTRIKES&n with it's massive tail!!!\n", ch);
-      break;
-      case 3:
-        send_to_char("Your &+Gdr&+Lag&+Gon&n crashes it's tail through the area!!!\n", ch);
-      break;
-    }
-  }
-  else
+  if( IS_IMMOBILE(mount) || IS_BLIND(mount) )
   {
     send_to_char("Your &+Gdra&+Lag&+Gon&n is afflicted and cannot hearken you.\n\r", ch);
     return;
+  }
+  else
+  {
+    // switch ( number(1, 3) )
+    // {
+    //   case 1:
+    //     send_to_char("You command your &+Gdr&+Lag&+Gon&n to &+RSTRIKE&n!!!\n", ch);
+    //   break;
+    //   case 2:
+    //     send_to_char("Your &+Gdr&+Lag&+Gon&n &+RSTRIKES&n with it's massive tail!!!\n", ch);
+    //   break;
+    //   case 3:
+    //     send_to_char("Your &+Gdr&+Lag&+Gon&n crashes it's tail through the area!!!\n", ch);
+    //   break;
+    // }
   }
 
   appear(ch);
@@ -4249,14 +4249,14 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
 
   percent_chance = ( 95 * GET_CHAR_SKILL(ch, SKILL_MOUNTED_COMBAT) ) / 100;
 
-  knockdown_chance = (int) ( percent_chance * get_property("skill.dragon_strike.knockdown", 0.600) );
+  knockdown_chance = (int) ( percent_chance * get_property("skill.dragon_strike.knockdown", 0.700) );
 
   vict_lag = 2;
 
   knockdown_chance = (int) (knockdown_chance *
            ((double) BOUNDED(8, 10 + (GET_LEVEL(ch) - GET_LEVEL(victim)) / 10, 11)) / 10);
   knockdown_chance = (int) (knockdown_chance *
-           ((double) BOUNDED(83, 50 + GET_C_DEX(ch) / 2, 120)) / 100);
+           ((double) BOUNDED(83, 50 + GET_C_AGI(ch) / 2, 120)) / 100);
 
   if(IS_AFFECTED(victim, AFF_AWARE))
   {
@@ -4369,6 +4369,8 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
   }
   else
   {
+    notch_skill(ch, SKILL_DRAGON_STRIKE, get_property("skill.notch.offensive", 7));
+
     engage(ch, victim);
 
     if(melee_damage(mount, victim, dam, PHSDAM_NOENGAGE | PHSDAM_TOUCH, &messages))

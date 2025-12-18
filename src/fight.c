@@ -5948,6 +5948,18 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags, struct damage_m
         dam *= dam_factor[DF_SANC];
       }
 
+      if( IS_AFFECTED(victim, AFF_SANCTUM_DRACONIS) && (flags & RAWDAM_SANCTUARY)
+        && (GET_SPEC(victim, CLASS_DRAGOON, SPEC_DRAGON_LANCER)) )
+      {
+        dam *= dam_factor[DF_SANC];
+
+        // TODO: want to factor in a pet mechanic here possible damage transfer to dragon?
+        //float group_mod = 1.0 - ( (float) group_size * 
+        //    (float) get_property("damage.reduction.sanctuary.paladin.groupMod", 0.02) );
+          //capped at 35% of total damage taken with group of 16.
+        //  dam *= MAX(.45, group_mod);
+      }
+
       if( ((IS_EVIL(ch) && !IS_EVIL(victim)) || (IS_GOOD(ch) && !IS_GOOD(victim))) && !(flags & PHSDAM_NOREDUCE)
         && (af = get_spell_from_char(victim, SPELL_VIRTUE)) )
       {
@@ -8542,6 +8554,8 @@ int dodgeSucceed(P_char char_dodger, P_char attacker, P_obj wpn)
     percent = (int) (percent * 1.10);
   }
 
+  bool dragoon_dodge = false;
+
   // Weight affects dodge. This simulates mobility.
   // Harder to dodge when char_dodger's weight is increased.
   // Easier to dodge when attacker's weight is increased.
@@ -8564,8 +8578,9 @@ int dodgeSucceed(P_char char_dodger, P_char attacker, P_obj wpn)
   {
     //debug("dodging (%s) affected by battle senses.", GET_NAME(char_dodger));
   }
-  else if(affected_by_spell(char_dodger, SPELL_SANGUINIS_IGNIS_AFF))
+  else if(affected_by_spell(char_dodger, SPELL_SANGUINIS_IGNIS_AFF) && is_dragoon_mounted(char_dodger))
   {
+    dragoon_dodge = true;
     debug("dodging (%s) affected by sanguinis ignis.", GET_NAME(char_dodger));
   }
   else if(number(1, 101) > percent)   // Dodge success or failure.
@@ -8597,12 +8612,24 @@ int dodgeSucceed(P_char char_dodger, P_char attacker, P_obj wpn)
   }
   else
   {
-    act("You dodge $n's vicious attack.", FALSE, attacker, 0, char_dodger,
-        TO_VICT | ACT_NOTTERSE);
-    act("$N dodges your futile attack.", FALSE, attacker, 0, char_dodger,
-        TO_CHAR | ACT_NOTTERSE);
-    act("$N dodges $n's attack.", FALSE, attacker, 0, char_dodger,
-        TO_NOTVICT | ACT_NOTTERSE);
+    if(dragoon_dodge)
+    {
+      act("You dodge $n's vicious attack.", FALSE, attacker, 0, char_dodger,
+          TO_VICT | ACT_NOTTERSE);
+      act("$N dodges your futile attack.", FALSE, attacker, 0, char_dodger,
+          TO_CHAR | ACT_NOTTERSE);
+      act("$N dodges $n's attack.", FALSE, attacker, 0, char_dodger,
+          TO_NOTVICT | ACT_NOTTERSE);
+    }
+    else
+    {
+      act("Your sense $n's vicious attack, as your blood burns with &+rpower&n.", FALSE, attacker, 0, char_dodger,
+          TO_VICT | ACT_NOTTERSE);
+      act("$N senses your attack and swiftly manuevers away.", FALSE, attacker, 0, char_dodger,
+          TO_CHAR | ACT_NOTTERSE);
+      act("$N senses $n's attack and swiftly manuevers away.", FALSE, attacker, 0, char_dodger,
+          TO_NOTVICT | ACT_NOTTERSE);
+    }
   }
   return 1;
 }
@@ -9694,7 +9721,17 @@ int calculate_attacks(P_char ch, int attacks[])
     number_attacks = number(4, maxattacks);
   }*/
 
-  if (IS_AFFECTED3(ch, AFF3_BLUR))
+  if(IS_AFFECTED3(ch, AFF3_VIVERNAE_CONCORDIA))
+  {
+    if(IS_DRAGOON(ch) && is_dragoon_mounted(ch))
+    {
+      ADD_ATTACK(PRIMARY_WEAPON);
+      int blurattackchance = (GET_LEVEL(ch) / 2);
+      if (number(1, 100) < blurattackchance && ch->equipment[SECONDARY_WEAPON])
+        ADD_ATTACK(SECONDARY_WEAPON);
+    }
+  }
+  else if (IS_AFFECTED3(ch, AFF3_BLUR))
   {
     ADD_ATTACK(PRIMARY_WEAPON);
     if ((GET_CLASS(ch, CLASS_RANGER) || GET_SECONDARY_CLASS(ch, CLASS_RANGER)) &&
