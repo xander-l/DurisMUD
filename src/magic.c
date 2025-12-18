@@ -17902,7 +17902,7 @@ void event_immolate(P_char ch, P_char vict, P_obj obj, void *data)
           &burntime, sizeof(burntime));
       
         if(4 > number(1, 10))
-          if(!IS_DRAGOON(ch)) stop_memorizing(vict);
+          if(!IS_DRAGOON(vict)) stop_memorizing(vict);
       }
     }
   }
