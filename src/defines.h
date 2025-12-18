@@ -672,7 +672,7 @@ struct attr_names_struct {
 #define AFF_BIOFEEDBACK       BIT_32
 #define AFF_INFERNAL_FURY     BIT_33
 #define AFF_FREEDOM_OF_MVMNT  BIT_34
-#define AFF_SANCTUM_DRACONIS  BIT_34
+#define AFF_SANCTUM_DRACONIS  BIT_35
 
 /* affected_by2 */
 
@@ -743,6 +743,7 @@ struct attr_names_struct {
 #define AFF3_PASS_WITHOUT_TRACE BIT_30
 #define AFF3_PALADIN_AURA       BIT_31
 #define AFF3_FAMINE             BIT_32
+#define AFF3_VIVERNAE_CONCORDIA BIT_33
 
 #define AFF4_LOOTER                   BIT_1 /* Just looted someone, prevent rent */
 #define AFF4_CARRY_PLAGUE             BIT_2

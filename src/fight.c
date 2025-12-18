@@ -9721,7 +9721,17 @@ int calculate_attacks(P_char ch, int attacks[])
     number_attacks = number(4, maxattacks);
   }*/
 
-  if (IS_AFFECTED3(ch, AFF3_BLUR))
+  if(IS_AFFECTED3(ch, AFF3_VIVERNAE_CONCORDIA))
+  {
+    if(IS_DRAGOON(ch) && is_dragoon_mounted(ch))
+    {
+      ADD_ATTACK(PRIMARY_WEAPON);
+      int blurattackchance = (GET_LEVEL(ch) / 2);
+      if (number(1, 100) < blurattackchance && ch->equipment[SECONDARY_WEAPON])
+        ADD_ATTACK(SECONDARY_WEAPON);
+    }
+  }
+  else if (IS_AFFECTED3(ch, AFF3_BLUR))
   {
     ADD_ATTACK(PRIMARY_WEAPON);
     if ((GET_CLASS(ch, CLASS_RANGER) || GET_SECONDARY_CLASS(ch, CLASS_RANGER)) &&

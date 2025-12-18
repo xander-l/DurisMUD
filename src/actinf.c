@@ -5338,10 +5338,17 @@ void do_score(P_char ch, char *argument, int cmd)
   {
     strcat(buf, " &+RH&+ra&+Rs&+rt&+Re&n");
   }
+  
+  if( IS_AFFECTED3(ch, AFF3_VIVERNAE_CONCORDIA) )
+  {
+    strcat(buf, " &+rConcord&n of the &+GWy&+Lve&+Grn&n");
+  }
+  
   if( IS_AFFECTED3(ch, AFF3_BLUR) )
   {
     strcat(buf, " &+CBlur&n");
   }
+  
   if( IS_AFFECTED2(ch, AFF2_MINOR_INVIS) || IS_AFFECTED(ch, AFF_INVISIBLE) )
   {
     strcat(buf, " &+cInv&+Cisi&+cbil&+City&n");
