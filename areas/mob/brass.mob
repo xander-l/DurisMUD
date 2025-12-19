@@ -1,4 +1,4 @@
-#139100
+#139000
 efreeti padashaw ornon kasoon~
 the &+ref&+Rre&+ret&+Ri&n pa&+Lda&nshaw&n &+MO&+mrnon &+MK&+masoon&n~
 &+LThe &npa&+Lda&nshaw &+MO&+mrnon &+MK&+masoon &+Lis standing here looking upset&n.
@@ -11,7 +11,7 @@ e 0 33554448 0 -1
 60 -10 -142 60d132+6240 7d6+35
 0.0.0.0 243000
 8 8 1
-#139101
+#139001
 iron golem _no_move_~
 &+yan iron golem&N~
 &+yAn iron golem stands here guarding the entrance.&N
@@ -25,7 +25,7 @@ OG 0 160 0 -1
 60 -10 -120 100d100+25000 5d5+50
 0.0.0.0 1000000
 8 8 0
-#139102
+#139002
 efreeti templar guard~
 &+Man &+ref&+Rre&+ret&+Ri &+Mtemplar&N~
 &+MAn &+ref&+Rre&+ret&+Ri &+Mtemplar celebrates his faith.&N
@@ -39,7 +39,7 @@ e 0 32 0 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139103
+#139003
 efreeti acolyte~
 &+Man &+ref&+Rre&+ret&+Ri &+Macolyte&N~
 &+MAn &+ref&+Rre&+ret&+Ri &+Macolyte stands here in a trance.&N
@@ -52,7 +52,7 @@ e 0 32 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139104
+#139004
 latisia efreeti clerist _no_lure_~
 &+mLatisia the supreme efreeti clerist&N~
 &+mLatisia the supreme &+ref&+Rre&+ret&+Ri &+mclerist stands here.&N
@@ -66,7 +66,7 @@ e 0 416 0 -1
 61 -10 -120 100d100+10000 5d5+40
 0.0.0.1000 1000000
 8 8 2
-#139105
+#139005
 huge beholder~
 &+ma HUGE beholder~
 &+mA HUGE beholder floats here.
@@ -82,7 +82,7 @@ X 0 768 0 7
 61 150 -100 1d1+29999 20d10+90
 0.0.0.0 400000
 8 8 0
-#139106
+#139006
 guard efreeti~
 &+rAn efreeti watch tower guard&N~
 &+rAn efreeti watch tower guard stands ready for an attack.&N
@@ -95,7 +95,7 @@ EF 0 1 0 5
 60 -7 -138 59d143+6195 7d6+35
 0.0.8.8 240000
 8 8 0
-#139107
+#139007
 efreeti acolyte~
 &+Man &+ref&+Rre&+ret&+Ri &+Macolyte&N~
 &+MAn &+ref&+Rre&+ret&+Ri &+Macolyte stands here in a trance.&N
@@ -108,7 +108,7 @@ e 0 32 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139108
+#139008
 efreeti temple guard~
 &+Man &+ref&+Rre&+ret&+Ri &+Mhigh priestess guard&N~
 &+MAn &+ref&+Rre&+ret&+Ri &+Mhigh priestess guard stands here.&N
@@ -122,7 +122,7 @@ e 0 384 0 -1
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139109
+#139009
 efreeti arch-magi magi padashaw arch~
 &+ra &Npa&+Lda&Nshaw &+rarch-magi~
 &+LA &+ref&+Rre&+ret&+Ri &Npa&+Lda&Nshaw &+Ra&+rrch-&+Rm&+ragi&n &+Lof the palace paces about the room.
@@ -136,7 +136,7 @@ e 0 512 1 -1
 60 -10 -142 60d96+6180 7d6+35
 0.0.0.0 243000
 8 8 1
-#139110
+#139010
 padashaw efreeti artoon branan~
 the &+ref&+Rre&+ret&+Ri&n pa&+Lda&nshaw &+GA&+grtoon &+GB&+granan&n~
 &+LThe &npa&+Lda&nshaw &+GA&+grtoon &+GB&+granan &+Lstands here glowing with the fire of the gods.&n
@@ -150,7 +150,7 @@ e 0 2304 0 -1
 60 -10 -142 60d132+6240 7d6+35
 0.0.0.0 243000
 8 8 1
-#139111
+#139011
 sultan shadam quilen efreeti~
 &+YShadam Quilen, the Efreeti Sultan~
 &+YThe Sultan of the City of Brass, Shadam Quilen, rests on his throne.
@@ -159,12 +159,12 @@ The Sultan of all the efreeti Shadam Quilen is here sitting on his great
 throne of brass.  Shadam is well over fifty feet tall emulated in flames
 and does not seem to happy to see you here.
 ~
-1124206635 1 0 0 671613112 47296 0 512 -1000 S
-e 0 320 0 -1
+1392736303 1 0 0 3087532216 4241600 68157632 38802944 -1000 S
+tt 0 456 0 -1
 60 -10 -152 25000d1+500 7d7+45
 0.0.0.500 1000000
 8 8 1
-#139112
+#139012
 priest high efreeti cleric padashaw~
 &+ya &Npa&+Lda&nshaw &+Yh&+yigh &+Yp&+yriest&n~
 &+LA &Npa&+Lda&Nshaw &+Yh&+yigh &+Yp&+yriest&n &+Lof the palace stands behind the podium giving service.&n
@@ -178,7 +178,7 @@ e 0 32800 0 -1
 58 -10 -142 60d123+6240 7d6+35
 0.0.0.0 243000
 8 8 1
-#139113
+#139013
 chief guard efreeti~
 &+Ythe chief &+ref&+Rre&+ret&+Ri &+Yguard~
 &+YAn enormous &+ref&+Rre&+ret&+Ri &+Yguard is here looking rather upset.&n
@@ -192,7 +192,7 @@ e 0 18 0 -1
 60 -10 -135 58d143+6090 7d6+35
 0.0.0.500 234900
 8 8 1
-#139114
+#139014
 guard bronze phalanx member elite~
 &+ythe Bronze&n &+rPh&+Ral&n&+ranx&n~
 &+LAn elite member of the &+yBronze &+rPh&+Ral&+ranx&n &+Lguards passage through the arch.
@@ -209,7 +209,7 @@ ar 0 67108896 0 5
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139115
+#139015
 unquenchable efreeti efreet guard black turban~
 an &+LUnq&nu&+Lenchable&n~
 A &+Lblack turban&n &+ref&+Rre&+ret&+Ri&n known as the &+LUnq&nu&+Lenchable&n protects the Palace.
@@ -225,7 +225,7 @@ e 0 3 0 5
 61 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139116
+#139016
 order fiery heart member efreet efreeti~
 a member of the &+LOrd&ne&+Lr of &+RFi&+re&+Rry He&+ra&+Rrt~
 An &+ref&+Rre&+ret&+Ri&n of the &+LOrd&ne&+Lr of &+RFi&+re&+Rry He&+ra&+Rrt&n is here patrolling the Palace.
@@ -239,7 +239,7 @@ e 0 2048 0 5
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139117
+#139017
 hellhound hound black dog~
 &+La &+rh&+Re&+rll&+Lho&nu&+Lnd~
 A &+Lblack-haired&n dog covered in ash with glowing &+rr&+re&+rd&n eyes drools &+rfl&+Ra&+rme&n here.
@@ -254,7 +254,7 @@ ae 0 1048576 0 3
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139118
+#139018
 flame salamander elite muscular jackal~
 an elite &+rfl&+Ra&+rme salamander~
 A muscular &+rfl&+Ra&+rme salamander&n slithers about the room waiting for orders.
@@ -269,7 +269,7 @@ ef 0 528 0 5
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139119
+#139019
 branded guard efreeti~
 the &+mBra&+Mnd&+med&n~
 An &+ref&+Rre&+ret&+Ri&n guard known as the &+mBra&+Mn&+mded&n patrols the harem.
@@ -284,7 +284,7 @@ e 0 16384 0 4
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139120
+#139020
 female slave djinn~
 &+Cthe djinn slave&n~
 &+CA female djinn slave is floating here, looking sad&n.
@@ -297,7 +297,7 @@ ea 0 8 0 -1
 51 -7 -124 56d143+5880 7d6+35
 0.0.0.0 226800
 8 8 2
-#139121
+#139021
 order fiery heart member efreet efreeti~
 a member of the &+LOrd&ne&+Lr of &+RFi&+re&+Rry He&+ra&+Rrt~
 An &+rEf&+Rre&+ret&+Ri&n of the &+LOrd&ne&+Lr of &+RFi&+re&+Rry He&+ra&+Rrt&n is here patrolling the Palace.
@@ -311,7 +311,7 @@ e 0 16 0 5
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139122
+#139022
 order fiery heart member efreet efreeti~
 a member of the &+LOrd&ne&+Lr of &+RFi&+re&+Rry He&+ra&+Rrt~
 An &+rEf&+Rre&+ret&+Ri&n of the &+LOrd&ne&+Lr of &+RFi&+re&+Rry He&+ra&+Rrt&n is here patrolling the Palace.
@@ -325,7 +325,7 @@ e 0 512 0 5
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139123
+#139023
 order fiery heart member efreet efreeti~
 a member of the &+LOrd&ne&+Lr of &+RFi&+re&+Rry He&+ra&+Rrt~
 An &+rEf&+Rre&+ret&+Ri&n of the &+LOrd&ne&+Lr of &+RFi&+re&+Rry He&+ra&+Rrt&n is here patrolling the Palace.
@@ -339,7 +339,7 @@ e 0 288 0 5
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139124
+#139024
 unquenchable efreeti efreet guard black turban~
 an &+LUnq&nu&+Lenchable&n~
 A &+Lblack turban&n &+ref&+Rre&+ret&+Ri&n known as the &+LUnq&nu&+Lenchable&n protects the Palace.
@@ -355,7 +355,7 @@ e 0 1 0 5
 61 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139125
+#139025
 unquenchable efreeti efreet guard black turban~
 an &+LUnq&nu&+Lenchable&n~
 A &+Lblack turban&n &+ref&+Rre&+ret&+Ri&n known as the &+LUnq&nu&+Lenchable&n protects the Palace.
@@ -371,7 +371,7 @@ e 0 1048576 0 5
 61 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139126
+#139026
 unquenchable efreeti efreet guard black turban~
 an &+LUnq&nu&+Lenchable&n~
 A &+Lblack turban&n &+ref&+Rre&+ret&+Ri&n known as the &+LUnq&nu&+Lenchable&n protects the Palace.
@@ -387,7 +387,7 @@ e 0 32800 0 5
 61 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139127
+#139027
 unquenchable efreeti efreet guard black turban~
 an &+LUnq&nu&+Lenchable&n~
 A &+Lblack turban&n &+ref&+Rre&+ret&+Ri&n known as the &+LUnq&nu&+Lenchable&n protects the Palace.
@@ -403,7 +403,7 @@ e 0 1536 0 5
 61 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139128
+#139028
 rider al-asaf al asaf~
 an &+YA&+yl-&+RAs&+raf&n rider~
 An &+YA&+yl-&+RAs&+raf&n rider patrols the upper walls overlooking the courtyard.
@@ -419,7 +419,7 @@ e 0 16 0 4
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139129
+#139029
 nightmare horse mount~
 a &+Lni&ngh&+Ltmare&n~
 A muscular &+Lni&ngh&+Ltmare&n looks at unease troting nearby here.
@@ -433,7 +433,7 @@ ae 0 1 0 5
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139130
+#139030
 male slave djinn~
 &+Cthe djinn slave&n~
 &+CA male djinn slave is flying here.  He seems very upset&n.
@@ -447,7 +447,7 @@ EF 0 8 0 -1
 56 -7 -124 56d143+5880 7d6+35
 0.0.0.0 226800
 8 8 1
-#139131
+#139031
 rider al-asaf al asaf~
 an &+YA&+yl-&+RAs&+raf&n rider~
 An &+YA&+yl-&+RAs&+raf&n rider patrols the upper walls overlooking the courtyard.
@@ -463,7 +463,7 @@ e 0 8 0 4
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139132
+#139032
 illithid auctioneer~
 an &+MIllithid&n &+YAuctioneer&n~
 &+bAn&n &+Millithid&n &+Yauctioneer&n &+bstands on the stage making eye contact with you.
@@ -481,7 +481,7 @@ mf 0 4 0 5
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139133
+#139033
 watchfire legion member efreet efreeti~
 &+ba&n &+WWa&ntch&+Rf&+ri&+Rre&n Leg&+Lion&n &+bmember&n~
 &+bA &+ref&+Rre&+ret&+Ri &+WWa&ntch&+Rf&+ri&+Rre&n Leg&+Lion&n &+bmember stands behind and to the side of the&n &+Yauctioneer&+b.
@@ -497,7 +497,7 @@ e 0 16384 0 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139134
+#139034
 overweight minotaur telorvehc~
 &+LTelorvehc~
 &+LTelorvehc&n the overweight &+Lmino&+rtaur&n opperates as the slavemaster here.
@@ -511,7 +511,7 @@ mt 0 16777216 0 5
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139135
+#139035
 earth elemental dock hand~
 &+yan earth elemental dock hand~
 &+yA earth elemental working as a dock hand assists the dockmaster.
@@ -525,7 +525,7 @@ ee 0 1 0 3
 30 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139136
+#139036
 dockmaster thri thrikreen thri-kreen~
 a dockmaster~
 &+yAn unusual&n dockmaster &+ygoes about his business along the docks.
@@ -539,7 +539,7 @@ tk 0 73728 0 3
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139137
+#139037
 watchfire legion member efreet efreeti~
 &+ba&n &+WWa&ntch&+Rf&+ri&+Rre&n Leg&+Lion&n &+bmember&n~
 &+bA &+ref&+Rre&+ret&+Ri &+WWa&ntch&+Rf&+ri&+Rre&n Leg&+Lion&n &+bmember slowly patrols the slave market.
@@ -555,7 +555,7 @@ e 0 1 0 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139138
+#139038
 fire giant priest~
 &+La &+rfi&+Rre gi&+rant&n &+Lpriest~
 &+LA &+rfi&+Rre gi&+rant &+Lpriest accepts offerings as she worships here.
@@ -572,7 +572,7 @@ fg 0 288 0 6
 61 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139139
+#139039
 fire giant~
 &+La &+rfi&+Rre gi&+rant&n~
 &+LA &+rfi&+Rre gi&+rant &+Lmoves about the room worshiping.
@@ -587,7 +587,7 @@ fg 0 18 0 6
 59 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139140
+#139040
 harem girl efreeti~
 &+Ythe harem girl&n~
 &+YThis harem girl resting on a magic pillow that forms under her.&n
@@ -600,7 +600,7 @@ e 0 1 0 -1
 31 -7 -124 1d1+1 1d1+1
 0.0.200.0 10000
 8 8 2
-#139141
+#139041
 shopkeeper efreet efreeti~
 &+Lan &+rEf&+Rre&+ret &+Lshopkeeper~
 &+LA shopkeeper is sitting here minding his shop.
@@ -617,7 +617,7 @@ e 0 1 0 -1
 50 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139142
+#139042
 phoenix~
 &+La &+rP&+Rh&+Yo&+We&+Yn&+Ri&n&+rx&N~
 &+LA &+rp&+Rh&+Yo&+We&+Yn&+Ri&n&+rx&n &+Lsits upon one of the pedestals in the corner of the room.
@@ -634,7 +634,7 @@ px 0 512 0 4
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139143
+#139043
 efreeti commoner~
 &+Yan &+ref&+Rre&+ret&+Ri &+Ycommoner&N~
 &+YAn &+ref&+Rre&+ret&+Ri &+Ycommoner visits the shrine.&N
@@ -649,7 +649,7 @@ e 0 1 0 5
 45 0 0 1d1+1 1d1+1
 0.0.8.6 0
 8 8 1
-#139144
+#139044
 flaming azer stocky humanoid~
 &+ra fl&+Ra&+rming &+RA&+Yz&+rer&n~
 &+rA short stocky fl&+Ra&+rming humanoid is moving about here.
@@ -664,7 +664,7 @@ ef 0 64 0 2
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139145
+#139045
 imix priest~
 &+ran &+LI&+rmi&+Lx&n &+rpriest~
 &+rA priest of &+LI&+rmi&+Lx &+rkneels around the f&+Rl&+Ya&+Rm&+re linking hands with others.
@@ -676,10 +676,10 @@ and does not look happy that you have interupted his prayers.
 ~
 2058 1 0 0 268509208 2049 0 0 -1000 S
 e 0 320 0 6
-63 0 0 1d1+1 1d1+1
+62 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139146
+#139046
 fire giant elemental~
 &+ra giant fire elemental~
 &+rA&n giant &+rfire elemental hovers near the f&+Rl&+Ya&+Rm&+re.
@@ -693,7 +693,7 @@ ef 0 1 1 6
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139147
+#139047
 flame salamander noble~
 &+ra &+Ynoble&n &+rfl&+Ra&+rme salamander~
 &+rA &+Ynoble&n &+rfl&+Ra&+rme salamander&n &+rlinks hands with the priest here.
@@ -707,7 +707,7 @@ ef 0 512 0 5
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139148
+#139048
 fire giant~
 a &+rfi&+Rre gia&+rnt~
 A &+rfi&+Rre gia&+rnt&n coming to pay his tithes to &+LI&+rmi&+Lx&n wanders nearby.
@@ -721,7 +721,7 @@ fg 0 16777216 0 6
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139149
+#139049
 magma elemental~
 &+La m&+rag&+Lm&+ra &+Lelemental~
 &+LAn elemental made entirely of m&+rag&+Lm&+ra &+Lmoves about crunching noisely.
@@ -736,7 +736,7 @@ ef 0 1048576 0 5
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139150
+#139050
 fire elemental~
 &+ra fire elemental&n~
 &+rA fire elemental is standing here&n.
@@ -749,7 +749,7 @@ EF 0 1 0 -1
 43 -5 -101 52d131+4420 7d6+30
 7.9.5.6 210600
 8 8 0
-#139151
+#139051
 scorpion manscorpion member black dart~
 a &+Lm&na&+Ln&+Yscorp&+yion&n member of the &+LBl&+ra&+Lck D&+ra&+Lrt~
 A member of the &+LBl&+ra&+Lck D&+ra&+Lrt&n chitters around on its &+Yscorp&+yion&n legs.
@@ -765,7 +765,7 @@ i 0 1 0 5
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139152
+#139052
 blaze efreet~
 &+Ya &+RBl&+Ya&+Rze~
 An &+ref&+Rre&+ret&n known as a &+RBl&+Ya&+Rze&n rides around upon his &+rh&+Re&+rll&+Lho&nu&+Lnd&n.
@@ -780,7 +780,7 @@ e 0 8 0 4
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139153
+#139053
 blaze efreet~
 &+Ya &+RBl&+Ya&+Rze~
 An &+ref&+Rre&+ret&n known as a &+RBl&+Ya&+Rze&n rides around upon his &+rh&+Re&+rll&+Lho&nu&+Lnd&n.
@@ -795,10 +795,10 @@ e 0 16 0 4
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139154
+#139054
 guard member illuminated efreet efreeti~
 &+Ya &+yguard&n &+Wme&nm&+Wbe&nr &+Yof the &nI&+Wll&nu&+Wmi&nn&+Wat&ne&+Wd~
-&+YA &+Wme&nm&+Wbe&nr &+Yof the city guard known as the &nI&+Wll&nu&+Wmi&nn&+Wat&ne&+Wd&n &+Ypatrols nearby.
+&+YA &+Wme&nm&+Wbe&nr &+Yof the city guard known as the &nI&+Wll&nu&+Wmi&nn&+Wat&ne&+Wd&n&+Y, patrols nearby.
 ~
 An average size efreet built and breed for service stands before you.
 Illuminated are the standard city guard and are known for once being
@@ -811,7 +811,7 @@ e 0 1 2 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139155
+#139055
 titan disciple~
 a &+Ct&+Wi&+Ct&+Wa&+Cn&n disciple~
 &+LVisiting the &+ycity&N, &+Lthis &+Cdisciple&n &+Lmoves through the streets.
@@ -820,12 +820,12 @@ A visitor to the City of Brass this titan is head and shoulders above
 a greater majority of the population here. She is dressed in a form
 of bandedmail armor and has a huge hammer at the ready.
 ~
-1140852808 8421376 0 0 536870936 32768 0 0 -500 S
+1073743944 8421376 0 0 536870936 32768 0 0 -500 S
 tt 0 32 1 6
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139156
+#139056
 drow visitor~
 &+La &+mdrow&n &+Lvisitor~
 &+LAs a visitor to the &+ycity&n, &+Lthe &+mdrow elf&n &+Lminds his wares as he passes through.
@@ -838,7 +838,7 @@ pl 0 512 2 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139157
+#139057
 grey visitor~
 a &+cgrey elf&n visitor~
 A confident &+cgrey elf&n visitor of the &+ycity&n looks around for a merchant.
@@ -853,7 +853,7 @@ pe 0 2 2 -1
 53 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139158
+#139058
 orc slave~
 an &+Lorc&n slave~
 &+LAn orc slave hustles through the &+ystreets&n &+Lrunning an errand.
@@ -867,7 +867,7 @@ ho 0 64 2 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139159
+#139059
 mountain dwarf priest~
 a &+Ymountain dwarf&n priest~
 A &+Ydwarf&n priest admires the sights as he moves through &+ytown&n.
@@ -881,7 +881,7 @@ pm 0 32 3 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139160
+#139060
 flame griffon mount~
 &+ra flame griffon&n~
 &+rA flame griffon is standing here, surrounded in fire&n.
@@ -895,10 +895,10 @@ D 0 1 0 -1
 57 -7 -137 57d143+6555 7d6+35
 2.4.6.19 461700
 8 8 0
-#139161
+#139061
 illithid slaver~
 &+can &+Millithid&n &+cslaver~
-&+cA hooded &+Millithid&n &+cflys inches above the street moving past you.
+&+cA hooded &+Millithid&n &+cflies inches above the street moving past you.
 ~
 A hooded figure with tentacles where his face would be stands at five
 feet tall and seems quite frail. With a closer look you can see this
@@ -909,7 +909,7 @@ mf 0 262144 0 3
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139162
+#139062
 duergar stealthy~
 &+La stealthy &+rduergar~
 &+LA stealthy &+rduergar &+Lslips in and out of sight as you pass by.
@@ -923,7 +923,7 @@ pd 0 4096 1 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139163
+#139063
 archon hound dog-face humanoid~
 a &+Lhound &+Rarch&+Wo&+Rn~
 A large humanoid with a &+Ldog-face&n moves through the &+ycity&n with confidence.
@@ -932,12 +932,12 @@ With red-skin and boldging muscles this being looks much like a dog walking
 on two feet. It wears a kilt around his waist and large bracers covering his
 forearms while his main features is its pointy ears and chin.
 ~
-1140852744 10496 1006632974 0 939532312 0 0 0 1000 S
+1073743880 10496 1006632974 0 939532312 0 0 0 1000 S
 ar 0 8 1 4
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139164
+#139064
 genasi firesoul~
 a &+Wg&ne&+cna&Ns&+Wi&n &+rf&+Ri&+rre&+Ws&nou&+Wl&n~
 &+LA &+Ytattooed &+Wg&ne&+cna&ns&+Wi&n &+Ltwirls a small&n &+rfl&+Ra&+rme&n &+Lbetween his fingers nearby here.
@@ -947,12 +947,12 @@ the noticeable attributes of this creature. His robes are solid grey with two
 red stripes that run over his shoulders. He is just over five feet tall, has
 no hair, and is average build.
 ~
-1140852744 268435456 0 32 671154176 0 0 0 -500 S
+1073743880 268435456 0 32 671154176 0 0 0 -500 S
 ph 0 768 0 3
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139165
+#139065
 genasi slave earthsoul~
 a &+Wg&ne&+cna&ns&+Wi &+ye&+La&+yrth&n&+Ws&nou&+Wl&n~
 A &+Wg&ne&+cna&ns&+Wi&n slave wanders the &+ycity&n streets.
@@ -961,12 +961,12 @@ Grey skinned humanoid with runes covering his body has an average build and
 his right wrist is covered with an efreeti's slave marker. He has no clothing
 or any genitalia visible.
 ~
-1140852872 524288 0 8 536871040 0 0 0 -500 S
+1073744008 524288 0 8 536871040 0 0 0 -500 S
 PH 0 2048 4 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139166
+#139066
 demon ambassador~
 a &+Ld&ne&+Lm&no&+Ln&n &+mambassador~
 &+YA &+Ld&ne&+Lm&no&+Ln &+mambassador &+Yfrom Hell &+Ycarries out his business in the city.
@@ -982,7 +982,7 @@ x 0 16 1 4
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139167
+#139067
 githzerai slave~
 a &+Wgith&+Gzerai&n &+Lslave&n~
 An &+Lenslaved &+Wgith&+Gzerai&n looks to be on an errand for his master.
@@ -991,12 +991,12 @@ A common looking githzerai with the markings of enslavement on her wrist wears
 only a loin cloth bikini, a cloak, and a pair of sandals. She holds herself as
 if she has no care in the world.
 ~
-1140852744 33554432 0 256 536870936 0 0 0 0 S
+1073743880 33554432 0 256 536870936 0 0 0 0 S
 gz 0 64 1 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139168
+#139068
 titan resident~
 a &+Ct&+Wi&+Ct&+Wa&+Cn&n &+cresident~
 A &+Ct&+Wi&+Ct&+Wa&+Cn &+cresident&n moves through the &+ycity&n with a watchful eye.
@@ -1006,12 +1006,12 @@ is towering at twenty feet in height and wears a kilt on his waist covering
 his knees. The upper part of the kilt covers over his left torso and is made
 of some fine quality threads.
 ~
-1140852744 1077936128 0 0 536870936 0 0 0 -500 S
+1073743880 1077936128 0 0 536870936 0 0 0 -500 S
 tt 0 1048576 2 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139169
+#139069
 djinni~
 a &+Wdj&nin&+Wni&n~
 A &+Wdj&nin&+Wni&n hovers effortlessly over head to avoid the &+ycity&n crowds.
@@ -1026,7 +1026,7 @@ dv 0 33554432 1 4
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139170
+#139070
 barracks guard efreeti~
 &+Ybarracks guard&n~
 &+YA barracks guard is patrolling here&n.
@@ -1038,7 +1038,7 @@ EF 0 16384 0 -1
 38 8 0 28d65+364 3d6+4
 0.0.0.0 24948
 8 8 1
-#139171
+#139071
 beautiful succubus woman~
 a &+Lb&+ce&+Cautif&+cu&n&+Ll s&+ru&+Rccub&+ru&+Ls&n~
 &+rA &+Rvolupuous&+r &+Lb&+ce&+Cautif&+cu&+Ll&n &+rwoman draws your attention onto her.
@@ -1048,12 +1048,12 @@ apparent from far away. She has long flowing black hair and redish pink skin.
 Her breasts are uncovered and surrounded by a weapon harness. The yellowish
 orange kilt shows off her toned legs and sandaled feet.
 ~
-1140852744 67125248 0 0 671088664 0 262144 0 -500 S
+1073743880 67125248 0 0 671088664 0 262144 0 -500 S
 su 0 2 1 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139172
+#139072
 unquenchable efreeti efreet guard black turban~
 an &+LUnq&nu&+Lenchable&n~
 A &+Lblack turban&n &+rEf&+Rre&+ret&+Ri&n known as the &+LUnq&nu&+Lenchable&n protects the Palace.
@@ -1069,7 +1069,7 @@ e 0 3 0 5
 61 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139173
+#139073
 fire elemental medium~
 &+ra medium fire elemental~
 A &+rfire elemental&n shaped like a humanoid wanders the &+ytown&n.
@@ -1084,7 +1084,7 @@ ef 0 4096 0 3
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139174
+#139074
 large fire elemental~
 &+ra large fire elemental~
 A &+rfire elemental&n resembling a large humanoid looks around &+ytown&n.
@@ -1099,7 +1099,7 @@ ef 0 1 0 4
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139175
+#139075
 efreeti noble~
 &+Yan &+ref&+Rre&+ret&+Ri &+Ynoble&n~
 &+YAn &+ref&+Rre&+ret&+Ri &+Ynoble is standing here glowing with power.
@@ -1112,7 +1112,7 @@ e 0 2 3 -1
 55 -7 -127 57d143+5985 7d6+35
 0.0.0.0 230850
 8 8 1
-#139176
+#139076
 hellspiniger centaur~
 &+gHellspin&+Liger &+Ythe unjust~
 &+YA &+gcen&+Ltaur &+Ynamed &+gHellspin&+Liger &+Yruns the bit and tackle store.
@@ -1125,10 +1125,10 @@ ct 0 16 1 -1
 52 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139177
-dwarf lucky lokke locksmith chubby dwarven~
-&+ML&+mucky &+ML&+mokke~
-&+cThe chubby &+Ydwarven&n &+clocksmith named &+ML&+mucky &+ML&+mokke &+csits at his work station.
+#139077
+dwarf fingers locksmith chubby dwarven~
+&+MFingers~
+&+cThe chubby &+Ydwarven&n &+clocksmith named &+MFingers&n &+csits at his work station.
 ~
 This chubby mountain dwarf is just under five feet tall and has tiny hands. As
 he works the lock his skills shine through with great dexterity and
@@ -1140,7 +1140,7 @@ pm 0 4096 2 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139178
+#139078
 halfling glittermaker oto~
 &+GOto Glittermaker&n~
 &+GOto Glittermaker&n &+gmoves from one side to the other helping customers.&n
@@ -1154,7 +1154,7 @@ pf 0 32800 0 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139179
+#139079
 efreeti hutzparoon mason~
 &+RH&+rut&+Rz&+rpar&+Ro&+ron&n &+rthe mason&n~
 An &+ref&+Rre&+ret&+Ri &nnamed &+RH&+rut&+Rz&+rpar&+Ro&+ron&n works his masonry and looks to you as you enter.
@@ -1168,7 +1168,7 @@ e 0 1 0 5
 54 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139180
+#139080
 efreeti chef royal~
 &+Ythe royal chef&n~
 &+YThe royal &+ref&+Rre&+ret&+Ri&n &+Ychef is here preparing a multitude of grand food for the sultans table&n.
@@ -1181,7 +1181,7 @@ e 0 512 0 -1
 58 -7 -135 58d96+5974 7d6+35
 0.0.0.0 234900
 8 8 1
-#139181
+#139081
 shanaanaa~
 &+bSha&+Bnaa&+bna&+Ba~
 &+BSha&+bnaa&+bna&+Ba&n &+Ysits behind his desk bouncing a ball off a wall.
@@ -1197,7 +1197,7 @@ PH 0 8 1 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 6 6 1
-#139182
+#139082
 efreeti alchemist~
 &+ref&+Rre&+ret&+Ri &+Calc&+chem&+Cist&n~
 &+YMixing a fresh batch this &+ref&+Rre&+ret&+Ri &+Calc&+chem&+Cist&n &+Ystirs slowly and carefully.
@@ -1212,7 +1212,7 @@ e 0 4096 2 -1
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139183
+#139083
 herl ranger~
 &+CHe&+crl&n &+Lthe &+granger&n &+Llord&n~
 &+CHe&+crl&n &+Wthe known &+granger&n &+Wattends to his shop retired from adventure.
@@ -1229,7 +1229,7 @@ p2 0 2 2 -1
 55 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139184
+#139084
 satyr musician filippie~
 &+YFil&+yip&+Ypie&n the &+gSa&+ytyr~
 Singing and dancing a tune, &+YFil&+yip&+Ypie &nthe &+gSa&+ytyr &nentertains those around his shop.
@@ -1247,7 +1247,7 @@ h 0 32768 3 3
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139185
+#139085
 flesh golem~
 &+Lthe &+Bre&+bpair &+Lm&+Ba&+bn&n~
 &+BA flesh golem leans in the corner arms crossed and one foot pressed against the wall.&n
@@ -1263,7 +1263,7 @@ cn 0 32 0 5
 61 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139186
+#139086
 ether fire giant~
 &+RE&+Yth&+ye&+rr~
 &+RE&+Yth&+ye&+rr &+ythe &+rfi&+Rre gia&+rnt &+ylooks to pawn his magical wears.
@@ -1277,10 +1277,10 @@ half-plate covered in battle scars of many types.
 ~
 10 0 0 0 939524156 2078 0 0 -500 S
 fg 0 1 1 6
-65 0 0 1d1+1 1d1+1
+62 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139187
+#139087
 efreeti customs officer~
 &+Yan &+ref&+Rre&+ret&+Ri &+Ycustoms officer~
 &+YAn &+ref&+Rre&+ret&+Ri &+Ycustoms officer deals with several crates of goods.
@@ -1292,7 +1292,7 @@ e 0 1 3 -1
 45 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139188
+#139088
 angry drider pissed~
 &+Lan &+ran&+Rgr&+ry&n &+mdri&+Lder&n~
 &+LA p&nisse&+Ld&n off &+mdri&+Lder&n &+Lcharges towards the exit.
@@ -1306,7 +1306,7 @@ dr 0 2097152 3 4
 51 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139189
+#139089
 efreeti padashaw wrinyen otis~
 the &+ref&+Rre&+ret&+Ri&n pa&+Lda&nshaw&n &+CW&+crinyen &+CO&+ctis~
 &+LThe &npa&+Lda&nshaw &+CW&+crinyen &+CO&+ctis&n &+Lhelps instruct the new recruits in battle techniques.
@@ -1322,7 +1322,7 @@ e 0 1 1 -1
 58 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139190
+#139090
 efreeti commoner efreet~
 &+ran ef&+Rre&+ret&+Ri &+rcommoner&n~
 &+rA common &+ref&+Rre&+ret strolls through the city minding his business&n.
@@ -1336,7 +1336,7 @@ e 0 512 1 -1
 45 -7 -124 56d96+5768 7d6+35
 0.0.0.0 226800
 8 8 1
-#139191
+#139091
 branded guard efreeti~
 the &+mBra&+Mnd&+med&n~
 An &+ref&+Rre&+ret&+Ri&n guard known as the &+mBra&+Mn&+mded&n guards the harem entrance.
@@ -1351,7 +1351,7 @@ e 0 16 1 4
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139192
+#139092
 efreeti padashaw hakim okewonaku~
 the &+ref&+Rre&+ret&+Ri&n pa&+Lda&nshaw&n H&+Lakim&n O&+Lkewonaku&n~
 &+LThe &npa&+Lda&nshaw H&+Lakim&n O&+Lkewonaku&n &+Lis maintaining the unique mounts&n.
@@ -1365,7 +1365,7 @@ e 0 16384 2 4
 60 -10 -142 60d132+6240 7d6+35
 0.0.0.0 243000
 8 8 1
-#139193
+#139093
 magma magmaman man~
 &+ra m&+La&+rg&+Lm&+ra man~
 A &+rm&+La&+rg&+Lm&+ra&n shaped into a &+rman&n moves through the hallway on an errand.
@@ -1379,7 +1379,7 @@ ef 0 1 2 3
 35 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139194
+#139094
 fire mephit magician~
 a captivating &+Rf&+Yi&+Rre&n &+rme&+Rph&+rit&n &+ym&+Yagicia&+yn&n~
 This tiny &+rme&+Rph&+rit&n &+ym&+Yagicia&+yn&n captivates the crowds attention.
@@ -1393,7 +1393,7 @@ ef 0 2048 3 1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139195
+#139095
 elder fire elemental~
 &+ran &+Relder &+rfire elemental~
 &+LThe largest &+rfire elemental&n &+Lyou have ever seen moves around the &+ypalace&n &+Lignoring you.
@@ -1409,7 +1409,7 @@ ef 0 1048576 1 6
 59 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139196
+#139096
 giant smoke elemental~
 &+La g&nian&+Lt&n s&nm&+Wo&nk&+Le elemental~
 &+LA g&nian&+Lt elemental made entirely of misty s&nm&+Wo&nk&+Le swirls through the hall.
@@ -1424,7 +1424,7 @@ ve 0 1 3 6
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139197
+#139097
 efreeti gardener~
 an &+ref&+Rre&+ret&+Ri &+Gg&+gardene&+Gr&n~
 Helping maintain the courtyard this &+ref&+Rre&+ret&+Ri&n &+Gg&+gardene&+Gr&n kneels nearby.
@@ -1439,7 +1439,7 @@ e 0 128 2 4
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139198
+#139098
 fire troll slave~
 &+La &+rfir&+Re tr&+roll&n &+Lslave~
 &+LA &+rfir&+Re tr&+roll &+Lsl&na&+Lve assists with maintance of the garden.
@@ -1454,7 +1454,7 @@ pt 0 32 1 5
 42 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139199
+#139099
 gyrowizniptzzl ancient red dragon~
 &+rGyrowizniptzzl, the &+Lancient&n &+Rred dragon&n~
 &+rGyrowizniptzzl, the &+Lancient&n &+Rred dragon&n awaits audience with the Sultan.
@@ -1473,7 +1473,7 @@ d 0 516 0 7
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139200
+#139100
 efreeti noble~
 &+Yan &+ref&+Rre&+ret&+Ri &+Ynoble&n~
 &+YAn &+ref&+Rre&+ret&+Ri &+Ynoble is standing here glowing with power.
@@ -1486,7 +1486,7 @@ e 0 1 1 -1
 55 -7 -127 57d143+5985 7d6+35
 0.0.0.0 230850
 8 8 1
-#139201
+#139101
 rikitizzilayn ancient brass dragon~
 &+YRikitizzilayn, &nan &+Lancient &+ybrass dragon&n~
 &+YRikitizzilayn, &nan &+Lancient&n &+ybrass dragon &nawaits audience with the Sultan.
@@ -1505,7 +1505,7 @@ d 0 392 0 7
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139202
+#139102
 ten ten-headed headed pyrohydra hydra~
 &+La t&Ne&+Ln&n-&+Lh&ne&+Wa&nd&+Led&n &+rpy&+Rro&+Yhy&+Wdra~
 &+yA head of a &+Lt&ne&+Ln&n-&+Lh&ne&+Wa&nd&+Led&n &+rpy&+Rro&+Yhy&+Wdra&n &+ysee's you and &+Wroars &+yas the beast turns to attack!
@@ -1525,7 +1525,7 @@ d 0 80 0 7
 60 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139203
+#139103
 efreeti disciple~
 &+Yan &+ref&+Rre&+ret&+Ri &+Ydisciple~
 &+YAn &+ref&+Rre&+ret&+Ri&n &+Ydisciple listens intently to the high priest.
@@ -1539,7 +1539,7 @@ e 0 32 3 -1
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139204
+#139104
 efreeti templar guard~
 &+Yan &+ref&+Rre&+ret&+Ri &+Ytemplar&N~
 &+YAn &+ref&+Rre&+ret&+Ri &+Ytemplar guards the priests tower.&N
@@ -1553,7 +1553,7 @@ e 0 16 1 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139205
+#139105
 efreeti commoner~
 &+Yan &+ref&+Rre&+ret&+Ri &+Ycommoner&N~
 &+YAn &+ref&+Rre&+ret&+Ri &+Ycommoner travels the city on an unknown errand.&N
@@ -1563,12 +1563,12 @@ black hair and orange colored eyes. His redish skin is highlighted by the
 red flames surrounding him and seems a bit snobby towards the shorter
 beings in the room.
 ~
-33568780 2148532224 0 0 939524144 2113 0 0 -500 S
+100677644 0 0 0 939524144 2113 0 0 -500 S
 e 0 1 0 5
 45 0 0 1d1+1 1d1+1
 0.0.8.6 0
 8 8 1
-#139206
+#139106
 efreeti magi disciple~
 an &+ref&+Rre&+ret&+Ri&n &+Lma&ng&+Wi&n &+rdis&+Rci&+rple~
 &+rAn ef&+Rre&+ret&+Ri&n &+Lma&ng&+Wi&n &+ris standing here pondering the aspects of magic.
@@ -1582,7 +1582,7 @@ e 0 512 2 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139207
+#139107
 efreeti templar guard~
 &+ran &+ref&+Rre&+ret&+Ri &+Lte&nm&+Wp&nl&+Lar&N~
 &+rAn &+ref&+Rre&+ret&+Ri &+Lte&nm&+Wp&nl&+Lar &+rguards the &+Rm&+ragi tower.&N
@@ -1596,7 +1596,7 @@ e 0 16 1 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139208
+#139108
 flaming azer stocky humanoid slave~
 &+ra fl&+Ra&+rming &+RA&+Yz&+rer&n &+rslave~
 &+rA short stocky fl&+Ra&+rming humanoid slave carries food to the table.
@@ -1611,7 +1611,7 @@ ef 0 1 0 2
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139209
+#139109
 immature nightmare~
 an &+Wimm&natur&+We &+Lni&ngh&+Ltmare&n~
 A &+Wyo&nun&+Wg &+Lni&ngh&+Ltmare&n is stabled here awaiting next training lesson.
@@ -1626,7 +1626,7 @@ ae 0 1 0 -1
 32 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139210
+#139110
 dying djinn~
 &+ba dying djinn~
 &+bthe corpse of a dying djinn slave is here.
@@ -1640,7 +1640,7 @@ EF 0 0 0 -1
 55 -5 -121 55d110+4565 7d6+30
 0.0.0.0 222750
 8 8 1
-#139211
+#139111
 guild guardian guard golem~
 &+Ythe warrior guild guardian&N~
 &+YThe guardian to the &+ref&+Rre&+ret&+Ri &+Ywarriors guild is here.
@@ -1654,7 +1654,7 @@ og 0 1 0 -1
 60 -7 -135 58d143+6090 7d6+35
 0.0.0.0 234900
 8 8 1
-#139212
+#139112
 efreeti bartender~
 &+raltona the bartend~
 &+rAltona the bartender stands here serving up fiery drinks!
@@ -1668,7 +1668,7 @@ e 0 16384 0 -1
 52 -5 -111 52d131+4420 7d6+30
 0.0.0.0 210600
 8 8 1
-#139213
+#139113
 efreeti warrior~
 &+Yan &+ref&+Rre&+ret&+Ri &+Ywarrior&N~
 &+YAn &+ref&+Rre&+ret&+Ri &+Ywarrior is here practicing his combat skills.
@@ -1681,7 +1681,7 @@ e 0 1 0 -1
 51 -7 -138 59d143+6195 7d6+35
 0.0.0.0 238950
 8 8 1
-#139214
+#139114
 katrais efreeti warrior master _no_lure_~
 &+rthe warrior master of the ef&+Rre&+ret&+Ri&N~
 &+rKatrais, master of the guild stands here pissed.&N
@@ -1694,7 +1694,7 @@ e 0 16387 0 -1
 61 -10 -142 60d200+9000 7d6+35
 0.0.0.0 243000
 8 8 1
-#139215
+#139115
 golem magi guardian guard~
 &+Gthe magi guild guardian&N~
 &+GThe &+ref&+Rre&+ret&+Ri &+Gmagi guild guardian blocks passage east.
@@ -1708,7 +1708,7 @@ og 0 512 0 -1
 60 -10 -142 20d20+15000 7d6+35
 0.0.0.0 243000
 8 8 0
-#139216
+#139116
 efreeti magi~
 &+ref&+Rre&+ret&+Ri &+Gmagi&N~
 &+GAn &+ref&+Rre&+ret&+Ri &+Gmagi stands here, awash in magic power.
@@ -1723,7 +1723,7 @@ e 0 512 0 -1
 56 -7 -124 56d96+5768 7d6+35
 0.0.0.0 226800
 8 8 1
-#139217
+#139117
 efreeti acolyte conjurer~
 &+Gan &+ref&+Rre&+ret&+Ri &+Gacolyte conjurer&N~
 &+GAn &+ref&+Rre&+ret&+Ri &+Gacolyte conjurer stands here studying.
@@ -1737,7 +1737,7 @@ e 0 2048 0 -1
 52 -3 -105 50d80+2650 6d6+25
 0.0.0.0 121500
 8 8 1
-#139218
+#139118
 caltoon efreeti arch-magi _no_lure_~
 &+BCaltoon the efreeti magi master&N~
 &+BCaltoon, the arch-magi of all efreeti stands here.&N
@@ -1751,7 +1751,7 @@ e 0 3584 0 -1
 60 -10 -142 100d100+10000 7d6+35
 0.0.0.1000 243000
 8 8 1
-#139219
+#139119
 efreeti tax collector~
 &+Ythe &+ref&+Rre&+ret&+Ri &+Ytax collector&N~
 &+YThe &+ref&+Rre&+ret&+Ri &+Ytax collector stands here with his hand out.
@@ -1768,7 +1768,7 @@ e 0 1 0 -1
 59 -5 -121 55d131+4675 7d6+30
 0.0.0.0 222750
 8 8 1
-#139220
+#139120
 efreeti census taker~
 &+ref&+Rre&+ret&+Ri &+Ycensus taker&N~
 &+YThe &+ref&+Rre&+ret&+Ri &+Ycensus taker is here counting.
@@ -1782,7 +1782,7 @@ e 0 256 1 -1
 55 -5 -121 55d131+4675 7d6+30
 0.0.0.0 222750
 8 8 1
-#139221
+#139121
 efreeti armorer~
 &+Yan &+ref&+Rre&+ret&+Ri &+Yarmorer&N~
 &+YAn &+ref&+Rre&+ret&+Ri &+Yarmorer works on his anvil and sells his wares.
@@ -1795,7 +1795,7 @@ e 0 34816 0 6
 55 -5 -121 55d131+4675 7d6+30
 0.0.0.0 222750
 8 8 1
-#139222
+#139122
 efreeti weapon-smith~
 &+Yan &+ref&+Rre&+ret&+Ri &+Yweapon-smith&N~
 &+YBanging away, the &+ref&+Rre&+ret&+Ri &+Yweapon-smith stands here.
@@ -1808,7 +1808,7 @@ e 0 16384 1 -1
 55 -5 -121 55d131+4675 7d6+30
 0.0.0.0 222750
 8 8 1
-#139223
+#139123
 efreeti saladeem clothier~
 &+YSaladeem the &+ref&+Rre&+ret&+Ri &+Yclothier&N~
 &+YSaladeem stands here selling his exotic leather goods.
@@ -1822,7 +1822,7 @@ e 0 4194304 1 -1
 55 -5 -121 55d131+4675 7d6+30
 0.0.0.0 222750
 8 8 1
-#139224
+#139124
 efreeti yodono magi~
 &+GYodono the &+ref&+Rre&+ret&+Ri &+Gmagi shop owner&N~
 &+GYodono stands here selling his magic goods.&N
@@ -1836,7 +1836,7 @@ e 0 512 2 -1
 55 -5 -121 55d88+4565 7d6+30
 0.0.0.0 222750
 8 8 1
-#139225
+#139125
 gnome groyana~
 &+YGroyana&n~
 &+YGroyana the &+Rgnome &+Ygemologist stands here.
@@ -1850,7 +1850,7 @@ pg 0 33554432 3 -1
 55 -5 -121 55d131+4675 7d6+30
 0.0.0.0 222750
 8 8 2
-#139226
+#139126
 tila banto baker~
 &+YTila Banto&N~
 &+YA beautiful baker known as Tila Banto stands here minding her shop.
@@ -1863,8 +1863,8 @@ su 0 512 0 -1
 46 -5 -121 55d88+4565 7d6+30
 0.0.0.0 222750
 8 8 2
-#139227
-grand hurloos efreeti~
+#139127
+grand hurloo efreeti~
 &+bGrand Hurloo&N~
 &+bGrand Hurloo the fortune teller of the efreeti.
 ~
@@ -1876,7 +1876,7 @@ e 0 32769 0 -1
 61 -7 -138 59d143+6195 7d6+35
 0.0.0.0 238950
 8 8 1
-#139228
+#139128
 talosoa effreeti banker~
 &+YTalosoa the &+ref&+Rre&+ret&+Ri &+Ybanker&N~
 &+YTalosoa the &+ref&+Rre&+ret&+Ri &+Ybanker stands here.
@@ -1889,7 +1889,7 @@ e 0 544 0 6
 55 -5 -121 55d88+4565 7d6+30
 0.0.0.2000 222750
 8 8 1
-#139229
+#139129
 efreeti receptionist hotel~
 &+Yan &+ref&+Rre&+ret&+Ri &+Yhotel receptionist&N~
 &+YAn &+ref&+Rre&+ret&+Ri &+Yhotel receptionist is here waiting to rent rooms.
@@ -1904,7 +1904,7 @@ e 0 512 1 -1
 60 -10 -142 60d96+6180 7d6+35
 0.0.0.0 243000
 8 8 2
-#139230
+#139130
 basilisk green~
 &+ga green basilisk&N~
 &+ga green basilisk shuffles around here.&N
@@ -1917,7 +1917,7 @@ R 0 1 0 -1
 60 -5 -121 55d110+4565 7d6+30
 0.0.0.0 222750
 8 8 0
-#139231
+#139131
 a gelintinous cube~
 &+Wa gelatinous cube&N~
 &+WA gelatinous cube is slowly oozing along here.&N
@@ -1930,7 +1930,7 @@ EF 0 0 0 -1
 50 -3 -105 50d100+2650 6d6+25
 0.0.0.0 121500
 8 8 0
-#139232
+#139132
 hidden djinni spy~
 a &+Lhi&ndd&+Len&n &+Cdjinni&n &+Ls&np&+Ly&n~
 &+LTrying to go unnoticed a &+Cdjinni&n &+Lhides in the steam spouts nearby.
@@ -1945,7 +1945,7 @@ ea 0 5120 0 4
 56 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139233
+#139133
 slave efreeti priest priestly~
 &+La &+Wpr&+Ciest&+Wly &+ref&+Rre&+ret&+Ri &+Lslave~
 &+LAn &+ref&+Rre&+ret&+Ri&n &+Lslave stands nearby waiting for his masters command.
@@ -1958,7 +1958,7 @@ e 0 32 1 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139234
+#139134
 illithid slave psionicist psionic planetbound~
 &+La pl&nane&+Ltbou&nnd &+Millithid&n &+bps&+Bion&+bic&n &+Lslave&n~
 &+LAn &+Millithid&n &+Lslave stands nearby awaiting orders from its master.
@@ -1971,7 +1971,7 @@ pi 0 4 1 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139235
+#139135
 battle battle-hardened fire giant slave~
 &+La ba&ntt&+Lle&n-&+Lhar&nden&+Led&n &+rfi&+Rre gia&+rnt&n &+Lslave&n~
 &+LA &+rfi&+Rre gia&+rnt&n &+Lslave stands here awaiting orders from his master.
@@ -1985,7 +1985,7 @@ fg 0 1 1 6
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139236
+#139136
 demon sorceress slave~
 &+La d&ne&+Lm&no&+Ln&n &+Msor&+mcer&+Mess&n &+Lslave&n~
 &+LA d&ne&+Lm&no&+Ln slave stands here awaiting her masters bidding.
@@ -1999,7 +1999,7 @@ x 0 512 2 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139237
+#139137
 hellhound hound~
 &+La &+rh&+Re&+rll&+Lho&nu&+Lnd~
 A &+Lblack-haired&n dog covered in ash with glowing &+rr&+re&+rd&n eyes drools &+rfl&+Ra&+rme&n here.
@@ -2014,7 +2014,7 @@ ae 0 1048576 0 3
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139238
+#139138
 magus githyanki slave~
 &+La&n &+rf&+Ri&+rre&n &+rm&+Ra&+rgus&n &+Ggith&+Wyanki &+Lslave~
 &+LA &+Ggith&+Wyanki&n &+Lslave stands waiting for his masters commands.
@@ -2028,7 +2028,7 @@ gi 0 2048 3 -1
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139239
+#139139
 githzerai minstrel slave~
 &+La &+Wgith&+Gzerai&n &+Ymin&+ystr&+Yel &+Lslave~
 &+LA &+Wgith&+Gzerai &+Lslave stands waiting for his masters commands.
@@ -2042,7 +2042,7 @@ gz 0 32768 3 -1
 46 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139240
+#139140
 large fire elemental slave~
 &+La large &+rf&+Ri&+rre&n &+relemental &+Lslave~
 &+LA large &+rfire elemental &+Lslave hovers nearby waiting for its masters bidding.
@@ -2055,7 +2055,7 @@ ef 0 1 2 4
 41 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 0
-#139241
+#139141
 human female priestess slave~
 &+La &+Chuman&n &+Lfemale&n &+Ypri&+yest&+Yess&n &+Lslave~
 &+LA &+Chuman&n &+Lslave stands waiting for her masters next command.
@@ -2069,7 +2069,7 @@ PH 0 32 2 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 2
-#139242
+#139142
 raging minotaur slave~
 &+La &+Rra&+rgi&+Rng &+Lmino&+rtaur&n &+Lslave&n~
 A &+Lmino&+rtaur&n &+Lslave&n stands waiting for his masters next order.
@@ -2082,7 +2082,7 @@ mt 0 1048576 2 -1
 38 0 0 1d1+1 1d1+1
 0.0.0.0 0
 8 8 1
-#139243
+#139143
 crazy drow elf slave~
 &+La &+Mcra&+mz&+My &+mdrow&n &+melf&n &+Lslave&n~
 &+LA &+mdrow elf&n &+Lslave waits for his masters next command.
@@ -2095,4 +2095,47 @@ his boundment to his master.
 PL 0 512 1 -1
 36 0 0 1d1+1 1d1+1
 0.0.0.0 0
+8 8 1
+#139144
+ancient chimaera~
+&+Lan &nancient &+mchim&+bae&+mra&n~
+&+LAn &nancient &+mchim&+bae&+mra&n &+Lwith a &ngrey &+Lbird circles in the corner.&n
+~
+&+mThis beast is a massive lion with a grey beard with the remainder of her body covered in golden fur.
+&+mOn its back is a goat's head extenting from the lion's spine and has black horns forming to a sharp point.
+&+mIts tail ends into the head of a snake which carefully watches you as you approach.
+~
+1092765736 1 0 0 671088664 0 0 33554432 -1000 S
+x 0 4194560 0 5
+60 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 2
+#139145
+hydra elder~
+&+Lan &+ye&+Yld&+yer&n &+Gh&+gydr&+Ga&n~
+&+LA s&ni&+Lx&n-&+yhe&+Yad&+yed&n &+Gh&+gydr&+Ga&n &+Lrises to its feet as you approach.&n
+~
+&+gThis massive six-headed hydra has darken scaled with yellowish green tint glistening&n
+&+gfrom the light of the flames given off from nearby. His heads are mesmorizing as they&n
+&+gcircle amongst each other seeming to ponder its decision to attack.&n
+~
+1050632 1 0 0 687865880 1 67371008 33554432 -1000 S
+d 0 16777218 0 -1
+61 0 0 1d1+1 1d1+1
+0.0.0.0 0
+8 8 1
+#139146
+efreeti commoner~
+&+Yan &+ref&+Rre&+ret&+Ri &+Ycommoner&N~
+&+YAn &+ref&+Rre&+ret&+Ri &+Ycommoner travels the city on an unknown errand.&N
+~
+This efreeti is of average build and stands 10 feet tall. He has spiked
+black hair and orange colored eyes. His redish skin is highlighted by the
+red flames surrounding him and seems a bit snobby towards the shorter
+beings in the room.
+~
+100677644 0 0 0 939524144 2113 0 0 -500 S
+e 0 1 0 5
+45 0 0 1d1+1 1d1+1
+0.0.8.6 0
 8 8 1

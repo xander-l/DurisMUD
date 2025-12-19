@@ -1,0 +1,2485 @@
+#25001
+&+yEntry Way~
+   The entryway is over forty feet high with massive supporting columns
+of solid flame that seem to be formed out of some sort of mystic
+force that holds them in place.   Heat can be felt radiating from them
+which you can feel even though your magic protection.
+~
+250 167809100 11
+D0
+You see a large archway to the north.
+~
+~
+0 0 25002
+D2
+The palace gates are that way.
+~
+gates brass~
+0 0 25002
+S
+#25002
+&+yGreat Arch~
+   This room is a huge flaming arch that separates the palace from the
+entry way.  The same flaming force seems to hold this arch in place,
+and once again you can feel the heat radiating from it.
+~
+250 167809096 11
+D0
+A large courtyard can be seen to the north.
+~
+~
+0 0 25003
+D2
+Looking south you see the entry way.
+~
+~
+0 0 25001
+M
+3 20
+S
+#25003
+&+yCourt Yard~
+   This is a vast court yard running for hundreds of feet to the north,
+east, and west. A huge flaming fountain of fire can be seen to
+the north, and strange trees of solid flame are growing? here in
+neat little rows along the edge of the yard.  The main building of
+the palace seems to be ahead, but only an imposing wall can be seen
+from here.  Above the flaming sky can be seen with ease in this open
+space.
+~
+250 167809088 11
+D0
+Looking north the courtyard continues.
+~
+~
+0 0 25010
+D1
+Looking east the courtyard continues.
+~
+~
+0 0 25004
+D2
+Looking south the great arch can been seen.
+~
+~
+0 0 25002
+D3
+Looking west the courtyard continues.
+~
+~
+0 0 25014
+E
+tree bush flame~
+The trees seem to be made of some sort of living fire that
+has taken the form of earth-like trees and bushes, obviously
+formed out of the very plane of fire itself by the will of the Efreeti.
+~
+E
+fountain~
+the fountain is too far away to be seen clearly from here.
+~
+S
+#25004
+&+yCourt Yard~
+   The huge courtyard continues here covering almost an acre.
+Flaming bushes and trees parkway to provide neat access to the
+landing east of here.  To the north the courtyard continues toward
+the main structure and to the south a large wall some one hundred
+feet high rises upward into the sky.  The courtyard goes west here
+as well toward the direction of the great arch.
+~
+250 167809088 11
+D0
+To the north the courtyard continues.
+~
+~
+0 0 25009
+D1
+To the east a landing can be seen.
+~
+~
+0 0 25005
+D3
+To the west the courtyard continues.
+~
+~
+0 0 25003
+S
+#25005
+&+yLanding~
+   The landing here gives one an eerie feeling when standing on it
+the floor below seems to be made of some soft  flowing fire marble
+that shifts and moves making anyone looking at it sick to their
+stomachs within a few moments.  It also looks as if it is moving of its
+own accord.
+~
+250 167809096 11
+D3
+The courtyard continues in this direction.
+~
+~
+0 0 25004
+D4
+The Grand staircase goes up here.
+~
+~
+0 0 25006
+E
+floor marble stairs landing~
+Looking down at the floor causes you to feel very sick, you feel
+as if you might have to through-up your lunch at any moment now.
+~
+S
+#25006
+&+yGrand Staircase~
+   A regal grand staircase running up and down here composed
+of moving flames gives one an uneasy feeling as its walked upon.
+~
+250 167809096 11
+D4
+The stairs continue up in that direction.
+~
+~
+0 0 25007
+D5
+The stairs end at a landing in that direction.
+~
+~
+0 0 25005
+S
+#25007
+&+yGrand Staircase~
+   A regal grand staircase running up and down here composed
+of moving flames gives one an uneasy feeling as its walked upon.
+~
+250 167809096 11
+D3
+The stairs end at a landing in that direction.
+~
+~
+0 0 25008
+D5
+The stairs run downward in that direction.
+~
+~
+0 0 25006
+S
+#25008
+&+yLanding~
+  The landing here gives one an eerie feeling when standing on it
+the floor below seems to be made of some soft  flowing fire-marble
+that shifts and moves making anyone looking at it sick to their
+stomachs within a few moments.
+~
+250 167809096 11
+D1
+The landing continues in that direction.
+~
+~
+0 0 25007
+D3
+The stairs continue up in that direction.
+~
+~
+0 0 25011
+S
+#25009
+&+yCourt Yard~
+   The courtyard ends here at a great wall that runs up far into
+the sky.  A large fountain can be see off to the west and several
+more fiery trees and bushes dot the wall here.
+~
+250 167809088 11
+D2
+The courtyard runs to the south.
+~
+~
+0 0 25004
+D3
+The courtyard continues to the west.
+~
+~
+0 0 25010
+E
+wall~
+The wall seems to be made of solid fire and runs far into
+the sky as you look upward along its length.
+~
+S
+#25010
+&+yCenter of Court Yard~
+   The courtyard spans out here for hundreds of feet in all
+directions.  A large fountain of shooting flames rest here in
+the center of the court yard.  Different colors of flame shoot
+forth from its fiery base.  Large trees of fire and smaller bushes
+line the huge wall of flame to the north and also form a semi-circle
+near the fountain while several huge park-like benches of blue and
+white flames rest here in random places near the fountain.
+~
+250 167809088 11
+D1
+The courtyard runs to the east in that direction.
+~
+~
+0 0 25009
+D2
+The courtyard runs to the south in that direction.
+~
+~
+0 0 25003
+D3
+The courtyard runs to the west in that direction.
+~
+~
+0 0 25013
+E
+fountain~
+The fountain has several different colors of flame that
+shoot up and around in interact patterns which take your
+breath away and seem to entrance you as you gaze at them.
+the flames seem to be weaving some sort of hypnotic pattern
+that makes you want to stay here and rest for awhile.
+~
+E
+bench benches park~
+The benches look as if they are composed of solid flames
+and seem rather inviting despite their over-sized nature.
+~
+E
+wall~
+The huge wall of the palace seems to be composed of solid flame
+or perhaps even flowing brass.  It runs far into the sky almost
+out of your line of vision.
+~
+S
+#25011
+&+yGrand Staircase~
+   The stairs run to the north here and also end at a landing
+to the east.  They seem to be moving of their own accord and
+one really has the urge to get off them as soon as possible.
+~
+250 167809096 11
+D1
+The stairs end at a landing in that direction.
+~
+~
+0 0 25008
+D3
+The stairs end at a landing in that direction.
+~
+~
+0 0 25012
+D4
+The stairs continues up in that direction.
+~
+~
+0 0 25023
+S
+#25012
+&+yLanding~
+   The landing here gives one an eerie feeling when standing on it
+the floor below seems to be made of some soft  flowing fire-marble
+that shifts and moves making anyone looking at it sick to their
+stomachs within a few moments.  It also feels as if it is moving of its
+own accord while standing on it.
+~
+250 167809096 11
+D1
+The stairway can be seen to the east.
+~
+~
+0 0 25011
+D5
+The stairs run down in that direction.
+~
+~
+0 0 25022
+S
+#25013
+&+yCourt Yard~
+   The courtyard runs along for several more hundred feet in all
+directions here except to the north where a huge palace wall of
+solid flames and flowing brass stops it.  Several more trees and
+bushes of living flame are here in neat rows.  To the west the
+courtyard goes on, as well as to the south for several hundred
+more feet.
+~
+250 167809088 11
+D1
+The courtyard runs to the east in that direction.
+~
+~
+0 0 25010
+D2
+The courtyard runs to the south in that direction.
+~
+~
+0 0 25014
+D3
+The courtyard runs to the west in that direction.
+~
+~
+0 0 25016
+E
+bush bushes tree~
+The trees and bushes here are of the same living, solid flame
+as you saw elsewhere in the yard here.
+~
+E
+wall palace~
+The wall of flowing brass runs up as far as the eye can see.
+~
+S
+#25014
+&+yCourt Yard~
+   The courtyard opens up to several hundred feet in all direction from here
+except to the south where the palace wall rises hundreds of feet into the sky.
+~
+250 167809088 11
+D1
+The courtyard heads back to the east toward the arch in that direction.
+~
+~
+0 0 25003
+D3
+The courtyard continues to the west in that direction.
+~
+~
+0 0 25015
+E
+wall palace~
+The walls of the palace seem to be mostly composed of flowing
+brass, perhaps with some soft of living fire in it as well.
+~
+S
+#25015
+&+yCourt Yard~
+  The courtyard continues here for several more hundred feet running
+west toward the palace walls, you can see some sort of entry way
+into the palace to the west.  The courtyard also runs on for several
+hundred more feet to the north.  More of the flaming trees and bushes
+are here in neat little rows.
+~
+250 167809088 11
+D0
+The courtyard runs to the north in that direction.
+~
+~
+0 0 25016
+D1
+The courtyard runs to the east in that direction.
+~
+~
+0 0 25014
+D3
+An entry way can be seen in that direction.
+~
+~
+0 0 25017
+S
+#25016
+&+yCourt Yard~
+   The courtyard continues on for several hundred feet more ending
+here in the north-west corner of the yard.  Several more flaming trees
+and bushes are here along the palace walls.
+~
+250 167809088 11
+D1
+The courtyard runs to the east from this direction.
+~
+~
+0 0 25013
+D2
+The courtyard runs to the south from this direction.
+~
+~
+0 0 25015
+S
+#25017
+&+yEntry Way~
+   An entryway to the palace is in the wall here, allowing access
+to a flight of glowing, blazing stairs to the west.  The entryway is
+some forty feet high and has intricate carvings set into the glowing
+brass walls.  The heat is still amazing in this place, far hotter still
+then the city was, and much hotter then the plane outside the city.
+~
+250 167809096 11
+D1
+The courtyard can be seen in that direction.
+~
+~
+0 0 25015
+D3
+A landing for a flight of stairs can be seen in that direction.
+~
+~
+0 0 25018
+E
+carvings wall~
+The carvings depict several large Efreeti doing battle with various
+foes.  One Efreeti in general stands out from the rest, he is larger and
+wears some sort of robes, he has the look or nobility about him.
+~
+S
+#25018
+&+yLanding~
+   The landing here gives one an eerie feeling when standing on it
+the floor below seems to be made of some soft  flowing fire-marble
+that shifts and moves making anyone looking at it sick to their
+stomachs within a few moments.  It also feels as if it is moving of its
+own accord while standing on it.
+~
+250 167809096 11
+D1
+The entryway can be seen in that direction.
+~
+~
+0 0 25017
+D4
+The glowing stairs lead upward in that direction.
+~
+~
+0 0 25019
+S
+#25019
+&+yGrand Stairway~
+   A regal grand staircase running up and down here composed
+of moving flames gives one an uneasy feeling as its walked upon.
+~
+250 167809096 11
+D4
+The stairs run up in that direction.
+~
+~
+0 0 25020
+D5
+A large landing can be seen in that direction.
+~
+~
+0 0 25018
+S
+#25020
+&+yGrand Stairway~
+    A regal grand staircase running up and down here composed
+of moving flames gives one an uneasy feeling as its walked upon.
+~
+250 167809096 11
+D4
+The stairs go up in that direction.
+~
+~
+0 0 25021
+D5
+The stairs go down in that direction.
+~
+~
+0 0 25019
+S
+#25021
+&+yGrand Stairway~
+   A regal grand staircase running up and down here composed
+of moving flames gives one an uneasy feeling as its walked upon.
+~
+250 167809096 11
+D4
+The stairs run up in that direction.
+~
+~
+0 0 25022
+D5
+The stairs run down in that direction.
+~
+~
+0 0 25020
+S
+#25022
+&+yGrand Stairway~
+   A regal grand staircase running up and down here composed
+of moving flames gives one an uneasy feeling as its walked upon.
+~
+250 167809096 11
+D1
+A landing can be seen in that direction.
+~
+~
+0 0 25012
+D5
+~
+~
+0 0 25021
+S
+#25023
+&+yIntersection on the Grand Stairs~
+   The stairs pause here, and a long hallway can be seen running
+both west and east from here.  This seems to be an intersection for
+various other areas of the palace.  The stairs also continues up from here.
+~
+250 167809096 11
+D1
+A long hallway runs in this direction as far as the eye can see.
+~
+~
+0 0 25024
+D3
+A long hallway runs in this direction as far as the eye can see.
+~
+~
+0 0 25050
+D4
+The stairs continues upload in this direction.
+~
+~
+0 0 25068
+D5
+The stairs continue downwards.
+~
+~
+0 0 25011
+S
+#25024
+&+yLong Hallway~
+   What seems like an endless hallway runs to the east here, the ceiling
+is some fifty feet or more overhead with a curved shape to it.  Red marble
+or a marble like substance composes the floor of this hall, and several
+murals line the walls.  Every so often an arched window, too high for
+a human to see out of is here alone the walls and glowing braziers of
+bright orange fire are set into the walls as well.
+~
+250 167809096 11
+D1
+The hallway continues on to the east.
+~
+~
+0 0 25025
+D3
+The hall leads to the west.
+~
+~
+0 0 25023
+E
+brazier~
+The brazier glows with a magic fire orange in color and is set
+too firmly into the wall to be removed.
+~
+E
+mural~
+The murals here depict various Efreeti doing a number of
+different things, from warfare to social living to some sort of
+odd sporting events.
+~
+E
+window windows arch~
+You cant see out of these windows without flying or levitation spells
+running.  If you could look out of them you would expect to see the city
+or at least palace walls in the distance, perhaps even the courtyard.
+~
+E
+floor marble red down~
+Upon closer inspection you can tell that the floor is indeed made up of
+some sort of smooth rock like substance that gives it a marble look.
+~
+S
+#25025
+&+yLong Hallway~
+   What seems like an endless hallway runs along here to the east and
+west.  The ceiling is some fifty feet or more overhead with a curved shape
+to it.  Red marble or a marble like substance composes the floor of this
+hall, and several murals line the walls.  Every so often an arched window,
+too high for a human to see out of is here alone the walls and glowing
+braziers of bright orange fire are set into the walls as well.
+~
+250 167809096 11
+D1
+The hallway continues on to the east.
+~
+~
+0 0 25026
+D3
+The hall leads to the west.
+~
+~
+0 0 25024
+E
+brazier~
+The brazier glows with a magic fire orange in color and is set
+too firmly into the wall to be removed.
+~
+E
+mural~
+The murals here depict various Efreeti doing a number of
+different things, from warfare to social living to some sort of
+odd sporting events.
+~
+E
+window windows arch~
+You cant see out of these windows without flying or levitation spells
+running.  If you could look out of them you would expect to see the city
+or at least palace walls in the distance, perhaps even the courtyard.
+~
+E
+floor marble red down~
+Upon closer inspection you can tell that the floor is indeed made up of
+some sort of smooth rock like substance that gives it a marble look.
+~
+S
+#25026
+&+yLong Hallway~
+   What seems like an endless hallway runs to along here, the ceiling
+is some fifty feet or more overhead with a curved shape to it.  Red marble
+or a marble like substance composes the floor of this hall, and several
+murals line the walls.  Every so often an arched window, too high for
+a human to see out of is here alone the walls and glowing braziers of
+bright orange fire are set into the walls as well.
+~
+250 167809096 11
+D1
+The hallway continues on to the east.
+~
+~
+0 0 25027
+D3
+The hall leads to the west.
+~
+~
+0 0 25025
+E
+brazier~
+The brazier glows with a magic fire orange in color and is set
+too firmly into the wall to be removed.
+~
+E
+mural~
+The murals here depict various Efreeti doing a number of
+different things, from warfare to social living to some sort of
+odd sporting events.
+~
+E
+window windows arch~
+You cant see out of these windows without flying or levitation spells
+running.  If you could look out of them you would expect to see the city
+or at least palace walls in the distance, perhaps even the courtyard.
+~
+E
+floor marble red down~
+Upon closer inspection you can tell that the floor is indeed made up of
+some sort of smooth rock like substance that gives it a marble look.
+~
+S
+#25027
+&+yIntersection in the Hallway~
+   What seems like an endless hallway runs to the east here as well
+but this time it branches to the north and south.  The ceiling is some
+fifty feet or more overhead with a curved shape to it.  Red marble
+or a marble like substance composes the floor of this hall, and several
+murals line the walls.  Every so often an arched window, too high for
+a human to see out of is here alone the walls and glowing braziers of
+bright orange fire are set into the walls as well.
+~
+250 167809096 11
+D0
+The hallway continues on to the north.
+~
+~
+0 0 25032
+D2
+The hallway continues on to the south.
+~
+~
+0 0 25028
+D3
+The hall leads to the west.
+~
+~
+0 0 25026
+E
+brazier~
+The brazier glows with a magic fire orange in color and is set
+too firmly into the wall to be removed.
+~
+E
+mural~
+The murals here depict various Efreeti doing a number of
+different things, from warfare to social living to some sort of
+odd sporting events.
+~
+E
+window windows arch~
+You cant see out of these windows without flying or levitation spells
+running.  If you could look out of them you would expect to see the city
+or at least palace walls in the distance, perhaps even the courtyard.
+~
+E
+floor marble red down~
+Upon closer inspection you can tell that the floor is indeed made up of
+some sort of smooth rock like substance that gives it a marble look.
+~
+S
+#25028
+&+yLong Hallway~
+   The hallway runs to the south and north here.  Strange sounds the
+likes of which mortal man has seldom if ever heard can be detected
+coming from the south.
+~
+250 167809100 11
+D0
+To the north the hallway continues.
+~
+~
+0 0 25027
+D2
+A set of huge metallic double doors are to the south here.
+~
+door doors metallic double~
+1 0 25029
+E
+door double doors~
+The doors are some twenty five feet high and seem to be made of
+some sort of polished brass with relief's of great Efreeti warriors
+doing battle.  Huge brass rings are set in the doors about 8 feet up
+that look as if they might be pulled by a strong person.
+~
+S
+#25029
+&+yWarriors Lounge~
+   This huge room some one hundred feet in diameter contains several
+practice dummies of enormous size, strange looking devices that float in
+and about the room darting here and there seem to move with a will
+of their own.  Huge benches and tables are also here with several chairs
+mats and other items that depict this as some sort of lounge or training
+room used by the Efreeti warriors.
+~
+250 167809096 11
+D0
+The hallway can be seen in that direction.
+~
+door~
+1 0 25028
+D1
+The room continues on in that direction.
+~
+~
+0 0 25030
+D2
+A large metal door is in that direction.
+~
+door metal~
+2 25010 25031
+E
+door~
+The door looks almost cold next to the rest of the doors you have
+seen in this place.  A rather large key-hole is donated about 10 feet up.
+~
+S
+#25030
+&+yEfreeti Royal Training Room~
+   This room, even larger the one previous contains more of the odd
+training devices that dart in and out all over and about the heads of
+anyone here, some of them seem to be firing rays of some sort at the
+various points of lights that can be seen on the walls.....some sort of
+reflecting pads perhaps.
+~
+250 167809096 11
+D3
+The room heads back out in this direction.
+~
+~
+0 0 25029
+S
+#25031
+&+yArmory~
+   The palace armory is here, holding all sorts of oversized swords,
+daggers, clubs, maces, battle-axes full suits of armor mostly brass and
+bronze, shield of all types.  Most of the weapons, armor and shield are
+far too large to be usable by humans or anyone not of this plane for that
+matter.
+~
+250 167809096 11
+D0
+The doorway leads back to the lounge.
+~
+door doors~
+2 25010 25029
+S
+#25032
+&+yLong Hallway~
+   What seems like an endless hallway runs to along here, the ceiling
+is some fifty feet or more overhead with a curved shape to it.  Red marble
+or a marble like substance composes the floor of this hall, and several
+murals line the walls.  Every so often an arched window, too high for
+a human to see out of is here alone the walls and glowing braziers of
+bright orange fire are set into the walls as well.
+~
+250 167809096 11
+D0
+Looking north you see the hall continue.
+~
+~
+0 0 25042
+D1
+Looking east the hall goes on.
+~
+~
+0 0 25033
+D2
+Looking south you see the hall continue
+~
+~
+0 0 25027
+S
+#25033
+&+yIntersection in the Long Hallway~
+   Large rooms of flame can be seen to the north and south from here
+and the hall continues to the east and west.
+~
+250 167809096 11
+D0
+You see a large room in that direction.
+~
+~
+0 0 25041
+D1
+The hall goes onward in that direction.
+~
+~
+0 0 25034
+D2
+You see a large room in that direction.
+~
+~
+0 0 25038
+D3
+You see the hall running to the west in that direction.
+~
+~
+0 0 25032
+S
+#25034
+&+yIntersection in the Long Hall~
+  Large flaming doors can be seen to the west, and two large rooms are
+north and south.
+~
+250 167809096 11
+D0
+The a large room can be seen in that direction.
+~
+~
+0 0 25040
+D1
+There is a huge glowing door here, bigger the any you have seen so far
+in this part of the palace.
+~
+door glowing huge~
+2 25011 25035
+D2
+There is a large room in that direction.
+~
+~
+0 0 25037
+D3
+The hall keeps going in that direction.
+~
+~
+0 0 25033
+S
+#25035
+&+yChief Guards Room~
+   A huge pile of pillows is in the center of this massive room.  Glowing orbs
+are suspended in mid-air and braziers of incense are smoking here.  A huge
+two handed sword is on the far wall along with a massive window that over
+looks the city.  This room is obviously used by someone of some importance.
+~
+250 167809096 11
+D3
+A huge glowing door is in that direction.
+~
+door glowing huge~
+2 25011 25034
+E
+sword huge two-handed~
+this sword is massive in size, made for someone FAR larger then
+a human.  It has runes along the blade and gives off heat in a radius
+of some twenty feet.
+~
+S
+#25036
+&+yBarracks~
+   This large room contains several floating fiery bunks.  It looks like
+this room is used by the palace guards for sleeping.
+~
+250 167809096 11
+D3
+You can see another barracks room in that direction.
+~
+~
+0 0 25037
+S
+#25037
+&+yBarracks~
+   This large room contains several floating fiery bunks.  It looks like
+this room is used by the palace guards for sleeping.
+~
+250 167809096 11
+D0
+You can see the hallway in that direction.
+~
+~
+0 0 25034
+D1
+The barracks continue in that direction.
+~
+~
+0 0 25036
+D3
+You can see another barracks room in that direction.
+~
+~
+0 0 25038
+S
+#25038
+&+yBarracks~
+   This large room contains several floating fiery bunks.  It looks like
+this room is used by the palace guards for sleeping.
+~
+250 167809096 11
+D0
+You can see the hallway in that direction.
+~
+~
+0 0 25033
+D1
+You can see another barracks room in that direction.
+~
+~
+0 0 25037
+S
+#25039
+&+yBarracks~
+   This large room contains several floating fiery bunks.  It looks like
+this room is used by the palace guards for sleeping.
+~
+250 167809096 11
+D3
+You can see another barracks room in that direction.
+~
+~
+0 0 25040
+S
+#25040
+&+yBarracks~
+   This large room contains several floating fiery bunks.  It looks like
+this room is used by the palace guards for sleeping.
+~
+250 167809096 11
+D1
+You can see another barracks in that direction.
+~
+~
+0 0 25039
+D2
+You can see the hall in that direction.
+~
+~
+0 0 25034
+D3
+You can see another barracks room in that direction.
+~
+~
+0 0 25041
+S
+#25041
+&+yBarracks~
+   This large room contains several floating fiery bunks.  It looks like
+this room is used by the palace guards for sleeping.
+~
+250 167809096 11
+D1
+You can see another barracks in that direction.
+~
+~
+0 0 25040
+D2
+You can see the hall in that direction.
+~
+~
+0 0 25033
+D3
+You can see the hall in that direction.
+~
+~
+0 0 25042
+S
+#25042
+&+yIntersection~
+   The hall runs north south east and west here, to the north
+you see a  flight of stairs running up.  To the south the hall
+continues, and to the west is another locked door.   To the east
+is another guard barracks.
+~
+250 167809096 11
+D1
+More barracks can be seen that way.
+~
+~
+0 0 25041
+D2
+The hall runs to the south that way.
+~
+~
+0 0 25032
+D3
+A door of some sort of dark metal is that way.
+~
+door dark metal~
+2 25012 25043
+D4
+You see a small flight of stairs in that direction.
+~
+~
+0 0 25047
+S
+#25043
+&+ySlave Quarters~
+   A dark grungy room filled with slaves of all types native
+to this plane is here.  You can see all sorts of cots, beds, mats
+and other sleeping places in this huge room which spans well
+over five hundred feet in size.
+~
+250 167809096 11
+D1
+The hall is in that direction.
+~
+door~
+2 25012 25042
+D2
+Another slave room is in that direction.
+~
+door~
+2 25012 25044
+D3
+Another dark metal door is in that direction.
+~
+door metal dark~
+2 25013 25046
+S
+#25044
+&+ySlave Quarters~
+   A dark grungy room filled with slaves of all types native
+to this plane is here.  You can see all sorts of cots, beds, mats
+and other sleeping places in this huge room which spans well
+over five hundred feet in size.
+~
+250 167809096 11
+D0
+The other slave chamber is in that direction.
+~
+door~
+2 25012 25043
+S
+#25045
+&+yTorture Chamber~
+   All manner of torture devices are in this room, of all sizes
+shapes and colors.  There are racks, iron maidens wall chains
+and a host of other devices the likes of which are not to be found
+in the realms of mankind.
+~
+250 167809096 11
+D0
+~
+~
+0 0 25046
+E
+iron maiden~
+This looks like your typical iron made found on earth, only there are
+several of them of all sizes and various body molds.
+~
+E
+rack~
+The racks in this room are like those of earth only they seem to
+be of various sizes to fit the odd body shapes of the natives of
+this plane.
+~
+S
+#25046
+&+yPrison~
+   This room hold those slaves who have been less then co-operative
+some of them seem to be in trance like states, others look around
+with surprised looks on their faces.
+~
+250 167809096 11
+D1
+The doorway is in that direction.
+~
+door~
+2 25013 25043
+D2
+The torture chamber is in that direction.
+~
+~
+0 0 25045
+S
+#25047
+&+yAir Patrol Guard Room~
+   This room is where the guards of the watch stand who control
+the flying mounts of that guard the palace and city of brass.
+Anyone coming in here had better have an invitation or a death wish.
+~
+250 167809096 11
+D4
+An odd smell comes from that direction.
+~
+~
+0 0 25048
+D5
+The stairs lead down in that direction.
+~
+~
+0 0 25042
+S
+#25048
+&+yFlying Mount Pen~
+   This room hold the various flying mouths used by the elite
+guards of the palace and city of brass.  The horrid smells of
+strange beast almost overwhelms anyone who enters.
+~
+250 167809096 11
+D4
+A landing pad can be seen in that direction.
+~
+~
+0 0 25049
+D5
+The guards room is back down that way.
+~
+~
+0 0 25047
+S
+#25049
+&+yLanding Pad~
+   This landing pad is used by the flying mouths of the city a fantastic
+view of the palace and east side of the city can be seen from here
+this room is well over five hundred feet in the sky.  Various devices
+used to hitch monsters that fly are here as well.
+~
+250 167809096 11
+D5
+The mount pen is back down that way.
+~
+~
+0 0 25048
+S
+#25050
+&+yLong Hallway~
+   What seems like an endless hallway runs along here to the east and
+west.  The ceiling is some fifty feet or more overhead with a curved shape
+to it.  Red marble or a marble like substance composes the floor of this
+hall, and several murals line the walls.  Every so often an arched window,
+too high for a human to see out of is here alone the walls and glowing
+braziers of bright orange fire are set into the walls as well.
+~
+250 167809096 11
+D1
+The intersection is in that direction.
+~
+~
+0 0 25023
+D3
+The hall continues in that direction.
+~
+~
+0 0 25051
+S
+#25051
+&+yLong Hallway~
+   What seems like an endless hallway runs along here to the east and
+west.  The ceiling is some fifty feet or more overhead with a curved shape
+to it.  Red marble or a marble like substance composes the floor of this
+hall, and several murals line the walls.  Every so often an arched window,
+too high for a human to see out of is here alone the walls and glowing
+braziers of bright orange fire are set into the walls as well.
+~
+250 167809096 11
+D1
+The hall runs to the east in that direction.
+~
+~
+0 0 25050
+D3
+The hall runs to the west in that direction.
+~
+~
+0 0 25052
+S
+#25052
+&+yLong Hallway~
+   What seems like an endless hallway runs along here to the east and
+west.  The ceiling is some fifty feet or more overhead with a curved shape
+to it.  Red marble or a marble like substance composes the floor of this
+hall, and several murals line the walls.  Every so often an arched window,
+too high for a human to see out of is here alone the walls and glowing
+braziers of bright orange fire are set into the walls as well.
+~
+250 167809096 11
+D1
+The hall runs to the east in that direction.
+~
+~
+0 0 25051
+D3
+The hall runs to the west in that direction.
+~
+~
+0 0 25053
+S
+#25053
+&+yLong Hallway~
+   What seems like an endless hallway runs along here to the east and
+west.  The ceiling is some fifty feet or more overhead with a curved shape
+to it.  Red marble or a marble like substance composes the floor of this
+hall, and several murals line the walls.  Every so often an arched window,
+too high for a human to see out of is here alone the walls and glowing
+braziers of bright orange fire are set into the walls as well.
+~
+250 167809096 11
+D1
+The hall runs to the east that way.
+~
+~
+0 0 25052
+D3
+The hall runs to the west in that direction.
+~
+~
+0 0 25054
+S
+#25054
+&+yLong Hallway~
+   What seems like an endless hallway runs along here to the east and
+west.  The ceiling is some fifty feet or more overhead with a curved shape
+to it.  Red marble or a marble like substance composes the floor of this
+hall, and several murals line the walls.  Every so often an arched window,
+too high for a human to see out of is here alone the walls and glowing
+braziers of bright orange fire are set into the walls as well.
+~
+250 167809096 11
+D1
+The hall runs to the east in that direction.
+~
+~
+0 0 25053
+D3
+The hall runs to the west in that direction.
+~
+~
+0 0 25055
+S
+#25055
+&+yLong Hallway~
+   What seems like an endless hallway runs along here to the east and
+west.  The ceiling is some fifty feet or more overhead with a curved shape
+to it.  Red marble or a marble like substance composes the floor of this
+hall, and several murals line the walls.  Every so often an arched window,
+too high for a human to see out of is here alone the walls and glowing
+braziers of bright orange fire are set into the walls as well.
+~
+250 167809096 11
+D0
+The hall runs to the north in that direction.
+~
+~
+0 0 25056
+D1
+The hall runs to the east in that direction.
+~
+~
+0 0 25054
+S
+#25056
+&+yLong Hallway~
+   What seems like an endless hallway runs along here to the east and
+west.  The ceiling is some fifty feet or more overhead with a curved shape
+to it.  Red marble or a marble like substance composes the floor of this
+hall, and several murals line the walls.  Every so often an arched window,
+too high for a human to see out of is here alone the walls and glowing
+braziers of bright orange fire are set into the walls as well.
+~
+250 167809096 11
+D0
+The hall runs to the north in that direction.
+~
+~
+0 0 25057
+D2
+The hall runs to the south in that direction.
+~
+~
+0 0 25055
+S
+#25057
+&+yIntersection in the Hallway~
+  The hallway turns here to the east, and also goes to the north where it ends
+at a door.  Another larger door can be seen in the distance to the east.
+~
+250 167809096 11
+D0
+A large door can be seen in that direction.
+~
+door doors large~
+1 0 25064
+D1
+The hall keeps going in that direction.
+~
+~
+0 0 25058
+D2
+The hallway continues.
+~
+~
+0 0 25056
+S
+#25058
+&+yLong Hallway~
+   The hallway ends here at a huge door made of solid purple flames.
+some soft of royal seal is emblazed on the door, and a rather large
+ornate keyhole is also on the door.
+~
+250 167809096 11
+D1
+A huge flaming door is there.
+~
+huge flaming door door~
+2 25014 25059
+D3
+The hall runs back to the west in that direction.
+~
+~
+0 0 25057
+E
+door~
+The door seems to radiate with power as well as give off intense heat
+far more so then normal for this plane.
+~
+S
+#25059
+&+yGrand Foyer~
+   This room is very large, very hot and contains all several large bench
+type seats.  It would seem that it is a waiting room of sorts for those who
+have business with whoever is in the next room.  Another door can be
+seen to the east, this one of the same color as the last, with the same odd
+seal upon it.
+~
+250 167809096 11
+D1
+You see the doorway in that direction.
+~
+door doorway~
+1 0 25060
+D3
+The door can be seen in that direction.
+~
+door doorway~
+2 25014 25058
+S
+#25060
+&+yPadashaw's Room~
+   This immense room obviously belongs to a god, at least that is the
+impression anyone would get from walking in here.  Huge flaming columns
+of purple and blue flames run well over one hundred feet from floor to ceiling
+and an air of energy can be felt everywhere in here.  The floor is of polished
+brass and there is a huge rounded window overlooking the courtyard and
+fountains.  The ceiling has various paintings on it, depicting all sorts of efreeti
+activities, these seem far less warlike the those enchanted elsewhere in the
+palace.  A bejeweled throne is in the far eastern part of the room.
+~
+250 167809096 11
+D0
+~
+~
+0 0 25061
+D3
+The door leads back out in that direction.
+~
+door~
+1 0 25059
+S
+#25061
+&+yPadashaw's Bedroom~
+   This bedroom is lavishly furnished, with a huge flaming bed and
+a pile of fiery pillows to go along with it.  A mirrored wall allows the
+Padashaw to gaze upon himself at will.  There is a huge glowing brass
+chest in the corner and a dresser in another.  Several paintings hang on
+the walls....obviously not your normal sort of paintings, they depict the
+Padashaw in various acts of battle, love making and pageantry.
+~
+250 167809096 11
+D2
+You can see a room in that direction.
+~
+~
+0 0 25060
+D3
+A door is in that direction.
+~
+~
+0 0 25062
+E
+dresser~
+This lavish dresser has a large drawer with a lock on it.
+~
+E
+painting~
+The paintings are all oversized and lavish, they seem to be composed
+of some sort of strange oils, that obviously are not affected by the intense
+heat of this plane.
+~
+E
+chest~
+The chest is about 3x3x3 and is made of solid brass.
+~
+S
+#25062
+&+yThe Harem~
+   Several pillows of flame are all about the floor, in fact on closer
+inspection the floor itself is made up of several pillow-like mats or
+other similar material.  There are small rooms inside this one, where
+the ladies must live when they are not attending to the needs of the royal
+family here.  All sorts of love-making paraphernalia lies around in here, none
+of which looks usable by humans.  A small fountain is in the center of this
+two hundred plus foot room.
+~
+250 167809096 11
+D1
+Another room is in that direction.
+~
+~
+0 0 25061
+D3
+A large pool can be seen in that direction.
+~
+~
+0 0 25063
+S
+#25063
+&+yPool of Scrying~
+   A large pool of flaming water is here.  It gives off an almost cool
+wave of energy, at least cool by the standards of the rest of this place
+and it looks as if one can see far beyond the flames alone when looking
+at the pool.
+~
+250 167809096 11
+D1
+A large room is in that direction.
+~
+~
+0 0 25062
+D3
+The guard room can be seen in that direction.
+~
+~
+0 0 25064
+E
+pool scrying~
+Looking into this pool allows you to see far into the plane of fire
+you see all sorts of twisting shapes and being of strange configurations
+floating, walking and otherwise roaming about the various area of the
+elemental plane of fire.  After waiting a few seconds the scene shifts to
+another location on the plane.
+~
+S
+#25064
+&+yGuards Room~
+   This is the guards room where the contingent of guards that protect
+the padashaw and the harem and caliph are.  It might not be a wise idea
+to hang out in this room too long.
+~
+250 167809096 11
+D0
+A large glowing door is in that direction.
+~
+door glowing~
+1 0 25065
+D1
+A huge glowing pool of fire can be seen in that direction.
+~
+~
+0 0 25063
+D2
+The hall can be seen in that direction.
+~
+door~
+1 0 25057
+S
+#25065
+&+yThe Amirs Outer Chamber~
+   This huge chamber seems to be used as a waiting room, perhaps
+for those who have business with the Amir.  Grand bookshelves line the
+walls and a huge spinning globe of the plane sits on a dais in the center
+of the room.  A large door to the east and south can be seen as well.
+~
+250 167805120 11
+D1
+A large door can be seen in that direction.
+~
+door large~
+2 25015 25066
+D2
+The guards room can be seen in that direction when the door is open.
+~
+door~
+1 0 25064
+E
+globe~
+This globe looks like a layout for the entire plane of fire.
+it seems to take forever to spin totally around and great landmarks,
+of all sorts can be seen on its surface.
+~
+E
+book bookshelf~
+Strange glowing books of all sorts are here they are all out of your reach
+unless under the effect of a fly or levitate spell.
+~
+E
+door~
+The door seems to be made up of the now familiar solid flame.
+~
+S
+#25066
+&+yAmir's Main Chamber~
+   This is the Amir's main room, where he sees all those who have
+appointments with him.  Anyone who does not have one, he tends to
+eat for lunch, dinner or breakfast depending in the time of day when
+the intrusion occurs.
+~
+250 167809096 11
+D1
+There is a closed door in that direction.
+~
+door closed~
+1 0 25067
+D3
+The door to the outer chamber is in that direction.
+~
+door~
+2 25015 25065
+S
+#25067
+&+yAmir's Spiritual Meditation Room~
+   This is obviously where the Amir goes to meditate or perhaps just get
+away from it all.  A full bedroom setup is here, as well as several more
+bookshelves and a huge window overlooking the courtyard.  A statue to
+some sort of god-like being can be seen here in the center of the room it
+seems to glow with a life all its own.
+~
+250 167809096 11
+D0
+~
+door secret~
+1 0 25098
+D3
+A doorway is in that direction.
+~
+door doorway~
+1 0 25066
+E
+statue god~
+This is a statue of a flaming god, obviously worshipped by the efreeti.
+he seems to be nothing more then a column of flames and two massive
+arms and a head with eyes only.
+~
+S
+#25068
+&+yGrand Stairway~
+   This stairway is much like the one before, only is far larger in its
+height and width.  The stairs take on an almost flowing like quality to them
+and the heat seems to be more intense here.
+~
+250 167809096 11
+D2
+The stairs lead down in that direction.
+~
+~
+0 0 25023
+D4
+The stairs keep going up in that direction.
+~
+~
+0 0 25069
+D5
+The stairs continue downward in that direction.
+~
+~
+0 0 25023
+S
+#25069
+&+yGrand Hallway~
+   This hallway is FAR larger then the one on the lower level, it has huge
+supporting columns all along its length, no windows can be seen here, and
+the floor takes on a pure brass nature.  The hall runs in two directions here
+and seem to be lit from a nature light source set into the walls themselves.
+~
+250 167809096 11
+D0
+The hall keeps going in that direction.
+~
+~
+0 0 25070
+D5
+The stairs can be seen in that direction.
+~
+~
+0 0 25068
+S
+#25070
+&+yGrand Hallway~
+   This hallway is FAR larger then the one on the lower level, it has huge
+supporting columns all along its length, no windows can be seen here, and
+the floor takes on a pure brass nature.  The hall runs in two directions here
+and seem to be lit from a nature light source set into the walls themselves.
+~
+250 167809096 11
+D0
+The hall keeps going in that direction.
+~
+~
+0 0 25071
+D2
+The hall runs to the south in that direction.
+~
+~
+0 0 25069
+S
+#25071
+&+yGrand Hallway~
+   This hallway is FAR larger then the one on the lower level, it has huge
+supporting columns all along its length, no windows can be seen here, and
+the floor takes on a pure brass nature.  The hall runs in two directions here
+and seem to be lit from a nature light source set into the walls themselves.
+~
+250 167809096 11
+D0
+The hall runs to the north in that direction.
+~
+~
+0 0 25072
+D2
+The hall runs to the south in that direction.
+~
+~
+0 0 25070
+S
+#25072
+&+yIntersection in the Grand Hallway~
+   The hallway runs in four directions here.  The larger hallway is to the
+north and south, while somewhat smaller hallways run to the east and
+west.
+~
+250 167809096 11
+D0
+The hall runs to the north there.
+~
+~
+0 0 25085
+D1
+The east hallway is in that direction.
+~
+~
+0 0 25073
+D2
+The great hallway runs in that direction.
+~
+~
+0 0 25071
+D3
+The west hallway is in that direction.
+~
+~
+0 0 25088
+S
+#25073
+&+yEast Hallway~
+   The hallway here runs to the east, west and north.  A large hall like the
+one to the west can be seen to the north, a somewhat smaller hallway
+like this one continues to the east.  This hall does not seem quite as large
+as the one to the west, but it is still far larger then those on the lower level.
+~
+250 167809096 11
+D0
+The great hallway picks up again in that direction.
+~
+~
+0 0 25084
+D1
+The east hall runs in that direction.
+~
+~
+0 0 25074
+D3
+The great hallway is in that direction.
+~
+~
+0 0 25072
+S
+#25074
+&+yEast Hallway~
+   The hallway here breaks to the north as well as continuing to run
+east.
+~
+250 167809096 11
+D0
+Twin double glowing brass doors can be seen in that direction.
+~
+door brass doors~
+1 0 25081
+D1
+The hall keeps going in that direction.
+~
+~
+0 0 25075
+D3
+The hall runs to the west in that direction.
+~
+~
+0 0 25073
+S
+#25075
+&+yEast Hallway~
+   The hallway turns here to the north, where it becomes a flight of stairs
+leading upward.  It also runs to the west.
+~
+250 167809096 11
+D3
+The hall runs west in that direction.
+~
+~
+0 0 25074
+D4
+The stairs run up in that direction.
+~
+~
+0 0 25076
+S
+#25076
+&+yUpper Stairway~
+  These smaller stairs run up and down here, and a single large door
+can be entered here to the west.
+~
+250 167809096 11
+D3
+A large door can be seen in that direction.
+~
+door large~
+1 0 25081
+D4
+The stairs go up that way.
+~
+~
+0 0 25077
+D5
+The stairs lead down to the east hall in that direction.
+~
+~
+0 0 25075
+S
+#25077
+&+yUpper Stairway~
+   The stairs continue on here running up and down.
+~
+250 167809096 11
+D4
+You see a somewhat small archway at the top of the stairs.
+~
+~
+0 0 25078
+D5
+The stairs go down in that direction.
+~
+~
+0 0 25076
+S
+#25078
+&+yTower of Prayer~
+   You go though a large archway here at the top of the stairs and come
+into a huge domed room some three hundred feet high.  Glowing spinning
+globs of fire in a multitude of colors float in the air at different levels.
+Efreeti holy symbols are etched in flame on the walls here, and far up in
+the domed ceiling there is a somewhat clear glass-like substance that gives
+off a rainbow of light.  An archway can be seen to the south and a small
+flight of stairs beyond that.
+~
+250 167809096 11
+D4
+An archway can be seen in that direction.
+~
+~
+0 0 25105
+D5
+The stairs go down in that direction.
+~
+~
+0 0 25077
+S
+#25079
+&+yTop of the Tower of Prayer~
+   This huge domed room is some five hundred feet in diameter
+the ceiling is some out hundred feet high and a huge statue of
+Kossuth the tyrant king, supreme rules of the elemental plane of fire.
+The statue is over one hundred feet tall, is immersed in living flames
+and the eyes seem to have a life like quality to them.  A huge glowing
+window set in the far eastern wall spews forth fire every ten seconds
+covering the room in fire.  The heat in this room is intense and even
+your much vaunted fire protection seems to be of little use in this place.
+~
+250 167809096 11
+D5
+The room curves downward in that direction.
+~
+~
+0 0 25080
+E
+statue kossuth god fire~
+The mighty god Kossuth's statue seems to look down at you though
+blazing eyes of fire that cause a chill to come over you even here in
+this place of endless heat.  His face and arms are the only semi-human
+like features of him, the rest of his body is nothing more then pure fire.
+He hold a scepter of some sort in his right hand, while his other hand
+is outstretched pointing downward at you.  You feel fear race though your
+body and you have the urge to flee at once least this gods gaze burn you
+alive where you stand.
+~
+E
+window~
+Fire shoots forth from this window every ten seconds engulfing the entire
+room in flames.  The far eastern wall of the city of brass can be seen in
+between these burst of flames.
+~
+S
+#25080
+&+yHigh Priest Chamber~
+   The high-priest of all efreeti lives in this room, a magnificent throne
+is here with a crest of flame behind it.  Several smaller chairs are set up
+in front of the throne and the never ending gaze of Kossuth looks down
+at all who enter from above the mighty throne.  The room slops upwards
+to the north, and shooting flames can be seen in that direction from time
+to time.  Strange books seem to float in the air, opening and closing
+by themselves.  More floating globes of various colors dance here and
+there around the room, giving off a rainbow of colors.
+~
+250 167809096 11
+D3
+Another room can be seen in that direction.
+~
+door~
+1 0 25105
+D4
+The room slopes upload in that direction.
+~
+~
+0 0 25079
+S
+#25081
+&+yGrand Library~
+   This massive room hold hundreds of thousands of metallic books
+of all sizes shapes and colors.  Several desks and tables are set up
+in here as well.  The library continues to the north from here and seems
+to be almost without end.  A huge globs of the plane of fire sets in the
+center of the room slowly rotating.  Never showing the same place
+twice, almost as if there is no end the this plane.
+~
+250 167809096 11
+D0
+The library continues in that direction.
+~
+~
+0 0 25082
+D1
+The stairs are in that direction.
+~
+door~
+1 0 25076
+D2
+The east hallway can be seen in that direction.
+~
+door~
+1 0 25074
+D3
+The grand hall is in that direction.
+~
+~
+0 0 25084
+E
+globe~
+This globe spins endlessly here, ever rotating but never showing the
+same place twice.  It becomes clear after a few hours of viewing that
+this is indeed a globe without end as the elemental plane of fire has no
+end and thus neither does this globe.
+~
+E
+book books~
+the books in this room burn your hands when you try to open then
+up or touch them.  There are hundred of thousands of them here, bit for
+some reason you cant seen to torch them for more then a few seconds
+before they burn you.  The words written on the few that you get open make
+no sense to you at all.
+~
+S
+#25082
+&+yGrand Library~
+    This massive room hold hundreds of thousands of metallic books
+of all sizes shapes and colors.  Several desks and tables are set up
+in here as well.  The library continues to the south from here and seems
+to be almost without end.
+~
+250 167809096 11
+D2
+The library keeps going to the south in that direction.
+~
+~
+0 0 25081
+D3
+A guard room is in that direction.
+~
+~
+0 0 25083
+E
+book books~
+the books in this room burn your hands when you try to open then
+up or touch them.  There are hundred of thousands of them here, bit for
+some reason you cant seen to torch them for more then a few seconds
+before they burn you.  The words written on the few that you get open make
+no sense to you at all.
+~
+S
+#25083
+&+yRoyal Palace Guard Room~
+   This room houses the Sultans person guard, ever ready to defend
+the all powerful sultan from attacks the guards must never sleep for
+no beds of any type can be seen in this room.  Only massive glowing
+weapons of all sorts can be seen here, along with strange indentations
+in the west wall.
+~
+250 167809096 11
+D1
+The library is in that direction
+~
+~
+0 0 25082
+D2
+The grand hallway is in that direction.
+~
+~
+0 0 25084
+S
+#25084
+&+yGrand Hallway~
+   The grand hallway continues here and ends at the entrance to the library
+to the east, another room can be seen to the north and the east hall is to
+the south.  To the west, the grand hallway continues.
+~
+250 167809096 11
+D0
+Another room can be seen in that direction.
+~
+~
+0 0 25083
+D1
+The grand library is in that direction.
+~
+~
+0 0 25081
+D2
+The east hall is there.
+~
+~
+0 0 25073
+D3
+The grand hallway keeps going in that direction.
+~
+~
+0 0 25085
+S
+#25085
+&+yIntersection in the Grand Hallway~
+   The grand hallway splits here, running to the east and west.  A massive
+set of double rooms, made of solid brass is to the north, with huge glowing
+bands of power around them.
+~
+250 167809096 11
+D0
+A set of massive double doors can be seen in that direction.
+~
+door doors massive double~
+3 25016 25086
+D1
+The grand hallway keep going in that direction.
+~
+~
+0 0 25084
+D2
+The grand hallway keeps going in that direction.
+~
+~
+0 0 25072
+D3
+The grand hallway keeps going in that direction.
+~
+~
+0 0 25089
+E
+door double great~
+These doors are massive, well over five hundred feet tall and look like
+solid brass twenty feet thick or more.  Brass relief's are set into them
+and there are strange glowing bands of power that encircle them.
+~
+S
+#25086
+&+yThrone Room of the Sultan~
+   This massive room some one thousand feet square contains the throne
+of the mighty Sultan of all the efreeti.  Shadam Quilen, rules here from
+his massive glowing throne of solid brass.  There is a huge statue of
+Kossuth here, bending down to set the crown of might upon Shadam's
+head.  Massive supporting columns of brass and fire hold the huge vaulted
+ceiling up high above.  Balconies overlook the grand floor from on high
+and the ever present royal guard of the Sultan are here in force.  Huge
+murals depicting Shadam and his family attending affairs of state as well
+as battles personally lead by the sultan himself are hung on the walls here.
+The floor is of polished brass, and this entire room glows with a radiance
+that causes pain to any who stand within that are not of this plane.
+A vast table set with foods of all sorts is also within.  The heat in this room
+is far greater then anywhere else in the palace, anything not protected from
+magic fire would burst into flame and melt or dissolve in an instant.
+~
+250 167809096 11
+D0
+&+yThese gleaming doors of burning brass lead to the sultan's
+&+yprivate treasure trove!&N
+~
+door kossuth~
+3 25019 25087
+D2
+The huge doors can be seen in that direction.
+~
+doors huge glowing~
+3 25016 25085
+E
+throne~
+This mighty throne of solid brass is over fifty feet high and some twenty five
+feet across.  A huge glowing gemstone is set on the high back and some
+sort of pillow like substance covers the seat.
+~
+E
+table food~
+A huge table set with all manor of food is here.
+~
+E
+statue kossuth god~
+This statue some fifty feet high and made of solid brass depicted
+Shadam being crowned Sultan of all the efreeti by the god himself.
+~
+S
+#25087
+&+yTreasure Room of the Efreeti~
+   This massive room holds the combined hoard of the efreeti ruling
+family.  gold, silver, platinum, gems of all sizes shapes and colors as
+well as art works and magic items are here on selves, the floor and in
+other containers.
+~
+250 167809096 0
+D2
+~
+door kossuth vault~
+3 25019 25086
+S
+#25088
+&+yWest Hallway~
+   The hallway runs west to east in this direction and also breaks off to
+the north here.  This hall is somewhat smaller then the previous, but
+still far larger then the ones of the lower level.  Several huge windows
+can be seen some twenty feet off the floor, and the entire hall seems to
+be lit by magic light from somewhere above.
+~
+250 167809096 11
+D0
+The great hall can be seen in that direction.
+~
+~
+0 0 25089
+D1
+The intersection is in that direction.
+~
+~
+0 0 25085
+D3
+The west hall keeps going in that direction.
+~
+~
+0 0 25095
+S
+#25089
+&+yGreat Hallway~
+   The great hallway continues here running east to west, it also ends in
+a set of double doors to the north.
+~
+250 167809096 11
+D0
+There are a set of unlocked double doors in that direction.
+~
+doors unlocked~
+1 0 25090
+D1
+The grand hall continues in that direction.
+~
+~
+0 0 25085
+D2
+The west hall is in that direction.
+~
+~
+0 0 25088
+D3
+The grand hallway runs in that direction.
+~
+~
+0 0 25094
+E
+door double doors~
+a set of brass double doors are there.  They seem to be opened
+by pushing on them.
+~
+S
+#25090
+&+yDinning Room~
+   This is the grand dinning room of the Sultan.  A massive table some
+five hundred feet long and made of solid brass in here set with enough
+place settings to feed an army.  All sorts of odd food can be seen on
+that table, as well as fancy table arrangements.   The smell in this room
+makes one hungry.
+~
+250 167804992 11
+D0
+The door to the kitchen is in that direction.
+~
+door~
+1 0 25091
+D2
+The doors leading to the grand hallway are that way.
+~
+doors~
+1 0 25089
+E
+table dining~
+This massive table could seat well over a thousand humans and at
+least half that number of efreeti.  It is set for what seems like an
+endless number of people, and all sorts of food, drink and other oddities
+are upon it.
+~
+S
+#25091
+&+yRoyal Kitchen~
+   This is the kitchen for the palace.  All manor of cookware can be
+found in this room, as well an endless supply of for.  Most of it
+does not look familiar to anyone not native to this plane, but the smell
+is enticing nonetheless.  Several cupboards are here, as well as ovens
+stoves and other cooking implementations.
+~
+250 167809096 11
+D2
+The dinning room is in that direction
+~
+doors door~
+1 0 25090
+D3
+Another room can be seen in that direction.
+~
+~
+0 0 25092
+S
+#25092
+&+yWaste Room~
+  A huge burning pit is in the center of this room, one gets the idea
+rather quickly that this room is used to dispose of all garbage in the
+palace, or at least those left over from the kitchen.
+~
+250 167809096 11
+D1
+The kitchen is in that direction.
+~
+~
+0 0 25091
+E
+pit fire~
+this pit is very hot, very large and flames of blue white intensity
+almost reach out and grab you as you look into them.
+~
+S
+#25093
+&+yRoyal Palace Guard Room~
+   This room houses the Sultans person guard, ever ready to defend
+the all powerful sultan from attacks the guards must never sleep for
+no beds of any type can be seen in this room.  Only massive glowing
+weapons of all sorts can be seen here, along with strange indentations
+in the west wall.
+~
+250 167809096 11
+D2
+The grand hallway is in that direction.
+~
+~
+0 0 25094
+S
+#25094
+&+yGrand Hallway~
+  The grand hallway runs east and west here.  Another room can be seen
+to the north and sounds of movement also come from that direction.
+~
+250 167809096 11
+D0
+Another room can be seen in that direction.
+~
+~
+0 0 25093
+D1
+The hallway keeps going that way.
+~
+~
+0 0 25089
+D2
+The west hall is in that direction.
+~
+~
+0 0 25095
+D3
+The grand hallway keeps going in that direction.
+~
+~
+0 0 25097
+S
+#25095
+&+yWest Hallway~
+   The hallway here runs west and east here, as well as breaking to the
+north where it becomes the grand hallway.
+~
+250 167809096 11
+D0
+The grand hall is that way.
+~
+~
+0 0 25094
+D1
+The hall keeps going in that direction.
+~
+~
+0 0 25088
+D3
+The hall keeps going in that direction.
+~
+~
+0 0 25096
+S
+#25096
+&+yWest Hallway~
+   The hallway here runs west and east here, as well as breaking to the
+north where it becomes the grand hallway.
+~
+250 167809096 11
+D0
+The grand hallway is there.
+~
+~
+0 0 25097
+D1
+The hallway keeps going that way.
+~
+~
+0 0 25095
+D3
+The hallway ends in that direction.
+~
+~
+0 0 25098
+S
+#25097
+&+yGrand Hallway~
+   The grand hallway runs to the south, west and east from here.
+~
+250 167809096 11
+D1
+The hall continues onward in that direction.
+~
+~
+0 0 25094
+D2
+The hall runs to the south here.
+~
+~
+0 0 25096
+D3
+You can see a flight of stairs in that direction.
+~
+~
+0 0 25099
+S
+#25098
+&+yWest Hallway~
+   The hallway ends here at a flight of stairs to the north.  It also continues
+to the east.
+~
+250 167809096 11
+D1
+The hall keeps going that way.
+~
+~
+0 0 25096
+D2
+~
+secret door~
+1 0 25067
+D4
+A set of stairs is in that direction.
+~
+~
+0 0 25099
+S
+#25099
+&+yWestern Stairway~
+   The stairs here continues upward and downward here.  There is also
+an exit to the east.
+~
+250 167809096 11
+D1
+You can see the grand hallway in that direction.
+~
+~
+0 0 25097
+D4
+The stairs keep going in that direction.
+~
+~
+0 0 25100
+D5
+The west hallway is in that direction.
+~
+~
+0 0 25098
+S
+#25100
+&+yWestern Stairway~
+   The stairs end here and a huge domed room can be seen to the west.
+~
+250 167809096 11
+D3
+A large domed room is in that direction.
+~
+~
+0 0 25101
+D5
+The stairs run downward in that direction.
+~
+~
+0 0 25099
+S
+#25101
+&+yTower of Magic~
+   This huge domed room some four hundred feet around is the
+waiting room of the tower of magic.  Strange flying globes of power
+float aimlessly here.  Darting in and out.  Another door to the south
+can be seen here as well.  The ceiling is translucent and composed
+of some sort of add crystal.
+~
+250 167809096 11
+D1
+The stairs are in that direction.
+~
+~
+0 0 25100
+D2
+The tower keeps going in that direction
+~
+door~
+1 0 25104
+S
+#25102
+&+yTop of the Tower of Magic~
+   Here at the top of the tower, one can see the entire palace and
+city of brass beyond.  The entire room is composes of a clear
+crystal-like substance allowing anyone in this room to be able
+to see outside.  It's very likely that this room is some sort of
+focal point of magic for the entire city.  A glowing color pool
+is in the center of the room giving off a shower of sparks.
+~
+250 167809096 11
+D5
+The stairs go down in that direction.
+~
+~
+0 0 25103
+E
+pool color~
+This color pool glows with all the colors of the rainbow you
+cant tell where it goes by looking into it.  But you can feel
+great power radiation from within.
+~
+M
+0 70
+S
+#25103
+&+yEfreeti Arch-Magi's Lab~
+   This is the laboratory of the arch-mage of all the efreeti.  The air reeks
+of arcane power and all sorts of fiery demons seem to be running
+in here.  A huge networks of red glasswork is setup here with odd potions
+bubbling in them.  A large book floats in the center of the room the pages
+turning by themselves.
+~
+250 167809096 11
+D4
+The tower runs up another flight of stairs in that direction.
+~
+~
+0 0 25102
+D5
+The stairs run down in that direction.
+~
+~
+0 0 25104
+S
+#25104
+&+yTower of Magic~
+   The tower here glows with a radiance of blue-green energy, and
+mystic fire flows like molten lava everywhere in this room.  A small
+flight of stairs can be seen to the west.
+~
+250 167809096 11
+D0
+The tower heads runs to the north there.
+~
+door~
+1 0 25101
+D4
+You see a small flight of stairs in that direction.
+~
+~
+0 0 25103
+S
+#25105
+&+yMeditation Room~
+   This looks like some sort of meditation or prayer room used by
+efreeti clerics.  A small altar is set into south wall, and strange symbols
+can be seen upon it.  Several huge pews are setup along the west wall
+and the air is heavy with the smell of burning incense.
+~
+250 167809096 11
+D1
+You see a doorway in that direction.
+~
+door doorway~
+1 0 25080
+D5
+You see the stairs in that direction.
+~
+~
+0 0 25078
+E
+altar~
+This altar seems to be composed of some sort of hard stone, that
+glows like lava.  Symbols of some sort are etched into its surface
+and a small statue of the efreeti god sets upon it.
+~
+S

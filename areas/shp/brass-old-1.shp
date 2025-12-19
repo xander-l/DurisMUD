@@ -1,11 +1,9 @@
-#139041~
+#139141~
 N
 0
-0.80
-1.10
+1.00
+1.00
 5
-6
-7
 0
 I'm not selling that, %s!~
 You don't seem to have that item, %s.~
@@ -16,9 +14,9 @@ Thank you, %s, that will be %s.~
 %s, I will give you %s for that.~
 0
 0
-139041
+139141
 0
-139177
+139277
 0
 28
 0
@@ -34,12 +32,11 @@ N
 1
 I do not sell to your people!~
 X
-#139076~
+#139176~
 N
 0
-0.80
-1.10
-19
+1.00
+1.07
 0
 I'm not selling that, %s!~
 You don't seem to have that item, %s.~
@@ -50,9 +47,9 @@ Thank you, %s, that will be %s.~
 %s, I will give you %s for that.~
 0
 0
-139076
+139176
 0
-139029
+139129
 0
 28
 0
@@ -68,7 +65,7 @@ N
 1
 I do not sell to your people!~
 X
-#139077~
+#139177~
 N
 92046
 44504
@@ -78,8 +75,8 @@ N
 96
 97
 0
-0.80
-1.10
+1.00
+1.00
 0
 I'm not selling that, %s!~
 You don't seem to have that item, %s.~
@@ -90,9 +87,9 @@ Thank you, %s, that will be %s.~
 %s, I will give you %s for that.~
 0
 0
-139077
+139177
 0
-139030
+139130
 0
 28
 0
@@ -108,12 +105,11 @@ N
 5
 I do not sell to your people!~
 X
-#139078~
+#139178~
 N
 0
-0.80
-1.50
-8
+1.00
+1.00
 0
 I'm not selling that, %s!~
 You don't seem to have that item, %s.~
@@ -124,9 +120,9 @@ Thank you, %s, that will be %s.~
 %s, I will give you %s for that.~
 0
 0
-139078
+139178
 0
-139026
+139126
 0
 28
 0
@@ -142,11 +138,11 @@ N
 7
 I do not sell to your people!~
 X
-#139079~
+#139179~
 N
 0
-0.80
-1.10
+1.00
+1.00
 0
 I'm not selling that, %s!~
 You don't seem to have that item, %s.~
@@ -157,9 +153,9 @@ Thank you, %s, that will be %s.~
 %s, I will give you %s for that.~
 0
 0
-139079
+139179
 0
-139028
+139128
 0
 28
 0
@@ -175,20 +171,20 @@ N
 1
 I do not sell to your people!~
 X
-#139081~
+#139181~
 N
-139091
-139092
-139093
-139094
-139095
-139087
-139088
-139145
-139146
+139191
+139192
+139193
+139194
+139195
+139187
+139188
+139245
+139246
 0
 0.50
-1.10
+1.00
 0
 I'm not selling that, %s!~
 You don't seem to have that item, %s.~
@@ -198,80 +194,76 @@ You don't have the money, %s!~
 Thank you, %s, that will be %s.~
 %s, I will give you %s for that.~
 0
-0
-139081
-0
-139215
-0
-28
-0
-28
-N
-Y
-N
-I am now open!~
-My shop is now closed.~
-0
-0
-N
-1
-I do not sell to your people!~
-X
-#139082~
-N
-0
-0.80
-5.00
-0
-I'm not selling that, %s!~
-You don't seem to have that item, %s.~
-I won't buy that, %s.~
-Sorry there %s, but I don't have the money.~
-You don't have the money, %s!~
-Thank you, %s, that will be %s.~
-%s, I will give you %s for that.~
-0
-0
-139082
-0
-139180
-0
-28
-0
-28
-N
-Y
-N
-I am now open!~
-My shop is now closed.~
-0
-0
-N
-1
-I do not sell to your people!~
-X
-#139083~
-N
-0
-0.80
-1.10
-6
-7
-5
-30
-0
-I'm not selling that, %s!~
-You don't seem to have that item, %s.~
-I won't buy that, %s.~
-Sorry there %s, but I don't have the money.~
-You don't have the money, %s!~
-Thank you, %s, that will be %s.~
-%s, I will give you %s for that.~
-0
-0
-139083
 0
 139181
+0
+139315
+0
+28
+0
+28
+N
+Y
+N
+I am now open!~
+My shop is now closed.~
+0
+0
+N
+1
+I do not sell to your people!~
+X
+#139182~
+N
+0
+0.50
+1.00
+0
+I'm not selling that, %s!~
+You don't seem to have that item, %s.~
+I won't buy that, %s.~
+Sorry there %s, but I don't have the money.~
+You don't have the money, %s!~
+Thank you, %s, that will be %s.~
+%s, I will give you %s for that.~
+0
+0
+139182
+0
+139280
+0
+28
+0
+28
+N
+Y
+N
+I am now open!~
+My shop is now closed.~
+0
+0
+N
+1
+I do not sell to your people!~
+X
+#139183~
+N
+0
+1.00
+1.00
+0
+I'm not selling that, %s!~
+You don't seem to have that item, %s.~
+I won't buy that, %s.~
+Sorry there %s, but I don't have the money.~
+You don't have the money, %s!~
+Thank you, %s, that will be %s.~
+%s, I will give you %s for that.~
+0
+0
+139183
+0
+139281
 0
 28
 0
@@ -287,18 +279,11 @@ N
 11
 I do not sell to your people!~
 X
-#139084~
+#139184~
 N
 0
-0.80
-1.10
-23
-2
-4
-3
-10
-33
-30
+1.00
+1.00
 0
 I'm not selling that, %s!~
 You don't seem to have that item, %s.~
@@ -309,9 +294,9 @@ Thank you, %s, that will be %s.~
 %s, I will give you %s for that.~
 0
 0
-139084
+139184
 0
-139209
+139309
 0
 28
 0
@@ -327,20 +312,30 @@ N
 1
 I do not sell to your people!~
 X
-#139085~
+#139185~
 N
 0
-0.75
-1.10
+0.25
+1.00
+1
+2
+4
 3
+5
+18
+6
+7
 8
+9
 10
 15
 23
 30
+31
 32
 33
 34
+36
 0
 I'm not selling that, %s!~
 You don't seem to have that item, %s.~
@@ -351,9 +346,9 @@ Thank you, %s, that will be %s.~
 %s, I will give you %s for that.~
 0
 0
-139085
+139185
 0
-139219
+139319
 0
 28
 0
@@ -369,11 +364,11 @@ N
 1
 I do not sell to your people!~
 X
-#139086~
+#139186~
 N
 0
-0.80
-1.10
+1.00
+1.00
 0
 I'm not selling that, %s!~
 You don't seem to have that item, %s.~
@@ -384,9 +379,9 @@ Thank you, %s, that will be %s.~
 %s, I will give you %s for that.~
 0
 0
-139086
+139186
 0
-139213
+139313
 0
 28
 0
@@ -402,11 +397,11 @@ N
 1
 I do not sell to your people!~
 X
-#139121~
+#139221~
 N
 0
-0.80
-1.10
+1.00
+1.00
 0
 I'm not selling that, %s!~
 You don't seem to have that item, %s.~
@@ -417,114 +412,108 @@ Thank you, %s, that will be %s.~
 %s, I will give you %s for that.~
 0
 0
-139121
-0
-139024
-0
-28
-0
-28
-N
-N
-N
-I am now open!~
-My shop is now closed.~
-0
-0
-N
-1
-I do not sell to your people!~
-X
-#139122~
-N
-0
-0.80
-1.10
-0
-I'm not selling that, %s!~
-You don't seem to have that item, %s.~
-I won't buy that, %s.~
-Sorry there %s, but I don't have the money.~
-You don't have the money, %s!~
-Thank you, %s, that will be %s.~
-%s, I will give you %s for that.~
-0
-0
-139122
-0
-139025
-0
-28
-0
-28
-N
-Y
-N
-I am now open!~
-My shop is now closed.~
-0
-0
-N
-1
-I do not sell to your people!~
-X
-#139123~
-N
-0
-0.80
-1.10
-0
-I'm not selling that, %s!~
-You don't seem to have that item, %s.~
-I won't buy that, %s.~
-Sorry there %s, but I don't have the money.~
-You don't have the money, %s!~
-Thank you, %s, that will be %s.~
-%s, I will give you %s for that.~
-0
-0
-139123
-0
-139183
-0
-28
-0
-28
-N
-Y
-N
-I am now open!~
-My shop is now closed.~
-0
-0
-N
-1
-I do not sell to your people!~
-X
-#139124~
-N
-0
-0.80
-1.10
-2
-3
-4
-10
-33
-23
-0
-I'm not selling that, %s!~
-You don't seem to have that item, %s.~
-I won't buy that, %s.~
-Sorry there %s, but I don't have the money.~
-You don't have the money, %s!~
-Thank you, %s, that will be %s.~
-%s, I will give you %s for that.~
-0
+139221
 0
 139124
 0
-139217
+28
+0
+28
+N
+N
+N
+I am now open!~
+My shop is now closed.~
+0
+0
+N
+1
+I do not sell to your people!~
+X
+#139222~
+N
+0
+1.00
+1.00
+0
+I'm not selling that, %s!~
+You don't seem to have that item, %s.~
+I won't buy that, %s.~
+Sorry there %s, but I don't have the money.~
+You don't have the money, %s!~
+Thank you, %s, that will be %s.~
+%s, I will give you %s for that.~
+0
+0
+139222
+0
+139125
+0
+28
+0
+28
+N
+Y
+N
+I am now open!~
+My shop is now closed.~
+0
+0
+N
+1
+I do not sell to your people!~
+X
+#139223~
+N
+0
+1.00
+1.00
+0
+I'm not selling that, %s!~
+You don't seem to have that item, %s.~
+I won't buy that, %s.~
+Sorry there %s, but I don't have the money.~
+You don't have the money, %s!~
+Thank you, %s, that will be %s.~
+%s, I will give you %s for that.~
+0
+0
+139223
+0
+139283
+0
+28
+0
+28
+N
+Y
+N
+I am now open!~
+My shop is now closed.~
+0
+0
+N
+1
+I do not sell to your people!~
+X
+#139224~
+N
+0
+1.00
+1.00
+0
+I'm not selling that, %s!~
+You don't seem to have that item, %s.~
+I won't buy that, %s.~
+Sorry there %s, but I don't have the money.~
+You don't have the money, %s!~
+Thank you, %s, that will be %s.~
+%s, I will give you %s for that.~
+0
+0
+139224
+0
+139317
 0
 28
 0
@@ -540,14 +529,11 @@ N
 1
 I do not sell to your people!~
 X
-#139125~
+#139225~
 N
 0
-0.80
-1.10
-8
-12
-15
+1.00
+1.00
 0
 I'm not selling that, %s!~
 You don't seem to have that item, %s.~
@@ -558,9 +544,9 @@ Thank you, %s, that will be %s.~
 %s, I will give you %s for that.~
 0
 0
-139125
+139225
 0
-139212
+139312
 0
 28
 0
@@ -576,14 +562,14 @@ N
 8
 I do not sell to your people!~
 X
-#139126~
+#139226~
 N
 1240
 132509
 55150
 14030
 67359
-139102
+139202
 0
 0.75
 1.05
@@ -598,9 +584,9 @@ Thank you, %s, that will be %s.~
 %s, I will give you %s for that.~
 0
 0
-139126
+139226
 0
-139182
+139282
 0
 28
 0
@@ -616,11 +602,11 @@ N
 1
 I do not sell to your people!~
 X
-#139127~
+#139227~
 N
 0
-0.80
-1.10
+1.00
+1.00
 32
 0
 I'm not selling that, %s!~
@@ -632,9 +618,9 @@ Thank you, %s, that will be %s.~
 %s, I will give you %s for that.~
 0
 0
-139127
+139227
 0
-139243
+139343
 0
 28
 0
