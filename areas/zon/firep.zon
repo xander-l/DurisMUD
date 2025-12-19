@@ -348,7 +348,7 @@ M 0 88328 4 88443 100 0 0 0        * a fire minion guard
 M 0 88316 1 88446 100 0 0 0        * Kossuth, Lord of the Elemental Plane of Fire
 E 1 88300 1 16 100 0 0 0           *   the flaming sword, Inferno
 G 1 88302 1 0 100 0 0 0            *    a flaming key
-G 1 25030 1 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 88327 1 0 100 0 0 0            *    the sword of fire and flame
 G 1 359 1 0 100 0 0 0              *    (object type not in this .obj file)
 M 0 88310 14 88449 100 0 0 0       * a huge fire minion guard
 F 1 88310 14 88449 100 0 0 0       * a huge fire minion guard (following)

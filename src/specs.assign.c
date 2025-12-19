@@ -2196,7 +2196,7 @@ void assign_objects(void)
   /* Zion Procs */
   obj_index[real_object0(19638)].func.obj = zion_shield_absorb_proc;
   obj_index[real_object0(38761)].func.obj = generic_shield_block_proc;
-  obj_index[real_object0(25030)].func.obj = zion_fnf;
+  obj_index[real_object0(88327)].func.obj = zion_fnf;
   obj_index[real_object0(16242)].func.obj = zion_light_dark;
   
   /* Barovia Procs */
