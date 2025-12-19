@@ -736,7 +736,7 @@ M 0 139007 5 139124 100 0 0 0      * an efreeti acolyte
 M 0 139007 5 139124 100 0 0 0      * an efreeti acolyte
 M 0 139004 1 139125 100 0 0 0      * Latisia the supreme efreeti clerist
 E 1 139133 1 8 80 0 0 0            *   some boots of yellow flames
-G 1 25105 1 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 139004 1 0 100 0 0 0           *    the holy mace of the efreeti
 F 1 139008 2 139125 100 0 0 0      * an efreeti high priestess guard (following)
 F 1 139008 2 139125 100 0 0 0      * an efreeti high priestess guard (following)
 M 0 139002 4 139125 100 0 0 0      * an efreeti templar

@@ -1998,7 +1998,7 @@ void assign_objects(void)
   /*
      Plane of Fire Two
    */
-  obj_index[real_object0(25105)].func.obj = holy_mace;
+  obj_index[real_object0(139004)].func.obj = holy_mace;
   obj_index[real_object0(25103)].func.obj = staff_of_blue_flames;
   obj_index[real_object0(30)].func.obj = staff_of_power;
   obj_index[real_object0(40409)].func.obj = reliance_pegasus;
