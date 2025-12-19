@@ -1,0 +1,280 @@
+#25010
+key brass cold~
+a &+ycold brass key~
+A &+ycold brass key&n is lying here.~
+~
+18 17 1 1 7 0 8388608 16385 0 0 0
+2 100 0 0 0 0 0 0
+1 1 100
+E
+key brass cold~
+   &+yThis key is made of solid brass.&N
+~
+#25011
+key blue metal~
+a &+bblue metal key~
+A &+bblue metal key&n lies here.~
+~
+18 16 1 1 7 0 8388608 16385 0 0 0
+2 100 0 0 0 0 0 0
+1 1 100
+E
+key blue metal~
+   &+bThis key is made of pure blue metal.&N
+~
+#25012
+key green metal~
+a &+ggreen metal key~
+A &+ggreen metal key&n lies here.~
+~
+18 16 1 1 7 0 8388608 16385 0 0 0
+2 100 0 0 0 0 0 0
+1 1 100
+E
+key green metal~
+   &+gThis key is made of shiny green metal.&N
+~
+#25013
+key amethyst~
+an &+Mamethyst key~
+An &+Mamethyst key&n lies here.~
+~
+18 16 1 1 7 0 8388608 16385 0 0 0
+2 100 0 0 0 0 0 0
+1 1 100
+E
+key amethyst~
+   &+MThis key is made of pure amethyst stone.&N
+~
+#25014
+key glowing~
+&+Wa glowing key&N~
+A glowing key lies here.~
+~
+18 16 1 1 7 0 8388608 16385 0 0 0
+2 100 0 0 0 0 0 0
+1 1 100
+E
+key glowing~
+   &+WIt glows with its own light.&N
+~
+#25015
+key efreeti~
+&+ran efreeti key&N~
+An efreeti key lies here.~
+~
+18 16 1 1 7 0 8388608 16385 0 0 0
+2 100 0 0 0 0 0 0
+1 1 100
+E
+key efreeti~
+   &+rThis key bears the insignia of the efreeti sultan.&N
+~
+#25016
+key blue flaming~
+a &+Bblue flaming key~
+A &+Bblue flaming key&n has been left here.~
+~
+18 16 1 1 7 0 8388608 16385 0 0 0
+2 100 0 0 0 0 0 0
+1 1 100
+E
+key blue flaming~
+   &+BIt flickers with blue fire.&N
+~
+#25017
+scimitar glowing~
+&+Wa glowing scimitar&N~
+A glowing scimitar has been tossed on the ground here.~
+~
+5 18 4 10 13 0 0 8193 64 4198895524 0
+9 4 4 3 0 0 0 0
+13 50000 100
+E
+scimitar glowing~
+This is a long bladed scimitar which glows rather brightly.
+~
+A
+18 4
+A
+19 5
+#25018
+doombringer sword chaos~
+&+LDoombringer, the sword of chaos&n~
+&+LDoombringer the sword of chaos has been left here.&N~
+~
+5 19 4 10 15 100 272637953 8193 64 0 0
+13 6 8 3 0 0 0 0
+15 200000 100 16 2048 0 262144
+E
+doombringer sword chaos~
+This pitch black blade glows with a life all its own.
+~
+A
+18 6
+A
+19 6
+#25019
+key fire~
+&+Ra key of&N &+Bcold&N &+Rfire&N~
+A key of &+Bice-cold&N &+Rfire&N crackles and pops here.~
+~
+18 15 3 0 7 0 8392713 16385 0 0 0
+0 100 0 0 0 0 0 0
+0 1 100
+E
+key fire~
+&+rThe key burns with rich red fire,&N &+byet it is freezing
+&+bcold to the touch.&N
+~
+#25020
+crown might~
+&+ythe crown of might&n~
+&+ythe crown of might&N lays here!~
+~
+9 19 3 2 14 50 0 17 66 4198895524 0
+12 0 0 3 0 0 0 0
+5 135000 100 536870912 0 0 0
+E
+crown might~
+This glowing brass crown with several large rubies embedded in
+it seems to call out to you to place it on your head.
+~
+A
+31 4
+A
+19 3
+#25030
+sword fire flames flame~
+&+Lthe sword of &+Yfire&n &+rand flame&N~
+the sword of fire has been left here.~
+~
+5 19 4 10 15 100 268444673 8193 64 87085083 0
+5 5 6 3 0 0 0 0
+1 200000 100 536870928 1 0 0
+E
+sword fire~
+The sword of fire is a massive glowing red
+sword some six feet long  with a huge wavy blade.  The weapon
+glows with red hot fire which surrounds the blade.
+~
+A
+18 5
+A
+19 5
+#25040
+halberd flaming~
+&+ra flaming halberd&n~
+&+rA halberd with fire all around the blade&N has been left here.~
+~
+5 19 4 0 14 0 67118080 8193 64 87572571 0
+8 3 6 3 0 0 0 0
+15 80000 100
+E
+halberd flaming~
+This is a normal looking halberd except the blade is engulfed in flames.
+~
+A
+23 -4
+A
+19 4
+#25050
+suit flaming ring mail ringmail~
+&+ra suit of flaming ringmail&n~
+A suit of &+rflaming ringmail&n has been left here.~
+~
+9 19 4 5 13 25 0 9 0 4198895524 0
+25 3 1 4 0 0 0 0
+5 60000 100 0 28 0 0
+E
+suit flaming ring mail ringmail~
+This is a large suit of armor made from tiny rings meshed together.  The
+entire suit flames brightly.
+~
+A
+19 4
+A
+18 4
+#25060
+sash fiery orange~
+&+ra fiery-orange sash&n~
+A sash burning with orange fire has been left here.~
+~
+9 3 3 3 7 0 0 2049 64 4198895524 0
+9 10 0 3 0 0 0 0
+1 20000 100 536870912 0 0 0
+E
+sash fiery orange~
+This is a silky sash which is flaming with bright orange fire.
+~
+A
+24 -5
+A
+18 4
+#25070
+stiletto flaming~
+&+ra flaming stiletto&n~
+A &+Rflaming stiletto&N has been left here.~
+~
+5 19 3 0 14 0 1024 8193 0 8515584 0
+2 3 4 11 0 0 0 0
+1 20000 100
+E
+stiletto flaming~
+This is a dull black stiletto with a long thin blade.  The handle has been
+wrapped in a fine magical leather.  The entire weapon is on fire.
+~
+A
+18 3
+A
+19 3
+#25080
+ring elemental control~
+&+ra ring of elemental control&n~
+A &+rring of elemental control&n pulses here.~
+~
+3 27 3 10 14 0 1180673 3 64 4197888 0
+56 8 8 69 0 0 0 0
+1 120000 100
+E
+ring elemental control~
+This is a large ring made from a fiery-red metal with a large unidentifiable
+stone on the top encrusted with a large letter E.
+~
+A
+13 55
+A
+20 -5
+#25085
+gloves brass sapphire~
+&+ygloves of&N &+Bs&+ba&+Bp&+bp&+Bh&+bi&+Br&+be&N-&+Ge&+gn&+Gc&+gr&+Gu&+gs&+Gt&+ge&+Gd&N &+Ybrass&N~
+&+ya pair of spectacular&N &+Ybrass&N &+Ygloves catch your eye&N~
+~
+9 17 3 0 14 0 32768 16513 66 0 0
+9 0 0 3 0 0 0 0
+0 100000 100 32 0 0 0
+E
+gloves brass sapphire~
+   &+yThese spectacular gloves sparkle with brilliance from
+&+ywithin.&N
+~
+A
+19 4
+A
+13 10
+#25090
+dagger fire~
+&+ra fire dagger&n~
+&+rA fire dagger has been left here.&N~
+~
+5 19 3 3 10 0 0 8193 0 0 0
+2 4 4 11 0 0 0 0
+4 25353 100
+E
+dagger fire~
+This is dagger is totally engulfed in flames.
+~
+A
+2 9
+A
+19 3
