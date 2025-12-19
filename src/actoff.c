@@ -3905,7 +3905,7 @@ void do_dragon_roar(P_char ch, char *argument, int cmd)
         circle, circle == 1 ? "st" : (circle == 2 ? "nd" : (circle == 3 ? "rd" : "th")));
       send_to_char(buf, ch);
 
-      DelayCommune(ch, (int) (2 * PULSE_VIOLENCE));
+      DelayCommune(ch, (int) (PULSE_VIOLENCE));
 
       notch_skill(ch, SKILL_DRAGON_ROAR, get_property("skill.notch.defensive", 7));
     }
@@ -3929,6 +3929,7 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
   bool     is_priest = FALSE;
   char     name[MAX_INPUT_LENGTH];
   char     buf[MAX_STRING_LENGTH];
+  char*    spellName;
   
   if(!IS_ALIVE(ch) )
   {
@@ -3979,7 +3980,7 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
     return;
   }
 
-  one_argument(argument, name);
+  argument = one_argument(argument, name);
 
   if( *name )
   {
@@ -4055,9 +4056,6 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
   }
   else
   {
-    // force engagement on dragon or on dragon rider?
-    engage(ch, victim);
-
     int circle = get_next_dragoon_circle(ch);
 
     if(circle == 0)
@@ -4067,9 +4065,79 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
     }
     else
     {
+       if(GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_PRIEST))
+      {
+        int chosenCircle = circle;
+
+        argument = one_argument(argument, spellName);
+        
+        if(spellName)
+        {
+          if(is_abbrev(spellName, "burning hands"))
+          {
+            if(ch->specials.undead_spell_slots[1]) chosenCircle = 1;
+            else if(ch->specials.undead_spell_slots[2]) chosenCircle = 2;
+            else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
+          }
+          else if(is_abbrev(spellName, "flameburst"))
+          {
+            if(ch->specials.undead_spell_slots[3]) chosenCircle = 3;
+            else if(ch->specials.undead_spell_slots[4]) chosenCircle = 4;
+            else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
+          }
+          else if(is_abbrev(spellName, "molten spray"))
+          {
+            if(ch->specials.undead_spell_slots[5]) chosenCircle = 5;
+            else if(ch->specials.undead_spell_slots[6]) chosenCircle = 6;
+            else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
+          }
+          else if(is_abbrev(spellName, "fireball"))
+          {
+            if(ch->specials.undead_spell_slots[7]) chosenCircle = 7;
+            else if(ch->specials.undead_spell_slots[8]) chosenCircle = 8;
+            else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
+          }
+          else if(is_abbrev(spellName, "magma burst"))
+          {
+            if(ch->specials.undead_spell_slots[9]) chosenCircle = 9;
+            else if(ch->specials.undead_spell_slots[10]) chosenCircle = 10;
+            else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
+          }
+          else if(is_abbrev(spellName, "immolate"))
+          {
+            if(ch->specials.undead_spell_slots[11]) chosenCircle = 11;
+            else if(ch->specials.undead_spell_slots[12]) chosenCircle = 12;
+            else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
+          }
+          else
+          {
+              send_to_char("The &+Gdr&+Lag&+Gon&n god's &+rpowers&n are:\n" 
+                           "   (Circle  1 -  2) burning hands\n"
+                           "   (Circle  3 -  4) flameburst\n"
+                           "   (Circle  5 -  6) molten spray\n"
+                           "   (Circle  7 -  8) fireball\n"
+                           "   (Circle  9 - 10) magma burst\n"
+                           "   (Circle 11 - 12) immolate\n", ch);
+              return;
+          }
+        }
+
+        int select_chance = ( 95 * GET_CHAR_SKILL(ch, SKILL_DRAGON_BREATH) ) / 100;
+        select_chance = BOUNDED(1, percent_chance, 99);
+
+        if(((select_chance + power) > number(1, 100)))
+        {
+          circle = chosenCircle;
+        }
+      }
+
       //send_to_char("$n rears back and blasts $N with a torrent of &+RFLAMES&n\r\n", ch);
       act("$n rears back and blasts $N with a torrent of &+RFLAMES&n!", FALSE, mount, 0, victim, TO_NOTVICTROOM);
       act("$n rears back and blasts YOU with a torrent of &+RFLAMES&n!", FALSE, mount, 0, victim, TO_VICT);  
+
+      // force engagement on dragon or on dragon rider?
+      engage(mount, victim);
+      engage(ch, victim);
 
       switch(circle)
       {
@@ -4106,7 +4174,7 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
       send_to_char(buf, ch);
 
       notch_skill(ch, SKILL_DRAGON_BREATH, get_property("skill.notch.offensive", 7));
-      DelayCommune(ch, (int) (2 * PULSE_VIOLENCE));
+      DelayCommune(ch, (int) (PULSE_VIOLENCE));
     }
 
     set_short_affected_by(ch, SKILL_DRAGON_BREATH, (int) (3 * PULSE_VIOLENCE));

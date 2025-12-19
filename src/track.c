@@ -981,7 +981,7 @@ void show_tracks(P_char ch, int room)
       {
           if (chance > number(1, 100) )
           {
-            send_to_char("Your &+Goph&+Lid&+Gian&n eyes sense a presence through the veil.", ch);
+            send_to_char("Your &+Goph&+Lid&+Gian&n eyes sense a presence through the veil.\n", ch);
           }
       }
 

@@ -947,8 +947,20 @@ void handle_undead_mem(P_char ch)
     send_to_char("You feel unable to &+rcommune&n with the &+GDr&+Lag&+Gon&n god...\n", ch);
     return;
   }
+#define REVERSE_DRAGOON_COMMUNE
+#ifdef REVERSE_DRAGOON_COMMUNE
+  bool swapMemOrder = false;
 
+  if(IS_DRAGOON(ch)) swapMemOrder = true;
+
+  int max_circle = get_max_circle(ch);
+
+  for(i = (swapMemOrder ? 1               : max_circle); 
+          (swapMemOrder ? i <= max_circle : i >= 1); 
+          (swapMemOrder ? i++             : i--) )
+#else
   for( i = get_max_circle(ch); i >= 1; i-- )
+#endif
   {
     if( ch->specials.undead_spell_slots[i] >= max_spells_in_circle(ch, i) )
     {
