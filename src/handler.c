@@ -3077,6 +3077,19 @@ void extract_char(P_char ch)
       SEND_TO_Q(MENU, ch->desc);
       //  SEND_TO_Q("\r\n*** PRESS RETURN: ", ch->desc);
       //  ch->desc->connected = CON_RMOTD;
+	  if(ch->desc->account)
+	  {
+		// update account timers on extraction
+		switch(GET_RACEWAR(ch))
+		{
+			case RACEWAR_GOOD:
+			    ch->desc->account->acct_good = time(NULL);
+				break;
+			case RACEWAR_EVIL:
+				ch->desc->account->acct_evil = time(NULL);
+				break;
+		}
+	  }
 #else
       ch->desc->connected = CON_DISPLAY_ACCT_MENU;
       ch->desc->character = NULL;

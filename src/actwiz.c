@@ -2401,12 +2401,20 @@ void do_stat(P_char ch, char *argument, int cmd)
             (IS_PC(k) ? "&+YPC" : (IS_PC(k) ? "&+RNPC" : "&+GMOB")),
             (t_mob) ? "" : buf1);
     if(IS_NPC(k))
+	{
       snprintf(buf, MAX_STRING_LENGTH,
               "Numbers: &N%d&+Y-V &N%d&+Y-R &N%d&+Y-I   # in game: &n%d\n",
               mob_index[GET_RNUM(k)].virtual_number, GET_RNUM(k), GET_IDNUM(k),
               (mob_index[GET_RNUM(k)].number));
+	}
     else
-      snprintf(buf, MAX_STRING_LENGTH, " Name: &N%s  &+YID numb: &n%d\n", GET_NAME(k), GET_PID(k));
+	{
+#ifdef USE_ACCOUNT
+      snprintf(buf, MAX_STRING_LENGTH, " &+YName:&n &N%s  &+YID numb: &n%d  &+YAccount Name:&n %s\n", GET_NAME(k), GET_PID(k), get_account_name_safe(k));
+#else
+      snprintf(buf, MAX_STRING_LENGTH, " &+YName:&n &N%s  &+YID numb: &n%d\n", GET_NAME(k), GET_PID(k));
+#endif
+	}
     strcat(buf2, buf);
     strcpy(o_buf, buf2);
 
@@ -12630,3 +12638,91 @@ int SpammingNchat( P_char ch )
     return 1;
   }
 }
+
+#ifdef USE_ACCOUNT
+void show_account_info(P_char ch, P_char target)
+{
+	send_to_char("\n", ch);
+	display_account_information_to_char(ch, target->desc->account);
+	display_character_list_to_char(ch, target->desc->account);
+	send_to_char("\n", ch);
+}
+
+void remove_account_char(P_char ch, P_char target)
+{
+	send_to_char("Not supported yet.\n", ch);
+}
+
+void add_account_char(P_char ch, P_char target)
+{
+	send_to_char("Not supported yet.\n", ch);
+}
+
+void change_account_email(P_char ch, P_char target, const char *newEmail)
+{
+	send_to_char("Not supported yet.\n", ch);
+}
+
+void lookup_account(P_char ch, const char *arguments)
+{
+	send_to_char("Not supported yet.\n", ch);
+}
+
+#define ACCOUNT_SYNTAX ""
+
+void do_account(P_char ch, char *arg, int cmd)
+{
+	char     arg1[MAX_STRING_LENGTH], arg2[MAX_STRING_LENGTH], newEmail[MAX_STRING_LENGTH], *rest;
+	P_char   target;
+
+	if(IS_NPC(ch) || !IS_TRUSTED(ch))
+    	return;
+
+	rest = lohrr_chop( arg, arg1 );
+	rest = lohrr_chop( rest, arg2 );
+
+	if(!*arg1)
+	{
+		send_to_char(ACCOUNT_SYNTAX, ch);
+		return;
+	}
+
+	if((*arg1 == 'l') || (*arg1 == 'L'))
+	{
+		lookup_account(ch, rest);
+		return;
+	}
+	else if(!(target = get_char_vis(ch, arg2)) || IS_NPC(target))
+    {
+      send_to_char("No such character.\n", ch);
+      return;
+    }
+
+	if((*arg1 == 'i') || (*arg1 == 'i'))
+	{
+		show_account_info(ch, target);
+		return;
+	}
+	else if((*arg1 == 'r') || (*arg1 == 'R'))
+	{
+		remove_account_char(ch, target);
+		return;
+	}
+	else if((*arg1 == 'a') || (*arg1 == 'A'))
+	{
+		add_account_char(ch, target);
+		return;
+	}
+	else if((*arg1 == 'c') || (*arg1 == 'C'))
+	{
+		rest = lohrr_chop( rest, newEmail );
+		change_account_email(ch, target, newEmail);
+		return;
+	}
+	else
+	{
+		send_to_char(ACCOUNT_SYNTAX, ch);
+		return;
+	}
+}
+#endif

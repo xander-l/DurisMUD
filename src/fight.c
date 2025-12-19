@@ -5097,7 +5097,7 @@ int check_shields(P_char ch, P_char victim, int dam, int flags)
 	if (affected_by_spell(victim, SPELL_IRONWOOD))
 	{
 		// double damage if ironwood is up as well
-		thornDamage *= 2;
+		thornDamage *= 2.0;
 	}
 	result = raw_damage(victim, ch, thornDamage, RAWDAM_DEFAULT | PHSDAM_NOREDUCE | flags, &thornskin);
   }
@@ -9892,18 +9892,33 @@ void perform_violence(void)
       continue;
     }
 
-    /*   (!GET_CLASS(ch, CLASS_PSIONICIST) && IS_AFFECTED3(ch, AFF3_INERTIAL_BARRIER) ) ||*/
-    if(IS_AFFECTED3(opponent, AFF3_INERTIAL_BARRIER) || IS_ARMLOCK(ch) || affected_by_spell(ch, TAG_INTERCEPT))
+	float attacksMultiplier = get_property("attacks.default.multiplier", 1.0);
+
+	if(IS_AFFECTED3(opponent, AFF3_INERTIAL_BARRIER))
+	{
+		attacksMultiplier = get_property("attacks.inertialBarrier.multiplier", 0.5);
+	}
+	else if(IS_ARMLOCK(ch))
+	{
+		attacksMultiplier = get_property("attacks.armLock.multiplier", 0.5);
+	}
+	else if(affected_by_spell(ch, TAG_INTERCEPT))
+	{
+		attacksMultiplier = get_property("attacks.intercept.multiplier", 0.5);
+	}
+
+    if(affected_by_spell(ch, SPELL_COMBAT_MIND))
     {
-      // We add one because we don't want to drop to 0 attacks: 1:1, 2:1, 3:2, 4:2, 5:3 ...
-      real_attacks = (number_attacks + ATTACK_DIVISOR - 1) / ATTACK_DIVISOR;
-      div_attacks = ATTACK_DIVISOR;
-    }
-    else
-    {
-      real_attacks = number_attacks;
-      div_attacks = 1;
-    }
+		float cmMulti = get_property("attacks.combatMind.multiplier", 0.75);
+		if(attacksMultiplier < cmMulti)
+		{
+			cmMulti = cmMulti;
+		}
+	}
+
+	// we ceil to not round off attacks
+	real_attacks = (int)ceil(number_attacks * attacksMultiplier);
+    div_attacks = (int)(1 / attacksMultiplier);
 
     if(!affected_by_spell(opponent, SKILL_BATTLE_SENSES) && GET_CHAR_SKILL(opponent, SKILL_BATTLE_SENSES)
       && GET_POS(opponent) == POS_STANDING && !IS_STUNNED(opponent) && !IS_BLIND(opponent))

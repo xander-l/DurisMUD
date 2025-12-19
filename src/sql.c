@@ -560,18 +560,6 @@ void sql_modify_frags(P_char ch, int gain)
  * The MUD continues to use flat files, but web can query the database
  */
 
-/* Helper function to get account name safely */
-static const char* get_account_name_safe(P_char ch)
-{
-  // If character has descriptor with account, return account name
-  if (ch->desc && ch->desc->account && ch->desc->account->acct_name)
-    return ch->desc->account->acct_name;
-
-  // Character not connected or no account - return "Unknown"
-  // This can happen when updating offline characters or during loading
-  return "Unknown";
-}
-
 /* Update account_characters mapping table */
 void sql_update_account_character(P_char ch)
 {

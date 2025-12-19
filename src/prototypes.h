@@ -72,7 +72,8 @@ void account_display_info(P_desc, char *);
 void delete_account(P_desc, char *);
 void verify_delete_account(P_desc, char *);
 void generate_account_confirmation_code(P_desc, char *);
-void display_account_information(P_desc d);
+void display_account_information(P_desc d, P_acct account = NULL);
+void display_account_information_to_char(P_char ch, P_acct account);
 void clear_account(P_acct);
 P_acct free_account(P_acct);
 P_acct allocate_account(void);
@@ -93,12 +94,14 @@ int is_char_in_game(struct acct_chars *, P_desc);
 struct acct_chars *find_char_in_list(struct acct_chars *, char *);
 P_char load_char_into_game(struct acct_chars *, P_desc);
 void account_new_char_name(P_desc, char *);
-void display_character_list(P_desc);
+void display_character_list(P_desc, P_acct account = NULL);
+void display_character_list_to_char(P_char ch, P_acct account);
 void display_delete_character_list(P_desc);
 void add_char_to_account(P_desc);
 void remove_char_from_list(P_acct, char *);
 int write_account(P_acct);
 int read_account(P_acct);
+const char* get_account_name_safe(P_char);
 
 /* actcomm.c */
 
@@ -645,6 +648,9 @@ void do_newb_spellup(P_char ch, char *arg, int cmd);
 void do_givepet(P_char ch, char *arg, int cmd);
 void do_petition_block(P_char, char *, int);
 void concat_which_flagsde(const char *flagType, const flagDef flagNames[], char *buf);
+#ifdef USE_ACCOUNT
+void do_account(P_char ch, char *arg, int cmd);
+#endif
 
 /* artifact.c */
 void addOnGroundArtis_sql();
@@ -1183,7 +1189,7 @@ void ac_stopAllFromConsenting(P_char);
 void ac_stopAllFromIgnoring(P_char);
 void add_coins(P_obj, int, int, int, int);
 void affect_from_char(P_char, int);
-void add_tag_to_char(P_char ch, int tag, int value, int flags);
+void add_tag_to_char(P_char ch, int tag, int value, int flags, int duration = -1);
 void add_counter(P_char ch, int tag, int value, int duration);
 void add_counter(P_char ch, int tag);
 void remove_counter(P_char ch, int tag);

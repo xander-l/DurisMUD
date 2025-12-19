@@ -1680,7 +1680,7 @@ bool rename_character(P_char ch, char *old_name, char *new_name)
     writeCharacter(doofus, 1, doofus->in_room);
 
 #ifdef USE_ACCOUNT
-    c = find_char_in_list(doofus->desc->account->acct_character_list, new_name);
+    c = find_char_in_list(doofus->desc->account->acct_character_list, old_name);
     if( c )
     {
       FREE(c->charname);

@@ -10727,39 +10727,61 @@ void event_mob_skin_spell(P_char ch, P_char vict, P_obj obj, void *data)
 {
   struct affected_type af, *afp;
 
-  if(IS_AFFECTED(ch, AFF_STONE_SKIN)) {
-    if(!(afp = get_spell_from_char(ch, SPELL_STONE_SKIN))) {
-      memset(&af, 0, sizeof(af));
-      af.type = SPELL_STONE_SKIN;
-      af.duration = -1;
-      afp = affect_to_char(ch, &af);
-      act("&+L$n's skin seems to turn to stone.", TRUE, ch, 0, 0,
-          TO_ROOM);
-      act("&+LYou feel your skin harden to stone.", TRUE, ch, 0, 0,
-          TO_CHAR);
-    }
-    afp->modifier = GET_LEVEL(ch) + MAX(0, GET_LEVEL(ch) - 50) * 5;
-    
-    if(IS_PC_PET(ch))
-      afp->modifier /= 2;
+  bool shouldSuppress = false;
+  if(affected_by_skill(ch, TAG_SUPPRESS_PERM_BITS))
+  {
+	shouldSuppress = true;
+	afp = get_spell_from_char(ch, TAG_SUPPRESS_PERM_BITS);
+	if(IS_AFFECTED(ch, AFF_STONE_SKIN) && !IS_SET(afp->bitvector, AFF_STONE_SKIN))
+	{
+		shouldSuppress = false;
+	}
+	if(IS_AFFECTED(ch, AFF_BIOFEEDBACK) && !IS_SET(afp->bitvector, AFF_BIOFEEDBACK))
+	{
+		shouldSuppress = false;
+	}
   }
 
-  if(IS_AFFECTED(ch, AFF_BIOFEEDBACK)) {
-    if(!(afp = get_spell_from_char(ch, SPELL_BIOFEEDBACK))) {
-      memset(&af, 0, sizeof(af));
-      af.type = SPELL_BIOFEEDBACK;
-      af.duration = -1;
-      af.modifier = (int) (1.5 * (GET_LEVEL(ch) + MAX(0, GET_LEVEL(ch) - 50) * 5));
-      afp = affect_to_char(ch, &af);
-      send_to_char("&+GYou are surrounded by a green mist!&n\r\n", ch);
-      act("&+G$n&+G is suddenly surrounded by a green mist!", TRUE, ch, 0, 0,
-          TO_NOTVICT);
+  if( !shouldSuppress )
+  {
+    if(IS_AFFECTED(ch, AFF_STONE_SKIN)) 
+	{
+      if(!(afp = get_spell_from_char(ch, SPELL_STONE_SKIN))) 
+	  {
+        memset(&af, 0, sizeof(af));
+        af.type = SPELL_STONE_SKIN;
+        af.duration = -1;
+        afp = affect_to_char(ch, &af);
+        act("&+L$n's skin seems to turn to stone.", TRUE, ch, 0, 0,
+            TO_ROOM);
+        act("&+LYou feel your skin harden to stone.", TRUE, ch, 0, 0,
+            TO_CHAR);
+      }
+      afp->modifier = GET_LEVEL(ch) + MAX(0, GET_LEVEL(ch) - 50) * 5;
+      
+      if(IS_PC_PET(ch))
+        afp->modifier /= 2;
     }
-    afp->modifier = (int) (1.5 * (GET_LEVEL(ch) + MAX(0, GET_LEVEL(ch) - 50) * 5));
+  
+    if(IS_AFFECTED(ch, AFF_BIOFEEDBACK)) 
+	{
+      if(!(afp = get_spell_from_char(ch, SPELL_BIOFEEDBACK))) 
+	  {
+        memset(&af, 0, sizeof(af));
+        af.type = SPELL_BIOFEEDBACK;
+        af.duration = -1;
+        af.modifier = (int) (1.5 * (GET_LEVEL(ch) + MAX(0, GET_LEVEL(ch) - 50) * 5));
+        afp = affect_to_char(ch, &af);
+        send_to_char("&+GYou are surrounded by a green mist!&n\r\n", ch);
+        act("&+G$n&+G is suddenly surrounded by a green mist!", TRUE, ch, 0, 0,
+            TO_NOTVICT);
+      }
+      afp->modifier = (int) (1.5 * (GET_LEVEL(ch) + MAX(0, GET_LEVEL(ch) - 50) * 5));
+    }
   }
 
   add_event(event_mob_skin_spell,
-      get_property("timer.secs.mob.skinRefresh", 60) * WAIT_SEC,
+      (get_property("timer.secs.mob.skinRefresh", 60) * WAIT_SEC) / (shouldSuppress ? 3 : 1), // fire more often if we should suppress
       ch, 0, 0, 0, 0, 0);
 }
 

@@ -5502,6 +5502,8 @@ void create_tags()
 
   TAG_CREATE("times recently suicided", TAG_SUICIDE_COUNT );
   TAG_CREATE_WITH_MESSAGES("squidrage timer", TAG_SQUIDRAGE, "You feel ready to &+rr&+Rag&+re&n again!", "" );
+
+  TAG_CREATE("suppress elite perm bits", TAG_SUPPRESS_PERM_BITS );
 }
 
 #ifdef SKILLPOINTS

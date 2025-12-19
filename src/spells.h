@@ -1232,6 +1232,7 @@
 #define AIP_ORE_MINED                2122
 #define ACH_DO_YOU_MINE              2123
 #define TAG_HELP_COOLDOWN            2124
+#define TAG_SUPPRESS_PERM_BITS       2125
 
 #define SAVING_PARA   0
 #define SAVING_ROD    1

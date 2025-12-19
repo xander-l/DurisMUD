@@ -1694,7 +1694,18 @@ void all_affects(P_char ch, int mode)
     {
       affect_modify(af->location, af->modifier, &(af->bitvector), FALSE);
     }
+	if(af->type == TAG_SUPPRESS_PERM_BITS && IS_NPC(ch))
+	{
+	  // these bits are being suppressed by an affect
+	  // remove them before continuing
+	  REMOVE_BIT(TmpAffs.BV_1, af->bitvector);
+	  REMOVE_BIT(TmpAffs.BV_2, af->bitvector2);
+	  REMOVE_BIT(TmpAffs.BV_3, af->bitvector3);
+	  REMOVE_BIT(TmpAffs.BV_4, af->bitvector4);
+	  REMOVE_BIT(TmpAffs.BV_5, af->bitvector5);
+	}
   }
+
 
   get_epic_stat_affects(ch);
 
@@ -2678,14 +2689,14 @@ int affect_from_obj(P_obj obj, sh_int spell)
 //=== AFFECTS - FOR ADDING TIMER AFFECT
 //=================================================================================
 
-void add_tag_to_char(P_char ch, int tag, int modifier, int flags)
+void add_tag_to_char(P_char ch, int tag, int modifier, int flags, int duration)
 {
   struct affected_type af;
   memset(&af, 0, sizeof(af));
   af.type = tag;
   af.flags = flags;
   af.modifier = modifier;
-  af.duration = -1;
+  af.duration = duration;
   affect_to_char(ch, &af);  
 }
 

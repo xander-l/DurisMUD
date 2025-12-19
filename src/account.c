@@ -161,6 +161,31 @@ int is_valid_email(const char *email)
   return 1;
 }
 
+bool is_email_taken(const char *email)
+{
+#ifdef REQUIRE_EMAIL_VERIFICATION
+	FILE *f = NULL;
+	char  db_name[MAX_INPUT_LENGTH];
+
+	f = fopen(ACCOUNT_EMAIL_DB, "r");
+	if (!f)
+	{
+		statuslog(56, "Couldn't open Email DB!");
+		return TRUE;
+	}
+
+	while( fscanf(f, "%s\n", &db_name) != 0 )
+	{
+		if(!strcmp(email, db_name))
+		{
+			return TRUE;
+		}
+	}
+#endif
+
+	return FALSE;
+}
+
 
 void select_accountname(P_desc d, char *arg)
 {
@@ -540,6 +565,13 @@ void get_new_account_email(P_desc d, char *arg)
     return;
   }
 
+  if (is_email_taken(arg))
+  {
+	SEND_TO_Q("\r\n&+REmail already in use. &+WOnly one account per user please.&n If you are a new user please try a different email.\r\n", d);
+    SEND_TO_Q("Email address:  ", d);
+    return;
+  }
+
   d->account->acct_email = str_dup(arg);
   STATE(d) = CON_VERIFY_NEW_ACCT_EMAIL;
   verify_new_account_email(d, NULL);
@@ -852,9 +884,10 @@ void account_select_char(P_desc d, char *arg)
     int current_time = time(NULL);
     int time_remaining = 0;
     int minutes_remaining = 0;
+	int racewarSwitchTimer = get_property("account.timer.racewarSwitch", 3600);
 
     // Calculate time remaining for racewar timer
-    if (c->racewar == ACCT_GOOD && current_time < (d->account->acct_evil + 3600))
+    if (c->racewar == ACCT_GOOD && current_time < (d->account->acct_evil + racewarSwitchTimer))
     {
       time_remaining = (d->account->acct_evil + 3600) - current_time;
       minutes_remaining = (time_remaining + 59) / 60; // Round up
@@ -865,7 +898,7 @@ void account_select_char(P_desc d, char *arg)
         minutes_remaining, minutes_remaining == 1 ? "" : "s");
       SEND_TO_Q(buf, d);
     }
-    else if (c->racewar == ACCT_EVIL && current_time < (d->account->acct_good + 3600))
+    else if (c->racewar == ACCT_EVIL && current_time < (d->account->acct_good + racewarSwitchTimer))
     {
       time_remaining = (d->account->acct_good + 3600) - current_time;
       minutes_remaining = (time_remaining + 59) / 60; // Round up
@@ -977,8 +1010,9 @@ void account_confirm_char(P_desc d, char *arg)
       int current_time = time(NULL);
       int time_remaining = 0;
       int minutes_remaining = 0;
+	  int racewarSwitchTimer = get_property("account.timer.racewarSwitch", 3600);
 
-      if (c->racewar == ACCT_GOOD && current_time < (d->account->acct_evil + 3600))
+      if (c->racewar == ACCT_GOOD && current_time < (d->account->acct_evil + racewarSwitchTimer))
       {
         time_remaining = (d->account->acct_evil + 3600) - current_time;
         minutes_remaining = (time_remaining + 59) / 60;
@@ -988,7 +1022,7 @@ void account_confirm_char(P_desc d, char *arg)
           minutes_remaining, minutes_remaining == 1 ? "" : "s");
         SEND_TO_Q(buf, d);
       }
-      else if (c->racewar == ACCT_EVIL && current_time < (d->account->acct_good + 3600))
+      else if (c->racewar == ACCT_EVIL && current_time < (d->account->acct_good + racewarSwitchTimer))
       {
         time_remaining = (d->account->acct_good + 3600) - current_time;
         minutes_remaining = (time_remaining + 59) / 60;
@@ -1058,6 +1092,16 @@ void account_confirm_char(P_desc d, char *arg)
     d->character = ch;
     enter_game(d);
     d->prompt_mode = TRUE;
+
+	switch(GET_RACEWAR(ch))
+	{
+		case RACEWAR_GOOD:
+			d->account->acct_good = time(NULL);
+			break;
+		case RACEWAR_EVIL:
+			d->account->acct_evil = time(NULL);
+			break;
+	}
 
     return;
   }
@@ -1359,9 +1403,14 @@ void display_delete_character_list(P_desc d)
   SEND_TO_Q("Which character do you want to &+RDELETE&n? (Enter number or 0 to cancel): ", d);
 }
 
-void display_character_list(P_desc d)
+void display_character_list_to_char(P_char ch, P_acct account)
 {
-  struct acct_chars *c = d->account->acct_character_list;
+	display_character_list(ch->desc, account);
+}
+
+void display_character_list(P_desc d, P_acct account)
+{
+  struct acct_chars *c = account ? account->acct_character_list : d->account->acct_character_list;
   struct acct_chars *sorted_chars[MAX_CHARS_PER_ACCOUNT];
   char     buf[256];
   int      count = 0, i, j;
@@ -1372,7 +1421,7 @@ void display_character_list(P_desc d)
 
   if (!c)
   {
-    snprintf(buf, 256, "You currently don't have any characters (0/%d).\r\n", MAX_CHARS_PER_ACCOUNT);
+    snprintf(buf, 256, "Account currently doesn't have any characters (0/%d).\r\n", MAX_CHARS_PER_ACCOUNT);
     SEND_TO_Q(buf, d);
     STATE(d) = CON_DISPLAY_ACCT_MENU;
     display_account_menu(d, NULL);
@@ -1408,7 +1457,9 @@ void display_character_list(P_desc d)
   // Build CHARACTER SELECTION line with proper padding
   char title_buf[256];
   int title_len;
+
   snprintf(title_buf, 256, "CHARACTER SELECTION (%d/%d)", count, MAX_CHARS_PER_ACCOUNT);
+
   title_len = strlen(title_buf);
   int left_pad = (77 - title_len) / 2;
   int right_pad = 77 - title_len - left_pad-2;
@@ -1528,8 +1579,11 @@ void display_character_list(P_desc d)
 
   // Display table footer
   SEND_TO_Q("&+y\\---------------------------------------------------------------------------/&n\r\n", d);
-  SEND_TO_Q("\r\n&+W0&n) &+LBack to Account Menu&n\r\n\r\n", d);
-  SEND_TO_Q("Which character would you like to play? ", d);
+  if(d->character == NULL)
+  {
+    SEND_TO_Q("\r\n&+W0&n) &+LBack to Account Menu&n\r\n\r\n", d);
+    SEND_TO_Q("Which character would you like to play? ", d);  
+  }
 }
 
 
@@ -1538,6 +1592,7 @@ void display_character_list(P_desc d)
 int can_connect(struct acct_chars *c, P_desc d)
 {
   int      current_time = time(NULL);
+  int      racewarSwitchTimer = get_property("account.timer.racewarSwitch", 3600);
 
   if (c->blocked)
     return 0;
@@ -1546,11 +1601,11 @@ int can_connect(struct acct_chars *c, P_desc d)
     return 1;
 
   if ((c->racewar == ACCT_GOOD) &&
-      (current_time < (d->account->acct_evil + 3600)))
+      (current_time < (d->account->acct_evil + racewarSwitchTimer)))
     return 0;
 
   if ((c->racewar == ACCT_EVIL) &&
-      (current_time < (d->account->acct_good + 3600)))
+      (current_time < (d->account->acct_good + racewarSwitchTimer)))
     return 0;
 
   return 1;
@@ -1562,6 +1617,7 @@ int is_char_in_game(struct acct_chars *c, P_desc d)
   P_desc   k = descriptor_list;
   P_desc   x = NULL;
   P_char   ch = character_list;
+  int      racewarSwitchTimer = get_property("account.timer.racewarSwitch", 3600);
 
   for (; k; k = k->next)
   {
@@ -2333,14 +2389,21 @@ void generate_account_confirmation_code(P_desc d, char *arg)
   return;
 }
 
-void display_account_information(P_desc d)
+void display_account_information_to_char(P_char ch, P_acct account)
+{
+	display_account_information(ch->desc, account);
+}
+
+void display_account_information(P_desc d, P_acct account)
 {
   char     buffer[4096];
+  if(!account)
+    account = d->account;
 
-  snprintf(buffer, 4096, "Account Name:              %s\r\n", d->account->acct_name);
+  snprintf(buffer, 4096, "Account Name:              %s\r\n", account->acct_name);
   SEND_TO_Q(buffer, d);
   snprintf(buffer, 4096, "Email Address:             %s\r\n",
-          d->account->acct_email);
+          account->acct_email);
   SEND_TO_Q(buffer, d);
 
 }
@@ -2504,4 +2567,16 @@ bool account_exists(const char *dir, char *name)
       return FALSE;
   }
   return TRUE;
+}
+
+/* Helper function to get account name safely */
+const char* get_account_name_safe(P_char ch)
+{
+  // If character has descriptor with account, return account name
+  if (ch->desc && ch->desc->account && ch->desc->account->acct_name)
+    return ch->desc->account->acct_name;
+
+  // Character not connected or no account - return "Unknown"
+  // This can happen when updating offline characters or during loading
+  return "Unknown";
 }

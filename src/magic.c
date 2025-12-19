@@ -8030,9 +8030,8 @@ void spell_stone_skin(int level, P_char ch, char *arg, int type, P_char victim, 
 void spell_ironwood(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;
-  int absorb = (level / 5) + number(1, 4);
-
-  if( !IS_AFFECTED(victim, AFF_BARKSKIN) )
+  
+  if( !IS_AFFECTED(victim, AFF_BARKSKIN) && !IS_AFFECTED5(victim, AFF5_THORNSKIN) )
   {
     send_to_char("They're not even made of wood! How can you begin to make it resemble iron!\n", ch);
     return;
@@ -8046,10 +8045,13 @@ void spell_ironwood(int level, P_char ch, char *arg, int type, P_char victim, P_
   act("&+y$n's &+ybarkskin seems to take on the texture of &+Liron.", TRUE, victim, 0, 0, TO_ROOM);
   act("&+yYou feel your barkskin harden to &+Liron.", TRUE, victim, 0, 0, TO_CHAR);
 
+  // barkskin twice as effective as thornskin at absorbing
+  int absorb = (level / (IS_AFFECTED(victim, AFF_BARKSKIN) ? 5 : 10)) + number(1, 4);
+
   // Stoning the tank equals to heal in exp -Odorf
   if( GET_OPPONENT(victim) )
     gain_exp(ch, victim, absorb, EXP_HEALING);
-
+  
   bzero(&af, sizeof(af));
   af.type = SPELL_IRONWOOD;
   af.duration = 4;
@@ -15025,6 +15027,128 @@ void spell_pword_stun(int level, P_char ch, char *arg, int type, P_char victim, 
   }
 }
 
+typedef struct
+{
+	ulong bit;
+	int spell;
+} RemoveableSpellBit;
+
+RemoveableSpellBit mobAffects[] = 
+{
+	{AFF_MINOR_GLOBE, SPELL_MINOR_GLOBE},
+	{AFF_BIOFEEDBACK, SPELL_BIOFEEDBACK},
+	{AFF_STONE_SKIN, SPELL_STONE_SKIN},
+	{AFF_INFERNAL_FURY, SPELL_INFERNAL_FURY},
+	{AFF_FREEDOM_OF_MVMNT, SPELL_FREEDOM_OF_MOVEMENT},
+	{AFF_INVISIBLE, SPELL_INVISIBLE},
+	{AFF_DETECT_INVISIBLE, SPELL_DETECT_INVISIBLE},
+	{AFF_HASTE, SPELL_HASTE},
+	{AFF_ARMOR, SPELL_ARMOR},
+	{AFF_SLEEP, SPELL_SLEEP},
+	{AFF_BARKSKIN, SPELL_BARKSKIN},
+	{AFF_LEVITATE, SPELL_LEVITATE},
+	{AFF_FLY, SPELL_FLY},
+};
+
+RemoveableSpellBit mobAffects2[] = 
+{
+	{AFF2_MINOR_PARALYSIS, SPELL_MINOR_PARALYSIS},
+	{AFF2_MAJOR_PARALYSIS, SPELL_MAJOR_PARALYSIS},
+	{AFF2_GLOBE, SPELL_GLOBE},
+	{AFF2_PASSDOOR, SPELL_MOLECULAR_CONTROL},
+};
+
+RemoveableSpellBit mobAffects3[] = 
+{
+	{AFF3_ECTOPLASMIC_FORM, SPELL_ECTOPLASMIC_FORM},
+	{AFF3_SPIRIT_WARD, SPELL_SPIRIT_WARD},
+	{AFF3_GR_SPIRIT_WARD, SPELL_GREATER_SPIRIT_WARD},
+	{AFF3_INERTIAL_BARRIER, SPELL_INERTIAL_BARRIER},
+	{AFF3_TOWER_IRON_WILL, SPELL_TOWER_IRON_WILL},
+	{AFF3_BLUR, SPELL_BLUR},
+};
+
+RemoveableSpellBit mobAffects4[] = 
+{
+	{AFF4_STORNOGS_SPHERES, SPELL_STORNOGS_SPHERES},
+	{AFF4_STORNOGS_GREATER_SPHERES, SPELL_STORNOGS_GREATER_SPHERES},
+	{AFF4_BATTLE_ECSTASY, SPELL_BATTLE_ECSTASY},
+	{AFF4_DAZZLER, SPELL_DAZZLE},
+	{AFF4_DEFLECT, SPELL_DEFLECT},
+	{AFF4_HAWKVISION, SPELL_HAWKVISION},
+	{AFF4_SANCTUARY, SPELL_SANCTUARY},
+	{AFF4_HELLFIRE, SPELL_HELLFIRE},
+};
+
+RemoveableSpellBit mobAffects5[] = 
+{
+	{AFF5_FLESH_ARMOR, SPELL_FLESH_ARMOR},
+	{AFF5_THORNSKIN, SPELL_THORNSKIN},
+};
+
+int CheckMobRemoveableSpellBits(P_char ch, RemoveableSpellBit* spellBits, int countSpellBits, ulong* bitStore, bool nosave, int saveMod, int affectVector)
+{
+	int success = 0;
+	
+	if(!IS_NPC(ch))
+	{
+		return success;
+	}
+
+	int saveBonus = IS_ELITE(ch) ? -30 : -10;
+	for(int i = 0; i < countSpellBits; i++)
+	{
+		if(IS_SET(*bitStore, spellBits[i].bit) && !affected_by_spell(ch, spellBits[i].spell) &&
+		   (nosave || !NewSaves(ch, SAVING_SPELL, saveMod + saveBonus)))
+		{
+			success = 1;
+			if(!IS_ELITE(ch))
+			{
+				REMOVE_BIT(*bitStore, spellBits[i].bit);
+			}
+			else
+			{
+				struct affected_type *paf = NULL;
+				if(!affected_by_spell(ch, TAG_SUPPRESS_PERM_BITS))
+				{
+					add_tag_to_char(ch, TAG_SUPPRESS_PERM_BITS, 0, AFFTYPE_SHORT | AFFTYPE_NODISPEL, WAIT_SEC * get_property("timer.secs.suppressElitePermBits", 30));
+					paf = get_spell_from_char(ch, TAG_SUPPRESS_PERM_BITS);
+				}
+				else
+				{
+					paf = get_spell_from_char(ch, TAG_SUPPRESS_PERM_BITS);
+				}
+
+				ulong* paffectBits = NULL;
+				switch(affectVector)
+				{
+					case 1:
+						paffectBits = &paf->bitvector;
+						break;
+					case 2:
+						paffectBits = &paf->bitvector2;
+						break;
+					case 3:
+						paffectBits = &paf->bitvector3;
+						break;
+					case 4:
+						paffectBits = &paf->bitvector4;
+						break;
+					case 5:
+						paffectBits = &paf->bitvector5;
+						break;
+					default:
+						raise(SIGSEGV);
+				}
+				// add the suppressed bits
+				SET_BIT(*paffectBits, spellBits[i].bit);
+			}
+		}
+	}
+
+	return success;
+}
+
 void spell_dispel_magic(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type *af, *next_af_dude;
@@ -15105,28 +15229,11 @@ void spell_dispel_magic(int level, P_char ch, char *arg, int type, P_char victim
       }
     }
 
-    /*
-     * special check to even things out with mobs, stone and globe can now
-     * be dispeled even if there is no affected structure. -JAB
-     */
-
-
-    if(IS_NPC(victim) &&
-       IS_AFFECTED(victim, AFF_MINOR_GLOBE) &&
-       !affected_by_spell(victim, SPELL_MINOR_GLOBE) &&
-       (nosave || !NewSaves(victim, SAVING_SPELL, mod)))
-    {
-      success = 1;
-      REMOVE_BIT(victim->specials.affected_by, AFF_MINOR_GLOBE);
-    }
-    
-    if(IS_AFFECTED2(victim, AFF2_GLOBE) &&
-        !affected_by_spell(victim, SPELL_GLOBE) &&
-        (nosave || !NewSaves(victim, SAVING_SPELL, mod)))
-    {
-      success = 1;
-      REMOVE_BIT(victim->specials.affected_by2, AFF2_GLOBE);
-    }
+	success = CheckMobRemoveableSpellBits(victim, mobAffects, ARRAY_SIZE(mobAffects), &victim->specials.affected_by, nosave, mod, 1) == 0 ? success : 1;
+	success = CheckMobRemoveableSpellBits(victim, mobAffects2, ARRAY_SIZE(mobAffects2), &victim->specials.affected_by2, nosave, mod, 2) == 0 ? success : 1;
+	success = CheckMobRemoveableSpellBits(victim, mobAffects3, ARRAY_SIZE(mobAffects3), &victim->specials.affected_by3, nosave, mod, 3) == 0 ? success : 1;
+	success = CheckMobRemoveableSpellBits(victim, mobAffects4, ARRAY_SIZE(mobAffects4), &victim->specials.affected_by4, nosave, mod, 4) == 0 ? success : 1;
+	success = CheckMobRemoveableSpellBits(victim, mobAffects5, ARRAY_SIZE(mobAffects5), &victim->specials.affected_by5, nosave, mod, 5) == 0 ? success : 1;
     
     if(!success)
     {

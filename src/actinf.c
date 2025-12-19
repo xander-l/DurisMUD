@@ -6566,6 +6566,14 @@ void do_who(P_char ch, char *argument, int cmd)
         else
         {
           strcat(who_output, GET_NAME(who_list[j]));
+		  #ifdef USE_ACCOUNT
+		  if(IS_TRUSTED(ch))
+		  {
+			strcat(who_output, " (Acct: ");
+			strcat(who_output, get_account_name_safe(who_list[j]));
+			strcat(who_output, ")");			
+		  }
+		  #endif
 
           if( GET_TITLE(who_list[j]) )
           {

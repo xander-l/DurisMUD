@@ -13053,7 +13053,7 @@ extern struct zone_random_data {
 #define SETMSG_PROTECT  1
 #define SETMSG_STRENGTH 2
 
-void apply_zone_spell(P_char ch, int count, const char *zone_name, P_obj obj, int spell)
+void apply_zone_spell(P_char ch, int count, const char *zone_name, int zone_index, P_obj obj, int spell)
 {
   int message = SETMSG_NONE;
   char buffer[512];
@@ -13211,6 +13211,7 @@ void apply_zone_spell(P_char ch, int count, const char *zone_name, P_obj obj, in
 	if (paf)
 	{
 		SET_BIT(paf->flags, AFFTYPE_SET_AFFECT | AFFTYPE_NOSAVE);
+		paf->context = (void*)zone_index;
 	}
   }
 }
@@ -13267,9 +13268,9 @@ void check_zone_spells(P_char ch, P_obj obj, int count, const char *zone_name)
 	  if( zones_random_data[zone_idx].proc_spells[i][0] <= count )
 	  {
 		// cast the spell on ch.
-		apply_zone_spell(ch, count, zone_name, obj, zones_random_data[zone_idx].proc_spells[i][1]);
+		apply_zone_spell(ch, count, zone_name, zone_idx, obj, zones_random_data[zone_idx].proc_spells[i][1]);
 	  }
-	  else if ( (paf = get_spell_from_char(ch, zones_random_data[zone_idx].proc_spells[i][1], NULL, AFFTYPE_SET_AFFECT)) != NULL )
+	  else if ( (paf = get_spell_from_char(ch, zones_random_data[zone_idx].proc_spells[i][1], (void*)zone_idx, AFFTYPE_SET_AFFECT)) != NULL )
 	  {
 		// remove the spell from the character		
 		wear_off_message(ch, paf);
