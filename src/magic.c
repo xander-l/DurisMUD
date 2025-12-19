@@ -18009,7 +18009,7 @@ void event_immolate(P_char ch, P_char vict, P_obj obj, void *data)
           &burntime, sizeof(burntime));
       
         if(4 > number(1, 10))
-          if(!IS_DRAGOON(ch)) stop_memorizing(vict);
+          if(!IS_DRAGOON(vict)) stop_memorizing(vict);
       }
     }
   }
@@ -22454,7 +22454,7 @@ void spell_igneus_vitae(int level, P_char ch, char *arg, int type,
     return;
   }
 
-  skl_lvl = MAX( 4, (level / 10) );
+  skl_lvl = MAX( 4, (level / 5) );
 
   snprintf(Gbuf1, 100, "Your soul burns with &+Gdr&+Lag&+Gon&n god's &+rpower&n.\n");
 
@@ -22464,6 +22464,9 @@ void spell_igneus_vitae(int level, P_char ch, char *arg, int type,
   af.bitvector4 = AFF4_REGENERATION;
   send_to_char(Gbuf1, victim);
   affect_to_char(victim, &af);  
+
+  // Take a little damage for your benefits
+  spell_damage(ch, ch, GET_HIT(ch) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
 }
 
 void spell_sanguinis_ignis(int level, P_char ch, char *arg, int type,
@@ -22482,7 +22485,7 @@ void spell_sanguinis_ignis(int level, P_char ch, char *arg, int type,
     return;
   }
 
-  skl_lvl = MAX( 4, (level / 10) );
+  skl_lvl = MAX( 4, (level / 5) );
 
   snprintf(Gbuf1, 100, "Your blood burns with &+Gdr&+Lag&+Gon&n god's &+rpower&n.\n");
 
@@ -22491,18 +22494,73 @@ void spell_sanguinis_ignis(int level, P_char ch, char *arg, int type,
   af.duration = skl_lvl;
   send_to_char(Gbuf1, victim);
   affect_to_char(victim, &af);  
+
+  // Take a little damage for your benefits
+  spell_damage(ch, ch, GET_HIT(ch) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
 }
 
 void spell_sanctum_draconis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's sanctum draconis. -- not finished", ch);
+  struct affected_type af;
+  char Gbuf1[100];
+  int  skl_lvl;
+
+  if(affected_by_spell(ch, SPELL_SANCTUM_DRACONIS))
+  {
+    act("You are already protected by the &+Gdr&+Lag&+Gon&n &+Lgod&n's &+rpower&n!", FALSE, ch, 0, ch, TO_CHAR);
+    return;
+  }
+
+  snprintf(Gbuf1, 100, "Your bones burn with &+Gdr&+Lag&+Gon&n god's &+rpower&n.\n");
+
+  skl_lvl = MAX( 4, (level / 5) );
+
+  bzero(&af, sizeof(af));
+  af.type = SPELL_SANCTUM_DRACONIS;
+  af.location = APPLY_NONE;
+  af.duration = skl_lvl;
+  af.bitvector = AFF_SANCTUM_DRACONIS;
+  send_to_char(Gbuf1, victim);
+  affect_to_char(ch, &af);
 }
 
 void spell_vivernae_concordia(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's vivernae concordia. -- not finished", ch);
+  struct affected_type af;
+  struct affected_type *af1;
+
+  if( !IS_ALIVE(ch) )
+  {
+    return;
+  }
+  
+  if(!affected_by_spell(victim, SPELL_VIVERNAE_CONCORDIA))
+  {
+    send_to_char("Your nerves burn as your soul touches the &+Gdr&+Lag&+Gon&n god's &+rpower&n.\n", victim);
+    act("$n's ophidian eyes narrow as they shriek in &+rpain&n!", TRUE, victim, 0, 0, TO_ROOM);
+    
+    bzero(&af, sizeof(af));
+    af.type = SPELL_VIVERNAE_CONCORDIA;
+    af.duration = 10;
+    af.bitvector3 = AFF3_VIVERNAE_CONCORDIA;
+    affect_to_char(victim, &af);
+  }
+  else if(affected_by_spell(victim, SPELL_VIVERNAE_CONCORDIA))
+  {
+    for (af1 = victim->affected; af1; af1 = af1->next)
+    {
+      if(af1->type == AFF3_VIVERNAE_CONCORDIA)
+      {
+        send_to_char("Your soul &+rrekindles&n its concord with the &+Gdr&+Lag&+Gon&n god.&n\n", victim);
+        af1->duration = 10;
+      }
+    }
+  }
+
+  // Take a little damage for your benefits
+  spell_damage(ch, ch, GET_HIT(ch) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
 }
 
 void spell_pactum_serpentis(int level, P_char ch, char *arg, int type,

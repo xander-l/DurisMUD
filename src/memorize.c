@@ -725,6 +725,16 @@ int get_circle_memtime(P_char ch, int circle, bool bStatOnly)
     }
   }
   */
+  else if(IS_DRAGOON(ch))
+  {
+    tick_factor = MAX(1, STAT_INDEX(GET_C_POW(ch)));
+
+    // If Pow w/eq is > 100.
+    if( GET_C_POW(ch) > stat_factor[(int) GET_RACE(ch)].Pow )
+    {
+         tick_factor += GET_C_POW(ch) - (stat_factor[(int) GET_RACE(ch)].Pow);
+    }
+  }
   else
   {
     tick_factor = MAX(1, STAT_INDEX(GET_C_WIS(ch)));
