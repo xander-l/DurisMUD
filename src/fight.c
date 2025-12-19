@@ -8612,7 +8612,7 @@ int dodgeSucceed(P_char char_dodger, P_char attacker, P_obj wpn)
   }
   else
   {
-    if(dragoon_dodge)
+    if(!dragoon_dodge)
     {
       act("You dodge $n's vicious attack.", FALSE, attacker, 0, char_dodger,
           TO_VICT | ACT_NOTTERSE);
