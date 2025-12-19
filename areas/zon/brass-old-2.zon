@@ -1,0 +1,521 @@
+#250
+&+rPlane of Fire, &+RBr&+rass&n~
+25105 1 0 25 35 3
+*
+* Zone edited with durisEdit v3.00
+*
+*
+D 0 25028 2 1 100 0 0 0
+*     south exit from "Long Hallway" to
+*     "Warriors Lounge" - closed
+*
+D 0 25029 0 1 100 0 0 0
+*     north exit from "Warriors Lounge" to
+*     "Long Hallway" - closed
+*
+D 0 25029 2 2 100 0 0 0
+*     south exit from "Warriors Lounge" to
+*     "Armory" - closed/locked
+*
+D 0 25031 0 2 100 0 0 0
+*     north exit from "Armory" to
+*     "Warriors Lounge" - closed/locked
+*
+D 0 25034 1 2 100 0 0 0
+*     east exit from "Intersection in the Long Hall" to
+*     "Chief Guards Room" - closed/locked
+*
+D 0 25035 3 2 100 0 0 0
+*     west exit from "Chief Guards Room" to
+*     "Intersection in the Long Hall" - closed/locked
+*
+D 0 25042 3 2 100 0 0 0
+*     west exit from "Intersection" to
+*     "Slave Quarters" - closed/locked
+*
+D 0 25043 1 2 100 0 0 0
+*     east exit from "Slave Quarters" to
+*     "Intersection" - closed/locked
+*
+D 0 25043 2 2 100 0 0 0
+*     south exit from "Slave Quarters" to
+*     "Slave Quarters" - closed/locked
+*
+D 0 25044 0 2 100 0 0 0
+*     north exit from "Slave Quarters" to
+*     "Slave Quarters" - closed/locked
+*
+D 0 25043 3 2 100 0 0 0
+*     west exit from "Slave Quarters" to
+*     "Prison" - closed/locked
+*
+D 0 25046 1 2 100 0 0 0
+*     east exit from "Prison" to
+*     "Slave Quarters" - closed/locked
+*
+D 0 25057 0 1 100 0 0 0
+*     north exit from "Intersection in the Hallway" to
+*     "Guards Room" - closed
+*
+D 0 25064 2 1 100 0 0 0
+*     south exit from "Guards Room" to
+*     "Intersection in the Hallway" - closed
+*
+D 0 25058 1 2 100 0 0 0
+*     east exit from "Long Hallway" to
+*     "Grand Foyer" - closed/locked
+*
+D 0 25059 3 2 100 0 0 0
+*     west exit from "Grand Foyer" to
+*     "Long Hallway" - closed/locked
+*
+D 0 25059 1 1 100 0 0 0
+*     east exit from "Grand Foyer" to
+*     "Padashaw's Room" - closed
+*
+D 0 25060 3 1 100 0 0 0
+*     west exit from "Padashaw's Room" to
+*     "Grand Foyer" - closed
+*
+D 0 25064 0 1 100 0 0 0
+*     north exit from "Guards Room" to
+*     "The Amirs Outer Chamber" - closed
+*
+D 0 25065 2 1 100 0 0 0
+*     south exit from "The Amirs Outer Chamber" to
+*     "Guards Room" - closed
+*
+D 0 25065 1 2 100 0 0 0
+*     east exit from "The Amirs Outer Chamber" to
+*     "Amir's Main Chamber" - closed/locked
+*
+D 0 25066 3 2 100 0 0 0
+*     west exit from "Amir's Main Chamber" to
+*     "The Amirs Outer Chamber" - closed/locked
+*
+D 0 25066 1 1 100 0 0 0
+*     east exit from "Amir's Main Chamber" to
+*     "Amir's Spiritual Meditation Room" - closed
+*
+D 0 25067 3 1 100 0 0 0
+*     west exit from "Amir's Spiritual Meditation Room" to
+*     "Amir's Main Chamber" - closed
+*
+D 0 25067 0 1 100 0 0 0
+*     north exit from "Amir's Spiritual Meditation Room" to
+*     "West Hallway" - closed
+*
+D 0 25098 2 1 100 0 0 0
+*     south exit from "West Hallway" to
+*     "Amir's Spiritual Meditation Room" - closed
+*
+D 0 25074 0 1 100 0 0 0
+*     north exit from "East Hallway" to
+*     "Grand Library" - closed
+*
+D 0 25081 2 1 100 0 0 0
+*     south exit from "Grand Library" to
+*     "East Hallway" - closed
+*
+D 0 25076 3 1 100 0 0 0
+*     west exit from "Upper Stairway" to
+*     "Grand Library" - closed
+*
+D 0 25081 1 1 100 0 0 0
+*     east exit from "Grand Library" to
+*     "Upper Stairway" - closed
+*
+D 0 25080 3 1 100 0 0 0
+*     west exit from "High Priest Chamber" to
+*     "Meditation Room" - closed
+*
+D 0 25105 1 1 100 0 0 0
+*     east exit from "Meditation Room" to
+*     "High Priest Chamber" - closed
+*
+D 0 25085 0 2 100 0 0 0
+*     north exit from "Intersection in the Grand Hallway" to
+*     "Throne Room of the Sultan" - closed/locked
+*
+D 0 25086 2 2 100 0 0 0
+*     south exit from "Throne Room of the Sultan" to
+*     "Intersection in the Grand Hallway" - closed/locked
+*
+D 0 25086 0 2 100 0 0 0
+*     north exit from "Throne Room of the Sultan" to
+*     "Treasure Room of the Efreeti" - closed/locked
+*
+D 0 25087 2 2 100 0 0 0
+*     south exit from "Treasure Room of the Efreeti" to
+*     "Throne Room of the Sultan" - closed/locked
+*
+D 0 25089 0 1 100 0 0 0
+*     north exit from "Great Hallway" to
+*     "Dinning Room" - closed
+*
+D 0 25090 2 1 100 0 0 0
+*     south exit from "Dinning Room" to
+*     "Great Hallway" - closed
+*
+D 0 25090 0 1 100 0 0 0
+*     north exit from "Dinning Room" to
+*     "Royal Kitchen" - closed
+*
+D 0 25091 2 1 100 0 0 0
+*     south exit from "Royal Kitchen" to
+*     "Dinning Room" - closed
+*
+D 0 25101 2 1 100 0 0 0
+*     south exit from "Tower of Magic" to
+*     "Tower of Magic" - closed
+*
+D 0 25104 0 1 100 0 0 0
+*     north exit from "Tower of Magic" to
+*     "Tower of Magic" - closed
+*
+*
+O 0 60 1 25087 100 0 0 0           * (object type not in this .obj file)
+*
+M 0 25000 10 25001 100 0 0 0       * an efreeti guard
+M 0 25000 10 25001 100 0 0 0       * an efreeti guard
+M 0 25000 10 25001 100 0 0 0       * an efreeti guard
+M 0 25000 10 25001 100 0 0 0       * an efreeti guard
+M 0 25000 10 25001 100 0 0 0       * an efreeti guard
+M 0 25000 10 25001 100 0 0 0       * an efreeti guard
+M 0 25010 69 25002 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25002 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25002 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25003 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25003 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25003 100 0 0 0       * an efreeti palace guard
+M 0 25190 30 25004 100 0 0 0       * (mob type not in this .mob file)
+G 1 25090 4 0 100 0 0 0            *    a fire dagger
+M 0 25010 69 25004 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25004 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25004 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25005 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25005 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25006 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25006 100 0 0 0       * an efreeti palace guard
+M 0 25190 30 25006 100 0 0 0       * (mob type not in this .mob file)
+M 0 25015 48 25006 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25007 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25007 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25007 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25007 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25008 100 0 0 0       * an efreeti palace guard
+M 0 25200 4 25009 100 0 0 0        * (mob type not in this .mob file)
+G 1 25070 3 0 100 0 0 0            *    a flaming stiletto
+M 0 25010 69 25009 100 0 0 0       * an efreeti palace guard
+M 0 25019 2 25009 100 0 0 0        * (mob type not in this .mob file)
+M 0 25010 69 25009 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25009 100 0 0 0       * an efreeti palace guard
+M 0 25000 10 25010 100 0 0 0       * an efreeti guard
+M 0 25000 10 25010 100 0 0 0       * an efreeti guard
+M 0 25000 10 25010 100 0 0 0       * an efreeti guard
+M 0 25000 10 25010 100 0 0 0       * an efreeti guard
+M 0 25010 69 25011 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25011 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25011 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25011 100 0 0 0       * an efreeti palace guard
+M 0 25190 30 25012 100 0 0 0       * (mob type not in this .mob file)
+M 0 25015 48 25013 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25013 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25013 100 0 0 0       * an efreeti palace guard
+M 0 25019 2 25013 100 0 0 0        * (mob type not in this .mob file)
+M 0 25010 69 25014 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25014 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25014 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25016 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25016 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25016 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25018 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25018 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25018 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25018 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25018 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25023 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25023 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25023 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25023 100 0 0 0       * an efreeti palace guard
+M 0 25190 30 25023 100 0 0 0       * (mob type not in this .mob file)
+M 0 25190 30 25025 100 0 0 0       * (mob type not in this .mob file)
+G 1 25090 4 0 100 0 0 0            *    a fire dagger
+M 0 25015 48 25025 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25025 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25025 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25028 100 0 0 0       * an efreeti palace guard
+E 1 25040 23 16 100 0 0 0          *   a flaming halberd
+M 0 25030 58 25029 100 0 0 0       * an efreeti palace guard
+E 1 25040 23 16 100 0 0 0          *   a flaming halberd
+M 0 25030 58 25029 100 0 0 0       * an efreeti palace guard
+E 1 25010 1 18 100 0 0 0           *   a cold brass key
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25030 58 25030 100 0 0 0       * an efreeti palace guard
+G 1 25011 1 0 100 0 0 0            *    a blue metal key
+M 0 25010 69 25032 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25032 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25032 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25032 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25033 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25033 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25033 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25033 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25034 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25034 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25034 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25034 100 0 0 0       * an efreeti palace guard
+M 0 25020 5 25035 100 0 0 0        * the chief efreeti guard
+E 1 25050 1 5 100 0 0 0            *   a suit of flaming ringmail
+E 1 25060 1 13 100 0 0 0           *   a fiery-orange sash
+M 0 25010 69 25035 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25035 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25035 100 0 0 0       * an efreeti palace guard
+M 0 25170 21 25036 100 0 0 0       * (mob type not in this .mob file)
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25170 21 25036 100 0 0 0       * (mob type not in this .mob file)
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25170 21 25036 100 0 0 0       * (mob type not in this .mob file)
+M 0 25170 21 25036 100 0 0 0       * (mob type not in this .mob file)
+M 0 25170 21 25037 100 0 0 0       * (mob type not in this .mob file)
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25170 21 25037 100 0 0 0       * (mob type not in this .mob file)
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25170 21 25038 100 0 0 0       * (mob type not in this .mob file)
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25170 21 25038 100 0 0 0       * (mob type not in this .mob file)
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25170 21 25039 100 0 0 0       * (mob type not in this .mob file)
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25170 21 25039 100 0 0 0       * (mob type not in this .mob file)
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25170 21 25039 100 0 0 0       * (mob type not in this .mob file)
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25170 21 25040 100 0 0 0       * (mob type not in this .mob file)
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25170 21 25040 100 0 0 0       * (mob type not in this .mob file)
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25170 21 25040 100 0 0 0       * (mob type not in this .mob file)
+M 0 25170 21 25040 100 0 0 0       * (mob type not in this .mob file)
+M 0 25170 21 25040 100 0 0 0       * (mob type not in this .mob file)
+M 0 25170 21 25041 100 0 0 0       * (mob type not in this .mob file)
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25170 21 25041 100 0 0 0       * (mob type not in this .mob file)
+M 0 25170 21 25041 100 0 0 0       * (mob type not in this .mob file)
+M 0 25170 21 25041 100 0 0 0       * (mob type not in this .mob file)
+M 0 25170 21 25041 100 0 0 0       * (mob type not in this .mob file)
+M 0 25030 58 25042 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25042 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25042 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25042 100 0 0 0       * an efreeti palace guard
+M 0 25130 1 25043 100 0 0 0        * (mob type not in this .mob file)
+M 0 25030 58 25043 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25043 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25043 100 0 0 0       * an efreeti palace guard
+M 0 25120 1 25044 100 0 0 0        * (mob type not in this .mob file)
+M 0 25210 1 25045 100 0 0 0        * (mob type not in this .mob file)
+M 0 25030 58 25047 100 0 0 0       * an efreeti palace guard
+G 1 25012 1 0 100 0 0 0            *    a green metal key
+M 0 25030 58 25047 100 0 0 0       * an efreeti palace guard
+G 1 25013 1 0 100 0 0 0            *    an amethyst key
+M 0 25030 58 25047 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25047 100 0 0 0       * an efreeti palace guard
+M 0 25160 1 25049 100 0 0 0        * (mob type not in this .mob file)
+M 0 25190 30 25049 100 0 0 0       * (mob type not in this .mob file)
+M 0 25015 48 25050 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25051 100 0 0 0       * an efreeti palace guard
+F 1 25030 58 25051 100 0 0 0       * an efreeti palace guard (following)
+M 0 25010 69 25052 100 0 0 0       * an efreeti palace guard
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25015 48 25052 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25052 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25052 100 0 0 0       * an efreeti palace guard
+M 0 25190 30 25053 100 0 0 0       * (mob type not in this .mob file)
+G 1 25090 4 0 100 0 0 0            *    a fire dagger
+M 0 25015 48 25054 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25054 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25054 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25055 100 0 0 0       * an efreeti palace guard
+F 1 25030 58 25055 100 0 0 0       * an efreeti palace guard (following)
+M 0 25015 48 25055 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25055 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25055 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25057 100 0 0 0       * an efreeti palace guard
+G 1 25014 1 0 100 0 0 0            *    a glowing key
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25030 58 25057 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25057 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25057 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25057 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25057 100 0 0 0       * an efreeti palace guard
+M 0 25110 1 25060 100 0 0 0        * (mob type not in this .mob file)
+M 0 25030 58 25060 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25060 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25060 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25060 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25060 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25061 100 0 0 0       * an efreeti palace guard
+M 0 25140 4 25062 100 0 0 0        * (mob type not in this .mob file)
+M 0 25140 4 25062 100 0 0 0        * (mob type not in this .mob file)
+M 0 25140 4 25062 100 0 0 0        * (mob type not in this .mob file)
+M 0 25140 4 25062 100 0 0 0        * (mob type not in this .mob file)
+M 0 25030 58 25064 100 0 0 0       * an efreeti palace guard
+G 1 25015 1 0 100 0 0 0            *    an efreeti key
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25030 58 25064 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25064 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25064 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25064 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25064 100 0 0 0       * an efreeti palace guard
+M 0 25100 1 25066 100 0 0 0        * (mob type not in this .mob file)
+G 1 25118 1 0 100 0 0 0            *    (object type not in this .obj file)
+M 0 25030 58 25066 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25066 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25066 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25066 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25066 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25067 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25067 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25067 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25067 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25067 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25067 100 0 0 0       * an efreeti palace guard
+M 0 25190 30 25068 100 0 0 0       * (mob type not in this .mob file)
+M 0 25020 5 25069 100 0 0 0        * the chief efreeti guard
+M 0 25020 5 25069 100 0 0 0        * the chief efreeti guard
+M 0 25020 5 25069 100 0 0 0        * the chief efreeti guard
+M 0 25020 5 25069 100 0 0 0        * the chief efreeti guard
+M 0 25200 4 25070 100 0 0 0        * (mob type not in this .mob file)
+G 1 25070 3 0 100 0 0 0            *    a flaming stiletto
+M 0 25190 30 25071 100 0 0 0       * (mob type not in this .mob file)
+M 0 25030 58 25072 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25072 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25072 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25072 100 0 0 0       * an efreeti palace guard
+M 0 25190 30 25073 100 0 0 0       * (mob type not in this .mob file)
+M 0 25015 48 25074 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25074 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25075 100 0 0 0       * an efreeti palace guard
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25010 69 25075 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25075 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25075 100 0 0 0       * an efreeti palace guard
+M 0 25200 4 25076 100 0 0 0        * (mob type not in this .mob file)
+G 1 25070 3 0 100 0 0 0            *    a flaming stiletto
+M 0 25070 12 25077 100 0 0 0       * an elite palace guard
+M 0 25070 12 25077 100 0 0 0       * an elite palace guard
+M 0 25070 12 25077 100 0 0 0       * an elite palace guard
+M 0 25070 12 25077 100 0 0 0       * an elite palace guard
+M 0 25080 7 25078 100 0 0 0        * an efreeti cleric
+M 0 25080 7 25078 100 0 0 0        * an efreeti cleric
+M 0 25002 7 25078 100 0 0 0        * a slave of the efreeti
+M 0 25002 7 25078 100 0 0 0        * a slave of the efreeti
+M 0 25190 30 25079 100 0 0 0       * (mob type not in this .mob file)
+M 0 25060 1 25080 100 0 0 0        * the High Priest
+E 1 25101 20 4 100 0 0 0           *   (object type not in this .obj file)
+E 1 25085 1 9 100 0 0 0            *   gloves of sapphire-encrusted brass
+E 1 25110 2 17 100 0 0 0           *   (object type not in this .obj file)
+G 1 25016 1 0 100 0 0 0            *    a blue flaming key
+M 0 25080 7 25080 100 0 0 0        * an efreeti cleric
+M 0 25080 7 25080 100 0 0 0        * an efreeti cleric
+M 0 25080 7 25080 100 0 0 0        * an efreeti cleric
+M 0 25002 7 25080 100 0 0 0        * a slave of the efreeti
+M 0 25002 7 25080 100 0 0 0        * a slave of the efreeti
+M 0 25002 7 25080 100 0 0 0        * a slave of the efreeti
+M 0 25190 30 25081 100 0 0 0       * (mob type not in this .mob file)
+M 0 25030 58 25081 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25081 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25081 100 0 0 0       * an efreeti palace guard
+M 0 25190 30 25082 100 0 0 0       * (mob type not in this .mob file)
+M 0 25015 48 25082 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25082 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25082 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25082 100 0 0 0       * an efreeti palace guard
+M 0 25190 30 25082 100 0 0 0       * (mob type not in this .mob file)
+M 0 25030 58 25083 100 0 0 0       * an efreeti palace guard
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25030 58 25083 100 0 0 0       * an efreeti palace guard
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25030 58 25083 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25083 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25083 100 0 0 0       * an efreeti palace guard
+M 0 25190 30 25083 100 0 0 0       * (mob type not in this .mob file)
+M 0 25200 4 25084 100 0 0 0        * (mob type not in this .mob file)
+M 0 25070 12 25085 100 0 0 0       * an elite palace guard
+M 0 25070 12 25085 100 0 0 0       * an elite palace guard
+M 0 25190 30 25085 100 0 0 0       * (mob type not in this .mob file)
+M 0 25070 12 25085 100 0 0 0       * an elite palace guard
+M 0 25070 12 25085 100 0 0 0       * an elite palace guard
+M 0 25040 1 25086 100 0 0 0        * Shadam Quilen, the Efreeti Sultan
+E 1 25020 1 6 100 0 0 0            *   the crown of might
+G 1 25019 1 0 100 0 0 0            *    a key of cold fire
+F 1 25070 12 25086 100 0 0 0       * an elite palace guard (following)
+E 1 25120 4 11 100 0 0 0           *   (object type not in this .obj file)
+F 1 25070 12 25086 100 0 0 0       * an elite palace guard (following)
+E 1 25120 4 11 100 0 0 0           *   (object type not in this .obj file)
+F 1 25070 12 25086 100 0 0 0       * an elite palace guard (following)
+G 1 25120 4 0 100 0 0 0            *    (object type not in this .obj file)
+F 1 25070 12 25086 100 0 0 0       * an elite palace guard (following)
+G 1 25120 4 0 100 0 0 0            *    (object type not in this .obj file)
+M 0 25001 1 25087 100 0 0 0        * the treasure room guard
+M 0 25190 30 25088 100 0 0 0       * (mob type not in this .mob file)
+M 0 25015 48 25089 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25089 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25089 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25089 100 0 0 0       * an efreeti palace guard
+M 0 25180 1 25091 100 0 0 0        * (mob type not in this .mob file)
+M 0 25150 1 25092 100 0 0 0        * (mob type not in this .mob file)
+M 0 25030 58 25093 100 0 0 0       * an efreeti palace guard
+M 0 25030 58 25093 100 0 0 0       * an efreeti palace guard
+M 0 25190 30 25093 100 0 0 0       * (mob type not in this .mob file)
+M 0 25010 69 25093 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25093 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25094 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25094 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25094 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25094 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25095 100 0 0 0       * an efreeti palace guard
+F 1 25010 69 25095 100 0 0 0       * an efreeti palace guard (following)
+M 0 25010 69 25095 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25095 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25095 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25095 100 0 0 0       * an efreeti palace guard
+M 0 25190 30 25096 100 0 0 0       * (mob type not in this .mob file)
+G 1 25090 4 0 100 0 0 0            *    a fire dagger
+M 0 25015 48 25096 100 0 0 0       * an efreeti palace guard
+F 1 25010 69 25096 100 0 0 0       * an efreeti palace guard (following)
+M 0 25010 69 25096 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25096 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25096 100 0 0 0       * an efreeti palace guard
+M 0 25190 30 25097 100 0 0 0       * (mob type not in this .mob file)
+M 0 25015 48 25099 100 0 0 0       * an efreeti palace guard
+F 1 25010 69 25099 100 0 0 0       * an efreeti palace guard (following)
+G 1 25040 23 0 100 0 0 0           *    a flaming halberd
+M 0 25010 69 25099 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25099 100 0 0 0       * an efreeti palace guard
+M 0 25010 69 25099 100 0 0 0       * an efreeti palace guard
+M 0 25015 48 25099 100 0 0 0       * an efreeti palace guard
+M 0 25090 12 25100 100 0 0 0       * an efreeti magi
+M 0 25090 12 25100 100 0 0 0       * an efreeti magi
+M 0 25090 12 25101 100 0 0 0       * an efreeti magi
+M 0 25050 1 25103 100 0 0 0        * the Arch-Magi
+E 1 25080 1 2 100 0 0 0            *   a ring of elemental control
+E 1 25110 2 15 100 0 0 0           *   (object type not in this .obj file)
+G 1 67245 1 0 100 0 0 0            *    (object type not in this .obj file)
+G 1 25117 1 0 100 0 0 0            *    (object type not in this .obj file)
+M 0 25090 12 25103 100 0 0 0       * an efreeti magi
+M 0 25090 12 25103 100 0 0 0       * an efreeti magi
+M 0 25090 12 25103 100 0 0 0       * an efreeti magi
+M 0 25090 12 25103 100 0 0 0       * an efreeti magi
+M 0 25090 12 25103 100 0 0 0       * an efreeti magi
+M 0 25090 12 25104 100 0 0 0       * an efreeti magi
+M 0 25090 12 25104 100 0 0 0       * an efreeti magi
+M 0 25090 12 25104 100 0 0 0       * an efreeti magi
+M 0 25090 12 25104 100 0 0 0       * an efreeti magi
+M 0 25080 7 25105 100 0 0 0        * an efreeti cleric
+M 0 25080 7 25105 100 0 0 0        * an efreeti cleric
+M 0 25002 7 25105 100 0 0 0        * a slave of the efreeti
+M 0 25002 7 25105 100 0 0 0        * a slave of the efreeti
+*
+S

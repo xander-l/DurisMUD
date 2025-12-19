@@ -1,11 +1,11 @@
-#139172
+#139072
 MA
 hi hello~
 &+LThe Unq&nu&+Lenchable guard member says aloud, &+WStand Back! You do not
 &+Wlook like an emissary and your not the &+ytax man&+W, so get lost!&n
 ~
 S
-#139183
+#139083
 M
 hi hello hey~
 &+CHe&+crl&n slowly turns towards you somewhat annoyed at being bothered.
@@ -23,18 +23,18 @@ Q
 &+CHe&+crl&n takes the &+Ldrop&n and puts it into his &+Wbag of holding&n and in the same
 motion pulls coins out and hands them to you. &+CHe&+crl&n says, "&+WAs we agreed.&n"
 ~
-R C 3000000
-G I 139228
+R C 1000000
+G I 139128
 S
-#139210
+#139110
 M
 hi hello hey howdy~
 ~
 Q
 ~
-G I 139118
+G I 139018
 S
-#139219
+#139119
 M
 hi hello hey~
 &+YThe &+ref&+Rre&+ret&+Ri&n &+Ytax collector&n approaches you and speaks,
@@ -98,13 +98,13 @@ QA
 
 &+YThe &+ref&+Rre&+ret&+Ri&n &+Ytax collector&n turns away to store his new collection pieces.
 ~
-R I 139170
-G I 139128
-G I 139131
-G I 139126
-G I 139133
+R I 139070
+G I 139028
+G I 139031
+G I 139026
+G I 139033
 S
-#139221
+#139121
 M
 hydra pyrohydra scales scale~
 &+YThe &+ref&+Rre&+ret&+Ri&n &+Yarmorer&n removes one of his gloves and scratches his nose.
@@ -124,9 +124,9 @@ Q
 &+WGive me the &+rpy&+Rro&+Yhy&+Wdra &+Lsc&na&+Lles &+Wfirst then the &+ye&+Yld&+yer&n &+Lscales&n. &+WAnd do not
 forget to bring me the &n7500 &+Wplatinum as well.&n"
 ~
-R I 139227
+R I 139127
 R C 7500000
-G I 139227
+G I 139127
 G C 7500000
 Q
 &+YThe &+ref&+Rre&+ret&+Ri &+Yarmorer&n sets his hammer down and removes his gloves.
@@ -139,12 +139,12 @@ Q
 
 &+YThe &+ref&+Rre&+ret&+Ri&n &+Yarmorer&n says, "&+WNice doing business with you.&n"
 ~
-R I 139237
+R I 139137
 G C 7500000
-G I 139227
-G I 139242
+G I 139127
+G I 139142
 S
-#139224
+#139124
 M
 qc_action~
 &+GYodono grins at you and says hello.&n
@@ -160,14 +160,13 @@ Q
 &+GYodono says to you, '&+WPlease take this as a token of my appreciation. You have
 &+Wearned this.
 ~
-R I 55271
-R I 139118
-R I 139118
-G I 139111
-G I 139116
-G I 139117
+R I 139018
+R I 139018
+G I 139011
+G I 139016
+G I 139017
 S
-#139232
+#139132
 M
 hi hello hey quest~
 &+LA hi&ndd&+Len &+Cdjinni&n &+Ls&np&+Ly&n floats closer to you.
@@ -188,13 +187,13 @@ Q
 &+Wforming a small circle in it. The circle shapes into a &+Cs&+ca&+Csh&n &+Wmade of &+Ca&+ci&+Cr&n
 &+Wand then hands it to you.
 ~
-R I 139243
-G I 139244
-G I 139116
-G I 139117
-G I 139239
-G I 139240
-G I 139241
+R I 139143
+G I 139144
+G I 139016
+G I 139017
+G I 139139
+G I 139140
+G I 139141
 D
 &+LThe &+Cdjinni &+Lcreates a &+Lwh&+ci&+Crlw&+ci&+Lnd&n &+Land ascends into the &+Wsky&n &+Ldisappearing from sight&n.
 ~
