@@ -84,9 +84,9 @@ bool hasTotem(P_char ch, int skill)
   if (!ch)
     return FALSE;
   if ((ch->equipment[WIELD] &&
-       obj_index[ch->equipment[WIELD]->R_num].virtual_number == 25105) ||
+       obj_index[ch->equipment[WIELD]->R_num].virtual_number == 139004) ||
       (ch->equipment[HOLD] &&
-       obj_index[ch->equipment[HOLD]->R_num].virtual_number == 25105))
+       obj_index[ch->equipment[HOLD]->R_num].virtual_number == 139004))
     return TRUE;
   if (checkTotem(ch, ch->equipment[WIELD], skill) || checkTotem(ch, ch->equipment[HOLD], skill) /*||
                                                                                                    checkTotem(ch, ch->equipment[WEAR_NECK_1], skill) ||
