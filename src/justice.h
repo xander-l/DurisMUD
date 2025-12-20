@@ -174,7 +174,8 @@ extern const char *town_name_list[];
                      (GET_RACE(a) == RACE_DEVIL) || \
                      (IS_UNDEAD(a) ) || \
                      (GET_RACE(a) == RACE_GOBLIN) || \
-                     (GET_RACE(a) == RACE_DRAGON) || \
+                     (GET_RACE(a) == RACE_DRAGON && !IS_PC_PET(a)) || \
+                     (GET_RACE(a) == RACE_DRAGON && IS_PC_PET(a) && get_linked_char(a, LNK_PET) != NULL ? GET_RACEWAR(get_linked_char(a, LNK_PET)) == RACEWAR_EVIL : FALSE) || \
                      (GET_RACE(a) == RACE_HALFORC) || \
                      (GET_RACE(a) == RACE_DEMON))
 
