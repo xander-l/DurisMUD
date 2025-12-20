@@ -236,7 +236,8 @@ OBJS =  $(SHIP_OBJS) \
 				 specs.lucrot.o \
 				 specs.gellz.o \
 				 smoke.o \
-				 multiplay_whitelist.o
+				 multiplay_whitelist.o \
+				 home.o
 
 SHARED_PFILE_OBJS=pf-skills.o \
 									pf-files.o

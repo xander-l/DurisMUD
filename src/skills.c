@@ -5219,12 +5219,11 @@ SPELL_ADD(CLASS_SUMMONER, 11);
     "The stench of &+rburning&n flesh fades as your skin cools.");
   SPELL_ADD(CLASS_DRAGOON, 7);
 
-  SPELL_CREATE_MSG("igneus vitae", 
+  SPELL_CREATE("igneus vitae", 
     SPELL_IGNEUS_VITAE, 
-    PULSE_SPELLCAST * 4,
+    PULSE_SPELLCAST * 3,
     TAR_SELF_ONLY, 
-    spell_igneus_vitae, 
-    "Your soul cools as the &+Gdr&+Lag&+Gon&n god's &+rpower&n fades.");
+    spell_igneus_vitae);
   SPEC_SPELL_ADD(CLASS_DRAGOON, 8, SPEC_DRAGON_PRIEST);
 
   SPELL_CREATE_MSG("sanguinis ignis", 
@@ -5250,11 +5249,12 @@ SPELL_ADD(CLASS_SUMMONER, 11);
     spell_vivernae_concordia);
   SPEC_SPELL_ADD(CLASS_DRAGOON, 9, SPEC_DRAGON_HUNTER);
 
-  SPELL_CREATE("pactum serpentis", 
+  SPELL_CREATE_MSG("pactum serpentis", 
     SPELL_PACTUM_SERPENTIS, 
     PULSE_SPELLCAST * 4,
     TAR_SELF_ONLY, 
-    spell_pactum_serpentis);
+    spell_pactum_serpentis,
+    "Your soul cools as the &+Gdr&+Lag&+Gon&n god's &+rpower&n fades.");
   SPEC_SPELL_ADD(CLASS_DRAGOON, 9, SPEC_DRAGON_PRIEST);
 
   SPELL_CREATE("ritus draconum", 
