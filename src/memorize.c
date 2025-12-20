@@ -972,7 +972,7 @@ void handle_undead_mem(P_char ch)
       continue;
     }
 
-    if( (USES_COMMUNE(ch) || USES_FOCUS(ch) || USES_DEFOREST(ch)) && (IS_CASTING(ch) || GET_OPPONENT(ch)) )
+    if( (USES_COMMUNE(ch) || USES_FOCUS(ch) || USES_DEFOREST(ch)) && (IS_CASTING(ch) || (!IS_DRAGOON(ch) && GET_OPPONENT(ch))) )
     {
       highest_empty = i;
       break;

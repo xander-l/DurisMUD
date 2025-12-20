@@ -3905,7 +3905,7 @@ void do_dragon_roar(P_char ch, char *argument, int cmd)
         circle, circle == 1 ? "st" : (circle == 2 ? "nd" : (circle == 3 ? "rd" : "th")));
       send_to_char(buf, ch);
 
-      DelayCommune(ch, (int) (PULSE_VIOLENCE));
+      DelayCommune(ch, (int) (2*PULSE_VIOLENCE));
 
       notch_skill(ch, SKILL_DRAGON_ROAR, get_property("skill.notch.defensive", 7));
     }
@@ -4174,7 +4174,7 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
       send_to_char(buf, ch);
 
       notch_skill(ch, SKILL_DRAGON_BREATH, get_property("skill.notch.offensive", 7));
-      DelayCommune(ch, (int) (PULSE_VIOLENCE));
+      DelayCommune(ch, (int) (2 * PULSE_VIOLENCE));
     }
 
     set_short_affected_by(ch, SKILL_DRAGON_BREATH, (int) (3 * PULSE_VIOLENCE));
