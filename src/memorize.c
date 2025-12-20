@@ -46,6 +46,8 @@ void     event_scribe(P_char, P_char, P_obj, void *);
 void     affect_to_end(P_char ch, struct affected_type *af);
 void     prac_all_spells(P_char ch);
 
+#define REVERSE_DRAGOON_COMMUNE
+
 char     Gbuf1[MAX_STRING_LENGTH], Gbuf2[MAX_STRING_LENGTH],
   Gbuf3[MAX_STRING_LENGTH];
 
@@ -326,6 +328,26 @@ int GetSpellPages(P_char ch, int spl)
     pages = 1;
   
   return pages;
+}
+
+int get_power_level(P_char ch)
+{
+  int power = 0;
+  int total_available = 0;
+  int total_spells = 0;
+
+  for (int circle = 1; circle <= get_max_circle(ch); circle++)
+  {
+    total_available += ch->specials.undead_spell_slots[circle];
+    total_spells += max_spells_in_circle(ch, circle);
+  }
+
+  if(total_spells > 0)
+  {
+    power = ((float)total_available / (float)total_spells) * 100;
+  }
+
+  return power;
 }
 
 /*
@@ -947,7 +969,7 @@ void handle_undead_mem(P_char ch)
     send_to_char("You feel unable to &+rcommune&n with the &+GDr&+Lag&+Gon&n god...\n", ch);
     return;
   }
-#define REVERSE_DRAGOON_COMMUNE
+
 #ifdef REVERSE_DRAGOON_COMMUNE
   bool swapMemOrder = false;
 
@@ -956,8 +978,8 @@ void handle_undead_mem(P_char ch)
   int max_circle = get_max_circle(ch);
 
   for(i = (swapMemOrder ? 1               : max_circle); 
-          (swapMemOrder ? i <= max_circle : i >= 1); 
-          (swapMemOrder ? i++             : i--) )
+          (swapMemOrder ? i <= max_circle : i >= 1    ); 
+          (swapMemOrder ? i++             : i--       ))
 #else
   for( i = get_max_circle(ch); i >= 1; i-- )
 #endif
@@ -1267,6 +1289,34 @@ void do_assimilate(P_char ch, char *argument, int cmd)
     }
     strcat(Gbuf1, "\n");
   }
+
+  if(IS_DRAGOON(ch))
+  {
+    int percent = get_power_level(ch);
+
+    constexpr int kPips = 50;
+    int filled = (percent * kPips) / 100;
+    int empty  = kPips - filled;
+
+    const char* stars  = "**************************************************";
+    const char* spaces = "**************************************************";
+
+    if(GET_LEVEL(ch) >= 40)
+    {
+      snprintf(Gbuf2, MAX_STRING_LENGTH, 
+            "\n[&+r%.*s&n&+L%.*s&n] %3d%%\n",
+            filled, stars, empty, spaces,
+            percent);
+    }
+    else
+    {
+      snprintf(Gbuf2, MAX_STRING_LENGTH, 
+            "\n[&+r%.*s&n&+L%.*s&n]\n",
+            filled, stars, empty, spaces);
+    }
+    strcat(Gbuf1, Gbuf2);
+  }
+  
   if( strcmp(argument, "nl"))
     send_to_char(Gbuf1, ch);
 
@@ -2742,3 +2792,4 @@ void bad_spell_check( P_char ch )
     }
   }
 }
+
