@@ -97,6 +97,12 @@ extern void set_short_description(P_obj t_obj, const char *newDescription);
 extern const struct golem_description golem_data[];
 extern float exp_mods[EXPMOD_MAX+1];
 extern float breath_saved_multiplier;
+extern bool has_dragoon_mount(P_char ch);
+extern bool is_dragoon_mounted(P_char ch);
+extern bool is_dragoon_mount(P_char mount);
+extern bool is_in_dragoon_group(P_char ch, P_char vict);
+extern int get_next_dragoon_circle(P_char ch);
+extern P_char get_dragoon_mount(P_char ch);
 
 // THE NEXT PERSON THAT OUTRIGHT COPIES A SPELL JUST TO CHANGE THE NAME/MESSAGES
 // IT OUTPUTS IS GOING TO BE CASTRATED BY ME AND FORCED TO EAT THEIR OWN GENITALIA.
@@ -12432,7 +12438,7 @@ void spell_regeneration(int level, P_char ch, char *arg, int type, P_char victim
   if( affected_by_spell(victim, SPELL_ACCEL_HEALING)
     || affected_by_spell(victim, SKILL_REGENERATE)
     || affected_by_spell(victim, SPELL_REGENERATION)
-    || affected_by_spell(victim, SPELL_IGNEUS_VITAE) )
+    || affected_by_spell(victim, SPELL_PACTUM_SERPENTIS) )
   {
     send_to_char("You can't possibly heal any faster.\n", victim);
     return;
@@ -19250,7 +19256,7 @@ void spell_accel_healing(int level, P_char ch, char *arg, int type, P_char victi
 
   if(affected_by_spell(victim, SKILL_REGENERATE) ||
     affected_by_spell(victim, SPELL_REGENERATION) 
-    || affected_by_spell(victim, SPELL_IGNEUS_VITAE) )
+    || affected_by_spell(victim, SPELL_PACTUM_SERPENTIS) )
   {
     act("$N can't possibly heal any faster.", TRUE, ch, 0, victim, TO_CHAR);
     return;
@@ -22438,34 +22444,36 @@ void spell_judicium_fidei(int level, P_char ch, char *arg, int type,
 void spell_igneus_vitae(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  struct affected_type af;
-  char Gbuf1[100];
-  int  skl_lvl;
+  int      healpoints;
 
-  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
-    return;
-
-  if( affected_by_spell(victim, SPELL_ACCEL_HEALING)
-    || affected_by_spell(victim, SKILL_REGENERATE)
-    || affected_by_spell(victim, SPELL_REGENERATION)
-    || affected_by_spell(victim, SPELL_IGNEUS_VITAE) )
+  if(!is_dragoon_mounted(ch) )
   {
-    send_to_char("You can't possibly heal any faster.\n", victim);
+    act("$n's ophidian eyes go dull as $s inner &+Weyelids&n slowly close for a moment.", TRUE, ch, 0, 0, TO_ROOM);
+    act("Your soul feels hollow as you ache for the &+Gdr&+Lag&+Gon&n god's &+rpower&n...", TRUE, ch, 0, 0, TO_CHAR);
     return;
   }
 
-  skl_lvl = MAX( 4, (level / 5) );
+  P_char mount = get_dragoon_mount(ch);
 
-  snprintf(Gbuf1, 100, "Your soul burns with &+Gdr&+Lag&+Gon&n god's &+rpower&n.\n");
+  if(mount == NULL) return;
 
-  bzero(&af, sizeof(af));
-  af.type = SPELL_IGNEUS_VITAE;
-  af.duration = skl_lvl;
-  af.bitvector4 = AFF4_REGENERATION;
-  send_to_char(Gbuf1, victim);
-  affect_to_char(victim, &af);  
+  spell_cure_blind(level, ch, NULL, SPELL_TYPE_SPELL, mount, obj);
 
-  // Take a little damage for your benefits
+  grapple_heal(mount);
+
+  healpoints = number(150, (GET_LEVEL(ch) * 5));
+
+  heal(mount, ch, healpoints, GET_MAX_HIT(mount));
+
+  if(healpoints)
+  {
+    act("$n's ophidian eyes glow for a moment as $e infuses $N with &+rpower&n.", FALSE, ch, 0, mount, TO_NOTVICT);
+    act("Your ophidian eyes glow as you infuse $N with &+rpower&n.", TRUE, ch, 0, mount, TO_CHAR);
+    act("$n roars as the as $e is infused with the &+Gdr&+Lag&+Lon&n god's &+rpower&n!", FALSE, mount, 0, 0, TO_ROOM);
+  }
+
+  update_pos(mount);
+
   spell_damage(ch, ch, GET_HIT(ch) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
 }
 
@@ -22523,6 +22531,8 @@ void spell_sanctum_draconis(int level, P_char ch, char *arg, int type,
   af.bitvector = AFF_SANCTUM_DRACONIS;
   send_to_char(Gbuf1, victim);
   affect_to_char(ch, &af);
+
+  spell_damage(ch, ch, GET_HIT(ch) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
 }
 
 void spell_vivernae_concordia(int level, P_char ch, char *arg, int type,
@@ -22566,7 +22576,37 @@ void spell_vivernae_concordia(int level, P_char ch, char *arg, int type,
 void spell_pactum_serpentis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's pactum serpentis. -- not finished", ch);
+  struct affected_type af;
+  char Gbuf1[100];
+  int  skl_lvl;
+
+  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+    return;
+
+  if( affected_by_spell(victim, SPELL_ACCEL_HEALING)
+    || affected_by_spell(victim, SKILL_REGENERATE)
+    || affected_by_spell(victim, SPELL_REGENERATION)
+    || affected_by_spell(victim, SPELL_PACTUM_SERPENTIS) 
+    || IS_AFFECTED3(victim, AFF3_GR_SPIRIT_WARD))
+  {
+    send_to_char("Your &+rsoul&n can't take anymore!\n", victim);
+    return;
+  }
+
+  skl_lvl = MAX( 4, (level / 5) );
+
+  snprintf(Gbuf1, 100, "Your soul burns with &+Gdr&+Lag&+Gon&n god's &+rpower&n.\n");
+
+  bzero(&af, sizeof(af));
+  af.type = SPELL_PACTUM_SERPENTIS;
+  af.duration = skl_lvl;
+  af.bitvector3 = AFF3_GR_SPIRIT_WARD;
+  af.bitvector4 = AFF4_REGENERATION;
+  send_to_char(Gbuf1, victim);
+  affect_to_char(victim, &af);  
+
+  // Take a little damage for your benefits
+  spell_damage(ch, ch, GET_HIT(ch) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
 }
 
 void spell_ritus_draconum(int level, P_char ch, char *arg, int type,

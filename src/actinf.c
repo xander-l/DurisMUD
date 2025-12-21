@@ -132,6 +132,7 @@ extern int map_dayblind_modifier;
 extern const char *apply_types[];
 extern const surname_struct surnames[MAX_SURNAME+1];
 extern const surname_struct feudal_surnames[7];
+extern int get_power_level(P_char);
 
 void display_map(P_char ch, int n, int show_map_regardless);
 
@@ -4670,6 +4671,33 @@ void do_score(P_char ch, char *argument, int cmd)
             GET_BALANCE_GOLD(ch),
             GET_BALANCE_SILVER(ch), GET_BALANCE_COPPER(ch));
     send_to_char(buf, ch);
+
+    if(IS_DRAGOON(ch))
+    {
+      int percent = get_power_level(ch);
+
+      constexpr int kPips = 50;
+      int filled = (percent * kPips) / 100;
+      int empty  = kPips - filled;
+
+      const char* stars  = "**************************************************";
+      const char* spaces = "**************************************************";
+
+      if(GET_LEVEL(ch) >= 40)
+      {
+        snprintf(buf, MAX_STRING_LENGTH, 
+            "Power Level: [&+r%.*s&n&+L%.*s&n] %3d%%\n",
+            filled, stars, empty, spaces, percent);
+      }
+      else
+      {
+        snprintf(buf, MAX_STRING_LENGTH, 
+            "Power Level: [&+r%.*s&n&+L%.*s&n]\n",
+            filled, stars, empty, spaces);
+      }
+      send_to_char(buf, ch);
+    }
+
     /* playing time */
 #ifndef EQ_WIPE
     playing_time = real_time_passed((long) ((time(0) - ch->player.time.logon) + ch->player.time.played), 0);
@@ -4690,14 +4718,15 @@ void do_score(P_char ch, char *argument, int cmd)
 
 
     /* compression */
-    send_to_char("Compression ratio: ", ch);
+    //send_to_char("Compression ratio: ", ch);
     if (ch->desc && ch->desc->z_str)
     {
-      snprintf(buf, MAX_STRING_LENGTH, "%d%%\n", compress_get_ratio(ch->desc));
+      snprintf(buf, MAX_STRING_LENGTH, "Compression ratio: %d%%\n", compress_get_ratio(ch->desc));
       send_to_char(buf, ch);
+      memset(buf, 0, MAX_STRING_LENGTH);
     }
     else
-      send_to_char("none\n", ch);
+      send_to_char("Compression ratio: none\n", ch);
 
 //    /* prestige */
 //    snprintf(buf, MAX_STRING_LENGTH, "Prestige: %s\n", epic_prestige(ch));
@@ -5342,6 +5371,11 @@ void do_score(P_char ch, char *argument, int cmd)
   if( IS_AFFECTED3(ch, AFF3_VIVERNAE_CONCORDIA) )
   {
     strcat(buf, " &+rConcord&n of the &+GWy&+Lve&+Grn&n");
+  }
+
+  if( affected_by_spell(ch, SPELL_PACTUM_SERPENTIS) )
+  {
+    strcat(buf, " &+yPact&n of the &+GW&+Ly&+Gr&+Lm&n");
   }
   
   if( IS_AFFECTED3(ch, AFF3_BLUR) )

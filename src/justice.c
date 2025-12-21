@@ -466,7 +466,6 @@ void justice_action_invader(P_char ch)
   if (!IS_INVADER(ch))
     return;
 
-
   /*Original Justice
   if (!justice_send_guards(NOWHERE, ch, MOB_SPEC_J_OUTCAST, (MAX(11, GET_LEVEL(ch)) / 11) + 1))
    {

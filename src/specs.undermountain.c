@@ -2202,6 +2202,9 @@ void event_flame_of_north(P_char ch, P_char victim, P_obj obj, void *data)
   int dam;
   char buf[256];
 
+  if( !ch )
+    return;
+
   // search through all of the possible proc spots of character
   // and check to see if the item is equipped
   for( int i = 0; i < NUM_PROCCING_SLOTS; i++ )

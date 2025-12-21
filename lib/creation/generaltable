@@ -1,25 +1,32 @@
-Races                                     Classes
-        WAR|RAN|PSI|PAL|A-P|CLR|DRU|SHM|SRC|CON|NCR|ROG|MER|BRD|RVR|BSK|MON|ILL|ETH
------------------------------------------------------------------------------------
-HUMAN    X   X       X       X   X   X   X   X   X   X   X   X               X   X
-GNOME    X                   X       X   X           X   X                   X   X                  
-BARB     X                   X       X                   X   
-CENTAUR  X   X                   X   X
-GREYELF  X   X               X   X       X   X       X       X               	
-DWARF    X                   X                       X   X
-GITHZER  X                   X           X   X                           X
-HALFLNG  X   X               X   X   X   X           X   X   X               X
-===================================================================================
-TROLL    X                   X       X                   X
-OGRE     X                           X                 
-GITHYAN  X      X        X   X           X   X               X   X
-GOBLIN   X                   X       X               X                           X
-DUERGAR  X                   X                       X   X
-DROWELF  X                   X           X   X   X   X       X   X            
-ORC      X               X   X       X   X   X   X   X   X   X   X   X       X   X
-OROG     X                           X                               X 
-===================================================================================
-MINOTAR  X                           X                   X           X
-THRIKRE  X
------------------------------------------------------------------------------------
+Good                                       Classes                                             
+Race    War|Ran|Psi|Pal|A-P|Clr|Mon|Dru|Sha|Src|Ncr|Con|Rog|Mer|Brd|Bsk|Rvr|Ill|Bli|Eth|Dra|Sum
+Human    X   X       X       X   X   X   X   X   X   X   X   X   X   X       X       X   X   X 
+Barbari  X                               X               X   X       X                         
+GreyElf  X   X               X       X   X   X       X   X   X   X           X       X   X   X 
+Dwarf    X                   X                           X   X       X                         
+Halflin  X   X               X       X   X   X       X   X   X   X           X       X   X     
+Gnome    X                   X           X   X   X   X       X   X           X           X     
+Centaur  X   X                       X   X                                                     
+Githzer  X   X   X           X       X       X   X   X           X           X       X   X   X 
+Firbolg  X                               X                                                     
+ 
+Evil                                       Classes                                                                   
+Race    War|Ran|Psi|Pal|A-P|Clr|Mon|Dru|Sha|Src|Ncr|Con|Rog|Mer|Brd|Bsk|Rvr|Ill|Bli|Eth|Dra|Sum
+Duergar  X                   X                           X   X       X   X                     
+Ogre     X                               X                                                     
+DrowElf  X                   X           X   X   X   X   X   X   X       X   X   X   X   X   X 
+Troll    X                               X               X   X       X                         
+Orc      X               X   X   X       X   X   X   X   X   X   X   X   X   X   X   X   X   X 
+Githyan  X       X           X               X   X   X   X       X       X   X   X   X   X   X 
+Drider   X                                   X   X                       X       X             
+Kobold   X                   X           X   X   X   X       X   X           X       X   X     
+Goblin   X                   X           X   X   X   X   X   X   X       X   X   X   X   X     
+ 
+Neutral                                       Classes                                                                   
+Race    War|Ran|Psi|Pal|A-P|Clr|Mon|Dru|Sha|Src|Ncr|Con|Rog|Mer|Brd|Bsk|Rvr|Ill|Bli|Eth|Dra|Sum
+Minotau  X                               X   X               X       X                         
+Thri-Kr  X                                                                                     
+Tieflin  X   X       X   X   X   X       X   X       X   X   X   X       X   X       X   X   X 
+
+-----------------------------------------------------------------------------------------------
 Press return to go back to the race selection menu.
