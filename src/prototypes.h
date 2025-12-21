@@ -973,6 +973,8 @@ void stop_fighting(P_char);
 void stop_destroying(P_char);
 void engage(P_char, P_char);
 void soul_taking_check(P_char, P_char);
+struct affected_type *get_ward_from_char(P_char ch);
+int check_damage_ward(P_char ch, int dam);
 /*
 void swapWeapon(P_char);
 */
@@ -1171,6 +1173,7 @@ P_obj get_obj_equipped( P_char ch, char *arg );
 P_obj unequip_char(P_char, int, bool = FALSE);
 void unequip_all(P_char);
 struct affected_type *get_spell_from_char(P_char ch, int spell, void *context = NULL, int flagMask = 0);
+struct affected_type *get_first_affect_with_flag(P_char ch, uint flags);
 struct room_affect *get_spell_from_room(P_room, int );
 bool affected_by_spell(P_char, int);
 int affected_by_spell_count(P_char, int);
@@ -1654,6 +1657,9 @@ void spell_guardian_spirits(int, P_char, char*, int, P_char, P_obj);
 void guardian_spirits_messages(P_char, P_char);
 void spell_torment_spirits(int, P_char, char *, int, P_char, P_obj);
 void event_torment_spirits(P_char ch, P_char victim, P_obj obj, void *data);
+void spell_lesser_guardian_ward(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj);
+void spell_guardian_ward(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj);
+void spell_greater_guardian_ward(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj);
 
 /* mail.c */
 

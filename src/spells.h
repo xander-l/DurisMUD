@@ -721,7 +721,10 @@
 #define SPELL_DRACONIC_APOTHEOSIS     670
 #define SPELL_FREEDOM_OF_MOVEMENT     671
 #define SPELL_SANGUINIS_IGNIS_AFF     672
-#define LAST_SPELL SPELL_SANGUINIS_IGNIS_AFF
+#define SPELL_LESSER_GUARDIAN_WARD    673
+#define SPELL_GUARDIAN_WARD           674
+#define SPELL_GREATER_GUARDIAN_WARD   675
+#define LAST_SPELL                    SPELL_GREATER_GUARDIAN_WARD
 
 
 #define FIRST_SKILL                  1000  /* should be a decent split point */

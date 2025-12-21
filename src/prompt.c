@@ -36,6 +36,7 @@ void make_prompt(P_desc point)
   snoop_by_data *snoop_by_ptr;
   int      percent, t_ch_p = 0;
   char     prompt_buf[256];
+  struct affected_type *paf = NULL;
 
   t_ch = point->character;
   orig = point->original;
@@ -100,6 +101,18 @@ void make_prompt(P_desc point)
   if (!t_ch_p)
     return;
 
+  if( IS_SET(t_ch_p, PROMPT_WARD) && (paf = get_ward_from_char(t_ch)) != NULL )
+  {
+	int wardAmount = 0;
+	for (paf = t_ch->affected; paf; paf = paf->next)
+	{
+		if (IS_SET(paf->flags, AFFTYPE_DAM_WARD))
+		{
+			wardAmount += paf->modifier;
+		}
+	}
+	snprintf(promptbuf + strlen(promptbuf), MAX_STRING_LENGTH - strlen(promptbuf), "&+C %dW", wardAmount);
+  }
   if( IS_SET(t_ch_p, PROMPT_HIT) )
   {
     if( GET_MAX_HIT(t_ch) > 0 )

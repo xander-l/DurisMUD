@@ -1893,7 +1893,7 @@ void add_char_to_account(P_desc d)
   c->count = 1;
   c->last = time(NULL);
   c->blocked = 0;
-  if (EVIL_RACE(player))
+  if (GET_RACEWAR(player) == RACEWAR_EVIL)
     c->racewar = ACCT_EVIL;
   else
     c->racewar = ACCT_GOOD;

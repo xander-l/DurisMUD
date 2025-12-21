@@ -8109,12 +8109,25 @@ void do_display(P_char ch, char *argument, int cmd)
       ch->only.pc->prompt =
         (PROMPT_HIT | PROMPT_MAX_HIT | PROMPT_MOVE | PROMPT_MAX_MOVE |
          PROMPT_TANK_NAME | PROMPT_TANK_COND | PROMPT_ENEMY |
-         PROMPT_ENEMY_COND | PROMPT_TWOLINE | PROMPT_STATUS);
+         PROMPT_ENEMY_COND | PROMPT_TWOLINE | PROMPT_STATUS | PROMPT_WARD);
       if (GET_CLASS(ch, CLASS_PSIONICIST) || GET_CLASS(ch, CLASS_MINDFLAYER))
         ch->only.pc->prompt |= (PROMPT_MANA | PROMPT_MAX_MANA);
       if( IS_TRUSTED(ch) )
         ch->only.pc->prompt |= PROMPT_VIS;
     }
+	else if (!str_cmp("ward", buf))
+	{
+	  if (IS_SET(ch->only.pc->prompt, PROMPT_WARD))
+      {
+        REMOVE_BIT(ch->only.pc->prompt, PROMPT_WARD);
+        send_to_char("Damage ward display turned &+rOFF&N.\n", to_ch);
+      }
+      else
+      {
+        SET_BIT(ch->only.pc->prompt, PROMPT_WARD);
+        send_to_char("Damage ward display turned &+gON&N.\n", to_ch);
+      }
+	}
     else if (!str_cmp("off", buf))
     {
       if (ch->only.pc->prompt)

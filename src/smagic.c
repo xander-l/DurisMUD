@@ -196,6 +196,102 @@ void spell_guardian_spirits(int level, P_char ch, char *arg, int type, P_char vi
   affect_to_char(victim, &af);
 }
 
+void spell_lesser_guardian_ward(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
+{
+	struct affected_type af;
+	int duration, ward_amount;
+
+	if( !SanityCheck(ch, "spell_lesser_guardian_ward") || 
+		!SanityCheck(victim, "spell_lesser_guardian_ward") )
+	{
+		return;
+	}
+
+	if(!affected_by_spell(victim, SPELL_LESSER_GUARDIAN_WARD) && !affected_by_spell(victim, SPELL_GUARDIAN_WARD) && !affected_by_spell(victim, SPELL_GREATER_GUARDIAN_WARD))
+	{
+		duration = PULSE_VIOLENCE * (4 + (level / 10));
+		ward_amount = MIN(level * 4, 150) + number(-level/2, level/2);
+		
+		memset(&af, 0, sizeof(af));
+		af.type = SPELL_LESSER_GUARDIAN_WARD;
+		af.duration =  duration;
+		af.flags = AFFTYPE_SHORT | AFFTYPE_DAM_WARD;
+		af.modifier = ward_amount;
+		affect_to_char(victim, &af);
+		act("&+CYou summon forth lesser guardian spirits to protect&n $n &+Cfrom harm.&n", FALSE, ch, 0, victim, TO_CHAR);
+		act("&CA faint spiritual haze forms around you!&n", FALSE, ch, 0, victim, TO_VICT);
+		act("&CA faint spiritual haze forms around &n$N&+C!&n", FALSE, ch, 0, victim, TO_ROOM);
+	}
+	else
+	{
+		send_to_char("They're already protected by guardian spirits!\n", ch);
+	}
+}
+
+void spell_guardian_ward(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
+{
+	struct affected_type af;
+	int duration, ward_amount;
+
+	if( !SanityCheck(ch, "spell_guardian_ward") || 
+		!SanityCheck(victim, "spell_guardian_ward") )
+	{
+		return;
+	}
+
+	if(!affected_by_spell(victim, SPELL_LESSER_GUARDIAN_WARD) && !affected_by_spell(victim, SPELL_GUARDIAN_WARD) && !affected_by_spell(victim, SPELL_GREATER_GUARDIAN_WARD))
+	{
+		duration = PULSE_VIOLENCE * (4 + (level / 8));
+		ward_amount = MIN(level * 10, 450) + number(-level, level);
+		
+		memset(&af, 0, sizeof(af));
+		af.type = SPELL_GUARDIAN_WARD;
+		af.duration =  duration;
+		af.flags = AFFTYPE_SHORT | AFFTYPE_DAM_WARD;
+		af.modifier = ward_amount;
+		affect_to_char(victim, &af);
+		act("&+CYou summon forth guardian spirits to protect&n $n &+Cfrom harm.&n", FALSE, ch, 0, victim, TO_CHAR);
+		act("&CA spiritual haze forms around you!&n", FALSE, ch, 0, victim, TO_VICT);
+		act("&CA spiritual haze forms around &n$N&+C!&n", FALSE, ch, 0, victim, TO_ROOM);
+	}
+	else
+	{
+		send_to_char("They're already protected by guardian spirits!\n", ch);
+	}
+}
+
+void spell_greater_guardian_ward(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
+{
+	struct affected_type af;
+	int duration, ward_amount;
+
+	if( !SanityCheck(ch, "spell_greater_guardian_ward") || 
+		!SanityCheck(victim, "spell_greater_guardian_ward") )
+	{
+		return;
+	}
+
+	if(!affected_by_spell(victim, SPELL_LESSER_GUARDIAN_WARD) && !affected_by_spell(victim, SPELL_GUARDIAN_WARD) && !affected_by_spell(victim, SPELL_GREATER_GUARDIAN_WARD))
+	{
+		duration = PULSE_VIOLENCE * (5 + (level / 8));
+		ward_amount = MIN(level * 15, 760) + number(-level, level);
+		
+		memset(&af, 0, sizeof(af));
+		af.type = SPELL_GREATER_GUARDIAN_WARD;
+		af.duration =  duration;
+		af.flags = AFFTYPE_SHORT | AFFTYPE_DAM_WARD;
+		af.modifier = ward_amount;
+		affect_to_char(victim, &af);
+		act("&+CYou summon forth greater guardian spirits to protect&n $n &+Cfrom harm.&n", FALSE, ch, 0, victim, TO_CHAR);
+		act("&CA strong spiritual haze forms around you!&n", FALSE, ch, 0, victim, TO_VICT);
+		act("&CA strong spiritual haze forms around &n$N&+C!&n", FALSE, ch, 0, victim, TO_ROOM);
+	}
+	else
+	{
+		send_to_char("They're already protected by guardian spirits!\n", ch);
+	}
+}
+
 void essence_broken(struct char_link_data *cld)
 {
   act("&+yYour essence leaves $N and returns to your body.&n", FALSE, cld->linking, 0, cld->linked, TO_CHAR);

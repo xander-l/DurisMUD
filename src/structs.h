@@ -135,6 +135,7 @@ typedef struct combat_data *P_combat;
 #define AFFTYPE_OFFLINE    BIT_11 // Continue to countdown timer while offline.
 #define AFFTYPE_LINKED_OBJ BIT_12
 #define AFFTYPE_SET_AFFECT BIT_13
+#define AFFTYPE_DAM_WARD   BIT_14
 #define AFFTYPE_STORE (AFFTYPE_NOAPPLY |\
                        AFFTYPE_NODISPEL |\
                        AFFTYPE_NOSHOW)
@@ -1017,6 +1018,7 @@ struct room_data {
 #define PROMPT_VIS         BIT_12
 #define PROMPT_TWOLINE     BIT_13
 #define PROMPT_STATUS      BIT_14
+#define PROMPT_WARD        BIT_15
 
 /* which parameters should be ignored in calculations of exp_gained */
 #define EXP_DAMAGE       1

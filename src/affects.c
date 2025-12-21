@@ -2251,6 +2251,17 @@ bool affected_by_skill(P_char ch, int skill)
   return (FALSE);
 }
 
+struct affected_type * get_first_affect_with_flag(P_char ch, uint flags)
+{
+  struct affected_type *hjp;
+
+  for (hjp = ch->affected; hjp; hjp = hjp->next)
+    if ((hjp->flags & (flags)) == flags)
+      return (hjp);
+
+  return (NULL);
+}
+
 bool affected_by_spell_flagged(P_char ch, int skill, uint flags)
 {
   struct affected_type *hjp;
