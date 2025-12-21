@@ -100,6 +100,9 @@ void event_random_exit(P_char ch, P_char victim, P_obj obj, void *data)
   char exit_name[32];
   int exit_dir, s_room, d_room;
 
+  if( !obj )
+    return;
+
   if (obj->value[0] > number(0,99) && OBJ_ROOM(obj) &&
       sscanf(obj->name, "%s exit_%s ", buf, exit_name) &&
       (exit_dir = dir_from_keyword(exit_name)) != -1 &&

@@ -55,10 +55,11 @@ extern bool has_skin_spell(P_char);
 
 void event_illithid_feeding(P_char ch, P_char victim, P_obj obj, void *data)
 {
-  if ((!victim) || (ch->in_room != victim->in_room))
+  if ((!ch) || (!victim) || (ch->in_room != victim->in_room))
   {
-    send_to_char("Alas, your victim doesn't seem to be around anymore.\r\n",
-                 ch);
+    if( ch )
+      send_to_char("Alas, your victim doesn't seem to be around anymore.\r\n",
+                   ch);
     return;
   }
   send_to_char("&+MYou suck the last bit of brain from your victim.\r\n", ch);

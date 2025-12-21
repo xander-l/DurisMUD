@@ -1720,7 +1720,7 @@ void event_echosong(P_char ch, P_char victim, P_obj obj, void *data)
   if( ch == NULL )
   {
     logit(LOG_EXIT, "event_echosong called in bard.c without ch");
-    raise(SIGSEGV);
+    return;
   }
   if(ch) // Just making sure.
   {
