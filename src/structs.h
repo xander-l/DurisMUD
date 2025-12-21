@@ -1001,6 +1001,7 @@ struct room_data {
 #define PLR3_NOLEVEL       BIT_19
 #define PLR3_EPICWATCH     BIT_20 /* For Immortals: displays calls to epiclog */
 #define PLR3_PET_DAMAGE    BIT_21
+#define PLR3_NOGMCP        BIT_22  /* Player has disabled GMCP */
 
 /* For players : Prompt flags (16 bits max) */
 #define PROMPT_NONE        BIT_1
@@ -1248,7 +1249,7 @@ struct pc_only_data {           /* values only used by PCs        */
   ubyte screen_length;          /* adjust paging to fit terminal */
   ubyte echo_toggle;
   ush_int prompt;
-  char pwd[40];                 /* 'CRYPT'ed password    */
+  char pwd[72];                 /* 'CRYPT'ed password (bcrypt = 60 chars) */
 
 /* coins in bank */
   int spare1;
@@ -1673,6 +1674,22 @@ struct descriptor_data {
   char client_str[MAX_INPUT_LENGTH];/* CLIENT SPECIFIC STRING */
   int last_map_update           ;/* CLIENT SPECIFIC INT */
   int last_group_update         ;/* CLIENT SPECIFIC INT */
+
+  /* WebSocket support (Phase 1) */
+  int websocket;                  /* 1 if this is a WebSocket connection */
+  int ws_state;                   /* WebSocket state (WS_STATE_*) */
+  int ws_handshake_done;          /* 1 if HTTP upgrade complete */
+  char *ws_fragment_buffer;       /* Buffer for fragmented messages */
+  size_t ws_fragment_len;         /* Length of fragment buffer */
+  int gmcp_enabled;               /* 1 if client wants GMCP protocol */
+
+  /* WebSocket character generation (Phase 4) */
+  struct stat_data chargen_stats; /* Rolled stats stored server-side */
+  int chargen_race;               /* Selected race for chargen */
+  int chargen_bonus_remaining;    /* Bonus points left to allocate (0-5) */
+  int chargen_hometown;           /* Selected hometown (-1 = default) */
+  int chargen_hardcore;           /* 1 if hardcore mode selected */
+  int chargen_newbie;             /* 1 if player is new to Duris */
 };
 
 struct damage_messages {

@@ -27,11 +27,13 @@
 #include "spells.h"
 #include "structs.h"
 #include "utils.h"
+#include "mccp.h"
 #include "utility.h"
 #include "weather.h"
 #include "damage.h"
 #include "map.h"
 #include "specializations.h"
+#include "gmcp.h"
 #include "guard.h"
 #include "specs.winterhaven.h"
 #include "guildhall.h"
@@ -1982,6 +1984,8 @@ void do_deposit(P_char ch, char *argument, int cmd)
       GET_BALANCE_PLATINUM(ch) += money;
     }
     do_balance(ch, 0, -4);
+    /* Send GMCP update for deposit all */
+    gmcp_char_vitals(ch);
     return;
   }
 
@@ -2047,6 +2051,8 @@ void do_deposit(P_char ch, char *argument, int cmd)
     else
     {
       do_balance(ch, 0, -4);
+      /* Send GMCP update for deposit */
+      gmcp_char_vitals(ch);
     }
   }
 }
@@ -2126,6 +2132,8 @@ void do_withdraw(P_char ch, char *argument, int cmd)
     else
     {
       do_balance(ch, 0, -4);
+      /* Send GMCP update for bank withdraw */
+      gmcp_char_vitals(ch);
     }
   }
 }
@@ -3044,6 +3052,8 @@ void do_steal(P_char ch, char *argument, int cmd)
                 gold[3], gold[2], gold[1], gold[0]);
         send_to_char(Gbuf1, ch);
         notch_skill(ch, SKILL_STEAL, 10);
+        /* Send GMCP update for stolen coins */
+        gmcp_char_vitals(ch);
       }
       else
         send_to_char("You couldn't get any coins...\r\n", ch);
@@ -4312,7 +4322,7 @@ void show_toggles(P_char ch)
           "&+r     No Level    :&+g %-3s    &+y|&n\r\n"
           "&+r   PetDamage   :&+g %-3s    &+y|"
           "&+r     Guildname   :&+g %-3s    &+y|"
-          "&+r                          &+y|&n\r\n"
+          "&+r     GMCP        :&+g %-3s    &+y|&n\r\n"
           "&+y-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
           "-=-=-=-=-=-=-=-=-=-=-=-=-=-&N\r\n",
           ONOFF(!PLR_FLAGGED(ch, PLR_NOTELL)),
@@ -4355,7 +4365,8 @@ void show_toggles(P_char ch)
           ONOFF(PLR2_FLAGGED(ch, PLR2_DAMAGE)),
           ONOFF(PLR3_FLAGGED(ch, PLR3_NOLEVEL)),
           ONOFF(PLR3_FLAGGED(ch, PLR3_PET_DAMAGE)),
-          ONOFF(PLR3_FLAGGED(ch, PLR3_GUILDNAME)) );
+          ONOFF(PLR3_FLAGGED(ch, PLR3_GUILDNAME)),
+          ONOFF(!PLR3_FLAGGED(ch, PLR3_NOGMCP)) );
   send_to_char(Gbuf1, send_ch);
 
   if (GET_LEVEL(ch) >= AVATAR)
@@ -4458,6 +4469,7 @@ static const char *toggles_list[] = {
   "epic",
   "petdamage",
   "guildname",
+  "gmcp",                 // 65
   "\n"
 };
 
@@ -4582,7 +4594,9 @@ static const char *tog_messages[][2] = {
   {"You turn off the display of pet damage.\r\n",
    "You turn on the display of pet damage.\r\n"},
   {"You turn off the display of your guild name.\r\n",
-   "You turn on the display of your guild name.\r\n"}
+   "You turn on the display of your guild name.\r\n"},
+  {"&+WGMCP&N data streaming enabled.\r\n",
+   "&+WGMCP&N data streaming disabled.\r\n"}
 };
 
 void do_more(P_char ch, char *arg, int cmd)
@@ -5093,6 +5107,9 @@ void do_toggle(P_char ch, char *arg, int cmd)
   case 64:
     result = PLR3_TOG_CHK(ch, PLR3_GUILDNAME);
     break;
+  case 65:  /* gmcp */
+    result = PLR3_TOG_CHK(ch, PLR3_NOGMCP);
+    break;
   default:
     break;
   }
@@ -5106,6 +5123,70 @@ void do_toggle(P_char ch, char *arg, int cmd)
     snprintf(Gbuf1, MAX_STRING_LENGTH, tog_messages[tog_nr][TOG_OFF], Gbuf3);
   }
   send_to_char(Gbuf1, send_ch);
+}
+
+void do_protocol(P_char ch, char *arg, int cmd)
+{
+  char buf[MAX_STRING_LENGTH];
+  P_desc d;
+  P_char send_ch = ch;
+
+  if (IS_NPC(ch)) {
+    if (IS_MORPH(ch)) {
+      ch = MORPH_ORIG(ch);
+    } else {
+      return;
+    }
+  }
+
+  d = send_ch->desc;
+  if (!d) {
+    send_to_char("You don't have a connection!\r\n", send_ch);
+    return;
+  }
+
+  /* Determine connection type */
+  const char *conn_type;
+  if (d->websocket) {
+    conn_type = "WebSocket";
+  } else if (d->sslses) {
+    conn_type = "SSL/TLS";
+  } else {
+    conn_type = "Telnet";
+  }
+
+  /* Determine MCCP status */
+  const char *mccp_status;
+  switch (d->out_compress) {
+  case MCCP_VER1:
+    mccp_status = "&+gEnabled&N (v1)";
+    break;
+  case MCCP_VER2:
+    mccp_status = "&+gEnabled&N (v2)";
+    break;
+  default:
+    mccp_status = "&+rDisabled&N";
+    break;
+  }
+
+  /* Determine GMCP status */
+  const char *gmcp_status;
+  if (!d->gmcp_enabled) {
+    gmcp_status = "&+rNot Negotiated&N";
+  } else if (PLR3_FLAGGED(ch, PLR3_NOGMCP)) {
+    gmcp_status = "&+yNegotiated&N (toggled off)";
+  } else {
+    gmcp_status = "&+gEnabled&N";
+  }
+
+  snprintf(buf, sizeof(buf),
+    "&+W-= Protocol Status =-&N\r\n"
+    "  Connection : &+g%s&N\r\n"
+    "  MCCP       : %s\r\n"
+    "  GMCP       : %s\r\n",
+    conn_type, mccp_status, gmcp_status);
+
+  send_to_char(buf, send_ch);
 }
 
 void do_rub(P_char ch, char *argument, int cmd)

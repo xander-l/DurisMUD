@@ -33,6 +33,8 @@
 #include "handler.h"
 #include "ctf.h"
 #include "ships/ships.h"
+#include "ws_handlers.h"
+#include "gmcp.h"
 
 /*
  *
@@ -1099,6 +1101,9 @@ bool char_to_room(P_char ch, int room, int dir)
   if (dir != -2)
     do_look(ch, 0, -4);
 
+  /* Send GMCP Room.Info - must be before early returns */
+  gmcp_room_info(ch);
+
   if (dir < 0)                  /* flag value, skip aggro checks */
   {
     return TRUE;
@@ -1424,6 +1429,7 @@ bool char_to_room(P_char ch, int room, int dir)
       }
     }
   }
+
   return TRUE;
 }
 
@@ -3092,8 +3098,20 @@ void extract_char(P_char ch)
 	  }
 #else
       ch->desc->connected = CON_DISPLAY_ACCT_MENU;
+
+      /* For WebSocket clients, send return_to_menu signal instead of telnet menu */
+      if (ch->desc->websocket) {
+          const char *reason = "quit";
+          /* If character died (STAT_DEAD flag is set in position) */
+          if (GET_POS(ch) & STAT_DEAD) {
+              reason = "death";
+          }
+          ws_send_return_to_menu(ch->desc, reason);
+      } else {
+          display_account_menu(ch->desc, NULL);
+      }
+
       ch->desc->character = NULL;
-      display_account_menu(ch->desc, NULL);
       free_char(ch);
       ch = NULL;
 #endif

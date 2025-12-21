@@ -1203,7 +1203,10 @@ void calculate_map_coordinates()
     bfs_clear_marks();
     for (int room = 0; room <= top_of_world; room++)
     {
-      if (IS_MARKED(room) || !IS_MAP_ROOM(room) || IS_OCEAN_ROOM(room))
+      /* Original: only calculated coords for outdoor map zones
+       * if (IS_MARKED(room) || !IS_MAP_ROOM(room) || IS_OCEAN_ROOM(room))
+       */
+      if (IS_MARKED(room) || IS_OCEAN_ROOM(room))
          continue;
 
       cur_section++;
@@ -1230,7 +1233,8 @@ void calculate_map_coordinates()
                continue;  // skipping teleport exits
             }
 
-            if (IS_MARKED(next_room) || !IS_MAP_ROOM(next_room) || IS_OCEAN_ROOM(next_room))
+            /* Original: if (IS_MARKED(next_room) || !IS_MAP_ROOM(next_room) || IS_OCEAN_ROOM(next_room)) */
+            if (IS_MARKED(next_room) || IS_OCEAN_ROOM(next_room))
               continue;
 
             BFSMARK(next_room);                                           

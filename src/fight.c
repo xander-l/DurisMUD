@@ -50,6 +50,7 @@
 #include "achievements.h"
 #include "siege.h"
 #include "vnum.obj.h"
+#include "gmcp.h"
 /*
  * external variables //
  */
@@ -6104,6 +6105,10 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags, struct damage_m
         dam = GET_HIT(victim) + 11;
       }
       GET_HIT(victim) -= dam;
+
+      /* Send GMCP updates for combat */
+      gmcp_char_vitals(victim);  /* Update victim's vitals */
+      gmcp_combat_target(ch, victim);  /* Update attacker's target health bar */
     }
 
     if( IS_PC(victim) && victim->desc && (IS_SET(victim->specials.act, PLR_SMARTPROMPT)
@@ -9213,6 +9218,8 @@ void stop_fighting(P_char ch)
   if ( GET_CHAR_SKILL(ch, SKILL_LANCE_CHARGE) != 0 )
     set_short_affected_by(ch, SKILL_LANCE_CHARGE, PULSE_VIOLENCE / 2); // to prevent flee/charge
 
+  /* Notify web client that combat has ended */
+  gmcp_combat_end(ch);
 
   update_pos(ch);
 }

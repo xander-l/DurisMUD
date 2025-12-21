@@ -58,6 +58,9 @@
 #include "hardcore.h"
 #include "siege.h"
 #include "utility.h"
+#include "websocket.h"
+#include "json_utils.h"
+#include "gmcp.h"
 
 /* external variables */
 
@@ -512,7 +515,8 @@ void game_loop(int port, int sslport)
   struct ident_answer ident_ans_buf;
   sigset_t mask, oldset;
   int s, S;
-  
+  int WS;  /* WebSocket listener socket */
+
   sentbytes = 0;
   recivedbytes = 0;
   null_time.tv_sec = 0;
@@ -568,6 +572,11 @@ void game_loop(int port, int sslport)
   s = init_socket(port);
   logit(LOG_STATUS, "Opening father connection.");
   S = init_socket(sslport);
+  logit(LOG_STATUS, "Opening WebSocket connection.");
+  WS = websocket_init(WS_PORT);
+  if (WS < 0) {
+    logit(LOG_STATUS, "WARNING: WebSocket server failed to start on port %d", WS_PORT);
+  }
 
   /* Main loop */
   while (!shutdownflag)
@@ -609,6 +618,7 @@ void game_loop(int port, int sslport)
     PROFILE_START(connections);
     FD_SET(s, &input_set);
     FD_SET(S, &input_set);
+    if (WS >= 0) FD_SET(WS, &input_set);  /* WebSocket listener */
     for (point = descriptor_list; point; point = point->next)
     {
       /*
@@ -691,6 +701,10 @@ void game_loop(int port, int sslport)
     if (FD_ISSET(S, &input_set))
       if (new_descriptor(S, 1) < 0)
         perror("New connection");
+    /* New WebSocket connection? */
+    if (WS >= 0 && FD_ISSET(WS, &input_set))
+      if (new_descriptor(WS, 2) < 0)
+        perror("New WebSocket connection");
 
     /* kick out the freaky folks */
     for (point = descriptor_list; point; point = next_point)
@@ -1561,7 +1575,8 @@ void close_socket(struct descriptor_data *d)
      * Locate the previous element
      */
     for (tmp = descriptor_list; tmp && (tmp->next != d); tmp = tmp->next) ;
-    tmp->next = d->next;
+    if (tmp)
+      tmp->next = d->next;
   }
 
   if (d->descriptor)
@@ -1624,7 +1639,7 @@ void nonblock(int s)
         * old/new socket code. 9/18/95  JAB
         */
 
-int new_descriptor(int s, bool ssl)
+int new_descriptor(int s, int conn_type)
 {
   P_desc   newd;
   bool     flag = FALSE, found = FALSE, looking_up = FALSE;
@@ -1637,7 +1652,8 @@ int new_descriptor(int s, bool ssl)
   if ((desc = new_connection(s)) < 0)
     return (-1);
 
-  if (ssl && !(sslses = ssl_new(desc)))
+  /* SSL connection - initialize TLS */
+  if (conn_type == 1 && !(sslses = ssl_new(desc)))
     return 0; // can legitimately fail if client sends garbage
 
   used_descs++;
@@ -1858,10 +1874,27 @@ int new_descriptor(int s, bool ssl)
   newd->sslses = sslses;
   *newd->client_str = '\0';
   newd->term_type = TERM_ANSI;
+
+  /* WebSocket connection - set flags and wait for HTTP upgrade */
+  if (conn_type == 2) {
+    int ws_opt = 1;
+    newd->websocket = 1;
+    newd->ws_state = 0;  /* WS_STATE_CONNECTING */
+    newd->ws_handshake_done = 0;
+    newd->ws_fragment_buffer = NULL;
+    newd->ws_fragment_len = 0;
+    newd->gmcp_enabled = 1;  /* WebSocket clients always get GMCP */
+    /* WebSocket needs non-blocking I/O and low latency */
+    fcntl(desc, F_SETFL, O_NONBLOCK);
+    setsockopt(desc, IPPROTO_TCP, TCP_NODELAY, &ws_opt, sizeof(ws_opt));
+  }
+
   descriptor_list = newd;
 
-  if (ssl && ssl_negotiate(sslses)) // do first round immediately
+  if (conn_type == 1 && ssl_negotiate(sslses)) // do first round immediately
     STATE(newd) = CON_SSLNEGO;
+  else if (conn_type == 2)
+    STATE(newd) = CON_GET_TERM;  /* WebSocket waits for HTTP handshake */
   else
     greet(newd);
 
@@ -1887,6 +1920,7 @@ static void greet(P_desc newd)
   select_terminal(newd, "");
 
   advertise_mccp(newd);
+  gmcp_negotiate(newd);
 }
 
 
@@ -2413,6 +2447,11 @@ int process_input(P_desc t)
   int      sofar, thisround, begin, squelch, i, k, flag;
   char     tmp[MAX_INPUT_LENGTH + 3], buffer[MAX_INPUT_LENGTH + 60];
   snoop_by_data *snoop_by_ptr;
+
+  /* WebSocket connections use their own input processing */
+  if (t->websocket) {
+    return websocket_process_input(t);
+  }
 
   sofar = 0;
   flag = 0;

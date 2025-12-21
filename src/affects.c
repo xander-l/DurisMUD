@@ -28,6 +28,7 @@
 #include "weather.h"
 #include "interp.h"
 #include "objmisc.h"
+#include "gmcp.h"
 #include "paladins.h"
 #include "guard.h"
 #include "racewar_stat_mods.h"
@@ -1969,6 +1970,9 @@ struct affected_type *affect_to_char(P_char ch, struct affected_type *af)
     add_event(event_short_affect, af->duration, ch, 0, 0, 0, &data, sizeof(data));
   }
 
+  /* Update web client affects display */
+  gmcp_char_affects(ch);
+
   return affected_alloc;
 }
 
@@ -2173,6 +2177,9 @@ void affect_remove(P_char ch, struct affected_type *af)
   room_light(ch->in_room, REAL);
 
   balance_affects(ch);
+
+  /* Update web client affects display */
+  gmcp_char_affects(ch);
 }
 
 /*

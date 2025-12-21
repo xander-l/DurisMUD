@@ -1872,7 +1872,8 @@ void account_new_char_name(P_desc d, char *arg)
     d->character = player;
   }
 
-  strcpy(d->character->only.pc->pwd, d->account->acct_password);
+  strncpy(d->character->only.pc->pwd, d->account->acct_password, sizeof(d->character->only.pc->pwd) - 1);
+  d->character->only.pc->pwd[sizeof(d->character->only.pc->pwd) - 1] = '\0';
   d->character->player.name = str_dup(arg);
   *d->character->player.name = toupper(*d->character->player.name);
   SEND_TO_Q("You chose the name ", d);

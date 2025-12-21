@@ -33,7 +33,7 @@ using namespace std;
 
 extern char GS_buf1[MAX_STRING_LENGTH];
 
-int new_descriptor(int s, bool ssl);
+int new_descriptor(int s, int conn_type);  /* 0=telnet, 1=SSL, 2=WebSocket */
 int new_connection(int s, bool ssl);
 
 /* affects.c */
@@ -651,6 +651,7 @@ void concat_which_flagsde(const char *flagType, const flagDef flagNames[], char 
 #ifdef USE_ACCOUNT
 void do_account(P_char ch, char *arg, int cmd);
 #endif
+void do_protocol(P_char ch, char *arg, int cmd);
 
 /* artifact.c */
 void addOnGroundArtis_sql();
@@ -1925,6 +1926,7 @@ bool _parse_name(char *, char *);
 bool has_avail_class(P_desc);
 void display_classtable(P_desc);
 extern int invitemode;
+extern const struct playable_race_info playable_races[];
 int display_avail_classes(P_desc, int);
 int find_hometown(int, bool);
 int find_starting_alignment(int, int);
@@ -3179,6 +3181,7 @@ void do_smelt(P_char, char *, int);
 /* mccp.c */
 int compress_get_ratio(P_desc player);
 int write_to_descriptor(P_desc, const char *);
+int write_to_descriptor_binary(P_desc, const unsigned char *, size_t);
 int parse_telnet_options(P_desc, char *);
 void advertise_mccp(P_desc desc);
 int compress_start(P_desc, int);
