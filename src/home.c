@@ -53,6 +53,7 @@ void construct_home(P_char ch)
 {
     if(!HAS_HOME(ch))
     {
+        char buf[MAX_STRING_LENGTH];
         // is allowed to construct home
 
         // has surveyors mark
@@ -67,9 +68,11 @@ void construct_home(P_char ch)
         new_home->exit_to = ch->in_room;
         new_home->next_home = NULL;
 
+        snprintf(buf, MAX_STRING_LENGTH, "House of %s", GET_NAME(ch));
+
         new_home->zone = (zone_data*)malloc(sizeof(zone_data));
         new_home->zone->number = -1; // TODO: Get a valid zone number
-        new_home->zone->name = GET_NAME(ch); // TODO: make this more descriptive for the player
+        new_home->zone->name = buf;
         new_home->zone->filename = GET_NAME(ch); // TODO: make sure this name is valid.
         new_home->zone->mapx = PLOT_SIZE * MAX_PLOTS;
         new_home->zone->mapy = PLOT_SIZE * MAX_PLOTS;
