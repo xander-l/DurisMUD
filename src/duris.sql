@@ -104,6 +104,7 @@ CREATE TABLE `auction_item_pickups` (
   `pid` int(10) unsigned NOT NULL default '0',
   `obj_blob_str` blob NOT NULL,
   `retrieved` tinyint(1) NOT NULL default '0',
+  `quantity` int(11) NOT NULL default '1',
   PRIMARY KEY  (`id`),
   KEY `pid` (`pid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -145,6 +146,7 @@ CREATE TABLE `auctions` (
   `obj_vnum` int(11) NOT NULL default '0',
   `obj_blob_str` blob NOT NULL,
   `id_keywords` varchar(255) NOT NULL default '',
+  `quantity` int(11) NOT NULL default '1',
   PRIMARY KEY  (`id`),
   KEY `seller_pid` (`seller_pid`),
   KEY `auction_end` (`end_time`),
