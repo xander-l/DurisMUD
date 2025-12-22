@@ -60,6 +60,14 @@ void event_track_move(P_char ch, P_char vict, P_obj obj, void *data)
     return;
   }
 
+  // Handle invalid target (mob didn't exist when tracking started)
+  if( !vict && ch->specials.tracking == 0 )
+  {
+    send_to_char("You are unable to find any trace.\r\n", ch);
+    REMOVE_BIT(ch->specials.affected_by3, AFF3_TRACKING);
+    return;
+  }
+
   dir = BFS_ERROR;
 
 //debug( "Victim: %s, specs.tracking: %d", vict ? J_NAME(vict) : "NULL", ch->specials.tracking );
@@ -371,9 +379,13 @@ void do_track(P_char ch, char *arg, int cmd) //do_track_not_in_use
     // If it's a God, allow tracking to room vnum.
     if( !IS_TRUSTED(ch) || real_room(atoi(name)) <= 0 )
     {
-      send_to_char("You attempt your skills at tracking.\n", ch);
+      // Use same event-based delay as valid tracks to prevent information leak
+      SET_BIT(ch->specials.affected_by3, AFF3_TRACKING);
+      ch->specials.tracking = 0;  // Mark as invalid target
+      send_to_char("You attempt your skills at tracking.\r\n", ch);
+      add_event(event_track_move, 5, ch, NULL, 0, 0, 0, 0);
       CharWait(ch, PULSE_VIOLENCE);
-      send_to_char("You are unable to find any tracks.\n", ch);
+      notch_skill(ch, SKILL_TRACK, 20);
       return;
     }
   }
@@ -381,7 +393,7 @@ void do_track(P_char ch, char *arg, int cmd) //do_track_not_in_use
   SET_BIT(ch->specials.affected_by3, AFF3_TRACKING);
   ch->specials.tracking = (victim ? victim->in_room : real_room(atoi(name)));
   ch->specials.was_fighting = victim;
-  send_to_char("You attempt your skills at tracking.\n", ch);
+  send_to_char("You attempt your skills at tracking.\r\n", ch);
   add_event(event_track_move, 5, ch, victim, 0, 0, 0, 0);
   CharWait(ch, PULSE_VIOLENCE);
   notch_skill(ch, SKILL_TRACK, 20);
