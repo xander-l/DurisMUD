@@ -607,7 +607,12 @@ void add_track(P_char ch, int dir)
   else
   {
     snprintf(buf1, MAX_STRING_LENGTH, "There are %s tracks going %s.", race_names_table[(int) GET_RACE(ch)].ansi, dirs[dir]);
-    strcpy(buf3, ch->player.short_descr);
+    if (ch->player.short_descr)
+      strcpy(buf3, ch->player.short_descr);
+    else if (ch->player.name)
+      strcpy(buf3, ch->player.name);
+    else
+      strcpy(buf3, "someone");
     track->value[0] = dir;
   }
 
