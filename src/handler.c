@@ -2844,6 +2844,7 @@ void extract_char(P_char ch)
     un_morph(ch);
     return;
   }
+  
   if (IS_PC(ch) && !ch->desc)
   {
     for (t_desc = descriptor_list; t_desc; t_desc = t_desc->next)

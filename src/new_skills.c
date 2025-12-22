@@ -2094,6 +2094,12 @@ void mount_summoning_thing(P_char ch, P_char victim, P_obj obj, void *data)
     }
     setup_pet(mount, ch, -1, PET_NOCASH);
     add_follower(mount, ch);
+
+    if(IS_DRAGOON(ch))
+    {
+      link_char(ch, mount, LNK_DRAGOON_MOUNT);
+    }
+
     if(GET_LEVEL(ch) > 50 ||
       GET_SPEC(ch, CLASS_PALADIN, SPEC_CAVALIER) ||
       GET_SPEC(ch, CLASS_ANTIPALADIN, SPEC_DEMONIC))
@@ -2220,6 +2226,8 @@ void do_summon_mount(P_char ch, char *arg, int cmd)
     return;
   }
 
+  if(IS_DRAGON_FORM(ch)) return;
+  
   for( fol = ch->followers; fol; fol = fol->next )
   {
     if( IS_NPC(fol->follower) && IS_SET(fol->follower->specials.act, ACT_MOUNT) )

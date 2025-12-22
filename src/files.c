@@ -304,7 +304,7 @@ int writeStatus(char *buf, P_char ch, bool updateTime )
   char    *start = buf;
   int      tmp, i;
   long     tmpl;
-  struct affected_type *af, *next_af;
+  struct affected_type *af = NULL, *next_af = NULL;
 /*  sh_int dummy_short = 0; */
 
   ADD_BYTE(buf, (char) SAV_STATVERS);
@@ -329,7 +329,16 @@ int writeStatus(char *buf, P_char ch, bool updateTime )
   else
   {
 */
+  // never save draconic race - Tyrus MWD25
+   if((af = get_spell_from_char(ch, SPELL_DRACONIC_APOTHEOSIS)) != NULL)
+   {
+     ADD_BYTE(buf, af->modifier);
+   }
+   else
+   {
     ADD_BYTE(buf, GET_RACE(ch));
+   }
+  
 //  }
 
   ADD_BYTE(buf, GET_RACEWAR(ch));

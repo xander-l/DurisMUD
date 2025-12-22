@@ -4837,6 +4837,18 @@ void do_purge(P_char ch, char *argument, int cmd)
         {
           update_ingame_racewar( -GET_RACEWAR(ch) );
         }
+
+        if(affected_by_spell(vict, SPELL_DRACONIC_APOTHEOSIS))
+        {
+          for (struct affected_type* af = vict->affected; af; af = af->next)
+          {
+            if(af->type == SPELL_DRACONIC_APOTHEOSIS)
+            {
+              GET_RACE(vict) = af->modifier;
+            }
+          }
+        }
+
         /* player will lose all objects! */
         extract_char(vict);
         writeCharacter(vict, 2, NOWHERE);

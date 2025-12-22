@@ -1416,6 +1416,7 @@ char *CRYPT2( char *passwd, char *name );
                        IS_ANGELIC(ch))
 
 #define IS_DRAGOON(ch) GET_CLASS(ch, CLASS_DRAGOON)
+#define IS_DRAGON_FORM(ch) (GET_CLASS(ch, CLASS_DRAGOON) && GET_RACE(ch) == RACE_DRAGON)
 
 #define INFRA_INVIS_RACE(race)   (race == RACE_UNDEAD      || race == RACE_GHOST       || race == RACE_VAMPIRE       \
   || race == RACE_LICH         || race == RACE_PDKNIGHT    || race == RACE_ZOMBIE      || race == RACE_SPECTRE       \

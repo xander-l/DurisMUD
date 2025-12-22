@@ -3806,7 +3806,10 @@ void do_dragon_roar(P_char ch, char *argument, int cmd)
       affected_by_spell(ch, SKILL_DRAGON_BREATH) ||
       affected_by_spell(ch, SKILL_DRAGON_STRIKE))
   {
-    send_to_char("Your &+Gdr&+Lag&+Gon&n needs to re-orient itself before it can roar again.\n", ch);
+    if(IS_DRAGON_FORM(ch))
+      send_to_char("You need to re-orient yourself before you can roar again.\n", ch);
+    else
+      send_to_char("Your &+Gdr&+Lag&+Gon&n needs to re-orient itself before it can roar again.\n", ch);
     return;
   }
 
@@ -3821,8 +3824,16 @@ void do_dragon_roar(P_char ch, char *argument, int cmd)
   if((percent_chance + power) > number(1, 100) 
    /*&& number(0, 75) < GET_CHAR_SKILL(ch, SKILL_MOUNT)*/)
   {
-    send_to_char("You command your &+Gdr&+Lag&+Gon&n to unleash a &+rpowerful &-L&+RROAR!!&n\r\n", ch);
-    act("$n commands $N to unleash a &+rpowerful &-L&+RROAR!!&n", TRUE, ch, 0, mount, TO_ROOM);
+    if(IS_DRAGON_FORM(ch))
+    {
+      send_to_char("You unleash a &+rpowerful &-L&+RROAR!!&n\r\n", ch);
+      act("$n unleashes a &+rpowerful &-L&+RROAR!!&n", TRUE, ch, 0, 0, TO_ROOM);
+    }
+    else
+    {
+      send_to_char("You command your &+Gdr&+Lag&+Gon&n to unleash a &+rpowerful &-L&+RROAR!!&n\r\n", ch);
+      act("$n commands $N to unleash a &+rpowerful &-L&+RROAR!!&n", TRUE, ch, 0, mount, TO_ROOM);
+    }
 
     struct affected_type af;
     int empower = is_hunter ? GET_CHAR_SKILL(ch, SKILL_DRAGON_ROAR) : GET_CHAR_SKILL(ch, SKILL_DRAGON_ROAR) / 2;
@@ -3832,8 +3843,16 @@ void do_dragon_roar(P_char ch, char *argument, int cmd)
 
     if(circle == 0)
     {
-      act("$N &+RBELCHES&n a large &+WPUFF&n of foul &+LSMOKE&n!", FALSE, ch, 0, mount, TO_ROOM);
-      act("$N &+RBELCHES&n a large &+WPUFF&n of foul &+LSMOKE&n!", FALSE, ch, 0, mount, TO_CHAR);
+      if(IS_DRAGON_FORM(ch))
+      {
+        act("$N &+RBELCHES&n a large &+WPUFF&n of foul &+LSMOKE&n!", FALSE, ch, 0, mount, TO_ROOM);
+        act("You &+RBELCH&n a large &+WPUFF&n of foul &+LSMOKE&n!", FALSE, ch, 0, mount, TO_CHAR);
+      }
+      else
+      {
+        act("$N &+RBELCHES&n a large &+WPUFF&n of foul &+LSMOKE&n!", FALSE, ch, 0, mount, TO_ROOM);
+        act("$N &+RBELCHES&n a large &+WPUFF&n of foul &+LSMOKE&n!", FALSE, ch, 0, mount, TO_CHAR);
+      }
     }
     else
     {
@@ -3877,8 +3896,7 @@ void do_dragon_roar(P_char ch, char *argument, int cmd)
             af.location = APPLY_DAMROLL;
             affect_to_char(victim, &af);
             send_to_char("The &+Gdr&+Lag&+Gon&n's &+RROAR&n shakes you to your core!\r\n", victim);
-            act("$N looks shaken by the &+Gdr&+Lag&+Gon&n's &+RROAR&n!", TRUE, ch, 0, victim, TO_CHAR);
-            act("$N looks shaken by the &+Gdr&+Lag&+Gon&n's &+RROAR&n!", TRUE, ch, 0, victim, TO_NOTVICTROOM);
+            act("$N looks shaken by the &+Gdr&+Lag&+Gon&n's &+RROAR&n!", TRUE, ch, 0, victim, TO_NOTVICT);
           }
 
           if(!IS_AFFECTED4(victim, AFF4_NOFEAR) && !IS_ELITE(victim) && !IS_GREATER_RACE(victim))
@@ -3905,7 +3923,7 @@ void do_dragon_roar(P_char ch, char *argument, int cmd)
         circle, circle == 1 ? "st" : (circle == 2 ? "nd" : (circle == 3 ? "rd" : "th")));
       send_to_char(buf, ch);
 
-      DelayCommune(ch, (int) (2*PULSE_VIOLENCE));
+      DelayCommune(ch, (int) (3*PULSE_VIOLENCE));
 
       notch_skill(ch, SKILL_DRAGON_ROAR, get_property("skill.notch.defensive", 7));
     }
@@ -3914,8 +3932,16 @@ void do_dragon_roar(P_char ch, char *argument, int cmd)
   }
   else
   {
-    send_to_char("Your &+Gdr&+Lag&+Gon&n fails to obey your command.\r\n", ch);
-    act("$N disobeys $n's command,", TRUE, ch, 0, mount, TO_ROOM);
+    if(IS_DRAGON_FORM(ch))
+    {
+      send_to_char("The &+Gdr&+Lag&+Gon&n god's &+rpower&n betrays you.\r\n", ch);
+      act("$N's ophidian eyes dull as $s inner-eyelids close for a moment.", TRUE, ch, 0, mount, TO_ROOM);
+    }
+    else
+    {
+      send_to_char("Your &+Gdr&+Lag&+Gon&n fails to obey your command.\r\n", ch);
+      act("$N disobeys $n's command,", TRUE, ch, 0, mount, TO_ROOM);
+    }
   }
 
   CharWait(ch, PULSE_VIOLENCE);
@@ -3976,7 +4002,14 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
       affected_by_spell(ch, SKILL_DRAGON_BREATH) ||
       affected_by_spell(ch, SKILL_DRAGON_STRIKE))
   {
-    send_to_char("Your &+Gdr&+Lag&+Gon&n needs to re-orient itself before it can breath fire again.\n", ch);
+    if(IS_DRAGON_FORM(ch))
+    {
+      send_to_char("You need to re-orient yourself before you can breath fire again.\n", ch);  
+    }
+    else
+    {
+      send_to_char("Your &+Gdr&+Lag&+Gon&n needs to re-orient itself before it can breath fire again.\n", ch);
+    }
     return;
   }
 
@@ -4017,22 +4050,36 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
 
   if( !IS_IMMOBILE(mount) && !IS_BLIND(mount) )
   {
-    switch ( number(1, 3) )
+    if(IS_DRAGON_FORM(ch))
     {
-      case 1:
-        send_to_char("You command your &+Gdr&+Lag&+Gon&n to unleash a torrent of &+RFIRE&N!!!\n", ch);
-      break;
-      case 2:
-        send_to_char("You command your &+Gdr&+Lag&+Gon&n to rear back and breath &+RFIRE&N!!!\n", ch);
-      break;
-      case 3:
-        send_to_char("You order your &+Gdr&+Lag&+Gon&n to breath &+RFIRE&N over your foe!!!\n", ch);
-      break;
+      send_to_char("You attempt to unleash a torrent of &+RFIRE&N!!!\n", ch);
+    }
+    else
+    {
+      switch ( number(1, 3) )
+      {
+        case 1:
+          send_to_char("You command your &+Gdr&+Lag&+Gon&n to unleash a torrent of &+RFIRE&N!!!\n", ch);
+        break;
+        case 2:
+          send_to_char("You command your &+Gdr&+Lag&+Gon&n to rear back and breath &+RFIRE&N!!!\n", ch);
+        break;
+        case 3:
+          send_to_char("You order your &+Gdr&+Lag&+Gon&n to breath &+RFIRE&N over your foe!!!\n", ch);
+        break;
+      }
     }
   }
   else
   {
-    send_to_char("Your &+Gdra&+Lag&+Gon&n is afflicted and cannot hearken you.\n\r", ch);
+    if(IS_DRAGON_FORM(ch))
+    {
+      send_to_char("The &+Gdr&+Lag&+Gon&n god's &+rpower&n betrays you.\r\n", ch);
+    }
+    else
+    {
+      send_to_char("Your &+Gdra&+Lag&+Gon&n is afflicted and cannot hearken you.\n\r", ch);
+    }
     return;
   }
 
@@ -4051,8 +4098,16 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
   if((!notch_skill(ch, SKILL_MOUNTED_COMBAT, get_property("skill.notch.offensive", 7)) 
     && (percent_chance + power) < number(1, 100)) /*|| number(0, 65) > GET_CHAR_SKILL(ch, SKILL_MOUNT)*/)
   {
+    if(IS_DRAGON_FORM(ch))
+    {
+      send_to_char("The &+Gdr&+Lag&+Gon&n god's &+rpower&n betrays you.\r\n", ch);
+      act("$N's ophidian eyes dull as $s inner-eyelids close for a moment.", TRUE, ch, 0, mount, TO_ROOM);
+    }
+    else
+    {
       act("$N thrashes wildy without heeding $n's order.", FALSE, ch, 0, mount, TO_ROOM);
       act("$N thrashes wildy without heeding your order.", FALSE, ch, 0, mount, TO_CHAR);
+    }
   }
   else
   {
@@ -4060,8 +4115,16 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
 
     if(circle == 0)
     {
-      act("$N &+RBELCHES&n a large &+WPUFF&n of foul &+LSMOKE&n!", FALSE, ch, 0, mount, TO_ROOM);
-      act("$N &+RBELCHES&n a large &+WPUFF&n of foul &+LSMOKE&n!", FALSE, ch, 0, mount, TO_CHAR);
+      if(IS_DRAGON_FORM(ch))
+      {
+        act("$N &+RBELCHES&n a large &+WPUFF&n of foul &+LSMOKE&n!", FALSE, ch, 0, mount, TO_ROOM);
+        act("You &+RBELCH&n a large &+WPUFF&n of foul &+LSMOKE&n!", FALSE, ch, 0, mount, TO_CHAR);
+      }
+      else
+      {
+        act("$N &+RBELCHES&n a large &+WPUFF&n of foul &+LSMOKE&n!", FALSE, ch, 0, mount, TO_ROOM);
+        act("$N &+RBELCHES&n a large &+WPUFF&n of foul &+LSMOKE&n!", FALSE, ch, 0, mount, TO_CHAR);
+      }
     }
     else
     {
@@ -4177,7 +4240,7 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
       send_to_char(buf, ch);
 
       notch_skill(ch, SKILL_DRAGON_BREATH, get_property("skill.notch.offensive", 7));
-      DelayCommune(ch, (int) (2 * PULSE_VIOLENCE));
+      DelayCommune(ch, (int) (3 * PULSE_VIOLENCE));
     }
 
     set_short_affected_by(ch, SKILL_DRAGON_BREATH, (int) (3 * PULSE_VIOLENCE));
@@ -4207,6 +4270,16 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
     0, 0
   };
 
+  struct damage_messages messages_dragon_form = {
+    "You sweep your tail into $N with a magnificent &-L&+RSWOOSH&n!",
+    "$n's tail sweeps into you with a magnificent &-L&+RSWOOSH&n!",
+    "$n's tail sweeps into $N's body with a magnificent &-L&+RSWOOSH&n!",
+    "You viciously sweep your tail into $N, turning $S into a pink mist!",
+    "$n's tail sweeps into you, &-L&+RSKADOOSH&n!!! Your body is obliterated by the force!",
+    "$n sweeps $s tail and viciously obliterates $N's body with a loud &-L&+RSKADOOSH&n!",
+    0, 0
+  };
+
   if(!IS_ALIVE(ch) )
   {
     if( ch ) send_to_char("Lay still, you seem to be dead.\r\n", ch);
@@ -4224,7 +4297,10 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
 
   if(IS_IMMOBILE(ch))
   {
-    send_to_char("Hold up! You can't command your &+Gdr&+Lag&+Gon&n right now.\n", ch);
+    if(IS_DRAGON_FORM(ch))
+      send_to_char("Hold up! You can't move right now.\n", ch);
+    else
+      send_to_char("Hold up! You can't command your &+Gdr&+Lag&+Gon&n right now.\n", ch);
     return;
   }
 
@@ -4252,7 +4328,10 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
       affected_by_spell(ch, SKILL_DRAGON_BREATH) ||
       affected_by_spell(ch, SKILL_DRAGON_STRIKE))
   {
-    send_to_char("Your &+Gdr&+Lag&+Gon&n needs to re-orient itself before it can tail strike again.\n", ch);
+    if(IS_DRAGON_FORM(ch))
+      send_to_char("You need to re-orient yourself before you can tail strike again.\n", ch);
+    else 
+      send_to_char("Your &+Gdr&+Lag&+Gon&n needs to re-orient itself before it can tail strike again.\n", ch);
     return;
   }
 
@@ -4264,7 +4343,10 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
 
   if( victim && (mount == victim) )
   {
-    send_to_char("Your &+Gdr&+Lag&+Gon&n cannot tail strike itself!\r\n", ch);
+    if(IS_DRAGON_FORM(ch))
+      send_to_char("You cannot tail strike yourself!\r\n", ch);
+    else
+      send_to_char("Your &+Gdr&+Lag&+Gon&n cannot tail strike itself!\r\n", ch);
     return;
   }
 
@@ -4292,7 +4374,10 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
 
   if( IS_IMMOBILE(mount) || IS_BLIND(mount) )
   {
-    send_to_char("Your &+Gdra&+Lag&+Gon&n is afflicted and cannot hearken you.\n\r", ch);
+    if(IS_DRAGON_FORM(ch))
+      send_to_char("The &+Gdr&+Lag&+Gon&n god's &+rpower&n betrays you.\n\r", ch);
+    else
+      send_to_char("Your &+Gdra&+Lag&+Gon&n is afflicted and cannot hearken you.\n\r", ch);
     return;
   }
   else
@@ -4386,7 +4471,10 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
 
   if(knockdown_chance == TAKEDOWN_CANCELLED)
   {
-    send_to_char("Your &+Gdr&+Lag&+Gon&n's tail swings wildy through the area missing it's target!\r\n", ch);
+    if(IS_DRAGON_FORM(ch))
+      send_to_char("Your tail swings wildy through the area missing your target!\r\n", ch);
+    else
+      send_to_char("Your &+Gdr&+Lag&+Gon&n's tail swings wildy through the area missing it's target!\r\n", ch);
     return;
   }
   else if(knockdown_chance == TAKEDOWN_PENALTY)
@@ -4404,25 +4492,45 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
   
   knockdown_chance = BOUNDED(0, knockdown_chance, 80);
   
-  act("You order your &+Gdr&+Lag&+Gon&n to tail strike $N.", FALSE, ch, 0, victim, TO_CHAR);
+  if(IS_DRAGON_FORM(ch))
+    act("You attempt to tail strike $N.", FALSE, ch, 0, victim, TO_CHAR);
+  else
+    act("You order your &+Gdr&+Lag&+Gon&n to tail strike $N.", FALSE, ch, 0, victim, TO_CHAR);
 
   if(!notch_skill(ch, SKILL_MOUNTED_COMBAT, get_property("skill.notch.offensive", 7)) &&
      (percent_chance + power) < number(1, 100))
   {
     if(50 + GET_C_DEX(ch) / 2 > number(0, 100) || is_lancer)
     {
-      act("$N thrashes wildy without heeding $n's order.",
-          FALSE, ch, 0, mount, TO_ROOM);
-      act("$N thrashes wildy without heeding your order.",
-          FALSE, ch, 0, mount, TO_CHAR);
+      if(IS_DRAGOON(ch))
+      {
+        send_to_char("The &+Gdr&+Lag&+Gon&n god's &+rpower&n betrays you.\r\n", ch);
+        act("$N's ophidian eyes dull as $s inner-eyelids close for a moment.", TRUE, ch, 0, mount, TO_ROOM);
+      }
+      else
+      {
+        act("$N thrashes wildy without heeding $n's order.",
+            FALSE, ch, 0, mount, TO_ROOM);
+        act("$N thrashes wildy without heeding your order.",
+            FALSE, ch, 0, mount, TO_CHAR);
+      }
       SET_POS(ch, POS_STANDING + STAT_NORMAL);
     }
     else
     {
-      act("As $N thrashes wildy you are thrown to the ground!",
-          FALSE, ch, 0, mount, TO_CHAR);
-      act("As $N thrashes wildy $n is thrown to the ground!",
-          FALSE, ch, 0, mount, TO_ROOM);
+      if(IS_DRAGON_FORM(ch))
+      {
+        send_to_char("You thrash wildly as the &+Gdr&+Lag&+Gon&n god's &+rpower&n betrays you.\r\n", ch);
+        act("$N thrashes wildy $n as they miss thier target!",
+            FALSE, ch, 0, mount, TO_ROOM);
+      }
+      else
+      {
+        act("As $N thrashes wildy as you are thrown to the ground!",
+            FALSE, ch, 0, mount, TO_CHAR);
+        act("As $N thrashes wildy as $n is thrown to the ground!",
+            FALSE, ch, 0, mount, TO_ROOM);
+      }
 
       if(50 + GET_C_AGI(ch) / 2 < number(0,100))
       {
@@ -4435,16 +4543,23 @@ void do_dragon_strike(P_char ch, char *argument, int cmd)
       }
       if(damage(ch, ch, number(1, GET_LEVEL(ch)), DAMAGE_FALLING))
         return;
-      unlink_char(ch, mount, LNK_RIDING);
+
+      if(!IS_DRAGON_FORM(ch))
+        unlink_char(ch, mount, LNK_RIDING);
     }
   }
   else
   {
     notch_skill(ch, SKILL_DRAGON_STRIKE, get_property("skill.notch.offensive", 7));
 
-    engage(ch, victim);
+    engage(mount, victim);
 
-    if(melee_damage(mount, victim, dam, PHSDAM_NOENGAGE | PHSDAM_TOUCH, &messages))
+    if(IS_DRAGON_FORM(ch))
+    {
+      if(melee_damage(mount, victim, dam, PHSDAM_NOENGAGE | PHSDAM_TOUCH, &messages_dragon_form))
+        return;
+    } 
+    else if(melee_damage(mount, victim, dam, PHSDAM_NOENGAGE | PHSDAM_TOUCH, &messages))
     {
       return;
     }

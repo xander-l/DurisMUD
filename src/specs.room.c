@@ -343,6 +343,17 @@ int inn(int room, P_char ch, int cmd, char *arg)
       REMOVE_BIT(ch->specials.affected_by4, AFF4_TUPOR);
     }
 
+    if(affected_by_spell(ch, SPELL_DRACONIC_APOTHEOSIS))
+    {
+      for (struct affected_type* af = ch->affected; af; af = af->next)
+      {
+        if(af->type == SPELL_DRACONIC_APOTHEOSIS)
+        {
+          GET_RACE(ch) = af->modifier;
+        }
+      }
+    }
+
     send_to_char("The innkeeper stores your stuff in the safe and shows you to your room.\r\n", ch);
     act("The innkeeper stores $n&n's stuff in the safe and shows $m to $s room.", TRUE, ch, 0, 0, TO_ROOM);
 
@@ -446,6 +457,17 @@ int undead_inn(int room, P_char ch, int cmd, char *arg)
 
     if (IS_AFFECTED4(ch, AFF4_TUPOR))
       REMOVE_BIT(ch->specials.affected_by4, AFF4_TUPOR);
+
+    if(affected_by_spell(ch, SPELL_DRACONIC_APOTHEOSIS))
+    {
+      for (struct affected_type* af = ch->affected; af; af = af->next)
+      {
+        if(af->type == SPELL_DRACONIC_APOTHEOSIS)
+        {
+          GET_RACE(ch) = af->modifier;
+        }
+      }
+    }
 
     GET_HOME(ch) = world[ch->in_room].number;
     if (IS_PC(ch))

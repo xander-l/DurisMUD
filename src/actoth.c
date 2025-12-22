@@ -1641,6 +1641,18 @@ void do_quit(P_char ch, char *argument, int cmd)
     send_to_char("No way! You are fighting.\r\n", ch);
     return;
   }
+
+  if(affected_by_spell(ch, SPELL_DRACONIC_APOTHEOSIS))
+  {
+    for (struct affected_type* af = ch->affected; af; af = af->next)
+    {
+      if(af->type == SPELL_DRACONIC_APOTHEOSIS)
+      {
+        GET_RACE(ch) = af->modifier;
+      }
+    }
+  }
+  
   act("Goodbye, friend.. Come back soon!", FALSE, ch, 0, 0, TO_CHAR);
   act("$n has quit the game.", TRUE, ch, 0, 0, TO_ROOM);
   /* ugly, could get stuck in wraithform. JAB */

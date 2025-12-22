@@ -2133,9 +2133,9 @@ void affect_remove(P_char ch, struct affected_type *af)
   }
 
   // Handle race changes.
-  if( af->type == TAG_RACE_CHANGE )
+  if( af->type == TAG_RACE_CHANGE || af->type == SPELL_DRACONIC_APOTHEOSIS)
   {
-    ch->player.race = af->modifier;
+    GET_RACE(ch) = af->modifier;
   }
 
   // If it's a short affect.
@@ -2835,6 +2835,7 @@ void initialize_links()
   define_link(LNK_CIRCLING,         "CIRCLING",           NULL,             LNKFLG_ROOM | LNKFLG_EXCLUSIVE);
   define_link(LNK_TETHER,           "TETHERING",          tether_broken,    LNKFLG_ROOM);
   define_link(LNK_SNG_HEALING,      "SONG_HEALING",       song_broken,      LNKFLG_AFFECT | LNKFLG_ROOM);
+  define_link(LNK_DRAGOON_MOUNT,    "DRAGOON_MOUNT",      charm_broken,     LNKFLG_AFFECT | LNKFLG_EXCLUSIVE);
 
   define_olink(LNK_CEGILUNE,        "CEGILUNES_SEARING",  cegilunes_broken, LNKFLG_EXCLUSIVE | LNKFLG_REMOVE_AFF | LNKFLG_BREAK_REMOVE );
   define_olink(LNK_ILESH,           "ILESHS_SMASHING",    ileshs_broken,    LNKFLG_EXCLUSIVE | LNKFLG_REMOVE_AFF | LNKFLG_BREAK_REMOVE );
@@ -3647,6 +3648,7 @@ int camp(P_char ch)
           {
             GET_HOME(ch) = world[ch->in_room].number;
           }
+          
           writeCharacter(ch, RENT_CAMPED, ch->in_room);
 
           loginlog(ch->player.level, "%s has camped in [%d].",
@@ -4315,6 +4317,14 @@ void affect_update(void)
             }
             else
               send_to_char("error: call of wild improperly set up\n", i);
+          }
+
+          if(af->type == SPELL_DRACONIC_APOTHEOSIS)
+          {
+            GET_RACE(i) = af->modifier;
+            send_to_char("The &+Gdr&+Lag&+Gon&n god's &+rpower&n fades leaving you broken and &+bcold&n!\n", i);
+            //morphed = TRUE;
+            //break;
           }
 
           if (af->type == SPELL_CHANNEL)
