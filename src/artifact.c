@@ -2402,6 +2402,12 @@ void event_artifact_wars_sql(P_char ch, P_char vict, P_obj obj, void *arg)
       while( node )
       {
         arti = read_object( node->vnum, VIRTUAL );
+        if( !arti )
+        {
+          logit(LOG_ARTIFACT, "SYSERR: artifact_wars_sql: vnum %d not found in object prototypes", node->vnum);
+          node = node->next;
+          continue;
+        }
         debug( "fight: '%s&n'%6d upset (%d/%d =%3d:%02d) with %s.",
           pad_ansi(arti->short_description, 35, TRUE).c_str(), node->vnum,
           punish_level, count[0], (int)punishment/60, (int)punishment%60, get_player_name_from_pid(node->location) );
