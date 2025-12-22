@@ -4067,67 +4067,70 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
     {
        if(GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_PRIEST))
       {
-        int chosenCircle = circle;
-
-        argument = one_argument(argument, spellName);
-        
-        if(spellName)
+        if(argument)
         {
-          if(is_abbrev(spellName, "burning hands"))
+          argument = one_argument(argument, spellName);
+          
+          if(spellName)
           {
-            if(ch->specials.undead_spell_slots[1]) chosenCircle = 1;
-            else if(ch->specials.undead_spell_slots[2]) chosenCircle = 2;
-            else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
-          }
-          else if(is_abbrev(spellName, "flameburst"))
-          {
-            if(ch->specials.undead_spell_slots[3]) chosenCircle = 3;
-            else if(ch->specials.undead_spell_slots[4]) chosenCircle = 4;
-            else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
-          }
-          else if(is_abbrev(spellName, "molten spray"))
-          {
-            if(ch->specials.undead_spell_slots[5]) chosenCircle = 5;
-            else if(ch->specials.undead_spell_slots[6]) chosenCircle = 6;
-            else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
-          }
-          else if(is_abbrev(spellName, "fireball"))
-          {
-            if(ch->specials.undead_spell_slots[7]) chosenCircle = 7;
-            else if(ch->specials.undead_spell_slots[8]) chosenCircle = 8;
-            else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
-          }
-          else if(is_abbrev(spellName, "magma burst"))
-          {
-            if(ch->specials.undead_spell_slots[9]) chosenCircle = 9;
-            else if(ch->specials.undead_spell_slots[10]) chosenCircle = 10;
-            else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
-          }
-          else if(is_abbrev(spellName, "immolate"))
-          {
-            if(ch->specials.undead_spell_slots[11]) chosenCircle = 11;
-            else if(ch->specials.undead_spell_slots[12]) chosenCircle = 12;
-            else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
-          }
-          else
-          {
-              send_to_char("The &+Gdr&+Lag&+Gon&n god's &+rpowers&n are:\n" 
-                           "   (Circle  1 -  2) burning hands\n"
-                           "   (Circle  3 -  4) flameburst\n"
-                           "   (Circle  5 -  6) molten spray\n"
-                           "   (Circle  7 -  8) fireball\n"
-                           "   (Circle  9 - 10) magma burst\n"
-                           "   (Circle 11 - 12) immolate\n", ch);
-              return;
-          }
-        }
+            int chosenCircle = circle;
 
-        int select_chance = ( 95 * GET_CHAR_SKILL(ch, SKILL_DRAGON_BREATH) ) / 100;
-        select_chance = BOUNDED(1, percent_chance, 99);
+            if(is_abbrev(spellName, "burning hands"))
+            {
+              if(ch->specials.undead_spell_slots[2]) chosenCircle = 2;
+              else if(ch->specials.undead_spell_slots[1]) chosenCircle = 1;
+              else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
+            }
+            else if(is_abbrev(spellName, "flameburst"))
+            {
+              if(ch->specials.undead_spell_slots[4]) chosenCircle = 4;
+              else if(ch->specials.undead_spell_slots[3]) chosenCircle = 3;
+              else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
+            }
+            else if(is_abbrev(spellName, "molten spray"))
+            {
+              if(ch->specials.undead_spell_slots[6]) chosenCircle = 6;
+              else if(ch->specials.undead_spell_slots[5]) chosenCircle = 5;
+              else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
+            }
+            else if(is_abbrev(spellName, "fireball"))
+            {
+              if(ch->specials.undead_spell_slots[8]) chosenCircle = 8;
+              else if(ch->specials.undead_spell_slots[7]) chosenCircle = 7;
+              else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
+            }
+            else if(is_abbrev(spellName, "magma burst"))
+            {
+              if(ch->specials.undead_spell_slots[10]) chosenCircle = 10;
+              else if(ch->specials.undead_spell_slots[9]) chosenCircle = 9;
+              else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
+            }
+            else if(is_abbrev(spellName, "immolate"))
+            {
+              if(ch->specials.undead_spell_slots[12]) chosenCircle = 12;
+              else if(ch->specials.undead_spell_slots[11]) chosenCircle = 11;
+              else send_to_char("You must commune with the &+Gdr&+Lag&+Gon&n god for more &+rpower&n\n", ch);
+            }
+            else
+            {
+                send_to_char("The &+Gdr&+Lag&+Gon&n god's &+rpowers&n are:\n" 
+                            "   (Circle  1 -  2) burning hands\n"
+                            "   (Circle  3 -  4) flameburst\n"
+                            "   (Circle  5 -  6) molten spray\n"
+                            "   (Circle  7 -  8) fireball\n"
+                            "   (Circle  9 - 10) magma burst\n"
+                            "   (Circle 11 - 12) immolate\n", ch);
+                return;
+            }
 
-        if(((select_chance + power) > number(1, 100)))
-        {
-          circle = chosenCircle;
+            int select_chance = ( 95 * GET_CHAR_SKILL(ch, SKILL_DRAGON_BREATH) ) / 100;
+            select_chance = BOUNDED(1, percent_chance, 99);
+
+            if(((select_chance + power) > number(1, 100)))
+            {
+              circle = chosenCircle;
+            }
+          }
         }
       }
 
@@ -4137,7 +4140,7 @@ void do_dragon_breath(P_char ch, char *argument, int cmd)
 
       // force engagement on dragon or on dragon rider?
       engage(mount, victim);
-      engage(ch, victim);
+      //engage(ch, victim);
 
       switch(circle)
       {
