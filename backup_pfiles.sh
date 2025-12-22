@@ -3,11 +3,11 @@
 DATESTR_FULL=`date +%C%y.%m.%d-%H.%M.%S`
 DATESTR=`date +%s`
 #This is the oldest allowed directory name in Players/Backup
-#  It is equivalent to 1 week ago (7days * 24hrs *60 mins * 60secs)
-OLDDATES=`expr $DATESTR - 7 \* 24 \* 60 \* 60`
+#  It is equivalent to 2 days ago (2days * 24hrs * 60mins * 60secs)
+OLDDATES=`expr $DATESTR - 2 \* 24 \* 60 \* 60`
 
 FILENAMES=`ls Players/Backup/`
-FILENAMES_LENGTH=${#FILENAME}
+FILENAMES_LENGTH=${#FILENAMES}
 
 #If there are any files to possibly remove...
 if [[ `expr $FILENAMES_LENGTH \> 0` ]]; then
