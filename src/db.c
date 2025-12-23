@@ -1601,6 +1601,23 @@ void renum_zone_table(void)
       }                         /* if the real_xxxx() function returned -1, disable this command */
       if (zone_table[zone].cmd[comm].arg1 == -1)
         zone_table[zone].cmd[comm].command = '!';
+      /* Also check arg3 for room-based commands */
+      if (zone_table[zone].cmd[comm].arg3 == -1)
+      {
+        switch (zone_table[zone].cmd[comm].command)
+        {
+          case 'M':
+          case 'R':
+          case 'F':
+          case 'C':
+          case 'Y':
+          case 'O':
+            logit(LOG_DEBUG, "renum_zone: zone %d cmd %d (%c) has invalid room rnum -1",
+              zone, comm, zone_table[zone].cmd[comm].command);
+            zone_table[zone].cmd[comm].command = '!';
+            break;
+        }
+      }
     }
 }
 
@@ -3386,6 +3403,15 @@ void reset_zone(int zone, int force_item_repop)
           }
           tmp_mob = NULL;
           last_mob = last_mob_followable = mob;
+          /* Safety check: ensure room rnum is valid before accessing world array */
+          if (ZCMD.arg3 < 0 || ZCMD.arg3 > top_of_world)
+          {
+            logit(LOG_DEBUG, "reset_zone: M cmd zone %d has invalid room rnum %d", zone, ZCMD.arg3);
+            extract_char(mob);
+            ZCMD.command = '!';
+            last_cmd = last_mob_load = 0;
+            break;
+          }
           GET_BIRTHPLACE(mob) = world[ZCMD.arg3].number;
           apply_zone_modifier(mob);
           char_to_room(mob, ZCMD.arg3, -2);
