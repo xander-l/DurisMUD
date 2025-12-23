@@ -202,9 +202,9 @@ int write_cargo()
 			
 
 			// insert into mods table
-			snprintf(buf, ARRAY_SIZE(buf), "%s('%s', %d, %d, %f);", isFirst ? "" : ",", "CARGO", port, type, ship_cargo_market_mod[port][type]);
+			snprintf(buf, ARRAY_SIZE(buf), "%s('%s', %d, %d, %f)", isFirst ? "" : ",", "CARGO", port, type, ship_cargo_market_mod[port][type]);
 			strncat(cargoMarketMods, buf, ARRAY_SIZE(buf));
-			snprintf(buf, ARRAY_SIZE(buf), "%s('%s', %d, %d, %f);", isFirst ? "" : ",", "CONTRABAND", port, type, ship_contra_market_mod[port][type]);
+			snprintf(buf, ARRAY_SIZE(buf), "%s('%s', %d, %d, %f)", isFirst ? "" : ",", "CONTRABAND", port, type, ship_contra_market_mod[port][type]);
 			strncat(contrabandMarketMods, buf, ARRAY_SIZE(buf));
 			isFirst = false;
 		}

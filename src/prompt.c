@@ -54,11 +54,7 @@ void make_prompt(P_desc point)
     snprintf(promptbuf, MAX_INPUT_LENGTH,
             "\n[Return to continue, (q)uit, (r)efresh, (b)ack, or page number (%d/%d)]\n",
             point->showstr_page, point->showstr_count);
-    if (write_to_descriptor(point, promptbuf) < 0)
-    {
-      logit(LOG_COMM, "Closing socket on write error");
-      close_socket(point);
-    }
+    write_to_q(promptbuf, &point->output, 1);
     // Reset the promptmode (decides when to display another prompt).
     point->prompt_mode = FALSE;
     return;
