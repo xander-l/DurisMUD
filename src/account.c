@@ -400,6 +400,13 @@ void display_account_menu(P_desc d, char *arg)
   switch (atoi(arg))
   {
   case 0:
+    /* Only disconnect if user actually typed '0', not invalid text */
+    if (*arg != '0')
+    {
+      SEND_TO_Q("Invalid Selection, please try again.\r\n", d);
+      display_account_menu(d, NULL);
+      break;
+    }
     STATE(d) = CON_FLUSH;
     SEND_TO_Q("\r\n\r\nThank you for playing!\r\n", d);
     write_account(d->account);
