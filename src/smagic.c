@@ -218,9 +218,9 @@ void spell_lesser_guardian_ward(int level, P_char ch, char *arg, int type, P_cha
 		af.flags = AFFTYPE_SHORT | AFFTYPE_DAM_WARD;
 		af.modifier = ward_amount;
 		affect_to_char(victim, &af);
-		act("&+CYou summon forth lesser guardian spirits to protect&n $n &+Cfrom harm.&n", FALSE, ch, 0, victim, TO_CHAR);
-		act("&CA faint spiritual haze forms around you!&n", FALSE, ch, 0, victim, TO_VICT);
-		act("&CA faint spiritual haze forms around &n$N&+C!&n", FALSE, ch, 0, victim, TO_ROOM);
+		act("&+CYou summon forth lesser guardian spirits to protect&n $N &+Cfrom harm.&n", FALSE, ch, 0, victim, TO_CHAR);
+		act("&+CA faint spiritual haze forms around you!&n", FALSE, ch, 0, victim, TO_VICT);
+		act("&+CA faint spiritual haze forms around &N$N&+C!&n", FALSE, ch, 0, victim, TO_ROOM);
 	}
 	else
 	{
@@ -250,9 +250,9 @@ void spell_guardian_ward(int level, P_char ch, char *arg, int type, P_char victi
 		af.flags = AFFTYPE_SHORT | AFFTYPE_DAM_WARD;
 		af.modifier = ward_amount;
 		affect_to_char(victim, &af);
-		act("&+CYou summon forth guardian spirits to protect&n $n &+Cfrom harm.&n", FALSE, ch, 0, victim, TO_CHAR);
-		act("&CA spiritual haze forms around you!&n", FALSE, ch, 0, victim, TO_VICT);
-		act("&CA spiritual haze forms around &n$N&+C!&n", FALSE, ch, 0, victim, TO_ROOM);
+		act("&+CYou summon forth guardian spirits to protect&n $N &+Cfrom harm.&n", FALSE, ch, 0, victim, TO_CHAR);
+		act("&+CA spiritual haze forms around you!&n", FALSE, ch, 0, victim, TO_VICT);
+		act("&+CA spiritual haze forms around &n$N&+C!&n", FALSE, ch, 0, victim, TO_ROOM);
 	}
 	else
 	{
@@ -282,9 +282,9 @@ void spell_greater_guardian_ward(int level, P_char ch, char *arg, int type, P_ch
 		af.flags = AFFTYPE_SHORT | AFFTYPE_DAM_WARD;
 		af.modifier = ward_amount;
 		affect_to_char(victim, &af);
-		act("&+CYou summon forth greater guardian spirits to protect&n $n &+Cfrom harm.&n", FALSE, ch, 0, victim, TO_CHAR);
-		act("&CA strong spiritual haze forms around you!&n", FALSE, ch, 0, victim, TO_VICT);
-		act("&CA strong spiritual haze forms around &n$N&+C!&n", FALSE, ch, 0, victim, TO_ROOM);
+		act("&+CYou summon forth greater guardian spirits to protect&n $N &+Cfrom harm.&n", FALSE, ch, 0, victim, TO_CHAR);
+		act("&+CA strong spiritual haze forms around you!&n", FALSE, ch, 0, victim, TO_VICT);
+		act("&+CA strong spiritual haze forms around &n$N&+C!&n", FALSE, ch, 0, victim, TO_ROOM);
 	}
 	else
 	{

@@ -2224,7 +2224,7 @@ void event_artifact_check_poof_sql( P_char ch, P_char vict, P_obj obj, void * ar
   // Clear the artis from the list.  Note: doing it after the loop intentionally.
   qry( "UPDATE artifacts SET owned='N', locType='NotInGame', location=-1, timer=0 WHERE owned='Y' AND timer < now()" );
 
-  add_event( event_artifact_check_poof_sql, 6 * WAIT_SEC, NULL, NULL, NULL, 0, NULL, 0 );
+  add_event( event_artifact_check_poof_sql, 12 * WAIT_SEC, NULL, NULL, NULL, 0, NULL, 0 );
 }
 
 // Looks through list, and adds entry to the end of list.

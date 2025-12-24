@@ -3069,9 +3069,9 @@ void extract_char(P_char ch)
     if (ch->desc->original)
       do_return(ch, 0, CMD_DEATH);
   }
-  if (ch->desc)
+  if (IS_PC(ch))
   {
-    if (ch->desc->connected != CON_DELETE)
+    if (ch->desc && ch->desc->connected != CON_DELETE)
     {
 #ifndef USE_ACCOUNT
       ch->desc->connected = CON_MAIN_MENU;
@@ -3099,8 +3099,13 @@ void extract_char(P_char ch)
       ch = NULL;
 #endif
     }
+	else
+	{
+		free_char(ch);
+		ch = NULL;
+	}
   }
-  else if( IS_NPC(ch) )
+  else
   {
     if (GET_RNUM(ch) > -1)            /* if mobile */
       mob_index[GET_RNUM(ch)].number--;

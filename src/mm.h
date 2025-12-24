@@ -26,7 +26,8 @@ struct mm_ds_list {
 
 struct mm_ds *mm_create(const char *, size_t, size_t, unsigned );
 void mm_release(struct mm_ds *, void *);
-void *mm_get(struct mm_ds *);
+#define mm_get(mmds) _mm_get(mmds, __FILE__, __LINE__)
+void *_mm_get(struct mm_ds *, const char*, int);
 void mm_alloc_chunk(struct mm_ds *);
 unsigned mm_find_best_chunk(int size, int min, int max);
 

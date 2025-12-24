@@ -841,6 +841,7 @@ void debug(const char *format, ...)
   va_start(args, format);
   vsprintf(lbuf + strlen(lbuf), format, args);
   strcat(lbuf, "\r\n");
+  //logit(LOG_DEBUG, lbuf);
   for (i = descriptor_list; i; i = i->next)
     if (!i->connected && i->character &&
         IS_TRUSTED(i->character) &&

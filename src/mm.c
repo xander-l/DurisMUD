@@ -90,7 +90,7 @@ void mm_release(struct mm_ds *mmds, void *mem)
 #endif
 }
 
-void *mm_get(struct mm_ds *mmds)
+void *_mm_get(struct mm_ds *mmds, const char* file, int line)
 {
   char    *mem;
 
@@ -109,6 +109,9 @@ void *mm_get(struct mm_ds *mmds)
   mmds->objs_used++;
 #endif
   memset(mem, 0, mmds->size);
+
+  //if(!strcmp(mmds->name, "PC_ONLY"))
+  //	debug("mm_get: pool: %s, file: %s, line: %d", mmds->name, file, line);
 
   return mem;
 }
