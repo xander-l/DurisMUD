@@ -28,6 +28,7 @@
 #include "map.h"
 #include "trophy.h"
 #include "assocs.h"
+#include "gmcp.h"
 #include "alliances.h"
 #include "defines.h"
 #include "nexus_stones.h"
@@ -1483,6 +1484,10 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
   {
     check_boon_completion(ch, victim, (int)XP, BOPT_NONE);
   }
+
+  // Send GMCP update for exp change (exp is in char_vitals)
+  gmcp_char_vitals(ch);
+
 // debug("Gain exps final return (%d).", XP_final);
   return XP_final;
 }

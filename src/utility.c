@@ -40,6 +40,7 @@ using namespace std;
 #include "sql.h"
 #include "mm.h"
 #include "epic.h"
+#include "gmcp.h"
 
 /*
  * extern variables
@@ -1829,6 +1830,9 @@ void ADD_MONEY(P_char ch, int amount)
   }
   if (amount)
     GET_COPPER(ch) += amount;
+
+  /* Update web client */
+  gmcp_char_vitals(ch);
 }
 
 /* TOWARDS BANK MONEY
@@ -1929,6 +1933,7 @@ int SUB_MONEY(P_char ch, int amount, int mode)
   else
   {
     GET_COPPER(ch) -= amount;
+    gmcp_char_vitals(ch);
     return 0;
   }
 
@@ -1979,6 +1984,8 @@ int SUB_MONEY(P_char ch, int amount, int mode)
   }
   if (amount < 0)
     ADD_MONEY(ch, -(amount));
+  else
+    gmcp_char_vitals(ch);
 
   return 0;
 }

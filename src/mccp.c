@@ -7,8 +7,11 @@
 #include "prototypes.h"
 #include "telnet.h"
 #include "mccp.h"
+#include "gmcp.h"
 #include "unicode.h"
 #include "utils.h"
+#include "websocket.h"
+#include "json_utils.h"
 
 /* external variables used by this module */
 extern P_desc descriptor_list;
@@ -70,9 +73,19 @@ int parse_telnet_options(P_desc player, char *buf)
     case TELOPT_COMPRESS2:
       mccp_ver = MCCP_VER2;
       break;
+    case TELOPT_GMCP:
+      gmcp_handle_negotiation(player, DO);
+      return 3;
     }
     break;
   case DONT:
+    switch (*(p + 2))
+    {
+    case TELOPT_GMCP:
+      gmcp_handle_negotiation(player, DONT);
+      return 3;
+    }
+    /* fall through */
   case WILL:
   case WONT:
     if (*(p + 2) != '\0')
@@ -80,6 +93,20 @@ int parse_telnet_options(P_desc player, char *buf)
     else
       return 2;
     break;
+  case SB:  /* Subnegotiation - skip until IAC SE */
+    {
+      int len = 2;  /* Start after IAC SB */
+      while (p[len] && !(p[len] == IAC && p[len+1] == SE))
+        len++;
+      if (p[len] == IAC && p[len+1] == SE)
+        len += 2;  /* Include IAC SE */
+
+      /* If GMCP subnegotiation, pass data to handler */
+      if (p[2] == TELOPT_GMCP && len > 5) {
+        gmcp_handle_input(player, (const char *)(p + 3), len - 5);
+      }
+      return len;
+    }
   }
 
   if (mccp_ver)
@@ -184,6 +211,24 @@ int write_to_descriptor(P_desc player, const char *txt)
   int      len, total, status, i, j;
   char     static_conv_buf[MAX_STRING_LENGTH];
   char    *conv_buf = static_conv_buf;;
+
+  /* WebSocket connections need JSON-wrapped text frames */
+  if (player->websocket) {
+    char *escaped = json_escape_ansi_string(txt);
+    if (escaped && escaped[0] != '\0') {
+      /* Skip empty messages */
+      char *json_msg = NULL;
+      size_t msg_len = strlen(escaped) + 64;
+      json_msg = (char *)malloc(msg_len);
+      if (json_msg) {
+        snprintf(json_msg, msg_len, "{\"type\":\"text\",\"category\":\"info\",\"data\":\"%s\"}", escaped);
+        websocket_send_text(player, json_msg);
+        free(json_msg);
+      }
+    }
+    if (escaped) free(escaped);
+    return 0;
+  }
 
   if ((len = strlen(txt)) > MAX_STRING_LENGTH * 0.8)
     CREATE(conv_buf, char, (unsigned int)(len * 1.1), MEM_TAG_BUFFER);
@@ -292,6 +337,50 @@ int raw_write_to_descriptor(P_desc d, const char *txt, const int total)
   while (sofar < total);
 
   return (0);
+}
+
+/* Write binary data (like telnet subnegotiations) with compression support
+ * but without text conversions (no \n->\r\n, no charset downgrade) */
+int write_to_descriptor_binary(P_desc player, const unsigned char *data, size_t len)
+{
+  int status;
+  long out_len;
+
+  if (!player || !data || len == 0) return 0;
+
+  if (!player->out_compress)
+  {
+    raw_write_to_descriptor(player, (const char *)data, len);
+  }
+  else
+  {
+    if (player->z_str)
+    {
+      player->z_str->next_in = (unsigned char *)data;
+      player->z_str->avail_in = len;
+
+      while (player->z_str->avail_in)
+      {
+        do
+        {
+          player->z_str->next_out = (Bytef *)player->out_compress_buf;
+          player->z_str->avail_out = COMPRESS_BUF_SIZE;
+
+          status = deflate(player->z_str, Z_SYNC_FLUSH);
+          if (status != Z_OK)
+          {
+            return -1;
+          }
+
+          out_len = (long)player->z_str->next_out -
+                    (long)player->out_compress_buf;
+          raw_write_to_descriptor(player, player->out_compress_buf, out_len);
+        }
+        while (player->z_str->avail_out == 0);
+      }
+    }
+  }
+  return 0;
 }
 
 int compress_get_ratio(P_desc player)

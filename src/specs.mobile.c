@@ -38,6 +38,7 @@
 #include "vnum.obj.h"
 #include "vnum.room.h"
 #include "tradeskill.h"
+#include "gmcp.h"
 
 /*
  * external variables
@@ -11048,6 +11049,7 @@ int world_quest(P_char ch, P_char pl, int cmd, char *arg)
         sql_world_quest_finished(pl, 0);
       }
       resetQuest(pl);
+      gmcp_quest_status(pl);
       return TRUE;
     }
 
@@ -11156,6 +11158,7 @@ int world_quest(P_char ch, P_char pl, int cmd, char *arg)
     {
       do_quest(pl, "", 0);
       mobsay(ch, "Remember, you can always type 'quest' to see your current quest.");
+      gmcp_quest_status(pl);
       return TRUE;
     }
 

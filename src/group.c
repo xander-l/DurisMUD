@@ -40,6 +40,7 @@
 #include "assocs.h"
 #include "events.h"
 #include "ships/ships.h"
+#include "gmcp.h"
 
 
 extern P_desc descriptor_list;
@@ -356,10 +357,15 @@ void do_appoint(P_char ch, char *argument, int cmd)
     }
   }
 
-  /* Flag group clients for a group update (MSP/clients) */ 
-  for (gl = ch->group; gl; gl = gl->next) { 
-    if (gl->ch && gl->ch->desc && gl->ch->desc->term_type == TERM_MSP) gl->ch->desc->last_group_update = 1; 
-  }   
+  /* Flag group clients for a group update (MSP and WebSocket/GMCP clients) */
+  for (gl = ch->group; gl; gl = gl->next) {
+    if (gl->ch && gl->ch->desc) {
+      if (gl->ch->desc->term_type == TERM_MSP ||
+          (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)) {
+        gl->ch->desc->last_group_update = 1;
+      }
+    }
+  }
 }
 
 void do_group(P_char ch, char *argument, int cmd)
@@ -389,7 +395,12 @@ void do_group(P_char ch, char *argument, int cmd)
   {
     if (!ch->group)
     {
-      if (ch && ch->desc && ch->desc->term_type == TERM_MSP)
+      /* WebSocket/GMCP clients: send empty group status */
+      if (ch && ch->desc && ch->desc->websocket && ch->desc->gmcp_enabled)
+      {
+        gmcp_send_group_status(ch);
+      }
+      else if (ch && ch->desc && ch->desc->term_type == TERM_MSP)
       {
         send_to_char("<group>\n</group>\n", ch);
       }
@@ -407,6 +418,13 @@ void do_group(P_char ch, char *argument, int cmd)
         send_to_char("You feel like being alone right now.\n", ch);
         return;
       }*/
+
+      /* WebSocket/GMCP clients: send structured data, skip text output */
+      if (ch && ch->desc && ch->desc->websocket && ch->desc->gmcp_enabled)
+      {
+        gmcp_send_group_status(ch);
+        return;
+      }
 
       if (ch && ch->desc && ch->desc->term_type == TERM_MSP)
       {
@@ -682,7 +700,9 @@ void do_group(P_char ch, char *argument, int cmd)
       //Client
       for (gl = ch->group; gl; gl = gl->next)
       {
-        if (gl->ch && gl->ch->desc && gl->ch->desc->term_type == TERM_MSP)
+        if (gl->ch && gl->ch->desc &&
+            (gl->ch->desc->term_type == TERM_MSP ||
+             (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
         {
           gl->ch->desc->last_group_update = 1;
         }
@@ -700,7 +720,9 @@ void do_group(P_char ch, char *argument, int cmd)
       //Client
       for (gl = ch->group; gl; gl = gl->next)
       {
-        if (gl->ch && gl->ch->desc && gl->ch->desc->term_type == TERM_MSP)
+        if (gl->ch && gl->ch->desc &&
+            (gl->ch->desc->term_type == TERM_MSP ||
+             (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
         {
           gl->ch->desc->last_group_update = 1;
         }
@@ -783,7 +805,9 @@ void do_group(P_char ch, char *argument, int cmd)
       send_to_char("You leave the group.\n", ch);
       for (gl = ch->group; gl; gl = gl->next)
       {
-        if (gl->ch && gl->ch->desc && gl->ch->desc->term_type == TERM_MSP)
+        if (gl->ch && gl->ch->desc &&
+            (gl->ch->desc->term_type == TERM_MSP ||
+             (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
         {
           gl->ch->desc->last_group_update = 1;
         }
@@ -796,7 +820,9 @@ void do_group(P_char ch, char *argument, int cmd)
     //Client
     for (gl = ch->group; gl; gl = gl->next)
     {
-      if (gl->ch && gl->ch->desc && gl->ch->desc->term_type == TERM_MSP)
+      if (gl->ch && gl->ch->desc &&
+          (gl->ch->desc->term_type == TERM_MSP ||
+           (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
       {
         gl->ch->desc->last_group_update = 1;
       }
@@ -845,7 +871,9 @@ void do_group(P_char ch, char *argument, int cmd)
       //Client
       for (gl = ch->group; gl; gl = gl->next)
       {
-        if (gl->ch && gl->ch->desc && gl->ch->desc->term_type == TERM_MSP)
+        if (gl->ch && gl->ch->desc &&
+            (gl->ch->desc->term_type == TERM_MSP ||
+             (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
         {
           gl->ch->desc->last_group_update = 1;
         }
@@ -853,7 +881,9 @@ void do_group(P_char ch, char *argument, int cmd)
       //Client
       for (gl = victim->group; gl; gl = gl->next)
       {
-        if (gl->ch && gl->ch->desc && gl->ch->desc->term_type == TERM_MSP)
+        if (gl->ch && gl->ch->desc &&
+            (gl->ch->desc->term_type == TERM_MSP ||
+             (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
         {
           gl->ch->desc->last_group_update = 1;
         }
@@ -952,7 +982,9 @@ if(GET_CLASS(victim, CLASS_PALADIN) && GET_CLASS(ch, CLASS_ANTIPALADIN))
   //Client
   for (gl = victim->group; gl; gl = gl->next)
   {
-    if (gl->ch && gl->ch->desc && gl->ch->desc->term_type == TERM_MSP)
+    if (gl->ch && gl->ch->desc &&
+        (gl->ch->desc->term_type == TERM_MSP ||
+         (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
     {
       gl->ch->desc->last_group_update = 1;
     }
@@ -1131,7 +1163,9 @@ bool group_remove_member(P_char ch)
     fix_group_ranks(gl->ch);
   for (gl = ch->group; gl; gl = gl->next)
   {
-    if (gl->ch && gl->ch->desc && gl->ch->desc->term_type == TERM_MSP)
+    if (gl->ch && gl->ch->desc &&
+        (gl->ch->desc->term_type == TERM_MSP ||
+         (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
     {
       gl->ch->desc->last_group_update = 1;
     }

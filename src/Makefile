@@ -19,7 +19,7 @@ CFLAGS += -DTEST_MUD
 
 INCLUDES	= -I. -I/usr/include/libxml2 -I/usr/include/mysql -I./ships
 
-GENERAL_LIBS    = -lm -lstdc++ -lz -lxml2 -lcrypt -lmysqlclient -lgnutls
+GENERAL_LIBS    = -lm -lstdc++ -lz -lxml2 -lcrypt -lmysqlclient -lgnutls -lssl -lcrypto -lcjson
 
 ifdef EFENCE
 	LDFLAGS += -L.
@@ -237,7 +237,11 @@ OBJS =  $(SHIP_OBJS) \
 				 specs.gellz.o \
 				 smoke.o \
 				 multiplay_whitelist.o \
-				 home.o
+				 home.o \
+				 websocket.o \
+				 ws_handlers.o \
+				 json_utils.o \
+				 gmcp.o
 
 SHARED_PFILE_OBJS=pf-skills.o \
 									pf-files.o

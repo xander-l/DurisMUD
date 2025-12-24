@@ -1323,6 +1323,13 @@ struct class_names {
   const char letter;
 };
 
+/* Playable race info for character creation (used by both telnet and WebSocket) */
+struct playable_race_info {
+  int race_id;           /* RACE_HUMAN, RACE_DROW, etc. */
+  char select_key;       /* telnet menu key: 'h', 'b', 'd', etc. */
+  const char *faction;   /* "good", "evil", or "neutral" (can choose) */
+};
+
 struct material_data {
   const char *name;
   const char dam_res[20];

@@ -28,6 +28,7 @@
 #include "utils.h"
 #include "justice.h"
 #include "weather.h"
+#include "gmcp.h"
 #include "mm.h"
 #include "specs.prototypes.h"
 #include "objmisc.h"
@@ -3846,7 +3847,13 @@ void do_nchat(P_char ch, char *argument, int cmd)
         PERS(ch, to, FALSE), language_CRYPT(ch, to, argument));
     }
     send_to_char(Gbuf1, to, LOG_PRIVATE);
+
+    /* Send to web client via GMCP */
+    gmcp_comm_channel(to, "nchat", GET_NAME(ch), argument);
   }
+
+  /* Send to sender's web client too */
+  gmcp_comm_channel(ch, "nchat", GET_NAME(ch), argument);
 
   if( get_property("logs.chat.status", 0.000) )
   {

@@ -23,6 +23,7 @@
 #include "structs.h"
 #include "utils.h"
 #include "justice.h"
+#include "gmcp.h"
 #include "mm.h"
 #include "damage.h"
 #include "objmisc.h"
@@ -278,8 +279,17 @@ void do_gsay(P_char ch, char *arg, int cmd)
     snprintf(Gbuf1, MAX_STRING_LENGTH, "&+G$n&+G group-says %s'%s'", language_known(ch, gl->ch),
         language_CRYPT(ch, gl->ch, arg + i));
     if (!is_silent(gl->ch, FALSE))
+    {
       act(Gbuf1, FALSE, ch, 0, gl->ch, TO_VICT | ACT_SILENCEABLE | ACT_PRIVATE);
+
+      /* Send to web client via GMCP */
+      if (gl->ch != ch)
+        gmcp_comm_channel(gl->ch, "gsay", GET_NAME(ch), arg + i);
+    }
   }
+
+  /* Send to sender's web client too */
+  gmcp_comm_channel(ch, "gsay", GET_NAME(ch), arg + i);
 
   if (IS_SET(ch->specials.act, PLR_ECHO))
   {

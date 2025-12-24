@@ -28,6 +28,7 @@
 #include "ctf.h"
 #include "tradeskill.h"
 #include "vnum.obj.h"
+#include "gmcp.h"
 
 /*
  * external variables
@@ -249,6 +250,9 @@ void get(P_char ch, P_obj o_obj, P_obj s_obj, int showit)
       send_to_char("You couldn't carry all the coins.\r\n", ch);
       send_to_char(Gbuf3, ch);
       add_coins(o_obj, 0, 0, 0, 0);     /* change pile descs */
+
+      /* Send GMCP update for partial coin pickup */
+      gmcp_char_vitals(ch);
     }
     else
     {
@@ -290,6 +294,10 @@ void get(P_char ch, P_obj o_obj, P_obj s_obj, int showit)
     {
       writeCorpse(corpse);
     }
+
+    /* Send GMCP update for coin change */
+    gmcp_char_vitals(ch);
+
     return;
   }
   if (s_obj)
@@ -1499,6 +1507,9 @@ void do_drop(P_char ch, char *argument, int cmd)
     if (IS_PC(ch))
       writeCharacter(ch, 1, ch->in_room);
 
+    /* Send GMCP update for dropped coins */
+    gmcp_char_vitals(ch);
+
     return;
   }
   if (*Gbuf1)
@@ -2183,6 +2194,11 @@ void do_give(P_char ch, char *argument, int cmd)
       writeCharacter(ch, 1, ch->in_room);
       writeCharacter(vict, 1, vict->in_room);
     }
+
+    /* Send GMCP updates for coin transfer */
+    gmcp_char_vitals(ch);
+    gmcp_char_vitals(vict);
+
     /*
      * added by DTS 5/18/95 to solve light bug
      */
