@@ -2284,56 +2284,85 @@ bool rename_locker(P_char ch, char *old_charname, char *new_charname)
    return TRUE;
 }
 
+// Merge sort helper functions for O(n log n) sorting of item lists
+// Split linked list into two halves using slow/fast pointer technique
+static P_obj splitList(P_obj head)
+{
+  P_obj slow = head;
+  P_obj fast = head;
+  P_obj prev = NULL;
+
+  while (fast && fast->next_content)
+  {
+    prev = slow;
+    slow = slow->next_content;
+    fast = fast->next_content->next_content;
+  }
+
+  if (prev)
+    prev->next_content = NULL;
+
+  return slow;
+}
+
+// Merge two sorted lists into one sorted list (ascending by itemvalue)
+static P_obj mergeSortedLists(P_obj left, P_obj right)
+{
+  struct obj_data dummy;
+  P_obj tail = &dummy;
+  dummy.next_content = NULL;
+
+  while (left && right)
+  {
+    if (itemvalue(left) <= itemvalue(right))
+    {
+      tail->next_content = left;
+      left = left->next_content;
+    }
+    else
+    {
+      tail->next_content = right;
+      right = right->next_content;
+    }
+    tail = tail->next_content;
+  }
+
+  tail->next_content = left ? left : right;
+  return dummy.next_content;
+}
+
+// Recursive merge sort for linked list - O(n log n)
+static P_obj mergeSort(P_obj head)
+{
+  if (!head || !head->next_content)
+    return head;
+
+  P_obj second = splitList(head);
+  head = mergeSort(head);
+  second = mergeSort(second);
+
+  return mergeSortedLists(head, second);
+}
+
 void StorageLocker::SortIValues(void)
 {
-  P_obj object, rest, pObjList;
-  char buf[MAX_STRING_LENGTH];
   LockerChest *pChests = m_pChestList;
-  int value;
 
-  if( m_bIValue )
+  if (m_bIValue)
   {
     while (pChests)
     {
-      rest = pChests->m_pChestObject->contains;
-      pChests->m_pChestObject->contains = NULL;
-
-      // While there is more to sort..
-      while( rest )
-      {
-        // Remove one object from the list
-        object = rest;
-        rest = rest->next_content;
-        object->next_content = NULL;
-        value = itemvalue( object );
-
-        // Put into right spot in chest.
-        // If value is smallest, insert to head of list.
-        if( !pChests->m_pChestObject->contains
-          || value <= itemvalue( pChests->m_pChestObject->contains ) )
-        {
-          object->next_content = pChests->m_pChestObject->contains;
-          pChests->m_pChestObject->contains = object;
-        }
-        else
-        {
-          // Walk through the list to find the correct spot.
-          pObjList = pChests->m_pChestObject->contains;
-          while( pObjList->next_content
-            && value > itemvalue( pObjList->next_content ) )
-            pObjList = pObjList->next_content;
-
-          // Insert the object into the list.
-          object->next_content = pObjList->next_content;
-          pObjList->next_content = object;
-        }
-      }
+      // Apply O(n log n) merge sort to each chest's contents
+      pChests->m_pChestObject->contains =
+        mergeSort(pChests->m_pChestObject->contains);
       pChests = pChests->m_pNextInChain;
     }
-
   }
   else
-    logit( LOG_DEBUG, "SortIValues called when m_bIValue is not set!" );
+  {
+    logit(LOG_DEBUG, "SortIValues called when m_bIValue is not set!");
+  }
+
   m_bIValue = false;
 }
 
