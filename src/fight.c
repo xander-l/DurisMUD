@@ -602,7 +602,7 @@ if (IS_TRUSTED(tch) && IS_SET(tch->specials.act2, PLR2_HEAL))
   {
     if( gl->ch && gl->ch->desc &&
         (gl->ch->desc->term_type == TERM_MSP ||
-         (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
+         gl->ch->desc->gmcp_enabled))
     {
       gl->ch->desc->last_group_update = 1;
     }
@@ -6261,7 +6261,7 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags, struct damage_m
     {
       if (gl->ch && gl->ch->desc &&
           (gl->ch->desc->term_type == TERM_MSP ||
-           (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
+           gl->ch->desc->gmcp_enabled))
       {
         gl->ch->desc->last_group_update = 1;
       }

@@ -361,7 +361,7 @@ void do_appoint(P_char ch, char *argument, int cmd)
   for (gl = ch->group; gl; gl = gl->next) {
     if (gl->ch && gl->ch->desc) {
       if (gl->ch->desc->term_type == TERM_MSP ||
-          (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)) {
+          gl->ch->desc->gmcp_enabled) {
         gl->ch->desc->last_group_update = 1;
       }
     }
@@ -702,7 +702,7 @@ void do_group(P_char ch, char *argument, int cmd)
       {
         if (gl->ch && gl->ch->desc &&
             (gl->ch->desc->term_type == TERM_MSP ||
-             (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
+             gl->ch->desc->gmcp_enabled))
         {
           gl->ch->desc->last_group_update = 1;
         }
@@ -722,7 +722,7 @@ void do_group(P_char ch, char *argument, int cmd)
       {
         if (gl->ch && gl->ch->desc &&
             (gl->ch->desc->term_type == TERM_MSP ||
-             (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
+             gl->ch->desc->gmcp_enabled))
         {
           gl->ch->desc->last_group_update = 1;
         }
@@ -807,7 +807,7 @@ void do_group(P_char ch, char *argument, int cmd)
       {
         if (gl->ch && gl->ch->desc &&
             (gl->ch->desc->term_type == TERM_MSP ||
-             (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
+             gl->ch->desc->gmcp_enabled))
         {
           gl->ch->desc->last_group_update = 1;
         }
@@ -822,7 +822,7 @@ void do_group(P_char ch, char *argument, int cmd)
     {
       if (gl->ch && gl->ch->desc &&
           (gl->ch->desc->term_type == TERM_MSP ||
-           (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
+           gl->ch->desc->gmcp_enabled))
       {
         gl->ch->desc->last_group_update = 1;
       }
@@ -873,7 +873,7 @@ void do_group(P_char ch, char *argument, int cmd)
       {
         if (gl->ch && gl->ch->desc &&
             (gl->ch->desc->term_type == TERM_MSP ||
-             (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
+             gl->ch->desc->gmcp_enabled))
         {
           gl->ch->desc->last_group_update = 1;
         }
@@ -883,7 +883,7 @@ void do_group(P_char ch, char *argument, int cmd)
       {
         if (gl->ch && gl->ch->desc &&
             (gl->ch->desc->term_type == TERM_MSP ||
-             (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
+             gl->ch->desc->gmcp_enabled))
         {
           gl->ch->desc->last_group_update = 1;
         }
@@ -984,7 +984,7 @@ if(GET_CLASS(victim, CLASS_PALADIN) && GET_CLASS(ch, CLASS_ANTIPALADIN))
   {
     if (gl->ch && gl->ch->desc &&
         (gl->ch->desc->term_type == TERM_MSP ||
-         (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
+         gl->ch->desc->gmcp_enabled))
     {
       gl->ch->desc->last_group_update = 1;
     }
@@ -1165,7 +1165,7 @@ bool group_remove_member(P_char ch)
   {
     if (gl->ch && gl->ch->desc &&
         (gl->ch->desc->term_type == TERM_MSP ||
-         (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
+         gl->ch->desc->gmcp_enabled))
     {
       gl->ch->desc->last_group_update = 1;
     }
