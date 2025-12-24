@@ -414,9 +414,15 @@ char *json_build_room_info(struct room_data *room, struct char_data *ch) {
     cJSON_AddItemToObject(root, "coords", coords);
 
     /* Build exits object - standard format: "n": 12345 (just the room number) */
+    /* Skip secret exits unless the door is open (discovered) */
     exits = cJSON_CreateObject();
     for (dir = 0; dir < 10; dir++) {
         if (room->dir_option[dir] && room->dir_option[dir]->to_room != NOWHERE) {
+            /* Hide secret exits unless door is open */
+            if (IS_SET(room->dir_option[dir]->exit_info, EX_SECRET) &&
+                IS_SET(room->dir_option[dir]->exit_info, EX_CLOSED)) {
+                continue;
+            }
             cJSON_AddNumberToObject(exits, dir_abbrevs[dir],
                 world[room->dir_option[dir]->to_room].number);
         }
@@ -424,10 +430,16 @@ char *json_build_room_info(struct room_data *room, struct char_data *ch) {
     cJSON_AddItemToObject(root, "exits", exits);
 
     /* Build doors object - only for exits that have doors */
+    /* Skip secret doors that are still closed (undiscovered) */
     doors = cJSON_CreateObject();
     for (dir = 0; dir < 10; dir++) {
         if (room->dir_option[dir] &&
             IS_SET(room->dir_option[dir]->exit_info, EX_ISDOOR)) {
+            /* Hide secret doors unless they are open (discovered) */
+            if (IS_SET(room->dir_option[dir]->exit_info, EX_SECRET) &&
+                IS_SET(room->dir_option[dir]->exit_info, EX_CLOSED)) {
+                continue;
+            }
             cJSON *door = cJSON_CreateObject();
             char *clean_keyword = json_escape_ansi_string(
                 room->dir_option[dir]->keyword ? room->dir_option[dir]->keyword : "door");
@@ -437,8 +449,6 @@ char *json_build_room_info(struct room_data *room, struct char_data *ch) {
                 IS_SET(room->dir_option[dir]->exit_info, EX_CLOSED));
             cJSON_AddBoolToObject(door, "locked",
                 IS_SET(room->dir_option[dir]->exit_info, EX_LOCKED));
-            cJSON_AddBoolToObject(door, "secret",
-                IS_SET(room->dir_option[dir]->exit_info, EX_SECRET));
             cJSON_AddItemToObject(doors, dir_abbrevs[dir], door);
         }
     }
