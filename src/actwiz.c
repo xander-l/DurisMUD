@@ -4837,6 +4837,7 @@ void do_purge(P_char ch, char *argument, int cmd)
         {
           update_ingame_racewar( -GET_RACEWAR(ch) );
         }
+
         /* player will lose all objects! */
         extract_char(vict);
         writeCharacter(vict, 2, NOWHERE);

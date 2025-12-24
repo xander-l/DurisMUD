@@ -22144,69 +22144,79 @@ void spell_animae_cicatrix(int level, P_char ch, char *arg, int type,
   
   struct affected_type af;
 
-  if(affected_by_spell(victim, SPELL_ANIMAE_CICATRIX))
+  if( !ch || !IS_ALIVE(ch) )
   {
-    send_to_char("Your soul is already scarred by the &+Gdr&+Lag&+Gon&n god's &+rember&n-&+Ldark&n magic!\n", victim);
     return;
   }
-  act("The &+Gdr&+Lag&+Gon&n god's &+rpower&n scars your soul, leaving you torn!", FALSE, victim, 0, 0, TO_CHAR);
+
+  if(affected_by_spell(ch, SPELL_ANIMAE_CICATRIX))
+  {
+    send_to_char("Your soul is already scarred by the &+Gdr&+Lag&+Gon&n god's &+rember&n-&+Ldark&n magic!\n", ch);
+    return;
+  }
+  act("The &+Gdr&+Lag&+Gon&n god's &+rpower&n scars your soul, leaving you torn!", FALSE, ch, 0, 0, TO_CHAR);
 
   bzero(&af, sizeof(af));
   af.type = SPELL_ANIMAE_CICATRIX;
   af.duration = (int) (5 + GET_CHAR_SKILL(ch, SKILL_SPELL_KNOWLEDGE_SHAMAN) / 5);
   af.modifier = 10;
   af.location = APPLY_POW;
-  affect_to_char(victim, &af);
+  affect_to_char(ch, &af);
   af.location = APPLY_FIRE_PROT;
-  affect_to_char(victim, &af);
+  affect_to_char(ch, &af);
   af.modifier = 10;
   af.location = APPLY_HITROLL;
-  affect_to_char(victim, &af);
+  affect_to_char(ch, &af);
   af.modifier = 10;
   af.location = APPLY_DAMROLL;
-  affect_to_char(victim, &af);
+  affect_to_char(ch, &af);
   af.modifier = 10;
   af.location = APPLY_WIS;
-  affect_to_char(victim, &af);
+  affect_to_char(ch, &af);
   af.modifier = 10;
   af.location = APPLY_AGI;
-  affect_to_char(victim, &af);
+  affect_to_char(ch, &af);
   af.modifier = 10;
   af.location = APPLY_STR;
-  affect_to_char(victim, &af);
+  affect_to_char(ch, &af);
   af.modifier = 5;
   af.location = APPLY_POW_MAX;
-  affect_to_char(victim, &af);
+  affect_to_char(ch, &af);
   
   if(GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_PRIEST))
   {
     af.modifier = 5;
     af.location = APPLY_WIS_MAX;
-    affect_to_char(victim, &af);
+    affect_to_char(ch, &af);
   }
 
   if(GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_HUNTER))
   {
     af.modifier = 5;
     af.location = APPLY_AGI_MAX;
-    affect_to_char(victim, &af);
+    affect_to_char(ch, &af);
   }
 
   if(GET_SPEC(ch, CLASS_DRAGOON, SPEC_DRAGON_LANCER))
   {
     af.modifier = 5;
     af.location = APPLY_STR_MAX;
-    affect_to_char(victim, &af);
+    affect_to_char(ch, &af);
   }
 
   // Take a little damage for your benefits
-  spell_damage(ch, victim, GET_HIT(victim) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
+  spell_damage(ch, ch, GET_HIT(ch) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
 }
 
 void spell_ensis_unguis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
   P_obj    blade;
+
+  if( !ch || !IS_ALIVE(ch) )
+  {
+    return;
+  }
 
   blade = read_object(real_object(56), REAL);
   if(!blade)
@@ -22261,6 +22271,11 @@ void spell_lancea_cineralae(int level, P_char ch, char *arg, int type,
 {
   P_obj    blade;
 
+  if( !ch || !IS_ALIVE(ch) )
+  {
+    return;
+  }
+
   blade = read_object(real_object(93), REAL);
   if(!blade)
   {
@@ -22313,6 +22328,11 @@ void spell_simulacrum_anguis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
   P_obj    blade;
+
+  if( !ch || !IS_ALIVE(ch) )
+  {
+    return;
+  }
 
   blade = read_object(real_object(171), REAL);
   if(!blade)
@@ -22368,7 +22388,12 @@ void spell_stigmata_draconica(int level, P_char ch, char *arg, int type,
   struct affected_type af;
   int duration_i = (int) (15 + GET_CHAR_SKILL(ch, SKILL_SPELL_KNOWLEDGE_SHAMAN) / 5);
 
-  if(affected_by_spell(victim, SPELL_STIGMATA_DRACONICA))
+  if( !ch || !IS_ALIVE(ch) )
+  {
+    return;
+  }
+
+  if(affected_by_spell(ch, SPELL_STIGMATA_DRACONICA))
   {
     act("Your hands are still bloodied from the &+rstigmata&n", TRUE, ch, 0, victim, TO_CHAR);
     return;
@@ -22393,11 +22418,16 @@ void spell_drakescale_aegis(int level, P_char ch, char *arg, int type,
   struct affected_type af;
   int    absorb = (level / 4) + number(1, 4);
 
-  if(!has_skin_spell(victim))
+  if( !ch || !IS_ALIVE(ch) )
+  {
+    return;
+  }
+
+  if(!has_skin_spell(ch))
   {
     absorb = (int) (absorb * .8);
-    act("Scales erupt from under $n's &+rflesh&n covering them in thick &+Gdrak&+Les&+Gcale&n armor.", TRUE, victim, 0, 0, TO_ROOM);
-    act("Scales erupt from under your flesh as the &+Gdr&+Lag&+Gon&n god's &+rpower&n protects you.", TRUE, victim, 0, 0, TO_CHAR); 
+    act("Scales erupt from under $n's &+rflesh&n covering them in thick &+Gdrak&+Les&+Gcale&n armor.", TRUE, ch, 0, 0, TO_ROOM);
+    act("Scales erupt from under your flesh as the &+Gdr&+Lag&+Gon&n god's &+rpower&n protects you.", TRUE, ch, 0, 0, TO_CHAR); 
   }
   else
   {
@@ -22409,7 +22439,7 @@ void spell_drakescale_aegis(int level, P_char ch, char *arg, int type,
   af.type = SPELL_DRAKESCALE_AEGIS;
   af.duration = (int) (10 + GET_CHAR_SKILL(ch, SKILL_SPELL_KNOWLEDGE_SHAMAN) / 5);
   af.modifier = absorb;
-  affect_to_char(victim, &af);
+  affect_to_char(ch, &af);
 
   // Take a little damage for your benefits
   spell_damage(ch, ch, GET_HIT(ch) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
@@ -22420,21 +22450,21 @@ void spell_judicium_fidei(int level, P_char ch, char *arg, int type,
 {
   struct affected_type af;
 
-  if( !ch || !IS_ALIVE(ch) || !victim || !IS_ALIVE(victim) )
+  if( !ch || !IS_ALIVE(ch) )
   {
     return;
   }
 
   if(!IS_AFFECTED5(ch, AFF5_JUDICIUM_FIDEI))
   {
-    act("$n's flesh &+rsears&n as the &+Gdr&+Lag&+Gon&n god's power eminates around $m!", TRUE, victim, 0, 0, TO_ROOM);
-    act("Your flesh &+rsears&n as the &+Gdr&+Lag&+Gon&n god's power eminates around you!", TRUE, victim, 0, 0, TO_CHAR);
+    act("$n's flesh &+rsears&n as the &+Gdr&+Lag&+Gon&n god's power eminates around $m!", TRUE, ch, 0, 0, TO_ROOM);
+    act("Your flesh &+rsears&n as the &+Gdr&+Lag&+Gon&n god's power eminates around you!", TRUE, ch, 0, 0, TO_CHAR);
 
     bzero(&af, sizeof(af));
     af.type = SPELL_JUDICIUM_FIDEI;
     af.duration =  (int) (5 + GET_CHAR_SKILL(ch, SKILL_SPELL_KNOWLEDGE_SHAMAN) / 5);
     af.bitvector5 = AFF5_JUDICIUM_FIDEI;
-    affect_to_char(victim, &af);
+    affect_to_char(ch, &af);
 
     // Take a little damage for your benefits
     spell_damage(ch, ch, GET_HIT(ch) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
@@ -22446,6 +22476,8 @@ void spell_igneus_vitae(int level, P_char ch, char *arg, int type,
 {
   int      healpoints;
 
+  if(!IS_ALIVE(ch)) return;
+
   if(!is_dragoon_mounted(ch) )
   {
     act("$n's ophidian eyes go dull as $s inner &+Weyelids&n slowly close for a moment.", TRUE, ch, 0, 0, TO_ROOM);
@@ -22456,6 +22488,7 @@ void spell_igneus_vitae(int level, P_char ch, char *arg, int type,
   P_char mount = get_dragoon_mount(ch);
 
   if(mount == NULL) return;
+  if(!IS_ALIVE(mount)) return;
 
   spell_cure_blind(level, ch, NULL, SPELL_TYPE_SPELL, mount, obj);
 
@@ -22484,12 +22517,12 @@ void spell_sanguinis_ignis(int level, P_char ch, char *arg, int type,
   char Gbuf1[100];
   int  skl_lvl;
 
-  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+  if( !IS_ALIVE(ch))
     return;
 
-  if( affected_by_spell(victim, SPELL_SANGUINIS_IGNIS))
+  if( affected_by_spell(ch, SPELL_SANGUINIS_IGNIS))
   {
-    send_to_char("Your &+rblood&n is already boiling with power.\n", victim);
+    send_to_char("Your &+rblood&n is already boiling with power.\n", ch);
     return;
   }
 
@@ -22500,8 +22533,8 @@ void spell_sanguinis_ignis(int level, P_char ch, char *arg, int type,
   bzero(&af, sizeof(af));
   af.type = SPELL_SANGUINIS_IGNIS;
   af.duration = skl_lvl;
-  send_to_char(Gbuf1, victim);
-  affect_to_char(victim, &af);  
+  send_to_char(Gbuf1, ch);
+  affect_to_char(ch, &af);  
 
   // Take a little damage for your benefits
   spell_damage(ch, ch, GET_HIT(ch) * 0.10f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
@@ -22513,6 +22546,11 @@ void spell_sanctum_draconis(int level, P_char ch, char *arg, int type,
   struct affected_type af;
   char Gbuf1[100];
   int  skl_lvl;
+
+  if( !IS_ALIVE(ch) )
+  {
+    return;
+  }
 
   if(affected_by_spell(ch, SPELL_SANCTUM_DRACONIS))
   {
@@ -22546,10 +22584,10 @@ void spell_vivernae_concordia(int level, P_char ch, char *arg, int type,
     return;
   }
   
-  if(!affected_by_spell(victim, SPELL_VIVERNAE_CONCORDIA))
+  if(!affected_by_spell(ch, SPELL_VIVERNAE_CONCORDIA))
   {
-    send_to_char("Your nerves burn as your soul touches the &+Gdr&+Lag&+Gon&n god's &+rpower&n.\n", victim);
-    act("$n's ophidian eyes narrow as they shriek in &+rpain&n!", TRUE, victim, 0, 0, TO_ROOM);
+    send_to_char("Your nerves burn as your soul touches the &+Gdr&+Lag&+Gon&n god's &+rpower&n.\n", ch);
+    act("$n's ophidian eyes narrow as they shriek in &+rpain&n!", TRUE, ch, 0, 0, TO_ROOM);
     
     bzero(&af, sizeof(af));
     af.type = SPELL_VIVERNAE_CONCORDIA;
@@ -22557,13 +22595,13 @@ void spell_vivernae_concordia(int level, P_char ch, char *arg, int type,
     af.bitvector3 = AFF3_VIVERNAE_CONCORDIA;
     affect_to_char(victim, &af);
   }
-  else if(affected_by_spell(victim, SPELL_VIVERNAE_CONCORDIA))
+  else if(affected_by_spell(ch, SPELL_VIVERNAE_CONCORDIA))
   {
-    for (af1 = victim->affected; af1; af1 = af1->next)
+    for (af1 = ch->affected; af1; af1 = af1->next)
     {
       if(af1->type == AFF3_VIVERNAE_CONCORDIA)
       {
-        send_to_char("Your soul &+rrekindles&n its concord with the &+Gdr&+Lag&+Gon&n god.&n\n", victim);
+        send_to_char("Your soul &+rrekindles&n its concord with the &+Gdr&+Lag&+Gon&n god.&n\n", ch);
         af1->duration = 10;
       }
     }
@@ -22580,16 +22618,16 @@ void spell_pactum_serpentis(int level, P_char ch, char *arg, int type,
   char Gbuf1[100];
   int  skl_lvl;
 
-  if( !IS_ALIVE(ch) || !IS_ALIVE(victim) )
+  if( !IS_ALIVE(ch))
     return;
 
-  if( affected_by_spell(victim, SPELL_ACCEL_HEALING)
-    || affected_by_spell(victim, SKILL_REGENERATE)
-    || affected_by_spell(victim, SPELL_REGENERATION)
-    || affected_by_spell(victim, SPELL_PACTUM_SERPENTIS) 
-    || IS_AFFECTED3(victim, AFF3_GR_SPIRIT_WARD))
+  if( affected_by_spell(ch, SPELL_ACCEL_HEALING)
+    || affected_by_spell(ch, SKILL_REGENERATE)
+    || affected_by_spell(ch, SPELL_REGENERATION)
+    || affected_by_spell(ch, SPELL_PACTUM_SERPENTIS) 
+    || IS_AFFECTED3(ch, AFF3_GR_SPIRIT_WARD))
   {
-    send_to_char("Your &+rsoul&n can't take anymore!\n", victim);
+    send_to_char("Your &+rsoul&n can't take anymore!\n", ch);
     return;
   }
 
@@ -22624,11 +22662,108 @@ void spell_edictum_cineris(int level, P_char ch, char *arg, int type,
 void spell_sigillum_negati(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's sigillum negati. -- not finished", ch);
+  struct affected_type af;
+
+  if( !IS_ALIVE(ch) )
+    return;
+
+  bzero(&af, sizeof(af));
+  af.type = SPELL_SIGILLUM_NEGATI;
+  af.duration = (int) (5 + GET_CHAR_SKILL(ch, SKILL_SPELL_KNOWLEDGE_SHAMAN) / 5);
+  af.bitvector4 = AFF4_NOFEAR;
+
+  if(!affected_by_spell(ch, SPELL_SIGILLUM_NEGATI) && !IS_AFFECTED4(ch, AFF4_NOFEAR))
+  {
+    send_to_char("A wave of &+rpower&n washes over you as a &+Lnegation&n &+ysigil&n is burned into your &+rflesh&n!\n", ch);
+    affect_to_char(ch, &af);
+  }
+
+  if(ch->group)
+  {
+    for (struct group_list *gl = ch->group; gl; gl = gl->next)
+    {
+      if(ch != gl->ch && gl->ch->in_room == ch->in_room)
+      {
+        if(IS_ALIVE(gl->ch))
+        {
+          if(!affected_by_spell(gl->ch, SPELL_SIGILLUM_NEGATI) && !IS_AFFECTED4(gl->ch, AFF4_NOFEAR))
+          {
+            send_to_char("A wave of &+rpower&n washes over you as a &+Lnegation&n &+ysigil&n is burned into your &+rflesh&n!\n", gl->ch);
+            affect_to_char(gl->ch, &af);
+          }            
+        }
+      }
+    }
+  }
 }
 
 void spell_draconic_apotheosis(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
-  send_to_char("You cast Pyroclastar's draconic apotheosis. -- not finished", ch);
+  if(!ch) return;
+  if(!IS_ALIVE(ch)) return;
+
+  if(!IS_DRAGOON(ch))
+  {
+    send_to_char("Your &+rsoul&n can't take anymore!\n", ch);
+    return;
+  }
+
+  if(!is_dragoon_mounted(ch) || !has_dragoon_mount(ch))
+  {
+    send_to_char("Your &+rsoul&n aches as you feel untethered from the &+Gdr&+Lag&+Gon&n god's &+rpower&n!\n", ch);
+    return;
+  }
+
+  P_char mount = get_dragoon_mount(ch);
+
+  if(GET_OPPONENT(ch) || GET_OPPONENT(mount))
+  {
+    send_to_char("The heat of battle prevents you from hearing the &+Gdr&+Lag&+Gon&n god's roar.\n", ch);
+    return;
+  }
+
+  if(affected_by_spell(ch, SPELL_DRACONIC_APOTHEOSIS))
+  {
+    send_to_char("You couldn't possibly consume more &+rpower&n!\n", ch);
+    return;
+  }
+
+  wizlog(MINLVLIMMORTAL, "%s cast draconic apotheosis in room %d.", GET_NAME(ch), ch->in_room);
+
+  struct affected_type af;
+
+  // remove the dragon from the room and set the player to not riding
+  unlink_char(ch, mount, LNK_DRAGOON_MOUNT);
+  unlink_char(ch, mount, LNK_RIDING);
+  unlink_char(ch, mount, LNK_PET);
+  unlink_char(ch, mount, LNK_CONSENT);
+
+  //group_remove_member(mount);
+
+  char_from_room(mount);
+  char_to_room(mount, 4, -1); // send to tyrus's bone temple
+
+  bzero(&af, sizeof(af));
+  af.type = SPELL_DRACONIC_APOTHEOSIS;
+  af.duration = 5;
+  af.location = APPLY_NONE;
+  af.flags = AFFTYPE_NODISPEL | AFFTYPE_NOSAVE;
+  af.modifier = GET_RACE(ch);
+  af.bitvector3 = AFF3_ENLARGE;
+  affect_to_char(ch, &af);
+
+  GET_RACE(ch) = RACE_DRAGON;
+  SET_POS(ch, POS_STANDING + GET_STAT(ch));
+
+  act("$n's rips away $s &+rflesh&n as $e becomes one with &n$N&n!", FALSE, ch, 0, mount, TO_ROOM);
+  send_to_char("You rip away your mortal &+rflesh&n and become one with the &+Gdr&+Lag&+Gon&n god's &-L&+RPOWER&N!\n", ch);
+
+  // maybe kill the mount here once it's fully unlinked
+  extract_char(mount);
+
+  // Take a little damage for your benefits
+  spell_damage(ch, ch, GET_HIT(ch) * 0.20f, SPLDAM_SPIRIT, SPLDAM_GRSPIRIT | SPLDAM_NOSHRUG, NULL);
+
+  do_roar_of_heroes(ch);
 }

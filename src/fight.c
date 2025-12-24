@@ -2329,6 +2329,17 @@ void die(P_char ch, P_char killer)
     remove_disguise(ch, TRUE);
   }
 
+  if(affected_by_spell(ch, SPELL_DRACONIC_APOTHEOSIS))
+  {
+    for (struct affected_type* af = ch->affected; af; af = af->next)
+    {
+      if(af->type == SPELL_DRACONIC_APOTHEOSIS)
+      {
+        GET_RACE(ch) = af->modifier;
+      }
+    }
+  }
+
   if( check_outpost_death(ch, killer) )
   {
     return;
@@ -2725,6 +2736,7 @@ void die(P_char ch, P_char killer)
           update_ingame_racewar( -GET_RACEWAR(ch) );
         }
 
+        
 #ifdef USE_ACCOUNT
         // With account system, return to account menu instead of disconnecting
         if (ch->desc && ch->desc->account)
@@ -6461,10 +6473,9 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags, struct damage_m
     {
       for (af = victim->affected; af; af = af->next)
       {
-        if(af->type == TAG_RACE_CHANGE)
+        if(af->type == TAG_RACE_CHANGE || af->type == SPELL_DRACONIC_APOTHEOSIS)
         {
-          victim->player.race = af->modifier;
-          affect_remove(victim, af);
+          GET_RACE(victim) = af->modifier;
         }
       }
     }

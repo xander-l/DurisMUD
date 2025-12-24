@@ -1736,7 +1736,7 @@ bool parse_spell(P_char ch, char *argument, struct spell_target_data* target_dat
 	      send_to_char("&+CYour &+Wlucidity &+Cis not sufficient enough &+cto cast that spell.&n\n", ch);
       }
       else
-        send_to_char("&+LYour power reserves are not sufficient to cast that spell!\n", ch);
+        send_to_char("&+LYour &+rpower&n &+Lreserves are not sufficient to cast that spell!&n\n", ch);
       return FALSE;
     }
   }

@@ -37,32 +37,29 @@ extern const char *dirs[];
 
 bool has_dragoon_mount(P_char ch)
 {
-  struct follow_type *fol;
+  if(!ch) return FALSE;
 
-  P_char mount = get_linked_char(ch, LNK_RIDING);
+  if(IS_DRAGON_FORM(ch)) return TRUE;
 
-  //if(pet == NULL) return FALSE;
+  P_char mount = get_linked_char(ch, LNK_DRAGOON_MOUNT);
+
   if(mount == NULL) return FALSE;
-  //if(mount != pet) return FALSE;
 
-  if(GET_RACE(mount) == RACE_DRAGON)
-  {
-    return TRUE;
-  }
-
-  return FALSE;
+  return TRUE;
 }
 
 bool is_dragoon_mounted(P_char ch)
 {
+  if(IS_DRAGON_FORM(ch)) return TRUE;
+
   if(IS_DRAGOON(ch))
   {
     P_char   mount = get_linked_char(ch, LNK_RIDING);
-    
+    P_char   dragon = get_linked_char(ch, LNK_DRAGOON_MOUNT);
+
     if(mount != NULL)
     {
-        if(GET_RACE(mount) == RACE_DRAGON)
-          return TRUE;
+        return mount == dragon;
     }
   }
   return FALSE;
@@ -70,30 +67,24 @@ bool is_dragoon_mounted(P_char ch)
 
 P_char get_dragoon_mount(P_char ch)
 {
-  struct follow_type *fol;
-
   if(!ch) return NULL;
-  
+    
   if(!GET_CLASS(ch, CLASS_DRAGOON)) return NULL;
 
-  //P_char pet = get_linked_char(ch, LNK_PET);
-  P_char mount = get_linked_char(ch, LNK_RIDING);
+  if(IS_DRAGON_FORM(ch)) return ch;
 
-  //if(pet == NULL) return NULL;
-  if(mount == NULL) return NULL;
-  //if(mount != pet) return NULL;
+  P_char mount = get_linked_char(ch, LNK_DRAGOON_MOUNT);
 
-  if(GET_RACE(mount) == RACE_DRAGON)
-  {
-    return mount;
-  }
-
-  return NULL;
+  return mount;
 }
 
 bool is_dragoon_mount(P_char ch, P_char mount)
 {
-  P_char candidate = get_linked_char(ch, LNK_RIDING);
+  if(IS_DRAGON_FORM(ch)) return TRUE;
+  if(IS_DRAGON_FORM(mount)) return TRUE;
+
+  P_char candidate = get_linked_char(ch, LNK_DRAGOON_MOUNT);
+  return candidate == mount;
 }
 
 P_char get_dragoon_rider(P_char mount)

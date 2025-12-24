@@ -1618,6 +1618,9 @@ bool ac_can_see_obj(P_char sub, P_obj obj, int zrange )
 int get_real_race(P_char ch)
 {
   struct affected_type *af = get_spell_from_char(ch, TAG_RACE_CHANGE);
+
+  //if(!af) af = get_spell_from_char(ch, SPELL_DRACONIC_APOTHEOSIS);
+
   return af ? af->modifier : ch->player.race;
 }
 

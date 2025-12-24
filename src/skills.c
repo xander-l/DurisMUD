@@ -5271,17 +5271,18 @@ SPELL_ADD(CLASS_SUMMONER, 11);
     spell_edictum_cineris);
   SPELL_ADD(CLASS_DRAGOON, 10);
 
-  SPELL_CREATE("sigillum negati", 
+  SPELL_CREATE_MSG("sigillum negati", 
     SPELL_SIGILLUM_NEGATI, 
     PULSE_SPELLCAST * 5,
     TAR_IGNORE, 
-    spell_sigillum_negati);
+    spell_sigillum_negati,
+    "The &+Lnegation&n &+ysigil&n branded on your &+rflesh&n begins to fade.");
   SPELL_ADD(CLASS_DRAGOON, 11);
 
   SPELL_CREATE("draconic apotheosis", 
     SPELL_DRACONIC_APOTHEOSIS, 
     PULSE_SPELLCAST * 5,
-    TAR_SELF_ONLY, 
+    TAR_SELF_ONLY | TAR_NOCOMBAT, 
     spell_draconic_apotheosis);
   SPELL_ADD(CLASS_DRAGOON, 12);
 
