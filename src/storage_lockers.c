@@ -2063,6 +2063,12 @@ static P_char load_locker_char(P_char ch, char *locker_name, int bValidateAccess
     tmp = restoreItemsOnly(vict, 100);
   }
 
+  /* Ensure locker characters have valid HP to prevent death checks from triggering */
+  if (GET_HIT(vict) < 1) GET_HIT(vict) = 1;
+  if (GET_MAX_HIT(vict) < 1) GET_MAX_HIT(vict) = 1;
+  if (GET_VITALITY(vict) < 1) GET_VITALITY(vict) = 1;
+  if (GET_MAX_VITALITY(vict) < 1) GET_MAX_VITALITY(vict) = 1;
+
   /* insert in list */
   vict->next = character_list;
   character_list = vict;
@@ -2085,6 +2091,11 @@ static P_char create_locker_char(P_char chOwner, P_char ch, char *locker_name)
   GET_RACEWAR(ch) = GET_RACEWAR(chOwner);
   GET_RACE(ch) = GET_RACE(chOwner);
 //  init_char(ch);
+  /* Set valid HP/move values to prevent death checks from triggering */
+  GET_HIT(ch) = 1;
+  GET_MAX_HIT(ch) = 1;
+  GET_VITALITY(ch) = 1;
+  GET_MAX_VITALITY(ch) = 1;
   strcpy(ch->only.pc->pwd, chOwner->only.pc->pwd);
   writeCharacter(ch, 0, NOWHERE);
   return ch;
