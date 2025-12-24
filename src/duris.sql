@@ -890,6 +890,7 @@ CREATE TABLE `zones` (
   `alignment` int(11) NOT NULL default '0',
   `last_touch` int(10) default '0',
   `reset_perc` int(10) default '0',
+  `stonecount` int(10) NOT NULL default '1',
   PRIMARY KEY  (`id`),
   KEY `number_index` (`number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

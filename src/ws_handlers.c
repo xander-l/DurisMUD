@@ -254,7 +254,9 @@ void ws_send_full_game_state(struct descriptor_data *d)
     /* Room info */
     if (d->character->in_room >= 0) {
         extern void gmcp_room_info(struct char_data *ch);
+        extern void gmcp_room_map(struct char_data *ch);
         gmcp_room_info(d->character);
+        gmcp_room_map(d->character);
     }
 
     /* Character vitals */
@@ -1595,12 +1597,21 @@ static cJSON *ws_build_character_list(struct descriptor_data *d)
  * Get extended account information
  * Client: {"type":"cmd","cmd":"account_info"}
  * Server: {"type":"account","action":"info","data":{...}}
+ *
+ * Optimized: Single pass through characters to collect playtime, immortal level,
+ * and character list data (previously loaded each character 2-3 times)
  */
 void ws_cmd_account_info(struct descriptor_data *d, cJSON *data)
 {
-    cJSON *info_data, *characters;
+    extern char *get_class_string(P_char ch, char *strn);
+    cJSON *info_data, *characters, *char_obj;
     char time_buf[64];
-    time_t acct_created;
+    char class_str[256];
+    char name_cap[32];
+    struct acct_chars *c;
+    P_char temp_ch;
+    long total_playtime = 0;
+    int immortal_level = 0;
 
     if (!d->account) {
         ws_send_account_message(d, "error", NULL, "Not logged in");
@@ -1628,18 +1639,49 @@ void ws_cmd_account_info(struct descriptor_data *d, cJSON *data)
         cJSON_AddStringToObject(info_data, "lastLogin", "never");
     }
 
-    /* Total playtime - calculated from character files */
-    long total_playtime = 0;
-    struct acct_chars *c = d->account->acct_character_list;
+    /* Single pass: collect playtime, immortal level, and character list */
+    characters = cJSON_CreateArray();
+    c = d->account->acct_character_list;
     while (c) {
-        P_char temp_ch = (struct char_data *)malloc(sizeof(struct char_data));
+        temp_ch = (struct char_data *)malloc(sizeof(struct char_data));
         if (temp_ch) {
             memset(temp_ch, 0, sizeof(struct char_data));
             temp_ch->only.pc = (struct pc_only_data *)malloc(sizeof(struct pc_only_data));
             if (temp_ch->only.pc) {
                 memset(temp_ch->only.pc, 0, sizeof(struct pc_only_data));
                 if (restoreCharOnly(temp_ch, c->charname) >= 0) {
+                    int level = GET_LEVEL(temp_ch);
+
+                    /* Accumulate playtime */
                     total_playtime += temp_ch->player.time.played;
+
+                    /* Track highest immortal level */
+                    if (level >= 57 && level > immortal_level) {
+                        immortal_level = level;
+                    }
+
+                    /* Build character JSON object */
+                    strncpy(name_cap, GET_NAME(temp_ch), 31);
+                    name_cap[31] = '\0';
+                    if (name_cap[0]) name_cap[0] = toupper(name_cap[0]);
+
+                    get_class_string(temp_ch, class_str);
+
+                    char_obj = cJSON_CreateObject();
+                    cJSON_AddStringToObject(char_obj, "name", name_cap);
+                    cJSON_AddNumberToObject(char_obj, "level", level);
+                    cJSON_AddStringToObject(char_obj, "race", ws_get_race_name(GET_RACE(temp_ch)));
+                    cJSON_AddStringToObject(char_obj, "class", class_str);
+
+                    /* Last room name */
+                    int hometown = GET_HOME(temp_ch);
+                    if (hometown >= 0 && hometown < top_of_world && world[hometown].name) {
+                        cJSON_AddStringToObject(char_obj, "lastRoom", world[hometown].name);
+                    } else {
+                        cJSON_AddStringToObject(char_obj, "lastRoom", "Unknown");
+                    }
+
+                    cJSON_AddItemToArray(characters, char_obj);
                 }
                 free(temp_ch->only.pc);
             }
@@ -1647,24 +1689,9 @@ void ws_cmd_account_info(struct descriptor_data *d, cJSON *data)
         }
         c = c->next;
     }
+
     cJSON_AddNumberToObject(info_data, "totalPlaytime", total_playtime);
-
-    /* Immortal level - check if any character is immortal */
-    int immortal_level = 0;
-    c = d->account->acct_character_list;
-    while (c) {
-        struct ws_char_info char_info;
-        if (ws_load_char_info(c->charname, &char_info)) {
-            if (char_info.level > immortal_level && char_info.level >= 57) {
-                immortal_level = char_info.level;
-            }
-        }
-        c = c->next;
-    }
     cJSON_AddNumberToObject(info_data, "immortalLevel", immortal_level);
-
-    /* Character list */
-    characters = ws_build_character_list(d);
     cJSON_AddItemToObject(info_data, "characters", characters);
 
     ws_send_account_message(d, "info", info_data, NULL);
@@ -2021,8 +2048,6 @@ void ws_send_return_to_menu(struct descriptor_data *d, const char *reason)
 void ws_handle_command(struct descriptor_data *d, const char *cmd, cJSON *data)
 {
     if (!cmd) return;
-
-    statuslog(56, "WebSocket command: %s from %s", cmd, d->host);
 
     if (strcmp(cmd, "login") == 0) {
         ws_cmd_login(d, data);

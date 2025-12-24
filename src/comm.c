@@ -951,7 +951,14 @@ void game_loop(int port, int sslport)
         }
         if (t_ch->desc->last_group_update)
         {
-          do_group(t_ch, "", 0);
+          /* For GMCP clients, send structured data to group panel */
+          if (GMCP_ENABLED(t_ch)) {
+            gmcp_send_group_status(t_ch);
+          }
+          /* For MSP clients (non-GMCP), display text group output */
+          if (t_ch->desc->term_type == TERM_MSP && !GMCP_ENABLED(t_ch)) {
+            do_group(t_ch, "", 0);
+          }
           t_ch->desc->last_group_update = 0;
         }
         if (t_ch->points.delay_move > 0)
@@ -1610,6 +1617,10 @@ void close_socket(struct descriptor_data *d)
   if (d->account)
     free_account(d->account);
 #   endif
+
+  /* Free WebSocket fragment buffer if any */
+  websocket_free(d);
+
   if (d)
   {
 #   if 0

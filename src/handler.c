@@ -1000,7 +1000,9 @@ bool char_to_room(P_char ch, int room, int dir)
 
   for (gl = ch->group; gl; gl = gl->next)
   {
-    if (gl->ch && gl->ch->desc && gl->ch->desc->term_type == TERM_MSP)
+    if (gl->ch && gl->ch->desc &&
+        (gl->ch->desc->term_type == TERM_MSP ||
+         (gl->ch->desc->websocket && gl->ch->desc->gmcp_enabled)))
     {
       if (ch->in_room == gl->ch->in_room)
         gl->ch->desc->last_group_update = 1;
@@ -1014,7 +1016,7 @@ bool char_to_room(P_char ch, int room, int dir)
     for (d = descriptor_list; d; d = d->next)
     {
       who = d->character;
-      if( who && who->desc && who->desc->term_type == TERM_MSP && IS_MAP_ROOM(who->in_room) )
+      if( who && who->desc && (who->desc->term_type == TERM_MSP || (who->desc->websocket && who->desc->gmcp_enabled)) && IS_MAP_ROOM(who->in_room) )
       {
         if( !CAN_SEE_Z_CORD(who, ch) )
           continue;
@@ -1103,6 +1105,9 @@ bool char_to_room(P_char ch, int room, int dir)
 
   /* Send GMCP Room.Info - must be before early returns */
   gmcp_room_info(ch);
+
+  /* Send GMCP Room.Map for wilderness zones */
+  gmcp_room_map(ch);
 
   if (dir < 0)                  /* flag value, skip aggro checks */
   {

@@ -30,6 +30,7 @@
 
 /* GMCP Package Names */
 #define GMCP_PKG_ROOM_INFO      "Room.Info"
+#define GMCP_PKG_ROOM_MAP       "Room.Map"
 #define GMCP_PKG_CHAR_VITALS    "Char.Vitals"
 #define GMCP_PKG_CHAR_STATUS    "Char.Status"
 #define GMCP_PKG_CHAR_AFFECTS   "Char.Affects"
@@ -38,6 +39,7 @@
 #define GMCP_PKG_CHAR_SKILLS    "Char.Skills"
 #define GMCP_PKG_CHAR_ITEMS     "Char.Items"
 #define GMCP_PKG_QUEST_STATUS   "Quest.Status"
+#define GMCP_PKG_GROUP_STATUS   "Group.Status"
 
 /*
  * Initialization & Negotiation
@@ -65,6 +67,15 @@ void gmcp_send(struct descriptor_data *d, const char *package, const char *json)
 void gmcp_room_info(struct char_data *ch);
 
 /*
+ * Room Map (for wilderness zones)
+ * Sends ASCII map when character is in surface/underdark/alatorin zones
+ */
+void gmcp_room_map(struct char_data *ch);
+
+/* Send pre-generated map buffer via GMCP (called from map.c) */
+void gmcp_send_room_map(struct char_data *ch, const char *map_buf);
+
+/*
  * Character Vitals
  * Sends HP/Mana/Move when they change
  */
@@ -72,6 +83,12 @@ void gmcp_char_vitals(struct char_data *ch);
 
 /* Send vitals to everyone in the group */
 void gmcp_group_vitals(struct char_data *ch);
+
+/*
+ * Group Status
+ * Sends group member list with HP/Move/position for group panel
+ */
+void gmcp_send_group_status(struct char_data *ch);
 
 /*
  * Character Status
