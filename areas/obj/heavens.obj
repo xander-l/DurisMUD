@@ -818,7 +818,7 @@ blood soaked ember talon blade~
 &na &+rblood-soaked&n &+rem&+yb&+rer-&+Ltalon&n blade&n~
 &nA &+rblood-soaked&n &+rem&+yb&+rer-&+Ltalon&n blade&n, born of devotion that took what faith could not give.~
 ~
-5 10 3 0 0 0 8470984 8192 1216 0 0
+5 10 3 0 0 0 8470984 8192 2240 0 0
 9 3 5 0 0 0 0 0
 0 0 100 0 4194304 0 0
 A
@@ -1209,7 +1209,7 @@ malformed cinder wing cinderwing lance~
 a &+mmalformed&n &+rci&+Lnd&+Rer&n-&+Lwi&n&+rng&n lance~
 &nA &+mmalformed&n &+rci&+Lnd&+Rer&n-&+Lwi&n&+rng&n lance, bearing the scars of a rite that demanded more than was given.~
 ~
-5 10 4 0 0 0 8470984 8192 1228 0 0
+5 10 4 0 0 0 8470984 8192 2252 0 0
 16 4 4 0 0 0 0 0
 0 0 100 73728 0 0 0
 A
@@ -2109,7 +2109,7 @@ seared serpentine viscera serpentine-viscera totem~
 a &+Lseared&n &+gserpentine&n-&+rviscera&n totem~
 &nA &+Lseared&n &+gserpentine&n-&+rviscera&n totem crudely bound with the careless finality of something taken, not given~
 ~
-5 2 3 0 0 0 8470984 8192 1216 0 0
+5 2 3 0 0 0 8470984 8192 2240 0 0
 10 3 4 0 0 0 0 0
 0 0 100 0 0 64 1048576
 A
