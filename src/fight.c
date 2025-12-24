@@ -4332,7 +4332,7 @@ static dam_mod_predicate spell_damage_modifiers[] =
 		}
 	} },
 	{ MAKE_DAM_MOD_PRED() { 
-		double modifier = MAGICRES(caster);
+		double modifier = MAGICRES(victim);
 		if(modifier >=1 && !(flags & SPLDAM_NOSHRUG))
 		{
 			float redmod = 100;
