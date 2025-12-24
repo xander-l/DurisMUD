@@ -10546,7 +10546,7 @@ bool monk_superhit( P_char ch, P_char victim )
   {
     dam = 225;
   }
-  melee_damage( ch, victim, dam, PHSDAM_NOREDUCE, &monk_superhit_messages );
+  melee_damage( ch, victim, dam, PHSDAM_NOREDUCE | PHSDAM_TOUCH, &monk_superhit_messages );
 
   return TRUE;
 }
