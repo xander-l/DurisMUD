@@ -400,6 +400,13 @@ void display_account_menu(P_desc d, char *arg)
   switch (atoi(arg))
   {
   case 0:
+    /* Only disconnect if user actually typed '0', not invalid text */
+    if (*arg != '0')
+    {
+      SEND_TO_Q("Invalid Selection, please try again.\r\n", d);
+      display_account_menu(d, NULL);
+      break;
+    }
     STATE(d) = CON_FLUSH;
     SEND_TO_Q("\r\n\r\nThank you for playing!\r\n", d);
     write_account(d->account);
@@ -1874,7 +1881,8 @@ void account_new_char_name(P_desc d, char *arg)
     d->character = player;
   }
 
-  strcpy(d->character->only.pc->pwd, d->account->acct_password);
+  strncpy(d->character->only.pc->pwd, d->account->acct_password, sizeof(d->character->only.pc->pwd) - 1);
+  d->character->only.pc->pwd[sizeof(d->character->only.pc->pwd) - 1] = '\0';
   d->character->player.name = str_dup(arg);
   *d->character->player.name = toupper(*d->character->player.name);
   SEND_TO_Q("You chose the name ", d);

@@ -31,6 +31,7 @@ using namespace std;
 #include "ctf.h"
 #include "vnum.mob.h"
 #include "vnum.obj.h"
+#include "gmcp.h"
 
 struct continent
 {
@@ -581,8 +582,11 @@ void display_map_room(P_char ch, int from_room, int n, int show_map_regardless)
   int      where_rnum, whats_in, distance;
   bool     hadbg = false, map_tile;
   char     buf[MAX_STRING_LENGTH], minibuf[10];
+  char     gmcp_map_buf[MAX_STRING_LENGTH * 4];  /* Buffer for GMCP map */
   float    horizontal_factor, vertical_factor;
   P_ship   ship;
+
+  gmcp_map_buf[0] = '\0';  /* Initialize GMCP buffer */
 
   // If ch doesn't exist/is dead/doesn't have a descriptor to send info to.
   if( !IS_ALIVE(ch) || !ch->desc )
@@ -596,22 +600,28 @@ void display_map_room(P_char ch, int from_room, int n, int show_map_regardless)
     return;
   }
 
+  /* Skip text output for WebSocket/GMCP clients - they see map in the map panel */
+  bool skip_text_output = (ch->desc->websocket && ch->desc->gmcp_enabled);
+
   from_what = SECTOR_TYPE(from_room);
 
-  if( ch->desc->term_type == TERM_MSP )
+  if( !skip_text_output )
   {
-    if( show_map_regardless != MAP_AUTOMAP )
+    if( ch->desc->term_type == TERM_MSP )
     {
-      send_to_char("\n<map>\n", ch, LOG_NONE);
+      if( show_map_regardless != MAP_AUTOMAP )
+      {
+        send_to_char("\n<map>\n", ch, LOG_NONE);
+      }
+      else
+      {
+        send_to_char("<automap>\n", ch, LOG_NONE);
+      }
     }
     else
     {
-      send_to_char("<automap>\n", ch, LOG_NONE);
+      send_to_char("&n \n", ch);
     }
-  }
-  else
-  {
-    send_to_char("&n \n", ch);
   }
 
   horizontal_factor = get_property("map.horizontalFactor", 0.6);
@@ -622,7 +632,7 @@ void display_map_room(P_char ch, int from_room, int n, int show_map_regardless)
     buf[0] = '\0';
 
     /* send a space, each line */
-    if( ch->desc->term_type != TERM_MSP )
+    if( !skip_text_output && ch->desc->term_type != TERM_MSP )
     {
       send_to_char("           ", ch, LOG_NONE);
     }
@@ -841,10 +851,16 @@ void display_map_room(P_char ch, int from_room, int n, int show_map_regardless)
     }
 
     strcat(buf, "&n \n");       // removed '&n'
-    send_to_char(buf, ch);
+    if( !skip_text_output )
+    {
+      send_to_char(buf, ch);
+    }
+
+    /* Accumulate for GMCP (without leading spaces that terminal uses) */
+    strcat(gmcp_map_buf, buf);
   }
 
-  if( ch->desc->term_type == TERM_MSP )
+  if( !skip_text_output && ch->desc->term_type == TERM_MSP )
   {
     if( show_map_regardless != MAP_AUTOMAP )
     {
@@ -854,6 +870,12 @@ void display_map_room(P_char ch, int from_room, int n, int show_map_regardless)
     {
       send_to_char("\n</automap>\n", ch, LOG_NONE);
     }
+  }
+
+  /* Send map via GMCP for WebSocket clients */
+  if( GMCP_ENABLED(ch) && gmcp_map_buf[0] != '\0' )
+  {
+    gmcp_send_room_map(ch, gmcp_map_buf);
   }
 }
 
@@ -1203,7 +1225,10 @@ void calculate_map_coordinates()
     bfs_clear_marks();
     for (int room = 0; room <= top_of_world; room++)
     {
-      if (IS_MARKED(room) || !IS_MAP_ROOM(room) || IS_OCEAN_ROOM(room))
+      /* Original: only calculated coords for outdoor map zones
+       * if (IS_MARKED(room) || !IS_MAP_ROOM(room) || IS_OCEAN_ROOM(room))
+       */
+      if (IS_MARKED(room) || IS_OCEAN_ROOM(room))
          continue;
 
       cur_section++;
@@ -1230,7 +1255,8 @@ void calculate_map_coordinates()
                continue;  // skipping teleport exits
             }
 
-            if (IS_MARKED(next_room) || !IS_MAP_ROOM(next_room) || IS_OCEAN_ROOM(next_room))
+            /* Original: if (IS_MARKED(next_room) || !IS_MAP_ROOM(next_room) || IS_OCEAN_ROOM(next_room)) */
+            if (IS_MARKED(next_room) || IS_OCEAN_ROOM(next_room))
               continue;
 
             BFSMARK(next_room);                                           

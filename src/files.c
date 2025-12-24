@@ -1719,12 +1719,16 @@ int writeCharacter(P_char ch, int type, int room)
    * in case char reenters game immediately; handle rent/etc correctly
    */
 
-  sql_update_money(ch);
-  if( (type != RENT_POOFARTI) && (type != RENT_SWAPARTI) && (type != RENT_FIGHTARTI) )
+  // Skip SQL operations for locker characters - they don't have database entries
+  if (!strstr(GET_NAME(ch), ".locker"))
   {
-    sql_update_playtime(ch);
+    sql_update_money(ch);
+    if( (type != RENT_POOFARTI) && (type != RENT_SWAPARTI) && (type != RENT_FIGHTARTI) )
+    {
+      sql_update_playtime(ch);
+    }
+    sql_update_epics(ch);
   }
-	sql_update_epics(ch);
 
   save_zone_trophy(ch);
   

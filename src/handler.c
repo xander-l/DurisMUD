@@ -33,6 +33,8 @@
 #include "handler.h"
 #include "ctf.h"
 #include "ships/ships.h"
+#include "ws_handlers.h"
+#include "gmcp.h"
 
 /*
  *
@@ -998,7 +1000,9 @@ bool char_to_room(P_char ch, int room, int dir)
 
   for (gl = ch->group; gl; gl = gl->next)
   {
-    if (gl->ch && gl->ch->desc && gl->ch->desc->term_type == TERM_MSP)
+    if (gl->ch && gl->ch->desc &&
+        (gl->ch->desc->term_type == TERM_MSP ||
+         gl->ch->desc->gmcp_enabled))
     {
       if (ch->in_room == gl->ch->in_room)
         gl->ch->desc->last_group_update = 1;
@@ -1012,7 +1016,7 @@ bool char_to_room(P_char ch, int room, int dir)
     for (d = descriptor_list; d; d = d->next)
     {
       who = d->character;
-      if( who && who->desc && who->desc->term_type == TERM_MSP && IS_MAP_ROOM(who->in_room) )
+      if( who && who->desc && (who->desc->term_type == TERM_MSP || who->desc->gmcp_enabled) && IS_MAP_ROOM(who->in_room) )
       {
         if( !CAN_SEE_Z_CORD(who, ch) )
           continue;
@@ -1098,6 +1102,12 @@ bool char_to_room(P_char ch, int room, int dir)
 
   if (dir != -2)
     do_look(ch, 0, -4);
+
+  /* Send GMCP Room.Info - must be before early returns */
+  gmcp_room_info(ch);
+
+  /* Send GMCP Room.Map for wilderness zones */
+  gmcp_room_map(ch);
 
   if (dir < 0)                  /* flag value, skip aggro checks */
   {
@@ -1424,6 +1434,7 @@ bool char_to_room(P_char ch, int room, int dir)
       }
     }
   }
+
   return TRUE;
 }
 
@@ -3093,8 +3104,20 @@ void extract_char(P_char ch)
 	  }
 #else
       ch->desc->connected = CON_DISPLAY_ACCT_MENU;
+
+      /* For WebSocket clients, send return_to_menu signal instead of telnet menu */
+      if (ch->desc->websocket) {
+          const char *reason = "quit";
+          /* If character died (STAT_DEAD flag is set in position) */
+          if (GET_POS(ch) & STAT_DEAD) {
+              reason = "death";
+          }
+          ws_send_return_to_menu(ch->desc, reason);
+      } else {
+          display_account_menu(ch->desc, NULL);
+      }
+
       ch->desc->character = NULL;
-      display_account_menu(ch->desc, NULL);
       free_char(ch);
       ch = NULL;
 #endif

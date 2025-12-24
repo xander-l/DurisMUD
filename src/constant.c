@@ -1798,6 +1798,45 @@ const int class_table[LAST_RACE + 1][CLASS_COUNT + 1] = {
 };
 
 
+/*
+ * Playable races for character creation
+ * Used by both telnet (nanny.c) and WebSocket (ws_handlers.c)
+ * select_key: telnet menu key (lowercase for select, uppercase for help)
+ * faction: "good" = good only, "evil" = evil only, "neutral" = can choose
+ */
+extern const struct playable_race_info playable_races[];
+const struct playable_race_info playable_races[] = {
+  /* Good races */
+  { RACE_HUMAN,      'h', "good" },
+  { RACE_BARBARIAN,  'b', "good" },
+  { RACE_GREY,       'e', "good" },     /* Grey Elf */
+  { RACE_MOUNTAIN,   'm', "good" },     /* Mountain Dwarf */
+  { RACE_HALFLING,   'l', "good" },
+  { RACE_GNOME,      'g', "good" },
+  { RACE_CENTAUR,    'c', "good" },
+  { RACE_GITHZERAI,  'n', "good" },
+  { RACE_FIRBOLG,    'p', "good" },
+
+  /* Evil races */
+  { RACE_DROW,       'd', "evil" },
+  { RACE_DUERGAR,    'u', "evil" },     /* Duergar Dwarf */
+  { RACE_OGRE,       'r', "evil" },
+  { RACE_TROLL,      't', "evil" },
+  { RACE_ORC,        'o', "evil" },
+  { RACE_GITHYANKI,  'j', "evil" },
+  { RACE_GOBLIN,     'v', "evil" },
+  { RACE_KOBOLD,     '1', "evil" },
+  { RACE_DRIDER,     '2', "evil" },
+
+  /* Neutral races (can choose good or evil) */
+  { RACE_THRIKREEN,  'k', "neutral" },
+  { RACE_MINOTAUR,   's', "neutral" },
+  { RACE_TIEFLING,   'f', "neutral" },
+
+  { -1, 0, NULL }  /* Sentinel */
+};
+
+
 /* arena 'pre-entry' room, start of arena, end of arena */
 /* start to end should be nothing but arena (inclusive), pre-entry can be anywhere */
 

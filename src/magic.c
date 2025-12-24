@@ -22599,7 +22599,7 @@ void spell_vivernae_concordia(int level, P_char ch, char *arg, int type,
   {
     for (af1 = ch->affected; af1; af1 = af1->next)
     {
-      if(af1->type == AFF3_VIVERNAE_CONCORDIA)
+      if(af1->type == SPELL_VIVERNAE_CONCORDIA)
       {
         send_to_char("Your soul &+rrekindles&n its concord with the &+Gdr&+Lag&+Gon&n god.&n\n", ch);
         af1->duration = 10;

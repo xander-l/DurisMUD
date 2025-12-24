@@ -1089,7 +1089,8 @@ const char *command[MAX_CMD] = {
   "dragonstrike",
   "appoint",
   "account",
-  "\n"                          /* MAX_CMD = 836, MAX_CMD_LIST = 1000 */
+  "protocol",
+  "\n"                          /* MAX_CMD = 842, MAX_CMD_LIST = 1000 */
 };
 
 const char *fill_words[] = {
@@ -2465,6 +2466,7 @@ void assign_command_pointers(void)
   CMD_GRT(CMD_INSTACAST, STAT_NORMAL + POS_STANDING, do_cast, GREATER_G);
   CMD_GRT(CMD_WHOIS, STAT_DEAD + POS_PRONE, do_whois, LESSER_G);
   CMD_GRT(CMD_ACCOUNT, STAT_DEAD + POS_PRONE, do_account, LESSER_G);
+  CMD_Y(CMD_PROTOCOL, STAT_DEAD + POS_PRONE, do_protocol, 1, FALSE);
 
   /*
    * commands requiring confirmation

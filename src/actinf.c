@@ -6277,7 +6277,7 @@ const char *get_class_name(P_char ch, P_char tch)
 {
   if (IS_MULTICLASS_PC(ch))
     return get_multiclass_name(ch);
-  if (IS_SPECIALIZED(ch) && (IS_SET(tch->specials.act2, PLR2_SPEC)))
+  if (IS_SPECIALIZED(ch) && tch && (IS_SET(tch->specials.act2, PLR2_SPEC)))
   {
     return GET_SPEC_NAME(ch->player.m_class, ch->player.spec-1);
   }

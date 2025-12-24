@@ -50,6 +50,7 @@
 #include "achievements.h"
 #include "siege.h"
 #include "vnum.obj.h"
+#include "gmcp.h"
 /*
  * external variables //
  */
@@ -599,7 +600,9 @@ if (IS_TRUSTED(tch) && IS_SET(tch->specials.act2, PLR2_HEAL))
   //Client
   for( gl = ch->group; gl; gl = gl->next )
   {
-    if( gl->ch && gl->ch->desc && gl->ch->desc->term_type == TERM_MSP )
+    if( gl->ch && gl->ch->desc &&
+        (gl->ch->desc->term_type == TERM_MSP ||
+         gl->ch->desc->gmcp_enabled))
     {
       gl->ch->desc->last_group_update = 1;
     }
@@ -6256,7 +6259,9 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags, struct damage_m
     //Client
     for (gl = victim->group; gl; gl = gl->next)
     {
-      if (gl->ch && gl->ch->desc && gl->ch->desc->term_type == TERM_MSP)
+      if (gl->ch && gl->ch->desc &&
+          (gl->ch->desc->term_type == TERM_MSP ||
+           gl->ch->desc->gmcp_enabled))
       {
         gl->ch->desc->last_group_update = 1;
       }
@@ -6404,6 +6409,10 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags, struct damage_m
         dam = GET_HIT(victim) + 11;
       }
       GET_HIT(victim) -= dam;
+
+      /* Send GMCP updates for combat */
+      gmcp_char_vitals(victim);  /* Update victim's vitals */
+      gmcp_combat_target(ch, victim);  /* Update attacker's target health bar */
     }
 
     if( IS_PC(victim) && victim->desc && (IS_SET(victim->specials.act, PLR_SMARTPROMPT)
@@ -9512,6 +9521,8 @@ void stop_fighting(P_char ch)
   if ( GET_CHAR_SKILL(ch, SKILL_LANCE_CHARGE) != 0 )
     set_short_affected_by(ch, SKILL_LANCE_CHARGE, PULSE_VIOLENCE / 2); // to prevent flee/charge
 
+  /* Notify web client that combat has ended */
+  gmcp_combat_end(ch);
 
   update_pos(ch);
 }
@@ -10535,7 +10546,7 @@ bool monk_superhit( P_char ch, P_char victim )
   {
     dam = 225;
   }
-  melee_damage( ch, victim, dam, PHSDAM_NOREDUCE, &monk_superhit_messages );
+  melee_damage( ch, victim, dam, PHSDAM_NOREDUCE | PHSDAM_TOUCH, &monk_superhit_messages );
 
   return TRUE;
 }

@@ -23,6 +23,7 @@
 #include "assocs.h"
 #include "graph.h"
 #include "events.h"
+#include "gmcp.h"
 #include "world_quest.h"
 #include "sql.h"
 #include "epic.h"
@@ -428,8 +429,14 @@ int say(P_char ch, const char *argument)
           act(Gbuf2, FALSE, ch, 0, kala, TO_VICT);
         else
           act(Gbuf2, FALSE, ch, 0, kala, TO_VICT | ACT_SILENCEABLE);
+
+        /* Send to web client via GMCP */
+        gmcp_comm_channel(kala, "say", GET_NAME(ch), argument + i);
       }
     }
+
+    /* Send to sender's web client too */
+    gmcp_comm_channel(ch, "say", GET_NAME(ch), argument + i);
 
     if (IS_SET(ch->specials.act, PLR_ECHO) || IS_NPC(ch))
     {
@@ -632,8 +639,14 @@ void do_gcc(P_char ch, char *argument, int cmd)
           language_CRYPT(ch, to_ch, argument));
       }
       send_to_char(Gbuf1, to_ch, LOG_PRIVATE);
+
+      /* Send to web client via GMCP */
+      gmcp_comm_channel(to_ch, "gcc", GET_NAME(ch), argument);
     }
   }
+
+  /* Send to sender's web client too */
+  gmcp_comm_channel(ch, "gcc", GET_NAME(ch), argument);
 }
 
 // Sends a message to each person in-game and in guild.
@@ -1056,6 +1069,9 @@ void do_tell(P_char ch, char *argument, int cmd)
               short_descr) : "Someone"), language_known(ch, vict),
             language_CRYPT(ch, vict, message));
     send_to_char(Gbuf1, vict, LOG_PRIVATE);
+
+    /* Send to web client via GMCP */
+    gmcp_comm_channel(vict, "tell", GET_NAME(ch), message);
 
     if (IS_SET(vict->specials.act, PLR_AFK))
       act("$n sent you a tell, and your &+RAFK&N is toggled on!", FALSE, ch,

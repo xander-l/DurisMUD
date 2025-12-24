@@ -42,6 +42,7 @@ using namespace std;
 #include "world_quest.h"
 #include "epic.h"
 #include "map.h"
+#include "gmcp.h"
 
 /* * external variables */
 
@@ -251,6 +252,7 @@ void quest_full_reward(P_char ch, P_char quest_mob, int type)
   sql_world_quest_finished(ch, reward);
 
   resetQuest(ch);
+  gmcp_quest_status(ch);
 }
 
 void quest_ask(P_char ch, P_char quest_mob)
@@ -332,10 +334,12 @@ void quest_kill(P_char ch, P_char quest_mob)
     quest_epic_reward(ch, FIND_AND_KILL);
     sql_world_quest_finished(ch, 0);
     resetQuest(ch);
+    gmcp_quest_status(ch);
   }
   else
   {
     send_to_char("&+YCongratulations&+y, you found the right mob, but you're not done yet.\r\n", ch);
+    gmcp_quest_status(ch);
   }
 }
 
@@ -580,7 +584,7 @@ void do_quest(P_char ch, char *args, int cmd)
       victim->only.pc->quest_kill_how_many = ch->only.pc->quest_kill_how_many;
       victim->only.pc->quest_kill_original =  ch->only.pc->quest_kill_original;
       do_quest(victim, "", 0);
-
+      gmcp_quest_status(victim);
 
       return;
     }

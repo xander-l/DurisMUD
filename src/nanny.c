@@ -38,6 +38,7 @@
 #include "utility.h"
 #include "vnum.room.h"
 #include "achievements.h"
+#include "gmcp.h"
 
 /* external variables */
 
@@ -3947,6 +3948,12 @@ if(d->character->base_stats.Wis < 80)
   // This is to remove the racial epic skills set with TAG_RACIAL_SKILLS
   // after the current wipe (as of 4/25/14) this should be removed - Torgal
 //  clear_racial_skills(ch); - And removed. - Lohrr
+
+  /* Send GMCP data for WebSocket clients */
+  gmcp_char_status(ch);
+  gmcp_char_vitals(ch);
+  gmcp_quest_status(ch);
+
   do_look(ch, 0, -4);
 }
 
@@ -4982,244 +4989,68 @@ void select_race(P_desc d, char *arg)
   GET_RACE(d->character) = RACE_NONE;
   Gbuf[0] = 0;
 
-  switch (*arg)
+  /* Handle special menu keys first */
+  if (*arg == 'x' || *arg == 'X')
   {
-  case 'h':
-    GET_RACE(d->character) = RACE_HUMAN;
-    break;
-  case 'H':
-    strcpy(Gbuf, "HUMAN");
-    break;
-  case 'b':
-    GET_RACE(d->character) = RACE_BARBARIAN;
-    break;
-  case 'B':
-    strcpy(Gbuf, "BARBARIAN");
-    break;
-  case 'd':
-    GET_RACE(d->character) = RACE_DROW;
-    break;
-  case 'D':
-    strcpy(Gbuf, "DROW ELF");
-    break;
-  case 'e':
-    GET_RACE(d->character) = RACE_GREY;
-    break;
-  case 'E':
-    strcpy(Gbuf, "GREY ELF");
-    break;
-  case 'm':
-    GET_RACE(d->character) = RACE_MOUNTAIN;
-    break;
-  case 'M':
-    strcpy(Gbuf, "MOUNTAIN DWARF");
-    break;
-  case 'u':
-    GET_RACE(d->character) = RACE_DUERGAR;
-    break;
-  case 'U':
-    strcpy(Gbuf, "DUERGAR DWARF");
-    break;
-  case 'l':
-    GET_RACE(d->character) = RACE_HALFLING;
-    break;
-  case 'L':
-    strcpy(Gbuf, "HALFLING");
-    break;
-  case 'g':
-    GET_RACE(d->character) = RACE_GNOME;
-    break;
-  case 'G':
-    strcpy(Gbuf, "GNOME");
-    break;
-  case 'r':
-    GET_RACE(d->character) = RACE_OGRE;
-    break;
-  case 'R':
-    strcpy(Gbuf, "OGRE");
-    break;
-  case 't':
-    GET_RACE(d->character) = RACE_TROLL;
-    break;
-  case 'T':
-    strcpy(Gbuf, "TROLL");
-    break;
-  case 'f':
-    GET_RACE(d->character) = RACE_TIEFLING;
-    break;
-  case 'F':
-    strcpy (Gbuf, "TIEFLING");
-    break;
-  /*
-  case 'f':
-    GET_RACE(d->character) = RACE_HALFELF;
-    break;
-  case 'F':
-    strcpy(Gbuf, "HALF ELF");
-    break;
-    */
-/*  
-  case 'i':
-    GET_RACE(d->character) = RACE_PILLITHID;
-    break;
-  case 'I':
-    strcpy(Gbuf, "ILLITHID");
-    break;
-    */
-/*    case 'i': -- Illithids disabled again, -- Eikel.
-    GET_RACE(d->character) = RACE_ILLITHID;
-    break;
-    case 'I': 
-    strcpy(Gbuf, "ILLITHID");
-    break; */
-  case 'j':
-    GET_RACE(d->character) = RACE_GITHYANKI;
-    break;
-  case 'J':
-    strcpy(Gbuf, "GITHYANKI");
-    break;
-  case 'o':
-    GET_RACE(d->character) = RACE_ORC;
-    break;
-  case 'O':
-    strcpy(Gbuf, "ORC");
-    break;
-  case 'k':
-    GET_RACE(d->character) = RACE_THRIKREEN;
-    break;
-  case 'K':
-    strcpy(Gbuf, "THRI-KREEN");
-    break;
-
-  case 'n':
-    GET_RACE(d->character) = RACE_GITHZERAI;
-    break;
-  case 'N':
-    strcpy(Gbuf, "GITHZERAI");
-    break;
-
-  case 'v':
-    GET_RACE(d->character) = RACE_GOBLIN;
-    break;
-  case 'V':
-    strcpy(Gbuf, "GOBLIN");
-    break;
-  case 'c':
-    GET_RACE(d->character) = RACE_CENTAUR;
-    break;
-  case 'C':
-    strcpy(Gbuf, "CENTAUR");
-    break;
-  case 's':
-    GET_RACE(d->character) = RACE_MINOTAUR;
-    break;
-  case 'S':
-    strcpy(Gbuf, "MINOTAUR");
-    break;
-  case 'p':
-    GET_RACE(d->character) = RACE_FIRBOLG;
-    break;
-  case 'P':
-    strcpy(Gbuf, "FIRBOLG");
-    break;
-/*
-  case 'w':
-    GET_RACE(d->character) = RACE_WOODELF;
-    break;
-  case 'W':
-    strcpy(Gbuf, "WOOD ELF");
-    break;
-*/
-  case '1':
-    GET_RACE(d->character) = RACE_KOBOLD;
-    break;
-  case '!':
-    strcpy(Gbuf, "KOBOLD");
-    break;
-  case '2':
-    GET_RACE(d->character) = RACE_DRIDER;
-    break;
-  case '@':
-    strcpy(Gbuf, "DRIDER");
-    break;
-/*  case '3':
-    GET_RACE(d->character) = RACE_KUOTOA;
-    break;
-  case '#':
-    strcpy(Gbuf, "KUO TOA");
-    break;
-    */
-    /*
-       case '1':
-       GET_RACE(d->character) = RACE_LICH;
-       break;
-       case '(':
-       strcpy(Gbuf, "LICH");
-       break;
-       case '2':
-       GET_RACE(d->character) = RACE_PVAMPIRE;
-       break;
-       case '@':
-       strcpy(Gbuf, "VAMPIRE");
-       break;
-       case '3':
-       GET_RACE(d->character) = RACE_PDKNIGHT;
-       break;
-       case ')':
-       strcpy(Gbuf, "DEATH KNIGHT");
-       break;
-       case '4':
-       GET_RACE(d->character) = RACE_PSBEAST;
-       break;
-       case '$':
-       strcpy(Gbuf, "SHADOW BEAST");
-       break;
-
-       case '5':
-       GET_RACE(d->character) = RACE_WIGHT;
-       break;
-       case '%':
-       strcpy(Gbuf, "WIGHT");
-       break;
-       case '6':
-       GET_RACE(d->character) = RACE_PHANTOM;
-       break;
-       case '^':
-       strcpy(Gbuf, "PHANTOM");
-       break;
-       case '7':
-       GET_RACE(d->character) = RACE_SHADE;
-       break;
-       case '&':
-       strcpy(Gbuf, "SHADE");
-       break;
-       case '8':
-       GET_RACE(d->character) = RACE_REVENANT;
-       break;
-       case '*':
-       strcpy(Gbuf, "REVENANT");
-       break; */
-  case 'x':
-  case 'X':
     SEND_TO_Q(generaltable, d);
     STATE(d) = CON_SHOW_CLASS_RACE_TABLE;
     return;
-  case 'y':
-  case 'Y':
+  }
+  if (*arg == 'y' || *arg == 'Y')
+  {
     SEND_TO_Q(racewars, d);
     STATE(d) = CON_SHOW_RACE_TABLE;
     return;
-/*
-  case 'z':
-  case 'Z':
-    SEND_TO_Q("\r\nIs your character Male or Female? (M/F) ", d);
-    STATE(d) = CON_GET_SEX;
-    return;
-*/
-  default:
-    SEND_TO_Q(racetable, d);
-    STATE(d) = CON_GET_RACE;
-    return;
+  }
+
+  /* Search playable_races[] array for matching key */
+  {
+    int i;
+    bool found = FALSE;
+
+    for (i = 0; playable_races[i].race_id != -1; i++)
+    {
+      char key = playable_races[i].select_key;
+
+      /* Lowercase = select race */
+      if (*arg == key)
+      {
+        GET_RACE(d->character) = playable_races[i].race_id;
+        found = TRUE;
+        break;
+      }
+      /* Uppercase = show help (for letter keys) */
+      if (isalpha(key) && *arg == toupper(key))
+      {
+        strncpy(Gbuf, race_names_table[playable_races[i].race_id].normal, sizeof(Gbuf) - 1);
+        Gbuf[sizeof(Gbuf) - 1] = '\0';
+        found = TRUE;
+        break;
+      }
+      /* Special: '!' for '1' (Kobold help), '@' for '2' (Drider help) */
+      if (key == '1' && *arg == '!')
+      {
+        strncpy(Gbuf, race_names_table[RACE_KOBOLD].normal, sizeof(Gbuf) - 1);
+        Gbuf[sizeof(Gbuf) - 1] = '\0';
+        found = TRUE;
+        break;
+      }
+      if (key == '2' && *arg == '@')
+      {
+        strncpy(Gbuf, race_names_table[RACE_DRIDER].normal, sizeof(Gbuf) - 1);
+        Gbuf[sizeof(Gbuf) - 1] = '\0';
+        found = TRUE;
+        break;
+      }
+    }
+
+    /* If no match found, show race menu */
+    if (!found)
+    {
+      SEND_TO_Q(racetable, d);
+      STATE(d) = CON_GET_RACE;
+      return;
+    }
   }
 
   if (*Gbuf)
