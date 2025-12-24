@@ -1738,6 +1738,7 @@ P_char load_char_into_game(struct acct_chars * c, P_desc d)
     SEND_TO_Q("Couldn't find that pfile!\r\n", d);
     STATE(d) = CON_DISPLAY_ACCT_MENU;
     display_account_menu(d, NULL);
+	if(player) free_char(player);
     return NULL;
   }
   else if (status == -2)
@@ -1745,6 +1746,7 @@ P_char load_char_into_game(struct acct_chars * c, P_desc d)
     SEND_TO_Q("There was an error reading your pfile!\r\n", d);
     STATE(d) = CON_DISPLAY_ACCT_MENU;
     display_account_menu(d, NULL);
+	if(player) free_char(player);
     return NULL;
   }
   else

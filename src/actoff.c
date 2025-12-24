@@ -11610,7 +11610,7 @@ void do_taunt(P_char ch, char *arg, int cmd)
 			{
 				// remove existing taunt
 				if (paf)
-				  affect_from_char(ch, SKILL_TAUNT);
+				  affect_from_char(vict, SKILL_TAUNT);
 
 				// successful taunt
 				bzero(&af, sizeof(af));

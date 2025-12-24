@@ -75,6 +75,9 @@ while [[ $RESULT != 0 && $RESULT != 55 ]]; do
   echo "Backing up pfiles..."
   ./backup_pfiles.sh
 
+  echo "Building areas..."
+  (cd ./areas  && ./m_slow)
+
   echo "Generating list of function names.."
   nm --demangle dms | grep " T " | sed -e 's/[(].*//g' > lib/misc/event_names
 
