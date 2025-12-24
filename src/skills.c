@@ -5312,7 +5312,7 @@ SPELL_ADD(CLASS_SUMMONER, 11);
     TAR_CHAR_ROOM | TAR_NOCOMBAT, 
     spell_lesser_guardian_ward,
     "&+CThe spirits no longer protect you.&n");
-  SPELL_ADD(CLASS_SHAMAN, 5);
+  //SPELL_ADD(CLASS_SHAMAN, 5);
 
   SPELL_CREATE_MSG("guardian ward", 
     SPELL_GUARDIAN_WARD, 
@@ -5320,7 +5320,7 @@ SPELL_ADD(CLASS_SUMMONER, 11);
     TAR_CHAR_ROOM | TAR_NOCOMBAT, 
     spell_guardian_ward,
     "&+CThe spirits no longer protect you.&n");
-  SPELL_ADD(CLASS_SHAMAN, 7);
+  //SPELL_ADD(CLASS_SHAMAN, 7);
 
   SPELL_CREATE_MSG("greater guardian ward", 
     SPELL_GREATER_GUARDIAN_WARD, 
@@ -5328,7 +5328,7 @@ SPELL_ADD(CLASS_SUMMONER, 11);
     TAR_CHAR_ROOM | TAR_NOCOMBAT, 
     spell_greater_guardian_ward,
     "&+CThe spirits no longer protect you.&n");
-  SPELL_ADD(CLASS_SHAMAN, 9);
+  //SPELL_ADD(CLASS_SHAMAN, 9);
 
 #ifndef _DE_
   create_epic_skills();
