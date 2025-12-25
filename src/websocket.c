@@ -237,6 +237,23 @@ int websocket_parse_handshake(struct descriptor_data *d, const char *buf, size_t
                 version_ok = 1;
             }
         }
+        /* X-Forwarded-For header (nginx proxy) */
+        else if (strncasecmp(line, "X-Forwarded-For:", 16) == 0) {
+            char *value = line + 16;
+            while (*value == ' ') value++;
+            /* Extract first IP (client IP, before any comma) */
+            char client_ip[64];
+            int i = 0;
+            while (value[i] && value[i] != ',' && value[i] != ' ' && i < 63) {
+                client_ip[i] = value[i];
+                i++;
+            }
+            client_ip[i] = '\0';
+            if (client_ip[0]) {
+                strncpy(d->host, client_ip, sizeof(d->host) - 1);
+                d->host[sizeof(d->host) - 1] = '\0';
+            }
+        }
 
         line = strtok_r(NULL, "\r\n", &saveptr);
     }

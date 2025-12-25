@@ -173,6 +173,52 @@ void gmcp_send_room_map(struct char_data *ch, const char *map_buf) {
 }
 
 /*
+ * Room Update Throttling
+ * Track "dirty" rooms and flush updates periodically to avoid flooding
+ * during high-activity scenarios (e.g., 30-player battles)
+ */
+#define MAX_DIRTY_ROOMS 100
+static int dirty_rooms[MAX_DIRTY_ROOMS];
+static int dirty_room_count = 0;
+
+void gmcp_mark_room_dirty(int room_number) {
+    int i;
+
+    /* Validate room number */
+    if (room_number < 0) return;
+
+    /* Check if already marked */
+    for (i = 0; i < dirty_room_count; i++) {
+        if (dirty_rooms[i] == room_number) return;
+    }
+
+    /* Add to dirty list if space available */
+    if (dirty_room_count < MAX_DIRTY_ROOMS) {
+        dirty_rooms[dirty_room_count++] = room_number;
+    }
+}
+
+void gmcp_flush_dirty_rooms(void) {
+    int i;
+    struct char_data *tch;
+    struct room_data *room;
+
+    for (i = 0; i < dirty_room_count; i++) {
+        room = &world[dirty_rooms[i]];
+        if (!room) continue;
+
+        /* Send Room.Info to all players in this room */
+        for (tch = room->people; tch; tch = tch->next_in_room) {
+            if (!IS_NPC(tch) && tch->desc && GMCP_ENABLED(tch)) {
+                gmcp_room_info(tch);
+            }
+        }
+    }
+
+    dirty_room_count = 0;
+}
+
+/*
  * Send Char.Vitals when HP/Mana/Move changes
  */
 void gmcp_char_vitals(struct char_data *ch) {
@@ -484,6 +530,25 @@ void gmcp_comm_channel(struct char_data *ch, const char *channel,
     if (!GMCP_ENABLED(ch)) return;
 
     json = json_build_comm_channel(channel, sender, text);
+
+    if (json) {
+        gmcp_send(ch->desc, GMCP_PKG_COMM_CHANNEL, json);
+        free(json);
+    }
+}
+
+/*
+ * Send channel message via GMCP with alignment (for nchat)
+ */
+void gmcp_comm_channel_ex(struct char_data *ch, const char *channel,
+                          const char *sender, const char *text,
+                          const char *alignment) {
+    char *json;
+
+    if (!ch || !ch->desc) return;
+    if (!GMCP_ENABLED(ch)) return;
+
+    json = json_build_comm_channel_ex(channel, sender, text, alignment);
 
     if (json) {
         gmcp_send(ch->desc, GMCP_PKG_COMM_CHANNEL, json);

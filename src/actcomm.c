@@ -295,6 +295,9 @@ void do_petition(P_char ch, char *argument, int cmd)
     if (get_property("logs.chat.status", 0.000) && IS_PC(ch))
       logit(LOG_CHAT, "%s petitioned '%s'", GET_NAME(ch), argument);
 
+    /* Send to petitioner's web client so they see their own petition */
+    gmcp_comm_channel(ch, "petition", GET_NAME(ch), argument);
+
     snprintf(Gbuf1, MAX_STRING_LENGTH, "&+r$n petitions '%s'&N", argument);
     snprintf(Gbuf2, MAX_STRING_LENGTH, "&+r%s petitions '%s'&N", GET_NAME(ch), argument);
 
@@ -308,6 +311,9 @@ void do_petition(P_char ch, char *argument, int cmd)
           act(Gbuf1, 0, ch, 0, i->character, TO_VICT | ACT_PRIVATE);
         else
           act(Gbuf2, 0, ch, 0, i->character, TO_VICT | ACT_PRIVATE);
+
+        /* Send to web client via GMCP */
+        gmcp_comm_channel(i->character, "petition", GET_NAME(ch), argument);
       }
    //CharWait(ch, PULSE_VIOLENCE);
   }
@@ -1072,6 +1078,13 @@ void do_tell(P_char ch, char *argument, int cmd)
 
     /* Send to web client via GMCP */
     gmcp_comm_channel(vict, "tell", GET_NAME(ch), message);
+
+    /* Also send to sender so they see their own tell in chat panel */
+    if (ch->desc && ch != vict) {
+        char sender_label[MAX_NAME_LENGTH + 8];
+        snprintf(sender_label, sizeof(sender_label), "You -> %s", GET_NAME(vict));
+        gmcp_comm_channel(ch, "tell", sender_label, message);
+    }
 
     if (IS_SET(vict->specials.act, PLR_AFK))
       act("$n sent you a tell, and your &+RAFK&N is toggled on!", FALSE, ch,
