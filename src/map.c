@@ -600,8 +600,9 @@ void display_map_room(P_char ch, int from_room, int n, int show_map_regardless)
     return;
   }
 
-  /* Skip text output for WebSocket/GMCP clients - they see map in the map panel */
-  bool skip_text_output = (ch->desc->websocket && ch->desc->gmcp_enabled);
+  /* Skip text output for GMCP auto-updates (unless MSP terminal) */
+  bool skip_text_output = GMCP_ENABLED(ch) && (show_map_regardless == MAP_AUTOMAP)
+                          && (ch->desc->term_type != TERM_MSP);
 
   from_what = SECTOR_TYPE(from_room);
 
