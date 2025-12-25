@@ -292,8 +292,8 @@ int websocket_complete_handshake(struct descriptor_data *d, const char *key) {
         "\r\n",
         accept_key);
 
-    /* Send response */
-    if (write(d->descriptor, response, len) != len) {
+    /* Send response - use MSG_NOSIGNAL to prevent SIGPIPE */
+    if (send(d->descriptor, response, len, MSG_NOSIGNAL) != len) {
         return -1;
     }
 
@@ -386,15 +386,20 @@ static int websocket_send_frame(struct descriptor_data *d, int opcode,
         memcpy(frame + offset, data, len);
     }
 
-    /* Send frame */
-    sent = write(d->descriptor, frame, frame_len);
+    /* Send frame - check socket and descriptor are still valid first */
+    if (d->descriptor <= 0 || !is_desc_valid(d)) {
+        free(frame);
+        return -1;
+    }
+    /* Use send() with MSG_NOSIGNAL to prevent SIGPIPE on closed connections */
+    sent = send(d->descriptor, frame, frame_len, MSG_NOSIGNAL);
     free(frame);
 
     if (sent < 0) {
-        if (errno != EWOULDBLOCK && errno != EAGAIN) {
+        if (errno != EWOULDBLOCK && errno != EAGAIN && errno != EPIPE) {
             return -1;
         }
-        /* Would block - queue for later? For now, drop */
+        /* Would block or broken pipe - drop silently */
         return 0;
     }
 

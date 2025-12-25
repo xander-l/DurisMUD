@@ -12771,23 +12771,7 @@ void do_account(P_char ch, char *arg, int cmd)
 }
 #endif
 
-/*
- * Check if a descriptor is valid (exists in descriptor_list)
- */
-static int is_desc_valid(P_desc desc)
-{
-  P_desc d;
-
-  if (!desc)
-    return 0;
-
-  for (d = descriptor_list; d; d = d->next)
-  {
-    if (d == desc)
-      return 1;
-  }
-  return 0;
-}
+/* is_desc_valid() moved to comm.c as a global function */
 
 /*
  * Extract ghost characters from the game.

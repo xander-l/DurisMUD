@@ -744,6 +744,7 @@ void clear_logs(P_char);
 void act(const char *, int, P_char, P_obj, void *, int);
 void close_socket(P_desc);
 void close_sockets(int);
+int is_desc_valid(P_desc);
 void coma(int);
 void flush_queues(P_desc);
 void nonblock(int);

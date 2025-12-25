@@ -1475,6 +1475,23 @@ int new_connection(int s)
   return (t);
 }
 
+/*
+ * Check if a descriptor is valid (exists in descriptor_list)
+ * Used to detect dangling pointers to freed/closing descriptors
+ */
+int is_desc_valid(struct descriptor_data *desc) {
+  struct descriptor_data *d;
+
+  if (!desc)
+    return 0;
+
+  for (d = descriptor_list; d; d = d->next) {
+    if (d == desc)
+      return 1;
+  }
+  return 0;
+}
+
 void close_sockets(int s)
 {
   logit(LOG_STATUS, "Closing all sockets.");
