@@ -76,6 +76,13 @@ void gmcp_room_map(struct char_data *ch);
 void gmcp_send_room_map(struct char_data *ch, const char *map_buf);
 
 /*
+ * Room Update Throttling
+ * Mark rooms as "dirty" on entity changes, flush periodically
+ */
+void gmcp_mark_room_dirty(int room_number);
+void gmcp_flush_dirty_rooms(void);
+
+/*
  * Character Vitals
  * Sends HP/Mana/Move when they change
  */
@@ -121,6 +128,14 @@ void gmcp_combat_end(struct char_data *ch);
  */
 void gmcp_comm_channel(struct char_data *ch, const char *channel,
                        const char *sender, const char *text);
+
+/*
+ * Channel Communication (extended)
+ * Sends channel messages with alignment info (for nchat)
+ */
+void gmcp_comm_channel_ex(struct char_data *ch, const char *channel,
+                          const char *sender, const char *text,
+                          const char *alignment);
 
 /*
  * Quest Status

@@ -809,6 +809,10 @@ void char_from_room(P_char ch)
   {
     return;
   }
+
+  /* Mark room as dirty for GMCP updates (before removal) */
+  gmcp_mark_room_dirty(ch->in_room);
+
 /*
   logit(LOG_DEBUG, "call to char_from_room() when already NOWHERE (%s)", GET_NAME(ch));
 
@@ -1105,6 +1109,9 @@ bool char_to_room(P_char ch, int room, int dir)
 
   /* Send GMCP Room.Info - must be before early returns */
   gmcp_room_info(ch);
+
+  /* Mark room as dirty for GMCP updates (so other players see this character) */
+  gmcp_mark_room_dirty(ch->in_room);
 
   /* Send GMCP Room.Map for wilderness zones */
   gmcp_room_map(ch);

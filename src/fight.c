@@ -2627,6 +2627,11 @@ void die(P_char ch, P_char killer)
   SET_POS(ch, GET_POS(ch) + STAT_DEAD);
   update_pos(ch);
 
+  /* Mark room as dirty for GMCP updates (character died) */
+  if (ch->in_room >= 0) {
+    gmcp_mark_room_dirty(ch->in_room);
+  }
+
   if(!CHAR_IN_ARENA(ch) || IS_NPC(ch))
   {
     //world quest hook

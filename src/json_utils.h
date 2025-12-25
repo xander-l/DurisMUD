@@ -137,6 +137,11 @@ char *json_build_combat_update(struct char_data *ch, struct char_data *victim,
 char *json_build_comm_channel(const char *channel, const char *sender,
                               const char *text);
 
+/* Build Comm.Channel GMCP message with alignment (for nchat)
+ * Returns malloc'd string, caller must free */
+char *json_build_comm_channel_ex(const char *channel, const char *sender,
+                                  const char *text, const char *alignment);
+
 /* Build Quest.Status GMCP message
  * Returns malloc'd string, caller must free */
 char *json_build_quest_status(struct char_data *ch);

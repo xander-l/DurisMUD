@@ -888,6 +888,11 @@ void game_loop(int port, int sslport)
     */
     ne_events();
 
+    /* Flush dirty room GMCP updates every 2 pulses (~500ms) */
+    if (!(pulse % 2)) {
+      gmcp_flush_dirty_rooms();
+    }
+
     PROFILE_START(activities);
     if (!(pulse % (WAIT_SEC * 60)))
       timers_activity();

@@ -3848,12 +3848,24 @@ void do_nchat(P_char ch, char *argument, int cmd)
     }
     send_to_char(Gbuf1, to, LOG_PRIVATE);
 
-    /* Send to web client via GMCP */
-    gmcp_comm_channel(to, "nchat", GET_NAME(ch), argument);
+    /* Send to web client via GMCP with alignment */
+    {
+      const char *alignment = "neutral";
+      if (good) alignment = "good";
+      else if (evil) alignment = "evil";
+      else if (undead) alignment = "undead";
+      gmcp_comm_channel_ex(to, "nchat", GET_NAME(ch), argument, alignment);
+    }
   }
 
   /* Send to sender's web client too */
-  gmcp_comm_channel(ch, "nchat", GET_NAME(ch), argument);
+  {
+    const char *alignment = "neutral";
+    if (good) alignment = "good";
+    else if (evil) alignment = "evil";
+    else if (undead) alignment = "undead";
+    gmcp_comm_channel_ex(ch, "nchat", GET_NAME(ch), argument, alignment);
+  }
 
   if( get_property("logs.chat.status", 0.000) )
   {
@@ -3942,10 +3954,14 @@ void do_wizmsg(P_char ch, char *arg, int cmd)
       if( CAN_SEE(toChar, realChar) )
       {
         send_to_char(Gbuf1, toChar, LOG_PRIVATE);
+        /* Send to web client via GMCP */
+        gmcp_comm_channel(toChar, "wizmsg", GET_NAME(realChar), send_string);
       }
       else
       {
         send_to_char(Gbuf3, toChar, LOG_PRIVATE);
+        /* Send to web client via GMCP (anonymous) */
+        gmcp_comm_channel(toChar, "wizmsg", "Someone", send_string);
       }
     }
   }
@@ -7240,10 +7256,21 @@ void do_ptell(P_char ch, char *arg, int cmd)
           (CAN_SEE(vict, ch) && IS_TRUSTED(ch)) ? ch->player.name :
           IS_TRUSTED(vict) ? ch->player.name : "Someone", msg);
   send_to_char(Gbuf1, vict, LOG_PRIVATE);
+
+  /* Send GMCP to victim (player receiving the reply) */
+  gmcp_comm_channel(vict, "petition", GET_NAME(ch), msg);
+
   logit(LOG_PETITION, "(%s) ptells (%s): (%s).", GET_NAME(ch), GET_NAME(vict), msg);
-  
+
   if(get_property("logs.chat.status", 0.000) && IS_PC(ch) && IS_PC(vict))
     logit(LOG_CHAT, "%s ptells %s '%s'", GET_NAME(ch), GET_NAME(vict), msg);
+
+  /* Send GMCP to god who sent the ptell (so they see their own reply) */
+  {
+    char sender_label[MAX_NAME_LENGTH + MAX_NAME_LENGTH + 8];
+    snprintf(sender_label, sizeof(sender_label), "%s -> %s", GET_NAME(ch), GET_NAME(vict));
+    gmcp_comm_channel(ch, "petition", sender_label, msg);
+  }
 
   for (d = descriptor_list; d; d = d->next)
   {
@@ -7255,6 +7282,14 @@ void do_ptell(P_char ch, char *arg, int cmd)
               CAN_SEE(d->character, ch) ? GET_NAME(ch) : "Someone",
               GET_NAME(vict), msg);
       send_to_char(Gbuf1, d->character, LOG_PRIVATE);
+
+      /* Send GMCP to other gods monitoring petitions */
+      {
+        char sender_label[MAX_NAME_LENGTH + MAX_NAME_LENGTH + 8];
+        snprintf(sender_label, sizeof(sender_label), "%s -> %s",
+                CAN_SEE(d->character, ch) ? GET_NAME(ch) : "Someone", GET_NAME(vict));
+        gmcp_comm_channel(d->character, "petition", sender_label, msg);
+      }
     }
   }
 

@@ -488,6 +488,15 @@ char *json_build_room_info(struct room_data *room, struct char_data *ch) {
             cJSON_AddStringToObject(npc, "colored_name", clean_name);
             free(clean_name);
             cJSON_AddNumberToObject(npc, "vnum", GET_VNUM(tch));
+            /* Extract first keyword from NPC's name list for targeting */
+            if (tch->player.name) {
+                char keyword_buf[64];
+                strncpy(keyword_buf, tch->player.name, sizeof(keyword_buf) - 1);
+                keyword_buf[sizeof(keyword_buf) - 1] = '\0';
+                char *space = strchr(keyword_buf, ' ');
+                if (space) *space = '\0';  /* Get first word only */
+                cJSON_AddStringToObject(npc, "keyword", keyword_buf);
+            }
             cJSON_AddItemToArray(npcs, npc);
         }
     }
@@ -578,6 +587,9 @@ char *json_build_char_vitals(struct char_data *ch) {
     } else {
         cJSON_AddNullToObject(root, "fighting");
     }
+
+    /* Whether character uses mana (Psionicist, Mindflayer, Illithid/Pillithid) */
+    cJSON_AddBoolToObject(root, "usesMana", USES_MANA(ch) ? 1 : 0);
 
     result = cJSON_PrintUnformatted(root);
     cJSON_Delete(root);
@@ -698,6 +710,33 @@ char *json_build_comm_channel(const char *channel, const char *sender,
     cJSON_AddStringToObject(root, "channel", channel ? channel : "info");
     cJSON_AddStringToObject(root, "sender", sender ? sender : "System");
     cJSON_AddStringToObject(root, "text", text ? text : "");
+
+    time(&now);
+    cJSON_AddNumberToObject(root, "timestamp", (double)now);
+
+    result = cJSON_PrintUnformatted(root);
+    cJSON_Delete(root);
+
+    return result;
+}
+
+/*
+ * Build Comm.Channel GMCP message data with alignment (for nchat)
+ */
+char *json_build_comm_channel_ex(const char *channel, const char *sender,
+                                  const char *text, const char *alignment) {
+    cJSON *root;
+    char *result;
+    time_t now;
+
+    root = cJSON_CreateObject();
+    cJSON_AddStringToObject(root, "channel", channel ? channel : "info");
+    cJSON_AddStringToObject(root, "sender", sender ? sender : "System");
+    cJSON_AddStringToObject(root, "text", text ? text : "");
+
+    if (alignment && *alignment) {
+        cJSON_AddStringToObject(root, "alignment", alignment);
+    }
 
     time(&now);
     cJSON_AddNumberToObject(root, "timestamp", (double)now);
