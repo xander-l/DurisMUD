@@ -2211,7 +2211,8 @@ int write_account(P_acct acct)  // returns -1 if error, 1 if no errors
   fclose(f);
   for (d = descriptor_list; d; d = d->next)
   {
-    if (d->account && !strcasecmp(acct->acct_name, d->account->acct_name))
+    if (d->account && acct->acct_name && d->account->acct_name &&
+        !strcasecmp(acct->acct_name, d->account->acct_name))
       read_account(d->account);
   }
   return 1;
