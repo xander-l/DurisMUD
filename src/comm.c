@@ -973,7 +973,30 @@ void game_loop(int port, int sslport)
         }
         if (t_ch->desc->last_map_update)
         {
-          map_look(t_ch, MAP_AUTOMAP);
+          // For ship passengers: GMCP only (handler.c already filters to GMCP-enabled only)
+          if (IS_SHIP_ROOM(t_ch->in_room))
+          {
+            if (GMCP_ENABLED(t_ch))
+            {
+              P_ship ship = get_ship_from_char(t_ch);
+              if (ship && IS_MAP_ROOM(ship->location))
+              {
+                int n = map_view_distance(t_ch, ship->location);
+                if (n > 1)
+                {
+                  // Render map and send via GMCP only (skip text by using websocket flag temporarily)
+                  bool was_websocket = t_ch->desc->websocket;
+                  t_ch->desc->websocket = 1;  // Force skip_text_output in display_map_room
+                  display_map_room(t_ch, ship->location, n, MAP_AUTOMAP);
+                  t_ch->desc->websocket = was_websocket;
+                }
+              }
+            }
+          }
+          else
+          {
+            map_look(t_ch, MAP_AUTOMAP);
+          }
           t_ch->desc->last_map_update = 0;
         }
         if (t_ch->desc->last_group_update)
@@ -982,8 +1005,8 @@ void game_loop(int port, int sslport)
           if (GMCP_ENABLED(t_ch)) {
             gmcp_send_group_status(t_ch);
           }
-          /* For MSP clients (non-GMCP), display text group output */
-          if (t_ch->desc->term_type == TERM_MSP && !GMCP_ENABLED(t_ch)) {
+          /* For MSP clients, display text group output */
+          if (t_ch->desc->term_type == TERM_MSP) {
             do_group(t_ch, "", 0);
           }
           t_ch->desc->last_group_update = 0;

@@ -437,7 +437,7 @@ int say(P_char ch, const char *argument)
           act(Gbuf2, FALSE, ch, 0, kala, TO_VICT | ACT_SILENCEABLE);
 
         /* Send to web client via GMCP */
-        gmcp_comm_channel(kala, "say", GET_NAME(ch), argument + i);
+        gmcp_comm_channel(kala, "say", PERS(ch, kala, FALSE), argument + i);
       }
     }
 
@@ -647,7 +647,7 @@ void do_gcc(P_char ch, char *argument, int cmd)
       send_to_char(Gbuf1, to_ch, LOG_PRIVATE);
 
       /* Send to web client via GMCP */
-      gmcp_comm_channel(to_ch, "gcc", GET_NAME(ch), argument);
+      gmcp_comm_channel(to_ch, "gcc", PERS(ch, to_ch, FALSE), argument);
     }
   }
 
@@ -1077,7 +1077,8 @@ void do_tell(P_char ch, char *argument, int cmd)
     send_to_char(Gbuf1, vict, LOG_PRIVATE);
 
     /* Send to web client via GMCP */
-    gmcp_comm_channel(vict, "tell", GET_NAME(ch), message);
+    gmcp_comm_channel(vict, "tell",
+        (CAN_SEE(vict, ch) || racewar(vict, ch)) ? GET_NAME(ch) : "Someone", message);
 
     /* Also send to sender so they see their own tell in chat panel */
     if (ch->desc && ch != vict) {

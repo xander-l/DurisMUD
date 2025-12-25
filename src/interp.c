@@ -1090,7 +1090,8 @@ const char *command[MAX_CMD] = {
   "appoint",
   "account",
   "protocol",
-  "\n"                          /* MAX_CMD = 842, MAX_CMD_LIST = 1000 */
+  "extractlink",
+  "\n"                          /* MAX_CMD = 843, MAX_CMD_LIST = 1000 */
 };
 
 const char *fill_words[] = {
@@ -2401,6 +2402,7 @@ void assign_command_pointers(void)
   CMD_GRT(CMD_RANDOBJ, STAT_DEAD + POS_PRONE, do_randobj, FORGER);
   CMD_GRT(CMD_REINITPHYS, STAT_DEAD + POS_PRONE, do_reinitphys, GREATER_G);
   CMD_GRT(CMD_RELEASE, STAT_DEAD + POS_PRONE, do_release, AVATAR);
+  CMD_GRT(CMD_EXTRACTLINK, STAT_DEAD + POS_PRONE, do_extractlink, GREATER_G);
   CMD_GRT(CMD_RELOADHELP, STAT_DEAD + POS_PRONE, do_reload_help, GREATER_G);
   CMD_GRT(CMD_RENAME, STAT_DEAD + POS_PRONE, do_rename, IMMORTAL);
   CMD_GRT(CMD_REROLL, STAT_DEAD + POS_PRONE, do_reroll, GREATER_G);

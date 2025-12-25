@@ -43,6 +43,7 @@
 #include "ships.h"
 #include "utility.h"
 #include "achievements.h"
+#include "files.h"
 
 /*
  * external variables
@@ -3854,7 +3855,7 @@ void do_nchat(P_char ch, char *argument, int cmd)
       if (good) alignment = "good";
       else if (evil) alignment = "evil";
       else if (undead) alignment = "undead";
-      gmcp_comm_channel_ex(to, "nchat", GET_NAME(ch), argument, alignment);
+      gmcp_comm_channel_ex(to, "nchat", PERS(ch, to, FALSE), argument, alignment);
     }
   }
 
@@ -12769,3 +12770,144 @@ void do_account(P_char ch, char *arg, int cmd)
 	}
 }
 #endif
+
+/*
+ * Check if a descriptor is valid (exists in descriptor_list)
+ */
+static int is_desc_valid(P_desc desc)
+{
+  P_desc d;
+
+  if (!desc)
+    return 0;
+
+  for (d = descriptor_list; d; d = d->next)
+  {
+    if (d == desc)
+      return 1;
+  }
+  return 0;
+}
+
+/*
+ * Extract ghost characters from the game.
+ * Handles both true linkdead (desc=NULL) and dangling pointer ghosts
+ * (desc points to freed memory not in descriptor_list).
+ *
+ * Usage: extractlink <name> - extract specific ghost character
+ *        extractlink all    - extract all ghost characters
+ */
+void do_extractlink(P_char ch, char *argument, int cmd)
+{
+  P_char vict, next_vict;
+  char name[MAX_INPUT_LENGTH];
+  char buf[MAX_STRING_LENGTH];
+  int count = 0;
+  int is_ghost;
+
+  if (!IS_TRUSTED(ch))
+    return;
+
+  one_argument(argument, name);
+
+  if (!*name)
+  {
+    send_to_char("Usage: extractlink <name> - extract specific ghost character\r\n", ch);
+    send_to_char("       extractlink all    - extract all ghost characters\r\n", ch);
+    send_to_char("Detects both linkdead and dangling pointer ghosts.\r\n", ch);
+    return;
+  }
+
+  if (!strcasecmp(name, "all"))
+  {
+    /* Extract all ghost PCs */
+    for (vict = character_list; vict; vict = next_vict)
+    {
+      next_vict = vict->next;
+
+      if (IS_NPC(vict))
+        continue;
+
+      /* Skip if this is the command issuer */
+      if (vict == ch)
+        continue;
+
+      /* Check if ghost: no desc, or desc not in descriptor_list (dangling pointer) */
+      is_ghost = !vict->desc || !is_desc_valid(vict->desc);
+
+      if (!is_ghost)
+        continue;
+
+      snprintf(buf, MAX_STRING_LENGTH, "Extracting ghost: %s (%s)\r\n",
+               GET_NAME(vict), vict->desc ? "dangling ptr" : "linkdead");
+      send_to_char(buf, ch);
+
+      wizlog(GET_LEVEL(ch), "%s extracted ghost character %s", GET_NAME(ch), GET_NAME(vict));
+      logit(LOG_WIZ, "%s extracted ghost character %s", GET_NAME(ch), GET_NAME(vict));
+
+      /* Clear dangling pointer before save/extract */
+      if (vict->desc && !is_desc_valid(vict->desc))
+        vict->desc = NULL;
+
+      writeCharacter(vict, RENT_LINKDEAD, vict->in_room);
+      extract_char(vict);
+      count++;
+    }
+
+    snprintf(buf, MAX_STRING_LENGTH, "Extracted %d ghost character%s.\r\n", count, count == 1 ? "" : "s");
+    send_to_char(buf, ch);
+  }
+  else
+  {
+    /* Extract specific ghost character by name */
+    for (vict = character_list; vict; vict = next_vict)
+    {
+      next_vict = vict->next;
+
+      if (IS_NPC(vict))
+        continue;
+
+      /* Skip if this is the command issuer */
+      if (vict == ch)
+        continue;
+
+      if (!isname(name, GET_NAME(vict)))
+        continue;
+
+      /* Check if ghost: no desc, or desc not in descriptor_list (dangling pointer) */
+      is_ghost = !vict->desc || !is_desc_valid(vict->desc);
+
+      if (!is_ghost)
+      {
+        snprintf(buf, MAX_STRING_LENGTH, "Skipping %s - has valid connection.\r\n", GET_NAME(vict));
+        send_to_char(buf, ch);
+        continue;
+      }
+
+      snprintf(buf, MAX_STRING_LENGTH, "Extracting ghost: %s (%s)\r\n",
+               GET_NAME(vict), vict->desc ? "dangling ptr" : "linkdead");
+      send_to_char(buf, ch);
+
+      wizlog(GET_LEVEL(ch), "%s extracted ghost character %s", GET_NAME(ch), GET_NAME(vict));
+      logit(LOG_WIZ, "%s extracted ghost character %s", GET_NAME(ch), GET_NAME(vict));
+
+      /* Clear dangling pointer before save/extract */
+      if (vict->desc && !is_desc_valid(vict->desc))
+        vict->desc = NULL;
+
+      writeCharacter(vict, RENT_LINKDEAD, vict->in_room);
+      extract_char(vict);
+      count++;
+    }
+
+    if (count == 0)
+    {
+      send_to_char("No ghost character by that name found.\r\n", ch);
+    }
+    else
+    {
+      snprintf(buf, MAX_STRING_LENGTH, "Extracted %d ghost character%s.\r\n", count, count == 1 ? "" : "s");
+      send_to_char(buf, ch);
+    }
+  }
+}

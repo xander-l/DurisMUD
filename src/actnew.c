@@ -284,7 +284,7 @@ void do_gsay(P_char ch, char *arg, int cmd)
 
       /* Send to web client via GMCP */
       if (gl->ch != ch)
-        gmcp_comm_channel(gl->ch, "gsay", GET_NAME(ch), arg + i);
+        gmcp_comm_channel(gl->ch, "gsay", PERS(ch, gl->ch, FALSE), arg + i);
     }
   }
 

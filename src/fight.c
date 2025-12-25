@@ -6417,7 +6417,7 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags, struct damage_m
 
       /* Send GMCP updates for combat */
       gmcp_char_vitals(victim);  /* Update victim's vitals */
-      gmcp_combat_target(ch, victim);  /* Update attacker's target health bar */
+      gmcp_combat_target(ch, GET_OPPONENT(ch));  /* Update with actual opponent */
     }
 
     if( IS_PC(victim) && victim->desc && (IS_SET(victim->specials.act, PLR_SMARTPROMPT)

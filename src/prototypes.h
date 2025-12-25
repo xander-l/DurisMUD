@@ -480,6 +480,7 @@ void do_doorbash(P_char, char *, int);
 void do_doorkick(P_char, char *, int);
 void do_explist(P_char, char *, int);
 void do_expkkk(P_char, char *, int);  // Arih: for debugging exp bug
+void do_extractlink(P_char, char *, int);
 void do_fly(P_char, char *, int);
 void do_forage(P_char, char *, int);
 void do_githyanki_primeshift(P_char ch);

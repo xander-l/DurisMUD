@@ -600,9 +600,11 @@ void display_map_room(P_char ch, int from_room, int n, int show_map_regardless)
     return;
   }
 
-  /* Skip text output for GMCP auto-updates (unless MSP terminal) */
-  bool skip_text_output = GMCP_ENABLED(ch) && (show_map_regardless == MAP_AUTOMAP)
-                          && (ch->desc->term_type != TERM_MSP);
+  /* Skip text output for GMCP auto-updates (unless MSP terminal) or if toggle map is off */
+  bool toggle_map_off = IS_PC(GET_TRUE_CHAR(ch)) && !IS_SET(GET_TRUE_CHAR(ch)->specials.act, PLR_MAP);
+  bool skip_text_output = (GMCP_ENABLED(ch) && (show_map_regardless == MAP_AUTOMAP)
+                          && (ch->desc->term_type != TERM_MSP))
+                          || (GMCP_ENABLED(ch) && toggle_map_off);
 
   from_what = SECTOR_TYPE(from_room);
 
@@ -1028,11 +1030,12 @@ void map_look_room(P_char ch, int room, int show_map_regardless)
   }
 
   // If we're not ignoring the toggle and we have a PC (includes switched Imms), and they have
-  //   the toggle off, don't show the map.
+  //   the toggle off, don't show the map (but GMCP clients still get GMCP map data).
   if( show_map_regardless != MAP_IGNORE_TOGGLE
     && IS_PC(GET_TRUE_CHAR(ch)) && !IS_SET(GET_TRUE_CHAR(ch)->specials.act, PLR_MAP) )
   {
-    return;
+    if( !GMCP_ENABLED(ch) )
+      return;
   }
 
   if( (n = map_view_distance(ch, room)) > 1 )
