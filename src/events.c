@@ -26,6 +26,7 @@
 #include "objmisc.h"
 #include "epic.h"
 #include "profile.h"
+#include "gmcp.h"
 
 void event_memorize(P_char, P_char, P_obj, void *);
 void disarm_char_nevents(P_char ch, event_func_type func);
@@ -457,6 +458,7 @@ void event_mana_regen(P_char ch, P_char victim, P_obj obj, void *data)
 
 
       regen_value = regen_value - (float)regen_value_int;
+      gmcp_char_vitals(ch);
   }
 int per_tick = 0;
   //int per_tick = mana_regen(ch);
@@ -506,6 +508,7 @@ void event_move_regen(P_char ch, P_char victim, P_obj obj, void *data)
         GET_VITALITY(ch) = GET_MAX_VITALITY(ch);
 
       regen_value = regen_value - (float)regen_value_int;
+      gmcp_char_vitals(ch);
   }
 
   int per_tick = move_regen(ch, FALSE);
@@ -565,6 +568,7 @@ void event_hit_regen(P_char ch, P_char victim, P_obj obj, void *data)
         return;
       }
       regen_value = regen_value - (float)regen_value_int;
+      gmcp_char_vitals(ch);
   }
 
   update_pos(ch);

@@ -375,8 +375,18 @@ char *json_build_room_info(struct room_data *room, struct char_data *ch) {
 
     root = cJSON_CreateObject();
 
-    /* Standard field: num (not vnum) */
-    cJSON_AddNumberToObject(root, "num", room->number);
+    /* Standard field: num (not vnum) - hide for wilderness zones */
+    int zone_num = (room->zone >= 0) ? zone_table[room->zone].number : 0;
+    bool is_wilderness = (zone_num == 600 ||                          // The Adventurers Shipyards
+                          (zone_num >= 1200 && zone_num <= 1238) ||   // Alatorin
+                          (zone_num >= 5000 && zone_num <= 6599) ||   // Surface
+                          (zone_num >= 6600 && zone_num <= 6999) ||   // Newbie Maps
+                          (zone_num >= 7000 && zone_num <= 8599));    // Underdark
+    if (is_wilderness) {
+        cJSON_AddNumberToObject(root, "num", 0);
+    } else {
+        cJSON_AddNumberToObject(root, "num", room->number);
+    }
 
     /* Room name - clean for Mudlet, colored for web */
     clean_name = json_escape_ansi_string(room->name ? room->name : "Unknown");
@@ -406,15 +416,18 @@ char *json_build_room_info(struct room_data *room, struct char_data *ch) {
         cJSON_AddStringToObject(root, "environment", "unknown");
     }
 
-    /* Standard field: coords object (not x/y/z at top level) */
+    /* Standard field: coords object - hide for wilderness zones */
     coords = cJSON_CreateObject();
-    cJSON_AddNumberToObject(coords, "x", room->x_coord);
-    cJSON_AddNumberToObject(coords, "y", room->y_coord);
-    cJSON_AddNumberToObject(coords, "z", room->z_coord);
+    if (!is_wilderness) {
+        cJSON_AddNumberToObject(coords, "x", room->x_coord);
+        cJSON_AddNumberToObject(coords, "y", room->y_coord);
+        cJSON_AddNumberToObject(coords, "z", room->z_coord);
+    }
     cJSON_AddItemToObject(root, "coords", coords);
 
     /* Build exits object - standard format: "n": 12345 (just the room number) */
     /* Skip secret exits unless the door is open (discovered) */
+    /* Hide vnums for wilderness zones (show true instead) */
     exits = cJSON_CreateObject();
     for (dir = 0; dir < 10; dir++) {
         if (room->dir_option[dir] && room->dir_option[dir]->to_room != NOWHERE) {
@@ -423,8 +436,12 @@ char *json_build_room_info(struct room_data *room, struct char_data *ch) {
                 IS_SET(room->dir_option[dir]->exit_info, EX_CLOSED)) {
                 continue;
             }
-            cJSON_AddNumberToObject(exits, dir_abbrevs[dir],
-                world[room->dir_option[dir]->to_room].number);
+            if (is_wilderness) {
+                cJSON_AddBoolToObject(exits, dir_abbrevs[dir], 1);
+            } else {
+                cJSON_AddNumberToObject(exits, dir_abbrevs[dir],
+                    world[room->dir_option[dir]->to_room].number);
+            }
         }
     }
     cJSON_AddItemToObject(root, "exits", exits);
