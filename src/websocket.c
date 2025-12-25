@@ -173,6 +173,8 @@ int websocket_accept(int listen_fd, struct descriptor_data *d) {
     d->gmcp_enabled = 1;  /* WebSocket clients always have GMCP enabled */
     d->ws_state = WS_STATE_CONNECTING;
     d->ws_handshake_done = 0;
+    d->ws_last_ping = 0;
+    d->ws_pong_received = 0;
 
     /* Get peer address */
     strncpy(d->host, inet_ntoa(peer.sin_addr), sizeof(d->host) - 1);
@@ -567,7 +569,8 @@ int websocket_parse_frame(struct descriptor_data *d, const char *buf, size_t len
         *payload = NULL;
         *payload_len = 0;
     } else if (op == WS_OPCODE_PONG) {
-        /* Ignore pong */
+        /* Mark pong received for dead connection detection */
+        d->ws_pong_received = 1;
         free(*payload);
         *payload = NULL;
         *payload_len = 0;

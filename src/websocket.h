@@ -16,6 +16,8 @@
 #define WS_PORT             4050
 #define WS_MAX_FRAME_SIZE   65536
 #define WS_MAGIC_STRING     "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
+#define WS_PING_INTERVAL    30    /* Send ping every 30 seconds */
+#define WS_PING_TIMEOUT     60    /* Close if no pong within 60 seconds */
 
 /* WebSocket Opcodes (RFC 6455 Section 5.2) */
 #define WS_OPCODE_CONTINUATION  0x00

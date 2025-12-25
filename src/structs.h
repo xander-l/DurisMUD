@@ -1685,6 +1685,10 @@ struct descriptor_data {
   size_t ws_fragment_len;         /* Length of fragment buffer */
   int gmcp_enabled;               /* 1 if client wants GMCP protocol */
 
+  /* WebSocket ping/pong for dead connection detection */
+  time_t ws_last_ping;            /* Time of last ping sent */
+  int ws_pong_received;           /* 1 if pong received since last ping */
+
   /* WebSocket character generation (Phase 4) */
   struct stat_data chargen_stats; /* Rolled stats stored server-side */
   int chargen_race;               /* Selected race for chargen */

@@ -310,7 +310,7 @@ int raw_write_to_descriptor(P_desc d, const char *txt, const int total)
 
   sentbytes += total;
 
-  if(d->character)
+  if(d->character && !IS_NPC(d->character))
     d->character->only.pc->send_data = d->character->only.pc->send_data + total;
 
   if (d->sslses)

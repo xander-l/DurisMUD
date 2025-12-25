@@ -756,6 +756,28 @@ void game_loop(int port, int sslport)
         if (player_count > max_users_playing)
           max_users_playing = player_count;
       }
+
+      /* WebSocket ping/pong dead connection detection */
+      if (point->websocket && point->ws_state == WS_STATE_OPEN) {
+        time_t now = time(0);
+
+        /* Check for ping timeout (no pong received) */
+        if (point->ws_last_ping > 0 && !point->ws_pong_received &&
+            (now - point->ws_last_ping) > WS_PING_TIMEOUT) {
+          statuslog(56, "WebSocket: Closing dead connection from %s (ping timeout)", point->host);
+          websocket_close(point, WS_CLOSE_GOING_AWAY, "Ping timeout");
+          close_socket(point);
+          continue;
+        }
+
+        /* Send periodic ping */
+        if (point->ws_last_ping == 0 || (now - point->ws_last_ping) >= WS_PING_INTERVAL) {
+          websocket_send_ping(point);
+          point->ws_last_ping = now;
+          point->ws_pong_received = 0;  /* Reset for next cycle */
+        }
+      }
+
       /* new timeout for non-playing sockets */
 
       if (point->connected)
