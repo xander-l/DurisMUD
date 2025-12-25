@@ -3116,17 +3116,11 @@ void extract_char(P_char ch)
       } else {
           display_account_menu(ch->desc, NULL);
       }
-
-      ch->desc->character = NULL;
-      free_char(ch);
-      ch = NULL;
 #endif
+	  ch->desc->character = NULL;
     }
-	else
-	{
-		free_char(ch);
-		ch = NULL;
-	}
+    free_char(ch);
+    ch = NULL;
   }
   else
   {
