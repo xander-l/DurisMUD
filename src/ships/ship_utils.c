@@ -163,7 +163,7 @@ void look_out_ship(P_ship ship, P_char ch)
    if (ch->desc && GMCP_ENABLED(ch) && IS_MAP_ROOM(ship->location)) {
       int n = map_view_distance(ch, ship->location);
       if (n > 1) {
-         display_map_room(ch, ship->location, n, MAP_IGNORE_TOGGLE);
+         display_map_room(ch, ship->location, n, MAP_IGNORE_TOGGLE, 0);
       }
    }
 

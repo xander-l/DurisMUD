@@ -887,11 +887,15 @@ char *json_build_quest_status(struct char_data *ch) {
         }
 
         cJSON_AddStringToObject(root, "target", target_buf);
+        cJSON_AddNumberToObject(root, "zoneNumber", ch->only.pc->quest_zone_number);
     } else {
         cJSON_AddBoolToObject(root, "active", 0);
         cJSON_AddNullToObject(root, "type");
         cJSON_AddStringToObject(root, "target", "");
     }
+
+    /* Always include mapBought status */
+    cJSON_AddBoolToObject(root, "mapBought", ch->only.pc->quest_map_bought == 1);
 
     result = cJSON_PrintUnformatted(root);
     cJSON_Delete(root);

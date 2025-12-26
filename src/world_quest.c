@@ -823,11 +823,14 @@ int quest_buy_map(P_char ch)
   
   if( map_room > 0 )
   {
-    ch->only.pc->quest_map_room = world[map_room].number;    
+    ch->only.pc->quest_map_room = world[map_room].number;
     //debug("quest_map_room: %d", ch->only.pc->quest_map_room);
     show_map_at(ch, map_room);
+
+    /* Send quest map via GMCP for WebSocket clients */
+    gmcp_quest_map(ch);
   }
-  
+
   return 1;
 }
 

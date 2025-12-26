@@ -576,7 +576,7 @@ int whats_in_maproom(P_char ch, int room, int distance, int show_regardless)
 
 // Show ch the map with a distance of n as if the ch is in room from_room
 //   and show_map_regardless
-void display_map_room(P_char ch, int from_room, int n, int show_map_regardless)
+void display_map_room(P_char ch, int from_room, int n, int show_map_regardless, int gmcp_pkg_type)
 {
   int      x, y, where, what, from_what, prev = -1, temp;
   int      where_rnum, whats_in, distance;
@@ -878,13 +878,17 @@ void display_map_room(P_char ch, int from_room, int n, int show_map_regardless)
   /* Send map via GMCP for WebSocket clients */
   if( GMCP_ENABLED(ch) && gmcp_map_buf[0] != '\0' )
   {
-    gmcp_send_room_map(ch, gmcp_map_buf);
+    if (gmcp_pkg_type == 1) {
+      gmcp_send_quest_map(ch, gmcp_map_buf);
+    } else {
+      gmcp_send_room_map(ch, gmcp_map_buf);
+    }
   }
 }
 
 void display_map(P_char ch, int n, int show_map_regardless)
 {
-  display_map_room(ch, ch->in_room, n, show_map_regardless);
+  display_map_room(ch, ch->in_room, n, show_map_regardless, 0);
 }
 
 int map_view_distance(P_char ch, int room)
@@ -1040,7 +1044,7 @@ void map_look_room(P_char ch, int room, int show_map_regardless)
 
   if( (n = map_view_distance(ch, room)) > 1 )
   {
-    display_map_room(ch, room, n, show_map_regardless);
+    display_map_room(ch, room, n, show_map_regardless, 0);
   }
 }
 

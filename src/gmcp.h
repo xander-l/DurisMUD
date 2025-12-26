@@ -39,6 +39,7 @@
 #define GMCP_PKG_CHAR_SKILLS    "Char.Skills"
 #define GMCP_PKG_CHAR_ITEMS     "Char.Items"
 #define GMCP_PKG_QUEST_STATUS   "Quest.Status"
+#define GMCP_PKG_QUEST_MAP      "Quest.Map"
 #define GMCP_PKG_GROUP_STATUS   "Group.Status"
 
 /*
@@ -142,6 +143,8 @@ void gmcp_comm_channel_ex(struct char_data *ch, const char *channel,
  * Sends current bartender quest status
  */
 void gmcp_quest_status(struct char_data *ch);
+void gmcp_quest_map(struct char_data *ch);
+void gmcp_send_quest_map(struct char_data *ch, const char *map_buf);
 
 /* Send to all who can hear the channel */
 void gmcp_broadcast_channel(const char *channel, const char *sender,

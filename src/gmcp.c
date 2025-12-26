@@ -176,6 +176,35 @@ void gmcp_send_room_map(struct char_data *ch, const char *map_buf) {
 }
 
 /*
+ * Send pre-generated quest map buffer via GMCP
+ * Called from gmcp_quest_map() after generating map at quest location
+ */
+void gmcp_send_quest_map(struct char_data *ch, const char *map_buf) {
+    char *json_str;
+    cJSON *json;
+
+    if (!ch || !ch->desc) return;
+    if (!GMCP_ENABLED(ch)) return;
+    if (!map_buf || !*map_buf) return;
+    if (!ch->only.pc) return;
+
+    /* Build JSON */
+    json = cJSON_CreateObject();
+    if (!json) return;
+
+    cJSON_AddStringToObject(json, "map", map_buf);
+    cJSON_AddNumberToObject(json, "zoneNumber", ch->only.pc->quest_zone_number);
+
+    json_str = cJSON_PrintUnformatted(json);
+    cJSON_Delete(json);
+
+    if (json_str) {
+        gmcp_send(ch->desc, GMCP_PKG_QUEST_MAP, json_str);
+        free(json_str);
+    }
+}
+
+/*
  * Room Update Throttling
  * Track "dirty" rooms and flush updates periodically to avoid flooding
  * during high-activity scenarios (e.g., 30-player battles)
@@ -595,4 +624,39 @@ void gmcp_quest_status(struct char_data *ch) {
         gmcp_send(ch->desc, GMCP_PKG_QUEST_STATUS, json);
         free(json);
     }
+
+    /* Send quest map once per session if player has one purchased */
+    if (ch->only.pc && ch->only.pc->quest_map_bought == 1 &&
+        !ch->desc->gmcp_quest_map_sent) {
+        gmcp_quest_map(ch);
+        ch->desc->gmcp_quest_map_sent = 1;
+    }
+}
+
+/*
+ * Generate and send Quest.Map for bartender quests
+ * Temporarily teleports to quest map room to generate the map
+ */
+void gmcp_quest_map(struct char_data *ch) {
+    int old_room, map_room;
+
+    if (!ch || !ch->desc) return;
+    if (!GMCP_ENABLED(ch)) return;
+    if (!ch->only.pc) return;
+    if (ch->only.pc->quest_map_bought != 1) return;
+
+    map_room = real_room(ch->only.pc->quest_map_room);
+    if (map_room < 0) return;
+
+    /* Temporarily move to map room */
+    old_room = ch->in_room;
+    char_from_room(ch);
+    char_to_room(ch, map_room, -2);
+
+    /* Generate and send quest map (20 tile radius, always show) */
+    display_map_room(ch, map_room, 20, 999, 1);  /* 1 = Quest.Map */
+
+    /* Return to original room */
+    char_from_room(ch);
+    char_to_room(ch, old_room, -2);
 }

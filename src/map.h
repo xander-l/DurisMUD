@@ -89,7 +89,7 @@ void calculate_map_coordinates();
 const char* get_map_direction(int from, int to);
 
 /* Map display functions */
-void display_map_room(struct char_data *ch, int from_room, int n, int show_map_regardless);
+void display_map_room(struct char_data *ch, int from_room, int n, int show_map_regardless, int gmcp_pkg_type);
 void display_map(struct char_data *ch, int n, int show_map_regardless);
 int map_view_distance(struct char_data *ch, int room);
 

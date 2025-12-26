@@ -987,7 +987,7 @@ void game_loop(int port, int sslport)
                   // Render map and send via GMCP only (skip text by using websocket flag temporarily)
                   bool was_websocket = t_ch->desc->websocket;
                   t_ch->desc->websocket = 1;  // Force skip_text_output in display_map_room
-                  display_map_room(t_ch, ship->location, n, MAP_AUTOMAP);
+                  display_map_room(t_ch, ship->location, n, MAP_AUTOMAP, 0);
                   t_ch->desc->websocket = was_websocket;
                 }
               }
