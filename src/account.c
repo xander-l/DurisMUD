@@ -2113,6 +2113,38 @@ int read_account(P_acct acct)   // returns -1 if error, 1 if no errors
   }
 
   fscanf(f, "%d\n", &serial);
+
+  /* Free old pointers before overwriting to prevent memory leaks */
+  acct->acct_name = check_and_clear(acct->acct_name);
+  acct->acct_email = check_and_clear(acct->acct_email);
+  acct->acct_password = check_and_clear(acct->acct_password);
+  acct->acct_confirmation = check_and_clear(acct->acct_confirmation);
+
+  /* Free old IP and character lists before reading new ones */
+  if (acct->acct_unique_ips)
+  {
+    struct acct_ip *curr_ip, *next_ip;
+    for (curr_ip = acct->acct_unique_ips; curr_ip; curr_ip = next_ip)
+    {
+      curr_ip->hostname = check_and_clear(curr_ip->hostname);
+      curr_ip->ip_address = check_and_clear(curr_ip->ip_address);
+      next_ip = curr_ip->next;
+      FREE(curr_ip);
+    }
+    acct->acct_unique_ips = NULL;
+  }
+  if (acct->acct_character_list)
+  {
+    struct acct_chars *curr_char, *next_char;
+    for (curr_char = acct->acct_character_list; curr_char; curr_char = next_char)
+    {
+      curr_char->charname = check_and_clear(curr_char->charname);
+      next_char = curr_char->next;
+      FREE(curr_char);
+    }
+    acct->acct_character_list = NULL;
+  }
+
   fgets(buf, 4096, f);
   buf[strcspn(buf, "\r\n")] = 0;  // Remove newline
   acct->acct_name = str_dup(buf);

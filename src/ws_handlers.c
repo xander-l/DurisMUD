@@ -391,16 +391,20 @@ void ws_cmd_login(struct descriptor_data *d, cJSON *data)
         return;
     }
 
-    /* Allocate and load account */
+    /* Allocate and load account using proper allocation function */
     if (!d->account) {
-        CREATE(d->account, struct acct_entry, 1, MEM_TAG_OTHER);
-        memset(d->account, 0, sizeof(struct acct_entry));
+        d->account = allocate_account();
+        if (!d->account) {
+            ws_send_auth_failed(d, "Failed to allocate account");
+            return;
+        }
     }
 
     d->account->acct_name = str_dup(tmp_name);
 
     if (read_account(d->account) == -1) {
         ws_send_auth_failed(d, "Error loading account");
+        d->account = free_account(d->account);
         return;
     }
 
@@ -415,11 +419,8 @@ void ws_cmd_login(struct descriptor_data *d, cJSON *data)
 
     if (!password_valid) {
         ws_send_auth_failed(d, "Invalid password");
-        /* Clear account data */
-        if (d->account->acct_name) {
-            str_free(d->account->acct_name);
-            d->account->acct_name = NULL;
-        }
+        /* Free the entire account on auth failure */
+        d->account = free_account(d->account);
         return;
     }
 
