@@ -27,6 +27,7 @@
 #include "map.h"
 #include "limits.h"
 #include "ctf.h"
+#include "gmcp.h"
 
 extern char buf[MAX_STRING_LENGTH];
 extern bool insert_money_pickup(int pid, int money);
@@ -1184,6 +1185,7 @@ int ship_obj_proc(P_obj obj, P_char ch, int cmd, char *arg)
         act("You step through the docking bay of $p.", FALSE, ch, ship->shipobj, 0, TO_CHAR);
         char_to_room(ch, real_room0(ship->entrance), 0);
         act("$n steps through the docking bay.", TRUE, ch, 0, 0, TO_ROOM);
+        gmcp_mark_ship_contacts_dirty(ship);
         return TRUE;
       }
 //            else
@@ -1199,6 +1201,7 @@ int ship_obj_proc(P_obj obj, P_char ch, int cmd, char *arg)
         act("You board $p.", FALSE, ch, ship->shipobj, 0, TO_CHAR);
         char_to_room(ch, real_room0(ship->entrance), 0);
         act("$n comes aboard.", TRUE, ch, 0, 0, TO_ROOM);
+        gmcp_mark_ship_contacts_dirty(ship);
     }
   }
   return(TRUE);
@@ -1540,7 +1543,7 @@ void ship_activity()
                 act_to_all_in_ship(ship, "&+WThe crew readies the sails.&N");
             else if (ship->timer[T_UNDOCK] == 9)
                 act_to_all_in_ship(ship, "&+yThe first officer begins a checkup of all ship systems.&N");
-            else if (ship->timer[T_UNDOCK] == 1) 
+            else if (ship->timer[T_UNDOCK] == 1)
             {
                 assignid(ship, NULL);
                 act_to_all_in_ship(ship, "&+GThe first officer reports everything is in order and the ship is ready to go.&N");
@@ -1548,6 +1551,7 @@ void ship_activity()
                 REMOVE_BIT(ship->flags, ANCHOR);
                 update_crew(ship);
                 update_ship_status(ship);
+                gmcp_mark_ship_contacts_dirty(ship);
             }
         }
 
@@ -1603,11 +1607,12 @@ void ship_activity()
             }
 
             // Movement Goes here
-            if (ship->speed != 0) 
+            if (ship->speed != 0)
             {
                 rad = ship->heading * M_PI / 180.000;
                 ship->x += (float) ((float) ship->speed * sin(rad)) / 150.000;
                 ship->y += (float) ((float) ship->speed * cos(rad)) / 150.000;
+                gmcp_mark_ship_contacts_dirty(ship);
 
                 if ((ship->y >= 51.000) || (ship->x >= 51.000) || (ship->y < 50.000) || (ship->x < 50.000)) 
                 {
@@ -1675,12 +1680,13 @@ void ship_activity()
                                     send_to_room_f(loc, "%s&N sails in from the north.\r\n", ship->name);
                                 }
                             }
-                            if (SHIP_OBJ(ship) && (loc != ship->location)) 
+                            if (SHIP_OBJ(ship) && (loc != ship->location))
                             {
                                 ship->location = loc;
                                 obj_from_room(SHIP_OBJ(ship));
                                 obj_to_room(SHIP_OBJ(ship), loc);
                                 everyone_look_out_ship(ship);
+                                gmcp_mark_ship_contacts_dirty(ship);
                             }
                         } 
                         else
@@ -1828,10 +1834,11 @@ void dock_ship(P_ship ship, int to_room)
     assignid(ship, "**");
     act_to_all_in_ship(ship, "Your ship has completed docking procedures.");
     SET_BIT(ship->flags, DOCKED);
-    if(IS_SET(ship->flags, ATTACKBYNPC)) 
-      REMOVE_BIT(ship->flags, ATTACKBYNPC); 
+    if(IS_SET(ship->flags, ATTACKBYNPC))
+      REMOVE_BIT(ship->flags, ATTACKBYNPC);
     reset_crew_stamina(ship);
     update_ship_status(ship);
+    gmcp_mark_ship_contacts_dirty(ship);
 }
 
 

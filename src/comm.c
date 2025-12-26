@@ -913,6 +913,7 @@ void game_loop(int port, int sslport)
     /* Flush dirty room GMCP updates every 2 pulses (~500ms) */
     if (!(pulse % 2)) {
       gmcp_flush_dirty_rooms();
+      gmcp_flush_dirty_ship_contacts();
     }
 
     PROFILE_START(activities);

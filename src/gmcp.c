@@ -26,6 +26,7 @@
 #include "map.h"
 #include <cjson/cJSON.h>
 #include <math.h>
+#include "ships/ships.h"
 
 /* External declarations */
 extern struct room_data *world;
@@ -248,6 +249,186 @@ void gmcp_flush_dirty_rooms(void) {
     }
 
     dirty_room_count = 0;
+}
+
+/*
+ * Ship Contacts Auto-Update
+ * Periodically send contact updates to players on ships
+ */
+
+/* Check if ship has any GMCP-enabled players on board */
+static bool ship_has_gmcp_players(struct ShipData *ship) {
+    struct char_data *tch;
+    int bridge_rnum;
+
+    if (!ship) return false;
+
+    /* Only check the bridge room (where the control panel is) */
+    bridge_rnum = real_room(ship->bridge);
+    if (bridge_rnum < 0) return false;
+
+    for (tch = world[bridge_rnum].people; tch; tch = tch->next_in_room) {
+        if (!IS_NPC(tch) && tch->desc && GMCP_ENABLED(tch)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/* Deprecated - kept for compatibility, does nothing now */
+void gmcp_mark_ship_contacts_dirty(struct ShipData *ship) {
+    (void)ship; /* unused */
+}
+
+/* Simple djb2 hash function for strings */
+static unsigned long hash_string(const char *str) {
+    unsigned long hash = 5381;
+    int c;
+
+    if (!str) return 0;
+
+    while ((c = *str++)) {
+        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+    }
+
+    return hash;
+}
+
+/* Build JSON for ship contacts */
+static char *json_build_ship_contacts(struct ShipData *ship) {
+    cJSON *root, *contacts_arr, *contact_obj;
+    char *json_str;
+    int k, i;
+    const char *race_str;
+    const char *status_str;
+
+    if (!ship) return NULL;
+
+    root = cJSON_CreateObject();
+    if (!root) return NULL;
+
+    /* Ship's own heading and speed */
+    cJSON_AddNumberToObject(root, "heading", (int)ship->heading);
+    cJSON_AddNumberToObject(root, "speed", ship->speed);
+
+    contacts_arr = cJSON_CreateArray();
+    if (!contacts_arr) {
+        cJSON_Delete(root);
+        return NULL;
+    }
+
+    /* Only get contacts if on open sea and not docked */
+    if (IS_MAP_ROOM(ship->location) && !SHIP_DOCKED(ship)) {
+        k = getcontacts(ship);
+
+        for (i = 0; i < k; i++) {
+            /* Skip docked ships beyond range 5 */
+            if (SHIP_DOCKED(contacts[i].ship) && contacts[i].range > 5)
+                continue;
+
+            contact_obj = cJSON_CreateObject();
+            if (!contact_obj) continue;
+
+            /* Ship identification */
+            cJSON_AddStringToObject(contact_obj, "id", contacts[i].ship->id);
+            cJSON_AddStringToObject(contact_obj, "name", strip_ansi(contacts[i].ship->name).c_str());
+
+            /* Position and navigation */
+            cJSON_AddNumberToObject(contact_obj, "x", contacts[i].x);
+            cJSON_AddNumberToObject(contact_obj, "y", contacts[i].y);
+            cJSON_AddNumberToObject(contact_obj, "range", contacts[i].range);
+            cJSON_AddNumberToObject(contact_obj, "bearing", (int)contacts[i].bearing);
+            cJSON_AddNumberToObject(contact_obj, "heading", (int)contacts[i].ship->heading);
+            cJSON_AddNumberToObject(contact_obj, "speed", contacts[i].ship->speed);
+            cJSON_AddStringToObject(contact_obj, "arc", contacts[i].arc);
+
+            /* Race/alignment (only if in scan range and not docked) */
+            race_str = "unknown";
+            if (contacts[i].range < SCAN_RANGE && !SHIP_DOCKED(contacts[i].ship)) {
+                switch (contacts[i].ship->race) {
+                    case GOODIESHIP: race_str = "good"; break;
+                    case EVILSHIP: race_str = "evil"; break;
+                    case UNDEADSHIP: race_str = "undead"; break;
+                    case SQUIDSHIP: race_str = "squid"; break;
+                    default: race_str = "unknown"; break;
+                }
+            }
+            cJSON_AddStringToObject(contact_obj, "race", race_str);
+
+            /* Status flags */
+            status_str = "";
+            if (SHIP_FLYING(contacts[i].ship)) status_str = "flying";
+            else if (SHIP_SINKING(contacts[i].ship)) status_str = "sinking";
+            else if (SHIP_DOCKED(contacts[i].ship)) status_str = "docked";
+            else if (SHIP_ANCHORED(contacts[i].ship)) status_str = "anchored";
+            cJSON_AddStringToObject(contact_obj, "status", status_str);
+
+            /* Targeting indicators */
+            cJSON_AddBoolToObject(contact_obj, "targeting_you", contacts[i].ship->target == ship);
+            cJSON_AddBoolToObject(contact_obj, "you_targeting", contacts[i].ship == ship->target);
+
+            cJSON_AddItemToArray(contacts_arr, contact_obj);
+        }
+    }
+
+    cJSON_AddItemToObject(root, "contacts", contacts_arr);
+
+    json_str = cJSON_PrintUnformatted(root);
+    cJSON_Delete(root);
+
+    return json_str;
+}
+
+/* Send contacts GMCP to all players on the bridge (takes pre-built JSON) */
+static void send_ship_contacts_to_players_json(struct ShipData *ship, const char *json) {
+    struct char_data *tch;
+    int bridge_rnum;
+
+    if (!ship || !json) return;
+
+    /* Only send to players on the bridge (where control panel is) */
+    bridge_rnum = real_room(ship->bridge);
+    if (bridge_rnum < 0) return;
+
+    for (tch = world[bridge_rnum].people; tch; tch = tch->next_in_room) {
+        if (!IS_NPC(tch) && tch->desc && GMCP_ENABLED(tch)) {
+            gmcp_send(tch->desc, GMCP_PKG_SHIP_CONTACTS, json);
+        }
+    }
+}
+
+void gmcp_flush_dirty_ship_contacts(void) {
+    ShipVisitor svs;
+    struct ShipData *ship;
+    char *json;
+    unsigned long new_hash;
+
+    /* Iterate through all ships */
+    for (bool fn = shipObjHash.get_first(svs); fn; fn = shipObjHash.get_next(svs)) {
+        ship = svs;
+
+        if (!ship || !SHIP_LOADED(ship)) continue;
+
+        /* Skip ships not on map, docked, or without GMCP players on bridge */
+        if (!IS_MAP_ROOM(ship->location)) continue;
+        if (SHIP_DOCKED(ship)) continue;
+        if (!ship_has_gmcp_players(ship)) continue;
+
+        /* Build contacts JSON */
+        json = json_build_ship_contacts(ship);
+        if (!json) continue;
+
+        /* Calculate hash of current contacts */
+        new_hash = hash_string(json);
+
+        /* Only send if contacts have changed */
+        if (new_hash != ship->contacts_hash) {
+            send_ship_contacts_to_players_json(ship, json);
+            ship->contacts_hash = new_hash;
+        }
+
+        free(json);
+    }
 }
 
 /*

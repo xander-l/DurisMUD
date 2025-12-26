@@ -467,6 +467,8 @@ struct ShipData
 
     int maxspeed_bonus;
     int capacity_bonus;
+
+    unsigned long contacts_hash;  /* GMCP: hash of last sent contacts for change detection */
 };
 
 struct ContactData

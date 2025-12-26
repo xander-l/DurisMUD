@@ -17,6 +17,7 @@
 #include "ship_npc.h"
 #include "ship_npc_ai.h"
 #include "ctf.h"
+#include "gmcp.h"
 
 extern char buf[MAX_STRING_LENGTH];
 extern char arg1[MAX_STRING_LENGTH];
@@ -267,6 +268,7 @@ int order_anchor(P_char ch, P_ship ship)
     SET_BIT(ship->flags, ANCHOR);
     ship->speed = 0;
     ship->setspeed = 0;
+    gmcp_mark_ship_contacts_dirty(ship);
     return TRUE;
 }
 
@@ -385,6 +387,7 @@ int order_heading(P_char ch, P_ship ship, char* arg)
         }
     }
     act_to_all_in_ship_f(ship, "Heading set to &+W%d&N.", (int)ship->setheading);
+    gmcp_mark_ship_contacts_dirty(ship);
     return TRUE;
 }
 
@@ -498,6 +501,7 @@ int order_speed(P_char ch, P_ship ship, char* arg)
     }
 #endif
 
+    gmcp_mark_ship_contacts_dirty(ship);
     return TRUE;
 }
 

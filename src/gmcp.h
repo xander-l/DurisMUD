@@ -18,6 +18,9 @@
 
 #include "structs.h"
 
+/* Forward declarations */
+struct ShipData;
+
 /* GMCP Telnet Codes (RFC 1572 compliant) */
 #define TELNET_IAC      255
 #define TELNET_SB       250     /* Subnegotiation Begin */
@@ -41,6 +44,7 @@
 #define GMCP_PKG_QUEST_STATUS   "Quest.Status"
 #define GMCP_PKG_QUEST_MAP      "Quest.Map"
 #define GMCP_PKG_GROUP_STATUS   "Group.Status"
+#define GMCP_PKG_SHIP_CONTACTS  "Ship.Contacts"
 
 /*
  * Initialization & Negotiation
@@ -82,6 +86,13 @@ void gmcp_send_room_map(struct char_data *ch, const char *map_buf);
  */
 void gmcp_mark_room_dirty(int room_number);
 void gmcp_flush_dirty_rooms(void);
+
+/*
+ * Ship Contacts Update Throttling
+ * Mark ships as "dirty" when contacts change, flush periodically
+ */
+void gmcp_mark_ship_contacts_dirty(struct ShipData *ship);
+void gmcp_flush_dirty_ship_contacts(void);
 
 /*
  * Character Vitals
