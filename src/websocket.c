@@ -221,6 +221,24 @@ int websocket_parse_handshake(struct descriptor_data *d, const char *buf, size_t
                 version_ok = 1;
             }
         }
+        /* user-agent header - grab browser/client info */
+        else if (strncasecmp(line, "User-Agent:", 11) == 0) {
+            char *value = line + 11;
+            while (*value == ' ') value++;
+            /* store in client_name, truncate if needed */
+            strncpy(d->client_name, value, sizeof(d->client_name) - 1);
+            d->client_name[sizeof(d->client_name) - 1] = '\0';
+            /* try to set a short version too */
+            if (strstr(value, "Firefox")) {
+                snprintf(d->client_name, sizeof(d->client_name), "Firefox");
+            } else if (strstr(value, "Chrome")) {
+                snprintf(d->client_name, sizeof(d->client_name), "Chrome");
+            } else if (strstr(value, "Safari")) {
+                snprintf(d->client_name, sizeof(d->client_name), "Safari");
+            } else if (strstr(value, "Edge")) {
+                snprintf(d->client_name, sizeof(d->client_name), "Edge");
+            }
+        }
         /* x-forwarded-for header - only trust from local/private proxies */
         else if (strncasecmp(line, "X-Forwarded-For:", 16) == 0) {
             /* only trust from localhost or 10.x.x.x network */

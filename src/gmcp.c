@@ -59,9 +59,53 @@ void gmcp_handle_negotiation(struct descriptor_data *d, int cmd) {
 
 /* handle incoming gmcp data from telnet client */
 void gmcp_handle_input(struct descriptor_data *d, const char *data, size_t len) {
-    /* Currently just log - future: parse client requests */
-    if (d && data && len > 0) {
-        /* statuslog(56, "GMCP input from %s: %.*s", d->host, (int)len, data); */
+    if (!d || !data || len == 0) return;
+
+    /* Core.Hello {"client":"Mudlet","version":"4.17.1"} */
+    if (len > 10 && strncmp(data, "Core.Hello", 10) == 0) {
+        const char *json_start = data + 10;
+        while (*json_start == ' ' && json_start < data + len) json_start++;
+
+        if (*json_start == '{') {
+            cJSON *root = cJSON_Parse(json_start);
+            if (root) {
+                cJSON *client = cJSON_GetObjectItem(root, "client");
+                cJSON *version = cJSON_GetObjectItem(root, "version");
+
+                if (client && cJSON_IsString(client) && client->valuestring) {
+                    strncpy(d->client_name, client->valuestring, sizeof(d->client_name) - 1);
+                    d->client_name[sizeof(d->client_name) - 1] = '\0';
+                }
+                if (version && cJSON_IsString(version) && version->valuestring) {
+                    strncpy(d->client_version, version->valuestring, sizeof(d->client_version) - 1);
+                    d->client_version[sizeof(d->client_version) - 1] = '\0';
+                }
+                cJSON_Delete(root);
+            }
+        }
+    }
+    /* Client.Info is an alias some clients use */
+    else if (len > 11 && strncmp(data, "Client.Info", 11) == 0) {
+        const char *json_start = data + 11;
+        while (*json_start == ' ' && json_start < data + len) json_start++;
+
+        if (*json_start == '{') {
+            cJSON *root = cJSON_Parse(json_start);
+            if (root) {
+                cJSON *client = cJSON_GetObjectItem(root, "client");
+                cJSON *version = cJSON_GetObjectItem(root, "version");
+
+                if (client && cJSON_IsString(client) && client->valuestring) {
+                    strncpy(d->client_name, client->valuestring, sizeof(d->client_name) - 1);
+                    d->client_name[sizeof(d->client_name) - 1] = '\0';
+                }
+                if (version && cJSON_IsString(version) && version->valuestring) {
+                    strncpy(d->client_version, version->valuestring, sizeof(d->client_version) - 1);
+                    d->client_version[sizeof(d->client_version) - 1] = '\0';
+                }
+                cJSON_Delete(root);
+            }
+        }
     }
 }
 

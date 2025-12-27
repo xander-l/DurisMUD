@@ -1685,6 +1685,8 @@ struct descriptor_data {
   size_t ws_fragment_len;         /* Length of fragment buffer */
   int gmcp_enabled;               /* 1 if client wants GMCP protocol */
   int gmcp_quest_map_sent;        /* 1 if quest map already sent this session */
+  char client_name[64];           /* mud client name (mudlet, cmud, etc) */
+  char client_version[32];        /* client version string */
 
   /* WebSocket ping/pong for dead connection detection */
   time_t ws_last_ping;            /* Time of last ping sent */

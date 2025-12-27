@@ -6835,7 +6835,7 @@ void do_users(P_char ch, char *argument, int cmd)
     getname = TRUE;
   }
 
-  send_to_char("\r\n Character   |  #  | State       | Idle | Hostname\r\n-----------------------------------------------------------------------------------\r\n", ch);
+  send_to_char("\r\n Character   |  #  | State       | Idle | Client          | Hostname\r\n------------------------------------------------------------------------------------------------------\r\n", ch);
   for( P_desc d = descriptor_list; d; d = d->next )
   {
     // don't show admins of higher level who are invisible
@@ -6893,9 +6893,25 @@ void do_users(P_char ch, char *argument, int cmd)
       snprintf(hostbuf, MAX_STRING_LENGTH, "&+Yunknown&n");
     }
 
-    snprintf(linebuf, MAX_STRING_LENGTH, " %s | %3d | %s | %4d | %s\r\n",
+    /* build client string - show name and version if available */
+    char clientbuf[80];
+    if (d->client_name[0]) {
+      if (d->client_version[0]) {
+        snprintf(clientbuf, sizeof(clientbuf), "%s %s", d->client_name, d->client_version);
+      } else {
+        snprintf(clientbuf, sizeof(clientbuf), "%s", d->client_name);
+      }
+    } else if (d->websocket) {
+      snprintf(clientbuf, sizeof(clientbuf), "websocket");
+    } else if (d->gmcp_enabled) {
+      snprintf(clientbuf, sizeof(clientbuf), "gmcp");
+    } else {
+      snprintf(clientbuf, sizeof(clientbuf), "-");
+    }
+
+    snprintf(linebuf, MAX_STRING_LENGTH, " %s | %3d | %s | %4d | %-15s | %s\r\n",
       ((d->character && GET_NAME(d->character)) ? pad_ansi(GET_NAME(d->character), 11).c_str() : "-          "),
-      d->descriptor, pad_ansi(connbuf, 11).c_str(), (d->wait / 240), hostbuf );
+      d->descriptor, pad_ansi(connbuf, 11).c_str(), (d->wait / 240), clientbuf, hostbuf );
 
     send_to_char(linebuf, ch);
   }
