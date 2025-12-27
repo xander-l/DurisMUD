@@ -96,8 +96,18 @@ bool check_db_active()
 
 void auction_error(P_char ch)
 {
-	send_to_char("&+WUnfortunately, auctions aren't active right now. Please "
-                     "try again later.\r\n", ch);
+  if( !check_db_active() )
+  {
+    send_to_char("&+WUnfortunately, auctions aren't active right now. Please "
+                 "try again later.\r\n", ch);
+  }
+  else
+  {
+    send_to_char("&+WAn error occurred processing your auction request. Please "
+                 "try again or contact an immortal if the problem persists.\r\n", ch);
+    logit(LOG_DEBUG, "auction_error: Database is active but auction operation failed for %s",
+          ch->player.name);
+  }
 }
 
 void auction_houses_activity()

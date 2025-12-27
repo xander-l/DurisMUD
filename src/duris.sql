@@ -145,7 +145,7 @@ CREATE TABLE `auctions` (
   `obj_short` varchar(255) NOT NULL default '',
   `obj_vnum` int(11) NOT NULL default '0',
   `obj_blob_str` blob NOT NULL,
-  `id_keywords` varchar(255) NOT NULL default '',
+  `id_keywords` varchar(1024) NOT NULL default '',
   `quantity` int(11) NOT NULL default '1',
   PRIMARY KEY  (`id`),
   KEY `seller_pid` (`seller_pid`),
