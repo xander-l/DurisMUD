@@ -118,25 +118,25 @@ int get_name(char return_namn[256])
   while (strcmp(tempstring, "[startstav]") != 0)
   {
     memset(tempstring, 0, sizeof(tempstring));
-    fgets(tempstring, 150, infil);
-    if (tempstring[strlen(tempstring) - 2] == '\r')
-    {
-      tempstring[strlen(tempstring) - 2] = '\0';
-    }
-    else
-      tempstring[strlen(tempstring) - 1] = '\0';        /* remove linefeed          */
+    if (fgets(tempstring, 150, infil) == NULL)
+      break;
+    size_t len = strlen(tempstring);
+    if (len >= 2 && tempstring[len - 2] == '\r')
+      tempstring[len - 2] = '\0';
+    else if (len >= 1)
+      tempstring[len - 1] = '\0';        /* remove linefeed          */
   }
   /* read file until [mittstav] is found (middle syllable)                    */
   while (strcmp(tempstring, "[mittstav]") != 0)
   {
     memset(tempstring, 0, sizeof(tempstring));
-    fgets(tempstring, 150, infil);
-    if (tempstring[strlen(tempstring) - 2] == '\r')
-    {
-      tempstring[strlen(tempstring) - 2] = '\0';
-    }
-    else
-      tempstring[strlen(tempstring) - 1] = '\0';        /* remove linefeed          */
+    if (fgets(tempstring, 150, infil) == NULL)
+      break;
+    size_t len = strlen(tempstring);
+    if (len >= 2 && tempstring[len - 2] == '\r')
+      tempstring[len - 2] = '\0';
+    else if (len >= 1)
+      tempstring[len - 1] = '\0';        /* remove linefeed          */
     if ((tempstring[0] != '/') && (tempstring[0] != '['))
     {
       strncpy(start[antal_start], tempstring, strlen(tempstring));
@@ -147,13 +147,13 @@ int get_name(char return_namn[256])
   while (strcmp(tempstring, "[slutstav]") != 0)
   {
     memset(tempstring, 0, sizeof(tempstring));
-    fgets(tempstring, 150, infil);
-    if (tempstring[strlen(tempstring) - 2] == '\r')
-    {
-      tempstring[strlen(tempstring) - 2] = '\0';
-    }
-    else
-      tempstring[strlen(tempstring) - 1] = '\0';        /* remove linefeed          */
+    if (fgets(tempstring, 150, infil) == NULL)
+      break;
+    size_t len = strlen(tempstring);
+    if (len >= 2 && tempstring[len - 2] == '\r')
+      tempstring[len - 2] = '\0';
+    else if (len >= 1)
+      tempstring[len - 1] = '\0';        /* remove linefeed          */
     if ((tempstring[0] != '/') && (tempstring[0] != '['))
     {
       strncpy(mitt[antal_mitt], tempstring, strlen(tempstring));
@@ -164,13 +164,13 @@ int get_name(char return_namn[256])
   while (strcmp(tempstring, "[stop]") != 0)
   {
     memset(tempstring, 0, sizeof(tempstring));
-    fgets(tempstring, 150, infil);
-    if (tempstring[strlen(tempstring) - 2] == '\r')
-    {
-      tempstring[strlen(tempstring) - 2] = '\0';
-    }
-    else
-      tempstring[strlen(tempstring) - 1] = '\0';        /* remove linefeed          */
+    if (fgets(tempstring, 150, infil) == NULL)
+      break;
+    size_t len = strlen(tempstring);
+    if (len >= 2 && tempstring[len - 2] == '\r')
+      tempstring[len - 2] = '\0';
+    else if (len >= 1)
+      tempstring[len - 1] = '\0';        /* remove linefeed          */
     if ((tempstring[0] != '/') && (tempstring[0] != '['))
     {
       strncpy(slut[antal_slut], tempstring, strlen(tempstring));
