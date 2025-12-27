@@ -171,6 +171,7 @@ struct ShipData *new_ship(int m_class, bool npc)
    ship->capacity_bonus = 0;
 
    ship->time = time(NULL);
+   ship->contacts_hash = 0;  /* Initialize GMCP contacts hash */
 
    for (int j = 0; j < MAXSLOTS; j++) 
    {
@@ -1185,7 +1186,6 @@ int ship_obj_proc(P_obj obj, P_char ch, int cmd, char *arg)
         act("You step through the docking bay of $p.", FALSE, ch, ship->shipobj, 0, TO_CHAR);
         char_to_room(ch, real_room0(ship->entrance), 0);
         act("$n steps through the docking bay.", TRUE, ch, 0, 0, TO_ROOM);
-        gmcp_mark_ship_contacts_dirty(ship);
         return TRUE;
       }
 //            else
@@ -1201,7 +1201,6 @@ int ship_obj_proc(P_obj obj, P_char ch, int cmd, char *arg)
         act("You board $p.", FALSE, ch, ship->shipobj, 0, TO_CHAR);
         char_to_room(ch, real_room0(ship->entrance), 0);
         act("$n comes aboard.", TRUE, ch, 0, 0, TO_ROOM);
-        gmcp_mark_ship_contacts_dirty(ship);
     }
   }
   return(TRUE);
@@ -1551,7 +1550,6 @@ void ship_activity()
                 REMOVE_BIT(ship->flags, ANCHOR);
                 update_crew(ship);
                 update_ship_status(ship);
-                gmcp_mark_ship_contacts_dirty(ship);
             }
         }
 
@@ -1612,7 +1610,6 @@ void ship_activity()
                 rad = ship->heading * M_PI / 180.000;
                 ship->x += (float) ((float) ship->speed * sin(rad)) / 150.000;
                 ship->y += (float) ((float) ship->speed * cos(rad)) / 150.000;
-                gmcp_mark_ship_contacts_dirty(ship);
 
                 if ((ship->y >= 51.000) || (ship->x >= 51.000) || (ship->y < 50.000) || (ship->x < 50.000)) 
                 {
@@ -1686,7 +1683,6 @@ void ship_activity()
                                 obj_from_room(SHIP_OBJ(ship));
                                 obj_to_room(SHIP_OBJ(ship), loc);
                                 everyone_look_out_ship(ship);
-                                gmcp_mark_ship_contacts_dirty(ship);
                             }
                         } 
                         else
@@ -1838,7 +1834,6 @@ void dock_ship(P_ship ship, int to_room)
       REMOVE_BIT(ship->flags, ATTACKBYNPC);
     reset_crew_stamina(ship);
     update_ship_status(ship);
-    gmcp_mark_ship_contacts_dirty(ship);
 }
 
 

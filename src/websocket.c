@@ -1,10 +1,8 @@
 /*
- * websocket.c - WebSocket protocol implementation for DurisMUD
+ * websocket.c - websocket protocol for durismud
  *
- * Implements RFC 6455 WebSocket protocol for native browser clients.
- * Handles HTTP upgrade handshake, frame parsing, and message routing.
- *
- * Copyright (c) 2025 DurisMUD Development Team
+ * implements rfc 6455 websocket for browser clients. handles http upgrade
+ * handshake, frame parsing, and message routing.
  */
 
 #include <stdio.h>
@@ -32,15 +30,11 @@
 #include "utils.h"
 #include "db.h"
 
-/* External declarations */
 extern struct descriptor_data *descriptor_list;
 
-/* Static variables */
 static int ws_listen_fd = -1;
 
-/*
- * Base64 encoding helper
- */
+/* base64 encoding helper */
 static char *base64_encode(const unsigned char *input, int length) {
     BIO *bio, *b64;
     BUF_MEM *bufferPtr;
@@ -65,21 +59,18 @@ static char *base64_encode(const unsigned char *input, int length) {
     return output;
 }
 
-/*
- * Generate WebSocket accept key from client key
- * RFC 6455 Section 4.2.2
- */
+/* generate websocket accept key from client key (rfc 6455 section 4.2.2) */
 void websocket_generate_accept_key(const char *client_key, char *accept_key) {
     char concat[256];
     unsigned char sha1_hash[SHA_DIGEST_LENGTH];
 
-    /* Concatenate client key with magic string */
+    /* concatenate client key with magic string */
     snprintf(concat, sizeof(concat), "%s%s", client_key, WS_MAGIC_STRING);
 
-    /* SHA-1 hash */
+    /* sha-1 hash */
     SHA1((unsigned char *)concat, strlen(concat), sha1_hash);
 
-    /* Base64 encode */
+    /* base64 encode */
     char *encoded = base64_encode(sha1_hash, SHA_DIGEST_LENGTH);
     if (encoded) {
         strcpy(accept_key, encoded);
@@ -87,9 +78,7 @@ void websocket_generate_accept_key(const char *client_key, char *accept_key) {
     }
 }
 
-/*
- * Initialize WebSocket subsystem
- */
+/* initialize websocket subsystem */
 int websocket_init(int port) {
     struct sockaddr_in sa;
     int opt = 1;
@@ -100,43 +89,41 @@ int websocket_init(int port) {
         return -1;
     }
 
-    /* Allow socket reuse */
+    /* allow socket reuse */
     if (setsockopt(ws_listen_fd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) < 0) {
         perror("websocket_init: setsockopt SO_REUSEADDR");
         close(ws_listen_fd);
         return -1;
     }
 
-    /* Set up address */
+    /* set up address */
     memset(&sa, 0, sizeof(sa));
     sa.sin_family = AF_INET;
     sa.sin_port = htons(port);
     sa.sin_addr.s_addr = INADDR_ANY;
 
-    /* Bind */
+    /* bind */
     if (bind(ws_listen_fd, (struct sockaddr *)&sa, sizeof(sa)) < 0) {
         perror("websocket_init: bind");
         close(ws_listen_fd);
         return -1;
     }
 
-    /* Listen */
+    /* listen */
     if (listen(ws_listen_fd, 40) < 0) {
         perror("websocket_init: listen");
         close(ws_listen_fd);
         return -1;
     }
 
-    /* Non-blocking */
+    /* non-blocking */
     fcntl(ws_listen_fd, F_SETFL, O_NONBLOCK);
 
     statuslog(56, "WebSocket server listening on port %d", port);
     return ws_listen_fd;
 }
 
-/*
- * Shutdown WebSocket subsystem
- */
+/* shutdown websocket subsystem */
 void websocket_shutdown(void) {
     if (ws_listen_fd >= 0) {
         close(ws_listen_fd);
@@ -144,9 +131,7 @@ void websocket_shutdown(void) {
     }
 }
 
-/*
- * Accept new WebSocket connection
- */
+/* accept new websocket connection */
 int websocket_accept(int listen_fd, struct descriptor_data *d) {
     struct sockaddr_in peer;
     socklen_t peer_len = sizeof(peer);
@@ -161,22 +146,22 @@ int websocket_accept(int listen_fd, struct descriptor_data *d) {
         return -1;
     }
 
-    /* TCP_NODELAY for low latency */
+    /* tcp_nodelay for low latency */
     setsockopt(new_fd, IPPROTO_TCP, TCP_NODELAY, &opt, sizeof(opt));
 
-    /* Non-blocking */
+    /* non-blocking */
     fcntl(new_fd, F_SETFL, O_NONBLOCK);
 
-    /* Initialize descriptor for WebSocket */
+    /* initialize descriptor for websocket */
     d->descriptor = new_fd;
     d->websocket = 1;
-    d->gmcp_enabled = 1;  /* WebSocket clients always have GMCP enabled */
+    d->gmcp_enabled = 1;  /* websocket clients always have gmcp */
     d->ws_state = WS_STATE_CONNECTING;
     d->ws_handshake_done = 0;
     d->ws_last_ping = 0;
     d->ws_pong_received = 0;
 
-    /* Get peer address */
+    /* get peer address */
     strncpy(d->host, inet_ntoa(peer.sin_addr), sizeof(d->host) - 1);
 
     statuslog(56, "WebSocket connection from %s", d->host);
@@ -184,10 +169,7 @@ int websocket_accept(int listen_fd, struct descriptor_data *d) {
     return 0;
 }
 
-/*
- * Parse HTTP upgrade request
- * Returns 1 if valid WebSocket upgrade, 0 if not, -1 on error
- */
+/* parse http upgrade request, returns 1 if valid websocket upgrade */
 int websocket_parse_handshake(struct descriptor_data *d, const char *buf, size_t len) {
     char *line, *saveptr;
     char *request = NULL;
@@ -196,20 +178,20 @@ int websocket_parse_handshake(struct descriptor_data *d, const char *buf, size_t
     int is_websocket = 0;
     int version_ok = 0;
 
-    /* Make a copy for strtok */
+    /* make a copy for strtok */
     request = (char *)malloc(len + 1);
     if (!request) return -1;
     memcpy(request, buf, len);
     request[len] = '\0';
 
-    /* Parse headers line by line */
+    /* parse headers line by line */
     line = strtok_r(request, "\r\n", &saveptr);
     while (line) {
-        /* Check for GET request */
+        /* check for GET request */
         if (strncmp(line, "GET ", 4) == 0) {
-            /* Valid HTTP GET */
+            /* valid http get */
         }
-        /* Upgrade header */
+        /* upgrade header */
         else if (strncasecmp(line, "Upgrade:", 8) == 0) {
             char *value = line + 8;
             while (*value == ' ') value++;
@@ -217,7 +199,7 @@ int websocket_parse_handshake(struct descriptor_data *d, const char *buf, size_t
                 is_websocket = 1;
             }
         }
-        /* Connection header */
+        /* connection header */
         else if (strncasecmp(line, "Connection:", 11) == 0) {
             char *value = line + 11;
             while (*value == ' ') value++;
@@ -225,13 +207,13 @@ int websocket_parse_handshake(struct descriptor_data *d, const char *buf, size_t
                 is_upgrade = 1;
             }
         }
-        /* WebSocket key */
+        /* websocket key */
         else if (strncasecmp(line, "Sec-WebSocket-Key:", 18) == 0) {
             char *value = line + 18;
             while (*value == ' ') value++;
             strncpy(ws_key, value, sizeof(ws_key) - 1);
         }
-        /* WebSocket version */
+        /* websocket version */
         else if (strncasecmp(line, "Sec-WebSocket-Version:", 22) == 0) {
             char *value = line + 22;
             while (*value == ' ') value++;
@@ -239,21 +221,25 @@ int websocket_parse_handshake(struct descriptor_data *d, const char *buf, size_t
                 version_ok = 1;
             }
         }
-        /* X-Forwarded-For header (nginx proxy) */
+        /* x-forwarded-for header - only trust from local/private proxies */
         else if (strncasecmp(line, "X-Forwarded-For:", 16) == 0) {
-            char *value = line + 16;
-            while (*value == ' ') value++;
-            /* Extract first IP (client IP, before any comma) */
-            char client_ip[64];
-            int i = 0;
-            while (value[i] && value[i] != ',' && value[i] != ' ' && i < 63) {
-                client_ip[i] = value[i];
-                i++;
-            }
-            client_ip[i] = '\0';
-            if (client_ip[0]) {
-                strncpy(d->host, client_ip, sizeof(d->host) - 1);
-                d->host[sizeof(d->host) - 1] = '\0';
+            /* only trust from localhost or 10.x.x.x network */
+            if (strcmp(d->host, "127.0.0.1") == 0 || strcmp(d->host, "::1") == 0 ||
+                strncmp(d->host, "10.", 3) == 0) {
+                char *value = line + 16;
+                while (*value == ' ') value++;
+                /* extract first ip (client ip, before any comma) */
+                char client_ip[64];
+                int i = 0;
+                while (value[i] && value[i] != ',' && value[i] != ' ' && i < 63) {
+                    client_ip[i] = value[i];
+                    i++;
+                }
+                client_ip[i] = '\0';
+                if (client_ip[0]) {
+                    strncpy(d->host, client_ip, sizeof(d->host) - 1);
+                    d->host[sizeof(d->host) - 1] = '\0';
+                }
             }
         }
 
@@ -262,28 +248,26 @@ int websocket_parse_handshake(struct descriptor_data *d, const char *buf, size_t
 
     free(request);
 
-    /* Validate all requirements */
+    /* validate all requirements */
     if (!is_upgrade || !is_websocket || !version_ok || ws_key[0] == '\0') {
         return 0;
     }
 
-    /* Complete handshake */
+    /* complete handshake */
     return websocket_complete_handshake(d, ws_key);
 }
 
-/*
- * Send HTTP upgrade response
- */
+/* send http upgrade response */
 int websocket_complete_handshake(struct descriptor_data *d, const char *key) {
     char accept_key[64];
     char response[512];
     int len;
     struct descriptor_data *k, *next_k;
 
-    /* Generate accept key */
+    /* generate accept key */
     websocket_generate_accept_key(key, accept_key);
 
-    /* Build response */
+    /* build response */
     len = snprintf(response, sizeof(response),
         "HTTP/1.1 101 Switching Protocols\r\n"
         "Upgrade: websocket\r\n"
@@ -292,29 +276,28 @@ int websocket_complete_handshake(struct descriptor_data *d, const char *key) {
         "\r\n",
         accept_key);
 
-    /* Send response - use MSG_NOSIGNAL to prevent SIGPIPE */
+    /* send response - use msg_nosignal to prevent sigpipe */
     if (send(d->descriptor, response, len, MSG_NOSIGNAL) != len) {
         return -1;
     }
 
     d->ws_state = WS_STATE_OPEN;
     d->ws_handshake_done = 1;
-    d->connected = 60;  /* CON_GET_ACCT_NAME - ready for account login */
+    d->connected = 60;  /* ready for account login */
 
     /*
-     * DUPLICATE CONNECTION CHECK:
-     * Kick any other unauthenticated WebSocket connections from the same IP.
-     * This handles HMR, page refresh, and rapid reconnection scenarios.
+     * duplicate connection check: kick any other unauthenticated websocket
+     * connections from the same ip (handles hmr, page refresh, etc.)
      */
     for (k = descriptor_list; k; k = next_k) {
         next_k = k->next;
 
-        /* Skip self */
+        /* skip self */
         if (k == d) continue;
 
-        /* Only kick unauthenticated WebSocket connections from same IP */
+        /* only kick unauthenticated websocket connections from same ip */
         if (k->websocket && k->ws_handshake_done &&
-            !k->account &&  /* Not logged in yet */
+            !k->account &&  /* not logged in yet */
             k->connected != CON_PLAYING &&
             strcmp(k->host, d->host) == 0) {
 
@@ -329,15 +312,13 @@ int websocket_complete_handshake(struct descriptor_data *d, const char *key) {
 
     statuslog(56, "WebSocket handshake complete for %s", d->host);
 
-    /* Send welcome message - client is ready for login */
+    /* send welcome message - client is ready for login */
     ws_send_system(d, "connected", "Welcome to NewDuris MUD!");
 
     return 1;
 }
 
-/*
- * Build and send a WebSocket frame
- */
+/* build and send a websocket frame */
 static int websocket_send_frame(struct descriptor_data *d, int opcode,
                                 const void *data, size_t len) {
     unsigned char *frame;
@@ -347,7 +328,7 @@ static int websocket_send_frame(struct descriptor_data *d, int opcode,
 
     if (!d || d->descriptor < 0) return -1;
 
-    /* Calculate frame size */
+    /* calculate frame size */
     if (len <= 125) {
         frame_len = 2 + len;
     } else if (len <= 65535) {
@@ -359,10 +340,10 @@ static int websocket_send_frame(struct descriptor_data *d, int opcode,
     frame = (unsigned char *)malloc(frame_len);
     if (!frame) return -1;
 
-    /* First byte: FIN + opcode */
+    /* first byte: fin + opcode */
     frame[offset++] = 0x80 | (opcode & 0x0F);
 
-    /* Second byte: payload length (server doesn't mask) */
+    /* second byte: payload length (server doesn't mask) */
     if (len <= 125) {
         frame[offset++] = (unsigned char)len;
     } else if (len <= 65535) {
@@ -381,17 +362,17 @@ static int websocket_send_frame(struct descriptor_data *d, int opcode,
         frame[offset++] = len & 0xFF;
     }
 
-    /* Payload */
+    /* payload */
     if (len > 0 && data) {
         memcpy(frame + offset, data, len);
     }
 
-    /* Send frame - check socket and descriptor are still valid first */
+    /* send frame - check socket and descriptor are still valid first */
     if (d->descriptor <= 0 || !is_desc_valid(d)) {
         free(frame);
         return -1;
     }
-    /* Use send() with MSG_NOSIGNAL to prevent SIGPIPE on closed connections */
+    /* use send() with msg_nosignal to prevent sigpipe on closed connections */
     sent = send(d->descriptor, frame, frame_len, MSG_NOSIGNAL);
     free(frame);
 
@@ -399,41 +380,35 @@ static int websocket_send_frame(struct descriptor_data *d, int opcode,
         if (errno != EWOULDBLOCK && errno != EAGAIN && errno != EPIPE) {
             return -1;
         }
-        /* Would block or broken pipe - drop silently */
+        /* would block or broken pipe - drop silently */
         return 0;
     }
 
     return (sent == (ssize_t)frame_len) ? 0 : -1;
 }
 
-/*
- * Send text frame
- */
+/* send text frame */
 int websocket_send_text(struct descriptor_data *d, const char *text) {
     if (!text) return -1;
     return websocket_send_frame(d, WS_OPCODE_TEXT, text, strlen(text));
 }
 
-/*
- * Send binary frame
- */
+/* send binary frame */
 int websocket_send_binary(struct descriptor_data *d, const void *data, size_t len) {
     return websocket_send_frame(d, WS_OPCODE_BINARY, data, len);
 }
 
-/*
- * Send JSON message with type wrapper
- */
+/* send json message with type wrapper */
 int websocket_send_json(struct descriptor_data *d, const char *type,
                         const char *package, const char *json) {
     char *message;
     int result;
 
     if (package) {
-        /* GMCP-style message */
+        /* gmcp-style message */
         message = json_build_gmcp_message(package, json);
     } else {
-        /* Simple message - json is already complete */
+        /* simple message - json is already complete */
         message = strdup(json);
     }
 
@@ -444,9 +419,7 @@ int websocket_send_json(struct descriptor_data *d, const char *type,
     return result;
 }
 
-/*
- * Send close frame
- */
+/* send close frame */
 int websocket_send_close(struct descriptor_data *d, int code, const char *reason) {
     unsigned char payload[128];
     size_t len = 0;
@@ -470,24 +443,17 @@ int websocket_send_close(struct descriptor_data *d, int code, const char *reason
     return websocket_send_frame(d, WS_OPCODE_CLOSE, payload, len);
 }
 
-/*
- * Send ping frame
- */
+/* send ping frame */
 int websocket_send_ping(struct descriptor_data *d) {
     return websocket_send_frame(d, WS_OPCODE_PING, NULL, 0);
 }
 
-/*
- * Send pong frame
- */
+/* send pong frame */
 int websocket_send_pong(struct descriptor_data *d, const char *data, size_t len) {
     return websocket_send_frame(d, WS_OPCODE_PONG, data, len);
 }
 
-/*
- * Parse WebSocket frame
- * Returns bytes consumed, or -1 on error, 0 if need more data
- */
+/* parse websocket frame, returns bytes consumed (-1 on error, 0 if need more data) */
 int websocket_parse_frame(struct descriptor_data *d, const char *buf, size_t len,
                           char **payload, size_t *payload_len, int *opcode) {
     size_t offset = 0;
@@ -501,27 +467,27 @@ int websocket_parse_frame(struct descriptor_data *d, const char *buf, size_t len
     *payload_len = 0;
     *opcode = -1;
 
-    /* Need at least 2 bytes for header */
+    /* need at least 2 bytes for header */
     if (len < 2) return 0;
 
-    /* Parse first byte */
+    /* parse first byte */
     fin = (buf[0] >> 7) & 0x01;
     op = buf[0] & 0x0F;
     offset++;
 
-    /* Parse second byte */
+    /* parse second byte */
     mask_bit = (buf[1] >> 7) & 0x01;
     data_len = buf[1] & 0x7F;
     offset++;
 
-    /* Extended length */
+    /* extended length */
     if (data_len == 126) {
         if (len < 4) return 0;
         data_len = ((unsigned char)buf[2] << 8) | (unsigned char)buf[3];
         offset += 2;
     } else if (data_len == 127) {
         if (len < 10) return 0;
-        /* Only support up to 32-bit length for sanity */
+        /* only support up to 32-bit length for sanity */
         data_len = ((unsigned char)buf[6] << 24) |
                    ((unsigned char)buf[7] << 16) |
                    ((unsigned char)buf[8] << 8) |
@@ -529,23 +495,23 @@ int websocket_parse_frame(struct descriptor_data *d, const char *buf, size_t len
         offset += 8;
     }
 
-    /* Sanity check */
+    /* sanity check */
     if (data_len > WS_MAX_FRAME_SIZE) {
         return -1;
     }
 
-    /* Mask key (client must mask) */
+    /* mask key (client must mask) */
     if (mask_bit) {
         if (len < offset + 4) return 0;
         memcpy(mask_key, buf + offset, 4);
         offset += 4;
     }
 
-    /* Check if we have full payload */
+    /* check if we have full payload */
     frame_len = offset + data_len;
     if (len < frame_len) return 0;
 
-    /* Allocate and unmask payload */
+    /* allocate and unmask payload */
     if (data_len > 0) {
         *payload = (char *)malloc(data_len + 1);
         if (!*payload) return -1;
@@ -564,7 +530,7 @@ int websocket_parse_frame(struct descriptor_data *d, const char *buf, size_t len
 
     *opcode = op;
 
-    /* Handle control frames */
+    /* handle control frames */
     if (op == WS_OPCODE_CLOSE) {
         websocket_send_close(d, WS_CLOSE_NORMAL, NULL);
         d->ws_state = WS_STATE_CLOSED;
@@ -574,7 +540,7 @@ int websocket_parse_frame(struct descriptor_data *d, const char *buf, size_t len
         *payload = NULL;
         *payload_len = 0;
     } else if (op == WS_OPCODE_PONG) {
-        /* Mark pong received for dead connection detection */
+        /* mark pong received for dead connection detection */
         d->ws_pong_received = 1;
         free(*payload);
         *payload = NULL;
@@ -584,9 +550,7 @@ int websocket_parse_frame(struct descriptor_data *d, const char *buf, size_t len
     return (int)frame_len;
 }
 
-/*
- * Close WebSocket connection properly
- */
+/* close websocket connection properly */
 void websocket_close(struct descriptor_data *d, int code, const char *reason) {
     if (!d) return;
 
@@ -597,13 +561,11 @@ void websocket_close(struct descriptor_data *d, int code, const char *reason) {
     d->ws_state = WS_STATE_CLOSED;
 }
 
-/*
- * Free WebSocket-specific data
- */
+/* free websocket-specific data */
 void websocket_free(struct descriptor_data *d) {
     if (!d) return;
 
-    /* Free fragment buffer if any */
+    /* free fragment buffer if any */
     if (d->ws_fragment_buffer) {
         free(d->ws_fragment_buffer);
         d->ws_fragment_buffer = NULL;
@@ -613,10 +575,7 @@ void websocket_free(struct descriptor_data *d) {
     d->ws_state = WS_STATE_CLOSED;
 }
 
-/*
- * Process incoming WebSocket data
- * Called from game loop when descriptor has data
- */
+/* process incoming websocket data, called from game loop */
 int websocket_process_input(struct descriptor_data *d) {
     char buf[4096];
     ssize_t bytes_read;
@@ -627,7 +586,7 @@ int websocket_process_input(struct descriptor_data *d) {
 
     if (!d || d->descriptor < 0) return -1;
 
-    /* Read data */
+    /* read data */
     bytes_read = read(d->descriptor, buf, sizeof(buf) - 1);
 
     if (bytes_read < 0) {
@@ -638,23 +597,23 @@ int websocket_process_input(struct descriptor_data *d) {
     }
 
     if (bytes_read == 0) {
-        /* Connection closed */
+        /* connection closed */
         return -1;
     }
 
     buf[bytes_read] = '\0';
 
-    /* Handle handshake if not done */
+    /* handle handshake if not done */
     if (!d->ws_handshake_done) {
         int result = websocket_parse_handshake(d, buf, bytes_read);
         if (result <= 0) {
-            /* Invalid handshake - close connection */
+            /* invalid handshake - close connection */
             return -1;
         }
         return 0;
     }
 
-    /* Parse WebSocket frames */
+    /* parse websocket frames */
     consumed = websocket_parse_frame(d, buf, bytes_read, &payload, &payload_len, &opcode);
 
     if (consumed < 0) {
@@ -662,13 +621,13 @@ int websocket_process_input(struct descriptor_data *d) {
     }
 
     if (consumed == 0) {
-        /* Need more data - for now, drop partial frames */
+        /* need more data - for now, drop partial frames */
         return 0;
     }
 
-    /* Handle text frame (JSON command) */
+    /* handle text frame (json command) */
     if (opcode == WS_OPCODE_TEXT && payload) {
-        /* Parse JSON and extract command/data */
+        /* parse json and extract command/data */
         cJSON *json = cJSON_Parse(payload);
         if (json) {
             const char *type = NULL;
@@ -683,10 +642,10 @@ int websocket_process_input(struct descriptor_data *d) {
                 cmd = cmd_item->valuestring;
 
             if (type && strcmp(type, "cmd") == 0 && cmd) {
-                /* Use WebSocket command handler */
+                /* use websocket command handler */
                 ws_handle_command(d, cmd, data_item);
             } else if (d->connected == CON_PLAYING) {
-                /* In-game: pass raw text as command */
+                /* in-game: pass raw text as command */
                 if (data_item && cJSON_IsString(data_item)) {
                     write_to_q(data_item->valuestring, &d->input, 0);
                 } else if (cmd) {
@@ -695,7 +654,7 @@ int websocket_process_input(struct descriptor_data *d) {
             }
             cJSON_Delete(json);
         } else {
-            /* Not valid JSON - treat as raw text command if in game */
+            /* not valid json - treat as raw text command if in game */
             if (d->connected == CON_PLAYING) {
                 write_to_q(payload, &d->input, 0);
             }
@@ -706,9 +665,7 @@ int websocket_process_input(struct descriptor_data *d) {
     return 0;
 }
 
-/*
- * Check if descriptor has pending WebSocket data
- */
+/* check if descriptor has pending websocket data */
 int websocket_has_pending(struct descriptor_data *d) {
     if (!d) return 0;
     return (d->ws_fragment_buffer != NULL && d->ws_fragment_len > 0);
