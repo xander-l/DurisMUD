@@ -6328,7 +6328,7 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags, struct damage_m
 		raw_damage_modifiers[i]( ch, victim, dam, 0, flags, &dam_mod, messages );
 		
 		if (dam_mod.type != dam_mod_type::None && (dam_mod.mod < 0 || dam_mod.mod > 0))
-			debug("raw_damage: spell_damage_modifiers[%d] - mod: %f, type: %d", i, dam_mod.mod, dam_mod.type);
+			debug("raw_damage: raw_damage_modifiers[%d] - mod: %f, type: %d", i, dam_mod.mod, dam_mod.type);
 
 		switch(dam_mod.type)
 		{

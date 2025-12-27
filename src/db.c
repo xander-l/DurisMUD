@@ -3122,9 +3122,9 @@ void no_reset_zone_reset(int zone_number)
   if(atoi(row[0]) > number(0, 99))
   {
     zone_purge(zone_number);
-    reset_zone(zone_number, 1);
+    reset_zone(zone_number, 0);
     db_query("UPDATE zones SET reset_perc = '%d' WHERE id = '%d'", 0, zone_number);
-    epic_zone_erase_touch(zone_table[zone_number].number);
+    //epic_zone_erase_touch(zone_table[zone_number].number);
   }
   else
   {
@@ -3149,6 +3149,7 @@ void reset_zone(int zone, int force_item_repop)
   arti_data artidata;
   char     buf[MAX_STRING_LENGTH];
 
+  logit(LOG_STATUS, "reset_zone: reseting zone '%s', force_item_repop: %d", zone_table[zone].filename, force_item_repop);
   for (cmd_no = 0;; cmd_no++)
   {
     room = 0;
