@@ -1,10 +1,7 @@
 /*
- * json_utils.c - JSON utilities for DurisMUD WebSocket protocol
+ * json_utils.c - json helpers for websocket stuff
  *
- * Provides helper functions for building and parsing JSON messages
- * used in WebSocket communication with web clients.
- *
- * Copyright (c) 2025 DurisMUD Development Team
+ * builds and parses json messages for the web client.
  */
 
 #include <stdio.h>
@@ -24,7 +21,7 @@
 #include "specializations.h"
 #include "assocs.h"
 
-/* External declarations */
+/* externs */
 extern const char *class_abbrevs[];
 extern const char *race_abbrevs[];
 extern const char *specdata[][MAX_SPEC];
@@ -37,20 +34,16 @@ extern struct index_data *obj_index;
 extern struct time_info_data time_info;
 extern const char *month_name[];
 
-/* SQL function for quest remaining count */
+/* sql function for quest remaining count */
 int sql_world_quest_can_do_another(struct char_data *ch);
 
-/*
- * Parse incoming JSON command
- */
+/* parse incoming json command */
 cJSON *json_parse_command(const char *json_str) {
     if (!json_str || !*json_str) return NULL;
     return cJSON_Parse(json_str);
 }
 
-/*
- * Get command type from parsed JSON
- */
+/* get command type from parsed json */
 const char *json_get_cmd_type(cJSON *json) {
     cJSON *type = cJSON_GetObjectItem(json, "type");
     if (type && cJSON_IsString(type)) {
@@ -59,9 +52,7 @@ const char *json_get_cmd_type(cJSON *json) {
     return NULL;
 }
 
-/*
- * Get command name from parsed JSON
- */
+/* get command name from parsed json */
 const char *json_get_cmd_name(cJSON *json) {
     cJSON *cmd = cJSON_GetObjectItem(json, "cmd");
     if (cmd && cJSON_IsString(cmd)) {
@@ -70,16 +61,12 @@ const char *json_get_cmd_name(cJSON *json) {
     return NULL;
 }
 
-/*
- * Get data object from parsed JSON
- */
+/* get data object from parsed json */
 cJSON *json_get_data(cJSON *json) {
     return cJSON_GetObjectItem(json, "data");
 }
 
-/*
- * Get string from data object
- */
+/* get string from data object */
 const char *json_get_string(cJSON *data, const char *key) {
     cJSON *item;
     if (!data) return NULL;
@@ -96,9 +83,7 @@ const char *json_get_string(cJSON *data, const char *key) {
     return NULL;
 }
 
-/*
- * Get integer from data object
- */
+/* get integer from data object */
 int json_get_int(cJSON *data, const char *key, int default_val) {
     cJSON *item;
     if (!data) return default_val;
@@ -110,9 +95,40 @@ int json_get_int(cJSON *data, const char *key, int default_val) {
     return default_val;
 }
 
-/*
- * Escape string for JSON
- */
+/* check if utf-8 sequence is valid, returns byte count (1-4) or 0 if invalid */
+static int utf8_sequence_len(const char *str, size_t i) {
+    unsigned char c = (unsigned char)str[i];
+    int seq_len = 0;
+
+    if (c < 0x80) {
+        /* ASCII (0x00-0x7F) */
+        return 1;
+    } else if ((c & 0xE0) == 0xC0) {
+        /* 2-byte sequence (0xC0-0xDF) */
+        seq_len = 2;
+    } else if ((c & 0xF0) == 0xE0) {
+        /* 3-byte sequence (0xE0-0xEF) */
+        seq_len = 3;
+    } else if ((c & 0xF8) == 0xF0) {
+        /* 4-byte sequence (0xF0-0xF7) */
+        seq_len = 4;
+    } else {
+        /* Invalid leading byte or continuation byte (0x80-0xBF, 0xF8-0xFF) */
+        return 0;
+    }
+
+    /* Validate continuation bytes (must be 0x80-0xBF) */
+    for (int j = 1; j < seq_len; j++) {
+        unsigned char cont = (unsigned char)str[i + j];
+        if (cont == 0 || (cont & 0xC0) != 0x80) {
+            return 0; /* Missing or invalid continuation byte */
+        }
+    }
+
+    return seq_len;
+}
+
+/* escape string for json with utf-8 support (invalid bytes are skipped) */
 char *json_escape_string(const char *str) {
     size_t len, i, j;
     char *escaped;
@@ -120,11 +136,23 @@ char *json_escape_string(const char *str) {
 
     if (!str) return strdup("");
 
-    /* Calculate required length - skip non-ASCII bytes for UTF-8 safety */
+    /* Calculate required length */
     len = 0;
-    for (i = 0; str[i]; i++) {
+    for (i = 0; str[i]; ) {
         c = (unsigned char)str[i];
-        if (c >= 128) continue; /* Skip non-ASCII bytes */
+
+        if (c >= 0x80) {
+            /* Check for valid UTF-8 sequence */
+            int seq_len = utf8_sequence_len(str, i);
+            if (seq_len > 1) {
+                len += seq_len; /* Valid UTF-8 passes through */
+                i += seq_len;
+            } else {
+                i++; /* Skip invalid byte */
+            }
+            continue;
+        }
+
         switch (str[i]) {
             case '"':
             case '\\':
@@ -140,15 +168,31 @@ char *json_escape_string(const char *str) {
                     len++;
                 }
         }
+        i++;
     }
 
     escaped = (char *)malloc(len + 1);
     if (!escaped) return NULL;
 
     j = 0;
-    for (i = 0; str[i]; i++) {
+    for (i = 0; str[i]; ) {
         c = (unsigned char)str[i];
-        if (c >= 128) continue; /* Skip non-ASCII bytes for UTF-8 safety */
+
+        if (c >= 0x80) {
+            /* Check for valid UTF-8 sequence */
+            int seq_len = utf8_sequence_len(str, i);
+            if (seq_len > 1) {
+                /* Copy valid UTF-8 sequence */
+                for (int k = 0; k < seq_len; k++) {
+                    escaped[j++] = str[i + k];
+                }
+                i += seq_len;
+            } else {
+                i++; /* Skip invalid byte */
+            }
+            continue;
+        }
+
         switch (str[i]) {
             case '"':
                 escaped[j++] = '\\';
@@ -177,16 +221,14 @@ char *json_escape_string(const char *str) {
                     escaped[j++] = str[i];
                 }
         }
+        i++;
     }
     escaped[j] = '\0';
 
     return escaped;
 }
 
-/*
- * Strip ANSI color codes and escape for JSON
- * Handles: &+X, &-X, &=XY, &n, &N (DurisMUD color codes)
- */
+/* strip ansi color codes (&+X, &-X, &=XY, &n, &N) and escape for json */
 char *json_escape_ansi_string(const char *str) {
     char *stripped, *escaped;
     size_t len, i, j;
@@ -243,16 +285,12 @@ char *json_escape_ansi_string(const char *str) {
     return escaped;
 }
 
-/*
- * Free JSON string
- */
+/* free json string */
 void json_free_string(char *str) {
     if (str) free(str);
 }
 
-/*
- * Build auth success response
- */
+/* build auth success response */
 char *json_build_auth_success(const char *account, struct char_data *char_list) {
     cJSON *root, *data, *characters, *char_obj;
     struct char_data *ch;
@@ -286,9 +324,7 @@ char *json_build_auth_success(const char *account, struct char_data *char_list) 
     return result;
 }
 
-/*
- * Build auth failure response
- */
+/* build auth failure response */
 char *json_build_auth_failed(const char *error) {
     cJSON *root;
     char *result;
@@ -304,9 +340,7 @@ char *json_build_auth_failed(const char *error) {
     return result;
 }
 
-/*
- * Build text message with category
- */
+/* build text message with category */
 char *json_build_text(const char *category, const char *text) {
     cJSON *root;
     char *result;
@@ -322,9 +356,7 @@ char *json_build_text(const char *category, const char *text) {
     return result;
 }
 
-/*
- * Build complete GMCP JSON wrapper
- */
+/* build complete gmcp json wrapper */
 char *json_build_gmcp_message(const char *package, const char *data_json) {
     cJSON *root, *data;
     char *result;
@@ -347,11 +379,7 @@ char *json_build_gmcp_message(const char *package, const char *data_json) {
     return result;
 }
 
-/*
- * Build Room.Info GMCP message data
- * Follows standard GMCP Room.Info format for compatibility with MUD clients
- * ch is the viewing character (for visibility checks), can be NULL
- */
+/* build room.info gmcp message (ch is for visibility checks, can be null) */
 char *json_build_room_info(struct room_data *room, struct char_data *ch) {
     cJSON *root, *exits, *coords, *doors, *players, *npcs, *items;
     char *result;
@@ -554,9 +582,7 @@ char *json_build_room_info(struct room_data *room, struct char_data *ch) {
     return result;
 }
 
-/*
- * Build Char.Vitals GMCP message data
- */
+/* build char.vitals gmcp message */
 char *json_build_char_vitals(struct char_data *ch) {
     cJSON *root;
     char *result;
@@ -614,9 +640,7 @@ char *json_build_char_vitals(struct char_data *ch) {
     return result;
 }
 
-/*
- * Build Char.Status GMCP message data
- */
+/* build char.status gmcp message */
 char *json_build_char_status(struct char_data *ch) {
     cJSON *root;
     char *result;
@@ -670,9 +694,7 @@ char *json_build_char_status(struct char_data *ch) {
     return result;
 }
 
-/*
- * Build Char.Affects GMCP message data
- */
+/* build char.affects gmcp message */
 char *json_build_char_affects(struct char_data *ch) {
     extern Skill skills[];
     cJSON *root, *affect_obj;
@@ -714,9 +736,7 @@ char *json_build_char_affects(struct char_data *ch) {
     return result;
 }
 
-/*
- * Build Comm.Channel GMCP message data
- */
+/* build comm.channel gmcp message */
 char *json_build_comm_channel(const char *channel, const char *sender,
                               const char *text) {
     cJSON *root;
@@ -737,9 +757,7 @@ char *json_build_comm_channel(const char *channel, const char *sender,
     return result;
 }
 
-/*
- * Build Comm.Channel GMCP message data with alignment (for nchat)
- */
+/* build comm.channel gmcp message with alignment (for nchat) */
 char *json_build_comm_channel_ex(const char *channel, const char *sender,
                                   const char *text, const char *alignment) {
     cJSON *root;
@@ -764,9 +782,7 @@ char *json_build_comm_channel_ex(const char *channel, const char *sender,
     return result;
 }
 
-/*
- * Build stat roll response
- */
+/* build stat roll response */
 char *json_build_stat_roll(int *rolls, int *racial_mods, int *final, int rerolls) {
     cJSON *root, *data, *rolls_obj, *mods_obj, *final_obj;
     char *result;
@@ -802,9 +818,7 @@ char *json_build_stat_roll(int *rolls, int *racial_mods, int *final, int rerolls
     return result;
 }
 
-/*
- * Build chargen complete response
- */
+/* build chargen complete response */
 char *json_build_chargen_complete(const char *name, const char *message) {
     cJSON *root, *data;
     char *result;
@@ -825,10 +839,7 @@ char *json_build_chargen_complete(const char *name, const char *message) {
     return result;
 }
 
-/*
- * Build Quest.Status GMCP message
- * Returns quest data for bartender quests
- */
+/* build quest.status gmcp message for bartender quests */
 char *json_build_quest_status(struct char_data *ch) {
     cJSON *root;
     char *result;

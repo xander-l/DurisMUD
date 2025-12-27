@@ -1,11 +1,7 @@
 /*
- * gmcp.c - GMCP (Generic MUD Communication Protocol) implementation
+ * gmcp.c - gmcp protocol for durismud
  *
- * Sends structured game data to clients via:
- *   - Telnet: IAC SB GMCP <package> <json> IAC SE
- *   - WebSocket: JSON message with type "gmcp"
- *
- * Copyright (c) 2025 DurisMUD Development Team
+ * sends game data to clients via telnet or websocket.
  */
 
 #include <stdio.h>
@@ -28,7 +24,7 @@
 #include <math.h>
 #include "ships/ships.h"
 
-/* External declarations */
+/* externs */
 extern struct room_data *world;
 extern struct zone_data *zone_table;
 extern const char *pc_class_types[];
@@ -36,9 +32,7 @@ extern struct descriptor_data *descriptor_list;
 extern const struct class_names class_names_table[];
 extern const struct race_names race_names_table[];
 
-/*
- * Send GMCP negotiation request to client
- */
+/* send gmcp negotiation request to client */
 void gmcp_negotiate(struct descriptor_data *d) {
     unsigned char negotiate[3];
 
@@ -51,9 +45,7 @@ void gmcp_negotiate(struct descriptor_data *d) {
     write(d->descriptor, negotiate, 3);
 }
 
-/*
- * Handle GMCP negotiation response
- */
+/* handle gmcp negotiation response */
 void gmcp_handle_negotiation(struct descriptor_data *d, int cmd) {
     if (!d) return;
 
@@ -65,21 +57,59 @@ void gmcp_handle_negotiation(struct descriptor_data *d, int cmd) {
     }
 }
 
-/*
- * Handle incoming GMCP data from telnet client
- * (Client preferences, module subscriptions, etc.)
- */
+/* handle incoming gmcp data from telnet client */
 void gmcp_handle_input(struct descriptor_data *d, const char *data, size_t len) {
-    /* Currently just log - future: parse client requests */
-    if (d && data && len > 0) {
-        /* statuslog(56, "GMCP input from %s: %.*s", d->host, (int)len, data); */
+    if (!d || !data || len == 0) return;
+
+    /* Core.Hello {"client":"Mudlet","version":"4.17.1"} */
+    if (len > 10 && strncmp(data, "Core.Hello", 10) == 0) {
+        const char *json_start = data + 10;
+        while (*json_start == ' ' && json_start < data + len) json_start++;
+
+        if (*json_start == '{') {
+            cJSON *root = cJSON_Parse(json_start);
+            if (root) {
+                cJSON *client = cJSON_GetObjectItem(root, "client");
+                cJSON *version = cJSON_GetObjectItem(root, "version");
+
+                if (client && cJSON_IsString(client) && client->valuestring) {
+                    strncpy(d->client_name, client->valuestring, sizeof(d->client_name) - 1);
+                    d->client_name[sizeof(d->client_name) - 1] = '\0';
+                }
+                if (version && cJSON_IsString(version) && version->valuestring) {
+                    strncpy(d->client_version, version->valuestring, sizeof(d->client_version) - 1);
+                    d->client_version[sizeof(d->client_version) - 1] = '\0';
+                }
+                cJSON_Delete(root);
+            }
+        }
+    }
+    /* Client.Info is an alias some clients use */
+    else if (len > 11 && strncmp(data, "Client.Info", 11) == 0) {
+        const char *json_start = data + 11;
+        while (*json_start == ' ' && json_start < data + len) json_start++;
+
+        if (*json_start == '{') {
+            cJSON *root = cJSON_Parse(json_start);
+            if (root) {
+                cJSON *client = cJSON_GetObjectItem(root, "client");
+                cJSON *version = cJSON_GetObjectItem(root, "version");
+
+                if (client && cJSON_IsString(client) && client->valuestring) {
+                    strncpy(d->client_name, client->valuestring, sizeof(d->client_name) - 1);
+                    d->client_name[sizeof(d->client_name) - 1] = '\0';
+                }
+                if (version && cJSON_IsString(version) && version->valuestring) {
+                    strncpy(d->client_version, version->valuestring, sizeof(d->client_version) - 1);
+                    d->client_version[sizeof(d->client_version) - 1] = '\0';
+                }
+                cJSON_Delete(root);
+            }
+        }
     }
 }
 
-/*
- * Core GMCP send function
- * Handles both telnet and WebSocket transport
- */
+/* core gmcp send - handles telnet and websocket */
 void gmcp_send(struct descriptor_data *d, const char *package, const char *json) {
     if (!d || !package || !json) return;
     if (!d->gmcp_enabled && !d->websocket) return;
@@ -114,9 +144,7 @@ void gmcp_send(struct descriptor_data *d, const char *package, const char *json)
     }
 }
 
-/*
- * Send Room.Info when character enters a room
- */
+/* send room.info when character enters a room */
 void gmcp_room_info(struct char_data *ch) {
     char *json;
     struct room_data *room;
@@ -134,25 +162,15 @@ void gmcp_room_info(struct char_data *ch) {
 }
 
 /*
- * Send Room.Map for wilderness zones (surface, underdark, alatorin, newbie maps)
- * Sends ASCII art map with ANSI colors
- *
- * This function is called from map.c's display_map_room() which passes the
- * already-generated map buffer to ensure consistency with terminal output.
+ * send room.map for wilderness zones (surface, underdark, alatorin, newbie maps).
+ * this stub is kept for backwards compatibility - the actual gmcp room.map is
+ * sent from display_map_room() in map.c using gmcp_send_room_map().
  */
-
 void gmcp_room_map(struct char_data *ch) {
-    /* This stub is kept for backwards compatibility.
-     * The actual GMCP Room.Map is now sent from display_map_room() in map.c
-     * using gmcp_send_room_map() to ensure the map matches the terminal output.
-     */
     (void)ch;  /* Suppress unused parameter warning */
 }
 
-/*
- * Send pre-generated map buffer via GMCP
- * Called from display_map_room() in map.c
- */
+/* send pre-generated map buffer via gmcp, called from display_map_room() */
 void gmcp_send_room_map(struct char_data *ch, const char *map_buf) {
     char *json_str;
     cJSON *json;
@@ -161,7 +179,6 @@ void gmcp_send_room_map(struct char_data *ch, const char *map_buf) {
     if (!GMCP_ENABLED(ch)) return;
     if (!map_buf || !*map_buf) return;
 
-    /* Build JSON */
     json = cJSON_CreateObject();
     if (!json) return;
 
@@ -176,10 +193,7 @@ void gmcp_send_room_map(struct char_data *ch, const char *map_buf) {
     }
 }
 
-/*
- * Send pre-generated quest map buffer via GMCP
- * Called from gmcp_quest_map() after generating map at quest location
- */
+/* send pre-generated quest map buffer via gmcp */
 void gmcp_send_quest_map(struct char_data *ch, const char *map_buf) {
     char *json_str;
     cJSON *json;
@@ -189,7 +203,6 @@ void gmcp_send_quest_map(struct char_data *ch, const char *map_buf) {
     if (!map_buf || !*map_buf) return;
     if (!ch->only.pc) return;
 
-    /* Build JSON */
     json = cJSON_CreateObject();
     if (!json) return;
 
@@ -206,26 +219,24 @@ void gmcp_send_quest_map(struct char_data *ch, const char *map_buf) {
 }
 
 /*
- * Room Update Throttling
- * Track "dirty" rooms and flush updates periodically to avoid flooding
- * during high-activity scenarios (e.g., 30-player battles)
+ * room update throttling - track dirty rooms and flush periodically
+ * to avoid flooding during high-activity scenarios like big battles
  */
-#define MAX_DIRTY_ROOMS 100
+#define MAX_DIRTY_ROOMS 500
 static int dirty_rooms[MAX_DIRTY_ROOMS];
 static int dirty_room_count = 0;
 
 void gmcp_mark_room_dirty(int room_number) {
     int i;
 
-    /* Validate room number */
     if (room_number < 0) return;
 
-    /* Check if already marked */
+    /* check if already marked */
     for (i = 0; i < dirty_room_count; i++) {
         if (dirty_rooms[i] == room_number) return;
     }
 
-    /* Add to dirty list if space available */
+    /* add to dirty list if space available */
     if (dirty_room_count < MAX_DIRTY_ROOMS) {
         dirty_rooms[dirty_room_count++] = room_number;
     }
@@ -240,7 +251,7 @@ void gmcp_flush_dirty_rooms(void) {
         room = &world[dirty_rooms[i]];
         if (!room) continue;
 
-        /* Send Room.Info to all players in this room */
+        /* send room.info to all players in this room */
         for (tch = room->people; tch; tch = tch->next_in_room) {
             if (!IS_NPC(tch) && tch->desc && GMCP_ENABLED(tch)) {
                 gmcp_room_info(tch);
@@ -252,18 +263,18 @@ void gmcp_flush_dirty_rooms(void) {
 }
 
 /*
- * Ship Contacts Auto-Update
- * Periodically send contact updates to players on ships
+ * ship contacts auto-update - periodically send contact updates to
+ * players on ships
  */
 
-/* Check if ship has any GMCP-enabled players on board */
+/* check if ship has any gmcp-enabled players on board */
 static bool ship_has_gmcp_players(struct ShipData *ship) {
     struct char_data *tch;
     int bridge_rnum;
 
     if (!ship) return false;
 
-    /* Only check the bridge room (where the control panel is) */
+    /* only check the bridge room (where the control panel is) */
     bridge_rnum = real_room(ship->bridge);
     if (bridge_rnum < 0) return false;
 
@@ -275,12 +286,7 @@ static bool ship_has_gmcp_players(struct ShipData *ship) {
     return false;
 }
 
-/* Deprecated - kept for compatibility, does nothing now */
-void gmcp_mark_ship_contacts_dirty(struct ShipData *ship) {
-    (void)ship; /* unused */
-}
-
-/* Simple djb2 hash function for strings */
+/* simple djb2 hash for strings */
 static unsigned long hash_string(const char *str) {
     unsigned long hash = 5381;
     int c;
@@ -294,7 +300,7 @@ static unsigned long hash_string(const char *str) {
     return hash;
 }
 
-/* Build JSON for ship contacts */
+/* build json for ship contacts */
 static char *json_build_ship_contacts(struct ShipData *ship) {
     cJSON *root, *contacts_arr, *contact_obj;
     char *json_str;
@@ -307,7 +313,7 @@ static char *json_build_ship_contacts(struct ShipData *ship) {
     root = cJSON_CreateObject();
     if (!root) return NULL;
 
-    /* Ship's own heading and speed */
+    /* ship's own heading and speed */
     cJSON_AddNumberToObject(root, "heading", (int)ship->heading);
     cJSON_AddNumberToObject(root, "speed", ship->speed);
 
@@ -317,23 +323,28 @@ static char *json_build_ship_contacts(struct ShipData *ship) {
         return NULL;
     }
 
-    /* Only get contacts if on open sea and not docked */
+    /* only get contacts if on open sea and not docked */
     if (IS_MAP_ROOM(ship->location) && !SHIP_DOCKED(ship)) {
         k = getcontacts(ship);
+        if (k > MAXSHIPS) k = MAXSHIPS;  /* bounds check */
 
         for (i = 0; i < k; i++) {
-            /* Skip docked ships beyond range 5 */
+            /* skip docked ships beyond range 5 */
             if (SHIP_DOCKED(contacts[i].ship) && contacts[i].range > 5)
                 continue;
 
             contact_obj = cJSON_CreateObject();
             if (!contact_obj) continue;
 
-            /* Ship identification */
+            /* ship identification */
             cJSON_AddStringToObject(contact_obj, "id", contacts[i].ship->id);
-            cJSON_AddStringToObject(contact_obj, "name", strip_ansi(contacts[i].ship->name).c_str());
+            if (contacts[i].ship->name) {
+                cJSON_AddStringToObject(contact_obj, "name", strip_ansi(contacts[i].ship->name).c_str());
+            } else {
+                cJSON_AddStringToObject(contact_obj, "name", "Unknown");
+            }
 
-            /* Position and navigation */
+            /* position and navigation */
             cJSON_AddNumberToObject(contact_obj, "x", contacts[i].x);
             cJSON_AddNumberToObject(contact_obj, "y", contacts[i].y);
             cJSON_AddNumberToObject(contact_obj, "range", contacts[i].range);
@@ -342,7 +353,7 @@ static char *json_build_ship_contacts(struct ShipData *ship) {
             cJSON_AddNumberToObject(contact_obj, "speed", contacts[i].ship->speed);
             cJSON_AddStringToObject(contact_obj, "arc", contacts[i].arc);
 
-            /* Race/alignment (only if in scan range and not docked) */
+            /* race/alignment (only if in scan range and not docked) */
             race_str = "unknown";
             if (contacts[i].range < SCAN_RANGE && !SHIP_DOCKED(contacts[i].ship)) {
                 switch (contacts[i].ship->race) {
@@ -355,7 +366,7 @@ static char *json_build_ship_contacts(struct ShipData *ship) {
             }
             cJSON_AddStringToObject(contact_obj, "race", race_str);
 
-            /* Status flags */
+            /* status flags */
             status_str = "";
             if (SHIP_FLYING(contacts[i].ship)) status_str = "flying";
             else if (SHIP_SINKING(contacts[i].ship)) status_str = "sinking";
@@ -363,7 +374,7 @@ static char *json_build_ship_contacts(struct ShipData *ship) {
             else if (SHIP_ANCHORED(contacts[i].ship)) status_str = "anchored";
             cJSON_AddStringToObject(contact_obj, "status", status_str);
 
-            /* Targeting indicators */
+            /* targeting indicators */
             cJSON_AddBoolToObject(contact_obj, "targeting_you", contacts[i].ship->target == ship);
             cJSON_AddBoolToObject(contact_obj, "you_targeting", contacts[i].ship == ship->target);
 
@@ -379,14 +390,14 @@ static char *json_build_ship_contacts(struct ShipData *ship) {
     return json_str;
 }
 
-/* Send contacts GMCP to all players on the bridge (takes pre-built JSON) */
+/* send contacts gmcp to all players on the bridge */
 static void send_ship_contacts_to_players_json(struct ShipData *ship, const char *json) {
     struct char_data *tch;
     int bridge_rnum;
 
     if (!ship || !json) return;
 
-    /* Only send to players on the bridge (where control panel is) */
+    /* only send to players on the bridge */
     bridge_rnum = real_room(ship->bridge);
     if (bridge_rnum < 0) return;
 
@@ -403,25 +414,25 @@ void gmcp_flush_dirty_ship_contacts(void) {
     char *json;
     unsigned long new_hash;
 
-    /* Iterate through all ships */
+    /* iterate through all ships */
     for (bool fn = shipObjHash.get_first(svs); fn; fn = shipObjHash.get_next(svs)) {
         ship = svs;
 
         if (!ship || !SHIP_LOADED(ship)) continue;
 
-        /* Skip ships not on map, docked, or without GMCP players on bridge */
+        /* skip ships not on map, docked, or without gmcp players on bridge */
         if (!IS_MAP_ROOM(ship->location)) continue;
         if (SHIP_DOCKED(ship)) continue;
         if (!ship_has_gmcp_players(ship)) continue;
 
-        /* Build contacts JSON */
+        /* build contacts json */
         json = json_build_ship_contacts(ship);
         if (!json) continue;
 
-        /* Calculate hash of current contacts */
+        /* calculate hash of current contacts */
         new_hash = hash_string(json);
 
-        /* Only send if contacts have changed */
+        /* only send if contacts have changed */
         if (new_hash != ship->contacts_hash) {
             send_ship_contacts_to_players_json(ship, json);
             ship->contacts_hash = new_hash;
@@ -431,9 +442,7 @@ void gmcp_flush_dirty_ship_contacts(void) {
     }
 }
 
-/*
- * Send Char.Vitals when HP/Mana/Move changes
- */
+/* send char.vitals when hp/mana/move changes */
 void gmcp_char_vitals(struct char_data *ch) {
     char *json;
 
@@ -448,15 +457,13 @@ void gmcp_char_vitals(struct char_data *ch) {
     }
 }
 
-/*
- * Send vitals update to all group members
- */
+/* send vitals update to all group members */
 void gmcp_group_vitals(struct char_data *ch) {
     struct group_list *gl;
 
     if (!ch || !ch->group) return;
 
-    /* Iterate through all group members */
+    /* iterate through all group members */
     for (gl = ch->group; gl; gl = gl->next) {
         if (gl->ch && GMCP_ENABLED(gl->ch)) {
             gmcp_char_vitals(gl->ch);
@@ -464,10 +471,7 @@ void gmcp_group_vitals(struct char_data *ch) {
     }
 }
 
-/*
- * Send Group.Status for group panel
- * Sends all group members with HP/Move/position for the web client's group tab
- */
+/* send group.status for group panel with member hp/move/position */
 void gmcp_send_group_status(struct char_data *ch) {
     cJSON *root, *members_arr, *member_obj;
     struct group_list *gl;
@@ -479,7 +483,7 @@ void gmcp_send_group_status(struct char_data *ch) {
     if (!ch || !ch->desc) return;
     if (!GMCP_ENABLED(ch)) return;
 
-    /* If not in a group, send null/empty */
+    /* if not in a group, send empty */
     if (!ch->group) {
         gmcp_send(ch->desc, GMCP_PKG_GROUP_STATUS, "{\"members\":[],\"size\":0,\"maxSize\":20}");
         return;
@@ -488,20 +492,17 @@ void gmcp_send_group_status(struct char_data *ch) {
     root = cJSON_CreateObject();
     members_arr = cJSON_CreateArray();
 
-    /* Iterate through group members */
+    /* iterate through group members */
     for (gl = ch->group; gl; gl = gl->next) {
         struct char_data *member = gl->ch;
         if (!member) continue;
 
         member_obj = cJSON_CreateObject();
 
-        /* Name */
         cJSON_AddStringToObject(member_obj, "name", GET_NAME(member));
-
-        /* Level - for NPCs use mob level, for players use GET_LEVEL */
         cJSON_AddNumberToObject(member_obj, "level", GET_LEVEL(member));
 
-        /* Class - NULL for NPCs */
+        /* class - null for npcs */
         if (IS_NPC(member)) {
             cJSON_AddNullToObject(member_obj, "class");
         } else {
@@ -509,7 +510,7 @@ void gmcp_send_group_status(struct char_data *ch) {
                 class_names_table[flag2idx(member->player.m_class)].normal);
         }
 
-        /* Race - NULL for NPCs */
+        /* race - null for npcs */
         if (IS_NPC(member)) {
             cJSON_AddNullToObject(member_obj, "race");
         } else {
@@ -517,13 +518,12 @@ void gmcp_send_group_status(struct char_data *ch) {
                 race_names_table[(int)GET_RACE(member)].normal);
         }
 
-        /* HP and Move */
         cJSON_AddNumberToObject(member_obj, "hp", GET_HIT(member));
         cJSON_AddNumberToObject(member_obj, "maxHp", GET_MAX_HIT(member));
         cJSON_AddNumberToObject(member_obj, "move", GET_VITALITY(member));
         cJSON_AddNumberToObject(member_obj, "maxMove", GET_MAX_VITALITY(member));
 
-        /* Position - POS_PRONE=0, POS_SITTING=1, POS_KNEELING=2, POS_STANDING=3 */
+        /* position */
         const char *pos_str;
         switch (GET_POS(member)) {
             case POS_PRONE:     pos_str = "prone"; break;
@@ -534,7 +534,7 @@ void gmcp_send_group_status(struct char_data *ch) {
         }
         cJSON_AddStringToObject(member_obj, "position", pos_str);
 
-        /* Rank - head for leader, front/back based on PLR2_BACK_RANK flag */
+        /* rank - head for leader, front/back based on back_rank flag */
         const char *rank_str;
         if (is_first) {
             rank_str = "head";
@@ -546,43 +546,46 @@ void gmcp_send_group_status(struct char_data *ch) {
         }
         cJSON_AddStringToObject(member_obj, "rank", rank_str);
 
-        /* isNpc */
         cJSON_AddBoolToObject(member_obj, "isNpc", IS_NPC(member) ? 1 : 0);
-
-        /* inRoom - is this member in the same room as the viewer? */
         cJSON_AddBoolToObject(member_obj, "inRoom", (member->in_room == ch->in_room) ? 1 : 0);
 
-        /* For NPCs, calculate target number and keyword */
+        /* for npcs, calculate target number and keyword */
         if (IS_NPC(member) && member->in_room == ch->in_room) {
-            /* Count matching mobs from end of room list (LIFO) to get target number */
+            /* count matching mobs using lifo order (last in = target #1) */
             struct char_data *tch;
             int target_num = 0;
+            int total_matching = 0;
+            int member_position = 0;
             const char *first_keyword = NULL;
 
-            /* Get first keyword from NPC's name list */
+            /* get first keyword from npc's name list */
             if (member->player.name) {
                 static char keyword_buf[64];
                 strncpy(keyword_buf, member->player.name, sizeof(keyword_buf) - 1);
                 keyword_buf[sizeof(keyword_buf) - 1] = '\0';
-                /* Get first word (keyword) */
+                /* get first word (keyword) */
                 char *space = strchr(keyword_buf, ' ');
                 if (space) *space = '\0';
                 first_keyword = keyword_buf;
             }
 
-            /* Count matching mobs in room - LIFO order means last in = #1 */
+            /* count matching mobs in room - lifo order means last in = #1 */
             if (first_keyword) {
+                /* first pass: count total matching mobs and find member's position */
                 for (tch = world[ch->in_room].people; tch; tch = tch->next_in_room) {
                     if (IS_NPC(tch) && tch->player.name) {
-                        /* Check if this mob matches the keyword */
+                        /* check if this mob matches the keyword */
                         if (isname(first_keyword, tch->player.name)) {
-                            target_num++;
+                            total_matching++;
                             if (tch == member) {
-                                /* Found our member - target_num is now correct (LIFO) */
-                                break;
+                                member_position = total_matching;
                             }
                         }
                     }
+                }
+                /* lifo: last mob in list = #1, so reverse the position */
+                if (member_position > 0) {
+                    target_num = total_matching - member_position + 1;
                 }
             }
 
@@ -615,9 +618,7 @@ void gmcp_send_group_status(struct char_data *ch) {
     }
 }
 
-/*
- * Send Char.Status on login, level up, etc.
- */
+/* send char.status on login, level up, etc. */
 void gmcp_char_status(struct char_data *ch) {
     char *json;
 
@@ -632,9 +633,7 @@ void gmcp_char_status(struct char_data *ch) {
     }
 }
 
-/*
- * Send Char.Affects when buffs/debuffs change
- */
+/* send char.affects when buffs/debuffs change */
 void gmcp_char_affects(struct char_data *ch) {
     char *json;
 
@@ -649,9 +648,7 @@ void gmcp_char_affects(struct char_data *ch) {
     }
 }
 
-/*
- * Send Combat.Update for a combat round
- */
+/* send combat.update for a combat round */
 void gmcp_combat_update(struct char_data *ch, struct char_data *victim,
                         int damage, const char *damage_type, int critical) {
     cJSON *root, *target, *round;
@@ -663,11 +660,11 @@ void gmcp_combat_update(struct char_data *ch, struct char_data *victim,
 
     root = cJSON_CreateObject();
 
-    /* Target info */
+    /* target info */
     target = cJSON_CreateObject();
     cJSON_AddStringToObject(target, "name", GET_NAME(victim));
 
-    /* Calculate health percentage */
+    /* calculate health percentage */
     if (GET_MAX_HIT(victim) > 0) {
         health_pct = (GET_HIT(victim) * 100) / GET_MAX_HIT(victim);
         if (health_pct < 0) health_pct = 0;
@@ -675,7 +672,7 @@ void gmcp_combat_update(struct char_data *ch, struct char_data *victim,
         health_pct = 0;
     }
 
-    /* Health description */
+    /* health description */
     const char *health_desc;
     if (health_pct >= 100) health_desc = "excellent";
     else if (health_pct >= 90) health_desc = "few scratches";
@@ -689,14 +686,14 @@ void gmcp_combat_update(struct char_data *ch, struct char_data *victim,
     cJSON_AddStringToObject(target, "health", health_desc);
     cJSON_AddNumberToObject(target, "healthPercent", health_pct);
 
-    /* Target position - matches POS_ constants in defines.h */
+    /* target position */
     const char *positions[] = {"on their ass", "sitting", "kneeling", "standing"};
     int pos = GET_POS(victim);
     const char *pos_desc = (pos >= 0 && pos <= 3) ? positions[pos] : "standing";
     cJSON_AddStringToObject(target, "position", pos_desc);
     cJSON_AddItemToObject(root, "target", target);
 
-    /* Round info */
+    /* round info */
     if (damage > 0 || damage_type) {
         round = cJSON_CreateObject();
         cJSON_AddStringToObject(round, "attacker", GET_NAME(ch));
@@ -715,16 +712,12 @@ void gmcp_combat_update(struct char_data *ch, struct char_data *victim,
     }
 }
 
-/*
- * Send target health update (for health bar)
- */
+/* send target health update for health bar */
 void gmcp_combat_target(struct char_data *ch, struct char_data *victim) {
     gmcp_combat_update(ch, victim, 0, NULL, 0);
 }
 
-/*
- * Send combat ended notification
- */
+/* send combat ended notification */
 void gmcp_combat_end(struct char_data *ch) {
     if (!ch || !ch->desc) return;
     if (!GMCP_ENABLED(ch)) return;
@@ -732,9 +725,7 @@ void gmcp_combat_end(struct char_data *ch) {
     gmcp_send(ch->desc, GMCP_PKG_COMBAT_UPDATE, "{\"target\":null}");
 }
 
-/*
- * Send channel message via GMCP
- */
+/* send channel message via gmcp */
 void gmcp_comm_channel(struct char_data *ch, const char *channel,
                        const char *sender, const char *text) {
     char *json;
@@ -750,9 +741,7 @@ void gmcp_comm_channel(struct char_data *ch, const char *channel,
     }
 }
 
-/*
- * Send channel message via GMCP with alignment (for nchat)
- */
+/* send channel message via gmcp with alignment (for nchat) */
 void gmcp_comm_channel_ex(struct char_data *ch, const char *channel,
                           const char *sender, const char *text,
                           const char *alignment) {
@@ -769,9 +758,7 @@ void gmcp_comm_channel_ex(struct char_data *ch, const char *channel,
     }
 }
 
-/*
- * Broadcast channel message to all GMCP-enabled players
- */
+/* broadcast channel message to all gmcp-enabled players */
 void gmcp_broadcast_channel(const char *channel, const char *sender,
                             const char *text, struct char_data *exclude) {
     struct descriptor_data *d;
@@ -790,9 +777,7 @@ void gmcp_broadcast_channel(const char *channel, const char *sender,
     free(json);
 }
 
-/*
- * Send Quest.Status for bartender quests
- */
+/* send quest.status for bartender quests */
 void gmcp_quest_status(struct char_data *ch) {
     char *json;
 
@@ -806,7 +791,7 @@ void gmcp_quest_status(struct char_data *ch) {
         free(json);
     }
 
-    /* Send quest map once per session if player has one purchased */
+    /* send quest map once per session if player has one purchased */
     if (ch->only.pc && ch->only.pc->quest_map_bought == 1 &&
         !ch->desc->gmcp_quest_map_sent) {
         gmcp_quest_map(ch);
@@ -814,10 +799,7 @@ void gmcp_quest_status(struct char_data *ch) {
     }
 }
 
-/*
- * Generate and send Quest.Map for bartender quests
- * Temporarily teleports to quest map room to generate the map
- */
+/* generate and send quest.map for bartender quests */
 void gmcp_quest_map(struct char_data *ch) {
     int old_room, map_room;
 
@@ -829,15 +811,15 @@ void gmcp_quest_map(struct char_data *ch) {
     map_room = real_room(ch->only.pc->quest_map_room);
     if (map_room < 0) return;
 
-    /* Temporarily move to map room */
+    /* temporarily move to map room */
     old_room = ch->in_room;
     char_from_room(ch);
     char_to_room(ch, map_room, -2);
 
-    /* Generate and send quest map (20 tile radius, always show) */
-    display_map_room(ch, map_room, 20, 999, 1);  /* 1 = Quest.Map */
+    /* generate and send quest map (20 tile radius) */
+    display_map_room(ch, map_room, 20, 999, 1);
 
-    /* Return to original room */
+    /* return to original room */
     char_from_room(ch);
     char_to_room(ch, old_room, -2);
 }

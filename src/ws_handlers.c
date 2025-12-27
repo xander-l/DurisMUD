@@ -1,11 +1,7 @@
 /*
- * ws_handlers.c - WebSocket command handlers for DurisMUD
+ * ws_handlers.c - websocket command handlers for durismud
  *
- * Handles JSON commands from web clients:
- * - login: Account authentication
- * - register: Account creation
- * - enter: Enter game with character
- * - game: In-game commands
+ * handles json commands from web clients: login, register, enter, game, etc.
  */
 
 #include <stdio.h>
@@ -28,7 +24,6 @@
 #include "mm.h"
 #include "files.h"
 
-/* External declarations */
 extern struct descriptor_data *descriptor_list;
 extern struct mm_ds *dead_mob_pool;
 extern struct mm_ds *dead_pconly_pool;
@@ -52,22 +47,18 @@ extern const char *stat_to_string2(int val);
 extern const char *town_name_list[];
 extern const int avail_hometowns[][LAST_RACE + 1];
 
-/* Helper structure for character display */
+/* helper structure for character display */
 struct ws_char_info {
     char name[32];
     int level;
     int race;
     int hometown;  /* Room index for last room name */
-    char class_str[256];  /* Full class string from get_class_string (e.g., "Cleric / Zealot") */
+    char class_str[256];  /* full class string (e.g., "cleric / zealot") */
 };
 
-/* Forward declaration for character list builder */
 static cJSON *ws_build_character_list(struct descriptor_data *d);
 
-/*
- * Helper function to get race faction from shared playable_races[] array
- * Returns: "good", "evil", "neutral", or "unknown" if not playable
- */
+/* get race faction from playable_races[] array */
 static const char *ws_get_race_faction(int race)
 {
     int i;
@@ -79,10 +70,7 @@ static const char *ws_get_race_faction(int race)
     return "unknown";
 }
 
-/*
- * Helper function to check if race is playable
- * Uses shared playable_races[] array from constant.c
- */
+/* check if race is playable */
 static int ws_is_playable_race(int race)
 {
     int i;
@@ -92,10 +80,7 @@ static int ws_is_playable_race(int race)
     return 0;
 }
 
-/*
- * Helper function to get alignment string from class_table value
- * -1 = evil, 0 = neutral, 1 = good, 2 = any, 3 = good/neutral, 4 = neutral/evil, 5 = forbidden
- */
+/* get alignment string from class_table value */
 static const char *ws_get_class_alignment(int value)
 {
     switch (value) {
@@ -105,13 +90,11 @@ static const char *ws_get_class_alignment(int value)
         case 2:  return "any";
         case 3:  return "good_neutral";
         case 4:  return "neutral_evil";
-        default: return NULL;  /* 5 = forbidden */
+        default: return NULL;  /* forbidden */
     }
 }
 
-/*
- * Load basic character info for JSON response
- */
+/* load basic character info for json response */
 static int ws_load_char_info(const char *charname, struct ws_char_info *info)
 {
     extern char *get_class_string(P_char ch, char *strn);
@@ -140,14 +123,14 @@ static int ws_load_char_info(const char *charname, struct ws_char_info *info)
 
     strncpy(info->name, GET_NAME(temp_ch), 31);
     info->name[31] = '\0';
-    /* Capitalize first letter */
+    /* capitalize first letter */
     if (info->name[0]) info->name[0] = toupper(info->name[0]);
 
     info->level = GET_LEVEL(temp_ch);
     info->race = GET_RACE(temp_ch);
     info->hometown = GET_HOME(temp_ch);
 
-    /* Use get_class_string like GMCP does - handles spec and multiclass */
+    /* use get_class_string - handles spec and multiclass */
     get_class_string(temp_ch, info->class_str);
 
     if (temp_ch->only.pc) free(temp_ch->only.pc);
@@ -156,9 +139,7 @@ static int ws_load_char_info(const char *charname, struct ws_char_info *info)
     return 1;
 }
 
-/*
- * Get race name string
- */
+/* get race name string */
 static const char *ws_get_race_name(int race)
 {
     extern const struct race_names race_names_table[];
@@ -168,9 +149,7 @@ static const char *ws_get_race_name(int race)
     return "Unknown";
 }
 
-/*
- * Get class name string
- */
+/* get class name string */
 static const char *ws_get_class_name(unsigned int m_class)
 {
     int idx = flag2idx(m_class);
@@ -180,9 +159,7 @@ static const char *ws_get_class_name(unsigned int m_class)
     return "Unknown";
 }
 
-/*
- * Send auth success message with character list
- */
+/* send auth success message with character list */
 void ws_send_auth_success(struct descriptor_data *d, const char *account_name)
 {
     cJSON *root = cJSON_CreateObject();
@@ -193,7 +170,7 @@ void ws_send_auth_success(struct descriptor_data *d, const char *account_name)
 
     cJSON_AddStringToObject(data, "account", account_name);
 
-    /* Build character list using shared helper */
+    /* build character list */
     cJSON_AddItemToObject(data, "characters", ws_build_character_list(d));
     cJSON_AddItemToObject(root, "data", data);
 
@@ -206,9 +183,7 @@ void ws_send_auth_success(struct descriptor_data *d, const char *account_name)
     cJSON_Delete(root);
 }
 
-/*
- * Send reconnect success message - used when player reconnects to linkdead character
- */
+/* send reconnect success message for linkdead reconnection */
 void ws_send_reconnect_success(struct descriptor_data *d, const char *account_name, const char *char_name)
 {
     cJSON *root = cJSON_CreateObject();
@@ -220,7 +195,7 @@ void ws_send_reconnect_success(struct descriptor_data *d, const char *account_na
 
     cJSON_AddStringToObject(data, "account", account_name);
 
-    /* Add reconnected character info */
+    /* add reconnected character info */
     if (d->character) {
         cJSON_AddStringToObject(character, "name", GET_NAME(d->character));
         cJSON_AddNumberToObject(character, "level", GET_LEVEL(d->character));
@@ -242,16 +217,12 @@ void ws_send_reconnect_success(struct descriptor_data *d, const char *account_na
     cJSON_Delete(root);
 }
 
-/*
- * Send full game state after reconnection
- * This resynchronizes the client with room, vitals, affects, etc.
- */
+/* send full game state after reconnection to resync client */
 void ws_send_full_game_state(struct descriptor_data *d)
 {
     if (!d || !d->character) return;
 
-    /* Trigger GMCP updates to send current state */
-    /* Room info */
+    /* trigger gmcp updates to send current state */
     if (d->character->in_room >= 0) {
         extern void gmcp_room_info(struct char_data *ch);
         extern void gmcp_room_map(struct char_data *ch);
@@ -259,29 +230,23 @@ void ws_send_full_game_state(struct descriptor_data *d)
         gmcp_room_map(d->character);
     }
 
-    /* Character vitals */
     extern void gmcp_char_vitals(struct char_data *ch);
     gmcp_char_vitals(d->character);
 
-    /* Character status */
     extern void gmcp_char_status(struct char_data *ch);
     gmcp_char_status(d->character);
 
-    /* Character affects */
     extern void gmcp_char_affects(struct char_data *ch);
     gmcp_char_affects(d->character);
 
-    /* Quest status */
     extern void gmcp_quest_status(struct char_data *ch);
     gmcp_quest_status(d->character);
 
-    /* Send a "look" to show the room */
+    /* send a "look" to show the room */
     write_to_q("look", &d->input, 0);
 }
 
-/*
- * Send auth failed message
- */
+/* send auth failed message */
 void ws_send_auth_failed(struct descriptor_data *d, const char *error)
 {
     cJSON *root = cJSON_CreateObject();
@@ -299,9 +264,7 @@ void ws_send_auth_failed(struct descriptor_data *d, const char *error)
     cJSON_Delete(root);
 }
 
-/*
- * Send text message
- */
+/* send text message */
 void ws_send_text(struct descriptor_data *d, const char *category, const char *text)
 {
     cJSON *root = cJSON_CreateObject();
@@ -319,9 +282,7 @@ void ws_send_text(struct descriptor_data *d, const char *category, const char *t
     cJSON_Delete(root);
 }
 
-/*
- * Send system message
- */
+/* send system message */
 void ws_send_system(struct descriptor_data *d, const char *status, const char *message)
 {
     cJSON *root = cJSON_CreateObject();
@@ -341,9 +302,7 @@ void ws_send_system(struct descriptor_data *d, const char *status, const char *m
     cJSON_Delete(root);
 }
 
-/*
- * Handle login command
- */
+/* handle login command */
 void ws_cmd_login(struct descriptor_data *d, cJSON *data)
 {
     cJSON *account_item, *password_item;
@@ -378,20 +337,20 @@ void ws_cmd_login(struct descriptor_data *d, cJSON *data)
         return;
     }
 
-    /* Lowercase for filesystem lookup */
+    /* lowercase for filesystem lookup */
     strncpy(tmp_name, account_name, sizeof(tmp_name) - 1);
     tmp_name[sizeof(tmp_name) - 1] = '\0';
     for (int i = 0; tmp_name[i]; i++) {
         tmp_name[i] = tolower(tmp_name[i]);
     }
 
-    /* Check if account exists */
+    /* check if account exists */
     if (!account_exists("Accounts", tmp_name)) {
         ws_send_auth_failed(d, "Account not found");
         return;
     }
 
-    /* Allocate and load account using proper allocation function */
+    /* allocate and load account */
     if (!d->account) {
         d->account = allocate_account();
         if (!d->account) {
@@ -408,34 +367,29 @@ void ws_cmd_login(struct descriptor_data *d, cJSON *data)
         return;
     }
 
-    /* Verify password */
+    /* verify password */
     if (is_bcrypt_hash(d->account->acct_password)) {
         password_valid = bcrypt_verify_password(password, d->account->acct_password);
     } else {
-        /* Legacy MD5 hash */
+        /* legacy md5 hash */
         password_valid = (strcmp(CRYPT2((char *)password, d->account->acct_password),
                                  d->account->acct_password) == 0);
     }
 
     if (!password_valid) {
         ws_send_auth_failed(d, "Invalid password");
-        /* Free the entire account on auth failure */
         d->account = free_account(d->account);
         return;
     }
 
-    /*
-     * RECONNECT CHECK:
-     * Check if any character from this account is currently in-game (including linkdead).
-     * If so, reconnect to that character automatically.
-     */
+    /* reconnect check: look for in-game characters from this account */
     {
         extern struct char_data *get_char_online(char *name, bool include_linkdead);
         struct descriptor_data *k, *next_k;
         struct acct_chars *c;
         struct char_data *online_char = NULL;
 
-        /* Search through account's characters to find one that's in-game */
+        /* search through account's characters to find one in-game */
         if (d->account && d->account->acct_character_list) {
             c = d->account->acct_character_list;
             while (c) {
@@ -450,7 +404,7 @@ void ws_cmd_login(struct descriptor_data *d, cJSON *data)
             }
         }
 
-        /* Kick any duplicate sessions in character selection (not playing) */
+        /* kick any duplicate sessions in character selection */
         for (k = descriptor_list; k; k = next_k) {
             next_k = k->next;
             if (k == d) continue;
@@ -468,11 +422,11 @@ void ws_cmd_login(struct descriptor_data *d, cJSON *data)
             }
         }
 
-        /* If we found an in-game character, reconnect to it */
+        /* if we found an in-game character, reconnect to it */
         if (online_char) {
             struct descriptor_data *old_desc = online_char->desc;
 
-            /* If there's an old descriptor, close it */
+            /* close old descriptor if exists */
             if (old_desc && old_desc != d) {
                 old_desc->character = NULL;
 
@@ -483,7 +437,7 @@ void ws_cmd_login(struct descriptor_data *d, cJSON *data)
                 close_socket(old_desc);
             }
 
-            /* Attach character to new descriptor */
+            /* attach character to new descriptor */
             d->character = online_char;
             online_char->desc = d;
             d->connected = CON_PLAYING;
@@ -491,26 +445,21 @@ void ws_cmd_login(struct descriptor_data *d, cJSON *data)
             statuslog(56, "WebSocket: Reconnected %s to character %s from %s",
                       tmp_name, GET_NAME(d->character), d->host);
 
-            /* Send reconnect success message */
             ws_send_reconnect_success(d, tmp_name, GET_NAME(d->character));
-
-            /* Send current game state (room info, vitals, etc.) */
             ws_send_full_game_state(d);
 
             return;
         }
     }
 
-    /* Success - show character selection */
+    /* success - show character selection */
     d->connected = CON_ACCT_SELECT_CHAR;
     statuslog(56, "WebSocket login success for account: %s from %s", tmp_name, d->host);
 
     ws_send_auth_success(d, tmp_name);
 }
 
-/*
- * Handle enter game command
- */
+/* handle enter game command */
 void ws_cmd_enter(struct descriptor_data *d, cJSON *data)
 {
     cJSON *char_item;
@@ -536,7 +485,7 @@ void ws_cmd_enter(struct descriptor_data *d, cJSON *data)
         return;
     }
 
-    /* Find character in account list */
+    /* find character in account list */
     c = d->account->acct_character_list;
     while (c) {
         if (strcasecmp(c->charname, char_name) == 0) {
@@ -550,34 +499,29 @@ void ws_cmd_enter(struct descriptor_data *d, cJSON *data)
         return;
     }
 
-    /*
-     * DUPLICATE SESSION CHECK:
-     * If this character is already logged in, kick the old session.
-     * This prevents duplicate characters from HMR, page refreshes, etc.
-     */
+    /* duplicate session check: kick old session if character already logged in */
     for (k = descriptor_list; k; k = next_k) {
         next_k = k->next;
 
-        /* Skip self */
+        /* skip self */
         if (k == d) continue;
 
-        /* Check if this descriptor has the same character selected or playing */
+        /* check if this descriptor has the same character */
         if (k->character && GET_NAME(k->character) &&
             strcasecmp(GET_NAME(k->character), char_name) == 0) {
 
             statuslog(56, "WebSocket: Kicking duplicate session for %s from %s (new connection from %s)",
                       char_name, k->host, d->host);
 
-            /* Notify old client they're being disconnected */
+            /* notify old client */
             if (k->websocket) {
                 ws_send_system(k, "kicked", "Another session has connected with this character.");
                 websocket_close(k, WS_CLOSE_NORMAL, "Duplicate session");
             }
 
-            /* Close the old descriptor */
             close_socket(k);
         }
-        /* Also check if descriptor is in character selection with same char selected */
+        /* also check pending character selection */
         else if (k->selected_char_name &&
                  strcasecmp(k->selected_char_name, char_name) == 0) {
 
@@ -593,20 +537,18 @@ void ws_cmd_enter(struct descriptor_data *d, cJSON *data)
         }
     }
 
-    /* Store selection and use nanny flow to enter game */
+    /* store selection and use nanny flow to enter game */
     if (d->selected_char_name) {
         str_free(d->selected_char_name);
     }
     d->selected_char_name = str_dup(c->charname);
 
-    /* Queue 'y' to confirm character selection */
+    /* queue 'y' to confirm character selection */
     write_to_q("y", &d->input, 0);
     d->connected = CON_ACCT_CONFIRM_CHAR;
 }
 
-/*
- * Handle game command
- */
+/* handle game command */
 void ws_cmd_game(struct descriptor_data *d, cJSON *data)
 {
     const char *cmd;
@@ -629,9 +571,7 @@ void ws_cmd_game(struct descriptor_data *d, cJSON *data)
     }
 }
 
-/*
- * Handle register command - create a new account
- */
+/* handle register command - create a new account */
 void ws_cmd_register(struct descriptor_data *d, cJSON *data)
 {
     cJSON *account_json, *password_json, *email_json;
@@ -639,7 +579,7 @@ void ws_cmd_register(struct descriptor_data *d, cJSON *data)
     char *hash;
     int i;
 
-    /* Get required fields from JSON */
+    /* get required fields from json */
     account_json = cJSON_GetObjectItemCaseSensitive(data, "account");
     password_json = cJSON_GetObjectItemCaseSensitive(data, "password");
     email_json = cJSON_GetObjectItemCaseSensitive(data, "email");
@@ -651,7 +591,7 @@ void ws_cmd_register(struct descriptor_data *d, cJSON *data)
         return;
     }
 
-    /* Validate account name length */
+    /* validate account name length */
     if (strlen(account_json->valuestring) < 3) {
         ws_send_auth_failed(d, "Account name must be at least 3 characters");
         return;
@@ -662,17 +602,17 @@ void ws_cmd_register(struct descriptor_data *d, cJSON *data)
         return;
     }
 
-    /* Copy and normalize account name */
+    /* copy and normalize account name */
     strncpy(tmp_name, account_json->valuestring, MAX_INPUT_LENGTH - 1);
     tmp_name[MAX_INPUT_LENGTH - 1] = '\0';
 
-    /* Convert to lowercase except first char */
+    /* convert to lowercase except first char */
     tmp_name[0] = toupper(tmp_name[0]);
     for (i = 1; tmp_name[i]; i++) {
         tmp_name[i] = tolower(tmp_name[i]);
     }
 
-    /* Validate account name characters */
+    /* validate account name characters */
     for (i = 0; tmp_name[i]; i++) {
         if (!isalpha(tmp_name[i]) && tmp_name[i] != '_') {
             ws_send_auth_failed(d, "Account name can only contain letters and underscores");
@@ -680,31 +620,31 @@ void ws_cmd_register(struct descriptor_data *d, cJSON *data)
         }
     }
 
-    /* Check if account already exists */
+    /* check if account already exists */
     if (account_exists("Accounts", tmp_name)) {
         ws_send_auth_failed(d, "An account with that name already exists");
         return;
     }
 
-    /* Validate email format */
+    /* validate email format */
     if (!is_valid_email(email_json->valuestring)) {
         ws_send_auth_failed(d, "Invalid email address format");
         return;
     }
 
-    /* Check if email is already in use */
+    /* check if email is already in use */
     if (is_email_taken(email_json->valuestring)) {
         ws_send_auth_failed(d, "Email address is already in use");
         return;
     }
 
-    /* Validate password length */
+    /* validate password length */
     if (strlen(password_json->valuestring) < 6) {
         ws_send_auth_failed(d, "Password must be at least 6 characters");
         return;
     }
 
-    /* Allocate new account */
+    /* allocate new account */
     if (!d->account) {
         d->account = allocate_account();
         if (!d->account) {
@@ -714,13 +654,11 @@ void ws_cmd_register(struct descriptor_data *d, cJSON *data)
         }
     }
 
-    /* Set account name */
+    /* set account name and email */
     d->account->acct_name = str_dup(tmp_name);
-
-    /* Set email */
     d->account->acct_email = str_dup(email_json->valuestring);
 
-    /* Hash password with bcrypt */
+    /* hash password with bcrypt */
     hash = bcrypt_hash_password(password_json->valuestring);
     if (!hash) {
         ws_send_auth_failed(d, "Failed to hash password - server error");
@@ -730,10 +668,10 @@ void ws_cmd_register(struct descriptor_data *d, cJSON *data)
     d->account->acct_password = str_dup(hash);
     free(hash);
 
-    /* Mark account as confirmed (skip email verification for web clients) */
+    /* mark account as confirmed (skip email verification for web clients) */
     d->account->acct_confirmed = 1;
 
-    /* Save account to disk */
+    /* save account to disk */
     if (write_account(d->account) == -1) {
         ws_send_auth_failed(d, "Failed to save account - server error");
         statuslog(56, "&+RALERT&n: WebSocket failed to write account for %s", tmp_name);
@@ -743,13 +681,10 @@ void ws_cmd_register(struct descriptor_data *d, cJSON *data)
 
     statuslog(56, "WebSocket: New account created: %s", tmp_name);
 
-    /* Send success response (account with no characters) */
     ws_send_auth_success(d, "registered");
 }
 
-/*
- * Handle chargen options request (placeholder)
- */
+/* handle chargen options request */
 void ws_cmd_chargen_options(struct descriptor_data *d, cJSON *data)
 {
     cJSON *response, *races_array, *race_obj, *classes_array, *class_obj;
@@ -766,7 +701,7 @@ void ws_cmd_chargen_options(struct descriptor_data *d, cJSON *data)
     cJSON_AddStringToObject(response, "type", "chargen_options");
     races_array = cJSON_AddArrayToObject(response, "races");
 
-    /* Loop over playable_races[] array */
+    /* loop over playable_races[] array */
     for (i = 0; playable_races[i].race_id != -1; i++)
     {
         race_id = playable_races[i].race_id;
@@ -777,18 +712,18 @@ void ws_cmd_chargen_options(struct descriptor_data *d, cJSON *data)
         cJSON_AddStringToObject(race_obj, "ansi", race_names_table[race_id].ansi);
         cJSON_AddStringToObject(race_obj, "faction", playable_races[i].faction);
 
-        /* Build array of available classes for this race */
+        /* build array of available classes for this race */
         classes_array = cJSON_AddArrayToObject(race_obj, "classes");
 
         for (j = 1; j <= CLASS_COUNT; j++)
         {
             align_val = class_table[race_id][j];
 
-            /* Skip if class is forbidden for this race (value 5) */
+            /* skip forbidden classes */
             if (align_val == 5) continue;
 
             align_str = ws_get_class_alignment(align_val);
-            if (!align_str) continue;  /* Extra safety */
+            if (!align_str) continue;
 
             class_obj = cJSON_CreateObject();
             cJSON_AddNumberToObject(class_obj, "id", j);
@@ -802,7 +737,6 @@ void ws_cmd_chargen_options(struct descriptor_data *d, cJSON *data)
         cJSON_AddItemToArray(races_array, race_obj);
     }
 
-    /* Send the response */
     json_str = cJSON_PrintUnformatted(response);
     if (json_str) {
         websocket_send_text(d, json_str);
@@ -812,11 +746,7 @@ void ws_cmd_chargen_options(struct descriptor_data *d, cJSON *data)
     cJSON_Delete(response);
 }
 
-/*
- * Handle roll stats command
- * Expects: { race: <race_id> }
- * Returns: { type: "roll_stats", base: {...}, racial: {...}, final: {...} }
- */
+/* handle roll stats command */
 void ws_cmd_roll_stats(struct descriptor_data *d, cJSON *data)
 {
     cJSON *response, *stats_obj;
@@ -825,7 +755,7 @@ void ws_cmd_roll_stats(struct descriptor_data *d, cJSON *data)
     char *json_str;
     P_char temp_ch;
 
-    /* Get race from request */
+    /* get race from request */
     race_item = cJSON_GetObjectItem(data, "race");
     if (!race_item || !cJSON_IsNumber(race_item)) {
         ws_send_system(d, "error", "Missing or invalid race");
@@ -833,13 +763,13 @@ void ws_cmd_roll_stats(struct descriptor_data *d, cJSON *data)
     }
     race_id = race_item->valueint;
 
-    /* Validate race is playable */
+    /* validate race is playable */
     if (!ws_is_playable_race(race_id)) {
         ws_send_system(d, "error", "Invalid race selection");
         return;
     }
 
-    /* Create temporary character for stat rolling */
+    /* create temporary character for stat rolling */
     temp_ch = (struct char_data *)malloc(sizeof(struct char_data));
     if (!temp_ch) {
         ws_send_system(d, "error", "Server error: memory allocation failed");
@@ -847,20 +777,20 @@ void ws_cmd_roll_stats(struct descriptor_data *d, cJSON *data)
     }
     memset(temp_ch, 0, sizeof(struct char_data));
 
-    /* Set race and roll stats */
+    /* set race and roll stats */
     GET_RACE(temp_ch) = race_id;
-    roll_basic_attributes(temp_ch, 0);  /* ROLL_NORMAL = 0 */
+    roll_basic_attributes(temp_ch, 0);
 
-    /* Store rolled stats in descriptor for later use */
+    /* store rolled stats in descriptor for later use */
     d->chargen_stats = temp_ch->base_stats;
     d->chargen_race = race_id;
-    d->chargen_bonus_remaining = 5;  /* 5 bonus points to allocate */
+    d->chargen_bonus_remaining = 5;
 
-    /* Build response - send only quality labels, not numbers! */
+    /* build response - send only quality labels, not numbers */
     response = cJSON_CreateObject();
     cJSON_AddStringToObject(response, "type", "roll_stats");
 
-    /* Stats as quality labels only */
+    /* stats as quality labels only */
     stats_obj = cJSON_CreateObject();
     cJSON_AddStringToObject(stats_obj, "str", stat_to_string2(temp_ch->base_stats.Str));
     cJSON_AddStringToObject(stats_obj, "dex", stat_to_string2(temp_ch->base_stats.Dex));
@@ -874,13 +804,10 @@ void ws_cmd_roll_stats(struct descriptor_data *d, cJSON *data)
     cJSON_AddStringToObject(stats_obj, "kar", stat_to_string2(temp_ch->base_stats.Kar));
     cJSON_AddItemToObject(response, "stats", stats_obj);
 
-    /* Bonus points remaining */
     cJSON_AddNumberToObject(response, "bonusRemaining", d->chargen_bonus_remaining);
 
-    /* Cleanup temp character */
     free(temp_ch);
 
-    /* Send response */
     json_str = cJSON_PrintUnformatted(response);
     if (json_str) {
         websocket_send_text(d, json_str);
@@ -890,12 +817,7 @@ void ws_cmd_roll_stats(struct descriptor_data *d, cJSON *data)
     cJSON_Delete(response);
 }
 
-/*
- * Handle add bonus command
- * Expects: { stat: "str"|"dex"|"agi"|"con"|"pow"|"int"|"wis"|"cha" }
- * Adds +5 to the specified stat (max 100), decrements bonus remaining
- * Returns updated stats with quality labels
- */
+/* handle add bonus command - adds +5 to specified stat */
 void ws_cmd_add_bonus(struct descriptor_data *d, cJSON *data)
 {
     cJSON *response, *stats_obj, *stat_item;
@@ -903,13 +825,13 @@ void ws_cmd_add_bonus(struct descriptor_data *d, cJSON *data)
     const char *stat_name;
     sh_int *stat_ptr = NULL;
 
-    /* Check if we have bonus points remaining */
+    /* check if we have bonus points remaining */
     if (d->chargen_bonus_remaining <= 0) {
         ws_send_system(d, "error", "No bonus points remaining");
         return;
     }
 
-    /* Get stat to boost */
+    /* get stat to boost */
     stat_item = cJSON_GetObjectItem(data, "stat");
     if (!stat_item || !cJSON_IsString(stat_item)) {
         ws_send_system(d, "error", "Missing or invalid stat");
@@ -917,7 +839,7 @@ void ws_cmd_add_bonus(struct descriptor_data *d, cJSON *data)
     }
     stat_name = stat_item->valuestring;
 
-    /* Map stat name to pointer (9 stats can receive bonus - not kar) */
+    /* map stat name to pointer (9 stats can receive bonus - not kar) */
     if (strcmp(stat_name, "str") == 0) stat_ptr = &d->chargen_stats.Str;
     else if (strcmp(stat_name, "dex") == 0) stat_ptr = &d->chargen_stats.Dex;
     else if (strcmp(stat_name, "agi") == 0) stat_ptr = &d->chargen_stats.Agi;
@@ -932,17 +854,17 @@ void ws_cmd_add_bonus(struct descriptor_data *d, cJSON *data)
         return;
     }
 
-    /* Check if stat is already at max */
+    /* check if stat is already at max */
     if (*stat_ptr >= 100) {
         ws_send_system(d, "error", "Stat is already at maximum");
         return;
     }
 
-    /* Add bonus (+5, capped at 100) */
+    /* add bonus (+5, capped at 100) */
     *stat_ptr = BOUNDED(1, *stat_ptr + 5, 100);
     d->chargen_bonus_remaining--;
 
-    /* Build response with updated stats */
+    /* build response with updated stats */
     response = cJSON_CreateObject();
     cJSON_AddStringToObject(response, "type", "bonus_added");
 
@@ -971,11 +893,7 @@ void ws_cmd_add_bonus(struct descriptor_data *d, cJSON *data)
     cJSON_Delete(response);
 }
 
-/*
- * Handle swap stats command
- * Expects: { stat1: "str", stat2: "int" }
- * Swaps the values of two stats
- */
+/* handle swap stats command - swaps values of two stats */
 void ws_cmd_swap_stats(struct descriptor_data *d, cJSON *data)
 {
     cJSON *response, *stats_obj, *stat1_item, *stat2_item;
@@ -984,7 +902,7 @@ void ws_cmd_swap_stats(struct descriptor_data *d, cJSON *data)
     sh_int *stat1_ptr = NULL, *stat2_ptr = NULL;
     sh_int temp;
 
-    /* Get stat names */
+    /* get stat names */
     stat1_item = cJSON_GetObjectItem(data, "stat1");
     stat2_item = cJSON_GetObjectItem(data, "stat2");
     if (!stat1_item || !cJSON_IsString(stat1_item) ||
@@ -995,13 +913,13 @@ void ws_cmd_swap_stats(struct descriptor_data *d, cJSON *data)
     stat1_name = stat1_item->valuestring;
     stat2_name = stat2_item->valuestring;
 
-    /* Can't swap same stat */
+    /* can't swap same stat */
     if (strcmp(stat1_name, stat2_name) == 0) {
         ws_send_system(d, "error", "Cannot swap a stat with itself");
         return;
     }
 
-    /* Map stat1 name to pointer (9 stats swappable - not kar) */
+    /* map stat1 name to pointer (9 stats swappable - not kar) */
     if (strcmp(stat1_name, "str") == 0) stat1_ptr = &d->chargen_stats.Str;
     else if (strcmp(stat1_name, "dex") == 0) stat1_ptr = &d->chargen_stats.Dex;
     else if (strcmp(stat1_name, "agi") == 0) stat1_ptr = &d->chargen_stats.Agi;
@@ -1016,7 +934,7 @@ void ws_cmd_swap_stats(struct descriptor_data *d, cJSON *data)
         return;
     }
 
-    /* Map stat2 name to pointer (9 stats swappable - not kar) */
+    /* map stat2 name to pointer */
     if (strcmp(stat2_name, "str") == 0) stat2_ptr = &d->chargen_stats.Str;
     else if (strcmp(stat2_name, "dex") == 0) stat2_ptr = &d->chargen_stats.Dex;
     else if (strcmp(stat2_name, "agi") == 0) stat2_ptr = &d->chargen_stats.Agi;
@@ -1031,12 +949,12 @@ void ws_cmd_swap_stats(struct descriptor_data *d, cJSON *data)
         return;
     }
 
-    /* Perform the swap */
+    /* perform the swap */
     temp = *stat1_ptr;
     *stat1_ptr = *stat2_ptr;
     *stat2_ptr = temp;
 
-    /* Build response with updated stats */
+    /* build response with updated stats */
     response = cJSON_CreateObject();
     cJSON_AddStringToObject(response, "type", "stats_swapped");
 
@@ -1065,12 +983,7 @@ void ws_cmd_swap_stats(struct descriptor_data *d, cJSON *data)
     cJSON_Delete(response);
 }
 
-/*
- * Handle create character command
- * Expects: { name, race, class, sex, alignment (for neutral races), stats }
- * This validates input and prepares character creation
- * Full character creation requires proper account integration
- */
+/* handle create character command */
 void ws_cmd_create_character(struct descriptor_data *d, cJSON *data)
 {
     cJSON *name_item, *race_item, *class_item, *sex_item, *align_item;
@@ -1083,7 +996,7 @@ void ws_cmd_create_character(struct descriptor_data *d, cJSON *data)
     int class_align_req;
     const char *faction;
 
-    /* Validate required fields */
+    /* validate required fields */
     name_item = cJSON_GetObjectItem(data, "name");
     race_item = cJSON_GetObjectItem(data, "race");
     class_item = cJSON_GetObjectItem(data, "class");
@@ -1114,29 +1027,29 @@ void ws_cmd_create_character(struct descriptor_data *d, cJSON *data)
     class_id = class_item->valueint;
     sex = sex_item->valueint;
 
-    /* Parse optional new fields */
+    /* parse optional fields */
     hometown_id = hometown_item && cJSON_IsNumber(hometown_item) ? hometown_item->valueint : -1;
     is_hardcore = hardcore_item && cJSON_IsBool(hardcore_item) ? cJSON_IsTrue(hardcore_item) : 0;
     is_newbie = newbie_item && cJSON_IsBool(newbie_item) ? cJSON_IsTrue(newbie_item) : 1;
 
-    /* Veterans only can be hardcore */
+    /* veterans only can be hardcore */
     if (is_newbie && is_hardcore) {
-        is_hardcore = 0;  /* Newbies cannot be hardcore */
+        is_hardcore = 0;
     }
 
-    /* Validate name length */
+    /* validate name length */
     if (strlen(name) < 2 || strlen(name) > 12) {
         ws_send_system(d, "error", "Name must be 2-12 characters");
         return;
     }
 
-    /* Validate race is playable */
+    /* validate race is playable */
     if (!ws_is_playable_race(race_id)) {
         ws_send_system(d, "error", "Invalid race selection");
         return;
     }
 
-    /* Validate class is valid for race */
+    /* validate class is valid for race */
     if (class_id < 1 || class_id > CLASS_COUNT) {
         ws_send_system(d, "error", "Invalid class selection");
         return;
@@ -1148,13 +1061,13 @@ void ws_cmd_create_character(struct descriptor_data *d, cJSON *data)
         return;
     }
 
-    /* Validate sex */
-    if (sex < 1 || sex > 2) {  /* 1 = male, 2 = female */
+    /* validate sex */
+    if (sex < 1 || sex > 2) {
         ws_send_system(d, "error", "Invalid sex selection");
         return;
     }
 
-    /* Check alignment for neutral races */
+    /* check alignment for neutral races */
     faction = ws_get_race_faction(race_id);
     if (strcmp(faction, "neutral") == 0) {
         align_item = cJSON_GetObjectItem(data, "alignment");
@@ -1176,26 +1089,22 @@ void ws_cmd_create_character(struct descriptor_data *d, cJSON *data)
         alignment = -1;
     }
 
-    /* Validate class alignment requirement */
-    if (class_align_req == 1 && alignment != 1) {  /* good only */
+    /* validate class alignment requirement */
+    if (class_align_req == 1 && alignment != 1) {
         ws_send_system(d, "error", "That class requires good alignment");
         return;
     }
-    if (class_align_req == -1 && alignment != -1) {  /* evil only */
+    if (class_align_req == -1 && alignment != -1) {
         ws_send_system(d, "error", "That class requires evil alignment");
         return;
     }
 
-    /* Store chargen options in descriptor for later use */
+    /* store chargen options in descriptor */
     d->chargen_hometown = hometown_id;
     d->chargen_hardcore = is_hardcore;
     d->chargen_newbie = is_newbie;
 
-    /*
-     * ACTUAL CHARACTER CREATION
-     */
-
-    /* External function declarations */
+    /* actual character creation */
     extern bool pfile_exists(const char *dir, char *name);
     extern void clear_char(P_char ch);
     extern void setCharPhysTypeInfo(P_char ch);
@@ -1209,7 +1118,7 @@ void ws_cmd_create_character(struct descriptor_data *d, cJSON *data)
     int i, actual_hometown;
     P_char ch;
 
-    /* Capitalize name */
+    /* capitalize name */
     strncpy(capitalized_name, name, MAX_NAME_LENGTH);
     capitalized_name[MAX_NAME_LENGTH] = '\0';
     capitalized_name[0] = toupper(capitalized_name[0]);
@@ -1217,7 +1126,7 @@ void ws_cmd_create_character(struct descriptor_data *d, cJSON *data)
         capitalized_name[i] = tolower(capitalized_name[i]);
     }
 
-    /* Check if name already exists */
+    /* check if name already exists */
     if (pfile_exists(SAVE_DIR, capitalized_name)) {
         cJSON *err = cJSON_CreateObject();
         cJSON_AddStringToObject(err, "type", "create_character");
@@ -1245,7 +1154,7 @@ void ws_cmd_create_character(struct descriptor_data *d, cJSON *data)
         return;
     }
 
-    /* Allocate character structure if not exists */
+    /* allocate character structure if not exists */
     if (!d->character) {
         d->character = (struct char_data *) mm_get(dead_mob_pool);
         clear_char(d->character);
@@ -1258,25 +1167,21 @@ void ws_cmd_create_character(struct descriptor_data *d, cJSON *data)
 
     ch = d->character;
 
-    /* Set character name */
+    /* set character name */
     if (ch->player.name) {
         str_free(ch->player.name);
     }
     ch->player.name = str_dup(capitalized_name);
 
-    /* Set race */
+    /* set race, sex, class */
     GET_RACE(ch) = race_id;
-
-    /* Set sex */
-    ch->player.sex = sex;  /* 1 = male, 2 = female */
-
-    /* Set class - convert class_id to bitmask */
+    ch->player.sex = sex;
     ch->player.m_class = 1 << (class_id - 1);
 
-    /* Set alignment (1000 for good, -1000 for evil) */
+    /* set alignment (1000 for good, -1000 for evil) */
     GET_ALIGNMENT(ch) = (alignment == 1) ? 1000 : -1000;
 
-    /* Set racewar based on race and alignment */
+    /* set racewar based on race and alignment */
     if (OLD_RACE_GOOD(race_id, GET_ALIGNMENT(ch))) {
         GET_RACEWAR(ch) = RACEWAR_GOOD;
     } else if (OLD_RACE_EVIL(race_id, GET_ALIGNMENT(ch))) {
@@ -1287,11 +1192,11 @@ void ws_cmd_create_character(struct descriptor_data *d, cJSON *data)
         GET_RACEWAR(ch) = RACEWAR_NEUTRAL;
     }
 
-    /* Set hometown */
+    /* set hometown */
     if (hometown_id < 0 || hometown_id > LAST_HOME) {
         actual_hometown = find_hometown(race_id, false);
         if (actual_hometown == HOME_CHOICE) {
-            /* Race has multiple choices - pick first available */
+            /* race has multiple choices - pick first available */
             for (i = 0; i <= LAST_HOME; i++) {
                 if (avail_hometowns[i][race_id] == 1) {
                     actual_hometown = i;
@@ -1306,14 +1211,13 @@ void ws_cmd_create_character(struct descriptor_data *d, cJSON *data)
     GET_BIRTHPLACE(ch) = actual_hometown;
     GET_ORIG_BIRTHPLACE(ch) = actual_hometown;
 
-    /* Copy stats from descriptor (already rolled with bonuses/swaps applied) */
+    /* copy stats from descriptor (already rolled with bonuses/swaps applied) */
     ch->base_stats = d->chargen_stats;
     ch->curr_stats = d->chargen_stats;
 
-    /* Level stays at 0 (from clear_char's bzero) - matching telnet behavior.
-       Level 0 causes enter_game() to skip item restoration block. */
+    /* level stays at 0 - matching telnet behavior for new characters */
 
-    /* Set hardcore/newbie flags */
+    /* set hardcore/newbie flags */
     if (is_newbie) {
         SET_BIT(ch->specials.act2, PLR2_NEWBIE);
     }
@@ -1321,44 +1225,32 @@ void ws_cmd_create_character(struct descriptor_data *d, cJSON *data)
         SET_BIT(ch->specials.act2, PLR2_HARDCORE_CHAR);
     }
 
-    /* Initialize character (sets PID, skills, HP/mana/vitality, etc.) */
+    /* initialize character (sets pid, skills, hp/mana/vitality, etc.) */
     init_char(ch);
 
-    /* Copy account password to character */
+    /* copy account password to character */
     strncpy(ch->only.pc->pwd, d->account->acct_password, sizeof(ch->only.pc->pwd) - 1);
     ch->only.pc->pwd[sizeof(ch->only.pc->pwd) - 1] = '\0';
 
-    /* Add character to account */
 #ifdef USE_ACCOUNT
     add_char_to_account(d);
 #endif
 
-    /* d->rtype stays unset (0) - matching telnet behavior for new characters.
-       rtype is only set by restoreCharOnly() when loading an existing character. */
-
-    /* Note: EQ_WIPE check is inside if(GET_LEVEL(ch)) block in enter_game(),
-       so with level 0 it's never reached - no hack needed. */
-
-    /* Save character to disk */
+    /* save character to disk */
     writeCharacter(ch, RENT_QUIT, NOWHERE);
 
-    /* Log new player creation */
     logit(LOG_NEW, "%s [%s] new WebSocket player.", GET_NAME(ch), d->host);
     statuslog(ch->player.level, "%s [%s] new WebSocket player.", GET_NAME(ch), d->host);
 
-    /* Set connection state BEFORE entering game (required for prompts) */
+    /* set connection state before entering game */
     STATE(d) = CON_PLAYING;
-
-    /* Enter the game */
     enter_game(d);
-
-    /* Enable prompt display */
     d->prompt_mode = TRUE;
 
-    /* Send full game state via GMCP */
+    /* send full game state via gmcp */
     ws_send_full_game_state(d);
 
-    /* Send success response */
+    /* send success response */
     response = cJSON_CreateObject();
     cJSON_AddStringToObject(response, "type", "create_character");
     cJSON_AddStringToObject(response, "status", "created");
@@ -1382,9 +1274,7 @@ void ws_cmd_create_character(struct descriptor_data *d, cJSON *data)
     cJSON_Delete(response);
 }
 
-/*
- * Validate character name - check if already taken
- */
+/* validate character name - check if already taken */
 void ws_cmd_validate_name(struct descriptor_data *d, cJSON *data)
 {
     extern bool pfile_exists(const char *dir, char *name);
@@ -1402,7 +1292,7 @@ void ws_cmd_validate_name(struct descriptor_data *d, cJSON *data)
 
     name = name_item->valuestring;
 
-    /* Validate name length */
+    /* validate name length */
     if (strlen(name) < 2) {
         response = cJSON_CreateObject();
         cJSON_AddStringToObject(response, "type", "validate_name");
@@ -1418,7 +1308,7 @@ void ws_cmd_validate_name(struct descriptor_data *d, cJSON *data)
         goto send_response;
     }
 
-    /* Validate name contains only letters */
+    /* validate name contains only letters */
     for (i = 0; name[i]; i++) {
         if (!isalpha(name[i])) {
             response = cJSON_CreateObject();
@@ -1429,7 +1319,7 @@ void ws_cmd_validate_name(struct descriptor_data *d, cJSON *data)
         }
     }
 
-    /* Capitalize name for pfile_exists (it lowercases internally) */
+    /* capitalize name for pfile_exists */
     strncpy(capitalized_name, name, MAX_NAME_LENGTH);
     capitalized_name[MAX_NAME_LENGTH] = '\0';
     capitalized_name[0] = toupper(capitalized_name[0]);
@@ -1439,7 +1329,7 @@ void ws_cmd_validate_name(struct descriptor_data *d, cJSON *data)
 
     statuslog(56, "WS validate_name: checking '%s' in SAVE_DIR='%s'", capitalized_name, SAVE_DIR);
 
-    /* Check if player file exists - use same function as create_character */
+    /* check if player file exists */
     if (pfile_exists(SAVE_DIR, capitalized_name)) {
         statuslog(56, "WS validate_name: '%s' EXISTS - returning invalid", capitalized_name);
         response = cJSON_CreateObject();
@@ -1449,7 +1339,7 @@ void ws_cmd_validate_name(struct descriptor_data *d, cJSON *data)
         goto send_response;
     }
 
-    /* Check badname directory - use correct BADNAME_DIR constant */
+    /* check badname directory */
     if (pfile_exists(BADNAME_DIR, capitalized_name)) {
         response = cJSON_CreateObject();
         cJSON_AddStringToObject(response, "type", "validate_name");
@@ -1458,7 +1348,7 @@ void ws_cmd_validate_name(struct descriptor_data *d, cJSON *data)
         goto send_response;
     }
 
-    /* Name is valid and available */
+    /* name is valid and available */
     statuslog(56, "WS validate_name: '%s' is available", capitalized_name);
     response = cJSON_CreateObject();
     cJSON_AddStringToObject(response, "type", "validate_name");
@@ -1474,9 +1364,7 @@ send_response:
     cJSON_Delete(response);
 }
 
-/*
- * Get available hometowns for a race
- */
+/* get available hometowns for a race */
 void ws_cmd_get_hometowns(struct descriptor_data *d, cJSON *data)
 {
     cJSON *race_item, *response, *options, *option;
@@ -1502,7 +1390,7 @@ void ws_cmd_get_hometowns(struct descriptor_data *d, cJSON *data)
 
     options = cJSON_CreateArray();
 
-    /* Find available hometowns for this race */
+    /* find available hometowns for this race */
     for (i = 0; i <= LAST_HOME; i++) {
         if (avail_hometowns[i][race_id] == 1) {
             option = cJSON_CreateObject();
@@ -1515,7 +1403,7 @@ void ws_cmd_get_hometowns(struct descriptor_data *d, cJSON *data)
 
     cJSON_AddItemToObject(response, "options", options);
     cJSON_AddNumberToObject(response, "count", count);
-    /* If count == 1, frontend can skip the selection step */
+    /* if count == 1, frontend can skip selection */
     cJSON_AddBoolToObject(response, "hasChoice", count > 1 ? cJSON_True : cJSON_False);
 
     json_str = cJSON_PrintUnformatted(response);
@@ -1526,15 +1414,9 @@ void ws_cmd_get_hometowns(struct descriptor_data *d, cJSON *data)
     cJSON_Delete(response);
 }
 
-/*
- * ============================================================================
- * Account Menu WebSocket Handlers
- * ============================================================================
- */
+/* === account menu websocket handlers === */
 
-/*
- * Send account message (generic helper)
- */
+/* send account message (generic helper) */
 static void ws_send_account_message(struct descriptor_data *d, const char *action,
                                      cJSON *data_obj, const char *error)
 {
@@ -1559,9 +1441,7 @@ static void ws_send_account_message(struct descriptor_data *d, const char *actio
     cJSON_Delete(root);
 }
 
-/*
- * Build character list JSON array (reusable helper)
- */
+/* build character list json array */
 static cJSON *ws_build_character_list(struct descriptor_data *d)
 {
     cJSON *characters = cJSON_CreateArray();
@@ -1578,7 +1458,7 @@ static cJSON *ws_build_character_list(struct descriptor_data *d)
                 cJSON_AddStringToObject(char_obj, "race", ws_get_race_name(info.race));
                 cJSON_AddStringToObject(char_obj, "class", info.class_str);
 
-                /* Last room name */
+                /* last room name */
                 if (info.hometown >= 0 && info.hometown < top_of_world && world[info.hometown].name) {
                     cJSON_AddStringToObject(char_obj, "lastRoom", world[info.hometown].name);
                 } else {
@@ -1594,14 +1474,7 @@ static cJSON *ws_build_character_list(struct descriptor_data *d)
     return characters;
 }
 
-/*
- * Get extended account information
- * Client: {"type":"cmd","cmd":"account_info"}
- * Server: {"type":"account","action":"info","data":{...}}
- *
- * Optimized: Single pass through characters to collect playtime, immortal level,
- * and character list data (previously loaded each character 2-3 times)
- */
+/* get extended account information */
 void ws_cmd_account_info(struct descriptor_data *d, cJSON *data)
 {
     extern char *get_class_string(P_char ch, char *strn);
@@ -1621,17 +1494,12 @@ void ws_cmd_account_info(struct descriptor_data *d, cJSON *data)
 
     info_data = cJSON_CreateObject();
 
-    /* Account name */
     cJSON_AddStringToObject(info_data, "name", d->account->acct_name);
-
-    /* Email */
     cJSON_AddStringToObject(info_data, "email",
         d->account->acct_email ? d->account->acct_email : "");
-
-    /* Created date - we don't store this, use first character's creation or "unknown" */
     cJSON_AddStringToObject(info_data, "created", "unknown");
 
-    /* Last login */
+    /* last login */
     if (d->account->acct_last > 0) {
         strftime(time_buf, sizeof(time_buf), "%Y-%m-%d %H:%M:%S",
                  localtime(&d->account->acct_last));
@@ -1640,7 +1508,7 @@ void ws_cmd_account_info(struct descriptor_data *d, cJSON *data)
         cJSON_AddStringToObject(info_data, "lastLogin", "never");
     }
 
-    /* Single pass: collect playtime, immortal level, and character list */
+    /* single pass: collect playtime, immortal level, and character list */
     characters = cJSON_CreateArray();
     c = d->account->acct_character_list;
     while (c) {
@@ -1653,15 +1521,15 @@ void ws_cmd_account_info(struct descriptor_data *d, cJSON *data)
                 if (restoreCharOnly(temp_ch, c->charname) >= 0) {
                     int level = GET_LEVEL(temp_ch);
 
-                    /* Accumulate playtime */
+                    /* accumulate playtime */
                     total_playtime += temp_ch->player.time.played;
 
-                    /* Track highest immortal level */
+                    /* track highest immortal level */
                     if (level >= 57 && level > immortal_level) {
                         immortal_level = level;
                     }
 
-                    /* Build character JSON object */
+                    /* build character json object */
                     strncpy(name_cap, GET_NAME(temp_ch), 31);
                     name_cap[31] = '\0';
                     if (name_cap[0]) name_cap[0] = toupper(name_cap[0]);
@@ -1674,7 +1542,7 @@ void ws_cmd_account_info(struct descriptor_data *d, cJSON *data)
                     cJSON_AddStringToObject(char_obj, "race", ws_get_race_name(GET_RACE(temp_ch)));
                     cJSON_AddStringToObject(char_obj, "class", class_str);
 
-                    /* Last room name */
+                    /* last room name */
                     int hometown = GET_HOME(temp_ch);
                     if (hometown >= 0 && hometown < top_of_world && world[hometown].name) {
                         cJSON_AddStringToObject(char_obj, "lastRoom", world[hometown].name);
@@ -1698,11 +1566,7 @@ void ws_cmd_account_info(struct descriptor_data *d, cJSON *data)
     ws_send_account_message(d, "info", info_data, NULL);
 }
 
-/*
- * Change account email
- * Client: {"type":"cmd","cmd":"change_email","data":{"newEmail":"..."}}
- * Server: {"type":"account","action":"email_changed","data":{"email":"..."}}
- */
+/* change account email */
 void ws_cmd_change_email(struct descriptor_data *d, cJSON *data)
 {
     cJSON *new_email_json;
@@ -1727,22 +1591,22 @@ void ws_cmd_change_email(struct descriptor_data *d, cJSON *data)
 
     new_email = new_email_json->valuestring;
 
-    /* Validate email format */
+    /* validate email format */
     if (!is_valid_email(new_email)) {
         ws_send_account_message(d, "error", NULL, "Invalid email format");
         return;
     }
 
-    /* Check if email is already taken (by another account) */
+    /* check if email is already taken */
     if (is_email_taken(new_email)) {
-        /* But allow keeping the same email */
+        /* allow keeping the same email */
         if (!d->account->acct_email || strcasecmp(new_email, d->account->acct_email) != 0) {
             ws_send_account_message(d, "error", NULL, "Email already in use");
             return;
         }
     }
 
-    /* Update email */
+    /* update email */
     if (d->account->acct_email) {
         FREE(d->account->acct_email);
     }
@@ -1756,11 +1620,7 @@ void ws_cmd_change_email(struct descriptor_data *d, cJSON *data)
     ws_send_account_message(d, "email_changed", result_data, NULL);
 }
 
-/*
- * Change account password
- * Client: {"type":"cmd","cmd":"change_password","data":{"currentPassword":"...","newPassword":"..."}}
- * Server: {"type":"account","action":"password_changed"}
- */
+/* change account password */
 void ws_cmd_change_password(struct descriptor_data *d, cJSON *data)
 {
     cJSON *current_json, *new_json;
@@ -1789,26 +1649,26 @@ void ws_cmd_change_password(struct descriptor_data *d, cJSON *data)
     current_password = current_json->valuestring;
     new_password = new_json->valuestring;
 
-    /* Verify current password */
+    /* verify current password */
     if (!bcrypt_verify_password(current_password, d->account->acct_password)) {
         ws_send_account_message(d, "error", NULL, "Current password incorrect");
         return;
     }
 
-    /* Validate new password (at least 6 characters) */
+    /* validate new password */
     if (strlen(new_password) < 6) {
         ws_send_account_message(d, "error", NULL, "Password must be at least 6 characters");
         return;
     }
 
-    /* Hash new password */
+    /* hash new password */
     hash = bcrypt_hash_password(new_password);
     if (!hash) {
         ws_send_account_message(d, "error", NULL, "Failed to hash password");
         return;
     }
 
-    /* Update password */
+    /* update password */
     if (d->account->acct_password) {
         FREE(d->account->acct_password);
     }
@@ -1821,11 +1681,7 @@ void ws_cmd_change_password(struct descriptor_data *d, cJSON *data)
     ws_send_account_message(d, "password_changed", NULL, NULL);
 }
 
-/*
- * Delete a character
- * Client: {"type":"cmd","cmd":"delete_character","data":{"name":"...","confirm":true}}
- * Server: {"type":"account","action":"character_deleted","data":{"name":"...","characters":[...]}}
- */
+/* delete a character */
 void ws_cmd_delete_character(struct descriptor_data *d, cJSON *data)
 {
     cJSON *name_json, *confirm_json;
@@ -1859,7 +1715,7 @@ void ws_cmd_delete_character(struct descriptor_data *d, cJSON *data)
 
     char_name = name_json->valuestring;
 
-    /* Find character in account list */
+    /* find character in account list */
     c = d->account->acct_character_list;
     prev = NULL;
     while (c) {
@@ -1875,7 +1731,7 @@ void ws_cmd_delete_character(struct descriptor_data *d, cJSON *data)
         return;
     }
 
-    /* Load character for deletion */
+    /* load character for deletion */
     ch = (struct char_data *)malloc(sizeof(struct char_data));
     if (!ch) {
         ws_send_account_message(d, "error", NULL, "Failed to load character");
@@ -1899,20 +1755,18 @@ void ws_cmd_delete_character(struct descriptor_data *d, cJSON *data)
         return;
     }
 
-    /* Log the deletion */
+    /* log the deletion */
     statuslog(ch->player.level, "%s deleted %s via web client (%s@%s).",
               d->account->acct_name, char_name, d->login, d->host);
     logit(LOG_PLAYER, "%s deleted %s via web client (%s@%s).",
           d->account->acct_name, char_name, d->login, d->host);
 
-    /* Delete character file */
+    /* delete character file and free temp character */
     deleteCharacter(ch);
-
-    /* Free temp character */
     free(ch->only.pc);
     free(ch);
 
-    /* Remove from account character list */
+    /* remove from account character list */
     if (prev) {
         prev->next = c->next;
     } else {
@@ -1921,21 +1775,16 @@ void ws_cmd_delete_character(struct descriptor_data *d, cJSON *data)
     FREE(c->charname);
     FREE(c);
 
-    /* Save account */
     write_account(d->account);
 
-    /* Send success with updated character list */
+    /* send success with updated character list */
     result_data = cJSON_CreateObject();
     cJSON_AddStringToObject(result_data, "name", char_name);
     cJSON_AddItemToObject(result_data, "characters", ws_build_character_list(d));
     ws_send_account_message(d, "character_deleted", result_data, NULL);
 }
 
-/*
- * Get rested bonus status for all characters
- * Client: {"type":"cmd","cmd":"rested_bonus"}
- * Server: {"type":"account","action":"rested_bonus","data":{"characters":[...]}}
- */
+/* get rested bonus status for all characters */
 void ws_cmd_rested_bonus(struct descriptor_data *d, cJSON *data)
 {
     cJSON *result_data, *characters, *char_obj;
@@ -1963,11 +1812,11 @@ void ws_cmd_rested_bonus(struct descriptor_data *d, cJSON *data)
                 if (restoreCharOnly(temp_ch, c->charname) >= 0) {
                     time_t offline_seconds = current_time - temp_ch->player.time.saved;
                     int offline_hours = offline_seconds / 3600;
-                    int max_hours = 20;  /* Well-rested threshold */
+                    int max_hours = 20;  /* well-rested threshold */
                     int percent = (offline_hours * 100) / max_hours;
                     if (percent > 100) percent = 100;
 
-                    /* Capitalize name */
+                    /* capitalize name */
                     char name_cap[32];
                     strncpy(name_cap, GET_NAME(temp_ch), 31);
                     name_cap[31] = '\0';
@@ -1991,11 +1840,7 @@ void ws_cmd_rested_bonus(struct descriptor_data *d, cJSON *data)
     ws_send_account_message(d, "rested_bonus", result_data, NULL);
 }
 
-/*
- * Logout from account (disconnect)
- * Client: {"type":"cmd","cmd":"logout"}
- * Server: {"type":"account","action":"logged_out"} then close connection
- */
+/* logout from account (disconnect) */
 void ws_cmd_logout(struct descriptor_data *d, cJSON *data)
 {
     if (!d->account) {
@@ -2006,16 +1851,10 @@ void ws_cmd_logout(struct descriptor_data *d, cJSON *data)
     statuslog(56, "Account %s logged out via web client", d->account->acct_name);
 
     ws_send_account_message(d, "logged_out", NULL, NULL);
-
-    /* Close the connection */
     STATE(d) = CON_EXIT;
 }
 
-/*
- * Send return to account menu signal
- * Called when player rents, dies, quits, or suicides
- * Server: {"type":"account","action":"return_to_menu","reason":"rent|death|quit|suicide","data":{"characters":[...]}}
- */
+/* send return to account menu signal (on rent, death, quit, or suicide) */
 void ws_send_return_to_menu(struct descriptor_data *d, const char *reason)
 {
     cJSON *data_obj;
@@ -2043,9 +1882,7 @@ void ws_send_return_to_menu(struct descriptor_data *d, const char *reason)
     statuslog(56, "Account %s returned to menu: %s", d->account->acct_name, reason);
 }
 
-/*
- * Main command dispatcher
- */
+/* main command dispatcher */
 void ws_handle_command(struct descriptor_data *d, const char *cmd, cJSON *data)
 {
     if (!cmd) return;
@@ -2085,16 +1922,14 @@ void ws_handle_command(struct descriptor_data *d, const char *cmd, cJSON *data)
     } else if (strcmp(cmd, "logout") == 0) {
         ws_cmd_logout(d, data);
     } else {
-        /* Unknown command - treat as game command */
+        /* unknown command - treat as game command */
         if (d->connected == CON_PLAYING) {
             write_to_q(cmd, &d->input, 0);
         }
     }
 }
 
-/*
- * Initialize WebSocket handlers
- */
+/* initialize websocket handlers */
 void ws_handlers_init(void)
 {
     statuslog(56, "WebSocket command handlers initialized");
