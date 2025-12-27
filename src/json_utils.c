@@ -20,6 +20,7 @@
 #include "spells.h"
 #include "specializations.h"
 #include "assocs.h"
+#include "ships/ships.h"
 
 /* externs */
 extern const char *class_abbrevs[];
@@ -907,6 +908,122 @@ char *json_build_quest_status(struct char_data *ch) {
 
     /* Always include mapBought status */
     cJSON_AddBoolToObject(root, "mapBought", ch->only.pc->quest_map_bought == 1);
+
+    result = cJSON_PrintUnformatted(root);
+    cJSON_Delete(root);
+
+    return result;
+}
+
+/* build ship.info gmcp message - static/slow-changing ship data */
+char *json_build_ship_info(struct ShipData *ship, struct char_data *ch) {
+    cJSON *root, *armor, *internal, *weapons, *cargo, *items;
+    cJSON *arc_arr;
+    char *result;
+    int i;
+    const char *side_names[] = {"bow", "port", "stern", "starboard"};
+
+    if (!ship) return strdup("{}");
+
+    root = cJSON_CreateObject();
+
+    /* basic info */
+    cJSON_AddStringToObject(root, "name", ship->name ? ship->name : "Unknown");
+    cJSON_AddStringToObject(root, "id", ship->id ? ship->id : "??");
+    cJSON_AddStringToObject(root, "captain", ship->ownername ? ship->ownername : "");
+    cJSON_AddNumberToObject(root, "class", ship->m_class);
+    cJSON_AddNumberToObject(root, "frags", ship->frags);
+
+    cJSON_AddStringToObject(root, "status", get_ship_status(ship));
+
+    cJSON_AddNumberToObject(root, "maxSpeed", ship->get_maxspeed(ch));
+    cJSON_AddNumberToObject(root, "contactRange", 35 + ship->crew.get_contact_range_mod());
+    cJSON_AddNumberToObject(root, "sail", ship->mainsail);
+    cJSON_AddNumberToObject(root, "maxSail", MAXSAIL);
+
+    /* crew */
+    cJSON_AddNumberToObject(root, "crewStamina", (int)ship->crew.stamina);
+    cJSON_AddNumberToObject(root, "maxCrewStamina", (int)ship->crew.max_stamina);
+    cJSON_AddNumberToObject(root, "repairStock", ship->repair);
+
+    /* people */
+    cJSON_AddNumberToObject(root, "people", ship->people);
+    cJSON_AddNumberToObject(root, "maxPeople", ship->get_capacity());
+
+    /* armor - each arc is [current, max] */
+    armor = cJSON_CreateObject();
+    for (i = 0; i < 4; i++) {
+        arc_arr = cJSON_CreateArray();
+        cJSON_AddItemToArray(arc_arr, cJSON_CreateNumber(ship->armor[i]));
+        cJSON_AddItemToArray(arc_arr, cJSON_CreateNumber(ship->maxarmor[i]));
+        cJSON_AddItemToObject(armor, side_names[i], arc_arr);
+    }
+    cJSON_AddItemToObject(root, "armor", armor);
+
+    /* internal hull - same pattern */
+    internal = cJSON_CreateObject();
+    for (i = 0; i < 4; i++) {
+        arc_arr = cJSON_CreateArray();
+        cJSON_AddItemToArray(arc_arr, cJSON_CreateNumber(ship->internal[i]));
+        cJSON_AddItemToArray(arc_arr, cJSON_CreateNumber(ship->maxinternal[i]));
+        cJSON_AddItemToObject(internal, side_names[i], arc_arr);
+    }
+    cJSON_AddItemToObject(root, "internal", internal);
+
+    /* weapons array */
+    weapons = cJSON_CreateArray();
+    for (i = 0; i < MAXSLOTS; i++) {
+        if (ship->slot[i].type == SLOT_WEAPON) {
+            cJSON *w = cJSON_CreateObject();
+            int w_idx = ship->slot[i].index;
+
+            cJSON_AddNumberToObject(w, "slot", i);
+            cJSON_AddStringToObject(w, "name", weapon_data[w_idx].name ? weapon_data[w_idx].name : "Unknown");
+
+            /* position */
+            const char *pos = "hold";
+            if (ship->slot[i].position >= 0 && ship->slot[i].position < 4) {
+                pos = side_names[ship->slot[i].position];
+            }
+            cJSON_AddStringToObject(w, "position", pos);
+
+            /* ammo: val1 = current ammo */
+            cJSON_AddNumberToObject(w, "ammo", ship->slot[i].val1);
+            cJSON_AddNumberToObject(w, "maxAmmo", weapon_data[w_idx].ammo);
+
+            /* damage: val2 = damage level (0 = ok, higher = worse) */
+            cJSON_AddNumberToObject(w, "damage", ship->slot[i].val2);
+
+            /* ready: timer == 0 means ready to fire */
+            cJSON_AddBoolToObject(w, "ready", ship->slot[i].timer == 0 ? 1 : 0);
+
+            cJSON_AddItemToArray(weapons, w);
+        }
+    }
+    cJSON_AddItemToObject(root, "weapons", weapons);
+
+    /* cargo */
+    cargo = cJSON_CreateObject();
+    int cargo_total = 0;
+    items = cJSON_CreateArray();
+
+    for (i = 0; i < MAXSLOTS; i++) {
+        if (ship->slot[i].type == SLOT_CARGO || ship->slot[i].type == SLOT_CONTRABAND) {
+            cJSON *c = cJSON_CreateObject();
+            cJSON_AddNumberToObject(c, "slot", i);
+            cJSON_AddStringToObject(c, "name", cargo_type_name(ship->slot[i].index));
+            cJSON_AddNumberToObject(c, "crates", ship->slot[i].val0);
+            cJSON_AddNumberToObject(c, "invoicePrice", ship->slot[i].val1);
+            cJSON_AddBoolToObject(c, "contraband", ship->slot[i].type == SLOT_CONTRABAND ? 1 : 0);
+            cJSON_AddItemToArray(items, c);
+            cargo_total += ship->slot[i].val0;
+        }
+    }
+
+    cJSON_AddNumberToObject(cargo, "current", cargo_total);
+    cJSON_AddNumberToObject(cargo, "max", SHIPTYPE_CARGO(ship->m_class));
+    cJSON_AddItemToObject(cargo, "items", items);
+    cJSON_AddItemToObject(root, "cargo", cargo);
 
     result = cJSON_PrintUnformatted(root);
     cJSON_Delete(root);

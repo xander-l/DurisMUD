@@ -22,7 +22,50 @@
 #include "map.h"
 #include <cjson/cJSON.h>
 #include <math.h>
+#include <openssl/hmac.h>
 #include "ships/ships.h"
+
+extern const int top_of_world;
+
+/* Default secret (fallback if env var not set) */
+#define DURISWEB_SECRET_DEFAULT "Dur1sM4pK3y2025xYz!"
+
+/* Get DURISWEB_SECRET from environment variable with fallback */
+static const char *get_durisweb_secret(void) {
+    const char *secret = getenv("DURISWEB_SECRET");
+    if (!secret || !*secret) {
+        return DURISWEB_SECRET_DEFAULT;
+    }
+    return secret;
+}
+
+static int verify_durisweb_sig(const char *sig) {
+    if (!sig || !*sig) return 0;
+
+    const char *secret = get_durisweb_secret();
+    if (!secret) return 0;
+
+    time_t now = time(NULL);
+    long minute = now / 60;
+
+    for (int offset = 0; offset <= 1; offset++) {
+        char ts[32];
+        snprintf(ts, sizeof(ts), "%ld", minute - offset);
+
+        unsigned char hash[32];
+        unsigned int hash_len;
+        HMAC(EVP_sha256(), secret, strlen(secret),
+             (unsigned char*)ts, strlen(ts), hash, &hash_len);
+
+        char expected[65];
+        for (int i = 0; i < 32; i++) {
+            snprintf(expected + i*2, 3, "%02x", hash[i]);
+        }
+
+        if (strcmp(sig, expected) == 0) return 1;
+    }
+    return 0;
+}
 
 /* externs */
 extern struct room_data *world;
@@ -61,7 +104,6 @@ void gmcp_handle_negotiation(struct descriptor_data *d, int cmd) {
 void gmcp_handle_input(struct descriptor_data *d, const char *data, size_t len) {
     if (!d || !data || len == 0) return;
 
-    /* Core.Hello {"client":"Mudlet","version":"4.17.1"} */
     if (len > 10 && strncmp(data, "Core.Hello", 10) == 0) {
         const char *json_start = data + 10;
         while (*json_start == ' ' && json_start < data + len) json_start++;
@@ -71,6 +113,7 @@ void gmcp_handle_input(struct descriptor_data *d, const char *data, size_t len) 
             if (root) {
                 cJSON *client = cJSON_GetObjectItem(root, "client");
                 cJSON *version = cJSON_GetObjectItem(root, "version");
+                cJSON *sig = cJSON_GetObjectItem(root, "sig");
 
                 if (client && cJSON_IsString(client) && client->valuestring) {
                     strncpy(d->client_name, client->valuestring, sizeof(d->client_name) - 1);
@@ -79,6 +122,9 @@ void gmcp_handle_input(struct descriptor_data *d, const char *data, size_t len) 
                 if (version && cJSON_IsString(version) && version->valuestring) {
                     strncpy(d->client_version, version->valuestring, sizeof(d->client_version) - 1);
                     d->client_version[sizeof(d->client_version) - 1] = '\0';
+                }
+                if (sig && cJSON_IsString(sig) && verify_durisweb_sig(sig->valuestring)) {
+                    d->durisweb_verified = 1;
                 }
                 cJSON_Delete(root);
             }
@@ -301,7 +347,7 @@ static unsigned long hash_string(const char *str) {
 }
 
 /* build json for ship contacts */
-static char *json_build_ship_contacts(struct ShipData *ship) {
+static char *json_build_ship_contacts(struct ShipData *ship, struct descriptor_data *d) {
     cJSON *root, *contacts_arr, *contact_obj;
     char *json_str;
     int k, i;
@@ -316,6 +362,25 @@ static char *json_build_ship_contacts(struct ShipData *ship) {
     /* ship's own heading and speed */
     cJSON_AddNumberToObject(root, "heading", (int)ship->heading);
     cJSON_AddNumberToObject(root, "speed", ship->speed);
+
+    /* world position - always calculate for hash, only send to verified clients */
+    if (ship->location >= 0 && ship->location < top_of_world) {
+        struct zone_data *zone = &zone_table[world[ship->location].zone];
+        if (IS_SET(zone->flags, ZONE_MAP) && zone->mapx > 0) {
+            int vroom = world[ship->location].number;
+            int zone_start = world[zone->real_bottom].number;
+            int local_x = (vroom - zone_start) % zone->mapx;
+            int local_y = ((vroom - zone_start) / zone->mapx) % zone->mapy;
+            if (d && d->durisweb_verified) {
+                cJSON_AddNumberToObject(root, "worldX", local_x);
+                cJSON_AddNumberToObject(root, "worldY", local_y);
+            } else if (!d) {
+                /* include in hash calculation so position changes trigger updates */
+                cJSON_AddNumberToObject(root, "worldX", local_x);
+                cJSON_AddNumberToObject(root, "worldY", local_y);
+            }
+        }
+    }
 
     contacts_arr = cJSON_CreateArray();
     if (!contacts_arr) {
@@ -370,6 +435,7 @@ static char *json_build_ship_contacts(struct ShipData *ship) {
             status_str = "";
             if (SHIP_FLYING(contacts[i].ship)) status_str = "flying";
             else if (SHIP_SINKING(contacts[i].ship)) status_str = "sinking";
+            else if (SHIP_IMMOBILE(contacts[i].ship)) status_str = "immobile";
             else if (SHIP_DOCKED(contacts[i].ship)) status_str = "docked";
             else if (SHIP_ANCHORED(contacts[i].ship)) status_str = "anchored";
             cJSON_AddStringToObject(contact_obj, "status", status_str);
@@ -390,29 +456,13 @@ static char *json_build_ship_contacts(struct ShipData *ship) {
     return json_str;
 }
 
-/* send contacts gmcp to all players on the bridge */
-static void send_ship_contacts_to_players_json(struct ShipData *ship, const char *json) {
-    struct char_data *tch;
-    int bridge_rnum;
-
-    if (!ship || !json) return;
-
-    /* only send to players on the bridge */
-    bridge_rnum = real_room(ship->bridge);
-    if (bridge_rnum < 0) return;
-
-    for (tch = world[bridge_rnum].people; tch; tch = tch->next_in_room) {
-        if (!IS_NPC(tch) && tch->desc && GMCP_ENABLED(tch)) {
-            gmcp_send(tch->desc, GMCP_PKG_SHIP_CONTACTS, json);
-        }
-    }
-}
-
 void gmcp_flush_dirty_ship_contacts(void) {
     ShipVisitor svs;
     struct ShipData *ship;
-    char *json;
+    struct char_data *tch;
+    char *json, *player_json;
     unsigned long new_hash;
+    int bridge_rnum;
 
     /* iterate through all ships */
     for (bool fn = shipObjHash.get_first(svs); fn; fn = shipObjHash.get_next(svs)) {
@@ -425,17 +475,76 @@ void gmcp_flush_dirty_ship_contacts(void) {
         if (SHIP_DOCKED(ship)) continue;
         if (!ship_has_gmcp_players(ship)) continue;
 
-        /* build contacts json */
-        json = json_build_ship_contacts(ship);
+        /* build base json for hash check */
+        json = json_build_ship_contacts(ship, NULL);
         if (!json) continue;
 
         /* calculate hash of current contacts */
         new_hash = hash_string(json);
 
-        /* only send if contacts have changed */
-        if (new_hash != ship->contacts_hash) {
-            send_ship_contacts_to_players_json(ship, json);
+        /* send if contacts changed OR location changed */
+        if (new_hash != ship->contacts_hash || ship->location != ship->last_gmcp_location) {
+            bridge_rnum = real_room(ship->bridge);
+            if (bridge_rnum >= 0) {
+                for (tch = world[bridge_rnum].people; tch; tch = tch->next_in_room) {
+                    if (!IS_NPC(tch) && tch->desc && GMCP_ENABLED(tch)) {
+                        /* build per-player json */
+                        player_json = json_build_ship_contacts(ship, tch->desc);
+                        if (player_json) {
+                            gmcp_send(tch->desc, GMCP_PKG_SHIP_CONTACTS, player_json);
+                            free(player_json);
+                        }
+                    }
+                }
+            }
             ship->contacts_hash = new_hash;
+            ship->last_gmcp_location = ship->location;
+        }
+
+        free(json);
+    }
+}
+
+/* ship.info - sends static/slow-changing ship data */
+void gmcp_flush_dirty_ship_info(void) {
+    ShipVisitor svs;
+    struct ShipData *ship;
+    struct char_data *tch;
+    char *json, *player_json;
+    unsigned long new_hash;
+    int bridge_rnum;
+
+    /* iterate through all ships */
+    for (bool fn = shipObjHash.get_first(svs); fn; fn = shipObjHash.get_next(svs)) {
+        ship = svs;
+
+        if (!ship || !SHIP_LOADED(ship)) continue;
+
+        /* skip ships without gmcp players on bridge */
+        if (!ship_has_gmcp_players(ship)) continue;
+
+        /* build base json for hash check (no player-specific bonuses) */
+        json = json_build_ship_info(ship, NULL);
+        if (!json) continue;
+
+        /* check if anything changed */
+        new_hash = hash_string(json);
+
+        if (new_hash != ship->ship_info_hash) {
+            bridge_rnum = real_room(ship->bridge);
+            if (bridge_rnum >= 0) {
+                for (tch = world[bridge_rnum].people; tch; tch = tch->next_in_room) {
+                    if (!IS_NPC(tch) && tch->desc && GMCP_ENABLED(tch)) {
+                        /* build per-player json with racial bonuses */
+                        player_json = json_build_ship_info(ship, tch);
+                        if (player_json) {
+                            gmcp_send(tch->desc, GMCP_PKG_SHIP_INFO, player_json);
+                            free(player_json);
+                        }
+                    }
+                }
+            }
+            ship->ship_info_hash = new_hash;
         }
 
         free(json);

@@ -416,10 +416,7 @@ int carrying_flag(P_ship ship)
 int order_speed(P_char ch, P_ship ship, char* arg)
 {
     int      speed;
-    int realspeed = ship->get_maxspeed();
-    
-    if(has_innate(ch, INNATE_SEADOG))
-    realspeed += 2;
+    int realspeed = ship->get_maxspeed(ch);
 
     if (!is_valid_sailing_location(ship, ship->location)) 
     {
@@ -1294,9 +1291,7 @@ int look_ship(P_char ch, P_ship ship)
 {
     char name_format[20];
     sprintf(name_format, "%%-%ds", (int)(strlen(ship->name) + (20 - strlen(strip_ansi(ship->name).c_str()))));
-    int realspeed = ship->get_maxspeed();
-    if(has_innate(ch, INNATE_SEADOG))
-    realspeed += 2;
+    int realspeed = ship->get_maxspeed(ch);
 
     char target_str[100];
     P_ship target = ship->target;

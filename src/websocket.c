@@ -28,6 +28,7 @@
 #include "prototypes.h"
 #include "comm.h"
 #include "utils.h"
+#include "gmcp.h"
 #include "db.h"
 
 extern struct descriptor_data *descriptor_list;
@@ -663,6 +664,24 @@ static void websocket_handle_message(struct descriptor_data *d, int opcode,
             if (type && strcmp(type, "cmd") == 0 && cmd) {
                 /* use websocket command handler */
                 ws_handle_command(d, cmd, data_item);
+            } else if (type && strcmp(type, "gmcp") == 0) {
+                /* handle gmcp package */
+                cJSON *pkg_item = cJSON_GetObjectItem(json, "package");
+                if (pkg_item && cJSON_IsString(pkg_item)) {
+                    char *data_str = data_item ? cJSON_PrintUnformatted(data_item) : NULL;
+                    size_t gmcp_len = strlen(pkg_item->valuestring) + (data_str ? strlen(data_str) + 2 : 1);
+                    char *gmcp_msg = (char *)malloc(gmcp_len);
+                    if (gmcp_msg) {
+                        if (data_str) {
+                            snprintf(gmcp_msg, gmcp_len, "%s %s", pkg_item->valuestring, data_str);
+                        } else {
+                            strcpy(gmcp_msg, pkg_item->valuestring);
+                        }
+                        gmcp_handle_input(d, gmcp_msg, strlen(gmcp_msg));
+                        free(gmcp_msg);
+                    }
+                    if (data_str) free(data_str);
+                }
             } else if (d->connected == CON_PLAYING) {
                 /* in-game: pass raw text as command */
                 if (data_item && cJSON_IsString(data_item)) {

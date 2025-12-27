@@ -15,6 +15,9 @@
 #include <cjson/cJSON.h>
 #include "structs.h"
 
+/* forward declarations */
+struct ShipData;
+
 /* message types */
 #define MSG_TYPE_CMD        "cmd"
 #define MSG_TYPE_AUTH       "auth"
@@ -113,6 +116,9 @@ char *json_build_comm_channel_ex(const char *channel, const char *sender,
 
 /* build quest.status gmcp message */
 char *json_build_quest_status(struct char_data *ch);
+
+/* build ship.info gmcp message */
+char *json_build_ship_info(struct ShipData *ship, struct char_data *ch);
 
 /* text message building - returns malloc'd string, caller must free */
 char *json_build_text(const char *category, const char *text);

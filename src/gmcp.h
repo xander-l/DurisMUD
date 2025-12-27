@@ -41,6 +41,7 @@ struct ShipData;
 #define GMCP_PKG_QUEST_MAP      "Quest.Map"
 #define GMCP_PKG_GROUP_STATUS   "Group.Status"
 #define GMCP_PKG_SHIP_CONTACTS  "Ship.Contacts"
+#define GMCP_PKG_SHIP_INFO      "Ship.Info"
 
 /* negotiation */
 
@@ -71,6 +72,9 @@ void gmcp_flush_dirty_rooms(void);
 
 /* ship contacts - periodically flush to gmcp players on bridge */
 void gmcp_flush_dirty_ship_contacts(void);
+
+/* ship info - static/slow-changing ship data, also flushed periodically */
+void gmcp_flush_dirty_ship_info(void);
 
 /* char vitals - sends hp/mana/move when they change */
 void gmcp_char_vitals(struct char_data *ch);

@@ -914,6 +914,7 @@ void game_loop(int port, int sslport)
     if (!(pulse % 2)) {
       gmcp_flush_dirty_rooms();
       gmcp_flush_dirty_ship_contacts();
+      gmcp_flush_dirty_ship_info();
     }
 
     PROFILE_START(activities);

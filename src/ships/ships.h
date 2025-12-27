@@ -424,7 +424,7 @@ struct ShipData
     void sail_skill_raise(P_char, float);
     void rpar_skill_raise(P_char, float);
     int slot_weight(int type) const;
-    int get_maxspeed() const { return maxspeed + maxspeed_bonus; }
+    int get_maxspeed(P_char ch = NULL) const;
     int get_capacity() const { return SHIPTYPE_PEOPLE(m_class) + capacity_bonus; }
     int has_capital(); // returns which type of capital item (SLOT_WEAPON/SLOT_EQUIPMENT) or SLOT_EMPTY if none found.
     bool buy_check_capital( P_char ch ); // Checks for capital item and sends message to ch if it does.
@@ -469,6 +469,8 @@ struct ShipData
     int capacity_bonus;
 
     unsigned long contacts_hash;  /* GMCP: hash of last sent contacts for change detection */
+    int last_gmcp_location;       /* GMCP: last sent location for position change detection */
+    unsigned long ship_info_hash; /* GMCP: hash of last sent ship info */
 };
 
 struct ContactData
@@ -752,6 +754,7 @@ void set_weapon(P_ship ship, int slot, int w_num, int arc);
 void set_equipment(P_ship ship, int slot, int w_num);
 void update_maxspeed(P_ship ship, int breach_count);
 int get_maxspeed_without_cargo(P_ship ship);
+const char* get_ship_status(P_ship ship);
 
 void assignid(P_ship ship, char *id, bool npc = false);
 

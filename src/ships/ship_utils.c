@@ -555,7 +555,14 @@ int get_maxspeed_without_cargo(P_ship ship)
     return BOUNDED(1, (int)maxspeed, ceil);
 }
 
-
+/* get max speed, includes player racial bonus if ch provided */
+int ShipData::get_maxspeed(P_char ch) const
+{
+    int speed = maxspeed + maxspeed_bonus;
+    if (ch && has_innate(ch, INNATE_SEADOG))
+        speed += 2;
+    return speed;
+}
 
 void assignid(P_ship ship, char *id, bool npc)
 {

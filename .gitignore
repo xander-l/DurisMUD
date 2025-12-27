@@ -1,3 +1,4 @@
+__py_cache__/
 /dms
 /dms_new
 /dms.*
@@ -28,3 +29,6 @@ Accounts/*/*
 !Accounts/*/.gitkeep
 duris.crt
 duris.key
+
+# environment files (may contain secrets)
+.env

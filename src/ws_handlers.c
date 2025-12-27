@@ -746,10 +746,42 @@ void ws_cmd_chargen_options(struct descriptor_data *d, cJSON *data)
     cJSON_Delete(response);
 }
 
+/* helper: build chargen stats as cJSON object */
+static cJSON *build_chargen_stats_json(stat_data *stats)
+{
+    cJSON *obj = cJSON_CreateObject();
+    cJSON_AddStringToObject(obj, "str", stat_to_string2(stats->Str));
+    cJSON_AddStringToObject(obj, "dex", stat_to_string2(stats->Dex));
+    cJSON_AddStringToObject(obj, "agi", stat_to_string2(stats->Agi));
+    cJSON_AddStringToObject(obj, "con", stat_to_string2(stats->Con));
+    cJSON_AddStringToObject(obj, "pow", stat_to_string2(stats->Pow));
+    cJSON_AddStringToObject(obj, "int", stat_to_string2(stats->Int));
+    cJSON_AddStringToObject(obj, "wis", stat_to_string2(stats->Wis));
+    cJSON_AddStringToObject(obj, "cha", stat_to_string2(stats->Cha));
+    cJSON_AddStringToObject(obj, "luk", stat_to_string2(stats->Luk));
+    cJSON_AddStringToObject(obj, "kar", stat_to_string2(stats->Kar));
+    return obj;
+}
+
+/* helper: map stat name to pointer in chargen_stats (kar not modifiable) */
+static sh_int *get_chargen_stat_ptr(stat_data *stats, const char *name)
+{
+    if (strcmp(name, "str") == 0) return &stats->Str;
+    if (strcmp(name, "dex") == 0) return &stats->Dex;
+    if (strcmp(name, "agi") == 0) return &stats->Agi;
+    if (strcmp(name, "con") == 0) return &stats->Con;
+    if (strcmp(name, "pow") == 0) return &stats->Pow;
+    if (strcmp(name, "int") == 0) return &stats->Int;
+    if (strcmp(name, "wis") == 0) return &stats->Wis;
+    if (strcmp(name, "cha") == 0) return &stats->Cha;
+    if (strcmp(name, "luk") == 0) return &stats->Luk;
+    return NULL;
+}
+
 /* handle roll stats command */
 void ws_cmd_roll_stats(struct descriptor_data *d, cJSON *data)
 {
-    cJSON *response, *stats_obj;
+    cJSON *response;
     cJSON *race_item;
     int race_id;
     char *json_str;
@@ -790,19 +822,7 @@ void ws_cmd_roll_stats(struct descriptor_data *d, cJSON *data)
     response = cJSON_CreateObject();
     cJSON_AddStringToObject(response, "type", "roll_stats");
 
-    /* stats as quality labels only */
-    stats_obj = cJSON_CreateObject();
-    cJSON_AddStringToObject(stats_obj, "str", stat_to_string2(temp_ch->base_stats.Str));
-    cJSON_AddStringToObject(stats_obj, "dex", stat_to_string2(temp_ch->base_stats.Dex));
-    cJSON_AddStringToObject(stats_obj, "agi", stat_to_string2(temp_ch->base_stats.Agi));
-    cJSON_AddStringToObject(stats_obj, "con", stat_to_string2(temp_ch->base_stats.Con));
-    cJSON_AddStringToObject(stats_obj, "pow", stat_to_string2(temp_ch->base_stats.Pow));
-    cJSON_AddStringToObject(stats_obj, "int", stat_to_string2(temp_ch->base_stats.Int));
-    cJSON_AddStringToObject(stats_obj, "wis", stat_to_string2(temp_ch->base_stats.Wis));
-    cJSON_AddStringToObject(stats_obj, "cha", stat_to_string2(temp_ch->base_stats.Cha));
-    cJSON_AddStringToObject(stats_obj, "luk", stat_to_string2(temp_ch->base_stats.Luk));
-    cJSON_AddStringToObject(stats_obj, "kar", stat_to_string2(temp_ch->base_stats.Kar));
-    cJSON_AddItemToObject(response, "stats", stats_obj);
+    cJSON_AddItemToObject(response, "stats", build_chargen_stats_json(&temp_ch->base_stats));
 
     cJSON_AddNumberToObject(response, "bonusRemaining", d->chargen_bonus_remaining);
 
@@ -820,7 +840,7 @@ void ws_cmd_roll_stats(struct descriptor_data *d, cJSON *data)
 /* handle add bonus command - adds +5 to specified stat */
 void ws_cmd_add_bonus(struct descriptor_data *d, cJSON *data)
 {
-    cJSON *response, *stats_obj, *stat_item;
+    cJSON *response, *stat_item;
     char *json_str;
     const char *stat_name;
     sh_int *stat_ptr = NULL;
@@ -840,16 +860,8 @@ void ws_cmd_add_bonus(struct descriptor_data *d, cJSON *data)
     stat_name = stat_item->valuestring;
 
     /* map stat name to pointer (9 stats can receive bonus - not kar) */
-    if (strcmp(stat_name, "str") == 0) stat_ptr = &d->chargen_stats.Str;
-    else if (strcmp(stat_name, "dex") == 0) stat_ptr = &d->chargen_stats.Dex;
-    else if (strcmp(stat_name, "agi") == 0) stat_ptr = &d->chargen_stats.Agi;
-    else if (strcmp(stat_name, "con") == 0) stat_ptr = &d->chargen_stats.Con;
-    else if (strcmp(stat_name, "pow") == 0) stat_ptr = &d->chargen_stats.Pow;
-    else if (strcmp(stat_name, "int") == 0) stat_ptr = &d->chargen_stats.Int;
-    else if (strcmp(stat_name, "wis") == 0) stat_ptr = &d->chargen_stats.Wis;
-    else if (strcmp(stat_name, "cha") == 0) stat_ptr = &d->chargen_stats.Cha;
-    else if (strcmp(stat_name, "luk") == 0) stat_ptr = &d->chargen_stats.Luk;
-    else {
+    stat_ptr = get_chargen_stat_ptr(&d->chargen_stats, stat_name);
+    if (!stat_ptr) {
         ws_send_system(d, "error", "Invalid stat name");
         return;
     }
@@ -868,19 +880,7 @@ void ws_cmd_add_bonus(struct descriptor_data *d, cJSON *data)
     response = cJSON_CreateObject();
     cJSON_AddStringToObject(response, "type", "bonus_added");
 
-    stats_obj = cJSON_CreateObject();
-    cJSON_AddStringToObject(stats_obj, "str", stat_to_string2(d->chargen_stats.Str));
-    cJSON_AddStringToObject(stats_obj, "dex", stat_to_string2(d->chargen_stats.Dex));
-    cJSON_AddStringToObject(stats_obj, "agi", stat_to_string2(d->chargen_stats.Agi));
-    cJSON_AddStringToObject(stats_obj, "con", stat_to_string2(d->chargen_stats.Con));
-    cJSON_AddStringToObject(stats_obj, "pow", stat_to_string2(d->chargen_stats.Pow));
-    cJSON_AddStringToObject(stats_obj, "int", stat_to_string2(d->chargen_stats.Int));
-    cJSON_AddStringToObject(stats_obj, "wis", stat_to_string2(d->chargen_stats.Wis));
-    cJSON_AddStringToObject(stats_obj, "cha", stat_to_string2(d->chargen_stats.Cha));
-    cJSON_AddStringToObject(stats_obj, "luk", stat_to_string2(d->chargen_stats.Luk));
-    cJSON_AddStringToObject(stats_obj, "kar", stat_to_string2(d->chargen_stats.Kar));
-    cJSON_AddItemToObject(response, "stats", stats_obj);
-
+    cJSON_AddItemToObject(response, "stats", build_chargen_stats_json(&d->chargen_stats));
     cJSON_AddNumberToObject(response, "bonusRemaining", d->chargen_bonus_remaining);
     cJSON_AddStringToObject(response, "boostedStat", stat_name);
 
@@ -896,7 +896,7 @@ void ws_cmd_add_bonus(struct descriptor_data *d, cJSON *data)
 /* handle swap stats command - swaps values of two stats */
 void ws_cmd_swap_stats(struct descriptor_data *d, cJSON *data)
 {
-    cJSON *response, *stats_obj, *stat1_item, *stat2_item;
+    cJSON *response, *stat1_item, *stat2_item;
     char *json_str;
     const char *stat1_name, *stat2_name;
     sh_int *stat1_ptr = NULL, *stat2_ptr = NULL;
@@ -919,32 +919,15 @@ void ws_cmd_swap_stats(struct descriptor_data *d, cJSON *data)
         return;
     }
 
-    /* map stat1 name to pointer (9 stats swappable - not kar) */
-    if (strcmp(stat1_name, "str") == 0) stat1_ptr = &d->chargen_stats.Str;
-    else if (strcmp(stat1_name, "dex") == 0) stat1_ptr = &d->chargen_stats.Dex;
-    else if (strcmp(stat1_name, "agi") == 0) stat1_ptr = &d->chargen_stats.Agi;
-    else if (strcmp(stat1_name, "con") == 0) stat1_ptr = &d->chargen_stats.Con;
-    else if (strcmp(stat1_name, "pow") == 0) stat1_ptr = &d->chargen_stats.Pow;
-    else if (strcmp(stat1_name, "int") == 0) stat1_ptr = &d->chargen_stats.Int;
-    else if (strcmp(stat1_name, "wis") == 0) stat1_ptr = &d->chargen_stats.Wis;
-    else if (strcmp(stat1_name, "cha") == 0) stat1_ptr = &d->chargen_stats.Cha;
-    else if (strcmp(stat1_name, "luk") == 0) stat1_ptr = &d->chargen_stats.Luk;
-    else {
+    /* map stat names to pointers (9 stats swappable - not kar) */
+    stat1_ptr = get_chargen_stat_ptr(&d->chargen_stats, stat1_name);
+    if (!stat1_ptr) {
         ws_send_system(d, "error", "Invalid first stat name");
         return;
     }
 
-    /* map stat2 name to pointer */
-    if (strcmp(stat2_name, "str") == 0) stat2_ptr = &d->chargen_stats.Str;
-    else if (strcmp(stat2_name, "dex") == 0) stat2_ptr = &d->chargen_stats.Dex;
-    else if (strcmp(stat2_name, "agi") == 0) stat2_ptr = &d->chargen_stats.Agi;
-    else if (strcmp(stat2_name, "con") == 0) stat2_ptr = &d->chargen_stats.Con;
-    else if (strcmp(stat2_name, "pow") == 0) stat2_ptr = &d->chargen_stats.Pow;
-    else if (strcmp(stat2_name, "int") == 0) stat2_ptr = &d->chargen_stats.Int;
-    else if (strcmp(stat2_name, "wis") == 0) stat2_ptr = &d->chargen_stats.Wis;
-    else if (strcmp(stat2_name, "cha") == 0) stat2_ptr = &d->chargen_stats.Cha;
-    else if (strcmp(stat2_name, "luk") == 0) stat2_ptr = &d->chargen_stats.Luk;
-    else {
+    stat2_ptr = get_chargen_stat_ptr(&d->chargen_stats, stat2_name);
+    if (!stat2_ptr) {
         ws_send_system(d, "error", "Invalid second stat name");
         return;
     }
@@ -958,19 +941,7 @@ void ws_cmd_swap_stats(struct descriptor_data *d, cJSON *data)
     response = cJSON_CreateObject();
     cJSON_AddStringToObject(response, "type", "stats_swapped");
 
-    stats_obj = cJSON_CreateObject();
-    cJSON_AddStringToObject(stats_obj, "str", stat_to_string2(d->chargen_stats.Str));
-    cJSON_AddStringToObject(stats_obj, "dex", stat_to_string2(d->chargen_stats.Dex));
-    cJSON_AddStringToObject(stats_obj, "agi", stat_to_string2(d->chargen_stats.Agi));
-    cJSON_AddStringToObject(stats_obj, "con", stat_to_string2(d->chargen_stats.Con));
-    cJSON_AddStringToObject(stats_obj, "pow", stat_to_string2(d->chargen_stats.Pow));
-    cJSON_AddStringToObject(stats_obj, "int", stat_to_string2(d->chargen_stats.Int));
-    cJSON_AddStringToObject(stats_obj, "wis", stat_to_string2(d->chargen_stats.Wis));
-    cJSON_AddStringToObject(stats_obj, "cha", stat_to_string2(d->chargen_stats.Cha));
-    cJSON_AddStringToObject(stats_obj, "luk", stat_to_string2(d->chargen_stats.Luk));
-    cJSON_AddStringToObject(stats_obj, "kar", stat_to_string2(d->chargen_stats.Kar));
-    cJSON_AddItemToObject(response, "stats", stats_obj);
-
+    cJSON_AddItemToObject(response, "stats", build_chargen_stats_json(&d->chargen_stats));
     cJSON_AddStringToObject(response, "swapped1", stat1_name);
     cJSON_AddStringToObject(response, "swapped2", stat2_name);
 

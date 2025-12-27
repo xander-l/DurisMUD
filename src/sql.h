@@ -2,23 +2,52 @@
 #define __SQL_H_INCLUDED__
 
 #include "structs.h"
+#include <stdlib.h>
 
+/* default database credentials (fallback if env vars not set) */
 #ifdef TEST_MUD
-  #define DB_HOST "127.0.0.1"
-  #define DB_USER "duris"
-  #define DB_PASSWD "duris"
-  #define DB_NAME "duris_dev"
+  #define DB_HOST_DEFAULT "127.0.0.1"
+  #define DB_USER_DEFAULT "duris"
+  #define DB_PASSWD_DEFAULT "duris"
+  #define DB_NAME_DEFAULT "duris_dev"
 #else
-  #define DB_HOST "127.0.0.1"
-  #define DB_USER "duris"
-  #define DB_PASSWD "duris"
-  #define DB_NAME "duris"
+  #define DB_HOST_DEFAULT "127.0.0.1"
+  #define DB_USER_DEFAULT "duris"
+  #define DB_PASSWD_DEFAULT "duris"
+  #define DB_NAME_DEFAULT "duris"
 #endif
 
 #ifdef __CYGWIN_BUILD__
-  #undef DB_HOST
-  #define DB_HOST "127.0.0.1"
+  #undef DB_HOST_DEFAULT
+  #define DB_HOST_DEFAULT "127.0.0.1"
 #endif
+
+/* get database credentials from env vars with fallback */
+static inline const char *get_db_host(void) {
+    const char *val = getenv("DB_HOST");
+    return (val && *val) ? val : DB_HOST_DEFAULT;
+}
+
+static inline const char *get_db_user(void) {
+    const char *val = getenv("DB_USER");
+    return (val && *val) ? val : DB_USER_DEFAULT;
+}
+
+static inline const char *get_db_passwd(void) {
+    const char *val = getenv("DB_PASSWD");
+    return (val && *val) ? val : DB_PASSWD_DEFAULT;
+}
+
+static inline const char *get_db_name(void) {
+    const char *val = getenv("DB_NAME");
+    return (val && *val) ? val : DB_NAME_DEFAULT;
+}
+
+/* legacy macros for backward compatibility - use functions for new code */
+#define DB_HOST get_db_host()
+#define DB_USER get_db_user()
+#define DB_PASSWD get_db_passwd()
+#define DB_NAME get_db_name()
 
 #ifndef __NO_MYSQL__
 #include <mysql.h>

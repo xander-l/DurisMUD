@@ -171,7 +171,8 @@ struct ShipData *new_ship(int m_class, bool npc)
    ship->capacity_bonus = 0;
 
    ship->time = time(NULL);
-   ship->contacts_hash = 0;  /* Initialize GMCP contacts hash */
+   ship->contacts_hash = 0;
+   ship->last_gmcp_location = -1;
 
    for (int j = 0; j < MAXSLOTS; j++) 
    {
@@ -1567,14 +1568,8 @@ void ship_activity()
             if (IS_WATER_ROOM(ship->location) || IS_ROOM(ship->location, ROOM_DOCKABLE) || SHIP_FLYING(ship))
             {
                 // Setspeed to Speed DRANNAK
-               // if (ship->setspeed > ship->get_maxspeed()) 
     P_char ch = captain_is_aboard(ship);
-    int realspeed = ship->get_maxspeed();
-    
-    if(ch){
-    if(has_innate(ch, INNATE_SEADOG))
-    realspeed += 2;
-    }
+    int realspeed = ship->get_maxspeed(ch);
 
 		 if (ship->setspeed > realspeed)
                 {

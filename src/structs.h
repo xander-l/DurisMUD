@@ -1687,6 +1687,7 @@ struct descriptor_data {
   int gmcp_quest_map_sent;        /* 1 if quest map already sent this session */
   char client_name[64];           /* mud client name (mudlet, cmud, etc) */
   char client_version[32];        /* client version string */
+  int durisweb_verified;
 
   /* WebSocket ping/pong for dead connection detection */
   time_t ws_last_ping;            /* Time of last ping sent */
