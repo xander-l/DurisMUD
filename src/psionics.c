@@ -2075,7 +2075,8 @@ void spell_pyrokinesis(int level, P_char ch, char *arg, int type, P_char victim,
   if (GET_SPEC(ch, CLASS_PSIONICIST, SPEC_PYROKINETIC))
      fire_dam = (int)(fire_dam * 1.20);
 
-  if(!NewSaves(victim, SAVING_SPELL, 0))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_PYROKINESIS);
+  if(!NewSaves(victim, SAVING_SPELL, mod))
   {
      phys_dam = (int)(phys_dam * 1.2);
      fire_dam = (int)(fire_dam* 1.15);

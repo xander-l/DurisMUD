@@ -1097,7 +1097,7 @@ void bard_harming(int lvl, P_char ch, P_char victim, int song)
     return;
   }
 
-  if( GET_LEVEL(ch) > 40 && !NewSaves(victim, SAVING_SPELL, 0) && !IS_AFFECTED(victim, AFF_BLIND)
+  if( GET_LEVEL(ch) > 40 && !bard_saves(ch, victim, song) && !IS_AFFECTED(victim, AFF_BLIND)
     && !EYELESS(victim))
   {
     blind(ch, victim, (int) (lvl / 12 * WAIT_SEC));

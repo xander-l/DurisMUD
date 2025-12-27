@@ -1084,6 +1084,47 @@ int find_save(P_char ch, int save_type)
   return save;
 }
 
+int get_default_save_mod(P_char ch, P_char aggressor, int save_type, int spell)
+{
+	int mod = 0;
+
+	int classIndex = flag2idx(aggressor->player.m_class);
+
+	int required_level = skills[spell].m_class[classIndex-1].rlevel[aggressor->player.spec];
+	if(IS_SET(skills[spell].targets, TAR_SPELL))
+	{
+		required_level *= 5;
+		required_level++;
+	}
+
+	switch(save_type)
+	{
+	case SAVING_SPELL:
+		if(required_level < 31)
+		{
+			// below 7th circle mod is based on level difference
+			mod = BOUNDED(-3, (GET_LEVEL(aggressor) - GET_LEVEL(ch)) / 2, 3);
+		}
+		else 
+		{
+			// above 7th circle mod based on aggressors level
+			if(required_level < 46)
+			{
+				mod = BOUNDED(0, (GET_LEVEL(aggressor) - 30) / 3, 5);
+			}
+			else
+			{
+				mod = MAX(1, (GET_LEVEL(aggressor) - 45) * 2 / 3);
+			}
+		}
+		break;
+	default:
+		break;
+	}
+
+	return mod;
+}
+
 /*
    ok, NewSaves is a more flexible version of saves_spell, to remain backwards
    compatible, mod is a modification to the SAVE, not the roll, thus a negative

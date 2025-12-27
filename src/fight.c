@@ -4464,7 +4464,7 @@ static dam_mod_predicate spell_damage_modifiers[] =
 			if( zone_difficulty > 1 )
 			{
 				dam_mod->type = dam_mod_type::Increased;
-				dam_mod->mod += (get_property("damage.zoneDifficulty.spells.factor", 0.200) * zone_difficulty) - 1.0;				
+				dam_mod->mod += (get_property("damage.zoneDifficulty.spells.factor", 0.05) * zone_difficulty) - 1.0;				
 			}
 		}
 	} },

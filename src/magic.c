@@ -344,6 +344,8 @@ void spell_single_prismatic_ray(int level, P_char ch, char *arg, int type,
   else
     ray_type = 0;
 
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_PRISMATIC_RAY);
+
   switch (ray_type)
   {
   case 0:
@@ -355,7 +357,7 @@ void spell_single_prismatic_ray(int level, P_char ch, char *arg, int type,
     dam = 400 + dice(level, 2);
     prepare_ray_messages("&+rred&+w", char_message, victim_message,
                          room_message);
-    if(NewSaves(victim, SAVING_SPELL, 0))
+    if(NewSaves(victim, SAVING_SPELL, mod))
       dam >>= 1;
     spell_damage(ch, victim, dam, SPLDAM_FIRE, 0, &messages);
     break;
@@ -363,7 +365,7 @@ void spell_single_prismatic_ray(int level, P_char ch, char *arg, int type,
     dam = 275 + dice(level, 2);
     prepare_ray_messages("&+Rorange&n", char_message, victim_message,
                          room_message);
-    if(NewSaves(victim, SAVING_SPELL, 0))
+    if(NewSaves(victim, SAVING_SPELL, mod))
       dam >>= 1;
     spell_damage(ch, victim, dam, SPLDAM_FIRE, 0, &messages);
     break;
@@ -371,7 +373,7 @@ void spell_single_prismatic_ray(int level, P_char ch, char *arg, int type,
     dam = 150 + dice(level, 2);
     prepare_ray_messages("&+Bblue&n", char_message, victim_message,
                          room_message);
-    if(NewSaves(victim, SAVING_SPELL, 0))
+    if(NewSaves(victim, SAVING_SPELL, mod))
       dam >>= 1;
     spell_damage(ch, victim, dam, SPLDAM_COLD, 0, &messages);
     break;
@@ -575,7 +577,9 @@ void spell_chill_touch(int level, P_char ch, char *arg, int type,
 
   int dam = (dice(1, 6) + 5 * 4 + level) ;
 
-  bool failed_save = !NewSaves(victim, SAVING_SPELL, level/7);
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_CHILL_TOUCH);
+
+  bool failed_save = !NewSaves(victim, SAVING_SPELL, mod);
 
   if( failed_save )
     dam <<= 1;
@@ -637,7 +641,8 @@ void spell_frostbite(int level, P_char ch, char *arg, int type, P_char victim,
 
   if(spell_damage(ch, victim, dam, SPLDAM_COLD, 0, &messages) != DAM_VICTDEAD )
   {
-    if( !affected_by_spell(victim, SPELL_FROSTBITE) && !NewSaves(victim, SAVING_SPELL, 0) )
+	int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_FROSTBITE);
+    if( !affected_by_spell(victim, SPELL_FROSTBITE) && !NewSaves(victim, SAVING_SPELL, mod) )
     {
       act("&+BThe chilling cold causes $N&+B to stammer, apparently weakened.&n", FALSE, ch, 0, victim, TO_CHAR);
       act("&+BThe cold goes right to the bone, you feel yourself weakening!&n", FALSE, ch, 0, victim, TO_VICT);
@@ -690,8 +695,8 @@ void spell_shocking_grasp(int level, P_char ch, char *arg, int type,
 
   int num_dice = (level / 6);
   int dam = (dice(num_dice+5, 6) * 4);
-
-  if( !NewSaves(victim, SAVING_SPELL, 0) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_SHOCKING_GRASP);
+  if( !NewSaves(victim, SAVING_SPELL, mod) )
     dam = (int) (dam * 2);
 
   // play_sound(SOUND_SHOCKING_GRASP, NULL, ch->in_room, TO_ROOM);
@@ -715,8 +720,8 @@ void spell_lightning_bolt(int level, P_char ch, char *arg, int type,
 
   int num_dice = (level / 5);
   int dam = (dice(num_dice+5, 6) * 4);
-
-  if(!NewSaves(victim, SAVING_SPELL, 0))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_LIGHTNING_BOLT);
+  if(!NewSaves(victim, SAVING_SPELL, mod))
     dam = (int) (dam * 1.33);
 
   // play_sound(SOUND_SHOCKWAVE, NULL, ch->in_room, TO_ROOM);
@@ -957,8 +962,9 @@ void spell_enervation(int level, P_char ch, char *arg, int type, P_char victim, 
     return;
   }
 
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_ENERVATION);
   // Made it harder to save against.
-  if(NewSaves(victim, SAVING_SPELL, level/7))
+  if(NewSaves(victim, SAVING_SPELL, mod))
   {
     saved = TRUE;
     dam >>= 1;
@@ -1047,7 +1053,8 @@ void spell_life_leech(int level, P_char ch, char *arg, int type,
     return;
   }
 
-  if(NewSaves(victim, SAVING_SPELL, 0))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_LIFE_LEECH);
+  if(NewSaves(victim, SAVING_SPELL, mod))
   {
     saved = TRUE;
     dam = (int)(dam * 0.80);
@@ -1136,7 +1143,8 @@ void spell_energy_drain(int level, P_char ch, char *arg, int type, P_char victim
     return;
   }
 
-  if( NewSaves(victim, SAVING_SPELL, 0) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_ENERGY_DRAIN);
+  if( NewSaves(victim, SAVING_SPELL, mod) )
   {
     saved = TRUE;
     dam = (int)(dam * 0.80);
@@ -1410,7 +1418,8 @@ void spell_wither(int level, P_char ch, char *arg, int type, P_char victim, P_ob
   percent += (int) (GET_C_POW(ch) - GET_C_POW(victim));
   percent += (int) (GET_LEVEL(ch) - GET_LEVEL(victim));
 
-  if( NewSaves(victim, SAVING_FEAR, 0) )
+  int mod = get_default_save_mod(victim, ch, SAVING_FEAR, SPELL_WITHER);
+  if( NewSaves(victim, SAVING_FEAR, mod) )
   {
     percent = (3 * percent) / 4;
   }
@@ -2930,7 +2939,8 @@ void spell_earthen_maul(int level, P_char ch, char *arg, int type, P_char victim
     dam = dice(6 * temp, 9);
   }
 
-  if(NewSaves(victim, SAVING_SPELL, 1.5))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_EARTHEN_MAUL);
+  if(NewSaves(victim, SAVING_SPELL, mod))
     dam >>= 1;
 
   dam_flag = 0;
@@ -3081,9 +3091,9 @@ void spell_bigbys_clenched_fist(int level, P_char ch, char *arg, int type, P_cha
     level = 50;
 
   int dam = 10 * level + number(1, 25);
-
-  if(!NewSaves(victim, SAVING_SPELL, 0))
-    dam = (int) (dam * 2.0);
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_BIGBYS_CLENCHED_FIST);
+  if(!NewSaves(victim, SAVING_SPELL, mod))
+    dam = dam * 2;
 
   spell_damage(ch, victim, dam, SPLDAM_GENERIC, 0, &messages);
 }
@@ -3101,7 +3111,8 @@ void spell_channel_negative_energy(int level, P_char ch, char *arg, int type,
   };
   int      dam;
 
-  if(saves_spell(victim, SAVING_SPELL))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_CHANNEL_NEG_ENERGY);
+  if(NewSaves(victim, SAVING_SPELL, mod))
     dam = 150;
   else
     dam = 300;
@@ -3122,9 +3133,9 @@ void spell_bigbys_crushing_hand(int level, P_char ch, char *arg, int type, P_cha
   };
 
   int dam = 12 * level + number(1, 50);
-
-  if(!NewSaves(victim, SAVING_SPELL, 0))
-    dam = (int) (dam * 1.75);
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_BIGBYS_CRUSHING_HAND);
+  if(!NewSaves(victim, SAVING_SPELL, mod))
+    dam = (int)(dam * (number(175, 175 + MAX(0, level - 45) * 2) / 100.0));
 
   spell_damage(ch, victim, dam, SPLDAM_GENERIC, 0, &messages);
 }
@@ -3163,7 +3174,8 @@ bool spell_solbeeps_single_missile(int level, P_char ch, char *arg, int type, P_
                            // made damage level-independent, since average number of missiles grows with level
 
   bool saved = true;
-  if(!NewSaves(victim, SAVING_SPELL, 0))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_MISSILE_BARRAGE);
+  if(!NewSaves(victim, SAVING_SPELL, mod))
   {
     dam = (int) (dam * 1.5);
     saved = FALSE;
@@ -3263,7 +3275,8 @@ void spell_fireball(int level, P_char ch, char *arg, int type, P_char victim,
 
   int dam = (dice(((int)(level/3) + 5), 6) * 4);
 
-  if(!NewSaves(victim, SAVING_SPELL, 0))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_FIREBALL);
+  if(!NewSaves(victim, SAVING_SPELL, mod))
     dam = (int) (dam * 2);
 
   spell_damage(ch, victim, dam, SPLDAM_FIRE, SPLDAM_GLOBE, &messages);
@@ -3801,7 +3814,8 @@ void spell_single_firestorm(int level, P_char ch, char *arg, int type,
   };
 
   dam = dice(level, 10);
-  if(NewSaves(victim, SAVING_SPELL, 0))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_FIRESTORM);
+  if(NewSaves(victim, SAVING_SPELL, mod))
     dam >>= 1;
   
   if (IS_PC(ch) && IS_PC(victim))
@@ -3919,7 +3933,8 @@ void spell_flamestrike(int level, P_char ch, char *arg, int type,
   int num_dice = (level / 5);
   int dam = (dice( num_dice, 6) * 4);
 
-  if( !NewSaves(victim, SAVING_SPELL, 0) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_FLAMESTRIKE);
+  if( !NewSaves(victim, SAVING_SPELL, mod) )
     dam = (int) (dam * 2);
 
   if( GET_SPEC(ch, CLASS_CLERIC, SPEC_ZEALOT) )
@@ -4129,8 +4144,9 @@ void spell_full_harm(int level, P_char ch, char *arg, int type, P_char victim,
     0, 0, 0, 0
   };
 
-    dam = (level / 3 * 11);
-  if( !NewSaves(victim, SAVING_SPELL, 0) )
+  dam = (level / 3 * 11);
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_FULL_HARM);
+  if( !NewSaves(victim, SAVING_SPELL, mod) )
     dam = (dam * 2);
 
   if( GET_SPEC(ch, CLASS_CLERIC, SPEC_ZEALOT) )
@@ -4800,7 +4816,8 @@ void spell_wizard_eye(int level, P_char ch, char *arg, int type,
   new_look(ch, NULL, CMD_LOOKAFAR, target);
   // play_sound(SOUND_FARSITE, NULL, ch->in_room, TO_ROOM);
 
-  if(NewSaves(victim, SAVING_SPELL, 0))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_WIZARD_EYE);
+  if(NewSaves(victim, SAVING_SPELL, mod))
     send_to_char("&+LYou feel strangely like you are being watched..\n",
                  victim);
 }
@@ -4864,7 +4881,8 @@ void spell_clairvoyance(int level, P_char ch, char *arg, int type,
   send_to_char(Gbuf1, ch);
   new_look(ch, NULL, CMD_LOOKAFAR, target);
 
-  if(NewSaves(victim, SAVING_SPELL, 0) && victim->in_room == target)
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_CLAIRVOYANCE);
+  if(NewSaves(victim, SAVING_SPELL, mod) && victim->in_room == target)
     send_to_char("&+LYou feel strangely like you are being watched..\n",
                  victim);
 }
@@ -6315,6 +6333,7 @@ void spell_curse(int level, P_char ch, char *arg, int type, P_char victim, P_obj
     return;
   }
 
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_CURSE);
   if(obj)
   {
     SET_BIT(obj->extra_flags, ITEM_NODROP);
@@ -6327,16 +6346,16 @@ void spell_curse(int level, P_char ch, char *arg, int type, P_char victim, P_obj
   }
   else if(IS_GREATER_RACE(victim) || IS_ELITE(victim))
   {
-     if(NewSaves(victim, SAVING_SPELL, 5))
+     if(NewSaves(victim, SAVING_SPELL, mod + 5))
      send_to_char("Your victim has saved against your curse spell!&n\n", ch);
        return;
   }
-  else if(IS_NPC(victim) && NewSaves(victim, SAVING_SPELL, 10))
+  else if(IS_NPC(victim) && NewSaves(victim, SAVING_SPELL, mod))
   {
    send_to_char("Your victim has saved against your curse spell!&n\n", ch);
       return;
   }
-  else if(IS_PC(victim) && NewSaves(victim, SAVING_SPELL, 0))
+  else if(IS_PC(victim) && NewSaves(victim, SAVING_SPELL, mod))
   {
     send_to_char("Your victim has saved against your curse spell!&n\n", ch);
      return;
@@ -7468,7 +7487,8 @@ void spell_poison(int level, P_char ch, char *arg, int type, P_char victim, P_ob
       return;
     }
 
-    if( (level > 0) && NewSaves(victim, SAVING_SPELL, (level - GET_LEVEL(victim) )/3) )
+	int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_POISON);
+    if( (level > 0) && NewSaves(victim, SAVING_SPELL, mod) )
     {
       return;
     }
@@ -8557,10 +8577,11 @@ void spell_summon(int level, P_char ch, char *arg, int type, P_char victim,
 
   max_summon_level = level + 3;
 
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_SUMMON);
   if((GET_LEVEL(victim) > MIN(MAXLVLMORTAL, max_summon_level)) ||
       CHAR_IN_PRIV_ZONE(ch) || CHAR_IN_SAFE_ROOM(victim) ||
      (!is_linked_to(ch, victim, LNK_CONSENT) &&
-      NewSaves(victim, SAVING_SPELL, 0)))
+      NewSaves(victim, SAVING_SPELL, mod)))
   {
     send_to_char("&+CYou failed.\n", ch);
     send_to_char("You feel a wrenching sensation.\n", victim);
@@ -9746,7 +9767,8 @@ void spell_plague(int level, P_char ch, char *arg, int type, P_char victim,
     return;
   }
   
-  if(IS_NPC(victim) && !NewSaves(victim, SAVING_SPELL, 5))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_PLAGUE);
+  if(IS_NPC(victim) && !NewSaves(victim, SAVING_SPELL, mod + 5))
   {  
     act("$n's skin &+cpales&n and sweat drips down $s body.",
       TRUE, victim, 0, 0, TO_ROOM);
@@ -9759,7 +9781,7 @@ void spell_plague(int level, P_char ch, char *arg, int type, P_char victim,
     af.modifier = 3500;
     affect_to_char(victim, &af);
   }
-  else if(IS_PC(victim) && !NewSaves(victim, SAVING_SPELL, 1))
+  else if(IS_PC(victim) && !NewSaves(victim, SAVING_SPELL, mod))
   {  
     act("$n's skin &+cpales&n and sweat drips down $s body.",
       TRUE, victim, 0, 0, TO_ROOM);
@@ -13225,7 +13247,8 @@ void spell_single_incendiary_cloud(int level, P_char ch, char *arg, int type,
 
   dam = dice(3 * level, 7)/2;
 
-  if( !NewSaves(victim, SAVING_SPELL, 0) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_INCENDIARY_CLOUD);
+  if( !NewSaves(victim, SAVING_SPELL, mod) )
   {
     dam = dam * 1.5;
   }
@@ -13553,7 +13576,8 @@ void spell_unholy_wind(int level, P_char ch, char *arg, int type,
 
   dam = (dice(1, 6) + 5 * 4 + level) ;
 
-  bool failed_save = !NewSaves(victim, SAVING_SPELL, 0);
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_UNHOLY_WIND);
+  bool failed_save = !NewSaves(victim, SAVING_SPELL, mod);
 
   if (failed_save)
     dam <<= 1;
@@ -13646,7 +13670,8 @@ void spell_acid_blast(int level, P_char ch, char *arg, int type,
 
   int dam = dice(MIN(level, 21), 10) + level/2;
 
-  if(!NewSaves(victim, SAVING_SPELL, 0))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_ACID_BLAST);
+  if(!NewSaves(victim, SAVING_SPELL, mod))
     dam = (int) (dam * 1.25);
 
   spell_damage(ch, victim, dam, SPLDAM_ACID, SPLDAM_ALLGLOBES, &messages);
@@ -14554,7 +14579,8 @@ void spell_solar_flare(int level, P_char ch, char *arg, int type, P_char victim,
   if(spell_damage(ch, victim, dam, SPLDAM_FIRE, 0, &messages))
     return;
 
-  if(!number(0, 1) && !NewSaves(victim, SAVING_SPELL, 0))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_SOLAR_FLARE);
+  if(!number(0, 1) && !NewSaves(victim, SAVING_SPELL, mod))
     blind(ch, victim, 60 * WAIT_SEC);
 
   if( !number(0, 1) )
@@ -14586,7 +14612,7 @@ void spell_sunray(int level, P_char ch, char *arg, int type, P_char victim, P_ob
   else if(!IS_OUTSIDE(victim->in_room))
         dam = (int)(dam * 0.95);
 
-  int mod = BOUNDED(0, (GET_LEVEL(ch) - GET_LEVEL(victim)), 20);
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_SUNRAY);
   if(!NewSaves(victim, SAVING_SPELL, mod))
   {
       dam = (int)(dam * 1.30);
@@ -14884,9 +14910,8 @@ void spell_pword_blind(int level, P_char ch, char *arg, int type, P_char victim,
   if( has_innate(victim, INNATE_EYELESS) || IS_TRUSTED(victim) )
     return;
 
-  int mindpower = ((GET_C_POW(ch) - GET_C_POW(victim)) / 2);
-  //save = victim->specials.apply_saving_throw[SAVING_SPELL];
-  save = NewSaves(victim, SAVING_SPELL, mindpower);
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_PWORD_BLIND);
+  save = NewSaves(victim, SAVING_SPELL, mod);
 
   debug("PWB: (%s) saving throw is (%d).", J_NAME(victim), save);
 
@@ -14897,56 +14922,13 @@ void spell_pword_blind(int level, P_char ch, char *arg, int type, P_char victim,
     return;
   }
 
-/*
-  if(save < 0)
-    save = (int) (save * 1.5);
-
-  percent = BOUNDED( 0, (GET_C_POW(ch) - GET_C_POW(victim) + save + (GET_LEVEL(ch) - GET_LEVEL(victim))), 100);
-*/
-
-  percent = BOUNDED( 0, (GET_C_POW(ch) - GET_C_POW(victim) + (GET_LEVEL(ch) - GET_LEVEL(victim))), 100);
-
-  if(IS_PC_PET(ch))
-    percent = (int)(percent * 0.5);
-
-  debug("PWB: (%s) casted pwb at (%s) percent (%d) mindpower (%d).",
-    GET_NAME(ch), GET_NAME(victim), percent, mindpower);
-/*
-  if(percent < 10)
-  {
-    send_to_char("They are too powerful to blind this way!\n", ch);
-    return;
-  }
-
-  if(resists_spell(ch, victim))
-    return;
-
-  if(percent > 60)
-  {
-    blind(ch, victim, number(300, 600) * WAIT_SEC);
-    act("$N gropes around, blinded after hearing $n's powerful word!",
-      FALSE, ch, 0, victim, TO_NOTVICT);
-    act("&+rSuddenly, the world goes &+Lblack!",
-      FALSE, ch, 0, victim, TO_VICT);
-    act("$N won't be seeing much in the near future...",
-      TRUE, ch, 0, victim, TO_CHAR);
-  }
-
-  else if(percent > 40)
-    blind(ch, victim, number(10, 15) * WAIT_SEC);
-
-  else
-    blind(ch, victim, number(5, 10) * WAIT_SEC);
-*/
   act("$N gropes around, blinded after hearing $n's powerful word!",
     FALSE, ch, 0, victim, TO_NOTVICT);
   act("&+rSuddenly, the world goes &+Lblack!",
     FALSE, ch, 0, victim, TO_VICT);
   act("$N won't be seeing much in the near future...",
     TRUE, ch, 0, victim, TO_CHAR);
-  // At least 2 sec, at most mindpower/2 secs.
-  mindpower = MAX( WAIT_SEC, mindpower );
-  blind( ch, victim, dice(2*WAIT_SEC, mindpower/WAIT_SEC) );
+  blind( ch, victim, WAIT_SEC * MAX( 20, GET_LEVEL(ch) ) );
 
 }
 
@@ -14988,7 +14970,8 @@ void spell_pword_stun(int level, P_char ch, char *arg, int type, P_char victim, 
   if(affected_by_spell(victim, SPELL_FEEBLEMIND))
     percent *= 1.5;
 
-  if(NewSaves(ch, SAVING_SPELL, number(-3, 3)))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_PWORD_STUN);
+  if(NewSaves(victim, SAVING_SPELL, mod))
   {
     percent = (int) percent * .75;
   }
@@ -15101,7 +15084,7 @@ int CheckMobRemoveableSpellBits(P_char ch, RemoveableSpellBit* spellBits, int co
 		return success;
 	}
 
-	int saveBonus = IS_ELITE(ch) ? -30 : -10;
+	int saveBonus = IS_ELITE(ch) ? -6 : -3;
 	for(int i = 0; i < countSpellBits; i++)
 	{
 		if(IS_SET(*bitStore, spellBits[i].bit) && !affected_by_spell(ch, spellBits[i].spell) &&
@@ -17175,7 +17158,8 @@ void spell_rope_trick(int level, P_char ch, char *arg, int type,
     return;
   }
 
-  if(!NewSaves(victim, SAVING_SPELL, 0) || (ch == victim) ||
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_ROPE_TRICK);
+  if(!NewSaves(victim, SAVING_SPELL, mod) || (ch == victim) ||
       is_linked_to(ch, victim, LNK_CONSENT))
   {
 
@@ -17277,8 +17261,9 @@ void spell_enlarge(int level, P_char ch, char *arg, int type, P_char victim, P_o
   
   if(type == SPELL_ANIMAL_GROWTH)
     animal_growth = TRUE;
-  
-  if(!NewSaves(victim, SAVING_SPELL, 0) || (ch == victim) ||
+ 
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_ENLARGE);
+  if(!NewSaves(victim, SAVING_SPELL, mod) || (ch == victim) ||
       is_linked_to(ch, victim, LNK_CONSENT))
   {
     if(IS_SET(victim->specials.affected_by3, AFF3_REDUCE))
@@ -17367,8 +17352,9 @@ void spell_reduce(int level, P_char ch, char *arg, int type, P_char victim, P_ob
        send_to_char("Why would you want to reduce them? They are tiny enough!&n\n\r", ch);
 	return; //check to make sure they are not racial tiny.
     }
-  
-  if(!NewSaves(victim, SAVING_SPELL, 0) || (ch == victim) ||
+
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_REDUCE);
+  if(!NewSaves(victim, SAVING_SPELL, mod) || (ch == victim) ||
       is_linked_to(ch, victim, LNK_CONSENT))
   {
     if(IS_SET(victim->specials.affected_by3, AFF3_ENLARGE))
@@ -18107,7 +18093,8 @@ void event_dread_wave(P_char ch, P_char vict, P_obj obj, void *data)
   
   dam = (int)(dam * GET_LEVEL(ch) / 56);
   
-  if(NewSaves(vict, SAVING_SPELL, 0) &&
+  int mod = get_default_save_mod(vict, ch, SAVING_SPELL, SPELL_DREAD_WAVE);
+  if(NewSaves(vict, SAVING_SPELL, mod) &&
      NewSaves(vict, SAVING_BREATH, 0))
       dam = (int)(dam * 0.66);
   

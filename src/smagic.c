@@ -841,7 +841,8 @@ void spell_flameburst(int level, P_char ch, char *arg, int type,
  
   if(type == 0) do_point(ch, victim);
 
-  if(!NewSaves(victim, SAVING_SPELL, 0))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_FLAMEBURST);
+  if(!NewSaves(victim, SAVING_SPELL, mod))
     dam = (int)(dam * 1.33);
   
   // dragoon dragon priest bonus
@@ -879,8 +880,8 @@ void spell_scalding_blast(int level, P_char ch, char *arg, int type,
   dam = BOUNDED(1, dam, 240);
   
   do_point(ch, victim);
-  
-  if(!NewSaves(victim, SAVING_SPELL, 0))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_SCALDING_BLAST);
+  if(!NewSaves(victim, SAVING_SPELL, mod))
     dam = (int)(dam * 1.33);
   
   if(GET_RACE(victim) == RACE_E_ELEMENTAL)
@@ -960,7 +961,8 @@ void spell_molten_spray(int level, P_char ch, char *arg, int type, P_char victim
 
   dam = dice(level, 2) * 4;
 
-  if( !NewSaves(victim, SAVING_SPELL, 2) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_MOLTEN_SPRAY);
+  if( !NewSaves(victim, SAVING_SPELL, mod) )
   {
     dam = (int) (dam * 1.25);
   }
@@ -1211,8 +1213,7 @@ void spell_arieks_shattering_iceball(int level, P_char ch, char *arg, int type, 
 // A little less than sunray but without the blinding + larger damage fork
   int dam = dice(level * 3, 5) + number(1, 80); 
 
-  int mod = BOUNDED(0, (GET_LEVEL(ch) - GET_LEVEL(victim)), 20);
-
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_ARIEKS_SHATTERING_ICEBALL);
   if(!NewSaves(victim, SAVING_SPELL, mod))
     dam = (int) (dam * 1.30);
 
@@ -1248,7 +1249,7 @@ void spell_arieks_shattering_iceball(int level, P_char ch, char *arg, int type, 
 void spell_single_scathing_wind(int level, P_char ch, char *arg, int type,
                                 P_char victim, P_obj obj)
 {
-  int dam, mod = 2;
+  int dam;
   struct damage_messages messages = {
     "$N&+W gasps in pain as your scathing wind burns flesh from $S body.",
     "&+WThe scathing gust of wind hits you, burning flesh from your body.",
@@ -1264,10 +1265,6 @@ void spell_single_scathing_wind(int level, P_char ch, char *arg, int type,
     return;
   }
 
-  if(has_innate(ch, INNATE_ELEMENTAL_POWER))
-  {
-    mod += (int)(level / 10);
-  }
   dam = dice(3 * level, 5);
 
   if (IS_PC(ch) && IS_PC(victim))
@@ -1275,6 +1272,11 @@ void spell_single_scathing_wind(int level, P_char ch, char *arg, int type,
 
   dam = dam * get_property("spell.area.damage.factor.scathingwind", 1.000);
 
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_SCATHING_WIND);
+  if(has_innate(ch, INNATE_ELEMENTAL_POWER))
+  {
+    mod += (int)(level / 10);
+  }
   if(NewSaves(victim, SAVING_SPELL, mod))
     dam >>= 1;
 
@@ -1503,7 +1505,8 @@ void earthen_grasp( int level, P_char ch, P_char victim )
       level = (int) (level * get_property("damage.increase.elementalist", 1.150));
     }
 
-    if(!NewSaves(victim, SAVING_SPELL, 0))
+	int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_EARTHEN_GRASP);
+    if(!NewSaves(victim, SAVING_SPELL, mod))
       dam_result =
         spell_damage(ch, victim, dice(level, 12), SPLDAM_EARTH, SPLDAM_NODEFLECT | SPLDAM_NOSHRUG, &messages);
     else
@@ -2033,13 +2036,13 @@ void spell_snailspeed(int level, P_char ch, char *arg, int type, P_char victim, 
     af.modifier = (int)(-1.25 * affect + number(0, 10));
 
     affect_to_char(victim, &af);
-    
+    int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_SNAILSPEED);
     if(IS_ANIMALIST(ch) &&
        !GET_CLASS(victim, CLASS_MONK) &&
        !IS_AFFECTED2(victim, AFF2_SLOW) &&
        !IS_GREATER_RACE(victim) &&
        !IS_ELITE(victim) &&
-       !NewSaves(victim, SAVING_SPELL, 0))
+       !NewSaves(victim, SAVING_SPELL, mod))
     {
        
       bzero(&af, sizeof(af));
@@ -2525,8 +2528,9 @@ void spell_bearstrength(int level, P_char ch, char *arg, int type,
 
   if( ch != victim )
   {
+	int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_BEARSTRENGTH);
     // Allow if consented, or if victim is master, or victim is consented to master.
-    if( NewSaves(victim, SAVING_SPELL, 0) &&
+    if( NewSaves(victim, SAVING_SPELL, mod) &&
       !(is_linked_to(ch, victim, LNK_CONSENT) || (IS_PC_PET(ch) && GET_MASTER(ch) == victim)
       || (IS_PC_PET(ch) && is_linked_to(GET_MASTER(ch), victim, LNK_CONSENT) )) )
     {
@@ -2601,8 +2605,9 @@ void spell_elephantstrength(int level, P_char ch, char *arg, int type,
 
   if(ch != victim)
   {
+	int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_ELEPHANTSTRENGTH);
     // Allow if consented, or if victim is master, or victim is consented to master.
-    if( NewSaves(victim, SAVING_SPELL, 0) &&
+    if( NewSaves(victim, SAVING_SPELL, mod) &&
       !(is_linked_to(ch, victim, LNK_CONSENT) || (IS_PC_PET(ch) && GET_MASTER(ch) == victim)
       || (IS_PC_PET(ch) && is_linked_to(GET_MASTER(ch), victim, LNK_CONSENT) )) )
     {
@@ -2831,8 +2836,9 @@ void spell_lionrage(int level, P_char ch, char *arg, int type, P_char victim,
 
   if(ch != victim)
   {
+	int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_LIONRAGE);
     // Allow if consented, or if victim is master, or victim is consented to master.
-    if( NewSaves(victim, SAVING_SPELL, 0) &&
+    if( NewSaves(victim, SAVING_SPELL, mod) &&
       !(is_linked_to(ch, victim, LNK_CONSENT) || (IS_PC_PET(ch) && GET_MASTER(ch) == victim)
       || (IS_PC_PET(ch) && is_linked_to(GET_MASTER(ch), victim, LNK_CONSENT) )) )
     {
@@ -3037,7 +3043,8 @@ void spell_malison(int level, P_char ch, char *arg, int type, P_char victim, P_o
       MobStartFight(victim, ch);
   }
 
-  if(NewSaves(victim, SAVING_SPELL, 2))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_MALISON);
+  if(NewSaves(victim, SAVING_SPELL, mod))
   {
 	send_to_char("Your victim has saved against your malison spell!&n\n", ch);  
   	return;

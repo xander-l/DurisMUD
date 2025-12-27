@@ -2409,6 +2409,7 @@ void run_the_game(int, int);
 /* sparser.c */
 
 bool parse_spell_arguments(P_char ch, struct spell_target_data* data, char *argument);
+int get_default_save_mod(P_char ch, P_char aggressor, int save_type, int spell);
 bool NewSaves(P_char, int, int);
 bool cast_common(P_char, char *);
 bool cast_common_generic(P_char, int);

@@ -298,8 +298,8 @@ void spell_boulder(int level, P_char ch, char *arg, int type, P_char victim, P_o
   }
 
   dam = dice(2 * level, 8);
-  
-  if(NewSaves(victim, SAVING_SPELL, 0))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_BOULDER);
+  if(NewSaves(victim, SAVING_SPELL, mod))
     dam >>= 1;
 
   if (spell_damage(ch, victim, dam, SPLDAM_GENERIC, SPLDAM_GLOBE, &messages)
@@ -488,7 +488,8 @@ void spell_stunning_visions(int level, P_char ch, char *arg, int type, P_char vi
     return;
   }
 
-  if( NewSaves(ch, SAVING_SPELL, 0) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_STUNNING_VISIONS);
+  if( NewSaves(ch, SAVING_SPELL, mod) )
   {
     percent /= 2;
   }
@@ -1287,7 +1288,8 @@ void spell_hammer(int level, P_char ch, char *arg, int type, P_char victim, P_ob
 
   // Adding a save for this since 115 damage for 7th circle is absurd.
   //  This brings 115 down to 76, which is normal non-sorc 7th circle damage.
-  if( NewSaves(victim, SAVING_SPELL, level/7) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_HAMMER);
+  if( NewSaves(victim, SAVING_SPELL, mod) )
   {
     dam = (dam * 2) / 3;
   }
@@ -2513,7 +2515,9 @@ void event_asphyxiate(P_char ch, P_char victim, P_obj obj, void *data)
   if( level > 51 )
     level = 51;
 
-  if( NewSaves(victim, SAVING_SPELL, GET_LEVEL(ch) / 10) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_ASPHYXIATE);
+  
+  if( NewSaves(victim, SAVING_SPELL, mod) )
   {
     // 45 +/- 5 dam at 51.
     dam = (5 * GET_LEVEL(ch) + 65) / 2 + number( 0, 40 );

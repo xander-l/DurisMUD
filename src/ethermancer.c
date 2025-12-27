@@ -707,7 +707,8 @@ void spell_forked_lightning(int level, P_char ch, char *arg, int type, P_char vi
   // dam should total: 9 * level +/- 25 .. but 3 forks -> 3 * level +/- 8..
   dam = 2 * level + number(30, 64);
 
-  if( NewSaves(victim, SAVING_SPELL, 0) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_FORKED_LIGHTNING);
+  if( NewSaves(victim, SAVING_SPELL, mod) )
   {
     dam = (dam * 2) / 3;
   }
@@ -743,7 +744,8 @@ void event_frost_bolt(P_char ch, P_char victim, P_obj obj, void *data)
 
   // Actual damage @lvl 11: 9-12 | 6-8 saved, @lvl 30: 16-19 | 10-12 saved.
   dam = 4 * ( number(6, 9) + (fdata->level / 3) );
-  if( NewSaves(victim, SAVING_SPELL, 0) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_FROST_BOLT);
+  if( NewSaves(victim, SAVING_SPELL, mod) )
     dam = (2 * dam ) / 3;
 
   if( spell_damage(ch, victim, dam, SPLDAM_COLD, SPLDAM_ALLGLOBES, &messages) == DAM_NONEDEAD )
@@ -782,7 +784,8 @@ void spell_frost_bolt(int level, P_char ch, char *arg, int type, P_char victim, 
 
   // Actual damage @lvl 11: 9-12 | 6-8 saved, @lvl 30: 16-19 | 10-12 saved.
   dam = 4 * ( number(6, 9) + (level / 3) );
-  if( NewSaves(victim, SAVING_SPELL, 0) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_FROST_BOLT);
+  if( NewSaves(victim, SAVING_SPELL, mod) )
     dam = (2 * dam ) / 3;
 
   fdata.round = 0;
@@ -790,7 +793,7 @@ void spell_frost_bolt(int level, P_char ch, char *arg, int type, P_char victim, 
 
   if( !spell_damage(ch, victim, dam, SPLDAM_COLD, SPLDAM_ALLGLOBES, &messages) )
   {
-    if (!NewSaves(victim, SAVING_SPELL, 2))
+    if (!NewSaves(victim, SAVING_SPELL, mod))
     {
       memset(&af, 0, sizeof(af));
       af.type = SPELL_CHILL_TOUCH;
@@ -1558,7 +1561,8 @@ void spell_comet(int level, P_char ch, char *arg, int type, P_char victim, P_obj
     dam = dice(((int)(level/3) + 5), 8) * 4 + 40;
   }
 
-  if( !NewSaves(victim, SAVING_SPELL, level/7) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_COMET);
+  if( !NewSaves(victim, SAVING_SPELL, mod) )
   {
     dam = (int)(dam *  1.2);
   }
@@ -1589,7 +1593,8 @@ void spell_cosmic_vacuum(int level, P_char ch, char *arg, int type, P_char victi
 
   memset(&af, 0, sizeof(af));
 
-  if( NewSaves(victim, SAVING_SPELL, 0) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_COSMIC_VACUUM);
+  if( NewSaves(victim, SAVING_SPELL, mod) )
   {
     af.flags = AFFTYPE_SHORT;
     // Saved -> 1/3 level seconds
@@ -1652,7 +1657,8 @@ void spell_single_supernova(int level, P_char ch, char *arg, int type, P_char vi
 
   memset(&af, 0, sizeof(af));
 
-  if (NewSaves(victim, SAVING_SPELL, 0))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_SUPERNOVA);
+  if (NewSaves(victim, SAVING_SPELL, mod))
   {
     af.flags = AFFTYPE_SHORT;
     af.duration = level / 3 * WAIT_SEC;
@@ -2373,7 +2379,8 @@ void event_razor_wind(P_char victim, P_char ch, P_obj obj, void *data)
   // 35-55 damage.
   dam = 180 + number( -40, 40);
 
-  if( !NewSaves(victim, SAVING_SPELL, 3) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_RAZOR_WIND);
+  if( !NewSaves(victim, SAVING_SPELL, mod) )
   {
     dam = (int)(dam *  1.2);
   }
@@ -2826,7 +2833,8 @@ void event_antimatter_collision(P_char victim, P_char ch, P_obj obj, void *data)
   // 40-60 damage.
   dam = 200 + number( -40, 40);
 
-  if( !NewSaves(victim, SAVING_SPELL, 3) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_AMATTER_COLLISION);
+  if( !NewSaves(victim, SAVING_SPELL, mod) )
   {
     dam = (int)(dam *  1.2);
   }
@@ -2902,7 +2910,8 @@ void event_arctic_blast(P_char victim, P_char ch, P_obj obj, void *data)
   // 35-55 damage.
   dam = 180 + number( -40, 40);
 
-  if( !NewSaves(victim, SAVING_SPELL, 3) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_ARCTIC_BLAST);
+  if( !NewSaves(victim, SAVING_SPELL, mod) )
   {
     dam = (int)(dam *  1.2);
   }
@@ -2984,7 +2993,8 @@ void spell_ice_spikes(int level, P_char ch, char *arg, int type, P_char victim, 
   // dam should total about: 9 * level +/- 25 .. but 3 spikes -> 3 * level +/- 8..
   dam = 2 * level + number(30, 64);
 
-  if( NewSaves(victim, SAVING_SPELL, 0) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_ICE_SPIKES);
+  if( NewSaves(victim, SAVING_SPELL, mod) )
   {
     dam = (dam * 2) / 3;
   }

@@ -142,7 +142,8 @@ void spell_flame_sphere(int level, P_char ch, char *arg, int type, P_char victim
   int num_dice = (level / 5);
   int dam = (dice(num_dice+5, 6) * 3);
 
-  if(!NewSaves(victim, SAVING_SPELL, 0))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_FLAME_SPHERE);
+  if(!NewSaves(victim, SAVING_SPELL, mod))
   {
     dam = (int) (dam * 1.33);
   }
@@ -380,7 +381,8 @@ void spell_blight(int level, P_char ch, char *arg, int type, P_char victim, P_ob
     dam = (dam * 112) / 100;
   }
 
-  if( !NewSaves(victim, SAVING_SPELL, 0) )
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_BLIGHT);
+  if( !NewSaves(victim, SAVING_SPELL, mod) )
   {
     dam *= 2;
   }
@@ -530,13 +532,14 @@ void event_acid_rain(P_char ch, P_char victim, P_obj obj, void *data)
     next = victim->next_in_room;
     if( victim == ch || ( ch->group && ch->group == victim->group ) )
       continue;
-    if( !NewSaves(victim, SAVING_SPELL, GET_LEVEL(ch)>50 ? GET_LEVEL(ch)-50 : 0) )
+	int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_ACID_RAIN);
+    if( !NewSaves(victim, SAVING_SPELL, mod) )
     {
       spell_damage(ch, victim, dam, SPLDAM_ACID, SPLDAM_NODEFLECT, &messages);
     }
     else
     {
-      spell_damage(ch, victim, dam, SPLDAM_ACID, SPLDAM_NODEFLECT, &messages);
+      spell_damage(ch, victim, dam/2, SPLDAM_ACID, SPLDAM_NODEFLECT, &messages);
     }
   }
 }
@@ -611,14 +614,14 @@ void spell_horrid_wilting(int level, P_char ch, char *arg, int type, P_char vict
     return;
   }
 
-  int mod = BOUNDED(0, (GET_LEVEL(ch) - GET_LEVEL(victim)), 20);
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_HORRID_WILTING);
 
   if(!NewSaves(victim, SAVING_SPELL, mod))
   {
       dam = (int)(dam * 1.30);
   }
 
-  if(!NewSaves(victim, SAVING_SPELL, (int)(mod / 3)) && !IS_BLIND(victim))
+  if(!NewSaves(victim, SAVING_SPELL, mod / 2) && !IS_BLIND(victim))
   {
     send_to_char( "&+CYour &+ceyes &+Bdry &+bout&+L!!!&n\n", victim );
     blind(ch, victim, number((int)(level / 3), (int)(level / 2)) * WAIT_SEC);
@@ -737,7 +740,8 @@ void spell_implosion(int level, P_char ch, char *arg, int type, P_char victim, P
     return;
   }
 
-  if(NewSaves(victim, SAVING_SPELL, level/17))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_IMPLOSION);
+  if(NewSaves(victim, SAVING_SPELL, mod))
   {
     dam /= 1.8;
   }
@@ -788,7 +792,8 @@ void event_sandstorm(P_char ch, P_char victim, P_obj obj, void *data)
     next = victim->next_in_room;
     if( victim == ch || ( ch->group && ch->group == victim->group ) )
       continue;
-    if( !NewSaves(victim, SAVING_SPELL, level/8) )
+	int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_SANDSTORM);
+    if( !NewSaves(victim, SAVING_SPELL, mod) )
     {
       spell_damage(ch, victim, dice(level * 3, 6), SPLDAM_GAS, 0, &messages);
       if( victim && IS_ALIVE(victim) )
@@ -895,7 +900,8 @@ void spell_firelance(int level, P_char ch, char *arg, int type, P_char victim, P
     dam = (dam * 112) / 100;
   }
 
-  if(NewSaves(victim, SAVING_SPELL, 1.5))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_FIRELANCE);
+  if(NewSaves(victim, SAVING_SPELL, mod))
   {
     dam /= 1.5;
   }
@@ -1053,7 +1059,8 @@ void spell_toxic_fog(int level, P_char ch, char *arg, int type, P_char victim, P
     dam = dice( 4 * MIN(20, (level / 2 + 1)), 7 );
   }
 
-  if(!NewSaves(victim, SAVING_SPELL, 1.5))
+  int mod = get_default_save_mod(victim, ch, SAVING_SPELL, SPELL_TOXIC_FOG);
+  if(!NewSaves(victim, SAVING_SPELL, mod))
   {
     dam /= 1.5;
   }
