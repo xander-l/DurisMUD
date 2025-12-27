@@ -4956,18 +4956,23 @@ int spell_damage(P_char ch, P_char victim, double dam, int type, uint flags, str
 		}
 	}
 
-	dam = ((damProf.baseDamage + damProf.addedMod) * damProf.increasedMod) * damProf.moreMod;
+	dam = (damProf.baseDamage + BOUNDEDF(-100.0, damProf.addedMod, 100.0)) * BOUNDEDF(0.05, damProf.increasedMod, 4.0) * BOUNDEDF(0.1, damProf.moreMod, 2.0);
 	dam = MAX(1, dam);
 
-	debug("spell_damage: %s doing %f damage to %s (base=%f, added=%f, increased=%f, more=%f, type=%d)!", 
-		GET_NAME(ch), 
-		dam, 
-		GET_NAME(victim),
-	    damProf.baseDamage,
-		damProf.addedMod,
-		damProf.increasedMod,
-		damProf.moreMod,
-		type);
+	if( damProf.addedMod < -100.0 || damProf.addedMod > 100.0 ||
+		damProf.increasedMod < 0.05 || damProf.increasedMod > 4.0 ||
+		damProf.moreMod < 0.1 || damProf.moreMod > 2.0 )
+	{
+		debug("spell_damage: %s doing %f damage to %s with bad mods (base=%f, added=%f, increased=%f, more=%f, type=%d)!", 
+			GET_NAME(ch), 
+			dam, 
+			GET_NAME(victim),
+			damProf.baseDamage,
+			damProf.addedMod,
+			damProf.increasedMod,
+			damProf.moreMod,
+			type);
+	}
 
   // ugly hack - we smuggle damage_type for eq poofing messages on 8 highest bits
   messages->type |= type << 24;
@@ -6170,15 +6175,21 @@ static dam_mod_predicate raw_damage_modifiers[] =
 	{ MAKE_DAM_MOD_PRED() { 
 		if(!(flags & PHSDAM_NOREDUCE))
 		{
-			dam_mod->mod += -0.5;
+			// global mod of 75% less damage
+			dam_mod->mod += -0.75;
 			dam_mod->type = dam_mod_type::More;
+			if(IS_NPC(caster) && !IS_PC_PET(caster) && !IS_MORPH(caster)
+			   && (IS_PC(victim) || IS_PC_PET(victim) || IS_MORPH(victim)))
+			{
+				// npcs to pcs do 25% more damage
+				dam_mod->mod += 0.25;
+			}
 		}
 	} },
 	{ MAKE_DAM_MOD_PRED() { 
 		if( IS_NPC(caster) && !IS_PC_PET(caster) && !IS_MORPH(caster)
 			&& (IS_PC(victim) || IS_PC_PET(victim) || IS_MORPH(victim)))
 		{
-			
 			dam_mod->type = dam_mod_type::Increased;
 			dam_mod->mod += ((dam_factor[DF_NPCTOPC] / 2) - 1.0);
 			if (GET_RACEWAR(victim) == RACEWAR_GOOD)
@@ -6190,26 +6201,7 @@ static dam_mod_predicate raw_damage_modifiers[] =
 				dam_mod->mod += (float)get_property("damage.modifier.npcToPc.evil", 1.000) - 1.0;
 			}
 		}
-		else if( !(flags & PHSDAM_NOREDUCE) )
-		{
-			dam_mod->mod += -0.5;
-			dam_mod->type = dam_mod_type::More;
-		}
 	} },
-	{ MAKE_DAM_MOD_PRED() { 
-		if(IS_NPC(caster) && !IS_PC_PET(caster))
-		{
-			dam_mod->mod += get_property("damage.mob.bonus", 1.0) - 1.0;
-			dam_mod->type = dam_mod_type::Increased;
-		}
-	} },
-	{ MAKE_DAM_MOD_PRED() { 
-		if(IS_NPC(caster) && !IS_PC_PET(caster))
-		{
-			dam_mod->mod += get_property("damage.mob.bonus", 1.0) - 1.0;
-			dam_mod->type = dam_mod_type::Increased;
-		}
-	} }
 };
 
 /*
@@ -6339,22 +6331,27 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags, struct damage_m
 				damProf.increasedMod += dam_mod.mod;
 				break;
 			case dam_mod_type::More:
-				damProf.moreMod *= dam_mod.mod;
+				damProf.moreMod += dam_mod.mod;
 				break;
 		}
 	}
 
-	dam = ((damProf.baseDamage + damProf.addedMod) * damProf.increasedMod) * damProf.moreMod;
+	dam = (damProf.baseDamage + BOUNDEDF(-100.0, damProf.addedMod, 100.0)) * BOUNDEDF(0.05, damProf.increasedMod, 4.0) * BOUNDEDF(0.1, damProf.moreMod, 2.0);
 	dam = MAX(1, dam);
 
-	debug("raw_damage: %s doing %f damage to %s (base=%f, added=%f, increased=%f, more=%f)!", 
-		GET_NAME(ch), 
-		dam, 
-		GET_NAME(victim),
-	    damProf.baseDamage,
-		damProf.addedMod,
-		damProf.increasedMod,
-		damProf.moreMod);
+	if( damProf.addedMod < -100.0 || damProf.addedMod > 100.0 ||
+		damProf.increasedMod < 0.05 || damProf.increasedMod > 4.0 ||
+		damProf.moreMod < 0.1 || damProf.moreMod > 2.0 )
+	{
+		debug("raw_damage: %s doing %f damage to %s with bad mods (base=%f, added=%f, increased=%f, more=%f)!", 
+			GET_NAME(ch), 
+			dam, 
+			GET_NAME(victim),
+			damProf.baseDamage,
+			damProf.addedMod,
+			damProf.increasedMod,
+			damProf.moreMod);
+	}
 
     dam = BOUNDED(1, (int) dam, 32766);
 
