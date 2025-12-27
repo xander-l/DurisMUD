@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Load environment variables from .env if it exists
+if [ -f .env ]; then
+  echo "Loading environment from .env"
+  set -a
+  source .env
+  set +a
+fi
+
 # Parse command line arguments
 DEV_MODE=0
 if [[ "$1" == "--dev" ]]; then
