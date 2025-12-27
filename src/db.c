@@ -3119,9 +3119,9 @@ void no_reset_zone_reset(int zone_number)
 
   MYSQL_ROW row = mysql_fetch_row(res);
 
-  if(atoi(row[0]) > number(0, 99))
+  if(epic_zone_done_now(zone_table[zone_number].number) && atoi(row[0]) > number(0, 99))
   {
-    zone_purge(zone_number);
+    //zone_purge(zone_number);
     reset_zone(zone_number, 0);
     db_query("UPDATE zones SET reset_perc = '%d' WHERE id = '%d'", 0, zone_number);
     //epic_zone_erase_touch(zone_table[zone_number].number);
