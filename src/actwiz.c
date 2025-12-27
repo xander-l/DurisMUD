@@ -9431,9 +9431,8 @@ void do_terminate(P_char ch, char *argument, int cmd)
   {
     update_ingame_racewar( -GET_RACEWAR(ch) );
   }
-  extract_char(victim);
   deleteCharacter(victim);
-  free_char(victim);
+  extract_char(victim);  // extract_char also calls free_char
   victim = NULL;
   return;
 /*  }*/

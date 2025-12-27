@@ -2758,16 +2758,11 @@ void die(P_char ch, P_char killer)
           // Delete character file
           deleteCharacter(ch);
 
-          // Manually disconnect descriptor before calling extract_char to prevent
-          // extract_char from showing account menu and calling free_char - Arih
+          // Disconnect descriptor before extract_char so it won't show menu
           ch->desc = NULL;
 
-          // extract_char cleans up followers, equipment, etc.
-          // With ch->desc = NULL, it won't show menu or call free_char
+          // extract_char cleans up followers, equipment, etc. and frees the char
           extract_char(ch);
-
-          // Now manually free and show our custom menu
-          free_char(ch);
 
           // Return to account menu
           d->character = NULL;
@@ -2784,9 +2779,8 @@ void die(P_char ch, P_char killer)
         {
           close_socket(ch->desc);
         }
-        extract_char(ch);
         deleteCharacter(ch);
-        free_char(ch);
+        extract_char(ch);  // extract_char also calls free_char
         ch = NULL;
 
         return;
@@ -2877,11 +2871,8 @@ void die(P_char ch, P_char killer)
       {
         update_ingame_racewar( -GET_RACEWAR(ch) );
       }
-      extract_char(ch);
-      if (!ch->desc)
-      {
-        free_char(ch);
-      }
+      extract_char(ch);  // extract_char also calls free_char
+      ch = NULL;
     }
   }
   else
@@ -5704,7 +5695,7 @@ void check_vamp(P_char ch, P_char victim, double fdam, uint flags)
   int dam = (int) fdam, vamped = 0, wdam;
   struct group_list *group;
   P_char   tch;
-  double temp_dam, bt_gain, fcap, fhits, sac_gain, can_mana;
+  double temp_dam = 0, bt_gain = 0, fcap = 0, fhits = 0, sac_gain = 0, can_mana = 0;
 
   if( !IS_ALIVE(ch) || !IS_ALIVE(victim) || (dam < 1) )
   {
@@ -9106,8 +9097,10 @@ int blockSucceed(P_char victim, P_char attacker, P_obj wpn)
 
 int MonkRiposte(P_char victim, P_char attacker, P_obj wpn)
 {
-  int percent, learned;
+  // int percent = 0, learned = 0; // learned was never set, broke minimum floor for riposte
+  int percent = 0, learned;
   int skl = GET_CHAR_SKILL(victim, SKILL_MARTIAL_ARTS);
+  learned = skl; // this sets min riposte chance based on martial arts skill
 
   if(!(attacker) ||
       !(victim) ||
