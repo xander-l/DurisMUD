@@ -1764,7 +1764,7 @@ int get_number(char **name)
   {
     *ppos++ = '\0';
     strcpy(t_buf1, *name);
-    strcpy(*name, ppos);
+    memmove(*name, ppos, strlen(ppos) + 1);
 
     for (i = 0; *(t_buf1 + i); i++)
       if (!isdigit(*(t_buf1 + i)))

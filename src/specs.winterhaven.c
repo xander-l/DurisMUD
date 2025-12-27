@@ -1618,6 +1618,8 @@ int wh_janitor(P_char ch, P_char pl, int cmd, char *arg)
     data.hunt_type = HUNT_ROOM;
     data.targ.room = well_room;
     data.huntFlags = BFS_STAY_ZONE;
+    data.retry = 0;
+    data.retry_dir = 0;
     add_event(event_mob_hunt, PULSE_MOB_HUNT, ch, NULL, NULL, 0, &data, sizeof(hunt_data));
   }
   break;
