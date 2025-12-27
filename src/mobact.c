@@ -5423,7 +5423,7 @@ bool MobAlchemist(P_char ch)
   P_char   tch, next_ch;
   P_obj    t_obj;
   char     Gbuf2[MAX_STRING_LENGTH];
-  int      level, i;
+  int      level, i = 0;
   int      type, number_potions, potions = 0;
   int      n_atkr;
 

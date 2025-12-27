@@ -888,7 +888,7 @@ char get_season(int sector)
 
 int in_weather_sector(int room)
 {
-  int      temp, mod, mod2, sector, element1, element2, element3;
+  int      temp = 0, mod = 0, mod2 = 0, sector = 0, element1 = 0, element2 = 0, element3 = 0;
 
   if (room > top_of_world || room < 0)
     return -1;

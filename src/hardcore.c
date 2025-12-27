@@ -74,12 +74,14 @@ int getHardCorePts(P_char ch)
 void writeHallOfFame(P_char ch, char thekiller[1024])
 {
   FILE    *halloffamelist;
-  char     highPlayerName[MAX_HALLOFFAME_SIZE][MAX_STRING_LENGTH],
-           lowPlayerName[MAX_HALLOFFAME_SIZE][MAX_STRING_LENGTH];
+  // static cuz these are huge and will blow the stack
+  static char highPlayerName[MAX_HALLOFFAME_SIZE][MAX_STRING_LENGTH];
+  //         lowPlayerName[MAX_HALLOFFAME_SIZE][MAX_STRING_LENGTH]; // unused, commenting out to save mem
   bool     change = FALSE;
   int      highHardcore[MAX_HALLOFFAME_SIZE],
-           lowHardcore[MAX_HALLOFFAME_SIZE], phalloffames, i;
-  char     killerName[MAX_HALLOFFAME_SIZE][MAX_STRING_LENGTH];
+  //       lowHardcore[MAX_HALLOFFAME_SIZE], // unused
+           phalloffames, i;
+  static char killerName[MAX_HALLOFFAME_SIZE][MAX_STRING_LENGTH];
   char     buffer[1024], *ptr;
   int      actualrecords = 0;
 
@@ -357,12 +359,13 @@ void insertLeaderEntry(char names[MAX_LEADERBOARD_SIZE][MAX_STRING_LENGTH],
 bool newLeaderBoard(P_char ch, char *arg, int cmd)
 {
   FILE    *leaderboardlist, *f, *newleaderlist;
-  char     highPlayerName[MAX_LEADERBOARD_SIZE][MAX_STRING_LENGTH],
-           lowPlayerName[MAX_LEADERBOARD_SIZE][MAX_STRING_LENGTH];
+  // these arrays are unused and huge, commenting out to save mem
+  // char     highPlayerName[MAX_LEADERBOARD_SIZE][MAX_STRING_LENGTH],
+  //          lowPlayerName[MAX_LEADERBOARD_SIZE][MAX_STRING_LENGTH];
   char     name[MAX_STRING_LENGTH];
   bool     change = FALSE;
-  int      highHardcore[MAX_LEADERBOARD_SIZE],
-           lowHardcore[MAX_LEADERBOARD_SIZE], i;
+  // int      highHardcore[MAX_LEADERBOARD_SIZE],
+  //          lowHardcore[MAX_LEADERBOARD_SIZE], i;
   int      halloffames, x;
   long     phalloffames;
   float    pts = 0;
@@ -502,11 +505,13 @@ void displayLeader(P_char ch, char *arg, int cmd)
 void writeLeaderBoard( P_char ch )
 {
   FILE    *halloffamelist;
-  char     highPlayerName[MAX_LEADERBOARD_SIZE][MAX_STRING_LENGTH],
-           lowPlayerName[MAX_LEADERBOARD_SIZE][MAX_STRING_LENGTH];
+  // static cuz these are huge and will blow the stack
+  static char highPlayerName[MAX_LEADERBOARD_SIZE][MAX_STRING_LENGTH];
+  //         lowPlayerName[MAX_LEADERBOARD_SIZE][MAX_STRING_LENGTH]; // unused
   bool     change = FALSE;
   int      highHardcore[MAX_LEADERBOARD_SIZE],
-           lowHardcore[MAX_LEADERBOARD_SIZE], i;
+  //       lowHardcore[MAX_LEADERBOARD_SIZE], // unused
+           i;
   long     phalloffames;
   char     buffer[1024], *ptr;
   int      highx, actualrecords=0;
@@ -609,12 +614,13 @@ void checkLeaderBoard( P_char ch )
 bool newHardcoreBoard(P_char ch, char *arg, int cmd)
 {
   FILE    *hardcorelist, *f, *newhardcorelist;
-  char     highPlayerName[MAX_HALLOFFAME_SIZE][MAX_STRING_LENGTH],
-           lowPlayerName[MAX_HALLOFFAME_SIZE][MAX_STRING_LENGTH];
+  // these arrays are unused and huge, commenting out to save mem
+  // char     highPlayerName[MAX_HALLOFFAME_SIZE][MAX_STRING_LENGTH],
+  //          lowPlayerName[MAX_HALLOFFAME_SIZE][MAX_STRING_LENGTH];
   char     name[MAX_STRING_LENGTH], killedby[MAX_STRING_LENGTH];
   bool     change = FALSE;
-  int      highHardcore[MAX_LEADERBOARD_SIZE],
-           lowHardcore[MAX_LEADERBOARD_SIZE], i;
+  // int      highHardcore[MAX_LEADERBOARD_SIZE],
+  //          lowHardcore[MAX_LEADERBOARD_SIZE], i;
   int      halloffames, x;
   long     phalloffames;
   float    pts = 0;

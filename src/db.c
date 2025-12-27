@@ -1164,7 +1164,7 @@ void boot_world(int mini_mode)
 	int tmp = 0, tmp1 = 0, tmp2 = 0, tmp3 = 0, i, name_length, desc_length;
 	char chk[MAX_STRING_LENGTH], tmp_buf[MAX_STRING_LENGTH];
 	char buf[MAX_INPUT_LENGTH];
-	char name_buf[MAX_STRING_LENGTH], desc_buf[MAX_STRING_LENGTH];
+	char name_buf[MAX_STRING_LENGTH] = {0}, desc_buf[MAX_STRING_LENGTH] = {0};
 	struct extra_descr_data *new_descr;
 	bool found_name, found_desc;
 

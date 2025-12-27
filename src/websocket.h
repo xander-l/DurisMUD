@@ -77,7 +77,7 @@ int websocket_send_pong(struct descriptor_data *d, const char *data, size_t len)
 
 /* frame parsing - returns bytes consumed, -1 on error, 0 if need more data */
 int websocket_parse_frame(struct descriptor_data *d, const char *buf, size_t len,
-                          char **payload, size_t *payload_len, int *opcode);
+                          char **payload, size_t *payload_len, int *opcode, int *fin);
 
 /* utility */
 void websocket_generate_accept_key(const char *client_key, char *accept_key);

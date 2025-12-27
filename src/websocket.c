@@ -67,13 +67,19 @@ void websocket_generate_accept_key(const char *client_key, char *accept_key) {
     /* concatenate client key with magic string */
     snprintf(concat, sizeof(concat), "%s%s", client_key, WS_MAGIC_STRING);
 
-    /* sha-1 hash */
-    SHA1((unsigned char *)concat, strlen(concat), sha1_hash);
+    /* sha-1 hash using evp (sha1() deprecated in openssl 3.0) */
+    EVP_MD_CTX *ctx = EVP_MD_CTX_new();
+    if (ctx) {
+        EVP_DigestInit_ex(ctx, EVP_sha1(), NULL);
+        EVP_DigestUpdate(ctx, concat, strlen(concat));
+        EVP_DigestFinal_ex(ctx, sha1_hash, NULL);
+        EVP_MD_CTX_free(ctx);
+    }
 
     /* base64 encode */
     char *encoded = base64_encode(sha1_hash, SHA_DIGEST_LENGTH);
     if (encoded) {
-        strcpy(accept_key, encoded);
+        snprintf(accept_key, 64, "%s", encoded);
         free(encoded);
     }
 }
@@ -169,6 +175,38 @@ int websocket_accept(int listen_fd, struct descriptor_data *d) {
     return 0;
 }
 
+/* validate ip address format (basic check for ipv4/ipv6) */
+static int is_valid_ip_format(const char *ip) {
+    int dots = 0, colons = 0, digits = 0;
+    const char *p;
+
+    if (!ip || !*ip) return 0;
+
+    for (p = ip; *p; p++) {
+        if (*p == '.') {
+            dots++;
+            digits = 0;
+        } else if (*p == ':') {
+            colons++;
+        } else if ((*p >= '0' && *p <= '9')) {
+            digits++;
+            if (dots > 0 && digits > 3) return 0;  /* ipv4 octet too long */
+        } else if ((*p >= 'a' && *p <= 'f') || (*p >= 'A' && *p <= 'F')) {
+            if (dots > 0) return 0;  /* hex in ipv4 not allowed */
+        } else {
+            return 0;  /* invalid char */
+        }
+    }
+
+    /* ipv4: need exactly 3 dots */
+    if (dots > 0) return (dots == 3);
+
+    /* ipv6: need at least 2 colons (could be ::1) */
+    if (colons > 0) return (colons >= 2);
+
+    return 0;
+}
+
 /* parse http upgrade request, returns 1 if valid websocket upgrade */
 int websocket_parse_handshake(struct descriptor_data *d, const char *buf, size_t len) {
     char *line, *saveptr;
@@ -254,7 +292,7 @@ int websocket_parse_handshake(struct descriptor_data *d, const char *buf, size_t
                     i++;
                 }
                 client_ip[i] = '\0';
-                if (client_ip[0]) {
+                if (client_ip[0] && is_valid_ip_format(client_ip)) {
                     strncpy(d->host, client_ip, sizeof(d->host) - 1);
                     d->host[sizeof(d->host) - 1] = '\0';
                 }
@@ -386,7 +424,7 @@ static int websocket_send_frame(struct descriptor_data *d, int opcode,
     }
 
     /* send frame - check socket and descriptor are still valid first */
-    if (d->descriptor <= 0 || !is_desc_valid(d)) {
+    if (d->descriptor < 0 || !is_desc_valid(d)) {
         free(frame);
         return -1;
     }
@@ -473,7 +511,7 @@ int websocket_send_pong(struct descriptor_data *d, const char *data, size_t len)
 
 /* parse websocket frame, returns bytes consumed (-1 on error, 0 if need more data) */
 int websocket_parse_frame(struct descriptor_data *d, const char *buf, size_t len,
-                          char **payload, size_t *payload_len, int *opcode) {
+                          char **payload, size_t *payload_len, int *opcode, int *fin_out) {
     size_t offset = 0;
     size_t frame_len;
     size_t data_len;
@@ -484,6 +522,7 @@ int websocket_parse_frame(struct descriptor_data *d, const char *buf, size_t len
     *payload = NULL;
     *payload_len = 0;
     *opcode = -1;
+    if (fin_out) *fin_out = 1;  /* default to fin=1 */
 
     /* need at least 2 bytes for header */
     if (len < 2) return 0;
@@ -547,6 +586,7 @@ int websocket_parse_frame(struct descriptor_data *d, const char *buf, size_t len
     }
 
     *opcode = op;
+    if (fin_out) *fin_out = fin;
 
     /* handle control frames */
     if (op == WS_OPCODE_CLOSE) {
@@ -583,67 +623,28 @@ void websocket_close(struct descriptor_data *d, int code, const char *reason) {
 void websocket_free(struct descriptor_data *d) {
     if (!d) return;
 
-    /* free fragment buffer if any */
+    /* free tcp fragment buffer if any */
     if (d->ws_fragment_buffer) {
         free(d->ws_fragment_buffer);
         d->ws_fragment_buffer = NULL;
+        d->ws_fragment_len = 0;
+    }
+
+    /* free message reassembly buffer if any */
+    if (d->ws_message_buffer) {
+        free(d->ws_message_buffer);
+        d->ws_message_buffer = NULL;
+        d->ws_message_len = 0;
+        d->ws_message_opcode = 0;
     }
 
     d->websocket = 0;
     d->ws_state = WS_STATE_CLOSED;
 }
 
-/* process incoming websocket data, called from game loop */
-int websocket_process_input(struct descriptor_data *d) {
-    char buf[4096];
-    ssize_t bytes_read;
-    int consumed;
-    char *payload;
-    size_t payload_len;
-    int opcode;
-
-    if (!d || d->descriptor < 0) return -1;
-
-    /* read data */
-    bytes_read = read(d->descriptor, buf, sizeof(buf) - 1);
-
-    if (bytes_read < 0) {
-        if (errno == EWOULDBLOCK || errno == EAGAIN) {
-            return 0;
-        }
-        return -1;
-    }
-
-    if (bytes_read == 0) {
-        /* connection closed */
-        return -1;
-    }
-
-    buf[bytes_read] = '\0';
-
-    /* handle handshake if not done */
-    if (!d->ws_handshake_done) {
-        int result = websocket_parse_handshake(d, buf, bytes_read);
-        if (result <= 0) {
-            /* invalid handshake - close connection */
-            return -1;
-        }
-        return 0;
-    }
-
-    /* parse websocket frames */
-    consumed = websocket_parse_frame(d, buf, bytes_read, &payload, &payload_len, &opcode);
-
-    if (consumed < 0) {
-        return -1;
-    }
-
-    if (consumed == 0) {
-        /* need more data - for now, drop partial frames */
-        return 0;
-    }
-
-    /* handle text frame (json command) */
+/* helper: handle a complete websocket message (after fragmentation reassembly) */
+static void websocket_handle_message(struct descriptor_data *d, int opcode,
+                                      char *payload, size_t payload_len) {
     if (opcode == WS_OPCODE_TEXT && payload) {
         /* parse json and extract command/data */
         cJSON *json = cJSON_Parse(payload);
@@ -677,7 +678,171 @@ int websocket_process_input(struct descriptor_data *d) {
                 write_to_q(payload, &d->input, 0);
             }
         }
-        free(payload);
+    }
+    /* binary frames ignored for now */
+}
+
+/* process incoming websocket data, called from game loop */
+int websocket_process_input(struct descriptor_data *d) {
+    char buf[4096];
+    ssize_t bytes_read;
+    int consumed;
+    char *payload;
+    size_t payload_len;
+    int opcode, fin;
+    size_t offset;
+    char *new_buf;
+
+    if (!d || d->descriptor < 0) return -1;
+
+    /* read data */
+    bytes_read = read(d->descriptor, buf, sizeof(buf));
+
+    if (bytes_read < 0) {
+        if (errno == EWOULDBLOCK || errno == EAGAIN) {
+            return 0;
+        }
+        return -1;
+    }
+
+    if (bytes_read == 0) {
+        /* connection closed */
+        return -1;
+    }
+
+    /* handle handshake if not done (no buffering needed for http) */
+    if (!d->ws_handshake_done) {
+        int result = websocket_parse_handshake(d, buf, bytes_read);
+        if (result <= 0) {
+            /* invalid handshake - close connection */
+            return -1;
+        }
+        return 0;
+    }
+
+    /*
+     * append to tcp fragment buffer for proper frame reassembly.
+     * this handles frames split across tcp packets.
+     */
+    new_buf = (char *)realloc(d->ws_fragment_buffer, d->ws_fragment_len + bytes_read);
+    if (!new_buf) {
+        return -1;  /* oom */
+    }
+    d->ws_fragment_buffer = new_buf;
+    memcpy(d->ws_fragment_buffer + d->ws_fragment_len, buf, bytes_read);
+    d->ws_fragment_len += bytes_read;
+
+    /*
+     * process all complete frames in buffer.
+     * handles multiple frames arriving in a single read().
+     */
+    offset = 0;
+    while (offset < d->ws_fragment_len) {
+        consumed = websocket_parse_frame(d, d->ws_fragment_buffer + offset,
+                                         d->ws_fragment_len - offset,
+                                         &payload, &payload_len, &opcode, &fin);
+
+        if (consumed < 0) {
+            /* protocol error - close connection */
+            return -1;
+        }
+
+        if (consumed == 0) {
+            /* incomplete frame, wait for more data */
+            break;
+        }
+
+        offset += consumed;
+
+        /* skip control frames (already handled in parse_frame) */
+        if (opcode == WS_OPCODE_CLOSE || opcode == WS_OPCODE_PING ||
+            opcode == WS_OPCODE_PONG) {
+            if (opcode == WS_OPCODE_CLOSE) {
+                /* clean up and signal close */
+                if (offset < d->ws_fragment_len) {
+                    memmove(d->ws_fragment_buffer, d->ws_fragment_buffer + offset,
+                            d->ws_fragment_len - offset);
+                    d->ws_fragment_len -= offset;
+                } else {
+                    free(d->ws_fragment_buffer);
+                    d->ws_fragment_buffer = NULL;
+                    d->ws_fragment_len = 0;
+                }
+                return -1;
+            }
+            continue;  /* ping/pong already handled */
+        }
+
+        /*
+         * handle websocket message fragmentation (rfc 6455).
+         * fin=0 means more fragments coming.
+         * continuation opcode (0x00) continues previous message.
+         */
+        if (opcode == WS_OPCODE_CONTINUATION) {
+            /* continuation frame - append to message buffer */
+            if (!d->ws_message_buffer) {
+                /* got continuation without initial frame - protocol error */
+                if (payload) free(payload);
+                return -1;
+            }
+            if (payload && payload_len > 0) {
+                new_buf = (char *)realloc(d->ws_message_buffer,
+                                          d->ws_message_len + payload_len + 1);
+                if (!new_buf) {
+                    free(payload);
+                    return -1;
+                }
+                d->ws_message_buffer = new_buf;
+                memcpy(d->ws_message_buffer + d->ws_message_len, payload, payload_len);
+                d->ws_message_len += payload_len;
+                d->ws_message_buffer[d->ws_message_len] = '\0';
+                free(payload);
+                payload = NULL;
+            }
+
+            if (fin) {
+                /* final fragment - deliver complete message */
+                websocket_handle_message(d, d->ws_message_opcode,
+                                         d->ws_message_buffer, d->ws_message_len);
+                free(d->ws_message_buffer);
+                d->ws_message_buffer = NULL;
+                d->ws_message_len = 0;
+                d->ws_message_opcode = 0;
+            }
+        } else if (!fin) {
+            /* first fragment of a multi-frame message */
+            if (d->ws_message_buffer) {
+                /* already have a fragmented message in progress - protocol error */
+                if (payload) free(payload);
+                return -1;
+            }
+            d->ws_message_opcode = opcode;
+            d->ws_message_buffer = payload;  /* take ownership */
+            d->ws_message_len = payload_len;
+            payload = NULL;  /* don't free, we own it now */
+        } else {
+            /* complete single-frame message */
+            websocket_handle_message(d, opcode, payload, payload_len);
+            if (payload) {
+                free(payload);
+                payload = NULL;
+            }
+        }
+    }
+
+    /* remove consumed data from buffer */
+    if (offset > 0) {
+        if (offset >= d->ws_fragment_len) {
+            /* consumed everything */
+            free(d->ws_fragment_buffer);
+            d->ws_fragment_buffer = NULL;
+            d->ws_fragment_len = 0;
+        } else {
+            /* keep remainder */
+            memmove(d->ws_fragment_buffer, d->ws_fragment_buffer + offset,
+                    d->ws_fragment_len - offset);
+            d->ws_fragment_len -= offset;
+        }
     }
 
     return 0;

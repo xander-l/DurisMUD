@@ -32,7 +32,7 @@ extern P_room world;
 
 int lucrot_mindstone(P_obj obj, P_char ch, int cmd, char *arg)
 {
-  int curr_time;
+  int curr_time = time(NULL);
 
   if( cmd == CMD_SET_PERIODIC )
   {

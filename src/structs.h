@@ -1677,7 +1677,7 @@ struct descriptor_data {
   int last_map_update           ;/* CLIENT SPECIFIC INT */
   int last_group_update         ;/* CLIENT SPECIFIC INT */
 
-  /* WebSocket support (Phase 1) */
+  /* WebSocket support */
   int websocket;                  /* 1 if this is a WebSocket connection */
   int ws_state;                   /* WebSocket state (WS_STATE_*) */
   int ws_handshake_done;          /* 1 if HTTP upgrade complete */
@@ -1692,7 +1692,12 @@ struct descriptor_data {
   time_t ws_last_ping;            /* Time of last ping sent */
   int ws_pong_received;           /* 1 if pong received since last ping */
 
-  /* WebSocket character generation (Phase 4) */
+  /* WebSocket message fragmentation (rfc 6455 fin=0 frames) */
+  char *ws_message_buffer;        /* Buffer for fragmented ws messages */
+  size_t ws_message_len;          /* Current length of message buffer */
+  int ws_message_opcode;          /* Opcode from first fragment */
+
+  /* WebSocket character generation */
   struct stat_data chargen_stats; /* Rolled stats stored server-side */
   int chargen_race;               /* Selected race for chargen */
   int chargen_bonus_remaining;    /* Bonus points left to allocate (0-5) */

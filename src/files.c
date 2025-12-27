@@ -1695,7 +1695,7 @@ int writeCharacter(P_char ch, int type, int room)
   }
 
   /* hook needed for lockers - call a room proc when saving a character in the room */
-  if( IS_ROOM(ch->in_room, ROOM_LOCKER) && (world[ch->in_room].funct) )
+  if( ch->in_room != NOWHERE && IS_ROOM(ch->in_room, ROOM_LOCKER) && (world[ch->in_room].funct) )
   {
     room = (*world[ch->in_room].funct) (ch->in_room, ch, (-80), NULL);
   }
@@ -2002,7 +2002,7 @@ int writeCharacter(P_char ch, int type, int room)
 
   /* hook needed for lockers - call a room proc when saving a character in the room */
   /* -81 means that the save is complete */
-  if( IS_ROOM(ch->in_room, ROOM_LOCKER) &&
+  if( ch->in_room != NOWHERE && IS_ROOM(ch->in_room, ROOM_LOCKER) &&
       (world[ch->in_room].funct))
     (*world[ch->in_room].funct) (ch->in_room, ch, (-81), NULL);
 
