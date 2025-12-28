@@ -1990,7 +1990,7 @@ void assign_objects(void)
   /*
      Plane of Fire One
    */
-  obj_index[real_object0(25018)].func.obj = doombringer;
+  obj_index[real_object0(87612)].func.obj = doombringer;
   //obj_index[real_object0(25030)].func.obj = flamberge;
   obj_index[real_object0(430)].func.obj = flamberge;
   obj_index[real_object0(25080)].func.obj = ring_elemental_control;
