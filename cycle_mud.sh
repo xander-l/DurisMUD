@@ -20,20 +20,20 @@ STOP_REASON="initial bootup"
 
 ulimit -c unlimited
 
-# Extract database credentials from sql.h before loop starts
+# Extract database credentials from sql.h as FALLBACK only (if not set by .env)
 if [ -f "src/sql.h" ]; then
   if [ $DEV_MODE -eq 1 ]; then
-    # Get TEST_MUD credentials (first match in ifdef)
-    DB_HOST=$(grep '#define DB_HOST' src/sql.h | sed -n '1p' | sed 's/.*"\(.*\)".*/\1/')
-    DB_USER=$(grep '#define DB_USER' src/sql.h | sed -n '1p' | sed 's/.*"\(.*\)".*/\1/')
-    DB_PASSWD=$(grep '#define DB_PASSWD' src/sql.h | sed -n '1p' | sed 's/.*"\(.*\)".*/\1/')
-    DB_NAME=$(grep '#define DB_NAME' src/sql.h | sed -n '1p' | sed 's/.*"\(.*\)".*/\1/')
+    # Get TEST_MUD credentials (first match in ifdef) - only if not already set
+    [ -z "$DB_HOST" ] && DB_HOST=$(grep '#define DB_HOST' src/sql.h | sed -n '1p' | sed 's/.*"\(.*\)".*/\1/')
+    [ -z "$DB_USER" ] && DB_USER=$(grep '#define DB_USER' src/sql.h | sed -n '1p' | sed 's/.*"\(.*\)".*/\1/')
+    [ -z "$DB_PASSWD" ] && DB_PASSWD=$(grep '#define DB_PASSWD' src/sql.h | sed -n '1p' | sed 's/.*"\(.*\)".*/\1/')
+    [ -z "$DB_NAME" ] && DB_NAME=$(grep '#define DB_NAME' src/sql.h | sed -n '1p' | sed 's/.*"\(.*\)".*/\1/')
   else
-    # Get production credentials (second match in else clause)
-    DB_HOST=$(grep '#define DB_HOST' src/sql.h | sed -n '2p' | sed 's/.*"\(.*\)".*/\1/')
-    DB_USER=$(grep '#define DB_USER' src/sql.h | sed -n '2p' | sed 's/.*"\(.*\)".*/\1/')
-    DB_PASSWD=$(grep '#define DB_PASSWD' src/sql.h | sed -n '2p' | sed 's/.*"\(.*\)".*/\1/')
-    DB_NAME=$(grep '#define DB_NAME' src/sql.h | sed -n '2p' | sed 's/.*"\(.*\)".*/\1/')
+    # Get production credentials (second match in else clause) - only if not already set
+    [ -z "$DB_HOST" ] && DB_HOST=$(grep '#define DB_HOST' src/sql.h | sed -n '2p' | sed 's/.*"\(.*\)".*/\1/')
+    [ -z "$DB_USER" ] && DB_USER=$(grep '#define DB_USER' src/sql.h | sed -n '2p' | sed 's/.*"\(.*\)".*/\1/')
+    [ -z "$DB_PASSWD" ] && DB_PASSWD=$(grep '#define DB_PASSWD' src/sql.h | sed -n '2p' | sed 's/.*"\(.*\)".*/\1/')
+    [ -z "$DB_NAME" ] && DB_NAME=$(grep '#define DB_NAME' src/sql.h | sed -n '2p' | sed 's/.*"\(.*\)".*/\1/')
   fi
   echo "Database: $DB_NAME on $DB_HOST"
 
