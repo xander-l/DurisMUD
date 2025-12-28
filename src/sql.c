@@ -849,6 +849,9 @@ void sql_save_pkill(P_char ch, P_char victim)
    webpage for all to see. */
 void sql_webinfo_toggle(P_char ch)
 {
+  if( !ch || !IS_PC(ch) )
+    return;
+
   db_query("UPDATE players_core SET webinfo_toggle=%d WHERE pid=%d",
            (IS_SET(ch->specials.act2, PLR2_WEBINFO) ? 1 : 0), GET_PID(ch));
 }
@@ -856,6 +859,9 @@ void sql_webinfo_toggle(P_char ch)
 /* Update level info */
 void sql_update_level(P_char ch)
 {
+  if( !ch || !IS_PC(ch) )
+    return;
+
   db_query("UPDATE players_core SET level=%d WHERE pid=%d",
            GET_LEVEL(ch), GET_PID(ch));
 }
@@ -863,6 +869,9 @@ void sql_update_level(P_char ch)
 /* Update money info */
 void sql_update_money(P_char ch)
 {
+  if( !ch || !IS_PC(ch) )
+    return;
+
   db_query("UPDATE players_core SET money='%d', balance='%d' WHERE pid='%d'",
 						GET_MONEY(ch), GET_BALANCE(ch), GET_PID(ch));
 }
@@ -870,6 +879,9 @@ void sql_update_money(P_char ch)
 /* Update playtime info */
 void sql_update_playtime(P_char ch)
 {
+  if( !ch || !IS_PC(ch) )
+    return;
+
 	db_query("UPDATE players_core SET playtime='%d' WHERE pid = '%d'",
 					 ch->player.time.played, GET_PID(ch));
 }
@@ -877,6 +889,9 @@ void sql_update_playtime(P_char ch)
 /* Update player's epics: We want to record their total epics gained not epics unused */
 void sql_update_epics(P_char ch)
 {
+  if( !ch || !IS_PC(ch) )
+    return;
+
   struct affected_type *paf = get_spell_from_char(ch, TAG_EPICS_GAINED);
 
   db_query("UPDATE players_core SET epics='%d' WHERE pid='%d'",

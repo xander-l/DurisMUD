@@ -489,7 +489,7 @@ int calculate_hitpoints2(P_char ch)
 {
   char  buf[128];
   int   i, j;
-  int   level, race, age_mod, curr_con, toughness, newbie, hardcore;
+  int   level, race, age_mod = 0, curr_con, toughness, newbie, hardcore;
   float old_bonus, new_bonus, class_mod, racial_con, maxconbonus;
   P_obj obj;
 

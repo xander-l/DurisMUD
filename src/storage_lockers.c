@@ -1996,6 +1996,7 @@ static P_char load_locker_char(P_char ch, char *locker_name, int bValidateAccess
   ensure_pconly_pool();
   vict->only.pc = (struct pc_only_data *) mm_get(dead_pconly_pool);
   vict->only.pc->aggressive = -1;
+  vict->only.pc->zone_trophy = NULL;
   vict->desc = NULL;
 
   if(!(vict))
