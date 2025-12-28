@@ -1394,6 +1394,9 @@ int duergar_guild(int room, P_char ch, int cmd, char *arg)
     killer->player.m_class = CLASS_WARRIOR;
     data.hunt_type = HUNT_HUNTER;
     data.targ.victim = ch;
+    data.huntFlags = 0;
+    data.retry = 0;
+    data.retry_dir = 0;
     add_event(event_mob_hunt, PULSE_MOB_HUNT, killer, NULL, NULL, 0, &data, sizeof(hunt_data));
     //AddEvent(EVENT_MOB_HUNT, PULSE_MOB_HUNT, TRUE, killer, data);
   }

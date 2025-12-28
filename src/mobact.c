@@ -9093,6 +9093,8 @@ bool TryToGetHome(P_char ch)
     data.huntFlags |= BFS_CAN_DISPEL;
   if(IS_MAGE(ch) || IS_AFFECTED(ch, AFF_FLY))
     data.huntFlags |= BFS_CAN_FLY;
+  data.retry = 0;
+  data.retry_dir = 0;
   if(!get_scheduled(ch, event_mob_hunt))
   {
     add_event(event_mob_hunt, PULSE_MOB_HUNT, ch, NULL, NULL, 0, &data, sizeof(hunt_data));
@@ -9685,6 +9687,8 @@ bool InitNewMobHunt(P_char ch)
         data.huntFlags = hunt_flags;
         data.hunt_type = HUNT_HUNTER;
         data.targ.victim = tmpch;
+        data.retry = 0;
+        data.retry_dir = 0;
         add_event(event_mob_hunt, PULSE_MOB_HUNT, ch, NULL, NULL, 0, &data, sizeof(hunt_data));
         
         //AddEvent(EVENT_MOB_HUNT, PULSE_MOB_HUNT, TRUE, ch, data);
@@ -10471,6 +10475,8 @@ void MobRetaliateRange(P_char ch, P_char vict)
       data.targ.victim = vict;
       data.huntFlags = (IS_MAGE(ch) || IS_AFFECTED(ch, AFF_FLY)) ? BFS_CAN_FLY : 0;
       data.huntFlags |= BFS_AVOID_NOMOB;
+      data.retry = 0;
+      data.retry_dir = 0;
       add_event(event_mob_hunt, PULSE_MOB_HUNT, ch, NULL, NULL, 0, &data, sizeof(hunt_data));
       //AddEvent(EVENT_MOB_HUNT, PULSE_MOB_HUNT, TRUE, ch, data);
       add_event(return_home, 30, ch, 0, 0, 0, 0, 0);
