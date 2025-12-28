@@ -672,6 +672,21 @@ void game_loop(int port, int sslport)
     if (select(FD_SETSIZE, &input_set, &output_set, &exc_set, &null_time) < 0)
     {
       perror("Select poll");
+      // bad file descriptor - find and nuke it so we dont loop forever
+      if (errno == EBADF)
+      {
+        struct descriptor_data *d, *next_d;
+        for (d = descriptor_list; d; d = next_d)
+        {
+          next_d = d->next;
+          if (fcntl(d->descriptor, F_GETFD) == -1 && errno == EBADF)
+          {
+            logit(LOG_STATUS, "ebadf: closing bad descriptor %d, host=%s, ws=%d, state=%d",
+                  d->descriptor, d->host ? d->host : "null", d->websocket, d->connected);
+            close_socket(d);
+          }
+        }
+      }
       continue;
     }
     sigprocmask(SIG_SETMASK, &oldset, 0);
