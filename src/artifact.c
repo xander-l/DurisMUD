@@ -583,7 +583,7 @@ void artifact_feed_to_min_sql( P_obj arti, int min_minutes )
     // Keep the bigger one, since we're feeding to at least min_minutes.
     to_time = (oldtime >= to_time) ? oldtime : to_time;
 
-    qry("UPDATE artifacts SET timer = FROM_UNIXTIME(%lu) WHERE vnum = %d", to_time, vnum);
+    qry("UPDATE artifacts SET timer = FROM_UNIXTIME(%lu), lastUpdate=SYSDATE() WHERE vnum = %d", to_time, vnum);
   }
   else
   {
@@ -931,8 +931,7 @@ void artifact_update_sql( P_obj arti, char owned, time_t timer )
         (long)0, vnum);
     }
 
-    // lastUpdate should update automatically.
-    qry("UPDATE artifacts SET owned='%c', locType=%d, location=%d, timer=FROM_UNIXTIME(%lu), type=%d WHERE vnum=%d",
+    qry("UPDATE artifacts SET owned='%c', locType=%d, location=%d, timer=FROM_UNIXTIME(%lu), type=%d, lastUpdate=SYSDATE() WHERE vnum=%d",
       new_owned ? 'Y' : 'N', locType, location, timer, type, vnum );
   }
   // Otherwise, create one.
@@ -950,7 +949,6 @@ void artifact_update_sql( P_obj arti, char owned, time_t timer )
         (long)0, vnum);
     }
 
-    // lastUpdate should update automatically.
     qry("INSERT INTO artifacts VALUES( %d, '%c', %d, %d, FROM_UNIXTIME(%lu), %d, SYSDATE())",
       vnum, new_owned ? 'Y' : 'N', locType, location, timer, type );
   }
@@ -998,7 +996,7 @@ void artifact_update_sql( int vnum, bool owned, int locType, int location, time_
 
   if( update_existing )
   {
-    qry("UPDATE artifacts SET owned='%c', locType=%d, location=%d, timer=FROM_UNIXTIME(%lu), type=%d WHERE vnum=%d",
+    qry("UPDATE artifacts SET owned='%c', locType=%d, location=%d, timer=FROM_UNIXTIME(%lu), type=%d, lastUpdate=SYSDATE() WHERE vnum=%d",
       owned ? 'Y' : 'N', locType, location, timer, type, vnum );
   }
   else
@@ -1057,13 +1055,13 @@ bool remove_owned_artifact_sql( P_obj arti, int pid )
     // Non-positive pid -> remove arti from game.
     if( pid <= 0 )
     {
-      qry("UPDATE artifacts SET owned='N', locType=%d, location=%d WHERE vnum=%d", ARTIFACT_NOTINGAME, NOWHERE, vnum );
+      qry("UPDATE artifacts SET owned='N', locType=%d, location=%d, lastUpdate=SYSDATE() WHERE vnum=%d", ARTIFACT_NOTINGAME, NOWHERE, vnum );
     }
     // Otherwise, we're moving to a corpse of char who's PID is pid.
     else
     {
       // On a PC corpse -> owned == Yes, and location == pid.
-      qry("UPDATE artifacts SET owned='Y', locType=%d, location=%d WHERE vnum=%d", ARTIFACT_ONCORPSE, pid, vnum );
+      qry("UPDATE artifacts SET owned='Y', locType=%d, location=%d, lastUpdate=SYSDATE() WHERE vnum=%d", ARTIFACT_ONCORPSE, pid, vnum );
     }
   }
   // If the entry doesn't exist and we're moving arti to a corpse (Yes, this would be a buggy situation).
@@ -1100,7 +1098,7 @@ void remove_all_artifacts_sql( P_char ch )
   pid = GET_PID(ch);
 
   // Nullify arti timers on all ch's equipment.
-  qry("UPDATE artifacts SET owned='N', timer=0 WHERE location=%d and locType=%d", pid, ARTIFACT_ON_PC );
+  qry("UPDATE artifacts SET owned='N', timer=0, lastUpdate=SYSDATE() WHERE location=%d and locType=%d", pid, ARTIFACT_ON_PC );
 }
 
 // This is a wrapper function for artifact_update_sql.
@@ -2222,7 +2220,7 @@ void event_artifact_check_poof_sql( P_char ch, P_char vict, P_obj obj, void * ar
   mysql_free_result(res);
 
   // Clear the artis from the list.  Note: doing it after the loop intentionally.
-  qry( "UPDATE artifacts SET owned='N', locType='NotInGame', location=-1, timer=0 WHERE owned='Y' AND timer < now()" );
+  qry( "UPDATE artifacts SET owned='N', locType='NotInGame', location=-1, timer=0, lastUpdate=SYSDATE() WHERE owned='Y' AND timer < now()" );
 
   add_event( event_artifact_check_poof_sql, 12 * WAIT_SEC, NULL, NULL, NULL, 0, NULL, 0 );
 }
@@ -2417,7 +2415,7 @@ void event_artifact_wars_sql(P_char ch, P_char vict, P_obj obj, void *arg)
           act("&+L$p &+Lseems very upset with you.&n", FALSE, owner, arti, 0, TO_CHAR);
         }
         extract_obj(arti, FALSE);
-        qry("UPDATE artifacts SET timer = FROM_UNIXTIME(%lu) WHERE vnum = %d", node->timer - punishment, node->vnum );
+        qry("UPDATE artifacts SET timer = FROM_UNIXTIME(%lu), lastUpdate=SYSDATE() WHERE vnum = %d", node->timer - punishment, node->vnum );
 
         node = node->next;
       }
@@ -3383,7 +3381,7 @@ void arti_fixit_sql( P_char ch )
     if( location != pid )
     {
       sql_update_bind_data( vnum, &location, &timer);
-      qry("UPDATE artifacts SET timer = FROM_UNIXTIME(%lu) WHERE vnum = %d", new_time, vnum);
+      qry("UPDATE artifacts SET timer = FROM_UNIXTIME(%lu), lastUpdate=SYSDATE() WHERE vnum = %d", new_time, vnum);
       send_to_char_f( ch, "%3d) '%s&n'%6d - timer reset and now owned by '%s' %d.\n\r",
         ++counter, pad_ansi( arti ? OBJ_SHORT(arti) : "NULL", 35, TRUE).c_str(), vnum, get_player_name_from_pid(location), location );
     }
