@@ -4604,6 +4604,8 @@ void do_return(P_char ch, char *argument, int cmd)
   }
   if(ch->desc->original->only.pc->switched)
   {
+    P_char switched_mob = ch->desc->character;  // Save reference to the mob
+
     send_to_char("You return to your original body.\n", ch);
 
     ch->desc->character = ch->desc->original;
@@ -4611,7 +4613,7 @@ void do_return(P_char ch, char *argument, int cmd)
     ch->desc->character->only.pc->switched = 0;
 
     ch->desc->character->desc = ch->desc;
-    ch->desc = 0;
+    switched_mob->desc = 0;  // Clear the MOB's desc, not ch->desc
   }
   else                          /* switched body due to shape change  */
     send_to_char("No effect.\n", ch);

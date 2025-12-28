@@ -1334,6 +1334,14 @@ int shop_keeper(P_char keeper, P_char ch, int cmd, char *arg)
       return (TRUE);
     }
   }
+  // Prevent NPCs/pets from buying, selling, or valuing items at shops
+  if( ch && IS_NPC(ch) && (cmd == CMD_BUY || cmd == CMD_SELL || cmd == CMD_VALUE) )
+  {
+    act("$N says 'I don't do business with pets or minions.'", FALSE, ch, 0, keeper, TO_ROOM);
+    act("$N says 'I don't do business with pets or minions.'", FALSE, ch, 0, keeper, TO_CHAR);
+    return (TRUE);
+  }
+
   if( cmd == CMD_BUY )
     if ((ch->in_room == real_room(shop_index[shop_nr].in_room)) ||
         (shop_index[shop_nr].shop_is_roaming == 1))

@@ -4083,12 +4083,19 @@ void free_char(P_char ch)
       logit(LOG_DEBUG, "free_char called with no name. room: (%d)", ch->in_room);
     }
 
+    // remove character from room before freeing only.pc to prevent act() from
+    // iterating over characters with freed only.pc data (use-after-free fix)
+    if (ch->in_room != NOWHERE)
+    {
+      char_from_room(ch);
+    }
+
     if( ch->only.pc->log )
     {
       delete ch->only.pc->log;
       ch->only.pc->log = NULL;
     }
-    
+
     mm_release(dead_pconly_pool, ch->only.pc);
     ch->only.pc = NULL;
   }

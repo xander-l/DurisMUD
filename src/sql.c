@@ -935,6 +935,9 @@ void sql_resetConnectTimes(void)
 
 void sql_disconnectIP(P_char ch)
 {
+  if( !ch || !IS_PC(ch) )
+    return;
+
   db_query_nolog("INSERT INTO ip_info (pid) VALUES (%d)", GET_PID(ch));
   if (ch->desc)
   {

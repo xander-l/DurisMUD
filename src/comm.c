@@ -848,7 +848,7 @@ void game_loop(int port, int sslport)
 
       /* check for hella long wait time here..  bandaid solution but it should (sort of) work */
 
-      if( (!t_ch || (t_ch && (CAN_ACT(t_ch) && !IS_SET(t_ch->specials.affected_by, AFF_CHARM))))
+      if( (!t_ch || (t_ch && (CAN_ACT(t_ch) && (!IS_SET(t_ch->specials.affected_by, AFF_CHARM) || (point->original)))))
         && get_from_q(&point->input, comm) )
       {
 
@@ -973,7 +973,7 @@ void game_loop(int port, int sslport)
             tossHint(t_ch);
           }
         }
-        if (t_ch->desc->last_map_update)
+        if (t_ch->desc && t_ch->desc->last_map_update)
         {
           // For ship passengers: GMCP only (handler.c already filters to GMCP-enabled only)
           if (IS_SHIP_ROOM(t_ch->in_room))
@@ -1001,7 +1001,7 @@ void game_loop(int port, int sslport)
           }
           t_ch->desc->last_map_update = 0;
         }
-        if (t_ch->desc->last_group_update)
+        if (t_ch->desc && t_ch->desc->last_group_update)
         {
           /* For GMCP clients, send structured data to group panel */
           if (GMCP_ENABLED(t_ch)) {
@@ -2690,7 +2690,7 @@ int process_input(P_desc t)
         strcpy(tmp, t->last_input);
 
       if(t)
-        if(t->character){
+        if(t->character && IS_PC(t->character)){
           t->character->only.pc->recived_data = t->character->only.pc->recived_data + strlen(tmp);
           recivedbytes = recivedbytes + strlen(tmp);
         }
@@ -3373,8 +3373,8 @@ void act(const char *str, int hide_invisible, P_char ch, P_obj obj, void *vict_o
   {
     // Viewing character needs a descriptor to send to, needs to be awake, and match z-requirements...
     if( to->desc && IS_AWAKE(to) && (ignore_zcoord || ( to->specials.z_cord == which_z ))
-    //   needs to not be ignoring target ch
-      && (IS_NPC( to ) || !to->only.pc->ignored || ( to->only.pc->ignored != ch ))
+    //   needs to not be ignoring target ch (also check only.pc not null - can be null during disconnect)
+      && (IS_NPC( to ) || !to->only.pc || !to->only.pc->ignored || ( to->only.pc->ignored != ch ))
     //   needs to match the target type: Only TO_CHAR is shown to ch, NOTVICT/NOTVICTROOM doesn't show to victim.
       && (( type == TO_CHAR ) || ( to != ch ))
       && !(( type == TO_NOTVICT || type == TO_NOTVICTROOM ) && ( to == (P_char) vict_obj ))
@@ -3522,6 +3522,7 @@ void act(const char *str, int hide_invisible, P_char ch, P_obj obj, void *vict_o
              */
           case 'q':
           case 'Q':
+          {
             if( *strp == 'Q' )
             {
               if( vict_obj )
@@ -3545,8 +3546,10 @@ void act(const char *str, int hide_invisible, P_char ch, P_obj obj, void *vict_o
 
             tbuf[0] = '\0';
             tbp = 0;
+            // safety limit for tbuf to prevent buffer overflow
+            const int tbuf_limit = MAX_STRING_LENGTH - 10;
             // First _copy_ ansi to tbuf.
-            while( *i == '&' )
+            while( *i == '&' && tbp < tbuf_limit )
             {
               if( i[1] == 'n' || i[1] == 'N' )
               {
@@ -3611,10 +3614,11 @@ void act(const char *str, int hide_invisible, P_char ch, P_obj obj, void *vict_o
             // Otherwise, add the rest of the string to the end of tbuf (contains ansi).
             else
             {
-              snprintf(tbuf + tbp, MAX_STRING_LENGTH, "%s", i );
+              snprintf(tbuf + tbp, MAX_STRING_LENGTH - tbp, "%s", i );
               i = tbuf;
             }
             break;
+          }
 
           case 'a':
             if( obj )
@@ -3697,10 +3701,19 @@ void act(const char *str, int hide_invisible, P_char ch, P_obj obj, void *vict_o
             // Note: This doesn't handle ansi in the middle of the lower-cased words.
             // Making it so we don't get 'A', 'An', 'The', or 'Some' in the middle of a sentence (removing caps)!
             // For each word,
+            // safety limit to prevent buffer overflow (leave room for null terminator)
+            const int tbuf2_limit = MAX_STRING_LENGTH - 10;
             for( tbp = 0; *i; )
             {
+              // bounds check before ansi processing
+              if( tbp >= tbuf2_limit )
+              {
+                logit(LOG_DEBUG, "act(): tbuf2 overflow prevented in ansi processing");
+                break;
+              }
+
               // Copy beginning ansi.
-              while( *i == '&' )
+              while( *i == '&' && tbp < tbuf2_limit )
               {
                 if( i[1] == 'n' || i[1] == 'N' )
                 {
@@ -3730,7 +3743,15 @@ void act(const char *str, int hide_invisible, P_char ch, P_obj obj, void *vict_o
                   tbuf2[tbp++] = *(i++);
                   tbuf2[tbp++] = *(i++);
                 }
+                else
+                {
+                  break;  // not a recognized ansi code, exit loop
+                }
               }
+
+              // bounds check before article processing
+              if( tbp >= tbuf2_limit )
+                break;
 
               // "A " or "An "
               if( *i == 'A' )
@@ -3773,19 +3794,19 @@ void act(const char *str, int hide_invisible, P_char ch, P_obj obj, void *vict_o
               // Any other word, just copy.
               else
               {
-                while( !isspace(*i) && *i != '\0' )
+                while( !isspace(*i) && *i != '\0' && tbp < tbuf2_limit )
                 {
                   tbuf2[tbp++] = *(i++);
                 }
               }
 
               // Copy following white-space
-              while( isspace(*i) )
+              while( isspace(*i) && tbp < tbuf2_limit )
               {
                 tbuf2[tbp++] = *(i++);
               }
             }
-            tbuf2[tbp++] = '\0';
+            tbuf2[tbp] = '\0';
             i = tbuf2;
 
             for( j = 0; *(i + j) != '\0'; j++ )

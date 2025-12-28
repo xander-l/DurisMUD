@@ -2654,6 +2654,16 @@ int epic_store(P_char ch, P_char pl, int cmd, char *arg)
   }
   else if( cmd == CMD_BUY )
   {
+    // Prevent NPCs/pets from using the epic store
+    if( IS_NPC(pl) )
+    {
+      snprintf(buffer, MAX_STRING_LENGTH,
+        "&+WKannard&+L &+wshouts 'Hey everyone! %s just tried to make their pet buy epic items! How embarrassing!'&n\n",
+        GET_MASTER(pl) ? GET_NAME(GET_MASTER(pl)) : "Someone");
+      send_to_all(buffer);
+      return TRUE;
+    }
+
     if( !arg || !*arg )
     {
       snprintf(buffer, MAX_STRING_LENGTH, "&+WKannard&+L &+wsays 'What item would you like to buy?'\n");
