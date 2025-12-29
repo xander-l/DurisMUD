@@ -847,35 +847,37 @@ bool auction_bid(P_char ch, char *args)
     to_pay = bid_value;
   }
 
-  // take away money
+  // check money first before doing anything
   if( GET_MONEY(ch) < to_pay )
   {
-    snprintf(buff, MAX_STRING_LENGTH, "&+WYou don't have enough money!\r\nYou need: &n%s\r\n", 
+    snprintf(buff, MAX_STRING_LENGTH, "&+WYou don't have enough money!\r\nYou need: &n%s\r\n",
       coin_stringv(to_pay) );
     send_to_char(buff, ch);
     return TRUE;
   }
 
-  SUB_MONEY(ch, to_pay, 0);
-  snprintf(buff, MAX_STRING_LENGTH, "&+WYou pay &n%s&n.\r\n", coin_stringv(to_pay));
-  send_to_char(buff, ch);
-
-  qry("INSERT INTO auction_bid_history (date, auction_id, bidder_pid, bidder_name, bid_amount) VALUES "
-      "(unix_timestamp(), %d, %d, '%s', %d)", auction_id, GET_PID(ch), ch->player.name, bid_value);
-
   // check if its buy it now
   // if so, send money to seller, transfer item to buyer, close auction
   if( buy_price > 0 && bid_value >= buy_price )
   {
-    // buy it now
+    // do db update first before taking money
+    if( !qry("UPDATE auctions SET winning_bidder_pid = '%d', winning_bidder_name = '%s', cur_price = '%d' WHERE id = '%d'", GET_PID(ch), ch->player.name, buy_price, auction_id) )
+      return FALSE;
+
+    // db update succeeded, now take money and do refunds
+    SUB_MONEY(ch, to_pay, 0);
+    snprintf(buff, MAX_STRING_LENGTH, "&+WYou pay &n%s&n.\r\n", coin_stringv(to_pay));
+    send_to_char(buff, ch);
+
+    qry("INSERT INTO auction_bid_history (date, auction_id, bidder_pid, bidder_name, bid_amount) VALUES "
+        "(unix_timestamp(), %d, %d, '%s', %d)", auction_id, GET_PID(ch), ch->player.name, bid_value);
+
+    // refund previous bidder
     if( winning_bidder_pid && winning_bidder_pid != GET_PID(ch) )
     {
       insert_money_pickup(winning_bidder_pid, cur_price);
       logit(LOG_DEBUG, "%s was outbid on auction %d, refunding %s", winning_bidder_name.c_str(), auction_id, coin_stringv(cur_price));
     }
-
-    if( !qry("UPDATE auctions SET winning_bidder_pid = '%d', winning_bidder_name = '%s', cur_price = '%d' WHERE id = '%d'", GET_PID(ch), ch->player.name, buy_price, auction_id) )
-      return FALSE;
 
     finalize_auction(auction_id, ch);
     auction_pickup(ch, "");
@@ -883,13 +885,7 @@ bool auction_bid(P_char ch, char *args)
   }
   else
   {
-    // normal bid
-    snprintf(buff, MAX_STRING_LENGTH, "&+WYou bid &n%s&+W on &n%d %s&n.\r\n", coin_stringv(bid_value), quantity, obj_short.c_str());
-    send_to_char(buff, ch);
-
-    logit(LOG_STATUS, "%s bid %s on auction %d", ch->player.name, coin_stringv(bid_value), auction_id );
-
-    // If the bidder is the current high bidder.
+    // normal bid - do db update first before taking money
     if( GET_PID(ch) == winning_bidder_pid )
     {
       if( !qry("UPDATE auctions SET cur_price = '%d' WHERE id = '%d'", bid_value, auction_id) )
@@ -897,19 +893,33 @@ bool auction_bid(P_char ch, char *args)
     }
     else
     {
-      if( winning_bidder_pid != 0 )
-      {
-        insert_money_pickup(winning_bidder_pid, cur_price);
-        logit(LOG_DEBUG, "%s was outbid on auction %d, refunding %s", 
-          winning_bidder_name.c_str(), auction_id, coin_stringv(cur_price));
-      }
-
       if( !qry("UPDATE auctions SET cur_price = '%d', winning_bidder_pid = '%d', winning_bidder_name = '%s', end_time = end_time + '%d'  WHERE id = '%d'", bid_value, GET_PID(ch), ch->player.name, BID_TIME_EXTENSION, auction_id) )
         return FALSE;
-			
+    }
+
+    // db update succeeded, now take money
+    SUB_MONEY(ch, to_pay, 0);
+    snprintf(buff, MAX_STRING_LENGTH, "&+WYou pay &n%s&n.\r\n", coin_stringv(to_pay));
+    send_to_char(buff, ch);
+
+    qry("INSERT INTO auction_bid_history (date, auction_id, bidder_pid, bidder_name, bid_amount) VALUES "
+        "(unix_timestamp(), %d, %d, '%s', %d)", auction_id, GET_PID(ch), ch->player.name, bid_value);
+
+    snprintf(buff, MAX_STRING_LENGTH, "&+WYou bid &n%s&+W on &n%d %s&n.\r\n", coin_stringv(bid_value), quantity, obj_short.c_str());
+    send_to_char(buff, ch);
+
+    logit(LOG_STATUS, "%s bid %s on auction %d", ch->player.name, coin_stringv(bid_value), auction_id );
+
+    // refund previous bidder if this was a new bidder
+    if( GET_PID(ch) != winning_bidder_pid && winning_bidder_pid != 0 )
+    {
+      insert_money_pickup(winning_bidder_pid, cur_price);
+      logit(LOG_DEBUG, "%s was outbid on auction %d, refunding %s",
+        winning_bidder_name.c_str(), auction_id, coin_stringv(cur_price));
+
       // alert loser that they were outbid!
       snprintf(buff, MAX_STRING_LENGTH, "&+WA voice says in your mind, &+W'You were outbid in auction [&+W%d&+W]"
-                    " for &n%s&+W, and your bid money is available for pickup.'\r\n", 
+                    " for &n%s&+W, and your bid money is available for pickup.'\r\n",
                     auction_id, obj_short.c_str() );
 
       if( !send_to_pid(buff, winning_bidder_pid) )
