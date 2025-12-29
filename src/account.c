@@ -1759,7 +1759,7 @@ P_char load_char_into_game(struct acct_chars * c, P_desc d)
   else
   {
 	// fixing racewar assignment on character list
-	c->racewar = GET_RACEWAR(player) == RACEWAR_EVIL ? ACCT_EVIL : ACCT:GOOD;
+	c->racewar = GET_RACEWAR(player) == RACEWAR_EVIL ? ACCT_EVIL : ACCT_GOOD;
     d->rtype = status;
     return player;
   }
