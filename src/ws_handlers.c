@@ -10,6 +10,7 @@
 #include <ctype.h>
 #include <time.h>
 #include <sys/stat.h>
+#include <openssl/hmac.h>
 
 #include "ws_handlers.h"
 #include "websocket.h"
@@ -46,6 +47,196 @@ extern const struct stat_data stat_factor[];
 extern const char *stat_to_string2(int val);
 extern const char *town_name_list[];
 extern const int avail_hometowns[][LAST_RACE + 1];
+
+/* durisweb secret for service authentication */
+#define DURISWEB_SECRET_DEFAULT "Dur1sM4pK3y2025xYz!"
+
+static const char *get_durisweb_secret(void) {
+    const char *secret = getenv("DURISWEB_SECRET");
+    if (!secret || !*secret) {
+        static int warned = 0;
+        if (!warned) {
+            logit(LOG_DEBUG, "WARNING: DURISWEB_SECRET not set, using default (honeypot)");
+            warned = 1;
+        }
+        return DURISWEB_SECRET_DEFAULT;
+    }
+    return secret;
+}
+
+static int verify_durisweb_sig(const char *sig) {
+    if (!sig || !*sig) return 0;
+
+    const char *secret = get_durisweb_secret();
+    if (!secret) return 0;
+
+    time_t now = time(NULL);
+    long minute = now / 60;
+
+    /* check +/- 1 minute for clock skew */
+    for (int offset = -1; offset <= 1; offset++) {
+        char ts[32];
+        snprintf(ts, sizeof(ts), "%ld", minute + offset);
+
+        unsigned char digest[EVP_MAX_MD_SIZE];
+        unsigned int digest_len = 0;
+
+        HMAC(EVP_sha256(), secret, strlen(secret),
+             (unsigned char *)ts, strlen(ts), digest, &digest_len);
+
+        /* sha256 = 32 bytes */
+        if (digest_len != 32) continue;
+
+        char expected[65];
+        for (unsigned int i = 0; i < digest_len && i < 32; i++) {
+            snprintf(expected + (i * 2), 3, "%02x", digest[i]);
+        }
+        expected[64] = '\0';
+
+        if (strcmp(sig, expected) == 0) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+/* send auth response helper */
+static void send_auth_response(struct descriptor_data *d, int success, const char *error)
+{
+    cJSON *root = cJSON_CreateObject();
+    cJSON_AddStringToObject(root, "type", "durisweb_auth");
+    cJSON_AddBoolToObject(root, "success", success);
+    if (error) cJSON_AddStringToObject(root, "error", error);
+
+    char *json_str = cJSON_PrintUnformatted(root);
+    if (json_str) {
+        websocket_send_text(d, json_str);
+        free(json_str);
+    }
+    cJSON_Delete(root);
+}
+
+/* durisweb service authentication */
+void ws_cmd_durisweb_auth(struct descriptor_data *d, cJSON *data)
+{
+    cJSON *sig = cJSON_GetObjectItem(data, "sig");
+
+    if (!sig || !cJSON_IsString(sig)) {
+        send_auth_response(d, 0, "Missing signature");
+        return;
+    }
+
+    if (verify_durisweb_sig(sig->valuestring)) {
+        d->durisweb_verified = 1;
+        statuslog(56, "DurisWeb service authenticated");
+        send_auth_response(d, 1, NULL);
+    } else {
+        send_auth_response(d, 0, "Invalid signature");
+    }
+}
+
+/* broadcast auction new to durisweb service */
+void ws_broadcast_auction_new(int auction_id, const char *seller_name, const char *obj_short,
+                               int cur_price, int buy_price, int end_time) {
+    struct descriptor_data *d;
+    cJSON *root, *data;
+    char *json;
+
+    root = cJSON_CreateObject();
+    if (!root) return;
+
+    cJSON_AddStringToObject(root, "type", "auction_new");
+
+    data = cJSON_CreateObject();
+    cJSON_AddNumberToObject(data, "id", auction_id);
+    cJSON_AddStringToObject(data, "seller", seller_name ? seller_name : "");
+    cJSON_AddStringToObject(data, "item", obj_short ? obj_short : "");
+    cJSON_AddNumberToObject(data, "price", cur_price);
+    cJSON_AddNumberToObject(data, "buyPrice", buy_price);
+    cJSON_AddNumberToObject(data, "endTime", end_time);
+    cJSON_AddItemToObject(root, "data", data);
+
+    json = cJSON_PrintUnformatted(root);
+    cJSON_Delete(root);
+    if (!json) return;
+
+    for (d = descriptor_list; d; d = d->next) {
+        if (d->websocket && d->durisweb_verified) {
+            websocket_send_text(d, json);
+        }
+    }
+
+    free(json);
+}
+
+/* broadcast auction bid to durisweb service */
+void ws_broadcast_auction_bid(int auction_id, const char *bidder_name, int bid_amount,
+                               int prev_bidder_pid, const char *prev_bidder_name) {
+    struct descriptor_data *d;
+    cJSON *root, *data;
+    char *json;
+
+    root = cJSON_CreateObject();
+    if (!root) return;
+
+    cJSON_AddStringToObject(root, "type", "auction_bid");
+
+    data = cJSON_CreateObject();
+    cJSON_AddNumberToObject(data, "id", auction_id);
+    cJSON_AddStringToObject(data, "bidder", bidder_name ? bidder_name : "");
+    cJSON_AddNumberToObject(data, "amount", bid_amount);
+    cJSON_AddNumberToObject(data, "prevBidderPid", prev_bidder_pid);
+    cJSON_AddStringToObject(data, "prevBidder", prev_bidder_name ? prev_bidder_name : "");
+    cJSON_AddItemToObject(root, "data", data);
+
+    json = cJSON_PrintUnformatted(root);
+    cJSON_Delete(root);
+    if (!json) return;
+
+    for (d = descriptor_list; d; d = d->next) {
+        if (d->websocket && d->durisweb_verified) {
+            websocket_send_text(d, json);
+        }
+    }
+
+    free(json);
+}
+
+/* broadcast auction close to durisweb service */
+void ws_broadcast_auction_close(int auction_id, const char *winner_name, int winner_pid,
+                                 int final_price, const char *close_reason,
+                                 int seller_pid, const char *seller_name) {
+    struct descriptor_data *d;
+    cJSON *root, *data;
+    char *json;
+
+    root = cJSON_CreateObject();
+    if (!root) return;
+
+    cJSON_AddStringToObject(root, "type", "auction_close");
+
+    data = cJSON_CreateObject();
+    cJSON_AddNumberToObject(data, "id", auction_id);
+    cJSON_AddStringToObject(data, "winner", winner_name ? winner_name : "");
+    cJSON_AddNumberToObject(data, "winnerPid", winner_pid);
+    cJSON_AddNumberToObject(data, "price", final_price);
+    cJSON_AddStringToObject(data, "reason", close_reason ? close_reason : "sold");
+    cJSON_AddNumberToObject(data, "sellerPid", seller_pid);
+    cJSON_AddStringToObject(data, "seller", seller_name ? seller_name : "");
+    cJSON_AddItemToObject(root, "data", data);
+
+    json = cJSON_PrintUnformatted(root);
+    cJSON_Delete(root);
+    if (!json) return;
+
+    for (d = descriptor_list; d; d = d->next) {
+        if (d->websocket && d->durisweb_verified) {
+            websocket_send_text(d, json);
+        }
+    }
+
+    free(json);
+}
 
 /* helper structure for character display */
 struct ws_char_info {
@@ -1892,6 +2083,8 @@ void ws_handle_command(struct descriptor_data *d, const char *cmd, cJSON *data)
         ws_cmd_rested_bonus(d, data);
     } else if (strcmp(cmd, "logout") == 0) {
         ws_cmd_logout(d, data);
+    } else if (strcmp(cmd, "durisweb_auth") == 0) {
+        ws_cmd_durisweb_auth(d, data);
     } else {
         /* unknown command - treat as game command */
         if (d->connected == CON_PLAYING) {

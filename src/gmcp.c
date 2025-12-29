@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <mysql.h>
 
 #include "gmcp.h"
 #include "websocket.h"
@@ -17,6 +18,7 @@
 #include "utils.h"
 #include "comm.h"
 #include "db.h"
+#include "sql.h"
 #include "handler.h"
 #include "spells.h"
 #include "map.h"
@@ -932,3 +934,4 @@ void gmcp_quest_map(struct char_data *ch) {
     char_from_room(ch);
     char_to_room(ch, old_room, -2);
 }
+
