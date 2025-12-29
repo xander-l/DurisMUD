@@ -488,12 +488,12 @@ bool auction_list(P_char ch, char *args)
 
     list_arg[0] = toupper(list_arg[0]);
 
-    snprintf(buff, MAX_STRING_LENGTH, "&+WAuctions by &n%s&+W:\r\n", list_arg);
+    snprintf(buff, MAX_STRING_LENGTH, "&+WAuctions by &n%.100s&+W:\r\n", list_arg);
     send_to_char(buff, ch);
 
     mysql_real_escape_string(DB, buff, list_arg, strlen(list_arg));
 
-    snprintf(where_str, MAX_STRING_LENGTH, " and seller_name like '%s'", buff);
+    snprintf(where_str, MAX_STRING_LENGTH, " and seller_name like '%.100s'", buff);
 
   }
   else if( isname(list_arg, "sort s") )
@@ -519,7 +519,7 @@ bool auction_list(P_char ch, char *args)
 
       if( !sorter->isKeyword(list_arg) )
       {
-        snprintf(buff, MAX_STRING_LENGTH, "&+W'&+Y%s&+W' is an invalid keyword!\r\n", list_arg);
+        snprintf(buff, MAX_STRING_LENGTH, "&+W'&+Y%.100s&+W' is an invalid keyword!\r\n", list_arg);
         send_to_char(buff, ch);
         return TRUE;
       }
