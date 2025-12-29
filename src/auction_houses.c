@@ -652,14 +652,14 @@ bool auction_info(P_char ch, char *args)
     return TRUE;
   }
 
-  char *seller_name = row[0];
+  string seller_name(row[0] ? row[0] : "");
   long secs_remaining = atol(row[1]);
   int cur_price = atoi(row[2]);
   int buy_price = atoi(row[3]);
-  char *obj_short = row[4];
+  string obj_short(row[4] ? row[4] : "");
   int obj_vnum = atoi(row[5]);
   int winning_bidder_pid = atoi(row[6]);
-  char *winning_bidder_name = row[7];
+  string winning_bidder_name(row[7] ? row[7] : "");
   char *obj_str = row[8];
   int quantity = atoi(row[9]);
 
@@ -678,7 +678,7 @@ bool auction_info(P_char ch, char *args)
   snprintf(buff, MAX_STRING_LENGTH, "&+WAuction &+W%d\r\n", auction_id);
   send_to_char(buff, ch);
 
-  snprintf(buff, MAX_STRING_LENGTH, "&+WSeller: &n%s\r\n", seller_name);
+  snprintf(buff, MAX_STRING_LENGTH, "&+WSeller: &n%s\r\n", seller_name.c_str());
   send_to_char(buff, ch);
 
   snprintf(buff, MAX_STRING_LENGTH, "&+WTime left: &n%s\r\n", format_time(secs_remaining).c_str() );
@@ -691,7 +691,7 @@ bool auction_info(P_char ch, char *args)
   }
   else
   {
-    snprintf(buff, MAX_STRING_LENGTH, "&+WHigh bid: &n%s&+W by &n%s\r\n", cur_price_str.c_str(), winning_bidder_name );
+    snprintf(buff, MAX_STRING_LENGTH, "&+WHigh bid: &n%s&+W by &n%s\r\n", cur_price_str.c_str(), winning_bidder_name.c_str() );
     send_to_char(buff, ch);
   }
 
