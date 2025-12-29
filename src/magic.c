@@ -7052,12 +7052,9 @@ void event_healing_salve(P_char ch, P_char vict, P_obj obj, void *data)
   if(GET_HIT(vict) < GET_MAX_HIT(vict))
     send_to_char("You feel a &+Wwarm wave&n going through your body.\n", vict);
 
-  x = vamp(vict, number(GET_LEVEL(vict), (GET_LEVEL(vict) * 2)), GET_MAX_HIT(vict));
+  heal(vict, ch, number(GET_LEVEL(vict), (GET_LEVEL(vict) * 2)), GET_MAX_HIT(vict));
   
   update_pos(vict);
-  
-  if(x > 0 && IS_FIGHTING(vict))
-    gain_exp(ch, vict, x, EXP_HEALING);
   
   if(waves-- == 0)
     return;
@@ -7069,7 +7066,7 @@ void event_healing_salve(P_char ch, P_char vict, P_obj obj, void *data)
 void spell_healing_salve(int level, P_char ch, char *arg, int type,
                          P_char victim, P_obj obj)
 {
-  int      waves = 3;
+  int      waves = MAX(3, level/10);
 
   act("Upon $n's touch a &+Csoft glow&n flows from $s hands and surrounds $N.",
      FALSE, ch, 0, victim, TO_NOTVICT);

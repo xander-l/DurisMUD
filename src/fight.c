@@ -621,6 +621,12 @@ void heal(P_char ch, P_char healer, int hits, int cap)
     return;
   }
 
+  // healers get a 20% bonus to all heals
+  if(GET_SPEC(healer, CLASS_CLERIC, SPEC_HEALER))
+  {
+	hits = (int) (hits * get_property("healer.healing.mod", 1.2));
+  }
+
   if(IS_HARDCORE(healer))
   {
     hits = (int) (hits * 1.20);
@@ -632,7 +638,7 @@ void heal(P_char ch, P_char healer, int hits, int cap)
   }
   if(IS_AFFECTED3(healer, AFF3_ENHANCE_HEALING))
   {
-    hits = (int) (hits * get_property("enhancement.healing.mod", 1.2));
+    hits = (int) (hits * get_property("enhancement.healing.mod", 1.5));
   }
   /*
      if(affected_by_spell(ch, TAG_NOMISFIRE)) //misfire code - drannak
@@ -4470,6 +4476,7 @@ static dam_mod_predicate spell_damage_modifiers[] =
 				{
 					dam_mod->type = dam_mod_type::Increased;
 					dam_mod->mod += -0.5;
+					break;
 				}
 			}
 		}
@@ -6327,11 +6334,11 @@ int raw_damage(P_char ch, P_char victim, double dam, uint flags, struct damage_m
 		}
 	}
 
-	dam = (damProf.baseDamage + BOUNDEDF(-100.0, damProf.addedMod, 100.0)) * BOUNDEDF(0.05, damProf.increasedMod, 4.0) * BOUNDEDF(0.1, damProf.moreMod, 2.0);
+	dam = (damProf.baseDamage + BOUNDEDF(-100.0, damProf.addedMod, 100.0)) * BOUNDEDF(0.10, damProf.increasedMod, 4.0) * BOUNDEDF(0.1, damProf.moreMod, 2.0);
 	dam = MAX(1, dam);
 
 	if( damProf.addedMod < -100.0 || damProf.addedMod > 100.0 ||
-		damProf.increasedMod < 0.05 || damProf.increasedMod > 4.0 ||
+		damProf.increasedMod < 0.10 || damProf.increasedMod > 4.0 ||
 		damProf.moreMod < 0.1 || damProf.moreMod > 2.0 )
 	{
 		debug("raw_damage: %s doing %f damage to %s with bad mods (base=%f, added=%f, increased=%f, more=%f)!", 
