@@ -24,6 +24,7 @@
 #include "account.h"
 #include "mm.h"
 #include "files.h"
+#include "sql.h"
 
 extern struct descriptor_data *descriptor_list;
 extern struct mm_ds *dead_mob_pool;
@@ -1946,6 +1947,255 @@ void ws_cmd_delete_character(struct descriptor_data *d, cJSON *data)
     ws_send_account_message(d, "character_deleted", result_data, NULL);
 }
 
+/* helper to send admin_delete_character progress update */
+static void ws_send_admin_delete_progress(struct descriptor_data *d,
+    const char *request_id, const char *message, const char *status)
+{
+    cJSON *result = cJSON_CreateObject();
+    cJSON_AddStringToObject(result, "type", "admin_delete_progress");
+    if (request_id) cJSON_AddStringToObject(result, "requestId", request_id);
+    cJSON_AddStringToObject(result, "message", message);
+    cJSON_AddStringToObject(result, "status", status); /* "info", "success", "error" */
+
+    char *json_str = cJSON_PrintUnformatted(result);
+    if (json_str) {
+        websocket_send_text(d, json_str);
+        free(json_str);
+    }
+    cJSON_Delete(result);
+}
+
+/* helper to send admin_delete_character response with requestId */
+static void ws_send_admin_delete_response(struct descriptor_data *d,
+    int success, const char *account, const char *name,
+    const char *request_id, const char *error)
+{
+    cJSON *result = cJSON_CreateObject();
+    cJSON_AddStringToObject(result, "type", "admin_delete_character");
+    cJSON_AddBoolToObject(result, "success", success);
+    if (account) cJSON_AddStringToObject(result, "account", account);
+    if (name) cJSON_AddStringToObject(result, "name", name);
+    if (request_id) cJSON_AddStringToObject(result, "requestId", request_id);
+    if (error) cJSON_AddStringToObject(result, "error", error);
+
+    char *json_str = cJSON_PrintUnformatted(result);
+    if (json_str) {
+        websocket_send_text(d, json_str);
+        free(json_str);
+    }
+    cJSON_Delete(result);
+}
+
+/* admin delete a character (durisweb service only) */
+void ws_cmd_admin_delete_character(struct descriptor_data *d, cJSON *data)
+{
+    cJSON *account_json, *name_json, *deleted_by_json, *request_id_json, *pid_json;
+    const char *account_name, *char_name, *deleted_by, *request_id;
+    int char_pid;
+    struct acct_chars *c, *prev;
+    P_char ch;
+    P_acct target_acct;
+
+    /* only durisweb service can call this */
+    if (!d->durisweb_verified) {
+        ws_send_admin_delete_response(d, 0, NULL, NULL, NULL, "Not authorized");
+        return;
+    }
+
+    if (!data) {
+        ws_send_admin_delete_response(d, 0, NULL, NULL, NULL, "Missing data");
+        return;
+    }
+
+    /* extract requestId first for all responses */
+    request_id_json = cJSON_GetObjectItem(data, "requestId");
+    request_id = (request_id_json && cJSON_IsString(request_id_json)) ? request_id_json->valuestring : NULL;
+
+    account_json = cJSON_GetObjectItem(data, "account");
+    name_json = cJSON_GetObjectItem(data, "name");
+    pid_json = cJSON_GetObjectItem(data, "pid");
+    deleted_by_json = cJSON_GetObjectItem(data, "deletedBy");
+
+    if (!account_json || !cJSON_IsString(account_json)) {
+        ws_send_admin_delete_response(d, 0, NULL, NULL, request_id, "Missing account name");
+        return;
+    }
+
+    if (!name_json || !cJSON_IsString(name_json)) {
+        ws_send_admin_delete_response(d, 0, NULL, NULL, request_id, "Missing character name");
+        return;
+    }
+
+    if (!pid_json || !cJSON_IsNumber(pid_json)) {
+        ws_send_admin_delete_response(d, 0, NULL, NULL, request_id, "Missing character PID");
+        return;
+    }
+
+    account_name = account_json->valuestring;
+    char_name = name_json->valuestring;
+    char_pid = pid_json->valueint;
+    deleted_by = deleted_by_json && cJSON_IsString(deleted_by_json) ? deleted_by_json->valuestring : "admin";
+
+    /* send initial progress */
+    {
+        char msg[256];
+        snprintf(msg, sizeof(msg), "Starting deletion of %s from account %s", char_name, account_name);
+        ws_send_admin_delete_progress(d, request_id, msg, "info");
+    }
+
+    /* allocate and load target account */
+    ws_send_admin_delete_progress(d, request_id, "Loading account data...", "info");
+    target_acct = allocate_account();
+    if (!target_acct) {
+        ws_send_admin_delete_progress(d, request_id, "Failed to allocate account", "error");
+        ws_send_admin_delete_response(d, 0, account_name, char_name, request_id, "Failed to allocate account");
+        return;
+    }
+
+    target_acct->acct_name = str_dup(account_name);
+
+    if (read_account(target_acct) == -1) {
+        ws_send_admin_delete_progress(d, request_id, "Account not found", "error");
+        ws_send_admin_delete_response(d, 0, account_name, char_name, request_id, "Account not found");
+        free_account(target_acct);
+        return;
+    }
+
+    ws_send_admin_delete_progress(d, request_id, "Account loaded successfully", "success");
+
+    /* find character in account list */
+    ws_send_admin_delete_progress(d, request_id, "Searching for character in account...", "info");
+    c = target_acct->acct_character_list;
+    prev = NULL;
+    while (c) {
+        if (strcasecmp(c->charname, char_name) == 0) {
+            break;
+        }
+        prev = c;
+        c = c->next;
+    }
+
+    if (!c) {
+        ws_send_admin_delete_progress(d, request_id, "Character not found in account", "error");
+        ws_send_admin_delete_response(d, 0, account_name, char_name, request_id, "Character not found in account");
+        free_account(target_acct);
+        return;
+    }
+
+    ws_send_admin_delete_progress(d, request_id, "Character found in account", "success");
+
+    /* load character for deletion */
+    ws_send_admin_delete_progress(d, request_id, "Loading character save file...", "info");
+    ch = (struct char_data *)malloc(sizeof(struct char_data));
+    if (!ch) {
+        ws_send_admin_delete_progress(d, request_id, "Failed to allocate memory", "error");
+        ws_send_admin_delete_response(d, 0, account_name, char_name, request_id, "Failed to allocate character");
+        free_account(target_acct);
+        return;
+    }
+
+    memset(ch, 0, sizeof(struct char_data));
+    ch->only.pc = (struct pc_only_data *)malloc(sizeof(struct pc_only_data));
+    if (!ch->only.pc) {
+        free(ch);
+        ws_send_admin_delete_progress(d, request_id, "Failed to allocate memory", "error");
+        ws_send_admin_delete_response(d, 0, account_name, char_name, request_id, "Failed to allocate character data");
+        free_account(target_acct);
+        return;
+    }
+
+    memset(ch->only.pc, 0, sizeof(struct pc_only_data));
+
+    int restore_result = restoreCharOnly(ch, (char *)char_name);
+    if (restore_result < 0) {
+        /* pfile doesn't exist or is corrupted - still clean up account and database */
+        if (restore_result == -1) {
+            ws_send_admin_delete_progress(d, request_id, "Character save file not found (orphaned entry)", "info");
+        } else {
+            ws_send_admin_delete_progress(d, request_id, "Character save file corrupted", "info");
+        }
+        free(ch->only.pc);
+        free(ch);
+
+        ws_send_admin_delete_progress(d, request_id, "Cleaning up orphaned character data...", "info");
+
+        /* log the deletion - audit trail */
+        logit(LOG_PLAYER, "ADMIN: %s deleted character %s (pid=%d) from account %s via web admin (pfile missing/corrupted)",
+              deleted_by, char_name, char_pid, account_name);
+
+        /* soft delete from frag leaderboard tables using the provided PID */
+        ws_send_admin_delete_progress(d, request_id, "Removing from frag leaderboard...", "info");
+        sql_soft_delete_character(char_pid);
+        ws_send_admin_delete_progress(d, request_id, "Removed from frag leaderboard", "success");
+
+        /* remove from account character list */
+        ws_send_admin_delete_progress(d, request_id, "Removing from account character list...", "info");
+        if (prev) {
+            prev->next = c->next;
+        } else {
+            target_acct->acct_character_list = c->next;
+        }
+        FREE(c->charname);
+        FREE(c);
+
+        ws_send_admin_delete_progress(d, request_id, "Writing account file...", "info");
+        write_account(target_acct);
+        free_account(target_acct);
+        ws_send_admin_delete_progress(d, request_id, "Account file updated", "success");
+
+        /* send success - web will soft-delete from database */
+        ws_send_admin_delete_progress(d, request_id, "Character deletion completed", "success");
+        ws_send_admin_delete_response(d, 1, account_name, char_name, request_id, NULL);
+        return;
+    }
+
+    ws_send_admin_delete_progress(d, request_id, "Character save file loaded", "success");
+
+    /* log the deletion - audit trail */
+    logit(LOG_PLAYER, "ADMIN: %s deleted character %s from account %s via web admin",
+          deleted_by, char_name, account_name);
+
+    /* delete character file and free temp character */
+    ws_send_admin_delete_progress(d, request_id, "Deleting character save file...", "info");
+    deleteCharacter(ch);
+    ws_send_admin_delete_progress(d, request_id, "Character save file deleted", "success");
+
+    /* free strings allocated by restoreCharOnly */
+    if (ch->player.name) str_free(ch->player.name);
+    if (ch->player.title) str_free(ch->player.title);
+    if (ch->player.short_descr) str_free(ch->player.short_descr);
+    if (ch->player.long_descr) str_free(ch->player.long_descr);
+    if (ch->player.description) str_free(ch->player.description);
+    if (ch->only.pc->poofIn) str_free(ch->only.pc->poofIn);
+    if (ch->only.pc->poofOut) str_free(ch->only.pc->poofOut);
+    if (ch->only.pc->poofInSound) str_free(ch->only.pc->poofInSound);
+    if (ch->only.pc->poofOutSound) str_free(ch->only.pc->poofOutSound);
+    if (ch->only.pc->gcmd_arr) FREE(ch->only.pc->gcmd_arr);
+
+    free(ch->only.pc);
+    free(ch);
+
+    /* remove from account character list */
+    ws_send_admin_delete_progress(d, request_id, "Removing from account character list...", "info");
+    if (prev) {
+        prev->next = c->next;
+    } else {
+        target_acct->acct_character_list = c->next;
+    }
+    FREE(c->charname);
+    FREE(c);
+    ws_send_admin_delete_progress(d, request_id, "Removed from account", "success");
+
+    ws_send_admin_delete_progress(d, request_id, "Writing account file...", "info");
+    write_account(target_acct);
+    ws_send_admin_delete_progress(d, request_id, "Account file updated", "success");
+    free_account(target_acct);
+
+    /* send success response */
+    ws_send_admin_delete_progress(d, request_id, "Character deletion completed", "success");
+    ws_send_admin_delete_response(d, 1, account_name, char_name, request_id, NULL);
+}
+
 /* get rested bonus status for all characters */
 void ws_cmd_rested_bonus(struct descriptor_data *d, cJSON *data)
 {
@@ -2085,6 +2335,9 @@ void ws_handle_command(struct descriptor_data *d, const char *cmd, cJSON *data)
         ws_cmd_logout(d, data);
     } else if (strcmp(cmd, "durisweb_auth") == 0) {
         ws_cmd_durisweb_auth(d, data);
+    } else if (strcmp(cmd, "admin_delete_character") == 0) {
+        statuslog(56, "Dispatching admin_delete_character command");
+        ws_cmd_admin_delete_character(d, data);
     } else {
         /* unknown command - treat as game command */
         if (d->connected == CON_PLAYING) {
