@@ -791,57 +791,45 @@ void sql_save_pkill(P_char ch, P_char victim)
   if( !pkill_event )
     return;
 
-  struct group_list *gl;
   int in_room = 0;
-  // loop ch's group
+  int leader = 0;
+
+  // always store killer first, then group
+  if (IS_PC(ch))
+  {
+    leader = (ch->group && ch->group->ch == ch) ? 1 : 0;
+    store_pkill_info(pkill_event, ch, "KILLER", leader, 1);
+  }
+
   if (ch->group)
   {
     for (struct group_list *gl = ch->group; gl; gl = gl->next)
     {
-      if(ch->in_room == gl->ch->in_room)
-        in_room = 1;
-      else
-        in_room = 0;
-      if (IS_PC(gl->ch))
+      if (IS_PC(gl->ch) && gl->ch != ch)
       {
-        if (ch->group->ch == gl->ch)
-          store_pkill_info(pkill_event, gl->ch, "KILLER", 1, in_room);
-        else
-          store_pkill_info(pkill_event, gl->ch, "KILLER", 0, in_room);
+        in_room = (ch->in_room == gl->ch->in_room) ? 1 : 0;
+        store_pkill_info(pkill_event, gl->ch, "KILLER", 0, in_room);
       }
     }
   }
-  else if (IS_PC(ch))
+
+  // always store victim first, then group
+  if (IS_PC(victim))
   {
-    store_pkill_info(pkill_event, ch, "KILLER", 0 ,1);
+    leader = (victim->group && victim->group->ch == victim) ? 1 : 0;
+    store_pkill_info(pkill_event, victim, "VICTIM", leader, 1);
   }
 
   if (victim->group)
   {
-    // and loop victims group
     for (struct group_list *gl = victim->group; gl; gl = gl->next)
     {
-      if (IS_PC(gl->ch))
+      if (IS_PC(gl->ch) && gl->ch != victim)
       {
-        bool bIsVict = (gl->ch == victim);
-        if(victim->in_room == gl->ch->in_room)
-             in_room = 1;
-        else
-            in_room = 0;
-
-
-        if (victim->group->ch == gl->ch)
-          store_pkill_info(pkill_event, gl->ch, bIsVict ? "VICTIM" :
-                                                          "VICTIM-GROUP", 1, in_room);
-        else
-          store_pkill_info(pkill_event, gl->ch, bIsVict ? "VICTIM" :
-                                                          "VICTIM-GROUP", 0, in_room);
+        in_room = (victim->in_room == gl->ch->in_room) ? 1 : 0;
+        store_pkill_info(pkill_event, gl->ch, "VICTIM", 0, in_room);
       }
     }
-  }
-  else if (IS_PC(victim))
-  {
-    store_pkill_info(pkill_event, victim, "VICTIM", 0, 1);
   }
 }
 
