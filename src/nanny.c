@@ -141,6 +141,8 @@ void swapstat( P_desc d, char *arg);
 void select_swapstat( P_desc d, char *arg);
 void swapstats(P_char ch, int stat1, int stat2);
 
+extern void do_summon_book(P_char ch, char *arg, int cmd);
+
 void update_ingame_racewar( int racewar )
 {
   int count;
@@ -3955,6 +3957,11 @@ if(d->character->base_stats.Wis < 80)
   gmcp_quest_status(ch);
 
   do_look(ch, 0, -4);
+
+  if (has_innate(ch, INNATE_SUMMON_BOOK))
+  {
+    do_summon_book(ch, "", 0);
+  }
 }
 
 void select_terminal(P_desc d, char *arg)
