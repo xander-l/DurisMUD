@@ -946,6 +946,32 @@ char *json_build_ship_info(struct ShipData *ship, struct char_data *ch) {
     cJSON_AddNumberToObject(root, "maxCrewStamina", (int)ship->crew.max_stamina);
     cJSON_AddNumberToObject(root, "repairStock", ship->repair);
 
+    /* crew type and chiefs */
+    cJSON_AddStringToObject(root, "crewType", ship_crew_data[ship->crew.index].name);
+
+    cJSON *chiefs = cJSON_CreateObject();
+    cJSON_AddStringToObject(chiefs, "sail",
+        ship->crew.sail_chief > 0 ? ship_chief_data[ship->crew.sail_chief].name : "");
+    cJSON_AddStringToObject(chiefs, "guns",
+        ship->crew.guns_chief > 0 ? ship_chief_data[ship->crew.guns_chief].name : "");
+    cJSON_AddStringToObject(chiefs, "repair",
+        ship->crew.rpar_chief > 0 ? ship_chief_data[ship->crew.rpar_chief].name : "");
+    cJSON_AddItemToObject(root, "chiefs", chiefs);
+
+    /* crew skills */
+    cJSON *skills = cJSON_CreateObject();
+    cJSON_AddNumberToObject(skills, "sail", (int)ship->crew.sail_skill);
+    cJSON_AddNumberToObject(skills, "guns", (int)ship->crew.guns_skill);
+    cJSON_AddNumberToObject(skills, "repair", (int)ship->crew.rpar_skill);
+    cJSON_AddItemToObject(root, "skills", skills);
+
+    /* skill modifiers (from crew type + chiefs) */
+    cJSON *skillMods = cJSON_CreateObject();
+    cJSON_AddNumberToObject(skillMods, "sail", ship->crew.sail_mod());
+    cJSON_AddNumberToObject(skillMods, "guns", ship->crew.guns_mod());
+    cJSON_AddNumberToObject(skillMods, "repair", ship->crew.rpar_mod());
+    cJSON_AddItemToObject(root, "skillMods", skillMods);
+
     /* people */
     cJSON_AddNumberToObject(root, "people", ship->people);
     cJSON_AddNumberToObject(root, "maxPeople", ship->get_capacity());
@@ -1001,6 +1027,22 @@ char *json_build_ship_info(struct ShipData *ship, struct char_data *ch) {
         }
     }
     cJSON_AddItemToObject(root, "weapons", weapons);
+
+    /* equipment array */
+    cJSON *equipment = cJSON_CreateArray();
+    for (i = 0; i < MAXSLOTS; i++) {
+        if (ship->slot[i].type == SLOT_EQUIPMENT) {
+            cJSON *e = cJSON_CreateObject();
+            int e_idx = ship->slot[i].index;
+
+            cJSON_AddNumberToObject(e, "slot", i);
+            cJSON_AddStringToObject(e, "name", equipment_data[e_idx].name ? equipment_data[e_idx].name : "Unknown");
+            cJSON_AddBoolToObject(e, "ready", ship->slot[i].timer == 0 ? 1 : 0);
+
+            cJSON_AddItemToArray(equipment, e);
+        }
+    }
+    cJSON_AddItemToObject(root, "equipment", equipment);
 
     /* cargo */
     cargo = cJSON_CreateObject();

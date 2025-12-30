@@ -556,8 +556,8 @@ void artifact_feed_to_min_sql( P_obj arti, int min_minutes )
   // Ensure to_time is never 0 or in the past (MySQL will reject FROM_UNIXTIME(0))
   if( to_time <= 0 )
   {
-    to_time = time(NULL) + 60;  // Default to 1 minute from now
-    logit(LOG_ARTIFACT, "artifact_feed_to_min_sql: WARNING: to_time was %ld, resetting to current time + 60 seconds for vnum %d",
+    to_time = time(NULL) + ARTIFACT_BLOOD_DAYS * SECS_PER_REAL_DAY;  // 10 days, not 60 secs
+    logit(LOG_ARTIFACT, "artifact_feed_to_min_sql: WARNING: to_time was %ld, resetting to current time + 10 days for vnum %d",
       (long)(time(NULL) + min_minutes * 60), vnum);
   }
 
@@ -926,8 +926,8 @@ void artifact_update_sql( P_obj arti, char owned, time_t timer )
     // FROM_UNIXTIME(0) causes MySQL to reject the datetime.
     if( timer <= 0 )
     {
-      timer = time(NULL) + 60;  // Default to 1 minute from now
-      logit(LOG_ARTIFACT, "arti_update_sql (UPDATE): WARNING: timer was %ld, resetting to current time + 60 seconds for vnum %d",
+      timer = time(NULL) + ARTIFACT_BLOOD_DAYS * SECS_PER_REAL_DAY;  // 10 days, not 60 secs
+      logit(LOG_ARTIFACT, "arti_update_sql (UPDATE): WARNING: timer was %ld, resetting to 10 days for vnum %d",
         (long)0, vnum);
     }
 
@@ -944,8 +944,8 @@ void artifact_update_sql( P_obj arti, char owned, time_t timer )
     // FROM_UNIXTIME(0) causes MySQL to reject the datetime.
     if( timer <= 0 )
     {
-      timer = time(NULL) + 60;  // Default to 1 minute from now
-      logit(LOG_ARTIFACT, "arti_update_sql: WARNING: timer was %ld, resetting to current time + 60 seconds for vnum %d",
+      timer = time(NULL) + ARTIFACT_BLOOD_DAYS * SECS_PER_REAL_DAY;  // 10 days, not 60 secs
+      logit(LOG_ARTIFACT, "arti_update_sql: WARNING: timer was %ld, resetting to 10 days for vnum %d",
         (long)0, vnum);
     }
 
@@ -989,8 +989,8 @@ void artifact_update_sql( int vnum, bool owned, int locType, int location, time_
   // FROM_UNIXTIME(0) causes MySQL to reject the datetime.
   if( timer <= 0 )
   {
-    timer = time(NULL) + 60;  // Default to 1 minute from now
-    logit(LOG_ARTIFACT, "artifact_update_sql: WARNING: timer was %ld, resetting to current time + 60 seconds for vnum %d",
+    timer = time(NULL) + ARTIFACT_BLOOD_DAYS * SECS_PER_REAL_DAY;  // 10 days, not 60 secs
+    logit(LOG_ARTIFACT, "artifact_update_sql: WARNING: timer was %ld, resetting to 10 days for vnum %d",
       (long)0, vnum);
   }
 
@@ -1235,8 +1235,8 @@ void artifact_feed_sql(P_char owner, P_obj arti, int feed_seconds, bool soulChec
   // FROM_UNIXTIME(0) causes MySQL to reject the datetime.
   if( poof_time <= 0 )
   {
-    poof_time = time(NULL) + 60;  // Default to 1 minute from now
-    logit(LOG_ARTIFACT, "artifact_feed_sql: WARNING: poof_time was %ld, resetting to current time + 60 seconds for vnum %d",
+    poof_time = time(NULL) + ARTIFACT_BLOOD_DAYS * SECS_PER_REAL_DAY;  // 10 days, not 60 secs
+    logit(LOG_ARTIFACT, "artifact_feed_sql: WARNING: poof_time was %ld, resetting to 10 days for vnum %d",
       (long)0, vnum);
   }
 

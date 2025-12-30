@@ -7848,6 +7848,17 @@ bool hit(P_char ch, P_char victim, P_obj weapon)
     if(!number(0, 9))
       make_bloodstain(victim);
   }
+  // Monks > 50 get crit message when target is invalid for pressure points
+  else if( sic == -1 && GET_CLASS(ch, CLASS_MONK) && GET_LEVEL(ch) > 50 )
+  {
+    if( !IS_HUMANOID(victim) || IS_UNDEADRACE(victim) || IS_ANGEL(victim)
+        || IS_GREATER_RACE(victim) || IS_ELITE(victim) )
+    {
+      send_to_char("&=LWYou score a CRITICAL HIT!!!!!&N\r\n", ch);
+      if(!number(0, 9))
+        make_bloodstain(victim);
+    }
+  }
 
   if (sic == -1
     && ( notch_skill(ch, SKILL_CRITICAL_ATTACK, get_property("skill.notch.criticalAttack", 10))
