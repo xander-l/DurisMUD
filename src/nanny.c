@@ -3044,6 +3044,17 @@ bool valid_password(P_desc d, char *arg)
 }
 
 
+/* Refactor note: echo_on/echo_off/number_of_players/perform_eq_wipe/
+ * alt_hometown_check/schedule_pc_events/enter_game now live in
+ * src/nanny_session.c to keep nanny.c focused on connection state flow.
+ * The legacy implementations remain below as a commented, opt-in fallback.
+ */
+#if defined(NANNY_SESSION_FALLBACK)
+/*
+ * Fallback implementations preserved in nanny.c for safe rollback.
+ * Define NANNY_SESSION_FALLBACK at compile time to use these versions.
+ */
+
 /*
  * Turn on echoing (sepcific to telnet client)
  * Turn on echoing after echo has been turned off by "echo_off".  This
@@ -3976,6 +3987,7 @@ if(d->character->base_stats.Wis < 80)
     do_summon_book(ch, "", 0);
   }
 }
+#endif
 
 void select_terminal(P_desc d, char *arg)
 {

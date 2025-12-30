@@ -139,6 +139,11 @@ OBJS =  $(SHIP_OBJS) \
 				 mount.o \
 				 name_gen.o \
 				 nanny.o \
+				 nanny_session_enter.o \
+				 nanny_session_eq_wipe.o \
+				 nanny_session_modes.o \
+				 nanny_session_post_enter.o \
+				 nanny_session.o \
 				 necromancy.o \
 				 new_combat_util.o \
 				 new_skills.o \
