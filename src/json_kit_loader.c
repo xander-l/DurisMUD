@@ -6,11 +6,13 @@
 #include "db.h"
 #include "utils.h"
 #include "comm.h"
+#include "utility.h"
 
 /* Externs from the codebase */
 extern const struct race_names race_names_table[];
 extern const struct class_names class_names_table[];
 extern int flag2idx(int);
+extern P_room world;
 
 /* The original static function in nanny.c */
 static void LoadNewbyShit(P_char ch, int *items);

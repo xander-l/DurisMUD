@@ -17,9 +17,9 @@ CFLAGS += -DTEST_MUD
 #CFLAGS += -DCHAOS_MUD=1
 #CFLAGS += -DCTF_MUD=1
 
-INCLUDES	= -I. -I/usr/include/libxml2 -I/usr/include/mysql -I./ships
+INCLUDES	= -I. -I/usr/include/libxml2 -I/usr/include/mysql -I./ships -I./third_party
 
-GENERAL_LIBS    = -lm -lstdc++ -lz -lxml2 -lcrypt -lmysqlclient -lgnutls -lssl -lcrypto -lcjson
+GENERAL_LIBS    = -lm -lstdc++ -lz -lxml2 -lcrypt -lmysqlclient -lgnutls -lssl -lcrypto
 
 ifdef EFENCE
 	LDFLAGS += -L.
@@ -52,6 +52,7 @@ SHIP_SRCS = \
 SHIP_OBJS = $(SHIP_SRCS:%.c=ships/%.o)
 
 OBJS =  $(SHIP_OBJS) \
+				 third_party/cjson/cJSON.o \
 				 magic.o \
 				 achievements.o \
 				 account.o \
