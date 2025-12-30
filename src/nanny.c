@@ -39,6 +39,7 @@
 #include "vnum.room.h"
 #include "achievements.h"
 #include "gmcp.h"
+#include "json_kit_loader.c"
 
 /* external variables */
 
@@ -2795,8 +2796,21 @@ void load_obj_to_newbies(P_char ch)
   if (ch->carrying && IS_PC(ch))        /* we are _NOT_ here to give people free eq many times */
     return;
 
-  if (newbie_kits[GET_RACE(ch)][0])
-    LoadNewbyShit(ch, newbie_kits[GET_RACE(ch)][0]);
+  /* 
+   * NEWBIE KIT SYSTEM REFACTOR:
+   * We first attempt to load the character's equipment from lib/etc/newbie_kits.json.
+   * This is the preferred method as it allows for developer dashboard integration 
+   * and hot-swapping equipment without a reboot.
+   *
+   * FALLBACK:
+   * If the JSON loader fails (file missing, parse error, or kit not defined), 
+   * the function continues and applies the legacy hardcoded kits below.
+   * -Liskin
+   */
+  if (try_load_json_kits(ch))
+    return;
+
+  LoadNewbyShit(ch, newbie_kits[GET_RACE(ch)][0]);
 
   if (GET_RACE(ch) == RACE_THRIKREEN)
     if (GET_ALIGNMENT(ch) >= 0)
@@ -2845,7 +2859,6 @@ void load_obj_to_newbies(P_char ch)
 
  bandage = read_object(458, VIRTUAL);
   obj_to_char(bandage, ch);
-
 }
 
 #undef CREATE_KIT
