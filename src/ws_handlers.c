@@ -26,6 +26,17 @@
 #include "files.h"
 #include "sql.h"
 
+/* Helper to emulate cJSON_AddArrayToObject from newer cJSON versions */
+static cJSON *cJSON_AddArrayToObject(cJSON *object, const char *name) {
+    cJSON *arr = cJSON_CreateArray();
+    cJSON_AddItemToObject(object, name, arr);
+    return arr;
+}
+
+#ifndef cJSON_GetObjectItemCaseSensitive
+#define cJSON_GetObjectItemCaseSensitive cJSON_GetObjectItem
+#endif
+
 extern struct descriptor_data *descriptor_list;
 extern struct mm_ds *dead_mob_pool;
 extern struct mm_ds *dead_pconly_pool;

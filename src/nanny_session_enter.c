@@ -19,6 +19,18 @@
 #include "prototypes.h"
 #include "structs.h"
 #include "utils.h"
+#include "spells.h"
+#include "sql.h"
+#include "files.h"
+#include "vnum.room.h"
+#include "ships.h"
+#include "assocs.h"
+#include "interp.h"
+
+long unsigned int ip2ul(const char *ip);
+void displayShutdownMsg(P_char ch);
+void schedule_pc_events(P_char ch);
+ACMD(do_gmotd);
 
 extern P_char character_list;
 extern P_desc descriptor_list;

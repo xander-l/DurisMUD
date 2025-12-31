@@ -2469,6 +2469,7 @@ void assign_command_pointers(void)
   CMD_GRT(CMD_WHOIS, STAT_DEAD + POS_PRONE, do_whois, LESSER_G);
   CMD_GRT(CMD_ACCOUNT, STAT_DEAD + POS_PRONE, do_account, LESSER_G);
   CMD_Y(CMD_PROTOCOL, STAT_DEAD + POS_PRONE, do_protocol, 1, FALSE);
+  CMD_GRT(CMD_JSON_RELOAD, STAT_DEAD + POS_PRONE, do_json_reload, IMMORTAL);
 
   /*
    * commands requiring confirmation

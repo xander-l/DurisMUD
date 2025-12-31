@@ -11,6 +11,8 @@
 #include "structs.h"
 #include "utils.h"
 #include "nanny_utils.h"
+#include "assocs.h"
+#include "prototypes.h"
 
 static char *hint_array[1000];
 static int iLOADED = 0;

@@ -9,6 +9,12 @@
 #include "gmcp.h"
 #include "prototypes.h"
 #include "structs.h"
+#include "utils.h"
+#include "spells.h"
+#include "interp.h"
+
+ACMD(do_summon_book);
+ACMD(do_summon_totem);
 
 /**
  * Run post-login view actions (GMCP updates, look, summon book).

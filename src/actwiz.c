@@ -44,6 +44,7 @@
 #include "utility.h"
 #include "achievements.h"
 #include "files.h"
+#include "json_kit_loader.h"
 
 /*
  * external variables
@@ -773,6 +774,14 @@ void do_newbie(P_char ch, char *argument, int cmd)
   do_save_silent(victim, 1);
 
   logit(LOG_WIZ, "%s toggled %s's newbie status.", ch->player.name, victim->player.name);
+}
+
+void do_json_reload(P_char ch, char *argument, int cmd)
+{
+  if (json_kits_reload())
+    send_to_char("JSON config reloaded successfully.\r\n", ch);
+  else
+    send_to_char("Failed to reload JSON config.\r\n", ch);
 }
 
 // This function toggles a player's newbie helper status

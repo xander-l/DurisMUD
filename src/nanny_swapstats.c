@@ -15,6 +15,8 @@
 #include "structs.h"
 #include "utils.h"
 
+int nanny_swapstats(P_char ch, int stat1, int stat2);
+
 /**
  * Show the swap-stat prompt legend.
  *

@@ -17,6 +17,13 @@
 #include "prototypes.h"
 #include "structs.h"
 #include "utils.h"
+#include "spells.h"
+
+void event_hatred_check(P_char, P_char, P_obj, void*);
+void event_smite_evil(P_char, P_char, P_obj, void*);
+void event_halfling_check(P_char, P_char, P_obj, void*);
+void event_righteous_aura_check(P_char, P_char, P_obj, void*);
+void event_bleak_foeman_check(P_char, P_char, P_obj, void*);
 
 /* External data that remains owned by the main game systems. */
 extern P_desc descriptor_list;
