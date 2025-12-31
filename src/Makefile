@@ -144,6 +144,7 @@ OBJS =  $(SHIP_OBJS) \
 				 nanny_session_modes.o \
 				 nanny_session_post_enter.o \
 				 nanny_session.o \
+				 nanny_swapstats.o \
 				 necromancy.o \
 				 new_combat_util.o \
 				 new_skills.o \

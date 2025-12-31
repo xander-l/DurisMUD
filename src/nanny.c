@@ -39,6 +39,7 @@
 #include "vnum.room.h"
 #include "achievements.h"
 #include "gmcp.h"
+#include "nanny_swapstats.h"
 #include "json_kit_loader.c"
 
 /* external variables */
@@ -6697,10 +6698,18 @@ void nanny(P_desc d, char *arg)
     break;
 
   case CON_SWAPSTATYN:
+    /* Refactor: try the new swap-stat module first, then fall back. */
+    if (nanny_select_swapstat(d, arg))
+      break;
+    logit(LOG_DEBUG, "nanny: swapstat select fallback engaged");
     select_swapstat( d, arg );
     break;
 
   case CON_SWAPSTAT:
+    /* Refactor: try the new swap-stat module first, then fall back. */
+    if (nanny_swapstat(d, arg))
+      break;
+    logit(LOG_DEBUG, "nanny: swapstat fallback engaged");
     swapstat( d, arg );
     break;
 
