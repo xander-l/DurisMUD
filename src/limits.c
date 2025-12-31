@@ -746,6 +746,9 @@ void advance_level(P_char ch)
   update_pos(ch);
 
   check_boon_completion(ch, NULL, 0, BOPT_LEVEL);
+
+  // Send GMCP update for level change
+  gmcp_char_status(ch);
 }
 
 /*
@@ -791,6 +794,9 @@ void lose_level(P_char ch)
       ch->specials.conditions[i] = 0;
 
   balance_affects(ch);
+
+  // Send GMCP update for level change
+  gmcp_char_status(ch);
 }
 
 void clear_title(P_char ch)
