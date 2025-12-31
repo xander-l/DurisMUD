@@ -61,6 +61,7 @@
 #include "websocket.h"
 #include "json_utils.h"
 #include "gmcp.h"
+#include "nanny_utils.h"
 
 /* external variables */
 
