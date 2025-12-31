@@ -2603,6 +2603,7 @@ void spell_dispel_evil(int, P_char, char *, int, P_char, P_obj);
 void spell_dispel_good(int, P_char, char *, int, P_char, P_obj);
 void spell_dispel_invisible(int, P_char, char *, int, P_char, P_obj);
 void spell_dispel_magic(int, P_char, char *, int, P_char, P_obj);
+void spell_divine_font(int, P_char, char *, int, P_char, P_obj);
 void spell_dread_wave(int, P_char, char *, int, P_char, P_obj);
 void spell_earthquake(int, P_char, char *, int, P_char, P_obj);
 void spell_embalm(int, P_char, char *, int, P_char, P_obj);

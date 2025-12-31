@@ -8485,6 +8485,45 @@ int druid_spring(P_obj obj, P_char ch, int cmd, char *arg)
   return FALSE;
 }
 
+int divine_font(P_obj obj, P_char ch, int cmd, char *arg)
+{
+  if (cmd == CMD_SET_PERIODIC)
+    return FALSE;
+
+  if (cmd == CMD_DRINK)
+  {
+    if (!arg || !*arg)
+      return FALSE;
+    arg = skip_spaces(arg);
+    if (*arg && (!strcmp(arg, "font") || !strcmp(arg, "divine")))
+    {
+      act("You drink from $p.", FALSE, ch, obj, 0, TO_CHAR);
+      act("$n drinks from $p.", FALSE, ch, obj, 0, TO_ROOM);
+
+      spell_full_heal(obj->value[0], ch, 0, SPELL_TYPE_SPELL, ch, 0);
+      spell_vitality(obj->value[0], ch, 0, SPELL_TYPE_SPELL, ch, 0);
+      spell_invigorate(obj->value[0], ch, 0, SPELL_TYPE_SPELL, ch, 0);
+	  
+      CharWait(ch, PULSE_VIOLENCE);
+      return TRUE;
+    }
+  }
+
+  if (cmd == CMD_DECAY)
+  {
+    if (world[obj->loc.room].people)
+    {
+      act("$p rapidly shrinks in size until finally it disappears entirely.",
+        0, world[obj->loc.room].people, obj, 0, TO_ROOM);
+      act("$p rapidly shrinks in size until finally it disappears entirely.",
+        0, world[obj->loc.room].people, obj, 0, TO_CHAR);
+    }
+    return TRUE;
+  }
+
+  return FALSE;
+}
+
 int blighter_pond(P_obj obj, P_char ch, int cmd, char *arg)
 {
   if (cmd == CMD_SET_PERIODIC)

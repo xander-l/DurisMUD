@@ -12446,6 +12446,25 @@ void spell_create_spring(int level, P_char ch, char *arg, int type,
   obj_to_room(spring, ch->in_room);
 }
 
+
+void spell_divine_font(int level, P_char ch, char *arg, int type,
+                       P_char victim, P_obj obj)
+{
+  P_obj    font;
+
+  font = read_object(469, VIRTUAL);
+  if(!font)
+  {
+    logit(LOG_DEBUG, "spell_divine_font(): obj 469 (font) not loadable");
+    send_to_char("Tell someone to make a font object ASAP!\n", ch);
+    return;
+  }
+  send_to_room("&+WA divine font slowly fades into existence, radiating holy power!&n\n", ch->in_room);
+  set_obj_affected(font, 60 * 10, TAG_OBJ_DECAY, 0);
+  obj_to_room(font, ch->in_room);
+}
+
+
 void spell_regeneration(int level, P_char ch, char *arg, int type, P_char victim, P_obj obj)
 {
   struct affected_type af;

@@ -5346,6 +5346,10 @@ SPELL_ADD(CLASS_SUMMONER, 11);
     "&+CThe spirits no longer protect you.&n");
   //SPELL_ADD(CLASS_SHAMAN, 9);
 
+  SPELL_CREATE("divine font", SPELL_DIVINE_FONT, PULSE_SPELLCAST * 10,
+                TAR_IGNORE | TAR_NOCOMBAT, spell_divine_font);
+  SPEC_SPELL_ADD(CLASS_CLERIC, 11, SPEC_HEALER);
+
 #ifndef _DE_
   create_epic_skills();
 #endif

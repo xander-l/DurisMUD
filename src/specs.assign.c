@@ -1696,6 +1696,7 @@ void assign_objects(void)
 
   obj_index[real_object0(435)].func.obj = proc_soldon_hat;
   obj_index[real_object0(499)].func.obj = proc_lohrr;
+  obj_index[real_object0(469)].func.obj = divine_font;
 
 /* Hall of the Ancients */
   obj_index[real_object0(77706)].func.obj = trap_razor_hooks;
