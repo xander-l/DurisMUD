@@ -1921,10 +1921,11 @@ int num_char_in_vehicle(P_obj);
 int stable_master (P_char, P_char, int, char *);
 bool is_natural_mount(P_char ch, P_char mount);
 
-/* nanny.c */
+/* nanny_utils.c */
 
 int tossHint( P_char ch );
-void loadHints();
+void loadHints(void);
+void Decrypt(char *text, int sizeOfText, const char *key, int sizeOfKey);
 void approve_name(char *name);
 void create_denied_file(const char *, char *);
 int getNewPCidNumb(void);
@@ -3218,4 +3219,3 @@ void do_deaths_door(P_char ch, char *arg, int cmd);
 void do_smoke(P_char ch, char *arg, int cmd);
 
 #endif /* _SOJ_PROTOTYPES_H_ */
-

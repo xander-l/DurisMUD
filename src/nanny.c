@@ -6987,6 +6987,8 @@ void email_player_info(char *login, char *host, struct descriptor_data *d)
 
 
 
+#if 0
+/* Legacy nanny utility implementations kept for validation. */
 char    *hint_array[1000];
 int      iLOADED = 0;
 
@@ -7048,6 +7050,7 @@ void Decrypt(char *text, int sizeOfText, const char *key, int sizeOfKey)
     text[i] = decryptedChar;
   }
 }
+#endif
 
 void show_swapstat( P_desc d )
 {
