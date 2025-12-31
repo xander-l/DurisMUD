@@ -604,7 +604,7 @@ void do_restore(P_char, char *, int);
 void do_return(P_char, char *, int);
 void do_revoke(P_char, char *, int);
 /*void do_revoketitle(P_char, char *, int);*/
-void do_json_reload(P_char ch, char *argument, int cmd);
+void do_reload_kits(P_char ch, char *argument, int cmd);
 void do_secret(P_char, char *, int);
 void do_setattr(P_char, char *, int);
 void do_sethome(P_char, char *, int);

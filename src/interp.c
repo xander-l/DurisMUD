@@ -1091,7 +1091,8 @@ const char *command[MAX_CMD] = {
   "account",
   "protocol",
   "extractlink",
-  "\n"                          /* MAX_CMD = 843, MAX_CMD_LIST = 1000 */
+  "reload_kits",
+  "\n"                          /* MAX_CMD = 845, MAX_CMD_LIST = 1000 */
 };
 
 const char *fill_words[] = {
@@ -2469,7 +2470,7 @@ void assign_command_pointers(void)
   CMD_GRT(CMD_WHOIS, STAT_DEAD + POS_PRONE, do_whois, LESSER_G);
   CMD_GRT(CMD_ACCOUNT, STAT_DEAD + POS_PRONE, do_account, LESSER_G);
   CMD_Y(CMD_PROTOCOL, STAT_DEAD + POS_PRONE, do_protocol, 1, FALSE);
-  CMD_GRT(CMD_JSON_RELOAD, STAT_DEAD + POS_PRONE, do_json_reload, IMMORTAL);
+  CMD_GRT(CMD_RELOAD_KITS, STAT_DEAD + POS_PRONE, do_reload_kits, IMMORTAL);
 
   /*
    * commands requiring confirmation

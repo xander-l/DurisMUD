@@ -776,12 +776,12 @@ void do_newbie(P_char ch, char *argument, int cmd)
   logit(LOG_WIZ, "%s toggled %s's newbie status.", ch->player.name, victim->player.name);
 }
 
-void do_json_reload(P_char ch, char *argument, int cmd)
+void do_reload_kits(P_char ch, char *argument, int cmd)
 {
   if (json_kits_reload())
-    send_to_char("JSON config reloaded successfully.\r\n", ch);
+    send_to_char("Newbie kit JSON config reloaded successfully.\r\n", ch);
   else
-    send_to_char("Failed to reload JSON config.\r\n", ch);
+    send_to_char("Failed to reload newbie kit JSON config.\r\n", ch);
 }
 
 // This function toggles a player's newbie helper status
