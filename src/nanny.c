@@ -39,6 +39,7 @@
 #include "vnum.room.h"
 #include "achievements.h"
 #include "gmcp.h"
+#include "nanny_account_flow.h"
 #include "nanny_swapstats.h"
 #include "json_kit_loader.c"
 
@@ -6341,6 +6342,9 @@ void nanny(P_desc d, char *arg)
 {
   char     Gbuf1[MAX_STRING_LENGTH];
   char     Gbuf2[MAX_STRING_LENGTH];
+
+  if (nanny_account_flow(d, arg))
+    return;
 
   switch (STATE(d))
   {
