@@ -9282,7 +9282,20 @@ void zone_spellmessage(int room, bool hide_deaf, const char *msg, const char *ms
     if( hide_deaf and !CAN_HEAR(chars_in_zone->c) )
       continue;
 
-    if( IS_MAP_ROOM(room) )
+	if( CONTINENT(room) )
+	{
+	  if( IS_CONTINENT(c_room, CONTINENT(room)) )
+	  {
+		if( msg_dir != NULL )
+        {
+          snprintf(buf, MAX_STRING_LENGTH, msg_dir, get_map_direction(c_room, room));
+          send_to_char(buf, chars_in_zone->c);
+        }
+        else
+          send_to_char(msg, chars_in_zone->c);
+	  }
+	}
+    else if( IS_MAP_ROOM(room) )
     {
       if( IS_MAP_ROOM(c_room) && (world[room].map_section != 0) && (world[room].map_section == world[c_room].map_section) )
       {
