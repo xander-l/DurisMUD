@@ -393,7 +393,7 @@ void initialize_skills()
   SPELL_CREATE("group heal", SPELL_GROUP_HEAL, PULSE_SPELLCAST * 4,
                 TAR_IGNORE, spell_group_heal);
   SPELL_ADD(CLASS_PALADIN, 10);
-  SPEC_SPELL_ADD(CLASS_CLERIC, 11, SPEC_HEALER);
+  SPEC_SPELL_ADD(CLASS_CLERIC, 10, SPEC_HEALER);
 
   SPELL_CREATE("apocalypse", SPELL_APOCALYPSE, (7/2) * PULSE_SPELLCAST,
                 TAR_AREA | TAR_OFFAREA | TAR_AGGRO, spell_apocalypse);
@@ -5345,6 +5345,10 @@ SPELL_ADD(CLASS_SUMMONER, 11);
     spell_greater_guardian_ward,
     "&+CThe spirits no longer protect you.&n");
   //SPELL_ADD(CLASS_SHAMAN, 9);
+
+  SPELL_CREATE("divine font", SPELL_DIVINE_FONT, PULSE_SPELLCAST * 10,
+                TAR_IGNORE | TAR_NOCOMBAT, spell_divine_font);
+  SPEC_SPELL_ADD(CLASS_CLERIC, 11, SPEC_HEALER);
 
 #ifndef _DE_
   create_epic_skills();

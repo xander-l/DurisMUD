@@ -388,10 +388,11 @@ char *json_build_room_info(struct room_data *room, struct char_data *ch) {
     int dir;
     struct char_data *tch;
     struct obj_data *obj;
-    /* Standard GMCP uses short exit names */
+    /* standard gmcp uses short exit names */
+    /* order matches defines.h: n,e,s,w,u,d,nw,sw,ne,se */
     const char *dir_abbrevs[] = {
         "n", "e", "s", "w", "u", "d",
-        "ne", "nw", "se", "sw"
+        "nw", "sw", "ne", "se"
     };
     /* Terrain type to environment string mapping */
     const char *env_names[] = {
