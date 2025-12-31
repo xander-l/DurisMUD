@@ -6343,9 +6343,6 @@ void nanny(P_desc d, char *arg)
   char     Gbuf1[MAX_STRING_LENGTH];
   char     Gbuf2[MAX_STRING_LENGTH];
 
-  if (nanny_account_flow(d, arg))
-    return;
-
   switch (STATE(d))
   {
 
@@ -6371,10 +6368,14 @@ void nanny(P_desc d, char *arg)
 #ifdef USE_ACCOUNT
     // Select Account Name
   case CON_GET_ACCT_NAME:
+    if (nanny_account_flow(d, arg))
+      break;
     select_accountname(d, arg);
     break;
 
   case CON_GET_ACCT_PASSWD:
+    if (nanny_account_flow(d, arg))
+      break;
     get_account_password(d, arg);
     break;
 /*
@@ -6392,76 +6393,112 @@ void nanny(P_desc d, char *arg)
 
 #ifdef REQUIRE_EMAIL_VERIFICATION
   case CON_CONFIRM_ACCT:
+    if (nanny_account_flow(d, arg))
+      break;
     confirm_account(d, arg);
     break;
 #endif
 
   case CON_VERIFY_NEW_ACCT_NAME:
+    if (nanny_account_flow(d, arg))
+      break;
     verify_account_name(d, arg);
     break;
 
   case CON_GET_NEW_ACCT_EMAIL:
+    if (nanny_account_flow(d, arg))
+      break;
     get_new_account_email(d, arg);
     break;
 
   case CON_VERIFY_NEW_ACCT_EMAIL:
+    if (nanny_account_flow(d, arg))
+      break;
     verify_new_account_email(d, arg);
     break;
 
   case CON_GET_NEW_ACCT_PASSWD:
+    if (nanny_account_flow(d, arg))
+      break;
     get_new_account_password(d, arg);
     break;
 
   case CON_VERIFY_NEW_ACCT_PASSWD:
+    if (nanny_account_flow(d, arg))
+      break;
     verify_new_account_password(d, arg);
     break;
 
   case CON_VERIFY_NEW_ACCT_INFO:
+    if (nanny_account_flow(d, arg))
+      break;
     verify_new_account_information(d, arg);
     break;
 
   case CON_ACCT_SELECT_CHAR:
+    if (nanny_account_flow(d, arg))
+      break;
     account_select_char(d, arg);
     break;
 
   case CON_ACCT_CONFIRM_CHAR:
+    if (nanny_account_flow(d, arg))
+      break;
     account_confirm_char(d, arg);
     break;
 
   case CON_ACCT_NEW_CHAR:
+    if (nanny_account_flow(d, arg))
+      break;
     account_new_char(d, arg);
     break;
 
   case CON_ACCT_DELETE_CHAR:
+    if (nanny_account_flow(d, arg))
+      break;
     account_delete_char(d, arg);
     break;
 
   case CON_ACCT_DISPLAY_INFO:
+    if (nanny_account_flow(d, arg))
+      break;
     account_display_info(d, arg);
     break;
 
   case CON_ACCT_CHANGE_EMAIL:
+    if (nanny_account_flow(d, arg))
+      break;
     get_new_account_email(d, arg);
     break;
 
   case CON_ACCT_CHANGE_PASSWD:
+    if (nanny_account_flow(d, arg))
+      break;
     get_new_account_password(d, arg);
     break;
 
   case CON_ACCT_DELETE_ACCT:
+    if (nanny_account_flow(d, arg))
+      break;
     delete_account(d, arg);
     break;
 
   case CON_ACCT_VERIFY_DELETE_ACCT:
+    if (nanny_account_flow(d, arg))
+      break;
     verify_delete_account(d, arg);
     break;
 
   case CON_ACCT_NEW_CHAR_NAME:
+    if (nanny_account_flow(d, arg))
+      break;
     account_new_char_name(d, arg);
     break;
 
   case CON_ACCT_RMOTD:
     // User pressed RETURN after reading MOTD, show account menu
+    if (nanny_account_flow(d, arg))
+      break;
     display_account_menu(d, NULL);
     STATE(d) = CON_DISPLAY_ACCT_MENU;
     break;
@@ -6514,11 +6551,15 @@ void nanny(P_desc d, char *arg)
 
     /* Player enteres in login */
   case CON_ENTER_LOGIN:
+    if (nanny_account_flow(d, arg))
+      break;
     snprintf(d->registered_login, MAX_STRING_LENGTH, "%s", arg);
     SEND_TO_Q("\n\rNow, the hostname part of your email address: ", d);
     STATE(d) = CON_ENTER_HOST;
     break;
   case CON_ENTER_HOST:
+    if (nanny_account_flow(d, arg))
+      break;
     snprintf(d->registered_host, MAX_STRING_LENGTH, "%s", arg);
     if (email_in_use(d->registered_login, d->registered_host))
     {
@@ -6533,6 +6574,8 @@ void nanny(P_desc d, char *arg)
     STATE(d) = CON_CONFIRM_EMAIL;
     break;
   case CON_CONFIRM_EMAIL:
+    if (nanny_account_flow(d, arg))
+      break;
     for (; isspace(*arg); arg++) ;
     if (*arg == 'y' || *arg == 'Y')
     {                           /* continue */
@@ -6604,6 +6647,8 @@ void nanny(P_desc d, char *arg)
   case CON_PWD_NO_CONF:
   case CON_PWD_D_CONF:
   case CON_PWD_NORM:
+    if (nanny_account_flow(d, arg))
+      break;
     /* skip whitespaces */
     for (; isspace(*arg); arg++) ;
 
