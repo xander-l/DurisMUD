@@ -103,6 +103,7 @@ extern bool is_dragoon_mount(P_char mount);
 extern bool is_in_dragoon_group(P_char ch, P_char vict);
 extern int get_next_dragoon_circle(P_char ch);
 extern P_char get_dragoon_mount(P_char ch);
+extern void do_point(P_char ch, P_char victim);
 
 // THE NEXT PERSON THAT OUTRIGHT COPIES A SPELL JUST TO CHANGE THE NAME/MESSAGES
 // IT OUTPUTS IS GOING TO BE CASTRATED BY ME AND FORCED TO EAT THEIR OWN GENITALIA.
@@ -22642,6 +22643,7 @@ void spell_edictum_cineris(int level, P_char ch, char *arg, int type,
                        P_char victim, P_obj obj)
 {
   send_to_char("You cast Pyroclastar's edictum cineris. -- not finished", ch);  
+  do_point(ch, victim);
 }
 
 void spell_sigillum_negati(int level, P_char ch, char *arg, int type,
