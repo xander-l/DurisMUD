@@ -64,7 +64,6 @@ extern P_room world;
 extern struct class_names class_names_table[];
 extern const char *color_liquid[];
 extern const char *command[];
-extern const char *connected_types[];
 extern const char *craftsmanship_names[];
 extern const char *dirs[];
 extern const char *event_names[];
@@ -6681,7 +6680,7 @@ void do_who(P_char ch, char *argument, int cmd)
 
     timer = tch->desc->character->specials.timer;
     tchReal = (tch->desc->original != NULL) ? tch->desc->original : tch->desc->character;
-    sprinttype(tch->desc->connected, connected_types, buf5);
+    snprintf(buf5, MAX_STRING_LENGTH, "%s", connected_type_name(tch->desc->connected));
 
     snprintf(buf4, MAX_STRING_LENGTH, "&+YDesc: &n%3d&+Y, Idle: &n%3ld&+Y, Lvl:&n%3d&+Y, Switched: &n%c&+Y, Name: &n%s\n\r"
       "&+YRoom: &n%6d&+Y, Vis level: &n%d&+Y, Connection: &n%-11s %15s\n\r\n\r",
@@ -6800,7 +6799,7 @@ void do_users(P_char ch, char *argument, int cmd)
       continue;
     }
 
-    sprinttype(d->connected, connected_types, connbuf);
+    snprintf(connbuf, MAX_STRING_LENGTH, "%s", connected_type_name(d->connected));
 
     if( d->host )
     {
@@ -6924,7 +6923,7 @@ void do_users_DEPRECATED(P_char ch, char *argument, int cmd)
     else
       strcat(line, "     &+mNONE&n           ");
 
-    sprinttype(d->connected, connected_types, buf2);
+    snprintf(buf2, MAX_STRING_LENGTH, "%s", connected_type_name(d->connected));
     snprintf(line + strlen(line), MAX_STRING_LENGTH - strlen(line), "  %11s", buf2);
 
     /*
