@@ -6927,8 +6927,8 @@ void nanny(P_desc d, char *arg)
      * Approval stays inline (no new connection state) to keep the decision tied
      * to the disclaimer response handler. Returning players go to CON_RMOTD,
      * while new untrusted players in approve_mode go to CON_ACCEPTWAIT. Moving
-     * this logic would force renumbering connection states (structs.h,
-     * constant.c connected_types, and callers), so it remains here. -Liskin
+     * this logic would force renumbering connection states (structs.h and
+     * callers), so it remains here. -Liskin
      */
     for (; isspace(*arg); arg++) ;
     switch (*arg)

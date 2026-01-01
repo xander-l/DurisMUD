@@ -41,7 +41,6 @@ extern const flagDef aggro_bits[];
 extern const flagDef aggro2_bits[];
 extern const flagDef aggro3_bits[];
 extern const char *apply_types[];
-extern const char *connected_types[];
 extern const char *dirs[];
 extern const char *exit_bits[];
 extern const flagDef extra_bits[];
