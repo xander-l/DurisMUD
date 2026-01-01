@@ -4810,6 +4810,11 @@ void select_main_menu(P_desc d, char *arg)
     }
     d->str = &d->character->player.description;
     d->max_str = 1024;
+    /* select_main_menu() sets d->str and STATE(d); string_add() handles input and
+       clears d->str; nanny() returns to CON_MAIN_MENU when d->str is cleared.
+       We do not drive an explicit state transition here because the editor
+       loop owns completion and signals it by clearing d->str.
+       -Liskin */
     STATE(d) = CON_GET_EXTRA_DESC;
     break;
   case '5':                    /* delete char */
@@ -7069,6 +7074,11 @@ void nanny(P_desc d, char *arg)
     break;
 
   case CON_GET_EXTRA_DESC:
+    /* select_main_menu() sets d->str and STATE(d); string_add() handles input and
+       clears d->str; nanny() returns to CON_MAIN_MENU when d->str is cleared.
+       We do not drive an explicit state transition here because the editor
+       loop owns completion and signals it by clearing d->str.
+       -Liskin */
     if (d->str)
     {
       string_add(d, arg);
