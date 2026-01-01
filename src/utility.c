@@ -1089,6 +1089,203 @@ void sprinttype(int type, const char *names[], char *result)
     strcpy(result, "UNDEFINED");
 }
 
+/*
+ * Switch-based mapping avoids fragile index/offset-based lookups tied to
+ * connection state numbering changes. -Liskin
+ */
+/* Legacy connection states are retained by explicit values to avoid magic numbers. -Liskin */
+enum
+{
+  CON_PUNTCNF = 9,
+  CON_LDEAD = 11,
+  CON_LINKVR = 31,
+  CON_LINKSET = 32,
+  CON_PICKSIDE = 55
+};
+const char *connected_type_name(int state)
+{
+  switch (state)
+  {
+    case CON_PLAYING:
+      return "PLAYING";
+    case CON_NAME:
+      return "GET_NAME";
+    case CON_NAME_CONF:
+      return "CONF_NAME";
+    case CON_PWD_NORM:
+      return "GET_PWD";
+    case CON_PWD_GET:
+      return "GET_N_PWD";
+    case CON_PWD_CONF:
+      return "CONF_N_PWD";
+    case CON_GET_SEX:
+      return "PICK_SEX";
+    case CON_RMOTD:
+      return "READ_MOTD";
+    case CON_MAIN_MENU:
+      return "MENU";
+    case CON_GET_CLASS:
+      return "PICK_CLASS";
+    case CON_PWD_NEW:
+      return "CONF_PWD";
+    case CON_PWD_NO_CONF:
+      return "CONF_C_PWD";
+    case CON_FLUSH:
+      return "FLUSH";
+    case CON_PWD_GET_NEW:
+      return "GET_C_PWD";
+    case CON_PWD_D_CONF:
+      return "CONF_D_PWD";
+    case CON_GET_RACE:
+      return "PICK_RACE";
+    case CON_GET_TERM:
+      return "PICK_TERM";
+    case CON_GET_EXTRA_DESC:
+      return "DESCRIBE";
+    case CON_GET_RETURN:
+      return "DISCLAIMER";
+    case CON_DSCLMR1:
+      return "DISCLAIMR1";
+    case CON_DSCLMR2:
+      return "DISCLAIMR2";
+    case CON_DSCLMR3:
+      return "DISCLAIMR3";
+    case CON_DSCLMR4:
+      return "DISCLAIMR4";
+    case CON_DSCLMR5:
+      return "DISCLAIMR5";
+    case CON_DSCLMR6:
+      return "DISCLAIMR6";
+    case CON_DISCLMR:
+      return "AGREE_DSCL";
+    case CON_SHOW_CLASS_RACE_TABLE:
+      return "CLASS_INFO";
+    case CON_ACCTINFO:
+      return "UNUSED";
+    case CON_SHOW_RACE_TABLE:
+      return "RACEWARS";
+    case CON_APPROPRIATE_NAME:
+      return "APROP_NAME";
+    case CON_DELETE:
+      return "DELETE";
+    case CON_REROLL:
+      return "REROLLING";
+    case CON_BONUS1:
+      return "BONUS1";
+    case CON_BONUS2:
+      return "BONUS2";
+    case CON_BONUS3:
+      return "BONUS3";
+    case CON_KEEPCHAR:
+      return "KEEPCHAR";
+    case CON_ALIGN:
+      return "ALIGN";
+    case CON_HOMETOWN:
+      return "HOMETOWN";
+    case CON_ACCEPTWAIT:
+      return "ACCEPTWAIT";
+    case CON_WELCOME:
+      return "WELCOME";
+    case CON_NEW_NAME:
+      return "NEWNAME";
+    case CON_HOST_LOOKUP:
+      return "HOST_LOOKUP";
+    case CON_OEDIT:
+      return "OOLC";
+    case CON_REDIT:
+      return "ROLC";
+    case CON_ZEDIT:
+      return "ZOLC";
+    case CON_MEDIT:
+      return "MOLC";
+    case CON_SEDIT:
+      return "SOLC";
+    case CON_QEDIT:
+      return "QOLC";
+    case CON_BONUS4:
+      return "BONUS4";
+    case CON_BONUS5:
+      return "BONUS5";
+    case CON_TEXTED:
+      return "TEXT_EDITOR";
+    case CON_ENTER_LOGIN:
+      return "ENTER_LOGIN";
+    case CON_ENTER_HOST:
+      return "ENTER_HOST";
+    case CON_CONFIRM_EMAIL:
+      return "CONFIRM_EMAIL";
+    case CON_EXIT:
+      return "EXIT";
+    case CON_GET_ACCT_NAME:
+      return "GET_ACCT_NAME";
+    case CON_GET_ACCT_PASSWD:
+      return "GET_ACCT_PASSWD";
+    case CON_IS_ACCT_CONFIRMED:
+      return "IS_ACCT_CONFIRMED";
+    case CON_DISPLAY_ACCT_MENU:
+      return "DISPLAY_ACCT_MENU";
+    case CON_CONFIRM_ACCT:
+      return "CONFIRM_ACCT";
+    case CON_VERIFY_NEW_ACCT_NAME:
+      return "VERIFY_NEW_ACCT_NAME";
+    case CON_GET_NEW_ACCT_EMAIL:
+      return "GET_NEW_ACCT_EMAIL";
+    case CON_VERIFY_NEW_ACCT_EMAIL:
+      return "VERIFY_NEW_ACCT_EMAIL";
+    case CON_GET_NEW_ACCT_PASSWD:
+      return "NEW_ACCT_PASSWD";
+    case CON_VERIFY_NEW_ACCT_PASSWD:
+      return "VERIFY_NEW_ACCT_PASSWD";
+    case CON_VERIFY_NEW_ACCT_INFO:
+      return "VERIFY_NEW_ACCT_INFO";
+    case CON_ACCT_SELECT_CHAR:
+      return "ACCT_SELECT_CHAR";
+    case CON_ACCT_NEW_CHAR:
+      return "ACCT_NEW_CHAR";
+    case CON_ACCT_DELETE_CHAR:
+      return "ACCT_DELETE_CHAR";
+    case CON_ACCT_DISPLAY_INFO:
+      return "ACCT_DISPLAY_INFO";
+    case CON_ACCT_CHANGE_EMAIL:
+      return "ACCT_CHANGE_EMAIL";
+    case CON_ACCT_CHANGE_PASSWD:
+      return "ACCT_CHANGE_PASSWD";
+    case CON_ACCT_DELETE_ACCT:
+      return "ACCT_DELETE_ACCT";
+    case CON_ACCT_VERIFY_DELETE_ACCT:
+      return "VERIFY_ACCT_DELETE_ACCT";
+    case CON_VERIFY_ACCT_INFO:
+      return "VERIFY_ACCT_INFO";
+    case CON_ACCT_NEW_CHAR_NAME:
+      return "ACCT_NEW_CHAR_NAME";
+    case CON_HARDCORE:
+      return "HARDCORE";
+    case CON_NEWBIE:
+      return "NEWBIE";
+    case CON_SWAPSTATYN:
+      return "SWAPSTATYN";
+    case CON_SWAPSTAT:
+      return "SWAPSTAT";
+    case CON_ACCT_CONFIRM_CHAR:
+      return "ACCT_CONFIRM_CHAR";
+    case CON_ACCT_RMOTD:
+      return "ACCT_RMOTD";
+    case CON_PUNTCNF:
+      return "CONF_PUNT";
+    case CON_LDEAD:
+      return "LINK_DEAD";
+    case CON_LINKVR:
+      return "LINKVR";
+    case CON_LINKSET:
+      return "LINKSET";
+    case CON_PICKSIDE:
+      return "PICK_SIDE";
+    default:
+      logit(LOG_WARN, "connected_type_name: unmapped connection state %d", state);
+      return "UNDEFINED";
+  }
+}
+
 struct time_info_data real_time_countdown(time_t t2, time_t t1, int max_sec)
 {
   long secs;

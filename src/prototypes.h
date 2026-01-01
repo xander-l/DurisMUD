@@ -3038,6 +3038,7 @@ void logit(const char *, const char *,...);
 void sprint64bit(ulong *, const char **, char *);
 void sprintbit(ulong, const char **, char *);
 void sprinttype(int, const char **, char *);
+const char *connected_type_name(int);
 void loginlog(int, const char*,...);
 void statuslog(int, const char *,...);
 void banlog(int, const char *,...);
@@ -3179,4 +3180,3 @@ void do_deaths_door(P_char ch, char *arg, int cmd);
 void do_smoke(P_char ch, char *arg, int cmd);
 
 #endif /* _SOJ_PROTOTYPES_H_ */
-

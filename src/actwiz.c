@@ -74,7 +74,6 @@ extern const flagDef anti2_bits[];
 extern const char *apply_types[];
 extern const struct class_names class_names_table[];
 extern const char *command[];
-extern const char *connected_types[];
 extern const char *dirs[];
 extern const char *drinks[];
 extern const char *equipment_types[];
@@ -2683,7 +2682,7 @@ void do_stat(P_char ch, char *argument, int cmd)
     if(IS_PC(k))
     {
       if(k->desc)
-        sprinttype(k->desc->connected, connected_types, buf2);
+        snprintf(buf2, MAX_STRING_LENGTH, "%s", connected_type_name(k->desc->connected));
       else
         strcpy(buf2, "");
       snprintf(buf, MAX_STRING_LENGTH,

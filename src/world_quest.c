@@ -59,7 +59,6 @@ extern P_room world;
 extern struct class_names class_names_table[];
 extern const char *color_liquid[];
 extern const char *command[];
-extern const char *connected_types[];
 extern const char *craftsmanship_names[];
 extern const char *dirs[];
 extern const char *event_names[];
@@ -1179,5 +1178,4 @@ int calc_zone_mob_level()
   free(mob_count);
   return 0;
 }
-
 

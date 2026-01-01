@@ -64,7 +64,6 @@ extern struct time_info_data time_info;
 extern struct arena_data arena;
 extern P_event event_list;
 extern const int dam_cap_data[];
-extern const char *connected_types[];
 
 static char buf[MAX_INPUT_LENGTH];
 
