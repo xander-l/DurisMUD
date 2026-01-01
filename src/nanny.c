@@ -5246,14 +5246,20 @@ void select_race(P_desc d, char *arg)
 
   // not anymore, it's sex/class baby
 
+  /* Invite mode restricts evil races to invited players only. */
+  /* Uninvited players selecting evil races are looped back to race select. */
+  /* consider deprecating. this mode is never used - Liskin */
   if (invitemode && EVIL_RACE(d->character) &&
       !is_invited(GET_NAME(d->character)))
   {
     SEND_TO_Q("\r\nSorry, but only those players that have been invited can roll evil characters.\r\n\r\n", d);
 
-    // since STATE is not changed, player should be forced back into race selection
+    // explicitly reset state and prompt so the player returns to race selection
 
     GET_RACE(d->character) = RACE_NONE;
+    SEND_TO_Q(racetable, d);
+    STATE(d) = CON_GET_RACE;
+    return;
   }
   else if ((GET_RACE(d->character) != RACE_ILLITHID) &&
            (GET_RACE(d->character) != RACE_PILLITHID))
