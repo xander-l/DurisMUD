@@ -6938,7 +6938,6 @@ void nanny(P_desc d, char *arg)
       SEND_TO_Q("\r\n\r\nThank you for considering our mud.\r\n", d);
       close_socket(d);
       return;
-      break;
     case 'Y':
     case 'y':
       SEND_TO_Q
@@ -6948,7 +6947,6 @@ void nanny(P_desc d, char *arg)
     default:
       SEND_TO_Q("\r\nThat is not a correct response. Try again.\r\n", d);
       return;
-      break;
     }
     if (pfile_exists("Players/Accepted", GET_NAME(d->character)))
     {
