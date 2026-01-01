@@ -6932,7 +6932,11 @@ void nanny(P_desc d, char *arg)
       SEND_TO_Q
         ("\r\n\r\nYou have selected Yes, and hereby agree to all conditions in the set of rules.\r\n",
          d);
-      // Note: Actual approval logic is handled in the code after this switch statement
+      // Note: Disclaimer acceptance and approval decision are intentionally merged here
+      // to keep the state transition close to the response handling. Fixing this would
+      // require a full renumbering of the connection states (src/structs.h, plus
+      // connected_types in src/constant.c and any related state consumers), so I'm
+      // leaving it for now. -Liskin
       break;
     default:
       SEND_TO_Q("\r\nThat is not a correct response. Try again.\r\n", d);
