@@ -6923,6 +6923,13 @@ void nanny(P_desc d, char *arg)
 
     /* response to disclaimer */
   case CON_DISCLMR:
+    /*
+     * Approval stays inline (no new connection state) to keep the decision tied
+     * to the disclaimer response handler. Returning players go to CON_RMOTD,
+     * while new untrusted players in approve_mode go to CON_ACCEPTWAIT. Moving
+     * this logic would force renumbering connection states (structs.h,
+     * constant.c connected_types, and callers), so it remains here. -Liskin
+     */
     for (; isspace(*arg); arg++) ;
     switch (*arg)
     {
@@ -6937,11 +6944,6 @@ void nanny(P_desc d, char *arg)
       SEND_TO_Q
         ("\r\n\r\nYou have selected Yes, and hereby agree to all conditions in the set of rules.\r\n",
          d);
-      // Note: Disclaimer acceptance and approval decision are intentionally merged here
-      // to keep the state transition close to the response handling. Fixing this would
-      // require a full renumbering of the connection states (src/structs.h, plus
-      // connected_types in src/constant.c and any related state consumers), so I'm
-      // leaving it for now. -Liskin
       break;
     default:
       SEND_TO_Q("\r\nThat is not a correct response. Try again.\r\n", d);
