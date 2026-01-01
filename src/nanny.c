@@ -7058,6 +7058,18 @@ void nanny(P_desc d, char *arg)
     STATE(d) = CON_GET_TERM;
     break;
 
+  case CON_GET_EXTRA_DESC:
+    if (d->str)
+    {
+      string_add(d, arg);
+    }
+    else
+    {
+      SEND_TO_Q(MENU, d);
+      STATE(d) = CON_MAIN_MENU;
+    }
+    break;
+
     /* Flush output messages, then kill the descriptor */
   case CON_FLUSH:
   default:
