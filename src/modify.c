@@ -949,7 +949,7 @@ void string_add(struct descriptor_data *d, char *str)
 
       SEND_TO_Q("Description aborted.\r\n", d);
       SEND_TO_Q(MENU, d);
-      d->connected = CON_MAIN_MENU;
+      STATE(d) = CON_MAIN_MENU;
     }
     else if ((d->str) && (*d->str) && (**d->str == '\0'))
     {
@@ -964,7 +964,7 @@ void string_add(struct descriptor_data *d, char *str)
       {
         SEND_TO_Q("Description cleared.\r\n", d);
         SEND_TO_Q(MENU, d);
-        d->connected = CON_MAIN_MENU;
+        STATE(d) = CON_MAIN_MENU;
       }
     }
     else if (!d->connected && (IS_SET(d->character->specials.act, PLR_MAIL)))
@@ -986,7 +986,7 @@ void string_add(struct descriptor_data *d, char *str)
       if (terminator != 1)
         SEND_TO_Q("Description aborted.\r\n", d);
       SEND_TO_Q(MENU, d);
-      d->connected = CON_MAIN_MENU;
+      STATE(d) = CON_MAIN_MENU;
     }
     else if (STATE(d) == CON_TEXTED)
     {
