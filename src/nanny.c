@@ -3311,9 +3311,6 @@ void enter_game(P_desc d)
       r_room = ch->in_room;
   }
 
-  if (zone_table[world[r_room].zone].flags & ZONE_CLOSED)
-    r_room = real_room(GET_BIRTHPLACE(ch));
-
   if (ch->only.pc->pc_timer[PC_TIMER_HEAVEN] > ct)
   {
     if( IS_RACEWAR_GOOD(ch) )
@@ -3366,6 +3363,10 @@ void enter_game(P_desc d)
   // Stick them in An Empty Dimension
   if( r_room < 0 )
     r_room = real_room(1197);
+
+  // Moved ZONE_CLOSED check after r_room validation to avoid indexing world[] with an invalid room; old order could crash the server on login when r_room was NOWHERE. -Liskin
+  if (zone_table[world[r_room].zone].flags & ZONE_CLOSED)
+    r_room = real_room(GET_BIRTHPLACE(ch));
 
   // check home/birthplace/spawn room to see if it's in a GH and if ch is allowed
   r_room = check_gh_home(ch, r_room);
