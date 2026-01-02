@@ -4285,7 +4285,9 @@ void select_name(P_desc d, char *arg, int flag)
                                    mm_find_best_chunk(sizeof
                                                       (struct pc_only_data),
                                                       10, 25));
-    d->character->only.pc = (struct pc_only_data *) mm_get(dead_pconly_pool);
+  d->character->only.pc = (struct pc_only_data *) mm_get(dead_pconly_pool);
+  /* Zero-initialize pc_only_data to avoid uninitialized flags/timers before init_char; otherwise garbage values could cause undefined behavior in login flow. -Liskin */
+  memset(d->character->only.pc, 0, sizeof(struct pc_only_data));
 
     d->character->only.pc->aggressive = -1;
     d->character->desc = d;
