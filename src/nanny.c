@@ -4230,6 +4230,7 @@ void select_name(P_desc d, char *arg, int flag)
   char     tmp_name[MAX_INPUT_LENGTH];
   char     Gbuf1[MAX_STRING_LENGTH];
   P_desc   t_d = NULL;
+  P_desc   next = NULL;
   int      i = 1;
 
   for (; isspace(*arg); arg++) ;
@@ -4249,7 +4250,10 @@ void select_name(P_desc d, char *arg, int flag)
   }
   else
   {
-    for (t_d = descriptor_list; t_d; t_d = t_d->next)
+    /* Safe iteration: cache next before close_socket; close_socket frees current descriptor, and old t_d->next access risked use-after-free crashes. -Liskin */
+    for (t_d = descriptor_list; t_d; t_d = next)
+    {
+      next = t_d->next;
       if ((t_d != d) && t_d->character && t_d->connected &&
           !str_cmp(tmp_name, GET_NAME(t_d->character)))
       {
@@ -4263,6 +4267,7 @@ void select_name(P_desc d, char *arg, int flag)
         return;
         */
       }
+    }
   }
 
   /* capitalize the first letter of name */
@@ -4584,6 +4589,7 @@ void select_pwd(P_desc d, char *arg)
 {
   P_char   tmp_ch;
   P_desc   k;
+  P_desc   next;
   char     Gbuf1[MAX_STRING_LENGTH];
 
   switch (STATE(d))
@@ -4612,9 +4618,10 @@ void select_pwd(P_desc d, char *arg)
         return;
       }
 
-      /* Check if already playing */
-      for (k = descriptor_list; k; k = k->next)
+      /* Safe iteration: cache next before close_socket; close_socket frees current descriptor, and old k->next access risked use-after-free crashes. -Liskin */
+      for (k = descriptor_list; k; k = next)
       {
+        next = k->next;
         if ((k->character != d->character) && k->character)
         {
           if (k->original)
