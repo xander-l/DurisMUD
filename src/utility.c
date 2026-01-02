@@ -6213,6 +6213,7 @@ char *CRYPT2( char *passwd, char *name )
   {
     snprintf(buf, 40, "$1$" );
     strncpy( buf+3, name, 8 );
+    buf[11] = '\0';
     strcat( buf, "$" );
   }
   else
