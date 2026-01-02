@@ -4104,13 +4104,27 @@ void select_terminal(P_desc d, char *arg)
   case TERM_MSP:
     d->term_type = TERM_MSP;
     arg = one_argument(arg, temp_buf);
-    snprintf(d->client_str, sizeof(d->client_str), "%s", arg); /* Bounded copy replacing strcpy to avoid overrun of fixed-size client_str; old unbounded copy from user input could overflow. -Liskin */
+    /* NULL guard after one_argument; one_argument returns NULL on overlong input, and old code risked a NULL dereference crash (e.g., a client sends a very long terminal ID to force one_argument to return NULL and crash). -Liskin */
+    if (arg == NULL)
+    {
+      logit(LOG_BUG, "select_terminal: one_argument returned NULL for MSP terminal.");
+      d->client_str[0] = '\0';
+    }
+    else
+      snprintf(d->client_str, sizeof(d->client_str), "%s", arg); /* Bounded copy replacing strcpy to avoid overrun of fixed-size client_str; old unbounded copy from user input could overflow. -Liskin */
     SEND_TO_Q(greetinga, d);
     break;
   case TERM_ANSI:
     d->term_type = TERM_ANSI;
     arg = one_argument(arg, temp_buf);
-    snprintf(d->client_str, sizeof(d->client_str), "%s", arg); /* Bounded copy replacing strcpy to avoid overrun of fixed-size client_str; old unbounded copy from user input could overflow. -Liskin */
+    /* NULL guard after one_argument; one_argument returns NULL on overlong input, and old code risked a NULL dereference crash (e.g., a client sends a very long terminal ID to force one_argument to return NULL and crash). -Liskin */
+    if (arg == NULL)
+    {
+      logit(LOG_BUG, "select_terminal: one_argument returned NULL for ANSI terminal.");
+      d->client_str[0] = '\0';
+    }
+    else
+      snprintf(d->client_str, sizeof(d->client_str), "%s", arg); /* Bounded copy replacing strcpy to avoid overrun of fixed-size client_str; old unbounded copy from user input could overflow. -Liskin */
 
     temp = number(1, NUM_ANSI_LOGINS);
     switch (temp)
