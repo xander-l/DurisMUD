@@ -4705,6 +4705,20 @@ void select_pwd(P_desc d, char *arg)
         STATE(d) = CON_NAME;
         return;
       }
+      else if (d->rtype == -1)
+      {
+        /* Explicit -1 handling: file can disappear between password and load; old code proceeded with a partially-initialized character, risking crashes. -Liskin */
+        SEND_TO_Q("Your player file could not be found. Please choose another name.\r\n", d);
+        logit(LOG_PLAYER, "Pfile missing during login for %s from %s@%s.",
+              GET_NAME(d->character), d->login, d->host);
+        if (d->character)
+        {
+          free_char(d->character);
+          d->character = NULL;
+        }
+        STATE(d) = CON_NAME;
+        return;
+      }
 
       if( IS_SET(game_locked, LOCK_CONNECTIONS) && !IS_TRUSTED(d->character) )
       {
