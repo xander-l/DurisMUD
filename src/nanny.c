@@ -3546,6 +3546,7 @@ void enter_game(P_desc d)
             }
 
             // Pull evp from ne_schedule[] list.
+            bool schedule_error = FALSE;
             // If we're not at the end.
             if( evp->next_sched )
             {
@@ -3557,7 +3558,22 @@ void enter_game(P_desc d)
             }
             else
             {
-              raise(SIGSEGV);
+              schedule_error = TRUE;
+            }
+
+            if( schedule_error )
+            {
+              // Safe recovery/logging instead of SIGSEGV to avoid server-wide crash on list inconsistency; one corrupted list entry can terminate the whole process. -Liskin
+              logit( LOG_DEBUG, "enter_game: offline affect reschedule list tail mismatch evp %p element %d timer %d ch '%s' %d affect '%s'.",
+                (void *)evp, evp->element, evp->timer, J_NAME(ch), IS_ALIVE(ch) ? GET_ID(ch) : -1,
+                skills[afp1->type].name );
+              wizlog( AVATAR, "enter_game: offline affect reschedule list tail mismatch evp %p element %d timer %d ch '%s' %d affect '%s' (check logs).",
+                (void *)evp, evp->element, evp->timer, J_NAME(ch), IS_ALIVE(ch) ? GET_ID(ch) : -1,
+                skills[afp1->type].name );
+              clear_nevent( evp );
+              wear_off_message( ch, afp1 );
+              affect_remove( ch, afp1 );
+              break;
             }
 
             // If we're not at the beginning.
@@ -3571,7 +3587,21 @@ void enter_game(P_desc d)
             }
             else
             {
-              raise(SIGSEGV);
+              schedule_error = TRUE;
+            }
+
+            if( schedule_error )
+            {
+              logit( LOG_DEBUG, "enter_game: offline affect reschedule list head mismatch evp %p element %d timer %d ch '%s' %d affect '%s'.",
+                (void *)evp, evp->element, evp->timer, J_NAME(ch), IS_ALIVE(ch) ? GET_ID(ch) : -1,
+                skills[afp1->type].name );
+              wizlog( AVATAR, "enter_game: offline affect reschedule list head mismatch evp %p element %d timer %d ch '%s' %d affect '%s' (check logs).",
+                (void *)evp, evp->element, evp->timer, J_NAME(ch), IS_ALIVE(ch) ? GET_ID(ch) : -1,
+                skills[afp1->type].name );
+              clear_nevent( evp );
+              wear_off_message( ch, afp1 );
+              affect_remove( ch, afp1 );
+              break;
             }
 
             // Update the timer.  The +1 is because we want the range from 1..MAX not 0..MAX,

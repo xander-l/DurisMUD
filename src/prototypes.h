@@ -893,6 +893,7 @@ void zone_purge(int);
 /* new_events.c */
 
 void check_nevents();
+void clear_nevent(P_nevent);
 void disarm_single_event(P_nevent);
 
 // epic.c
