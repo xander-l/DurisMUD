@@ -3064,9 +3064,10 @@ bool valid_password(P_desc d, char *arg)
   other = ucase = lcase = 0;
   for (p = arg; *p; p++)
   {
-    ucase = ucase || isupper(*p);
-    lcase = lcase || islower(*p);
-    other = other || !isalpha(*p);
+    /* Changed ctype inputs to cast to unsigned char to avoid UB on negative signed chars; unlike the original Linux passwd.c context, this input arrives over the network and can include raw bytes like 0xFF, so the old code could misclassify that byte and let a crafted password bypass checks or trigger undefined behavior. -Liskin */
+    ucase = ucase || isupper((unsigned char)*p);
+    lcase = lcase || islower((unsigned char)*p);
+    other = other || !isalpha((unsigned char)*p);
   }
 
   if ((!ucase || !lcase) && !other)
