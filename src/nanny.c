@@ -5633,18 +5633,29 @@ void display_classtable(P_desc d)
   SEND_TO_Q("\r\n---------------", d);
 
   buf[0] = 0;
+  /* Bounded append with remaining-size guard to prevent underflow/overflow with long class lists or ANSI length growth; old code risked size underflow leading to overflow. -Liskin */
   for (cls = 1; cls <= CLASS_COUNT; cls++)
     if (class_table[GET_RACE(d->character)][cls] != 5)
     {
+      size_t used = strlen(buf);
+      size_t remaining = MAX_STRING_LENGTH - used;
+
       snprintf(template_buf, MAX_STRING_LENGTH, "\r\n%%c) %%-%lds(%%c for help)",
               strlen(class_names_table[cls].ansi) -
               ansi_strlen(class_names_table[cls].ansi) + 20);
-      snprintf(buf + strlen(buf), MAX_STRING_LENGTH - strlen(buf), template_buf, class_names_table[cls].letter,
-              class_names_table[cls].ansi,
-              (class_names_table[cls].letter == '3') ? '#' : toupper(class_names_table[cls].letter));
+      if (remaining > 0)
+        snprintf(buf + used, remaining, template_buf, class_names_table[cls].letter,
+                class_names_table[cls].ansi,
+                (class_names_table[cls].letter == '3') ? '#' : toupper(class_names_table[cls].letter));
     }
 
-  strcat(buf, "\r\n");
+  {
+    size_t used = strlen(buf);
+    size_t remaining = MAX_STRING_LENGTH - used;
+
+    if (remaining > 0)
+      snprintf(buf + used, remaining, "\r\n");
+  }
   SEND_TO_Q(buf, d);
 
   if (GET_RACE(d->character) == RACE_ILLITHID)
