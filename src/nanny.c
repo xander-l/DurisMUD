@@ -3622,7 +3622,8 @@ void enter_game(P_desc d)
     STATE(d) = CON_FLUSH;
   }
 
-  if (!d->host)
+  /* host/login are fixed-size arrays; switched NULL checks to empty-string checks to avoid empty values and bad IP parsing. -Liskin */
+  if (d->host[0] == '\0')
   {
     wizlog(57, "%s had null host.", GET_NAME(ch));
     snprintf(d->host, MAX_STRING_LENGTH, "UNKNOWN");
@@ -3630,7 +3631,7 @@ void enter_game(P_desc d)
 
   ch->only.pc->last_ip = ip2ul(d->host);
 
-  if (!d->login)
+  if (d->login[0] == '\0')
   {
     wizlog(57, "%s had null login.", GET_NAME(ch));
     snprintf(d->login, MAX_STRING_LENGTH, "UNKNOWN");
