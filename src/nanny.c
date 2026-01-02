@@ -4620,7 +4620,8 @@ void select_pwd(P_desc d, char *arg)
     }
     else
     {
-      if( (d->character->only.pc->pwd[0] != '$' && strn_cmp(CRYPT(arg, d->character->only.pc->pwd), d->character->only.pc->pwd, 10))
+      /* Use full hash comparison instead of first 10 chars; legacy crypt() outputs 13 chars, and partial compare weakens auth, risking hash collisions that allow unintended logins. -Liskin */
+      if( (d->character->only.pc->pwd[0] != '$' && strcmp(CRYPT(arg, d->character->only.pc->pwd), d->character->only.pc->pwd))
         || (d->character->only.pc->pwd[0] == '$' && strcmp( CRYPT2(arg, d->character->only.pc->pwd), d->character->only.pc->pwd)) )
       {
         SEND_TO_Q("Invalid password.\r\n", d);
