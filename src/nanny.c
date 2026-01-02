@@ -5386,7 +5386,6 @@ void select_bonus(P_desc d, char *arg)
       break;
     }
     return;
-    break;
   }
 
   if (!i)
@@ -5539,7 +5538,6 @@ void select_class(P_desc d, char *arg)
     SEND_TO_Q("Alignment only affects your character's alignment and not the chosen racewar side.\n", d);
     SEND_TO_Q("\r\nYour selection: ", d);
     return;
-    break;
   }
 
   if (OLD_RACE_GOOD(GET_RACE(d->character), GET_ALIGNMENT(d->character)))
@@ -7374,7 +7372,6 @@ void swapstats(P_char ch, int stat1, int stat2)
     default:
       send_to_char( "Error in swapstats Part 1!  Tell a God.\n\r", ch );
       return;
-      break;
   }
   // Swap: put stat2 value into stat1 and tmp into stat2 value.
   switch( stat2 )
@@ -7418,7 +7415,6 @@ void swapstats(P_char ch, int stat1, int stat2)
     default:
       send_to_char( "Error in swapstats Part 2!  Tell a God.\n\r", ch );
       return;
-      break;
   }
 
   ch->curr_stats = ch->base_stats;
