@@ -4632,6 +4632,8 @@ void select_pwd(P_desc d, char *arg)
                 GET_NAME(d->character), d->login, d->host);
           sql_log(d->character, CONNECTLOG, "Invalid Password");
         }
+        /* Added invalid-password throttling by setting d->wait to a few seconds of pulses to reduce brute-force speed; old behavior enabled cheap password guessing at scale. -Liskin */
+        d->wait = 3 * WAIT_SEC;
         STATE(d) = CON_FLUSH;
         return;
       }
