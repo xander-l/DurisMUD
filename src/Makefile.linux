@@ -19,6 +19,8 @@ CFLAGS = -g -Wno-write-strings -fpermissive -fno-stack-protector -std=c++11 -Wno
 #CFLAGS += -D__NO_MYSQL__
 CFLAGS += -DTEST_MUD
 
+NANNY_SRC ?= nanny.c
+
 # to turn on/off chaos mud, change the flag at the top of db.h
 #CFLAGS += -DCHAOS_MUD=1
 #CFLAGS += -DCTF_MUD=1
@@ -230,6 +232,12 @@ OBJS	=  \
 				 smoke.o \
 				 multiplay_whitelist.o
 
+ifeq ($(MOCK_MYSQL),1)
+	CFLAGS += -DMOCK_MYSQL
+	OBJS += mock_mysql.o
+	GENERAL_LIBS := $(filter-out -lmysqlclient,$(GENERAL_LIBS))
+endif
+
 SHARED_PFILE_OBJS=pf-skills.o \
 									pf-files.o
 
@@ -270,6 +278,9 @@ pfile : $(PFILE_OBJS) $(SHARED_PFILE_OBJS) mm.o common.o
 
 $(DMS_OBJS): %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) $(DEBUG) -c $< -o $@
+
+nanny.o: $(NANNY_SRC)
+	$(CC) $(CFLAGS) $(INCLUDES) $(DEBUG) -c $(NANNY_SRC) -o nanny.o
 
 $(PFILE_OBJS): %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) $(DEBUG) -c $< -o $@
