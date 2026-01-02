@@ -4250,8 +4250,7 @@ void select_name(P_desc d, char *arg, int flag)
 {
   char     tmp_name[MAX_INPUT_LENGTH];
   char     Gbuf1[MAX_STRING_LENGTH];
-  P_desc   t_d = NULL;
-  P_desc   next = NULL;
+  bool     found_existing = FALSE;
   int      i = 1;
 
   /* Cast ctype inputs to unsigned char before isspace/tolower/toupper; ctype is undefined for negative char values, and the old code could hit UB/crash, e.g., a client sending 0xFF so tolower(*arg) is UB and can crash. -Liskin */
@@ -4272,23 +4271,19 @@ void select_name(P_desc d, char *arg, int flag)
   }
   else
   {
-    /* Safe iteration: cache next before close_socket; close_socket frees current descriptor, and old t_d->next access risked use-after-free crashes. -Liskin */
-    for (t_d = descriptor_list; t_d; t_d = next)
+    for (P_desc t_d = descriptor_list; t_d; t_d = t_d->next)
     {
-      next = t_d->next;
       if ((t_d != d) && t_d->character && t_d->connected &&
           !str_cmp(tmp_name, GET_NAME(t_d->character)))
       {
-        close_socket(t_d);
+        found_existing = TRUE;
         break;
-        /*
-        SEND_TO_Q
-          ("Your char is stuck at the menu. Try another name, and ask a god for help, or wait a few minutes for it to clear.",
-           d);
-        SEND_TO_Q("Name: ", d);
-        return;
-        */
       }
+    }
+    /* Stop pre-auth disconnects: we no longer close matching descriptors here (what changed) because disconnecting before authentication enables trivial DoS (why); old behavior let anyone kick a player by typing their name (risk), e.g., a bot repeatedly enters "KnownPlayer" to force disconnects (example). -Liskin */
+    if (found_existing)
+    {
+      SEND_TO_Q("Existing connection detected; enter your password to override it.\r\n", d);
     }
   }
 
@@ -4672,6 +4667,7 @@ void select_pwd(P_desc d, char *arg)
         return;
       }
 
+      /* Close any existing session after successful authentication (moved from select_name to avoid pre-auth disconnect DoS while still letting a player clear their own stuck menu/limbo session). -Liskin */
       /* Safe iteration: cache next before close_socket; close_socket frees current descriptor, and old k->next access risked use-after-free crashes. -Liskin */
       for (k = descriptor_list; k; k = next)
       {
