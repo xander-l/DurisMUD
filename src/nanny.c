@@ -3103,8 +3103,10 @@ void perform_eq_wipe(P_char ch)
   // Delete the locker as well
   snprintf(Gbuf2, MAX_STRING_LENGTH, "%c%s", LOWER(*ch->player.name), ch->player.name + 1 );
   snprintf(Gbuf1, MAX_STRING_LENGTH, "%s/%c/%s.locker", SAVE_DIR, *Gbuf2, Gbuf2 );
-  snprintf(Gbuf2, MAX_STRING_LENGTH, "rm -f %s %s.bak", Gbuf1, Gbuf1 );
-  system( Gbuf2 );
+  snprintf(Gbuf2, MAX_STRING_LENGTH, "%s.bak", Gbuf1 );
+  // Replaced rm -f shell call with remove() on locker and .bak to avoid shell invocation/injection surface from name-derived command. -Liskin
+  remove( Gbuf1 );
+  remove( Gbuf2 );
 
   // Delete the ship too
 /* Not deleting ships this wipe.
