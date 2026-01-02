@@ -6476,7 +6476,8 @@ void newby_announce(P_desc d)
     race_names_table[(int) GET_RACE(d->character)].ansi, get_class_string(d->character, Gbuf2),
     d->character->only.pc->pc_timer[PC_TIMER_HEAVEN]/60, d->character->only.pc->pc_timer[PC_TIMER_HEAVEN] % 60,
     d->descriptor, (d->wait / WAIT_SEC) / 60, (d->wait / WAIT_SEC) % 60,
-    d->login ? d->login : "unknown", d->host ? d->host : "UNKNOWN" );
+    d->login[0] ? d->login : "unknown",
+    d->host[0] ? d->host : "UNKNOWN" ); /* Changed to array-empty checks; login/host arrays are never NULL, previous pointer checks logged empty values instead of fallback. -Liskin */
   for (i = descriptor_list; i; i = i->next)
   {
     if( !i->connected && i->character && IS_SET(i->character->specials.act, PLR_NAMES)
