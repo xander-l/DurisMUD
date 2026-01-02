@@ -4079,7 +4079,7 @@ void select_terminal(P_desc d, char *arg)
 {
   int      term;
   int      temp = 1;
-  char     temp_buf[200];
+  char     temp_buf[MAX_INPUT_LENGTH]; /* temp_buf sized to MAX_INPUT_LENGTH because one_argument does not respect destination size; old code risked stack buffer overflow if a malicious client ID string exceeded 200 bytes. -Liskin */
 
   if ((term = (int) strtol(arg, NULL, 0)) == 0)
   {
