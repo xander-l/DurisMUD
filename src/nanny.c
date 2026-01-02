@@ -4069,6 +4069,9 @@ bool pfile_exists(const char *dir, char *name)
   buff = buf;
   for (; *buff; buff++)
     *buff = LOWER(*buff);
+  // Empty-name guard before path build because buf[0] becomes part of the path; old code risked invalid path use/undefined behavior. -Liskin
+  if (buf[0] == '\0')
+    return FALSE;
   snprintf(Gbuf1, MAX_STRING_LENGTH, "%s/%c/%s", dir, buf[0], buf);
   if (stat(Gbuf1, &statbuf) != 0)
   {
@@ -4095,6 +4098,12 @@ void create_denied_file(const char *dir, char *name)
   buff = buf;
   for (; *buff; buff++)
     *buff = LOWER(*buff);
+  // Empty-name guard before path build because buf[0] becomes part of the path; old code risked invalid path use/undefined behavior. -Liskin
+  if (buf[0] == '\0')
+  {
+    debug("create_denied_file: Empty name; skipping file creation.");
+    return;
+  }
   snprintf(Gbuf1, MAX_STRING_LENGTH, "%s/%c/%s", dir, buf[0], buf);
   if( f = fopen(Gbuf1, "w") )
   {
