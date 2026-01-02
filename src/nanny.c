@@ -4064,7 +4064,8 @@ bool pfile_exists(const char *dir, char *name)
   struct stat statbuf;
   char     Gbuf1[MAX_STRING_LENGTH];
 
-  strcpy(buf, name);
+  // Use bounded copy instead of strcpy because buf is 256 bytes and name length isn't enforced here; old code risked overflow and memory corruption. -Liskin
+  snprintf(buf, sizeof(buf), "%s", name);
   buff = buf;
   for (; *buff; buff++)
     *buff = LOWER(*buff);
@@ -4089,7 +4090,8 @@ void create_denied_file(const char *dir, char *name)
   char     Gbuf1[MAX_STRING_LENGTH];
   FILE    *f;
 
-  strcpy(buf, name);
+  // Use bounded copy instead of strcpy because buf is 256 bytes and name length isn't enforced here; old code risked overflow and memory corruption. -Liskin
+  snprintf(buf, sizeof(buf), "%s", name);
   buff = buf;
   for (; *buff; buff++)
     *buff = LOWER(*buff);
