@@ -4622,6 +4622,31 @@ void reconnect(P_desc d, P_char tmp_ch)
   send_offline_messages(d->character);
 }
 
+static char *crypt2_checked(P_desc d, const char *arg, const char *salt,
+                            int fail_state, const char *fail_msg,
+                            int send_menu)
+{
+  char *crypt_mod = CRYPT2(arg, salt);
+
+  if (!crypt_mod)
+  {
+    logit(LOG_FILE, "crypt returned NULL for %s from %s@%s.",
+          GET_NAME(d->character), d->login, d->host);
+    if (fail_msg)
+    {
+      SEND_TO_Q(fail_msg, d);
+    }
+    STATE(d) = fail_state;
+    if (send_menu)
+    {
+      SEND_TO_Q(MENU, d);
+    }
+    return NULL;
+  }
+
+  return crypt_mod;
+}
+
 void select_pwd(P_desc d, char *arg)
 {
   P_char   tmp_ch;
@@ -4640,15 +4665,10 @@ void select_pwd(P_desc d, char *arg)
     }
     else
     {
-      /* NULL-guarded crypt results; crypt can return NULL under error, and old code risked a NULL dereference crash on login. -Liskin */
-      char *crypt_mod = CRYPT2(arg, d->character->only.pc->pwd);
-      if (!crypt_mod)
-      {
-        logit(LOG_FILE, "crypt returned NULL for %s from %s@%s.",
-              GET_NAME(d->character), d->login, d->host);
-        STATE(d) = CON_FLUSH;
+      char *crypt_mod = NULL;
+      if (!(crypt_mod = crypt2_checked(d, arg, d->character->only.pc->pwd,
+                                       CON_FLUSH, NULL, 0)))
         return;
-      }
       /* Use full hash comparison instead of first 10 chars; partial compare weakens auth, risking hash collisions that allow unintended logins. Legacy CRYPT() removed because all player profiles were wiped and no DES hashes remain, so only modern hashes are expected; note the comparison logic dates back to 2017-01-31 (commit 795e1d6) for validation. -Liskin */
       if (strcmp(crypt_mod, d->character->only.pc->pwd))
       {
@@ -4805,7 +4825,11 @@ void select_pwd(P_desc d, char *arg)
       if( d->character->only.pc->pwd[0] != '$' )
       {
         SEND_TO_Q("\n\r\n\r&=LRUpgrading password - All characters now in use!&n\n\r\n\r", d);
-        strcpy( d->character->only.pc->pwd, CRYPT2(arg, GET_NAME(d->character)) );
+        char *crypt_mod = NULL;
+        if (!(crypt_mod = crypt2_checked(d, arg, GET_NAME(d->character),
+                                         CON_FLUSH, NULL, 0)))
+          return;
+        strcpy(d->character->only.pc->pwd, crypt_mod);
       }
 
       SEND_TO_Q("\r\n*** PRESS RETURN: ", d);
@@ -4824,7 +4848,18 @@ void select_pwd(P_desc d, char *arg)
       echo_off(d);
       return;
     }
-    strcpy( d->character->only.pc->pwd, CRYPT2(arg, d->character->player.name) );
+    {
+      char *crypt_mod = NULL;
+      if (!(crypt_mod = crypt2_checked(
+        d,
+        arg,
+        d->character->player.name,
+        CON_PWD_GET,
+        "\r\nPassword hashing failed; please try again.\r\n",
+        0)))
+        return;
+      strcpy(d->character->only.pc->pwd, crypt_mod);
+    }
     echo_on(d);
     SEND_TO_Q("\r\nPlease retype password: ", d);
     echo_off(d);
@@ -4834,14 +4869,25 @@ void select_pwd(P_desc d, char *arg)
 
     /* confirmation of new password */
   case CON_PWD_CONF:
-    if( strcmp(CRYPT2(arg, d->character->only.pc->pwd), d->character->only.pc->pwd) )
     {
-      echo_on(d);
-      snprintf(Gbuf1, MAX_STRING_LENGTH,"Passwords don't match.\r\nPlease enter a password for %s: ", GET_NAME(d->character));
-      SEND_TO_Q(Gbuf1, d);
-      echo_off(d);
-      STATE(d) = CON_PWD_GET;
-      return;
+      char *crypt_mod = NULL;
+      if (!(crypt_mod = crypt2_checked(
+        d,
+        arg,
+        d->character->only.pc->pwd,
+        CON_PWD_GET,
+        "\r\nPassword confirmation failed; please try again.\r\n",
+        0)))
+        return;
+      if( strcmp(crypt_mod, d->character->only.pc->pwd) )
+      {
+        echo_on(d);
+        snprintf(Gbuf1, MAX_STRING_LENGTH,"Passwords don't match.\r\nPlease enter a password for %s: ", GET_NAME(d->character));
+        SEND_TO_Q(Gbuf1, d);
+        echo_off(d);
+        STATE(d) = CON_PWD_GET;
+        return;
+      }
     }
     echo_on(d);
 
@@ -4855,13 +4901,24 @@ void select_pwd(P_desc d, char *arg)
 
     /* new password for an existing player */
   case CON_PWD_NEW:
-    if( strcmp(CRYPT2(arg, d->character->only.pc->pwd), d->character->only.pc->pwd) )
     {
-      echo_on(d);
-      SEND_TO_Q("\r\nInvalid password, password change aborted.\r\n", d);
-      STATE(d) = CON_MAIN_MENU;
-      SEND_TO_Q(MENU, d);
-      return;
+      char *crypt_mod = NULL;
+      if (!(crypt_mod = crypt2_checked(
+        d,
+        arg,
+        d->character->only.pc->pwd,
+        CON_MAIN_MENU,
+        "\r\nPassword change aborted due to hashing error.\r\n",
+        1)))
+        return;
+      if( strcmp(crypt_mod, d->character->only.pc->pwd) )
+      {
+        echo_on(d);
+        SEND_TO_Q("\r\nInvalid password, password change aborted.\r\n", d);
+        STATE(d) = CON_MAIN_MENU;
+        SEND_TO_Q(MENU, d);
+        return;
+      }
     }
     echo_on(d);
     SEND_TO_Q("\r\nEnter your new password: ", d);
@@ -4878,7 +4935,18 @@ void select_pwd(P_desc d, char *arg)
       echo_off(d);
       return;
     }
-    strcpy(d->character->only.pc->pwd, CRYPT2(arg, d->character->player.name) );
+    {
+      char *crypt_mod = NULL;
+      if (!(crypt_mod = crypt2_checked(
+        d,
+        arg,
+        d->character->player.name,
+        CON_MAIN_MENU,
+        "\r\nPassword hashing failed; please try again later.\r\n",
+        1)))
+        return;
+      strcpy(d->character->only.pc->pwd, crypt_mod);
+    }
     echo_on(d);
     SEND_TO_Q("\r\nPlease retype your new password: ", d);
     echo_off(d);
@@ -4888,15 +4956,29 @@ void select_pwd(P_desc d, char *arg)
     /* Confirm pw for changing pw */
   case CON_PWD_NO_CONF:
     echo_on(d);
-    if( strcmp(CRYPT2(arg, d->character->only.pc->pwd), d->character->only.pc->pwd) )
     {
-      SEND_TO_Q("\r\nPasswords don't match.\r\nPassword change aborted\r\n",
-                d);
-      /* restore old pwd */
-      strcpy(d->character->only.pc->pwd, d->old_pwd);
-      STATE(d) = CON_MAIN_MENU;
-      SEND_TO_Q(MENU, d);
-      return;
+      char *crypt_mod = NULL;
+      if (!(crypt_mod = crypt2_checked(
+        d,
+        arg,
+        d->character->only.pc->pwd,
+        CON_MAIN_MENU,
+        "\r\nPassword change aborted due to hashing error.\r\n",
+        1)))
+      {
+        strcpy(d->character->only.pc->pwd, d->old_pwd);
+        return;
+      }
+      if( strcmp(crypt_mod, d->character->only.pc->pwd) )
+      {
+        SEND_TO_Q("\r\nPasswords don't match.\r\nPassword change aborted\r\n",
+                  d);
+        /* restore old pwd */
+        strcpy(d->character->only.pc->pwd, d->old_pwd);
+        STATE(d) = CON_MAIN_MENU;
+        SEND_TO_Q(MENU, d);
+        return;
+      }
     }
     SEND_TO_Q("Password changed, you must enter game and save and/or rent for the change\r\n"
       "to be made permanent.\r\n", d);
@@ -4909,13 +4991,24 @@ void select_pwd(P_desc d, char *arg)
 
     /* Confirm pw for deleting character */
   case CON_PWD_D_CONF:
-    if( strcmp(CRYPT2(arg, d->character->only.pc->pwd), d->character->only.pc->pwd) )
     {
-      echo_on(d);
-      SEND_TO_Q("\r\nInvalid password, character delete aborted.\r\n", d);
-      STATE(d) = CON_MAIN_MENU;
-      SEND_TO_Q(MENU, d);
-      return;
+      char *crypt_mod = NULL;
+      if (!(crypt_mod = crypt2_checked(
+        d,
+        arg,
+        d->character->only.pc->pwd,
+        CON_MAIN_MENU,
+        "\r\nCharacter delete aborted due to hashing error.\r\n",
+        1)))
+        return;
+      if( strcmp(crypt_mod, d->character->only.pc->pwd) )
+      {
+        echo_on(d);
+        SEND_TO_Q("\r\nInvalid password, character delete aborted.\r\n", d);
+        STATE(d) = CON_MAIN_MENU;
+        SEND_TO_Q(MENU, d);
+        return;
+      }
     }
     SEND_TO_Q("\r\nDeleting character...\r\n\r\n", d);
     statuslog(d->character->player.level, "%s deleted %sself (%s@%s).",
