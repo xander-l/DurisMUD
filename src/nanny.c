@@ -98,7 +98,10 @@ extern const struct time_info_data time_info;
 #define PLR_FLAGGED(ch, flag)  (IS_SET(PLR_FLAGS(ch), flag))
 #define PLR_TOG_CHK(ch, flag)  ((TOGGLE_BIT(PLR_FLAGS(ch), (flag))) & (flag))
 
+#if 0
+/* Disabled: no call sites found; legacy email registration uses predictable /tmp files and shell mail commands, so keep it inert until it's either removed or rewritten. */
 void     email_player_info(char *, char *, struct descriptor_data *);
+#endif
 extern int email_in_use(char *, char *);
 extern void dump_email_reg_db(void);
 extern void ereglog(int, const char *, ...);
@@ -7154,6 +7157,7 @@ void nanny(P_desc d, char *arg)
 /*=========================================================================*/
 /* Hints/email utilities                                                   */
 /*=========================================================================*/
+#if 0
 void email_player_info(char *login, char *host, struct descriptor_data *d)
 {
 
@@ -7168,6 +7172,7 @@ void email_player_info(char *login, char *host, struct descriptor_data *d)
   for (counter = 6; counter < 8; counter++)
     password[counter] = (random() % 10) + 48;
   password[8] = '\0';
+  /* WARNING: This uses a predictable /tmp file name and shells a mail command from user data, which can expose plaintext passwords and invite command injection if not addressed. */
   snprintf(buf, MAX_STRING_LENGTH, "/tmp/%s.REG", GET_NAME(d->character));
   if (!(fp = fopen(buf, "w")))
   {
@@ -7191,6 +7196,7 @@ void email_player_info(char *login, char *host, struct descriptor_data *d)
   ereglog(AVATAR, "Executing Command %s", buf);
   fclose(fp);
 }
+#endif
 
 
 
