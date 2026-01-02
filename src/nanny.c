@@ -4254,7 +4254,8 @@ void select_name(P_desc d, char *arg, int flag)
   P_desc   next = NULL;
   int      i = 1;
 
-  for (; isspace(*arg); arg++) ;
+  /* Cast ctype inputs to unsigned char before isspace/tolower/toupper; ctype is undefined for negative char values, and the old code could hit UB/crash, e.g., a client sending 0xFF so tolower(*arg) is UB and can crash. -Liskin */
+  for (; isspace((unsigned char)*arg); arg++) ;
   if (!*arg)
   {
 	SEND_TO_Q("Bad name, please try another.\r\n", d);
@@ -4292,7 +4293,7 @@ void select_name(P_desc d, char *arg, int flag)
   }
 
   /* capitalize the first letter of name */
-  *tmp_name = toupper(*tmp_name);
+  *tmp_name = toupper((unsigned char)*tmp_name);
 
   /* first time through here?  If so, let's latch on a character struct */
   if (!d->character)
@@ -4940,7 +4941,7 @@ void select_pwd(P_desc d, char *arg)
 void select_main_menu(P_desc d, char *arg)
 {
   /* skip whitespaces */
-  for (; isspace(*arg); arg++) ;
+  for (; isspace((unsigned char)*arg); arg++) ;
 
   /* a little chicanery to force them to enter a valid password.  If they are in in CON_MAIN_MENU with a d->rtype
      greater than 20 (6 is normal max), they have to do the 'change password' thing.  JAB */
@@ -5048,7 +5049,7 @@ void select_main_menu(P_desc d, char *arg)
 */
 void select_newbie(P_desc d, char *arg)
 {
-  for(; isspace(*arg); arg++) ;
+  for(; isspace((unsigned char)*arg); arg++) ;
 
   switch(*arg) {
     case 'Y':
@@ -5076,7 +5077,7 @@ void select_newbie(P_desc d, char *arg)
 void select_hardcore(P_desc d, char *arg)
 {
   /* skip whitespaces */
-  for (; isspace(*arg); arg++) ;
+  for (; isspace((unsigned char)*arg); arg++) ;
 
   switch (*arg)
   {
@@ -5106,7 +5107,7 @@ void select_hardcore(P_desc d, char *arg)
 void select_sex(P_desc d, char *arg)
 {
   /* skip whitespaces */
-  for (; isspace(*arg); arg++) ;
+  for (; isspace((unsigned char)*arg); arg++) ;
 
   switch (*arg)
   {
@@ -5163,7 +5164,7 @@ void select_race(P_desc d, char *arg)
   char     Gbuf[MAX_INPUT_LENGTH];
 
   /* skip whitespaces */
-  for (; isspace(*arg); arg++) ;
+  for (; isspace((unsigned char)*arg); arg++) ;
 
   /*
    ** Since we have turned off echoing for telnet client,
@@ -5488,7 +5489,7 @@ void select_race(P_desc d, char *arg)
 void select_reroll(P_desc d, char *arg)
 {
   /* skip whitespaces */
-  for (; isspace(*arg); arg++) ;
+  for (; isspace((unsigned char)*arg); arg++) ;
 
   switch (*arg)
   {
@@ -5522,7 +5523,7 @@ void select_bonus(P_desc d, char *arg)
   int      i = 0;
 
   /* skip whitespaces */
-  for (; isspace(*arg); arg++) ;
+  for (; isspace((unsigned char)*arg); arg++) ;
 
   switch (LOWER(*arg))
   {
@@ -5648,7 +5649,7 @@ void select_class(P_desc d, char *arg)
   Gbuf[0] = 0;
 
   /* skip whitespaces */
-  for (; isspace(*arg); arg++) ;
+  for (; isspace((unsigned char)*arg); arg++) ;
 
   d->character->player.m_class = CLASS_NONE;
 
@@ -5656,14 +5657,14 @@ void select_class(P_desc d, char *arg)
   {
     if( *arg == class_names_table[cls].letter )
       d->character->player.m_class = 1 << (cls - 1);
-    else if( tolower(*arg) == class_names_table[cls].letter )
+    else if( tolower((unsigned char)*arg) == class_names_table[cls].letter )
       strcpy(Gbuf, class_names_table[cls].normal);
     // Had to hardcode the # for Summoners (option 3).
     else if( *arg == '#' )
     {
       strcpy(Gbuf, class_names_table[29].normal);
     }
-    else if( tolower(*arg) == 'z' )
+    else if( tolower((unsigned char)*arg) == 'z' )
     {
       SEND_TO_Q("\r\nIs your character Male or Female (Z for race)? (M/F/Z) ", d);
       STATE(d) = CON_GET_SEX;
@@ -5801,7 +5802,7 @@ void display_classtable(P_desc d)
       if (remaining > 0)
         snprintf(buf + used, remaining, template_buf, class_names_table[cls].letter,
                 class_names_table[cls].ansi,
-                (class_names_table[cls].letter == '3') ? '#' : toupper(class_names_table[cls].letter));
+                (class_names_table[cls].letter == '3') ? '#' : toupper((unsigned char)class_names_table[cls].letter));
     }
 
   {
@@ -5831,7 +5832,7 @@ void select_alignment(P_desc d, char *arg)
   int      align = 0, home, err = 0;
 
   /* skip whitespaces */
-  for (; isspace(*arg); arg++) ;
+  for (; isspace((unsigned char)*arg); arg++) ;
 
   switch (*arg)
   {
@@ -5911,7 +5912,7 @@ void select_hometown(P_desc d, char *arg)
   int      home;
 
   /* skip whitespaces */
-  for (; isspace(*arg); arg++) ;
+  for (; isspace((unsigned char)*arg); arg++) ;
 
   home = -1;
   for (int i = 0; i <= LAST_HOME; i++)
@@ -5964,7 +5965,7 @@ void select_hometown(P_desc d, char *arg)
 void select_keepchar(P_desc d, char *arg)
 {
   /* skip whitespaces */
-  for (; isspace(*arg); arg++) ;
+  for (; isspace((unsigned char)*arg); arg++) ;
   switch (LOWER(*arg))
   {
   case 'n':
@@ -6858,7 +6859,7 @@ void nanny(P_desc d, char *arg)
     /* Name confirm for new player */
   case CON_NAME_CONF:
     /* skip whitespaces */
-    for (; isspace(*arg); arg++) ;
+    for (; isspace((unsigned char)*arg); arg++) ;
     if (*arg == 'y' || *arg == 'Y')
     {
       SEND_TO_Q("\r\nEntering new character generation mode.\r\n", d);
@@ -6911,7 +6912,7 @@ void nanny(P_desc d, char *arg)
     STATE(d) = CON_CONFIRM_EMAIL;
     break;
   case CON_CONFIRM_EMAIL:
-    for (; isspace(*arg); arg++) ;
+    for (; isspace((unsigned char)*arg); arg++) ;
     if (*arg == 'y' || *arg == 'Y')
     {                           /* continue */
 //      snprintf(Gbuf1, MAX_STRING_LENGTH, "Please enter your sex? (M/F) ");
@@ -6934,7 +6935,7 @@ void nanny(P_desc d, char *arg)
     /* Appropriate name for new player */
   case CON_APPROPRIATE_NAME:
     /* skip whitespaces */
-    for (; isspace(*arg); arg++) ;
+    for (; isspace((unsigned char)*arg); arg++) ;
     if (*arg == 'y' || *arg == 'Y')
     {
 #ifndef USE_ACCOUNT
@@ -6976,7 +6977,7 @@ void nanny(P_desc d, char *arg)
   case CON_PWD_D_CONF:
   case CON_PWD_NORM:
     /* skip whitespaces */
-    for (; isspace(*arg); arg++) ;
+    for (; isspace((unsigned char)*arg); arg++) ;
 
     if (STATE(d) == CON_PWD_NEW ||
         STATE(d) == CON_PWD_GET || STATE(d) == CON_PWD_NORM)
@@ -7027,7 +7028,7 @@ void nanny(P_desc d, char *arg)
   case CON_SHOW_CLASS_RACE_TABLE:
     /* Race war info for new player */
   case CON_SHOW_RACE_TABLE:
-    for (; isspace(*arg); arg++) ;
+    for (; isspace((unsigned char)*arg); arg++) ;
     SEND_TO_Q(racetable, d);
     STATE(d) = CON_GET_RACE;
     break;
@@ -7139,7 +7140,7 @@ void nanny(P_desc d, char *arg)
      * this logic would force renumbering connection states (structs.h and
      * callers), so it remains here. -Liskin
      */
-    for (; isspace(*arg); arg++) ;
+    for (; isspace((unsigned char)*arg); arg++) ;
     switch (*arg)
     {
     case 'N':
@@ -7183,7 +7184,7 @@ void nanny(P_desc d, char *arg)
       writeCharacter(d->character, 2, NOWHERE);
       STATE(d) = CON_RMOTD;
     }
-/*    for (; isspace(*arg); arg++);
+/*    for (; isspace((unsigned char)*arg); arg++);
     switch (*arg) {
     case 'Y':
     case 'y':
@@ -7426,7 +7427,7 @@ void show_swapstat( P_desc d )
 void select_swapstat( P_desc d, char *arg )
 {
   /* skip whitespaces */
-  for (; isspace(*arg); arg++) ;
+  for (; isspace((unsigned char)*arg); arg++) ;
 
   switch (*arg)
   {
