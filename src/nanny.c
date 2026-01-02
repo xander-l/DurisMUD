@@ -7204,6 +7204,9 @@ void loadHints()
   char     buf2[MAX_STR_NORMAL * 10];
   int      i = 0;
 
+  if (iLOADED > 0)
+    return; /* Guard repeated loads to avoid memory leak on reload; old code leaked on reload. -Liskin */
+
   f = fopen("lib/information/hints.txt", "r");
 
   if (!f)
