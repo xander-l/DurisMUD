@@ -403,19 +403,39 @@ bool is_allowed_race_spec(int race, uint m_class, int spec)
   return FALSE;
 }
 
-bool append_valid_specs(char *buf, P_char ch)
+bool append_valid_specs(char *buf, size_t buf_size, P_char ch)
 {
   if( !ch )
     return false;
+  if( !buf || buf_size == 0 )
+    return false;
   
   bool found_one = false;
+  size_t used = strlen(buf);
+
+  if( used >= buf_size )
+  {
+    buf[buf_size - 1] = '\0';
+    return false;
+  }
   for (int i = 0; i < MAX_SPEC; i++)
   {
     if ( *GET_SPEC_NAME(ch->player.m_class, i) && 
          is_allowed_race_spec(GET_RACE(ch), ch->player.m_class, i+1) )
     {
-      strcat(buf, GET_SPEC_NAME(ch->player.m_class, i));
-      strcat(buf, "\r\n");
+      int written = snprintf(buf + used, buf_size - used, "%s\r\n",
+                             GET_SPEC_NAME(ch->player.m_class, i));
+      if( written < 0 )
+      {
+        return found_one;
+      }
+      if( (size_t)written >= buf_size - used )
+      {
+        buf[buf_size - 1] = '\0';
+        found_one = true;
+        break;
+      }
+      used += (size_t)written;
       found_one = true;
     }
   }
@@ -531,7 +551,7 @@ void do_specialize(P_char ch, char *argument, int cmd)
   {
     snprintf(buf, MAX_STRING_LENGTH, "You can choose from the following specializations:\n\r");
 
-    found_one = append_valid_specs(buf, ch);;
+    found_one = append_valid_specs(buf, sizeof(buf), ch);
 
     if( !found_one )
     {
