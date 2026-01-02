@@ -6058,7 +6058,8 @@ void display_characteristics(P_desc d)
   
   snprintf(Gbuf1 + strlen(Gbuf1), MAX_STRING_LENGTH - strlen(Gbuf1), "\nPossible specializations:\n");
   
-  if( !append_valid_specs(Gbuf1, d->character) )
+  /* Size-aware spec append (pass buffer size) to prevent spec list overflow; unbounded strcat could corrupt memory and crash. -Liskin */
+  if( !append_valid_specs(Gbuf1, sizeof(Gbuf1), d->character) )
   {
     snprintf(Gbuf1 + strlen(Gbuf1), MAX_STRING_LENGTH - strlen(Gbuf1), "None\n");    
   }
