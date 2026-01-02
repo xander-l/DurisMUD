@@ -128,6 +128,50 @@ void swapstat( P_desc d, char *arg);
 void select_swapstat( P_desc d, char *arg);
 void swapstats(P_char ch, int stat1, int stat2);
 
+static char *skip_telnet_iac_sequences(char *arg)
+{
+  unsigned char *cursor = (unsigned char *)arg;
+
+  while (*cursor == IAC)
+  {
+    unsigned char command = cursor[1];
+
+    if (!command)
+    {
+      return NULL;
+    }
+
+    if (command == IAC)
+    {
+      break;
+    }
+
+    if (command == SB)
+    {
+      cursor += 2;
+      while (*cursor && !(cursor[0] == IAC && cursor[1] == SE))
+      {
+        cursor++;
+      }
+      if (!*cursor)
+      {
+        return NULL;
+      }
+      cursor += 2;
+      continue;
+    }
+
+    if (!cursor[2])
+    {
+      return NULL;
+    }
+
+    cursor += 3;
+  }
+
+  return (char *)cursor;
+}
+
 void update_ingame_racewar( int racewar )
 {
   int count;
@@ -6859,27 +6903,18 @@ void nanny(P_desc d, char *arg)
         STATE(d) == CON_PWD_GET || STATE(d) == CON_PWD_NORM)
     {
       /*
-       ** Since we have turned off echoing for telnet client,
-       ** if a telnet client is indeed used, we need to skip the
-       ** initial 3 bytes ( -1, -3, 1 ) if they are sent back by
-       ** client program.
+       ** Change: robustly strip leading telnet IAC sequences instead of
+       ** skipping a fixed 3-byte sequence, because clients can send
+       ** different IAC negotiations; the old logic could garble passwords
+       ** or cause accidental lockouts. The fixed-skip logic dates back to
+       ** 2017 per git blame; honoring the original intent while improving
+       ** compatibility keeps the experience welcoming for all clients.
+       ** -Liskin
        */
-
-      if (*arg == -1)
+      arg = skip_telnet_iac_sequences(arg);
+      if (!arg)
       {
-        if (arg[1] != '0' && arg[2] != '0')
-        {
-          if (arg[3] == '0')
-          {                     /* Password on next read  */
-            return;
-          }
-          else
-          {                     /* Password available */
-            arg = arg + 3;
-          }
-        }
-        else
-          close_socket(d);
+        return;
       }
     }
     select_pwd(d, arg);
