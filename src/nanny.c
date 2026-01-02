@@ -4574,8 +4574,20 @@ void reconnect(P_desc d, P_char tmp_ch)
         (tmp_ch != tmp_ch->only.pc->switched->only.npc->orig_char))
     {
       logit(LOG_EXIT,
-            "Something fucked while trying to reconnect linkless morph");
-      raise(SIGSEGV);
+            "reconnect: morph mismatch for %s expected_orig=%p actual_orig=%p switched=%p",
+            GET_NAME(tmp_ch),
+            (void *)tmp_ch,
+            (void *)(tmp_ch->only.pc->switched
+                     ? tmp_ch->only.pc->switched->only.npc->orig_char
+                     : NULL),
+            (void *)tmp_ch->only.pc->switched);
+      /* Safe recovery instead of SIGSEGV: avoid server-wide crash on corrupt morph state; old code let one bad state terminate the process. -Liskin */
+      REMOVE_BIT(tmp_ch->specials.act, PLR_MORPH);
+      tmp_ch->only.pc->switched = NULL;
+      SEND_TO_Q("Your morph state was corrupted; reconnecting your original form.\r\n",
+                d);
+      send_offline_messages(d->character);
+      return;
     }
     d->original = tmp_ch;
     d->character = tmp_ch->only.pc->switched;
