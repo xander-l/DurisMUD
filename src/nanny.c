@@ -2941,6 +2941,9 @@ bool _parse_name(char *arg, char *name)
 
 /* simple anti-cracking measure, require at least a minimally secure password */
 
+/*=========================================================================*/
+/* Telnet/terminal I/O and password checks                                 */
+/*=========================================================================*/
 bool valid_password(P_desc d, char *arg)
 {
   char    *p, name[MAX_INPUT_LENGTH], password[MAX_INPUT_LENGTH];
@@ -3170,6 +3173,9 @@ int alt_hometown_check(P_char ch, int room, int count)
   return room;
 }
 
+/*=========================================================================*/
+/* Character entry/init                                                    */
+/*=========================================================================*/
 void schedule_pc_events(P_char ch)
 {
   // Not sure if this is happening...
@@ -3959,6 +3965,9 @@ if(d->character->base_stats.Wis < 80)
   do_look(ch, 0, -4);
 }
 
+/*=========================================================================*/
+/* Login/account flow helpers                                              */
+/*=========================================================================*/
 void select_terminal(P_desc d, char *arg)
 {
   int      term;
@@ -6252,6 +6261,9 @@ void set_char_height_weight(P_char ch)
   ch->player.weight = (int) ((mean_w * tmp * w_roll) / 100000);
 }
 
+/*=========================================================================*/
+/* Character entry/init (continued)                                        */
+/*=========================================================================*/
 void set_char_size(P_char ch)
 {
   switch (GET_RACE(ch))
@@ -6445,6 +6457,9 @@ void init_char(P_char ch)
 
 int      approve_mode = 0;       /* whether to have need to accept new players or not */
 
+/*=========================================================================*/
+/* Login/account flow helpers (continued)                                  */
+/*=========================================================================*/
 void newby_announce(P_desc d)
 {
   char     Gbuf1[MAX_STRING_LENGTH], Gbuf2[MAX_STRING_LENGTH];
@@ -7087,6 +7102,9 @@ void nanny(P_desc d, char *arg)
  */
 
 
+/*=========================================================================*/
+/* Hints/email utilities                                                   */
+/*=========================================================================*/
 void email_player_info(char *login, char *host, struct descriptor_data *d)
 {
 
@@ -7190,6 +7208,9 @@ void Decrypt(char *text, int sizeOfText, const char *key, int sizeOfKey)
   }
 }
 
+/*=========================================================================*/
+/* Stat swap helpers                                                       */
+/*=========================================================================*/
 void show_swapstat( P_desc d )
 {
   SEND_TO_Q("\r\nThe following letters correspond to the stats:\r\n", d);
