@@ -5174,6 +5174,12 @@ void select_race(P_desc d, char *arg)
    */
   if (*arg == -1)
   {
+    /* Added length check before IAC byte reads to avoid out-of-bounds reads on short buffers; old code risked OOB reads that can crash (e.g., a client sends a single 0xFF byte to force the IAC branch and read beyond the buffer). -Liskin */
+    if (strlen(arg) < 6)
+    {
+      close_socket(d);
+      return;
+    }
     if ((arg[1] != '0') && (arg[2] != '0') && (arg[3] != '0') &&
         (arg[4] != '0'))
     {
