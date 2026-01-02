@@ -4641,18 +4641,16 @@ void select_pwd(P_desc d, char *arg)
     else
     {
       /* NULL-guarded crypt results; crypt can return NULL under error, and old code risked a NULL dereference crash on login. -Liskin */
-      char *crypt_norm = CRYPT(arg, d->character->only.pc->pwd);
       char *crypt_mod = CRYPT2(arg, d->character->only.pc->pwd);
-      if (!crypt_norm || !crypt_mod)
+      if (!crypt_mod)
       {
         logit(LOG_FILE, "crypt returned NULL for %s from %s@%s.",
               GET_NAME(d->character), d->login, d->host);
         STATE(d) = CON_FLUSH;
         return;
       }
-      /* Use full hash comparison instead of first 10 chars; legacy crypt() outputs 13 chars, and partial compare weakens auth, risking hash collisions that allow unintended logins. -Liskin */
-      if( (d->character->only.pc->pwd[0] != '$' && strcmp(crypt_norm, d->character->only.pc->pwd))
-        || (d->character->only.pc->pwd[0] == '$' && strcmp( crypt_mod, d->character->only.pc->pwd)) )
+      /* Use full hash comparison instead of first 10 chars; partial compare weakens auth, risking hash collisions that allow unintended logins. Legacy CRYPT() removed because all player profiles were wiped and no DES hashes remain, so only modern hashes are expected; note the comparison logic dates back to 2017-01-31 (commit 795e1d6) for validation. -Liskin */
+      if (strcmp(crypt_mod, d->character->only.pc->pwd))
       {
         SEND_TO_Q("Invalid password.\r\n", d);
         SEND_TO_Q("Invalid password ... disconnecting.\r\n", d);
