@@ -196,8 +196,27 @@ void setNewPCidNumbfromFile(void)
   }
   else
   {
-    fscanf(file, "%ld\n", &highestPCidNumb);
-    fclose(file);
+    /* Changed: validate fscanf + fallback to 1; corrupted/empty files should be handled deterministically; old code silently failed and risked duplicate PC IDs. -Liskin */
+    if (fscanf(file, "%ld\n", &highestPCidNumb) != 1)
+    {
+      logit(LOG_FILE, "pc_idnumb file unreadable; resetting to 1");
+      highestPCidNumb = 1;
+      fclose(file);
+      file = fopen(SAVE_DIR "/pc_idnumb", "wt");
+      if (!file)
+      {
+        logit(LOG_FILE, "could not open pc_idnumb file for writing");
+      }
+      else
+      {
+        fprintf(file, "%ld", highestPCidNumb);
+        fclose(file);
+      }
+    }
+    else
+    {
+      fclose(file);
+    }
   }
 
   logit(LOG_STATUS, "highest PC number is %ld", highestPCidNumb);
