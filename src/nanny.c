@@ -3722,6 +3722,8 @@ void enter_game(P_desc d)
     wizlog(57, "&+WSomething fucked up with character name. Tell a coder immediately!&n");
     SEND_TO_Q("Serious screw-up with your player file. Log on another char and talk to gods.", d);
     STATE(d) = CON_FLUSH;
+    /* Early return on NULL name to avoid dereferencing NULL name in logging/aux calls; old code risked a NULL-dereference crash during login. -Liskin */
+    return;
   }
 
   /* host/login are fixed-size arrays; switched NULL checks to empty-string checks to avoid empty values and bad IP parsing. -Liskin */
