@@ -6712,12 +6712,6 @@ void nanny(P_desc d, char *arg)
     for (; isspace(*arg); arg++) ;
     if (*arg == 'y' || *arg == 'Y')
     {
-/*
-   if (mini_mode) {
-   SEND_TO_Q("We now need an email address for authorization.\n\rPlease type in your login or userid: ",d);
-   STATE(d) = CON_ENTER_LOGIN;
-   } else {
- */
 #ifndef USE_ACCOUNT
       snprintf(Gbuf1, MAX_STRING_LENGTH, "\r\nPlease enter a password for %s: ",
               GET_NAME(d->character));
@@ -6729,7 +6723,6 @@ void nanny(P_desc d, char *arg)
       SEND_TO_Q(racetable, d);
       STATE(d) = CON_GET_RACE;
 #endif
-/*     } */
     }
     else
     {
@@ -7011,26 +7004,7 @@ void nanny(P_desc d, char *arg)
     break;
 
   case CON_WELCOME:
-#if 0
-    if (mini_mode)
-    {
-      struct registration_node *x;
-      CREATE(x, struct registration_node, 1);
-
-      snprintf(x->host, MAX_STRING_LENGTH, "%s", d->registered_host);
-      snprintf(x->login, MAX_STRING_LENGTH, "%s", d->registered_login);
-      snprintf(x->name, MAX_STRING_LENGTH, "%s", GET_NAME(d->character));
-      x->name[0] = tolower(x->name[0]);
-      x->next = email_reg_table[(int) x->name[0] - (int) 'a'].next;
-      email_reg_table[(int) x->name[0] - (int) 'a'].next = x;
-      dump_email_reg_db();
-      email_player_info(x->login, x->host, d);
-      SEND_TO_Q
-        ("Your character information will be emailed to you shortly.\n\r", d);
-      STATE(d) = CON_EXIT;
-      return;
-    }
-#endif
+    /* NOTE: Removed unreachable legacy mini-mode email registration flow; state transitions proceed normally even with -m. */
     writeCharacter(d->character, 2, NOWHERE);
 #ifdef USE_ACCOUNT
     display_account_menu(d, arg);
