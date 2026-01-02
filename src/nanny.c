@@ -4061,7 +4061,12 @@ if(d->character->base_stats.Wis < 80)
       // Convert to seconds.
       time_to_witching_hour = time_to_witching_hour * PULSES_IN_TICK;
       // Subtract time passed in current mud hour.
-      time_to_witching_hour -= (300 - ne_event_time(get_scheduled( event_another_hour )));
+      P_nevent hour_ev = get_scheduled(event_another_hour);
+      // NULL guard + fallback (skip subtraction) because get_scheduled may return NULL; old code risked NULL dereference crash. -Liskin
+      if (hour_ev != NULL)
+      {
+        time_to_witching_hour -= (300 - ne_event_time(hour_ev));
+      }
 
       add_event(event_change_yzar_race, time_to_witching_hour, ch, ch, NULL, 0, NULL, sizeof(NULL));
     }
