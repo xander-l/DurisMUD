@@ -7160,14 +7160,12 @@ void loadHints()
   if (!f)
     return;
 
-  while (!feof(f))
+  /* Avoid feof double-read and hint_array overflow that could write past bounds. -Liskin */
+  while (i < (int)(sizeof(hint_array) / sizeof(hint_array[0]))
+    && fgets(buf2, MAX_STR_NORMAL * 10 - 1, f))
   {
-
-    if (fgets(buf2, MAX_STR_NORMAL * 10 - 1, f))
-    {
-      hint_array[i] = str_dup(buf2);
-      i++;
-    }
+    hint_array[i] = str_dup(buf2);
+    i++;
   }
 
   iLOADED = i;
