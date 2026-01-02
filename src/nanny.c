@@ -3371,6 +3371,9 @@ void enter_game(P_desc d)
   // check home/birthplace/spawn room to see if it's in a GH and if ch is allowed
   r_room = check_gh_home(ch, r_room);
 
+  if (r_room < 0 || r_room > top_of_world)
+    r_room = real_room(11); // Final r_room validation before char_to_room; char_to_room assumes a valid room index; invalid room index could crash or corrupt room lists. -Liskin
+
   ch->in_room = NOWHERE;
   char_to_room(ch, r_room, -2);
 
