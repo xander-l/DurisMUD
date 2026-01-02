@@ -78,6 +78,7 @@ extern struct agi_app_type agi_app[];
 extern struct dex_app_type dex_app[];
 extern struct message_list fight_messages[];
 extern struct str_app_type str_app[];
+extern int mini_mode;
 extern struct time_info_data time_info;
 extern struct zone_data *zone_table;
 extern void material_restrictions(P_obj);
@@ -1906,9 +1907,23 @@ int smith(P_char ch, P_char pl, int cmd, char *arg)
 void initialize_tradeskills()
 {
   int i;
+  int mine_rnum = real_object0(VOBJ_MINE);
+  int gemmine_rnum = real_object0(VOBJ_GEMMINE);
 
-  obj_index[real_object0(VOBJ_MINE)].func.obj = mine;
-  obj_index[real_object0(VOBJ_GEMMINE)].func.obj = mine;
+  if (mini_mode)
+  {
+    logit(LOG_STATUS, "Skipping tradeskills in mini mode.");
+    return;
+  }
+
+  if (mine_rnum == NOWHERE || gemmine_rnum == NOWHERE)
+  {
+    logit(LOG_STATUS, "Skipping tradeskills: mine objects missing from data files.");
+    return;
+  }
+
+  obj_index[mine_rnum].func.obj = mine;
+  obj_index[gemmine_rnum].func.obj = mine;
 
   for (i = 0; mine_data[i].name; i++)
   {
@@ -1917,8 +1932,13 @@ void initialize_tradeskills()
 
   // set procs on smiths
   for (i = 0; smith_array[i].vnum; i++)
-    if (!mob_index[real_mobile0(smith_array[i].vnum)].func.mob)
-      mob_index[real_mobile0(smith_array[i].vnum)].func.mob = smith;
+  {
+    int smith_rnum = real_mobile0(smith_array[i].vnum);
+    if (smith_rnum == NOWHERE)
+      continue;
+    if (!mob_index[smith_rnum].func.mob)
+      mob_index[smith_rnum].func.mob = smith;
+  }
 }
 
 bool invalid_mine_room(int rroom_id)

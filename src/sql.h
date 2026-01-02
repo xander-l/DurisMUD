@@ -21,7 +21,11 @@
 #endif
 
 #ifndef __NO_MYSQL__
+#ifdef MOCK_MYSQL
+#include "mock_mysql.h"
+#else
 #include <mysql.h>
+#endif
 extern MYSQL *DB;
 MYSQL_RES *db_query(const char *format, ...);
 #endif

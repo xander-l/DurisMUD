@@ -98,10 +98,7 @@ extern const struct time_info_data time_info;
 #define PLR_FLAGGED(ch, flag)  (IS_SET(PLR_FLAGS(ch), flag))
 #define PLR_TOG_CHK(ch, flag)  ((TOGGLE_BIT(PLR_FLAGS(ch), (flag))) & (flag))
 
-#if 0
-/* Disabled: no call sites found; legacy email registration uses predictable /tmp files and shell mail commands, so keep it inert until it's either removed or rewritten. */
 void     email_player_info(char *, char *, struct descriptor_data *);
-#endif
 extern int email_in_use(char *, char *);
 extern void dump_email_reg_db(void);
 extern void ereglog(int, const char *, ...);
@@ -127,50 +124,6 @@ int max_ingame_evil = 0;
 void swapstat( P_desc d, char *arg);
 void select_swapstat( P_desc d, char *arg);
 void swapstats(P_char ch, int stat1, int stat2);
-
-static char *skip_telnet_iac_sequences(char *arg)
-{
-  unsigned char *cursor = (unsigned char *)arg;
-
-  while (*cursor == IAC)
-  {
-    unsigned char command = cursor[1];
-
-    if (!command)
-    {
-      return NULL;
-    }
-
-    if (command == IAC)
-    {
-      break;
-    }
-
-    if (command == SB)
-    {
-      cursor += 2;
-      while (*cursor && !(cursor[0] == IAC && cursor[1] == SE))
-      {
-        cursor++;
-      }
-      if (!*cursor)
-      {
-        return NULL;
-      }
-      cursor += 2;
-      continue;
-    }
-
-    if (!cursor[2])
-    {
-      return NULL;
-    }
-
-    cursor += 3;
-  }
-
-  return (char *)cursor;
-}
 
 void update_ingame_racewar( int racewar )
 {
@@ -243,27 +196,8 @@ void setNewPCidNumbfromFile(void)
   }
   else
   {
-    /* Changed: validate fscanf + fallback to 1; corrupted/empty files should be handled deterministically; old code silently failed and risked duplicate PC IDs. -Liskin */
-    if (fscanf(file, "%ld\n", &highestPCidNumb) != 1)
-    {
-      logit(LOG_FILE, "pc_idnumb file unreadable; resetting to 1");
-      highestPCidNumb = 1;
-      fclose(file);
-      file = fopen(SAVE_DIR "/pc_idnumb", "wt");
-      if (!file)
-      {
-        logit(LOG_FILE, "could not open pc_idnumb file for writing");
-      }
-      else
-      {
-        fprintf(file, "%ld", highestPCidNumb);
-        fclose(file);
-      }
-    }
-    else
-    {
-      fclose(file);
-    }
+    fscanf(file, "%ld\n", &highestPCidNumb);
+    fclose(file);
   }
 
   logit(LOG_STATUS, "highest PC number is %ld", highestPCidNumb);
@@ -3007,9 +2941,6 @@ bool _parse_name(char *arg, char *name)
 
 /* simple anti-cracking measure, require at least a minimally secure password */
 
-/*=========================================================================*/
-/* Telnet/terminal I/O and password checks                                 */
-/*=========================================================================*/
 bool valid_password(P_desc d, char *arg)
 {
   char    *p, name[MAX_INPUT_LENGTH], password[MAX_INPUT_LENGTH];
@@ -3064,10 +2995,9 @@ bool valid_password(P_desc d, char *arg)
   other = ucase = lcase = 0;
   for (p = arg; *p; p++)
   {
-    /* Changed ctype inputs to cast to unsigned char to avoid UB on negative signed chars; unlike the original Linux passwd.c context, this input arrives over the network and can include raw bytes like 0xFF, so the old code could misclassify that byte and let a crafted password bypass checks or trigger undefined behavior. -Liskin */
-    ucase = ucase || isupper((unsigned char)*p);
-    lcase = lcase || islower((unsigned char)*p);
-    other = other || !isalpha((unsigned char)*p);
+    ucase = ucase || isupper(*p);
+    lcase = lcase || islower(*p);
+    other = other || !isalpha(*p);
   }
 
   if ((!ucase || !lcase) && !other)
@@ -3170,10 +3100,8 @@ void perform_eq_wipe(P_char ch)
   // Delete the locker as well
   snprintf(Gbuf2, MAX_STRING_LENGTH, "%c%s", LOWER(*ch->player.name), ch->player.name + 1 );
   snprintf(Gbuf1, MAX_STRING_LENGTH, "%s/%c/%s.locker", SAVE_DIR, *Gbuf2, Gbuf2 );
-  snprintf(Gbuf2, MAX_STRING_LENGTH, "%s.bak", Gbuf1 );
-  // Replaced rm -f shell call with remove() on locker and .bak to avoid shell invocation/injection surface from name-derived command. -Liskin
-  remove( Gbuf1 );
-  remove( Gbuf2 );
+  snprintf(Gbuf2, MAX_STRING_LENGTH, "rm -f %s %s.bak", Gbuf1, Gbuf1 );
+  system( Gbuf2 );
 
   // Delete the ship too
 /* Not deleting ships this wipe.
@@ -3242,9 +3170,6 @@ int alt_hometown_check(P_char ch, int room, int count)
   return room;
 }
 
-/*=========================================================================*/
-/* Character entry/init                                                    */
-/*=========================================================================*/
 void schedule_pc_events(P_char ch)
 {
   // Not sure if this is happening...
@@ -3312,6 +3237,9 @@ void enter_game(P_desc d)
       r_room = ch->in_room;
   }
 
+  if (zone_table[world[r_room].zone].flags & ZONE_CLOSED)
+    r_room = real_room(GET_BIRTHPLACE(ch));
+
   if (ch->only.pc->pc_timer[PC_TIMER_HEAVEN] > ct)
   {
     if( IS_RACEWAR_GOOD(ch) )
@@ -3365,15 +3293,8 @@ void enter_game(P_desc d)
   if( r_room < 0 )
     r_room = real_room(1197);
 
-  // Moved ZONE_CLOSED check after r_room validation to avoid indexing world[] with an invalid room; old order could crash the server on login when r_room was NOWHERE. -Liskin
-  if (zone_table[world[r_room].zone].flags & ZONE_CLOSED)
-    r_room = real_room(GET_BIRTHPLACE(ch));
-
   // check home/birthplace/spawn room to see if it's in a GH and if ch is allowed
   r_room = check_gh_home(ch, r_room);
-
-  if (r_room < 0 || r_room > top_of_world)
-    r_room = real_room(11); // Final r_room validation before char_to_room; char_to_room assumes a valid room index; invalid room index could crash or corrupt room lists. -Liskin
 
   ch->in_room = NOWHERE;
   char_to_room(ch, r_room, -2);
@@ -3595,7 +3516,6 @@ void enter_game(P_desc d)
             }
 
             // Pull evp from ne_schedule[] list.
-            bool schedule_error = FALSE;
             // If we're not at the end.
             if( evp->next_sched )
             {
@@ -3607,22 +3527,7 @@ void enter_game(P_desc d)
             }
             else
             {
-              schedule_error = TRUE;
-            }
-
-            if( schedule_error )
-            {
-              // Safe recovery/logging instead of SIGSEGV to avoid server-wide crash on list inconsistency; one corrupted list entry can terminate the whole process. -Liskin
-              logit( LOG_DEBUG, "enter_game: offline affect reschedule list tail mismatch evp %p element %d timer %d ch '%s' %d affect '%s'.",
-                (void *)evp, evp->element, evp->timer, J_NAME(ch), IS_ALIVE(ch) ? GET_ID(ch) : -1,
-                skills[afp1->type].name );
-              wizlog( AVATAR, "enter_game: offline affect reschedule list tail mismatch evp %p element %d timer %d ch '%s' %d affect '%s' (check logs).",
-                (void *)evp, evp->element, evp->timer, J_NAME(ch), IS_ALIVE(ch) ? GET_ID(ch) : -1,
-                skills[afp1->type].name );
-              clear_nevent( evp );
-              wear_off_message( ch, afp1 );
-              affect_remove( ch, afp1 );
-              break;
+              raise(SIGSEGV);
             }
 
             // If we're not at the beginning.
@@ -3636,21 +3541,7 @@ void enter_game(P_desc d)
             }
             else
             {
-              schedule_error = TRUE;
-            }
-
-            if( schedule_error )
-            {
-              logit( LOG_DEBUG, "enter_game: offline affect reschedule list head mismatch evp %p element %d timer %d ch '%s' %d affect '%s'.",
-                (void *)evp, evp->element, evp->timer, J_NAME(ch), IS_ALIVE(ch) ? GET_ID(ch) : -1,
-                skills[afp1->type].name );
-              wizlog( AVATAR, "enter_game: offline affect reschedule list head mismatch evp %p element %d timer %d ch '%s' %d affect '%s' (check logs).",
-                (void *)evp, evp->element, evp->timer, J_NAME(ch), IS_ALIVE(ch) ? GET_ID(ch) : -1,
-                skills[afp1->type].name );
-              clear_nevent( evp );
-              wear_off_message( ch, afp1 );
-              affect_remove( ch, afp1 );
-              break;
+              raise(SIGSEGV);
             }
 
             // Update the timer.  The +1 is because we want the range from 1..MAX not 0..MAX,
@@ -3723,25 +3614,20 @@ void enter_game(P_desc d)
     wizlog(57, "&+WSomething fucked up with character name. Tell a coder immediately!&n");
     SEND_TO_Q("Serious screw-up with your player file. Log on another char and talk to gods.", d);
     STATE(d) = CON_FLUSH;
-    /* Early return on NULL name to avoid dereferencing NULL name in logging/aux calls; old code risked a NULL-dereference crash during login. -Liskin */
-    return;
   }
 
-  /* host/login are fixed-size arrays; switched NULL checks to empty-string checks to avoid empty values and bad IP parsing. -Liskin */
-  if (d->host[0] == '\0')
+  if (!d->host)
   {
     wizlog(57, "%s had null host.", GET_NAME(ch));
-    /* Use sizeof() for the destination array size instead of MAX_STRING_LENGTH; these arrays are smaller and the old size risked overflow. -Liskin */
-    snprintf(d->host, sizeof(d->host), "UNKNOWN");
+    snprintf(d->host, MAX_STRING_LENGTH, "UNKNOWN");
   }
 
   ch->only.pc->last_ip = ip2ul(d->host);
 
-  if (d->login[0] == '\0')
+  if (!d->login)
   {
     wizlog(57, "%s had null login.", GET_NAME(ch));
-    /* Use sizeof() for the destination array size instead of MAX_STRING_LENGTH; these arrays are smaller and the old size risked overflow. -Liskin */
-    snprintf(d->login, sizeof(d->login), "UNKNOWN");
+    snprintf(d->login, MAX_STRING_LENGTH, "UNKNOWN");
   }
 
   if (IS_TRUSTED(ch))
@@ -4062,12 +3948,7 @@ if(d->character->base_stats.Wis < 80)
       // Convert to seconds.
       time_to_witching_hour = time_to_witching_hour * PULSES_IN_TICK;
       // Subtract time passed in current mud hour.
-      P_nevent hour_ev = get_scheduled(event_another_hour);
-      // NULL guard + fallback (skip subtraction) because get_scheduled may return NULL; old code risked NULL dereference crash. -Liskin
-      if (hour_ev != NULL)
-      {
-        time_to_witching_hour -= (300 - ne_event_time(hour_ev));
-      }
+      time_to_witching_hour -= (300 - ne_event_time(get_scheduled( event_another_hour )));
 
       add_event(event_change_yzar_race, time_to_witching_hour, ch, ch, NULL, 0, NULL, sizeof(NULL));
     }
@@ -4078,14 +3959,11 @@ if(d->character->base_stats.Wis < 80)
   do_look(ch, 0, -4);
 }
 
-/*=========================================================================*/
-/* Login/account flow helpers                                              */
-/*=========================================================================*/
 void select_terminal(P_desc d, char *arg)
 {
   int      term;
   int      temp = 1;
-  char     temp_buf[MAX_INPUT_LENGTH]; /* temp_buf sized to MAX_INPUT_LENGTH because one_argument does not respect destination size; old code risked stack buffer overflow if a malicious client ID string exceeded 200 bytes. -Liskin */
+  char     temp_buf[200];
 
   if ((term = (int) strtol(arg, NULL, 0)) == 0)
   {
@@ -4105,27 +3983,13 @@ void select_terminal(P_desc d, char *arg)
   case TERM_MSP:
     d->term_type = TERM_MSP;
     arg = one_argument(arg, temp_buf);
-    /* NULL guard after one_argument; one_argument returns NULL on overlong input, and old code risked a NULL dereference crash (e.g., a client sends a very long terminal ID to force one_argument to return NULL and crash). -Liskin */
-    if (arg == NULL)
-    {
-      logit(LOG_SYS, "select_terminal: one_argument returned NULL for MSP terminal.");
-      d->client_str[0] = '\0';
-    }
-    else
-      snprintf(d->client_str, sizeof(d->client_str), "%s", arg); /* Bounded copy replacing strcpy to avoid overrun of fixed-size client_str; old unbounded copy from user input could overflow. -Liskin */
+    strcpy(d->client_str, arg);
     SEND_TO_Q(greetinga, d);
     break;
   case TERM_ANSI:
     d->term_type = TERM_ANSI;
     arg = one_argument(arg, temp_buf);
-    /* NULL guard after one_argument; one_argument returns NULL on overlong input, and old code risked a NULL dereference crash (e.g., a client sends a very long terminal ID to force one_argument to return NULL and crash). -Liskin */
-    if (arg == NULL)
-    {
-      logit(LOG_SYS, "select_terminal: one_argument returned NULL for ANSI terminal.");
-      d->client_str[0] = '\0';
-    }
-    else
-      snprintf(d->client_str, sizeof(d->client_str), "%s", arg); /* Bounded copy replacing strcpy to avoid overrun of fixed-size client_str; old unbounded copy from user input could overflow. -Liskin */
+    strcpy(d->client_str, arg);
 
     temp = number(1, NUM_ANSI_LOGINS);
     switch (temp)
@@ -4186,14 +4050,10 @@ bool pfile_exists(const char *dir, char *name)
   struct stat statbuf;
   char     Gbuf1[MAX_STRING_LENGTH];
 
-  // Use bounded copy instead of strcpy because buf is 256 bytes and name length isn't enforced here; old code risked overflow and memory corruption. -Liskin
-  snprintf(buf, sizeof(buf), "%s", name);
+  strcpy(buf, name);
   buff = buf;
   for (; *buff; buff++)
     *buff = LOWER(*buff);
-  // Empty-name guard before path build because buf[0] becomes part of the path; old code risked invalid path use/undefined behavior. -Liskin
-  if (buf[0] == '\0')
-    return FALSE;
   snprintf(Gbuf1, MAX_STRING_LENGTH, "%s/%c/%s", dir, buf[0], buf);
   if (stat(Gbuf1, &statbuf) != 0)
   {
@@ -4215,17 +4075,10 @@ void create_denied_file(const char *dir, char *name)
   char     Gbuf1[MAX_STRING_LENGTH];
   FILE    *f;
 
-  // Use bounded copy instead of strcpy because buf is 256 bytes and name length isn't enforced here; old code risked overflow and memory corruption. -Liskin
-  snprintf(buf, sizeof(buf), "%s", name);
+  strcpy(buf, name);
   buff = buf;
   for (; *buff; buff++)
     *buff = LOWER(*buff);
-  // Empty-name guard before path build because buf[0] becomes part of the path; old code risked invalid path use/undefined behavior. -Liskin
-  if (buf[0] == '\0')
-  {
-    debug("create_denied_file: Empty name; skipping file creation.");
-    return;
-  }
   snprintf(Gbuf1, MAX_STRING_LENGTH, "%s/%c/%s", dir, buf[0], buf);
   if( f = fopen(Gbuf1, "w") )
   {
@@ -4251,11 +4104,10 @@ void select_name(P_desc d, char *arg, int flag)
 {
   char     tmp_name[MAX_INPUT_LENGTH];
   char     Gbuf1[MAX_STRING_LENGTH];
-  bool     found_existing = FALSE;
+  P_desc   t_d = NULL;
   int      i = 1;
 
-  /* Cast ctype inputs to unsigned char before isspace/tolower/toupper; ctype is undefined for negative char values, and the old code could hit UB/crash, e.g., a client sending 0xFF so tolower(*arg) is UB and can crash. -Liskin */
-  for (; isspace((unsigned char)*arg); arg++) ;
+  for (; isspace(*arg); arg++) ;
   if (!*arg)
   {
 	SEND_TO_Q("Bad name, please try another.\r\n", d);
@@ -4272,24 +4124,24 @@ void select_name(P_desc d, char *arg, int flag)
   }
   else
   {
-    for (P_desc t_d = descriptor_list; t_d; t_d = t_d->next)
-    {
+    for (t_d = descriptor_list; t_d; t_d = t_d->next)
       if ((t_d != d) && t_d->character && t_d->connected &&
           !str_cmp(tmp_name, GET_NAME(t_d->character)))
       {
-        found_existing = TRUE;
+        close_socket(t_d);
         break;
+        /*
+        SEND_TO_Q
+          ("Your char is stuck at the menu. Try another name, and ask a god for help, or wait a few minutes for it to clear.",
+           d);
+        SEND_TO_Q("Name: ", d);
+        return;
+        */
       }
-    }
-    /* Stop pre-auth disconnects: we no longer close matching descriptors here (what changed) because disconnecting before authentication enables trivial DoS (why); old behavior let anyone kick a player by typing their name (risk), e.g., a bot repeatedly enters "KnownPlayer" to force disconnects (example). -Liskin */
-    if (found_existing)
-    {
-      SEND_TO_Q("Existing connection detected; enter your password to override it.\r\n", d);
-    }
   }
 
   /* capitalize the first letter of name */
-  *tmp_name = toupper((unsigned char)*tmp_name);
+  *tmp_name = toupper(*tmp_name);
 
   /* first time through here?  If so, let's latch on a character struct */
   if (!d->character)
@@ -4303,9 +4155,7 @@ void select_name(P_desc d, char *arg, int flag)
                                    mm_find_best_chunk(sizeof
                                                       (struct pc_only_data),
                                                       10, 25));
-  d->character->only.pc = (struct pc_only_data *) mm_get(dead_pconly_pool);
-  /* Zero-initialize pc_only_data to avoid uninitialized flags/timers before init_char; otherwise garbage values could cause undefined behavior in login flow. -Liskin */
-  memset(d->character->only.pc, 0, sizeof(struct pc_only_data));
+    d->character->only.pc = (struct pc_only_data *) mm_get(dead_pconly_pool);
 
     d->character->only.pc->aggressive = -1;
     d->character->desc = d;
@@ -4449,14 +4299,9 @@ void select_name(P_desc d, char *arg, int flag)
       return;
     }
   }
-  /* SIGSEGV replaced with safe fallback to avoid crashing the whole server on unexpected flow; old code risked a single bad state terminating the process. -Liskin */
-  logit(LOG_SYS, "create_name: unexpected flow state=%d desc=%p host=%s player=%s",
-        STATE(d),
-        (void *)d,
-        (d && d->host) ? d->host : "(null)",
-        (d && d->character) ? GET_NAME(d->character) : "(null)");
-  STATE(d) = CON_FLUSH;
-  return;
+  /* should never get here!!! */
+  logit(LOG_EXIT, "create_name: should never get here!!");
+  raise(SIGSEGV);
 }
 
 P_char find_ch_from_same_host(P_desc d)
@@ -4599,20 +4444,8 @@ void reconnect(P_desc d, P_char tmp_ch)
         (tmp_ch != tmp_ch->only.pc->switched->only.npc->orig_char))
     {
       logit(LOG_EXIT,
-            "reconnect: morph mismatch for %s expected_orig=%p actual_orig=%p switched=%p",
-            GET_NAME(tmp_ch),
-            (void *)tmp_ch,
-            (void *)(tmp_ch->only.pc->switched
-                     ? tmp_ch->only.pc->switched->only.npc->orig_char
-                     : NULL),
-            (void *)tmp_ch->only.pc->switched);
-      /* Safe recovery instead of SIGSEGV: avoid server-wide crash on corrupt morph state; old code let one bad state terminate the process. -Liskin */
-      REMOVE_BIT(tmp_ch->specials.act, PLR_MORPH);
-      tmp_ch->only.pc->switched = NULL;
-      SEND_TO_Q("Your morph state was corrupted; reconnecting your original form.\r\n",
-                d);
-      send_offline_messages(d->character);
-      return;
+            "Something fucked while trying to reconnect linkless morph");
+      raise(SIGSEGV);
     }
     d->original = tmp_ch;
     d->character = tmp_ch->only.pc->switched;
@@ -4622,36 +4455,10 @@ void reconnect(P_desc d, P_char tmp_ch)
   send_offline_messages(d->character);
 }
 
-static char *crypt2_checked(P_desc d, const char *arg, const char *salt,
-                            int fail_state, const char *fail_msg,
-                            int send_menu)
-{
-  char *crypt_mod = CRYPT2(arg, salt);
-
-  if (!crypt_mod)
-  {
-    logit(LOG_FILE, "crypt returned NULL for %s from %s@%s.",
-          GET_NAME(d->character), d->login, d->host);
-    if (fail_msg)
-    {
-      SEND_TO_Q(fail_msg, d);
-    }
-    STATE(d) = fail_state;
-    if (send_menu)
-    {
-      SEND_TO_Q(MENU, d);
-    }
-    return NULL;
-  }
-
-  return crypt_mod;
-}
-
 void select_pwd(P_desc d, char *arg)
 {
   P_char   tmp_ch;
   P_desc   k;
-  P_desc   next;
   char     Gbuf1[MAX_STRING_LENGTH];
 
   switch (STATE(d))
@@ -4665,12 +4472,8 @@ void select_pwd(P_desc d, char *arg)
     }
     else
     {
-      char *crypt_mod = NULL;
-      if (!(crypt_mod = crypt2_checked(d, arg, d->character->only.pc->pwd,
-                                       CON_FLUSH, NULL, 0)))
-        return;
-      /* Use full hash comparison instead of first 10 chars; partial compare weakens auth, risking hash collisions that allow unintended logins. Legacy CRYPT() removed because all player profiles were wiped and no DES hashes remain, so only modern hashes are expected; note the comparison logic dates back to 2017-01-31 (commit 795e1d6) for validation. -Liskin */
-      if (strcmp(crypt_mod, d->character->only.pc->pwd))
+      if( (d->character->only.pc->pwd[0] != '$' && strn_cmp(CRYPT(arg, d->character->only.pc->pwd), d->character->only.pc->pwd, 10))
+        || (d->character->only.pc->pwd[0] == '$' && strcmp( CRYPT2(arg, d->character->only.pc->pwd), d->character->only.pc->pwd)) )
       {
         SEND_TO_Q("Invalid password.\r\n", d);
         SEND_TO_Q("Invalid password ... disconnecting.\r\n", d);
@@ -4680,17 +4483,13 @@ void select_pwd(P_desc d, char *arg)
                 GET_NAME(d->character), d->login, d->host);
           sql_log(d->character, CONNECTLOG, "Invalid Password");
         }
-        /* Added invalid-password throttling by setting d->wait to a few seconds of pulses to reduce brute-force speed; old behavior enabled cheap password guessing at scale. -Liskin */
-        d->wait = 3 * WAIT_SEC;
         STATE(d) = CON_FLUSH;
         return;
       }
 
-      /* Close any existing session after successful authentication (moved from select_name to avoid pre-auth disconnect DoS while still letting a player clear their own stuck menu/limbo session). -Liskin */
-      /* Safe iteration: cache next before close_socket; close_socket frees current descriptor, and old k->next access risked use-after-free crashes. -Liskin */
-      for (k = descriptor_list; k; k = next)
+      /* Check if already playing */
+      for (k = descriptor_list; k; k = k->next)
       {
-        next = k->next;
         if ((k->character != d->character) && k->character)
         {
           if (k->original)
@@ -4742,20 +4541,6 @@ void select_pwd(P_desc d, char *arg)
         SEND_TO_Q
           ("Seems to be a problem reading that player file.  Please choose another\r\n"
            "name and report this problem to an Immortal.\r\n\r\n", d);
-        if (d->character)
-        {
-          free_char(d->character);
-          d->character = NULL;
-        }
-        STATE(d) = CON_NAME;
-        return;
-      }
-      else if (d->rtype == -1)
-      {
-        /* Explicit -1 handling: file can disappear between password and load; old code proceeded with a partially-initialized character, risking crashes. -Liskin */
-        SEND_TO_Q("Your player file could not be found. Please choose another name.\r\n", d);
-        logit(LOG_PLAYER, "Pfile missing during login for %s from %s@%s.",
-              GET_NAME(d->character), d->login, d->host);
         if (d->character)
         {
           free_char(d->character);
@@ -4825,11 +4610,7 @@ void select_pwd(P_desc d, char *arg)
       if( d->character->only.pc->pwd[0] != '$' )
       {
         SEND_TO_Q("\n\r\n\r&=LRUpgrading password - All characters now in use!&n\n\r\n\r", d);
-        char *crypt_mod = NULL;
-        if (!(crypt_mod = crypt2_checked(d, arg, GET_NAME(d->character),
-                                         CON_FLUSH, NULL, 0)))
-          return;
-        strcpy(d->character->only.pc->pwd, crypt_mod);
+        strcpy( d->character->only.pc->pwd, CRYPT2(arg, GET_NAME(d->character)) );
       }
 
       SEND_TO_Q("\r\n*** PRESS RETURN: ", d);
@@ -4848,18 +4629,7 @@ void select_pwd(P_desc d, char *arg)
       echo_off(d);
       return;
     }
-    {
-      char *crypt_mod = NULL;
-      if (!(crypt_mod = crypt2_checked(
-        d,
-        arg,
-        d->character->player.name,
-        CON_PWD_GET,
-        "\r\nPassword hashing failed; please try again.\r\n",
-        0)))
-        return;
-      strcpy(d->character->only.pc->pwd, crypt_mod);
-    }
+    strcpy( d->character->only.pc->pwd, CRYPT2(arg, d->character->player.name) );
     echo_on(d);
     SEND_TO_Q("\r\nPlease retype password: ", d);
     echo_off(d);
@@ -4869,25 +4639,14 @@ void select_pwd(P_desc d, char *arg)
 
     /* confirmation of new password */
   case CON_PWD_CONF:
+    if( strcmp(CRYPT2(arg, d->character->only.pc->pwd), d->character->only.pc->pwd) )
     {
-      char *crypt_mod = NULL;
-      if (!(crypt_mod = crypt2_checked(
-        d,
-        arg,
-        d->character->only.pc->pwd,
-        CON_PWD_GET,
-        "\r\nPassword confirmation failed; please try again.\r\n",
-        0)))
-        return;
-      if( strcmp(crypt_mod, d->character->only.pc->pwd) )
-      {
-        echo_on(d);
-        snprintf(Gbuf1, MAX_STRING_LENGTH,"Passwords don't match.\r\nPlease enter a password for %s: ", GET_NAME(d->character));
-        SEND_TO_Q(Gbuf1, d);
-        echo_off(d);
-        STATE(d) = CON_PWD_GET;
-        return;
-      }
+      echo_on(d);
+      snprintf(Gbuf1, MAX_STRING_LENGTH,"Passwords don't match.\r\nPlease enter a password for %s: ", GET_NAME(d->character));
+      SEND_TO_Q(Gbuf1, d);
+      echo_off(d);
+      STATE(d) = CON_PWD_GET;
+      return;
     }
     echo_on(d);
 
@@ -4901,24 +4660,13 @@ void select_pwd(P_desc d, char *arg)
 
     /* new password for an existing player */
   case CON_PWD_NEW:
+    if( strcmp(CRYPT2(arg, d->character->only.pc->pwd), d->character->only.pc->pwd) )
     {
-      char *crypt_mod = NULL;
-      if (!(crypt_mod = crypt2_checked(
-        d,
-        arg,
-        d->character->only.pc->pwd,
-        CON_MAIN_MENU,
-        "\r\nPassword change aborted due to hashing error.\r\n",
-        1)))
-        return;
-      if( strcmp(crypt_mod, d->character->only.pc->pwd) )
-      {
-        echo_on(d);
-        SEND_TO_Q("\r\nInvalid password, password change aborted.\r\n", d);
-        STATE(d) = CON_MAIN_MENU;
-        SEND_TO_Q(MENU, d);
-        return;
-      }
+      echo_on(d);
+      SEND_TO_Q("\r\nInvalid password, password change aborted.\r\n", d);
+      STATE(d) = CON_MAIN_MENU;
+      SEND_TO_Q(MENU, d);
+      return;
     }
     echo_on(d);
     SEND_TO_Q("\r\nEnter your new password: ", d);
@@ -4935,18 +4683,7 @@ void select_pwd(P_desc d, char *arg)
       echo_off(d);
       return;
     }
-    {
-      char *crypt_mod = NULL;
-      if (!(crypt_mod = crypt2_checked(
-        d,
-        arg,
-        d->character->player.name,
-        CON_MAIN_MENU,
-        "\r\nPassword hashing failed; please try again later.\r\n",
-        1)))
-        return;
-      strcpy(d->character->only.pc->pwd, crypt_mod);
-    }
+    strcpy(d->character->only.pc->pwd, CRYPT2(arg, d->character->player.name) );
     echo_on(d);
     SEND_TO_Q("\r\nPlease retype your new password: ", d);
     echo_off(d);
@@ -4956,29 +4693,15 @@ void select_pwd(P_desc d, char *arg)
     /* Confirm pw for changing pw */
   case CON_PWD_NO_CONF:
     echo_on(d);
+    if( strcmp(CRYPT2(arg, d->character->only.pc->pwd), d->character->only.pc->pwd) )
     {
-      char *crypt_mod = NULL;
-      if (!(crypt_mod = crypt2_checked(
-        d,
-        arg,
-        d->character->only.pc->pwd,
-        CON_MAIN_MENU,
-        "\r\nPassword change aborted due to hashing error.\r\n",
-        1)))
-      {
-        strcpy(d->character->only.pc->pwd, d->old_pwd);
-        return;
-      }
-      if( strcmp(crypt_mod, d->character->only.pc->pwd) )
-      {
-        SEND_TO_Q("\r\nPasswords don't match.\r\nPassword change aborted\r\n",
-                  d);
-        /* restore old pwd */
-        strcpy(d->character->only.pc->pwd, d->old_pwd);
-        STATE(d) = CON_MAIN_MENU;
-        SEND_TO_Q(MENU, d);
-        return;
-      }
+      SEND_TO_Q("\r\nPasswords don't match.\r\nPassword change aborted\r\n",
+                d);
+      /* restore old pwd */
+      strcpy(d->character->only.pc->pwd, d->old_pwd);
+      STATE(d) = CON_MAIN_MENU;
+      SEND_TO_Q(MENU, d);
+      return;
     }
     SEND_TO_Q("Password changed, you must enter game and save and/or rent for the change\r\n"
       "to be made permanent.\r\n", d);
@@ -4991,24 +4714,13 @@ void select_pwd(P_desc d, char *arg)
 
     /* Confirm pw for deleting character */
   case CON_PWD_D_CONF:
+    if( strcmp(CRYPT2(arg, d->character->only.pc->pwd), d->character->only.pc->pwd) )
     {
-      char *crypt_mod = NULL;
-      if (!(crypt_mod = crypt2_checked(
-        d,
-        arg,
-        d->character->only.pc->pwd,
-        CON_MAIN_MENU,
-        "\r\nCharacter delete aborted due to hashing error.\r\n",
-        1)))
-        return;
-      if( strcmp(crypt_mod, d->character->only.pc->pwd) )
-      {
-        echo_on(d);
-        SEND_TO_Q("\r\nInvalid password, character delete aborted.\r\n", d);
-        STATE(d) = CON_MAIN_MENU;
-        SEND_TO_Q(MENU, d);
-        return;
-      }
+      echo_on(d);
+      SEND_TO_Q("\r\nInvalid password, character delete aborted.\r\n", d);
+      STATE(d) = CON_MAIN_MENU;
+      SEND_TO_Q(MENU, d);
+      return;
     }
     SEND_TO_Q("\r\nDeleting character...\r\n\r\n", d);
     statuslog(d->character->player.level, "%s deleted %sself (%s@%s).",
@@ -5029,7 +4741,7 @@ void select_pwd(P_desc d, char *arg)
 void select_main_menu(P_desc d, char *arg)
 {
   /* skip whitespaces */
-  for (; isspace((unsigned char)*arg); arg++) ;
+  for (; isspace(*arg); arg++) ;
 
   /* a little chicanery to force them to enter a valid password.  If they are in in CON_MAIN_MENU with a d->rtype
      greater than 20 (6 is normal max), they have to do the 'change password' thing.  JAB */
@@ -5098,11 +4810,6 @@ void select_main_menu(P_desc d, char *arg)
     }
     d->str = &d->character->player.description;
     d->max_str = 1024;
-    /* select_main_menu() sets d->str and STATE(d); string_add() handles input and
-       clears d->str; nanny() returns to CON_MAIN_MENU when d->str is cleared.
-       We do not drive an explicit state transition here because the editor
-       loop owns completion and signals it by clearing d->str.
-       -Liskin */
     STATE(d) = CON_GET_EXTRA_DESC;
     break;
   case '5':                    /* delete char */
@@ -5137,7 +4844,7 @@ void select_main_menu(P_desc d, char *arg)
 */
 void select_newbie(P_desc d, char *arg)
 {
-  for(; isspace((unsigned char)*arg); arg++) ;
+  for(; isspace(*arg); arg++) ;
 
   switch(*arg) {
     case 'Y':
@@ -5165,7 +4872,7 @@ void select_newbie(P_desc d, char *arg)
 void select_hardcore(P_desc d, char *arg)
 {
   /* skip whitespaces */
-  for (; isspace((unsigned char)*arg); arg++) ;
+  for (; isspace(*arg); arg++) ;
 
   switch (*arg)
   {
@@ -5195,7 +4902,7 @@ void select_hardcore(P_desc d, char *arg)
 void select_sex(P_desc d, char *arg)
 {
   /* skip whitespaces */
-  for (; isspace((unsigned char)*arg); arg++) ;
+  for (; isspace(*arg); arg++) ;
 
   switch (*arg)
   {
@@ -5252,7 +4959,7 @@ void select_race(P_desc d, char *arg)
   char     Gbuf[MAX_INPUT_LENGTH];
 
   /* skip whitespaces */
-  for (; isspace((unsigned char)*arg); arg++) ;
+  for (; isspace(*arg); arg++) ;
 
   /*
    ** Since we have turned off echoing for telnet client,
@@ -5262,12 +4969,6 @@ void select_race(P_desc d, char *arg)
    */
   if (*arg == -1)
   {
-    /* Added length check before IAC byte reads to avoid out-of-bounds reads on short buffers; old code risked OOB reads that can crash (e.g., a client sends a single 0xFF byte to force the IAC branch and read beyond the buffer). -Liskin */
-    if (strlen(arg) < 6)
-    {
-      close_socket(d);
-      return;
-    }
     if ((arg[1] != '0') && (arg[2] != '0') && (arg[3] != '0') &&
         (arg[4] != '0'))
     {
@@ -5545,20 +5246,14 @@ void select_race(P_desc d, char *arg)
 
   // not anymore, it's sex/class baby
 
-  /* Invite mode restricts evil races to invited players only. */
-  /* Uninvited players selecting evil races are looped back to race select. */
-  /* consider deprecating. this mode is never used - Liskin */
   if (invitemode && EVIL_RACE(d->character) &&
       !is_invited(GET_NAME(d->character)))
   {
     SEND_TO_Q("\r\nSorry, but only those players that have been invited can roll evil characters.\r\n\r\n", d);
 
-    // explicitly reset state and prompt so the player returns to race selection
+    // since STATE is not changed, player should be forced back into race selection
 
     GET_RACE(d->character) = RACE_NONE;
-    SEND_TO_Q(racetable, d);
-    STATE(d) = CON_GET_RACE;
-    return;
   }
   else if ((GET_RACE(d->character) != RACE_ILLITHID) &&
            (GET_RACE(d->character) != RACE_PILLITHID))
@@ -5583,7 +5278,7 @@ void select_race(P_desc d, char *arg)
 void select_reroll(P_desc d, char *arg)
 {
   /* skip whitespaces */
-  for (; isspace((unsigned char)*arg); arg++) ;
+  for (; isspace(*arg); arg++) ;
 
   switch (*arg)
   {
@@ -5617,7 +5312,7 @@ void select_bonus(P_desc d, char *arg)
   int      i = 0;
 
   /* skip whitespaces */
-  for (; isspace((unsigned char)*arg); arg++) ;
+  for (; isspace(*arg); arg++) ;
 
   switch (LOWER(*arg))
   {
@@ -5680,6 +5375,7 @@ void select_bonus(P_desc d, char *arg)
       break;
     }
     return;
+    break;
   }
 
   if (!i)
@@ -5743,7 +5439,7 @@ void select_class(P_desc d, char *arg)
   Gbuf[0] = 0;
 
   /* skip whitespaces */
-  for (; isspace((unsigned char)*arg); arg++) ;
+  for (; isspace(*arg); arg++) ;
 
   d->character->player.m_class = CLASS_NONE;
 
@@ -5751,14 +5447,14 @@ void select_class(P_desc d, char *arg)
   {
     if( *arg == class_names_table[cls].letter )
       d->character->player.m_class = 1 << (cls - 1);
-    else if( tolower((unsigned char)*arg) == class_names_table[cls].letter )
+    else if( tolower(*arg) == class_names_table[cls].letter )
       strcpy(Gbuf, class_names_table[cls].normal);
     // Had to hardcode the # for Summoners (option 3).
     else if( *arg == '#' )
     {
       strcpy(Gbuf, class_names_table[29].normal);
     }
-    else if( tolower((unsigned char)*arg) == 'z' )
+    else if( tolower(*arg) == 'z' )
     {
       SEND_TO_Q("\r\nIs your character Male or Female (Z for race)? (M/F/Z) ", d);
       STATE(d) = CON_GET_SEX;
@@ -5832,6 +5528,7 @@ void select_class(P_desc d, char *arg)
     SEND_TO_Q("Alignment only affects your character's alignment and not the chosen racewar side.\n", d);
     SEND_TO_Q("\r\nYour selection: ", d);
     return;
+    break;
   }
 
   if (OLD_RACE_GOOD(GET_RACE(d->character), GET_ALIGNMENT(d->character)))
@@ -5883,29 +5580,18 @@ void display_classtable(P_desc d)
   SEND_TO_Q("\r\n---------------", d);
 
   buf[0] = 0;
-  /* Bounded append with remaining-size guard to prevent underflow/overflow with long class lists or ANSI length growth; old code risked size underflow leading to overflow. -Liskin */
   for (cls = 1; cls <= CLASS_COUNT; cls++)
     if (class_table[GET_RACE(d->character)][cls] != 5)
     {
-      size_t used = strlen(buf);
-      size_t remaining = MAX_STRING_LENGTH - used;
-
       snprintf(template_buf, MAX_STRING_LENGTH, "\r\n%%c) %%-%lds(%%c for help)",
               strlen(class_names_table[cls].ansi) -
               ansi_strlen(class_names_table[cls].ansi) + 20);
-      if (remaining > 0)
-        snprintf(buf + used, remaining, template_buf, class_names_table[cls].letter,
-                class_names_table[cls].ansi,
-                (class_names_table[cls].letter == '3') ? '#' : toupper((unsigned char)class_names_table[cls].letter));
+      snprintf(buf + strlen(buf), MAX_STRING_LENGTH - strlen(buf), template_buf, class_names_table[cls].letter,
+              class_names_table[cls].ansi,
+              (class_names_table[cls].letter == '3') ? '#' : toupper(class_names_table[cls].letter));
     }
 
-  {
-    size_t used = strlen(buf);
-    size_t remaining = MAX_STRING_LENGTH - used;
-
-    if (remaining > 0)
-      snprintf(buf + used, remaining, "\r\n");
-  }
+  strcat(buf, "\r\n");
   SEND_TO_Q(buf, d);
 
   if (GET_RACE(d->character) == RACE_ILLITHID)
@@ -5926,7 +5612,7 @@ void select_alignment(P_desc d, char *arg)
   int      align = 0, home, err = 0;
 
   /* skip whitespaces */
-  for (; isspace((unsigned char)*arg); arg++) ;
+  for (; isspace(*arg); arg++) ;
 
   switch (*arg)
   {
@@ -6006,7 +5692,7 @@ void select_hometown(P_desc d, char *arg)
   int      home;
 
   /* skip whitespaces */
-  for (; isspace((unsigned char)*arg); arg++) ;
+  for (; isspace(*arg); arg++) ;
 
   home = -1;
   for (int i = 0; i <= LAST_HOME; i++)
@@ -6059,7 +5745,7 @@ void select_hometown(P_desc d, char *arg)
 void select_keepchar(P_desc d, char *arg)
 {
   /* skip whitespaces */
-  for (; isspace((unsigned char)*arg); arg++) ;
+  for (; isspace(*arg); arg++) ;
   switch (LOWER(*arg))
   {
   case 'n':
@@ -6172,7 +5858,6 @@ void display_characteristics(P_desc d)
   
   snprintf(Gbuf1 + strlen(Gbuf1), MAX_STRING_LENGTH - strlen(Gbuf1), "\nPossible specializations:\n");
   
-  /* Size-aware spec append (pass buffer size) to prevent spec list overflow; unbounded strcat could corrupt memory and crash. -Liskin */
   if( !append_valid_specs(Gbuf1, sizeof(Gbuf1), d->character) )
   {
     snprintf(Gbuf1 + strlen(Gbuf1), MAX_STRING_LENGTH - strlen(Gbuf1), "None\n");    
@@ -6558,9 +6243,6 @@ void set_char_height_weight(P_char ch)
   ch->player.weight = (int) ((mean_w * tmp * w_roll) / 100000);
 }
 
-/*=========================================================================*/
-/* Character entry/init (continued)                                        */
-/*=========================================================================*/
 void set_char_size(P_char ch)
 {
   switch (GET_RACE(ch))
@@ -6729,13 +6411,6 @@ void init_char(P_char ch)
 
 
 #if 0
-  /*
-   * Shadow skill bookkeeping. This is intentionally left disabled; the rest of
-   * the shadow subsystem (shadow.c, actmove.c, handler.c) still expects these
-   * fields, but the init path was disabled by Lohrr in 51ef8f8 (2017-01-16).
-   * Keeping the block makes the intended reset behavior explicit without
-   * re-enabling it. -Liskin
-   */
   ch->specials.shadow.shadowing = NULL;
   ch->specials.shadow.who = NULL;
   ch->specials.shadow.valid_last_move = FALSE;
@@ -6754,9 +6429,6 @@ void init_char(P_char ch)
 
 int      approve_mode = 0;       /* whether to have need to accept new players or not */
 
-/*=========================================================================*/
-/* Login/account flow helpers (continued)                                  */
-/*=========================================================================*/
 void newby_announce(P_desc d)
 {
   char     Gbuf1[MAX_STRING_LENGTH], Gbuf2[MAX_STRING_LENGTH];
@@ -6768,8 +6440,7 @@ void newby_announce(P_desc d)
     race_names_table[(int) GET_RACE(d->character)].ansi, get_class_string(d->character, Gbuf2),
     d->character->only.pc->pc_timer[PC_TIMER_HEAVEN]/60, d->character->only.pc->pc_timer[PC_TIMER_HEAVEN] % 60,
     d->descriptor, (d->wait / WAIT_SEC) / 60, (d->wait / WAIT_SEC) % 60,
-    d->login[0] ? d->login : "unknown",
-    d->host[0] ? d->host : "UNKNOWN" ); /* Changed to array-empty checks; login/host arrays are never NULL, previous pointer checks logged empty values instead of fallback. -Liskin */
+    d->login ? d->login : "unknown", d->host ? d->host : "UNKNOWN" );
   for (i = descriptor_list; i; i = i->next)
   {
     if( !i->connected && i->character && IS_SET(i->character->specials.act, PLR_NAMES)
@@ -6953,7 +6624,7 @@ void nanny(P_desc d, char *arg)
     /* Name confirm for new player */
   case CON_NAME_CONF:
     /* skip whitespaces */
-    for (; isspace((unsigned char)*arg); arg++) ;
+    for (; isspace(*arg); arg++) ;
     if (*arg == 'y' || *arg == 'Y')
     {
       SEND_TO_Q("\r\nEntering new character generation mode.\r\n", d);
@@ -6985,14 +6656,12 @@ void nanny(P_desc d, char *arg)
 
     /* Player enteres in login */
   case CON_ENTER_LOGIN:
-    /* Use sizeof() for the destination array size instead of MAX_STRING_LENGTH; these arrays are smaller and the old size risked overflow. -Liskin */
-    snprintf(d->registered_login, sizeof(d->registered_login), "%s", arg);
+    snprintf(d->registered_login, MAX_STRING_LENGTH, "%s", arg);
     SEND_TO_Q("\n\rNow, the hostname part of your email address: ", d);
     STATE(d) = CON_ENTER_HOST;
     break;
   case CON_ENTER_HOST:
-    /* Use sizeof() for the destination array size instead of MAX_STRING_LENGTH; these arrays are smaller and the old size risked overflow. -Liskin */
-    snprintf(d->registered_host, sizeof(d->registered_host), "%s", arg);
+    snprintf(d->registered_host, MAX_STRING_LENGTH, "%s", arg);
     if (email_in_use(d->registered_login, d->registered_host))
     {
       SEND_TO_Q("That email is in use already.\n\r", d);
@@ -7006,7 +6675,7 @@ void nanny(P_desc d, char *arg)
     STATE(d) = CON_CONFIRM_EMAIL;
     break;
   case CON_CONFIRM_EMAIL:
-    for (; isspace((unsigned char)*arg); arg++) ;
+    for (; isspace(*arg); arg++) ;
     if (*arg == 'y' || *arg == 'Y')
     {                           /* continue */
 //      snprintf(Gbuf1, MAX_STRING_LENGTH, "Please enter your sex? (M/F) ");
@@ -7029,9 +6698,15 @@ void nanny(P_desc d, char *arg)
     /* Appropriate name for new player */
   case CON_APPROPRIATE_NAME:
     /* skip whitespaces */
-    for (; isspace((unsigned char)*arg); arg++) ;
+    for (; isspace(*arg); arg++) ;
     if (*arg == 'y' || *arg == 'Y')
     {
+/*
+   if (mini_mode) {
+   SEND_TO_Q("We now need an email address for authorization.\n\rPlease type in your login or userid: ",d);
+   STATE(d) = CON_ENTER_LOGIN;
+   } else {
+ */
 #ifndef USE_ACCOUNT
       snprintf(Gbuf1, MAX_STRING_LENGTH, "\r\nPlease enter a password for %s: ",
               GET_NAME(d->character));
@@ -7043,6 +6718,7 @@ void nanny(P_desc d, char *arg)
       SEND_TO_Q(racetable, d);
       STATE(d) = CON_GET_RACE;
 #endif
+/*     } */
     }
     else
     {
@@ -7071,24 +6747,33 @@ void nanny(P_desc d, char *arg)
   case CON_PWD_D_CONF:
   case CON_PWD_NORM:
     /* skip whitespaces */
-    for (; isspace((unsigned char)*arg); arg++) ;
+    for (; isspace(*arg); arg++) ;
 
     if (STATE(d) == CON_PWD_NEW ||
         STATE(d) == CON_PWD_GET || STATE(d) == CON_PWD_NORM)
     {
       /*
-       ** Change: robustly strip leading telnet IAC sequences instead of
-       ** skipping a fixed 3-byte sequence, because clients can send
-       ** different IAC negotiations; the old logic could garble passwords
-       ** or cause accidental lockouts. The fixed-skip logic dates back to
-       ** 2017 per git blame; honoring the original intent while improving
-       ** compatibility keeps the experience welcoming for all clients.
-       ** -Liskin
+       ** Since we have turned off echoing for telnet client,
+       ** if a telnet client is indeed used, we need to skip the
+       ** initial 3 bytes ( -1, -3, 1 ) if they are sent back by
+       ** client program.
        */
-      arg = skip_telnet_iac_sequences(arg);
-      if (!arg)
+
+      if (*arg == -1)
       {
-        return;
+        if (arg[1] != '0' && arg[2] != '0')
+        {
+          if (arg[3] == '0')
+          {                     /* Password on next read  */
+            return;
+          }
+          else
+          {                     /* Password available */
+            arg = arg + 3;
+          }
+        }
+        else
+          close_socket(d);
       }
     }
     select_pwd(d, arg);
@@ -7122,7 +6807,7 @@ void nanny(P_desc d, char *arg)
   case CON_SHOW_CLASS_RACE_TABLE:
     /* Race war info for new player */
   case CON_SHOW_RACE_TABLE:
-    for (; isspace((unsigned char)*arg); arg++) ;
+    for (; isspace(*arg); arg++) ;
     SEND_TO_Q(racetable, d);
     STATE(d) = CON_GET_RACE;
     break;
@@ -7227,14 +6912,7 @@ void nanny(P_desc d, char *arg)
 
     /* response to disclaimer */
   case CON_DISCLMR:
-    /*
-     * Approval stays inline (no new connection state) to keep the decision tied
-     * to the disclaimer response handler. Returning players go to CON_RMOTD,
-     * while new untrusted players in approve_mode go to CON_ACCEPTWAIT. Moving
-     * this logic would force renumbering connection states (structs.h and
-     * callers), so it remains here. -Liskin
-     */
-    for (; isspace((unsigned char)*arg); arg++) ;
+    for (; isspace(*arg); arg++) ;
     switch (*arg)
     {
     case 'N':
@@ -7242,15 +6920,18 @@ void nanny(P_desc d, char *arg)
       SEND_TO_Q("\r\n\r\nThank you for considering our mud.\r\n", d);
       close_socket(d);
       return;
+      break;
     case 'Y':
     case 'y':
       SEND_TO_Q
         ("\r\n\r\nYou have selected Yes, and hereby agree to all conditions in the set of rules.\r\n",
          d);
+      // Note: Actual approval logic is handled in the code after this switch statement
       break;
     default:
       SEND_TO_Q("\r\nThat is not a correct response. Try again.\r\n", d);
       return;
+      break;
     }
     if (pfile_exists("Players/Accepted", GET_NAME(d->character)))
     {
@@ -7278,7 +6959,7 @@ void nanny(P_desc d, char *arg)
       writeCharacter(d->character, 2, NOWHERE);
       STATE(d) = CON_RMOTD;
     }
-/*    for (; isspace((unsigned char)*arg); arg++);
+/*    for (; isspace(*arg); arg++);
     switch (*arg) {
     case 'Y':
     case 'y':
@@ -7315,7 +6996,26 @@ void nanny(P_desc d, char *arg)
     break;
 
   case CON_WELCOME:
-    /* NOTE: Removed unreachable legacy mini-mode email registration flow; state transitions proceed normally even with -m. */
+#if 0
+    if (mini_mode)
+    {
+      struct registration_node *x;
+      CREATE(x, struct registration_node, 1);
+
+      snprintf(x->host, MAX_STRING_LENGTH, "%s", d->registered_host);
+      snprintf(x->login, MAX_STRING_LENGTH, "%s", d->registered_login);
+      snprintf(x->name, MAX_STRING_LENGTH, "%s", GET_NAME(d->character));
+      x->name[0] = tolower(x->name[0]);
+      x->next = email_reg_table[(int) x->name[0] - (int) 'a'].next;
+      email_reg_table[(int) x->name[0] - (int) 'a'].next = x;
+      dump_email_reg_db();
+      email_player_info(x->login, x->host, d);
+      SEND_TO_Q
+        ("Your character information will be emailed to you shortly.\n\r", d);
+      STATE(d) = CON_EXIT;
+      return;
+    }
+#endif
     writeCharacter(d->character, 2, NOWHERE);
 #ifdef USE_ACCOUNT
     display_account_menu(d, arg);
@@ -7358,23 +7058,6 @@ void nanny(P_desc d, char *arg)
     STATE(d) = CON_GET_TERM;
     break;
 
-  case CON_GET_EXTRA_DESC:
-    /* select_main_menu() sets d->str and STATE(d); string_add() handles input and
-       clears d->str; nanny() returns to CON_MAIN_MENU when d->str is cleared.
-       We do not drive an explicit state transition here because the editor
-       loop owns completion and signals it by clearing d->str.
-       -Liskin */
-    if (d->str)
-    {
-      string_add(d, arg);
-    }
-    else
-    {
-      SEND_TO_Q(MENU, d);
-      STATE(d) = CON_MAIN_MENU;
-    }
-    break;
-
     /* Flush output messages, then kill the descriptor */
   case CON_FLUSH:
   default:
@@ -7385,6 +7068,14 @@ void nanny(P_desc d, char *arg)
     if (d->output.head == 0)
       close_socket(d);
     return;
+#if 0
+    /* better not get here or something is hosed */
+  default:
+    logit(LOG_EXIT, "Nanny: illegal state of con'ness (%d)", STATE(d));
+    raise(SIGSEGV);
+    break;
+
+#endif
   }
 }
 
@@ -7393,10 +7084,6 @@ void nanny(P_desc d, char *arg)
  */
 
 
-/*=========================================================================*/
-/* Hints/email utilities                                                   */
-/*=========================================================================*/
-#if 0
 void email_player_info(char *login, char *host, struct descriptor_data *d)
 {
 
@@ -7411,7 +7098,6 @@ void email_player_info(char *login, char *host, struct descriptor_data *d)
   for (counter = 6; counter < 8; counter++)
     password[counter] = (random() % 10) + 48;
   password[8] = '\0';
-  /* WARNING: This uses a predictable /tmp file name and shells a mail command from user data, which can expose plaintext passwords and invite command injection if not addressed. */
   snprintf(buf, MAX_STRING_LENGTH, "/tmp/%s.REG", GET_NAME(d->character));
   if (!(fp = fopen(buf, "w")))
   {
@@ -7435,7 +7121,6 @@ void email_player_info(char *login, char *host, struct descriptor_data *d)
   ereglog(AVATAR, "Executing Command %s", buf);
   fclose(fp);
 }
-#endif
 
 
 
@@ -7449,20 +7134,19 @@ void loadHints()
   char     buf2[MAX_STR_NORMAL * 10];
   int      i = 0;
 
-  if (iLOADED > 0)
-    return; /* Guard repeated loads to avoid memory leak on reload; old code leaked on reload. -Liskin */
-
   f = fopen("lib/information/hints.txt", "r");
 
   if (!f)
     return;
 
-  /* Avoid feof double-read and hint_array overflow that could write past bounds. -Liskin */
-  while (i < (int)(sizeof(hint_array) / sizeof(hint_array[0]))
-    && fgets(buf2, MAX_STR_NORMAL * 10 - 1, f))
+  while (!feof(f))
   {
-    hint_array[i] = str_dup(buf2);
-    i++;
+
+    if (fgets(buf2, MAX_STR_NORMAL * 10 - 1, f))
+    {
+      hint_array[i] = str_dup(buf2);
+      i++;
+    }
   }
 
   iLOADED = i;
@@ -7475,8 +7159,7 @@ int tossHint(P_char ch)
 
   if (iLOADED < 1)
     return 0;
-  /* snprintf size now matches buf2 because buf2 is smaller than MAX_STRING_LENGTH; old code risked buffer overflow. -Liskin */
-  snprintf(buf2, sizeof(buf2), "&+MHint: &+m%s", hint_array[number(0, iLOADED - 1)]);
+  snprintf(buf2, MAX_STRING_LENGTH, "&+MHint: &+m%s", hint_array[number(0, iLOADED - 1)]);
   send_to_char(buf2, ch);
   return 0;
 }
@@ -7504,9 +7187,6 @@ void Decrypt(char *text, int sizeOfText, const char *key, int sizeOfKey)
   }
 }
 
-/*=========================================================================*/
-/* Stat swap helpers                                                       */
-/*=========================================================================*/
 void show_swapstat( P_desc d )
 {
   SEND_TO_Q("\r\nThe following letters correspond to the stats:\r\n", d);
@@ -7521,7 +7201,7 @@ void show_swapstat( P_desc d )
 void select_swapstat( P_desc d, char *arg )
 {
   /* skip whitespaces */
-  for (; isspace((unsigned char)*arg); arg++) ;
+  for (; isspace(*arg); arg++) ;
 
   switch (*arg)
   {
@@ -7689,6 +7369,7 @@ void swapstats(P_char ch, int stat1, int stat2)
     default:
       send_to_char( "Error in swapstats Part 1!  Tell a God.\n\r", ch );
       return;
+      break;
   }
   // Swap: put stat2 value into stat1 and tmp into stat2 value.
   switch( stat2 )
@@ -7732,6 +7413,7 @@ void swapstats(P_char ch, int stat1, int stat2)
     default:
       send_to_char( "Error in swapstats Part 2!  Tell a God.\n\r", ch );
       return;
+      break;
   }
 
   ch->curr_stats = ch->base_stats;

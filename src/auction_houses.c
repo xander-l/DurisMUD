@@ -27,7 +27,9 @@ int auction_house_room_proc(int room_num, P_char ch, int cmd, char *arguments)
   return TRUE;
 }
 #else
+#ifndef MOCK_MYSQL
 #include <mysql.h>
+#endif
 
 extern P_room world;
 extern P_index obj_index;

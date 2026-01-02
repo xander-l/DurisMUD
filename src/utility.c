@@ -1181,18 +1181,6 @@ const char *connected_type_name(int state)
       return "NEWNAME";
     case CON_HOST_LOOKUP:
       return "HOST_LOOKUP";
-    case CON_OEDIT:
-      return "OOLC";
-    case CON_REDIT:
-      return "ROLC";
-    case CON_ZEDIT:
-      return "ZOLC";
-    case CON_MEDIT:
-      return "MOLC";
-    case CON_SEDIT:
-      return "SOLC";
-    case CON_QEDIT:
-      return "QOLC";
     case CON_BONUS4:
       return "BONUS4";
     case CON_BONUS5:
