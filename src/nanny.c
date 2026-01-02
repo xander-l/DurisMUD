@@ -6422,6 +6422,13 @@ void init_char(P_char ch)
 
 
 #if 0
+  /*
+   * Shadow skill bookkeeping. This is intentionally left disabled; the rest of
+   * the shadow subsystem (shadow.c, actmove.c, handler.c) still expects these
+   * fields, but the init path was disabled by Lohrr in 51ef8f8 (2017-01-16).
+   * Keeping the block makes the intended reset behavior explicit without
+   * re-enabling it. -Liskin
+   */
   ch->specials.shadow.shadowing = NULL;
   ch->specials.shadow.who = NULL;
   ch->specials.shadow.valid_last_move = FALSE;
