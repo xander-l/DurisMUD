@@ -4429,9 +4429,14 @@ void select_name(P_desc d, char *arg, int flag)
       return;
     }
   }
-  /* should never get here!!! */
-  logit(LOG_EXIT, "create_name: should never get here!!");
-  raise(SIGSEGV);
+  /* SIGSEGV replaced with safe fallback to avoid crashing the whole server on unexpected flow; old code risked a single bad state terminating the process. -Liskin */
+  logit(LOG_BUG, "create_name: unexpected flow state=%d desc=%p host=%s player=%s",
+        STATE(d),
+        (void *)d,
+        (d && d->host) ? d->host : "(null)",
+        (d && d->character) ? GET_NAME(d->character) : "(null)");
+  STATE(d) = CON_FLUSH;
+  return;
 }
 
 P_char find_ch_from_same_host(P_desc d)
