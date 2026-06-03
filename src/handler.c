@@ -77,52 +77,101 @@ int  map_view_distance(P_char ch, int room);
 bool leave_safe_room(P_char ch);
 void add_weight(P_obj obj, int weight);
 
-static const char *persistence_char_owner(P_char ch, char *buf, int buf_size)
+static bool obj_is_container_type(P_obj obj)
 {
-	if (!buf || buf_size <= 0)
-		return "none";
-
-	if (!ch)
-		snprintf(buf, buf_size, "none");
-	else if (IS_PC(ch))
-		snprintf(buf, buf_size, "player:%d", GET_PID(ch));
-	else
-		snprintf(buf, buf_size, "mob:%d", GET_VNUM(ch));
-
-	return buf;
-}
-
-static const char *persistence_room_owner(int room, char *buf, int buf_size)
-{
-	if (!buf || buf_size <= 0)
-		return "none";
-
-	if (room >= 0 && room <= top_of_world)
-		snprintf(buf, buf_size, "room:%d", world[room].number);
-	else
-		snprintf(buf, buf_size, "room:unknown");
-
-	return buf;
-}
-
-static const char *persistence_object_owner(P_obj obj, char *buf, int buf_size)
-{
-	char uid[32];
-
-	if (!buf || buf_size <= 0)
-		return "none";
-
 	if (!obj)
 	{
-		snprintf(buf, buf_size, "none");
+		return FALSE;
 	}
-	else
+	return (obj->type == ITEM_CONTAINER || obj->type == ITEM_QUIVER || obj->type == ITEM_STORAGE || obj->type == ITEM_CORPSE);
+}
+
+static int obj_prototype_weight(P_obj obj)
+{
+	P_obj proto;
+	int   w;
+
+	if (!obj || obj->R_num < 0)
 	{
-		persistence_assign_item_uid(obj, "container_owner");
-		snprintf(buf, buf_size, "item:%s", persistence_item_uid_text(obj, uid, sizeof(uid)));
+		return 0;
+	}
+	proto = read_object(obj->R_num, REAL);
+	if (!proto)
+	{
+		return 0;
+	}
+	w = proto->weight;
+	extract_obj(proto, TRUE);
+	return w;
+}
+
+static int sum_direct_contents_weight(P_obj cont)
+{
+	P_obj o;
+	int   w = 0;
+
+	for (o = cont->contains; o; o = o->next_content)
+	{
+		w += GET_OBJ_WEIGHT(o);
+	}
+	return w;
+}
+
+static void encumbrance_adjust(P_char ch, int weight)
+{
+	if (!ch || !weight)
+	{
+		return;
+	}
+	GET_CARRYING_W(ch) += weight;
+}
+
+/*
+ * Recompute container weight from prototype shell + contents; repair carry_weight if wrong.
+ */
+void recalc_container_weight(P_obj cont)
+{
+	int delta;
+	int new_weight;
+	int shell;
+	int contents;
+
+	if (!obj_is_container_type(cont))
+	{
+		return;
 	}
 
-	return buf;
+	shell    = obj_prototype_weight(cont);
+	contents = sum_direct_contents_weight(cont);
+	new_weight = shell + contents;
+	delta      = new_weight - cont->weight;
+	if (!delta)
+	{
+		return;
+	}
+	add_weight(cont, delta);
+}
+
+void container_reset_empty_weight(P_obj cont)
+{
+	if (!obj_is_container_type(cont))
+	{
+		return;
+	}
+	cont->weight = obj_prototype_weight(cont);
+}
+
+int container_total_weight(P_obj cont)
+{
+	if (!cont)
+	{
+		return 0;
+	}
+	if (obj_is_container_type(cont))
+	{
+		recalc_container_weight(cont);
+	}
+	return GET_OBJ_WEIGHT(cont);
 }
 
 /*
@@ -2554,8 +2603,7 @@ void obj_to_obj(P_obj obj, P_obj obj_to)
 		}
 	}
 
-	if (obj->weight > 0)
-		add_weight(obj_to, obj->weight);
+	add_weight(obj_to, obj->weight);
 	/* Broken out into a recursive function; neater and more correct for handling negative weights properly.
 	  wgt = GET_OBJ_WEIGHT(obj);
 	  for (tmp_obj = obj->loc.inside; wgt && tmp_obj;
@@ -2624,8 +2672,7 @@ void obj_to_obj_at_end(P_obj obj, P_obj obj_to)
 	obj->loc.inside = obj_to;
 	append_obj_to_list(&obj_to->contains, obj);
 
-	if (obj->weight > 0)
-		add_weight(obj_to, obj->weight);
+	add_weight(obj_to, obj->weight);
 
 	mark_container_dirty(obj_to);
 }
@@ -2702,11 +2749,7 @@ void obj_from_obj(P_obj obj)
 			tmp->next_content = obj->next_content;
 		}
 
-		// Subtract weight from containers container
-		if (obj->weight > 0)
-		{
-			add_weight(obj_from, -(obj->weight));
-		}
+		add_weight(obj_from, -(obj->weight));
 		/*    wgt = GET_OBJ_WEIGHT(obj);
 		    for( tmp = obj->loc.inside; wgt && tmp; tmp = OBJ_INSIDE(tmp) ? tmp->loc.inside : NULL )
 		    {
@@ -4503,86 +4546,62 @@ bool leave_safe_room(P_char ch)
 // This function adds weight to the object, then adds weight to its container/holder/wearer,
 //   but only the amount of weight above the magical weightlessness of said object.
 // This function handles adding a negative weight properly as well.
+// Worn objects apply half the propagated delta to carry_weight (matches equip_char / unequip_char).
+static void propagate_weight_delta(P_obj obj, int weight)
+{
+	if (!obj || !weight)
+	{
+		return;
+	}
+
+	switch (obj->loc_p)
+	{
+		case LOC_WORN:
+			encumbrance_adjust(obj->loc.wearing, weight / 2);
+			break;
+		case LOC_CARRIED:
+			encumbrance_adjust(obj->loc.carrying, weight);
+			break;
+		case LOC_INSIDE:
+			add_weight(obj->loc.inside, weight);
+			break;
+		case LOC_ROOM:
+		case LOC_NOWHERE:
+		default:
+			break;
+	}
+}
+
 void add_weight(P_obj obj, int weight)
 {
+	int carry_delta;
+
+	if (!obj || !weight)
+	{
+		return;
+	}
+
 	// If we start with a negative weight.
 	if (obj->weight < 0)
 	{
-		// Add the new amount of weight (Note: obj->weight stays negative if weight is negative).
 		obj->weight += weight;
-		// If we go above the 'weightlessness' of obj, then add to the container/holder/wearer.
 		if (obj->weight > 0)
 		{
-			switch (obj->loc_p)
-			{
-				case LOC_WORN:
-					GET_CARRYING_W(obj->loc.wearing) += obj->weight;
-					break;
-				case LOC_CARRIED:
-					GET_CARRYING_W(obj->loc.carrying) += obj->weight;
-					break;
-				case LOC_INSIDE:
-					// Call recursively, since the containing object might also have a weightless factor.
-					add_weight(obj->loc.inside, obj->weight);
-					break;
-				case LOC_ROOM:
-				case LOC_NOWHERE:
-				default:
-					break;
-			}
+			carry_delta = obj->weight;
+			propagate_weight_delta(obj, carry_delta);
 		}
 	}
-	// If we start with a positive weight (or 0)
 	else
 	{
-		// Add the new amount of weight (Note: obj->weight might become negative if weight is negative).
 		obj->weight += weight;
-		// If weight stayed positive, just adjust owner/container weight (works for both positive and negative weight).
 		if (obj->weight > 0)
 		{
-			switch (obj->loc_p)
-			{
-				case LOC_WORN:
-					GET_CARRYING_W(obj->loc.wearing) += weight;
-					break;
-				case LOC_CARRIED:
-					GET_CARRYING_W(obj->loc.carrying) += weight;
-					break;
-				case LOC_INSIDE:
-					// Call recursively, since the containing object might also have a weightless factor.
-					add_weight(obj->loc.inside, weight);
-					break;
-				case LOC_ROOM:
-				case LOC_NOWHERE:
-				default:
-					break;
-			}
+			propagate_weight_delta(obj, weight);
 		}
-		// We added a negative weight that dropped obj below 0... fun.
 		else
 		{
-			// We now shift weight to the amount of change to get obj from its previous weight to 0.
-			//   This is because once a container becomes weightless, it doesn't further affect the carrier/etc.
-			// To do this, we subtract the new obj->weight (obj->old_weight+weight) from weight, which yields the
-			//   negative of the original obj->weight.
-			weight -= obj->weight;
-			switch (obj->loc_p)
-			{
-				case LOC_WORN:
-					GET_CARRYING_W(obj->loc.wearing) += weight;
-					break;
-				case LOC_CARRIED:
-					GET_CARRYING_W(obj->loc.carrying) += weight;
-					break;
-				case LOC_INSIDE:
-					// Call recursively, since the containing object might also have a weightless factor.
-					add_weight(obj->loc.inside, weight);
-					break;
-				case LOC_ROOM:
-				case LOC_NOWHERE:
-				default:
-					break;
-			}
+			carry_delta = weight - obj->weight;
+			propagate_weight_delta(obj, carry_delta);
 		}
 	}
 }
