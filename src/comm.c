@@ -1628,6 +1628,20 @@ int init_socket(int port)
 	/*  sa.sin_family = hp->h_addrtype; */
 	sa.sin_family = AF_INET;
 	sa.sin_port   = htons((unsigned short int)port);
+#ifdef IPPROTO_MPTCP
+	/*
+	 * Multipath TCP: if there are multiple routes available and enabled, they
+	 * will be used together.  In our case (hardly any bandwidth used), the
+	 * worse route will be kept on standby, to be used when lag happens.
+	 *
+	 * The kernel silently falls back to non-MPTCP extremely fast, thus broken
+	 * routers or middleware rejecting packets with a flag they don't know
+	 * doesn't require a retry from us.  Thus, the only concerns are platforms
+	 * that don't support MPTCP (Windows, old BSDs) or have CONFIG_MPTCP=n.
+	 */
+	s             = socket(PF_INET, SOCK_STREAM, IPPROTO_MPTCP);
+	if (s < 0)
+#endif
 	s             = socket(PF_INET, SOCK_STREAM, 0);
 	if (s < 0)
 	{
@@ -2863,7 +2877,7 @@ int process_input(P_desc t)
 	/* processed before user input - no newline */
 	for (i = begin; *(t->buf + i); i++)
 	{
-		if (*(t->buf + i) == (signed char)IAC)
+		if (t->buf[i] == (char)IAC)
 		{
 			int remaining = strlen(t->buf + i);
 			int consumed  = parse_telnet_options(t, t->buf + i, remaining);
@@ -2900,7 +2914,7 @@ int process_input(P_desc t)
 		if (!ISNEWL(*(t->buf + i)) && !(flag = (k >= (MAX_INPUT_LENGTH - 2))))
 		{
 			/* telnet */
-			if (*(t->buf + i) == (signed char)IAC)
+			if (t->buf[i] == (char)IAC)
 			{
 				int remaining = strlen(t->buf + i);
 				int consumed  = parse_telnet_options(t, t->buf + i, remaining);
@@ -2910,7 +2924,7 @@ int process_input(P_desc t)
 					i++;
 			}
 			/* backspace? (handle both ^H and DEL) */
-			else if (*(t->buf + i) == '\b' || (unsigned char)*(t->buf + i) == 127)
+			else if (t->buf[i] == '\b' || t->buf[i] == 127)
 			{
 				/* more than one char ? */
 				if (k)
@@ -3227,8 +3241,8 @@ void act_convert(char *buf, const char *str, P_char ch, P_char to, P_obj obj, vo
 	char                 tbuf[MAX_STRING_LENGTH];
 	bool                 found;
 	int                  j, tbp, skip, which_z, sil = FALSE, ig_zc = FALSE;
-	register char       *point;
-	register const char *strp, *i;
+	char       *point;
+	const char *strp, *i;
 	int                  terseonly = FALSE;
 	int                  notterse  = FALSE;
 	bool                 no_eol    = FALSE;
@@ -3563,8 +3577,8 @@ void act(const char *str, int hide_invisible, P_char ch, P_obj obj, void *vict_o
 	 */
 	int                  j, tbp, skip, which_z, sil = type & ACT_SILENCEABLE;
 	bool                 ignore_zcoord = type & ACT_IGNORE_ZCOORD;
-	register char       *point;
-	register const char *strp, *i;
+	char       *point;
+	const char *strp, *i;
 	int                  terseonly = type & ACT_TERSE;
 	int                  notterse  = type & ACT_NOTTERSE;
 	bool                 no_eol    = type & ACT_NOEOL;
