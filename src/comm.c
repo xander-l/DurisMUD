@@ -2912,9 +2912,17 @@ int process_input(P_desc t)
 		t->prompt_mode = TRUE;
 #endif
 
-	/*
-	 * input contains 1 or more newlines; process the stuff
-	 */
+	if (t->cp437)
+		upgrade_cp437_and_dollars(out, in);
+	else if (validate_utf8_and_dollars(out, in))
+	{
+		// During login (non-zero connected), bad bytes come from client negotiation;
+		// silently discard and re-prompt instead of confusing the user.
+		if (!t->connected)
+			write_to_descriptor(t, "Bad characters in input, skipped.\r\n");
+		out[0] = '\0';
+	}
+
 
 	for (i = 0, k = 0; *(t->buf + i);)
 	{
