@@ -7297,7 +7297,9 @@ int yes_no(const char *str)
 	if (is_abbrev(str, "false"))
 		return 0;
 	return -1;
-}static int persistence_large_event_log_writer(const char *line, void *context)
+}
+
+static int persistence_large_event_log_writer(const char *line, void *context)
 {
   (void) context;
 
