@@ -676,7 +676,7 @@ void advance_level(P_char ch)
    ///TODO CODE THIS PIECE OF MASTER    */
 
 	ch->player.level++;
-	sql_update_level(ch);
+	persistence_schedule_level_checkpoint(ch, 1, 5, "advance_level");
 
 	if (GET_LEVEL(ch) > 1)
 	{
@@ -1498,7 +1498,7 @@ int gain_exp(P_char ch, P_char victim, const int value, int type)
 
 	// Check boon exp modifier
 	// This is a exp bonus for any exp gotten in zone?
-	if (type != EXP_BOON && type != EXP_DEATH && type != EXP_RESURRECT)
+	if (type != EXP_BOON && type != EXP_DEATH && type != EXP_RESURRECT && type != EXP_DAMAGE)
 	{
 		check_boon_completion(ch, victim, (int)XP, BOPT_NONE);
 	}

@@ -48,6 +48,8 @@ extern P_desc                        descriptor_list;
 extern P_event                       current_event;
 extern P_index                       mob_index;
 extern P_index                       obj_index;
+extern int                           boot_in_progress;
+extern int                           zone_reset_in_progress;
 extern P_obj                         object_list;
 extern P_room                        world;
 extern const struct race_names       race_names_table[];
@@ -1065,7 +1067,7 @@ bool char_to_room(P_char ch, int room, int dir)
 		return FALSE;
 	}
 
-	if (room < 0)
+	if (room < 0 || room >= top_of_world)
 	{
 		if (IS_NPC(ch))
 		{
@@ -1075,6 +1077,7 @@ bool char_to_room(P_char ch, int room, int dir)
 			return FALSE;
 		}
 		// Move them to Limbo!
+		int bad_room = room;
 		room = 0;
 		logit(LOG_DEBUG, "char_to_room: trying to move %s to room < 0", GET_NAME(ch));
 		wizlog(AVATAR, "char_to_room: trying to move %s to room < 0", GET_NAME(ch));
@@ -1170,7 +1173,7 @@ bool char_to_room(P_char ch, int room, int dir)
 
 	// if anything has moved on the map, find everyone who can see them
 	// and set their flag to send a map update
-	if (IS_MAP_ROOM(was_in) || IS_MAP_ROOM(ch->in_room))
+	if ((was_in >= 0 && was_in < top_of_world && IS_MAP_ROOM(was_in)) || IS_MAP_ROOM(ch->in_room))
 	{
 		for (d = descriptor_list; d; d = d->next)
 		{
@@ -1182,12 +1185,14 @@ bool char_to_room(P_char ch, int room, int dir)
 			int    observer_map_room = who->in_room;
 			P_ship observer_ship     = NULL;
 
+			if (who->in_room < 0 || who->in_room >= top_of_world) continue;
 			if (IS_SHIP_ROOM(who->in_room))
 			{
 				// Ship observers: GMCP only (no terminal spam)
 				if (!GMCP_ENABLED(who))
 					continue;
 				observer_ship = get_ship_from_char(who);
+				if (observer_ship->location < 0 || observer_ship->location >= top_of_world) continue;
 				if (observer_ship && IS_MAP_ROOM(observer_ship->location))
 				{
 					// Skip wilderness zones - too large, frontend doesn't render them anyway
@@ -1534,9 +1539,15 @@ bool char_to_room(P_char ch, int room, int dir)
 
 	int nocalming = 0;
 	int calming   = 0;
-	if ((IS_RACEWAR_GOOD(ch) && IS_SET(hometowns[VNUM2TOWN(world[ch->in_room].number) - 1].flags, JUSTICE_GOODHOME)) ||
-	    (IS_RACEWAR_EVIL(ch) && IS_SET(hometowns[VNUM2TOWN(world[ch->in_room].number) - 1].flags, JUSTICE_EVILHOME)))
-		nocalming = 1;
+	{
+		int town = VNUM2TOWN(world[ch->in_room].number);
+		if (town > 0 && town <= LAST_HOME)
+		{
+			if ((IS_RACEWAR_GOOD(ch) && IS_SET(hometowns[town - 1].flags, JUSTICE_GOODHOME)) ||
+			    (IS_RACEWAR_EVIL(ch) && IS_SET(hometowns[town - 1].flags, JUSTICE_EVILHOME)))
+				nocalming = 1;
+		}
+	}
 
 	if (t_ch && !IS_ELITE(t_ch) && !nocalming && (((GET_LEVEL(t_ch) - GET_LEVEL(ch)) <= 5) || !number(0, 3)) && has_innate(ch, INNATE_CALMING))
 		calming = (int)get_property("innate.calming.delay", 10);
@@ -1637,6 +1648,7 @@ void obj_to_char(P_obj object, P_char ch)
 {
 	P_obj o;
 	char  Gbuf[MAX_STRING_LENGTH];
+	char  owner_buf[64];
 
 	if (!ch)
 	{
@@ -1730,6 +1742,15 @@ void obj_to_char(P_obj object, P_char ch)
 
 	mark_char_or_owner_dirty(ch);
 	SET_BIT(ch->runtime_flags, CHAR_RFLAG_DIRTY_INVENTORY);
+	if (IS_PC(ch) || IS_PC_PET(ch))
+	{
+		persistence_record_item_event("owner_player",
+		                              object,
+		                              ch,
+		                              "nowhere",
+		                              persistence_char_owner(ch, owner_buf, sizeof(owner_buf)),
+		                              "obj_to_char");
+	}
 }
 
 /*
@@ -2303,6 +2324,7 @@ void obj_to_room(P_obj object, int room)
 	P_char   i;
 	P_nevent e1;
 	P_obj    o;
+	char     owner_buf[64];
 
 	if (!OBJ_NOWHERE(object))
 	{
@@ -2424,6 +2446,15 @@ void obj_to_room(P_obj object, int room)
 	{
 		artifact_update_location_sql(object);
 	}
+	if (!boot_in_progress && !zone_reset_in_progress)
+	{
+		persistence_record_item_event("owner_room",
+		                              object,
+		                              NULL,
+		                              "nowhere",
+		                              persistence_room_owner(room, owner_buf, sizeof(owner_buf)),
+		                              "obj_to_room");
+	}
 }
 
 /*
@@ -2538,6 +2569,7 @@ void obj_to_obj(P_obj obj, P_obj obj_to)
 	P_obj  tmp_obj, o;
 	int    wgt = 0, t_wgt = 0;
 	char   buf[MAX_STRING_LENGTH];
+	char   owner_buf[64];
 
 	if (!obj || !obj_to || ((obj_to->type != ITEM_CONTAINER) && (obj_to->type != ITEM_QUIVER) && (obj_to->type != ITEM_STORAGE) && (obj_to->type != ITEM_CORPSE)))
 	{
@@ -2604,6 +2636,15 @@ void obj_to_obj(P_obj obj, P_obj obj_to)
 	  }
 	*/
 	mark_container_dirty(obj_to);
+	if (!boot_in_progress && !zone_reset_in_progress)
+	{
+		persistence_record_item_event("owner_container",
+		                              obj,
+		                              NULL,
+		                              "nowhere",
+		                              persistence_object_owner(obj_to, owner_buf, sizeof(owner_buf)),
+		                              "obj_to_obj");
+	}
 }
 
 // appends obj to end of a linked list - used during load to preserve order
@@ -2831,6 +2872,8 @@ void extract_obj(P_obj obj, int gone_for_good)
 	// clear New events as well as old ones!
 	disarm_obj_nevents(obj, 0);
 	ClearObjEvents(obj);
+	if (gone_for_good)
+		persistence_record_item_event("owner_destroyed", obj, NULL, "nowhere", "destroyed", "extract_obj");
 
 	/* We don't want to do this because extract_obj( obj, TRUE ) gets called when
 	 *   someone rents.  We need to handle this in the next function one step up in the stack.

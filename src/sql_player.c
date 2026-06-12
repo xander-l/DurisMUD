@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/time.h>
+#include <unistd.h>
 #include <time.h>
 #include "account.h"
 #include "assocs.h"
@@ -282,6 +283,17 @@ static bool sql_run_query(const char *query)
 
 	// consume any result set
 	MYSQL_RES *result = mysql_store_result(DB);
+	if (!result)
+	{
+		// mysql_store_result returns NULL for successful INSERT/UPDATE/DELETE
+		// (no result set). Only treat as failure if there's a real error.
+		if (mysql_errno(DB) != 0)
+		{
+			sql_player_error("sql_run_query", query);
+			return false;
+		}
+		return true;
+	}
 	if (result)
 		mysql_free_result(result);
 
@@ -462,6 +474,8 @@ bool sql_delete_player_by_name(const char *name)
 
 // master save function
 
+#define SQL_SAVE_MAX_RETRIES 3
+
 bool sql_save_player(P_char ch, int type, int room)
 {
 	if (!ch || !IS_PC(ch))
@@ -476,65 +490,91 @@ bool sql_save_player(P_char ch, int type, int room)
 		return false;
 	}
 
-	// start transaction for atomic save
-	if (!sql_begin_transaction())
+	for (int attempt = 1; attempt <= SQL_SAVE_MAX_RETRIES; attempt++)
 	{
-		logit(LOG_DEBUG, "sql_save_player: failed to start transaction");
-		return false;
+		// start transaction for atomic save
+		if (!sql_begin_transaction())
+		{
+			if (attempt < SQL_SAVE_MAX_RETRIES)
+			{
+				logit(LOG_DEBUG, "sql_save_player: begin_txn attempt %d/%d failed for %s, retrying...", attempt, SQL_SAVE_MAX_RETRIES, GET_NAME(ch));
+				usleep(attempt * 200000); // 200ms, 400ms, 600ms
+				continue;
+			}
+			logit(LOG_DEBUG, "sql_save_player: failed to start transaction for %s after %d attempts", GET_NAME(ch), SQL_SAVE_MAX_RETRIES);
+			return false;
+		}
+
+		// save all components
+		bool failed = false;
+		const char *failed_step = NULL;
+
+		if (!sql_save_player_status(ch, type, room))
+		{
+			failed = true;
+			failed_step = "status";
+		}
+		else if (!sql_save_player_skills(ch))
+		{
+			failed = true;
+			failed_step = "skills";
+		}
+		else if (!sql_save_player_affects(ch))
+		{
+			failed = true;
+			failed_step = "affects";
+		}
+		else if (!sql_save_player_items(ch))
+		{
+			failed = true;
+			failed_step = "items";
+		}
+		else if (!sql_save_player_pets(ch, type))
+		{
+			failed = true;
+			failed_step = "pets";
+		}
+		else if (!sql_save_player_witnesses(ch))
+		{
+			failed = true;
+			failed_step = "witnesses";
+		}
+
+		if (failed)
+		{
+			sql_rollback();
+			if (attempt < SQL_SAVE_MAX_RETRIES)
+			{
+				logit(LOG_DEBUG, "sql_save_player: %s save attempt %d/%d failed for %s, retrying...", failed_step, attempt, SQL_SAVE_MAX_RETRIES, GET_NAME(ch));
+				usleep(attempt * 200000);
+				continue;
+			}
+			logit(LOG_DEBUG, "sql_save_player: failed to save %s for %s after %d attempts", failed_step, GET_NAME(ch), SQL_SAVE_MAX_RETRIES);
+			return false;
+		}
+
+		// commit transaction
+		if (!sql_commit())
+		{
+			sql_rollback();
+			if (attempt < SQL_SAVE_MAX_RETRIES)
+			{
+				logit(LOG_DEBUG, "sql_save_player: commit attempt %d/%d failed for %s, retrying...", attempt, SQL_SAVE_MAX_RETRIES, GET_NAME(ch));
+				usleep(attempt * 200000);
+				continue;
+			}
+			logit(LOG_DEBUG, "sql_save_player: failed to commit for %s after %d attempts", GET_NAME(ch), SQL_SAVE_MAX_RETRIES);
+			return false;
+		}
+
+		if (attempt > 1)
+		{
+			logit(LOG_DEBUG, "sql_save_player: succeeded on retry attempt %d for %s", attempt, GET_NAME(ch));
+		}
+		return true;
 	}
 
-	// save all components
-	if (!sql_save_player_status(ch, type, room))
-	{
-		logit(LOG_DEBUG, "sql_save_player: failed to save status for %s", GET_NAME(ch));
-		sql_rollback();
-		return false;
-	}
-
-	if (!sql_save_player_skills(ch))
-	{
-		logit(LOG_DEBUG, "sql_save_player: failed to save skills for %s", GET_NAME(ch));
-		sql_rollback();
-		return false;
-	}
-
-	if (!sql_save_player_affects(ch))
-	{
-		logit(LOG_DEBUG, "sql_save_player: failed to save affects for %s", GET_NAME(ch));
-		sql_rollback();
-		return false;
-	}
-
-	if (!sql_save_player_items(ch))
-	{
-		logit(LOG_DEBUG, "sql_save_player: failed to save items for %s", GET_NAME(ch));
-		sql_rollback();
-		return false;
-	}
-
-	if (!sql_save_player_pets(ch, type))
-	{
-		logit(LOG_DEBUG, "sql_save_player: failed to save pets for %s", GET_NAME(ch));
-		sql_rollback();
-		return false;
-	}
-
-	if (!sql_save_player_witnesses(ch))
-	{
-		logit(LOG_DEBUG, "sql_save_player: failed to save witnesses for %s", GET_NAME(ch));
-		sql_rollback();
-		return false;
-	}
-
-	// commit transaction
-	if (!sql_commit())
-	{
-		logit(LOG_DEBUG, "sql_save_player: failed to commit for %s", GET_NAME(ch));
-		sql_rollback();
-		return false;
-	}
-
-	return true;
+	return false; // unreachable, but keeps compiler happy
 }
 
 // status save (main player data)
@@ -2939,6 +2979,8 @@ bool sql_load_player_items(P_char ch)
 	int pid = GET_PID(ch);
 	if (pid <= 0)
 		return false;
+	char owner_ref[32];
+	snprintf(owner_ref, sizeof(owner_ref), "%d", pid);
 
 	// first, load all items into a temp array indexed by db id
 	// then resolve container relationships
@@ -3049,6 +3091,12 @@ bool sql_load_player_items(P_char ch)
 		if (saved_uid > 0)
 			obj->obj_uid = saved_uid;
 		obj->condition = sql_row_int(row, col++, obj->condition);
+
+		if (!sql_persistence_item_owner_matches(saved_uid, "player", owner_ref, "sql_load_player_items"))
+		{
+			extract_obj(obj, FALSE);
+			continue;
+		}
 
 		// store db id for incremental saves
 		obj->db_item_id = db_id;
@@ -3230,6 +3278,20 @@ bool sql_load_player_items(P_char ch)
 		{
 			// inventory
 			obj_to_char(items[i], ch);
+		}
+	}
+
+	/* Auto-fix corrupted spellbooks: pages consumed but no spell data stored.
+	 * This happens when player_item_extra_descr table loses rows but
+	 * player_items still has value[3] (used pages). Reset pages to 0 so
+	 * the spellbook can be re-scribed. */
+	for (int i = 0; i < loaded_count; i++)
+	{
+		if (items[i] && items[i]->type == ITEM_SPELLBOOK && items[i]->value[3] > 0 && !find_spell_description(items[i]))
+		{
+			logit(LOG_DEBUG, "sql_load_player_items: auto-fixed corrupted spellbook vnum %d for %s (reset %d used pages)",
+			      obj_index[items[i]->R_num].virtual_number, GET_NAME(ch), items[i]->value[3]);
+			items[i]->value[3] = 0;
 		}
 	}
 
@@ -3912,9 +3974,9 @@ bool sql_save_locker(P_char locker_ch, int owner_pid, int owner_assoc_id)
 	return true;
 }
 
-static P_obj sql_load_locker_items(int locker_id, int container_id);
+static P_obj sql_load_locker_items(int locker_id, int container_id, const char *owner_ref);
 
-static P_obj sql_load_locker_items_filtered(int locker_id, int container_id, int chest_id)
+static P_obj sql_load_locker_items_filtered(int locker_id, int container_id, int chest_id, const char *owner_ref)
 {
 	if (!DB || locker_id <= 0)
 		return NULL;
@@ -4025,6 +4087,12 @@ static P_obj sql_load_locker_items_filtered(int locker_id, int container_id, int
 		if (row[21] && strlen(row[21]) > 0)
 			obj->condition = atoi(row[21]);
 
+		if (!sql_persistence_item_owner_matches(obj->obj_uid, "locker", owner_ref, "sql_load_locker_items"))
+		{
+			extract_obj(obj, FALSE);
+			continue;
+		}
+
 		// restore bitvectors
 		if (row[22] && strlen(row[22]) > 0)
 			obj->bitvector = strtoul(row[22], NULL, 10);
@@ -4040,7 +4108,7 @@ static P_obj sql_load_locker_items_filtered(int locker_id, int container_id, int
 		sql_load_item_affects_from_table(item_id, obj, "locker_item_affects");
 		sql_load_item_extra_descr_from_table(item_id, obj, "locker_item");
 
-		obj->contains = sql_load_locker_items(locker_id, item_id);
+		obj->contains = sql_load_locker_items(locker_id, item_id, owner_ref);
 		for (P_obj c = obj->contains; c; c = c->next_content)
 		{
 			c->loc_p      = LOC_INSIDE;
@@ -4059,7 +4127,7 @@ static P_obj sql_load_locker_items_filtered(int locker_id, int container_id, int
 	return first_obj;
 }
 
-static P_obj sql_load_locker_items(int locker_id, int container_id) { return sql_load_locker_items_filtered(locker_id, container_id, 0); }
+static P_obj sql_load_locker_items(int locker_id, int container_id, const char *owner_ref) { return sql_load_locker_items_filtered(locker_id, container_id, 0, owner_ref); }
 
 P_char sql_load_locker(int owner_pid, int owner_assoc_id)
 {
@@ -4118,7 +4186,7 @@ P_char sql_load_locker(int owner_pid, int owner_assoc_id)
 	mysql_free_result(result);
 
 	// load items
-	ch->carrying = sql_load_locker_items(locker_id, 0);
+	ch->carrying = sql_load_locker_items(locker_id, 0, locker_name);
 	for (P_obj obj = ch->carrying; obj; obj = obj->next_content)
 	{
 		obj->loc_p        = LOC_CARRIED;
@@ -4180,7 +4248,7 @@ P_char sql_load_locker_by_name(const char *locker_name)
 	GET_RACE(ch)    = race;
 
 	// load items
-	ch->carrying = sql_load_locker_items(locker_id, 0);
+	ch->carrying = sql_load_locker_items(locker_id, 0, locker_name);
 	for (P_obj obj = ch->carrying; obj; obj = obj->next_content)
 	{
 		obj->loc_p        = LOC_CARRIED;
@@ -4504,6 +4572,17 @@ P_obj sql_load_private_chest_items(int locker_id, int chest_id)
 		return NULL;
 
 	char query[1024];
+	char owner_ref[MAX_INPUT_LENGTH] = "";
+	snprintf(query, sizeof(query), "SELECT locker_name FROM lockers WHERE id=%d LIMIT 1", locker_id);
+	MYSQL_RES *locker_result = db_query("%s", query);
+	if (locker_result)
+	{
+		MYSQL_ROW locker_row = mysql_fetch_row(locker_result);
+		if (locker_row && locker_row[0])
+			snprintf(owner_ref, sizeof(owner_ref), "%s", locker_row[0]);
+		mysql_free_result(locker_result);
+	}
+
 	snprintf(query,
 	         sizeof(query),
 	         "SELECT id, vnum, weight, cost, timer, extra_flags, wear_flags, item_type, "
@@ -4585,10 +4664,16 @@ P_obj sql_load_private_chest_items(int locker_id, int chest_id)
 		if (row[21] && strlen(row[21]) > 0)
 			obj->condition = atoi(row[21]);
 
+		if (!sql_persistence_item_owner_matches(obj->obj_uid, "locker", owner_ref, "sql_load_private_chest_items"))
+		{
+			extract_obj(obj, FALSE);
+			continue;
+		}
+
 		sql_load_item_affects_from_table(item_id, obj, "locker_item_affects");
 
 		// load contained items (bags inside the chest)
-		obj->contains = sql_load_locker_items_filtered(locker_id, item_id, chest_id);
+		obj->contains = sql_load_locker_items_filtered(locker_id, item_id, chest_id, owner_ref);
 		for (P_obj c = obj->contains; c; c = c->next_content)
 		{
 			c->loc_p      = LOC_INSIDE;
@@ -5162,12 +5247,16 @@ static bool sql_save_corpse_item_affects(int item_id, P_obj obj)
 	return true;
 }
 
-static int sql_save_corpse_item(int corpse_id, P_obj obj, int container_id)
+static int sql_save_corpse_item(int corpse_id, int save_id, P_obj obj, int container_id)
 {
 	if (!obj || !DB || corpse_id <= 0)
 		return 0;
 
 	int vnum = obj_index[obj->R_num].virtual_number;
+	char corpse_owner[64];
+	snprintf(corpse_owner, sizeof(corpse_owner), "corpse:%d", save_id);
+	persistence_record_item_event("owner_corpse", obj, NULL, "nowhere",
+	                              corpse_owner, "sql_save_corpse_item");
 
 	char *esc_name   = NULL;
 	char *esc_short  = NULL;
@@ -5268,7 +5357,7 @@ static int sql_save_corpse_item(int corpse_id, P_obj obj, int container_id)
 	{
 		for (P_obj content = obj->contains; content; content = content->next_content)
 		{
-			sql_save_corpse_item(corpse_id, content, item_id);
+			sql_save_corpse_item(corpse_id, save_id, content, item_id);
 		}
 	}
 
@@ -5329,7 +5418,7 @@ bool sql_save_corpse(P_obj corpse)
 
 	for (P_obj obj = corpse->contains; obj; obj = obj->next_content)
 	{
-		sql_save_corpse_item(corpse_id, obj, 0);
+		sql_save_corpse_item(corpse_id, save_id, obj, 0);
 	}
 
 	return sql_commit();
@@ -5370,6 +5459,7 @@ bool sql_load_all_corpses(void)
 	                             "ci.extra_flags, ci.value0, ci.value1, ci.value2, ci.value3, ci.value4, "
 	                             "ci.value5, ci.value6, ci.value7, ci.name, ci.short_descr, ci.description, "
 	                             "ci.action_descr, COALESCE(cia.location, -1), COALESCE(cia.modifier, 0), "
+	                             "ci.obj_uid, ci.item_condition, "
 								 "c.short_descr, c.description "
 	                             "FROM corpses c "
 	                             "LEFT JOIN corpse_items ci ON ci.corpse_id = c.id "
@@ -5391,6 +5481,7 @@ bool sql_load_all_corpses(void)
 	int   container_map[MAX_CORPSE_ITEMS];
 	int   num_objs     = 0;
 	int   last_item_id = -1;
+	int   skipped_item_id = -1;
 
 	int       loaded = 0;
 	MYSQL_ROW row;
@@ -5464,18 +5555,21 @@ bool sql_load_all_corpses(void)
 					o->loc.inside = cur_corpse;
 				}
 				obj_to_room(cur_corpse, cur_room);
+				persistence_refresh_restored_corpse(cur_corpse, "sql_load_all_corpses");
 				loaded++;
 			}
 			else if (cur_corpse)
 			{
 				// corpse with no items
 				obj_to_room(cur_corpse, cur_room);
+				persistence_refresh_restored_corpse(cur_corpse, "sql_load_all_corpses");
 				loaded++;
 			}
 
 			// start new corpse
 			num_objs      = 0;
 			last_item_id  = -1;
+			skipped_item_id = -1;
 			cur_corpse_id = corpse_id;
 
 			const char *player_name = row[1] ? row[1] : "";
@@ -5505,20 +5599,23 @@ bool sql_load_all_corpses(void)
 				FREE(cur_corpse->action_description);
 			cur_corpse->action_description = str_dup(player_name);
 
-			if (row[27])
-			{
-				//FREE(cur_corpse->short_description);
-				cur_corpse->short_description = str_dup(row[27]);
-			}
 			if (row[28])
 			{
+				//FREE(cur_corpse->short_description);
+				cur_corpse->short_description = str_dup(row[28]);
+			}
+			if (row[29])
+			{
 				//FREE(cur_corpse->description);
-				cur_corpse->description = str_dup(row[28]);
+				cur_corpse->description = str_dup(row[29]);
 			}
 		}
 
 		// no item in this row (corpse with no items)
 		if (!row[4] || !cur_corpse)
+			continue;
+
+		if (item_id == skipped_item_id)
 			continue;
 
 		// same item, just another affect
@@ -5590,6 +5687,25 @@ bool sql_load_all_corpses(void)
 		{
 			obj->action_description = str_dup(row[23]);
 			obj->str_mask |= STRUNG_DESC3;
+		}
+
+		unsigned long saved_uid = row[26] ? strtoul(row[26], NULL, 10) : 0;
+		if (saved_uid > 0)
+		{
+			obj->obj_uid = saved_uid;
+			if (obj->obj_uid >= next_obj_uid)
+				next_obj_uid = obj->obj_uid + 1;
+		}
+		if (row[27])
+			obj->condition = atoi(row[27]);
+
+		char owner_ref[32];
+		snprintf(owner_ref, sizeof(owner_ref), "%d", cur_corpse->value[CORPSE_SAVEID]);
+		if (!sql_persistence_item_owner_matches(saved_uid, "corpse", owner_ref, "sql_load_all_corpses"))
+		{
+			extract_obj(obj, FALSE);
+			skipped_item_id = item_id;
+			continue;
 		}
 
 		int aff_loc = atoi(row[24]);
@@ -5666,11 +5782,13 @@ bool sql_load_all_corpses(void)
 			o->loc.inside = cur_corpse;
 		}
 		obj_to_room(cur_corpse, cur_room);
+		persistence_refresh_restored_corpse(cur_corpse, "sql_load_all_corpses");
 		loaded++;
 	}
 	else if (cur_corpse)
 	{
 		obj_to_room(cur_corpse, cur_room);
+		persistence_refresh_restored_corpse(cur_corpse, "sql_load_all_corpses");
 		loaded++;
 	}
 
@@ -7631,6 +7749,10 @@ bool sql_save_ship(P_ship ship)
 	else
 	{
 		result = mysql_store_result(DB);
+		if (!result)
+		{
+			return 0;
+		}
 	}
 	free(batch);
 	if (result)

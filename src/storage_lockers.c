@@ -52,6 +52,17 @@ extern P_nevent get_scheduled(P_char ch, event_func func);
 void            event_memorize(P_char, P_char, P_obj, void *);
 int             is_wearing_necroplasm(P_char);
 
+static void persistence_record_locker_item_event(P_obj obj, P_char actor, const char *locker_name, const char *source, const char *note)
+{
+	char target[MAX_INPUT_LENGTH];
+
+	if (!obj || !locker_name || !*locker_name)
+		return;
+
+	snprintf(target, sizeof(target), "locker:%s", locker_name);
+	persistence_record_item_event("owner_locker", obj, actor, source, target, note);
+}
+
 #define LOCKERS_START 65201
 #define LOCKERS_MAX   99
 // for mini_mode
@@ -2350,6 +2361,8 @@ static P_char create_locker_char(P_char chOwner, P_char ch, char *locker_name)
 
 static int save_locker_char(P_char ch, int bTerminal)
 {
+	pid_t pid;
+
 	// reap any finished locker save children
 	while (waitpid(-1, NULL, WNOHANG) > 0)
 		;
@@ -2365,28 +2378,25 @@ static int save_locker_char(P_char ch, int bTerminal)
 		{
 			pLocker->LockerToPFile();
 
-			if (bTerminal)
+			pid = fork();
+			if (pid == 0)
 			{
-				// async save - fork so parent doesnt block
-				pid_t pid = fork();
-				if (pid == 0)
+				MYSQL *child_conn = sql_create_child_connection();
+				if (child_conn)
 				{
-					// child
-					MYSQL *child_conn = sql_create_child_connection();
-					if (child_conn)
-					{
-						sql_reset_for_child(child_conn);
-						writeCharacter(chLocker, 3, NOWHERE);
-						mysql_close(child_conn);
-					}
-					_exit(0);
+					sql_reset_for_child(child_conn);
+					writeCharacter(chLocker, bTerminal ? 3 : 0, NOWHERE);
+					mysql_close(child_conn);
 				}
-				// parent continues, dont wait for child
+				_exit(0);
 			}
-			else
+			else if (pid < 0)
 			{
-				// sync save for non-terminal (periodic saves while in locker)
-				if (!writeCharacter(chLocker, 0, NOWHERE))
+				persistence_alert(AVATAR, "locker", GET_NAME(ch), "none",
+				                  "none", "async_save_fork_failed",
+				                  "falling back to synchronous locker save type=%d",
+				                  bTerminal ? 3 : 0);
+				if (!writeCharacter(chLocker, bTerminal ? 3 : 0, NOWHERE))
 				{
 					logit(LOG_OBJ, "%s's locker not saving properly!", GET_NAME(ch));
 					debug("%s's locker not saving properly!", GET_NAME(ch));
@@ -2465,12 +2475,14 @@ void StorageLocker::LockerToPFile(void)
 			{
 				obj_from_obj(innerObj);
 				obj_to_char(innerObj, m_chLocker);
+				persistence_record_locker_item_event(innerObj, m_chUser, GET_NAME(m_chLocker), "locker_chest", "locker_to_pfile");
 			}
 		}
 		else
 		{
 			obj_from_room(tmp_object);
 			obj_to_char(tmp_object, m_chLocker);
+			persistence_record_locker_item_event(tmp_object, m_chUser, GET_NAME(m_chLocker), "locker_room", "locker_to_pfile");
 		}
 	}
 }
@@ -2488,6 +2500,7 @@ void StorageLocker::PFileToLocker(void)
 		obj_from_char(tmp_object);
 		if ((tmp_object->type == ITEM_MONEY) || !PutInProperChest(tmp_object))
 			obj_to_room(tmp_object, m_realRoom);
+		persistence_record_locker_item_event(tmp_object, m_chUser, GET_NAME(m_chLocker), "locker_pfile", "pfile_to_locker");
 	}
 	m_itemCount = nCount;
 

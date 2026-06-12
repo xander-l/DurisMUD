@@ -13,6 +13,7 @@
 #include <string>
 #include <vector>
 #include "files.h"
+#include "persistence_queue.h"
 #include "spells.h"
 #include "sql.h"
 #include "ws_handlers.h"
@@ -69,6 +70,60 @@ EqSort *sorter;
 
 // forward declarations
 bool check_db_active();
+
+static const char *auction_event_field(const char *in, char *buf, int buf_size)
+{
+	int i, out = 0;
+
+	if (!buf || buf_size <= 0)
+		return "";
+
+	if (!in)
+		in = "";
+
+	for (i = 0; in[i] && out < buf_size - 1; i++)
+	{
+		if (in[i] == '|' || in[i] == '\r' || in[i] == '\n' || in[i] == '=')
+			buf[out++] = '_';
+		else
+			buf[out++] = in[i];
+	}
+	buf[out] = '\0';
+	return buf;
+}
+
+static void auction_record_bid_history(int auction_id, P_char bidder, int bid_amount)
+{
+	char line[PERSISTENCE_EVENT_MAX_LEN];
+	char bidder_name[MAX_INPUT_LENGTH];
+
+	if (!bidder || !IS_PC(bidder))
+		return;
+
+	snprintf(line,
+	         sizeof(line),
+	         "PERSISTENCE_SCALAR_EVENT|ts=%ld|event=auction_bid_history|pid=%d|auction_id=%d|bidder_name=%s|bid_amount=%d",
+	         (long)time(NULL),
+	         GET_PID(bidder),
+	         auction_id,
+	         auction_event_field(GET_NAME(bidder), bidder_name, sizeof(bidder_name)),
+	         bid_amount);
+
+	if (persistence_scalar_event_worker_running())
+	{
+		if (persistence_scalar_event_queue_enqueue(line))
+			return;
+		if (persistence_write_fallback_event_line(line, "scalar_event", "auction_bid_history", "queue_full_flat_fallback"))
+			return;
+	}
+
+	qry("INSERT INTO auction_bid_history (date, auction_id, bidder_pid, bidder_name, bid_amount) VALUES "
+	    "(unix_timestamp(), %d, %d, '%s', %d)",
+	    auction_id,
+	    GET_PID(bidder),
+	    GET_NAME(bidder),
+	    bid_amount);
+}
 
 // backfill state - static so it persists between calls
 static int backfill_state = 0; // 0=pending, 1=done, -1=skip (no column)
@@ -727,7 +782,7 @@ bool auction_offer(P_char ch, char *args)
 	// save to db
 	char  obj_buff[MAX_STRING_LENGTH];
 	char *obj_buff_ptr = obj_buff;
-	int   obj_buff_len = write_one_object(tmp_obj, obj_buff_ptr);
+	int   obj_buff_len = write_one_object(tmp_obj, obj_buff_ptr, auction_quantity == 1);
 
 	mysql_real_escape_string(DB, buff, obj_buff, obj_buff_len);
 
@@ -791,6 +846,11 @@ bool auction_offer(P_char ch, char *args)
 	int end_time       = time(NULL) + auction_length;
 	ws_broadcast_auction_new(new_auction_id, ch->player.name, tmp_obj->short_description, starting_price, buy_price, end_time);
 
+	char source_owner[64];
+	char target_owner[64];
+	snprintf(source_owner, sizeof(source_owner), "player:%d", GET_PID(ch));
+	snprintf(target_owner, sizeof(target_owner), "auction:%d", new_auction_id);
+
 	logit(LOG_STATUS, "%s put %s up for auction.", ch->player.name, desc_buff);
 	snprintf(buff, MAX_STRING_LENGTH, "&+WYou put &n%s &+Won the market.\r\n", tmp_obj->short_description);
 	send_to_char(buff, ch);
@@ -806,8 +866,16 @@ bool auction_offer(P_char ch, char *args)
 		tmp_obj = temp_obj;
 		// Move to next object.
 		temp_obj = temp_obj->next_content;
+		if (auction_quantity == 1)
+		{
+			persistence_record_item_event("owner_auction", tmp_obj, ch, source_owner, target_owner, "auction_offer");
+		}
+		else
+		{
+			persistence_record_item_event("owner_destroyed", tmp_obj, ch, source_owner, "destroyed", "auction_quantity_serialized_without_uid");
+		}
 		// Then extract the object.
-		extract_obj(tmp_obj);
+		extract_obj(tmp_obj, FALSE);
 	}
 	writeCharacter(ch, 1, ch->in_room);
 
@@ -905,10 +973,12 @@ bool auction_list(P_char ch, char *args)
 		return TRUE;
 	}
 
+	int list_limit = MAX(1, AUCTION_LIST_LIMIT);
 	if (!qry("SELECT id, seller_name, UNIX_TIMESTAMP(end_time) - UNIX_TIMESTAMP() as secs_remaining, cur_price, buy_price, obj_short, obj_vnum, winning_bidder_pid, winning_bidder_name, seller_pid, "
-	         "quantity from auctions where status = %d %s order by secs_remaining asc",
+	         "quantity from auctions where status = %d %s order by end_time asc limit %d",
 	         AUCTION_STATUS_OPEN,
-	         where_str))
+	         where_str,
+	         list_limit))
 		return FALSE;
 
 	MYSQL_RES *res = mysql_store_result(DB);
@@ -922,8 +992,10 @@ bool auction_list(P_char ch, char *args)
 	}
 
 	MYSQL_ROW row;
+	int listed_count = 0;
 	while ((row = mysql_fetch_row(res)))
 	{
+		listed_count++;
 		char *auction_id          = row[0];
 		char *seller_name         = row[1];
 		long  secs_remaining      = atol(row[2]);
@@ -1004,6 +1076,15 @@ bool auction_list(P_char ch, char *args)
 				         pad_ansi(cur_price_str.c_str(), 6).c_str());
 		}
 
+		send_to_char(buff, ch);
+	}
+
+	if (listed_count >= list_limit)
+	{
+		snprintf(buff,
+		         MAX_STRING_LENGTH,
+		         "&+YShowing the first %d auctions. Narrow the list by player or sort keywords for more specific results.&n\r\n",
+		         list_limit);
 		send_to_char(buff, ch);
 	}
 
@@ -1284,12 +1365,7 @@ bool auction_bid(P_char ch, char *args)
 		snprintf(buff, MAX_STRING_LENGTH, "&+WYou pay &n%s&n.\r\n", coin_stringv(to_pay));
 		send_to_char(buff, ch);
 
-		qry("INSERT INTO auction_bid_history (date, auction_id, bidder_pid, bidder_name, bid_amount) VALUES "
-		    "(unix_timestamp(), %d, %d, '%s', %d)",
-		    auction_id,
-		    GET_PID(ch),
-		    ch->player.name,
-		    bid_value);
+		auction_record_bid_history(auction_id, ch, bid_value);
 
 		// refund previous bidder
 		if (winning_bidder_pid && winning_bidder_pid != GET_PID(ch))
@@ -1326,12 +1402,7 @@ bool auction_bid(P_char ch, char *args)
 		snprintf(buff, MAX_STRING_LENGTH, "&+WYou pay &n%s&n.\r\n", coin_stringv(to_pay));
 		send_to_char(buff, ch);
 
-		qry("INSERT INTO auction_bid_history (date, auction_id, bidder_pid, bidder_name, bid_amount) VALUES "
-		    "(unix_timestamp(), %d, %d, '%s', %d)",
-		    auction_id,
-		    GET_PID(ch),
-		    ch->player.name,
-		    bid_value);
+		auction_record_bid_history(auction_id, ch, bid_value);
 
 		snprintf(buff, MAX_STRING_LENGTH, "&+WYou bid &n%s&+W on &n%d %s&n.\r\n", coin_stringv(bid_value), quantity, obj_short.c_str());
 		send_to_char(buff, ch);
@@ -1392,7 +1463,7 @@ bool auction_pickup(P_char ch, char *args)
 			string obj_short(auction_row[1]);
 			mysql_free_result(res);
 
-			if (!qry("INSERT INTO auction_item_pickups (pid, obj_blob_str) (SELECT '%d', obj_blob_str FROM auctions WHERE id = '%d')", GET_PID(ch), auction_id))
+			if (!qry("INSERT INTO auction_item_pickups (pid, obj_blob_str, source_auction_id) (SELECT '%d', obj_blob_str, id FROM auctions WHERE id = '%d')", GET_PID(ch), auction_id))
 				return FALSE;
 
 			snprintf(buff, MAX_STRING_LENGTH, "&+WA voice in your mind says, &+W'&n%s &+Wis ready for pickup, oh Great Master!'\r\n", obj_short.c_str());
@@ -1433,7 +1504,7 @@ bool auction_pickup(P_char ch, char *args)
 	}
 	mysql_free_result(res);
 
-	if (!qry("SELECT id, obj_blob_str, quantity FROM auction_item_pickups WHERE pid = '%d' AND retrieved = 0", GET_PID(ch)))
+	if (!qry("SELECT id, obj_blob_str, quantity, COALESCE(source_auction_id, 0) FROM auction_item_pickups WHERE pid = '%d' AND retrieved = 0", GET_PID(ch)))
 	{
 		send_to_char("Oh Noes!  Failed to read database.\n", ch);
 		return FALSE;
@@ -1446,6 +1517,7 @@ bool auction_pickup(P_char ch, char *args)
 		{
 			int id       = atoi(row[0]);
 			int quantity = atoi(row[2]);
+			int source_auction_id = atoi(row[3]);
 
 			P_obj tmp_obj  = read_one_object(row[1]);
 			P_obj temp_obj = tmp_obj;
@@ -1453,6 +1525,17 @@ bool auction_pickup(P_char ch, char *args)
 			{
 				logit(LOG_DEBUG, "auction_pickup(): problem 1 retrieving auction_item_pickups[%d].\r\n", id);
 				continue;
+			}
+			if (tmp_obj->obj_uid > 0 && source_auction_id > 0)
+			{
+				char owner_ref[32];
+				snprintf(owner_ref, sizeof(owner_ref), "%d", source_auction_id);
+				if (!sql_persistence_item_owner_matches(tmp_obj->obj_uid, "auction", owner_ref, "auction_pickup"))
+				{
+					qry("UPDATE auction_item_pickups SET retrieved = 1 where id = '%d'", id);
+					extract_obj(tmp_obj, FALSE);
+					continue;
+				}
 			}
 			// While there is another object to load..
 			if (quantity > 1)
@@ -1560,7 +1643,7 @@ bool finalize_auction(int auction_id, P_char to_ch)
 	if (!winning_bidder_pid)
 	{
 		// no one bid, return item to seller
-		if (!qry("INSERT INTO auction_item_pickups (pid, obj_blob_str, quantity) (SELECT '%d', obj_blob_str, '%d' FROM auctions WHERE id = '%d')", seller_pid, quantity, auction_id))
+		if (!qry("INSERT INTO auction_item_pickups (pid, obj_blob_str, quantity, source_auction_id) (SELECT '%d', obj_blob_str, '%d', id FROM auctions WHERE id = '%d')", seller_pid, quantity, auction_id))
 			return FALSE;
 
 		// broadcast expired auction to web (no winner)
@@ -1587,7 +1670,7 @@ bool finalize_auction(int auction_id, P_char to_ch)
 		insert_money_pickup(seller_pid, paid_price);
 
 		// item to buyer
-		if (!qry("INSERT INTO auction_item_pickups (pid, obj_blob_str, quantity) (SELECT '%d', obj_blob_str, '%d' FROM auctions WHERE id = '%d')", winning_bidder_pid, quantity, auction_id))
+		if (!qry("INSERT INTO auction_item_pickups (pid, obj_blob_str, quantity, source_auction_id) (SELECT '%d', obj_blob_str, '%d', id FROM auctions WHERE id = '%d')", winning_bidder_pid, quantity, auction_id))
 			return FALSE;
 
 		// alert buyer and seller that auction closed
@@ -1614,27 +1697,11 @@ bool finalize_auction(int auction_id, P_char to_ch)
 
 bool insert_money_pickup(int pid, int money)
 {
-	if (!qry("SELECT pid FROM auction_money_pickups WHERE pid = '%d' LIMIT 1", pid))
+	if (!qry("INSERT INTO auction_money_pickups (pid, money) VALUES ('%d', '%d') "
+	         "ON DUPLICATE KEY UPDATE money = money + VALUES(money)",
+	         pid,
+	         money))
 		return FALSE;
-
-	MYSQL_RES *res = mysql_store_result(DB);
-
-	MYSQL_ROW row = mysql_fetch_row(res);
-
-	if (!row)
-	{
-		mysql_free_result(res);
-
-		if (!qry("INSERT INTO auction_money_pickups (pid, money) VALUES ('%d', '%d')", pid, money))
-			return FALSE;
-	}
-	else
-	{
-		mysql_free_result(res);
-
-		if (!qry("UPDATE auction_money_pickups SET money = money + %d WHERE pid = '%d'", money, pid))
-			return FALSE;
-	}
 
 	logit(LOG_STATUS, "PID %d picked up %d", pid, money);
 

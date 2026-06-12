@@ -23,6 +23,40 @@ void disconnect_rooms(int v1, int v2);
 P_char get_char_online(char *name, bool include_linkdead = TRUE);
 
 void logit(const char *, const char *, ...);
+void persistence_alert(int level, const char *domain, const char *owner,
+                       const char *item_uid, const char *event_id,
+                       const char *action, const char *format, ...);
+unsigned long long persistence_next_item_uid(void);
+void persistence_assign_item_uid(P_obj obj, const char *reason);
+const char *persistence_item_uid_text(P_obj obj, char *buf, int buf_size);
+int persistence_write_fallback_event_line(const char *line,
+                                          const char *domain,
+                                          const char *owner,
+                                          const char *action);
+void persistence_record_item_event(const char *event_type, P_obj obj,
+                                   P_char actor, const char *source,
+                                   const char *target, const char *note);
+int persistence_flush_item_events(int max_events);
+int persistence_replay_fallback_events(void);
+int persistence_pending_item_events(void);
+unsigned long persistence_dropped_item_events(void);
+int persistence_start_item_event_worker(void);
+void persistence_stop_item_event_worker(void);
+int persistence_item_event_worker_active(void);
+int persistence_start_scalar_event_worker(void);
+void persistence_stop_scalar_event_worker(void);
+int persistence_scalar_event_worker_active(void);
+int persistence_start_large_event_worker(void);
+void persistence_stop_large_event_worker(void);
+int persistence_large_event_worker_active(void);
+int persistence_pending_scalar_events(void);
+unsigned long persistence_dropped_scalar_events(void);
+void utility_latency_dump(void);
+void utility_latency_reset(void);
+void persistence_schedule_character_save(P_char ch, int type, int delay,
+                                         const char *reason);
+void persistence_schedule_level_checkpoint(P_char ch, int type, int delay,
+                                           const char *reason);
 
 int cmd_from_dir(int dir);
 int direction_tag(P_char ch);

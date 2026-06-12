@@ -93,9 +93,19 @@ int         sql_find_racewar_for_ip(char *ip, int *racewar_side);
 // to log disconnect times...
 void sql_disconnectIP(P_char ch);
 bool qry(const char *format, ...);
+bool sql_persistence_write_item_event_line(const char *line);
+bool sql_persistence_write_scalar_event_line(const char *line);
+bool sql_persistence_write_large_event_line(const char *line);
+MYSQL *sql_persistence_connection(void);
+bool sql_persistence_execute_raw(const char *sql);
+bool sql_persistence_item_owner_matches(unsigned long long item_uid,
+                                        const char *owner_type,
+                                        const char *owner_ref,
+                                        const char *context);
 void sql_world_quest_finished(P_char ch, P_obj obj);
 int  sql_world_quest_done_already(P_char ch, int number);
 int  sql_world_quest_can_do_another(P_char ch);
+void sql_zone_touch_finished(const char *event_key, int boot_time, int touched_at, int zone_number, int toucher_pid, int group_size, int epic_value, int alignment_delta);
 void sql_clear_results();
 
 void send_to_pid_offline(const char *msg, int pid);
@@ -107,6 +117,7 @@ int sql_quest_finish(P_char ch, P_char giver, int type, int value);
 int sql_quest_trophy(P_char giver);
 
 void log_epic_gain(int pid, int type, int type_id, int epics);
+void log_epic_gain_event(const char *event_key, int pid, int type, int type_id, int epics);
 void do_sql(P_char ch, char *argument, int cmd);
 
 void update_zone_db();
