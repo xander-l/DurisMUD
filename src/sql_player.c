@@ -909,6 +909,7 @@ bool sql_save_player_status(P_char ch, int type, int room)
 	{
 		if (GET_LANGUAGE(ch, i) > 0)
 		{
+			if (pos > 65536 - 200) break;
 			pos += snprintf(batch + pos, 65536 - pos, "%s(%d,%d,%d)", has_data ? "," : "", pid, i, GET_LANGUAGE(ch, i));
 			has_data = true;
 		}
@@ -926,6 +927,7 @@ bool sql_save_player_status(P_char ch, int type, int room)
 	{
 		if (ch->only.pc->introd_list[i] != 0)
 		{
+			if (pos > 65536 - 200) break;
 			pos += snprintf(batch + pos, 65536 - pos, "%s(%d,%d,%ld,FROM_UNIXTIME(NULLIF(%lu,0)))", has_data ? "," : "", pid, i, ch->only.pc->introd_list[i], ch->only.pc->introd_times[i]);
 			has_data = true;
 		}
@@ -943,6 +945,7 @@ bool sql_save_player_status(P_char ch, int type, int room)
 	{
 		if (ch->only.pc->pc_timer[i] != 0)
 		{
+			if (pos > 65536 - 200) break;
 			pos += snprintf(batch + pos, 65536 - pos, "%s(%d,%d,FROM_UNIXTIME(NULLIF(%ld,0)))", has_data ? "," : "", pid, i, (long)ch->only.pc->pc_timer[i]);
 			has_data = true;
 		}
@@ -960,6 +963,7 @@ bool sql_save_player_status(P_char ch, int type, int room)
 	{
 		if (ch->specials.undead_spell_slots[i] != 0)
 		{
+			if (pos > 65536 - 200) break;
 			pos += snprintf(batch + pos, 65536 - pos, "%s(%d,%d,%d)", has_data ? "," : "", pid, i, ch->specials.undead_spell_slots[i]);
 			has_data = true;
 		}
@@ -977,6 +981,7 @@ bool sql_save_player_status(P_char ch, int type, int room)
 	{
 		if (ch->only.pc->learned_forged_list[i] != 0)
 		{
+			if (pos > 65536 - 200) break;
 			pos += snprintf(batch + pos, 65536 - pos, "%s(%d,%d,%ld)", has_data ? "," : "", pid, i, ch->only.pc->learned_forged_list[i]);
 			has_data = true;
 		}
@@ -994,6 +999,7 @@ bool sql_save_player_status(P_char ch, int type, int room)
 		has_data = false;
 		for (int i = 0; i < ch->only.pc->numb_gcmd; i++)
 		{
+			if (pos > 65536 - 200) break;
 			pos += snprintf(batch + pos, 65536 - pos, "%s(%d,%d)", has_data ? "," : "", pid, ch->only.pc->gcmd_arr[i]);
 			has_data = true;
 		}
@@ -1034,6 +1040,7 @@ bool sql_save_player_skills(P_char ch)
 	{
 		if (ch->only.pc->skills[i].learned > 0 || ch->only.pc->skills[i].taught > 0)
 		{
+			if (pos > 65536 - 100) break;
 			pos += snprintf(query + pos, 65536 - pos, "%s(%d,%d,%d,%d)", has_skills ? "," : "", pid, i, ch->only.pc->skills[i].learned, ch->only.pc->skills[i].taught);
 			has_skills = true;
 		}
@@ -1078,6 +1085,7 @@ bool sql_save_player_affects(P_char ch)
 	{
 		if (IS_SET(af->flags, AFFTYPE_NOSAVE))
 			continue;
+		if (pos > 32768 - 200) break;
 
 		pos += snprintf(batch + pos,
 		                32768 - pos,
