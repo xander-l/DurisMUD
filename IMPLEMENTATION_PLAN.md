@@ -835,13 +835,17 @@ tests/
 
 | # | Task | Section | Priority | Est. Effort |
 |---|------|---------|----------|-------------|
-| 3.1 | Implement `sql_persistence_item_owner_matches()` | §4.3, §6.1 | **CRITICAL** | Large |
-| 3.2 | Audit all item transition paths for event recording | §4.1 | **HIGH** | Medium |
-| 3.3 | Add `persistence_sql_escape_field` unit tests | §8.1 | MEDIUM | Small |
-| 3.4 | Verify disconnect path flushes deferred saves | §5.1 RC-4 | **HIGH** | Small |
-| 3.5 | Add idempotency to fallback event replay | §6.2 | **HIGH** | Small |
-| 3.6 | Implement `sql_zone_touch_finished()` | §6.1 | MEDIUM | Small |
-| 3.7 | Document locking hierarchy (THREAD_SAFETY.md) | §5.2 | MEDIUM | Small |
+| 3.1 | Fix heap buffer overflow in batch `snprintf` loops (`sql_save_player_skills`, `sql_save_player_affects`, `sql_save_player_status`, `sql_batch_save_simple_items`) | §10.2 | **CRITICAL** | Medium |
+| 3.2 | Implement `sql_persistence_item_owner_matches()` (replace stub that always returns true) | §4.3, §6.1, §10.3 | **CRITICAL** | Large |
+| 3.3 | Wrap `sql_save_player()` sub-functions in a transaction (START TRANSACTION → all saves → COMMIT/ROLLBACK) | §10.4 | **HIGH** | Medium |
+| 3.4 | Replace DELETE-then-INSERT with REPLACE INTO or transaction-wrapped batch to prevent crash-data-loss | §10.5 | **HIGH** | Large |
+| 3.5 | Extend v17 schema migration to add `item_type` and `wear_flags` to all item tables (locker, shop, saved, siege, account_locker, pet) | §10.6 | **HIGH** | Small |
+| 3.6 | Audit all item transition paths for event recording | §4.1 | **HIGH** | Medium |
+| 3.7 | Verify disconnect path flushes deferred saves | §5.1 RC-4, §10.9 | **HIGH** | Small |
+| 3.8 | Add idempotency to fallback event replay (INSERT IGNORE) | §6.2 | **HIGH** | Small |
+| 3.9 | Implement `sql_zone_touch_finished()` | §6.1 | MEDIUM | Small |
+| 3.10 | Add `persistence_sql_escape_field` unit tests | §8.1 | MEDIUM | Small |
+| 3.11 | Document locking hierarchy (THREAD_SAFETY.md) | §5.2 | MEDIUM | Small |
 
 ### Phase 4: Event Logging System
 
