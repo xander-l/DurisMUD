@@ -16,7 +16,9 @@
 #include "test_character_lifecycle.h"
 #include "test_crash_stress.h"
 #include "test_container_rescue.h"
+#include "test_persistence_owner.h"
 #include "test_transaction_rollback.h"
+#include "test_disconnect_flush.h"
 
 static void list_tests(void)
 {
@@ -118,6 +120,18 @@ static void list_tests(void)
     printf("    event_type_quiver\n");
     printf("    reason_corpse\n");
     printf("    reason_container\n");
+    printf("\n  Persistence Owner Validation (Phase 3.2):\n");
+    printf("    owner_uid_zero_keeps_item\n");
+    printf("    owner_null_args_keep_item\n");
+    printf("    owner_no_db_keeps_item\n");
+    printf("    owner_no_events_keeps_item\n");
+    printf("    owner_query_fails_keeps_item\n");
+    printf("    owner_match_keeps_item\n");
+    printf("    owner_type_mismatch_discards_item\n");
+    printf("    owner_ref_mismatch_discards_item\n");
+    printf("    owner_locker_match_keeps_item\n");
+    printf("    owner_corpse_match_keeps_item\n");
+    printf("    owner_production_source_is_not_stub\n");
     printf("\n  Transaction Rollback (Phase 3.4/3.5):\n");
     printf("    rollback_towns_insert_failure_preserves_old_towns\n");
     printf("    rollback_towns_first_insert_failure_preserves_old_towns\n");
@@ -130,6 +144,18 @@ static void list_tests(void)
     printf("    rollback_corpse_item_failure_preserves_old_corpse\n");
     printf("    rollback_begin_transaction_failure_prevents_writes\n");
     printf("    rollback_production_source_has_rollback_calls\n");
+    printf("\n  Disconnect Flush (Phase 3.7):\n");
+    printf("    scheduled_save_is_applied_on_disconnect\n");
+    printf("    queued_event_is_noop_after_flush\n");
+    printf("    endtoend_no_double_save\n");
+    printf("    flush_no_pending_is_noop\n");
+    printf("    flush_npc_is_noop\n");
+    printf("    flush_dead_char_is_noop\n");
+    printf("    double_flush_is_idempotent\n");
+    printf("    level_dirty_propagates\n");
+    printf("    flush_all_flushes_every_pending\n");
+    printf("    schedule_merges_existing_slot\n");
+    printf("    full_queue_falls_back_to_sync_save\n");
 }
 
 int main(int argc, char *argv[])
@@ -145,15 +171,32 @@ int main(int argc, char *argv[])
             printf("  -h, --help    Show this help\n");
             return 0;
         }
-        /* Run single test — try each suite */
+        /* Run single test — try each suite.  Each suite's run_one returns
+         * -1 when the name isn't found, so the chain falls through.
+         *
+         * Note: we deliberately do NOT call any print_summary() at the end
+         * here.  test_crash_stress_print_summary() (the only one called by
+         * the old code path) prints crash_stress's static g_pass/g_fail,
+         * which are 0 for every other suite's individual test, producing
+         * the misleading "Pass: 0 / Fail: 0 / ALL CRASH-SAFETY FIXES
+         * VERIFIED" output.  The run_one call already printed the test
+         * result for the user.  The summary is only meaningful in the
+         * full-suite path below, where each suite's run_all prints its own
+         * summary. */
         int rc = test_db_write_run_one(argv[1]);
         if (rc == -1) rc = test_game_scenarios_run_one(argv[1]);
         if (rc == -1) rc = test_data_validation_run_one(argv[1]);
         if (rc == -1) rc = test_character_lifecycle_run_one(argv[1]);
         if (rc == -1) rc = test_crash_stress_run_one(argv[1]);
         if (rc == -1) rc = test_container_rescue_run_one(argv[1]);
+        if (rc == -1) rc = test_persistence_owner_run_one(argv[1]);
         if (rc == -1) rc = test_transaction_rollback_run_one(argv[1]);
-        test_crash_stress_print_summary();
+        if (rc == -1) rc = test_disconnect_flush_run_one(argv[1]);
+        if (rc == -1) {
+            fprintf(stderr, "Unknown test: '%s'\n", argv[1]);
+            fprintf(stderr, "Run with -l to list all available tests.\n");
+            return 1;
+        }
         return rc > 0 ? 1 : 0;
     }
 
@@ -170,6 +213,10 @@ int main(int argc, char *argv[])
     printf("\n");
     failures += test_container_rescue_run_all();
     printf("\n");
+    failures += test_persistence_owner_run_all();
+    printf("\n");
     failures += test_transaction_rollback_run_all();
+    printf("\n");
+    failures += test_disconnect_flush_run_all();
     return failures > 0 ? 1 : 0;
 }
