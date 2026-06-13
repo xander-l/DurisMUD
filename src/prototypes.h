@@ -3091,6 +3091,8 @@ int                   persistence_pending_scalar_events(void);
 unsigned long         persistence_dropped_scalar_events(void);
 void                  persistence_schedule_character_save(P_char ch, int type, int delay, const char *reason);
 void                  persistence_schedule_level_checkpoint(P_char ch, int type, int delay, const char *reason);
+void                  persistence_flush_character_saves(P_char ch);
+void                  persistence_flush_all_character_saves(void);
 void                  sprint64bit(ulong *, const char **, char *);
 void                  sprintbit(ulong, const char **, char *);
 void                  sprinttype(int, const char **, char *);

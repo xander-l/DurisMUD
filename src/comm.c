@@ -1336,6 +1336,7 @@ void game_loop(int port, int sslport)
 
 	// skip character extraction during copyover - we need them intact
 	if (!_copyover)
+		persistence_flush_all_character_saves();
 	{
 		for (point = descriptor_list; point; point = point->next)
 		{
@@ -1890,6 +1891,7 @@ void close_socket(struct descriptor_data *d)
 				loginlog(d->character->player.level, "%s [%s] has lost link @ %s EST.", GET_NAME(GET_PLYR(d->character)), d->host, Gbuf1);
 				sql_log(d->character, CONNECTLOG, "Lost Link");
 			}
+			persistence_flush_character_saves(d->character);
 			writeCharacter(d->character, RENT_CRASH, d->character->in_room);
 			d->character->desc = 0;
 		}
