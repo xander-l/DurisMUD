@@ -78,9 +78,8 @@ mysql -h 127.0.0.1 -u duris -pduris duris_dev -e "SELECT 1;" >/dev/null 2>&1 || 
     mysql -u root -e "FLUSH PRIVILEGES;" 2>/dev/null || true
 }
 
-# ---- Start MUD --------------------------------------------------------------
-PORT="${MUD_PORT:-7777}"
-echo "Starting DurisMUD on port ${PORT}..."
+# ---- Start MUD via cycle_mud.sh (handles migrations, area build, reboot loop) ------
+echo "Starting DurisMUD via cycle_mud.sh..."
 
 cleanup() {
     echo "Shutting down DurisMUD..."
@@ -89,4 +88,4 @@ cleanup() {
 }
 trap cleanup SIGTERM SIGINT
 
-exec ./dms "${PORT}"
+exec ./cycle_mud.sh
