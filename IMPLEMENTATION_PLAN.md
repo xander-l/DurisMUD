@@ -844,17 +844,15 @@ tests/
 | 3.2 | Implement `sql_persistence_item_owner_matches()` (replace stub that always returns true) | §4.3, §6.1, §10.3 | **CRITICAL** | Large |
 | 3.3 | Wrap `sql_save_player()` sub-functions in a transaction (START TRANSACTION → all saves → COMMIT/ROLLBACK) | §10.4 | **HIGH** | Medium |
 | 3.4 | Replace DELETE-then-INSERT with REPLACE INTO or transaction-wrapped batch to prevent crash-data-loss | §10.5 | **HIGH** | Large |
-| 3.5 | Extend v17 schema migration to add `item_type` and `wear_flags` to all item tables (locker, shop, saved, siege, account_locker, pet) | §10.6 | **HIGH** | Small |
+| 3.5 | Consolidated schema migration: add `item_type` + `wear_flags` + `bitvector1-5` to all item tables lacking them, and create missing `extra_descr` tables (v18 migration) | §10.6, §10.7, §10.8 | **HIGH** | Medium |
 | 3.6 | Audit all item transition paths for event recording | §4.1 | **HIGH** | Medium |
 | 3.7 | Verify disconnect path flushes deferred saves | §5.1 RC-4, §10.9 | **HIGH** | Small |
 | 3.8 | Add idempotency to fallback event replay (INSERT IGNORE) | §6.2 | **HIGH** | Small |
 | 3.9 | Implement `sql_zone_touch_finished()` | §6.1 | MEDIUM | Small |
 | 3.10 | Add `persistence_sql_escape_field` unit tests | §8.1 | MEDIUM | Small |
 | 3.11 | Document locking hierarchy (THREAD_SAFETY.md) | §5.2 | MEDIUM | Small |
-| 3.12 | Add bitvector columns to corpse_items, shopkeeper_items, saved_items, siege_items, player_pet_items (migration) | §10.7 | MEDIUM | Small |
-| 3.13 | Add extra_descr tables for shopkeeper_items, saved_items, siege_items, account_locker_items (migration) | §10.8 | MEDIUM | Small |
-| 3.14 | Clean up duplicate `sql_persistence_item_owner_matches` declaration in sql.h | §10.11 | LOW | Small |
-| 3.15 | Add v11 migration validation to catch obj_uid type mismatch on partial upgrades | §10.10 | LOW | Small |
+| 3.12 | Clean up duplicate `sql_persistence_item_owner_matches` declaration in sql.h | §10.11 | LOW | Small |
+| 3.13 | Add v11 migration validation to catch obj_uid type mismatch on partial upgrades | §10.10 | LOW | Small |
 
 ### Phase 4: Event Logging System
 
