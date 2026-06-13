@@ -243,6 +243,53 @@ static inline void warn_outside_txn(const char *func, const char *name)
 		      func, (name && name[0]) ? name : "<null>");
 	}
 }
+// Phase 3.1 helper: safely append a formatted string to a batch buffer.
+//
+// Replaces the dangerous pattern:
+//   if (pos > buf_size - 200) break;
+//   pos += snprintf(buf + pos, buf_size - pos, ...);
+// which is fragile because snprintf returns the number of chars it
+// *would* have written when truncated, so pos can exceed buf_size
+// after a truncated snprintf, and the next iteration's pre-check
+// relies on a magic 200-byte margin to avoid an OOB write.
+//
+// This helper does the proper post-check: it inspects the snprintf
+// return value and returns -1 (with the buffer null-terminated at
+// buf_size-1) on truncation or encoding error, so callers can break
+// the loop without ever leaving pos in an unsafe state.
+//
+// Returns the new position on success, or -1 on truncation/error.
+static int batch_append(char *buf, int pos, size_t buf_size, const char *fmt, ...)
+{
+	if (!buf || pos < 0 || (size_t)pos >= buf_size)
+	{
+		return -1;
+	}
+
+	va_list args;
+	va_start(args, fmt);
+	int written = vsnprintf(buf + pos, buf_size - pos, fmt, args);
+	va_end(args);
+
+	if (written < 0)
+	{
+		// encoding error
+		buf[buf_size - 1] = '\0';
+		return -1;
+	}
+
+	if ((size_t)written >= buf_size - pos)
+	{
+		// truncated - null-terminate at end of buffer to keep it usable
+		// for diagnostic logging without scribbling past buf_size.
+		buf[buf_size - 1] = '\0';
+		return -1;
+	}
+
+	return pos + written;
+}
+
+
 
 // utility functions
 
@@ -923,17 +970,18 @@ bool sql_save_player_status(P_char ch, int type, int room)
 	bool has_data;
 
 	// languages - batch delete then batch insert
-	snprintf(query, sizeof(query), "DELETE FROM player_languages WHERE pid=%d", pid);
+	// Phase 3.4: DELETE replaced by REPLACE INTO player_languages
 	sql_run_query(query);
 
-	pos      = snprintf(batch, 65536, "INSERT INTO player_languages (pid, tongue_id, proficiency) VALUES ");
+	pos      = snprintf(batch, 65536, "REPLACE INTO player_languages (pid, tongue_id, proficiency) VALUES ");
 	has_data = false;
 	for (int i = 0; i < MAX_TONGUE; i++)
 	{
 		if (GET_LANGUAGE(ch, i) > 0)
 		{
-			if (pos > 65536 - 200) break;
-			pos += snprintf(batch + pos, 65536 - pos, "%s(%d,%d,%d)", has_data ? "," : "", pid, i, GET_LANGUAGE(ch, i));
+			int new_pos = batch_append(batch, pos, 65536, "%s(%d,%d,%d)", has_data ? "," : "", pid, i, GET_LANGUAGE(ch, i));
+			if (new_pos < 0) break;
+			pos = new_pos;
 			has_data = true;
 		}
 	}
@@ -941,17 +989,18 @@ bool sql_save_player_status(P_char ch, int type, int room)
 		sql_run_query(batch);
 
 	// intros - batch delete then batch insert
-	snprintf(query, sizeof(query), "DELETE FROM player_intros WHERE pid=%d", pid);
+	// Phase 3.4: DELETE replaced by REPLACE INTO player_intros
 	sql_run_query(query);
 
-	pos      = snprintf(batch, 65536, "INSERT INTO player_intros (pid, intro_index, intro_pid, intro_time) VALUES ");
+	pos      = snprintf(batch, 65536, "REPLACE INTO player_intros (pid, intro_index, intro_pid, intro_time) VALUES ");
 	has_data = false;
 	for (int i = 0; i < MAX_INTRO; i++)
 	{
 		if (ch->only.pc->introd_list[i] != 0)
 		{
-			if (pos > 65536 - 200) break;
-			pos += snprintf(batch + pos, 65536 - pos, "%s(%d,%d,%ld,FROM_UNIXTIME(NULLIF(%lu,0)))", has_data ? "," : "", pid, i, ch->only.pc->introd_list[i], ch->only.pc->introd_times[i]);
+			int new_pos = batch_append(batch, pos, 65536, "%s(%d,%d,%ld,FROM_UNIXTIME(NULLIF(%lu,0)))", has_data ? "," : "", pid, i, ch->only.pc->introd_list[i], ch->only.pc->introd_times[i]);
+			if (new_pos < 0) break;
+			pos = new_pos;
 			has_data = true;
 		}
 	}
@@ -959,17 +1008,18 @@ bool sql_save_player_status(P_char ch, int type, int room)
 		sql_run_query(batch);
 
 	// timers - batch delete then batch insert
-	snprintf(query, sizeof(query), "DELETE FROM player_timers WHERE pid=%d", pid);
+	// Phase 3.4: DELETE replaced by REPLACE INTO player_timers
 	sql_run_query(query);
 
-	pos      = snprintf(batch, 65536, "INSERT INTO player_timers (pid, timer_id, timer_value) VALUES ");
+	pos      = snprintf(batch, 65536, "REPLACE INTO player_timers (pid, timer_id, timer_value) VALUES ");
 	has_data = false;
 	for (int i = 0; i < NUMB_PC_TIMERS; i++)
 	{
 		if (ch->only.pc->pc_timer[i] != 0)
 		{
-			if (pos > 65536 - 200) break;
-			pos += snprintf(batch + pos, 65536 - pos, "%s(%d,%d,FROM_UNIXTIME(NULLIF(%ld,0)))", has_data ? "," : "", pid, i, (long)ch->only.pc->pc_timer[i]);
+			int new_pos = batch_append(batch, pos, 65536, "%s(%d,%d,FROM_UNIXTIME(NULLIF(%ld,0)))", has_data ? "," : "", pid, i, (long)ch->only.pc->pc_timer[i]);
+			if (new_pos < 0) break;
+			pos = new_pos;
 			has_data = true;
 		}
 	}
@@ -977,17 +1027,18 @@ bool sql_save_player_status(P_char ch, int type, int room)
 		sql_run_query(batch);
 
 	// undead spell slots - batch delete then batch insert
-	snprintf(query, sizeof(query), "DELETE FROM player_undead_slots WHERE pid=%d", pid);
+	// Phase 3.4: DELETE replaced by REPLACE INTO player_undead_slots
 	sql_run_query(query);
 
-	pos      = snprintf(batch, 65536, "INSERT INTO player_undead_slots (pid, circle, slots) VALUES ");
+	pos      = snprintf(batch, 65536, "REPLACE INTO player_undead_slots (pid, circle, slots) VALUES ");
 	has_data = false;
 	for (int i = 0; i <= MAX_CIRCLE; i++)
 	{
 		if (ch->specials.undead_spell_slots[i] != 0)
 		{
-			if (pos > 65536 - 200) break;
-			pos += snprintf(batch + pos, 65536 - pos, "%s(%d,%d,%d)", has_data ? "," : "", pid, i, ch->specials.undead_spell_slots[i]);
+			int new_pos = batch_append(batch, pos, 65536, "%s(%d,%d,%d)", has_data ? "," : "", pid, i, ch->specials.undead_spell_slots[i]);
+			if (new_pos < 0) break;
+			pos = new_pos;
 			has_data = true;
 		}
 	}
@@ -995,17 +1046,18 @@ bool sql_save_player_status(P_char ch, int type, int room)
 		sql_run_query(batch);
 
 	// forged items - batch delete then batch insert
-	snprintf(query, sizeof(query), "DELETE FROM player_forged_items WHERE pid=%d", pid);
+	// Phase 3.4: DELETE replaced by REPLACE INTO player_forged_items
 	sql_run_query(query);
 
-	pos      = snprintf(batch, 65536, "INSERT INTO player_forged_items (pid, forge_index, item_vnum) VALUES ");
+	pos      = snprintf(batch, 65536, "REPLACE INTO player_forged_items (pid, forge_index, item_vnum) VALUES ");
 	has_data = false;
 	for (int i = 0; i < MAX_FORGE_ITEMS; i++)
 	{
 		if (ch->only.pc->learned_forged_list[i] != 0)
 		{
-			if (pos > 65536 - 200) break;
-			pos += snprintf(batch + pos, 65536 - pos, "%s(%d,%d,%ld)", has_data ? "," : "", pid, i, ch->only.pc->learned_forged_list[i]);
+			int new_pos = batch_append(batch, pos, 65536, "%s(%d,%d,%ld)", has_data ? "," : "", pid, i, ch->only.pc->learned_forged_list[i]);
+			if (new_pos < 0) break;
+			pos = new_pos;
 			has_data = true;
 		}
 	}
@@ -1013,17 +1065,18 @@ bool sql_save_player_status(P_char ch, int type, int room)
 		sql_run_query(batch);
 
 	// granted commands - batch delete then batch insert
-	snprintf(query, sizeof(query), "DELETE FROM player_granted_cmds WHERE pid=%d", pid);
+	// Phase 3.4: DELETE replaced by REPLACE INTO player_granted_cmds
 	sql_run_query(query);
 
 	if (ch->only.pc->numb_gcmd > 0)
 	{
-		pos      = snprintf(batch, 65536, "INSERT INTO player_granted_cmds (pid, cmd_num) VALUES ");
+		pos      = snprintf(batch, 65536, "REPLACE INTO player_granted_cmds (pid, cmd_num) VALUES ");
 		has_data = false;
 		for (int i = 0; i < ch->only.pc->numb_gcmd; i++)
 		{
-			if (pos > 65536 - 200) break;
-			pos += snprintf(batch + pos, 65536 - pos, "%s(%d,%d)", has_data ? "," : "", pid, ch->only.pc->gcmd_arr[i]);
+			int new_pos = batch_append(batch, pos, 65536, "%s(%d,%d)", has_data ? "," : "", pid, ch->only.pc->gcmd_arr[i]);
+			if (new_pos < 0) break;
+			pos = new_pos;
 			has_data = true;
 		}
 		if (has_data)
@@ -1048,9 +1101,7 @@ bool sql_save_player_skills(P_char ch)
 		return false;
 
 	// delete all skills for this player in one query
-	char del_query[128];
-	snprintf(del_query, sizeof(del_query), "DELETE FROM player_skills WHERE pid=%d", pid);
-	sql_run_query(del_query);
+	// Phase 3.4: DELETE replaced by REPLACE INTO player_skills
 
 	// build multi-row insert for skills that have values
 	// max ~100 skills learned * ~40 bytes per value = ~4kb, use 64kb to be safe
@@ -1058,15 +1109,16 @@ bool sql_save_player_skills(P_char ch)
 	if (!query)
 		return false;
 
-	int pos = snprintf(query, 65536, "INSERT INTO player_skills (pid, skill_id, learned, taught) VALUES ");
+	int pos = snprintf(query, 65536, "REPLACE INTO player_skills (pid, skill_id, learned, taught) VALUES ");
 
 	bool has_skills = false;
 	for (int i = 0; i < MAX_SKILLS; i++)
 	{
 		if (ch->only.pc->skills[i].learned > 0 || ch->only.pc->skills[i].taught > 0)
 		{
-			if (pos > 65536 - 100) break;
-			pos += snprintf(query + pos, 65536 - pos, "%s(%d,%d,%d,%d)", has_skills ? "," : "", pid, i, ch->only.pc->skills[i].learned, ch->only.pc->skills[i].taught);
+			int new_pos = batch_append(query, pos, 65536, "%s(%d,%d,%d,%d)", has_skills ? "," : "", pid, i, ch->only.pc->skills[i].learned, ch->only.pc->skills[i].taught);
+			if (new_pos < 0) break;
+			pos = new_pos;
 			has_skills = true;
 		}
 	}
@@ -1092,6 +1144,9 @@ bool sql_save_player_affects(P_char ch)
 		return false;
 
 	// delete existing affects
+	// Phase 3.4: player_affects has no UNIQUE KEY on (pid, type)
+	// (only auto-increment id), so REPLACE INTO would INSERT duplicates
+	// instead of replacing. Must use DELETE+INSERT.
 	char del_query[128];
 	snprintf(del_query, sizeof(del_query), "DELETE FROM player_affects WHERE pid=%d", pid);
 	sql_run_query(del_query);
@@ -1112,11 +1167,7 @@ bool sql_save_player_affects(P_char ch)
 	{
 		if (IS_SET(af->flags, AFFTYPE_NOSAVE))
 			continue;
-		if (pos > 32768 - 200) break;
-
-		pos += snprintf(batch + pos,
-		                32768 - pos,
-		                "%s(%d,%d,%d,%d,%d,%d,%d,%lu,%lu,%lu,%lu,%lu)",
+			int new_pos = batch_append(batch, pos, 32768, "%s(%d,%d,%d,%d,%d,%d,%d,%lu,%lu,%lu,%lu,%lu)",
 		                has_affects ? "," : "",
 		                pid,
 		                af->type,
@@ -1130,6 +1181,8 @@ bool sql_save_player_affects(P_char ch)
 		                af->bitvector3,
 		                af->bitvector4,
 		                af->bitvector5);
+			if (new_pos < 0) break;
+			pos = new_pos;
 		has_affects = true;
 	}
 
