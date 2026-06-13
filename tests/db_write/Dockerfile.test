@@ -1,0 +1,55 @@
+# ==============================================================================
+# tests/db_write/Dockerfile.test
+#
+# Minimal Docker build that compiles and runs the DB write unit test suite
+# using tests/db_write/Makefile.  The test suite is standalone - it does
+# not need MySQL, the MUD binary, or any other runtime dependencies.  The
+# only "external" reference is Test 11, which greps src/sql_player.c for
+# the existence of sql_rollback() call sites (so we copy the whole repo).
+#
+# This image is intended to be the authoritative build/test environment
+# for the test suite, replacing local gcc invocations (which may not be
+# available on all contributor machines, e.g. Windows).
+#
+# Usage:
+#   docker build -f tests/db_write/Dockerfile.test -t duris-db-write-test .
+#   docker run --rm duris-db-write-test
+#   docker run --rm duris-db-write-test ./test_db_write -l   # list tests
+#   docker run --rm duris-db-write-test ./test_db_write rollback_corpse_item_failure_preserves_old_corpse
+# ==============================================================================
+
+FROM ubuntu:24.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# ---- System packages --------------------------------------------------------
+# Only gcc + make are required.  No MySQL, no libxml2, no gnutls, no cjson -
+# the test suite is self-contained.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential \
+        make \
+        dos2unix \
+    && rm -rf /var/lib/apt/lists/*
+
+# ---- Copy test sources first (build-cache friendly) ------------------------
+# Copy only the test directory + the single production source file
+# referenced by Test 11 (which greps src/sql_player.c for sql_rollback()
+# call sites).  This keeps the build cache hot when unrelated repo
+# files change.
+WORKDIR /duris
+COPY tests/db_write/ /duris/tests/db_write/
+COPY src/sql_player.c /duris/src/sql_player.c
+
+# ---- Build the test suite ---------------------------------------------------
+# Convert any CRLF line endings (Windows checkouts) to LF so gcc handles
+# the sources cleanly, then build with -Wall -Wextra -pedantic as configured
+# in the Makefile.
+WORKDIR /duris/tests/db_write
+RUN dos2unix *.c *.h 2>/dev/null && \
+    make clean && \
+    make && \
+    ./test_db_write
+
+# ---- Default command: run the full test suite --------------------------------
+# Override with:   docker run --rm duris-db-write-test ./test_db_write <name>
+CMD ["./test_db_write"]

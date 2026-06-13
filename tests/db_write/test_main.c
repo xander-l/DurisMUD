@@ -126,6 +126,10 @@ static void list_tests(void)
     printf("    rollback_private_chest_item_failure_preserves_chest\n");
     printf("    rollback_commit_failure_undoes_whole_save\n");
     printf("    rollback_call_sequence_is_begin_work_commit_or_rollback\n");
+    printf("    rollback_locker_item_failure_preserves_chest\n");
+    printf("    rollback_corpse_item_failure_preserves_old_corpse\n");
+    printf("    rollback_begin_transaction_failure_prevents_writes\n");
+    printf("    rollback_production_source_has_rollback_calls\n");
 }
 
 int main(int argc, char *argv[])

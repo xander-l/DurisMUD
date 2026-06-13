@@ -31,6 +31,9 @@
 static int  g_pass  = 0;
 static int  g_fail  = 0;
 static char g_last_error[4096];
+/* File-scope buffer for Test 11 (slurping src/sql_player.c).  256KB
+ * is plenty for the current ~200KB file. */
+static char g_src_buf[262144];
 
 #define TEST_PASS()      do { g_pass++; } while (0)
 #define TEST_FAIL(...)   do { \
@@ -99,13 +102,18 @@ static int txn_rollback(txn_state *t)
     return 1;
 }
 
-/* Simulate a SQL run that can be made to fail at a specific call index */
+/* Simulate a SQL run that can be made to fail at a specific call index.
+ * current_query is always non-NULL in practice, but we guard against NULL
+ * so callers driving an "always-succeed" path don't have to declare a
+ * dummy counter (prevents the Test 6 segfault class of bug). */
 static int txn_query(txn_state *t, int *fail_at_query, int *current_query)
 {
+    int  dummy = 0;
+    int *cp    = current_query ? current_query : &dummy;
     t->query_calls++;
-    (*current_query)++;
+    (*cp)++;
     txn_log(t, "QUERY");
-    if (fail_at_query && *fail_at_query > 0 && *current_query == *fail_at_query) {
+    if (fail_at_query && *fail_at_query > 0 && *cp == *fail_at_query) {
         return 0; /* simulated failure */
     }
     return 1;
@@ -252,6 +260,56 @@ static int sim_sql_save_private_chest_items(txn_state *t, int n_items, int fail_
         txn_rollback(t);
         return 0;
     }
+    for (int i = 0; i < n_items; i++) {
+        if (!txn_query(t, &fail_at_query, &current_query)) {
+            txn_rollback(t);
+            return 0;
+        }
+    }
+
+    if (!txn_commit(t)) {
+        txn_rollback(t);
+        return 0;
+    }
+    return 1;
+}
+
+/* Simulate sql_save_locker: same DELETE + INSERT loop pattern as the
+ * private-chest save (Phase 3.4 added identical transaction wrapping
+ * to both).  Inlined to keep the bodies from drifting â€” both helpers
+ * share the same control flow but the distinct name lets test names
+ * match the production functions they exercise. */
+static inline int sim_sql_save_locker(txn_state *t, int n_items, int fail_at_query)
+{
+    return sim_sql_save_private_chest_items(t, n_items, fail_at_query);
+}
+
+/* Simulate sql_save_corpse: 3-phase model under one transaction:
+ *   Phase 1: DELETE old corpse (1 query)
+ *   Phase 2: INSERT new corpse (1 query)
+ *   Phase 3: loop INSERT corpse_items (N queries)
+ * A failure on ANY phase rolls back the corpse replacement AND the
+ * partial item inserts.  This is the property Phase 3.4 added to
+ * sql_save_corpse(). */
+static int sim_sql_save_corpse(txn_state *t, int n_items, int fail_at_query)
+{
+    int current_query = 0;
+
+    if (!txn_begin(t)) return 0;
+
+    /* Phase 1: DELETE FROM corpses WHERE ... */
+    if (!txn_query(t, &fail_at_query, &current_query)) {
+        txn_rollback(t);
+        return 0;
+    }
+
+    /* Phase 2: INSERT INTO corpses ... */
+    if (!txn_query(t, &fail_at_query, &current_query)) {
+        txn_rollback(t);
+        return 0;
+    }
+
+    /* Phase 3: INSERT INTO corpse_items ... (per item) */
     for (int i = 0; i < n_items; i++) {
         if (!txn_query(t, &fail_at_query, &current_query)) {
             txn_rollback(t);
@@ -477,6 +535,8 @@ int test_rollback_commit_failure_undoes_whole_save(void)
         TEST_FAIL("begin should succeed");
         TEST_END(); return 1;
     }
+    /* Drive the commit-failure path: pass NULL for both query args
+     * (txn_query itself is NULL-safe). */
     if (!txn_query(&t, NULL, NULL)) {
         TEST_FAIL("query should succeed");
         TEST_END(); return 1;
@@ -747,7 +807,7 @@ int test_rollback_begin_transaction_failure_prevents_writes(void)
     }
     /* The key guarantee: if sql_begin_transaction() fails (or the
      * guard fires), the save function returns false WITHOUT doing
-     * the DELETE — so pre-existing data is preserved. */
+     * the DELETE ï¿½ so pre-existing data is preserved. */
 
     TEST_PASS();
     TEST_END();
@@ -755,19 +815,19 @@ int test_rollback_begin_transaction_failure_prevents_writes(void)
 }
 
 /* ------------------------------------------------------------------ */
-/*  TEST 11: Regression test — verify sql_rollback() exists in the     */
+/*  TEST 11: Regression test ï¿½ verify sql_rollback() exists in the     */
 /*  production source at the expected failure paths.                   */
 /*                                                                      */
 /*  This is the critical test that makes this suite a REAL regression  */
 /*  test rather than just a sim-verifier.  It greps src/sql_player.c   */
 /*  for the sql_rollback() call sites added in Phase 3.4/3.5.  If      */
 /*  someone removes any of these calls from production code, this      */
-/*  test will fail — catching the regression BEFORE it ships.          */
+/*  test will fail ï¿½ catching the regression BEFORE it ships.          */
 /*                                                                      */
 /*  The test is intentionally lenient (counts >= 1) to allow for       */
 /*  multiple rollback call sites per function (e.g., if a sub-save     */
 /*  adds a new failure path).  It just verifies that rollback IS       */
-/*  being called — not the exact number.                               */
+/*  being called ï¿½ not the exact number.                               */
 /* ------------------------------------------------------------------ */
 #include <stdio.h>
 
@@ -787,18 +847,17 @@ int test_rollback_production_source_has_rollback_calls(void)
     if (!f) f = fopen("../../../src/sql_player.c", "r");
     if (!f) f = fopen("../../src/sql_player.c", "r");
     if (!f) {
-        TEST_FAIL("cannot open src/sql_player.c — run from project root or tests/db_write/");
+        TEST_FAIL("cannot open src/sql_player.c ï¿½ run from project root or tests/db_write/");
         TEST_END(); return 1;
     }
 
     /* Slurp the file.  256KB is plenty for the current ~200KB file. */
-    static char buf[262144];
-    size_t n = fread(buf, 1, sizeof(buf) - 1, f);
-    buf[n] = '\0';
+    size_t n = fread(g_src_buf, 1, sizeof(g_src_buf) - 1, f);
+    g_src_buf[n] = '\0';
     fclose(f);
 
-    if (n == sizeof(buf) - 1) {
-        TEST_FAIL("src/sql_player.c is larger than 256KB — test buffer too small");
+    if (n == sizeof(g_src_buf) - 1) {
+        TEST_FAIL("src/sql_player.c is larger than 256KB ï¿½ test buffer too small");
         TEST_END(); return 1;
     }
 
@@ -818,7 +877,7 @@ int test_rollback_production_source_has_rollback_calls(void)
     int n_funcs = (int)(sizeof(funcs) / sizeof(funcs[0]));
 
     for (int i = 0; i < n_funcs; i++) {
-        const char *func_start = strstr(buf, funcs[i]);
+        const char *func_start = strstr(g_src_buf, funcs[i]);
         if (!func_start) {
             TEST_FAIL("function %s not found in src/sql_player.c", funcs[i]);
             TEST_END(); return 1;
@@ -826,7 +885,7 @@ int test_rollback_production_source_has_rollback_calls(void)
 
         /* Find the end of this function's body: the next "bool sql_"
          * function definition (or EOF).  This avoids a fixed window. */
-        const char *body_end = buf + n;
+        const char *body_end = g_src_buf + n;
         for (int j = 0; j < n_funcs; j++) {
             if (j == i) continue;
             const char *next = strstr(func_start + 1, funcs[j]);

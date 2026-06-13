@@ -1,0 +1,27 @@
+# .dockerignore for tests/db_write/ build context.
+# Keep the build context minimal so COPY . is fast and the build cache is
+# invalidated only when test files or production source actually change.
+
+# Build artifacts
+*.o
+test_db_write
+
+# VCS / IDE
+.git
+.gitignore
+.vscode
+.idea
+
+# Python (no tests use Python)
+__pycache__
+*.pyc
+.pytest_cache
+
+# Logs / runtime
+logs/
+*.log
+*.out
+
+# Other test directories (this image only builds db_write tests)
+tests/async/
+tests/stress/
