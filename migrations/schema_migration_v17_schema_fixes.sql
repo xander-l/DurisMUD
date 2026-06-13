@@ -4,5 +4,6 @@
 -- All statements are idempotent-safe (errors ignored at execution level).
 
 ALTER TABLE corpse_items ADD COLUMN item_type INT NOT NULL DEFAULT 0;
+ALTER TABLE player_items ADD COLUMN item_type INT NOT NULL DEFAULT 0;
 ALTER TABLE player_items ADD COLUMN wear_flags INT UNSIGNED NOT NULL DEFAULT 0;
 ALTER TABLE auctions ADD COLUMN obj_info_text TEXT NULL;
