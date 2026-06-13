@@ -289,6 +289,60 @@ static int batch_append(char *buf, int pos, size_t buf_size, const char *fmt, ..
 	return pos + written;
 }
 
+// Phase 3.5 shared helper: for an item being saved, fill the
+// wear_str, type_str, and bv1-5_str output buffers with the
+// item's wear_flags, type, and bitvectors.  Each buffer must be
+// at least 32 bytes (16 for type_str).  The bitvector buffers
+// are set to the numeric value if it differs from the prototype,
+// or to the literal "NULL" otherwise (load code uses NULL to
+// mean "use prototype value").
+//
+// SIDE EFFECT: the prototype object loaded internally is freed
+// (extract_obj) before returning.  The function name makes this
+// explicit so callers can't accidentally skip the cleanup.
+static void sql_format_item_diff_fields_and_free_proto(
+	P_obj obj,
+	char  *wear_str,
+	char  *type_str,
+	char  *bv1_str,
+	char  *bv2_str,
+	char  *bv3_str,
+	char  *bv4_str,
+	char  *bv5_str)
+{
+	P_obj proto = read_object(obj->R_num, REAL);
+
+	if (obj->wear_flags)
+		snprintf(wear_str, 32, "%d", obj->wear_flags);
+	else
+		strcpy(wear_str, "0");
+
+	snprintf(type_str, 16, "%d", obj->type);
+
+	if (proto && obj->bitvector != proto->bitvector)
+		snprintf(bv1_str, 32, "%lu", obj->bitvector);
+	else
+		strcpy(bv1_str, "NULL");
+	if (proto && obj->bitvector2 != proto->bitvector2)
+		snprintf(bv2_str, 32, "%lu", obj->bitvector2);
+	else
+		strcpy(bv2_str, "NULL");
+	if (proto && obj->bitvector3 != proto->bitvector3)
+		snprintf(bv3_str, 32, "%lu", obj->bitvector3);
+	else
+		strcpy(bv3_str, "NULL");
+	if (proto && obj->bitvector4 != proto->bitvector4)
+		snprintf(bv4_str, 32, "%lu", obj->bitvector4);
+	else
+		strcpy(bv4_str, "NULL");
+	if (proto && obj->bitvector5 != proto->bitvector5)
+		snprintf(bv5_str, 32, "%lu", obj->bitvector5);
+	else
+		strcpy(bv5_str, "NULL");
+
+	if (proto)
+		extract_obj(proto);
+}
 
 
 // utility functions
@@ -5445,38 +5499,15 @@ static int sql_save_corpse_item(int corpse_id, int save_id, P_obj obj, int conta
 		strcpy(action_str, "NULL");
 
 	char query[8192];
-	// Phase 3.5: capture wear_flags, item_type, and bitvectors (NULL if same as prototype)
-	P_obj proto = read_object(obj->R_num, REAL);
-	char  wear_str[32];
-	if (obj->wear_flags)
-		snprintf(wear_str, sizeof(wear_str), "%d", obj->wear_flags);
-	else
-		strcpy(wear_str, "0");
+	// Phase 3.5: shared helper formats wear_str, type_str, and bv1-5_str
+	// (NULL when matching the prototype) and frees the loaded prototype.
+	// See sql_format_item_diff_fields_and_free_proto().
+	char wear_str[32];
 	char type_str[16];
-	snprintf(type_str, sizeof(type_str), "%d", obj->type);
 	char bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
-	if (proto && obj->bitvector != proto->bitvector)
-		snprintf(bv1_str, sizeof(bv1_str), "%lu", obj->bitvector);
-	else
-		strcpy(bv1_str, "NULL");
-	if (proto && obj->bitvector2 != proto->bitvector2)
-		snprintf(bv2_str, sizeof(bv2_str), "%lu", obj->bitvector2);
-	else
-		strcpy(bv2_str, "NULL");
-	if (proto && obj->bitvector3 != proto->bitvector3)
-		snprintf(bv3_str, sizeof(bv3_str), "%lu", obj->bitvector3);
-	else
-		strcpy(bv3_str, "NULL");
-	if (proto && obj->bitvector4 != proto->bitvector4)
-		snprintf(bv4_str, sizeof(bv4_str), "%lu", obj->bitvector4);
-	else
-		strcpy(bv4_str, "NULL");
-	if (proto && obj->bitvector5 != proto->bitvector5)
-		snprintf(bv5_str, sizeof(bv5_str), "%lu", obj->bitvector5);
-	else
-		strcpy(bv5_str, "NULL");
-	if (proto)
-		extract_obj(proto);
+	sql_format_item_diff_fields_and_free_proto(
+		obj, wear_str, type_str,
+		bv1_str, bv2_str, bv3_str, bv4_str, bv5_str);
 
 	snprintf(query,
 	         sizeof(query),
@@ -6124,38 +6155,15 @@ static int sql_save_shopkeeper_item(int shopkeeper_id, P_obj obj, int equip_slot
 		strcpy(action_str, "NULL");
 
 	char query[8192];
-	// Phase 3.5: capture wear_flags, item_type, and bitvectors (NULL if same as prototype)
-	P_obj proto = read_object(obj->R_num, REAL);
-	char  wear_str[32];
-	if (obj->wear_flags)
-		snprintf(wear_str, sizeof(wear_str), "%d", obj->wear_flags);
-	else
-		strcpy(wear_str, "0");
+	// Phase 3.5: shared helper formats wear_str, type_str, and bv1-5_str
+	// (NULL when matching the prototype) and frees the loaded prototype.
+	// See sql_format_item_diff_fields_and_free_proto().
+	char wear_str[32];
 	char type_str[16];
-	snprintf(type_str, sizeof(type_str), "%d", obj->type);
 	char bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
-	if (proto && obj->bitvector != proto->bitvector)
-		snprintf(bv1_str, sizeof(bv1_str), "%lu", obj->bitvector);
-	else
-		strcpy(bv1_str, "NULL");
-	if (proto && obj->bitvector2 != proto->bitvector2)
-		snprintf(bv2_str, sizeof(bv2_str), "%lu", obj->bitvector2);
-	else
-		strcpy(bv2_str, "NULL");
-	if (proto && obj->bitvector3 != proto->bitvector3)
-		snprintf(bv3_str, sizeof(bv3_str), "%lu", obj->bitvector3);
-	else
-		strcpy(bv3_str, "NULL");
-	if (proto && obj->bitvector4 != proto->bitvector4)
-		snprintf(bv4_str, sizeof(bv4_str), "%lu", obj->bitvector4);
-	else
-		strcpy(bv4_str, "NULL");
-	if (proto && obj->bitvector5 != proto->bitvector5)
-		snprintf(bv5_str, sizeof(bv5_str), "%lu", obj->bitvector5);
-	else
-		strcpy(bv5_str, "NULL");
-	if (proto)
-		extract_obj(proto);
+	sql_format_item_diff_fields_and_free_proto(
+		obj, wear_str, type_str,
+		bv1_str, bv2_str, bv3_str, bv4_str, bv5_str);
 
 	snprintf(query,
 	         sizeof(query),
@@ -6416,38 +6424,15 @@ static int sql_save_saved_item_recursive(const char *item_key, int room_vnum, P_
 	char *esc_key = sql_escape_string(item_key);
 
 	char query[8192];
-	// Phase 3.5: capture wear_flags, item_type, and bitvectors (NULL if same as prototype)
-	P_obj proto = read_object(obj->R_num, REAL);
-	char  wear_str[32];
-	if (obj->wear_flags)
-		snprintf(wear_str, sizeof(wear_str), "%d", obj->wear_flags);
-	else
-		strcpy(wear_str, "0");
+	// Phase 3.5: shared helper formats wear_str, type_str, and bv1-5_str
+	// (NULL when matching the prototype) and frees the loaded prototype.
+	// See sql_format_item_diff_fields_and_free_proto().
+	char wear_str[32];
 	char type_str[16];
-	snprintf(type_str, sizeof(type_str), "%d", obj->type);
 	char bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
-	if (proto && obj->bitvector != proto->bitvector)
-		snprintf(bv1_str, sizeof(bv1_str), "%lu", obj->bitvector);
-	else
-		strcpy(bv1_str, "NULL");
-	if (proto && obj->bitvector2 != proto->bitvector2)
-		snprintf(bv2_str, sizeof(bv2_str), "%lu", obj->bitvector2);
-	else
-		strcpy(bv2_str, "NULL");
-	if (proto && obj->bitvector3 != proto->bitvector3)
-		snprintf(bv3_str, sizeof(bv3_str), "%lu", obj->bitvector3);
-	else
-		strcpy(bv3_str, "NULL");
-	if (proto && obj->bitvector4 != proto->bitvector4)
-		snprintf(bv4_str, sizeof(bv4_str), "%lu", obj->bitvector4);
-	else
-		strcpy(bv4_str, "NULL");
-	if (proto && obj->bitvector5 != proto->bitvector5)
-		snprintf(bv5_str, sizeof(bv5_str), "%lu", obj->bitvector5);
-	else
-		strcpy(bv5_str, "NULL");
-	if (proto)
-		extract_obj(proto);
+	sql_format_item_diff_fields_and_free_proto(
+		obj, wear_str, type_str,
+		bv1_str, bv2_str, bv3_str, bv4_str, bv5_str);
 
 	snprintf(query,
 	         sizeof(query),
@@ -6620,38 +6605,15 @@ static int sql_save_siege_item_one(int room_vnum, P_obj obj, int container_id)
 		strcpy(action_str, "NULL");
 
 	char query[8192];
-	// Phase 3.5: capture wear_flags, item_type, and bitvectors (NULL if same as prototype)
-	P_obj proto = read_object(obj->R_num, REAL);
-	char  wear_str[32];
-	if (obj->wear_flags)
-		snprintf(wear_str, sizeof(wear_str), "%d", obj->wear_flags);
-	else
-		strcpy(wear_str, "0");
+	// Phase 3.5: shared helper formats wear_str, type_str, and bv1-5_str
+	// (NULL when matching the prototype) and frees the loaded prototype.
+	// See sql_format_item_diff_fields_and_free_proto().
+	char wear_str[32];
 	char type_str[16];
-	snprintf(type_str, sizeof(type_str), "%d", obj->type);
 	char bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
-	if (proto && obj->bitvector != proto->bitvector)
-		snprintf(bv1_str, sizeof(bv1_str), "%lu", obj->bitvector);
-	else
-		strcpy(bv1_str, "NULL");
-	if (proto && obj->bitvector2 != proto->bitvector2)
-		snprintf(bv2_str, sizeof(bv2_str), "%lu", obj->bitvector2);
-	else
-		strcpy(bv2_str, "NULL");
-	if (proto && obj->bitvector3 != proto->bitvector3)
-		snprintf(bv3_str, sizeof(bv3_str), "%lu", obj->bitvector3);
-	else
-		strcpy(bv3_str, "NULL");
-	if (proto && obj->bitvector4 != proto->bitvector4)
-		snprintf(bv4_str, sizeof(bv4_str), "%lu", obj->bitvector4);
-	else
-		strcpy(bv4_str, "NULL");
-	if (proto && obj->bitvector5 != proto->bitvector5)
-		snprintf(bv5_str, sizeof(bv5_str), "%lu", obj->bitvector5);
-	else
-		strcpy(bv5_str, "NULL");
-	if (proto)
-		extract_obj(proto);
+	sql_format_item_diff_fields_and_free_proto(
+		obj, wear_str, type_str,
+		bv1_str, bv2_str, bv3_str, bv4_str, bv5_str);
 
 	snprintf(query,
 	         sizeof(query),
