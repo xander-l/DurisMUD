@@ -54,6 +54,10 @@ if [ -f "src/sql.h" ]; then
       INDEX idx_shutdown_type (shutdown_type)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
   " 2>/dev/null
+
+  # Run schema migrations on every boot (idempotent-safe)
+  echo "Running schema migrations..."
+  (mysql -h "$DB_HOST" -u "$DB_USER" -p"$DB_PASSWD" "$DB_NAME" < ./migrations/schema_migration_v17_schema_fixes.sql || true)
 else
   echo "Warning: src/sql.h not found, skipping database operations"
   DB_HOST=""
