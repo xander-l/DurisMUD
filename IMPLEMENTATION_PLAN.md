@@ -880,6 +880,153 @@ tests/
 
 ---
 
+## 10. Data Layer Bug Analysis
+
+This section identifies bugs, vulnerabilities, and design flaws found through analysis of the schema design (§10.1), the query catalog (Appendix C), and the save/load code in `sql_player.c`, `sql.c`, `files.c`, and `utility.c`.
+
+### 10.1 Schema Design Overview
+
+The database uses a normalized item storage pattern with 7 parallel item tables, each following the same column layout:
+
+| Item Table | Owner Table | Has bitvectors? | Has item_type? | Has wear_flags? | Has extra_descr? | Has obj_uid? |
+|------------|------------|-----------------|----------------|-----------------|-------------------|-------------|
+| `player_items` | `player_data` (FK cascade) | ✅ | ✅ v17 | ✅ v17 | ✅ | ✅ v11 |
+| `corpse_items` | `corpses` (FK cascade) | ❌ | ✅ v17 | ❌ | ✅ | ✅ v11 |
+| `locker_items` | `lockers` (FK cascade) | ✅ v14 | ❌ | ❌ | ✅ | ✅ v11 |
+| `account_locker_items` | `locker_chests` (FK cascade) | ✅ v14 | ❌ | ❌ | ❌ | ✅ v11 |
+| `shopkeeper_items` | `shopkeepers` (FK cascade) | ❌ | ❌ | ❌ | ❌ | ❌ |
+| `saved_items` | room_vnum (no FK) | ❌ | ❌ | ❌ | ❌ | ❌ |
+| `siege_items` | room_vnum (no FK) | ❌ | ❌ | ❌ | ❌ | ❌ |
+| `player_pet_items` | `player_pets` (FK cascade) | ❌ | ❌ | ❌ | ✅ | ✅ v11 |
+
+**Key observation:** Only `player_items` has `wear_flags` and all bitvector columns. The `item_type` column was added only to `player_items` and `corpse_items` by v17. All other item tables lack these columns — if the code ever tries to save wear_flags/bitvectors/item_type to those tables, MySQL will throw error 1054 (unknown column).
+
+### 10.2 Critical: Heap Buffer Overflow in Batch SQL Generation
+
+**Severity:** CRITICAL — heap corruption, potential crash or arbitrary write  
+**Location:** `sql_player.c` — multiple functions using `pos += snprintf(batch + pos, buf_size - pos, ...)`  
+**Found by:** Gemini thinker analysis
+
+**Bug:** When `snprintf` truncates because the buffer is nearly full, it returns the number of characters it *would* have written (not what it actually wrote). This causes `pos` to exceed `buf_size`. On the next loop iteration, `buf_size - pos` becomes a negative `int`, which when cast to `size_t` by `snprintf` becomes a massive unsigned value (~4GB on 64-bit). `snprintf` then writes out-of-bounds into adjacent heap memory.
+
+**Affected functions:**
+- `sql_save_player_skills()` — skill batch INSERT
+- `sql_save_player_affects()` — affect batch INSERT
+- `sql_save_player_status()` — languages, timers, intros, undead_slots, forged_items, granted_cmds batch INSERTs
+- `sql_batch_save_simple_items()` — item batch INSERT helper
+
+**Fix:**
+```c
+int bytes_written = snprintf(batch + pos, buf_size - pos, "...", ...);
+if (bytes_written > 0 && bytes_written < buf_size - pos)
+    pos += bytes_written;
+else
+    // flush batch early, reset pos, retry
+```
+
+### 10.3 Critical: Ownership Validation Stub
+
+**Severity:** CRITICAL — items loaded for wrong players  
+**Location:** `src/sql.c` — `sql_persistence_item_owner_matches()`  
+
+**Bug:** Always returns `true`. All items pass ownership validation regardless of actual ownership. An item that belongs to player A can be loaded into player B's inventory if the DB state is inconsistent (e.g., from a partial save or manual DB edit).
+
+**Impact:** Items could appear in the wrong player's inventory on login. Combined with the save pipeline, the wrong ownership becomes permanent.
+
+**Required:** Query `persistence_item_events` for the most recent event matching `item_uid`, compare `target` field to `owner_ref`. (See §4.3 for implementation plan.)
+
+### 10.4 High: No Transaction Wrapping on Save Pipeline
+
+**Severity:** HIGH — partial save = data loss  
+**Location:** `sql_player.c` — `sql_save_player()` and sub-functions  
+
+**Bug:** `sql_save_player()` calls ~15 sub-functions (status, skills, affects, items, witnesses, shapechanges, recipes, pets, languages, intros, timers, undead_slots, forged_items, granted_cmds). Each sub-function does DELETE-then-INSERT independently. If `sql_save_player_items()` fails (e.g., MySQL connection drops), the other 14 sub-functions have already committed their changes. The player's skills/affects/status are saved but their items are not.
+
+**Impact:** Inconsistent character state. Player logs in with skills but no items.
+
+**Required:** Wrap all sub-function calls in a transaction (`START TRANSACTION` → all sub-saves → `COMMIT` or `ROLLBACK`).
+
+### 10.5 High: DELETE-before-INSERT Without Crash Protection
+
+**Severity:** HIGH — crash between DELETE and INSERT = total loss for that table  
+**Location:** `sql_player.c` — all save sub-functions  
+
+**Bug:** Every save sub-function follows this pattern:
+```c
+snprintf(query, ..., "DELETE FROM player_skills WHERE pid=%d", pid);
+mysql_real_query(DB, query, ...);  // rows gone
+snprintf(query, ..., "INSERT INTO player_skills ... VALUES ...");
+mysql_real_query(DB, query, ...);  // rows recreated
+```
+If the server crashes between the DELETE and INSERT, ALL data for that table for that player is permanently lost. The persisted state is gone, and there's no undo.
+
+**Impact:** A crash during save could lose a player's entire skill list, affect list, or inventory. This is worse than the flat-file system, where the old file remains intact until the new one is written.
+
+**Required:** Wrap in a transaction, or use REPLACE INTO / INSERT ... ON DUPLICATE KEY UPDATE instead of DELETE+INSERT.
+
+### 10.6 High: Schema Column Gaps Across Item Tables
+
+**Severity:** HIGH — MySQL error 1054 if code writes to missing column  
+**Location:** `sql_player.c` — `sql_save_locker_item()`, `sql_save_corpse_item()`, etc.  
+
+**Bug:** The `item_type` column exists on `player_items` and `corpse_items` (added by v17) but NOT on `locker_items`, `shopkeeper_items`, `saved_items`, `siege_items`, `account_locker_items`, or `player_pet_items`. The `wear_flags` column exists only on `player_items`. If any save function for those tables includes `item_type` or `wear_flags`, MySQL will throw error 1054 and the save will fail.
+
+**Currently:** The code only writes `item_type` and `wear_flags` to `player_items` (via `sql_save_single_item_get_id`) and `corpse_items`. This is safe *for now*, but the v17 migration should be extended to all item tables.
+
+### 10.7 Medium: Inconsistent Bitvector Support
+
+**Severity:** MEDIUM — encrusted item data silently lost on save to some tables  
+**Location:** Schema — `locker_items`, `account_locker_items` vs `corpse_items`, `shopkeeper_items`, etc.  
+
+**Bug:** `locker_items` and `account_locker_items` have `bitvector1-5` columns (added by v14). `player_items` has them. But `corpse_items`, `shopkeeper_items`, `saved_items`, `siege_items`, and `player_pet_items` do NOT. If an item with encrusted affects (stored in bitvectors) is saved to a corpse or shopkeeper, the encrust data is silently lost.
+
+### 10.8 Medium: Missing Extra Description Tables
+
+**Severity:** MEDIUM — item extra descriptions silently lost  
+**Location:** Schema — `shopkeeper_items`, `saved_items`, `siege_items`, `account_locker_items`  
+
+**Bug:** `player_items`, `corpse_items`, `locker_items`, and `player_pet_items` have `*_extra_descr` tables. `shopkeeper_items`, `saved_items`, `siege_items`, and `account_locker_items` do NOT. Items with extra descriptions (spellbooks, noted items) saved to these tables lose their descriptions.
+
+### 10.9 Medium: Deferred Save May Not Flush on Disconnect
+
+**Severity:** MEDIUM — player changes lost if they quit before deferred save fires  
+**Location:** `actoth.c` — `persistence_schedule_character_save()`  
+
+**Bug:** When `persistence_schedule_character_save()` is called (e.g., from tradeskill purchases), it schedules a save for 5 ticks later. If the player disconnects before the tick fires, the changes may be lost.
+
+**Required:** Verify `do_quit` / disconnect path flushes pending deferred saves. (See §5.1 RC-4.)
+
+### 10.10 Low: `unique_id` / `obj_uid` Type Mismatch Risk
+
+**Severity:** LOW — only affects pre-v11 deployments  
+**Location:** Schema — v11 migration  
+
+**Bug:** The v11 migration renamed `unique_id` (INT UNSIGNED) to `obj_uid` (BIGINT UNSIGNED). The code now references `obj_uid` via the `O_F_UID` flag. If a deployment skipped v11 or has a partial migration, the code writes a BIGINT value into an INT column, causing truncation or overflow.
+
+### 10.11 Low: Duplicate `sql_persistence_item_owner_matches` Declaration
+
+**Severity:** LOW — cosmetic, no runtime impact  
+**Location:** `src/sql.h` — lines 101 and 189  
+
+**Bug:** The function is declared twice with identical signatures. Not harmful but indicates a merge artifact that should be cleaned up.
+
+### 10.12 Bug Severity Summary
+
+| # | Bug | Severity | Section |
+|---|-----|----------|---------|
+| 10.2 | Heap buffer overflow in batch snprintf | **CRITICAL** | §10.2 |
+| 10.3 | Ownership validation stub (always returns true) | **CRITICAL** | §10.3 |
+| 10.4 | No transaction wrapping on save pipeline | **HIGH** | §10.4 |
+| 10.5 | DELETE-then-INSERT without crash protection | **HIGH** | §10.5 |
+| 10.6 | item_type/wear_flags missing from non-player item tables | **HIGH** | §10.6 |
+| 10.7 | Inconsistent bitvector support across item tables | **MEDIUM** | §10.7 |
+| 10.8 | Missing extra_descr tables for shop/saved/siege items | **MEDIUM** | §10.8 |
+| 10.9 | Deferred save may not flush on disconnect | **MEDIUM** | §10.9 |
+| 10.10 | obj_uid type mismatch on pre-v11 deployments | **LOW** | §10.10 |
+| 10.11 | Duplicate declaration in sql.h | **LOW** | §10.11 |
+
+---
+
 ## Appendix A: File Change Summary (Branch vs Master)
 
 | File | Δ Lines | Type |
