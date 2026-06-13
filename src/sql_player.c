@@ -3466,10 +3466,18 @@ bool sql_save_account(struct acct_entry *acc)
 		return false;
 
 	// save ips
-	sql_save_account_ips(acc->acct_name, acc->acct_unique_ips);
+	if (!sql_save_account_ips(acc->acct_name, acc->acct_unique_ips))
+	{
+		logit(LOG_DEBUG, "sql_save_account: failed to save ips for %s", acc->acct_name);
+		return false;
+	}
 
 	// save characters
-	sql_save_account_characters(acc);
+	if (!sql_save_account_characters(acc))
+	{
+		logit(LOG_DEBUG, "sql_save_account: failed to save characters for %s", acc->acct_name);
+		return false;
+	}
 
 	return true;
 }
@@ -5010,7 +5018,20 @@ bool sql_save_towns(void)
 	if (!DB)
 		return false;
 
-	sql_run_query("DELETE FROM towns");
+	// start transaction (must succeed before the DELETE - otherwise the towns
+	// table could be left empty if the inserts fail)
+	if (!sql_begin_transaction())
+	{
+		logit(LOG_DEBUG, "sql_save_towns: failed to start transaction");
+		return false;
+	}
+
+	if (!sql_run_query("DELETE FROM towns"))
+	{
+		logit(LOG_DEBUG, "sql_save_towns: failed to delete old towns");
+		sql_rollback();
+		return false;
+	}
 
 	for (P_town town = towns; town; town = town->next_town)
 	{
@@ -5046,7 +5067,19 @@ bool sql_save_towns(void)
 		         town->portal_load_room);
 
 		free(escaped_filename);
-		sql_run_query(query);
+		if (!sql_run_query(query))
+		{
+			logit(LOG_DEBUG, "sql_save_towns: failed to insert town, rolling back");
+			sql_rollback();
+			return false;
+		}
+	}
+
+	if (!sql_commit())
+	{
+		logit(LOG_DEBUG, "sql_save_towns: failed to commit");
+		sql_rollback();
+		return false;
 	}
 
 	return true;
@@ -6105,8 +6138,12 @@ bool sql_save_shopkeeper(P_char ch, int shop_nr)
 	if (IS_PC(ch) || !IS_SHOPKEEPER(ch))
 		return false;
 
-	// use transaction to batch all inserts
-	sql_run_query("START TRANSACTION");
+	// start transaction
+	if (!sql_begin_transaction())
+	{
+		logit(LOG_DEBUG, "sql_save_shopkeeper: failed to start transaction for shop %d", shop_nr);
+		return false;
+	}
 
 	int  mob_vnum  = mob_index[GET_RNUM(ch)].virtual_number;
 	int  room_vnum = world[ch->in_room].number;
@@ -6114,7 +6151,12 @@ bool sql_save_shopkeeper(P_char ch, int shop_nr)
 
 	char del_query[128];
 	snprintf(del_query, sizeof(del_query), "DELETE FROM shopkeepers WHERE shop_id=%d", shop_nr);
-	sql_run_query(del_query);
+	if (!sql_run_query(del_query))
+	{
+		logit(LOG_DEBUG, "sql_save_shopkeeper: failed to delete old shopkeeper %d", shop_nr);
+		sql_rollback();
+		return false;
+	}
 
 	char ins_query[256];
 	snprintf(
@@ -6122,18 +6164,31 @@ bool sql_save_shopkeeper(P_char ch, int shop_nr)
 
 	if (!sql_run_query(ins_query))
 	{
-		sql_run_query("ROLLBACK");
+		logit(LOG_DEBUG, "sql_save_shopkeeper: failed to insert shopkeeper %d", shop_nr);
+		sql_rollback();
 		return false;
 	}
 
 	int shopkeeper_id = (int)mysql_insert_id(DB);
 
-	sql_save_shopkeeper_affects(shopkeeper_id, ch);
+	if (!sql_save_shopkeeper_affects(shopkeeper_id, ch))
+	{
+		logit(LOG_DEBUG, "sql_save_shopkeeper: failed to save affects for shop %d", shop_nr);
+		sql_rollback();
+		return false;
+	}
 
 	for (int i = 0; i < MAX_WEAR; i++)
 	{
 		if (ch->equipment[i])
-			sql_save_shopkeeper_item(shopkeeper_id, ch->equipment[i], i + 1, 0);
+		{
+			if (!sql_save_shopkeeper_item(shopkeeper_id, ch->equipment[i], i + 1, 0))
+			{
+				logit(LOG_DEBUG, "sql_save_shopkeeper: failed to save equip slot %d for shop %d", i, shop_nr);
+				sql_rollback();
+				return false;
+			}
+		}
 	}
 
 	for (P_obj obj = ch->carrying; obj; obj = obj->next_content)
@@ -6141,10 +6196,21 @@ bool sql_save_shopkeeper(P_char ch, int shop_nr)
 		// skip producing items - they're regenerated from zone definitions
 		if (shop_producing(obj, shop_nr))
 			continue;
-		sql_save_shopkeeper_item(shopkeeper_id, obj, 0, 0);
+		if (!sql_save_shopkeeper_item(shopkeeper_id, obj, 0, 0))
+		{
+			logit(LOG_DEBUG, "sql_save_shopkeeper: failed to save inventory item for shop %d", shop_nr);
+			sql_rollback();
+			return false;
+		}
 	}
 
-	sql_run_query("COMMIT");
+	if (!sql_commit())
+	{
+		logit(LOG_DEBUG, "sql_save_shopkeeper: failed to commit for shop %d", shop_nr);
+		sql_rollback();
+		return false;
+	}
+
 	return true;
 }
 
@@ -7784,6 +7850,17 @@ bool sql_save_ship(P_ship ship)
 	}
 	memset(batch, 0, batchSize);
 
+	// start transaction
+	if (!sql_begin_transaction())
+	{
+		logit(LOG_DEBUG, "sql_save_ship: failed to start transaction");
+		free(batch);
+		free(esc_owner);
+		if (esc_name)
+			free(esc_name);
+		return false;
+	}
+
 	if (ship->db_id == -1)
 	{
 		char initQuery[1024];
@@ -7809,6 +7886,7 @@ bool sql_save_ship(P_ship ship)
 			free(esc_owner);
 			if (esc_name)
 				free(esc_name);
+			sql_rollback();
 			return false;
 		}
 
@@ -7824,6 +7902,7 @@ bool sql_save_ship(P_ship ship)
 		{
 			sql_player_error("sql_save_ship_2", query);
 			free(batch);
+			sql_rollback();
 			return false;
 		}
 
@@ -7832,6 +7911,7 @@ bool sql_save_ship(P_ship ship)
 		{
 			free(batch);
 			mysql_free_result(result);
+			sql_rollback();
 			return false;
 		}
 
@@ -7865,6 +7945,7 @@ bool sql_save_ship(P_ship ship)
 	{
 		sql_player_error("sql_save_ship_3", NULL);
 		free(batch);
+		sql_rollback();
 		return false;
 	}
 	
@@ -7873,17 +7954,31 @@ bool sql_save_ship(P_ship ship)
 	{
 		sql_player_error("sql_save_ship_4", batch);
 		result = NULL;
+		free(batch);
+		if (result)
+		{
+			mysql_free_result(result);
+		}
+		sql_clear_results();
+		sql_rollback();
+		logit(LOG_DEBUG, "sql_save_ship: mysql_real_query failed for ship %d", ship->db_id);
+		return false;
 	}
-	else
-	{
-		result = mysql_store_result(DB);
-	}
+	result = mysql_store_result(DB);
 	free(batch);
 	if (result)
 	{
 		mysql_free_result(result);
 	}
 	sql_clear_results(); // need to clear all of the batch results
+
+	if (!sql_commit())
+	{
+		logit(LOG_DEBUG, "sql_save_ship: failed to commit for ship %d", ship->db_id);
+		sql_rollback();
+		return false;
+	}
+
 	logit(LOG_DEBUG, "sql_save_ship: finished saving ship %d", ship->db_id);
 
 	return true;
@@ -8160,22 +8255,47 @@ bool sql_save_guild(Guild *guild)
 	if (!sql_run_query(query))
 		return false;
 
+	// start transaction for ranks + members (DELETEs run before INSERTs, so a
+	// failure mid-loop would otherwise leave the guild with stale or empty
+	// ranks/members)
+	if (!sql_begin_transaction())
+	{
+		logit(LOG_DEBUG, "sql_save_guild: failed to start transaction for guild %u", gid);
+		return false;
+	}
+
 	// save ranks
 	snprintf(query, sizeof(query), "delete from guild_ranks where guild_id=%u", gid);
-	sql_run_query(query);
+	if (!sql_run_query(query))
+	{
+		logit(LOG_DEBUG, "sql_save_guild: failed to delete old ranks for guild %u", gid);
+		sql_rollback();
+		return false;
+	}
 	for (int i = 0; i < ASC_NUM_RANKS; i++)
 	{
 		char *esc_title = sql_escape_string(guild->titles[i]);
 		if (!esc_title)
 			continue;
 		snprintf(query, sizeof(query), "insert into guild_ranks (guild_id, rank_index, title) values (%u, %d, '%s')", gid, i, esc_title);
-		sql_run_query(query);
+		bool ok = sql_run_query(query);
 		free(esc_title);
+		if (!ok)
+		{
+			logit(LOG_DEBUG, "sql_save_guild: failed to insert rank %d for guild %u", i, gid);
+			sql_rollback();
+			return false;
+		}
 	}
 
 	// save members
 	snprintf(query, sizeof(query), "delete from guild_members where guild_id=%u", gid);
-	sql_run_query(query);
+	if (!sql_run_query(query))
+	{
+		logit(LOG_DEBUG, "sql_save_guild: failed to delete old members for guild %u", gid);
+		sql_rollback();
+		return false;
+	}
 	for (P_member mem = guild->members; mem; mem = mem->next)
 	{
 		char *esc_mname = sql_escape_string(mem->name);
@@ -8191,8 +8311,21 @@ bool sql_save_guild(Guild *guild)
 		         pid > 0 ? pid : 0,
 		         mem->bits,
 		         mem->debt);
-		sql_run_query(query);
+		bool ok = sql_run_query(query);
 		free(esc_mname);
+		if (!ok)
+		{
+			logit(LOG_DEBUG, "sql_save_guild: failed to insert member for guild %u", gid);
+			sql_rollback();
+			return false;
+		}
+	}
+
+	if (!sql_commit())
+	{
+		logit(LOG_DEBUG, "sql_save_guild: failed to commit for guild %u", gid);
+		sql_rollback();
+		return false;
 	}
 
 	return true;
