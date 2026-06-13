@@ -117,7 +117,6 @@ int sql_quest_finish(P_char ch, P_char giver, int type, int value);
 int sql_quest_trophy(P_char giver);
 
 void log_epic_gain(int pid, int type, int type_id, int epics);
-void log_epic_gain_event(const char *event_key, int pid, int type, int type_id, int epics);
 void do_sql(P_char ch, char *argument, int cmd);
 
 void update_zone_db();
@@ -181,4 +180,9 @@ void sql_add_sincesunk_frags(char owner, float frags);
 
 bool sql_pwipe(int code_verify);
 bool sql_clear_zone_trophy();
+/* ---- Persistence layer declarations ---- */
+/* (duplicate item/scalar event declarations removed; remaining: */
+void log_epic_gain_event(const char *event_key, int pid, int type,
+                         int type_id, int epics);
+
 #endif

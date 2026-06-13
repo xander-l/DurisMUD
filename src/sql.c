@@ -92,6 +92,7 @@ void send_to_char_offline(const char *msg, int pid) {}
 void send_offline_messages(P_char ch) {}
 void log_epic_gain(int pid, int zone_id, int type, int epics) {}
 void log_epic_gain_event(const char *event_key, int pid, int type, int type_id, int epics) {}
+bool sql_persistence_item_owner_matches(unsigned long long item_uid, const char *owner_type, const char *owner_ref, const char *context) { return true; }
 void update_zone_db() {}
 void update_zone_epic_level(int zone_id, int level) {}
 void show_frag_trophy(P_char ch, P_char who) { send_to_char("Disabled.", ch); }
@@ -2337,18 +2338,83 @@ bool sql_persistence_write_large_event_line(const char *line)
 	return sql_persistence_execute_raw(line);
 }
 
-/* Stub: validates that an item's persistence_event log matches its expected
- * owner.  Returns true (matches) by default — this is the safe path that
- * preserves items.  TODO: implement actual persistence_item_events lookup. */
+/* Validates that an item's persistence_event log matches its expected
+ * owner.  Queries persistence_item_events for the most recent event
+ * involving item_uid and checks that the target field matches the
+ * expected owner_type:owner_ref.
+ *
+ * Returns true if:
+ *   - item_uid == 0 (no ownership data, keep item)
+ *   - No recent event found (safe default, keep item)
+ *   - Most recent event target matches expected owner
+ * Returns false if the item was last seen at a different owner (stolen item)
+ */
 bool sql_persistence_item_owner_matches(unsigned long long item_uid,
                                         const char *owner_type,
                                         const char *owner_ref,
                                         const char *context)
 {
-	(void)item_uid;
-	(void)owner_type;
-	(void)owner_ref;
-	(void)context;
+	/* No ownership data to validate */
+	if (item_uid == 0)
+		return true;
+
+	if (!owner_type || !owner_ref || !context)
+		return true;
+
+	if (!DB)
+		return true;
+
+	/* Build the expected target prefix, e.g. "player:", "locker:", "corpse:" */
+	char expected_prefix[64];
+	snprintf(expected_prefix, sizeof(expected_prefix), "%s:", owner_type);
+	size_t prefix_len = strlen(expected_prefix);
+
+	/* Query the most recent persistence event for this item_uid.
+	 * ORDER BY ts_usec DESC, id DESC gives us the latest event. */
+	char query[512];
+	snprintf(query, sizeof(query),
+	         "SELECT target FROM persistence_item_events "
+	         "WHERE item_uid=%llu "
+	         "ORDER BY ts_usec DESC, id DESC LIMIT 1",
+	         item_uid);
+
+	MYSQL_RES *result = db_query("%s", query);
+	if (!result)
+		return true;  /* query failed, keep item (conservative) */
+
+	MYSQL_ROW row = mysql_fetch_row(result);
+	if (!row || !row[0])
+	{
+		mysql_free_result(result);
+		return true;  /* no events found, keep item (conservative) */
+	}
+
+	const char *target = row[0];
+
+	/* Check that the target starts with the expected owner_type prefix */
+	if (strncmp(target, expected_prefix, prefix_len) != 0)
+	{
+		logit(LOG_DEBUG,
+		      "sql_persistence: OWNERSHIP MISMATCH item_uid=%llu "
+		      "expected=%s%s actual_target=%s context=%s",
+		      item_uid, expected_prefix, owner_ref, target, context);
+		mysql_free_result(result);
+		return false;
+	}
+
+	/* Extract the owner ref from target (after the prefix) and compare */
+	const char *actual_ref = target + prefix_len;
+	if (strcmp(actual_ref, owner_ref) != 0)
+	{
+		logit(LOG_DEBUG,
+		      "sql_persistence: OWNERSHIP MISMATCH item_uid=%llu "
+		      "expected=%s%s actual_target=%s context=%s",
+		      item_uid, expected_prefix, owner_ref, target, context);
+		mysql_free_result(result);
+		return false;
+	}
+
+	mysql_free_result(result);
 	return true;
 }
 
