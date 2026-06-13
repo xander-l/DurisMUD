@@ -18,6 +18,10 @@
 7. [Remaining Work: Event Logging System](#7-remaining-work-event-logging-system)
 8. [Remaining Work: Testing & Validation](#8-remaining-work-testing--validation)
 9. [Task Prioritization & Sequence](#9-task-prioritization--sequence)
+10. [Data Layer Bug Analysis](#10-data-layer-bug-analysis)
+    - [Appendix A: File Change Summary](#appendix-a-file-change-summary-branch-vs-master)
+    - [Appendix B: Git Commit History](#appendix-b-git-commit-history-branch-specific)
+    - [Appendix C: Complete Database Query Catalog](#appendix-c-complete-database-query-catalog)
 
 > **Note:** The developer tooling approach in §7.3 is still being drafted (whether to use scripts vs existing wiz infrastructure vs something else). The rest of this plan is ready for execution.
 
@@ -435,7 +439,8 @@ bool sql_persistence_item_owner_matches(unsigned long long item_uid,
 
 | Function | Current State | Required | Priority |
 |----------|--------------|----------|----------|
-| `sql_persistence_item_owner_matches()` | Returns `true` | DB lookup | **HIGH** |
+| `sql_persistence_item_owner_matches()` | Returns `true` | DB lookup | **CRITICAL** |
+| `sql_quest_finish()` | Returns -1 | INSERT into quest_trophy | LOW |
 | `sql_zone_touch_finished()` | No-op | INSERT into zone_touches | MEDIUM |
 | `sql_persistence_execute_raw()` | Implemented (MySQL) | Consider retry on deadlock | LOW |
 
@@ -815,7 +820,7 @@ tests/
 
 ## 9. Task Prioritization & Sequence
 
-> **GATE CHECK:** Before ANY Phase 3+ work begins, the §8.0 Save Stress Test must pass. If the current build still has intermittent save failures, all effort goes into fixing that before anything else.
+> **GATE CHECK:** The §8.0 Save Stress Test must pass before Phase 4 (Event Logging) begins. Phase 3 tasks 3.1 (buffer overflow), 3.3 (transaction wrapping), and 3.4 (DELETE+INSERT crash safety) are the likely fixes needed for the stress tests to pass — so Phase 3 executes first, then stress tests validate, then Phase 4+ proceed.
 
 ### Phase 0: Save Reliability Validation (GATE — Must Pass First)
 
@@ -846,6 +851,10 @@ tests/
 | 3.9 | Implement `sql_zone_touch_finished()` | §6.1 | MEDIUM | Small |
 | 3.10 | Add `persistence_sql_escape_field` unit tests | §8.1 | MEDIUM | Small |
 | 3.11 | Document locking hierarchy (THREAD_SAFETY.md) | §5.2 | MEDIUM | Small |
+| 3.12 | Add bitvector columns to corpse_items, shopkeeper_items, saved_items, siege_items, player_pet_items (migration) | §10.7 | MEDIUM | Small |
+| 3.13 | Add extra_descr tables for shopkeeper_items, saved_items, siege_items, account_locker_items (migration) | §10.8 | MEDIUM | Small |
+| 3.14 | Clean up duplicate `sql_persistence_item_owner_matches` declaration in sql.h | §10.11 | LOW | Small |
+| 3.15 | Add v11 migration validation to catch obj_uid type mismatch on partial upgrades | §10.10 | LOW | Small |
 
 ### Phase 4: Event Logging System
 
