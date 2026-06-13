@@ -1980,12 +1980,12 @@ static int sql_save_single_pet_item(int pet_id, P_obj obj, int equip_slot, int c
 	         "pet_id, vnum, equip_slot, container_id, "
 	         "weight, cost, timer, extra_flags, "
 	         "value0, value1, value2, value3, value4, value5, value6, value7, "
-	         "name, short_descr, description, action_descr"
+	         "name, short_descr, description, action_descr, wear_flags, item_type, bitvector1, bitvector2, bitvector3, bitvector4, bitvector5"
 	         ") VALUES ("
 	         "%d, %d, %d, %s, "
 	         "%d, %d, %ld, %lu, "
 	         "%d, %d, %d, %d, %d, %d, %d, %d, "
-	         "%s, %s, %s, %s"
+	         "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s"
 	         ")",
 	         pet_id,
 	         vnum,
@@ -5445,18 +5445,51 @@ static int sql_save_corpse_item(int corpse_id, int save_id, P_obj obj, int conta
 		strcpy(action_str, "NULL");
 
 	char query[8192];
+	// Phase 3.5: capture wear_flags, item_type, and bitvectors (NULL if same as prototype)
+	P_obj proto = read_object(obj->R_num, REAL);
+	char  wear_str[32];
+	if (obj->wear_flags)
+		snprintf(wear_str, sizeof(wear_str), "%d", obj->wear_flags);
+	else
+		strcpy(wear_str, "0");
+	char type_str[16];
+	snprintf(type_str, sizeof(type_str), "%d", obj->type);
+	char bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
+	if (proto && obj->bitvector != proto->bitvector)
+		snprintf(bv1_str, sizeof(bv1_str), "%lu", obj->bitvector);
+	else
+		strcpy(bv1_str, "NULL");
+	if (proto && obj->bitvector2 != proto->bitvector2)
+		snprintf(bv2_str, sizeof(bv2_str), "%lu", obj->bitvector2);
+	else
+		strcpy(bv2_str, "NULL");
+	if (proto && obj->bitvector3 != proto->bitvector3)
+		snprintf(bv3_str, sizeof(bv3_str), "%lu", obj->bitvector3);
+	else
+		strcpy(bv3_str, "NULL");
+	if (proto && obj->bitvector4 != proto->bitvector4)
+		snprintf(bv4_str, sizeof(bv4_str), "%lu", obj->bitvector4);
+	else
+		strcpy(bv4_str, "NULL");
+	if (proto && obj->bitvector5 != proto->bitvector5)
+		snprintf(bv5_str, sizeof(bv5_str), "%lu", obj->bitvector5);
+	else
+		strcpy(bv5_str, "NULL");
+	if (proto)
+		extract_obj(proto);
+
 	snprintf(query,
 	         sizeof(query),
 	         "INSERT INTO corpse_items ("
 	         "corpse_id, vnum, item_type, container_id, quantity, "
 	         "weight, cost, timer, extra_flags, "
 	         "value0, value1, value2, value3, value4, value5, value6, value7, "
-	         "name, short_descr, description, action_descr, obj_uid, item_condition"
+	         "name, short_descr, description, action_descr, wear_flags, item_type, bitvector1, bitvector2, bitvector3, bitvector4, bitvector5, obj_uid, item_condition"
 	         ") VALUES ("
 	         "%d, %d, %d, %s, 1, "
 	         "%d, %d, %ld, %lu, "
 	         "%d, %d, %d, %d, %d, %d, %d, %d, "
-	         "%s, %s, %s, %s, %lu, %d"
+	         "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %lu, %d"
 	         ")",
 	         corpse_id,
 	         vnum,
@@ -5478,6 +5511,13 @@ static int sql_save_corpse_item(int corpse_id, int save_id, P_obj obj, int conta
 	         short_str,
 	         desc_str,
 	         action_str,
+	         wear_str,
+	         type_str,
+	         bv1_str,
+	         bv2_str,
+	         bv3_str,
+	         bv4_str,
+	         bv5_str,
 	         obj->obj_uid,
 	         obj->condition);
 
@@ -6084,6 +6124,39 @@ static int sql_save_shopkeeper_item(int shopkeeper_id, P_obj obj, int equip_slot
 		strcpy(action_str, "NULL");
 
 	char query[8192];
+	// Phase 3.5: capture wear_flags, item_type, and bitvectors (NULL if same as prototype)
+	P_obj proto = read_object(obj->R_num, REAL);
+	char  wear_str[32];
+	if (obj->wear_flags)
+		snprintf(wear_str, sizeof(wear_str), "%d", obj->wear_flags);
+	else
+		strcpy(wear_str, "0");
+	char type_str[16];
+	snprintf(type_str, sizeof(type_str), "%d", obj->type);
+	char bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
+	if (proto && obj->bitvector != proto->bitvector)
+		snprintf(bv1_str, sizeof(bv1_str), "%lu", obj->bitvector);
+	else
+		strcpy(bv1_str, "NULL");
+	if (proto && obj->bitvector2 != proto->bitvector2)
+		snprintf(bv2_str, sizeof(bv2_str), "%lu", obj->bitvector2);
+	else
+		strcpy(bv2_str, "NULL");
+	if (proto && obj->bitvector3 != proto->bitvector3)
+		snprintf(bv3_str, sizeof(bv3_str), "%lu", obj->bitvector3);
+	else
+		strcpy(bv3_str, "NULL");
+	if (proto && obj->bitvector4 != proto->bitvector4)
+		snprintf(bv4_str, sizeof(bv4_str), "%lu", obj->bitvector4);
+	else
+		strcpy(bv4_str, "NULL");
+	if (proto && obj->bitvector5 != proto->bitvector5)
+		snprintf(bv5_str, sizeof(bv5_str), "%lu", obj->bitvector5);
+	else
+		strcpy(bv5_str, "NULL");
+	if (proto)
+		extract_obj(proto);
+
 	snprintf(query,
 	         sizeof(query),
 	         "INSERT INTO shopkeeper_items ("
@@ -6116,7 +6189,14 @@ static int sql_save_shopkeeper_item(int shopkeeper_id, P_obj obj, int equip_slot
 	         name_str,
 	         short_str,
 	         desc_str,
-	         action_str);
+	         action_str,
+	         wear_str,
+	         type_str,
+	         bv1_str,
+	         bv2_str,
+	         bv3_str,
+	         bv4_str,
+	         bv5_str);
 
 	if (esc_name)
 		free(esc_name);
@@ -6336,18 +6416,51 @@ static int sql_save_saved_item_recursive(const char *item_key, int room_vnum, P_
 	char *esc_key = sql_escape_string(item_key);
 
 	char query[8192];
+	// Phase 3.5: capture wear_flags, item_type, and bitvectors (NULL if same as prototype)
+	P_obj proto = read_object(obj->R_num, REAL);
+	char  wear_str[32];
+	if (obj->wear_flags)
+		snprintf(wear_str, sizeof(wear_str), "%d", obj->wear_flags);
+	else
+		strcpy(wear_str, "0");
+	char type_str[16];
+	snprintf(type_str, sizeof(type_str), "%d", obj->type);
+	char bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
+	if (proto && obj->bitvector != proto->bitvector)
+		snprintf(bv1_str, sizeof(bv1_str), "%lu", obj->bitvector);
+	else
+		strcpy(bv1_str, "NULL");
+	if (proto && obj->bitvector2 != proto->bitvector2)
+		snprintf(bv2_str, sizeof(bv2_str), "%lu", obj->bitvector2);
+	else
+		strcpy(bv2_str, "NULL");
+	if (proto && obj->bitvector3 != proto->bitvector3)
+		snprintf(bv3_str, sizeof(bv3_str), "%lu", obj->bitvector3);
+	else
+		strcpy(bv3_str, "NULL");
+	if (proto && obj->bitvector4 != proto->bitvector4)
+		snprintf(bv4_str, sizeof(bv4_str), "%lu", obj->bitvector4);
+	else
+		strcpy(bv4_str, "NULL");
+	if (proto && obj->bitvector5 != proto->bitvector5)
+		snprintf(bv5_str, sizeof(bv5_str), "%lu", obj->bitvector5);
+	else
+		strcpy(bv5_str, "NULL");
+	if (proto)
+		extract_obj(proto);
+
 	snprintf(query,
 	         sizeof(query),
 	         "INSERT INTO saved_items ("
 	         "item_key, room_vnum, vnum, container_id, quantity, "
 	         "weight, cost, timer, extra_flags, "
 	         "value0, value1, value2, value3, value4, value5, value6, value7, "
-	         "name, short_descr, description, action_descr"
+	         "name, short_descr, description, action_descr, wear_flags, item_type, bitvector1, bitvector2, bitvector3, bitvector4, bitvector5"
 	         ") VALUES ("
 	         "'%s', %d, %d, %s, 1, "
 	         "%d, %d, %ld, %lu, "
 	         "%d, %d, %d, %d, %d, %d, %d, %d, "
-	         "%s, %s, %s, %s"
+	         "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s"
 	         ")",
 	         esc_key ? esc_key : "",
 	         room_vnum,
@@ -6368,7 +6481,14 @@ static int sql_save_saved_item_recursive(const char *item_key, int room_vnum, P_
 	         name_str,
 	         short_str,
 	         desc_str,
-	         action_str);
+	         action_str,
+	         wear_str,
+	         type_str,
+	         bv1_str,
+	         bv2_str,
+	         bv3_str,
+	         bv4_str,
+	         bv5_str);
 
 	if (esc_key)
 		free(esc_key);
@@ -6500,18 +6620,51 @@ static int sql_save_siege_item_one(int room_vnum, P_obj obj, int container_id)
 		strcpy(action_str, "NULL");
 
 	char query[8192];
+	// Phase 3.5: capture wear_flags, item_type, and bitvectors (NULL if same as prototype)
+	P_obj proto = read_object(obj->R_num, REAL);
+	char  wear_str[32];
+	if (obj->wear_flags)
+		snprintf(wear_str, sizeof(wear_str), "%d", obj->wear_flags);
+	else
+		strcpy(wear_str, "0");
+	char type_str[16];
+	snprintf(type_str, sizeof(type_str), "%d", obj->type);
+	char bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
+	if (proto && obj->bitvector != proto->bitvector)
+		snprintf(bv1_str, sizeof(bv1_str), "%lu", obj->bitvector);
+	else
+		strcpy(bv1_str, "NULL");
+	if (proto && obj->bitvector2 != proto->bitvector2)
+		snprintf(bv2_str, sizeof(bv2_str), "%lu", obj->bitvector2);
+	else
+		strcpy(bv2_str, "NULL");
+	if (proto && obj->bitvector3 != proto->bitvector3)
+		snprintf(bv3_str, sizeof(bv3_str), "%lu", obj->bitvector3);
+	else
+		strcpy(bv3_str, "NULL");
+	if (proto && obj->bitvector4 != proto->bitvector4)
+		snprintf(bv4_str, sizeof(bv4_str), "%lu", obj->bitvector4);
+	else
+		strcpy(bv4_str, "NULL");
+	if (proto && obj->bitvector5 != proto->bitvector5)
+		snprintf(bv5_str, sizeof(bv5_str), "%lu", obj->bitvector5);
+	else
+		strcpy(bv5_str, "NULL");
+	if (proto)
+		extract_obj(proto);
+
 	snprintf(query,
 	         sizeof(query),
 	         "INSERT INTO siege_items ("
 	         "room_vnum, vnum, container_id, quantity, "
 	         "weight, cost, timer, extra_flags, "
 	         "value0, value1, value2, value3, value4, value5, value6, value7, "
-	         "name, short_descr, description, action_descr"
+	         "name, short_descr, description, action_descr, wear_flags, item_type, bitvector1, bitvector2, bitvector3, bitvector4, bitvector5"
 	         ") VALUES ("
 	         "%d, %d, %s, 1, "
 	         "%d, %d, %ld, %lu, "
 	         "%d, %d, %d, %d, %d, %d, %d, %d, "
-	         "%s, %s, %s, %s"
+	         "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s"
 	         ")",
 	         room_vnum,
 	         vnum,
@@ -6531,7 +6684,14 @@ static int sql_save_siege_item_one(int room_vnum, P_obj obj, int container_id)
 	         name_str,
 	         short_str,
 	         desc_str,
-	         action_str);
+	         action_str,
+	         wear_str,
+	         type_str,
+	         bv1_str,
+	         bv2_str,
+	         bv3_str,
+	         bv4_str,
+	         bv5_str);
 
 	if (esc_name)
 		free(esc_name);
