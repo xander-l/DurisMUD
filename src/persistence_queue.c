@@ -1103,6 +1103,48 @@ void persistence_large_event_worker_heartbeat_set(time_t timestamp)
   pthread_mutex_unlock(&persistence_large_event_queue_mutex);
 }
 
+/* =================================================================
+ * persistence_sql_escape_field — SQL string escaping for safe
+ * embedding of player/item names in SQL queries.
+ * Doubles apostrophes and backslashes; replaces pipe, CR, LF with space.
+ * Returns "none" for NULL input; returns "" for NULL/bad buffer.
+ * ================================================================= */
+const char *persistence_sql_escape_field(const char *in, char *buf,
+                                         int buf_size)
+{
+  int i, j;
+
+  if (!buf || buf_size <= 0)
+    return "";
+
+  if (!in)
+  {
+    snprintf(buf, buf_size, "none");
+    return buf;
+  }
+
+  for (i = 0, j = 0; in[i] && j < buf_size - 1; i++)
+  {
+    if (in[i] == '\'' || in[i] == '\\')
+    {
+      if (j + 1 >= buf_size - 1)
+        break;
+      buf[j++] = in[i];
+      buf[j++] = in[i];
+    }
+    else if (in[i] == '|' || in[i] == '\r' || in[i] == '\n')
+    {
+      buf[j++] = ' ';
+    }
+    else
+    {
+      buf[j++] = in[i];
+    }
+  }
+  buf[j] = '\0';
+  return buf;
+}
+
 void persistence_queue_latency_dump(void)
 {
   FILE *f = fopen("/durismud/logs/latency_trace.log", "a");

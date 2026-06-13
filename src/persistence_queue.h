@@ -92,4 +92,11 @@ void persistence_queue_latency_dump(void);
 /* Cross-TU latency-trace reset: resets the persistence_queue.c static ring
  * buffer.  Call before boot-time tests to get clean trace data. */
 void persistence_queue_latency_reset(void);
+
+/* SQL string escaping: doubles apostrophes/backslashes, replaces
+ * pipes/newlines/carriage-returns with spaces. Returns the output buffer.
+ * Returns empty string if buf is NULL or buf_size <= 0.
+ * Returns "none" if input is NULL. */
+const char *persistence_sql_escape_field(const char *in, char *buf,
+                                         int buf_size);
 #endif

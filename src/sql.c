@@ -20,6 +20,7 @@
 #include <sys/stat.h>
 #include <time.h>
 #include <unistd.h>
+#include <pthread.h>
 #include "account.h"
 #include "assocs.h"
 #include "boon.h"
@@ -32,6 +33,8 @@
 #include "spells.h"
 #include "sql_player.h"
 #include "timers.h"
+#include "persistence_queue.h"
+#include "utility.h"
 
 extern P_index                         mob_index;
 extern const struct race_names         race_names_table[];
@@ -88,6 +91,7 @@ bool qry(const char *format, ...) { return TRUE; }
 void send_to_char_offline(const char *msg, int pid) {}
 void send_offline_messages(P_char ch) {}
 void log_epic_gain(int pid, int zone_id, int type, int epics) {}
+void log_epic_gain_event(const char *event_key, int pid, int type, int type_id, int epics) {}
 void update_zone_db() {}
 void update_zone_epic_level(int zone_id, int level) {}
 void show_frag_trophy(P_char ch, P_char who) { send_to_char("Disabled.", ch); }
@@ -124,6 +128,8 @@ static void sql_resetConnectTimes(void);
 
 // The global database handler
 MYSQL *DB;
+MYSQL *persistenceDB = NULL;
+pthread_mutex_t persistence_sql_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 /* Escapes a string. */
 char *mysql_str(const char *str, char *buf)
@@ -1443,6 +1449,27 @@ int sql_quest_trophy(P_char giver)
 
 void log_epic_gain(int pid, int type, int type_id, int epics) { qry("INSERT INTO epic_gain (pid, time, type, type_id, epics) values ('%d', now(), '%d', '%d', '%d')", pid, type, type_id, epics); }
 
+void log_epic_gain_event(const char *event_key, int pid, int type, int type_id, int epics)
+{
+	char line[PERSISTENCE_EVENT_MAX_LEN];
+
+	snprintf(line,
+	         sizeof(line),
+	         "INSERT INTO epic_gain (pid, time, type, type_id, epics) VALUES ('%d', NOW(), '%d', '%d', '%d')",
+	         pid, type, type_id, epics);
+
+	if (persistence_scalar_event_worker_running())
+	{
+		if (persistence_scalar_event_queue_enqueue(line))
+			return;
+		if (persistence_write_fallback_event_line(line, "scalar_event", "epic_gain", "queue_full_flat_fallback"))
+			return;
+	}
+
+	qry("INSERT INTO epic_gain (pid, time, type, type_id, epics) VALUES ('%d', NOW(), '%d', '%d', '%d')",
+	    pid, type, type_id, epics);
+}
+
 /* The prepstatement_duris_sql table looks like:
 +-------------+---------+------+-----+---------+----------------+
 | Field       | Type    | Null | Key | Default | Extra          |
@@ -2275,5 +2302,70 @@ void sql_log_player_login(P_char ch, const char *status)
 		_exit(0);
 	}
 	// parent continues immediately
+}
+
+/* ---- Persistence DB connection ---- */
+MYSQL *sql_persistence_connection(void)
+{
+	if (!persistenceDB)
+	{
+		persistenceDB = mysql_init(NULL);
+		if (!persistenceDB) return NULL;
+		if (!mysql_real_connect(persistenceDB, DB_HOST, DB_USER, DB_PASSWD, DB_NAME, DB_PORT, NULL, 0))
+		{
+			logit(LOG_DEBUG, "Persistence MySQL: sql_persistence_connection failed: %s", mysql_error(persistenceDB));
+			mysql_close(persistenceDB);
+			persistenceDB = NULL;
+			return NULL;
+		}
+	}
+	return persistenceDB;
+}
+
+bool sql_persistence_write_item_event_line(const char *line)
+{
+	return sql_persistence_execute_raw(line);
+}
+
+bool sql_persistence_write_scalar_event_line(const char *line)
+{
+	return sql_persistence_execute_raw(line);
+}
+
+bool sql_persistence_write_large_event_line(const char *line)
+{
+	return sql_persistence_execute_raw(line);
+}
+
+/* Stub: validates that an item's persistence_event log matches its expected
+ * owner.  Returns true (matches) by default — this is the safe path that
+ * preserves items.  TODO: implement actual persistence_item_events lookup. */
+bool sql_persistence_item_owner_matches(unsigned long long item_uid,
+                                        const char *owner_type,
+                                        const char *owner_ref,
+                                        const char *context)
+{
+	(void)item_uid;
+	(void)owner_type;
+	(void)owner_ref;
+	(void)context;
+	return true;
+}
+
+/* Stub: logs zone touch events for epic analysis.
+ * TODO: implement actual persistence_scalar_events INSERT. */
+void sql_zone_touch_finished(const char *event_key, int boot_time,
+                             int touched_at, int zone_number,
+                             int toucher_pid, int group_size,
+                             int epic_value, int alignment_delta)
+{
+	(void)event_key;
+	(void)boot_time;
+	(void)touched_at;
+	(void)zone_number;
+	(void)toucher_pid;
+	(void)group_size;
+	(void)epic_value;
+	(void)alignment_delta;
 }
 #endif

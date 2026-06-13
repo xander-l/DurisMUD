@@ -3085,6 +3085,8 @@ int                   persistence_write_fallback_event_line(const char *line, co
 int                   persistence_start_scalar_event_worker(void);
 void                  persistence_stop_scalar_event_worker(void);
 int                   persistence_scalar_event_worker_active(void);
+int                   persistence_start_large_event_worker(void);
+void                  persistence_stop_large_event_worker(void);
 int                   persistence_pending_scalar_events(void);
 unsigned long         persistence_dropped_scalar_events(void);
 void                  persistence_schedule_character_save(P_char ch, int type, int delay, const char *reason);
