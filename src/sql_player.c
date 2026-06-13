@@ -1143,14 +1143,6 @@ bool sql_save_player_affects(P_char ch)
 	if (pid <= 0)
 		return false;
 
-	// delete existing affects
-	// Phase 3.4: player_affects has no UNIQUE KEY on (pid, type)
-	// (only auto-increment id), so REPLACE INTO would INSERT duplicates
-	// instead of replacing. Must use DELETE+INSERT.
-	char del_query[128];
-	snprintf(del_query, sizeof(del_query), "DELETE FROM player_affects WHERE pid=%d", pid);
-	sql_run_query(del_query);
-
 	// batch insert current affects
 	// each affect ~150 bytes, max ~50 affects = ~8kb, use 32kb to be safe
 	char *batch = (char *)malloc(32768);
@@ -1159,7 +1151,7 @@ bool sql_save_player_affects(P_char ch)
 
 	int pos = snprintf(batch,
 	                   32768,
-	                   "INSERT INTO player_affects (pid, type, duration, flags, modifier, location, level, "
+	                   "REPLACE INTO player_affects (pid, type, duration, flags, modifier, location, level, "
 	                   "bitvector1, bitvector2, bitvector3, bitvector4, bitvector5) VALUES ");
 
 	bool has_affects = false;
@@ -1297,27 +1289,28 @@ static int sql_batch_save_simple_items(int pid, int container_id, P_obj first_ob
 
 		int vnum = obj_index[obj->R_num].virtual_number;
 
-		pos += snprintf(batch + pos,
-		                buf_size - pos,
-		                "%s(%d,%d,0,%d,1,%d,%d,%ld,%u,%d,%d,%d,%d,%d,%d,%d,%d,%lu,%d)",
-		                first ? "" : ",",
-		                pid,
-		                vnum,
-		                container_id,
-		                obj->weight,
-		                obj->cost,
-		                (long)obj->timer[0],
-		                obj->extra_flags,
-		                obj->value[0],
-		                obj->value[1],
-		                obj->value[2],
-		                obj->value[3],
-		                obj->value[4],
-		                obj->value[5],
-		                obj->value[6],
-		                obj->value[7],
-		                obj->obj_uid,
-		                obj->condition);
+		int new_pos = batch_append(batch, pos, buf_size,
+		                           "%s(%d,%d,0,%d,1,%d,%d,%ld,%u,%d,%d,%d,%d,%d,%d,%d,%d,%lu,%d)",
+		                           first ? "" : ",",
+		                           pid,
+		                           vnum,
+		                           container_id,
+		                           obj->weight,
+		                           obj->cost,
+		                           (long)obj->timer[0],
+		                           obj->extra_flags,
+		                           obj->value[0],
+		                           obj->value[1],
+		                           obj->value[2],
+		                           obj->value[3],
+		                           obj->value[4],
+		                           obj->value[5],
+		                           obj->value[6],
+		                           obj->value[7],
+		                           obj->obj_uid,
+		                           obj->condition);
+		if (new_pos < 0) break;
+		pos = new_pos;
 
 		first = false;
 		batch_count++;
