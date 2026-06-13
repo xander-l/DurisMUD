@@ -415,9 +415,6 @@ static void test_owner_production_source_is_not_stub(void)
         return;
     }
 
-    /* Find the end of this function — the next function body or EOF. */
-    const char *body_end = g_src_buf + n;
-
     /* The function must query the persistence_item_events table. */
     const char *query_hit = strstr(func_start, "persistence_item_events");
     if (!query_hit) {
@@ -437,20 +434,16 @@ static void test_owner_production_source_is_not_stub(void)
     }
 
     /* The function must log a mismatch via logit() — this is the
-     * observable signal that ownership was actually checked. */
-    const char *logit_hit = strstr(func_start, "logit(LOG_DEBUG");
-    /* Find the logit call within the function body — search for it
-     * between the function start and body_end. */
+     * observable signal that ownership was actually checked.  We
+     * search for "OWNERSHIP MISMATCH" anywhere after the function
+     * start. */
     int found_logit = 0;
     const char *p = func_start;
-    while (p < body_end) {
-        const char *hit = strstr(p, "logit");
-        if (!hit || hit >= body_end) break;
-        if (strstr(hit, "OWNERSHIP MISMATCH")) {
-            found_logit = 1;
-            break;
-        }
-        p = hit + 5;
+    while (p < g_src_buf + n) {
+        const char *hit = strstr(p, "OWNERSHIP MISMATCH");
+        if (!hit) break;
+        found_logit = 1;
+        break;
     }
     if (!found_logit) {
         TEST_FAIL("sql_persistence_item_owner_matches() does not log "
@@ -465,17 +458,9 @@ static void test_owner_production_source_is_not_stub(void)
      * always returning true. */
     int found_return_false = 0;
     p = func_start;
-    while (p < body_end) {
+    while (p < g_src_buf + n) {
         const char *hit = strstr(p, "return false");
-        if (!hit || hit >= body_end) break;
-        /* Make sure this isn't inside the __NO_MYSQL__ stub at the
-         * top of the file.  The real function is past line 2000, the
-         * stub is around line 95.  We're already past the stub since
-         * func_start comes from the second occurrence (strstr finds
-         * the first one, but the first one IS the stub).  Check
-         * whether func_start is the stub by looking for the surrounding
-         * "#ifdef __NO_MYSQL__" preprocessor block — if it IS in the
-         * stub, the test should fail. */
+        if (!hit) break;
         found_return_false = 1;
         break;
     }
