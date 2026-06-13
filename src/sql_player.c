@@ -230,6 +230,20 @@ bool sql_rollback(void)
 
 bool sql_in_transaction(void) { return in_transaction; }
 
+// Phase 3.3 helper: log a debug warning if a save sub-function is called
+// outside a transaction context. Use in all sql_save_player_* and locker
+// sub-helpers that must run within a transaction for atomicity.  No-op
+// when in_transaction is true.  Intended as a safety net for future
+// refactors that might accidentally bypass the parent transaction wrapper.
+static inline void warn_outside_txn(const char *func, const char *name)
+{
+	if (!in_transaction)
+	{
+		logit(LOG_DEBUG, "%s: called outside transaction - partial save risk for %s",
+		      func, (name && name[0]) ? name : "<null>");
+	}
+}
+
 // utility functions
 
 // escape string for sql, caller must free
@@ -526,6 +540,13 @@ bool sql_save_player(P_char ch, int type, int room)
 		return false;
 	}
 
+	if (!sql_save_player_shapechanges(ch))
+	{
+		logit(LOG_DEBUG, "sql_save_player: failed to save shapechanges for %s", GET_NAME(ch));
+		sql_rollback();
+		return false;
+	}
+
 	// commit transaction
 	if (!sql_commit())
 	{
@@ -543,6 +564,8 @@ bool sql_save_player_status(P_char ch, int type, int room)
 {
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
+
+	warn_outside_txn(__func__, ch ? GET_NAME(ch) : NULL);
 
 	int pid = GET_PID(ch);
 
@@ -1018,6 +1041,8 @@ bool sql_save_player_skills(P_char ch)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
+	warn_outside_txn(__func__, ch ? GET_NAME(ch) : NULL);
+
 	int pid = GET_PID(ch);
 	if (pid <= 0)
 		return false;
@@ -1059,6 +1084,8 @@ bool sql_save_player_affects(P_char ch)
 {
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
+
+	warn_outside_txn(__func__, ch ? GET_NAME(ch) : NULL);
 
 	int pid = GET_PID(ch);
 	if (pid <= 0)
@@ -1731,6 +1758,8 @@ bool sql_save_player_items(P_char ch)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
+	warn_outside_txn(__func__, ch ? GET_NAME(ch) : NULL);
+
 	int pid = GET_PID(ch);
 	if (pid <= 0)
 		return false;
@@ -1970,6 +1999,8 @@ bool sql_save_player_pets(P_char ch, int save_type)
 {
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
+
+	warn_outside_txn(__func__, ch ? GET_NAME(ch) : NULL);
 
 	// only save pets on crash-type saves
 	if (save_type != RENT_CRASH && save_type != RENT_CRASH2)
@@ -2323,6 +2354,8 @@ bool sql_save_player_witnesses(P_char ch)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
+	warn_outside_txn(__func__, ch ? GET_NAME(ch) : NULL);
+
 	int pid = GET_PID(ch);
 	if (pid <= 0)
 		return false;
@@ -2362,6 +2395,8 @@ bool sql_save_player_shapechanges(P_char ch)
 {
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
+
+	warn_outside_txn(__func__, ch ? GET_NAME(ch) : NULL);
 
 	int pid = GET_PID(ch);
 	if (pid <= 0)
@@ -2454,15 +2489,11 @@ bool sql_load_player_shapechanges(P_char ch)
 
 bool sql_save_player_recipes(P_char ch)
 {
-	if (!ch || !IS_PC(ch) || !DB)
-		return false;
-
-	int pid = GET_PID(ch);
-	if (pid <= 0)
-		return false;
-
-	// recipes are saved individually when learned, not in bulk
-	// this function is a no-op for now
+	// No guard: this function is a no-op (recipes are saved individually via
+	// sql_add_player_recipe() when learned, not in bulk). It is intentionally
+	// safe to call outside a transaction - no SQL queries are issued.
+	// Still called by sql_save_player() so the transaction chain is complete.
+	(void)ch;
 	return true;
 }
 
@@ -3659,6 +3690,9 @@ static bool sql_save_locker_item_affects(int item_id, P_obj obj)
 	if (!obj || !DB || item_id <= 0)
 		return false;
 
+	// Phase 3.3: locker sub-helpers run within sql_save_locker()'s transaction.
+	warn_outside_txn(__func__, obj->name);
+
 	for (int i = 0; i < MAX_OBJ_AFFECT; i++)
 	{
 		if (obj->affected[i].location != 0 || obj->affected[i].modifier != 0)
@@ -3689,6 +3723,9 @@ static int sql_save_locker_item(int locker_id, int chest_id, P_obj obj, int cont
 {
 	if (!obj || !DB || locker_id <= 0)
 		return 0;
+
+	// Phase 3.3: locker sub-helpers run within sql_save_locker()'s transaction.
+	warn_outside_txn(__func__, obj->name);
 
 	int vnum = obj_index[obj->R_num].virtual_number;
 
@@ -3858,8 +3895,13 @@ bool sql_save_locker(P_char locker_ch, int owner_pid, int owner_assoc_id)
 	if (!esc_name)
 		return false;
 
-	// use transaction to batch all inserts
-	sql_begin_transaction();
+	// start transaction (must succeed before any writes)
+	if (!sql_begin_transaction())
+	{
+		logit(LOG_DEBUG, "sql_save_locker: failed to start transaction for %s", locker_name);
+		free(esc_name);
+		return false;
+	}
 
 	// check if locker already exists
 	int locker_id = sql_get_locker_id_by_name(locker_name);
@@ -3868,10 +3910,18 @@ bool sql_save_locker(P_char locker_ch, int owner_pid, int owner_assoc_id)
 	{
 		// locker exists - delete only PUBLIC chest items, keep private chest items
 		int  public_id = sql_get_or_create_public_chest(locker_id);
+		if (public_id <= 0)
+		{
+			logit(LOG_DEBUG, "sql_save_locker: failed to get/create public chest for %s", locker_name);
+			free(esc_name);
+			sql_rollback();
+			return false;
+		}
 		char del_query[512];
 		snprintf(del_query, sizeof(del_query), "DELETE FROM locker_items WHERE locker_id=%d AND (chest_id IS NULL OR chest_id=%d)", locker_id, public_id);
 		if (!sql_run_query(del_query))
 		{
+			logit(LOG_DEBUG, "sql_save_locker: failed to delete old items for %s", locker_name);
 			free(esc_name);
 			sql_rollback();
 			return false;
@@ -3903,6 +3953,7 @@ bool sql_save_locker(P_char locker_ch, int owner_pid, int owner_assoc_id)
 
 		if (!sql_run_query(ins_query))
 		{
+			logit(LOG_DEBUG, "sql_save_locker: failed to insert new locker %s", locker_name);
 			free(esc_name);
 			sql_rollback();
 			return false;
@@ -3915,12 +3966,31 @@ bool sql_save_locker(P_char locker_ch, int owner_pid, int owner_assoc_id)
 
 	// get or create public chest for this locker
 	int public_chest_id = sql_get_or_create_public_chest(locker_id);
+	if (public_chest_id <= 0)
+	{
+		logit(LOG_DEBUG, "sql_save_locker: failed to get/create public chest after insert for %s", locker_name);
+		sql_rollback();
+		return false;
+	}
 
-	// save all items the locker char is carrying to public chest
+	// save all items the locker char is carrying to public chest - any failure rolls back the whole locker save
 	for (P_obj obj = locker_ch->carrying; obj; obj = obj->next_content)
-		sql_save_locker_item(locker_id, public_chest_id, obj, 0);
+	{
+		if (sql_save_locker_item(locker_id, public_chest_id, obj, 0) == 0)
+		{
+			logit(LOG_DEBUG, "sql_save_locker: failed to save item, rolling back for %s", locker_name);
+			sql_rollback();
+			return false;
+		}
+	}
 
-	sql_commit();
+	if (!sql_commit())
+	{
+		logit(LOG_DEBUG, "sql_save_locker: failed to commit for %s", locker_name);
+		sql_rollback();
+		return false;
+	}
+
 	return true;
 }
 
@@ -4506,15 +4576,54 @@ bool sql_save_private_chest_items(int locker_id, int chest_id, P_obj chest_obj)
 	if (!DB || locker_id <= 0 || chest_id <= 0 || !chest_obj)
 		return false;
 
+	// detect nested-transaction case explicitly so the failure is visible in
+	// logs (not just code comments). sql_begin_transaction() returns false if
+	// already in a transaction, which would cause this function to bail out
+	// before the DELETE/inserts. The current caller in storage_lockers.c
+	// ignores the return value, so a silent save skip is the main risk; a
+	// future caller that checks the return and proceeds with cleanup would
+	// cause chest data loss.
+	if (sql_in_transaction())
+	{
+		logit(LOG_ERR, "sql_save_private_chest_items: called from within an existing transaction - chest save skipped to avoid data loss");
+		return false;
+	}
+
+	// start transaction (must succeed before the DELETE - otherwise the chest
+	// could be left empty if the inserts fail, losing all stored items)
+	if (!sql_begin_transaction())
+	{
+		logit(LOG_DEBUG, "sql_save_private_chest_items: failed to start transaction for chest %d", chest_id);
+		return false;
+	}
+
 	// delete existing items for this chest
 	char del_query[256];
 	snprintf(del_query, sizeof(del_query), "DELETE FROM locker_items WHERE locker_id=%d AND chest_id=%d", locker_id, chest_id);
 	if (!sql_run_query(del_query))
+	{
+		logit(LOG_DEBUG, "sql_save_private_chest_items: failed to delete old items for chest %d", chest_id);
+		sql_rollback();
 		return false;
+	}
 
-	// save all items in the chest
+	// save all items in the chest - any failure rolls back the DELETE above
 	for (P_obj obj = chest_obj->contains; obj; obj = obj->next_content)
-		sql_save_locker_item(locker_id, chest_id, obj, 0);
+	{
+		if (sql_save_locker_item(locker_id, chest_id, obj, 0) == 0)
+		{
+			logit(LOG_DEBUG, "sql_save_private_chest_items: failed to save item, rolling back for chest %d", chest_id);
+			sql_rollback();
+			return false;
+		}
+	}
+
+	if (!sql_commit())
+	{
+		logit(LOG_DEBUG, "sql_save_private_chest_items: failed to commit for chest %d", chest_id);
+		sql_rollback();
+		return false;
+	}
 
 	return true;
 }
@@ -5174,6 +5283,9 @@ static bool sql_save_corpse_item_affects(int item_id, P_obj obj)
 	if (!obj || !DB || item_id <= 0)
 		return false;
 
+	// Phase 3.3: corpse sub-helpers run within sql_save_corpse()'s transaction.
+	warn_outside_txn(__func__, obj->name);
+
 	for (int i = 0; i < MAX_OBJ_AFFECT; i++)
 	{
 		if (obj->affected[i].location != 0 || obj->affected[i].modifier != 0)
@@ -5204,6 +5316,9 @@ static int sql_save_corpse_item(int corpse_id, int save_id, P_obj obj, int conta
 {
 	if (!obj || !DB || corpse_id <= 0)
 		return 0;
+
+	// Phase 3.3: corpse sub-helpers run within sql_save_corpse()'s transaction.
+	warn_outside_txn(__func__, obj->name);
 
 	int vnum = obj_index[obj->R_num].virtual_number;
 	char corpse_owner[64];
@@ -5323,19 +5438,23 @@ bool sql_save_corpse(P_obj corpse)
 	if (!corpse || !DB)
 		return false;
 
-    if (!sql_begin_transaction())
-		return false;
-
 	if (corpse->type != ITEM_CORPSE || !IS_SET(corpse->value[1], PC_CORPSE))
 	{
-		sql_rollback();
+		logit(LOG_DEBUG, "sql_save_corpse: not a PC corpse");
 		return false;
 	}
 
 	const char *player_name = corpse->action_description;
 	if (!player_name || !*player_name)
 	{
-		sql_rollback();
+		logit(LOG_DEBUG, "sql_save_corpse: missing player name");
+		return false;
+	}
+
+	// start transaction (must succeed before any writes)
+	if (!sql_begin_transaction())
+	{
+		logit(LOG_DEBUG, "sql_save_corpse: failed to start transaction");
 		return false;
 	}
 
@@ -5355,24 +5474,35 @@ bool sql_save_corpse(P_obj corpse)
 		sql_rollback();
 		return false;
 	}
-	
+
 	char *esc_sdesc = sql_escape_string(corpse->short_description);
 	if (!esc_sdesc)
 	{
+		free(esc_name);
 		sql_rollback();
 		return false;
 	}
-	
+
 	char *esc_desc = sql_escape_string(corpse->description);
 	if (!esc_desc)
 	{
+		free(esc_name);
+		free(esc_sdesc);
 		sql_rollback();
 		return false;
 	}
 
 	char del_query[256];
 	snprintf(del_query, sizeof(del_query), "DELETE FROM corpses WHERE player_name='%s' AND save_id=%d", esc_name, save_id);
-	sql_run_query(del_query);
+	if (!sql_run_query(del_query))
+	{
+		logit(LOG_DEBUG, "sql_save_corpse: failed to delete old corpse for %s", esc_name);
+		free(esc_name);
+		free(esc_sdesc);
+		free(esc_desc);
+		sql_rollback();
+		return false;
+	}
 
 	char ins_query[512];
 	snprintf(ins_query, sizeof(ins_query), "INSERT INTO corpses (player_name, save_id, room_vnum, short_descr, description) VALUES ('%s', %d, %d, '%s', '%s')", esc_name, save_id, room_vnum, esc_sdesc, esc_desc);
@@ -5382,18 +5512,32 @@ bool sql_save_corpse(P_obj corpse)
 
 	if (!sql_run_query(ins_query))
 	{
+		logit(LOG_DEBUG, "sql_save_corpse: failed to insert corpse for %s", player_name);
 		sql_rollback();
 		return false;
 	}
 
 	int corpse_id = (int)mysql_insert_id(DB);
 
+	// save contained items atomically - any failure rolls back the whole corpse save
 	for (P_obj obj = corpse->contains; obj; obj = obj->next_content)
 	{
-		sql_save_corpse_item(corpse_id, save_id, obj, 0);
+		if (sql_save_corpse_item(corpse_id, save_id, obj, 0) == 0)
+		{
+			logit(LOG_DEBUG, "sql_save_corpse: failed to save contained item, rolling back");
+			sql_rollback();
+			return false;
+		}
 	}
 
-	return sql_commit();
+	if (!sql_commit())
+	{
+		logit(LOG_DEBUG, "sql_save_corpse: failed to commit for %s", player_name);
+		sql_rollback();
+		return false;
+	}
+
+	return true;
 }
 
 bool sql_delete_corpse(const char *player_name, int save_id)
