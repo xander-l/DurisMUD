@@ -1490,15 +1490,12 @@ static int sql_save_single_item_get_id(int pid, P_obj obj, int equip_slot, int c
 	if (obj->wear_flags)
 		snprintf(wear_str, sizeof(wear_str), "%d", obj->wear_flags);
 	else
-		strcpy(wear_str, "NULL");
+		strcpy(wear_str, "0");
 
 	// save item_type and bitvectors if different from prototype
 	P_obj proto = read_object(obj->R_num, REAL);
 	char  type_str[16];
-	if (proto && obj->type != proto->type)
-		snprintf(type_str, sizeof(type_str), "%d", obj->type);
-	else
-		strcpy(type_str, "NULL");
+	snprintf(type_str, sizeof(type_str), "%d", obj->type);
 
 	// format bitvectors (NULL if same as prototype)
 	char bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
@@ -2939,6 +2936,8 @@ bool sql_load_player_items(P_char ch)
 	int pid = GET_PID(ch);
 	if (pid <= 0)
 		return false;
+	char owner_ref[32];
+	snprintf(owner_ref, sizeof(owner_ref), "%d", pid);
 
 	// first, load all items into a temp array indexed by db id
 	// then resolve container relationships
@@ -3048,6 +3047,11 @@ bool sql_load_player_items(P_char ch)
 		unsigned long saved_uid = sql_row_ulong(row, col++, 0);
 		if (saved_uid > 0)
 			obj->obj_uid = saved_uid;
+		if (!sql_persistence_item_owner_matches(saved_uid, "player", owner_ref, "sql_load_player_items"))
+		{
+			extract_obj(obj, FALSE);
+			continue;
+		}
 		obj->condition = sql_row_int(row, col++, obj->condition);
 
 		// store db id for incremental saves
@@ -3728,7 +3732,7 @@ static int sql_save_locker_item(int locker_id, int chest_id, P_obj obj, int cont
 	if (obj->wear_flags)
 		snprintf(wear_str, sizeof(wear_str), "%d", obj->wear_flags);
 	else
-		strcpy(wear_str, "NULL");
+		strcpy(wear_str, "0");
 
 	// bitvectors - compare with prototype, only save if different
 	P_obj proto = read_object(obj->R_num, REAL);
@@ -3912,9 +3916,9 @@ bool sql_save_locker(P_char locker_ch, int owner_pid, int owner_assoc_id)
 	return true;
 }
 
-static P_obj sql_load_locker_items(int locker_id, int container_id);
+static P_obj sql_load_locker_items(int locker_id, int container_id, const char *owner_ref);
 
-static P_obj sql_load_locker_items_filtered(int locker_id, int container_id, int chest_id)
+static P_obj sql_load_locker_items_filtered(int locker_id, int container_id, int chest_id, const char *owner_ref)
 {
 	if (!DB || locker_id <= 0)
 		return NULL;
@@ -4021,6 +4025,11 @@ static P_obj sql_load_locker_items_filtered(int locker_id, int container_id, int
 			unsigned long saved_uid = strtoul(row[20], NULL, 10);
 			if (saved_uid > 0)
 				obj->obj_uid = saved_uid;
+			if (!sql_persistence_item_owner_matches(obj->obj_uid, "locker", owner_ref, "sql_load_locker_items"))
+			{
+				extract_obj(obj, FALSE);
+				continue;
+			}
 		}
 		if (row[21] && strlen(row[21]) > 0)
 			obj->condition = atoi(row[21]);
@@ -4040,7 +4049,7 @@ static P_obj sql_load_locker_items_filtered(int locker_id, int container_id, int
 		sql_load_item_affects_from_table(item_id, obj, "locker_item_affects");
 		sql_load_item_extra_descr_from_table(item_id, obj, "locker_item");
 
-		obj->contains = sql_load_locker_items(locker_id, item_id);
+		obj->contains = sql_load_locker_items(locker_id, item_id, owner_ref);
 		for (P_obj c = obj->contains; c; c = c->next_content)
 		{
 			c->loc_p      = LOC_INSIDE;
@@ -4059,7 +4068,7 @@ static P_obj sql_load_locker_items_filtered(int locker_id, int container_id, int
 	return first_obj;
 }
 
-static P_obj sql_load_locker_items(int locker_id, int container_id) { return sql_load_locker_items_filtered(locker_id, container_id, 0); }
+static P_obj sql_load_locker_items(int locker_id, int container_id, const char *owner_ref) { return sql_load_locker_items_filtered(locker_id, container_id, 0, owner_ref); }
 
 P_char sql_load_locker(int owner_pid, int owner_assoc_id)
 {
@@ -4087,6 +4096,8 @@ P_char sql_load_locker(int owner_pid, int owner_assoc_id)
 
 	int         locker_id   = atoi(row[0]);
 	const char *locker_name = row[1];
+	char owner_ref[MAX_INPUT_LENGTH] = "";
+	snprintf(owner_ref, sizeof(owner_ref), "%s", locker_name);
 	int         racewar     = atoi(row[2]);
 	int         race        = atoi(row[3]);
 
@@ -4118,7 +4129,7 @@ P_char sql_load_locker(int owner_pid, int owner_assoc_id)
 	mysql_free_result(result);
 
 	// load items
-	ch->carrying = sql_load_locker_items(locker_id, 0);
+	ch->carrying = sql_load_locker_items(locker_id, 0, owner_ref);
 	for (P_obj obj = ch->carrying; obj; obj = obj->next_content)
 	{
 		obj->loc_p        = LOC_CARRIED;
@@ -4157,6 +4168,8 @@ P_char sql_load_locker_by_name(const char *locker_name)
 	int racewar   = atoi(row[1]);
 	int race      = atoi(row[2]);
 	mysql_free_result(result);
+	char owner_ref[MAX_INPUT_LENGTH] = "";
+	snprintf(owner_ref, sizeof(owner_ref), "%s", locker_name);
 
 	// allocate locker character
 	P_char ch = (P_char)mm_get(dead_mob_pool);
@@ -4180,7 +4193,7 @@ P_char sql_load_locker_by_name(const char *locker_name)
 	GET_RACE(ch)    = race;
 
 	// load items
-	ch->carrying = sql_load_locker_items(locker_id, 0);
+	ch->carrying = sql_load_locker_items(locker_id, 0, owner_ref);
 	for (P_obj obj = ch->carrying; obj; obj = obj->next_content)
 	{
 		obj->loc_p        = LOC_CARRIED;
@@ -4504,6 +4517,17 @@ P_obj sql_load_private_chest_items(int locker_id, int chest_id)
 		return NULL;
 
 	char query[1024];
+	char owner_ref[MAX_INPUT_LENGTH] = "";
+	snprintf(query, sizeof(query), "SELECT locker_name FROM lockers WHERE id=%d LIMIT 1", locker_id);
+	MYSQL_RES *locker_result = db_query("%s", query);
+	if (locker_result)
+	{
+		MYSQL_ROW locker_row = mysql_fetch_row(locker_result);
+		if (locker_row && locker_row[0])
+			snprintf(owner_ref, sizeof(owner_ref), "%s", locker_row[0]);
+		mysql_free_result(locker_result);
+	}
+
 	snprintf(query,
 	         sizeof(query),
 	         "SELECT id, vnum, weight, cost, timer, extra_flags, wear_flags, item_type, "
@@ -4585,10 +4609,16 @@ P_obj sql_load_private_chest_items(int locker_id, int chest_id)
 		if (row[21] && strlen(row[21]) > 0)
 			obj->condition = atoi(row[21]);
 
+		if (!sql_persistence_item_owner_matches(obj->obj_uid, "locker", owner_ref, "sql_load_private_chest_items"))
+		{
+			extract_obj(obj, FALSE);
+			continue;
+		}
+
 		sql_load_item_affects_from_table(item_id, obj, "locker_item_affects");
 
 		// load contained items (bags inside the chest)
-		obj->contains = sql_load_locker_items_filtered(locker_id, item_id, chest_id);
+		obj->contains = sql_load_locker_items_filtered(locker_id, item_id, chest_id, owner_ref);
 		for (P_obj c = obj->contains; c; c = c->next_content)
 		{
 			c->loc_p      = LOC_INSIDE;
@@ -5162,12 +5192,17 @@ static bool sql_save_corpse_item_affects(int item_id, P_obj obj)
 	return true;
 }
 
-static int sql_save_corpse_item(int corpse_id, P_obj obj, int container_id)
+static int sql_save_corpse_item(int corpse_id, int save_id, P_obj obj, int container_id)
 {
 	if (!obj || !DB || corpse_id <= 0)
 		return 0;
 
 	int vnum = obj_index[obj->R_num].virtual_number;
+	char corpse_owner[64];
+	snprintf(corpse_owner, sizeof(corpse_owner), "corpse:%d", save_id);
+	persistence_record_item_event("owner_corpse", obj, NULL, "nowhere",
+	                              corpse_owner, "sql_save_corpse_item");
+
 
 	char *esc_name   = NULL;
 	char *esc_short  = NULL;
@@ -5268,7 +5303,7 @@ static int sql_save_corpse_item(int corpse_id, P_obj obj, int container_id)
 	{
 		for (P_obj content = obj->contains; content; content = content->next_content)
 		{
-			sql_save_corpse_item(corpse_id, content, item_id);
+			sql_save_corpse_item(corpse_id, save_id, content, item_id);
 		}
 	}
 
@@ -5284,11 +5319,17 @@ bool sql_save_corpse(P_obj corpse)
 		return false;
 
 	if (corpse->type != ITEM_CORPSE || !IS_SET(corpse->value[1], PC_CORPSE))
+	{
+		sql_rollback();
 		return false;
+	}
 
 	const char *player_name = corpse->action_description;
 	if (!player_name || !*player_name)
+	{
+		sql_rollback();
 		return false;
+	}
 
 	int save_id = corpse->value[CORPSE_SAVEID];
 	if (save_id == 0)
@@ -5302,15 +5343,24 @@ bool sql_save_corpse(P_obj corpse)
 
 	char *esc_name = sql_escape_string(player_name);
 	if (!esc_name)
+	{
+		sql_rollback();
 		return false;
+	}
 	
 	char *esc_sdesc = sql_escape_string(corpse->short_description);
 	if (!esc_sdesc)
+	{
+		sql_rollback();
 		return false;
+	}
 	
 	char *esc_desc = sql_escape_string(corpse->description);
 	if (!esc_desc)
+	{
+		sql_rollback();
 		return false;
+	}
 
 	char del_query[256];
 	snprintf(del_query, sizeof(del_query), "DELETE FROM corpses WHERE player_name='%s' AND save_id=%d", esc_name, save_id);
@@ -5323,13 +5373,16 @@ bool sql_save_corpse(P_obj corpse)
 	free(esc_desc);
 
 	if (!sql_run_query(ins_query))
+	{
+		sql_rollback();
 		return false;
+	}
 
 	int corpse_id = (int)mysql_insert_id(DB);
 
 	for (P_obj obj = corpse->contains; obj; obj = obj->next_content)
 	{
-		sql_save_corpse_item(corpse_id, obj, 0);
+		sql_save_corpse_item(corpse_id, save_id, obj, 0);
 	}
 
 	return sql_commit();
@@ -5344,6 +5397,21 @@ bool sql_delete_corpse(const char *player_name, int save_id)
 	if (!esc_name)
 		return false;
 
+	// Delete item affects first (child of corpse_items)
+	char cascade_query[512];
+	snprintf(cascade_query, sizeof(cascade_query),
+		"DELETE FROM corpse_item_affects WHERE item_id IN "
+		"(SELECT ci.id FROM corpse_items ci JOIN corpses c ON ci.corpse_id = c.id "
+		"WHERE c.player_name='%s' AND c.save_id=%d)", esc_name, save_id);
+	sql_run_query(cascade_query);
+
+	// Delete corpse items next
+	snprintf(cascade_query, sizeof(cascade_query),
+		"DELETE FROM corpse_items WHERE corpse_id IN "
+		"(SELECT id FROM corpses WHERE player_name='%s' AND save_id=%d)", esc_name, save_id);
+	sql_run_query(cascade_query);
+
+	// Delete the corpse itself
 	char query[256];
 	snprintf(query, sizeof(query), "DELETE FROM corpses WHERE player_name='%s' AND save_id=%d", esc_name, save_id);
 	free(esc_name);
@@ -5370,6 +5438,7 @@ bool sql_load_all_corpses(void)
 	                             "ci.extra_flags, ci.value0, ci.value1, ci.value2, ci.value3, ci.value4, "
 	                             "ci.value5, ci.value6, ci.value7, ci.name, ci.short_descr, ci.description, "
 	                             "ci.action_descr, COALESCE(cia.location, -1), COALESCE(cia.modifier, 0), "
+	                             "ci.obj_uid, ci.item_condition, "
 								 "c.short_descr, c.description "
 	                             "FROM corpses c "
 	                             "LEFT JOIN corpse_items ci ON ci.corpse_id = c.id "
@@ -5391,6 +5460,7 @@ bool sql_load_all_corpses(void)
 	int   container_map[MAX_CORPSE_ITEMS];
 	int   num_objs     = 0;
 	int   last_item_id = -1;
+	int   skipped_item_id = -1;
 
 	int       loaded = 0;
 	MYSQL_ROW row;
@@ -5464,18 +5534,21 @@ bool sql_load_all_corpses(void)
 					o->loc.inside = cur_corpse;
 				}
 				obj_to_room(cur_corpse, cur_room);
+				persistence_refresh_restored_corpse(cur_corpse, "sql_load_all_corpses");
 				loaded++;
 			}
 			else if (cur_corpse)
 			{
 				// corpse with no items
 				obj_to_room(cur_corpse, cur_room);
+				persistence_refresh_restored_corpse(cur_corpse, "sql_load_all_corpses");
 				loaded++;
 			}
 
 			// start new corpse
 			num_objs      = 0;
 			last_item_id  = -1;
+			skipped_item_id = -1;
 			cur_corpse_id = corpse_id;
 
 			const char *player_name = row[1] ? row[1] : "";
@@ -5592,6 +5665,25 @@ bool sql_load_all_corpses(void)
 			obj->str_mask |= STRUNG_DESC3;
 		}
 
+		unsigned long saved_uid = row[26] ? strtoul(row[26], NULL, 10) : 0;
+		if (saved_uid > 0)
+		{
+			obj->obj_uid = saved_uid;
+			if (obj->obj_uid >= next_obj_uid)
+				next_obj_uid = obj->obj_uid + 1;
+		}
+		if (row[27])
+			obj->condition = atoi(row[27]);
+
+		char owner_ref[32];
+		snprintf(owner_ref, sizeof(owner_ref), "%d", cur_corpse->value[CORPSE_SAVEID]);
+		if (!sql_persistence_item_owner_matches(saved_uid, "corpse", owner_ref, "sql_load_all_corpses"))
+		{
+			extract_obj(obj, FALSE);
+			skipped_item_id = item_id;
+			continue;
+		}
+
 		int aff_loc = atoi(row[24]);
 		if (aff_loc >= 0)
 		{
@@ -5666,11 +5758,13 @@ bool sql_load_all_corpses(void)
 			o->loc.inside = cur_corpse;
 		}
 		obj_to_room(cur_corpse, cur_room);
+		persistence_refresh_restored_corpse(cur_corpse, "sql_load_all_corpses");
 		loaded++;
 	}
 	else if (cur_corpse)
 	{
 		obj_to_room(cur_corpse, cur_room);
+		persistence_refresh_restored_corpse(cur_corpse, "sql_load_all_corpses");
 		loaded++;
 	}
 
