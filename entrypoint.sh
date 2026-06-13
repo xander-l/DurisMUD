@@ -39,8 +39,6 @@ if [ ! -d /var/lib/mysql/mysql ]; then
     (mysql -u root duris < /duris/sql/migrations/add_frag_leaderboard_tables.sql || true)
     (mysql -u root duris_dev < /duris/migrations/schema_migration_v16_item_events.sql || true)
     (mysql -u root duris < /duris/migrations/schema_migration_v16_item_events.sql || true)
-    (mysql -u root duris_dev < /duris/migrations/schema_migration_v17_schema_fixes.sql || true)
-    (mysql -u root duris < /duris/migrations/schema_migration_v17_schema_fixes.sql || true)
 
     killall mysqld || true
     sleep 2
@@ -79,11 +77,6 @@ mysql -h 127.0.0.1 -u duris -pduris duris_dev -e "SELECT 1;" >/dev/null 2>&1 || 
     mysql -u root -e "GRANT ALL PRIVILEGES ON duris.* TO 'duris'@'%' WITH GRANT OPTION;" 2>/dev/null || true
     mysql -u root -e "FLUSH PRIVILEGES;" 2>/dev/null || true
 }
-
-# ---- Run schema migrations on every boot -----------------------------------
-echo "Running schema migrations..."
-(mysql -u root duris_dev < /duris/migrations/schema_migration_v17_schema_fixes.sql || true)
-(mysql -u root duris < /duris/migrations/schema_migration_v17_schema_fixes.sql || true)
 
 # ---- Start MUD --------------------------------------------------------------
 PORT="${MUD_PORT:-7777}"
