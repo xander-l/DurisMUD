@@ -2939,6 +2939,7 @@ int process_input(P_desc t)
 			if (consumed <= 0)
 				goto incomplete; // partial; need to wait for more
 			i += consumed - 1;
+			break; /* prevent fall-through to backspace handler */
 		}
 
 		case '\b':
