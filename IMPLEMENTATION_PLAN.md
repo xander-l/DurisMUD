@@ -1292,6 +1292,98 @@ Source-grep regression guards for latency tracing infrastructure and game loop p
 
 ---
 
+## Phase 10: Account/Character Lifecycle Bug Fixes & Tests
+
+**Effort:** 1 session | **Risk:** Medium | **Files:** `src/sql_player.c`, `tests/db_write/`, `sql/migrations/`
+
+**Context:** User reported two critical bugs:
+1. **Ghost characters:** Character "Sabir" was created, logged out, then the name was taken (can't re-create) but the character didn't appear in the character selection menu.
+2. **Name reuse failure:** After deleting a character, the name can't be reused in certain circumstances — something stays registered that never clears.
+
+**Root cause analysis** revealed three interconnected bugs in the `account_characters` table and the `ON DUPLICATE KEY UPDATE` clause in `sql_save_account_characters()`:
+
+### Bugs Found & Fixed
+
+#### Bug 1: Ghost characters — `deleted_at` never cleared on re-create
+When a character is deleted, `sql_soft_delete_character()` (in `sql.c:734`) sets `deleted_at = NOW()` on `account_characters`. If the character is later re-created with the same name, `sql_save_account_characters()` re-runs the `INSERT ... ON DUPLICATE KEY UPDATE`, but the old UPDATE clause only updated `login_count`, `last_login`, `blocked`, `racewar` — it **never set `deleted_at = NULL`**. Then `sql_load_account_characters()` filters with `WHERE deleted_at IS NULL`, so the re-created character disappears from the menu.
+
+**Fix:** Added `deleted_at=NULL` to the `ON DUPLICATE KEY UPDATE` clause.
+
+#### Bug 2: PID never updated in ON DUPLICATE KEY
+`sql_save_account_characters()` inserts with `pid` from `sql_get_player_pid()`. But if the character was just created (pid not yet in `player_data`), pid=0 gets inserted. The `ON DUPLICATE KEY UPDATE` never propagated the real PID to the existing row. After character deletion and re-creation, the old row still referenced the deleted `player_data` row's PID.
+
+**Fix:** Added `pid=VALUES(pid)` to the `ON DUPLICATE KEY UPDATE` clause.
+
+#### Bug 3: Missing `UNIQUE KEY (account_name, char_name)` — row identification
+Without a natural key on `(account_name, char_name)`, the `ON DUPLICATE KEY UPDATE` only triggered on `UNIQUE KEY pid (pid)`. When a character was deleted and re-created (new PID), no unique key matched the re-INSERT, so a **second row** was created instead of updating the existing one. The old row stayed with `deleted_at=NOW()`, the new row was active, but the LEFT JOIN in `sql_load_account_characters()` joined on `pid` which now pointed to the old deleted `player_data` row.
+
+**Fix:** Added `UNIQUE KEY acct_char (account_name, char_name)` to `account_characters`.
+
+#### Edge case fix: Missing `char_name=VALUES(char_name)`
+If two unsaved characters on the same account both got pid=0, the `UNIQUE KEY pid` collision would trigger `ON DUPLICATE KEY UPDATE`, overwriting the first character's row but keeping the old `char_name`. 
+
+**Fix:** Added `char_name=VALUES(char_name)` to the UPDATE clause.
+
+### Code Changes
+
+**`src/sql_player.c:4061`** — Updated ON DUPLICATE KEY UPDATE:
+```sql
+-- Old:
+on duplicate key update login_count=%lu, last_login=FROM_UNIXTIME(NULLIF(%ld,0)), blocked=%d, racewar=%d
+
+-- New:
+on duplicate key update login_count=%lu, last_login=FROM_UNIXTIME(NULLIF(%ld,0)), blocked=%d, racewar=%d, deleted_at=NULL, pid=VALUES(pid), account_name=VALUES(account_name), char_name=VALUES(char_name)
+```
+
+### Schema Changes
+
+**`sql/migrations/add_account_characters_columns.sql`** (NEW) — Production migration:
+- Adds missing columns: `login_count`, `last_login`, `blocked`, `racewar` (used by `sql_save_account_characters()` but never created in the original migration)
+- Adds `UNIQUE KEY acct_char (account_name, char_name)` — critical for ON DUPLICATE KEY to identify rows when PID changes
+
+**`sql/migrations/cleanup_ghost_account_characters.sql`** (NEW) — Cleanup migration:
+- Deletes rows where `pid = 0` (stale entries from characters linked before first save)
+- Deletes soft-deleted rows that have a newer active sibling row for the same `(account_name, char_name)`
+
+**`tests/db_write/schema.sql`** — Test schema updated:
+- Added `accounts` table (11 columns matching production)
+- Added `player_data` table (simplified, 8 columns)
+- Added `login_count`, `last_login`, `blocked`, `racewar` columns to `account_characters`
+- Added `UNIQUE KEY acct_char (account_name, char_name)`
+
+### New Live DB Tests (8 tests)
+
+**`tests/db_write/test_live_accounts.c`** — Full account/character lifecycle:
+
+| # | Test | What it verifies |
+|---|---|---|
+| 1 | create new account | `INSERT INTO accounts` roundtrip |
+| 2 | create character and link | `INSERT INTO player_data` + `INSERT INTO account_characters`, PID stored correctly |
+| 3 | character listing | `LEFT JOIN` query returns correct character count with `deleted_at IS NULL` filter |
+| 4 | soft-delete character | `UPDATE deleted_at=NOW()` then `WHERE deleted_at IS NULL` excludes it |
+| 5 | name reuse after deletion | **Critical fix test**: delete, re-create with new PID, verify `deleted_at` is cleared and character is visible |
+| 6 | PID propagation | pid=0 inserted before save, real PID propagated via `pid=VALUES(pid)` |
+| 7 | multi-character account | 3 characters, delete middle one, verify 2 remain visible |
+| 8 | full delete-recreate cycle | The "Sabir" scenario: create→save→delete→recreate→verify visible |
+
+All 8 tests pass against real MySQL 8.0 in the Docker test harness.
+
+### Phase 10 Summary
+
+| Task | Status |
+|---|---|
+| Bug fix: `deleted_at=NULL` in ON DUPLICATE KEY UPDATE | ✅ |
+| Bug fix: `pid=VALUES(pid)` in ON DUPLICATE KEY UPDATE | ✅ |
+| Bug fix: `char_name=VALUES(char_name)` in ON DUPLICATE KEY UPDATE | ✅ |
+| Schema: `UNIQUE KEY acct_char (account_name, char_name)` | ✅ |
+| Schema: Missing columns in `account_characters` | ✅ |
+| Migration: `add_account_characters_columns.sql` | ✅ |
+| Migration: `cleanup_ghost_account_characters.sql` | ✅ |
+| Live DB tests: 8 account/character lifecycle tests | ✅ 8/8 passed |
+| Total live DB tests: 28 (20 Phase 9 + 8 Phase 10) | ✅ 28/28 passed |
+
+---
+
 ## Summary
 
 All Phase 1–4 items complete. Phase 5: 7 of 9 items complete. Phase 6: 📝 deferred. Phase 7: 🚧 plan complete (implementation pending). Phase 8: 🚧 plan complete (implementation pending). Phase 9: 🚧 in progress (9a done, 9b done, 9e/f/g being built).

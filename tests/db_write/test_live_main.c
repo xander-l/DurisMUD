@@ -25,6 +25,7 @@
 int test_live_frags_run(MYSQL *db);
 int test_live_locker_run(MYSQL *db);
 int test_live_latency_run(MYSQL *db);
+int test_live_accounts_run(MYSQL *db);
 
 /* ------------------------------------------------------------------ */
 /*  MySQL connection helpers                                          */
@@ -77,6 +78,7 @@ static suite_entry g_suites[] = {
     { "frags",    test_live_frags_run },
     { "locker",   test_live_locker_run },
     { "latency",  test_live_latency_run },
+    { "accounts", test_live_accounts_run },
     { NULL, NULL },
 };
 

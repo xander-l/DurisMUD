@@ -34,7 +34,8 @@ TARGET  = test_live_db
 SRCS = test_live_main.c \
        test_live_frags.c \
        test_live_locker.c \
-       test_live_latency.c
+       test_live_latency.c \
+       test_live_accounts.c
 
 OBJS = $(SRCS:.c=.o)
 

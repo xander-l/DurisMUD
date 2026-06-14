@@ -11,6 +11,46 @@ CREATE DATABASE IF NOT EXISTS duris_test
 USE duris_test;
 
 -- ============================================================================
+-- Table: accounts (matches production columns)
+-- ============================================================================
+CREATE TABLE IF NOT EXISTS `accounts` (
+  `id` int(11) NOT NULL auto_increment,
+  `account_name` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `confirmation_code` varchar(255) DEFAULT NULL,
+  `confirmed` int(11) DEFAULT 0,
+  `confirmation_sent` int(11) DEFAULT 0,
+  `blocked` int(11) DEFAULT 0,
+  `last_login` datetime NULL DEFAULT NULL,
+  `last_good_char` datetime NULL DEFAULT NULL,
+  `last_evil_char` datetime NULL DEFAULT NULL,
+  `flags1` bigint(20) unsigned DEFAULT 0,
+  `flags2` bigint(20) unsigned DEFAULT 0,
+  `flags3` bigint(20) unsigned DEFAULT 0,
+  `flags4` bigint(20) unsigned DEFAULT 0,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `account_name` (`account_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ============================================================================
+-- Table: player_data (simplified - only columns used by tests)
+-- ============================================================================
+CREATE TABLE IF NOT EXISTS `player_data` (
+  `pid` int(11) NOT NULL auto_increment,
+  `name` varchar(255) NOT NULL,
+  `level` int(11) DEFAULT 1,
+  `race` int(11) DEFAULT 0,
+  `racewar` int(11) DEFAULT 1,
+  `m_class` int(10) unsigned DEFAULT 1,
+  `sex` int(11) DEFAULT 0,
+  `last_room` int(11) DEFAULT 0,
+  `last_save` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`pid`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ============================================================================
 -- Table: account_characters (matches production exactly)
 -- ============================================================================
 CREATE TABLE IF NOT EXISTS `account_characters` (
@@ -18,13 +58,19 @@ CREATE TABLE IF NOT EXISTS `account_characters` (
   `account_name` varchar(255) NOT NULL,
   `pid` bigint(20) NOT NULL,
   `char_name` varchar(255) NOT NULL,
+  `login_count` bigint(20) unsigned DEFAULT 0,
+  `last_login` datetime NULL DEFAULT NULL,
+  `blocked` int(11) DEFAULT 0,
+  `racewar` int(11) DEFAULT 1,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `pid` (`pid`),
+  UNIQUE KEY `acct_char` (`account_name`, `char_name`),
   KEY `account_name` (`account_name`),
   KEY `char_name` (`char_name`),
-  KEY `deleted_at` (`deleted_at`)
+  KEY `deleted_at` (`deleted_at`),
+  KEY `account_active` (`account_name`, `deleted_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ============================================================================

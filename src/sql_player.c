@@ -4058,7 +4058,7 @@ static bool sql_save_account_characters(struct acct_entry *acc)
 		         sizeof(query),
 		         "insert into account_characters (account_name, char_name, pid, login_count, last_login, blocked, racewar) "
 		         "values ('%s', '%s', %d, %lu, FROM_UNIXTIME(NULLIF(%ld,0)), %d, %d) "
-		         "on duplicate key update login_count=%lu, last_login=FROM_UNIXTIME(NULLIF(%ld,0)), blocked=%d, racewar=%d",
+		         "on duplicate key update login_count=%lu, last_login=FROM_UNIXTIME(NULLIF(%ld,0)), blocked=%d, racewar=%d, deleted_at=NULL, pid=VALUES(pid), account_name=VALUES(account_name), char_name=VALUES(char_name)",
 		         esc_name,
 		         esc_char,
 		         pid > 0 ? pid : 0,

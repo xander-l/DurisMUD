@@ -47,6 +47,7 @@ COPY tests/db_write/test_live_main.c /duris/tests/db_write/test_live_main.c
 COPY tests/db_write/test_live_frags.c /duris/tests/db_write/test_live_frags.c
 COPY tests/db_write/test_live_locker.c /duris/tests/db_write/test_live_locker.c
 COPY tests/db_write/test_live_latency.c /duris/tests/db_write/test_live_latency.c
+COPY tests/db_write/test_live_accounts.c /duris/tests/db_write/test_live_accounts.c
 COPY tests/db_write/Makefile.live /duris/tests/db_write/Makefile.live
 
 # ---- Startup script: start MySQL, init schema, build and run --------------
