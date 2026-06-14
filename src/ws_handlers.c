@@ -626,7 +626,7 @@ void ws_send_full_game_state(struct descriptor_data *d)
 		return;
 
 	/* trigger gmcp updates to send current state */
-	if (d->character->in_room >= 0)
+	if (d->character->in_room >= 0 && d->ws_handshake_done)
 	{
 		extern void gmcp_room_info(struct char_data * ch);
 		extern void gmcp_room_map(struct char_data * ch);
