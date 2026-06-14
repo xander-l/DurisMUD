@@ -174,7 +174,7 @@
 | Thread safety documentation (`THREAD_SAFETY.md`) | ✅ | Mutex inventory, lock hierarchy, ABBA prevention |
 | Persistence lock hierarchy | ✅ | Documented |
 | `sql_persistence_item_owner_matches` test anchor fix | ✅ | Anchor verified — test finds real implementation via leading comment |
-| Monitoring / scalar tracking enhancements | 🔶 | |
+| Monitoring / scalar tracking enhancements | ✅ | sql_zone_touch_finished implemented with async persistence queue pattern |
 | Other table files (`sql_mob`, `sql_room`, etc.) | ❌ | Not yet in scope |
 | Performance optimization (query batching, connection pooling) | ❌ | |
 | Incremental save path (dirty flags, `db_item_id`) | 🔶 | Implemented but not fully tested |

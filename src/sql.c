@@ -2418,20 +2418,41 @@ bool sql_persistence_item_owner_matches(unsigned long long item_uid,
 	return true;
 }
 
-/* Stub: logs zone touch events for epic analysis.
- * TODO: implement actual persistence_scalar_events INSERT. */
+/* Logs zone touch events to persistence_scalar_events for epic analysis.
+ * Uses the async persistence queue with flat-file and direct SQL fallbacks. */
 void sql_zone_touch_finished(const char *event_key, int boot_time,
                              int touched_at, int zone_number,
                              int toucher_pid, int group_size,
                              int epic_value, int alignment_delta)
 {
-	(void)event_key;
-	(void)boot_time;
-	(void)touched_at;
-	(void)zone_number;
-	(void)toucher_pid;
-	(void)group_size;
-	(void)epic_value;
-	(void)alignment_delta;
+	char line[PERSISTENCE_EVENT_MAX_LEN];
+	const char *safe_key;
+
+	safe_key = (event_key && *event_key) ? event_key : "none";
+
+	snprintf(line, sizeof(line),
+	         "INSERT INTO persistence_scalar_events "
+	         "(event_type, event_key, boot_time, touched_at, zone_number, "
+	         "toucher_pid, group_size, epic_value, alignment_delta, created_at) "
+	         "VALUES ('zone_touch', '%s', %d, %d, %d, %d, %d, %d, %d, NOW())",
+	         safe_key, boot_time, touched_at, zone_number,
+	         toucher_pid, group_size, epic_value, alignment_delta);
+
+	if (persistence_scalar_event_worker_running())
+	{
+		if (persistence_scalar_event_queue_enqueue(line))
+			return;
+		if (persistence_write_fallback_event_line(line, "scalar_event",
+		                                          "zone_touch",
+		                                          "queue_full_fallback"))
+			return;
+	}
+
+	qry("INSERT INTO persistence_scalar_events "
+	    "(event_type, event_key, boot_time, touched_at, zone_number, "
+	    "toucher_pid, group_size, epic_value, alignment_delta, created_at) "
+	    "VALUES ('zone_touch', '%s', %d, %d, %d, %d, %d, %d, %d, NOW())",
+	    safe_key, boot_time, touched_at, zone_number,
+	    toucher_pid, group_size, epic_value, alignment_delta);
 }
 #endif
