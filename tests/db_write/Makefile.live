@@ -1,0 +1,56 @@
+# ===================================================================
+# Makefile.live — Build the live DB integration test suite.
+#
+# Unlike Makefile (which compiles WITHOUT MySQL using __NO_MYSQL__),
+# this links against libmysqlclient and runs tests against a real
+# MySQL instance.
+#
+# Prerequisites:
+#   libmysqlclient-dev (or mysql-connector-c on some distros)
+#
+# Usage:
+#   make -f Makefile.live           — build test_live_db
+#   make -f Makefile.live run       — build and run
+#   make -f Makefile.live clean
+# ===================================================================
+
+CC       = gcc
+CFLAGS   = -Wall -Wextra -pedantic -std=c99 -O2 -g
+LDFLAGS  = -lmysqlclient -lm
+
+# MySQL include/lib paths (adjust for your system)
+# Common locations:
+#   Ubuntu/Debian: /usr/include/mysql, /usr/lib/x86_64-linux-gnu
+#   RHEL/CentOS:   /usr/include/mysql, /usr/lib64/mysql
+#   Homebrew (mac): /opt/homebrew/opt/mysql-client/include, /opt/homebrew/opt/mysql-client/lib
+MYSQL_CFLAGS  = $(shell mysql_config --cflags 2>/dev/null || echo "-I/usr/include/mysql")
+MYSQL_LDFLAGS = $(shell mysql_config --libs 2>/dev/null || echo "-L/usr/lib/x86_64-linux-gnu -lmysqlclient")
+
+CFLAGS  += $(MYSQL_CFLAGS)
+LDFLAGS = $(MYSQL_LDFLAGS) -lm
+
+TARGET  = test_live_db
+
+SRCS = test_live_main.c \
+       test_live_frags.c \
+       test_live_locker.c \
+       test_live_latency.c
+
+OBJS = $(SRCS:.c=.o)
+
+.PHONY: all clean run
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
+	@echo "  Built: $@"
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+clean:
+	rm -f $(OBJS) $(TARGET)
+
+run: $(TARGET)
+	./$(TARGET)

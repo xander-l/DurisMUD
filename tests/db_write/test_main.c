@@ -25,6 +25,9 @@
 #include "test_sql_coverage.h"
 #include "test_batch_save_stress.h"
 #include "test_pet_lifecycle.h"
+#include "test_frag_transfer.h"
+#include "test_locker_stress.h"
+#include "test_latency_guard.h"
 
 static void list_tests(void)
 {
@@ -250,6 +253,33 @@ static void list_tests(void)
     printf("    max_pets_defined\n");
     printf("    pet_load_two_pass_items\n");
     printf("    pet_noncrash_cleanup_only\n");
+    printf("\n  Frag & Item Transfer:\n");
+    printf("    frag_save_pkill_real\n");
+    printf("    frag_worthy_checks\n");
+    printf("    frag_killed_by_escaped\n");
+    printf("    frag_item_transfer_corpse\n");
+    printf("    frag_leaderboard_columns\n");
+    printf("    frag_addfrags_updates_both\n");
+    printf("\n  Locker Stress:\n");
+    printf("    locker_items_columns\n");
+    printf("    locker_delete_before_insert\n");
+    printf("    locker_chest_save_load\n");
+    printf("    locker_enter_exit_path\n");
+    printf("    locker_chest_password\n");
+    printf("    locker_load_two_pass\n");
+    printf("    locker_exists_before_create\n");
+    printf("    locker_txn_wrapping\n");
+    printf("\n  Latency Guard:\n");
+    printf("    latency_all_sections\n");
+    printf("    latency_total_tick\n");
+    printf("    latency_dump_300_tics\n");
+    printf("    latency_persistence_queue_dump\n");
+    printf("    latency_utility_dump\n");
+    printf("    latency_opt_usec\n");
+    printf("    latency_pulses_in_tick\n");
+    printf("    latency_sleep_budget\n");
+    printf("    latency_max_samples\n");
+    printf("    latency_mutex_protected\n");
     printf("\n  SQL Coverage:\n");
     printf("    sql_pwipe_exists\n");
     printf("    sql_pwipe_verify_code\n");
@@ -318,6 +348,9 @@ int main(int argc, char *argv[])
         if (rc == -1) rc = test_sql_coverage_run_one(argv[1]);
         if (rc == -1) rc = test_batch_save_stress_run_one(argv[1]);
         if (rc == -1) rc = test_pet_lifecycle_run_one(argv[1]);
+        if (rc == -1) rc = test_frag_transfer_run_one(argv[1]);
+        if (rc == -1) rc = test_locker_stress_run_one(argv[1]);
+        if (rc == -1) rc = test_latency_guard_run_one(argv[1]);
         if (rc == -1) {
             fprintf(stderr, "Unknown test: '%s'\n", argv[1]);
             fprintf(stderr, "Run with -l to list all available tests.\n");
@@ -356,5 +389,11 @@ int main(int argc, char *argv[])
     failures += test_batch_save_stress_run_all();
     printf("\n");
     failures += test_pet_lifecycle_run_all();
+    printf("\n");
+    failures += test_frag_transfer_run_all();
+    printf("\n");
+    failures += test_locker_stress_run_all();
+    printf("\n");
+    failures += test_latency_guard_run_all();
     return failures > 0 ? 1 : 0;
 }

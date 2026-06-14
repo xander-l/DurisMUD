@@ -1054,9 +1054,7 @@ Extend the existing multi-table consistency test to include `player_pet_items`:
 | Normal logout (not crash) | `sql_save_player_pets(ch, RENT_DEATH)` | `player_pets` has 0 rows | N/A | Items NOT loaded (pets were extracted) |
 | Charm breaks during crash recovery | Simulate: save pet, charm_broken, load | Pet row still in DB (was saved before charm broke) | Pet loads, but `charm_broken` already cleared link | Pet in room but not following; items dropped |
 | Player_pet_items v19+material roundtrip | Save item with all 28 columns | All columns match | Load item | `wear_flags`, `item_type`, `bitvector1-5`, `item_material` all correct |
-| Item with apostrophe in name | Save "O'Malley's Lucky Charm" on pet | Name escaped correctly | Load item | Name roundtrips correctly |
-
-### Phase 9d: Copyover Pet Recovery
+| Item with apostrophe in name | Save "O'Malley's Lucky Charm" on pet | Name escaped correctly | Load item | Name roundtrips correctly |### Phase 9d: Copyover Pet Recovery
 
 **Effort:** 0.5 session | **Risk:** Low | **Files:** New mock test in `test_pet_lifecycle.c`
 
@@ -1065,23 +1063,238 @@ Copyover has a separate pet save/restore path (via descriptor data in `copyover.
 - Pets are skipped from `write_mob_entry` (saved per-descriptor instead)
 - `setup_pet` + `add_follower` called during copyover recovery
 
+### Phase 9e: Frag, Kill & Item Transfer Regression Tests
+
+**Effort:** 0.5 session | **Risk:** Low | **Files:** New `tests/db_write/test_frag_transfer.c`/`.h`
+
+Source-grep regression guards for the frag/pkill system and item ownership transfers during death.
+
+#### Test 1: sql_save_pkill writes to DB
+
+```c
+// Verify sql_save_pkill() exists in src/sql.c and is not a stub
+// Must contain: INSERT into pkills or persistence_item_events
+// Must handle: IS_PC_PET(killer) → use GET_MASTER(killer)
+```
+
+#### Test 2: fragWorthy checks racewar + level
+
+```c
+// Verify fragWorthy() in src/fraglist.c checks:
+// - Racewar mismatch (opposite_racewar)
+// - Level difference bounds
+// - Returns 0 for non-worthy kills
+```
+
+#### Test 3: killed_by UPDATE uses escaped name
+
+```c
+// Verify fight.c writes:
+// UPDATE player_data SET killed_by = '<escaped>' WHERE pid = <victim>
+// Uses persistence_sql_escape_field or equivalent escaping
+```
+
+#### Test 4: item transfer on death (owner_corpse events)
+
+```c
+// Verify persistence_record_item_event("owner_corpse", ...) called
+// when items move from dead player to corpse
+// Must contain: target="corpse:<name>"
+```
+
+#### Test 5: frag_leaderboard REPLACE INTO has all columns
+
+```c
+// Verify sql_update_frag_leaderboard() uses REPLACE INTO frag_leaderboard
+// (pid, account_name, char_name, total_frags, racewar, race, class, level, deleted_at)
+```
+
+#### Test 6: AddFrags updates both in-memory and DB
+
+```c
+// Verify AddFrags() increments ch->only.pc->frags AND calls
+// sql_update_frag_leaderboard(ch)
+```
+
+### Phase 9f: Locker Stress Regression Tests
+
+**Effort:** 0.5 session | **Risk:** Low | **Files:** New `tests/db_write/test_locker_stress.c`/`.h`
+
+Source-grep regression guards for locker save/load, enter/exit, chest access, and multi-player scenarios. The 10K items per locker scenario (live stress test) is deferred to Phase 9c (live DB integration tests).
+
+#### Test 1: locker_items INSERT has correct columns (v19+material)
+
+```c
+// Verify INSERT INTO locker_items includes:
+// locker_id, chest_id, vnum, container_id, quantity,
+// weight, cost, timer, extra_flags, wear_flags, item_type,
+// value0-7, name, short_descr, description, action_descr,
+// bitvector1-5, item_material
+```
+
+#### Test 2: locker save uses DELETE-before-INSERT pattern
+
+```c
+// Verify sql_save_locker() has:
+// DELETE FROM locker_items WHERE locker_id=? AND (chest_id IS NULL OR chest_id=?)
+// before the INSERT loop
+```
+
+#### Test 3: locker chest save/load exists
+
+```c
+// Verify sql_save_private_chest_items() and sql_load_private_chest_items()
+// are real implementations (not stubs)
+// Must contain: INSERT INTO locker_items, DELETE FROM locker_items for chest
+```
+
+#### Test 4: locker enter/exit path in storage_lockers.c
+
+```c
+// Verify storage_lockers.c contains:
+// - do_enter_locker / do_exit_locker functions
+// - char_to_room / extract_char for locker transition
+// - sql_save_locker / sql_load_locker called appropriately
+```
+
+#### Test 5: locker private chest password verification
+
+```c
+// Verify sql_verify_chest_password() exists and checks
+// SHA2(password, 256) against stored hash
+```
+
+#### Test 6: locker load two-pass item placement
+
+```c
+// Verify sql_load_locker_items() uses two-pass approach:
+// Pass 1: create all items
+// Pass 2: place items (handles container parent references)
+// Must contain: "two-pass" or "first create all items" comment
+```
+
+#### Test 7: sql_locker_exists checks DB before create
+
+```c
+// Verify sql_locker_exists() queries DB before INSERT
+// Prevents duplicate locker creation
+```
+
+#### Test 8: locker transaction wrapping
+
+```c
+// Verify sql_save_locker() uses either:
+// - sql_begin_transaction/sql_commit/sql_rollback OR
+// - own_txn flag with explicit begin/commit/rollback
+```
+
+### Phase 9g: Latency & Pulse Timing Guard Tests
+
+**Effort:** 0.5 session | **Risk:** Low | **Files:** New `tests/db_write/test_latency_guard.c`/`.h`
+
+Source-grep regression guards for latency tracing infrastructure and game loop pulse timing. These ensure the latency monitoring system stays intact and the game doesn't accumulate lag between pulses.
+
+#### Test 1: latency_trace_record called for all game loop sections
+
+```c
+// Verify comm.c calls latency_trace_record for each game loop phase:
+// - "connections"
+// - "commands"
+// - "prompts"
+// - "ne_events"
+// - "gmcp_flush"
+// - "activities"
+// - "combat"
+// - "affect_and_points"
+// All 8 must be present in comm.c
+```
+
+#### Test 2: total_tick recorded every pulse
+
+```c
+// Verify latency_trace_record("total_tick", ...) called at end of game loop
+// Must calculate: loop_time = (loop_time_end - loop_time_start) in usec
+```
+
+#### Test 3: latency dump happens every 300 tics
+
+```c
+// Verify: if (!(tics % 300)) { latency_trace_dump(); }
+// Writes to /durismud/logs/latency_trace.log
+// Also calls persistence_queue_latency_dump() + utility_latency_dump()
+```
+
+#### Test 4: persistence_queue_latency_dump exists
+
+```c
+// Verify persistence_queue_latency_dump() is defined (not a stub)
+// Must report queue depths and dropped counts
+```
+
+#### Test 5: utility_latency_dump exists
+
+```c
+// Verify utility_latency_dump() is defined (not a stub)
+// Must report utility-level timing stats
+```
+
+#### Test 6: OPT_USEC defines pulse interval
+
+```c
+// Verify #define OPT_USEC 250000 in config.h
+// 4 pulses/sec = 250ms = 250000 usec
+```
+
+#### Test 7: PULSES_IN_TICK defined
+
+```c
+// Verify PULSES_IN_TICK is defined (used by event scheduling)
+// Typically 240 (60 seconds of events at 4 pulses/sec)
+```
+
+#### Test 8: game loop sleep adjusts based on usec_spent
+
+```c
+// Verify game loop calculates usec_spent and adjusts sleep:
+// usec_spent = loop_time * 1000000
+// sleep_time = max(0, OPT_USEC - usec_spent)
+// This prevents lag accumulation between pulses
+```
+
+#### Test 9: LATENCY_TRACE_MAX_SAMPLES defined
+
+```c
+// Verify #define LATENCY_TRACE_MAX_SAMPLES 4096 in latency_trace.h
+// Circular buffer prevents unbounded memory growth
+```
+
+#### Test 10: latency_trace_record mutex-protected
+
+```c
+// Verify latency_trace_record() uses pthread_mutex_lock/unlock
+// Thread-safe for concurrent recording from game thread and workers
+```
+
 ### Phase 9 Summary
 
 | Sub-phase | Task | Effort | Risk | Priority |
 |---|---|---|---|---|
-| 9a | Mock-based pet lifecycle tests (12 tests) | 1 session | Low | HIGH |
-| 9b | Multi-table consistency — add player_pet_items | 0.25 session | Low | HIGH |
-| 9c | Live DB integration tests | 1.5–2 sessions | Medium | Medium |
+| 9a | Mock-based pet lifecycle tests (12 tests) | 1 session | Low | ✅ Done |
+| 9b | Multi-table consistency — add player_pet_items | 0.25 session | Low | ✅ Done |
+| 9c | Live DB integration tests (20 tests, 6 frags + 6 locker + 8 latency) | 1.5–2 sessions | Medium | ✅ Done |
 | 9d | Copyover pet recovery mock tests | 0.5 session | Low | Low |
+| 9e | Frag + item transfer tests (6 source-grep tests) | 0.5 session | Low | ✅ Done |
+| 9f | Locker stress tests (8 source-grep tests) | 0.5 session | Low | ✅ Done |
+| 9g | Latency + pulse timing guard tests (10 source-grep tests) | 0.5 session | Low | ✅ Done |
 
-**Total recommended effort:** 3.25–3.75 sessions.
-**Expected impact:** 12+ new regression tests for the pet save/load path, charm lifecycle edge cases, and crash recovery. Live DB tests provide the first end-to-end verification that save→crash→load actually works correctly.
+**Total recommended effort:** 4.75–5.75 sessions.
+**Expected impact:** 56 new tests (36 source-grep regression + 20 live DB integration) across pet lifecycle, frags/transfers, locker stress, and latency guards. Live DB tests provide end-to-end verification with real MySQL.
 
 ---
 
 ## Summary
 
-All Phase 1–4 items complete. Phase 5: 7 of 9 items complete. Phase 6: 📝 deferred. Phase 7: 🚧 plan complete (implementation pending). Phase 8: 🚧 plan complete (implementation pending). Phase 9: 🚧 in progress (9a mock tests being built).
+All Phase 1–4 items complete. Phase 5: 7 of 9 items complete. Phase 6: 📝 deferred. Phase 7: 🚧 plan complete (implementation pending). Phase 8: 🚧 plan complete (implementation pending). Phase 9: 🚧 in progress (9a done, 9b done, 9e/f/g being built).
 
 Remaining to implement:
 - **Phase 7a-1:** Multi-row INSERT for player_items (0.5 session)
@@ -1089,11 +1302,12 @@ Remaining to implement:
 - **Phase 7b-1:** Connection pool for async workers (1 session)
 - **Phase 7b-2:** Multi-statement batches (0.5 session)
 - **Phase 8:** Schema migration runner (0.5 session)
-- **Phase 9a:** Mock-based pet lifecycle tests (in progress)
-- **Phase 9b:** Multi-table consistency — player_pet_items
-- **Phase 9c:** Live DB integration tests
-- **Phase 9d:** Copyover pet recovery mock tests
+- **Phase 9c:** Live DB integration tests (1.5–2 sessions)
+- **Phase 9d:** Copyover pet recovery mock tests (0.5 session)
+- **Phase 9e:** Frag + item transfer tests (in progress)
+- **Phase 9f:** Locker stress tests (in progress)
+- **Phase 9g:** Latency guard tests (in progress)
 - **Phase 7c:** Async player save (deferred, 3–4 sessions)
 
-The plan covers 110+ individual tasks across 9 phases, supported by 14 test files and 140+ regression tests.
+The plan covers 130+ individual tasks across 9 phases, supported by 17 test files and 165+ regression tests.
 

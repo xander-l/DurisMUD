@@ -38,8 +38,18 @@ WORKDIR /duris
 COPY tests/db_write/ /duris/tests/db_write/
 COPY src/sql_player.c /duris/src/sql_player.c
 COPY src/sql.c /duris/src/sql.c
+COPY src/comm.c /duris/src/comm.c
 COPY src/affects.c /duris/src/affects.c
 COPY src/config.h /duris/src/config.h
+COPY src/fight.c /duris/src/fight.c
+COPY src/fraglist.c /duris/src/fraglist.c
+COPY src/storage_lockers.c /duris/src/storage_lockers.c
+COPY src/latency_trace.h /duris/src/latency_trace.h
+COPY src/utility.c /duris/src/utility.c
+COPY src/events.c /duris/src/events.c
+COPY src/new_events.c /duris/src/new_events.c
+COPY src/defines.h /duris/src/defines.h
+COPY src/persistence_queue.c /duris/src/persistence_queue.c
 
 # ---- Build the test suite ---------------------------------------------------
 # Convert any CRLF line endings (Windows checkouts) to LF so gcc handles
