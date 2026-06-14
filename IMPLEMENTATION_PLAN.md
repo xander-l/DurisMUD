@@ -86,10 +86,13 @@
 | Task | Status | Notes |
 |---|---|---|
 | Docker test harness (db_write tests) | ✅ | 13/13 crash-safety, 11/11 rollback |
-| Compilation verification (Docker test build) | ✅ | `sql_player.c` compiles in test harness; all tests pass |
-| Full project build (g++/C++20) | 🔶 | Test uses gcc/C11; full g++ build needs MySQL dev libs |
+| Compilation verification (Docker test build) | ✅ | `sql_player.c` compiles clean via Docker |
+| Full project build (Docker, --no-cache) | ✅ | Clean build: sql_player.c compiles, all tests pass |
 | Integration roundtrip tests | ❌ | **NEXT ITEM** — verify v19 columns survive save→load |
 | Multi-table consistency tests | ❌ | |
+
+> **Build flow:** This workspace has no local compiler. All compilation and testing is done through Docker using `tests/db_write/Dockerfile.test` which installs `build-essential`, compiles via the Makefile, and runs the test binary.
+> **Pre-existing issue:** `sql_persistence_item_owner_matches()` test anchor not found in `src/sql.c` — unrelated to v19+material changes.
 
 ---
 
