@@ -20,7 +20,6 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <time.h>
-#include <unistd.h>
 #include <pthread.h>
 #include "account.h"
 #include "assocs.h"
@@ -2301,50 +2300,46 @@ void sql_log_player_login(P_char ch, const char *status)
 	if (!ch || IS_NPC(ch) || !ch->desc)
 		return;
 
-	// copy data before fork since child can't access parent memory safely
-	char name[32], ip[64], account[64], client[64], client_ver[32];
-	int  pid_num;
+	// Phase 7a-2: async scalar-event queue replaces fork().
+	// Escape all user-supplied strings then build the INSERT line.
+	char line[PERSISTENCE_EVENT_MAX_LEN];
+	char esc_name[128], esc_ip[128], esc_account[128], esc_client[256];
+	char esc_status[64], esc_client_ver[128];
 
-	strncpy(name, GET_NAME(ch), sizeof(name) - 1);
-	name[sizeof(name) - 1] = '\0';
-	strncpy(ip, ch->desc->host, sizeof(ip) - 1);
-	ip[sizeof(ip) - 1] = '\0';
-	const char *acct   = get_account_name_safe(ch);
-	strncpy(account, acct ? acct : "", sizeof(account) - 1);
-	account[sizeof(account) - 1] = '\0';
-	strncpy(client, ch->desc->client_name[0] ? ch->desc->client_name : "", sizeof(client) - 1);
-	client[sizeof(client) - 1] = '\0';
-	strncpy(client_ver, ch->desc->client_version[0] ? ch->desc->client_version : "", sizeof(client_ver) - 1);
-	client_ver[sizeof(client_ver) - 1] = '\0';
-	pid_num                            = GET_PID(ch);
+	const char *acct = get_account_name_safe(ch);
 
-	pid_t pid = fork();
-	if (pid < 0)
-		return; // fork failed, skip logging
+	persistence_sql_escape_field(GET_NAME(ch), esc_name, sizeof(esc_name));
+	persistence_sql_escape_field(ch->desc->host, esc_ip, sizeof(esc_ip));
+	persistence_sql_escape_field(acct ? acct : "", esc_account, sizeof(esc_account));
+	persistence_sql_escape_field(ch->desc->client_name[0] ? ch->desc->client_name : "",
+	                             esc_client, sizeof(esc_client));
+	persistence_sql_escape_field(ch->desc->client_version[0] ? ch->desc->client_version : "",
+	                             esc_client_ver, sizeof(esc_client_ver));
+	persistence_sql_escape_field(status, esc_status, sizeof(esc_status));
 
-	if (pid == 0)
+	snprintf(line, sizeof(line),
+	         "INSERT INTO log_entries (date, kind, ip_address, pid, player_name, zone_number, room_vnum, message) "
+	         "VALUES (NOW(), '%s', '%s', %d, '%s', 0, 0, 'account=%s client=%s %s')",
+	         esc_status,
+	         esc_ip,
+	         GET_PID(ch),
+	         esc_name,
+	         esc_account,
+	         esc_client,
+	         esc_client_ver);
+
+	if (persistence_scalar_event_worker_running())
 	{
-		// child process
-		MYSQL *child_conn = sql_create_child_connection();
-		if (!child_conn)
-			_exit(1);
-
-		sql_reset_for_child(child_conn);
-
-		db_query("INSERT INTO log_entries (date, kind, ip_address, pid, player_name, zone_number, room_vnum, message) "
-		         "VALUES (NOW(), '%s', '%s', %d, '%s', 0, 0, 'account=%s client=%s %s')",
-		         status,
-		         ip,
-		         pid_num,
-		         name,
-		         account,
-		         client,
-		         client_ver);
-
-		mysql_close(child_conn);
-		_exit(0);
+		if (persistence_scalar_event_queue_enqueue(line))
+			return;
+		if (persistence_write_fallback_event_line(line, "scalar_event",
+		                                          "player_login",
+		                                          "queue_full_fallback"))
+			return;
 	}
-	// parent continues immediately
+
+	// Fallback: execute synchronously
+	qry("%s", line);
 }
 
 /* ---- Persistence DB connection ---- */
