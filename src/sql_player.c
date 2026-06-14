@@ -6015,6 +6015,24 @@ bool sql_load_all_corpses(void)
 		if (row[27])
 			obj->condition = atoi(row[27]);
 
+		// v19 diff columns - NULL means use prototype value from read_object()
+		if (row[30])
+			obj->wear_flags = atoi(row[30]);
+		if (row[31])
+			obj->type = atoi(row[31]);
+		if (row[32])
+			obj->material = atoi(row[32]);
+		if (row[33])
+			obj->bitvector = strtoul(row[33], NULL, 10);
+		if (row[34])
+			obj->bitvector2 = strtoul(row[34], NULL, 10);
+		if (row[35])
+			obj->bitvector3 = strtoul(row[35], NULL, 10);
+		if (row[36])
+			obj->bitvector4 = strtoul(row[36], NULL, 10);
+		if (row[37])
+			obj->bitvector5 = strtoul(row[37], NULL, 10);
+
 		char owner_ref[32];
 		snprintf(owner_ref, sizeof(owner_ref), "%d", cur_corpse->value[CORPSE_SAVEID]);
 		if (!sql_persistence_item_owner_matches(saved_uid, "corpse", owner_ref, "sql_load_all_corpses"))
