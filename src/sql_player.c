@@ -3181,44 +3181,8 @@ bool sql_load_player_items(P_char ch)
 			obj->action_description = str_action;
 			obj->str_mask |= STRUNG_DESC3;
 		}
-		if (row[18])
-			obj->wear_flags = atoi(row[18]);
-		if (row[19])
-			obj->type = atoi(row[19]);
-		if (row[20])
-			obj->material = atoi(row[20]);
-		if (row[21])
-			obj->bitvector = strtoul(row[21], NULL, 10);
-		if (row[22])
-			obj->bitvector2 = strtoul(row[22], NULL, 10);
-		if (row[23])
-			obj->bitvector3 = strtoul(row[23], NULL, 10);
-		if (row[24])
-			obj->bitvector4 = strtoul(row[24], NULL, 10);
-		if (row[25])
-			obj->bitvector5 = strtoul(row[25], NULL, 10);
 
-
-		if (row[18])
-			obj->wear_flags = atoi(row[18]);
-		if (row[19])
-			obj->type = atoi(row[19]);
-		if (row[20])
-			obj->material = atoi(row[20]);
-		if (row[21])
-			obj->bitvector = strtoul(row[21], NULL, 10);
-		if (row[22])
-			obj->bitvector2 = strtoul(row[22], NULL, 10);
-		if (row[23])
-			obj->bitvector3 = strtoul(row[23], NULL, 10);
-		if (row[24])
-			obj->bitvector4 = strtoul(row[24], NULL, 10);
-		if (row[25])
-			obj->bitvector5 = strtoul(row[25], NULL, 10);
-
-
-
-		// restore bitvectors (NULL in db means use prototype value)
+		// restore bitvectors		// restore bitvectors (NULL in db means use prototype value)
 		obj->bitvector  = sql_row_ulong(row, col++, obj->bitvector);
 		obj->bitvector2 = sql_row_ulong(row, col++, obj->bitvector2);
 		obj->bitvector3 = sql_row_ulong(row, col++, obj->bitvector3);
