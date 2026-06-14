@@ -3182,7 +3182,7 @@ bool sql_load_player_items(P_char ch)
 			obj->str_mask |= STRUNG_DESC3;
 		}
 
-		// restore bitvectors		// restore bitvectors (NULL in db means use prototype value)
+		// restore bitvectors and item_material (NULL in db means use prototype value)
 		obj->bitvector  = sql_row_ulong(row, col++, obj->bitvector);
 		obj->bitvector2 = sql_row_ulong(row, col++, obj->bitvector2);
 		obj->bitvector3 = sql_row_ulong(row, col++, obj->bitvector3);
