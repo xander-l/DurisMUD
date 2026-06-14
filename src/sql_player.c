@@ -304,6 +304,7 @@ static void sql_format_item_diff_fields_and_free_proto(
 	P_obj obj,
 	char  *wear_str,
 	char  *type_str,
+	char  *material_str,
 	char  *bv1_str,
 	char  *bv2_str,
 	char  *bv3_str,
@@ -318,6 +319,11 @@ static void sql_format_item_diff_fields_and_free_proto(
 		strcpy(wear_str, "0");
 
 	snprintf(type_str, 16, "%d", obj->type);
+
+	if (proto && obj->material != proto->material)
+		snprintf(material_str, 16, "%d", obj->material);
+	else
+		strcpy(material_str, "NULL");
 
 	if (proto && obj->bitvector != proto->bitvector)
 		snprintf(bv1_str, 32, "%lu", obj->bitvector);
@@ -1621,9 +1627,9 @@ static int sql_save_single_item_get_id(int pid, P_obj obj, int equip_slot, int c
 	else
 		strcpy(action_str, "NULL");
 
-	char wear_str[32], type_str[16], bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
+	char wear_str[32], type_str[16], material_str[16], bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
 	/* shared helper; also frees the loaded proto via extract_obj() */
-	sql_format_item_diff_fields_and_free_proto(obj, wear_str, type_str, bv1_str, bv2_str, bv3_str, bv4_str, bv5_str);
+	sql_format_item_diff_fields_and_free_proto(obj, wear_str, type_str, material_str, bv1_str, bv2_str, bv3_str, bv4_str, bv5_str);
 
 	// build the query
 	char query[8192];
@@ -1635,14 +1641,14 @@ static int sql_save_single_item_get_id(int pid, P_obj obj, int equip_slot, int c
 	         "value0, value1, value2, value3, value4, value5, value6, value7, "
 	         "name, short_descr, description, action_descr, "
 	         "bitvector1, bitvector2, bitvector3, bitvector4, bitvector5, "
-	         "obj_uid, item_condition"
+	         "item_material, obj_uid, item_condition"
 	         ") VALUES ("
 	         "%d, %d, %d, %s, 1, "
 	         "%d, %d, %ld, %u, %s, %s, "
 	         "%d, %d, %d, %d, %d, %d, %d, %d, "
 	         "%s, %s, %s, %s, "
 	         "%s, %s, %s, %s, %s, "
-	         "%lu, %d"
+	         "%s, %lu, %d"
 	         ")",
 	         pid,
 	         vnum,
@@ -1654,6 +1660,7 @@ static int sql_save_single_item_get_id(int pid, P_obj obj, int equip_slot, int c
 	         obj->extra_flags,
 	         wear_str,
 	         type_str,
+	         material_str,
 	         obj->value[0],
 	         obj->value[1],
 	         obj->value[2],
@@ -1994,6 +2001,10 @@ static int sql_save_single_pet_item(int pet_id, P_obj obj, int equip_slot, int c
 	else
 		strcpy(action_str, "NULL");
 
+	// shared helper for diff-from-prototype fields (wear_flags, item_type, item_material, bitvectors)
+	char wear_str[32], type_str[16], material_str[16], bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
+	sql_format_item_diff_fields_and_free_proto(obj, wear_str, type_str, material_str, bv1_str, bv2_str, bv3_str, bv4_str, bv5_str);
+
 	char query[8192];
 	snprintf(query,
 	         sizeof(query),
@@ -2001,12 +2012,14 @@ static int sql_save_single_pet_item(int pet_id, P_obj obj, int equip_slot, int c
 	         "pet_id, vnum, equip_slot, container_id, "
 	         "weight, cost, timer, extra_flags, "
 	         "value0, value1, value2, value3, value4, value5, value6, value7, "
-	         "name, short_descr, description, action_descr, wear_flags, item_type, bitvector1, bitvector2, bitvector3, bitvector4, bitvector5"
+	         "name, short_descr, description, action_descr, wear_flags, item_type, bitvector1, bitvector2, bitvector3, bitvector4, bitvector5, "
+	         "item_material"
 	         ") VALUES ("
 	         "%d, %d, %d, %s, "
 	         "%d, %d, %ld, %lu, "
 	         "%d, %d, %d, %d, %d, %d, %d, %d, "
-	         "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s"
+	         "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, "
+	         "%s"
 	         ")",
 	         pet_id,
 	         vnum,
@@ -2027,7 +2040,15 @@ static int sql_save_single_pet_item(int pet_id, P_obj obj, int equip_slot, int c
 	         name_str,
 	         short_str,
 	         desc_str,
-	         action_str);
+	         action_str,
+	         wear_str,
+	         obj->type,
+	         material_str,
+	         bv1_str,
+	         bv2_str,
+	         bv3_str,
+	         bv4_str,
+	         bv5_str);
 
 	if (esc_name)
 		free(esc_name);
@@ -3860,14 +3881,14 @@ static int sql_save_locker_item(int locker_id, int chest_id, P_obj obj, int cont
 	         "value0, value1, value2, value3, value4, value5, value6, value7, "
 	         "name, short_descr, description, action_descr, "
 	         "bitvector1, bitvector2, bitvector3, bitvector4, bitvector5, "
-	         "obj_uid, item_condition"
+	         "item_material, obj_uid, item_condition"
 	         ") VALUES ("
 	         "%d, %s, %d, %s, 1, "
 	         "%d, %d, %ld, %lu, %s, %d, "
 	         "%d, %d, %d, %d, %d, %d, %d, %d, "
 	         "%s, %s, %s, %s, "
 	         "%s, %s, %s, %s, %s, "
-	         "%lu, %d"
+	         "%d, %lu, %d"
 	         ")",
 	         locker_id,
 	         chest_id_str,
@@ -3879,6 +3900,7 @@ static int sql_save_locker_item(int locker_id, int chest_id, P_obj obj, int cont
 	         (unsigned long)obj->extra_flags,
 	         wear_str,
 	         obj->type,
+	         obj->material,
 	         obj->value[0],
 	         obj->value[1],
 	         obj->value[2],
@@ -5442,9 +5464,10 @@ static int sql_save_corpse_item(int corpse_id, int save_id, P_obj obj, int conta
 	// See sql_format_item_diff_fields_and_free_proto().
 	char wear_str[32];
 	char type_str[16];
+	char material_str[16];
 	char bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
 	sql_format_item_diff_fields_and_free_proto(
-		obj, wear_str, type_str,
+		obj, wear_str, type_str, material_str,
 		bv1_str, bv2_str, bv3_str, bv4_str, bv5_str);
 
 	snprintf(query,
@@ -5453,12 +5476,13 @@ static int sql_save_corpse_item(int corpse_id, int save_id, P_obj obj, int conta
 	         "corpse_id, vnum, item_type, container_id, quantity, "
 	         "weight, cost, timer, extra_flags, "
 	         "value0, value1, value2, value3, value4, value5, value6, value7, "
-	         "name, short_descr, description, action_descr, wear_flags, item_type, bitvector1, bitvector2, bitvector3, bitvector4, bitvector5, obj_uid, item_condition"
+	         "name, short_descr, description, action_descr, wear_flags, item_type, bitvector1, bitvector2, bitvector3, bitvector4, bitvector5, "
+	         "item_material, obj_uid, item_condition"
 	         ") VALUES ("
 	         "%d, %d, %d, %s, 1, "
 	         "%d, %d, %ld, %lu, "
 	         "%d, %d, %d, %d, %d, %d, %d, %d, "
-	         "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %lu, %d"
+	         "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %lu, %d"
 	         ")",
 	         corpse_id,
 	         vnum,
@@ -5482,6 +5506,7 @@ static int sql_save_corpse_item(int corpse_id, int save_id, P_obj obj, int conta
 	         action_str,
 	         wear_str,
 	         type_str,
+	         material_str,
 	         bv1_str,
 	         bv2_str,
 	         bv3_str,
@@ -6098,9 +6123,10 @@ static int sql_save_shopkeeper_item(int shopkeeper_id, P_obj obj, int equip_slot
 	// See sql_format_item_diff_fields_and_free_proto().
 	char wear_str[32];
 	char type_str[16];
+	char material_str[16];
 	char bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
 	sql_format_item_diff_fields_and_free_proto(
-		obj, wear_str, type_str,
+		obj, wear_str, type_str, material_str,
 		bv1_str, bv2_str, bv3_str, bv4_str, bv5_str);
 
 	snprintf(query,
@@ -6109,12 +6135,16 @@ static int sql_save_shopkeeper_item(int shopkeeper_id, P_obj obj, int equip_slot
 	         "shopkeeper_id, vnum, equip_slot, container_id, quantity, "
 	         "weight, cost, timer, extra_flags, "
 	         "value0, value1, value2, value3, value4, value5, value6, value7, "
-	         "name, short_descr, description, action_descr"
+	         "name, short_descr, description, action_descr, "
+	         "wear_flags, item_type, item_material, "
+	         "bitvector1, bitvector2, bitvector3, bitvector4, bitvector5"
 	         ") VALUES ("
 	         "%d, %d, %d, %s, 1, "
 	         "%d, %d, %ld, %lu, "
 	         "%d, %d, %d, %d, %d, %d, %d, %d, "
-	         "%s, %s, %s, %s"
+	         "%s, %s, %s, %s, "
+	         "%s, %d, %s, "
+	         "%s, %s, %s, %s, %s"
 	         ")",
 	         shopkeeper_id,
 	         vnum,
@@ -6367,9 +6397,10 @@ static int sql_save_saved_item_recursive(const char *item_key, int room_vnum, P_
 	// See sql_format_item_diff_fields_and_free_proto().
 	char wear_str[32];
 	char type_str[16];
+	char material_str[16];
 	char bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
 	sql_format_item_diff_fields_and_free_proto(
-		obj, wear_str, type_str,
+		obj, wear_str, type_str, material_str,
 		bv1_str, bv2_str, bv3_str, bv4_str, bv5_str);
 
 	snprintf(query,
@@ -6378,12 +6409,14 @@ static int sql_save_saved_item_recursive(const char *item_key, int room_vnum, P_
 	         "item_key, room_vnum, vnum, container_id, quantity, "
 	         "weight, cost, timer, extra_flags, "
 	         "value0, value1, value2, value3, value4, value5, value6, value7, "
-	         "name, short_descr, description, action_descr, wear_flags, item_type, bitvector1, bitvector2, bitvector3, bitvector4, bitvector5"
+	         "name, short_descr, description, action_descr, wear_flags, item_type, bitvector1, bitvector2, bitvector3, bitvector4, bitvector5, "
+	         "item_material"
 	         ") VALUES ("
 	         "'%s', %d, %d, %s, 1, "
 	         "%d, %d, %ld, %lu, "
 	         "%d, %d, %d, %d, %d, %d, %d, %d, "
-	         "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s"
+	         "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, "
+	         "%s"
 	         ")",
 	         esc_key ? esc_key : "",
 	         room_vnum,
@@ -6407,6 +6440,7 @@ static int sql_save_saved_item_recursive(const char *item_key, int room_vnum, P_
 	         action_str,
 	         wear_str,
 	         type_str,
+	         material_str,
 	         bv1_str,
 	         bv2_str,
 	         bv3_str,
@@ -6548,9 +6582,10 @@ static int sql_save_siege_item_one(int room_vnum, P_obj obj, int container_id)
 	// See sql_format_item_diff_fields_and_free_proto().
 	char wear_str[32];
 	char type_str[16];
+	char material_str[16];
 	char bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
 	sql_format_item_diff_fields_and_free_proto(
-		obj, wear_str, type_str,
+		obj, wear_str, type_str, material_str,
 		bv1_str, bv2_str, bv3_str, bv4_str, bv5_str);
 
 	snprintf(query,
@@ -6559,12 +6594,14 @@ static int sql_save_siege_item_one(int room_vnum, P_obj obj, int container_id)
 	         "room_vnum, vnum, container_id, quantity, "
 	         "weight, cost, timer, extra_flags, "
 	         "value0, value1, value2, value3, value4, value5, value6, value7, "
-	         "name, short_descr, description, action_descr, wear_flags, item_type, bitvector1, bitvector2, bitvector3, bitvector4, bitvector5"
+	         "name, short_descr, description, action_descr, wear_flags, item_type, bitvector1, bitvector2, bitvector3, bitvector4, bitvector5, "
+	         "item_material"
 	         ") VALUES ("
 	         "%d, %d, %s, 1, "
 	         "%d, %d, %ld, %lu, "
 	         "%d, %d, %d, %d, %d, %d, %d, %d, "
-	         "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s"
+	         "%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, "
+	         "%s"
 	         ")",
 	         room_vnum,
 	         vnum,
@@ -6587,6 +6624,7 @@ static int sql_save_siege_item_one(int room_vnum, P_obj obj, int container_id)
 	         action_str,
 	         wear_str,
 	         type_str,
+	         material_str,
 	         bv1_str,
 	         bv2_str,
 	         bv3_str,
