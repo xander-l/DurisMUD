@@ -1,7 +1,7 @@
 # Implementation Plan: Multithreading Database Persistence
 
 **Branch:** `feature/multithreading-database-persistence`
-**Last Updated:** June 14, 2026
+**Last Updated:** June 14, 2026 (Phase 6 marked as draft/skipped)
 
 ---
 
@@ -175,9 +175,94 @@
 | Persistence lock hierarchy | ✅ | Documented |
 | `sql_persistence_item_owner_matches` test anchor fix | ✅ | Anchor verified — test finds real implementation via leading comment |
 | Monitoring / scalar tracking enhancements | ✅ | sql_zone_touch_finished implemented with async persistence queue pattern |
-| Other table files (`sql_mob`, `sql_room`, etc.) | ❌ | Not yet in scope |
+| Other table files (`sql_mob`, `sql_room`, etc.) | 📝 | Plan drafted as Phase 6 (refactor scope); deferred per user direction |
 | Performance optimization (query batching, connection pooling) | ❌ | |
 | Incremental save path (dirty flags, `db_item_id`) | ✅ | 16 regression tests: 11 mock behavioral + 5 source-grep guards |
+
+---
+
+## Phase 6: Refactor — Split `sql_player.c` into Focused Files *(DRAFT — skipped for now)*
+
+> **Status:** DRAFT — deferred. The refactor is well-scoped (see plan below) but the user has decided to skip it for now in favor of higher-impact work. All concrete steps remain documented for future activation.
+
+**Context:** `src/sql_player.c` is **9,209 lines** with ~120 functions covering 6+ unrelated domains. It's the largest file in the project and the dominant contributor to incremental compile times. This phase splits it into ~6 cohesive files grouped by entity/table family, with **zero behavior change**.
+
+### Target File Structure
+
+| # | New File | Lines | Domain | Key Functions |
+|---|---|---|---|---|
+| 1 | `src/sql_player.c` | ~1,700 | **Player core** (txn, master save, status, record, migration) | `sql_begin_transaction`, `sql_save_player`, `sql_save/load_player_status`, `sql_load_player`, `sql_migrate_player`, etc. |
+| 2 | `src/sql_player_subtables.c` | ~800 | **Player sub-tables** (skills, affects, witnesses, shapechanges, recipes) | `sql_save/load_player_{skills,affects,witnesses,shapechanges,recipes}` |
+| 3 | `src/sql_player_items.c` | ~2,500 | **All 7 item tables + pets** (player_items, player_pet_items, locker_items, account_locker_items, shopkeeper_items, corpse_items, saved_items, siege_items) | `sql_save/load_player_items`, `sql_save/load_player_pets`, batch helpers, row helpers |
+| 4 | `src/sql_account.c` | ~1,500 | **Accounts** (accounts, bank, IPs, towns, kingdom) | `sql_save/load_account`, `sql_account_bank_*`, `sql_save/load_account_ips`, `sql_save/load_towns`, `sql_save_kingdom_land` |
+| 5 | `src/sql_locker.c` | ~1,100 | **Lockers + private chests** | `sql_save/load_locker`, `sql_locker_exists`, `sql_create_private_chest`, `sql_log_chest_activity`, `sql_save/load_private_chest_items` |
+| 6 | `src/sql_world_entities.c` | ~3,500 | **World entities** (corpses, shopkeepers, saved items, siege, ships, guilds, spellbook) | `sql_save/load_corpse`, `sql_save/restore_shopkeeper`, `sql_save_saved_item`, `sql_save/load_siege_list`, `sql_save/load_ship`, `sql_save/load_guild`, `sql_add_spellbook_mob` |
+
+**Total:** ~11,100 lines (vs 9,209 original). The ~1,900 line increase comes from per-file `__NO_MYSQL__` stub blocks (currently a single 122-line block at the top of `sql_player.c`).
+
+### Architecture Decisions
+
+1. **Headers:** `src/sql_player.h` stays as the single public header — all 50+ declarations remain there. No callers need to change.
+2. **Internal header:** New `src/sql_player_internal.h` for ~6 static helpers used across files:
+   - `sql_run_query` (currently static, used by many functions)
+   - `batch_append` (currently static, used by item save)
+   - `sql_format_item_diff_fields_and_free_proto` (used by all 7 item tables)
+   - `sql_row_int` / `sql_row_long` / `sql_row_ulong` / `sql_row_str` (used by all item load paths)
+   - `in_transaction` global: definition stays in `sql_player.c` (only file that mutates it); `extern bool in_transaction;` declared in `sql_player_internal.h`; **rule: no other file may write to it — read via `sql_in_transaction()` only**
+3. **`__NO_MYSQL__` stubs:** Each new file gets its own minimal stub block listing only the functions it defines. This preserves the existing compile-without-MySQL behavior.
+4. **Build system:** `src/Makefile` gets 5 new entries in the `OBJS` list (`sql_player_subtables.o`, `sql_player_items.o`, `sql_account.o`, `sql_locker.o`, `sql_world_entities.o`). The Makefile uses `-MMD -MP` for auto-generated dependencies, so no manual dep updates are needed for the new files.
+5. **No behavior change:** All function signatures, all SQL queries, all transaction boundaries, all error handling unchanged. This is purely a file-layout refactor.
+6. **Cross-file call graph:** `sql_save_player` (master, file 1) calls `sql_save_player_status` (file 1), `sql_save_player_items` (file 3), `sql_save_player_skills` (file 2), etc. This works because all sub-function declarations are in `sql_player.h` (public) or `sql_player_internal.h` (shared helpers). The **only cross-file concern is the master save function** — verify its callee declarations are all in one of these two headers.
+
+### Implementation Order
+
+Each step ends with a Docker build + full test run before moving to the next, so regressions are caught early.
+
+| Step | Task | Risk | Validation |
+|---|---|---|---|
+| 1 | Create `src/sql_player_internal.h` with shared static helpers | Low | Build + tests pass with no other changes |
+| 2 | Extract `sql_player_subtables.c` (smallest, lowest risk) | Low | Build + tests pass; sub-table save/load still works |
+| 3 | Extract `sql_account.c` | Low-Med | Build + tests pass; account flows still work |
+| 4 | Extract `sql_locker.c` | Medium | Build + tests pass; locker roundtrip still works |
+| 5 | Extract `sql_player_items.c` (largest item domain) | Medium-High | Build + tests pass; v19+material+incremental save still works |
+| 6 | Extract `sql_world_entities.c` (everything else) | High | Build + tests pass; corpses, shopkeepers, ships, guilds all still work |
+| 7 | Update `src/Makefile` to compile all 6 files | — | Build succeeds |
+| 8 | Final code review + commit (one commit per extracted file, 5 commits total, so regressions can be bisected) | — | Tests pass, review approved |
+
+**Commit strategy:** One commit per extracted file (steps 2–6 = 5 commits). Each commit is preceded by a passing build+test run, so the history is bisectable. Final step (7) is its own commit.
+
+### Risks & Mitigations
+
+| Risk | Mitigation |
+|---|---|
+| Static helper used by moved function isn't in the new file's scope | Put in `sql_player_internal.h` and make non-static |
+| `__NO_MYSQL__` stub missing in new file causes linker error | Audit each new file's function list and replicate stubs |
+| Cross-file function ordering issue (forward decl) | Internal header has the right declarations; sql_player.h is included first |
+| `tests/db_write/Dockerfile.test` doesn't copy new .c files | Already uses `COPY src/` (entire src directory) — no change needed |
+| Test source-grep tests break (e.g. multi-table_consistency checks `src/sql_player.c` for specific patterns) | After split, some patterns move to other files. Need to update tests to check all sql_*.c files or specific new files |
+| `in_transaction` global accessed from multiple files | Keep in `sql_player.c`; add `extern` in internal header |
+| Function name collision (e.g., `alloc_temp_char`, `free_temp_char` are generic names) | Before extracting each file, grep the rest of `src/` for the function name; if found, rename or qualify |
+
+### Test Suite Updates — Migration Map
+
+| Test File | Patterns That Move | Update Strategy |
+|---|---|---|
+| `test_multi_table_consistency.c` | `INSERT INTO locker_items`, `INSERT INTO shopkeeper_items`, `INSERT INTO corpse_items`, `INSERT INTO saved_items`, `INSERT INTO siege_items` — all move to `sql_player_items.c`; locker save/load moves to `sql_locker.c` | Change grep target from `src/sql_player.c` to `src/sql_player.c OR src/sql_player_items.c OR src/sql_locker.c` for table-specific checks; `src/sql_*.c` glob for the "all 7 tables" check |
+| `test_transaction_rollback.c` | `sql_save_player_items`, `sql_save_locker`, `sql_save_corpse` (test anchor comments) — items to file 3, locker to file 5, corpse to file 6 | Move the test anchor comment with the function definition; update the source-grep target to the new file |
+| `test_incremental_save.c` | `OBJ_RFLAG_DIRTY_CONTAINER`, `all_items_have_db_ids`, `resave_dirty_containers` — all stay in file 3 (`sql_player_items.c`) | Update source-grep target from `src/sql_player.c` to `src/sql_player_items.c` |
+| `test_persistence_owner.c` | Already reads `src/sql.c` (which is not being split) | No change |
+| `test_v19_roundtrip.c` | Mock-based, no source-grep | No change |
+| `test_db_write.c` / `test_data_validation.c` / `test_game_scenarios.c` / `test_container_rescue.c` / `test_crash_stress.c` / `test_disconnect_flush.c` / `test_character_lifecycle.c` | Mock-based | No change |
+
+**Pre-implementation step:** Before extracting file 1, run each source-grep test against current code and record which patterns live in `sql_player.c` and at which line. After extraction, update the test's grep target to point at the new file. This avoids "test passes for the wrong reason" issues.
+
+### Out of Scope
+
+- **No new functionality** — pure file-layout refactor
+- **No API changes** — all declarations stay in `sql_player.h`
+- **No SQL schema changes**
+- **No transaction/batching improvements**
+- **`sql_mob` / `sql_room` as new files** — these would add new persistence for mob/room data not currently in SQL; explicitly deferred to a future phase
 
 ---
 
