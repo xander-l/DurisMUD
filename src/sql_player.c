@@ -4362,9 +4362,9 @@ static int sql_save_locker_item(int locker_id, int chest_id, P_obj obj, int cont
 	else
 		strcpy(action_str, "NULL");
 
-	char wear_str[32], type_str[16], bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
+	char wear_str[32], type_str[16], material_str[16], bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
 	/* type_str is unused here (locker INSERT formats item_type as %d) but the shared helper writes to it for signature uniformity */
-	sql_format_item_diff_fields_and_free_proto(obj, wear_str, type_str, bv1_str, bv2_str, bv3_str, bv4_str, bv5_str);
+	sql_format_item_diff_fields_and_free_proto(obj, wear_str, type_str, material_str, bv1_str, bv2_str, bv3_str, bv4_str, bv5_str);
 	char query[8192];
 	snprintf(query,
 	         sizeof(query),
@@ -5176,7 +5176,7 @@ bool sql_save_private_chest_items(int locker_id, int chest_id, P_obj chest_obj)
 	// cause chest data loss.
 	if (sql_in_transaction())
 	{
-		logit(LOG_ERR, "sql_save_private_chest_items: called from within an existing transaction - chest save skipped to avoid data loss");
+		logit(LOG_DEBUG, "sql_save_private_chest_items: called from within an existing transaction - chest save skipped to avoid data loss");
 		return false;
 	}
 
