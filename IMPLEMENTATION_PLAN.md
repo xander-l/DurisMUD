@@ -58,7 +58,7 @@
 | `player_granted_cmds` | ✅ | Batched REPLACE INTO |
 | `player_pets` save/load (core) | ✅ | Charm duration, mob vnum, room placement |
 | `sql_persistence_item_owner_matches` (function) | ✅ | Ownership verification for loaded items |
-| `sql_persistence_item_owner_matches` (test anchor) | 🔶 | Test expects anchor in `src/sql.c`; function may be elsewhere |
+| `sql_persistence_item_owner_matches` (test anchor) | ✅ | Test anchor in src/sql.c verified — real implementation found and tested |
 | `sql_load_item_extra_descr_from_table` | ✅ | Shared extra description loader |
 | `sql_load_item_affects_from_table` | ✅ | Shared affect loader |
 | Account management (`sql_save/load_account`, `sql_link_player_to_account`) | ✅ | |
@@ -173,7 +173,7 @@
 | Flush path on disconnect | ✅ | close_socket, actwiz.c, copyover.c, redis.c — all disconnect/crash paths wrap save in txn; sql_save_player uses own_txn |
 | Thread safety documentation (`THREAD_SAFETY.md`) | ✅ | Mutex inventory, lock hierarchy, ABBA prevention |
 | Persistence lock hierarchy | ✅ | Documented |
-| `sql_persistence_item_owner_matches` test anchor fix | 🔶 | Test expects anchor in `src/sql.c`; function may be elsewhere |
+| `sql_persistence_item_owner_matches` test anchor fix | ✅ | Anchor verified — test finds real implementation via leading comment |
 | Monitoring / scalar tracking enhancements | 🔶 | |
 | Other table files (`sql_mob`, `sql_room`, etc.) | ❌ | Not yet in scope |
 | Performance optimization (query batching, connection pooling) | ❌ | |
@@ -202,7 +202,7 @@
 
 | File | Purpose | Status |
 |---|---|---|
-| `src/sql.c` / `src/sql.h` | Core SQL utilities, connection management | 🔶 `sql_persistence_item_owner_matches` test anchor |
+| `src/sql.c` / `src/sql.h` | Core SQL utilities, connection management | ✅ All items complete |
 | `src/sql_player.c` / `src/sql_player.h` | Player + item save/load (7 item tables) | ✅ v19+material complete |
 | `src/sql_persistence_raw.c` | Raw persistence helpers | ✅ |
 | `THREAD_SAFETY.md` | Mutex inventory, lock hierarchy | ✅ |
