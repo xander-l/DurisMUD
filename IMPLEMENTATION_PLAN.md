@@ -170,7 +170,7 @@
 | Task | Status | Notes |
 |---|---|---|
 | Transaction wrappers for all save sub-functions | ✅ | All 7 sql_save_player_* + 4 locker/corpse helpers use own_txn; warn_outside_txn removed |
-| Flush path on disconnect | ✅ | close_socket/actwiz.c force-quit wrap final save in txn; sql_save_player uses own_txn |
+| Flush path on disconnect | ✅ | close_socket, actwiz.c, copyover.c, redis.c — all disconnect/crash paths wrap save in txn; sql_save_player uses own_txn |
 | Thread safety documentation (`THREAD_SAFETY.md`) | ✅ | Mutex inventory, lock hierarchy, ABBA prevention |
 | Persistence lock hierarchy | ✅ | Documented |
 | `sql_persistence_item_owner_matches` test anchor fix | 🔶 | Test expects anchor in `src/sql.c`; function may be elsewhere |

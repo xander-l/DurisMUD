@@ -419,7 +419,16 @@ void copyover_save(int mother_desc, int mother_desc_ssl, int ws_desc)
 		}
 
 		logit(LOG_STATUS, "copyover: saving %s with RENT_CRASH", GET_NAME(d->character));
-		do_save_silent(d->character, RENT_CRASH);
+		// Phase 5: wrap save in transaction
+		if (sql_begin_transaction())
+		{
+			do_save_silent(d->character, RENT_CRASH);
+			if (!sql_commit()) sql_rollback();
+		}
+		else
+		{
+			do_save_silent(d->character, RENT_CRASH);
+		}
 
 		if (d->websocket)
 		{
