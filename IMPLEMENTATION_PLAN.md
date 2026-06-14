@@ -169,7 +169,7 @@
 
 | Task | Status | Notes |
 |---|---|---|
-| Transaction wrappers for all save sub-functions | 🔶 | Some still use `warn_outside_txn` guard |
+| Transaction wrappers for all save sub-functions | ✅ | All 7 sql_save_player_* functions use own_txn pattern |
 | Flush path on disconnect | 🔶 | |
 | Thread safety documentation (`THREAD_SAFETY.md`) | ✅ | Mutex inventory, lock hierarchy, ABBA prevention |
 | Persistence lock hierarchy | ✅ | Documented |
