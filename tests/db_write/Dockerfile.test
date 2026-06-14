@@ -38,6 +38,8 @@ WORKDIR /duris
 COPY tests/db_write/ /duris/tests/db_write/
 COPY src/sql_player.c /duris/src/sql_player.c
 COPY src/sql.c /duris/src/sql.c
+COPY src/affects.c /duris/src/affects.c
+COPY src/config.h /duris/src/config.h
 
 # ---- Build the test suite ---------------------------------------------------
 # Convert any CRLF line endings (Windows checkouts) to LF so gcc handles

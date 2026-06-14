@@ -2,12 +2,12 @@
  * test_multi_table_consistency.c
  *
  * Source-grep regression guards verifying cross-table consistency
- * across all 7 item tables in sql_player.c.
+ * across all 8 item tables in sql_player.c.
  *
  * Tests verify:
- *   - All 7 table names are referenced
- *   - DELETE cleanup exists for 5 of 7 tables (player_pet_items
- *     and shopkeeper_items are cleaned via parent table cascading)
+ *   - All 8 item tables are referenced
+ *   - DELETE cleanup exists for 6 of 8 tables (player_pets,
+ *     shopkeeper_items cleaned via parent cascade)
  *   - obj_uid is preserved in INSERT statements
  *   - sql_persistence_item_owner_matches is called on item load
  *   - Transaction wrapping exists for multi-table save operations
@@ -67,12 +67,12 @@ static int load_source(void)
 }
 
 /* ------------------------------------------------------------------ */
-/*  Test 1: All 7 item table names are referenced.                    */
+/*  Test 1: All 8 item table names are referenced.                    */
 /* ------------------------------------------------------------------ */
 
 static void test_all_seven_tables_referenced(void)
 {
-    TEST_BEGIN("all 7 item tables referenced");
+    TEST_BEGIN("all 8 item tables referenced");
 
     if (!load_source()) {
         TEST_FAIL("cannot open src/sql_player.c");
@@ -94,6 +94,58 @@ static void test_all_seven_tables_referenced(void)
     }
 
     if (!missing) TEST_PASS();
+    TEST_END();
+}
+
+/* ------------------------------------------------------------------ */
+/*  Test 1b: player_pet_items has DELETE cleanup via player_pets.     */
+/* ------------------------------------------------------------------ */
+
+static void test_delete_player_pets_exists(void)
+{
+    TEST_BEGIN("DELETE FROM player_pets exists");
+    if (!load_source()) { TEST_FAIL("cannot open src/sql_player.c"); TEST_END(); return; }
+
+    const char *hit = strstr(g_src_buf, "DELETE FROM player_pets");
+    if (!hit) {
+        TEST_FAIL("player_pets: no DELETE FROM player_pets found");
+        TEST_END(); return;
+    }
+    TEST_PASS();
+    TEST_END();
+}
+
+/* ------------------------------------------------------------------ */
+/*  Test 1c: player_pet_item_affects table is referenced.             */
+/* ------------------------------------------------------------------ */
+
+static void test_player_pet_item_affects_referenced(void)
+{
+    TEST_BEGIN("player_pet_item_affects table referenced");
+    if (!load_source()) { TEST_FAIL("cannot open src/sql_player.c"); TEST_END(); return; }
+
+    if (!strstr(g_src_buf, "player_pet_item_affects")) {
+        TEST_FAIL("player_pet_item_affects not referenced in sql_player.c");
+        TEST_END(); return;
+    }
+    TEST_PASS();
+    TEST_END();
+}
+
+/* ------------------------------------------------------------------ */
+/*  Test 1d: player_pet_item_extra_descr table is referenced.         */
+/* ------------------------------------------------------------------ */
+
+static void test_player_pet_item_extra_descr_referenced(void)
+{
+    TEST_BEGIN("player_pet_item_extra_descr table referenced");
+    if (!load_source()) { TEST_FAIL("cannot open src/sql_player.c"); TEST_END(); return; }
+
+    if (!strstr(g_src_buf, "player_pet_item_extra_descr")) {
+        TEST_FAIL("player_pet_item_extra_descr not referenced in sql_player.c");
+        TEST_END(); return;
+    }
+    TEST_PASS();
     TEST_END();
 }
 
@@ -319,6 +371,9 @@ typedef struct { const char *name; void (*func)(void); } test_entry;
 
 static test_entry g_tests[] = {
     { "all_seven_tables_referenced",        test_all_seven_tables_referenced },
+    { "delete_player_pets_exists",          test_delete_player_pets_exists },
+    { "player_pet_item_affects_referenced", test_player_pet_item_affects_referenced },
+    { "player_pet_item_extra_descr_referenced", test_player_pet_item_extra_descr_referenced },
     { "delete_player_items_exists",         test_delete_player_items_exists },
     { "delete_locker_items_exists",         test_delete_locker_items_exists },
     { "delete_corpse_items_exists",         test_delete_corpse_items_exists },

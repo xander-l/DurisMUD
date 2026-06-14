@@ -24,6 +24,7 @@
 #include "test_multi_table_consistency.h"
 #include "test_sql_coverage.h"
 #include "test_batch_save_stress.h"
+#include "test_pet_lifecycle.h"
 
 static void list_tests(void)
 {
@@ -236,6 +237,19 @@ static void list_tests(void)
     printf("    batch_final_flush_exists\n");
     printf("    batch_offset_skips_single_saved\n");
     printf("    batch_caller_uses_batch_all\n");
+    printf("\n  Pet Lifecycle:\n");
+    printf("    pet_save_real_impl\n");
+    printf("    pet_load_real_impl\n");
+    printf("    pet_crash_only_save\n");
+    printf("    pet_insert_columns\n");
+    printf("    pet_item_insert_columns\n");
+    printf("    pet_item_skip_norent\n");
+    printf("    pet_item_container_recurse\n");
+    printf("    charm_broken_link_exists\n");
+    printf("    pet_load_calls_setup_add_follower\n");
+    printf("    max_pets_defined\n");
+    printf("    pet_load_two_pass_items\n");
+    printf("    pet_noncrash_cleanup_only\n");
     printf("\n  SQL Coverage:\n");
     printf("    sql_pwipe_exists\n");
     printf("    sql_pwipe_verify_code\n");
@@ -303,6 +317,7 @@ int main(int argc, char *argv[])
         if (rc == -1) rc = test_multi_table_consistency_run_one(argv[1]);
         if (rc == -1) rc = test_sql_coverage_run_one(argv[1]);
         if (rc == -1) rc = test_batch_save_stress_run_one(argv[1]);
+        if (rc == -1) rc = test_pet_lifecycle_run_one(argv[1]);
         if (rc == -1) {
             fprintf(stderr, "Unknown test: '%s'\n", argv[1]);
             fprintf(stderr, "Run with -l to list all available tests.\n");
@@ -339,5 +354,7 @@ int main(int argc, char *argv[])
     failures += test_sql_coverage_run_all();
     printf("\n");
     failures += test_batch_save_stress_run_all();
+    printf("\n");
+    failures += test_pet_lifecycle_run_all();
     return failures > 0 ? 1 : 0;
 }

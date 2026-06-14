@@ -487,6 +487,15 @@ INSERT INTO player_item_affects (...) VALUES (...), (...), ...;
 **Total recommended effort:** 2.5 sessions across Phases 7a + 7b.
 **Expected impact:** Player save query count reduced from ~170 to ~20 (88% reduction). Login logging eliminates a `fork()` call. Async workers can write concurrently instead of serializing on one `persistenceDB` connection.
 
+**Out of scope — Redis `fork()` calls:** The two remaining `fork()` calls in
+`src/redis.c` (`flush_dirty_players` and `redis_save_world_state`) are
+intentionally left as-is. These fork to offload genuine heavyweight work (bulk
+player saves, multi-MB JSON serialization) that would block the game loop if
+run synchronously. Converting them to thread-pool workers would require
+character-state snapshotting and lock redesign — the complexity is not
+justified by the theoretical POSIX concern. See Phase 7c for the general
+async-save design.
+
 ---
 
 ## Phase 8: Schema Migration Runner
@@ -875,9 +884,204 @@ After moving `run_this_one.sql` into `duris.sql`, the remaining 26 files sort co
 
 ---
 
+## Phase 9: Live-Game Stress Tests — Pet Equipment, Charm Lifecycle, Crash Recovery
+
+**Effort:** 3.5–4.5 sessions | **Risk:** Medium | **Files:** New test files + existing test harness extensions
+
+**Context:** All 12 existing test files (125+ tests) pass, but they share a fundamental limitation: they are **mock-based**. They verify SQL *strings* but never execute against a real MySQL database and never exercise the full game loop. The pet save/load path (`sql_save_player_pets` / `sql_load_player_pets`) has zero dedicated tests despite being critical for crash recovery.
+
+**Key scenarios not covered by existing tests:**
+- Pet with equipped weapon + armor → crash save → reload → all equipment restored
+- Pet with items in a container (bag on pet containing potions) → nested save/load
+- Charm expires → `charm_broken` fires → `clear_links(pet, LNK_PET)` → save → pet equipment NOT loaded for former owner
+- Pet killed → items drop to room/corpse → ownership chain tracked in `persistence_item_events`
+- Copyover recovery — pets saved/restored from descriptor data (separate path from SQL)
+- `MAX_PETS = 5` — save 5 pets with equipment, crash, all 5 restored
+
+### Pet/Charm Architecture Summary
+
+**Save path** (`sql_save_player_pets` in `sql_player.c:2475-2599`):
+1. Only saves on `RENT_CRASH` / `RENT_CRASH2` — normal logout DELETEs pet rows
+2. Iterates `ch->followers`, skips non-NPC, gets `mob_vnum` + `room_vnum` + `charm_duration`
+3. `INSERT INTO player_pets (owner_pid, mob_vnum, room_vnum, charm_duration, pet_order)`
+4. Per pet: saves equipment (`pet->equipment[i]`) + inventory (`pet->carrying`) into `player_pet_items`
+5. Per item: saves affects (`player_pet_item_affects`) + extra_descrs (`player_pet_item_extra_descr`)
+6. All wrapped in transaction (`own_txn` if not already in one)
+
+**Load path** (`sql_load_player_pets` in `sql_player.c:2603-2865`):
+1. `SELECT * FROM player_pets WHERE owner_pid = ?`
+2. Per pet row: `read_mobile(pet_rnum, REAL)`, `char_to_room`, `setup_pet(charm_duration, PET_NOAGGRO)`, `add_follower`
+3. `SELECT * FROM player_pet_items WHERE pet_id = ?`
+4. Two-pass item load: first create all items, then place them (handles container parents)
+5. After load: `DELETE FROM player_pets WHERE owner_pid = ?` (cleanup)
+
+**Charm lifecycle** (`magic.c:8030 charm_generic`, `affects.c:2816 charm_broken`):
+- `charm_generic`: clears victim's existing pets, sets `AFF_CHARM`, calls `setup_pet` + `add_follower`
+- `charm_broken` (via `LNK_PET` link): fires when charm expires, calls `stop_follower` + `clear_links`
+- On logout: follower pets are `extract_char`'d (items drop to room) — NOT saved to DB
+- On crash: `sql_save_player_pets` runs with `RENT_CRASH` — pets + items saved for recovery
+
+### Phase 9a: Mock-Based Pet Lifecycle Tests *(recommended first)*
+
+**Effort:** 1 session | **Risk:** Low | **Files:** New `tests/db_write/test_pet_lifecycle.c`/`.h`
+
+These are source-grep + SQL-pattern verification tests, same approach as the existing 12 test files. No MySQL needed — they verify the production source code contains the correct patterns.
+
+#### Test 1: Source-grep — pet save function exists and is not a stub
+
+```c
+// Verify sql_save_player_pets() is the real implementation, not a return-false stub
+// Anchored on leading comment: "pet save - save all player's pets with equipment"
+// Must contain: INSERT INTO player_pets, player_pet_items, DELETE FROM player_pets
+```
+
+#### Test 2: Source-grep — pet load function exists and is not a stub
+
+```c
+// Verify sql_load_player_pets() is the real implementation
+// Anchored on leading comment: "pet load - restore all player's pets with equipment"
+// Must contain: SELECT FROM player_pets, read_mobile, setup_pet, SELECT FROM player_pet_items
+```
+
+#### Test 3: Source-grep — crash-only save guard
+
+```c
+// Verify sql_save_player_pets only saves on RENT_CRASH / RENT_CRASH2
+// Must contain: if (save_type != RENT_CRASH && save_type != RENT_CRASH2)
+// On non-crash: DELETE FROM player_pets (cleanup), return true
+```
+
+#### Test 4: Mock — pet save INSERT SQL generation
+
+```c
+// Verify sql_save_player_pets generates:
+// - INSERT INTO player_pets (owner_pid, mob_vnum, room_vnum, charm_duration, pet_order)
+// - INSERT INTO player_pet_items (pet_id, vnum, equip_slot, container_id, ... 28 columns)
+// - INSERT INTO player_pet_item_affects (item_id, location, modifier)
+// - INSERT INTO player_pet_item_extra_descr (item_id, keyword, description)
+```
+
+#### Test 5: Mock — pet item save skips ITEM_NORENT
+
+```c
+// Verify sql_save_single_pet_item checks IS_SET(obj->extra_flags, ITEM_NORENT)
+// and returns 0 (skip) for non-rentable items
+```
+
+#### Test 6: Mock — pet item save recurses into containers
+
+```c
+// Verify sql_save_single_pet_item recurses into obj->contains
+// (container contents are saved recursively)
+```
+
+#### Test 7: Mock — charm_broken callback exists
+
+```c
+// Verify charm_broken() is defined and clears LNK_PET link
+// Anchored on: define_link(LNK_PET, "PET", charm_broken, ...)
+```
+
+#### Test 8: Mock — setup_pet called with charm duration
+
+```c
+// Verify sql_load_player_pets calls setup_pet(pet, ch, charm_duration, PET_NOAGGRO)
+// and add_follower(pet, ch) for each loaded pet
+```
+
+#### Test 9: Source-grep — MAX_PETS respected
+
+```c
+// Verify #define MAX_PETS 5 exists in config.h
+// Verify sql_save_player_pets handles up to MAX_PETS followers
+```
+
+#### Test 10: Source-grep — pet item load two-pass pattern
+
+```c
+// Verify sql_load_player_pets uses two-pass load:
+// Pass 1: create all items, store (db_id, obj) in temp array
+// Pass 2: place items (handles container parent references)
+```
+
+#### Test 11: Mock — pet save on crash preserves items for recovery
+
+```c
+// Full mock scenario:
+// 1. Player has pet Wolf with Iron Sword equipped + Health Potion in inventory
+// 2. Crash save (RENT_CRASH) → verify SQL writes pet + items + affects
+// 3. Crash recovery load → verify SELECT reads pet + items back
+// 4. After load, DELETE FROM player_pets cleans up
+```
+
+#### Test 12: Mock — normal save DELETEs pets (not crash)
+
+```c
+// Verify that on save_type != RENT_CRASH:
+// - DELETE FROM player_pets WHERE owner_pid = ?
+// - No pet INSERTs generated
+// - Returns true (cleanup only)
+```
+
+### Phase 9b: Multi-Table Consistency — player_pet_items
+
+**Effort:** 0.25 session | **Risk:** Low | **Files:** `tests/db_write/test_multi_table_consistency.c`
+
+Extend the existing multi-table consistency test to include `player_pet_items`:
+- DELETE-before-INSERT for player_pet_items
+- `obj_uid` column in player_pet_items
+- Transaction wrapping for pet item save
+- All 8 item tables referenced (was 7, now includes player_pet_items)
+
+### Phase 9c: Live DB Integration Tests *(requires MySQL)*
+
+**Effort:** 1.5–2 sessions | **Risk:** Medium | **Files:** New `tests/db_write/Dockerfile.test-mysql`, new test files
+
+**Architecture:** Extend the test Dockerfile to include `mysql-server`. The test binary:
+1. Starts `mysqld` in the container
+2. Creates the test database and runs schema migrations
+3. Initializes the MySQL connection (calls `initialize_mysql()`)
+4. Runs test scenarios that exercise actual save/load roundtrips
+5. Queries the DB directly to verify state after each scenario
+
+**Key test scenarios:**
+
+| Scenario | Save | Verify | Load | Verify |
+|---|---|---|---|---|
+| Pet with equipment, crash | `sql_save_player_pets(ch, RENT_CRASH)` | `SELECT * FROM player_pets` has 1 row; `player_pet_items` has equipment rows | `sql_load_player_pets(ch)` | Pet in room, equipment restored, DB cleaned up |
+| Pet with container items | Same as above | Container items saved with correct `container_id` FK | Same as above | Nested items restored in correct container |
+| 5 pets with equipment | Save all 5 | All 5 rows in `player_pets` | Load all 5 | All 5 in room with equipment |
+| Normal logout (not crash) | `sql_save_player_pets(ch, RENT_DEATH)` | `player_pets` has 0 rows | N/A | Items NOT loaded (pets were extracted) |
+| Charm breaks during crash recovery | Simulate: save pet, charm_broken, load | Pet row still in DB (was saved before charm broke) | Pet loads, but `charm_broken` already cleared link | Pet in room but not following; items dropped |
+| Player_pet_items v19+material roundtrip | Save item with all 28 columns | All columns match | Load item | `wear_flags`, `item_type`, `bitvector1-5`, `item_material` all correct |
+| Item with apostrophe in name | Save "O'Malley's Lucky Charm" on pet | Name escaped correctly | Load item | Name roundtrips correctly |
+
+### Phase 9d: Copyover Pet Recovery
+
+**Effort:** 0.5 session | **Risk:** Low | **Files:** New mock test in `test_pet_lifecycle.c`
+
+Copyover has a separate pet save/restore path (via descriptor data in `copyover.c:753-759`), not SQL. Mock test verifies:
+- `IS_PC_PET(ch)` is checked during copyover mob counting
+- Pets are skipped from `write_mob_entry` (saved per-descriptor instead)
+- `setup_pet` + `add_follower` called during copyover recovery
+
+### Phase 9 Summary
+
+| Sub-phase | Task | Effort | Risk | Priority |
+|---|---|---|---|---|
+| 9a | Mock-based pet lifecycle tests (12 tests) | 1 session | Low | HIGH |
+| 9b | Multi-table consistency — add player_pet_items | 0.25 session | Low | HIGH |
+| 9c | Live DB integration tests | 1.5–2 sessions | Medium | Medium |
+| 9d | Copyover pet recovery mock tests | 0.5 session | Low | Low |
+
+**Total recommended effort:** 3.25–3.75 sessions.
+**Expected impact:** 12+ new regression tests for the pet save/load path, charm lifecycle edge cases, and crash recovery. Live DB tests provide the first end-to-end verification that save→crash→load actually works correctly.
+
+---
+
 ## Summary
 
-All Phase 1–4 items complete. Phase 5: 7 of 9 items complete. Phase 6: 📝 deferred. Phase 7: 🚧 plan complete (implementation pending). Phase 8: 🚧 plan complete (implementation pending).
+All Phase 1–4 items complete. Phase 5: 7 of 9 items complete. Phase 6: 📝 deferred. Phase 7: 🚧 plan complete (implementation pending). Phase 8: 🚧 plan complete (implementation pending). Phase 9: 🚧 in progress (9a mock tests being built).
 
 Remaining to implement:
 - **Phase 7a-1:** Multi-row INSERT for player_items (0.5 session)
@@ -885,7 +1089,11 @@ Remaining to implement:
 - **Phase 7b-1:** Connection pool for async workers (1 session)
 - **Phase 7b-2:** Multi-statement batches (0.5 session)
 - **Phase 8:** Schema migration runner (0.5 session)
+- **Phase 9a:** Mock-based pet lifecycle tests (in progress)
+- **Phase 9b:** Multi-table consistency — player_pet_items
+- **Phase 9c:** Live DB integration tests
+- **Phase 9d:** Copyover pet recovery mock tests
 - **Phase 7c:** Async player save (deferred, 3–4 sessions)
 
-The plan covers 95+ individual tasks across 8 phases, supported by 13 test files and 125+ regression tests.
+The plan covers 110+ individual tasks across 9 phases, supported by 14 test files and 140+ regression tests.
 
