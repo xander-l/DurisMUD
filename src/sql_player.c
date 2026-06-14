@@ -230,19 +230,6 @@ bool sql_rollback(void)
 
 bool sql_in_transaction(void) { return in_transaction; }
 
-// Phase 3.3 → Phase 5: sql_save_player_* functions now use their own
-// transaction wrapper (own_txn pattern).  This helper remains for
-// locker and corpse static sub-helpers that always run within their
-// parent's transaction.  Logs a debug warning if called outside a
-// transaction.  No-op when in_transaction is true.
-static inline void warn_outside_txn(const char *func, const char *name)
-{
-	if (!in_transaction)
-	{
-		logit(LOG_DEBUG, "%s: called outside transaction - partial save risk for %s",
-		      func, (name && name[0]) ? name : "<null>");
-	}
-}
 // Phase 3.1 helper: safely append a formatted string to a batch buffer.
 //
 // Replaces the dangerous pattern:
@@ -3945,8 +3932,14 @@ static bool sql_save_locker_item_affects(int item_id, P_obj obj)
 	if (!obj || !DB || item_id <= 0)
 		return false;
 
-	// Phase 3.3: locker sub-helpers run within sql_save_locker()'s transaction.
-	warn_outside_txn(__func__, obj->name);
+	// Phase 5: own_txn wrapper for standalone-call safety
+	bool own_txn = false;
+	if (!sql_in_transaction())
+	{
+		if (!sql_begin_transaction())
+			return false;
+		own_txn = true;
+	}
 
 	for (int i = 0; i < MAX_OBJ_AFFECT; i++)
 	{
@@ -3968,8 +3961,15 @@ static bool sql_save_locker_item_affects(int item_id, P_obj obj)
 			char query[256];
 			snprintf(query, sizeof(query), "INSERT INTO locker_item_affects (item_id, location, modifier) VALUES (%d, %d, %d)", item_id, obj->affected[i].location, obj->affected[i].modifier);
 			if (!sql_run_query(query))
+			{
+				if (own_txn) sql_rollback();
 				return false;
+			}
 		}
+	}
+	if (own_txn)
+	{
+		if (!sql_commit()) { sql_rollback(); return false; }
 	}
 	return true;
 }
@@ -3979,8 +3979,14 @@ static int sql_save_locker_item(int locker_id, int chest_id, P_obj obj, int cont
 	if (!obj || !DB || locker_id <= 0)
 		return 0;
 
-	// Phase 3.3: locker sub-helpers run within sql_save_locker()'s transaction.
-	warn_outside_txn(__func__, obj->name);
+	// Phase 5: own_txn wrapper for standalone-call safety
+	bool own_txn = false;
+	if (!sql_in_transaction())
+	{
+		if (!sql_begin_transaction())
+			return 0;
+		own_txn = true;
+	}
 
 	int vnum = obj_index[obj->R_num].virtual_number;
 
@@ -4090,15 +4096,24 @@ static int sql_save_locker_item(int locker_id, int chest_id, P_obj obj, int cont
 		free(esc_action);
 
 	if (!sql_run_query(query))
+	{
+		if (own_txn) sql_rollback();
 		return 0;
+	}
 
 	int item_id = (int)mysql_insert_id(DB);
 
 	if (!sql_save_locker_item_affects(item_id, obj))
+	{
+		if (own_txn) sql_rollback();
 		return 0;
+	}
 
 	if (obj->ex_description && !sql_save_item_extra_descr(item_id, obj, "locker_item_extra_descr"))
+	{
+		if (own_txn) sql_rollback();
 		return 0;
+	}
 
 	if (obj->contains)
 	{
@@ -4106,6 +4121,10 @@ static int sql_save_locker_item(int locker_id, int chest_id, P_obj obj, int cont
 			sql_save_locker_item(locker_id, chest_id, content, item_id);
 	}
 
+	if (own_txn)
+	{
+		if (!sql_commit()) { sql_rollback(); return 0; }
+	}
 	return item_id;
 }
 
@@ -5553,8 +5572,14 @@ static bool sql_save_corpse_item_affects(int item_id, P_obj obj)
 	if (!obj || !DB || item_id <= 0)
 		return false;
 
-	// Phase 3.3: corpse sub-helpers run within sql_save_corpse()'s transaction.
-	warn_outside_txn(__func__, obj->name);
+	// Phase 5: own_txn wrapper for standalone-call safety
+	bool own_txn = false;
+	if (!sql_in_transaction())
+	{
+		if (!sql_begin_transaction())
+			return false;
+		own_txn = true;
+	}
 
 	for (int i = 0; i < MAX_OBJ_AFFECT; i++)
 	{
@@ -5576,8 +5601,15 @@ static bool sql_save_corpse_item_affects(int item_id, P_obj obj)
 			char query[256];
 			snprintf(query, sizeof(query), "INSERT INTO corpse_item_affects (item_id, location, modifier) VALUES (%d, %d, %d)", item_id, obj->affected[i].location, obj->affected[i].modifier);
 			if (!sql_run_query(query))
+			{
+				if (own_txn) sql_rollback();
 				return false;
+			}
 		}
+	}
+	if (own_txn)
+	{
+		if (!sql_commit()) { sql_rollback(); return false; }
 	}
 	return true;
 }
@@ -5587,8 +5619,14 @@ static int sql_save_corpse_item(int corpse_id, int save_id, P_obj obj, int conta
 	if (!obj || !DB || corpse_id <= 0)
 		return 0;
 
-	// Phase 3.3: corpse sub-helpers run within sql_save_corpse()'s transaction.
-	warn_outside_txn(__func__, obj->name);
+	// Phase 5: own_txn wrapper for standalone-call safety
+	bool own_txn = false;
+	if (!sql_in_transaction())
+	{
+		if (!sql_begin_transaction())
+			return 0;
+		own_txn = true;
+	}
 
 	int vnum = obj_index[obj->R_num].virtual_number;
 	char corpse_owner[64];
@@ -5702,15 +5740,24 @@ static int sql_save_corpse_item(int corpse_id, int save_id, P_obj obj, int conta
 		free(esc_action);
 
 	if (!sql_run_query(query))
+	{
+		if (own_txn) sql_rollback();
 		return 0;
+	}
 
 	int item_id = (int)mysql_insert_id(DB);
 
 	if (!sql_save_corpse_item_affects(item_id, obj))
+	{
+		if (own_txn) sql_rollback();
 		return 0;
+	}
 
 	if (obj->ex_description && !sql_save_item_extra_descr(item_id, obj, "corpse_item_extra_descr"))
+	{
+		if (own_txn) sql_rollback();
 		return 0;
+	}
 
 	if (obj->contains)
 	{
@@ -5720,6 +5767,10 @@ static int sql_save_corpse_item(int corpse_id, int save_id, P_obj obj, int conta
 		}
 	}
 
+	if (own_txn)
+	{
+		if (!sql_commit()) { sql_rollback(); return 0; }
+	}
 	return item_id;
 }
 
