@@ -49,3 +49,12 @@ etc/group
 etc/passwd
 etc/resolv.conf
 migrate_pfiles
+
+# Test binary artifacts
+tests/async/test_persistence
+tests/async/*.o
+
+# Throwaway refactor scripts (one-off Python scripts and dumps used during
+# large refactors; keep them out of git status)
+tmp_*.py
+tmp_*.txt
