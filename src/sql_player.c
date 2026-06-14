@@ -4717,7 +4717,8 @@ P_obj sql_load_private_chest_items(int locker_id, int chest_id)
 	         sizeof(query),
 	         "SELECT id, vnum, weight, cost, timer, extra_flags, wear_flags, item_type, "
 	         "value0, value1, value2, value3, value4, value5, value6, value7, "
-	         "name, short_descr, description, action_descr, obj_uid, item_condition "
+	         "name, short_descr, description, action_descr, obj_uid, item_condition, "
+	         "item_material "
 	         "FROM locker_items WHERE locker_id=%d AND container_id IS NULL AND chest_id=%d",
 	         locker_id,
 	         chest_id);
