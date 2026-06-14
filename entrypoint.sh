@@ -32,15 +32,19 @@ if [ ! -d /var/lib/mysql/mysql ]; then
     mysql -u root -e "GRANT ALL PRIVILEGES ON duris.* TO 'duris'@'%' WITH GRANT OPTION;"
     mysql -u root -e "FLUSH PRIVILEGES;"
 
-    echo "Importing schema..."
+    echo "Importing base schema..."
     mysql -u root duris_dev < /duris/src/duris.sql
     mysql -u root duris < /duris/src/duris.sql
     mysql -u root duris_dev < /duris/migrations/run_this_one.sql
     mysql -u root duris < /duris/migrations/run_this_one.sql
-    (mysql -u root duris_dev < /duris/sql/migrations/add_frag_leaderboard_tables.sql || true)
-    (mysql -u root duris < /duris/sql/migrations/add_frag_leaderboard_tables.sql || true)
-    (mysql -u root duris_dev < /duris/migrations/schema_migration_v16_item_events.sql || true)
-    (mysql -u root duris < /duris/migrations/schema_migration_v16_item_events.sql || true)
+
+    # ---- Incremental migrations ----------------------------------------
+    # When MIGRATION_AUTO_RUNNER is defined in CFLAGS, the MUD binary
+    # handles all incremental migrations during boot (Phase 8).
+    # When the flag is off, uncomment the lines below for shell-level
+    # migration execution.
+    # (mysql -u root duris_dev < /duris/migrations/schema_migration_v16_item_events.sql || true)
+    # (mysql -u root duris < /duris/migrations/schema_migration_v16_item_events.sql || true)
 
     killall mysqld || true
     sleep 2

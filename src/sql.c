@@ -32,6 +32,7 @@
 #include "specializations.h"
 #include "spells.h"
 #include "sql_player.h"
+#include "sql_migrate.h"
 #include "timers.h"
 #include "persistence_queue.h"
 #include "utility.h"
@@ -318,6 +319,15 @@ int initialize_mysql()
 
 	sql_resetConnectTimes();
 	sql_populate_lookup_tables();
+
+	/* Phase 8: run schema migrations (auto-runner).
+	 * When MIGRATION_AUTO_RUNNER is not defined, this is a no-op
+	 * and shell scripts handle migrations instead. */
+	if (sql_run_migrations(DB, "migrations") != 0) {
+		logit(LOG_STATUS, "FATAL: schema migrations failed, aborting boot");
+		mysql_close(DB);
+		return -1;
+	}
 
 	/* Phase 7b-1: initialise the connection pool for async persistence
 	 * workers (item, scalar, large-payload event queues). */
@@ -1330,10 +1340,6 @@ bool sql_run_multi_query(const char *query)
 		sql_clear_results();
 		return false;
 	}
-
-	sql_clear_results();
-	return true;
-}
 
 	sql_clear_results();
 	return true;

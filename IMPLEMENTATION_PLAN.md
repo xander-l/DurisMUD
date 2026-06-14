@@ -498,11 +498,13 @@ async-save design.
 
 ---
 
-## Phase 8: Schema Migration Runner
+## Phase 8: Schema Migration Runner ✅
 
-**Effort:** 0.5 session | **Risk:** Low | **Files:** New `src/sql_migrate.c`/`.h`, `src/sql.c`, `cycle_mud.sh`, `entrypoint.sh`
+**Effort:** 0.5 session | **Risk:** Low | **Status:** ✅ Done
 
-**Context:** The codebase has 27 SQL migration files across `migrations/` and `sql/migrations/` directories, covering v1 through v20 plus named migrations (frag leaderboard, polls, epic zone payout, lookup tables). The base schema lives in `src/duris.sql` (32KB). Migrations use idempotency guards (`information_schema.columns` checks with prepared statements), but this is inconsistent — v19 is idempotent, v20 is raw `ALTER TABLE` without checks. On every MUD boot, `cycle_mud.sh` and `entrypoint.sh` manually list individual migration files to run and use `|| true` to swallow errors, masking genuine failures.
+**Files:** `src/sql_migrate.c`, `src/sql_migrate.h`, `src/sql.c`, `cycle_mud.sh`, `entrypoint.sh`
+
+**Context:** The codebase had 29 SQL migration files across `migrations/` and `sql/migrations/` directories, covering v1 through v20 plus named migrations (frag leaderboard, polls, epic zone payout, lookup tables). The base schema lives in `src/duris.sql` (32KB). Migrations use idempotency guards (`information_schema.columns` checks with prepared statements), but this is inconsistent — v19 is idempotent, v20 is raw `ALTER TABLE` without checks. On every MUD boot, `cycle_mud.sh` and `entrypoint.sh` manually list individual migration files to run and use `|| true` to swallow errors, masking genuine failures.
 
 ### Current State
 
@@ -1393,8 +1395,8 @@ Remaining to implement:
 - **Phase 7a-2:** Replace fork() with async queue (0.5 session)
 - **Phase 7b-1:** Connection pool for async workers (1 session)
 - **Phase 7b-2:** Multi-statement batches (0.5 session)
-- **Phase 8:** Schema migration runner (0.5 session)
-- **Phase 9c:** Live DB integration tests (1.5–2 sessions)
+- **Phase 8:** Schema migration runner ✅
+- **Phase 9c:** Live DB integration tests ✅
 - **Phase 9d:** Copyover pet recovery mock tests (0.5 session)
 - **Phase 9e:** Frag + item transfer tests (in progress)
 - **Phase 9f:** Locker stress tests (in progress)
