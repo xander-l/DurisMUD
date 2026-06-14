@@ -2528,7 +2528,7 @@ void enter_game(P_desc d)
 	// after the current wipe (as of 4/25/14) this should be removed - Torgal
 	//  clear_racial_skills(ch); - And removed. - Lohrr
 
-	/* Send GMCP data — telnet: gated by GMCP_ENABLED (IAC DO received).
+	/* Send GMCP data -- telnet: gated by GMCP_ENABLED (IAC DO received).
 	 * WebSocket: must also have completed the WS handshake to avoid
 	 * leaking GMCP frames into the login stream. */
 	if (!d->websocket || d->ws_handshake_done)
