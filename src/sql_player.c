@@ -230,11 +230,11 @@ bool sql_rollback(void)
 
 bool sql_in_transaction(void) { return in_transaction; }
 
-// Phase 3.3 helper: log a debug warning if a save sub-function is called
-// outside a transaction context. Use in all sql_save_player_* and locker
-// sub-helpers that must run within a transaction for atomicity.  No-op
-// when in_transaction is true.  Intended as a safety net for future
-// refactors that might accidentally bypass the parent transaction wrapper.
+// Phase 3.3 → Phase 5: sql_save_player_* functions now use their own
+// transaction wrapper (own_txn pattern).  This helper remains for
+// locker and corpse static sub-helpers that always run within their
+// parent's transaction.  Logs a debug warning if called outside a
+// transaction.  No-op when in_transaction is true.
 static inline void warn_outside_txn(const char *func, const char *name)
 {
 	if (!in_transaction)
@@ -672,7 +672,14 @@ bool sql_save_player_status(P_char ch, int type, int room)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
-	warn_outside_txn(__func__, ch ? GET_NAME(ch) : NULL);
+	// Start own transaction if not already in one (Phase 5)
+	bool own_txn = false;
+	if (!sql_in_transaction())
+	{
+		if (!sql_begin_transaction())
+			return false;
+		own_txn = true;
+	}
 
 	int pid = GET_PID(ch);
 
@@ -1004,6 +1011,7 @@ bool sql_save_player_status(P_char ch, int type, int room)
 	if (!sql_run_query(query))
 	{
 		sql_player_error("sql_save_player_status", query);
+		if (own_txn) sql_rollback();
 		return false;
 	}
 
@@ -1024,7 +1032,10 @@ bool sql_save_player_status(P_char ch, int type, int room)
 	// allocate buffer for batch inserts
 	char *batch = (char *)malloc(65536);
 	if (!batch)
+	{
+		if (own_txn) sql_rollback();
 		return false;
+	}
 
 	int  pos;
 	bool has_data;
@@ -1144,6 +1155,11 @@ bool sql_save_player_status(P_char ch, int type, int room)
 	}
 
 	free(batch);
+
+	if (own_txn)
+	{
+		if (!sql_commit()) { sql_rollback(); return false; }
+	}
 	return true;
 }
 
@@ -1154,11 +1170,21 @@ bool sql_save_player_skills(P_char ch)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
-	warn_outside_txn(__func__, ch ? GET_NAME(ch) : NULL);
+	// Start own transaction if not already in one (Phase 5)
+	bool own_txn = false;
+	if (!sql_in_transaction())
+	{
+		if (!sql_begin_transaction())
+			return false;
+		own_txn = true;
+	}
 
 	int pid = GET_PID(ch);
 	if (pid <= 0)
+	{
+		if (own_txn) sql_rollback();
 		return false;
+	}
 
 	// delete all skills for this player in one query
 	// Phase 3.4: DELETE replaced by REPLACE INTO player_skills
@@ -1167,7 +1193,10 @@ bool sql_save_player_skills(P_char ch)
 	// max ~100 skills learned * ~40 bytes per value = ~4kb, use 64kb to be safe
 	char *query = (char *)malloc(65536);
 	if (!query)
+	{
+		if (own_txn) sql_rollback();
 		return false;
+	}
 
 	int pos = snprintf(query, 65536, "REPLACE INTO player_skills (pid, skill_id, learned, taught) VALUES ");
 
@@ -1187,6 +1216,11 @@ bool sql_save_player_skills(P_char ch)
 		sql_run_query(query);
 
 	free(query);
+
+	if (own_txn)
+	{
+		if (!sql_commit()) { sql_rollback(); return false; }
+	}
 	return true;
 }
 
@@ -1197,17 +1231,30 @@ bool sql_save_player_affects(P_char ch)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
-	warn_outside_txn(__func__, ch ? GET_NAME(ch) : NULL);
+	// Start own transaction if not already in one (Phase 5)
+	bool own_txn = false;
+	if (!sql_in_transaction())
+	{
+		if (!sql_begin_transaction())
+			return false;
+		own_txn = true;
+	}
 
 	int pid = GET_PID(ch);
 	if (pid <= 0)
+	{
+		if (own_txn) sql_rollback();
 		return false;
+	}
 
 	// batch insert current affects
 	// each affect ~150 bytes, max ~50 affects = ~8kb, use 32kb to be safe
 	char *batch = (char *)malloc(32768);
 	if (!batch)
+	{
+		if (own_txn) sql_rollback();
 		return false;
+	}
 
 	int pos = snprintf(batch,
 	                   32768,
@@ -1242,6 +1289,11 @@ bool sql_save_player_affects(P_char ch)
 		sql_run_query(batch);
 
 	free(batch);
+
+	if (own_txn)
+	{
+		if (!sql_commit()) { sql_rollback(); return false; }
+	}
 	return true;
 }
 
@@ -1835,11 +1887,21 @@ bool sql_save_player_items(P_char ch)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
-	warn_outside_txn(__func__, ch ? GET_NAME(ch) : NULL);
+	// Start own transaction if not already in one (Phase 5)
+	bool own_txn = false;
+	if (!sql_in_transaction())
+	{
+		if (!sql_begin_transaction())
+			return false;
+		own_txn = true;
+	}
 
 	int pid = GET_PID(ch);
 	if (pid <= 0)
+	{
+		if (own_txn) sql_rollback();
 		return false;
+	}
 
 	bool save_equipment  = IS_SET(ch->runtime_flags, CHAR_RFLAG_DIRTY_EQUIPMENT);
 	bool save_inventory  = IS_SET(ch->runtime_flags, CHAR_RFLAG_DIRTY_INVENTORY);
@@ -1861,6 +1923,10 @@ bool sql_save_player_items(P_char ch)
 		{
 			resave_dirty_containers(pid, obj);
 		}
+		if (own_txn)
+		{
+			if (!sql_commit()) { sql_rollback(); return false; }
+		}
 		return true;
 	}
 
@@ -1876,7 +1942,10 @@ bool sql_save_player_items(P_char ch)
 		snprintf(del_query, sizeof(del_query), "DELETE FROM player_items WHERE pid=%d AND equip_slot>0", pid);
 	}
 	if (del_query[0] && !sql_run_query(del_query))
+	{
+		if (own_txn) sql_rollback();
 		return false;
+	}
 
 	bool success = true;
 
@@ -1919,6 +1988,18 @@ bool sql_save_player_items(P_char ch)
 		}
 	}
 
+	if (own_txn)
+	{
+		if (success)
+		{
+			if (!sql_commit()) { sql_rollback(); return false; }
+		}
+		else
+		{
+			sql_rollback();
+			return false;
+		}
+	}
 	return success;
 }
 
@@ -2091,7 +2172,14 @@ bool sql_save_player_pets(P_char ch, int save_type)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
-	warn_outside_txn(__func__, ch ? GET_NAME(ch) : NULL);
+	// Start own transaction if not already in one (Phase 5)
+	bool own_txn = false;
+	if (!sql_in_transaction())
+	{
+		if (!sql_begin_transaction())
+			return false;
+		own_txn = true;
+	}
 
 	// only save pets on crash-type saves
 	if (save_type != RENT_CRASH && save_type != RENT_CRASH2)
@@ -2104,18 +2192,28 @@ bool sql_save_player_pets(P_char ch, int save_type)
 			snprintf(del_query, sizeof(del_query), "DELETE FROM player_pets WHERE owner_pid=%d", pid);
 			sql_run_query(del_query);
 		}
+		if (own_txn)
+		{
+			if (!sql_commit()) { sql_rollback(); return false; }
+		}
 		return true;
 	}
 
 	int pid = GET_PID(ch);
 	if (pid <= 0)
+	{
+		if (own_txn) sql_rollback();
 		return false;
+	}
 
 	// delete existing pets for this player (cascade deletes items/affects)
 	char del_query[128];
 	snprintf(del_query, sizeof(del_query), "DELETE FROM player_pets WHERE owner_pid=%d", pid);
 	if (!sql_run_query(del_query))
+	{
+		if (own_txn) sql_rollback();
 		return false;
+	}
 
 	// iterate through followers and save npc pets
 	int pet_order = 0;
@@ -2188,6 +2286,10 @@ bool sql_save_player_pets(P_char ch, int save_type)
 		logit(LOG_DEBUG, "sql_save_player_pets: saved pet %s (vnum %d) for %s with %d hp", GET_NAME(pet), mob_vnum, GET_NAME(ch), GET_HIT(pet));
 	}
 
+	if (own_txn)
+	{
+		if (!sql_commit()) { sql_rollback(); return false; }
+	}
 	return true;
 }
 
@@ -2464,11 +2566,21 @@ bool sql_save_player_witnesses(P_char ch)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
-	warn_outside_txn(__func__, ch ? GET_NAME(ch) : NULL);
+	// Start own transaction if not already in one (Phase 5)
+	bool own_txn = false;
+	if (!sql_in_transaction())
+	{
+		if (!sql_begin_transaction())
+			return false;
+		own_txn = true;
+	}
 
 	int pid = GET_PID(ch);
 	if (pid <= 0)
+	{
+		if (own_txn) sql_rollback();
 		return false;
+	}
 
 	// delete existing witnesses
 	char del_query[128];
@@ -2496,6 +2608,10 @@ bool sql_save_player_witnesses(P_char ch)
 		sql_run_query(ins_query);
 	}
 
+	if (own_txn)
+	{
+		if (!sql_commit()) { sql_rollback(); return false; }
+	}
 	return true;
 }
 
@@ -2506,11 +2622,21 @@ bool sql_save_player_shapechanges(P_char ch)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
-	warn_outside_txn(__func__, ch ? GET_NAME(ch) : NULL);
+	// Start own transaction if not already in one (Phase 5)
+	bool own_txn = false;
+	if (!sql_in_transaction())
+	{
+		if (!sql_begin_transaction())
+			return false;
+		own_txn = true;
+	}
 
 	int pid = GET_PID(ch);
 	if (pid <= 0)
+	{
+		if (own_txn) sql_rollback();
 		return false;
+	}
 
 	// delete existing shapechanges
 	char del_query[128];
@@ -2519,7 +2645,13 @@ bool sql_save_player_shapechanges(P_char ch)
 
 	// insert current shapechanges
 	if (!has_innate(ch, INNATE_SHAPECHANGE) || !ch->only.pc->knownShapes)
+	{
+		if (own_txn)
+		{
+			if (!sql_commit()) { sql_rollback(); return false; }
+		}
 		return true;
+	}
 
 	for (struct char_shapechange_data *shape = ch->only.pc->knownShapes; shape; shape = shape->next)
 	{
@@ -2536,6 +2668,10 @@ bool sql_save_player_shapechanges(P_char ch)
 		sql_run_query(ins_query);
 	}
 
+	if (own_txn)
+	{
+		if (!sql_commit()) { sql_rollback(); return false; }
+	}
 	return true;
 }
 
