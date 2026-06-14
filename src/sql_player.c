@@ -3881,38 +3881,9 @@ static int sql_save_locker_item(int locker_id, int chest_id, P_obj obj, int cont
 	else
 		strcpy(action_str, "NULL");
 
-	char wear_str[32];
-	if (obj->wear_flags)
-		snprintf(wear_str, sizeof(wear_str), "%d", obj->wear_flags);
-	else
-		strcpy(wear_str, "0");
-
-	// bitvectors - compare with prototype, only save if different
-	P_obj proto = read_object(obj->R_num, REAL);
-	char  bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
-	if (proto && obj->bitvector != proto->bitvector)
-		snprintf(bv1_str, sizeof(bv1_str), "%lu", obj->bitvector);
-	else
-		strcpy(bv1_str, "NULL");
-	if (proto && obj->bitvector2 != proto->bitvector2)
-		snprintf(bv2_str, sizeof(bv2_str), "%lu", obj->bitvector2);
-	else
-		strcpy(bv2_str, "NULL");
-	if (proto && obj->bitvector3 != proto->bitvector3)
-		snprintf(bv3_str, sizeof(bv3_str), "%lu", obj->bitvector3);
-	else
-		strcpy(bv3_str, "NULL");
-	if (proto && obj->bitvector4 != proto->bitvector4)
-		snprintf(bv4_str, sizeof(bv4_str), "%lu", obj->bitvector4);
-	else
-		strcpy(bv4_str, "NULL");
-	if (proto && obj->bitvector5 != proto->bitvector5)
-		snprintf(bv5_str, sizeof(bv5_str), "%lu", obj->bitvector5);
-	else
-		strcpy(bv5_str, "NULL");
-	if (proto)
-		extract_obj(proto);
-
+	char wear_str[32], type_str[16], bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
+	/* type_str is unused here (locker INSERT formats item_type as %d) but the shared helper writes to it for signature uniformity */
+	sql_format_item_diff_fields_and_free_proto(obj, wear_str, type_str, bv1_str, bv2_str, bv3_str, bv4_str, bv5_str);
 	char query[8192];
 	snprintf(query,
 	         sizeof(query),
