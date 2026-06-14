@@ -4164,6 +4164,23 @@ static P_obj sql_load_locker_items_filtered(int locker_id, int container_id, int
 			obj->action_description = str_dup(row[19]);
 			obj->str_mask |= STRUNG_DESC3;
 		}
+		// bitvectors - compare with prototype, only load if different
+		if (row[22])
+			obj->bitvector = strtoul(row[22], NULL, 10);
+		if (row[23])
+			obj->bitvector2 = strtoul(row[23], NULL, 10);
+		if (row[24])
+			obj->bitvector3 = strtoul(row[24], NULL, 10);
+		if (row[25])
+			obj->bitvector4 = strtoul(row[25], NULL, 10);
+		if (row[26])
+			obj->bitvector5 = strtoul(row[26], NULL, 10);
+
+		// item_material - NULL means use prototype value
+		if (row[27])
+			obj->material = atoi(row[27]);
+
+
 
 		// restore obj_uid and condition
 		if (row[20] && strlen(row[20]) > 0)
