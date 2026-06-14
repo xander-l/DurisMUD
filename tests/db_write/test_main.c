@@ -19,6 +19,7 @@
 #include "test_persistence_owner.h"
 #include "test_transaction_rollback.h"
 #include "test_disconnect_flush.h"
+#include "test_v19_roundtrip.h"
 
 static void list_tests(void)
 {
@@ -156,6 +157,33 @@ static void list_tests(void)
     printf("    flush_all_flushes_every_pending\n");
     printf("    schedule_merges_existing_slot\n");
     printf("    full_queue_falls_back_to_sync_save\n");
+    printf("\n  v19+Material Roundtrip (Phase 3.5/3.6):\n");
+    printf("    save_player_items_individual_has_v19\n");
+    printf("    save_player_items_batch_has_v19\n");
+    printf("    save_player_pet_items_has_v19\n");
+    printf("    save_locker_items_has_v19\n");
+    printf("    save_shopkeeper_items_has_v19\n");
+    printf("    save_corpse_items_has_v19\n");
+    printf("    save_saved_items_has_v19\n");
+    printf("    save_siege_items_has_v19\n");
+    printf("    load_player_items_SELECT_has_v19\n");
+    printf("    load_player_pet_items_SELECT_has_v19\n");
+    printf("    load_locker_items_SELECT_has_v19\n");
+    printf("    load_shopkeeper_items_SELECT_has_v19\n");
+    printf("    load_corpse_items_SELECT_has_v19\n");
+    printf("    load_saved_items_SELECT_has_v19\n");
+    printf("    load_siege_items_SELECT_has_v19\n");
+    printf("    load_player_items_row_reads_v19\n");
+    printf("    load_player_pet_items_row_reads_v19\n");
+    printf("    load_locker_items_row_reads_v19\n");
+    printf("    load_shopkeeper_items_row_reads_v19\n");
+    printf("    load_corpse_items_row_reads_v19\n");
+    printf("    load_saved_items_row_reads_v19\n");
+    printf("    load_siege_items_row_reads_v19\n");
+    printf("    no_duplicate_row_read_blocks\n");
+    printf("    save_functions_call_format_helper\n");
+    printf("    no_type_flag_bug_in_load\n");
+    printf("    all_seven_tables_present\n");
 }
 
 int main(int argc, char *argv[])
@@ -192,6 +220,7 @@ int main(int argc, char *argv[])
         if (rc == -1) rc = test_persistence_owner_run_one(argv[1]);
         if (rc == -1) rc = test_transaction_rollback_run_one(argv[1]);
         if (rc == -1) rc = test_disconnect_flush_run_one(argv[1]);
+        if (rc == -1) rc = test_v19_roundtrip_run_one(argv[1]);
         if (rc == -1) {
             fprintf(stderr, "Unknown test: '%s'\n", argv[1]);
             fprintf(stderr, "Run with -l to list all available tests.\n");
@@ -218,5 +247,7 @@ int main(int argc, char *argv[])
     failures += test_transaction_rollback_run_all();
     printf("\n");
     failures += test_disconnect_flush_run_all();
+    printf("\n");
+    failures += test_v19_roundtrip_run_all();
     return failures > 0 ? 1 : 0;
 }
