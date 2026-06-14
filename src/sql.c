@@ -13,6 +13,7 @@
 #include "interp.h"
 #include "utils.h"
 #include "sql.h"
+#include "sql_pool.h"
 #include <math.h>
 #include <stdarg.h>
 #include <stdio.h>
@@ -129,6 +130,11 @@ static void sql_resetConnectTimes(void);
 
 // The global database handler
 MYSQL *DB;
+
+/* Phase 7b-1: persistenceDB replaced by connection pool (sql_pool.c).
+ * persistence_sql_mutex kept for backward compatibility — no longer
+ * needed for connection serialisation but still referenced by
+ * sql_persistence_raw.c for now. */
 MYSQL *persistenceDB = NULL;
 pthread_mutex_t persistence_sql_mutex = PTHREAD_MUTEX_INITIALIZER;
 
@@ -313,6 +319,14 @@ int initialize_mysql()
 
 	sql_resetConnectTimes();
 	sql_populate_lookup_tables();
+
+	/* Phase 7b-1: initialise the connection pool for async persistence
+	 * workers (item, scalar, large-payload event queues). */
+	if (sql_pool_init(SQL_POOL_DEFAULT_SIZE) != 0)
+	{
+		logit(LOG_STATUS, "Warning: connection pool init failed — persistence workers will use sync fallback.");
+		/* Non-fatal: the main DB connection still works. */
+	}
 
 	return 1;
 }
@@ -2308,10 +2322,21 @@ void sql_log_player_login(P_char ch, const char *status)
 /* ---- Persistence DB connection ---- */
 MYSQL *sql_persistence_connection(void)
 {
+	/* Phase 7b-1: prefer the connection pool.  Falls back to the
+	 * legacy persistenceDB singleton if the pool was never initialised
+	 * (sql_pool_acquire returns NULL when pool is NULL). */
+	MYSQL *conn = sql_pool_acquire();
+	if (conn)
+		return conn;
+
+	/* Legacy fallback: lazy-initialise the singleton.
+	 * Kept for bootstrap / early-start paths that run before
+	 * the pool is initialised (e.g. sql_populate_lookup_tables). */
 	if (!persistenceDB)
 	{
 		persistenceDB = mysql_init(NULL);
-		if (!persistenceDB) return NULL;
+		if (!persistenceDB)
+			return NULL;
 		if (!mysql_real_connect(persistenceDB, DB_HOST, DB_USER, DB_PASSWD, DB_NAME, DB_PORT, NULL, 0))
 		{
 			logit(LOG_DEBUG, "Persistence MySQL: sql_persistence_connection failed: %s", mysql_error(persistenceDB));
@@ -2321,6 +2346,21 @@ MYSQL *sql_persistence_connection(void)
 		}
 	}
 	return persistenceDB;
+}
+
+/* Phase 7b-1: return a connection previously acquired via
+ * sql_persistence_connection().  Pool connections go back to the pool;
+ * legacy singleton connections are a no-op (they're owned by the
+ * caller indefinitely). */
+void sql_persistence_release_connection(MYSQL *conn)
+{
+	if (!conn)
+		return;
+
+	/* If this connection came from the pool, release it.  The pool
+	 * checks pointer equality against its slots, so passing a
+	 * non-pool connection is harmless — it simply won't match. */
+	sql_pool_release(conn);
 }
 
 bool sql_persistence_write_item_event_line(const char *line)

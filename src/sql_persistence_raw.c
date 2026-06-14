@@ -21,7 +21,12 @@
 
 extern MYSQL *DB;
 
-/* Connection state is owned by sql.c; we just use it here. */
+#include "sql_pool.h"
+
+/* Connection state is owned by sql.c; we just use it here.
+ * persistenceDB is the legacy singleton fallback.
+ * persistence_sql_mutex is kept for backward compat but is no longer
+ * needed for connection serialisation (the pool handles that). */
 extern MYSQL *persistenceDB;
 extern pthread_mutex_t persistence_sql_mutex;
 
@@ -33,6 +38,13 @@ bool sql_persistence_execute_raw(const char *sql)
 	if (!sql || !*sql)
 		return FALSE;
 
+	/* Phase 7b-1: acquire from the connection pool.  Each persistence
+	 * worker thread gets its own connection, so we no longer need
+	 * persistence_sql_mutex here — the pool is internally synchronised.
+	 *
+	 * We keep the mutex lock/unlock for callers that still rely on it
+	 * for ordering guarantees, but the connection itself is now
+	 * independently owned per-call. */
 	pthread_mutex_lock(&persistence_sql_mutex);
 	db = sql_persistence_connection();
 	if (!db)
@@ -48,6 +60,10 @@ bool sql_persistence_execute_raw(const char *sql)
 		logit(LOG_DEBUG, "Persistence MySQL error in sql_persistence_execute_raw(): %s", mysql_error(db));
 		logit(LOG_DEBUG, "Persistence MySQL failed query (first 200 chars): %.200s", sql);
 	}
+
+	/* Phase 7b-1: release the connection back to the pool so other
+	 * worker threads can use it. */
+	sql_persistence_release_connection(db);
 
 	pthread_mutex_unlock(&persistence_sql_mutex);
 	return ret == 0;

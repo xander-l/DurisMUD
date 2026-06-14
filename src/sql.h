@@ -97,6 +97,7 @@ bool sql_persistence_write_item_event_line(const char *line);
 bool sql_persistence_write_scalar_event_line(const char *line);
 bool sql_persistence_write_large_event_line(const char *line);
 MYSQL *sql_persistence_connection(void);
+void    sql_persistence_release_connection(MYSQL *conn);
 bool sql_persistence_execute_raw(const char *sql);
 bool sql_persistence_item_owner_matches(unsigned long long item_uid,
                                         const char *owner_type,

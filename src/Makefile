@@ -12,7 +12,6 @@ LDFLAGS += -L/usr/lib/mysql
 CFLAGS = -g -std=c++20 -D_FORTIFY_SOURCE=0 -Wno-write-strings
 #CFLAGS += -D__NO_MYSQL__
 CFLAGS += -DTEST_MUD
-CFLAGS += -DTEST_PERSISTENCE
 
 # to turn on/off chaos mud, change the flag at the top of db.h
 #CFLAGS += -DCHAOS_MUD=1
@@ -153,6 +152,7 @@ OBJS =  $(SHIP_OBJS) \
 				 period.list.o \
 				 persistence_queue.o \
 				 sql_persistence_raw.o \
+				 sql_pool.o \
 				 poll.o \
 				 prompt.o \
 				 properties.o \
@@ -241,7 +241,6 @@ OBJS =  $(SHIP_OBJS) \
 				 racewar_stat_mods.o \
 				 nexus_stones.o \
 				 test_async.o \
-				 test_persistence.o \
 				 testcmd.o \
 				 wikihelp.o \
 				 reavers.o \
@@ -339,11 +338,6 @@ clean:
 
 debug: $(PROGS)
 	cd ..; ./gdbdms
-
-# Custom rule for test_persistence.o (lives in tests/async/)
-$(OBJDIR)/test_persistence.o: ../tests/async/test_persistence.c
-	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(INCLUDES) $(DEBUG) $(DEPFLAGS) -c $< -o $@
 
 # Auto-generated dependency files alongside objects
 DEPFILES := $(DMS_OBJS:.o=.d) $(PFILE_OBJS:.o=.d) $(SHARED_PFILE_OBJS:.o=.d)
