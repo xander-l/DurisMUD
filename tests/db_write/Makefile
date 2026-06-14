@@ -18,7 +18,7 @@ CFLAGS = -g -std=c11 -Wall -Wextra -pedantic \
          -DPRODUCTION_SOURCE_PATH=\"$(CURDIR)/../../src/sql_player.c\"
 
 TARGET = test_db_write
-SRCS   = test_db_write.c test_game_scenarios.c test_data_validation.c test_character_lifecycle.c test_crash_stress.c test_container_rescue.c test_persistence_owner.c test_transaction_rollback.c test_disconnect_flush.c test_v19_roundtrip.c test_incremental_save.c test_multi_table_consistency.c test_main.c
+SRCS   = test_db_write.c test_game_scenarios.c test_data_validation.c test_character_lifecycle.c test_crash_stress.c test_container_rescue.c test_persistence_owner.c test_transaction_rollback.c test_disconnect_flush.c test_v19_roundtrip.c test_incremental_save.c test_multi_table_consistency.c test_sql_coverage.c test_batch_save_stress.c test_main.c
 OBJS   = $(SRCS:.c=.o)
 
 LIBS   =

@@ -22,6 +22,8 @@
 #include "test_v19_roundtrip.h"
 #include "test_incremental_save.h"
 #include "test_multi_table_consistency.h"
+#include "test_sql_coverage.h"
+#include "test_batch_save_stress.h"
 
 static void list_tests(void)
 {
@@ -218,6 +220,48 @@ static void list_tests(void)
     printf("    txn_wrapping_save_player_items\n");
     printf("    txn_wrapping_save_locker\n");
     printf("    txn_wrapping_save_corpse\n");
+    printf("\n  Batch Save Stress:\n");
+    printf("    batch_function_exists\n");
+    printf("    batch_flatten_tree_exists\n");
+    printf("    batch_flat_item_has_single_saved\n");
+    printf("    batch_flatten_sets_single_saved\n");
+    printf("    batch_sub_batch_flush_threshold\n");
+    printf("    batch_sub_batch_flush_restart\n");
+    printf("    batch_unsigned_long_long_first_id\n");
+    printf("    batch_per_row_fallback_exists\n");
+    printf("    batch_per_row_detaches_contents\n");
+    printf("    batch_container_case_when_update\n");
+    printf("    batch_phase5_skips_single_saved\n");
+    printf("    batch_leading_comma_strip\n");
+    printf("    batch_final_flush_exists\n");
+    printf("    batch_offset_skips_single_saved\n");
+    printf("    batch_caller_uses_batch_all\n");
+    printf("\n  SQL Coverage:\n");
+    printf("    sql_pwipe_exists\n");
+    printf("    sql_pwipe_verify_code\n");
+    printf("    sql_pwipe_clears_zone_trophy\n");
+    printf("    sql_log_exists\n");
+    printf("    sql_log_inserts_log_entries\n");
+    printf("    sql_log_uses_vsnprintf\n");
+    printf("    sql_save_progress_exists\n");
+    printf("    sql_save_progress_inserts_progress\n");
+    printf("    sql_save_progress_column_order\n");
+    printf("    sql_modify_frags_exists\n");
+    printf("    sql_modify_frags_immortal_guard\n");
+    printf("    sql_modify_frags_updates_leaderboard\n");
+    printf("    sql_modify_frags_calls_save_progress\n");
+    printf("    sql_level_cap_exists\n");
+    printf("    sql_level_cap_selects_level_cap\n");
+    printf("    sql_level_cap_clamp_logic\n");
+    printf("    sql_check_level_cap_exists\n");
+    printf("    sql_check_level_cap_updates_level_cap\n");
+    printf("    sql_update_bind_data_exists\n");
+    printf("    sql_update_bind_data_upserts\n");
+    printf("    sql_get_bind_data_exists\n");
+    printf("    sql_get_bind_data_defaults_zero\n");
+    printf("    sql_update_level_exists\n");
+    printf("    sql_update_epics_exists\n");
+    printf("    sql_update_playtime_exists\n");
 }
 
 int main(int argc, char *argv[])
@@ -257,6 +301,8 @@ int main(int argc, char *argv[])
         if (rc == -1) rc = test_v19_roundtrip_run_one(argv[1]);
         if (rc == -1) rc = test_incremental_save_run_one(argv[1]);
         if (rc == -1) rc = test_multi_table_consistency_run_one(argv[1]);
+        if (rc == -1) rc = test_sql_coverage_run_one(argv[1]);
+        if (rc == -1) rc = test_batch_save_stress_run_one(argv[1]);
         if (rc == -1) {
             fprintf(stderr, "Unknown test: '%s'\n", argv[1]);
             fprintf(stderr, "Run with -l to list all available tests.\n");
@@ -289,5 +335,9 @@ int main(int argc, char *argv[])
     failures += test_incremental_save_run_all();
     printf("\n");
     failures += test_multi_table_consistency_run_all();
+    printf("\n");
+    failures += test_sql_coverage_run_all();
+    printf("\n");
+    failures += test_batch_save_stress_run_all();
     return failures > 0 ? 1 : 0;
 }

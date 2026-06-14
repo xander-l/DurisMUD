@@ -1876,6 +1876,368 @@ static void resave_dirty_containers(int pid, P_obj obj)
 	}
 }
 
+// Phase 7a-1: batched player item save — flattens entire item tree into one
+// multi-row INSERT, then fixes up container_id relationships and saves
+// affects/extra_descrs.  Replaces the per-item INSERT loop, reducing
+// ~170 individual queries to ~3 per save.
+
+// Structure for one item in the flattened tree
+struct flat_item {
+	P_obj obj;
+	P_obj parent;         // NULL for top-level items
+	int   equip_slot;     // 1..MAX_WEAR for equipment, 0 for inventory/container contents
+	bool  single_saved;   // true if saved via per-item fallback (affects/descr already handled)
+};
+
+// Recursively flatten item tree: pre-order traversal (parent before children)
+static bool flatten_item_tree(P_obj obj, P_obj parent, int equip_slot,
+                              struct flat_item **list, int *count, int *capacity)
+{
+	if (!obj || IS_SET(obj->extra_flags, ITEM_NORENT))
+		return true;
+
+	if (*count >= *capacity)
+	{
+		int new_cap = *capacity * 2;
+		struct flat_item *tmp = (struct flat_item *)realloc(*list, new_cap * sizeof(struct flat_item));
+		if (!tmp)
+			return false;  // old *list still valid — caller can inspect count
+		*list     = tmp;
+		*capacity = new_cap;
+	}
+
+	(*list)[*count].obj        = obj;
+	(*list)[*count].parent     = parent;
+	(*list)[*count].equip_slot = equip_slot;
+	(*list)[*count].single_saved = false;
+	(*count)++;
+
+	// Recurse into container contents
+	for (P_obj content = obj->contains; content; content = content->next_content)
+	{
+		if (!flatten_item_tree(content, obj, 0, list, count, capacity))
+			return false;
+	}
+
+	return true;
+}
+
+static bool sql_save_player_items_batch_all(int pid, P_char ch,
+                                            bool save_equipment, bool save_inventory)
+{
+	// ——— Phase 1: flatten item tree ———————————————————————————————————————————————————————————————
+	int cap = 128;
+	struct flat_item *flat = (struct flat_item *)malloc(cap * sizeof(struct flat_item));
+	if (!flat)
+		return false;
+
+	int count = 0;
+
+	// Equipment (equip_slot = 1..MAX_WEAR for the save query)
+	if (save_equipment || save_inventory)
+	{
+		for (int i = 0; i < MAX_WEAR; i++)
+		{
+			P_obj eq = ch->equipment[i] ? ch->equipment[i] : save_equip[i];
+			if (eq && !flatten_item_tree(eq, NULL, i + 1, &flat, &count, &cap))
+			{ free(flat); return false; }
+		}
+	}
+
+	// Inventory (equip_slot = 0)
+	if (save_inventory)
+	{
+		for (P_obj obj = ch->carrying; obj; obj = obj->next_content)
+			if (!flatten_item_tree(obj, NULL, 0, &flat, &count, &cap))
+		{ free(flat); return false; }
+	}
+
+	if (count == 0)
+	{
+		free(flat);
+		return true;   // nothing to save
+	}
+
+	// ——— Phase 2 & 3: build multi-row INSERTs in sub-batches —————————————————————————————
+	// Use 1MB buffer to respect MySQL max_allowed_packet (4MB default on 5.7).
+	// Large inventories automatically split across multiple INSERT statements.
+	const size_t BATCH_BUF_SIZE = 1048576;      // 1 MB
+	const int    FLUSH_THRESHOLD = 1000000;      // flush when approaching 1 MB
+	char  *batch = (char *)malloc(BATCH_BUF_SIZE);
+	if (!batch)
+	{
+		free(flat);
+		return false;
+	}
+
+	const char *insert_header = "INSERT INTO player_items ("
+	                   "pid, vnum, equip_slot, container_id, quantity, "
+	                   "weight, cost, timer, extra_flags, wear_flags, item_type, "
+	                   "value0, value1, value2, value3, value4, value5, value6, value7, "
+	                   "name, short_descr, description, action_descr, "
+	                   "bitvector1, bitvector2, bitvector3, bitvector4, bitvector5, "
+	                   "item_material, obj_uid, item_condition"
+	                   ") VALUES ";
+
+	int pos             = snprintf(batch, BATCH_BUF_SIZE, "%s", insert_header);
+	int batch_start_idx = 0;
+	int items_in_batch  = 0;
+
+	for (int i = 0; i < count; i++)
+	{
+		P_obj obj  = flat[i].obj;
+		int   vnum = obj_index[obj->R_num].virtual_number;
+
+		// Escape strung strings (same logic as sql_save_single_item_get_id)
+		char *esc_name   = NULL;
+		char *esc_short  = NULL;
+		char *esc_desc   = NULL;
+		char *esc_action = NULL;
+
+		if (obj->str_mask & STRUNG_KEYS)
+			esc_name = sql_escape_string(obj->name ? obj->name : "");
+		if (obj->str_mask & STRUNG_DESC2)
+			esc_short = sql_escape_string(obj->short_description ? obj->short_description : "");
+		if (obj->str_mask & STRUNG_DESC1)
+			esc_desc = sql_escape_string(obj->description ? obj->description : "");
+		if (obj->str_mask & STRUNG_DESC3)
+			esc_action = sql_escape_string(obj->action_description ? obj->action_description : "");
+
+		// Build name/short/desc/action strings with quotes or NULL
+		char name_str[1024], short_str[1024], desc_str[2048], action_str[2048];
+		if (esc_name)
+			snprintf(name_str, sizeof(name_str), "'%s'", esc_name);
+		else
+			strcpy(name_str, "NULL");
+		if (esc_short)
+			snprintf(short_str, sizeof(short_str), "'%s'", esc_short);
+		else
+			strcpy(short_str, "NULL");
+		if (esc_desc)
+			snprintf(desc_str, sizeof(desc_str), "'%s'", esc_desc);
+		else
+			strcpy(desc_str, "NULL");
+		if (esc_action)
+			snprintf(action_str, sizeof(action_str), "'%s'", esc_action);
+		else
+			strcpy(action_str, "NULL");
+
+		// Get diff-from-prototype fields (wear_flags, type, material, bitvectors)
+		char wear_str[32], type_str[16], material_str[16];
+		char bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
+		sql_format_item_diff_fields_and_free_proto(obj, wear_str, type_str, material_str,
+		                                           bv1_str, bv2_str, bv3_str, bv4_str, bv5_str);
+
+		// Pre-format this single row into a temp buffer.
+		// If the row itself is too large (>16KB) for a single INSERT,
+		// fall back to per-item sql_save_single_item_get_id().
+		char row_buf[16384];
+		int row_len = snprintf(row_buf, sizeof(row_buf),
+		                       "%s(%d,%d,%d,NULL,1,%d,%d,%ld,%u,%s,%s,%d,%d,%d,%d,%d,%d,%d,%d,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%lu,%d)",
+		                       (items_in_batch == 0) ? "" : ",",
+		                       pid, vnum, flat[i].equip_slot,
+		                       obj->weight, obj->cost, (long)obj->timer[0], obj->extra_flags,
+		                       wear_str, type_str,
+		                       obj->value[0], obj->value[1], obj->value[2], obj->value[3],
+		                       obj->value[4], obj->value[5], obj->value[6], obj->value[7],
+		                       name_str, short_str, desc_str, action_str,
+		                       bv1_str, bv2_str, bv3_str, bv4_str, bv5_str,
+		                       material_str, (unsigned long)obj->obj_uid, obj->condition);
+
+		// Free escaped strings
+		if (esc_name)
+			free(esc_name);
+		if (esc_short)
+			free(esc_short);
+		if (esc_desc)
+			free(esc_desc);
+		if (esc_action)
+			free(esc_action);
+
+		// Per-row overflow fallback: single item exceeds format buffer.
+		if (row_len >= (int)sizeof(row_buf) - 1 || row_len < 0)
+		{
+			logit(LOG_DEBUG, "sql_save_player_items_batch_all: item vnum %d row too large, using single-insert fallback", vnum);
+
+			// Temporarily detach contents so sql_save_single_item_get_id
+			// doesn't recurse (tree is already flattened).  Restore after.
+			P_obj saved_contains = obj->contains;
+			obj->contains        = NULL;
+
+			obj->db_item_id       = sql_save_single_item_get_id(pid, obj, flat[i].equip_slot, 0);
+			flat[i].single_saved  = true;
+
+			obj->contains = saved_contains;
+
+			if (obj->db_item_id <= 0)
+			{
+				free(batch);
+				free(flat);
+				return false;
+			}
+			continue;
+		}
+
+		// Sub-batch flush: approaching 1 MB — execute current batch and restart.
+		if (items_in_batch > 0 && pos + row_len > FLUSH_THRESHOLD)
+		{
+			if (!sql_run_query(batch))
+			{
+				sql_player_error("sql_save_player_items_batch_all sub-batch", batch);
+				free(batch);
+				free(flat);
+				return false;
+			}
+
+			// Assign db_item_ids for this sub-batch (64-bit mysql_insert_id)
+			unsigned long long first_id = mysql_insert_id(DB);
+			int offset = 0;
+			for (int k = batch_start_idx; k < i; k++)
+			{
+				if (!flat[k].single_saved)
+				{
+					flat[k].obj->db_item_id = (int)(first_id + offset);
+					offset++;
+				}
+			}
+
+			// Restart batch for remaining items
+			pos             = snprintf(batch, BATCH_BUF_SIZE, "%s", insert_header);
+			batch_start_idx = i;
+			items_in_batch  = 0;
+
+			// Strip leading comma from the first row of the new batch
+			if (row_buf[0] == ',')
+			{
+				memmove(row_buf, row_buf + 1, (size_t)row_len);  // shifts null terminator too
+				row_len--;
+			}
+		}
+
+		int new_pos = batch_append(batch, pos, BATCH_BUF_SIZE, "%s", row_buf);
+		if (new_pos < 0)
+		{
+			logit(LOG_DEBUG, "sql_save_player_items_batch_all: batch_append failed at item %d/%d", i, count);
+			free(batch);
+			free(flat);
+			return false;
+		}
+		pos = new_pos;
+		items_in_batch++;
+	}
+
+	// Flush the final sub-batch
+	if (items_in_batch > 0)
+	{
+		if (!sql_run_query(batch))
+		{
+			sql_player_error("sql_save_player_items_batch_all final batch", batch);
+			free(batch);
+			free(flat);
+			return false;
+		}
+
+		unsigned long long first_id = mysql_insert_id(DB);
+		int offset = 0;
+		for (int k = batch_start_idx; k < count; k++)
+		{
+			if (!flat[k].single_saved)
+			{
+				flat[k].obj->db_item_id = (int)(first_id + offset);
+				offset++;
+			}
+		}
+	}
+
+	// ——— Phase 4: fix up container_id for items inside containers —————————————————————————
+	int container_child_count = 0;
+	for (int i = 0; i < count; i++)
+	{
+		if (flat[i].parent)
+			container_child_count++;
+	}
+
+	if (container_child_count > 0)
+	{
+		pos = snprintf(batch, BATCH_BUF_SIZE, "UPDATE player_items SET container_id = CASE id ");
+
+		for (int i = 0; i < count; i++)
+		{
+			if (flat[i].parent)
+			{
+				int new_pos = batch_append(batch, pos, BATCH_BUF_SIZE,
+				                           "WHEN %d THEN %d ", flat[i].obj->db_item_id, flat[i].parent->db_item_id);
+				if (new_pos < 0)
+				{
+					free(batch);
+					free(flat);
+					return false;
+				}
+				pos = new_pos;
+			}
+		}
+
+		pos = batch_append(batch, pos, BATCH_BUF_SIZE, "END WHERE id IN (");
+		bool first_in = true;
+		for (int i = 0; i < count; i++)
+		{
+			if (flat[i].parent)
+			{
+				int new_pos = batch_append(batch, pos, BATCH_BUF_SIZE,
+				                           "%s%d", first_in ? "" : ",", flat[i].obj->db_item_id);
+				if (new_pos < 0)
+				{
+					free(batch);
+					free(flat);
+					return false;
+				}
+				pos = new_pos;
+				first_in = false;
+			}
+		}
+		pos = batch_append(batch, pos, BATCH_BUF_SIZE, ")");
+
+		if (!sql_run_query(batch))
+		{
+			sql_player_error("sql_save_player_items_batch_all container UPDATE", batch);
+			free(batch);
+			free(flat);
+			return false;
+		}
+	}
+
+	free(batch);
+
+	// ——— Phase 5: save affects and extra descriptions per item ————————————————————————————
+	for (int i = 0; i < count; i++)
+	{
+		// Items saved via per-item fallback already had affects/descr handled
+		if (flat[i].single_saved)
+			continue;
+
+		P_obj obj     = flat[i].obj;
+		int   item_id = obj->db_item_id;
+
+		if (!sql_save_item_affects(item_id, obj))
+		{
+			free(flat);
+			return false;
+		}
+
+		if (obj->ex_description)
+		{
+			if (!sql_save_item_extra_descr(item_id, obj, "player_item_extra_descr"))
+			{
+				free(flat);
+				return false;
+			}
+		}
+	}
+
+	free(flat);
+	return true;
+}
+
 bool sql_save_player_items(P_char ch)
 {
 	if (!ch || !IS_PC(ch) || !DB)
@@ -1941,46 +2303,7 @@ bool sql_save_player_items(P_char ch)
 		return false;
 	}
 
-	bool success = true;
-
-	// save equipment (slots 1-42, 0 is special)
-	// check ch->equipment first (redis path), fall back to save_equip (save_char path)
-	if (success && (save_equipment || save_inventory))
-	{
-		for (int i = 0; i < MAX_WEAR; i++)
-		{
-			P_obj equip_item = ch->equipment[i] ? ch->equipment[i] : save_equip[i];
-			if (equip_item)
-			{
-				if (!IS_SET(equip_item->extra_flags, ITEM_NORENT))
-				{
-					if (sql_save_single_item_get_id(pid, equip_item, i + 1, 0) == 0)
-					{
-						logit(LOG_DEBUG, "sql_save_player_items: failed to save equipment slot %d for %s", i, GET_NAME(ch));
-						success = false;
-						break;
-					}
-				}
-			}
-		}
-	}
-
-	// save inventory (equip_slot = 0)
-	if (success && save_inventory)
-	{
-		for (P_obj obj = ch->carrying; obj; obj = obj->next_content)
-		{
-			if (!IS_SET(obj->extra_flags, ITEM_NORENT))
-			{
-				if (sql_save_single_item_get_id(pid, obj, 0, 0) == 0)
-				{
-					logit(LOG_DEBUG, "sql_save_player_items: failed to save inventory item for %s", GET_NAME(ch));
-					success = false;
-					break;
-				}
-			}
-		}
-	}
+	bool success = sql_save_player_items_batch_all(pid, ch, save_equipment, save_inventory);
 
 	if (own_txn)
 	{
