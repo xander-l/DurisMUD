@@ -21,6 +21,7 @@
 #include "test_disconnect_flush.h"
 #include "test_v19_roundtrip.h"
 #include "test_incremental_save.h"
+#include "test_multi_table_consistency.h"
 
 static void list_tests(void)
 {
@@ -202,6 +203,23 @@ static void list_tests(void)
     printf("    source_db_item_id_assigned\n");
     printf("    source_incremental_guard_exists\n");
     printf("    source_incremental_comment_exists\n");
+    printf("\n  Multi-Table Consistency:\n");
+    printf("    all_seven_tables_referenced\n");
+    printf("    delete_player_items_exists\n");
+    printf("    delete_locker_items_exists\n");
+    printf("    delete_corpse_items_exists\n");
+    printf("    delete_saved_items_exists\n");
+    printf("    delete_siege_items_exists\n");
+    printf("    delete_player_pet_items_exists\n");
+    printf("    delete_shopkeeper_items_exists\n");
+    printf("    obj_uid_in_player_items_insert\n");
+    printf("    obj_uid_in_locker_items_insert\n");
+    printf("    owner_matches_for_player_items\n");
+    printf("    owner_matches_for_locker_items\n");
+    printf("    owner_matches_for_corpse_items\n");
+    printf("    txn_wrapping_save_player_items\n");
+    printf("    txn_wrapping_save_locker\n");
+    printf("    txn_wrapping_save_corpse\n");
 }
 
 int main(int argc, char *argv[])
@@ -240,6 +258,7 @@ int main(int argc, char *argv[])
         if (rc == -1) rc = test_disconnect_flush_run_one(argv[1]);
         if (rc == -1) rc = test_v19_roundtrip_run_one(argv[1]);
         if (rc == -1) rc = test_incremental_save_run_one(argv[1]);
+        if (rc == -1) rc = test_multi_table_consistency_run_one(argv[1]);
         if (rc == -1) {
             fprintf(stderr, "Unknown test: '%s'\n", argv[1]);
             fprintf(stderr, "Run with -l to list all available tests.\n");
@@ -270,5 +289,7 @@ int main(int argc, char *argv[])
     failures += test_v19_roundtrip_run_all();
     printf("\n");
     failures += test_incremental_save_run_all();
+    printf("\n");
+    failures += test_multi_table_consistency_run_all();
     return failures > 0 ? 1 : 0;
 }
