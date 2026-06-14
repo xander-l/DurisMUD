@@ -210,8 +210,6 @@ static void list_tests(void)
     printf("    delete_corpse_items_exists\n");
     printf("    delete_saved_items_exists\n");
     printf("    delete_siege_items_exists\n");
-    printf("    delete_player_pet_items_exists\n");
-    printf("    delete_shopkeeper_items_exists\n");
     printf("    obj_uid_in_player_items_insert\n");
     printf("    obj_uid_in_locker_items_insert\n");
     printf("    owner_matches_for_player_items\n");

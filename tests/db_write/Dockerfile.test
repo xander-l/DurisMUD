@@ -32,20 +32,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # ---- Copy test sources first (build-cache friendly) ------------------------
-# Copy only the test directory + the single production source file
-# referenced by Test 11 (which greps src/sql_player.c for sql_rollback()
-# call sites).  This keeps the build cache hot when unrelated repo
-# files change.
+# Copy test directory + production source files referenced by test suites
+# that grep src/sql_player.c and src/sql.c for regression guards.
 WORKDIR /duris
 COPY tests/db_write/ /duris/tests/db_write/
 COPY src/sql_player.c /duris/src/sql_player.c
+COPY src/sql.c /duris/src/sql.c
 
 # ---- Build the test suite ---------------------------------------------------
 # Convert any CRLF line endings (Windows checkouts) to LF so gcc handles
 # the sources cleanly, then build with -Wall -Wextra -pedantic as configured
 # in the Makefile.
 WORKDIR /duris/tests/db_write
-RUN dos2unix *.c *.h 2>/dev/null && \
+RUN dos2unix *.c *.h 2>/dev/null; \
     make clean && \
     make && \
     ./test_db_write

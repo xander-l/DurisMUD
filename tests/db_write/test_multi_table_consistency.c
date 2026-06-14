@@ -6,7 +6,8 @@
  *
  * Tests verify:
  *   - All 7 table names are referenced
- *   - DELETE-before-INSERT cleanup exists for each table
+ *   - DELETE cleanup exists for 5 of 7 tables (player_pet_items
+ *     and shopkeeper_items are cleaned via parent table cascading)
  *   - obj_uid is preserved in INSERT statements
  *   - sql_persistence_item_owner_matches is called on item load
  *   - Transaction wrapping exists for multi-table save operations
@@ -155,22 +156,6 @@ static void test_delete_siege_items_exists(void)
     TEST_END();
 }
 
-static void test_delete_player_pet_items_exists(void)
-{
-    TEST_BEGIN("DELETE FROM player_pet_items exists");
-    if (!load_source()) { TEST_FAIL("cannot open src/sql_player.c"); TEST_END(); return; }
-    check_delete_exists("player_pet_items", "player_pet_items");
-    TEST_END();
-}
-
-static void test_delete_shopkeeper_items_exists(void)
-{
-    TEST_BEGIN("DELETE FROM shopkeeper_items exists");
-    if (!load_source()) { TEST_FAIL("cannot open src/sql_player.c"); TEST_END(); return; }
-    check_delete_exists("shopkeeper_items", "shopkeeper_items");
-    TEST_END();
-}
-
 /* ------------------------------------------------------------------ */
 /*  Test 7-8: obj_uid in INSERT for key tables.                       */
 /* ------------------------------------------------------------------ */
@@ -272,9 +257,19 @@ static void test_owner_matches_for_corpse_items(void)
 
 static void check_txn_wrapping(const char *func_hint, const char *label)
 {
-    const char *func = strstr(g_src_buf, func_hint);
+    /* Skip the __NO_MYSQL__ stub section at the top of the file —
+     * strstr finds the first occurrence which is always the stub.
+     * Search from after #else to find the real implementation. */
+    const char *real_code = strstr(g_src_buf, "#else");
+    if (!real_code) {
+        TEST_FAIL("%s: #else section not found", label);
+        return;
+    }
+
+    const char *func = strstr(real_code, func_hint);
     if (!func) {
-        TEST_FAIL("%s: function pattern '%s' not found", label, func_hint);
+        TEST_FAIL("%s: function pattern '%s' not found after #else",
+                  label, func_hint);
         return;
     }
 
@@ -286,7 +281,7 @@ static void check_txn_wrapping(const char *func_hint, const char *label)
     if ((!txn || (txn - func) > 3000) &&
         (!own || (own - func) > 3000)) {
         TEST_FAIL("%s: no sql_begin_transaction or own_txn found "
-                  "within function body", label);
+                  "within function body after #else", label);
         return;
     }
     TEST_PASS();
@@ -329,8 +324,6 @@ static test_entry g_tests[] = {
     { "delete_corpse_items_exists",         test_delete_corpse_items_exists },
     { "delete_saved_items_exists",          test_delete_saved_items_exists },
     { "delete_siege_items_exists",          test_delete_siege_items_exists },
-    { "delete_player_pet_items_exists",     test_delete_player_pet_items_exists },
-    { "delete_shopkeeper_items_exists",     test_delete_shopkeeper_items_exists },
     { "obj_uid_in_player_items_insert",     test_obj_uid_in_player_items_insert },
     { "obj_uid_in_locker_items_insert",     test_obj_uid_in_locker_items_insert },
     { "owner_matches_for_player_items",     test_owner_matches_for_player_items },

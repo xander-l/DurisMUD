@@ -33,7 +33,7 @@ static int  g_fail  = 0;
 static char g_last_error[4096];
 /* File-scope buffer for Test 11 (slurping src/sql_player.c).  256KB
  * is plenty for the current ~200KB file. */
-static char g_src_buf[262144];
+static char g_src_buf[524288];  /* 512KB for large source files */
 
 #define TEST_PASS()      do { g_pass++; } while (0)
 #define TEST_FAIL(...)   do { \
@@ -856,8 +856,8 @@ int test_rollback_production_source_has_rollback_calls(void)
     g_src_buf[n] = '\0';
     fclose(f);
 
-    if (n == sizeof(g_src_buf) - 1) {
-        TEST_FAIL("src/sql_player.c is larger than 256KB � test buffer too small");
+    if (n == (int)(sizeof(g_src_buf) - 1)) {
+        TEST_FAIL("src/sql_player.c is larger than 512KB � test buffer too small");
         TEST_END(); return 1;
     }
 
@@ -958,8 +958,10 @@ int test_transaction_rollback_run_one(const char *name)
 {
     for (int i = 0; i < g_num_tests; i++)
         if (strcmp(g_tests[i].name, name) == 0) return g_tests[i].func();
-    fprintf(stderr, "Unknown test: '%s'\n", name);
-    return 1;
+    /* Return -1 so test_main.c can fall through to the other suites.
+     * The final "Unknown test" message (if any) is the caller's
+     * responsibility — see test_main.c. */
+    return -1;
 }
 
 void test_transaction_rollback_print_summary(void)

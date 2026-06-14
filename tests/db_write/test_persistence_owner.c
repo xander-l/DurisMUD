@@ -37,8 +37,8 @@
 static int  g_pass = 0;
 static int  g_fail = 0;
 static char g_last_error[4096];
-/* File-scope buffer for the source-grep test.  256KB is plenty. */
-static char g_src_buf[262144];
+/* File-scope buffer for the source-grep test.  512KB for large source files. */
+static char g_src_buf[524288];
 
 #define TEST_BEGIN(name) do { printf("  %s ... ", name); fflush(stdout); } while (0)
 #define TEST_END()       do { printf("\n"); } while (0)
@@ -376,12 +376,10 @@ static void test_owner_production_source_is_not_stub(void)
 {
     TEST_BEGIN("owner_production_source_is_not_stub");
 
-    /* Read src/sql.c into the test buffer. */
-    FILE *f = NULL;
-#ifdef PRODUCTION_SOURCE_PATH
-    f = fopen(PRODUCTION_SOURCE_PATH, "r");
-#endif
-    if (!f) f = fopen("src/sql.c", "r");
+    /* Read src/sql.c into the test buffer.
+     * NOTE: PRODUCTION_SOURCE_PATH points to sql_player.c — do NOT use
+     * it here because we specifically need sql.c for the ownership check. */
+    FILE *f = fopen("src/sql.c", "r");
     if (!f) f = fopen("../../../src/sql.c", "r");
     if (!f) f = fopen("../../src/sql.c", "r");
     if (!f) {
@@ -395,7 +393,7 @@ static void test_owner_production_source_is_not_stub(void)
     fclose(f);
 
     if (n == sizeof(g_src_buf) - 1) {
-        TEST_FAIL("src/sql.c is larger than 256KB — test buffer too small");
+        TEST_FAIL("src/sql.c is larger than 512KB — test buffer too small");
         TEST_END();
         return;
     }
