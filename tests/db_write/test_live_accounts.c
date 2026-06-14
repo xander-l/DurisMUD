@@ -746,6 +746,209 @@ static void test_full_delete_recreate_cycle(void)
 }
 
 /* ------------------------------------------------------------------ */
+/*  Test 9: Two pid=0 characters on same account (UNIQUE KEY collision) */
+/*                                                                     */
+/*  Simulates the edge case where two characters are linked to the     */
+/*  same account before either is saved to player_data. Both get      */
+/*  pid=0, so the second INSERT triggers the UNIQUE KEY pid violation */
+/*  and fires ON DUPLICATE KEY UPDATE. The fix must include            */
+/*  char_name=VALUES(char_name) to preserve the correct name, and the  */
+/*  acct_char unique key must allow both characters to eventually      */
+/*  resolve to separate rows once real PIDs are assigned.              */
+/* ------------------------------------------------------------------ */
+
+static void test_pid_zero_collision(void)
+{
+    TEST("two pid=0 characters on same account (collision resolution)");
+    const char *acct  = "test_live_pid0coll";
+    const char *chA   = "Pidzeroalpha";
+    const char *chB   = "Pidzerobeta";
+    cleanup_test_account(acct);
+    cleanup_test_player(chA);
+    cleanup_test_player(chB);
+
+    char q[1024];
+
+    /* Create account */
+    snprintf(q, sizeof(q),
+        "INSERT INTO accounts (account_name, email, password, confirmed) "
+        "VALUES ('%s', '%s@test.com', 'hash123', 1)", acct, acct);
+    run_query(q);
+
+    /* ---- Phase 1: Link Character A with pid=0 ----
+     * Simulates add_char_to_account before character is saved to
+     * player_data. sql_get_player_pid returns -1, so pid=0. */
+    snprintf(q, sizeof(q),
+        "INSERT INTO account_characters (account_name, char_name, pid, "
+        "login_count, last_login, blocked, racewar) "
+        "VALUES ('%s', '%s', 0, 0, NOW(), 0, 1) "
+        "ON DUPLICATE KEY UPDATE login_count=0, last_login=NOW(), "
+        "blocked=0, racewar=1, deleted_at=NULL, pid=VALUES(pid), "
+        "account_name=VALUES(account_name), char_name=VALUES(char_name)",
+        acct, chA);
+    if (mysql_query(g_db, q))
+        FAIL("INSERT CharA with pid=0: %s", mysql_error(g_db));
+
+    /* Verify CharA exists with char_name='Pidzeroalpha' */
+    snprintf(q, sizeof(q),
+        "SELECT char_name, pid FROM account_characters "
+        "WHERE account_name='%s' AND char_name='%s'", acct, chA);
+    if (!query_returns_rows(q, 1))
+        FAIL("CharA not found after pid=0 INSERT");
+
+    /* ---- Phase 2: Link Character B with pid=0 ----
+     * This triggers UNIQUE KEY pid (pid=0 already exists).
+     * The ON DUPLICATE KEY UPDATE fires and MUST update char_name
+     * via char_name=VALUES(char_name). */
+    snprintf(q, sizeof(q),
+        "INSERT INTO account_characters (account_name, char_name, pid, "
+        "login_count, last_login, blocked, racewar) "
+        "VALUES ('%s', '%s', 0, 0, NOW(), 0, 1) "
+        "ON DUPLICATE KEY UPDATE login_count=0, last_login=NOW(), "
+        "blocked=0, racewar=1, deleted_at=NULL, pid=VALUES(pid), "
+        "account_name=VALUES(account_name), char_name=VALUES(char_name)",
+        acct, chB);
+    if (mysql_query(g_db, q))
+        FAIL("INSERT CharB with pid=0: %s", mysql_error(g_db));
+
+    /* After collision: the UNIQUE KEY pid (pid=0) fires first since
+     * it was defined before acct_char in the CREATE TABLE. The
+     * ON DUPLICATE KEY UPDATE overwrites CharA's row with CharB. */
+    snprintf(q, sizeof(q),
+        "SELECT COUNT(*) FROM account_characters "
+        "WHERE account_name='%s' AND deleted_at IS NULL", acct);
+    long count = query_long(q, 0);
+    if (count != 1)
+        FAIL("expected 1 active row after two pid=0 INSERTs, got %ld", count);
+
+    /* Verify char_name=VALUES(char_name) actually updated the name.
+     * Without the fix, the row would still say 'Pidzeroalpha' */
+    snprintf(q, sizeof(q),
+        "SELECT char_name FROM account_characters "
+        "WHERE account_name='%s' AND pid=0", acct);
+    if (mysql_query(g_db, q))
+        FAIL("char_name check query: %s", mysql_error(g_db));
+    MYSQL_RES *cr = mysql_store_result(g_db);
+    MYSQL_ROW   c_row = mysql_fetch_row(cr);
+    if (!c_row || !c_row[0] || strcasecmp(c_row[0], chB) != 0)
+        FAIL("expected char_name='%s' after collision, got '%s'",
+             chB, c_row && c_row[0] ? c_row[0] : "(null)");
+    mysql_free_result(cr);
+
+    /* CharB must be found in listing */
+    snprintf(q, sizeof(q),
+        "SELECT 1 FROM account_characters "
+        "WHERE account_name='%s' AND char_name='%s' AND deleted_at IS NULL",
+        acct, chB);
+    if (!query_returns_rows(q, 1))
+        FAIL("CharB not found after pid=0 collision INSERT");
+
+    /* ---- Phase 3: Save both characters to player_data ---- */
+
+    /* Save CharA */
+    snprintf(q, sizeof(q),
+        "INSERT INTO player_data (name, level, race, racewar, m_class, sex, last_room) "
+        "VALUES ('%s', 5, 1, 1, %u, 0, 100)", chA, (unsigned)1);
+    run_query(q);
+    long pidA = (long)mysql_insert_id(g_db);
+
+    /* Save CharB */
+    snprintf(q, sizeof(q),
+        "INSERT INTO player_data (name, level, race, racewar, m_class, sex, last_room) "
+        "VALUES ('%s', 3, 2, 1, %u, 0, 200)", chB, (unsigned)2);
+    run_query(q);
+    long pidB = (long)mysql_insert_id(g_db);
+
+    /* ---- Phase 4: Re-link both with real PIDs ----
+     * This simulates write_account calling sql_save_account_characters
+     * after all characters have been saved to player_data. */
+
+    /* Re-link CharA with real PID */
+    snprintf(q, sizeof(q),
+        "INSERT INTO account_characters (account_name, char_name, pid, "
+        "login_count, last_login, blocked, racewar) "
+        "VALUES ('%s', '%s', %ld, 1, NOW(), 0, 1) "
+        "ON DUPLICATE KEY UPDATE login_count=1, last_login=NOW(), "
+        "blocked=0, racewar=1, deleted_at=NULL, pid=VALUES(pid), "
+        "account_name=VALUES(account_name), char_name=VALUES(char_name)",
+        acct, chA, pidA);
+    if (mysql_query(g_db, q))
+        FAIL("re-link CharA with real PID: %s", mysql_error(g_db));
+
+    /* Re-link CharB with real PID */
+    snprintf(q, sizeof(q),
+        "INSERT INTO account_characters (account_name, char_name, pid, "
+        "login_count, last_login, blocked, racewar) "
+        "VALUES ('%s', '%s', %ld, 1, NOW(), 0, 1) "
+        "ON DUPLICATE KEY UPDATE login_count=1, last_login=NOW(), "
+        "blocked=0, racewar=1, deleted_at=NULL, pid=VALUES(pid), "
+        "account_name=VALUES(account_name), char_name=VALUES(char_name)",
+        acct, chB, pidB);
+    if (mysql_query(g_db, q))
+        FAIL("re-link CharB with real PID: %s", mysql_error(g_db));
+
+    /* ---- Verify: BOTH characters are now visible ---- */
+
+    snprintf(q, sizeof(q),
+        "SELECT COUNT(*) FROM account_characters "
+        "WHERE account_name='%s' AND deleted_at IS NULL", acct);
+    count = query_long(q, 0);
+    if (count != 2)
+        FAIL("expected 2 active characters after re-link, got %ld", count);
+
+    /* Both must appear in the listing */
+    snprintf(q, sizeof(q),
+        "SELECT 1 FROM account_characters "
+        "WHERE account_name='%s' AND char_name='%s' AND deleted_at IS NULL",
+        acct, chA);
+    if (!query_returns_rows(q, 1))
+        FAIL("CharA not visible in listing after re-link");
+
+    snprintf(q, sizeof(q),
+        "SELECT 1 FROM account_characters "
+        "WHERE account_name='%s' AND char_name='%s' AND deleted_at IS NULL",
+        acct, chB);
+    if (!query_returns_rows(q, 1))
+        FAIL("CharB not visible in listing after re-link");
+
+    /* Verify correct PIDs */
+    snprintf(q, sizeof(q),
+        "SELECT pid FROM account_characters "
+        "WHERE account_name='%s' AND char_name='%s' AND deleted_at IS NULL",
+        acct, chA);
+    long stored_pidA = query_long(q, 0);
+    if (stored_pidA != pidA)
+        FAIL("CharA pid=%ld, expected %ld", stored_pidA, pidA);
+
+    snprintf(q, sizeof(q),
+        "SELECT pid FROM account_characters "
+        "WHERE account_name='%s' AND char_name='%s' AND deleted_at IS NULL",
+        acct, chB);
+    long stored_pidB = query_long(q, 0);
+    if (stored_pidB != pidB)
+        FAIL("CharB pid=%ld, expected %ld", stored_pidB, pidB);
+
+    /* Verify LEFT JOIN works for both */
+    snprintf(q, sizeof(q),
+        "SELECT pd.level FROM account_characters ac "
+        "LEFT JOIN player_data pd ON ac.pid = pd.pid "
+        "WHERE ac.account_name='%s' AND ac.deleted_at IS NULL "
+        "ORDER BY ac.char_name", acct);
+    if (mysql_query(g_db, q))
+        FAIL("join query: %s", mysql_error(g_db));
+    MYSQL_RES *r = mysql_store_result(g_db);
+    if (!r || mysql_num_rows(r) != 2)
+        FAIL("LEFT JOIN returned %d rows, expected 2",
+             r ? (int)mysql_num_rows(r) : 0);
+    mysql_free_result(r);
+
+    cleanup_test_account(acct);
+    cleanup_test_player(chA);
+    cleanup_test_player(chB);
+    PASS();
+}
+
+/* ------------------------------------------------------------------ */
 /*  Suite runner                                                        */
 /* ------------------------------------------------------------------ */
 
@@ -765,6 +968,7 @@ int test_live_accounts_run(MYSQL *db)
     test_pid_propagation();
     test_multi_character_account();
     test_full_delete_recreate_cycle();
+    test_pid_zero_collision();
 
     printf("\n  Account tests: %d/%d passed\n",
            g_total - g_failures, g_total);
