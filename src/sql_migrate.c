@@ -83,7 +83,126 @@ static int is_existing_database(MYSQL *db)
     return exists;
 }
 
-/* Execute a migration file's SQL */
+/* ------------------------------------------------------------------ */
+/*  Idempotency Gate                                                   */
+/* ------------------------------------------------------------------ */
+
+/*
+ * Scan a migration file's SQL content for unsafe (non-idempotent)
+ * patterns.  Returns 0 if the file passes the gate, -1 if unsafe
+ * patterns are found (with a diagnostic to stderr).
+ *
+ * Unsafe patterns (rejected):
+ *   - CREATE TABLE without IF NOT EXISTS  (will fail on re-run)
+ *   - ALTER TABLE without information_schema guard in the file
+ *   - CREATE INDEX without IF NOT EXISTS and without info_schema guard
+ *
+ * Safe patterns (allowed through):
+ *   - CREATE TABLE IF NOT EXISTS
+ *   - ALTER TABLE guarded by information_schema check (anywhere in file)
+ *   - CREATE INDEX IF NOT EXISTS or guarded by information_schema
+ *   - DROP TABLE IF EXISTS, DROP PROCEDURE IF EXISTS
+ *   - CREATE OR REPLACE VIEW
+ *   - INSERT IGNORE, REPLACE INTO
+ *   - UPDATE, DELETE (idempotent for dedup/cleanup)
+ *   - SET @var, PREPARE, EXECUTE, DEALLOCATE
+ *   - DELIMITER, BEGIN, END, CALL, IF/THEN/ELSEIF (stored procs)
+ */
+static int validate_migration_idempotency(const char *sql_text,
+                                          const char *filename)
+{
+    /* Does the file contain information_schema queries?  ALTER TABLE
+     * and CREATE INDEX are only allowed when the file also queries
+     * information_schema to guard them. */
+    int has_info_schema = (strstr(sql_text, "information_schema") != NULL);
+
+    /* Work on a mutable copy for line-by-line scanning */
+    char *buf = strdup(sql_text);
+    if (!buf) return -1;
+
+    char *line    = buf;
+    int   lineno  = 0;
+    int   in_block_comment = 0;
+
+    while (1) {
+        /* Extract next line */
+        char *nl = strchr(line, '\n');
+        if (nl) *nl = '\0';   /* terminate this line in-place */
+
+        lineno++;
+
+        /* Skip leading whitespace */
+        char *p = line;
+        while (*p == ' ' || *p == '\t' || *p == '\r') p++;
+
+        /* Track multiline block comments */
+        if (in_block_comment) {
+            if (strstr(p, "*/"))
+                in_block_comment = 0;
+            goto next;
+        }
+
+        /* Skip SQL single-line comments and empty lines */
+        if (*p == '\0' || *p == '-' || *p == '#')
+            goto next;
+
+        /* Enter block comment */
+        if (*p == '/' && *(p+1) == '*') {
+            in_block_comment = 1;
+            if (strstr(p, "*/")) in_block_comment = 0; /* single-line */
+            goto next;
+        }
+
+        /* ── Gate 1: CREATE TABLE without IF NOT EXISTS ─────────── */
+        if (strstr(p, "CREATE TABLE") && !strstr(p, "IF NOT EXISTS")) {
+            fprintf(stderr,
+                "migrate: %s line %d: unsafe CREATE TABLE without "
+                "IF NOT EXISTS\n"
+                "  Fix: CREATE TABLE IF NOT EXISTS ...\n",
+                filename, lineno);
+            free(buf);
+            return -1;
+        }
+
+        /* ── Gate 2: ALTER TABLE without information_schema guard ─ */
+        if (strstr(p, "ALTER TABLE") && !has_info_schema) {
+            fprintf(stderr,
+                "migrate: %s line %d: unsafe ALTER TABLE without "
+                "information_schema guard\n"
+                "  Fix: wrap with SET @col_exists = (SELECT COUNT(*) "
+                "FROM information_schema.columns ...)\n",
+                filename, lineno);
+            free(buf);
+            return -1;
+        }
+
+        /* ── Gate 3: CREATE [UNIQUE] INDEX without guard ────────── */
+        if ((strstr(p, "CREATE INDEX") || strstr(p, "CREATE UNIQUE INDEX")) &&
+            !strstr(p, "IF NOT EXISTS") &&
+            !has_info_schema) {
+            fprintf(stderr,
+                "migrate: %s line %d: unsafe CREATE INDEX without "
+                "guard\n"
+                "  Fix: CREATE INDEX IF NOT EXISTS, "
+                "or wrap with information_schema check\n",
+                filename, lineno);
+            free(buf);
+            return -1;
+        }
+
+next:
+        if (!nl) break;          /* end of string */
+        line = nl + 1;           /* advance to next line */
+    }
+
+    free(buf);
+    return 0;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Execute a migration file's SQL                                     */
+/* ------------------------------------------------------------------ */
+
 static int execute_migration_file(MYSQL *db, const char *path)
 {
     FILE *f = fopen(path, "r");
@@ -105,6 +224,12 @@ static int execute_migration_file(MYSQL *db, const char *path)
     size_t rd = fread(sql_text, 1, sz, f);
     sql_text[rd] = '\0';
     fclose(f);
+
+    /* ── Idempotency gate: reject unguarded migration files ────── */
+    if (validate_migration_idempotency(sql_text, path) != 0) {
+        free(sql_text);
+        return -1;
+    }
 
     /* Execute — DDL causes implicit commits in MySQL, so the
      * BEGIN/COMMIT wrapper is best-effort.  Idempotent migrations
