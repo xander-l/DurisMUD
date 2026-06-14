@@ -3096,7 +3096,7 @@ bool sql_load_player_items(P_char ch)
 	         "value0, value1, value2, value3, value4, value5, value6, value7, "
 	         "name, short_descr, description, action_descr, "
 	         "bitvector1, bitvector2, bitvector3, bitvector4, bitvector5, "
-	         "obj_uid, item_condition "
+	         "item_material, obj_uid, item_condition "
 	         "FROM player_items WHERE pid=%d ORDER BY id",
 	         pid);
 
@@ -3224,6 +3224,7 @@ bool sql_load_player_items(P_char ch)
 		obj->bitvector3 = sql_row_ulong(row, col++, obj->bitvector3);
 		obj->bitvector4 = sql_row_ulong(row, col++, obj->bitvector4);
 		obj->bitvector5 = sql_row_ulong(row, col++, obj->bitvector5);
+		obj->material   = sql_row_int(row, col++, obj->material);
 
 		// restore obj_uid and condition
 		unsigned long saved_uid = sql_row_ulong(row, col++, 0);
