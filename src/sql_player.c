@@ -6833,6 +6833,25 @@ static void sql_load_all_shopkeeper_items(int shopkeeper_id, P_obj equipment[], 
 			obj->action_description = str_dup(row[18]);
 			obj->str_mask |= STRUNG_DESC3;
 		}
+		// v19 diff columns - NULL means use prototype value from read_object()
+		if (row[19])
+			obj->wear_flags = atoi(row[19]);
+		if (row[20])
+			obj->type = atoi(row[20]);
+		if (row[21])
+			obj->material = atoi(row[21]);
+		if (row[22])
+			obj->bitvector = strtoul(row[22], NULL, 10);
+		if (row[23])
+			obj->bitvector2 = strtoul(row[23], NULL, 10);
+		if (row[24])
+			obj->bitvector3 = strtoul(row[24], NULL, 10);
+		if (row[25])
+			obj->bitvector4 = strtoul(row[25], NULL, 10);
+		if (row[26])
+			obj->bitvector5 = strtoul(row[26], NULL, 10);
+
+
 
 		struct shopkeeper_item_temp *temp = (struct shopkeeper_item_temp *)malloc(sizeof(struct shopkeeper_item_temp));
 		temp->item_id                     = item_id;
@@ -7541,6 +7560,25 @@ static P_obj sql_load_saved_item_contents(const char *item_key, int container_id
 			obj->action_description = str_dup(row[17]);
 			obj->str_mask |= STRUNG_DESC3;
 		}
+		// v19 diff columns - NULL means use prototype value from read_object()
+		if (row[18])
+			obj->wear_flags = atoi(row[18]);
+		if (row[19])
+			obj->type = atoi(row[19]);
+		if (row[20])
+			obj->material = atoi(row[20]);
+		if (row[21])
+			obj->bitvector = strtoul(row[21], NULL, 10);
+		if (row[22])
+			obj->bitvector2 = strtoul(row[22], NULL, 10);
+		if (row[23])
+			obj->bitvector3 = strtoul(row[23], NULL, 10);
+		if (row[24])
+			obj->bitvector4 = strtoul(row[24], NULL, 10);
+		if (row[25])
+			obj->bitvector5 = strtoul(row[25], NULL, 10);
+
+
 
 		char aff_query[128];
 		snprintf(aff_query, sizeof(aff_query), "SELECT location, modifier FROM saved_item_affects WHERE item_id=%d", item_id);
@@ -7764,6 +7802,25 @@ static P_obj sql_load_siege_item_contents(int room_vnum, int container_id)
 			obj->action_description = str_dup(row[17]);
 			obj->str_mask |= STRUNG_DESC3;
 		}
+		// v19 diff columns - NULL means use prototype value from read_object()
+		if (row[18])
+			obj->wear_flags = atoi(row[18]);
+		if (row[19])
+			obj->type = atoi(row[19]);
+		if (row[20])
+			obj->material = atoi(row[20]);
+		if (row[21])
+			obj->bitvector = strtoul(row[21], NULL, 10);
+		if (row[22])
+			obj->bitvector2 = strtoul(row[22], NULL, 10);
+		if (row[23])
+			obj->bitvector3 = strtoul(row[23], NULL, 10);
+		if (row[24])
+			obj->bitvector4 = strtoul(row[24], NULL, 10);
+		if (row[25])
+			obj->bitvector5 = strtoul(row[25], NULL, 10);
+
+
 
 		char aff_query[128];
 		snprintf(aff_query, sizeof(aff_query), "SELECT location, modifier FROM siege_item_affects WHERE item_id=%d", item_id);
