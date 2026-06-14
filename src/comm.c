@@ -1892,7 +1892,22 @@ void close_socket(struct descriptor_data *d)
 				sql_log(d->character, CONNECTLOG, "Lost Link");
 			}
 			persistence_flush_character_saves(d->character);
-			writeCharacter(d->character, RENT_CRASH, d->character->in_room);
+
+			// Phase 5: wrap final save in transaction (flush already completed above)
+			if (sql_begin_transaction())
+			{
+				writeCharacter(d->character, RENT_CRASH, d->character->in_room);
+				if (!sql_commit())
+				{
+					logit(LOG_DEBUG, "close_socket: commit failed for %s", GET_NAME(d->character));
+					sql_rollback();
+				}
+			}
+			else
+			{
+				// still try to save even if transaction start fails
+				writeCharacter(d->character, RENT_CRASH, d->character->in_room);
+			}
 			d->character->desc = 0;
 		}
 		else

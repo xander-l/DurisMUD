@@ -584,11 +584,16 @@ bool sql_save_player(P_char ch, int type, int room)
 		return false;
 	}
 
-	// start transaction for atomic save
-	if (!sql_begin_transaction())
+	// Phase 5: start transaction if not already in one (allows parent to wrap)
+	bool own_txn = false;
+	if (!sql_in_transaction())
 	{
-		logit(LOG_DEBUG, "sql_save_player: failed to start transaction");
-		return false;
+		if (!sql_begin_transaction())
+		{
+			logit(LOG_DEBUG, "sql_save_player: failed to start transaction");
+			return false;
+		}
+		own_txn = true;
 	}
 
 	// save all components
@@ -641,12 +646,14 @@ bool sql_save_player(P_char ch, int type, int room)
 		return false;
 	}
 
-	// commit transaction
-	if (!sql_commit())
+	if (own_txn)
 	{
-		logit(LOG_DEBUG, "sql_save_player: failed to commit for %s", GET_NAME(ch));
-		sql_rollback();
-		return false;
+		if (!sql_commit())
+		{
+			logit(LOG_DEBUG, "sql_save_player: failed to commit for %s", GET_NAME(ch));
+			sql_rollback();
+			return false;
+		}
 	}
 
 	return true;
