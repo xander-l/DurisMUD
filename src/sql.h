@@ -108,6 +108,7 @@ int  sql_world_quest_done_already(P_char ch, int number);
 int  sql_world_quest_can_do_another(P_char ch);
 void sql_zone_touch_finished(const char *event_key, int boot_time, int touched_at, int zone_number, int toucher_pid, int group_size, int epic_value, int alignment_delta);
 void sql_clear_results();
+bool sql_run_multi_query(const char *query);
 
 void send_to_pid_offline(const char *msg, int pid);
 void send_offline_messages(P_char ch);

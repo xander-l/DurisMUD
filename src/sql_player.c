@@ -2899,31 +2899,33 @@ bool sql_save_player_witnesses(P_char ch)
 		return false;
 	}
 
-	// delete existing witnesses
-	char del_query[128];
-	snprintf(del_query, sizeof(del_query), "DELETE FROM player_witnesses WHERE pid=%d", pid);
-	sql_run_query(del_query);
+	// Phase 7b-2: DELETE + INSERT batch in one multi-statement round-trip.
+	char batch[16384];
+	int  bpos = snprintf(batch, sizeof(batch),
+	                     "DELETE FROM player_witnesses WHERE pid=%d", pid);
 
 	// insert current witnesses
 	for (wtns_rec *w = ch->specials.witnessed; w; w = w->next)
 	{
 		char *esc_attacker = sql_escape_string(w->attacker ? w->attacker : "");
 		char *esc_victim   = sql_escape_string(w->victim ? w->victim : "");
-		char  ins_query[512];
-		snprintf(ins_query,
-		         sizeof(ins_query),
-		         "INSERT INTO player_witnesses (pid, crime, room_vnum, attacker_name, victim_name, witness_time) "
-		         "VALUES (%d, %d, %d, '%s', '%s', FROM_UNIXTIME(NULLIF(%ld,0)))",
-		         pid,
-		         w->crime,
-		         w->room,
-		         esc_attacker ? esc_attacker : "",
-		         esc_victim ? esc_victim : "",
-		         (long)w->time);
+		int new_pos = batch_append(batch, bpos, sizeof(batch),
+		                           ";INSERT INTO player_witnesses (pid, crime, room_vnum, attacker_name, victim_name, witness_time) "
+		                           "VALUES (%d, %d, %d, '%s', '%s', FROM_UNIXTIME(NULLIF(%ld,0)))",
+		                           pid,
+		                           w->crime,
+		                           w->room,
+		                           esc_attacker ? esc_attacker : "",
+		                           esc_victim ? esc_victim : "",
+		                           (long)w->time);
 		free(esc_attacker);
 		free(esc_victim);
-		sql_run_query(ins_query);
+		if (new_pos < 0)
+			break;  // buffer full — flush what we have
+		bpos = new_pos;
 	}
+
+	sql_run_multi_query(batch);
 
 	if (own_txn)
 	{
@@ -2955,35 +2957,31 @@ bool sql_save_player_shapechanges(P_char ch)
 		return false;
 	}
 
-	// delete existing shapechanges
-	char del_query[128];
-	snprintf(del_query, sizeof(del_query), "DELETE FROM player_shapechanges WHERE pid=%d", pid);
-	sql_run_query(del_query);
+	// Phase 7b-2: DELETE + INSERT batch in one multi-statement round-trip.
+	char batch[24576];
+	int  bpos  = snprintf(batch, sizeof(batch),
+	                       "DELETE FROM player_shapechanges WHERE pid=%d", pid);
 
 	// insert current shapechanges
-	if (!has_innate(ch, INNATE_SHAPECHANGE) || !ch->only.pc->knownShapes)
+	if (has_innate(ch, INNATE_SHAPECHANGE) && ch->only.pc->knownShapes)
 	{
-		if (own_txn)
+		for (struct char_shapechange_data *shape = ch->only.pc->knownShapes; shape; shape = shape->next)
 		{
-			if (!sql_commit()) { sql_rollback(); return false; }
+			int new_pos = batch_append(batch, bpos, sizeof(batch),
+			                           ";INSERT INTO player_shapechanges (pid, mob_vnum, times_researched, last_researched, last_shapechanged) "
+			                           "VALUES (%d, %d, %d, FROM_UNIXTIME(NULLIF(%ld,0)), FROM_UNIXTIME(NULLIF(%ld,0)))",
+			                           pid,
+			                           shape->mobVnum,
+			                           shape->timesResearched,
+			                           (long)shape->lastResearched,
+			                           (long)shape->lastShapechanged);
+			if (new_pos < 0)
+				break;  // buffer full — flush what we have
+			bpos = new_pos;
 		}
-		return true;
 	}
 
-	for (struct char_shapechange_data *shape = ch->only.pc->knownShapes; shape; shape = shape->next)
-	{
-		char ins_query[512];
-		snprintf(ins_query,
-		         sizeof(ins_query),
-		         "INSERT INTO player_shapechanges (pid, mob_vnum, times_researched, last_researched, last_shapechanged) "
-		         "VALUES (%d, %d, %d, FROM_UNIXTIME(NULLIF(%ld,0)), FROM_UNIXTIME(NULLIF(%ld,0)))",
-		         pid,
-		         shape->mobVnum,
-		         shape->timesResearched,
-		         (long)shape->lastResearched,
-		         (long)shape->lastShapechanged);
-		sql_run_query(ins_query);
-	}
+	sql_run_multi_query(batch);
 
 	if (own_txn)
 	{

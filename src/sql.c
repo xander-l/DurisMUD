@@ -1312,6 +1312,34 @@ void sql_clear_results()
 	} while (status == 0);
 }
 
+/* Phase 7b-2: execute a semicolon-separated multi-statement query.
+ * Uses mysql_real_query (supports multi-statement with
+ * CLIENT_MULTI_STATEMENTS) and drains all result sets. */
+/* Phase 7b-2: execute a semicolon-separated multi-statement query.
+ * Uses mysql_real_query (supports multi-statement with
+ * CLIENT_MULTI_STATEMENTS) and drains all result sets. */
+bool sql_run_multi_query(const char *query)
+{
+	if (!DB || !query || !*query)
+		return false;
+
+	if (mysql_real_query(DB, query, strlen(query)) != 0)
+	{
+		sql_player_error("sql_run_multi_query", query);
+		// Drain any partial result sets from statements that succeeded
+		// before the failing one (multi-statement with CLIENT_MULTI_STATEMENTS).
+		sql_clear_results();
+		return false;
+	}
+
+	sql_clear_results();
+	return true;
+}
+
+	sql_clear_results();
+	return true;
+}
+
 bool qry(const char *format, ...)
 {
 	char    buf[MAX_STRING_LENGTH];
