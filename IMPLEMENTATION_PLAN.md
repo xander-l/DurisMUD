@@ -13,6 +13,54 @@
 
 ---
 
+## Phase 1: pfile-to-DB Migration (Foundation)
+
+| Task | Status | Notes |
+|---|---|---|
+| MySQL connection management (`sql.c`, `sql.h`) | ✅ | DB connection, child connection for forks |
+| `sql_escape_string`, `sql_run_query`, `sql_player_error` | ✅ | Utility functions |
+| Player existence check (`sql_player_exists`) | ✅ | |
+| PID lookup (`sql_get_player_pid`) | ✅ | |
+| Player delete (`sql_delete_player`, `sql_delete_player_by_name`) | ✅ | |
+| Player rename (`sql_player_rename`) | ✅ | |
+| `player_data` table schema | ✅ | Core player attributes |
+
+---
+
+## Phase 2: Transaction & Batch Infrastructure
+
+| Task | Status | Notes |
+|---|---|---|
+| `sql_begin_transaction`, `sql_commit`, `sql_rollback` | ✅ | Transaction state tracking |
+| `warn_outside_txn` helper | ✅ | Safety net for unwrapped save calls |
+| `batch_append` helper (safe snprintf with truncation check) | ✅ | Replaces fragile `pos > buf_size - 200` pattern |
+| REPLACE INTO migration for sub-tables | ✅ | Languages, intros, timers, undead slots, forged items, granted cmds |
+
+---
+
+## Phase 3.1–3.4: Player Sub-Table Save/Load
+
+| Task | Status | Notes |
+|---|---|---|
+| `player_data` (core status) save/load | ✅ | `sql_save/load_player_status` — large single-row table |
+| `player_skills` save/load | ✅ | Batched REPLACE INTO |
+| `player_affects` save/load | ✅ | `bitvector1-5` migrated to `BIGINT UNSIGNED` |
+| `player_witnesses` save/load | ✅ | |
+| `player_shapechanges` save/load | ✅ | JSON spellbook via extra_descr |
+| `player_recipes` save/load | ✅ | Individual `INSERT IGNORE` per recipe |
+| `player_languages` | ✅ | Batched REPLACE INTO |
+| `player_intros` | ✅ | Batched REPLACE INTO |
+| `player_timers` | ✅ | Batched REPLACE INTO |
+| `player_undead_slots` | ✅ | Batched REPLACE INTO |
+| `player_forged_items` | ✅ | Batched REPLACE INTO |
+| `player_granted_cmds` | ✅ | Batched REPLACE INTO |
+| `player_pets` save/load (core) | ✅ | Charm duration, mob vnum, room placement |
+| `sql_persistence_item_owner_matches` | ✅ | Ownership verification for loaded items |
+| `sql_load_item_extra_descr_from_table` | ✅ | Shared extra description loader |
+| `sql_load_item_affects_from_table` | ✅ | Shared affect loader |
+
+---
+
 ## Phase 3.5: v19 Schema Migration (wear_flags, item_type, bitvector1-5)
 
 ### Save Side
@@ -77,6 +125,7 @@
 | Fix corrupted comment (two merged into one line) | ✅ | |
 | Save-side audit — all 7 tables write item_material | ✅ | Found & fixed batch save gap |
 | Load-side audit — all 7 tables read item_material | ✅ | Found & fixed saved/siege/shopkeeper missing reads |
+| Add wear_flags + item_type to batch save | ✅ | Completes batch save v19 coverage |
 | Final end-to-end audit | ✅ | All 14 checks pass, no remaining gaps |
 
 ---
@@ -85,14 +134,23 @@
 
 | Task | Status | Notes |
 |---|---|---|
-| Docker test harness (db_write tests) | ✅ | 13/13 crash-safety, 11/11 rollback |
-| Compilation verification (Docker test build) | ✅ | `sql_player.c` compiles clean via Docker |
-| Full project build (Docker, --no-cache) | ✅ | Clean build: sql_player.c compiles, all tests pass |
+| Docker test harness (`tests/db_write/`) | ✅ | `Dockerfile.test` installs `build-essential`, compiles via Makefile |
+| Docker-based build flow | ✅ | Workspace has no local compiler; all builds use Docker |
+| `test_db_write` (main test binary) | ✅ | 13/13 crash-safety, 11/11 rollback |
+| `test_data_validation` | ✅ | |
+| `test_game_scenarios` | ✅ | |
+| `test_container_rescue` | ✅ | |
+| `test_crash_stress` | ✅ | |
+| `test_disconnect_flush` | ✅ | |
+| `test_persistence_owner` | ✅ | |
+| `test_transaction_rollback` | ✅ | |
+| `test_character_lifecycle` | ✅ | |
+| Full Docker clean build (`--no-cache`) verified | ✅ | `sql_player.c` compiles clean, all tests pass |
 | Integration roundtrip tests | ❌ | **NEXT ITEM** — verify v19 columns survive save→load |
 | Multi-table consistency tests | ❌ | |
+| `sql_persistence_item_owner_matches` test anchor | 🔶 | Test expects function in `src/sql.c` but not present |
 
-> **Build flow:** This workspace has no local compiler. All compilation and testing is done through Docker using `tests/db_write/Dockerfile.test` which installs `build-essential`, compiles via the Makefile, and runs the test binary.
-> **Pre-existing issue:** `sql_persistence_item_owner_matches()` test anchor not found in `src/sql.c` — unrelated to v19+material changes.
+> **Build flow:** This workspace has no local compiler. All compilation and testing is done through Docker using `tests/db_write/Dockerfile.test` (ubuntu:24.04 + build-essential). The Makefile compiles test sources with `-DPRODUCTION_SOURCE_PATH` pointing to `src/sql_player.c`.
 
 ---
 
@@ -100,12 +158,41 @@
 
 | Task | Status | Notes |
 |---|---|---|
-| Transaction wrappers for all save functions | 🔶 | Some save sub-functions still warn outside txn |
+| Transaction wrappers for all save sub-functions | 🔶 | Some still use `warn_outside_txn` guard |
 | Flush path on disconnect | 🔶 | |
-| Thread safety documentation | ✅ | `THREAD_SAFETY.md` updated |
+| Thread safety documentation (`THREAD_SAFETY.md`) | ✅ | Mutex inventory, lock hierarchy, ABBA prevention |
 | Persistence lock hierarchy | ✅ | Documented |
-| Other sql_*.c files (sql_mob, sql_room, etc.) | ❌ | |
+| `sql.c` — core SQL utilities | 🔶 | `sql_persistence_item_owner_matches` anchor needed |
+| Other table files (`sql_mob`, `sql_room`, etc.) | ❌ | Not yet in scope |
 | Performance optimization (query batching, connection pooling) | ❌ | |
+| Incremental save path (dirty flags, `db_item_id`) | 🔶 | Implemented but not fully tested |
+
+---
+
+## Test Suite Inventory
+
+| Test File | Status | Covers |
+|---|---|---|
+| `test_db_write.c` | ✅ | Main harness, crash-safety (13), rollback (11) |
+| `test_data_validation.c` | ✅ | Data integrity |
+| `test_game_scenarios.c` | ✅ | Game mechanics + persistence |
+| `test_container_rescue.c` | ✅ | Container recovery |
+| `test_crash_stress.c` | ✅ | Crash stress testing |
+| `test_disconnect_flush.c` | ✅ | Disconnect flush |
+| `test_persistence_owner.c` | ✅ | Ownership verification |
+| `test_transaction_rollback.c` | ✅ | Transaction rollback |
+| `test_character_lifecycle.c` | ✅ | Full character lifecycle |
+
+---
+
+## Source Files Inventory
+
+| File | Purpose | Status |
+|---|---|---|
+| `src/sql.c` / `sql.h` | Core SQL utilities, connection management | 🔶 Missing `sql_persistence_item_owner_matches` |
+| `src/sql_player.c` / `sql_player.h` | Player + item save/load (7 item tables) | ✅ v19+material complete |
+| `src/sql_persistence_raw.c` | Raw persistence helpers | ✅ |
+| `THREAD_SAFETY.md` | Mutex inventory, lock hierarchy | ✅ |
 
 ---
 
