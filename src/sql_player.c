@@ -1035,8 +1035,6 @@ bool sql_save_player_status(P_char ch, int type, int room)
 	bool has_data;
 
 	// languages - batch delete then batch insert
-	// Phase 3.4: DELETE replaced by REPLACE INTO player_languages
-	sql_run_query(query);
 
 	pos      = snprintf(batch, 65536, "REPLACE INTO player_languages (pid, tongue_id, proficiency) VALUES ");
 	has_data = false;
@@ -1054,8 +1052,6 @@ bool sql_save_player_status(P_char ch, int type, int room)
 		sql_run_query(batch);
 
 	// intros - batch delete then batch insert
-	// Phase 3.4: DELETE replaced by REPLACE INTO player_intros
-	sql_run_query(query);
 
 	pos      = snprintf(batch, 65536, "REPLACE INTO player_intros (pid, intro_index, intro_pid, intro_time) VALUES ");
 	has_data = false;
@@ -1073,8 +1069,6 @@ bool sql_save_player_status(P_char ch, int type, int room)
 		sql_run_query(batch);
 
 	// timers - batch delete then batch insert
-	// Phase 3.4: DELETE replaced by REPLACE INTO player_timers
-	sql_run_query(query);
 
 	pos      = snprintf(batch, 65536, "REPLACE INTO player_timers (pid, timer_id, timer_value) VALUES ");
 	has_data = false;
@@ -1092,8 +1086,6 @@ bool sql_save_player_status(P_char ch, int type, int room)
 		sql_run_query(batch);
 
 	// undead spell slots - batch delete then batch insert
-	// Phase 3.4: DELETE replaced by REPLACE INTO player_undead_slots
-	sql_run_query(query);
 
 	pos      = snprintf(batch, 65536, "REPLACE INTO player_undead_slots (pid, circle, slots) VALUES ");
 	has_data = false;
@@ -1111,8 +1103,6 @@ bool sql_save_player_status(P_char ch, int type, int room)
 		sql_run_query(batch);
 
 	// forged items - batch delete then batch insert
-	// Phase 3.4: DELETE replaced by REPLACE INTO player_forged_items
-	sql_run_query(query);
 
 	pos      = snprintf(batch, 65536, "REPLACE INTO player_forged_items (pid, forge_index, item_vnum) VALUES ");
 	has_data = false;
@@ -1130,8 +1120,6 @@ bool sql_save_player_status(P_char ch, int type, int room)
 		sql_run_query(batch);
 
 	// granted commands - batch delete then batch insert
-	// Phase 3.4: DELETE replaced by REPLACE INTO player_granted_cmds
-	sql_run_query(query);
 
 	if (ch->only.pc->numb_gcmd > 0)
 	{
