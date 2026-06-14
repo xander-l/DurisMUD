@@ -2329,6 +2329,23 @@ bool sql_load_player_pets(P_char ch)
 					obj->str_mask |= STRUNG_DESC3;
 				}
 
+				if (item_row[20])
+					obj->wear_flags = atoi(item_row[20]);
+				if (item_row[21])
+					obj->type = atoi(item_row[21]);
+				if (item_row[22])
+					obj->material = atoi(item_row[22]);
+				if (item_row[23])
+					obj->bitvector = strtoul(item_row[23], NULL, 10);
+				if (item_row[24])
+					obj->bitvector2 = strtoul(item_row[24], NULL, 10);
+				if (item_row[25])
+					obj->bitvector3 = strtoul(item_row[25], NULL, 10);
+				if (item_row[26])
+					obj->bitvector4 = strtoul(item_row[26], NULL, 10);
+				if (item_row[27])
+					obj->bitvector5 = strtoul(item_row[27], NULL, 10);
+
 				// load item affects
 				char affect_query[256];
 				snprintf(affect_query, sizeof(affect_query), "SELECT location, modifier FROM player_pet_item_affects WHERE item_id=%d", item_db_id);
