@@ -10,6 +10,7 @@
 - 🔶 Partially Complete
 - ❌ Not Started
 - 🚧 In Progress
+- 📝 Drafted/Deferred (plan exists, intentionally not implemented)
 
 ---
 
