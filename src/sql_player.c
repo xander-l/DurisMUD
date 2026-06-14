@@ -1334,7 +1334,7 @@ static int sql_batch_save_simple_items(int pid, int container_id, P_obj first_ob
 	                   "pid, vnum, equip_slot, container_id, quantity, "
 	                   "weight, cost, timer, extra_flags, "
 	                   "value0, value1, value2, value3, value4, value5, value6, value7, "
-	                   "obj_uid, item_condition"
+	                   "item_material, obj_uid, item_condition"
 	                   ") VALUES ");
 
 	bool first       = true;
@@ -1350,7 +1350,7 @@ static int sql_batch_save_simple_items(int pid, int container_id, P_obj first_ob
 		int vnum = obj_index[obj->R_num].virtual_number;
 
 		int new_pos = batch_append(batch, pos, buf_size,
-		                           "%s(%d,%d,0,%d,1,%d,%d,%ld,%u,%d,%d,%d,%d,%d,%d,%d,%d,%lu,%d)",
+		                           "%s(%d,%d,0,%d,1,%d,%d,%ld,%u,%d,%d,%d,%d,%d,%d,%d,%d,%d,%lu,%d)",
 		                           first ? "" : ",",
 		                           pid,
 		                           vnum,
@@ -1367,6 +1367,7 @@ static int sql_batch_save_simple_items(int pid, int container_id, P_obj first_ob
 		                           obj->value[5],
 		                           obj->value[6],
 		                           obj->value[7],
+		                           obj->material,
 		                           obj->obj_uid,
 		                           obj->condition);
 		if (new_pos < 0) break;
