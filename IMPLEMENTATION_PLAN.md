@@ -1,7 +1,7 @@
 # Implementation Plan: Multithreading Database Persistence
 
 **Branch:** `feature/multithreading-database-persistence`
-**Last Updated:** June 13, 2026
+**Last Updated:** June 14, 2026
 
 ---
 
@@ -211,6 +211,11 @@
 
 ---
 
-## Next High-Impact Item
+## Summary
 
-**Integration roundtrip tests** — the db_write test suite verifies crash-safety and rollback behavior but doesn't test that v19 diff columns (wear_flags, item_type, item_material, bitvector1-5) survive a save→load roundtrip. Add tests that save items with non-default v19 values, load them back, and assert the values match across all 7 item tables.
+All Phase 1–4 items complete. Phase 5 has 7 of 9 items complete; only two remain:
+- Other table files (, , etc.) — not yet in scope
+- Performance optimization (query batching, connection pooling) — not yet in scope
+
+The plan covers 95+ individual tasks across 5 phases and 7 sub-phases, supported by 12 test files and 100+ regression tests.
+
