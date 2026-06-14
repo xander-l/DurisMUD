@@ -2257,7 +2257,9 @@ bool sql_load_player_pets(P_char ch)
 		         sizeof(item_query),
 		         "SELECT id, vnum, equip_slot, container_id, weight, cost, timer, extra_flags, "
 		         "value0, value1, value2, value3, value4, value5, value6, value7, "
-		         "name, short_descr, description, action_descr "
+		         "name, short_descr, description, action_descr, "
+		         "wear_flags, item_type, item_material, "
+		         "bitvector1, bitvector2, bitvector3, bitvector4, bitvector5 "
 		         "FROM player_pet_items WHERE pet_id=%d ORDER BY id",
 		         pet_db_id);
 
@@ -3162,6 +3164,42 @@ bool sql_load_player_items(P_char ch)
 			obj->action_description = str_action;
 			obj->str_mask |= STRUNG_DESC3;
 		}
+		if (row[18])
+			obj->wear_flags = atoi(row[18]);
+		if (row[19])
+			obj->type = atoi(row[19]);
+		if (row[20])
+			obj->material = atoi(row[20]);
+		if (row[21])
+			obj->bitvector = strtoul(row[21], NULL, 10);
+		if (row[22])
+			obj->bitvector2 = strtoul(row[22], NULL, 10);
+		if (row[23])
+			obj->bitvector3 = strtoul(row[23], NULL, 10);
+		if (row[24])
+			obj->bitvector4 = strtoul(row[24], NULL, 10);
+		if (row[25])
+			obj->bitvector5 = strtoul(row[25], NULL, 10);
+
+
+		if (row[18])
+			obj->wear_flags = atoi(row[18]);
+		if (row[19])
+			obj->type = atoi(row[19]);
+		if (row[20])
+			obj->material = atoi(row[20]);
+		if (row[21])
+			obj->bitvector = strtoul(row[21], NULL, 10);
+		if (row[22])
+			obj->bitvector2 = strtoul(row[22], NULL, 10);
+		if (row[23])
+			obj->bitvector3 = strtoul(row[23], NULL, 10);
+		if (row[24])
+			obj->bitvector4 = strtoul(row[24], NULL, 10);
+		if (row[25])
+			obj->bitvector5 = strtoul(row[25], NULL, 10);
+
+
 
 		// restore bitvectors (NULL in db means use prototype value)
 		obj->bitvector  = sql_row_ulong(row, col++, obj->bitvector);
@@ -5722,7 +5760,9 @@ bool sql_load_all_corpses(void)
 	                             "ci.value5, ci.value6, ci.value7, ci.name, ci.short_descr, ci.description, "
 	                             "ci.action_descr, COALESCE(cia.location, -1), COALESCE(cia.modifier, 0), "
 	                             "ci.obj_uid, ci.item_condition, "
-								 "c.short_descr, c.description "
+								 "c.short_descr, c.description, "
+	                             "ci.wear_flags, ci.item_type, ci.item_material, "
+	                             "ci.bitvector1, ci.bitvector2, ci.bitvector3, ci.bitvector4, ci.bitvector5 "
 	                             "FROM corpses c "
 	                             "LEFT JOIN corpse_items ci ON ci.corpse_id = c.id "
 	                             "LEFT JOIN corpse_item_affects cia ON cia.item_id = ci.id "
@@ -6723,7 +6763,10 @@ static void sql_load_all_shopkeeper_items(int shopkeeper_id, P_obj equipment[], 
 	         sizeof(query),
 	         "SELECT id, vnum, equip_slot, weight, cost, timer, extra_flags, "
 	         "value0, value1, value2, value3, value4, value5, value6, value7, "
-	         "name, short_descr, description, action_descr, container_id "
+	         "name, short_descr, description, action_descr, "
+	         "wear_flags, item_type, item_material, "
+	         "bitvector1, bitvector2, bitvector3, bitvector4, bitvector5, "
+	         "container_id "
 	         "FROM shopkeeper_items WHERE shopkeeper_id=%d ORDER BY id",
 	         shopkeeper_id);
 
@@ -6750,7 +6793,7 @@ static void sql_load_all_shopkeeper_items(int shopkeeper_id, P_obj equipment[], 
 			continue;
 
 		int equip_slot   = atoi(row[2]);
-		int container_id = row[19] ? atoi(row[19]) : 0;
+		int container_id = row[27] ? atoi(row[27]) : 0;
 
 		if (row[3])
 			obj->weight = atoi(row[3]);
@@ -7432,7 +7475,9 @@ static P_obj sql_load_saved_item_contents(const char *item_key, int container_id
 	         sizeof(query),
 	         "SELECT id, vnum, weight, cost, timer, extra_flags, "
 	         "value0, value1, value2, value3, value4, value5, value6, value7, "
-	         "name, short_descr, description, action_descr "
+	         "name, short_descr, description, action_descr, "
+	         "wear_flags, item_type, item_material, "
+	         "bitvector1, bitvector2, bitvector3, bitvector4, bitvector5 "
 	         "FROM saved_items WHERE item_key='%s' AND container_id=%d",
 	         esc_key,
 	         container_id);
@@ -7654,7 +7699,9 @@ static P_obj sql_load_siege_item_contents(int room_vnum, int container_id)
 	         sizeof(query),
 	         "SELECT id, vnum, weight, cost, timer, extra_flags, "
 	         "value0, value1, value2, value3, value4, value5, value6, value7, "
-	         "name, short_descr, description, action_descr "
+	         "name, short_descr, description, action_descr, "
+	         "wear_flags, item_type, item_material, "
+	         "bitvector1, bitvector2, bitvector3, bitvector4, bitvector5 "
 	         "FROM siege_items WHERE room_vnum=%d AND container_id=%d",
 	         room_vnum,
 	         container_id);
