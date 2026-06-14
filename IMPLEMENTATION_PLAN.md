@@ -177,7 +177,7 @@
 | Monitoring / scalar tracking enhancements | ✅ | sql_zone_touch_finished implemented with async persistence queue pattern |
 | Other table files (`sql_mob`, `sql_room`, etc.) | ❌ | Not yet in scope |
 | Performance optimization (query batching, connection pooling) | ❌ | |
-| Incremental save path (dirty flags, `db_item_id`) | 🔶 | Implemented but not fully tested |
+| Incremental save path (dirty flags, `db_item_id`) | ✅ | 16 regression tests: 11 mock behavioral + 5 source-grep guards |
 
 ---
 
@@ -195,6 +195,7 @@
 | `test_persistence_owner.c` | ✅ | Ownership verification |
 | `test_transaction_rollback.c` | ✅ | Transaction rollback |
 | `test_v19_roundtrip.c` | ✅ | 26 v19+material structural regression tests |
+| `test_incremental_save.c` | ✅ | 16 incremental save tests: mock all_items_have_db_ids, resave_dirty_containers, source-grep guards |
 
 ---
 

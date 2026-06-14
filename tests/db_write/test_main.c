@@ -20,6 +20,7 @@
 #include "test_transaction_rollback.h"
 #include "test_disconnect_flush.h"
 #include "test_v19_roundtrip.h"
+#include "test_incremental_save.h"
 
 static void list_tests(void)
 {
@@ -184,6 +185,23 @@ static void list_tests(void)
     printf("    save_functions_call_format_helper\n");
     printf("    no_type_flag_bug_in_load\n");
     printf("    all_seven_tables_present\n");
+    printf("\n  Incremental Save (Phase 5):\n");
+    printf("    mock_all_ids_missing_equip_id\n");
+    printf("    mock_all_ids_missing_inv_id\n");
+    printf("    mock_all_ids_all_have_ids\n");
+    printf("    mock_all_ids_empty\n");
+    printf("    mock_all_ids_save_equip_missing\n");
+    printf("    mock_resave_skips_clean\n");
+    printf("    mock_resave_saves_dirty\n");
+    printf("    mock_resave_clears_flag\n");
+    printf("    mock_resave_recurses\n");
+    printf("    mock_resave_multiple_dirty\n");
+    printf("    mock_resave_null\n");
+    printf("    source_all_ids_exists\n");
+    printf("    source_resave_uses_dirty_flag\n");
+    printf("    source_db_item_id_assigned\n");
+    printf("    source_incremental_guard_exists\n");
+    printf("    source_incremental_comment_exists\n");
 }
 
 int main(int argc, char *argv[])
@@ -221,6 +239,7 @@ int main(int argc, char *argv[])
         if (rc == -1) rc = test_transaction_rollback_run_one(argv[1]);
         if (rc == -1) rc = test_disconnect_flush_run_one(argv[1]);
         if (rc == -1) rc = test_v19_roundtrip_run_one(argv[1]);
+        if (rc == -1) rc = test_incremental_save_run_one(argv[1]);
         if (rc == -1) {
             fprintf(stderr, "Unknown test: '%s'\n", argv[1]);
             fprintf(stderr, "Run with -l to list all available tests.\n");
@@ -249,5 +268,7 @@ int main(int argc, char *argv[])
     failures += test_disconnect_flush_run_all();
     printf("\n");
     failures += test_v19_roundtrip_run_all();
+    printf("\n");
+    failures += test_incremental_save_run_all();
     return failures > 0 ? 1 : 0;
 }
