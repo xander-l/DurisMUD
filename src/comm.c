@@ -70,7 +70,9 @@
 #include "ws_handlers.h"
 #include "latency_trace.h"
 #include "persistence_queue.h"
+#ifndef __NO_TESTS__
 #include "test_async.h"
+#endif
 
 /* external variables */
 
@@ -512,8 +514,10 @@ void run_the_game(int port, int sslport)
 	latency_trace_reset();
 	persistence_queue_latency_reset();
 	utility_latency_reset();
+#ifndef __NO_TESTS__
 	test_persistence_run_one("queue_flood_scalar");
 	test_persistence_run_one("worker_scalar_fallback");
+#endif
 
 	game_loop(port, sslport);
 	persistence_stop_scalar_event_worker();
@@ -1893,7 +1897,7 @@ void close_socket(struct descriptor_data *d)
 			}
 			persistence_flush_character_saves(d->character);
 
-			// Phase 5: wrap final save in transaction (flush already completed above)
+			// Wrap final save in transaction (flush already completed above)
 			if (sql_begin_transaction())
 			{
 				writeCharacter(d->character, RENT_CRASH, d->character->in_room);

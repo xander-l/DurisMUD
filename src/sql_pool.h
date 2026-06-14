@@ -1,7 +1,7 @@
 /*
  * sql_pool.h — MySQL connection pool for async persistence workers.
  *
- * Phase 7b-1: Replaces the single persistenceDB connection shared by
+ * Replaces the single persistenceDB connection shared by
  * 3 persistence worker threads with a fixed-size pool (default 4).
  * Each worker acquires a connection, executes its query, and releases
  * it back — eliminating the persistence_sql_mutex bottleneck and

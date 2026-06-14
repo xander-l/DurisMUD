@@ -57,7 +57,7 @@ if [ -f "src/sql.h" ]; then
 
   # ---- Incremental migrations ----------------------------------------
   # When MIGRATION_AUTO_RUNNER is defined in CFLAGS, the MUD binary
-  # handles all migrations during initialize_mysql() (Phase 8).
+  # handles all migrations during initialize_mysql() (via auto-runner).
   # When the flag is off, uncomment the lines below for shell-level
   # migration execution.
   # echo "Running schema migrations..."

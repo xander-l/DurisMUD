@@ -38,7 +38,7 @@ bool sql_persistence_execute_raw(const char *sql)
 	if (!sql || !*sql)
 		return FALSE;
 
-	/* Phase 7b-1: acquire from the connection pool.  Each persistence
+	/* Acquire from the connection pool.  Each persistence
 	 * worker thread gets its own connection, so we no longer need
 	 * persistence_sql_mutex here — the pool is internally synchronised.
 	 *
@@ -61,7 +61,7 @@ bool sql_persistence_execute_raw(const char *sql)
 		logit(LOG_DEBUG, "Persistence MySQL failed query (first 200 chars): %.200s", sql);
 	}
 
-	/* Phase 7b-1: release the connection back to the pool so other
+	/* Release the connection back to the pool so other
 	 * worker threads can use it. */
 	sql_persistence_release_connection(db);
 

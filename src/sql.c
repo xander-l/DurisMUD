@@ -131,7 +131,7 @@ static void sql_resetConnectTimes(void);
 // The global database handler
 MYSQL *DB;
 
-/* Phase 7b-1: persistenceDB replaced by connection pool (sql_pool.c).
+/* persistenceDB replaced by connection pool (sql_pool.c).
  * persistence_sql_mutex kept for backward compatibility — no longer
  * needed for connection serialisation but still referenced by
  * sql_persistence_raw.c for now. */
@@ -320,7 +320,7 @@ int initialize_mysql()
 	sql_resetConnectTimes();
 	sql_populate_lookup_tables();
 
-	/* Phase 8: run schema migrations (auto-runner).
+	/* Run schema migrations (auto-runner).
 	 * When MIGRATION_AUTO_RUNNER is not defined, this is a no-op
 	 * and shell scripts handle migrations instead. */
 	if (sql_run_migrations(DB, "migrations") != 0) {
@@ -329,7 +329,7 @@ int initialize_mysql()
 		return -1;
 	}
 
-	/* Phase 7b-1: initialise the connection pool for async persistence
+	/* Initialise the connection pool for async persistence
 	 * workers (item, scalar, large-payload event queues). */
 	if (sql_pool_init(SQL_POOL_DEFAULT_SIZE) != 0)
 	{
@@ -1321,10 +1321,10 @@ void sql_clear_results()
 	} while (status == 0);
 }
 
-/* Phase 7b-2: execute a semicolon-separated multi-statement query.
+/* Execute a semicolon-separated multi-statement query.
  * Uses mysql_real_query (supports multi-statement with
  * CLIENT_MULTI_STATEMENTS) and drains all result sets. */
-/* Phase 7b-2: execute a semicolon-separated multi-statement query.
+/* Execute a semicolon-separated multi-statement query.
  * Uses mysql_real_query (supports multi-statement with
  * CLIENT_MULTI_STATEMENTS) and drains all result sets. */
 bool sql_run_multi_query(const char *query)
@@ -2306,7 +2306,7 @@ void sql_log_player_login(P_char ch, const char *status)
 	if (!ch || IS_NPC(ch) || !ch->desc)
 		return;
 
-	// Phase 7a-2: async scalar-event queue replaces fork().
+	// Async scalar-event queue replaces fork().
 	// Escape all user-supplied strings then build the INSERT line.
 	char line[PERSISTENCE_EVENT_MAX_LEN];
 	char esc_name[128], esc_ip[128], esc_account[128], esc_client[256];
@@ -2351,7 +2351,7 @@ void sql_log_player_login(P_char ch, const char *status)
 /* ---- Persistence DB connection ---- */
 MYSQL *sql_persistence_connection(void)
 {
-	/* Phase 7b-1: prefer the connection pool.  Falls back to the
+	/* Prefer the connection pool.  Falls back to the
 	 * legacy persistenceDB singleton if the pool was never initialised
 	 * (sql_pool_acquire returns NULL when pool is NULL). */
 	MYSQL *conn = sql_pool_acquire();
@@ -2377,7 +2377,7 @@ MYSQL *sql_persistence_connection(void)
 	return persistenceDB;
 }
 
-/* Phase 7b-1: return a connection previously acquired via
+/* Return a connection previously acquired via
  * sql_persistence_connection().  Pool connections go back to the pool;
  * legacy singleton connections are a no-op (they're owned by the
  * caller indefinitely). */

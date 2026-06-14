@@ -12,6 +12,7 @@ LDFLAGS += -L/usr/lib/mysql
 CFLAGS = -g -std=c++20 -D_FORTIFY_SOURCE=0 -Wno-write-strings
 #CFLAGS += -D__NO_MYSQL__
 CFLAGS += -DTEST_MUD
+CFLAGS += -D__NO_TESTS__    # exclude test suite from production build
 
 # to turn on/off chaos mud, change the flag at the top of db.h
 #CFLAGS += -DCHAOS_MUD=1
@@ -242,6 +243,9 @@ OBJS =  $(SHIP_OBJS) \
 				 nexus_stones.o \
 				 test_async.o \
 				 testcmd.o \
+# NOTE: test_async.o and testcmd.o excluded from production builds;
+# guard with #ifndef __NO_TESTS__ in comm.c.  To re-enable, add
+# the objects back above and remove -D__NO_TESTS__ from CFLAGS.
 				 wikihelp.o \
 				 reavers.o \
 				 avengers.o \

@@ -60,3 +60,10 @@ tests/async/*.o
 # tests/fixtures/tmp_input.txt are not accidentally ignored.
 /tmp_*.py
 /tmp_*.txt
+# Test suite — not included in production PRs
+tests/db_write/*.c
+tests/db_write/*.h
+tests/db_write/Dockerfile.*
+tests/db_write/Makefile*
+tests/db_write/schema.sql
+tests/async/test_*

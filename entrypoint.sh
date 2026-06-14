@@ -40,7 +40,7 @@ if [ ! -d /var/lib/mysql/mysql ]; then
 
     # ---- Incremental migrations ----------------------------------------
     # When MIGRATION_AUTO_RUNNER is defined in CFLAGS, the MUD binary
-    # handles all incremental migrations during boot (Phase 8).
+    # handles all incremental migrations during boot (via auto-runner).
     # When the flag is off, uncomment the lines below for shell-level
     # migration execution.
     # (mysql -u root duris_dev < /duris/migrations/schema_migration_v16_item_events.sql || true)

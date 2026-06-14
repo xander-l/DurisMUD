@@ -1,7 +1,7 @@
 /*
  * sql_pool.c — MySQL connection pool implementation.
  *
- * Phase 7b-1: Fixed-size pool of MYSQL* connections shared by the
+ * Fixed-size pool of MYSQL* connections shared by the
  * 3 async persistence worker threads (item, scalar, large-payload).
  *
  * Each connection is created with CLIENT_MULTI_STATEMENTS and
@@ -100,7 +100,7 @@ int sql_pool_init(int size)
 		pool[i].conn = conn;
 
 		/* Connect with CLIENT_MULTI_STATEMENTS so multi-statement
-		 * batches (Phase 7b-2) work through the pool too. */
+		 * batches (multi-statement batches) work through the pool too. */
 		if (!mysql_real_connect(conn,
 		                        DB_HOST,
 		                        DB_USER,

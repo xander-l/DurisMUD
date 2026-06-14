@@ -230,7 +230,7 @@ bool sql_rollback(void)
 
 bool sql_in_transaction(void) { return in_transaction; }
 
-// Phase 3.1 helper: safely append a formatted string to a batch buffer.
+// Helper: safely append a formatted string to a batch buffer.
 //
 // Replaces the dangerous pattern:
 //   if (pos > buf_size - 200) break;
@@ -276,7 +276,7 @@ static int batch_append(char *buf, int pos, size_t buf_size, const char *fmt, ..
 	return pos + written;
 }
 
-// Phase 3.5 shared helper: for an item being saved, fill the
+// Shared helper: for an item being saved, fill the
 // wear_str, type_str, and bv1-5_str output buffers with the
 // item's wear_flags, type, and bitvectors.  Each buffer must be
 // at least 32 bytes (16 for type_str).  The bitvector buffers
@@ -584,7 +584,7 @@ bool sql_save_player(P_char ch, int type, int room)
 		return false;
 	}
 
-	// Phase 5: start transaction if not already in one (allows parent to wrap)
+	// Start own transaction if not already in one (allows parent to wrap)
 	bool own_txn = false;
 	if (!sql_in_transaction())
 	{
@@ -666,7 +666,7 @@ bool sql_save_player_status(P_char ch, int type, int room)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
-	// Start own transaction if not already in one (Phase 5)
+	// Start own transaction if not already in one
 	bool own_txn = false;
 	if (!sql_in_transaction())
 	{
@@ -1152,7 +1152,7 @@ bool sql_save_player_skills(P_char ch)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
-	// Start own transaction if not already in one (Phase 5)
+	// Start own transaction if not already in one
 	bool own_txn = false;
 	if (!sql_in_transaction())
 	{
@@ -1169,7 +1169,7 @@ bool sql_save_player_skills(P_char ch)
 	}
 
 	// delete all skills for this player in one query
-	// Phase 3.4: DELETE replaced by REPLACE INTO player_skills
+	// DELETE replaced by REPLACE INTO player_skills
 
 	// build multi-row insert for skills that have values
 	// max ~100 skills learned * ~40 bytes per value = ~4kb, use 64kb to be safe
@@ -1213,7 +1213,7 @@ bool sql_save_player_affects(P_char ch)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
-	// Start own transaction if not already in one (Phase 5)
+	// Start own transaction if not already in one
 	bool own_txn = false;
 	if (!sql_in_transaction())
 	{
@@ -1864,7 +1864,7 @@ static void resave_dirty_containers(int pid, P_obj obj)
 	}
 }
 
-// Phase 7a-1: batched player item save — flattens entire item tree into one
+// Batched player item save — flattens entire item tree into one
 // multi-row INSERT, then fixes up container_id relationships and saves
 // affects/extra_descrs.  Replaces the per-item INSERT loop, reducing
 // ~170 individual queries to ~3 per save.
@@ -1913,7 +1913,7 @@ static bool flatten_item_tree(P_obj obj, P_obj parent, int equip_slot,
 static bool sql_save_player_items_batch_all(int pid, P_char ch,
                                             bool save_equipment, bool save_inventory)
 {
-	// ——— Phase 1: flatten item tree ———————————————————————————————————————————————————————————————
+	// ——— Step 1: flatten item tree ———————————————————————————————————————————————————————————————
 	int cap = 128;
 	struct flat_item *flat = (struct flat_item *)malloc(cap * sizeof(struct flat_item));
 	if (!flat)
@@ -1946,7 +1946,7 @@ static bool sql_save_player_items_batch_all(int pid, P_char ch,
 		return true;   // nothing to save
 	}
 
-	// ——— Phase 2 & 3: build multi-row INSERTs in sub-batches —————————————————————————————
+	// ——— Step 2 & 3: build multi-row INSERTs in sub-batches —————————————————————————————
 	// Use 1MB buffer to respect MySQL max_allowed_packet (4MB default on 5.7).
 	// Large inventories automatically split across multiple INSERT statements.
 	const size_t BATCH_BUF_SIZE = 1048576;      // 1 MB
@@ -2137,7 +2137,7 @@ static bool sql_save_player_items_batch_all(int pid, P_char ch,
 		}
 	}
 
-	// ——— Phase 4: fix up container_id for items inside containers —————————————————————————
+	// ——— Step 4: fix up container_id for items inside containers —————————————————————————
 	int container_child_count = 0;
 	for (int i = 0; i < count; i++)
 	{
@@ -2196,7 +2196,7 @@ static bool sql_save_player_items_batch_all(int pid, P_char ch,
 
 	free(batch);
 
-	// ——— Phase 5: save affects and extra descriptions per item ————————————————————————————
+	// ——— Step 5: save affects and extra descriptions per item ————————————————————————————
 	for (int i = 0; i < count; i++)
 	{
 		// Items saved via per-item fallback already had affects/descr handled
@@ -2231,7 +2231,7 @@ bool sql_save_player_items(P_char ch)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
-	// Start own transaction if not already in one (Phase 5)
+	// Start own transaction if not already in one
 	bool own_txn = false;
 	if (!sql_in_transaction())
 	{
@@ -2477,7 +2477,7 @@ bool sql_save_player_pets(P_char ch, int save_type)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
-	// Start own transaction if not already in one (Phase 5)
+	// Start own transaction if not already in one
 	bool own_txn = false;
 	if (!sql_in_transaction())
 	{
@@ -2871,7 +2871,7 @@ bool sql_save_player_witnesses(P_char ch)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
-	// Start own transaction if not already in one (Phase 5)
+	// Start own transaction if not already in one
 	bool own_txn = false;
 	if (!sql_in_transaction())
 	{
@@ -2887,7 +2887,7 @@ bool sql_save_player_witnesses(P_char ch)
 		return false;
 	}
 
-	// Phase 7b-2: DELETE + INSERT batch in one multi-statement round-trip.
+	// DELETE + INSERT batch in one multi-statement round-trip.
 	char batch[16384];
 	int  bpos = snprintf(batch, sizeof(batch),
 	                     "DELETE FROM player_witnesses WHERE pid=%d", pid);
@@ -2929,7 +2929,7 @@ bool sql_save_player_shapechanges(P_char ch)
 	if (!ch || !IS_PC(ch) || !DB)
 		return false;
 
-	// Start own transaction if not already in one (Phase 5)
+	// Start own transaction if not already in one
 	bool own_txn = false;
 	if (!sql_in_transaction())
 	{
@@ -2945,7 +2945,7 @@ bool sql_save_player_shapechanges(P_char ch)
 		return false;
 	}
 
-	// Phase 7b-2: DELETE + INSERT batch in one multi-statement round-trip.
+	// DELETE + INSERT batch in one multi-statement round-trip.
 	char batch[24576];
 	int  bpos  = snprintf(batch, sizeof(batch),
 	                       "DELETE FROM player_shapechanges WHERE pid=%d", pid);
@@ -4248,7 +4248,7 @@ static bool sql_save_locker_item_affects(int item_id, P_obj obj)
 	if (!obj || !DB || item_id <= 0)
 		return false;
 
-	// Phase 5: own_txn wrapper for standalone-call safety
+	// Own_txn wrapper for standalone-call safety
 	bool own_txn = false;
 	if (!sql_in_transaction())
 	{
@@ -4295,7 +4295,7 @@ static int sql_save_locker_item(int locker_id, int chest_id, P_obj obj, int cont
 	if (!obj || !DB || locker_id <= 0)
 		return 0;
 
-	// Phase 5: own_txn wrapper for standalone-call safety
+	// Own_txn wrapper for standalone-call safety
 	bool own_txn = false;
 	if (!sql_in_transaction())
 	{
@@ -5888,7 +5888,7 @@ static bool sql_save_corpse_item_affects(int item_id, P_obj obj)
 	if (!obj || !DB || item_id <= 0)
 		return false;
 
-	// Phase 5: own_txn wrapper for standalone-call safety
+	// Own_txn wrapper for standalone-call safety
 	bool own_txn = false;
 	if (!sql_in_transaction())
 	{
@@ -5935,7 +5935,7 @@ static int sql_save_corpse_item(int corpse_id, int save_id, P_obj obj, int conta
 	if (!obj || !DB || corpse_id <= 0)
 		return 0;
 
-	// Phase 5: own_txn wrapper for standalone-call safety
+	// Own_txn wrapper for standalone-call safety
 	bool own_txn = false;
 	if (!sql_in_transaction())
 	{
@@ -5990,7 +5990,7 @@ static int sql_save_corpse_item(int corpse_id, int save_id, P_obj obj, int conta
 		strcpy(action_str, "NULL");
 
 	char query[8192];
-	// Phase 3.5: shared helper formats wear_str, type_str, and bv1-5_str
+	// Shared helper formats wear_str, type_str, and bv1-5_str
 	// (NULL when matching the prototype) and frees the loaded prototype.
 	// See sql_format_item_diff_fields_and_free_proto().
 	char wear_str[32];
@@ -6682,7 +6682,7 @@ static int sql_save_shopkeeper_item(int shopkeeper_id, P_obj obj, int equip_slot
 		strcpy(action_str, "NULL");
 
 	char query[8192];
-	// Phase 3.5: shared helper formats wear_str, type_str, and bv1-5_str
+	// Shared helper formats wear_str, type_str, and bv1-5_str
 	// (NULL when matching the prototype) and frees the loaded prototype.
 	// See sql_format_item_diff_fields_and_free_proto().
 	char wear_str[32];
@@ -6956,7 +6956,7 @@ static int sql_save_saved_item_recursive(const char *item_key, int room_vnum, P_
 	char *esc_key = sql_escape_string(item_key);
 
 	char query[8192];
-	// Phase 3.5: shared helper formats wear_str, type_str, and bv1-5_str
+	// Shared helper formats wear_str, type_str, and bv1-5_str
 	// (NULL when matching the prototype) and frees the loaded prototype.
 	// See sql_format_item_diff_fields_and_free_proto().
 	char wear_str[32];
@@ -7141,7 +7141,7 @@ static int sql_save_siege_item_one(int room_vnum, P_obj obj, int container_id)
 		strcpy(action_str, "NULL");
 
 	char query[8192];
-	// Phase 3.5: shared helper formats wear_str, type_str, and bv1-5_str
+	// Shared helper formats wear_str, type_str, and bv1-5_str
 	// (NULL when matching the prototype) and frees the loaded prototype.
 	// See sql_format_item_diff_fields_and_free_proto().
 	char wear_str[32];

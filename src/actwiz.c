@@ -12839,7 +12839,7 @@ void do_extractlink(P_char ch, char *argument, int cmd)
 				vict->desc = NULL;
 
 				persistence_flush_character_saves(vict);
-				// Phase 5: wrap final save in transaction (flush already completed above)
+				// Wrap final save in transaction (flush already completed above)
 				if (sql_begin_transaction())
 				{
 					writeCharacter(vict, RENT_LINKDEAD, vict->in_room);
@@ -12893,7 +12893,7 @@ void do_extractlink(P_char ch, char *argument, int cmd)
 				vict->desc = NULL;
 
 				persistence_flush_character_saves(vict);
-				// Phase 5: wrap final save in transaction (flush already completed above)
+				// Wrap final save in transaction (flush already completed above)
 				if (sql_begin_transaction())
 				{
 					writeCharacter(vict, RENT_LINKDEAD, vict->in_room);
