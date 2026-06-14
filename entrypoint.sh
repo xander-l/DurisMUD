@@ -35,6 +35,8 @@ if [ ! -d /var/lib/mysql/mysql ]; then
     echo "Importing schema..."
     mysql -u root duris_dev < /duris/src/duris.sql
     mysql -u root duris < /duris/src/duris.sql
+    mysql -u root duris_dev < /duris/migrations/run_this_one.sql
+    mysql -u root duris < /duris/migrations/run_this_one.sql
     (mysql -u root duris_dev < /duris/sql/migrations/add_frag_leaderboard_tables.sql || true)
     (mysql -u root duris < /duris/sql/migrations/add_frag_leaderboard_tables.sql || true)
     (mysql -u root duris_dev < /duris/migrations/schema_migration_v16_item_events.sql || true)
