@@ -158,7 +158,7 @@
 | `test_transaction_rollback` | ✅ | |
 | `test_character_lifecycle` | ✅ | |
 | Full Docker clean build (`--no-cache`) verified | ✅ | `sql_player.c` compiles clean, all tests pass |
-| Integration roundtrip tests | ❌ | **NEXT ITEM** — verify v19 columns survive save→load |
+| Integration roundtrip tests | ✅ | 26 structural regression tests (commit `7b77ea6b`) |
 | Multi-table consistency tests | ❌ | |
 
 > **Build flow:** This workspace has no local compiler. All compilation and testing is done through Docker using `tests/db_write/Dockerfile.test` (ubuntu:24.04 + build-essential). The Makefile compiles test sources with `-DPRODUCTION_SOURCE_PATH` pointing to `src/sql_player.c`.
@@ -194,7 +194,7 @@
 | `test_disconnect_flush.c` | ✅ | Disconnect flush |
 | `test_persistence_owner.c` | ✅ | Ownership verification |
 | `test_transaction_rollback.c` | ✅ | Transaction rollback |
-| `test_character_lifecycle.c` | ✅ | Full character lifecycle |
+| `test_v19_roundtrip.c` | ✅ | 26 v19+material structural regression tests |
 
 ---
 
