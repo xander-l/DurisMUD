@@ -1074,7 +1074,8 @@ P_index generate_indices(FILE *fl, int *top)
 	num = 0;
 	for (;;)
 	{
-		fgets(buf, 511, fl);
+		if (!fgets(buf, 511, fl))
+			break; /* tolerate EOF-terminated legacy files */
 		if (*buf == '$')
 			break;
 		if (*buf == '#')
@@ -1112,8 +1113,7 @@ P_index generate_indices(FILE *fl, int *top)
 		}
 		else
 		{
-			perror("generate indices");
-			raise(SIGSEGV);
+			break; /* EOF-terminated legacy files */
 		}
 	}
 	*top = i - 2;
@@ -1124,7 +1124,7 @@ P_index generate_indices(FILE *fl, int *top)
 void boot_world(int mini_mode)
 {
 	FILE                    *fl;
-	int                      num_rooms, room_nr = 0, zone = 0, virtual_nr, flag;
+	int                      num_rooms, room_nr = 0, zone = 0, virtual_nr;
 	int                      tmp = 0, tmp1 = 0, tmp2 = 0, tmp3 = 0, i, name_length, desc_length;
 	char                     chk[MAX_STRING_LENGTH], tmp_buf[MAX_STRING_LENGTH];
 	char                     buf[MAX_INPUT_LENGTH];
@@ -1171,7 +1171,8 @@ void boot_world(int mini_mode)
 	num_rooms = 0;
 	for (;;)
 	{
-		fgets(tmp_buf, MAX_STRING_LENGTH, fl);
+		if (!fgets(tmp_buf, MAX_STRING_LENGTH, fl))
+			break;
 		if (tmp_buf[0] == '$')
 			break;
 		if (tmp_buf[0] == '#')
@@ -1195,20 +1196,22 @@ void boot_world(int mini_mode)
 	 * well). JAB
 	 */
 
-	do
+	for (;;)
 	{
-		fscanf(fl, " #%d\n", &virtual_nr);
+		if (fscanf(fl, " #%d\n", &virtual_nr) != 1)
+			break;
 		if (mini_mode == 2)
 			fprintf(stderr, "#%d  ", virtual_nr);
 
 		name_length = fread_string_to_buffer(fl, name_buf);
-		if ((flag = (*name_buf != '$')))
-		{ /* a new record to be read */
-			world[room_nr].number = virtual_nr;
-			desc_length           = fread_string_to_buffer(fl, desc_buf);
-			found_name            = FALSE;
-			found_desc            = (desc_length == 0);
-			// code looking up duplicate room names and descriptions to save memory
+		if (*name_buf == '$')
+			break;
+		/* a new record to be read */
+		world[room_nr].number = virtual_nr;
+		desc_length           = fread_string_to_buffer(fl, desc_buf);
+		found_name            = FALSE;
+		found_desc            = (desc_length == 0);
+		// code looking up duplicate room names and descriptions to save memory
 			for (i = room_nr - 1; i > (zone ? zone_table[zone - 1].real_top + 1 : 0) && (!found_name || !found_desc) && room_nr - i < 102; i--)
 			{
 				if (!found_name && !strcmp(name_buf, world[i].name))
@@ -1354,7 +1357,6 @@ void boot_world(int mini_mode)
 			room_light(room_nr, REAL);
 			room_nr++;
 		}
-	} while (flag);
 
 	fclose(fl);
 	free(memBuf);
@@ -1626,7 +1628,8 @@ void boot_zones(int mini_mode)
 	num_zones = 0;
 	for (;;)
 	{
-		fgets(tmp_buf, MAX_STRING_LENGTH, fl);
+		if (!fgets(tmp_buf, MAX_STRING_LENGTH, fl))
+			break;
 		if (tmp_buf[0] == '$')
 			break;
 		if (tmp_buf[0] == '#')
@@ -1634,25 +1637,27 @@ void boot_zones(int mini_mode)
 			num_zones++;
 		}
 	}
-	logit(LOG_STATUS, "\t\t%d zones allocated", num_zones);
+	logit(LOG_STATUS, "		%d zones allocated", num_zones);
 	rewind(fl);
 
 	/* Count the number of commands in each zone */
 	logit(LOG_STATUS, "Counting commands for each zone...");
-	CREATE(command_array, int, (unsigned)num_zones, MEM_TAG_ARRAY);
-	//  command_array = (int *) calloc(num_zones, sizeof(int));
+	CREATE(command_array, int, (unsigned) num_zones, MEM_TAG_ARRAY);
+//  command_array = (int *) calloc(num_zones, sizeof(int));
 
-	t_idx        = 0;
+	t_idx = 0;
 	num_commands = 0;
 	for (;;)
 	{
-		fgets(tmp_buf, MAX_STRING_LENGTH, fl);
+		if (!fgets(tmp_buf, MAX_STRING_LENGTH, fl))
+			break;
 		if (tmp_buf[0] == '$')
 			break;
 		if (tmp_buf[0] == '#')
 		{
 			/* skip over zone name */
-			fgets(tmp_buf, MAX_STRING_LENGTH, fl);
+			if (!fgets(tmp_buf, MAX_STRING_LENGTH, fl))
+				break;
 		}
 		else if (tmp_buf[0] == 'S')
 		{
@@ -1679,7 +1684,8 @@ void boot_zones(int mini_mode)
 
 	for (;;)
 	{
-		fscanf(fl, " #%d\n", &tmp);
+		if (fscanf(fl, " #%d\n", &tmp) != 1)
+			break; /* accept EOF or a legacy $~ terminator */
 		check = fread_string(fl); /* zone name as specified by builder */
 		if (*check == '$')
 			break; /* * end of file */

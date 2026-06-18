@@ -24,6 +24,7 @@
 #include "siege.h"
 #include "spells.h"
 #include "sql.h"
+#include "player_name.h"
 
 // external tables
 extern P_index            obj_index;
@@ -402,12 +403,17 @@ bool sql_player_rename(P_char ch, const char *new_name)
 	if (!DB || !new_name || !ch)
 		return false;
 
-	char *escaped_name = sql_escape_string(new_name);
+	char normalized_name[MAX_STRING_LENGTH];
+	strncpy(normalized_name, new_name, sizeof(normalized_name) - 1);
+	normalized_name[sizeof(normalized_name) - 1] = '\0';
+	normalize_player_name_case(normalized_name);
+
+	char *escaped_name = sql_escape_string(normalized_name);
 	if (!escaped_name)
 		return false;
 
 	char query[256];
-	snprintf(query, sizeof(query), "UPDATE player_data SET name=LOWER('%s') WHERE pid ='%d'", escaped_name, GET_PID(ch));
+	snprintf(query, sizeof(query), "UPDATE player_data SET name='%s' WHERE pid='%d'", escaped_name, GET_PID(ch));
 	free(escaped_name);
 
 	return sql_run_query(query);

@@ -19,7 +19,7 @@ CFLAGS += -DTEST_MUD
 
 INCLUDES	= -I. -I/usr/include/libxml2 -I/usr/include/mysql -I./ships
 
-GENERAL_LIBS    = -lm -lstdc++ -lz -lxml2 -lcrypt -lmysqlclient -lgnutls -lssl -lcrypto -lcjson -lhiredis
+GENERAL_LIBS    = -lm -lstdc++ -lz -lxml2 -lcrypt -lmysqlclient -lgnutls -lssl -lcrypto -lcjson -lhiredis -lbsd
 
 ifdef EFENCE
 	LDFLAGS += -L.
@@ -301,6 +301,7 @@ pfile : $(PFILE_OBJS) $(SHARED_PFILE_OBJS) $(OBJDIR)/mm.o $(OBJDIR)/common.o
 
 migrate_pfiles : $(MIGRATE_OBJS)
 	$(CC) $(CFLAGS) $(LDFLAGS) -g -o migrate_pfiles $(MIGRATE_OBJS) $(LIBS)
+
 
 # Build any C object into OBJDIR, creating folders as needed.
 $(OBJDIR)/%.o: %.c

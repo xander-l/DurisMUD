@@ -22,6 +22,7 @@
 #include "objmisc.h"
 #include "spells.h"
 #include "sql_player.h"
+#include "player_name.h"
 #include "ws_handlers.h"
 
 // External Stuff
@@ -1925,8 +1926,8 @@ void account_new_char_name(P_desc d, char *arg)
 
 	strncpy(d->character->only.pc->pwd, d->account->acct_password, sizeof(d->character->only.pc->pwd) - 1);
 	d->character->only.pc->pwd[sizeof(d->character->only.pc->pwd) - 1] = '\0';
-	d->character->player.name                                          = str_dup(arg);
-	*d->character->player.name                                         = toupper(*d->character->player.name);
+	d->character->player.name = str_dup(arg);
+	normalize_player_name_case(d->character->player.name);
 	SEND_TO_Q("You chose the name ", d);
 	SEND_TO_Q(d->character->player.name, d);
 	SEND_TO_Q("  Is this correct?  (Y/N)  ", d);
