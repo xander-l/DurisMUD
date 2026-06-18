@@ -3920,10 +3920,18 @@ bool sql_save_locker(P_char locker_ch, int owner_pid, int owner_assoc_id)
 
 static P_obj sql_load_locker_items(int locker_id, int container_id);
 
-static P_obj sql_load_locker_items_filtered(int locker_id, int container_id, int chest_id)
+#define MAX_CONTAINER_LOAD_DEPTH 64
+
+static P_obj sql_load_locker_items_filtered(int locker_id, int container_id, int chest_id, int depth)
 {
 	if (!DB || locker_id <= 0)
 		return NULL;
+
+	if (depth > MAX_CONTAINER_LOAD_DEPTH)
+	{
+		logit(LOG_DEBUG, "sql_load_locker_items_filtered: container depth exceeded for locker %d container %d", locker_id, container_id);
+		return NULL;
+	}
 
 	char query[1024];
 	char chest_filter[256] = "";
@@ -4046,9 +4054,14 @@ static P_obj sql_load_locker_items_filtered(int locker_id, int container_id, int
 		sql_load_item_affects_from_table(item_id, obj, "locker_item_affects");
 		sql_load_item_extra_descr_from_table(item_id, obj, "locker_item");
 
-		obj->contains = sql_load_locker_items(locker_id, item_id);
+		obj->contains = sql_load_locker_items_filtered(locker_id, item_id, chest_id, 0);
 		for (P_obj c = obj->contains; c; c = c->next_content)
 		{
+			if (!obj_can_nest(c, obj))
+			{
+				logit(LOG_DEBUG, "sql_load_locker_items_filtered: skipping malformed container link %d -> %d", c->db_item_id, obj->db_item_id);
+				continue;
+			}
 			c->loc_p      = LOC_INSIDE;
 			c->loc.inside = obj;
 		}
@@ -4065,7 +4078,7 @@ static P_obj sql_load_locker_items_filtered(int locker_id, int container_id, int
 	return first_obj;
 }
 
-static P_obj sql_load_locker_items(int locker_id, int container_id) { return sql_load_locker_items_filtered(locker_id, container_id, 0); }
+static P_obj sql_load_locker_items(int locker_id, int container_id) { return sql_load_locker_items_filtered(locker_id, container_id, 0, 0); }
 
 P_char sql_load_locker(int owner_pid, int owner_assoc_id)
 {
@@ -4594,9 +4607,14 @@ P_obj sql_load_private_chest_items(int locker_id, int chest_id)
 		sql_load_item_affects_from_table(item_id, obj, "locker_item_affects");
 
 		// load contained items (bags inside the chest)
-		obj->contains = sql_load_locker_items_filtered(locker_id, item_id, chest_id);
+		obj->contains = sql_load_locker_items_filtered(locker_id, item_id, chest_id, 0);
 		for (P_obj c = obj->contains; c; c = c->next_content)
 		{
+			if (!obj_can_nest(c, obj))
+			{
+				logit(LOG_DEBUG, "sql_load_siege_item_contents: skipping malformed container link %d -> %d", c->db_item_id, obj->db_item_id);
+				continue;
+			}
 			c->loc_p      = LOC_INSIDE;
 			c->loc.inside = obj;
 		}
@@ -5438,7 +5456,12 @@ bool sql_load_all_corpses(void)
 						h = (h + 1) % HASH_SIZE;
 					if (hash_id[h] == container_map[i])
 					{
-						int j                    = hash_idx[h];
+						int j = hash_idx[h];
+						if (!obj_can_nest(obj_map[i], obj_map[j]))
+						{
+							logit(LOG_DEBUG, "sql_restore_saved_items: skipping malformed container link %d -> %d", obj_map[i]->db_item_id, obj_map[j]->db_item_id);
+							continue;
+						}
 						obj_map[i]->next_content = obj_map[j]->contains;
 						obj_map[j]->contains     = obj_map[i];
 						obj_map[i]->loc_p        = LOC_INSIDE;
@@ -5641,7 +5664,12 @@ bool sql_load_all_corpses(void)
 				h = (h + 1) % HASH_SIZE;
 			if (hash_id[h] == container_map[i])
 			{
-				int j                    = hash_idx[h];
+				int j = hash_idx[h];
+				if (!obj_can_nest(obj_map[i], obj_map[j]))
+				{
+					logit(LOG_DEBUG, "sql_restore_saved_items: skipping malformed container link %d -> %d", obj_map[i]->db_item_id, obj_map[j]->db_item_id);
+					continue;
+				}
 				obj_map[i]->next_content = obj_map[j]->contains;
 				obj_map[j]->contains     = obj_map[i];
 				obj_map[i]->loc_p        = LOC_INSIDE;
@@ -6391,6 +6419,11 @@ static void sql_load_all_shopkeeper_items(int shopkeeper_id, P_obj equipment[], 
 			{
 				if (p->item_id == t->container_id)
 				{
+					if (!obj_can_nest(t->obj, p->obj))
+					{
+						logit(LOG_DEBUG, "sql_load_all_shopkeeper_items: skipping malformed container link %d -> %d", t->item_id, p->item_id);
+						break;
+					}
 					t->obj->next_content = p->obj->contains;
 					p->obj->contains     = t->obj;
 					t->obj->loc_p        = LOC_INSIDE;
@@ -6761,6 +6794,11 @@ void sql_restore_shopkeepers(void)
 			{
 				if (p->item_id == t->container_id)
 				{
+					if (!obj_can_nest(t->obj, p->obj))
+					{
+						logit(LOG_DEBUG, "sql_restore_shopkeepers: skipping malformed container link %d -> %d", t->item_id, p->item_id);
+						break;
+					}
 					t->obj->next_content = p->obj->contains;
 					p->obj->contains     = t->obj;
 					t->obj->loc_p        = LOC_INSIDE;
@@ -6950,10 +6988,16 @@ void sql_save_dirty_shopkeepers(void)
 		logit(LOG_DEBUG, "sql_save_dirty_shopkeepers: saved %d shopkeepers", saved);
 }
 
-static P_obj sql_load_saved_item_contents(const char *item_key, int container_id)
+static P_obj sql_load_saved_item_contents(const char *item_key, int container_id, int depth)
 {
 	if (!DB || !item_key)
 		return NULL;
+
+	if (depth > MAX_CONTAINER_LOAD_DEPTH)
+	{
+		logit(LOG_DEBUG, "sql_load_saved_item_contents: container depth exceeded for %s container %d", item_key, container_id);
+		return NULL;
+	}
 
 	char *esc_key = sql_escape_string(item_key);
 	if (!esc_key)
@@ -7045,9 +7089,14 @@ static P_obj sql_load_saved_item_contents(const char *item_key, int container_id
 			mysql_free_result(aff_result);
 		}
 
-		obj->contains = sql_load_saved_item_contents(item_key, item_id);
+		obj->contains = sql_load_saved_item_contents(item_key, item_id, 0);
 		for (P_obj c = obj->contains; c; c = c->next_content)
 		{
+			if (!obj_can_nest(c, obj))
+			{
+				logit(LOG_DEBUG, "sql_load_saved_item_contents: skipping malformed container link %d -> %d", c->db_item_id, obj->db_item_id);
+				continue;
+			}
 			c->loc_p      = LOC_INSIDE;
 			c->loc.inside = obj;
 		}
@@ -7157,9 +7206,14 @@ void sql_restore_saved_items(void)
 			mysql_free_result(aff_result);
 		}
 
-		obj->contains = sql_load_saved_item_contents(item_key, item_id);
+		obj->contains = sql_load_saved_item_contents(item_key, item_id, 0);
 		for (P_obj c = obj->contains; c; c = c->next_content)
 		{
+			if (!obj_can_nest(c, obj))
+			{
+				logit(LOG_DEBUG, "sql_load_saved_item_contents: skipping malformed container link %d -> %d", c->db_item_id, obj->db_item_id);
+				continue;
+			}
 			c->loc_p      = LOC_INSIDE;
 			c->loc.inside = obj;
 		}
@@ -7176,10 +7230,16 @@ void sql_restore_saved_items(void)
 	logit(LOG_DEBUG, "sql_restore_saved_items: loaded %d items", loaded);
 }
 
-static P_obj sql_load_siege_item_contents(int room_vnum, int container_id)
+static P_obj sql_load_siege_item_contents(int room_vnum, int container_id, int depth)
 {
 	if (!DB)
 		return NULL;
+
+	if (depth > MAX_CONTAINER_LOAD_DEPTH)
+	{
+		logit(LOG_DEBUG, "sql_load_siege_item_contents: container depth exceeded for room %d container %d", room_vnum, container_id);
+		return NULL;
+	}
 
 	char query[512];
 	snprintf(query,
@@ -7266,9 +7326,14 @@ static P_obj sql_load_siege_item_contents(int room_vnum, int container_id)
 			mysql_free_result(aff_result);
 		}
 
-		obj->contains = sql_load_siege_item_contents(room_vnum, item_id);
+		obj->contains = sql_load_siege_item_contents(room_vnum, item_id, 0);
 		for (P_obj c = obj->contains; c; c = c->next_content)
 		{
+			if (!obj_can_nest(c, obj))
+			{
+				logit(LOG_DEBUG, "sql_load_siege_item_contents: skipping malformed container link %d -> %d", c->db_item_id, obj->db_item_id);
+				continue;
+			}
 			c->loc_p      = LOC_INSIDE;
 			c->loc.inside = obj;
 		}
@@ -7380,9 +7445,14 @@ void sql_load_siege_list(void)
 			mysql_free_result(aff_result);
 		}
 
-		obj->contains = sql_load_siege_item_contents(room_vnum, item_id);
+		obj->contains = sql_load_siege_item_contents(room_vnum, item_id, 0);
 		for (P_obj c = obj->contains; c; c = c->next_content)
 		{
+			if (!obj_can_nest(c, obj))
+			{
+				logit(LOG_DEBUG, "sql_load_siege_item_contents: skipping malformed container link %d -> %d", c->db_item_id, obj->db_item_id);
+				continue;
+			}
 			c->loc.inside = obj;
 			c->loc_p      = LOC_INSIDE;
 		}
