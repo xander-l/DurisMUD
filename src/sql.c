@@ -1854,9 +1854,8 @@ bool qry(const char *format, ...)
 
 void send_to_pid_offline(const char *msg, int pid)
 {
-	char buff[MAX_STRING_LENGTH];
-	mysql_real_escape_string(DB, buff, msg, strlen(msg));
-	qry("INSERT INTO offline_messages (date, pid, message) VALUES (now(), '%d', '%s')", pid, buff);
+	string escaped_msg = escape_str(msg);
+	qry("INSERT INTO offline_messages (date, pid, message) VALUES (now(), '%d', '%s')", pid, escaped_msg.c_str());
 }
 
 void send_offline_messages(P_char ch)
@@ -2326,31 +2325,20 @@ void sql_log(P_char ch, char *kind, char *format, ...)
 		return;
 	}
 
-	static char message_buff[MAX_STRING_LENGTH];
-	message_buff[0] = '\0';
-	mysql_real_escape_string(DB, message_buff, buff, strlen(buff));
+	string message_esc    = escape_str(buff);
+	string kind_esc       = escape_str(kind);
+	string ip_esc         = escape_str(ch->desc ? ch->desc->host : "");
+	string player_name_esc = escape_str(GET_NAME(ch));
 
-	static char ip_buff[15];
-	ip_buff[0] = '\0';
-
-	if (ch->desc && ch->desc->host)
-	{
-		snprintf(ip_buff, 50, "%s", ch->desc->host);
-	}
-
-	snprintf(buff,
-	         MAX_STRING_LENGTH,
-	         "INSERT INTO log_entries (date, kind, ip_address, pid, player_name, zone_number, room_vnum, message) VALUES "
-	         "(now(), '%s', '%s', %d, '%s', %d, %d, '%s')",
-	         kind,
-	         ip_buff,
-	         GET_PID(ch),
-	         GET_NAME(ch),
-	         zone_table[world[ch->in_room].zone].number,
-	         world[ch->in_room].number,
-	         message_buff);
-
-	qry(buff);
+	qry("INSERT INTO log_entries (date, kind, ip_address, pid, player_name, zone_number, room_vnum, message) VALUES "
+	    "(now(), '%s', '%s', %d, '%s', %d, %d, '%s')",
+	    kind_esc.c_str(),
+	    ip_esc.c_str(),
+	    GET_PID(ch),
+	    player_name_esc.c_str(),
+	    zone_table[world[ch->in_room].zone].number,
+	    world[ch->in_room].number,
+	    message_esc.c_str());
 }
 
 bool get_zone_info(int zone_number, struct zone_info *info)

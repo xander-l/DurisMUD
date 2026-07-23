@@ -29,6 +29,23 @@ def test_auction_fallback_uses_escaped_object_blob() -> None:
         raise AssertionError("legacy auction insert must not interpolate the player-controlled parse buffer")
 
 
+def test_shared_message_sinks_use_dynamic_escaping() -> None:
+    offline = function_body(SQL, "void send_to_pid_offline(const char *msg, int pid)", "void send_offline_messages(")
+    require("string escaped_msg = escape_str(msg);", offline,
+            "offline messages must use dynamically sized SQL escaping")
+    if "mysql_real_escape_string" in offline:
+        raise AssertionError("offline messages must not escape into a same-size fixed buffer")
+
+    sql_log_sig = "void sql_log(P_char ch, char *kind, char *format, ...)"
+    sql_log_start = SQL.rindex(sql_log_sig)
+    sql_log = SQL[sql_log_start:SQL.index("bool get_zone_info(", sql_log_start)]
+    for field in ("kind", "ip", "player_name", "message"):
+        if not re.search(rf"string\s+{field}_esc\s*=\s*escape_str", sql_log):
+            raise AssertionError(f"sql_log must dynamically escape {field}")
+    if "ip_buff[15]" in sql_log or "snprintf(ip_buff, 50" in sql_log:
+        raise AssertionError("sql_log must not write a hostname through the undersized legacy IP buffer")
+
+
 def test_auction_identity_writes_escape_names() -> None:
     offer = function_body(AUCTION, "bool auction_offer(P_char ch, char *args)", "bool auction_list(")
     require("string seller_name_esc = escape_str(GET_NAME(ch));", offer,
@@ -56,6 +73,7 @@ def test_escape_str_sizes_for_mysql_worst_case() -> None:
 
 if __name__ == "__main__":
     test_auction_fallback_uses_escaped_object_blob()
+    test_shared_message_sinks_use_dynamic_escaping()
     test_auction_identity_writes_escape_names()
     test_escape_str_sizes_for_mysql_worst_case()
     print("SQL input hardening contracts passed")
