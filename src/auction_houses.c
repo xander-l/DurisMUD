@@ -763,6 +763,7 @@ bool auction_offer(P_char ch, char *args)
 
 	char desc_buff[MAX_STRING_LENGTH * 2 + 1];
 	mysql_real_escape_string(DB, desc_buff, tmp_obj->short_description, strlen(tmp_obj->short_description));
+	string seller_name_esc = escape_str(GET_NAME(ch));
 
 	int obj_vnum = (tmp_obj->R_num >= 0 ? obj_index[tmp_obj->R_num].virtual_number : -1);
 
@@ -781,7 +782,7 @@ bool auction_offer(P_char ch, char *args)
 	if (qry("INSERT INTO auctions (seller_pid, seller_name, start_time, end_time, obj_short, obj_vnum, obj_blob_str, cur_price, buy_price, id_keywords, quantity, obj_info_text) VALUES ('%d', '%s', "
 	        "FROM_UNIXTIME(UNIX_TIMESTAMP()), FROM_UNIXTIME(UNIX_TIMESTAMP() + %d), '%s', '%d', '%s', '%d', '%d', '%s', '%d', '%s')",
 	        GET_PID(ch),
-	        ch->player.name,
+	        seller_name_esc.c_str(),
 	        auction_length,
 	        desc_buff,
 	        obj_vnum,
@@ -806,7 +807,7 @@ bool auction_offer(P_char ch, char *args)
 		logit(LOG_DEBUG, "auction: obj_info_text column missing? trying old insert");
 		if (qry("INSERT INTO auctions (seller_pid, seller_name, start_time, end_time, obj_short, obj_vnum, obj_blob_str, cur_price, buy_price, id_keywords, quantity) VALUES ('%d', '%s', FROM_UNIXTIME(UNIX_TIMESTAMP()), FROM_UNIXTIME(UNIX_TIMESTAMP() + %d), '%s', '%d', '%s', '%d', '%d', '%s', '%d')",
 		        GET_PID(ch),
-		        ch->player.name,
+		        seller_name_esc.c_str(),
 		        auction_length,
 		        desc_buff,
 		        obj_vnum,
@@ -1255,6 +1256,7 @@ bool auction_bid(P_char ch, char *args)
 			return FALSE;
 		own_txn = true;
 	}
+	string bidder_name_esc = escape_str(GET_NAME(ch));
 
 	// Lock the auction row before reading mutable bid state.
 	// Try query with account join first, fall back to simpler query if it fails
@@ -1367,7 +1369,7 @@ bool auction_bid(P_char ch, char *args)
 	if (buy_price > 0 && bid_value >= buy_price)
 	{
 		// do db update first before taking money
-		if (!qry("UPDATE auctions SET winning_bidder_pid = '%d', winning_bidder_name = '%s', cur_price = '%d' WHERE id = '%d'", GET_PID(ch), ch->player.name, buy_price, auction_id))
+		if (!qry("UPDATE auctions SET winning_bidder_pid = '%d', winning_bidder_name = '%s', cur_price = '%d' WHERE id = '%d'", GET_PID(ch), bidder_name_esc.c_str(), buy_price, auction_id))
 		{
 			if (own_txn)
 				sql_rollback();
@@ -1383,7 +1385,7 @@ bool auction_bid(P_char ch, char *args)
 		    "(unix_timestamp(), %d, %d, '%s', %d)",
 		    auction_id,
 		    GET_PID(ch),
-		    ch->player.name,
+		    bidder_name_esc.c_str(),
 		    bid_value))
 		{
 			if (own_txn)
@@ -1440,7 +1442,7 @@ bool auction_bid(P_char ch, char *args)
 			if (!qry("UPDATE auctions SET cur_price = '%d', winning_bidder_pid = '%d', winning_bidder_name = '%s', end_time = DATE_ADD(end_time, INTERVAL %d SECOND) WHERE id = '%d'",
 			         bid_value,
 			         GET_PID(ch),
-			         ch->player.name,
+			         bidder_name_esc.c_str(),
 			         BID_TIME_EXTENSION,
 			         auction_id))
 			{
@@ -1456,7 +1458,7 @@ bool auction_bid(P_char ch, char *args)
 		    "(unix_timestamp(), %d, %d, '%s', %d)",
 		    auction_id,
 		    GET_PID(ch),
-		    ch->player.name,
+		    bidder_name_esc.c_str(),
 		    bid_value))
 		{
 			if (own_txn)

@@ -29,6 +29,20 @@ def test_auction_fallback_uses_escaped_object_blob() -> None:
         raise AssertionError("legacy auction insert must not interpolate the player-controlled parse buffer")
 
 
+def test_auction_identity_writes_escape_names() -> None:
+    offer = function_body(AUCTION, "bool auction_offer(P_char ch, char *args)", "bool auction_list(")
+    require("string seller_name_esc = escape_str(GET_NAME(ch));", offer,
+            "auction offers must escape the persisted seller name")
+    if offer.count("seller_name_esc.c_str()") != 2:
+        raise AssertionError("both modern and legacy auction inserts must use the escaped seller name")
+
+    bid = function_body(AUCTION, "bool auction_bid(P_char ch, char *args)", "bool auction_pickup(")
+    require("string bidder_name_esc = escape_str(GET_NAME(ch));", bid,
+            "auction bids must escape the persisted bidder name")
+    if bid.count("bidder_name_esc.c_str()") != 4:
+        raise AssertionError("all auction winner and bid-history writes must use the escaped bidder name")
+
+
 def test_escape_str_sizes_for_mysql_worst_case() -> None:
     production = SQL[SQL.index("/* Escapes a string. */"):]
     body = function_body(production, "string escape_str(const char *str)", "void sql_populate_lookup_tables()")
@@ -42,5 +56,6 @@ def test_escape_str_sizes_for_mysql_worst_case() -> None:
 
 if __name__ == "__main__":
     test_auction_fallback_uses_escaped_object_blob()
+    test_auction_identity_writes_escape_names()
     test_escape_str_sizes_for_mysql_worst_case()
     print("SQL input hardening contracts passed")
