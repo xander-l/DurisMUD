@@ -35,6 +35,17 @@ def test_auction_fallback_uses_escaped_object_blob() -> None:
         raise AssertionError("legacy auction insert must not interpolate the player-controlled parse buffer")
 
 
+def test_persistence_restrings_are_not_truncated_after_escaping() -> None:
+    require("static string sql_quote_escaped_or_null", SQL_PLAYER,
+            "persistence must use a dynamic nullable escaped-string wrapper")
+    if re.search(r"char\s+name_str\[1024\]", SQL_PLAYER):
+        raise AssertionError("persistence must not truncate escaped object names into 1024-byte buffers")
+    if re.search(r"desc_str\[2048\]|action_str\[2048\]", SQL_PLAYER):
+        raise AssertionError("persistence must not truncate escaped object descriptions into 2048-byte buffers")
+    if SQL_PLAYER.count("sql_quote_escaped_or_null(esc_name)") < 8:
+        raise AssertionError("all player/pet/locker/corpse restring persistence paths must use dynamic wrappers")
+
+
 def test_private_chest_queries_do_not_truncate_escaped_input() -> None:
     create = function_body(SQL_PLAYER, "int sql_create_private_chest", "bool sql_delete_private_chest")
     require("string name_esc = escape_str(chest_name);", create,
@@ -179,6 +190,7 @@ def test_escape_str_sizes_for_mysql_worst_case() -> None:
 
 if __name__ == "__main__":
     test_auction_fallback_uses_escaped_object_blob()
+    test_persistence_restrings_are_not_truncated_after_escaping()
     test_private_chest_queries_do_not_truncate_escaped_input()
     test_shared_text_keys_escape_before_queries()
     test_command_filters_escape_without_post_escape_truncation()

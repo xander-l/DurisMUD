@@ -472,6 +472,13 @@ char *sql_escape_string(const char *str)
 	return escaped;
 }
 
+static string sql_quote_escaped_or_null(const char *escaped)
+{
+	if (!escaped)
+		return "NULL";
+	return string("'") + escaped + "'";
+}
+
 // log sql error with context
 void sql_player_error(const char *context, const char *query)
 {
@@ -1997,30 +2004,15 @@ static int sql_save_single_item_get_id(int pid, P_obj obj, int equip_slot, int c
 	else
 		strcpy(container_str, "NULL");
 
-	// build name string with quotes or NULL
-	char name_str[1024];
-	if (esc_name)
-		snprintf(name_str, sizeof(name_str), "'%s'", esc_name);
-	else
-		strcpy(name_str, "NULL");
-
-	char short_str[1024];
-	if (esc_short)
-		snprintf(short_str, sizeof(short_str), "'%s'", esc_short);
-	else
-		strcpy(short_str, "NULL");
-
-	char desc_str[2048];
-	if (esc_desc)
-		snprintf(desc_str, sizeof(desc_str), "'%s'", esc_desc);
-	else
-		strcpy(desc_str, "NULL");
-
-	char action_str[2048];
-	if (esc_action)
-		snprintf(action_str, sizeof(action_str), "'%s'", esc_action);
-	else
-		strcpy(action_str, "NULL");
+	// Build escaped nullable string values without truncation.
+	string name_sql   = sql_quote_escaped_or_null(esc_name);
+	string short_sql  = sql_quote_escaped_or_null(esc_short);
+	string desc_sql   = sql_quote_escaped_or_null(esc_desc);
+	string action_sql = sql_quote_escaped_or_null(esc_action);
+	const char *name_str   = name_sql.c_str();
+	const char *short_str  = short_sql.c_str();
+	const char *desc_str   = desc_sql.c_str();
+	const char *action_str = action_sql.c_str();
 
 	char wear_str[32], type_str[16], material_str[16], bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
 	/* shared helper; also frees the loaded proto via extract_obj() */
@@ -2388,24 +2380,15 @@ static bool sql_save_player_items_batch_all(int pid, P_char ch,
 		if (obj->str_mask & STRUNG_DESC3)
 			esc_action = sql_escape_string(obj->action_description ? obj->action_description : "");
 
-		// Build name/short/desc/action strings with quotes or NULL
-		char name_str[1024], short_str[1024], desc_str[2048], action_str[2048];
-		if (esc_name)
-			snprintf(name_str, sizeof(name_str), "'%s'", esc_name);
-		else
-			strcpy(name_str, "NULL");
-		if (esc_short)
-			snprintf(short_str, sizeof(short_str), "'%s'", esc_short);
-		else
-			strcpy(short_str, "NULL");
-		if (esc_desc)
-			snprintf(desc_str, sizeof(desc_str), "'%s'", esc_desc);
-		else
-			strcpy(desc_str, "NULL");
-		if (esc_action)
-			snprintf(action_str, sizeof(action_str), "'%s'", esc_action);
-		else
-			strcpy(action_str, "NULL");
+		// Build escaped nullable string values without truncation.
+		string name_sql   = sql_quote_escaped_or_null(esc_name);
+		string short_sql  = sql_quote_escaped_or_null(esc_short);
+		string desc_sql   = sql_quote_escaped_or_null(esc_desc);
+		string action_sql = sql_quote_escaped_or_null(esc_action);
+		const char *name_str   = name_sql.c_str();
+		const char *short_str  = short_sql.c_str();
+		const char *desc_str   = desc_sql.c_str();
+		const char *action_str = action_sql.c_str();
 
 		// Get diff-from-prototype fields (wear_flags, type, material, bitvectors)
 		char wear_str[32], type_str[16], material_str[16];
@@ -2801,29 +2784,14 @@ static int sql_save_single_pet_item(int pet_id, P_obj obj, int equip_slot, int c
 	else
 		strcpy(container_str, "NULL");
 
-	char name_str[1024];
-	if (esc_name)
-		snprintf(name_str, sizeof(name_str), "'%s'", esc_name);
-	else
-		strcpy(name_str, "NULL");
-
-	char short_str[1024];
-	if (esc_short)
-		snprintf(short_str, sizeof(short_str), "'%s'", esc_short);
-	else
-		strcpy(short_str, "NULL");
-
-	char desc_str[2048];
-	if (esc_desc)
-		snprintf(desc_str, sizeof(desc_str), "'%s'", esc_desc);
-	else
-		strcpy(desc_str, "NULL");
-
-	char action_str[2048];
-	if (esc_action)
-		snprintf(action_str, sizeof(action_str), "'%s'", esc_action);
-	else
-		strcpy(action_str, "NULL");
+	string name_sql   = sql_quote_escaped_or_null(esc_name);
+	string short_sql  = sql_quote_escaped_or_null(esc_short);
+	string desc_sql   = sql_quote_escaped_or_null(esc_desc);
+	string action_sql = sql_quote_escaped_or_null(esc_action);
+	const char *name_str   = name_sql.c_str();
+	const char *short_str  = short_sql.c_str();
+	const char *desc_str   = desc_sql.c_str();
+	const char *action_str = action_sql.c_str();
 
 	// shared helper for diff-from-prototype fields (wear_flags, item_type, item_material, bitvectors)
 	char wear_str[32], type_str[16], material_str[16], bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
@@ -5118,23 +5086,14 @@ static int sql_save_locker_item(int locker_id, int chest_id, P_obj obj, int cont
 	else
 		strcpy(chest_id_str, "NULL");
 
-	char name_str[1024], short_str[1024], desc_str[2048], action_str[2048];
-	if (esc_name)
-		snprintf(name_str, sizeof(name_str), "'%s'", esc_name);
-	else
-		strcpy(name_str, "NULL");
-	if (esc_short)
-		snprintf(short_str, sizeof(short_str), "'%s'", esc_short);
-	else
-		strcpy(short_str, "NULL");
-	if (esc_desc)
-		snprintf(desc_str, sizeof(desc_str), "'%s'", esc_desc);
-	else
-		strcpy(desc_str, "NULL");
-	if (esc_action)
-		snprintf(action_str, sizeof(action_str), "'%s'", esc_action);
-	else
-		strcpy(action_str, "NULL");
+	string name_sql   = sql_quote_escaped_or_null(esc_name);
+	string short_sql  = sql_quote_escaped_or_null(esc_short);
+	string desc_sql   = sql_quote_escaped_or_null(esc_desc);
+	string action_sql = sql_quote_escaped_or_null(esc_action);
+	const char *name_str   = name_sql.c_str();
+	const char *short_str  = short_sql.c_str();
+	const char *desc_str   = desc_sql.c_str();
+	const char *action_str = action_sql.c_str();
 
 	char wear_str[32], type_str[16], material_str[16], bv1_str[32], bv2_str[32], bv3_str[32], bv4_str[32], bv5_str[32];
 	/* type_str is unused here (locker INSERT formats item_type as %d) but the shared helper writes to it for signature uniformity */
@@ -7029,23 +6988,14 @@ static int sql_save_corpse_item(int corpse_id, int save_id, P_obj obj, int conta
 	else
 		strcpy(container_str, "NULL");
 
-	char name_str[1024], short_str[1024], desc_str[2048], action_str[2048];
-	if (esc_name)
-		snprintf(name_str, sizeof(name_str), "'%s'", esc_name);
-	else
-		strcpy(name_str, "NULL");
-	if (esc_short)
-		snprintf(short_str, sizeof(short_str), "'%s'", esc_short);
-	else
-		strcpy(short_str, "NULL");
-	if (esc_desc)
-		snprintf(desc_str, sizeof(desc_str), "'%s'", esc_desc);
-	else
-		strcpy(desc_str, "NULL");
-	if (esc_action)
-		snprintf(action_str, sizeof(action_str), "'%s'", esc_action);
-	else
-		strcpy(action_str, "NULL");
+	string name_sql   = sql_quote_escaped_or_null(esc_name);
+	string short_sql  = sql_quote_escaped_or_null(esc_short);
+	string desc_sql   = sql_quote_escaped_or_null(esc_desc);
+	string action_sql = sql_quote_escaped_or_null(esc_action);
+	const char *name_str   = name_sql.c_str();
+	const char *short_str  = short_sql.c_str();
+	const char *desc_str   = desc_sql.c_str();
+	const char *action_str = action_sql.c_str();
 
 	char query[8192];
 	// Shared helper formats wear_str, type_str, and bv1-5_str
@@ -7771,23 +7721,14 @@ static int sql_save_shopkeeper_item(int shopkeeper_id, P_obj obj, int equip_slot
 	else
 		strcpy(container_str, "NULL");
 
-	char name_str[1024], short_str[1024], desc_str[2048], action_str[2048];
-	if (esc_name)
-		snprintf(name_str, sizeof(name_str), "'%s'", esc_name);
-	else
-		strcpy(name_str, "NULL");
-	if (esc_short)
-		snprintf(short_str, sizeof(short_str), "'%s'", esc_short);
-	else
-		strcpy(short_str, "NULL");
-	if (esc_desc)
-		snprintf(desc_str, sizeof(desc_str), "'%s'", esc_desc);
-	else
-		strcpy(desc_str, "NULL");
-	if (esc_action)
-		snprintf(action_str, sizeof(action_str), "'%s'", esc_action);
-	else
-		strcpy(action_str, "NULL");
+	string name_sql   = sql_quote_escaped_or_null(esc_name);
+	string short_sql  = sql_quote_escaped_or_null(esc_short);
+	string desc_sql   = sql_quote_escaped_or_null(esc_desc);
+	string action_sql = sql_quote_escaped_or_null(esc_action);
+	const char *name_str   = name_sql.c_str();
+	const char *short_str  = short_sql.c_str();
+	const char *desc_str   = desc_sql.c_str();
+	const char *action_str = action_sql.c_str();
 
 	char query[8192];
 	// Shared helper formats wear_str, type_str, and bv1-5_str
@@ -8048,23 +7989,14 @@ static int sql_save_saved_item_recursive(const char *item_key, int room_vnum, P_
 	else
 		strcpy(container_str, "NULL");
 
-	char name_str[1024], short_str[1024], desc_str[2048], action_str[2048];
-	if (esc_name)
-		snprintf(name_str, sizeof(name_str), "'%s'", esc_name);
-	else
-		strcpy(name_str, "NULL");
-	if (esc_short)
-		snprintf(short_str, sizeof(short_str), "'%s'", esc_short);
-	else
-		strcpy(short_str, "NULL");
-	if (esc_desc)
-		snprintf(desc_str, sizeof(desc_str), "'%s'", esc_desc);
-	else
-		strcpy(desc_str, "NULL");
-	if (esc_action)
-		snprintf(action_str, sizeof(action_str), "'%s'", esc_action);
-	else
-		strcpy(action_str, "NULL");
+	string name_sql   = sql_quote_escaped_or_null(esc_name);
+	string short_sql  = sql_quote_escaped_or_null(esc_short);
+	string desc_sql   = sql_quote_escaped_or_null(esc_desc);
+	string action_sql = sql_quote_escaped_or_null(esc_action);
+	const char *name_str   = name_sql.c_str();
+	const char *short_str  = short_sql.c_str();
+	const char *desc_str   = desc_sql.c_str();
+	const char *action_str = action_sql.c_str();
 
 	char *esc_key = sql_escape_string(item_key);
 
@@ -8269,23 +8201,14 @@ static int sql_save_siege_item_one(int room_vnum, P_obj obj, int container_id)
 	else
 		strcpy(container_str, "NULL");
 
-	char name_str[1024], short_str[1024], desc_str[2048], action_str[2048];
-	if (esc_name)
-		snprintf(name_str, sizeof(name_str), "'%s'", esc_name);
-	else
-		strcpy(name_str, "NULL");
-	if (esc_short)
-		snprintf(short_str, sizeof(short_str), "'%s'", esc_short);
-	else
-		strcpy(short_str, "NULL");
-	if (esc_desc)
-		snprintf(desc_str, sizeof(desc_str), "'%s'", esc_desc);
-	else
-		strcpy(desc_str, "NULL");
-	if (esc_action)
-		snprintf(action_str, sizeof(action_str), "'%s'", esc_action);
-	else
-		strcpy(action_str, "NULL");
+	string name_sql   = sql_quote_escaped_or_null(esc_name);
+	string short_sql  = sql_quote_escaped_or_null(esc_short);
+	string desc_sql   = sql_quote_escaped_or_null(esc_desc);
+	string action_sql = sql_quote_escaped_or_null(esc_action);
+	const char *name_str   = name_sql.c_str();
+	const char *short_str  = short_sql.c_str();
+	const char *desc_str   = desc_sql.c_str();
+	const char *action_str = action_sql.c_str();
 
 	char query[8192];
 	// Shared helper formats wear_str, type_str, and bv1-5_str
