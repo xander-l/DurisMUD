@@ -27,6 +27,9 @@
 #ifndef __NO_MYSQL__
 #include <cjson/cJSON.h>
 #include <hiredis/hiredis.h>
+
+/* bounded string copy for redis deserialization */
+static char *strn_dup(const char *source, size_t max_len);
 #endif
 
 extern const int               top_of_world;
@@ -653,21 +656,21 @@ int redis_restore_floor_drops(void)
 		{
 			if ((obj->str_mask & STRUNG_KEYS) && obj->name)
 				str_free(obj->name);
-			obj->name = str_dup(nm->valuestring);
+			obj->name = strn_dup(nm->valuestring, MAX_STRING_LENGTH);
 			obj->str_mask |= STRUNG_KEYS;
 		}
 		if (sd && cJSON_IsString(sd) && sd->valuestring[0])
 		{
 			if ((obj->str_mask & STRUNG_DESC2) && obj->short_description)
 				str_free(obj->short_description);
-			obj->short_description = str_dup(sd->valuestring);
+			obj->short_description = strn_dup(sd->valuestring, MAX_STRING_LENGTH);
 			obj->str_mask |= STRUNG_DESC2;
 		}
 		if (ld && cJSON_IsString(ld) && ld->valuestring[0])
 		{
 			if ((obj->str_mask & STRUNG_DESC1) && obj->description)
 				str_free(obj->description);
-			obj->description = str_dup(ld->valuestring);
+			obj->description = strn_dup(ld->valuestring, MAX_STRING_LENGTH);
 			obj->str_mask |= STRUNG_DESC1;
 		}
 
@@ -1618,17 +1621,17 @@ static bool redis_load_world_state_json(const char *json)
 			if (name && cJSON_IsString(name))
 			{
 				mob->only.npc->str_mask |= STRUNG_KEYS;
-				GET_NAME(mob) = str_dup(name->valuestring);
+				GET_NAME(mob) = strn_dup(name->valuestring, MAX_STRING_LENGTH);
 			}
 			if (shortD && cJSON_IsString(shortD))
 			{
 				mob->only.npc->str_mask |= STRUNG_DESC2;
-				mob->player.short_descr = str_dup(shortD->valuestring);
+				mob->player.short_descr = strn_dup(shortD->valuestring, MAX_STRING_LENGTH);
 			}
 			if (longD && cJSON_IsString(longD))
 			{
 				mob->only.npc->str_mask |= STRUNG_DESC1;
-				mob->player.long_descr = str_dup(longD->valuestring);
+				mob->player.long_descr = strn_dup(longD->valuestring, MAX_STRING_LENGTH);
 			}
 
 			// restore equipment
@@ -1869,21 +1872,21 @@ static bool redis_load_world_state_json(const char *json)
 			{
 				if ((obj->str_mask & STRUNG_KEYS) && obj->name)
 					str_free(obj->name);
-				obj->name = str_dup(nm->valuestring);
+				obj->name = strn_dup(nm->valuestring, MAX_STRING_LENGTH);
 				obj->str_mask |= STRUNG_KEYS;
 			}
 			if (sd && cJSON_IsString(sd) && sd->valuestring[0])
 			{
 				if ((obj->str_mask & STRUNG_DESC2) && obj->short_description)
 					str_free(obj->short_description);
-				obj->short_description = str_dup(sd->valuestring);
+				obj->short_description = strn_dup(sd->valuestring, MAX_STRING_LENGTH);
 				obj->str_mask |= STRUNG_DESC2;
 			}
 			if (ld && cJSON_IsString(ld) && ld->valuestring[0])
 			{
 				if ((obj->str_mask & STRUNG_DESC1) && obj->description)
 					str_free(obj->description);
-				obj->description = str_dup(ld->valuestring);
+				obj->description = strn_dup(ld->valuestring, MAX_STRING_LENGTH);
 				obj->str_mask |= STRUNG_DESC1;
 			}
 
@@ -2164,6 +2167,21 @@ static int redis_json_array_int(cJSON *array, int index, int fallback)
 	return item->valueint;
 }
 
+/* bounded string copy for redis deserialization results */
+static char *strn_dup(const char *source, size_t max_len)
+{
+	if (!source)
+		return NULL;
+	size_t len = strlen(source);
+	if (len > max_len)
+		len = max_len;
+	char *result;
+	CREATE(result, char, len + 1, MEM_TAG_STRING);
+	memcpy(result, source, len);
+	result[len] = '\0';
+	return result;
+}
+
 static cJSON *redis_ship_snapshot_to_json(const struct ShipData *ship)
 {
 	if (!ship)
@@ -2278,8 +2296,8 @@ static bool redis_ship_snapshot_from_json(cJSON *root, struct ShipData *ship)
 		return false;
 
 	ship->db_id    = redis_json_int(root, "db_id", -1);
-	ship->ownername = str_dup(redis_json_string(root, "ownername") ? redis_json_string(root, "ownername") : "");
-	ship->name      = str_dup(redis_json_string(root, "name") ? redis_json_string(root, "name") : "");
+	ship->ownername = strn_dup(redis_json_string(root, "ownername") ? redis_json_string(root, "ownername") : "", MAX_STRING_LENGTH);
+	ship->name      = strn_dup(redis_json_string(root, "name") ? redis_json_string(root, "name") : "", MAX_STRING_LENGTH);
 	ship->m_class   = ship_class;
 	ship->frags     = redis_json_int(root, "frags", 0);
 	ship->anchor    = redis_json_int(root, "anchor", 0);
