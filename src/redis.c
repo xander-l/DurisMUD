@@ -218,6 +218,32 @@ void redis_cleanup(void)
 #ifndef __NO_MYSQL__
 	if (redis_ctx)
 	{
+		// wait for outstanding persistence children before disconnecting
+		int   status;
+		pid_t result;
+
+		if (dirty_flush_pid > 0)
+		{
+			do {
+				result = waitpid(dirty_flush_pid, &status, 0);
+			} while (result == -1 && errno == EINTR);
+			if (result > 0)
+				dirty_flush_pid = 0;
+			else if (result == -1 && errno == ECHILD)
+				dirty_flush_pid = 0;  // already reaped
+		}
+
+		if (world_state_save_pid > 0)
+		{
+			do {
+				result = waitpid(world_state_save_pid, &status, 0);
+			} while (result == -1 && errno == EINTR);
+			if (result > 0)
+				world_state_save_pid = 0;
+			else if (result == -1 && errno == ECHILD)
+				world_state_save_pid = 0;  // already reaped
+		}
+
 		// save obj_uid counter before disconnect
 		redis_save_obj_uid_counter();
 
@@ -862,6 +888,13 @@ void flush_dirty_players(void)
 				redis_restore_dirty_snapshot(inflight_key);
 			}
 		}
+		else
+		{
+			// waitpid returned -1 (ECHILD) - SIGCHLD handler already reaped child.
+			// Exit status unknown; assume failure and retry.
+			logit(LOG_SYS, "flush_dirty: previous async save already reaped, restoring dirty set for retry");
+			redis_restore_dirty_snapshot(inflight_key);
+		}
 		dirty_flush_pid = 0;
 	}
 
@@ -1387,6 +1420,16 @@ bool redis_save_world_state(void)
 			return true;
 		}
 		world_state_save_pid = 0;
+		if (result > 0)
+		{
+			if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
+				logit(LOG_SYS, "redis: world state child failed with status %d", WEXITSTATUS(status));
+		}
+		else
+		{
+			// waitpid returned -1 (ECHILD) - SIGCHLD handler already reaped child.
+			logit(LOG_SYS, "redis: world state child already reaped, status unknown");
+		}
 	}
 
 	int num_mobs, num_objs, num_rooms;
