@@ -1459,10 +1459,11 @@ int sql_find_racewar_for_ip(char *ip, int *racewar_side)
 	MYSQL_RES *db;
 	MYSQL_ROW  row;
 	time_t     last_connect, last_disconnect, hour_ago;
+	string     ip_esc = escape_str(ip);
 
 	db = db_query("SELECT UNIX_TIMESTAMP(last_connect), UNIX_TIMESTAMP(last_disconnect), UNIX_TIMESTAMP(), racewar_side"
 	              " from ip_info WHERE last_ip = \"%s\" ORDER BY last_connect DESC LIMIT 1",
-	              ip);
+	              ip_esc.c_str());
 
 	if (db && ((row = mysql_fetch_row(db)) != NULL))
 	{

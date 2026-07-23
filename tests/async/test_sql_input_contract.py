@@ -41,6 +41,12 @@ def test_shared_text_keys_escape_before_queries() -> None:
     require("author_esc.c_str()", boon,
             "boon update must use the escaped author")
 
+    create = function_body(BOON, "int create_boon(BoonData *bdata)", "int create_boon_progress(")
+    require("string author_esc = escape_str(bdata->author.c_str());", create,
+            "boon creation must escape the author name")
+    require("author_esc.c_str()", create,
+            "boon insert must use the escaped author")
+
     mud_info_start = SQL.rindex("string get_mud_info(const char *name)")
     mud_info = SQL[mud_info_start:SQL.index("void send_mud_info", mud_info_start)]
     require("string name_esc = escape_str(name);", mud_info,
@@ -78,6 +84,14 @@ def test_player_identity_sinks_escape_before_sql() -> None:
             "hardcore death persistence must escape the killer name")
     require("killer_name_esc.c_str(), GET_PID(ch)", FIGHT,
             "killed_by update must use the escaped killer name")
+
+    race_sig = "int sql_find_racewar_for_ip(char *ip, int *racewar_side)"
+    race_start = SQL.rindex(race_sig)
+    race = SQL[race_start:SQL.index("void perform_wiki_search", race_start)]
+    if not re.search(r"string\s+ip_esc\s*=\s*escape_str\(ip\);", race):
+        raise AssertionError("racewar IP lookup must escape the descriptor address")
+    require("ip_esc.c_str()", race,
+            "racewar IP query must use the escaped address")
 
     connect_ip = function_body(SQL, "void sql_connectIP(P_char ch)", "void sql_world_quest_finished(")
     require("string host_esc = escape_str(ch->desc->host);", connect_ip,

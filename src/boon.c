@@ -2394,6 +2394,7 @@ int create_boon(BoonData *bdata)
 		debug("Maximum number of boons has been reached.  Aborting create_boon().");
 		return FALSE;
 	}
+	string author_esc = escape_str(bdata->author.c_str());
 
 	if (qry("INSERT INTO boons (time, duration, racewar, type, opt, criteria, criteria2, bonus, bonus2, random, author, active, pid, rpt) VALUES "
 	        "(%d, %d, %d, %d, %d, %f, %f, %f, %f, %d, '%s', 1, '%d', '%d')",
@@ -2407,7 +2408,7 @@ int create_boon(BoonData *bdata)
 	        bdata->bonus,
 	        bdata->bonus2,
 	        bdata->random,
-	        bdata->author.c_str(),
+	        author_esc.c_str(),
 	        bdata->pid,
 	        bdata->repeat))
 	{
