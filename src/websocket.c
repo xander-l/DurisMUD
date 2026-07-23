@@ -12,6 +12,7 @@
 #include "utils.h"
 #include "websocket.h"
 #include <arpa/inet.h>
+#include <netdb.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <netinet/in.h>
@@ -354,10 +355,37 @@ int websocket_parse_handshake(struct descriptor_data *d, const char *buf, size_t
 				{
 					strncpy(d->host, client_ip, sizeof(d->host) - 1);
 					d->host[sizeof(d->host) - 1] = '\0';
-					/* hostname lookup */
-					char cmd[256];
-					snprintf(cmd, sizeof(cmd), "host %s | sed -e 's/.*pointer\\ \\(.*\\)\\./\\1/g;t;d' > lib/etc/hosts/%d &", d->host, d->descriptor);
-					system(cmd);
+					/* hostname lookup via getnameinfo instead of system("host ...") */
+					pid_t pid = fork();
+					if (pid == 0)
+					{
+						struct addrinfo hints, *res;
+						char hostbuf[NI_MAXHOST];
+						memset(&hints, 0, sizeof(hints));
+						hints.ai_family = AF_UNSPEC;
+						hints.ai_flags = AI_NUMERICHOST;
+						hints.ai_socktype = SOCK_STREAM;
+						int rc = -1;
+						if (getaddrinfo(d->host, NULL, &hints, &res) == 0)
+						{
+							rc = getnameinfo(res->ai_addr, res->ai_addrlen,
+							                hostbuf, sizeof(hostbuf),
+							                NULL, 0, NI_NAMEREQD);
+							freeaddrinfo(res);
+						}
+						char path[64];
+						snprintf(path, sizeof(path), "lib/etc/hosts/%d", d->descriptor);
+						FILE *f = fopen(path, "w");
+						if (f)
+						{
+							if (rc == 0)
+								fprintf(f, "%s\n", hostbuf);
+							else
+								fprintf(f, "%s\n", d->host);
+							fclose(f);
+						}
+						_exit(0);
+					}
 				}
 			}
 		}

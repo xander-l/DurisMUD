@@ -2319,8 +2319,29 @@ int new_descriptor(int s, int conn_type)
 	// newd->connected = CON_HOST_LOOKUP;
 	newd->wait = 1;
 	strncpy(newd->host, Gbuf1, 50);
-	snprintf(Gbuf1, MAX_STRING_LENGTH, "host %s | sed -e 's/.*pointer\\ \\(.*\\)\\./\\1/g;t;d' > lib/etc/hosts/%d &", strip_ansi(newd->host).c_str(), desc);
-	system(Gbuf1);
+	/* async reverse DNS via getnameinfo instead of system("host ...") */
+	{
+		pid_t pid = fork();
+		if (pid == 0)
+		{
+			char hostbuf[NI_MAXHOST];
+			int rc = getnameinfo((struct sockaddr *)&sock, sizeof(sock),
+			                    hostbuf, sizeof(hostbuf),
+			                    NULL, 0, NI_NAMEREQD);
+			char path[64];
+			snprintf(path, sizeof(path), "lib/etc/hosts/%d", desc);
+			FILE *f = fopen(path, "w");
+			if (f)
+			{
+				if (rc == 0)
+					fprintf(f, "%s\n", hostbuf);
+				else
+					fprintf(f, "%s\n", newd->host);
+				fclose(f);
+			}
+			_exit(0);
+		}
+	}
 	*newd->host2              = '\0';
 	newd->prompt_mode         = FALSE;
 	*newd->buf                = '\0';

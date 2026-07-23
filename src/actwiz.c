@@ -18,6 +18,7 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
+#include <dirent.h>
 #include "assocs.h"
 #include "shop.h"
 // #include "types.h"  // Not needed on modern Linux systems
@@ -456,32 +457,25 @@ void do_reboot_restore(P_char ch, P_char victim)
 void test_load_all_chars(P_char ch)
 {
 #ifdef TEST_MUD
-	FILE       *flist;
 	int         i;
-	P_char      locker;
-	char        filename[MAX_STRING_LENGTH];
-	char        name[MAX_STRING_LENGTH];
 	const char *alphabet[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
 
 	for (i = 0; i < 26; i++)
 	{
-		snprintf(filename, MAX_STRING_LENGTH, "/bin/ls Players/%s > %s", alphabet[i], "temp_letterfile");
-		system(filename);
-		flist = fopen("temp_letterfile", "r");
-		if (!flist)
+		char dirpath[64];
+		snprintf(dirpath, sizeof(dirpath), "Players/%s", alphabet[i]);
+		DIR *dir = opendir(dirpath);
+		if (!dir)
 			return;
-
-		while (fscanf(flist, " %s \n", name) != EOF)
+		struct dirent *entry;
+		while ((entry = readdir(dir)) != NULL)
 		{
-			if (!isname(name, GET_NAME(ch))) // &&
-				//! strstr(name, ".locker"))
-				do_read_player(ch, name, 0);
-			// else if(strstr(name, ".locker"))
-			//{
-			// locker = load_locker_char(ch, name, 0);
-			// }
+			if (entry->d_name[0] == '.')
+				continue;
+			if (!isname(entry->d_name, GET_NAME(ch)))
+				do_read_player(ch, entry->d_name, 0);
 		}
-		fclose(flist);
+		closedir(dir);
 	}
 #else
 	send_to_char("This command is not to be used in live mud enviornment.", ch);
@@ -6949,7 +6943,7 @@ void do_lookup(P_char ch, char *argument, int cmd)
 			return;
 		}
 
-		FILE *flist, *f;
+		FILE *f;
 		char  Gbuf1[MAX_STRING_LENGTH], Gbuf2[MAX_STRING_LENGTH];
 		char  Gbuf3[MAX_STRING_LENGTH];
 		char  buffer[MAX_STRING_LENGTH];
@@ -6962,14 +6956,19 @@ void do_lookup(P_char ch, char *argument, int cmd)
 		snprintf(buf, MAX_STRING_LENGTH, "&+W%-12s %s %-10s\t %-10s&n\n", "Name", "Lev", "Class", "Race");
 		send_to_char(buf, ch);
 
-		snprintf(Gbuf3, MAX_STRING_LENGTH, "/bin/ls -1 Players/%s > %s", start_letter, "temp_letterfile");
-		system(Gbuf3); /* ls a list of Players into the temp_file */
-		flist = fopen("temp_letterfile", "r");
-		if (!flist)
+		char dirpath[64];
+		snprintf(dirpath, sizeof(dirpath), "Players/%s", start_letter);
+		DIR *dir = opendir(dirpath);
+		if (!dir)
 			return;
 
-		while (fscanf(flist, " %s \n", Gbuf2) != EOF)
+		struct dirent *entry;
+		while ((entry = readdir(dir)) != NULL)
 		{
+			if (entry->d_name[0] == '.')
+				continue;
+			strncpy(Gbuf2, entry->d_name, sizeof(Gbuf2) - 1);
+			Gbuf2[sizeof(Gbuf2) - 1] = '\0';
 			owner = (struct char_data *)mm_get(dead_mob_pool);
 			ensure_pconly_pool();
 			owner->only.pc = (struct pc_only_data *)mm_get(dead_pconly_pool);
@@ -6993,7 +6992,7 @@ void do_lookup(P_char ch, char *argument, int cmd)
 							if (how_many > 20)
 							{
 								send_to_char("To many results narrow down your search", ch);
-								fclose(flist);
+								closedir(dir);
 								return;
 							} // End spam check
 
@@ -7004,7 +7003,7 @@ void do_lookup(P_char ch, char *argument, int cmd)
 
 			} // end restore
 		} // End while
-		fclose(flist);
+		closedir(dir);
 		return;
 	}
 	else

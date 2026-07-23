@@ -17,6 +17,9 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <sys/time.h>
+#include <fcntl.h>
+#include <sys/wait.h>
+#include <unistd.h>
 #include <time.h>
 #include "graph.h"
 #include "mm.h"
@@ -2458,8 +2461,26 @@ void generate_account_confirmation_code(P_desc d, char *arg)
 	fprintf(f, "Your account confirmation code is:  %s\n", d->account->acct_confirmation);
 	fclose(f);
 
-	snprintf(b, 256, "mail -s \"%s\" %s < %s", "Duris Account Confirmation", d->account->acct_email, a);
-	system(b);
+	/* send confirmation email via exec instead of system() to avoid shell injection */
+	{
+		pid_t pid = fork();
+		if (pid == 0)
+		{
+			int fd = open(a, O_RDONLY);
+			if (fd >= 0)
+			{
+				dup2(fd, STDIN_FILENO);
+				close(fd);
+			}
+			execlp("mail", "mail", "-s", "Duris Account Confirmation", d->account->acct_email, NULL);
+			_exit(1);
+		}
+		if (pid > 0)
+		{
+			int status;
+			waitpid(pid, &status, 0);
+		}
+	}
 	unlink(a);
 
 	f = fopen(ACCOUNT_EMAIL_DB, "a");
