@@ -5941,30 +5941,23 @@ int sql_create_private_chest(int locker_id, const char *chest_name, const char *
 	if (sql_count_private_chests(locker_id) >= 5)
 		return -1;
 
-	char *esc_name = sql_escape_string(chest_name);
-	if (!esc_name)
-		return 0;
-
-	char query[512];
+	string name_esc = escape_str(chest_name);
+	bool   saved;
 	if (password && password[0])
 	{
-		char *esc_pass = sql_escape_string(password);
-		snprintf(query,
-		         sizeof(query),
-		         "INSERT INTO private_chests (locker_id, chest_name, password_hash, is_public) "
-		         "VALUES (%d, '%s', SHA2('%s', 256), 0)",
-		         locker_id,
-		         esc_name,
-		         esc_pass);
-		free(esc_pass);
+		string password_esc = escape_str(password);
+		saved = qry("INSERT INTO private_chests (locker_id, chest_name, password_hash, is_public) "
+		            "VALUES (%d, '%s', SHA2('%s', 256), 0)",
+		            locker_id,
+		            name_esc.c_str(),
+		            password_esc.c_str());
 	}
 	else
 	{
-		snprintf(query, sizeof(query), "INSERT INTO private_chests (locker_id, chest_name, is_public) VALUES (%d, '%s', 0)", locker_id, esc_name);
+		saved = qry("INSERT INTO private_chests (locker_id, chest_name, is_public) VALUES (%d, '%s', 0)", locker_id, name_esc.c_str());
 	}
-	free(esc_name);
 
-	if (!sql_run_query(query))
+	if (!saved)
 		return 0;
 
 	return (int)mysql_insert_id(DB);
@@ -6028,15 +6021,8 @@ int sql_get_chest_id(int locker_id, const char *chest_name)
 	if (!DB || locker_id <= 0 || !chest_name)
 		return 0;
 
-	char *esc_name = sql_escape_string(chest_name);
-	if (!esc_name)
-		return 0;
-
-	char query[512];
-	snprintf(query, sizeof(query), "SELECT id FROM private_chests WHERE locker_id=%d AND chest_name='%s'", locker_id, esc_name);
-	free(esc_name);
-
-	MYSQL_RES *result = db_query("%s", query);
+	string name_esc = escape_str(chest_name);
+	MYSQL_RES *result = db_query("SELECT id FROM private_chests WHERE locker_id=%d AND chest_name='%s'", locker_id, name_esc.c_str());
 	if (!result)
 		return 0;
 
@@ -6053,22 +6039,18 @@ bool sql_verify_chest_password(int chest_id, const char *password)
 	if (!DB || chest_id <= 0)
 		return false;
 
-	char query[512];
+	MYSQL_RES *result;
 
 	if (!password || !password[0])
 	{
-		snprintf(query, sizeof(query), "SELECT id FROM private_chests WHERE id=%d AND password_hash IS NULL", chest_id);
+		result = db_query("SELECT id FROM private_chests WHERE id=%d AND password_hash IS NULL", chest_id);
 	}
 	else
 	{
-		char *esc_pass = sql_escape_string(password);
-		if (!esc_pass)
-			return false;
-		snprintf(query, sizeof(query), "SELECT id FROM private_chests WHERE id=%d AND password_hash=SHA2('%s', 256)", chest_id, esc_pass);
-		free(esc_pass);
+		string password_esc = escape_str(password);
+		result = db_query("SELECT id FROM private_chests WHERE id=%d AND password_hash=SHA2('%s', 256)", chest_id, password_esc.c_str());
 	}
 
-	MYSQL_RES *result = db_query("%s", query);
 	if (!result)
 		return false;
 

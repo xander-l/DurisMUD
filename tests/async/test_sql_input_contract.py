@@ -12,6 +12,7 @@ ASSOCS = (ROOT / "src" / "assocs.c").read_text()
 WHITELIST = (ROOT / "src" / "multiplay_whitelist.c").read_text()
 BOON = (ROOT / "src" / "boon.c").read_text()
 TIMERS = (ROOT / "src" / "timers.c").read_text()
+SQL_PLAYER = (ROOT / "src" / "sql_player.c").read_text()
 
 
 def require(needle: str, haystack: str, message: str) -> None:
@@ -32,6 +33,28 @@ def test_auction_fallback_uses_escaped_object_blob() -> None:
             "legacy auction insert must use the escaped serialized object blob")
     if "\n\t\t        buff," in fallback:
         raise AssertionError("legacy auction insert must not interpolate the player-controlled parse buffer")
+
+
+def test_private_chest_queries_do_not_truncate_escaped_input() -> None:
+    create = function_body(SQL_PLAYER, "int sql_create_private_chest", "bool sql_delete_private_chest")
+    require("string name_esc = escape_str(chest_name);", create,
+            "private chest creation must dynamically escape the chest name")
+    require("string password_esc = escape_str(password);", create,
+            "private chest creation must dynamically escape the password")
+    if "char query[" in create or "snprintf(query" in create:
+        raise AssertionError("private chest creation must not truncate escaped input into a fixed query")
+
+    lookup = function_body(SQL_PLAYER, "int sql_get_chest_id", "bool sql_verify_chest_password")
+    require("string name_esc = escape_str(chest_name);", lookup,
+            "private chest lookup must dynamically escape the chest name")
+    if "char query[" in lookup or "snprintf(query" in lookup:
+        raise AssertionError("private chest lookup must not truncate escaped input into a fixed query")
+
+    verify = function_body(SQL_PLAYER, "bool sql_verify_chest_password", "int sql_count_private_chests")
+    require("string password_esc = escape_str(password);", verify,
+            "private chest password checks must dynamically escape the password")
+    if "char query[" in verify or "snprintf(query" in verify:
+        raise AssertionError("private chest password checks must not truncate escaped input into a fixed query")
 
 
 def test_shared_text_keys_escape_before_queries() -> None:
@@ -156,6 +179,7 @@ def test_escape_str_sizes_for_mysql_worst_case() -> None:
 
 if __name__ == "__main__":
     test_auction_fallback_uses_escaped_object_blob()
+    test_private_chest_queries_do_not_truncate_escaped_input()
     test_shared_text_keys_escape_before_queries()
     test_command_filters_escape_without_post_escape_truncation()
     test_player_identity_sinks_escape_before_sql()
