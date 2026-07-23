@@ -2104,7 +2104,9 @@ void Guild::challenge(P_char member, P_char victim)
 
 void Guild::write_transaction_to_ledger(char *name, char *trans_type, char *coin_str)
 {
-	qry("INSERT INTO guild_transactions (date, soc_id, transaction_info) VALUES (unix_timestamp(), %d, '&+y%s %s %s&+y.&n')", id_number, name, trans_type, coin_str);
+	string transaction = string("&+y") + name + " " + trans_type + " " + coin_str + "&+y.&n";
+	string transaction_esc = escape_str(transaction.c_str());
+	qry("INSERT INTO guild_transactions (date, soc_id, transaction_info) VALUES (unix_timestamp(), %d, '%s')", id_number, transaction_esc.c_str());
 }
 
 // The coins are valid (positive numbers) via checks in do_society().

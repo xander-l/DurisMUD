@@ -1325,7 +1325,8 @@ void sql_connectIP(P_char ch)
 	db_query_nolog("INSERT INTO ip_info (pid) VALUES (%d)", GET_PID(ch));
 	if (ch->desc)
 	{
-		db_query("UPDATE ip_info SET last_ip = '%s', last_connect = NOW(), racewar_side = %d WHERE pid = %d", ch->desc->host, IS_TRUSTED(ch) ? RACEWAR_NONE : GET_RACEWAR(ch), GET_PID(ch));
+		string host_esc = escape_str(ch->desc->host);
+		db_query("UPDATE ip_info SET last_ip = '%s', last_connect = NOW(), racewar_side = %d WHERE pid = %d", host_esc.c_str(), IS_TRUSTED(ch) ? RACEWAR_NONE : GET_RACEWAR(ch), GET_PID(ch));
 	}
 }
 
@@ -1335,11 +1336,12 @@ void sql_world_quest_finished(P_char ch, P_obj reward)
 
 	int   reward_vnum = reward ? ((reward->R_num >= 0) ? obj_index[reward->R_num].virtual_number : 0) : 0;
 	char *reward_desc = reward ? mysql_str(reward->short_description, buf) : mysql_str("", buf);
+	string player_name_esc = escape_str(GET_NAME(ch));
 
 	db_query("INSERT INTO world_quest_accomplished (pid, timestamp, quest_giver, player_name, player_level, quest_target, reward_vnum, reward_desc) VALUES (%d, now(), %d, '%s', %d, %d, %d, '%s')",
 	         GET_PID(ch),
 	         ch->only.pc->quest_giver,
-	         GET_NAME(ch),
+	         player_name_esc.c_str(),
 	         GET_LEVEL(ch),
 	         ch->only.pc->quest_mob_vnum,
 	         reward_vnum,

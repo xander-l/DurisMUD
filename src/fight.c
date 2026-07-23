@@ -2616,7 +2616,8 @@ void die(P_char ch, P_char killer)
 				update_pos(ch);
 				checkHallOfFame(ch, GET_NAME(killer));
 				// save killer to database for hall of fame
-				db_query("UPDATE player_data SET killed_by = '%s' WHERE pid = %d", GET_NAME(killer), GET_PID(ch));
+				string killer_name_esc = escape_str(GET_NAME(killer));
+				db_query("UPDATE player_data SET killed_by = '%s' WHERE pid = %d", killer_name_esc.c_str(), GET_PID(ch));
 				act("&+LThe &+rhand &+Lof &+WGod &+Lgrabs &+R$n &+Lby the &+cthroat&+L.&N", FALSE, ch, 0, 0, TO_ROOM);
 				act("&+LThe &+rhand &+Lof &+WGod &+Ltears &+R$n&+L's &+wsoul &+Lfrom this &+cplane &+Lof existence.&N", FALSE, ch, 0, 0, TO_ROOM);
 				act("&+L$n's &+cbody &+Llands on the ground in a crumpled heap, &+wsoul &+Lgone forever.&N", FALSE, ch, 0, 0, TO_ROOM);

@@ -7,6 +7,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 AUCTION = (ROOT / "src" / "auction_houses.c").read_text()
 SQL = (ROOT / "src" / "sql.c").read_text()
+FIGHT = (ROOT / "src" / "fight.c").read_text()
+ASSOCS = (ROOT / "src" / "assocs.c").read_text()
 
 
 def require(needle: str, haystack: str, message: str) -> None:
@@ -27,6 +29,31 @@ def test_auction_fallback_uses_escaped_object_blob() -> None:
             "legacy auction insert must use the escaped serialized object blob")
     if "\n\t\t        buff," in fallback:
         raise AssertionError("legacy auction insert must not interpolate the player-controlled parse buffer")
+
+
+def test_player_identity_sinks_escape_before_sql() -> None:
+    require("string killer_name_esc = escape_str(GET_NAME(killer));", FIGHT,
+            "hardcore death persistence must escape the killer name")
+    require("killer_name_esc.c_str(), GET_PID(ch)", FIGHT,
+            "killed_by update must use the escaped killer name")
+
+    connect_ip = function_body(SQL, "void sql_connectIP(P_char ch)", "void sql_world_quest_finished(")
+    require("string host_esc = escape_str(ch->desc->host);", connect_ip,
+            "connection history must escape descriptor host text")
+    require("host_esc.c_str()", connect_ip,
+            "connection history update must use the escaped host")
+
+    quest = function_body(SQL, "void sql_world_quest_finished(P_char ch, P_obj reward)", "int sql_world_quest_can_do_another(")
+    require("string player_name_esc = escape_str(GET_NAME(ch));", quest,
+            "world quest history must escape the player name")
+    require("player_name_esc.c_str()", quest,
+            "world quest insert must use the escaped player name")
+
+    ledger = function_body(ASSOCS, "void Guild::write_transaction_to_ledger", "void Guild::deposit(")
+    require("string transaction_esc = escape_str", ledger,
+            "guild ledger text must be composed then escaped")
+    require("transaction_esc.c_str()", ledger,
+            "guild ledger insert must use the escaped transaction")
 
 
 def test_shared_message_sinks_use_dynamic_escaping() -> None:
@@ -73,6 +100,7 @@ def test_escape_str_sizes_for_mysql_worst_case() -> None:
 
 if __name__ == "__main__":
     test_auction_fallback_uses_escaped_object_blob()
+    test_player_identity_sinks_escape_before_sql()
     test_shared_message_sinks_use_dynamic_escaping()
     test_auction_identity_writes_escape_names()
     test_escape_str_sizes_for_mysql_worst_case()
