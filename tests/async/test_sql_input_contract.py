@@ -10,6 +10,8 @@ SQL = (ROOT / "src" / "sql.c").read_text()
 FIGHT = (ROOT / "src" / "fight.c").read_text()
 ASSOCS = (ROOT / "src" / "assocs.c").read_text()
 WHITELIST = (ROOT / "src" / "multiplay_whitelist.c").read_text()
+BOON = (ROOT / "src" / "boon.c").read_text()
+TIMERS = (ROOT / "src" / "timers.c").read_text()
 
 
 def require(needle: str, haystack: str, message: str) -> None:
@@ -30,6 +32,27 @@ def test_auction_fallback_uses_escaped_object_blob() -> None:
             "legacy auction insert must use the escaped serialized object blob")
     if "\n\t\t        buff," in fallback:
         raise AssertionError("legacy auction insert must not interpolate the player-controlled parse buffer")
+
+
+def test_shared_text_keys_escape_before_queries() -> None:
+    boon = function_body(BOON, "int extend_boon(int id, int extend, const char *name)", "static void boon_mob_label")
+    require("string author_esc = escape_str(name);", boon,
+            "boon author names must be escaped before update")
+    require("author_esc.c_str()", boon,
+            "boon update must use the escaped author")
+
+    mud_info_start = SQL.rindex("string get_mud_info(const char *name)")
+    mud_info = SQL[mud_info_start:SQL.index("void send_mud_info", mud_info_start)]
+    require("string name_esc = escape_str(name);", mud_info,
+            "mud-info lookup keys must be escaped")
+    require("name_esc.c_str()", mud_info,
+            "mud-info lookup must use the escaped key")
+
+    production = TIMERS[TIMERS.index("#else"):TIMERS.index("#endif")]
+    if production.count("string name_esc = escape_str(name);") != 2:
+        raise AssertionError("timer set and get paths must both escape timer names")
+    if production.count("name_esc.c_str()") != 2:
+        raise AssertionError("timer queries must use escaped timer names")
 
 
 def test_command_filters_escape_without_post_escape_truncation() -> None:
@@ -119,6 +142,7 @@ def test_escape_str_sizes_for_mysql_worst_case() -> None:
 
 if __name__ == "__main__":
     test_auction_fallback_uses_escaped_object_blob()
+    test_shared_text_keys_escape_before_queries()
     test_command_filters_escape_without_post_escape_truncation()
     test_player_identity_sinks_escape_before_sql()
     test_shared_message_sinks_use_dynamic_escaping()

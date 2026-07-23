@@ -2514,8 +2514,9 @@ int extend_boon(int id, int extend, const char *name)
 	int calculate = MAX(0, timethen + (duration * 60) - time(0));
 	int ct        = calculate + time(0);
 	duration      = extend;
+	string author_esc = escape_str(name);
 
-	if (!qry("UPDATE boons SET time = '%d', duration = '%d', active = '1', author = '*%s' WHERE id = '%d'", ct, duration, name, id))
+	if (!qry("UPDATE boons SET time = '%d', duration = '%d', active = '1', author = '*%s' WHERE id = '%d'", ct, duration, author_esc.c_str(), id))
 	{
 		debug("extend_boon(): failed to update boon");
 		return FALSE;

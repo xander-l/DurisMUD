@@ -17,13 +17,15 @@ void set_timer(const char *name) { set_timer(name, time(NULL)); }
 
 void set_timer(const char *name, int date)
 {
-	if (!qry("REPLACE INTO timers (name, date) VALUES ('%s', '%d')", name, date))
+	string name_esc = escape_str(name);
+	if (!qry("REPLACE INTO timers (name, date) VALUES ('%s', '%d')", name_esc.c_str(), date))
 		logit(LOG_DEBUG, "set_timer: failed to save timer %s", name ? name : "<null>");
 }
 
 int get_timer(const char *name)
 {
-	if (!qry("SELECT date FROM timers WHERE name = '%s'", name))
+	string name_esc = escape_str(name);
+	if (!qry("SELECT date FROM timers WHERE name = '%s'", name_esc.c_str()))
 	{
 		return 0;
 	}

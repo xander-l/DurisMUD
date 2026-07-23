@@ -2385,7 +2385,8 @@ bool get_zone_info(int zone_number, struct zone_info *info)
 
 string get_mud_info(const char *name)
 {
-	if (!qry("SELECT content FROM mud_info WHERE name = '%s'", name))
+	string name_esc = escape_str(name);
+	if (!qry("SELECT content FROM mud_info WHERE name = '%s'", name_esc.c_str()))
 	{
 		logit(LOG_DEBUG, "get_mud_info(): failed to read mud_info '%s' from database", name);
 		return string();
