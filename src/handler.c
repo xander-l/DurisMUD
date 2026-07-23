@@ -2898,6 +2898,13 @@ void extract_obj(P_obj obj, int gone_for_good)
 	 * yank it from the object_list, very fast now
 	 */
 
+	/* guard against double-extract */
+	if (obj->next == NULL && obj->prev == NULL && object_list != obj)
+	{
+		logit(LOG_EXIT, "extract_obj: double extraction of %s (%d)", obj->short_description ? obj->short_description : "null", obj->R_num);
+		return;
+	}
+
 	if (object_list == obj)
 	{ /*
 	   * head of list
@@ -3456,7 +3463,10 @@ void extract_char(P_char ch)
 	// Pull the char from the list
 	// If at the head..
 	if (ch == character_list)
+	{
 		character_list = ch->next;
+		ch->next = NULL;
+	}
 	else
 	{
 		// Look through the list..
@@ -3468,10 +3478,12 @@ void extract_char(P_char ch)
 		if (k)
 		{
 			k->next = ch->next;
+			ch->next = NULL;
 		}
 		else
 		{
 			logit(LOG_EXIT, "extract_char(), Char not in character_list. (%s)", GET_NAME(ch));
+			return;
 		}
 	}
 
