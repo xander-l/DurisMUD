@@ -810,7 +810,7 @@ bool auction_offer(P_char ch, char *args)
 		        auction_length,
 		        desc_buff,
 		        obj_vnum,
-		        buff,
+		        esc_buff,
 		        starting_price,
 		        buy_price,
 		        obj_id_keywords.c_str(),
