@@ -9,6 +9,7 @@ AUCTION = (ROOT / "src" / "auction_houses.c").read_text()
 SQL = (ROOT / "src" / "sql.c").read_text()
 FIGHT = (ROOT / "src" / "fight.c").read_text()
 ASSOCS = (ROOT / "src" / "assocs.c").read_text()
+WHITELIST = (ROOT / "src" / "multiplay_whitelist.c").read_text()
 
 
 def require(needle: str, haystack: str, message: str) -> None:
@@ -29,6 +30,24 @@ def test_auction_fallback_uses_escaped_object_blob() -> None:
             "legacy auction insert must use the escaped serialized object blob")
     if "\n\t\t        buff," in fallback:
         raise AssertionError("legacy auction insert must not interpolate the player-controlled parse buffer")
+
+
+def test_command_filters_escape_without_post_escape_truncation() -> None:
+    auction_list = function_body(AUCTION, "bool auction_list(P_char ch, char *args)", "bool auction_info(")
+    require("string seller_filter_esc = escape_str(list_arg);", auction_list,
+            "auction player filters must use dynamic SQL escaping")
+    if "seller_name like '%.100s'" in auction_list:
+        raise AssertionError("auction filters must not truncate after SQL escaping")
+    if "mysql_real_escape_string(DB, buff, list_arg" in auction_list:
+        raise AssertionError("auction list filters must not reuse the shared display buffer for SQL escaping")
+
+    add = function_body(WHITELIST, "bool add_to_whitelist", "bool remove_from_whitelist")
+    for field in ("admin", "player", "pattern", "description"):
+        if not re.search(rf"string\s+{field}_esc\s*=\s*escape_str", add):
+            raise AssertionError(f"whitelist inserts must escape {field}")
+    remove = function_body(WHITELIST, "bool remove_from_whitelist", "void do_whitelist_help")
+    require("string pattern_esc = escape_str(pattern);", remove,
+            "whitelist deletes must escape the host pattern")
 
 
 def test_player_identity_sinks_escape_before_sql() -> None:
@@ -100,6 +119,7 @@ def test_escape_str_sizes_for_mysql_worst_case() -> None:
 
 if __name__ == "__main__":
     test_auction_fallback_uses_escaped_object_blob()
+    test_command_filters_escape_without_post_escape_truncation()
     test_player_identity_sinks_escape_before_sql()
     test_shared_message_sinks_use_dynamic_escaping()
     test_auction_identity_writes_escape_names()

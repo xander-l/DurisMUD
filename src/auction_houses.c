@@ -893,7 +893,7 @@ bool auction_list(P_char ch, char *args)
 	{
 		half_chop(args, list_arg, args);
 
-		if (strlen(list_arg) < 0)
+		if (!*list_arg)
 		{
 			send_to_char("&+WPlease enter the name of a player.\r\n", ch);
 			return TRUE;
@@ -904,9 +904,8 @@ bool auction_list(P_char ch, char *args)
 		snprintf(buff, MAX_STRING_LENGTH, "&+WAuctions by &n%.100s&+W:\r\n", list_arg);
 		send_to_char(buff, ch);
 
-		mysql_real_escape_string(DB, buff, list_arg, strlen(list_arg));
-
-		snprintf(where_str, MAX_STRING_LENGTH, " and seller_name like '%.100s'", buff);
+		string seller_filter_esc = escape_str(list_arg);
+		snprintf(where_str, MAX_STRING_LENGTH, " and seller_name like '%s'", seller_filter_esc.c_str());
 	}
 	else if (isname(list_arg, "sort s"))
 	{
@@ -927,7 +926,6 @@ bool auction_list(P_char ch, char *args)
 		while (strlen(args) > 0)
 		{
 			half_chop(args, list_arg, args);
-			list_args.push_back(string(list_arg));
 
 			if (!sorter->isKeyword(list_arg))
 			{
@@ -939,8 +937,7 @@ bool auction_list(P_char ch, char *args)
 			snprintf(buff, MAX_STRING_LENGTH, "&+WAuctions for items &+y%s&+W:&n\n", sorter->getDescString(list_arg).c_str());
 			send_to_char(buff, ch);
 
-			mysql_real_escape_string(DB, buff, list_arg, strlen(list_arg));
-			list_args.push_back(string(buff));
+			list_args.push_back(escape_str(list_arg));
 		}
 
 		for (int i = 0; i < list_args.size(); i++)

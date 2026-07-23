@@ -55,16 +55,17 @@ bool add_to_whitelist(P_char ch, const char *player, const char *pattern, const 
 #ifdef __NO_MYSQL__
 	return false;
 #else
-	char descbuff[MAX_STRING_LENGTH];
-
-	mysql_real_escape_string(DB, descbuff, description, strlen(description));
+	string admin_esc       = escape_str(GET_NAME(ch));
+	string player_esc      = escape_str(player);
+	string pattern_esc     = escape_str(pattern);
+	string description_esc = escape_str(description);
 
 	if (!qry("INSERT INTO %s (created_on, admin, player, pattern, description) VALUES (now(), trim('%s'), trim('%s'), trim('%s'), trim('%s'))",
 	         MULTIPLAY_WHITELIST_TABLE_NAME,
-	         GET_NAME(ch),
-	         player,
-	         pattern,
-	         descbuff))
+	         admin_esc.c_str(),
+	         player_esc.c_str(),
+	         pattern_esc.c_str(),
+	         description_esc.c_str()))
 	{
 		logit(LOG_DEBUG, "add_to_whitelist(): qry failed");
 		return false;
@@ -80,7 +81,8 @@ bool remove_from_whitelist(P_char ch, const char *pattern)
 #ifdef __NO_MYSQL__
 	return false;
 #else
-	if (!qry("DELETE FROM %s WHERE pattern = trim('%s')", MULTIPLAY_WHITELIST_TABLE_NAME, pattern))
+	string pattern_esc = escape_str(pattern);
+	if (!qry("DELETE FROM %s WHERE pattern = trim('%s')", MULTIPLAY_WHITELIST_TABLE_NAME, pattern_esc.c_str()))
 	{
 		logit(LOG_DEBUG, "remove_from_whitelist(): qry failed");
 		return false;
