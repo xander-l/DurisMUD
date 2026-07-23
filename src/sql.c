@@ -243,9 +243,17 @@ char *mysql_str(const char *str, char *buf)
 
 string escape_str(const char *str)
 {
-	static char buff[MAX_STRING_LENGTH];
-	mysql_real_escape_string(DB, buff, str, strlen(str));
-	return string(buff);
+	if (!str || !DB)
+		return string();
+
+	size_t len = strlen(str);
+	if (len > (string().max_size() - 1) / 2)
+		return string();
+
+	string        escaped(len * 2 + 1, '\0');
+	unsigned long escaped_len = mysql_real_escape_string(DB, escaped.data(), str, len);
+	escaped.resize(escaped_len);
+	return escaped;
 }
 
 /* populate races and classes lookup tables on boot */

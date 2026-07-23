@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Source contracts for player-controlled SQL boundary hardening."""
 
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 AUCTION = (ROOT / "src" / "auction_houses.c").read_text()
+SQL = (ROOT / "src" / "sql.c").read_text()
 
 
 def require(needle: str, haystack: str, message: str) -> None:
@@ -27,6 +29,18 @@ def test_auction_fallback_uses_escaped_object_blob() -> None:
         raise AssertionError("legacy auction insert must not interpolate the player-controlled parse buffer")
 
 
+def test_escape_str_sizes_for_mysql_worst_case() -> None:
+    production = SQL[SQL.index("/* Escapes a string. */"):]
+    body = function_body(production, "string escape_str(const char *str)", "void sql_populate_lookup_tables()")
+    if "static char buff[MAX_STRING_LENGTH]" in body:
+        raise AssertionError("escape_str must not use a fixed buffer for potentially doubled SQL data")
+    if not re.search(r"string\s+escaped\(len \* 2 \+ 1", body):
+        raise AssertionError("escape_str must allocate MySQL's worst-case escaped length")
+    require("escaped.resize(escaped_len);", body,
+            "escape_str must return only bytes written by mysql_real_escape_string")
+
+
 if __name__ == "__main__":
     test_auction_fallback_uses_escaped_object_blob()
+    test_escape_str_sizes_for_mysql_worst_case()
     print("SQL input hardening contracts passed")
