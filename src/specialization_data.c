@@ -446,7 +446,7 @@ struct allowed_race_spec_struct
 */	/* End Wood Elf Options */
 
 
-	//{0}
+	{0, 0, 0}
 };
 
 const char *specialization_name_by_index(int class_index, int spec_index)

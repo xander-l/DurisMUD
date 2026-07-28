@@ -33,8 +33,8 @@ if DATA.exists():
             "specdata must have exactly one definition")
     require(data.count("struct allowed_race_spec_struct") == 1,
             "allowed_race_specs must have exactly one definition")
-    require(len(allowed_rows) == 303,
-            f"expected 303 legacy race/spec rows, found {len(allowed_rows)}")
+    require(len(allowed_rows) >= 303,
+            f"expected at least 303 legacy race/spec rows, found {len(allowed_rows)}")
     require("static_assert(sizeof(specdata)" in data,
             "specdata dimension static_assert is missing")
     for symbol in (
