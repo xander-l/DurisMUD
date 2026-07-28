@@ -8,6 +8,7 @@
  */
 
 #include <ctype.h>
+#include "specialization_data.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -73,7 +74,6 @@ extern const char                   *shape_descs[];
 extern const char                   *modifier_descs[];
 extern const struct class_names      class_names_table[];
 extern const char                   *god_list[];
-extern const char                   *specdata[][MAX_SPEC];
 uint                                 debugcount = 0;
 extern P_index                       mob_index;
 extern const int                     rev_dir[];
@@ -4359,7 +4359,7 @@ char *get_class_string(P_char ch, char *strn)
 	}
 	if (IS_SPECIALIZED(ch))
 	{
-		snprintf(strn + strlen(strn), MAX_STRING_LENGTH - strlen(strn), "&n / %s", GET_SPEC_NAME(ch->player.m_class, ch->player.spec - 1));
+		snprintf(strn + strlen(strn), MAX_STRING_LENGTH - strlen(strn), "&n / %s", specialization_name(ch->player.m_class, ch->player.spec - 1));
 	}
 
 	if (IS_MULTICLASS_PC(ch))

@@ -7,6 +7,7 @@
  ************************************************************************/
 
 #include "prototypes.h"
+#include "specialization_data.h"
 #include "structs.h"
 #include "comm.h"
 #include "db.h"
@@ -37,7 +38,6 @@ extern P_index                         mob_index;
 extern const struct race_names         race_names_table[];
 extern const struct class_names        class_names_table[];
 extern const struct playable_race_info playable_races[];
-extern const char                     *specdata[][MAX_SPEC];
 extern P_room                          world;
 extern int                             RUNNING_PORT;
 void                                   get_assoc_name(int, char *);
@@ -397,7 +397,7 @@ int sql_save_player_core(P_char ch)
 
 	if (IS_SPECIALIZED(ch))
 	{
-		spec_name = GET_SPEC_NAME(ch->player.m_class, ch->player.spec - 1);
+		spec_name = specialization_name(ch->player.m_class, ch->player.spec - 1);
 	}
 
 	// deactivate any other players with same name (handles renamed characters)

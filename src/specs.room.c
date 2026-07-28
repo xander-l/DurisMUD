@@ -52,7 +52,6 @@ extern struct command_info      cmd_info[MAX_CMD_LIST];
 extern struct time_info_data    time_info;
 extern struct zone_data        *zone;
 extern struct zone_data        *zone_table;
-extern const char              *specdata[][MAX_SPEC];
 extern const struct class_names class_names_table[];
 
 void mobPatrol_SetupNew(P_char ch);

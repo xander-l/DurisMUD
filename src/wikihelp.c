@@ -1,4 +1,5 @@
 #include "prototypes.h"
+#include "specialization_data.h"
 #include "utility.h"
 #include "utils.h"
 #include "wikihelp.h"
@@ -14,7 +15,6 @@ using namespace std;
 extern struct race_names  race_names_table[];
 extern struct class_names class_names_table[];
 extern int                class_table[LAST_RACE + 1][CLASS_COUNT + 1];
-extern char              *specdata[][MAX_SPEC];
 extern const char        *stat_to_string3(int);
 extern int                allowed_secondary_classes[][5];
 extern const mcname       multiclass_names[];
@@ -318,13 +318,13 @@ string wiki_specs(string title)
 
 	for (j = 0; j < MAX_SPEC; j++)
 	{
-		if (!strcmp(specdata[i][j], "") || !strcmp(specdata[i][j], "Not Used"))
+		if (!strcmp(specialization_name_by_index((i), (j)), "") || !strcmp(specialization_name_by_index((i), (j)), "Not Used"))
 		{
 			continue;
 		}
 		found = TRUE;
 		return_str += "* ";
-		return_str += string(specdata[i][j]);
+		return_str += string(specialization_name_by_index((i), (j)));
 		return_str += "\n";
 	}
 
@@ -372,7 +372,7 @@ string wiki_innates(string title, int type)
 		{
 			for (j = 0; j < MAX_SPEC; j++)
 			{
-				if (!strcmp(tolower(strip_ansi(specdata[i][j])).c_str(), tolower(title).c_str()))
+				if (!strcmp(tolower(strip_ansi(specialization_name_by_index((i), (j)))).c_str(), tolower(title).c_str()))
 				{
 					found = 2;
 					break;
@@ -425,7 +425,7 @@ string wiki_races(string title, int type)
 		{
 			for (spec = 0; spec < MAX_SPEC; spec++)
 			{
-				if (!strcmp(tolower(strip_ansi(specdata[cls][spec])).c_str(), tolower(title).c_str()))
+				if (!strcmp(tolower(strip_ansi(specialization_name_by_index((cls), (spec)))).c_str(), tolower(title).c_str()))
 				{
 					found = TRUE;
 					break;
@@ -471,7 +471,7 @@ string wiki_races(string title, int type)
 			continue;
 		}
 		// Spec not allowed for race.
-		if (type == WIKI_SPEC && !is_allowed_race_spec(race, 1 << (cls - 1), spec))
+		if (type == WIKI_SPEC && !specialization_is_allowed_race_spec(race, 1 << (cls - 1), spec))
 		{
 			continue;
 		}
@@ -823,7 +823,7 @@ string wiki_spells(string title, int type)
 		{
 			for (j = 0; j < MAX_SPEC; j++)
 			{
-				if (!strcmp(tolower(strip_ansi(specdata[i][j])).c_str(), tolower(title).c_str()))
+				if (!strcmp(tolower(strip_ansi(specialization_name_by_index((i), (j)))).c_str(), tolower(title).c_str()))
 				{
 					found = TRUE;
 					break;
@@ -890,7 +890,7 @@ string wiki_skills(string title, int type)
 		{
 			for (j = 0; j < MAX_SPEC; j++)
 			{
-				if (!strcmp(tolower(strip_ansi(specdata[i][j])).c_str(), tolower(title).c_str()))
+				if (!strcmp(tolower(strip_ansi(specialization_name_by_index((i), (j)))).c_str(), tolower(title).c_str()))
 				{
 					found = TRUE;
 					break;

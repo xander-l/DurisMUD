@@ -10,6 +10,7 @@
  */
 
 #include "prototypes.h"
+#include "specialization_data.h"
 #include "structs.h"
 #include "comm.h"
 #include "db.h"
@@ -76,7 +77,6 @@ extern struct zone_data      *zone_table;
 extern int                    top_of_zone_table;
 extern struct time_info_data  time_info;
 extern P_index                obj_index;
-extern char                  *specdata[][MAX_SPEC];
 extern P_char                 character_list;
 extern Skill                  skills[];
 extern long                   new_exp_table[]; // Arih: Fixed type mismatch bug - was int, should be long
@@ -6417,7 +6417,7 @@ void do_ascend(P_char ch, char *arg, int cmd)
 			         "&+Wnow be the avenging hand of %s,\n"
 			         "&+Wthe %s &+Wfor his enemies!'",
 			         get_god_name(ch),
-			         GET_SPEC_NAME(ch->player.m_class, spec - 1));
+			         specialization_name(ch->player.m_class, spec - 1));
 			send_to_char(buffer, ch);
 			ch->only.pc->epics = MAX(0, ch->only.pc->epics - (int)get_property("ascend.epicCost", 250));
 			return;
@@ -6459,7 +6459,7 @@ void do_ascend(P_char ch, char *arg, int cmd)
 		         "&+Wnow be the avenging hand of %s,\n"
 		         "&+Wthe %s &+Wfor his enemies!'",
 		         get_god_name(ch),
-		         GET_SPEC_NAME(ch->player.m_class, spec - 1));
+		         specialization_name(ch->player.m_class, spec - 1));
 		send_to_char(buffer, ch);
 	}
 }

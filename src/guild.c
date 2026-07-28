@@ -38,7 +38,6 @@ extern const char            *spell_types[];
 extern const char            *position_types[];
 extern const char            *target_types[];
 extern const char            *class_names[];
-extern const char            *specdata[][MAX_SPEC];
 extern bool                   racial_innates[][LAST_RACE + 1];
 extern Skill                  skills[];
 extern char                  *spells[];

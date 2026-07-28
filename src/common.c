@@ -15,39 +15,7 @@
 // #include <vector>
 // using namespace std;
 
-const char *specdata[][MAX_SPEC] = {
-	{									   "",												"",												  "",								 ""}, // None
-	{						 "&+BSwordsman&N",								   "&+yGuardian&N",                        "&+bSwa&+Bsh&+Wbuc&+Bkler&n",                                 ""}, // Warrior
-	{					   "&+cBlademaster&N",								   "&+gHuntsman&N",                               "&+gMa&+yrsha&+gll&n",                                 ""}, // Ranger
-	{				 "&+rPyr&+Rokine&+rtic&N",                             "&+MEn&+mslav&+Mer&N",                              "&+bPsyche&+Lporter&N",                                 ""}, // Psionicist
-	{					   "&+wCrusa&+Wder&n",								   "&+WCavalier&N",												  "",                                 ""}, // Paladin
-	{					   "&+LDark Knight&N",                        "&+LDem&+ronic Ri&+Lder&N",                            "&+LVi&+ro&+Llat&+ror&n",                                 ""}, // Anti-Paladin
-	{							"&+YZealot&n",									 "&+WHealer&n",								   "&+cHoly&+Wman&n",                                 ""}, // Cleric
-	{				  "&+rRe&+Rd Dra&+rgon&N",                           "&+gElap&+Ghi&+gdist&N",                                                  "",                                 ""}, // Monk
-	{				"&+gFo&+Gre&+gst Druid&n",                             "&+cStorm &+CDruid&n",                                                  "",                                 ""}, // Druid
-	{		"&+rEl&+Rem&+Lenta&+Rli&n&+rst&n",                         "&+WSpir&+Citua&+Wlist&n",                            "&+yAni&+Ymal&n&+yist&n",                                 ""}, // Shaman
-	{					   "&+MWild&+mmage&n",									 "&+LWizard&n",                                "&+LShadow&+wmage&n",                                 ""}, // Sorcerer
-	{					   "&+mDia&+rbolis&n",							"&+mNe&+Lcro&+mlyte&n",                                    "&+LReap&+wer&n",                                 ""}, // Necromancer
-	{						 "&+CAir Magus&n",								"&+BWater Magus&n",                                   "&+rFire Magus&n",                 "&+yEarth Magus&n"}, // Conjurer
-	{						  "&+rAssassin&n",									  "&+LThief&n",										  "Not Used",   "&+LSh&+wa&+Ldow &+BArc&+bher&n"}, // Rogue
-	{									   "",												"",												  "",								 ""}, // Assassin was replaced by CLASS_ROGUE, SPEC_ASSASSIN
-	{					 "&+yBr&+Lig&+yand&n",						   "&+yBounty &+LHunter&n",                                                  "",                                 ""}, // Mercenary
-	{	   "&+rD&+mis&+gha&+crm&+yon&+bist&n",                                  "&+RScoundrel&n",                             "&+YMin&n&+ystr&+Yel&n",                                 ""}, // Bard
-	{									   "",												"",												  "",								 ""}, // Thief was replaced by CLASS_ROGUE SPEC_THIEF
-	{									   "",												"",												  "",								 ""}, // Warlock
-	{									   "",												"",												  "",								 ""}, // MindFlayer
-	{			 "&+CBat&n&+ctle-For&+Cger&n",                           "&+LBla&+ccksm&+Lith&n",                                                  "",                                 ""}, // Alchemist
-	{					  "&+rMa&+RUle&+rR&n",						  "&+RRa&+rGe&+Rlo&+rRd&n",                                                  "",                                 ""}, // Berserker
-	{"&+CI&+Wc&+Ce &+LR&+Le&+wa&+wv&+Le&+Lr&n", "&+rF&+Rl&+Ya&+Rm&+re &+LR&+Le&+wa&+wv&+Le&+Lr&n",         "&+bSh&+Bo&+Wck &+LR&+Le&+wa&+wv&+Le&+Lr&n", "&+LEa&+yrt&+Lh R&+yea&+Lve&+yr&n"}, // Reaver
-	{			  "&+BM&+Yag&+Bic&+Yia&+Bn&n",                            "&+LDark &+mDreamer&n",                                                  "",                                 ""}, // Illusionist
-	{			"&+YSt&+yor&+Ym &+LBringer&n",                           "&+GSc&+gou&+Yrg&+Ge&n",                                 "&+LRu&+win&+Ler&n",                                 ""}, // Blighter
-	{					  "&+LDeath&+rlord&n",							  "&+LShadow&+rlord&n",												  "",                                 ""}, // Dreadlord
-	{		 "&+CTem&+cpe&+Cst Ma&+cgu&+Cs&n",                          "&+WFro&+cst &+CMagus&n",                    "&+YSt&+ya&+Yr &+LMa&+wgu&+Ls&n",                                 ""}, // Ethermancer
-	{				   "&+YLight&+Wbringer&n",                           "&+WInq&+wuisi&+Wtor&n",                                                  "",                                 ""}, // Avenger
-	{						  "&+wMedium&n&n",						"&+YT&+Re&+rmpl&+Ra&+Yr&n", "&+C&+WT&+ch&+Ca&+Wu&+Cm&+ca&+Ct&+Wu&+Cr&+cg&+Ce&n",                                 ""}, // Theurgist
-	{				  "&+cCon&+Ctrol&+Wler&n",                "&+rM&+Re&+Yn&+Wtal&+Yi&+Rs&+rt&n",                             "&+gNat&+Gural&+yist&n",                                 ""}, // Summoner
-	{  "&+GDr&+Lag&+Gon&n &+gHu&+Lnt&n&+ger&n",           "&+GDr&+Lag&+Gon&n &+RPr&n&+Lie&+Rst&n",             "&+GDr&+Lag&+Gon&n &+MLa&n&+Lnc&+Mer&n",                                 ""}  // Dragoon
-};
+
 /*
  * mob race lookup table, used to assign a race to a mob when reading them
  * from the .mob file.  Need to update this table when adding new races.

@@ -9,6 +9,7 @@
  */
 
 #include <ctype.h>
+#include "specialization_data.h"
 #include <fnmatch.h>
 #include <iostream>
 #include <sstream>
@@ -112,7 +113,6 @@ extern struct time_info_data      time_info;
 extern struct zone_data          *zone_table;
 extern struct sector_data        *sector_table;
 extern uint                       event_counter[];
-extern char                      *specdata[][MAX_SPEC];
 extern const char                *sector_types[];
 extern long                       sentbytes;
 extern long                       recivedbytes;
@@ -345,7 +345,7 @@ const char *class_to_string(P_char ch, char *buf)
 	else
 		strcpy(buf2, (class_names_table[val].ansi));
 
-	snprintf(buf, MAX_STRING_LENGTH, "%s&n /  %s        ", buf2, IS_SPECIALIZED(ch) ? GET_SPEC_NAME(ch->player.m_class, ch->player.spec - 1) : "None");
+	snprintf(buf, MAX_STRING_LENGTH, "%s&n /  %s        ", buf2, IS_SPECIALIZED(ch) ? specialization_name(ch->player.m_class, ch->player.spec - 1) : "None");
 	return buf;
 }
 
@@ -6039,7 +6039,7 @@ const char *get_class_name(P_char ch, P_char tch)
 		return get_multiclass_name(ch);
 	if (IS_SPECIALIZED(ch) && tch && (IS_SET(tch->specials.act2, PLR2_SPEC)))
 	{
-		return GET_SPEC_NAME(ch->player.m_class, ch->player.spec - 1);
+		return specialization_name(ch->player.m_class, ch->player.spec - 1);
 	}
 	return class_names_table[flag2idx(ch->player.m_class)].ansi;
 }

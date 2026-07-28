@@ -24,7 +24,6 @@
 /* externs */
 extern const char             *class_abbrevs[];
 extern const char             *race_abbrevs[];
-extern const char             *specdata[][MAX_SPEC];
 extern const char             *pc_class_types[];
 extern const struct race_names race_names_table[];
 extern struct room_data       *world;

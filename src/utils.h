@@ -12,6 +12,7 @@
 
 #include <signal.h>
 #include "config.h"
+#include "specialization_data.h"
 #if defined(__has_include)
 #if __has_include(<bsd/string.h>)
 #include <bsd/string.h>
@@ -175,7 +176,7 @@
 #define GET_CHAR_SKILL_S(ch, num) (GET_CHAR_SKILL_P((ch), num))
 #define GET_CHAR_SKILL(ch, num)   (IS_AFFECTED5(ch, AFF5_MENTAL_ANGUISH) ? (MIN(GET_CHAR_SKILL_P((ch), (num)), 10)) : GET_CHAR_SKILL_P(ch, (num)))
 
-#define IS_SPECIALIZED(ch) (ch->player.spec != 0)
+#define IS_SPECIALIZED(ch) specialization_is_active((ch))
 
 #define IS_STUNNED(ch) (IS_SET((ch)->specials.affected_by2, AFF2_STUNNED))
 
@@ -317,7 +318,7 @@ bool IS_OUTDOORS(int r);
 #define GET_DISGUISE_LEVEL(ch)  ((int)(ch)->disguise.level)
 
 // #define GET_CLASS(ch)   ((ch)->player.m_class)
-#define GET_SPEC(ch, cls, spc)        (((ch)->player.m_class & cls) && (ch)->player.spec == spc)
+#define GET_SPEC(ch, cls, spc)        specialization_matches((ch), (cls), (spc))
 #define IS_MULTICLASS(ch, cls1, cls2) (GET_CLASS((ch), (cls1)) && GET_CLASS((ch), (cls2)))
 #define GET_DISGUISE_CLASS(ch)        ((ch)->disguise.m_class)
 

@@ -174,6 +174,7 @@ OBJS =  $(SHIP_OBJS) \
 				 sparser.o \
 				 specials.o \
 				 specializations.o \
+				 specialization_data.o \
 				 specs.assign.o \
 				 specs.barovia.o \
 				 specs.clwcvrn.o \

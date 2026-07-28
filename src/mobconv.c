@@ -1,4 +1,5 @@
 #include "prototypes.h"
+#include "specialization_data.h"
 #include "structs.h"
 #include "db.h"
 #include "utils.h"
@@ -17,8 +18,6 @@ float                    hp_mob_con_factor;
 float                    hp_mob_npc_pc_ratio;
 extern P_room            world;
 extern struct zone_data *zone_table;
-extern char             *specdata[][MAX_SPEC];
-
 void set_npc_multi(P_char ch)
 {
 	int i, flag = FALSE;
@@ -76,19 +75,19 @@ void convertMob(P_char ch)
 	/* assign specialization */
 	if (!IS_MULTICLASS_NPC(ch) && ch->player.spec == 0)
 	{
-		if (isname("_spec1_", GET_NAME(ch)) && *GET_SPEC_NAME(ch->player.m_class, 0))
+		if (isname("_spec1_", GET_NAME(ch)) && *specialization_name(ch->player.m_class, 0))
 		{
 			ch->player.spec = 1;
 		}
-		else if (isname("_spec2_", GET_NAME(ch)) && *GET_SPEC_NAME(ch->player.m_class, 1))
+		else if (isname("_spec2_", GET_NAME(ch)) && *specialization_name(ch->player.m_class, 1))
 		{
 			ch->player.spec = 2;
 		}
-		else if (isname("_spec3_", GET_NAME(ch)) && *GET_SPEC_NAME(ch->player.m_class, 2))
+		else if (isname("_spec3_", GET_NAME(ch)) && *specialization_name(ch->player.m_class, 2))
 		{
 			ch->player.spec = 3;
 		}
-		else if (isname("_spec4_", GET_NAME(ch)) && *GET_SPEC_NAME(ch->player.m_class, 3))
+		else if (isname("_spec4_", GET_NAME(ch)) && *specialization_name(ch->player.m_class, 3))
 		{
 			ch->player.spec = 4;
 		}
@@ -97,8 +96,8 @@ void convertMob(P_char ch)
 		             GET_LEVEL(ch) > number(20,50) )
 		    {
 		      int i = number(0,MAX_SPEC-1);
-		      if( *GET_SPEC_NAME(ch->player.m_class, i) &&
-		          is_allowed_race_spec(GET_RACE(ch), ch->player.m_class, i+1) )
+		      if( *specialization_name(ch->player.m_class, i) &&
+		          specialization_is_allowed_race_spec(GET_RACE(ch), ch->player.m_class, i+1) )
 		      {
 		        ch->player.spec = i+1;
 		      }

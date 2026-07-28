@@ -17,6 +17,7 @@
  * command functions: it's void func(P_char ch, char *args, int cmd)
  */
 #include "prototypes.h"
+#include "specialization_data.h"
 #include "structs.h"
 #include "comm.h"
 #include "db.h"
@@ -63,7 +64,6 @@ int                             cast_as_damage_area(P_char, void (*func)(int, P_
 extern const int                race_hatred_data[][MAX_HATRED];
 extern bool                     epic_summon(P_char, char *);
 extern const struct class_names class_names_table[];
-extern char                    *specdata[][MAX_SPEC];
 extern int                      racial_shrug_data[];
 
 void do_levitate(P_char, char *, int);
@@ -4732,7 +4732,7 @@ void do_list_innates(P_char ch, char *args)
 							{
 								send_to_char("&+B Classes:&n", ch);
 							}
-							snprintf(Gbuf1, MAX_STRING_LENGTH, "%s%s", classfound ? ", " : " ", specdata[j][k - 1]);
+							snprintf(Gbuf1, MAX_STRING_LENGTH, "%s%s", classfound ? ", " : " ", specialization_name_by_index((j), (k - 1)));
 							classfound = TRUE;
 							send_to_char(Gbuf1, ch);
 						}

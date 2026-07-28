@@ -9,6 +9,7 @@
  */
 
 #include "prototypes.h"
+#include "specialization_data.h"
 #include "comm.h"
 #include "db.h"
 #include "events.h"
@@ -136,7 +137,6 @@ extern struct time_info_data            time_info;
 extern struct mm_ds                    *dead_mob_pool;
 extern struct mm_ds                    *dead_pconly_pool;
 extern int                              min_stats_for_class[][8];
-extern char                            *specdata[][MAX_SPEC];
 extern struct link_description          link_types[];
 void                                    sprintbitde(ulong, const flagDef[], char *);
 extern flagDef                          weapon_types[];
@@ -12381,7 +12381,7 @@ void which_spec(P_char ch, char *argument)
 		for (spec = 0; spec < MAX_SPEC; spec++)
 		{
 			// Get the ansi-less spec name..
-			snprintf(specname, MAX_STRING_LENGTH, "%s", strip_ansi(specdata[mclass][spec]).c_str());
+			snprintf(specname, MAX_STRING_LENGTH, "%s", strip_ansi(specialization_name_by_index((mclass), (spec))).c_str());
 			// And make it all lower case.
 			tmp = specname;
 			while (*tmp != '\0')
@@ -12405,7 +12405,7 @@ void which_spec(P_char ch, char *argument)
 		return;
 	}
 
-	send_to_char_f(ch, "&=LWList of mobs with spec:&N %s&N\n", specdata[mclass][spec]);
+	send_to_char_f(ch, "&=LWList of mobs with spec:&N %s&N\n", specialization_name_by_index((mclass), (spec)));
 
 	// Convert from count to bitvector.
 	mclass = 1 << (mclass - 1);
@@ -12650,7 +12650,7 @@ void stat_skill(P_char ch, char *arg)
 		{
 			if (skills[skl].m_class[cls - 1].rlevel[spec] != skills[skl].m_class[cls - 1].rlevel[0])
 			{
-				send_to_char_f(ch, "Spec: %d %s : @lvl %d Max %d.\n", spec, specdata[cls][spec - 1], skills[skl].m_class[cls - 1].rlevel[spec], skills[skl].m_class[cls - 1].maxlearn[spec]);
+				send_to_char_f(ch, "Spec: %d %s : @lvl %d Max %d.\n", spec, specialization_name_by_index((cls), (spec - 1)), skills[skl].m_class[cls - 1].rlevel[spec], skills[skl].m_class[cls - 1].maxlearn[spec]);
 			}
 		}
 	}

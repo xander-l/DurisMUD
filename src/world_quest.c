@@ -102,7 +102,6 @@ extern struct time_info_data      time_info;
 extern struct zone_data          *zone_table;
 extern struct sector_data        *sector_table;
 extern uint                       event_counter[];
-extern char                      *specdata[][MAX_SPEC];
 extern long                       sentbytes;
 extern long                       recivedbytes;
 extern const struct race_names    race_names_table[];
