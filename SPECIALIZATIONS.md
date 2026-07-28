@@ -27,6 +27,11 @@ Gameplay code should not access `specdata` directly. Include
 - Index `0` is the empty/no-specialization slot.
 - `SPEC_ALL` is only a sentinel in the legacy eligibility table. It is not a
   player specialization ID.
+- `MAX_SPEC` is capacity, not the highest usable specialization ID. With the
+  current value of `4`, table slots are `0..3`, so adding a fourth usable ID
+  requires increasing `MAX_SPEC` and auditing every `MAX_SPEC` loop/array.
+  `MAX_SPEC` is currently defined in both `defines.h` and `structs.h`; keep
+  those definitions synchronized until that duplicate is removed.
 - Invalid name indexes return an empty string.
 - Null characters return `false` from the state predicates.
 
